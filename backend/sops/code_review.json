@@ -1,0 +1,67 @@
+{
+  "id": "code_review_process",
+  "name_zh": "代码审查流程",
+  "name_en": "Code Review Process",
+  "description_zh": "读取代码文件，分析其中的错误，并生成审查报告。",
+  "description_en": "Read a code file, analyze it for bugs, and generate a review report.",
+  "steps": [
+    {
+      "id": "step_read_file",
+      "name_zh": "读取源码",
+      "name_en": "Read Source Code",
+      "description_zh": "读取目标代码文件的内容。",
+      "description_en": "Read the content of the target code file.",
+      "tool": "file_reader",
+      "inputs": {
+        "file_path": "${file_path}"
+      },
+      "outputs": {
+        "source_code": "."
+      }
+    },
+    {
+      "id": "step_lint",
+      "name_zh": "代码静态检查",
+      "name_en": "Lint Code",
+      "description_zh": "对代码运行静态分析。",
+      "description_en": "Run static analysis on the code.",
+      "tool": "code_linter",
+      "inputs": {
+        "code": "${source_code}"
+      },
+      "outputs": {
+        "lint_issues": "."
+      }
+    },
+    {
+      "id": "step_summarize_issues",
+      "name_zh": "问题汇总",
+      "name_en": "Summarize Issues",
+      "description_zh": "对发现的问题创建摘要。",
+      "description_en": "Create a summary of the findings.",
+      "tool": "summarizer",
+      "inputs": {
+        "text": "Linting Issues Found:\n${lint_issues}",
+        "max_words": 30
+      },
+      "outputs": {
+        "review_summary": "."
+      }
+    },
+    {
+      "id": "step_report",
+      "name_zh": "生成审查报告",
+      "name_en": "Generate Review Report",
+      "description_zh": "格式化并输出代码审查报告。",
+      "description_en": "Format the code review report.",
+      "tool": "report_generator",
+      "inputs": {
+        "title": "Code Review: ${file_path}",
+        "data": "Source Length: ${source_code}\n\nIssues:\n${lint_issues}\n\nSummary:\n${review_summary}"
+      },
+      "outputs": {
+        "final_report": "."
+      }
+    }
+  ]
+}

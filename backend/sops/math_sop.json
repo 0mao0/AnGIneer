@@ -1,0 +1,37 @@
+{
+  "id": "math_process",
+  "name_zh": "数学计算流程",
+  "name_en": "Math Calculation Process",
+  "description_zh": "处理数学计算请求。",
+  "description_en": "Handle mathematical calculation requests.",
+  "steps": [
+    {
+      "id": "step_calc",
+      "name_zh": "计算表达式",
+      "name_en": "Calculate Expression",
+      "description_zh": "计算用户提供的数学表达式。",
+      "description_en": "Calculates the math expression provided by the user.",
+      "tool": "calculator",
+      "inputs": {
+        "expression": "${expression}"
+      },
+      "outputs": {
+        "calc_result": "."
+      }
+    },
+    {
+      "id": "step_report",
+      "name_zh": "报告结果",
+      "name_en": "Report Result",
+      "description_zh": "将计算结果反馈给用户。",
+      "description_en": "Reports the calculation result back to the user.",
+      "tool": "echo",
+      "inputs": {
+        "message": "The calculation result is: ${calc_result}"
+      },
+      "outputs": {
+        "final_message": "."
+      }
+    }
+  ]
+}
