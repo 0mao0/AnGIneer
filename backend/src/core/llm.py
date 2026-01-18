@@ -13,14 +13,37 @@ class LLMClient:
     默认优先使用 NVIDIA 提供的模型，支持自动切换备用配置。
     """
     def __init__(self):
-        # 加载所有 LLM 配置，NVIDIA 放在第一位作为默认
+        # 加载所有 LLM 配置
+        nvidia_api_key = os.getenv("NVIDIA_API_KEY")
+        nvidia_base_url = os.getenv("NVIDIA_API_URL")
+        
         self.configs = [
+            # NVIDIA 系列模型
             {
-                "name": "NVIDIA 配置",
-                "api_key": os.getenv("NVIDIA_API_KEY"),
-                "base_url": os.getenv("NVIDIA_API_URL"),
-                "model": os.getenv("NVIDIA_MODEL") # 默认模型
+                "name": "NVIDIA (Nemotron)",
+                "api_key": nvidia_api_key,
+                "base_url": nvidia_base_url,
+                "model": os.getenv("NVIDIA_MODEL_NEMOTRON")
             },
+            {
+                "name": "NVIDIA (DeepSeek-V3)",
+                "api_key": nvidia_api_key,
+                "base_url": nvidia_base_url,
+                "model": os.getenv("NVIDIA_MODEL_DEEPSEEK")
+            },
+            {
+                "name": "NVIDIA (Kimi/Moonshot)",
+                "api_key": nvidia_api_key,
+                "base_url": nvidia_base_url,
+                "model": os.getenv("NVIDIA_MODEL_KIMI")
+            },
+            {
+                "name": "NVIDIA (MiniMax)",
+                "api_key": nvidia_api_key,
+                "base_url": nvidia_base_url,
+                "model": os.getenv("NVIDIA_MODEL_MINIMAX")
+            },
+            # 阿里云系列模型
             {
                 "name": "私有配置 (Private)",
                 "api_key": os.getenv("Private_ALIYUN_API_KEY"),
@@ -54,15 +77,15 @@ class LLMClient:
                 continue
             
             # 确定当前使用的模型
-            current_model = model if model and config["name"] == "NVIDIA 配置" else config["model"]
+            current_model = model if model and config["name"].startswith("NVIDIA") else config["model"]
             
             # 记录日志：开始连接
             print("\n" + "="*50)
-            print(f"🤖 [LLM 呼叫] 正在连接: {config['name']}")
+            print(f"[LLM 呼叫] 正在连接: {config['name']}")
             print(f"   模型: {current_model}")
             print(f"   地址: {config['base_url']}")
             print("-" * 20)
-            print("📤 [输入消息]:")
+            print("[输入消息]:")
             for msg in messages:
                 role = msg.get('role', '未知')
                 content = msg.get('content', '')
@@ -92,7 +115,7 @@ class LLMClient:
                 duration = time.time() - start_time
                 
                 # 记录日志：成功返回
-                print(f"📥 [输出响应] (耗时: {duration:.2f}秒):")
+                print(f"[输出响应] (耗时: {duration:.2f}秒):")
                 print(f"   {content}")
                 print("="*50 + "\n")
                 

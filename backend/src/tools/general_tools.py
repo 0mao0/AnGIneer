@@ -196,6 +196,16 @@ class FileReader(BaseTool):
             return f"读取文件时出错: {e}"
 
 @register_tool
+class SopRunTool(BaseTool):
+    name = "sop_run"
+    description_en = "Runs a nested SOP. Inputs: filename (str), question (str)"
+    description_zh = "执行嵌套的 SOP。输入参数：filename (str), question (str)"
+    
+    def run(self, filename: str, question: str, **kwargs) -> Any:
+        # 在原型阶段，这只是一个占位符，表示进入了子流程
+        return f"已启动子流程: {filename}，处理问题: {question}"
+
+@register_tool
 class CodeLinter(BaseTool):
     name = "code_linter"
     description_en = "Lints code and returns errors. Inputs: code (str)"

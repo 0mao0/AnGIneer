@@ -16,3 +16,12 @@ dist/
 .vscode/
 .idea/
 .DS_Store
+
+# Knowledge and SOPs - Only allow specific files
+backend/knowledge/*
+!backend/knowledge/设计标准参考.md
+
+backend/sops/*
+!backend/sops/code_review.md
+!backend/sops/market_research.md
+!backend/sops/math_sop.md

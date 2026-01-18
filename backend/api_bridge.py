@@ -1,6 +1,7 @@
 import os
 import json
 import glob
+import subprocess
 from typing import List, Dict, Any, Optional
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,10 +9,11 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 # Import existing logic
-from src.core.models import Step
+from src.core.llm import LLMClient
+from src.core.contextStruct import Step
 from src.agents import IntentClassifier, Dispatcher
 from src.core.contextStruct import SOP
-from src.core.knowledge import knowledge_manager
+# from src.core.knowledge import knowledge_manager
 from src.core.sop_loader import SopLoader
 from src.tools import ToolRegistry, register_tool  # Ensure all tools are registered
 from src.tools import *  # Import all tools for registration effect
@@ -155,7 +157,7 @@ def save_knowledge(file_name: str, data: Dict[str, Any]):
     with open(fpath, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     # Reload knowledge manager
-    knowledge_manager._load_knowledge()
+    # knowledge_manager._load_knowledge()
     return {"status": "success"}
 
 @app.post("/chat")
@@ -226,6 +228,79 @@ def chat_stream(request: QueryRequest):
             yield json.dumps({"type": "error", "error": str(e)}) + "\n"
 
     return StreamingResponse(event_stream(), media_type="application/x-ndjson")
+
+@app.get("/llm_configs")
+def list_llm_configs():
+    client = LLMClient()
+    # 仅返回名称和模型，不返回 API Key 等敏感信息
+    return [{"name": c["name"], "model": c["model"], "configured": bool(c["api_key"])} for c in client.configs]
+
+@app.get("/test_source/{test_id}")
+def get_test_source(test_id: str):
+    test_files = {
+        "0": "test_00_llm_chat.py",
+        "1": "test_01_tool_registration.py",
+        "2": "test_02_intent_classifier.py",
+        "3": "test_03_sop_analysis.py",
+        "4": "test_04_full_execution_flow.py",
+        "5": "test_05_table_lookup_tool_direct.py"
+    }
+    
+    if test_id not in test_files:
+        raise HTTPException(status_code=404, detail="Test not found")
+    
+    test_file = test_files[test_id]
+    test_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "tests", test_file)
+    
+    try:
+        with open(test_path, "r", encoding="utf-8") as f:
+            return {"file": test_file, "content": f.read()}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/run_test/{test_id}")
+def run_test(test_id: str, config: Optional[str] = None, query: Optional[str] = None):
+    test_files = {
+        "0": "test_00_llm_chat.py",
+        "1": "test_01_tool_registration.py",
+        "2": "test_02_intent_classifier.py",
+        "3": "test_03_sop_analysis.py",
+        "4": "test_04_full_execution_flow.py",
+        "5": "test_05_table_lookup_tool_direct.py"
+    }
+    
+    if test_id not in test_files:
+        raise HTTPException(status_code=404, detail="Test not found")
+    
+    test_file = test_files[test_id]
+    test_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "tests", test_file)
+    
+    try:
+        # Prepare environment
+        env = os.environ.copy()
+        env["PYTHONIOENCODING"] = "utf-8"
+        
+        # Pass parameters as environment variables if provided
+        if config: env["TEST_LLM_CONFIG"] = config
+        if query: env["TEST_LLM_QUERY"] = query
+
+        # Run the test and capture output
+        result = subprocess.run(
+            ["python", test_path],
+            capture_output=True,
+            text=True,
+            encoding='utf-8',
+            env=env
+        )
+        return {
+            "test_id": test_id,
+            "test_file": test_file,
+            "exit_code": result.returncode,
+            "stdout": result.stdout,
+            "stderr": result.stderr
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn

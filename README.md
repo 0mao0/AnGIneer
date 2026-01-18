@@ -45,11 +45,11 @@ graph TD
 
 ### 2.2 核心模块说明
 
-- **[classifier.py](file:///d:/AI/PicoAgent/backend/src/agents/classifier.py)**: 意图分类器。负责识别用户意图并匹配最合适的 SOP。
-- **[dispatcher.py](file:///d:/AI/PicoAgent/backend/src/agents/dispatcher.py)**: 核心调度引擎。根据 SOP 步骤控制执行流，决定是直接运行工具还是调用 LLM。
-- **[sop_loader.py](file:///d:/AI/PicoAgent/backend/src/core/sop_loader.py)**: 智能加载器。将 Markdown 格式的 SOP 转换为结构化步骤，并利用 LLM 提取关键约束和输入要求。
-- **[llm.py](file:///d:/AI/PicoAgent/backend/src/core/llm.py)**: LLM 客户端封装。默认集成 **NVIDIA API** (提供 Nemotron, DeepSeek, Kimi 等模型支持)，支持多模型切换和双语处理。
-- **[memory.py](file:///d:/AI/PicoAgent/backend/src/core/memory.py)**: 上下文与记忆管理。分层存储全局上下文、步骤历史和工作记忆。
+- **[classifier.py](/AI/PicoAgent/backend/src/agents/classifier.py)**: 意图分类器。负责识别用户意图并匹配最合适的 SOP。
+- **[dispatcher.py](/AI/PicoAgent/backend/src/agents/dispatcher.py)**: 核心调度引擎。根据 SOP 步骤控制执行流，决定是直接运行工具还是调用 LLM。
+- **[sop_loader.py](/AI/PicoAgent/backend/src/core/sop_loader.py)**: 智能加载器。将 Markdown 格式的 SOP 转换为结构化步骤，并利用 LLM 提取关键约束和输入要求。
+- **[llm.py](/AI/PicoAgent/backend/src/core/llm.py)**: LLM 客户端封装。默认集成 **NVIDIA API** (提供 Nemotron, DeepSeek, Kimi 等模型支持)，支持多模型切换和双语处理。
+- **[memory.py](/AI/PicoAgent/backend/src/core/memory.py)**: 上下文与记忆管理。分层存储全局上下文、步骤历史和工作记忆。
 
 ---
 
@@ -57,8 +57,8 @@ graph TD
 
 1.  **SOP 确定性执行**: 流程逻辑在 SOP Markdown 中定义，逻辑清晰、可审计。
 2.  **智能查表 (Table Lookup)**: 针对工程规范（如《海港水文规范》）中的复杂 HTML 表格，支持 AI 辅助的条件查询。
-3.  **专业 GIS 计算**: 集成 [gis_tools.py](file:///d:/AI/PicoAgent/backend/src/tools/gis_tools.py)，处理 LLM 无法完成的 CAD/GIS 几何运算（如断面体积计算）。
-4.  **国际化支持 (i18n)**: 工具集 ([base.py](file:///d:/AI/PicoAgent/backend/src/tools/base.py)) 支持中英双语描述，注释和日志已全面本地化。
+3.  **专业 GIS 计算**: 集成 [gis_tools.py](/PicoAgent/backend/src/tools/gis_tools.py)，处理 LLM 无法完成的 CAD/GIS 几何运算（如断面体积计算）。
+4.  **国际化支持 (i18n)**: 工具集 ([base.py](/PicoAgent/backend/src/tools/base.py)) 支持中英双语描述，注释和日志已全面本地化。
 5.  **按需 RAG**: 摒弃传统的 Chunk 切片，采用 LLM 全文阅读 + 精准提取模式，确保复杂规范理解的连贯性。
 
 ---

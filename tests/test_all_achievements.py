@@ -5,43 +5,43 @@ import json
 import unittest
 from unittest.mock import MagicMock, patch
 
-# Add project root to path
+# 将项目根目录添加到路径中
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from backend.src.core.sop_loader import SopLoader
 from backend.src.agents import IntentClassifier, Dispatcher
 from backend.src.tools import ToolRegistry
 
-# Mock the LLM client to prevent network timeouts and usage
+# Mock LLM 客户端以防止网络超时和资源消耗
 @patch("backend.src.core.llm.llm_client")
 class TestPicoAgentAll(unittest.TestCase):
     """
-    Comprehensive Test Suite for PicoAgent.
-    Covers: SOP Loading, Routing, Dispatching, Hybrid Execution, and Tool Usage.
+    PicoAgent 综合测试套件。
+    涵盖：SOP 加载、路由、调度、混合执行和工具使用。
     """
     
     @classmethod
     def setUpClass(cls):
-        print("\n>>> [Test] Initializing Full System Test Environment...")
+        print("\n>>> [测试] 正在初始化完整系统测试环境...")
         cls.sop_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "backend", "sops")
         cls.loader = SopLoader(cls.sop_dir)
         cls.sops = cls.loader.load_all()
-        print(f">>> [Loader] Loaded {len(cls.sops)} SOPs from index.")
+        print(f">>> [加载器] 已从索引加载 {len(cls.sops)} 个 SOP。")
         
     def test_01_tool_registration(self, mock_llm):
-        """Verify all critical tools are registered."""
-        print("\n[Test 01] Verifying Tool Registration...")
+        """验证所有关键工具是否已注册。"""
+        print("\n[测试 01] 正在验证工具注册情况...")
         tools = ToolRegistry.list_tools()
         self.assertIn("table_lookup", tools)
         self.assertIn("knowledge_search", tools)
         self.assertIn("calculator", tools)
-        print("  -> All core tools (TableLookup, KnowledgeSearch, Calculator) found.")
+        print("  -> 所有核心工具 (TableLookup, KnowledgeSearch, Calculator) 已找到。")
         
     def test_02_intent_classifier(self, mock_llm):
-        """Test if Classifier can correctly identify SOP from user query."""
-        print("\n[Test 02] Testing Intent Classifier...")
+        """测试分类器是否能根据用户查询正确识别 SOP。"""
+        print("\n[测试 02] 正在测试意图分类器...")
         
-        # Mock Classifier LLM response
+        # 模拟分类器 LLM 响应
         mock_llm.chat.return_value = '{"sop_id": "航道通航底高程", "args": {"DWT": "50000", "ship_type": "oil_tanker"}}'
         
         classifier = IntentClassifier(self.sops)
@@ -50,15 +50,15 @@ class TestPicoAgentAll(unittest.TestCase):
         
         self.assertIsNotNone(sop)
         self.assertEqual(sop.id, "航道通航底高程")
-        # args might vary slightly depending on LLM, but should contain '50000' or similar
-        print(f"  -> Routed to: {sop.id}")
-        print(f"  -> Extracted Args: {args}")
+        # 参数可能随 LLM 变化，但应包含 '50000' 或类似值
+        print(f"  -> 路由至: {sop.id}")
+        print(f"  -> 提取的参数: {args}")
         
     def test_03_sop_analysis(self, mock_llm):
-        """Test Hybrid Analysis of SOP (converting MD to Structured Steps)."""
-        print("\n[Test 03] Testing SOP Hybrid Analysis...")
+        """测试 SOP 的混合分析（将 MD 转换为结构化步骤）。"""
+        print("\n[测试 03] 正在测试 SOP 混合分析...")
         
-        # Mock Analysis Response
+        # 模拟分析响应
         mock_response = """
         ```json
         {
@@ -89,21 +89,21 @@ class TestPicoAgentAll(unittest.TestCase):
         self.assertGreater(len(analyzed_sop.steps), 0)
         first_step = analyzed_sop.steps[0]
         self.assertIsNotNone(first_step.name)
-        # Check if 'notes' are extracted (feature of hybrid loader)
+        # 检查是否提取了 'notes'（混合加载器的功能）
         has_notes = any(step.notes for step in analyzed_sop.steps)
-        self.assertTrue(has_notes, "SOP Analysis failed to extract Notes.")
-        print(f"  -> Analyzed {len(analyzed_sop.steps)} steps. Notes extracted: {has_notes}")
+        self.assertTrue(has_notes, "SOP 分析未能提取备注 (Notes)。")
+        print(f"  -> 已分析 {len(analyzed_sop.steps)} 个步骤。备注提取状态: {has_notes}")
         
     def test_04_full_execution_flow(self, mock_llm):
         """
-        Simulate a full execution flow:
-        1. Load SOP
-        2. Provide partial context
-        3. Dispatcher runs (triggers TableLookup and KnowledgeSearch via Hybrid logic)
+        模拟完整执行流程：
+        1. 加载 SOP
+        2. 提供部分上下文
+        3. 调度器运行（通过混合逻辑触发 TableLookup 和 KnowledgeSearch）
         """
-        print("\n[Test 04] Testing Full Execution Flow (Hybrid Dispatch)...")
+        print("\n[测试 04] 正在测试完整执行流程 (混合调度)...")
         
-        # Mock Analysis Response (Same as above)
+        # 模拟分析响应（同上）
         mock_response = """
         ```json
         {
@@ -119,19 +119,19 @@ class TestPicoAgentAll(unittest.TestCase):
         }
         ```
         """
-        # Set up a sequence of return values for subsequent calls
-        # 1. Analyze SOP -> returns JSON above
-        # 2. Dispatcher Hybrid Check (Smart Execution) -> returns Action JSON
-        # 3. TableLookup Tool -> returns Table Data (MOCKED via LLM inside tool)
+        # 为后续调用设置一系列返回值
+        # 1. 分析 SOP -> 返回上面的 JSON
+        # 2. 调度器混合检查 (智能执行) -> 返回 Action JSON
+        # 3. TableLookup 工具 -> 返回表格数据 (在工具内部通过 LLM 模拟)
         
-        # We need to be careful. Dispatcher calls LLM. TableLookup calls LLM.
-        # Let's verify logic without relying on precise LLM chain.
-        # We can mock the side effects.
+        # 需要小心。调度器调用 LLM。TableLookup 调用 LLM。
+        # 验证逻辑而不依赖于精确的 LLM 链。
+        # 我们可以模拟副作用。
         
         mock_llm.chat.side_effect = [
-            mock_response, # 1. Analyze SOP
-            '{"action": "table_lookup", "table_name": "油船设计船型尺度", "conditions": "DWT=50000"}', # 2. Dispatcher decision
-            '{"result": {"DWT": 50000, "T": 12.8}}' # 3. TableLookup Tool extraction
+            mock_response, # 1. 分析 SOP
+            '{"action": "table_lookup", "table_name": "油船设计船型尺度", "conditions": "DWT=50000"}', # 2. 调度器决策
+            '{"result": {"DWT": 50000, "T": 12.8}}' # 3. TableLookup 工具提取
         ]
         
         sop_id = "航道通航底高程"
@@ -144,22 +144,22 @@ class TestPicoAgentAll(unittest.TestCase):
         
         try:
             final_context = dispatcher.run(analyzed_sop, initial_context)
-            print("  -> Execution completed without errors.")
-            print(f"  -> Final Context Keys: {list(final_context.keys())}")
+            print("  -> 执行完成，无错误。")
+            print(f"  -> 最终上下文键名: {list(final_context.keys())}")
             
         except Exception as e:
-            self.fail(f"Dispatcher execution failed with error: {e}")
+            self.fail(f"调度器执行失败，错误信息: {e}")
 
     def test_05_table_lookup_tool_direct(self, mock_llm):
-        """Directly test the TableLookupTool to ensure it works."""
-        print("\n[Test 05] Testing TableLookupTool Direct Call...")
+        """直接测试 TableLookupTool 以确保其正常工作。"""
+        print("\n[测试 05] 正在直接测试 TableLookupTool 调用...")
         
-        # Mock LLM extraction
+        # 模拟 LLM 提取
         mock_llm.chat.return_value = '{"result": 12.8}'
         
         tool = ToolRegistry.get_tool("table_lookup")
         result = tool.run(table_name="油船设计船型尺度", query_conditions="船舶吨级DWT=50000", target_column="满载吃水T(m)")
-        print(f"  -> Lookup Result: {result}")
+        print(f"  -> 查询结果: {result}")
         
         self.assertTrue(isinstance(result, dict))
 

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicoAgent Test Console</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
+    </script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background: #f5f5f5; display: flex; height: 100vh; overflow: hidden; }
+        
+        /* Left Sidebar: Test List */
+        .sidebar { width: 260px; background: #2c3e50; color: white; padding: 20px; display: flex; flex-direction: column; gap: 10px; box-shadow: 2px 0 5px rgba(0,0,0,0.1); flex-shrink: 0; }
+        
+        /* Middle Column: Interaction Area */
+        .main-content { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; background: white; border-right: 1px solid #ddd; }
+        
+        /* Right Column: Execution Trace */
+        .execution-trace { width: 400px; background: #f8f9fa; display: flex; flex-direction: column; flex-shrink: 0; border-left: 1px solid #ddd; height: 100vh; }
+        
+        .trace-section-header { 
+            padding: 10px 15px; 
+            background: #e9ecef; 
+            border-bottom: 1px solid #dee2e6; 
+            font-size: 12px; 
+            font-weight: bold; 
+            color: #495057;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #flowchartArea { 
+            flex: 1; 
+            overflow: auto; 
+            background: white; 
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        #consoleArea { 
+            height: 40%; 
+            overflow-y: auto; 
+            background: #2c3e50; 
+            color: #ecf0f1; 
+            padding: 15px; 
+            font-family: 'Consolas', monospace; 
+            font-size: 11px;
+            border-top: 2px solid #34495e;
+        }
+
+        .trace-step {
+            margin-bottom: 8px;
+            border-bottom: 1px solid #3d566e;
+            padding-bottom: 5px;
+        }
+        .trace-step-time { color: #95a5a6; font-size: 10px; }
+        .trace-step-content { margin-top: 3px; }
+        
+        .container { max-width: 100%; margin: 0; }
+        h1, h2, h3 { margin-top: 0; color: #333; }
+        h2 { color: #ecf0f1; font-size: 1.1rem; margin-bottom: 15px; }
+        h3 { font-size: 0.9rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+
+        .input-group { margin-top: auto; padding-top: 20px; border-top: 1px solid #eee; display: flex; gap: 10px; }
+        input[type="text"] { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background 0.2s; }
+        button:hover { background: #0056b3; }
+        button:disabled { background: #ccc; }
+        
+        .test-btn { background: #34495e; text-align: left; padding: 12px; border: none; border-radius: 4px; font-size: 12px; line-height: 1.4; border-left: 4px solid transparent; color: #bdc3c7; cursor: pointer; width: 100%; }
+        .test-btn:hover { background: #4b6584; color: white; }
+        .test-btn.active { border-left-color: #3498db; background: #3d566e; color: white; }
+        .test-btn strong { display: block; color: white; margin-bottom: 3px; font-size: 13px; }
+
+        /* Chat Styles */
+        #chatDisplay { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; padding-bottom: 20px; }
+        .chat-bubble { max-width: 85%; padding: 12px 16px; border-radius: 8px; font-size: 14px; line-height: 1.5; position: relative; }
+        .chat-bubble.user { align-self: flex-end; background: #007bff; color: white; border-bottom-right-radius: 2px; }
+        .chat-bubble.bot { align-self: flex-start; background: #f0f0f0; color: #333; border-bottom-left-radius: 2px; border: 1px solid #e0e0e0; }
+        
+        /* Trace Card Styles */
+        .trace-card { background: white; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; margin-bottom: 12px; font-size: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .trace-card.running { border-left: 3px solid #007bff; }
+        .trace-card.completed { border-left: 3px solid #28a745; }
+        .trace-card.failed { border-left: 3px solid #dc3545; }
+        .trace-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: bold; color: #2c3e50; }
+        .trace-meta { color: #7f8c8d; font-family: 'Consolas', monospace; font-size: 11px; margin-bottom: 5px; }
+        .trace-details { color: #34495e; background: #fcfcfc; padding: 6px; border-radius: 4px; border: 1px solid #f0f0f0; margin-top: 5px; overflow-x: auto; }
+        
+        .status-badge { padding: 2px 5px; border-radius: 3px; font-size: 10px; color: white; text-transform: uppercase; }
+        .status-running { background: #007bff; }
+        .status-completed { background: #28a745; }
+        .status-failed { background: #dc3545; }
+
+        pre { margin: 0; white-space: pre-wrap; word-wrap: break-word; }
+        
+        #modelSelectionArea { background: #f8f9f9; padding: 12px; border-radius: 6px; margin-bottom: 15px; border: 1px solid #e5e8e8; }
+        .model-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+        .model-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            font-size: 12px; 
+            cursor: pointer; 
+            padding: 6px 10px; 
+            border: 1px solid #d5dbdb; 
+            border-radius: 4px;
+            background: white;
+            transition: all 0.2s;
+        }
+        .model-item:hover { border-color: #3498db; background: #ebf5fb; }
+        .model-item input[type="radio"] { margin: 0; }
+        .model-item.active { border-color: #3498db; background: #ebf5fb; font-weight: bold; }
+        .model-name { color: #2c3e50; font-weight: 500; }
+        .model-id { color: #7f8c8d; font-size: 10px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
+
+        /* Unit Test Result Styles */
+        .unit-test-result { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 4px; font-family: 'Consolas', monospace; font-size: 12px; }
+        .unit-test-result .stdout { color: #d4d4d4; }
+        .unit-test-result .stderr { color: #f44747; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>PicoAgent 测试套件</h2>
+        <button class="test-btn" id="btn-test-0" onclick="switchTest('0', this)">
+            <strong>测试 00: LLM 对话能力</strong>
+            选择模型并进行实时对话测试.
+        </button>
+        <button class="test-btn" id="btn-test-1" onclick="switchTest('1', this)">
+            <strong>测试 01: 工具注册</strong>
+            验证 TableLookup, Calculator 等核心工具.
+        </button>
+        <button class="test-btn" id="btn-test-2" onclick="switchTest('2', this)">
+            <strong>测试 02: 意图分类器</strong>
+            模拟 LLM 路由，验证 SOP 匹配逻辑.
+        </button>
+        <button class="test-btn" id="btn-test-3" onclick="switchTest('3', this)">
+            <strong>测试 03: SOP 混合分析</strong>
+            验证从 Markdown 提取结构化步骤.
+        </button>
+        <button class="test-btn" id="btn-test-4" onclick="switchTest('4', this)">
+            <strong>测试 04: 完整执行流</strong>
+            模拟从查询到调用的全过程（带 Mock）.
+        </button>
+        <button class="test-btn" id="btn-test-5" onclick="switchTest('5', this)">
+            <strong>测试 05: 表格查询工具</strong>
+            直接测试 TableLookupTool 提取能力.
+        </button>
+        
+        <div style="margin-top: auto; font-size: 11px; color: #95a5a6; text-align: center; border-top: 1px solid #34495e; padding-top: 10px;">
+            PicoAgent v0.1 Prototype
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1 id="testTitle">测试控制台</h1>
+        
+        <!-- Test 00: Chat Interface -->
+        <div id="chatInterface" style="display: none; flex: 1; flex-direction: column;">
+            <div id="modelSelectionArea">
+                <div style="font-weight: bold; font-size: 14px; color: #2980b9;">选择模型进行测试:</div>
+                <div id="modelGrid" class="model-grid">
+                    <!-- Models loaded here -->
+                </div>
+            </div>
+            <div id="chatDisplay">
+                <!-- Chat history -->
+                <div class="chat-bubble bot">您好！请选择左侧的测试项，或者在这里选择一个模型开始对话测试。</div>
+            </div>
+        </div>
+
+        <!-- Unit Test Interface -->
+        <div id="unitTestInterface" style="display: none; flex: 1; flex-direction: column;">
+            <div id="testSourceView" style="margin-bottom: 20px;">
+                <h3 style="margin-bottom: 8px;">测试源码预览:</h3>
+                <div style="background: #2d2d2d; color: #ccc; padding: 12px; border-radius: 4px; font-family: 'Consolas', monospace; font-size: 11px; max-height: 200px; overflow-y: auto;">
+                    <pre id="testSourceContent"></pre>
+                </div>
+            </div>
+            <div id="testResultDisplay">
+                <!-- Results of runUnitTest -->
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="queryInput" placeholder="在此输入您的测试指令..." onkeyup="if(event.keyCode===13) runCurrentAction()">
+            <button id="runBtn" onclick="runCurrentAction()">运行</button>
+        </div>
+    </div>
+
+    <div class="execution-trace">
+        <div class="trace-section-header">
+            <span>执行流程图</span>
+            <div id="traceStats" style="font-size: 11px; font-weight: normal;">
+                耗时: <span id="timer">0ms</span>
+            </div>
+        </div>
+        <div id="flowchartArea">
+            <div id="mermaidContainer" class="mermaid">
+                graph TD
+                Start((开始)) --> Idle[等待指令]
+            </div>
+        </div>
+
+        <div class="trace-section-header">
+            <span>实时控制台输出</span>
+            <button onclick="document.getElementById('consoleArea').innerHTML=''" style="padding: 2px 8px; font-size: 10px; background: #6c757d;">清空</button>
+        </div>
+        <div id="consoleArea">
+            <div style="color: #95a5a6; font-style: italic;">等待测试运行...</div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+        let currentTestId = null;
+        let startTime = 0;
+        let timerInterval;
+        let availableModels = [];
+
+        async function fetchModels() {
+            try {
+                const response = await fetch(`${API_URL}/llm_configs`);
+                availableModels = await response.json();
+                const container = document.getElementById('modelGrid');
+                container.innerHTML = availableModels.map((m, index) => `
+                    <label class="model-item ${m.configured ? (index === 0 ? 'active' : '') : 'disabled'}" id="model-${m.name}">
+                        <input type="radio" name="selectedModel" value="${m.name}" ${m.configured ? (index === 0 ? 'checked' : '') : 'disabled'} onchange="updateModelSelection(this)">
+                        <div style="flex: 1">
+                            <div class="model-name">${m.name}</div>
+                            <div class="model-id">${m.model}</div>
+                        </div>
+                        <div class="model-latency" id="latency-${m.name}" style="font-size: 10px; color: #3498db; font-weight: bold;"></div>
+                    </label>
+                `).join('');
+            } catch (e) {
+                console.error('Failed to fetch models', e);
+            }
+        }
+
+        function updateModelSelection(radio) {
+            document.querySelectorAll('.model-item').forEach(el => el.classList.remove('active'));
+            if (radio.checked) {
+                radio.closest('.model-item').classList.add('active');
+            }
+        }
+
+        fetchModels();
+
+        function switchTest(testId, btn) {
+            currentTestId = testId;
+            document.querySelectorAll('.test-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            document.getElementById('testTitle').innerText = btn.querySelector('strong').innerText;
+            
+            // Show/Hide interfaces
+            if (testId === '0') {
+                document.getElementById('chatInterface').style.display = 'flex';
+                document.getElementById('unitTestInterface').style.display = 'none';
+                document.getElementById('queryInput').placeholder = "输入您想对 LLM 说的话...";
+            } else {
+                document.getElementById('chatInterface').style.display = 'none';
+                document.getElementById('unitTestInterface').style.display = 'flex';
+                document.getElementById('queryInput').placeholder = "输入测试参数或直接点击运行...";
+                loadTestSource(testId);
+            }
+            
+            // Clear results
+            document.getElementById('consoleArea').innerHTML = '';
+            document.getElementById('testResultDisplay').innerHTML = '';
+            updateFlowchart(`graph TD\nStart((开始)) --> Idle[${mq('等待指令')}]`);
+        }
+
+    function updateFlowchart(mermaidCode) {
+        const container = document.getElementById('flowchartArea');
+        container.innerHTML = `<div id="mermaidContainer" class="mermaid">${mermaidCode}</div>`;
+        mermaid.render('mermaid-svg', mermaidCode).then(({ svg }) => {
+            container.innerHTML = svg;
+        });
+    }
+
+    function addConsoleLine(text, isError = false) {
+        const consoleArea = document.getElementById('consoleArea');
+        const div = document.createElement('div');
+        div.className = 'trace-step';
+        const time = new Date().toLocaleTimeString();
+        div.innerHTML = `
+            <span class="trace-step-time">[${time}]</span>
+            <div class="trace-step-content" style="color: ${isError ? '#f44747' : '#ecf0f1'}">${escapeHtml(text)}</div>
+        `;
+        consoleArea.appendChild(div);
+        consoleArea.scrollTop = consoleArea.scrollHeight;
+    }
+
+        async function loadTestSource(testId) {
+            try {
+                const response = await fetch(`${API_URL}/test_source/${testId}`);
+                const data = await response.json();
+                document.getElementById('testSourceContent').innerText = data.content;
+            } catch (e) {
+                document.getElementById('testSourceContent').innerText = "加载源码失败: " + e.message;
+            }
+        }
+
+        function runCurrentAction() {
+            if (currentTestId === '0') {
+                runChatTest();
+            } else if (currentTestId) {
+                runUnitTest(currentTestId);
+            } else {
+                alert("请先从左侧选择一个测试项。");
+            }
+        }
+
+        function updateTimer() {
+            const elapsed = Date.now() - startTime;
+            document.getElementById('timer').innerText = elapsed + 'ms';
+        }
+
+        function startTimer() {
+            startTime = Date.now();
+            document.getElementById('traceStats').style.display = 'block';
+            timerInterval = setInterval(updateTimer, 50);
+        }
+
+        function stopTimer(status = '完成') {
+            clearInterval(timerInterval);
+            const elapsed = Date.now() - startTime;
+            const selectedModel = document.querySelector('input[name="selectedModel"]:checked')?.value;
+            if (selectedModel) {
+                const latencyEl = document.getElementById(`latency-${selectedModel}`);
+                if (latencyEl) latencyEl.innerText = elapsed + 'ms';
+            }
+        }
+
+        function addChatMessage(role, content) {
+            const display = document.getElementById('chatDisplay');
+            const div = document.createElement('div');
+            div.className = `chat-bubble ${role}`;
+            div.innerText = content;
+            display.appendChild(div);
+            display.scrollTop = display.scrollHeight;
+        }
+
+        async function runChatTest() {
+            const query = document.getElementById('queryInput').value;
+            const model = document.querySelector('input[name="selectedModel"]:checked')?.value;
+            
+            if (!query) return;
+            if (!model) { alert("请先选择一个模型"); return; }
+
+        addChatMessage('user', query);
+        document.getElementById('queryInput').value = '';
+        document.getElementById('consoleArea').innerHTML = '';
+        
+        startTimer();
+        
+        addConsoleLine(`启动 LLM 对话测试: 模型=${model}, 输入=${query}`);
+        // Initial flowchart
+        updateFlowchart(`graph TD\nStart((开始)) --> Request[${mq('发送请求: ' + model)}]\nRequest --> Waiting[${mq('等待响应...')}]`);
+
+        try {
+            const response = await fetch(`${API_URL}/run_test/0?config=${encodeURIComponent(model)}&query=${encodeURIComponent(query)}`);
+            const data = await response.json();
+            
+            const stdout = data.stdout || "";
+            const responseMatch = stdout.match(/响应内容预览: (.*)\.\.\./);
+            const botResponse = responseMatch ? responseMatch[1] : "测试完成，请查看控制台。";
+            
+            // Extract function calls from stdout for chat test
+            let chatFunctions = [];
+            stdout.split('\n').forEach(line => {
+                if (line.includes('[CALL]')) {
+                    const func = line.split('[CALL]')[1]?.trim().replace('()', '');
+                    if (func) chatFunctions.push(func);
+                }
+            });
+
+            addChatMessage('bot', botResponse);
+            addConsoleLine("收到后端响应:\n" + stdout);
+            
+            const successLabel = chatFunctions.length > 0 
+                ? `响应成功\n(${chatFunctions.join(', ')})`
+                : "响应成功";
+
+            if (data.exit_code === 0) {
+                updateFlowchart(`graph TD\nStart((开始)) --> Request[${mq('发送请求: ' + model)}]\nRequest --> Success[${mq(successLabel)}]\nSuccess --> End((结束))`);
+            } else {
+                updateFlowchart(`graph TD\nStart((开始)) --> Request[${mq('发送请求: ' + model)}]\nRequest --> Failed[${mq('请求失败')}]\nFailed --> End((结束))`);
+            }
+
+            if (data.stderr) {
+                addConsoleLine("错误输出: " + data.stderr, true);
+            }
+            
+            stopTimer(data.exit_code === 0 ? '测试通过' : '测试失败');
+        } catch (error) {
+            addChatMessage('bot', "发生错误: " + error.message);
+            addConsoleLine("运行时异常: " + error.message, true);
+            updateFlowchart(`graph TD\nStart((开始)) --> Error[${mq('系统错误: ' + error.message)}]\nError --> End((结束))`);
+            stopTimer('运行出错');
+        }
+        }
+
+    async function runUnitTest(testId) {
+        document.getElementById('consoleArea').innerHTML = '';
+        document.getElementById('testResultDisplay').innerHTML = '<div style="color: #666;">正在运行测试...</div>';
+        
+        startTimer();
+        
+        addConsoleLine(`单元测试启动: Test ID: ${testId}`);
+        updateFlowchart(`graph TD\nStart((开始)) --> Init[${mq('初始化测试: ' + testId)}]\nInit --> Running[${mq('运行中...')}]`);
+
+        try {
+            const response = await fetch(`${API_URL}/run_test/${testId}`);
+            const data = await response.json();
+            
+            document.getElementById('testResultDisplay').innerHTML = `
+                <div class="unit-test-result">
+                    <div style="color: #6a9955; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px;">
+                        <strong>执行文件:</strong> tests/${data.test_file} | <strong>状态码:</strong> ${data.exit_code}
+                    </div>
+                    <div class="stdout">${data.stdout || '(无标准输出)'}</div>
+                    ${data.stderr ? `<div class="stderr">${data.stderr}</div>` : ''}
+                </div>
+            `;
+            
+            // Generate flowchart from steps
+            let flowchartSteps = [`Start((开始)) --> Init[${mq('测试: ' + data.test_file)}]`];
+            let lastNode = "Init";
+            let stepCount = 0;
+            let currentStepName = "";
+            let currentStepFunctions = [];
+
+            const lines = data.stdout.split('\n');
+            lines.forEach(line => {
+                const trimmedLine = line.trim();
+                if (trimmedLine.includes('-> 步骤')) {
+                    // If we had a previous step, add it now with its collected functions
+                    if (stepCount > 0) {
+                        const nodeId = `Step${stepCount}`;
+                        const label = currentStepFunctions.length > 0 
+                            ? `${currentStepName}\n(${currentStepFunctions.join(', ')})`
+                            : currentStepName;
+                        flowchartSteps.push(`${lastNode} --> ${nodeId}[${mq(label)}]`);
+                        lastNode = nodeId;
+                    }
+                    
+                    stepCount++;
+                    currentStepName = trimmedLine.split(':')[1]?.trim() || `步骤${stepCount}`;
+                    currentStepFunctions = [];
+                    addConsoleLine(trimmedLine);
+                } else if (trimmedLine.includes('[CALL]')) {
+                    const funcCall = trimmedLine.split('[CALL]')[1]?.trim();
+                    if (funcCall) {
+                        // Use the full call description for the flowchart
+                        currentStepFunctions.push(funcCall.replace('()', ''));
+                        addConsoleLine(trimmedLine, false);
+                    }
+                } else if (trimmedLine.includes('[OK]')) {
+                    addConsoleLine(trimmedLine);
+                }
+            });
+
+            // Add the last step
+            if (stepCount > 0) {
+                const nodeId = `Step${stepCount}`;
+                const label = currentStepFunctions.length > 0 
+                    ? `${currentStepName}\n(${currentStepFunctions.join(', ')})`
+                    : currentStepName;
+                flowchartSteps.push(`${lastNode} --> ${nodeId}[${mq(label)}]`);
+                lastNode = nodeId;
+            }
+
+            flowchartSteps.push(`${lastNode} --> End((完成))`);
+            updateFlowchart(`graph TD\n${flowchartSteps.join('\n')}`);
+
+            if (data.stderr) {
+                addConsoleLine("错误输出:\n" + data.stderr, true);
+            }
+            
+            stopTimer(data.exit_code === 0 ? '测试通过' : '测试失败');
+        } catch (error) {
+            document.getElementById('testResultDisplay').innerHTML = `<div style="color: red;">运行出错: ${error.message}</div>`;
+            addConsoleLine("运行出错: " + error.message, true);
+            updateFlowchart(`graph TD\nStart((开始)) --> Error[${mq('系统错误: ' + error.message)}]\nError --> End((结束))`);
+            stopTimer('运行出错');
+        }
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // Helper to quote labels for Mermaid to avoid syntax errors
+    function mq(text) {
+        if (!text) return '""';
+        return `"${text.toString().replace(/"/g, "'").replace(/\n/g, "<br/>").replace(/[\[\]\(\)\{\}]/g, " ")}"`;
+    }
+</script>
+</body>
+</html>
