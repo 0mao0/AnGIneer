@@ -1,37 +1,5 @@
 from typing import Any, Dict, List
-import json
 from src.tools.base import BaseTool, register_tool
-from src.core.knowledge import knowledge_manager
-
-@register_tool
-class StandardDataLookupTool(BaseTool):
-    """
-    通用查表工具：模拟从客观知识库中查询固定数据。
-    """
-    name = "standard_data_lookup"
-    description = "Lookup design standards or chart data from Knowledge Base. Inputs: table_name (str), query_params (dict)"
-    
-    def run(self, table_name: str, query_params: Dict[str, Any], **kwargs) -> Any:
-        # 清理查询参数中的数值 (保持鲁棒性)
-        clean_params = {}
-        for k, v in query_params.items():
-            if isinstance(v, str) and k.lower() in ["tonnage", "length", "depth", "width", "channel_length"]:
-                try:
-                    clean_params[k] = float(''.join(filter(lambda x: x.isdigit() or x == '.', v)))
-                except:
-                    clean_params[k] = v
-            elif isinstance(v, (int, float)):
-                clean_params[k] = float(v)
-            else:
-                clean_params[k] = v
-
-        # 从知识库管理器查询数据
-        result = knowledge_manager.query(table_name, clean_params)
-        
-        if result is None:
-            return {"error": f"Table '{table_name}' not found in knowledge base."}
-            
-        return result
 
 @register_tool
 class GISSectionVolumeTool(BaseTool):
@@ -40,10 +8,11 @@ class GISSectionVolumeTool(BaseTool):
     例如根据地形切片计算断面面积和总体积。
     """
     name = "gis_section_volume_calc"
-    description = "Professional GIS calculation for dredging sections. Inputs: design_depth (float), design_width (float), length (float), terrain_data_id (str)"
+    description_en = "Professional GIS calculation for dredging sections. Inputs: design_depth (float), design_width (float), length (float), terrain_data_id (str)"
+    description_zh = "专业的疏浚断面 GIS 计算工具。输入参数：design_depth (设计深度, float), design_width (设计宽度, float), length (长度, float), terrain_data_id (地形数据 ID, str)"
     
     def run(self, design_depth: Any, design_width: Any, length: Any, terrain_data_id: str = "default_survey", **kwargs) -> Any:
-        # Robust parsing
+        # 鲁棒性解析
         try:
             d_depth = 0.0
             d_width = 0.0
@@ -59,14 +28,14 @@ class GISSectionVolumeTool(BaseTool):
             elif isinstance(length, str): d_length = float(''.join(filter(lambda x: x.isdigit() or x == '.', length)))
             
             if d_depth == 0 or d_width == 0 or d_length == 0:
-                return {"error": f"Invalid dimensions: depth={d_depth}, width={d_width}, length={d_length}"}
+                return {"error": f"无效的尺寸参数: 深度={d_depth}, 宽度={d_width}, 长度={d_length}"}
         except Exception as e:
-            return {"error": f"Parsing error in GIS calculation: {str(e)}"}
+            return {"error": f"GIS 计算中的参数解析错误: {str(e)}"}
 
         # 模拟复杂的 GIS 运算过程
         # 实际场景中这里会调用 ArcGIS/QGIS API 或 CAD 引擎
-        print(f"    [GIS] Fetching terrain data for {terrain_data_id}...")
-        print(f"    [GIS] Calculating cross-sections along {d_length}m path...")
+        print(f"    [GIS] 正在获取 {terrain_data_id} 的地形数据...")
+        print(f"    [GIS] 正在沿 {d_length} 米路径计算横断面...")
         
         # 模拟地形起伏导致的额外工程量
         terrain_multiplier = 1.15 # 假设平均地形比设计标高高出 15%

@@ -1,38 +1,41 @@
 import json
 from typing import List, Optional, Tuple, Dict, Any
-from src.core.models import SOP
+from src.core.contextStruct import SOP, AgentResponse
 from src.core.llm import llm_client
 
-class IntentRouter:
+class IntentClassifier:
+    """
+    意图分类器，负责分析用户查询并匹配最合适的 SOP。
+    """
     def __init__(self, sops: List[SOP]):
         self.sops = sops
         
     def route(self, user_query: str) -> Tuple[Optional[SOP], Dict[str, Any]]:
         """
-        Analyze user query and return the matching SOP and extracted arguments.
+        分析用户查询，返回匹配的 SOP 和提取的参数。
         """
         sop_descriptions = []
         for sop in self.sops:
-            desc = f"- ID: {sop.id}, Name: {sop.name_zh}/{sop.name_en}, Desc: {sop.description_zh or sop.description}/{sop.description_en}"
+            desc = f"- ID: {sop.id}, 名称: {sop.name_zh}/{sop.name_en}, 描述: {sop.description_zh or sop.description}/{sop.description_en}"
             sop_descriptions.append(desc)
         
         sop_descriptions_str = "\n".join(sop_descriptions)
         
         system_prompt = f"""
-You are an Intent Router. Your goal is to select the best Standard Operating Procedure (SOP) for the user's request.
-Available SOPs:
+你是一个意图分类器。你的目标是根据用户的请求选择最合适的标准作业程序 (SOP)。
+可选的 SOP 列表：
 {sop_descriptions_str}
 
-Output a JSON object with:
-- "sop_id": The ID of the chosen SOP. If none match, return null.
-- "reason": A brief explanation.
-- "args": A dictionary of arguments extracted from the query that might be needed by the SOP.
+输出一个 JSON 对象，包含：
+- "sop_id": 选中的 SOP ID。如果没有匹配的，返回 null。
+- "reason": 简短的解释。
+- "args": 从查询中提取的 SOP 可能需要的参数字典。
 
-Example Input: "Calculate 25 * 4"
-Example Output: {{ "sop_id": "calculator_sop", "reason": "User wants to do math", "args": {{ "expression": "25 * 4" }} }}
+示例输入: "计算 25 * 4"
+示例输出: {{ "sop_id": "math_sop", "reason": "用户想要进行数学计算", "args": {{ "expression": "25 * 4" }} }}
 """
         
-        user_prompt = f"User Request: {user_query}"
+        user_prompt = f"用户请求: {user_query}"
         
         messages = [
             {"role": "system", "content": system_prompt},
@@ -42,7 +45,7 @@ Example Output: {{ "sop_id": "calculator_sop", "reason": "User wants to do math"
         response_text = llm_client.chat(messages)
         
         try:
-            # Clean up potential markdown code blocks
+            # 清理可能的 Markdown 代码块
             if "```json" in response_text:
                 response_text = response_text.split("```json")[1].split("```")[0]
             elif "```" in response_text:
@@ -59,5 +62,5 @@ Example Output: {{ "sop_id": "calculator_sop", "reason": "User wants to do math"
             return selected_sop, args
             
         except Exception as e:
-            print(f"Router Error: {e}, Response: {response_text}")
+            print(f"分类器错误: {e}, 响应内容: {response_text}")
             return None, {}

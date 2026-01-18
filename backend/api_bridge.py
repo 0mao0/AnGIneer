@@ -8,13 +8,19 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 # Import existing logic
-from src.core.models import SOP, Step
-from src.agents import IntentRouter, Dispatcher
+from src.core.models import Step
+from src.agents import IntentClassifier, Dispatcher
+from src.core.contextStruct import SOP
 from src.core.knowledge import knowledge_manager
+from src.core.sop_loader import SopLoader
 from src.tools import ToolRegistry, register_tool  # Ensure all tools are registered
 from src.tools import *  # Import all tools for registration effect
 
 app = FastAPI(title="PicoAgent API Bridge")
+
+# Initialize SOP Loader
+SOP_DIR = os.path.join(os.path.dirname(__file__), "sops")
+sop_loader = SopLoader(SOP_DIR)
 
 # Enable CORS for Vue frontend
 app.add_middleware(
@@ -76,12 +82,24 @@ class TraceDispatcher(Dispatcher):
         step_trace["inputs"] = tool_inputs
         
         try:
+            # Determine Tool (Static or Auto)
+            target_tool_name = step.tool
+            if target_tool_name == "auto":
+                detected_tool, detected_inputs = self._smart_select_tool(step, tool_inputs)
+                if detected_tool:
+                    target_tool_name = detected_tool
+                    tool_inputs.update(detected_inputs)
+                    step_trace["tool"] = f"auto -> {target_tool_name}" # Update trace
+                    step_trace["inputs"] = tool_inputs # Update trace
+                else:
+                    raise ValueError("Auto-selection failed")
+
             # Call original logic but capture results
             # Note: We are re-implementing the execution part to capture trace
             # since the original doesn't have hooks.
-            tool = ToolRegistry.get_tool(step.tool)
+            tool = ToolRegistry.get_tool(target_tool_name)
             if not tool:
-                raise ValueError(f"Tool {step.tool} not found")
+                raise ValueError(f"Tool {target_tool_name} not found")
             
             result = tool.run(**tool_inputs)
             step_trace["output"] = result
@@ -100,22 +118,21 @@ class TraceDispatcher(Dispatcher):
 
 @app.get("/sops")
 def list_sops():
-    sops = []
-    for fpath in glob.glob("sops/*.json"):
-        with open(fpath, "r", encoding="utf-8") as f:
-            sops.append(json.load(f))
-    return sops
+    # Load dynamically from MD files
+    sops = sop_loader.load_all()
+    # Convert to dict for JSON response
+    return [sop.dict() for sop in sops]
 
 @app.post("/sops")
 def save_sop(sop: SOPUpdate):
-    fpath = f"sops/{sop.id}.json"
-    with open(fpath, "w", encoding="utf-8") as f:
-        json.dump(sop.dict(), f, indent=2, ensure_ascii=False)
-    return {"status": "success"}
+    # For now, we only support reading MD files in this new mode.
+    # Editing MD files via this API would require mapping JSON structure back to MD text,
+    # which is complex. For now, we return error or disable.
+    raise HTTPException(status_code=501, detail="SOP modification via JSON API is not supported in Markdown-only mode.")
 
 @app.delete("/sops/{sop_id}")
 def delete_sop(sop_id: str):
-    fpath = f"sops/{sop_id}.json"
+    fpath = os.path.join(SOP_DIR, f"{sop_id}.md")
     if os.path.exists(fpath):
         os.remove(fpath)
         return {"status": "success"}
@@ -146,14 +163,11 @@ def chat(request: QueryRequest):
     global execution_trace
     execution_trace = [] # Reset trace
     
-    # 1. Load SOPs for Router
-    sops = []
-    for fpath in glob.glob("sops/*.json"):
-        with open(fpath, "r", encoding="utf-8") as f:
-            sops.append(SOP(**json.load(f)))
+    # 1. Load SOPs for Router (Dynamic from MD)
+    sops = sop_loader.load_all()
     
-    router = IntentRouter(sops)
-    sop, args = router.route(request.query)
+    classifier = IntentClassifier(sops)
+    sop, args = classifier.route(request.query)
     
     if not sop:
         return {
@@ -181,13 +195,11 @@ def chat_stream(request: QueryRequest):
         try:
             yield json.dumps({"type": "routing"}) + "\n"
 
-            sops = []
-            for fpath in glob.glob("sops/*.json"):
-                with open(fpath, "r", encoding="utf-8") as f:
-                    sops.append(SOP(**json.load(f)))
+            # Load SOPs (Dynamic from MD)
+            sops = sop_loader.load_all()
 
-            router = IntentRouter(sops)
-            sop, args = router.route(request.query)
+            classifier = IntentClassifier(sops)
+            sop, args = classifier.route(request.query)
 
             if not sop:
                 yield json.dumps({"type": "nomatch"}) + "\n"

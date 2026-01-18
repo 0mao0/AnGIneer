@@ -1,2 +1,2 @@
 from src.agents.dispatcher import Dispatcher
-from src.agents.router import IntentRouter
+from src.agents.classifier import IntentClassifier

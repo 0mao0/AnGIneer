@@ -1,88 +1,131 @@
-# 📦 PicoAgent 产品白皮书
-**The Deterministic SOP Executor for Local Intelligence**
+# 📦 PicoAgent: 工程师的 AGI 助手
 
-- **版本**: v0.1
-- **面向群体**: **toB的高质量稳定输出AI工具.** 
-- **核心理念**: **Human Defines SOP, Agent Executes Tasks.** (人定流程，Agent 执行)
-- **技术基座**: Qwen 4B Native + Vue 3
+**小型 LLM + SOPs + GeoWorld = 节省工程师 50% 工作量 ≈ 工程师 AGI**
 
 ---
 
-## 1. 产品定位 (Product Positioning)
+## 1. 项目愿景 (Vision)
 
-PicoAgent 是一个**基于 SOP 的轻量级 Agent 执行引擎**。
+PicoAgent 是一个**基于 SOP 的轻量级 Agent 执行引擎**，专为工程、设计等严谨行业打造。我们的目标是通过结合小型语言模型 (LLM)、标准作业程序 (SOPs) 和地理世界 (GeoWorld) 数据，为工程师提供高度确定性的自动化工具，显著提升生产力。
 
-### 核心差异化
-1.  **反“智能涌现”**：企业有固定的业务流程**SOP (标准作业程序)**，不需要开放式的AI规划。
-2.  **反“角色扮演”**：我们不需要 MetaGPT 那种“你是一个产品经理”的虚空角色。我们需要的是 **Calculator, GIS, Reporter** 这种实打实的 **Function Tool (工具人)**。
-3.  **反“全知全能”**：Plan Agent 不是军师，而是**工头**。它不负责思考“怎么做”，只负责**按步骤派活**和**验收结果**。
-
-### 目标用户
-需要自动化执行明确业务流程的企业或个人（以设计行业为例）。
+### 核心理念
+- **Human Defines SOP, Agent Executes Tasks** (人定流程，Agent 执行)
+- **确定性执行 (Deterministic)**: 反“智能涌现”和幻觉，严格遵循企业既定的标准作业程序。
+- **混合架构 (Hybrid)**: 规则为主，AI 为辅。在确定性步骤中追求速度，在复杂决策时唤醒 AI。
 
 ---
 
-## 2. 核心架构逻辑 (Architecture)
+## 2. 核心架构 (Architecture)
 
-### 2.1 架构图解
-'''
-[用户] 
-   | (1. 自然语言请求)
-   v
-+---------------------+
-| Intent Router Agent |  <-- 理解意图，负责“听懂”
-| (意图路由智能体)    |
-+---------------------+
-   | (2. 输出 SOP ID)
-   v
-+---------------------+
-|      SOP 库         |  <-- 存储流程，负责“规矩”
-| (流程图模式)        |
-+---------------------+
-   ^ (3. 加载流程图定义)
-   |
-+---------------------+
-|  Dispatcher Agent   |  <-- 编排执行，负责“指挥”
-| (流程执行引擎)      |
-+----------+----------+
-           | (4. 调用 Function Tool)
-           v
-+---------------------+
-|    Function Tools   |  <-- 专业工具，负责“干活”
-| (邮件/数据库/API...)|
-+----------+----------+
-           |
-           | (5. 返回执行结果)
-           v
-+---------------------+
-|  Memory (分层记忆)  |  <-- 贯穿始终，负责“记忆”
-| - Dispatcher Memory |      - 全局流程状态
-| - Tool Memory       |      - 工具执行上下文
-+---------------------+
-           |
-           | (6. 更新状态，推进流程)
-           v
-      (回到 Dispatcher，循环直到流程结束)
-'''
+### 2.1 混合调度架构 (Hybrid Flow)
 
-### 2.2 核心组件定义
+```mermaid
+graph TD
+    User[用户请求] --> Classifier[Intent Classifier (意图分类)]
+    Classifier -->|匹配 SOP| Loader[SOP Loader (智能分析)]
+    
+    subgraph "Hybrid Execution Engine (混合执行引擎)"
+        Loader -->|解析步骤 & 提取 Notes| Dispatcher[Dispatcher Agent]
+        Dispatcher -->|规则判断| Check{需要 AI 介入?}
+        
+        Check -- No (确定性执行) --> ToolExec[直接调用工具]
+        Check -- Yes (缺参数/有备注) --> LLM[LLM 决策核心]
+        
+        LLM -->|查阅规范| KnowledgeTool[Knowledge Search (知识检索)]
+        LLM -->|查询数据| TableTool[Table Lookup (表格查询)]
+        LLM -->|询问用户| UserAsk[询问用户]
+    end
+    
+    ToolExec --> Result[执行结果]
+    KnowledgeTool --> Result
+    TableTool --> Result
+    Result -->|更新上下文| Dispatcher
+    Result --> Final[输出给用户]
+```
 
+### 2.2 核心模块说明
 
-
-## 3. 功能需求说明书 (PRD)
-
-
-## 4. 竞品分析 (Competitor Analysis)
-
-| 维度 | **Picoagent (我们)** | **MetaGPT** | **LangChain** |
-| :--- | :--- | :--- | :--- |
-| **Agent 定义** | **工具封装 (Function)** | 岗位角色 (Role) | 链/图 (Chain/Graph) |
-| **运行逻辑** | **SOP 调度 (项目经理制)** | SOP 协作 (多部门制) | 代码逻辑跳转 |
-| **上下文** | **解耦 (变量引用)** | 共享 (易污染) | 共享/拼接 |
-| **Plan Agent** | **分发员 (Dispatcher)** | 规划者 (Planner) | 规划者/执行者合一 |
-| **适合场景** | **确定性业务流 (算房价)** | 创意性协作 (写游戏) | 通用开发 |
-
-**结论**：MetaGPT 适合“让一群 AI 吵架/开会来产出软件”，Picoagent 适合“让一个 AI 工头带着一群工具人干具体的活”。
+- **[classifier.py](file:///d:/AI/PicoAgent/backend/src/agents/classifier.py)**: 意图分类器。负责识别用户意图并匹配最合适的 SOP。
+- **[dispatcher.py](file:///d:/AI/PicoAgent/backend/src/agents/dispatcher.py)**: 核心调度引擎。根据 SOP 步骤控制执行流，决定是直接运行工具还是调用 LLM。
+- **[sop_loader.py](file:///d:/AI/PicoAgent/backend/src/core/sop_loader.py)**: 智能加载器。将 Markdown 格式的 SOP 转换为结构化步骤，并利用 LLM 提取关键约束和输入要求。
+- **[llm.py](file:///d:/AI/PicoAgent/backend/src/core/llm.py)**: LLM 客户端封装。默认集成 **NVIDIA API** (提供 Nemotron, DeepSeek, Kimi 等模型支持)，支持多模型切换和双语处理。
+- **[memory.py](file:///d:/AI/PicoAgent/backend/src/core/memory.py)**: 上下文与记忆管理。分层存储全局上下文、步骤历史和工作记忆。
 
 ---
 
+## 3. 功能亮点 (Features)
+
+1.  **SOP 确定性执行**: 流程逻辑在 SOP Markdown 中定义，逻辑清晰、可审计。
+2.  **智能查表 (Table Lookup)**: 针对工程规范（如《海港水文规范》）中的复杂 HTML 表格，支持 AI 辅助的条件查询。
+3.  **专业 GIS 计算**: 集成 [gis_tools.py](file:///d:/AI/PicoAgent/backend/src/tools/gis_tools.py)，处理 LLM 无法完成的 CAD/GIS 几何运算（如断面体积计算）。
+4.  **国际化支持 (i18n)**: 工具集 ([base.py](file:///d:/AI/PicoAgent/backend/src/tools/base.py)) 支持中英双语描述，注释和日志已全面本地化。
+5.  **按需 RAG**: 摒弃传统的 Chunk 切片，采用 LLM 全文阅读 + 精准提取模式，确保复杂规范理解的连贯性。
+
+---
+
+## 4. 开发路线图 (Roadmap)
+
+### 已实现 (v0.01)
+- [x] 混合架构基础框架 (Rules + LLM)
+- [x] SOP 智能解析与 Markdown 加载
+- [x] NVIDIA API 多模型集成 (默认)
+- [x] 基础工具集：计算器、表格查询、知识检索
+- [x] 专业 GIS 断面计算工具
+- [x] 工具描述与代码注释中文化
+
+### 短期目标 (v0.2 - v0.5)
+- [ ] **Web 交互界面**: 基于 FastAPI + React 的现代化控制台。
+- [ ] **图形化 SOP 编辑器**: 拖拽式流程设计。
+- [ ] **多源知识库**: 支持 PDF/Word 自动解析。
+- [ ] **执行日志可视化**: 实时追踪 Agent 决策链路。
+
+### 长期愿景 (v1.0+)
+- [ ] **自动 SOP 生成**: 根据历史成功案例自动提炼作业程序。
+- [ ] **数字孪生集成**: 与 GeoWorld 实时数据流打通。
+- [ ] **行业生态建设**: 覆盖航道设计、水利、土木等更多垂直领域。
+
+---
+
+## 5. 项目结构 (Project Structure)
+
+```text
+PicoAgent/
+├── backend/                # 后端核心
+│   ├── src/
+│   │   ├── agents/         # classifier.py, dispatcher.py
+│   │   ├── core/           # llm.py, memory.py, sop_loader.py
+│   │   └── tools/          # base.py, general_tools.py, gis_tools.py
+│   ├── sops/               # SOP 文档库 (*.md)
+│   └── knowledge/          # 行业规范与知识库
+├── tests/                  # 测试用例
+├── .env                    # 环境配置 (含 NVIDIA API Key)
+└── README.md               # 本文档
+```
+
+---
+
+## 6. 快速开始 (Quick Start)
+
+1.  **配置环境**: 在 `.env` 中设置 `NVIDIA_API_KEY`。
+2.  **加载 SOP**:
+    ```python
+    from src.core.sop_loader import SopLoader
+    loader = SopLoader("backend/sops")
+    sops = loader.load_all()
+    ```
+3.  **执行意图**:
+    ```python
+    from src.agents.classifier import IntentClassifier
+    from src.agents.dispatcher import Dispatcher
+    
+    # 1. 识别意图
+    classifier = IntentClassifier(sops)
+    sop, params = classifier.route("我想计算断面工程量")
+    
+    # 2. 调度执行
+    dispatcher = Dispatcher()
+    result = dispatcher.run(sop, params)
+    ```
+
+---
+*PicoAgent - 让 AI 成为最靠谱的工程助手。*

@@ -4,42 +4,67 @@ import json
 from dotenv import load_dotenv
 from openai import OpenAI
 
+# 加载环境变量
 load_dotenv()
 
 class LLMClient:
+    """
+    LLM 客户端类，负责管理多个 LLM 配置并处理对话请求。
+    默认优先使用 NVIDIA 提供的模型，支持自动切换备用配置。
+    """
     def __init__(self):
-        # Load both configs
+        # 加载所有 LLM 配置，NVIDIA 放在第一位作为默认
         self.configs = [
             {
-                "name": "Private",
+                "name": "NVIDIA 配置",
+                "api_key": os.getenv("NVIDIA_API_KEY"),
+                "base_url": os.getenv("NVIDIA_API_URL"),
+                "model": os.getenv("NVIDIA_MODEL") # 默认模型
+            },
+            {
+                "name": "私有配置 (Private)",
                 "api_key": os.getenv("Private_ALIYUN_API_KEY"),
                 "base_url": os.getenv("Private_ALIYUN_API_URL"),
                 "model": os.getenv("Private_ALIYUN_MODEL")
             },
             {
-                "name": "Public",
+                "name": "公共配置 (Public)",
                 "api_key": os.getenv("Public_ALIYUN_API_KEY"),
                 "base_url": os.getenv("Public_ALIYUN_API_URL"),
                 "model": os.getenv("Public_ALIYUN_MODEL")
             }
         ]
         
-    def chat(self, messages: list, temperature: float = 0.1) -> str:
+    def chat(self, messages: list, temperature: float = 0.1, model: str = None) -> str:
+        """
+        发送对话请求并获取响应。
+        
+        Args:
+            messages: 消息列表
+            temperature: 生成温度
+            model: 可选，指定使用的模型 ID。如果未提供，则使用配置中的默认模型。
+            
+        Returns:
+            str: 模型生成的回答内容
+        """
         last_error = None
         
         for config in self.configs:
             if not config["api_key"] or not config["base_url"]:
                 continue
-                
-            # Log Start
+            
+            # 确定当前使用的模型
+            current_model = model if model and config["name"] == "NVIDIA 配置" else config["model"]
+            
+            # 记录日志：开始连接
             print("\n" + "="*50)
-            print(f"🤖 [LLM Call] Connecting to: {config['name']}")
-            print(f"   Model: {config['model']}")
-            print(f"   URL: {config['base_url']}")
+            print(f"🤖 [LLM 呼叫] 正在连接: {config['name']}")
+            print(f"   模型: {current_model}")
+            print(f"   地址: {config['base_url']}")
             print("-" * 20)
-            print("📤 [Input Messages]:")
+            print("📤 [输入消息]:")
             for msg in messages:
-                role = msg.get('role', 'unknown')
+                role = msg.get('role', '未知')
                 content = msg.get('content', '')
                 print(f"   [{role.upper()}]: {content}")
             print("-" * 20)
@@ -47,7 +72,7 @@ class LLMClient:
             start_time = time.time()
             
             try:
-                # Clean base_url if it ends with /chat/completions
+                # 如果地址以 /chat/completions 结尾，则清理掉，OpenAI 客户端会自动补全
                 base_url = config["base_url"]
                 if base_url.endswith("/chat/completions"):
                     base_url = base_url.replace("/chat/completions", "")
@@ -58,7 +83,7 @@ class LLMClient:
                 )
                 
                 response = client.chat.completions.create(
-                    model=config["model"],
+                    model=current_model,
                     messages=messages,
                     temperature=temperature
                 )
@@ -66,8 +91,8 @@ class LLMClient:
                 content = response.choices[0].message.content
                 duration = time.time() - start_time
                 
-                # Log Success
-                print(f"📥 [Output Response] ({duration:.2f}s):")
+                # 记录日志：成功返回
+                print(f"📥 [输出响应] (耗时: {duration:.2f}秒):")
                 print(f"   {content}")
                 print("="*50 + "\n")
                 
@@ -75,12 +100,13 @@ class LLMClient:
                 
             except Exception as e:
                 duration = time.time() - start_time
-                print(f"❌ [Error] ({duration:.2f}s): {str(e)}")
+                print(f"❌ [错误] (耗时: {duration:.2f}秒): {str(e)}")
                 print("="*50 + "\n")
                 last_error = e
                 continue
                 
-        # If we get here, all failed
-        raise last_error or ValueError("No valid LLM configuration found")
+        # 如果所有配置都尝试失败
+        raise last_error or ValueError("未找到有效的 LLM 配置")
             
+# 全局单例
 llm_client = LLMClient()
