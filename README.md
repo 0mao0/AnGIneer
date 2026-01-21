@@ -55,11 +55,9 @@ graph TD
 
 ## 3. 功能亮点 (Features)
 
-1.  **SOP 确定性执行**: 流程逻辑在 SOP Markdown 中定义，逻辑清晰、可审计。
-2.  **智能查表 (Table Lookup)**: 针对工程规范（如《海港水文规范》）中的复杂 HTML 表格，支持 AI 辅助的条件查询。
-3.  **专业 GIS 计算**: 集成 [gis_tools.py](/PicoAgent/backend/src/tools/gis_tools.py)，处理 LLM 无法完成的 CAD/GIS 几何运算（如断面体积计算）。
-4.  **国际化支持 (i18n)**: 工具集 ([base.py](/PicoAgent/backend/src/tools/base.py)) 支持中英双语描述，注释和日志已全面本地化。
-5.  **按需 RAG**: 摒弃传统的 Chunk 切片，采用 LLM 全文阅读 + 精准提取模式，确保复杂规范理解的连贯性。
+1.  **SOP确定性执行**: 自然语言描述的主观经验库，确保强执行力。
+2.  **SLM低耗小模型**: 仅需5B以下的小模型即可。
+3.  **地理世界模型**: 提供面向三维世界的交互模型。
 
 ---
 

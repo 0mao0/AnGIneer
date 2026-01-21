@@ -6,7 +6,20 @@
     <title>PicoAgent Test Console</title>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>
-        mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
+        mermaid.initialize({ 
+            startOnLoad: false, 
+            theme: 'neutral',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            themeVariables: {
+                fontSize: '13px',
+                fontFamily: 'arial',
+                nodePadding: '10'
+            }
+        });
     </script>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background: #f5f5f5; display: flex; height: 100vh; overflow: hidden; }
@@ -18,7 +31,7 @@
         .main-content { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; background: white; border-right: 1px solid #ddd; }
         
         /* Right Column: Execution Trace */
-        .execution-trace { width: 400px; background: #f8f9fa; display: flex; flex-direction: column; flex-shrink: 0; border-left: 1px solid #ddd; height: 100vh; }
+        .execution-trace { width: 450px; background: #f8f9fa; display: flex; flex-direction: column; flex-shrink: 0; border-left: 1px solid #ddd; height: 100vh; }
         
         .trace-section-header { 
             padding: 10px 15px; 
@@ -42,6 +55,28 @@
             align-items: flex-start;
         }
 
+        #flowchartArea svg {
+            width: 100% !important;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Ensure Mermaid labels can expand to fit content */
+        .mermaid .label foreignObject {
+            overflow: visible;
+        }
+        .mermaid .label foreignObject div {
+            max-width: 200px !important;
+            width: auto !important;
+            display: inline-block !important;
+            text-align: center !important;
+            white-space: normal !important;
+            word-wrap: break-word;
+        }
+        .nodeLabel {
+            white-space: normal !important;
+        }
+
         #consoleArea { 
             height: 40%; 
             overflow-y: auto; 
@@ -59,7 +94,7 @@
             padding-bottom: 5px;
         }
         .trace-step-time { color: #95a5a6; font-size: 10px; }
-        .trace-step-content { margin-top: 3px; }
+        .trace-step-content { margin-top: 3px; white-space: pre-wrap; word-break: break-word; }
         
         .container { max-width: 100%; margin: 0; }
         h1, h2, h3 { margin-top: 0; color: #333; }
@@ -291,9 +326,10 @@
         const div = document.createElement('div');
         div.className = 'trace-step';
         const time = new Date().toLocaleTimeString();
+        const safeText = escapeHtml(text);
         div.innerHTML = `
             <span class="trace-step-time">[${time}]</span>
-            <div class="trace-step-content" style="color: ${isError ? '#f44747' : '#ecf0f1'}">${escapeHtml(text)}</div>
+            <div class="trace-step-content" style="color: ${isError ? '#f44747' : '#ecf0f1'}">${safeText}</div>
         `;
         consoleArea.appendChild(div);
         consoleArea.scrollTop = consoleArea.scrollHeight;
@@ -422,13 +458,15 @@
             const response = await fetch(`${API_URL}/run_test/${testId}`);
             const data = await response.json();
             
+            const stdoutContent = escapeHtml(data.stdout || '(无标准输出)');
+            const stderrContent = data.stderr ? escapeHtml(data.stderr) : '';
             document.getElementById('testResultDisplay').innerHTML = `
                 <div class="unit-test-result">
                     <div style="color: #6a9955; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px;">
                         <strong>执行文件:</strong> tests/${data.test_file} | <strong>状态码:</strong> ${data.exit_code}
                     </div>
-                    <div class="stdout">${data.stdout || '(无标准输出)'}</div>
-                    ${data.stderr ? `<div class="stderr">${data.stderr}</div>` : ''}
+                    <pre class="stdout">${stdoutContent}</pre>
+                    ${data.stderr ? `<pre class="stderr">${stderrContent}</pre>` : ''}
                 </div>
             `;
             
@@ -437,17 +475,19 @@
             let lastNode = "Init";
             let stepCount = 0;
             let currentStepName = "";
-            let currentStepFunctions = [];
+            let currentStepDetails = [];
 
             const lines = data.stdout.split('\n');
             lines.forEach(line => {
                 const trimmedLine = line.trim();
+                if (!trimmedLine) return;
+
                 if (trimmedLine.includes('-> 步骤')) {
-                    // If we had a previous step, add it now with its collected functions
+                    // If we had a previous step, add it now
                     if (stepCount > 0) {
                         const nodeId = `Step${stepCount}`;
-                        const label = currentStepFunctions.length > 0 
-                            ? `${currentStepName}\n(${currentStepFunctions.join(', ')})`
+                        const label = currentStepDetails.length > 0 
+                            ? `${currentStepName}\n${currentStepDetails.join('\n')}`
                             : currentStepName;
                         flowchartSteps.push(`${lastNode} --> ${nodeId}[${mq(label)}]`);
                         lastNode = nodeId;
@@ -455,25 +495,24 @@
                     
                     stepCount++;
                     currentStepName = trimmedLine.split(':')[1]?.trim() || `步骤${stepCount}`;
-                    currentStepFunctions = [];
+                    currentStepDetails = [];
                     addConsoleLine(trimmedLine);
-                } else if (trimmedLine.includes('[CALL]')) {
-                    const funcCall = trimmedLine.split('[CALL]')[1]?.trim();
-                    if (funcCall) {
-                        // Use the full call description for the flowchart
-                        currentStepFunctions.push(funcCall.replace('()', ''));
-                        addConsoleLine(trimmedLine, false);
+                } else {
+                    // Collect everything else into details (similar to console)
+                    if (stepCount > 0) {
+                        // For flowchart, we might want to clean up some symbols for better look
+                        const cleanLine = trimmedLine.replace('[CALL]', '📞').replace('[OK]', '✅').replace('[ERROR]', '❌');
+                        currentStepDetails.push(cleanLine);
                     }
-                } else if (trimmedLine.includes('[OK]')) {
-                    addConsoleLine(trimmedLine);
+                    addConsoleLine(trimmedLine, trimmedLine.includes('[ERROR]') || trimmedLine.includes('失败'));
                 }
             });
 
             // Add the last step
             if (stepCount > 0) {
                 const nodeId = `Step${stepCount}`;
-                const label = currentStepFunctions.length > 0 
-                    ? `${currentStepName}\n(${currentStepFunctions.join(', ')})`
+                const label = currentStepDetails.length > 0 
+                    ? `${currentStepName}\n${currentStepDetails.join('\n')}`
                     : currentStepName;
                 flowchartSteps.push(`${lastNode} --> ${nodeId}[${mq(label)}]`);
                 lastNode = nodeId;
@@ -498,13 +537,15 @@
     function escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
-        return div.innerHTML;
+        return div.innerHTML.replace(/\r?\n/g, "<br/>");
     }
 
     // Helper to quote labels for Mermaid to avoid syntax errors
     function mq(text) {
         if (!text) return '""';
-        return `"${text.toString().replace(/"/g, "'").replace(/\n/g, "<br/>").replace(/[\[\]\(\)\{\}]/g, " ")}"`;
+        // Use double quotes for the label and escape internal double quotes
+        // Replace newlines with <br/> for HTML labels
+        return `"${text.toString().replace(/"/g, "'").replace(/\n/g, "<br/>")}"`;
     }
 </script>
 </body>

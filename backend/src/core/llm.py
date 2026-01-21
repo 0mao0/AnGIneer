@@ -18,6 +18,13 @@ class LLMClient:
         nvidia_base_url = os.getenv("NVIDIA_API_URL")
         
         self.configs = [
+            # 阿里云系列模型
+            {
+                "name": "私有配置 (Private)",
+                "api_key": os.getenv("Private_ALIYUN_API_KEY"),
+                "base_url": os.getenv("Private_ALIYUN_API_URL"),
+                "model": os.getenv("Private_ALIYUN_MODEL")
+            },
             # NVIDIA 系列模型
             {
                 "name": "NVIDIA (Nemotron)",
@@ -42,13 +49,6 @@ class LLMClient:
                 "api_key": nvidia_api_key,
                 "base_url": nvidia_base_url,
                 "model": os.getenv("NVIDIA_MODEL_MINIMAX")
-            },
-            # 阿里云系列模型
-            {
-                "name": "私有配置 (Private)",
-                "api_key": os.getenv("Private_ALIYUN_API_KEY"),
-                "base_url": os.getenv("Private_ALIYUN_API_URL"),
-                "model": os.getenv("Private_ALIYUN_MODEL")
             },
             {
                 "name": "公共配置 (Public)",
