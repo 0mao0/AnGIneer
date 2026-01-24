@@ -8,6 +8,11 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from backend.src.core.sop_loader import SopLoader
 
+"""
+SOP 混合分析测试脚本 (Test 03)
+验证 SopLoader 是否能通过 LLM 将 Markdown 格式的 SOP 智能解析为结构化的执行步骤。
+"""
+
 @patch("src.core.llm.llm_client")
 class TestSopAnalysis(unittest.TestCase):
     def test_analyze_sop(self, mock_llm):

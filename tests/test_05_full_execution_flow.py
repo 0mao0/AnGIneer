@@ -5,16 +5,22 @@ import unittest
 from unittest.mock import patch
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../backend")))
 
-from backend.src.core.contextStruct import SOP, Step
-from backend.src.agents import Dispatcher
+from src.core.contextStruct import SOP, Step
+from src.agents import Dispatcher
 from fastapi.testclient import TestClient
 import backend.api_bridge as api_bridge
+
+"""
+完整执行流与 API 接口测试脚本 (Test 05)
+验证 Dispatcher 的执行逻辑（包括变量引用和记忆流转）以及后端 API 接口的可用性。
+"""
 
 @patch("src.core.llm.llm_client")
 class TestFullExecutionFlow(unittest.TestCase):
     def test_dispatcher_flow(self, mock_llm):
-        print("\n[测试 04] 执行器与记忆流测试")
+        print("\n[测试 05] 执行器与记忆流测试")
 
         step1 = Step(
             id="calc_sum",
@@ -53,7 +59,7 @@ class TestFullExecutionFlow(unittest.TestCase):
         self.assertGreaterEqual(len(dispatcher.memory.history), 2)
 
     def test_api_bridge_endpoints(self, mock_llm):
-        print("\n[测试 04] API Bridge 接口测试")
+        print("\n[测试 05] API Bridge 接口测试")
         mock_llm.chat.return_value = '{"sop_id": "航道通航底高程", "args": {"DWT": "50000"}}'
         client = TestClient(api_bridge.app)
 

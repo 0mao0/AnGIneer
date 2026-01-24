@@ -188,11 +188,16 @@ Output: A JSON object with a "steps" list. Each step must have:
             # 4. 重构 SOP 对象
             new_steps = []
             for s_data in data.get("steps", []):
+                # Clean tool name
+                tool_name = s_data.get("tool", "auto")
+                if isinstance(tool_name, str):
+                    tool_name = tool_name.replace('`', '').strip()
+
                 new_step = Step(
                     id=s_data.get("id"),
                     name=s_data.get("name"),
                     description=s_data.get("description"),
-                    tool=s_data.get("tool", "auto"),
+                    tool=tool_name,
                     inputs=s_data.get("inputs", {}),
                     notes=s_data.get("notes"), # 核心：注入 LLM 提取的注意事项
                     analysis_status="analyzed"

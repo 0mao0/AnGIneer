@@ -235,15 +235,15 @@ def list_llm_configs():
     # 仅返回名称和模型，不返回 API Key 等敏感信息
     return [{"name": c["name"], "model": c["model"], "configured": bool(c["api_key"])} for c in client.configs]
 
-@app.get("/test_source/{test_id}")
-def get_test_source(test_id: str):
+@app.get("/test_content/{test_id}")
+def get_test_content(test_id: str):
     test_files = {
         "0": "test_00_llm_chat.py",
         "1": "test_01_tool_registration.py",
         "2": "test_02_intent_classifier.py",
         "3": "test_03_sop_analysis.py",
-        "4": "test_04_full_execution_flow.py",
-        "5": "test_05_table_lookup_tool_direct.py"
+        "4": "test_04_tool_validity.py",
+        "5": "test_05_full_execution_flow.py"
     }
     
     if test_id not in test_files:
@@ -258,49 +258,93 @@ def get_test_source(test_id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/test_cases/{test_id}")
+def get_test_cases(test_id: str):
+    if test_id in ["0", "1", "2"]:
+        try:
+            # Dynamically import test module to get SAMPLE_QUERIES
+            import sys
+            import importlib
+            tests_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "tests"))
+            if tests_dir not in sys.path:
+                sys.path.append(tests_dir)
+            
+            module_map = {
+                "0": "test_00_llm_chat",
+                "1": "test_01_tool_registration",
+                "2": "test_02_intent_classifier"
+            }
+            
+            module_name = module_map.get(test_id)
+            if not module_name:
+                return {"test_id": test_id, "cases": []}
+                
+            module = importlib.import_module(module_name)
+            # Reload to ensure updates are reflected if using persistent process (optional but good for dev)
+            importlib.reload(module)
+            
+            if hasattr(module, "SAMPLE_QUERIES"):
+                return {"test_id": test_id, "cases": module.SAMPLE_QUERIES}
+            else:
+                return {"test_id": test_id, "cases": []}
+                
+        except ImportError as e:
+            print(f"Import Error: {e}")
+            return {"test_id": test_id, "cases": []}
+        except Exception as e:
+            print(f"Error loading test cases: {e}")
+            return {"test_id": test_id, "cases": []}
+            
+    return {"test_id": test_id, "cases": []}
+
 @app.get("/run_test/{test_id}")
-def run_test(test_id: str, config: Optional[str] = None, query: Optional[str] = None):
+def run_test(test_id: str, config: str = None, query: str = None, mode: str = "instruct"):
+    # Map ID to filename
     test_files = {
         "0": "test_00_llm_chat.py",
         "1": "test_01_tool_registration.py",
         "2": "test_02_intent_classifier.py",
         "3": "test_03_sop_analysis.py",
-        "4": "test_04_full_execution_flow.py",
-        "5": "test_05_table_lookup_tool_direct.py"
+        "4": "test_04_tool_validity.py",
+        "5": "test_05_full_execution_flow.py"
     }
     
-    if test_id not in test_files:
-        raise HTTPException(status_code=404, detail="Test not found")
+    filename = test_files.get(test_id)
+    if not filename:
+        return {"error": "Invalid Test ID"}
+        
+    fpath = os.path.join(os.path.dirname(__file__), "..", "tests", filename)
     
-    test_file = test_files[test_id]
-    test_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "tests", test_file)
+    # Environment variables for test
+    env = os.environ.copy()
+    env["PYTHONIOENCODING"] = "utf-8"
+    if config:
+        env["TEST_LLM_CONFIG"] = config
+    if query:
+        # Pass query as environment variable to the test script
+        env["TEST_LLM_QUERY"] = query
+    
+    # Pass mode
+    if mode:
+        env["TEST_LLM_MODE"] = mode
     
     try:
-        # Prepare environment
-        env = os.environ.copy()
-        env["PYTHONIOENCODING"] = "utf-8"
-        
-        # Pass parameters as environment variables if provided
-        if config: env["TEST_LLM_CONFIG"] = config
-        if query: env["TEST_LLM_QUERY"] = query
-
-        # Run the test and capture output
+        # Run unittest with python
         result = subprocess.run(
-            ["python", test_path],
+            ["python", fpath],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             env=env
         )
         return {
-            "test_id": test_id,
-            "test_file": test_file,
+            "test_file": filename,
             "exit_code": result.returncode,
             "stdout": result.stdout,
             "stderr": result.stderr
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        return {"error": str(e)}
 
 if __name__ == "__main__":
     import uvicorn

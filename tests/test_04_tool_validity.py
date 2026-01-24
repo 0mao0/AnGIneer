@@ -8,10 +8,15 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from backend.src.tools import ToolRegistry
 
+"""
+工具能力覆盖测试脚本 (Test 04)
+对系统内置的所有工具（表格查询、知识检索、计算器、GIS 计算等）进行功能验证。
+"""
+
 @patch("src.core.llm.llm_client")
 class TestToolBehaviorSuite(unittest.TestCase):
     def test_tool_behaviors(self, mock_llm):
-        print("\n[测试 05] 工具能力覆盖测试")
+        print("\n[测试 04] 工具有效性测试")
         mock_llm.chat.side_effect = [
             '{"result": {"DWT": 50000, "T": 12.8}}',
             "相关条文片段"

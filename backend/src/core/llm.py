@@ -50,6 +50,13 @@ class LLMClient:
                 "base_url": nvidia_base_url,
                 "model": os.getenv("NVIDIA_MODEL_MINIMAX")
             },
+            # 智谱 AI 系列模型
+            {
+                "name": "智谱 AI (GLM-4.7-Flash)",
+                "api_key": os.getenv("ZHIPU_API_KEY"),
+                "base_url": os.getenv("ZHIPU_API_URL"),
+                "model": os.getenv("ZHIPU_MODEL")
+            },
             {
                 "name": "公共配置 (Public)",
                 "api_key": os.getenv("Public_ALIYUN_API_KEY"),
@@ -58,7 +65,7 @@ class LLMClient:
             }
         ]
         
-    def chat(self, messages: list, temperature: float = 0.1, model: str = None) -> str:
+    def chat(self, messages: list, temperature: float = 0.1, model: str = None, mode: str = "instruct") -> str:
         """
         发送对话请求并获取响应。
         
@@ -66,27 +73,62 @@ class LLMClient:
             messages: 消息列表
             temperature: 生成温度
             model: 可选，指定使用的模型 ID。如果未提供，则使用配置中的默认模型。
+            mode: 指定运行模式 ('thinking', 'instruct')，默认为 'instruct'。
+                  可以通过环境变量 FORCE_LLM_MODE 强制覆盖。
             
         Returns:
             str: 模型生成的回答内容
         """
+        # 允许通过环境变量强制覆盖模式（主要用于测试）
+        env_mode = os.getenv("FORCE_LLM_MODE")
+        if env_mode:
+            mode = env_mode
+
         last_error = None
+        processed_messages = list(messages)
         
+        # 处理模式 (Mode) 逻辑
+        if mode == "thinking":
+            # 如果是思考模式，且没有显式指定模型，优先尝试寻找带 "thinking" 或 "r1" 的模型
+            if not model:
+                for config in self.configs:
+                    if config.get("model") and ("thinking" in config["model"].lower() or "r1" in config["model"].lower()):
+                        model = config["model"]
+                        break
+            
+            # 注入思考提示词
+            thinking_prompt = "请在回答之前进行深度思考，并给出详细的思考过程（使用 <thought> 标签包裹）。"
+            has_system = any(m.get("role") == "system" for m in processed_messages)
+            if has_system:
+                for m in processed_messages:
+                    if m.get("role") == "system":
+                        m["content"] = f"{m['content']}\n\n{thinking_prompt}"
+            else:
+                processed_messages.insert(0, {"role": "system", "content": thinking_prompt})
+                
+        elif mode == "instruct":
+            instruct_prompt = "请作为一个专业的助手，严格按照指令进行回答，保持简洁且专业。"
+            has_system = any(m.get("role") == "system" for m in processed_messages)
+            if not has_system:
+                processed_messages.insert(0, {"role": "system", "content": instruct_prompt})
+
         for config in self.configs:
             if not config["api_key"] or not config["base_url"]:
                 continue
             
-            # 确定当前使用的模型
+            # 确定当前使用的模型：
+            # 1. 如果外部指定了 model，且当前配置是 NVIDIA（因为 NVIDIA 接口通用性最强），则使用指定的 model
+            # 2. 否则使用该配置默认的 model
             current_model = model if model and config["name"].startswith("NVIDIA") else config["model"]
             
             # 记录日志：开始连接
             print("\n" + "="*50)
-            print(f"[LLM 呼叫] 正在连接: {config['name']}")
+            print(f"[LLM 呼叫] 正在连接: {config['name']} | 模式: {mode or '默认'}")
             print(f"   模型: {current_model}")
             print(f"   地址: {config['base_url']}")
             print("-" * 20)
             print("[输入消息]:")
-            for msg in messages:
+            for msg in processed_messages:
                 role = msg.get('role', '未知')
                 content = msg.get('content', '')
                 print(f"   [{role.upper()}]: {content}")
@@ -107,7 +149,7 @@ class LLMClient:
                 
                 response = client.chat.completions.create(
                     model=current_model,
-                    messages=messages,
+                    messages=processed_messages,
                     temperature=temperature
                 )
                 

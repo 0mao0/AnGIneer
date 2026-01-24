@@ -48,8 +48,8 @@ graph TD
 - **[classifier.py](/AI/PicoAgent/backend/src/agents/classifier.py)**: 意图分类器。负责识别用户意图并匹配最合适的 SOP。
 - **[dispatcher.py](/AI/PicoAgent/backend/src/agents/dispatcher.py)**: 核心调度引擎。根据 SOP 步骤控制执行流，决定是直接运行工具还是调用 LLM。
 - **[sop_loader.py](/AI/PicoAgent/backend/src/core/sop_loader.py)**: 智能加载器。将 Markdown 格式的 SOP 转换为结构化步骤，并利用 LLM 提取关键约束和输入要求。
-- **[llm.py](/AI/PicoAgent/backend/src/core/llm.py)**: LLM 客户端封装。默认集成 **NVIDIA API** (提供 Nemotron, DeepSeek, Kimi 等模型支持)，支持多模型切换和双语处理。
-- **[memory.py](/AI/PicoAgent/backend/src/core/memory.py)**: 上下文与记忆管理。分层存储全局上下文、步骤历史和工作记忆。
+- [llm.py](/AI/PicoAgent/backend/src/core/llm.py): LLM 客户端封装。集成 **NVIDIA API** (Nemotron, DeepSeek, Kimi 等) 与 **智谱 AI** (GLM-4.7-Flash)，支持多模型切换和双语处理。
+- [memory.py](/AI/PicoAgent/backend/src/core/memory.py): 上下文与记忆管理。分层存储全局上下文、步骤历史和工作记忆。
 
 ---
 
@@ -57,7 +57,8 @@ graph TD
 
 1.  **SOP确定性执行**: 自然语言描述的主观经验库，确保强执行力。
 2.  **SLM低耗小模型**: 仅需5B以下的小模型即可。
-3.  **地理世界模型**: 提供面向三维世界的交互模型。
+3.  **多模型适配**: 默认支持 NVIDIA 家族模型，现已集成 **智谱 GLM-4.7-Flash** 提供高性能国产大模型支持。
+4.  **地理世界模型**: 提供面向三维世界的交互模型。
 
 ---
 

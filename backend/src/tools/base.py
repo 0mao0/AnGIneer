@@ -43,8 +43,27 @@ class ToolRegistry:
     def get_tool(cls, name: str) -> BaseTool:
         """
         根据名称获取工具实例。
+        支持大小写不敏感查找。
         """
-        return cls._registry.get(name)
+        if not name:
+            return None
+            
+        # 1. 精确匹配
+        if name in cls._registry:
+            return cls._registry[name]
+            
+        # 2. 归一化匹配 (去除空白，转小写)
+        normalized_name = name.strip().lower()
+        if normalized_name in cls._registry:
+            return cls._registry[normalized_name]
+            
+        # 3. 尝试匹配别名或由 LLM 产生的变体 (e.g. "Calculator" -> "calculator")
+        # 遍历注册表查找
+        for key, tool in cls._registry.items():
+            if key.lower() == normalized_name:
+                return tool
+                
+        return None
         
     @classmethod
     def list_tools(cls) -> Dict[str, Dict[str, str]]:
