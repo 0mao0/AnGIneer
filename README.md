@@ -21,8 +21,8 @@ PicoAgent 是一个**基于 SOP 的轻量级 Agent 执行引擎**，专为工程
 
 ```mermaid
 graph TD
-    User[用户请求] --> Classifier[Intent Classifier (意图分类)]
-    Classifier -->|匹配 SOP| Loader[SOP Loader (智能分析)]
+    User[用户请求] --> Classifier["Intent Classifier (意图分类)"]
+    Classifier -->|匹配 SOP| Loader["SOP Loader (智能分析)"]
     
     subgraph "Hybrid Execution Engine (混合执行引擎)"
         Loader -->|解析步骤 & 提取 Notes| Dispatcher[Dispatcher Agent]
@@ -31,8 +31,8 @@ graph TD
         Check -- No (确定性执行) --> ToolExec[直接调用工具]
         Check -- Yes (缺参数/有备注) --> LLM[LLM 决策核心]
         
-        LLM -->|查阅规范| KnowledgeTool[Knowledge Search (知识检索)]
-        LLM -->|查询数据| TableTool[Table Lookup (表格查询)]
+        LLM -->|查阅规范| KnowledgeTool["Knowledge Search (知识检索)"]
+        LLM -->|查询数据| TableTool["Table Lookup (表格查询)"]
         LLM -->|询问用户| UserAsk[询问用户]
     end
     
@@ -64,23 +64,30 @@ graph TD
 
 ## 4. 开发路线图 (Roadmap)
 
-### 已实现 (v0.01)
-- [x] 混合架构基础框架 (Rules + LLM)
-- [x] SOP 智能解析与 Markdown 加载
-- [x] NVIDIA API 多模型集成 (默认)
-- [x] 基础工具集：计算器、表格查询、知识检索
-- [x] 专业 GIS 断面计算工具
-- [x] 工具描述与代码注释中文化
+### 短期目标 (v0.1)-后端逻辑
+- [ ] *4B模型+SOP执行**: 能做注册考试题。
+- [ ] **执行日志可视化**: 实时追踪Agent决策链路。
+- [ ] *多模型选择**: 包括Qwen30BA3B、Deepseek、GLM4.7Flash、Qwen4B等
+- [ ] *通用tool制作**: 主要是工具库，如计算器、知识检索、表格查询等。
+- [ ] *可视化测试html**: 可视化后端执行流程
 
-### 短期目标 (v0.2 - v0.5)
-- [ ] **Web 交互界面**: 基于 FastAPI + React 的现代化控制台。
+### 短期目标 (v0.2)-前端框架
+- [ ] **Web可视化**: 基于Vue3+Antd实现前端交互。预留GeoWorld区域。
+- [ ] **多源知识库**: 支持 PDF/Word 解析、形成有效的数据源
+- [ ] **经验库引用**: 经验库克引用知识库数据。
 - [ ] **图形化 SOP 编辑器**: 拖拽式流程设计。
-- [ ] **多源知识库**: 支持 PDF/Word 自动解析。
-- [ ] **执行日志可视化**: 实时追踪 Agent 决策链路。
 
-### 长期愿景 (v1.0+)
+### 短期目标 (v0.3)-世界模型
+- [ ] *疏浚世界模型**: 实现GeoWorld，4B模型可查询地理、地质等信息
+
+### 短期目标 (v0.4)-三维计算
+- [ ] *方案设计**: 联合形成完成的三维数字孪生方案，含工程量计算、图纸生成
+
+### 短期目标 (v0.5)-报告生成
+- [ ] *报告编写**: 根据三维方案生成相应的报告
+
+### 长期愿景 (v0.5+)
 - [ ] **自动 SOP 生成**: 根据历史成功案例自动提炼作业程序。
-- [ ] **数字孪生集成**: 与 GeoWorld 实时数据流打通。
 - [ ] **行业生态建设**: 覆盖航道设计、水利、土木等更多垂直领域。
 
 ---
