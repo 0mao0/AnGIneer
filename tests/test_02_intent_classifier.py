@@ -122,12 +122,13 @@ class TestIntentClassifier(unittest.TestCase):
             print(f"  Query: {case['query']}")
             
             # 执行路由
-            sop, args = self.classifier.route(case['query'])
+            sop, args, reason = self.classifier.route(case['query'])
             
             # 结果展示
             sop_id = sop.id if sop else "None"
             print(f"  -> 路由结果 SOP: {sop_id}")
             print(f"  -> 提取参数 Args: {json.dumps(args, ensure_ascii=False)}")
+            print(f"  -> 路由原因 Reason: {reason}")
             
             # 为了兼容前端正则捕获
             if sop_id != "None":

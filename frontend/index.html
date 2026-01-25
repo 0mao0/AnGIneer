@@ -271,14 +271,21 @@
         <div id="unitTestInterface" style="display: none; flex: 1; flex-direction: column;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
                 <h3 style="margin: 0; color: #2c3e50;">测试结果</h3>
-                <!-- Unit Test Mode Selection -->
-                <div id="unitTestModeSelection" style="display: none; gap: 15px; background: #ebf5fb; padding: 5px 15px; border-radius: 20px; border: 1px solid #d4e6f1;">
-                    <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #27ae60; font-weight: bold;">
-                        <input type="radio" name="unitTestRunMode" value="instruct" checked> Instruct 📝
-                    </label>
-                    <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #8e44ad; font-weight: bold;">
-                        <input type="radio" name="unitTestRunMode" value="thinking"> Thinking 🧠
-                    </label>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div id="unitTestModelSelection" style="display: none; gap: 6px; align-items: center; background: #fdf2f2; padding: 5px 10px; border-radius: 20px; border: 1px solid #f5c6cb;">
+                        <span style="font-size: 12px; color: #7f8c8d;">模型</span>
+                        <select id="unitTestModelSelect" style="font-size: 12px; border: 1px solid #eee; padding: 2px 8px; border-radius: 12px; background: white; outline: none;" onchange="updateUnitTestModelSelection(this)">
+                            <option value="">加载中...</option>
+                        </select>
+                    </div>
+                    <div id="unitTestModeSelection" style="display: none; gap: 15px; background: #ebf5fb; padding: 5px 15px; border-radius: 20px; border: 1px solid #d4e6f1;">
+                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #27ae60; font-weight: bold;">
+                            <input type="radio" name="unitTestRunMode" value="instruct" checked> Instruct 📝
+                        </label>
+                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #8e44ad; font-weight: bold;">
+                            <input type="radio" name="unitTestRunMode" value="thinking"> Thinking 🧠
+                        </label>
+                    </div>
                 </div>
             </div>
             
@@ -336,6 +343,7 @@
         let availableModels = [];
 
         async function fetchModels() {
+            const intro = "加载可用模型并同步默认选择。";
             try {
                 const response = await fetch(`${API_URL}/llm_configs`);
                 availableModels = await response.json();
@@ -350,21 +358,224 @@
                         <div class="model-latency" id="latency-${m.name}" style="font-size: 10px; color: #3498db; font-weight: bold;"></div>
                     </label>
                 `).join('');
+                const unitTestSelect = document.getElementById('unitTestModelSelect');
+                const configuredModels = availableModels.filter(m => m.configured);
+                if (unitTestSelect) {
+                    unitTestSelect.innerHTML = configuredModels.length > 0 
+                        ? configuredModels.map(m => `<option value="${m.name}">${m.name}</option>`).join('')
+                        : `<option value="">无可用模型</option>`;
+                }
+                const defaultModel = pickDefaultModel(availableModels);
+                if (defaultModel) {
+                    const safeName = window.CSS && CSS.escape ? CSS.escape(defaultModel) : defaultModel;
+                    const radio = document.querySelector(`input[name="selectedModel"][value="${safeName}"]`);
+                    if (radio && !radio.disabled) {
+                        radio.checked = true;
+                        updateModelSelection(radio);
+                    }
+                    if (unitTestSelect) {
+                        unitTestSelect.value = defaultModel;
+                    }
+                }
             } catch (e) {
                 console.error('Failed to fetch models', e);
             }
         }
 
         function updateModelSelection(radio) {
-            document.querySelectorAll('.model-item').forEach(el => el.classList.remove('active'));
-            if (radio.checked) {
-                radio.closest('.model-item').classList.add('active');
+            const intro = "同步模型卡片与下拉选择状态。";
+            // Update UI to show selection
+            document.querySelectorAll('.model-item').forEach(el => {
+                el.classList.remove('active');
+            });
+            const parent = document.getElementById(`model-${radio.value}`);
+            if (parent) parent.classList.add('active');
+            const unitTestSelect = document.getElementById('unitTestModelSelect');
+            if (unitTestSelect && unitTestSelect.value !== radio.value) {
+                unitTestSelect.value = radio.value;
             }
+            
+            addConsoleLine(`Model changed to: ${radio.value}`);
+        }
+
+        function updateUnitTestModelSelection(select) {
+            const intro = "将结果区模型选择同步到模型卡片。";
+            const safeName = window.CSS && CSS.escape ? CSS.escape(select.value) : select.value;
+            const radio = document.querySelector(`input[name="selectedModel"][value="${safeName}"]`);
+            if (radio && !radio.disabled) {
+                radio.checked = true;
+                updateModelSelection(radio);
+            }
+        }
+
+        function pickDefaultModel(models) {
+            const intro = "优先选择 Qwen-VL 系列作为默认模型。";
+            if (!models || models.length === 0) return null;
+            const candidates = models.filter(m => m.configured);
+            const keywords = ["Qwen-VL", "Qwen3-VL", "Qwen VL"];
+            const preferred = candidates.find(m => keywords.some(k => (m.name || "").includes(k) || (m.model || "").includes(k)));
+            return (preferred || candidates[0])?.name || null;
+        }
+
+        // --- Helpers for Test 02 Streaming ---
+        function handleTest02Event(event) {
+            if (event.status === 'running') {
+                addConsoleLine(`[${event.step}] ${event.msg}`);
+                updateTest02Flowchart(event.step);
+            } else if (event.status === 'done') {
+                addConsoleLine(`[${event.step}] ✅ ${event.msg}`);
+                if (event.step === 'result') {
+                    renderTest02Result(event.data);
+                }
+                updateTest02Flowchart(event.step, true);
+            } else if (event.status === 'failed') {
+                 addConsoleLine(`[${event.step}] ❌ ${event.msg}`, true);
+            } else if (event.status === 'warning') {
+                 addConsoleLine(`[${event.step}] ⚠️ ${event.msg}`);
+            }
+        }
+
+        function updateTest01Flowchart(currentStep, summary = {}) {
+            const intro = "根据 Test01 进度刷新流程图高亮状态。";
+            const doneColor = "#d4efdf,stroke:#27ae60,stroke-width:2px";
+            const activeColor = "#3498db,stroke:#2980b9,stroke-width:2px,color:white,stroke-dasharray: 5 5";
+            const warnColor = "#fcf3cf,stroke:#f1c40f,stroke-width:2px";
+            const errorColor = "#f5b7b1,stroke:#c0392b,stroke-width:2px";
+            const def = `graph TD
+                Start((Start)) --> API["API Bridge (API桥接)<br/>backend/api_bridge.py:run_test/1"]
+                API --> Script["Test Script (测试脚本)<br/>tests/test_01_tool_registration.py"]
+                Script --> ToolsLoad["Load Tools (加载工具)<br/>src/tools/base.py:ToolRegistry.list_tools"]
+                ToolsLoad --> ToolsCheck["Validate Core Tools (核心工具校验)"]
+                ToolsCheck --> SOPLoad["Load SOPs (加载SOP)<br/>src/core/sop_loader.py:load_all"]
+                SOPLoad --> SOPCheck["Validate Core SOPs (核心SOP校验)"]
+                SOPCheck --> End(("Result (结果)"))
+            `;
+            let styleStr = "";
+            let focusNode = null;
+            styleStr += `style Start fill:${doneColor}\n`;
+            if (currentStep === 'running') {
+                styleStr += `style API fill:${activeColor}\n`;
+                styleStr += `style Script fill:${activeColor}\n`;
+                styleStr += `style ToolsLoad fill:${activeColor}\n`;
+                focusNode = "ToolsLoad";
+            } else if (currentStep === 'result') {
+                styleStr += `style API fill:${doneColor}\n`;
+                styleStr += `style Script fill:${doneColor}\n`;
+                styleStr += `style ToolsLoad fill:${doneColor}\n`;
+                styleStr += `style ToolsCheck fill:${summary.toolsError ? errorColor : doneColor}\n`;
+                styleStr += `style SOPLoad fill:${doneColor}\n`;
+                styleStr += `style SOPCheck fill:${summary.sopsError ? errorColor : (summary.sopsWarn ? warnColor : doneColor)}\n`;
+                styleStr += `style End fill:#d1f2eb,stroke:#16a085,stroke-width:4px\n`;
+                focusNode = "End";
+            }
+            setFlowchartFocusNode(focusNode);
+            updateFlowchart(def + "\n" + styleStr);
+        }
+
+        function updateTest02Flowchart(currentStep, isDone=false) {
+             const intro = "根据流式步骤刷新流程图高亮状态。";
+             const doneColor = "#d4efdf,stroke:#27ae60,stroke-width:2px";
+             const activeColor = "#3498db,stroke:#2980b9,stroke-width:2px,color:white,stroke-dasharray: 5 5";
+             
+             // Detailed graph definition matching the initialization
+             let def = `graph TD
+                Start((Start)) --> API["API Endpoint (API端点)<br/>backend/api_bridge.py:stream_test_02"]
+                API --> SOP["Load SOPs (加载SOP)<br/>src/core/sop_loader.py:load_all"]
+                SOP --> ClassInit["Init Classifier (初始化分类器)<br/>src/agents/classifier.py:__init__"]
+                ClassInit --> Route["Route Intent (意图路由)<br/>src/agents/classifier.py:route"]
+                Route --> Prompt["Build Prompt (构建提示词)<br/>src/agents/classifier.py:_build_prompt"]
+                Prompt --> LLM["LLM Chat (LLM对话)<br/>src/core/llm.py:chat"]
+                LLM --> Parse["Parse Response (解析响应)<br/>src/agents/classifier.py"]
+               Parse --> End(("Result (结果)"))
+             `;
+             
+             let styleStr = "";
+             let focusNode = null;
+             
+             // State machine coloring
+             styleStr += `style Start fill:${doneColor}\n`;
+             styleStr += `style API fill:${doneColor}\n`; // API is always done when we receive events
+
+             // LoadSOP (sop_load, sop_validate)
+             if (currentStep === 'sop_load' || currentStep === 'sop_validate') {
+                 styleStr += `style SOP fill:${isDone ? doneColor : activeColor}\n`;
+                 focusNode = "SOP";
+             } else if (['llm_load', 'inference', 'result'].includes(currentStep)) {
+                 styleStr += `style SOP fill:${doneColor}\n`;
+             }
+             
+             // InitLLM (llm_load)
+             if (currentStep === 'llm_load') {
+                 styleStr += `style ClassInit fill:${isDone ? doneColor : activeColor}\n`;
+                 focusNode = "ClassInit";
+             } else if (['inference', 'result'].includes(currentStep)) {
+                  styleStr += `style ClassInit fill:${doneColor}\n`;
+             }
+             
+             // Infer (inference covers Route -> Prompt -> LLM)
+             if (currentStep === 'inference') {
+                 // Highlight the active part of inference chain
+                 styleStr += `style Route fill:${activeColor}\n`;
+                 styleStr += `style Prompt fill:${activeColor}\n`;
+                 styleStr += `style LLM fill:${activeColor}\n`;
+                 focusNode = "LLM";
+             } else if (['result'].includes(currentStep)) {
+                 styleStr += `style Route fill:${doneColor}\n`;
+                 styleStr += `style Prompt fill:${doneColor}\n`;
+                 styleStr += `style LLM fill:${doneColor}\n`;
+             }
+             
+             // Result (result covers Parse -> End)
+             if (currentStep === 'result') {
+                 styleStr += `style Parse fill:${doneColor}\n`;
+                 styleStr += `style End fill:#d1f2eb,stroke:#16a085,stroke-width:4px\n`;
+                 focusNode = "End";
+             }
+             setFlowchartFocusNode(focusNode);
+             updateFlowchart(def + "\n" + styleStr);
+        }
+        
+        function renderTest02Result(data) {
+             const intro = "渲染 Test02 流式结果内容。";
+             const reasonValue = data.reason ?? data.reasonText ?? data.reason_zh ?? data.reason_en;
+             const reasonText = reasonValue != null && reasonValue.toString().trim() !== "" ? escapeHtml(reasonValue) : '无';
+             const rawInferenceTime = data.inference_time_s ?? data.inference_time ?? data.latency_s;
+             const inferenceSeconds = rawInferenceTime !== undefined && rawInferenceTime !== null && rawInferenceTime !== "" ? Number(rawInferenceTime) : null;
+             const inferenceText = inferenceSeconds !== null && !Number.isNaN(inferenceSeconds) ? `${inferenceSeconds.toFixed(2)}s` : '未知';
+             const html = `
+                <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                    <div style="font-size: 11px; color: #95a5a6; margin-bottom: 4px;">测试指令 (User Query):</div>
+                    <div style="font-family: sans-serif; font-size: 14px; color: #34495e; font-weight: 500;">${escapeHtml(data.raw_query || '')}</div>
+                </div>
+                <div style="background: #f8f9fa; border-left: 4px solid #8e44ad; padding: 15px; border-radius: 4px;">
+                     <div style="font-weight: bold; color: #8e44ad; margin-bottom: 10px; font-size: 14px;">🎯 意图路由结果</div>
+                     <div style="margin-bottom: 8px;">
+                        <strong>SOP ID:</strong> 
+                        <code style="background: #f4ecf7; color: #6c3483; padding: 2px 6px; border-radius: 3px;">${data.sop_id}</code>
+                     </div>
+                     <div style="margin-bottom: 8px;">
+                        <strong>SOP Name:</strong> ${data.sop_name}
+                     </div>
+                     <div style="margin-bottom: 8px;">
+                        <strong>Reason (推理):</strong> 
+                        <div style="background: #fff; border: 1px solid #ddd; padding: 8px; margin-top: 5px; font-size: 12px; border-radius: 4px; color: #555;">${reasonText}</div>
+                     </div>
+                     <div style="margin-bottom: 8px;">
+                        <strong>推理时间:</strong> ${inferenceText}
+                     </div>
+                     <div>
+                        <strong>提取参数:</strong> 
+                        <pre style="background: #fff; border: 1px solid #ddd; padding: 8px; margin-top: 5px; font-size: 12px; border-radius: 4px;">${JSON.stringify(data.args, null, 2)}</pre>
+                     </div>
+                 </div>
+             `;
+             document.getElementById('testResultDisplay').innerHTML = html;
         }
 
         fetchModels();
 
         async function switchTest(testId, btn) {
+            const intro = "根据测试类型切换界面布局。";
             currentTestId = testId;
             document.querySelectorAll('.test-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -375,11 +586,15 @@
             const samplesContainer = document.getElementById('samplesContainer');
             const chatSampleDiv = document.getElementById('sampleQueriesArea');
             const modeDiv = document.getElementById('unitTestModeSelection');
+            const unitTestModelSelection = document.getElementById('unitTestModelSelection');
+            const modelGrid = document.getElementById('modelGrid');
 
             // Hide all first
             samplesContainer.style.display = 'none';
             chatSampleDiv.style.display = 'none';
             modeDiv.style.display = 'none';
+            unitTestModelSelection.style.display = 'none';
+            modelGrid.style.display = 'none'; // Default hidden for unit tests
 
             if (testId === '0') {
                 document.getElementById('chatInterface').style.display = 'flex';
@@ -388,6 +603,7 @@
                 
                 samplesContainer.style.display = 'block';
                 chatSampleDiv.style.display = 'block';
+                modelGrid.style.display = 'grid'; // Show for chat
                 await loadTestCases(testId);
             } else {
                 document.getElementById('chatInterface').style.display = 'none';
@@ -401,13 +617,13 @@
                     await loadTestCases(testId);
                     
                     if (testId === '1') {
-                         modeDiv.style.display = 'flex';
+                         // Test 01: No LLM involved, hide mode selection
+                         modeDiv.style.display = 'none';
                     } else if (testId === '2') {
-                        // Test 02 doesn't usually need mode selection but let's hide it or keep it if needed.
-                        // Based on original code, Test 02 didn't strictly use mode in UI but backend supports it.
-                        // Let's keep it hidden for simplicity unless requested, or match original behavior.
-                        // Original had modeDiv.style.display = 'flex' for Test 2.
-                         modeDiv.style.display = 'flex';
+                        // Test 02: Needs LLM selection and Mode
+                        modeDiv.style.display = 'flex';
+                        unitTestModelSelection.style.display = 'flex';
+                        modelGrid.style.display = 'grid';
                     }
                 }
             }
@@ -461,12 +677,51 @@
             document.getElementById('queryInput').value = text;
         }
 
+    let flowchartRenderPending = null;
+    let flowchartRenderRunning = false;
+    let flowchartFocusNode = null;
     function updateFlowchart(mermaidCode) {
+        const intro = "排队渲染 Mermaid 流程图并避免闪白。";
         const container = document.getElementById('flowchartArea');
-        container.innerHTML = `<div id="mermaidContainer" class="mermaid">${mermaidCode}</div>`;
-        mermaid.render('mermaid-svg', mermaidCode).then(({ svg }) => {
-            container.innerHTML = svg;
-        });
+        flowchartRenderPending = mermaidCode;
+        if (flowchartRenderRunning) return;
+        flowchartRenderRunning = true;
+        const renderNext = async () => {
+            while (flowchartRenderPending) {
+                const code = flowchartRenderPending;
+                flowchartRenderPending = null;
+                try {
+                    const { svg } = await mermaid.render('mermaid-svg', code);
+                    container.innerHTML = svg;
+                    if (flowchartFocusNode) {
+                        requestAnimationFrame(() => centerFlowchartNode(flowchartFocusNode));
+                    }
+                } catch (e) {
+                    console.error("Mermaid render failed", e);
+                }
+            }
+            flowchartRenderRunning = false;
+        };
+        renderNext();
+    }
+
+    function setFlowchartFocusNode(nodeName) {
+        const intro = "设置当前需要居中的流程图节点。";
+        flowchartFocusNode = nodeName;
+    }
+
+    function centerFlowchartNode(nodeName) {
+        const intro = "将流程图中指定节点滚动到容器中间。";
+        if (!nodeName) return;
+        const container = document.getElementById('flowchartArea');
+        if (!container) return;
+        const safeName = window.CSS && CSS.escape ? CSS.escape(nodeName) : nodeName;
+        const target = container.querySelector(`[id^="flowchart-${safeName}-"]`);
+        if (!target) return;
+        const containerRect = container.getBoundingClientRect();
+        const targetRect = target.getBoundingClientRect();
+        const delta = targetRect.top - containerRect.top - containerRect.height / 2 + targetRect.height / 2;
+        container.scrollTop += delta;
     }
 
     function addConsoleLine(text, isError = false) {
@@ -549,7 +804,13 @@
         
         addConsoleLine(`启动 LLM 对话测试: 模型=${model}, 模式=${mode || '默认'}, 输入=${query || '默认套件'}`);
         // Initial flowchart
-        updateFlowchart(`graph TD\nStart((开始)) --> Request[${mq('发送请求: ' + model + (mode ? ' ['+mode+']' : ''))}]\nRequest --> Waiting[${mq('等待响应...')}]`);
+        updateFlowchart(`graph TD
+            Start((Start)) --> API["API Bridge (API桥接)<br/>backend/api_bridge.py:run_test/0"]
+            API --> Script["Test Script (测试脚本)<br/>tests/test_00_llm_chat.py"]
+            Script --> LLM["LLM Core (核心LLM)<br/>src/core/llm.py:chat"]
+            LLM --> HTTP["Request (请求)<br/>requests.post"]
+            HTTP --> Waiting["Waiting for Response... (等待响应)"]
+        `);
 
         try {
             let url = `${API_URL}/run_test/0?config=${encodeURIComponent(model)}&query=${encodeURIComponent(query)}`;
@@ -578,11 +839,22 @@
                 ? `响应成功\n(${chatFunctions.join(', ')})`
                 : "响应成功";
 
-            if (data.exit_code === 0) {
-                updateFlowchart(`graph TD\nStart((开始)) --> Request[${mq('发送请求: ' + model)}]\nRequest --> Success[${mq(successLabel)}]\nSuccess --> End((结束))`);
-            } else {
-                updateFlowchart(`graph TD\nStart((开始)) --> Request[${mq('发送请求: ' + model)}]\nRequest --> Failed[${mq('请求失败')}]\nFailed --> End((结束))`);
-            }
+            // Sanitize label for Mermaid: escape quotes and handle newlines
+            const safeLabel = successLabel.replace(/"/g, "'").replace(/\n/g, '<br/>');
+            const resultNode = data.exit_code === 0 
+                ? `Success["Success (成功)<br/>${safeLabel}"]` 
+                : `Failed["Failed (失败)<br/>Exit Code: ${data.exit_code}"]`;
+            
+            const resultStyle = data.exit_code === 0 ? "style Success fill:#d4efdf,stroke:#27ae60" : "style Failed fill:#fadbd8,stroke:#c0392b";
+            
+            updateFlowchart(`graph TD
+                Start((Start)) --> API["API Bridge (API桥接)<br/>backend/api_bridge.py:run_test/0"]
+                API --> Script["Test Script (测试脚本)<br/>tests/test_00_llm_chat.py"]
+                Script --> LLM["LLM Core (核心LLM)<br/>src/core/llm.py:chat"]
+                LLM --> HTTP["Request (请求)<br/>requests.post"]
+                HTTP --> ${resultNode}
+                ${resultStyle}
+            `);
 
             if (data.stderr) {
                 addConsoleLine("错误输出: " + data.stderr, true);
@@ -598,6 +870,10 @@
         }
 
     async function runUnitTest(testId) {
+            // Collect UI State
+            // query and mode will be determined below based on test ID and visibility
+            const model = document.querySelector('input[name="selectedModel"]:checked')?.value;
+
             document.getElementById('consoleArea').innerHTML = '';
             document.getElementById('testResultDisplay').innerHTML = `
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100px; color: #3498db;">
@@ -615,15 +891,109 @@
                 mode = document.querySelector('input[name="unitTestRunMode"]:checked')?.value;
             }
 
-            // Get query from main input if it's test 01
+            // Get query from main input if it's test 01 or 02
             let query = null;
-            if (testId === '1') {
+            if (testId === '1' || testId === '2') {
                 query = document.getElementById('queryInput').value;
+                document.getElementById('queryInput').value = ''; // Clear input as requested
                 addConsoleLine(`测试指令: "${query}"`);
             }
 
+            // --- SPECIAL HANDLING FOR TEST 02 STREAMING ---
+        if (testId === '2' && query) {
+            // Validate Model Selection for Test 02
+            if (!model) { 
+                alert("请先选择一个模型 (Test 02 需要 LLM)"); 
+                document.getElementById('testResultDisplay').innerHTML = '';
+                return; 
+            }
+
+            // Use the new streaming endpoint
+            addConsoleLine(`启动意图识别流程 (Streaming)...`);
+            addConsoleLine(`Model: ${model}, Mode: ${mode}`);
+            
+            // Init Flowchart
+            const graphDef = `graph TD
+                Start((Start)) --> API["API Endpoint (API端点)<br/>backend/api_bridge.py:stream_test_02"]
+                API --> SOP["Load SOPs (加载SOP)<br/>src/core/sop_loader.py:load_all"]
+                SOP --> ClassInit["Init Classifier (初始化分类器)<br/>src/agents/classifier.py:__init__"]
+                ClassInit --> Route["Route Intent (意图路由)<br/>src/agents/classifier.py:route"]
+                Route --> Prompt["Build Prompt (构建提示词)<br/>src/agents/classifier.py:_build_prompt"]
+                Prompt --> LLM["LLM Chat (LLM对话)<br/>src/core/llm.py:chat"]
+                LLM --> Parse["Parse Response (解析响应)<br/>src/agents/classifier.py"]
+                Parse --> End(("Result (结果)"))
+                
+                style Start fill:#ecf0f1,stroke:#bdc3c7
+                style API fill:#e8f8f5,stroke:#1abc9c
+                style SOP fill:#fff,stroke:#3498db,stroke-dasharray: 5 5
+                style ClassInit fill:#fff,stroke:#bdc3c7
+                style Route fill:#fff,stroke:#bdc3c7
+                style Prompt fill:#fff,stroke:#bdc3c7
+                style LLM fill:#fef9e7,stroke:#f1c40f
+                style Parse fill:#fff,stroke:#bdc3c7
+                style End fill:#ecf0f1,stroke:#bdc3c7
+            `;
+            updateFlowchart(graphDef);
+
+            try {
+                const url = `${API_URL}/test/stream/02?query=${encodeURIComponent(query)}&config=${encodeURIComponent(model)}&mode=${encodeURIComponent(mode)}`;
+                const response = await fetch(url);
+                const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+                    let buffer = '';
+                    
+                    while (true) {
+                        const { done, value } = await reader.read();
+                        if (done) break;
+                        
+                        buffer += decoder.decode(value, { stream: true });
+                        const lines = buffer.split('\n');
+                        buffer = lines.pop(); // Keep incomplete line
+                        
+                        for (const line of lines) {
+                            if (!line.trim()) continue;
+                            try {
+                                const event = JSON.parse(line);
+                                handleTest02Event(event);
+                            } catch (e) {
+                                console.error("JSON Parse Error", e);
+                            }
+                        }
+                    }
+                    stopTimer('完成');
+                } catch (e) {
+                    addConsoleLine(`Error: ${e.message}`, true);
+                    stopTimer('出错');
+                }
+                return; // Exit function, don't run legacy logic
+            }
+
             addConsoleLine(`单元测试启动: Test ID: ${testId} ${mode ? `(Mode: ${mode})` : ''}`);
-            updateFlowchart(`graph TD\nStart((开始)) --> Init[${mq('初始化测试: ' + testId)}]\nInit --> Running[${mq('运行中...')}]`);
+            let graphDef = "";
+            if (testId === '1') {
+                graphDef = `graph TD
+                    Start((Start)) --> API["API Bridge<br/>backend/api_bridge.py:run_test/1"]
+                    API --> Script["Test Script<br/>tests/test_01_tool_registration.py"]
+                    Script --> ToolsLoad["Load Tools<br/>src/tools/base.py:ToolRegistry.list_tools"]
+                    ToolsLoad --> ToolsCheck["Validate Core Tools"]
+                    ToolsCheck --> SOPLoad["Load SOPs<br/>src/core/sop_loader.py:load_all"]
+                    SOPLoad --> SOPCheck["Validate Core SOPs"]
+                    SOPCheck --> End((Wait Result))`;
+            } else if (testId === '2') {
+                 graphDef = `graph TD
+                    Start((Start)) --> API["API Bridge<br/>backend/api_bridge.py:run_test/2"]
+                    API --> Script["Test Script<br/>tests/test_02_intent_classifier.py"]
+                    Script --> SOP["SOP Loader<br/>src/core/sop_loader.py"]
+                    SOP --> Class["Classifier<br/>src/agents/classifier.py"]
+                    Class --> End((Wait Result))`;
+            } else {
+                 graphDef = `graph TD\nStart((Start)) --> Init["初始化测试: ${testId}"]\nInit --> Running["运行中..."]`;
+            }
+            if (testId === '1') {
+                updateTest01Flowchart('running');
+            } else {
+                updateFlowchart(graphDef);
+            }
 
             try {
                 const config = document.querySelector('input[name="selectedModel"]:checked')?.value;
@@ -657,8 +1027,12 @@
 
                 if (testId === '1') {
                     if (jsonResult) {
-                        // Render Checklist from JSON
                         let toolsHtml = "";
+                        let sopsHtml = "";
+                        const toolCountMatch = data.stdout.match(/已注册工具数量:\s*(\d+)/);
+                        const sopCountMatch = data.stdout.match(/已加载 SOP 数量:\s*(\d+)/);
+                        const toolCount = toolCountMatch ? parseInt(toolCountMatch[1]) : (jsonResult.tools ? jsonResult.tools.filter(t => t.status === 'ok').length : 0);
+                        const sopCount = sopCountMatch ? parseInt(sopCountMatch[1]) : (jsonResult.sops ? jsonResult.sops.filter(s => s.status === 'ok').length : 0);
                         if (jsonResult.tools && jsonResult.tools.length > 0) {
                             toolsHtml = jsonResult.tools.map(t => `
                                 <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid #eee;">
@@ -679,12 +1053,11 @@
                             `).join('');
                         }
 
-                        let sopsHtml = "";
                         if (jsonResult.sops && jsonResult.sops.length > 0) {
                             sopsHtml = jsonResult.sops.map(s => `
                                 <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid #eee;">
                                     <div style="display: flex; align-items: center; gap: 8px;">
-                                        <span style="font-size: 16px;">${s.status === 'ok' ? '✅' : (s.status === 'warning' ? '⚠️' : '❌')}</span>
+                                        <span style="font-size: 16px;">${s.status === 'missing' ? '❌' : '✅'}</span>
                                         <div>
                                             <div style="font-weight: bold; color: #2c3e50;">${s.name}</div>
                                             <div style="font-size: 11px; color: #95a5a6;">${s.desc || 'No description'}</div>
@@ -701,13 +1074,17 @@
                                     资源加载检查清单
                                 </div>
                                 <div style="max-height: 300px; overflow-y: auto;">
-                                    ${toolsHtml ? `<div style="padding: 5px 15px; background: #e8f8f5; color: #16a085; font-size: 11px; font-weight: bold;">工具 (Tools)</div>${toolsHtml}` : ''}
-                                    ${sopsHtml ? `<div style="padding: 5px 15px; background: #fef9e7; color: #f1c40f; font-size: 11px; font-weight: bold;">SOPs</div>${sopsHtml}` : ''}
+                                    ${toolsHtml ? `<div style="padding: 5px 15px; background: #e8f8f5; color: #16a085; font-size: 11px; font-weight: bold;">Tools（${toolCount}）</div>${toolsHtml}` : ''}
+                                    ${sopsHtml ? `<div style="padding: 5px 15px; background: #fef9e7; color: #f1c40f; font-size: 11px; font-weight: bold;">SOPs（${sopCount}）</div>${sopsHtml}` : ''}
                                 </div>
                             </div>
                         `;
+                        updateTest01Flowchart('result', {
+                            toolsError: (jsonResult.tools || []).some(t => t.status !== 'ok'),
+                            sopsError: (jsonResult.sops || []).some(s => s.status === 'missing'),
+                            sopsWarn: (jsonResult.sops || []).some(s => s.status === 'warning')
+                        });
                     } else {
-                        // Fallback to old regex if JSON missing (legacy support)
                         const toolMatch = data.stdout.match(/\[AI 选择\] 工具: (.*)/);
                         const paramsMatch = data.stdout.match(/\[AI 参数\] Inputs: (.*)/);
                         if (toolMatch) {
@@ -719,6 +1096,7 @@
                                 </div>
                             `;
                         }
+                        updateTest01Flowchart('result', {});
                     }
                 } else if (testId === '2') {
         const stdout = data.stdout || "";
@@ -729,8 +1107,19 @@
         const sopMatch = stdout.match(/匹配 SOP ID:\s*(.*?)($| \|)/i) || stdout.match(/SOP_ID:\s*(.*)/i);
         const argsMatch = stdout.match(/提取参数:\s*(.*?)($| \|)/i) || stdout.match(/ARGS:\s*(.*)/i);
 
+        let queryDisplay = "";
+        if (query) {
+             queryDisplay = `
+                <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                    <div style="font-size: 11px; color: #95a5a6; margin-bottom: 4px;">测试指令 (User Query):</div>
+                    <div style="font-family: sans-serif; font-size: 14px; color: #34495e; font-weight: 500;">${escapeHtml(query)}</div>
+                </div>
+            `;
+        }
+
         if (data.exit_code !== 0) {
             summaryResult = `
+                ${queryDisplay}
                 <div style="background: #fff5f5; border-left: 4px solid #e74c3c; padding: 15px; border-radius: 4px;">
                     <div style="font-weight: bold; color: #e74c3c; margin-bottom: 5px; font-size: 14px;">❌ 测试执行出错</div>
                     <div style="font-size: 13px; color: #666;">Python 脚本运行失败，请查看控制台输出。</div>
@@ -738,6 +1127,7 @@
             `;
         } else if (matchError) {
             summaryResult = `
+                ${queryDisplay}
                 <div style="background: #fff5f5; border-left: 4px solid #e74c3c; padding: 15px; border-radius: 4px;">
                     <div style="font-weight: bold; color: #e74c3c; margin-bottom: 5px; font-size: 14px;">⚠️ 分类器执行异常</div>
                     <div style="font-size: 13px; color: #666;">AI 响应解析失败，可能由于模型输出格式不正确或网络超时。</div>
@@ -745,6 +1135,7 @@
             `;
         } else if (matchSuccess && sopMatch) {
                          summaryResult = `
+                             ${queryDisplay}
                              <div style="background: #f8f9fa; border-left: 4px solid #8e44ad; padding: 15px; border-radius: 4px;">
                                  <div style="font-weight: bold; color: #8e44ad; margin-bottom: 10px; font-size: 14px;">🎯 意图路由成功</div>
                                  <div style="margin-bottom: 8px;"><strong>匹配 SOP:</strong> <code style="background: #f4ecf7; color: #6c3483; padding: 2px 6px; border-radius: 3px;">${sopMatch[1].trim()}</code></div>
@@ -753,6 +1144,7 @@
                          `;
                      } else {
                          summaryResult = `
+                             ${queryDisplay}
                              <div style="background: #fff5f5; border-left: 4px solid #e74c3c; padding: 15px; border-radius: 4px;">
                                  <div style="font-weight: bold; color: #e74c3c; margin-bottom: 5px; font-size: 14px;">⚪ 未匹配到 SOP</div>
                                  <div style="font-size: 13px; color: #666;">指令可能属于通用对话或不属于现有流程。</div>
@@ -786,12 +1178,12 @@
                     </div>
                 `;
             
-            // Generate flowchart from steps
             let flowchartSteps = [`Start((开始)) --> Init[${mq('测试: ' + data.test_file)}]`];
             let lastNode = "Init";
             let stepCount = 0;
             let currentStepName = "";
             let currentStepDetails = [];
+            const buildFlowchartSteps = testId !== '1';
 
             const lines = data.stdout.split('\n');
             lines.forEach(line => {
@@ -799,8 +1191,7 @@
                 if (!trimmedLine) return;
 
                 if (trimmedLine.includes('-> 步骤')) {
-                    // If we had a previous step, add it now
-                    if (stepCount > 0) {
+                    if (stepCount > 0 && buildFlowchartSteps) {
                         const nodeId = `Step${stepCount}`;
                         const label = currentStepDetails.length > 0 
                             ? `${currentStepName}\n${currentStepDetails.join('\n')}`
@@ -814,9 +1205,7 @@
                     currentStepDetails = [];
                     addConsoleLine(trimmedLine);
                 } else {
-                    // Collect everything else into details (similar to console)
-                    if (stepCount > 0) {
-                        // For flowchart, we might want to clean up some symbols for better look
+                    if (stepCount > 0 && buildFlowchartSteps) {
                         const cleanLine = trimmedLine.replace('[CALL]', '📞').replace('[OK]', '✅').replace('[ERROR]', '❌');
                         currentStepDetails.push(cleanLine);
                     }
@@ -824,18 +1213,19 @@
                 }
             });
 
-            // Add the last step
-            if (stepCount > 0) {
-                const nodeId = `Step${stepCount}`;
-                const label = currentStepDetails.length > 0 
-                    ? `${currentStepName}\n${currentStepDetails.join('\n')}`
-                    : currentStepName;
-                flowchartSteps.push(`${lastNode} --> ${nodeId}[${mq(label)}]`);
-                lastNode = nodeId;
-            }
+            if (buildFlowchartSteps) {
+                if (stepCount > 0) {
+                    const nodeId = `Step${stepCount}`;
+                    const label = currentStepDetails.length > 0 
+                        ? `${currentStepName}\n${currentStepDetails.join('\n')}`
+                        : currentStepName;
+                    flowchartSteps.push(`${lastNode} --> ${nodeId}[${mq(label)}]`);
+                    lastNode = nodeId;
+                }
 
-            flowchartSteps.push(`${lastNode} --> End((完成))`);
-            updateFlowchart(`graph TD\n${flowchartSteps.join('\n')}`);
+                flowchartSteps.push(`${lastNode} --> End((完成))`);
+                updateFlowchart(`graph TD\n${flowchartSteps.join('\n')}`);
+            }
 
             if (data.stderr) {
                 addConsoleLine("错误输出:\n" + data.stderr, true);

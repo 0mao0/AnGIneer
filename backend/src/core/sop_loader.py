@@ -21,6 +21,7 @@ class SopLoader:
     def __init__(self, sop_dir: str):
         self.sop_dir = sop_dir
         self.index_file = os.path.join(sop_dir, "index.json")
+        self.sops: List[SOP] = [] # Cache
 
     def load_all(self) -> List[SOP]:
         """
@@ -31,7 +32,8 @@ class SopLoader:
             print(f"SOP Index not found at {self.index_file}, generating...")
             self.refresh_index()
             
-        return self._load_from_index()
+        self.sops = self._load_from_index()
+        return self.sops
 
     def refresh_index(self):
         """

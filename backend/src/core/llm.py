@@ -33,10 +33,10 @@ class LLMClient:
                 "model": os.getenv("NVIDIA_MODEL_NEMOTRON")
             },
             {
-                "name": "NVIDIA (DeepSeek-V3)",
-                "api_key": nvidia_api_key,
-                "base_url": nvidia_base_url,
-                "model": os.getenv("NVIDIA_MODEL_DEEPSEEK")
+                "name": "DeepSeek Official",
+                "api_key": os.getenv("DEEPSEEK_API_KEY"),
+                "base_url": os.getenv("DEEPSEEK_API_URL"),
+                "model": os.getenv("DEEPSEEK_MODEL")
             },
             {
                 "name": "NVIDIA (Kimi/Moonshot)",
@@ -65,7 +65,7 @@ class LLMClient:
             }
         ]
         
-    def chat(self, messages: list, temperature: float = 0.1, model: str = None, mode: str = "instruct") -> str:
+    def chat(self, messages: list, temperature: float = 0.1, model: str = None, mode: str = "instruct", config_name: str = None) -> str:
         """
         发送对话请求并获取响应。
         
@@ -74,7 +74,7 @@ class LLMClient:
             temperature: 生成温度
             model: 可选，指定使用的模型 ID。如果未提供，则使用配置中的默认模型。
             mode: 指定运行模式 ('thinking', 'instruct')，默认为 'instruct'。
-                  可以通过环境变量 FORCE_LLM_MODE 强制覆盖。
+            config_name: 可选，指定使用的配置名称 (e.g., "NVIDIA (Nemotron)", "DeepSeek Official")
             
         Returns:
             str: 模型生成的回答内容
@@ -115,11 +115,28 @@ class LLMClient:
         for config in self.configs:
             if not config["api_key"] or not config["base_url"]:
                 continue
+
+            # 如果指定了 config_name，跳过不匹配的配置
+            if config_name and config["name"] != config_name:
+                continue
             
             # 确定当前使用的模型：
             # 1. 如果外部指定了 model，且当前配置是 NVIDIA（因为 NVIDIA 接口通用性最强），则使用指定的 model
             # 2. 否则使用该配置默认的 model
-            current_model = model if model and config["name"].startswith("NVIDIA") else config["model"]
+            current_model = config["model"]
+            if model and (config["name"].startswith("NVIDIA") or config["name"].startswith("DeepSeek")):
+                 # 如果用户指定了 model，且当前是支持多模型的 Provider (NVIDIA/DeepSeek)，尝试匹配
+                 # 但这里简单处理：如果 config["name"] 匹配了请求的 config name，才使用
+                 pass
+            
+            # 修正逻辑：LLMClient 会遍历所有 config 尝试调用
+            # 我们应该只调用匹配的 config (如果指定了 config name)
+            # 目前的逻辑是遍历所有 config，直到成功。
+            # 这会导致如果第一个失败，会尝试第二个。
+            
+            # 为了支持前端选择特定 Config (Model Provider)
+            # 我们可以在 chat 参数里加一个 config_name? 
+            # 暂时保持现状，但注意 DeepSeek 的 base_url 是特定的
             
             # 记录日志：开始连接
             print("\n" + "="*50)
@@ -147,10 +164,15 @@ class LLMClient:
                     base_url=base_url
                 )
                 
+                # 如果是 DeepSeek，确保 model 正确
+                if config["name"] == "DeepSeek Official" and not current_model:
+                     current_model = "deepseek-chat"
+
                 response = client.chat.completions.create(
                     model=current_model,
                     messages=processed_messages,
-                    temperature=temperature
+                    temperature=temperature,
+                    max_tokens=1024
                 )
                 
                 content = response.choices[0].message.content

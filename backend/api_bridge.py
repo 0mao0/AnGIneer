@@ -2,6 +2,7 @@ import os
 import json
 import glob
 import subprocess
+import asyncio
 from typing import List, Dict, Any, Optional
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -169,13 +170,14 @@ def chat(request: QueryRequest):
     sops = sop_loader.load_all()
     
     classifier = IntentClassifier(sops)
-    sop, args = classifier.route(request.query)
+    sop, args, reason = classifier.route(request.query)
     
     if not sop:
         return {
             "sop_id": None,
             "response": None,
-            "trace": []
+            "trace": [],
+            "reason": reason
         }
     
     # 2. Execute with TraceDispatcher
@@ -188,6 +190,7 @@ def chat(request: QueryRequest):
         "sop_name_en": sop.name_en or sop.id,
         "args": args,
         "trace": execution_trace,
+        "reason": reason,
         "final_context": final_context
     }
 
@@ -201,7 +204,7 @@ def chat_stream(request: QueryRequest):
             sops = sop_loader.load_all()
 
             classifier = IntentClassifier(sops)
-            sop, args = classifier.route(request.query)
+            sop, args, reason = classifier.route(request.query)
 
             if not sop:
                 yield json.dumps({"type": "nomatch"}) + "\n"
@@ -212,7 +215,8 @@ def chat_stream(request: QueryRequest):
                 "sop_id": sop.id,
                 "sop_name_zh": sop.name_zh or sop.id,
                 "sop_name_en": sop.name_en or sop.id,
-                "args": args
+                "args": args,
+                "reason": reason
             }) + "\n"
 
             trace_list: list = []
@@ -296,6 +300,76 @@ def get_test_cases(test_id: str):
             return {"test_id": test_id, "cases": []}
             
     return {"test_id": test_id, "cases": []}
+
+@app.get("/test/stream/02")
+async def stream_test_02(query: str, config: str = None, mode: str = "instruct"):
+    """
+    Test 02 Streaming Execution Endpoint
+    Provides real-time feedback on the Intent Classification process.
+    """
+    async def generate():
+        try:
+            # Step 1: SOP Check (Pre-loaded / Cache Check)
+            yield json.dumps({"step": "sop_load", "status": "running", "msg": "正在检查 SOP 列表..."}) + "\n"
+            await asyncio.sleep(0.3) # Visual pacing
+            
+            # Use the global sop_loader
+            if not sop_loader.sops:
+                sops = sop_loader.load_all()
+            else:
+                sops = sop_loader.sops
+                
+            yield json.dumps({"step": "sop_load", "status": "done", "msg": f"SOP 加载完成 (共 {len(sops)} 个)"}) + "\n"
+
+            # Step 2: Validate SOPs (Quick sampling)
+            yield json.dumps({"step": "sop_validate", "status": "running", "msg": "抽检 SOP 有效性..."}) + "\n"
+            await asyncio.sleep(0.2)
+            required = ["math_sop", "code_review"]
+            found_ids = [s.id for s in sops]
+            missing = [r for r in required if r not in found_ids]
+            if missing:
+                 yield json.dumps({"step": "sop_validate", "status": "warning", "msg": f"缺少核心 SOP: {missing}"}) + "\n"
+            else:
+                 yield json.dumps({"step": "sop_validate", "status": "done", "msg": "核心 SOP 校验通过"}) + "\n"
+
+            # Step 3: LLM Init
+            yield json.dumps({"step": "llm_load", "status": "running", "msg": f"初始化意图分类器 (Model: {config or 'Default'}, Mode: {mode})..."}) + "\n"
+            # Instantiate classifier
+            classifier = IntentClassifier(sops)
+            yield json.dumps({"step": "llm_load", "status": "done", "msg": "分类器就绪"}) + "\n"
+
+            # Step 4: Inference
+            yield json.dumps({"step": "inference", "status": "running", "msg": f"LLM 正在分析: {query[:20]}..."}) + "\n"
+            
+            # Run blocking route() in executor
+            loop = asyncio.get_event_loop()
+            start_time = asyncio.get_event_loop().time()
+            
+            # Use a wrapper to pass extra args
+            def run_route():
+                return classifier.route(query, config_name=config, mode=mode)
+                
+            sop, args, reason = await loop.run_in_executor(None, run_route)
+            duration = asyncio.get_event_loop().time() - start_time
+            
+            yield json.dumps({"step": "inference", "status": "done", "msg": f"推理完成 ({duration:.2f}s)"}) + "\n"
+
+            # Step 5: Result
+            sop_id = sop.id if sop else "None"
+            result_data = {
+                "sop_id": sop_id,
+                "sop_name": sop.name_zh if sop else "Unknown",
+                "args": args,
+                "reason": reason,
+                "raw_query": query,
+                "inference_time_s": duration
+            }
+            yield json.dumps({"step": "result", "status": "done", "data": result_data}) + "\n"
+            
+        except Exception as e:
+            yield json.dumps({"step": "error", "status": "failed", "msg": str(e)}) + "\n"
+
+    return StreamingResponse(generate(), media_type="application/x-ndjson")
 
 @app.get("/run_test/{test_id}")
 def run_test(test_id: str, config: str = None, query: str = None, mode: str = "instruct"):

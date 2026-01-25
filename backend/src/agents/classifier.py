@@ -10,13 +10,18 @@ class IntentClassifier:
     def __init__(self, sops: List[SOP]):
         self.sops = sops
         
-    def route(self, user_query: str) -> Tuple[Optional[SOP], Dict[str, Any]]:
+    def route(self, user_query: str, config_name: str = None, mode: str = "instruct") -> Tuple[Optional[SOP], Dict[str, Any], Optional[str]]:
         """
         分析用户查询，返回匹配的 SOP 和提取的参数。
+        
+        Args:
+            user_query: 用户输入的查询
+            config_name: 指定的 LLM 配置名称 (e.g., "DeepSeek Official")
+            mode: 运行模式 ("instruct" or "thinking")
         """
         if not self.sops:
             print("警告: 没有可用的 SOP 列表进行匹配。")
-            return None, {}
+            return None, {}, None
 
         sop_descriptions = []
         for sop in self.sops:
@@ -46,10 +51,11 @@ class IntentClassifier:
             {"role": "user", "content": user_prompt}
         ]
         
-        response_text = llm_client.chat(messages)
+        # Pass config_name and mode to llm_client.chat
+        response_text = llm_client.chat(messages, mode=mode, config_name=config_name)
         if not response_text:
             print("分类器错误: LLM 响应为空")
-            return None, {}
+            return None, {}, None
         
         try:
             # 更加鲁棒的 JSON 提取逻辑
@@ -73,10 +79,11 @@ class IntentClassifier:
             data = json.loads(content.strip())
             sop_id = data.get("sop_id")
             args = data.get("args", {})
+            reason = data.get("reason")
             
             # 处理 null/None/空字符串
             if not sop_id or str(sop_id).lower() in ["null", "none", "nan", ""]:
-                return None, {}
+                return None, {}, reason
                 
             # 3. 匹配 SOP (支持大小写不敏感和前后空格)
             sop_id_str = str(sop_id).strip()
@@ -90,7 +97,7 @@ class IntentClassifier:
                 print(f"警告: LLM 返回了未知的 SOP ID: {sop_id_str}")
                 print(f"当前可用的 SOP ID 列表: {[s.id for s in self.sops]}")
                 
-            return selected_sop, args
+            return selected_sop, args, reason
             
         except Exception as e:
             error_msg = f"分类器解析错误: {e}"
@@ -98,4 +105,4 @@ class IntentClassifier:
             print(f"原始响应内容: {response_text}")
             # 这里的输出供前端识别
             print(f"  [AI 运行出错]: {error_msg}")
-            return None, {}
+            return None, {}, None
