@@ -1,12 +1,12 @@
 # 📦 PicoAgent: 工程师的 AGI 助手
 
-**小型 LLM + SOPs + GeoWorld = 节省工程师 50% 工作量 ≈ 工程师 AGI**
+**小型 SLM + SOPs + GeoWorld = 节省工程师 50% 工作量 ≈ 工程师 AGI**
 
 ---
 
 ## 1. 项目愿景 (Vision)
 
-PicoAgent 是一个**基于 SOP 的轻量级 Agent 执行引擎**，专为工程、设计等严谨行业打造。我们的目标是通过结合小型语言模型 (LLM)、标准作业程序 (SOPs) 和地理世界 (GeoWorld) 数据，为工程师提供高度确定性的自动化工具，显著提升生产力。
+PicoAgent 是一个**基于 SOP 的轻量级 Agent 执行引擎**，专为工程、设计等严谨行业打造。我们的目标是通过结合小型语言模型 (SLM)、标准作业程序 (SOPs) 和地理世界 (GeoWorld) 数据，为工程师提供高度确定性的自动化工具，显著提升生产力。
 
 ### 核心理念
 - **Human Defines SOP, Agent Executes Tasks** (人定流程，Agent 执行)
@@ -48,7 +48,7 @@ graph TD
 - **[classifier.py](/AI/PicoAgent/backend/src/agents/classifier.py)**: 意图分类器。负责识别用户意图并匹配最合适的 SOP。
 - **[dispatcher.py](/AI/PicoAgent/backend/src/agents/dispatcher.py)**: 核心调度引擎。根据 SOP 步骤控制执行流，决定是直接运行工具还是调用 LLM。
 - **[sop_loader.py](/AI/PicoAgent/backend/src/core/sop_loader.py)**: 智能加载器。将 Markdown 格式的 SOP 转换为结构化步骤，并利用 LLM 提取关键约束和输入要求。
-- [llm.py](/AI/PicoAgent/backend/src/core/llm.py): LLM 客户端封装。集成 **NVIDIA API** (Nemotron, DeepSeek, Kimi 等) 与 **智谱 AI** (GLM-4.7-Flash)，支持多模型切换和双语处理。
+- [llm.py](/AI/PicoAgent/backend/src/core/llm.py): LLM 客户端封装。集成主流AI模型，支持多模型切换和双语处理。
 - [memory.py](/AI/PicoAgent/backend/src/core/memory.py): 上下文与记忆管理。分层存储全局上下文、步骤历史和工作记忆。
 
 ---
@@ -57,8 +57,7 @@ graph TD
 
 1.  **SOP确定性执行**: 自然语言描述的主观经验库，确保强执行力。
 2.  **SLM低耗小模型**: 仅需5B以下的小模型即可。
-3.  **多模型适配**: 默认支持 NVIDIA 家族模型，现已集成 **智谱 GLM-4.7-Flash** 提供高性能国产大模型支持。
-4.  **地理世界模型**: 提供面向三维世界的交互模型。
+3.  **地理世界模型**: 提供面向三维世界的交互模型。
 
 ---
 
@@ -104,7 +103,7 @@ PicoAgent/
 │   ├── sops/               # SOP 文档库 (*.md)
 │   └── knowledge/          # 行业规范与知识库
 ├── tests/                  # 测试用例
-├── .env                    # 环境配置 (含 NVIDIA API Key)
+├── .env                    # 环境配置 (LLM API Key)
 └── README.md               # 本文档
 ```
 

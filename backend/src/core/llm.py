@@ -20,49 +20,51 @@ class LLMClient:
         self.configs = [
             # 阿里云系列模型
             {
-                "name": "私有配置 (Private)",
+                "name": "Qwen3VL-30B-A3B (Private)",
                 "api_key": os.getenv("Private_ALIYUN_API_KEY"),
                 "base_url": os.getenv("Private_ALIYUN_API_URL"),
                 "model": os.getenv("Private_ALIYUN_MODEL")
             },
+            {
+                "name": "Qwen3-Turbo (Public)",
+                "api_key": os.getenv("Public_ALIYUN_API_KEY"),
+                "base_url": os.getenv("Public_ALIYUN_API_URL"),
+                "model": os.getenv("Public_ALIYUN_MODEL")
+            },
+            
+            # Deppseek模型
+            {
+                "name": "DeepSeek_V3.2",
+                "api_key": os.getenv("DEEPSEEK_API_KEY"),
+                "base_url": os.getenv("DEEPSEEK_API_URL"),
+                "model": os.getenv("DEEPSEEK_MODEL")
+            },
+            # 智谱模型
+            {
+                "name": "GLM-4.7-Flash",
+                "api_key": os.getenv("ZHIPU_API_KEY"),
+                "base_url": os.getenv("ZHIPU_API_URL"),
+                "model": os.getenv("ZHIPU_MODEL")
+            },
             # NVIDIA 系列模型
             {
-                "name": "NVIDIA (Nemotron)",
+                "name": "Nemotron30BA3B (NVIDIA)",
                 "api_key": nvidia_api_key,
                 "base_url": nvidia_base_url,
                 "model": os.getenv("NVIDIA_MODEL_NEMOTRON")
             },
             {
-                "name": "DeepSeek Official",
-                "api_key": os.getenv("DEEPSEEK_API_KEY"),
-                "base_url": os.getenv("DEEPSEEK_API_URL"),
-                "model": os.getenv("DEEPSEEK_MODEL")
-            },
-            {
-                "name": "NVIDIA (Kimi/Moonshot)",
+                "name": "Kimi/Moonshot (NVIDIA源)",
                 "api_key": nvidia_api_key,
                 "base_url": nvidia_base_url,
                 "model": os.getenv("NVIDIA_MODEL_KIMI")
             },
             {
-                "name": "NVIDIA (MiniMax)",
+                "name": "MiniMax (NVIDIA源)",
                 "api_key": nvidia_api_key,
                 "base_url": nvidia_base_url,
                 "model": os.getenv("NVIDIA_MODEL_MINIMAX")
             },
-            # 智谱 AI 系列模型
-            {
-                "name": "智谱 AI (GLM-4.7-Flash)",
-                "api_key": os.getenv("ZHIPU_API_KEY"),
-                "base_url": os.getenv("ZHIPU_API_URL"),
-                "model": os.getenv("ZHIPU_MODEL")
-            },
-            {
-                "name": "公共配置 (Public)",
-                "api_key": os.getenv("Public_ALIYUN_API_KEY"),
-                "base_url": os.getenv("Public_ALIYUN_API_URL"),
-                "model": os.getenv("Public_ALIYUN_MODEL")
-            }
         ]
         
     def chat(self, messages: list, temperature: float = 0.1, model: str = None, mode: str = "instruct", config_name: str = None) -> str:

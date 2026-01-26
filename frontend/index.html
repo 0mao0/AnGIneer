@@ -22,24 +22,24 @@
         });
     </script>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background: #f5f5f5; display: flex; height: 100vh; overflow: hidden; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background: #0f172a; display: flex; height: 100vh; overflow: hidden; color: #e2e8f0; }
         
         /* Left Sidebar: Test List */
-        .sidebar { width: 260px; background: #2c3e50; color: white; padding: 20px; display: flex; flex-direction: column; gap: 10px; box-shadow: 2px 0 5px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .sidebar { width: 260px; background: #1e293b; color: white; padding: 20px; display: flex; flex-direction: column; gap: 10px; box-shadow: 2px 0 12px rgba(0, 0, 0, 0.5); flex-shrink: 0; border-right: 1px solid #334155; }
         
         /* Middle Column: Interaction Area */
-        .main-content { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; background: white; border-right: 1px solid #ddd; }
+        .main-content { flex: 1; padding: 22px; overflow-y: auto; display: flex; flex-direction: column; background: #0f172a; border-right: 1px solid #334155; }
         
         /* Right Column: Execution Trace */
-        .execution-trace { width: 450px; background: #f8f9fa; display: flex; flex-direction: column; flex-shrink: 0; border-left: 1px solid #ddd; height: 100vh; }
+        .execution-trace { width: 450px; background: #1e293b; display: flex; flex-direction: column; flex-shrink: 0; border-left: 1px solid #334155; height: 100vh; }
         
         .trace-section-header { 
             padding: 10px 15px; 
-            background: #e9ecef; 
-            border-bottom: 1px solid #dee2e6; 
+            background: #334155; 
+            border-bottom: 1px solid #475569; 
             font-size: 12px; 
             font-weight: bold; 
-            color: #495057;
+            color: #e2e8f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -48,7 +48,7 @@
         #flowchartArea { 
             flex: 1; 
             overflow: auto; 
-            background: white; 
+            background: #0f172a; 
             padding: 10px;
             display: flex;
             justify-content: center;
@@ -59,6 +59,7 @@
             width: 100% !important;
             max-width: 100%;
             height: auto;
+            filter: invert(1) hue-rotate(180deg); /* Dark mode adjustment for mermaid default */
         }
 
         /* Ensure Mermaid labels can expand to fit content */
@@ -72,14 +73,15 @@
             text-align: center !important;
             white-space: normal !important;
             word-wrap: break-word;
+            color: #000; /* Inverted by filter above */
         }
         .nodeLabel {
             white-space: normal !important;
         }
 
         .loading-spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #3498db;
+            border: 3px solid #334155;
+            border-top: 3px solid #3b82f6;
             border-radius: 50%;
             width: 20px;
             height: 20px;
@@ -91,71 +93,72 @@
         }
 
         .unit-test-result-summary {
-            background: white;
-            border: 1px solid #eee;
+            background: #1e293b;
+            border: 1px solid #334155;
             border-radius: 8px;
             padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         #consoleArea { 
             height: 40%; 
             overflow-y: auto; 
-            background: #2c3e50; 
-            color: #ecf0f1; 
-            padding: 15px; 
+            background: #020617; 
+            color: #cbd5e1; 
+            padding: 16px; 
             font-family: 'Consolas', monospace; 
             font-size: 11px;
-            border-top: 2px solid #34495e;
+            border-top: 2px solid #334155;
         }
 
         .trace-step {
             margin-bottom: 8px;
-            border-bottom: 1px solid #3d566e;
+            border-bottom: 1px solid #1e293b;
             padding-bottom: 5px;
         }
-        .trace-step-time { color: #95a5a6; font-size: 10px; }
+        .trace-step-time { color: #64748b; font-size: 10px; }
         .trace-step-content { margin-top: 3px; white-space: pre-wrap; word-break: break-word; }
         
         .container { max-width: 100%; margin: 0; }
-        h1, h2, h3 { margin-top: 0; color: #333; }
-        h2 { color: #ecf0f1; font-size: 1.1rem; margin-bottom: 15px; }
-        h3 { font-size: 0.9rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        h1, h2, h3 { margin-top: 0; color: #f1f5f9; }
+        h2 { color: #e2e8f0; font-size: 1.1rem; margin-bottom: 15px; }
+        h3 { font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
 
-        .input-group { margin-top: auto; padding-top: 20px; border-top: 1px solid #eee; display: flex; gap: 10px; }
-        input[type="text"] { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
-        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background 0.2s; }
-        button:hover { background: #0056b3; }
-        button:disabled { background: #ccc; }
+        .input-group { margin-top: auto; padding-top: 18px; border-top: 1px solid #334155; display: flex; gap: 10px; }
+        input[type="text"] { flex: 1; padding: 12px 14px; background: #1e293b; border: 1px solid #475569; color: white; border-radius: 8px; font-size: 14px; transition: border 0.2s, box-shadow 0.2s; }
+        input[type="text"]:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); }
+        button { padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: background 0.2s, box-shadow 0.2s; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2); }
+        button:hover { background: #2563eb; box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25); }
+        button:disabled { background: #475569; color: #94a3b8; }
         
-        .test-btn { background: #34495e; text-align: left; padding: 12px; border: none; border-radius: 4px; font-size: 12px; line-height: 1.4; border-left: 4px solid transparent; color: #bdc3c7; cursor: pointer; width: 100%; }
-        .test-btn:hover { background: #4b6584; color: white; }
-        .test-btn.active { border-left-color: #3498db; background: #3d566e; color: white; }
+        .test-btn { background: rgba(255, 255, 255, 0.03); text-align: left; padding: 12px; border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 10px; font-size: 12px; line-height: 1.4; border-left: 4px solid transparent; color: #cbd5e1; cursor: pointer; width: 100%; transition: background 0.2s, border 0.2s, transform 0.2s; }
+        .test-btn:hover { background: rgba(255, 255, 255, 0.08); color: #ffffff; transform: translateY(-1px); }
+        .test-btn.active { border-left-color: #60a5fa; background: rgba(59, 130, 246, 0.15); color: #ffffff; }
         .test-btn strong { display: block; color: white; margin-bottom: 3px; font-size: 13px; }
 
         /* Chat Styles */
         #chatDisplay { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; padding-bottom: 20px; }
         .chat-bubble { max-width: 85%; padding: 12px 16px; border-radius: 8px; font-size: 14px; line-height: 1.5; position: relative; }
-        .chat-bubble.user { align-self: flex-end; background: #007bff; color: white; border-bottom-right-radius: 2px; }
-        .chat-bubble.bot { align-self: flex-start; background: #f0f0f0; color: #333; border-bottom-left-radius: 2px; border: 1px solid #e0e0e0; }
+        .chat-bubble.user { align-self: flex-end; background: #2563eb; color: white; border-bottom-right-radius: 2px; }
+        .chat-bubble.bot { align-self: flex-start; background: #334155; color: #e2e8f0; border-bottom-left-radius: 2px; border: 1px solid #475569; }
         
         /* Trace Card Styles */
-        .trace-card { background: white; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; margin-bottom: 12px; font-size: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .trace-card.running { border-left: 3px solid #007bff; }
-        .trace-card.completed { border-left: 3px solid #28a745; }
-        .trace-card.failed { border-left: 3px solid #dc3545; }
-        .trace-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: bold; color: #2c3e50; }
-        .trace-meta { color: #7f8c8d; font-family: 'Consolas', monospace; font-size: 11px; margin-bottom: 5px; }
-        .trace-details { color: #34495e; background: #fcfcfc; padding: 6px; border-radius: 4px; border: 1px solid #f0f0f0; margin-top: 5px; overflow-x: auto; }
+        .trace-card { background: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 12px; margin-bottom: 12px; font-size: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.2); color: #e2e8f0; }
+        .trace-card.running { border-left: 3px solid #3b82f6; }
+        .trace-card.completed { border-left: 3px solid #22c55e; }
+        .trace-card.failed { border-left: 3px solid #ef4444; }
+        .trace-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: bold; color: #e2e8f0; }
+        .trace-meta { color: #94a3b8; font-family: 'Consolas', monospace; font-size: 11px; margin-bottom: 5px; }
+        .trace-details { color: #cbd5e1; background: #0f172a; padding: 6px; border-radius: 4px; border: 1px solid #334155; margin-top: 5px; overflow-x: auto; }
         
         .status-badge { padding: 2px 5px; border-radius: 3px; font-size: 10px; color: white; text-transform: uppercase; }
-        .status-running { background: #007bff; }
-        .status-completed { background: #28a745; }
-        .status-failed { background: #dc3545; }
+        .status-running { background: #3b82f6; }
+        .status-completed { background: #22c55e; }
+        .status-failed { background: #ef4444; }
 
-        pre { margin: 0; white-space: pre-wrap; word-wrap: break-word; }
+        pre { margin: 0; white-space: pre-wrap; word-wrap: break-word; color: #cbd5e1; }
         
-        #modelSelectionArea { background: #f8f9f9; padding: 12px; border-radius: 6px; margin-bottom: 15px; border: 1px solid #e5e8e8; }
+        #modelSelectionArea { background: #1e293b; padding: 12px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #334155; }
         .model-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
         .model-item { 
             display: flex; 
@@ -164,44 +167,78 @@
             font-size: 12px; 
             cursor: pointer; 
             padding: 6px 10px; 
-            border: 1px solid #d5dbdb; 
-            border-radius: 4px;
-            background: white;
+            border: 1px solid #334155; 
+            border-radius: 8px;
+            background: #0f172a;
             transition: all 0.2s;
+            color: #e2e8f0;
         }
-        .model-item:hover { border-color: #3498db; background: #ebf5fb; }
-        .model-item input[type="radio"] { margin: 0; }
-        .model-item.active { border-color: #3498db; background: #ebf5fb; font-weight: bold; }
-        .model-name { color: #2c3e50; font-weight: 500; }
-        .model-id { color: #7f8c8d; font-size: 10px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
+        .model-item:hover { border-color: #60a5fa; background: #334155; }
+        .model-item input[type="radio"] { margin: 0; accent-color: #3b82f6; }
+        .model-item.active { border-color: #3b82f6; background: rgba(59, 130, 246, 0.1); font-weight: bold; }
+        .model-name { color: #f1f5f9; font-weight: 500; }
+        .model-id { color: #94a3b8; font-size: 10px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
 
         /* Unit Test Result Styles */
-        .unit-test-result { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 4px; font-family: 'Consolas', monospace; font-size: 12px; }
-        .unit-test-result .stdout { color: #d4d4d4; }
-        .unit-test-result .stderr { color: #f44747; }
+        .unit-test-result { background: #020617; color: #e2e8f0; padding: 15px; border-radius: 4px; font-family: 'Consolas', monospace; font-size: 12px; border: 1px solid #334155; }
+        .unit-test-result .stdout { color: #e2e8f0; }
+        .unit-test-result .stderr { color: #fca5a5; }
 
         /* Sample Queries */
+        #samplesContainer { padding-top: 8px; }
+        #sampleQueriesArea { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 10px 12px; }
         .sample-queries {
             display: flex;
             gap: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 4px;
             flex-wrap: wrap;
         }
         .sample-btn {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 15px;
-            padding: 4px 12px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 999px;
+            padding: 6px 12px;
             font-size: 11px;
-            color: #495057;
+            color: #e2e8f0;
             cursor: pointer;
             transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
         .sample-btn:hover {
-            background: #e9ecef;
-            border-color: #ced4da;
-            color: #212529;
+            background: #334155;
+            border-color: #60a5fa;
+            color: #60a5fa;
         }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        /* Dark Mode Utility Classes for Test 03 */
+        .border-blue-500 { border-color: #3b82f6 !important; }
+        .bg-blue-900\/20 { background-color: rgba(30, 58, 138, 0.2) !important; }
+        .border-slate-600 { border-color: #475569 !important; }
+        .bg-slate-800 { background-color: #1e293b !important; }
+        .text-blue-300 { color: #93c5fd !important; }
+        .text-slate-200 { color: #e2e8f0 !important; }
+        .text-green-400 { color: #4ade80 !important; }
+        .text-red-400 { color: #f87171 !important; }
+        .border-green-500 { border-color: #22c55e !important; }
+        .bg-green-900\/20 { background-color: rgba(20, 83, 45, 0.2) !important; }
+        .border-red-500 { border-color: #ef4444 !important; }
+        .bg-red-900\/20 { background-color: rgba(127, 29, 29, 0.2) !important; }
+        .animate-spin { animation: spin 1s linear infinite; }
+        .transition-all { transition: all 0.3s ease; }
+        .duration-300 { transition-duration: 300ms; }
+        .rounded-md { border-radius: 0.375rem !important; }
+        .p-3 { padding: 0.75rem !important; }
+        .mb-3 { margin-bottom: 0.75rem !important; }
+        .flex { display: flex !important; }
+        .items-center { align-items: center !important; }
+        .gap-2 { gap: 0.5rem !important; }
+        .font-medium { font-weight: 500 !important; }
+        .text-sm { font-size: 0.875rem !important; line-height: 1.25rem !important; }
     </style>
 </head>
 <body>
@@ -209,27 +246,27 @@
         <h2>PicoAgent 测试套件</h2>
         <button class="test-btn" id="btn-test-0" onclick="switchTest('0', this)">
             <strong>测试 00: LLM 对话能力</strong>
-            选择模型（支持 NVIDIA, 智谱 AI 等）并进行实时对话测试.
+            选择AI模型并进行实时对话测试.
         </button>
         <button class="test-btn" id="btn-test-1" onclick="switchTest('1', this)">
             <strong>测试 01: 工具与SOP加载</strong>
-            验证系统静态资源（Tools/SOPs）的加载情况.
+            验证静态资源（Tools/SOPs）的加载情况.
         </button>
         <button class="test-btn" id="btn-test-2" onclick="switchTest('2', this)">
             <strong>测试 02: 意图识别</strong>
-            验证对不同类型问题的意图命中能力 (SOP路由).
+            验证用AI命中SOP的能力.
         </button>
         <button class="test-btn" id="btn-test-3" onclick="switchTest('3', this)">
             <strong>测试 03: SOP 解析</strong>
-            验证 SOP 步骤解析与工具识别能力.
+            验证LLM解析SOP-Step-Tool的能力。
         </button>
         <button class="test-btn" id="btn-test-4" onclick="switchTest('4', this)">
             <strong>测试 04: 工具有效性</strong>
-            独立验证计算器、表格查询等工具的功能.
+            验证Tools（计算器等）的个体能力.
         </button>
         <button class="test-btn" id="btn-test-5" onclick="switchTest('5', this)">
             <strong>测试 05: 全流程测试</strong>
-            模拟从查询到执行的完整业务流.
+            验证全流程执行能力（不含分层Memory）.
         </button>
         
         <div style="margin-top: auto; font-size: 11px; color: #95a5a6; text-align: center; border-top: 1px solid #34495e; padding-top: 10px;">
@@ -245,14 +282,14 @@
             <div id="modelSelectionArea">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <div style="font-weight: bold; font-size: 14px; color: #2980b9;">选择模型与模式:</div>
-                    <div id="modeSelection" style="display: flex; gap: 15px; background: #ebf5fb; padding: 5px 15px; border-radius: 20px; border: 1px solid #d4e6f1;">
-                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                    <div id="modeSelection" style="display: flex; gap: 15px; background: #1e293b; padding: 5px 15px; border-radius: 20px; border: 1px solid #334155;">
+                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #94a3b8;">
                             <input type="radio" name="runMode" value=""> 默认
                         </label>
-                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #8e44ad; font-weight: bold;">
+                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #d8b4fe; font-weight: bold;">
                             <input type="radio" name="runMode" value="thinking"> Thinking 🧠
                         </label>
-                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #27ae60; font-weight: bold;">
+                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #86efac; font-weight: bold;">
                             <input type="radio" name="runMode" value="instruct" checked> Instruct 📝
                         </label>
                     </div>
@@ -272,17 +309,17 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
                 <h3 style="margin: 0; color: #2c3e50;">测试结果</h3>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <div id="unitTestModelSelection" style="display: none; gap: 6px; align-items: center; background: #fdf2f2; padding: 5px 10px; border-radius: 20px; border: 1px solid #f5c6cb;">
-                        <span style="font-size: 12px; color: #7f8c8d;">模型</span>
-                        <select id="unitTestModelSelect" style="font-size: 12px; border: 1px solid #eee; padding: 2px 8px; border-radius: 12px; background: white; outline: none;" onchange="updateUnitTestModelSelection(this)">
+                    <div id="unitTestModelSelection" style="display: none; gap: 6px; align-items: center; background: #1e293b; padding: 5px 10px; border-radius: 20px; border: 1px solid #334155;">
+                        <span style="font-size: 12px; color: #94a3b8;">模型</span>
+                        <select id="unitTestModelSelect" style="font-size: 12px; border: 1px solid #334155; padding: 2px 8px; border-radius: 12px; background: #0f172a; color: #cbd5e1; outline: none;" onchange="updateUnitTestModelSelection(this)">
                             <option value="">加载中...</option>
                         </select>
                     </div>
-                    <div id="unitTestModeSelection" style="display: none; gap: 15px; background: #ebf5fb; padding: 5px 15px; border-radius: 20px; border: 1px solid #d4e6f1;">
-                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #27ae60; font-weight: bold;">
+                    <div id="unitTestModeSelection" style="display: none; gap: 15px; background: #1e293b; padding: 5px 15px; border-radius: 20px; border: 1px solid #334155;">
+                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #86efac; font-weight: bold;">
                             <input type="radio" name="unitTestRunMode" value="instruct" checked> Instruct 📝
                         </label>
-                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #8e44ad; font-weight: bold;">
+                        <label style="font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; color: #d8b4fe; font-weight: bold;">
                             <input type="radio" name="unitTestRunMode" value="thinking"> Thinking 🧠
                         </label>
                     </div>
@@ -299,7 +336,7 @@
 
         <div id="samplesContainer" style="margin-top: auto; padding-top: 10px;">
             <div id="sampleQueriesArea" style="display: none; margin-bottom: 5px;">
-                <div style="font-size: 11px; color: #7f8c8d; margin-bottom: 5px; margin-left: 5px;">操作:</div>
+                <div id="sampleQueriesTitle" style="font-size: 11px; color: #7f8c8d; margin-bottom: 5px; margin-left: 5px;">操作:</div>
                 <div class="sample-queries">
                     <!-- Dynamic buttons will be loaded here -->
                 </div>
@@ -336,7 +373,7 @@
     </div>
 
     <script>
-        const API_URL = 'http://localhost:8000';
+        const API_URL = 'http://localhost:8001';
         let currentTestId = null;
         let startTime = 0;
         let timerInterval;
@@ -435,6 +472,322 @@
             }
         }
 
+        let test03StreamState = { cases: {}, order: [] };
+        let test03StartTime = 0;
+        let test03TimerInterval = null;
+        let test03StepTimers = {};
+        let test03StepTimerInterval = null;
+
+        function resetTest03StreamState() {
+            const intro = "重置 Test03 流式渲染状态。";
+            test03StreamState = { cases: {}, order: [] };
+            test03StepTimers = {};
+        }
+
+        function ensureTest03StreamContainer() {
+            const intro = "创建或获取 Test03 流式结果容器。";
+            const resultEl = document.getElementById('testResultDisplay');
+            if (!resultEl) return null;
+            let wrapper = document.getElementById('test03StreamWrapper');
+            if (!wrapper) {
+                resultEl.innerHTML = `
+                    <div id="test03StreamWrapper" data-streaming="true">
+                        <div style="background: #1e293b; border-left: 4px solid #1abc9c; padding: 15px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #334155;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 15px;">
+                                <div id="test03ReportTitle" style="font-weight: bold; color: #1abc9c; font-size: 14px; line-height: 1.4;">🧩 SOP Step Analysis</div>
+                                <div style="font-size: 12px; color: #94a3b8; white-space: nowrap; flex-shrink: 0; background: #0f172a; padding: 4px 8px; border-radius: 4px; border: 1px solid #334155;">
+                                    耗时：<span id="test03SummaryDuration" style="color: #fcd34d; font-weight: bold; font-family: monospace;">0.00秒</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="test03StreamCases"></div>
+                    </div>
+                `;
+                wrapper = document.getElementById('test03StreamWrapper');
+            }
+            return wrapper;
+        }
+
+        function updateTest03Summary(durationText) {
+            const intro = "刷新 Test03 流式结果摘要。";
+            ensureTest03StreamContainer();
+            const durationEl = document.getElementById('test03SummaryDuration');
+            if (durationEl) durationEl.textContent = durationText || '0.00秒';
+        }
+
+        function updateTest03SummaryQuery(queryText) {
+            // Deprecated: Query is now handled via Case Title or removed as per user request
+        }
+
+        function formatTest03Duration(seconds) {
+            const intro = "格式化 Test03 计时显示。";
+            const safeSeconds = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
+            if (safeSeconds >= 60) {
+                const minutes = Math.floor(safeSeconds / 60);
+                const remain = safeSeconds - minutes * 60;
+                return `${minutes}分${remain.toFixed(2)}秒`;
+            }
+            return `${safeSeconds.toFixed(2)}秒`;
+        }
+
+        function startTest03Duration() {
+            const intro = "启动 Test03 计时刷新。";
+            if (test03TimerInterval) {
+                clearInterval(test03TimerInterval);
+                test03TimerInterval = null;
+            }
+            test03StartTime = Date.now();
+            updateTest03Summary(formatTest03Duration(0));
+            test03TimerInterval = setInterval(() => {
+                const elapsed = (Date.now() - test03StartTime) / 1000;
+                updateTest03Summary(formatTest03Duration(elapsed));
+            }, 200);
+        }
+
+        function stopTest03Duration(finalSeconds = null) {
+            const intro = "停止 Test03 计时刷新并更新最终耗时。";
+            if (test03TimerInterval) {
+                clearInterval(test03TimerInterval);
+                test03TimerInterval = null;
+            }
+            const seconds = finalSeconds == null ? (Date.now() - test03StartTime) / 1000 : finalSeconds;
+            updateTest03Summary(formatTest03Duration(seconds));
+        }
+
+        function startTest03StepDurationTicker() {
+            const intro = "启动 Test03 步骤耗时刷新。";
+            if (test03StepTimerInterval) {
+                clearInterval(test03StepTimerInterval);
+                test03StepTimerInterval = null;
+            }
+            test03StepTimerInterval = setInterval(() => {
+                updateAllTest03StepDurations();
+            }, 200);
+        }
+
+        function stopTest03StepDurationTicker() {
+            const intro = "停止 Test03 步骤耗时刷新。";
+            if (test03StepTimerInterval) {
+                clearInterval(test03StepTimerInterval);
+                test03StepTimerInterval = null;
+            }
+        }
+
+        function updateAllTest03StepDurations() {
+            const intro = "刷新所有 Test03 步骤耗时文本。";
+            const timerEls = document.querySelectorAll('[data-test03-step-timer]');
+            if (!timerEls || timerEls.length === 0) return;
+            timerEls.forEach(el => {
+                const key = el.getAttribute('data-test03-step-timer');
+                if (!key || !test03StepTimers[key]) return;
+                const timer = test03StepTimers[key];
+                const endTime = timer.end ?? Date.now();
+                const elapsedSeconds = (endTime - timer.start) / 1000;
+                el.textContent = `耗时：${formatTest03Duration(elapsedSeconds)}`;
+            });
+        }
+
+        function ensureTest03Case(caseInfo) {
+            const intro = "创建或更新 Test03 用例卡片。";
+            if (!caseInfo || !caseInfo.case_id) return null;
+            ensureTest03StreamContainer();
+            const safeId = window.CSS && CSS.escape ? CSS.escape(caseInfo.case_id) : caseInfo.case_id;
+            const casesContainer = document.getElementById('test03StreamCases');
+            if (!casesContainer) return null;
+            
+            // Update Top Header with Case Query (Topic Name)
+            const reportTitle = document.getElementById('test03ReportTitle');
+            if (reportTitle && (caseInfo.case_query || caseInfo.case_label)) {
+                reportTitle.textContent = `用户需求：${caseInfo.case_query || caseInfo.case_label}`;
+            }
+
+            let caseEl = casesContainer.querySelector(`[data-test03-case="${safeId}"]`);
+            if (!caseEl) {
+                const label = escapeHtml(caseInfo.case_label || caseInfo.case_id || '未命名用例');
+                caseEl = document.createElement('div');
+                caseEl.setAttribute('data-test03-case', caseInfo.case_id);
+                caseEl.style.cssText = "margin-bottom:15px;color:#e2e8f0;";
+                caseEl.innerHTML = `
+                    <div data-test03-case-steps></div>
+                `;
+                casesContainer.appendChild(caseEl);
+                test03StreamState.order.push(caseInfo.case_id);
+            }
+            return caseEl;
+        }
+
+        function appendTest03Step(caseId, stepIndex, payload, isRunning = false) {
+            const intro = "追加或更新 Test03 单步分析结果 (UI/UX Pro Max)。";
+            if (!caseId) return;
+            const caseEl = ensureTest03Case({ case_id: caseId });
+            if (!caseEl) return;
+            const stepsEl = caseEl.querySelector('[data-test03-case-steps]');
+            if (!stepsEl) return;
+            const stepKey = stepIndex ? `index-${stepIndex}` : `index-${stepsEl.children.length + 1}`;
+            const existing = stepsEl.querySelector(`[data-test03-step="${stepKey}"]`);
+
+            // 状态图标与颜色 (色盲友好)
+            const statusIcon = isRunning ? 
+                '<span class="animate-spin">⏳</span>' : 
+                '✅';
+            const statusClass = isRunning ? 'border-blue-500 bg-blue-900/20' : 'border-slate-600 bg-slate-800';
+            const titleColor = isRunning ? 'text-blue-300' : 'text-slate-200';
+            const stepTimerKey = `${caseId}::${stepKey}`;
+            const now = Date.now();
+            if (!test03StepTimers[stepTimerKey]) {
+                test03StepTimers[stepTimerKey] = { start: now, end: null };
+            }
+            if (!isRunning && test03StepTimers[stepTimerKey].end == null) {
+                test03StepTimers[stepTimerKey].end = now;
+            }
+            const stepTimer = test03StepTimers[stepTimerKey];
+            const elapsedSeconds = ((stepTimer.end ?? now) - stepTimer.start) / 1000;
+            const stepDurationText = `耗时：${formatTest03Duration(elapsedSeconds)}`;
+
+            // 工具图标
+            const toolIcon = payload.tool === 'calculator' ? '🧮' : 
+                             payload.tool === 'knowledge_search' ? '🔍' : 
+                             payload.tool === 'user_input' ? '⌨️' : '🤖';
+
+            const aiResultText = payload.ai_result || (isRunning ? '执行中...' : '无');
+            const stepLabel = payload.step_label || `Step ${stepIndex || stepsEl.children.length + 1}`;
+            const indentStyle = payload.indent ? 'margin-left: 16px;' : '';
+            const matchBadge = payload.matched_sop ? `
+                <div style="font-size: 12px; color: #e2e8f0; background: #0f172a; padding: 4px 8px; border-radius: 4px; border: 1px solid #334155; font-family: monospace;">
+                    SOP: ${escapeHtml(payload.matched_sop)}
+                </div>` : '';
+            const reasonRow = payload.reason ? `
+                <div style="font-size: 12px; color: #94a3b8; margin-top: 8px;">
+                    选择原因: ${escapeHtml(payload.reason)}
+                </div>` : '';
+            const stepHtml = `
+                <div data-test03-step="${stepKey}" class="transition-all duration-300 ${statusClass}" style="border: 1px solid; border-radius: 8px; padding: 16px; margin-top: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.2); ${indentStyle}">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                        <div style="font-weight: 600; font-size: 15px;" class="${titleColor}">
+                            ${statusIcon} ${escapeHtml(stepLabel)}: ${escapeHtml(payload.name || payload.id || 'Initializing...')}
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <div style="font-size: 12px; color: #94a3b8; background: #0f172a; padding: 4px 8px; border-radius: 4px; border: 1px solid #334155; display: flex; align-items: center; gap: 4px;">
+                                ${toolIcon} <span style="font-family: monospace; font-weight: 500;">${escapeHtml(payload.tool || 'auto')}</span>
+                            </div>
+                            <div data-test03-step-timer="${stepTimerKey}" style="font-size: 12px; color: #fcd34d; background: #0f172a; padding: 4px 8px; border-radius: 4px; border: 1px solid #334155; font-family: monospace;">
+                                ${stepDurationText}
+                            </div>
+                            ${matchBadge}
+                        </div>
+                    </div>
+                    <div style="background: #0f172a; border-radius: 6px; padding: 10px; border: 1px solid #334155;">
+                        <div style="font-size: 12px; color: #cbd5e1; display: flex; gap: 6px; margin-bottom: 4px;">
+                            🛠️ <span style="font-weight: 500;">工具:</span> ${escapeHtml(payload.tool || '未知')} ${payload.description ? ` - ${escapeHtml(payload.description)}` : ''}
+                        </div>
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px;">
+                            <div style="flex: 1; min-width: 200px; border: 1px solid #334155; border-radius: 6px; overflow: hidden;">
+                                <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; font-weight: 600; color: #94a3b8; border-bottom: 1px solid #334155; display: flex; align-items: center; gap: 4px;">
+                                    📥 输入 (Inputs)
+                                </div>
+                                <pre style="margin: 0; padding: 10px; font-size: 11px; background: #020617; max-height: 150px; overflow-y: auto; color: #e2e8f0;">${escapeHtml(JSON.stringify(payload.inputs || {}, null, 2))}</pre>
+                            </div>
+                            <div style="flex: 1; min-width: 200px; border: 1px solid #334155; border-radius: 6px; overflow: hidden;">
+                                <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; font-weight: 600; color: #94a3b8; border-bottom: 1px solid #334155; display: flex; align-items: center; gap: 4px;">
+                                    📤 输出 (Outputs)
+                                </div>
+                                <pre style="margin: 0; padding: 10px; font-size: 11px; background: #020617; max-height: 150px; overflow-y: auto; color: #e2e8f0;">${escapeHtml(JSON.stringify(payload.outputs || {}, null, 2))}</pre>
+                            </div>
+                        </div>
+                        ${reasonRow}
+                    </div>
+                </div>
+            `;
+            if (existing) {
+                existing.outerHTML = stepHtml;
+            } else {
+                stepsEl.insertAdjacentHTML('beforeend', stepHtml);
+            }
+        }
+
+        function handleTest03Event(event) {
+            const intro = "处理 Test03 流式事件并更新界面。";
+            if (!event || !event.step) return;
+            
+            // 路由阶段
+            if (event.step === 'route' || event.step === 'inference') {
+                ensureTest03Case({
+                    case_id: event.case_id,
+                    case_label: event.case_label,
+                    case_query: event.case_query
+                });
+                if (event.step === 'route') {
+                    const routePayload = {
+                        name: event.matched_sop || "匹配中",
+                        id: "sop_route",
+                        tool: "route",
+                        description: event.status === 'done' ? "匹配完成" : "正在匹配 SOP...",
+                        matched_sop: event.matched_sop || '',
+                        reason: event.route_reason || '',
+                        step_label: "SOP 匹配"
+                    };
+                    appendTest03Step(event.case_id, "route", routePayload, event.status !== 'done');
+                }
+            }
+
+            if (event.step === 'sop_analyze') {
+                const sopPayload = {
+                    name: event.matched_sop || "解析中",
+                    id: "sop_analyze",
+                    tool: "llm",
+                    description: event.msg || "正在解析 SOP...",
+                    step_label: "SOP 解析"
+                };
+                appendTest03Step(event.case_id, "sop_analyze", sopPayload, event.status !== 'done');
+            }
+
+            // 步骤分析阶段 (Running -> Placeholder, Done -> Content)
+            if (event.step === 'step_analyze') {
+                const isRunning = event.status === 'running';
+                const payload = event.payload || { 
+                    name: event.step_name, 
+                    id: `step_${event.step_index}`,
+                    tool: 'loading...',
+                    description: event.msg 
+                };
+                payload.indent = true;
+                appendTest03Step(event.case_id, event.step_index, payload, isRunning);
+            }
+
+            // 整体状态
+            if (event.status === 'running') {
+                addConsoleLine(`[${event.step}] ${event.msg}`);
+                updateTest03Flowchart(event.step);
+            } else if (event.status === 'done') {
+                addConsoleLine(`[${event.step}] ✅ ${event.msg}`);
+                if (event.step === 'result' && event.data) {
+                    const cases = Array.isArray(event.data.cases) ? event.data.cases : [];
+                    const duration = typeof event.duration_s === 'number' ? `${event.duration_s.toFixed(2)}s` : '未知';
+                    stopTest03Duration(typeof event.duration_s === 'number' ? event.duration_s : null);
+                    if (cases.length === 1 && cases[0]?.query) {
+                        updateTest03SummaryQuery(cases[0].query);
+                    }
+                    const casesContainer = document.getElementById('test03StreamCases');
+                    if (!casesContainer || casesContainer.childElementCount === 0) {
+                        const summary = `
+                            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #1abc9c; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                                <div style="font-weight: bold; color: #0f766e; margin-bottom: 6px; font-size: 14px;">SOP Step Analysis</div>
+                                <div style="font-size: 12px; color: #64748b;">已解析 ${cases.length} 个案例 · 耗时 ${duration}</div>
+                                <div style="font-size: 12px; color: #64748b; margin-top: 6px;">题干: ${cases.length === 1 ? escapeHtml(cases[0].query || '') : '多个题目'}</div>
+                            </div>
+                            ${renderTest03Result({ cases })}
+                        `;
+                        document.getElementById('testResultDisplay').innerHTML = summary;
+                    }
+                }
+                updateTest03Flowchart(event.step, true);
+            } else if (event.status === 'failed') {
+                addConsoleLine(`[${event.step}] ❌ ${event.msg}`, true);
+            } else if (event.status === 'warning') {
+                addConsoleLine(`[${event.step}] ⚠️ ${event.msg}`);
+            }
+        }
+
         function updateTest01Flowchart(currentStep, summary = {}) {
             const intro = "根据 Test01 进度刷新流程图高亮状态。";
             const doneColor = "#d4efdf,stroke:#27ae60,stroke-width:2px";
@@ -468,6 +821,70 @@
                 styleStr += `style End fill:#d1f2eb,stroke:#16a085,stroke-width:4px\n`;
                 focusNode = "End";
             }
+            setFlowchartFocusNode(focusNode);
+            updateFlowchart(def + "\n" + styleStr);
+        }
+
+        function updateTest03Flowchart(currentStep, isDone=false) {
+            const intro = "根据 Test03 流式步骤刷新流程图高亮状态。";
+            const doneColor = "#d4efdf,stroke:#27ae60,stroke-width:2px";
+            const activeColor = "#3498db,stroke:#2980b9,stroke-width:2px,color:white,stroke-dasharray: 5 5";
+
+            let def = `graph TD
+                Start((Start)) --> API["API Endpoint (API端点)<br/>backend/api_bridge.py:stream_test_03"]
+                API --> SOP["Load SOPs (加载SOP)<br/>src/core/sop_loader.py:load_all"]
+                SOP --> ClassInit["Init Classifier (初始化分类器)<br/>src/agents/classifier.py:__init__"]
+                ClassInit --> Route["Route Intent (意图路由)<br/>src/agents/classifier.py:route"]
+                Route --> SOPParse["Analyze SOP (解析SOP)<br/>src/core/sop_loader.py:analyze_sop"]
+                SOPParse --> StepParse["Analyze Steps (解析步骤)<br/>tests/test_03_sop_analysis.py:analyze_step"]
+                StepParse --> End(("Result (结果)"))
+            `;
+
+            let styleStr = "";
+            let focusNode = null;
+            styleStr += `style Start fill:${doneColor}\n`;
+            styleStr += `style API fill:${doneColor}\n`;
+
+            if (currentStep === 'sop_load') {
+                styleStr += `style SOP fill:${isDone ? doneColor : activeColor}\n`;
+                focusNode = "SOP";
+            } else {
+                styleStr += `style SOP fill:${doneColor}\n`;
+            }
+
+            if (currentStep === 'classifier_init') {
+                styleStr += `style ClassInit fill:${isDone ? doneColor : activeColor}\n`;
+                focusNode = "ClassInit";
+            } else if (['route', 'sop_analyze', 'step_analyze', 'result'].includes(currentStep)) {
+                styleStr += `style ClassInit fill:${doneColor}\n`;
+            }
+
+            if (currentStep === 'route') {
+                styleStr += `style Route fill:${isDone ? doneColor : activeColor}\n`;
+                focusNode = "Route";
+            } else if (['sop_analyze', 'step_analyze', 'result'].includes(currentStep)) {
+                styleStr += `style Route fill:${doneColor}\n`;
+            }
+
+            if (currentStep === 'sop_analyze') {
+                styleStr += `style SOPParse fill:${isDone ? doneColor : activeColor}\n`;
+                focusNode = "SOPParse";
+            } else if (['step_analyze', 'result'].includes(currentStep)) {
+                styleStr += `style SOPParse fill:${doneColor}\n`;
+            }
+
+            if (currentStep === 'step_analyze') {
+                styleStr += `style StepParse fill:${isDone ? doneColor : activeColor}\n`;
+                focusNode = "StepParse";
+            } else if (currentStep === 'result') {
+                styleStr += `style StepParse fill:${doneColor}\n`;
+            }
+
+            if (currentStep === 'result') {
+                styleStr += `style End fill:#d1f2eb,stroke:#16a085,stroke-width:4px\n`;
+                focusNode = "End";
+            }
+
             setFlowchartFocusNode(focusNode);
             updateFlowchart(def + "\n" + styleStr);
         }
@@ -572,6 +989,52 @@
              document.getElementById('testResultDisplay').innerHTML = html;
         }
 
+        function renderTest03Result(payload) {
+            const intro = "渲染 Test03 步骤分析结果。";
+            const cases = payload && Array.isArray(payload.cases) ? payload.cases : [];
+            if (cases.length === 0) {
+                return `
+                    <div style="background: #fff; border-left: 4px solid #95a5a6; padding: 15px; border-radius: 4px;">
+                        <div style="font-weight: bold; color: #7f8c8d; margin-bottom: 5px;">无可用分析结果</div>
+                        <div style="font-size: 12px; color: #95a5a6;">请在控制台查看输出日志。</div>
+                    </div>
+                `;
+            }
+            return cases.map(item => {
+                const steps = Array.isArray(item.steps) ? item.steps : [];
+                const stepsHtml = steps.map((step, index) => `
+                    <div style="border: 1px solid #eee; border-radius: 6px; padding: 10px; margin-top: 10px; background: #fafafa;">
+                        <div style="font-weight: bold; color: #2c3e50; margin-bottom: 6px;">Step ${index + 1}: ${escapeHtml(step.name || step.id || '')}</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-bottom: 6px;">工具: <code style="background: #f4f6f7; padding: 2px 4px; border-radius: 3px;">${escapeHtml(step.tool || 'auto')}</code></div>
+                        <div style="font-size: 12px; color: #555; margin-bottom: 6px;">说明: ${escapeHtml(step.description || '无')}</div>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 180px;">
+                                <div style="font-size: 11px; color: #95a5a6; margin-bottom: 4px;">输入</div>
+                                <pre style="background: #fff; border: 1px solid #eee; padding: 6px; font-size: 11px; border-radius: 4px; max-height: 120px; overflow-y: auto;">${escapeHtml(JSON.stringify(step.inputs || {}, null, 2))}</pre>
+                            </div>
+                            <div style="flex: 1; min-width: 180px;">
+                                <div style="font-size: 11px; color: #95a5a6; margin-bottom: 4px;">输出</div>
+                                <pre style="background: #fff; border: 1px solid #eee; padding: 6px; font-size: 11px; border-radius: 4px; max-height: 120px; overflow-y: auto;">${escapeHtml(JSON.stringify(step.outputs || {}, null, 2))}</pre>
+                            </div>
+                        </div>
+                        <div style="font-size: 12px; color: #555; margin-top: 6px;">注意事项: ${escapeHtml(step.notes || '无')}</div>
+                        <div style="font-size: 12px; color: #555; margin-top: 6px;">分析: ${escapeHtml(step.analysis || '无')}</div>
+                        <div style="font-size: 12px; color: #2c3e50; margin-top: 6px;">AI 执行: ${escapeHtml(step.ai_result || '无')}</div>
+                        <div style="font-size: 11px; color: #7f8c8d; margin-top: 4px;">执行备注: ${escapeHtml(step.ai_note || '无')}</div>
+                    </div>
+                `).join('');
+                return `
+                    <div style="background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                        <div style="font-weight: bold; color: #34495e; margin-bottom: 6px;">${escapeHtml(item.label || item.id || '未命名用例')}</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-bottom: 8px;">Query: ${escapeHtml(item.query || '')}</div>
+                        <div style="font-size: 12px; color: #2c3e50; margin-bottom: 6px;">匹配 SOP: <code style="background: #f4f6f7; padding: 2px 4px; border-radius: 3px;">${escapeHtml(item.matched_sop || 'None')}</code></div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-bottom: 6px;">路由原因: ${escapeHtml(item.route_reason || '无')}</div>
+                        ${stepsHtml}
+                    </div>
+                `;
+            }).join('');
+        }
+
         fetchModels();
 
         async function switchTest(testId, btn) {
@@ -611,7 +1074,7 @@
                 document.getElementById('queryInput').placeholder = "输入测试参数或直接点击运行...";
                 
                 // Show samples container ONLY if there are samples for this test
-                if (testId === '1' || testId === '2') {
+                if (testId === '1' || testId === '2' || testId === '3') {
                     samplesContainer.style.display = 'block';
                     chatSampleDiv.style.display = 'block'; // Reuse the same container
                     await loadTestCases(testId);
@@ -619,8 +1082,8 @@
                     if (testId === '1') {
                          // Test 01: No LLM involved, hide mode selection
                          modeDiv.style.display = 'none';
-                    } else if (testId === '2') {
-                        // Test 02: Needs LLM selection and Mode
+                    } else if (testId === '2' || testId === '3') {
+                        // Test 02/03: Needs LLM selection and Mode
                         modeDiv.style.display = 'flex';
                         unitTestModelSelection.style.display = 'flex';
                         modelGrid.style.display = 'grid';
@@ -648,6 +1111,11 @@
                 const data = await response.json();
                 
                 container.innerHTML = ''; // Clear loading
+                const titleEl = document.getElementById('sampleQueriesTitle');
+                if (titleEl) {
+                    const count = Array.isArray(data.cases) ? data.cases.length : 0;
+                    titleEl.innerText = count > 0 ? `操作 (${count}个)` : '操作:';
+                }
                 
                 if (data.cases && data.cases.length > 0) {
                     data.cases.forEach(item => {
@@ -669,6 +1137,8 @@
                 }
             } catch (e) {
                 console.error("Failed to load test cases", e);
+                const titleEl = document.getElementById('sampleQueriesTitle');
+                if (titleEl) titleEl.innerText = '操作:';
                 container.innerHTML = '<span style="font-size:11px;color:#999;">加载失败</span>';
             }
         }
@@ -893,7 +1363,7 @@
 
             // Get query from main input if it's test 01 or 02
             let query = null;
-            if (testId === '1' || testId === '2') {
+            if (testId === '1' || testId === '2' || testId === '3') {
                 query = document.getElementById('queryInput').value;
                 document.getElementById('queryInput').value = ''; // Clear input as requested
                 addConsoleLine(`测试指令: "${query}"`);
@@ -968,6 +1438,80 @@
                 return; // Exit function, don't run legacy logic
             }
 
+        if (testId === '3') {
+            if (!model) {
+                alert("请先选择一个模型 (Test 03 需要 LLM)");
+                document.getElementById('testResultDisplay').innerHTML = '';
+                return;
+            }
+
+            resetTest03StreamState();
+            ensureTest03StreamContainer();
+            startTest03Duration();
+            startTest03StepDurationTicker();
+            updateTest03SummaryQuery(query || '等待输入');
+
+            addConsoleLine(`启动 SOP 解析流程 (Streaming)...`);
+            addConsoleLine(`Model: ${model}, Mode: ${mode}`);
+
+            const graphDef = `graph TD
+                Start((Start)) --> API["API Endpoint (API端点)<br/>backend/api_bridge.py:stream_test_03"]
+                API --> SOP["Load SOPs (加载SOP)<br/>src/core/sop_loader.py:load_all"]
+                SOP --> ClassInit["Init Classifier (初始化分类器)<br/>src/agents/classifier.py:__init__"]
+                ClassInit --> Route["Route Intent (意图路由)<br/>src/agents/classifier.py:route"]
+                Route --> SOPParse["Analyze SOP (解析SOP)<br/>src/core/sop_loader.py:analyze_sop"]
+                SOPParse --> StepParse["Analyze Steps (解析步骤)<br/>tests/test_03_sop_analysis.py:analyze_step"]
+                StepParse --> End(("Result (结果)"))
+
+                style Start fill:#ecf0f1,stroke:#bdc3c7
+                style API fill:#e8f8f5,stroke:#1abc9c
+                style SOP fill:#fff,stroke:#3498db,stroke-dasharray: 5 5
+                style ClassInit fill:#fff,stroke:#bdc3c7
+                style Route fill:#fff,stroke:#bdc3c7
+                style SOPParse fill:#fef9e7,stroke:#f1c40f
+                style StepParse fill:#fff,stroke:#bdc3c7
+                style End fill:#ecf0f1,stroke:#bdc3c7
+            `;
+            updateFlowchart(graphDef);
+
+            try {
+                const safeQuery = query || '';
+                const url = `${API_URL}/test/stream/03?query=${encodeURIComponent(safeQuery)}&config=${encodeURIComponent(model)}&mode=${encodeURIComponent(mode)}`;
+                const response = await fetch(url);
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n');
+                    buffer = lines.pop();
+
+                    for (const line of lines) {
+                        if (!line.trim()) continue;
+                        try {
+                            const event = JSON.parse(line);
+                            handleTest03Event(event);
+                            if (event.step === 'step_analyze') {
+                                await new Promise(r => setTimeout(r, 0));
+                            }
+                        } catch (e) {
+                            console.error("JSON Parse Error", e);
+                        }
+                    }
+                }
+                stopTimer('完成');
+            } catch (e) {
+                addConsoleLine(`Error: ${e.message}`, true);
+                stopTimer('出错');
+                stopTest03Duration(null);
+            }
+            stopTest03StepDurationTicker();
+            return;
+        }
+
             addConsoleLine(`单元测试启动: Test ID: ${testId} ${mode ? `(Mode: ${mode})` : ''}`);
             let graphDef = "";
             if (testId === '1') {
@@ -1035,47 +1579,47 @@
                         const sopCount = sopCountMatch ? parseInt(sopCountMatch[1]) : (jsonResult.sops ? jsonResult.sops.filter(s => s.status === 'ok').length : 0);
                         if (jsonResult.tools && jsonResult.tools.length > 0) {
                             toolsHtml = jsonResult.tools.map(t => `
-                                <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid #eee;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid #334155;">
                                     <div style="display: flex; align-items: center; gap: 8px;">
                                         <span style="font-size: 16px;">${t.status === 'ok' ? '✅' : '❌'}</span>
                                         <div>
-                                            <div style="font-weight: bold; color: #2c3e50; display: flex; align-items: center;">
+                                            <div style="font-weight: bold; color: #e2e8f0; display: flex; align-items: center;">
                                                 ${t.name}
                                                 ${t.execution && t.execution !== 'skipped' ? 
-                                                    `<span style="font-size: 9px; padding: 1px 4px; border-radius: 3px; margin-left: 6px; background: ${t.execution==='success'?'#d4edda':(t.execution==='error'?'#f8d7da':'#fff3cd')}; color: ${t.execution==='success'?'#155724':(t.execution==='error'?'#721c24':'#856404')}">Run: ${t.execution}</span>` 
+                                                    `<span style="font-size: 9px; padding: 1px 4px; border-radius: 3px; margin-left: 6px; background: ${t.execution==='success'?'#14532d':(t.execution==='error'?'#7f1d1d':'#713f12')}; color: ${t.execution==='success'?'#86efac':(t.execution==='error'?'#fca5a5':'#fcd34d')}">Run: ${t.execution}</span>` 
                                                     : ''}
                                             </div>
-                                            <div style="font-size: 11px; color: #95a5a6;">${t.desc || 'No description'}</div>
+                                            <div style="font-size: 11px; color: #94a3b8;">${t.desc || 'No description'}</div>
                                         </div>
                                     </div>
-                                    <div style="font-size: 10px; color: #bdc3c7; text-transform: uppercase;">TOOL</div>
+                                    <div style="font-size: 10px; color: #64748b; text-transform: uppercase;">TOOL</div>
                                 </div>
                             `).join('');
                         }
 
                         if (jsonResult.sops && jsonResult.sops.length > 0) {
                             sopsHtml = jsonResult.sops.map(s => `
-                                <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid #eee;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid #334155;">
                                     <div style="display: flex; align-items: center; gap: 8px;">
                                         <span style="font-size: 16px;">${s.status === 'missing' ? '❌' : '✅'}</span>
                                         <div>
-                                            <div style="font-weight: bold; color: #2c3e50;">${s.name}</div>
-                                            <div style="font-size: 11px; color: #95a5a6;">${s.desc || 'No description'}</div>
+                                            <div style="font-weight: bold; color: #e2e8f0;">${s.name}</div>
+                                            <div style="font-size: 11px; color: #94a3b8;">${s.desc || 'No description'}</div>
                                         </div>
                                     </div>
-                                    <div style="font-size: 10px; color: #bdc3c7; text-transform: uppercase;">SOP</div>
+                                    <div style="font-size: 10px; color: #64748b; text-transform: uppercase;">SOP</div>
                                 </div>
                             `).join('');
                         }
 
                         summaryResult = `
-                            <div style="background: white; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden;">
-                                <div style="padding: 10px 15px; background: #f8f9fa; border-bottom: 1px solid #e0e0e0; font-weight: bold; color: #34495e;">
+                            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; overflow: hidden;">
+                                <div style="padding: 10px 15px; background: #1e293b; border-bottom: 1px solid #334155; font-weight: bold; color: #e2e8f0;">
                                     资源加载检查清单
                                 </div>
                                 <div style="max-height: 300px; overflow-y: auto;">
-                                    ${toolsHtml ? `<div style="padding: 5px 15px; background: #e8f8f5; color: #16a085; font-size: 11px; font-weight: bold;">Tools（${toolCount}）</div>${toolsHtml}` : ''}
-                                    ${sopsHtml ? `<div style="padding: 5px 15px; background: #fef9e7; color: #f1c40f; font-size: 11px; font-weight: bold;">SOPs（${sopCount}）</div>${sopsHtml}` : ''}
+                                    ${toolsHtml ? `<div style="padding: 5px 15px; background: #134e4a; color: #5eead4; font-size: 11px; font-weight: bold;">Tools（${toolCount}）</div>${toolsHtml}` : ''}
+                                    ${sopsHtml ? `<div style="padding: 5px 15px; background: #713f12; color: #fcd34d; font-size: 11px; font-weight: bold;">SOPs（${sopCount}）</div>${sopsHtml}` : ''}
                                 </div>
                             </div>
                         `;
@@ -1089,10 +1633,10 @@
                         const paramsMatch = data.stdout.match(/\[AI 参数\] Inputs: (.*)/);
                         if (toolMatch) {
                             summaryResult = `
-                                <div style="background: #f8f9fa; border-left: 4px solid #27ae60; padding: 15px; border-radius: 4px;">
-                                    <div style="font-weight: bold; color: #27ae60; margin-bottom: 10px; font-size: 14px;">✅ 工具选择结果</div>
-                                    <div style="margin-bottom: 8px;"><strong>选定工具:</strong> <code style="background: #e8f6ef; color: #1e8449; padding: 2px 6px; border-radius: 3px;">${toolMatch[1]}</code></div>
-                                    <div><strong>提取参数:</strong> <pre style="background: #fff; border: 1px solid #ddd; padding: 8px; margin-top: 5px; font-size: 12px; border-radius: 4px;">${paramsMatch ? paramsMatch[1] : '{}'}</pre></div>
+                                <div style="background: #1e293b; border-left: 4px solid #22c55e; padding: 15px; border-radius: 4px;">
+                                    <div style="font-weight: bold; color: #22c55e; margin-bottom: 10px; font-size: 14px;">✅ 工具选择结果</div>
+                                    <div style="margin-bottom: 8px; color: #cbd5e1;"><strong>选定工具:</strong> <code style="background: #14532d; color: #86efac; padding: 2px 6px; border-radius: 3px;">${toolMatch[1]}</code></div>
+                                    <div style="color: #cbd5e1;"><strong>提取参数:</strong> <pre style="background: #0f172a; border: 1px solid #334155; padding: 8px; margin-top: 5px; font-size: 12px; border-radius: 4px; color: #cbd5e1;">${paramsMatch ? paramsMatch[1] : '{}'}</pre></div>
                                 </div>
                             `;
                         }
@@ -1110,9 +1654,9 @@
         let queryDisplay = "";
         if (query) {
              queryDisplay = `
-                <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #eee;">
-                    <div style="font-size: 11px; color: #95a5a6; margin-bottom: 4px;">测试指令 (User Query):</div>
-                    <div style="font-family: sans-serif; font-size: 14px; color: #34495e; font-weight: 500;">${escapeHtml(query)}</div>
+                <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #334155;">
+                    <div style="font-size: 11px; color: #94a3b8; margin-bottom: 4px;">测试指令 (User Query):</div>
+                    <div style="font-family: sans-serif; font-size: 14px; color: #e2e8f0; font-weight: 500;">${escapeHtml(query)}</div>
                 </div>
             `;
         }
@@ -1120,59 +1664,69 @@
         if (data.exit_code !== 0) {
             summaryResult = `
                 ${queryDisplay}
-                <div style="background: #fff5f5; border-left: 4px solid #e74c3c; padding: 15px; border-radius: 4px;">
-                    <div style="font-weight: bold; color: #e74c3c; margin-bottom: 5px; font-size: 14px;">❌ 测试执行出错</div>
-                    <div style="font-size: 13px; color: #666;">Python 脚本运行失败，请查看控制台输出。</div>
+                <div style="background: #450a0a; border-left: 4px solid #ef4444; padding: 15px; border-radius: 4px;">
+                    <div style="font-weight: bold; color: #ef4444; margin-bottom: 5px; font-size: 14px;">❌ 测试执行出错</div>
+                    <div style="font-size: 13px; color: #fca5a5;">Python 脚本运行失败，请查看控制台输出。</div>
                 </div>
             `;
         } else if (matchError) {
             summaryResult = `
                 ${queryDisplay}
-                <div style="background: #fff5f5; border-left: 4px solid #e74c3c; padding: 15px; border-radius: 4px;">
-                    <div style="font-weight: bold; color: #e74c3c; margin-bottom: 5px; font-size: 14px;">⚠️ 分类器执行异常</div>
-                    <div style="font-size: 13px; color: #666;">AI 响应解析失败，可能由于模型输出格式不正确或网络超时。</div>
+                <div style="background: #450a0a; border-left: 4px solid #ef4444; padding: 15px; border-radius: 4px;">
+                    <div style="font-weight: bold; color: #ef4444; margin-bottom: 5px; font-size: 14px;">⚠️ 分类器执行异常</div>
+                    <div style="font-size: 13px; color: #fca5a5;">AI 响应解析失败，可能由于模型输出格式不正确或网络超时。</div>
                 </div>
             `;
         } else if (matchSuccess && sopMatch) {
                          summaryResult = `
                              ${queryDisplay}
-                             <div style="background: #f8f9fa; border-left: 4px solid #8e44ad; padding: 15px; border-radius: 4px;">
-                                 <div style="font-weight: bold; color: #8e44ad; margin-bottom: 10px; font-size: 14px;">🎯 意图路由成功</div>
-                                 <div style="margin-bottom: 8px;"><strong>匹配 SOP:</strong> <code style="background: #f4ecf7; color: #6c3483; padding: 2px 6px; border-radius: 3px;">${sopMatch[1].trim()}</code></div>
-                                 <div><strong>提取参数:</strong> <pre style="background: #fff; border: 1px solid #ddd; padding: 8px; margin-top: 5px; font-size: 12px; border-radius: 4px;">${argsMatch ? argsMatch[1].trim() : '{}'}</pre></div>
+                             <div style="background: #1e293b; border-left: 4px solid #a855f7; padding: 15px; border-radius: 4px;">
+                                 <div style="font-weight: bold; color: #a855f7; margin-bottom: 10px; font-size: 14px;">🎯 意图路由成功</div>
+                                 <div style="margin-bottom: 8px; color: #cbd5e1;"><strong>匹配 SOP:</strong> <code style="background: #581c87; color: #e9d5ff; padding: 2px 6px; border-radius: 3px;">${sopMatch[1].trim()}</code></div>
+                                 <div style="color: #cbd5e1;"><strong>提取参数:</strong> <pre style="background: #0f172a; border: 1px solid #334155; padding: 8px; margin-top: 5px; font-size: 12px; border-radius: 4px; color: #cbd5e1;">${argsMatch ? argsMatch[1].trim() : '{}'}</pre></div>
                              </div>
                          `;
                      } else {
                          summaryResult = `
                              ${queryDisplay}
-                             <div style="background: #fff5f5; border-left: 4px solid #e74c3c; padding: 15px; border-radius: 4px;">
-                                 <div style="font-weight: bold; color: #e74c3c; margin-bottom: 5px; font-size: 14px;">⚪ 未匹配到 SOP</div>
-                                 <div style="font-size: 13px; color: #666;">指令可能属于通用对话或不属于现有流程。</div>
+                             <div style="background: #450a0a; border-left: 4px solid #ef4444; padding: 15px; border-radius: 4px;">
+                                 <div style="font-weight: bold; color: #ef4444; margin-bottom: 5px; font-size: 14px;">⚪ 未匹配到 SOP</div>
+                                 <div style="font-size: 13px; color: #fca5a5;">指令可能属于通用对话或不属于现有流程。</div>
                              </div>
                          `;
                      }
+                } else if (testId === '3') {
+                    if (jsonResult) {
+                        summaryResult = `
+                            <div style="background: #1e293b; border-left: 4px solid #14b8a6; padding: 15px; border-radius: 4px; margin-bottom: 15px;">
+                                <div style="font-weight: bold; color: #14b8a6; margin-bottom: 6px; font-size: 14px;">🧩 SOP Step Analysis</div>
+                                <div style="font-size: 12px; color: #94a3b8;">已解析 ${jsonResult.cases ? jsonResult.cases.length : 0} 个案例</div>
+                            </div>
+                            ${renderTest03Result(jsonResult)}
+                        `;
+                    }
                  }
 
                 if (!summaryResult) {
                     summaryResult = `
-                        <div style="background: #f8f9fa; border-left: 4px solid #3498db; padding: 15px; border-radius: 4px;">
-                            <div style="font-weight: bold; color: #3498db; margin-bottom: 5px;">测试执行完成</div>
-                            <div style="font-size: 13px; color: #666;">详细执行过程请查看右侧实时控制台输出。</div>
-                            <div style="margin-top: 10px; font-size: 12px;">状态码: <span style="color: ${data.exit_code === 0 ? '#27ae60' : '#e74c3c'}">${data.exit_code}</span></div>
+                        <div style="background: #1e293b; border-left: 4px solid #3b82f6; padding: 15px; border-radius: 4px;">
+                            <div style="font-weight: bold; color: #3b82f6; margin-bottom: 5px;">测试执行完成</div>
+                            <div style="font-size: 13px; color: #cbd5e1;">详细执行过程请查看右侧实时控制台输出。</div>
+                            <div style="margin-top: 10px; font-size: 12px; color: #cbd5e1;">状态码: <span style="color: ${data.exit_code === 0 ? '#86efac' : '#fca5a5'}">${data.exit_code}</span></div>
                         </div>
                     `;
                 }
 
                 document.getElementById('testResultDisplay').innerHTML = `
                     <div class="unit-test-result-summary">
-                        <div style="font-size: 12px; color: #7f8c8d; margin-bottom: 12px;">
-                            测试文件: <span style="font-family: monospace;">tests/${data.test_file}</span>
+                        <div style="font-size: 12px; color: #94a3b8; margin-bottom: 12px;">
+                            测试文件: <span style="font-family: monospace; color: #cbd5e1;">tests/${data.test_file}</span>
                         </div>
                         ${summaryResult}
                         ${data.stderr ? `
                             <div style="margin-top: 15px;">
-                                <div style="font-size: 11px; color: #e74c3c; margin-bottom: 5px;">错误/警告输出:</div>
-                                <pre class="stderr" style="max-height: 100px; overflow-y: auto; font-size: 11px; background: #fdf2f2;">${escapeHtml(data.stderr)}</pre>
+                                <div style="font-size: 11px; color: #fca5a5; margin-bottom: 5px;">错误/警告输出:</div>
+                                <pre class="stderr" style="max-height: 100px; overflow-y: auto; font-size: 11px; background: #450a0a; color: #fca5a5; border: 1px solid #7f1d1d;">${escapeHtml(data.stderr)}</pre>
                             </div>
                         ` : ''}
                     </div>

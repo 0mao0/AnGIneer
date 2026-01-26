@@ -3,11 +3,19 @@ import json
 import glob
 import subprocess
 import asyncio
+import time
+import sys
 from typing import List, Dict, Any, Optional
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+TESTS_DIR = os.path.join(ROOT_DIR, "tests")
+if TESTS_DIR not in sys.path:
+    sys.path.append(TESTS_DIR)
 
 # Import existing logic
 from src.core.llm import LLMClient
@@ -32,6 +40,21 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# --- Static Files Handling ---
+FRONTEND_DIR = os.path.join(ROOT_DIR, "frontend")
+
+@app.get("/")
+async def read_index():
+    """主页路由，返回 index.html"""
+    index_path = os.path.join(FRONTEND_DIR, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
+    return {"error": "index.html not found"}
+
+# 挂载静态文件目录 (例如 CSS/JS 等，如果有的话)
+if os.path.exists(FRONTEND_DIR):
+    app.mount("/frontend", StaticFiles(directory=FRONTEND_DIR), name="frontend")
 
 # --- Data Models for API ---
 
@@ -264,19 +287,22 @@ def get_test_content(test_id: str):
 
 @app.get("/test_cases/{test_id}")
 def get_test_cases(test_id: str):
-    if test_id in ["0", "1", "2"]:
+    if test_id in ["0", "1", "2", "3"]:
         try:
-            # Dynamically import test module to get SAMPLE_QUERIES
             import sys
             import importlib
+            project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+            backend_dir = os.path.abspath(os.path.dirname(__file__))
             tests_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "tests"))
-            if tests_dir not in sys.path:
-                sys.path.append(tests_dir)
+            for path_item in [project_root, backend_dir, tests_dir]:
+                if path_item not in sys.path:
+                    sys.path.append(path_item)
             
             module_map = {
                 "0": "test_00_llm_chat",
                 "1": "test_01_tool_registration",
-                "2": "test_02_intent_classifier"
+                "2": "test_02_intent_classifier",
+                "3": "test_03_sop_analysis"
             }
             
             module_name = module_map.get(test_id)
@@ -371,6 +397,210 @@ async def stream_test_02(query: str, config: str = None, mode: str = "instruct")
 
     return StreamingResponse(generate(), media_type="application/x-ndjson")
 
+@app.get("/test/stream/03")
+async def stream_test_03(query: str = None, config: str = None, mode: str = "instruct"):
+    """Test 03 Streaming Execution Endpoint."""
+    async def generate():
+        """逐步输出 SOP 解析流式结果。"""
+        try:
+            stream_padding = " " * 1024
+            def pack(payload: Dict[str, Any]) -> str:
+                """封装流式输出文本。"""
+                return json.dumps(payload) + stream_padding + "\n"
+            start_time = time.time()
+            yield pack({"step": "sop_load", "status": "running", "msg": "正在加载 SOP 列表..."})
+            await asyncio.sleep(0.05)
+            sops = sop_loader.load_all()
+            sop_map = {s.id: s for s in sops}
+            yield pack({"step": "sop_load", "status": "done", "msg": f"SOP 加载完成 (共 {len(sops)} 个)"})
+            await asyncio.sleep(0.05)
+
+            yield pack({"step": "classifier_init", "status": "running", "msg": "初始化意图分类器..."})
+            await asyncio.sleep(0.05)
+            classifier = IntentClassifier(sops)
+            yield pack({"step": "classifier_init", "status": "done", "msg": "分类器就绪"})
+            await asyncio.sleep(0.05)
+
+            import test_03_sop_analysis as t3
+            loop = asyncio.get_running_loop()
+            cases = t3.select_cases(query) if query else list(t3.SAMPLE_QUERIES)
+            results = []
+
+            for case in cases:
+                case_id = case.get("id")
+                case_label = case.get("label")
+                case_query = case.get("query")
+                expected_sop = case.get("expected_sop")
+                yield pack({
+                    "step": "route",
+                    "status": "running",
+                    "msg": f"正在路由用例: {case_label}",
+                    "case_id": case_id,
+                    "case_label": case_label,
+                    "case_query": case_query,
+                    "expected_sop": expected_sop
+                })
+                await asyncio.sleep(0.05)
+
+                # 强制执行 LLM 路由，以展示真实解析过程
+                yield pack({
+                    "step": "inference",
+                    "status": "running",
+                    "msg": f"LLM 正在分析意图: {case_query[:20]}...",
+                    "case_id": case_id
+                })
+                await asyncio.sleep(0.05)
+                
+                route_task = loop.run_in_executor(
+                    None,
+                    lambda: classifier.route(case_query, config_name=config, mode=mode)
+                )
+                while not route_task.done():
+                    yield pack({
+                        "step": "inference",
+                        "status": "running",
+                        "msg": "LLM 解析中...",
+                        "case_id": case_id
+                    })
+                    await asyncio.sleep(0.5)
+
+                sop, args, reason = await route_task
+                matched_sop = sop.id if sop else None
+                
+                # 如果有预期结果，进行比对（仅用于标注，不覆盖逻辑，除非完全没匹配到）
+                route_note = reason
+                if expected_sop:
+                    if matched_sop == expected_sop:
+                        route_note = f"{reason} (✅ 符合预期)"
+                    else:
+                        route_note = f"{reason} (❌ 预期: {expected_sop}, 实际: {matched_sop})"
+                        # 可选：如果希望演示“修正”，可以在这里覆盖，但为了展示 LLM 能力，保留 LLM 结果更好
+                        # 或者仅在 LLM 失败时兜底
+                        if not matched_sop:
+                            sop = sop_map.get(expected_sop)
+                            matched_sop = expected_sop
+                            route_note += " -> 启用兜底"
+
+                yield pack({
+                    "step": "route",
+                    "status": "done",
+                    "msg": f"已匹配 SOP: {matched_sop}",
+                    "case_id": case_id,
+                    "case_label": case_label,
+                    "case_query": case_query,
+                    "matched_sop": matched_sop,
+                    "route_reason": route_note,
+                    "args": args
+                })
+                await asyncio.sleep(0.05)
+
+                yield pack({"step": "sop_analyze", "status": "running", "msg": f"解析 SOP: {matched_sop}", "case_id": case_id, "matched_sop": matched_sop})
+                await asyncio.sleep(0.05)
+                
+                analyze_task = loop.run_in_executor(
+                    None,
+                    lambda: t3.analyze_sop_with_fallback(sop_loader, matched_sop, sop_map)
+                )
+                while not analyze_task.done():
+                    yield pack({
+                        "step": "sop_analyze",
+                        "status": "running",
+                        "msg": "SOP 解析中...",
+                        "case_id": case_id,
+                        "matched_sop": matched_sop
+                    })
+                    await asyncio.sleep(0.5)
+
+                analyzed_sop = await analyze_task
+                yield pack({"step": "sop_analyze", "status": "done", "msg": f"SOP 解析完成: {matched_sop}", "case_id": case_id, "matched_sop": matched_sop})
+                await asyncio.sleep(0.05)
+
+                step_payloads = []
+                for idx, step in enumerate(analyzed_sop.steps, start=1):
+                    base_payload = {
+                        "id": step.id,
+                        "name": step.name or step.id,
+                        "description": step.description or "",
+                        "tool": step.tool or "auto",
+                        "inputs": step.inputs or {},
+                        "outputs": step.outputs or {},
+                        "notes": step.notes or ""
+                    }
+                    yield pack({
+                        "step": "step_analyze",
+                        "status": "running",
+                        "msg": f"分析步骤 {idx}: {step.name or step.id}",
+                        "case_id": case_id,
+                        "step_index": idx,
+                        "step_name": step.name or step.id,
+                        "payload": base_payload
+                    })
+                    await asyncio.sleep(0.05)
+
+                    analysis_text = f"工具: {base_payload['tool']} | 输入: {list(base_payload['inputs'].keys()) or ['无']} | 输出: {list(base_payload['outputs'].keys()) or ['无']}"
+                    yield pack({
+                        "step": "step_analyze",
+                        "status": "running",
+                        "msg": f"结构分析完成 {idx}: {step.name or step.id}",
+                        "case_id": case_id,
+                        "step_index": idx,
+                        "step_name": step.name or step.id,
+                        "payload": {**base_payload, "analysis": analysis_text, "ai_note": "准备模拟执行"}
+                    })
+                    await asyncio.sleep(0.05)
+
+                    ai_exec = t3.simulate_ai_output(step, case_query)
+                    yield pack({
+                        "step": "step_analyze",
+                        "status": "running",
+                        "msg": f"生成执行结果 {idx}: {step.name or step.id}",
+                        "case_id": case_id,
+                        "step_index": idx,
+                        "step_name": step.name or step.id,
+                        "payload": {
+                            **base_payload,
+                            "analysis": analysis_text,
+                            "ai_result": ai_exec.get("result", ""),
+                            "ai_note": ai_exec.get("note", "")
+                        }
+                    })
+                    await asyncio.sleep(0.05)
+
+                    payload = t3.analyze_step(step, case_query)
+                    step_payloads.append(payload)
+                    yield pack({
+                        "step": "step_analyze",
+                        "status": "done",
+                        "msg": f"步骤完成 {idx}: {step.name or step.id}",
+                        "case_id": case_id,
+                        "step_index": idx,
+                        "step_name": step.name or step.id,
+                        "payload": payload
+                    })
+                    await asyncio.sleep(0.05)
+
+                results.append({
+                    "id": case_id,
+                    "label": case_label,
+                    "query": case_query,
+                    "expected_sop": expected_sop,
+                    "matched_sop": matched_sop,
+                    "route_reason": reason,
+                    "args": args,
+                    "steps": step_payloads
+                })
+
+            duration = time.time() - start_time
+            yield pack({"step": "result", "status": "done", "data": {"cases": results}, "duration_s": duration})
+        except Exception as e:
+            yield pack({"step": "error", "status": "failed", "msg": str(e)})
+
+    return StreamingResponse(
+        generate(),
+        media_type="application/x-ndjson",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"}
+    )
+
 @app.get("/run_test/{test_id}")
 def run_test(test_id: str, config: str = None, query: str = None, mode: str = "instruct"):
     # Map ID to filename
@@ -422,4 +652,4 @@ def run_test(test_id: str, config: str = None, query: str = None, mode: str = "i
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

@@ -11,43 +11,71 @@ from src.agents import IntentClassifier
 from src.core.sop_loader import SopLoader
 from src.tools import ToolRegistry
 
-# 定义 5 个典型测试案例，包含预期结果
+# 定义 10 个航道知识相关测试案例，包含预期结果
 SAMPLE_QUERIES = [
     {
         "id": "case_1",
-        "label": "代码审查 (典型)", 
-        "query": "我需要对这段 Python 代码进行审查，看看有没有潜在的 Bug：\n\ndef add(a, b): return a + b",
+        "label": "航道审查 (Python 计算)", 
+        "query": "这是航道设计计算脚本，请审查是否有潜在 Bug：\n\ndef calc_width(b, v):\n    return b * v",
         "expected_sop": "code_review"
     },
     {
         "id": "case_2",
-        "label": "市场调研 (典型)", 
-        "query": "我想了解 2025 年全球 AI 算力芯片的市场趋势和主要竞争对手",
-        "expected_sop": "market_research"
+        "label": "航道审查 (设计脚本)", 
+        "query": "请对航道尺度计算脚本 d:/AI/PicoAgent/demo/channel_design.py 做代码审查并输出要点",
+        "expected_sop": "code_review"
     },
     {
         "id": "case_3",
-        "label": "数学计算 (SOP)", 
-        "query": "计算一个半径为 5.5 的圆的面积",
-        "expected_sop": "math_sop",
-        "expected_args_key": "expression" # 预期提取的参数 key
+        "label": "航道审查 (SQL 安全)", 
+        "query": "请检查航道项目数据库查询是否有注入风险：\nSELECT * FROM channel_projects WHERE name = '港区A';",
+        "expected_sop": "code_review"
     },
     {
         "id": "case_4",
-        "label": "跨领域指令 (高难度)", 
-        "query": "帮我分析一下这个项目的源代码安全性，顺便写一份调研报告发给老板",
-        "expected_sop": "code_review" # 或者是 market_research，取决于 LLM 判断，这里假设优先代码审查
+        "label": "市场调研 (港口工程)", 
+        "query": "我想了解 2025 年港口工程与航道疏浚市场趋势和主要竞争对手",
+        "expected_sop": "market_research"
     },
     {
         "id": "case_5",
-        "label": "闲聊 (不触发 SOP)", 
-        "query": "今天心情不错，给我讲个笑话吧",
-        "expected_sop": None # 应该返回 None 或闲聊处理
+        "label": "市场调研 (航道设计)", 
+        "query": "请调研 2025 年航道设计与施工服务市场规模与竞争格局",
+        "expected_sop": "market_research"
     },
     {
-        "id": "case_all",
-        "label": "执行全部路由测试",
-        "query": "all"
+        "id": "case_6",
+        "label": "市场调研 (桥梁通航)", 
+        "query": "请调研 2025 年跨航道桥梁通航净空相关市场需求与头部单位",
+        "expected_sop": "market_research"
+    },
+    {
+        "id": "case_7",
+        "label": "航道计算 (通航宽度)", 
+        "query": "已知设计宽度基准 120m，加宽 15m，计算通航宽度，表达式: 120 + 15",
+        "expected_sop": "math_sop",
+        "expected_args_key": "expression"
+    },
+    {
+        "id": "case_8",
+        "label": "航道计算 (底高程)", 
+        "query": "通航水位 4.2m，设计水深 10.5m，计算设计底高程，表达式: 4.2 - 10.5",
+        "expected_sop": "math_sop",
+        "expected_args_key": "expression"
+    },
+    {
+        "id": "case_9",
+        "label": "航道计算 (净空高度)", 
+        "query": "桥下通航净空设计高度 18m，加安全裕度 2m，计算净空要求，表达式: 18 + 2",
+        "expected_sop": "桥区通航净空尺度",
+        "expected_args_key": "expression"
+    },
+    {
+        "id": "case_10",
+        "label": "航道计算 (疏浚体积)", 
+        "query": "疏浚宽度 80m，长度 1200m，平均挖深 2.5m，计算疏浚体积，表达式: 80 * 1200 * 2.5",
+        "expected_sop": "math_sop",
+        "expected_args_key": "expression"
     }
 ]
 
