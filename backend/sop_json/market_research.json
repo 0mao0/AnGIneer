@@ -1,0 +1,103 @@
+{
+  "id": "market_research",
+  "name_zh": "market_research",
+  "name_en": "market_research",
+  "description": "Market Research SOP",
+  "mtime": 1768699713.820856,
+  "steps": [
+    {
+      "id": "step_1",
+      "name": "Step 1",
+      "name_zh": null,
+      "name_en": null,
+      "description": "Search for market trends in the specified topic for 2025.",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "web_search",
+      "inputs": {
+        "query": "market trends 2025"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_2",
+      "name": "Step 2",
+      "name_zh": null,
+      "name_en": null,
+      "description": "Search for top competitors in the specified topic.",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "web_search",
+      "inputs": {
+        "query": "top competitors in ${topic}"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_3",
+      "name": "Step 3",
+      "name_zh": null,
+      "name_en": null,
+      "description": "Summarize the market and competitor data into an executive summary of up to 100 words.",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "summarizer",
+      "inputs": {
+        "text": "Market Data: ${market_data}\nCompetitor Data: ${competitor_data}",
+        "max_words": "100"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_4",
+      "name": "Step 4",
+      "name_zh": null,
+      "name_en": null,
+      "description": "Generate a market research report using the executive summary.",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "report_generator",
+      "inputs": {
+        "title": "${topic} Market Research Report",
+        "data": "${executive_summary}"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_5",
+      "name": "Step 5",
+      "name_zh": null,
+      "name_en": null,
+      "description": "Send the final report via email to the specified recipient.",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "email_sender",
+      "inputs": {
+        "recipient": "boss@company.com",
+        "subject": "Research: ${topic}",
+        "body": "${final_report}"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "",
+      "analysis_status": "analyzed"
+    }
+  ]
+}

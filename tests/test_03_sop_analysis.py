@@ -128,10 +128,10 @@ def build_fallback_steps(sop_id: str, description: str) -> List[Step]:
     )
     return [step1, step2]
 
-def analyze_sop_with_fallback(loader: SopLoader, sop_id: str, sop_map: Dict[str, SOP]) -> SOP:
+def analyze_sop_with_fallback(loader: SopLoader, sop_id: str, sop_map: Dict[str, SOP], config: str = None, mode: str = "instruct") -> SOP:
     """尝试分析 SOP 并在失败时走兜底流程。"""
     try:
-        return loader.analyze_sop(sop_id)
+        return loader.analyze_sop(sop_id, config_name=config, mode=mode)
     except Exception:
         base = sop_map.get(sop_id)
         fallback_steps = build_fallback_steps(sop_id, base.description if base else sop_id)

@@ -7,8 +7,11 @@ from src.tools.base import ToolRegistry
 from src.core.llm import llm_client
 
 class Dispatcher:
-    def __init__(self):
+    def __init__(self, config_name: str = None, mode: str = "instruct"):
+        """初始化执行器上下文与模型配置。"""
         self.memory = Memory()
+        self.config_name = config_name
+        self.mode = mode or "instruct"
         
     def run(self, sop: SOP, initial_context: Dict[str, Any]):
         """
@@ -68,7 +71,12 @@ class Dispatcher:
         try:
             # Here we could insert an LLM call if inputs need formatting
             # But for now, trust the resolution
-            result = tool.run(**tool_inputs)
+            run_kwargs = dict(tool_inputs)
+            if self.config_name:
+                run_kwargs["config_name"] = self.config_name
+            if self.mode:
+                run_kwargs["mode"] = self.mode
+            result = tool.run(**run_kwargs)
             print(f"    Result: {result}")
             
             # 5. Process Outputs
@@ -132,7 +140,12 @@ class Dispatcher:
             return
             
         try:
-            result = tool.run(**inputs)
+            run_kwargs = dict(inputs)
+            if self.config_name:
+                run_kwargs["config_name"] = self.config_name
+            if self.mode:
+                run_kwargs["mode"] = self.mode
+            result = tool.run(**run_kwargs)
             print(f"    Result: {result}")
             # Update context with all result keys if it's a dict
             if isinstance(result, dict):
@@ -194,7 +207,7 @@ Output ONLY the JSON.
 """
         messages = [{"role": "system", "content": system_prompt}]
         
-        response = llm_client.chat(messages)
+        response = llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
         
         # Parse JSON
         try:
@@ -304,7 +317,7 @@ Example Output:
 """
         messages = [{"role": "system", "content": system_prompt}]
         try:
-            response = llm_client.chat(messages)
+            response = llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
             # clean response
             if "```json" in response:
                 response = response.split("```json")[1].split("```")[0]

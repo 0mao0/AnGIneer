@@ -60,6 +60,8 @@ if os.path.exists(FRONTEND_DIR):
 
 class QueryRequest(BaseModel):
     query: str
+    config: Optional[str] = None
+    mode: Optional[str] = None
 
 class SOPUpdate(BaseModel):
     id: str
@@ -78,8 +80,8 @@ class TraceDispatcher(Dispatcher):
     A specialized Dispatcher that records execution steps for the UI
     without modifying the original Dispatcher code.
     """
-    def __init__(self, trace_list: list):
-        super().__init__()
+    def __init__(self, trace_list: list, config_name: str = None, mode: str = "instruct"):
+        super().__init__(config_name=config_name, mode=mode)
         self.trace_list = trace_list
 
     def _execute_step(self, step: Step):
@@ -127,7 +129,12 @@ class TraceDispatcher(Dispatcher):
             if not tool:
                 raise ValueError(f"Tool {target_tool_name} not found")
             
-            result = tool.run(**tool_inputs)
+            run_kwargs = dict(tool_inputs)
+            if self.config_name:
+                run_kwargs["config_name"] = self.config_name
+            if self.mode:
+                run_kwargs["mode"] = self.mode
+            result = tool.run(**run_kwargs)
             step_trace["output"] = result
             step_trace["status"] = "completed"
             
@@ -193,7 +200,7 @@ def chat(request: QueryRequest):
     sops = sop_loader.load_all()
     
     classifier = IntentClassifier(sops)
-    sop, args, reason = classifier.route(request.query)
+    sop, args, reason = classifier.route(request.query, config_name=request.config, mode=request.mode or "instruct")
     
     if not sop:
         return {
@@ -204,7 +211,7 @@ def chat(request: QueryRequest):
         }
     
     # 2. Execute with TraceDispatcher
-    dispatcher = TraceDispatcher(execution_trace)
+    dispatcher = TraceDispatcher(execution_trace, config_name=request.config, mode=request.mode or "instruct")
     final_context = dispatcher.run(sop, args)
     
     return {
@@ -227,7 +234,7 @@ def chat_stream(request: QueryRequest):
             sops = sop_loader.load_all()
 
             classifier = IntentClassifier(sops)
-            sop, args, reason = classifier.route(request.query)
+            sop, args, reason = classifier.route(request.query, config_name=request.config, mode=request.mode or "instruct")
 
             if not sop:
                 yield json.dumps({"type": "nomatch"}) + "\n"
@@ -243,7 +250,7 @@ def chat_stream(request: QueryRequest):
             }) + "\n"
 
             trace_list: list = []
-            dispatcher = TraceDispatcher(trace_list)
+            dispatcher = TraceDispatcher(trace_list, config_name=request.config, mode=request.mode or "instruct")
             dispatcher.memory.update_context(args)
 
             for step in sop.steps:
@@ -407,22 +414,32 @@ async def stream_test_03(query: str = None, config: str = None, mode: str = "ins
             def pack(payload: Dict[str, Any]) -> str:
                 """封装流式输出文本。"""
                 return json.dumps(payload) + stream_padding + "\n"
+            loop = asyncio.get_event_loop()
             start_time = time.time()
             yield pack({"step": "sop_load", "status": "running", "msg": "正在加载 SOP 列表..."})
-            await asyncio.sleep(0.05)
-            sops = sop_loader.load_all()
+            await asyncio.sleep(0.01)
+            
+            sops_task = loop.run_in_executor(None, sop_loader.load_all)
+            while not sops_task.done():
+                yield pack({"step": "sop_load", "status": "running", "msg": "SOP 加载中..."})
+                await asyncio.sleep(0.1)
+            sops = await sops_task
             sop_map = {s.id: s for s in sops}
             yield pack({"step": "sop_load", "status": "done", "msg": f"SOP 加载完成 (共 {len(sops)} 个)"})
-            await asyncio.sleep(0.05)
+            await asyncio.sleep(0.01)
 
             yield pack({"step": "classifier_init", "status": "running", "msg": "初始化意图分类器..."})
-            await asyncio.sleep(0.05)
-            classifier = IntentClassifier(sops)
+            await asyncio.sleep(0.01)
+            
+            classifier_task = loop.run_in_executor(None, lambda: IntentClassifier(sops))
+            while not classifier_task.done():
+                yield pack({"step": "classifier_init", "status": "running", "msg": "分类器构建中..."})
+                await asyncio.sleep(0.1)
+            classifier = await classifier_task
             yield pack({"step": "classifier_init", "status": "done", "msg": "分类器就绪"})
-            await asyncio.sleep(0.05)
+            await asyncio.sleep(0.01)
 
             import test_03_sop_analysis as t3
-            loop = asyncio.get_running_loop()
             cases = t3.select_cases(query) if query else list(t3.SAMPLE_QUERIES)
             results = []
 
@@ -440,7 +457,7 @@ async def stream_test_03(query: str = None, config: str = None, mode: str = "ins
                     "case_query": case_query,
                     "expected_sop": expected_sop
                 })
-                await asyncio.sleep(0.05)
+                await asyncio.sleep(0.01)
 
                 # 强制执行 LLM 路由，以展示真实解析过程
                 yield pack({
@@ -449,7 +466,7 @@ async def stream_test_03(query: str = None, config: str = None, mode: str = "ins
                     "msg": f"LLM 正在分析意图: {case_query[:20]}...",
                     "case_id": case_id
                 })
-                await asyncio.sleep(0.05)
+                await asyncio.sleep(0.01)
                 
                 route_task = loop.run_in_executor(
                     None,
@@ -459,10 +476,10 @@ async def stream_test_03(query: str = None, config: str = None, mode: str = "ins
                     yield pack({
                         "step": "inference",
                         "status": "running",
-                        "msg": "LLM 解析中...",
+                        "msg": "LLM 匹配 SOP 中...",
                         "case_id": case_id
                     })
-                    await asyncio.sleep(0.5)
+                    await asyncio.sleep(0.2)
 
                 sop, args, reason = await route_task
                 matched_sop = sop.id if sop else None
@@ -492,24 +509,24 @@ async def stream_test_03(query: str = None, config: str = None, mode: str = "ins
                     "route_reason": route_note,
                     "args": args
                 })
-                await asyncio.sleep(0.05)
+                await asyncio.sleep(0.01)
 
                 yield pack({"step": "sop_analyze", "status": "running", "msg": f"解析 SOP: {matched_sop}", "case_id": case_id, "matched_sop": matched_sop})
-                await asyncio.sleep(0.05)
+                await asyncio.sleep(0.01)
                 
                 analyze_task = loop.run_in_executor(
                     None,
-                    lambda: t3.analyze_sop_with_fallback(sop_loader, matched_sop, sop_map)
+                    lambda: t3.analyze_sop_with_fallback(sop_loader, matched_sop, sop_map, config=config, mode=mode)
                 )
                 while not analyze_task.done():
                     yield pack({
                         "step": "sop_analyze",
                         "status": "running",
-                        "msg": "SOP 解析中...",
+                        "msg": "LLM 提取步骤中...",
                         "case_id": case_id,
                         "matched_sop": matched_sop
                     })
-                    await asyncio.sleep(0.5)
+                    await asyncio.sleep(0.2)
 
                 analyzed_sop = await analyze_task
                 yield pack({"step": "sop_analyze", "status": "done", "msg": f"SOP 解析完成: {matched_sop}", "case_id": case_id, "matched_sop": matched_sop})

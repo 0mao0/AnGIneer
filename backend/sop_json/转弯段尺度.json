@@ -1,0 +1,86 @@
+{
+  "id": "转弯段尺度",
+  "name_zh": "转弯段尺度",
+  "name_en": "转弯段尺度",
+  "description": "确定航道转弯段的转弯半径及加宽方式 (Determine turning radius and widening)",
+  "mtime": 1768705032.277378,
+  "steps": [
+    {
+      "id": "step_1",
+      "name": "明确引用规范内容",
+      "name_zh": null,
+      "name_en": null,
+      "description": "确定设计船型尺度和转弯半径与加宽的相关规范依据。",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "knowledge_search",
+      "inputs": {
+        "specification": "《海港水文规范》"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "参考《海港水文规范》第1章和第3.2节。",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_2",
+      "name": "核心参数解析与确定",
+      "name_zh": null,
+      "name_en": null,
+      "description": "获取并确定转向角和设计船长两个核心参数。",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "user_input",
+      "inputs": {
+        "angle": "转向角 (φ)",
+        "l": "设计船长 (L)"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "转向角 (φ) 需由用户输入；设计船长 (L) 参考《海港水文规范》第1章。",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_3",
+      "name": "最终结果判定",
+      "name_zh": null,
+      "name_en": null,
+      "description": "根据转向角的大小，判断转弯半径和加宽方法。",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "auto",
+      "inputs": {
+        "angle": "转向角 (φ)",
+        "l": "设计船长 (L)"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "若 10° < φ ≤ 30°，建议半径为 3L~5L，切角法加宽；若 30° < φ ≤ 60°，建议半径为 5L~10L，折线切割法；若 φ > 60°，建议半径 > 10L，需模拟试验。参考规范第3.2节。",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_4",
+      "name": "结论输出",
+      "name_zh": null,
+      "name_en": null,
+      "description": "输出最终的转弯段尺度判断结果及关键参数。",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "auto",
+      "inputs": {
+        "angle": "转向角 (φ)",
+        "l": "设计船长 (L)",
+        "radius_suggestion": "建议转弯半径",
+        "widening_method": "加宽方法"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "输出应包含转向角、设计船长、建议半径和加宽方法。",
+      "analysis_status": "analyzed"
+    }
+  ]
+}

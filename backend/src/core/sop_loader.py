@@ -22,6 +22,7 @@ class SopLoader:
         self.sop_dir = sop_dir
         self.index_file = os.path.join(sop_dir, "index.json")
         self.sops: List[SOP] = [] # Cache
+        self.analyzed_cache: Dict[str, Dict[str, object]] = {}
 
     def load_all(self) -> List[SOP]:
         """
@@ -130,7 +131,7 @@ class SopLoader:
             
         return sops
 
-    def analyze_sop(self, sop_id: str) -> SOP:
+    def analyze_sop(self, sop_id: str, config_name: str = None, mode: str = "instruct") -> SOP:
         """
         【混合架构核心】
         利用 LLM 读取指定的 SOP Markdown 文件，并将其解析为细粒度的 Steps 列表。
@@ -139,7 +140,10 @@ class SopLoader:
         from src.core.llm import llm_client
         
         # 1. 找到对应的 Markdown 文件
-        sop = next((s for s in self.load_all() if s.id == sop_id), None)
+        if self.sops:
+            sop = next((s for s in self.sops if s.id == sop_id), None)
+        else:
+            sop = next((s for s in self.load_all() if s.id == sop_id), None)
         if not sop:
             raise ValueError(f"SOP {sop_id} not found")
             
@@ -151,10 +155,45 @@ class SopLoader:
         filepath = os.path.join(self.sop_dir, filename)
         if not os.path.exists(filepath):
             raise FileNotFoundError(f"SOP file {filepath} not found")
+
+        file_mtime = os.path.getmtime(filepath)
+        cache_entry = self.analyzed_cache.get(sop_id)
+        if cache_entry and cache_entry.get("mtime") == file_mtime:
+            cached_sop = cache_entry.get("sop")
+            if isinstance(cached_sop, SOP):
+                return cached_sop
+        sop_json_dir = os.path.abspath(os.path.join(self.sop_dir, "..", "sop_json"))
+        json_path = os.path.join(sop_json_dir, f"{sop_id}.json")
+        if os.path.exists(json_path) and os.path.getmtime(json_path) >= file_mtime:
+            try:
+                with open(json_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                steps = [Step(**s) for s in data.get("steps", [])]
+                sop = SOP(
+                    id=data.get("id", sop_id),
+                    name_zh=data.get("name_zh", sop.name_zh),
+                    name_en=data.get("name_en", sop.name_en),
+                    description=data.get("description", sop.description),
+                    steps=steps
+                )
+                self.analyzed_cache[sop_id] = {"mtime": file_mtime, "sop": sop}
+                return sop
+            except Exception:
+                pass
             
-        # 2. 读取全文
+        # 2. 读取全文并进行轻量裁剪
         with open(filepath, 'r', encoding='utf-8') as f:
-            content = f.read()
+            raw_content = f.read()
+        lines = raw_content.splitlines()
+        start_idx = 0
+        keywords = ["## 实施步骤", "## 步骤", "## Steps", "## Implementation", "# Steps"]
+        for i, ln in enumerate(lines):
+            if any(ln.strip().startswith(k) for k in keywords):
+                start_idx = i
+                break
+        content = "\n".join(lines[start_idx:]) if start_idx > 0 else raw_content
+        if len(content) > 8000:
+            content = content[:8000] + "\n...(内容已截断)"
             
         # 3. LLM 结构化解析
         system_prompt = """
@@ -178,7 +217,8 @@ Output: A JSON object with a "steps" list. Each step must have:
         
         print(f"  [SopLoader] Analyzing {filename} with LLM...")
         try:
-            response = llm_client.chat(messages)
+            preferred = config_name or os.getenv("PREFERRED_LLM_CONFIG")
+            response = llm_client.chat(messages, mode=mode, config_name=preferred)
             # Clean json
             if "```json" in response:
                 response = response.split("```json")[1].split("```")[0]
@@ -208,9 +248,53 @@ Output: A JSON object with a "steps" list. Each step must have:
                 
             sop.steps = new_steps
             print(f"  [SopLoader] Successfully analyzed {len(new_steps)} steps for {sop_id}.")
+            self.analyzed_cache[sop_id] = {"mtime": file_mtime, "sop": sop}
+            # 用户需求：自动解析的结果不要保存到磁盘，保持 json 文件的官方唯一性
+            # if not os.path.exists(sop_json_dir):
+            #     os.makedirs(sop_json_dir)
+            # with open(json_path, "w", encoding="utf-8") as f:
+            #     json.dump(
+            #         {
+            #             "id": sop.id,
+            #             "name_zh": sop.name_zh,
+            #             "name_en": sop.name_en,
+            #             "description": sop.description,
+            #             "mtime": file_mtime,
+            #             "steps": [s.dict() for s in new_steps]
+            #         },
+            #         f,
+            #         indent=2,
+            #         ensure_ascii=False
+            #     )
             return sop
             
         except Exception as e:
             print(f"  [SopLoader] Analysis failed: {e}")
             # Fallback to original wrapper step
             return sop
+
+    def preparse_all(self, config_name: str = None, mode: str = "instruct") -> Dict[str, object]:
+        """批量预解析所有 SOP 并输出到 sop_json。"""
+        sops = self.load_all()
+        results = {"total": len(sops), "success": 0, "failed": 0, "items": []}
+        for sop in sops:
+            try:
+                analyzed = self.analyze_sop(sop.id, config_name=config_name, mode=mode)
+                results["success"] += 1
+                results["items"].append({"id": sop.id, "steps": len(analyzed.steps)})
+            except Exception as e:
+                results["failed"] += 1
+                results["items"].append({"id": sop.id, "error": str(e)})
+        return results
+
+def _run_preparse_from_cli():
+    """从命令行触发 SOP 预解析。"""
+    sop_dir = sys.argv[1] if len(sys.argv) > 1 else os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "sops"))
+    config_name = sys.argv[2] if len(sys.argv) > 2 else None
+    mode = sys.argv[3] if len(sys.argv) > 3 else "instruct"
+    loader = SopLoader(sop_dir)
+    result = loader.preparse_all(config_name=config_name, mode=mode)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+
+if __name__ == "__main__":
+    _run_preparse_from_cli()

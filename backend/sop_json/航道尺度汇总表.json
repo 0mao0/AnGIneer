@@ -1,0 +1,34 @@
+{
+  "id": "航道尺度汇总表",
+  "name_zh": "航道尺度汇总表",
+  "name_en": "航道尺度汇总表",
+  "description": "输出最终的航道尺度设计成果汇总表",
+  "mtime": 1768699281.1291802,
+  "steps": [
+    {
+      "id": "step_1",
+      "name": "参数提取与制表",
+      "name_zh": null,
+      "name_en": null,
+      "description": "根据历史记录提取关键参数的最终计算结果，并按指定格式输出为 Markdown 表格。若参数未提及或未计算，则填写“-”。",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "auto",
+      "inputs": {
+        "E_nav": "航道通航底高程",
+        "m": "航道边坡的坡度比（1 : m）",
+        "W": "通航宽度",
+        "W_dredge": "挖槽宽度",
+        "R": "转弯段半径",
+        "方式": "转弯段加宽方式",
+        "H_clear": "桥区通航净空高度",
+        "B_bridge": "桥区通航净空宽度"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "若某项参数在上下文中从未提及或未计算，请在数值栏填写“-”。",
+      "analysis_status": "analyzed"
+    }
+  ]
+}

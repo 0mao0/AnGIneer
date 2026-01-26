@@ -1,0 +1,45 @@
+{
+  "id": "math_sop",
+  "name_zh": "math_sop",
+  "name_en": "math_sop",
+  "description": "Math Calculation SOP",
+  "mtime": 1768699719.4418242,
+  "steps": [
+    {
+      "id": "step_1",
+      "name": "Step 1",
+      "name_zh": null,
+      "name_en": null,
+      "description": "Perform a calculation using the provided expression.",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "calculator",
+      "inputs": {
+        "expression": "${expression}"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_2",
+      "name": "Step 2",
+      "name_zh": null,
+      "name_en": null,
+      "description": "Output the calculation result as a message.",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "echo",
+      "inputs": {
+        "message": "The calculation result is: ${calc_result}"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "",
+      "analysis_status": "analyzed"
+    }
+  ]
+}

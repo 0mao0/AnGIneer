@@ -1,0 +1,98 @@
+{
+  "id": "航道通航底高程",
+  "name_zh": "航道通航底高程",
+  "name_en": "航道通航底高程",
+  "description": "根据设计船型吃水及富裕深度计算通航底高程",
+  "mtime": 1768705024.9177735,
+  "steps": [
+    {
+      "id": "step_1",
+      "name": "明确引用规范内容",
+      "name_zh": null,
+      "name_en": null,
+      "description": "确定设计船型尺度和计算公式所依据的规范文件。",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "knowledge_search",
+      "inputs": {
+        "specification": "《海港水文规范》"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "设计船型尺度参考第1章（表A.0.1-1至A.0.1-4），计算公式与富裕深度参考第2.2节（6.4.6）。",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_2",
+      "name": "核心参数解析与确定",
+      "name_zh": null,
+      "name_en": null,
+      "description": "按顺序解析并确定所有核心参数，若缺失则向用户追问。",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "user_input",
+      "inputs": {
+        "T": "设计船型满载吃水",
+        "Z0": "船舶航行时船体下沉量",
+        "Z1": "航行时龙骨下最小富裕深度",
+        "Z2": "波浪富裕深度",
+        "Z3": "船舶装载纵倾富裕深度",
+        "H_nav": "航道设计通航水位"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "若参数缺失且无法通过规范推导，必须向用户追问。T根据船型和吨级查表；Z0根据航速、水深查图6.4.6-1；Z1根据DWT和土质查第2.2节；Z2根据规范表6.4.6-2计算；Z3根据船型（油船/散货船）取0.15m等；H_nav直接指定。",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_3",
+      "name": "分步计算",
+      "name_zh": null,
+      "name_en": null,
+      "description": "根据已知参数进行航道通航水深和通航底标高的计算。",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "calculator",
+      "inputs": {
+        "T": "设计船型满载吃水",
+        "Z0": "船舶航行时船体下沉量",
+        "Z1": "航行时龙骨下最小富裕深度",
+        "Z2": "波浪富裕深度",
+        "Z3": "船舶装载纵倾富裕深度",
+        "H_nav": "航道设计通航水位"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "D₀ = T + Z₀ + Z₁ + Z₂ + Z₃；E_nav = H_nav - D₀。",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_4",
+      "name": "内容输出",
+      "name_zh": null,
+      "name_en": null,
+      "description": "输出所有计算结果和参数。",
+      "description_zh": null,
+      "description_en": null,
+      "tool": "auto",
+      "inputs": {
+        "D0": "航道通航水深",
+        "E_nav": "通航底标高",
+        "T": "设计船型满载吃水",
+        "Z0": "船舶航行时船体下沉量",
+        "Z1": "航行时龙骨下最小富裕深度",
+        "Z2": "波浪富裕深度",
+        "Z3": "船舶装载纵倾富裕深度",
+        "H_nav": "航道设计通航水位"
+      },
+      "outputs": {},
+      "next_step_id": null,
+      "on_failure": null,
+      "notes": "列出所有参数的计算结果。",
+      "analysis_status": "analyzed"
+    }
+  ]
+}

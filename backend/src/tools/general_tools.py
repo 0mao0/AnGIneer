@@ -15,7 +15,7 @@ class TableLookupTool(BaseTool):
     description_en = "Queries structured table data from specifications. Inputs: table_name (str), query_conditions (str/dict), target_column (str, optional)"
     description_zh = "查询规范表格数据。根据表格名称（或描述）和行查询条件，返回对应的数值。输入参数：table_name (str), query_conditions (str/dict), target_column (str, optional)"
 
-    def run(self, table_name: str, query_conditions: Any, target_column: str = None, **kwargs) -> Any:
+    def run(self, table_name: str, query_conditions: Any, target_column: str = None, config_name: str = None, mode: str = "instruct", **kwargs) -> Any:
         print(f"  [表格查询] 正在查找表格 '{table_name}'，查询条件: {query_conditions}")
         
         # 1. 定位文件和表格
@@ -47,7 +47,7 @@ class TableLookupTool(BaseTool):
         ]
         
         try:
-            response = llm_client.chat(prompt)
+            response = llm_client.chat(prompt, mode=mode, config_name=config_name)
             # 解析 JSON
             if "```json" in response:
                 response = response.split("```json")[1].split("```")[0]
@@ -63,7 +63,7 @@ class KnowledgeSearchTool(BaseTool):
     description_en = "Document/Report retrieval tool: search for relevant paragraphs in unstructured documents (e.g., regulations, design reports, research literature). Inputs: query (str)"
     description_zh = "文档/报告检索工具：根据查询关键词，在非结构化文档（如规范条文、设计报告、研究文献）中查找相关段落。输入参数：query (str)"
 
-    def run(self, query: str, **kwargs) -> Dict[str, Any]:
+    def run(self, query: str, config_name: str = None, mode: str = "instruct", **kwargs) -> Dict[str, Any]:
         print(f"  [知识检索] 正在检索文档: {query}")
         
         # 1. 加载知识库 (示例：港口规范)
@@ -89,7 +89,7 @@ class KnowledgeSearchTool(BaseTool):
         ]
         
         try:
-            extract = llm_client.chat(prompt)
+            extract = llm_client.chat(prompt, mode=mode, config_name=config_name)
             return {"result": extract, "source": "《海港水文规范》"}
         except Exception as e:
             return {"error": str(e)}

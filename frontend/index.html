@@ -377,12 +377,14 @@
         let currentTestId = null;
         let startTime = 0;
         let timerInterval;
+        let consoleHeartbeatInterval = null;
+        let lastConsoleActivity = 0;
         let availableModels = [];
 
         async function fetchModels() {
             const intro = "加载可用模型并同步默认选择。";
             try {
-                const response = await fetch(`${API_URL}/llm_configs`);
+                const response = await fetch(`${API_URL}/llm_configs?ts=${Date.now()}`);
                 availableModels = await response.json();
                 const container = document.getElementById('modelGrid');
                 container.innerHTML = availableModels.map((m, index) => `
@@ -660,6 +662,9 @@
                 <div style="font-size: 12px; color: #94a3b8; margin-top: 8px;">
                     选择原因: ${escapeHtml(payload.reason)}
                 </div>` : '';
+            const isMetaStep = stepIndex === 'route' || stepIndex === 'sop_analyze';
+            const showDetails = !isMetaStep;
+
             const stepHtml = `
                 <div data-test03-step="${stepKey}" class="transition-all duration-300 ${statusClass}" style="border: 1px solid; border-radius: 8px; padding: 16px; margin-top: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.2); ${indentStyle}">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
@@ -677,6 +682,7 @@
                         </div>
                     </div>
                     <div style="background: #0f172a; border-radius: 6px; padding: 10px; border: 1px solid #334155;">
+                        ${showDetails ? `
                         <div style="font-size: 12px; color: #cbd5e1; display: flex; gap: 6px; margin-bottom: 4px;">
                             🛠️ <span style="font-weight: 500;">工具:</span> ${escapeHtml(payload.tool || '未知')} ${payload.description ? ` - ${escapeHtml(payload.description)}` : ''}
                         </div>
@@ -694,6 +700,7 @@
                                 <pre style="margin: 0; padding: 10px; font-size: 11px; background: #020617; max-height: 150px; overflow-y: auto; color: #e2e8f0;">${escapeHtml(JSON.stringify(payload.outputs || {}, null, 2))}</pre>
                             </div>
                         </div>
+                        ` : ''}
                         ${reasonRow}
                     </div>
                 </div>
@@ -716,29 +723,30 @@
                     case_label: event.case_label,
                     case_query: event.case_query
                 });
-                if (event.step === 'route') {
-                    const routePayload = {
-                        name: event.matched_sop || "匹配中",
-                        id: "sop_route",
-                        tool: "route",
-                        description: event.status === 'done' ? "匹配完成" : "正在匹配 SOP...",
-                        matched_sop: event.matched_sop || '',
-                        reason: event.route_reason || '',
-                        step_label: "SOP 匹配"
-                    };
-                    appendTest03Step(event.case_id, "route", routePayload, event.status !== 'done');
-                }
+                
+                const isRunning = event.status === 'running';
+                const routePayload = {
+                    name: event.matched_sop || (isRunning ? "正在分析意图..." : "匹配中"),
+                    id: "sop_route",
+                    tool: "route",
+                    description: isRunning ? (event.msg || "正在通过 LLM 路由 SOP...") : "匹配完成",
+                    matched_sop: event.matched_sop || '',
+                    reason: event.route_reason || '',
+                    step_label: "SOP 匹配"
+                };
+                appendTest03Step(event.case_id, "route", routePayload, isRunning);
             }
 
             if (event.step === 'sop_analyze') {
+                const isRunning = event.status === 'running';
                 const sopPayload = {
-                    name: event.matched_sop || "解析中",
+                    name: event.matched_sop || (isRunning ? "正在提取步骤..." : "解析中"),
                     id: "sop_analyze",
                     tool: "llm",
-                    description: event.msg || "正在解析 SOP...",
+                    description: event.msg || (isRunning ? "正在利用 LLM 结构化解析 Markdown..." : "SOP 解析完成"),
                     step_label: "SOP 解析"
                 };
-                appendTest03Step(event.case_id, "sop_analyze", sopPayload, event.status !== 'done');
+                appendTest03Step(event.case_id, "sop_analyze", sopPayload, isRunning);
             }
 
             // 步骤分析阶段 (Running -> Placeholder, Done -> Content)
@@ -1195,14 +1203,20 @@
     }
 
     function addConsoleLine(text, isError = false) {
+        lastConsoleActivity = Date.now();
         const consoleArea = document.getElementById('consoleArea');
         const div = document.createElement('div');
         div.className = 'trace-step';
         const time = new Date().toLocaleTimeString();
         const safeText = escapeHtml(text);
+        
+        let color = '#ecf0f1';
+        if (isError === true) color = '#f44747';
+        else if (isError === 'heartbeat') color = '#6c757d'; // Grey for heartbeat
+
         div.innerHTML = `
             <span class="trace-step-time">[${time}]</span>
-            <div class="trace-step-content" style="color: ${isError ? '#f44747' : '#ecf0f1'}">${safeText}</div>
+            <div class="trace-step-content" style="color: ${color}">${safeText}</div>
         `;
         consoleArea.appendChild(div);
         consoleArea.scrollTop = consoleArea.scrollHeight;
@@ -1227,10 +1241,23 @@
             startTime = Date.now();
             document.getElementById('traceStats').style.display = 'block';
             timerInterval = setInterval(updateTimer, 50);
+            
+            // Heartbeat setup
+            if (consoleHeartbeatInterval) clearInterval(consoleHeartbeatInterval);
+            lastConsoleActivity = Date.now();
+            consoleHeartbeatInterval = setInterval(() => {
+                if (Date.now() - lastConsoleActivity >= 5000) {
+                    addConsoleLine("... (heartbeat) ...", 'heartbeat');
+                }
+            }, 1000);
         }
 
         function stopTimer(status = '完成') {
             clearInterval(timerInterval);
+            if (consoleHeartbeatInterval) {
+                clearInterval(consoleHeartbeatInterval);
+                consoleHeartbeatInterval = null;
+            }
             const elapsed = Date.now() - startTime;
             const selectedModel = document.querySelector('input[name="selectedModel"]:checked')?.value;
             if (selectedModel) {
