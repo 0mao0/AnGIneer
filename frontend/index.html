@@ -474,6 +474,128 @@
             }
         }
 
+        let test04StreamState = { cases: {}, order: [] };
+        let test04StartTime = 0;
+        let test04TimerInterval = null;
+
+        function resetTest04StreamState() {
+            const intro = "重置 Test04 流式渲染状态。";
+            test04StreamState = { cases: {}, order: [] };
+        }
+
+        function ensureTest04StreamContainer() {
+            const intro = "创建或获取 Test04 流式结果容器。";
+            const resultEl = document.getElementById('testResultDisplay');
+            if (!resultEl) return null;
+            let wrapper = document.getElementById('test04StreamWrapper');
+            if (!wrapper) {
+                resultEl.innerHTML = `
+                    <div id="test04StreamWrapper" data-streaming="true">
+                        <div style="background: #0f172a; border-left: 4px solid #38bdf8; padding: 15px; border-radius: 6px; margin-bottom: 15px; border: 1px solid #334155;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 15px;">
+                                <div id="test04ReportTitle" style="font-weight: bold; color: #38bdf8; font-size: 14px; line-height: 1.4;">🧰 工具能力验证</div>
+                                <div style="font-size: 12px; color: #94a3b8; white-space: nowrap; flex-shrink: 0; background: #0b1220; padding: 4px 8px; border-radius: 4px; border: 1px solid #1e293b;">
+                                    耗时：<span id="test04SummaryDuration" style="color: #fcd34d; font-weight: bold; font-family: monospace;">0.00秒</span>
+                                </div>
+                            </div>
+                            <div style="margin-top: 6px; font-size: 12px; color: #94a3b8;">已执行 <span id="test04SummaryCount" style="color: #e2e8f0; font-weight: bold;">0</span> 项</div>
+                        </div>
+                        <div id="test04StreamCases"></div>
+                    </div>
+                `;
+                wrapper = document.getElementById('test04StreamWrapper');
+            }
+            return wrapper;
+        }
+
+        function updateTest04Summary(durationText, countText) {
+            const intro = "刷新 Test04 流式结果摘要。";
+            ensureTest04StreamContainer();
+            const durationEl = document.getElementById('test04SummaryDuration');
+            if (durationEl && durationText !== null && durationText !== undefined) {
+                durationEl.textContent = durationText || '0.00秒';
+            }
+            const countEl = document.getElementById('test04SummaryCount');
+            if (countEl) countEl.textContent = countText ?? '0';
+        }
+
+        function formatTest04Duration(seconds) {
+            const intro = "格式化 Test04 计时显示。";
+            const safeSeconds = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
+            if (safeSeconds >= 60) {
+                const minutes = Math.floor(safeSeconds / 60);
+                const remain = safeSeconds - minutes * 60;
+                return `${minutes}分${remain.toFixed(2)}秒`;
+            }
+            return `${safeSeconds.toFixed(2)}秒`;
+        }
+
+        function startTest04Duration() {
+            const intro = "启动 Test04 计时刷新。";
+            if (test04TimerInterval) {
+                clearInterval(test04TimerInterval);
+                test04TimerInterval = null;
+            }
+            test04StartTime = Date.now();
+            updateTest04Summary(formatTest04Duration(0), 0);
+            test04TimerInterval = setInterval(() => {
+                const elapsed = (Date.now() - test04StartTime) / 1000;
+                updateTest04Summary(formatTest04Duration(elapsed), test04StreamState.order.length);
+            }, 200);
+        }
+
+        function stopTest04Duration(finalSeconds = null) {
+            const intro = "停止 Test04 计时刷新并更新最终耗时。";
+            if (test04TimerInterval) {
+                clearInterval(test04TimerInterval);
+                test04TimerInterval = null;
+            }
+            const seconds = finalSeconds == null ? (Date.now() - test04StartTime) / 1000 : finalSeconds;
+            updateTest04Summary(formatTest04Duration(seconds), test04StreamState.order.length);
+        }
+
+        function upsertTest04Case(caseItem) {
+            const intro = "插入或更新 Test04 工具测试结果。";
+            if (!caseItem || !caseItem.id) return;
+            if (!test04StreamState.cases[caseItem.id]) {
+                test04StreamState.order.push(caseItem.id);
+            }
+            test04StreamState.cases[caseItem.id] = caseItem;
+            ensureTest04StreamContainer();
+            const casesContainer = document.getElementById('test04StreamCases');
+            if (!casesContainer) return;
+            const orderedCases = test04StreamState.order.map(id => test04StreamState.cases[id]).filter(Boolean);
+            casesContainer.innerHTML = renderTest04Result({ cases: orderedCases });
+            updateTest04Summary(null, orderedCases.length);
+        }
+
+        function handleTest04Event(event) {
+            const intro = "处理 Test04 流式事件并更新界面。";
+            if (event.status === 'running') {
+                addConsoleLine(`[${event.step}] ${event.msg}`);
+                updateTest04Flowchart(event.step, false, event.tool);
+            } else if (event.status === 'done') {
+                addConsoleLine(`[${event.step}] ✅ ${event.msg}`);
+                if (event.step === 'case_run' && event.payload) {
+                    upsertTest04Case(event.payload);
+                }
+                if (event.step === 'result' && event.data) {
+                    const cases = Array.isArray(event.data.cases) ? event.data.cases : [];
+                    cases.forEach(item => upsertTest04Case(item));
+                    if (event.duration_s != null) {
+                        stopTest04Duration(event.duration_s);
+                    } else {
+                        stopTest04Duration(null);
+                    }
+                }
+                updateTest04Flowchart(event.step, true, event.tool);
+            } else if (event.status === 'failed') {
+                addConsoleLine(`[${event.step}] ❌ ${event.msg}`, true);
+            } else if (event.status === 'warning') {
+                addConsoleLine(`[${event.step}] ⚠️ ${event.msg}`);
+            }
+        }
+
         let test03StreamState = { cases: {}, order: [] };
         let test03StartTime = 0;
         let test03TimerInterval = null;
@@ -897,6 +1019,66 @@
             updateFlowchart(def + "\n" + styleStr);
         }
 
+        function updateTest04Flowchart(currentStep, isDone=false, toolName=null) {
+            const intro = "根据 Test04 流式步骤刷新流程图高亮状态。";
+            const doneColor = "#d4efdf,stroke:#27ae60,stroke-width:2px";
+            const activeColor = "#3498db,stroke:#2980b9,stroke-width:2px,color:white,stroke-dasharray: 5 5";
+            
+            // Dynamic Labels based on toolName
+            let generalLabel = "General Tools (通用工具)<br/>src/tools/general_tools.py";
+            if (toolName === 'table_lookup') {
+                generalLabel = "Table Lookup (表格查询)<br/>src/tools/general_tools.py:TableLookupTool.run";
+            } else if (toolName === 'knowledge_search') {
+                generalLabel = "Knowledge Search (知识检索)<br/>src/tools/general_tools.py:KnowledgeSearchTool.run";
+            } else if (toolName) {
+                generalLabel = `${toolName}<br/>src/tools/general_tools.py`;
+            }
+
+            let def = `graph TD
+                Start((Start)) --> API["API Endpoint (API端点)<br/>backend/api_bridge.py:stream_test_04"]
+                API --> CaseLoad["Load Cases (加载用例)<br/>tests/test_04_tool_validity.py:_select_cases"]
+                CaseLoad --> Router{Select Tool}
+                Router -->|general| GeneralTools["${generalLabel}"]
+                Router -->|gis| GISTools["GIS Tools (GIS工具)<br/>src/tools/gis_tools.py"]
+                GeneralTools --> Result(("Result (结果)"))
+                GISTools --> Result
+            `;
+
+            let styleStr = "";
+            let focusNode = null;
+            styleStr += `style Start fill:${doneColor}\n`;
+            styleStr += `style API fill:${doneColor}\n`;
+
+            if (currentStep === 'case_load') {
+                styleStr += `style CaseLoad fill:${isDone ? doneColor : activeColor}\n`;
+                focusNode = "CaseLoad";
+            } else if (['case_run', 'result'].includes(currentStep)) {
+                styleStr += `style CaseLoad fill:${doneColor}\n`;
+            }
+
+            if (currentStep === 'case_run') {
+                const isGis = toolName === 'gis_section_volume_calc';
+                if (isGis) {
+                    styleStr += `style GISTools fill:${isDone ? doneColor : activeColor}\n`;
+                    focusNode = "GISTools";
+                } else {
+                    styleStr += `style GeneralTools fill:${isDone ? doneColor : activeColor}\n`;
+                    focusNode = "GeneralTools";
+                }
+            } else if (currentStep === 'result') {
+                 styleStr += `style GeneralTools fill:${doneColor}\n`;
+                 styleStr += `style GISTools fill:${doneColor}\n`;
+            }
+
+            if (currentStep === 'result') {
+                styleStr += `style Result fill:#d1f2eb,stroke:#16a085,stroke-width:4px\n`;
+                focusNode = "Result";
+            }
+
+            setFlowchartFocusNode(focusNode);
+            updateFlowchart(def + "\n" + styleStr);
+        }
+
         function updateTest02Flowchart(currentStep, isDone=false) {
              const intro = "根据流式步骤刷新流程图高亮状态。";
              const doneColor = "#d4efdf,stroke:#27ae60,stroke-width:2px";
@@ -1043,6 +1225,63 @@
             }).join('');
         }
 
+        function renderTest04Result(payload) {
+            const intro = "渲染 Test04 工具能力结果。";
+            const cases = payload && Array.isArray(payload.cases) ? payload.cases : [];
+            if (cases.length === 0) {
+                return `
+                    <div style="background: #1e293b; border-left: 4px solid #64748b; padding: 15px; border-radius: 6px;">
+                        <div style="font-weight: bold; color: #cbd5e1; margin-bottom: 6px;">暂无可视化结果</div>
+                        <div style="font-size: 12px; color: #94a3b8;">请查看控制台输出。</div>
+                    </div>
+                `;
+            }
+            return cases.map(item => {
+                const status = item.status || 'ok';
+                const statusIcon = status === 'ok' ? '✅' : status === 'skipped' ? '⚪' : '❌';
+                const borderColor = status === 'ok' ? '#22c55e' : status === 'skipped' ? '#94a3b8' : '#ef4444';
+                const outputText = item.output !== undefined ? JSON.stringify(item.output, null, 2) : '无';
+                const inputText = item.inputs !== undefined ? JSON.stringify(item.inputs, null, 2) : '{}';
+                const expectedText = item.expected !== undefined ? JSON.stringify(item.expected, null, 2) : '无';
+                
+                let sourceHtml = "";
+                if (item.output && item.output._source_html) {
+                    sourceHtml = `
+                        <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden; grid-column: 1 / -1; margin-top: 10px;">
+                            <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">源表格片段 (Source HTML)</div>
+                            <div style="padding: 10px; overflow-x: auto; color: #e2e8f0; font-size: 12px; background: #fff; color: #333;">
+                                ${item.output._source_html}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div style="background: #0f172a; border: 1px solid #334155; border-left: 4px solid ${borderColor}; padding: 14px; border-radius: 8px; margin-bottom: 12px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <div style="font-weight: 600; color: #e2e8f0; font-size: 14px;">${statusIcon} ${escapeHtml(item.label || item.id || '未命名工具')}</div>
+                            <div style="font-size: 11px; color: #94a3b8;">Tool: ${escapeHtml(item.tool || '')}</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
+                            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden;">
+                                <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">输入</div>
+                                <pre style="margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 140px; overflow-y: auto;">${escapeHtml(inputText)}</pre>
+                            </div>
+                            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden;">
+                                <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">期望</div>
+                                <pre style="margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 140px; overflow-y: auto;">${escapeHtml(expectedText)}</pre>
+                            </div>
+                            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden;">
+                                <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">输出</div>
+                                <pre style="margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 140px; overflow-y: auto;">${escapeHtml(outputText)}</pre>
+                            </div>
+                            ${sourceHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
         fetchModels();
 
         async function switchTest(testId, btn) {
@@ -1082,7 +1321,7 @@
                 document.getElementById('queryInput').placeholder = "输入测试参数或直接点击运行...";
                 
                 // Show samples container ONLY if there are samples for this test
-                if (testId === '1' || testId === '2' || testId === '3') {
+                if (testId === '1' || testId === '2' || testId === '3' || testId === '4') {
                     samplesContainer.style.display = 'block';
                     chatSampleDiv.style.display = 'block'; // Reuse the same container
                     await loadTestCases(testId);
@@ -1090,11 +1329,14 @@
                     if (testId === '1') {
                          // Test 01: No LLM involved, hide mode selection
                          modeDiv.style.display = 'none';
-                    } else if (testId === '2' || testId === '3') {
-                        // Test 02/03: Needs LLM selection and Mode
+                    } else if (testId === '2' || testId === '3' || testId === '4') {
+                        // Test 02/03/04: Needs LLM selection and Mode
                         modeDiv.style.display = 'flex';
                         unitTestModelSelection.style.display = 'flex';
-                        modelGrid.style.display = 'grid';
+                        // Only show full grid for 2 and 3, keep 4 compact
+                        if (testId !== '4') {
+                            modelGrid.style.display = 'grid';
+                        }
                     }
                 }
             }
@@ -1390,7 +1632,7 @@
 
             // Get query from main input if it's test 01 or 02
             let query = null;
-            if (testId === '1' || testId === '2' || testId === '3') {
+            if (testId === '1' || testId === '2' || testId === '3' || testId === '4') {
                 query = document.getElementById('queryInput').value;
                 document.getElementById('queryInput').value = ''; // Clear input as requested
                 addConsoleLine(`测试指令: "${query}"`);
@@ -1539,6 +1781,68 @@
             return;
         }
 
+        if (testId === '4') {
+            resetTest04StreamState();
+            ensureTest04StreamContainer();
+            startTest04Duration();
+
+            addConsoleLine(`启动工具能力验证 (Streaming)...`);
+            if (mode) {
+                addConsoleLine(`Mode: ${mode}`);
+            }
+
+            const graphDef = `graph TD
+                Start((Start)) --> API["API Endpoint (API端点)<br/>backend/api_bridge.py:stream_test_04"]
+                API --> CaseLoad["Load Cases (加载用例)<br/>tests/test_04_tool_validity.py:_select_cases"]
+                CaseLoad --> CaseRun["Run Tools (执行工具)<br/>src/tools/*:ToolRegistry.get_tool"]
+                CaseRun --> Result(("Result (结果)"))
+
+                style Start fill:#ecf0f1,stroke:#bdc3c7
+                style API fill:#e8f8f5,stroke:#1abc9c
+                style CaseLoad fill:#fff,stroke:#3498db,stroke-dasharray: 5 5
+                style CaseRun fill:#fff,stroke:#bdc3c7
+                style Result fill:#ecf0f1,stroke:#bdc3c7
+            `;
+            updateFlowchart(graphDef);
+
+            try {
+                const safeQuery = query || '';
+                const params = [];
+                if (safeQuery) params.push(`query=${encodeURIComponent(safeQuery)}`);
+                if (mode) params.push(`mode=${encodeURIComponent(mode)}`);
+                if (model) params.push(`config=${encodeURIComponent(model)}`);
+                const url = `${API_URL}/test/stream/04${params.length > 0 ? `?${params.join('&')}` : ''}`;
+                const response = await fetch(url);
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n');
+                    buffer = lines.pop();
+
+                    for (const line of lines) {
+                        if (!line.trim()) continue;
+                        try {
+                            const event = JSON.parse(line);
+                            handleTest04Event(event);
+                        } catch (e) {
+                            console.error("JSON Parse Error", e);
+                        }
+                    }
+                }
+                stopTimer('完成');
+            } catch (e) {
+                addConsoleLine(`Error: ${e.message}`, true);
+                stopTimer('出错');
+                stopTest04Duration(null);
+            }
+            return;
+        }
+
             addConsoleLine(`单元测试启动: Test ID: ${testId} ${mode ? `(Mode: ${mode})` : ''}`);
             let graphDef = "";
             if (testId === '1') {
@@ -1557,6 +1861,14 @@
                     Script --> SOP["SOP Loader<br/>src/core/sop_loader.py"]
                     SOP --> Class["Classifier<br/>src/agents/classifier.py"]
                     Class --> End((Wait Result))`;
+            } else if (testId === '4') {
+                 graphDef = `graph TD
+                    Start((Start)) --> API["API Bridge<br/>backend/api_bridge.py:run_test/4"]
+                    API --> Script["Test Script<br/>tests/test_04_tool_validity.py"]
+                    Script --> Tools["Tool Registry<br/>src/tools/base.py:ToolRegistry.get_tool"]
+                    Tools --> Exec["Execute Tools<br/>table_lookup / knowledge_search / calculator / gis"]
+                    Exec --> Report["Build JSON Report"]
+                    Report --> End((Wait Result))`;
             } else {
                  graphDef = `graph TD\nStart((Start)) --> Init["初始化测试: ${testId}"]\nInit --> Running["运行中..."]`;
             }
@@ -1730,6 +2042,17 @@
                                 <div style="font-size: 12px; color: #94a3b8;">已解析 ${jsonResult.cases ? jsonResult.cases.length : 0} 个案例</div>
                             </div>
                             ${renderTest03Result(jsonResult)}
+                        `;
+                    }
+                 } else if (testId === '4') {
+                    if (jsonResult) {
+                        const count = Array.isArray(jsonResult.cases) ? jsonResult.cases.length : 0;
+                        summaryResult = `
+                            <div style="background: #1e293b; border-left: 4px solid #38bdf8; padding: 15px; border-radius: 4px; margin-bottom: 15px;">
+                                <div style="font-weight: bold; color: #38bdf8; margin-bottom: 6px; font-size: 14px;">🧰 工具能力验证</div>
+                                <div style="font-size: 12px; color: #94a3b8;">已执行 ${count} 项工具测试</div>
+                            </div>
+                            ${renderTest04Result(jsonResult)}
                         `;
                     }
                  }
