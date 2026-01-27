@@ -22,7 +22,6 @@ class SopLoader:
         self.sop_dir = sop_dir
         self.index_file = os.path.join(sop_dir, "index.json")
         self.sops: List[SOP] = [] # Cache
-        self.analyzed_cache: Dict[str, Dict[str, object]] = {}
 
     def load_all(self) -> List[SOP]:
         """
@@ -157,11 +156,6 @@ class SopLoader:
             raise FileNotFoundError(f"SOP file {filepath} not found")
 
         file_mtime = os.path.getmtime(filepath)
-        cache_entry = self.analyzed_cache.get(sop_id)
-        if cache_entry and cache_entry.get("mtime") == file_mtime:
-            cached_sop = cache_entry.get("sop")
-            if isinstance(cached_sop, SOP):
-                return cached_sop
         sop_json_dir = os.path.abspath(os.path.join(self.sop_dir, "..", "sop_json"))
         json_path = os.path.join(sop_json_dir, f"{sop_id}.json")
         if os.path.exists(json_path) and os.path.getmtime(json_path) >= file_mtime:
@@ -176,7 +170,6 @@ class SopLoader:
                     description=data.get("description", sop.description),
                     steps=steps
                 )
-                self.analyzed_cache[sop_id] = {"mtime": file_mtime, "sop": sop}
                 return sop
             except Exception:
                 pass
@@ -248,7 +241,6 @@ Output: A JSON object with a "steps" list. Each step must have:
                 
             sop.steps = new_steps
             print(f"  [SopLoader] Successfully analyzed {len(new_steps)} steps for {sop_id}.")
-            self.analyzed_cache[sop_id] = {"mtime": file_mtime, "sop": sop}
             # 用户需求：自动解析的结果不要保存到磁盘，保持 json 文件的官方唯一性
             # if not os.path.exists(sop_json_dir):
             #     os.makedirs(sop_json_dir)

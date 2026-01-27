@@ -1025,13 +1025,13 @@
             const activeColor = "#3498db,stroke:#2980b9,stroke-width:2px,color:white,stroke-dasharray: 5 5";
             
             // Dynamic Labels based on toolName
-            let generalLabel = "General Tools (通用工具)<br/>src/tools/general_tools.py";
+            let generalLabel = "Common Tools (通用工具)<br/>src/tools/common_tools.py";
             if (toolName === 'table_lookup') {
-                generalLabel = "Table Lookup (表格查询)<br/>src/tools/general_tools.py:TableLookupTool.run";
+                generalLabel = "Table Lookup (表格查询)<br/>src/tools/table_tools.py:TableLookupTool.run";
             } else if (toolName === 'knowledge_search') {
-                generalLabel = "Knowledge Search (知识检索)<br/>src/tools/general_tools.py:KnowledgeSearchTool.run";
+                generalLabel = "Knowledge Search (知识检索)<br/>src/tools/knowledge_tools.py:KnowledgeSearchTool.run";
             } else if (toolName) {
-                generalLabel = `${toolName}<br/>src/tools/general_tools.py`;
+                generalLabel = `${toolName}<br/>src/tools/common_tools.py`;
             }
 
             let def = `graph TD
@@ -1246,15 +1246,38 @@
                 
                 let sourceHtml = "";
                 if (item.output && item.output._source_html) {
+                    const headerText = item.output._table_headers
+                        ? (Array.isArray(item.output._table_headers) ? item.output._table_headers.join(' | ') : String(item.output._table_headers))
+                        : "";
+                    const headerTitle = headerText ? ` | 表头: ${escapeHtml(headerText)}` : "";
+                    const headerBlock = headerText
+                        ? `<div style="padding: 8px 10px; font-size: 11px; color: #0f172a; border-bottom: 1px solid #e2e8f0; background: #f8fafc;">表头: ${escapeHtml(headerText)}</div>`
+                        : "";
                     sourceHtml = `
                         <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden; grid-column: 1 / -1; margin-top: 10px;">
-                            <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">源表格片段 (Source HTML)</div>
-                            <div style="padding: 10px; overflow-x: auto; color: #e2e8f0; font-size: 12px; background: #fff; color: #333;">
-                                ${item.output._source_html}
+                            <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">源表格片段 (Source HTML)${headerTitle}</div>
+                            <div style="overflow-x: auto; background: #fff; color: #333; font-size: 12px;">
+                                ${headerBlock}
+                                <div style="padding: 10px;">
+                                    ${item.output._source_html}
+                                </div>
                             </div>
                         </div>
                     `;
                 }
+
+                let traceHtml = "";
+                if (item.output && item.output._trace) {
+                    const traceText = Array.isArray(item.output._trace) ? item.output._trace.join('\n') : String(item.output._trace);
+                    traceHtml = `
+                        <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden; grid-column: 1 / -1; margin-top: 10px;">
+                            <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">执行过程 (Trace)</div>
+                            <pre style="margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 200px; overflow-y: auto;">${escapeHtml(traceText)}</pre>
+                        </div>
+                    `;
+                }
+
+                let headerHtml = "";
 
                 return `
                     <div style="background: #0f172a; border: 1px solid #334155; border-left: 4px solid ${borderColor}; padding: 14px; border-radius: 8px; margin-bottom: 12px;">
@@ -1276,6 +1299,7 @@
                                 <pre style="margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 140px; overflow-y: auto;">${escapeHtml(outputText)}</pre>
                             </div>
                             ${sourceHtml}
+                            ${traceHtml}
                         </div>
                     </div>
                 `;

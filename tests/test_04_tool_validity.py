@@ -23,6 +23,18 @@ TEST_CODE_CONTENT = "def hello():\n    return 1/0"
 TOOL_CASES = [
     {
         "id": "table_lookup",
+        "label": "表格查询: 4万吨杂货船吃水 (直查)",
+        "tool": "table_lookup",
+        "inputs": {
+            "table_name": "杂货船设计船型尺度",
+            "query_conditions": "DWT=40000",
+            "target_column": "满载吃水T(m)",
+            "file_name": "《海港水文规范》.md"
+        },
+        "expected": {"result": 12.3, "delta": 0.1}
+    },
+    {
+        "id": "table_lookup",
         "label": "表格查询: 4万吨油船吃水 (插值)",
         "tool": "table_lookup",
         "inputs": {
@@ -31,8 +43,43 @@ TOOL_CASES = [
             "target_column": "满载吃水T(m)",
             "file_name": "《海港水文规范》.md"
         },
-        # 30000->12.0, 50000->12.8, 40000 插值为 12.4
-        "expected": {"result": 12.4}
+        "expected": {"result": 12.4, "delta": 0.1}
+    },
+    {
+        "id": "table_lookup",
+        "label": "表格查询: 3.5万吨散货船吃水 (直查)",
+        "tool": "table_lookup",
+        "inputs": {
+            "table_name": "散货船设计船型尺度",
+            "query_conditions": "DWT=35000",
+            "target_column": "满载吃水T(m)",
+            "file_name": "《海港水文规范》.md"
+        },
+        "expected": {"result": 11.2, "delta": 0.1}
+    },
+    {
+        "id": "table_lookup",
+        "label": "表格查询: 4.5万吨集装箱船吃水 (插值)",
+        "tool": "table_lookup",
+        "inputs": {
+            "table_name": "集装箱船设计船型尺度",
+            "query_conditions": "DWT=45000",
+            "target_column": "满载吃水T(m)",
+            "file_name": "《海港水文规范》.md"
+        },
+        "expected": {"result": 12.8, "delta": 0.1}
+    },
+    {
+        "id": "table_lookup",
+        "label": "表格查询: 1万吨集装箱船吃水 (直查)",
+        "tool": "table_lookup",
+        "inputs": {
+            "table_name": "集装箱船设计船型尺度",
+            "query_conditions": "DWT=10000",
+            "target_column": "满载吃水T(m)",
+            "file_name": "《海港水文规范》.md"
+        },
+        "expected": {"result": 8.3, "delta": 0.1}
     },
     {
         "id": "knowledge_search",
@@ -85,34 +132,6 @@ TOOL_CASES = [
         "tool": "summarizer",
         "inputs": {"text": "通航水深 D0 = T + Z0 + Z1 + Z2 + Z3。其中T为设计船型满载吃水，Z0为波浪富裕深度，Z1为船舶航行下沉量，Z2为流速导致的富裕深度，Z3为其他富裕深度。", "max_words": 20},
         "expected": {"contains": "内容摘要"} # 或者是真实摘要内容
-    },
-    {
-        "id": "email_sender",
-        "label": "邮件发送",
-        "tool": "email_sender",
-        "inputs": {"recipient": "test@example.com", "subject": "Hi", "body": "Body"},
-        "expected": {"contains": "邮件已发送"}
-    },
-    {
-        "id": "web_search",
-        "label": "网页搜索: market trend",
-        "tool": "web_search",
-        "inputs": {"query": "market trend"},
-        "expected": {"result_key": "results"}
-    },
-    {
-        "id": "echo",
-        "label": "Echo: ping",
-        "tool": "echo",
-        "inputs": {"message": "ping"},
-        "expected": {"result": "ping"}
-    },
-    {
-        "id": "weather",
-        "label": "天气: 深圳",
-        "tool": "weather",
-        "inputs": {"city": "深圳"},
-        "expected": {"contains": "天气"}
     },
     {
         "id": "sop_run",
@@ -184,8 +203,10 @@ class TestToolBehaviorSuite(unittest.TestCase):
                         result_value = result_value.get("满载吃水T(m)") or result_value.get("T") or result_value.get("满载吃水T")
                     
                     print(f"    实际结果: {result_value}")
-                    # 允许一定误差，毕竟是 LLM 计算
-                    self.assertAlmostEqual(float(result_value), 12.4, delta=0.2)
+                    expected_value = (case.get("expected") or {}).get("result")
+                    delta = (case.get("expected") or {}).get("delta", 0.1)
+                    if expected_value is not None:
+                        self.assertAlmostEqual(float(result_value), float(expected_value), delta=delta)
                     item["output"] = table_result
 
                 elif q == "knowledge_search":

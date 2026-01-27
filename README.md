@@ -1,17 +1,16 @@
 # 📦 PicoAgent: 工程师的 AGI 助手
 
-**小型 SLM + SOPs + GeoWorld = 节省工程师 50% 工作量 ≈ 工程师 AGI**
+**小模型SLM + 经验库SOPs + 地理世界GeoWorld = 节省工程师 50% 工作量 ≈ 工程师 AGI**
 
 ---
 
 ## 1. 项目愿景 (Vision)
 
-PicoAgent 是一个**基于 SOP 的轻量级 Agent 执行引擎**，专为工程、设计等严谨行业打造。我们的目标是通过结合小型语言模型 (SLM)、标准作业程序 (SOPs) 和地理世界 (GeoWorld) 数据，为工程师提供高度确定性的自动化工具，显著提升生产力。
+PicoAgent是一个**过程可控的企业级Agent打工人**，专为工程、设计等严谨行业打造。通过结合小型语言模型 (SLM)、标准作业程序 (SOPs) 和地理世界 (GeoWorld) 数据，为工程师提供高度确定性的自动化工具，显著提升生产力。
 
 ### 核心理念
-- **Human Defines SOP, Agent Executes Tasks** (人定流程，Agent 执行)
-- **确定性执行 (Deterministic)**: 反“智能涌现”和幻觉，严格遵循企业既定的标准作业程序。
-- **混合架构 (Hybrid)**: 规则为主，AI 为辅。在确定性步骤中追求速度，在复杂决策时唤醒 AI。
+- **Human Defines SOP, Agent Executes Tasks** (人定流程，Agent执行)
+- **确定性执行(Deterministic)**: 反“智能涌现”和幻觉，严格遵循企业既定的标准作业程序。
 
 ---
 
@@ -65,10 +64,10 @@ graph TD
 
 ### 短期目标 (v0.1)-后端逻辑
 - [ ] *4B模型+SOP执行**: 能做注册考试题。
-- [ ] **执行日志可视化**: 实时追踪Agent决策链路。
-- [ ] *多模型选择**: 包括Qwen30BA3B、Deepseek、GLM4.7Flash、Qwen4B等
 - [ ] *通用tool制作**: 主要是工具库，如计算器、知识检索、表格查询等。
-- [ ] *可视化测试html**: 可视化后端执行流程
+- [✅] *执行日志可视化**: 实时追踪Agent决策链路。
+- [✅] *多模型选择**: 包括Qwen30BA3B、Deepseek、GLM4.7Flash、Qwen4B等
+- [✅] *可视化测试html**: 可视化后端执行流程
 
 ### 短期目标 (v0.2)-前端框架
 - [ ] **Web可视化**: 基于Vue3+Antd实现前端交互。预留GeoWorld区域。
@@ -111,7 +110,7 @@ PicoAgent/
 
 ## 6. 快速开始 (Quick Start)
 
-1.  **配置环境**: 在 `.env` 中设置 `NVIDIA_API_KEY`。
+1.  **配置环境**: 在 `.env` 中设置 `API_KEY`。
 2.  **加载 SOP**:
     ```python
     from src.core.sop_loader import SopLoader
