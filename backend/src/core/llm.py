@@ -26,7 +26,7 @@ class LLMClient:
                 "model": os.getenv("Private_ALIYUN_MODEL")
             },
             {
-                "name": "Qwen3-Turbo (Public)",
+                "name": "Qwen3-4B (Public)",
                 "api_key": os.getenv("Public_ALIYUN_API_KEY"),
                 "base_url": os.getenv("Public_ALIYUN_API_URL"),
                 "model": os.getenv("Public_ALIYUN_MODEL")
@@ -170,11 +170,21 @@ class LLMClient:
                 if config["name"] == "DeepSeek Official" and not current_model:
                      current_model = "deepseek-chat"
 
+                # 构建 extra_body 参数
+                extra_body = {}
+                
+                # 针对 DashScope/Aliyun 的特定参数处理
+                if "dashscope" in config["base_url"] or "aliyun" in config["base_url"]:
+                    # 对于非流式输出，必须禁用 enable_thinking，否则某些模型（如 Qwen3）会报错 400
+                    # "parameter.enable_thinking must be set to false if parameters.incremental_output is false"
+                    extra_body["enable_thinking"] = False
+
                 response = client.chat.completions.create(
                     model=current_model,
                     messages=processed_messages,
                     temperature=temperature,
-                    max_tokens=1024
+                    max_tokens=1024,
+                    extra_body=extra_body if extra_body else None
                 )
                 
                 content = response.choices[0].message.content

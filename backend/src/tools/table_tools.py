@@ -38,6 +38,23 @@ def _extract_first_number(text: str) -> Optional[float]:
     except Exception:
         return None
 
+def _parse_range(text: str) -> Optional[tuple]:
+    """解析区间表达式并返回 (low, high)。"""
+    if not text:
+        return None
+    t = text.strip()
+    t = t.replace("～", "-").replace("—", "-").replace("~", "-")
+    match = re.search(r"(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)", t)
+    if match:
+        return (float(match.group(1)), float(match.group(2)))
+    match = re.search(r"(?:≤|<=)\s*(\d+(?:\.\d+)?)", t)
+    if match:
+        return (float("-inf"), float(match.group(1)))
+    match = re.search(r"(?:≥|>=)\s*(\d+(?:\.\d+)?)", t)
+    if match:
+        return (float(match.group(1)), float("inf"))
+    return None
+
 def _get_table_context(table) -> str:
     """获取表格附近的标题或段落文本（兼容 Markdown 原始文本）。"""
     prev = table.find_previous(lambda tag: getattr(tag, "name", None) in ["h1", "h2", "h3", "h4", "h5", "h6", "p"])
@@ -161,8 +178,9 @@ class TableLookupTool(BaseTool):
 
         headers = _parse_table_headers(target_table["table"])
         rows = _parse_table_rows(target_table["table"])
+        trace.append(f"匹配表名: {table_name}")
         trace.append(f"匹配表格上下文: {target_table['context']}")
-        trace.append(f"表头: {headers}")
+        trace.append(f"解析表头: {headers}")
 
         conditions = _parse_query_conditions(query_conditions)
         if not conditions:
@@ -183,13 +201,18 @@ class TableLookupTool(BaseTool):
             return {"error": f"未找到目标列: {target_column}"}
 
         data = []
+        range_items = []
         for row in rows:
             if key_index >= len(row):
                 continue
-            x_value = _extract_first_number(row[key_index])
-            if x_value is None:
+            key_text = row[key_index]
+            range_value = _parse_range(key_text)
+            x_value = _extract_first_number(key_text)
+            if x_value is None and range_value is None:
                 continue
             if target_index is None:
+                if x_value is None:
+                    continue
                 data.append((x_value, row))
                 continue
             if target_index >= len(row):
@@ -197,9 +220,12 @@ class TableLookupTool(BaseTool):
             y_value = _extract_first_number(row[target_index])
             if y_value is None:
                 continue
-            data.append((x_value, y_value, row))
+            if x_value is not None:
+                data.append((x_value, y_value, row))
+            if range_value is not None:
+                range_items.append((range_value[0], range_value[1], y_value, row, x_value))
 
-        if not data:
+        if not data and not range_items:
             return {"error": "表格数据为空或无法解析"}
 
         if target_index is None:
@@ -211,23 +237,32 @@ class TableLookupTool(BaseTool):
             result = {"result": result_map, "method": "nearest"}
         else:
             data_sorted = sorted(data, key=lambda x: x[0])
-            exact = next((item for item in data_sorted if abs(item[0] - target_value) < 1e-6), None)
-            if exact:
-                trace.append(f"命中档位: {exact[0]}")
-                result = {"result": exact[1], "method": "direct_lookup"}
+            range_candidates = [item for item in range_items if item[0] <= target_value <= item[1]]
+            hit = None
+            if range_candidates:
+                hit = range_candidates[0]
+            if hit:
+                trace.append(f"命中区间行: {hit[0]}-{hit[1]}")
+                result = {"result": hit[2], "method": "direct_range_lookup"}
             else:
-                lower = max((item for item in data_sorted if item[0] < target_value), default=None, key=lambda x: x[0])
-                upper = min((item for item in data_sorted if item[0] > target_value), default=None, key=lambda x: x[0])
-                if not lower or not upper:
-                    return {"error": "查询值超出表格范围，无法插值"}
-                y_value = lower[1] + (target_value - lower[0]) * (upper[1] - lower[1]) / (upper[0] - lower[0])
-                y_value = round(y_value, 1)
-                trace.append(f"上下区间: {lower[0]}->{upper[0]}")
-                trace.append(f"区间值: {lower[1]}->{upper[1]}")
-                trace.append(f"线性插值结果: {y_value}")
-                result = {"result": y_value, "method": "interpolation"}
+                exact = next((item for item in data_sorted if abs(item[0] - target_value) < 1e-6), None)
+                if exact:
+                    trace.append(f"命中档位: {exact[0]}")
+                    result = {"result": exact[1], "method": "direct_lookup"}
+                else:
+                    lower = max((item for item in data_sorted if item[0] < target_value), default=None, key=lambda x: x[0])
+                    upper = min((item for item in data_sorted if item[0] > target_value), default=None, key=lambda x: x[0])
+                    if not lower or not upper:
+                        return {"error": "查询值超出表格范围，无法插值"}
+                    y_value = lower[1] + (target_value - lower[0]) * (upper[1] - lower[1]) / (upper[0] - lower[0])
+                    y_value = round(y_value, 1)
+                    trace.append(f"上下区间: {lower[0]}->{upper[0]}")
+                    trace.append(f"区间值: {lower[1]}->{upper[1]}")
+                    trace.append(f"线性插值结果: {y_value}")
+                    result = {"result": y_value, "method": "interpolation"}
 
         result["_source_html"] = target_table["html"]
+        result["_table_name"] = table_name
         result["_table_headers"] = headers
         result["_table_context"] = target_table["context"]
         result["_trace"] = trace

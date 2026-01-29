@@ -239,6 +239,16 @@
         .gap-2 { gap: 0.5rem !important; }
         .font-medium { font-weight: 500 !important; }
         .text-sm { font-size: 0.875rem !important; line-height: 1.25rem !important; }
+        /* Reusable Card and Panel Styles */
+        .card-dark { background: #0f172a; border: 1px solid #334155; padding: 14px; border-radius: 8px; margin-bottom: 12px; }
+        .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+        .card-title { font-weight: 600; color: #e2e8f0; font-size: 14px; }
+        .card-meta { font-size: 11px; color: #94a3b8; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+        .panel-dark { background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden; }
+        .panel-header { background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8; }
+        .code-pre { margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 140px; overflow-y: auto; }
+        .code-pre-large { margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 200px; overflow-y: auto; }
     </style>
 </head>
 <body>
@@ -373,7 +383,7 @@
     </div>
 
     <script>
-        const API_URL = 'http://localhost:8001';
+        const API_URL = window.location.origin;
         let currentTestId = null;
         let startTime = 0;
         let timerInterval;
@@ -448,10 +458,10 @@
         }
 
         function pickDefaultModel(models) {
-            const intro = "优先选择 Qwen-VL 系列作为默认模型。";
+            const intro = "优先选择 Qwen3-4B 系列作为默认模型。";
             if (!models || models.length === 0) return null;
             const candidates = models.filter(m => m.configured);
-            const keywords = ["Qwen-VL", "Qwen3-VL", "Qwen VL"];
+            const keywords = ["Qwen3-4B", "Qwen-4B", "Qwen3", "Qwen-VL", "Qwen3-VL", "Qwen VL"];
             const preferred = candidates.find(m => keywords.some(k => (m.name || "").includes(k) || (m.model || "").includes(k)));
             return (preferred || candidates[0])?.name || null;
         }
@@ -1154,25 +1164,25 @@
                     <div style="font-size: 11px; color: #95a5a6; margin-bottom: 4px;">测试指令 (User Query):</div>
                     <div style="font-family: sans-serif; font-size: 14px; color: #34495e; font-weight: 500;">${escapeHtml(data.raw_query || '')}</div>
                 </div>
-                <div style="background: #f8f9fa; border-left: 4px solid #8e44ad; padding: 15px; border-radius: 4px;">
-                     <div style="font-weight: bold; color: #8e44ad; margin-bottom: 10px; font-size: 14px;">🎯 意图路由结果</div>
+                <div class="card-dark" style="border-left: 4px solid #8e44ad;">
+                     <div class="card-title" style="color: #c084fc; margin-bottom: 10px; font-size: 14px;">🎯 意图路由结果</div>
                      <div style="margin-bottom: 8px;">
                         <strong>SOP ID:</strong> 
-                        <code style="background: #f4ecf7; color: #6c3483; padding: 2px 6px; border-radius: 3px;">${data.sop_id}</code>
+                        <code style="background: #0b1220; color: #d8b4fe; padding: 2px 6px; border-radius: 3px; border: 1px solid #1e293b;">${data.sop_id}</code>
                      </div>
                      <div style="margin-bottom: 8px;">
-                        <strong>SOP Name:</strong> ${data.sop_name}
+                        <strong>SOP Name:</strong> <span style="color:#e2e8f0">${data.sop_name}</span>
                      </div>
                      <div style="margin-bottom: 8px;">
                         <strong>Reason (推理):</strong> 
-                        <div style="background: #fff; border: 1px solid #ddd; padding: 8px; margin-top: 5px; font-size: 12px; border-radius: 4px; color: #555;">${reasonText}</div>
+                        <div style="background: #0f172a; border: 1px solid #334155; padding: 8px; margin-top: 5px; font-size: 12px; border-radius: 4px; color: #cbd5e1;">${reasonText}</div>
                      </div>
                      <div style="margin-bottom: 8px;">
-                        <strong>推理时间:</strong> ${inferenceText}
+                        <strong>推理时间:</strong> <span style="color:#fcd34d">${inferenceText}</span>
                      </div>
                      <div>
                         <strong>提取参数:</strong> 
-                        <pre style="background: #fff; border: 1px solid #ddd; padding: 8px; margin-top: 5px; font-size: 12px; border-radius: 4px;">${JSON.stringify(data.args, null, 2)}</pre>
+                        <pre style="background: #020617; border: 1px solid #334155; padding: 8px; margin-top: 5px; font-size: 12px; border-radius: 4px; color: #e2e8f0;">${JSON.stringify(data.args, null, 2)}</pre>
                      </div>
                  </div>
              `;
@@ -1246,18 +1256,21 @@
                 
                 let sourceHtml = "";
                 if (item.output && item.output._source_html) {
+                    const tableName = item.output._table_name || "";
                     const headerText = item.output._table_headers
                         ? (Array.isArray(item.output._table_headers) ? item.output._table_headers.join(' | ') : String(item.output._table_headers))
                         : "";
-                    const headerTitle = headerText ? ` | 表头: ${escapeHtml(headerText)}` : "";
-                    const headerBlock = headerText
-                        ? `<div style="padding: 8px 10px; font-size: 11px; color: #0f172a; border-bottom: 1px solid #e2e8f0; background: #f8fafc;">表头: ${escapeHtml(headerText)}</div>`
-                        : "";
+                    
+                    const headerTitle = tableName ? ` | 表名: ${escapeHtml(tableName)}` : (headerText ? ` | 表头: ${escapeHtml(headerText)}` : "");
+                    const nameBlock = tableName
+                        ? `<div style="padding: 8px 10px; font-size: 11px; color: #0f172a; border-bottom: 1px solid #e2e8f0; background: #f8fafc;">表名: ${escapeHtml(tableName)}</div>`
+                        : (headerText ? `<div style="padding: 8px 10px; font-size: 11px; color: #0f172a; border-bottom: 1px solid #e2e8f0; background: #f8fafc;">表头: ${escapeHtml(headerText)}</div>` : "");
+
                     sourceHtml = `
-                        <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden; grid-column: 1 / -1; margin-top: 10px;">
-                            <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">源表格片段 (Source HTML)${headerTitle}</div>
+                        <div class="panel-dark" style="grid-column: 1 / -1; margin-top: 10px;">
+                            <div class="panel-header">源表格片段 (Source HTML)${headerTitle}</div>
                             <div style="overflow-x: auto; background: #fff; color: #333; font-size: 12px;">
-                                ${headerBlock}
+                                ${nameBlock}
                                 <div style="padding: 10px;">
                                     ${item.output._source_html}
                                 </div>
@@ -1270,33 +1283,31 @@
                 if (item.output && item.output._trace) {
                     const traceText = Array.isArray(item.output._trace) ? item.output._trace.join('\n') : String(item.output._trace);
                     traceHtml = `
-                        <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden; grid-column: 1 / -1; margin-top: 10px;">
-                            <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">执行过程 (Trace)</div>
-                            <pre style="margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 200px; overflow-y: auto;">${escapeHtml(traceText)}</pre>
+                        <div class="panel-dark" style="grid-column: 1 / -1; margin-top: 10px;">
+                            <div class="panel-header">执行过程 (Trace)</div>
+                            <pre class="code-pre-large">${escapeHtml(traceText)}</pre>
                         </div>
                     `;
                 }
 
-                let headerHtml = "";
-
                 return `
-                    <div style="background: #0f172a; border: 1px solid #334155; border-left: 4px solid ${borderColor}; padding: 14px; border-radius: 8px; margin-bottom: 12px;">
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-                            <div style="font-weight: 600; color: #e2e8f0; font-size: 14px;">${statusIcon} ${escapeHtml(item.label || item.id || '未命名工具')}</div>
-                            <div style="font-size: 11px; color: #94a3b8;">Tool: ${escapeHtml(item.tool || '')}</div>
+                    <div class="card-dark" style="border-left: 4px solid ${borderColor};">
+                        <div class="card-header">
+                            <div class="card-title">${statusIcon} ${escapeHtml(item.label || item.id || '未命名工具')}</div>
+                            <div class="card-meta">Tool: ${escapeHtml(item.tool || '')}</div>
                         </div>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
-                            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden;">
-                                <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">输入</div>
-                                <pre style="margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 140px; overflow-y: auto;">${escapeHtml(inputText)}</pre>
+                        <div class="card-grid">
+                            <div class="panel-dark">
+                                <div class="panel-header">输入</div>
+                                <pre class="code-pre">${escapeHtml(inputText)}</pre>
                             </div>
-                            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden;">
-                                <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">期望</div>
-                                <pre style="margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 140px; overflow-y: auto;">${escapeHtml(expectedText)}</pre>
+                            <div class="panel-dark">
+                                <div class="panel-header">期望</div>
+                                <pre class="code-pre">${escapeHtml(expectedText)}</pre>
                             </div>
-                            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden;">
-                                <div style="background: #1e293b; padding: 6px 10px; font-size: 11px; color: #94a3b8;">输出</div>
-                                <pre style="margin: 0; padding: 8px; font-size: 11px; color: #e2e8f0; max-height: 140px; overflow-y: auto;">${escapeHtml(outputText)}</pre>
+                            <div class="panel-dark">
+                                <div class="panel-header">输出</div>
+                                <pre class="code-pre">${escapeHtml(outputText)}</pre>
                             </div>
                             ${sourceHtml}
                             ${traceHtml}
@@ -1417,10 +1428,6 @@
             }
         }
 
-        function setQuery(text) {
-            document.getElementById('queryInput').value = text;
-        }
-
     let flowchartRenderPending = null;
     let flowchartRenderRunning = false;
     let flowchartFocusNode = null;
@@ -1486,6 +1493,30 @@
         `;
         consoleArea.appendChild(div);
         consoleArea.scrollTop = consoleArea.scrollHeight;
+    }
+
+    async function streamNDJSON(url, handleEvent) {
+        const intro = "复用 NDJSON 流式读取逻辑并逐条分发事件。";
+        const response = await fetch(url);
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split('\n');
+            buffer = lines.pop();
+            for (const line of lines) {
+                if (!line.trim()) continue;
+                try {
+                    const event = JSON.parse(line);
+                    await handleEvent(event);
+                } catch (e) {
+                    console.error("JSON Parse Error", e);
+                }
+            }
+        }
     }
 
         function runCurrentAction() {
@@ -1700,34 +1731,12 @@
 
             try {
                 const url = `${API_URL}/test/stream/02?query=${encodeURIComponent(query)}&config=${encodeURIComponent(model)}&mode=${encodeURIComponent(mode)}`;
-                const response = await fetch(url);
-                const reader = response.body.getReader();
-            const decoder = new TextDecoder();
-                    let buffer = '';
-                    
-                    while (true) {
-                        const { done, value } = await reader.read();
-                        if (done) break;
-                        
-                        buffer += decoder.decode(value, { stream: true });
-                        const lines = buffer.split('\n');
-                        buffer = lines.pop(); // Keep incomplete line
-                        
-                        for (const line of lines) {
-                            if (!line.trim()) continue;
-                            try {
-                                const event = JSON.parse(line);
-                                handleTest02Event(event);
-                            } catch (e) {
-                                console.error("JSON Parse Error", e);
-                            }
-                        }
-                    }
-                    stopTimer('完成');
-                } catch (e) {
+                await streamNDJSON(url, handleTest02Event);
+                stopTimer('完成');
+            } catch (e) {
                     addConsoleLine(`Error: ${e.message}`, true);
                     stopTimer('出错');
-                }
+            }
                 return; // Exit function, don't run legacy logic
             }
 
@@ -1770,31 +1779,12 @@
             try {
                 const safeQuery = query || '';
                 const url = `${API_URL}/test/stream/03?query=${encodeURIComponent(safeQuery)}&config=${encodeURIComponent(model)}&mode=${encodeURIComponent(mode)}`;
-                const response = await fetch(url);
-                const reader = response.body.getReader();
-                const decoder = new TextDecoder();
-                let buffer = '';
-
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
-                    buffer += decoder.decode(value, { stream: true });
-                    const lines = buffer.split('\n');
-                    buffer = lines.pop();
-
-                    for (const line of lines) {
-                        if (!line.trim()) continue;
-                        try {
-                            const event = JSON.parse(line);
-                            handleTest03Event(event);
-                            if (event.step === 'step_analyze') {
-                                await new Promise(r => setTimeout(r, 0));
-                            }
-                        } catch (e) {
-                            console.error("JSON Parse Error", e);
-                        }
+                await streamNDJSON(url, async (event) => {
+                    handleTest03Event(event);
+                    if (event.step === 'step_analyze') {
+                        await new Promise(r => setTimeout(r, 0));
                     }
-                }
+                });
                 stopTimer('完成');
             } catch (e) {
                 addConsoleLine(`Error: ${e.message}`, true);
@@ -1836,28 +1826,7 @@
                 if (mode) params.push(`mode=${encodeURIComponent(mode)}`);
                 if (model) params.push(`config=${encodeURIComponent(model)}`);
                 const url = `${API_URL}/test/stream/04${params.length > 0 ? `?${params.join('&')}` : ''}`;
-                const response = await fetch(url);
-                const reader = response.body.getReader();
-                const decoder = new TextDecoder();
-                let buffer = '';
-
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
-                    buffer += decoder.decode(value, { stream: true });
-                    const lines = buffer.split('\n');
-                    buffer = lines.pop();
-
-                    for (const line of lines) {
-                        if (!line.trim()) continue;
-                        try {
-                            const event = JSON.parse(line);
-                            handleTest04Event(event);
-                        } catch (e) {
-                            console.error("JSON Parse Error", e);
-                        }
-                    }
-                }
+                await streamNDJSON(url, handleTest04Event);
                 stopTimer('完成');
             } catch (e) {
                 addConsoleLine(`Error: ${e.message}`, true);

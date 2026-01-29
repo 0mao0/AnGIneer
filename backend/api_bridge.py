@@ -640,6 +640,10 @@ async def stream_test_04(query: str = None, config: str = None, mode: str = "ins
             importlib.reload(t4)
             select_query = query if query else "all"
             cases = t4._select_cases(select_query)
+            if query and query != "all":
+                filtered = [c for c in cases if c.get("label") == query]
+                if filtered:
+                    cases = filtered
 
             yield pack({"step": "case_load", "status": "done", "msg": f"用例加载完成 ({len(cases)} 个)", "total": len(cases)})
             await asyncio.sleep(0.01)
@@ -863,4 +867,4 @@ def run_test(test_id: str, config: str = None, query: str = None, mode: str = "i
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+    uvicorn.run(app, host="0.0.0.0", port=8000)

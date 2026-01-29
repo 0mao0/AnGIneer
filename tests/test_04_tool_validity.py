@@ -23,7 +23,7 @@ TEST_CODE_CONTENT = "def hello():\n    return 1/0"
 TOOL_CASES = [
     {
         "id": "table_lookup",
-        "label": "表格查询: 4万吨杂货船吃水 (直查)",
+        "label": "表格查询: 40000吨杂货船吃水 (直查)",
         "tool": "table_lookup",
         "inputs": {
             "table_name": "杂货船设计船型尺度",
@@ -35,7 +35,7 @@ TOOL_CASES = [
     },
     {
         "id": "table_lookup",
-        "label": "表格查询: 4万吨油船吃水 (插值)",
+        "label": "表格查询: 40000吨油船吃水 (直查)",
         "tool": "table_lookup",
         "inputs": {
             "table_name": "油船设计船型尺度",
@@ -43,11 +43,11 @@ TOOL_CASES = [
             "target_column": "满载吃水T(m)",
             "file_name": "《海港水文规范》.md"
         },
-        "expected": {"result": 12.4, "delta": 0.1}
+        "expected": {"result": 12.0, "delta": 0.1}
     },
     {
         "id": "table_lookup",
-        "label": "表格查询: 3.5万吨散货船吃水 (直查)",
+        "label": "表格查询: 35000吨散货船吃水 (直查)",
         "tool": "table_lookup",
         "inputs": {
             "table_name": "散货船设计船型尺度",
@@ -59,7 +59,7 @@ TOOL_CASES = [
     },
     {
         "id": "table_lookup",
-        "label": "表格查询: 4.5万吨集装箱船吃水 (插值)",
+        "label": "表格查询: 45000吨集装箱船吃水 (直查)",
         "tool": "table_lookup",
         "inputs": {
             "table_name": "集装箱船设计船型尺度",
@@ -67,19 +67,19 @@ TOOL_CASES = [
             "target_column": "满载吃水T(m)",
             "file_name": "《海港水文规范》.md"
         },
-        "expected": {"result": 12.8, "delta": 0.1}
+        "expected": {"result": 12.0, "delta": 0.1}
     },
     {
         "id": "table_lookup",
-        "label": "表格查询: 1万吨集装箱船吃水 (直查)",
+        "label": "表格查询: 60000吨集装箱船吃水 (直查)",
         "tool": "table_lookup",
         "inputs": {
             "table_name": "集装箱船设计船型尺度",
-            "query_conditions": "DWT=10000",
+            "query_conditions": "DWT=60000",
             "target_column": "满载吃水T(m)",
             "file_name": "《海港水文规范》.md"
         },
-        "expected": {"result": 8.3, "delta": 0.1}
+        "expected": {"result": 13.0, "delta": 0.1}
     },
     {
         "id": "knowledge_search",
@@ -142,14 +142,19 @@ TOOL_CASES = [
     }
 ]
 
-SAMPLE_QUERIES = [{"label": c["label"], "query": c["id"]} for c in TOOL_CASES]
+SAMPLE_QUERIES = [{"label": c["label"], "query": c["label"]} for c in TOOL_CASES]
 
 def _select_cases(env_query: str):
     """根据环境变量选择测试项"""
     if not env_query or env_query == "all":
         return TOOL_CASES
     matched = [c for c in TOOL_CASES if c["id"] == env_query]
-    return matched or [{"id": env_query, "label": f"自定义: {env_query}", "tool": env_query, "inputs": {}, "expected": None}]
+    if matched:
+        return matched
+    label_matched = [c for c in TOOL_CASES if c["label"] == env_query]
+    if label_matched:
+        return label_matched
+    return [{"id": env_query, "label": f"自定义: {env_query}", "tool": env_query, "inputs": {}, "expected": None}]
 
 class TestToolBehaviorSuite(unittest.TestCase):
     @classmethod
