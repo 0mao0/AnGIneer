@@ -1,4 +1,3 @@
-
 import sys
 import os
 import re
@@ -12,9 +11,10 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../back
 from src.agents import IntentClassifier
 from src.core.contextStruct import Step, SOP
 from src.core.sop_loader import SopLoader
+from src.tools import ToolRegistry
 
 """
-SOP 混合分析测试脚本 (Test 03)
+SOP 混合分析测试脚本 (Test 02)
 验证 SOP 路由后对每个步骤进行分析与 AI 代替执行的能力。
 """
 
@@ -109,7 +109,7 @@ def build_fallback_steps(sop_id: str, description: str) -> List[Step]:
         id="step_parse",
         name="解析问题",
         description=f"梳理问题并提取关键参数：{summary}",
-        tool="user_input",
+        tool="auto",
         inputs=base_inputs,
         outputs={"parsed_context": "context"},
         notes="优先从题干中提取关键信息",
@@ -143,40 +143,81 @@ def analyze_sop_with_fallback(loader: SopLoader, sop_id: str, sop_map: Dict[str,
             steps=fallback_steps
         )
 
-def extract_expression(query: str) -> Optional[str]:
-    """从问题中抽取可计算表达式。"""
-    matches = re.findall(r"[0-9\.\+\-\*\/\(\)\s]+", query)
-    if not matches:
-        return None
-    candidate = max(matches, key=len).strip()
-    if any(ch.isdigit() for ch in candidate):
-        return candidate
-    return None
+def extract_numbers(query: str) -> List[float]:
+    """从用户问题中提取所有数值。"""
+    nums = re.findall(r"\d+(?:\.\d+)?", query or "")
+    return [float(n) for n in nums]
 
-def simulate_ai_output(step: Step, query: str) -> Dict[str, str]:
-    """模拟 AI 代替工具执行并给出结果。"""
-    tool = (step.tool or "auto").lower()
-    note = "AI 代替执行"
-    if any(k in tool for k in ["table", "lookup", "search", "gis", "web"]) or any(k in (step.description or "") for k in ["查表", "规范", "坐标", "数据库", "检索"]):
-        return {"result": "需外部工具，先造了数据：{参考值: 42, 来源: 模拟数据}", "note": "需外部工具，先造了数据"}
-    if tool == "calculator":
-        expr = extract_expression(query)
-        if expr:
-            try:
-                value = eval(expr, {"__builtins__": {}}, {})
-                return {"result": f"AI 计算结果：{expr} = {value}", "note": note}
-            except Exception:
-                return {"result": f"AI 估算结果：{expr} ≈ 0", "note": note}
-        return {"result": "AI 估算结果：缺少表达式，输出占位值 0", "note": note}
-    if tool == "user_input":
-        return {"result": "AI 已从题干补齐输入并完成解析", "note": note}
-    return {"result": "AI 已完成该步骤的推导与结果生成", "note": note}
+def resolve_value(value: Any, context: Dict[str, Any]) -> Any:
+    """解析输入中的上下文引用并返回实际值。"""
+    if isinstance(value, str):
+        m = re.match(r"^\$\{([^}]+)\}$", value.strip())
+        if m:
+            return context.get(m.group(1))
+        return value
+    if isinstance(value, dict):
+        return {k: resolve_value(v, context) for k, v in value.items()}
+    if isinstance(value, list):
+        return [resolve_value(v, context) for v in value]
+    return value
 
-def analyze_step(step: Step, query: str) -> Dict[str, Any]:
-    """分析步骤结构并生成 AI 代替执行结果。"""
+def auto_extract_variables(step: Step, query: str, context: Dict[str, Any]) -> Dict[str, float]:
+    """根据步骤预期变量名从问题中抽取数值并写入上下文。"""
+    variables = {}
+    expected = (step.inputs or {}).get("variables") or []
+    numbers = extract_numbers(query)
+    for idx, name in enumerate(expected):
+        if idx < len(numbers):
+            variables[name] = numbers[idx]
+    context_vars = context.get("variables") or {}
+    context_vars.update(variables)
+    context["variables"] = context_vars
+    return variables
+
+def execute_step(step: Step, query: str, context: Dict[str, Any]) -> Dict[str, Any]:
+    """执行单个步骤并返回工具输出。"""
+    tool_name = (step.tool or "auto").lower()
+    if tool_name == "auto":
+        extracted = auto_extract_variables(step, query, context)
+        return {"result": extracted, "context": extracted}
+
+    tool = ToolRegistry.get_tool(tool_name)
+    if not tool:
+        return {"error": f"未找到工具: {tool_name}"}
+
+    inputs = resolve_value(step.inputs or {}, context)
+    if tool_name == "calculator":
+        variables = inputs.get("variables") or context.get("variables") or {}
+        inputs["variables"] = variables
+    if tool_name == "knowledge_search":
+        if not inputs.get("query"):
+            inputs["query"] = step.description or query
+        if not inputs.get("file_name"):
+            inputs["file_name"] = "《海港水文规范》.md"
+    if tool_name == "report_generator":
+        if not inputs.get("title"):
+            inputs["title"] = step.name or "SOP 结果"
+        if not inputs.get("data"):
+            inputs["data"] = context
+
+    result = tool.run(**inputs)
+    if isinstance(result, dict):
+        return result
+    return {"result": result}
+
+def analyze_step(step: Step, query: str, context: Dict[str, Any]) -> Dict[str, Any]:
+    """分析步骤结构、执行并回写上下文。"""
     inputs = step.inputs or {}
     outputs = step.outputs or {}
-    ai_exec = simulate_ai_output(step, query)
+    result = execute_step(step, query, context)
+    for ctx_key, out_path in outputs.items():
+        if isinstance(result, dict) and out_path in result:
+            value = result.get(out_path)
+            context[ctx_key] = value
+            context_vars = context.get("variables") or {}
+            if isinstance(ctx_key, str) and ctx_key:
+                context_vars[ctx_key] = value
+            context["variables"] = context_vars
     analysis_text = f"工具: {step.tool or 'auto'} | 输入: {list(inputs.keys()) or ['无']} | 输出: {list(outputs.keys()) or ['无']}"
     return {
         "id": step.id,
@@ -187,8 +228,7 @@ def analyze_step(step: Step, query: str) -> Dict[str, Any]:
         "outputs": outputs,
         "notes": step.notes or "",
         "analysis": analysis_text,
-        "ai_result": ai_exec.get("result", ""),
-        "ai_note": ai_exec.get("note", "")
+        "result": result
     }
 
 class TestSopAnalysis(unittest.TestCase):
@@ -220,11 +260,12 @@ class TestSopAnalysis(unittest.TestCase):
 
             analyzed_sop = analyze_sop_with_fallback(loader, matched_sop, sop_map)
             step_payloads = []
+            context = {"user_query": case["query"], "variables": {}}
             for idx, step in enumerate(analyzed_sop.steps, start=1):
                 print(f"  -> 步骤 {idx}: {step.name or step.id}")
-                payload = analyze_step(step, case["query"])
+                payload = analyze_step(step, case["query"], context)
                 print(f"     工具: {payload['tool']} | 输入: {list(payload['inputs'].keys()) or ['无']} | 输出: {list(payload['outputs'].keys()) or ['无']}")
-                print(f"     AI 执行: {payload['ai_result']}")
+                print(f"     执行结果: {payload['result']}")
                 step_payloads.append(payload)
 
             results.append({

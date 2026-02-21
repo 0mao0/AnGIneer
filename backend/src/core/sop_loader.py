@@ -2,6 +2,7 @@
 import os
 import glob
 import json
+import re
 from typing import List, Dict
 import sys
 
@@ -130,6 +131,148 @@ class SopLoader:
             
         return sops
 
+    def _normalize_subscripts(self, text: str) -> str:
+        """
+        将常见下标字符转换为普通数字，便于变量名解析。
+        """
+        mapping = {
+            "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4",
+            "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9"
+        }
+        for k, v in mapping.items():
+            text = text.replace(k, v)
+        return text
+
+    def _extract_formulas(self, text: str) -> List[str]:
+        """
+        从段落文本中提取包含等号的公式字符串。
+        """
+        formulas = []
+        inline = re.findall(r"`([^`]+)`", text)
+        latex = re.findall(r"\$([^$]+)\$", text)
+        for item in inline + latex:
+            if "=" in item:
+                formulas.append(item)
+        if not formulas:
+            for line in text.splitlines():
+                if "公式" in line or "=" in line:
+                    formulas.append(line.strip())
+        cleaned = []
+        for f in formulas:
+            sanitized = self._sanitize_formula(f)
+            if sanitized and "=" in sanitized:
+                cleaned.append(sanitized)
+        return cleaned
+
+    def _sanitize_formula(self, text: str) -> str:
+        """
+        清理公式文本中的 Markdown 与 LaTeX 噪声并做基础表达式规整。
+        """
+        text = text.replace("＝", "=")
+        text = text.replace("：", ":")
+        text = re.sub(r"\*+|\`+", "", text)
+        if "公式" in text and ":" in text:
+            text = text.split(":", 1)[1]
+        if "$" in text:
+            text = text.replace("$", "")
+        text = text.replace("\\", "")
+        text = self._normalize_subscripts(text)
+        text = text.strip()
+        text = text.replace("^", "**")
+        for func in ["sin", "cos", "tan", "asin", "acos", "atan", "sinh", "cosh", "tanh", "log", "ln", "sqrt", "exp"]:
+            text = re.sub(rf"\b{func}\s+([a-zA-Z_]\w*|\d+(?:\.\d+)?)", rf"{func}(\1)", text)
+        text = re.sub(r"(\d)([a-zA-Z_])", r"\1*\2", text)
+        text = re.sub(r"([a-zA-Z_0-9])\s+\(", r"\1*(", text)
+        text = re.sub(r"([a-zA-Z_0-9])\s+(?=[a-zA-Z_])", r"\1*", text)
+        text = re.sub(r"\)\s*(?=[a-zA-Z_0-9])", r")*", text)
+        return text.strip()
+
+    def _parse_steps_from_markdown(self, content: str) -> List[Step]:
+        """
+        解析 Markdown 的 Step 段落并生成结构化步骤。
+        """
+        lines = content.splitlines()
+        step_headers = []
+        header_pattern = re.compile(r"^###\s*(?:Step|步骤)\s*\d*\.?\s*(.*)$", re.IGNORECASE)
+        for idx, line in enumerate(lines):
+            m = header_pattern.match(line.strip())
+            if m:
+                step_headers.append((idx, m.group(1) or line.strip()))
+        if not step_headers:
+            return []
+
+        steps = []
+        for i, (start_idx, title) in enumerate(step_headers):
+            end_idx = step_headers[i + 1][0] if i + 1 < len(step_headers) else len(lines)
+            section_lines = lines[start_idx + 1:end_idx]
+            section_text = "\n".join(section_lines).strip()
+            formulas = self._extract_formulas(section_text)
+
+            file_match = re.search(r"《[^》]+》\.md", section_text)
+            file_name = file_match.group(0) if file_match else "《海港水文规范》.md"
+
+            if formulas:
+                for f_idx, formula in enumerate(formulas, start=1):
+                    if "=" in formula:
+                        left, right = formula.split("=", 1)
+                        left_key = self._normalize_subscripts(left).strip().replace(" ", "")
+                        expression = right.strip()
+                    else:
+                        left_key = f"step_{i+1}_result_{f_idx}"
+                        expression = formula.strip()
+                    steps.append(Step(
+                        id=f"step_{i+1}_calc_{f_idx}",
+                        name=title or f"step_{i+1}",
+                        description=formula.strip(),
+                        tool="calculator",
+                        inputs={"expression": expression, "variables": "${variables}"},
+                        outputs={left_key: "result"},
+                        notes=section_text,
+                        analysis_status="analyzed"
+                    ))
+                continue
+
+            lowered = section_text.lower()
+            if any(k in section_text for k in ["规范", "查阅", "参考", "表", "图"]) or "spec" in lowered:
+                steps.append(Step(
+                    id=f"step_{i+1}",
+                    name=title or f"step_{i+1}",
+                    description=section_text,
+                    tool="knowledge_search",
+                    inputs={"query": title or section_text, "file_name": file_name},
+                    outputs={"knowledge": "result"},
+                    notes=section_text,
+                    analysis_status="analyzed"
+                ))
+                continue
+
+            if any(k in section_text for k in ["输出", "结果"]):
+                steps.append(Step(
+                    id=f"step_{i+1}",
+                    name=title or f"step_{i+1}",
+                    description=section_text,
+                    tool="report_generator",
+                    inputs={"title": title or "SOP 结果", "data": "${context}"},
+                    outputs={"report": "result"},
+                    notes=section_text,
+                    analysis_status="analyzed"
+                ))
+                continue
+
+            variables = [self._normalize_subscripts(v) for v in re.findall(r"`([^`]+)`", section_text)]
+            steps.append(Step(
+                id=f"step_{i+1}",
+                name=title or f"step_{i+1}",
+                description=section_text,
+                tool="auto",
+                inputs={"variables": variables},
+                outputs={},
+                notes=section_text,
+                analysis_status="analyzed"
+            ))
+
+        return steps
+
     def analyze_sop(self, sop_id: str, config_name: str = None, mode: str = "instruct") -> SOP:
         """
         【混合架构核心】
@@ -158,6 +301,26 @@ class SopLoader:
         file_mtime = os.path.getmtime(filepath)
         sop_json_dir = os.path.abspath(os.path.join(self.sop_dir, "..", "sop_json"))
         json_path = os.path.join(sop_json_dir, f"{sop_id}.json")
+            
+        # 2. 读取全文并进行轻量裁剪
+        with open(filepath, 'r', encoding='utf-8') as f:
+            raw_content = f.read()
+        lines = raw_content.splitlines()
+        start_idx = 0
+        keywords = ["## 实施步骤", "## 步骤", "## Steps", "## Implementation", "# Steps"]
+        for i, ln in enumerate(lines):
+            if any(ln.strip().startswith(k) for k in keywords):
+                start_idx = i
+                break
+        content = "\n".join(lines[start_idx:]) if start_idx > 0 else raw_content
+        if len(content) > 8000:
+            content = content[:8000] + "\n...(内容已截断)"
+
+        parsed_steps = self._parse_steps_from_markdown(content)
+        if parsed_steps:
+            sop.steps = parsed_steps
+            return sop
+
         if os.path.exists(json_path) and os.path.getmtime(json_path) >= file_mtime:
             try:
                 with open(json_path, "r", encoding="utf-8") as f:
@@ -174,20 +337,6 @@ class SopLoader:
             except Exception:
                 pass
             
-        # 2. 读取全文并进行轻量裁剪
-        with open(filepath, 'r', encoding='utf-8') as f:
-            raw_content = f.read()
-        lines = raw_content.splitlines()
-        start_idx = 0
-        keywords = ["## 实施步骤", "## 步骤", "## Steps", "## Implementation", "# Steps"]
-        for i, ln in enumerate(lines):
-            if any(ln.strip().startswith(k) for k in keywords):
-                start_idx = i
-                break
-        content = "\n".join(lines[start_idx:]) if start_idx > 0 else raw_content
-        if len(content) > 8000:
-            content = content[:8000] + "\n...(内容已截断)"
-            
         # 3. LLM 结构化解析
         system_prompt = """
 You are an expert System Analyst. Your goal is to convert a Markdown Standard Operating Procedure (SOP) into a structured JSON execution plan.
@@ -198,7 +347,8 @@ Output: A JSON object with a "steps" list. Each step must have:
 - "name": The step title.
 - "description": A summary of what to do.
 - "tool": The best tool for this step. Options: "calculator" (for math), "knowledge_search" (for looking up specs), "user_input" (ask user), or "auto" (let dispatcher decide).
-- "inputs": A dictionary of required input parameters for this step. keys are parameter names, values are descriptions.
+- "inputs": A dictionary of required input parameters for this step. keys are parameter names, values are descriptions or context references.
+- "outputs": A dictionary mapping context keys to tool output paths.
 - "notes": CRITICAL. Extract any "Note", "Warning", "Attention", or conditional logic (e.g., "If soft soil, use lower value"). If none, leave empty.
 """
         user_prompt = f"SOP Content:\n{content}"
@@ -234,6 +384,7 @@ Output: A JSON object with a "steps" list. Each step must have:
                     description=s_data.get("description"),
                     tool=tool_name,
                     inputs=s_data.get("inputs", {}),
+                    outputs=s_data.get("outputs", {}),
                     notes=s_data.get("notes"), # 核心：注入 LLM 提取的注意事项
                     analysis_status="analyzed"
                 )
