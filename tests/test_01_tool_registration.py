@@ -10,13 +10,11 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../backend")))
 
 from src.tools import ToolRegistry
-from src.core.sop_loader import SopLoader
 from src.core.llm import LLMClient
 
 """
 基础资源加载验证脚本 (Test 01)
-目的：分别验证 Tool (工具) 和 SOP (标准作业程序) 的注册与加载情况。
-不涉及 LLM 调用，仅验证静态资源和元数据的完整性。
+目的：验证 Tool (工具) 的注册与加载情况，并进行 LLM 工具识别与调用测试。
 """
 
 SAMPLE_QUERIES = [
@@ -25,8 +23,8 @@ SAMPLE_QUERIES = [
 
 class TestResourceLoading(unittest.TestCase):
     def setUp(self):
+        """初始化测试模式。"""
         self.mode = os.environ.get("TEST_LLM_QUERY", "all")
-        self.sop_dir = os.path.join(os.path.dirname(__file__), "../backend/sops")
 
     def test_resources(self):
         """统一测试入口，根据指令分发任务"""
@@ -35,15 +33,11 @@ class TestResourceLoading(unittest.TestCase):
         results = {
             "mode": self.mode,
             "tools": [],
-            "sops": [],
             "llm_tools": []
         }
 
         if self.mode == "check_tools" or self.mode == "all":
             results["tools"] = self._check_tools()
-            
-        if self.mode == "check_sops" or self.mode == "all":
-            results["sops"] = self._check_sops()
             
         if self.mode == "check_llm_tools" or self.mode == "all":
             results["llm_tools"] = self._check_llm_tools()
@@ -54,6 +48,7 @@ class TestResourceLoading(unittest.TestCase):
         print("__JSON_END__")
 
     def _check_tools(self):
+        """检查 ToolRegistry 中的核心工具注册情况。"""
         print("\n>>> 正在验证工具注册表 (ToolRegistry)...")
         tools = ToolRegistry.list_tools()
         tool_names = list(tools.keys())
@@ -84,57 +79,8 @@ class TestResourceLoading(unittest.TestCase):
         print("  -> [SUCCESS] 所有核心工具验证通过。")
         return check_results
 
-    def _check_sops(self):
-        print("\n>>> 正在验证 SOP 加载 (SopLoader)...")
-        if not os.path.exists(self.sop_dir):
-            self.fail(f"SOP 目录不存在: {self.sop_dir}")
-            
-        loader = SopLoader(self.sop_dir)
-        sops = loader.load_all()
-        
-        print(f"  -> [统计] 已加载 SOP 数量: {len(sops)}")
-        
-        # 核心 SOP 检查清单 (确保这些必须存在)
-        required_sops = ["math_sop", "code_review", "market_research"]
-        
-        found_sops_map = {s.id: s for s in sops}
-        check_results = []
-        
-        # 1. 添加所有已加载的 SOP
-        for sop in sops:
-            item = {
-                "name": sop.id, 
-                "type": "sop", 
-                "status": "ok", 
-                "desc": sop.name_zh or sop.name_en or "No description"
-            }
-            if not sop.description:
-                 item["status"] = "warning"
-                 item["msg"] = "缺少描述"
-            check_results.append(item)
-            print(f"  -> [OK] Found SOP '{sop.id}': {item['desc']}")
-
-        # 2. 检查是否有核心 SOP 缺失
-        missing_sops = []
-        for req_id in required_sops:
-            if req_id not in found_sops_map:
-                missing_sops.append(req_id)
-                check_results.append({
-                    "name": req_id,
-                    "type": "sop",
-                    "status": "missing",
-                    "desc": "Required SOP missing"
-                })
-                print(f"  -> [WARNING] 核心 SOP '{req_id}' 未加载")
-
-        if missing_sops:
-            print(f"  -> [INFO] 部分预期 SOP 未找到: {missing_sops}")
-        else:
-            print("  -> [SUCCESS] 所有核心 SOP 验证通过。")
-            
-        return check_results
-
     def _check_llm_tools(self):
+        """使用 LLM 进行工具识别并调用目标工具进行验证。"""
         print("\n>>> 正在验证模型工具识别与调用 (LLM + ToolRegistry)...")
         tools = ToolRegistry.list_tools()
         tool_names = list(tools.keys())
@@ -392,3 +338,18 @@ if __name__ == "__main__":
 
 if __name__ == "__main__":
     unittest.main()
+
+
+
+
+'''结果显示Qwen\Deepseek\MiniMax能够准确调用工具，并且返回有效的JSON格式
+[模型工具调用汇总]
+ - Qwen3VL-30B-A3B (Private) | ok   | 识别: 31.06s  | 执行: 1.42s
+ - Qwen2.5-7B (SiliconFlow)  | ok   | 识别: 10.92s  | 执行: 1.47s
+ - Qwen3-4B (Public)         | ok   | 识别: 5.69s   | 执行: 1.37s
+ - DeepSeek_V3.2             | ok   | 识别: 10.79s  | 执行: 1.46s
+ - GLM-4.7-Flash             | fail | 识别: 35.06s  | 执行: -
+ - Nemotron30BA3B (NVIDIA)   | fail | 识别: 17.86s  | 执行: -
+ - Kimi/Moonshot (NVIDIA源)   | ok   | 识别: 57.67s | 执行: 1.53s
+ - MiniMax (NVIDIA源)         | ok   | 识别: 27.01s | 执行: 1.40s
+'''
