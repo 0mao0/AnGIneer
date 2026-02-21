@@ -3,13 +3,45 @@ import os
 import glob
 import json
 import re
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 import sys
 
 # Ensure src can be imported
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 from src.core.contextStruct import SOP, Step
+
+# ---------- 极简内联工具 ----------
+def _extract_json_from_text(text: str) -> Dict[str, Any]:
+    """粗暴提取 ```json 包裹或裸 JSON。"""
+    text = text.strip()
+    if text.startswith("```json"):
+        text = text[7:]
+    if text.endswith("```"):
+        text = text[:-3]
+    return json.loads(text.strip())
+
+def _normalize_step_io(tool: str, inputs: Any, outputs: Any, file_name: str) -> Tuple[Dict, Dict]:
+    """仅保证字段结构，模板全部交给 LLM。"""
+    ins = inputs if isinstance(inputs, dict) else {}
+    outs = outputs if isinstance(outputs, dict) else {}
+    # 列表兜底转 dict
+    if isinstance(outputs, list):
+        outs = {}
+        for item in outputs:
+            if isinstance(item, dict):
+                k = item.get("name") or item.get("variable")
+                if k:
+                    outs[k] = item.get("target") or "result"
+            elif isinstance(item, str):
+                outs[item] = "result"
+    # table_lookup 必备字段兜底
+    if tool == "table_lookup":
+        ins.setdefault("table_name", "")
+        ins.setdefault("query_conditions", {})
+        ins.setdefault("file_name", os.path.basename(file_name))
+    return ins, outs
+
 
 class SopLoader:
     """
@@ -130,252 +162,6 @@ class SopLoader:
             print(f"Error loading SOP index: {e}")
             
         return sops
-
-    def _normalize_subscripts(self, text: str) -> str:
-        """
-        将常见下标字符转换为普通数字，便于变量名解析。
-        """
-        mapping = {
-            "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4",
-            "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9"
-        }
-        for k, v in mapping.items():
-            text = text.replace(k, v)
-        return text
-
-    def _extract_formulas(self, text: str) -> List[str]:
-        """
-        从段落文本中提取包含等号的公式字符串。
-        """
-        formulas = []
-        inline = re.findall(r"`([^`]+)`", text)
-        latex = re.findall(r"\$([^$]+)\$", text)
-        for item in inline + latex:
-            if "=" in item:
-                formulas.append(item)
-        if not formulas:
-            for line in text.splitlines():
-                if "公式" in line or "=" in line:
-                    formulas.append(line.strip())
-        cleaned = []
-        for f in formulas:
-            sanitized = self._sanitize_formula(f)
-            if sanitized and "=" in sanitized:
-                cleaned.append(sanitized)
-        return cleaned
-
-    def _sanitize_formula(self, text: str) -> str:
-        """
-        清理公式文本中的 Markdown 与 LaTeX 噪声并做基础表达式规整。
-        """
-        text = text.replace("＝", "=")
-        text = text.replace("：", ":")
-        text = re.sub(r"\*+|\`+", "", text)
-        if "公式" in text and ":" in text:
-            text = text.split(":", 1)[1]
-        if "$" in text:
-            text = text.replace("$", "")
-        text = text.replace("\\", "")
-        text = self._normalize_subscripts(text)
-        text = text.strip()
-        text = text.replace("^", "**")
-        for func in ["sin", "cos", "tan", "asin", "acos", "atan", "sinh", "cosh", "tanh", "log", "ln", "sqrt", "exp"]:
-            text = re.sub(rf"\b{func}\s+([a-zA-Z_]\w*|\d+(?:\.\d+)?)", rf"{func}(\1)", text)
-        text = re.sub(r"(\d)([a-zA-Z_])", r"\1*\2", text)
-        text = re.sub(r"([a-zA-Z_0-9])\s+\(", r"\1*(", text)
-        text = re.sub(r"([a-zA-Z_0-9])\s+(?=[a-zA-Z_])", r"\1*", text)
-        text = re.sub(r"\)\s*(?=[a-zA-Z_0-9])", r")*", text)
-        return text.strip()
-
-    def _is_trivial_formula(self, left_key: str, expression: str) -> bool:
-        """
-        判断公式是否为占位赋值或单变量映射。
-        """
-        if not expression:
-            return True
-        normalized = self._normalize_subscripts(expression).strip().replace(" ", "")
-        if normalized == left_key:
-            return True
-        if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", normalized):
-            return True
-        return False
-
-    def _should_table_lookup(self, section_text: str) -> bool:
-        """判断当前步骤是否应该使用表格查询工具。"""
-        return any(k in section_text for k in ["查表", "查图", "表", "图"])
-
-    def _extract_table_name(self, section_text: str) -> str:
-        """从步骤描述中提取表格或图表名称。"""
-        match = re.search(r"(表|图)\s*([A-Za-z0-9\.\-]+)", section_text)
-        if match:
-            return f"{match.group(1)} {match.group(2)}"
-        return "规范表"
-
-    def _extract_variables(self, section_text: str) -> List[str]:
-        """
-        提取并清理步骤中的变量引用。
-        """
-        raw_vars = re.findall(r"`([^`]+)`", section_text)
-        variables = []
-        for item in raw_vars:
-            if "=" in item:
-                continue
-            normalized = self._normalize_subscripts(item).strip()
-            if normalized:
-                variables.append(normalized)
-        return variables
-
-    def _infer_output_key(self, title: str, section_text: str) -> str:
-        """从标题或正文推断输出变量名。"""
-        variables = self._extract_variables(section_text)
-        if variables:
-            return variables[0]
-        candidates = re.findall(r"\b[A-Za-z_][A-Za-z0-9_]*\b", title or "")
-        if not candidates:
-            return ""
-        return candidates[-1]
-
-    def _parse_steps_from_markdown(self, content: str) -> List[Step]:
-        """
-        解析 Markdown 的 Step 段落并生成结构化步骤。
-        """
-        lines = content.splitlines()
-        step_headers = []
-        header_pattern = re.compile(r"^###\s*(?:Step|步骤)\s*\d*\.?\s*(.*)$", re.IGNORECASE)
-        for idx, line in enumerate(lines):
-            m = header_pattern.match(line.strip())
-            if m:
-                step_headers.append((idx, m.group(1) or line.strip()))
-        if not step_headers:
-            return []
-
-        steps = []
-        for i, (start_idx, title) in enumerate(step_headers):
-            end_idx = step_headers[i + 1][0] if i + 1 < len(step_headers) else len(lines)
-            section_lines = lines[start_idx + 1:end_idx]
-            section_text = "\n".join(section_lines).strip()
-            formulas = self._extract_formulas(section_text)
-
-            file_match = re.search(r"《[^》]+》\.md", section_text)
-            file_name = file_match.group(0) if file_match else "《海港水文规范》.md"
-
-            calc_formulas = []
-            if formulas:
-                for f_idx, formula in enumerate(formulas, start=1):
-                    if "=" in formula:
-                        left, right = formula.split("=", 1)
-                        left_key = self._normalize_subscripts(left).strip().replace(" ", "")
-                        expression = right.strip()
-                    else:
-                        left_key = f"step_{i+1}_result_{f_idx}"
-                        expression = formula.strip()
-                    if self._is_trivial_formula(left_key, expression):
-                        continue
-                    calc_formulas.append((f_idx, formula, left_key, expression))
-
-            if calc_formulas:
-                for f_idx, formula, left_key, expression in calc_formulas:
-                    steps.append(Step(
-                        id=f"step_{i+1}_calc_{f_idx}",
-                        name=title or f"step_{i+1}",
-                        description=formula.strip(),
-                        tool="calculator",
-                        inputs={"expression": expression, "variables": "${variables}"},
-                        outputs={left_key: "result"},
-                        notes=section_text,
-                        analysis_status="analyzed"
-                    ))
-                continue
-            if formulas:
-                variables = self._extract_variables(section_text)
-                if self._should_table_lookup(section_text):
-                    outputs = {variables[0]: "result"} if len(variables) == 1 else {}
-                    steps.append(Step(
-                        id=f"step_{i+1}",
-                        name=title or f"step_{i+1}",
-                        description=section_text,
-                        tool="table_lookup",
-                        inputs={
-                            "table_name": self._extract_table_name(section_text),
-                            "query_conditions": "${variables}",
-                            "file_name": file_name
-                        },
-                        outputs=outputs,
-                        notes=section_text,
-                        analysis_status="analyzed"
-                    ))
-                    continue
-                steps.append(Step(
-                    id=f"step_{i+1}",
-                    name=title or f"step_{i+1}",
-                    description=section_text,
-                    tool="auto",
-                    inputs={"variables": variables},
-                    outputs={},
-                    notes=section_text,
-                    analysis_status="analyzed"
-                ))
-                continue
-
-            lowered = section_text.lower()
-            if self._should_table_lookup(section_text):
-                output_key = self._infer_output_key(title, section_text)
-                outputs = {output_key: "result"} if output_key else {}
-                steps.append(Step(
-                    id=f"step_{i+1}",
-                    name=title or f"step_{i+1}",
-                    description=section_text,
-                    tool="table_lookup",
-                    inputs={
-                        "table_name": self._extract_table_name(section_text),
-                        "query_conditions": "${variables}",
-                        "file_name": file_name
-                    },
-                    outputs=outputs,
-                    notes=section_text,
-                    analysis_status="analyzed"
-                ))
-                continue
-            if any(k in section_text for k in ["规范", "查阅", "参考"]) or "spec" in lowered:
-                steps.append(Step(
-                    id=f"step_{i+1}",
-                    name=title or f"step_{i+1}",
-                    description=section_text,
-                    tool="knowledge_search",
-                    inputs={"query": title or section_text, "file_name": file_name},
-                    outputs={"knowledge": "result"},
-                    notes=section_text,
-                    analysis_status="analyzed"
-                ))
-                continue
-
-            if any(k in section_text for k in ["输出", "结果"]):
-                steps.append(Step(
-                    id=f"step_{i+1}",
-                    name=title or f"step_{i+1}",
-                    description=section_text,
-                    tool="report_generator",
-                    inputs={"title": title or "SOP 结果", "data": "${context}"},
-                    outputs={"report": "result"},
-                    notes=section_text,
-                    analysis_status="analyzed"
-                ))
-                continue
-
-            variables = self._extract_variables(section_text)
-            steps.append(Step(
-                id=f"step_{i+1}",
-                name=title or f"step_{i+1}",
-                description=section_text,
-                tool="auto",
-                inputs={"variables": variables},
-                outputs={},
-                notes=section_text,
-                analysis_status="analyzed"
-            ))
-
-        return steps
-
     def _compact_dict(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """移除字典中值为 None 的字段。"""
         return {k: v for k, v in data.items() if v is not None}
@@ -395,8 +181,6 @@ class SopLoader:
             json.dump(
                 self._compact_dict({
                     "id": sop.id,
-                    "name_zh": sop.name_zh,
-                    "name_en": sop.name_en,
                     "description": sop.description,
                     "mtime": file_mtime,
                     "steps": serialized_steps
@@ -449,20 +233,21 @@ class SopLoader:
         if len(content) > 8000:
             content = content[:8000] + "\n...(内容已截断)"
 
-        def _try_llm_parse() -> List[Step]:
-            system_prompt = """
-You are an expert System Analyst. Your goal is to convert a Markdown Standard Operating Procedure (SOP) into a structured JSON execution plan.
 
+
+        if prefer_llm:
+            # 一次性让 LLM 出完整 JSON，不再分段兜底
+            system = """
+You are an expert System Analyst. Your goal is to convert a Markdown Standard Operating Procedure (SOP) into a structured JSON execution plan.
 Input: A Markdown SOP document containing Steps.
-Output: A JSON object with a "steps" list. Each step must have:
+Output: A JSON object with a "steps" list. Output ONLY a valid JSON object, no markdown or extra text. Do not include line breaks inside any JSON string value.
 - "id": A short, unique identifier (e.g., "step_1", "calc_width").
 - "name": The step title.
 - "description": A summary of what to do.
 - "tool": The best tool for this step. Options: "calculator" (for math), "knowledge_search" (for looking up specs), "table_lookup" (for structured table queries), "user_input" (ask user), or "auto" (let dispatcher decide).
-- "inputs": A dictionary of required input parameters for this step. keys are parameter names, values are descriptions or context references. For table_lookup, inputs must include table_name, query_conditions (dict), and file_name.
+- "inputs": A dictionary of required input parameters for this step. keys are parameter names, values are descriptions or context references. For table_lookup, inputs must include table_name, query_conditions (dict), and file_name (base filename only, e.g. "《海港水文规范》.md").
 - "outputs": A dictionary mapping context keys to tool output paths.
 - "notes": CRITICAL. Extract any "Note", "Warning", "Attention", or conditional logic (e.g., "If soft soil, use lower value"). If none, leave empty.
-
 Guidelines for table_lookup:
 - Derive table_name from the mentioned 表/图编号.
 - Build query_conditions as a dict using condition keywords in the step text.
@@ -470,81 +255,37 @@ Guidelines for table_lookup:
 For outputs mapping:
 - table_lookup and calculator should map target variables to "result".
 """
-            user_prompt = f"SOP Content:\n{content}"
             messages = [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
+                {"role": "system", "content": system},
+                {"role": "user", "content": f"SOP Content:\n{content}"}
             ]
-            print(f"  [SopLoader] Analyzing {filename} with LLM...")
             try:
-                preferred = config_name or os.getenv("PREFERRED_LLM_CONFIG")
-                response = llm_client.chat(messages, mode=mode, config_name=preferred)
-                if "```json" in response:
-                    response = response.split("```json")[1].split("```")[0]
-                elif "```" in response:
-                    response = response.split("```")[1].split("```")[0]
-                data = json.loads(response.strip())
-                new_steps = []
-                for s_data in data.get("steps", []):
-                    tool_name = s_data.get("tool", "auto")
-                    if isinstance(tool_name, str):
-                        tool_name = tool_name.replace('`', '').strip()
-                    new_step = Step(
-                        id=s_data.get("id"),
-                        name=s_data.get("name"),
-                        description=s_data.get("description"),
-                        tool=tool_name,
-                        inputs=s_data.get("inputs", {}),
-                        outputs=s_data.get("outputs", {}),
-                        notes=s_data.get("notes"),
-                        analysis_status="analyzed"
-                    )
-                    new_steps.append(new_step)
-                print(f"  [SopLoader] Successfully analyzed {len(new_steps)} steps for {sop_id}.")
-                return new_steps
+                from .llm import llm_client
+                resp = llm_client.chat(messages, mode=mode, config_name=config_name)
+                data = _extract_json_from_text(resp)
+                llm_steps = []
+                for s in data.get("steps", []):
+                    ins, outs = _normalize_step_io(s.get("tool", "auto"), s.get("inputs", {}), s.get("outputs", {}), filename)
+                    llm_steps.append(Step(
+                        id=s.get("id"),
+                        name=s.get("name"),
+                        description=s.get("description"),
+                        tool=s.get("tool", "auto"),
+                        inputs=ins,
+                        outputs=outs,
+                        notes=s.get("notes", ""),
+                        analysis_status="analyzed",
+                    ))
+                if llm_steps:
+                    sop.steps = llm_steps
+                    if save_to_json:
+                        self._save_sop_json(sop, file_mtime, json_path, llm_steps)
+                    return sop
             except Exception as e:
-                print(f"  [SopLoader] Analysis failed: {e}")
-                return []
-
-        if prefer_llm:
-            llm_steps = _try_llm_parse()
-            if llm_steps:
-                sop.steps = llm_steps
-                if save_to_json:
-                    self._save_sop_json(sop, file_mtime, json_path, llm_steps)
-                return sop
-
-        if not save_to_json and os.path.exists(json_path) and os.path.getmtime(json_path) >= file_mtime:
-            try:
-                with open(json_path, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                steps = [Step(**s) for s in data.get("steps", [])]
-                sop = SOP(
-                    id=data.get("id", sop_id),
-                    name_zh=data.get("name_zh", sop.name_zh),
-                    name_en=data.get("name_en", sop.name_en),
-                    description=data.get("description", sop.description),
-                    steps=steps
-                )
-                return sop
-            except Exception:
+                print(f"[LLM 一次性解析失败，改用兜底]: {e}")
                 pass
 
-        parsed_steps = self._parse_steps_from_markdown(content)
-        if parsed_steps:
-            sop.steps = parsed_steps
-            if save_to_json:
-                self._save_sop_json(sop, file_mtime, json_path, parsed_steps)
-            return sop
-
-        if not prefer_llm:
-            llm_steps = _try_llm_parse()
-            if llm_steps:
-                sop.steps = llm_steps
-                if save_to_json:
-                    self._save_sop_json(sop, file_mtime, json_path, llm_steps)
-                return sop
-
+        # 不再使用硬编码兜底解析，直接返回空 SOP
         return sop
 
     def preparse_all(self, config_name: str = None, mode: str = "instruct") -> Dict[str, object]:
@@ -563,12 +304,42 @@ For outputs mapping:
 
 def _run_preparse_from_cli():
     """从命令行触发 SOP 预解析。"""
-    sop_dir = sys.argv[1] if len(sys.argv) > 1 else os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "sops"))
-    config_name = sys.argv[2] if len(sys.argv) > 2 else None
-    mode = sys.argv[3] if len(sys.argv) > 3 else "instruct"
+    sop_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "sops"))
+    config_name = None
+    mode = "instruct"
+    sop_id = None
+    args = sys.argv[1:]
+    if args:
+        sop_dir = args[0]
+        args = args[1:]
+    i = 0
+    while i < len(args):
+        key = args[i]
+        val = args[i + 1] if i + 1 < len(args) else None
+        if key in ("--sop", "--sop_id"):
+            sop_id = val
+            i += 2
+            continue
+        if key in ("--config", "--config_name"):
+            config_name = val
+            i += 2
+            continue
+        if key == "--mode":
+            mode = val or mode
+            i += 2
+            continue
+        i += 1
     loader = SopLoader(sop_dir)
-    result = loader.preparse_all(config_name=config_name, mode=mode)
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    if sop_id:
+        analyzed = loader.analyze_sop(sop_id, config_name=config_name, mode=mode, save_to_json=True, prefer_llm=True)
+        result = {"total": 1, "success": 1, "failed": 0, "items": [{"id": sop_id, "steps": len(analyzed.steps)}]}
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if "--all" in sys.argv:
+        result = loader.preparse_all(config_name=config_name, mode=mode)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    print("Please specify --sop <sop_id> to preparse a single SOP, or add --all to preparse all.")
 
 if __name__ == "__main__":
     _run_preparse_from_cli()

@@ -50,7 +50,7 @@ class Calculator(BaseTool):
         "radians": math.radians,
     }
 
-    def run(self, expression: str, variables: Optional[Dict[str, Any]] = None, solve_for: Optional[str] = None, **kwargs) -> Any:
+    def run(self, expression: str = None, variables: Optional[Dict[str, Any]] = None, solve_for: Optional[str] = None, **kwargs) -> Any:
         """
         执行工程计算表达式。
 
@@ -61,6 +61,9 @@ class Calculator(BaseTool):
         Returns:
             计算结果或错误信息
         """
+        # 兼容 LLM 把 expression 放到 kwargs 的情况
+        if expression is None:
+            expression = kwargs.pop("expression", None)
         if not expression or not isinstance(expression, str):
             return {"error": "表达式不能为空", "expression": expression}
         if sp is None:
