@@ -346,9 +346,15 @@ Example Output:
             
         for context_key, result_path in step.outputs.items():
             # Simple extraction
-            # If result_path is empty string, ".", or "result", use the whole result
-            if not result_path or result_path == "." or result_path == "result":
+            # If result_path is empty string or ".", use the whole result
+            if not result_path or result_path == ".":
                 val = result
+            # If result_path is "result", extract the 'result' field from dict
+            elif result_path == "result":
+                if isinstance(result, dict) and "result" in result:
+                    val = result["result"]
+                else:
+                    val = result  # Fallback to whole result if no 'result' field
             elif isinstance(result, dict) and result_path in result:
                 val = result[result_path]
             else:

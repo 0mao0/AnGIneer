@@ -12,8 +12,14 @@ from fastapi.responses import StreamingResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
+# 设置路径
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+BACKEND_DIR = os.path.join(ROOT_DIR, "backend")
 TESTS_DIR = os.path.join(ROOT_DIR, "tests")
+
+# 添加路径到 sys.path
+if BACKEND_DIR not in sys.path:
+    sys.path.insert(0, BACKEND_DIR)
 if TESTS_DIR not in sys.path:
     sys.path.append(TESTS_DIR)
 
@@ -724,8 +730,18 @@ async def stream_test_04(query: str = None, config: str = None, mode: str = "ins
 
                     elif case_id == "calculator":
                         calc_result = tool.run(**run_kwargs)
-                        if calc_result != case_expected.get("result"):
-                            raise ValueError(f"计算器结果不匹配: {calc_result}")
+                        # 适配新版计算器返回格式（字典）
+                        if isinstance(calc_result, dict):
+                            if "error" in calc_result:
+                                raise ValueError(f"计算器错误: {calc_result['error']}")
+                            actual_result = calc_result.get("result")
+                        else:
+                            # 兼容旧版直接返回值
+                            actual_result = calc_result
+                        
+                        expected_result = case_expected.get("result")
+                        if actual_result != expected_result:
+                            raise ValueError(f"计算器结果不匹配: 实际={actual_result}, 预期={expected_result}")
                         item["output"] = calc_result
 
                     elif case_id == "gis_section_volume_calc":

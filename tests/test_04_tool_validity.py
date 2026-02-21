@@ -93,10 +93,68 @@ TOOL_CASES = [
     },
     {
         "id": "calculator",
-        "label": "计算器: 12 + 30",
+        "label": "计算器: 基础运算 12 + 30",
         "tool": "calculator",
         "inputs": {"expression": "12 + 30"},
         "expected": {"result": 42}
+    },
+    {
+        "id": "calculator",
+        "label": "计算器: 航道通航水深 D0 = T + Z0 + Z1 + Z2 + Z3",
+        "tool": "calculator",
+        "inputs": {
+            "expression": "T + Z0 + Z1 + Z2 + Z3",
+            "variables": {"T": 12.3, "Z0": 0.5, "Z1": 0.3, "Z2": 0.8, "Z3": 0.15}
+        },
+        "expected": {"result": 14.05}
+    },
+    {
+        "id": "calculator",
+        "label": "计算器: 通航底高程 E_nav = H_nav - D0",
+        "tool": "calculator",
+        "inputs": {
+            "expression": "H_nav - D0",
+            "variables": {"H_nav": 5.0, "D0": 14.05}
+        },
+        "expected": {"result": -9.05}
+    },
+    {
+        "id": "calculator",
+        "label": "计算器: 勾股定理 sqrt(a**2 + b**2)",
+        "tool": "calculator",
+        "inputs": {"expression": "sqrt(3**2 + 4**2)"},
+        "expected": {"result": 5}
+    },
+    {
+        "id": "calculator",
+        "label": "计算器: 三角函数 sin(pi/2)",
+        "tool": "calculator",
+        "inputs": {"expression": "sin(pi/2)"},
+        "expected": {"result": 1}
+    },
+    {
+        "id": "calculator",
+        "label": "计算器: 对数运算 log(100)",
+        "tool": "calculator",
+        "inputs": {"expression": "log(100)"},
+        "expected": {"result": 2}
+    },
+    {
+        "id": "calculator",
+        "label": "计算器: 中文表达式（12.5 + 3.2）× 2",
+        "tool": "calculator",
+        "inputs": {"expression": "（12.5 + 3.2）* 2"},
+        "expected": {"result": 31.4}
+    },
+    {
+        "id": "calculator",
+        "label": "计算器: 带单位变量 12.5m * 8.0m",
+        "tool": "calculator",
+        "inputs": {
+            "expression": "length * width",
+            "variables": {"length": "12.5m", "width": "8.0m"}
+        },
+        "expected": {"result": 100}
     },
     {
         "id": "gis_section_volume_calc",
@@ -230,7 +288,18 @@ class TestToolBehaviorSuite(unittest.TestCase):
                 elif q == "calculator":
                     calculator = ToolRegistry.get_tool("calculator")
                     calc_result = calculator.run(**case["inputs"])
-                    self.assertEqual(calc_result, case["expected"]["result"])
+                    # 新版本的计算器返回字典格式
+                    if isinstance(calc_result, dict):
+                        if "error" in calc_result:
+                            self.fail(f"计算器返回错误: {calc_result['error']}")
+                        self.assertIn("result", calc_result)
+                        actual_result = calc_result["result"]
+                    else:
+                        # 兼容旧版本的直接返回值
+                        actual_result = calc_result
+                    
+                    expected_value = case["expected"]["result"]
+                    self.assertEqual(actual_result, expected_value)
                     item["output"] = calc_result
 
                 elif q == "gis_section_volume_calc":
