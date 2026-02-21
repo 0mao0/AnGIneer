@@ -26,6 +26,12 @@ class LLMClient:
                 "model": os.getenv("Private_ALIYUN_MODEL")
             },
             {
+                "name": "Qwen2.5-7B (SiliconFlow)",
+                "api_key": os.getenv("Free_ALIYUN_API_KEY"),
+                "base_url": os.getenv("Free_ALIYUN_API_BASE"),
+                "model": os.getenv("Free_ALIYUN_MODEL")
+            },
+            {
                 "name": "Qwen3-4B (Public)",
                 "api_key": os.getenv("Public_ALIYUN_API_KEY"),
                 "base_url": os.getenv("Public_ALIYUN_API_URL"),

@@ -26,6 +26,7 @@ class BaseTool(ABC):
         """
         pass
 
+
 class ToolRegistry:
     """
     工具注册表，负责管理和查找所有已注册的工具。
@@ -77,6 +78,7 @@ class ToolRegistry:
             } for name, tool in cls._registry.items()
         }
 
+
 # 用于简化工具注册的装饰器
 def register_tool(cls):
     """
@@ -85,4 +87,3 @@ def register_tool(cls):
     instance = cls()
     ToolRegistry.register(instance)
     return cls
-    

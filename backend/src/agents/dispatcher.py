@@ -3,7 +3,7 @@ import json
 from typing import Dict, Any, Tuple, List
 from src.core.contextStruct import SOP, Step
 from src.core.memory import Memory, StepRecord
-from src.tools.base import ToolRegistry
+from src.tools.BaseTool import ToolRegistry
 from src.core.llm import llm_client
 
 class Dispatcher:

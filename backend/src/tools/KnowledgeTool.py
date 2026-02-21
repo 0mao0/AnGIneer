@@ -1,8 +1,9 @@
 import os
 from typing import Any, Dict
-from src.tools.base import BaseTool, register_tool
+from src.tools.BaseTool import BaseTool, register_tool
 from src.core.llm import llm_client
 from src.config import KNOWLEDGE_DIR
+
 
 @register_tool
 class KnowledgeSearchTool(BaseTool):
@@ -76,6 +77,7 @@ class KnowledgeSearchTool(BaseTool):
                 return {"error": str(e)}
         else:
             return {"result": joined, "source": file_name, "_method": "bm25", "_count": len(top_k)}
+
 
 @register_tool
 class ContentSummarizer(BaseTool):

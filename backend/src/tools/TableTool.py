@@ -3,12 +3,14 @@ import re
 import json
 from typing import Any, Dict, List, Optional
 from bs4 import BeautifulSoup
-from src.tools.base import BaseTool, register_tool
+from src.tools.BaseTool import BaseTool, register_tool
 from src.config import KNOWLEDGE_DIR
+
 
 def _normalize_text(text: str) -> str:
     """标准化文本用于匹配。"""
     return re.sub(r"\s+", "", (text or "")).lower()
+
 
 def _parse_query_conditions(query_conditions: Any) -> Dict[str, Any]:
     """解析查询条件为字典。"""
@@ -28,6 +30,7 @@ def _parse_query_conditions(query_conditions: Any) -> Dict[str, Any]:
             return {match.group(1).strip(): match.group(2).strip()}
     return {}
 
+
 def _extract_first_number(text: str) -> Optional[float]:
     """提取文本中的首个数值。"""
     match = re.search(r"[-+]?\d+(?:\.\d+)?", text or "")
@@ -37,6 +40,7 @@ def _extract_first_number(text: str) -> Optional[float]:
         return float(match.group(0))
     except Exception:
         return None
+
 
 def _parse_range(text: str) -> Optional[tuple]:
     """解析区间表达式并返回 (low, high)。"""
@@ -54,6 +58,7 @@ def _parse_range(text: str) -> Optional[tuple]:
     if match:
         return (float(match.group(1)), float("inf"))
     return None
+
 
 def _get_table_context(table) -> str:
     """获取表格附近的标题或段落文本（兼容 Markdown 原始文本）。"""
@@ -77,6 +82,7 @@ def _get_table_context(table) -> str:
         return " / ".join(texts[:2])
     return ""
 
+
 def _parse_table_headers(table) -> List[str]:
     """解析表格表头。"""
     thead = table.find("thead")
@@ -90,6 +96,7 @@ def _parse_table_headers(table) -> List[str]:
         return [cell.get_text(strip=True) for cell in cells]
     return []
 
+
 def _parse_table_rows(table) -> List[List[str]]:
     """解析表格数据行。"""
     tbody = table.find("tbody")
@@ -100,6 +107,7 @@ def _parse_table_rows(table) -> List[List[str]]:
         if cells:
             parsed.append(cells)
     return parsed
+
 
 def _find_column_index(headers: List[str], key: str, synonyms: Optional[List[str]] = None) -> Optional[int]:
     """在表头中匹配列索引。"""
@@ -113,6 +121,7 @@ def _find_column_index(headers: List[str], key: str, synonyms: Optional[List[str
             if cand_norm and (cand_norm in header_norm or header_norm in cand_norm):
                 return idx
     return None
+
 
 @register_tool
 class TableLookupTool(BaseTool):
