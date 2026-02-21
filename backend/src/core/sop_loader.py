@@ -3,7 +3,7 @@ import os
 import glob
 import json
 import re
-from typing import List, Dict
+from typing import List, Dict, Any
 import sys
 
 # Ensure src can be imported
@@ -187,6 +187,54 @@ class SopLoader:
         text = re.sub(r"\)\s*(?=[a-zA-Z_0-9])", r")*", text)
         return text.strip()
 
+    def _is_trivial_formula(self, left_key: str, expression: str) -> bool:
+        """
+        判断公式是否为占位赋值或单变量映射。
+        """
+        if not expression:
+            return True
+        normalized = self._normalize_subscripts(expression).strip().replace(" ", "")
+        if normalized == left_key:
+            return True
+        if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", normalized):
+            return True
+        return False
+
+    def _should_table_lookup(self, section_text: str) -> bool:
+        """判断当前步骤是否应该使用表格查询工具。"""
+        return any(k in section_text for k in ["查表", "查图", "表", "图"])
+
+    def _extract_table_name(self, section_text: str) -> str:
+        """从步骤描述中提取表格或图表名称。"""
+        match = re.search(r"(表|图)\s*([A-Za-z0-9\.\-]+)", section_text)
+        if match:
+            return f"{match.group(1)} {match.group(2)}"
+        return "规范表"
+
+    def _extract_variables(self, section_text: str) -> List[str]:
+        """
+        提取并清理步骤中的变量引用。
+        """
+        raw_vars = re.findall(r"`([^`]+)`", section_text)
+        variables = []
+        for item in raw_vars:
+            if "=" in item:
+                continue
+            normalized = self._normalize_subscripts(item).strip()
+            if normalized:
+                variables.append(normalized)
+        return variables
+
+    def _infer_output_key(self, title: str, section_text: str) -> str:
+        """从标题或正文推断输出变量名。"""
+        variables = self._extract_variables(section_text)
+        if variables:
+            return variables[0]
+        candidates = re.findall(r"\b[A-Za-z_][A-Za-z0-9_]*\b", title or "")
+        if not candidates:
+            return ""
+        return candidates[-1]
+
     def _parse_steps_from_markdown(self, content: str) -> List[Step]:
         """
         解析 Markdown 的 Step 段落并生成结构化步骤。
@@ -211,6 +259,7 @@ class SopLoader:
             file_match = re.search(r"《[^》]+》\.md", section_text)
             file_name = file_match.group(0) if file_match else "《海港水文规范》.md"
 
+            calc_formulas = []
             if formulas:
                 for f_idx, formula in enumerate(formulas, start=1):
                     if "=" in formula:
@@ -220,6 +269,12 @@ class SopLoader:
                     else:
                         left_key = f"step_{i+1}_result_{f_idx}"
                         expression = formula.strip()
+                    if self._is_trivial_formula(left_key, expression):
+                        continue
+                    calc_formulas.append((f_idx, formula, left_key, expression))
+
+            if calc_formulas:
+                for f_idx, formula, left_key, expression in calc_formulas:
                     steps.append(Step(
                         id=f"step_{i+1}_calc_{f_idx}",
                         name=title or f"step_{i+1}",
@@ -231,9 +286,57 @@ class SopLoader:
                         analysis_status="analyzed"
                     ))
                 continue
+            if formulas:
+                variables = self._extract_variables(section_text)
+                if self._should_table_lookup(section_text):
+                    outputs = {variables[0]: "result"} if len(variables) == 1 else {}
+                    steps.append(Step(
+                        id=f"step_{i+1}",
+                        name=title or f"step_{i+1}",
+                        description=section_text,
+                        tool="table_lookup",
+                        inputs={
+                            "table_name": self._extract_table_name(section_text),
+                            "query_conditions": "${variables}",
+                            "file_name": file_name
+                        },
+                        outputs=outputs,
+                        notes=section_text,
+                        analysis_status="analyzed"
+                    ))
+                    continue
+                steps.append(Step(
+                    id=f"step_{i+1}",
+                    name=title or f"step_{i+1}",
+                    description=section_text,
+                    tool="auto",
+                    inputs={"variables": variables},
+                    outputs={},
+                    notes=section_text,
+                    analysis_status="analyzed"
+                ))
+                continue
 
             lowered = section_text.lower()
-            if any(k in section_text for k in ["规范", "查阅", "参考", "表", "图"]) or "spec" in lowered:
+            if self._should_table_lookup(section_text):
+                output_key = self._infer_output_key(title, section_text)
+                outputs = {output_key: "result"} if output_key else {}
+                steps.append(Step(
+                    id=f"step_{i+1}",
+                    name=title or f"step_{i+1}",
+                    description=section_text,
+                    tool="table_lookup",
+                    inputs={
+                        "table_name": self._extract_table_name(section_text),
+                        "query_conditions": "${variables}",
+                        "file_name": file_name
+                    },
+                    outputs=outputs,
+                    notes=section_text,
+                    analysis_status="analyzed"
+                ))
+                continue
+            if any(k in section_text for k in ["规范", "查阅", "参考"]) or "spec" in lowered:
                 steps.append(Step(
                     id=f"step_{i+1}",
                     name=title or f"step_{i+1}",
@@ -259,7 +362,7 @@ class SopLoader:
                 ))
                 continue
 
-            variables = [self._normalize_subscripts(v) for v in re.findall(r"`([^`]+)`", section_text)]
+            variables = self._extract_variables(section_text)
             steps.append(Step(
                 id=f"step_{i+1}",
                 name=title or f"step_{i+1}",
@@ -273,7 +376,37 @@ class SopLoader:
 
         return steps
 
-    def analyze_sop(self, sop_id: str, config_name: str = None, mode: str = "instruct") -> SOP:
+    def _compact_dict(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """移除字典中值为 None 的字段。"""
+        return {k: v for k, v in data.items() if v is not None}
+
+    def _save_sop_json(self, sop: SOP, file_mtime: float, json_path: str, steps: List[Step]) -> None:
+        """保存解析后的 SOP 到 sop_json。"""
+        sop_json_dir = os.path.dirname(json_path)
+        if not os.path.exists(sop_json_dir):
+            os.makedirs(sop_json_dir)
+        serialized_steps = []
+        for step in steps:
+            if hasattr(step, "model_dump"):
+                serialized_steps.append(step.model_dump(exclude_none=True))
+            else:
+                serialized_steps.append({k: v for k, v in step.dict().items() if v is not None})
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(
+                self._compact_dict({
+                    "id": sop.id,
+                    "name_zh": sop.name_zh,
+                    "name_en": sop.name_en,
+                    "description": sop.description,
+                    "mtime": file_mtime,
+                    "steps": serialized_steps
+                }),
+                f,
+                indent=2,
+                ensure_ascii=False
+            )
+
+    def analyze_sop(self, sop_id: str, config_name: str = None, mode: str = "instruct", save_to_json: bool = False, prefer_llm: bool = True) -> SOP:
         """
         【混合架构核心】
         利用 LLM 读取指定的 SOP Markdown 文件，并将其解析为细粒度的 Steps 列表。
@@ -316,12 +449,72 @@ class SopLoader:
         if len(content) > 8000:
             content = content[:8000] + "\n...(内容已截断)"
 
-        parsed_steps = self._parse_steps_from_markdown(content)
-        if parsed_steps:
-            sop.steps = parsed_steps
-            return sop
+        def _try_llm_parse() -> List[Step]:
+            system_prompt = """
+You are an expert System Analyst. Your goal is to convert a Markdown Standard Operating Procedure (SOP) into a structured JSON execution plan.
 
-        if os.path.exists(json_path) and os.path.getmtime(json_path) >= file_mtime:
+Input: A Markdown SOP document containing Steps.
+Output: A JSON object with a "steps" list. Each step must have:
+- "id": A short, unique identifier (e.g., "step_1", "calc_width").
+- "name": The step title.
+- "description": A summary of what to do.
+- "tool": The best tool for this step. Options: "calculator" (for math), "knowledge_search" (for looking up specs), "table_lookup" (for structured table queries), "user_input" (ask user), or "auto" (let dispatcher decide).
+- "inputs": A dictionary of required input parameters for this step. keys are parameter names, values are descriptions or context references. For table_lookup, inputs must include table_name, query_conditions (dict), and file_name.
+- "outputs": A dictionary mapping context keys to tool output paths.
+- "notes": CRITICAL. Extract any "Note", "Warning", "Attention", or conditional logic (e.g., "If soft soil, use lower value"). If none, leave empty.
+
+Guidelines for table_lookup:
+- Derive table_name from the mentioned 表/图编号.
+- Build query_conditions as a dict using condition keywords in the step text.
+- Use ${} to reference context variables, e.g. "吨级": "${dwt}", "船型": "${船型}", "航速": "${nav_speed_kn}", "水深": "${water_depth}", "土质": "${bottom_material}", "水域条件": "${navigation_area}".
+For outputs mapping:
+- table_lookup and calculator should map target variables to "result".
+"""
+            user_prompt = f"SOP Content:\n{content}"
+            messages = [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ]
+            print(f"  [SopLoader] Analyzing {filename} with LLM...")
+            try:
+                preferred = config_name or os.getenv("PREFERRED_LLM_CONFIG")
+                response = llm_client.chat(messages, mode=mode, config_name=preferred)
+                if "```json" in response:
+                    response = response.split("```json")[1].split("```")[0]
+                elif "```" in response:
+                    response = response.split("```")[1].split("```")[0]
+                data = json.loads(response.strip())
+                new_steps = []
+                for s_data in data.get("steps", []):
+                    tool_name = s_data.get("tool", "auto")
+                    if isinstance(tool_name, str):
+                        tool_name = tool_name.replace('`', '').strip()
+                    new_step = Step(
+                        id=s_data.get("id"),
+                        name=s_data.get("name"),
+                        description=s_data.get("description"),
+                        tool=tool_name,
+                        inputs=s_data.get("inputs", {}),
+                        outputs=s_data.get("outputs", {}),
+                        notes=s_data.get("notes"),
+                        analysis_status="analyzed"
+                    )
+                    new_steps.append(new_step)
+                print(f"  [SopLoader] Successfully analyzed {len(new_steps)} steps for {sop_id}.")
+                return new_steps
+            except Exception as e:
+                print(f"  [SopLoader] Analysis failed: {e}")
+                return []
+
+        if prefer_llm:
+            llm_steps = _try_llm_parse()
+            if llm_steps:
+                sop.steps = llm_steps
+                if save_to_json:
+                    self._save_sop_json(sop, file_mtime, json_path, llm_steps)
+                return sop
+
+        if not save_to_json and os.path.exists(json_path) and os.path.getmtime(json_path) >= file_mtime:
             try:
                 with open(json_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
@@ -336,85 +529,23 @@ class SopLoader:
                 return sop
             except Exception:
                 pass
-            
-        # 3. LLM 结构化解析
-        system_prompt = """
-You are an expert System Analyst. Your goal is to convert a Markdown Standard Operating Procedure (SOP) into a structured JSON execution plan.
 
-Input: A Markdown SOP document containing Steps.
-Output: A JSON object with a "steps" list. Each step must have:
-- "id": A short, unique identifier (e.g., "step_1", "calc_width").
-- "name": The step title.
-- "description": A summary of what to do.
-- "tool": The best tool for this step. Options: "calculator" (for math), "knowledge_search" (for looking up specs), "user_input" (ask user), or "auto" (let dispatcher decide).
-- "inputs": A dictionary of required input parameters for this step. keys are parameter names, values are descriptions or context references.
-- "outputs": A dictionary mapping context keys to tool output paths.
-- "notes": CRITICAL. Extract any "Note", "Warning", "Attention", or conditional logic (e.g., "If soft soil, use lower value"). If none, leave empty.
-"""
-        user_prompt = f"SOP Content:\n{content}"
-        
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt}
-        ]
-        
-        print(f"  [SopLoader] Analyzing {filename} with LLM...")
-        try:
-            preferred = config_name or os.getenv("PREFERRED_LLM_CONFIG")
-            response = llm_client.chat(messages, mode=mode, config_name=preferred)
-            # Clean json
-            if "```json" in response:
-                response = response.split("```json")[1].split("```")[0]
-            elif "```" in response:
-                response = response.split("```")[1].split("```")[0]
-                
-            data = json.loads(response.strip())
-            
-            # 4. 重构 SOP 对象
-            new_steps = []
-            for s_data in data.get("steps", []):
-                # Clean tool name
-                tool_name = s_data.get("tool", "auto")
-                if isinstance(tool_name, str):
-                    tool_name = tool_name.replace('`', '').strip()
+        parsed_steps = self._parse_steps_from_markdown(content)
+        if parsed_steps:
+            sop.steps = parsed_steps
+            if save_to_json:
+                self._save_sop_json(sop, file_mtime, json_path, parsed_steps)
+            return sop
 
-                new_step = Step(
-                    id=s_data.get("id"),
-                    name=s_data.get("name"),
-                    description=s_data.get("description"),
-                    tool=tool_name,
-                    inputs=s_data.get("inputs", {}),
-                    outputs=s_data.get("outputs", {}),
-                    notes=s_data.get("notes"), # 核心：注入 LLM 提取的注意事项
-                    analysis_status="analyzed"
-                )
-                new_steps.append(new_step)
-                
-            sop.steps = new_steps
-            print(f"  [SopLoader] Successfully analyzed {len(new_steps)} steps for {sop_id}.")
-            # 用户需求：自动解析的结果不要保存到磁盘，保持 json 文件的官方唯一性
-            # if not os.path.exists(sop_json_dir):
-            #     os.makedirs(sop_json_dir)
-            # with open(json_path, "w", encoding="utf-8") as f:
-            #     json.dump(
-            #         {
-            #             "id": sop.id,
-            #             "name_zh": sop.name_zh,
-            #             "name_en": sop.name_en,
-            #             "description": sop.description,
-            #             "mtime": file_mtime,
-            #             "steps": [s.dict() for s in new_steps]
-            #         },
-            #         f,
-            #         indent=2,
-            #         ensure_ascii=False
-            #     )
-            return sop
-            
-        except Exception as e:
-            print(f"  [SopLoader] Analysis failed: {e}")
-            # Fallback to original wrapper step
-            return sop
+        if not prefer_llm:
+            llm_steps = _try_llm_parse()
+            if llm_steps:
+                sop.steps = llm_steps
+                if save_to_json:
+                    self._save_sop_json(sop, file_mtime, json_path, llm_steps)
+                return sop
+
+        return sop
 
     def preparse_all(self, config_name: str = None, mode: str = "instruct") -> Dict[str, object]:
         """批量预解析所有 SOP 并输出到 sop_json。"""
@@ -422,7 +553,7 @@ Output: A JSON object with a "steps" list. Each step must have:
         results = {"total": len(sops), "success": 0, "failed": 0, "items": []}
         for sop in sops:
             try:
-                analyzed = self.analyze_sop(sop.id, config_name=config_name, mode=mode)
+                analyzed = self.analyze_sop(sop.id, config_name=config_name, mode=mode, save_to_json=True, prefer_llm=True)
                 results["success"] += 1
                 results["items"].append({"id": sop.id, "steps": len(analyzed.steps)})
             except Exception as e:

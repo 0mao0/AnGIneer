@@ -8,74 +8,58 @@
     {
       "id": "step_1",
       "name": "Read Source Code File",
-      "name_zh": null,
-      "name_en": null,
       "description": "Read the source code file from the specified file path.",
-      "description_zh": null,
-      "description_en": null,
       "tool": "file_reader",
       "inputs": {
-        "file_path": "The path to the source code file."
+        "file_path": "${file_path}"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
+      "outputs": {
+        "source_code": "."
+      },
       "notes": "",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_2",
       "name": "Lint Code",
-      "name_zh": null,
-      "name_en": null,
       "description": "Analyze the source code for linting issues using a code linter.",
-      "description_zh": null,
-      "description_en": null,
       "tool": "code_linter",
       "inputs": {
-        "code": "The source code to be linted."
+        "code": "${source_code}"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
+      "outputs": {
+        "lint_issues": "."
+      },
       "notes": "",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_3",
       "name": "Summarize Linting Issues",
-      "name_zh": null,
-      "name_en": null,
       "description": "Generate a concise summary of the linting issues found, limited to 30 words.",
-      "description_zh": null,
-      "description_en": null,
       "tool": "summarizer",
       "inputs": {
-        "text": "The linting issues found in the code.",
-        "max_words": "Maximum number of words for the summary (30)."
+        "text": "Linting Issues Found:\n${lint_issues}",
+        "max_words": "30"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
+      "outputs": {
+        "review_summary": "."
+      },
       "notes": "",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_4",
       "name": "Generate Final Report",
-      "name_zh": null,
-      "name_en": null,
-      "description": "Create a final report containing the title, source code length, linting issues, and summary.",
-      "description_zh": null,
-      "description_en": null,
+      "description": "Create a final code review report with title, source length, linting issues, and summary.",
       "tool": "report_generator",
       "inputs": {
-        "title": "Title of the report, including the file path.",
-        "data": "Combined data including source length, linting issues, and summary."
+        "title": "Code Review: ${file_path}",
+        "data": "Source Length: ${source_code}\n\nIssues:\n${lint_issues}\n\nSummary:\n${review_summary}"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
+      "outputs": {
+        "final_report": "."
+      },
       "notes": "",
       "analysis_status": "analyzed"
     }

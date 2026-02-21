@@ -99,6 +99,9 @@ class Dispatcher:
         4. Else, map inputs and execute directly.
         """
         context = self.memory.global_context
+        if self._should_skip_table_lookup(step, context):
+            self._record_step(step, {}, {"skipped": True, "reason": "value exists in context"})
+            return
         missing_params = []
         ready_inputs = {}
         
@@ -131,6 +134,17 @@ class Dispatcher:
             print("    [Hybrid] Rule-based execution (All params ready, no notes).")
             # Execute directly
             self._execute_tool_safe(step.tool, ready_inputs, step)
+
+    def _should_skip_table_lookup(self, step: Step, context: Dict[str, Any]) -> bool:
+        """判断 table_lookup 是否可被已有黑板数据跳过。"""
+        if step.tool != "table_lookup":
+            return False
+        if not step.outputs:
+            return False
+        output_keys = list(step.outputs.keys())
+        if not output_keys:
+            return False
+        return all(key in context and context.get(key) is not None for key in output_keys)
 
     def _execute_tool_safe(self, tool_name: str, inputs: Dict[str, Any], step: Step):
         """Helper to execute tool and record history"""

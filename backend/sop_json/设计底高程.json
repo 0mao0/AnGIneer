@@ -3,93 +3,98 @@
   "name_zh": "设计底高程",
   "name_en": "设计底高程",
   "description": "计算航道的设计底高程，包括备淤深度",
-  "mtime": 1768705031.6616814,
+  "mtime": 1771656841.337241,
   "steps": [
     {
       "id": "step_1",
       "name": "明确引用规范内容",
-      "name_zh": null,
-      "name_en": null,
-      "description": "确定设计船型尺度和计算公式与备淤深度的参考规范。",
-      "description_zh": null,
-      "description_en": null,
+      "description": "*   **设计船型尺度**: 请参考 [《海港水文规范》](../knowledge/《海港水文规范》.md) 第 1 章。\n*   **计算公式与备淤深度**: 请参考 [《海港水文规范》](../knowledge/《海港水文规范》.md) 第 2.2 节。",
       "tool": "knowledge_search",
       "inputs": {
-        "reference_document": "《海港水文规范》"
+        "query": "明确引用规范内容",
+        "file_name": "《海港水文规范》.md"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "设计船型尺度参考第1章，计算公式与备淤深度参考第2.2节。",
+      "outputs": {
+        "knowledge": "result"
+      },
+      "notes": "*   **设计船型尺度**: 请参考 [《海港水文规范》](../knowledge/《海港水文规范》.md) 第 1 章。\n*   **计算公式与备淤深度**: 请参考 [《海港水文规范》](../knowledge/《海港水文规范》.md) 第 2.2 节。",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_2",
       "name": "核心参数解析与确定",
-      "name_zh": null,
-      "name_en": null,
-      "description": "解析并确定设计船型满载吃水、通航底高程相关参数及备淤深度。",
-      "description_zh": null,
-      "description_en": null,
-      "tool": "knowledge_search",
+      "description": "1.  **`T` - 设计船型满载吃水**\n    *   参考《海港水文规范》第 1 章船型尺度表。\n\n2.  **`Z₀` ~ `Z₃`**:\n    *   同“航道通航底高程”计算步骤，参考《海港水文规范》第 2.2 节。\n\n3.  **`Z₄` - 备淤深度**\n    *   **首选路径**: 查阅【已知条件】是否直接提供`Z₄`值。\n    *   **备用路径**: 若未提供，参考《海港水文规范》第 2.2 节：对于有淤积的港口，计算结果不宜小于 **0.4m**。\n\n4.  **`H_nav` - 航道设计通航水位**",
+      "tool": "table_lookup",
       "inputs": {
-        "reference_document": "《海港水文规范》"
+        "table_name": "规范表",
+        "query_conditions": "${variables}",
+        "file_name": "《海港水文规范》.md"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "T 参考第1章船型尺度表；Z₀~Z₃ 同航道通航底高程计算步骤；Z₄ 首选从【已知条件】获取，若无则参考第2.2节，且计算结果不宜小于0.4m。",
+      "outputs": {
+        "T": "result"
+      },
+      "notes": "1.  **`T` - 设计船型满载吃水**\n    *   参考《海港水文规范》第 1 章船型尺度表。\n\n2.  **`Z₀` ~ `Z₃`**:\n    *   同“航道通航底高程”计算步骤，参考《海港水文规范》第 2.2 节。\n\n3.  **`Z₄` - 备淤深度**\n    *   **首选路径**: 查阅【已知条件】是否直接提供`Z₄`值。\n    *   **备用路径**: 若未提供，参考《海港水文规范》第 2.2 节：对于有淤积的港口，计算结果不宜小于 **0.4m**。\n\n4.  **`H_nav` - 航道设计通航水位**",
       "analysis_status": "analyzed"
     },
     {
-      "id": "step_3",
+      "id": "step_3_calc_1",
       "name": "分步计算",
-      "name_zh": null,
-      "name_en": null,
-      "description": "依次计算航道通航水深、航道设计水深和航道设计底标高。",
-      "description_zh": null,
-      "description_en": null,
+      "description": "D0 = T + Z0 + Z1 + Z2 + Z3",
       "tool": "calculator",
       "inputs": {
-        "T": "设计船型满载吃水",
-        "Z0": "通航底高程参数Z₀",
-        "Z1": "通航底高程参数Z₁",
-        "Z2": "通航底高程参数Z₂",
-        "Z3": "通航底高程参数Z₃",
-        "Z4": "备淤深度",
-        "H_nav": "航道设计通航水位"
+        "expression": "T + Z0 + Z1 + Z2 + Z3",
+        "variables": "${variables}"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "D₀ = T + Z₀ + Z₁ + Z₂ + Z₃；D = D₀ + Z₄；Z = H_nav - D。",
+      "outputs": {
+        "D0": "result"
+      },
+      "notes": "1.  **计算航道通航水深 `D₀`**:\n    *   **公式**: `D₀ = T + Z₀ + Z₁ + Z₂ + Z₃`\n\n2.  **计算航道设计水深 `D`**:\n    *   **公式**: `D = D₀ + Z₄`\n\n3.  **计算航道设计底标高 `Z`**:\n    *   **公式**: `Z = H_nav - D`",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_3_calc_2",
+      "name": "分步计算",
+      "description": "D = D0 + Z4",
+      "tool": "calculator",
+      "inputs": {
+        "expression": "D0 + Z4",
+        "variables": "${variables}"
+      },
+      "outputs": {
+        "D": "result"
+      },
+      "notes": "1.  **计算航道通航水深 `D₀`**:\n    *   **公式**: `D₀ = T + Z₀ + Z₁ + Z₂ + Z₃`\n\n2.  **计算航道设计水深 `D`**:\n    *   **公式**: `D = D₀ + Z₄`\n\n3.  **计算航道设计底标高 `Z`**:\n    *   **公式**: `Z = H_nav - D`",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_3_calc_3",
+      "name": "分步计算",
+      "description": "Z = H_nav - D",
+      "tool": "calculator",
+      "inputs": {
+        "expression": "H_nav - D",
+        "variables": "${variables}"
+      },
+      "outputs": {
+        "Z": "result"
+      },
+      "notes": "1.  **计算航道通航水深 `D₀`**:\n    *   **公式**: `D₀ = T + Z₀ + Z₁ + Z₂ + Z₃`\n\n2.  **计算航道设计水深 `D`**:\n    *   **公式**: `D = D₀ + Z₄`\n\n3.  **计算航道设计底标高 `Z`**:\n    *   **公式**: `Z = H_nav - D`",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_4",
       "name": "内容输出",
-      "name_zh": null,
-      "name_en": null,
-      "description": "以表格形式输出所有计算参数结果。",
-      "description_zh": null,
-      "description_en": null,
-      "tool": "auto",
+      "description": "通过表格形式输出：通航底标高 `Z`、航道通航水深 `D₀`、航道设计水深 `D`、`T`、`Z₀`、`Z₁`、`Z₂`、`Z₃`、`Z₄`、`H_nav` 等参数的计算结果。",
+      "tool": "table_lookup",
       "inputs": {
-        "Z": "航道设计底标高",
-        "D0": "航道通航水深",
-        "D": "航道设计水深",
-        "T": "设计船型满载吃水",
-        "Z0": "通航底高程参数Z₀",
-        "Z1": "通航底高程参数Z₁",
-        "Z2": "通航底高程参数Z₂",
-        "Z3": "通航底高程参数Z₃",
-        "Z4": "备淤深度",
-        "H_nav": "航道设计通航水位"
+        "table_name": "规范表",
+        "query_conditions": "${variables}",
+        "file_name": "《海港水文规范》.md"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "输出包含通航底标高 Z、航道通航水深 D₀、航道设计水深 D、T、Z₀、Z₁、Z₂、Z₃、Z₄、H_nav 等参数。",
+      "outputs": {
+        "Z": "result"
+      },
+      "notes": "通过表格形式输出：通航底标高 `Z`、航道通航水深 `D₀`、航道设计水深 `D`、`T`、`Z₀`、`Z₁`、`Z₂`、`Z₃`、`Z₄`、`H_nav` 等参数的计算结果。",
       "analysis_status": "analyzed"
     }
   ]

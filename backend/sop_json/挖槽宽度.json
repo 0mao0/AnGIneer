@@ -8,61 +8,54 @@
     {
       "id": "step_1",
       "name": "核心参数解析与继承",
-      "name_zh": null,
-      "name_en": null,
-      "description": "解析并继承或获取通航宽度、航道边坡和备淤深度等核心参数。",
-      "description_zh": null,
-      "description_en": null,
+      "description": "解析并继承通航宽度、航道边坡和备淤深度等核心参数，处理缺失数据情况。",
       "tool": "auto",
       "inputs": {
+        "W": "通航宽度 (m)，优先继承上一环节结果",
+        "Slope": "航道边坡比值 m，优先继承上一环节结果",
+        "Z4": "备淤深度 (m)，优先从已知条件中获取"
+      },
+      "outputs": {
         "W": "通航宽度 (m)",
-        "Slope": "航道边坡比值 m (1:m)",
+        "Slope": "航道边坡比值 m",
         "Z4": "备淤深度 (m)"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "若缺失 W 或 Slope，流程中断并提示用户输入。若 Z4 未提供，尝试从淤积强度和维护周期计算，否则提示用户输入。",
+      "notes": "若 W 或 Slope 缺失，中断流程并提示用户输入。若 Z4 未提供，尝试通过淤积强度和维护周期计算，否则提示用户手动输入。",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_2",
       "name": "最终结果计算",
-      "name_zh": null,
-      "name_en": null,
-      "description": "根据公式计算挖槽宽度 W_dredge = W - 2 * Z4 * m。",
-      "description_zh": null,
-      "description_en": null,
+      "description": "根据公式计算挖槽宽度 W_dredge = W - 2 * Z4 * m，并检查结果合理性。",
       "tool": "calculator",
       "inputs": {
-        "W": "通航宽度 (m)",
-        "Z4": "备淤深度 (m)",
-        "Slope": "航道边坡比值 m (1:m)"
+        "W": "${W}",
+        "Z4": "${Z4}",
+        "Slope": "${Slope}"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
+      "outputs": {
+        "W_dredge": "挖槽宽度 (m)"
+      },
       "notes": "若计算结果 W_dredge ≤ 0，发出严重警告：‘计算所得挖槽宽度为负值或零，说明备淤深度过大或边坡过缓导致底宽完全收缩，请检查输入参数（特别是备淤深度 Z4 和边坡 m）的合理性。’",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_3",
       "name": "结果输出",
-      "name_zh": null,
-      "name_en": null,
-      "description": "输出通航宽度、挖槽宽度、航道边坡、备淤深度等参数。",
-      "description_zh": null,
-      "description_en": null,
+      "description": "输出所有相关参数：通航宽度、挖槽宽度、航道边坡、备淤深度。",
       "tool": "auto",
       "inputs": {
-        "W": "通航宽度 (m)",
-        "W_dredge": "挖槽宽度 (m)",
-        "Slope": "航道边坡比值 m (1:m)",
-        "Z4": "备淤深度 (m)"
+        "W": "${W}",
+        "W_dredge": "${W_dredge}",
+        "Slope": "${Slope}",
+        "Z4": "${Z4}"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
+      "outputs": {
+        "通航宽度": "${W}",
+        "挖槽宽度": "${W_dredge}",
+        "航道边坡": "${Slope}",
+        "备淤深度": "${Z4}"
+      },
       "notes": "",
       "analysis_status": "analyzed"
     }

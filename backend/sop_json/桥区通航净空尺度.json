@@ -8,82 +8,67 @@
     {
       "id": "step_1",
       "name": "明确引用规范内容",
-      "name_zh": null,
-      "name_en": null,
       "description": "参考《海港水文规范》第3.1节和2.1节，确定通航净空高度和净空宽度的取值标准。",
-      "description_zh": null,
-      "description_en": null,
       "tool": "knowledge_search",
       "inputs": {
-        "document": "《海港水文规范》"
+        "document": "《海港水文规范》.md",
+        "section": "3.1, 2.1"
       },
       "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
       "notes": "",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_2",
       "name": "核心参数解析与确定",
-      "name_zh": null,
-      "name_en": null,
-      "description": "解析并确定H_air、H_safe、W和K等核心参数的取值。",
-      "description_zh": null,
-      "description_en": null,
+      "description": "解析并确定H_air、H_safe、W和K等核心参数的值。",
       "tool": "auto",
       "inputs": {
-        "known_conditions": "已知条件"
+        "context": "已知条件"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "若H_air缺失，需提示用户输入。H_safe根据水域环境判断：开敞海域、波浪大、重要航道时取4.0m，其他情况取2.0m。W继承上一环节的通航宽度结果。K优先由用户输入，否则根据DWT和环境推荐：DWT≥10万吨或环境为开敞/风浪大时推荐K=1.8；环境为掩护良好时推荐K=1.5；其他情况推荐K=1.6~1.7。",
+      "outputs": {
+        "H_air": "H_air",
+        "H_safe": "H_safe",
+        "W": "W",
+        "K": "K"
+      },
+      "notes": "若H_air缺失，需提示用户：请提供代表船型的水线以上高度(Air Draft)。H_safe根据水域环境判断：开敞海域、波浪大、重要航道 → 4.0m；其他情况 → 2.0m。W继承上一环节的通航宽度结果。K优先由用户输入，否则根据DWT和环境推荐：DWT≥10万吨或环境=开敞/风浪大 → K=1.8；环境=掩护良好 → K=1.5；其他 → K=1.6~1.7。",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_3",
       "name": "最终结果计算",
-      "name_zh": null,
-      "name_en": null,
       "description": "根据公式计算净空高度和净空宽度。",
-      "description_zh": null,
-      "description_en": null,
       "tool": "calculator",
       "inputs": {
-        "H_air": "船型水线以上高度",
-        "H_safe": "垂直富裕高度",
-        "W": "航道通航宽度",
-        "K": "净空宽度扩大系数",
-        "修正项": "修正项（如需）"
+        "H_air": "${H_air}",
+        "H_safe": "${H_safe}",
+        "修正项": "0",
+        "K": "${K}",
+        "W": "${W}"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "净空高度计算公式：H_clearance = H_air + H_safe + 修正项。净空宽度计算公式：B = K × W。",
+      "outputs": {
+        "H_clearance": "H_clearance",
+        "B": "B"
+      },
+      "notes": "H_clearance = H_air + H_safe + 修正项；B = K × W。",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_4",
       "name": "成果输出",
-      "name_zh": null,
-      "name_en": null,
       "description": "输出净空高度、净空宽度、H_air、H_safe、W、K等参数。",
-      "description_zh": null,
-      "description_en": null,
-      "tool": "auto",
+      "tool": "user_input",
       "inputs": {
-        "H_clearance": "净空高度",
-        "B": "净空宽度",
-        "H_air": "船型水线以上高度",
-        "H_safe": "垂直富裕高度",
-        "W": "航道通航宽度",
-        "K": "净空宽度扩大系数"
+        "H_clearance": "${H_clearance}",
+        "B": "${B}",
+        "H_air": "${H_air}",
+        "H_safe": "${H_safe}",
+        "W": "${W}",
+        "K": "${K}"
       },
       "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "",
+      "notes": "列出所有计算结果参数。",
       "analysis_status": "analyzed"
     }
   ]

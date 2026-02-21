@@ -8,36 +8,28 @@
     {
       "id": "step_1",
       "name": "Step 1",
-      "name_zh": null,
-      "name_en": null,
       "description": "Perform a calculation using the provided expression.",
-      "description_zh": null,
-      "description_en": null,
       "tool": "calculator",
       "inputs": {
         "expression": "${expression}"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
+      "outputs": {
+        "calc_result": "."
+      },
       "notes": "",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_2",
       "name": "Step 2",
-      "name_zh": null,
-      "name_en": null,
-      "description": "Output the calculation result as a message.",
-      "description_zh": null,
-      "description_en": null,
+      "description": "Generate a message that includes the calculation result.",
       "tool": "echo",
       "inputs": {
         "message": "The calculation result is: ${calc_result}"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
+      "outputs": {
+        "final_message": "."
+      },
       "notes": "",
       "analysis_status": "analyzed"
     }

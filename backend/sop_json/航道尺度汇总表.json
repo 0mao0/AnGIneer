@@ -8,25 +8,33 @@
     {
       "id": "step_1",
       "name": "参数提取与制表",
-      "name_zh": null,
-      "name_en": null,
-      "description": "根据历史记录提取关键参数的最终计算结果，并按指定格式输出为 Markdown 表格。若参数未提及或未计算，则填写“-”。",
-      "description_zh": null,
-      "description_en": null,
-      "tool": "auto",
+      "description": "根据历史记录提取关键参数的最终计算结果，并按指定格式输出为 Markdown 表格。若某参数未提及或未计算，则填写“-”。",
+      "tool": "table_lookup",
       "inputs": {
-        "E_nav": "航道通航底高程",
-        "m": "航道边坡的坡度比（1 : m）",
-        "W": "通航宽度",
-        "W_dredge": "挖槽宽度",
-        "R": "转弯段半径",
-        "方式": "转弯段加宽方式",
-        "H_clear": "桥区通航净空高度",
-        "B_bridge": "桥区通航净空宽度"
+        "table_name": "参数表",
+        "query_conditions": {
+          "参数名称": [
+            "航道通航底高程",
+            "航道边坡",
+            "通航宽度",
+            "挖槽宽度",
+            "转弯段尺度",
+            "桥区通航净空高度",
+            "桥区通航净空宽度"
+          ]
+        },
+        "file_name": "history_records.md"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
+      "outputs": {
+        "E_nav": "E_nav",
+        "m": "m",
+        "W": "W",
+        "W_dredge": "W_dredge",
+        "R": "R",
+        "H_clear": "H_clear",
+        "B_bridge": "B_bridge",
+        "方式": "方式"
+      },
       "notes": "若某项参数在上下文中从未提及或未计算，请在数值栏填写“-”。",
       "analysis_status": "analyzed"
     }

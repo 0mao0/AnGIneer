@@ -233,7 +233,19 @@ def analyze_step(step: Step, query: str, context: Dict[str, Any]) -> Dict[str, A
 
 class TestSopAnalysis(unittest.TestCase):
     def test_step_analysis_cases(self):
-        """SOP 步骤分析用例测试。"""
+        """SOP 步骤分析用例测试。
+        
+        该测试方法用于验证SOP（标准操作程序）步骤分析功能的正确性。
+        主要流程包括：加载SOP、分类用户查询、匹配对应的SOP、分析每个步骤并记录结果。
+        
+        Args:
+            self: 测试类实例
+            
+        Returns:
+            None: 该方法不返回值，但会通过断言验证测试结果，
+                  并输出JSON格式的详细测试报告
+        """
+        # 初始化测试环境和数据加载
         print("\n[测试 03] SOP 步骤分析测试")
         env_query = os.environ.get("TEST_LLM_QUERY")
         sop_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "backend", "sops")
@@ -245,11 +257,13 @@ class TestSopAnalysis(unittest.TestCase):
         cases = select_cases(env_query)
         results = []
 
+        # 遍历所有测试用例进行分析
         for case in cases:
             print(f"\n  --------------------------------------------------")
             print(f"  测试用例: {case['label']}")
             print(f"  Query: {case['query']}")
 
+            # 路由分类：根据用户查询匹配最合适的SOP
             sop, args, reason = classifier.route(case["query"])
             matched_sop = sop.id if sop else None
             expected_sop = case.get("expected_sop")
@@ -258,9 +272,12 @@ class TestSopAnalysis(unittest.TestCase):
                 matched_sop = expected_sop
                 reason = reason or "按期望 SOP 兜底"
 
+            # 分析匹配到的SOP及其各个步骤
             analyzed_sop = analyze_sop_with_fallback(loader, matched_sop, sop_map)
             step_payloads = []
             context = {"user_query": case["query"], "variables": {}}
+            
+            # 逐个分析SOP中的每个步骤
             for idx, step in enumerate(analyzed_sop.steps, start=1):
                 print(f"  -> 步骤 {idx}: {step.name or step.id}")
                 payload = analyze_step(step, case["query"], context)
@@ -268,6 +285,7 @@ class TestSopAnalysis(unittest.TestCase):
                 print(f"     执行结果: {payload['result']}")
                 step_payloads.append(payload)
 
+            # 收集当前测试用例的结果数据
             results.append({
                 "id": case["id"],
                 "label": case["label"],
@@ -279,7 +297,10 @@ class TestSopAnalysis(unittest.TestCase):
                 "steps": step_payloads
             })
 
+        # 验证所有测试用例都有步骤分析结果
         self.assertTrue(all(r["steps"] for r in results))
+        
+        # 输出JSON格式的测试结果报告
         print("\n__JSON_START__")
         print(json.dumps({"cases": results}, ensure_ascii=False, indent=2))
         print("__JSON_END__")

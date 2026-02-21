@@ -3,93 +3,74 @@
   "name_zh": "通航宽度",
   "name_en": "通航宽度",
   "description": "计算航道通航宽度",
-  "mtime": 1768705032.1143353,
+  "mtime": 1771656785.211753,
   "steps": [
     {
       "id": "step_1",
-      "name": "明确引用规范内容",
-      "name_zh": null,
-      "name_en": null,
-      "description": "确定设计船型尺度和计算公式与系数的参考来源。",
-      "description_zh": null,
-      "description_en": null,
-      "tool": "knowledge_search",
+      "name": "确定关键参数",
+      "description": "识别航道通航类型、设计船型尺度、航速、横流速度和底质等关键参数。",
+      "tool": "auto",
       "inputs": {
-        "document": "《海港水文规范》"
+        "type": "航道通航类型（单向或双向）",
+        "L": "设计船长",
+        "B": "设计船宽",
+        "V_s": "航速",
+        "V_c": "横流速度",
+        "Bottom_Material": "航道底质"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "设计船型尺度参考第1章，计算公式与系数参考第2.1节（含表6.4.2-1和6.4.2-2）。",
+      "outputs": {
+        "Type": "Type",
+        "L": "L",
+        "B": "B",
+        "V_s": "V_s",
+        "V_c": "V_c",
+        "Bottom_Material": "Bottom_Material"
+      },
+      "notes": "根据《海港水文规范》第1章确定船型尺度；根据第2.1节确定漂移倍数n和偏角γ；根据底质确定富裕宽度c。",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_2",
-      "name": "核心参数解析与确定",
-      "name_zh": null,
-      "name_en": null,
-      "description": "解析并确定航道通航类型、设计船型尺度、航速、横流速度和底质等核心参数。",
-      "description_zh": null,
-      "description_en": null,
-      "tool": "user_input",
-      "inputs": {
-        "Type": "航道通航类型（单向/双向）",
-        "L": "设计船型长度",
-        "B": "设计船型宽度",
-        "V_s": "航速",
-        "V_c": "横流速度",
-        "Bottom_Material": "航道底质与边坡"
-      },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "航速V_s和横流速度V_c用于确定漂移倍数n和偏角γ；底质用于确定富裕宽度c。",
-      "analysis_status": "analyzed"
-    },
-    {
-      "id": "step_3",
-      "name": "最终结果计算",
-      "name_zh": null,
-      "name_en": null,
+      "name": "计算最终结果",
       "description": "根据航道类型计算通航宽度W。",
-      "description_zh": null,
-      "description_en": null,
       "tool": "calculator",
       "inputs": {
         "Type": "航道通航类型",
-        "L": "设计船型长度",
-        "B": "设计船型宽度",
+        "L": "设计船长",
+        "B": "设计船宽",
         "V_s": "航速",
         "V_c": "横流速度",
-        "Bottom_Material": "航道底质与边坡"
+        "Bottom_Material": "航道底质"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
-      "notes": "单向航道：W = A + 2c；双向航道：W = 2A + b + 2c；其中A = n (L sin γ + B)，b和c取值见《海港水文规范》。",
+      "outputs": {
+        "W": "W"
+      },
+      "notes": "若为单向航道，W = A + 2c；若为双向航道，W = 2A + b + 2c。其中A = n (L sin γ + B)，b和c取值见《海港水文规范》。",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_4",
       "name": "数据输出",
-      "name_zh": null,
-      "name_en": null,
       "description": "输出通航宽度W及相关参数。",
-      "description_zh": null,
-      "description_en": null,
       "tool": "auto",
       "inputs": {
         "W": "通航宽度",
         "Type": "航道通航类型",
-        "L": "设计船型长度",
-        "B": "设计船型宽度",
+        "L": "设计船长",
+        "B": "设计船宽",
         "V_s": "航速",
         "V_c": "横流速度",
-        "Bottom_Material": "航道底质与边坡"
+        "Bottom_Material": "航道底质"
       },
-      "outputs": {},
-      "next_step_id": null,
-      "on_failure": null,
+      "outputs": {
+        "W": "W",
+        "Type": "Type",
+        "L": "L",
+        "B": "B",
+        "V_s": "V_s",
+        "V_c": "V_c",
+        "Bottom_Material": "Bottom_Material"
+      },
       "notes": "",
       "analysis_status": "analyzed"
     }

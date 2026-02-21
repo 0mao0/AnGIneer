@@ -1,0 +1,88 @@
+{
+  "id": "航道边坡",
+  "name_zh": "航道边坡",
+  "name_en": "航道边坡",
+  "description": "确定航道边坡坡度 (Determine the slope of a channel bank)",
+  "mtime": 1768748075.8155713,
+  "steps": [
+    {
+      "id": "step_1",
+      "name": "匹配土质与状态",
+      "description": "解析用户输入的土质名称和状态描述，用于后续查询边坡坡度。",
+      "tool": "user_input",
+      "inputs": {
+        "土质名称": "用户输入的土质类型，如‘淤泥’、‘中砂’等。",
+        "状态描述": "用户输入的土质状态，如‘硬’、‘松散’或具体的N值。"
+      },
+      "outputs": {
+        "土质": "${土质名称}",
+        "状态": "${状态描述}"
+      },
+      "notes": "",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_2",
+      "name": "确定边坡坡度范围",
+      "description": "在《海港水文规范》表6.4.9中查找对应土质和状态的边坡坡度范围。",
+      "tool": "table_lookup",
+      "inputs": {
+        "table_name": "表6.4.9",
+        "query_conditions": {
+          "土质": "${土质}",
+          "状态": "${状态}"
+        },
+        "file_name": "../knowledge/《海港水文规范》.md"
+      },
+      "outputs": {
+        "边坡坡度范围": "table_lookup_result"
+      },
+      "notes": "若用户未提供具体状态（如只说了‘砂土’没说松密），列出该土质下的所有可能范围，并提示用户补充状态以便精确取值。",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_3",
+      "name": "应用修正条件",
+      "description": "检查是否为粉土类且开挖深度大于5米，若满足则建议取推荐范围的下限值（较陡）。",
+      "tool": "knowledge_search",
+      "inputs": {
+        "土质": "${土质}",
+        "开挖深度": "${开挖深度}"
+      },
+      "outputs": {
+        "修正提示": "修正条件结果"
+      },
+      "notes": "若土质是‘粉土类’且开挖深度 > 5m，提示用户可取推荐范围的下限值（较陡）。",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_4",
+      "name": "检查强浪强流",
+      "description": "检查是否包含强浪、强流或开敞航道条件，若满足则建议取推荐范围的上限值（较缓）。",
+      "tool": "knowledge_search",
+      "inputs": {
+        "水域条件": "${水域条件}"
+      },
+      "outputs": {
+        "修正提示": "修正条件结果"
+      },
+      "notes": "若已知条件包含‘强浪’、‘强流’或‘开敞航道’，提示用户应取推荐范围的上限值（较缓），甚至进一步放缓。",
+      "analysis_status": "analyzed"
+    },
+    {
+      "id": "step_5",
+      "name": "输出最终建议",
+      "description": "输出查得的边坡坡度范围，并附带修正提示（如有）。",
+      "tool": "auto",
+      "inputs": {
+        "边坡坡度范围": "${边坡坡度范围}",
+        "修正提示": "${修正提示}"
+      },
+      "outputs": {
+        "最终建议": "输出结果"
+      },
+      "notes": "直接输出查得的坡度范围（例如：‘根据规范，建议边坡为 1:3 ~ 1:8’）。若有触发修正条件，附带一句修正提示。",
+      "analysis_status": "analyzed"
+    }
+  ]
+}
