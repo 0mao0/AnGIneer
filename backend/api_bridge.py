@@ -218,7 +218,10 @@ def chat(request: QueryRequest):
     
     # 2. Execute with TraceDispatcher
     dispatcher = TraceDispatcher(execution_trace, config_name=request.config, mode=request.mode or "instruct")
-    final_context = dispatcher.run(sop, args)
+    dispatcher.memory.add_chat_message("user", request.query)
+    initial_context = {"user_query": request.query}
+    initial_context.update(args)
+    final_context = dispatcher.run(sop, initial_context)
     
     return {
         "sop_id": sop.id,
@@ -257,13 +260,16 @@ def chat_stream(request: QueryRequest):
 
             trace_list: list = []
             dispatcher = TraceDispatcher(trace_list, config_name=request.config, mode=request.mode or "instruct")
-            dispatcher.memory.update_context(args)
+            dispatcher.memory.add_chat_message("user", request.query)
+            initial_context = {"user_query": request.query}
+            initial_context.update(args)
+            dispatcher.memory.update_context(initial_context)
 
             for step in sop.steps:
                 dispatcher._execute_step(step)
                 yield json.dumps({"type": "step", "step": trace_list[-1]}) + "\n"
 
-            yield json.dumps({"type": "done", "final_context": dispatcher.memory.global_context}) + "\n"
+            yield json.dumps({"type": "done", "final_context": dispatcher.memory.blackboard}) + "\n"
         except Exception as e:
             yield json.dumps({"type": "error", "error": str(e)}) + "\n"
 

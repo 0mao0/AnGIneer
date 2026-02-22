@@ -46,6 +46,7 @@ class SOP(BaseModel):
     description_zh: Optional[str] = None
     description_en: Optional[str] = None
     steps: List[Step]
+    blackboard: Optional[Dict[str, Any]] = None
     
     def get_step(self, step_id: str) -> Optional[Step]:
         for step in self.steps:

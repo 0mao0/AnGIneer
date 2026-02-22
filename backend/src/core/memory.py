@@ -19,27 +19,57 @@ class Memory(BaseModel):
     """
     # 全局上下文：跨会话共享（长期/任务级记忆）
     global_context: Dict[str, Any] = Field(default_factory=dict)
+    blackboard: Dict[str, Any] = Field(default_factory=dict)
+    chat_context: List[Dict[str, Any]] = Field(default_factory=list)
+    step_io: List[Dict[str, Any]] = Field(default_factory=list)
+    tool_working_memory: Dict[str, Any] = Field(default_factory=dict)
     # 执行历史：已执行步骤的列表（情节记忆）
     history: List[StepRecord] = Field(default_factory=list)
-    # 临时工作记忆：用于当前工具执行（短期/工具级记忆）
-    # 每个步骤执行后会被清理
-    working_memory: Dict[str, Any] = Field(default_factory=dict)
     
     def update_context(self, updates: Dict[str, Any]):
-        """更新持久化的全局上下文。"""
-        self.global_context.update(updates)
+        """更新黑板数据并同步上下文快照。"""
+        self.blackboard.update(updates)
+        self._sync_global_context()
 
     def set_working_memory(self, data: Dict[str, Any]):
         """为当前操作设置临时数据。"""
-        self.working_memory = data
+        self.tool_working_memory = data
+        self._sync_global_context()
         
     def clear_working_memory(self):
         """清理临时数据。"""
-        self.working_memory = {}
+        self.tool_working_memory = {}
+        self._sync_global_context()
         
     def add_history(self, record: StepRecord):
         """添加一条执行记录到历史。"""
         self.history.append(record)
+        self._sync_global_context()
+
+    def add_step_io(self, record: Dict[str, Any]):
+        """记录单步执行输入输出。"""
+        self.step_io.append(record)
+        self._sync_global_context()
+
+    def add_chat_message(self, role: str, content: str):
+        """添加聊天记录。"""
+        self.chat_context.append({"role": role, "content": content})
+        self._sync_global_context()
+
+    def get_context_snapshot(self) -> Dict[str, Any]:
+        """获取用于上下文传递的聚合快照。"""
+        self._sync_global_context()
+        return self.global_context
+
+    def _sync_global_context(self):
+        """同步聚合上下文快照。"""
+        self.global_context = {
+            "blackboard": self.blackboard,
+            "chat_context": self.chat_context,
+            "step_io": self.step_io,
+            "tool_working_memory": self.tool_working_memory,
+            "history": [r.dict() for r in self.history]
+        }
         
     def resolve_value(self, value: Any) -> Any:
         """
@@ -70,14 +100,16 @@ class Memory(BaseModel):
         """
         获取变量值，支持点号(.)嵌套访问。
         """
-        # 0. 检查工作记忆 (最高优先级 - 局部作用域)
-        if key in self.working_memory:
-            return self.working_memory[key]
+        # 0. 检查工具工作记忆 (最高优先级 - 局部作用域)
+        if key in self.tool_working_memory:
+            return self.tool_working_memory[key]
         
-        # 1. 检查全局上下文，支持点号嵌套访问
+        # 1. 检查黑板与全局上下文，支持点号嵌套访问
+        if key in self.blackboard:
+            return self.blackboard[key]
         if "." in key:
             parts = key.split(".")
-            val = self.global_context
+            val = self.get_context_snapshot()
             found = True
             for part in parts:
                 if isinstance(val, dict) and part in val:
@@ -87,8 +119,8 @@ class Memory(BaseModel):
                     break
             if found:
                 return val
-        elif key in self.global_context:
-            return self.global_context[key]
+        elif key in self.get_context_snapshot():
+            return self.get_context_snapshot()[key]
             
         # 2. 检查历史记录 (高级用法: ${step_id.output})
         if "." in key:

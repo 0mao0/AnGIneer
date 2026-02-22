@@ -67,8 +67,7 @@ SAMPLE_QUERIES = [
         "id": "case_9",
         "label": "航道计算 (净空高度)", 
         "query": "桥下通航净空设计高度 18m，加安全裕度 2m，计算净空要求，表达式: 18 + 2",
-        "expected_sop": "桥区通航净空尺度",
-        "expected_args_key": "expression"
+        "expected_sop": "桥区通航净空尺度"
     },
     {
         "id": "case_10",

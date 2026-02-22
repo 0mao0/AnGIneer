@@ -9,6 +9,40 @@ class IntentClassifier:
     """
     def __init__(self, sops: List[SOP]):
         self.sops = sops
+
+    def _extract_json(self, response_text: str) -> Dict[str, Any]:
+        content = (response_text or "").strip()
+        if "```json" in content:
+            content = content.split("```json")[1].split("```")[0]
+        elif "```" in content:
+            parts = content.split("```")
+            if len(parts) >= 3:
+                content = parts[1]
+        if "{" in content and "}" in content:
+            start = content.find("{")
+            end = content.rfind("}") + 1
+            content = content[start:end]
+        return json.loads(content.strip())
+
+    def _extract_args_with_blackboard(self, user_query: str, required_keys: List[str], config_name: str = None, mode: str = "instruct") -> Dict[str, Any]:
+        if not required_keys:
+            return {}
+        system_prompt = f"""
+你是一个参数抽取器。请根据用户请求填充指定字段。
+只输出 JSON 对象，格式为: {{ "args": {{ ... }} }}。不要输出多余文本。
+需要填充的字段列表:
+{json.dumps(required_keys, ensure_ascii=False)}
+如果无法确定某个字段值，请返回 null。
+"""
+        user_prompt = f"用户请求: {user_query}"
+        response_text = llm_client.chat(
+            [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}],
+            mode=mode,
+            config_name=config_name
+        )
+        data = self._extract_json(response_text)
+        args = data.get("args") or {}
+        return {k: v for k, v in args.items() if v is not None}
         
     def route(self, user_query: str, config_name: str = None, mode: str = "instruct") -> Tuple[Optional[SOP], Dict[str, Any], Optional[str]]:
         """
@@ -38,10 +72,9 @@ class IntentClassifier:
 输出一个 JSON 对象，包含：
 - "sop_id": 选中的 SOP ID（必须是列表中存在的 ID）。如果没有匹配的，返回 null。
 - "reason": 简短的解释。
-- "args": 从查询中提取的 SOP 可能需要的参数字典。
 
 示例输入: "计算 25 * 4"
-示例输出: {{ "sop_id": "math_sop", "reason": "用户想要进行数学计算", "args": {{ "expression": "25 * 4" }} }}
+示例输出: {{ "sop_id": "math_sop", "reason": "用户想要进行数学计算" }}
 """
         
         user_prompt = f"用户请求: {user_query}"
@@ -58,27 +91,8 @@ class IntentClassifier:
             return None, {}, None
         
         try:
-            # 更加鲁棒的 JSON 提取逻辑
-            content = response_text.strip()
-            
-            # 1. 尝试寻找 Markdown 代码块
-            if "```json" in content:
-                content = content.split("```json")[1].split("```")[0]
-            elif "```" in content:
-                # 寻找第一个 ``` 和最后一个 ``` 之间的内容
-                parts = content.split("```")
-                if len(parts) >= 3:
-                    content = parts[1]
-            
-            # 2. 如果还是包含非 JSON 字符，尝试寻找第一个 { 和最后一个 }
-            if "{" in content and "}" in content:
-                start = content.find("{")
-                end = content.rfind("}") + 1
-                content = content[start:end]
-                
-            data = json.loads(content.strip())
+            data = self._extract_json(response_text)
             sop_id = data.get("sop_id")
-            args = data.get("args", {})
             reason = data.get("reason")
             
             # 处理 null/None/空字符串
@@ -97,6 +111,14 @@ class IntentClassifier:
                 print(f"警告: LLM 返回了未知的 SOP ID: {sop_id_str}")
                 print(f"当前可用的 SOP ID 列表: {[s.id for s in self.sops]}")
                 
+            args = {}
+            blackboard = selected_sop.blackboard or {}
+            required_keys = blackboard.get("required") or []
+            if required_keys:
+                try:
+                    args = self._extract_args_with_blackboard(user_query, required_keys, config_name=config_name, mode=mode)
+                except Exception as e:
+                    print(f"参数抽取失败: {e}")
             return selected_sop, args, reason
             
         except Exception as e:

@@ -26,7 +26,7 @@ class Dispatcher:
             self._execute_step(step)
             
         print(f"[{sop.id}] Execution finished.")
-        return self.memory.global_context
+        return self.memory.blackboard
         
     def _execute_step(self, step: Step):
         print(f"  -> Executing Step: {step.name or step.id} ({step.tool})")
@@ -98,7 +98,7 @@ class Dispatcher:
         3. If (Missing Inputs OR Notes OR Tool='auto'), wake up LLM.
         4. Else, map inputs and execute directly.
         """
-        context = self.memory.global_context
+        context = self.memory.blackboard
         if self._should_skip_table_lookup(step, context):
             self._record_step(step, {}, {"skipped": True, "reason": "value exists in context"})
             return
@@ -181,7 +181,7 @@ class Dispatcher:
         - Can execute the target tool
         """
         # Construct Prompt
-        context_str = json.dumps(self.memory.global_context, default=str, ensure_ascii=False)
+        context_str = json.dumps(self.memory.get_context_snapshot(), default=str, ensure_ascii=False)
         if len(context_str) > 3000:
             context_str = context_str[:3000] + "..."
             
@@ -299,7 +299,7 @@ Output ONLY the JSON.
         tools_str = "\n".join([f"- {name}: {desc}" for name, desc in tools_desc.items()])
         
         # Prepare context snapshot (truncated to avoid huge prompt)
-        context_str = json.dumps(self.memory.global_context, default=str, ensure_ascii=False)
+        context_str = json.dumps(self.memory.get_context_snapshot(), default=str, ensure_ascii=False)
         if len(context_str) > 2000:
             context_str = context_str[:2000] + "...(truncated)"
             
@@ -386,4 +386,12 @@ Example Output:
             status="failed" if error else "success",
             error=error
         )
+        self.memory.add_step_io({
+            "step_id": step.id,
+            "tool_name": step.tool,
+            "inputs": inputs,
+            "outputs": outputs,
+            "status": "failed" if error else "success",
+            "error": error
+        })
         self.memory.add_history(record)

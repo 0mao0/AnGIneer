@@ -19,7 +19,42 @@ def _extract_json_from_text(text: str) -> Dict[str, Any]:
         text = text[7:]
     if text.endswith("```"):
         text = text[:-3]
-    return json.loads(text.strip())
+    raw = text.strip()
+    try:
+        return json.loads(raw)
+    except Exception:
+        pass
+    start = raw.find("{")
+    if start == -1:
+        raise
+    depth = 0
+    in_str = False
+    escape = False
+    last_ok = -1
+    for idx, ch in enumerate(raw[start:], start):
+        if in_str:
+            if escape:
+                escape = False
+                continue
+            if ch == "\\":
+                escape = True
+                continue
+            if ch == "\"":
+                in_str = False
+            continue
+        if ch == "\"":
+            in_str = True
+            continue
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                last_ok = idx
+                break
+    if last_ok != -1:
+        return json.loads(raw[start:last_ok + 1])
+    raise
 
 def _normalize_step_io(tool: str, inputs: Any, outputs: Any, file_name: str) -> Tuple[Dict, Dict]:
     """仅保证字段结构，模板全部交给 LLM。"""
@@ -56,6 +91,90 @@ class SopLoader:
         self.index_file = os.path.join(sop_dir, "index.json")
         self.sops: List[SOP] = [] # Cache
 
+    def _extract_blackboard_from_markdown(self, content: str) -> Dict[str, Any]:
+        refs = set(re.findall(r"\$\{([^}]+)\}", content or ""))
+        outputs = set()
+        in_outputs = False
+        for line in (content or "").splitlines():
+            line_str = line.strip()
+            if "**Outputs**" in line_str:
+                in_outputs = True
+                continue
+            if "**Inputs**" in line_str or "**Tool**" in line_str or line_str.startswith("###"):
+                in_outputs = False
+            if in_outputs:
+                for name in re.findall(r"`([^`]+)`", line_str):
+                    if name:
+                        outputs.add(name)
+        required = {r for r in refs if r and r not in outputs and r != "user_query"}
+        return {
+            "required": sorted(required),
+            "outputs": sorted(outputs),
+            "all": sorted(required | outputs)
+        }
+
+    def _build_blackboard_from_step_dicts(self, steps: List[Dict[str, Any]]) -> Dict[str, Any]:
+        required = set()
+        produced = set()
+
+        def collect_refs(value: Any):
+            if isinstance(value, str):
+                for name in re.findall(r"\$\{([^}]+)\}", value):
+                    if name:
+                        yield name
+            elif isinstance(value, dict):
+                for v in value.values():
+                    yield from collect_refs(v)
+            elif isinstance(value, list):
+                for v in value:
+                    yield from collect_refs(v)
+
+        for step in steps or []:
+            inputs = step.get("inputs") or {}
+            for name in collect_refs(inputs):
+                if name not in produced:
+                    required.add(name)
+            outputs = step.get("outputs") or {}
+            produced.update(list(outputs.keys()))
+
+        required.discard("user_query")
+        return {
+            "required": sorted(required),
+            "outputs": sorted(produced),
+            "all": sorted(required | produced)
+        }
+
+    def _build_blackboard_from_steps(self, steps: List[Step]) -> Dict[str, Any]:
+        required = set()
+        produced = set()
+
+        def collect_refs(value: Any):
+            if isinstance(value, str):
+                for name in re.findall(r"\$\{([^}]+)\}", value):
+                    if name:
+                        yield name
+            elif isinstance(value, dict):
+                for v in value.values():
+                    yield from collect_refs(v)
+            elif isinstance(value, list):
+                for v in value:
+                    yield from collect_refs(v)
+
+        for step in steps or []:
+            inputs = step.inputs or {}
+            for name in collect_refs(inputs):
+                if name not in produced:
+                    required.add(name)
+            outputs = step.outputs or {}
+            produced.update(list(outputs.keys()))
+
+        required.discard("user_query")
+        return {
+            "required": sorted(required),
+            "outputs": sorted(produced),
+            "all": sorted(required | produced)
+        }
+
     def load_all(self) -> List[SOP]:
         """
         从索引文件加载 SOP 列表。
@@ -66,6 +185,9 @@ class SopLoader:
             self.refresh_index()
             
         self.sops = self._load_from_index()
+        if any(s.blackboard is None for s in self.sops):
+            self.refresh_index()
+            self.sops = self._load_from_index()
         return self.sops
 
     def refresh_index(self):
@@ -87,8 +209,8 @@ class SopLoader:
                 # 提取描述：读取前 500 字符，找第一个非空行或标题
                 description = f"SOP for {sop_id}"
                 with open(fpath, 'r', encoding='utf-8') as f:
-                    # 只读头部，避免加载全文
-                    head_content = f.read(1000)
+                    full_content = f.read()
+                    head_content = full_content[:1000]
                     lines = head_content.split('\n')
                     for line in lines:
                         line = line.strip()
@@ -99,6 +221,8 @@ class SopLoader:
                         elif line.startswith('# '):
                              # 或者使用一级标题作为描述的一部分
                              description = line.lstrip('#').strip()
+
+                blackboard = self._extract_blackboard_from_markdown(full_content)
                 
                 # 截断过长的描述
                 if len(description) > 200:
@@ -108,7 +232,8 @@ class SopLoader:
                     "id": sop_id,
                     "filename": filename,
                     "name": sop_id, # 默认用文件名，可手动在 index.json 修改
-                    "description": description
+                    "description": description,
+                    "blackboard": blackboard
                 })
                 
             except Exception as e:
@@ -131,6 +256,7 @@ class SopLoader:
             with open(self.index_file, 'r', encoding='utf-8') as f:
                 index_data = json.load(f)
                 
+            sop_json_dir = os.path.abspath(os.path.join(self.sop_dir, "..", "sop_json"))
             for entry in index_data:
                 # 构造 SOP 对象
                 # 在混合架构中，我们依然创建一个基础 SOP 对象
@@ -154,8 +280,20 @@ class SopLoader:
                     name_zh=entry.get('name', entry['id']),
                     name_en=entry.get('name_en', entry['id']),
                     description=entry.get('description', ''),
-                    steps=[step]
+                    steps=[step],
+                    blackboard=entry.get("blackboard")
                 )
+                json_path = os.path.join(sop_json_dir, f"{entry['id']}.json")
+                if os.path.exists(json_path):
+                    try:
+                        with open(json_path, "r", encoding="utf-8") as jf:
+                            cached = json.load(jf)
+                        if cached.get("blackboard"):
+                            sop.blackboard = cached.get("blackboard")
+                        elif cached.get("steps"):
+                            sop.blackboard = self._build_blackboard_from_step_dicts(cached.get("steps"))
+                    except Exception:
+                        pass
                 sops.append(sop)
                 
         except Exception as e:
@@ -183,14 +321,15 @@ class SopLoader:
                     "id": sop.id,
                     "description": sop.description,
                     "mtime": file_mtime,
-                    "steps": serialized_steps
+                    "steps": serialized_steps,
+                    "blackboard": sop.blackboard
                 }),
                 f,
                 indent=2,
                 ensure_ascii=False
             )
 
-    def analyze_sop(self, sop_id: str, config_name: str = None, mode: str = "instruct", save_to_json: bool = False, prefer_llm: bool = True) -> SOP:
+    def analyze_sop(self, sop_id: str, config_name: str = "Qwen3-4B (Public)", mode: str = "instruct", save_to_json: bool = False, prefer_llm: bool = True) -> SOP:
         """
         【混合架构核心】
         利用 LLM 读取指定的 SOP Markdown 文件，并将其解析为细粒度的 Steps 列表。
@@ -277,6 +416,7 @@ For outputs mapping:
                         analysis_status="analyzed",
                     ))
                 if llm_steps:
+                    sop.blackboard = self._build_blackboard_from_steps(llm_steps)
                     sop.steps = llm_steps
                     if save_to_json:
                         self._save_sop_json(sop, file_mtime, json_path, llm_steps)
@@ -285,10 +425,13 @@ For outputs mapping:
                 print(f"[LLM 一次性解析失败，改用兜底]: {e}")
                 pass
 
+        if not sop.blackboard:
+            sop.blackboard = self._extract_blackboard_from_markdown(content)
+
         # 不再使用硬编码兜底解析，直接返回空 SOP
         return sop
 
-    def preparse_all(self, config_name: str = None, mode: str = "instruct") -> Dict[str, object]:
+    def preparse_all(self, config_name: str = "Qwen3-4B (Public)", mode: str = "instruct") -> Dict[str, object]:
         """批量预解析所有 SOP 并输出到 sop_json。"""
         sops = self.load_all()
         results = {"total": len(sops), "success": 0, "failed": 0, "items": []}
@@ -305,7 +448,7 @@ For outputs mapping:
 def _run_preparse_from_cli():
     """从命令行触发 SOP 预解析。"""
     sop_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "sops"))
-    config_name = None
+    config_name = "Qwen3-4B (Public)"
     mode = "instruct"
     sop_id = None
     args = sys.argv[1:]
@@ -332,7 +475,13 @@ def _run_preparse_from_cli():
     loader = SopLoader(sop_dir)
     if sop_id:
         analyzed = loader.analyze_sop(sop_id, config_name=config_name, mode=mode, save_to_json=True, prefer_llm=True)
-        result = {"total": 1, "success": 1, "failed": 0, "items": [{"id": sop_id, "steps": len(analyzed.steps)}]}
+        result = {
+            "total": 1, 
+            "success": 1, 
+            "failed": 0, 
+            "items": [{"id": sop_id, "steps": len(analyzed.steps)}],
+            "blackboard": analyzed.blackboard
+        }
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
     if "--all" in sys.argv:

@@ -160,7 +160,7 @@ class RobustnessDispatcher:
 
     def run_step(self, step: Step) -> Dict[str, Any]:
         """执行单步并返回结果记录。"""
-        blackboard = self.dispatcher.memory.global_context
+        blackboard = self.dispatcher.memory.blackboard
         tool_name = (step.tool or "auto").lower()
         inputs, missing = build_step_inputs(step, blackboard)
 
@@ -231,7 +231,8 @@ class TestRobustnessFlow(unittest.TestCase):
         print("=" * 70)
         print(f"[输入] {query}")
 
-        sop, args, reason = self.classifier.route(query)
+        config_name = os.getenv("TEST_LLM_CONFIG") or "Qwen3-4B (Public)"
+        sop, args, reason = self.classifier.route(query, config_name=config_name)
         if not sop:
             self.fail(f"未匹配到 SOP，原因: {reason}")
 
@@ -259,7 +260,7 @@ class TestRobustnessFlow(unittest.TestCase):
         dispatcher.initialize(blackboard)
 
         print("[黑板初始化]")
-        print(format_json_value(dispatcher.dispatcher.memory.global_context))
+        print(format_json_value(dispatcher.dispatcher.memory.blackboard))
 
         for idx, step in enumerate(analyzed.steps, start=1):
             print("\n" + "-" * 70)

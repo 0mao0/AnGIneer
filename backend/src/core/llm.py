@@ -198,7 +198,15 @@ class LLMClient:
                 
                 # 记录日志：成功返回
                 print(f"[输出响应] (耗时: {duration:.2f}秒):")
-                print(f"   {content}")
+                try:
+                    # 尝试格式化 JSON 输出
+                    if content.strip().startswith(("{", "[")):
+                        parsed = json.loads(content)
+                        print(json.dumps(parsed, ensure_ascii=False, indent=2))
+                    else:
+                        print(f"   {content}")
+                except Exception:
+                    print(f"   {content}")
                 print("="*50 + "\n")
                 
                 return content

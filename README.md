@@ -21,24 +21,34 @@ PicoAgent是一个**过程可控的企业级Agent打工人**，专为工程、�
 ```mermaid
 graph TD
     User[用户请求] --> Classifier["Intent Classifier (意图分类)"]
-    Classifier -->|匹配 SOP| Loader["SOP Loader (智能分析)"]
+    
+    subgraph "SOP Management (标准作业管理)"
+        direction TB
+        Markdown["SOP Markdown"] -->|Pre-parse| Loader["SOP Loader"]
+        Loader -->|Generate| Repository["SOP Repository (JSON + Index)"]
+        Repository -->|Metadata| Classifier
+    end
+
+    Classifier -->|Route & Init Context| Dispatcher[Dispatcher Agent]
     
     subgraph "Hybrid Execution Engine (混合执行引擎)"
-        Loader -->|解析步骤 & 提取 Notes| Dispatcher[Dispatcher Agent]
-        Dispatcher -->|规则判断| Check{需要 AI 介入?}
+        Dispatcher -->|Read Steps| Repository
+        Dispatcher -->|Update Blackboard| Memory["Memory (Context & History)"]
+        Dispatcher -->|Check| Decision{需要 AI 介入?}
         
-        Check -- No (确定性执行) --> ToolExec[直接调用工具]
-        Check -- Yes (缺参数/有备注) --> LLM[LLM 决策核心]
+        Decision -- No (确定性执行) --> ToolExec[直接调用工具]
+        Decision -- Yes (缺参数/有备注) --> LLM[LLM 决策核心]
         
-        LLM -->|查阅规范| KnowledgeTool["Knowledge Search (知识检索)"]
-        LLM -->|查询数据| TableTool["Table Lookup (表格查询)"]
+        LLM -->|查阅规范| KnowledgeTool["Knowledge Search"]
+        LLM -->|查询数据| TableTool["Table Lookup"]
         LLM -->|询问用户| UserAsk[询问用户]
     end
     
     ToolExec --> Result[执行结果]
     KnowledgeTool --> Result
     TableTool --> Result
-    Result -->|更新上下文| Dispatcher
+    Result -->|Update| Memory
+    Result -->|Next Step| Dispatcher
     Result --> Final[输出给用户]
 ```
 
@@ -46,9 +56,9 @@ graph TD
 
 - **[classifier.py](/AI/PicoAgent/backend/src/agents/classifier.py)**: 意图分类器。负责识别用户意图并匹配最合适的 SOP。
 - **[dispatcher.py](/AI/PicoAgent/backend/src/agents/dispatcher.py)**: 核心调度引擎。根据 SOP 步骤控制执行流，决定是直接运行工具还是调用 LLM。
-- **[sop_loader.py](/AI/PicoAgent/backend/src/core/sop_loader.py)**: 智能加载器。将 Markdown 格式的 SOP 转换为结构化步骤，并利用 LLM 提取关键约束和输入要求。
+- **[sop_loader.py](/AI/PicoAgent/backend/src/core/sop_loader.py)**: 智能加载器。将 Markdown 格式的 SOP 转换为结构化步骤，并提取 blackboard 的参数清单。
 - [llm.py](/AI/PicoAgent/backend/src/core/llm.py): LLM 客户端封装。集成主流AI模型，支持多模型切换和双语处理。
-- [memory.py](/AI/PicoAgent/backend/src/core/memory.py): 上下文与记忆管理。分层存储全局上下文、步骤历史和工作记忆。
+- [memory.py](/AI/PicoAgent/backend/src/core/memory.py): 上下文与记忆管理。包含 blackboard（任务态变量）、history（步骤历史）、step_io（单步输入输出）、tool_working_memory（工具级临时数据）、chat_context（对话上下文快照，仅写入用户输入）。
 
 ---
 
@@ -126,11 +136,13 @@ PicoAgent/
     
     # 1. 识别意图
     classifier = IntentClassifier(sops)
-    sop, params = classifier.route("我想计算断面工程量")
+    sop, args, reason = classifier.route("我想计算断面工程量")
     
     # 2. 调度执行
     dispatcher = Dispatcher()
-    result = dispatcher.run(sop, params)
+    initial_context = {"user_query": "我想计算断面工程量"}
+    initial_context.update(args or {})
+    result = dispatcher.run(sop, initial_context)
     ```
 
 ---
