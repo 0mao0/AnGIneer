@@ -193,5 +193,6 @@ class TestIntentClassifier(unittest.TestCase):
                 else:
                     print(f"  [FAILURE] 缺少预期参数: {key}")
 
+
 if __name__ == "__main__":
     unittest.main()
