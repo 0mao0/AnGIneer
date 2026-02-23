@@ -1,5 +1,6 @@
 import time
 import json
+import os
 from typing import Dict, Any, Tuple, List
 from src.core.contextStruct import SOP, Step
 from src.core.memory import Memory, StepRecord
@@ -7,11 +8,18 @@ from src.tools.BaseTool import ToolRegistry
 from src.core.llm import llm_client
 
 class Dispatcher:
-    def __init__(self, config_name: str = None, mode: str = "instruct"):
+    def __init__(self, config_name: str = None, mode: str = "instruct", result_md_path: str = None):
         """初始化执行器上下文与模型配置。"""
         self.memory = Memory()
         self.config_name = config_name
         self.mode = mode or "instruct"
+        self.result_md_path = result_md_path
+        
+        if self.result_md_path:
+            # Initialize Markdown file
+            with open(self.result_md_path, "w", encoding="utf-8") as f:
+                f.write("# SOP 执行日志 (LLM 风格小结版)\n\n")
+                f.write("> **说明**: 本日志展示了每一步的执行小结与 Blackboard 状态快照。更新的内容已高亮显示。\n\n---\n\n")
         
     def run(self, sop: SOP, initial_context: Dict[str, Any]):
         """
@@ -80,10 +88,14 @@ class Dispatcher:
             print(f"    Result: {result}")
             
             # 5. Process Outputs
-            self._process_outputs(step, result)
+            updates = self._process_outputs(step, result)
             
             # 6. Record History
             self._record_step(step, tool_inputs, result)
+            
+            # 7. Write to Markdown
+            if self.result_md_path:
+                self._write_markdown_log(step, tool_inputs, result, updates)
             
         except Exception as e:
             print(f"    Error executing tool: {e}")
@@ -93,26 +105,34 @@ class Dispatcher:
         """
         Execute a step that was analyzed by LLM (Hybrid Mode).
         Logic:
-        1. Check if required inputs exist in context.
-        2. Check if 'notes' exist.
-        3. If (Missing Inputs OR Notes OR Tool='auto'), wake up LLM.
-        4. Else, map inputs and execute directly.
+        1. Resolve all inputs from context.
+        2. Check if any resolved input indicates missing data (e.g. explicit None or unresolved vars).
+        3. Check if 'notes' exist.
+        4. If (Missing Inputs OR Notes OR Tool='auto'), wake up LLM.
+        5. Else, execute directly.
         """
         context = self.memory.blackboard
-        if self._should_skip_table_lookup(step, context):
+        # Check if step outputs already exist in context
+        if self._should_skip_step(step, context):
             self._record_step(step, {}, {"skipped": True, "reason": "value exists in context"})
             return
+            
         missing_params = []
         ready_inputs = {}
         
-        # 1. Check Inputs
-        # step.inputs is Dict[param_name, description]
-        for param_name, desc in step.inputs.items():
-            if param_name in context:
-                ready_inputs[param_name] = context[param_name]
-            else:
-                missing_params.append(f"{param_name} ({desc})")
-                
+        # 1. Resolve Inputs
+        for param_name, value_expr in step.inputs.items():
+            resolved_value = self.memory.resolve_value(value_expr)
+            ready_inputs[param_name] = resolved_value
+            
+            # Simple check: if resolved value looks like an unresolved template or None
+            if resolved_value is None:
+                 missing_params.append(f"{param_name} (value is None)")
+            elif isinstance(resolved_value, str) and "${" in resolved_value:
+                 # Check if it's an unresolved reference
+                 # This is a heuristic, but often useful
+                 missing_params.append(f"{param_name} (unresolved: {resolved_value})")
+
         # 2. Decision Logic
         needs_llm = False
         reason = ""
@@ -129,21 +149,29 @@ class Dispatcher:
             
         if needs_llm:
             print(f"    [Hybrid] Waking up LLM... Reason: {reason}")
+            # Pass resolved inputs to help LLM? 
+            # Actually _smart_step_execution re-evaluates everything. 
+            # But we should probably pass the missing params info.
             self._smart_step_execution(step, reason, missing_params)
         else:
             print("    [Hybrid] Rule-based execution (All params ready, no notes).")
             # Execute directly
             self._execute_tool_safe(step.tool, ready_inputs, step)
 
-    def _should_skip_table_lookup(self, step: Step, context: Dict[str, Any]) -> bool:
-        """判断 table_lookup 是否可被已有黑板数据跳过。"""
-        if step.tool != "table_lookup":
-            return False
+    def _should_skip_step(self, step: Step, context: Dict[str, Any]) -> bool:
+        """Check if step outputs are already present in context."""
         if not step.outputs:
             return False
+        # If outputs is "*" we can't easily check, so don't skip
+        if step.outputs == "*":
+            return False
+            
         output_keys = list(step.outputs.keys())
         if not output_keys:
             return False
+            
+        # Check if all output keys exist and are not None
+        # Exception: if the value in context is explicitly "None" string or something? No.
         return all(key in context and context.get(key) is not None for key in output_keys)
 
     def _execute_tool_safe(self, tool_name: str, inputs: Dict[str, Any], step: Step):
@@ -161,17 +189,22 @@ class Dispatcher:
                 run_kwargs["mode"] = self.mode
             result = tool.run(**run_kwargs)
             print(f"    Result: {result}")
-            # Update context with all result keys if it's a dict
-            if isinstance(result, dict):
-                self.memory.update_context(result)
-            elif isinstance(result, str):
-                # Try to guess key or store as 'last_result'
-                self.memory.update_context({"last_result": result})
-                
+            
+            # Process outputs using the standard method
+            updates = self._process_outputs(step, result)
+            
+            # Record history
             self._record_step(step, inputs, result)
+            
+            # Write log
+            if self.result_md_path:
+                self._write_markdown_log(step, inputs, result, updates)
+                
         except Exception as e:
             print(f"    Error: {e}")
             self._record_step(step, inputs, None, error=str(e))
+            if self.result_md_path:
+                 self._write_markdown_log(step, inputs, {"error": str(e)}, {})
 
     def _smart_step_execution(self, step: Step, reason: str, missing_params: List[str]):
         """
@@ -214,7 +247,10 @@ Available Actions (Output JSON):
  4. EXECUTE_TOOL: If you have enough info to run the tool (calculator, etc).
     {{ "action": "execute_tool", "tool": "{step.tool if step.tool != 'auto' else 'appropriate_tool'}", "inputs": {{ ... }} }}
     
- 5. SKIP: If this step is already done or irrelevant.
+ 5. RETURN_VALUE: If the step is just setting a value or you know the answer directly.
+    {{ "action": "return_value", "value": 0.15 }}
+
+ 6. SKIP: If this step is already done or irrelevant.
     {{ "action": "skip", "reason": "..." }}
 
 Output ONLY the JSON.
@@ -235,34 +271,25 @@ Output ONLY the JSON.
             
             print(f"    [AI Decision] {action}")
             
-            if action == "ask_user":
+            if action == "return_value":
+                value = action_data.get("value")
+                print(f"    >>> Returning Value: {value}")
+                # Process outputs directly
+                updates = self._process_outputs(step, value)
+                self._record_step(step, {}, value)
+                if self.result_md_path:
+                    self._write_markdown_log(step, {}, value, updates)
+
+            elif action == "ask_user":
                 question = action_data.get("question")
                 print(f"    >>> Asking User: {question}")
-                # In a real system, we would pause here. 
-                # For this prototype, we simulate user input or just log it.
-                # Let's try to simulate 'user_input' tool execution
-                user_tool = ToolRegistry.get_tool("user_input")
-                if user_tool:
-                    # In a real CLI, this would prompt input()
-                    # For now, let's assume we can't block easily without IO redirection
-                    # We will just print it.
-                    pass
+                # Simulate user_input tool execution
+                self._execute_tool_safe("user_input", {"question": question}, step)
                     
             elif action == "search_knowledge":
                 query = action_data.get("query")
                 print(f"    >>> Searching Knowledge: {query}")
-                # Call KnowledgeSearchTool
-                search_tool = ToolRegistry.get_tool("knowledge_search")
-                if search_tool:
-                    search_result = search_tool.run(query=query)
-                    print(f"    [Knowledge Found] {str(search_result)[:100]}...")
-                    # Store result in context so next iteration (or re-try) can use it
-                    self.memory.update_context({"knowledge_context": search_result})
-                    # Recursively try to execute the step again with new knowledge?
-                    # Or just let the loop continue?
-                    # For now, let's just record it.
-                else:
-                    print("    [Error] knowledge_search tool not found.")
+                self._execute_tool_safe("knowledge_search", {"query": query}, step)
                 
             elif action == "table_lookup":
                 table_name = action_data.get("table_name")
@@ -270,13 +297,12 @@ Output ONLY the JSON.
                 target_col = action_data.get("target_column")
                 print(f"    >>> Looking up Table: {table_name}, Cond: {conditions}")
                 
-                lookup_tool = ToolRegistry.get_tool("table_lookup")
-                if lookup_tool:
-                    result = lookup_tool.run(table_name=table_name, query_conditions=conditions, target_column=target_col)
-                    print(f"    [Table Result] {str(result)[:100]}...")
-                    self.memory.update_context(result if isinstance(result, dict) else {"lookup_result": result})
-                else:
-                    print("    [Error] table_lookup tool not found.")
+                inputs = {
+                    "table_name": table_name,
+                    "query_conditions": conditions,
+                    "target_column": target_col
+                }
+                self._execute_tool_safe("table_lookup", inputs, step)
 
             elif action == "execute_tool":
                 tool_name = action_data.get("tool")
@@ -290,6 +316,105 @@ Output ONLY the JSON.
             print(f"    [SmartExec Error] {e}")
 
 
+
+    def _generate_step_summary(self, step_name: str, tool_name: str, resolved_inputs: Any, result: Any, updates: Dict[str, Any]) -> str:
+        """模拟 LLM 对每一步执行结果的自然语言小结。"""
+        # 如果是 auto，直接使用 description
+        if tool_name == "auto":
+            return f"本步骤为最终输出步骤，基于上下文整理并展示了所有关键参数的计算结果。"
+            
+        summary = f"在步骤“{step_name}”中，"
+        
+        # 根据工具类型生成不同的话术
+        if tool_name == "table_lookup":
+            table_name = resolved_inputs.get("table_name", "未知表格")
+            conditions = resolved_inputs.get("query_conditions", {})
+            cond_str = ", ".join([f"{k}={v}" for k, v in conditions.items()])
+            summary += f"我查阅了 **{table_name}**。根据条件 {cond_str}，"
+            if isinstance(result, dict) and "error" in result:
+                summary += f"查询失败，错误信息为：{result['error']}。"
+            else:
+                # 简化显示，只显示更新的值
+                if updates:
+                    updates_str = ", ".join([f"{k}={v}" for k, v in updates.items()])
+                    summary += f"成功获取到数据，更新了：{updates_str}。"
+                else:
+                    summary += "获取到了数据，但未触发 Blackboard 更新。"
+                    
+        elif tool_name == "calculator":
+            expression = resolved_inputs.get("expression", "")
+            summary += f"我执行了计算。公式为 `{expression}`。"
+            if isinstance(result, dict) and "error" in result:
+                summary += f"计算出错：{result['error']}。"
+            else:
+                val = result.get("result") if isinstance(result, dict) else result
+                if updates:
+                    updates_str = ", ".join([f"{k}={v}" for k, v in updates.items()])
+                    summary += f"计算结果为 {val}，更新了：{updates_str}。"
+                else:
+                    summary += f"计算结果为 {val}。"
+
+        elif tool_name == "user_input":
+            var = resolved_inputs.get("variable", "")
+            default = resolved_inputs.get("default", "")
+            summary += f"我请求获取输入变量 `{var}`（默认值：{default}）。"
+            val = result.get("result") if isinstance(result, dict) else result
+            summary += f"最终确定的值为 {val}。"
+            
+        else:
+            summary += f"调用了工具 `{tool_name}`，执行完成。"
+            
+        return summary
+
+    def _write_markdown_log(self, step: Step, inputs: Any, result: Any, updates: Dict[str, Any]):
+        """Write step execution details to Markdown file"""
+        if not self.result_md_path:
+            return
+            
+        blackboard_values = self.memory.blackboard
+        step_id = step.id
+        step_name = step.name or step_id
+        tool_name = step.tool
+        description = step.description or ""
+        
+        with open(self.result_md_path, "a", encoding="utf-8") as f:
+            f.write(f"## {step_id}: {step_name}\n\n")
+            
+            # 1. 写入 LLM 小结
+            llm_summary = self._generate_step_summary(step_name, tool_name, inputs, result, updates)
+            f.write(f"**LLM 小结**:\n\n{llm_summary}\n\n")
+            
+            # 2. 写入 Blackboard 更新表格
+            f.write(f"**Blackboard 状态**:\n\n")
+            f.write("| Key | Value | Status |\n")
+            f.write("| --- | --- | --- |\n")
+            
+            # 排序 key，把 updates 放前面
+            all_keys = sorted(blackboard_values.keys())
+            # 将更新的 key 放到列表最前面展示
+            updated_keys = sorted(updates.keys())
+            other_keys = [k for k in all_keys if k not in updates]
+            
+            for k in updated_keys:
+                val = blackboard_values.get(k)
+                f.write(f"| **{k}** | **{val}** | 🟢 Updated |\n")
+            
+            for k in other_keys:
+                val = blackboard_values.get(k)
+                f.write(f"| {k} | {val} | |\n")
+                
+            f.write("\n")
+            
+            # 3. 详细工具日志（折叠）
+            f.write("<details>\n<summary>点击查看工具调用详情</summary>\n\n")
+            f.write(f"**说明**: {description}\n\n")
+            f.write(f"**工具**: `{tool_name}`\n\n")
+            f.write("**输入**:\n")
+            f.write(f"```json\n{json.dumps(inputs, ensure_ascii=False, indent=2)}\n```\n\n")
+            f.write("**输出**:\n")
+            f.write(f"```json\n{json.dumps(result, ensure_ascii=False, indent=2)}\n```\n\n")
+            f.write("</details>\n\n")
+            f.write("---\n\n")
 
     def _smart_select_tool(self, step: Step, current_inputs: Dict[str, Any]) -> Tuple[str, Dict[str, Any]]:
         """
@@ -345,18 +470,21 @@ Example Output:
             return None, {}
 
             
-    def _process_outputs(self, step: Step, result: Any):
+    def _process_outputs(self, step: Step, result: Any) -> Dict[str, Any]:
         # Update global context based on output mapping
+        updates = {}
         if not step.outputs:
-            return
+            return updates
             
         # If outputs is "*" map everything (if result is dict)
         if step.outputs == "*":
             if isinstance(result, dict):
+                updates = result
                 self.memory.update_context(result)
             else:
-                self.memory.update_context({"last_result": result})
-            return
+                updates = {"last_result": result}
+                self.memory.update_context(updates)
+            return updates
             
         for context_key, result_path in step.outputs.items():
             # Simple extraction
@@ -372,10 +500,29 @@ Example Output:
             elif isinstance(result, dict) and result_path in result:
                 val = result[result_path]
             else:
-                val = None # Or keep existing?
+                # Try to treat result_path as a literal constant (e.g. "0.15", "-1", "True")
+                try:
+                    # Check for boolean first
+                    if result_path.lower() == "true":
+                         val = True
+                    elif result_path.lower() == "false":
+                         val = False
+                    else:
+                         # Try float/int
+                         # Remove whitespace
+                         rp = result_path.strip()
+                         val = float(rp)
+                         # Convert to int if it's an integer value and original string didn't look like a float (optional)
+                         if val.is_integer() and '.' not in rp:
+                             val = int(val)
+                except:
+                     val = None
                 
             if val is not None:
+                updates[context_key] = val
                 self.memory.update_context({context_key: val})
+        
+        return updates
                 
     def _record_step(self, step: Step, inputs: Any, outputs: Any, error: str = None):
         record = StepRecord(

@@ -68,13 +68,17 @@ class Memory(BaseModel):
             "chat_context": self.chat_context,
             "step_io": self.step_io,
             "tool_working_memory": self.tool_working_memory,
-            "history": [r.dict() for r in self.history]
+            "history": [r.model_dump() for r in self.history]
         }
         
     def resolve_value(self, value: Any) -> Any:
         """
         解析变量，例如 ${var_name} 或 ${step_id.output_key}
         """
+        if isinstance(value, dict):
+            return {k: self.resolve_value(v) for k, v in value.items()}
+        if isinstance(value, list):
+            return [self.resolve_value(v) for v in value]
         if not isinstance(value, str):
             return value
             

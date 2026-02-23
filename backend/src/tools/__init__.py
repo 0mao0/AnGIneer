@@ -8,5 +8,6 @@ from src.tools.KnowledgeTool import *
 from src.tools.CommonTool import *
 from src.tools.CalculatorTool import *
 from src.tools.GisTool import *
+from src.tools.UserInputTool import *
 
 

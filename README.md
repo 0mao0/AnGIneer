@@ -1,149 +1,121 @@
-# 📦 PicoAgent: 工程师的 AGI 助手
+# 🏗️ AnGIneer: 工程领域的AI工程师
 
-**小模型SLM + 经验库SOPs + 工程工具EngTools + 地理世界GeoWorld ≈ 工程师AGI（过程可控的企业级Agent打工人）**
+**AnGIneer** (AGI + Engineer) 是专为严谨工程领域打造的AI操作Agent系统。它将小型语言模型 (SLM)、标准作业程序 (SOPs)、工程工具链 (EngTools) 与地理信息世界 (GeoWorld) 深度融合，致力于为工程师提供**过程可控、结果精确、具备环境感知能力**的自动化解决方案。
 
----
-
-## 1. 项目愿景 (Vision)
-
-PicoAgent是一个**过程可控的企业级Agent打工人**，专为工程、设计等严谨行业打造。通过结合小型语言模型 (SLM)、标准作业程序 (SOPs) 、工程设计类工具（EngTools）和地理世界 (GeoWorld) 数据，为工程师提供高度确定性的自动化工具，显著提升生产力。
-
-### 核心理念
-- **Human Defines SOP, Agent Executes Tasks** (人定流程，Agent执行)
-- **确定性执行(Deterministic)**: 反“智能涌现”和幻觉，严格遵循企业既定的标准作业程序。
+> *"Human Defines SOP, AnGIneer Executes with Precision."*
 
 ---
 
-## 2. 核心架构 (Architecture)
+## 1. 核心架构 (Architecture)
 
-### 2.1 混合调度架构 (Hybrid Flow)
+AnGIneer 不仅仅是一个 Agent，更是一套连接知识、工具与物理世界的工业级 OS。系统由以下五大核心子系统构成：
 
 ```mermaid
 graph TD
-    User[用户请求] --> Classifier["Intent Classifier (意图分类)"]
+    User[用户/工程师] --> OS[AnGIneer OS Core]
     
-    subgraph "SOP Management (标准作业管理)"
-        direction TB
-        Markdown["SOP Markdown"] -->|Pre-parse| Loader["SOP Loader"]
-        Loader -->|Generate| Repository["SOP Repository (JSON + Index)"]
-        Repository -->|Metadata| Classifier
-    end
-
-    Classifier -->|Route & Init Context| Dispatcher[Dispatcher Agent]
-    
-    subgraph "Hybrid Execution Engine (混合执行引擎)"
-        Dispatcher -->|Read Steps| Repository
-        Dispatcher -->|Update Blackboard| Memory["Memory (Context & History)"]
-        Dispatcher -->|Check| Decision{需要 AI 介入?}
-        
-        Decision -- No (确定性执行) --> ToolExec[直接调用工具]
-        Decision -- Yes (缺参数/有备注) --> LLM[LLM 决策核心]
-        
-        LLM -->|查阅规范| KnowledgeTool["Knowledge Search"]
-        LLM -->|查询数据| TableTool["Table Lookup"]
-        LLM -->|询问用户| UserAsk[询问用户]
+    subgraph "Knowledge Layer (知识层)"
+        Docs["AnGIneer-Docs (文档解析子系统)"]
+        Exp["AnGIneer-SOP (流程编排子系统)"]
     end
     
-    ToolExec --> Result[执行结果]
-    KnowledgeTool --> Result
-    TableTool --> Result
-    Result -->|Update| Memory
-    Result -->|Next Step| Dispatcher
-    Result --> Final[输出给用户]
+    subgraph "Execution Layer (执行层)"
+        Dispatcher["Core Dispatcher (中央调度器)"]
+        Tools["AnGIneer-Tools (工程工具箱)"]
+    end
+    
+    subgraph "World Layer (世界层)"
+        Geo["AnGIneer-Geo (地理世界子系统)"]
+    end
+    
+    subgraph "Delivery Layer (交付层)"
+        Report["AnGIneer-Report (报告生成子系统)"]
+    end
+
+    OS --> Dispatcher
+    Dispatcher -->|Query| Docs
+    Dispatcher -->|Execute| Exp
+    Dispatcher -->|Call| Tools
+    Dispatcher -->|Perceive| Geo
+    Dispatcher -->|Generate| Report
 ```
 
-### 2.2 核心模块说明
+### 1.1 子系统矩阵 (Subsystem Matrix)
 
-- **[classifier.py](/AI/PicoAgent/backend/src/agents/classifier.py)**: 意图分类器。负责识别用户意图并匹配最合适的 SOP。
-- **[dispatcher.py](/AI/PicoAgent/backend/src/agents/dispatcher.py)**: 核心调度引擎。根据 SOP 步骤控制执行流，决定是直接运行工具还是调用 LLM。
-- **[sop_loader.py](/AI/PicoAgent/backend/src/core/sop_loader.py)**: 智能加载器。将 Markdown 格式的 SOP 转换为结构化步骤，并提取 blackboard 的参数清单。
-- [llm.py](/AI/PicoAgent/backend/src/core/llm.py): LLM 客户端封装。集成主流AI模型，支持多模型切换和双语处理。
-- [memory.py](/AI/PicoAgent/backend/src/core/memory.py): 上下文与记忆管理。包含 blackboard（任务态变量）、history（步骤历史）、step_io（单步输入输出）、tool_working_memory（工具级临时数据）、chat_context（对话上下文快照，仅写入用户输入）。
-
----
-
-## 3. 功能亮点 (Features)
-
-1.  **SOP确定性执行**: 自然语言描述的主观经验库，确保强执行力。
-2.  **SLM低耗小模型**: 仅需5B以下的小模型即可。
-3.  **地理世界模型**: 提供面向三维世界的交互模型。
-4.  **工程类工具集成**: 集成常用工具，如表格查询、计算器、GIS 断面计算等。
+| 子系统 | 代号 | 核心职责 | 独立性 |
+| :--- | :--- | :--- | :--- |
+| **AnGIneer-SOP** | `Process Core` | **流程大脑**。负责 SOP 的 Markdown 定义、JSON 解析、流程可视化编辑与状态管理。 | ⭐⭐⭐ |
+| **AnGIneer-Tools** | `Skill Core` | **专业工具**。提供高精度的工程计算器、查表工具、专业公式库及仿真接口。 | ⭐⭐ |
+| **AnGIneer-Docs** | `Knowledge Core` | **行业记忆**。基于 RAG 的规范解析系统，支持 PDF/Word 深度解析、图表语义提取与经验库构建。 | ⭐⭐⭐⭐ |
+| **AnGIneer-Geo** | `Spatial Core` | **世界底座**。集成 GIS 数据、水文气象信息，提供三维空间运算与数字孪生环境。 | ⭐⭐⭐⭐ |
+| **AnGIneer-Report** | `Delivery Core` | **交付终端**。基于计算结果与三维场景，自动生成排版精美的 Word/PDF 工程报告。 | ⭐⭐⭐ |
 
 ---
 
-## 4. 开发路线图 (Roadmap)
+## 2. 核心理念 (Philosophy)
 
-### 短期目标 (v0.1)-后端逻辑
-- [ ] *4B模型+SOP执行**: 能做注册考试题。
-- [ ] *通用tool制作**: 工具库，如计算器、表格查询等。
-- [✅] *多模型选择**: 包括Qwen4B\7B\A3B、DeepseekV3.2、GLM4.7Flash等
-- [✅] *执行日志可视化**: 实时追踪Agent决策链路。
-- [✅] *可视化测试html**: 可视化后端执行流程
-
-### 短期目标 (v0.2)-前端框架
-- [ ] **Web可视化**: 基于Vue3+Antd实现前端交互。预留GeoWorld区域。
-- [ ] **图形化SOP编辑器**: 拖拽式流程设计。
-- [ ] **多源知识库**: 支持 PDF/Word 解析、形成有效的数据源
-- [ ] **经验库引用**: 经验库克引用知识库数据。
-
-
-### 短期目标 (v0.3)-世界模型
-- [ ] *疏浚世界模型**: 实现GeoWorld，4B模型可查询地理、地质等信息
-
-### 短期目标 (v0.4)-三维计算
-- [ ] *方案设计**: 联合形成完成的三维数字孪生方案，含工程量计算、图纸生成
-
-### 短期目标 (v0.5)-报告生成
-- [ ] *报告编写**: 根据三维方案生成相应的报告
-
-### 长期愿景 (v0.5+)
-- [ ] **自动 SOP 生成**: 根据历史成功案例自动提炼作业程序。
-- [ ] **行业生态建设**: 覆盖航道设计、水利、土木等更多垂直领域。
+- **确定性优先 (Deterministic First)**: 在工程领域，"准确"优于"创造"。AnGIneer 通过严格遵循 SOP，杜绝 LLM 的幻觉风险。
+- **混合智能 (Hybrid Intelligence)**: **Code** 负责严谨逻辑与计算，**LLM** 负责意图理解、非结构化数据解析与人机交互。
+- **环境感知 (Context Aware)**: 打通数字世界与物理世界（GeoWorld），让计算不再是真空中的数学题，而是基于真实地理环境的工程决策。
 
 ---
 
-## 5. 项目结构 (Project Structure)
+## 3. 开发路线图 (Roadmap)
 
-```text
-PicoAgent/
-├── backend/                # 后端核心
-│   ├── src/
-│   │   ├── agents/         # classifier.py, dispatcher.py
-│   │   ├── core/           # llm.py, memory.py, sop_loader.py
-│   │   └── tools/          # base.py, general_tools.py, gis_tools.py
-│   ├── sops/               # SOP 文档库 (*.md)
-│   └── knowledge/          # 行业规范与知识库
-├── tests/                  # 测试用例
-├── .env                    # 环境配置 (LLM API Key)
-└── README.md               # 本文档
-```
+### 阶段一：内核构建 (OS Kernel) - v0.1
+*目标：构建 AnGIneer OS 的核心调度引擎 (Dispatcher)，跑通最小闭环。*
+- [✅] **多模型支持**: 集成 Qwen3-4B, Qwen2.5-7B, GLM-Flash 等主流小参数SLM。
+- [✅] **混合调度器**: 实现 `Dispatcher.py`，支持 Tool/LLM 动态切换。
+- [✅] **执行可视化**: 生成 `Result.md`，实时透视决策链路。
+- [ ] **SOP 标准化**: 定义 AnGIneer-SOP 的 Markdown/JSON 协议规范。
+
+### 阶段二：知识与视觉 (Docs & Vision) - v0.2
+*目标：启动 `AnGIneer-Docs` 子系统，解决"数据源"问题。*
+- [ ] **深度文档解析**: 开发 PDF 解析器，精准提取规范条文与表格。
+- [ ] **图表语义化**: 让 AI "读懂" 工程图表（曲线图、设计图）。
+- [ ] **经验库构建**: 建立基于向量检索的历史案例库。
+
+### 阶段三：交互与编排 (Interaction) - v0.3
+*目标：启动 `AnGIneer-SOP` 前端，提供可视化的作业环境。*
+- [ ] **Web 控制台**: 基于 Vue3 + Antd 的任务管理界面。
+- [ ] **流程编辑器**: 拖拽式 SOP 设计器，降低规则制定门槛。
+- [ ] **人机协作 (HITL)**: 支持暂停、断点调试与人工参数修正。
+
+### 阶段四：世界模型 (Geo World) - v0.4
+*目标：启动 `AnGIneer-Geo` 子系统，接入三维地理数据。*
+- [ ] **GeoWorld 引擎**: 集成 GIS/BIM 数据，构建数字孪生底座。
+- [ ] **环境 API**: 提供 `get_terrain()`, `get_hydrology()` 等标准接口。
+- [ ] **空间计算**: 实现断面分析、土方计算等三维算法。
+
+### 阶段五：闭环交付 (Delivery) - v0.5+
+*目标：启动 `AnGIneer-Report` 子系统，实现全自动交付。*
+- [ ] **智能报告**: 自动生成含计算书、图纸、三维截图的完整报告。
+- [ ] **行业扩展**: 从航道工程扩展至水利、交通、土木等领域。
 
 ---
 
-## 6. 快速开始 (Quick Start)
+## 4. 快速开始 (Quick Start)
 
-1.  **配置环境**: 在 `.env` 中设置 `API_KEY`。
-2.  **加载 SOP**:
+1.  **环境配置**:
+    ```bash
+    git clone https://github.com/YourOrg/AnGIneer.git
+    cd AnGIneer
+    pip install -r requirements.txt
+    ```
+2.  **配置密钥**: 在 `.env` 中设置 `LLM_API_KEY`。
+3.  **运行示例**:
     ```python
-    from src.core.sop_loader import SopLoader
+    from backend.src.core.sop_loader import SopLoader
+    from backend.src.agents.dispatcher import Dispatcher
+
+    # 加载 SOP
     loader = SopLoader("backend/sops")
     sops = loader.load_all()
-    ```
-3.  **执行意图**:
-    ```python
-    from src.agents.classifier import IntentClassifier
-    from src.agents.dispatcher import Dispatcher
-    
-    # 1. 识别意图
-    classifier = IntentClassifier(sops)
-    sop, args, reason = classifier.route("我想计算断面工程量")
-    
-    # 2. 调度执行
+
+    # 执行任务
     dispatcher = Dispatcher()
-    initial_context = {"user_query": "我想计算断面工程量"}
-    initial_context.update(args or {})
-    result = dispatcher.run(sop, initial_context)
+    result = dispatcher.run(sops[0], {"user_query": "计算设计船型参数"})
     ```
 
 ---
-*PicoAgent - 让 AI 成为最靠谱的工程助手。*
+*AnGIneer - Re-engineering the Future of Engineering.*

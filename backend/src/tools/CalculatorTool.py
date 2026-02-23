@@ -111,6 +111,8 @@ class Calculator(BaseTool):
         # 去除首尾空白
         expr = expression.strip()
 
+        expr = re.sub(r"\$\{([^}]+)\}", r"\1", expr)
+
         # 处理工程表示法中的上标（如 m² → m2, m³ → m3）
         expr = expr.replace("²", "**2").replace("³", "**3")
 

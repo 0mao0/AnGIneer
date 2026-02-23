@@ -189,7 +189,7 @@ class LLMClient:
                     model=current_model,
                     messages=processed_messages,
                     temperature=temperature,
-                    max_tokens=1024,
+                    max_tokens=16384,
                     extra_body=extra_body if extra_body else None
                 )
                 

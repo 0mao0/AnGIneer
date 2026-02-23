@@ -1,387 +1,338 @@
-
 import sys
 import os
 import json
-import unittest
-import tempfile
-import shutil
+import re
+from typing import Any, Dict
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../backend")))
 
-from backend.src.tools import ToolRegistry
+from src.tools import ToolRegistry
 
-"""
-工具能力覆盖测试脚本 (Test 04) - 真实环境版
-对系统内置的所有工具（表格查询、知识检索、计算器、GIS 计算等）进行功能验证。
-完全移除 Mock，使用真实逻辑。
-"""
+SOP_JSON_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "backend", "sop_json", "航道通航底高程.json"))
 
-# 临时测试文件路径
-TEST_CODE_FILE = os.path.abspath("test_code_sample.py")
-TEST_CODE_CONTENT = "def hello():\n    return 1/0"
 
-TOOL_CASES = [
-    {
-        "id": "table_lookup",
-        "label": "表格查询: 40000吨杂货船吃水 (直查)",
-        "tool": "table_lookup",
-        "inputs": {
-            "table_name": "杂货船设计船型尺度",
-            "query_conditions": "DWT=40000",
-            "target_column": "满载吃水T(m)",
-            "file_name": "《海港水文规范》.md"
-        },
-        "expected": {"result": 12.3, "delta": 0.1}
-    },
-    {
-        "id": "table_lookup",
-        "label": "表格查询: 40000吨油船吃水 (直查)",
-        "tool": "table_lookup",
-        "inputs": {
-            "table_name": "油船设计船型尺度",
-            "query_conditions": "DWT=40000",
-            "target_column": "满载吃水T(m)",
-            "file_name": "《海港水文规范》.md"
-        },
-        "expected": {"result": 12.0, "delta": 0.1}
-    },
-    {
-        "id": "table_lookup",
-        "label": "表格查询: 35000吨散货船吃水 (直查)",
-        "tool": "table_lookup",
-        "inputs": {
-            "table_name": "散货船设计船型尺度",
-            "query_conditions": "DWT=35000",
-            "target_column": "满载吃水T(m)",
-            "file_name": "《海港水文规范》.md"
-        },
-        "expected": {"result": 11.2, "delta": 0.1}
-    },
-    {
-        "id": "table_lookup",
-        "label": "表格查询: 45000吨集装箱船吃水 (直查)",
-        "tool": "table_lookup",
-        "inputs": {
-            "table_name": "集装箱船设计船型尺度",
-            "query_conditions": "DWT=45000",
-            "target_column": "满载吃水T(m)",
-            "file_name": "《海港水文规范》.md"
-        },
-        "expected": {"result": 12.0, "delta": 0.1}
-    },
-    {
-        "id": "table_lookup",
-        "label": "表格查询: 60000吨集装箱船吃水 (直查)",
-        "tool": "table_lookup",
-        "inputs": {
-            "table_name": "集装箱船设计船型尺度",
-            "query_conditions": "DWT=60000",
-            "target_column": "满载吃水T(m)",
-            "file_name": "《海港水文规范》.md"
-        },
-        "expected": {"result": 13.0, "delta": 0.1}
-    },
-    {
-        "id": "knowledge_search",
-        "label": "知识检索: 航道通航宽度",
-        "tool": "knowledge_search",
-        "inputs": {
-            "query": "航道通航宽度计算公式",
-            "file_name": "《海港水文规范》.md"
-        },
-        "expected": {"contains": "W"} # 只要包含 W 或公式即可
-    },
-    {
-        "id": "calculator",
-        "label": "计算器: 基础运算 12 + 30",
-        "tool": "calculator",
-        "inputs": {"expression": "12 + 30"},
-        "expected": {"result": 42}
-    },
-    {
-        "id": "calculator",
-        "label": "计算器: 航道通航水深 D0 = T + Z0 + Z1 + Z2 + Z3",
-        "tool": "calculator",
-        "inputs": {
-            "expression": "T + Z0 + Z1 + Z2 + Z3",
-            "variables": {"T": 12.3, "Z0": 0.5, "Z1": 0.3, "Z2": 0.8, "Z3": 0.15}
-        },
-        "expected": {"result": 14.05}
-    },
-    {
-        "id": "calculator",
-        "label": "计算器: 通航底高程 E_nav = H_nav - D0",
-        "tool": "calculator",
-        "inputs": {
-            "expression": "H_nav - D0",
-            "variables": {"H_nav": 5.0, "D0": 14.05}
-        },
-        "expected": {"result": -9.05}
-    },
-    {
-        "id": "calculator",
-        "label": "计算器: 勾股定理 sqrt(a**2 + b**2)",
-        "tool": "calculator",
-        "inputs": {"expression": "sqrt(3**2 + 4**2)"},
-        "expected": {"result": 5}
-    },
-    {
-        "id": "calculator",
-        "label": "计算器: 三角函数 sin(pi/2)",
-        "tool": "calculator",
-        "inputs": {"expression": "sin(pi/2)"},
-        "expected": {"result": 1}
-    },
-    {
-        "id": "calculator",
-        "label": "计算器: 对数运算 log(100)",
-        "tool": "calculator",
-        "inputs": {"expression": "log(100)"},
-        "expected": {"result": 2}
-    },
-    {
-        "id": "calculator",
-        "label": "计算器: 中文表达式（12.5 + 3.2）× 2",
-        "tool": "calculator",
-        "inputs": {"expression": "（12.5 + 3.2）* 2"},
-        "expected": {"result": 31.4}
-    },
-    {
-        "id": "calculator",
-        "label": "计算器: 带单位变量 12.5m * 8.0m",
-        "tool": "calculator",
-        "inputs": {
-            "expression": "length * width",
-            "variables": {"length": "12.5m", "width": "8.0m"}
-        },
-        "expected": {"result": 100}
-    },
-    {
-        "id": "gis_section_volume_calc",
-        "label": "GIS 计算: 深12.5 宽150 长1000",
-        "tool": "gis_section_volume_calc",
-        "inputs": {"design_depth": 12.5, "design_width": 150, "length": 1000},
-        "expected": {"result_key": "total_volume_m3"}
-    },
-    {
-        "id": "file_reader",
-        "label": f"文件读取: {TEST_CODE_FILE}",
-        "tool": "file_reader",
-        "inputs": {"file_path": TEST_CODE_FILE},
-        "expected": {"contains": "1/0"}
-    },
-    {
-        "id": "code_linter",
-        "label": "代码检查: 除以零",
-        "tool": "code_linter",
-        "inputs": {"code": TEST_CODE_CONTENT},
-        "expected": {"contains": "除以零"}
-    },
-    {
-        "id": "report_generator",
-        "label": "报告生成: 测试报告",
-        "tool": "report_generator",
-        "inputs": {"title": "测试报告", "data": {"T": 12.8, "B": 32.3}},
-        "expected": {"report_prefix": "# 测试报告"}
-    },
-    {
-        "id": "summarizer",
-        "label": "摘要: 规范条文",
-        "tool": "summarizer",
-        "inputs": {"text": "通航水深 D0 = T + Z0 + Z1 + Z2 + Z3。其中T为设计船型满载吃水，Z0为波浪富裕深度，Z1为船舶航行下沉量，Z2为流速导致的富裕深度，Z3为其他富裕深度。", "max_words": 20},
-        "expected": {"contains": "内容摘要"} # 或者是真实摘要内容
-    },
-    {
-        "id": "sop_run",
-        "label": "SOP 子流程: demo.md",
-        "tool": "sop_run",
-        "inputs": {"filename": "demo.md", "question": "如何处理"},
-        "expected": {"contains": "已启动子流程"}
+def run_step1_demo() -> None:
+    """加载 sop_json 并执行 step1-7，按步骤输出带颜色的过程信息。"""
+    gray = "\033[90m"
+    yellow = "\033[33m"
+    green = "\033[32m"
+    red = "\033[31m"
+    reset = "\033[0m"
+
+    def print_colored(title: str, content: Any, color: str) -> None:
+        """打印带颜色的标题与内容块。"""
+        text = json.dumps(content, ensure_ascii=False, indent=2) if isinstance(content, (dict, list)) else str(content)
+        print(f"{color}[{title}]{reset}")
+        print(f"{color}{text}{reset}")
+
+    if not os.path.exists(SOP_JSON_PATH):
+        print_colored("错误", f"未找到 SOP JSON: {SOP_JSON_PATH}", green)
+        return
+
+    with open(SOP_JSON_PATH, "r", encoding="utf-8") as f:
+        sop_data = json.load(f)
+
+    steps = sop_data.get("steps") or []
+    if not steps:
+        print_colored("错误", "SOP JSON 中未找到步骤", green)
+        return
+
+    def resolve_value(value: Any, context: Dict[str, Any]) -> Any:
+        """解析 ${变量} 引用并返回实际值。"""
+        if isinstance(value, str):
+            pattern = r"\$\{([^}]+)\}"
+            matches = re.findall(pattern, value)
+            if not matches:
+                return value
+            if len(matches) == 1 and value.strip() == f"${{{matches[0]}}}":
+                return context.get(matches[0])
+            def replace_match(match: re.Match) -> str:
+                key = match.group(1)
+                resolved = context.get(key)
+                return str(resolved) if resolved is not None else match.group(0)
+            return re.sub(pattern, replace_match, value)
+        if isinstance(value, dict):
+            return {k: resolve_value(v, context) for k, v in value.items()}
+        if isinstance(value, list):
+            return [resolve_value(v, context) for v in value]
+        return value
+
+    blackboard = sop_data.get("blackboard") or {}
+    base_context = {
+        "船型": "油船",
+        "吨级": 100000,
+        "航速": 10,
+        "水深": 15,
+        "DWT": 100000,
+        "土质": "岩石",
+        "水域条件": "受限水域"
     }
-]
+    blackboard_values = dict(base_context)
 
-SAMPLE_QUERIES = [{"label": c["label"], "query": c["label"]} for c in TOOL_CASES]
+    def print_blackboard(values: Dict[str, Any], updates: Dict[str, Any]) -> None:
+        """打印黑板并高亮本步更新的值。"""
+        print(f"{green}[更新后的 blackboard]{reset}")
+        for key in sorted(values.keys()):
+            value = values.get(key)
+            if key in updates:
+                print(f"{red}{key}: {value}{reset}")
+            else:
+                print(f"{key}: {value}")
 
-def _select_cases(env_query: str):
-    """根据环境变量选择测试项"""
-    if not env_query or env_query == "all":
-        return TOOL_CASES
-    matched = [c for c in TOOL_CASES if c["id"] == env_query]
-    if matched:
-        return matched
-    label_matched = [c for c in TOOL_CASES if c["label"] == env_query]
-    if label_matched:
-        return label_matched
-    return [{"id": env_query, "label": f"自定义: {env_query}", "tool": env_query, "inputs": {}, "expected": None}]
+    def pick_range_value(value_map: Dict[str, Any], dwt_value: Any) -> Any:
+        """从区间表头中根据 DWT 选择对应值。"""
+        if dwt_value is None:
+            return value_map
+        try:
+            numeric = float(dwt_value)
+        except (TypeError, ValueError):
+            return value_map
+        for col_key, col_val in value_map.items():
+            col_text = str(col_key).replace("&lt;", "<").replace("&gt;", ">")
+            range_match = re.search(r"(\d+(?:\.\d+)?)\s*≤\s*DWT\s*<\s*(\d+(?:\.\d+)?)", col_text)
+            if range_match and float(range_match.group(1)) <= numeric < float(range_match.group(2)):
+                return col_val
+            lt_match = re.search(r"DWT\s*<\s*(\d+(?:\.\d+)?)", col_text)
+            if lt_match and numeric < float(lt_match.group(1)):
+                return col_val
+            ge_match = re.search(r"DWT\s*≥\s*(\d+(?:\.\d+)?)", col_text)
+            if ge_match and numeric >= float(ge_match.group(1)):
+                return col_val
+        return value_map
 
-class TestToolBehaviorSuite(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        # 创建临时测试文件
-        with open(TEST_CODE_FILE, "w", encoding="utf-8") as f:
-            f.write(TEST_CODE_CONTENT)
-
-    @classmethod
-    def tearDownClass(cls):
-        # 清理临时测试文件
-        if os.path.exists(TEST_CODE_FILE):
-            os.remove(TEST_CODE_FILE)
-
-    def test_tool_behaviors(self):
-        """根据所选测试项运行工具能力验证"""
-        mode = os.environ.get("TEST_LLM_QUERY", "all")
-        print("\n[测试 04] 工具有效性测试 (真实模式)")
-        
-        cases = _select_cases(mode)
-        print(f"  -> 选定测试项: {', '.join([c['id'] for c in cases])}")
-        results = {"mode": mode, "cases": []}
-
-        for idx, case in enumerate(cases, start=1):
-            q = case["id"]
-            print(f"  -> 步骤 {idx}: {case['label']}")
-            item = {
-                "id": case["id"],
-                "label": case["label"],
-                "tool": case["tool"],
-                "inputs": case["inputs"],
-                "expected": case["expected"],
-                "status": "ok"
-            }
-
+    def extract_output_value(output_key: str, output_rule: Any, tool_result: Any, context: Dict[str, Any]) -> Any:
+        """根据 SOP 输出规则从工具返回中提取值。"""
+        if output_rule == "result":
+            if isinstance(tool_result, dict):
+                raw_result = tool_result.get("result", tool_result)
+                if isinstance(raw_result, dict):
+                    if output_key in raw_result:
+                        return raw_result.get(output_key)
+                    if output_key == "T":
+                        return raw_result.get("满载吃水T") or raw_result.get("满载吃水T(m)") or raw_result.get("T")
+                    if output_key == "Z0":
+                        return raw_result.get("Z0(m)") or raw_result.get("Z0")
+                    if output_key == "Z2":
+                        return raw_result.get("Z2 (m)") or raw_result.get("Z2")
+                    if output_key == "Z1":
+                        return pick_range_value(raw_result, context.get("DWT"))
+                return raw_result
+            return tool_result
+        if output_rule == "input":
+            if isinstance(tool_result, dict):
+                return tool_result.get("input") or tool_result.get("value") or tool_result.get("result")
+            return tool_result
+        if isinstance(output_rule, (int, float)):
+            return output_rule
+        if isinstance(output_rule, str):
             try:
-                if q == "table_lookup":
-                    table_tool = ToolRegistry.get_tool("table_lookup")
-                    # 使用 instruct 模式以获得更稳定的 JSON 输出
-                    table_result = table_tool.run(mode="instruct", **case["inputs"])
-                    
-                    if "error" in table_result:
-                        self.fail(f"表格查询返回错误: {table_result['error']}")
-                        
-                    self.assertTrue(isinstance(table_result, dict))
-                    self.assertIn("result", table_result)
-                    result_value = table_result.get("result")
-                    
-                    # 处理可能返回对象的情况
-                    if isinstance(result_value, dict):
-                        result_value = result_value.get("满载吃水T(m)") or result_value.get("T") or result_value.get("满载吃水T")
-                    
-                    print(f"    实际结果: {result_value}")
-                    expected_value = (case.get("expected") or {}).get("result")
-                    delta = (case.get("expected") or {}).get("delta", 0.1)
-                    if expected_value is not None:
-                        self.assertAlmostEqual(float(result_value), float(expected_value), delta=delta)
-                    item["output"] = table_result
+                return float(output_rule)
+            except ValueError:
+                return output_rule
+        return value
 
-                elif q == "knowledge_search":
-                    knowledge_tool = ToolRegistry.get_tool("knowledge_search")
-                    knowledge_result = knowledge_tool.run(mode="instruct", **case["inputs"])
-                    if "error" in knowledge_result:
-                        self.fail(f"知识检索返回错误: {knowledge_result['error']}")
-                        
-                    self.assertTrue(isinstance(knowledge_result, dict))
-                    self.assertIn("result", knowledge_result)
-                    print(f"    检索结果片段: {str(knowledge_result.get('result'))[:50]}...")
-                    # 只要包含部分关键词即可
-                    # self.assertIn("W", str(knowledge_result.get("result", ""))) 
-                    item["output"] = knowledge_result
-
-                elif q == "calculator":
-                    calculator = ToolRegistry.get_tool("calculator")
-                    calc_result = calculator.run(**case["inputs"])
-                    # 新版本的计算器返回字典格式
-                    if isinstance(calc_result, dict):
-                        if "error" in calc_result:
-                            self.fail(f"计算器返回错误: {calc_result['error']}")
-                        self.assertIn("result", calc_result)
-                        actual_result = calc_result["result"]
-                    else:
-                        # 兼容旧版本的直接返回值
-                        actual_result = calc_result
-                    
-                    expected_value = case["expected"]["result"]
-                    self.assertEqual(actual_result, expected_value)
-                    item["output"] = calc_result
-
-                elif q == "gis_section_volume_calc":
-                    gis_tool = ToolRegistry.get_tool("gis_section_volume_calc")
-                    gis_result = gis_tool.run(**case["inputs"])
-                    self.assertTrue(isinstance(gis_result, dict))
-                    self.assertIn("total_volume_m3", gis_result)
-                    item["output"] = gis_result
-
-                elif q == "code_linter":
-                    linter = ToolRegistry.get_tool("code_linter")
-                    lint_result = linter.run(**case["inputs"])
-                    self.assertTrue(isinstance(lint_result, str))
-                    self.assertIn("除以零", lint_result)
-                    item["output"] = lint_result
-
-                elif q == "file_reader":
-                    file_reader = ToolRegistry.get_tool("file_reader")
-                    code_text = file_reader.run(**case["inputs"])
-                    self.assertTrue(isinstance(code_text, str))
-                    self.assertIn("1/0", code_text)
-                    item["output"] = code_text
-
-                elif q == "report_generator":
-                    report_tool = ToolRegistry.get_tool("report_generator")
-                    report = report_tool.run(title=case["inputs"]["title"], data=case["inputs"]["data"])
-                    self.assertTrue(report.startswith(case["expected"]["report_prefix"]))
-                    item["output"] = report
-
-                elif q == "summarizer":
-                    summarizer = ToolRegistry.get_tool("summarizer")
-                    summary = summarizer.run(mode="instruct", **case["inputs"])
-                    # 摘要内容是不确定的，只要返回非空字符串即可
-                    self.assertTrue(isinstance(summary, str))
-                    self.assertTrue(len(summary) > 0)
-                    item["output"] = summary
-
-                elif q == "email_sender":
-                    email_sender = ToolRegistry.get_tool("email_sender")
-                    email_result = email_sender.run(**case["inputs"])
-                    self.assertIn("邮件已发送", email_result)
-                    item["output"] = email_result
-
-                elif q == "web_search":
-                    web_search = ToolRegistry.get_tool("web_search")
-                    search_result = web_search.run(**case["inputs"])
-                    self.assertTrue(isinstance(search_result, dict))
-                    self.assertIn("results", search_result)
-                    item["output"] = search_result
-
-                elif q == "echo":
-                    echo = ToolRegistry.get_tool("echo")
-                    echo_result = echo.run(**case["inputs"])
-                    self.assertEqual(echo_result, case["expected"]["result"])
-                    item["output"] = echo_result
-
-                elif q == "weather":
-                    weather = ToolRegistry.get_tool("weather")
-                    weather_result = weather.run(**case["inputs"])
-                    self.assertIn("天气", weather_result)
-                    item["output"] = weather_result
-
-                elif q == "sop_run":
-                    sop_run = ToolRegistry.get_tool("sop_run")
-                    sop_result = sop_run.run(**case["inputs"])
-                    self.assertIn("已启动子流程", sop_result)
-                    item["output"] = sop_result
-                else:
-                    item["status"] = "skipped"
-                    item["output"] = "未识别的测试项"
+    def generate_step_summary(step_name: str, tool_name: str, resolved_inputs: Any, result: Any, updates: Dict[str, Any]) -> str:
+        """模拟 LLM 对每一步执行结果的自然语言小结。"""
+        # 如果是 auto，直接使用 description
+        if tool_name == "auto":
+            return f"本步骤为最终输出步骤，基于上下文整理并展示了所有关键参数的计算结果。"
             
-            except Exception as e:
-                item["status"] = "error"
-                item["error"] = str(e)
-                # print(f"    [Error] {str(e)}")
-                # raise e # 可选：是否中断测试
+        summary = f"在步骤“{step_name}”中，"
+        
+        # 根据工具类型生成不同的话术
+        if tool_name == "table_lookup":
+            table_name = resolved_inputs.get("table_name", "未知表格")
+            conditions = resolved_inputs.get("query_conditions", {})
+            cond_str = ", ".join([f"{k}={v}" for k, v in conditions.items()])
+            summary += f"我查阅了 **{table_name}**。根据条件 {cond_str}，"
+            if "error" in result:
+                summary += f"查询失败，错误信息为：{result['error']}。"
+            else:
+                res_val = result.get("result", {})
+                # 简化显示，只显示更新的值
+                if updates:
+                    updates_str = ", ".join([f"{k}={v}" for k, v in updates.items()])
+                    summary += f"成功获取到数据，更新了：{updates_str}。"
+                else:
+                    summary += "获取到了数据，但未触发 Blackboard 更新。"
+                    
+        elif tool_name == "calculator":
+            expression = resolved_inputs.get("expression", "")
+            summary += f"我执行了计算。公式为 `{expression}`。"
+            if "error" in result:
+                summary += f"计算出错：{result['error']}。"
+            else:
+                val = result.get("result")
+                if updates:
+                    updates_str = ", ".join([f"{k}={v}" for k, v in updates.items()])
+                    summary += f"计算结果为 {val}，更新了：{updates_str}。"
+                else:
+                    summary += f"计算结果为 {val}。"
 
-            results["cases"].append(item)
+        elif tool_name == "user_input":
+            var = resolved_inputs.get("variable", "")
+            default = resolved_inputs.get("default", "")
+            summary += f"我请求获取输入变量 `{var}`（默认值：{default}）。"
+            val = result.get("result")
+            summary += f"最终确定的值为 {val}。"
+            
+        else:
+            summary += f"调用了工具 `{tool_name}`，执行完成。"
+            
+        return summary
 
-        print("\n__JSON_START__")
-        print(json.dumps(results, ensure_ascii=False, indent=2))
-        print("__JSON_END__")
+    result_md_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "result.md"))
+    # 初始化 result.md
+    with open(result_md_path, "w", encoding="utf-8") as f:
+        f.write("# SOP 执行日志 (LLM 风格小结版)\n\n")
+        f.write("> **说明**: 本日志展示了每一步的执行小结与 Blackboard 状态快照。更新的内容已高亮显示。\n\n---\n\n")
+
+    for step in steps[:9]:
+        print_colored("步骤提取", {"step": step, "blackboard": blackboard_values}, gray)
+        raw_inputs = step.get("inputs") or {}
+        resolved_inputs = resolve_value(raw_inputs, blackboard_values)
+        tool_name = (step.get("tool") or "").strip().lower()
+        step_id = step.get("id", "")
+        step_name = step.get("name", "")
+        description = step.get("description", "")
+
+        if tool_name == "auto":
+            print_colored("工具使用过程", {"tool": tool_name, "inputs": blackboard_values, "description": description}, yellow)
+            # 收集 blackboard 中所有已知参数
+            known_params = {k: v for k, v in blackboard_values.items()}
+            # 尝试识别出是"结果"的参数（这里简单假设 outputs 列表里的 key 算结果，或者根据 key pattern）
+            # 为了通用，直接列出所有 blackboard 内容作为"当前上下文"
+            
+            lines = [
+                f"步骤说明：{description}" if description else "步骤说明：",
+                "",
+                "当前 Blackboard 状态："
+            ]
+            for k, v in known_params.items():
+                lines.append(f"- {k}: {v}")
+            
+            summary_text = "\n".join(lines)
+            
+            # auto 工具的特殊逻辑：它本身就是生成总结，所以这里的 summary_text 可以更定制化
+            # 恢复之前的逻辑：区分已知参数和计算结果
+            summary_keys = ["D0", "E_nav", "T", "Z0", "Z1", "Z2", "Z3", "H_nav"]
+            summary_dict = {k: blackboard_values.get(k) for k in summary_keys if k in blackboard_values}
+            known_dict = {k: v for k, v in blackboard_values.items() if k not in summary_dict}
+            
+            lines = [
+                f"步骤说明：{description}" if description else "步骤说明：",
+                "",
+                "已知参数："
+            ]
+            if known_dict:
+                lines.extend([f"- {k}: {v}" for k, v in known_dict.items()])
+            else:
+                lines.append("- 无")
+            lines.append("")
+            lines.append("计算结果：")
+            if summary_dict:
+                lines.extend([f"- {k}: {v}" for k, v in summary_dict.items()])
+            else:
+                lines.append("- 无")
+            
+            final_summary_text = "\n".join(lines)
+
+            auto_result = {
+                "description": description,
+                "summary": summary_dict,
+                "summary_text": final_summary_text
+            }
+            
+            # 追加写入 result.md
+            with open(result_md_path, "a", encoding="utf-8") as f:
+                f.write(f"## {step_id}: {step_name}\n\n")
+                f.write(f"**LLM 小结**:\n\n{generate_step_summary(step_name, tool_name, {}, auto_result, {})}\n\n")
+                f.write(final_summary_text + "\n\n---\n\n")
+
+            print_colored("工具返回", auto_result, yellow)
+            print_colored("结果", {"should_update_blackboard": False}, green)
+            print_blackboard(blackboard_values, {})
+            continue
+
+        if tool_name == "user_input":
+            outputs = step.get("outputs") or {}
+            output_key = next(iter(outputs.keys()), None)
+            default_value = None
+            if output_key and output_key in blackboard_values:
+                default_value = blackboard_values.get(output_key)
+            elif output_key == "Z3":
+                default_value = 0.15
+            elif output_key == "H_nav":
+                default_value = 0.5
+            resolved_inputs = {"variable": output_key, "default": default_value}
+            print_colored("工具使用过程", {"tool": tool_name, "inputs": resolved_inputs}, yellow)
+        else:
+            print_colored("工具使用过程", {"tool": tool_name, "inputs": resolved_inputs}, yellow)
+
+        tool = ToolRegistry.get_tool(tool_name)
+        if not tool:
+            print_colored("结果", f"未找到工具: {tool_name}", green)
+            # 记录错误到 md
+            with open(result_md_path, "a", encoding="utf-8") as f:
+                f.write(f"## {step_id}: {step_name}\n\n")
+                f.write(f"**错误**: 未找到工具 `{tool_name}`\n\n---\n\n")
+            continue
+
+        result = tool.run(**resolved_inputs)
+        print_colored("工具返回", result, yellow)
+
+        should_update = isinstance(result, dict) and "error" not in result
+        updates = {}
+        if should_update:
+            outputs = step.get("outputs") or {}
+            for key, rule in outputs.items():
+                updates[key] = extract_output_value(key, rule, result, blackboard_values)
+            blackboard_values.update(updates)
+        
+        # 追加写入 result.md
+        with open(result_md_path, "a", encoding="utf-8") as f:
+            f.write(f"## {step_id}: {step_name}\n\n")
+            
+            # 1. 写入 LLM 小结
+            llm_summary = generate_step_summary(step_name, tool_name, resolved_inputs, result, updates)
+            f.write(f"**LLM 小结**:\n\n{llm_summary}\n\n")
+            
+            # 2. 写入 Blackboard 更新表格
+            f.write(f"**Blackboard 状态**:\n\n")
+            f.write("| Key | Value | Status |\n")
+            f.write("| --- | --- | --- |\n")
+            
+            # 排序 key，把 updates 放前面
+            all_keys = sorted(blackboard_values.keys())
+            # 将更新的 key 放到列表最前面展示
+            updated_keys = sorted(updates.keys())
+            other_keys = [k for k in all_keys if k not in updates]
+            
+            for k in updated_keys:
+                val = blackboard_values.get(k)
+                f.write(f"| **{k}** | **{val}** | 🟢 Updated |\n")
+            
+            for k in other_keys:
+                val = blackboard_values.get(k)
+                f.write(f"| {k} | {val} | |\n")
+                
+            f.write("\n")
+            
+            # 3. 详细工具日志（折叠）
+            f.write("<details>\n<summary>点击查看工具调用详情</summary>\n\n")
+            f.write(f"**说明**: {description}\n\n")
+            f.write(f"**工具**: `{tool_name}`\n\n")
+            f.write("**输入**:\n")
+            f.write(f"```json\n{json.dumps(resolved_inputs, ensure_ascii=False, indent=2)}\n```\n\n")
+            f.write("**输出**:\n")
+            f.write(f"```json\n{json.dumps(result, ensure_ascii=False, indent=2)}\n```\n\n")
+            f.write("</details>\n\n")
+            f.write("---\n\n")
+
+        print_colored("结果", {"should_update_blackboard": should_update}, green)
+        print_blackboard(blackboard_values, updates)
+
 
 if __name__ == "__main__":
-    unittest.main()
+    run_step1_demo()

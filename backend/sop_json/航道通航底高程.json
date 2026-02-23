@@ -1,20 +1,20 @@
 {
   "id": "航道通航底高程",
-  "description": "根据设计船型吃水及富裕深度计算通航底高程",
-  "mtime": 1771682059.973737,
+  "description": "Description: 根据设计船型吃水及富裕深度计算通航底高程。",
+  "mtime": 1771807082.9426425,
   "steps": [
     {
       "id": "step_1",
       "name": "获取设计船型满载吃水 T",
-      "description": "根据船型与吨级查阅《海港水文规范》表 A.0.1。",
+      "description": "根据船型与吨级查表 A.0.1。",
       "tool": "table_lookup",
       "inputs": {
-        "table_name": "《海港水文规范》",
+        "table_name": "表 A.0.1",
         "query_conditions": {
           "船型": "${船型}",
           "吨级": "${吨级}"
         },
-        "file_name": "《海港水文规范》.md"
+        "file_name": "测试规范-通航底高程.md"
       },
       "outputs": {
         "T": "result"
@@ -25,15 +25,15 @@
     {
       "id": "step_2",
       "name": "获取航行下沉量 Z0",
-      "description": "根据航速/水深查阅《海港水文规范》图 6.4.6-1。",
+      "description": "根据航速/水深查图 6.4.6。",
       "tool": "table_lookup",
       "inputs": {
-        "table_name": "《海港水文规范》",
+        "table_name": "图 6.4.6",
         "query_conditions": {
           "航速": "${航速}",
           "水深": "${水深}"
         },
-        "file_name": "《海港水文规范》.md"
+        "file_name": "测试规范-通航底高程.md"
       },
       "outputs": {
         "Z0": "result"
@@ -44,15 +44,15 @@
     {
       "id": "step_3",
       "name": "获取龙骨下最小富裕深度 Z1",
-      "description": "根据 DWT 与土质查阅《海港水文规范》表 6.4.6-1。",
+      "description": "根据 DWT 与土质查表 6.4.6-1。",
       "tool": "table_lookup",
       "inputs": {
-        "table_name": "《海港水文规范》",
+        "table_name": "表 6.4.6-1",
         "query_conditions": {
-          "DWT": "${dwt}",
+          "DWT": "${DWT}",
           "土质": "${土质}"
         },
-        "file_name": "《海港水文规范》.md"
+        "file_name": "测试规范-通航底高程.md"
       },
       "outputs": {
         "Z1": "result"
@@ -63,14 +63,14 @@
     {
       "id": "step_4",
       "name": "获取波浪富裕深度 Z2",
-      "description": "根据水域条件查阅《海港水文规范》表 6.4.6-2。",
+      "description": "根据水域条件查表 6.4.6-2。",
       "tool": "table_lookup",
       "inputs": {
-        "table_name": "《海港水文规范》",
+        "table_name": "表 6.4.6-2",
         "query_conditions": {
           "水域条件": "${水域条件}"
         },
-        "file_name": "《海港水文规范》.md"
+        "file_name": "测试规范-通航底高程.md"
       },
       "outputs": {
         "Z2": "result"
@@ -85,7 +85,7 @@
       "tool": "user_input",
       "inputs": {},
       "outputs": {
-        "Z3": "result"
+        "Z3": "0.15"
       },
       "notes": "",
       "analysis_status": "analyzed"
@@ -97,7 +97,7 @@
       "tool": "user_input",
       "inputs": {},
       "outputs": {
-        "H_nav": "result"
+        "H_nav": "input"
       },
       "notes": "",
       "analysis_status": "analyzed"
@@ -105,9 +105,11 @@
     {
       "id": "step_7",
       "name": "计算航道通航水深 D0",
-      "description": "公式: D0 = T + Z0 + Z1 + Z2 + Z3。",
+      "description": "公式: D0 = T + Z0 + Z1 + Z2 + Z3",
       "tool": "calculator",
-      "inputs": {},
+      "inputs": {
+        "expression": "${T} + ${Z0} + ${Z1} + ${Z2} + ${Z3}"
+      },
       "outputs": {
         "D0": "result"
       },
@@ -117,9 +119,11 @@
     {
       "id": "step_8",
       "name": "计算通航底标高 E_nav",
-      "description": "公式: E_nav = H_nav - D0。",
+      "description": "公式: E_nav = H_nav - D0",
       "tool": "calculator",
-      "inputs": {},
+      "inputs": {
+        "expression": "${H_nav} - ${D0}"
+      },
       "outputs": {
         "E_nav": "result"
       },
@@ -139,7 +143,7 @@
   ],
   "blackboard": {
     "required": [
-      "dwt",
+      "DWT",
       "吨级",
       "土质",
       "水域条件",
@@ -159,6 +163,7 @@
     ],
     "all": [
       "D0",
+      "DWT",
       "E_nav",
       "H_nav",
       "T",
@@ -166,7 +171,6 @@
       "Z1",
       "Z2",
       "Z3",
-      "dwt",
       "吨级",
       "土质",
       "水域条件",

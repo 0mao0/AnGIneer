@@ -1,82 +1,14 @@
-
 import os
 import glob
 import json
-import re
-from typing import List, Dict, Any, Tuple
 import sys
+from typing import List, Dict, Any
 
 # Ensure src can be imported
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 from src.core.contextStruct import SOP, Step
-
-# ---------- 极简内联工具 ----------
-def _extract_json_from_text(text: str) -> Dict[str, Any]:
-    """粗暴提取 ```json 包裹或裸 JSON。"""
-    text = text.strip()
-    if text.startswith("```json"):
-        text = text[7:]
-    if text.endswith("```"):
-        text = text[:-3]
-    raw = text.strip()
-    try:
-        return json.loads(raw)
-    except Exception:
-        pass
-    start = raw.find("{")
-    if start == -1:
-        raise
-    depth = 0
-    in_str = False
-    escape = False
-    last_ok = -1
-    for idx, ch in enumerate(raw[start:], start):
-        if in_str:
-            if escape:
-                escape = False
-                continue
-            if ch == "\\":
-                escape = True
-                continue
-            if ch == "\"":
-                in_str = False
-            continue
-        if ch == "\"":
-            in_str = True
-            continue
-        if ch == "{":
-            depth += 1
-        elif ch == "}":
-            depth -= 1
-            if depth == 0:
-                last_ok = idx
-                break
-    if last_ok != -1:
-        return json.loads(raw[start:last_ok + 1])
-    raise
-
-def _normalize_step_io(tool: str, inputs: Any, outputs: Any, file_name: str) -> Tuple[Dict, Dict]:
-    """仅保证字段结构，模板全部交给 LLM。"""
-    ins = inputs if isinstance(inputs, dict) else {}
-    outs = outputs if isinstance(outputs, dict) else {}
-    # 列表兜底转 dict
-    if isinstance(outputs, list):
-        outs = {}
-        for item in outputs:
-            if isinstance(item, dict):
-                k = item.get("name") or item.get("variable")
-                if k:
-                    outs[k] = item.get("target") or "result"
-            elif isinstance(item, str):
-                outs[item] = "result"
-    # table_lookup 必备字段兜底
-    if tool == "table_lookup":
-        ins.setdefault("table_name", "")
-        ins.setdefault("query_conditions", {})
-        ins.setdefault("file_name", os.path.basename(file_name))
-    return ins, outs
-
+from src.core.sop_parser import SopParser
 
 class SopLoader:
     """
@@ -90,90 +22,7 @@ class SopLoader:
         self.sop_dir = sop_dir
         self.index_file = os.path.join(sop_dir, "index.json")
         self.sops: List[SOP] = [] # Cache
-
-    def _extract_blackboard_from_markdown(self, content: str) -> Dict[str, Any]:
-        refs = set(re.findall(r"\$\{([^}]+)\}", content or ""))
-        outputs = set()
-        in_outputs = False
-        for line in (content or "").splitlines():
-            line_str = line.strip()
-            if "**Outputs**" in line_str:
-                in_outputs = True
-                continue
-            if "**Inputs**" in line_str or "**Tool**" in line_str or line_str.startswith("###"):
-                in_outputs = False
-            if in_outputs:
-                for name in re.findall(r"`([^`]+)`", line_str):
-                    if name:
-                        outputs.add(name)
-        required = {r for r in refs if r and r not in outputs and r != "user_query"}
-        return {
-            "required": sorted(required),
-            "outputs": sorted(outputs),
-            "all": sorted(required | outputs)
-        }
-
-    def _build_blackboard_from_step_dicts(self, steps: List[Dict[str, Any]]) -> Dict[str, Any]:
-        required = set()
-        produced = set()
-
-        def collect_refs(value: Any):
-            if isinstance(value, str):
-                for name in re.findall(r"\$\{([^}]+)\}", value):
-                    if name:
-                        yield name
-            elif isinstance(value, dict):
-                for v in value.values():
-                    yield from collect_refs(v)
-            elif isinstance(value, list):
-                for v in value:
-                    yield from collect_refs(v)
-
-        for step in steps or []:
-            inputs = step.get("inputs") or {}
-            for name in collect_refs(inputs):
-                if name not in produced:
-                    required.add(name)
-            outputs = step.get("outputs") or {}
-            produced.update(list(outputs.keys()))
-
-        required.discard("user_query")
-        return {
-            "required": sorted(required),
-            "outputs": sorted(produced),
-            "all": sorted(required | produced)
-        }
-
-    def _build_blackboard_from_steps(self, steps: List[Step]) -> Dict[str, Any]:
-        required = set()
-        produced = set()
-
-        def collect_refs(value: Any):
-            if isinstance(value, str):
-                for name in re.findall(r"\$\{([^}]+)\}", value):
-                    if name:
-                        yield name
-            elif isinstance(value, dict):
-                for v in value.values():
-                    yield from collect_refs(v)
-            elif isinstance(value, list):
-                for v in value:
-                    yield from collect_refs(v)
-
-        for step in steps or []:
-            inputs = step.inputs or {}
-            for name in collect_refs(inputs):
-                if name not in produced:
-                    required.add(name)
-            outputs = step.outputs or {}
-            produced.update(list(outputs.keys()))
-
-        required.discard("user_query")
-        return {
-            "required": sorted(required),
-            "outputs": sorted(produced),
-            "all": sorted(required | produced)
-        }
+        self.parser = SopParser()
 
     def load_all(self) -> List[SOP]:
         """
@@ -206,7 +55,7 @@ class SopLoader:
                 filename = os.path.basename(fpath)
                 sop_id = os.path.splitext(filename)[0]
                 
-                # 提取描述：读取前 500 字符，找第一个非空行或标题
+                # 提取描述：读取前 1000 字符，找第一个非空行或标题
                 description = f"SOP for {sop_id}"
                 with open(fpath, 'r', encoding='utf-8') as f:
                     full_content = f.read()
@@ -222,7 +71,7 @@ class SopLoader:
                              # 或者使用一级标题作为描述的一部分
                              description = line.lstrip('#').strip()
 
-                blackboard = self._extract_blackboard_from_markdown(full_content)
+                blackboard = self.parser.extract_blackboard_from_markdown(full_content)
                 
                 # 截断过长的描述
                 if len(description) > 200:
@@ -259,9 +108,6 @@ class SopLoader:
             sop_json_dir = os.path.abspath(os.path.join(self.sop_dir, "..", "sop_json"))
             for entry in index_data:
                 # 构造 SOP 对象
-                # 在混合架构中，我们依然创建一个基础 SOP 对象
-                # 但真正的结构化解析（_analyze_sop_with_llm）会推迟到 Dispatcher 需要时，或者在 load 时按需进行
-                # 目前为了保持兼容，先创建一个 wrapper step，但我们允许通过 analyze() 方法扩展它
                 step = Step(
                     id="execute_md",
                     tool="sop_run",
@@ -291,7 +137,7 @@ class SopLoader:
                         if cached.get("blackboard"):
                             sop.blackboard = cached.get("blackboard")
                         elif cached.get("steps"):
-                            sop.blackboard = self._build_blackboard_from_step_dicts(cached.get("steps"))
+                            sop.blackboard = self.parser.build_blackboard_from_step_dicts(cached.get("steps"))
                     except Exception:
                         pass
                 sops.append(sop)
@@ -300,42 +146,15 @@ class SopLoader:
             print(f"Error loading SOP index: {e}")
             
         return sops
-    def _compact_dict(self, data: Dict[str, Any]) -> Dict[str, Any]:
-        """移除字典中值为 None 的字段。"""
-        return {k: v for k, v in data.items() if v is not None}
 
-    def _save_sop_json(self, sop: SOP, file_mtime: float, json_path: str, steps: List[Step]) -> None:
-        """保存解析后的 SOP 到 sop_json。"""
-        sop_json_dir = os.path.dirname(json_path)
-        if not os.path.exists(sop_json_dir):
-            os.makedirs(sop_json_dir)
-        serialized_steps = []
-        for step in steps:
-            if hasattr(step, "model_dump"):
-                serialized_steps.append(step.model_dump(exclude_none=True))
-            else:
-                serialized_steps.append({k: v for k, v in step.dict().items() if v is not None})
-        with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(
-                self._compact_dict({
-                    "id": sop.id,
-                    "description": sop.description,
-                    "mtime": file_mtime,
-                    "steps": serialized_steps,
-                    "blackboard": sop.blackboard
-                }),
-                f,
-                indent=2,
-                ensure_ascii=False
-            )
-
-    def analyze_sop(self, sop_id: str, config_name: str = "Qwen3-4B (Public)", mode: str = "instruct", save_to_json: bool = False, prefer_llm: bool = True) -> SOP:
+    def analyze_sop(self, sop_id: str, config_name: str = "Qwen3-4B (Public)", mode: str = "instruct", save_to_json: bool = False, prefer_llm: bool = True, force_refresh: bool = False) -> SOP:
         """
         【混合架构核心】
-        利用 LLM 读取指定的 SOP Markdown 文件，并将其解析为细粒度的 Steps 列表。
-        这对应了"整体分析一遍 SOP"的策略。
+        获取 SOP 的详细执行步骤。
+        策略：
+        1. 优先尝试加载 sop_json 缓存（如果存在且比 Markdown 新）。
+        2. 如果缓存失效或 force_refresh=True，则读取 Markdown 并调用 Parser (LLM) 进行解析。
         """
-        from src.core.llm import llm_client
         
         # 1. 找到对应的 Markdown 文件
         if self.sops:
@@ -357,8 +176,31 @@ class SopLoader:
         file_mtime = os.path.getmtime(filepath)
         sop_json_dir = os.path.abspath(os.path.join(self.sop_dir, "..", "sop_json"))
         json_path = os.path.join(sop_json_dir, f"{sop_id}.json")
-            
-        # 2. 读取全文并进行轻量裁剪
+        
+        # 2. 尝试从 JSON 缓存加载 (Cache Hit)
+        if not force_refresh and os.path.exists(json_path):
+            json_mtime = os.path.getmtime(json_path)
+            if json_mtime >= file_mtime:
+                try:
+                    with open(json_path, "r", encoding="utf-8") as jf:
+                        cached_data = json.load(jf)
+                    
+                    # 恢复 Steps
+                    steps_data = cached_data.get("steps", [])
+                    if steps_data:
+                        loaded_steps = []
+                        for s_dict in steps_data:
+                            # 恢复 Step 对象
+                            loaded_steps.append(Step(**s_dict))
+                        
+                        sop.steps = loaded_steps
+                        sop.blackboard = cached_data.get("blackboard") or self.parser.build_blackboard_from_steps(loaded_steps)
+                        # print(f"[SOP Loader] Loaded {sop_id} from cache.")
+                        return sop
+                except Exception as e:
+                    print(f"[SOP Loader] Cache load failed for {sop_id}: {e}, falling back to parser.")
+
+        # 3. 读取全文并进行解析 (Cache Miss)
         with open(filepath, 'r', encoding='utf-8') as f:
             raw_content = f.read()
         lines = raw_content.splitlines()
@@ -372,72 +214,38 @@ class SopLoader:
         if len(content) > 8000:
             content = content[:8000] + "\n...(内容已截断)"
 
-
-
         if prefer_llm:
-            # 一次性让 LLM 出完整 JSON，不再分段兜底
-            system = """
-You are an expert System Analyst. Your goal is to convert a Markdown Standard Operating Procedure (SOP) into a structured JSON execution plan.
-Input: A Markdown SOP document containing Steps.
-Output: A JSON object with a "steps" list. Output ONLY a valid JSON object, no markdown or extra text. Do not include line breaks inside any JSON string value.
-- "id": A short, unique identifier (e.g., "step_1", "calc_width").
-- "name": The step title.
-- "description": A summary of what to do.
-- "tool": The best tool for this step. Options: "calculator" (for math), "knowledge_search" (for looking up specs), "table_lookup" (for structured table queries), "user_input" (ask user), or "auto" (let dispatcher decide).
-- "inputs": A dictionary of required input parameters for this step. keys are parameter names, values are descriptions or context references. For table_lookup, inputs must include table_name, query_conditions (dict), and file_name (base filename only, e.g. "《海港水文规范》.md").
-- "outputs": A dictionary mapping context keys to tool output paths.
-- "notes": CRITICAL. Extract any "Note", "Warning", "Attention", or conditional logic (e.g., "If soft soil, use lower value"). If none, leave empty.
-Guidelines for table_lookup:
-- Derive table_name from the mentioned 表/图编号.
-- Build query_conditions as a dict using condition keywords in the step text.
-- Use ${} to reference context variables, e.g. "吨级": "${dwt}", "船型": "${船型}", "航速": "${nav_speed_kn}", "水深": "${water_depth}", "土质": "${bottom_material}", "水域条件": "${navigation_area}".
-For outputs mapping:
-- table_lookup and calculator should map target variables to "result".
-"""
-            messages = [
-                {"role": "system", "content": system},
-                {"role": "user", "content": f"SOP Content:\n{content}"}
-            ]
-            try:
-                from .llm import llm_client
-                resp = llm_client.chat(messages, mode=mode, config_name=config_name)
-                data = _extract_json_from_text(resp)
-                llm_steps = []
-                for s in data.get("steps", []):
-                    ins, outs = _normalize_step_io(s.get("tool", "auto"), s.get("inputs", {}), s.get("outputs", {}), filename)
-                    llm_steps.append(Step(
-                        id=s.get("id"),
-                        name=s.get("name"),
-                        description=s.get("description"),
-                        tool=s.get("tool", "auto"),
-                        inputs=ins,
-                        outputs=outs,
-                        notes=s.get("notes", ""),
-                        analysis_status="analyzed",
-                    ))
-                if llm_steps:
-                    sop.blackboard = self._build_blackboard_from_steps(llm_steps)
-                    sop.steps = llm_steps
-                    if save_to_json:
-                        self._save_sop_json(sop, file_mtime, json_path, llm_steps)
-                    return sop
-            except Exception as e:
-                print(f"[LLM 一次性解析失败，改用兜底]: {e}")
-                pass
+            return self.parser.parse(
+                sop=sop,
+                content=content,
+                filename=filename,
+                config_name=config_name,
+                mode=mode,
+                save_to_json=save_to_json,
+                file_mtime=file_mtime,
+                json_path=json_path
+            )
 
         if not sop.blackboard:
-            sop.blackboard = self._extract_blackboard_from_markdown(content)
+            sop.blackboard = self.parser.extract_blackboard_from_markdown(content)
 
-        # 不再使用硬编码兜底解析，直接返回空 SOP
         return sop
 
-    def preparse_all(self, config_name: str = "Qwen3-4B (Public)", mode: str = "instruct") -> Dict[str, object]:
+    def preparse_all(self, config_name: str = "Qwen3-4B (Public)", mode: str = "instruct", force: bool = False) -> Dict[str, object]:
         """批量预解析所有 SOP 并输出到 sop_json。"""
         sops = self.load_all()
         results = {"total": len(sops), "success": 0, "failed": 0, "items": []}
         for sop in sops:
             try:
-                analyzed = self.analyze_sop(sop.id, config_name=config_name, mode=mode, save_to_json=True, prefer_llm=True)
+                # 强制刷新以确保最新
+                analyzed = self.analyze_sop(
+                    sop.id, 
+                    config_name=config_name, 
+                    mode=mode, 
+                    save_to_json=True, 
+                    prefer_llm=True,
+                    force_refresh=force
+                )
                 results["success"] += 1
                 results["items"].append({"id": sop.id, "steps": len(analyzed.steps)})
             except Exception as e:
@@ -451,6 +259,7 @@ def _run_preparse_from_cli():
     config_name = "Qwen3-4B (Public)"
     mode = "instruct"
     sop_id = None
+    force = False
     args = sys.argv[1:]
     if args:
         sop_dir = args[0]
@@ -471,10 +280,21 @@ def _run_preparse_from_cli():
             mode = val or mode
             i += 2
             continue
+        if key == "--force":
+            force = True
+            i += 1
+            continue
         i += 1
     loader = SopLoader(sop_dir)
     if sop_id:
-        analyzed = loader.analyze_sop(sop_id, config_name=config_name, mode=mode, save_to_json=True, prefer_llm=True)
+        analyzed = loader.analyze_sop(
+            sop_id, 
+            config_name=config_name, 
+            mode=mode, 
+            save_to_json=True, 
+            prefer_llm=True,
+            force_refresh=force
+        )
         result = {
             "total": 1, 
             "success": 1, 
@@ -485,7 +305,7 @@ def _run_preparse_from_cli():
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
     if "--all" in sys.argv:
-        result = loader.preparse_all(config_name=config_name, mode=mode)
+        result = loader.preparse_all(config_name=config_name, mode=mode, force=force)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
     print("Please specify --sop <sop_id> to preparse a single SOP, or add --all to preparse all.")
