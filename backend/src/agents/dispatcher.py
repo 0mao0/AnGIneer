@@ -14,6 +14,7 @@ class Dispatcher:
         self.config_name = config_name
         self.mode = mode or "instruct"
         self.result_md_path = result_md_path
+        self.variable_metadata = {}
         
         if self.result_md_path:
             # Initialize Markdown file
@@ -377,6 +378,28 @@ Output ONLY the JSON.
         tool_name = step.tool
         description = step.description or ""
         
+        # Determine current step note based on tool
+        current_step_note = f"工具: {tool_name}"
+        if tool_name == "table_lookup":
+             table_name = inputs.get('table_name', '') if isinstance(inputs, dict) else ''
+             current_step_note = f"查表: {table_name}"
+        elif tool_name == "calculator":
+             expr = inputs.get('expression', '') if isinstance(inputs, dict) else ''
+             if len(expr) > 25:
+                 expr = expr[:22] + "..."
+             current_step_note = f"公式: {expr}" if expr else "公式计算"
+        elif tool_name == "user_input":
+             current_step_note = "用户输入"
+        elif tool_name == "auto":
+             current_step_note = "自动生成"
+             
+        # Update metadata for new variables
+        for key in updates:
+            self.variable_metadata[key] = {
+                "source_step": step_id,
+                "note": current_step_note
+            }
+        
         with open(self.result_md_path, "a", encoding="utf-8") as f:
             f.write(f"## {step_id}: {step_name}\n\n")
             
@@ -386,22 +409,46 @@ Output ONLY the JSON.
             
             # 2. 写入 Blackboard 更新表格
             f.write(f"**Blackboard 状态**:\n\n")
-            f.write("| Key | Value | Status |\n")
-            f.write("| --- | --- | --- |\n")
+            f.write("| 序号 | 参数 | 类型 | 取值 | 状态 | 备注 |\n")
+            f.write("| --- | --- | --- | --- | --- | --- |\n")
             
-            # 排序 key，把 updates 放前面
+            # 固定顺序：按字母序排序
             all_keys = sorted(blackboard_values.keys())
-            # 将更新的 key 放到列表最前面展示
-            updated_keys = sorted(updates.keys())
-            other_keys = [k for k in all_keys if k not in updates]
             
-            for k in updated_keys:
-                val = blackboard_values.get(k)
-                f.write(f"| **{k}** | **{val}** | 🟢 Updated |\n")
-            
-            for k in other_keys:
-                val = blackboard_values.get(k)
-                f.write(f"| {k} | {val} | |\n")
+            for idx, key in enumerate(all_keys, 1):
+                val = blackboard_values.get(key)
+                
+                # Default values
+                status = "⚪ 已知量"
+                note = "-"
+                
+                if key in updates:
+                    status = f"🟢 {step_id} 结果"
+                    note = current_step_note
+                elif key in self.variable_metadata:
+                    meta = self.variable_metadata[key]
+                    source = meta.get("source_step", "Unknown")
+                    status = f"🟡 {source} 求解"
+                    note = meta.get("note", "-")
+                else:
+                    status = "⚪ 已知量"
+                    note = "初始参数"
+
+                # Type Inference (Simple)
+                val_type = type(val).__name__
+                if isinstance(val, (int, float)):
+                    val_type = "数值"
+                elif isinstance(val, str):
+                    val_type = "字符串"
+                
+                # Format Value (Truncate if too long)
+                val_str = str(val)
+                # Escape pipe characters to avoid breaking the table
+                val_str = val_str.replace("|", "\\|").replace("\n", " ")
+                if len(val_str) > 50:
+                    val_str = val_str[:47] + "..."
+
+                f.write(f"| {idx} | {key} | {val_type} | {val_str} | {status} | {note} |\n")
                 
             f.write("\n")
             
