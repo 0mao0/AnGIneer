@@ -5,12 +5,19 @@ from typing import Dict, Any
 
 # Setup paths
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../backend")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
+# Add engtools to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
 
-from src.agents.dispatcher import Dispatcher
-from src.core.contextStruct import SOP
+from angineer_core.agents.dispatcher import Dispatcher
+from angineer_core.core.contextStruct import SOP
 
-SOP_JSON_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "backend", "sop_json", "航道通航底高程.json"))
+from engtools.UserInputTool import UserInputTool
+from engtools.CalculatorTool import Calculator
+from engtools.TableTool import TableLookup
+from engtools.CommonTool import Echo, WeatherTool
+
+SOP_JSON_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "sops", "json", "航道通航底高程.json"))
 RESULT_MD_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "result.md"))
 
 def run_test():

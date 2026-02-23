@@ -8,86 +8,64 @@
 
 ## 1. 核心架构 (Architecture)
 
-AnGIneer 不仅仅是一个 Agent，更是一套连接知识、工具与物理世界的工业级 OS。系统由以下五大核心子系统构成：
+AnGIneer 不仅仅是一个 Agent，更是一套连接知识、工具与物理世界的工业级 OS。系统采用 **Monorepo (单体仓库)** 架构，由以下核心模块构成：
 
 ```mermaid
 graph TD
-    User[用户/工程师] --> OS[AnGIneer OS Core]
+    User[用户/工程师] --> Web[Web Console]
+    Web --> API[API Server]
     
-    subgraph "Knowledge Layer (知识层)"
-        Docs["AnGIneer-Docs (文档解析子系统)"]
-        Exp["AnGIneer-SOP (流程编排子系统)"]
+    subgraph "AnGIneer OS Core"
+        API --> Dispatcher[调度器 (angineer-core)]
+        Dispatcher --> Memory[黑板内存]
     end
     
-    subgraph "Execution Layer (执行层)"
-        Dispatcher["Core Dispatcher (中央调度器)"]
-        Tools["AnGIneer-Tools (工程工具箱)"]
+    subgraph "Services / Extensions"
+        Dispatcher --> SOP[SOP 引擎 (sop-core)]
+        Dispatcher --> Docs[知识引擎 (docs-core)]
+        Dispatcher --> Geo[GIS 引擎 (geo-core)]
     end
-    
-    subgraph "World Layer (世界层)"
-        Geo["AnGIneer-Geo (地理世界子系统)"]
-    end
-    
-    subgraph "Delivery Layer (交付层)"
-        Report["AnGIneer-Report (报告生成子系统)"]
-    end
-
-    OS --> Dispatcher
-    Dispatcher -->|Query| Docs
-    Dispatcher -->|Execute| Exp
-    Dispatcher -->|Call| Tools
-    Dispatcher -->|Perceive| Geo
-    Dispatcher -->|Generate| Report
 ```
 
-### 1.1 子系统矩阵 (Subsystem Matrix)
+### 1.1 项目结构 (Project Structure)
 
-| 子系统 | 代号 | 核心职责 | 独立性 |
+本项目采用模块化单体仓库结构，便于独立维护与发布：
+
+```text
+AnGIneer/
+├── apps/                   # 🚀 应用入口
+│   ├── web-console/        # [前端] 主控台 (Vue3 + Ant Design Vue)
+│   └── api-server/         # [后端] 主 API 网关 (FastAPI)
+│
+├── packages/               # 📦 前端组件包 (Vue 组件库，可独立发布到 npm)
+│   ├── docs-ui/            # [知识引擎] 文档管理与解析可视化
+│   ├── sop-ui/             # [SOP引擎] 流程编排与执行可视化
+│   ├── geo-ui/             # [空间引擎] GIS 地图与图层管理
+│   ├── engtools-ui/        # [专业工具] 工程计算器与工具界面
+│   └── ui-kit/             # [基础组件] 共享 UI 组件库
+│
+├── services/               # 🧠 后端核心服务 (Python 包，可独立发布到 PyPI)
+│   ├── angineer-core/      # [OS内核] 调度器、内存管理、基础架构
+│   ├── sop-core/           # [SOP引擎] 流程解析器、验证器
+│   ├── docs-core/          # [知识引擎] 文档解析、RAG 检索
+│   ├── geo-core/           # [空间引擎] GIS 接口封装
+│   └── engtools/           # [专业工具] 独立工程算法与脚本库
+│
+└── data/                   # 💾 数据存储
+    ├── sops/               # SOP 流程定义文件
+    ├── knowledge_base/     # 规范文档库
+    └── geo_data/           # 地理空间数据
+```
+
+### 1.2 子系统矩阵 (Subsystem Matrix)
+
+| 子系统 | 对应服务 | 核心职责 | 独立性 |
 | :--- | :--- | :--- | :--- |
-| **AnGIneer-SOP** | `Process Core` | **流程大脑**。负责 SOP 的 Markdown 定义、JSON 解析、流程可视化编辑与状态管理。 | ⭐⭐⭐ |
-| **AnGIneer-Tools** | `Skill Core` | **专业工具**。提供高精度的工程计算器、查表工具、专业公式库及仿真接口。 | ⭐⭐ |
-| **AnGIneer-Docs** | `Knowledge Core` | **行业记忆**。基于 RAG 的规范解析系统，支持 PDF/Word 深度解析、图表语义提取与经验库构建。 | ⭐⭐⭐⭐ |
-| **AnGIneer-Geo** | `Spatial Core` | **世界底座**。集成 GIS 数据、水文气象信息，提供三维空间运算与数字孪生环境。 | ⭐⭐⭐⭐ |
-| **AnGIneer-Report** | `Delivery Core` | **交付终端**。基于计算结果与三维场景，自动生成排版精美的 Word/PDF 工程报告。 | ⭐⭐⭐ |
-
-### 1.2 调度核心机制 (Dispatcher Mechanics)
-
-AnGIneer 的执行核心 (Dispatcher) 采用 **黑板模式 (Blackboard Pattern)** 与 **混合执行架构 (Hybrid Execution)** 相结合的设计，确保工程任务的严谨性与灵活性。
-
-```mermaid
-graph TD
-    SOP[SOP Workflow] -->|Load| Step{Step Execution}
-    
-    subgraph "Blackboard (Memory Space)"
-        State[Global Context & Metadata]
-        Meta[Source Tracking & Reasoning Log]
-    end
-    
-    Step -->|Read Inputs| State
-    State -.->|Inject Context| Step
-    
-    Step --> Check{Mode Check}
-    Check -->|Defined Tool| Rule[Rule-Based Execution]
-    Check -->|Auto/Complex| Hybrid[LLM-Based Execution]
-    
-    Rule -->|Direct Call| Tool[EngTools]
-    Hybrid -->|Reasoning| LLM[Model Inference]
-    LLM -->|Select| Tool
-    
-    Tool -->|Result| Update[Update Blackboard]
-    Update -->|Write Outputs| State
-    Update -->|Record Log| Meta
-    
-    Update --> Next[Next Step]
-    Next --> Step
-```
-
-- **黑板模式 (Blackboard Pattern)**: 
-  - **全局共享**: 所有变量存储于统一的 `Memory` 空间，每一步骤均可读取前序所有步骤的产出。
-  - **元数据追踪**: 不仅记录数值，还追踪数据的来源（查表、公式、输入）、生成步骤及备注，确保计算过程的可追溯性。
-- **混合执行机制 (Hybrid Execution)**: 
-  - **规则驱动 (Rule-Based)**: 针对高确定性任务（如公式计算、查表），直接调用 Python 工具，确保 100% 准确与高效。
-  - **智能驱动 (LLM-Based)**: 针对非结构化输入（如“设计船型参数”）或动态决策，调用 LLM 进行语义分析与工具选择，处理复杂逻辑并生成自然语言小结。
+| **AnGIneer-SOP** | `services/sop-core` + `packages/sop-ui` | **流程大脑**。负责 SOP 的定义、解析与可视化编排。 | ⭐⭐⭐ |
+| **AnGIneer-Tools** | `services/engtools` + `packages/engtools-ui` | **专业工具**。高精度工程计算器、脚本库与交互界面。 | ⭐⭐ |
+| **AnGIneer-Docs** | `services/docs-core` + `packages/docs-ui` | **行业记忆**。基于 RAG 的规范解析与知识库管理。 | ⭐⭐⭐⭐ |
+| **AnGIneer-Geo** | `services/geo-core` + `packages/geo-ui` | **世界底座**。集成 GIS 数据、水文气象信息与地图展示。 | ⭐⭐⭐⭐ |
+| **AnGIneer-Report** | (Planned) | **交付终端**。自动生成工程报告。 | ⭐⭐⭐ |
 
 ---
 
@@ -103,8 +81,9 @@ graph TD
 
 ### 阶段一：内核构建 (OS Kernel) - v0.1
 *目标：构建 AnGIneer OS 的核心调度引擎 (Dispatcher)，跑通最小闭环。*
+- [✅] **架构重构**: 迁移至 Monorepo 结构，实现核心模块解耦。
 - [✅] **多模型支持**: 集成 Qwen3-4B, Qwen2.5-7B, GLM-Flash 等主流小参数SLM。
-- [✅] **混合调度器**: 实现 `Dispatcher.py`，支持 Tool/LLM 动态切换。
+- [✅] **混合调度器**: 实现 `Dispatcher`，支持 Tool/LLM 动态切换。
 - [✅] **执行可视化**: 生成 `Result.md`，实时透视决策链路。
 - [ ] **SOP 标准化**: 定义 AnGIneer-SOP 的 Markdown/JSON 协议规范。
 
@@ -120,40 +99,38 @@ graph TD
 - [ ] **流程编辑器**: 拖拽式 SOP 设计器，降低规则制定门槛。
 - [ ] **人机协作 (HITL)**: 支持暂停、断点调试与人工参数修正。
 
-### 阶段四：世界模型 (Geo World) - v0.4
-*目标：启动 `AnGIneer-Geo` 子系统，接入三维地理数据。*
-- [ ] **GeoWorld 引擎**: 集成 GIS/BIM 数据，构建数字孪生底座。
-- [ ] **环境 API**: 提供 `get_terrain()`, `get_hydrology()` 等标准接口。
-- [ ] **空间计算**: 实现断面分析、土方计算等三维算法。
-
-### 阶段五：闭环交付 (Delivery) - v0.5+
-*目标：启动 `AnGIneer-Report` 子系统，实现全自动交付。*
-- [ ] **智能报告**: 自动生成含计算书、图纸、三维截图的完整报告。
-- [ ] **行业扩展**: 从航道工程扩展至水利、交通、土木等领域。
-
 ---
 
 ## 4. 快速开始 (Quick Start)
 
-1.  **环境配置**:
+### 4.1 环境准备
+
+```bash
+git clone https://github.com/YourOrg/AnGIneer.git
+cd AnGIneer
+
+# 安装核心包 (开发模式)
+pip install -e packages/angineer-core/src
+pip install -e packages/sop-core/src
+pip install -e packages/docs-core/src
+pip install -e packages/geo-core/src
+
+# 安装 API Server 依赖
+pip install -r apps/api-server/requirements.txt (如果存在)
+```
+
+### 4.2 运行服务
+
+1.  **配置密钥**: 在 `.env` 中设置 `LLM_API_KEY`。
+2.  **启动 API Server**:
     ```bash
-    git clone https://github.com/YourOrg/AnGIneer.git
-    cd AnGIneer
-    pip install -r requirements.txt
+    python apps/api-server/main.py
     ```
-2.  **配置密钥**: 在 `.env` 中设置 `LLM_API_KEY`。
-3.  **运行示例**:
-    ```python
-    from backend.src.core.sop_loader import SopLoader
-    from backend.src.agents.dispatcher import Dispatcher
-
-    # 加载 SOP
-    loader = SopLoader("backend/sops")
-    sops = loader.load_all()
-
-    # 执行任务
-    dispatcher = Dispatcher()
-    result = dispatcher.run(sops[0], {"user_query": "计算设计船型参数"})
+3.  **启动 Web Console**:
+    ```bash
+    cd apps/web-console
+    pnpm install
+    pnpm run dev
     ```
 
 ---

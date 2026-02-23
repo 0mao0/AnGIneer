@@ -6,12 +6,15 @@ import unittest
 from typing import Dict, Any, List, Optional
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../backend")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/sop-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
 
-from src.agents import IntentClassifier
-from src.core.contextStruct import Step, SOP
-from src.core.sop_loader import SopLoader
-from src.tools import ToolRegistry
+
+from angineer_core.agents import IntentClassifier
+from angineer_core.core.contextStruct import Step, SOP
+from sop_core.sop_loader import SopLoader
+from engtools.BaseTool import ToolRegistry
 
 """
 SOP 混合分析测试脚本 (Test 02)
@@ -129,19 +132,26 @@ def build_fallback_steps(sop_id: str, description: str) -> List[Step]:
     return [step1, step2]
 
 def analyze_sop_with_fallback(loader: SopLoader, sop_id: str, sop_map: Dict[str, SOP], config: str = None, mode: str = "instruct") -> SOP:
-    """尝试分析 SOP 并在失败时走兜底流程。"""
-    try:
-        return loader.analyze_sop(sop_id, config_name=config, mode=mode)
-    except Exception:
-        base = sop_map.get(sop_id)
-        fallback_steps = build_fallback_steps(sop_id, base.description if base else sop_id)
-        return SOP(
-            id=sop_id,
-            name_zh=base.name_zh if base else sop_id,
-            name_en=base.name_en if base else sop_id,
-            description=base.description if base else sop_id,
-            steps=fallback_steps
-        )
+    """尝试加载详细 SOP JSON，如果不存在则返回 index 中的 stub。"""
+    # 尝试加载详细 JSON
+    sop_json_path = os.path.abspath(os.path.join(loader.sop_dir, "..", "json", f"{sop_id}.json"))
+    if os.path.exists(sop_json_path):
+        try:
+            with open(sop_json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            return SOP(**data)
+        except Exception as e:
+            print(f"Error loading JSON for {sop_id}: {e}")
+
+    base = sop_map.get(sop_id)
+    fallback_steps = build_fallback_steps(sop_id, base.description if base else sop_id)
+    return SOP(
+        id=sop_id,
+        name_zh=base.name_zh if base else sop_id,
+        name_en=base.name_en if base else sop_id,
+        description=base.description if base else sop_id,
+        steps=fallback_steps
+    )
 
 def extract_numbers(query: str) -> List[float]:
     """从用户问题中提取所有数值。"""
@@ -248,7 +258,7 @@ class TestSopAnalysis(unittest.TestCase):
         # 初始化测试环境和数据加载
         print("\n[测试 03] SOP 步骤分析测试")
         env_query = os.environ.get("TEST_LLM_QUERY")
-        sop_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "backend", "sops")
+        sop_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "sops", "raw")
         loader = SopLoader(sop_dir)
         sops = loader.load_all()
         self.assertGreater(len(sops), 0)
@@ -276,6 +286,8 @@ class TestSopAnalysis(unittest.TestCase):
             analyzed_sop = analyze_sop_with_fallback(loader, matched_sop, sop_map)
             step_payloads = []
             context = {"user_query": case["query"], "variables": {}}
+            if args:
+                context.update(args)
             
             # 逐个分析SOP中的每个步骤
             for idx, step in enumerate(analyzed_sop.steps, start=1):

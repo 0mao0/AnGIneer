@@ -4,23 +4,27 @@ import sys
 import json
 import re
 import time
+from unittest.mock import patch
 import datetime
 
 # Add backend to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../backend")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/sop-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
 
-from src.agents import IntentClassifier
-from src.core.sop_loader import SopLoader
-from src.agents.dispatcher import Dispatcher
-from src.core.contextStruct import SOP
+
+from angineer_core.agents import IntentClassifier
+from sop_core.sop_loader import SopLoader
+from angineer_core.agents.dispatcher import Dispatcher
+from angineer_core.core.contextStruct import SOP
 
 class TestWholeWorkflow(unittest.TestCase):
     def setUp(self):
         # 记录初始化开始时间
         self.init_start_time = time.time()
         
-        self.sop_dir = os.path.join(os.path.dirname(__file__), "../backend/sops")
+        self.sop_dir = os.path.join(os.path.dirname(__file__), "../data/sops/raw")
         self.loader = SopLoader(self.sop_dir)
         # IntentClassifier expects a list of SOPs
         self.sops = self.loader.load_all()
@@ -72,7 +76,7 @@ class TestWholeWorkflow(unittest.TestCase):
         
         # 加载详细 SOP JSON
         sop_load_start = time.time()
-        sop_json_path = os.path.join(os.path.dirname(__file__), f"../backend/sop_json/{matched_sop_stub.id}.json")
+        sop_json_path = os.path.join(os.path.dirname(__file__), f"../data/sops/json/{matched_sop_stub.id}.json")
         if not os.path.exists(sop_json_path):
              self.fail(f"找不到对应的 SOP JSON 文件: {sop_json_path}")
              
@@ -135,7 +139,7 @@ class TestWholeWorkflow(unittest.TestCase):
             return kwargs.get("default", {"result": f"Mocked {variable}", "input": f"Mocked {variable}"})
 
         # 使用 patch 拦截 UserInputTool.run
-        with patch('src.tools.UserInputTool.UserInputTool.run', side_effect=mock_user_input_side_effect):
+        with patch('engtools.UserInputTool.UserInputTool.run', side_effect=mock_user_input_side_effect):
             # Pass pre_execution_logs to run
             final_context = dispatcher.run(sop, args, pre_logs=pre_execution_logs)
         

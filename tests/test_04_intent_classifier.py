@@ -5,11 +5,14 @@ import json
 
 # Add backend to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../backend")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/sop-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
 
-from src.agents import IntentClassifier
-from src.core.sop_loader import SopLoader
-from src.tools import ToolRegistry
+
+from angineer_core.agents import IntentClassifier
+from sop_core.sop_loader import SopLoader
+from engtools.BaseTool import ToolRegistry
 
 # 定义 10 个航道知识相关测试案例，包含预期结果
 SAMPLE_QUERIES = [
@@ -80,7 +83,7 @@ SAMPLE_QUERIES = [
 
 class TestIntentClassifier(unittest.TestCase):
     def setUp(self):
-        self.sop_dir = os.path.join(os.path.dirname(__file__), "../backend/sops")
+        self.sop_dir = os.path.join(os.path.dirname(__file__), "../data/sops/raw")
         self.loader = SopLoader(self.sop_dir)
         # IntentClassifier expects a list of SOPs
         self.sops = self.loader.load_all()

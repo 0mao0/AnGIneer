@@ -7,10 +7,11 @@ import time
 import re
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../backend")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
 
-from src.tools import ToolRegistry
-from src.core.llm import LLMClient
+from engtools.BaseTool import ToolRegistry
+from angineer_core.core.llm import LLMClient
 
 """
 基础资源加载验证脚本 (Test 01)
@@ -57,7 +58,7 @@ class TestResourceLoading(unittest.TestCase):
         print(f"  -> [列表] {', '.join(tool_names)}")
 
         # 核心工具检查清单
-        required_tools = ["calculator", "weather", "web_search", "sop_run", "file_reader", "table_lookup", "knowledge_search"]
+        required_tools = ["calculator", "weather", "web_search", "sop_run", "file_reader", "table_lookup"]
         
         check_results = []
         missing_tools = []

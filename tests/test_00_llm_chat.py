@@ -6,8 +6,9 @@ import unittest
 import time
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
 
-from backend.src.core.llm import LLMClient
+from angineer_core.core.llm import LLMClient
 
 """
 LLM 对话能力测试脚本 (Test 00)

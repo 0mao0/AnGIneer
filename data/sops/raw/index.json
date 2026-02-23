@@ -1,0 +1,160 @@
+[
+  {
+    "id": "code_review",
+    "filename": "code_review.md",
+    "name": "code_review",
+    "description": "Despcription:",
+    "blackboard": {
+      "required": [
+        "file_path"
+      ],
+      "outputs": [
+        "final_report",
+        "lint_issues",
+        "review_summary",
+        "source_code"
+      ],
+      "all": [
+        "file_path",
+        "final_report",
+        "lint_issues",
+        "review_summary",
+        "source_code"
+      ]
+    }
+  },
+  {
+    "id": "market_research",
+    "filename": "market_research.md",
+    "name": "market_research",
+    "description": "Despcription:",
+    "blackboard": {
+      "required": [
+        "topic"
+      ],
+      "outputs": [
+        "competitor_data",
+        "email_status",
+        "executive_summary",
+        "final_report",
+        "market_data"
+      ],
+      "all": [
+        "competitor_data",
+        "email_status",
+        "executive_summary",
+        "final_report",
+        "market_data",
+        "topic"
+      ]
+    }
+  },
+  {
+    "id": "math_sop",
+    "filename": "math_sop.md",
+    "name": "math_sop",
+    "description": "Despcription:",
+    "blackboard": {
+      "required": [
+        "expression"
+      ],
+      "outputs": [
+        "calc_result",
+        "final_message"
+      ],
+      "all": [
+        "calc_result",
+        "expression",
+        "final_message"
+      ]
+    }
+  },
+  {
+    "id": "挖槽宽度",
+    "filename": "挖槽宽度.md",
+    "name": "挖槽宽度",
+    "description": "Description: Calculate the width of the dredge.",
+    "blackboard": {
+      "required": [],
+      "outputs": [],
+      "all": []
+    }
+  },
+  {
+    "id": "桥区通航净空尺度",
+    "filename": "桥区通航净空尺度.md",
+    "name": "桥区通航净空尺度",
+    "description": "Description: Calculate the clearance height and width of a bridge or cableway over a channel.",
+    "blackboard": {
+      "required": [],
+      "outputs": [],
+      "all": []
+    }
+  },
+  {
+    "id": "航道尺度汇总表",
+    "filename": "航道尺度汇总表.md",
+    "name": "航道尺度汇总表",
+    "description": "Dscription: 输出最终的航道尺度设计成果汇总表。",
+    "blackboard": {
+      "required": [],
+      "outputs": [],
+      "all": []
+    }
+  },
+  {
+    "id": "航道边坡",
+    "filename": "航道边坡.md",
+    "name": "航道边坡",
+    "description": "Description: Determine the slope of a channel bank based on the soil type, physical mechanics indicators, and environmental conditions.",
+    "blackboard": {
+      "required": [],
+      "outputs": [],
+      "all": []
+    }
+  },
+  {
+    "id": "航道通航底高程",
+    "filename": "航道通航底高程.md",
+    "name": "航道通航底高程",
+    "description": "Description: 根据设计船型吃水及富裕深度计算通航底高程。",
+    "blackboard": {
+      "required": [],
+      "outputs": [],
+      "all": []
+    }
+  },
+  {
+    "id": "设计底高程",
+    "filename": "设计底高程.md",
+    "name": "设计底高程",
+    "description": "Description: 计算航道的设计底高程，包括备淤深度。",
+    "blackboard": {
+      "required": [],
+      "outputs": [],
+      "all": []
+    }
+  },
+  {
+    "id": "转弯段尺度",
+    "filename": "转弯段尺度.md",
+    "name": "转弯段尺度",
+    "description": "Despcription: Determine the turning radius and widening method for channel bends.",
+    "blackboard": {
+      "required": [],
+      "outputs": [],
+      "all": []
+    }
+  },
+  {
+    "id": "通航宽度",
+    "filename": "通航宽度.md",
+    "name": "通航宽度",
+    "description": "Description: 计算航道通航宽度",
+    "blackboard": {
+      "required": [],
+      "outputs": [],
+      "all": []
+    }
+  }
+]
