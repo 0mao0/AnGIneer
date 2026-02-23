@@ -1,20 +1,26 @@
 import os
 from typing import Any, Dict
-from engtools.BaseTool import BaseTool, register_tool
+from .BaseTool import BaseTool, register_tool
+from .config import KNOWLEDGE_DIR
 from angineer_core.core.llm import llm_client
-from angineer_core.config import KNOWLEDGE_DIR
-
 
 @register_tool
 class KnowledgeSearchTool(BaseTool):
     name = "knowledge_search"
     description_en = "Document/Report retrieval tool: search for relevant paragraphs in unstructured documents (e.g., regulations, design reports, research literature). Inputs: query (str), file_name (str, optional)"
     description_zh = "文档/报告检索工具：根据查询关键词，在非结构化文档（如规范条文、设计报告、研究文献）中查找相关段落。输入参数：query (str), file_name (str, optional)"
+    
+    knowledge_dir: str = KNOWLEDGE_DIR
+
+    def __init__(self, knowledge_dir: str = None, **data):
+        super().__init__(**data)
+        if knowledge_dir:
+            self.knowledge_dir = knowledge_dir
 
     def run(self, query: str, file_name: str = "《海港水文规范》.md", config_name: str = None, mode: str = "instruct", **kwargs) -> Dict[str, Any]:
         """优先使用 BM25 快速检索段落，可选再用 LLM 精炼。"""
         print(f"  [知识检索] 正在检索文档: {query}，来源: {file_name}")
-        knowledge_file = os.path.join(KNOWLEDGE_DIR, file_name)
+        knowledge_file = os.path.join(self.knowledge_dir, file_name)
         if not os.path.exists(knowledge_file):
             return {"error": f"未找到知识库文件: {file_name}"}
             

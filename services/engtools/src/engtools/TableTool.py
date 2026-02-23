@@ -5,7 +5,7 @@ import sys
 from typing import Any, Dict, List, Optional
 from bs4 import BeautifulSoup
 from .BaseTool import BaseTool, register_tool
-from angineer_core.config import KNOWLEDGE_DIR
+from .config import KNOWLEDGE_DIR
 
 
 def _normalize_text(text: str) -> str:
@@ -198,6 +198,13 @@ class TableLookupTool(BaseTool):
     name = "table_lookup"
     description_en = "Queries structured table data from specifications. Inputs: table_name (str), query_conditions (str/dict), file_name (str, optional), target_column (str, optional)"
     description_zh = "查询规范表格数据。根据表格名称（或描述）和行查询条件，返回对应的数值。输入参数：table_name (str), query_conditions (str/dict), file_name (str, optional), target_column (str, optional)"
+    
+    knowledge_dir: str = KNOWLEDGE_DIR
+
+    def __init__(self, knowledge_dir: str = None, **data):
+        super().__init__(**data)
+        if knowledge_dir:
+            self.knowledge_dir = knowledge_dir
 
     def run(self, table_name: str, query_conditions: Any, file_name: str = "《海港水文规范》.md", target_column: str = None, config_name: str = None, mode: str = "instruct", **kwargs) -> Any:
         """从结构化表格中查询并在必要时进行线性插值。"""
@@ -209,7 +216,7 @@ class TableLookupTool(BaseTool):
         reset = "\033[0m" if use_color else ""
         print(f"{color}  [表格查询] 正在查找表格 '{table_name}'，查询条件: {query_conditions}，来源: {file_name}{reset}")
         trace = []
-        knowledge_file = os.path.join(KNOWLEDGE_DIR, file_name)
+        knowledge_file = os.path.join(self.knowledge_dir, file_name)
         if not os.path.exists(knowledge_file):
             return {"error": f"未找到知识库文件: {file_name}"}
             

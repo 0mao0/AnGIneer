@@ -32,7 +32,7 @@ from engtools.BaseTool import ToolRegistry, register_tool
 # Import tools to ensure registration
 from engtools import * 
 import geo_core.GisTool
-import docs_core.KnowledgeTool
+import engtools.KnowledgeTool
 
 app = FastAPI(title="AnGIneer API Bridge")
 

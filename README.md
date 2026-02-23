@@ -11,19 +11,20 @@
 AnGIneer 不仅仅是一个 Agent，更是一套连接知识、工具与物理世界的工业级 OS。系统采用 **Monorepo (单体仓库)** 架构，由以下核心模块构成：
 
 ```mermaid
-graph TD
-    User[用户/工程师] --> Web[Web Console]
-    Web --> API[API Server]
+flowchart TD
+    User["用户/工程师"] --> Web["Web Console"]
+    Web --> API["API Server"]
     
     subgraph "AnGIneer OS Core"
-        API --> Dispatcher[调度器 (angineer-core)]
-        Dispatcher --> Memory[黑板内存]
+        API --> Dispatcher["调度器 (angineer-core)"]
+        Dispatcher --> Memory["黑板内存"]
     end
     
     subgraph "Services / Extensions"
-        Dispatcher --> SOP[SOP 引擎 (sop-core)]
-        Dispatcher --> Docs[知识引擎 (docs-core)]
-        Dispatcher --> Geo[GIS 引擎 (geo-core)]
+        Dispatcher --> SOP["SOP 引擎 (sop-core)"]
+        Dispatcher --> Docs["知识引擎 (docs-core)"]
+        Dispatcher --> Geo["GIS 引擎 (geo-core)"]
+        Dispatcher --> Eng["工程工具 (engtools)"]
     end
 ```
 
@@ -110,10 +111,11 @@ git clone https://github.com/YourOrg/AnGIneer.git
 cd AnGIneer
 
 # 安装核心包 (开发模式)
-pip install -e packages/angineer-core/src
-pip install -e packages/sop-core/src
-pip install -e packages/docs-core/src
-pip install -e packages/geo-core/src
+pip install -e services/angineer-core/src
+pip install -e services/sop-core/src
+pip install -e services/docs-core/src
+pip install -e services/geo-core/src
+pip install -e services/engtools/src
 
 # 安装 API Server 依赖
 pip install -r apps/api-server/requirements.txt (如果存在)
