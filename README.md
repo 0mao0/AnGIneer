@@ -50,6 +50,45 @@ graph TD
 | **AnGIneer-Geo** | `Spatial Core` | **世界底座**。集成 GIS 数据、水文气象信息，提供三维空间运算与数字孪生环境。 | ⭐⭐⭐⭐ |
 | **AnGIneer-Report** | `Delivery Core` | **交付终端**。基于计算结果与三维场景，自动生成排版精美的 Word/PDF 工程报告。 | ⭐⭐⭐ |
 
+### 1.2 调度核心机制 (Dispatcher Mechanics)
+
+AnGIneer 的执行核心 (Dispatcher) 采用 **黑板模式 (Blackboard Pattern)** 与 **混合执行架构 (Hybrid Execution)** 相结合的设计，确保工程任务的严谨性与灵活性。
+
+```mermaid
+graph TD
+    SOP[SOP Workflow] -->|Load| Step{Step Execution}
+    
+    subgraph "Blackboard (Memory Space)"
+        State[Global Context & Metadata]
+        Meta[Source Tracking & Reasoning Log]
+    end
+    
+    Step -->|Read Inputs| State
+    State -.->|Inject Context| Step
+    
+    Step --> Check{Mode Check}
+    Check -->|Defined Tool| Rule[Rule-Based Execution]
+    Check -->|Auto/Complex| Hybrid[LLM-Based Execution]
+    
+    Rule -->|Direct Call| Tool[EngTools]
+    Hybrid -->|Reasoning| LLM[Model Inference]
+    LLM -->|Select| Tool
+    
+    Tool -->|Result| Update[Update Blackboard]
+    Update -->|Write Outputs| State
+    Update -->|Record Log| Meta
+    
+    Update --> Next[Next Step]
+    Next --> Step
+```
+
+- **黑板模式 (Blackboard Pattern)**: 
+  - **全局共享**: 所有变量存储于统一的 `Memory` 空间，每一步骤均可读取前序所有步骤的产出。
+  - **元数据追踪**: 不仅记录数值，还追踪数据的来源（查表、公式、输入）、生成步骤及备注，确保计算过程的可追溯性。
+- **混合执行机制 (Hybrid Execution)**: 
+  - **规则驱动 (Rule-Based)**: 针对高确定性任务（如公式计算、查表），直接调用 Python 工具，确保 100% 准确与高效。
+  - **智能驱动 (LLM-Based)**: 针对非结构化输入（如“设计船型参数”）或动态决策，调用 LLM 进行语义分析与工具选择，处理复杂逻辑并生成自然语言小结。
+
 ---
 
 ## 2. 核心理念 (Philosophy)

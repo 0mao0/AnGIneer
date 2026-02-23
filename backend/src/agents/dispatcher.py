@@ -68,39 +68,8 @@ class Dispatcher:
                 self._record_step(step, tool_inputs, None, error="Auto-selection failed")
                 return
 
-        # 3. Get Tool
-        tool = ToolRegistry.get_tool(target_tool_name)
-        if not tool:
-            error_msg = f"Tool '{target_tool_name}' not found"
-            print(f"    Error: {error_msg}")
-            self._record_step(step, tool_inputs, None, error=error_msg)
-            return
-            
-        # 4. Execute Tool
-        try:
-            # Here we could insert an LLM call if inputs need formatting
-            # But for now, trust the resolution
-            run_kwargs = dict(tool_inputs)
-            if self.config_name:
-                run_kwargs["config_name"] = self.config_name
-            if self.mode:
-                run_kwargs["mode"] = self.mode
-            result = tool.run(**run_kwargs)
-            print(f"    Result: {result}")
-            
-            # 5. Process Outputs
-            updates = self._process_outputs(step, result)
-            
-            # 6. Record History
-            self._record_step(step, tool_inputs, result)
-            
-            # 7. Write to Markdown
-            if self.result_md_path:
-                self._write_markdown_log(step, tool_inputs, result, updates)
-            
-        except Exception as e:
-            print(f"    Error executing tool: {e}")
-            self._record_step(step, tool_inputs, None, error=str(e))
+        # 3. Execute Tool
+        self._execute_tool_safe(target_tool_name, tool_inputs, step)
 
     def _execute_analyzed_step(self, step: Step):
         """
@@ -319,53 +288,46 @@ Output ONLY the JSON.
 
 
     def _generate_step_summary(self, step_name: str, tool_name: str, resolved_inputs: Any, result: Any, updates: Dict[str, Any]) -> str:
-        """模拟 LLM 对每一步执行结果的自然语言小结。"""
-        # 如果是 auto，直接使用 description
-        if tool_name == "auto":
-            return f"本步骤为最终输出步骤，基于上下文整理并展示了所有关键参数的计算结果。"
+        """Use LLM to generate a natural language summary of the step execution."""
+        try:
+            # Prepare data for prompt, truncating large structures
+            inputs_str = json.dumps(resolved_inputs, default=str, ensure_ascii=False)
+            if len(inputs_str) > 500: inputs_str = inputs_str[:500] + "..."
             
-        summary = f"在步骤“{step_name}”中，"
-        
-        # 根据工具类型生成不同的话术
-        if tool_name == "table_lookup":
-            table_name = resolved_inputs.get("table_name", "未知表格")
-            conditions = resolved_inputs.get("query_conditions", {})
-            cond_str = ", ".join([f"{k}={v}" for k, v in conditions.items()])
-            summary += f"我查阅了 **{table_name}**。根据条件 {cond_str}，"
-            if isinstance(result, dict) and "error" in result:
-                summary += f"查询失败，错误信息为：{result['error']}。"
-            else:
-                # 简化显示，只显示更新的值
-                if updates:
-                    updates_str = ", ".join([f"{k}={v}" for k, v in updates.items()])
-                    summary += f"成功获取到数据，更新了：{updates_str}。"
-                else:
-                    summary += "获取到了数据，但未触发 Blackboard 更新。"
-                    
-        elif tool_name == "calculator":
-            expression = resolved_inputs.get("expression", "")
-            summary += f"我执行了计算。公式为 `{expression}`。"
-            if isinstance(result, dict) and "error" in result:
-                summary += f"计算出错：{result['error']}。"
-            else:
-                val = result.get("result") if isinstance(result, dict) else result
-                if updates:
-                    updates_str = ", ".join([f"{k}={v}" for k, v in updates.items()])
-                    summary += f"计算结果为 {val}，更新了：{updates_str}。"
-                else:
-                    summary += f"计算结果为 {val}。"
+            result_str = json.dumps(result, default=str, ensure_ascii=False)
+            if len(result_str) > 500: result_str = result_str[:500] + "..."
+            
+            updates_str = json.dumps(updates, default=str, ensure_ascii=False)
+            
+            system_prompt = f"""
+你是一个专家系统的执行记录员。请根据以下信息生成一段简洁、客观的中文执行小结。
 
-        elif tool_name == "user_input":
-            var = resolved_inputs.get("variable", "")
-            default = resolved_inputs.get("default", "")
-            summary += f"我请求获取输入变量 `{var}`（默认值：{default}）。"
-            val = result.get("result") if isinstance(result, dict) else result
-            summary += f"最终确定的值为 {val}。"
+【上下文信息】
+- 步骤名称: {step_name}
+- 工具: {tool_name}
+- 输入: {inputs_str}
+- 输出: {result_str}
+- 状态更新: {updates_str}
+
+【撰写要求】
+1. **极其简洁**：字数控制在 80 字以内。
+2. **客观陈述**：直接陈述事实，不要使用“我”、“系统”、“执行了”等主语。
+3. **重点突出**：核心关注“根据什么输入（如条件、公式），得到了什么结果（关键数值）”。
+4. **错误处理**：如果输出包含 error，必须明确指出错误原因。
+5. **格式示例**：
+   - 查表（表A），在条件 x=1 下获取到 y=2。
+   - 根据公式 a+b 计算得到 c=3。
+   - 用户输入变量 d，值为 4。
+"""
+            messages = [{"role": "system", "content": system_prompt.strip()}]
             
-        else:
-            summary += f"调用了工具 `{tool_name}`，执行完成。"
+            response = llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
+            return response.strip()
             
-        return summary
+        except Exception as e:
+            print(f"Error generating summary: {e}")
+            # Fallback to simple summary
+            return f"执行工具 {tool_name} 完成。更新变量: {list(updates.keys())}"
 
     def _write_markdown_log(self, step: Step, inputs: Any, result: Any, updates: Dict[str, Any]):
         """Write step execution details to Markdown file"""
@@ -405,7 +367,7 @@ Output ONLY the JSON.
             
             # 1. 写入 LLM 小结
             llm_summary = self._generate_step_summary(step_name, tool_name, inputs, result, updates)
-            f.write(f"**LLM 小结**:\n\n{llm_summary}\n\n")
+            f.write(f"**LLM 小结**:{llm_summary}\n\n")
             
             # 2. 写入 Blackboard 更新表格
             f.write(f"**Blackboard 状态**:\n\n")
