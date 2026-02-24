@@ -1,3 +1,6 @@
+"""
+上下文记忆核心模块，负责黑板、执行历史与临时工作记忆管理。
+"""
 from typing import Dict, Any, List, Optional
 import re
 from pydantic import BaseModel, Field

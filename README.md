@@ -64,7 +64,7 @@ AnGIneer/
 | :--- | :--- | :--- | :--- |
 | **AnGIneer-SOP** | `services/sop-core` + `packages/sop-ui` | **流程大脑**。负责 SOP 的定义、解析与可视化编排。 | ⭐⭐⭐ |
 | **AnGIneer-Tools** | `services/engtools` + `packages/engtools-ui` | **专业工具**。高精度工程计算器、脚本库与交互界面。 | ⭐⭐ |
-| **AnGIneer-Docs** | `services/docs-core` + `packages/docs-ui` | **行业记忆**。基于 RAG 的规范解析与知识库管理。 | ⭐⭐⭐⭐ |
+| **AnGIneer-Docs** | `services/docs-core` + `packages/docs-ui` | **行业记忆**。基于AnGIneer数据标准的规范自动解析与知识库管理。 | ⭐⭐⭐⭐ |
 | **AnGIneer-Geo** | `services/geo-core` + `packages/geo-ui` | **世界底座**。集成 GIS 数据、水文气象信息与地图展示。 | ⭐⭐⭐⭐ |
 | **AnGIneer-Report** | (Planned) | **交付终端**。自动生成工程报告。 | ⭐⭐⭐ |
 
@@ -80,13 +80,14 @@ AnGIneer/
 
 ## 3. 开发路线图 (Roadmap)
 
-### 阶段一：内核构建 (OS Kernel) - v0.1
-*目标：构建 AnGIneer OS 的核心调度引擎 (Dispatcher)，跑通最小闭环。*
-- [✅] **架构重构**: 迁移至 Monorepo 结构，实现核心模块解耦。
-- [✅] **多模型支持**: 集成 Qwen3-4B, Qwen2.5-7B, GLM-Flash 等主流小参数SLM。
+### 阶段一：内核构建 (Core) - v0.1
+*目标：构建 AnGIneer OS 的核心调度引擎 (Dispatcher)、意图识别（Classifier）、SOP解析引擎 (SOP-Parser)、数据标准（contextStruct）和记忆总线（Blackboard)，跑通最小闭环。*
 - [✅] **混合调度器**: 实现 `Dispatcher`，支持 Tool/LLM 动态切换。
+- [✅] **SOP 标准化**: 定义 AnGIneer-SOP 的 Markdown/JSON 协议规范。
+- [✅] **Blackboard机制**: 实现 `memory`，支持总线记忆。
 - [✅] **执行可视化**: 生成 `Result.md`，实时透视决策链路。
-- [ ] **SOP 标准化**: 定义 AnGIneer-SOP 的 Markdown/JSON 协议规范。
+- [✅] **多模型支持**: 已支持Qwen3-4B, Qwen2.5-7B, GLM-Flash 等主流小参数SLM，可无限扩展。
+- [✅] **架构重构**: 迁移至 Monorepo 结构，实现核心模块解耦。
 
 ### 阶段二：知识与视觉 (Docs & Vision) - v0.2
 *目标：启动 `AnGIneer-Docs` 子系统，解决"数据源"问题。*

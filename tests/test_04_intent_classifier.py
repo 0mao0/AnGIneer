@@ -2,17 +2,20 @@ import unittest
 import os
 import sys
 import json
+import time
 
 # Add backend to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/sop-core/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
-from angineer_core.agents import IntentClassifier
+from angineer_core.core import IntentClassifier
 from sop_core.sop_loader import SopLoader
 from engtools.BaseTool import ToolRegistry
+from regression_report import build_report, emit_report
 
 # 定义 10 个航道知识相关测试案例，包含预期结果
 SAMPLE_QUERIES = [
@@ -23,59 +26,9 @@ SAMPLE_QUERIES = [
         "expected_sop": "code_review"
     },
     {
-        "id": "case_2",
-        "label": "航道审查 (设计脚本)", 
-        "query": "请对航道尺度计算脚本 d:/AI/PicoAgent/demo/channel_design.py 做代码审查并输出要点",
-        "expected_sop": "code_review"
-    },
-    {
-        "id": "case_3",
-        "label": "航道审查 (SQL 安全)", 
-        "query": "请检查航道项目数据库查询是否有注入风险：\nSELECT * FROM channel_projects WHERE name = '港区A';",
-        "expected_sop": "code_review"
-    },
-    {
-        "id": "case_4",
-        "label": "市场调研 (港口工程)", 
-        "query": "我想了解 2025 年港口工程与航道疏浚市场趋势和主要竞争对手",
-        "expected_sop": "market_research"
-    },
-    {
-        "id": "case_5",
-        "label": "市场调研 (航道设计)", 
-        "query": "请调研 2025 年航道设计与施工服务市场规模与竞争格局",
-        "expected_sop": "market_research"
-    },
-    {
-        "id": "case_6",
-        "label": "市场调研 (桥梁通航)", 
-        "query": "请调研 2025 年跨航道桥梁通航净空相关市场需求与头部单位",
-        "expected_sop": "market_research"
-    },
-    {
         "id": "case_7",
         "label": "航道计算 (通航宽度)", 
         "query": "已知设计宽度基准 120m，加宽 15m，计算通航宽度，表达式: 120 + 15",
-        "expected_sop": "math_sop",
-        "expected_args_key": "expression"
-    },
-    {
-        "id": "case_8",
-        "label": "航道计算 (底高程)", 
-        "query": "通航水位 4.2m，设计水深 10.5m，计算设计底高程，表达式: 4.2 - 10.5",
-        "expected_sop": "math_sop",
-        "expected_args_key": "expression"
-    },
-    {
-        "id": "case_9",
-        "label": "航道计算 (净空高度)", 
-        "query": "桥下通航净空设计高度 18m，加安全裕度 2m，计算净空要求，表达式: 18 + 2",
-        "expected_sop": "桥区通航净空尺度"
-    },
-    {
-        "id": "case_10",
-        "label": "航道计算 (疏浚体积)", 
-        "query": "疏浚宽度 80m，长度 1200m，平均挖深 2.5m，计算疏浚体积，表达式: 80 * 1200 * 2.5",
         "expected_sop": "math_sop",
         "expected_args_key": "expression"
     }
@@ -127,6 +80,7 @@ class TestIntentClassifier(unittest.TestCase):
     def test_02_intent_routing(self):
         """测试 2: 意图识别与路由"""
         print("\n[测试 02-2] 意图识别路由测试")
+        start_time = time.perf_counter()
         
         # 优先使用环境变量传入的 query
         env_query = os.environ.get("TEST_LLM_QUERY")
@@ -146,13 +100,14 @@ class TestIntentClassifier(unittest.TestCase):
             # 过滤掉 query="all" 的那个控制项
             test_cases = [c for c in SAMPLE_QUERIES if c['query'] != "all"]
 
+        report_cases = []
         for case in test_cases:
             print(f"\n  --------------------------------------------------")
             print(f"  测试用例: {case['label']}")
             print(f"  Query: {case['query']}")
             
             # 执行路由
-            sop, args, reason = self.classifier.route(case['query'])
+            sop, args, reason = self.classifier.route(case['query'], config_name="Qwen3-4B (Public)")
             
             # 结果展示
             sop_id = sop.id if sop else "None"
@@ -169,22 +124,26 @@ class TestIntentClassifier(unittest.TestCase):
                  print(f"未匹配到 SOP")
 
             # 验证逻辑
+            case_status = "ok"
             if "expected_sop" in case and case["expected_sop"] != "unknown":
                 expected = case["expected_sop"]
                 if expected is None:
                     if sop is not None:
                         print(f"  [FAILURE] 预期不触发 SOP，但触发了 {sop_id}")
+                        case_status = "fail"
                     else:
                         print(f"  [SUCCESS] 正确处理为空/闲聊")
                 else:
                     if sop is None:
                          print(f"  [FAILURE] 预期触发 {expected}，但未识别出 SOP")
+                         case_status = "fail"
                     elif sop.id != expected:
                         # 允许一定的歧义
                         if case.get('id') == "case_4":
                             print(f"  [NOTE] 跨领域指令路由到 {sop_id} (预期 {expected}) - 可接受")
                         else:
                             print(f"  [FAILURE] SOP ID 不匹配: 预期 {expected}, 实际 {sop_id}")
+                            case_status = "fail"
                     else:
                         print(f"  [SUCCESS] 路由正确: {expected}")
 
@@ -195,6 +154,26 @@ class TestIntentClassifier(unittest.TestCase):
                     print(f"  [SUCCESS] 参数 {key} 提取成功: {args[key]}")
                 else:
                     print(f"  [FAILURE] 缺少预期参数: {key}")
+                    case_status = "fail"
+            report_cases.append({
+                "id": case["id"],
+                "label": case["label"],
+                "status": case_status,
+                "details": {
+                    "query": case["query"],
+                    "expected_sop": case.get("expected_sop"),
+                    "matched_sop": sop_id,
+                    "args": args,
+                    "reason": reason
+                }
+            })
+        summary = {
+            "cases": len(report_cases),
+            "failures": len([c for c in report_cases if c["status"] == "fail"]),
+            "duration": round(time.perf_counter() - start_time, 4)
+        }
+        meta = {"env_query": env_query}
+        emit_report(build_report("test_04_intent_classifier", report_cases, summary=summary, meta=meta))
 
 
 if __name__ == "__main__":

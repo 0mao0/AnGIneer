@@ -1,7 +1,11 @@
+"""
+意图分类核心模块，负责根据用户问题选择合适的 SOP 并提取参数。
+"""
 import json
 from typing import List, Optional, Tuple, Dict, Any
-from angineer_core.core.contextStruct import SOP, AgentResponse
-from angineer_core.core.llm import llm_client
+from angineer_core.standard.context_struct import SOP, AgentResponse
+from angineer_core.infra.llm_client import llm_client
+
 
 class IntentClassifier:
     """

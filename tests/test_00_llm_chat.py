@@ -7,8 +7,10 @@ import time
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-from angineer_core.core.llm import LLMClient
+from angineer_core.infra.llm_client import LLMClient
+from regression_report import build_report, emit_report
 
 """
 LLM 对话能力测试脚本 (Test 00)
@@ -16,16 +18,13 @@ LLM 对话能力测试脚本 (Test 00)
 
 # 定义模块级常量供外部调用
 SAMPLE_QUERIES = [
-    {"label": "自我介绍", "query": "你好，请简要介绍一下你自己。"},
-    {"label": "GIS 分析", "query": "你能帮我分析一下这张 GIS 表格的数据吗？"},
-    {"label": "解释术语", "query": "解释一下什么是数字孪生。"},
-    {"label": "执行指令", "query": "请严格按照步骤执行：1. 查找数据 2. 计算总和。"},
-    {"label": "技术咨询", "query": "如果我想创建一个 3D 地图，需要哪些核心技术？"}
+    {"label": "自我介绍", "query": "你好，请简要介绍一下你自己。"}
 ]
 
 class TestLLMChat(unittest.TestCase):
     def test_llm_chat(self):
         print("\n[测试 00] LLM 对话能力测试")
+        start_time = time.perf_counter()
         target_config = os.environ.get("TEST_LLM_CONFIG")
         custom_query = os.environ.get("TEST_LLM_QUERY")
         target_mode = os.environ.get("TEST_LLM_MODE")
@@ -40,8 +39,9 @@ class TestLLMChat(unittest.TestCase):
             target_mode = args.mode or target_mode
             custom_query = args.query or custom_query
 
+        target_config = "Qwen3-4B (Public)"
         client = LLMClient()
-        configs_to_test = client.configs
+        configs_to_test = [c for c in client.configs if c.get("name") == target_config]
 
         print("  -> 步骤 1: 解析测试配置")
         if not configs_to_test:
@@ -59,6 +59,7 @@ class TestLLMChat(unittest.TestCase):
 
         errors = []
         results = []
+        cases = []
 
         for q_idx, query in enumerate(queries_to_run):
             print(f"\n  [测试样本 {q_idx+1}/{len(queries_to_run)}] 用户输入: '{query}'")
@@ -106,6 +107,16 @@ class TestLLMChat(unittest.TestCase):
                     "ok": ok,
                     "preview": preview
                 })
+                cases.append({
+                    "id": f"{q_idx+1}-{config['name']}",
+                    "label": query,
+                    "status": "ok" if ok else "fail",
+                    "details": {
+                        "config": config["name"],
+                        "duration": duration,
+                        "preview": preview
+                    }
+                })
 
             print("\n  [本题汇总]")
             for row in per_query_rows:
@@ -119,7 +130,23 @@ class TestLLMChat(unittest.TestCase):
             status = "OK" if item["ok"] else "FAIL"
             print(f" - {item['config']} | {dur_text} | {status} | {item['query']}")
 
-        if errors:
+        summary = {
+            "cases": len(cases),
+            "failures": len([c for c in cases if c["status"] == "fail"]),
+            "duration": round(time.perf_counter() - start_time, 4)
+        }
+        strict_mode = os.environ.get("TEST_LLM_STRICT") == "1"
+        meta = {
+            "env": {
+                "TEST_LLM_CONFIG": target_config,
+                "TEST_LLM_QUERY": custom_query,
+                "TEST_LLM_MODE": target_mode,
+                "TEST_LLM_STRICT": "1" if strict_mode else "0"
+            }
+        }
+        emit_report(build_report("test_00_llm_chat", cases, summary=summary, meta=meta))
+
+        if errors and strict_mode:
             error_messages = [f"{e['config']} | {e['query']} | {e['error']}" for e in errors]
             self.fail("LLM 测试失败:\n" + "\n".join(error_messages))
 

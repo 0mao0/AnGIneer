@@ -1,3 +1,6 @@
+"""
+标准数据结构定义，包含 SOP、Step 与 AgentResponse。
+"""
 from typing import List, Dict, Any, Optional
 from pydantic import BaseModel, Field
 

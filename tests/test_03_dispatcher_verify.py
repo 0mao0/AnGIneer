@@ -9,16 +9,16 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../serv
 # Add engtools to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
 
-from angineer_core.agents.dispatcher import Dispatcher
-from angineer_core.core.contextStruct import SOP
+from angineer_core.core import Dispatcher
+from angineer_core.standard.context_struct import SOP
 
 from engtools.UserInputTool import UserInputTool
 from engtools.CalculatorTool import Calculator
-from engtools.TableTool import TableLookup
+from engtools.TableTool import TableLookupTool
 from engtools.CommonTool import Echo, WeatherTool
 
 SOP_JSON_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "sops", "json", "航道通航底高程.json"))
-RESULT_MD_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "result.md"))
+RESULT_MD_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "result_test_03.md"))
 
 def run_test():
     print(f"Loading SOP from: {SOP_JSON_PATH}")

@@ -2,7 +2,7 @@ import os
 from typing import Any, Dict
 from .BaseTool import BaseTool, register_tool
 from .config import KNOWLEDGE_DIR
-from angineer_core.core.llm import llm_client
+from angineer_core.infra.llm_client import llm_client
 
 @register_tool
 class KnowledgeSearchTool(BaseTool):

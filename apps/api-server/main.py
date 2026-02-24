@@ -24,9 +24,9 @@ sys.path.append(os.path.join(SERVICES_DIR, "geo-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "engtools", "src"))
 
 # Import logic from packages
-from angineer_core.core.llm import LLMClient
-from angineer_core.core.contextStruct import Step, SOP
-from angineer_core.agents import IntentClassifier, Dispatcher
+from angineer_core.infra.llm_client import LLMClient
+from angineer_core.standard.context_struct import Step, SOP
+from angineer_core.core import IntentClassifier, Dispatcher
 from sop_core.sop_loader import SopLoader
 from engtools.BaseTool import ToolRegistry, register_tool
 # Import tools to ensure registration
@@ -661,7 +661,7 @@ async def stream_test_04(query: str = None, config: str = None, mode: str = "ins
             yield pack({"step": "case_load", "status": "done", "msg": f"用例加载完成 ({len(cases)} 个)", "total": len(cases)})
             await asyncio.sleep(0.01)
 
-            from angineer_core.core.llm import llm_client
+            from angineer_core.infra.llm_client import llm_client
 
             results = []
             # Remove mock, use real execution

@@ -1,3 +1,6 @@
+"""
+LLM 客户端实现，负责读取统一配置并提供对话调用能力。
+"""
 import os
 import time
 import json
@@ -10,7 +13,7 @@ load_dotenv()
 class LLMClient:
     """
     LLM 客户端类，负责管理多个 LLM 配置并处理对话请求。
-    默认优先使用 NVIDIA 提供的模型，支持自动切换备用配置。
+    默认优先使用Qwen3-4B，支持自动切换备用配置。
     """
     def __init__(self):
         # 加载所有 LLM 配置

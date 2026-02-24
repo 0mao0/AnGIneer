@@ -12,12 +12,14 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/sop-core/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
-from angineer_core.agents import IntentClassifier
+from angineer_core.core import IntentClassifier
 from sop_core.sop_loader import SopLoader
-from angineer_core.agents.dispatcher import Dispatcher
-from angineer_core.core.contextStruct import SOP
+from angineer_core.core import Dispatcher
+from angineer_core.standard.context_struct import SOP
+from regression_report import build_report, emit_report
 
 class TestWholeWorkflow(unittest.TestCase):
     def setUp(self):
@@ -35,25 +37,14 @@ class TestWholeWorkflow(unittest.TestCase):
     def test_full_flow_integration(self):
         """测试: 端到端流程 (Query -> Classifier -> SOP -> Dispatcher)"""
         print("\n[测试] 端到端流程集成测试")
-        
-        # 收集前置过程日志
-        pre_execution_logs = []
+        start_time = time.perf_counter()
         
         # 使用用户指定的 Qwen3-4B 模型
         target_model = "Qwen3-4B (Public)"
         print(f"  [Config] Target Model: {target_model}")
         
-        # 优化 Query 以便 Qwen3-4B 能更好提取 DWT (例如明确写 100000 DWT)
-        query = "我要设计一个油船航道，设计船型是 100000 DWT 油船。航道底质是岩石。设计通航水位是理论最低潮面 0.5m。航速 10节，受限水域。"
+        query = "我要设计一个油船航道，设计船型是 100000 DWT 油船。航道底质是岩石。设计通航水位是理论最低潮面 0.5m。航速 10节，受限水域。水深 15m。"
         print(f"  用户查询: {query}")
-        
-        pre_execution_logs.append({
-            "event": "用户需求",
-            "method": "User Input",
-            "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "duration": "-",
-            "details": query
-        })
         
         # 1. 意图识别
         clf_start = time.time()
@@ -62,14 +53,6 @@ class TestWholeWorkflow(unittest.TestCase):
         
         print(f"  -> 识别 SOP: {matched_sop_stub.id if matched_sop_stub else None}")
         print(f"  -> 提取参数: {args}")
-        
-        pre_execution_logs.append({
-            "event": "意图识别 & 参数提取",
-            "method": f"IntentClassifier ({target_model})",
-            "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "duration": f"{clf_duration:.4f}s",
-            "details": f"SOP: {matched_sop_stub.id}\nArgs: {args}"
-        })
         
         self.assertIsNotNone(matched_sop_stub, "未能识别出 SOP")
         self.assertEqual(matched_sop_stub.id, "航道通航底高程", f"SOP 识别错误，预期 '航道通航底高程'，实际 '{matched_sop_stub.id}'")
@@ -85,23 +68,10 @@ class TestWholeWorkflow(unittest.TestCase):
         sop = SOP(**sop_data)
         sop_load_duration = time.time() - sop_load_start
         
-        pre_execution_logs.append({
-            "event": "SOP 加载",
-            "method": "Local JSON File",
-            "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "duration": f"{sop_load_duration:.4f}s",
-            "details": f"Path: {sop_json_path}\nSteps: {len(sop.steps)}"
-        })
-        
         print(f"  -> 初始上下文: {args}")
-        
-        pre_execution_logs.append({
-            "event": "Blackboard 初始化",
-            "method": "Intent Arguments",
-            "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "duration": "-",
-            "details": f"Initial Args: {args}"
-        })
+        required_keys = (sop.blackboard or {}).get("required") or []
+        missing_keys = [k for k in required_keys if k not in args]
+        self.assertFalse(missing_keys, f"缺少必要参数: {missing_keys}")
         
         # 3. 执行 Dispatcher
         print("\n  >>> 启动 Dispatcher 执行 SOP...")
@@ -111,10 +81,6 @@ class TestWholeWorkflow(unittest.TestCase):
         # 过滤 auto 步骤以匹配 test_03 逻辑 (避免 LLM 自动生成步骤的开销)
         sop.steps = [s for s in sop.steps if s.tool != "auto"]
         
-        # 定义 Mock 的用户输入逻辑，替代原有的参数补全 "作弊"
-        from unittest.mock import patch
-        
-        # 使用列表来存储调用次数，作为闭包状态
         call_counter = [0]
 
         def mock_user_input_side_effect(*args, **kwargs):
@@ -127,21 +93,18 @@ class TestWholeWorkflow(unittest.TestCase):
             
             print(f"    [MockInput] Call #{idx}: variable='{variable}', question='{question}'")
             
-            # 第一次调用: Step 5 (Z3). SOP output map: {"Z3": "0.15"} -> 意味着从工具输出取 key="0.15" 的值
             if idx == 1: 
                 return {"0.15": 0.15, "result": 0.15}
             
-            # 第二次调用: Step 6 (H_nav). SOP output map: {"H_nav": "input"} -> 意味着从工具输出取 key="input" 的值
             if idx == 2:
-                return {"input": 0.5, "result": 0.5}
+                h_nav = args.get("H_nav")
+                return {"input": h_nav, "result": h_nav}
             
-            # 默认返回
             return kwargs.get("default", {"result": f"Mocked {variable}", "input": f"Mocked {variable}"})
 
         # 使用 patch 拦截 UserInputTool.run
         with patch('engtools.UserInputTool.UserInputTool.run', side_effect=mock_user_input_side_effect):
-            # Pass pre_execution_logs to run
-            final_context = dispatcher.run(sop, args, pre_logs=pre_execution_logs)
+            final_context = dispatcher.run(sop, args)
         
         # 4. 验证结果
         print("\n  >>> 验证执行结果:")
@@ -176,6 +139,28 @@ class TestWholeWorkflow(unittest.TestCase):
                  print(f"  [Warn] {k} 实际值 {actual} 不是数字，跳过精确比对")
                 
         print("  [SUCCESS] 端到端测试通过！")
+        case_status = "ok"
+        for k in expected_values.keys():
+            if k not in final_context:
+                case_status = "fail"
+                break
+        report_cases = [{
+            "id": "full_flow",
+            "label": "端到端流程",
+            "status": case_status,
+            "details": {
+                "query": query,
+                "matched_sop": matched_sop_stub.id if matched_sop_stub else None,
+                "expected_values": expected_values,
+                "final_context_keys": list(final_context.keys())
+            }
+        }]
+        summary = {
+            "cases": len(report_cases),
+            "failures": len([c for c in report_cases if c["status"] == "fail"]),
+            "duration": round(time.perf_counter() - start_time, 4)
+        }
+        emit_report(build_report("test_05_whole_workflow", report_cases, summary=summary))
 
 if __name__ == "__main__":
     unittest.main()

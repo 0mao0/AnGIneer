@@ -9,9 +9,11 @@ import re
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from engtools.BaseTool import ToolRegistry
-from angineer_core.core.llm import LLMClient
+from angineer_core.infra.llm_client import LLMClient
+from regression_report import build_report, emit_report
 
 """
 基础资源加载验证脚本 (Test 01)
@@ -30,6 +32,7 @@ class TestResourceLoading(unittest.TestCase):
     def test_resources(self):
         """统一测试入口，根据指令分发任务"""
         print(f"\n[Test 01] 资源加载测试 (Mode: {self.mode})")
+        start_time = time.perf_counter()
         
         results = {
             "mode": self.mode,
@@ -47,6 +50,29 @@ class TestResourceLoading(unittest.TestCase):
         print("\n__JSON_START__")
         print(json.dumps(results, ensure_ascii=False, indent=2))
         print("__JSON_END__")
+
+        cases = []
+        for item in results.get("tools", []):
+            cases.append({
+                "id": f"tool-{item.get('name')}",
+                "label": item.get("name"),
+                "status": "ok" if item.get("status") == "ok" else "fail",
+                "details": item
+            })
+        for item in results.get("llm_tools", []):
+            cases.append({
+                "id": f"model-{item.get('model')}",
+                "label": item.get("model"),
+                "status": "ok" if item.get("status") == "ok" else "fail",
+                "details": item
+            })
+        summary = {
+            "cases": len(cases),
+            "failures": len([c for c in cases if c["status"] == "fail"]),
+            "duration": round(time.perf_counter() - start_time, 4)
+        }
+        meta = {"mode": self.mode}
+        emit_report(build_report("test_01_tool_registration", cases, summary=summary, meta=meta))
 
     def _check_tools(self):
         """检查 ToolRegistry 中的核心工具注册情况。"""
@@ -86,7 +112,7 @@ class TestResourceLoading(unittest.TestCase):
         tools = ToolRegistry.list_tools()
         tool_names = list(tools.keys())
         client = LLMClient()
-        configs_to_test = client.configs
+        configs_to_test = [c for c in client.configs if c.get("name") == "Qwen3-4B (Public)"]
         test_file = os.path.abspath(__file__)
         prompt_tasks = [
             {

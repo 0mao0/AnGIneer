@@ -6,6 +6,11 @@ __pycache__/
 venv/
 ENV/
 .env
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
 
 # Node.js
 node_modules/
@@ -17,6 +22,7 @@ dist/
 .idea/
 .trae/
 .DS_Store
+CLAUDE.md
 
 # Knowledge and SOPs - Only allow specific files
 backend/knowledge/*

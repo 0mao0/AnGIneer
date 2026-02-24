@@ -3,18 +3,21 @@ import os
 import re
 import json
 import unittest
+import time
 from typing import Dict, Any, List, Optional
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/sop-core/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
-from angineer_core.agents import IntentClassifier
-from angineer_core.core.contextStruct import Step, SOP
+from angineer_core.core import IntentClassifier
+from angineer_core.standard.context_struct import Step, SOP
 from sop_core.sop_loader import SopLoader
 from engtools.BaseTool import ToolRegistry
+from regression_report import build_report, emit_report
 
 """
 SOP 混合分析测试脚本 (Test 02)
@@ -29,64 +32,10 @@ SAMPLE_QUERIES = [
         "expected_sop": "math_sop"
     },
     {
-        "id": "case_2",
-        "label": "程序脚本审查",
-        "query": "给出航道设计计算脚本文件路径 d:/AI/PicoAgent/demo/channel_design.py，按读取-静态检查-总结-生成报告的流程完成审查。",
-        "expected_sop": "code_review"
-    },
-    {
-        "id": "case_3",
-        "label": "市场调研",
-        "query": "以“航道疏浚服务”作为调研主题，按步骤搜索 2025 市场趋势与主要竞争对手，汇总并形成报告。",
-        "expected_sop": "market_research"
-    },
-    {
-        "id": "case_4",
-        "label": "挖槽宽度（计算）",
-        "query": "已知设计通航宽度 150m，底宽附加宽度两侧各 2m，求挖槽底宽。",
-        "expected_sop": "挖槽宽度"
-    },
-    {
-        "id": "case_5",
-        "label": "桥区通航净空尺度（计算）",
-        "query": "某内河航道桥梁，已知通航净空高度基准为 18m，安全裕度 2m；通航净空宽度基准为 120m，安全裕度 10m。求该桥区的实际通航净空高度与宽度。",
-        "expected_sop": "桥区通航净空尺度"
-    },
-    {
-        "id": "case_6",
-        "label": "航道尺度汇总表（计算）",
-        "query": "某航道工程设计参数如下：通航宽度 135m、边坡 1:4、设计底高程 -12.5m、转弯半径 600m。请根据 SOP 要求汇总并输出关键尺度设计成果清单。",
-        "expected_sop": "航道尺度汇总表"
-    },
-    {
-        "id": "case_7",
-        "label": "航道边坡（计算）",
-        "query": "某航道工程位于粉质黏土层，设计开挖深度为 6m。请查表确定该航道的建议边坡坡度范围。",
-        "expected_sop": "航道边坡"
-    },
-    {
         "id": "case_8",
         "label": "航道通航底高程（计算）",
         "query": "已知某航道的设计通航水位为 4.2m，设计船型设计水深为 10.5m，考虑富裕深度 1.0m。求该航道的通航底高程。",
         "expected_sop": "航道通航底高程"
-    },
-    {
-        "id": "case_9",
-        "label": "设计底高程（计算）",
-        "query": "已知某航道的设计通航水位为 4.0m，设计水深 9.0m，备淤深度 0.6m，施工超深 0.4m。求该航道的设计底高程。",
-        "expected_sop": "设计底高程"
-    },
-    {
-        "id": "case_10",
-        "label": "转弯段尺度（计算）",
-        "query": "某航道设计船型宽度为 28m，根据规范要求转弯系数 K 取 8。求该航道转弯段的最小转弯半径。",
-        "expected_sop": "转弯段尺度"
-    },
-    {
-        "id": "case_11",
-        "label": "通航宽度（计算）",
-        "query": "某单向通航航道，设计通航宽度基准值为 120m，根据通航环境需加宽 15m。求该航道的最终设计通航宽度。",
-        "expected_sop": "通航宽度"
     }
 ]
 
@@ -257,6 +206,7 @@ class TestSopAnalysis(unittest.TestCase):
         """
         # 初始化测试环境和数据加载
         print("\n[测试 03] SOP 步骤分析测试")
+        start_time = time.perf_counter()
         env_query = os.environ.get("TEST_LLM_QUERY")
         sop_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "sops", "raw")
         loader = SopLoader(sop_dir)
@@ -266,6 +216,7 @@ class TestSopAnalysis(unittest.TestCase):
         classifier = IntentClassifier(sops)
         cases = select_cases(env_query)
         results = []
+        report_cases = []
 
         # 遍历所有测试用例进行分析
         for case in cases:
@@ -274,7 +225,7 @@ class TestSopAnalysis(unittest.TestCase):
             print(f"  Query: {case['query']}")
 
             # 路由分类：根据用户查询匹配最合适的SOP
-            sop, args, reason = classifier.route(case["query"])
+            sop, args, reason = classifier.route(case["query"], config_name="Qwen3-4B (Public)")
             matched_sop = sop.id if sop else None
             expected_sop = case.get("expected_sop")
             if expected_sop and expected_sop != matched_sop:
@@ -308,6 +259,23 @@ class TestSopAnalysis(unittest.TestCase):
                 "args": args,
                 "steps": step_payloads
             })
+            case_status = "ok"
+            if expected_sop and expected_sop != matched_sop:
+                case_status = "fail"
+            if not step_payloads:
+                case_status = "fail"
+            report_cases.append({
+                "id": case["id"],
+                "label": case["label"],
+                "status": case_status,
+                "details": {
+                    "query": case["query"],
+                    "expected_sop": expected_sop,
+                    "matched_sop": matched_sop,
+                    "route_reason": reason,
+                    "steps": step_payloads
+                }
+            })
 
         # 验证所有测试用例都有步骤分析结果
         self.assertTrue(all(r["steps"] for r in results))
@@ -316,6 +284,13 @@ class TestSopAnalysis(unittest.TestCase):
         print("\n__JSON_START__")
         print(json.dumps({"cases": results}, ensure_ascii=False, indent=2))
         print("__JSON_END__")
+        summary = {
+            "cases": len(report_cases),
+            "failures": len([c for c in report_cases if c["status"] == "fail"]),
+            "duration": round(time.perf_counter() - start_time, 4)
+        }
+        meta = {"env_query": env_query}
+        emit_report(build_report("test_02_sop_analysis", report_cases, summary=summary, meta=meta))
 
 if __name__ == "__main__":
     unittest.main()

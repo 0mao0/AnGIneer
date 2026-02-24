@@ -1,0 +1,12 @@
+{
+  "name": "angineer",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "services:install": "pip install -e services/angineer-core/src -e services/sop-core/src -e services/docs-core/src -e services/geo-core/src -e services/engtools/src",
+    "api:dev": "python apps/api-server/main.py",
+    "harness": "python -m unittest discover -s tests -p \"test_*.py\"",
+    "harness:workflow": "python -m unittest tests.test_05_whole_workflow",
+    "harness:tooling": "python -m unittest tests.test_01_tool_registration"
+  }
+}

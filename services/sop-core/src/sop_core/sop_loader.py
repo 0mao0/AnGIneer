@@ -7,7 +7,7 @@ from typing import List, Dict, Any
 # Ensure src can be imported
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
-from angineer_core.core.contextStruct import SOP, Step
+from angineer_core.standard.context_struct import SOP, Step
 from sop_core.sop_parser import SopParser
 
 class SopLoader:
@@ -105,7 +105,9 @@ class SopLoader:
             with open(self.index_file, 'r', encoding='utf-8') as f:
                 index_data = json.load(f)
                 
-            sop_json_dir = os.path.abspath(os.path.join(self.sop_dir, "..", "sop_json"))
+            base_dir = os.path.abspath(os.path.join(self.sop_dir, ".."))
+            json_dir_candidates = [os.path.join(base_dir, "json"), os.path.join(base_dir, "sop_json")]
+            sop_json_dir = next((p for p in json_dir_candidates if os.path.exists(p)), json_dir_candidates[0])
             for entry in index_data:
                 # 构造 SOP 对象
                 step = Step(
@@ -174,7 +176,9 @@ class SopLoader:
             raise FileNotFoundError(f"SOP file {filepath} not found")
 
         file_mtime = os.path.getmtime(filepath)
-        sop_json_dir = os.path.abspath(os.path.join(self.sop_dir, "..", "sop_json"))
+        base_dir = os.path.abspath(os.path.join(self.sop_dir, ".."))
+        json_dir_candidates = [os.path.join(base_dir, "json"), os.path.join(base_dir, "sop_json")]
+        sop_json_dir = next((p for p in json_dir_candidates if os.path.exists(p)), json_dir_candidates[0])
         json_path = os.path.join(sop_json_dir, f"{sop_id}.json")
         
         # 2. 尝试从 JSON 缓存加载 (Cache Hit)

@@ -1,11 +1,15 @@
+"""
+执行调度核心模块，负责 SOP 步骤编排、工具调用与上下文更新。
+"""
 import time
 import json
 import os
 from typing import Dict, Any, Tuple, List
-from angineer_core.core.contextStruct import SOP, Step
+from angineer_core.standard.context_struct import SOP, Step
 from angineer_core.core.memory import Memory, StepRecord
 from engtools.BaseTool import ToolRegistry
-from angineer_core.core.llm import llm_client
+from angineer_core.infra.llm_client import llm_client
+
 
 class Dispatcher:
     def __init__(self, config_name: str = None, mode: str = "instruct", result_md_path: str = None):

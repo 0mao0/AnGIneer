@@ -2,7 +2,7 @@ import json
 import re
 import os
 from typing import List, Dict, Any, Tuple
-from angineer_core.core.contextStruct import SOP, Step
+from angineer_core.standard.context_struct import SOP, Step
 
 # ---------- 极简内联工具 ----------
 def _extract_json_from_text(text: str) -> Dict[str, Any]:
