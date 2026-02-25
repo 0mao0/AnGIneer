@@ -66,6 +66,33 @@ class Dispatcher:
         """获取 LLM 客户端。"""
         return self._llm_client
     
+    def _extract_json_from_response(self, response: str) -> Dict[str, Any]:
+        """
+        从 LLM 响应中提取 JSON 数据。
+        
+        支持以下格式:
+        - ```json {...} ```
+        - ``` {...} ```
+        - 纯 JSON 字符串
+        
+        Args:
+            response: LLM 的原始响应字符串
+            
+        Returns:
+            解析后的 JSON 字典
+            
+        Raises:
+            json.JSONDecodeError: 当无法解析 JSON 时
+        """
+        cleaned = response.strip()
+        
+        if "```json" in cleaned:
+            cleaned = cleaned.split("```json")[1].split("```")[0]
+        elif "```" in cleaned:
+            cleaned = cleaned.split("```")[1].split("```")[0]
+        
+        return json.loads(cleaned.strip())
+    
     def log_pre_execution(self, logs: List[Dict[str, Any]]):
         """
         记录前置过程日志到 Markdown。
@@ -115,7 +142,7 @@ class Dispatcher:
         for step in sop.steps:
             self._execute_step(step)
             
-            logger.info(f"[{sop.id}] Execution finished.")
+        logger.info(f"[{sop.id}] Execution finished.")
         
         # Log total time
         total_duration = time.time() - self.start_time
@@ -255,13 +282,17 @@ class Dispatcher:
     def _execute_tool_safe(self, tool_name: str, inputs: Dict[str, Any], step: Step):
         """Helper to execute tool and record history"""
         if ToolRegistry is None:
-            logger.error("ToolRegistry not available (engtools not installed)")
-            return
+            error_msg = "ToolRegistry not available (engtools not installed)"
+            logger.error(error_msg)
+            self._record_step(step, inputs, None, error=error_msg)
+            raise RuntimeError(error_msg)
             
         tool = ToolRegistry.get_tool(tool_name)
         if not tool:
-            logger.error(f"Tool not found: {tool_name}")
-            return
+            error_msg = f"Tool not found: {tool_name}"
+            logger.error(error_msg)
+            self._record_step(step, inputs, None, error=error_msg)
+            raise RuntimeError(error_msg)
             
         try:
             run_kwargs = dict(inputs)
@@ -296,20 +327,19 @@ class Dispatcher:
             if self.result_md_path:
                  self._write_markdown_log(step, inputs, {"error": str(e)}, {}, duration=0.0)
 
-    def _smart_step_execution(self, step: Step, reason: str, missing_params: List[str]):
+    def _build_smart_execution_prompt(self, step: Step, reason: str, context_str: str) -> str:
         """
-        LLM handles the execution:
-        - Can ask user for input
-        - Can search knowledge
-        - Can execute the target tool
-        """
-        # Construct Prompt
-        context_str = json.dumps(self.memory.get_context_snapshot(), default=str, ensure_ascii=False)
-        if len(context_str) > 3000:
-            context_str = context_str[:3000] + "..."
+        构建智能执行步骤的 System Prompt。
+        
+        Args:
+            step: 当前执行的步骤
+            reason: 需要 LLM 介入的原因
+            context_str: 上下文变量字符串
             
-        system_prompt = f"""
-You are the Step Executor of an expert system. You are facing a step that requires your attention.
+        Returns:
+            构建好的 system prompt
+        """
+        return f"""You are the Step Executor of an expert system. You are facing a step that requires your attention.
 
 Current Step:
 - Name: {step.name}
@@ -343,66 +373,111 @@ Available Actions (Output JSON):
  6. SKIP: If this step is already done or irrelevant.
     {{ "action": "skip", "reason": "..." }}
 
-Output ONLY the JSON.
-"""
+Output ONLY the JSON."""
+
+    def _handle_action_return_value(self, step: Step, action_data: Dict[str, Any]):
+        """处理 return_value Action：直接返回值。"""
+        value = action_data.get("value")
+        logger.info(f"Returning value: {value}")
+        updates = self._process_outputs(step, value)
+        self._record_step(step, {}, value)
+        if self.result_md_path:
+            self._write_markdown_log(step, {}, value, updates)
+
+    def _handle_action_ask_user(self, step: Step, action_data: Dict[str, Any]):
+        """处理 ask_user Action：向用户询问输入。"""
+        question = action_data.get("question")
+        logger.info(f"Asking user: {question}")
+        self._execute_tool_safe("user_input", {"question": question}, step)
+
+    def _handle_action_search_knowledge(self, step: Step, action_data: Dict[str, Any]):
+        """处理 search_knowledge Action：搜索知识库。"""
+        query = action_data.get("query")
+        logger.info(f"Searching knowledge: {query}")
+        self._execute_tool_safe("knowledge_search", {"query": query}, step)
+
+    def _handle_action_table_lookup(self, step: Step, action_data: Dict[str, Any]):
+        """处理 table_lookup Action：查表操作。"""
+        table_name = action_data.get("table_name")
+        conditions = action_data.get("conditions")
+        target_col = action_data.get("target_column")
+        logger.info(f"Looking up table: {table_name}, conditions: {conditions}")
+        
+        inputs = {
+            "table_name": table_name,
+            "query_conditions": conditions,
+            "target_column": target_col
+        }
+        self._execute_tool_safe("table_lookup", inputs, step)
+
+    def _handle_action_execute_tool(self, step: Step, action_data: Dict[str, Any]):
+        """处理 execute_tool Action：执行指定工具。"""
+        tool_name = action_data.get("tool")
+        inputs = action_data.get("inputs", {})
+        self._execute_tool_safe(tool_name, inputs, step)
+
+    def _handle_action_skip(self, step: Step, action_data: Dict[str, Any]):
+        """处理 skip Action：跳过步骤。"""
+        skip_reason = action_data.get('reason', 'No reason provided')
+        logger.info(f"Skipping step: {skip_reason}")
+        self._record_step(step, {}, {"skipped": True, "reason": skip_reason})
+        if self.result_md_path:
+            self._write_markdown_log(step, {}, {"skipped": True, "reason": skip_reason}, {})
+
+    def _handle_action_unknown(self, step: Step, action: str):
+        """处理未知的 Action 类型。"""
+        error_msg = f"Unknown action: {action}"
+        logger.error(error_msg)
+        self._record_step(step, {}, None, error=error_msg)
+
+    def _smart_step_execution(self, step: Step, reason: str, missing_params: List[str]):
+        """
+        LLM 智能执行步骤。
+        
+        通过 LLM 分析当前步骤状态，决定执行何种操作来完成步骤。
+        支持的操作包括：询问用户、搜索知识、查表、执行工具、返回值、跳过。
+        
+        Args:
+            step: 当前执行的步骤
+            reason: 需要 LLM 介入的原因
+            missing_params: 缺失的参数列表
+        """
+        # 构建上下文字符串
+        context_str = json.dumps(self.memory.get_context_snapshot(), default=str, ensure_ascii=False)
+        if len(context_str) > 3000:
+            context_str = context_str[:3000] + "..."
+        
+        # 构建 Prompt 并调用 LLM
+        system_prompt = self._build_smart_execution_prompt(step, reason, context_str)
         messages = [{"role": "system", "content": system_prompt}]
         
-        response = self.llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
-        
-        # Parse JSON
         try:
-            if "```json" in response:
-                response = response.split("```json")[1].split("```")[0]
-            elif "```" in response:
-                response = response.split("```")[1].split("```")[0]
-            
-            action_data = json.loads(response.strip())
+            response = self.llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
+            action_data = self._extract_json_from_response(response)
             action = action_data.get("action")
             
             logger.debug(f"AI decision: {action}")
             
-            if action == "return_value":
-                value = action_data.get("value")
-                logger.info(f"Returning value: {value}")
-                # Process outputs directly
-                updates = self._process_outputs(step, value)
-                self._record_step(step, {}, value)
-                if self.result_md_path:
-                    self._write_markdown_log(step, {}, value, updates)
-
-            elif action == "ask_user":
-                question = action_data.get("question")
-                logger.info(f"Asking user: {question}")
-                self._execute_tool_safe("user_input", {"question": question}, step)
-                    
-            elif action == "search_knowledge":
-                query = action_data.get("query")
-                logger.info(f"Searching knowledge: {query}")
-                self._execute_tool_safe("knowledge_search", {"query": query}, step)
-                
-            elif action == "table_lookup":
-                table_name = action_data.get("table_name")
-                conditions = action_data.get("conditions")
-                target_col = action_data.get("target_column")
-                logger.info(f"Looking up table: {table_name}, conditions: {conditions}")
-                
-                inputs = {
-                    "table_name": table_name,
-                    "query_conditions": conditions,
-                    "target_column": target_col
-                }
-                self._execute_tool_safe("table_lookup", inputs, step)
-
-            elif action == "execute_tool":
-                tool_name = action_data.get("tool")
-                inputs = action_data.get("inputs", {})
-                self._execute_tool_safe(tool_name, inputs, step)
-                
-            elif action == "skip":
-                logger.info(f"Skipping step: {action_data.get('reason')}")
+            # 使用策略模式分发到对应的处理方法
+            action_handlers = {
+                "return_value": self._handle_action_return_value,
+                "ask_user": self._handle_action_ask_user,
+                "search_knowledge": self._handle_action_search_knowledge,
+                "table_lookup": self._handle_action_table_lookup,
+                "execute_tool": self._handle_action_execute_tool,
+                "skip": self._handle_action_skip,
+            }
+            
+            handler = action_handlers.get(action)
+            if handler:
+                handler(step, action_data)
+            else:
+                self._handle_action_unknown(step, action)
                 
         except Exception as e:
-            logger.error(f"Smart execution error: {e}")
+            error_msg = f"Smart execution error: {e}"
+            logger.error(error_msg)
+            self._record_step(step, {}, None, error=error_msg)
 
 
 
@@ -598,13 +673,7 @@ Example Output:
         messages = [{"role": "system", "content": system_prompt}]
         try:
             response = self.llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
-            # clean response
-            if "```json" in response:
-                response = response.split("```json")[1].split("```")[0]
-            elif "```" in response:
-                response = response.split("```")[1].split("```")[0]
-            
-            data = json.loads(response.strip())
+            data = self._extract_json_from_response(response)
             return data.get("tool"), data.get("inputs", {})
         except Exception as e:
             logger.error(f"Smart selection failed: {e}")

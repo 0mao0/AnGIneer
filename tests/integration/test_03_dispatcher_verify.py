@@ -4,10 +4,10 @@ import json
 from typing import Dict, Any
 
 # Setup paths
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 # Add engtools to path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/engtools/src")))
 
 from angineer_core.core import Dispatcher
 from angineer_core.standard.context_models import SOP
@@ -17,7 +17,7 @@ from engtools.CalculatorTool import Calculator
 from engtools.TableTool import TableLookupTool
 from engtools.CommonTool import Echo, WeatherTool
 
-SOP_JSON_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "sops", "json", "航道通航底高程.json"))
+SOP_JSON_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../..", "data", "sops", "json", "航道通航底高程.json"))
 RESULT_MD_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "result_test_03.md"))
 
 def run_test():
@@ -60,7 +60,7 @@ def run_test():
 
     print("Initializing Dispatcher...")
     # Initialize dispatcher with the result markdown path
-    dispatcher = Dispatcher(result_md_path=RESULT_MD_PATH)
+    dispatcher = Dispatcher(result_md_path=RESULT_MD_PATH, config_name="Qwen3-4B (Public)")
     
     print("Running SOP...")
     final_context = dispatcher.run(sop, initial_context)

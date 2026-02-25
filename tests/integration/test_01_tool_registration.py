@@ -6,10 +6,10 @@ import json
 import time
 import re
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/engtools/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from engtools.BaseTool import ToolRegistry
 from angineer_core.infra.llm_client import LLMClient

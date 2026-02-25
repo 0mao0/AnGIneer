@@ -6,11 +6,11 @@ import unittest
 import time
 from typing import Dict, Any, List, Optional
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/sop-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/engtools/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/sop-core/src")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
 from angineer_core.core import IntentClassifier
@@ -208,7 +208,7 @@ class TestSopAnalysis(unittest.TestCase):
         print("\n[测试 03] SOP 步骤分析测试")
         start_time = time.perf_counter()
         env_query = os.environ.get("TEST_LLM_QUERY")
-        sop_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "sops", "raw")
+        sop_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "sops", "raw")
         loader = SopLoader(sop_dir)
         sops = loader.load_all()
         self.assertGreater(len(sops), 0)

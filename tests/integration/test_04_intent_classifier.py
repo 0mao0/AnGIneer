@@ -5,11 +5,11 @@ import json
 import time
 
 # Add backend to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/sop-core/src")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/engtools/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/sop-core/src")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
 from angineer_core.core import IntentClassifier
@@ -36,7 +36,7 @@ SAMPLE_QUERIES = [
 
 class TestIntentClassifier(unittest.TestCase):
     def setUp(self):
-        self.sop_dir = os.path.join(os.path.dirname(__file__), "../data/sops/raw")
+        self.sop_dir = os.path.join(os.path.dirname(__file__), "../../data/sops/raw")
         self.loader = SopLoader(self.sop_dir)
         # IntentClassifier expects a list of SOPs
         self.sops = self.loader.load_all()

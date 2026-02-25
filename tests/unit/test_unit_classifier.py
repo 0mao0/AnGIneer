@@ -7,7 +7,7 @@ import json
 
 import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
 from angineer_core.core.classifier import IntentClassifier
 from angineer_core.standard.context_models import SOP, Step

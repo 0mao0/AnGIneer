@@ -8,7 +8,7 @@ import tempfile
 import os
 
 import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
 from angineer_core.core.dispatcher import Dispatcher
 from angineer_core.core.memory import Memory

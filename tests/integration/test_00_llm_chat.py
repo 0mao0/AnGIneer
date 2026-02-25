@@ -5,9 +5,9 @@ import argparse
 import unittest
 import time
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from angineer_core.infra.llm_client import LLMClient
 from regression_report import build_report, emit_report
