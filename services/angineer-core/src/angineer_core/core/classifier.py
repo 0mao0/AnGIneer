@@ -3,34 +3,60 @@
 """
 import json
 from typing import List, Optional, Tuple, Dict, Any
-from angineer_core.standard.context_struct import SOP, AgentResponse
-from angineer_core.infra.llm_client import llm_client
+
+from angineer_core.standard.context_models import SOP, AgentResponse
+from angineer_core.infra.llm_client import llm_client, get_llm_client
+from angineer_core.infra.response_parser import (
+    extract_json_from_text,
+    parse_and_validate,
+    IntentResponse,
+    ArgsExtractResponse,
+    ParseError,
+)
+from angineer_core.infra.logger import get_logger
+
+logger = get_logger(__name__)
 
 
 class IntentClassifier:
     """
     意图分类器，负责分析用户查询并匹配最合适的 SOP。
     """
-    def __init__(self, sops: List[SOP]):
+    
+    def __init__(self, sops: List[SOP], llm_client=None):
+        """
+        初始化意图分类器。
+        
+        Args:
+            sops: 可用的 SOP 列表
+            llm_client: 可选的 LLM 客户端实例，默认使用全局实例
+        """
         self.sops = sops
-
-    def _extract_json(self, response_text: str) -> Dict[str, Any]:
-        content = (response_text or "").strip()
-        if "```json" in content:
-            content = content.split("```json")[1].split("```")[0]
-        elif "```" in content:
-            parts = content.split("```")
-            if len(parts) >= 3:
-                content = parts[1]
-        if "{" in content and "}" in content:
-            start = content.find("{")
-            end = content.rfind("}") + 1
-            content = content[start:end]
-        return json.loads(content.strip())
-
-    def _extract_args_with_blackboard(self, user_query: str, required_keys: List[str], config_name: str = None, mode: str = "instruct") -> Dict[str, Any]:
+        self._llm_client = llm_client or get_llm_client()
+        logger.info(f"意图分类器初始化完成，加载了 {len(sops)} 个 SOP")
+    
+    def _extract_args_with_blackboard(
+        self,
+        user_query: str,
+        required_keys: List[str],
+        config_name: str = None,
+        mode: str = "instruct"
+    ) -> Dict[str, Any]:
+        """
+        从用户查询中提取参数。
+        
+        Args:
+            user_query: 用户查询
+            required_keys: 需要提取的参数键列表
+            config_name: LLM 配置名称
+            mode: 运行模式
+        
+        Returns:
+            提取的参数字典
+        """
         if not required_keys:
             return {}
+        
         system_prompt = f"""
 你是一个参数抽取器。请根据用户请求填充指定字段。
 只输出 JSON 对象，格式为: {{ "args": {{ ... }} }}。不要输出多余文本。
@@ -39,26 +65,50 @@ class IntentClassifier:
 如果无法确定某个字段值，请返回 null。
 """
         user_prompt = f"用户请求: {user_query}"
-        response_text = llm_client.chat(
-            [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}],
-            mode=mode,
-            config_name=config_name
-        )
-        data = self._extract_json(response_text)
-        args = data.get("args") or {}
-        return {k: v for k, v in args.items() if v is not None}
         
-    def route(self, user_query: str, config_name: str = None, mode: str = "instruct") -> Tuple[Optional[SOP], Dict[str, Any], Optional[str]]:
+        try:
+            response_text = self._llm_client.chat(
+                [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}],
+                mode=mode,
+                config_name=config_name
+            )
+            
+            parsed = parse_and_validate(response_text, ArgsExtractResponse, strict=False)
+            args = parsed.args or {}
+            
+            filtered_args = {k: v for k, v in args.items() if v is not None}
+            logger.debug(f"参数提取完成: {filtered_args}")
+            return filtered_args
+            
+        except ParseError as e:
+            logger.warning(f"参数提取解析失败: {e}")
+            return {}
+        except Exception as e:
+            logger.error(f"参数提取失败: {e}")
+            return {}
+    
+    def route(
+        self,
+        user_query: str,
+        config_name: str = None,
+        mode: str = "instruct"
+    ) -> Tuple[Optional[SOP], Dict[str, Any], Optional[str]]:
         """
         分析用户查询，返回匹配的 SOP 和提取的参数。
         
         Args:
             user_query: 用户输入的查询
-            config_name: 指定的 LLM 配置名称 (e.g., "DeepSeek Official")
+            config_name: 指定的 LLM 配置名称
             mode: 运行模式 ("instruct" or "thinking")
+        
+        Returns:
+            Tuple[Optional[SOP], Dict[str, Any], Optional[str]]:
+                - 匹配的 SOP 对象，未匹配则为 None
+                - 提取的参数字典
+                - 匹配原因
         """
         if not self.sops:
-            print("警告: 没有可用的 SOP 列表进行匹配。")
+            logger.warning("没有可用的 SOP 列表进行匹配")
             return None, {}, None
 
         sop_descriptions = []
@@ -88,47 +138,60 @@ class IntentClassifier:
             {"role": "user", "content": user_prompt}
         ]
         
-        # Pass config_name and mode to llm_client.chat
-        response_text = llm_client.chat(messages, mode=mode, config_name=config_name)
+        try:
+            response_text = self._llm_client.chat(messages, mode=mode, config_name=config_name)
+        except Exception as e:
+            logger.error(f"LLM 调用失败: {e}")
+            return None, {}, None
+        
         if not response_text:
-            print("分类器错误: LLM 响应为空")
+            logger.warning("LLM 响应为空")
             return None, {}, None
         
         try:
-            data = self._extract_json(response_text)
-            sop_id = data.get("sop_id")
-            reason = data.get("reason")
+            parsed = parse_and_validate(response_text, IntentResponse, strict=False)
+            sop_id = parsed.sop_id
+            reason = parsed.reason
             
-            # 处理 null/None/空字符串
             if not sop_id or str(sop_id).lower() in ["null", "none", "nan", ""]:
+                logger.info(f"未匹配到 SOP: {reason}")
                 return None, {}, reason
-                
-            # 3. 匹配 SOP (支持大小写不敏感和前后空格)
-            sop_id_str = str(sop_id).strip()
-            selected_sop = next((s for s in self.sops if s.id.strip().lower() == sop_id_str.lower()), None)
             
-            # 4. 如果 ID 没匹配上，尝试通过名称匹配 (可选，但为了鲁棒性增加)
+            sop_id_str = str(sop_id).strip()
+            selected_sop = next(
+                (s for s in self.sops if s.id.strip().lower() == sop_id_str.lower()),
+                None
+            )
+            
             if not selected_sop:
-                selected_sop = next((s for s in self.sops if s.name_zh and s.name_zh.strip() == sop_id_str), None)
+                selected_sop = next(
+                    (s for s in self.sops if s.name_zh and s.name_zh.strip() == sop_id_str),
+                    None
+                )
 
             if not selected_sop:
-                print(f"警告: LLM 返回了未知的 SOP ID: {sop_id_str}")
-                print(f"当前可用的 SOP ID 列表: {[s.id for s in self.sops]}")
-                
+                logger.warning(
+                    f"LLM 返回了未知的 SOP ID: {sop_id_str}，"
+                    f"可用 SOP: {[s.id for s in self.sops]}"
+                )
+                return None, {}, reason
+            
+            logger.info(f"匹配到 SOP: {selected_sop.id}，原因: {reason}")
+            
             args = {}
             blackboard = selected_sop.blackboard or {}
             required_keys = blackboard.get("required") or []
+            
             if required_keys:
-                try:
-                    args = self._extract_args_with_blackboard(user_query, required_keys, config_name=config_name, mode=mode)
-                except Exception as e:
-                    print(f"参数抽取失败: {e}")
+                args = self._extract_args_with_blackboard(
+                    user_query, required_keys, config_name=config_name, mode=mode
+                )
+            
             return selected_sop, args, reason
             
+        except ParseError as e:
+            logger.error(f"意图分类解析错误: {e}")
+            return None, {}, None
         except Exception as e:
-            error_msg = f"分类器解析错误: {e}"
-            print(error_msg)
-            print(f"原始响应内容: {response_text}")
-            # 这里的输出供前端识别
-            print(f"  [AI 运行出错]: {error_msg}")
+            logger.error(f"意图分类未知错误: {e}")
             return None, {}, None

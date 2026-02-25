@@ -14,7 +14,7 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
 from angineer_core.core import IntentClassifier
-from angineer_core.standard.context_struct import Step, SOP
+from angineer_core.standard.context_models import Step, SOP
 from sop_core.sop_loader import SopLoader
 from engtools.BaseTool import ToolRegistry
 from regression_report import build_report, emit_report

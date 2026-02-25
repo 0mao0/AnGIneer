@@ -41,7 +41,7 @@ class TestLLMChat(unittest.TestCase):
 
         target_config = "Qwen3-4B (Public)"
         client = LLMClient()
-        configs_to_test = [c for c in client.configs if c.get("name") == target_config]
+        configs_to_test = [c.model_dump() for c in client._config.llm.models if c.name == target_config]
 
         print("  -> 步骤 1: 解析测试配置")
         if not configs_to_test:

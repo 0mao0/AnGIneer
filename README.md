@@ -83,11 +83,12 @@ AnGIneer/
 ### 阶段一：内核构建 (Core) - v0.1
 *目标：构建 AnGIneer OS 的核心调度引擎 (Dispatcher)、意图识别（Classifier）、SOP解析引擎 (SOP-Parser)、数据标准（contextStruct）和记忆总线（Blackboard)，跑通最小闭环。*
 - [✅] **混合调度器**: 实现 `Dispatcher`，支持 Tool/LLM 动态切换。
-- [✅] **SOP 标准化**: 定义 AnGIneer-SOP 的 Markdown/JSON 协议规范。
-- [✅] **Blackboard机制**: 实现 `memory`，支持总线记忆。
-- [✅] **执行可视化**: 生成 `Result.md`，实时透视决策链路。
-- [✅] **多模型支持**: 已支持Qwen3-4B, Qwen2.5-7B, GLM-Flash 等主流小参数SLM，可无限扩展。
-- [✅] **架构重构**: 迁移至 Monorepo 结构，实现核心模块解耦。
+- [✅] **多模型支持**: 支持任意LLM模型，目前已配置Qwen\Deepseek等，可无限扩展，并定义其与SOP、EngTools的交互协议`response_models.py`。
+- [✅] **SOP标准协议**: 定义AnGIneer-SOP的Markdown/JSON协议规范。
+- [✅] **数据标准**: 定义核心业务数据结构 (`Step`, `SOP`, `AgentResponse`) 与 LLM 响应结构 (`IntentResponse`, `ActionResponse`, `StepParseResponse`, `ArgsExtractResponse`)。
+- [✅] **黑板报机制**: 在`memory`实现Blackboard总线机制。
+- [  ] **核心模块测试**: 完成5个注册考试题的测试。
+- [✅] **执行可视化（Lite）**: 注册考试题部分，可生成`Result.md`，实时透视决策链路。
 
 ### 阶段二：知识与视觉 (Docs & Vision) - v0.2
 *目标：启动 `AnGIneer-Docs` 子系统，解决"数据源"问题。*

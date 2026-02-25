@@ -1,0 +1,53 @@
+{
+    "description": "LLM 步骤执行动作响应样本",
+    "samples": [
+        {
+            "id": "action_return_value",
+            "step_context": "计算结果",
+            "llm_response": {
+                "action": "return_value",
+                "value": 42,
+                "reason": "直接返回计算结果"
+            }
+        },
+        {
+            "id": "action_ask_user",
+            "step_context": "需要用户输入",
+            "llm_response": {
+                "action": "ask_user",
+                "question": "请输入您要计算的数值",
+                "reason": "缺少必要参数"
+            }
+        },
+        {
+            "id": "action_execute_tool",
+            "step_context": "执行工具",
+            "llm_response": {
+                "action": "execute_tool",
+                "tool": "calculator",
+                "inputs": {
+                    "expression": "25 * 4"
+                },
+                "reason": "需要调用计算器工具"
+            }
+        },
+        {
+            "id": "action_skip",
+            "step_context": "跳过步骤",
+            "llm_response": {
+                "action": "skip",
+                "reason": "当前条件不满足，跳过此步骤"
+            }
+        },
+        {
+            "id": "action_query_db",
+            "step_context": "查询数据库",
+            "llm_response": {
+                "action": "query_db",
+                "query": "SELECT * FROM users WHERE id = 1",
+                "table_name": "users",
+                "reason": "需要查询用户信息"
+            }
+        }
+    ]
+}

@@ -25,7 +25,7 @@ sys.path.append(os.path.join(SERVICES_DIR, "engtools", "src"))
 
 # Import logic from packages
 from angineer_core.infra.llm_client import LLMClient
-from angineer_core.standard.context_struct import Step, SOP
+from angineer_core.standard.context_models import Step, SOP
 from angineer_core.core import IntentClassifier, Dispatcher
 from sop_core.sop_loader import SopLoader
 from engtools.BaseTool import ToolRegistry, register_tool

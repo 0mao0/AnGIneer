@@ -112,7 +112,7 @@ class TestResourceLoading(unittest.TestCase):
         tools = ToolRegistry.list_tools()
         tool_names = list(tools.keys())
         client = LLMClient()
-        configs_to_test = [c for c in client.configs if c.get("name") == "Qwen3-4B (Public)"]
+        configs_to_test = [c.model_dump() for c in client._config.llm.models if c.name == "Qwen3-4B (Public)"]
         test_file = os.path.abspath(__file__)
         prompt_tasks = [
             {

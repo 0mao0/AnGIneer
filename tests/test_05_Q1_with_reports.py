@@ -18,7 +18,7 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from angineer_core.core import IntentClassifier
 from sop_core.sop_loader import SopLoader
 from angineer_core.core import Dispatcher
-from angineer_core.standard.context_struct import SOP
+from angineer_core.standard.context_models import SOP
 from regression_report import build_report, emit_report
 
 class TestWholeWorkflow(unittest.TestCase):

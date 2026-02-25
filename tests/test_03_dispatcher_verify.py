@@ -10,7 +10,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../serv
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
 
 from angineer_core.core import Dispatcher
-from angineer_core.standard.context_struct import SOP
+from angineer_core.standard.context_models import SOP
 
 from engtools.UserInputTool import UserInputTool
 from engtools.CalculatorTool import Calculator

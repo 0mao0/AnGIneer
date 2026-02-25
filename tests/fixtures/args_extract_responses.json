@@ -1,0 +1,48 @@
+{
+    "description": "LLM 参数提取响应样本",
+    "samples": [
+        {
+            "id": "args_extract_full",
+            "user_query": "计算 25 * 4，保留两位小数",
+            "required_keys": ["expression", "precision"],
+            "llm_response": {
+                "args": {
+                    "expression": "25 * 4",
+                    "precision": 2
+                }
+            }
+        },
+        {
+            "id": "args_extract_partial",
+            "user_query": "计算 25 * 4",
+            "required_keys": ["expression", "precision"],
+            "llm_response": {
+                "args": {
+                    "expression": "25 * 4",
+                    "precision": null
+                }
+            }
+        },
+        {
+            "id": "args_extract_empty",
+            "user_query": "计算",
+            "required_keys": ["expression", "precision"],
+            "llm_response": {
+                "args": {}
+            }
+        },
+        {
+            "id": "args_extract_complex",
+            "user_query": "查询北京市朝阳区2024年降雨量数据",
+            "required_keys": ["city", "district", "year", "data_type"],
+            "llm_response": {
+                "args": {
+                    "city": "北京市",
+                    "district": "朝阳区",
+                    "year": 2024,
+                    "data_type": "降雨量"
+                }
+            }
+        }
+    ]
+}

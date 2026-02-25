@@ -7,7 +7,7 @@ from typing import List, Dict, Any
 # Ensure src can be imported
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
-from angineer_core.standard.context_struct import SOP, Step
+from angineer_core.standard.context_models import SOP, Step
 from sop_core.sop_parser import SopParser
 
 class SopLoader:
