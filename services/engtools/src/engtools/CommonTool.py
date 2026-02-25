@@ -116,8 +116,6 @@ class CodeLinter(BaseTool):
                 if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Div):
                     if isinstance(node.right, ast.Constant) and node.right.value == 0:
                         issues.append(f"行 {node.lineno}: 检测到除以零错误")
-                    if isinstance(node.right, ast.Num) and node.right.n == 0:
-                        issues.append(f"行 {node.lineno}: 检测到除以零错误")
             if not issues:
                 return "代码语法检查通过，未发现明显静态错误。"
             return "\n".join(issues)

@@ -20,20 +20,25 @@ AnGIneer 不仅仅是一个 Agent，更是一套连接知识、工具与物理�
 
 ```mermaid
 flowchart TD
-    U["用户"] --> W["Web Console"]
-    W --> A["API Server"]
+    %% 样式定义
+    classDef user fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    classDef frontend fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#000
+    classDef core fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000
+    classDef service fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
     
-    subgraph Core["AnGIneer OS Core"]
-        A --> D["Dispatcher"]
-        D --> M["Memory"]
-    end
+    U(["👤 用户"]) --> W["🖥️ Web Console"]
+    W --> A["⚡ API Server"]
+    A --> D["🧠 Dispatcher"]
+    D --> M["💾 Memory"]
+    D --> S["📋 SOP 引擎"]
+    D --> Doc["📚 知识引擎"]
+    D --> G["🗺️ GIS 引擎"]
+    D --> E["🔧 工程工具"]
     
-    subgraph Services["Services"]
-        D --> S["SOP 引擎"]
-        D --> Doc["知识引擎"]
-        D --> G["GIS 引擎"]
-        D --> E["工程工具"]
-    end
+    class U user
+    class W frontend
+    class A,D,M core
+    class S,Doc,G,E service
 ```
 
 ### 2.1 子系统矩阵 (Subsystem Matrix)
@@ -51,35 +56,44 @@ flowchart TD
 **调度器 (Dispatcher)** 是 AnGIneer OS 的执行引擎，负责 SOP 步骤的编排、工具调用与上下文更新。
 
 ```mermaid
-flowchart TD
-    subgraph Dispatcher["Dispatcher 调度器"]
-        direction TB
-        D_INIT["初始化"] --> D_RUN["执行 SOP"]
-        D_RUN --> D_EXEC["执行步骤"]
-        D_EXEC --> D_SMART["智能执行"]
-        D_SMART --> D_ANALYZE["分析执行"]
-        D_ANALYZE --> D_TOOL["工具执行"]
-        D_ANALYZE --> D_LLM["LLM 调用"]
-        D_SMART --> D_HANDLERS{"Action 处理器"}
-        D_HANDLERS --> D_H1["return_value"]
-        D_HANDLERS --> D_H2["ask_user"]
-        D_HANDLERS --> D_H3["search_knowledge"]
-        D_HANDLERS --> D_H4["table_lookup"]
-        D_HANDLERS --> D_H5["execute_tool"]
-        D_HANDLERS --> D_H6["skip"]
-    end
+flowchart LR
+    %% 样式定义
+    classDef process fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000
+    classDef action fill:#fff8e1,stroke:#f9a825,stroke-width:2px,color:#000
+    classDef handler fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000
+    classDef external fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
     
-    subgraph External["外部依赖"]
-        MEM["Memory 黑板内存"]
-        LLM["LLMClient"]
-        TOOL["ToolRegistry"]
-        SOP_MODEL["SOP/Step 模型"]
-    end
+    %% 主流程 - 水平布局更紧凑
+    D_INIT["🚀 初始化"] --> D_RUN["▶️ 执行SOP"]
+    D_RUN --> D_EXEC["⚙️ 执行步骤"]
+    D_EXEC --> D_SMART["🤖 智能执行"]
     
-    Dispatcher --> MEM
-    Dispatcher --> LLM
-    Dispatcher --> TOOL
-    Dispatcher --> SOP_MODEL
+    %% 执行分支
+    D_SMART --> D_ANALYZE["📊 分析执行"]
+    D_ANALYZE --> D_TOOL["🔧 工具执行"]
+    D_ANALYZE --> D_LLM["🧠 LLM调用"]
+    
+    %% Action处理器 - 简化为列表
+    D_SMART --> D_HANDLERS["📋 Action处理器"]
+    D_HANDLERS --> D_H1["return_value"]
+    D_HANDLERS --> D_H2["ask_user"]
+    D_HANDLERS --> D_H3["search_knowledge"]
+    D_HANDLERS --> D_H4["execute_tool"]
+    
+    %% 外部依赖
+    MEM["💾 Memory"]
+    LLM["🤖 LLMClient"]
+    TOOL["🧰 ToolRegistry"]
+    
+    D_EXEC -.-> MEM
+    D_LLM -.-> LLM
+    D_TOOL -.-> TOOL
+    
+    %% 样式应用
+    class D_INIT,D_RUN,D_EXEC,D_SMART,D_ANALYZE process
+    class D_TOOL,D_LLM action
+    class D_HANDLERS,D_H1,D_H2,D_H3,D_H4 handler
+    class MEM,LLM,TOOL external
 ```
 
 **核心方法说明：**
@@ -99,28 +113,35 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    subgraph Classifier["IntentClassifier 意图分类器"]
-        direction TB
-        C_INIT["初始化"] --> C_ROUTE["路由方法"]
-        C_ROUTE --> C_EXTRACT["参数提取"]
-        C_ROUTE --> C_SELECT["意图识别"]
-        C_EXTRACT --> C_PARSE_ARGS["解析参数"]
-        C_SELECT --> C_PARSE_INTENT["解析意图"]
-    end
+    %% 样式定义
+    classDef main fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000
+    classDef data fill:#e0f2f1,stroke:#00796b,stroke-width:2px,color:#000
+    classDef infra fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000
     
-    subgraph DataModels["数据模型"]
-        C_SOP_LIST["SOP 列表"]
-        C_INTENT_RESP["IntentResponse"]
-        C_ARGS_RESP["ArgsExtractResponse"]
-    end
+    %% 主流程
+    C_ROUTE["🎯 route"] --> C_SELECT["🔍 意图识别"]
+    C_ROUTE --> C_EXTRACT["📤 参数提取"]
     
-    subgraph Infra["基础设施"]
-        C_LLM["LLMClient"]
-        C_PARSER["ResponseParser"]
-    end
+    %% 数据模型
+    C_SOP_LIST["📋 SOP列表"]
+    C_INTENT_RESP["📊 IntentResponse"]
+    C_ARGS_RESP["📋 ArgsExtractResponse"]
     
-    Classifier --> DataModels
-    Classifier --> Infra
+    %% 基础设施
+    C_LLM["🤖 LLMClient"]
+    C_PARSER["🔧 ResponseParser"]
+    
+    %% 连接
+    C_SELECT -.-> C_LLM
+    C_EXTRACT -.-> C_LLM
+    C_SELECT -.-> C_INTENT_RESP
+    C_EXTRACT -.-> C_ARGS_RESP
+    C_ROUTE -.-> C_SOP_LIST
+    
+    %% 样式
+    class C_ROUTE,C_SELECT,C_EXTRACT main
+    class C_SOP_LIST,C_INTENT_RESP,C_ARGS_RESP data
+    class C_LLM,C_PARSER infra
 ```
 
 **核心方法说明：**
@@ -137,38 +158,41 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    subgraph Memory["Memory 黑板内存系统"]
-        direction TB
-        
-        subgraph DataStore["数据存储"]
-            M_GC["global_context"]
-            M_BB["blackboard"]
-            M_CHAT["chat_context"]
-            M_STEP_IO["step_io"]
-            M_TWM["tool_working_memory"]
-            M_HIST["history"]
-        end
-        
-        subgraph Operations["核心操作"]
-            M_UPDATE["update_context"]
-            M_SYNC["sync_global_context"]
-            M_RESOLVE["resolve_variables"]
-            M_ADD_HIST["add_history"]
-        end
+    %% 样式定义
+    classDef store fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000
+    classDef op fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+    classDef model fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#000
+    
+    %% 数据存储
+    subgraph Store["💾 数据存储"]
+        M_BB["📋 blackboard"]
+        M_GC["🌍 global_context"]
+        M_STEP_IO["🔄 step_io"]
+        M_HIST["📜 history"]
     end
     
-    subgraph Models["数据模型"]
-        M_STEP_REC["StepRecord"]
-        M_MEM_CFG["MemoryConfig"]
+    %% 核心操作
+    subgraph Ops["⚙️ 核心操作"]
+        M_UPDATE["📝 update"]
+        M_RESOLVE["🔍 resolve_variables"]
+        M_SYNC["🔄 sync"]
     end
     
-    subgraph Exceptions["异常处理"]
-        M_UNDEF_ERR["UndefinedVariableError"]
-    end
+    %% 数据模型
+    M_STEP_REC["📊 StepRecord"]
+    M_UNDEF_ERR["⚠️ UndefinedVariableError"]
     
-    Operations --> DataStore
-    Memory --> Models
-    Memory --> Exceptions
+    %% 连接
+    M_UPDATE -.-> M_BB
+    M_RESOLVE -.-> M_BB
+    M_SYNC -.-> M_GC
+    M_BB -.-> M_STEP_REC
+    M_RESOLVE -.-> M_UNDEF_ERR
+    
+    %% 样式
+    class M_BB,M_GC,M_STEP_IO,M_HIST store
+    class M_UPDATE,M_RESOLVE,M_SYNC op
+    class M_STEP_REC,M_UNDEF_ERR model
 ```
 
 **核心功能说明：**
@@ -187,47 +211,55 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    subgraph LLMModule["LLM 模块"]
-        direction TB
-        
-        subgraph Client["LLMClient 客户端"]
-            L_CHAT["chat 对话接口"]
-            L_CB_CHECK["熔断检查"]
-            L_RETRY["重试机制"]
-            L_TIMEOUT["超时控制"]
-        end
-        
-        subgraph CircuitBreaker["CircuitBreaker 熔断器"]
-            L_STATES{"状态机"}
-            L_STATES --> L_CLOSED["CLOSED 正常"]
-            L_STATES --> L_OPEN["OPEN 熔断"]
-            L_STATES --> L_HALF["HALF_OPEN 半开"]
-        end
-        
-        subgraph Parser["ResponseParser 响应解析"]
-            L_EXTRACT["提取 JSON"]
-            L_VALIDATE["验证 Schema"]
-            L_FIX["自动修复"]
-        end
+    %% 样式定义
+    classDef client fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000
+    classDef cb fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000
+    classDef parser fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#000
+    classDef model fill:#fce4ec,stroke:#d81b60,stroke-width:2px,color:#000
+    
+    %% 客户端
+    subgraph Client["🤖 LLMClient"]
+        L_CHAT["💬 chat"]
+        L_RETRY["🔄 重试"]
+        L_TIMEOUT["⏱️ 超时"]
     end
     
-    subgraph Models["Response Models"]
-        L_INTENT["IntentResponse"]
-        L_ACTION["ActionResponse"]
-        L_STEP_PARSE["StepParseResponse"]
-        L_ARGS_EXTRACT["ArgsExtractResponse"]
+    %% 熔断器
+    subgraph CB["⚡ CircuitBreaker"]
+        L_STATES{"🔄 状态机"}
+        L_CLOSED["✅ CLOSED"]
+        L_OPEN["❌ OPEN"]
+        L_HALF["⚠️ HALF_OPEN"]
     end
     
-    subgraph Config["配置"]
-        L_MODEL_CFG["LLMModelConfig"]
-        L_RETRY_CFG["RetryConfig"]
-        L_CB_CFG["CircuitBreakerConfig"]
+    %% 解析器
+    subgraph Parser["🔧 ResponseParser"]
+        L_EXTRACT["📤 提取JSON"]
+        L_VALIDATE["✓ 验证Schema"]
     end
     
-    Client --> CircuitBreaker
-    Client --> Parser
-    LLMModule --> Models
-    LLMModule --> Config
+    %% 响应模型
+    L_INTENT["🎯 IntentResponse"]
+    L_ACTION["⚡ ActionResponse"]
+    L_ARGS["📋 ArgsExtractResponse"]
+    
+    %% 连接
+    L_CHAT -.-> L_RETRY
+    L_RETRY -.-> L_STATES
+    L_STATES -.-> L_CLOSED
+    L_STATES -.-> L_OPEN
+    L_STATES -.-> L_HALF
+    L_CHAT -.-> L_EXTRACT
+    L_EXTRACT -.-> L_VALIDATE
+    L_VALIDATE -.-> L_INTENT
+    L_VALIDATE -.-> L_ACTION
+    L_VALIDATE -.-> L_ARGS
+    
+    %% 样式
+    class L_CHAT,L_RETRY,L_TIMEOUT client
+    class L_STATES,L_CLOSED,L_OPEN,L_HALF cb
+    class L_EXTRACT,L_VALIDATE parser
+    class L_INTENT,L_ACTION,L_ARGS model
 ```
 
 **稳定性机制说明：**
@@ -245,44 +277,51 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    subgraph SOPEngine["SOP 引擎"]
-        direction TB
-        
-        subgraph Loader["SopLoader 加载器"]
-            S_LOAD_ALL["加载所有 SOP"]
-            S_REFRESH["刷新索引"]
-            S_LOAD_INDEX["从索引加载"]
-            S_PARSE_MD["解析 Markdown"]
-        end
-        
-        subgraph S_Parser["SopParser 解析器"]
-            S_PARSE_SOP["解析完整 SOP"]
-            S_PARSE_STEP["解析步骤"]
-            S_EXTRACT_BB["提取黑板变量"]
-            S_MD_TO_JSON["Markdown 转 JSON"]
-        end
-        
-        subgraph Index["Index 索引机制"]
-            S_INDEX_FILE["index.json"]
-            S_META["元数据"]
-        end
+    %% 样式定义
+    classDef loader fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000
+    classDef parser fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+    classDef index fill:#fff8e1,stroke:#f9a825,stroke-width:2px,color:#000
+    classDef model fill:#e8f5e9,stroke:#43a047,stroke-width:2px,color:#000
+    
+    %% 加载器
+    subgraph Loader["📂 SopLoader"]
+        S_LOAD_ALL["📥 加载全部"]
+        S_REFRESH["🔄 刷新索引"]
+        S_PARSE_MD["📝 解析Markdown"]
     end
     
-    subgraph S_DataModels["数据模型"]
-        S_SOP["SOP 对象"]
-        S_STEP["Step 对象"]
+    %% 解析器
+    subgraph Parser["🔍 SopParser"]
+        S_PARSE_SOP["📋 解析SOP"]
+        S_PARSE_STEP["⚙️ 解析步骤"]
+        S_EXTRACT_BB["📤 提取变量"]
     end
     
-    subgraph Storage["存储"]
-        S_MD_FILES["md 文件"]
-        S_JSON_FILES["json 文件"]
+    %% 索引
+    subgraph Index["📇 Index索引"]
+        S_INDEX_FILE["📄 index.json"]
+        S_META["🏷️ 元数据"]
     end
     
-    Loader --> Index
-    Loader --> S_Parser
-    S_Parser --> S_DataModels
-    Storage --> Loader
-    Storage --> S_Parser
+    %% 数据模型
+    S_SOP["📋 SOP对象"]
+    S_STEP["⚙️ Step对象"]
+    
+    %% 连接
+    S_LOAD_ALL -.-> S_INDEX_FILE
+    S_REFRESH -.-> S_INDEX_FILE
+    S_INDEX_FILE -.-> S_META
+    S_PARSE_MD -.-> S_PARSE_SOP
+    S_PARSE_SOP -.-> S_PARSE_STEP
+    S_PARSE_STEP -.-> S_EXTRACT_BB
+    S_PARSE_SOP -.-> S_SOP
+    S_PARSE_STEP -.-> S_STEP
+    
+    %% 样式
+    class S_LOAD_ALL,S_REFRESH,S_PARSE_MD loader
+    class S_PARSE_SOP,S_PARSE_STEP,S_EXTRACT_BB parser
+    class S_INDEX_FILE,S_META index
+    class S_SOP,S_STEP model
 ```
 
 **索引机制优势：**
