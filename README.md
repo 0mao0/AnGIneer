@@ -25,16 +25,16 @@ flowchart TD
     classDef frontend fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#000
     classDef core fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000
     classDef service fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
-    
-    U(["👤 用户"]) --> W["🖥️ Web Console"]
-    W --> A["⚡ API Server"]
-    A --> D["🧠 Dispatcher"]
-    D --> M["💾 Memory"]
+
+    U(["👤 用户"]) --> W["🖥️ Web 控制台"]
+    W --> A["⚡ API 服务"]
+    A --> D["🧠 调度器<br>Dispatcher"]
+    D --> M["💾 记忆系统<br>Memory"]
     D --> S["📋 SOP 引擎"]
     D --> Doc["📚 知识引擎"]
     D --> G["🗺️ GIS 引擎"]
     D --> E["🔧 工程工具"]
-    
+
     class U user
     class W frontend
     class A,D,M core
@@ -62,33 +62,33 @@ flowchart LR
     classDef action fill:#fff8e1,stroke:#f9a825,stroke-width:2px,color:#000
     classDef handler fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000
     classDef external fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
-    
+
     %% 主流程 - 水平布局更紧凑
-    D_INIT["🚀 初始化"] --> D_RUN["▶️ 执行SOP"]
-    D_RUN --> D_EXEC["⚙️ 执行步骤"]
-    D_EXEC --> D_SMART["🤖 智能执行"]
-    
+    D_INIT["🚀 初始化<br>run()"] --> D_RUN["▶️ 执行SOP<br>_execute_sop()"]
+    D_RUN --> D_EXEC["⚙️ 执行步骤<br>_execute_step()"]
+    D_EXEC --> D_SMART["🤖 智能执行<br>_smart_step_execution()"]
+
     %% 执行分支
-    D_SMART --> D_ANALYZE["📊 分析执行"]
-    D_ANALYZE --> D_TOOL["🔧 工具执行"]
-    D_ANALYZE --> D_LLM["🧠 LLM调用"]
-    
+    D_SMART --> D_ANALYZE["📊 分析执行<br>_analyze_execution()"]
+    D_ANALYZE --> D_TOOL["🔧 工具执行<br>_execute_tool_safe()"]
+    D_ANALYZE --> D_LLM["🧠 LLM调用<br>_smart_step_execution()"]
+
     %% Action处理器 - 简化为列表
     D_SMART --> D_HANDLERS["📋 Action处理器"]
-    D_HANDLERS --> D_H1["return_value"]
-    D_HANDLERS --> D_H2["ask_user"]
-    D_HANDLERS --> D_H3["search_knowledge"]
-    D_HANDLERS --> D_H4["execute_tool"]
-    
+    D_HANDLERS --> D_H1["return_value<br>返回值处理"]
+    D_HANDLERS --> D_H2["ask_user<br>询问用户"]
+    D_HANDLERS --> D_H3["search_knowledge<br>知识检索"]
+    D_HANDLERS --> D_H4["execute_tool<br>执行工具"]
+
     %% 外部依赖
-    MEM["💾 Memory"]
-    LLM["🤖 LLMClient"]
-    TOOL["🧰 ToolRegistry"]
-    
+    MEM["💾 记忆系统<br>Memory"]
+    LLM["🤖 LLM客户端<br>LLMClient"]
+    TOOL["🧰 工具注册表<br>ToolRegistry"]
+
     D_EXEC -.-> MEM
     D_LLM -.-> LLM
     D_TOOL -.-> TOOL
-    
+
     %% 样式应用
     class D_INIT,D_RUN,D_EXEC,D_SMART,D_ANALYZE process
     class D_TOOL,D_LLM action
@@ -117,27 +117,27 @@ flowchart TD
     classDef main fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000
     classDef data fill:#e0f2f1,stroke:#00796b,stroke-width:2px,color:#000
     classDef infra fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000
-    
+
     %% 主流程
-    C_ROUTE["🎯 route"] --> C_SELECT["🔍 意图识别"]
-    C_ROUTE --> C_EXTRACT["📤 参数提取"]
-    
+    C_ROUTE["🎯 路由入口<br>route()"] --> C_SELECT["🔍 意图识别<br>_select_sop()"]
+    C_ROUTE --> C_EXTRACT["📤 参数提取<br>_extract_args_with_blackboard()"]
+
     %% 数据模型
-    C_SOP_LIST["📋 SOP列表"]
-    C_INTENT_RESP["📊 IntentResponse"]
-    C_ARGS_RESP["📋 ArgsExtractResponse"]
-    
+    C_SOP_LIST["📋 SOP列表<br>SOP Index"]
+    C_INTENT_RESP["📊 意图响应<br>IntentResponse"]
+    C_ARGS_RESP["📋 参数提取响应<br>ArgsExtractResponse"]
+
     %% 基础设施
-    C_LLM["🤖 LLMClient"]
-    C_PARSER["🔧 ResponseParser"]
-    
+    C_LLM["🤖 LLM客户端<br>LLMClient"]
+    C_PARSER["🔧 响应解析器<br>ResponseParser"]
+
     %% 连接
     C_SELECT -.-> C_LLM
     C_EXTRACT -.-> C_LLM
     C_SELECT -.-> C_INTENT_RESP
     C_EXTRACT -.-> C_ARGS_RESP
     C_ROUTE -.-> C_SOP_LIST
-    
+
     %% 样式
     class C_ROUTE,C_SELECT,C_EXTRACT main
     class C_SOP_LIST,C_INTENT_RESP,C_ARGS_RESP data
@@ -162,33 +162,33 @@ flowchart TD
     classDef store fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000
     classDef op fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
     classDef model fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#000
-    
+
     %% 数据存储
     subgraph Store["💾 数据存储"]
-        M_BB["📋 blackboard"]
-        M_GC["🌍 global_context"]
-        M_STEP_IO["🔄 step_io"]
-        M_HIST["📜 history"]
+        M_BB["📋 黑板<br>blackboard"]
+        M_GC["🌍 全局上下文<br>global_context"]
+        M_STEP_IO["🔄 步骤输入输出<br>step_io"]
+        M_HIST["📜 执行历史<br>history"]
     end
-    
+
     %% 核心操作
     subgraph Ops["⚙️ 核心操作"]
-        M_UPDATE["📝 update"]
-        M_RESOLVE["🔍 resolve_variables"]
-        M_SYNC["🔄 sync"]
+        M_UPDATE["📝 更新数据<br>update()"]
+        M_RESOLVE["🔍 变量解析<br>resolve_variables()"]
+        M_SYNC["🔄 同步上下文<br>sync()"]
     end
-    
+
     %% 数据模型
-    M_STEP_REC["📊 StepRecord"]
-    M_UNDEF_ERR["⚠️ UndefinedVariableError"]
-    
+    M_STEP_REC["📊 步骤记录<br>StepRecord"]
+    M_UNDEF_ERR["⚠️ 未定义变量错误<br>UndefinedVariableError"]
+
     %% 连接
     M_UPDATE -.-> M_BB
     M_RESOLVE -.-> M_BB
     M_SYNC -.-> M_GC
     M_BB -.-> M_STEP_REC
     M_RESOLVE -.-> M_UNDEF_ERR
-    
+
     %% 样式
     class M_BB,M_GC,M_STEP_IO,M_HIST store
     class M_UPDATE,M_RESOLVE,M_SYNC op
@@ -216,33 +216,33 @@ flowchart TD
     classDef cb fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000
     classDef parser fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#000
     classDef model fill:#fce4ec,stroke:#d81b60,stroke-width:2px,color:#000
-    
+
     %% 客户端
-    subgraph Client["🤖 LLMClient"]
-        L_CHAT["💬 chat"]
-        L_RETRY["🔄 重试"]
-        L_TIMEOUT["⏱️ 超时"]
+    subgraph Client["🤖 LLM客户端 LLMClient"]
+        L_CHAT["💬 聊天<br>chat()"]
+        L_RETRY["🔄 重试机制<br>retry"]
+        L_TIMEOUT["⏱️ 超时控制<br>timeout"]
     end
-    
+
     %% 熔断器
-    subgraph CB["⚡ CircuitBreaker"]
+    subgraph CB["⚡ 熔断器 CircuitBreaker"]
         L_STATES{"🔄 状态机"}
-        L_CLOSED["✅ CLOSED"]
-        L_OPEN["❌ OPEN"]
-        L_HALF["⚠️ HALF_OPEN"]
+        L_CLOSED["✅ 关闭状态<br>CLOSED"]
+        L_OPEN["❌ 开启状态<br>OPEN"]
+        L_HALF["⚠️ 半开状态<br>HALF_OPEN"]
     end
-    
+
     %% 解析器
-    subgraph Parser["🔧 ResponseParser"]
-        L_EXTRACT["📤 提取JSON"]
-        L_VALIDATE["✓ 验证Schema"]
+    subgraph Parser["🔧 响应解析器 ResponseParser"]
+        L_EXTRACT["📤 提取JSON<br>_extract_json_from_response()"]
+        L_VALIDATE["✓ 验证Schema<br>validate_schema()"]
     end
-    
+
     %% 响应模型
-    L_INTENT["🎯 IntentResponse"]
-    L_ACTION["⚡ ActionResponse"]
-    L_ARGS["📋 ArgsExtractResponse"]
-    
+    L_INTENT["🎯 意图响应<br>IntentResponse"]
+    L_ACTION["⚡ 动作响应<br>ActionResponse"]
+    L_ARGS["📋 参数提取响应<br>ArgsExtractResponse"]
+
     %% 连接
     L_CHAT -.-> L_RETRY
     L_RETRY -.-> L_STATES
@@ -254,7 +254,7 @@ flowchart TD
     L_VALIDATE -.-> L_INTENT
     L_VALIDATE -.-> L_ACTION
     L_VALIDATE -.-> L_ARGS
-    
+
     %% 样式
     class L_CHAT,L_RETRY,L_TIMEOUT client
     class L_STATES,L_CLOSED,L_OPEN,L_HALF cb
@@ -282,31 +282,31 @@ flowchart TD
     classDef parser fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
     classDef index fill:#fff8e1,stroke:#f9a825,stroke-width:2px,color:#000
     classDef model fill:#e8f5e9,stroke:#43a047,stroke-width:2px,color:#000
-    
+
     %% 加载器
-    subgraph Loader["📂 SopLoader"]
-        S_LOAD_ALL["📥 加载全部"]
-        S_REFRESH["🔄 刷新索引"]
-        S_PARSE_MD["📝 解析Markdown"]
+    subgraph Loader["📂 SOP加载器 SopLoader"]
+        S_LOAD_ALL["📥 加载全部<br>load_all()"]
+        S_REFRESH["🔄 刷新索引<br>refresh_index()"]
+        S_PARSE_MD["📝 解析Markdown<br>_parse_markdown()"]
     end
-    
+
     %% 解析器
-    subgraph Parser["🔍 SopParser"]
-        S_PARSE_SOP["📋 解析SOP"]
-        S_PARSE_STEP["⚙️ 解析步骤"]
-        S_EXTRACT_BB["📤 提取变量"]
+    subgraph Parser["🔍 SOP解析器 SopParser"]
+        S_PARSE_SOP["📋 解析SOP<br>parse_sop()"]
+        S_PARSE_STEP["⚙️ 解析步骤<br>parse_step()"]
+        S_EXTRACT_BB["📤 提取变量<br>extract_blackboard_vars()"]
     end
-    
+
     %% 索引
-    subgraph Index["📇 Index索引"]
-        S_INDEX_FILE["📄 index.json"]
-        S_META["🏷️ 元数据"]
+    subgraph Index["📇 索引管理 Index"]
+        S_INDEX_FILE["📄 索引文件<br>index.json"]
+        S_META["🏷️ 元数据<br>metadata"]
     end
-    
+
     %% 数据模型
-    S_SOP["📋 SOP对象"]
-    S_STEP["⚙️ Step对象"]
-    
+    S_SOP["📋 SOP对象<br>SOP"]
+    S_STEP["⚙️ 步骤对象<br>Step"]
+
     %% 连接
     S_LOAD_ALL -.-> S_INDEX_FILE
     S_REFRESH -.-> S_INDEX_FILE
@@ -316,7 +316,7 @@ flowchart TD
     S_PARSE_STEP -.-> S_EXTRACT_BB
     S_PARSE_SOP -.-> S_SOP
     S_PARSE_STEP -.-> S_STEP
-    
+
     %% 样式
     class S_LOAD_ALL,S_REFRESH,S_PARSE_MD loader
     class S_PARSE_SOP,S_PARSE_STEP,S_EXTRACT_BB parser
