@@ -81,14 +81,19 @@ def _parse_range(text: str) -> Optional[tuple]:
 
 def _get_table_context(table) -> str:
     """获取表格附近的标题或段落文本（兼容 Markdown 原始文本）。"""
+    # 先尝试查找 HTML 标签
     prev = table.find_previous(lambda tag: getattr(tag, "name", None) in ["h1", "h2", "h3", "h4", "h5", "h6", "p"])
     if prev and prev.get_text(strip=True):
         return prev.get_text(strip=True)
+    
+    # 查找前面的兄弟节点（包括纯文本）
     texts = []
     for sib in getattr(table, "previous_siblings", []):
         try:
             if hasattr(sib, "get_text"):
                 t = sib.get_text(strip=True)
+            elif hasattr(sib, "strip"):
+                t = sib.strip()
             else:
                 t = str(sib).strip()
         except Exception:
@@ -97,23 +102,93 @@ def _get_table_context(table) -> str:
             texts.append(t)
             if len(texts) >= 2:
                 break
+    
     if texts:
         return " / ".join(texts[:2])
+    
+    # 最后尝试：直接获取表格前面所有文本内容
+    try:
+        parent = table.parent
+        if parent:
+            table_str = str(table)
+            parent_str = str(parent)
+            idx = parent_str.find(table_str)
+            if idx > 0:
+                before_text = parent_str[:idx]
+                # 提取最后一行非空文本
+                lines = [ln.strip() for ln in before_text.split('\n') if ln.strip()]
+                if lines:
+                    return lines[-1]
+    except Exception:
+        pass
+    
     return ""
 
 
 def _parse_table_headers(table) -> List[str]:
-    """解析表格表头。"""
+    """解析表格表头，处理 rowspan 和 colspan 合并单元格。"""
     thead = table.find("thead")
     if thead:
         ths = thead.find_all(["th", "td"])
         if ths:
             return [th.get_text(strip=True) for th in ths]
-    first_row = table.find("tr")
-    if first_row:
-        cells = first_row.find_all(["th", "td"])
-        return [cell.get_text(strip=True) for cell in cells]
-    return []
+    
+    # 获取前两行，处理合并单元格
+    rows = table.find_all("tr")
+    if not rows:
+        return []
+    
+    # 解析前两行
+    row1_cells = rows[0].find_all(["th", "td"]) if rows[0] else []
+    row2_cells = rows[1].find_all(["th", "td"]) if len(rows) > 1 and rows[1] else []
+    
+    # 构建完整表头
+    headers = []
+    row1_idx = 0
+    row2_idx = 0
+    
+    # 处理第一行
+    for cell in row1_cells:
+        text = cell.get_text(strip=True)
+        rowspan = int(cell.get("rowspan", 1))
+        colspan = int(cell.get("colspan", 1))
+        
+        if rowspan > 1:
+            # 跨行单元格，直接添加
+            headers.append(text)
+        else:
+            # 不跨行，需要从第二行补充
+            headers.append(text)
+            # 跳过第二行对应的列（因为第一行占了位置）
+    
+    # 如果第一行有跨行单元格，第二行的表头需要插入到正确位置
+    if row2_cells:
+        # 重新构建表头：跨行的保留，不跨行的用第二行替换
+        final_headers = []
+        row1_idx = 0
+        row2_idx = 0
+        
+        for cell in row1_cells:
+            rowspan = int(cell.get("rowspan", 1))
+            text = cell.get_text(strip=True)
+            
+            if rowspan > 1:
+                # 跨行，保留第一行的文本
+                final_headers.append(text)
+            else:
+                # 不跨行，用第二行的文本替换
+                if row2_idx < len(row2_cells):
+                    final_headers.append(row2_cells[row2_idx].get_text(strip=True))
+                    row2_idx += 1
+        
+        # 添加第二行剩余的单元格
+        while row2_idx < len(row2_cells):
+            final_headers.append(row2_cells[row2_idx].get_text(strip=True))
+            row2_idx += 1
+        
+        return final_headers
+    
+    return [cell.get_text(strip=True) for cell in row1_cells]
 
 
 def _parse_table_rows(table) -> List[List[str]]:
@@ -180,16 +255,32 @@ def _extract_markdown_tables(content: str) -> List[Dict[str, Any]]:
 
 
 def _find_column_index(headers: List[str], key: str, synonyms: Optional[List[str]] = None) -> Optional[int]:
-    """在表头中匹配列索引。"""
+    """在表头中匹配列索引。跳过维度标注列（如"船舶航速（kn）"）。"""
     if not headers or not key:
         return None
+    
+    dimension_patterns = ['航速', '水深', '波长', '周期', '吃水', '吨级', 'dwt']
+    
     candidates = [key] + (synonyms or [])
     for candidate in candidates:
         cand_norm = _normalize_text(candidate)
         for idx, header in enumerate(headers):
             header_norm = _normalize_text(header)
+            # 跳过维度标注列（如 "船舶航速（kn）"）
+            if any(dim in header_norm for dim in dimension_patterns) and not re.search(r'\d', header):
+                continue
             if cand_norm and (cand_norm in header_norm or header_norm in cand_norm):
                 return idx
+    
+    # 如果没有匹配到，尝试提取关键词进行模糊匹配
+    key_parts = re.findall(r'[Z-z]\d*|下沉|富裕|吃水', key)
+    if key_parts:
+        for idx, header in enumerate(headers):
+            header_norm = _normalize_text(header)
+            for part in key_parts:
+                if part.lower() in header_norm or header_norm in part.lower():
+                    return idx
+    
     return None
 
 
@@ -219,7 +310,7 @@ class TableLookupTool(BaseTool):
         knowledge_file = os.path.join(self.knowledge_dir, file_name)
         if not os.path.exists(knowledge_file):
             return {"error": f"未找到知识库文件: {file_name}"}
-            
+        
         try:
             with open(knowledge_file, 'r', encoding='utf-8') as f:
                 content = f.read()
@@ -228,7 +319,7 @@ class TableLookupTool(BaseTool):
 
         trace.append(f"加载知识库文件: {file_name}")
         soup = BeautifulSoup(content, 'html.parser')
-        html_tables = soup.find_all("table")
+        html_tables = soup.find_all('table')
         candidates = []
         for idx, tbl in enumerate(html_tables):
             table_html = str(tbl)
@@ -247,8 +338,7 @@ class TableLookupTool(BaseTool):
                         if " / " in context_text:
                             context_text = context_text.split(" / ")[0].strip()
                         context_text = re.sub(r"[)\]）】〉》>]+$", "", context_text).strip()
-            if context_text and len(context_text) > 200:
-                context_text = context_text[-200:]
+            # 不再截断上下文，保留完整表名用于匹配
             candidates.append({
                 "html": table_html,
                 "context": context_text,
@@ -269,6 +359,11 @@ class TableLookupTool(BaseTool):
 
         conditions = _parse_query_conditions(query_conditions)
         
+        # 预先计算标准化表名，用于后续匹配
+        name_norm = _normalize_text(table_name)
+        name_words = re.findall(r"[\u4e00-\u9fff]+|[A-Za-z0-9]+", table_name)
+        kind_token = "图" if "图" in table_name else ("表" if "表" in table_name else None)
+        
         # 优先选择 Context 中包含查询条件值的表格
         condition_values = []
         if conditions:
@@ -279,21 +374,19 @@ class TableLookupTool(BaseTool):
         def score_candidate(cand):
             score = 0
             ctx = cand.get("context", "")
+            ctx_norm = _normalize_text(ctx)
             for val in condition_values:
                 if val in ctx:
                     score += 10
-            # Also prefer if table name is in context
-            if table_name in ctx:
-                score += 5
+            # Also prefer if table name is in context (use normalized matching)
+            if name_norm and name_norm in ctx_norm:
+                score += 50
             return score
 
         # Sort candidates by score descending
         candidates.sort(key=score_candidate, reverse=True)
 
         target_table = None
-        name_norm = _normalize_text(table_name)
-        name_words = re.findall(r"[\u4e00-\u9fff]+|[A-Za-z0-9]+", table_name)
-        kind_token = "图" if "图" in table_name else ("表" if "表" in table_name else None)
         markdown_candidates = [c for c in candidates if c.get("type") == "markdown"]
         html_candidates = [c for c in candidates if c.get("type") == "html"]
         for cand in markdown_candidates:

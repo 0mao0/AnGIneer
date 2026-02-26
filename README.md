@@ -336,17 +336,19 @@ flowchart TD
 ## 3. 开发路线图 (Roadmap)
 
 ### 阶段一：内核构建 (Core) - v0.1
-*目标：构建 AnGIneer OS 的核心调度引擎 (Dispatcher)、意图识别（Classifier）、SOP解析引擎 (SOP-Parser)、数据标准（contextStruct）和记忆总线（Blackboard)，跑通最小闭环。*
+*目标：构建 AnGIneer OS 的核心调度引擎 (Dispatcher)、意图识别（Classifier）、SOP解析引擎 (SOP-Parser)、数据标准（contextStruct）、记忆总线（Blackboard)和工具引擎（EngTools)，跑通最小闭环。*
 - [✅] **混合调度器**: 实现 `Dispatcher`，支持 Tool/LLM 动态切换。
-- [✅] **多模型支持**: 支持任意LLM模型，目前已配置Qwen\Deepseek等，可无限扩展，并定义其与SOP、EngTools的交互协议`response_models.py`。
+- [✅] **多LLM模型支持**: 支持任意LLM模型，目前已配置Qwen\Deepseek等，可无限扩展，并定义其与SOP、EngTools的交互协议`response_models.py`。
+- [✅] **初建Engitools**: 支持计算器、查表、条件等工具等（Lite）。
+- [✅] **黑板报机制**: 在`memory`实现Blackboard总线机制。
 - [✅] **SOP标准协议**: 定义AnGIneer-SOP的Markdown/JSON协议规范。
 - [✅] **数据标准**: 定义核心业务数据结构 (`Step`, `SOP`, `AgentResponse`) 与 LLM 响应结构 (`IntentResponse`, `ActionResponse`, `StepParseResponse`, `ArgsExtractResponse`)。
-- [✅] **黑板报机制**: 在`memory`实现Blackboard总线机制。
-- [✅] **核心模块测试**: 完成5个注册考试题的测试。
 - [✅] **执行可视化（Lite）**: 注册考试题部分，可生成`Result.md`，实时透视决策链路。
+- [🔨] **核心模块测试**: 完成5个注册考试题的测试。
 
 ### 阶段二：知识与视觉 (Docs & Vision) - v0.2
 *目标：启动 `AnGIneer-Docs` 子系统，解决"数据源"问题。*
+- [🔨] **标准制定**: 指定符合Dispatcher、SOP、EngTools的Docs交互标准。
 - [ ] **深度文档解析**: 开发 PDF 解析器，精准提取规范条文与表格。
 - [ ] **图表语义化**: 让 AI "读懂" 工程图表（曲线图、设计图）。
 - [ ] **经验库构建**: 建立基于向量检索的历史案例库。

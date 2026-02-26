@@ -334,7 +334,9 @@ class LLMClient:
         temp = temperature if temperature is not None else self._config.llm.temperature
         processed_messages = self._prepare_messages(messages, mode)
         
-        model_configs = self._get_model_configs(config_name)
+        # 如果传入了 model 参数，优先使用 model 作为配置名称过滤
+        target_config_name = model if model else config_name
+        model_configs = self._get_model_configs(target_config_name)
         
         if not model_configs:
             raise ValueError(f"未找到有效的 LLM 配置 (config_name={config_name})")

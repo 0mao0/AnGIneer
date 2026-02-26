@@ -151,6 +151,13 @@ def load_llm_models_from_env() -> List[LLMModelConfig]:
             model=_get_env_str("Public_ALIYUN_MODEL"),
             priority=6
         ))
+        models.append(LLMModelConfig(
+            name="Qwen3.5-397B (Public)",
+            api_key=aliyun_public_key,
+            base_url=_get_env_str("Public_ALIYUN_API_URL"),
+            model=_get_env_str("Public_ALIYUN_MODEL2"),
+            priority=5
+        ))
     
     deepseek_key = _get_env_str("DEEPSEEK_API_KEY")
     if deepseek_key:

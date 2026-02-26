@@ -208,7 +208,6 @@ class Dispatcher:
         # We might need to pass start time to _write_markdown_log or update it later.
         # Simpler approach: Calculate tool execution time inside _execute_tool_safe and pass it.
 
-
     def _execute_analyzed_step(self, step: Step):
         """
         Execute a step that was analyzed by LLM (Hybrid Mode).
@@ -327,54 +326,6 @@ class Dispatcher:
             if self.result_md_path:
                  self._write_markdown_log(step, inputs, {"error": str(e)}, {}, duration=0.0)
 
-    def _build_smart_execution_prompt(self, step: Step, reason: str, context_str: str) -> str:
-        """
-        构建智能执行步骤的 System Prompt。
-        
-        Args:
-            step: 当前执行的步骤
-            reason: 需要 LLM 介入的原因
-            context_str: 上下文变量字符串
-            
-        Returns:
-            构建好的 system prompt
-        """
-        return f"""You are the Step Executor of an expert system. You are facing a step that requires your attention.
-
-Current Step:
-- Name: {step.name}
-- Description: {step.description}
-- Notes/Warnings: {step.notes}
-- Required Inputs: {step.inputs}
-
-Context Variables:
-{context_str}
-
-Situation: {reason}
-
-Your Goal: Complete this step or make progress towards it.
-
-Available Actions (Output JSON):
-1. ASK_USER: If parameters are missing and you cannot deduce them.
-   {{ "action": "ask_user", "question": "..." }}
-   
-2. SEARCH_KNOWLEDGE: If you need to check textual regulations.
-    {{ "action": "search_knowledge", "query": "..." }}
-    
- 3. TABLE_LOOKUP: If you need to find a value in a standard table (e.g. Dimensions of 10000 DWT ship).
-    {{ "action": "table_lookup", "table_name": "...", "conditions": "...", "target_column": "..." }}
-
- 4. EXECUTE_TOOL: If you have enough info to run the tool (calculator, etc).
-    {{ "action": "execute_tool", "tool": "{step.tool if step.tool != 'auto' else 'appropriate_tool'}", "inputs": {{ ... }} }}
-    
- 5. RETURN_VALUE: If the step is just setting a value or you know the answer directly.
-    {{ "action": "return_value", "value": 0.15 }}
-
- 6. SKIP: If this step is already done or irrelevant.
-    {{ "action": "skip", "reason": "..." }}
-
-Output ONLY the JSON."""
-
     def _handle_action_return_value(self, step: Step, action_data: Dict[str, Any]):
         """处理 return_value Action：直接返回值。"""
         value = action_data.get("value")
@@ -387,28 +338,12 @@ Output ONLY the JSON."""
     def _handle_action_ask_user(self, step: Step, action_data: Dict[str, Any]):
         """处理 ask_user Action：向用户询问输入。"""
         question = action_data.get("question")
+        variable = action_data.get("variable")
         logger.info(f"Asking user: {question}")
-        self._execute_tool_safe("user_input", {"question": question}, step)
-
-    def _handle_action_search_knowledge(self, step: Step, action_data: Dict[str, Any]):
-        """处理 search_knowledge Action：搜索知识库。"""
-        query = action_data.get("query")
-        logger.info(f"Searching knowledge: {query}")
-        self._execute_tool_safe("knowledge_search", {"query": query}, step)
-
-    def _handle_action_table_lookup(self, step: Step, action_data: Dict[str, Any]):
-        """处理 table_lookup Action：查表操作。"""
-        table_name = action_data.get("table_name")
-        conditions = action_data.get("conditions")
-        target_col = action_data.get("target_column")
-        logger.info(f"Looking up table: {table_name}, conditions: {conditions}")
-        
-        inputs = {
-            "table_name": table_name,
-            "query_conditions": conditions,
-            "target_column": target_col
-        }
-        self._execute_tool_safe("table_lookup", inputs, step)
+        inputs = {"question": question}
+        if variable:
+            inputs["variable"] = variable
+        self._execute_tool_safe("user_input", inputs, step)
 
     def _handle_action_execute_tool(self, step: Step, action_data: Dict[str, Any]):
         """处理 execute_tool Action：执行指定工具。"""
@@ -433,9 +368,10 @@ Output ONLY the JSON."""
     def _smart_step_execution(self, step: Step, reason: str, missing_params: List[str]):
         """
         LLM 智能执行步骤。
-        
+
         通过 LLM 分析当前步骤状态，决定执行何种操作来完成步骤。
-        支持的操作包括：询问用户、搜索知识、查表、执行工具、返回值、跳过。
+        支持的操作包括：询问用户、执行工具、返回值、跳过。
+        注意：具体的工具执行由 LLM 返回 execute_tool action，通过 tool 字段指定工具名。
         
         Args:
             step: 当前执行的步骤
@@ -462,8 +398,6 @@ Output ONLY the JSON."""
             action_handlers = {
                 "return_value": self._handle_action_return_value,
                 "ask_user": self._handle_action_ask_user,
-                "search_knowledge": self._handle_action_search_knowledge,
-                "table_lookup": self._handle_action_table_lookup,
                 "execute_tool": self._handle_action_execute_tool,
                 "skip": self._handle_action_skip,
             }
@@ -478,49 +412,6 @@ Output ONLY the JSON."""
             error_msg = f"Smart execution error: {e}"
             logger.error(error_msg)
             self._record_step(step, {}, None, error=error_msg)
-
-
-
-    def _generate_step_summary(self, step_name: str, tool_name: str, resolved_inputs: Any, result: Any, updates: Dict[str, Any]) -> str:
-        """Use LLM to generate a natural language summary of the step execution."""
-        try:
-            # Prepare data for prompt, truncating large structures
-            inputs_str = json.dumps(resolved_inputs, default=str, ensure_ascii=False)
-            if len(inputs_str) > 500: inputs_str = inputs_str[:500] + "..."
-            
-            result_str = json.dumps(result, default=str, ensure_ascii=False)
-            if len(result_str) > 500: result_str = result_str[:500] + "..."
-            
-            updates_str = json.dumps(updates, default=str, ensure_ascii=False)
-            
-            system_prompt = f"""
-你是一个专家系统的执行记录员。请根据以下信息生成一段简洁、客观的中文执行小结。
-
-【上下文信息】
-- 步骤名称: {step_name}
-- 工具: {tool_name}
-- 输入: {inputs_str}
-- 输出: {result_str}
-- 状态更新: {updates_str}
-
-【撰写要求】
-1. **极其简洁**：字数控制在 80 字以内。
-2. **客观陈述**：直接陈述事实，不要使用“我”、“系统”、“执行了”等主语。
-3. **重点突出**：核心关注“根据什么输入（如条件、公式），得到了什么结果（关键数值）”。
-4. **错误处理**：如果输出包含 error，必须明确指出错误原因。
-5. **格式示例**：
-   - 查表（表A），在条件 x=1 下获取到 y=2。
-   - 根据公式 a+b 计算得到 c=3。
-   - 用户输入变量 d，值为 4。
-"""
-            messages = [{"role": "system", "content": system_prompt.strip()}]
-            
-            response = self.llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
-            return response.strip()
-            
-        except Exception as e:
-            logger.error(f"Error generating summary: {e}")
-            return f"执行工具 {tool_name} 完成。更新变量: {list(updates.keys())}"
 
     def _write_markdown_log(self, step: Step, inputs: Any, result: Any, updates: Dict[str, Any], duration: float = 0.0):
         """Write step execution details to Markdown file"""
@@ -629,57 +520,6 @@ Output ONLY the JSON."""
             f.write("</details>\n\n")
             f.write("---\n\n")
 
-    def _smart_select_tool(self, step: Step, current_inputs: Dict[str, Any]) -> Tuple[str, Dict[str, Any]]:
-        """
-        Use LLM to select the best tool and formulate inputs when step.tool is 'auto'.
-        """
-        if ToolRegistry is None:
-            return None, {}
-            
-        tools_desc = ToolRegistry.list_tools()
-        tools_str = "\n".join([f"- {name}: {desc}" for name, desc in tools_desc.items()])
-        
-        # Prepare context snapshot (truncated to avoid huge prompt)
-        context_str = json.dumps(self.memory.get_context_snapshot(), default=str, ensure_ascii=False)
-        if len(context_str) > 2000:
-            context_str = context_str[:2000] + "...(truncated)"
-            
-        system_prompt = f"""
-You are an intelligent agent dispatcher. Your task is to select the most appropriate tool to execute the current step.
-
-Available Tools:
-{tools_str}
-
-Current Step Information:
-- ID: {step.id}
-- Description: {step.description_zh or step.description}
-- Pre-resolved Inputs: {json.dumps(current_inputs, default=str, ensure_ascii=False)}
-
-Global Context:
-{context_str}
-
-Instructions:
-1. Analyze the step description and context.
-2. Select the best tool from the available list to accomplish the step goal.
-3. Extract or formulate the necessary arguments for the tool based on context and inputs.
-4. Return a JSON object with "tool" and "inputs".
-
-Example Output:
-{{
-  "tool": "calculator",
-  "inputs": {{ "expression": "12 * 50" }}
-}}
-"""
-        messages = [{"role": "system", "content": system_prompt}]
-        try:
-            response = self.llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
-            data = self._extract_json_from_response(response)
-            return data.get("tool"), data.get("inputs", {})
-        except Exception as e:
-            logger.error(f"Smart selection failed: {e}")
-            return None, {}
-
-            
     def _process_outputs(self, step: Step, result: Any) -> Dict[str, Any]:
         # Update global context based on output mapping
         updates = {}
@@ -752,3 +592,145 @@ Example Output:
             "error": error
         })
         self.memory.add_history(record)
+
+
+
+    def _smart_select_tool(self, step: Step, current_inputs: Dict[str, Any]) -> Tuple[str, Dict[str, Any]]:
+        """
+        Use LLM to select the best tool and formulate inputs when step.tool is 'auto'.
+        """
+        if ToolRegistry is None:
+            return None, {}
+            
+        tools_desc = ToolRegistry.list_tools()
+        tools_str = "\n".join([f"- {name}: {desc}" for name, desc in tools_desc.items()])
+        
+        # Prepare context snapshot (truncated to avoid huge prompt)
+        context_str = json.dumps(self.memory.get_context_snapshot(), default=str, ensure_ascii=False)
+        if len(context_str) > 2000:
+            context_str = context_str[:2000] + "...(truncated)"
+            
+        system_prompt = f"""
+You are an intelligent agent dispatcher. Your task is to select the most appropriate tool to execute the current step.
+
+Available Tools:
+{tools_str}
+
+Current Step Information:
+- ID: {step.id}
+- Description: {step.description_zh or step.description}
+- Pre-resolved Inputs: {json.dumps(current_inputs, default=str, ensure_ascii=False)}
+
+Global Context:
+{context_str}
+
+Instructions:
+1. Analyze the step description and context.
+2. Select the best tool from the available list to accomplish the step goal.
+3. Extract or formulate the necessary arguments for the tool based on context and inputs.
+4. Return a JSON object with "tool" and "inputs".
+
+Example Output:
+{{
+  "tool": "calculator",
+  "inputs": {{ "expression": "12 * 50" }}
+}}
+"""
+        messages = [{"role": "system", "content": system_prompt}]
+        try:
+            response = self.llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
+            data = self._extract_json_from_response(response)
+            return data.get("tool"), data.get("inputs", {})
+        except Exception as e:
+            logger.error(f"Smart selection failed: {e}")
+            return None, {}
+
+            
+    def _build_smart_execution_prompt(self, step: Step, reason: str, context_str: str) -> str:
+        """
+        构建智能执行步骤的 System Prompt。
+        
+        Args:
+            step: 当前执行的步骤
+            reason: 需要 LLM 介入的原因
+            context_str: 上下文变量字符串
+            
+        Returns:
+            构建好的 system prompt
+        """
+        return f"""You are the Step Executor of an expert system. You are facing a step that requires your attention.
+
+Current Step:
+- Name: {step.name}
+- Description: {step.description}
+- Notes/Warnings: {step.notes}
+- Required Inputs: {step.inputs}
+
+Context Variables:
+{context_str}
+
+Situation: {reason}
+
+Your Goal: Complete this step or make progress towards it.
+
+Available Actions (Output JSON):
+1. ASK_USER: If parameters are missing and you cannot deduce them.
+   {{ "action": "ask_user", "question": "...", "variable": "变量名" }}
+   
+2. SEARCH_KNOWLEDGE: If you need to check textual regulations.
+    {{ "action": "search_knowledge", "query": "..." }}
+    
+ 3. TABLE_LOOKUP: If you need to find a value in a standard table (e.g. Dimensions of 10000 DWT ship).
+    {{ "action": "table_lookup", "table_name": "...", "conditions": "...", "target_column": "..." }}
+
+ 4. EXECUTE_TOOL: If you have enough info to run the tool (calculator, etc).
+    {{ "action": "execute_tool", "tool": "{step.tool if step.tool != 'auto' else 'appropriate_tool'}", "inputs": {{ ... }} }}
+    
+ 5. RETURN_VALUE: If the step is just setting a value or you know the answer directly.
+    {{ "action": "return_value", "value": 0.15 }}
+
+ 6. SKIP: If this step is already done or irrelevant.
+    {{ "action": "skip", "reason": "..." }}
+
+Output ONLY the JSON."""
+
+    def _generate_step_summary(self, step_name: str, tool_name: str, resolved_inputs: Any, result: Any, updates: Dict[str, Any]) -> str:
+        """Use LLM to generate a natural language summary of the step execution."""
+        try:
+            # Prepare data for prompt, truncating large structures
+            inputs_str = json.dumps(resolved_inputs, default=str, ensure_ascii=False)
+            if len(inputs_str) > 500: inputs_str = inputs_str[:500] + "..."
+            
+            result_str = json.dumps(result, default=str, ensure_ascii=False)
+            if len(result_str) > 500: result_str = result_str[:500] + "..."
+            
+            updates_str = json.dumps(updates, default=str, ensure_ascii=False)
+            
+            system_prompt = f"""
+你是一个专家系统的执行记录员。请根据以下信息生成一段简洁、客观的中文执行小结。
+
+【上下文信息】
+- 步骤名称: {step_name}
+- 工具: {tool_name}
+- 输入: {inputs_str}
+- 输出: {result_str}
+- 状态更新: {updates_str}
+
+【撰写要求】
+1. **极其简洁**：字数控制在 80 字以内。
+2. **客观陈述**：直接陈述事实，不要使用“我”、“系统”、“执行了”等主语。
+3. **重点突出**：核心关注“根据什么输入（如条件、公式），得到了什么结果（关键数值）”。
+4. **错误处理**：如果输出包含 error，必须明确指出错误原因。
+5. **格式示例**：
+   - 查表（表A），在条件 x=1 下获取到 y=2。
+   - 根据公式 a+b 计算得到 c=3。
+   - 用户输入变量 d，值为 4。
+"""
+            messages = [{"role": "system", "content": system_prompt.strip()}]
+            
+            response = self.llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
+            return response.strip()
+            
+        except Exception as e:
+            logger.error(f"Error generating summary: {e}")
+            return f"执行工具 {tool_name} 完成。更新变量: {list(updates.keys())}"

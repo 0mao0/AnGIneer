@@ -25,16 +25,12 @@ dist/
 CLAUDE.md
 
 # Knowledge and SOPs - Only allow specific files
-backend/knowledge/*
-!backend/knowledge/设计标准参考.md
+data/knowledge_base/*
+!data/knowledge_base/markdown/
+!data/knowledge_base/pics/
+!data/knowledge_base/source/
 
-backend/sops/*
-!backend/sops/code_review.md
-!backend/sops/market_research.md
-!backend/sops/math_sop.md
+data/sops/raw/*
+!data/sops/raw/index.json
 
-
-backend/sops_json/*
-!backend/sops/code_review.json
-!backend/sops/market_research.json
-!backend/sops/math_sop.json
+data/sops/json/*

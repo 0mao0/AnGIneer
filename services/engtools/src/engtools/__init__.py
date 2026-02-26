@@ -4,3 +4,4 @@ from .CommonTool import *
 from .CalculatorTool import *
 from .UserInputTool import *
 from .KnowledgeTool import *
+from .ConditionalTool import *

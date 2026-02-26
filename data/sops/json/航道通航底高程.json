@@ -1,20 +1,19 @@
 {
   "id": "航道通航底高程",
-  "description": "Description: 根据设计船型吃水及富裕深度计算通航底高程。",
-  "mtime": 1771807082.9426425,
+  "mtime": 0,
   "steps": [
     {
       "id": "step_1",
       "name": "获取设计船型满载吃水 T",
-      "description": "根据船型与吨级查表 A.0.1。",
+      "description": "根据吨级，查表A.0.2-3（油船设计船型尺度）。",
       "tool": "table_lookup",
       "inputs": {
-        "table_name": "表 A.0.1",
+        "table_name": "表A.0.2-3",
         "query_conditions": {
-          "船型": "${船型}",
-          "吨级": "${吨级}"
+          "吨级": "${dwt}"
         },
-        "file_name": "测试规范-通航底高程.md"
+        "file_name": "markdown/海港总体设计规范_JTS_165-2025.md",
+        "target_column": "满载吃水 T"
       },
       "outputs": {
         "T": "result"
@@ -25,15 +24,16 @@
     {
       "id": "step_2",
       "name": "获取航行下沉量 Z0",
-      "description": "根据航速/水深查图 6.4.6。",
+      "description": "根据船舶吨级和航速，查图6.4.5。",
       "tool": "table_lookup",
       "inputs": {
-        "table_name": "图 6.4.6",
+        "table_name": "图6.4.5",
         "query_conditions": {
-          "航速": "${航速}",
-          "水深": "${水深}"
+          "吨级": "${dwt}",
+          "航速": "${nav_speed_kn}"
         },
-        "file_name": "测试规范-通航底高程.md"
+        "file_name": "markdown/海港总体设计规范_JTS_165-2025.md",
+        "target_column": "航行下沉量 Z0"
       },
       "outputs": {
         "Z0": "result"
@@ -44,15 +44,16 @@
     {
       "id": "step_3",
       "name": "获取龙骨下最小富裕深度 Z1",
-      "description": "根据 DWT 与土质查表 6.4.6-1。",
+      "description": "根据船舶吨级与土质查表6.4.5-1。",
       "tool": "table_lookup",
       "inputs": {
-        "table_name": "表 6.4.6-1",
+        "table_name": "表6.4.5-1",
         "query_conditions": {
-          "DWT": "${DWT}",
-          "土质": "${土质}"
+          "吨级": "${dwt}",
+          "土质": "${bottom_material}"
         },
-        "file_name": "测试规范-通航底高程.md"
+        "file_name": "markdown/海港总体设计规范_JTS_165-2025.md",
+        "target_column": "龙骨下最小富裕深度 Z1"
       },
       "outputs": {
         "Z1": "result"
@@ -63,14 +64,15 @@
     {
       "id": "step_4",
       "name": "获取波浪富裕深度 Z2",
-      "description": "根据水域条件查表 6.4.6-2。",
+      "description": "根据水域条件查表6.4.5-2。",
       "tool": "table_lookup",
       "inputs": {
-        "table_name": "表 6.4.6-2",
+        "table_name": "表6.4.5-2",
         "query_conditions": {
-          "水域条件": "${水域条件}"
+          "水域条件": "${navigation_area}"
         },
-        "file_name": "测试规范-通航底高程.md"
+        "file_name": "markdown/海港总体设计规范_JTS_165-2025.md",
+        "target_column": "波浪富裕深度 Z2"
       },
       "outputs": {
         "Z2": "result"
@@ -81,19 +83,49 @@
     {
       "id": "step_5",
       "name": "获取纵倾富裕深度 Z3",
-      "description": "油船/散货船取 0.15m。",
-      "tool": "user_input",
-      "inputs": {},
-      "outputs": {
-        "Z3": "0.15"
+      "description": "船舶装载纵倾富裕深度(m),杂货船和集装箱船可不计，干散货船和液体散货船取0.15m,滚装船参照表5.4.12-2取值,其他船型可不计。",
+      "tool": "conditional",
+      "inputs": {
+        "condition_var": "${ship_type}",
+        "branches": [
+          {
+            "match": [
+              "杂货船",
+              "集装箱船",
+              "其他船型"
+            ],
+            "value": 0
+          },
+          {
+            "match": [
+              "干散货船",
+              "液体散货船"
+            ],
+            "value": 0.15
+          },
+          {
+            "match": "滚装船",
+            "table_lookup": {
+              "table_name": "表5.4.12-2",
+              "query_conditions": {
+                "船型": "${ship_type}"
+              },
+              "file_name": "markdown/海港总体设计规范_JTS_165-2025.md"
+            }
+          }
+        ],
+        "default": 0
       },
-      "notes": "",
+      "outputs": {
+        "Z3": "result"
+      },
+      "notes": "Note: 滚装船需参照表5.4.12-2取值。",
       "analysis_status": "analyzed"
     },
     {
       "id": "step_6",
       "name": "获取航道设计通航水位 H_nav",
-      "description": "首选路径: 查阅【已知条件】是否直接指定 H_nav。",
+      "description": "用户输入。",
       "tool": "user_input",
       "inputs": {},
       "outputs": {
@@ -136,21 +168,27 @@
       "description": "将通航底标高 E_nav、航道通航水深 D₀、T、Z₀、Z₁、Z₂、Z₃、H_nav 等参数的计算结果均列出来。",
       "tool": "auto",
       "inputs": {},
-      "outputs": {},
-      "notes": "",
+      "outputs": {
+        "E_nav": "result",
+        "D0": "result",
+        "T": "result",
+        "Z0": "result",
+        "Z1": "result",
+        "Z2": "result",
+        "Z3": "result",
+        "H_nav": "input"
+      },
+      "notes": "Note: 需将所有计算结果列出。",
       "analysis_status": "analyzed"
     }
   ],
   "blackboard": {
     "required": [
-      "DWT",
-      "吨级",
-      "土质",
-      "水域条件",
-      "H_nav",
-      "水深",
-      "航速",
-      "船型"
+      "bottom_material",
+      "dwt",
+      "nav_speed_kn",
+      "navigation_area",
+      "ship_type"
     ],
     "outputs": [
       "D0",
@@ -164,7 +202,6 @@
     ],
     "all": [
       "D0",
-      "DWT",
       "E_nav",
       "H_nav",
       "T",
@@ -172,12 +209,11 @@
       "Z1",
       "Z2",
       "Z3",
-      "吨级",
-      "土质",
-      "水域条件",
-      "水深",
-      "航速",
-      "船型"
+      "bottom_material",
+      "dwt",
+      "nav_speed_kn",
+      "navigation_area",
+      "ship_type"
     ]
   }
 }
