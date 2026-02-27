@@ -6,7 +6,12 @@ from typing import Any, Dict, List, Optional
 from bs4 import BeautifulSoup
 from .BaseTool import BaseTool, register_tool
 from .config import KNOWLEDGE_DIR
+from angineer_core.infra.llm_client import get_llm_client
 
+
+# ============================================================================
+# 第一部分：通用工具函数
+# ============================================================================
 
 def _normalize_text(text: str) -> str:
     """标准化文本用于匹配。"""
@@ -31,6 +36,10 @@ def _parse_query_conditions(query_conditions: Any) -> Dict[str, Any]:
             return {match.group(1).strip(): match.group(2).strip()}
     return {}
 
+
+# ============================================================================
+# 第二部分：数值解析工具
+# ============================================================================
 
 def _extract_first_number(text: str) -> Optional[float]:
     """提取文本中的首个数值。"""
@@ -78,6 +87,10 @@ def _parse_range(text: str) -> Optional[tuple]:
         return (float(match.group(1)), float("inf"))
     return None
 
+
+# ============================================================================
+# 第三部分：表格解析工具（用于结构化模式）
+# ============================================================================
 
 def _get_table_context(table) -> str:
     """获取表格附近的标题或段落文本（兼容 Markdown 原始文本）。"""
@@ -217,6 +230,10 @@ def _is_md_sep(line: str) -> bool:
     return all(re.match(r"^:?-{3,}:?$", cell) for cell in cells)
 
 
+# ============================================================================
+# 第四部分：Markdown 表格解析工具
+# ============================================================================
+
 def _extract_markdown_tables(content: str) -> List[Dict[str, Any]]:
     lines = content.splitlines()
     tables = []
@@ -254,6 +271,10 @@ def _extract_markdown_tables(content: str) -> List[Dict[str, Any]]:
     return tables
 
 
+# ============================================================================
+# 第五部分：列索引查找工具（用于结构化模式）
+# ============================================================================
+
 def _find_column_index(headers: List[str], key: str, synonyms: Optional[List[str]] = None) -> Optional[int]:
     """在表头中匹配列索引。跳过维度标注列（如"船舶航速（kn）"）。"""
     if not headers or not key:
@@ -284,6 +305,138 @@ def _find_column_index(headers: List[str], key: str, synonyms: Optional[List[str
     return None
 
 
+# ============================================================================
+# 第六部分：LLM 查询工具（用于 LLM 模式，默认）
+# ============================================================================
+
+def _llm_normalize_for_matching(text: str) -> str:
+    """标准化文本用于 LLM 表格匹配。"""
+    if not text:
+        return ""
+    text = text.replace('Ψ', 'Psi')
+    return re.sub(r'[^0-9a-zA-Z\u4e00-\u9fa5]', '', text)
+
+
+def _llm_find_table(all_tables: List[Dict], table_hint: str) -> Optional[Dict]:
+    """根据表格提示找到匹配的表格。"""
+    hint_normalized = _llm_normalize_for_matching(table_hint)
+    for table in all_tables:
+        caption_normalized = _llm_normalize_for_matching(table.get('caption', ''))
+        if hint_normalized in caption_normalized or caption_normalized in hint_normalized:
+            return table
+    return None
+
+
+def _llm_query_table(html_content: str, table_hint: str, query: str, model: str = "Qwen3-4B (Public)") -> Dict[str, Any]:
+    """使用 LLM 查询表格数据。"""
+    soup = BeautifulSoup(html_content, 'html.parser')
+    html_tables = soup.find_all('table')
+    table_titles = re.findall(r'([^<\n]+?)\s*<table', html_content)
+    
+    all_tables = []
+    for i, table in enumerate(html_tables):
+        caption = table_titles[i] if i < len(table_titles) else f"表格 {i+1}"
+        all_tables.append({
+            "index": i + 1,
+            "caption": caption,
+            "html": str(table),
+        })
+    
+    target_table = _llm_find_table(all_tables, table_hint)
+    if not target_table:
+        return {"error": f"未找到匹配的表格: {table_hint}"}
+    
+    table_text = f"表格 {target_table['index']}: {target_table['caption']}\n"
+    table_text += target_table['html']
+    
+    # 提取目标列名
+    target_col_match = re.search(r'[^\u4e00-\u9fa5a-zA-Z0-9]?([^\u4e00-\u9fa5a-zA-Z0-9]+)$', query)
+    target_col = ""
+    if target_col_match:
+        target_col = target_col_match.group(1).strip()
+    
+    prompt = f"""你是一个港口工程专家。请根据以下表格内容回答问题。
+
+表格内容：
+{table_text}
+
+问题: {query}
+
+请从表格中提取数值并按以下 JSON 格式返回：
+{{"result": <数值>, "description": "<简单描述>"}}
+
+表格列说明：
+- 第1列：船舶吨级
+- 第2列：总长L (船长)
+- 第3列：型宽B
+- 第4列：型深H  
+- 第5列：满载吃水T (吃水深度)
+
+你必须严格按以下规则提取：
+1. 如果问"满载吃水T"、"吃水T"或"T"，必须提取表格第5列（满载吃水T列）的数值
+2. 如果问"总长L"或"船长"，必须提取表格第2列（总长L列）的数值
+3. 如果问"型宽B"，必须提取表格第3列的数值
+4. 如果问"型深H"，必须提取表格第4列的数值
+5. 如果问"航行下沉量"，查找表格中标注为"航行下沉量"的列
+6. 如果问"龙骨下最小富裕深度Z1"，查找表格中标注为"Z1"或"龙骨下最小富裕深度"的列
+7. 如果问"波浪富裕深度Z2"，查找表格中标注为"Z2"或"波浪富裕深度"的列
+
+绝对禁止提取除目标列之外的任何数值！
+
+如果表格中没有精确匹配的数据，请返回最接近的值。
+如果无法提取数值，请返回 {{
+  "result": null, 
+  "error": "<原因>", 
+  "description": "<描述>"
+}}"""
+    
+    llm_client = get_llm_client()
+    response = llm_client.chat(
+        model=model,
+        messages=[{"role": "user", "content": prompt}]
+    )
+    
+    # 尝试解析 JSON
+    try:
+        import json
+        # 提取 JSON 部分
+        json_match = re.search(r'\{[^{}]*"result"[^{}]*\}', response, re.DOTALL)
+        if json_match:
+            result_data = json.loads(json_match.group())
+            return {
+                "result": result_data.get("result"),
+                "description": result_data.get("description", ""),
+                "raw_response": response,
+                "table_index": target_table['index'],
+                "table_caption": target_table['caption']
+            }
+    except Exception:
+        pass
+    
+    # 兜底：尝试提取数值
+    number_match = re.search(r'(\d+\.?\d*)\s*(?:m|米)?', response)
+    if number_match:
+        return {
+            "result": float(number_match.group(1)),
+            "description": response,
+            "raw_response": response,
+            "table_index": target_table['index'],
+            "table_caption": target_table['caption']
+        }
+    
+    return {
+        "result": None,
+        "description": response,
+        "raw_response": response,
+        "table_index": target_table['index'],
+        "table_caption": target_table['caption']
+    }
+
+
+# ============================================================================
+# 第七部分：TableLookupTool 工具类
+# ============================================================================
+
 @register_tool
 class TableLookupTool(BaseTool):
     name = "table_lookup"
@@ -297,9 +450,37 @@ class TableLookupTool(BaseTool):
         if knowledge_dir:
             self.knowledge_dir = knowledge_dir
 
-    def run(self, table_name: str, query_conditions: Any, file_name: str = "《海港水文规范》.md", target_column: str = None, config_name: str = None, mode: str = "instruct", **kwargs) -> Any:
-        """从结构化表格中查询并在必要时进行线性插值。"""
-        # Robust filename handling
+    def run(self, table_name: str, query_conditions: Any, file_name: str = "《海港水文规范》.md", target_column: str = None, config_name: str = None, mode: str = "instruct", use_llm: bool = True, **kwargs) -> Any:
+        """从结构化表格中查询。
+        
+        Args:
+            use_llm: 是否使用 LLM 查询（默认 True）。设为 False 则使用结构化解析。
+        """
+        # LLM 模式（默认）
+        if use_llm:
+            file_name = file_name.replace("《", "").replace("》", "")
+            knowledge_file = os.path.join(self.knowledge_dir, file_name)
+            if not os.path.exists(knowledge_file):
+                return {"error": f"未找到知识库文件: {file_name}"}
+            with open(knowledge_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # 将 query_conditions 转换为自然语言查询
+            if isinstance(query_conditions, dict):
+                parts = [f"{k}={v}" for k, v in query_conditions.items()]
+                query_text = f"{table_name}的{', '.join(parts)}"
+            else:
+                query_text = f"{table_name}的{query_conditions}"
+            
+            # 添加目标列信息
+            if target_column:
+                query_text = f"{query_text}，查询{target_column}"
+            
+            result = _llm_query_table(content, table_name, query_text)
+            result["_mode"] = "llm"
+            return result
+        
+        # 结构化解析模式（原有逻辑）
         file_name = file_name.replace("《", "").replace("》", "")
 
         use_color = sys.stdout is not None and sys.stdout.isatty() and not os.getenv("NO_COLOR")

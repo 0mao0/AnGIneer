@@ -46,7 +46,7 @@ for i, table in enumerate(html_tables):
         "caption": caption,
         "headers": headers,
         "rows": data_rows[:15],
-        "html": str(table)[:2000]
+        "html": str(table)  # 保留完整HTML
     })
 
 print(f"共找到 {len(all_tables)} 个表格\n")
@@ -120,12 +120,10 @@ for test in TEST_QUERIES:
             target_table = t
             break
     
-    # 构造表格内容
+    # 构造表格内容（直接使用HTML）
     if target_table:
         table_text = f"表格 {target_table['index']}: {target_table['caption']}\n"
-        table_text += "表头: " + " | ".join(target_table['headers']) + "\n"
-        for row in target_table['rows']:
-            table_text += " | ".join(row) + "\n"
+        table_text += target_table['html']
     else:
         table_text = "未找到对应表格，请从整个知识库中搜索相关信息。"
     
@@ -140,11 +138,11 @@ for test in TEST_QUERIES:
     
     # 调用 LLM
     response = client.chat(
-        model="Qwen3.5-397B (Public)",
+        model="Qwen3-4B (Public)",
         messages=[{"role": "user", "content": prompt}],
     )
     
-    print(f"LLM 回答: {response[:500]}")
+    print(f"LLM 回答: {response[:800]}")
     print()
 
 print("\n" + "=" * 80)
