@@ -82,11 +82,36 @@ onMounted(async () => {
 
 <style lang="less" scoped>
 .knowledge-tree {
-  padding: 8px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 0;
+
+  :deep(.ant-tree) {
+    background: transparent;
+    
+    .ant-tree-treenode {
+      padding: 2px 8px;
+      margin: 0;
+    }
+    
+    .ant-tree-node-content-wrapper {
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    
+    .ant-tree-title {
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 
   .doc-node {
     color: #1890ff;
     cursor: pointer;
+    font-size: 13px;
 
     &:hover {
       text-decoration: underline;

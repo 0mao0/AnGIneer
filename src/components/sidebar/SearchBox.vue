@@ -102,6 +102,13 @@ watch(() => props.libraryId, () => {
 <style lang="less" scoped>
 .search-box {
   position: relative;
+  flex-shrink: 0;
+  
+  :deep(.ant-input-search) {
+    .ant-input {
+      font-size: 13px;
+    }
+  }
 }
 
 .search-results {
