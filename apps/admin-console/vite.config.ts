@@ -8,9 +8,7 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src'),
       '@angineer/ui-kit': resolve(__dirname, '../../packages/ui-kit/src'),
-      '@angineer/docs-ui': resolve(__dirname, '../../packages/docs-ui/src'),
-      '@angineer/sop-ui': resolve(__dirname, '../../packages/sop-ui/src'),
-      '@angineer/geo-ui': resolve(__dirname, '../../packages/geo-ui/src')
+      '@angineer/docs-ui': resolve(__dirname, '../../packages/docs-ui/src')
     }
   },
   css: {
@@ -21,7 +19,7 @@ export default defineConfig({
     }
   },
   server: {
-    port: 3005,
+    port: 3002,
     proxy: {
       '/api': {
         target: 'http://localhost:8001',

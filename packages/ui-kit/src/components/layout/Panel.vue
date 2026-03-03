@@ -1,55 +1,47 @@
 <template>
-  <div class="panel" :class="{ collapsed: isCollapsed }">
-    <div class="panel-header" @click="handleHeaderClick">
-      <span class="panel-title">{{ title }}</span>
-      <div class="panel-actions">
-        <slot name="actions" />
-        <a-button
-          v-if="collapsible"
-          type="text"
-          size="small"
-          @click.stop="toggleCollapse"
-        >
-          <RightOutlined v-if="isCollapsed" />
-          <LeftOutlined v-else />
-        </a-button>
-      </div>
+  <!-- 通用面板组件 - 带标题栏和内容区的标准面板 -->
+  <div class="panel" :class="{ 'panel-bordered': bordered }">
+    <!-- 面板头部 -->
+    <div v-if="title || $slots.header" class="panel-header">
+      <slot name="header">
+        <div class="header-title">
+          <component v-if="icon" :is="icon" />
+          <span>{{ title }}</span>
+        </div>
+        <div v-if="$slots.extra" class="header-extra">
+          <slot name="extra" />
+        </div>
+      </slot>
     </div>
-    <div class="panel-body" v-show="!isCollapsed">
+
+    <!-- 面板内容 -->
+    <div class="panel-content" :class="contentClass">
       <slot />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { LeftOutlined, RightOutlined } from '@ant-design/icons-vue'
+import type { Component } from 'vue'
 
-const props = withDefaults(defineProps<{
+/**
+ * 通用面板组件
+ * 提供统一的面板样式，包含标题栏和内容区
+ */
+interface Props {
+  /** 面板标题 */
   title?: string
-  collapsible?: boolean
-  defaultCollapsed?: boolean
-}>(), {
-  collapsible: true,
-  defaultCollapsed: false
+  /** 标题图标 */
+  icon?: Component
+  /** 是否显示边框 */
+  bordered?: boolean
+  /** 内容区自定义类名 */
+  contentClass?: string
+}
+
+withDefaults(defineProps<Props>(), {
+  bordered: false
 })
-
-const emit = defineEmits<{
-  collapse: [collapsed: boolean]
-}>()
-
-const isCollapsed = ref(props.defaultCollapsed)
-
-const toggleCollapse = () => {
-  isCollapsed.value = !isCollapsed.value
-  emit('collapse', isCollapsed.value)
-}
-
-const handleHeaderClick = () => {
-  if (props.collapsible) {
-    toggleCollapse()
-  }
-}
 </script>
 
 <style lang="less" scoped>
@@ -57,42 +49,45 @@ const handleHeaderClick = () => {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #fff;
+  background: var(--panel-bg, #1f1f1f);
 
-  &.collapsed {
-    .panel-header {
-      border-bottom: none;
+  &-bordered {
+    border: 1px solid var(--border-color, #303030);
+    border-radius: 4px;
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color, #303030);
+    background: var(--panel-header-bg, #272727);
+    flex-shrink: 0;
+
+    .header-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: var(--text-primary, rgba(255, 255, 255, 0.85));
+
+      .anticon {
+        color: #1890ff;
+      }
+    }
+
+    .header-extra {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
   }
-}
 
-.panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  border-bottom: 1px solid #e8e8e8;
-  cursor: pointer;
-  user-select: none;
-
-  &:hover {
-    background: #fafafa;
+  &-content {
+    flex: 1;
+    overflow: auto;
+    position: relative;
   }
-}
-
-.panel-title {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.panel-actions {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.panel-body {
-  flex: 1;
-  overflow: hidden;
 }
 </style>

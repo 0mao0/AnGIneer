@@ -171,7 +171,27 @@ class LLMClient:
             self._circuit_breakers[model_config.name] = CircuitBreaker(
                 self._config.llm.circuit_breaker
             )
-    
+
+    @property
+    def configs(self) -> List[Dict[str, Any]]:
+        """
+        获取所有模型配置列表（用于 API 返回）。
+
+        Returns:
+            模型配置字典列表，包含 name, model, api_key 等字段
+        """
+        return [
+            {
+                "name": mc.name,
+                "model": mc.model,
+                "api_key": mc.api_key,
+                "base_url": mc.base_url,
+                "enabled": mc.enabled,
+                "priority": mc.priority
+            }
+            for mc in self._config.llm.models
+        ]
+
     def _get_model_configs(self, config_name: Optional[str] = None) -> List[LLMModelConfig]:
         """
         获取可用的模型配置列表。

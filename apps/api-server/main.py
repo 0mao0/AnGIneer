@@ -276,11 +276,16 @@ def chat_stream(request: QueryRequest):
 
     return StreamingResponse(event_stream(), media_type="application/x-ndjson")
 
-@app.get("/llm_configs")
+@app.get("/api/llm_configs")
 def list_llm_configs():
-    client = LLMClient()
-    # 仅返回名称和模型，不返回 API Key 等敏感信息
-    return [{"name": c["name"], "model": c["model"], "configured": bool(c["api_key"])} for c in client.configs]
+    """获取可用 LLM 模型配置列表"""
+    try:
+        client = LLMClient()
+        # 仅返回名称和模型，不返回 API Key 等敏感信息
+        return [{"name": c["name"], "model": c["model"], "configured": bool(c["api_key"])} for c in client.configs]
+    except Exception as e:
+        logger.error(f"获取 LLM 配置失败: {e}")
+        raise HTTPException(status_code=500, detail=f"获取模型配置失败: {str(e)}")
 
 @app.get("/test_content/{test_id}")
 def get_test_content(test_id: str):
@@ -888,6 +893,183 @@ def run_test(test_id: str, config: str = None, query: str = None, mode: str = "i
     except Exception as e:
         return {"error": str(e)}
 
+# --- Knowledge Base API Endpoints ---
+
+@app.get("/api/knowledge/libraries")
+def list_knowledge_libraries():
+    """获取知识库列表"""
+    from docs_core import knowledge_service
+    return knowledge_service.list_libraries()
+
+@app.post("/api/knowledge/libraries")
+def create_knowledge_library(name: str, description: str = ''):
+    """创建知识库"""
+    from docs_core import knowledge_service
+    library = knowledge_service.create_library(name, description)
+    return library
+
+@app.get("/api/knowledge/libraries/{library_id}")
+def get_knowledge_library(library_id: str):
+    """获取知识库"""
+    from docs_core import knowledge_service
+    library = knowledge_service.get_library(library_id)
+    if not library:
+        raise HTTPException(status_code=404, detail="Library not found")
+    return library
+
+@app.get("/api/knowledge/nodes")
+def list_knowledge_nodes(library_id: str = 'default', visible: bool = False):
+    """获取知识库节点列表"""
+    from docs_core import knowledge_service
+    return knowledge_service.list_nodes(library_id, visible)
+
+@app.post("/api/knowledge/nodes")
+def create_knowledge_node(
+    title: str,
+    node_type: str,
+    library_id: str = 'default',
+    parent_id: str = None,
+    visible: bool = False
+):
+    """创建知识库节点"""
+    from docs_core import knowledge_service, KnowledgeNode
+    node = KnowledgeNode(
+        id=f'node-{len(knowledge_service.nodes) + 1}',
+        title=title,
+        type=node_type,
+        library_id=library_id,
+        parent_id=parent_id,
+        visible=visible
+    )
+    return knowledge_service.create_node(node)
+
+@app.patch("/api/knowledge/nodes/{node_id}")
+def update_knowledge_node(node_id: str, **kwargs):
+    """更新知识库节点"""
+    from docs_core import knowledge_service
+    node = knowledge_service.update_node(node_id, **kwargs)
+    if not node:
+        raise HTTPException(status_code=404, detail="Node not found")
+    return node
+
+@app.delete("/api/knowledge/nodes/{node_id}")
+def delete_knowledge_node(node_id: str):
+    """删除知识库节点"""
+    from docs_core import knowledge_service
+    success = knowledge_service.delete_node(node_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Node not found")
+    return {"status": "success"}
+
+@app.post("/api/knowledge/parse")
+def parse_document(library_id: str, doc_id: str, file_path: str):
+    """解析文档"""
+    from docs_core import mineru_parser, file_storage
+    import tempfile
+    
+    output_dir = tempfile.mkdtemp()
+    result = mineru_parser.parse_document(file_path, output_dir)
+    
+    if result['success']:
+        md_path = result['md_file']
+        with open(md_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        saved_path = file_storage.save_markdown(library_id, doc_id, content)
+        return {"status": "success", "markdown_path": saved_path}
+    
+    return {"status": "error", "error": result.get('error')}
+
+@app.post("/api/knowledge/rag/query")
+def rag_query(question: str, library_id: str = 'default', k: int = 4, use_llm: bool = True):
+    """RAG 查询 - 使用 angineer-core LLM 客户端"""
+    from docs_core import mineru_rag
+    from angineer_core.infra.llm_client import LLMClient
+    
+    # 先检索相关知识
+    rag_result = mineru_rag.query(question, k, library_id)
+    
+    if not use_llm or rag_result.get('num_sources', 0) == 0:
+        return {
+            'question': question,
+            'answer': '未找到相关知识，请先上传并解析文档。',
+            'num_sources': 0,
+            'sources': []
+        }
+    
+    # 使用 angineer-core 的 LLM 客户端生成答案
+    try:
+        llm_client = LLMClient()
+        
+        # 构建上下文
+        sources = rag_result.get('sources', [])
+        context = "\n\n".join([
+            f"[文档 {i+1}] {s.get('title', '未知')}:\n{s.get('content', '')[:500]}"
+            for i, s in enumerate(sources[:k])
+        ])
+        
+        # 构建提示词
+        prompt = f"""基于以下知识库内容回答问题：
+
+{context}
+
+问题：{question}
+
+请根据上述知识库内容给出准确、简洁的回答。如果知识库中没有相关信息，请明确说明。"""
+        
+        # 调用 LLM
+        response = llm_client.query(prompt)
+        
+        return {
+            'question': question,
+            'answer': response.get('result', '抱歉，无法生成回答。'),
+            'num_sources': len(sources),
+            'sources': [{'title': s.get('title', '未知'), 'id': s.get('id', '')} for s in sources[:k]]
+        }
+    except Exception as e:
+        return {
+            'question': question,
+            'answer': f'LLM 调用失败：{str(e)}',
+            'num_sources': rag_result.get('num_sources', 0),
+            'sources': rag_result.get('sources', [])
+        }
+
+@app.post("/api/knowledge/rag/build")
+def rag_build(library_id: str, doc_ids: list):
+    """构建知识库"""
+    from docs_core import mineru_rag, file_storage
+    import glob
+    
+    md_files = []
+    for doc_id in doc_ids:
+        md_content = file_storage.read_markdown(library_id, doc_id)
+        if md_content:
+            import tempfile
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.md', delete=False, encoding='utf-8') as f:
+                f.write(md_content)
+                md_files.append(f.name)
+    
+    if md_files:
+        result = mineru_rag.build_knowledge_base(md_files, library_id)
+        return result
+    
+    return {"status": "error", "error": "No valid markdown files found"}
+
+@app.get("/api/knowledge/document/{library_id}/{doc_id}")
+def get_document(library_id: str, doc_id: str):
+    """获取文档内容"""
+    from docs_core import file_storage
+    content = file_storage.read_markdown(library_id, doc_id)
+    if content is None:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return {"content": content}
+
+@app.put("/api/knowledge/document/{library_id}/{doc_id}")
+def update_document(library_id: str, doc_id: str, content: str):
+    """更新文档内容"""
+    from docs_core import file_storage
+    saved_path = file_storage.save_markdown(library_id, doc_id, content)
+    return {"status": "success", "path": saved_path}
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

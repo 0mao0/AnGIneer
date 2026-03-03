@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "pnpm run --parallel dev:*",
     "dev:frontend": "pnpm --filter @angineer/web-console dev",
+    "dev:admin": "pnpm --filter @angineer/admin-console dev",
     "dev:backend": "python apps/api-server/main.py",
     "build": "pnpm -r build",
     "build:frontend": "pnpm --filter @angineer/web-console build",
+    "build:admin": "pnpm --filter @angineer/admin-console build",
     "lint": "pnpm -r lint",
     "services:install": "pip install -e services/angineer-core/src -e services/sop-core/src -e services/docs-core/src -e services/geo-core/src -e services/engtools/src",
     "api:dev": "python apps/api-server/main.py",
