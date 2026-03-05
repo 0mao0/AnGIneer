@@ -8,11 +8,11 @@
       <a-upload
         :multiple="true"
         :show-upload-list="false"
-        :before-upload="(file: File) => $emit('upload', file, node.key)"
-        accept=".pdf"
+        :before-upload="beforeUpload"
+        :accept="getAccept()"
       >
         <a-button type="primary">
-          <UploadOutlined /> 上传 PDF
+          <UploadOutlined /> 上传文件
         </a-button>
       </a-upload>
     </a-space>
@@ -32,13 +32,51 @@ interface Props {
   node: TreeNode
   /** 子文档数量 */
   childCount: number
+  /** 允许上传的文件类型 */
+  allowedFileTypes?: string[]
 }
 
-defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  allowedFileTypes: () => ['.pdf']
+})
 
-defineEmits<{
+const emit = defineEmits<{
   upload: [file: File, folderId: string]
 }>()
+
+/**
+ * 验证文件类型是否允许上传
+ * @param file 文件对象
+ * @returns 是否允许上传
+ */
+const validateFileType = (file: File): boolean => {
+  if (!props.allowedFileTypes || props.allowedFileTypes.length === 0) {
+    return true
+  }
+  const fileName = file.name.toLowerCase()
+  return props.allowedFileTypes.some(ext => fileName.endsWith(ext.toLowerCase()))
+}
+
+/**
+ * 处理文件上传前的验证
+ * @param file 文件对象
+ * @returns 是否继续上传
+ */
+const beforeUpload = (file: File): boolean => {
+  if (validateFileType(file)) {
+    emit('upload', file, props.node.key)
+    return false // 阻止自动上传，由父组件处理
+  }
+  return false
+}
+
+/**
+ * 获取 accept 属性值
+ * @returns accept 字符串
+ */
+const getAccept = (): string => {
+  return props.allowedFileTypes?.join(',') || '.pdf'
+}
 </script>
 
 <style lang="less" scoped>

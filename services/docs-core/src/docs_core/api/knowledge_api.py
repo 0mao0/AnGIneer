@@ -80,11 +80,19 @@ class KnowledgeService:
 
     def delete_node(self, node_id: str) -> bool:
         """删除节点"""
-        for i, node in enumerate(self.nodes):
-            if node.id == node_id:
-                self.nodes.pop(i)
-                return True
-        return False
+        node_ids = {node.id for node in self.nodes}
+        if node_id not in node_ids:
+            return False
+        to_delete = {node_id}
+        changed = True
+        while changed:
+            changed = False
+            for node in self.nodes:
+                if node.parent_id in to_delete and node.id not in to_delete:
+                    to_delete.add(node.id)
+                    changed = True
+        self.nodes = [node for node in self.nodes if node.id not in to_delete]
+        return True
 
     def get_node(self, node_id: str) -> Optional[KnowledgeNode]:
         """获取节点"""

@@ -6,11 +6,24 @@
       </a-tab-pane>
       <a-tab-pane key="knowledge" tab="知识">
         <div class="knowledge-panel">
-          <SearchBox 
-            @search="onSearch" 
-            @select="onSelectResult"
-          />
-          <KnowledgeTree @select="onSelectDoc" />
+          <SmartTree
+            ref="smartTreeRef"
+            :tree-data="treeData"
+            :show-search="true"
+            search-placeholder="搜索文档..."
+            :show-add-root-folder="false"
+            :show-status="false"
+            :draggable="false"
+            :allow-add-file="false"
+            :loading="loading"
+            empty-text="暂无文档"
+            @select="onTreeSelect"
+          >
+            <template #icon="{ node }">
+              <FolderOutlined v-if="node?.isFolder" style="color: #faad14" />
+              <FileTextOutlined v-else style="color: #1890ff" />
+            </template>
+          </SmartTree>
         </div>
       </a-tab-pane>
       <a-tab-pane key="sop" tab="经验">
@@ -21,26 +34,91 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { KnowledgeTree, SearchBox } from '@angineer/docs-ui'
+import { ref, onMounted } from 'vue'
+import { FolderOutlined, FileTextOutlined } from '@ant-design/icons-vue'
+import { SmartTree } from '@angineer/docs-ui'
 import SOPSidebar from './sidebar/SOPSidebar.vue'
 import ProjectSidebar from './sidebar/ProjectSidebar.vue'
 import { useThemeStore } from '@/stores'
+import { knowledgeApi } from '@/api/knowledge'
+import type { SmartTreeNode } from '@angineer/docs-ui'
 
 const themeStore = useThemeStore()
 const activeTab = ref('knowledge')
 
-const onSearch = (query: string) => {
-  console.log('Search:', query)
+const smartTreeRef = ref<InstanceType<typeof SmartTree> | null>(null)
+const treeData = ref<SmartTreeNode[]>([])
+const loading = ref(false)
+
+interface TreeNode {
+  key: string
+  title: string
+  isFolder: boolean
+  visible: boolean
+  status: string
+  parentId?: string
+  filePath?: string
+  children?: TreeNode[]
 }
 
-const onSelectResult = (result: any) => {
-  console.log('Select result:', result)
+const buildTree = (nodes: any[]): TreeNode[] => {
+  const nodeMap = new Map<string, TreeNode>()
+  const roots: TreeNode[] = []
+
+  nodes.forEach(n => {
+    nodeMap.set(n.id, {
+      key: n.id,
+      title: n.title,
+      isFolder: n.type === 'folder',
+      visible: n.visible,
+      status: n.status || 'pending',
+      parentId: n.parent_id,
+      filePath: n.file_path
+    })
+  })
+
+  nodes.forEach(n => {
+    const node = nodeMap.get(n.id)!
+    if (n.parent_id && nodeMap.has(n.parent_id)) {
+      const parent = nodeMap.get(n.parent_id)!
+      if (!parent.children) parent.children = []
+      parent.children.push(node)
+    } else {
+      roots.push(node)
+    }
+  })
+
+  return roots
+}
+
+const loadNodes = async () => {
+  loading.value = true
+  try {
+    const response = await knowledgeApi.getNodes('default', true) as unknown as any[]
+    treeData.value = buildTree(response) as unknown as SmartTreeNode[]
+  } catch (error) {
+    console.error('加载知识库节点失败:', error)
+  } finally {
+    loading.value = false
+  }
+}
+
+const onTreeSelect = async (_keys: string[], nodes: SmartTreeNode[]) => {
+  if (nodes.length > 0) {
+    const node = nodes[0]
+    if (!node.isFolder) {
+      onSelectDoc(node)
+    }
+  }
 }
 
 const onSelectDoc = (node: any) => {
   console.log('Select doc:', node)
 }
+
+onMounted(() => {
+  loadNodes()
+})
 </script>
 
 <style lang="less" scoped>

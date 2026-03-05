@@ -10,20 +10,9 @@
       <!-- 左侧：知识树 -->
       <template #left>
         <Panel title="知识树" :icon="FolderOutlined">
-          <template #extra>
-            <a-tooltip title="新建文件夹">
-              <a-button type="text" size="small" @click="showCreateFolderModal">
-                <FolderAddOutlined />
-              </a-button>
-            </a-tooltip>
-          </template>
 
           <div
             class="tree-container"
-            @dragover.prevent="onDragOver"
-            @dragleave.prevent="onDragLeave"
-            @drop.prevent="onDrop"
-            :class="{ 'drag-over': isDragging }"
           >
             <!-- 空状态 -->
             <div v-if="!hasData" class="empty-state" @click="showCreateFolderModal">
@@ -43,6 +32,7 @@
               :show-status="true"
               :draggable="true"
               :allow-add-file="true"
+              :allowed-file-types="allowedFileTypes"
               empty-text="暂无文档"
               @select="onTreeSelect"
               @rename="showRenameModal"
@@ -51,30 +41,27 @@
               @delete="handleDeleteNode"
               @view="showDocDetail"
               @drop="onTreeDrop"
+              @drop-invalid="onInvalidDrop"
+              @file-drop="handleFileDrop"
             >
               <!-- 自定义图标 -->
               <template #icon="{ node }">
-                <FolderOutlined v-if="node.isFolder" style="color: #faad14" />
+                <FolderOutlined v-if="node?.isFolder" style="color: #faad14" />
                 <FilePdfOutlined v-else style="color: #ff4d4f" />
               </template>
 
               <!-- 自定义状态标签 -->
               <template #status="{ node }">
                 <a-tag
-                  v-if="!node.isFolder"
-                  :color="node.visible ? 'green' : 'default'"
+                  v-if="!node?.isFolder"
+                  :color="node?.visible ? 'green' : 'default'"
                   size="small"
                   style="font-size: 10px; padding: 0 4px; line-height: 16px"
                 >
-                  {{ node.visible ? '共享' : '本地' }}
+                  {{ node?.visible ? '共享' : '本地' }}
                 </a-tag>
               </template>
             </SmartTree>
-          </div>
-
-          <div v-if="isDragging" class="drop-hint">
-            <CloudUploadOutlined />
-            <span>释放上传至 {{ dropTargetFolder ? getFolderName(dropTargetFolder) : '根目录' }}</span>
           </div>
         </Panel>
       </template>
@@ -88,6 +75,7 @@
             <FolderPreview
               :node="selectedNode"
               :child-count="getChildCount(selectedNode.key, 'document')"
+              :allowed-file-types="allowedFileTypes"
               @upload="handleFolderUpload"
             />
           </template>
@@ -155,8 +143,7 @@ import {
   FolderOutlined,
   FolderAddOutlined,
   FileSearchOutlined,
-  MessageOutlined,
-  CloudUploadOutlined
+  MessageOutlined
 } from '@ant-design/icons-vue'
 
 // 导入 packages 中的组件和 composables
@@ -195,14 +182,11 @@ const {
 
 // AIChat 组件引用
 const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
+const allowedFileTypes = ['.pdf']
 
 // 面板尺寸状态
 const leftWidth = ref(350)
 const centerWidth = ref(700)
-
-// 拖拽上传状态
-const isDragging = ref(false)
-const dropTargetFolder = ref<string | null>(null)
 
 // 弹窗状态
 const folderModalVisible = ref(false)
@@ -304,10 +288,10 @@ const showRenameModal = (node: SmartTreeNode) => {
 }
 
 // 显示创建子文件夹弹窗
-const showCreateSubFolderModal = (parentNode: SmartTreeNode) => {
+const showCreateSubFolderModal = (parentNode: SmartTreeNode | null) => {
   folderForm.value = {
     name: '',
-    parentId: parentNode.key,
+    parentId: parentNode?.key || undefined,
     isNew: true,
     nodeId: ''
   }
@@ -316,10 +300,9 @@ const showCreateSubFolderModal = (parentNode: SmartTreeNode) => {
 
 // 显示创建文件弹窗 - 触发文件选择并上传
 const showCreateFileModal = (parentNode: SmartTreeNode) => {
-  // 创建隐藏的文件输入框
   const input = document.createElement('input')
   input.type = 'file'
-  input.accept = '.pdf,.doc,.docx,.txt,.md'
+  input.accept = allowedFileTypes.join(',')
   input.onchange = async (e) => {
     const file = (e.target as HTMLInputElement).files?.[0]
     if (file) {
@@ -394,8 +377,7 @@ const showDocDetail = (node: SmartTreeNode) => {
 // 解析文档
 const parseDocument = async (node: SmartTreeNode) => {
   try {
-    // TODO: 需要文件路径参数
-    await knowledgeApi.parseDocument('default', node.key, '')
+    await knowledgeApi.parseDocument('default', node.key, node.filePath)
     message.success('开始解析文档')
     await loadNodes()
   } catch (error) {
@@ -421,24 +403,19 @@ const toggleVisible = async (node: SmartTreeNode) => {
   }
 }
 
-// 处理拖拽
-const onDragOver = (_e: DragEvent) => {
-  isDragging.value = true
-  // 可以在这里检测拖拽目标文件夹
-}
-
-const onDragLeave = () => {
-  isDragging.value = false
-}
-
-const onDrop = async (e: DragEvent) => {
-  isDragging.value = false
-  const files = e.dataTransfer?.files
-  if (files && files.length > 0) {
-    for (const file of Array.from(files)) {
-      if (file.type === 'application/pdf') {
-        await uploadFile(file, dropTargetFolder.value || undefined)
-      }
+// 处理 SmartTree 组件的文件拖拽上传事件
+const handleFileDrop = async (files: File[], targetFolder: SmartTreeNode | null) => {
+  if (targetFolder && !targetFolder.isFolder) {
+    message.warning('仅支持拖拽到文件夹或根目录')
+    return
+  }
+  const parentId = targetFolder?.key
+  for (const file of files) {
+    if (smartTreeRef.value?.validateFileType(file)) {
+      await uploadFile(file, parentId)
+    } else {
+      const allowedTypes = smartTreeRef.value?.getAllowedFileTypesDesc() || '指定类型'
+      message.warning(`不支持的文件类型: ${file.name}，请上传 ${allowedTypes} 文件`)
     }
   }
 }
@@ -460,8 +437,73 @@ const handleFolderUpload = (file: File, folderId: string) => {
 }
 
 // 树拖拽
-const onTreeDrop = (info: any) => {
-  console.log('树拖拽:', info)
+const onTreeDrop = async (info: any) => {
+  const { dragNode, node: dropNode } = info
+  if (!dragNode || !dropNode) {
+    return
+  }
+
+  if (dragNode.key === dropNode.key) {
+    return
+  }
+
+  const nodeId = dragNode.key as string
+  const isDropNodeFolder = dropNode.dataRef?.isFolder === true
+  const dropToGap = info.dropToGap
+
+  if (!dropToGap && !isDropNodeFolder) {
+    message.warning('不能将节点拖入文件')
+    await loadNodes()
+    return
+  }
+
+  const findNodeByKey = (nodes: SmartTreeNode[], key: string): SmartTreeNode | null => {
+    for (const node of nodes) {
+      if (node.key === key) return node
+      if (node.children?.length) {
+        const child = findNodeByKey(node.children, key)
+        if (child) return child
+      }
+    }
+    return null
+  }
+
+  const isDescendantNode = (source: SmartTreeNode | null, targetKey: string): boolean => {
+    if (!source?.children?.length) return false
+    for (const child of source.children) {
+      if (child.key === targetKey || isDescendantNode(child, targetKey)) return true
+    }
+    return false
+  }
+
+  const sourceNode = findNodeByKey(treeData.value as unknown as SmartTreeNode[], nodeId)
+  if (isDescendantNode(sourceNode, dropNode.key as string)) {
+    message.warning('不能拖拽到自身子级目录')
+    await loadNodes()
+    return
+  }
+
+  const newParentId = !dropToGap ? (dropNode.key as string) : ((dropNode.dataRef?.parentId as string | undefined) || null)
+
+  try {
+    await knowledgeApi.updateNode(nodeId, {
+      parent_id: newParentId
+    })
+    message.success('移动成功')
+    await loadNodes()
+  } catch (error: any) {
+    message.error('移动失败: ' + (error.response?.data?.detail || error?.message || '未知错误'))
+    await loadNodes()
+  }
+}
+
+const onInvalidDrop = async (reason: string) => {
+  if (reason === 'drop-into-file') {
+    message.warning('不能将节点拖入文件')
+  } else if (reason === 'drop-to-descendant') {
+    message.warning('不能拖拽到自身子级目录')
+  }
+  await loadNodes()
 }
 
 // ===== AI 对话相关 =====
@@ -509,12 +551,11 @@ onMounted(() => {
 .tree-container {
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 8px;
-
-  &.drag-over {
-    background: rgba(24, 144, 255, 0.1);
-    border: 2px dashed #1890ff;
-  }
+  // 确保容器有明确的宽度限制
+  width: 100%;
+  min-width: 0;
 }
 
 .empty-state {

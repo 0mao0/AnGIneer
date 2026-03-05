@@ -1045,6 +1045,12 @@ def create_knowledge_node(
 ):
     """创建知识库节点"""
     from docs_core import knowledge_service, KnowledgeNode
+    if parent_id:
+        parent_node = knowledge_service.get_node(parent_id)
+        if not parent_node:
+            raise HTTPException(status_code=400, detail="Parent node not found")
+        if parent_node.type != 'folder':
+            raise HTTPException(status_code=400, detail="Parent node must be folder")
     node = KnowledgeNode(
         id=f'node-{len(knowledge_service.nodes) + 1}',
         title=title,
@@ -1056,12 +1062,40 @@ def create_knowledge_node(
     return knowledge_service.create_node(node)
 
 @app.patch("/api/knowledge/nodes/{node_id}")
-def update_knowledge_node(node_id: str, **kwargs):
+def update_knowledge_node(
+    node_id: str,
+    title: Optional[str] = None,
+    parent_id: Optional[str] = None,
+    visible: Optional[bool] = None
+):
     """更新知识库节点"""
     from docs_core import knowledge_service
-    node = knowledge_service.update_node(node_id, **kwargs)
-    if not node:
+    current_node = knowledge_service.get_node(node_id)
+    if not current_node:
         raise HTTPException(status_code=404, detail="Node not found")
+    kwargs = {}
+    if title is not None:
+        kwargs['title'] = title
+    if parent_id is not None:
+        normalized_parent_id = None if parent_id == '' else parent_id
+        if normalized_parent_id:
+            parent_node = knowledge_service.get_node(normalized_parent_id)
+            if not parent_node:
+                raise HTTPException(status_code=400, detail="Parent node not found")
+            if parent_node.type != 'folder':
+                raise HTTPException(status_code=400, detail="Parent node must be folder")
+            if normalized_parent_id == node_id:
+                raise HTTPException(status_code=400, detail="Node cannot be its own parent")
+            parent_map = {node.id: node.parent_id for node in knowledge_service.nodes}
+            current_parent_id = normalized_parent_id
+            while current_parent_id:
+                if current_parent_id == node_id:
+                    raise HTTPException(status_code=400, detail="Cannot move node into its descendant")
+                current_parent_id = parent_map.get(current_parent_id)
+        kwargs['parent_id'] = normalized_parent_id
+    if visible is not None:
+        kwargs['visible'] = visible
+    node = knowledge_service.update_node(node_id, **kwargs)
     return node
 
 @app.delete("/api/knowledge/nodes/{node_id}")
@@ -1083,6 +1117,16 @@ async def upload_document(
     from docs_core import knowledge_service, file_storage, KnowledgeNode
     import uuid
     from datetime import datetime
+    allowed_extensions = {'.pdf'}
+    ext = os.path.splitext(file.filename or '')[1].lower()
+    if ext not in allowed_extensions:
+        raise HTTPException(status_code=400, detail=f"Unsupported file type: {ext or 'unknown'}")
+    if parent_id:
+        parent_node = knowledge_service.get_node(parent_id)
+        if not parent_node:
+            raise HTTPException(status_code=400, detail="Parent node not found")
+        if parent_node.type != 'folder':
+            raise HTTPException(status_code=400, detail="Parent node must be folder")
 
     # 生成文档ID
     doc_id = f"doc-{uuid.uuid4().hex[:8]}"
@@ -1115,22 +1159,32 @@ async def upload_document(
     }
 
 @app.post("/api/knowledge/parse")
-def parse_document(library_id: str, doc_id: str, file_path: str):
+def parse_document(library_id: str, doc_id: str, file_path: Optional[str] = None):
     """解析文档"""
-    from docs_core import mineru_parser, file_storage
+    from docs_core import mineru_parser, file_storage, knowledge_service
     import tempfile
-    
-    output_dir = tempfile.mkdtemp()
-    result = mineru_parser.parse_document(file_path, output_dir)
-    
-    if result['success']:
-        md_path = result['md_file']
-        with open(md_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-        saved_path = file_storage.save_markdown(library_id, doc_id, content)
-        return {"status": "success", "markdown_path": saved_path}
-    
-    return {"status": "error", "error": result.get('error')}
+    node = knowledge_service.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail="Document not found")
+    target_file_path = file_path or node.file_path
+    if not target_file_path:
+        raise HTTPException(status_code=400, detail="file_path is required")
+    knowledge_service.update_node(doc_id, status='processing')
+    try:
+        output_dir = tempfile.mkdtemp()
+        result = mineru_parser.parse_document(target_file_path, output_dir)
+        if result['success']:
+            md_path = result['md_file']
+            with open(md_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            saved_path = file_storage.save_markdown(library_id, doc_id, content)
+            knowledge_service.update_node(doc_id, status='completed')
+            return {"status": "success", "markdown_path": saved_path, "file_path": target_file_path}
+        knowledge_service.update_node(doc_id, status='failed')
+        return {"status": "error", "error": result.get('error')}
+    except Exception as error:
+        knowledge_service.update_node(doc_id, status='failed')
+        raise HTTPException(status_code=500, detail=f"Parse failed: {str(error)}")
 
 @app.post("/api/knowledge/rag/query")
 def rag_query(question: str, library_id: str = 'default', k: int = 4, use_llm: bool = True):

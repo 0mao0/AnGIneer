@@ -38,12 +38,21 @@ export const knowledgeApi = {
     parent_id?: string
     visible?: boolean
   }) => api.post('/knowledge/nodes', null, { params: data }),
-  updateNode: (nodeId: string, data: Record<string, any>) => 
-    api.patch(`/knowledge/nodes/${nodeId}`, null, { params: data }),
+  updateNode: (nodeId: string, data: Record<string, any>) => {
+    const params = new URLSearchParams()
+    Object.entries(data).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        params.append(key, String(value))
+      } else if (value === null) {
+        params.append(key, '')
+      }
+    })
+    return api.patch(`/knowledge/nodes/${nodeId}?${params.toString()}`)
+  },
   deleteNode: (nodeId: string) => api.delete(`/knowledge/nodes/${nodeId}`),
 
   // 文档解析
-  parseDocument: (libraryId: string, docId: string, filePath: string) => 
+  parseDocument: (libraryId: string, docId: string, filePath?: string) => 
     api.post('/knowledge/parse', null, { params: { library_id: libraryId, doc_id: docId, file_path: filePath } }),
 
   // 上传文档

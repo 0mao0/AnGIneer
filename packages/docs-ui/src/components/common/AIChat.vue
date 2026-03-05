@@ -127,8 +127,8 @@
 
         <!-- 操作栏（嵌入在输入框内） -->
         <div class="input-actions">
+          <!-- 左侧：上传按钮（固定） -->
           <div class="left-actions">
-            <!-- 多模态：图片上传按钮（预留） -->
             <a-button
               type="text"
               size="small"
@@ -148,8 +148,8 @@
             />
           </div>
 
-          <div class="right-actions">
-            <!-- 模型选择 -->
+          <!-- 中间：模型选择（自适应宽度） -->
+          <div class="center-actions">
             <a-select
               v-model:value="selectedModel"
               class="model-select"
@@ -167,8 +167,10 @@
                 {{ model.label }}
               </a-select-option>
             </a-select>
+          </div>
 
-            <!-- 停止/发送按钮（图标按钮） -->
+          <!-- 右侧：发送按钮（固定） -->
+          <div class="right-actions">
             <a-button
               v-if="loading"
               type="primary"
@@ -573,6 +575,7 @@ defineExpose({
         border-radius: 12px 12px 0 12px;
         max-width: 95%;
         word-break: break-word;
+        white-space: pre-wrap;
 
         .user-images {
           display: flex;
@@ -591,6 +594,7 @@ defineExpose({
         .user-text {
           line-height: 1.5;
           white-space: pre-wrap;
+          word-break: break-word;
         }
       }
     }
@@ -793,27 +797,33 @@ defineExpose({
     left: 8px;
     right: 8px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 8px;
     pointer-events: none; // 允许点击穿透到 textarea
 
     .left-actions,
+    .center-actions,
     .right-actions {
       pointer-events: auto; // 恢复按钮的点击
     }
 
+    // 左侧：上传按钮（固定宽度）
     .left-actions {
       display: flex;
       gap: 8px;
+      flex-shrink: 0;
     }
 
-    .right-actions {
+    // 中间：模型选择（自适应宽度）
+    .center-actions {
+      flex: 1;
+      min-width: 0;
       display: flex;
-      align-items: center;
-      gap: 8px;
+      justify-content: flex-end;
 
       .model-select {
-        width: 140px;
+        width: 100%;
+        max-width: 180px;
 
         :deep(.ant-select-selector) {
           font-size: 12px;
@@ -834,6 +844,14 @@ defineExpose({
           color: var(--text-secondary, rgba(0, 0, 0, 0.45));
         }
       }
+    }
+
+    // 右侧：发送按钮（固定宽度）
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
 
       .icon-btn {
         width: 24px;

@@ -1,0 +1,124 @@
+# AnGIneer AI 协作指引
+
+## 项目定位
+面向工程领域的 AI Agent 系统，Monorepo 结构，核心理念：**Human Defines SOP, AnGIneer Executes with Precision**
+
+## 目录架构
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                         用户界面层                             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │  apps/web-console/ (Vue 3 + Ant Design Vue)  端口3005 │  │
+│  │  apps/admin-console/ (Vue 3 + Ant Design Vue) 端口3002│  │
+│  └──────────────────────────────────────────────────────┘  │
+└────────────────────────────┬────────────────────────────────┘
+                             │ HTTP API
+┌────────────────────────────▼────────────────────────────────┐
+│                      API 网关层 (FastAPI)                     │
+│                    apps/api-server/main.py  端口8001          │
+└────────────────────────────┬────────────────────────────────┘
+                             │
+┌────────────────────────────▼────────────────────────────────┐
+│                      后端核心服务层                            │
+│  angineer-core | sop-core | docs-core | geo-core | engtools   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 目录说明
+
+| 目录 | 说明 | 核心文件 |
+|------|------|----------|
+| `apps/web-console/` | 前台 - 知识使用 | [main.ts](file:///d:/AI/AnGIneer/apps/web-console/src/main.ts), [App.vue](file:///d:/AI/AnGIneer/apps/web-console/src/App.vue) |
+| `apps/admin-console/` | 后台 - 知识管理 | [main.ts](file:///d:/AI/AnGIneer/apps/admin-console/src/main.ts), [App.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/App.vue) |
+| `apps/api-server/` | 后端 API | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py) |
+| `packages/ui-kit/` | 基础组件库 | [index.ts](file:///d:/AI/AnGIneer/packages/ui-kit/src/index.ts) |
+| `packages/docs-ui/` | 知识引擎 UI | [index.ts](file:///d:/AI/AnGIneer/packages/docs-ui/src/index.ts) |
+| `services/angineer-core/` | OS 内核 - LLM调度 | [dispatcher.py](file:///d:/AI/AnGIneer/services/angineer-core/src/angineer_core/core/dispatcher.py) |
+| `services/sop-core/` | SOP 引擎 | [sop_loader.py](file:///d:/AI/AnGIneer/services/sop-core/src/sop_core/sop_loader.py) |
+| `services/docs-core/` | 知识引擎 | [knowledge_api.py](file:///d:/AI/AnGIneer/services/docs-core/src/docs_core/api/knowledge_api.py) |
+| `services/geo-core/` | 空间引擎 | [GisTool.py](file:///d:/AI/AnGIneer/services/geo-core/src/geo_core/GisTool.py) |
+| `services/engtools/` | 专业工具库 | [BaseTool.py](file:///d:/AI/AnGIneer/services/engtools/src/engtools/BaseTool.py) |
+
+---
+
+## 核心复用组件
+
+### 1. AIChat 对话系统
+
+**所有 AI 对话统一使用同一套组件：**
+
+| 使用位置 | 前端组件 | 后端接口 |
+|----------|----------|----------|
+| web-console 右侧对话面板 | AIChat 组件 | `/api/chat` |
+| admin-console 知识管理页 | AIChat 组件 | `/api/chat` |
+
+**关键文件：**
+- 组件: [packages/docs-ui/src/components/common/AIChat.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/AIChat.vue)
+- 逻辑: [packages/docs-ui/src/composables/useAIChat.ts](file:///d:/AI/AnGIneer/packages/docs-ui/src/composables/useAIChat.ts)
+- Store: [apps/web-console/src/stores/chat.ts](file:///d:/AI/AnGIneer/apps/web-console/src/stores/chat.ts) / [apps/admin-console/src/stores/chat.ts](file:///d:/AI/AnGIneer/apps/admin-console/src/stores/chat.ts)
+
+### 2. SmartTree 知识树系统
+
+**所有树形结构统一使用 SmartTree 组件，通过 props 控制功能：**
+
+```
+packages/docs-ui/src/components/common/SmartTree.vue
+         │
+         ├──► web-console/LeftPanel.vue (只读模式)
+         │      :show-search="false" :draggable="false" :show-status="false"
+         │
+         └──► admin-console/KnowledgeManage.vue (管理模式)
+                :show-search="true" :draggable="true" :show-status="true" :allow-add-file="true"
+```
+
+**关键文件：**
+- 组件: [packages/docs-ui/src/components/common/SmartTree.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/SmartTree.vue)
+- 工具: [packages/docs-ui/src/composables/useKnowledgeTree.ts](file:///d:/AI/AnGIneer/packages/docs-ui/src/composables/useKnowledgeTree.ts)
+
+---
+
+## 开发规范
+
+### 前端
+- 使用 `<script setup>` 语法
+- 组件命名 PascalCase
+- 优先使用 packages 中的通用组件
+- 主题统一使用 useTheme()
+
+### Python
+- 函数外增加一句话注释
+- 函数内添加 docstring
+- 使用 Type Hints
+
+---
+
+## 常用命令
+
+```bash
+# 安装依赖
+pnpm install
+
+# 启动
+pnpm dev:frontend   # 前台 http://localhost:3005
+pnpm dev:admin      # 后台 http://localhost:3002
+pnpm dev:backend    # 后端 http://localhost:8001
+
+# 测试
+pnpm harness
+```
+
+---
+
+## 详细技术文档
+
+**更详细的技术实现、API 规范、组件使用示例请参考：**
+
+📄 [apps/Techniques.md](file:///d:/AI/AnGIneer/apps/Techniques.md)
+
+包含：
+- AIChat 完整 API 规范
+- SmartTree 完整 Props/Events/Slots 说明
+- 知识树系统 API 端点
+- 数据模型定义
+- 使用示例代码

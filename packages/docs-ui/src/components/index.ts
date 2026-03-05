@@ -1,4 +1,3 @@
-export { default as KnowledgeTree } from './sidebar/KnowledgeTree.vue'
 export { default as SearchBox } from './sidebar/SearchBox.vue'
 export { default as SmartTree } from './common/SmartTree.vue'
 export { default as DocumentViewer } from './viewer/DocumentViewer.vue'
