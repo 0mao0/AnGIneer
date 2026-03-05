@@ -12,7 +12,10 @@ export interface TreeNode {
   visible: boolean
   status: 'pending' | 'uploading' | 'processing' | 'completed' | 'failed'
   parentId?: string
+  filePath?: string
+  file_path?: string
   children?: TreeNode[]
+  [key: string]: any
 }
 
 // 上传任务类型
@@ -61,7 +64,9 @@ export function useKnowledgeTree() {
         isFolder: n.type === 'folder',
         visible: n.visible,
         status: n.status || 'pending',
-        parentId: n.parent_id
+        parentId: n.parent_id,
+        filePath: n.file_path,
+        file_path: n.file_path
       })
     })
 

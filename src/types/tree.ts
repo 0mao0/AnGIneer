@@ -12,6 +12,7 @@ export interface SmartTreeNode {
   status?: 'pending' | 'uploading' | 'processing' | 'completed' | 'failed'
   visible?: boolean
   parentId?: string
+  filePath?: string
   children?: SmartTreeNode[]
   [key: string]: any
 }
