@@ -78,14 +78,14 @@ const emit = defineEmits<{
   'update:modelValue': [value: string]
 }>()
 
-const textareaRef = ref<HTMLTextAreaElement | null>(null)
+const textareaRef = ref<any>(null)
 
 const wordCount = computed(() => {
   return props.modelValue.trim().length
 })
 
 const insertFormat = (prefix: string, suffix: string) => {
-  const textarea = textareaRef.value?.$el as HTMLTextAreaElement
+  const textarea = textareaRef.value?.resizableTextArea?.textArea as HTMLTextAreaElement | undefined
   if (!textarea) return
   
   const start = textarea.selectionStart

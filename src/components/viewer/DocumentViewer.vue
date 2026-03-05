@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, shallowRef } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useDocument } from '../../composables'
 import type { DocumentBlock } from '../../types'
 

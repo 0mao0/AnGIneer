@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import type { Document, DocumentBlock, Library } from '../types'
 
 const API_BASE = '/api/docs'

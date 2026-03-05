@@ -37,11 +37,11 @@ const props = defineProps<{
 const tableRef = ref<HTMLElement | null>(null)
 
 const columns = computed(() => {
-  const cols = [
+  const cols: Array<{ title: string; dataIndex: string; key: string; width?: string }> = [
     { title: props.table.dimensions[0]?.name || '维度', dataIndex: 'dim', key: 'dim', width: '120px' }
   ]
   
-  props.table.outputs.forEach((output, i) => {
+  props.table.outputs.forEach((output) => {
     cols.push({
       title: output.name,
       dataIndex: output.key,

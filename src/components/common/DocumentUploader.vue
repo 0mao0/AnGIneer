@@ -21,7 +21,7 @@
 import { ref } from 'vue'
 import { message } from 'ant-design-vue'
 import { InboxOutlined } from '@ant-design/icons-vue'
-import type { UploadChangeParam, UploadProps } from 'ant-design-vue'
+import type { UploadChangeParam } from 'ant-design-vue'
 
 interface Props {
   multiple?: boolean
@@ -48,9 +48,14 @@ const emit = defineEmits<{
 const fileList = ref<any[]>([])
 
 const handleBeforeUpload = (file: File) => {
-  const isPdf = file.type === 'application/pdf' || file.name.endsWith('.pdf')
-  if (!isPdf) {
-    message.error('只能上传 PDF 文件')
+  const acceptedExts = props.accept
+    .split(',')
+    .map(ext => ext.trim().toLowerCase())
+    .filter(Boolean)
+  const lowerFileName = file.name.toLowerCase()
+  const isAllowed = acceptedExts.length === 0 || acceptedExts.some(ext => lowerFileName.endsWith(ext))
+  if (!isAllowed) {
+    message.error(`只能上传 ${props.accept} 文件`)
     return false
   }
   
@@ -71,10 +76,13 @@ const handleChange = (info: UploadChangeParam) => {
   
   emit('change', files)
   
+  const originFile = info.file.originFileObj
   if (info.file.status === 'done') {
-    emit('success', info.file.originFileObj, info.file.response)
-  } else if (info.file.status === 'error') {
-    emit('error', info.file.originFileObj, info.file.error)
+    if (originFile instanceof File) {
+      emit('success', originFile, info.file.response)
+    }
+  } else if (info.file.status === 'error' && originFile instanceof File) {
+    emit('error', originFile, info.file.error)
   }
 }
 </script>

@@ -1,5 +1,5 @@
-import { ref, computed } from 'vue'
-import type { TableData, TableQueryResult } from '../types'
+import { ref } from 'vue'
+import type { TableQueryResult } from '../types'
 
 const API_BASE = '/api/docs'
 

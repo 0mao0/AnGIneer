@@ -44,8 +44,10 @@
         :show-line="showLine"
         @select="onSelect"
         @drop="onDrop"
+        @dragstart="onNodeDragStart"
+        @dragend="onNodeDragEnd"
       >
-        <template #title="{ title, key, ...nodeData }">
+        <template #title="{ title, key }">
           <!-- 从原始数据中查找完整节点信息 -->
           <template v-if="getOriginalNode(key)">
             <slot name="node" :node="getOriginalNode(key)">
@@ -97,28 +99,28 @@
                     <!-- 文件夹操作 -->
                     <template v-if="getOriginalNode(key)?.isFolder">
                       <a-tooltip title="重命名">
-                        <EditOutlined class="action-icon" @click="$emit('rename', getOriginalNode(key))" />
+                        <EditOutlined class="action-icon" @click="onRename(key)" />
                       </a-tooltip>
                       <a-tooltip title="添加子文件夹">
-                        <FolderAddOutlined class="action-icon" @click="$emit('add-folder', getOriginalNode(key))" />
+                        <FolderAddOutlined class="action-icon" @click="onAddFolder(key)" />
                       </a-tooltip>
                       <a-tooltip v-if="allowAddFile" title="添加文件">
-                        <FileAddOutlined class="action-icon" @click="$emit('add-file', getOriginalNode(key))" />
+                        <FileAddOutlined class="action-icon" @click="onAddFile(key)" />
                       </a-tooltip>
                       <a-tooltip title="删除">
-                        <DeleteOutlined class="action-icon delete" @click="$emit('delete', getOriginalNode(key))" />
+                        <DeleteOutlined class="action-icon delete" @click="onDelete(key)" />
                       </a-tooltip>
                     </template>
                     <!-- 文件操作 -->
                     <template v-else>
                       <a-tooltip title="重命名">
-                        <EditOutlined class="action-icon" @click="$emit('rename', getOriginalNode(key))" />
+                        <EditOutlined class="action-icon" @click="onRename(key)" />
                       </a-tooltip>
                       <a-tooltip title="查看">
-                        <EyeOutlined class="action-icon" @click="$emit('view', getOriginalNode(key))" />
+                        <EyeOutlined class="action-icon" @click="onView(key)" />
                       </a-tooltip>
                       <a-tooltip title="删除">
-                        <DeleteOutlined class="action-icon delete" @click="$emit('delete', getOriginalNode(key))" />
+                        <DeleteOutlined class="action-icon delete" @click="onDelete(key)" />
                       </a-tooltip>
                     </template>
                   </slot>
@@ -132,9 +134,17 @@
           </template>
         </template>
       </a-tree>
+      <div
+        v-if="draggable && draggingNodeKey"
+        class="root-drop-zone"
+        @dragover.prevent="onRootDragOver"
+        @drop.prevent="onRootDrop"
+      >
+        拖到此处移动到根目录
+      </div>
 
       <!-- 空状态 -->
-      <div v-else-if="!loading" class="tree-empty">
+      <div v-if="!filteredTreeData.length && !loading" class="tree-empty">
         <slot name="empty">
           <a-empty :description="searchText ? '无匹配结果' : emptyText" />
           <a-button 
@@ -273,6 +283,8 @@ const emit = defineEmits<{
   'file-drop': [files: File[], targetFolder: SmartTreeNode | null]
   /** 无效拖拽 */
   'drop-invalid': [reason: string]
+  /** 拖拽到根目录 */
+  'drop-root': [dragNodeKey: string]
 }>()
 
 // 主题
@@ -291,6 +303,14 @@ const internalTreeData = ref<SmartTreeNode[]>([])
 // 文件拖拽上传相关状态
 const isDraggingFile = ref(false)
 const dragOverKey = ref<string | null>(null)
+const draggingNodeKey = ref<string | null>(null)
+
+const sourceTreeData = computed(() => {
+  if (internalTreeData.value.length === 0 && props.treeData.length > 0) {
+    return props.treeData
+  }
+  return internalTreeData.value
+})
 
 // 监听props变化，同步到内部数据
 watch(() => props.treeData, (val) => {
@@ -310,8 +330,8 @@ watch(() => props.defaultSelectedKeys, (val) => {
  * 过滤树数据 - 根据搜索文本递归过滤
  */
 const filteredTreeData = computed(() => {
-  if (!searchText.value) return internalTreeData.value
-  const result = filterTree(internalTreeData.value, searchText.value.toLowerCase())
+  if (!searchText.value) return sourceTreeData.value
+  const result = filterTree(sourceTreeData.value, searchText.value.toLowerCase())
   return result
 })
 
@@ -363,6 +383,31 @@ const getOriginalNode = (key: string): SmartTreeNode | undefined => {
     return undefined
   }
   return find(props.treeData)
+}
+
+const onRename = (key: string) => {
+  const node = getOriginalNode(key)
+  if (node) emit('rename', node)
+}
+
+const onAddFolder = (key: string) => {
+  const node = getOriginalNode(key)
+  if (node) emit('add-folder', node)
+}
+
+const onAddFile = (key: string) => {
+  const node = getOriginalNode(key)
+  if (node) emit('add-file', node)
+}
+
+const onView = (key: string) => {
+  const node = getOriginalNode(key)
+  if (node) emit('view', node)
+}
+
+const onDelete = (key: string) => {
+  const node = getOriginalNode(key)
+  if (node) emit('delete', node)
 }
 
 /**
@@ -494,7 +539,7 @@ const onSelect: TreeProps['onSelect'] = (keys, info) => {
  * @param info 拖拽信息
  */
 const onDrop: TreeProps['onDrop'] = (info) => {
-  const { dragNode, node: dropNode, dropPosition } = info
+  const { dragNode, node: dropNode } = info
   
   if (!dragNode || !dropNode) return
   if (dragNode.key === dropNode.key) {
@@ -528,7 +573,8 @@ const onDrop: TreeProps['onDrop'] = (info) => {
         nodes.splice(i, 1)
         return true
       }
-      if (nodes[i].children && removeNode(nodes[i].children)) {
+      const childNodes = nodes[i].children
+      if (childNodes && removeNode(childNodes)) {
         return true
       }
     }
@@ -540,6 +586,10 @@ const onDrop: TreeProps['onDrop'] = (info) => {
   
   // dropToGap: true 表示拖到了节点之间的缝隙（平级），false 表示拖到了节点上（放入内部）
   const dropToGap = (info as any).dropToGap
+  const pos = String((dropNode as any).pos || '')
+  const posParts = pos.split('-')
+  const nodeIndex = Number(posParts[posParts.length - 1] || 0)
+  const relativeDropPosition = ((info as any).dropPosition as number) - nodeIndex
   
   // 判断目标是否是文件夹
   const isDropNodeFolder = (dropNode as any).dataRef?.isFolder === true
@@ -559,10 +609,13 @@ const onDrop: TreeProps['onDrop'] = (info) => {
           if (!nodes[i].children) {
             nodes[i].children = []
           }
-          nodes[i].children.push(dragObj!)
+          const childNodes = nodes[i].children || []
+          childNodes.push(dragObj!)
+          nodes[i].children = childNodes
           return true
         }
-        if (nodes[i].children && insertInto(nodes[i].children)) {
+        const childNodes = nodes[i].children
+        if (childNodes && insertInto(childNodes)) {
           return true
         }
       }
@@ -574,11 +627,12 @@ const onDrop: TreeProps['onDrop'] = (info) => {
     const insertAt = (nodes: SmartTreeNode[]): boolean => {
       for (let i = 0; i < nodes.length; i++) {
         if (nodes[i].key === dropNode.key) {
-          const insertIndex = dropPosition < 0 ? i : i + 1
+          const insertIndex = relativeDropPosition < 0 ? i : i + 1
           nodes.splice(insertIndex, 0, dragObj!)
           return true
         }
-        if (nodes[i].children && insertAt(nodes[i].children)) {
+        const childNodes = nodes[i].children
+        if (childNodes && insertAt(childNodes)) {
           return true
         }
       }
@@ -592,6 +646,26 @@ const onDrop: TreeProps['onDrop'] = (info) => {
   
   // 通知父组件
   emit('drop', info)
+}
+
+const onNodeDragStart: TreeProps['onDragstart'] = (info) => {
+  draggingNodeKey.value = String(info.node?.key || '')
+}
+
+const onNodeDragEnd: TreeProps['onDragend'] = () => {
+  draggingNodeKey.value = null
+}
+
+const onRootDragOver = (e: DragEvent) => {
+  if (e.dataTransfer?.types.includes('Files')) return
+  e.preventDefault()
+}
+
+const onRootDrop = (e: DragEvent) => {
+  if (e.dataTransfer?.types.includes('Files')) return
+  if (!draggingNodeKey.value) return
+  emit('drop-root', draggingNodeKey.value)
+  draggingNodeKey.value = null
 }
 
 /**
@@ -766,12 +840,12 @@ defineExpose({
 
   // 搜索栏
   .tree-search {
-    padding: 8px 12px;
+    padding: 6px 6px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 2px;
 
     :deep(.ant-input) {
       flex: 1;
@@ -822,6 +896,18 @@ defineExpose({
     overflow: auto;
     padding: 4px 0;
 
+    .root-drop-zone {
+      margin: 8px 8px 4px;
+      border: 1px dashed #91caff;
+      border-radius: 6px;
+      color: #1677ff;
+      background: #f0f8ff;
+      text-align: center;
+      line-height: 32px;
+      font-size: 12px;
+      user-select: none;
+    }
+
     :deep(.ant-tree) {
       background: transparent;
 
@@ -849,7 +935,7 @@ defineExpose({
       }
 
       .ant-tree-node-content-wrapper {
-        padding: 0 4px !important;
+        padding: 0 3px !important;
         border-radius: 4px;
         transition: background 0.2s;
         width: 100%;
@@ -875,9 +961,10 @@ defineExpose({
 
       // 开关图标样式 - 减小宽度
       .ant-tree-switcher {
-        width: 14px;
+        width: 12px;
         height: 22px;
         line-height: 22px;
+        margin-left: 2px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -895,7 +982,7 @@ defineExpose({
         line-height: normal !important;
         display: flex;
         align-items: center;
-        padding: 0 4px !important;
+        padding: 0 2px !important;
       }
 
       .ant-tree-treenode {
@@ -916,7 +1003,7 @@ defineExpose({
     justify-content: flex-start;
     width: 100%;
     height: 100%;
-    gap: 4px;
+    gap: 3px;
     position: relative;
     min-width: 0;
     overflow: hidden !important;
@@ -936,13 +1023,13 @@ defineExpose({
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       font-size: 14px;
       color: #8c8c8c;
       line-height: 1;
       overflow: visible;
-      margin-left: 2px;
+      margin-left: 0;
 
       .anticon {
         display: flex;

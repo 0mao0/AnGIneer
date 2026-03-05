@@ -40,7 +40,7 @@ interface Formula {
   variables?: FormulaVariable[]
 }
 
-const props = defineProps<{
+defineProps<{
   formula: Formula
 }>()
 
