@@ -47,57 +47,52 @@
         @dragstart="onNodeDragStart"
         @dragend="onNodeDragEnd"
       >
-        <template #title="{ title, key }">
-          <!-- 从原始数据中查找完整节点信息 -->
-          <template v-if="getOriginalNode(key)">
-            <slot name="node" :node="getOriginalNode(key)">
+        <template #title="{ title, key, dataRef: node }">
+          <template v-if="node">
+            <slot name="node" :node="node">
               <!-- 默认节点渲染 -->
               <div
                 class="tree-node-default"
                 :class="{
-                  'is-folder': getOriginalNode(key)?.isFolder,
-                  'is-leaf': !getOriginalNode(key)?.isFolder,
-                  [`level-${getOriginalNode(key)?.level || 0}`]: true
+                  'is-folder': node.isFolder,
+                  'is-leaf': !node.isFolder,
+                  [`level-${node.level || 0}`]: true
                 }"
               >
                 <!-- 节点图标 -->
                 <span v-if="showIcon" class="node-icon">
-                  <slot name="icon" :node="getOriginalNode(key)">
-                    <FolderOutlined v-if="getOriginalNode(key)?.isFolder" />
-                    <FilePdfOutlined v-else-if="getFileIconType(getOriginalNode(key)?.title || '') === 'pdf'" :style="{ color: getFileIconColor(getOriginalNode(key)?.title || '') }" />
-                    <FileWordOutlined v-else-if="getFileIconType(getOriginalNode(key)?.title || '') === 'word'" :style="{ color: getFileIconColor(getOriginalNode(key)?.title || '') }" />
-                    <FileExcelOutlined v-else-if="getFileIconType(getOriginalNode(key)?.title || '') === 'excel'" :style="{ color: getFileIconColor(getOriginalNode(key)?.title || '') }" />
-                    <FilePptOutlined v-else-if="getFileIconType(getOriginalNode(key)?.title || '') === 'ppt'" :style="{ color: getFileIconColor(getOriginalNode(key)?.title || '') }" />
-                    <FileImageOutlined v-else-if="getFileIconType(getOriginalNode(key)?.title || '') === 'image'" :style="{ color: getFileIconColor(getOriginalNode(key)?.title || '') }" />
-                    <FileZipOutlined v-else-if="getFileIconType(getOriginalNode(key)?.title || '') === 'zip'" :style="{ color: getFileIconColor(getOriginalNode(key)?.title || '') }" />
-                    <FileTextOutlined v-else-if="getFileIconType(getOriginalNode(key)?.title || '') === 'text'" :style="{ color: getFileIconColor(getOriginalNode(key)?.title || '') }" />
-                    <FileMarkdownOutlined v-else-if="getFileIconType(getOriginalNode(key)?.title || '') === 'markdown'" :style="{ color: getFileIconColor(getOriginalNode(key)?.title || '') }" />
-                    <FileOutlined v-else :style="{ color: getFileIconColor(getOriginalNode(key)?.title || '') }" />
+                  <slot name="icon" :node="node">
+                    <FolderOutlined v-if="node.isFolder" />
+                    <component
+                      v-else
+                      :is="getFileIconComponent(node.title || '')"
+                      :style="{ color: getFileIconColor(node.title || '') }"
+                    />
                   </slot>
                 </span>
 
                 <!-- 节点标题 -->
                 <span class="node-title" :title="title">
-                  <slot name="title" :node="getOriginalNode(key)">
+                  <slot name="title" :node="node">
                     <span v-if="searchText && highlightSearch" v-html="highlightText(title)" />
                     <span v-else>{{ title }}</span>
                   </slot>
                 </span>
 
                 <!-- 节点状态标签 - 仅文件显示，文件夹不显示 -->
-                <span v-if="!getOriginalNode(key)?.isFolder && getOriginalNode(key)?.status && showStatus" class="node-status">
-                  <slot name="status" :node="getOriginalNode(key)">
-                    <a-tag :color="getStatusColor(getOriginalNode(key)?.status || '')" size="small">
-                      {{ getStatusText(getOriginalNode(key)?.status || '') }}
+                <span v-if="!node.isFolder && node.status && showStatus" class="node-status">
+                  <slot name="status" :node="node">
+                    <a-tag :color="getStatusColor(node.status || '')" size="small">
+                      {{ getStatusText(node.status || '') }}
                     </a-tag>
                   </slot>
                 </span>
 
                 <!-- 节点操作按钮 -->
                 <span class="node-actions" @click.stop>
-                  <slot name="actions" :node="getOriginalNode(key)">
+                  <slot name="actions" :node="node">
                     <!-- 文件夹操作 -->
-                    <template v-if="getOriginalNode(key)?.isFolder">
+                    <template v-if="node.isFolder">
                       <a-tooltip title="重命名">
                         <EditOutlined class="action-icon" @click="onRename(key)" />
                       </a-tooltip>
@@ -128,7 +123,6 @@
               </div>
             </slot>
           </template>
-          <!-- 找不到节点时的回退显示 -->
           <template v-else>
             <span>{{ title }}</span>
           </template>
@@ -179,7 +173,7 @@
  * 通用智能树组件
  * 支持搜索、拖拽、自定义渲染，适用于知识树、经验树等多种场景
  */
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, type Component } from 'vue'
 import {
   FolderOutlined,
   FileOutlined,
@@ -312,6 +306,20 @@ const sourceTreeData = computed(() => {
   return internalTreeData.value
 })
 
+const originalNodeMap = computed(() => {
+  const map = new Map<string, SmartTreeNode>()
+  const walk = (nodes: SmartTreeNode[]) => {
+    for (const node of nodes) {
+      map.set(node.key, node)
+      if (node.children?.length) {
+        walk(node.children)
+      }
+    }
+  }
+  walk(props.treeData)
+  return map
+})
+
 // 监听props变化，同步到内部数据
 watch(() => props.treeData, (val) => {
   internalTreeData.value = JSON.parse(JSON.stringify(val))
@@ -372,17 +380,7 @@ watch(searchText, (newVal) => {
  * @returns 原始节点数据
  */
 const getOriginalNode = (key: string): SmartTreeNode | undefined => {
-  const find = (nodes: SmartTreeNode[]): SmartTreeNode | undefined => {
-    for (const node of nodes) {
-      if (node.key === key) return node
-      if (node.children) {
-        const found = find(node.children)
-        if (found) return found
-      }
-    }
-    return undefined
-  }
-  return find(props.treeData)
+  return originalNodeMap.value.get(key)
 }
 
 const onRename = (key: string) => {
@@ -470,6 +468,23 @@ function getFileIconType(fileName: string): string {
     mp3: 'audio'
   }
   return iconMap[ext] || 'file'
+}
+
+const fileIconComponentMap: Record<string, Component> = {
+  pdf: FilePdfOutlined,
+  word: FileWordOutlined,
+  excel: FileExcelOutlined,
+  ppt: FilePptOutlined,
+  image: FileImageOutlined,
+  zip: FileZipOutlined,
+  text: FileTextOutlined,
+  markdown: FileMarkdownOutlined,
+  file: FileOutlined
+}
+
+const getFileIconComponent = (fileName: string): Component => {
+  const iconType = getFileIconType(fileName)
+  return fileIconComponentMap[iconType] || FileOutlined
 }
 
 /**
@@ -934,23 +949,6 @@ defineExpose({
         }
       }
 
-      .ant-tree-node-content-wrapper {
-        padding: 0 3px !important;
-        border-radius: 4px;
-        transition: background 0.2s;
-        width: 100%;
-        min-width: 0;
-        overflow: hidden;
-
-        &:hover {
-          background: rgba(0, 0, 0, 0.04);
-        }
-
-        &.ant-tree-node-selected {
-          background: rgba(24, 144, 255, 0.1);
-        }
-      }
-
       .ant-tree-title {
         font-size: 13px;
         display: block;
@@ -982,7 +980,20 @@ defineExpose({
         line-height: normal !important;
         display: flex;
         align-items: center;
+        border-radius: 4px;
+        transition: background 0.2s;
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
         padding: 0 2px !important;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.04);
+        }
+
+        &.ant-tree-node-selected {
+          background: rgba(24, 144, 255, 0.1);
+        }
       }
 
       .ant-tree-treenode {
