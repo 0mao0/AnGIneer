@@ -1,5 +1,7 @@
 """知识库管理 API"""
-from typing import Optional, List
+import json
+import uuid
+from typing import Optional, List, Dict, Any
 from pydantic import BaseModel
 from datetime import datetime
 import sqlite3
@@ -16,6 +18,11 @@ class KnowledgeNode(BaseModel):
     library_id: str
     file_path: Optional[str] = None
     status: str = 'pending'  # pending | processing | completed | failed
+    parse_progress: int = 0
+    parse_stage: Optional[str] = None
+    parse_error: Optional[str] = None
+    parse_task_id: Optional[str] = None
+    strategy: str = 'A_structured'
     sort_order: int = 0
     created_at: datetime = datetime.now()
     updated_at: datetime = datetime.now()
@@ -30,12 +37,26 @@ class KnowledgeLibrary(BaseModel):
     updated_at: datetime = datetime.now()
 
 
+class ParseTask(BaseModel):
+    """解析任务"""
+    id: str
+    library_id: str
+    doc_id: str
+    status: str = 'queued'  # queued | processing | completed | failed
+    progress: int = 0
+    stage: str = 'queued'
+    error: Optional[str] = None
+    created_at: datetime = datetime.now()
+    updated_at: datetime = datetime.now()
+
+
 class KnowledgeService:
     """知识库服务"""
 
     def __init__(self):
         self.nodes: List[KnowledgeNode] = []
         self.libraries: List[KnowledgeLibrary] = []
+        self.parse_tasks: List[ParseTask] = []
         self.db_path = self._resolve_db_path()
         self._init_db()
         self._load_from_db()
@@ -81,6 +102,55 @@ class KnowledgeService:
                 )
                 '''
             )
+            node_columns = {row['name'] for row in conn.execute("PRAGMA table_info(nodes)").fetchall()}
+            if 'parse_progress' not in node_columns:
+                conn.execute("ALTER TABLE nodes ADD COLUMN parse_progress INTEGER NOT NULL DEFAULT 0")
+            if 'parse_stage' not in node_columns:
+                conn.execute("ALTER TABLE nodes ADD COLUMN parse_stage TEXT")
+            if 'parse_error' not in node_columns:
+                conn.execute("ALTER TABLE nodes ADD COLUMN parse_error TEXT")
+            if 'parse_task_id' not in node_columns:
+                conn.execute("ALTER TABLE nodes ADD COLUMN parse_task_id TEXT")
+            if 'strategy' not in node_columns:
+                conn.execute("ALTER TABLE nodes ADD COLUMN strategy TEXT NOT NULL DEFAULT 'A_structured'")
+            conn.execute(
+                '''
+                CREATE TABLE IF NOT EXISTS parse_tasks (
+                    id TEXT PRIMARY KEY,
+                    library_id TEXT NOT NULL,
+                    doc_id TEXT NOT NULL,
+                    status TEXT NOT NULL,
+                    progress INTEGER NOT NULL DEFAULT 0,
+                    stage TEXT NOT NULL,
+                    error TEXT,
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL
+                )
+                '''
+            )
+            conn.execute(
+                '''
+                CREATE TABLE IF NOT EXISTS document_segments (
+                    id TEXT PRIMARY KEY,
+                    doc_id TEXT NOT NULL,
+                    library_id TEXT NOT NULL,
+                    strategy TEXT NOT NULL,
+                    item_type TEXT NOT NULL,
+                    title TEXT,
+                    content TEXT NOT NULL,
+                    meta_json TEXT,
+                    order_index INTEGER NOT NULL DEFAULT 0,
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL
+                )
+                '''
+            )
+            conn.execute(
+                '''
+                CREATE INDEX IF NOT EXISTS idx_document_segments_doc_strategy
+                ON document_segments (doc_id, strategy, item_type, order_index)
+                '''
+            )
             conn.commit()
 
     def _load_from_db(self) -> None:
@@ -90,9 +160,18 @@ class KnowledgeService:
             ).fetchall()
             node_rows = conn.execute(
                 '''
-                SELECT id, title, type, parent_id, visible, library_id, file_path, status, sort_order, created_at, updated_at
+                SELECT id, title, type, parent_id, visible, library_id, file_path, status,
+                       parse_progress, parse_stage, parse_error, parse_task_id, strategy,
+                       sort_order, created_at, updated_at
                 FROM nodes
                 ORDER BY library_id ASC, parent_id ASC, sort_order ASC, created_at ASC
+                '''
+            ).fetchall()
+            task_rows = conn.execute(
+                '''
+                SELECT id, library_id, doc_id, status, progress, stage, error, created_at, updated_at
+                FROM parse_tasks
+                ORDER BY created_at DESC
                 '''
             ).fetchall()
         self.libraries = [
@@ -115,11 +194,30 @@ class KnowledgeService:
                 library_id=row['library_id'],
                 file_path=row['file_path'],
                 status=row['status'],
+                parse_progress=int(row['parse_progress'] or 0),
+                parse_stage=row['parse_stage'],
+                parse_error=row['parse_error'],
+                parse_task_id=row['parse_task_id'],
+                strategy=row['strategy'] or 'A_structured',
                 sort_order=int(row['sort_order'] or 0),
                 created_at=datetime.fromisoformat(row['created_at']),
                 updated_at=datetime.fromisoformat(row['updated_at'])
             )
             for row in node_rows
+        ]
+        self.parse_tasks = [
+            ParseTask(
+                id=row['id'],
+                library_id=row['library_id'],
+                doc_id=row['doc_id'],
+                status=row['status'],
+                progress=int(row['progress'] or 0),
+                stage=row['stage'] or 'queued',
+                error=row['error'],
+                created_at=datetime.fromisoformat(row['created_at']),
+                updated_at=datetime.fromisoformat(row['updated_at'])
+            )
+            for row in task_rows
         ]
 
     def _upsert_library(self, library: KnowledgeLibrary) -> None:
@@ -147,8 +245,8 @@ class KnowledgeService:
         with self._get_conn() as conn:
             conn.execute(
                 '''
-                INSERT INTO nodes (id, title, type, parent_id, visible, library_id, file_path, status, sort_order, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO nodes (id, title, type, parent_id, visible, library_id, file_path, status, parse_progress, parse_stage, parse_error, parse_task_id, strategy, sort_order, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(id) DO UPDATE SET
                     title=excluded.title,
                     type=excluded.type,
@@ -157,6 +255,11 @@ class KnowledgeService:
                     library_id=excluded.library_id,
                     file_path=excluded.file_path,
                     status=excluded.status,
+                    parse_progress=excluded.parse_progress,
+                    parse_stage=excluded.parse_stage,
+                    parse_error=excluded.parse_error,
+                    parse_task_id=excluded.parse_task_id,
+                    strategy=excluded.strategy,
                     sort_order=excluded.sort_order,
                     updated_at=excluded.updated_at
                 ''',
@@ -169,9 +272,41 @@ class KnowledgeService:
                     node.library_id,
                     node.file_path,
                     node.status,
+                    node.parse_progress,
+                    node.parse_stage,
+                    node.parse_error,
+                    node.parse_task_id,
+                    node.strategy,
                     node.sort_order,
                     node.created_at.isoformat(),
                     node.updated_at.isoformat()
+                )
+            )
+            conn.commit()
+
+    def _upsert_parse_task(self, task: ParseTask) -> None:
+        with self._get_conn() as conn:
+            conn.execute(
+                '''
+                INSERT INTO parse_tasks (id, library_id, doc_id, status, progress, stage, error, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(id) DO UPDATE SET
+                    status=excluded.status,
+                    progress=excluded.progress,
+                    stage=excluded.stage,
+                    error=excluded.error,
+                    updated_at=excluded.updated_at
+                ''',
+                (
+                    task.id,
+                    task.library_id,
+                    task.doc_id,
+                    task.status,
+                    task.progress,
+                    task.stage,
+                    task.error,
+                    task.created_at.isoformat(),
+                    task.updated_at.isoformat()
                 )
             )
             conn.commit()
@@ -284,6 +419,42 @@ class KnowledgeService:
                 return node
         return None
 
+    def create_parse_task(self, task_id: str, library_id: str, doc_id: str) -> ParseTask:
+        """创建解析任务"""
+        now = datetime.now()
+        task = ParseTask(
+            id=task_id,
+            library_id=library_id,
+            doc_id=doc_id,
+            status='queued',
+            progress=0,
+            stage='queued',
+            created_at=now,
+            updated_at=now
+        )
+        self.parse_tasks = [task, *[t for t in self.parse_tasks if t.id != task_id]]
+        self._upsert_parse_task(task)
+        return task
+
+    def get_parse_task(self, task_id: str) -> Optional[ParseTask]:
+        """获取解析任务"""
+        for task in self.parse_tasks:
+            if task.id == task_id:
+                return task
+        return None
+
+    def update_parse_task(self, task_id: str, **kwargs) -> Optional[ParseTask]:
+        """更新解析任务"""
+        task = self.get_parse_task(task_id)
+        if not task:
+            return None
+        for key, value in kwargs.items():
+            if hasattr(task, key):
+                setattr(task, key, value)
+        task.updated_at = datetime.now()
+        self._upsert_parse_task(task)
+        return task
+
     def _normalize_sibling_orders(self, library_id: str, parent_id: Optional[str]) -> None:
         siblings = sorted(
             [n for n in self.nodes if n.library_id == library_id and n.parent_id == parent_id],
@@ -294,6 +465,131 @@ class KnowledgeService:
                 sibling.sort_order = idx
                 sibling.updated_at = datetime.now()
                 self._upsert_node(sibling)
+
+    def clear_document_segments(self, doc_id: str, strategy: Optional[str] = None) -> int:
+        """删除文档结构化片段"""
+        with self._get_conn() as conn:
+            if strategy:
+                cursor = conn.execute(
+                    'DELETE FROM document_segments WHERE doc_id = ? AND strategy = ?',
+                    (doc_id, strategy)
+                )
+            else:
+                cursor = conn.execute(
+                    'DELETE FROM document_segments WHERE doc_id = ?',
+                    (doc_id,)
+                )
+            conn.commit()
+            return int(cursor.rowcount or 0)
+
+    def save_document_segments(
+        self,
+        doc_id: str,
+        library_id: str,
+        strategy: str,
+        items: List[Dict[str, Any]]
+    ) -> int:
+        """保存文档结构化片段"""
+        now = datetime.now().isoformat()
+        self.clear_document_segments(doc_id, strategy)
+        rows = []
+        for index, item in enumerate(items):
+            rows.append(
+                (
+                    item.get('id') or f"seg-{uuid.uuid4().hex[:12]}",
+                    doc_id,
+                    library_id,
+                    strategy,
+                    item.get('item_type', 'segment'),
+                    item.get('title'),
+                    item.get('content', ''),
+                    json.dumps(item.get('meta', {}), ensure_ascii=False),
+                    int(item.get('order_index', index)),
+                    now,
+                    now
+                )
+            )
+        with self._get_conn() as conn:
+            if rows:
+                conn.executemany(
+                    '''
+                    INSERT INTO document_segments
+                    (id, doc_id, library_id, strategy, item_type, title, content, meta_json, order_index, created_at, updated_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ''',
+                    rows
+                )
+            conn.commit()
+        return len(rows)
+
+    def list_document_segments(
+        self,
+        doc_id: str,
+        strategy: str,
+        item_type: Optional[str] = None,
+        keyword: Optional[str] = None,
+        limit: int = 200
+    ) -> List[Dict[str, Any]]:
+        """查询文档结构化片段"""
+        sql = '''
+            SELECT id, doc_id, library_id, strategy, item_type, title, content, meta_json, order_index, created_at, updated_at
+            FROM document_segments
+            WHERE doc_id = ? AND strategy = ?
+        '''
+        params: List[Any] = [doc_id, strategy]
+        if item_type:
+            sql += ' AND item_type = ?'
+            params.append(item_type)
+        if keyword:
+            sql += ' AND (content LIKE ? OR title LIKE ?)'
+            kw = f'%{keyword}%'
+            params.extend([kw, kw])
+        sql += ' ORDER BY order_index ASC, created_at ASC LIMIT ?'
+        params.append(max(1, min(1000, limit)))
+        with self._get_conn() as conn:
+            rows = conn.execute(sql, params).fetchall()
+        result: List[Dict[str, Any]] = []
+        for row in rows:
+            result.append(
+                {
+                    'id': row['id'],
+                    'doc_id': row['doc_id'],
+                    'library_id': row['library_id'],
+                    'strategy': row['strategy'],
+                    'item_type': row['item_type'],
+                    'title': row['title'],
+                    'content': row['content'],
+                    'meta': json.loads(row['meta_json'] or '{}'),
+                    'order_index': int(row['order_index'] or 0),
+                    'created_at': row['created_at'],
+                    'updated_at': row['updated_at']
+                }
+            )
+        return result
+
+    def get_document_segment_stats(self, doc_id: str) -> Dict[str, Any]:
+        """统计文档结构化片段"""
+        with self._get_conn() as conn:
+            rows = conn.execute(
+                '''
+                SELECT strategy, item_type, COUNT(*) AS cnt
+                FROM document_segments
+                WHERE doc_id = ?
+                GROUP BY strategy, item_type
+                ''',
+                (doc_id,)
+            ).fetchall()
+        summary: Dict[str, Dict[str, int]] = {}
+        total = 0
+        for row in rows:
+            strategy = row['strategy']
+            item_type = row['item_type']
+            cnt = int(row['cnt'] or 0)
+            total += cnt
+            if strategy not in summary:
+                summary[strategy] = {}
+            summary[strategy][item_type] = cnt
+        return {'doc_id': doc_id, 'total': total, 'strategies': summary}
 
 
 knowledge_service = KnowledgeService()

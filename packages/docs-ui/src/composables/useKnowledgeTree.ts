@@ -14,6 +14,11 @@ export interface TreeNode {
   parentId?: string
   filePath?: string
   file_path?: string
+  parseProgress?: number
+  parseStage?: string
+  parseError?: string
+  parseTaskId?: string
+  strategy?: 'A_structured' | 'B_mineru_rag' | 'C_pageindex'
   children?: TreeNode[]
   [key: string]: any
 }
@@ -66,7 +71,12 @@ export function useKnowledgeTree() {
         status: n.status || 'pending',
         parentId: n.parent_id,
         filePath: n.file_path,
-        file_path: n.file_path
+        file_path: n.file_path,
+        parseProgress: n.parse_progress || 0,
+        parseStage: n.parse_stage || '',
+        parseError: n.parse_error || '',
+        parseTaskId: n.parse_task_id || '',
+        strategy: n.strategy || 'A_structured'
       })
     })
 

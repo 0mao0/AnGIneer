@@ -58,6 +58,22 @@ ResourceAdapter(project/knowledge/sop)
 admin-console 与 web-console 共享同一套 SmartTree / AIChat / 资源适配协议
 ```
 
+### 2.3 文档解析与对比查改架构（当前规划）
+
+```text
+Admin B区（文档生命周期）
+  -> 未解析（原文预览 + 解析 + 共享）
+  -> 解析中（任务进度可视化）
+  -> 已解析（B1原文 + B2 Markdown可编辑）
+  -> 三策略切换（A结构化 / B MinerU-RAG / C PageIndex）
+```
+
+```text
+存储规范（One Doc One Folder）
+data/knowledge_base/libraries/{library_id}/docs/{doc_id}/
+  source/ + parsed/ + edited/ + structured/
+```
+
 ---
 
 ## 3. 快速开始
@@ -117,7 +133,9 @@ python -m pytest tests/unit/test_unit_dispatcher.py -v
 
 详细技术文档请查看 [CLAUDE.md](./CLAUDE.md)
 
-前端架构图与组件映射请查看 [apps/Techniques.md](./apps/Techniques.md)
+前端架构图、可开工改造清单请查看 [apps/Techniques.md](./apps/Techniques.md)
+
+后端架构图、数据与策略实现请查看 [services/Techniques.md](./services/Techniques.md)
 
 ---
 

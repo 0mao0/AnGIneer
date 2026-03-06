@@ -7,6 +7,7 @@
 ## 目录
 
 - [前端架构图（重绘）](#前端架构图重绘)
+- [文档解析与对比查改改造清单（可直接开工）](#文档解析与对比查改改造清单可直接开工)
 - [统一资源架构（已落地）](#统一资源架构已落地)
 - [统一资源执行清单（按文件级）](#统一资源执行清单按文件级)
 - [AIChat 对话系统](#aichat-对话系统)
@@ -18,18 +19,25 @@
 
 ## 前端架构图（重绘）
 
-### 分层架构（当前实现）
+### 分层架构（文档解析改造版）
 
 ```mermaid
 flowchart TB
   subgraph Apps["前端应用层"]
     Web["apps/web-console\n工作台壳：三栏 + Tab 工作区"]
-    Admin["apps/admin-console\n管理壳：路由页 + 三栏管理页"]
+    Admin["apps/admin-console\n管理壳：路由页 + 三栏管理页(B区核心)"]
   end
 
   subgraph SharedUI["共享 UI / 交互层"]
     DocsUI["packages/docs-ui\nSmartTree / AIChat / useKnowledgeTree"]
     UIKit["packages/ui-kit\nSplitPanes / Panel / Theme"]
+  end
+
+  subgraph AdminB["admin B区（文档生命周期）"]
+    BState["B区状态机\n未解析/解析中/已解析"]
+    BSplit["B1/B2双区\nB1原文+B2 Markdown预览编辑"]
+    Strategy["解析/检索策略切换\nA结构化/B MinerU-RAG/C PageIndex"]
+    Prog["解析进度可视化\nstage+percent+error"]
   end
 
   subgraph ResourceCore["资源协议层"]
@@ -52,6 +60,10 @@ flowchart TB
   Web --> UIKit
   Admin --> DocsUI
   Admin --> UIKit
+  Admin --> BState
+  BState --> BSplit
+  BState --> Prog
+  BSplit --> Strategy
 
   DocsUI --> Types
   DocsUI --> Adapter
@@ -62,6 +74,8 @@ flowchart TB
   Web --> KApi
   Admin --> KApi
   DocsUI --> CApi
+  Strategy --> KApi
+  Prog --> KApi
 ```
 
 ### 资源打开链路（前端统一）
@@ -97,9 +111,93 @@ admin-console（管理路由型）
    └─ router-view
       └─ /knowledge -> KnowledgeManage
          ├─ 左：SmartTree（管理态）
-         ├─ 中：文档解析区
+         ├─ 中：B区（状态机 + B1/B2 + 策略切换）
          └─ 右：AIChat（共享对话组件）
 ```
+
+---
+
+## 文档解析与对比查改改造清单（可直接开工）
+
+### 1）前端页面（按文件级）
+
+- `apps/admin-console/src/views/KnowledgeManage.vue`
+  - 拆分 B 区状态机渲染：未解析、解析中、已解析。
+  - 新增策略选择器：`A_structured` / `B_mineru_rag` / `C_pageindex`。
+  - 新增解析进度轮询（按 `task_id` 获取进度）。
+  - 已解析态改为 B1/B2 双区：左原文，右 Markdown 预览/编辑。
+- `apps/admin-console/src/views/components/DocumentPreview.vue`
+  - 下沉为“未解析 + 解析中”视图组件。
+  - 增加进度条、阶段文案、错误态重试按钮。
+- `apps/admin-console/src/views/components/DocumentParsedWorkspace.vue`（新增）
+  - 负责 B1/B2 布局、同步滚动、编辑开关、保存/放弃修改。
+  - 预留“差异对比模式”入口（首版可只做按钮占位与接口联动）。
+- `apps/admin-console/src/api/knowledge.ts`
+  - 新增任务接口：`parseDocumentAsync`、`getParseTask`。
+  - 新增策略相关接口：`setDocStrategy`、`getDocStrategy`、`queryByStrategy`。
+  - 新增编辑接口：`getDocumentEditable`、`saveDocumentEditable`、`listDocumentRevisions`。
+- `packages/docs-ui/src/composables/useKnowledgeTree.ts`
+  - 扩展节点字段：`parse_progress`、`parse_stage`、`parse_error`、`strategy`。
+  - 保持 tree 构建兼容旧字段，避免前后台选择树断裂。
+
+### 2）后端接口（按文件级）
+
+- `apps/api-server/main.py`
+  - 将 `/api/knowledge/parse` 改为异步任务提交（返回 `task_id`）。
+  - 新增 `/api/knowledge/parse/tasks/{task_id}` 查询进度。
+  - 新增 `/api/knowledge/strategies/*`（文档策略设置、按策略检索）。
+  - 新增 `/api/knowledge/document/{library_id}/{doc_id}/revisions`。
+  - 新增 `/api/knowledge/document/{library_id}/{doc_id}/structured`（统一结构化输出）。
+- `services/docs-core/src/docs_core/parser/mineru_parser.py`
+  - 保留 MinerU 解析能力，补充任务阶段回调（若 SDK 无实时进度则用阶段进度）。
+  - 增加解析产物清单返回（md、assets、metadata）。
+- `services/docs-core/src/docs_core/storage/file_storage.py`
+  - 改造为“一文档一目录”结构。
+  - 新增路径方法：`get_doc_root`、`save_source_file_with_name`、`save_assets`、`save_revision`。
+  - 提供旧路径兼容读取逻辑（迁移期间双读）。
+- `services/engtools/src/engtools/config.py`
+  - 增加目录解析策略：优先新目录结构，回退旧 `knowledge_base/markdown`。
+- `services/engtools/src/engtools/KnowledgeTool.py`
+  - 允许 `doc_id` 或逻辑文件名检索，不再仅依赖单 md 文件路径。
+- `services/engtools/src/engtools/TableTool.py`
+  - 改为优先读取结构化表格索引，回退 Markdown 表格抽取。
+
+### 3）数据表（按文件级）
+
+- `services/docs-core/src/docs_core/api/knowledge_api.py`
+  - 现有 `nodes` 表增加字段：
+    - `parse_progress INTEGER`
+    - `parse_stage TEXT`
+    - `parse_error TEXT`
+    - `strategy TEXT`
+    - `parsed_at TEXT`
+    - `edited_at TEXT`
+  - 新增 `parse_tasks` 表：任务状态、阶段、进度、错误、起止时间。
+  - 新增 `document_artifacts` 表：source/parsed/assets/edited 路径与 hash。
+  - 新增 `document_segments` 表：条文/段落/附注等结构化片段。
+  - 新增 `document_tables`、`document_images` 表：表格与图片结构化索引。
+  - 新增 `document_revisions` 表：编辑版本与 diff 摘要。
+  - 新增 `strategy_eval_logs` 表：A/B/C 三策略效果评测记录。
+
+### 4）迁移脚本（按文件级）
+
+- `services/docs-core/src/docs_core/migrations/migrate_doc_layout.py`（新增）
+  - 将旧 `source/{library}/{doc_id}.pdf`、`markdown/{library}/{doc_id}/full.md` 迁移到新目录。
+  - 迁移后回写 `document_artifacts`。
+  - 支持 dry-run 与回滚快照。
+- `services/docs-core/src/docs_core/migrations/migrate_engtools_refs.py`（新增）
+  - 扫描 engtools 配置与引用，建立旧文件名到 `doc_id` 的映射表。
+  - 输出校验报告：可解析/缺失/冲突条目。
+- `apps/api-server/main.py`
+  - 新增管理端迁移触发接口（仅开发环境启用）。
+- `tests/`（补充）
+  - 新增迁移脚本单元测试与回归测试：确保旧路径仍可读、新路径优先。
+
+### 5）分阶段交付建议
+
+- P0：B 区状态机 + 异步解析进度 + B1/B2 + Markdown 可编辑。
+- P1：A/B/C 策略切换与统一响应结构，支持效果对比。
+- P2：结构化索引深挖（表格跨页纠偏、图片语义增强、版本化 diff 可视化）。
 
 ---
 

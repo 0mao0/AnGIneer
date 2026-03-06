@@ -9,7 +9,7 @@
     >
       <!-- 左侧：知识树 -->
       <template #left>
-        <Panel title="知识树" :icon="FolderOutlined">
+        <Panel title="知识树" :icon="FolderOutlined" contentClass="tree-panel-content">
 
           <div
             class="tree-container"
@@ -82,9 +82,13 @@
             <DocumentPreview
               :node="selectedNode"
               :content="docContent"
+              :structured-stats="structuredStats"
               @parse="parseDocument"
               @view="viewDocument"
               @toggle-visible="toggleVisible"
+              @save-content="saveDocumentContent"
+              @change-strategy="changeDocumentStrategy"
+              @rebuild-structured="rebuildStructuredIndex"
             />
           </template>
         </Panel>
@@ -135,7 +139,7 @@
 /**
  * 知识库管理页面 - 使用 AIChat 组件进行 AI 对话
  */
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import { message, Modal } from 'ant-design-vue'
 import {
   FolderOutlined,
@@ -195,6 +199,8 @@ const allowedFileTypes = ['.pdf', '.doc', '.docx', '.md']
 // 面板尺寸状态
 const leftWidth = ref(350)
 const centerWidth = ref(700)
+const parsePollTimer = ref<number | null>(null)
+const structuredStats = ref<Record<string, any>>({})
 
 // 弹窗状态
 const folderModalVisible = ref(false)
@@ -304,8 +310,19 @@ const loadNodes = async (focusNodeKey?: string) => {
       const node = findNode(treeData.value as unknown as SmartTreeNode[], focusNodeKey)
       if (node) {
         selectedNode.value = node as unknown as TreeNode
-        if (!node.isFolder && node.status === 'completed') {
-          await loadDocContent(node.key)
+        if (!node.isFolder) {
+          if (node.status === 'completed') {
+            await loadDocContent(node.key)
+            await loadStructuredStats(node.key)
+          } else {
+            docContent.value = ''
+            structuredStats.value = {}
+          }
+          if (node.status === 'processing' && (node as any).parseTaskId) {
+            startParsePolling((node as any).parseTaskId, node.key)
+          } else {
+            stopParsePolling()
+          }
         }
       }
     }
@@ -321,8 +338,19 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
   if (nodes.length > 0) {
     const node = nodes[0] as TreeNode
     selectedNode.value = node
-    if (!node.isFolder && node.status === 'completed') {
-      await loadDocContent(node.key)
+    if (!node.isFolder) {
+      if (node.status === 'completed') {
+        await loadDocContent(node.key)
+        await loadStructuredStats(node.key)
+      } else {
+        docContent.value = ''
+        structuredStats.value = {}
+      }
+      if (node.status === 'processing' && node.parseTaskId) {
+        startParsePolling(node.parseTaskId, node.key)
+      } else {
+        stopParsePolling()
+      }
     }
   }
 }
@@ -334,6 +362,15 @@ const loadDocContent = async (docId: string) => {
     docContent.value = result.content || '暂无内容'
   } catch (error) {
     docContent.value = ''
+  }
+}
+
+const loadStructuredStats = async (docId: string) => {
+  try {
+    const result = await knowledgeApi.getStructuredStats(docId) as any
+    structuredStats.value = result || {}
+  } catch (error) {
+    structuredStats.value = {}
   }
 }
 
@@ -444,12 +481,92 @@ const showDocDetail = (node: SmartTreeNode) => {
 // 解析文档
 const parseDocument = async (node: SmartTreeNode) => {
   try {
-    await knowledgeApi.parseDocument('default', node.key, node.filePath)
+    const result = await knowledgeApi.parseDocumentAsync('default', node.key, node.filePath) as any
+    const taskId = result?.task_id
     message.success('开始解析文档')
-    await loadNodes()
+    await loadNodes(node.key)
+    if (taskId) {
+      startParsePolling(taskId, node.key)
+    }
   } catch (error) {
     message.error('解析失败')
   }
+}
+
+const saveDocumentContent = async (content: string) => {
+  if (!selectedNode.value || selectedNode.value.isFolder) return
+  try {
+    await knowledgeApi.updateDocument('default', selectedNode.value.key, content)
+    docContent.value = content
+    message.success('保存成功')
+  } catch (error) {
+    message.error('保存失败')
+  }
+}
+
+const changeDocumentStrategy = async (strategy: 'A_structured' | 'B_mineru_rag' | 'C_pageindex') => {
+  if (!selectedNode.value || selectedNode.value.isFolder) return
+  try {
+    await knowledgeApi.setDocStrategy(selectedNode.value.key, strategy)
+    selectedNode.value.strategy = strategy
+    await knowledgeApi.buildStructuredIndex('default', selectedNode.value.key, strategy)
+    message.success('策略已更新')
+    await loadNodes(selectedNode.value.key)
+    await loadStructuredStats(selectedNode.value.key)
+  } catch (error) {
+    message.error('策略更新失败')
+  }
+}
+
+const rebuildStructuredIndex = async () => {
+  if (!selectedNode.value || selectedNode.value.isFolder) return
+  try {
+    const strategy = (selectedNode.value.strategy || 'A_structured') as 'A_structured' | 'B_mineru_rag' | 'C_pageindex'
+    await knowledgeApi.buildStructuredIndex('default', selectedNode.value.key, strategy)
+    await loadStructuredStats(selectedNode.value.key)
+    message.success('结构化索引已重建')
+  } catch (error) {
+    message.error('重建结构化索引失败')
+  }
+}
+
+const stopParsePolling = () => {
+  if (parsePollTimer.value) {
+    window.clearInterval(parsePollTimer.value)
+    parsePollTimer.value = null
+  }
+}
+
+const startParsePolling = (taskId: string, docId: string) => {
+  stopParsePolling()
+  parsePollTimer.value = window.setInterval(async () => {
+    try {
+      const task = await knowledgeApi.getParseTask(taskId) as any
+      if (selectedNode.value && selectedNode.value.key === docId) {
+        selectedNode.value.parseProgress = task.progress || 0
+        selectedNode.value.parseStage = task.stage || ''
+        selectedNode.value.parseError = task.error || ''
+        selectedNode.value.status = task.status === 'completed'
+          ? 'completed'
+          : task.status === 'failed'
+            ? 'failed'
+            : 'processing'
+      }
+      if (task.status === 'completed' || task.status === 'failed') {
+        stopParsePolling()
+        await loadNodes(docId)
+        if (task.status === 'completed') {
+          await loadDocContent(docId)
+          await loadStructuredStats(docId)
+          message.success('文档解析完成')
+        } else {
+          message.error(task.error || '文档解析失败')
+        }
+      }
+    } catch (error) {
+      stopParsePolling()
+    }
+  }, 1500)
 }
 
 // 查看文档
@@ -737,6 +854,20 @@ const handleChatReady = () => {
 onMounted(() => {
   loadNodes()
 })
+
+watch(() => selectedNode.value?.key, () => {
+  if (!selectedNode.value || selectedNode.value.isFolder) {
+    stopParsePolling()
+    return
+  }
+  if (selectedNode.value.status === 'processing' && selectedNode.value.parseTaskId) {
+    startParsePolling(selectedNode.value.parseTaskId, selectedNode.value.key)
+  }
+})
+
+onBeforeUnmount(() => {
+  stopParsePolling()
+})
 </script>
 
 <style lang="less" scoped>
@@ -760,6 +891,15 @@ onMounted(() => {
   padding: 5px;
   width: 100%;
   min-width: 0;
+  background: transparent;
+
+  :deep(.smart-tree) {
+    background: transparent;
+  }
+}
+
+.tree-panel-content {
+  background: transparent;
 }
 
 .empty-state {

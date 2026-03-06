@@ -1,5 +1,6 @@
 """MinerU 文档解析服务"""
 import os
+import inspect
 from typing import Optional, Dict, Any
 from pathlib import Path
 from dotenv import load_dotenv
@@ -20,10 +21,22 @@ class MinerUParser:
         if self._client is None:
             try:
                 from mineru_rag import MinerUClient
-                self._client = MinerUClient(
-                    api_token=self.api_key,
-                    api_url=self.api_url
-                )
+                init_params = inspect.signature(MinerUClient.__init__).parameters
+                init_kwargs: Dict[str, Any] = {}
+                if 'api_token' in init_params:
+                    init_kwargs['api_token'] = self.api_key
+                elif 'api_key' in init_params:
+                    init_kwargs['api_key'] = self.api_key
+                if 'api_url' in init_params:
+                    init_kwargs['api_url'] = self.api_url
+                elif 'base_url' in init_params:
+                    init_kwargs['base_url'] = self.api_url
+                elif 'endpoint' in init_params:
+                    init_kwargs['endpoint'] = self.api_url
+                try:
+                    self._client = MinerUClient(**init_kwargs)
+                except TypeError:
+                    self._client = MinerUClient(api_token=self.api_key)
             except ImportError:
                 raise ImportError("请安装 mineru-rag: pip install mineru-rag[rag]")
         return self._client

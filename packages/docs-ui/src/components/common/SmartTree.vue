@@ -58,6 +58,7 @@
                   'is-leaf': !node.isFolder,
                   [`level-${node.level || 0}`]: true
                 }"
+                @dblclick.stop="onNodeDblClick(node)"
               >
                 <!-- 节点图标 -->
                 <span v-if="showIcon" class="node-icon">
@@ -406,6 +407,15 @@ const onView = (key: string) => {
 const onDelete = (key: string) => {
   const node = getOriginalNode(key)
   if (node) emit('delete', node)
+}
+
+const onNodeDblClick = (node: SmartTreeNode) => {
+  if (!node.isFolder) return
+  if (expandedKeys.value.includes(node.key)) {
+    expandedKeys.value = expandedKeys.value.filter((key) => key !== node.key)
+    return
+  }
+  expandedKeys.value = [...new Set([...expandedKeys.value, node.key])]
 }
 
 /**

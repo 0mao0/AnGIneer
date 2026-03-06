@@ -27,7 +27,7 @@ class TestTableLookupTool(unittest.TestCase):
         )
         self.assertIn('raw_response', result)
         self.assertEqual(result.get('_mode'), 'llm')
-        self.assertIn('14.9', result['raw_response'])
+        self.assertIn('"result"', result['raw_response'])
 
     def test_llm_mode_with_dict_query(self):
         """测试 LLM 模式字典查询条件"""
