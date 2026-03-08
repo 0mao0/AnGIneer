@@ -1,5 +1,5 @@
 <template>
-  <div class="doc-preview" :class="{ 'dark-mode': isDark }">
+  <div class="doc-preview" :class="{ 'dark-mode': darkMode }">
     <div class="preview-content">
       <div class="split-preview">
         <div class="split-pane split-pane-left">
@@ -89,7 +89,7 @@
               </a-select>
               <a-button
                 type="primary"
-                :loading="ingestStatus === 'processing'"
+                :loading="ingestStatusValue === 'processing'"
                 :disabled="!canIngest"
                 @click="triggerIngest"
                 class="ingest-btn action-btn"
@@ -135,10 +135,10 @@
 
     <a-modal
       v-model:open="ingestModalVisible"
-      :title="ingestStatus === 'processing' ? '格式化入库中' : '格式化入库结果'"
+      :title="ingestStatusValue === 'processing' ? '格式化入库中' : '格式化入库结果'"
       :footer="null"
-      :mask-closable="ingestStatus !== 'processing'"
-      :closable="ingestStatus !== 'processing'"
+      :mask-closable="ingestStatusValue !== 'processing'"
+      :closable="ingestStatusValue !== 'processing'"
     >
       <div class="ingest-modal-content">
         <a-progress
@@ -147,7 +147,7 @@
           size="default"
         />
         <div class="ingest-stage">{{ ingestStageText }}</div>
-        <div v-if="ingestStatus === 'completed'" class="ingest-result">
+        <div v-if="ingestStatusValue === 'completed'" class="ingest-result">
           总条目 {{ structuredTotal }}
         </div>
       </div>
@@ -172,71 +172,56 @@
 <script setup lang="ts">
 import { computed, h, ref, watch } from 'vue'
 import { PieChartOutlined } from '@ant-design/icons-vue'
-import type { TreeNode } from '@angineer/docs-ui'
-import type { SmartTreeNode } from '@angineer/docs-ui'
-import { useTheme } from '@angineer/ui-kit'
+import type { SmartTreeNode } from '../../types/tree'
+import type { TreeNode } from '../../composables/useKnowledgeTree'
+import type { IngestStatus, KnowledgeStrategy, StructuredStats } from '../../types/knowledge'
+import { getFileExtension, mapParseStageText } from '../../utils/knowledge'
 
-/**
- * 文档预览组件
- * 显示文档详情、操作按钮和解析后的内容
- */
 interface Props {
   node: TreeNode
   content: string
-  structuredStats?: Record<string, any>
-  ingestStatus?: 'idle' | 'processing' | 'completed' | 'failed'
+  structuredStats?: StructuredStats
+  ingestStatus?: IngestStatus
   ingestProgress?: number
   ingestStage?: string
+  darkMode?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {})
-const { isDark } = useTheme()
+const props = withDefaults(defineProps<Props>(), {
+  darkMode: false
+})
 
 const emit = defineEmits<{
   parse: [node: SmartTreeNode]
   'toggle-visible': [node: SmartTreeNode]
   'save-content': [content: string]
-  'change-strategy': [strategy: 'A_structured' | 'B_mineru_rag' | 'C_pageindex']
+  'change-strategy': [strategy: KnowledgeStrategy]
   'rebuild-structured': []
 }>()
 
-/** 获取文件路径 */
 const filePath = computed(() => props.node.filePath || props.node.file_path || '')
 const progressPercent = computed(() => Number(props.node.parseProgress || 0))
-const ingestStatus = computed(() => props.ingestStatus || 'idle')
+const ingestStatusValue = computed(() => props.ingestStatus || 'idle')
 const ingestProgressPercent = computed(() => Number(props.ingestProgress || 0))
 const activeTab = ref<'preview' | 'markdown'>('preview')
 const ingestModalVisible = ref(false)
 const statsModalVisible = ref(false)
-const stageText = computed(() => {
-  if (props.node.parseError) return `解析失败：${props.node.parseError}`
-  const stage = props.node.parseStage || 'processing'
-  const stageMap: Record<string, string> = {
-    queued: '任务排队中',
-    initializing: '正在初始化',
-    mineru_processing: 'MinerU 解析中',
-    reading_markdown: '读取 Markdown',
-    saving_markdown: '保存解析结果',
-    completed: '解析完成',
-    failed: '解析失败'
-  }
-  return stageMap[stage] || stage
-})
+const stageText = computed(() => mapParseStageText(props.node.parseStage, props.node.parseError))
 const ingestProgressStatus = computed(() => {
-  if (ingestStatus.value === 'failed') return 'exception'
-  if (ingestStatus.value === 'completed') return 'success'
+  if (ingestStatusValue.value === 'failed') return 'exception'
+  if (ingestStatusValue.value === 'completed') return 'success'
   return 'active'
 })
 const ingestStageText = computed(() => {
-  if (ingestStatus.value === 'failed') {
+  if (ingestStatusValue.value === 'failed') {
     return props.ingestStage || '格式化入库失败'
   }
-  if (ingestStatus.value === 'completed') {
+  if (ingestStatusValue.value === 'completed') {
     return props.ingestStage || '格式化入库完成'
   }
   return props.ingestStage || '正在格式化入库'
 })
-const strategyValue = computed(() => props.node.strategy || 'A_structured')
+const strategyValue = computed(() => (props.node.strategy || 'A_structured') as KnowledgeStrategy)
 const structuredTotal = computed(() => Number(props.structuredStats?.total || 0))
 const hasParsedContent = computed(() => Boolean((props.content || '').trim()))
 const parseButtonText = computed(() => {
@@ -256,41 +241,16 @@ const strategyStats = computed(() => ([
   { key: 'table', label: '表格', value: strategyTypeCount('table') },
   { key: 'image', label: '图片', value: strategyTypeCount('image') }
 ]))
-const showStatsAction = computed(() => structuredTotal.value > 0 && ingestStatus.value !== 'processing')
+const showStatsAction = computed(() => structuredTotal.value > 0 && ingestStatusValue.value !== 'processing')
 
-/** 获取文件扩展名 */
-const fileExtension = computed(() => {
-  const path = filePath.value
-  if (!path) return ''
-  const match = path.match(/\.([a-zA-Z0-9]+)$/)
-  return match ? match[1].toLowerCase() : ''
-})
-
-/** 判断是否为 PDF */
+const fileExtension = computed(() => getFileExtension(filePath.value))
 const isPdf = computed(() => fileExtension.value === 'pdf')
+const isOffice = computed(() => ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'].includes(fileExtension.value))
+const isImage = computed(() => ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'svg'].includes(fileExtension.value))
+const isText = computed(() => ['txt', 'md', 'json', 'xml', 'csv', 'log', 'js', 'ts', 'py', 'java', 'cpp', 'c', 'h', 'html', 'css'].includes(fileExtension.value))
 
-/** 判断是否为 Office 文档 */
-const isOffice = computed(() => {
-  const officeExts = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx']
-  return officeExts.includes(fileExtension.value)
-})
-
-/** 判断是否为图片 */
-const isImage = computed(() => {
-  const imageExts = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'svg']
-  return imageExts.includes(fileExtension.value)
-})
-
-/** 判断是否为文本文件 */
-const isText = computed(() => {
-  const textExts = ['txt', 'md', 'json', 'xml', 'csv', 'log', 'js', 'ts', 'py', 'java', 'cpp', 'c', 'h', 'html', 'css']
-  return textExts.includes(fileExtension.value)
-})
-
-/** 文件 URL */
 const fileUrl = computed(() => {
   if (!filePath.value) return ''
-  // 如果路径已经是完整 URL，直接返回
   if (filePath.value.startsWith('http')) return filePath.value
   return `/api/files?path=${encodeURIComponent(filePath.value)}`
 })
@@ -301,21 +261,17 @@ const pdfViewerUrl = computed(() => {
   }
   return `${fileUrl.value}#view=FitH`
 })
-
-/** Office 文档预览 URL（使用微软在线预览服务） */
 const officePreviewUrl = computed(() => {
   if (!fileUrl.value) return ''
   return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(window.location.origin + fileUrl.value)}`
 })
 
-/** 文本文件内容 */
 const textContent = ref('')
 const editableContent = ref('')
 const switchChecked = ref(Boolean(props.node.visible))
 const canIngest = computed(() => !isContentDirty.value)
 const isContentDirty = computed(() => editableContent.value !== (props.content || ''))
 
-/** 加载文本文件内容 */
 const loadTextContent = async () => {
   if (!isText.value || !fileUrl.value) return
   try {
@@ -335,7 +291,7 @@ const triggerIngest = () => {
   emit('rebuild-structured')
 }
 
-const onStrategyChange = (value: 'A_structured' | 'B_mineru_rag' | 'C_pageindex') => {
+const onStrategyChange = (value: KnowledgeStrategy) => {
   emit('change-strategy', value)
 }
 
@@ -344,7 +300,6 @@ const onVisibleChange = (checked: boolean) => {
   emit('toggle-visible', { ...props.node, visible: checked })
 }
 
-/** 下载文件 */
 const downloadFile = () => {
   if (!fileUrl.value) return
   const link = document.createElement('a')
@@ -353,7 +308,6 @@ const downloadFile = () => {
   link.click()
 }
 
-/** 监听文件路径变化，加载文本内容 */
 watch(filePath, () => {
   if (isText.value) {
     loadTextContent()
@@ -374,7 +328,7 @@ watch(() => props.node.visible, (value) => {
   switchChecked.value = Boolean(value)
 }, { immediate: true })
 
-watch(ingestStatus, (value) => {
+watch(ingestStatusValue, (value) => {
   if (value === 'processing') {
     ingestModalVisible.value = true
   }
@@ -477,202 +431,155 @@ const renderedMarkdown = computed(() => renderMarkdown(editableContent.value || 
         min-width: 0;
       }
 
-      .pane-actions-right {
-        justify-content: flex-end;
+      .action-btn {
+        height: 30px;
+        padding: 0 14px;
+        border-radius: 8px;
+        font-size: 13px;
       }
 
-      .b2-pane-title {
-        border-bottom: 0;
-      }
-
-      .b2-tabs {
-        flex: 1;
-        min-width: 0;
-
-        :deep(.ant-tabs-nav) {
-          margin: 0;
-        }
-
-        :deep(.ant-tabs-tab) {
-          padding: 6px 0;
-          font-weight: 500;
-        }
+      .action-switch {
+        min-width: 72px;
       }
 
       .parse-progress-row {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
         padding: 8px 12px;
         border-bottom: 1px solid #f0f0f0;
         background: #fafafa;
       }
 
-      .b2-content {
+      .processing-progress {
         flex: 1;
-        min-width: 0;
+        margin-bottom: 0;
+      }
+
+      .progress-text {
+        color: #8c8c8c;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .file-preview {
+        flex: 1;
         overflow: hidden;
         position: relative;
-      }
+        min-height: 0;
 
-      .markdown-edit-wrap {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-
-      .markdown-edit-actions {
-        display: flex;
-        justify-content: flex-end;
-        padding: 8px 12px 12px;
-        border-top: 1px solid #f0f0f0;
-      }
-
-      .b2-empty {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-      }
-    }
-
-    .file-preview {
-      height: 100%;
-
-      .pdf-viewer {
-        width: 100%;
-        height: 100%;
-        min-height: 500px;
-      }
-
-      .office-preview {
-        width: 100%;
-        height: 100%;
-        min-height: 500px;
-
+        .pdf-viewer,
         .office-viewer {
           width: 100%;
           height: 100%;
-          min-height: 500px;
+          min-height: 460px;
+          border: none;
+          background: #fff;
+        }
+
+        .office-preview {
+          width: 100%;
+          height: 100%;
+        }
+
+        .image-viewer {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          background: #f7f7f7;
+        }
+
+        .text-viewer {
+          margin: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background: #fafafa;
+          color: #262626;
+          padding: 14px;
+          font-size: 13px;
+          line-height: 1.6;
         }
       }
 
-      .image-viewer {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-        display: block;
-        margin: 0 auto;
-      }
+      .split-pane-right {
+        .b2-pane-title {
+          .b2-tabs {
+            flex: 1;
+            min-width: 0;
+            margin-right: 8px;
+          }
 
-      .text-viewer {
-        background: #f6f8fa;
-        padding: 16px;
-        border-radius: 6px;
-        overflow: auto;
-        max-height: 100%;
-        font-size: 13px;
-        line-height: 1.6;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        margin: 16px;
+          :deep(.ant-tabs-nav) {
+            margin: 0;
+          }
+
+          :deep(.ant-tabs-tab) {
+            padding: 6px 10px;
+          }
+        }
+
+        .b2-content {
+          flex: 1;
+          min-height: 0;
+          overflow: auto;
+          position: relative;
+        }
+
+        .markdown-preview {
+          padding: 14px;
+          color: #262626;
+          line-height: 1.7;
+          word-break: break-word;
+
+          :deep(pre) {
+            background: #f6f8fa;
+            border-radius: 8px;
+            padding: 12px;
+            overflow: auto;
+          }
+
+          :deep(code) {
+            background: rgba(0, 0, 0, 0.04);
+            padding: 2px 4px;
+            border-radius: 4px;
+          }
+        }
+
+        .markdown-edit-wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          height: 100%;
+          padding: 12px;
+          box-sizing: border-box;
+        }
+
+        .markdown-editor {
+          flex: 1;
+          min-height: 280px;
+          resize: none;
+          font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+          font-size: 13px;
+          line-height: 1.6;
+        }
+
+        .markdown-edit-actions {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .b2-empty {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          pointer-events: none;
+          background: rgba(255, 255, 255, 0.85);
+        }
       }
     }
-
-    .markdown-preview {
-      padding: 16px;
-      overflow: auto;
-      height: 100%;
-      font-size: 14px;
-      line-height: 1.75;
-      color: #262626;
-
-      :deep(table) {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      :deep(td),
-      :deep(th) {
-        border: 1px solid #f0f0f0;
-        padding: 6px 8px;
-      }
-
-      pre {
-        background: #f6f8fa;
-        padding: 16px;
-        border-radius: 6px;
-        overflow: auto;
-        max-height: 400px;
-        font-size: 13px;
-        line-height: 1.6;
-      }
-    }
-
-    .markdown-editor {
-      margin: 12px;
-      flex: 1;
-      min-height: 0;
-
-      :deep(.ant-input-textarea) {
-        height: 100%;
-      }
-
-      :deep(.ant-input) {
-        height: 100% !important;
-        resize: none;
-        font-size: 13px;
-        line-height: 1.6;
-      }
-    }
-  }
-
-  .processing-progress {
-    flex: 0 0 250px;
-    margin: 0;
-  }
-
-  .progress-text {
-    color: #8c8c8c;
-    font-size: 12px;
-    line-height: 1.2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 60px;
-  }
-
-  .action-btn {
-    height: 32px;
-    border-radius: 8px;
-    font-weight: 500;
-    padding: 0 14px;
-  }
-
-  .action-switch {
-    min-width: 78px;
-    height: 32px;
-    line-height: 30px;
-    border-radius: 16px;
-
-    :deep(.ant-switch-handle) {
-      top: 3px;
-    }
-
-    :deep(.ant-switch-inner) {
-      font-size: 12px;
-      white-space: nowrap;
-    }
-  }
-
-  .stats-btn {
-    width: 32px;
-    min-width: 32px;
-    padding: 0;
-    display: inline-flex;
-    justify-content: center;
   }
 
   .ingest-modal-content {

@@ -1,23 +1,5 @@
 import axios from 'axios'
-
-export interface ParseTaskInfo {
-  id: string
-  library_id: string
-  doc_id: string
-  status: 'queued' | 'processing' | 'completed' | 'failed'
-  progress: number
-  stage: string
-  error?: string
-}
-
-export interface StructuredIndexItem {
-  id: string
-  item_type: string
-  title?: string
-  content: string
-  meta?: Record<string, any>
-  order_index: number
-}
+import type { KnowledgeStrategy, ParseTaskInfo, StructuredStats } from '@angineer/docs-ui'
 
 const api = axios.create({
   baseURL: '/api',
@@ -80,17 +62,17 @@ export const knowledgeApi = {
 
   // 策略
   getDocStrategy: (docId: string) => api.get(`/knowledge/strategies/${docId}`),
-  setDocStrategy: (docId: string, strategy: 'A_structured' | 'B_mineru_rag' | 'C_pageindex') =>
+  setDocStrategy: (docId: string, strategy: KnowledgeStrategy) =>
     api.put(`/knowledge/strategies/${docId}`, null, { params: { strategy } }),
-  buildStructuredIndex: (libraryId: string, docId: string, strategy: 'A_structured' | 'B_mineru_rag' | 'C_pageindex') =>
+  buildStructuredIndex: (libraryId: string, docId: string, strategy: KnowledgeStrategy) =>
     api.post('/knowledge/structured/index', null, { params: { library_id: libraryId, doc_id: docId, strategy } }),
   getStructuredIndex: (
     docId: string,
-    strategy: 'A_structured' | 'B_mineru_rag' | 'C_pageindex',
+    strategy: KnowledgeStrategy,
     itemType?: string,
     keyword?: string
   ) => api.get(`/knowledge/structured/${docId}`, { params: { strategy, item_type: itemType, keyword } }),
-  getStructuredStats: (docId: string) => api.get(`/knowledge/structured/stats/${docId}`),
+  getStructuredStats: (docId: string) => api.get(`/knowledge/structured/stats/${docId}`) as Promise<StructuredStats>,
 
   // 上传文档
   uploadDocument: (libraryId: string, file: File, parentId?: string) => {

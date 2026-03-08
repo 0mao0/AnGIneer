@@ -79,15 +79,15 @@
           </template>
 
           <template v-else>
-            <DocumentPreview
+            <DocumentParsedWorkspace
               :node="selectedNode"
               :content="docContent"
               :structured-stats="structuredStats"
               :ingest-status="ingestStatus"
               :ingest-progress="ingestProgress"
               :ingest-stage="ingestStage"
+              :dark-mode="isDark"
               @parse="parseDocument"
-              @view="viewDocument"
               @toggle-visible="toggleVisible"
               @save-content="saveDocumentContent"
               @change-strategy="changeDocumentStrategy"
@@ -160,7 +160,13 @@ import { SplitPanes, Panel, useTheme } from '@angineer/ui-kit'
 import {
   AIChat,
   SmartTree,
+  DocumentParsedWorkspace,
   type SmartTreeNode,
+  type KnowledgeStrategy,
+  type ParseTaskInfo,
+  type StructuredStats,
+  getPreviewFileType,
+  mapNodeStatusText,
   createResourceNodeFromKnowledge,
   createOpenResourcePayload
 } from '@angineer/docs-ui'
@@ -176,7 +182,6 @@ const chatStore = useChatStore()
 
 // 导入本地子组件
 import FolderPreview from './components/FolderPreview.vue'
-import DocumentPreview from './components/DocumentPreview.vue'
 import FolderModal from './components/FolderModal.vue'
 import DocDetailModal from './components/DocDetailModal.vue'
 
@@ -204,7 +209,7 @@ const leftWidth = ref(350)
 const centerWidth = ref(700)
 const parsePollTimer = ref<number | null>(null)
 const ingestProgressTimer = ref<number | null>(null)
-const structuredStats = ref<Record<string, any>>({})
+const structuredStats = ref<StructuredStats>({})
 const ingestStatus = ref<'idle' | 'processing' | 'completed' | 'failed'>('idle')
 const ingestProgress = ref(0)
 const ingestStage = ref('')
@@ -261,25 +266,9 @@ const getStatusColor = (status: string) => {
 }
 
 // 状态文本
-const getStatusText = (status: string) => {
-  const texts: Record<string, string> = {
-    pending: '待处理',
-    uploading: '上传中',
-    processing: '解析中',
-    completed: '已完成',
-    failed: '解析失败'
-  }
-  return texts[status] || '未知'
-}
+const getStatusText = (status: string) => mapNodeStatusText(status)
 
-const getFileType = (node?: Partial<SmartTreeNode> | null) => {
-  const source = node?.filePath || node?.file_path || node?.title || ''
-  const ext = String(source).toLowerCase().split('.').pop() || ''
-  if (ext === 'pdf') return 'pdf'
-  if (ext === 'doc' || ext === 'docx') return 'word'
-  if (ext === 'md' || ext === 'markdown') return 'markdown'
-  return 'file'
-}
+const getFileType = (node?: Partial<SmartTreeNode> | null) => getPreviewFileType(node)
 
 const keepCurrentPreview = (docId: string) => docContentDocId.value === docId && Boolean(docContent.value)
 
@@ -557,7 +546,7 @@ const saveDocumentContent = async (content: string) => {
   }
 }
 
-const changeDocumentStrategy = async (strategy: 'A_structured' | 'B_mineru_rag' | 'C_pageindex') => {
+const changeDocumentStrategy = async (strategy: KnowledgeStrategy) => {
   if (!selectedNode.value || selectedNode.value.isFolder) return
   try {
     await knowledgeApi.setDocStrategy(selectedNode.value.key, strategy)
@@ -573,7 +562,7 @@ const rebuildStructuredIndex = async () => {
   if (!selectedNode.value || selectedNode.value.isFolder) return
   try {
     startIngestProgress()
-    const strategy = (selectedNode.value.strategy || 'A_structured') as 'A_structured' | 'B_mineru_rag' | 'C_pageindex'
+    const strategy = (selectedNode.value.strategy || 'A_structured') as KnowledgeStrategy
     await knowledgeApi.buildStructuredIndex('default', selectedNode.value.key, strategy)
     if (ingestProgressTimer.value) {
       window.clearInterval(ingestProgressTimer.value)
@@ -608,7 +597,7 @@ const startParsePolling = (taskId: string, docId: string) => {
   stopParsePolling()
   parsePollTimer.value = window.setInterval(async () => {
     try {
-      const task = await knowledgeApi.getParseTask(taskId) as any
+      const task = await knowledgeApi.getParseTask(taskId) as ParseTaskInfo
       if (selectedNode.value && selectedNode.value.key === docId) {
         selectedNode.value.parseProgress = task.progress || 0
         selectedNode.value.parseStage = task.stage || ''
