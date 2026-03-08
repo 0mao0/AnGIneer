@@ -26,3 +26,15 @@ export interface StructuredStats {
   strategies?: Partial<Record<KnowledgeStrategy, Record<string, number>>>
   [key: string]: any
 }
+
+export interface DocumentStorageManifest {
+  doc_root: string
+  source_file: string | null
+  parsed_markdown: string | null
+  edited_markdown: string | null
+  assets_dir: string | null
+  raw_dir: string | null
+  middle_json: string | null
+  mineru_blocks: string | null
+  history_files: string[]
+}

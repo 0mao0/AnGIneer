@@ -1,10 +1,10 @@
 <template>
-  <div class="knowledge-workspace" :class="{ 'dark-mode': isDark }">
-    <!-- 使用 SplitPanes 三栏布局组件 - 比例 2.5:5:2.5 -->
+  <div ref="workspaceRef" class="knowledge-workspace" :class="{ 'dark-mode': isDark }">
+    <!-- 使用 SplitPanes 三栏布局组件 - 比例 1.5:6:2.5 -->
     <SplitPanes
       class="workspace-container"
-      :initial-left-ratio="0.25"
-      :initial-right-ratio="0.25"
+      :initial-left-ratio="panelRatios.left"
+      :initial-right-ratio="panelRatios.right"
       @resize="onPanelResize"
     >
       <!-- 左侧：知识树 -->
@@ -82,7 +82,9 @@
             <DocumentParsedWorkspace
               :node="selectedNode"
               :content="docContent"
+              :mineru-blocks="mineruBlocks"
               :structured-stats="structuredStats"
+              :structured-items="structuredItems"
               :ingest-status="ingestStatus"
               :ingest-progress="ingestProgress"
               :ingest-stage="ingestStage"
@@ -91,6 +93,7 @@
               @toggle-visible="toggleVisible"
               @save-content="saveDocumentContent"
               @change-strategy="changeDocumentStrategy"
+              @query-structured="loadStructuredIndex"
               @rebuild-structured="rebuildStructuredIndex"
             />
           </template>
@@ -101,7 +104,6 @@
       <template #right>
         <Panel title="AI 对话" :icon="MessageOutlined">
           <AIChat
-            ref="aiChatRef"
             title=""
             placeholder="输入消息，Ctrl+Enter 发送..."
             :show-context-info="true"
@@ -164,6 +166,7 @@ import {
   type SmartTreeNode,
   type KnowledgeStrategy,
   type ParseTaskInfo,
+  type StructuredIndexItem,
   type StructuredStats,
   getPreviewFileType,
   mapNodeStatusText,
@@ -200,19 +203,26 @@ const {
   getFolderName
 } = useKnowledgeTree()
 
-// AIChat 组件引用
-const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
 const allowedFileTypes = ['.pdf', '.doc', '.docx', '.md']
+const PANEL_LAYOUT_STORAGE_KEY = 'angineer-admin-knowledge-layout-v1'
+const workspaceRef = ref<HTMLElement | null>(null)
+
+const clampRatio = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value))
+
+const panelRatios = ref({
+  left: 0.15,
+  right: 0.25
+})
 
 // 面板尺寸状态
-const leftWidth = ref(350)
-const centerWidth = ref(700)
 const parsePollTimer = ref<number | null>(null)
 const ingestProgressTimer = ref<number | null>(null)
 const structuredStats = ref<StructuredStats>({})
+const structuredItems = ref<StructuredIndexItem[]>([])
 const ingestStatus = ref<'idle' | 'processing' | 'completed' | 'failed'>('idle')
 const ingestProgress = ref(0)
 const ingestStage = ref('')
+const mineruBlocks = ref<Record<string, any>[]>([])
 
 // 弹窗状态
 const folderModalVisible = ref(false)
@@ -248,9 +258,14 @@ const smartTreeProps = {
 }
 
 // 面板调整大小回调
-const onPanelResize = (leftSize: number, _rightSize: number) => {
-  leftWidth.value = leftSize
-  centerWidth.value = window.innerWidth * 0.5
+const onPanelResize = (leftSize: number, rightSize: number) => {
+  const containerWidth = workspaceRef.value?.clientWidth || window.innerWidth
+  if (containerWidth <= 0) return
+  const left = clampRatio(leftSize / containerWidth, 0.1, 0.45)
+  const right = clampRatio(rightSize / containerWidth, 0.16, 0.45)
+  if (left + right >= 0.85) return
+  panelRatios.value = { left, right }
+  localStorage.setItem(PANEL_LAYOUT_STORAGE_KEY, JSON.stringify(panelRatios.value))
 }
 
 // 状态颜色
@@ -318,7 +333,9 @@ const loadNodes = async (focusNodeKey?: string) => {
             if (!keepCurrentPreview(node.key)) {
               docContent.value = ''
               docContentDocId.value = ''
+              mineruBlocks.value = []
               structuredStats.value = {}
+              structuredItems.value = []
             }
           }
           if (node.status === 'processing' && (node as any).parseTaskId) {
@@ -345,11 +362,18 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
       if (node.status === 'completed') {
         await loadDocContent(node.key)
         await loadStructuredStats(node.key)
+        if (node.strategy) {
+          await loadStructuredIndex()
+        } else {
+          structuredItems.value = []
+        }
       } else {
         if (!keepCurrentPreview(node.key)) {
           docContent.value = ''
           docContentDocId.value = ''
+          mineruBlocks.value = []
           structuredStats.value = {}
+          structuredItems.value = []
         }
       }
       if (node.status === 'processing' && node.parseTaskId) {
@@ -364,12 +388,21 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
 // 加载文档内容
 const loadDocContent = async (docId: string) => {
   try {
-    const result = await knowledgeApi.getDocument('default', docId) as unknown as { content: string }
+    const result = await knowledgeApi.getDocument('default', docId) as unknown as {
+      content: string
+      storage?: { source_file?: string | null }
+      mineru_blocks?: Record<string, any>[]
+    }
     docContent.value = result.content || '暂无内容'
     docContentDocId.value = docId
+    mineruBlocks.value = Array.isArray(result?.mineru_blocks) ? result.mineru_blocks : []
+    if (selectedNode.value && selectedNode.value.key === docId && result?.storage?.source_file) {
+      selectedNode.value.filePath = result.storage.source_file
+    }
   } catch (error) {
     docContent.value = ''
     docContentDocId.value = ''
+    mineruBlocks.value = []
     structuredStats.value = {}
   }
 }
@@ -380,6 +413,24 @@ const loadStructuredStats = async (docId: string) => {
     structuredStats.value = result || {}
   } catch (error) {
     structuredStats.value = {}
+  }
+}
+
+const loadStructuredIndex = async (itemType?: string, keyword?: string) => {
+  if (!selectedNode.value || selectedNode.value.isFolder) {
+    structuredItems.value = []
+    return
+  }
+  const strategy = selectedNode.value.strategy as KnowledgeStrategy | undefined
+  if (!strategy) {
+    structuredItems.value = []
+    return
+  }
+  try {
+    const result = await knowledgeApi.getStructuredIndex(selectedNode.value.key, strategy, itemType, keyword)
+    structuredItems.value = Array.isArray(result?.items) ? result.items : []
+  } catch (error) {
+    structuredItems.value = []
   }
 }
 
@@ -402,8 +453,8 @@ const startIngestProgress = () => {
     if (ingestProgress.value >= 90) return
     const step = ingestProgress.value < 60 ? 8 : 3
     ingestProgress.value = Math.min(90, ingestProgress.value + step)
-    if (ingestProgress.value < 40) ingestStage.value = '正在格式化结构化内容'
-    else if (ingestProgress.value < 75) ingestStage.value = '正在写入结构化索引'
+    if (ingestProgress.value < 40) ingestStage.value = '正在预处理文档内容'
+    else if (ingestProgress.value < 75) ingestStage.value = '正在写入索引数据'
     else ingestStage.value = '正在校验入库结果'
   }, 600)
 }
@@ -551,28 +602,38 @@ const changeDocumentStrategy = async (strategy: KnowledgeStrategy) => {
   try {
     await knowledgeApi.setDocStrategy(selectedNode.value.key, strategy)
     selectedNode.value.strategy = strategy
-    message.success('查看策略已切换')
+    message.success('入库方式已切换')
     await loadStructuredStats(selectedNode.value.key)
+    await loadStructuredIndex()
   } catch (error) {
     message.error('策略更新失败')
   }
 }
 
-const rebuildStructuredIndex = async () => {
+const rebuildStructuredIndex = async (strategy?: KnowledgeStrategy) => {
   if (!selectedNode.value || selectedNode.value.isFolder) return
+  const strategyToUse = strategy || (selectedNode.value.strategy as KnowledgeStrategy | undefined)
+  if (!strategyToUse) {
+    message.warning('请先选择入库方式')
+    return
+  }
   try {
+    if (selectedNode.value.strategy !== strategyToUse) {
+      await knowledgeApi.setDocStrategy(selectedNode.value.key, strategyToUse)
+      selectedNode.value.strategy = strategyToUse
+    }
     startIngestProgress()
-    const strategy = (selectedNode.value.strategy || 'A_structured') as KnowledgeStrategy
-    await knowledgeApi.buildStructuredIndex('default', selectedNode.value.key, strategy)
+    await knowledgeApi.buildStructuredIndex('default', selectedNode.value.key, strategyToUse)
     if (ingestProgressTimer.value) {
       window.clearInterval(ingestProgressTimer.value)
       ingestProgressTimer.value = null
     }
     ingestStatus.value = 'completed'
     ingestProgress.value = 100
-    ingestStage.value = '格式化入库完成'
+    ingestStage.value = '入库完成'
     await loadStructuredStats(selectedNode.value.key)
-    message.success('格式化入库完成')
+    await loadStructuredIndex()
+    message.success('入库完成')
   } catch (error) {
     if (ingestProgressTimer.value) {
       window.clearInterval(ingestProgressTimer.value)
@@ -581,8 +642,8 @@ const rebuildStructuredIndex = async () => {
     ingestStatus.value = 'failed'
     ingestProgress.value = 100
     const detail = (error as any)?.response?.data?.detail || (error as any)?.message
-    ingestStage.value = detail || '格式化入库失败'
-    message.error('格式化入库失败')
+    ingestStage.value = detail || '入库失败'
+    message.error('入库失败')
   }
 }
 
@@ -909,6 +970,19 @@ const handleChatReady = () => {
 
 // 组件挂载时加载数据
 onMounted(() => {
+  try {
+    const saved = localStorage.getItem(PANEL_LAYOUT_STORAGE_KEY)
+    if (saved) {
+      const parsed = JSON.parse(saved) as { left?: number; right?: number }
+      const left = clampRatio(Number(parsed.left || 0.15), 0.1, 0.45)
+      const right = clampRatio(Number(parsed.right || 0.25), 0.16, 0.45)
+      if (left + right < 0.85) {
+        panelRatios.value = { left, right }
+      }
+    }
+  } catch {
+    panelRatios.value = { left: 0.15, right: 0.25 }
+  }
   loadNodes()
 })
 

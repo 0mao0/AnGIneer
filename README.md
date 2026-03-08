@@ -69,6 +69,13 @@ Admin B区（文档生命周期）
 ```
 
 ```text
+三策略后端实现（docs-core）
+  -> A_structured: services/docs-core/src/docs_core/storage/structured_strategy.py
+  -> B_mineru_rag: services/docs-core/src/docs_core/storage/mineru_rag_strategy.py
+  -> C_pageindex: services/docs-core/src/docs_core/storage/pageindex_strategy.py
+```
+
+```text
 存储规范（One Doc One Folder）
 data/knowledge_base/libraries/{library_id}/docs/{doc_id}/
   source/ + parsed/ + edited/ + structured/

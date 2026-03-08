@@ -1,10 +1,29 @@
 import axios from 'axios'
-import type { KnowledgeStrategy, ParseTaskInfo, StructuredStats } from '@angineer/docs-ui'
+import type {
+  KnowledgeStrategy,
+  ParseTaskInfo,
+  StructuredIndexItem,
+  StructuredStats,
+  DocumentStorageManifest
+} from '@angineer/docs-ui'
 
 const api = axios.create({
   baseURL: '/api',
   timeout: 30000
 })
+
+interface StructuredIndexResponse {
+  doc_id: string
+  strategy: KnowledgeStrategy
+  count: number
+  items: StructuredIndexItem[]
+}
+
+interface DocumentResponse {
+  content: string
+  storage: DocumentStorageManifest
+  mineru_blocks?: Record<string, any>[]
+}
 
 api.interceptors.request.use(config => {
   console.log('[API Request]:', config.method?.toUpperCase(), config.url, config.params || config.data)
@@ -71,7 +90,7 @@ export const knowledgeApi = {
     strategy: KnowledgeStrategy,
     itemType?: string,
     keyword?: string
-  ) => api.get(`/knowledge/structured/${docId}`, { params: { strategy, item_type: itemType, keyword } }),
+  ) => api.get(`/knowledge/structured/${docId}`, { params: { strategy, item_type: itemType, keyword } }) as Promise<StructuredIndexResponse>,
   getStructuredStats: (docId: string) => api.get(`/knowledge/structured/stats/${docId}`) as Promise<StructuredStats>,
 
   // 上传文档
@@ -93,9 +112,16 @@ export const knowledgeApi = {
 
   // 文档内容
   getDocument: (libraryId: string, docId: string) => 
-    api.get(`/knowledge/document/${libraryId}/${docId}`),
+    api.get(`/knowledge/document/${libraryId}/${docId}`) as Promise<DocumentResponse>,
   updateDocument: (libraryId: string, docId: string, content: string) => 
-    api.put(`/knowledge/document/${libraryId}/${docId}`, null, { params: { content } })
+    api.put(`/knowledge/document/${libraryId}/${docId}`, null, { params: { content } }),
+  getDocumentStorage: (libraryId: string, docId: string) =>
+    api.get(`/knowledge/storage/${libraryId}/${docId}`) as Promise<{
+      library_id: string
+      doc_id: string
+      storage: DocumentStorageManifest
+    }>,
+  reorganizeStorage: () => api.post('/knowledge/storage/reorganize')
 }
 
 export default api

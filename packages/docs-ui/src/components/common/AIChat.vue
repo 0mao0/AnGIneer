@@ -574,6 +574,7 @@ defineExpose({
         padding: 10px 14px;
         border-radius: 12px 12px 0 12px;
         max-width: 95%;
+        min-width: 60px;
         word-break: break-word;
         white-space: pre-wrap;
 
@@ -609,6 +610,7 @@ defineExpose({
         padding: 12px 16px;
         border-radius: 12px 12px 12px 0;
         max-width: 85%;
+        min-width: 60px;
         word-break: break-word;
 
         .answer-text {

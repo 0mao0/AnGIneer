@@ -101,6 +101,13 @@ data/knowledge_base/libraries/{library_id}/docs/{doc_id}/
 - `apps/api-server/main.py`
   - 解析接口改异步任务化，返回 `task_id`。
   - 增加任务进度查询、文档版本、策略切换与统一查询接口。
+  - 三策略索引构建改为路由分发，实际实现下沉到 `docs_core.storage.*_strategy`。
+- `services/docs-core/src/docs_core/storage/structured_strategy.py`
+  - A 策略结构化索引提取与入库实现。
+- `services/docs-core/src/docs_core/storage/mineru_rag_strategy.py`
+  - B 策略（MinerU-RAG）索引构建与向量能力接入实现。
+- `services/docs-core/src/docs_core/storage/pageindex_strategy.py`
+  - C 策略（PageIndex）索引构建实现。
 - `services/docs-core/src/docs_core/api/knowledge_api.py`
   - 扩展 `nodes` 字段，新增 `parse_tasks`、`document_artifacts`、`document_segments`、`document_tables`、`document_images`、`document_revisions`、`strategy_eval_logs` 表。
 - `services/docs-core/src/docs_core/storage/file_storage.py`

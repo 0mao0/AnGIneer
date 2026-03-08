@@ -15,7 +15,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "apps" / "api-server"))
 
 from docs_core.storage.file_storage import FileStorage
 from docs_core.api.knowledge_api import KnowledgeService, KnowledgeNode
-from main import _extract_structured_items_from_markdown
+from docs_core.storage.structured_strategy import extract_structured_items_from_markdown
 
 
 class IsolatedKnowledgeService(KnowledgeService):
@@ -43,11 +43,11 @@ class TestFileStorage(unittest.TestCase):
 
             source_path = storage.save_source_file(lib_id, doc_id, b"hello", "demo.docx")
             self.assertTrue(Path(source_path).exists())
-            self.assertIn(f"libraries{os.sep}{lib_id}{os.sep}docs{os.sep}{doc_id}{os.sep}source", source_path)
+            self.assertIn(f"libraries{os.sep}{lib_id}{os.sep}documents{os.sep}{doc_id}{os.sep}source", source_path)
 
             parsed_path = storage.save_markdown(lib_id, doc_id, "# 标题\n\n内容")
             self.assertTrue(Path(parsed_path).exists())
-            self.assertTrue((Path(temp_dir) / "libraries" / lib_id / "docs" / doc_id / "edited" / "current.md").exists())
+            self.assertTrue((Path(temp_dir) / "libraries" / lib_id / "documents" / doc_id / "edited" / "current.md").exists())
 
             edited_path = storage.save_edited_markdown(lib_id, doc_id, "# 标题\n\n修订内容")
             self.assertTrue(Path(edited_path).exists())
@@ -57,6 +57,24 @@ class TestFileStorage(unittest.TestCase):
             self.assertEqual(len(documents), 1)
             self.assertEqual(documents[0]["id"], doc_id)
             self.assertTrue(documents[0]["has_markdown"])
+
+    def test_manifest_contains_raw_and_middle(self):
+        """测试清单字段包含 raw_dir 与 middle_json。"""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            storage = FileStorage(base_dir=temp_dir)
+            lib_id = "default"
+            doc_id = "doc-1002"
+
+            storage.save_markdown(lib_id, doc_id, "# 标题\n\n内容")
+            storage.save_middle_json(lib_id, doc_id, {"schema_version": "middle.v1", "doc_id": doc_id})
+            raw_dir = Path(storage.save_raw_artifacts(lib_id, doc_id, source_dir=""))
+
+            manifest = storage.get_doc_manifest(lib_id, doc_id)
+            self.assertIsInstance(manifest, dict)
+            self.assertIn("raw_dir", manifest)
+            self.assertIn("middle_json", manifest)
+            self.assertEqual(manifest.get("raw_dir"), str(raw_dir))
+            self.assertTrue(Path(manifest.get("middle_json") or "").exists())
 
 
 class TestStructuredSegments(unittest.TestCase):
@@ -118,7 +136,7 @@ class TestMarkdownExtractor(unittest.TestCase):
 
 ![设备图](assets/a.png "图1")
 """
-        items = _extract_structured_items_from_markdown(markdown)
+        items = extract_structured_items_from_markdown(markdown)
         types = {item["item_type"] for item in items}
         self.assertIn("heading", types)
         self.assertIn("clause", types)

@@ -63,6 +63,7 @@
 ### 5.3 编码后
 
 - 运行与改动范围匹配的质量检查。
+- 涉及架构调整时，同步更新 `services/Techniques.md`、`apps/Techniques.md` 与 `README.md`。
 - 默认在仓库根目录执行：
   - `pnpm run lint`
   - `pnpm harness`（影响后端/核心逻辑时）

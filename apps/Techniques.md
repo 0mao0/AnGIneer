@@ -166,6 +166,7 @@ admin-console（管理路由型）
   - 新增 `/api/knowledge/strategies/*`（文档策略设置、按策略检索）。
   - 新增 `/api/knowledge/document/{library_id}/{doc_id}/revisions`。
   - 新增 `/api/knowledge/document/{library_id}/{doc_id}/structured`（统一结构化输出）。
+  - 三策略构建逻辑分发到 `services/docs-core/src/docs_core/storage/structured_strategy.py`、`mineru_rag_strategy.py`、`pageindex_strategy.py`。
 - `services/docs-core/src/docs_core/parser/mineru_parser.py`
   - 保留 MinerU 解析能力，补充任务阶段回调（若 SDK 无实时进度则用阶段进度）。
   - 增加解析产物清单返回（md、assets、metadata）。

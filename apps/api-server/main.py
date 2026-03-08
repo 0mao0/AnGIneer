@@ -8,7 +8,6 @@ import sys
 import uuid
 import tempfile
 import threading
-import re
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 from fastapi import FastAPI, HTTPException, UploadFile, File as FastAPIFile, Form
@@ -145,148 +144,21 @@ def _update_parse_task_progress(
 
 
 def _extract_structured_items_from_markdown(markdown_text: str) -> List[Dict[str, Any]]:
-    """从 Markdown 文本提取结构化片段"""
-    lines = markdown_text.splitlines()
-    items: List[Dict[str, Any]] = []
-    order_index = 0
-
-    image_pattern = re.compile(r'!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)')
-    heading_pattern = re.compile(r'^(#{1,6})\s+(.+?)\s*$')
-    clause_pattern = re.compile(r'^\s*(\d+(?:\.\d+)*(?:[、.)])?)\s+(.+)$')
-
-    idx = 0
-    while idx < len(lines):
-        line = lines[idx]
-        heading_match = heading_pattern.match(line)
-        if heading_match:
-            level = len(heading_match.group(1))
-            title = heading_match.group(2).strip()
-            items.append(
-                {
-                    'item_type': 'heading',
-                    'title': title,
-                    'content': title,
-                    'meta': {'level': level, 'line': idx + 1},
-                    'order_index': order_index
-                }
-            )
-            order_index += 1
-
-        clause_match = clause_pattern.match(line)
-        if clause_match:
-            items.append(
-                {
-                    'item_type': 'clause',
-                    'title': clause_match.group(1).strip(),
-                    'content': clause_match.group(2).strip(),
-                    'meta': {'line': idx + 1},
-                    'order_index': order_index
-                }
-            )
-            order_index += 1
-
-        for image_match in image_pattern.finditer(line):
-            items.append(
-                {
-                    'item_type': 'image',
-                    'title': image_match.group(1).strip() or '未命名图片',
-                    'content': image_match.group(2).strip(),
-                    'meta': {'src': image_match.group(2).strip(), 'caption': (image_match.group(3) or '').strip(), 'line': idx + 1},
-                    'order_index': order_index
-                }
-            )
-            order_index += 1
-
-        if '|' in line:
-            table_lines = []
-            start_line = idx + 1
-            cursor = idx
-            while cursor < len(lines) and '|' in lines[cursor]:
-                table_lines.append(lines[cursor])
-                cursor += 1
-            if len(table_lines) >= 2 and re.match(r'^\s*\|?\s*[-: ]+\|(?:\s*[-: ]+\|)*\s*$', table_lines[1]):
-                table_text = '\n'.join(table_lines)
-                header_line = table_lines[0].strip().strip('|')
-                headers = [h.strip() for h in header_line.split('|') if h.strip()]
-                items.append(
-                    {
-                        'item_type': 'table',
-                        'title': f'表格@{start_line}',
-                        'content': table_text,
-                        'meta': {'headers': headers, 'line': start_line, 'row_count': max(0, len(table_lines) - 2)},
-                        'order_index': order_index
-                    }
-                )
-                order_index += 1
-                idx = cursor - 1
-
-        idx += 1
-
-    paragraph_buffer: List[str] = []
-    paragraph_start = 1
-    for line_no, line in enumerate(lines, start=1):
-        if not line.strip():
-            if paragraph_buffer:
-                content = '\n'.join(paragraph_buffer).strip()
-                if content and len(content) >= 20:
-                    items.append(
-                        {
-                            'item_type': 'segment',
-                            'title': f'段落@{paragraph_start}',
-                            'content': content,
-                            'meta': {'line': paragraph_start},
-                            'order_index': order_index
-                        }
-                    )
-                    order_index += 1
-                paragraph_buffer = []
-            continue
-        if line.strip().startswith('#') or line.strip().startswith('|') or line.strip().startswith('!['):
-            if paragraph_buffer:
-                content = '\n'.join(paragraph_buffer).strip()
-                if content and len(content) >= 20:
-                    items.append(
-                        {
-                            'item_type': 'segment',
-                            'title': f'段落@{paragraph_start}',
-                            'content': content,
-                            'meta': {'line': paragraph_start},
-                            'order_index': order_index
-                        }
-                    )
-                    order_index += 1
-                paragraph_buffer = []
-            continue
-        if not paragraph_buffer:
-            paragraph_start = line_no
-        paragraph_buffer.append(line)
-
-    if paragraph_buffer:
-        content = '\n'.join(paragraph_buffer).strip()
-        if content and len(content) >= 20:
-            items.append(
-                {
-                    'item_type': 'segment',
-                    'title': f'段落@{paragraph_start}',
-                    'content': content,
-                    'meta': {'line': paragraph_start},
-                    'order_index': order_index
-                }
-            )
-
-    return items
+    from docs_core.storage.structured_strategy import extract_structured_items_from_markdown
+    return extract_structured_items_from_markdown(markdown_text)
 
 
 def _build_structured_index_for_doc(library_id: str, doc_id: str, strategy: str = 'A_structured') -> Dict[str, Any]:
-    """构建并保存文档结构化索引"""
-    from docs_core import file_storage, knowledge_service
-    markdown_content = file_storage.read_markdown(library_id, doc_id)
-    if markdown_content is None:
-        raise ValueError('文档尚无可用 Markdown 内容')
-    items = _extract_structured_items_from_markdown(markdown_content)
-    saved_count = knowledge_service.save_document_segments(doc_id, library_id, strategy, items)
-    stats = knowledge_service.get_document_segment_stats(doc_id)
-    return {'saved_count': saved_count, 'stats': stats}
+    if strategy == 'A_structured':
+        from docs_core.storage.structured_strategy import build_structured_index_for_doc
+        return build_structured_index_for_doc(library_id, doc_id, strategy)
+    if strategy == 'B_mineru_rag':
+        from docs_core.storage.mineru_rag_strategy import build_mineru_rag_index_for_doc
+        return build_mineru_rag_index_for_doc(library_id, doc_id, strategy)
+    if strategy == 'C_pageindex':
+        from docs_core.storage.pageindex_strategy import build_pageindex_for_doc
+        return build_pageindex_for_doc(library_id, doc_id, strategy)
+    raise ValueError(f'Unsupported strategy: {strategy}')
 
 
 def _run_parse_task(task_id: str, library_id: str, doc_id: str, target_file_path: str) -> None:
@@ -310,9 +182,31 @@ def _run_parse_task(task_id: str, library_id: str, doc_id: str, target_file_path
             markdown_content = f.read()
         _update_parse_task_progress(task_id, doc_id, 'processing', 85, 'saving_markdown')
         saved_path = file_storage.save_markdown(library_id, doc_id, markdown_content)
+        mineru_blocks = result.get('mineru_blocks') if isinstance(result.get('mineru_blocks'), list) else []
+        file_storage.save_mineru_blocks(library_id, doc_id, mineru_blocks)
+        middle_payload = {
+            'schema_version': 'middle.v1',
+            'library_id': library_id,
+            'doc_id': doc_id,
+            'source_file': target_file_path,
+            'generated_at': datetime.now().isoformat(),
+            'markdown': {
+                'content': markdown_content,
+                'line_count': markdown_content.count('\n') + (1 if markdown_content else 0)
+            },
+            'mineru_blocks': mineru_blocks,
+            'stats': {
+                'markdown_chars': len(markdown_content),
+                'block_count': len(mineru_blocks)
+            }
+        }
+        file_storage.save_middle_json(library_id, doc_id, middle_payload)
         parse_assets_dir = os.path.join(output_dir, 'assets')
         if os.path.isdir(parse_assets_dir):
             file_storage.save_assets(library_id, doc_id, parse_assets_dir)
+        parse_raw_dir = os.path.join(output_dir, 'raw')
+        if os.path.isdir(parse_raw_dir):
+            file_storage.save_raw_artifacts(library_id, doc_id, parse_raw_dir)
         knowledge_service.update_node(
             doc_id,
             file_path=target_file_path,
@@ -1383,6 +1277,7 @@ async def upload_document(
         "status": "success",
         "doc_id": doc_id,
         "file_path": file_path,
+        "storage": file_storage.get_doc_manifest(library_id, doc_id),
         "node": node
     }
 
@@ -1419,7 +1314,8 @@ def parse_document(library_id: str, doc_id: str, file_path: Optional[str] = None
         "status": "accepted",
         "task_id": task_id,
         "doc_id": doc_id,
-        "file_path": target_file_path
+        "file_path": target_file_path,
+        "storage": file_storage.get_doc_manifest(library_id, doc_id)
     }
 
 
@@ -1609,7 +1505,11 @@ def get_document(library_id: str, doc_id: str):
     content = file_storage.read_markdown(library_id, doc_id)
     if content is None:
         raise HTTPException(status_code=404, detail="Document not found")
-    return {"content": content}
+    return {
+        "content": content,
+        "storage": file_storage.get_doc_manifest(library_id, doc_id),
+        "mineru_blocks": file_storage.read_mineru_blocks(library_id, doc_id)
+    }
 
 @app.put("/api/knowledge/document/{library_id}/{doc_id}")
 def update_document(library_id: str, doc_id: str, content: str):
@@ -1617,7 +1517,25 @@ def update_document(library_id: str, doc_id: str, content: str):
     from docs_core import file_storage, knowledge_service
     saved_path = file_storage.save_edited_markdown(library_id, doc_id, content)
     knowledge_service.update_node(doc_id, updated_at=datetime.now())
-    return {"status": "success", "path": saved_path}
+    return {"status": "success", "path": saved_path, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
+
+
+@app.get("/api/knowledge/storage/{library_id}/{doc_id}")
+def get_document_storage(library_id: str, doc_id: str):
+    """获取文档存储布局"""
+    from docs_core import file_storage, knowledge_service
+    node = knowledge_service.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return {"library_id": library_id, "doc_id": doc_id, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
+
+
+@app.post("/api/knowledge/storage/reorganize")
+def reorganize_storage():
+    """触发存储目录标准化"""
+    from docs_core import file_storage
+    file_storage.reorganize_storage()
+    return {"status": "success"}
 
 if __name__ == "__main__":
     import uvicorn
