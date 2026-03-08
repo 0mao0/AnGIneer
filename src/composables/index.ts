@@ -10,7 +10,6 @@ export {
   type SopItem
 } from './useResourceAdapter'
 export { useKnowledgeTree, type TreeNode, type UploadTask } from './useKnowledgeTree'
-export { useRagChat, type ChatMessage, type RagQueryParams, type RagQueryResult } from './useRagChat'
 export {
   useAIChat,
   type ChatMessage as AIChatMessage,
