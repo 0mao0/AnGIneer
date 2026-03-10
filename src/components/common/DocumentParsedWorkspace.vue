@@ -4,6 +4,7 @@
       <div class="split-preview">
         <DocumentParsedPaneLeft
           :node="node"
+          :activeTab="activeTab"
           :isSharedVisible="isSharedVisible"
           :parseButtonText="parseButtonText"
           :progressPercent="progressPercent"
@@ -20,13 +21,14 @@
           :highlights="linkedHighlights"
           :activeHighlightId="activeLinkedItemId"
           :highlightLinkEnabled="highlightLinkEnabled"
+          :showHighlightToggle="showHighlightToggle"
           :textScrollPercent="leftScrollPercent"
           @parse="$emit('parse', node)"
           @toggle-visibility="onVisibilityToggle"
           @download="downloadFile"
           @text-scroll="onLeftTextScrollPercent"
           @hover-highlight="onHoverLinkedItem"
-          @select-highlight="onSelectLinkedItem"
+          @select-highlight="onSelectHighlightFromLeft"
           @toggle-highlight-link="toggleHighlightLink"
         />
 
@@ -52,7 +54,7 @@
           @trigger-ingest="triggerIngest"
           @content-scroll="onRightPaneScrollPercent"
           @hover-item="onHoverLinkedItem"
-          @select-item="onSelectLinkedItem"
+          @select-item="onSelectItemFromRight"
         />
       </div>
     </div>
@@ -227,6 +229,7 @@ const inferredPdfPageCount = computed(() => {
 const pdfPage = ref(1)
 const activeLinkedItemId = ref<string | null>(null)
 const highlightLinkEnabled = ref(true)
+const showHighlightToggle = computed(() => (props.mineruBlocks || []).length > 0)
 
 const loadTextContent = async () => {
   if (!isText.value || !fileUrl.value) return
@@ -318,6 +321,7 @@ interface LinkedHighlight {
   id: string
   itemId: string
   page: number
+  hasRect: boolean
   left: number
   top: number
   width: number
@@ -333,8 +337,15 @@ const readNumeric = (value: unknown): number | null => {
 }
 
 const readFirstNumeric = (source: Record<string, any>, keys: string[]): number | null => {
+  const readByPath = (payload: Record<string, any>, keyPath: string): unknown => {
+    if (!keyPath.includes('.')) return payload[keyPath]
+    return keyPath.split('.').reduce<unknown>((value, segment) => {
+      if (!value || typeof value !== 'object') return undefined
+      return (value as Record<string, any>)[segment]
+    }, payload)
+  }
   for (const key of keys) {
-    const value = readNumeric(source[key])
+    const value = readNumeric(readByPath(source, key))
     if (value !== null) {
       return value
     }
@@ -351,7 +362,24 @@ const extractLineRange = (meta: Record<string, any>) => {
   return { lineStart: Math.max(1, Math.round(start)), lineEnd: Math.max(1, Math.round(end)) }
 }
 
-const normalizeRect = (meta: Record<string, any>, rect: [number, number, number, number]) => {
+interface PageDimension {
+  width: number
+  height: number
+}
+
+const resolvePageNumber = (meta: Record<string, any>): number | null => {
+  const page = readFirstNumeric(meta, ['page', 'page_no', 'pageNo', 'position.page'])
+  if (page !== null && page > 0) return Math.max(1, Math.round(page))
+  const pageIndex = readFirstNumeric(meta, ['page_idx', 'page_index', 'position.page_idx', 'position.page_index'])
+  if (pageIndex !== null && pageIndex >= 0) return Math.round(pageIndex) + 1
+  return null
+}
+
+const normalizeRect = (
+  meta: Record<string, any>,
+  rect: [number, number, number, number],
+  pageDimension?: PageDimension
+) => {
   const [rawX0, rawY0, rawX1, rawY1] = rect
   const minX = Math.min(rawX0, rawX1)
   const minY = Math.min(rawY0, rawY1)
@@ -368,8 +396,12 @@ const normalizeRect = (meta: Record<string, any>, rect: [number, number, number,
       height: Math.max(0.002, Math.min(1, height))
     }
   }
-  const pageWidth = readFirstNumeric(meta, ['page_width', 'pageWidth', 'width']) || 1000
-  const pageHeight = readFirstNumeric(meta, ['page_height', 'pageHeight', 'height']) || 1400
+  const pageWidth = pageDimension?.width
+    || readFirstNumeric(meta, ['page_width', 'pageWidth', 'width'])
+    || Math.max(1, maxX)
+  const pageHeight = pageDimension?.height
+    || readFirstNumeric(meta, ['page_height', 'pageHeight', 'height'])
+    || Math.max(1, maxY)
   return {
     left: Math.max(0, Math.min(1, minX / pageWidth)),
     top: Math.max(0, Math.min(1, minY / pageHeight)),
@@ -414,43 +446,73 @@ const parseRect = (meta: Record<string, any>): [number, number, number, number] 
   return null
 }
 
-const estimateRectByLine = (lineStart: number | null, lineEnd: number | null) => {
-  if (lineStart === null) return null
-  const totalLines = Math.max(1, (editableContent.value || props.content || '').split('\n').length)
-  const safeStart = Math.max(1, lineStart)
-  const safeEnd = Math.max(safeStart, lineEnd ?? lineStart)
-  const top = Math.max(0, Math.min(0.96, (safeStart - 1) / totalLines))
-  const height = Math.max(0.02, Math.min(0.18, (safeEnd - safeStart + 1) / totalLines))
-  return {
-    left: 0.04,
-    top,
-    width: 0.92,
-    height: Math.min(0.96 - top, height)
+const normalizeForMatch = (value: string) => value
+  .replace(/[０-９]/g, char => String.fromCharCode(char.charCodeAt(0) - 65248))
+  .replace(/[Ａ-Ｚａ-ｚ]/g, char => String.fromCharCode(char.charCodeAt(0) - 65248))
+  .replace(/\s+/g, ' ')
+  .replace(/[^\u4e00-\u9fa5a-zA-Z0-9 ]+/g, ' ')
+  .trim()
+  .toLowerCase()
+
+const middleMarkdownLines = computed(() => (editableContent.value || props.content || '').split('\n'))
+
+const findLineRangeFromMiddle = (item: StructuredIndexItem): { lineStart: number; lineEnd: number } | null => {
+  const source = [item.content, item.title]
+    .find(value => typeof value === 'string' && value.trim().length > 0)
+  if (!source) return null
+  const normalizedNeedle = normalizeForMatch(source)
+  if (!normalizedNeedle) return null
+  const needle = normalizedNeedle.slice(0, 80)
+  let matchIndex = -1
+  for (let index = 0; index < middleMarkdownLines.value.length; index += 1) {
+    const line = normalizeForMatch(middleMarkdownLines.value[index] || '')
+    if (!line) continue
+    if (line.includes(needle) || needle.includes(line.slice(0, Math.min(40, line.length)))) {
+      matchIndex = index
+      break
+    }
   }
+  if (matchIndex < 0) return null
+  const lineStart = matchIndex + 1
+  const lineEnd = Math.min(lineStart + 2, middleMarkdownLines.value.length || lineStart)
+  return { lineStart, lineEnd }
 }
 
 const toLinkedHighlight = (
   itemId: string,
   fallbackId: string,
-  meta: Record<string, any>
+  meta: Record<string, any>,
+  pageDimensions: Map<number, PageDimension>
 ): LinkedHighlight | null => {
-  const pageRaw = readFirstNumeric(meta, ['page', 'page_no', 'pageNo', 'page_index'])
-  const page = Math.max(1, Math.round((pageRaw ?? 1)))
+  const pageNumber = resolvePageNumber(meta)
   const lineRange = extractLineRange(meta)
   const inferredLine = readFirstNumeric(meta, ['line', 'start_line', 'line_start', 'lineStart'])
   const lineStart = lineRange.lineStart ?? (inferredLine === null ? null : Math.max(1, Math.round(inferredLine)))
   const lineEnd = lineRange.lineEnd ?? lineStart
+  const page = (() => {
+    if (pageNumber !== null) return pageNumber
+    if (lineStart === null) return 1
+    const totalLines = Math.max(1, middleMarkdownLines.value.length || (editableContent.value || props.content || '').split('\n').length)
+    const ratio = Math.max(0, Math.min(1, (lineStart - 1) / totalLines))
+    return Math.max(
+      1,
+      Math.min(
+        inferredPdfPageCount.value,
+        Math.round(ratio * Math.max(1, inferredPdfPageCount.value - 1)) + 1
+      )
+    )
+  })()
   const rect = parseRect(meta)
-  const normalizedRect = rect ? normalizeRect(meta, rect) : estimateRectByLine(lineStart, lineEnd)
-  if (!normalizedRect) return null
+  const normalizedRect = rect ? normalizeRect(meta, rect, pageDimensions.get(page)) : null
   return {
     id: `${itemId}-${fallbackId}`,
     itemId,
     page,
-    left: normalizedRect.left,
-    top: normalizedRect.top,
-    width: normalizedRect.width,
-    height: normalizedRect.height,
+    hasRect: Boolean(normalizedRect),
+    left: normalizedRect?.left ?? 0,
+    top: normalizedRect?.top ?? 0,
+    width: normalizedRect?.width ?? 0,
+    height: normalizedRect?.height ?? 0,
     lineStart,
     lineEnd
   }
@@ -483,14 +545,31 @@ const findNearestMineruHighlight = (
 
 const linkedHighlights = computed<LinkedHighlight[]>(() => {
   const result: LinkedHighlight[] = []
+  const pageDimensions = new Map<number, PageDimension>()
+  ;(props.mineruBlocks || []).forEach(raw => {
+    const meta = (raw || {}) as Record<string, any>
+    const rect = parseRect(meta)
+    if (!rect) return
+    const page = resolvePageNumber(meta) || 1
+    const [rawX0, rawY0, rawX1, rawY1] = rect
+    const maxX = Math.max(rawX0, rawX1, 1)
+    const maxY = Math.max(rawY0, rawY1, 1)
+    const explicitWidth = readFirstNumeric(meta, ['page_width', 'pageWidth', 'width'])
+    const explicitHeight = readFirstNumeric(meta, ['page_height', 'pageHeight', 'height'])
+    const current = pageDimensions.get(page)
+    pageDimensions.set(page, {
+      width: Math.max(current?.width || 1, explicitWidth || 0, maxX),
+      height: Math.max(current?.height || 1, explicitHeight || 0, maxY)
+    })
+  })
   const mineruPool = (props.mineruBlocks || [])
-    .map((item, index) => toLinkedHighlight(item.id || `mineru-${index}`, `mineru-${index}`, item || {}))
+    .map((item, index) => toLinkedHighlight(item.id || `mineru-${index}`, `mineru-${index}`, item || {}, pageDimensions))
     .filter((item): item is LinkedHighlight => Boolean(item))
   const mineruById = new Map(mineruPool.map(item => [item.itemId, item]))
   structuredItemsValue.value.forEach((item, index) => {
     const itemId = item.id || `item-${index}`
     const meta = item.meta || {}
-    const direct = toLinkedHighlight(itemId, `structured-${index}`, meta)
+    const direct = toLinkedHighlight(itemId, `structured-${index}`, meta, pageDimensions)
     if (direct) {
       result.push(direct)
       return
@@ -505,17 +584,45 @@ const linkedHighlights = computed<LinkedHighlight[]>(() => {
       }
     }
     const candidateLine = readFirstNumeric(meta, ['line', 'line_start', 'lineStart', 'start_line'])
-    const candidatePage = readFirstNumeric(meta, ['page', 'page_no', 'pageNo', 'page_index'])
+    const candidatePage = resolvePageNumber(meta)
     const nearest = findNearestMineruHighlight(
       candidateLine === null ? null : Math.round(candidateLine),
-      candidatePage === null ? null : Math.max(1, Math.round(candidatePage)),
+      candidatePage === null ? null : candidatePage,
       mineruPool
     )
     if (nearest) {
       result.push({ ...nearest, id: `${itemId}-nearest`, itemId })
+      return
+    }
+    const middleLineRange = findLineRangeFromMiddle(item)
+    if (middleLineRange) {
+      const totalLines = Math.max(1, middleMarkdownLines.value.length)
+      const ratio = Math.max(0, Math.min(1, (middleLineRange.lineStart - 1) / totalLines))
+      const page = Math.max(
+        1,
+        Math.min(
+          inferredPdfPageCount.value,
+          Math.round(ratio * Math.max(1, inferredPdfPageCount.value - 1)) + 1
+        )
+      )
+      result.push({
+        id: `${itemId}-middle`,
+        itemId,
+        page,
+        hasRect: false,
+        left: 0,
+        top: 0,
+        width: 0,
+        height: 0,
+        lineStart: middleLineRange.lineStart,
+        lineEnd: middleLineRange.lineEnd
+      })
     }
   })
   if (!result.length) {
+    return mineruPool
+  }
+  if (!result.some(item => item.hasRect) && mineruPool.some(item => item.hasRect)) {
     return mineruPool
   }
   return result
@@ -535,31 +642,41 @@ const activeLinkedLineRange = computed(() => {
   }
 })
 
+const getContentLineCount = () => Math.max(
+  1,
+  (editableContent.value || props.content || '').split('\n').length
+)
+
+const scrollRightByLine = (lineStart: number) => {
+  const ratio = Math.max(0, Math.min(1, (lineStart - 1) / getContentLineCount()))
+  rightScrollPercent.value = ratio
+}
+
 const onHoverLinkedItem = (itemId: string | null) => {
   if (!highlightLinkEnabled.value) return
   activeLinkedItemId.value = itemId
-  if (itemId && activeTab.value !== 'index') {
-    activeTab.value = 'index'
+}
+
+const onSelectHighlightFromLeft = (itemId: string) => {
+  if (!highlightLinkEnabled.value) return
+  activeLinkedItemId.value = itemId
+  const target = linkedHighlights.value.find(item => item.itemId === itemId)
+  if (!target) return
+  if (target.lineStart !== null && target.lineEnd !== null) {
+    scrollRightByLine(target.lineStart)
   }
 }
 
-const onSelectLinkedItem = (itemId: string) => {
+const onSelectItemFromRight = (itemId: string) => {
   if (!highlightLinkEnabled.value) return
   activeLinkedItemId.value = itemId
-  if (activeTab.value !== 'index') {
-    activeTab.value = 'index'
-  }
   const target = linkedHighlights.value.find(item => item.itemId === itemId)
   if (!target) return
-  if (isPdf.value) {
-    if (target.page !== pdfPage.value) {
-      pdfPage.value = target.page
-    }
-    return
+  if (target.lineStart !== null && target.lineEnd !== null) {
+    scrollRightByLine(target.lineStart)
   }
-  if (isText.value && target.lineStart !== null && target.lineEnd !== null) {
-    const ratio = Math.min(1, Math.max(0, target.lineStart / Math.max(1, (editableContent.value || props.content).split('\n').length)))
-    onRightPaneScrollPercent(ratio)
+  if (isPdf.value && target.page !== pdfPage.value) {
+    pdfPage.value = target.page
   }
 }
 
@@ -597,6 +714,23 @@ watch(() => props.node.visible, (value) => {
 
 watch(() => props.node.strategy, (value) => {
   selectedStrategy.value = (value as KnowledgeStrategy) || 'A_structured'
+}, { immediate: true })
+
+watch([linkedHighlights, pdfPage, highlightLinkEnabled], () => {
+  if (!highlightLinkEnabled.value) return
+  const currentPageHighlights = linkedHighlights.value
+    .filter(item => item.page === pdfPage.value)
+    .filter(item => item.hasRect)
+  if (!currentPageHighlights.length) {
+    if (activeLinkedItemId.value && !linkedHighlights.value.some(item => item.itemId === activeLinkedItemId.value)) {
+      activeLinkedItemId.value = null
+    }
+    return
+  }
+  const hasActiveOnPage = currentPageHighlights.some(item => item.itemId === activeLinkedItemId.value)
+  if (!hasActiveOnPage) {
+    activeLinkedItemId.value = currentPageHighlights[0].itemId
+  }
 }, { immediate: true })
 
 watch(ingestStatusValue, (value) => {

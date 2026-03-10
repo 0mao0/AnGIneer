@@ -348,7 +348,9 @@ const fetchModels = async () => {
  */
 const renderMarkdown = (content: string): string => {
   if (!content) return ''
-  return content
+  // 移除首尾空白和空行
+  const trimmedContent = content.trim()
+  return trimmedContent
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -430,6 +432,10 @@ const handleSend = async () => {
 
   // 构建消息内容（包含图片）
   let messageContent = content
+
+  // 立即清空输入框，防止重复发送
+  inputText.value = ''
+  await nextTick()
 
   emit('send', messageContent, selectedModel.value)
 
@@ -564,8 +570,17 @@ defineExpose({
     margin-bottom: 16px;
     display: flex;
 
+    .message-content {
+      width: 100%;
+      display: flex;
+    }
+
     &.user {
       justify-content: flex-end;
+
+      .message-content {
+        justify-content: flex-end;
+      }
 
       .user-content {
         display: inline-block;
@@ -573,10 +588,12 @@ defineExpose({
         color: #fff;
         padding: 10px 14px;
         border-radius: 12px 12px 0 12px;
-        max-width: 95%;
-        min-width: 60px;
-        word-break: break-word;
+        max-width: 85%;
+        min-width: 32px;
+        word-break: normal;
+        overflow-wrap: break-word;
         white-space: pre-wrap;
+        box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
 
         .user-images {
           display: flex;
@@ -593,15 +610,21 @@ defineExpose({
         }
 
         .user-text {
+          display: inline;
           line-height: 1.5;
+          word-break: normal;
+          overflow-wrap: break-word;
           white-space: pre-wrap;
-          word-break: break-word;
         }
       }
     }
 
     &.assistant {
       justify-content: flex-start;
+
+      .message-content {
+        justify-content: flex-start;
+      }
 
       .assistant-content {
         display: inline-block;
@@ -611,7 +634,8 @@ defineExpose({
         border-radius: 12px 12px 12px 0;
         max-width: 85%;
         min-width: 60px;
-        word-break: break-word;
+        overflow-wrap: break-word;
+        word-break: normal;
 
         .answer-text {
           line-height: 1.6;

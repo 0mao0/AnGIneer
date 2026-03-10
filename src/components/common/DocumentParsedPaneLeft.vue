@@ -21,6 +21,7 @@
       </div>
       <div class="pane-actions-left">
         <a-button
+          v-if="showHighlightToggle"
           size="small"
           class="linkage-btn action-btn"
           :type="highlightLinkEnabled ? 'primary' : 'default'"
@@ -116,6 +117,7 @@ interface LinkedHighlight {
   id: string
   itemId: string
   page: number
+  hasRect?: boolean
   left: number
   top: number
   width: number
@@ -124,6 +126,7 @@ interface LinkedHighlight {
 
 const props = defineProps<{
   node: TreeNode
+  activeTab: 'html' | 'markdown' | 'index'
   isSharedVisible: boolean
   parseButtonText: string
   progressPercent: number
@@ -140,6 +143,7 @@ const props = defineProps<{
   highlights: LinkedHighlight[]
   activeHighlightId: string | null
   highlightLinkEnabled: boolean
+  showHighlightToggle: boolean
   textScrollPercent: number
 }>()
 
@@ -159,7 +163,17 @@ const applyingExternalScroll = ref(false)
 const visibleHighlights = computed(() => {
   if (!props.highlightLinkEnabled) return []
   if (props.isPdf) {
-    return props.highlights.filter(item => item.page === props.currentPdfPage)
+    const pageHighlights = props.highlights
+      .filter(item => item.page === props.currentPdfPage)
+      .filter(item => item.hasRect !== false)
+      .sort((a, b) => a.top - b.top)
+    if (props.activeHighlightId) {
+      const activeOnly = pageHighlights.filter(item => item.itemId === props.activeHighlightId)
+      if (activeOnly.length) {
+        return activeOnly
+      }
+    }
+    return pageHighlights
   }
   return props.highlights
 })
@@ -367,9 +381,9 @@ watch(() => props.textScrollPercent, (percent) => {
 
 .pdf-highlight-box {
   position: absolute;
-  border: 1px solid rgba(24, 144, 255, 0.55);
-  background: rgba(24, 144, 255, 0.14);
-  box-shadow: 0 0 0 1px rgba(24, 144, 255, 0.18);
+  border: 1px solid rgba(24, 144, 255, 0.42);
+  background: rgba(24, 144, 255, 0.08);
+  box-shadow: 0 0 0 1px rgba(24, 144, 255, 0.12);
   border-radius: 4px;
   pointer-events: auto;
   transition: background 0.18s ease, border-color 0.18s ease;
