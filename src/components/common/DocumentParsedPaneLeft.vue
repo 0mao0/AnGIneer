@@ -43,21 +43,43 @@
       </div>
     </div>
     <div v-if="node.status === 'processing' || node.status === 'failed'" class="parse-progress-row">
-      <a-progress
-        :percent="progressPercent"
-        :status="node.parseError ? 'exception' : 'active'"
-        size="small"
-        class="processing-progress"
-      />
-      <span class="progress-text">{{ stageText }}</span>
+      <div class="parse-progress-content">
+        <a-progress
+          :percent="progressPercent"
+          :status="node.parseError ? 'exception' : 'active'"
+          size="small"
+          class="processing-progress"
+          :show-info="false"
+        />
+        <div class="progress-text-info">
+          <span class="progress-text">{{ stageText }}</span>
+          <span v-if="node.status === 'processing'" class="progress-percentage">{{ progressPercent }}%</span>
+        </div>
+      </div>
     </div>
     <div class="file-preview">
-      <div v-if="isPdf" class="pdf-frame-wrap">
-        <iframe
-          :src="pdfViewerUrl"
-          class="pdf-viewer"
-          frameborder="0"
-        />
+      <div v-if="isPdf" class="pdf-scroll-container" ref="pdfScrollRef" @scroll="onPdfScroll">
+        <div v-for="page in displayPdfPageCount" :key="page" class="pdf-page-wrapper">
+          <VuePdfEmbed :source="pdfViewerUrl" :page="page" />
+          <div class="pdf-highlight-layer">
+            <div
+              v-for="item in getPageHighlights(page)"
+              :key="item.id"
+              :class="['pdf-highlight-box', { active: item.itemId === activeHighlightId }]"
+              :style="{
+                left: `${item.left * 100}%`,
+                top: `${item.top * 100}%`,
+                width: `${item.width * 100}%`,
+                height: `${item.height * 100}%`
+              }"
+              @mouseenter="emit('hover-highlight', item.itemId)"
+              @mouseleave="emit('hover-highlight', null)"
+              @click="emit('select-highlight', item.itemId)"
+            >
+              <span v-if="item.type" class="highlight-type-tag">{{ item.type }}</span>
+            </div>
+          </div>
+        </div>
       </div>
       <div v-else-if="isOffice" class="office-preview">
         <div class="office-frame-wrap">
@@ -85,32 +107,34 @@
           <a-button type="primary" @click="emit('download')">下载文件</a-button>
         </template>
       </a-empty>
-      <div
-        v-if="isPdf && visibleHighlights.length"
-        class="pdf-highlight-layer"
-      >
-        <div
-          v-for="item in visibleHighlights"
-          :key="item.id"
-          :class="['pdf-highlight-box', { active: item.itemId === activeHighlightId }]"
-          :style="{
-            left: `${item.left * 100}%`,
-            top: `${item.top * 100}%`,
-            width: `${item.width * 100}%`,
-            height: `${item.height * 100}%`
-          }"
-          @mouseenter="emit('hover-highlight', item.itemId)"
-          @mouseleave="emit('hover-highlight', null)"
-          @click="emit('select-highlight', item.itemId)"
-        />
-      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, onMounted } from 'vue'
 import { LinkOutlined } from '@ant-design/icons-vue'
+import VuePdfEmbed from 'vue-pdf-embed'
+import * as pdfjsLib from 'pdfjs-dist'
+
+// Set worker source for pdfjs-dist
+// In Vite, we need to explicitly import the worker script
+// We use a dynamic import to avoid bundling issues if possible, or direct import if needed.
+// For simplicity and compatibility, we try to set the workerSrc to a CDN or local path if the import fails.
+// However, in a standard Vite setup, we should import the worker file URL.
+// We'll use a try-catch block or conditional check.
+const setWorker = async () => {
+  try {
+    // @ts-ignore
+    const worker = await import('pdfjs-dist/build/pdf.worker.mjs?url')
+    pdfjsLib.GlobalWorkerOptions.workerSrc = worker.default
+  } catch (e) {
+    console.warn('Failed to load pdf worker via import, falling back to CDN', e)
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`
+  }
+}
+setWorker()
+
 import type { TreeNode } from '../../composables/useKnowledgeTree'
 
 interface LinkedHighlight {
@@ -122,6 +146,7 @@ interface LinkedHighlight {
   top: number
   width: number
   height: number
+  type?: string
 }
 
 const props = defineProps<{
@@ -140,6 +165,7 @@ const props = defineProps<{
   fileUrl: string
   textContent: string
   currentPdfPage: number
+  pdfPageCount?: number
   highlights: LinkedHighlight[]
   activeHighlightId: string | null
   highlightLinkEnabled: boolean
@@ -157,25 +183,49 @@ const emit = defineEmits<{
   'toggle-highlight-link': []
 }>()
 
+const pdfScrollRef = ref<HTMLElement | null>(null)
 const leftTextRef = ref<HTMLElement | null>(null)
 const applyingExternalScroll = ref(false)
+const localPdfPageCount = ref(0)
 
-const visibleHighlights = computed(() => {
+// Computed page count to use: prefer prop, fallback to local
+const displayPdfPageCount = computed(() => {
+  if (props.pdfPageCount && props.pdfPageCount > 1) return props.pdfPageCount
+  if (localPdfPageCount.value > 1) return localPdfPageCount.value
+  return 1
+})
+
+// Get highlights for a specific page
+const getPageHighlights = (page: number) => {
   if (!props.highlightLinkEnabled) return []
-  if (props.isPdf) {
-    const pageHighlights = props.highlights
-      .filter(item => item.page === props.currentPdfPage)
-      .filter(item => item.hasRect !== false)
-      .sort((a, b) => a.top - b.top)
-    if (props.activeHighlightId) {
-      const activeOnly = pageHighlights.filter(item => item.itemId === props.activeHighlightId)
-      if (activeOnly.length) {
-        return activeOnly
-      }
-    }
-    return pageHighlights
-  }
   return props.highlights
+    .filter(item => item.page === page)
+    .filter(item => item.hasRect !== false)
+}
+
+// Handle PDF scroll to sync with text
+const onPdfScroll = (e: Event) => {
+  const target = e.target as HTMLElement
+  if (!target) return
+  const { scrollTop, scrollHeight, clientHeight } = target
+  if (scrollHeight <= clientHeight) return
+  
+  const percent = scrollTop / (scrollHeight - clientHeight)
+  // Debounce or throttle could be added here if needed
+  emit('text-scroll', percent)
+}
+
+// Watch for external page change to scroll PDF
+watch(() => props.currentPdfPage, (newPage) => {
+  if (props.isPdf && pdfScrollRef.value && newPage > 0) {
+    // Wait for DOM update
+    setTimeout(() => {
+      const pages = pdfScrollRef.value?.querySelectorAll('.pdf-page-wrapper')
+      if (pages && pages[newPage - 1]) {
+        pages[newPage - 1].scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
+  }
 })
 
 const getScrollPercent = (element: HTMLElement): number => {
@@ -190,7 +240,29 @@ const setScrollPercent = (element: HTMLElement, percent: number) => {
   element.scrollTop = Math.max(0, Math.min(1, percent)) * maxScrollTop
 }
 
-const onLeftTextScroll = () => {
+watch(() => props.pdfViewerUrl, (url) => {
+  if (!url || !props.isPdf) return
+  
+  // Try to load PDF document to get actual page count
+  // This is a fallback for when the parser hasn't provided page count yet
+  const loadPdf = async () => {
+    try {
+      // Use the configured worker
+      const loadingTask = pdfjsLib.getDocument(url)
+      const pdf = await loadingTask.promise
+      if (pdf.numPages && pdf.numPages > 0) {
+        localPdfPageCount.value = pdf.numPages
+      }
+    } catch (e) {
+      console.warn('Failed to load PDF for page count check', e)
+    }
+  }
+  
+  loadPdf()
+}, { immediate: true })
+
+// Legacy scroll handler for text viewer
+const onLeftTextScroll = (e: Event) => {
   if (applyingExternalScroll.value) return
   const pane = leftTextRef.value
   if (!pane) return
@@ -280,36 +352,53 @@ watch(() => props.textScrollPercent, (percent) => {
 }
 
 .parse-progress-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
+  padding: 8px 12px;
   border-bottom: 1px solid var(--dp-title-border);
   background: var(--dp-progress-bg);
 }
 
+.parse-progress-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .processing-progress {
-  flex: 1;
+  width: 100%;
+}
+
+.progress-text-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .progress-text {
-  flex-shrink: 0;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--dp-sub-text);
+}
+
+.progress-percentage {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--dp-brand-primary);
 }
 
 .file-preview {
   position: relative;
   flex: 1;
-  min-height: 0;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
   overflow: hidden;
-  background: var(--dp-content-bg);
+  display: flex;
+  flex-direction: column;
 }
 
-.pdf-frame-wrap,
+.pdf-frame-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
 .office-frame-wrap {
   flex: 1;
   min-height: 0;
@@ -323,15 +412,14 @@ watch(() => props.textScrollPercent, (percent) => {
   min-height: 0;
   border: none;
   background: var(--dp-content-bg);
-  transition: width 0.18s ease;
 }
 
 .pdf-viewer {
-  width: calc(100% + 14px);
+  display: block;
 }
 
 .pdf-frame-wrap:hover .pdf-viewer {
-  width: 100%;
+  /* No width change on hover to prevent layout shift */
 }
 
 .image-viewer {
@@ -342,35 +430,35 @@ watch(() => props.textScrollPercent, (percent) => {
 }
 
 .text-viewer {
-  margin: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background: var(--dp-content-bg);
-  color: var(--dp-title-text);
-  padding: 10px;
+  overflow-y: overlay;
+  padding: 16px;
+  background: var(--dp-bg);
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
   font-size: 13px;
   line-height: 1.6;
-  scrollbar-width: none;
-}
+  white-space: pre-wrap;
+  word-break: break-all;
 
-.text-viewer::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+  }
 
-.text-viewer:hover {
-  scrollbar-width: thin;
-}
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
 
-.text-viewer:hover::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.text-viewer:hover::-webkit-scrollbar-thumb {
-  background: var(--dp-scroll-thumb);
-  border-radius: 999px;
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }
 
 .pdf-highlight-layer {
@@ -392,5 +480,57 @@ watch(() => props.textScrollPercent, (percent) => {
 .pdf-highlight-box.active {
   border-color: rgba(22, 119, 255, 0.95);
   background: rgba(22, 119, 255, 0.24);
+  z-index: 10;
+}
+
+.highlight-type-tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #1677ff;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1;
+  padding: 2px 4px;
+  border-bottom-right-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 11;
+}
+
+.pdf-highlight-box:hover .highlight-type-tag,
+.pdf-highlight-box.active .highlight-type-tag {
+  opacity: 1;
+}
+
+.pdf-scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  background: var(--dp-bg-tertiary, #f5f5f5);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.pdf-page-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Ensure canvas inside VuePdfEmbed fits nicely */
+}
+
+/* Ensure images/canvas inside behave responsively */
+.pdf-page-wrapper :deep(canvas),
+.pdf-page-wrapper :deep(img) {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
 }
 </style>

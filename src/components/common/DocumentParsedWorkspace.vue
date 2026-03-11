@@ -18,6 +18,7 @@
           :fileUrl="fileUrl"
           :textContent="textContent"
           :currentPdfPage="pdfPage"
+          :pdfPageCount="inferredPdfPageCount"
           :highlights="linkedHighlights"
           :activeHighlightId="activeLinkedItemId"
           :highlightLinkEnabled="highlightLinkEnabled"
@@ -218,6 +219,14 @@ const inferredPdfPageCount = computed(() => {
     props.node.meta?.page_count,
     props.node.meta?.pages
   ]
+  
+  // Also check blocks for max page number
+  const maxPageFromBlocks = (props.mineruBlocks || []).reduce((max, block) => {
+    const page = resolvePageNumber(block)
+    return page && page > max ? page : max
+  }, 0)
+  if (maxPageFromBlocks > 0) candidates.push(maxPageFromBlocks)
+
   for (const candidate of candidates) {
     const pageCount = Number(candidate || 0)
     if (Number.isFinite(pageCount) && pageCount > 0) {
@@ -328,6 +337,7 @@ interface LinkedHighlight {
   height: number
   lineStart: number | null
   lineEnd: number | null
+  type?: string
 }
 
 const readNumeric = (value: unknown): number | null => {
@@ -504,6 +514,7 @@ const toLinkedHighlight = (
   })()
   const rect = parseRect(meta)
   const normalizedRect = rect ? normalizeRect(meta, rect, pageDimensions.get(page)) : null
+  const type = meta.type || meta.category || 'text'
   return {
     id: `${itemId}-${fallbackId}`,
     itemId,
@@ -514,7 +525,8 @@ const toLinkedHighlight = (
     width: normalizedRect?.width ?? 0,
     height: normalizedRect?.height ?? 0,
     lineStart,
-    lineEnd
+    lineEnd,
+    type
   }
 }
 
@@ -544,12 +556,16 @@ const findNearestMineruHighlight = (
 }
 
 const linkedHighlights = computed<LinkedHighlight[]>(() => {
-  const result: LinkedHighlight[] = []
   const pageDimensions = new Map<number, PageDimension>()
   ;(props.mineruBlocks || []).forEach(raw => {
     const meta = (raw || {}) as Record<string, any>
     const rect = parseRect(meta)
     if (!rect) return
+    
+    // We used to skip list blocks here, but that could lead to incorrect page dimension calculation
+    // if the list block defines the page boundaries and explicit page_width is missing.
+    // So we keep all blocks for dimension calculation, but filter them out later for highlights.
+
     const page = resolvePageNumber(meta) || 1
     const [rawX0, rawY0, rawX1, rawY1] = rect
     const maxX = Math.max(rawX0, rawX1, 1)
@@ -562,70 +578,77 @@ const linkedHighlights = computed<LinkedHighlight[]>(() => {
       height: Math.max(current?.height || 1, explicitHeight || 0, maxY)
     })
   })
+
+  // 1. Convert all mineru blocks to highlights (Physical World View)
   const mineruPool = (props.mineruBlocks || [])
+    .filter(item => {
+      const meta = (item || {}) as Record<string, any>
+      const type = meta.type || meta.category || 'text'
+      
+      // Filter out container blocks that have children (we want minimum granularity)
+      if (meta.children && Array.isArray(meta.children) && meta.children.length > 0) {
+        return false
+      }
+
+      // Explicitly skip 'list' type as requested, even if children check fails (e.g. data issue)
+      if (type === 'list') {
+        return false
+      }
+
+      // Skip structural noise blocks
+      if (['header', 'footer'].includes(type)) {
+        return false
+      }
+      return true
+    })
     .map((item, index) => toLinkedHighlight(item.id || `mineru-${index}`, `mineru-${index}`, item || {}, pageDimensions))
     .filter((item): item is LinkedHighlight => Boolean(item))
-  const mineruById = new Map(mineruPool.map(item => [item.itemId, item]))
+
+  if (!structuredItemsValue.value.length) {
+    return mineruPool
+  }
+
+  // 2. Build mapping from mineru_block_id to structured_item_id
+  const blockToItemMap = new Map<string, string>()
+  const itemLineRanges = new Map<string, { lineStart: number, lineEnd: number }>()
+
   structuredItemsValue.value.forEach((item, index) => {
     const itemId = item.id || `item-${index}`
     const meta = item.meta || {}
-    const direct = toLinkedHighlight(itemId, `structured-${index}`, meta, pageDimensions)
-    if (direct) {
-      result.push(direct)
-      return
-    }
-    const mappedId = [meta.mineru_block_id, meta.block_id, meta.source_block_id]
-      .find(value => typeof value === 'string' && value.trim())
-    if (typeof mappedId === 'string' && mineruById.has(mappedId)) {
-      const matched = mineruById.get(mappedId)
-      if (matched) {
-        result.push({ ...matched, id: `${itemId}-mapped`, itemId })
-        return
-      }
-    }
-    const candidateLine = readFirstNumeric(meta, ['line', 'line_start', 'lineStart', 'start_line'])
-    const candidatePage = resolvePageNumber(meta)
-    const nearest = findNearestMineruHighlight(
-      candidateLine === null ? null : Math.round(candidateLine),
-      candidatePage === null ? null : candidatePage,
-      mineruPool
-    )
-    if (nearest) {
-      result.push({ ...nearest, id: `${itemId}-nearest`, itemId })
-      return
-    }
-    const middleLineRange = findLineRangeFromMiddle(item)
-    if (middleLineRange) {
-      const totalLines = Math.max(1, middleMarkdownLines.value.length)
-      const ratio = Math.max(0, Math.min(1, (middleLineRange.lineStart - 1) / totalLines))
-      const page = Math.max(
-        1,
-        Math.min(
-          inferredPdfPageCount.value,
-          Math.round(ratio * Math.max(1, inferredPdfPageCount.value - 1)) + 1
-        )
-      )
-      result.push({
-        id: `${itemId}-middle`,
-        itemId,
-        page,
-        hasRect: false,
-        left: 0,
-        top: 0,
-        width: 0,
-        height: 0,
-        lineStart: middleLineRange.lineStart,
-        lineEnd: middleLineRange.lineEnd
-      })
+    // Collect all possible ID references
+    const refs = [meta.mineru_block_id, meta.block_id, meta.source_block_id]
+      .filter(v => typeof v === 'string' && v.trim())
+    
+    refs.forEach(ref => {
+      blockToItemMap.set(ref, itemId)
+    })
+
+    // Calculate line range
+    const range = findLineRangeFromMiddle(item)
+    if (range) {
+      itemLineRanges.set(itemId, range)
     }
   })
-  if (!result.length) {
-    return mineruPool
-  }
-  if (!result.some(item => item.hasRect) && mineruPool.some(item => item.hasRect)) {
-    return mineruPool
-  }
-  return result
+
+  // 3. Update mineru highlights with linked item IDs
+  return mineruPool.map(highlight => {
+    // Attempt to find a link
+    // The highlight.itemId is currently the mineru block ID (from step 1)
+    const originalId = highlight.itemId
+    const linkedId = blockToItemMap.get(originalId)
+    
+    if (linkedId) {
+      const range = itemLineRanges.get(linkedId)
+      return { 
+        ...highlight, 
+        itemId: linkedId,
+        lineStart: range?.lineStart ?? highlight.lineStart,
+        lineEnd: range?.lineEnd ?? highlight.lineEnd
+      }
+    }
+    
+    return highlight
+  })
 })
 
 const activeLinkedHighlight = computed(() => {
@@ -826,43 +849,40 @@ const buildMarkdownTable = (tableLines: string[]): string => {
 const renderMarkdown = (content: string): string => {
   if (!content) return ''
 
-  const placeholders = new Map<string, string>()
-  let placeholderIndex = 0
-  const setPlaceholder = (html: string) => {
-    const key = `__BLOCK_${placeholderIndex++}__`
-    placeholders.set(key, html)
-    return key
-  }
-
-  let normalized = content.replace(/\r\n/g, '\n')
-
-  normalized = normalized.replace(/```([\s\S]*?)```/g, (_, code) => {
-    const html = `<pre><code>${escapeHtml(String(code).trim())}</code></pre>`
-    return setPlaceholder(html)
-  })
-
-  normalized = normalized.replace(/\$\$([\s\S]+?)\$\$/g, (_, formula) => {
-    const html = `<div class="math-block">${renderFormula(String(formula).trim(), true)}</div>`
-    return setPlaceholder(html)
-  })
-
-  const lines = normalized.split('\n')
+  const lines = content.replace(/\r\n/g, '\n').split('\n')
   const htmlBlocks: string[] = []
+  
   let paragraphBuffer: string[] = []
+  let paragraphStartLine = -1
+  
   let tableBuffer: string[] = []
+  let tableStartLine = -1
+  
   let inUnorderedList = false
   let inOrderedList = false
+  
+  let inCodeBlock = false
+  let codeBlockBuffer: string[] = []
+  let codeBlockStartLine = -1
+  
+  let inMathBlock = false
+  let mathBlockBuffer: string[] = []
+  let mathBlockStartLine = -1
 
   const flushParagraph = () => {
     if (!paragraphBuffer.length) return
-    htmlBlocks.push(`<p>${renderInline(paragraphBuffer.join(' '))}</p>`)
+    htmlBlocks.push(`<p data-line-start="${paragraphStartLine}">${renderInline(paragraphBuffer.join(' '))}</p>`)
     paragraphBuffer = []
+    paragraphStartLine = -1
   }
 
   const flushTable = () => {
     if (!tableBuffer.length) return
-    htmlBlocks.push(buildMarkdownTable(tableBuffer))
+    const tableHtml = buildMarkdownTable(tableBuffer)
+    // Inject data-line-start into the table tag
+    htmlBlocks.push(tableHtml.replace('<table', `<table data-line-start="${tableStartLine}"`))
     tableBuffer = []
+    tableStartLine = -1
   }
 
   const closeLists = () => {
@@ -879,6 +899,51 @@ const renderMarkdown = (content: string): string => {
   for (let index = 0; index < lines.length; index += 1) {
     const line = lines[index]
     const trimmed = line.trim()
+    const currentLineNumber = index + 1
+
+    // 1. Handle Code Blocks
+    if (trimmed.startsWith('```')) {
+      if (inCodeBlock) {
+        inCodeBlock = false
+        const code = codeBlockBuffer.join('\n')
+        htmlBlocks.push(`<pre data-line-start="${codeBlockStartLine}"><code>${escapeHtml(code)}</code></pre>`)
+        codeBlockBuffer = []
+        codeBlockStartLine = -1
+      } else {
+        flushParagraph()
+        flushTable()
+        closeLists()
+        inCodeBlock = true
+        codeBlockStartLine = currentLineNumber
+      }
+      continue
+    }
+    if (inCodeBlock) {
+      codeBlockBuffer.push(line)
+      continue
+    }
+
+    // 2. Handle Math Blocks
+    if (trimmed === '$$') {
+      if (inMathBlock) {
+        inMathBlock = false
+        const formula = mathBlockBuffer.join('\n')
+        htmlBlocks.push(`<div class="math-block" data-line-start="${mathBlockStartLine}">${renderFormula(formula, true)}</div>`)
+        mathBlockBuffer = []
+        mathBlockStartLine = -1
+      } else {
+        flushParagraph()
+        flushTable()
+        closeLists()
+        inMathBlock = true
+        mathBlockStartLine = currentLineNumber
+      }
+      continue
+    }
+    if (inMathBlock) {
+      mathBlockBuffer.push(line)
+      continue
+    }
 
     if (!trimmed) {
       flushParagraph()
@@ -887,20 +952,15 @@ const renderMarkdown = (content: string): string => {
       continue
     }
 
-    if (placeholders.has(trimmed)) {
-      flushParagraph()
-      flushTable()
-      closeLists()
-      htmlBlocks.push(trimmed)
-      continue
-    }
-
+    // 3. Handle Tables
     const isTableCandidate = trimmed.includes('|')
     const nextLine = lines[index + 1]?.trim() || ''
     const looksLikeTableHeader = isTableCandidate && /^\|?[:\-\s|]+\|?$/g.test(nextLine)
+    
     if (looksLikeTableHeader) {
       flushParagraph()
       closeLists()
+      tableStartLine = currentLineNumber
       tableBuffer.push(trimmed)
       tableBuffer.push(nextLine)
       index += 1
@@ -912,16 +972,18 @@ const renderMarkdown = (content: string): string => {
       continue
     }
 
+    // 4. Handle Headers
     if (/^#{1,6}\s+/.test(trimmed)) {
       flushParagraph()
       flushTable()
       closeLists()
       const level = Math.min(6, trimmed.match(/^#+/)?.[0].length || 1)
       const title = trimmed.replace(/^#{1,6}\s+/, '')
-      htmlBlocks.push(`<h${level}>${renderInline(title)}</h${level}>`)
+      htmlBlocks.push(`<h${level} data-line-start="${currentLineNumber}">${renderInline(title)}</h${level}>`)
       continue
     }
 
+    // 5. Handle Lists
     const unorderedMatch = trimmed.match(/^[-*+]\s+(.+)$/)
     if (unorderedMatch) {
       flushParagraph()
@@ -931,7 +993,7 @@ const renderMarkdown = (content: string): string => {
         htmlBlocks.push('<ul>')
         inUnorderedList = true
       }
-      htmlBlocks.push(`<li>${renderInline(unorderedMatch[1])}</li>`)
+      htmlBlocks.push(`<li data-line-start="${currentLineNumber}">${renderInline(unorderedMatch[1])}</li>`)
       continue
     }
 
@@ -944,10 +1006,11 @@ const renderMarkdown = (content: string): string => {
         htmlBlocks.push('<ol>')
         inOrderedList = true
       }
-      htmlBlocks.push(`<li>${renderInline(orderedMatch[1])}</li>`)
+      htmlBlocks.push(`<li data-line-start="${currentLineNumber}">${renderInline(orderedMatch[1])}</li>`)
       continue
     }
 
+    // 6. Handle HTML
     if (/^<[^>]+>/.test(trimmed)) {
       flushParagraph()
       flushTable()
@@ -956,16 +1019,27 @@ const renderMarkdown = (content: string): string => {
       continue
     }
 
+    // 7. Paragraphs
+    if (paragraphBuffer.length === 0) {
+      paragraphStartLine = currentLineNumber
+    }
     paragraphBuffer.push(trimmed)
   }
 
   flushParagraph()
   flushTable()
   closeLists()
+  
+  if (inCodeBlock) {
+    const code = codeBlockBuffer.join('\n')
+    htmlBlocks.push(`<pre data-line-start="${codeBlockStartLine}"><code>${escapeHtml(code)}</code></pre>`)
+  }
+  if (inMathBlock) {
+    const formula = mathBlockBuffer.join('\n')
+    htmlBlocks.push(`<div class="math-block" data-line-start="${mathBlockStartLine}">${renderFormula(formula, true)}</div>`)
+  }
 
-  return htmlBlocks
-    .join('\n')
-    .replace(/__BLOCK_(\d+)__/g, (key) => placeholders.get(key) || key)
+  return htmlBlocks.join('\n')
 }
 
 const renderedMarkdown = computed(() => renderMarkdown(editableContent.value || props.content || ''))

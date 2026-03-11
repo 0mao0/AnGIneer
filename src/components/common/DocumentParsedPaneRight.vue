@@ -242,9 +242,54 @@ watch(() => props.activeLineRange, (range) => {
   textarea.focus({ preventScroll: true })
   textarea.setSelectionRange(start, Math.max(start, end))
 }, { immediate: true })
+
+const highlightActiveLineInHtml = () => {
+  const pane = rightPaneRef.value
+  if (!pane) return
+  const range = props.activeLineRange
+
+  const prev = pane.querySelectorAll('.active-markdown-block')
+  prev.forEach(el => el.classList.remove('active-markdown-block'))
+
+  if (!range) return
+  
+  const elements = Array.from(pane.querySelectorAll('[data-line-start]'))
+  let bestEl: Element | null = null
+  let minDiff = Number.POSITIVE_INFINITY
+  
+  elements.forEach(el => {
+      const line = Number(el.getAttribute('data-line-start'))
+      if (Number.isFinite(line)) {
+          if (line > range.end) return 
+          const diff = Math.abs(line - range.start)
+          if (diff < minDiff) {
+              minDiff = diff
+              bestEl = el
+          }
+      }
+  })
+  
+  if (bestEl) {
+      bestEl.classList.add('active-markdown-block')
+      bestEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+}
+
+watch([() => props.activeLineRange, () => props.activeTab], () => {
+  if (props.activeTab === 'html') {
+    requestAnimationFrame(highlightActiveLineInHtml)
+  }
+}, { immediate: true })
 </script>
 
 <style lang="less" scoped>
+:deep(.active-markdown-block) {
+  background-color: rgba(255, 235, 59, 0.3);
+  transition: background-color 0.3s;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px rgba(255, 235, 59, 0.3);
+}
+
 .split-pane {
   flex: 1;
   min-width: 0;
@@ -363,28 +408,27 @@ watch(() => props.activeLineRange, (range) => {
   position: relative;
   flex: 1;
   min-height: 0;
-  overflow: auto;
+  overflow-y: overlay;
   background: var(--dp-content-bg);
-  scrollbar-width: none;
-}
 
-.b2-content::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+  }
 
-.b2-content:hover {
-  scrollbar-width: thin;
-}
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
 
-.b2-content:hover::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.b2-content:hover::-webkit-scrollbar-thumb {
-  background: var(--dp-scroll-thumb);
-  border-radius: 999px;
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }
 
 .markdown-preview {
