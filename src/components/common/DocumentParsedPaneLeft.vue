@@ -59,11 +59,18 @@
     </div>
     <div class="file-preview">
       <div v-if="isPdf" class="pdf-scroll-container" ref="pdfScrollRef" @scroll="onPdfScroll">
-        <div v-for="page in displayPdfPageCount" :key="page" class="pdf-page-wrapper">
-          <VuePdfEmbed :source="pdfViewerUrl" :page="page" />
-          <div class="pdf-highlight-layer">
+        <div class="pdf-virtual-spacer" :style="{ height: `${virtualContentHeight}px` }">
+          <div
+            v-for="pageMeta in visiblePdfPages"
+            :key="pageMeta.page"
+            class="pdf-page-wrapper"
+            :style="getPdfPageStyle(pageMeta)"
+            :ref="(el) => setPdfPageElement(pageMeta.page, el)"
+          >
+            <VuePdfEmbed :source="normalizedPdfSource" :page="pageMeta.page" />
+            <div class="pdf-highlight-layer" :style="getHighlightLayerStyle(pageMeta.page)">
             <div
-              v-for="item in getPageHighlights(page)"
+              v-for="item in getPageHighlights(pageMeta.page)"
               :key="item.id"
               :class="['pdf-highlight-box', { active: item.itemId === activeHighlightId }]"
               :style="{
@@ -79,6 +86,7 @@
               <span v-if="item.type" class="highlight-type-tag">{{ item.type }}</span>
             </div>
           </div>
+        </div>
         </div>
       </div>
       <div v-else-if="isOffice" class="office-preview">
@@ -112,7 +120,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, onMounted } from 'vue'
+import { computed, ref, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { LinkOutlined } from '@ant-design/icons-vue'
 import VuePdfEmbed from 'vue-pdf-embed'
 import * as pdfjsLib from 'pdfjs-dist'
@@ -147,6 +155,19 @@ interface LinkedHighlight {
   width: number
   height: number
   type?: string
+}
+
+interface VirtualPageMeta {
+  page: number
+  top: number
+  height: number
+}
+
+interface RenderedPageMetrics {
+  top: number
+  left: number
+  width: number
+  height: number
 }
 
 const props = defineProps<{
@@ -187,6 +208,24 @@ const pdfScrollRef = ref<HTMLElement | null>(null)
 const leftTextRef = ref<HTMLElement | null>(null)
 const applyingExternalScroll = ref(false)
 const localPdfPageCount = ref(0)
+const pageHeights = ref<Record<number, number>>({})
+const estimatedPageHeight = ref(1100)
+const renderedPageRange = ref({ start: 1, end: 1 })
+const pendingRangeUpdate = ref(false)
+const isPdfUserScrolling = ref(false)
+const pdfUserScrollTimeout = ref<number | null>(null)
+const pendingPdfSyncPercent = ref<number | null>(null)
+const pdfSyncRafId = ref<number | null>(null)
+const lastEmittedPdfPercent = ref(-1)
+const renderedPageMetrics = ref<Record<number, RenderedPageMetrics>>({})
+const pageElements = new Map<number, HTMLElement>()
+const pageResizeObservers = new Map<number, ResizeObserver>()
+const pdfVerticalPadding = 24
+const pdfPageGap = 16
+const renderBufferPages = 2
+const normalizedPdfSource = computed(() => props.pdfViewerUrl.split('#')[0] || props.pdfViewerUrl)
+const pageHeightOf = (page: number) => pageHeights.value[page] || estimatedPageHeight.value
+const onWindowResize = () => scheduleRenderedPageRangeUpdate()
 
 // Computed page count to use: prefer prop, fallback to local
 const displayPdfPageCount = computed(() => {
@@ -195,7 +234,6 @@ const displayPdfPageCount = computed(() => {
   return 1
 })
 
-// Get highlights for a specific page
 const getPageHighlights = (page: number) => {
   if (!props.highlightLinkEnabled) return []
   return props.highlights
@@ -203,29 +241,220 @@ const getPageHighlights = (page: number) => {
     .filter(item => item.hasRect !== false)
 }
 
+const pageLayout = computed(() => {
+  const topByPage: number[] = []
+  let cursor = pdfVerticalPadding
+  for (let page = 1; page <= displayPdfPageCount.value; page += 1) {
+    topByPage[page] = cursor
+    cursor += pageHeightOf(page)
+    if (page < displayPdfPageCount.value) {
+      cursor += pdfPageGap
+    }
+  }
+  return {
+    topByPage,
+    totalHeight: Math.max(1, cursor + pdfVerticalPadding)
+  }
+})
+
+const virtualContentHeight = computed(() => pageLayout.value.totalHeight)
+
+const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
+  const pages: VirtualPageMeta[] = []
+  const start = renderedPageRange.value.start
+  const end = renderedPageRange.value.end
+  for (let page = start; page <= end; page += 1) {
+    pages.push({
+      page,
+      top: pageLayout.value.topByPage[page] || pdfVerticalPadding,
+      height: pageHeightOf(page)
+    })
+  }
+  return pages
+})
+
+const getPdfPageStyle = (pageMeta: VirtualPageMeta) => ({
+  top: `${pageMeta.top}px`,
+  minHeight: `${pageMeta.height}px`
+})
+
+const getHighlightLayerStyle = (page: number) => {
+  const metrics = renderedPageMetrics.value[page]
+  if (!metrics) {
+    return {
+      inset: '0'
+    }
+  }
+  return {
+    top: `${metrics.top}px`,
+    left: `${metrics.left}px`,
+    width: `${metrics.width}px`,
+    height: `${metrics.height}px`
+  }
+}
+
+const updateEstimatedHeight = () => {
+  const values = Object.values(pageHeights.value).filter(height => Number.isFinite(height) && height > 0)
+  if (!values.length) return
+  const total = values.reduce((sum, item) => sum + item, 0)
+  estimatedPageHeight.value = Math.max(600, Math.round(total / values.length))
+}
+
+const updateRenderedPageRange = () => {
+  const container = pdfScrollRef.value
+  if (!container || !props.isPdf) {
+    renderedPageRange.value = { start: 1, end: Math.max(1, displayPdfPageCount.value) }
+    return
+  }
+  const pageCount = Math.max(1, displayPdfPageCount.value)
+  if (pageCount <= 1) {
+    renderedPageRange.value = { start: 1, end: 1 }
+    return
+  }
+  const viewportTop = container.scrollTop
+  const viewportBottom = viewportTop + container.clientHeight
+  let firstVisibleIndex = -1
+  let lastVisibleIndex = -1
+
+  for (let page = 1; page <= pageCount; page += 1) {
+    const pageTop = pageLayout.value.topByPage[page] || 0
+    const pageBottom = pageTop + pageHeightOf(page)
+    const intersectsViewport = pageBottom >= viewportTop && pageTop <= viewportBottom
+    if (intersectsViewport) {
+      if (firstVisibleIndex === -1) firstVisibleIndex = page
+      lastVisibleIndex = page
+    }
+  }
+
+  if (firstVisibleIndex === -1 || lastVisibleIndex === -1) {
+    const fallbackPage = Math.max(1, Math.min(pageCount, props.currentPdfPage || 1))
+    renderedPageRange.value = {
+      start: Math.max(1, fallbackPage - renderBufferPages),
+      end: Math.min(pageCount, fallbackPage + renderBufferPages)
+    }
+    return
+  }
+
+  renderedPageRange.value = {
+    start: Math.max(1, firstVisibleIndex - renderBufferPages),
+    end: Math.min(pageCount, lastVisibleIndex + renderBufferPages)
+  }
+}
+
+const scheduleRenderedPageRangeUpdate = () => {
+  if (pendingRangeUpdate.value) return
+  pendingRangeUpdate.value = true
+  requestAnimationFrame(() => {
+    pendingRangeUpdate.value = false
+    updateRenderedPageRange()
+  })
+}
+
+const markPdfUserScrolling = () => {
+  isPdfUserScrolling.value = true
+  if (pdfUserScrollTimeout.value !== null) {
+    window.clearTimeout(pdfUserScrollTimeout.value)
+  }
+  pdfUserScrollTimeout.value = window.setTimeout(() => {
+    isPdfUserScrolling.value = false
+    pdfUserScrollTimeout.value = null
+  }, 140)
+}
+
+const emitPdfScrollPercent = (percent: number) => {
+  pendingPdfSyncPercent.value = percent
+  if (pdfSyncRafId.value !== null) return
+  pdfSyncRafId.value = requestAnimationFrame(() => {
+    pdfSyncRafId.value = null
+    const nextPercent = pendingPdfSyncPercent.value
+    pendingPdfSyncPercent.value = null
+    if (nextPercent === null) return
+    if (Math.abs(nextPercent - lastEmittedPdfPercent.value) < 0.006) return
+    lastEmittedPdfPercent.value = nextPercent
+    emit('text-scroll', nextPercent)
+  })
+}
+
+const setPdfPageElement = (page: number, el: Element | null) => {
+  const element = el instanceof HTMLElement ? el : null
+  const previous = pageElements.get(page)
+  if (previous && previous !== element) {
+    const prevObserver = pageResizeObservers.get(page)
+    prevObserver?.disconnect()
+    pageResizeObservers.delete(page)
+    pageElements.delete(page)
+  }
+  if (!element) return
+  pageElements.set(page, element)
+
+  const measureHeight = () => {
+    const mediaElement = element.querySelector('canvas, img') as HTMLElement | null
+    if (!mediaElement) return
+    const mediaRect = mediaElement.getBoundingClientRect()
+    const wrapperRect = element.getBoundingClientRect()
+    const nextHeight = Math.max(400, Math.round(mediaRect.height))
+    const nextMetrics: RenderedPageMetrics = {
+      top: Math.max(0, mediaRect.top - wrapperRect.top),
+      left: Math.max(0, mediaRect.left - wrapperRect.left),
+      width: Math.max(1, mediaRect.width),
+      height: nextHeight
+    }
+    const currentHeight = pageHeights.value[page]
+    const currentMetrics = renderedPageMetrics.value[page]
+    const metricsChanged = !currentMetrics
+      || Math.abs(currentMetrics.top - nextMetrics.top) > 0.5
+      || Math.abs(currentMetrics.left - nextMetrics.left) > 0.5
+      || Math.abs(currentMetrics.width - nextMetrics.width) > 0.5
+      || Math.abs(currentMetrics.height - nextMetrics.height) > 0.5
+
+    if (currentHeight !== nextHeight) {
+      pageHeights.value = {
+        ...pageHeights.value,
+        [page]: nextHeight
+      }
+      updateEstimatedHeight()
+      scheduleRenderedPageRangeUpdate()
+    }
+
+    if (metricsChanged) {
+      renderedPageMetrics.value = {
+        ...renderedPageMetrics.value,
+        [page]: nextMetrics
+      }
+    }
+  }
+
+  requestAnimationFrame(measureHeight)
+
+  if (typeof ResizeObserver !== 'undefined' && !pageResizeObservers.has(page)) {
+    const observer = new ResizeObserver(() => {
+      measureHeight()
+    })
+    observer.observe(element)
+    pageResizeObservers.set(page, observer)
+  }
+}
+
 // Handle PDF scroll to sync with text
 const onPdfScroll = (e: Event) => {
   const target = e.target as HTMLElement
   if (!target) return
+  markPdfUserScrolling()
+  scheduleRenderedPageRangeUpdate()
   const { scrollTop, scrollHeight, clientHeight } = target
   if (scrollHeight <= clientHeight) return
   
   const percent = scrollTop / (scrollHeight - clientHeight)
-  // Debounce or throttle could be added here if needed
-  emit('text-scroll', percent)
+  emitPdfScrollPercent(percent)
 }
 
 // Watch for external page change to scroll PDF
 watch(() => props.currentPdfPage, (newPage) => {
-  if (props.isPdf && pdfScrollRef.value && newPage > 0) {
-    // Wait for DOM update
-    setTimeout(() => {
-      const pages = pdfScrollRef.value?.querySelectorAll('.pdf-page-wrapper')
-      if (pages && pages[newPage - 1]) {
-        pages[newPage - 1].scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-    }, 100)
-  }
+  if (!props.isPdf || !pdfScrollRef.value || newPage <= 0) return
+  if (isPdfUserScrolling.value) return
+  const targetTop = Math.max(0, (pageLayout.value.topByPage[newPage] || 0) - 8)
+  pdfScrollRef.value.scrollTo({ top: targetTop, behavior: 'auto' })
+  scheduleRenderedPageRangeUpdate()
 })
 
 const getScrollPercent = (element: HTMLElement): number => {
@@ -248,7 +477,7 @@ watch(() => props.pdfViewerUrl, (url) => {
   const loadPdf = async () => {
     try {
       // Use the configured worker
-      const loadingTask = pdfjsLib.getDocument(url)
+      const loadingTask = pdfjsLib.getDocument(normalizedPdfSource.value)
       const pdf = await loadingTask.promise
       if (pdf.numPages && pdf.numPages > 0) {
         localPdfPageCount.value = pdf.numPages
@@ -260,6 +489,25 @@ watch(() => props.pdfViewerUrl, (url) => {
   
   loadPdf()
 }, { immediate: true })
+
+watch([() => props.isPdf, displayPdfPageCount], async () => {
+  if (!props.isPdf) {
+    renderedPageRange.value = { start: 1, end: 1 }
+    return
+  }
+  await nextTick()
+  scheduleRenderedPageRangeUpdate()
+}, { immediate: true })
+
+watch(normalizedPdfSource, async () => {
+  pageHeights.value = {}
+  renderedPageMetrics.value = {}
+  estimatedPageHeight.value = 1100
+  renderedPageRange.value = { start: 1, end: 1 }
+  lastEmittedPdfPercent.value = -1
+  await nextTick()
+  scheduleRenderedPageRangeUpdate()
+})
 
 // Legacy scroll handler for text viewer
 const onLeftTextScroll = (e: Event) => {
@@ -277,6 +525,26 @@ watch(() => props.textScrollPercent, (percent) => {
   requestAnimationFrame(() => {
     applyingExternalScroll.value = false
   })
+})
+
+onMounted(() => {
+  window.addEventListener('resize', onWindowResize)
+  nextTick(() => {
+    scheduleRenderedPageRangeUpdate()
+  })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', onWindowResize)
+  if (pdfUserScrollTimeout.value !== null) {
+    window.clearTimeout(pdfUserScrollTimeout.value)
+  }
+  if (pdfSyncRafId.value !== null) {
+    cancelAnimationFrame(pdfSyncRafId.value)
+  }
+  pageResizeObservers.forEach(observer => observer.disconnect())
+  pageResizeObservers.clear()
+  pageElements.clear()
 })
 </script>
 
@@ -510,23 +778,23 @@ watch(() => props.textScrollPercent, (percent) => {
   overflow-y: auto;
   position: relative;
   background: var(--dp-bg-tertiary, #f5f5f5);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+}
+
+.pdf-virtual-spacer {
+  position: relative;
+  width: 100%;
 }
 
 .pdf-page-wrapper {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
   max-width: 900px;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  /* Ensure canvas inside VuePdfEmbed fits nicely */
 }
 
-/* Ensure images/canvas inside behave responsively */
 .pdf-page-wrapper :deep(canvas),
 .pdf-page-wrapper :deep(img) {
   display: block;
