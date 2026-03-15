@@ -773,7 +773,20 @@ const escapeHtmlAttribute = (content: string): string => content
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;')
 
-const fileDirectoryPath = computed(() => filePath.value.replace(/[\\/][^\\/]*$/, ''))
+const fileDirectoryPath = computed(() => {
+  const path = filePath.value
+  const dir = path.replace(/[\\/][^\\/]*$/, '')
+  
+  // Special handling for AnGIneer KB structure:
+  // Source file is in 'source/' but parsed content and assets are in 'parsed/'
+  // We redirect base path to 'parsed/' to correctly resolve relative assets like 'images/xxx.jpg'
+  if (dir.endsWith('\\source') || dir.endsWith('/source')) {
+    const parent = dir.substring(0, dir.length - 7)
+    return `${parent}\\parsed`
+  }
+  
+  return dir
+})
 
 const resolveAssetUrl = (source: string): string => {
   const trimmed = source.trim()
