@@ -3,6 +3,7 @@ import tempfile
 import json
 from typing import Any, Dict, List, Optional
 from dotenv import load_dotenv
+from pathlib import Path
 
 from .structured_strategy import extract_structured_items_from_markdown
 
@@ -47,6 +48,13 @@ class MinerURag:
                 raise ImportError("请安装 mineru-rag: pip install mineru-rag[rag]")
         return self._llm
 
+    def _ensure_vector_store_dir(self, library_id: str) -> Path:
+        """确保 MinerU-RAG 的 Faiss 向量库目录存在。"""
+        root_dir = Path.home() / '.mineru_rag' / 'vector_db'
+        library_dir = root_dir / f'{library_id}_faiss'
+        library_dir.mkdir(parents=True, exist_ok=True)
+        return library_dir
+
     def build_knowledge_base(
         self,
         markdown_files: list,
@@ -65,6 +73,7 @@ class MinerURag:
             构建结果
         """
         rag = self._get_rag()
+        self._ensure_vector_store_dir(library_id)
 
         rag.build_from_files(
             file_paths=markdown_files,

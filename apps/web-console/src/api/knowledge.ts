@@ -21,7 +21,19 @@ export const knowledgeApi = {
     }),
 
   getDocument: (libraryId: string, docId: string) =>
-    request(`/knowledge/document/${libraryId}/${docId}`)
+    request(`/knowledge/document/${libraryId}/${docId}`),
+
+  getDocBlocksGraph: (libraryId: string, docId: string) =>
+    request(`/knowledge/parse/doc-blocks-graph`, {
+      method: 'POST',
+      body: JSON.stringify({ library_id: libraryId, doc_id: docId })
+    }),
+
+  buildStructuredIndex: (libraryId: string, docId: string, strategy: string = 'A_structured') =>
+    request(`/knowledge/parse/structured-index`, {
+      method: 'POST',
+      body: JSON.stringify({ library_id: libraryId, doc_id: docId, strategy })
+    })
 }
 
 export default knowledgeApi

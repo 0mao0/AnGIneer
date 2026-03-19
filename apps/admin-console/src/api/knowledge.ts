@@ -114,7 +114,11 @@ export const knowledgeApi = {
       doc_id: string
       storage: DocumentStorageManifest
     }>,
-  reorganizeStorage: () => api.post('/knowledge/storage/reorganize')
+  reorganizeStorage: () => api.post('/knowledge/storage/reorganize'),
+
+  // 文档块图谱
+  getDocBlocksGraph: (libraryId: string, docId: string) =>
+    api.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId })
 }
 
 export default api

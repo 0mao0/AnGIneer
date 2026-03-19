@@ -11,7 +11,6 @@ from fastapi import APIRouter, HTTPException, BackgroundTasks, Body
 from pydantic import BaseModel
 
 from docs_core import mineru_parser, file_storage, knowledge_service
-from docs_core.parser.mineru_structure import MinerUStructureBuilder
 
 router = APIRouter()
 
@@ -208,44 +207,10 @@ def _run_parse_task(task_id: str, library_id: str, doc_id: str, target_file_path
             except Exception as e:
                 print(f"[ParseTask] Failed to move/rename content_list: {e}")
 
-        # 2. 调用 MinerUStructureBuilder 生成结构化 Blocks
-        # 这一步是把 MinerU 的原始 JSON (model/layout/content_list) 转换为我们要的 blocks
-        structure_builder = MinerUStructureBuilder()
-        
-        model_data = None
-        layout_data = None
-        content_list_data = None
-        
-        def _read_json_safe(p):
-            try:
-                with open(p, 'r', encoding='utf-8') as f:
-                    return json.load(f)
-            except:
-                return None
+        # 注意：不再生成 mineru_blocks.json
+        # doc_blocks_graph.json 直接由 structured_strategy 从 content_list_v2.json 构建
 
-        # 使用最终确认的文件列表
-        print(f"[ParseTask] Final JSON files for building: {final_json_files}")
-        for f in final_json_files:
-            fname = f.name.lower()
-            if fname.endswith('model.json'):
-                model_data = _read_json_safe(f)
-            elif fname.endswith('layout.json'):
-                layout_data = _read_json_safe(f)
-            elif 'content_list' in fname:
-                content_list_data = _read_json_safe(f)
-                
-        mineru_blocks = structure_builder.build(
-            model_data=model_data,
-            layout_data=layout_data,
-            content_list_data=content_list_data
-        )
-        
-        if not mineru_blocks:
-             print(f"[ParseTask] Warning: Generated mineru_blocks is empty for doc_id={doc_id}")
-
-        file_storage.save_mineru_blocks(library_id, doc_id, mineru_blocks)
-        
-        # 清理旧数据 & 保存新资源 (图片)
+        # 清理旧数据
         middle_json_path = file_storage.get_doc_manifest(library_id, doc_id).get('middle_json')
         if isinstance(middle_json_path, str) and middle_json_path and os.path.isfile(middle_json_path):
             try:
@@ -345,5 +310,25 @@ async def build_structured_index(request: KnowledgeStructuredIndexRequest):
     try:
         result = _build_structured_index_for_doc(request.library_id, request.doc_id, request.strategy)
         return {"status": "success", "data": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class DocBlocksGraphRequest(BaseModel):
+    library_id: str
+    doc_id: str
+
+
+@router.post("/parse/doc-blocks-graph")
+async def get_doc_blocks_graph(request: DocBlocksGraphRequest):
+    """获取文档块图谱数据（用于前端树形/图形视图）"""
+    from docs_core.storage.structured_strategy import get_doc_blocks_graph as _get_doc_blocks_graph
+    try:
+        graph = _get_doc_blocks_graph(request.library_id, request.doc_id)
+        if not graph:
+            raise HTTPException(status_code=404, detail="Graph data not found. Please run structured-index first.")
+        return {"status": "success", "data": graph}
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

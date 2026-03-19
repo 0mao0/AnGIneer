@@ -8,10 +8,11 @@ import sys
 import uuid
 import tempfile
 import threading
+import mimetypes
 from urllib.parse import quote
 from datetime import datetime
 from typing import List, Dict, Any, Optional
-from fastapi import FastAPI, HTTPException, UploadFile, File as FastAPIFile, Form
+from fastapi import FastAPI, HTTPException, UploadFile, File as FastAPIFile, Form, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -1258,16 +1259,13 @@ async def upload_document(
 
 
 @app.get("/api/files")
-def get_file_for_preview(path: str):
-    """按绝对路径预览文件"""
+def get_file_for_preview(path: str, request: Request):
+    """按绝对路径预览文件（支持 Range 请求）"""
     normalized_path = os.path.abspath(os.path.normpath(path))
-    # 允许访问的根目录
     allowed_roots = [
         os.path.abspath(os.path.join(ROOT_DIR, 'data', 'knowledge_base')),
-        # 兼容 Windows 驱动器盘符大小写和不同根路径
     ]
-    
-    # 额外添加当前文件存储可能使用的根路径
+
     from docs_core import file_storage
     storage_root = os.path.abspath(file_storage.base_dir)
     if storage_root not in allowed_roots:
@@ -1276,33 +1274,73 @@ def get_file_for_preview(path: str):
     is_allowed = False
     for root in allowed_roots:
         try:
-            # 使用 commonpath 检查 path 是否在 root 目录下
             if os.path.commonpath([normalized_path, root]).lower() == root.lower():
                 is_allowed = True
                 break
         except ValueError:
-            # 路径在不同驱动器上时 commonpath 会抛出 ValueError
             continue
-            
+
     if not is_allowed:
-        # 记录日志以便排查
         print(f"[Preview Error] Forbidden path: {normalized_path}")
         print(f"[Preview Error] Allowed roots: {allowed_roots}")
         raise HTTPException(status_code=403, detail="Forbidden path")
-        
+
     if not os.path.exists(normalized_path):
         raise HTTPException(status_code=404, detail="File not found")
     if not os.path.isfile(normalized_path):
         raise HTTPException(status_code=400, detail="Path is not a file")
-            
+
+    file_size = os.path.getsize(normalized_path)
     filename = os.path.basename(normalized_path)
-    # 使用 URL 编码的文件名以避免中文乱码问题
     encoded_filename = quote(filename)
-    
+
+    # 根据文件扩展名获取正确的 MIME 类型
+    mime_type, _ = mimetypes.guess_type(normalized_path)
+    if not mime_type:
+        mime_type = "application/octet-stream"
+
+    range_header = request.headers.get("range")
+
+    if range_header:
+        import re
+        match = re.match(r"bytes=(\d+)-(\d*)", range_header)
+        if match:
+            start = int(match.group(1))
+            end = int(match.group(2)) if match.group(2) else file_size - 1
+            end = min(end, file_size - 1)
+            content_length = end - start + 1
+
+            def iterfile():
+                with open(normalized_path, "rb") as f:
+                    f.seek(start)
+                    remaining = content_length
+                    chunk_size = 64 * 1024
+                    while remaining > 0:
+                        read_size = min(chunk_size, remaining)
+                        data = f.read(read_size)
+                        if not data:
+                            break
+                        remaining -= len(data)
+                        yield data
+
+            return StreamingResponse(
+                iterfile(),
+                status_code=206,
+                media_type=mime_type,
+                headers={
+                    "Content-Range": f"bytes {start}-{end}/{file_size}",
+                    "Accept-Ranges": "bytes",
+                    "Content-Length": str(content_length),
+                    "Content-Disposition": f"inline; filename*=utf-8''{encoded_filename}"
+                }
+            )
+
     return FileResponse(
-        normalized_path, 
+        normalized_path,
         filename=filename,
+        media_type=mime_type,
         headers={
+            "Accept-Ranges": "bytes",
             "Content-Disposition": f"inline; filename*=utf-8''{encoded_filename}"
         }
     )
@@ -1489,61 +1527,20 @@ def rag_build(request: KnowledgeRagBuildRequest):
 def get_document(library_id: str, doc_id: str):
     """获取文档内容"""
     from docs_core import file_storage
-    from docs_core.parser.mineru_structure import MinerUStructureBuilder
-    from pathlib import Path
-    import json
-    import os
+    from docs_core.storage.structured_strategy import get_doc_blocks_graph
 
     content = file_storage.read_markdown(library_id, doc_id)
     if content is None:
         raise HTTPException(status_code=404, detail="Document not found")
     
     storage_manifest = file_storage.get_doc_manifest(library_id, doc_id)
-    mineru_blocks = file_storage.read_mineru_blocks(library_id, doc_id)
     
-    if not mineru_blocks:
-        # 尝试从 raw_dir 恢复 blocks
-        raw_dir = storage_manifest.get('raw_dir') or storage_manifest.get('parsed_dir')
-        if isinstance(raw_dir, str) and raw_dir.strip() and os.path.isdir(raw_dir):
-            try:
-                structure_builder = MinerUStructureBuilder()
-                model_data = None
-                layout_data = None
-                content_list_data = None
-                
-                def _read_json_safe(p):
-                    try:
-                        with open(p, 'r', encoding='utf-8') as f:
-                            return json.load(f)
-                    except:
-                        return None
-
-                json_files = list(Path(raw_dir).rglob('*.json'))
-                for f in json_files:
-                    fname = f.name.lower()
-                    if fname.endswith('model.json'):
-                        model_data = _read_json_safe(f)
-                    elif fname.endswith('layout.json'):
-                        layout_data = _read_json_safe(f)
-                    elif 'content_list' in fname:
-                        content_list_data = _read_json_safe(f)
-                
-                recovered_blocks = structure_builder.build(
-                    model_data=model_data,
-                    layout_data=layout_data,
-                    content_list_data=content_list_data
-                )
-                
-                if recovered_blocks:
-                    file_storage.save_mineru_blocks(library_id, doc_id, recovered_blocks)
-                    mineru_blocks = recovered_blocks
-            except Exception as e:
-                print(f"[GetDocument] Recover blocks failed: {e}")
+    graph_data = get_doc_blocks_graph(library_id, doc_id)
 
     return {
         "content": content,
         "storage": storage_manifest,
-        "mineru_blocks": mineru_blocks
+        "graph_data": graph_data
     }
 
 @app.put("/api/knowledge/document/{library_id}/{doc_id}")

@@ -82,13 +82,13 @@
             <DocumentParsedWorkspace
               :node="selectedNode"
               :content="docContent"
-              :mineru-blocks="mineruBlocks"
               :structured-stats="structuredStats"
               :structured-items="structuredItems"
               :ingest-status="ingestStatus"
               :ingest-progress="ingestProgress"
               :ingest-stage="ingestStage"
               :dark-mode="isDark"
+              :graph-data="graphData"
               @parse="parseDocument"
               @toggle-visible="toggleVisible"
               @save-content="saveDocumentContent"
@@ -164,6 +164,7 @@ import {
   SmartTree,
   DocumentParsedWorkspace,
   type SmartTreeNode,
+  type KnowledgeTreeNode,
   type KnowledgeStrategy,
   type ParseTaskInfo,
   type StructuredIndexItem,
@@ -173,7 +174,7 @@ import {
   createResourceNodeFromKnowledge,
   createOpenResourcePayload
 } from '@angineer/docs-ui'
-import { useKnowledgeTree, type TreeNode } from '@angineer/docs-ui'
+import { useKnowledgeTree } from '@angineer/docs-ui'
 import { knowledgeApi } from '@/api/knowledge'
 import { useChatStore } from '@/stores/chat'
 
@@ -222,7 +223,7 @@ const structuredItems = ref<StructuredIndexItem[]>([])
 const ingestStatus = ref<'idle' | 'processing' | 'completed' | 'failed'>('idle')
 const ingestProgress = ref(0)
 const ingestStage = ref('')
-const mineruBlocks = ref<Record<string, any>[]>([])
+const graphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
 
 // 弹窗状态
 const folderModalVisible = ref(false)
@@ -235,7 +236,7 @@ const folderForm = ref({
 })
 
 const docDetailVisible = ref(false)
-const detailDoc = ref<TreeNode | null>(null)
+const detailDoc = ref<KnowledgeTreeNode | null>(null)
 
 // 文档内容
 const docContent = ref('')
@@ -304,9 +305,16 @@ const buildMiddleFallbackItems = (content: string): StructuredIndexItem[] => {
     const trimmed = (line || '').trim()
     if (!trimmed) return
     const headingMatch = trimmed.match(/^(#{1,6})\s+(.+)$/)
-    const numberedMatch = trimmed.match(/^\d+(?:\.\d+){0,3}\s+(.+)$/)
+    const numberedMatch = trimmed.match(/^(\d+(?:\.\d+)*)(?:[、.)])?\s*(.*)$/)
     if (!headingMatch && !numberedMatch) return
-    const text = ((headingMatch?.[2] || numberedMatch?.[1] || '').trim()).slice(0, 160)
+    const numberedPrefix = numberedMatch?.[1] || ''
+    const numberedText = (numberedMatch?.[2] || '').trim()
+    const text = (
+      headingMatch?.[2]
+      || (numberedPrefix && numberedText ? `${numberedPrefix} ${numberedText}` : numberedPrefix)
+      || numberedText
+      || ''
+    ).trim().slice(0, 200)
     if (!text) return
     const pageHint = extractPageHintFromLine(trimmed)
     result.push({
@@ -364,7 +372,7 @@ const loadNodes = async (focusNodeKey?: string) => {
       selectedKeys.value = [focusNodeKey]
       const node = findNode(treeData.value as unknown as SmartTreeNode[], focusNodeKey)
       if (node) {
-        selectedNode.value = node as unknown as TreeNode
+        selectedNode.value = node as unknown as KnowledgeTreeNode
         if (!node.isFolder) {
           if (node.status === 'completed') {
             await loadDocContent(node.key)
@@ -373,7 +381,7 @@ const loadNodes = async (focusNodeKey?: string) => {
             if (!keepCurrentPreview(node.key)) {
               docContent.value = ''
               docContentDocId.value = ''
-              mineruBlocks.value = []
+              graphData.value = null
               structuredStats.value = {}
               structuredItems.value = []
             }
@@ -396,7 +404,7 @@ const loadNodes = async (focusNodeKey?: string) => {
 const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
   selectedKeys.value = keys
   if (nodes.length > 0) {
-    const node = nodes[0] as TreeNode
+    const node = nodes[0] as KnowledgeTreeNode
     selectedNode.value = node
     if (!node.isFolder) {
       if (node.status === 'completed') {
@@ -411,7 +419,7 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
         if (!keepCurrentPreview(node.key)) {
           docContent.value = ''
           docContentDocId.value = ''
-          mineruBlocks.value = []
+          graphData.value = null
           structuredStats.value = {}
           structuredItems.value = []
         }
@@ -431,18 +439,18 @@ const loadDocContent = async (docId: string) => {
     const result = await knowledgeApi.getDocument('default', docId) as unknown as {
       content: string
       storage?: { source_file?: string | null }
-      mineru_blocks?: Record<string, any>[]
+      graph_data?: { nodes: any[]; edges: any[] } | null
     }
     docContent.value = result.content || '暂无内容'
     docContentDocId.value = docId
-    mineruBlocks.value = Array.isArray(result?.mineru_blocks) ? result.mineru_blocks : []
+    graphData.value = result?.graph_data || null
     if (selectedNode.value && selectedNode.value.key === docId && result?.storage?.source_file) {
       selectedNode.value.filePath = result.storage.source_file
     }
   } catch (error) {
     docContent.value = ''
     docContentDocId.value = ''
-    mineruBlocks.value = []
+    graphData.value = null
     structuredStats.value = {}
   }
 }
@@ -600,7 +608,7 @@ const handleDeleteNode = async (node: SmartTreeNode) => {
 
 // 显示文档详情
 const showDocDetail = (node: SmartTreeNode) => {
-  detailDoc.value = node as TreeNode
+  detailDoc.value = node as KnowledgeTreeNode
   docDetailVisible.value = true
 }
 
@@ -674,6 +682,7 @@ const rebuildStructuredIndex = async (strategy?: KnowledgeStrategy) => {
     ingestStage.value = '入库完成'
     await loadStructuredStats(selectedNode.value.key)
     await loadStructuredIndex()
+    await loadDocContent(selectedNode.value.key)
     message.success('入库完成')
   } catch (error) {
     if (ingestProgressTimer.value) {

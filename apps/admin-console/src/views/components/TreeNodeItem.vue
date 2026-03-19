@@ -76,7 +76,7 @@ import {
   DeleteOutlined,
   EyeOutlined
 } from '@ant-design/icons-vue'
-import type { TreeNode } from '@angineer/docs-ui'
+import type { KnowledgeTreeNode } from '@angineer/docs-ui'
 
 /**
  * 知识树节点项组件
@@ -84,16 +84,16 @@ import type { TreeNode } from '@angineer/docs-ui'
  */
 interface Props {
   /** 节点数据 */
-  data: TreeNode
+  data: KnowledgeTreeNode
 }
 
 defineProps<Props>()
 
 defineEmits<{
-  rename: [node: TreeNode]
+  rename: [node: KnowledgeTreeNode]
   'create-sub-folder': [key: string]
   delete: [key: string]
-  'view-detail': [node: TreeNode]
+  'view-detail': [node: KnowledgeTreeNode]
 }>()
 </script>
 

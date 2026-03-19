@@ -129,6 +129,9 @@ importers:
 
   packages/docs-ui:
     dependencies:
+      '@angineer/ui-kit':
+        specifier: workspace:*
+        version: link:../ui-kit
       katex:
         specifier: ^0.16.37
         version: 0.16.37

@@ -3,25 +3,8 @@
  * 提供知识树的状态管理和操作方法
  */
 import { ref, computed } from 'vue'
-
-// 树节点类型定义
-export interface TreeNode {
-  key: string
-  title: string
-  isFolder: boolean
-  visible: boolean
-  status: 'pending' | 'uploading' | 'processing' | 'completed' | 'failed'
-  parentId?: string
-  filePath?: string
-  file_path?: string
-  parseProgress?: number
-  parseStage?: string
-  parseError?: string
-  parseTaskId?: string
-  strategy?: 'A_structured' | 'B_mineru_rag' | 'C_pageindex'
-  children?: TreeNode[]
-  [key: string]: any
-}
+import type { KnowledgeTreeNode } from '../types/tree'
+export type { KnowledgeTreeNode } from '../types/tree'
 
 // 上传任务类型
 export interface UploadTask {
@@ -36,15 +19,15 @@ export interface UploadTask {
 
 export function useKnowledgeTree() {
   // 状态
-  const treeData = ref<TreeNode[]>([])
+  const treeData = ref<KnowledgeTreeNode[]>([])
   const selectedKeys = ref<string[]>([])
   const expandedKeys = ref<string[]>([])
-  const selectedNode = ref<TreeNode | null>(null)
+  const selectedNode = ref<KnowledgeTreeNode | null>(null)
   const uploadTasks = ref<UploadTask[]>([])
 
   // 计算属性
   const folderTreeData = computed(() => {
-    const convert = (nodes: TreeNode[]): any[] =>
+    const convert = (nodes: KnowledgeTreeNode[]): any[] =>
       nodes
         .filter(n => n.isFolder)
         .map(n => ({
@@ -58,9 +41,9 @@ export function useKnowledgeTree() {
   const hasData = computed(() => treeData.value.length > 0)
 
   // 构建树结构
-  const buildTree = (nodes: any[]): TreeNode[] => {
-    const nodeMap = new Map<string, TreeNode>()
-    const roots: TreeNode[] = []
+  const buildTree = (nodes: any[]): KnowledgeTreeNode[] => {
+    const nodeMap = new Map<string, KnowledgeTreeNode>()
+    const roots: KnowledgeTreeNode[] = []
 
     nodes.forEach(n => {
       nodeMap.set(n.id, {
@@ -95,7 +78,7 @@ export function useKnowledgeTree() {
   }
 
   // 查找节点
-  const findNode = (nodes: TreeNode[], key: string): TreeNode | null => {
+  const findNode = (nodes: KnowledgeTreeNode[], key: string): KnowledgeTreeNode | null => {
     for (const node of nodes) {
       if (node.key === key) return node
       if (node.children) {
@@ -126,7 +109,7 @@ export function useKnowledgeTree() {
   }
 
   // 更新节点状态
-  const updateNodeStatus = (key: string, status: TreeNode['status']) => {
+  const updateNodeStatus = (key: string, status: KnowledgeTreeNode['status']) => {
     const node = findNode(treeData.value, key)
     if (node) {
       node.status = status
@@ -147,7 +130,7 @@ export function useKnowledgeTree() {
   }
 
   // 设置树数据
-  const setTreeData = (nodes: TreeNode[]) => {
+  const setTreeData = (nodes: KnowledgeTreeNode[]) => {
     treeData.value = nodes
   }
 

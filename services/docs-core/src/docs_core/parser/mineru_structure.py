@@ -1,7 +1,1055 @@
-"""MinerU 结构化数据生成器 (A/B/C 融合算法)"""
+"""
+MinerU 结构化数据生成器 - A1 结构结果对象生成
+
+核心算法：
+- 无限深度层级推断
+- 编号段落提升
+- 公式解释连续下挂
+- parent/title_path/explain_for 推断
+
+输出：A1结构结果对象（nodes, edges, index_rows, stats）
+"""
+import datetime as dt
 import json
 import re
-from typing import Optional, Dict, Any, List, Set, Tuple
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Set, Tuple, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from angineer_core.infra.llm_client import LLMClient
+
+
+def now_iso() -> str:
+    """返回UTC时区的ISO时间字符串。"""
+    return dt.datetime.now(dt.timezone.utc).isoformat()
+
+
+def read_json(path: Path) -> Any:
+    """读取并解析JSON文件。"""
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def extract_plain_text(block_type: str, content: dict[str, Any]) -> str:
+    """按块类型提取可读纯文本。"""
+    def collect_from_any(node: Any) -> list[str]:
+        """递归收集任意结构中的文本片段。"""
+        parts: list[str] = []
+        if isinstance(node, str):
+            parts.append(node)
+            return parts
+        if isinstance(node, list):
+            for item in node:
+                parts.extend(collect_from_any(item))
+            return parts
+        if isinstance(node, dict):
+            for key in ("content", "text", "value"):
+                val = node.get(key)
+                if isinstance(val, str):
+                    parts.append(val)
+            for key in ("item_content", "list_items", "children", "spans"):
+                val = node.get(key)
+                if isinstance(val, (list, dict, str)):
+                    parts.extend(collect_from_any(val))
+            return parts
+        return parts
+
+    def collect_from_spans(spans: Any) -> str:
+        """拼接span数组中的文本内容。"""
+        if not isinstance(spans, list):
+            return ""
+        parts: list[str] = []
+        for item in spans:
+            if isinstance(item, dict):
+                val = item.get("content")
+                if isinstance(val, str):
+                    parts.append(val)
+            elif isinstance(item, str):
+                parts.append(item)
+        return "".join(parts).strip()
+
+    if block_type == "title":
+        return collect_from_spans(content.get("title_content"))
+    if block_type == "paragraph":
+        return collect_from_spans(content.get("paragraph_content"))
+    if block_type == "page_header":
+        return collect_from_spans(content.get("page_header_content"))
+    if block_type == "page_number":
+        return collect_from_spans(content.get("page_number_content"))
+    if block_type == "list":
+        items = content.get("list_items")
+        if isinstance(items, (list, dict)):
+            txt = collect_from_any(items)
+            merged = " ".join(x.strip() for x in txt if isinstance(x, str) and x.strip()).strip()
+            merged = re.sub(r"\s+", " ", merged)
+            return merged
+        return ""
+    if block_type == "equation_interline":
+        v = content.get("math_content")
+        return v.strip() if isinstance(v, str) else ""
+    if block_type == "table":
+        cap = collect_from_spans(content.get("table_caption"))
+        foot = collect_from_spans(content.get("table_footnote"))
+        return " ".join([x for x in [cap, foot] if x]).strip()
+    if block_type == "image":
+        cap = collect_from_spans(content.get("image_caption"))
+        foot = collect_from_spans(content.get("image_footnote"))
+        return " ".join([x for x in [cap, foot] if x]).strip()
+    return ""
+
+
+def parse_bbox(raw_bbox: Any) -> tuple[float, float, float, float]:
+    """把bbox转换为四元浮点坐标。"""
+    if not isinstance(raw_bbox, list) or len(raw_bbox) != 4:
+        return 0.0, 0.0, 0.0, 0.0
+    return tuple(float(v) for v in raw_bbox)  # type: ignore[return-value]
+
+
+def normalize_match_text(text: str) -> str:
+    """归一化文本以提高跨源匹配稳定性。"""
+    if not text:
+        return ""
+    compact = re.sub(r"\s+", "", text)
+    compact = re.sub(r"[，。；：、“”‘’（）()\[\]【】<>《》,.;:!?！？·—\-~]", "", compact)
+    return compact.strip().lower()
+
+
+def extract_layout_text(payload: Any) -> str:
+    """从 layout 块中提取可比对文本。"""
+    fragments: list[str] = []
+
+    def collect(node: Any) -> None:
+        if isinstance(node, str):
+            val = node.strip()
+            if val:
+                fragments.append(val)
+            return
+        if isinstance(node, list):
+            for item in node:
+                collect(item)
+            return
+        if isinstance(node, dict):
+            for key in ("content", "text", "value"):
+                value = node.get(key)
+                if isinstance(value, str) and value.strip():
+                    fragments.append(value.strip())
+            for key in ("spans", "lines", "blocks", "children"):
+                value = node.get(key)
+                if isinstance(value, (list, dict, str)):
+                    collect(value)
+
+    collect(payload)
+    if not fragments:
+        return ""
+    merged = " ".join(fragments)
+    return re.sub(r"\s+", " ", merged).strip()
+
+
+def text_match_score(source: str, target: str) -> float:
+    """计算文本匹配分值。"""
+    src = normalize_match_text(source)
+    tgt = normalize_match_text(target)
+    if not src or not tgt:
+        return 0.0
+    if src == tgt:
+        return 1.0
+    if src in tgt or tgt in src:
+        overlap = min(len(src), len(tgt)) / max(len(src), len(tgt))
+        return 0.72 + overlap * 0.24
+    return 0.0
+
+
+def resolve_layout_bbox(
+    page_candidates: list[dict[str, Any]],
+    text: str,
+    preferred_kinds: tuple[str, ...]
+) -> tuple[float, float, float, float] | None:
+    """按文本在 layout 候选中解析更精确 bbox。"""
+    if not text.strip() or not page_candidates:
+        return None
+
+    best: dict[str, Any] | None = None
+    best_score = 0.0
+    for candidate in page_candidates:
+        if candidate.get("used"):
+            continue
+        kind = str(candidate.get("kind") or "")
+        if preferred_kinds and kind not in preferred_kinds:
+            continue
+        score = text_match_score(text, str(candidate.get("text") or ""))
+        if score <= 0:
+            continue
+        if preferred_kinds and kind == preferred_kinds[0]:
+            score += 0.04
+        if score > best_score:
+            best = candidate
+            best_score = score
+
+    if best is None and preferred_kinds:
+        for candidate in page_candidates:
+            if candidate.get("used"):
+                continue
+            score = text_match_score(text, str(candidate.get("text") or ""))
+            if score > best_score:
+                best = candidate
+                best_score = score
+
+    if best is None or best_score < 0.74:
+        return None
+
+    best["used"] = True
+    bbox = best.get("bbox")
+    if isinstance(bbox, tuple) and len(bbox) == 4:
+        return bbox
+    return None
+
+
+def build_layout_candidates(layout_payload: Any) -> dict[int, list[dict[str, Any]]]:
+    """构建按页组织的 layout 文本与 bbox 候选。"""
+    page_map: dict[int, list[dict[str, Any]]] = {}
+    if not isinstance(layout_payload, dict):
+        return page_map
+
+    pdf_info = layout_payload.get("pdf_info")
+    if not isinstance(pdf_info, list):
+        return page_map
+
+    for page_idx, page in enumerate(pdf_info):
+        if not isinstance(page, dict):
+            continue
+        para_blocks = page.get("para_blocks")
+        if not isinstance(para_blocks, list):
+            continue
+        candidates: list[dict[str, Any]] = []
+        for para_block in para_blocks:
+            if not isinstance(para_block, dict):
+                continue
+            para_type = str(para_block.get("type") or "")
+            para_bbox = parse_bbox(para_block.get("bbox"))
+            para_text = extract_layout_text(para_block)
+            if para_text and any(para_bbox):
+                candidates.append({
+                    "text": para_text,
+                    "bbox": para_bbox,
+                    "kind": para_type or "unknown",
+                    "used": False
+                })
+
+            if para_type == "list":
+                child_blocks = para_block.get("blocks")
+                if isinstance(child_blocks, list):
+                    for child in child_blocks:
+                        if not isinstance(child, dict):
+                            continue
+                        child_bbox = parse_bbox(child.get("bbox"))
+                        child_text = extract_layout_text(child)
+                        if not child_text or not any(child_bbox):
+                            continue
+                        child_type = str(child.get("type") or "text")
+                        candidates.append({
+                            "text": child_text,
+                            "bbox": child_bbox,
+                            "kind": "list_item" if child_type == "text" else child_type,
+                            "used": False
+                        })
+        page_map[page_idx] = candidates
+    return page_map
+
+
+def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple[float, float]], str, dict[str, Any]]:
+    """读取解析结果并返回内容、页面尺寸和解析器版本。"""
+    content_list_path = raw_dir / "content_list_v2.json"
+    layout_path = raw_dir / "layout.json"
+    
+    if not content_list_path.exists():
+        return [], {}, "", {}
+    
+    parsed_blocks = read_json(content_list_path)
+    parser_version = ""
+    page_size_map: dict[int, tuple[float, float]] = {}
+    layout_payload: dict[str, Any] = {}
+    
+    if layout_path.exists():
+        layout = read_json(layout_path)
+        if isinstance(layout, dict):
+            layout_payload = layout
+        pdf_info = layout.get("pdf_info", []) if isinstance(layout, dict) else []
+        for page in pdf_info:
+            idx = int(page.get("page_idx", 0))
+            size = page.get("page_size", [0, 0])
+            if isinstance(size, list) and len(size) == 2:
+                page_size_map[idx] = (float(size[0]), float(size[1]))
+        parser_version = str(layout.get("_version_name", "")) if isinstance(layout, dict) else ""
+    
+    return parsed_blocks, page_size_map, parser_version, layout_payload
+
+
+def infer_title_level(text: str, raw_level: Any) -> tuple[int | None, float, str]:
+    """用规则与原始level推断标题级别。"""
+    txt = (text or "").strip()
+    m = re.match(r"^(\d+(?:\.\d+)*)", txt)
+    if m:
+        level = m.group(1).count(".") + 1
+        if level >= 1:
+            return level, 0.95, "rule"
+    if isinstance(raw_level, int) and raw_level >= 1:
+        return raw_level, 0.6, "raw"
+    return None, 0.0, "none"
+
+
+def extract_struct_number(text: str) -> str | None:
+    """提取结构编号或附录编号锚点。"""
+    txt = (text or "").strip()
+    if not txt:
+        return None
+    m = re.match(r"^(\d+(?:\.\d+)*)", txt)
+    if m:
+        return m.group(1)
+    m2 = re.match(r"^(附录[A-Z])", txt)
+    if m2:
+        return m2.group(1)
+    return None
+
+
+def infer_struct_level(text: str) -> int | None:
+    """从结构编号提取无限深度层级。"""
+    struct_no = extract_struct_number(text)
+    if not struct_no:
+        return None
+    if struct_no.startswith("附录"):
+        return 1
+    return struct_no.count(".") + 1
+
+
+def should_treat_as_struct_heading(block_type: str, text: str, is_toc_row: bool, is_toc_page: bool) -> bool:
+    """判断是否把非title块按结构标题处理。"""
+    if is_toc_row or is_toc_page:
+        return False
+    if block_type not in ("paragraph", "list"):
+        return False
+    return infer_struct_level(text) is not None
+
+
+def is_equation_explain_continuation(text: str) -> bool:
+    """判断是否为公式说明连续段。"""
+    txt = (text or "").strip()
+    if not txt:
+        return False
+    if re.match(r"^\d+(?:\.\d+)*", txt):
+        return False
+    if txt.startswith(("式中", "其中", "注")):
+        return True
+    return re.match(r"^[A-Za-zΑ-Ωα-ω][A-Za-z0-9_{}()\\\-]*\s*[—\-–=:：]", txt) is not None
+
+
+def derive_explain_target(rows: list[Any], idx: int) -> tuple[str | None, str | None, float, str]:
+    """为说明性段落回溯关联公式或图表目标。"""
+    current = rows[idx]
+    if current["block_type"] != "paragraph":
+        return None, None, 0.0, "none"
+    txt = (current["plain_text"] or "").strip()
+    if not txt:
+        return None, None, 0.0, "none"
+    trigger = txt.startswith("式中") or txt.startswith("其中") or txt.startswith("注")
+    if not trigger:
+        return None, None, 0.0, "none"
+    page_idx = current["page_idx"]
+    for j in range(idx - 1, max(-1, idx - 8), -1):
+        prev = rows[j]
+        if prev["page_idx"] != page_idx:
+            break
+        t = prev["block_type"]
+        if t in ("equation_interline", "table", "image"):
+            return prev["block_uid"], t.replace("_interline", ""), 0.85, "rule"
+    return None, None, 0.2, "rule"
+
+
+def detect_toc_row_ids(rows: list[Any]) -> set[int]:
+    """检测目录页并返回目录相关行ID集合。"""
+    def is_toc_marker(text: str) -> bool:
+        """判断是否目录页标记文本。"""
+        compact = re.sub(r"\s+", "", text)
+        return compact in {"目录", "目次"}
+
+    def is_toc_item(text: str) -> bool:
+        """判断文本是否目录条目样式。"""
+        compact = re.sub(r"\s+", "", text)
+        if not compact:
+            return False
+        if is_toc_marker(compact):
+            return True
+        has_leader = ("……" in compact) or ("..." in compact) or ("…" in compact)
+        has_page_tail = re.search(r"(?:\(|（)?\d{1,4}(?:\)|）)?$", compact) is not None
+        if not has_page_tail:
+            return False
+        starts_like_heading = re.match(r"^(附录[A-Z]|附录|引用标准名录|条文说明|\d+(?:[.\-]\d+)*)", compact) is not None
+        if starts_like_heading:
+            return True
+        return has_leader and len(compact) >= 8
+
+    candidate_types = {"title", "list", "paragraph"}
+    pages: dict[int, list[Any]] = {}
+    marker_pages: set[int] = set()
+    for row in rows:
+        page_idx = int(row["page_idx"])
+        pages.setdefault(page_idx, []).append(row)
+        text = (row["plain_text"] or "").strip()
+        if text and is_toc_marker(text):
+            marker_pages.add(page_idx)
+    if not marker_pages:
+        return set()
+    page_order = sorted(pages.keys())
+    first_marker = min(marker_pages)
+    toc_pages: set[int] = set(marker_pages)
+    collecting = False
+    for page_idx in page_order:
+        if page_idx < first_marker:
+            continue
+        rows_in_page = pages.get(page_idx, [])
+        text_rows = [r for r in rows_in_page if r["block_type"] in candidate_types]
+        toc_like = 0
+        for r in text_rows:
+            text = (r["plain_text"] or "").strip()
+            if text and is_toc_item(text):
+                toc_like += 1
+        page_is_toc_like = False
+        if text_rows:
+            ratio = toc_like / float(len(text_rows))
+            page_is_toc_like = toc_like >= 2 or (len(text_rows) >= 2 and ratio >= 0.45)
+        if page_idx in marker_pages:
+            collecting = True
+            toc_pages.add(page_idx)
+            continue
+        if collecting:
+            if page_is_toc_like:
+                toc_pages.add(page_idx)
+            else:
+                break
+    result: set[int] = set()
+    for page_idx in sorted(toc_pages):
+        for row in pages.get(page_idx, []):
+            if row["block_type"] not in candidate_types:
+                continue
+            text = (row["plain_text"] or "").strip()
+            if not text:
+                continue
+            result.add(int(row["id"]))
+    return result
+
+
+def llm_refine_title_levels(
+    title_items: list[dict[str, Any]],
+    llm_client: Optional["LLMClient"] = None
+) -> tuple[dict[str, tuple[int, float]], str]:
+    """用LLM细化标题层级并返回状态。"""
+    if not llm_client:
+        return {}, "not_configured"
+    
+    if not title_items:
+        return {}, "ok"
+    
+    mini_items: list[dict[str, Any]] = []
+    for item in title_items:
+        mini_items.append({
+            "block_uid": item["block_uid"],
+            "text": item["plain_text"][:160],
+            "rule_level": item.get("rule_level"),
+        })
+    
+    system_prompt = (
+        "你是文档结构分析器。根据标题文本的编号层级判断标题级别(>=1，不限制上限)。"
+        "如果是目录项也按编号层级判断。仅返回JSON对象："
+        '{"items":[{"block_uid":"...","level":1,"confidence":0.95}]}'
+    )
+    user_prompt = json.dumps({"items": mini_items}, ensure_ascii=False)
+    
+    try:
+        result_text = llm_client.chat(
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            temperature=0.0
+        )
+        
+        result = json.loads(result_text)
+        arr = result.get("items") if isinstance(result, dict) else result
+        refined: dict[str, tuple[int, float]] = {}
+        
+        if isinstance(arr, list):
+            for item in arr:
+                if not isinstance(item, dict):
+                    continue
+                uid = item.get("block_uid")
+                level = item.get("level")
+                conf = item.get("confidence", 0.8)
+                if isinstance(uid, str) and isinstance(level, int) and level >= 1:
+                    c = float(conf) if isinstance(conf, (int, float)) else 0.8
+                    c = max(0.0, min(1.0, c))
+                    refined[uid] = (level, c)
+        
+        if refined:
+            return refined, "ok"
+        return {}, "empty_result"
+        
+    except Exception as e:
+        return {}, f"error:{str(e)[:50]}"
+
+
+@dataclass
+class BlockNode:
+    """块节点数据结构。"""
+    id: str
+    block_uid: str
+    block_type: str
+    page_idx: int
+    block_seq: int
+    plain_text: str = ""
+    content_json: dict = field(default_factory=dict)
+    bbox: tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0)
+    page_width: float = 0.0
+    page_height: float = 0.0
+    derived_level: int | None = None
+    title_path: str | None = None
+    parent_uid: str | None = None
+    prev_uid: str | None = None
+    next_uid: str | None = None
+    explain_for_uid: str | None = None
+    explain_type: str | None = None
+    derived_by: str = "none"
+    confidence: float = 0.0
+    image_path: str | None = None
+    table_html: str | None = None
+    math_content: str | None = None
+
+
+@dataclass
+class GraphEdge:
+    """图边数据结构。"""
+    id: str
+    from_uid: str
+    to_uid: str
+    kind: str
+    label: str
+    color: str = "#6b7280"
+
+
+@dataclass
+class IndexRow:
+    """索引行数据结构。"""
+    block_uid: str
+    block_type: str
+    page_idx: int
+    block_seq: int
+    plain_text: str
+    derived_level: int | None
+    title_path: str | None
+    parent_uid: str | None
+
+
+@dataclass
+class A1StructureResult:
+    """A1结构结果对象。"""
+    nodes: List[Dict[str, Any]] = field(default_factory=list)
+    edges: List[Dict[str, Any]] = field(default_factory=list)
+    index_rows: List[Dict[str, Any]] = field(default_factory=list)
+    stats: Dict[str, Any] = field(default_factory=dict)
+
+
+def build_graph_from_mineru(
+    parsed_dir: Path,
+    doc_id: str,
+    doc_name: str = "",
+    llm_client: Optional["LLMClient"] = None,
+    options: Optional[Dict[str, Any]] = None
+) -> A1StructureResult:
+    """
+    从 MinerU 解析结果构建 A1 结构对象。
+    
+    Args:
+        parsed_dir: 解析结果目录，应包含 mineru_raw/ 子目录
+        doc_id: 文档ID
+        doc_name: 文档名称
+        llm_client: 可选的 LLM 客户端，用于标题层级细化
+        options: 可选配置项
+            - use_llm: 是否使用 LLM 细化 (默认 True)
+            - derive_version: 推导版本标识
+    
+    Returns:
+        A1StructureResult: 包含 nodes, edges, index_rows, stats
+    """
+    opts = options or {}
+    use_llm = opts.get("use_llm", True)
+    derive_version = opts.get("derive_version", "v1")
+    
+    raw_dir = parsed_dir / "mineru_raw"
+    if not raw_dir.exists():
+        raw_dir = parsed_dir
+    
+    parsed_blocks, page_size_map, parser_version, layout_payload = load_raw(raw_dir)
+    layout_candidates = build_layout_candidates(layout_payload)
+    
+    if not parsed_blocks:
+        return A1StructureResult(stats={"error": "no_parsed_blocks", "raw_dir": str(raw_dir)})
+    
+    ts = now_iso()
+    rows: list[dict[str, Any]] = []
+    block_seq_global = 0
+    
+    for page_idx, page_blocks in enumerate(parsed_blocks):
+        if not isinstance(page_blocks, list):
+            continue
+        page_width, page_height = page_size_map.get(page_idx, (0.0, 0.0))
+        page_layout_candidates = layout_candidates.get(page_idx, [])
+        
+        for i, block in enumerate(page_blocks, start=1):
+            block_type = str(block.get("type", ""))
+            content = block.get("content", {})
+            if not isinstance(content, dict):
+                content = {}
+            x1, y1, x2, y2 = parse_bbox(block.get("bbox"))
+            
+            list_items = content.get("list_items")
+            if block_type == "list" and isinstance(list_items, list) and len(list_items) > 1:
+                for li, item in enumerate(list_items, start=1):
+                    item_content: dict[str, Any] = {
+                        "list_type": content.get("list_type"),
+                        "list_items": [item]
+                    }
+                    block_seq_global += 1
+                    block_uid = f"{doc_id}:{page_idx}:{i}:li{li}"
+                    plain_text = extract_plain_text("list", item_content)
+                    resolved_bbox = resolve_layout_bbox(
+                        page_layout_candidates,
+                        plain_text,
+                        ("list_item", "paragraph", "text")
+                    )
+                    item_x1, item_y1, item_x2, item_y2 = resolved_bbox or (x1, y1, x2, y2)
+                    rows.append({
+                        "id": len(rows) + 1,
+                        "doc_id": doc_id,
+                        "doc_name": doc_name,
+                        "page_idx": page_idx,
+                        "page_width": page_width,
+                        "page_height": page_height,
+                        "block_seq": block_seq_global,
+                        "block_uid": block_uid,
+                        "block_type": block_type,
+                        "content_json": item_content,
+                        "plain_text": plain_text,
+                        "bbox_abs_x1": item_x1,
+                        "bbox_abs_y1": item_y1,
+                        "bbox_abs_x2": item_x2,
+                        "bbox_abs_y2": item_y2,
+                        "created_at": ts,
+                        "updated_at": ts,
+                    })
+                continue
+            
+            block_seq_global += 1
+            block_uid = f"{doc_id}:{page_idx}:{i}"
+            plain_text = extract_plain_text(block_type, content)
+            preferred_layout_types: dict[str, tuple[str, ...]] = {
+                "title": ("title",),
+                "paragraph": ("text", "paragraph"),
+                "table": ("table",),
+                "image": ("image", "figure"),
+                "equation_interline": ("equation", "interline_equation", "text"),
+                "list": ("list",)
+            }
+            resolved_bbox = resolve_layout_bbox(
+                page_layout_candidates,
+                plain_text,
+                preferred_layout_types.get(block_type, ("text", block_type))
+            )
+            row_x1, row_y1, row_x2, row_y2 = resolved_bbox or (x1, y1, x2, y2)
+            rows.append({
+                "id": len(rows) + 1,
+                "doc_id": doc_id,
+                "doc_name": doc_name,
+                "page_idx": page_idx,
+                "page_width": page_width,
+                "page_height": page_height,
+                "block_seq": block_seq_global,
+                "block_uid": block_uid,
+                "block_type": block_type,
+                "content_json": content,
+                "plain_text": plain_text,
+                "bbox_abs_x1": row_x1,
+                "bbox_abs_y1": row_y1,
+                "bbox_abs_x2": row_x2,
+                "bbox_abs_y2": row_y2,
+                "created_at": ts,
+                "updated_at": ts,
+            })
+    
+    title_candidates: list[dict[str, Any]] = []
+    for row in rows:
+        if row["block_type"] != "title":
+            continue
+        content = row["content_json"]
+        raw_level = content.get("level") if isinstance(content, dict) else None
+        rule_level, _, _ = infer_title_level(row["plain_text"] or "", raw_level)
+        title_candidates.append({
+            "block_uid": row["block_uid"],
+            "plain_text": row["plain_text"] or "",
+            "rule_level": rule_level
+        })
+    
+    llm_levels: dict[str, tuple[int, float]] = {}
+    llm_status = "disabled"
+    if use_llm and llm_client and title_candidates:
+        llm_levels, llm_status = llm_refine_title_levels(title_candidates, llm_client)
+    
+    toc_row_ids = detect_toc_row_ids(rows)
+    toc_pages = {int(r["page_idx"]) for r in rows if int(r["id"]) in toc_row_ids}
+    
+    heading_stack: dict[int, str] = {}
+    number_anchor_uid: dict[str, str] = {}
+    recent_struct_anchor_uid: str | None = None
+    toc_root_uid: str | None = None
+    toc_number_anchor_uid: dict[str, str] = {}
+    derived_level_by_uid: dict[str, int] = {}
+    active_equation_explain_uid: str | None = None
+    active_equation_explain_page_idx: int | None = None
+    
+    nodes: list[dict[str, Any]] = []
+    edges: list[dict[str, Any]] = []
+    index_rows: list[dict[str, Any]] = []
+    derived_rows: list[dict[str, Any]] = []
+    
+    excluded_types = {"page_header", "page_number"}
+    
+    for i, row in enumerate(rows):
+        content = row["content_json"]
+        raw_level = content.get("level") if isinstance(content, dict) else None
+        derived_level = None
+        confidence = 0.0
+        derived_by = "rule"
+        title_path = None
+        parent_uid = None
+        block_type = row["block_type"] or ""
+        text = row["plain_text"] or ""
+        is_toc_row = int(row["id"]) in toc_row_ids
+        is_toc_page = int(row["page_idx"]) in toc_pages
+        compact_text = re.sub(r"\s+", "", text)
+        
+        if block_type == "title":
+            derived_level, confidence, by = infer_title_level(row["plain_text"] or "", raw_level)
+            derived_by = by
+            llm_pred = llm_levels.get(row["block_uid"])
+            if llm_pred is not None:
+                llm_level, llm_conf = llm_pred
+                if derived_level is None or llm_conf >= confidence:
+                    derived_level = llm_level
+                    confidence = llm_conf
+                    derived_by = "llm" if by in ("none", "raw") else "rule+llm"
+            
+            if is_toc_row:
+                title_path = None
+                parent_uid = None
+                derived_by = "toc" if derived_by == "none" else f"toc+{derived_by}"
+                if compact_text in ("目录", "目次"):
+                    toc_root_uid = row["block_uid"]
+                else:
+                    struct_no = extract_struct_number(text)
+                    if struct_no:
+                        parent_candidate = None
+                        if "." in struct_no:
+                            parts = struct_no.split(".")
+                            for end in range(len(parts) - 1, 0, -1):
+                                cand = ".".join(parts[:end])
+                                if cand in toc_number_anchor_uid:
+                                    parent_candidate = toc_number_anchor_uid[cand]
+                                    break
+                        parent_uid = parent_candidate or toc_root_uid
+                        toc_number_anchor_uid[struct_no] = row["block_uid"]
+                    elif toc_root_uid:
+                        parent_uid = toc_root_uid
+            elif derived_level is not None:
+                for lv in list(heading_stack.keys()):
+                    if lv >= derived_level:
+                        del heading_stack[lv]
+                parent_uid = heading_stack.get(derived_level - 1)
+                heading_stack[derived_level] = row["block_uid"]
+                title_path = ">".join(heading_stack[k] for k in sorted(heading_stack.keys()))
+                struct_no = extract_struct_number(text)
+                if struct_no:
+                    number_anchor_uid[struct_no] = row["block_uid"]
+                recent_struct_anchor_uid = row["block_uid"]
+        else:
+            if block_type not in excluded_types:
+                if is_toc_row or is_toc_page:
+                    struct_no = extract_struct_number(text)
+                    if struct_no:
+                        parent_candidate = None
+                        if "." in struct_no:
+                            parts = struct_no.split(".")
+                            for end in range(len(parts) - 1, 0, -1):
+                                cand = ".".join(parts[:end])
+                                if cand in toc_number_anchor_uid:
+                                    parent_candidate = toc_number_anchor_uid[cand]
+                                    break
+                        parent_uid = parent_candidate or toc_root_uid
+                        toc_number_anchor_uid[struct_no] = row["block_uid"]
+                    elif toc_root_uid:
+                        parent_uid = toc_root_uid
+                    derived_by = "toc" if derived_by == "none" else f"toc+{derived_by}"
+                    title_path = None
+                
+                treat_as_heading = should_treat_as_struct_heading(block_type, text, is_toc_row, is_toc_page)
+                if treat_as_heading:
+                    derived_level = infer_struct_level(text)
+                    if derived_level is not None:
+                        confidence = max(confidence, 0.93)
+                        derived_by = "rule"
+                        for lv in list(heading_stack.keys()):
+                            if lv >= derived_level:
+                                del heading_stack[lv]
+                        parent_uid = heading_stack.get(derived_level - 1)
+                        heading_stack[derived_level] = row["block_uid"]
+                        title_path = ">".join(heading_stack[k] for k in sorted(heading_stack.keys()))
+                        struct_no = extract_struct_number(text)
+                        if struct_no:
+                            number_anchor_uid[struct_no] = row["block_uid"]
+                        recent_struct_anchor_uid = row["block_uid"]
+                else:
+                    if heading_stack:
+                        title_path = ">".join(heading_stack[k] for k in sorted(heading_stack.keys()))
+                        parent_uid = heading_stack[max(heading_stack.keys())]
+                    struct_no = extract_struct_number(text)
+                    if struct_no:
+                        parts = struct_no.split(".")
+                        for end in range(len(parts) - 1, 0, -1):
+                            candidate = ".".join(parts[:end])
+                            cand_uid = number_anchor_uid.get(candidate)
+                            if cand_uid:
+                                parent_uid = cand_uid
+                                break
+                        if struct_no not in number_anchor_uid:
+                            number_anchor_uid[struct_no] = row["block_uid"]
+                        recent_struct_anchor_uid = row["block_uid"]
+                    elif not (is_toc_row or is_toc_page) and recent_struct_anchor_uid:
+                        parent_uid = recent_struct_anchor_uid
+            else:
+                derived_by = "meta"
+        
+        prev_uid = rows[i - 1]["block_uid"] if i > 0 else None
+        next_uid = rows[i + 1]["block_uid"] if i + 1 < len(rows) else None
+        explain_uid, explain_type, exp_conf, exp_by = derive_explain_target(rows, i)
+        
+        row_page_idx = int(row["page_idx"])
+        if block_type == "paragraph":
+            if explain_uid and explain_type == "equation":
+                active_equation_explain_uid = explain_uid
+                active_equation_explain_page_idx = row_page_idx
+                parent_uid = explain_uid
+            elif (
+                active_equation_explain_uid
+                and active_equation_explain_page_idx == row_page_idx
+                and is_equation_explain_continuation(text)
+            ):
+                explain_uid = active_equation_explain_uid
+                explain_type = "equation"
+                exp_conf = max(exp_conf, 0.72)
+                exp_by = "rule"
+                parent_uid = active_equation_explain_uid
+            else:
+                active_equation_explain_uid = None
+                active_equation_explain_page_idx = None
+        elif block_type in ("equation_interline", "title", "table", "image", "page_header", "page_number"):
+            active_equation_explain_uid = None
+            active_equation_explain_page_idx = None
+        
+        if exp_conf > confidence:
+            confidence = exp_conf
+        if exp_by != "none":
+            derived_by = "rule"
+        
+        if derived_level is None and parent_uid:
+            parent_level = derived_level_by_uid.get(parent_uid)
+            if parent_level is not None:
+                derived_level = parent_level + 1
+        
+        page_width = float(row["page_width"] or 0.0)
+        page_height = float(row["page_height"] or 0.0)
+        ax1 = float(row["bbox_abs_x1"])
+        ay1 = float(row["bbox_abs_y1"])
+        ax2 = float(row["bbox_abs_x2"])
+        ay2 = float(row["bbox_abs_y2"])
+        
+        use_1000_scale = page_width > 0 and page_height > 0 and (ax2 > page_width * 1.2 or ay2 > page_height * 1.2)
+        if use_1000_scale:
+            nx1 = ax1 / 1000.0
+            ny1 = ay1 / 1000.0
+            nx2 = ax2 / 1000.0
+            ny2 = ay2 / 1000.0
+            bbox_source = "mixed_1000"
+        else:
+            nx1 = (ax1 / page_width) if page_width else None
+            ny1 = (ay1 / page_height) if page_height else None
+            nx2 = (ax2 / page_width) if page_width else None
+            ny2 = (ay2 / page_height) if page_height else None
+            bbox_source = "mixed_page"
+        
+        if derived_level is not None:
+            derived_level_by_uid[row["block_uid"]] = int(derived_level)
+        
+        prev_uid = rows[i - 1]["block_uid"] if i > 0 else None
+        next_uid = rows[i + 1]["block_uid"] if i + 1 < len(rows) else None
+        
+        image_path = None
+        table_html = None
+        math_content = None
+        table_type = None
+        math_type = None
+        if isinstance(content, dict):
+            image_source = content.get("image_source")
+            if isinstance(image_source, dict):
+                p = image_source.get("path")
+                if isinstance(p, str):
+                    image_path = p
+            table_html = content.get("html") if isinstance(content.get("html"), str) else None
+            table_type = content.get("table_type") if isinstance(content.get("table_type"), str) else None
+            math_content = content.get("math_content") if isinstance(content.get("math_content"), str) else None
+            math_type = content.get("math_type") if isinstance(content.get("math_type"), str) else None
+        
+        derived_row = {
+            "block_uid": row["block_uid"],
+            "page_seq": int(row["page_idx"]) + 1,
+            "sub_type": content.get("list_type") if isinstance(content, dict) else None,
+            "bbox_norm_x1": nx1,
+            "bbox_norm_y1": ny1,
+            "bbox_norm_x2": nx2,
+            "bbox_norm_y2": ny2,
+            "bbox_source": bbox_source,
+            "raw_title_level": raw_level if isinstance(raw_level, int) else None,
+            "derived_title_level": derived_level,
+            "title_path": title_path,
+            "parent_block_uid": parent_uid,
+            "prev_block_uid": prev_uid,
+            "next_block_uid": next_uid,
+            "explain_for_block_uid": explain_uid,
+            "explain_type": explain_type,
+            "table_type": table_type,
+            "table_nest_level": content.get("table_nest_level") if isinstance(content, dict) else None,
+            "table_html": table_html,
+            "math_type": math_type,
+            "math_content": math_content,
+            "image_path": image_path,
+            "quality_score": None,
+            "derived_confidence": confidence,
+            "derived_by": derived_by,
+            "derive_version": derive_version,
+            "parser_version": parser_version,
+            "updated_at": ts,
+        }
+        derived_rows.append(derived_row)
+        
+        if block_type not in excluded_types:
+            if block_type == "list" and not text.strip():
+                pass
+            else:
+                node = {
+                    "id": row["block_uid"],
+                    "block_uid": row["block_uid"],
+                    "block_type": block_type,
+                    "page_idx": row["page_idx"],
+                    "block_seq": row["block_seq"],
+                    "plain_text": text,
+                    "bbox": [nx1, ny1, nx2, ny2] if all(v is not None for v in [nx1, ny1, nx2, ny2]) else None,
+                    "bbox_source": bbox_source,
+                    "derived_level": derived_level,
+                    "title_path": title_path,
+                    "parent_uid": parent_uid,
+                    "derived_by": derived_by,
+                    "confidence": confidence,
+                    "image_path": image_path,
+                    "table_html": table_html,
+                    "math_content": math_content,
+                }
+                nodes.append(node)
+                
+                index_row = {
+                    "block_uid": row["block_uid"],
+                    "block_type": block_type,
+                    "page_idx": row["page_idx"],
+                    "block_seq": row["block_seq"],
+                    "plain_text": text[:500] if text else "",
+                    "derived_level": derived_level,
+                    "title_path": title_path,
+                    "parent_uid": parent_uid,
+                }
+                index_rows.append(index_row)
+    
+    included_uids: set[str] = {n["block_uid"] for n in nodes}
+    
+    for node in nodes:
+        uid = node["block_uid"]
+        parent_uid = node.get("parent_uid")
+        if parent_uid and parent_uid in included_uids:
+            edges.append({
+                "id": f"s-parent-{uid}",
+                "from": parent_uid,
+                "to": uid,
+                "kind": "strong",
+                "label": "parent",
+                "color": "#1d4ed8"
+            })
+        
+        prev_uid = None
+        next_uid = None
+        for j, r in enumerate(rows):
+            if r["block_uid"] == uid:
+                if j > 0:
+                    prev_uid = rows[j - 1]["block_uid"]
+                if j + 1 < len(rows):
+                    next_uid = rows[j + 1]["block_uid"]
+                break
+        
+        if prev_uid and prev_uid in included_uids:
+            edges.append({
+                "id": f"w-prev-{uid}",
+                "from": prev_uid,
+                "to": uid,
+                "kind": "weak",
+                "label": "prev_next",
+                "color": "#6b7280"
+            })
+        
+        explain_uid = node.get("explain_for_uid")
+        if explain_uid and explain_uid in included_uids:
+            edges.append({
+                "id": f"w-exp-{uid}",
+                "from": uid,
+                "to": explain_uid,
+                "kind": "weak",
+                "label": node.get("explain_type") or "explain",
+                "color": "#b45309"
+            })
+    
+    stats = {
+        "total_blocks": len(rows),
+        "nodes_count": len(nodes),
+        "edges_count": len(edges),
+        "index_rows_count": len(index_rows),
+        "llm_status": llm_status,
+        "derive_version": derive_version,
+        "parser_version": parser_version,
+        "toc_pages": list(toc_pages),
+        "title_candidates": len(title_candidates),
+        "base_rows": rows,
+        "derived_rows": derived_rows,
+    }
+    
+    return A1StructureResult(
+        nodes=nodes,
+        edges=edges,
+        index_rows=index_rows,
+        stats=stats
+    )
+
 
 class MinerUStructureBuilder:
     """
@@ -32,11 +1080,9 @@ class MinerUStructureBuilder:
         if model_data or layout_data:
             return self._build_from_abc(model_data, layout_data, content_list_data)
         
-        # Fallback: legacy merge logic
         if other_json_data:
             raw_blocks = []
             for payload in other_json_data:
-                # 假设 payload 带有 source_file 标记以便 _source_priority 工作
                 source = payload.get('__source_file__', 'unknown.json')
                 raw_blocks.extend(self._extract_blocks_from_payload(payload, source))
             return self._finalize_blocks(raw_blocks)
@@ -51,14 +1097,9 @@ class MinerUStructureBuilder:
     ) -> List[Dict[str, Any]]:
         """A/B/C 融合算法实现"""
         
-        # 1. 建立页面尺寸映射 (from Layout or Model)
         page_dimensions: Dict[int, Dict[str, float]] = {}
         
-        # 尝试从 layout.json 获取页面尺寸
         if layout_data:
-            # layout.json 可能是 {"pdf_info": [{"width": ..., "height": ...}, ...]} 
-            # 或者 {"page_info": ...}
-            # 或者是 list of pages
             pages = []
             if isinstance(layout_data, dict):
                 if 'pdf_info' in layout_data:
@@ -69,13 +1110,10 @@ class MinerUStructureBuilder:
                 pages = layout_data
 
             for idx, page in enumerate(pages):
-                # 有些格式可能是 page['width']，有些可能是 page['size'][0]
                 w = self._read_first_numeric(page, ['width', 'w', 'page_width'])
                 h = self._read_first_numeric(page, ['height', 'h', 'page_height'])
                 
-                # 如果没有直接宽高，尝试从 bbox 推断 (max x/y)
                 if w is None or h is None:
-                    # 尝试从该页 blocks 推断
                     blocks = page.get('para_blocks') or page.get('blocks') or []
                     max_x, max_y = 0.0, 0.0
                     for b in blocks:
@@ -84,16 +1122,13 @@ class MinerUStructureBuilder:
                             max_x = max(max_x, bbox[2])
                             max_y = max(max_y, bbox[3])
                     if max_x > 0 and max_y > 0:
-                        w, h = max_x + 50, max_y + 50 # 加上边距估算
+                        w, h = max_x + 50, max_y + 50
                 
                 if w and h:
                     page_dimensions[idx] = {'width': w, 'height': h}
 
-        # 2. 提取 Source A (model.json) Blocks - 作为主干
         raw_blocks = []
         if model_data:
-            # model.json 通常是 List[List[Block]] (按页)
-            # 或者 Dict (包含 'model' key)
             pages_data = []
             if isinstance(model_data, list):
                 pages_data = model_data
@@ -102,32 +1137,24 @@ class MinerUStructureBuilder:
             
             for page_idx, page_content in enumerate(pages_data):
                 if isinstance(page_content, list):
-                    # List of blocks
                     for block in page_content:
                         extracted = self._process_model_block(block, page_idx)
                         raw_blocks.extend(extracted)
                 elif isinstance(page_content, dict):
-                    # Page object
                     blocks = page_content.get('blocks', [])
                     for block in blocks:
                         extracted = self._process_model_block(block, page_idx)
                         raw_blocks.extend(extracted)
 
-        # 3. 提取 Source C (content_list) 用于层级修正
-        # 建立 block_id -> level 映射
-        # content_list 通常包含 title/header 及其 level
-        toc_map: Dict[str, int] = {} # text_hash -> level
+        toc_map: Dict[str, int] = {}
         if content_list_data:
             toc_items = []
             if isinstance(content_list_data, list):
                 toc_items = content_list_data
             elif isinstance(content_list_data, dict):
-                # 可能是 {"content_list": [...]}
                 toc_items = content_list_data.get('content_list', [])
             
-            # 展平 TOC
             flat_toc = []
-            # 如果是 List[List] (按页)
             if toc_items and isinstance(toc_items[0], list):
                  for page_items in toc_items:
                      flat_toc.extend(page_items)
@@ -135,26 +1162,20 @@ class MinerUStructureBuilder:
                 flat_toc = toc_items
 
             for item in flat_toc:
-                # 尝试获取 level
                 level = item.get('level') or item.get('text_level')
                 if level is None and isinstance(item.get('content'), dict):
                     level = item['content'].get('level')
                 
                 text = self._resolve_block_text(item)
                 if level is not None and text:
-                     # 使用简单的文本哈希或前缀匹配
-                     # 这里简化为 text 匹配
                      toc_map[text.strip()] = int(level)
 
-        # 4. 融合与后处理
-        # 应用 TOC level 到 raw_blocks
         for block in raw_blocks:
             text = block.get('text', '').strip()
             if text in toc_map:
                 block['level'] = toc_map[text]
-                block['type'] = 'title' # 强制修正为 title
+                block['type'] = 'title'
             
-            # 确保 page dimensions
             p_idx = block.get('page_idx', 0)
             if p_idx in page_dimensions:
                 if 'page_width' not in block:
@@ -162,7 +1183,6 @@ class MinerUStructureBuilder:
                 if 'page_height' not in block:
                     block['page_height'] = page_dimensions[p_idx]['height']
 
-        # 5. 构建父子关系 (Level Hierarchy)
         self._build_hierarchy(raw_blocks)
 
         return self._finalize_blocks(raw_blocks)
@@ -171,61 +1191,48 @@ class MinerUStructureBuilder:
         """根据 type 分配 0/X/T/F/E 类别标记"""
         btype = block.get('type', 'paragraph')
         
-        # T (Title)
         if btype in ('title', 'header', 'page_header', 'section_header') or block.get('level') is not None:
             block['category_code'] = 'T'
             return
             
-        # F (Figure/Table)
         if btype in ('table', 'figure', 'image', 'equation', 'formula', 'chart'):
             block['category_code'] = 'F'
             return
             
-        # E (Element) - Default
         block['category_code'] = 'E'
-
 
     def _process_model_block(self, block_data: Dict[str, Any], page_idx: int) -> List[Dict[str, Any]]:
         """处理 model.json 中的单个 block，可能展开为多个 (如 list_items)"""
         results = []
         
-        # 基础属性
         base_block = {
             'id': self._generate_id(),
             'page_idx': page_idx,
             'type': self._normalize_block_type(block_data.get('type')),
             'bbox': self._normalize_bbox(block_data),
             'text': '',
-            'content': block_data.get('content') # 保留原始 content 用于调试
+            'content': block_data.get('content')
         }
         
-        # 尝试提取文本
-        # model.json 的 content 结构复杂
         content = block_data.get('content')
         
-        # 1. 简单文本
         if isinstance(content, str):
             base_block['text'] = content
             results.append(base_block)
             return results
 
-        # 2. 结构化 content
         if isinstance(content, dict):
-            # 2.1 Title
             if 'title_content' in content:
-                # 提取 title 文本
                 fragments = []
                 for item in content['title_content']:
                      if isinstance(item, dict) and 'content' in item:
                          fragments.append(item['content'])
                 base_block['text'] = ' '.join(fragments)
-                # 检查 level
                 if 'level' in content:
                     base_block['level'] = content['level']
                 results.append(base_block)
                 return results
 
-            # 2.2 Paragraph
             if 'paragraph_content' in content:
                 fragments = []
                 for item in content['paragraph_content']:
@@ -235,16 +1242,10 @@ class MinerUStructureBuilder:
                 results.append(base_block)
                 return results
 
-            # 2.3 List
             if 'list_items' in content:
-                # 列表项通常是独立的 block，但这里是一个 block 包含多个 items
-                # 我们可以创建一个父 block (list)，然后展开 items 为子 block (list_item)
-                # 或者直接展开为多个平级的 block (简化处理)
-                
-                # 方案: 创建一个容器 block (list)
                 list_block = base_block.copy()
                 list_block['type'] = 'list'
-                list_block['text'] = '' # 容器本身无文本
+                list_block['text'] = ''
                 results.append(list_block)
                 
                 for item in content['list_items']:
@@ -252,7 +1253,6 @@ class MinerUStructureBuilder:
                     if isinstance(item, str):
                         item_text = item
                     elif isinstance(item, dict):
-                        # item 可能包含 item_content -> list of fragments
                         ic = item.get('item_content')
                         if isinstance(ic, list):
                             frags = [f.get('content', '') for f in ic if isinstance(f, dict)]
@@ -265,22 +1265,20 @@ class MinerUStructureBuilder:
                             'id': self._generate_id(),
                             'page_idx': page_idx,
                             'type': 'list_item',
-                            'bbox': list_block['bbox'], # 暂时沿用父 bbox，虽然不准
+                            'bbox': list_block['bbox'],
                             'text': item_text,
-                            'parent_id': list_block['id'] # 预先建立关系
+                            'parent_id': list_block['id']
                         }
                         results.append(item_block)
                 return results
 
-            # 2.4 Table (html)
             if 'html' in content:
                 base_block['type'] = 'table'
                 base_block['html'] = content['html']
-                base_block['text'] = content.get('text', '') # 有些有纯文本摘要
+                base_block['text'] = content.get('text', '')
                 results.append(base_block)
                 return results
 
-        # Fallback: try standard resolution
         base_block['text'] = self._resolve_block_text(block_data)
         results.append(base_block)
         return results
@@ -300,7 +1298,6 @@ class MinerUStructureBuilder:
                 pages[page] = []
             pages[page].append(block)
             block['children'] = []
-            # block['parent_id'] = None # already set or None
 
         for page_idx, page_blocks in pages.items():
             def get_area(b):
@@ -451,6 +1448,18 @@ class MinerUStructureBuilder:
                     return coords
         return None
 
+    def _extract_blocks_from_payload(self, payload: Dict[str, Any], source_file: str) -> List[Dict[str, Any]]:
+        return []
+
+    def _finalize_blocks(self, raw_blocks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        finalized = []
+        for idx, block in enumerate(raw_blocks):
+            normalized = self._normalize_block_for_output(block, idx)
+            if normalized:
+                self._assign_category_code(normalized)
+                finalized.append(normalized)
+        return finalized
+
     def _normalize_block_for_output(self, payload: Dict[str, Any], index: int) -> Optional[Dict[str, Any]]:
         raw_type = str(payload.get('type') or '').strip()
         normalized_type = self._normalize_block_type(raw_type)
@@ -475,315 +1484,16 @@ class MinerUStructureBuilder:
         block_id = payload.get('id')
         if not isinstance(block_id, str) or not block_id.strip():
             block_id = f'mineru-block-{index}'
-        page_width = self._read_first_numeric(payload, ['page_width', 'pageWidth', 'width'])
-        page_height = self._read_first_numeric(payload, ['page_height', 'pageHeight', 'height'])
-        level = self._read_first_numeric(payload, ['level', 'text_level'])
-        line_start = self._read_first_numeric(
-            payload,
-            ['line_start', 'lineStart', 'markdown_line_start', 'md_line_start', 'start_line', 'line']
-        )
-        line_end = self._read_first_numeric(
-            payload,
-            ['line_end', 'lineEnd', 'markdown_line_end', 'md_line_end', 'end_line']
-        )
-        text = self._resolve_block_text(payload)
-        normalized_block: Dict[str, Any] = {
-            'id': block_id.strip(),
+        
+        return {
+            'id': block_id,
             'type': normalized_type,
-            'bbox': bbox,
             'page': page_int,
             'page_idx': page_idx_int,
-            'source_file': payload.get('source_file') or ''
+            'bbox': bbox,
+            'text': self._resolve_block_text(payload),
+            'level': payload.get('level'),
+            'content': payload.get('content'),
+            'parent_id': payload.get('parent_id'),
+            'children': payload.get('children', [])
         }
-        if text:
-            normalized_block['text'] = text
-        if isinstance(page_width, (int, float)) and page_width > 0:
-            normalized_block['page_width'] = float(page_width)
-        if isinstance(page_height, (int, float)) and page_height > 0:
-            normalized_block['page_height'] = float(page_height)
-        if isinstance(level, (int, float)):
-            normalized_block['level'] = int(round(level))
-        if isinstance(line_start, (int, float)):
-            normalized_block['line_start'] = max(1, int(round(line_start)))
-        if isinstance(line_end, (int, float)):
-            normalized_block['line_end'] = max(1, int(round(line_end)))
-        elif isinstance(line_start, (int, float)):
-            normalized_block['line_end'] = max(1, int(round(line_start)))
-        return normalized_block
-
-    def _make_block_dedupe_key(self, payload: Dict[str, Any]) -> str:
-        bbox = payload.get('bbox')
-        bbox_key = ''
-        if isinstance(bbox, list) and len(bbox) >= 4:
-            rounded = [round(float(value), 4) for value in bbox[:4]]
-            bbox_key = ','.join(str(item) for item in rounded)
-        page = payload.get('page')
-        page_idx = payload.get('page_idx')
-        line_start = payload.get('line_start')
-        line_end = payload.get('line_end')
-        return f'{page}|{page_idx}|{bbox_key}|{line_start}|{line_end}'
-
-    def _has_valid_bbox(self, payload: Dict[str, Any]) -> bool:
-        return self._normalize_bbox(payload) is not None
-
-    def _is_block_candidate(self, payload: Dict[str, Any]) -> bool:
-        position_keys = ('bbox', 'rect', 'box', 'pdf_bbox', 'pdf_rect', 'position')
-        page_keys = ('page', 'page_no', 'pageNo', 'page_index', 'page_idx')
-        line_keys = ('line', 'line_start', 'line_end', 'lineStart', 'lineEnd', 'start_line', 'end_line')
-        has_position = any(key in payload for key in position_keys)
-        has_page = any(key in payload for key in page_keys)
-        has_line = any(key in payload for key in line_keys)
-        return has_position or (has_page and has_line)
-
-    def _normalize_block(
-        self,
-        payload: Dict[str, Any],
-        index: int,
-        source: str,
-        inherited: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
-        block = dict(payload)
-        inherited_meta = inherited or {}
-        position = block.get('position')
-        if isinstance(position, dict):
-            if 'bbox' not in block and isinstance(position.get('bbox'), list):
-                block['bbox'] = position.get('bbox')
-            if 'rect' not in block and isinstance(position.get('rect'), list):
-                block['rect'] = position.get('rect')
-            if 'page' not in block and isinstance(position.get('page'), (int, float)):
-                block['page'] = position.get('page')
-            if 'page' not in block and isinstance(position.get('page_no'), (int, float)):
-                block['page'] = position.get('page_no')
-            if 'page' not in block and isinstance(position.get('pageNo'), (int, float)):
-                block['page'] = position.get('pageNo')
-            if 'page_idx' not in block and isinstance(position.get('page_idx'), (int, float)):
-                block['page_idx'] = position.get('page_idx')
-            if 'page_idx' not in block and isinstance(position.get('page_index'), (int, float)):
-                block['page_idx'] = position.get('page_index')
-        if 'page' not in block and isinstance(block.get('page_no'), (int, float)):
-            block['page'] = block.get('page_no')
-        if 'page' not in block and isinstance(block.get('pageNo'), (int, float)):
-            block['page'] = block.get('pageNo')
-        if 'page_idx' not in block and isinstance(block.get('page_index'), (int, float)):
-            block['page_idx'] = block.get('page_index')
-        if 'page' not in block and isinstance(inherited_meta.get('page'), (int, float)):
-            block['page'] = inherited_meta.get('page')
-        if 'page_idx' not in block and isinstance(inherited_meta.get('page_idx'), (int, float)):
-            block['page_idx'] = inherited_meta.get('page_idx')
-        if 'page_width' not in block and isinstance(inherited_meta.get('page_width'), (int, float)):
-            block['page_width'] = inherited_meta.get('page_width')
-        if 'page_height' not in block and isinstance(inherited_meta.get('page_height'), (int, float)):
-            block['page_height'] = inherited_meta.get('page_height')
-        if 'page' not in block and isinstance(block.get('page_idx'), (int, float)):
-            block['page'] = int(block['page_idx']) + 1
-        if 'page_idx' not in block and isinstance(block.get('page'), (int, float)):
-            block['page_idx'] = max(0, int(block['page']) - 1)
-        content = block.get('content')
-        if isinstance(content, dict) and isinstance(content.get('level'), (int, float)) and 'level' not in block:
-            block['level'] = int(content.get('level'))
-        if isinstance(block.get('text_level'), (int, float)) and 'level' not in block:
-            block['level'] = int(block.get('text_level'))
-        if not block.get('id'):
-            block['id'] = f'mineru-block-{index}'
-        block['source_file'] = source
-        return block
-
-    def _extract_blocks_from_payload(self, payload: Any, source: str) -> List[Dict[str, Any]]:
-        result: List[Dict[str, Any]] = []
-
-        def walk(value: Any, inherited: Dict[str, Any]) -> None:
-            if isinstance(value, dict):
-                next_inherited = dict(inherited)
-                if isinstance(value.get('page'), (int, float)):
-                    next_inherited['page'] = value.get('page')
-                    next_inherited['page_idx'] = max(0, int(value.get('page')) - 1)
-                if isinstance(value.get('page_no'), (int, float)):
-                    next_inherited['page'] = value.get('page_no')
-                    next_inherited['page_idx'] = max(0, int(value.get('page_no')) - 1)
-                if isinstance(value.get('pageNo'), (int, float)):
-                    next_inherited['page'] = value.get('pageNo')
-                    next_inherited['page_idx'] = max(0, int(value.get('pageNo')) - 1)
-                if isinstance(value.get('page_idx'), (int, float)):
-                    page_idx = int(value.get('page_idx'))
-                    next_inherited['page_idx'] = page_idx
-                    next_inherited['page'] = page_idx + 1
-                if isinstance(value.get('page_index'), (int, float)):
-                    page_idx = int(value.get('page_index'))
-                    next_inherited['page_idx'] = page_idx
-                    next_inherited['page'] = page_idx + 1
-                page_size = value.get('page_size')
-                if isinstance(page_size, (list, tuple)) and len(page_size) >= 2:
-                    if isinstance(page_size[0], (int, float)):
-                        next_inherited['page_width'] = float(page_size[0])
-                    if isinstance(page_size[1], (int, float)):
-                        next_inherited['page_height'] = float(page_size[1])
-                if self._is_block_candidate(value):
-                    result.append(self._normalize_block(value, len(result), source, next_inherited))
-                for child in value.values():
-                    walk(child, next_inherited)
-                return
-            if isinstance(value, list):
-                if value and all(isinstance(child, list) for child in value):
-                    for page_idx, child in enumerate(value):
-                        page_inherited = dict(inherited)
-                        if not isinstance(page_inherited.get('page_idx'), (int, float)):
-                            page_inherited['page_idx'] = page_idx
-                            page_inherited['page'] = page_idx + 1
-                        walk(child, page_inherited)
-                    return
-                for child in value:
-                    walk(child, inherited)
-
-        walk(payload, {})
-        for index, block in enumerate(result):
-            if not isinstance(block.get('id'), str) or not block.get('id'):
-                block['id'] = f'mineru-block-{index}'
-        return result
-
-    def _finalize_blocks(self, blocks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        if not isinstance(blocks, list) or not blocks:
-            return []
-        merged: Dict[str, Dict[str, Any]] = {}
-        priorities: Dict[str, int] = {}
-        normalized_candidates: List[Dict[str, Any]] = []
-        page_dimensions: Dict[int, Dict[str, float]] = {}
-        
-        for index, block in enumerate(blocks):
-            if not isinstance(block, dict):
-                continue
-            
-            sub_blocks = []
-            content = block.get('content')
-            if isinstance(content, dict):
-                list_items = content.get('list_items')
-                if isinstance(list_items, list) and len(list_items) > 0:
-                    if any(self._has_valid_bbox(item) for item in list_items if isinstance(item, dict)):
-                        parent_id = block.get('id') or f'mineru-block-{index}'
-                        for sub_idx, item in enumerate(list_items):
-                            if not isinstance(item, dict):
-                                continue
-                            if not self._has_valid_bbox(item):
-                                continue
-                            sub_block = item.copy()
-                            for key in ['page', 'page_idx', 'page_width', 'page_height', 'source_file']:
-                                if key in block and key not in sub_block:
-                                    sub_block[key] = block[key]
-                            if 'type' not in sub_block:
-                                sub_block['type'] = 'list_item'
-                            sub_block['id'] = f"{parent_id}-item-{sub_idx}"
-                            if 'text' not in sub_block and 'content' not in sub_block:
-                                item_content = item.get('item_content')
-                                if item_content:
-                                    sub_block['text'] = item_content
-                            sub_blocks.append(sub_block)
-
-            if sub_blocks:
-                for sub in sub_blocks:
-                    normalized = self._normalize_block_for_output(sub, index)
-                    if normalized:
-                        normalized_candidates.append(normalized)
-            else:
-                normalized = self._normalize_block_for_output(block, index)
-                if normalized:
-                    normalized_candidates.append(normalized)
-
-        for normalized in normalized_candidates:
-            page_idx = int(normalized.get('page_idx') or 0)
-            width = normalized.get('page_width')
-            height = normalized.get('page_height')
-            if isinstance(width, (int, float)) and isinstance(height, (int, float)):
-                current = page_dimensions.get(page_idx, {'width': 0.0, 'height': 0.0})
-                page_dimensions[page_idx] = {
-                    'width': max(float(current.get('width') or 0.0), float(width)),
-                    'height': max(float(current.get('height') or 0.0), float(height))
-                }
-            
-            dedupe_key = self._make_block_dedupe_key(normalized)
-            source_priority = self._source_priority(str(normalized.get('source_file') or ''))
-            current_priority = priorities.get(dedupe_key)
-            if current_priority is None or source_priority < current_priority:
-                merged[dedupe_key] = normalized
-                priorities[dedupe_key] = source_priority
-
-        has_primary_content = any(
-            self._source_priority(str(item.get('source_file') or '')) <= 1 for item in normalized_candidates
-        )
-        finalized = [
-            item for item in merged.values()
-            if (not has_primary_content) 
-            or self._source_priority(str(item.get('source_file') or '')) <= 1
-            or item.get('type') in ('list', 'table', 'toc', 'image', 'formula')
-        ]
-        for item in finalized:
-            page_idx = int(item.get('page_idx') or 0)
-            page_dim = page_dimensions.get(page_idx) or {}
-            if 'page_width' not in item and isinstance(page_dim.get('width'), (int, float)) and page_dim.get('width', 0) > 0:
-                item['page_width'] = float(page_dim.get('width'))
-            if 'page_height' not in item and isinstance(page_dim.get('height'), (int, float)) and page_dim.get('height', 0) > 0:
-                item['page_height'] = float(page_dim.get('height'))
-        finalized.sort(key=lambda item: (
-            int(item.get('page_idx') or 0),
-            float(item.get('bbox', [0, 0, 0, 0])[1]),
-            float(item.get('bbox', [0, 0, 0, 0])[0]),
-            str(item.get('id') or '')
-        ))
-        for index, item in enumerate(finalized):
-            item['id'] = f'mineru-block-{index}'
-        
-        self._build_hierarchy(finalized)
-        
-        # 6. 分配 0/X/T/F/E 类别标记
-        for block in finalized:
-            self._assign_category_code(block)
-        
-        return finalized
-
-    def _build_hierarchy(self, blocks: List[Dict[str, Any]]) -> None:
-        if not blocks:
-            return
-
-        pages: Dict[int, List[Dict[str, Any]]] = {}
-        for block in blocks:
-            page = block.get('page_idx', 0)
-            if page not in pages:
-                pages[page] = []
-            pages[page].append(block)
-            block['children'] = []
-            block['parent_id'] = None
-
-        for page_idx, page_blocks in pages.items():
-            def get_area(b):
-                bbox = b.get('bbox')
-                if not bbox or len(bbox) < 4:
-                    return 0
-                return (bbox[2] - bbox[0]) * (bbox[3] - bbox[1])
-
-            sorted_blocks = sorted(page_blocks, key=get_area)
-
-            for i, child in enumerate(sorted_blocks):
-                child_bbox = child.get('bbox')
-                if not child_bbox or len(child_bbox) < 4:
-                    continue
-                
-                child_area = get_area(child)
-                if child_area <= 0:
-                    continue
-
-                for parent in sorted_blocks[i+1:]:
-                    parent_bbox = parent.get('bbox')
-                    if not parent_bbox or len(parent_bbox) < 4:
-                        continue
-                    
-                    is_contained = (
-                        parent_bbox[0] <= child_bbox[0] + 0.01 and
-                        parent_bbox[1] <= child_bbox[1] + 0.01 and
-                        parent_bbox[2] >= child_bbox[2] - 0.01 and
-                        parent_bbox[3] >= child_bbox[3] - 0.01
-                    )
-                    
-                    if is_contained:
-                        child['parent_id'] = parent['id']
-                        if 'children' not in parent:
-                            parent['children'] = []
-                        parent['children'].append(child['id'])
-                        break

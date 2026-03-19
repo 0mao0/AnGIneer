@@ -17,5 +17,21 @@ export interface SmartTreeNode {
   [key: string]: any
 }
 
+export type KnowledgeNodeStatus = 'pending' | 'uploading' | 'processing' | 'completed' | 'failed'
+export type KnowledgeStrategy = 'A_structured' | 'B_mineru_rag' | 'C_pageindex'
+
+export interface KnowledgeTreeNode extends SmartTreeNode {
+  isFolder: boolean
+  visible: boolean
+  status: KnowledgeNodeStatus
+  file_path?: string
+  parseProgress?: number
+  parseStage?: string
+  parseError?: string
+  parseTaskId?: string
+  strategy?: KnowledgeStrategy
+  children?: KnowledgeTreeNode[]
+}
+
 /** 树节点操作类型 */
 export type TreeNodeAction = 'rename' | 'add-folder' | 'add-file' | 'delete' | 'view'

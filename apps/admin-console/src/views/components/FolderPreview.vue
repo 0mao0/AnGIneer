@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { FolderOutlined, UploadOutlined } from '@ant-design/icons-vue'
-import type { TreeNode } from '@angineer/docs-ui'
+import type { KnowledgeTreeNode } from '@angineer/docs-ui'
 
 /**
  * 文件夹预览组件
@@ -29,7 +29,7 @@ import type { TreeNode } from '@angineer/docs-ui'
  */
 interface Props {
   /** 文件夹节点数据 */
-  node: TreeNode
+  node: KnowledgeTreeNode
   /** 子文档数量 */
   childCount: number
   /** 允许上传的文件类型 */

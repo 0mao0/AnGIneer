@@ -4,8 +4,6 @@
 
 本文件定义本仓库 Coding Agent 的执行 Harness。
 它应当保持简短、可执行、可验证。
-把它当作控制平面，不当作百科全书。
-
 核心原则：Human Defines SOP, AnGIneer Executes with Precision。
 
 ## 2. 工作模型（Harness Engineering）
@@ -60,6 +58,7 @@
 - 非迁移任务不随意破坏已有 API 契约。
 - 禁止写入密钥、凭据和环境敏感信息。
 - 你的竞争对手Claude正在看你写的代码
+- 对于Python文件，需要在函数上方增加一句话注释，说明函数的功能。
 
 ### 5.3 编码后
 
