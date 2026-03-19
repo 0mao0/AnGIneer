@@ -1,0 +1,412 @@
+<template>
+  <div class="split-pane split-pane-right">
+    <div class="pane-title b2-pane-title">
+      <div ref="headerTitleRowRef" class="b2-title-row">
+        <div class="b2-title-main">
+          <span class="pane-title-prefix pane-title-prefix-right">解析</span>
+          <a-radio-group
+            :value="activeTab"
+            size="small"
+            :class="['b2-tab-buttons', { 'b2-tab-buttons-compact': isCompactHeader }]"
+            option-type="button"
+            button-style="solid"
+            @change="onTabChange"
+          >
+            <a-radio-button value="Preview_HTML" title="HTML">
+              <FileTextOutlined />
+              <span v-if="!isCompactHeader" class="tab-label">HTML</span>
+            </a-radio-button>
+            <a-radio-button value="Preview_Markdown" title="Markdown">
+              <EditOutlined />
+              <span v-if="!isCompactHeader" class="tab-label">Markdown</span>
+            </a-radio-button>
+            <a-radio-button value="Preview_IndexList" title="列表">
+              <PartitionOutlined />
+              <span v-if="!isCompactHeader" class="tab-label">列表</span>
+            </a-radio-button>
+            <a-radio-button value="Preview_IndexTree" :disabled="!hasGraphData" title="树形">
+              <PartitionOutlined />
+              <span v-if="!isCompactHeader" class="tab-label">树形</span>
+            </a-radio-button>
+            <a-radio-button value="Preview_IndexGraph" :disabled="!hasGraphData" title="图形">
+              <PartitionOutlined />
+              <span v-if="!isCompactHeader" class="tab-label">图形</span>
+            </a-radio-button>
+          </a-radio-group>
+        </div>
+        <div class="pane-actions-right pane-actions-secondary">
+          <template v-if="activeTab === 'Preview_Markdown'">
+            <a-button
+              type="primary"
+              size="small"
+              :disabled="!isContentDirty"
+              class="action-btn"
+              @click="emit('save-markdown')"
+            >
+              保存
+            </a-button>
+            <a-button
+              size="small"
+              :disabled="!isContentDirty"
+              class="action-btn"
+              @click="emit('cancel-markdown')"
+            >
+              取消
+            </a-button>
+          </template>
+          <template v-if="isIndexMode">
+            <a-select
+              :value="strategyValue"
+              size="small"
+              class="strategy-select"
+              @change="emit('strategy-change', $event)"
+            >
+              <a-select-option value="A_structured">结构化</a-select-option>
+              <a-select-option value="B_mineru_rag">MinerU-RAG</a-select-option>
+              <a-select-option value="C_pageindex">PageIndex</a-select-option>
+            </a-select>
+            <a-button
+              type="primary"
+              size="small"
+              :loading="ingestStatusValue === 'processing'"
+              :disabled="!canIngest"
+              class="ingest-btn action-btn"
+              @click="emit('trigger-ingest')"
+            >
+              {{ ingestButtonText }}
+            </a-button>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <div ref="rightPaneRef" class="b2-content" @scroll.passive="onRightPaneScroll">
+      <Preview_HTML
+        v-if="activeTab === 'Preview_HTML'"
+        :rendered-markdown="renderedMarkdown"
+        :active-line-range="activeLineRange"
+        @select-line="emit('select-line', $event)"
+      />
+      <Preview_Markdown
+        v-else-if="activeTab === 'Preview_Markdown'"
+        :editable-content="editableContent"
+        :active-line-range="activeLineRange"
+        @update:editable-content="emit('update:editableContent', $event)"
+        @select-line="emit('select-line', $event)"
+      />
+      <div v-else class="index-layout">
+        <div class="index-toolbar">
+          <div class="index-summary-row">
+            <span class="summary-tag">
+              <span class="summary-item total">总{{ indexSummaryStats.total }}</span>
+              <span class="summary-divider">|</span>
+              <span class="summary-item figure">图形{{ indexSummaryStats.figure }}</span>
+              <span class="summary-divider">|</span>
+              <span class="summary-item table">表格{{ indexSummaryStats.table }}</span>
+              <span class="summary-divider">|</span>
+              <span class="summary-item formula">公式{{ indexSummaryStats.formula }}</span>
+            </span>
+          </div>
+        </div>
+
+        <Preview_IndexList
+          v-if="activeTab === 'Preview_IndexList'"
+          ref="indexContentScrollRef"
+          :items="flatIndexItems"
+          :current-page="indexCurrentPage"
+          :page-size="indexPageSize"
+          :active-linked-item-id="activeLinkedItemId"
+          :node-map="graphNodeLookup"
+          @hover-item="emit('hover-item', $event)"
+          @select-item="emit('select-item', $event)"
+          @page-change="onIndexPageChange"
+        />
+        <Preview_IndexTree
+          v-else-if="activeTab === 'Preview_IndexTree'"
+          :node-map="nodeMap"
+          :children-map="childrenMap"
+          :roots="roots"
+          :expanded-node-ids="expandedNodeIds"
+          :active-node-id="activeNodeIdForGraphTree"
+          :get-node-level="getNodeLevel"
+          :get-node-text="getNodeText"
+          @toggle="onTreeToggle"
+          @select="onNodeSelect"
+        />
+        <Preview_IndexGraph
+          v-else
+          :node-map="nodeMap"
+          :children-map="childrenMap"
+          :roots="roots"
+          :expanded-node-ids="expandedGraphNodeIds"
+          :active-node-id="activeNodeIdForGraphTree"
+          :viewport-state="graphViewportState"
+          :get-node-level="getNodeLevel"
+          :get-node-text="getNodeText"
+          :get-children="getChildren"
+          @toggle="onGraphToggle"
+          @select="onNodeSelect"
+          @update-viewport="onViewportUpdate"
+        />
+      </div>
+      <a-empty
+        v-if="!hasParsedContent"
+        class="b2-empty"
+      >
+        <template #description>
+          <div class="b2-empty-desc">请先解析文档<br>解析完成后将显示结果</div>
+        </template>
+      </a-empty>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { FileTextOutlined, EditOutlined, PartitionOutlined } from '@ant-design/icons-vue'
+import type { KnowledgeStrategy, StructuredIndexItem, DocBlocksGraph as DocBlocksGraphType } from '../../types/knowledge'
+import {
+  useParsedPdfViewer,
+  type PreviewMode,
+  type ParsedPdfViewerBridgeEventMap
+} from '../../composables/useParsedPdfViewer'
+import Preview_HTML from './Preview_HTML.vue'
+import Preview_Markdown from './Preview_Markdown.vue'
+import Preview_IndexList from './Preview_IndexList.vue'
+import Preview_IndexTree from './Preview_IndexTree.vue'
+import Preview_IndexGraph from './Preview_IndexGraph.vue'
+
+const props = defineProps<{
+  activeTab: PreviewMode
+  renderedMarkdown: string
+  editableContent: string
+  isContentDirty: boolean
+  strategyValue: KnowledgeStrategy
+  ingestStatusValue: 'idle' | 'processing' | 'completed' | 'failed'
+  canIngest: boolean
+  ingestButtonText: string
+  structuredItems: StructuredIndexItem[]
+  indexSummaryStats: {
+    total: number
+    formula: number
+    table: number
+    figure: number
+  }
+  hasParsedContent: boolean
+  contentScrollPercent: number
+  activeLinkedItemId: string | null
+  activeLineRange: { start: number; end: number } | null
+  graphData?: DocBlocksGraphType | null
+}>()
+
+type ParsedPdfViewerComponentEventMap = ParsedPdfViewerBridgeEventMap & {
+  'update:editableContent': [value: string]
+  'save-markdown': []
+  'cancel-markdown': []
+  'strategy-change': [value: KnowledgeStrategy]
+  'trigger-ingest': []
+  'hover-item': [id: string | null]
+  'select-line': [line: number]
+}
+
+const emit = defineEmits<ParsedPdfViewerComponentEventMap>()
+
+const {
+  rightPaneRef,
+  indexContentScrollRef,
+  headerTitleRowRef,
+  isCompactHeader,
+  isIndexMode,
+  hasGraphData,
+  graphNodeLookup,
+  flatIndexItems,
+  indexCurrentPage,
+  indexPageSize,
+  nodeMap,
+  childrenMap,
+  roots,
+  expandedNodeIds,
+  expandedGraphNodeIds,
+  graphViewportState,
+  getNodeLevel,
+  getNodeText,
+  getChildren,
+  activeNodeIdForGraphTree,
+  onRightPaneScroll,
+  onTabChange,
+  onIndexPageChange,
+  onTreeToggle,
+  onGraphToggle,
+  onNodeSelect,
+  onViewportUpdate,
+  expandAncestors,
+  setViewMode
+} = useParsedPdfViewer(props, emit)
+
+defineExpose({
+  expandAncestors,
+  setViewMode: (mode: PreviewMode) => {
+    setViewMode(mode)
+  }
+})
+</script>
+
+<style lang="less" scoped>
+.split-pane {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid var(--dp-pane-border);
+  border-radius: 8px;
+  background: var(--dp-pane-bg);
+  overflow: hidden;
+}
+
+.pane-title {
+  font-size: 13px;
+  color: var(--dp-title-text);
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--dp-title-border);
+  background: var(--dp-title-bg);
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.pane-title-prefix {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--dp-title-strong);
+}
+
+.b2-pane-title {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+}
+
+.b2-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 30px;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.b2-title-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+  flex-wrap: nowrap;
+}
+
+.pane-actions-secondary {
+  flex: 0 0 auto;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.action-btn {
+  height: 26px;
+  border-radius: 6px;
+  font-size: 12px;
+  padding-inline: 10px;
+}
+
+.b2-tab-buttons {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.tab-label {
+  margin-left: 4px;
+}
+
+.strategy-select {
+  width: 96px;
+}
+
+.b2-content {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow-y: overlay;
+  background: var(--dp-content-bg);
+}
+
+.index-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 10px;
+}
+
+.index-toolbar {
+  flex-shrink: 0;
+}
+
+.index-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.summary-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  color: var(--dp-sub-text, #64748b);
+  background: var(--dp-pane-bg, #f8fafc);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--dp-pane-border, #e2e8f0);
+}
+
+.summary-item {
+  font-weight: 500;
+
+  &.total {
+    color: var(--dp-title-strong, #0f172a);
+  }
+
+  &.figure {
+    color: #7c3aed;
+  }
+
+  &.table {
+    color: #0891b2;
+  }
+
+  &.formula {
+    color: #2563eb;
+  }
+}
+
+.summary-divider {
+  color: var(--dp-pane-border, #cbd5e1);
+  margin: 0 2px;
+}
+
+.b2-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: var(--dp-empty-overlay);
+}
+
+.b2-empty-desc {
+  line-height: 1.6;
+  color: var(--dp-empty-text);
+  text-align: center;
+}
+</style>
