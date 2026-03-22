@@ -67,6 +67,30 @@
       <!-- 中间：文档解析/预览 -->
       <template #center>
         <Panel title="文档解析" :icon="FileSearchOutlined">
+          <!-- 面板操作按钮 -->
+          <template #extra>
+            <a-space v-if="selectedNode && !selectedNode.isFolder">
+              <a-button
+                v-if="docParsedWorkspaceRef?.showHighlightToggle"
+                size="small"
+                class="header-action-btn"
+                :type="docParsedWorkspaceRef?.highlightLinkEnabled ? 'primary' : 'default'"
+                @click="docParsedWorkspaceRef?.toggleHighlightLink"
+              >
+                高亮联动
+              </a-button>
+              <a-button
+                type="primary"
+                size="small"
+                class="header-action-btn"
+                :loading="selectedNode.status === 'processing'"
+                @click="parseDocument(selectedNode)"
+              >
+                {{ docParsedWorkspaceRef?.parseButtonText || '开始解析' }}
+              </a-button>
+            </a-space>
+          </template>
+
           <a-empty v-if="!selectedNode" description="请从左侧选择文档" class="center-empty" />
 
           <template v-else-if="selectedNode.isFolder">
@@ -80,6 +104,7 @@
 
           <template v-else>
             <DocumentParsedWorkspace
+              ref="docParsedWorkspaceRef"
               :node="selectedNode"
               :content="docContent"
               :structured-stats="structuredStats"
@@ -191,6 +216,8 @@ import DocDetailModal from './components/DocDetailModal.vue'
 
 // SmartTree 组件引用
 const smartTreeRef = ref<InstanceType<typeof SmartTree> | null>(null)
+// DocumentParsedWorkspace 组件引用
+const docParsedWorkspaceRef = ref<any>(null)
 
 // 使用知识树 composable
 const {
@@ -1123,6 +1150,13 @@ onBeforeUnmount(() => {
       line-height: 1.6;
     }
   }
+}
+
+.header-action-btn {
+  height: 28px;
+  border-radius: 6px;
+  font-size: 12px;
+  padding-inline: 10px;
 }
 
 .drop-hint {

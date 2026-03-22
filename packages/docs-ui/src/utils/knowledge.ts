@@ -1,7 +1,55 @@
 import type { SmartTreeNode } from '../types/tree'
+import type { StructuredIndexItem, DocBlockNode } from '../types/knowledge'
 import katex from 'katex'
+import {
+  truncateText,
+  formatPositionTag
+} from './common'
+
+/**
+ * 获取节点的显示文本 (带截断)
+ */
+export const getNodeDisplayText = (node: DocBlockNode | undefined, fallbackId: string, limit = 24): string => {
+  const text = node ? getNodeText(node) : fallbackId
+  return truncateText(text, limit)
+}
+
+/**
+ * 获取节点的层级标签 (如 L1, L2)
+ */
+export const getNodeLevelTag = (node: DocBlockNode | undefined, nodeMap: Map<string, DocBlockNode>): string | null => {
+  if (!node) return null
+  const level = getNodeLevel(node, nodeMap)
+  return level !== null ? `L${level}` : null
+}
+
+/**
+ * 获取节点的类型标签
+ */
+export const getNodeTypeTag = (node: DocBlockNode | undefined): string | null => {
+  if (!node || !node.block_type) return null
+  return formatStructuredItemType(node.block_type)
+}
+
+/**
+ * 获取节点的位置标签
+ */
+export const getNodePositionTag = (node: DocBlockNode | undefined): string | null => {
+  if (!node) return null
+  return formatPositionTag(node.page_idx ?? 0, node.block_seq ?? 0)
+}
 
 export type PreviewFileType = 'pdf' | 'word' | 'markdown' | 'image' | 'text' | 'file'
+
+/**
+ * 判断条目是否处于激活状态
+ */
+export const isItemActive = (item: StructuredIndexItem, activeId: string | null): boolean => {
+  if (!activeId) return false
+  if (item.id === activeId) return true
+  const refs = collectItemRefs(item)
+  return refs.includes(activeId)
+}
 
 export const getFileExtension = (path: string): string => {
   if (!path) return ''
@@ -32,16 +80,6 @@ export const formatStructuredItemType = (itemType: string): string => {
   return itemType || '未知'
 }
 
-export const stripMarkdownSyntax = (value: string): string => value
-  .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
-  .replace(/`([^`]+)`/g, '$1')
-  .replace(/\*\*([^*]+)\*\*/g, '$1')
-  .replace(/\*([^*]+)\*/g, '$1')
-  .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-  .replace(/<[^>]+>/g, '')
-  .replace(/\s+/g, ' ')
-  .trim()
-
 const stageMap: Record<string, string> = {
   queued: '任务排队中',
   initializing: '正在初始化',
@@ -69,12 +107,48 @@ export const mapNodeStatusText = (status?: string): string => {
   return statusTextMap[status || ''] || '未知'
 }
 
-const escapeHtml = (content: string): string => content
+/**
+ * 获取节点的显示文本
+ */
+export const getNodeText = (node: DocBlockNode): string => {
+  return (node.plain_text || '').trim() || node.id
+}
+
+/**
+ * 获取节点的所有直接子节点
+ */
+export const getChildren = (nodeId: string, nodeMap: Map<string, DocBlockNode>, childrenMap: Map<string, string[]>): DocBlockNode[] => {
+  const childIds = childrenMap.get(nodeId) || []
+  return childIds
+    .map(cid => nodeMap.get(cid))
+    .filter((node): node is DocBlockNode => node !== undefined)
+}
+
+/**
+ * 简单 Markdown 渲染函数
+ * @param content Markdown 文本
+ */
+export const renderMarkdown = (content: string): string => {
+  if (!content) return ''
+  // 移除首尾空白和空行
+  const trimmedContent = content.trim()
+  return trimmedContent
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+    .replace(/\n/g, '<br/>')
+}
+
+export const escapeHtml = (content: string): string => content
   .replace(/&/g, '&amp;')
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;')
 
-const escapeHtmlAttribute = (content: string): string => content
+export const escapeHtmlAttribute = (content: string): string => content
   .replace(/&/g, '&amp;')
   .replace(/"/g, '&quot;')
   .replace(/</g, '&lt;')
@@ -89,7 +163,7 @@ const resolveMarkdownAssetBasePath = (path: string): string => {
   return dir
 }
 
-const resolveAssetUrl = (source: string, sourceFilePath: string): string => {
+export const resolveAssetUrl = (source: string, sourceFilePath?: string): string => {
   const trimmed = source.trim()
   if (!trimmed) return ''
   if (/^(https?:)?\/\//i.test(trimmed) || /^data:/i.test(trimmed) || /^blob:/i.test(trimmed)) {
@@ -100,6 +174,7 @@ const resolveAssetUrl = (source: string, sourceFilePath: string): string => {
   if (/^[a-zA-Z]:[\\/]/.test(trimmed)) {
     return `/api/files?path=${encodeURIComponent(trimmed)}`
   }
+  if (!sourceFilePath) return trimmed
   const basePath = resolveMarkdownAssetBasePath(sourceFilePath)
   if (!basePath) return trimmed
   const normalizedBase = basePath.endsWith('\\') || basePath.endsWith('/') ? basePath : `${basePath}\\`
@@ -107,13 +182,112 @@ const resolveAssetUrl = (source: string, sourceFilePath: string): string => {
   return `/api/files?path=${encodeURIComponent(absolutePath)}`
 }
 
-const renderFormula = (formula: string, displayMode: boolean): string => {
+export const renderFormula = (formula: string, displayMode: boolean): string => {
+  const source = (formula || '').trim()
+  if (!source) return ''
   try {
-    return katex.renderToString(formula, { throwOnError: false, displayMode })
+    return katex.renderToString(source, { throwOnError: false, displayMode })
   } catch {
     const fallbackClass = displayMode ? 'math-block-fallback' : 'math-inline-fallback'
-    return `<span class="${fallbackClass}">${escapeHtml(formula)}</span>`
+    return `<span class="${fallbackClass}">${escapeHtml(source)}</span>`
   }
+}
+
+/**
+ * 获取节点在树中的层级
+ */
+export const getNodeLevel = (node: DocBlockNode, nodeMap: Map<string, DocBlockNode>): number | null => {
+  if (node.derived_level !== null && node.derived_level !== undefined) {
+    return node.derived_level
+  }
+  const parentId = node.parent_uid
+  if (!parentId) return null
+  const parent = nodeMap.get(parentId)
+  if (!parent) return null
+  const parentLevel = getNodeLevel(parent, nodeMap)
+  if (parentLevel === null) return null
+  return parentLevel + 1
+}
+
+/**
+ * 为索引条目查找对应的文档节点
+ */
+export const findNodeForItem = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>): DocBlockNode | null => {
+  const refs = collectItemRefs(item)
+  for (const ref of refs) {
+    const direct = nodeMap.get(ref)
+    if (direct) return direct
+  }
+  const meta = item.meta || {}
+  const pageSeq = Number(meta.page_seq || meta.page || 0)
+  const blockSeq = Number(meta.block_seq || 0)
+  if (pageSeq > 0 && blockSeq > 0) {
+    for (const node of nodeMap.values()) {
+      if ((Number(node.page_idx ?? 0) + 1) === pageSeq && Number(node.block_seq ?? 0) === blockSeq) {
+        return node
+      }
+    }
+  }
+  return null
+}
+
+/**
+ * 获取索引条目的标签列表 (层级、类型、页码等)
+ */
+export const getItemTags = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>): string[] => {
+  const meta = item.meta || {}
+  const node = findNodeForItem(item, nodeMap)
+  const tags: string[] = []
+  const level = Number(meta.level ?? meta.heading_level ?? meta.derived_level ?? (node ? getNodeLevel(node, nodeMap) : null))
+  if (Number.isFinite(level) && level > 0) {
+    tags.push(`等级 L${Math.round(level)}`)
+  }
+  tags.push(`类型 ${formatStructuredItemType(item.item_type)}`)
+  const pageSeq = Number(meta.page_seq || meta.page || (node ? Number(node.page_idx ?? 0) + 1 : 0))
+  if (pageSeq > 0) {
+    tags.push(`页 ${pageSeq}`)
+  }
+  return Array.from(new Set(tags.filter(Boolean)))
+}
+
+/**
+ * 判断索引条目是否包含富媒体 (表格、公式、图片)
+ */
+export const hasRichMedia = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>): boolean => {
+  const node = findNodeForItem(item, nodeMap)
+  if (!node) return false
+  return Boolean(node.table_html || node.math_content || node.image_path)
+}
+
+/**
+ * 渲染索引条目的富媒体内容
+ */
+export const renderItemRichMedia = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>, sourceFilePath?: string): string => {
+  const node = findNodeForItem(item, nodeMap)
+  if (!node) return ''
+  if (node.table_html) {
+    return `<div class="media-table">${node.table_html}</div>`
+  }
+  if (node.math_content) {
+    return `<div class="media-formula">${renderFormula(node.math_content, true)}</div>`
+  }
+  if (node.image_path) {
+    const src = resolveAssetUrl(node.image_path, sourceFilePath)
+    if (!src) return ''
+    return `<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(node.plain_text || 'image')}" />`
+  }
+  return ''
+}
+
+/**
+ * 解析索引条目的跳转 ID (优先跳转到节点 ID)
+ */
+export const resolveSelectId = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>): string => {
+  const node = findNodeForItem(item, nodeMap)
+  if (node) {
+    return node.id
+  }
+  return item.id
 }
 
 const renderInline = (content: string, sourceFilePath: string): string => {
@@ -346,4 +520,45 @@ export const renderMarkdownToHtml = (content: string, sourceFilePath: string): s
   }
 
   return htmlBlocks.join('\n')
+}
+
+/**
+ * 收集条目的所有关联 ID/引用
+ */
+export const collectItemRefs = (item: StructuredIndexItem): string[] => {
+  const meta = item.meta || {}
+  const rawRefs: unknown[] = [
+    item.id,
+    meta.block_uid,
+    meta.blockUid,
+    meta.mineru_block_uid,
+    meta.mineruBlockUid,
+    meta.node_id,
+    meta.nodeId,
+    meta.block_id,
+    meta.blockId,
+    meta.source_block_id,
+    meta.sourceBlockId,
+    meta.mineru_block_id,
+    meta.mineruBlockId,
+    meta.caption_block_uid,
+    meta.footnote_block_uid,
+    meta.caption_block_uids,
+    meta.footnote_block_uids,
+    meta.block_uids,
+    meta.node_ids
+  ]
+  const refs: string[] = []
+  rawRefs.forEach(value => {
+    if (Array.isArray(value)) {
+      value.forEach(inner => {
+        const text = String(inner || '').trim()
+        if (text) refs.push(text)
+      })
+      return
+    }
+    const text = String(value || '').trim()
+    if (text) refs.push(text)
+  })
+  return Array.from(new Set(refs))
 }

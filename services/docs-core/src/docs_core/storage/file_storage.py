@@ -110,6 +110,66 @@ class FileStorage:
             f.write(content)
         return str(current_path)
 
+    def save_parse_artifacts(self, library_id: str, doc_id: str, output_dir: str) -> Dict[str, Any]:
+        """
+        保存解析产物到文档目录
+        包括复制所有文件、清理冗余 PDF、重命名关键 JSON 到 mineru_raw 目录
+        """
+        parsed_dir = self.get_parsed_dir(library_id, doc_id)
+        out_path_obj = Path(output_dir)
+        
+        # 1. 递归复制所有文件到 parsed 目录
+        if not parsed_dir.exists():
+            parsed_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(output_dir, parsed_dir, dirs_exist_ok=True)
+
+        # 2. 准备 mineru_raw 目录用于存放关键 JSON
+        mineru_raw_dir = parsed_dir / 'mineru_raw'
+        mineru_raw_dir.mkdir(parents=True, exist_ok=True)
+        
+        # 3. 清理 PDF 文件 (如 origin.pdf)
+        for pdf_file in list(parsed_dir.rglob('*.pdf')):
+            try:
+                pdf_file.unlink()
+            except Exception:
+                pass
+
+        # 4. 移动关键文件到 mineru_raw 并重命名
+        artifact_map = {
+            'origin.zip': 'origin.zip',
+            '*model.json': 'model.json',
+            'layout.json': 'layout.json',
+            '*content_list_v2.json': 'content_list_v2.json',
+            '*_content_list.json': 'content_list.json'
+        }
+        
+        final_files = {}
+        for pattern, target_name in artifact_map.items():
+            found_files = list(parsed_dir.rglob(pattern))
+            for f in found_files:
+                if target_name == 'content_list.json' and f.name == 'content_list_v2.json':
+                    continue
+                target = mineru_raw_dir / target_name
+                try:
+                    if f.resolve() != target.resolve():
+                        if target.exists():
+                            target.unlink()
+                        shutil.move(str(f), str(target))
+                    final_files[target_name] = str(target)
+                except Exception:
+                    pass
+
+        # 5. 清理冗余 assets 目录 (如果 images 存在)
+        assets_path = parsed_dir / 'assets'
+        images_path = parsed_dir / 'images'
+        if assets_path.exists() and images_path.exists():
+            try:
+                shutil.rmtree(assets_path)
+            except Exception:
+                pass
+
+        return final_files
+
     def save_assets(self, library_id: str, doc_id: str, source_dir: str) -> str:
         """保存解析产物中的资产文件目录"""
         assets_path = self.get_parsed_dir(library_id, doc_id) / 'assets'

@@ -1,31 +1,6 @@
 <template>
   <div class="doc-preview" :class="{ 'dark-mode': darkMode }">
     <div class="preview-content">
-      <div class="workspace-toolbar">
-        <div class="workspace-toolbar-left">
-          <span class="workspace-title">文档解析工作区</span>
-        </div>
-        <div class="workspace-toolbar-actions">
-          <a-button
-            v-if="showHighlightToggle"
-            size="small"
-            class="workspace-action-btn"
-            :type="highlightLinkEnabled ? 'primary' : 'default'"
-            @click="toggleHighlightLink"
-          >
-            高亮联动
-          </a-button>
-          <a-button
-            type="primary"
-            size="small"
-            class="workspace-action-btn"
-            :loading="node.status === 'processing'"
-            @click="$emit('parse', node)"
-          >
-            {{ parseButtonText }}
-          </a-button>
-        </div>
-      </div>
       <div class="split-preview">
         <PDF_Viewer
           :node="node"
@@ -51,7 +26,7 @@
           @select-highlight="onSelectHighlightFromLeft"
         />
 
-        <ParsedPDF_Viewer
+        <DocumentParsedViewerSpace
           v-model:activeTab="activeTab"
           :renderedMarkdown="renderedMarkdown"
           :editableContent="editableContent"
@@ -108,21 +83,21 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import PDF_Viewer from './PDF_Viewer.vue'
-import ParsedPDF_Viewer from './ParsedPDF_Viewer.vue'
-import { useWorkspaceLinkage } from '../../composables/useWorkspaceLinkage'
-import { useWorkspacePreview } from '../../composables/useWorkspacePreview'
-import { useWorkspaceIngest } from '../../composables/useWorkspaceIngest'
-import type { PreviewMode } from '../../composables/useParsedPdfViewer'
-import type { KnowledgeTreeNode } from '../../types/tree'
+import PDF_Viewer from '../viewers/PDF_Viewer.vue'
+import DocumentParsedViewerSpace from './DocumentParsedViewerSpace.vue'
+import { useWorkspaceLinkage } from '../../../composables/useWorkspaceLinkage'
+import { useWorkspacePreview } from '../../../composables/useWorkspacePreview'
+import { useWorkspaceIngest } from '../../../composables/useWorkspaceIngest'
+import type { PreviewMode } from '../../../composables/useParsedPdfViewer'
+import type { KnowledgeTreeNode } from '../../../types/tree'
 import type {
   IngestStatus,
   KnowledgeStrategy,
   StructuredIndexItem,
   StructuredStats,
   DocumentParsedWorkspaceEventMap
-} from '../../types/knowledge'
-import { mapParseStageText, renderMarkdownToHtml } from '../../utils/knowledge'
+} from '../../../types/knowledge'
+import { mapParseStageText, renderMarkdownToHtml } from '../../../utils/knowledge'
 
 interface Props {
   node: KnowledgeTreeNode
@@ -268,6 +243,13 @@ const renderedMarkdown = computed(() => renderMarkdownToHtml(
   markdownContent.value,
   filePath.value
 ))
+
+defineExpose({
+  toggleHighlightLink,
+  highlightLinkEnabled,
+  showHighlightToggle,
+  parseButtonText
+})
 </script>
 
 <style lang="less" scoped>
@@ -311,51 +293,12 @@ const renderedMarkdown = computed(() => renderMarkdownToHtml(
     padding: 6px;
   }
 
-  .workspace-toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding: 6px 8px;
-    border: 1px solid var(--dp-pane-border);
-    border-radius: 8px;
-    background: var(--dp-pane-bg);
-    margin-bottom: 8px;
-  }
-
-  .workspace-toolbar-left {
-    min-width: 0;
-    display: flex;
-    align-items: center;
-  }
-
-  .workspace-title {
-    color: var(--dp-title-strong);
-    font-size: 13px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  .workspace-toolbar-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .workspace-action-btn {
-    height: 28px;
-    border-radius: 6px;
-    font-size: 12px;
-    padding-inline: 10px;
-  }
-
   .split-preview {
     display: flex;
     flex: 1;
     min-height: 0;
     gap: 8px;
+    margin-top: 8px;
   }
 
   .ingest-modal-content {

@@ -1,5 +1,10 @@
 import { ref, computed, shallowRef, type Ref, type ShallowRef, type ComputedRef } from 'vue'
 import type { DocBlockNode, DocBlocksGraph } from '../types/knowledge'
+import {
+  getNodeLevel,
+  getNodeText,
+  getChildren
+} from '../utils/knowledge'
 
 export type ViewMode = 'tree' | 'graph'
 
@@ -155,30 +160,6 @@ export function useDocBlocksGraph(options: UseDocBlocksGraphOptions = {}): UseDo
     }
   }
 
-  const getNodeLevel = (node: DocBlockNode): number | null => {
-    if (node.derived_level !== null && node.derived_level !== undefined) {
-      return node.derived_level
-    }
-    const parentId = node.parent_uid
-    if (!parentId) return null
-    const parent = nodeMap.value.get(parentId)
-    if (!parent) return null
-    const parentLevel = getNodeLevel(parent)
-    if (parentLevel === null) return null
-    return parentLevel + 1
-  }
-
-  const getNodeText = (node: DocBlockNode): string => {
-    return node.plain_text?.trim() || node.id
-  }
-
-  const getChildren = (id: string): DocBlockNode[] => {
-    const childIds = childrenMap.value.get(id) || []
-    return childIds
-      .map(cid => nodeMap.value.get(cid))
-      .filter((n): n is DocBlockNode => n !== undefined)
-  }
-
   return {
     graph,
     loading,
@@ -202,8 +183,8 @@ export function useDocBlocksGraph(options: UseDocBlocksGraphOptions = {}): UseDo
     setViewportState,
     getAncestors,
     expandAncestors,
-    getNodeLevel,
+    getNodeLevel: (node: DocBlockNode) => getNodeLevel(node, nodeMap.value),
     getNodeText,
-    getChildren
+    getChildren: (id: string) => getChildren(id, nodeMap.value, childrenMap.value)
   }
 }

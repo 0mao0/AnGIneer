@@ -79,6 +79,7 @@ Admin B区（文档生命周期）
 存储规范（One Doc One Folder）
 data/knowledge_base/libraries/{library_id}/docs/{doc_id}/
   source/ + parsed/ + edited/ + structured/
+  (版本化: 基于 SCHEMA_VERSION 追踪解析产物结构一致性)
 ```
 
 ---
@@ -126,7 +127,7 @@ pnpm harness:tooling
 | 阶段 | 版本 | 目标 |
 |:---|:---|:---|
 | **内核构建** | v0.1 | 调度器、意图识别、SOP解析、记忆总线、工具引擎 |
-| **知识与视觉** | v0.2 | 文档解析、图表语义化、经验库构建 |
+| **知识与视觉** | v0.2 | 文档解析、PDF 高级渲染优化（防闪烁/自适应）、图表语义化、经验库构建 |
 | **交互与编排** | v0.3 | Web控制台、流程编辑器、人机协作 |
 
 ---

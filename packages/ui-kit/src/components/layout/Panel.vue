@@ -60,7 +60,8 @@ withDefaults(defineProps<Props>(), {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
+    height: 44px;
+    padding: 0 16px;
     border-bottom: 1px solid var(--border-color, #303030);
     background: var(--panel-header-bg, #272727);
     flex-shrink: 0;

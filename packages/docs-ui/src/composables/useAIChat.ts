@@ -3,6 +3,7 @@
  * 提供流式 AI 对话的状态管理和消息发送功能
  */
 import { ref } from 'vue'
+import { generateMessageId, estimateTokens } from '../utils/common'
 
 // 消息角色类型
 export type MessageRole = 'user' | 'assistant' | 'system'
@@ -69,24 +70,6 @@ const DEFAULT_CONTEXT_CONFIG: ContextConfig = {
 }
 
 /**
- * 估算消息的 token 数量（简化版）
- * 中文按 1 字符 ≈ 1.5 token，英文按 1 字符 ≈ 0.5 token 估算
- */
-function estimateTokens(message: ChatMessage): number {
-  const content = message.content || ''
-  let tokens = 0
-  for (const char of content) {
-    // 中文字符范围
-    if (/[\u4e00-\u9fa5]/.test(char)) {
-      tokens += 1.5
-    } else {
-      tokens += 0.5
-    }
-  }
-  return Math.ceil(tokens)
-}
-
-/**
  * 管理对话上下文，实现滑动窗口和压缩
  */
 function manageContext(
@@ -110,12 +93,12 @@ function manageContext(
 
   // 2. 上下文压缩：如果总 token 超过阈值，进行压缩
   if (config.enableCompression) {
-    let totalTokens = chatMessages.reduce((sum, m) => sum + estimateTokens(m), 0)
+    let totalTokens = chatMessages.reduce((sum, m) => sum + estimateTokens(m.content), 0)
 
     while (totalTokens > config.compressionThreshold && chatMessages.length > 2) {
       // 移除最早的一对对话（用户+助手）
       const removed = chatMessages.splice(0, 2)
-      totalTokens -= removed.reduce((sum, m) => sum + estimateTokens(m), 0)
+      totalTokens -= removed.reduce((sum, m) => sum + estimateTokens(m.content), 0)
     }
   }
 
@@ -151,13 +134,6 @@ export function useAIChat(options?: {
       content: options.systemPrompt,
       timestamp: Date.now()
     })
-  }
-
-  /**
-   * 生成唯一消息 ID
-   */
-  const generateMessageId = (): string => {
-    return `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
   }
 
   /**
@@ -327,7 +303,7 @@ export function useAIChat(options?: {
    * 获取当前上下文的 token 估算
    */
   const getContextTokens = (): number => {
-    return messages.value.reduce((sum, m) => sum + estimateTokens(m), 0)
+    return messages.value.reduce((sum, m) => sum + estimateTokens(m.content), 0)
   }
 
   /**

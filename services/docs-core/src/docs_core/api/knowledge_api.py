@@ -8,6 +8,11 @@ import sqlite3
 from pathlib import Path
 
 
+# 当前文档解析 Schema 版本
+# 当解析产物结构发生重大变化时，应提升此版本号
+SCHEMA_VERSION = "1.0.0"
+
+
 class KnowledgeNode(BaseModel):
     """知识库节点"""
     id: str
@@ -23,6 +28,7 @@ class KnowledgeNode(BaseModel):
     parse_error: Optional[str] = None
     parse_task_id: Optional[str] = None
     strategy: str = 'A_structured'
+    schema_version: str = SCHEMA_VERSION
     sort_order: int = 0
     created_at: datetime = datetime.now()
     updated_at: datetime = datetime.now()
@@ -46,6 +52,7 @@ class ParseTask(BaseModel):
     progress: int = 0
     stage: str = 'queued'
     error: Optional[str] = None
+    schema_version: str = SCHEMA_VERSION
     created_at: datetime = datetime.now()
     updated_at: datetime = datetime.now()
 
@@ -120,6 +127,9 @@ class KnowledgeService:
                     conn.execute("ALTER TABLE nodes ADD COLUMN parse_task_id TEXT")
                 if 'strategy' not in node_columns:
                     conn.execute("ALTER TABLE nodes ADD COLUMN strategy TEXT NOT NULL DEFAULT 'A_structured'")
+                if 'schema_version' not in node_columns:
+                    conn.execute(f"ALTER TABLE nodes ADD COLUMN schema_version TEXT NOT NULL DEFAULT '{SCHEMA_VERSION}'")
+
                 conn.execute(
                     '''
                     CREATE TABLE IF NOT EXISTS parse_tasks (
@@ -130,11 +140,16 @@ class KnowledgeService:
                         progress INTEGER NOT NULL DEFAULT 0,
                         stage TEXT NOT NULL,
                         error TEXT,
+                        schema_version TEXT NOT NULL DEFAULT '0.0.0',
                         created_at TEXT NOT NULL,
                         updated_at TEXT NOT NULL
                     )
                     '''
                 )
+                task_columns = {row['name'] for row in conn.execute("PRAGMA table_info(parse_tasks)").fetchall()}
+                if 'schema_version' not in task_columns:
+                    conn.execute(f"ALTER TABLE parse_tasks ADD COLUMN schema_version TEXT NOT NULL DEFAULT '{SCHEMA_VERSION}'")
+
                 conn.execute(
                     '''
                     CREATE TABLE IF NOT EXISTS document_segments (
@@ -146,12 +161,16 @@ class KnowledgeService:
                         title TEXT,
                         content TEXT NOT NULL,
                         meta_json TEXT,
+                        schema_version TEXT NOT NULL DEFAULT '0.0.0',
                         order_index INTEGER NOT NULL DEFAULT 0,
                         created_at TEXT NOT NULL,
                         updated_at TEXT NOT NULL
                     )
                     '''
                 )
+                seg_columns = {row['name'] for row in conn.execute("PRAGMA table_info(document_segments)").fetchall()}
+                if 'schema_version' not in seg_columns:
+                    conn.execute(f"ALTER TABLE document_segments ADD COLUMN schema_version TEXT NOT NULL DEFAULT '{SCHEMA_VERSION}'")
                 conn.execute(
                     '''
                     CREATE INDEX IF NOT EXISTS idx_document_segments_doc_strategy
@@ -187,14 +206,14 @@ class KnowledgeService:
                 '''
                 SELECT id, title, type, parent_id, visible, library_id, file_path, status,
                        parse_progress, parse_stage, parse_error, parse_task_id, strategy,
-                       sort_order, created_at, updated_at
+                       schema_version, sort_order, created_at, updated_at
                 FROM nodes
                 ORDER BY library_id ASC, parent_id ASC, sort_order ASC, created_at ASC
                 '''
             ).fetchall()
             task_rows = conn.execute(
                 '''
-                SELECT id, library_id, doc_id, status, progress, stage, error, created_at, updated_at
+                SELECT id, library_id, doc_id, status, progress, stage, error, schema_version, created_at, updated_at
                 FROM parse_tasks
                 ORDER BY created_at DESC
                 '''
@@ -224,6 +243,7 @@ class KnowledgeService:
                 parse_error=row['parse_error'],
                 parse_task_id=row['parse_task_id'],
                 strategy=row['strategy'] or 'A_structured',
+                schema_version=row['schema_version'] or '0.0.0',
                 sort_order=int(row['sort_order'] or 0),
                 created_at=self._parse_datetime(row['created_at']),
                 updated_at=self._parse_datetime(row['updated_at'])
@@ -239,6 +259,7 @@ class KnowledgeService:
                 progress=int(row['progress'] or 0),
                 stage=row['stage'] or 'queued',
                 error=row['error'],
+                schema_version=row['schema_version'] or '0.0.0',
                 created_at=self._parse_datetime(row['created_at']),
                 updated_at=self._parse_datetime(row['updated_at'])
             )
@@ -270,8 +291,8 @@ class KnowledgeService:
         with self._get_conn() as conn:
             conn.execute(
                 '''
-                INSERT INTO nodes (id, title, type, parent_id, visible, library_id, file_path, status, parse_progress, parse_stage, parse_error, parse_task_id, strategy, sort_order, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO nodes (id, title, type, parent_id, visible, library_id, file_path, status, parse_progress, parse_stage, parse_error, parse_task_id, strategy, schema_version, sort_order, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(id) DO UPDATE SET
                     title=excluded.title,
                     type=excluded.type,
@@ -285,6 +306,7 @@ class KnowledgeService:
                     parse_error=excluded.parse_error,
                     parse_task_id=excluded.parse_task_id,
                     strategy=excluded.strategy,
+                    schema_version=excluded.schema_version,
                     sort_order=excluded.sort_order,
                     updated_at=excluded.updated_at
                 ''',
@@ -302,6 +324,7 @@ class KnowledgeService:
                     node.parse_error,
                     node.parse_task_id,
                     node.strategy,
+                    node.schema_version,
                     node.sort_order,
                     node.created_at.isoformat(),
                     node.updated_at.isoformat()
@@ -313,13 +336,14 @@ class KnowledgeService:
         with self._get_conn() as conn:
             conn.execute(
                 '''
-                INSERT INTO parse_tasks (id, library_id, doc_id, status, progress, stage, error, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO parse_tasks (id, library_id, doc_id, status, progress, stage, error, schema_version, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(id) DO UPDATE SET
                     status=excluded.status,
                     progress=excluded.progress,
                     stage=excluded.stage,
                     error=excluded.error,
+                    schema_version=excluded.schema_version,
                     updated_at=excluded.updated_at
                 ''',
                 (
@@ -330,6 +354,7 @@ class KnowledgeService:
                     task.progress,
                     task.stage,
                     task.error,
+                    task.schema_version,
                     task.created_at.isoformat(),
                     task.updated_at.isoformat()
                 )
@@ -529,23 +554,27 @@ class KnowledgeService:
                     item.get('title'),
                     item.get('content', ''),
                     json.dumps(item.get('meta', {}), ensure_ascii=False),
-                    int(item.get('order_index', index)),
+                    item.get('schema_version', SCHEMA_VERSION),
+                    index,
                     now,
                     now
                 )
             )
+
+        if not rows:
+            return 0
+
         with self._get_conn() as conn:
-            if rows:
-                conn.executemany(
-                    '''
-                    INSERT INTO document_segments
-                    (id, doc_id, library_id, strategy, item_type, title, content, meta_json, order_index, created_at, updated_at)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    ''',
-                    rows
-                )
+            conn.executemany(
+                '''
+                INSERT INTO document_segments (
+                    id, doc_id, library_id, strategy, item_type, title, content, meta_json, schema_version, order_index, created_at, updated_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''',
+                rows
+            )
             conn.commit()
-        return len(rows)
+            return len(rows)
 
     def list_document_segments(
         self,
@@ -557,7 +586,7 @@ class KnowledgeService:
     ) -> List[Dict[str, Any]]:
         """查询文档结构化片段"""
         sql = '''
-            SELECT id, doc_id, library_id, strategy, item_type, title, content, meta_json, order_index, created_at, updated_at
+            SELECT id, doc_id, library_id, strategy, item_type, title, content, meta_json, schema_version, order_index, created_at, updated_at
             FROM document_segments
             WHERE doc_id = ? AND strategy = ?
         '''
@@ -585,6 +614,7 @@ class KnowledgeService:
                     'title': row['title'],
                     'content': row['content'],
                     'meta': json.loads(row['meta_json'] or '{}'),
+                    'schema_version': row['schema_version'] or '0.0.0',
                     'order_index': int(row['order_index'] or 0),
                     'created_at': row['created_at'],
                     'updated_at': row['updated_at']

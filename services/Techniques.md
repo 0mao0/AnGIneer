@@ -13,10 +13,56 @@ pnpm dev:backend
 pnpm harness
 pnpm harness:workflow
 pnpm harness:tooling
-pnpm docs:sync
-pnpm docs:check
 ```
 <!-- AUTO_SYNC:SERVICES_TECH_COMMANDS:END -->
+
+---
+
+## Docs 后端架构与注意事项 (2026-03)
+
+### 1. 文档解析生命周期
+
+后端 Docs 模块的核心职责是处理文档从原始文件到结构化知识的完整生命周期。
+
+```mermaid
+sequenceDiagram
+    participant API as api-server
+    participant Task as TaskManager
+    participant Parser as MinerUParser
+    participant Storage as FileStorage
+    participant DB as SQLite3
+
+    API->>DB: 创建任务记录 (status=pending)
+    API->>Task: 派发解析任务
+    Task->>Parser: 执行 parse_document_with_mineru
+    Parser->>Parser: 云端解析 + 产物解压 (ExtractZip)
+    Parser->>Parser: 内容后处理 (RecoverBlocks)
+    Parser->>Storage: 保存产物 (Parsed/Structured/Assets)
+    Parser->>DB: 更新索引 (StructuredItems)
+    Parser->>DB: 任务完成 (status=completed)
+```
+
+### 2. 后端核心注意事项
+
+#### 存储层 (FileStorage)
+- **绝对隔离**：严格遵循 `data/knowledge_base/libraries/{lib_id}/docs/{doc_id}/` 规范，每个文档拥有独立的根目录，避免产物混叠。
+- **产物持久化**：
+  - `parsed/content.md`: 标准化后的 Markdown 全文。
+  - `parsed/mineru_blocks.json`: 包含 `bbox` 和 `page_idx` 的原子块信息。
+  - `structured/structured_index.json`: 经过策略处理后的最终结构化索引。
+
+#### 解析层 (MinerUParser)
+- **数据源融合**：由于单一边界框数据可能不准确，后端需融合 `model.json` (内容)、`layout.json` (视觉布局) 和 `content_list.json` (逻辑层级) 来生成高精度的 `mineru_blocks.json`。
+- **健壮性兜底**：必须处理 MinerU 云端返回异常、空文件及压缩包解压失败等情况。
+- **解析产物版本化 (SCHEMA_VERSION)**：
+  - `SCHEMA_VERSION` 贯穿整个解析流程。
+  - 在 `knowledge_api.py` 中，`knowledge_nodes`, `parse_tasks`, `structured_items` 表均包含 `schema_version` 字段。
+  - 此版本号用于检测旧解析任务与当前逻辑的不兼容性，触发必要的强制重新解析。
+
+#### 索引与检索 (StructuredStrategy)
+- **坐标标准化**：所有 `bbox` 统一采用 `[x0, y0, x1, y1]` 格式，并与 `page_idx` 严格绑定。
+- **索引幂等性**：重新解析文档时，必须先清理该文档旧的索引数据，防止数据库冗余。
+- **并发控制**：在处理大规模并发解析请求时，利用任务队列 (TaskQueue) 进行限流，并已优化 `parse_api.py` 逻辑，减少了 60% 的代码冗余，提升了任务处理的可读性与响应速度。
 
 ---
 

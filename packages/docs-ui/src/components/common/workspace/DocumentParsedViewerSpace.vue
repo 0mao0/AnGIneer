@@ -21,15 +21,15 @@
               <span v-if="!isCompactHeader" class="tab-label">Markdown</span>
             </a-radio-button>
             <a-radio-button value="Preview_IndexList" title="列表">
-              <PartitionOutlined />
+              <UnorderedListOutlined />
               <span v-if="!isCompactHeader" class="tab-label">列表</span>
             </a-radio-button>
             <a-radio-button value="Preview_IndexTree" :disabled="!hasGraphData" title="树形">
-              <PartitionOutlined />
+              <BranchesOutlined />
               <span v-if="!isCompactHeader" class="tab-label">树形</span>
             </a-radio-button>
             <a-radio-button value="Preview_IndexGraph" :disabled="!hasGraphData" title="图形">
-              <PartitionOutlined />
+              <DotChartOutlined />
               <span v-if="!isCompactHeader" class="tab-label">图形</span>
             </a-radio-button>
           </a-radio-group>
@@ -128,8 +128,6 @@
           :roots="roots"
           :expanded-node-ids="expandedNodeIds"
           :active-node-id="activeNodeIdForGraphTree"
-          :get-node-level="getNodeLevel"
-          :get-node-text="getNodeText"
           @toggle="onTreeToggle"
           @select="onNodeSelect"
         />
@@ -141,9 +139,6 @@
           :expanded-node-ids="expandedGraphNodeIds"
           :active-node-id="activeNodeIdForGraphTree"
           :viewport-state="graphViewportState"
-          :get-node-level="getNodeLevel"
-          :get-node-text="getNodeText"
-          :get-children="getChildren"
           @toggle="onGraphToggle"
           @select="onNodeSelect"
           @update-viewport="onViewportUpdate"
@@ -162,18 +157,28 @@
 </template>
 
 <script setup lang="ts">
-import { FileTextOutlined, EditOutlined, PartitionOutlined } from '@ant-design/icons-vue'
-import type { KnowledgeStrategy, StructuredIndexItem, DocBlocksGraph as DocBlocksGraphType } from '../../types/knowledge'
+/**
+ * 文档解析视图空间组件
+ * 提供 HTML、Markdown、列表、树形、图形多种视图切换
+ */
+import {
+  FileTextOutlined,
+  EditOutlined,
+  UnorderedListOutlined,
+  BranchesOutlined,
+  DotChartOutlined
+} from '@ant-design/icons-vue'
+import type { KnowledgeStrategy, StructuredIndexItem, DocBlocksGraph as DocBlocksGraphType } from '../../../types/knowledge'
 import {
   useParsedPdfViewer,
   type PreviewMode,
   type ParsedPdfViewerBridgeEventMap
-} from '../../composables/useParsedPdfViewer'
-import Preview_HTML from './Preview_HTML.vue'
-import Preview_Markdown from './Preview_Markdown.vue'
-import Preview_IndexList from './Preview_IndexList.vue'
-import Preview_IndexTree from './Preview_IndexTree.vue'
-import Preview_IndexGraph from './Preview_IndexGraph.vue'
+} from '../../../composables/useParsedPdfViewer'
+import Preview_HTML from '../viewers/Preview_HTML.vue'
+import Preview_Markdown from '../viewers/Preview_Markdown.vue'
+import Preview_IndexList from '../index/Preview_IndexList.vue'
+import Preview_IndexTree from '../index/Preview_IndexTree.vue'
+import Preview_IndexGraph from '../index/Preview_IndexGraph.vue'
 
 const props = defineProps<{
   activeTab: PreviewMode
@@ -227,9 +232,6 @@ const {
   expandedNodeIds,
   expandedGraphNodeIds,
   graphViewportState,
-  getNodeLevel,
-  getNodeText,
-  getChildren,
   activeNodeIdForGraphTree,
   onRightPaneScroll,
   onTabChange,
@@ -241,6 +243,9 @@ const {
   expandAncestors,
   setViewMode
 } = useParsedPdfViewer(props, emit)
+
+// 模板引用占位，防止 Linter 报错
+void [rightPaneRef, indexContentScrollRef, headerTitleRowRef]
 
 defineExpose({
   expandAncestors,

@@ -31,6 +31,7 @@ export interface DocumentMetadata {
   publishDate?: string
   category?: string
   tags?: string[]
+  schema_version?: number // 新增：Schema 版本号，用于数据迁移和兼容性处理
 }
 
 export interface Library {

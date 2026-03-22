@@ -8,11 +8,9 @@ import sys
 import uuid
 import tempfile
 import threading
-import mimetypes
-from urllib.parse import quote
 from datetime import datetime
 from typing import List, Dict, Any, Optional
-from fastapi import FastAPI, HTTPException, UploadFile, File as FastAPIFile, Form, Request
+from fastapi import FastAPI, HTTPException, UploadFile, File as FastAPIFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -39,12 +37,13 @@ from engtools.BaseTool import ToolRegistry, register_tool
 from engtools import * 
 import geo_core.GisTool
 import engtools.KnowledgeTool
-from docs_core.api import parse_api
+from docs_core.api import parse_api, preview_api
 
 app = FastAPI(title="AnGIneer API Bridge")
 
 # Mount sub-routers
 app.include_router(parse_api.router, prefix="/api/knowledge", tags=["Knowledge"])
+app.include_router(preview_api.router, prefix="/api", tags=["Preview"])
 
 # Initialize SOP Loader
 SOP_DIR = os.path.join(ROOT_DIR, "data", "sops", "raw")
@@ -1256,94 +1255,6 @@ async def upload_document(
         "storage": file_storage.get_doc_manifest(library_id, doc_id),
         "node": node
     }
-
-
-@app.get("/api/files")
-def get_file_for_preview(path: str, request: Request):
-    """按绝对路径预览文件（支持 Range 请求）"""
-    normalized_path = os.path.abspath(os.path.normpath(path))
-    allowed_roots = [
-        os.path.abspath(os.path.join(ROOT_DIR, 'data', 'knowledge_base')),
-    ]
-
-    from docs_core import file_storage
-    storage_root = os.path.abspath(file_storage.base_dir)
-    if storage_root not in allowed_roots:
-        allowed_roots.append(storage_root)
-
-    is_allowed = False
-    for root in allowed_roots:
-        try:
-            if os.path.commonpath([normalized_path, root]).lower() == root.lower():
-                is_allowed = True
-                break
-        except ValueError:
-            continue
-
-    if not is_allowed:
-        print(f"[Preview Error] Forbidden path: {normalized_path}")
-        print(f"[Preview Error] Allowed roots: {allowed_roots}")
-        raise HTTPException(status_code=403, detail="Forbidden path")
-
-    if not os.path.exists(normalized_path):
-        raise HTTPException(status_code=404, detail="File not found")
-    if not os.path.isfile(normalized_path):
-        raise HTTPException(status_code=400, detail="Path is not a file")
-
-    file_size = os.path.getsize(normalized_path)
-    filename = os.path.basename(normalized_path)
-    encoded_filename = quote(filename)
-
-    # 根据文件扩展名获取正确的 MIME 类型
-    mime_type, _ = mimetypes.guess_type(normalized_path)
-    if not mime_type:
-        mime_type = "application/octet-stream"
-
-    range_header = request.headers.get("range")
-
-    if range_header:
-        import re
-        match = re.match(r"bytes=(\d+)-(\d*)", range_header)
-        if match:
-            start = int(match.group(1))
-            end = int(match.group(2)) if match.group(2) else file_size - 1
-            end = min(end, file_size - 1)
-            content_length = end - start + 1
-
-            def iterfile():
-                with open(normalized_path, "rb") as f:
-                    f.seek(start)
-                    remaining = content_length
-                    chunk_size = 64 * 1024
-                    while remaining > 0:
-                        read_size = min(chunk_size, remaining)
-                        data = f.read(read_size)
-                        if not data:
-                            break
-                        remaining -= len(data)
-                        yield data
-
-            return StreamingResponse(
-                iterfile(),
-                status_code=206,
-                media_type=mime_type,
-                headers={
-                    "Content-Range": f"bytes {start}-{end}/{file_size}",
-                    "Accept-Ranges": "bytes",
-                    "Content-Length": str(content_length),
-                    "Content-Disposition": f"inline; filename*=utf-8''{encoded_filename}"
-                }
-            )
-
-    return FileResponse(
-        normalized_path,
-        filename=filename,
-        media_type=mime_type,
-        headers={
-            "Accept-Ranges": "bytes",
-            "Content-Disposition": f"inline; filename*=utf-8''{encoded_filename}"
-        }
-    )
 
 
 @app.get("/api/knowledge/parse/tasks/{task_id}")

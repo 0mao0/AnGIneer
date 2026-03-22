@@ -19,6 +19,48 @@
 
 ---
 
+## 数据模型与版本控制
+
+### SCHEMA_VERSION (Docs 模块)
+
+`SCHEMA_VERSION` 定义在 `services/docs-core/src/docs_core/api/knowledge_api.py` 中，用于追踪 **文档解析产物（Parsing Artifacts）的结构版本**。
+
+- **作用范围**：
+  - 影响 `KnowledgeNode` 和 `ParseTask` 数据库表。
+  - 标识解析产物（Markdown, JSON 索引, 图片等）的存储结构是否与当前代码逻辑兼容。
+- **版本提升准则**：
+  - 当修改了解析产物的目录结构时。
+  - 当修改了 `A_structured` / `B_mineru_rag` 等策略生成的索引 JSON 格式时。
+  - 当需要强制所有存量文档重新解析以适配新功能时。
+- **当前版本**：`1.0.0`
+
+---
+
+## 核心交互组件与逻辑优化
+
+### PDF 渲染优化 (PDF_Viewer.vue)
+
+为了解决“海港2.pdf”等复杂文档的渲染问题，我们实施了以下优化：
+
+- **自适应缩放 (Adaptive Scaling)**：
+  - 使用 `ResizeObserver` 实时监听容器尺寸变化。
+  - 引入 `intrinsicPdfPageWidth` 状态，在 PDF 加载后预先获取第一页原始宽度，实现瞬间响应的自适应缩放。
+  - 提供 `isFitToWindowMode` 开关，支持在固定比例与自动适配间平滑切换。
+- **视觉一致性与防闪烁**：
+  - **背景预填充**：在 `pdf.js` 渲染前，始终使用 `fillStyle = '#ffffff'` 填充 Canvas，解决深色模式或透明 PDF 下的“颜色惨白”问题。
+  - **尺寸校验**：仅在 Canvas 实际目标尺寸发生变化时更新 `canvas.width/height`，避免不必要的重绘导致的闪烁。
+  - **Vue 3 兼容性**：使用 `shallowRef` 存储 `pdf.js` 内部对象（包含原生私有字段），防止 Vue Proxy 代理导致的私有字段访问错误。
+
+### 共享逻辑抽离 (common.ts & knowledge.ts)
+
+为了降低组件耦合并消除冗余代码，我们将核心逻辑下沉至 `packages/docs-ui/src/utils/`：
+
+- **common.ts**：存放通用文本处理（Markdown 过滤、Token 估算、行号校验等）和 UI 辅助函数。
+- **knowledge.ts**：存放业务强相关的节点解析、渲染逻辑、图标映射及富媒体处理函数。
+- **受益组件**：`Preview_IndexList`, `Preview_IndexTree`, `Preview_IndexGraph`, `DocBlocksTreeNode` 等 11 个核心组件已完成重构，实现了 100% 的逻辑复用。
+
+---
+
 ## 前端常用命令（自动同步）
 
 <!-- AUTO_SYNC:APPS_TECH_COMMANDS:START -->
@@ -29,8 +71,6 @@ pnpm dev:admin
 pnpm build:frontend
 pnpm build:admin
 pnpm lint
-pnpm docs:sync
-pnpm docs:check
 ```
 <!-- AUTO_SYNC:APPS_TECH_COMMANDS:END -->
 
@@ -136,6 +176,71 @@ admin-console（管理路由型）
 
 ---
 
+## Docs 前后端架构与注意事项 (2026-03)
+
+### 1. 整体架构概览
+
+Docs 模块（文档解析与知识管理）采用了 **“异步任务化解析 + 一文档一目录存储 + 多策略检索”** 的核心架构。
+
+```mermaid
+flowchart TD
+    subgraph Frontend["前端 (apps/admin-console)"]
+        KM["KnowledgeManage.vue\n状态机驱动 B 区渲染"]
+        DPW["DocumentParsedWorkspace.vue\nB1/B2 联动工作区"]
+        PV["PDF_Viewer.vue\n高保真 PDF 渲染器"]
+    end
+
+    subgraph Backend["后端 (apps/api-server & docs-core)"]
+        API["FastAPI 异步接口\n/parse, /tasks, /document"]
+        Task["TaskQueue\nCelery/Asyncio 异步处理"]
+        Parser["MinerU Parser\n云端解析 + 本地后处理"]
+        Storage["FileStorage\n一文档一目录规范"]
+    end
+
+    subgraph Strategy["检索策略层"]
+        SA["A: 结构化索引\n(Sqlite3)"]
+        SB["B: MinerU-RAG\n(Vector DB)"]
+        SC["C: PageIndex\n(Tree Index)"]
+    end
+
+    KM -- 提交解析 --> API
+    API -- 返回 task_id --> KM
+    KM -- 轮询进度 --> API
+    Task -- 调用 --> Parser
+    Parser -- 产物落盘 --> Storage
+    Storage -- 构建索引 --> Strategy
+    KM -- 获取结果 --> API
+```
+
+### 2. 前端核心注意事项
+
+#### PDF 渲染与联动
+- **渲染性能**：`PDF_Viewer.vue` 必须使用 `shallowRef` 存储 pdf.js 对象，严禁使用 `ref` 进行深度代理，否则会导致私有字段访问错误。
+- **防闪烁**：仅在容器尺寸变化时更新 Canvas 宽高。
+- **高亮联动**：前端通过 `linkedHighlights` 统一管理来自 `mineru_blocks.json` 和 `structured_index.json` 的坐标数据。坐标必须根据 PDF 页面原始尺寸进行归一化处理。
+
+#### 状态机管理
+- 文档状态流转：`idle (未解析)` -> `processing (解析中)` -> `completed (已解析)` / `failed (失败)`。
+- 解析中状态必须展示实时的 `stage` 和 `percent`。
+
+### 3. 后端核心注意事项
+
+#### 存储规范（一文档一目录）
+所有文档产物必须存放在：`data/knowledge_base/libraries/{lib_id}/docs/{doc_id}/`
+- `source/`: 原始文件。
+- `parsed/`: `content.md`, `mineru_blocks.json`, `assets/` (图片/表格截图)。
+- `structured/`: 经过 A/B/C 策略处理后的结构化索引。
+
+#### 解析健壮性
+- **异步化**：解析是耗时操作，必须通过 `task_id` 异步返回。
+- **数据对齐**：后端返回的 `mineru_blocks` 必须包含 `page_idx` 和 `bbox`。`bbox` 统一采用 `[x0, y0, x1, y1]` 格式。
+- **错误恢复**：如果云端解析返回的 `mineru_blocks.json` 为空，后端应尝试从压缩包中的 `model.json` 恢复基础块信息。
+
+#### 多策略分发
+- 后端通过 `StrategyRouter` 根据文档设置的 `strategy` 字段，将检索请求分发到对应的 `StructuredStrategy`, `MinerURagStrategy` 或 `PageIndexStrategy`。
+
+---
+
 ## PDF 对比高亮逻辑架构（前端）
 
 ```mermaid
@@ -185,6 +290,18 @@ flowchart TB
   PageFilter --> ActiveOnly
   ActiveOnly --> DrawBox
 ```
+
+### PDF 渲染最佳实践 (Vue 3)
+
+在 `PDF_Viewer.vue` 中集成 `pdfjs-dist` 时，必须遵循以下规则：
+
+1. **避免深度代理**: `pdf.js` 的 `LoadingTask` 和 `PDFDocumentProxy` 对象内部使用了 JavaScript 原生私有字段（`#` 语法）。Vue 3 的 `ref` 会尝试对对象进行深度递归代理，导致在调用 `destroy()` 等方法时因私有字段访问冲突报错 `TypeError: Cannot read from private field`。
+2. **使用 shallowRef**: 必须使用 `shallowRef` 来存储这些第三方库对象（如 PDF 加载任务、文档对象、ResizeObserver 等），只追踪引用变化，不进行递归代理。
+3. **安全销毁**: 在组件卸载或 PDF 切换时，务必显式调用 `loadingTask.destroy()` 和 `pdfDoc.destroy()`。同时断开所有 `ResizeObserver` 监听。
+4. **防闪烁策略**: 在 `renderPageToCanvas` 时，仅当 Canvas 目标尺寸（`targetWidth/targetHeight`）确实发生变化时才更新 `canvas.width/height`。设置 Canvas 尺寸会自动清除内容，频繁设置是产生闪烁的主要原因。
+5. **色彩还原与一致性**: 渲染 PDF 页面前，必须显式在 Canvas 上填充白色背景（`canvasContext.fillStyle = '#ffffff'; canvasContext.fillRect(0, 0, targetWidth, targetHeight);`），并使用 `{ alpha: false }` 获取 2D 上下文，以防止 PDF 颜色因透明度问题显得“惨白”或受容器背景色影响。
+6. **自适应缩放响应**: 为 PDF 滚动容器（`pdfScrollRef`）添加 `ResizeObserver`。当容器尺寸变化且处于“适应窗口”模式时，自动重新计算并应用缩放比例，确保在窗口缩放或布局调整时 PDF 始终保持最佳显示。
+7. **渲染任务幂等性**: 维护 `pageLastRenderedScale` 映射。如果页面已在当前缩放比例下完成渲染，则跳过重复渲染请求，进一步减少性能损耗和潜在闪烁。
 
 ---
 
@@ -690,6 +807,19 @@ const onDropRoot = async (dragNodeKey: string) => {
 ---
 
 ## 数据模型
+
+### SCHEMA_VERSION (文档解析架构版本)
+
+为了确保文档解析产物在不同迭代版本间的结构一致性，项目引入了 `SCHEMA_VERSION`。
+
+- **定义**: `SCHEMA_VERSION` 代表 Docs 模块解析产物的结构版本（而非特定的 PDF 或 Markdown 文件版本）。
+- **作用范围**:
+  - **数据库层**: 存储在 `libraries`, `nodes`, `parse_tasks` 表中。
+  - **解析引擎**: 当 MinerU 解析逻辑、产物文件夹结构或元数据字段发生重大变更时，需提升此版本号。
+  - **兼容性检查**: 系统可通过对比数据库中的版本号，判断历史解析产物是否需要重新解析或执行迁移。
+- **当前版本**: `1.0.0`
+
+### 数据库表结构 (Docs 模块)
 
 ### SmartTreeNode (前端)
 

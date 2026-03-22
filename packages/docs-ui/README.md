@@ -35,7 +35,7 @@ src/
 ├─ components/                 # A 层
 │  ├─ common/
 │  │  ├─ DocumentParsedWorkspace.vue
-│  │  ├─ ParsedPDF_Viewer.vue
+│  │  ├─ DocumentParsedViewerSpace.vue
 │  │  ├─ PDF_Viewer.vue
 │  │  ├─ Preview_HTML.vue
 │  │  ├─ Preview_Markdown.vue
@@ -136,11 +136,11 @@ src/
 | 文件 | 角色 | 对外事件（核心） | 主要下游依赖 |
 |---|---|---|---|
 | `DocumentParsedWorkspace.vue` | 文档解析工作区编排器 | `parse` `save-content` `change-strategy` `query-structured` `rebuild-structured` | `useWorkspacePreview` `useWorkspaceIngest` `useWorkspaceLinkage` |
-| `ParsedPDF_Viewer.vue` | 右侧 pane 编排器 | `update:activeTab` `update:editableContent` `save-markdown` `cancel-markdown` `strategy-change` `trigger-ingest` `content-scroll` `hover-item` `select-item` `toggle-tree-expand` `toggle-graph-expand` `update-graph-viewport` `select-line` | `useParsedPdfViewer` + `Preview_*` |
+| `DocumentParsedViewerSpace.vue` | 右侧 pane 编排器 | `update:activeTab` `update:editableContent` `save-markdown` `cancel-markdown` `strategy-change` `trigger-ingest` `content-scroll` `hover-item` `select-item` `toggle-tree-expand` `toggle-graph-expand` `update-graph-viewport` `select-line` | `useParsedPdfViewer` + `Preview_*` |
 | `PDF_Viewer.vue` | 左侧文件预览/高亮层 | `download` `text-scroll` `hover-highlight` `select-highlight` | 由 Workspace 注入数据 |
-| `Preview_HTML.vue` | HTML 预览（可行选中） | `select-line` | 被 `ParsedPDF_Viewer` 使用 |
-| `Preview_Markdown.vue` | Markdown 编辑/预览 | `update:editableContent` `select-line` | 被 `ParsedPDF_Viewer` 使用 |
-| `Preview_IndexList.vue` | 索引列表视图 | `hover-item` `select-item` `page-change` | 被 `ParsedPDF_Viewer` 使用 |
+| `Preview_HTML.vue` | HTML 预览（可行选中） | `select-line` | 被 `DocumentParsedViewerSpace` 使用 |
+| `Preview_Markdown.vue` | Markdown 编辑/预览 | `update:editableContent` `select-line` | 被 `DocumentParsedViewerSpace` 使用 |
+| `Preview_IndexList.vue` | 索引列表视图 | `hover-item` `select-item` `page-change` | 被 `DocumentParsedViewerSpace` 使用 |
 | `Preview_IndexTree.vue` | 索引树视图 | `toggle` `select` | 内聚树容器逻辑（使用 `DocBlocksTreeNode` 递归） |
 | `Preview_IndexGraph.vue` | 索引图视图 | `toggle` `select` `update-viewport` | 内聚图算法+交互（已合并原 `DocBlocksGraph`） |
 | `DocBlocksTreeNode.vue` | 树节点渲染 | `toggle` `select` | 被 `Preview_IndexTree` 递归调用 |
@@ -456,7 +456,7 @@ sequenceDiagram
 ```mermaid
 graph LR
   W[DocumentParsedWorkspace.vue]
-  R[ParsedPDF_Viewer.vue]
+  R[DocumentParsedViewerSpace.vue]
   V[PDF_Viewer.vue]
   IL[Preview_IndexList.vue]
   IT[Preview_IndexTree.vue]

@@ -14,6 +14,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { toValidLine, getOffsetByLine } from '../../../utils/common'
 
 const props = defineProps<{
   editableContent: string
@@ -26,25 +27,6 @@ const emit = defineEmits<{
 }>()
 
 const markdownTextareaRef = ref()
-
-const toValidLine = (value: unknown): number | null => {
-  const line = Number(value || 0)
-  if (!Number.isFinite(line) || line <= 0) return null
-  return Math.round(line)
-}
-
-const getOffsetByLine = (text: string, line: number) => {
-  if (line <= 1) return 0
-  let currentLine = 1
-  let offset = 0
-  while (offset < text.length && currentLine < line) {
-    if (text[offset] === '\n') {
-      currentLine += 1
-    }
-    offset += 1
-  }
-  return offset
-}
 
 const getCursorLineFromTextarea = (): number | null => {
   const textarea = markdownTextareaRef.value?.resizableTextArea?.textArea as HTMLTextAreaElement | undefined
