@@ -59,61 +59,9 @@ def get_file_for_preview(path: str, request: Request):
         "Access-Control-Expose-Headers": "Accept-Ranges, Content-Range, Content-Length, Content-Disposition"
     }
 
-    range_header = request.headers.get("range")
-    if range_header:
-        match = re.match(r"^bytes=(\d*)-(\d*)$", range_header.strip())
-        if not match:
-            raise HTTPException(status_code=416, detail="Invalid Range header")
-
-        start_text, end_text = match.group(1), match.group(2)
-        if not start_text and not end_text:
-            raise HTTPException(status_code=416, detail="Invalid Range header")
-
-        if start_text:
-            start = int(start_text)
-            end = int(end_text) if end_text else file_size - 1
-        else:
-            suffix_length = int(end_text)
-            if suffix_length <= 0:
-                raise HTTPException(status_code=416, detail="Invalid Range header")
-            start = max(0, file_size - suffix_length)
-            end = file_size - 1
-
-        if file_size <= 0 or start < 0 or start >= file_size or end < start:
-            raise HTTPException(
-                status_code=416,
-                detail="Range Not Satisfiable",
-                headers={"Content-Range": f"bytes */{file_size}"}
-            )
-
-        end = min(end, file_size - 1)
-        content_length = end - start + 1
-
-        def iterfile():
-            """按指定字节区间分块读取文件。"""
-            with open(normalized_path, "rb") as file_obj:
-                file_obj.seek(start)
-                remaining = content_length
-                chunk_size = 64 * 1024
-                while remaining > 0:
-                    read_size = min(chunk_size, remaining)
-                    data = file_obj.read(read_size)
-                    if not data:
-                        break
-                    remaining -= len(data)
-                    yield data
-
-        return StreamingResponse(
-            iterfile(),
-            status_code=206,
-            media_type=mime_type,
-            headers={
-                **base_headers,
-                "Content-Range": f"bytes {start}-{end}/{file_size}",
-                "Content-Length": str(content_length)
-            }
-        )
-
+    # 使用 FileResponse 处理文件预览。
+    # FileResponse 内部已经实现了标准的 Range 请求处理逻辑（206 Partial Content），
+    # 相比手动使用 StreamingResponse 处理分片，FileResponse 更加稳定且性能更好。
     return FileResponse(
         normalized_path,
         filename=filename,
