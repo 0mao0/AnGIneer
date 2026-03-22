@@ -533,14 +533,20 @@ class PdfViewerController {
     this.destroyPdfLoadingTask()
     this.destroyPdfDocument()
     this.clearPdfRenderState()
+    
+    // 强制使用 fetch + ArrayBuffer 方式加载，彻底避开代理对 Range 请求处理不当导致的 ERR_ABORTED
     try {
-      // 优先尝试直接传递 URL 给 PDF.js 以利用 Range 请求优化加载大文件的性能
-      // 如果报错（如跨域或需要特殊 Header），则降级到 fetch + ArrayBuffer
+      const response = await fetch(source, { credentials: 'same-origin' })
+      if (!response.ok) throw new Error(`Failed to fetch PDF (${response.status})`)
+      
+      const pdfBinary = new Uint8Array(await response.arrayBuffer())
+      if (this.pdfLoadToken !== nextToken) return
+
       const loadingTask = pdfjsLib.getDocument({
-        url: source,
-        withCredentials: true,
-        disableRange: false, // 启用 Range 请求以优化大文件性能
-        disableAutoFetch: false,
+        data: pdfBinary,
+        disableRange: true,    // 内存数据不需要 Range 请求
+        disableStream: true,   // 内存数据不需要流式
+        disableAutoFetch: true
       }) as { promise: Promise<any>, destroy?: () => void }
       
       this.pdfLoadingTask.value = loadingTask
@@ -552,40 +558,12 @@ class PdfViewerController {
       }
       
       await this.onPdfDocumentLoaded(nextDocument)
-    } catch (directError) {
-      console.warn('[PDFViewer] Direct PDF.js load failed, trying fallback fetch:', directError)
+    } catch (error) {
+      console.error('[PDFViewer] PDF load failed:', error)
       if (this.pdfLoadToken !== nextToken) return
-
-      try {
-        const response = await fetch(source, { credentials: 'same-origin' })
-        if (!response.ok) throw new Error(`Failed to fetch PDF (${response.status})`)
-        
-        const pdfBinary = new Uint8Array(await response.arrayBuffer())
-        if (this.pdfLoadToken !== nextToken) return
-
-        const fallbackLoadingTask = pdfjsLib.getDocument({
-          data: pdfBinary,
-          disableRange: true,
-          disableStream: true,
-          disableAutoFetch: true
-        }) as { promise: Promise<any>, destroy?: () => void }
-        
-        this.pdfLoadingTask.value = fallbackLoadingTask
-        const nextDocument = await fallbackLoadingTask.promise
-        
-        if (this.pdfLoadToken !== nextToken) {
-          nextDocument?.destroy?.()
-          return
-        }
-        
-        await this.onPdfDocumentLoaded(nextDocument)
-      } catch (fetchError) {
-        console.error('[PDFViewer] All load attempts failed, using native fallback:', fetchError)
-        if (this.pdfLoadToken !== nextToken) return
-        this.state.useNativePdfPreview = true
-        this.pdfDocument.value = null
-        this.state.localPdfPageCount = 0
-      }
+      this.state.useNativePdfPreview = true
+      this.pdfDocument.value = null
+      this.state.localPdfPageCount = 0
     } finally {
       if (this.pdfLoadToken === nextToken) {
         this.pdfLoadingTask.value = null
@@ -945,6 +923,29 @@ class PdfViewerController {
     this.pageLastRenderedScale.clear()
   }
 
+  /**
+   * 清理所有页面相关的数据，包括 DOM 引用和观察者。
+   * 当文档切换或卸载时必须调用此方法，以防止跨文档的状态干扰。
+   */
+  public clearAllPageData() {
+    console.log('[PDFViewer] Clearing all page data for document switch/unmount')
+    this.clearPdfRenderState()
+    
+    // 断开并清理所有的 ResizeObserver，防止泄露或观察到已销毁的 DOM
+    this.pageResizeObservers.forEach(o => o.disconnect())
+    this.pageResizeObservers.clear()
+    
+    // 清理所有的 DOM 引用映射
+    this.pageElements.clear()
+    
+    // 重置响应式状态中的页面级度量
+    this.state.pageHeights = {}
+    this.state.renderedPageMetrics = {}
+    this.state.hasAppliedInitialFit = false
+    this.state.isScaleTransitioning = false
+    this.state.intrinsicPdfPageWidth = null
+  }
+
   public destroyPdfLoadingTask() {
     this.pdfLoadingTask.value?.destroy?.()
     this.pdfLoadingTask.value = null
@@ -962,8 +963,6 @@ class PdfViewerController {
 
   public onMounted() {
     this.updateHeaderCompactMode()
-    this.watchIntrinsicWidth()
-    this.watchFitMode()
     if (typeof ResizeObserver !== 'undefined') {
       if (this.refs.headerTitle.value) {
         this.headerResizeObserver.value = new ResizeObserver(() => this.updateHeaderCompactMode())
@@ -977,6 +976,8 @@ class PdfViewerController {
       }
     }
     window.addEventListener('resize', this.resizeHandler)
+    this.watchIntrinsicWidth()
+    this.watchFitMode()
     nextTick(() => {
       this.scheduleRenderedPageRangeUpdate()
       if (this.state.isFitToWindowMode) this.scheduleFitToWindowScale()
@@ -988,14 +989,11 @@ class PdfViewerController {
     if (this.pdfUserScrollTimeout) window.clearTimeout(this.pdfUserScrollTimeout)
     if (this.pdfSyncRafId) cancelAnimationFrame(this.pdfSyncRafId)
     if (this.fitScaleRafId) cancelAnimationFrame(this.fitScaleRafId)
-    this.clearPdfRenderState()
+    this.clearAllPageData()
     this.destroyPdfLoadingTask()
     this.destroyPdfDocument()
     this.headerResizeObserver.value?.disconnect()
     this.pdfScrollResizeObserver.value?.disconnect()
-    this.pageResizeObservers.forEach(o => o.disconnect())
-    this.pageResizeObservers.clear()
-    this.pageElements.clear()
   }
 
   // --- 暴露给 Template 的方法 ---
@@ -1082,22 +1080,24 @@ const getPageHighlights = (page: number) => {
 }
 
 // --- Watchers ---
-watch(normalizedPdfSource, async () => {
-  if (!props.isPdf) return
+watch([normalizedPdfSource, () => props.isPdf], async ([source, isPdf]) => {
+  if (!isPdf || !source) return
+  controller.clearAllPageData()
   Object.assign(state, {
-    useNativePdfPreview: false, nativeFallbackTriggered: false, pageHeights: {}, renderedPageMetrics: {},
-    estimatedPageHeight: 1100, renderedPageRange: { start: 1, end: 1 }, lastEmittedPdfPercent: -1,
-    pdfScale: 1, isFitToWindowMode: true, intrinsicPdfPageWidth: null, hasAppliedInitialFit: false,
-    isScaleTransitioning: true, activePdfPage: 1
+    useNativePdfPreview: false,
+    nativeFallbackTriggered: false,
+    estimatedPageHeight: 1100,
+    renderedPageRange: { start: 1, end: 1 },
+    lastEmittedPdfPercent: -1,
+    pdfScale: 1,
+    isFitToWindowMode: true,
+    isScaleTransitioning: true,
+    activePdfPage: 1
   })
   await nextTick()
   if (pdfScrollRef.value) pdfScrollRef.value.scrollTop = 0
   controller.scheduleRenderedPageRangeUpdate()
-  await controller.loadPdfDocument(normalizedPdfSource.value)
-}, { immediate: true })
-
-watch(() => props.isPdf, async (isPdf) => {
-  if (isPdf) await controller.loadPdfDocument(normalizedPdfSource.value)
+  await controller.loadPdfDocument(source)
 }, { immediate: true })
 
 watch([() => renderedPageRange.value.start, () => renderedPageRange.value.end, pdfScale, () => props.isPdf], async () => {
