@@ -34,7 +34,8 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
-import type { DocBlockNode, PreviewIndexInteractionEventMap } from '../../types/knowledge'
+import type { DocBlockNode, PreviewIndexInteractionEventMap } from '../../../types/knowledge'
+import { getNodeText, formatStructuredItemType, getNodeDisplayText } from '../../../utils/knowledge'
 
 declare global {
   interface Window {
@@ -53,9 +54,6 @@ interface Props {
   expandedNodeIds: Set<string>
   activeNodeId: string | null
   viewportState: { x: number; y: number; scale: number } | null
-  getNodeLevel: (node: DocBlockNode) => number | null
-  getNodeText: (node: DocBlockNode) => string
-  getChildren: (id: string) => DocBlockNode[]
 }
 
 const props = defineProps<Props>()
@@ -98,11 +96,6 @@ const visibleEdges = computed(() => {
   }
   return edges
 })
-
-const shortText = (text: string, maxLen: number = 26): string => {
-  const t = text.trim()
-  return t.length > maxLen ? t.slice(0, maxLen) + '…' : t
-}
 
 const getNodeType = (nodeId: string): 'root' | 'expanded' | 'collapsed' | 'leaf' => {
   if (props.roots.includes(nodeId)) return 'root'
@@ -187,7 +180,7 @@ const buildVisNodes = () => {
     else if (type === 'collapsed') size = 24
     else size = 20
 
-    const text = shortText(props.getNodeText(node))
+    const text = getNodeDisplayText(node, nodeId, 26)
     const cachedPos = nodePositions.value.get(nodeId)
     const colors = getNodeColors(nodeId)
     const parentId = node.parent_uid || ''
@@ -199,6 +192,8 @@ const buildVisNodes = () => {
     const fallbackY = parentPos ? parentPos.y + siblingOffset : siblingIndex * 110
     const hasExplicitPos = Boolean(cachedPos) || layoutInitialized.value
 
+    const typeTag = node.block_type ? `[${formatStructuredItemType(node.block_type)}] ` : ''
+
     return {
       id: nodeId,
       label: text,
@@ -209,7 +204,7 @@ const buildVisNodes = () => {
       physics: !layoutInitialized.value && !cachedPos,
       x: cachedPos?.x ?? (hasExplicitPos ? fallbackX : undefined),
       y: cachedPos?.y ?? (hasExplicitPos ? fallbackY : undefined),
-      title: `${props.getNodeText(node)}\n${type === 'collapsed' ? '点击展开' : type === 'expanded' ? '点击折叠' : ''}`,
+      title: `${typeTag}${getNodeText(node)}\n${type === 'collapsed' ? '点击展开' : type === 'expanded' ? '点击折叠' : ''}`,
       font: {
         size: Math.max(13, Math.min(18, Math.floor(size * 0.62))),
         color: isDarkTheme.value ? '#e2e8f0' : '#1e293b',

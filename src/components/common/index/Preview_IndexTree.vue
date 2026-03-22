@@ -14,8 +14,6 @@
         :children-map="childrenMap"
         :expanded-ids="expandedNodeIds"
         :active-node-id="activeNodeId"
-        :get-node-level="getNodeLevel"
-        :get-node-text="getNodeText"
         @toggle="onToggle"
         @select="onSelect"
       />
@@ -24,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import type { DocBlockNode, PreviewIndexInteractionEventMap } from '../../types/knowledge'
+import type { DocBlockNode, PreviewIndexInteractionEventMap } from '../../../types/knowledge'
 import DocBlocksTreeNode from './DocBlocksTreeNode.vue'
 
 interface Props {
@@ -34,8 +32,6 @@ interface Props {
   roots: string[]
   expandedNodeIds: Set<string>
   activeNodeId: string | null
-  getNodeLevel: (node: DocBlockNode) => number | null
-  getNodeText: (node: DocBlockNode) => string
 }
 
 defineProps<Props>()

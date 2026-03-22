@@ -9,6 +9,7 @@
 
 <script setup lang="ts">
 import { nextTick, ref, watch } from 'vue'
+import { toValidLine } from '../../../utils/common'
 
 const props = defineProps<{
   renderedMarkdown: string
@@ -20,12 +21,6 @@ const emit = defineEmits<{
 }>()
 
 const rootRef = ref<HTMLElement | null>(null)
-
-const toValidLine = (value: unknown): number | null => {
-  const line = Number(value || 0)
-  if (!Number.isFinite(line) || line <= 0) return null
-  return Math.round(line)
-}
 
 const onHtmlPreviewClick = (event: MouseEvent) => {
   const target = event.target as HTMLElement | null

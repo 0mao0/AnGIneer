@@ -210,7 +210,8 @@ import {
   CloseCircleOutlined,
   InfoCircleOutlined
 } from '@ant-design/icons-vue'
-import { useAIChat } from '../../composables/useAIChat'
+import { useAIChat } from '../../../composables/useAIChat'
+import { renderMarkdown } from '../../../utils/knowledge'
 
 // 模型选项类型
 interface ModelOption {
@@ -341,24 +342,6 @@ const fetchModels = async () => {
   } finally {
     loadingModels.value = false
   }
-}
-
-/**
- * 渲染 Markdown 内容
- */
-const renderMarkdown = (content: string): string => {
-  if (!content) return ''
-  // 移除首尾空白和空行
-  const trimmedContent = content.trim()
-  return trimmedContent
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
-    .replace(/\n/g, '<br/>')
 }
 
 /**

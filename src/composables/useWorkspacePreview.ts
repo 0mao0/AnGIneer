@@ -41,13 +41,15 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
     if (options.filePath.value.startsWith('http')) return options.filePath.value
     return `/api/files?path=${encodeURIComponent(options.filePath.value)}`
   })
+
   const pdfViewerUrl = computed(() => {
     if (!fileUrl.value) return ''
+    const activeUrl = fileUrl.value
     const hashParams = `toolbar=0&navpanes=0&scrollbar=0&view=FitH&page=${pdfPage.value}`
-    if (fileUrl.value.includes('#')) {
-      return `${fileUrl.value}&${hashParams}`
+    if (activeUrl.includes('#')) {
+      return `${activeUrl}&${hashParams}`
     }
-    return `${fileUrl.value}#${hashParams}`
+    return `${activeUrl}#${hashParams}`
   })
   const officePreviewUrl = computed(() => {
     if (!fileUrl.value) return ''

@@ -75,7 +75,7 @@
                 <!-- 节点标题 -->
                 <span class="node-title" :title="title">
                   <slot name="title" :node="node">
-                    <span v-if="searchText && highlightSearch" v-html="highlightText(title)" />
+                    <span v-if="searchText && highlightSearch" v-html="highlightText(title, searchText)" />
                     <span v-else>{{ title }}</span>
                   </slot>
                 </span>
@@ -194,9 +194,18 @@ import {
   EyeOutlined,
   SearchOutlined
 } from '@ant-design/icons-vue'
+import {
+  getFileIconColor,
+  getStatusColor,
+  getStatusText,
+  highlightText,
+  filterTree,
+  getExpandedKeysForSearch,
+  getFileIconType
+} from '../../../utils'
 import { useTheme } from '@angineer/ui-kit'
 import type { TreeProps } from 'ant-design-vue'
-import type { SmartTreeNode } from '../../types/tree'
+import type { SmartTreeNode } from '../../../types/tree'
 
 export type { SmartTreeNode }
 
@@ -347,27 +356,6 @@ const filteredTreeData = computed(() => {
 /**
  * 收集所有需要展开的父节点 keys（搜索时自动展开匹配路径）
  */
-const getExpandedKeysForSearch = (nodes: SmartTreeNode[], keyword: string, parentKeys: string[] = []): string[] => {
-  const expandedKeys: string[] = []
-  
-  for (const node of nodes) {
-    const matchTitle = node.title.toLowerCase().includes(keyword)
-    const childKeys = node.children ? getExpandedKeysForSearch(node.children, keyword, [...parentKeys, node.key]) : []
-    
-    if (matchTitle || childKeys.length > 0) {
-      if (parentKeys.length > 0) {
-        expandedKeys.push(...parentKeys)
-      }
-      expandedKeys.push(...childKeys)
-    }
-  }
-  
-  return [...new Set(expandedKeys)]
-}
-
-/**
- * 监听搜索文本变化，自动展开匹配路径
- */
 watch(searchText, (newVal) => {
   if (newVal && newVal.trim()) {
     const keysToExpand = getExpandedKeysForSearch(props.treeData, newVal.toLowerCase())
@@ -418,68 +406,6 @@ const onNodeDblClick = (node: SmartTreeNode) => {
   expandedKeys.value = [...new Set([...expandedKeys.value, node.key])]
 }
 
-/**
- * 递归过滤树节点
- * @param nodes 节点列表
- * @param keyword 搜索关键词
- */
-function filterTree(nodes: SmartTreeNode[], keyword: string): SmartTreeNode[] {
-  const result: SmartTreeNode[] = []
-
-  for (const node of nodes) {
-    const matchTitle = node.title.toLowerCase().includes(keyword)
-    const filteredChildren = node.children ? filterTree(node.children, keyword) : []
-
-    if (matchTitle || filteredChildren.length > 0) {
-      result.push({
-        ...node,
-        children: filteredChildren.length > 0 ? filteredChildren : node.children
-      })
-    }
-  }
-
-  return result
-}
-
-/**
- * 高亮搜索文本
- * @param text 原文本
- */
-function highlightText(text: string): string {
-  if (!searchText.value) return text
-  const regex = new RegExp(`(${searchText.value})`, 'gi')
-  return text.replace(regex, '<mark style="background: #ffe58f; padding: 0 2px;">$1</mark>')
-}
-
-/**
- * 根据文件名获取文件图标类型
- * @param fileName 文件名
- * @returns 图标类型标识
- */
-function getFileIconType(fileName: string): string {
-  const ext = fileName.toLowerCase().split('.').pop() || ''
-  const iconMap: Record<string, string> = {
-    pdf: 'pdf',
-    doc: 'word',
-    docx: 'word',
-    xls: 'excel',
-    xlsx: 'excel',
-    ppt: 'ppt',
-    pptx: 'ppt',
-    txt: 'text',
-    md: 'markdown',
-    jpg: 'image',
-    jpeg: 'image',
-    png: 'image',
-    gif: 'image',
-    zip: 'zip',
-    rar: 'zip',
-    mp4: 'video',
-    mp3: 'audio'
-  }
-  return iconMap[ext] || 'file'
-}
-
 const fileIconComponentMap: Record<string, Component> = {
   pdf: FilePdfOutlined,
   word: FileWordOutlined,
@@ -495,59 +421,6 @@ const fileIconComponentMap: Record<string, Component> = {
 const getFileIconComponent = (fileName: string): Component => {
   const iconType = getFileIconType(fileName)
   return fileIconComponentMap[iconType] || FileOutlined
-}
-
-/**
- * 获取文件图标颜色
- * @param fileName 文件名
- * @returns 颜色值
- */
-function getFileIconColor(fileName: string): string {
-  const type = getFileIconType(fileName)
-  const colorMap: Record<string, string> = {
-    pdf: '#ff4d4f',
-    word: '#1890ff',
-    excel: '#52c41a',
-    ppt: '#fa8c16',
-    text: '#8c8c8c',
-    markdown: '#13c2c2',
-    image: '#eb2f96',
-    zip: '#722ed1',
-    video: '#f5222d',
-    audio: '#fa541c',
-    file: '#8c8c8c'
-  }
-  return colorMap[type] || '#8c8c8c'
-}
-
-/**
- * 获取状态颜色
- * @param status 状态值
- */
-function getStatusColor(status: string): string {
-  const colors: Record<string, string> = {
-    pending: 'default',
-    uploading: 'processing',
-    processing: 'processing',
-    completed: 'success',
-    failed: 'error'
-  }
-  return colors[status] || 'default'
-}
-
-/**
- * 获取状态文本
- * @param status 状态值
- */
-function getStatusText(status: string): string {
-  const texts: Record<string, string> = {
-    pending: '待处理',
-    uploading: '上传中',
-    processing: '处理中',
-    completed: '已完成',
-    failed: '失败'
-  }
-  return texts[status] || '未知'
 }
 
 /**

@@ -1,6 +1,11 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import type { DocBlockNode, DocBlocksGraph, StructuredIndexItem } from '../types/knowledge'
 import { buildDocBlocksGraphIndex } from './useDocBlocksGraph'
+import {
+  formatStructuredItemType,
+  findNodeForItem,
+  isItemActive
+} from '../utils/knowledge'
 
 export type PreviewMode =
   | 'Preview_HTML'
@@ -86,18 +91,6 @@ export function useParsedPdfViewer(
     return map
   })
 
-  const formatItemType = (itemType: string) => {
-    if (itemType === 'heading') return '标题'
-    if (itemType === 'clause') return '条款'
-    if (itemType === 'table') return '表格'
-    if (itemType === 'image') return '图片'
-    if (itemType === 'title') return '标题'
-    if (itemType === 'paragraph') return '正文'
-    if (itemType === 'equation_interline') return '公式'
-    if (itemType === 'list') return '列表'
-    return itemType || '未知'
-  }
-
   const flatIndexItems = computed<StructuredIndexItem[]>(() => {
     if (props.structuredItems.length > 0) {
       return props.structuredItems
@@ -114,7 +107,7 @@ export function useParsedPdfViewer(
       })
     return sortedNodes.map((node, index) => {
       const text = (node.plain_text || '').trim()
-      const title = text || `${formatItemType(node.block_type)} @ P${(node.page_idx ?? 0) + 1}`
+      const title = text || `${formatStructuredItemType(node.block_type)} @ P${(node.page_idx ?? 0) + 1}`
       return {
         id: node.id,
         item_type: node.block_type || 'segment',
@@ -134,30 +127,6 @@ export function useParsedPdfViewer(
   const nodeMap = computed(() => graphIndex.value.nodeMap)
   const childrenMap = computed(() => graphIndex.value.childrenMap)
   const roots = computed(() => graphIndex.value.roots)
-
-  const getNodeLevel = (node: DocBlockNode): number | null => {
-    if (node.derived_level !== null && node.derived_level !== undefined) {
-      return node.derived_level
-    }
-    const parentId = node.parent_uid
-    if (!parentId) return null
-    const parent = nodeMap.value.get(parentId)
-    if (!parent) return null
-    const parentLevel = getNodeLevel(parent)
-    if (parentLevel === null) return null
-    return parentLevel + 1
-  }
-
-  const getNodeText = (node: DocBlockNode): string => (
-    node.plain_text?.trim() || node.id
-  )
-
-  const getChildren = (id: string): DocBlockNode[] => {
-    const childIds = childrenMap.value.get(id) || []
-    return childIds
-      .map(cid => nodeMap.value.get(cid))
-      .filter((node): node is DocBlockNode => node !== undefined)
-  }
 
   const getAncestors = (id: string): string[] => {
     const ancestors: string[] = []
@@ -182,70 +151,9 @@ export function useParsedPdfViewer(
     }
   }
 
-  const collectItemRefs = (item: StructuredIndexItem): string[] => {
-    const meta = item.meta || {}
-    const rawRefs: unknown[] = [
-      item.id,
-      meta.block_uid,
-      meta.blockUid,
-      meta.mineru_block_uid,
-      meta.mineruBlockUid,
-      meta.node_id,
-      meta.nodeId,
-      meta.block_id,
-      meta.blockId,
-      meta.source_block_id,
-      meta.sourceBlockId,
-      meta.mineru_block_id,
-      meta.mineruBlockId,
-      meta.caption_block_uid,
-      meta.footnote_block_uid,
-      meta.caption_block_uids,
-      meta.footnote_block_uids,
-      meta.block_uids,
-      meta.node_ids
-    ]
-    const refs: string[] = []
-    rawRefs.forEach(value => {
-      if (Array.isArray(value)) {
-        value.forEach(inner => {
-          const text = String(inner || '').trim()
-          if (text) refs.push(text)
-        })
-        return
-      }
-      const text = String(value || '').trim()
-      if (text) refs.push(text)
-    })
-    return Array.from(new Set(refs))
-  }
-
-  const findNodeForItem = (item: StructuredIndexItem): DocBlockNode | null => {
-    const refs = collectItemRefs(item)
-    for (const ref of refs) {
-      const direct = graphNodeLookup.value.get(ref)
-      if (direct) return direct
-    }
-    const meta = item.meta || {}
-    const pageSeq = Number(meta.page_seq || meta.page || 0)
-    const blockSeq = Number(meta.block_seq || 0)
-    if (pageSeq > 0 && blockSeq > 0) {
-      for (const node of graphNodeLookup.value.values()) {
-        if ((Number(node.page_idx ?? 0) + 1) === pageSeq && Number(node.block_seq ?? 0) === blockSeq) {
-          return node
-        }
-      }
-    }
-    return null
-  }
-
   const findActiveItemIndex = (activeId: string | null): number => {
     if (!activeId) return -1
-    return flatIndexItems.value.findIndex(item => {
-      if (item.id === activeId) return true
-      const refs = collectItemRefs(item)
-      return refs.includes(activeId)
-    })
+    return flatIndexItems.value.findIndex(item => isItemActive(item, activeId))
   }
 
   const resolveActiveNodeId = (activeId: string | null): string | null => {
@@ -254,7 +162,7 @@ export function useParsedPdfViewer(
     const activeIndex = findActiveItemIndex(activeId)
     if (activeIndex < 0) return null
     const item = flatIndexItems.value[activeIndex]
-    const node = findNodeForItem(item)
+    const node = findNodeForItem(item, graphNodeLookup.value)
     return node?.id || null
   }
 
@@ -440,9 +348,6 @@ export function useParsedPdfViewer(
     expandedNodeIds,
     expandedGraphNodeIds,
     graphViewportState,
-    getNodeLevel,
-    getNodeText,
-    getChildren,
     activeNodeIdForGraphTree,
     onRightPaneScroll,
     onTabChange,

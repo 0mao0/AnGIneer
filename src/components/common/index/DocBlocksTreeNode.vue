@@ -27,8 +27,6 @@
         :children-map="childrenMap"
         :expanded-ids="expandedIds"
         :active-node-id="activeNodeId"
-        :get-node-level="getNodeLevel"
-        :get-node-text="getNodeText"
         @toggle="(id) => emit('toggle', id)"
         @select="(id) => emit('select', id)"
       />
@@ -39,7 +37,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RightOutlined, DownOutlined } from '@ant-design/icons-vue'
-import type { DocBlockNode } from '../../types/knowledge'
+import {
+  getNodeDisplayText,
+  getNodeLevelTag,
+  getNodeTypeTag,
+  getNodePositionTag
+} from '../../../utils/knowledge'
+import type { DocBlockNode } from '../../../types/knowledge'
 
 interface Props {
   nodeId: string
@@ -47,8 +51,6 @@ interface Props {
   childrenMap: Map<string, string[]>
   expandedIds: Set<string>
   activeNodeId: string | null
-  getNodeLevel: (node: DocBlockNode) => number | null
-  getNodeText: (node: DocBlockNode) => string
 }
 
 const props = defineProps<Props>()
@@ -66,41 +68,13 @@ const hasChildren = computed(() => children.value.length > 0)
 
 const isExpanded = computed(() => props.expandedIds.has(props.nodeId))
 
-const displayText = computed(() => {
-  const text = node.value ? props.getNodeText(node.value) : props.nodeId
-  return text.length > 24 ? text.slice(0, 24) + '…' : text
-})
+const displayText = computed(() => getNodeDisplayText(node.value, props.nodeId))
 
-const levelTag = computed(() => {
-  if (!node.value) return null
-  const level = props.getNodeLevel(node.value)
-  if (level !== null) return `L${level}`
-  return null
-})
+const levelTag = computed(() => getNodeLevelTag(node.value, props.nodeMap))
 
-const typeTag = computed(() => {
-  if (!node.value) return null
-  const type = node.value.block_type
-  const typeMap: Record<string, string> = {
-    title: '标题',
-    paragraph: '正文',
-    table: '表格',
-    image: '图形',
-    equation_interline: '公式',
-    list: '列表'
-  }
-  return typeMap[type] || type || null
-})
+const typeTag = computed(() => getNodeTypeTag(node.value))
 
-const positionTag = computed(() => {
-  if (!node.value) return null
-  const page = Number(node.value.page_idx ?? 0) + 1
-  const block = Number(node.value.block_seq ?? 0)
-  if (!Number.isFinite(page) || page <= 0 || !Number.isFinite(block) || block <= 0) {
-    return null
-  }
-  return `P${page}b${block}`
-})
+const positionTag = computed(() => getNodePositionTag(node.value))
 
 const onToggle = () => {
   emit('toggle', props.nodeId)
