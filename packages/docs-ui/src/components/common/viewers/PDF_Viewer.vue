@@ -170,7 +170,7 @@
                 @mouseleave="emit('hover-highlight', null)"
                 @click="emit('select-highlight', item)"
               >
-                <span v-if="item.type" class="highlight-type-tag">{{ item.type }}</span>
+                <span v-if="getHighlightTypeLabel(item.type)" class="highlight-type-tag">{{ getHighlightTypeLabel(item.type) }}</span>
               </div>
             </div>
           </div>
@@ -1174,6 +1174,24 @@ const getHighlightLayerStyle = (page: number) => {
   const m = renderedPageMetrics.value[page]
   return m ? { top: `${m.top}px`, left: `${m.left}px`, width: `${m.width}px`, height: `${m.height}px` } : { inset: '0' }
 }
+const getHighlightTypeLabel = (type?: string) => {
+  const normalizedType = String(type || '').trim().toLowerCase()
+  if (!normalizedType) return ''
+  const labelMap: Record<string, string> = {
+    image: '图片',
+    'image-caption': '图片题注',
+    'image-footnote': '图片脚注',
+    table: '表格',
+    'table-caption': '表题',
+    'table-footnote': '表注',
+    title: '标题',
+    paragraph: '正文',
+    list: '列表',
+    equation_interline: '公式',
+    text: '文本'
+  }
+  return labelMap[normalizedType] || normalizedType.replace(/[_-]+/g, ' ').trim()
+}
 const getPageHighlights = (page: number) => {
   if (!props.isPdf || !props.highlightLinkEnabled) return []
   // 核心逻辑：只有当该页面的坐标度量（Metrics）已经测量完成，高亮位置才是准确的
@@ -1489,16 +1507,19 @@ onBeforeUnmount(() => controller.onBeforeUnmount())
   position: absolute;
   left: 0;
   top: 0;
-  background: #1677ff;
+  max-width: calc(100% - 4px);
+  padding: 2px 6px;
+  overflow: hidden;
   color: #fff;
   font-size: 10px;
-  line-height: 1;
-  padding: 2px 4px;
-  border-bottom-right-radius: 4px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
   white-space: nowrap;
-  pointer-events: none;
+  background: rgba(22, 119, 255, 0.92);
+  border-bottom-right-radius: 4px;
   opacity: 0;
-  transition: opacity 0.2s;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
   z-index: 11;
 }
 

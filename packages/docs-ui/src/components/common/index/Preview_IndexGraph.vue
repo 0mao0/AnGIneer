@@ -6,6 +6,13 @@
     </div>
     <a-empty v-else-if="!visibleNodes.length" description="暂无结构数据" />
     <div v-show="!loading && visibleNodes.length" ref="networkRef" class="network-container" />
+    <div v-if="activeMediaNode && activeMediaHtml" class="graph-media-panel">
+      <div class="graph-media-panel-header">
+        <span class="graph-media-panel-title">{{ activeMediaTitle }}</span>
+        <span class="graph-media-panel-tag">{{ activeMediaType }}</span>
+      </div>
+      <div class="graph-media-panel-body" v-html="activeMediaHtml" />
+    </div>
     <div v-if="!loading && visibleNodes.length" class="graph-overlay">
       <div class="graph-legend">
         <div class="legend-item">
@@ -35,7 +42,12 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import type { DocBlockNode, PreviewIndexInteractionEventMap } from '../../../types/knowledge'
-import { getNodeText, formatStructuredItemType, getNodeDisplayText } from '../../../utils/knowledge'
+import {
+  getNodeText,
+  formatStructuredItemType,
+  getNodeDisplayText,
+  renderNodeRichMedia
+} from '../../../utils/knowledge'
 
 declare global {
   interface Window {
@@ -54,6 +66,7 @@ interface Props {
   expandedNodeIds: Set<string>
   activeNodeId: string | null
   viewportState: { x: number; y: number; scale: number } | null
+  sourceFilePath?: string
 }
 
 const props = defineProps<Props>()
@@ -64,7 +77,20 @@ const networkRef = ref<HTMLElement | null>(null)
 const network = ref<any>(null)
 const nodePositions = ref<Map<string, { x: number; y: number }>>(new Map())
 const layoutInitialized = ref(false)
+const hoveredNodeId = ref<string | null>(null)
 const isDarkTheme = computed(() => Boolean(networkRef.value?.closest('.dark-mode')))
+const activeMediaNode = computed(() => {
+  const candidateId = hoveredNodeId.value || props.activeNodeId || visibleNodes.value[0] || null
+  return candidateId ? props.nodeMap.get(candidateId) || null : null
+})
+const activeMediaHtml = computed(() => renderNodeRichMedia(activeMediaNode.value, props.sourceFilePath))
+const activeMediaTitle = computed(() => activeMediaNode.value
+  ? getNodeDisplayText(activeMediaNode.value, activeMediaNode.value.id, 40)
+  : '')
+const activeMediaType = computed(() => {
+  const blockType = activeMediaNode.value?.block_type
+  return blockType ? formatStructuredItemType(blockType) : '节点'
+})
 
 const visibleNodes = computed(() => {
   const visible = new Set<string>()
@@ -365,6 +391,14 @@ const initNetwork = async () => {
   network.value.on('zoom', () => {
     saveViewportState()
   })
+
+  network.value.on('hoverNode', (params: any) => {
+    hoveredNodeId.value = String(params.node || '') || null
+  })
+
+  network.value.on('blurNode', () => {
+    hoveredNodeId.value = null
+  })
 }
 
 const freezeNodes = () => {
@@ -484,6 +518,104 @@ defineExpose({
   position: relative;
   background: var(--dp-content-bg, #f8fafc);
   border-radius: 8px;
+}
+
+.graph-media-panel {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: min(380px, calc(100% - 24px));
+  max-height: min(42%, 320px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  background: color-mix(in srgb, var(--dp-pane-bg, #ffffff) 94%, transparent 6%);
+  border: 1px solid var(--dp-pane-border, #e2e8f0);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(8px);
+  z-index: 6;
+}
+
+.graph-media-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.graph-media-panel-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--dp-title-strong, #0f172a);
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.graph-media-panel-tag {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #dbeafe;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.graph-media-panel-body {
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+:global(.dark-mode) .graph-media-panel-tag {
+  border-color: #1e3a8a;
+  background: #1e293b;
+  color: #93c5fd;
+}
+
+:deep(.graph-media-panel-body .media-table) {
+  overflow: auto;
+  max-width: 100%;
+}
+
+:deep(.graph-media-panel-body .media-table table) {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+:deep(.graph-media-panel-body .media-table th),
+:deep(.graph-media-panel-body .media-table td) {
+  border: 1px solid var(--dp-pane-border, #cbd5e1) !important;
+  padding: 6px 8px;
+  background: transparent !important;
+}
+
+:deep(.graph-media-panel-body .media-image) {
+  width: 100%;
+  max-width: 100%;
+  max-height: 220px;
+  display: block;
+  object-fit: contain;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--dp-content-bg, #ffffff) 92%, #f8fafc 8%);
+}
+
+:deep(.graph-media-panel-body .media-formula),
+:deep(.graph-media-panel-body .katex-display) {
+  max-width: 100%;
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .graph-loading {

@@ -1,6 +1,7 @@
 import type { SmartTreeNode } from '../types/tree'
 import type { StructuredIndexItem, DocBlockNode } from '../types/knowledge'
 import katex from 'katex'
+import 'katex/dist/katex.min.css'
 import {
   truncateText,
   formatPositionTag
@@ -185,11 +186,15 @@ export const resolveAssetUrl = (source: string, sourceFilePath?: string): string
 export const renderFormula = (formula: string, displayMode: boolean): string => {
   const source = (formula || '').trim()
   if (!source) return ''
+  const normalizedSource = source
+    .replace(/^\\\[\s*([\s\S]*?)\s*\\\]$/u, '$1')
+    .replace(/^\\\(\s*([\s\S]*?)\s*\\\)$/u, '$1')
+    .replace(/^\$\$\s*([\s\S]*?)\s*\$\$$/u, '$1')
   try {
-    return katex.renderToString(source, { throwOnError: false, displayMode })
+    return katex.renderToString(normalizedSource, { throwOnError: false, displayMode })
   } catch {
     const fallbackClass = displayMode ? 'math-block-fallback' : 'math-inline-fallback'
-    return `<span class="${fallbackClass}">${escapeHtml(source)}</span>`
+    return `<span class="${fallbackClass}">${escapeHtml(normalizedSource)}</span>`
   }
 }
 
@@ -274,18 +279,20 @@ export const hasRichMedia = (item: StructuredIndexItem, nodeMap: Map<string, Doc
  */
 export const renderNodeRichMedia = (node: DocBlockNode | undefined | null, sourceFilePath?: string): string => {
   if (!node) return ''
+  const sections: string[] = []
   if (node.table_html) {
-    return `<div class="media-table">${node.table_html}</div>`
-  }
-  if (node.math_content) {
-    return `<div class="media-formula">${renderFormula(node.math_content, true)}</div>`
+    sections.push(`<div class="media-table">${node.table_html}</div>`)
   }
   if (node.image_path) {
     const src = resolveAssetUrl(node.image_path, sourceFilePath)
-    if (!src) return ''
-    return `<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(node.plain_text || 'image')}" />`
+    if (src) {
+      sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(node.plain_text || 'image')}" />`)
+    }
   }
-  return ''
+  if (node.math_content) {
+    sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
+  }
+  return sections.join('')
 }
 
 /**

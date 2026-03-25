@@ -24,10 +24,13 @@
           <span v-else class="toggle-placeholder" />
         </span>
         <div class="tree-main">
-          <span class="tree-text">{{ displayText }}</span>
-          <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
-          <span v-if="typeTag" class="chip">{{ typeTag }}</span>
-          <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
+          <div class="tree-meta">
+            <span class="tree-text">{{ displayText }}</span>
+            <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
+            <span v-if="typeTag" class="chip">{{ typeTag }}</span>
+            <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
+          </div>
+          <div v-if="inlineRichMediaHtml" class="tree-inline-media" v-html="inlineRichMediaHtml" />
         </div>
       </div>
     </a-tooltip>
@@ -99,6 +102,8 @@ const tooltipText = computed(() => {
 
 const tooltipRichMediaHtml = computed(() => renderNodeRichMedia(node.value, props.sourceFilePath))
 
+const inlineRichMediaHtml = computed(() => renderNodeRichMedia(node.value, props.sourceFilePath))
+
 const onToggle = () => {
   emit('toggle', props.nodeId)
 }
@@ -115,7 +120,7 @@ const onRowClick = () => {
 
 .tree-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 6px;
   cursor: pointer;
   padding: 5px 8px;
@@ -169,9 +174,17 @@ const onRowClick = () => {
 
 .tree-main {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tree-meta {
+  display: flex;
   align-items: center;
   gap: 6px;
-  flex: 1;
+  flex-wrap: wrap;
   min-width: 0;
 }
 
@@ -180,6 +193,14 @@ const onRowClick = () => {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: var(--dp-title-text, #0f172a);
+}
+
+.tree-inline-media {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--dp-pane-border, #e2e8f0);
+  background: color-mix(in srgb, var(--dp-content-bg, #ffffff) 92%, #eef2ff 8%);
 }
 
 :global(.doc-block-tree-tooltip-overlay .ant-tooltip-inner) {
@@ -206,28 +227,51 @@ const onRowClick = () => {
   max-width: 100%;
 }
 
-.tree-tooltip-media :deep(table) {
+.tree-inline-media :deep(.media-table) {
+  overflow: auto;
+  max-width: 100%;
+}
+
+.tree-tooltip-media :deep(table),
+.tree-inline-media :deep(table) {
   border-collapse: collapse;
   width: 100%;
   min-width: 240px;
+  table-layout: auto;
 }
 
 .tree-tooltip-media :deep(th),
-.tree-tooltip-media :deep(td) {
-  border: 1px solid rgba(148, 163, 184, 0.45);
+.tree-tooltip-media :deep(td),
+.tree-inline-media :deep(th),
+.tree-inline-media :deep(td) {
+  border: 1px solid rgba(148, 163, 184, 0.7) !important;
   padding: 6px 8px;
+  background: transparent !important;
 }
 
-.tree-tooltip-media :deep(.media-formula) {
+.tree-tooltip-media :deep(.media-formula),
+.tree-inline-media :deep(.media-formula) {
   overflow-x: auto;
+  max-width: 100%;
 }
 
-.tree-tooltip-media :deep(.media-image) {
+.tree-tooltip-media :deep(.katex-display),
+.tree-inline-media :deep(.katex-display) {
+  margin: 0;
+  padding: 4px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.tree-tooltip-media :deep(.media-image),
+.tree-inline-media :deep(.media-image) {
   display: block;
-  max-width: min(560px, 70vw);
+  width: 100%;
+  max-width: 100%;
   max-height: 320px;
   object-fit: contain;
   border-radius: 8px;
+  background: color-mix(in srgb, var(--dp-content-bg, #ffffff) 90%, #f8fafc 10%);
 }
 
 .chip {
