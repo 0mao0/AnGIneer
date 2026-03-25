@@ -1,4 +1,4 @@
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import type { DocBlockNode, DocBlocksGraph, StructuredIndexItem } from '../types/knowledge'
 import { buildDocBlocksGraphIndex } from './useDocBlocksGraph'
 import {
@@ -49,8 +49,6 @@ export function useParsedPdfViewer(
   const indexContentScrollRef = ref<{ $el?: HTMLElement } | HTMLElement | null>(null)
   const headerTitleRowRef = ref<HTMLElement | null>(null)
   const applyingExternalScroll = ref(false)
-  const isCompactHeader = ref(false)
-  const headerResizeObserver = ref<ResizeObserver | null>(null)
   const indexCurrentPage = ref(1)
   const indexPageSize = 30
   const expandedNodeIds = ref<Set<string>>(new Set())
@@ -69,11 +67,6 @@ export function useParsedPdfViewer(
     if (current?.$el instanceof HTMLElement) return current.$el
     return null
   })
-
-  const updateHeaderCompactMode = () => {
-    const width = headerTitleRowRef.value?.clientWidth || 0
-    isCompactHeader.value = width > 0 && width < 500
-  }
 
   const hasGraphData = computed(() => (
     Boolean(props.graphData?.nodes?.length)
@@ -316,26 +309,10 @@ export function useParsedPdfViewer(
     }
   }, { immediate: true })
 
-  onMounted(() => {
-    updateHeaderCompactMode()
-    if (typeof ResizeObserver !== 'undefined' && headerTitleRowRef.value) {
-      const observer = new ResizeObserver(() => {
-        updateHeaderCompactMode()
-      })
-      observer.observe(headerTitleRowRef.value)
-      headerResizeObserver.value = observer
-    }
-  })
-
-  onBeforeUnmount(() => {
-    headerResizeObserver.value?.disconnect()
-  })
-
   return {
     rightPaneRef,
     indexContentScrollRef,
     headerTitleRowRef,
-    isCompactHeader,
     isIndexMode,
     hasGraphData,
     graphNodeLookup,

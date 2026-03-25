@@ -4,38 +4,40 @@
       <div ref="headerTitleRowRef" class="b2-title-row">
         <div class="b2-title-main">
           <span class="pane-title-prefix pane-title-prefix-right">解析</span>
+        </div>
+        <div class="pane-actions-right">
           <a-radio-group
             :value="activeTab"
             size="small"
-            :class="['b2-tab-buttons', { 'b2-tab-buttons-compact': isCompactHeader }]"
+            class="b2-tab-buttons"
             option-type="button"
             button-style="solid"
             @change="onTabChange"
           >
             <a-radio-button value="Preview_HTML" title="HTML">
               <FileTextOutlined />
-              <span v-if="!isCompactHeader" class="tab-label">HTML</span>
             </a-radio-button>
             <a-radio-button value="Preview_Markdown" title="Markdown">
               <EditOutlined />
-              <span v-if="!isCompactHeader" class="tab-label">Markdown</span>
             </a-radio-button>
             <a-radio-button value="Preview_IndexList" title="列表">
               <UnorderedListOutlined />
-              <span v-if="!isCompactHeader" class="tab-label">列表</span>
             </a-radio-button>
             <a-radio-button value="Preview_IndexTree" :disabled="!hasGraphData" title="树形">
               <BranchesOutlined />
-              <span v-if="!isCompactHeader" class="tab-label">树形</span>
             </a-radio-button>
             <a-radio-button value="Preview_IndexGraph" :disabled="!hasGraphData" title="图形">
               <DotChartOutlined />
-              <span v-if="!isCompactHeader" class="tab-label">图形</span>
             </a-radio-button>
           </a-radio-group>
         </div>
-        <div class="pane-actions-right pane-actions-secondary">
-          <template v-if="activeTab === 'Preview_Markdown'">
+      </div>
+    </div>
+
+    <div ref="rightPaneRef" class="b2-content" @scroll.passive="onRightPaneScroll">
+      <div class="floating-controls">
+        <template v-if="activeTab === 'Preview_Markdown'">
+          <div class="floating-group">
             <a-button
               type="primary"
               size="small"
@@ -53,8 +55,10 @@
             >
               取消
             </a-button>
-          </template>
-          <template v-if="isIndexMode">
+          </div>
+        </template>
+        <template v-if="isIndexMode">
+          <div class="floating-group">
             <a-select
               :value="strategyValue"
               size="small"
@@ -75,12 +79,9 @@
             >
               {{ ingestButtonText }}
             </a-button>
-          </template>
-        </div>
+          </div>
+        </template>
       </div>
-    </div>
-
-    <div ref="rightPaneRef" class="b2-content" @scroll.passive="onRightPaneScroll">
       <Preview_HTML
         v-if="activeTab === 'Preview_HTML'"
         :rendered-markdown="renderedMarkdown"
@@ -219,7 +220,6 @@ const {
   rightPaneRef,
   indexContentScrollRef,
   headerTitleRowRef,
-  isCompactHeader,
   isIndexMode,
   hasGraphData,
   graphNodeLookup,
@@ -271,11 +271,14 @@ defineExpose({
 .pane-title {
   font-size: 13px;
   color: var(--dp-title-text);
-  padding: 6px 10px;
+  padding: 0 12px;
   border-bottom: 1px solid var(--dp-title-border);
   background: var(--dp-title-bg);
-  min-height: 44px;
+  height: 40px;
+  min-height: 40px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 .pane-title-prefix {
@@ -285,9 +288,7 @@ defineExpose({
 }
 
 .b2-pane-title {
-  display: flex;
-  align-items: center;
-  padding: 6px 8px;
+  padding: 0 8px;
 }
 
 .b2-title-row {
@@ -295,7 +296,7 @@ defineExpose({
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  min-height: 30px;
+  height: 100%;
   width: 100%;
   flex-wrap: nowrap;
 }
@@ -309,22 +310,53 @@ defineExpose({
   flex-wrap: nowrap;
 }
 
-.pane-actions-secondary {
+.pane-actions-right {
   flex: 0 0 auto;
-  justify-content: flex-end;
+  display: flex;
+  align-items: center;
   gap: 4px;
+  margin-left: auto;
+}
+
+.floating-controls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.floating-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  background: var(--dp-pane-bg);
+  border: 1px solid var(--dp-pane-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  pointer-events: auto;
 }
 
 .action-btn {
-  height: 26px;
-  border-radius: 6px;
+  height: 24px;
+  border-radius: 4px;
   font-size: 12px;
-  padding-inline: 10px;
+  padding-inline: 8px;
 }
 
 .b2-tab-buttons {
-  flex: 0 1 auto;
-  min-width: 0;
+  flex: 0 0 auto;
+}
+
+.b2-tab-buttons :deep(.ant-radio-button-wrapper) {
+  height: 24px;
+  line-height: 22px;
+  padding-inline: 8px;
+  font-size: 12px;
 }
 
 .tab-label {
@@ -332,7 +364,12 @@ defineExpose({
 }
 
 .strategy-select {
-  width: 96px;
+  width: 90px;
+}
+
+.strategy-select :deep(.ant-select-selector) {
+  height: 24px !important;
+  font-size: 12px;
 }
 
 .b2-content {
