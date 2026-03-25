@@ -41,6 +41,7 @@
           :contentScrollPercent="rightScrollPercent"
           :activeLinkedItemId="activeLinkedItemId"
           :activeLineRange="activeLinkedLineRange"
+          :sourceFilePath="filePath"
           :graphData="props.graphData"
           @update:editableContent="editableContent = $event"
           @save-markdown="saveMarkdown"
@@ -116,11 +117,15 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<PDFParsedWorkspaceEventMap>()
+/* 计算解析面板的默认展示 tab。 */
+const getDefaultParsedTab = (): PreviewMode => (
+  props.graphData?.nodes?.length ? 'Preview_IndexTree' : 'Preview_IndexList'
+)
 
 const filePath = computed(() => props.node.filePath || props.node.file_path || '')
 const ingestStatusValue = computed(() => props.ingestStatus || 'idle')
 const ingestProgressPercent = computed(() => Number(props.ingestProgress || 0))
-const activeTab = ref<PreviewMode>('Preview_HTML')
+const activeTab = ref<PreviewMode>(getDefaultParsedTab())
 const stageText = computed(() => mapParseStageText(props.node.parseStage, props.node.parseError))
 const parseButtonText = computed(() => {
   if (props.node.status === 'completed') return '重新解析'
@@ -154,7 +159,8 @@ const {
 } = useWorkspacePreview({
   node: computed(() => props.node),
   filePath,
-  graphData: computed(() => props.graphData || null)
+  graphData: computed(() => props.graphData || null),
+  activeTab: computed(() => activeTab.value)
 })
 
 const {
@@ -202,7 +208,7 @@ const onStrategyChange = (value: KnowledgeStrategy) => {
 }
 
 const openIndexFromIngestModal = () => {
-  activeTab.value = 'Preview_IndexList'
+  activeTab.value = getDefaultParsedTab()
   closeIngestModal()
 }
 const markdownContent = computed(() => editableContent.value || props.content || '')
@@ -223,6 +229,7 @@ const {
   graphData: computed(() => props.graphData || null),
   structuredItems: structuredItemsValue,
   markdownContent,
+  activeTab: computed(() => activeTab.value),
   isPdf,
   pdfPage,
   rightScrollPercent
@@ -234,9 +241,15 @@ watch(() => props.content, (value) => {
 }, { immediate: true })
 
 watch(() => props.node.key, () => {
-  activeTab.value = 'Preview_HTML'
+  activeTab.value = getDefaultParsedTab()
   resetPreviewState()
   resetLinkageState()
+})
+
+watch(() => props.graphData?.nodes?.length || 0, (count, previousCount) => {
+  if (count > 0 && previousCount === 0 && activeTab.value === 'Preview_IndexList') {
+    activeTab.value = 'Preview_IndexTree'
+  }
 })
 
 const renderedMarkdown = computed(() => renderMarkdownToHtml(

@@ -418,6 +418,27 @@ const updateNetwork = () => {
   }
 }
 
+/**
+ * 将当前激活节点移动到图视图中心。
+ */
+const focusActiveNode = (nodeId: string) => {
+  if (!network.value) return
+  requestAnimationFrame(() => {
+    if (!network.value) return
+    const positions = network.value.getPositions([nodeId])
+    const position = positions[nodeId]
+    if (!position) return
+    network.value.moveTo({
+      position: { x: position.x, y: position.y },
+      scale: Math.max(network.value.getScale(), 0.9),
+      animation: {
+        duration: 260,
+        easingFunction: 'easeInOutQuad'
+      }
+    })
+  })
+}
+
 watch(() => props.expandedNodeIds, () => {
   nextTick(() => {
     updateNetwork()
@@ -427,6 +448,7 @@ watch(() => props.expandedNodeIds, () => {
 watch(() => props.activeNodeId, (newId) => {
   if (newId && network.value) {
     updateNetwork()
+    focusActiveNode(newId)
   }
 })
 
@@ -486,9 +508,11 @@ defineExpose({
   top: 10px;
   left: 10px;
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 8px;
   z-index: 5;
+  max-width: calc(100% - 20px);
 }
 
 .graph-legend {
@@ -540,13 +564,16 @@ defineExpose({
 }
 
 .graph-hint {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  padding: 6px 10px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px 8px;
   background: color-mix(in srgb, var(--dp-pane-bg, #ffffff) 90%, transparent 10%);
   border-radius: 6px;
   border: 1px solid var(--dp-pane-border, #e2e8f0);
-  font-size: 11px;
+  font-size: 10px;
+  line-height: 1.2;
   color: var(--dp-sub-text, #64748b);
   white-space: nowrap;
 }

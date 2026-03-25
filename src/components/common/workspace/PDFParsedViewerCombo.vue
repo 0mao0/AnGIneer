@@ -101,49 +101,51 @@
             <span class="summary-tag">
               <span class="summary-item total">总{{ indexSummaryStats.total }}</span>
               <span class="summary-divider">|</span>
-              <span class="summary-item figure">图形{{ indexSummaryStats.figure }}</span>
+              <span class="summary-item figure">图{{ indexSummaryStats.figure }}</span>
               <span class="summary-divider">|</span>
-              <span class="summary-item table">表格{{ indexSummaryStats.table }}</span>
+              <span class="summary-item table">表{{ indexSummaryStats.table }}</span>
               <span class="summary-divider">|</span>
               <span class="summary-item formula">公式{{ indexSummaryStats.formula }}</span>
             </span>
           </div>
         </div>
-
-        <Preview_IndexList
-          v-if="activeTab === 'Preview_IndexList'"
-          ref="indexContentScrollRef"
-          :items="flatIndexItems"
-          :current-page="indexCurrentPage"
-          :page-size="indexPageSize"
-          :active-linked-item-id="activeLinkedItemId"
-          :node-map="graphNodeLookup"
-          @hover-item="emit('hover-item', $event)"
-          @select-item="emit('select-item', $event)"
-          @page-change="onIndexPageChange"
-        />
-        <Preview_IndexTree
-          v-else-if="activeTab === 'Preview_IndexTree'"
-          :node-map="nodeMap"
-          :children-map="childrenMap"
-          :roots="roots"
-          :expanded-node-ids="expandedNodeIds"
-          :active-node-id="activeNodeIdForGraphTree"
-          @toggle="onTreeToggle"
-          @select="onNodeSelect"
-        />
-        <Preview_IndexGraph
-          v-else
-          :node-map="nodeMap"
-          :children-map="childrenMap"
-          :roots="roots"
-          :expanded-node-ids="expandedGraphNodeIds"
-          :active-node-id="activeNodeIdForGraphTree"
-          :viewport-state="graphViewportState"
-          @toggle="onGraphToggle"
-          @select="onNodeSelect"
-          @update-viewport="onViewportUpdate"
-        />
+        <div class="index-body">
+          <Preview_IndexList
+            v-if="activeTab === 'Preview_IndexList'"
+            ref="indexContentScrollRef"
+            :items="flatIndexItems"
+            :current-page="indexCurrentPage"
+            :page-size="indexPageSize"
+            :active-linked-item-id="activeLinkedItemId"
+            :node-map="graphNodeLookup"
+            @hover-item="emit('hover-item', $event)"
+            @select-item="emit('select-item', $event)"
+            @page-change="onIndexPageChange"
+          />
+          <Preview_IndexTree
+            v-else-if="activeTab === 'Preview_IndexTree'"
+            :node-map="nodeMap"
+            :children-map="childrenMap"
+            :roots="roots"
+            :expanded-node-ids="expandedNodeIds"
+            :active-node-id="activeNodeIdForGraphTree"
+            :source-file-path="sourceFilePath"
+            @toggle="onTreeToggle"
+            @select="onNodeSelect"
+          />
+          <Preview_IndexGraph
+            v-else
+            :node-map="nodeMap"
+            :children-map="childrenMap"
+            :roots="roots"
+            :expanded-node-ids="expandedGraphNodeIds"
+            :active-node-id="activeNodeIdForGraphTree"
+            :viewport-state="graphViewportState"
+            @toggle="onGraphToggle"
+            @select="onNodeSelect"
+            @update-viewport="onViewportUpdate"
+          />
+        </div>
       </div>
       <a-empty
         v-if="!hasParsedContent"
@@ -201,6 +203,7 @@ const props = defineProps<{
   contentScrollPercent: number
   activeLinkedItemId: string | null
   activeLineRange: { start: number; end: number } | null
+  sourceFilePath?: string
   graphData?: DocBlocksGraphType | null
 }>()
 
@@ -383,12 +386,25 @@ defineExpose({
 .index-layout {
   display: flex;
   flex-direction: column;
+  height: 100%;
   min-height: 100%;
   padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .index-toolbar {
   flex-shrink: 0;
+}
+
+.index-body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.index-body > * {
+  height: 100%;
 }
 
 .index-summary-row {
