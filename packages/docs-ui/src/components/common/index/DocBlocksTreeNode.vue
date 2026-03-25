@@ -1,23 +1,36 @@
 <template>
   <li class="tree-node">
-    <div
-      :class="['tree-row', { active: nodeId === activeNodeId }]"
-      @click="onRowClick"
+    <a-tooltip
+      placement="rightTop"
+      :mouse-enter-delay="0.15"
+      overlay-class-name="doc-block-tree-tooltip-overlay"
     >
-      <span class="tree-toggle" @click.stop="onToggle">
-        <template v-if="hasChildren">
-          <RightOutlined v-if="!isExpanded" />
-          <DownOutlined v-else />
-        </template>
-        <span v-else class="toggle-placeholder" />
-      </span>
-      <div class="tree-main">
-        <span class="tree-text">{{ displayText }}</span>
-        <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
-        <span v-if="typeTag" class="chip">{{ typeTag }}</span>
-        <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
+      <template #title>
+        <div class="tree-tooltip">
+          <div class="tree-tooltip-text">{{ tooltipText }}</div>
+          <div v-if="tooltipRichMediaHtml" class="tree-tooltip-media" v-html="tooltipRichMediaHtml" />
+        </div>
+      </template>
+      <div
+        :data-tree-node-id="nodeId"
+        :class="['tree-row', { active: nodeId === activeNodeId }]"
+        @click="onRowClick"
+      >
+        <span class="tree-toggle" @click.stop="onToggle">
+          <template v-if="hasChildren">
+            <RightOutlined v-if="!isExpanded" />
+            <DownOutlined v-else />
+          </template>
+          <span v-else class="toggle-placeholder" />
+        </span>
+        <div class="tree-main">
+          <span class="tree-text">{{ displayText }}</span>
+          <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
+          <span v-if="typeTag" class="chip">{{ typeTag }}</span>
+          <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
+        </div>
       </div>
-    </div>
+    </a-tooltip>
     <ul v-if="hasChildren && isExpanded" class="tree-children">
       <DocBlocksTreeNode
         v-for="childId in children"
@@ -27,6 +40,7 @@
         :children-map="childrenMap"
         :expanded-ids="expandedIds"
         :active-node-id="activeNodeId"
+        :source-file-path="sourceFilePath"
         @toggle="(id) => emit('toggle', id)"
         @select="(id) => emit('select', id)"
       />
@@ -41,7 +55,8 @@ import {
   getNodeDisplayText,
   getNodeLevelTag,
   getNodeTypeTag,
-  getNodePositionTag
+  getNodePositionTag,
+  renderNodeRichMedia
 } from '../../../utils/knowledge'
 import type { DocBlockNode } from '../../../types/knowledge'
 
@@ -51,6 +66,7 @@ interface Props {
   childrenMap: Map<string, string[]>
   expandedIds: Set<string>
   activeNodeId: string | null
+  sourceFilePath?: string
 }
 
 const props = defineProps<Props>()
@@ -75,6 +91,13 @@ const levelTag = computed(() => getNodeLevelTag(node.value, props.nodeMap))
 const typeTag = computed(() => getNodeTypeTag(node.value))
 
 const positionTag = computed(() => getNodePositionTag(node.value))
+
+const tooltipText = computed(() => {
+  const text = String(node.value?.plain_text || '').trim()
+  return text || props.nodeId
+})
+
+const tooltipRichMediaHtml = computed(() => renderNodeRichMedia(node.value, props.sourceFilePath))
 
 const onToggle = () => {
   emit('toggle', props.nodeId)
@@ -157,6 +180,54 @@ const onRowClick = () => {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: var(--dp-title-text, #0f172a);
+}
+
+:global(.doc-block-tree-tooltip-overlay .ant-tooltip-inner) {
+  max-width: min(720px, 78vw);
+  max-height: 70vh;
+  overflow: auto;
+  padding: 12px;
+}
+
+.tree-tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tree-tooltip-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+.tree-tooltip-media :deep(.media-table) {
+  overflow: auto;
+  max-width: 100%;
+}
+
+.tree-tooltip-media :deep(table) {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 240px;
+}
+
+.tree-tooltip-media :deep(th),
+.tree-tooltip-media :deep(td) {
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  padding: 6px 8px;
+}
+
+.tree-tooltip-media :deep(.media-formula) {
+  overflow-x: auto;
+}
+
+.tree-tooltip-media :deep(.media-image) {
+  display: block;
+  max-width: min(560px, 70vw);
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .chip {

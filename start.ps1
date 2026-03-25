@@ -46,7 +46,7 @@ Start-Process cmd -ArgumentList "/k cd /d `"$rootDir`" && title AnGIneer Admin &
 
 # 等待后端启动
 Write-Host ""
-Write-Host "等待后端服务启动 (10秒)..." -ForegroundColor Yellow
+Write-Host "waiting for backend to start (10 seconds)..." -ForegroundColor Yellow
 Start-Sleep -Seconds 5
 
 # Frontend (当前窗口)

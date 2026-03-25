@@ -58,6 +58,16 @@ export interface DocBlockNode {
   image_path: string | null
   table_html: string | null
   math_content: string | null
+  title?: string | null
+  caption?: string | null
+  footnote?: string | null
+  caption_block_uid?: string | null
+  caption_block_uids?: string[] | null
+  caption_bboxes?: number[][] | null
+  footnote_block_uid?: string | null
+  footnote_block_uids?: string[] | null
+  footnote_bboxes?: number[][] | null
+  content_json?: Record<string, any> | null
 }
 
 export interface DocBlockEdge {
@@ -72,6 +82,10 @@ export interface DocBlockEdge {
 export interface DocBlocksGraph {
   nodes: DocBlockNode[]
   edges: DocBlockEdge[]
+  stats?: {
+    base_rows?: Record<string, any>[]
+    derived_rows?: Record<string, any>[]
+  }
 }
 
 export interface DocBlocksGraphState {

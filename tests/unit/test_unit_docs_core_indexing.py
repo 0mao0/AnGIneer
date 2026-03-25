@@ -15,7 +15,15 @@ sys.path.insert(0, str(PROJECT_ROOT / "apps" / "api-server"))
 
 from docs_core.storage.file_storage import FileStorage
 from docs_core.api.knowledge_api import KnowledgeService, KnowledgeNode
-from docs_core.storage.structured_strategy import extract_structured_items_from_markdown
+from docs_core.storage.structured_strategy import (
+    extract_structured_items_from_markdown,
+    _build_a_structured_segment_items
+)
+from docs_core.parser.mineru_structure import (
+    A1StructureResult,
+    build_graph_from_mineru,
+    collect_media_related_block_refs
+)
 
 
 class IsolatedKnowledgeService(KnowledgeService):
@@ -118,6 +126,265 @@ class TestStructuredSegments(unittest.TestCase):
             self.assertEqual(len(service.list_document_segments("doc-2001", "A_structured")), 0)
             del service
             gc.collect()
+
+    # 测试 A_structured 索引行会被转换为带精确定位元数据的结构化条目。
+    def test_build_a_structured_segment_items_contains_exact_refs(self):
+        """测试 A_structured 条目会输出 block_uid、node_id 等精确引用。"""
+        result = A1StructureResult(
+            nodes=[
+                {
+                    "id": "doc-1:0:3",
+                    "block_uid": "doc-1:0:3",
+                    "block_type": "title",
+                    "page_idx": 0,
+                    "block_seq": 3,
+                    "plain_text": "1 总则",
+                    "bbox": [0.1, 0.2, 0.3, 0.4],
+                    "bbox_source": "layout",
+                    "derived_by": "rule",
+                    "confidence": 0.95
+                }
+            ],
+            index_rows=[
+                {
+                    "block_uid": "doc-1:0:3",
+                    "block_type": "title",
+                    "page_idx": 0,
+                    "block_seq": 3,
+                    "plain_text": "1 总则",
+                    "derived_level": 1,
+                    "title_path": "1 总则",
+                    "parent_uid": None
+                }
+            ],
+            stats={
+                "derived_rows": [
+                    {
+                        "block_uid": "doc-1:0:3",
+                        "page_seq": 1,
+                        "parent_block_uid": None,
+                        "title_path": "1 总则"
+                    }
+                ]
+            }
+        )
+
+        items = _build_a_structured_segment_items(result)
+
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["id"], "doc-1:0:3")
+        self.assertEqual(items[0]["item_type"], "title")
+        self.assertEqual(items[0]["meta"]["block_uid"], "doc-1:0:3")
+        self.assertEqual(items[0]["meta"]["node_id"], "doc-1:0:3")
+        self.assertEqual(items[0]["meta"]["page_seq"], 1)
+        self.assertEqual(items[0]["meta"]["block_seq"], 3)
+        self.assertEqual(items[0]["meta"]["level"], 1)
+
+    def test_build_a_structured_segment_items_contains_caption_and_footnote_refs(self):
+        """测试图表条目会输出 caption 与 footnote 的显式 block_uid 引用。"""
+        result = A1StructureResult(
+            nodes=[
+                {
+                    "id": "doc-1:0:10",
+                    "block_uid": "doc-1:0:10",
+                    "block_type": "table",
+                    "page_idx": 0,
+                    "block_seq": 10,
+                    "plain_text": "表1 测试表 注：口径说明",
+                    "bbox": [0.1, 0.2, 0.3, 0.4],
+                    "bbox_source": "layout",
+                    "derived_by": "rule",
+                    "confidence": 0.92,
+                    "caption_block_uids": ["doc-1:0:11"],
+                    "footnote_block_uids": ["doc-1:0:12"]
+                }
+            ],
+            index_rows=[
+                {
+                    "block_uid": "doc-1:0:10",
+                    "block_type": "table",
+                    "page_idx": 0,
+                    "block_seq": 10,
+                    "plain_text": "表1 测试表 注：口径说明",
+                    "derived_level": None,
+                    "title_path": None,
+                    "parent_uid": None,
+                    "caption_block_uids": ["doc-1:0:11"],
+                    "footnote_block_uids": ["doc-1:0:12"]
+                }
+            ],
+            stats={
+                "base_rows": [
+                    {
+                        "block_uid": "doc-1:0:10",
+                        "block_type": "table",
+                        "page_idx": 0,
+                        "content_json": {
+                            "table_caption": [{"content": "表1 测试表"}],
+                            "table_footnote": [{"content": "注：口径说明"}]
+                        }
+                    },
+                    {
+                        "block_uid": "doc-1:0:11",
+                        "block_type": "paragraph",
+                        "page_idx": 0,
+                        "plain_text": "表1 测试表"
+                    },
+                    {
+                        "block_uid": "doc-1:0:12",
+                        "block_type": "paragraph",
+                        "page_idx": 0,
+                        "plain_text": "注：口径说明"
+                    }
+                ],
+                "derived_rows": [
+                    {
+                        "block_uid": "doc-1:0:10",
+                        "page_seq": 1,
+                        "parent_block_uid": None,
+                        "title_path": None,
+                        "caption_block_uids": ["doc-1:0:11"],
+                        "footnote_block_uids": ["doc-1:0:12"]
+                    }
+                ]
+            }
+        )
+
+        items = _build_a_structured_segment_items(result)
+
+        self.assertEqual(items[0]["meta"]["caption_block_uid"], "doc-1:0:11")
+        self.assertEqual(items[0]["meta"]["caption_block_uids"], ["doc-1:0:11"])
+        self.assertEqual(items[0]["meta"]["footnote_block_uid"], "doc-1:0:12")
+        self.assertEqual(items[0]["meta"]["footnote_block_uids"], ["doc-1:0:12"])
+
+    def test_collect_media_related_block_refs_from_parser_rows(self):
+        """测试解析阶段会为图表块直接产出 caption 与 footnote 的关联 refs。"""
+        rows = [
+            {
+                "block_uid": "doc-1:0:10",
+                "block_type": "image",
+                "page_idx": 0,
+                "content_json": {
+                    "image_caption": [{"content": "图1 系统架构"}],
+                    "image_footnote": [{"content": "来源：测试环境"}]
+                }
+            },
+            {
+                "block_uid": "doc-1:0:11",
+                "block_type": "paragraph",
+                "page_idx": 0,
+                "plain_text": "图1 系统架构"
+            },
+            {
+                "block_uid": "doc-1:0:12",
+                "block_type": "paragraph",
+                "page_idx": 0,
+                "plain_text": "来源：测试环境"
+            }
+        ]
+
+        refs = collect_media_related_block_refs(rows[0], rows)
+
+        self.assertEqual(refs["caption_block_uids"], ["doc-1:0:11"])
+        self.assertEqual(refs["footnote_block_uids"], ["doc-1:0:12"])
+
+    # 测试解析阶段会优先按顺序而非按文本把 model.json 的 bbox 对齐回来。
+    def test_build_graph_from_mineru_enriches_caption_and_footnote_bboxes(self):
+        """测试 build_graph_from_mineru 会优先按顺序把 model.json 中的图表题注 bbox 写入结果。"""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            parsed_dir = Path(temp_dir)
+            raw_dir = parsed_dir / "mineru_raw"
+            raw_dir.mkdir(parents=True, exist_ok=True)
+
+            (raw_dir / "content_list_v2.json").write_text(
+                """
+[
+  [
+    {
+      "type": "table",
+      "bbox": [100, 200, 500, 600],
+      "content": {
+        "table_caption": [{"content": "表1 测试表"}],
+        "table_footnote": [{"content": "注：口径说明"}]
+      }
+    },
+    {
+      "type": "paragraph",
+      "bbox": [110, 610, 380, 640],
+      "content": {
+        "paragraph_content": [{"content": "表1 测试表"}]
+      }
+    },
+    {
+      "type": "paragraph",
+      "bbox": [110, 645, 420, 675],
+      "content": {
+        "paragraph_content": [{"content": "注：口径说明"}]
+      }
+    }
+  ]
+]
+                """.strip(),
+                encoding="utf-8"
+            )
+            (raw_dir / "layout.json").write_text(
+                """
+{
+  "_version_name": "test-layout",
+  "pdf_info": [
+    {
+      "page_idx": 0,
+      "page_size": [1000, 1000]
+    }
+  ]
+}
+                """.strip(),
+                encoding="utf-8"
+            )
+            (raw_dir / "model.json").write_text(
+                """
+[
+  [
+    {
+      "type": "table_caption",
+      "bbox": [0.11, 0.61, 0.38, 0.64],
+      "content": "与 content_list 不同的 caption 文本"
+    },
+    {
+      "type": "table",
+      "bbox": [0.10, 0.20, 0.50, 0.60],
+      "content": "<table><tr><td>A</td></tr></table>"
+    },
+    {
+      "type": "table_footnote",
+      "bbox": [0.11, 0.645, 0.42, 0.675],
+      "content": "与 content_list 不同的 footnote 文本"
+    }
+  ]
+]
+                """.strip(),
+                encoding="utf-8"
+            )
+
+            result = build_graph_from_mineru(parsed_dir, "doc-test", "测试文档", llm_client=None, options={"use_llm": False})
+
+            self.assertEqual(len(result.nodes), 3)
+            table_node = next(node for node in result.nodes if node["block_type"] == "table")
+            table_index = next(row for row in result.index_rows if row["block_type"] == "table")
+            base_row = next(row for row in result.stats["base_rows"] if row["block_type"] == "table")
+            derived_row = next(row for row in result.stats["derived_rows"] if row["block_uid"] == table_node["block_uid"])
+
+            expected_caption_bbox = [[0.11, 0.61, 0.38, 0.64]]
+            expected_footnote_bbox = [[0.11, 0.645, 0.42, 0.675]]
+
+            self.assertEqual(base_row["content_json"]["table_caption_bboxes"], expected_caption_bbox)
+            self.assertEqual(base_row["content_json"]["table_footnote_bboxes"], expected_footnote_bbox)
+            self.assertEqual(table_node["caption_bboxes"], expected_caption_bbox)
+            self.assertEqual(table_node["footnote_bboxes"], expected_footnote_bbox)
+            self.assertEqual(table_index["caption_bboxes"], expected_caption_bbox)
+            self.assertEqual(table_index["footnote_bboxes"], expected_footnote_bbox)
+            self.assertEqual(derived_row["caption_bboxes"], expected_caption_bbox)
+            self.assertEqual(derived_row["footnote_bboxes"], expected_footnote_bbox)
 
 
 class TestMarkdownExtractor(unittest.TestCase):

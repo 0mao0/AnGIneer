@@ -4,6 +4,7 @@ import { buildDocBlocksGraphIndex } from './useDocBlocksGraph'
 import {
   formatStructuredItemType,
   findNodeForItem,
+  findNodeForItemExact,
   isItemActive
 } from '../utils/knowledge'
 
@@ -34,6 +35,7 @@ export interface ParsedPdfViewerStateProps {
   structuredItems: StructuredIndexItem[]
   contentScrollPercent: number
   activeLinkedItemId: string | null
+  sourceFilePath?: string
   graphData?: DocBlocksGraph | null
 }
 
@@ -149,13 +151,18 @@ export function useParsedPdfViewer(
     return flatIndexItems.value.findIndex(item => isItemActive(item, activeId))
   }
 
+  /**
+   * 解析右侧树/图视图当前应激活的节点 ID。
+   */
   const resolveActiveNodeId = (activeId: string | null): string | null => {
     if (!activeId) return null
     if (nodeMap.value.has(activeId)) return activeId
     const activeIndex = findActiveItemIndex(activeId)
     if (activeIndex < 0) return null
     const item = flatIndexItems.value[activeIndex]
-    const node = findNodeForItem(item, graphNodeLookup.value)
+    const node = props.activeTab === 'Preview_IndexTree' || props.activeTab === 'Preview_IndexGraph'
+      ? findNodeForItemExact(item, graphNodeLookup.value)
+      : findNodeForItem(item, graphNodeLookup.value)
     return node?.id || null
   }
 
@@ -299,8 +306,11 @@ export function useParsedPdfViewer(
   })
 
   watch(() => props.graphData, (data) => {
+    expandedNodeIds.value = new Set()
+    expandedGraphNodeIds.value = new Set()
     if (data?.nodes?.length) {
       for (const rootId of roots.value) {
+        expandedNodeIds.value.add(rootId)
         expandedGraphNodeIds.value.add(rootId)
       }
     }

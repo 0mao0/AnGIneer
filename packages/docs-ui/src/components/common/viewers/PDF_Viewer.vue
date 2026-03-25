@@ -168,7 +168,7 @@
                 }"
                 @mouseenter="emit('hover-highlight', item.itemId)"
                 @mouseleave="emit('hover-highlight', null)"
-                @click="emit('select-highlight', item.itemId)"
+                @click="emit('select-highlight', item)"
               >
                 <span v-if="item.type" class="highlight-type-tag">{{ item.type }}</span>
               </div>
@@ -217,12 +217,15 @@ import type { KnowledgeTreeNode } from '../../../types/tree'
 interface LinkedHighlight {
   id: string
   itemId: string
+  structuredItemId?: string
   page: number
-  hasRect?: boolean
+  hasRect: boolean
   left: number
   top: number
   width: number
   height: number
+  lineStart: number | null
+  lineEnd: number | null
   type?: string
 }
 
@@ -237,6 +240,7 @@ interface RenderedPageMetrics {
   left: number
   width: number
   height: number
+  scale: number
 }
 
 const props = defineProps<{
@@ -263,7 +267,7 @@ const emit = defineEmits<{
   download: []
   'text-scroll': [percent: number]
   'hover-highlight': [id: string | null]
-  'select-highlight': [id: string]
+  'select-highlight': [highlight: LinkedHighlight]
 }>()
 
 /**
@@ -664,7 +668,7 @@ class PdfViewerController {
       canvas.style.width = `${cssWidth}px`
       canvas.style.height = `${cssHeight}px`
 
-      const canvasContext = canvas.getContext('2d')
+      const canvasContext = canvas.getContext('2d', { alpha: false })
       if (!canvasContext) return
 
       // 重置变换矩阵，防止因前一次渲染任务取消导致上下文处于缩放/翻转状态（解决 180° 翻转问题）
@@ -686,6 +690,7 @@ class PdfViewerController {
         this.pageRenderTasks.delete(page)
         this.pageLastRenderedScale.set(page, this.state.pdfScale)
       }
+      requestAnimationFrame(() => this.measurePageElement(page))
       
       // 修复 baseViewport 引用错误，使用当前视口的基础宽度
       const baseWidth = viewport.width / (this.state.pdfScale * outputScale)
@@ -935,34 +940,7 @@ class PdfViewerController {
     this.pageElements.set(page, element)
 
     const measureHeight = () => {
-      const mediaElement = element.querySelector('canvas, img') as HTMLElement | null
-      if (!mediaElement) return
-      const mediaRect = mediaElement.getBoundingClientRect()
-      const wrapperRect = element.getBoundingClientRect()
-      const nextHeight = Math.max(400, Math.round(mediaRect.height))
-      const nextMetrics: RenderedPageMetrics = {
-        top: Math.max(0, mediaRect.top - wrapperRect.top),
-        left: Math.max(0, mediaRect.left - wrapperRect.left),
-        width: Math.max(1, mediaRect.width),
-        height: nextHeight
-      }
-      
-      const currentHeight = this.state.pageHeights[page]
-      const currentMetrics = this.state.renderedPageMetrics[page]
-      const metricsChanged = !currentMetrics || 
-        ['top', 'left', 'width', 'height'].some(k => Math.abs((currentMetrics as any)[k] - (nextMetrics as any)[k]) > 0.5)
-
-      if (currentHeight !== nextHeight) {
-        this.state.pageHeights = { ...this.state.pageHeights, [page]: nextHeight }
-        this.updateEstimatedHeight()
-        this.scheduleRenderedPageRangeUpdate()
-      }
-
-      if (metricsChanged) {
-        this.state.renderedPageMetrics = { ...this.state.renderedPageMetrics, [page]: nextMetrics }
-        this.updateMaxPageWidth()
-        if (this.state.isFitToWindowMode && !this.state.hasAppliedInitialFit) this.scheduleFitToWindowScale()
-      }
+      this.measurePageElement(page)
     }
 
     requestAnimationFrame(measureHeight)
@@ -1098,6 +1076,52 @@ class PdfViewerController {
       }
     })
   }
+
+  private measurePageElement(page: number) {
+    const element = this.pageElements.get(page)
+    if (!element) return
+    const mediaElement = element.querySelector('canvas, img')
+    if (!(mediaElement instanceof HTMLElement)) return
+    if (mediaElement instanceof HTMLCanvasElement) {
+      const renderedScale = this.pageLastRenderedScale.get(page)
+      const hasRenderedAtCurrentScale = renderedScale !== undefined && Math.abs(renderedScale - this.state.pdfScale) < 0.001
+      const hasCanvasSize = mediaElement.width > 0 && mediaElement.height > 0 && mediaElement.style.width !== '' && mediaElement.style.height !== ''
+      if (!hasRenderedAtCurrentScale || !hasCanvasSize) return
+    }
+
+    const mediaRect = mediaElement.getBoundingClientRect()
+    const wrapperRect = element.getBoundingClientRect()
+    if (mediaRect.width <= 1 || mediaRect.height <= 1) return
+
+    const nextHeight = Math.max(400, Math.round(mediaRect.height))
+    const nextMetrics: RenderedPageMetrics = {
+      top: Math.max(0, mediaRect.top - wrapperRect.top),
+      left: Math.max(0, mediaRect.left - wrapperRect.left),
+      width: Math.max(1, mediaRect.width),
+      height: nextHeight,
+      scale: this.state.pdfScale
+    }
+
+    const currentHeight = this.state.pageHeights[page]
+    const currentMetrics = this.state.renderedPageMetrics[page]
+    const metricsChanged = !currentMetrics ||
+      Math.abs(currentMetrics.scale - nextMetrics.scale) > 0.001 ||
+      ['top', 'left', 'width', 'height'].some(k => Math.abs((currentMetrics as any)[k] - (nextMetrics as any)[k]) > 0.5)
+
+    if (currentHeight !== nextHeight) {
+      this.state.pageHeights = { ...this.state.pageHeights, [page]: nextHeight }
+      this.updateEstimatedHeight()
+      this.scheduleRenderedPageRangeUpdate()
+    }
+
+    if (metricsChanged) {
+      this.state.renderedPageMetrics = { ...this.state.renderedPageMetrics, [page]: nextMetrics }
+      this.updateMaxPageWidth()
+      if (this.state.isFitToWindowMode && !this.state.hasAppliedInitialFit) {
+        this.scheduleFitToWindowScale()
+      }
+    }
+  }
 }
 
 const controller = new PdfViewerController()
@@ -1154,7 +1178,13 @@ const getPageHighlights = (page: number) => {
   if (!props.isPdf || !props.highlightLinkEnabled) return []
   // 核心逻辑：只有当该页面的坐标度量（Metrics）已经测量完成，高亮位置才是准确的
   if (!renderedPageMetrics.value[page]) return []
-  return props.highlights.filter(h => h.page === page && h.hasRect !== false)
+  return props.highlights
+    .filter(h => h.page === page && h.hasRect !== false)
+    .sort((left, right) => {
+      const leftArea = (left.width || 0) * (left.height || 0)
+      const rightArea = (right.width || 0) * (right.height || 0)
+      return rightArea - leftArea
+    })
 }
 
 // --- Watchers ---
@@ -1186,7 +1216,12 @@ watch([() => renderedPageRange.value.start, () => renderedPageRange.value.end, p
 })
 
 watch(() => props.currentPdfPage, (newPage) => {
-  if (props.isPdf && newPage > 0 && !state.isPdfUserScrolling) controller.scrollToPdfPage(newPage, 'auto')
+  if (!props.isPdf || newPage <= 0) return
+  state.applyingExternalPdfScroll = true
+  controller.scrollToPdfPage(newPage, 'auto')
+  requestAnimationFrame(() => {
+    state.applyingExternalPdfScroll = false
+  })
 })
 
 watch(() => props.textScrollPercent, (percent) => {

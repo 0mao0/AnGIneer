@@ -8,6 +8,7 @@
 - 负责幂等与事务，不写算法细节
 """
 import json
+import re
 import sqlite3
 from datetime import datetime
 from pathlib import Path
@@ -263,6 +264,217 @@ def _save_doc_blocks_graph(
     return str(graph_path)
 
 
+def _normalize_related_text(text: str) -> str:
+    """归一化文本以提升图表相关块匹配稳定性。"""
+    if not text:
+        return ""
+    compact = re.sub(r"\s+", "", text)
+    compact = re.sub(r"[，。；：、“”‘’（）()\[\]【】<>《》,.;:!?！？·—\-~]", "", compact)
+    return compact.strip().lower()
+
+
+def _collect_texts_from_any(payload: Any) -> List[str]:
+    """递归收集任意结构中的文本片段。"""
+    fragments: List[str] = []
+
+    def collect(node: Any) -> None:
+        if isinstance(node, str):
+            text = node.strip()
+            if text:
+                fragments.append(text)
+            return
+        if isinstance(node, list):
+            for item in node:
+                collect(item)
+            return
+        if isinstance(node, dict):
+            for key in ("content", "text", "value"):
+                value = node.get(key)
+                if isinstance(value, str) and value.strip():
+                    fragments.append(value.strip())
+            for value in node.values():
+                if isinstance(value, (list, dict, str)):
+                    collect(value)
+
+    collect(payload)
+    return list(dict.fromkeys(fragments))
+
+
+def _build_related_text_needles(values: List[str]) -> List[str]:
+    """把文本片段转换为可用于跨块匹配的归一化候选。"""
+    needles: List[str] = []
+    for value in values:
+        normalized = _normalize_related_text(value)
+        if normalized:
+            needles.append(normalized)
+    filtered = [value for value in needles if len(value) >= 2]
+    filtered.sort(key=len, reverse=True)
+    return list(dict.fromkeys(filtered))
+
+
+def _is_caption_like_text(value: str) -> bool:
+    """判断文本是否看起来像图表题注编号。"""
+    return bool(re.match(r"^(图|表|figure|table)\s*[0-9a-z\u4e00-\u9fa5]", value, re.IGNORECASE))
+
+
+def _matches_related_text(row_text: str, needles: List[str]) -> bool:
+    """判断候选行文本是否命中图表 caption 或 footnote 文本。"""
+    if not row_text or not needles:
+        return False
+    return any(
+        needle in row_text
+        or (len(row_text) >= 10 and row_text in needle)
+        or (_is_caption_like_text(row_text) and needle.startswith(row_text[: min(len(row_text), 32)]))
+        for needle in needles
+    )
+
+
+def _collect_media_related_block_refs(
+    row: Dict[str, Any],
+    base_rows: List[Dict[str, Any]]
+) -> Dict[str, List[str]]:
+    """为图表块收集同页 caption 与 footnote 的关联 block_uid。"""
+    block_type = str(row.get("block_type") or "").strip().lower()
+    if block_type not in {"image", "table"}:
+        return {}
+
+    content_json = row.get("content_json") if isinstance(row.get("content_json"), dict) else {}
+    caption_key = "table_caption" if block_type == "table" else "image_caption"
+    footnote_key = "table_footnote" if block_type == "table" else "image_footnote"
+    caption_needles = _build_related_text_needles(_collect_texts_from_any(content_json.get(caption_key)))
+    footnote_needles = _build_related_text_needles(_collect_texts_from_any(content_json.get(footnote_key)))
+    if not caption_needles and not footnote_needles:
+        return {}
+
+    block_uid = str(row.get("block_uid") or "").strip()
+    page_idx = int(row.get("page_idx", -1) or -1)
+    excluded_types = {"image", "table", "header", "footer", "page_header", "page_number"}
+    caption_refs: List[str] = []
+    footnote_refs: List[str] = []
+
+    for candidate in base_rows:
+        candidate_uid = str(candidate.get("block_uid") or candidate.get("id") or "").strip()
+        if not candidate_uid or candidate_uid == block_uid:
+            continue
+        candidate_page_idx = int(candidate.get("page_idx", -1) or -1)
+        if candidate_page_idx != page_idx:
+            continue
+        candidate_type = str(candidate.get("block_type") or candidate.get("type") or "").strip().lower()
+        if candidate_type in excluded_types:
+            continue
+        candidate_text_raw = str(candidate.get("plain_text") or candidate.get("text") or "").strip()
+        candidate_text = _normalize_related_text(candidate_text_raw)
+        if not candidate_text:
+            continue
+        if caption_needles and _matches_related_text(candidate_text, caption_needles):
+            caption_refs.append(candidate_uid)
+        if footnote_needles and _matches_related_text(candidate_text, footnote_needles):
+            footnote_refs.append(candidate_uid)
+
+    result: Dict[str, List[str]] = {}
+    if caption_refs:
+        result["caption_block_uids"] = list(dict.fromkeys(caption_refs))
+    if footnote_refs:
+        result["footnote_block_uids"] = list(dict.fromkeys(footnote_refs))
+    return result
+
+
+def _build_a_structured_segment_items(
+    result: A1StructureResult
+) -> List[Dict[str, Any]]:
+    node_map: Dict[str, Dict[str, Any]] = {}
+    for node in result.nodes:
+        node_id = str(node.get("block_uid") or node.get("id") or "").strip()
+        if node_id:
+            node_map[node_id] = node
+
+    derived_map: Dict[str, Dict[str, Any]] = {}
+    for row in result.stats.get("derived_rows", []) or []:
+        block_uid = str(row.get("block_uid") or "").strip()
+        if block_uid:
+            derived_map[block_uid] = row
+
+    base_row_map: Dict[str, Dict[str, Any]] = {}
+    base_rows: List[Dict[str, Any]] = result.stats.get("base_rows", []) or []
+    for row in base_rows:
+        block_uid = str(row.get("block_uid") or "").strip()
+        if block_uid:
+            base_row_map[block_uid] = row
+
+    items: List[Dict[str, Any]] = []
+    for order_index, row in enumerate(result.index_rows):
+        block_uid = str(row.get("block_uid") or "").strip()
+        if not block_uid:
+            continue
+
+        node = node_map.get(block_uid, {})
+        derived_row = derived_map.get(block_uid, {})
+        base_row = base_row_map.get(block_uid, {})
+        block_type = str(row.get("block_type") or node.get("block_type") or "segment").strip() or "segment"
+        page_idx = int(row.get("page_idx", node.get("page_idx", 0)) or 0)
+        page_seq = int(derived_row.get("page_seq") or (page_idx + 1))
+        block_seq = int(row.get("block_seq", node.get("block_seq", 0)) or 0)
+        derived_level = row.get("derived_level")
+        parent_block_uid = row.get("parent_uid") or derived_row.get("parent_block_uid")
+        plain_text = str(row.get("plain_text") or node.get("plain_text") or "").strip()
+        title_path = row.get("title_path") or derived_row.get("title_path")
+        fallback_title = f"{block_type}@P{page_seq}B{block_seq}" if block_seq > 0 else f"{block_type}@P{page_seq}"
+        title = plain_text or str(title_path or "").strip() or fallback_title
+        parser_caption_refs = row.get("caption_block_uids") or node.get("caption_block_uids") or derived_row.get("caption_block_uids") or []
+        parser_footnote_refs = row.get("footnote_block_uids") or node.get("footnote_block_uids") or derived_row.get("footnote_block_uids") or []
+        caption_block_uids = [str(value).strip() for value in parser_caption_refs if str(value).strip()]
+        footnote_block_uids = [str(value).strip() for value in parser_footnote_refs if str(value).strip()]
+        caption_bboxes = row.get("caption_bboxes") or node.get("caption_bboxes") or derived_row.get("caption_bboxes")
+        footnote_bboxes = row.get("footnote_bboxes") or node.get("footnote_bboxes") or derived_row.get("footnote_bboxes")
+        if not caption_block_uids and not footnote_block_uids and base_row:
+            related_refs = _collect_media_related_block_refs(base_row, base_rows)
+            caption_block_uids = related_refs.get("caption_block_uids", [])
+            footnote_block_uids = related_refs.get("footnote_block_uids", [])
+
+        meta = {
+            "source": "a_structured_index",
+            "block_uid": block_uid,
+            "node_id": block_uid,
+            "block_id": block_uid,
+            "source_block_id": block_uid,
+            "block_uids": [block_uid],
+            "node_ids": [block_uid],
+            "item_type": block_type,
+            "page_idx": page_idx,
+            "page_seq": page_seq,
+            "page": page_seq,
+            "block_seq": block_seq,
+            "derived_level": derived_level,
+            "heading_level": derived_level,
+            "level": derived_level,
+            "title_path": title_path,
+            "parent_uid": parent_block_uid,
+            "parent_block_uid": parent_block_uid,
+            "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
+            "caption_block_uids": caption_block_uids or None,
+            "caption_bboxes": caption_bboxes,
+            "footnote_block_uid": footnote_block_uids[0] if len(footnote_block_uids) == 1 else None,
+            "footnote_block_uids": footnote_block_uids or None,
+            "footnote_bboxes": footnote_bboxes,
+            "bbox": node.get("bbox"),
+            "bbox_source": node.get("bbox_source"),
+            "derived_by": node.get("derived_by"),
+            "confidence": node.get("confidence")
+        }
+        meta = {key: value for key, value in meta.items() if value is not None}
+
+        items.append({
+            "id": block_uid,
+            "item_type": block_type,
+            "title": title,
+            "content": plain_text or title,
+            "meta": meta,
+            "order_index": order_index
+        })
+
+    return items
+
+
 def build_structured_index_for_doc(
     library_id: str,
     doc_id: str,
@@ -334,6 +546,16 @@ def build_structured_index_for_doc(
         updated = _update_derived_fields(conn, derived_rows) if derived_rows else 0
         
         conn.commit()
+
+    from docs_core.api.knowledge_api import knowledge_service
+
+    structured_items = _build_a_structured_segment_items(result)
+    structured_saved_count = knowledge_service.save_document_segments(
+        doc_id,
+        library_id,
+        strategy,
+        structured_items
+    )
     
     stats = {
         "nodes_count": len(result.nodes),
@@ -341,13 +563,14 @@ def build_structured_index_for_doc(
         "index_rows_count": len(result.index_rows),
         "base_rows_count": inserted,
         "derived_rows_count": updated,
+        "structured_items_saved_count": structured_saved_count,
         "llm_status": result.stats.get("llm_status", "disabled"),
         "derive_version": derive_version,
         "graph_path": graph_path
     }
     
     return {
-        "saved_count": inserted,
+        "saved_count": structured_saved_count,
         "stats": stats
     }
 

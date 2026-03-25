@@ -210,14 +210,24 @@ export const getNodeLevel = (node: DocBlockNode, nodeMap: Map<string, DocBlockNo
 }
 
 /**
- * 为索引条目查找对应的文档节点
+ * 为索引条目精确查找对应的文档节点。
  */
-export const findNodeForItem = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>): DocBlockNode | null => {
+export const findNodeForItemExact = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>): DocBlockNode | null => {
   const refs = collectItemRefs(item)
   for (const ref of refs) {
     const direct = nodeMap.get(ref)
     if (direct) return direct
   }
+  return null
+}
+
+/**
+ * 为索引条目查找对应的文档节点
+ */
+export const findNodeForItem = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>): DocBlockNode | null => {
+  const direct = findNodeForItemExact(item, nodeMap)
+  if (direct) return direct
+  if (hasExactItemRef(item, nodeMap)) return null
   const meta = item.meta || {}
   const pageSeq = Number(meta.page_seq || meta.page || 0)
   const blockSeq = Number(meta.block_seq || 0)
@@ -260,10 +270,9 @@ export const hasRichMedia = (item: StructuredIndexItem, nodeMap: Map<string, Doc
 }
 
 /**
- * 渲染索引条目的富媒体内容
+ * 渲染文档节点的富媒体内容。
  */
-export const renderItemRichMedia = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>, sourceFilePath?: string): string => {
-  const node = findNodeForItem(item, nodeMap)
+export const renderNodeRichMedia = (node: DocBlockNode | undefined | null, sourceFilePath?: string): string => {
   if (!node) return ''
   if (node.table_html) {
     return `<div class="media-table">${node.table_html}</div>`
@@ -277,6 +286,14 @@ export const renderItemRichMedia = (item: StructuredIndexItem, nodeMap: Map<stri
     return `<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(node.plain_text || 'image')}" />`
   }
   return ''
+}
+
+/**
+ * 渲染索引条目的富媒体内容
+ */
+export const renderItemRichMedia = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>, sourceFilePath?: string): string => {
+  const node = findNodeForItem(item, nodeMap)
+  return renderNodeRichMedia(node, sourceFilePath)
 }
 
 /**
@@ -561,4 +578,36 @@ export const collectItemRefs = (item: StructuredIndexItem): string[] => {
     if (text) refs.push(text)
   })
   return Array.from(new Set(refs))
+}
+
+/**
+ * 判断条目是否已经携带可用于精确联动的引用字段。
+ */
+export const hasExactItemRef = (item: StructuredIndexItem, nodeMap?: Map<string, DocBlockNode>): boolean => {
+  const meta = item.meta || {}
+  const rawRefs: unknown[] = [
+    meta.block_uid,
+    meta.blockUid,
+    meta.mineru_block_uid,
+    meta.mineruBlockUid,
+    meta.node_id,
+    meta.nodeId,
+    meta.block_id,
+    meta.blockId,
+    meta.source_block_id,
+    meta.sourceBlockId,
+    meta.mineru_block_id,
+    meta.mineruBlockId,
+    meta.caption_block_uid,
+    meta.footnote_block_uid,
+    meta.caption_block_uids,
+    meta.footnote_block_uids,
+    meta.block_uids,
+    meta.node_ids
+  ]
+  const hasMetaRefs = rawRefs.some(value => Array.isArray(value)
+    ? value.some(inner => String(inner || '').trim())
+    : Boolean(String(value || '').trim()))
+  if (hasMetaRefs) return true
+  return nodeMap?.has(item.id) || false
 }

@@ -1,5 +1,6 @@
 import { computed, ref, watch, type ComputedRef } from 'vue'
 import type { KnowledgeTreeNode } from '../types/tree'
+import type { PreviewMode } from './useParsedPdfViewer'
 import { getFileExtension, getPreviewFileType } from '../utils/knowledge'
 
 interface GraphDataLike {
@@ -11,6 +12,7 @@ interface UseWorkspacePreviewOptions {
   node: ComputedRef<KnowledgeTreeNode>
   filePath: ComputedRef<string>
   graphData: ComputedRef<GraphDataLike | null | undefined>
+  activeTab: ComputedRef<PreviewMode>
 }
 
 export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
@@ -35,6 +37,10 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
   const isOffice = computed(() => ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'].includes(fileExtension.value))
   const isImage = computed(() => previewFileType.value === 'image')
   const isText = computed(() => previewFileType.value === 'text' || previewFileType.value === 'markdown')
+  const isDocumentScrollSyncEnabled = computed(() => (
+    options.activeTab.value === 'Preview_HTML'
+    || options.activeTab.value === 'Preview_Markdown'
+  ))
 
   const fileUrl = computed(() => {
     if (!options.filePath.value) return ''
@@ -93,7 +99,7 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
   }
 
   const syncPdfPageByPercent = (percent: number) => {
-    if (!isPdf.value) return
+    if (!isPdf.value || !isDocumentScrollSyncEnabled.value) return
     const totalPages = inferredPdfPageCount.value
     if (totalPages <= 1) return
     const nextPage = Math.max(1, Math.min(totalPages, Math.round(percent * (totalPages - 1)) + 1))
@@ -104,6 +110,7 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
 
   const onRightPaneScrollPercent = (percent: number) => {
     rightScrollPercent.value = percent
+    if (!isDocumentScrollSyncEnabled.value) return
     if (syncingFromLeft.value) return
     syncPdfPageByPercent(percent)
     syncingFromRight.value = true
@@ -115,6 +122,7 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
 
   const onLeftTextScrollPercent = (percent: number) => {
     leftScrollPercent.value = percent
+    if (!isDocumentScrollSyncEnabled.value) return
     if (syncingFromRight.value) return
     syncingFromLeft.value = true
     rightScrollPercent.value = percent

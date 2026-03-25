@@ -146,6 +146,338 @@ def extract_layout_text(payload: Any) -> str:
     return re.sub(r"\s+", " ", merged).strip()
 
 
+def collect_text_fragments(payload: Any) -> list[str]:
+    """递归收集任意结构中的文本片段。"""
+    fragments: list[str] = []
+
+    def collect(node: Any) -> None:
+        if isinstance(node, str):
+            value = node.strip()
+            if value:
+                fragments.append(value)
+            return
+        if isinstance(node, list):
+            for item in node:
+                collect(item)
+            return
+        if isinstance(node, dict):
+            for key in ("content", "text", "value"):
+                value = node.get(key)
+                if isinstance(value, str) and value.strip():
+                    fragments.append(value.strip())
+            for value in node.values():
+                if isinstance(value, (list, dict, str)):
+                    collect(value)
+
+    collect(payload)
+    return list(dict.fromkeys(fragments))
+
+
+def build_related_text_needles(values: list[str]) -> list[str]:
+    """把文本片段转换为可用于跨块匹配的归一化候选。"""
+    needles = [normalize_match_text(value) for value in values if normalize_match_text(value)]
+    filtered = [value for value in needles if len(value) >= 2]
+    filtered.sort(key=len, reverse=True)
+    return list(dict.fromkeys(filtered))
+
+
+def is_caption_like_text(value: str) -> bool:
+    """判断文本是否看起来像图表题注编号。"""
+    return bool(re.match(r"^(图|表|figure|table)\s*[0-9a-z\u4e00-\u9fa5]", value, re.IGNORECASE))
+
+
+def matches_related_text(row_text: str, needles: list[str]) -> bool:
+    """判断候选行文本是否命中图表 caption 或 footnote 文本。"""
+    if not row_text or not needles:
+        return False
+    return any(
+        needle in row_text
+        or (len(row_text) >= 10 and row_text in needle)
+        or (is_caption_like_text(row_text) and needle.startswith(row_text[: min(len(row_text), 32)]))
+        for needle in needles
+    )
+
+
+def collect_media_related_block_refs(row: dict[str, Any], rows: list[dict[str, Any]]) -> dict[str, list[str]]:
+    """为图表块收集同页 caption 与 footnote 的关联 block_uid。"""
+    block_type = str(row.get("block_type") or "").strip().lower()
+    if block_type not in {"image", "table"}:
+        return {}
+
+    content_json = row.get("content_json") if isinstance(row.get("content_json"), dict) else {}
+    caption_key = "table_caption" if block_type == "table" else "image_caption"
+    footnote_key = "table_footnote" if block_type == "table" else "image_footnote"
+    caption_needles = build_related_text_needles(collect_text_fragments(content_json.get(caption_key)))
+    footnote_needles = build_related_text_needles(collect_text_fragments(content_json.get(footnote_key)))
+    if not caption_needles and not footnote_needles:
+        return {}
+
+    block_uid = str(row.get("block_uid") or "").strip()
+    page_idx = int(row.get("page_idx", -1) or -1)
+    excluded_types = {"image", "table", "header", "footer", "page_header", "page_number"}
+    caption_refs: list[str] = []
+    footnote_refs: list[str] = []
+
+    for candidate in rows:
+        candidate_uid = str(candidate.get("block_uid") or candidate.get("id") or "").strip()
+        if not candidate_uid or candidate_uid == block_uid:
+            continue
+        candidate_page_idx = int(candidate.get("page_idx", -1) or -1)
+        if candidate_page_idx != page_idx:
+            continue
+        candidate_type = str(candidate.get("block_type") or candidate.get("type") or "").strip().lower()
+        if candidate_type in excluded_types:
+            continue
+        candidate_text = normalize_match_text(str(candidate.get("plain_text") or candidate.get("text") or "").strip())
+        if not candidate_text:
+            continue
+        if caption_needles and matches_related_text(candidate_text, caption_needles):
+            caption_refs.append(candidate_uid)
+        if footnote_needles and matches_related_text(candidate_text, footnote_needles):
+            footnote_refs.append(candidate_uid)
+
+    result: dict[str, list[str]] = {}
+    if caption_refs:
+        result["caption_block_uids"] = list(dict.fromkeys(caption_refs))
+    if footnote_refs:
+        result["footnote_block_uids"] = list(dict.fromkeys(footnote_refs))
+    return result
+
+# 为图表 caption 或 footnote 构造用于匹配 model.json 的文本候选。
+def build_media_text_needles(payload: Any) -> list[str]:
+    """为图表 caption 或 footnote 构造用于匹配 model.json 的文本候选。"""
+    fragments = collect_text_fragments(payload)
+    merged = "".join(fragment.strip() for fragment in fragments if fragment and fragment.strip()).strip()
+    values = [*fragments]
+    if merged:
+        values.append(merged)
+    return build_related_text_needles(values)
+
+# 从任意结构中提取 bbox 列表。
+def extract_media_bbox_list(payload: Any) -> list[list[float]]:
+    """从任意结构中提取 bbox 列表。"""
+    if not isinstance(payload, list):
+        return []
+    results: list[list[float]] = []
+    for item in payload:
+        if not isinstance(item, (list, tuple)) or len(item) < 4:
+            continue
+        try:
+            bbox = [float(item[0]), float(item[1]), float(item[2]), float(item[3])]
+        except (TypeError, ValueError):
+            continue
+        results.append(bbox)
+    return results
+
+# 从 model.json 提取页面级图表与题注候选流。
+def build_model_media_candidate_map(model_payload: Any) -> dict[int, list[dict[str, Any]]]:
+    """从 model.json 提取页面级图表与题注候选流。"""
+    if not isinstance(model_payload, list):
+        return {}
+    allowed_types = {"image", "table", "image_caption", "image_footnote", "table_caption", "table_footnote"}
+    page_map: dict[int, list[dict[str, Any]]] = {}
+    for page_idx, page_items in enumerate(model_payload):
+        if not isinstance(page_items, list):
+            continue
+        page_candidates: list[dict[str, Any]] = []
+        for seq, item in enumerate(page_items):
+            if not isinstance(item, dict):
+                continue
+            item_type = str(item.get("type") or "").strip().lower()
+            if item_type not in allowed_types:
+                continue
+            bbox = parse_bbox(item.get("bbox"))
+            if not any(bbox):
+                continue
+            text = str(item.get("content") or "").strip()
+            normalized_text = normalize_match_text(text)
+            page_candidates.append({
+                "seq": seq,
+                "kind": item_type,
+                "bbox": [bbox[0], bbox[1], bbox[2], bbox[3]],
+                "text": text,
+                "normalized_text": normalized_text
+            })
+        if page_candidates:
+            page_map[page_idx] = page_candidates
+    return page_map
+
+# 按文本从 model.json 候选中解析图表 caption/footnote 的 bbox 列表。
+# 按页面顺序把 model.json 中的 caption/footnote bbox 对齐到 content_list 图表块。
+def build_order_aligned_media_bbox_map(
+    page_blocks: list[dict[str, Any]],
+    page_candidates: list[dict[str, Any]]
+) -> dict[int, dict[str, list[list[float]]]]:
+    """按页面顺序把 model.json 中的 caption/footnote bbox 对齐到 content_list 图表块。"""
+    if not page_blocks or not page_candidates:
+        return {}
+
+    main_kinds = {"image", "table"}
+    related_to_main = {
+        "image_caption": "image",
+        "image_footnote": "image",
+        "table_caption": "table",
+        "table_footnote": "table",
+    }
+
+    block_targets_by_kind: dict[str, list[dict[str, Any]]] = {"image": [], "table": []}
+    model_anchors_by_kind: dict[str, list[dict[str, Any]]] = {"image": [], "table": []}
+
+    for block_index, block in enumerate(page_blocks, start=1):
+        if not isinstance(block, dict):
+            continue
+        block_type = str(block.get("type") or "").strip().lower()
+        if block_type in main_kinds:
+            block_targets_by_kind[block_type].append({
+                "block_index": block_index,
+                "kind": block_type
+            })
+
+    for candidate in page_candidates:
+        candidate_kind = str(candidate.get("kind") or "").strip().lower()
+        if candidate_kind in main_kinds:
+            model_anchors_by_kind[candidate_kind].append(candidate)
+
+    aligned_targets_by_kind: dict[str, list[dict[str, Any]]] = {"image": [], "table": []}
+    for kind in ("image", "table"):
+        block_targets = block_targets_by_kind[kind]
+        anchor_targets = model_anchors_by_kind[kind]
+        for index, block_target in enumerate(block_targets):
+            if index >= len(anchor_targets):
+                break
+            aligned_targets_by_kind[kind].append({
+                **block_target,
+                "anchor_seq": int(anchor_targets[index].get("seq", index)),
+                "anchor_bbox": anchor_targets[index].get("bbox"),
+            })
+
+    def candidate_sort_key(item: dict[str, Any]) -> tuple[float, float]:
+        bbox = item.get("bbox")
+        if isinstance(bbox, list) and len(bbox) >= 4:
+            cy = (float(bbox[1]) + float(bbox[3])) / 2.0
+            cx = (float(bbox[0]) + float(bbox[2])) / 2.0
+            return cy, cx
+        return 0.0, 0.0
+
+    def score_candidate_to_target(candidate: dict[str, Any], target: dict[str, Any]) -> tuple[float, float, float]:
+        candidate_seq = int(candidate.get("seq", 0))
+        target_seq = int(target.get("anchor_seq", 0))
+        seq_gap = abs(candidate_seq - target_seq)
+        candidate_bbox = candidate.get("bbox")
+        target_bbox = target.get("anchor_bbox")
+        vertical_gap = 0.0
+        horizontal_gap = 0.0
+        if isinstance(candidate_bbox, list) and len(candidate_bbox) >= 4 and isinstance(target_bbox, list) and len(target_bbox) >= 4:
+            candidate_cy = (float(candidate_bbox[1]) + float(candidate_bbox[3])) / 2.0
+            target_cy = (float(target_bbox[1]) + float(target_bbox[3])) / 2.0
+            candidate_cx = (float(candidate_bbox[0]) + float(candidate_bbox[2])) / 2.0
+            target_cx = (float(target_bbox[0]) + float(target_bbox[2])) / 2.0
+            vertical_gap = abs(candidate_cy - target_cy)
+            horizontal_gap = abs(candidate_cx - target_cx)
+        return seq_gap, vertical_gap, horizontal_gap
+
+    aligned_map: dict[int, dict[str, list[list[float]]]] = {}
+    related_candidates = [
+        candidate for candidate in page_candidates
+        if str(candidate.get("kind") or "").strip().lower() in related_to_main
+    ]
+    related_candidates.sort(key=candidate_sort_key)
+
+    for candidate in related_candidates:
+        candidate_kind = str(candidate.get("kind") or "").strip().lower()
+        main_kind = related_to_main[candidate_kind]
+        aligned_targets = aligned_targets_by_kind.get(main_kind, [])
+        if not aligned_targets:
+            continue
+        best_target = min(
+            aligned_targets,
+            key=lambda target: score_candidate_to_target(candidate, target)
+        )
+        bbox = candidate.get("bbox")
+        if not isinstance(bbox, list) or len(bbox) < 4:
+            continue
+        value_key = "caption_bboxes" if "caption" in candidate_kind else "footnote_bboxes"
+        aligned_map.setdefault(int(best_target["block_index"]), {}).setdefault(value_key, []).append([
+            float(bbox[0]),
+            float(bbox[1]),
+            float(bbox[2]),
+            float(bbox[3]),
+        ])
+
+    return aligned_map
+
+
+def resolve_media_region_bboxes(
+    page_candidates: list[dict[str, Any]],
+    kind: str,
+    payload: Any
+) -> list[list[float]]:
+    """按文本从 model.json 候选中解析图表 caption/footnote 的 bbox 列表。"""
+    if not page_candidates:
+        return []
+    needles = build_media_text_needles(payload)
+    if not needles:
+        return []
+    matches: list[list[float]] = []
+    for candidate in page_candidates:
+        if str(candidate.get("kind") or "") != kind:
+            continue
+        candidate_text = str(candidate.get("normalized_text") or "")
+        if not candidate_text or not matches_related_text(candidate_text, needles):
+            continue
+        bbox = candidate.get("bbox")
+        if isinstance(bbox, list) and len(bbox) >= 4:
+            matches.append([float(bbox[0]), float(bbox[1]), float(bbox[2]), float(bbox[3])])
+    matches.sort(key=lambda item: (item[1], item[0], item[3], item[2]))
+    unique: list[list[float]] = []
+    seen: set[tuple[float, float, float, float]] = set()
+    for bbox in matches:
+        key = (bbox[0], bbox[1], bbox[2], bbox[3])
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(bbox)
+    return unique
+
+# 为图表块补齐 caption/footnote 的显式 bbox 列表。
+def enrich_media_content_bboxes(
+    block_type: str,
+    content_json: dict[str, Any],
+    page_candidates: list[dict[str, Any]],
+    aligned_media_bboxes: dict[str, list[list[float]]] | None = None
+) -> dict[str, list[list[float]]]:
+    """为图表块补齐 caption/footnote 的显式 bbox 列表。"""
+    if block_type not in {"image", "table"} or not isinstance(content_json, dict):
+        return {}
+    caption_key = "table_caption" if block_type == "table" else "image_caption"
+    footnote_key = "table_footnote" if block_type == "table" else "image_footnote"
+    caption_bbox_key = f"{caption_key}_bboxes"
+    footnote_bbox_key = f"{footnote_key}_bboxes"
+
+    caption_bboxes = extract_media_bbox_list((aligned_media_bboxes or {}).get("caption_bboxes"))
+    if not caption_bboxes:
+        caption_bboxes = extract_media_bbox_list(content_json.get(caption_bbox_key))
+    if not caption_bboxes:
+        caption_bboxes = resolve_media_region_bboxes(page_candidates, caption_key, content_json.get(caption_key))
+    footnote_bboxes = extract_media_bbox_list((aligned_media_bboxes or {}).get("footnote_bboxes"))
+    if not footnote_bboxes:
+        footnote_bboxes = extract_media_bbox_list(content_json.get(footnote_bbox_key))
+    if not footnote_bboxes:
+        footnote_bboxes = resolve_media_region_bboxes(page_candidates, footnote_key, content_json.get(footnote_key))
+
+    if caption_bboxes:
+        content_json[caption_bbox_key] = caption_bboxes
+    if footnote_bboxes:
+        content_json[footnote_bbox_key] = footnote_bboxes
+
+    result: dict[str, list[list[float]]] = {}
+    if caption_bboxes:
+        result["caption_bboxes"] = caption_bboxes
+    if footnote_bboxes:
+        result["footnote_bboxes"] = footnote_bboxes
+    return result
+
+
 def text_match_score(source: str, target: str) -> float:
     """计算文本匹配分值。"""
     src = normalize_match_text(source)
@@ -257,18 +589,20 @@ def build_layout_candidates(layout_payload: Any) -> dict[int, list[dict[str, Any
     return page_map
 
 
-def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple[float, float]], str, dict[str, Any]]:
-    """读取解析结果并返回内容、页面尺寸和解析器版本。"""
+def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple[float, float]], str, dict[str, Any], Any]:
+    """读取解析结果并返回内容、页面尺寸、解析器版本与原始 model 数据。"""
     content_list_path = raw_dir / "content_list_v2.json"
     layout_path = raw_dir / "layout.json"
+    model_path = raw_dir / "model.json"
     
     if not content_list_path.exists():
-        return [], {}, "", {}
+        return [], {}, "", {}, []
     
     parsed_blocks = read_json(content_list_path)
     parser_version = ""
     page_size_map: dict[int, tuple[float, float]] = {}
     layout_payload: dict[str, Any] = {}
+    model_payload: Any = []
     
     if layout_path.exists():
         layout = read_json(layout_path)
@@ -281,8 +615,11 @@ def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple
             if isinstance(size, list) and len(size) == 2:
                 page_size_map[idx] = (float(size[0]), float(size[1]))
         parser_version = str(layout.get("_version_name", "")) if isinstance(layout, dict) else ""
+
+    if model_path.exists():
+        model_payload = read_json(model_path)
     
-    return parsed_blocks, page_size_map, parser_version, layout_payload
+    return parsed_blocks, page_size_map, parser_version, layout_payload, model_payload
 
 
 def infer_title_level(text: str, raw_level: Any) -> tuple[int | None, float, str]:
@@ -522,6 +859,8 @@ class BlockNode:
     image_path: str | None = None
     table_html: str | None = None
     math_content: str | None = None
+    caption_block_uids: List[str] = field(default_factory=list)
+    footnote_block_uids: List[str] = field(default_factory=list)
 
 
 @dataclass
@@ -546,6 +885,8 @@ class IndexRow:
     derived_level: int | None
     title_path: str | None
     parent_uid: str | None
+    caption_block_uids: List[str] = field(default_factory=list)
+    footnote_block_uids: List[str] = field(default_factory=list)
 
 
 @dataclass
@@ -587,8 +928,9 @@ def build_graph_from_mineru(
     if not raw_dir.exists():
         raw_dir = parsed_dir
     
-    parsed_blocks, page_size_map, parser_version, layout_payload = load_raw(raw_dir)
+    parsed_blocks, page_size_map, parser_version, layout_payload, model_payload = load_raw(raw_dir)
     layout_candidates = build_layout_candidates(layout_payload)
+    model_media_candidates = build_model_media_candidate_map(model_payload)
     
     if not parsed_blocks:
         return A1StructureResult(stats={"error": "no_parsed_blocks", "raw_dir": str(raw_dir)})
@@ -602,6 +944,10 @@ def build_graph_from_mineru(
             continue
         page_width, page_height = page_size_map.get(page_idx, (0.0, 0.0))
         page_layout_candidates = layout_candidates.get(page_idx, [])
+        page_aligned_media_bboxes = build_order_aligned_media_bbox_map(
+            page_blocks,
+            model_media_candidates.get(page_idx, [])
+        )
         
         for i, block in enumerate(page_blocks, start=1):
             block_type = str(block.get("type", ""))
@@ -617,6 +963,12 @@ def build_graph_from_mineru(
                         "list_type": content.get("list_type"),
                         "list_items": [item]
                     }
+                    media_bbox_info = enrich_media_content_bboxes(
+                        block_type,
+                        item_content,
+                        model_media_candidates.get(page_idx, []),
+                        page_aligned_media_bboxes.get(i)
+                    )
                     block_seq_global += 1
                     block_uid = f"{doc_id}:{page_idx}:{i}:li{li}"
                     plain_text = extract_plain_text("list", item_content)
@@ -644,12 +996,20 @@ def build_graph_from_mineru(
                         "bbox_abs_y2": item_y2,
                         "created_at": ts,
                         "updated_at": ts,
+                        "caption_bboxes": media_bbox_info.get("caption_bboxes"),
+                        "footnote_bboxes": media_bbox_info.get("footnote_bboxes"),
                     })
                 continue
             
             block_seq_global += 1
             block_uid = f"{doc_id}:{page_idx}:{i}"
             plain_text = extract_plain_text(block_type, content)
+            media_bbox_info = enrich_media_content_bboxes(
+                block_type,
+                content,
+                model_media_candidates.get(page_idx, []),
+                page_aligned_media_bboxes.get(i)
+            )
             preferred_layout_types: dict[str, tuple[str, ...]] = {
                 "title": ("title",),
                 "paragraph": ("text", "paragraph"),
@@ -682,6 +1042,8 @@ def build_graph_from_mineru(
                 "bbox_abs_y2": row_y2,
                 "created_at": ts,
                 "updated_at": ts,
+                "caption_bboxes": media_bbox_info.get("caption_bboxes"),
+                "footnote_bboxes": media_bbox_info.get("footnote_bboxes"),
             })
     
     title_candidates: list[dict[str, Any]] = []
@@ -914,6 +1276,12 @@ def build_graph_from_mineru(
             table_type = content.get("table_type") if isinstance(content.get("table_type"), str) else None
             math_content = content.get("math_content") if isinstance(content.get("math_content"), str) else None
             math_type = content.get("math_type") if isinstance(content.get("math_type"), str) else None
+
+        related_refs = collect_media_related_block_refs(row, rows)
+        caption_block_uids = related_refs.get("caption_block_uids", [])
+        footnote_block_uids = related_refs.get("footnote_block_uids", [])
+        caption_bboxes = extract_media_bbox_list(row.get("caption_bboxes"))
+        footnote_bboxes = extract_media_bbox_list(row.get("footnote_bboxes"))
         
         derived_row = {
             "block_uid": row["block_uid"],
@@ -938,6 +1306,12 @@ def build_graph_from_mineru(
             "math_type": math_type,
             "math_content": math_content,
             "image_path": image_path,
+            "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
+            "caption_block_uids": caption_block_uids or None,
+            "caption_bboxes": caption_bboxes or None,
+            "footnote_block_uid": footnote_block_uids[0] if len(footnote_block_uids) == 1 else None,
+            "footnote_block_uids": footnote_block_uids or None,
+            "footnote_bboxes": footnote_bboxes or None,
             "quality_score": None,
             "derived_confidence": confidence,
             "derived_by": derived_by,
@@ -968,6 +1342,12 @@ def build_graph_from_mineru(
                     "image_path": image_path,
                     "table_html": table_html,
                     "math_content": math_content,
+                    "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
+                    "caption_block_uids": caption_block_uids or None,
+                    "caption_bboxes": caption_bboxes or None,
+                    "footnote_block_uid": footnote_block_uids[0] if len(footnote_block_uids) == 1 else None,
+                    "footnote_block_uids": footnote_block_uids or None,
+                    "footnote_bboxes": footnote_bboxes or None,
                 }
                 nodes.append(node)
                 
@@ -980,6 +1360,12 @@ def build_graph_from_mineru(
                     "derived_level": derived_level,
                     "title_path": title_path,
                     "parent_uid": parent_uid,
+                    "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
+                    "caption_block_uids": caption_block_uids or None,
+                    "caption_bboxes": caption_bboxes or None,
+                    "footnote_block_uid": footnote_block_uids[0] if len(footnote_block_uids) == 1 else None,
+                    "footnote_block_uids": footnote_block_uids or None,
+                    "footnote_bboxes": footnote_bboxes or None,
                 }
                 index_rows.append(index_row)
     
