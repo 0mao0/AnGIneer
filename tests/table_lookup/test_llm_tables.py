@@ -1,6 +1,7 @@
 import sys
 import os
 import re
+import unittest
 
 sys.path.insert(0, os.path.abspath("services/angineer-core/src"))
 sys.path.insert(0, os.path.abspath("services/sop-core/src"))
@@ -11,6 +12,9 @@ from bs4 import BeautifulSoup
 import json
 
 KB_FILE = "data/knowledge_base/markdown/海港总体设计规范_JTS_165-2025.md"
+
+if not os.path.exists(KB_FILE):
+    raise unittest.SkipTest(f"缺少表格测试知识库文件: {KB_FILE}")
 
 with open(KB_FILE, "r", encoding="utf-8") as f:
     kb_content = f.read()

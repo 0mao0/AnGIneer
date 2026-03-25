@@ -1,6 +1,6 @@
 export { default as SmartTree } from './common/widgets/SmartTree.vue'
 export { default as AIChat } from './common/widgets/AIChat.vue'
-export { default as DocumentParsedWorkspace } from './common/workspace/DocumentParsedWorkspace.vue'
-export { default as DocumentParsedViewerSpace } from './common/workspace/DocumentParsedViewerSpace.vue'
+export { default as PDFParsedWorkspace } from './common/workspace/PDFParsedWorkspace.vue'
+export { default as PDFParsedViewerCombo } from './common/workspace/PDFParsedViewerCombo.vue'
 export { default as PDF_Viewer } from './common/viewers/PDF_Viewer.vue'
 export { default as DocBlocksTreeNode } from './common/index/DocBlocksTreeNode.vue'

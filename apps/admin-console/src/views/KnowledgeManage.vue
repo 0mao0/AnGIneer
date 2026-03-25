@@ -103,7 +103,7 @@
           </template>
 
           <template v-else>
-            <DocumentParsedWorkspace
+            <PDFParsedWorkspace
               ref="docParsedWorkspaceRef"
               :node="selectedNode"
               :content="docContent"
@@ -187,7 +187,7 @@ import { SplitPanes, Panel, useTheme } from '@angineer/ui-kit'
 import {
   AIChat,
   SmartTree,
-  DocumentParsedWorkspace,
+  PDFParsedWorkspace,
   type SmartTreeNode,
   type KnowledgeTreeNode,
   type KnowledgeStrategy,
@@ -202,6 +202,7 @@ import {
 import { useKnowledgeTree } from '@angineer/docs-ui'
 import { knowledgeApi } from '@/api/knowledge'
 import { useChatStore } from '@/stores/chat'
+import { getWebDocumentUrl } from '../../../shared/ports'
 
 // 使用主题
 const { isDark } = useTheme()
@@ -216,8 +217,8 @@ import DocDetailModal from './components/DocDetailModal.vue'
 
 // SmartTree 组件引用
 const smartTreeRef = ref<InstanceType<typeof SmartTree> | null>(null)
-// DocumentParsedWorkspace 组件引用
-const docParsedWorkspaceRef = ref<any>(null)
+// PDFParsedWorkspace 组件引用
+const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
 
 // 使用知识树 composable
 const {
@@ -771,7 +772,7 @@ const viewDocument = (node: SmartTreeNode) => {
     message.warning('当前节点不可查看')
     return
   }
-  const targetUrl = `http://localhost:3005/document/${encodeURIComponent(String(payload.props.docId || node.key))}`
+  const targetUrl = getWebDocumentUrl(String(payload.props.docId || node.key))
   window.open(targetUrl, '_blank', 'noopener,noreferrer')
 }
 

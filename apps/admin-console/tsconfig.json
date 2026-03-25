@@ -22,6 +22,6 @@
       "@angineer/docs-ui": ["../../packages/docs-ui/src"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "../shared/**/*.ts", "../shared/**/*.json"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

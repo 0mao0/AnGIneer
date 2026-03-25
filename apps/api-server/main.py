@@ -19,6 +19,12 @@ from pydantic import BaseModel
 # 设置路径
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 SERVICES_DIR = os.path.join(ROOT_DIR, "services")
+PORT_CONTRACT_PATH = os.path.join(ROOT_DIR, "apps", "shared", "ports.json")
+
+with open(PORT_CONTRACT_PATH, "r", encoding="utf-8") as port_contract_file:
+    PORT_CONTRACT = json.load(port_contract_file)
+
+API_SERVER_PORT = int(PORT_CONTRACT["apiServerPort"])
 
 # 添加路径到 sys.path 以支持本地包导入
 sys.path.append(os.path.join(SERVICES_DIR, "angineer-core", "src"))
@@ -1483,4 +1489,4 @@ def reorganize_storage():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8033)
+    uvicorn.run(app, host="0.0.0.0", port=API_SERVER_PORT)

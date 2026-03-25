@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import portContract from '../shared/ports.json'
+
+const ADMIN_CONSOLE_PORT = portContract.adminConsolePort
+const API_PROXY_TARGET = `http://${portContract.localHost}:${portContract.apiServerPort}`
 
 export default defineConfig({
   plugins: [vue()],
@@ -19,10 +23,10 @@ export default defineConfig({
     }
   },
   server: {
-    port: 3002,
+    port: ADMIN_CONSOLE_PORT,
     proxy: {
       '/api': {
-        target: 'http://localhost:8033',
+        target: API_PROXY_TARGET,
         changeOrigin: true
       }
     }

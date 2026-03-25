@@ -26,7 +26,7 @@
           @select-highlight="onSelectHighlightFromLeft"
         />
 
-        <DocumentParsedViewerSpace
+        <PDFParsedViewerCombo
           v-model:activeTab="activeTab"
           :renderedMarkdown="renderedMarkdown"
           :editableContent="editableContent"
@@ -84,7 +84,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import PDF_Viewer from '../viewers/PDF_Viewer.vue'
-import DocumentParsedViewerSpace from './DocumentParsedViewerSpace.vue'
+import PDFParsedViewerCombo from './PDFParsedViewerCombo.vue'
 import { useWorkspaceLinkage } from '../../../composables/useWorkspaceLinkage'
 import { useWorkspacePreview } from '../../../composables/useWorkspacePreview'
 import { useWorkspaceIngest } from '../../../composables/useWorkspaceIngest'
@@ -95,7 +95,7 @@ import type {
   KnowledgeStrategy,
   StructuredIndexItem,
   StructuredStats,
-  DocumentParsedWorkspaceEventMap
+  PDFParsedWorkspaceEventMap
 } from '../../../types/knowledge'
 import { mapParseStageText, renderMarkdownToHtml } from '../../../utils/knowledge'
 
@@ -115,7 +115,7 @@ const props = withDefaults(defineProps<Props>(), {
   darkMode: false
 })
 
-const emit = defineEmits<DocumentParsedWorkspaceEventMap>()
+const emit = defineEmits<PDFParsedWorkspaceEventMap>()
 
 const filePath = computed(() => props.node.filePath || props.node.file_path || '')
 const ingestStatusValue = computed(() => props.ingestStatus || 'idle')

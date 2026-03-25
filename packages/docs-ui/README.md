@@ -34,8 +34,8 @@
 src/
 ├─ components/                 # A 层
 │  ├─ common/
-│  │  ├─ DocumentParsedWorkspace.vue
-│  │  ├─ DocumentParsedViewerSpace.vue
+│  │  ├─ PDFParsedWorkspace.vue
+│  │  ├─ PDFParsedViewerCombo.vue
 │  │  ├─ PDF_Viewer.vue
 │  │  ├─ Preview_HTML.vue
 │  │  ├─ Preview_Markdown.vue
@@ -96,18 +96,18 @@ src/
 
 ## 4.1 Workspace 解析/预览链路
 
-1. A 层入口：`DocumentParsedWorkspace.vue`
+1. A 层入口：`PDFParsedWorkspace.vue`
 2. 该组件组合调用：
    - `useWorkspacePreview`（预览状态与滚动同步）
    - `useWorkspaceIngest`（入库状态与策略）
    - `useWorkspaceLinkage`（左右联动高亮）
-3. 右侧编排组件 `ParsedPDF_Viewer.vue` 再调用 `useParsedPdfViewer` 管理索引展示、树图状态、分页与视口。
+3. 右侧编排组件 `PDFParsedViewerCombo.vue` 再调用 `useParsedPdfViewer` 管理索引展示、树图状态、分页与视口。
 4. 左侧 `PDF_Viewer.vue` / 右侧 `Preview_*` 子组件通过事件进行双向联动。
 
 ## 4.2 结构化索引重建（入库）链路
 
 1. 用户在 A 层触发入库（`trigger-ingest`）。
-2. `DocumentParsedWorkspace.vue` 调用 B 层 `useWorkspaceIngest.triggerIngest`。
+2. `PDFParsedWorkspace.vue` 调用 B 层 `useWorkspaceIngest.triggerIngest`。
 3. 校验通过后触发 `emit('rebuild-structured', strategy)` 给宿主应用。
 4. 宿主应用调用 D 层接口（后端 `POST /parse/structured-index`）执行重建。
 5. 返回结果后回填到 `structuredItems / structuredStats / graphData`，A 层自动重渲染。
@@ -135,12 +135,12 @@ src/
 
 | 文件 | 角色 | 对外事件（核心） | 主要下游依赖 |
 |---|---|---|---|
-| `DocumentParsedWorkspace.vue` | 文档解析工作区编排器 | `parse` `save-content` `change-strategy` `query-structured` `rebuild-structured` | `useWorkspacePreview` `useWorkspaceIngest` `useWorkspaceLinkage` |
-| `DocumentParsedViewerSpace.vue` | 右侧 pane 编排器 | `update:activeTab` `update:editableContent` `save-markdown` `cancel-markdown` `strategy-change` `trigger-ingest` `content-scroll` `hover-item` `select-item` `toggle-tree-expand` `toggle-graph-expand` `update-graph-viewport` `select-line` | `useParsedPdfViewer` + `Preview_*` |
+| `PDFParsedWorkspace.vue` | 文档解析工作区编排器 | `parse` `save-content` `change-strategy` `query-structured` `rebuild-structured` | `useWorkspacePreview` `useWorkspaceIngest` `useWorkspaceLinkage` |
+| `PDFParsedViewerCombo.vue` | 右侧 pane 编排器 | `update:activeTab` `update:editableContent` `save-markdown` `cancel-markdown` `strategy-change` `trigger-ingest` `content-scroll` `hover-item` `select-item` `toggle-tree-expand` `toggle-graph-expand` `update-graph-viewport` `select-line` | `useParsedPdfViewer` + `Preview_*` |
 | `PDF_Viewer.vue` | 左侧文件预览/高亮层 | `download` `text-scroll` `hover-highlight` `select-highlight` | 由 Workspace 注入数据 |
-| `Preview_HTML.vue` | HTML 预览（可行选中） | `select-line` | 被 `DocumentParsedViewerSpace` 使用 |
-| `Preview_Markdown.vue` | Markdown 编辑/预览 | `update:editableContent` `select-line` | 被 `DocumentParsedViewerSpace` 使用 |
-| `Preview_IndexList.vue` | 索引列表视图 | `hover-item` `select-item` `page-change` | 被 `DocumentParsedViewerSpace` 使用 |
+| `Preview_HTML.vue` | HTML 预览（可行选中） | `select-line` | 被 `PDFParsedViewerCombo` 使用 |
+| `Preview_Markdown.vue` | Markdown 编辑/预览 | `update:editableContent` `select-line` | 被 `PDFParsedViewerCombo` 使用 |
+| `Preview_IndexList.vue` | 索引列表视图 | `hover-item` `select-item` `page-change` | 被 `PDFParsedViewerCombo` 使用 |
 | `Preview_IndexTree.vue` | 索引树视图 | `toggle` `select` | 内聚树容器逻辑（使用 `DocBlocksTreeNode` 递归） |
 | `Preview_IndexGraph.vue` | 索引图视图 | `toggle` `select` `update-viewport` | 内聚图算法+交互（已合并原 `DocBlocksGraph`） |
 | `DocBlocksTreeNode.vue` | 树节点渲染 | `toggle` `select` | 被 `Preview_IndexTree` 递归调用 |

@@ -14,6 +14,6 @@ export type {
   DocBlockEdge,
   DocBlocksGraph as DocBlocksGraphData,
   DocBlocksGraphState,
-  DocumentParsedWorkspaceEventMap,
+  PDFParsedWorkspaceEventMap,
   PreviewIndexInteractionEventMap
 } from './knowledge'

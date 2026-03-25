@@ -30,6 +30,7 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { Modal } from 'ant-design-vue'
 import { useRouter } from 'vue-router'
 import { AppHeader, useTheme, type NavItem } from '@angineer/ui-kit'
+import { WEB_CONSOLE_ORIGIN } from '../../shared/ports'
 
 const router = useRouter()
 const { isDark, themeConfig, appClass, toggleTheme } = useTheme()
@@ -68,7 +69,7 @@ const confirmGoToFrontend = () => {
     okText: '确定',
     cancelText: '取消',
     onOk: () => {
-      window.location.href = 'http://localhost:3005'
+      window.location.href = WEB_CONSOLE_ORIGIN
     }
   })
 }

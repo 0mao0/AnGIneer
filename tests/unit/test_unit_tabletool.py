@@ -8,15 +8,19 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../services/engtools/src'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../services/angineer-core/src'))
 
+KB_FILE = 'data/knowledge_base/markdown/海港总体设计规范_JTS_165-2025.md'
+
 
 class TestTableLookupTool(unittest.TestCase):
     """TableLookupTool 工具类测试"""
 
     @classmethod
+    # 初始化 TableLookupTool 测试实例。
     def setUpClass(cls):
         from engtools.TableTool import TableLookupTool
         cls.tool = TableLookupTool(knowledge_dir='data/knowledge_base')
 
+    @unittest.skipUnless(os.path.exists(KB_FILE), f'缺少测试知识库文件: {KB_FILE}')
     def test_llm_mode_basic(self):
         """测试 LLM 模式基本查询"""
         result = self.tool.run(
@@ -29,6 +33,7 @@ class TestTableLookupTool(unittest.TestCase):
         self.assertEqual(result.get('_mode'), 'llm')
         self.assertIn('"result"', result['raw_response'])
 
+    @unittest.skipUnless(os.path.exists(KB_FILE), f'缺少测试知识库文件: {KB_FILE}')
     def test_llm_mode_with_dict_query(self):
         """测试 LLM 模式字典查询条件"""
         result = self.tool.run(
@@ -40,6 +45,7 @@ class TestTableLookupTool(unittest.TestCase):
         self.assertIn('raw_response', result)
         self.assertIn('table_index', result)
 
+    @unittest.skipUnless(os.path.exists(KB_FILE), f'缺少测试知识库文件: {KB_FILE}')
     def test_llm_mode_with_string_query(self):
         """测试 LLM 模式字符串查询条件"""
         result = self.tool.run(
@@ -60,6 +66,7 @@ class TestTableLookupTool(unittest.TestCase):
         )
         self.assertIn('error', result)
 
+    @unittest.skipUnless(os.path.exists(KB_FILE), f'缺少测试知识库文件: {KB_FILE}')
     def test_structured_mode(self):
         """测试结构化解析模式（use_llm=False）"""
         result = self.tool.run(

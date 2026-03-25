@@ -86,12 +86,13 @@ export interface DocBlocksGraphState {
   } | null
 }
 
-export interface DocumentParsedWorkspaceEventMap {
+export interface PDFParsedWorkspaceEventMap {
   parse: [node: KnowledgeTreeNode]
   'save-content': [content: string]
   'change-strategy': [strategy: KnowledgeStrategy]
   'query-structured': [itemType?: string, keyword?: string]
   'rebuild-structured': [strategy: KnowledgeStrategy]
+  'toggle-visible': [node: KnowledgeTreeNode]
 }
 
 export interface PreviewIndexInteractionEventMap {

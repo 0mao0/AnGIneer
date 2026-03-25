@@ -47,6 +47,7 @@ import { AIChat } from '@angineer/docs-ui'
 import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
 import { useChatStore } from './stores/chat'
+import { ADMIN_CONSOLE_ORIGIN } from '../../shared/ports'
 
 const { isDark, themeConfig, appClass, toggleTheme } = useTheme()
 const chatStore = useChatStore()
@@ -82,7 +83,7 @@ const navItems: NavItem[] = [
 
 // 跳转到管理后台
 const goToAdmin = () => {
-  window.location.href = 'http://localhost:3002'
+  window.location.href = ADMIN_CONSOLE_ORIGIN
 }
 
 // 打开设置

@@ -186,7 +186,7 @@ Docs 模块（文档解析与知识管理）采用了 **“异步任务化解析
 flowchart TD
     subgraph Frontend["前端 (apps/admin-console)"]
         KM["KnowledgeManage.vue\n状态机驱动 B 区渲染"]
-        DPW["DocumentParsedWorkspace.vue\nB1/B2 联动工作区"]
+        DPW["PDFParsedWorkspace.vue\nB1/B2 联动工作区"]
         PV["PDF_Viewer.vue\n高保真 PDF 渲染器"]
     end
 
@@ -255,10 +255,10 @@ flowchart TB
     ParseBlocks["parseMineruBlocks\n过滤无效块/标准化字段"]
     BuildIndex["buildStructuredItems\n结构化索引兜底组装"]
     BuildFallback["buildMiddleFallbackItems\n仅基于 content 生成标题锚点"]
-    PassProps["向 DocumentParsedWorkspace 透传\nmineruBlocks/structuredItems/docContent"]
+    PassProps["向 PDFParsedWorkspace 透传\nmineruBlocks/structuredItems/docContent"]
   end
 
-  subgraph LinkCore["联动核心 DocumentParsedWorkspace.vue"]
+  subgraph LinkCore["联动核心 PDFParsedWorkspace.vue"]
     ResolvePage["resolvePageNumber\npage/page_idx 统一解析"]
     RectNorm["normalizeRect\n按页尺寸动态归一化"]
     ToLinked["toLinkedHighlight\n标准化高亮实体"]
@@ -266,7 +266,7 @@ flowchart TB
     ActiveWatch["watch(linkedHighlights,pdfPage)\n自动维护 activeLinkedItemId"]
   end
 
-  subgraph Render["渲染层 DocumentParsedPaneLeft.vue"]
+  subgraph Render["渲染层 PDF_Viewer.vue"]
     PageFilter["visibleHighlights\n按当前页过滤"]
     ActiveOnly["activeHighlightId 命中时\n仅渲染 active 框"]
     DrawBox["PDF 覆盖层绘制蓝框"]
@@ -317,7 +317,7 @@ flowchart TB
 - `apps/admin-console/src/views/components/DocumentPreview.vue`
   - 下沉为“未解析 + 解析中”视图组件。
   - 增加进度条、阶段文案、错误态重试按钮。
-- `apps/admin-console/src/views/components/DocumentParsedWorkspace.vue`（新增）
+- `packages/docs-ui/src/components/common/workspace/PDFParsedWorkspace.vue` (已下沉至 docs-ui)
   - 负责 B1/B2 布局、同步滚动、编辑开关、保存/放弃修改。
   - 预留“差异对比模式”入口（首版可只做按钮占位与接口联动）。
 - `apps/admin-console/src/api/knowledge.ts`
