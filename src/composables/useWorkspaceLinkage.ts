@@ -18,6 +18,13 @@ export interface LinkedHighlight {
   type?: string
 }
 
+interface RectBounds {
+  left: number
+  top: number
+  width: number
+  height: number
+}
+
 interface GraphDataLike {
   nodes: any[]
   edges: any[]
@@ -80,12 +87,7 @@ const isDocumentPreviewTab = (tab: PreviewMode) => (
   tab === 'Preview_HTML' || tab === 'Preview_Markdown'
 )
 
-const normalizeRect = (bbox: unknown): {
-  left: number
-  top: number
-  width: number
-  height: number
-} | null => {
+const normalizeRect = (bbox: unknown): RectBounds | null => {
   if (!Array.isArray(bbox) || bbox.length < 4) return null
   const [x0, y0, x1, y1] = bbox
   return {
@@ -125,6 +127,55 @@ const normalizeRectFromBaseRow = (row: Record<string, any>) => {
   }
   return null
 }
+
+const rectRight = (rect: RectBounds) => rect.left + rect.width
+
+const rectBottom = (rect: RectBounds) => rect.top + rect.height
+
+const horizontalOverlapRatio = (leftRect: RectBounds, rightRect: RectBounds) => {
+  const overlapWidth = Math.max(0, Math.min(rectRight(leftRect), rectRight(rightRect)) - Math.max(leftRect.left, rightRect.left))
+  const baseWidth = Math.max(0.0001, Math.min(leftRect.width, rightRect.width))
+  return overlapWidth / baseWidth
+}
+
+const isHorizontallyAlignedToMedia = (mediaRect: RectBounds, candidateRect: RectBounds) => {
+  if (horizontalOverlapRatio(mediaRect, candidateRect) >= 0.18) {
+    return true
+  }
+  const candidateCenterX = candidateRect.left + candidateRect.width / 2
+  const horizontalPadding = Math.max(0.03, mediaRect.width * 0.35)
+  return candidateCenterX >= mediaRect.left - horizontalPadding
+    && candidateCenterX <= rectRight(mediaRect) + horizontalPadding
+}
+
+const isMediaRelationRectValid = (
+  mediaRect: RectBounds | null,
+  candidateRect: RectBounds,
+  blockType: string,
+  relation: 'caption' | 'footnote'
+) => {
+  if (!mediaRect) return true
+  if (!isHorizontallyAlignedToMedia(mediaRect, candidateRect)) return false
+  const verticalGapTolerance = Math.max(0.035, mediaRect.height * 0.85)
+  const overlapTolerance = Math.max(0.012, mediaRect.height * 0.15)
+  if (blockType === 'table' && relation === 'caption') {
+    const gap = mediaRect.top - rectBottom(candidateRect)
+    return gap >= -overlapTolerance && gap <= verticalGapTolerance
+  }
+  const gap = candidateRect.top - rectBottom(mediaRect)
+  return gap >= -overlapTolerance && gap <= verticalGapTolerance
+}
+
+const filterMediaRelatedHighlights = (
+  mediaRect: RectBounds | null,
+  blockType: string,
+  highlights: LinkedHighlight[]
+) => highlights.filter(item => isMediaRelationRectValid(
+  mediaRect,
+  item,
+  blockType,
+  item.type?.includes('footnote') ? 'footnote' : 'caption'
+))
 
 /**
  * 从任意结构中提取可匹配的文本片段。
@@ -229,7 +280,11 @@ const collectCaptionSpanHighlights = (
 /**
  * 提取图表节点可用于匹配 caption 的文本候选。
  */
-const extractCaptionTextCandidates = (node: Record<string, any>, baseRow?: Record<string, any> | null): string[] => {
+const extractRelatedTextCandidates = (
+  node: Record<string, any>,
+  relation: 'caption' | 'footnote',
+  baseRow?: Record<string, any> | null
+): string[] => {
   const contentJson = node.content_json && typeof node.content_json === 'object'
     ? node.content_json as Record<string, any>
     : null
@@ -237,16 +292,13 @@ const extractCaptionTextCandidates = (node: Record<string, any>, baseRow?: Recor
     ? baseRow.content_json as Record<string, any>
     : null
   const blockType = String(node.block_type || baseRow?.block_type || '').toLowerCase()
-  const captionKeys = blockType === 'table'
-    ? ['table_caption', 'table_footnote']
-    : ['image_caption', 'image_footnote']
+  const relatedKeys = blockType === 'table'
+    ? (relation === 'caption' ? ['table_caption'] : ['table_footnote'])
+    : (relation === 'caption' ? ['image_caption'] : ['image_footnote'])
   return buildRelatedTextNeedles([
-    node.plain_text,
-    node.title,
-    node.caption,
-    node.footnote,
-    ...captionKeys.flatMap(key => collectTextsFromAny(contentJson?.[key])),
-    ...captionKeys.flatMap(key => collectTextsFromAny(rowContentJson?.[key]))
+    ...(relation === 'caption' ? [node.title, node.caption] : [node.footnote]),
+    ...relatedKeys.flatMap(key => collectTextsFromAny(contentJson?.[key])),
+    ...relatedKeys.flatMap(key => collectTextsFromAny(rowContentJson?.[key]))
   ])
 }
 
@@ -261,6 +313,12 @@ const buildRelatedTextNeedles = (values: Array<unknown>): string[] => {
 const isCaptionLikeText = (value: string) => (
   /^(图|表|figure|table)\s*[0-9a-z\u4e00-\u9fa5]/i.test(value)
 )
+
+const matchesRelatedTextCandidate = (rowText: string, sourceTexts: string[]) => sourceTexts.some(sourceText => (
+  sourceText.includes(rowText)
+  || (rowText.length >= 10 && rowText.includes(sourceText))
+  || (isCaptionLikeText(rowText) && sourceText.includes(rowText.slice(0, Math.min(rowText.length, 32))))
+))
 
 /**
  * 收集节点或原始行中显式产出的 caption / footnote 引用。
@@ -466,17 +524,18 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
       const rowContentJson = baseRow?.content_json && typeof baseRow.content_json === 'object'
         ? baseRow.content_json as Record<string, any>
         : null
+      const mediaRect = normalizeRect(node.bbox) || (baseRow ? normalizeRectFromBaseRow(baseRow) : null)
       const pageWidth = readFirstNumeric(baseRow || node, ['page_width'])
       const pageHeight = readFirstNumeric(baseRow || node, ['page_height'])
-      const captionKeys = blockType === 'table'
-        ? ['table_caption', 'table_footnote', 'table_caption_bboxes', 'table_footnote_bboxes']
-        : ['image_caption', 'image_footnote', 'image_caption_bboxes', 'image_footnote_bboxes']
+      const captionBBoxKeys = blockType === 'table'
+        ? ['table_caption_bboxes', 'table_footnote_bboxes']
+        : ['image_caption_bboxes', 'image_footnote_bboxes']
       const { captionRefs, footnoteRefs } = collectRelatedBlockRefs(node, baseRow)
-      const contentSpanHighlights = [
-        ...collectCaptionSpanHighlights(nodeId, page, blockType, contentJson, captionKeys, pageWidth, pageHeight),
-        ...collectCaptionSpanHighlights(nodeId, page, blockType, rowContentJson, captionKeys, pageWidth, pageHeight)
-      ]
-      const explicitRefHighlights = [
+      const contentSpanHighlights = filterMediaRelatedHighlights(mediaRect, blockType, [
+        ...collectCaptionSpanHighlights(nodeId, page, blockType, contentJson, captionBBoxKeys, pageWidth, pageHeight),
+        ...collectCaptionSpanHighlights(nodeId, page, blockType, rowContentJson, captionBBoxKeys, pageWidth, pageHeight)
+      ])
+      const explicitRefHighlights = filterMediaRelatedHighlights(mediaRect, blockType, [
         ...captionRefs.flatMap((refId) => {
           const targetRow = baseRowByUid.get(refId)
           const normalizedRect = targetRow ? normalizeRectFromBaseRow(targetRow) : null
@@ -513,11 +572,13 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
             type: `${blockType}-footnote`
           }]
         })
-      ]
-      const sourceTexts = extractCaptionTextCandidates(node, baseRow)
-      const shouldUseTextMatchedFallback = explicitRefHighlights.length === 0 && contentSpanHighlights.length === 0
-      if (!sourceTexts.length && !explicitRefHighlights.length && !contentSpanHighlights.length) return []
-      const matchedRowHighlights = shouldUseTextMatchedFallback ? baseRows.flatMap((row, rowIndex) => {
+      ])
+      const captionSourceTexts = extractRelatedTextCandidates(node, 'caption', baseRow)
+      const footnoteSourceTexts = extractRelatedTextCandidates(node, 'footnote', baseRow)
+      const hasCaptionHighlights = [...contentSpanHighlights, ...explicitRefHighlights].some(item => item.type?.includes('caption'))
+      const hasFootnoteHighlights = [...contentSpanHighlights, ...explicitRefHighlights].some(item => item.type?.includes('footnote'))
+      if (!captionSourceTexts.length && !footnoteSourceTexts.length && !explicitRefHighlights.length && !contentSpanHighlights.length) return []
+      const matchedRowHighlights = baseRows.flatMap((row, rowIndex) => {
         const rowId = String(row.block_uid || row.id || '').trim()
         if (!rowId || rowId === nodeId) return []
         if (captionRefs.includes(rowId) || footnoteRefs.includes(rowId)) return []
@@ -530,28 +591,41 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
         const rowTextRaw = String(row.plain_text || row.text || '').trim()
         const rowText = normalizeForMatch(rowTextRaw)
         if (!rowText || rowText.length < 4) return []
-        const matched = sourceTexts.some(sourceText => (
-          sourceText.includes(rowText)
-          || (rowText.length >= 10 && rowText.includes(sourceText))
-          || (isCaptionLikeText(rowText) && sourceText.includes(rowText.slice(0, Math.min(rowText.length, 32))))
-        ))
-        if (!matched) return []
         const normalizedRect = normalizeRectFromBaseRow(row)
         if (!normalizedRect) return []
-        return [{
-          id: `highlight-${nodeId}-related-${rowId || rowIndex}`,
-          itemId: nodeId,
-          page: rowPage,
-          hasRect: true,
-          left: normalizedRect.left,
-          top: normalizedRect.top,
-          width: normalizedRect.width,
-          height: normalizedRect.height,
-          lineStart: null,
-          lineEnd: null,
-          type: `${blockType}-caption`
-        }]
-      }) : []
+        return [
+          ...(!hasCaptionHighlights && captionSourceTexts.length > 0 && matchesRelatedTextCandidate(rowText, captionSourceTexts) && isMediaRelationRectValid(mediaRect, normalizedRect, blockType, 'caption')
+            ? [{
+                id: `highlight-${nodeId}-caption-related-${rowId || rowIndex}`,
+                itemId: nodeId,
+                page: rowPage,
+                hasRect: true,
+                left: normalizedRect.left,
+                top: normalizedRect.top,
+                width: normalizedRect.width,
+                height: normalizedRect.height,
+                lineStart: null,
+                lineEnd: null,
+                type: `${blockType}-caption`
+              }]
+            : []),
+          ...(!hasFootnoteHighlights && footnoteSourceTexts.length > 0 && matchesRelatedTextCandidate(rowText, footnoteSourceTexts) && isMediaRelationRectValid(mediaRect, normalizedRect, blockType, 'footnote')
+            ? [{
+                id: `highlight-${nodeId}-footnote-related-${rowId || rowIndex}`,
+                itemId: nodeId,
+                page: rowPage,
+                hasRect: true,
+                left: normalizedRect.left,
+                top: normalizedRect.top,
+                width: normalizedRect.width,
+                height: normalizedRect.height,
+                lineStart: null,
+                lineEnd: null,
+                type: `${blockType}-footnote`
+              }]
+            : [])
+        ]
+      })
       const mergedHighlights = [...contentSpanHighlights, ...explicitRefHighlights, ...matchedRowHighlights]
       const uniqueMap = new Map<string, LinkedHighlight>()
       mergedHighlights.forEach((item) => {

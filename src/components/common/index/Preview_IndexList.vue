@@ -199,6 +199,9 @@ const pagedItems = computed(() => {
   border-radius: 8px;
   border: 1px solid var(--dp-pane-border);
   background: color-mix(in srgb, var(--dp-content-bg) 90%, #f1f5f9 10%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .index-media-summary {
@@ -219,24 +222,35 @@ const pagedItems = computed(() => {
 
 :deep(.index-media .media-image) {
   width: 100%;
+  max-width: 100%;
   max-height: 320px;
   object-fit: contain;
   border-radius: 6px;
   display: block;
+  background: color-mix(in srgb, var(--dp-content-bg) 92%, #f8fafc 8%);
 }
 
 :deep(.index-media .media-formula) {
   overflow-x: auto;
+  max-width: 100%;
+}
+
+:deep(.index-media .katex-display) {
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 :deep(.index-media .media-table table) {
   width: 100%;
   border-collapse: collapse;
+  table-layout: auto;
 }
 
 :deep(.index-media .media-table th),
 :deep(.index-media .media-table td) {
-  border: 1px solid var(--dp-pane-border);
+  border: 1px solid var(--dp-pane-border) !important;
   padding: 6px 8px;
+  background: transparent !important;
 }
 </style>
