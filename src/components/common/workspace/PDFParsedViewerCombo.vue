@@ -66,8 +66,6 @@
               @change="emit('strategy-change', $event)"
             >
               <a-select-option value="A_structured">结构化</a-select-option>
-              <a-select-option value="B_mineru_rag">MinerU-RAG</a-select-option>
-              <a-select-option value="C_pageindex">PageIndex</a-select-option>
             </a-select>
             <a-button
               type="primary"

@@ -232,7 +232,7 @@ src/
 ## 7. C 层契约清单（types）
 
 ### 7.1 `types/knowledge.ts`
-- `KnowledgeStrategy = 'A_structured' | 'B_mineru_rag' | 'C_pageindex'`
+- `KnowledgeStrategy = 'A_structured'`
 - `IngestStatus = 'idle' | 'processing' | 'completed' | 'failed'`
 - `ParseTaskInfo`
 - `StructuredIndexItem`
@@ -280,11 +280,11 @@ src/
 - 预览文件：`/api/files?path=...`
 
 ### 9.2 后端解析/存储关键点（D 层落盘）
-- 解析任务接口：`services/docs-core/src/docs_core/api/parse_api.py`
+- 解析任务接口：`apps/api-server/knowledge_routes.py`
   - `POST /parse`
   - `GET /parse/{task_id}`
   - `POST /parse/structured-index`
-- 存储实现：`services/docs-core/src/docs_core/storage/file_storage.py`
+- 存储实现：`services/docs-core/src/docs_core/storage/document_storage.py`
   - 根目录：`data/knowledge_base`
   - 文档目录：`libraries/{library_id}/documents/{doc_id}/`
   - 关键文件：`parsed/content.md` `parsed/middle.json` `parsed/mineru_blocks.json` `parsed/raw/*` `edited/current.md`

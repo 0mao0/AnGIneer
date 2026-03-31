@@ -18,7 +18,7 @@ export interface SmartTreeNode {
 }
 
 export type KnowledgeNodeStatus = 'pending' | 'uploading' | 'processing' | 'completed' | 'failed'
-export type KnowledgeStrategy = 'A_structured' | 'B_mineru_rag' | 'C_pageindex'
+export type KnowledgeStrategy = 'A_structured'
 
 export interface KnowledgeTreeNode extends SmartTreeNode {
   isFolder: boolean

@@ -1,6 +1,6 @@
 import type { KnowledgeTreeNode } from './tree'
 
-export type KnowledgeStrategy = 'A_structured' | 'B_mineru_rag' | 'C_pageindex'
+export type KnowledgeStrategy = 'A_structured'
 
 export type IngestStatus = 'idle' | 'processing' | 'completed' | 'failed'
 
