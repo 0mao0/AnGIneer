@@ -28,15 +28,15 @@
             </div>
             <span class="index-order">#{{ item.order_index }}</span>
           </div>
-          <div class="index-title">{{ getDisplayTitle(item) }}</div>
-          <div v-if="getPrimaryContent(item)" class="index-content">{{ getPrimaryContent(item) }}</div>
-          <div v-if="getMediaTextBlocks(item).length" class="index-media-summary">
+          <div v-if="shouldShowItemText(item)" class="index-title" v-html="getDisplayTitleHtml(item)" />
+          <div v-if="shouldShowItemText(item) && getPrimaryContent(item)" class="index-content" v-html="getPrimaryContentHtml(item)" />
+          <div v-if="shouldShowItemText(item) && getMediaTextBlocks(item).length" class="index-media-summary">
             <div
               v-for="line in getMediaTextBlocks(item)"
               :key="`${item.id}-${line}`"
               class="index-media-text"
+              v-html="renderInlineHtml(line)"
             >
-              {{ line }}
             </div>
           </div>
           <div v-if="hasRichMedia(item, nodeMap)" class="index-media" v-html="renderItemRichMedia(item, nodeMap, sourceFilePath)" />
@@ -63,11 +63,14 @@
 import { computed } from 'vue'
 import type { StructuredIndexItem, DocBlockNode } from '../../../types/knowledge'
 import {
+  findNodeForItem,
   getItemTags,
   hasRichMedia,
+  renderMarkdownInlineToHtml,
   renderItemRichMedia,
   resolveSelectId,
-  isItemActive
+  isItemActive,
+  shouldSuppressNodePlainText
 } from '../../../utils/knowledge'
 import {
   getDisplayTitle,
@@ -94,6 +97,17 @@ const pagedItems = computed(() => {
   const start = (props.currentPage - 1) * props.pageSize
   return props.items.slice(start, start + props.pageSize)
 })
+
+const renderInlineHtml = (content: string): string => renderMarkdownInlineToHtml(content, props.sourceFilePath || '')
+
+const shouldShowItemText = (item: StructuredIndexItem): boolean => {
+  const node = findNodeForItem(item, props.nodeMap)
+  return !shouldSuppressNodePlainText(node)
+}
+
+const getDisplayTitleHtml = (item: StructuredIndexItem): string => renderInlineHtml(getDisplayTitle(item))
+
+const getPrimaryContentHtml = (item: StructuredIndexItem): string => renderInlineHtml(getPrimaryContent(item))
 </script>
 
 <style lang="less" scoped>
@@ -218,6 +232,20 @@ const pagedItems = computed(() => {
   line-height: 1.55;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+:deep(.index-title .katex),
+:deep(.index-content .katex),
+:deep(.index-media-text .katex) {
+  font-size: 1em;
+}
+
+:deep(.index-title .katex-display),
+:deep(.index-content .katex-display),
+:deep(.index-media-text .katex-display) {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
 }
 
 :deep(.index-media .media-image) {

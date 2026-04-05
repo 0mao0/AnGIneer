@@ -29,25 +29,19 @@
         <PDFParsedViewerCombo
           v-model:activeTab="activeTab"
           :renderedMarkdown="renderedMarkdown"
-          :editableContent="editableContent"
-          :isContentDirty="isContentDirty"
-          :strategyValue="strategyValue"
-          :ingestStatusValue="ingestStatusValue"
-          :canIngest="canIngest"
-          :ingestButtonText="ingestButtonText"
+          :markdownContent="markdownContent"
           :structuredItems="structuredItemsValue"
           :indexSummaryStats="indexSummaryStats"
           :hasParsedContent="hasParsedContent"
+          :dark-mode="props.darkMode"
           :contentScrollPercent="rightScrollPercent"
           :activeLinkedItemId="activeLinkedItemId"
           :activeLineRange="activeLinkedLineRange"
           :sourceFilePath="filePath"
           :graphData="props.graphData"
-          @update:editableContent="editableContent = $event"
-          @save-markdown="saveMarkdown"
-          @cancel-markdown="cancelMarkdownEdit"
-          @strategy-change="onStrategyChange"
-          @trigger-ingest="triggerIngest"
+          :onUpdateStructuredNode="props.onUpdateStructuredNode"
+          :onBatchStructuredOperation="props.onBatchStructuredOperation"
+          :onUndoLastOperation="props.onUndoLastOperation"
           @content-scroll="onRightPaneScrollPercent"
           @hover-item="onHoverLinkedItem"
           @select-item="onSelectItemFromRight"
@@ -55,30 +49,6 @@
         />
       </div>
     </div>
-
-    <a-modal
-      v-model:open="ingestModalVisible"
-      :title="ingestStatusValue === 'processing' ? '入库中' : '入库结果'"
-      :footer="null"
-      :mask-closable="ingestStatusValue !== 'processing'"
-      :closable="ingestStatusValue !== 'processing'"
-    >
-      <div class="ingest-modal-content">
-        <a-progress
-          :percent="ingestProgressPercent"
-          :status="ingestProgressStatus"
-          size="default"
-        />
-        <div class="ingest-stage">{{ ingestStageText }}</div>
-        <div v-if="ingestStatusValue === 'completed'" class="ingest-result">
-          总条目 {{ structuredTotal }}
-        </div>
-        <div v-if="ingestStatusValue === 'completed'" class="ingest-result-actions">
-          <a-button size="small" @click="openIndexFromIngestModal">查看索引</a-button>
-        </div>
-      </div>
-    </a-modal>
-
   </div>
 </template>
 
@@ -88,13 +58,12 @@ import PDF_Viewer from '../viewers/PDF_Viewer.vue'
 import PDFParsedViewerCombo from './PDFParsedViewerCombo.vue'
 import { useWorkspaceLinkage } from '../../../composables/useWorkspaceLinkage'
 import { useWorkspacePreview } from '../../../composables/useWorkspacePreview'
-import { useWorkspaceIngest } from '../../../composables/useWorkspaceIngest'
 import type { PreviewMode } from '../../../composables/useParsedPdfViewer'
 import type { KnowledgeTreeNode } from '../../../types/tree'
 import type {
-  IngestStatus,
-  KnowledgeStrategy,
   StructuredIndexItem,
+  StructuredNodeUpdatePayload,
+  StructuredBatchOperationPayload,
   StructuredStats,
   PDFParsedWorkspaceEventMap
 } from '../../../types/knowledge'
@@ -105,11 +74,11 @@ interface Props {
   content: string
   structuredItems?: StructuredIndexItem[]
   structuredStats?: StructuredStats
-  ingestStatus?: IngestStatus
-  ingestProgress?: number
-  ingestStage?: string
   darkMode?: boolean
   graphData?: { nodes: any[]; edges: any[] } | null
+  onUpdateStructuredNode?: (payload: StructuredNodeUpdatePayload) => Promise<void>
+  onBatchStructuredOperation?: (payload: StructuredBatchOperationPayload) => Promise<void>
+  onUndoLastOperation?: () => Promise<void>
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -123,8 +92,6 @@ const getDefaultParsedTab = (): PreviewMode => (
 )
 
 const filePath = computed(() => props.node.filePath || props.node.file_path || '')
-const ingestStatusValue = computed(() => props.ingestStatus || 'idle')
-const ingestProgressPercent = computed(() => Number(props.ingestProgress || 0))
 const activeTab = ref<PreviewMode>(getDefaultParsedTab())
 const stageText = computed(() => mapParseStageText(props.node.parseStage, props.node.parseError))
 const parseButtonText = computed(() => {
@@ -134,9 +101,17 @@ const parseButtonText = computed(() => {
   return '开始解析'
 })
 const structuredItemsValue = computed(() => props.structuredItems || [])
-const editableContent = ref('')
-const savedContent = ref('')
-const isContentDirty = computed(() => editableContent.value !== savedContent.value)
+const hasParsedContent = computed(() => Boolean((props.content || '').trim()))
+const indexSummaryStats = computed(() => {
+  const strategyStats = props.structuredStats?.strategies?.A_structured || {}
+  const toCount = (value: unknown) => Number(value || 0)
+  return {
+    total: Object.values(strategyStats).reduce((sum, count) => sum + Number(count || 0), 0),
+    formula: toCount(strategyStats.formula),
+    table: toCount(strategyStats.table),
+    figure: toCount(strategyStats.image) + toCount(strategyStats.figure)
+  }
+})
 
 const {
   progressPercent,
@@ -163,55 +138,7 @@ const {
   activeTab: computed(() => activeTab.value)
 })
 
-const {
-  ingestModalVisible,
-  ingestProgressStatus,
-  ingestStageText,
-  strategyValue,
-  structuredTotal,
-  hasParsedContent,
-  indexSummaryStats,
-  ingestButtonText,
-  canIngest,
-  onStrategyChange: setStrategy,
-  triggerIngest: requestIngest,
-  closeIngestModal
-} = useWorkspaceIngest({
-  node: computed(() => props.node),
-  content: computed(() => props.content || ''),
-  isContentDirty,
-  ingestStatus: ingestStatusValue,
-  ingestStage: computed(() => props.ingestStage || ''),
-  structuredStats: computed(() => props.structuredStats)
-})
-
-const saveMarkdown = () => {
-  if (!isContentDirty.value) {
-    return
-  }
-  emit('save-content', editableContent.value)
-  savedContent.value = editableContent.value
-}
-
-const cancelMarkdownEdit = () => {
-  editableContent.value = savedContent.value
-}
-
-const triggerIngest = () => {
-  if (!requestIngest()) return
-  emit('rebuild-structured', strategyValue.value)
-}
-
-const onStrategyChange = (value: KnowledgeStrategy) => {
-  setStrategy(value)
-  emit('change-strategy', value)
-}
-
-const openIndexFromIngestModal = () => {
-  activeTab.value = getDefaultParsedTab()
-  closeIngestModal()
-}
-const markdownContent = computed(() => editableContent.value || props.content || '')
+const markdownContent = computed(() => props.content || '')
 const {
   linkedHighlights,
   activeLinkedItemId,
@@ -236,8 +163,7 @@ const {
 })
 
 watch(() => props.content, (value) => {
-  editableContent.value = value || ''
-  savedContent.value = value || ''
+  void value
 }, { immediate: true })
 
 watch(() => props.node.key, () => {
@@ -257,7 +183,15 @@ const renderedMarkdown = computed(() => renderMarkdownToHtml(
   filePath.value
 ))
 
+const setActiveLinkedItem = (itemId: string | null) => {
+  activeLinkedItemId.value = itemId
+  if (itemId && props.graphData?.nodes?.length) {
+    activeTab.value = 'Preview_IndexTree'
+  }
+}
+
 defineExpose({
+  setActiveLinkedItem,
   toggleHighlightLink,
   highlightLinkEnabled,
   showHighlightToggle,
@@ -301,6 +235,7 @@ defineExpose({
     flex: 1;
     display: flex;
     flex-direction: column;
+    height: 100%;
     min-height: 0;
     overflow: hidden;
     padding: 6px;
@@ -309,6 +244,7 @@ defineExpose({
   .split-preview {
     display: flex;
     flex: 1;
+    height: 100%;
     min-height: 0;
     gap: 8px;
     margin-top: 8px;

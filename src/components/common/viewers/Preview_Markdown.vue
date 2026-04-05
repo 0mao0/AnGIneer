@@ -2,9 +2,9 @@
   <div class="markdown-edit-wrap">
     <a-textarea
       ref="markdownTextareaRef"
-      :value="editableContent"
+      :value="content"
       class="markdown-editor"
-      @update:value="emit('update:editableContent', $event)"
+      readonly
       @click="onMarkdownCursorChange"
       @keyup="onMarkdownCursorChange"
       @mouseup="onMarkdownCursorChange"
@@ -17,12 +17,11 @@ import { ref, watch } from 'vue'
 import { toValidLine, getOffsetByLine } from '../../../utils/common'
 
 const props = defineProps<{
-  editableContent: string
+  content: string
   activeLineRange: { start: number; end: number } | null
 }>()
 
 const emit = defineEmits<{
-  'update:editableContent': [value: string]
   'select-line': [line: number]
 }>()
 
@@ -57,7 +56,7 @@ watch(() => props.activeLineRange, (range) => {
   if (!range) return
   const textarea = markdownTextareaRef.value?.resizableTextArea?.textArea as HTMLTextAreaElement | undefined
   if (!textarea) return
-  const text = props.editableContent || ''
+  const text = props.content || ''
   const start = getOffsetByLine(text, range.start)
   const end = getOffsetByLine(text, range.end + 1)
   textarea.focus()
@@ -68,15 +67,25 @@ watch(() => props.activeLineRange, (range) => {
 
 <style lang="less" scoped>
 .markdown-edit-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   min-height: 100%;
   padding: 12px;
+  box-sizing: border-box;
 }
 
 .markdown-editor {
+  flex: 1;
   width: 100%;
-  min-height: calc(100vh - 340px);
+  min-height: 100%;
   border-radius: 8px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 13px;
+}
+
+.markdown-editor :deep(.ant-input) {
+  height: 100%;
+  min-height: 100%;
 }
 </style>

@@ -112,7 +112,11 @@ export const mapNodeStatusText = (status?: string): string => {
  * 获取节点的显示文本
  */
 export const getNodeText = (node: DocBlockNode): string => {
-  return (node.plain_text || '').trim() || node.id
+  const plainText = String(node.plain_text || '').trim()
+  if (shouldSuppressNodePlainText(node)) {
+    return getNodeFallbackText(node, node.id)
+  }
+  return plainText || getNodeFallbackText(node, node.id)
 }
 
 /**
@@ -198,6 +202,53 @@ export const renderFormula = (formula: string, displayMode: boolean): string => 
   }
 }
 
+const normalizeComparableMathText = (content: string): string => content
+  .trim()
+  .replace(/^\\\[\s*([\s\S]*?)\s*\\\]$/u, '$1')
+  .replace(/^\\\(\s*([\s\S]*?)\s*\\\)$/u, '$1')
+  .replace(/^\$\$\s*([\s\S]*?)\s*\$\$$/u, '$1')
+  .replace(/^\$\s*([\s\S]*?)\s*\$$/u, '$1')
+  .replace(/\s+/g, '')
+
+const getNodeFallbackText = (node: DocBlockNode, fallbackId: string): string => {
+  const plainText = String(node.plain_text || '').trim()
+  const candidates = [node.title, node.caption, node.footnote]
+    .map(value => String(value || '').trim())
+    .filter(value => value && value !== plainText)
+  if (candidates.length > 0) {
+    return candidates[0]
+  }
+  const typeLabel = formatStructuredItemType(node.block_type || '')
+  const positionLabel = formatPositionTag(node.page_idx ?? 0, node.block_seq ?? 0)
+  return [typeLabel, positionLabel].filter(Boolean).join(' ') || fallbackId
+}
+
+export const isNodeMathRichMediaRedundant = (node: DocBlockNode | undefined | null): boolean => {
+  if (!node?.math_content) return false
+  const plainText = String(node.plain_text || '').trim()
+  const mathContent = String(node.math_content || '').trim()
+  if (!plainText || !mathContent) return false
+  const normalizedPlainText = normalizeComparableMathText(plainText)
+  const normalizedMathContent = normalizeComparableMathText(mathContent)
+  if (!normalizedPlainText || !normalizedMathContent) return false
+  return normalizedPlainText === normalizedMathContent
+    || normalizedPlainText.endsWith(normalizedMathContent)
+    || normalizedMathContent.endsWith(normalizedPlainText)
+}
+
+export const shouldSuppressNodePlainText = (node: DocBlockNode | undefined | null): boolean => {
+  if (!node) return false
+  const plainText = String(node.plain_text || '').trim()
+  if (!plainText) return false
+  if (node.block_type === 'equation_interline' && (node.math_content || node.image_path)) {
+    return true
+  }
+  if (node.math_content && node.image_path) {
+    return true
+  }
+  return isNodeMathRichMediaRedundant(node)
+}
+
 /**
  * 获取节点在树中的层级
  */
@@ -277,8 +328,13 @@ export const hasRichMedia = (item: StructuredIndexItem, nodeMap: Map<string, Doc
 /**
  * 渲染文档节点的富媒体内容。
  */
-export const renderNodeRichMedia = (node: DocBlockNode | undefined | null, sourceFilePath?: string): string => {
+export const renderNodeRichMedia = (
+  node: DocBlockNode | undefined | null,
+  sourceFilePath?: string,
+  options: { includeMath?: boolean } = {}
+): string => {
   if (!node) return ''
+  const includeMath = options.includeMath !== false
   const sections: string[] = []
   if (node.table_html) {
     sections.push(`<div class="media-table">${node.table_html}</div>`)
@@ -289,7 +345,7 @@ export const renderNodeRichMedia = (node: DocBlockNode | undefined | null, sourc
       sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(node.plain_text || 'image')}" />`)
     }
   }
-  if (node.math_content) {
+  if (includeMath && node.math_content) {
     sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
   }
   return sections.join('')
@@ -322,6 +378,13 @@ const renderInline = (content: string, sourceFilePath: string): string => {
     placeholders.set(key, html)
     return key
   }
+  const latexSupSubPattern = String.raw`(?:\^\{[^{}\n]+\}|\^\\[a-zA-Z]+|\^[A-Za-z0-9]+|_\{[^{}\n]+\}|_\\[a-zA-Z]+|_[A-Za-z0-9]+)`
+  const latexStartTokenPattern = String.raw`(?:\\[a-zA-Z]+|[A-Za-z0-9]+(?:${latexSupSubPattern})+)`
+  const latexContinueTokenPattern = String.raw`(?:\\[a-zA-Z]+|[A-Za-z0-9]+(?:${latexSupSubPattern})*|[()+\-*/=<>~.,:]+|\{[^{}\n]+\}|\[[^[\]\n]*\])`
+  const bareInlineLatexPattern = new RegExp(
+    `(^|[\\s(（\\[【,:：;；])(${latexStartTokenPattern}(?:\\s*${latexContinueTokenPattern})*)`,
+    'g'
+  )
   const withImages = content.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)/g, (_, alt, src, title) => {
     const resolvedSrc = resolveAssetUrl(String(src), sourceFilePath)
     if (!resolvedSrc) return ''
@@ -330,12 +393,26 @@ const renderInline = (content: string, sourceFilePath: string): string => {
       `<img class="markdown-image" src="${escapeHtmlAttribute(resolvedSrc)}" alt="${escapeHtmlAttribute(String(alt || ''))}"${titleAttr} />`
     )
   })
-  const withFormulas = withImages.replace(/\$([^$\n]+)\$/g, (_, formula) => setPlaceholder(renderFormula(String(formula).trim(), false)))
+  const withDelimitedFormulas = withImages
+    .replace(/\\\(([\s\S]*?)\\\)/g, (_, formula) => setPlaceholder(renderFormula(String(formula).trim(), false)))
+    .replace(/\\\[([\s\S]*?)\\\]/g, (_, formula) => setPlaceholder(renderFormula(String(formula).trim(), true)))
+    .replace(/\$\$([\s\S]*?)\$\$/g, (_, formula) => setPlaceholder(renderFormula(String(formula).trim(), true)))
+    .replace(/\$([^$\n]+)\$/g, (_, formula) => setPlaceholder(renderFormula(String(formula).trim(), false)))
+  const withFormulas = withDelimitedFormulas.replace(bareInlineLatexPattern, (_, prefix, formula) => {
+    const normalizedFormula = String(formula || '').trim()
+    if (!normalizedFormula) return prefix
+    return `${String(prefix || '')}${setPlaceholder(renderFormula(normalizedFormula, false))}`
+  })
   const rendered = escapeHtml(withFormulas)
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/`([^`]+)`/g, '<code>$1</code>')
   return rendered.replace(/__INLINE_(\d+)__/g, (key) => placeholders.get(key) || key)
+}
+
+export const renderMarkdownInlineToHtml = (content: string, sourceFilePath: string): string => {
+  if (!content) return ''
+  return renderInline(content, sourceFilePath)
 }
 
 const buildMarkdownTable = (tableLines: string[], sourceFilePath: string): string => {

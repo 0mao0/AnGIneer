@@ -5,9 +5,12 @@ export * from './tree'
 export * from './resource'
 export type {
   KnowledgeStrategy,
-  IngestStatus,
   ParseTaskInfo,
   StructuredIndexItem,
+  StructuredNodeUpdatePayload,
+  StructuredSplitSegmentPayload,
+  StructuredBatchOperationType,
+  StructuredBatchOperationPayload,
   StructuredStats,
   DocumentStorageManifest,
   DocBlockNode,

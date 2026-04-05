@@ -2,8 +2,6 @@ import type { KnowledgeTreeNode } from './tree'
 
 export type KnowledgeStrategy = 'A_structured'
 
-export type IngestStatus = 'idle' | 'processing' | 'completed' | 'failed'
-
 export interface ParseTaskInfo {
   id: string
   library_id: string
@@ -21,6 +19,32 @@ export interface StructuredIndexItem {
   content: string
   meta?: Record<string, any>
   order_index: number
+}
+
+export interface StructuredNodeUpdatePayload {
+  blockId: string
+  plain_text?: string
+  math_content?: string
+  table_html?: string
+  title?: string
+  caption?: string
+  footnote?: string
+  parent_block_uid?: string | null
+  derived_title_level?: number | null
+  merge_into_block_uid?: string | null
+}
+
+export interface StructuredSplitSegmentPayload {
+  plain_text: string
+}
+
+export type StructuredBatchOperationType = 'merge' | 'split' | 'delete'
+
+export interface StructuredBatchOperationPayload {
+  operation: StructuredBatchOperationType
+  blockIds: string[]
+  targetBlockId?: string | null
+  splitSegments?: StructuredSplitSegmentPayload[]
 }
 
 export interface StructuredStats {
@@ -61,6 +85,8 @@ export interface DocBlockNode {
   title?: string | null
   caption?: string | null
   footnote?: string | null
+  merged_block_uids?: string[] | null
+  merged_bboxes?: number[][] | null
   caption_block_uid?: string | null
   caption_block_uids?: string[] | null
   caption_bboxes?: number[][] | null
@@ -102,10 +128,8 @@ export interface DocBlocksGraphState {
 
 export interface PDFParsedWorkspaceEventMap {
   parse: [node: KnowledgeTreeNode]
-  'save-content': [content: string]
-  'change-strategy': [strategy: KnowledgeStrategy]
   'query-structured': [itemType?: string, keyword?: string]
-  'rebuild-structured': [strategy: KnowledgeStrategy]
+  'update-structured-node': [payload: StructuredNodeUpdatePayload]
   'toggle-visible': [node: KnowledgeTreeNode]
 }
 

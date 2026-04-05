@@ -7,7 +7,8 @@
     >
       <template #title>
         <div class="tree-tooltip">
-          <div class="tree-tooltip-text">{{ tooltipText }}</div>
+          <div v-if="tooltipTextHtml" class="tree-tooltip-text" v-html="tooltipTextHtml" />
+          <div v-else-if="tooltipText" class="tree-tooltip-text">{{ tooltipText }}</div>
           <div v-if="tooltipRichMediaHtml" class="tree-tooltip-media" v-html="tooltipRichMediaHtml" />
         </div>
       </template>
@@ -16,6 +17,12 @@
         :class="['tree-row', { active: nodeId === activeNodeId }]"
         @click="onRowClick"
       >
+        <a-checkbox
+          class="tree-select-checkbox"
+          :checked="isChecked"
+          @click.stop
+          @change="onToggleCheck"
+        />
         <span class="tree-toggle" @click.stop="onToggle">
           <template v-if="hasChildren">
             <RightOutlined v-if="!isExpanded" />
@@ -25,13 +32,25 @@
         </span>
         <div class="tree-main">
           <div class="tree-meta">
-            <span class="tree-text">{{ displayText }}</span>
+            <span v-if="displayTextHtml" class="tree-text" v-html="displayTextHtml" />
+            <span v-else-if="!suppressPlainText" class="tree-text">{{ displayText }}</span>
             <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
             <span v-if="typeTag" class="chip">{{ typeTag }}</span>
             <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
           </div>
           <div v-if="inlineRichMediaHtml" class="tree-inline-media" v-html="inlineRichMediaHtml" />
         </div>
+        <a-button
+          v-if="node"
+          type="text"
+          size="small"
+          class="tree-edit-btn"
+          @click.stop="onEdit"
+        >
+          <template #icon>
+            <EditOutlined />
+          </template>
+        </a-button>
       </div>
     </a-tooltip>
     <ul v-if="hasChildren && isExpanded" class="tree-children">
@@ -43,9 +62,12 @@
         :children-map="childrenMap"
         :expanded-ids="expandedIds"
         :active-node-id="activeNodeId"
+        :selected-node-ids="selectedNodeIds"
         :source-file-path="sourceFilePath"
         @toggle="(id) => emit('toggle', id)"
         @select="(id) => emit('select', id)"
+        @edit="(id) => emit('edit', id)"
+        @toggle-check="(id) => emit('toggle-check', id)"
       />
     </ul>
   </li>
@@ -53,13 +75,17 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RightOutlined, DownOutlined } from '@ant-design/icons-vue'
+import { RightOutlined, DownOutlined, EditOutlined } from '@ant-design/icons-vue'
 import {
   getNodeDisplayText,
   getNodeLevelTag,
   getNodeTypeTag,
   getNodePositionTag,
-  renderNodeRichMedia
+  isNodeMathRichMediaRedundant,
+  renderMarkdownInlineToHtml,
+  renderNodeRichMedia,
+  renderMarkdownToHtml,
+  shouldSuppressNodePlainText
 } from '../../../utils/knowledge'
 import type { DocBlockNode } from '../../../types/knowledge'
 
@@ -69,6 +95,7 @@ interface Props {
   childrenMap: Map<string, string[]>
   expandedIds: Set<string>
   activeNodeId: string | null
+  selectedNodeIds?: Set<string>
   sourceFilePath?: string
 }
 
@@ -77,6 +104,8 @@ const props = defineProps<Props>()
 const emit = defineEmits<{
   toggle: [id: string]
   select: [id: string]
+  edit: [id: string]
+  'toggle-check': [id: string]
 }>()
 
 const node = computed(() => props.nodeMap.get(props.nodeId))
@@ -87,7 +116,17 @@ const hasChildren = computed(() => children.value.length > 0)
 
 const isExpanded = computed(() => props.expandedIds.has(props.nodeId))
 
+const isChecked = computed(() => Boolean(props.selectedNodeIds?.has(props.nodeId)))
+
 const displayText = computed(() => getNodeDisplayText(node.value, props.nodeId))
+
+const suppressPlainText = computed(() => shouldSuppressNodePlainText(node.value))
+
+const displayTextHtml = computed(() => {
+  if (suppressPlainText.value) return ''
+  const rawText = String(node.value?.plain_text || '').trim() || props.nodeId
+  return renderMarkdownInlineToHtml(rawText, props.sourceFilePath || '')
+})
 
 const levelTag = computed(() => getNodeLevelTag(node.value, props.nodeMap))
 
@@ -96,11 +135,21 @@ const typeTag = computed(() => getNodeTypeTag(node.value))
 const positionTag = computed(() => getNodePositionTag(node.value))
 
 const tooltipText = computed(() => {
+  if (suppressPlainText.value) return ''
   const text = String(node.value?.plain_text || '').trim()
   return text || props.nodeId
 })
 
-const tooltipRichMediaHtml = computed(() => renderNodeRichMedia(node.value, props.sourceFilePath))
+const tooltipTextHtml = computed(() => {
+  if (suppressPlainText.value) return ''
+  const text = String(node.value?.plain_text || '').trim()
+  if (!text) return ''
+  return renderMarkdownToHtml(text, props.sourceFilePath || '')
+})
+
+const tooltipRichMediaHtml = computed(() => renderNodeRichMedia(node.value, props.sourceFilePath, {
+  includeMath: suppressPlainText.value || !isNodeMathRichMediaRedundant(node.value)
+}))
 
 const inlineRichMediaHtml = computed(() => renderNodeRichMedia(node.value, props.sourceFilePath))
 
@@ -110,6 +159,15 @@ const onToggle = () => {
 
 const onRowClick = () => {
   emit('select', props.nodeId)
+}
+
+/* 触发当前树节点的内容纠错操作。 */
+const onEdit = () => {
+  emit('edit', props.nodeId)
+}
+
+const onToggleCheck = () => {
+  emit('toggle-check', props.nodeId)
 }
 </script>
 
@@ -140,6 +198,16 @@ const onRowClick = () => {
     box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.14);
     background: color-mix(in srgb, var(--dp-index-card-bg, #ffffff) 80%, #e6f4ff 20%);
   }
+}
+
+.tree-select-checkbox {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.tree-edit-btn {
+  flex: 0 0 auto;
+  margin-left: 4px;
 }
 
 :global(.dark-mode) .tree-row {
@@ -189,10 +257,20 @@ const onRowClick = () => {
 }
 
 .tree-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-word;
   color: var(--dp-title-text, #0f172a);
+}
+
+.tree-text :deep(.katex) {
+  font-size: 1em;
+}
+
+.tree-text :deep(.katex-display) {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
 }
 
 .tree-inline-media {
@@ -217,9 +295,32 @@ const onRowClick = () => {
 }
 
 .tree-tooltip-text {
-  white-space: pre-wrap;
   word-break: break-word;
   line-height: 1.6;
+}
+
+.tree-tooltip-text :deep(*:first-child) {
+  margin-top: 0;
+}
+
+.tree-tooltip-text :deep(*:last-child) {
+  margin-bottom: 0;
+}
+
+.tree-tooltip-text :deep(p),
+.tree-tooltip-text :deep(ul),
+.tree-tooltip-text :deep(ol),
+.tree-tooltip-text :deep(blockquote),
+.tree-tooltip-text :deep(pre),
+.tree-tooltip-text :deep(table),
+.tree-tooltip-text :deep(.math-block) {
+  margin: 0.45em 0;
+}
+
+.tree-tooltip-text :deep(.katex-display) {
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .tree-tooltip-media :deep(.media-table) {

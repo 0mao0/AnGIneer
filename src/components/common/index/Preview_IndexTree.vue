@@ -14,9 +14,12 @@
         :children-map="childrenMap"
         :expanded-ids="expandedNodeIds"
         :active-node-id="activeNodeId"
+        :selected-node-ids="selectedNodeIds"
         :source-file-path="sourceFilePath"
         @toggle="onToggle"
         @select="onSelect"
+        @edit="onEdit"
+        @toggle-check="onToggleCheck"
       />
     </ul>
   </div>
@@ -34,12 +37,16 @@ interface Props {
   roots: string[]
   expandedNodeIds: Set<string>
   activeNodeId: string | null
+  selectedNodeIds?: Set<string>
   sourceFilePath?: string
 }
 
 const props = defineProps<Props>()
 
-const emit = defineEmits<Pick<PreviewIndexInteractionEventMap, 'toggle' | 'select'>>()
+const emit = defineEmits<Pick<PreviewIndexInteractionEventMap, 'toggle' | 'select'> & {
+  edit: [id: string]
+  'toggle-check': [id: string]
+}>()
 const treeContainerRef = ref<HTMLElement | null>(null)
 
 const onToggle = (id: string) => {
@@ -48,6 +55,15 @@ const onToggle = (id: string) => {
 
 const onSelect = (id: string) => {
   emit('select', id)
+}
+
+/* 转发节点编辑事件给外层工作区。 */
+const onEdit = (id: string) => {
+  emit('edit', id)
+}
+
+const onToggleCheck = (id: string) => {
+  emit('toggle-check', id)
 }
 
 /**

@@ -8,7 +8,7 @@
     <div v-show="!loading && visibleNodes.length" ref="networkRef" class="network-container" />
     <div v-if="activeMediaNode && activeMediaHtml" class="graph-media-panel">
       <div class="graph-media-panel-header">
-        <span class="graph-media-panel-title">{{ activeMediaTitle }}</span>
+        <span class="graph-media-panel-title" v-html="activeMediaTitleHtml" />
         <span class="graph-media-panel-tag">{{ activeMediaType }}</span>
       </div>
       <div class="graph-media-panel-body" v-html="activeMediaHtml" />
@@ -46,6 +46,7 @@ import {
   getNodeText,
   formatStructuredItemType,
   getNodeDisplayText,
+  renderMarkdownInlineToHtml,
   renderNodeRichMedia
 } from '../../../utils/knowledge'
 
@@ -87,6 +88,7 @@ const activeMediaHtml = computed(() => renderNodeRichMedia(activeMediaNode.value
 const activeMediaTitle = computed(() => activeMediaNode.value
   ? getNodeDisplayText(activeMediaNode.value, activeMediaNode.value.id, 40)
   : '')
+const activeMediaTitleHtml = computed(() => renderMarkdownInlineToHtml(activeMediaTitle.value, props.sourceFilePath || ''))
 const activeMediaType = computed(() => {
   const blockType = activeMediaNode.value?.block_type
   return blockType ? formatStructuredItemType(blockType) : '节点'
@@ -555,6 +557,16 @@ defineExpose({
   font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.graph-media-panel-title :deep(.katex) {
+  font-size: 1em;
+}
+
+.graph-media-panel-title :deep(.katex-display) {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
 }
 
 .graph-media-panel-tag {

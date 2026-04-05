@@ -77,7 +77,9 @@ watch(() => props.renderedMarkdown, async () => {
 }
 
 .markdown-preview {
+  height: 100%;
   min-height: 100%;
+  box-sizing: border-box;
   padding: 12px 14px;
   color: var(--dp-title-text);
   line-height: 1.7;

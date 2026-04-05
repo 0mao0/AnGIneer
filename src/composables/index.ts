@@ -39,6 +39,3 @@ export {
 export {
   useWorkspacePreview
 } from './useWorkspacePreview'
-export {
-  useWorkspaceIngest
-} from './useWorkspaceIngest'

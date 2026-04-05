@@ -320,6 +320,13 @@ const matchesRelatedTextCandidate = (rowText: string, sourceTexts: string[]) => 
   || (isCaptionLikeText(rowText) && sourceText.includes(rowText.slice(0, Math.min(rowText.length, 32))))
 ))
 
+const isStructHeadingCandidate = (blockType: string, text: string) => {
+  const normalizedType = String(blockType || '').trim().toLowerCase()
+  if (normalizedType === 'title') return true
+  if (!['paragraph', 'list', 'list_item'].includes(normalizedType)) return false
+  return /^(附录[A-Z]|\d+(?:\.\d+)*)\b/.test(String(text || '').trim())
+}
+
 /**
  * 收集节点或原始行中显式产出的 caption / footnote 引用。
  */
@@ -490,26 +497,32 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
         }
         return true
       })
-      .map((node, index) => {
+      .flatMap((node, index) => {
         const page = (node.page_idx ?? 0) + 1
-        const bbox = node.bbox
         const type = node.block_type || 'text'
+        const itemId = node.id || `node-${index}`
+        const bboxPool = Array.isArray(node.merged_bboxes) && node.merged_bboxes.length
+          ? [node.bbox, ...node.merged_bboxes]
+          : [node.bbox]
 
-        const normalizedRect = normalizeRect(bbox)
-
-        return {
-          id: `highlight-${node.id || index}`,
-          itemId: node.id || `node-${index}`,
-          page,
-          hasRect: Boolean(normalizedRect),
-          left: normalizedRect?.left ?? 0,
-          top: normalizedRect?.top ?? 0,
-          width: normalizedRect?.width ?? 0,
-          height: normalizedRect?.height ?? 0,
-          lineStart: null,
-          lineEnd: null,
-          type
-        }
+        return bboxPool.map((bbox, bboxIndex) => {
+          const normalizedRect = normalizeRect(bbox)
+          return {
+            id: bboxIndex === 0
+              ? `highlight-${itemId}`
+              : `highlight-${itemId}-merged-${bboxIndex}`,
+            itemId,
+            page,
+            hasRect: Boolean(normalizedRect),
+            left: normalizedRect?.left ?? 0,
+            top: normalizedRect?.top ?? 0,
+            width: normalizedRect?.width ?? 0,
+            height: normalizedRect?.height ?? 0,
+            lineStart: null,
+            lineEnd: null,
+            type
+          }
+        })
       })
 
     const supplementalHighlights = nodes.flatMap((node, index) => {
@@ -539,7 +552,9 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
         ...captionRefs.flatMap((refId) => {
           const targetRow = baseRowByUid.get(refId)
           const normalizedRect = targetRow ? normalizeRectFromBaseRow(targetRow) : null
-          if (!targetRow || !normalizedRect) return []
+          const rowType = String(targetRow?.block_type || targetRow?.type || '').toLowerCase()
+          const rowText = String(targetRow?.plain_text || targetRow?.text || '').trim()
+          if (!targetRow || !normalizedRect || isStructHeadingCandidate(rowType, rowText)) return []
           return [{
             id: `highlight-${nodeId}-caption-ref-${refId}`,
             itemId: nodeId,
@@ -557,7 +572,9 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
         ...footnoteRefs.flatMap((refId) => {
           const targetRow = baseRowByUid.get(refId)
           const normalizedRect = targetRow ? normalizeRectFromBaseRow(targetRow) : null
-          if (!targetRow || !normalizedRect) return []
+          const rowType = String(targetRow?.block_type || targetRow?.type || '').toLowerCase()
+          const rowText = String(targetRow?.plain_text || targetRow?.text || '').trim()
+          if (!targetRow || !normalizedRect || isStructHeadingCandidate(rowType, rowText)) return []
           return [{
             id: `highlight-${nodeId}-footnote-ref-${refId}`,
             itemId: nodeId,
@@ -589,6 +606,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
           return []
         }
         const rowTextRaw = String(row.plain_text || row.text || '').trim()
+        if (isStructHeadingCandidate(rowType, rowTextRaw)) return []
         const rowText = normalizeForMatch(rowTextRaw)
         if (!rowText || rowText.length < 4) return []
         const normalizedRect = normalizeRectFromBaseRow(row)
