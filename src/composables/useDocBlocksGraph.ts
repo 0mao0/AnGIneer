@@ -19,6 +19,16 @@ export interface DocBlocksGraphIndex {
   roots: string[]
 }
 
+const compareDocBlockNodeOrder = (left: DocBlockNode, right: DocBlockNode): number => {
+  const leftPage = Number(left.page_idx ?? 0)
+  const rightPage = Number(right.page_idx ?? 0)
+  if (leftPage !== rightPage) return leftPage - rightPage
+  const leftBlockSeq = Number(left.block_seq ?? 0)
+  const rightBlockSeq = Number(right.block_seq ?? 0)
+  if (leftBlockSeq !== rightBlockSeq) return leftBlockSeq - rightBlockSeq
+  return String(left.block_uid || left.id || '').localeCompare(String(right.block_uid || right.id || ''))
+}
+
 export const buildDocBlocksGraphIndex = (graph: DocBlocksGraph | null | undefined): DocBlocksGraphIndex => {
   const nodeMap = new Map<string, DocBlockNode>()
   const childrenMap = new Map<string, string[]>()
@@ -42,6 +52,17 @@ export const buildDocBlocksGraphIndex = (graph: DocBlocksGraph | null | undefine
       roots.push(node.id)
     }
   }
+  childrenMap.forEach((childIds, parentId) => {
+    childIds.sort((leftId, rightId) => compareDocBlockNodeOrder(
+      nodeMap.get(leftId)!,
+      nodeMap.get(rightId)!
+    ))
+    childrenMap.set(parentId, childIds)
+  })
+  roots.sort((leftId, rightId) => compareDocBlockNodeOrder(
+    nodeMap.get(leftId)!,
+    nodeMap.get(rightId)!
+  ))
   return { nodeMap, childrenMap, parentMap, roots }
 }
 

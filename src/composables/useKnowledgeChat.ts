@@ -1,17 +1,17 @@
 /**
- * AI 对话 Composable
- * 提供流式 AI 对话的状态管理和消息发送功能
+ * 知识域对话 Composable
+ * 提供流式知识对话的状态管理和消息发送功能
  */
 import { ref } from 'vue'
 import { generateMessageId, estimateTokens } from '../utils/common'
 
 // 消息角色类型
-export type MessageRole = 'user' | 'assistant' | 'system'
+export type KnowledgeChatMessageRole = 'user' | 'assistant' | 'system'
 
 // 聊天消息类型
-export interface ChatMessage {
+export interface KnowledgeChatMessage {
   id?: string
-  role: MessageRole
+  role: KnowledgeChatMessageRole
   content: string
   timestamp?: number
   // 多模态预留：图片列表
@@ -19,11 +19,11 @@ export interface ChatMessage {
 }
 
 // 对话请求参数
-export interface ChatRequest {
+export interface KnowledgeChatRequest {
   // 当前用户输入
   message: string
   // 历史消息上下文
-  history: ChatMessage[]
+  history: KnowledgeChatMessage[]
   // 使用的模型（可选）
   model?: string
   // 对话模式（可选，用于后续扩展）
@@ -38,11 +38,11 @@ export interface ChatRequest {
 }
 
 // 流式响应事件类型
-export type StreamEventType = 'start' | 'chunk' | 'end' | 'error'
+export type KnowledgeChatStreamEventType = 'start' | 'chunk' | 'end' | 'error'
 
 // 流式响应事件
-export interface ChatStreamEvent {
-  type: StreamEventType
+export interface KnowledgeChatStreamEvent {
+  type: KnowledgeChatStreamEventType
   messageId?: string
   content?: string
   usage?: {
@@ -53,7 +53,7 @@ export interface ChatStreamEvent {
 }
 
 // 上下文管理配置
-export interface ContextConfig {
+export interface KnowledgeChatContextConfig {
   // 最大保留消息轮数（一对问答算一轮）
   maxRounds: number
   // 是否启用上下文压缩
@@ -63,19 +63,19 @@ export interface ContextConfig {
 }
 
 // 默认上下文配置
-const DEFAULT_CONTEXT_CONFIG: ContextConfig = {
+const DEFAULT_CONTEXT_CONFIG: KnowledgeChatContextConfig = {
   maxRounds: 10,
   enableCompression: true,
   compressionThreshold: 4000
 }
 
 /**
- * 管理对话上下文，实现滑动窗口和压缩
+ * 管理对话上下文，实现滑动窗口和压缩。
  */
 function manageContext(
-  messages: ChatMessage[],
-  config: ContextConfig = DEFAULT_CONTEXT_CONFIG
-): ChatMessage[] {
+  messages: KnowledgeChatMessage[],
+  config: KnowledgeChatContextConfig = DEFAULT_CONTEXT_CONFIG
+): KnowledgeChatMessage[] {
   // 保留系统消息
   const systemMessages = messages.filter(m => m.role === 'system')
   let chatMessages = messages.filter(m => m.role !== 'system')
@@ -106,22 +106,21 @@ function manageContext(
 }
 
 /**
- * AI 对话 Composable
- * @param options 配置选项
+ * 管理知识域对话状态与流式消息发送。
  */
-export function useAIChat(options?: {
+export function useKnowledgeChat(options?: {
   defaultModel?: string
-  contextConfig?: Partial<ContextConfig>
+  contextConfig?: Partial<KnowledgeChatContextConfig>
   systemPrompt?: string
 }) {
   // 合并上下文配置
-  const contextConfig: ContextConfig = {
+  const contextConfig: KnowledgeChatContextConfig = {
     ...DEFAULT_CONTEXT_CONFIG,
     ...options?.contextConfig
   }
 
   // 状态
-  const messages = ref<ChatMessage[]>([])
+  const messages = ref<KnowledgeChatMessage[]>([])
   const inputText = ref('')
   const loading = ref(false)
   const currentStreamContent = ref('')
@@ -137,7 +136,7 @@ export function useAIChat(options?: {
   }
 
   /**
-   * 发送流式消息
+   * 发送流式消息。
    */
   const sendMessage = async (
     content: string,
@@ -147,7 +146,7 @@ export function useAIChat(options?: {
     if (!content.trim() || loading.value) return
 
     // 创建用户消息
-    const userMessage: ChatMessage = {
+    const userMessage: KnowledgeChatMessage = {
       id: generateMessageId(),
       role: 'user',
       content: content.trim(),
@@ -164,7 +163,7 @@ export function useAIChat(options?: {
     const managedMessages = manageContext([...messages.value], contextConfig)
 
     // 准备请求参数
-    const request: ChatRequest = {
+    const request: KnowledgeChatRequest = {
       message: userMessage.content,
       history: managedMessages.filter(m => m.role !== 'system'),
       model: model || options?.defaultModel,
@@ -212,7 +211,7 @@ export function useAIChat(options?: {
             if (data === '[DONE]') continue
 
             try {
-              const event: ChatStreamEvent = JSON.parse(data)
+              const event: KnowledgeChatStreamEvent = JSON.parse(data)
 
               switch (event.type) {
                 case 'start':
@@ -277,7 +276,7 @@ export function useAIChat(options?: {
   }
 
   /**
-   * 停止当前流式生成
+   * 停止当前流式生成。
    */
   const stopGeneration = () => {
     if (abortController.value) {
@@ -286,7 +285,7 @@ export function useAIChat(options?: {
   }
 
   /**
-   * 清空对话历史
+   * 清空对话历史。
    */
   const clearMessages = () => {
     messages.value = []
@@ -300,14 +299,14 @@ export function useAIChat(options?: {
   }
 
   /**
-   * 获取当前上下文的 token 估算
+   * 获取当前上下文的 token 估算。
    */
   const getContextTokens = (): number => {
     return messages.value.reduce((sum, m) => sum + estimateTokens(m.content), 0)
   }
 
   /**
-   * 获取当前对话轮数
+   * 获取当前对话轮数。
    */
   const getContextRounds = (): number => {
     return messages.value.filter(m => m.role === 'user').length

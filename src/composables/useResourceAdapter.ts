@@ -1,4 +1,4 @@
-import type { SmartTreeNode } from '../types'
+import type { SmartTreeNode, SOPTreeNode } from '../types'
 import type { OpenResourcePayload, ResourceNode } from '../types/resource'
 
 export interface ProjectItem {
@@ -42,9 +42,13 @@ export const createResourceNodeFromProject = (project: ProjectItem): ResourceNod
   }
 }
 
-export const createResourceNodeFromSop = (sop: SopItem): ResourceNode => {
+type SopResourceLike = SopItem | Pick<SOPTreeNode, 'key' | 'title' | 'description'>
+
+export const createResourceNodeFromSop = (sop: SopResourceLike): ResourceNode => {
+  const sopId = 'id' in sop ? sop.id : sop.key
+
   return {
-    id: sop.id,
+    id: sopId,
     title: sop.title,
     resourceType: 'sop',
     description: sop.description

@@ -6,7 +6,7 @@
     </div>
     <a-empty v-else-if="!roots.length" description="暂无结构数据" />
     <ul v-else class="tree-root">
-      <DocBlocksTreeNode
+      <IndexTreeNode
         v-for="nodeId in roots"
         :key="nodeId"
         :node-id="nodeId"
@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { nextTick, ref, watch } from 'vue'
 import type { DocBlockNode, PreviewIndexInteractionEventMap } from '../../../types/knowledge'
-import DocBlocksTreeNode from './DocBlocksTreeNode.vue'
+import IndexTreeNode from './IndexTreeNode.vue'
 
 interface Props {
   loading?: boolean

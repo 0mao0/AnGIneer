@@ -322,7 +322,17 @@ export const getItemTags = (item: StructuredIndexItem, nodeMap: Map<string, DocB
 export const hasRichMedia = (item: StructuredIndexItem, nodeMap: Map<string, DocBlockNode>): boolean => {
   const node = findNodeForItem(item, nodeMap)
   if (!node) return false
-  return Boolean(node.table_html || node.math_content || node.image_path)
+  return Boolean(node.table_html || node.math_content || node.image_path || (node.image_paths && node.image_paths.length))
+}
+
+const collectNodeImageSources = (node: DocBlockNode): string[] => {
+  const imageSources = [
+    ...(Array.isArray(node.image_paths) ? node.image_paths : []),
+    node.image_path
+  ]
+    .map(value => String(value || '').trim())
+    .filter(Boolean)
+  return Array.from(new Set(imageSources))
 }
 
 /**
@@ -336,15 +346,19 @@ export const renderNodeRichMedia = (
   if (!node) return ''
   const includeMath = options.includeMath !== false
   const sections: string[] = []
+  const imageSources = collectNodeImageSources(node)
   if (node.table_html) {
     sections.push(`<div class="media-table">${node.table_html}</div>`)
   }
-  if (node.image_path) {
-    const src = resolveAssetUrl(node.image_path, sourceFilePath)
+  imageSources.forEach((imagePath, index) => {
+    const src = resolveAssetUrl(imagePath, sourceFilePath)
     if (src) {
-      sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(node.plain_text || 'image')}" />`)
+      const imageAlt = imageSources.length > 1
+        ? `${node.plain_text || 'image'}-${index + 1}`
+        : (node.plain_text || 'image')
+      sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(imageAlt)}" />`)
     }
-  }
+  })
   if (includeMath && node.math_content) {
     sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
   }
