@@ -18,6 +18,60 @@
 
 AnGIneer 不仅仅是一个 Agent，更是一套连接知识、工具与物理世界的工业级 OS。系统采用 **Monorepo (单体仓库)** 架构：
 
+### 全局权威架构图（简版）
+
+这部分作为整个仓库的总入口，优先回答三个问题：
+
+- 用户从哪两个前端进入系统
+- 前端请求经过哪一层网关进入后端
+- 后端核心能力由哪些服务群承接
+
+```mermaid
+flowchart LR
+  User["User"]
+  Web["apps/web-console"]
+  Admin["apps/admin-console"]
+  Api["apps/api-server"]
+  DocsUI["packages/docs-ui"]
+  UIKit["packages/ui-kit"]
+  Agent["services/angineer-core"]
+  SOP["services/sop-core"]
+  Docs["services/docs-core"]
+  Geo["services/geo-core"]
+  Tools["services/engtools"]
+  Data["data/knowledge_base"]
+
+  User --> Web
+  User --> Admin
+  Web --> DocsUI
+  Admin --> DocsUI
+  Web --> UIKit
+  Admin --> UIKit
+  Web --> Api
+  Admin --> Api
+  Api --> Agent
+  Api --> SOP
+  Api --> Docs
+  Api --> Geo
+  Api --> Tools
+  Docs --> Data
+```
+
+### 全局不变量
+
+- 外部交互入口固定为 `web-console`、`admin-console` 与 `api-server`
+- 前端默认不直连后端核心服务，而是统一经由 `apps/api-server`
+- 文档知识能力由 `docs-core` 落盘到 `data/knowledge_base`
+- `web-console` 与 `admin-console` 默认共享 `docs-ui` 协议和公共组件
+
+### 全局代码锚点
+
+- 前端入口：`apps/web-console`、`apps/admin-console`
+- 网关入口：`apps/api-server`
+- 前端共享层：`packages/docs-ui`、`packages/ui-kit`
+- 核心服务层：`services/angineer-core`、`services/sop-core`、`services/docs-core`、`services/geo-core`、`services/engtools`
+- 运行时知识存储：`data/knowledge_base`
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                         用户界面层                             │
@@ -55,7 +109,7 @@ ResourceAdapter(project/knowledge/sop)
   -> openResource
   -> web-console Workbench Tabs
 
-admin-console 与 web-console 共享同一套 SmartTree / AIChat / 资源适配协议
+admin-console 与 web-console 共享同一套 KnowledgeTree / KnowledgeChatPanel / SOPTree / SOPChatPanel / 资源适配协议，基础 SmartTree / BaseChat 下沉至 ui-kit
 ```
 
 ### 2.3 文档解析与对比查改架构（当前规划）
@@ -127,6 +181,7 @@ pnpm dev:backend
 pnpm harness
 pnpm harness:workflow
 pnpm harness:tooling
+pnpm docs:arch-check
 ```
 
 ---
@@ -143,9 +198,11 @@ pnpm harness:tooling
 
 ## 5. 文档
 
-前端架构图、可开工改造清单请查看 [apps/Techniques.md](./apps/Techniques.md)
+给 AI Coding Tool 的结构化架构索引请查看 [docs/architecture-map.yaml](./docs/architecture-map.yaml)
 
-后端架构图、数据与策略实现请查看 [services/Techniques.md](./services/Techniques.md)
+前端架构图、可开工改造清单请查看 [docs/apps-techniques.md](./docs/apps-techniques.md)
+
+后端架构图、数据与策略实现请查看 [docs/services-techniques.md](./docs/services-techniques.md)
 
 ---
 

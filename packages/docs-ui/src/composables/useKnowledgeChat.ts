@@ -1,43 +1,48 @@
 /**
- * AI 对话 Store
- * 提供全局 AI 对话状态管理和流式对话功能
+ * 知识域对话 Composable
+ * 提供流式知识对话的状态管理和消息发送功能
  */
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
+import { generateMessageId, estimateTokens } from '../utils/common'
 
 // 消息角色类型
-export type MessageRole = 'user' | 'assistant' | 'system'
+export type KnowledgeChatMessageRole = 'user' | 'assistant' | 'system'
 
-// 聊天消息
-export interface Message {
-  id: string
-  role: MessageRole
+// 聊天消息类型
+export interface KnowledgeChatMessage {
+  id?: string
+  role: KnowledgeChatMessageRole
   content: string
-  timestamp: number
-  // 多模态预留
+  timestamp?: number
+  // 多模态预留：图片列表
   images?: string[]
 }
 
-// 上下文项
-export interface ContextItem {
-  id: string
-  type: 'document' | 'table' | 'formula' | 'sop'
-  title: string
-  content: string
-}
-
-// 模型选项
-export interface ModelOption {
-  value: string
-  label: string
+// 对话请求参数
+export interface KnowledgeChatRequest {
+  // 当前用户输入
+  message: string
+  // 历史消息上下文
+  history: KnowledgeChatMessage[]
+  // 使用的模型（可选）
+  model?: string
+  // 对话模式（可选，用于后续扩展）
+  mode?: 'chat' | 'reasoning' | 'vision'
+  // 扩展参数（预留）
+  context?: {
+    // 引用的规范/文档 ID 列表
+    references?: string[]
+    // 其他上下文项
+    [key: string]: any
+  }
 }
 
 // 流式响应事件类型
-export type StreamEventType = 'start' | 'chunk' | 'end' | 'error'
+export type KnowledgeChatStreamEventType = 'start' | 'chunk' | 'end' | 'error'
 
 // 流式响应事件
-export interface ChatStreamEvent {
-  type: StreamEventType
+export interface KnowledgeChatStreamEvent {
+  type: KnowledgeChatStreamEventType
   messageId?: string
   content?: string
   usage?: {
@@ -47,214 +52,129 @@ export interface ChatStreamEvent {
   error?: string
 }
 
-// 对话请求参数
-export interface ChatRequest {
-  message: string
-  history: Message[]
-  model?: string
-  mode?: 'chat' | 'reasoning' | 'vision'
-  context?: {
-    references?: string[]
-    [key: string]: any
-  }
-}
-
 // 上下文管理配置
-interface ContextConfig {
+export interface KnowledgeChatContextConfig {
+  // 最大保留消息轮数（一对问答算一轮）
   maxRounds: number
+  // 是否启用上下文压缩
   enableCompression: boolean
+  // 压缩阈值（token 数）
   compressionThreshold: number
 }
 
 // 默认上下文配置
-const DEFAULT_CONTEXT_CONFIG: ContextConfig = {
+const DEFAULT_CONTEXT_CONFIG: KnowledgeChatContextConfig = {
   maxRounds: 10,
   enableCompression: true,
   compressionThreshold: 4000
 }
 
 /**
- * 估算消息的 token 数量
- */
-function estimateTokens(message: Message): number {
-  const content = message.content || ''
-  let tokens = 0
-  for (const char of content) {
-    if (/[\u4e00-\u9fa5]/.test(char)) {
-      tokens += 1.5
-    } else {
-      tokens += 0.5
-    }
-  }
-  return Math.ceil(tokens)
-}
-
-/**
- * 管理对话上下文
+ * 管理对话上下文，实现滑动窗口和压缩。
  */
 function manageContext(
-  messages: Message[],
-  config: ContextConfig = DEFAULT_CONTEXT_CONFIG
-): Message[] {
+  messages: KnowledgeChatMessage[],
+  config: KnowledgeChatContextConfig = DEFAULT_CONTEXT_CONFIG
+): KnowledgeChatMessage[] {
+  // 保留系统消息
   const systemMessages = messages.filter(m => m.role === 'system')
   let chatMessages = messages.filter(m => m.role !== 'system')
 
-  // 滑动窗口
+  // 1. 滑动窗口：限制对话轮数
   if (config.maxRounds > 0) {
+    // 计算当前轮数（用户消息数）
     const userMessageCount = chatMessages.filter(m => m.role === 'user').length
     if (userMessageCount > config.maxRounds) {
+      // 需要丢弃的消息数
       const messagesToRemove = (userMessageCount - config.maxRounds) * 2
       chatMessages = chatMessages.slice(messagesToRemove)
     }
   }
 
-  // 上下文压缩
+  // 2. 上下文压缩：如果总 token 超过阈值，进行压缩
   if (config.enableCompression) {
-    let totalTokens = chatMessages.reduce((sum, m) => sum + estimateTokens(m), 0)
+    let totalTokens = chatMessages.reduce((sum, m) => sum + estimateTokens(m.content), 0)
+
     while (totalTokens > config.compressionThreshold && chatMessages.length > 2) {
+      // 移除最早的一对对话（用户+助手）
       const removed = chatMessages.splice(0, 2)
-      totalTokens -= removed.reduce((sum, m) => sum + estimateTokens(m), 0)
+      totalTokens -= removed.reduce((sum, m) => sum + estimateTokens(m.content), 0)
     }
   }
 
   return [...systemMessages, ...chatMessages]
 }
 
-export const useChatStore = defineStore('chat', () => {
-  // 状态
-  const messages = ref<Message[]>([])
-  const contextItems = ref<ContextItem[]>([])
-  const loading = ref(false)
-  const currentStreamContent = ref('')
-  const selectedModel = ref('')
-  const availableModels = ref<ModelOption[]>([])
-  const abortController = ref<AbortController | null>(null)
-
-  // 计算属性
-  const contextTokens = computed(() => {
-    return messages.value.reduce((sum, m) => sum + estimateTokens(m), 0)
-  })
-
-  const contextRounds = computed(() => {
-    return messages.value.filter(m => m.role === 'user').length
-  })
-
-  /**
-   * 生成唯一消息 ID
-   */
-  const generateMessageId = (): string => {
-    return `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+/**
+ * 管理知识域对话状态与流式消息发送。
+ */
+export function useKnowledgeChat(options?: {
+  defaultModel?: string
+  contextConfig?: Partial<KnowledgeChatContextConfig>
+  systemPrompt?: string
+}) {
+  // 合并上下文配置
+  const contextConfig: KnowledgeChatContextConfig = {
+    ...DEFAULT_CONTEXT_CONFIG,
+    ...options?.contextConfig
   }
 
-  /**
-   * 添加消息
-   */
-  const addMessage = (message: Omit<Message, 'id' | 'timestamp'>) => {
+  // 状态
+  const messages = ref<KnowledgeChatMessage[]>([])
+  const inputText = ref('')
+  const loading = ref(false)
+  const currentStreamContent = ref('')
+  const abortController = ref<AbortController | null>(null)
+
+  // 初始化系统提示词
+  if (options?.systemPrompt) {
     messages.value.push({
-      ...message,
-      id: generateMessageId(),
+      role: 'system',
+      content: options.systemPrompt,
       timestamp: Date.now()
     })
   }
 
   /**
-   * 添加上下文项
-   */
-  const addContextItem = (item: ContextItem) => {
-    if (!contextItems.value.find(i => i.id === item.id)) {
-      contextItems.value.push(item)
-    }
-  }
-
-  /**
-   * 移除上下文项
-   */
-  const removeContextItem = (id: string) => {
-    const index = contextItems.value.findIndex(i => i.id === id)
-    if (index > -1) {
-      contextItems.value.splice(index, 1)
-    }
-  }
-
-  /**
-   * 清空上下文
-   */
-  const clearContext = () => {
-    contextItems.value = []
-  }
-
-  /**
-   * 清空消息
-   */
-  const clearMessages = () => {
-    messages.value = []
-    currentStreamContent.value = ''
-  }
-
-  /**
-   * 获取可用模型列表
-   */
-  const fetchModels = async () => {
-    try {
-      const response = await fetch('/api/llm_configs')
-      if (response.ok) {
-        const data = await response.json()
-        availableModels.value = data
-          .filter((m: any) => m.configured)
-          .map((m: any) => ({
-            value: m.name,
-            label: m.name
-          }))
-
-        // 设置默认模型
-        if (!selectedModel.value && availableModels.value.length > 0) {
-          const qwenModel = availableModels.value.find(m =>
-            m.value.includes('Qwen2.5-7B') || m.value.includes('qwen2.5-7b')
-          )
-          selectedModel.value = qwenModel?.value || availableModels.value[0].value
-        }
-      }
-    } catch (error) {
-      console.error('获取模型列表失败:', error)
-    }
-  }
-
-  /**
-   * 发送流式消息
+   * 发送流式消息。
    */
   const sendMessage = async (
     content: string,
+    model?: string,
     onChunk?: (chunk: string) => void
   ): Promise<void> => {
     if (!content.trim() || loading.value) return
 
-    // 添加用户消息
-    const userMessage: Message = {
+    // 创建用户消息
+    const userMessage: KnowledgeChatMessage = {
       id: generateMessageId(),
       role: 'user',
       content: content.trim(),
       timestamp: Date.now()
     }
-    messages.value.push(userMessage)
 
+    // 添加用户消息到历史
+    messages.value.push(userMessage)
+    inputText.value = ''
     loading.value = true
     currentStreamContent.value = ''
 
     // 管理上下文
-    const managedMessages = manageContext([...messages.value])
+    const managedMessages = manageContext([...messages.value], contextConfig)
 
-    // 准备请求
-    const request: ChatRequest = {
+    // 准备请求参数
+    const request: KnowledgeChatRequest = {
       message: userMessage.content,
       history: managedMessages.filter(m => m.role !== 'system'),
-      model: selectedModel.value,
+      model: model || options?.defaultModel,
       mode: 'chat'
     }
 
-    // 创建 AbortController
+    // 创建 AbortController 用于取消请求
     abortController.value = new AbortController()
 
     try {
+      // 发送 SSE 请求
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
@@ -291,7 +211,7 @@ export const useChatStore = defineStore('chat', () => {
             if (data === '[DONE]') continue
 
             try {
-              const event: ChatStreamEvent = JSON.parse(data)
+              const event: KnowledgeChatStreamEvent = JSON.parse(data)
 
               switch (event.type) {
                 case 'start':
@@ -308,7 +228,7 @@ export const useChatStore = defineStore('chat', () => {
                   break
 
                 case 'end':
-                  // 流结束，添加助手消息
+                  // 流结束，添加助手消息到历史
                   messages.value.push({
                     id: assistantMessageId,
                     role: 'assistant',
@@ -330,6 +250,7 @@ export const useChatStore = defineStore('chat', () => {
     } catch (error) {
       if (error instanceof Error && error.name === 'AbortError') {
         console.log('Request aborted')
+        // 添加已接收的内容（如果有）
         if (currentStreamContent.value) {
           messages.value.push({
             id: generateMessageId(),
@@ -355,7 +276,7 @@ export const useChatStore = defineStore('chat', () => {
   }
 
   /**
-   * 停止生成
+   * 停止当前流式生成。
    */
   const stopGeneration = () => {
     if (abortController.value) {
@@ -363,26 +284,47 @@ export const useChatStore = defineStore('chat', () => {
     }
   }
 
+  /**
+   * 清空对话历史。
+   */
+  const clearMessages = () => {
+    messages.value = []
+    if (options?.systemPrompt) {
+      messages.value.push({
+        role: 'system',
+        content: options.systemPrompt,
+        timestamp: Date.now()
+      })
+    }
+  }
+
+  /**
+   * 获取当前上下文的 token 估算。
+   */
+  const getContextTokens = (): number => {
+    return messages.value.reduce((sum, m) => sum + estimateTokens(m.content), 0)
+  }
+
+  /**
+   * 获取当前对话轮数。
+   */
+  const getContextRounds = (): number => {
+    return messages.value.filter(m => m.role === 'user').length
+  }
+
   return {
     // 状态
     messages,
-    contextItems,
+    inputText,
     loading,
     currentStreamContent,
-    selectedModel,
-    availableModels,
-    // 计算属性
-    contextTokens,
-    contextRounds,
     // 方法
-    addMessage,
-    addContextItem,
-    removeContextItem,
-    clearContext,
-    clearMessages,
-    fetchModels,
     sendMessage,
     stopGeneration,
+    clearMessages,
+    getContextTokens,
+    getContextRounds,
+    // 工具
     generateMessageId
   }
-})
+}

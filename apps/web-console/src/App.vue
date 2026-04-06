@@ -17,19 +17,18 @@
         @resize="handleResize"
       >
         <template #left>
-          <LeftPanel />
+          <LeftPanel v-model:active-section="activeSection" />
         </template>
         <template #center>
           <Workbench />
         </template>
         <template #right>
-          <Panel title="AI 对话" :icon="MessageOutlined">
-            <AIChat
+          <Panel :title="chatPanelTitle" :icon="MessageOutlined">
+            <component
+              :is="currentChatPanel"
               title=""
-              placeholder="输入消息，Enter 发送..."
+              :placeholder="chatPanelPlaceholder"
               :show-context-info="true"
-              @send="handleChatSend"
-              @ready="handleChatReady"
             />
           </Panel>
         </template>
@@ -39,38 +38,31 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import { onMounted } from 'vue'
 import { MessageOutlined } from '@ant-design/icons-vue'
 import { AppHeader, SplitPanes, Panel, useTheme, type NavItem } from '@angineer/ui-kit'
-import { AIChat } from '@angineer/docs-ui'
+import { KnowledgeChatPanel, SOPChatPanel } from '@angineer/docs-ui'
 import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
-import { useChatStore } from './stores/chat'
 import { ADMIN_CONSOLE_ORIGIN } from '../../shared/ports'
 
+type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
+
 const { isDark, themeConfig, appClass, toggleTheme } = useTheme()
-const chatStore = useChatStore()
+const activeSection = ref<ResourcePanelSection>('knowledge')
 
-// 组件挂载时获取模型列表
-onMounted(() => {
-  chatStore.fetchModels()
-})
+const currentChatPanel = computed(() => (
+  activeSection.value === 'sop' ? SOPChatPanel : KnowledgeChatPanel
+))
 
-// 处理 AI Chat 准备就绪
-const handleChatReady = () => {
-}
+const chatPanelTitle = computed(() => (
+  activeSection.value === 'sop' ? 'SOP 对话' : '知识对话'
+))
 
-// 处理发送消息
-const handleChatSend = async (message: string, _model: string) => {
-  try {
-    await chatStore.sendMessage(message, (_chunk) => {
-      // 可以在这里处理每个 chunk，如果需要的话
-    })
-  } catch (error) {
-    console.error('发送消息失败:', error)
-  }
-}
+const chatPanelPlaceholder = computed(() => (
+  activeSection.value === 'sop' ? '输入 SOP 问题，Enter 发送...' : '输入消息，Enter 发送...'
+))
 
 // 导航项配置
 const navItems: NavItem[] = [

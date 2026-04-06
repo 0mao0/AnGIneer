@@ -1,12 +1,7 @@
 import { computed, nextTick, ref, watch } from 'vue'
-import type { DocBlockNode, DocBlocksGraph, StructuredIndexItem } from '../types/knowledge'
-import { buildDocBlocksGraphIndex } from './useDocBlocksGraph'
-import {
-  formatStructuredItemType,
-  findNodeForItem,
-  findNodeForItemExact,
-  isItemActive
-} from '../utils/knowledge'
+import type { DocBlocksGraph, StructuredIndexItem } from '../types/knowledge'
+import { formatStructuredItemType, isItemActive } from '../utils/knowledge'
+import { useParsedPdfIndexTree, type GraphViewportState } from './useParsedPdfIndexTree'
 
 export type PreviewMode =
   | 'Preview_HTML'
@@ -14,12 +9,6 @@ export type PreviewMode =
   | 'Preview_IndexList'
   | 'Preview_IndexTree'
   | 'Preview_IndexGraph'
-
-export interface GraphViewportState {
-  x: number
-  y: number
-  scale: number
-}
 
 export interface ParsedPdfViewerBridgeEventMap {
   'update:activeTab': [value: PreviewMode]
@@ -53,9 +42,6 @@ export function useParsedPdfViewer(
   const applyingExternalScroll = ref(false)
   const indexCurrentPage = ref(1)
   const indexPageSize = 30
-  const expandedNodeIds = ref<Set<string>>(new Set())
-  const expandedGraphNodeIds = ref<Set<string>>(new Set())
-  const graphViewportState = ref<GraphViewportState | null>(null)
 
   const isIndexMode = computed(() => (
     props.activeTab === 'Preview_IndexList'
@@ -68,22 +54,6 @@ export function useParsedPdfViewer(
     if (current instanceof HTMLElement) return current
     if (current?.$el instanceof HTMLElement) return current.$el
     return null
-  })
-
-  const hasGraphData = computed(() => (
-    Boolean(props.graphData?.nodes?.length)
-  ))
-
-  const graphNodeLookup = computed(() => {
-    const map = new Map<string, DocBlockNode>()
-    if (!props.graphData?.nodes?.length) return map
-    for (const node of props.graphData.nodes) {
-      const id = String(node.id || '').trim()
-      if (id) {
-        map.set(id, node)
-      }
-    }
-    return map
   })
 
   const flatIndexItems = computed<StructuredIndexItem[]>(() => {
@@ -118,57 +88,33 @@ export function useParsedPdfViewer(
     })
   })
 
-  const graphIndex = computed(() => buildDocBlocksGraphIndex(props.graphData))
-  const nodeMap = computed(() => graphIndex.value.nodeMap)
-  const childrenMap = computed(() => graphIndex.value.childrenMap)
-  const roots = computed(() => graphIndex.value.roots)
-
-  const getAncestors = (id: string): string[] => {
-    const ancestors: string[] = []
-    let currentId: string | undefined = id
-    while (currentId) {
-      const node = nodeMap.value.get(currentId)
-      if (node?.parent_uid && nodeMap.value.has(node.parent_uid)) {
-        ancestors.unshift(node.parent_uid)
-        currentId = node.parent_uid
-      } else {
-        break
-      }
-    }
-    return ancestors
-  }
-
-  const expandAncestors = (id: string) => {
-    const ancestors = getAncestors(id)
-    for (const ancestorId of ancestors) {
-      expandedNodeIds.value.add(ancestorId)
-      expandedGraphNodeIds.value.add(ancestorId)
-    }
-  }
-
   const findActiveItemIndex = (activeId: string | null): number => {
     if (!activeId) return -1
     return flatIndexItems.value.findIndex(item => isItemActive(item, activeId))
   }
 
-  /**
-   * 解析右侧树/图视图当前应激活的节点 ID。
-   */
-  const resolveActiveNodeId = (activeId: string | null): string | null => {
-    if (!activeId) return null
-    if (nodeMap.value.has(activeId)) return activeId
-    const activeIndex = findActiveItemIndex(activeId)
-    if (activeIndex < 0) return null
-    const item = flatIndexItems.value[activeIndex]
-    const node = props.activeTab === 'Preview_IndexTree' || props.activeTab === 'Preview_IndexGraph'
-      ? findNodeForItemExact(item, graphNodeLookup.value)
-      : findNodeForItem(item, graphNodeLookup.value)
-    return node?.id || null
-  }
-
-  const activeNodeIdForGraphTree = computed(() => (
-    resolveActiveNodeId(props.activeLinkedItemId)
-  ))
+  const {
+    hasGraphData,
+    graphNodeLookup,
+    nodeMap,
+    childrenMap,
+    roots,
+    expandedNodeIds,
+    expandedGraphNodeIds,
+    graphViewportState,
+    activeNodeIdForGraphTree,
+    onTreeToggle,
+    onGraphToggle,
+    onNodeSelect,
+    onViewportUpdate,
+    expandAncestors
+  } = useParsedPdfIndexTree(props, {
+    flatIndexItems,
+    emitToggleTreeExpand: (id) => emit('toggle-tree-expand', id),
+    emitToggleGraphExpand: (id) => emit('toggle-graph-expand', id),
+    emitSelectItem: (id) => emit('select-item', id),
+    emitUpdateGraphViewport: (state) => emit('update-graph-viewport', state)
+  })
 
   const getScrollPercent = (element: HTMLElement): number => {
     const maxScrollTop = element.scrollHeight - element.clientHeight
@@ -216,47 +162,6 @@ export function useParsedPdfViewer(
     }
   }
 
-  const onTreeToggle = (id: string) => {
-    if (expandedNodeIds.value.has(id)) {
-      expandedNodeIds.value.delete(id)
-    } else {
-      expandedNodeIds.value.add(id)
-    }
-    emit('toggle-tree-expand', id)
-  }
-
-  const onGraphToggle = (id: string) => {
-    const descendants: string[] = []
-    const queue = [...(childrenMap.value.get(id) || [])]
-    while (queue.length) {
-      const childId = queue.shift() as string
-      descendants.push(childId)
-      const children = childrenMap.value.get(childId) || []
-      queue.push(...children)
-    }
-    if (expandedGraphNodeIds.value.has(id)) {
-      expandedGraphNodeIds.value.delete(id)
-      descendants.forEach(descendantId => {
-        expandedGraphNodeIds.value.delete(descendantId)
-      })
-    } else {
-      expandedGraphNodeIds.value.add(id)
-      descendants.forEach(descendantId => {
-        expandedGraphNodeIds.value.add(descendantId)
-      })
-    }
-    emit('toggle-graph-expand', id)
-  }
-
-  const onNodeSelect = (id: string) => {
-    emit('select-item', id)
-  }
-
-  const onViewportUpdate = (state: GraphViewportState) => {
-    graphViewportState.value = state
-    emit('update-graph-viewport', state)
-  }
-
   const scrollActiveIndexItemIntoView = () => {
     if (props.activeTab !== 'Preview_IndexList') return
     const container = indexContentScrollElement.value
@@ -290,10 +195,6 @@ export function useParsedPdfViewer(
         indexCurrentPage.value = targetPage
       }
     }
-    const resolvedNodeId = resolveActiveNodeId(newId)
-    if (resolvedNodeId) {
-      expandAncestors(resolvedNodeId)
-    }
     scrollActiveIndexItemIntoView()
   }, { immediate: true })
 
@@ -306,14 +207,6 @@ export function useParsedPdfViewer(
   })
 
   watch(() => props.graphData, (data) => {
-    expandedNodeIds.value = new Set()
-    expandedGraphNodeIds.value = new Set()
-    if (data?.nodes?.length) {
-      for (const rootId of roots.value) {
-        expandedNodeIds.value.add(rootId)
-        expandedGraphNodeIds.value.add(rootId)
-      }
-    }
     if (!data?.nodes?.length && (props.activeTab === 'Preview_IndexTree' || props.activeTab === 'Preview_IndexGraph')) {
       emit('update:activeTab', 'Preview_IndexList')
     }

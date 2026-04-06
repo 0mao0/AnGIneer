@@ -1,7 +1,6 @@
 <template>
-  <div class="ai-chat-component">
-    <!-- 头部 -->
-    <div v-if="title" class="ai-chat-header">
+  <div class="base-chat-component">
+    <div v-if="title" class="chat-header">
       <span v-if="icon" class="header-icon">
         <component :is="icon" />
       </span>
@@ -10,25 +9,22 @@
         <a-tag v-if="showContextInfo" class="context-info" size="small">
           {{ contextRounds }}轮 / {{ contextTokens }}tokens
         </a-tag>
-        <a-button type="text" size="small" @click="clearMessages">
+        <a-button type="text" size="small" @click="handleClear">
           <template #icon><ClearOutlined /></template>
           清空
         </a-button>
       </div>
     </div>
 
-    <!-- 消息列表 -->
-    <div class="chat-messages" ref="messagesRef">
+    <div ref="messagesRef" class="chat-messages">
       <div
         v-for="(msg, index) in displayMessages"
         :key="msg.id || index"
         :class="['message', msg.role]"
       >
         <div class="message-content">
-          <!-- 用户消息 -->
           <template v-if="msg.role === 'user'">
             <div class="user-content">
-              <!-- 多模态：显示图片 -->
               <div v-if="msg.images?.length" class="user-images">
                 <img
                   v-for="(img, idx) in msg.images"
@@ -42,14 +38,12 @@
             </div>
           </template>
 
-          <!-- 助手消息 -->
           <template v-else-if="msg.role === 'assistant'">
             <div class="assistant-content">
-              <div class="answer-text" v-html="renderMarkdown(msg.content)" />
+              <div class="answer-text" v-html="renderContent(msg.content)" />
             </div>
           </template>
 
-          <!-- 系统消息（不显示或特殊显示） -->
           <template v-else-if="msg.role === 'system' && showSystemMessages">
             <div class="system-content">
               <InfoCircleOutlined />
@@ -59,17 +53,15 @@
         </div>
       </div>
 
-      <!-- 流式生成中的内容 -->
       <div v-if="loading && currentStreamContent" class="message assistant streaming">
         <div class="message-content">
           <div class="assistant-content">
-            <div class="answer-text" v-html="renderMarkdown(currentStreamContent)" />
-            <span class="streaming-cursor">▌</span>
+            <div class="answer-text" v-html="renderContent(currentStreamContent)" />
+            <span class="streaming-cursor">|</span>
           </div>
         </div>
       </div>
 
-      <!-- 加载状态 -->
       <div v-if="loading && !currentStreamContent" class="message assistant loading">
         <div class="message-content">
           <div class="assistant-content">
@@ -80,30 +72,26 @@
       </div>
     </div>
 
-    <!-- 可拖动边界线 -->
     <div
       class="resize-handle"
-      @mousedown="startResize"
       title="拖动调整输入区域高度"
+      @mousedown="startResize"
     >
       <div class="resize-indicator"></div>
     </div>
 
-    <!-- 输入区域 -->
-    <div class="chat-input" ref="chatInputRef" :style="{ height: inputHeight + 'px' }">
-      <!-- 上下文引用提示 -->
-      <div class="context-hint" v-if="contextItems.length">
+    <div ref="chatInputRef" class="chat-input" :style="{ height: `${inputHeight}px` }">
+      <div v-if="contextItems.length" class="context-hint">
         <a-tag
           v-for="item in contextItems"
           :key="item.id"
           closable
-          @close="removeContext(item.id)"
+          @close="handleRemoveContext(item.id)"
         >
           {{ item.title }}
         </a-tag>
       </div>
 
-      <!-- 图片预览（多模态预留） -->
       <div v-if="pendingImages.length" class="image-preview">
         <div
           v-for="(img, idx) in pendingImages"
@@ -115,7 +103,6 @@
         </div>
       </div>
 
-      <!-- 输入框容器 -->
       <div class="input-wrapper">
         <a-textarea
           v-model:value="inputText"
@@ -125,16 +112,14 @@
           @keydown.enter.prevent="handleEnter"
         />
 
-        <!-- 操作栏（嵌入在输入框内） -->
         <div class="input-actions">
-          <!-- 左侧：上传按钮（固定） -->
           <div class="left-actions">
             <a-button
               type="text"
               size="small"
-              :disabled="loading"
+              :disabled="loading || !allowImageUpload"
+              :title="allowImageUpload ? '上传图片（开发中）' : '图片上传不可用'"
               @click="handleImageUpload"
-              title="上传图片（开发中）"
             >
               <template #icon><PictureOutlined /></template>
             </a-button>
@@ -148,7 +133,6 @@
             />
           </div>
 
-          <!-- 中间：模型选择（自适应宽度） -->
           <div class="center-actions">
             <a-select
               v-model:value="selectedModel"
@@ -157,6 +141,7 @@
               :loading="loadingModels"
               :disabled="loading"
               :title="selectedModel"
+              @change="onModelChange"
             >
               <a-select-option
                 v-for="model in models"
@@ -169,7 +154,6 @@
             </a-select>
           </div>
 
-          <!-- 右侧：发送按钮（固定） -->
           <div class="right-actions">
             <a-button
               v-if="loading"
@@ -177,8 +161,8 @@
               danger
               size="small"
               class="icon-btn"
-              @click="stopGeneration"
               title="停止生成"
+              @click="handleStop"
             >
               <PauseCircleOutlined />
             </a-button>
@@ -188,8 +172,8 @@
               size="small"
               class="icon-btn"
               :disabled="!inputText.trim() && !pendingImages.length"
-              @click="handleSend"
               title="发送消息 (Enter)"
+              @click="handleSend"
             >
               <SendOutlined />
             </a-button>
@@ -201,7 +185,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, nextTick, onMounted, watch } from 'vue'
+/**
+ * 基础聊天组件。
+ * 负责通用聊天 UI、输入区交互与消息展示，不直接耦合具体知识域接口。
+ */
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import {
   ClearOutlined,
   SendOutlined,
@@ -210,142 +198,100 @@ import {
   CloseCircleOutlined,
   InfoCircleOutlined
 } from '@ant-design/icons-vue'
-import { useAIChat } from '../../../composables/useAIChat'
-import { renderMarkdown } from '../../../utils/knowledge'
+import type { BaseChatContextItem, BaseChatMessage, BaseChatModelOption } from '../../types'
 
-// 模型选项类型
-interface ModelOption {
-  value: string
-  label: string
-}
-
-// 上下文项类型
-interface ContextItem {
-  id: string
-  title: string
-}
-
-// 组件属性
 interface Props {
-  // 默认模型
+  messages: BaseChatMessage[]
+  loading: boolean
+  currentStreamContent?: string
+  models?: BaseChatModelOption[]
+  loadingModels?: boolean
   defaultModel?: string
-  // 占位提示
   placeholder?: string
-  // 上下文引用项
-  contextItems?: ContextItem[]
-  // 标题
+  contextItems?: BaseChatContextItem[]
   title?: string
-  // 图标
   icon?: any
-  // 系统提示词
-  systemPrompt?: string
-  // 是否显示上下文信息
   showContextInfo?: boolean
-  // 是否显示系统消息
   showSystemMessages?: boolean
+  contextTokens?: number
+  contextRounds?: number
+  renderMessage?: (content: string) => string
+  allowImageUpload?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  currentStreamContent: '',
+  models: () => [],
+  loadingModels: false,
   defaultModel: '',
   placeholder: '输入消息，Enter 发送...',
   contextItems: () => [],
   title: 'AI 助手',
   icon: undefined,
-  systemPrompt: '',
   showContextInfo: true,
-  showSystemMessages: false
+  showSystemMessages: false,
+  contextTokens: 0,
+  contextRounds: 0,
+  renderMessage: undefined,
+  allowImageUpload: true
 })
 
-// 事件定义
 const emit = defineEmits<{
   send: [message: string, model: string]
   ready: []
+  clear: []
+  stop: []
   removeContext: [id: string]
-  error: [error: Error]
+  modelChange: [model: string]
 }>()
 
-// 使用 AI Chat composable
-const {
-  messages,
-  inputText,
-  loading,
-  currentStreamContent,
-  sendMessage,
-  stopGeneration,
-  clearMessages,
-  getContextTokens,
-  getContextRounds
-} = useAIChat({
-  defaultModel: props.defaultModel,
-  systemPrompt: props.systemPrompt
-})
-
-// 本地状态
 const messagesRef = ref<HTMLElement | null>(null)
 const chatInputRef = ref<HTMLElement | null>(null)
-const loadingModels = ref(false)
-const selectedModel = ref(props.defaultModel)
-const models = ref<ModelOption[]>([])
-const pendingImages = ref<string[]>([])
 const imageInputRef = ref<HTMLInputElement | null>(null)
-
-// 输入区域高度调整状态
-const inputHeight = ref(150) // 默认高度 150px
+const inputText = ref('')
+const pendingImages = ref<string[]>([])
+const selectedModel = ref(props.defaultModel)
+const inputHeight = ref(150)
 const isResizing = ref(false)
 const startY = ref(0)
 const startHeight = ref(0)
 const minInputHeight = 100
-const maxInputHeightRatio = 0.5 // 最大占父容器高度的 50%
+const maxInputHeightRatio = 0.5
 
-// 计算属性：显示的消息（过滤系统消息）
 const displayMessages = computed(() => {
-  return messages.value.filter(m => m.role !== 'system')
+  if (props.showSystemMessages) {
+    return props.messages
+  }
+
+  return props.messages.filter(message => message.role !== 'system')
 })
 
-// 计算属性：上下文信息
-const contextTokens = computed(() => getContextTokens())
-const contextRounds = computed(() => getContextRounds())
-
 /**
- * 从 API 获取可用模型列表
+ * 转义纯文本内容，避免在默认渲染路径中注入 HTML。
  */
-const fetchModels = async () => {
-  loadingModels.value = true
-  try {
-    const response = await fetch('/api/llm_configs')
-    if (response.ok) {
-      const data = await response.json()
-      // 转换后端模型配置为前端选项格式
-      models.value = data
-        .filter((m: any) => m.configured)
-        .map((m: any) => ({
-          value: m.name,
-          label: m.name
-        }))
-
-      // 如果没有指定默认模型，优先使用 Qwen3-4B
-      if (!selectedModel.value && models.value.length > 0) {
-        const qwenModel = models.value.find(m =>
-          m.value.includes('Qwen3-4B') || m.value.includes('qwen3-4b')
-        )
-        selectedModel.value = qwenModel?.value || models.value[0].value
-      }
-    } else {
-      // API 失败时使用默认模型
-      models.value = [{ value: 'default', label: '默认模型' }]
-      selectedModel.value = 'default'
-    }
-  } catch (error) {
-    console.error('获取模型列表失败:', error)
-    models.value = [{ value: 'default', label: '默认模型' }]
-    selectedModel.value = 'default'
-  } finally {
-    loadingModels.value = false
-  }
+const escapeHtml = (content: string): string => {
+  return content
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
 }
 
 /**
- * 滚动到底部
+ * 渲染消息内容。
+ * 如果上层提供了领域渲染器，则优先使用；否则退回纯文本换行渲染。
+ */
+const renderContent = (content: string): string => {
+  if (props.renderMessage) {
+    return props.renderMessage(content)
+  }
+
+  return escapeHtml(content).replace(/\n/g, '<br />')
+}
+
+/**
+ * 将消息区域滚动到底部。
  */
 const scrollToBottom = () => {
   nextTick(() => {
@@ -356,24 +302,126 @@ const scrollToBottom = () => {
 }
 
 /**
- * 处理 Enter 键事件 - Shift+Enter 换行，Enter 发送
+ * 在模型列表变化后同步默认模型，避免空选中状态。
  */
-const handleEnter = (e: KeyboardEvent) => {
-  if (e.shiftKey) {
-    // Shift+Enter 换行，不阻止默认行为
+const syncSelectedModel = () => {
+  if (selectedModel.value) {
     return
   }
-  // Enter 发送消息
-  e.preventDefault()
+
+  if (props.defaultModel) {
+    selectedModel.value = props.defaultModel
+    return
+  }
+
+  if (props.models.length > 0) {
+    selectedModel.value = props.models[0].value
+  }
+}
+
+/**
+ * 处理回车发送与 Shift+Enter 换行。
+ */
+const handleEnter = (event: KeyboardEvent) => {
+  if (event.shiftKey) {
+    return
+  }
+
+  event.preventDefault()
   handleSend()
 }
 
 /**
- * 开始拖动调整输入区域高度
+ * 触发发送事件并在成功发起后清空输入态。
  */
-const startResize = (e: MouseEvent) => {
+const handleSend = () => {
+  const content = inputText.value.trim()
+  if (!content && !pendingImages.value.length) {
+    return
+  }
+
+  emit('send', content, selectedModel.value)
+  inputText.value = ''
+  pendingImages.value = []
+  scrollToBottom()
+}
+
+/**
+ * 通知上层清空当前会话。
+ */
+const handleClear = () => {
+  emit('clear')
+}
+
+/**
+ * 通知上层停止当前流式生成。
+ */
+const handleStop = () => {
+  emit('stop')
+}
+
+/**
+ * 通知上层移除上下文标签。
+ */
+const handleRemoveContext = (id: string) => {
+  emit('removeContext', id)
+}
+
+/**
+ * 响应模型切换事件。
+ */
+const onModelChange = (model: string) => {
+  selectedModel.value = model
+  emit('modelChange', model)
+}
+
+/**
+ * 打开隐藏的图片选择框。
+ */
+const handleImageUpload = () => {
+  if (!props.allowImageUpload) {
+    return
+  }
+
+  imageInputRef.value?.click()
+}
+
+/**
+ * 读取图片为预览数据，供后续多模态能力接入。
+ */
+const onImageSelected = (event: Event) => {
+  const target = event.target as HTMLInputElement
+  const files = target.files
+  if (!files) {
+    return
+  }
+
+  Array.from(files).forEach(file => {
+    const reader = new FileReader()
+    reader.onload = loadEvent => {
+      if (loadEvent.target?.result) {
+        pendingImages.value.push(loadEvent.target.result as string)
+      }
+    }
+    reader.readAsDataURL(file)
+  })
+
+  target.value = ''
+}
+
+/**
+ * 移除待发送图片预览项。
+ */
+const removeImage = (index: number) => {
+  pendingImages.value.splice(index, 1)
+}
+
+/**
+ * 开始拖动调整输入区高度。
+ */
+const startResize = (event: MouseEvent) => {
   isResizing.value = true
-  startY.value = e.clientY
+  startY.value = event.clientY
   startHeight.value = inputHeight.value
 
   document.addEventListener('mousemove', handleResize)
@@ -381,24 +429,23 @@ const startResize = (e: MouseEvent) => {
 }
 
 /**
- * 处理拖动调整
+ * 根据鼠标位移实时更新输入区高度。
  */
-const handleResize = (e: MouseEvent) => {
-  if (!isResizing.value) return
+const handleResize = (event: MouseEvent) => {
+  if (!isResizing.value) {
+    return
+  }
 
-  const deltaY = startY.value - e.clientY
+  const deltaY = startY.value - event.clientY
   const newHeight = startHeight.value + deltaY
-
-  // 计算最大高度（父容器高度的 50%）
   const parentHeight = chatInputRef.value?.parentElement?.clientHeight || window.innerHeight
   const maxHeight = parentHeight * maxInputHeightRatio
 
-  // 限制高度在最小值和最大值之间
   inputHeight.value = Math.max(minInputHeight, Math.min(newHeight, maxHeight))
 }
 
 /**
- * 停止拖动调整
+ * 结束拖动调整并解绑全局事件。
  */
 const stopResize = () => {
   isResizing.value = false
@@ -406,107 +453,37 @@ const stopResize = () => {
   document.removeEventListener('mouseup', stopResize)
 }
 
-/**
- * 处理发送消息
- */
-const handleSend = async () => {
-  const content = inputText.value.trim()
-  if (!content && !pendingImages.value.length) return
+watch(() => props.messages.length, scrollToBottom)
+watch(() => props.currentStreamContent, scrollToBottom)
+watch(() => props.defaultModel, value => {
+  selectedModel.value = value
+})
+watch(() => props.models, syncSelectedModel, { deep: true, immediate: true })
 
-  // 构建消息内容（包含图片）
-  let messageContent = content
-
-  // 立即清空输入框，防止重复发送
-  inputText.value = ''
-  await nextTick()
-
-  emit('send', messageContent, selectedModel.value)
-
-  try {
-    await sendMessage(messageContent, selectedModel.value, () => {
-      scrollToBottom()
-    })
-
-    // 清空待发送图片
-    pendingImages.value = []
-  } catch (error) {
-    emit('error', error instanceof Error ? error : new Error(String(error)))
-  }
-
-  scrollToBottom()
-}
-
-/**
- * 移除上下文引用项
- */
-const removeContext = (id: string) => {
-  emit('removeContext', id)
-}
-
-/**
- * 处理图片上传点击
- */
-const handleImageUpload = () => {
-  imageInputRef.value?.click()
-}
-
-/**
- * 图片选择处理（多模态预留）
- */
-const onImageSelected = (event: Event) => {
-  const target = event.target as HTMLInputElement
-  const files = target.files
-  if (!files) return
-
-  // 读取图片为 base64（预留）
-  Array.from(files).forEach(file => {
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      if (e.target?.result) {
-        pendingImages.value.push(e.target.result as string)
-      }
-    }
-    reader.readAsDataURL(file)
-  })
-
-  // 清空 input 以便重复选择同一文件
-  target.value = ''
-}
-
-/**
- * 移除待发送图片
- */
-const removeImage = (index: number) => {
-  pendingImages.value.splice(index, 1)
-}
-
-// 监听消息变化，自动滚动
-watch(() => messages.value.length, scrollToBottom)
-watch(currentStreamContent, scrollToBottom)
-
-// 组件挂载时获取模型列表
 onMounted(() => {
-  fetchModels()
+  syncSelectedModel()
   emit('ready')
 })
 
-// 暴露方法给父组件
+onBeforeUnmount(() => {
+  stopResize()
+})
+
 defineExpose({
-  messages,
-  clearMessages,
-  sendMessage: handleSend
+  inputText,
+  selectedModel
 })
 </script>
 
 <style lang="less" scoped>
-.ai-chat-component {
+.base-chat-component {
   display: flex;
   flex-direction: column;
   height: 100%;
   background: var(--bg-primary, #fff);
 }
 
-.ai-chat-header {
+.chat-header {
   display: flex;
   align-items: center;
   padding: 12px 16px;
@@ -688,7 +665,6 @@ defineExpose({
   51%, 100% { opacity: 0; }
 }
 
-// 可拖动边界线
 .resize-handle {
   height: 8px;
   background: transparent;
@@ -768,7 +744,6 @@ defineExpose({
     }
   }
 
-  // 输入框容器 - 占满输入区域高度
   .input-wrapper {
     position: relative;
     display: flex;
@@ -779,11 +754,11 @@ defineExpose({
     :deep(.ant-input) {
       flex: 1;
       border-radius: 12px;
-      resize: none; // 禁用 textarea 自带的 resize，使用外部拖动条
+      resize: none;
       background: var(--bg-secondary, #fff);
       color: var(--text-primary, rgba(0, 0, 0, 0.88));
       border-color: var(--border-color, #d9d9d9);
-      padding: 12px 12px 48px 12px; // 底部留出按钮空间
+      padding: 12px 12px 48px 12px;
       font-size: 14px;
       line-height: 1.6;
       overflow-y: auto;
@@ -799,7 +774,6 @@ defineExpose({
     }
   }
 
-  // 操作栏 - 绝对定位在输入框内部底部
   .input-actions {
     position: absolute;
     bottom: 8px;
@@ -808,22 +782,20 @@ defineExpose({
     display: flex;
     align-items: center;
     gap: 8px;
-    pointer-events: none; // 允许点击穿透到 textarea
+    pointer-events: none;
 
     .left-actions,
     .center-actions,
     .right-actions {
-      pointer-events: auto; // 恢复按钮的点击
+      pointer-events: auto;
     }
 
-    // 左侧：上传按钮（固定宽度）
     .left-actions {
       display: flex;
       gap: 8px;
       flex-shrink: 0;
     }
 
-    // 中间：模型选择（自适应宽度）
     .center-actions {
       flex: 1;
       min-width: 0;
@@ -855,7 +827,6 @@ defineExpose({
       }
     }
 
-    // 右侧：发送按钮（固定宽度）
     .right-actions {
       display: flex;
       align-items: center;

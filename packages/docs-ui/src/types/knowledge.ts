@@ -80,6 +80,7 @@ export interface DocBlockNode {
   derived_by: string
   confidence: number
   image_path: string | null
+  image_paths?: string[] | null
   table_html: string | null
   math_content: string | null
   title?: string | null

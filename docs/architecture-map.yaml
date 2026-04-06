@@ -1,0 +1,181 @@
+version: 1
+last_updated: 2026-04-06
+
+truth_sources:
+  - README.md
+  - docs/apps-techniques.md
+  - docs/services-techniques.md
+  - AGENTS.md
+  - package.json
+
+readme_required_tokens:
+  - apps/web-console
+  - apps/admin-console
+  - apps/api-server
+  - packages/docs-ui
+  - packages/ui-kit
+  - services/angineer-core
+  - services/sop-core
+  - services/docs-core
+  - services/geo-core
+  - services/engtools
+  - data/knowledge_base
+
+system:
+  name: AnGIneer
+  repo_style: monorepo
+  platforms:
+    - web-console
+    - admin-console
+    - api-server
+  default_ports:
+    web_console: 3005
+    admin_console: 3002
+    api_server: 8033
+
+modules:
+  - id: web-console
+    path: apps/web-console
+    role: user_workbench
+    depends_on:
+      - docs-ui
+      - ui-kit
+      - api-server
+    key_symbols:
+      - useResourceOpen
+      - workbenchStore.openResource
+      - Workbench
+
+  - id: admin-console
+    path: apps/admin-console
+    role: admin_workspace
+    depends_on:
+      - docs-ui
+      - ui-kit
+      - api-server
+    key_symbols:
+      - KnowledgeManage
+      - router-view
+
+  - id: api-server
+    path: apps/api-server
+    role: gateway
+    depends_on:
+      - docs-core
+      - angineer-core
+      - engtools
+      - sop-core
+      - geo-core
+    key_symbols:
+      - main.py
+      - knowledge_routes.py
+    exposes:
+      - /api/knowledge/*
+
+  - id: docs-ui
+    path: packages/docs-ui
+    role: shared_ui_and_protocol
+    depends_on:
+      - ui-kit
+    key_symbols:
+      - KnowledgeTree
+      - KnowledgeChatPanel
+      - SOPTree
+      - SOPChatPanel
+      - createResourceNodeFromKnowledge
+      - createOpenResourcePayload
+
+  - id: ui-kit
+    path: packages/ui-kit
+    role: shared_layout_and_theme
+    depends_on: []
+    key_symbols:
+      - SmartTree
+      - BaseChat
+      - SplitPanes
+      - useTheme
+
+  - id: docs-core
+    path: services/docs-core
+    role: document_parse_and_knowledge
+    depends_on: []
+    key_symbols:
+      - knowledge_service.py
+      - mineru_parser.py
+      - result_store_json.py
+
+  - id: angineer-core
+    path: services/angineer-core
+    role: agent_orchestration
+    depends_on: []
+
+  - id: engtools
+    path: services/engtools
+    role: engineering_tools
+    depends_on: []
+
+  - id: sop-core
+    path: services/sop-core
+    role: sop_runtime
+    depends_on: []
+
+  - id: geo-core
+    path: services/geo-core
+    role: geo_runtime
+    depends_on: []
+
+flows:
+  - id: resource-open
+    purpose: Open knowledge, project, and SOP resources through one frontend protocol.
+    steps:
+      - createResourceNode
+      - createOpenResourcePayload
+      - useResourceOpen.openResource
+      - workbenchStore.openResource
+      - Workbench view mapping
+    anchors:
+      - packages/docs-ui/src/composables/useResourceAdapter.ts
+      - apps/web-console/src/composables/useResourceOpen.ts
+      - apps/web-console/src/stores/workbench.ts
+
+  - id: docs-runtime
+    purpose: Parse one document into storage, index, and frontend-readable outputs.
+    steps:
+      - register_document
+      - ParseOrchestrator.create_parse_task
+      - mineru_parser.parse_document
+      - result_store_json.save_markdown
+      - result_store_json.save_parse_artifacts
+      - build_structured_index_for_doc
+      - GET /api/knowledge/document/{library_id}/{doc_id}
+      - GET /api/knowledge/document/{library_id}/{doc_id}/structured
+    anchors:
+      - apps/api-server/knowledge_routes.py
+      - services/docs-core/src/docs_core/parser/mineru_parser.py
+      - services/docs-core/src/docs_core/structured/result_store_json.py
+      - services/docs-core/src/docs_core/knowledge_service.py
+
+storage:
+  document_root: data/knowledge_base/libraries/{library_id}/documents/{doc_id}
+  databases:
+    - data/knowledge_base/knowledge_meta.sqlite
+    - data/knowledge_base/knowledge_index.sqlite
+  expected_layout:
+    - source/
+    - parsed/
+    - edited/
+    - structured/
+
+invariants:
+  - web-console and admin-console should share the resource protocol by default.
+  - frontend /api proxy must point to http://localhost:8033.
+  - api-server is the gateway entry for frontend knowledge access.
+  - docs parsing must remain asynchronous when work is long-running.
+  - docs storage follows one-document-one-folder.
+  - docs-core runtime data uses knowledge_meta.sqlite and knowledge_index.sqlite.
+
+change_checklist:
+  - If ports change, update every reference in docs and frontend proxy config in the same change.
+  - If resource protocol changes, update adapter, open flow, workbench mapping, and both consoles.
+  - If docs storage layout changes, update docs-core, engtools compatibility, docs, and migration path.
+  - If knowledge routes change, update README and both techniques documents.

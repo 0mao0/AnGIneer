@@ -1,4 +1,4 @@
-"""同步技术文档中的自动命令块。"""
+"""同步 docs 根目录中技术文档的自动命令块。"""
 import argparse
 import json
 import sys
@@ -54,12 +54,12 @@ def build_sync_blocks(repo_root: Path, scripts: dict) -> List[SyncBlock]:
             raise ValueError(f"package.json 缺少脚本: {script_name}")
     return [
         SyncBlock(
-            doc_path=repo_root / "apps" / "Techniques.md",
+            doc_path=repo_root / "docs" / "apps-techniques.md",
             marker="APPS_TECH_COMMANDS",
             commands=apps_commands,
         ),
         SyncBlock(
-            doc_path=repo_root / "services" / "Techniques.md",
+            doc_path=repo_root / "docs" / "services-techniques.md",
             marker="SERVICES_TECH_COMMANDS",
             commands=services_commands,
         ),
@@ -122,7 +122,7 @@ def run(check_only: bool) -> int:
 
 # 解析命令行参数。
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="同步 Techniques.md 中的自动命令块")
+    parser = argparse.ArgumentParser(description="同步 docs 根目录下技术文档中的自动命令块")
     parser.add_argument("--check", action="store_true", help="仅检查，不写回文件")
     return parser.parse_args()
 

@@ -14,9 +14,10 @@
     "services:install": "pip install -e services/angineer-core -e services/sop-core -e services/docs-core -e services/geo-core -e services/engtools",
     "api:dev": "python apps/api-server/main.py",
     "harness": "python -m unittest discover -s tests -p \"test_*.py\"",
-    "harness:workflow": "python -m unittest tests.test_05_whole_workflow",
-    "harness:tooling": "python -m unittest tests.test_01_tool_registration",
+    "harness:workflow": "python -m unittest tests.integration.test_05_Q1_with_reports",
+    "harness:tooling": "python -m unittest tests.integration.test_01_tool_registration",
     "docs:sync": "python tools/sync_tech_docs.py",
-    "docs:check": "python tools/sync_tech_docs.py --check"
+    "docs:check": "python tools/check_docs_suite.py",
+    "docs:arch-check": "python tools/check_architecture_docs.py"
   }
 }

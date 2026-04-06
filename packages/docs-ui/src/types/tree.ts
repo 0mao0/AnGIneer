@@ -33,5 +33,12 @@ export interface KnowledgeTreeNode extends SmartTreeNode {
   children?: KnowledgeTreeNode[]
 }
 
+export interface SOPTreeNode extends SmartTreeNode {
+  isFolder: boolean
+  description?: string
+  category?: string
+  children?: SOPTreeNode[]
+}
+
 /** 树节点操作类型 */
 export type TreeNodeAction = 'rename' | 'add-folder' | 'add-file' | 'delete' | 'view'

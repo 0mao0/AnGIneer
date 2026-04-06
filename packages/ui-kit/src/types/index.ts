@@ -19,3 +19,11 @@ export interface PanelProps {
   minWidth?: number
   maxWidth?: number
 }
+
+export type {
+  BaseChatMessageRole,
+  BaseChatMessage,
+  BaseChatContextItem,
+  BaseChatModelOption
+} from './chat'
+export type { SmartTreeNode, TreeNodeAction } from './tree'

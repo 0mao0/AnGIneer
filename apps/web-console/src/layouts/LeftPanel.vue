@@ -6,8 +6,7 @@
       </a-tab-pane>
       <a-tab-pane key="knowledge" tab="知识">
         <div class="knowledge-panel">
-          <SmartTree
-            ref="smartTreeRef"
+          <KnowledgeTree
             :tree-data="treeData"
             v-bind="treeProps"
             :loading="loading"
@@ -17,7 +16,7 @@
               <FolderOutlined v-if="node?.isFolder" style="color: #faad14" />
               <FileTextOutlined v-else style="color: #1890ff" />
             </template>
-          </SmartTree>
+          </KnowledgeTree>
         </div>
       </a-tab-pane>
       <a-tab-pane key="sop" tab="经验">
@@ -28,9 +27,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { FolderOutlined, FileTextOutlined } from '@ant-design/icons-vue'
-import { SmartTree, useKnowledgeTree, createResourceNodeFromKnowledge } from '@angineer/docs-ui'
+import { KnowledgeTree, useKnowledgeTree, createResourceNodeFromKnowledge } from '@angineer/docs-ui'
 import SOPSidebar from './sidebar/SOPSidebar.vue'
 import ProjectSidebar from './sidebar/ProjectSidebar.vue'
 import { useThemeStore } from '@/stores'
@@ -38,10 +37,24 @@ import { knowledgeApi } from '@/api/knowledge'
 import type { SmartTreeNode } from '@angineer/docs-ui'
 import { useResourceOpen } from '@/composables/useResourceOpen'
 
-const themeStore = useThemeStore()
-const activeTab = ref('knowledge')
+type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
 
-const smartTreeRef = ref<InstanceType<typeof SmartTree> | null>(null)
+const props = withDefaults(defineProps<{
+  activeSection?: ResourcePanelSection
+}>(), {
+  activeSection: 'knowledge'
+})
+
+const emit = defineEmits<{
+  'update:activeSection': [value: ResourcePanelSection]
+}>()
+
+const themeStore = useThemeStore()
+const activeTab = computed({
+  get: () => props.activeSection,
+  set: (value) => emit('update:activeSection', value)
+})
+
 const { treeData, buildTree } = useKnowledgeTree()
 const loading = ref(false)
 const { openResource } = useResourceOpen()

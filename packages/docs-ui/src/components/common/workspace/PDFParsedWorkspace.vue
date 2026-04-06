@@ -1,5 +1,5 @@
 <template>
-  <div class="doc-preview" :class="{ 'dark-mode': darkMode }">
+  <div class="doc-preview" :class="{ 'dark-mode': props.darkMode }">
     <div class="preview-content">
       <div class="split-preview">
         <PDF_Viewer
@@ -85,7 +85,7 @@ const props = withDefaults(defineProps<Props>(), {
   darkMode: false
 })
 
-const emit = defineEmits<PDFParsedWorkspaceEventMap>()
+defineEmits<PDFParsedWorkspaceEventMap>()
 /* 计算解析面板的默认展示 tab。 */
 const getDefaultParsedTab = (): PreviewMode => (
   props.graphData?.nodes?.length ? 'Preview_IndexTree' : 'Preview_IndexList'

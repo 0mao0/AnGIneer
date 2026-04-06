@@ -44,7 +44,9 @@ src/
 │  │  ├─ Preview_IndexGraph.vue
 │  │  ├─ DocBlocksTreeNode.vue
 │  │  ├─ SmartTree.vue
-│  │  └─ AIChat.vue
+│  │  ├─ KnowledgeChatPanel.vue
+│  │  ├─ SOPTree.vue
+│  │  └─ SOPChatPanel.vue
 │  └─ index.ts
 ├─ composables/                # B 层
 │  ├─ useWorkspacePreview.ts
@@ -53,7 +55,9 @@ src/
 │  ├─ useParsedPdfViewer.ts
 │  ├─ useDocBlocksGraph.ts
 │  ├─ useKnowledgeTree.ts
-│  ├─ useAIChat.ts
+│  ├─ useKnowledgeChat.ts
+│  ├─ useSopTree.ts
+│  ├─ useSopChat.ts
 │  ├─ useDocument.ts
 │  ├─ useQuery.ts
 │  ├─ useRefAnchor.ts
@@ -145,7 +149,9 @@ src/
 | `Preview_IndexGraph.vue` | 索引图视图 | `toggle` `select` `update-viewport` | 内聚图算法+交互（已合并原 `DocBlocksGraph`） |
 | `DocBlocksTreeNode.vue` | 树节点渲染 | `toggle` `select` | 被 `Preview_IndexTree` 递归调用 |
 | `SmartTree.vue` | 通用资源树组件 | `select` `rename` `add-folder` `add-file` `delete` `view` `drop` `search` `file-drop` `drop-invalid` `drop-root` | `types/tree` |
-| `AIChat.vue` | AI 对话 UI | `send` `ready` `removeContext` `error` | `useAIChat` |
+| `KnowledgeChatPanel.vue` | 知识域对话面板 | `send` `ready` `removeContext` `error` | `useKnowledgeChat` |
+| `SOPTree.vue` | 经验库语义树组件 | `select` `view` `search` | `useSopTree` |
+| `SOPChatPanel.vue` | 经验库对话面板 | `send` `ready` `removeContext` `error` | `useSopChat` |
 
 ### 5.2 Workspace 核心编排函数（`DocumentParsedWorkspace.vue`）
 
@@ -169,7 +175,9 @@ src/
 | `useParsedPdfViewer.ts` | `useParsedPdfViewer` | 右侧索引列表/树/图的统一状态、分页、展开、视口持久 |
 | `useDocBlocksGraph.ts` | `useDocBlocksGraph` | 图结构状态容器（nodeMap/childrenMap/roots）与视图模式控制 |
 | `useKnowledgeTree.ts` | `useKnowledgeTree` | 知识树运行时状态与节点操作（选中、状态更新、上传任务） |
-| `useAIChat.ts` | `useAIChat` | 对话流式发送、上下文窗口管理、终止/清空、token 估算 |
+| `useKnowledgeChat.ts` | `useKnowledgeChat` | 对话流式发送、上下文窗口管理、终止/清空、token 估算 |
+| `useSopTree.ts` | `useSopTree` | 经验库树默认数据、查找与选中状态管理 |
+| `useSopChat.ts` | `useSopChat` | 经验库聊天语义封装与默认系统提示词 |
 | `useDocument.ts` | `useDocument` | 文档/库查询、块查询 |
 | `useQuery.ts` | `useQuery` | 表查询与语义查询、历史记录 |
 | `useRefAnchor.ts` | `useRefAnchor` | 引用上下文管理、引用拉取、复制 |
@@ -206,10 +214,10 @@ src/
 - 状态：`treeData` `selectedKeys` `expandedKeys` `selectedNode` `uploadTasks`
 - 方法：`buildTree` `findNode` `getChildCount` `getFolderName` `selectNode` `updateNodeStatus` `addUploadTask` `updateUploadTask` `setTreeData`
 
-#### `useAIChat.ts`
+#### `useKnowledgeChat.ts`
 - 状态：`messages` `inputText` `loading` `currentStreamContent`
 - 方法：`sendMessage` `stopGeneration` `clearMessages` `getContextTokens` `getContextRounds` `generateMessageId`
-- 类型：`ChatMessage` `ChatRequest` `ChatStreamEvent` `ContextConfig`
+- 类型：`KnowledgeChatMessage` `KnowledgeChatRequest` `KnowledgeChatStreamEvent` `KnowledgeChatContextConfig`
 
 #### `useDocument.ts`
 - 状态：`document` `loading` `error`
@@ -276,7 +284,7 @@ src/
 - `useDocument.ts`：`/api/docs/documents/*` `/api/docs/libraries/*` `/api/docs/search`
 - `useQuery.ts`：`/api/docs/tables/*/query` `/api/docs/query/semantic`
 - `useRefAnchor.ts`：`/api/docs/references/*`
-- `useAIChat.ts`：`/api/chat`
+- `useKnowledgeChat.ts`：`/api/chat`
 - 预览文件：`/api/files?path=...`
 
 ### 9.2 后端解析/存储关键点（D 层落盘）
@@ -295,7 +303,7 @@ src/
 
 ### 10.1 出口文件
 - `src/index.ts`：聚合导出 components/composables/types/utils
-- `src/components/index.ts`：导出 `SmartTree` `AIChat` `DocumentParsedWorkspace` `DocBlocksTreeNode`
+- `src/components/index.ts`：导出 `SmartTree` `KnowledgeTree` `KnowledgeChatPanel` `SOPTree` `SOPChatPanel` `DocumentParsedWorkspace` `DocBlocksTreeNode`
 - `src/composables/index.ts`：导出全部 composables 及关键类型
 - `src/types/index.ts`：导出所有契约类型
 - `src/utils/index.ts`：导出工具函数
@@ -338,7 +346,9 @@ src/
 | `Preview_IndexGraph.vue` | `DocBlockNode`（C） | `toggle` `select` `update-viewport` | A 层图组件（内聚交互） |
 | `DocBlocksTreeNode.vue` | `DocBlockNode`（C） | `toggle` `select` | A 层节点 |
 | `SmartTree.vue` | `SmartTreeNode`（C） `TreeProps` `useTheme` | `select` `rename` `add-folder` `add-file` `delete` `view` `drop` `search` `file-drop` `drop-invalid` `drop-root` | A 层通用组件，不直接做 D 层写入 |
-| `AIChat.vue` | `useAIChat`（B） | `send` `ready` `removeContext` `error` | A 层业务组件，状态在 B |
+| `KnowledgeChatPanel.vue` | `useKnowledgeChat`（B） | `send` `ready` `removeContext` `error` | A 层业务组件，状态在 B |
+| `SOPTree.vue` | `SOPTreeNode`（C） + `SmartTree` | `select` `view` `search` | A 层经验库树语义包装 |
+| `SOPChatPanel.vue` | `useSopChat`（B） + `BaseChat` | `send` `ready` `removeContext` `error` | A 层经验库聊天语义包装 |
 
 ### 12.2 B 层 composables 矩阵
 
@@ -350,7 +360,9 @@ src/
 | `useParsedPdfViewer.ts` | 右侧 pane props + emit | `flatIndexItems/nodeMap/childrenMap` `onTabChange` `onTreeToggle` | 否 |
 | `useDocBlocksGraph.ts` | `DocBlocksGraph` | `nodeMap/childrenMap/roots` `toggleExpand` `setViewMode` | 否 |
 | `useKnowledgeTree.ts` | 运行时树数据 | `treeData/selectedNode` `buildTree/selectNode/updateNodeStatus` | 否 |
-| `useAIChat.ts` | 对话参数与上下文配置 | `messages/loading/sendMessage/stopGeneration` | 是（`/api/chat`） |
+| `useKnowledgeChat.ts` | 对话参数与上下文配置 | `messages/loading/sendMessage/stopGeneration` | 是（`/api/chat`） |
+| `useSopTree.ts` | 经验库树数据 | `treeData/selectedNode/resetToDefaultTree/findNode` | 否 |
+| `useSopChat.ts` | 经验库对话参数 | `messages/loading/sendMessage/stopGeneration` | 是（复用 `/api/chat`） |
 | `useDocument.ts` | `docId/libraryId/query` | `document/loading/error` `fetchDocument` `searchDocuments` | 是（`/api/docs/*`） |
 | `useQuery.ts` | `tableId/params/question` | `result/history/queryTable/semanticQuery` | 是（`/api/docs/*`） |
 | `useRefAnchor.ts` | `blockId/reference` | `contextItems` `fetchReference` `copyReference` | 是（`/api/docs/references/*`） |
@@ -464,14 +476,14 @@ graph LR
   PM[Preview_Markdown.vue]
   PH[Preview_HTML.vue]
   ST[SmartTree.vue]
-  AC[AIChat.vue]
+  AC[KnowledgeChatPanel.vue]
 
   WP[useWorkspacePreview.ts]
   WI[useWorkspaceIngest.ts]
   WL[useWorkspaceLinkage.ts]
   PV[useParsedPdfViewer.ts]
   KT[useKnowledgeTree.ts]
-  UA[useAIChat.ts]
+  UA[useKnowledgeChat.ts]
 
   TY[types/*.ts]
   UT[utils/knowledge.ts]

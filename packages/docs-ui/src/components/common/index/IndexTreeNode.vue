@@ -54,7 +54,7 @@
       </div>
     </a-tooltip>
     <ul v-if="hasChildren && isExpanded" class="tree-children">
-      <DocBlocksTreeNode
+      <IndexTreeNode
         v-for="childId in children"
         :key="childId"
         :node-id="childId"
@@ -109,17 +109,11 @@ const emit = defineEmits<{
 }>()
 
 const node = computed(() => props.nodeMap.get(props.nodeId))
-
 const children = computed(() => props.childrenMap.get(props.nodeId) || [])
-
 const hasChildren = computed(() => children.value.length > 0)
-
 const isExpanded = computed(() => props.expandedIds.has(props.nodeId))
-
 const isChecked = computed(() => Boolean(props.selectedNodeIds?.has(props.nodeId)))
-
 const displayText = computed(() => getNodeDisplayText(node.value, props.nodeId))
-
 const suppressPlainText = computed(() => shouldSuppressNodePlainText(node.value))
 
 const displayTextHtml = computed(() => {
@@ -129,9 +123,7 @@ const displayTextHtml = computed(() => {
 })
 
 const levelTag = computed(() => getNodeLevelTag(node.value, props.nodeMap))
-
 const typeTag = computed(() => getNodeTypeTag(node.value))
-
 const positionTag = computed(() => getNodePositionTag(node.value))
 
 const tooltipText = computed(() => {
@@ -150,13 +142,14 @@ const tooltipTextHtml = computed(() => {
 const tooltipRichMediaHtml = computed(() => renderNodeRichMedia(node.value, props.sourceFilePath, {
   includeMath: suppressPlainText.value || !isNodeMathRichMediaRedundant(node.value)
 }))
-
 const inlineRichMediaHtml = computed(() => renderNodeRichMedia(node.value, props.sourceFilePath))
 
+/* 切换当前树节点的展开态。 */
 const onToggle = () => {
   emit('toggle', props.nodeId)
 }
 
+/* 选中当前树节点。 */
 const onRowClick = () => {
   emit('select', props.nodeId)
 }
@@ -166,6 +159,7 @@ const onEdit = () => {
   emit('edit', props.nodeId)
 }
 
+/* 切换当前树节点的批处理勾选状态。 */
 const onToggleCheck = () => {
   emit('toggle-check', props.nodeId)
 }

@@ -22,8 +22,8 @@
               </div>
             </div>
 
-            <!-- 知识树 - 使用 SmartTree 通用组件 -->
-            <SmartTree
+            <!-- 知识树 - 使用 KnowledgeTree 语义组件 -->
+            <KnowledgeTree
               v-else
               ref="smartTreeRef"
               :tree-data="treeData"
@@ -59,7 +59,7 @@
                   {{ node?.visible ? '共享' : '本地' }}
                 </a-tag>
               </template>
-            </SmartTree>
+            </KnowledgeTree>
           </div>
         </Panel>
       </template>
@@ -125,12 +125,10 @@
       <!-- 右侧：AI 对话 -->
       <template #right>
         <Panel title="AI 对话" :icon="MessageOutlined">
-          <AIChat
+          <KnowledgeChatPanel
             title=""
             placeholder="输入消息，Ctrl+Enter 发送..."
             :show-context-info="true"
-            @send="handleChatSend"
-            @ready="handleChatReady"
           />
         </Panel>
       </template>
@@ -164,7 +162,7 @@
 
 <script setup lang="ts">
 /**
- * 知识库管理页面 - 使用 AIChat 组件进行 AI 对话
+ * 知识库管理页面 - 使用 KnowledgeChatPanel 组件进行 AI 对话
  */
 import { ref, computed, nextTick, onMounted, onBeforeUnmount, watch } from 'vue'
 import { message, Modal } from 'ant-design-vue'
@@ -182,8 +180,8 @@ import {
 // 导入 packages 中的组件和 composables
 import { SplitPanes, Panel, useTheme } from '@angineer/ui-kit'
 import {
-  AIChat,
-  SmartTree,
+  KnowledgeChatPanel,
+  KnowledgeTree,
   PDFParsedWorkspace,
   type SmartTreeNode,
   type KnowledgeTreeNode,
@@ -200,14 +198,10 @@ import {
 } from '@angineer/docs-ui'
 import { useKnowledgeTree } from '@angineer/docs-ui'
 import { knowledgeApi } from '@/api/knowledge'
-import { useChatStore } from '@/stores/chat'
 import { getWebDocumentUrl } from '../../../shared/ports'
 
 // 使用主题
 const { isDark } = useTheme()
-
-// 使用 chat store
-const chatStore = useChatStore()
 
 // 导入本地子组件
 import FolderPreview from './components/FolderPreview.vue'
@@ -215,7 +209,7 @@ import FolderModal from './components/FolderModal.vue'
 import DocDetailModal from './components/DocDetailModal.vue'
 
 // SmartTree 组件引用
-const smartTreeRef = ref<InstanceType<typeof SmartTree> | null>(null)
+const smartTreeRef = ref<InstanceType<typeof KnowledgeTree> | null>(null)
 // PDFParsedWorkspace 组件引用
 const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
 
@@ -999,28 +993,6 @@ const onTreeDropRoot = async (dragNodeKey: string) => {
     message.error('移动失败: ' + (error.response?.data?.detail || error?.message || '未知错误'))
     await loadNodes()
   }
-}
-
-// ===== AI 对话相关 =====
-
-/**
- * 处理 AI 对话发送消息
- */
-const handleChatSend = async (message: string, _model: string) => {
-  try {
-    await chatStore.sendMessage(message, (_chunk) => {
-      // 可以在这里处理每个 chunk，如果需要的话
-    })
-  } catch (error) {
-    console.error('发送消息失败:', error)
-  }
-}
-
-/**
- * AIChat 组件就绪回调
- */
-const handleChatReady = () => {
-  console.log('AIChat 组件已就绪')
 }
 
 // 组件挂载时加载数据

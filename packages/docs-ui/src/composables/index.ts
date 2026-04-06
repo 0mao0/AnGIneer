@@ -10,14 +10,26 @@ export {
   type SopItem
 } from './useResourceAdapter'
 export { useKnowledgeTree, type KnowledgeTreeNode, type UploadTask } from './useKnowledgeTree'
+export { useSopTree, type SOPTreeNode } from './useSopTree'
 export {
-  useAIChat,
-  type ChatMessage as AIChatMessage,
-  type ChatRequest,
-  type ChatStreamEvent,
-  type StreamEventType,
-  type ContextConfig
-} from './useAIChat'
+  useKnowledgeChat,
+  type KnowledgeChatMessage,
+  type KnowledgeChatMessageRole,
+  type KnowledgeChatRequest,
+  type KnowledgeChatStreamEvent,
+  type KnowledgeChatStreamEventType,
+  type KnowledgeChatContextConfig
+} from './useKnowledgeChat'
+export {
+  useSopChat,
+  type SopChatMessage,
+  type SopChatMessageRole,
+  type SopChatRequest,
+  type SopChatStreamEvent,
+  type SopChatStreamEventType,
+  type SopChatContextConfig,
+  type UseSopChatOptions
+} from './useSopChat'
 export {
   useDocBlocksGraph,
   type ViewMode,
@@ -25,9 +37,12 @@ export {
   type UseDocBlocksGraphReturn
 } from './useDocBlocksGraph'
 export {
+  useParsedPdfIndexTree,
+  type GraphViewportState as ParsedPdfGraphViewportState
+} from './useParsedPdfIndexTree'
+export {
   useParsedPdfViewer,
   type PreviewMode,
-  type GraphViewportState,
   type ParsedPdfViewerBridgeEventMap,
   type ParsedPdfViewerStateProps,
   type ParsedPdfViewerStateEmit

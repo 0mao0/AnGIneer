@@ -1,55 +1,71 @@
 <template>
   <div class="sop-sidebar">
-    <div class="sop-list">
-      <a-list :data-source="sopList" size="small">
-        <template #renderItem="{ item }">
-          <a-list-item @click="openSOP(item)">
-            <a-list-item-meta :title="item.title" :description="item.description">
-              <template #avatar>
-                <a-avatar :style="{ backgroundColor: '#1890ff' }">
-                  <template #icon><ApiOutlined /></template>
-                </a-avatar>
-              </template>
-            </a-list-item-meta>
-          </a-list-item>
-        </template>
-      </a-list>
-    </div>
+    <SOPTree
+      :tree-data="treeData"
+      v-bind="treeProps"
+      @select="handleTreeSelect"
+    >
+      <template #icon="{ node }">
+        <FolderOutlined v-if="node?.isFolder" style="color: #faad14" />
+        <ApiOutlined v-else style="color: #1890ff" />
+      </template>
+    </SOPTree>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { ApiOutlined } from '@ant-design/icons-vue'
-import { createResourceNodeFromSop, type SopItem } from '@angineer/docs-ui'
+import { onMounted } from 'vue'
+import { ApiOutlined, FolderOutlined } from '@ant-design/icons-vue'
+import { SOPTree, createResourceNodeFromSop, useSopTree, type SOPTreeNode } from '@angineer/docs-ui'
 import { useResourceOpen } from '@/composables/useResourceOpen'
 
 const { openResource } = useResourceOpen()
+const { treeData, resetToDefaultTree, setSelectedNode } = useSopTree()
 
-const sopList = ref<SopItem[]>([
-  { id: 'sop-1', title: '航道设计流程', description: '进港航道设计标准流程' },
-  { id: 'sop-2', title: '码头选址评估', description: '港址选择与评估流程' },
-  { id: 'sop-3', title: '泊位通过能力计算', description: '泊位设计通过能力计算流程' }
-])
+const treeProps = {
+  showSearch: true,
+  searchPlaceholder: '搜索经验流程...',
+  showAddRootFolder: false,
+  showStatus: false,
+  draggable: false,
+  allowAddFile: false,
+  emptyText: '暂无 SOP'
+}
 
-const openSOP = (sop: SopItem) => {
-  const resource = createResourceNodeFromSop(sop)
+/**
+ * 处理经验库树选中，并在点击叶子节点时打开 SOP 详情。
+ */
+const handleTreeSelect = (_keys: string[], nodes: SOPTreeNode[]) => {
+  if (nodes.length === 0) {
+    setSelectedNode(null)
+    return
+  }
+
+  const node = nodes[0]
+  setSelectedNode(node)
+
+  if (node.isFolder) {
+    return
+  }
+
+  const resource = createResourceNodeFromSop(node)
   openResource(resource)
 }
+
+onMounted(() => {
+  resetToDefaultTree()
+})
 </script>
 
 <style lang="less" scoped>
 .sop-sidebar {
   height: 100%;
   padding: 12px;
-}
+  display: flex;
+  flex-direction: column;
 
-.sop-list {
-  :deep(.ant-list-item) {
-    cursor: pointer;
-    &:hover {
-      background: #f5f5f5;
-    }
+  :deep(.smart-tree) {
+    background: transparent;
   }
 }
 </style>

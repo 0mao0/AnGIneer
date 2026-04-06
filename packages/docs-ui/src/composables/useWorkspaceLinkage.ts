@@ -128,6 +128,27 @@ const normalizeRectFromBaseRow = (row: Record<string, any>) => {
   return null
 }
 
+const collectMediaRects = (node: Record<string, any>, baseRow?: Record<string, any> | null): RectBounds[] => {
+  const rects = [
+    normalizeRect(node.bbox),
+    ...(Array.isArray(node.merged_bboxes) ? node.merged_bboxes.map(normalizeRect) : []),
+    baseRow ? normalizeRectFromBaseRow(baseRow) : null
+  ].filter((rect): rect is RectBounds => Boolean(rect))
+  const uniqueMap = new Map<string, RectBounds>()
+  rects.forEach((rect) => {
+    const key = [
+      rect.left.toFixed(4),
+      rect.top.toFixed(4),
+      rect.width.toFixed(4),
+      rect.height.toFixed(4)
+    ].join(':')
+    if (!uniqueMap.has(key)) {
+      uniqueMap.set(key, rect)
+    }
+  })
+  return Array.from(uniqueMap.values())
+}
+
 const rectRight = (rect: RectBounds) => rect.left + rect.width
 
 const rectBottom = (rect: RectBounds) => rect.top + rect.height
@@ -149,29 +170,31 @@ const isHorizontallyAlignedToMedia = (mediaRect: RectBounds, candidateRect: Rect
 }
 
 const isMediaRelationRectValid = (
-  mediaRect: RectBounds | null,
+  mediaRects: RectBounds[],
   candidateRect: RectBounds,
   blockType: string,
   relation: 'caption' | 'footnote'
 ) => {
-  if (!mediaRect) return true
-  if (!isHorizontallyAlignedToMedia(mediaRect, candidateRect)) return false
-  const verticalGapTolerance = Math.max(0.035, mediaRect.height * 0.85)
-  const overlapTolerance = Math.max(0.012, mediaRect.height * 0.15)
-  if (blockType === 'table' && relation === 'caption') {
-    const gap = mediaRect.top - rectBottom(candidateRect)
+  if (!mediaRects.length) return true
+  return mediaRects.some((mediaRect) => {
+    if (!isHorizontallyAlignedToMedia(mediaRect, candidateRect)) return false
+    const verticalGapTolerance = Math.max(0.035, mediaRect.height * 0.85)
+    const overlapTolerance = Math.max(0.012, mediaRect.height * 0.15)
+    if (blockType === 'table' && relation === 'caption') {
+      const gap = mediaRect.top - rectBottom(candidateRect)
+      return gap >= -overlapTolerance && gap <= verticalGapTolerance
+    }
+    const gap = candidateRect.top - rectBottom(mediaRect)
     return gap >= -overlapTolerance && gap <= verticalGapTolerance
-  }
-  const gap = candidateRect.top - rectBottom(mediaRect)
-  return gap >= -overlapTolerance && gap <= verticalGapTolerance
+  })
 }
 
 const filterMediaRelatedHighlights = (
-  mediaRect: RectBounds | null,
+  mediaRects: RectBounds[],
   blockType: string,
   highlights: LinkedHighlight[]
 ) => highlights.filter(item => isMediaRelationRectValid(
-  mediaRect,
+  mediaRects,
   item,
   blockType,
   item.type?.includes('footnote') ? 'footnote' : 'caption'
@@ -537,18 +560,18 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
       const rowContentJson = baseRow?.content_json && typeof baseRow.content_json === 'object'
         ? baseRow.content_json as Record<string, any>
         : null
-      const mediaRect = normalizeRect(node.bbox) || (baseRow ? normalizeRectFromBaseRow(baseRow) : null)
+      const mediaRects = collectMediaRects(node, baseRow)
       const pageWidth = readFirstNumeric(baseRow || node, ['page_width'])
       const pageHeight = readFirstNumeric(baseRow || node, ['page_height'])
       const captionBBoxKeys = blockType === 'table'
         ? ['table_caption_bboxes', 'table_footnote_bboxes']
         : ['image_caption_bboxes', 'image_footnote_bboxes']
       const { captionRefs, footnoteRefs } = collectRelatedBlockRefs(node, baseRow)
-      const contentSpanHighlights = filterMediaRelatedHighlights(mediaRect, blockType, [
+      const contentSpanHighlights = filterMediaRelatedHighlights(mediaRects, blockType, [
         ...collectCaptionSpanHighlights(nodeId, page, blockType, contentJson, captionBBoxKeys, pageWidth, pageHeight),
         ...collectCaptionSpanHighlights(nodeId, page, blockType, rowContentJson, captionBBoxKeys, pageWidth, pageHeight)
       ])
-      const explicitRefHighlights = filterMediaRelatedHighlights(mediaRect, blockType, [
+      const explicitRefHighlights = filterMediaRelatedHighlights(mediaRects, blockType, [
         ...captionRefs.flatMap((refId) => {
           const targetRow = baseRowByUid.get(refId)
           const normalizedRect = targetRow ? normalizeRectFromBaseRow(targetRow) : null
@@ -612,7 +635,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
         const normalizedRect = normalizeRectFromBaseRow(row)
         if (!normalizedRect) return []
         return [
-          ...(!hasCaptionHighlights && captionSourceTexts.length > 0 && matchesRelatedTextCandidate(rowText, captionSourceTexts) && isMediaRelationRectValid(mediaRect, normalizedRect, blockType, 'caption')
+          ...(!hasCaptionHighlights && captionSourceTexts.length > 0 && matchesRelatedTextCandidate(rowText, captionSourceTexts) && isMediaRelationRectValid(mediaRects, normalizedRect, blockType, 'caption')
             ? [{
                 id: `highlight-${nodeId}-caption-related-${rowId || rowIndex}`,
                 itemId: nodeId,
@@ -627,7 +650,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
                 type: `${blockType}-caption`
               }]
             : []),
-          ...(!hasFootnoteHighlights && footnoteSourceTexts.length > 0 && matchesRelatedTextCandidate(rowText, footnoteSourceTexts) && isMediaRelationRectValid(mediaRect, normalizedRect, blockType, 'footnote')
+          ...(!hasFootnoteHighlights && footnoteSourceTexts.length > 0 && matchesRelatedTextCandidate(rowText, footnoteSourceTexts) && isMediaRelationRectValid(mediaRects, normalizedRect, blockType, 'footnote')
             ? [{
                 id: `highlight-${nodeId}-footnote-related-${rowId || rowIndex}`,
                 itemId: nodeId,
