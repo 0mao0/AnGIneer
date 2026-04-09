@@ -95,6 +95,7 @@ export interface DocBlockNode {
   footnote_block_uids?: string[] | null
   footnote_bboxes?: number[][] | null
   content_json?: Record<string, any> | null
+  rich_media_order?: Array<{ type: 'image' | 'table' | 'math'; path?: string }> | null
 }
 
 export interface DocBlockEdge {
