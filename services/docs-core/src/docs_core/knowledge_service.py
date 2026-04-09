@@ -147,6 +147,64 @@ class KnowledgeService:
     def _delete_nodes(self, node_ids: List[str]) -> None:
         self.meta_store.delete_nodes(node_ids)
 
+    # 收集节点及其全部后代节点 ID。
+    def _collect_subtree_node_ids(self, node_id: str) -> List[str]:
+        to_delete = {node_id}
+        changed = True
+        while changed:
+            changed = False
+            for node in self.nodes:
+                if node.parent_id in to_delete and node.id not in to_delete:
+                    to_delete.add(node.id)
+                    changed = True
+        return list(to_delete)
+
+    # 收集指定节点集合中的文档节点。
+    def _collect_document_nodes(self, node_ids: List[str]) -> List[KnowledgeNode]:
+        node_id_set = set(node_ids)
+        return [
+            node
+            for node in self.nodes
+            if node.id in node_id_set and node.type == "document"
+        ]
+
+    # 清理文档节点关联的存储产物与索引数据。
+    def _purge_document_artifacts(self, document_nodes: List[KnowledgeNode]) -> None:
+        if not document_nodes:
+            return
+        from docs_core.structured.result_store_json import file_storage
+
+        doc_ids = [node.id for node in document_nodes]
+        self.meta_store.delete_parse_tasks_by_doc_ids(doc_ids)
+        self.parse_tasks = [task for task in self.parse_tasks if task.doc_id not in set(doc_ids)]
+        for node in document_nodes:
+            self.index_store.clear_document_segments(node.id)
+            self.index_store.clear_doc_blocks(node.id)
+            self.index_store.clear_doc_block_corrections(node.id)
+            file_storage.delete_document(node.library_id, node.id)
+
+    # 生成删除节点前的影响范围预览。
+    def get_delete_preview(self, node_id: str) -> Optional[Dict[str, Any]]:
+        target = self.get_node(node_id)
+        if not target:
+            return None
+        subtree_node_ids = self._collect_subtree_node_ids(node_id)
+        subtree_nodes = [node for node in self.nodes if node.id in set(subtree_node_ids)]
+        document_nodes = self._collect_document_nodes(subtree_node_ids)
+        folder_count = sum(1 for node in subtree_nodes if node.type == "folder")
+        document_titles = [node.title for node in document_nodes]
+        return {
+            "node_id": target.id,
+            "node_title": target.title,
+            "node_type": target.type,
+            "total_nodes": len(subtree_nodes),
+            "folder_count": folder_count,
+            "document_count": len(document_nodes),
+            "doc_ids": [node.id for node in document_nodes],
+            "doc_titles": document_titles,
+            "sample_doc_titles": document_titles[:5],
+        }
+
     # 对兄弟节点重新排序。
     def _normalize_sibling_orders(self, library_id: str, parent_id: Optional[str]) -> None:
         siblings = sorted(
@@ -256,16 +314,12 @@ class KnowledgeService:
         if node_id not in {node.id for node in self.nodes}:
             return False
         target = self.get_node(node_id)
-        to_delete = {node_id}
-        changed = True
-        while changed:
-            changed = False
-            for node in self.nodes:
-                if node.parent_id in to_delete and node.id not in to_delete:
-                    to_delete.add(node.id)
-                    changed = True
-        self.nodes = [node for node in self.nodes if node.id not in to_delete]
-        self._delete_nodes(list(to_delete))
+        to_delete = self._collect_subtree_node_ids(node_id)
+        document_nodes = self._collect_document_nodes(to_delete)
+        self._purge_document_artifacts(document_nodes)
+        to_delete_set = set(to_delete)
+        self.nodes = [node for node in self.nodes if node.id not in to_delete_set]
+        self._delete_nodes(to_delete)
         if target:
             self._normalize_sibling_orders(target.library_id, target.parent_id)
         return True

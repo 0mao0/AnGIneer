@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { FolderOutlined, FileTextOutlined } from '@ant-design/icons-vue'
 import { KnowledgeTree, useKnowledgeTree, createResourceNodeFromKnowledge } from '@angineer/docs-ui'
 import SOPSidebar from './sidebar/SOPSidebar.vue'

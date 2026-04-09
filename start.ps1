@@ -39,6 +39,27 @@ function Stop-ServiceProcess {
     Remove-Item $PidPath -Force -ErrorAction SilentlyContinue
 }
 
+# Stop any process occupying the specified port (for Frontend cleanup).
+function Stop-PortProcess {
+    param(
+        [Parameter(Mandatory = $true)]
+        [int]$Port
+    )
+
+    $connections = Get-NetTCPConnection -LocalPort $Port -ErrorAction SilentlyContinue
+    if (-not $connections) {
+        return
+    }
+
+    foreach ($conn in $connections) {
+        $proc = Get-Process -Id $conn.OwningProcess -ErrorAction SilentlyContinue
+        if ($proc) {
+            Write-Host "Stopping stale process on port $Port : PID $($proc.Id)" -ForegroundColor DarkYellow
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+        }
+    }
+}
+
 # Start a hidden background service process and store PID/logs under logs.
 function Start-ServiceProcess {
     param(
@@ -148,6 +169,9 @@ Write-Host "      Admin PID:    $($adminProcess.Id)" -ForegroundColor DarkGray
 Write-Host ""
 Write-Host "waiting for backend to start (10 seconds)..." -ForegroundColor Yellow
 Start-Sleep -Seconds 5
+
+# Clean up any stale Frontend processes on the expected port
+Stop-PortProcess -Port $frontendPort
 
 # Frontend (current window)
 pnpm dev:frontend

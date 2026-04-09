@@ -40,7 +40,6 @@
 
 <script setup lang="ts">
 import { EyeOutlined, DeleteOutlined } from '@ant-design/icons-vue'
-import { Modal } from 'ant-design-vue'
 import type { SmartTreeNode } from '@angineer/docs-ui'
 
 /**
@@ -69,21 +68,12 @@ const emit = defineEmits<{
   'toggle-visible': [node: SmartTreeNode]
 }>()
 
-/** 处理删除 - 带确认对话框 */
+/** 处理删除事件并交给父组件统一确认。 */
 const handleDelete = () => {
   if (!props.doc) return
-  
-  Modal.confirm({
-    title: '确认删除文件',
-    content: `确定要删除 "${props.doc.title}" 吗？删除后无法恢复。`,
-    okText: '删除',
-    okType: 'danger',
-    cancelText: '取消',
-    onOk() {
-      emit('delete', props.doc!)
-      emit('update:visible', false)
-    }
-  })
+
+  emit('delete', props.doc)
+  emit('update:visible', false)
 }
 </script>
 

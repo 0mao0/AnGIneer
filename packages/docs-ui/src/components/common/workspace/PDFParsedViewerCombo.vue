@@ -101,6 +101,7 @@
           />
           <Preview_IndexTree
             v-else-if="activeTab === 'Preview_IndexTree'"
+            :loading="!hasGraphData"
             :node-map="nodeMap"
             :children-map="childrenMap"
             :roots="roots"
@@ -115,6 +116,7 @@
           />
           <Preview_IndexGraph
             v-else
+            :loading="!hasGraphData"
             :node-map="nodeMap"
             :children-map="childrenMap"
             :roots="roots"
@@ -129,7 +131,7 @@
         </div>
       </div>
       <a-empty
-        v-if="!hasParsedContent"
+        v-if="!hasParsedContent && !isIndexMode"
         class="b2-empty"
       >
         <template #description>
@@ -245,6 +247,7 @@ const {
   rightPaneRef,
   indexContentScrollRef,
   headerTitleRowRef,
+  isIndexMode,
   hasGraphData,
   graphNodeLookup,
   flatIndexItems,

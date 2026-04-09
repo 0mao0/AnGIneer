@@ -917,12 +917,25 @@ def _merge_rich_media_fields_into_target(target_node: Dict[str, Any], merged_nod
     caption_bboxes: List[List[float]] = []
     footnote_bboxes: List[List[float]] = []
     merged_content_json: Dict[str, Any] = {}
+    rich_media_order: List[Dict[str, Any]] = []
 
     for node in merged_nodes:
         node_content_json = node.get("content_json")
         if isinstance(node_content_json, dict):
             merged_content_json = _merge_content_json_value(merged_content_json, node_content_json)
-        image_paths.extend(_collect_node_image_paths(node))
+        
+        node_image_paths = _collect_node_image_paths(node)
+        image_paths.extend(node_image_paths)
+        
+        for img_path in node_image_paths:
+            rich_media_order.append({"type": "image", "path": img_path})
+        
+        if node.get("table_html") and str(node.get("table_html") or "").strip():
+            rich_media_order.append({"type": "table"})
+        
+        if node.get("math_content") and str(node.get("math_content") or "").strip():
+            rich_media_order.append({"type": "math"})
+        
         caption_block_uids.extend(_collect_block_ref_uids(node.get("caption_block_uid")))
         caption_block_uids.extend(_collect_block_ref_uids(node.get("caption_block_uids")))
         footnote_block_uids.extend(_collect_block_ref_uids(node.get("footnote_block_uid")))
@@ -940,6 +953,35 @@ def _merge_rich_media_fields_into_target(target_node: Dict[str, Any], merged_nod
     target_node["footnote_block_uid"] = target_node["footnote_block_uids"][0] if target_node.get("footnote_block_uids") else None
     target_node["caption_bboxes"] = _normalize_graph_bbox_list(caption_bboxes) or None
     target_node["footnote_bboxes"] = _normalize_graph_bbox_list(footnote_bboxes) or None
+    target_node["rich_media_order"] = rich_media_order or None
+    _sync_caption_bboxes_to_content_json(target_node, caption_bboxes, footnote_bboxes)
+
+
+# 把合并后的 caption/footnote bbox 同步写入 content_json，确保前端联动能正确读取。
+def _sync_caption_bboxes_to_content_json(
+    target_node: Dict[str, Any],
+    caption_bboxes: List[List[float]],
+    footnote_bboxes: List[List[float]]
+) -> None:
+    block_type = str(target_node.get("block_type") or "").strip().lower()
+    if block_type not in ("image", "table"):
+        return
+    content_json = target_node.get("content_json")
+    if not isinstance(content_json, dict):
+        content_json = {}
+        target_node["content_json"] = content_json
+    normalized_caption_bboxes = _normalize_graph_bbox_list(caption_bboxes)
+    normalized_footnote_bboxes = _normalize_graph_bbox_list(footnote_bboxes)
+    if block_type == "table":
+        if normalized_caption_bboxes:
+            content_json["table_caption_bboxes"] = normalized_caption_bboxes
+        if normalized_footnote_bboxes:
+            content_json["table_footnote_bboxes"] = normalized_footnote_bboxes
+    else:
+        if normalized_caption_bboxes:
+            content_json["image_caption_bboxes"] = normalized_caption_bboxes
+        if normalized_footnote_bboxes:
+            content_json["image_footnote_bboxes"] = normalized_footnote_bboxes
 
 
 # 提取节点当前应保留的合并来源 block_uid 列表。

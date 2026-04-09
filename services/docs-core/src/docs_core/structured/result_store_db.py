@@ -277,6 +277,16 @@ class KnowledgeMetaStore:
             conn.execute(f"DELETE FROM nodes WHERE id IN ({placeholders})", node_ids)
             conn.commit()
 
+    # 删除指定文档集合的解析任务记录。
+    def delete_parse_tasks_by_doc_ids(self, doc_ids: List[str]) -> int:
+        if not doc_ids:
+            return 0
+        placeholders = ",".join(["?"] * len(doc_ids))
+        with self.connect() as conn:
+            cursor = conn.execute(f"DELETE FROM parse_tasks WHERE doc_id IN ({placeholders})", doc_ids)
+            conn.commit()
+            return int(cursor.rowcount or 0)
+
 
 class KnowledgeIndexStore:
     """索引数据库访问层。"""
@@ -621,6 +631,13 @@ class KnowledgeIndexStore:
                 "DELETE FROM doc_block_corrections WHERE id = ?",
                 (record_id,),
             )
+            conn.commit()
+            return int(cursor.rowcount or 0)
+
+    # 清空指定文档的块级结构纠错记录。
+    def clear_doc_block_corrections(self, doc_id: str) -> int:
+        with self.connect() as conn:
+            cursor = conn.execute("DELETE FROM doc_block_corrections WHERE doc_id = ?", (doc_id,))
             conn.commit()
             return int(cursor.rowcount or 0)
 

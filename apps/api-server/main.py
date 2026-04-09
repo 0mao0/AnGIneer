@@ -1201,6 +1201,15 @@ def update_knowledge_node(node_id: str, request: KnowledgeNodeUpdate):
         logging.error(f"Failed to update node {node_id}: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Database update failed: {str(e)}")
 
+@app.get("/api/knowledge/nodes/{node_id}/delete-preview")
+def get_knowledge_node_delete_preview(node_id: str):
+    """获取删除节点前的影响范围预览"""
+    from docs_core.knowledge_service import knowledge_service
+    preview = knowledge_service.get_delete_preview(node_id)
+    if not preview:
+        raise HTTPException(status_code=404, detail="Node not found")
+    return preview
+
 @app.delete("/api/knowledge/nodes/{node_id}")
 def delete_knowledge_node(node_id: str):
     """删除知识库节点"""
@@ -1494,4 +1503,19 @@ def get_document_storage(library_id: str, doc_id: str):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=API_SERVER_PORT)
+    # 开发态启用热重载，确保新增路由和服务代码改动能被正在运行的后端拾取。
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=API_SERVER_PORT,
+        app_dir=os.path.dirname(__file__),
+        reload=True,
+        reload_dirs=[
+            os.path.dirname(__file__),
+            os.path.join(SERVICES_DIR, "angineer-core", "src"),
+            os.path.join(SERVICES_DIR, "sop-core", "src"),
+            os.path.join(SERVICES_DIR, "docs-core", "src"),
+            os.path.join(SERVICES_DIR, "geo-core", "src"),
+            os.path.join(SERVICES_DIR, "engtools", "src"),
+        ],
+    )

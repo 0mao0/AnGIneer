@@ -347,21 +347,66 @@ export const renderNodeRichMedia = (
   const includeMath = options.includeMath !== false
   const sections: string[] = []
   const imageSources = collectNodeImageSources(node)
-  if (node.table_html) {
-    sections.push(`<div class="media-table">${node.table_html}</div>`)
-  }
-  imageSources.forEach((imagePath, index) => {
-    const src = resolveAssetUrl(imagePath, sourceFilePath)
-    if (src) {
-      const imageAlt = imageSources.length > 1
-        ? `${node.plain_text || 'image'}-${index + 1}`
-        : (node.plain_text || 'image')
-      sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(imageAlt)}" />`)
+  
+  if (Array.isArray(node.rich_media_order) && node.rich_media_order.length > 0) {
+    const renderedImages = new Set<string>()
+    let tableRendered = false
+    let mathRendered = false
+    
+    node.rich_media_order.forEach((item) => {
+      if (item.type === 'image' && item.path) {
+        const src = resolveAssetUrl(item.path, sourceFilePath)
+        if (src && !renderedImages.has(src)) {
+          renderedImages.add(src)
+          const imageAlt = imageSources.length > 1
+            ? `${node.plain_text || 'image'}-${renderedImages.size}`
+            : (node.plain_text || 'image')
+          sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(imageAlt)}" />`)
+        }
+      } else if (item.type === 'table' && !tableRendered && node.table_html) {
+        tableRendered = true
+        sections.push(`<div class="media-table">${node.table_html}</div>`)
+      } else if (item.type === 'math' && !mathRendered && includeMath && node.math_content) {
+        mathRendered = true
+        sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
+      }
+    })
+    
+    imageSources.forEach((imagePath, index) => {
+      const src = resolveAssetUrl(imagePath, sourceFilePath)
+      if (src && !renderedImages.has(src)) {
+        renderedImages.add(src)
+        const imageAlt = imageSources.length > 1
+          ? `${node.plain_text || 'image'}-${renderedImages.size}`
+          : (node.plain_text || 'image')
+        sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(imageAlt)}" />`)
+      }
+    })
+    
+    if (!tableRendered && node.table_html) {
+      sections.push(`<div class="media-table">${node.table_html}</div>`)
     }
-  })
-  if (includeMath && node.math_content) {
-    sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
+    if (!mathRendered && includeMath && node.math_content) {
+      sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
+    }
+  } else {
+    imageSources.forEach((imagePath, index) => {
+      const src = resolveAssetUrl(imagePath, sourceFilePath)
+      if (src) {
+        const imageAlt = imageSources.length > 1
+          ? `${node.plain_text || 'image'}-${index + 1}`
+          : (node.plain_text || 'image')
+        sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(imageAlt)}" />`)
+      }
+    })
+    if (node.table_html) {
+      sections.push(`<div class="media-table">${node.table_html}</div>`)
+    }
+    if (includeMath && node.math_content) {
+      sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
+    }
   }
+  
   return sections.join('')
 }
 

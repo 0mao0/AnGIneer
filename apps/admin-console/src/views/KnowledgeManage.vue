@@ -164,7 +164,7 @@
 /**
  * 知识库管理页面 - 使用 KnowledgeChatPanel 组件进行 AI 对话
  */
-import { ref, computed, nextTick, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, computed, nextTick, onMounted, onBeforeUnmount, watch, h } from 'vue'
 import { message, Modal } from 'ant-design-vue'
 import {
   FolderOutlined,
@@ -574,15 +574,42 @@ const handleFolderModalOk = async () => {
   }
 }
 
-// 删除节点
-const handleDeleteNode = async (node: SmartTreeNode) => {
-  const nodeType = node.isFolder ? '文件夹' : '文件'
-  const hasChildren = node.children && node.children.length > 0
-  const warningText = hasChildren ? '\n注意：该文件夹包含子项目，删除后将一并删除！' : ''
+// 生成删除确认弹窗内容
+const buildDeleteConfirmContent = (node: SmartTreeNode, preview: {
+  total_nodes: number
+  folder_count: number
+  document_count: number
+  sample_doc_titles: string[]
+}) => {
+  const stats = preview.document_count > 0
+    ? `${preview.document_count} 个文档${preview.folder_count > 0 ? `、${preview.folder_count} 个文件夹` : ''}`
+    : `${preview.folder_count} 个文件夹`
+  const lines = [
+    `确定删除 "${node.title}"？此操作不可恢复。`,
+    `将删除 ${stats}（共 ${preview.total_nodes} 个节点）。`
+  ]
+  return h('div', { style: 'white-space: pre-line;' }, [
+    ...lines.map(line => h('div', line)),
+    ...(preview.sample_doc_titles.length > 0
+      ? [h('div', { style: 'margin-top: 8px; color: #666;' }, preview.sample_doc_titles.slice(0, 3).join('、'))]
+      : [])
+  ])
+}
 
+// 显示删除确认弹窗
+const showDeleteConfirm = (
+  node: SmartTreeNode,
+  nodeType: string,
+  preview: {
+    total_nodes: number
+    folder_count: number
+    document_count: number
+    sample_doc_titles: string[]
+  }
+) => {
   Modal.confirm({
     title: `确认删除${nodeType}`,
-    content: `确定要删除 "${node.title}" 吗？${warningText}`,
+    content: buildDeleteConfirmContent(node, preview),
     okText: '删除',
     okType: 'danger',
     cancelText: '取消',
@@ -596,6 +623,18 @@ const handleDeleteNode = async (node: SmartTreeNode) => {
       }
     }
   })
+}
+
+// 删除节点
+const handleDeleteNode = async (node: SmartTreeNode) => {
+  const nodeType = node.isFolder ? '文件夹' : '文件'
+  try {
+    const preview = await knowledgeApi.getDeleteNodePreview(node.key)
+    showDeleteConfirm(node, nodeType, preview)
+  } catch (error) {
+    console.error('获取删除影响范围失败。', error)
+    message.error('获取删除影响范围失败，请确认后端服务已更新并重试')
+  }
 }
 
 // 显示文档详情

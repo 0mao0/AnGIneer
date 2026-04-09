@@ -52,6 +52,18 @@ interface UndoStructuredOperationResponse {
   saved_segments: number
 }
 
+interface DeleteNodePreviewResponse {
+  node_id: string
+  node_title: string
+  node_type: string
+  total_nodes: number
+  folder_count: number
+  document_count: number
+  doc_ids: string[]
+  doc_titles: string[]
+  sample_doc_titles: string[]
+}
+
 api.interceptors.request.use(config => {
   console.log('[API Request]:', config.method?.toUpperCase(), config.url, config.params || config.data)
   return config
@@ -88,6 +100,8 @@ export const knowledgeApi = {
   }) => api.post('/knowledge/nodes', data),
   updateNode: (nodeId: string, data: Record<string, any>) => 
     api.patch(`/knowledge/nodes/${nodeId}`, data),
+  getDeleteNodePreview: (nodeId: string) =>
+    api.get(`/knowledge/nodes/${nodeId}/delete-preview`) as Promise<DeleteNodePreviewResponse>,
   deleteNode: (nodeId: string) => api.delete(`/knowledge/nodes/${nodeId}`),
 
   // 文档解析

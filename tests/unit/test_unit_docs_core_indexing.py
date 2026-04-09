@@ -138,6 +138,151 @@ class TestStructuredSegments(unittest.TestCase):
             del service
             gc.collect()
 
+    def test_delete_node_purges_document_storage_and_indexes(self):
+        """测试删除节点会同步清理文档目录、任务和索引数据。"""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            db_path = Path(temp_dir) / "knowledge_meta.sqlite"
+            isolated_service = IsolatedKnowledgeService(db_path)
+            isolated_storage = FileStorage(base_dir=temp_dir)
+            previous_storage = result_store_json_module.file_storage
+            result_store_json_module.file_storage = isolated_storage
+            try:
+                folder = KnowledgeNode(
+                    id="folder-1",
+                    title="测试文件夹",
+                    type="folder",
+                    library_id="default",
+                    status="completed"
+                )
+                isolated_service.create_node(folder)
+                source_path = isolated_storage.save_source_file("default", "doc-delete-1", b"hello", "demo.pdf")
+                isolated_storage.save_markdown("default", "doc-delete-1", "# 标题\n\n内容")
+                document = KnowledgeNode(
+                    id="doc-delete-1",
+                    title="待删除文档",
+                    type="document",
+                    parent_id="folder-1",
+                    library_id="default",
+                    file_path=source_path,
+                    status="completed"
+                )
+                isolated_service.create_node(document)
+                isolated_service.create_parse_task("task-delete-1", "default", "doc-delete-1")
+                isolated_service.save_document_segments(
+                    "doc-delete-1",
+                    "default",
+                    "A_structured",
+                    [{"item_type": "segment", "title": "段落", "content": "待清理内容"}],
+                )
+                isolated_service.index_store.insert_doc_blocks_base_rows(
+                    [
+                        {
+                            "doc_id": "doc-delete-1",
+                            "doc_name": "待删除文档",
+                            "page_idx": 0,
+                            "page_width": 100.0,
+                            "page_height": 200.0,
+                            "block_seq": 1,
+                            "block_uid": "doc-delete-1:0:1",
+                            "block_type": "paragraph",
+                            "content_json": {},
+                            "plain_text": "待清理块",
+                            "bbox_abs_x1": 0.0,
+                            "bbox_abs_y1": 0.0,
+                            "bbox_abs_x2": 10.0,
+                            "bbox_abs_y2": 10.0,
+                            "created_at": "2026-01-01T00:00:00",
+                            "updated_at": "2026-01-01T00:00:00",
+                        }
+                    ]
+                )
+                isolated_service.index_store.record_doc_block_correction(
+                    "doc-delete-1",
+                    "doc-delete-1:0:1",
+                    "delete",
+                    {"block_uid": "doc-delete-1:0:1"},
+                )
+
+                deleted = isolated_service.delete_node("folder-1")
+
+                self.assertTrue(deleted)
+                self.assertIsNone(isolated_service.get_node("folder-1"))
+                self.assertIsNone(isolated_service.get_node("doc-delete-1"))
+                self.assertEqual(len(isolated_service.parse_tasks), 0)
+                self.assertFalse((Path(temp_dir) / "libraries" / "default" / "documents" / "doc-delete-1").exists())
+                self.assertEqual(len(isolated_service.meta_store.list_parse_tasks()), 0)
+                self.assertEqual(len(isolated_service.list_document_segments("doc-delete-1", "A_structured")), 0)
+                conn = isolated_service.index_store.connect()
+                try:
+                    doc_block_count = conn.execute(
+                        "SELECT COUNT(1) FROM doc_blocks WHERE doc_id = ?",
+                        ("doc-delete-1",),
+                    ).fetchone()[0]
+                    correction_count = conn.execute(
+                        "SELECT COUNT(1) FROM doc_block_corrections WHERE doc_id = ?",
+                        ("doc-delete-1",),
+                    ).fetchone()[0]
+                finally:
+                    conn.close()
+                self.assertEqual(doc_block_count, 0)
+                self.assertEqual(correction_count, 0)
+            finally:
+                result_store_json_module.file_storage = previous_storage
+                del isolated_service
+                gc.collect()
+
+    def test_get_delete_preview_returns_recursive_document_summary(self):
+        """测试删除预览会返回递归影响范围与文档摘要。"""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            db_path = Path(temp_dir) / "knowledge_meta.sqlite"
+            service = IsolatedKnowledgeService(db_path)
+            root_folder = KnowledgeNode(
+                id="folder-root",
+                title="根文件夹",
+                type="folder",
+                library_id="default",
+                status="completed"
+            )
+            child_folder = KnowledgeNode(
+                id="folder-child",
+                title="子文件夹",
+                type="folder",
+                parent_id="folder-root",
+                library_id="default",
+                status="completed"
+            )
+            doc_one = KnowledgeNode(
+                id="doc-preview-1",
+                title="文档一",
+                type="document",
+                parent_id="folder-root",
+                library_id="default",
+                status="completed"
+            )
+            doc_two = KnowledgeNode(
+                id="doc-preview-2",
+                title="文档二",
+                type="document",
+                parent_id="folder-child",
+                library_id="default",
+                status="completed"
+            )
+            for node in [root_folder, child_folder, doc_one, doc_two]:
+                service.create_node(node)
+
+            preview = service.get_delete_preview("folder-root")
+
+            self.assertIsNotNone(preview)
+            assert preview is not None
+            self.assertEqual(preview["node_id"], "folder-root")
+            self.assertEqual(preview["folder_count"], 2)
+            self.assertEqual(preview["document_count"], 2)
+            self.assertEqual(preview["total_nodes"], 4)
+            self.assertEqual(preview["doc_ids"], ["doc-preview-1", "doc-preview-2"])
+            self.assertEqual(preview["sample_doc_titles"], ["文档一", "文档二"])
+            del service
+            gc.collect()
+
     # 测试 A_structured 索引行会被转换为带精确定位元数据的结构化条目。
     def test_build_a_structured_segment_items_contains_exact_refs(self):
         """测试 A_structured 条目会输出 block_uid、node_id 等精确引用。"""

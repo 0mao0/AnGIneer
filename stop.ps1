@@ -2,6 +2,9 @@
 
 $rootDir = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Location).Path }
 $logsDir = Join-Path $rootDir "logs"
+$portContractPath = Join-Path $rootDir "apps/shared/ports.json"
+$portContract = Get-Content $portContractPath -Raw | ConvertFrom-Json
+$frontendPort = $portContract.webConsolePort
 
 # Stop the target service process by PID file and clean stale state.
 function Stop-ServiceProcess {
@@ -35,6 +38,27 @@ function Stop-ServiceProcess {
     Remove-Item $PidPath -Force -ErrorAction SilentlyContinue
 }
 
+# Stop any process occupying the specified port (for Frontend cleanup).
+function Stop-PortProcess {
+    param(
+        [Parameter(Mandatory = $true)]
+        [int]$Port
+    )
+
+    $connections = Get-NetTCPConnection -LocalPort $Port -ErrorAction SilentlyContinue
+    if (-not $connections) {
+        return
+    }
+
+    foreach ($conn in $connections) {
+        $proc = Get-Process -Id $conn.OwningProcess -ErrorAction SilentlyContinue
+        if ($proc) {
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            Write-Host "Frontend: stopped process on port $Port (PID $($proc.Id))" -ForegroundColor Green
+        }
+    }
+}
+
 if (-not (Test-Path $logsDir)) {
     Write-Host "logs directory not found, nothing to stop." -ForegroundColor DarkGray
     exit 0
@@ -42,3 +66,4 @@ if (-not (Test-Path $logsDir)) {
 
 Stop-ServiceProcess -ServiceName "Backend" -PidPath (Join-Path $logsDir "backend.pid")
 Stop-ServiceProcess -ServiceName "Admin" -PidPath (Join-Path $logsDir "admin.pid")
+Stop-PortProcess -Port $frontendPort
