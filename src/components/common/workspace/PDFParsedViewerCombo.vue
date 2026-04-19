@@ -61,6 +61,29 @@
             </span>
             <div v-if="activeTab === 'Preview_IndexTree'" class="summary-actions">
               <span v-if="selectedBlockIds.length" class="selected-count">已选 {{ selectedBlockIds.length }} 个</span>
+              <a-select
+                v-model:value="batchTargetLevel"
+                size="small"
+                class="batch-level-select"
+                :disabled="!selectedBlockIds.length || submittingBatchOperation"
+                :options="batchLevelOptions"
+                placeholder="设为 Lx"
+                @change="submitBatchSetLevel"
+              />
+              <a-button
+                size="small"
+                :disabled="!canBatchPromote"
+                @click="submitBatchRelevel(-1)"
+              >
+                升一级
+              </a-button>
+              <a-button
+                size="small"
+                :disabled="!canBatchDemote"
+                @click="submitBatchRelevel(1)"
+              >
+                降一级
+              </a-button>
               <a-button size="small" :disabled="selectedBlockIds.length < 2" @click="openMergeModal">
                 合并
               </a-button>
@@ -113,6 +136,7 @@
             @select="onNodeSelect"
             @edit="openNodeEdit"
             @toggle-check="toggleNodeSelection"
+            @context-action="handleTreeContextAction"
           />
           <Preview_IndexGraph
             v-else
@@ -242,6 +266,7 @@ const splitModalVisible = ref(false)
 const submittingBatchOperation = ref(false)
 const undoingLastOperation = ref(false)
 const selectedBlockIds = ref<string[]>([])
+const batchTargetLevel = ref<number | undefined>(undefined)
 
 const {
   rightPaneRef,
@@ -276,6 +301,27 @@ const editingNode = computed<DocBlockNode | null>(() => {
   return nodeMap.value.get(editingNodeId.value) || null
 })
 const selectedNodeIdSet = computed(() => new Set(selectedBlockIds.value))
+const selectedNodes = computed(() => (
+  selectedBlockIds.value
+    .map(nodeId => nodeMap.value.get(nodeId) || null)
+    .filter((node): node is DocBlockNode => Boolean(node))
+))
+const selectedHeadingNodes = computed(() => (
+  selectedNodes.value.filter(node => typeof node.derived_level === 'number' && node.derived_level > 0)
+))
+const canBatchRelevel = computed(() => (
+  selectedBlockIds.value.length > 0
+  && selectedHeadingNodes.value.length === selectedNodes.value.length
+))
+const canBatchPromote = computed(() => (
+  canBatchRelevel.value
+  && selectedHeadingNodes.value.every(node => Number(node.derived_level || 0) > 1)
+))
+const canBatchDemote = computed(() => canBatchRelevel.value)
+const batchLevelOptions = computed(() => Array.from({ length: 6 }, (_, index) => ({
+  value: index + 1,
+  label: `L${index + 1}`
+})))
 const splitTargetBlockIds = computed(() => {
   if (selectedBlockIds.value.length === 1) {
     return [...selectedBlockIds.value]
@@ -310,6 +356,17 @@ const closeNodeEdit = () => {
 /* 清空树中通过勾选产生的多选状态。 */
 const resetSelectedBlocks = () => {
   selectedBlockIds.value = []
+  batchTargetLevel.value = undefined
+}
+
+/* 解析树节点右键动作所作用的节点集合。 */
+const resolveContextTargetBlockIds = (nodeId: string): string[] => {
+  const normalizedId = String(nodeId || '').trim()
+  if (!normalizedId) return []
+  if (selectedBlockIds.value.length > 1 && selectedBlockIds.value.includes(normalizedId)) {
+    return [...selectedBlockIds.value]
+  }
+  return [normalizedId]
 }
 
 /* 在结构树中切换 block 的勾选状态，用于批量合并。 */
@@ -397,6 +454,81 @@ const submitMergeOperation = async (targetBlockId: string) => {
     submittingBatchOperation.value = false
     const detail = error instanceof Error ? error.message : '批量结构操作失败'
     message.error(detail)
+  }
+}
+
+/* 按批次统一升降选中标题节点的层级。 */
+const submitBatchRelevel = async (levelDelta: number) => {
+  if (!props.onBatchStructuredOperation) return
+  if (!selectedBlockIds.value.length) return
+  if (!canBatchRelevel.value) {
+    message.warning('批量升降级仅支持已识别为标题的节点')
+    return
+  }
+  if (levelDelta < 0 && !canBatchPromote.value) {
+    message.warning('选中项中包含 L1，不能继续升一级')
+    return
+  }
+  try {
+    submittingBatchOperation.value = true
+    await props.onBatchStructuredOperation({
+      operation: 'relevel',
+      blockIds: selectedBlockIds.value,
+      levelDelta
+    })
+    resetSelectedBlocks()
+  } catch (error) {
+    submittingBatchOperation.value = false
+    const detail = error instanceof Error ? error.message : '批量层级调整失败'
+    message.error(detail)
+  } finally {
+    submittingBatchOperation.value = false
+  }
+}
+
+/* 按批次把选中节点直接设置为指定层级。 */
+const submitBatchSetLevel = async (targetLevel: number) => {
+  if (!props.onBatchStructuredOperation) return
+  if (!selectedBlockIds.value.length) return
+  try {
+    submittingBatchOperation.value = true
+    await props.onBatchStructuredOperation({
+      operation: 'relevel',
+      blockIds: selectedBlockIds.value,
+      targetLevel
+    })
+    resetSelectedBlocks()
+  } catch (error) {
+    submittingBatchOperation.value = false
+    const detail = error instanceof Error ? error.message : '批量层级设置失败'
+    message.error(detail)
+  } finally {
+    submittingBatchOperation.value = false
+  }
+}
+
+/* 处理树节点右键菜单的快捷层级操作。 */
+const handleTreeContextAction = async (payload: { nodeId: string; action: 'promote' | 'demote' | 'set-level'; targetLevel?: number }) => {
+  const targetBlockIds = resolveContextTargetBlockIds(payload.nodeId)
+  if (!targetBlockIds.length || !props.onBatchStructuredOperation) return
+  const previousSelectedIds = [...selectedBlockIds.value]
+  selectedBlockIds.value = targetBlockIds
+  try {
+    if (payload.action === 'set-level' && typeof payload.targetLevel === 'number') {
+      await submitBatchSetLevel(payload.targetLevel)
+      return
+    }
+    if (payload.action === 'promote') {
+      await submitBatchRelevel(-1)
+      return
+    }
+    if (payload.action === 'demote') {
+      await submitBatchRelevel(1)
+    }
+  } finally {
+    if (selectedBlockIds.value.length === 0) {
+      selectedBlockIds.value = previousSelectedIds.filter(nodeId => nodeMap.value.has(nodeId))
+    }
   }
 }
 
@@ -606,6 +738,10 @@ defineExpose({
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+.batch-level-select {
+  min-width: 96px;
 }
 
 .selected-count {

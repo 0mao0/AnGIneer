@@ -12,46 +12,62 @@
           <div v-if="tooltipRichMediaHtml" class="tree-tooltip-media" v-html="tooltipRichMediaHtml" />
         </div>
       </template>
-      <div
-        :data-tree-node-id="nodeId"
-        :class="['tree-row', { active: nodeId === activeNodeId }]"
-        @click="onRowClick"
-      >
-        <a-checkbox
-          class="tree-select-checkbox"
-          :checked="isChecked"
-          @click.stop
-          @change="onToggleCheck"
-        />
-        <span class="tree-toggle" @click.stop="onToggle">
-          <template v-if="hasChildren">
-            <RightOutlined v-if="!isExpanded" />
-            <DownOutlined v-else />
-          </template>
-          <span v-else class="toggle-placeholder" />
-        </span>
-        <div class="tree-main">
-          <div class="tree-meta">
-            <span v-if="displayTextHtml" class="tree-text" v-html="displayTextHtml" />
-            <span v-else-if="!suppressPlainText" class="tree-text">{{ displayText }}</span>
-            <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
-            <span v-if="typeTag" class="chip">{{ typeTag }}</span>
-            <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
-          </div>
-          <div v-if="inlineRichMediaHtml" class="tree-inline-media" v-html="inlineRichMediaHtml" />
-        </div>
-        <a-button
-          v-if="node"
-          type="text"
-          size="small"
-          class="tree-edit-btn"
-          @click.stop="onEdit"
+      <a-dropdown :trigger="['contextmenu']">
+        <div
+          :data-tree-node-id="nodeId"
+          :class="['tree-row', { active: nodeId === activeNodeId }]"
+          @click="onRowClick"
+          @contextmenu.prevent
         >
-          <template #icon>
-            <EditOutlined />
-          </template>
-        </a-button>
-      </div>
+          <a-checkbox
+            class="tree-select-checkbox"
+            :checked="isChecked"
+            @click.stop
+            @change="onToggleCheck"
+          />
+          <span class="tree-toggle" @click.stop="onToggle">
+            <template v-if="hasChildren">
+              <RightOutlined v-if="!isExpanded" />
+              <DownOutlined v-else />
+            </template>
+            <span v-else class="toggle-placeholder" />
+          </span>
+          <div class="tree-main">
+            <div class="tree-meta">
+              <span v-if="displayTextHtml" class="tree-text" v-html="displayTextHtml" />
+              <span v-else-if="!suppressPlainText" class="tree-text">{{ displayText }}</span>
+              <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
+              <span v-if="typeTag" class="chip">{{ typeTag }}</span>
+              <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
+            </div>
+            <div v-if="inlineRichMediaHtml" class="tree-inline-media" v-html="inlineRichMediaHtml" />
+          </div>
+          <a-button
+            v-if="node"
+            type="text"
+            size="small"
+            class="tree-edit-btn"
+            @click.stop="onEdit"
+          >
+            <template #icon>
+              <EditOutlined />
+            </template>
+          </a-button>
+        </div>
+        <template #overlay>
+          <a-menu @click="onContextMenuClick">
+            <a-menu-item key="promote">升一级</a-menu-item>
+            <a-menu-item key="demote">降一级</a-menu-item>
+            <a-menu-divider />
+            <a-menu-item
+              v-for="level in [1, 2, 3, 4, 5, 6]"
+              :key="`set-level-${level}`"
+            >
+              设为 L{{ level }}
+            </a-menu-item>
+          </a-menu>
+        </template>
+      </a-dropdown>
     </a-tooltip>
     <ul v-if="hasChildren && isExpanded" class="tree-children">
       <IndexTreeNode
@@ -106,6 +122,7 @@ const emit = defineEmits<{
   select: [id: string]
   edit: [id: string]
   'toggle-check': [id: string]
+  'context-action': [payload: { nodeId: string; action: 'promote' | 'demote' | 'set-level'; targetLevel?: number }]
 }>()
 
 const node = computed(() => props.nodeMap.get(props.nodeId))
@@ -162,6 +179,27 @@ const onEdit = () => {
 /* 切换当前树节点的批处理勾选状态。 */
 const onToggleCheck = () => {
   emit('toggle-check', props.nodeId)
+}
+
+/* 响应当前树节点右键菜单动作。 */
+const onContextMenuClick = ({ key }: { key: string }) => {
+  if (key === 'promote' || key === 'demote') {
+    emit('context-action', {
+      nodeId: props.nodeId,
+      action: key
+    })
+    return
+  }
+  if (key.startsWith('set-level-')) {
+    const targetLevel = Number(key.replace('set-level-', ''))
+    if (Number.isFinite(targetLevel) && targetLevel > 0) {
+      emit('context-action', {
+        nodeId: props.nodeId,
+        action: 'set-level',
+        targetLevel
+      })
+    }
+  }
 }
 </script>
 

@@ -38,13 +38,15 @@ export interface StructuredSplitSegmentPayload {
   plain_text: string
 }
 
-export type StructuredBatchOperationType = 'merge' | 'split' | 'delete'
+export type StructuredBatchOperationType = 'merge' | 'split' | 'delete' | 'relevel'
 
 export interface StructuredBatchOperationPayload {
   operation: StructuredBatchOperationType
   blockIds: string[]
   targetBlockId?: string | null
   splitSegments?: StructuredSplitSegmentPayload[]
+  levelDelta?: number | null
+  targetLevel?: number | null
 }
 
 export interface StructuredStats {
