@@ -109,7 +109,7 @@ export function getNodeEditActionLabels(payload: StructuredNodeUpdatePayload | n
   if ('derived_title_level' in payload) {
     actions.push(
       typeof payload.derived_title_level === 'number'
-        ? `调整为 H${payload.derived_title_level}`
+        ? `调整为 L${payload.derived_title_level}`
         : '取消标题层级'
     )
   }

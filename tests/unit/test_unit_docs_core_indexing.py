@@ -908,6 +908,339 @@ class TestStructuredBatchOperations(unittest.TestCase):
                 del isolated_service
                 gc.collect()
 
+    def test_batch_relevel_blocks_and_undo(self):
+        """测试批量升降标题层级会整体重算父级并支持撤回。"""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            db_path = Path(temp_dir) / "knowledge_meta.sqlite"
+            isolated_service = IsolatedKnowledgeService(db_path)
+            isolated_storage = FileStorage(base_dir=temp_dir)
+            previous_service = knowledge_service_module.knowledge_service
+            previous_storage = result_store_json_module.file_storage
+            knowledge_service_module.knowledge_service = isolated_service
+            result_store_json_module.file_storage = isolated_storage
+            try:
+                node = KnowledgeNode(
+                    id="doc-batch-relevel-1",
+                    title="批量层级调整测试",
+                    type="document",
+                    library_id="default",
+                    status="completed"
+                )
+                isolated_service.create_node(node)
+                graph_data = {
+                    "doc_id": "doc-batch-relevel-1",
+                    "doc_name": "批量层级调整测试",
+                    "nodes": [
+                        {
+                            "id": "doc-batch-relevel-1:0:1",
+                            "block_uid": "doc-batch-relevel-1:0:1",
+                            "block_type": "title",
+                            "page_idx": 0,
+                            "block_seq": 1,
+                            "plain_text": "第一章",
+                            "bbox": [0.0, 0.0, 1.0, 0.1],
+                            "bbox_source": "layout",
+                            "derived_level": 1,
+                            "title_path": "doc-batch-relevel-1:0:1",
+                            "parent_uid": None,
+                            "derived_by": "rule",
+                            "confidence": 0.99,
+                            "content_json": {},
+                        },
+                        {
+                            "id": "doc-batch-relevel-1:0:2",
+                            "block_uid": "doc-batch-relevel-1:0:2",
+                            "block_type": "title",
+                            "page_idx": 0,
+                            "block_seq": 2,
+                            "plain_text": "第二章",
+                            "bbox": [0.0, 0.1, 1.0, 0.2],
+                            "bbox_source": "layout",
+                            "derived_level": 1,
+                            "title_path": "doc-batch-relevel-1:0:2",
+                            "parent_uid": None,
+                            "derived_by": "rule",
+                            "confidence": 0.99,
+                            "content_json": {},
+                        },
+                        {
+                            "id": "doc-batch-relevel-1:0:3",
+                            "block_uid": "doc-batch-relevel-1:0:3",
+                            "block_type": "title",
+                            "page_idx": 0,
+                            "block_seq": 3,
+                            "plain_text": "第二章 第一节",
+                            "bbox": [0.0, 0.2, 1.0, 0.3],
+                            "bbox_source": "layout",
+                            "derived_level": 1,
+                            "title_path": "doc-batch-relevel-1:0:3",
+                            "parent_uid": None,
+                            "derived_by": "rule",
+                            "confidence": 0.95,
+                            "content_json": {},
+                        },
+                        {
+                            "id": "doc-batch-relevel-1:0:4",
+                            "block_uid": "doc-batch-relevel-1:0:4",
+                            "block_type": "title",
+                            "page_idx": 0,
+                            "block_seq": 4,
+                            "plain_text": "第二章 第一节 第一条",
+                            "bbox": [0.0, 0.3, 1.0, 0.4],
+                            "bbox_source": "layout",
+                            "derived_level": 2,
+                            "title_path": "doc-batch-relevel-1:0:3>doc-batch-relevel-1:0:4",
+                            "parent_uid": "doc-batch-relevel-1:0:3",
+                            "derived_by": "rule",
+                            "confidence": 0.92,
+                            "content_json": {},
+                        },
+                    ],
+                    "edges": [],
+                    "stats": {
+                        "base_rows": [],
+                        "derived_rows": [],
+                        "index_rows": [],
+                    },
+                }
+                result_store_json_module._rebuild_graph_projection(graph_data)
+                graph_path = isolated_storage.get_graph_path("default", "doc-batch-relevel-1")
+                graph_path.write_text(json.dumps(graph_data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+                relevel_result = batch_operate_doc_blocks(
+                    "default",
+                    "doc-batch-relevel-1",
+                    "relevel",
+                    {
+                        "operation": "relevel",
+                        "blockIds": ["doc-batch-relevel-1:0:3", "doc-batch-relevel-1:0:4"],
+                        "levelDelta": 1,
+                    },
+                )
+                self.assertEqual(
+                    relevel_result["updated_block_ids"],
+                    ["doc-batch-relevel-1:0:3", "doc-batch-relevel-1:0:4"],
+                )
+
+                latest_graph = result_store_json_module.get_doc_blocks_graph("default", "doc-batch-relevel-1")
+                self.assertIsNotNone(latest_graph)
+                latest_node_map = {
+                    node["block_uid"]: node
+                    for node in latest_graph["nodes"]
+                    if int(node.get("is_active", 1) or 0) != 0
+                }
+                self.assertEqual(latest_node_map["doc-batch-relevel-1:0:3"]["derived_level"], 2)
+                self.assertEqual(latest_node_map["doc-batch-relevel-1:0:3"]["parent_uid"], "doc-batch-relevel-1:0:2")
+                self.assertEqual(latest_node_map["doc-batch-relevel-1:0:4"]["derived_level"], 3)
+                self.assertEqual(latest_node_map["doc-batch-relevel-1:0:4"]["parent_uid"], "doc-batch-relevel-1:0:3")
+
+                projected_segments = isolated_service.list_document_segments("doc-batch-relevel-1", "A_structured")
+                projected_segment_map = {
+                    item["meta"]["block_uid"]: item["meta"]
+                    for item in projected_segments
+                }
+                self.assertEqual(projected_segment_map["doc-batch-relevel-1:0:3"]["derived_level"], 2)
+                self.assertEqual(projected_segment_map["doc-batch-relevel-1:0:3"]["parent_uid"], "doc-batch-relevel-1:0:2")
+                self.assertEqual(projected_segment_map["doc-batch-relevel-1:0:4"]["derived_level"], 3)
+                self.assertEqual(projected_segment_map["doc-batch-relevel-1:0:4"]["parent_uid"], "doc-batch-relevel-1:0:3")
+
+                undo_result = undo_last_doc_block_merge("default", "doc-batch-relevel-1")
+                self.assertIn("doc-batch-relevel-1:0:3", undo_result["restored_block_ids"])
+
+                restored_graph = result_store_json_module.get_doc_blocks_graph("default", "doc-batch-relevel-1")
+                self.assertIsNotNone(restored_graph)
+                restored_node_map = {
+                    node["block_uid"]: node
+                    for node in restored_graph["nodes"]
+                    if int(node.get("is_active", 1) or 0) != 0
+                }
+                self.assertEqual(restored_node_map["doc-batch-relevel-1:0:3"]["derived_level"], 1)
+                self.assertIsNone(restored_node_map["doc-batch-relevel-1:0:3"]["parent_uid"])
+                self.assertEqual(restored_node_map["doc-batch-relevel-1:0:4"]["derived_level"], 2)
+                self.assertEqual(restored_node_map["doc-batch-relevel-1:0:4"]["parent_uid"], "doc-batch-relevel-1:0:3")
+            finally:
+                knowledge_service_module.knowledge_service = previous_service
+                result_store_json_module.file_storage = previous_storage
+                del isolated_service
+                gc.collect()
+
+    def test_batch_set_same_target_level_for_multiple_blocks(self):
+        """测试多选多个节点后可一次性直接设置为同一层级。"""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            db_path = Path(temp_dir) / "knowledge_meta.sqlite"
+            isolated_service = IsolatedKnowledgeService(db_path)
+            isolated_storage = FileStorage(base_dir=temp_dir)
+            previous_service = knowledge_service_module.knowledge_service
+            previous_storage = result_store_json_module.file_storage
+            knowledge_service_module.knowledge_service = isolated_service
+            result_store_json_module.file_storage = isolated_storage
+            try:
+                node = KnowledgeNode(
+                    id="doc-batch-target-level-1",
+                    title="批量绝对层级设置测试",
+                    type="document",
+                    library_id="default",
+                    status="completed"
+                )
+                isolated_service.create_node(node)
+                graph_data = {
+                    "doc_id": "doc-batch-target-level-1",
+                    "doc_name": "批量绝对层级设置测试",
+                    "nodes": [
+                        {
+                            "id": "doc-batch-target-level-1:0:1",
+                            "block_uid": "doc-batch-target-level-1:0:1",
+                            "block_type": "title",
+                            "page_idx": 0,
+                            "block_seq": 1,
+                            "plain_text": "第一章",
+                            "bbox": [0.0, 0.0, 1.0, 0.1],
+                            "bbox_source": "layout",
+                            "derived_level": 1,
+                            "title_path": "doc-batch-target-level-1:0:1",
+                            "parent_uid": None,
+                            "derived_by": "rule",
+                            "confidence": 0.99,
+                            "content_json": {},
+                        },
+                        {
+                            "id": "doc-batch-target-level-1:0:2",
+                            "block_uid": "doc-batch-target-level-1:0:2",
+                            "block_type": "title",
+                            "page_idx": 0,
+                            "block_seq": 2,
+                            "plain_text": "第二章",
+                            "bbox": [0.0, 0.1, 1.0, 0.2],
+                            "bbox_source": "layout",
+                            "derived_level": 1,
+                            "title_path": "doc-batch-target-level-1:0:2",
+                            "parent_uid": None,
+                            "derived_by": "rule",
+                            "confidence": 0.99,
+                            "content_json": {},
+                        },
+                        {
+                            "id": "doc-batch-target-level-1:0:3",
+                            "block_uid": "doc-batch-target-level-1:0:3",
+                            "block_type": "title",
+                            "page_idx": 0,
+                            "block_seq": 3,
+                            "plain_text": "2.1",
+                            "bbox": [0.0, 0.2, 1.0, 0.3],
+                            "bbox_source": "layout",
+                            "derived_level": 2,
+                            "title_path": "doc-batch-target-level-1:0:2>doc-batch-target-level-1:0:3",
+                            "parent_uid": "doc-batch-target-level-1:0:2",
+                            "derived_by": "rule",
+                            "confidence": 0.96,
+                            "content_json": {},
+                        },
+                        {
+                            "id": "doc-batch-target-level-1:0:4",
+                            "block_uid": "doc-batch-target-level-1:0:4",
+                            "block_type": "title",
+                            "page_idx": 0,
+                            "block_seq": 4,
+                            "plain_text": "2.2",
+                            "bbox": [0.0, 0.3, 1.0, 0.4],
+                            "bbox_source": "layout",
+                            "derived_level": 1,
+                            "title_path": "doc-batch-target-level-1:0:4",
+                            "parent_uid": None,
+                            "derived_by": "rule",
+                            "confidence": 0.96,
+                            "content_json": {},
+                        },
+                        {
+                            "id": "doc-batch-target-level-1:0:5",
+                            "block_uid": "doc-batch-target-level-1:0:5",
+                            "block_type": "title",
+                            "page_idx": 0,
+                            "block_seq": 5,
+                            "plain_text": "2.3",
+                            "bbox": [0.0, 0.4, 1.0, 0.5],
+                            "bbox_source": "layout",
+                            "derived_level": 1,
+                            "title_path": "doc-batch-target-level-1:0:5",
+                            "parent_uid": None,
+                            "derived_by": "rule",
+                            "confidence": 0.96,
+                            "content_json": {},
+                        },
+                        {
+                            "id": "doc-batch-target-level-1:0:6",
+                            "block_uid": "doc-batch-target-level-1:0:6",
+                            "block_type": "title",
+                            "page_idx": 0,
+                            "block_seq": 6,
+                            "plain_text": "2.4",
+                            "bbox": [0.0, 0.5, 1.0, 0.6],
+                            "bbox_source": "layout",
+                            "derived_level": 1,
+                            "title_path": "doc-batch-target-level-1:0:6",
+                            "parent_uid": None,
+                            "derived_by": "rule",
+                            "confidence": 0.96,
+                            "content_json": {},
+                        },
+                    ],
+                    "edges": [],
+                    "stats": {
+                        "base_rows": [],
+                        "derived_rows": [],
+                        "index_rows": [],
+                    },
+                }
+                result_store_json_module._rebuild_graph_projection(graph_data)
+                graph_path = isolated_storage.get_graph_path("default", "doc-batch-target-level-1")
+                graph_path.write_text(json.dumps(graph_data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+                result = batch_operate_doc_blocks(
+                    "default",
+                    "doc-batch-target-level-1",
+                    "relevel",
+                    {
+                        "operation": "relevel",
+                        "blockIds": [
+                            "doc-batch-target-level-1:0:3",
+                            "doc-batch-target-level-1:0:4",
+                            "doc-batch-target-level-1:0:5",
+                            "doc-batch-target-level-1:0:6",
+                        ],
+                        "targetLevel": 3,
+                    },
+                )
+                self.assertEqual(
+                    result["updated_block_ids"],
+                    [
+                        "doc-batch-target-level-1:0:3",
+                        "doc-batch-target-level-1:0:4",
+                        "doc-batch-target-level-1:0:5",
+                        "doc-batch-target-level-1:0:6",
+                    ],
+                )
+
+                latest_graph = result_store_json_module.get_doc_blocks_graph("default", "doc-batch-target-level-1")
+                self.assertIsNotNone(latest_graph)
+                latest_node_map = {
+                    node["block_uid"]: node
+                    for node in latest_graph["nodes"]
+                    if int(node.get("is_active", 1) or 0) != 0
+                }
+                for block_uid in [
+                    "doc-batch-target-level-1:0:3",
+                    "doc-batch-target-level-1:0:4",
+                    "doc-batch-target-level-1:0:5",
+                    "doc-batch-target-level-1:0:6",
+                ]:
+                    self.assertEqual(latest_node_map[block_uid]["derived_level"], 3)
+                    self.assertIsNone(latest_node_map[block_uid]["parent_uid"])
+            finally:
+                knowledge_service_module.knowledge_service = previous_service
+                result_store_json_module.file_storage = previous_storage
+                del isolated_service
+                gc.collect()
+
 
 if __name__ == "__main__":
     unittest.main()

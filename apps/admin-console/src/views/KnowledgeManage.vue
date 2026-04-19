@@ -702,8 +702,21 @@ const batchOperateStructuredNodes = async (payload: StructuredBatchOperationPayl
         docParsedWorkspaceRef.value?.setActiveLinkedItem(focusBlockId)
       }
     }
+    if (payload.operation === 'relevel') {
+      const focusBlockId = String(result.updated_block_ids?.[0] || payload.blockIds?.[0] || '').trim()
+      if (focusBlockId) {
+        await nextTick()
+        docParsedWorkspaceRef.value?.setActiveLinkedItem(focusBlockId)
+      }
+    }
     const successText = payload.operation === 'merge'
       ? '批量合并已完成'
+      : payload.operation === 'relevel'
+        ? (
+            typeof payload.targetLevel === 'number'
+              ? `已将 ${result.updated_block_ids?.length || payload.blockIds.length || 0} 个节点设为 L${payload.targetLevel}`
+              : `已调整 ${result.updated_block_ids?.length || payload.blockIds.length || 0} 个标题层级`
+          )
       : payload.operation === 'delete'
         ? `已删除 ${result.removed_block_ids?.length || payload.blockIds.length || 0} 个 block`
         : `Block 已拆分为 ${Math.max(2, (result.created_block_ids?.length || 0) + 1)} 段`

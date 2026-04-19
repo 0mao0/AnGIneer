@@ -83,7 +83,9 @@ const {
   getContextRounds
 } = useKnowledgeChat({
   defaultModel: props.defaultModel,
-  systemPrompt: props.systemPrompt
+  systemPrompt: props.systemPrompt,
+  libraryId: 'default',
+  getContextItems: () => props.contextItems
 })
 
 const loadingModels = ref(false)

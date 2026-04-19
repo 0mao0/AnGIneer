@@ -162,6 +162,10 @@ export function useParsedPdfIndexTree(
         expandedNodeIds.value.add(rootId)
         expandedGraphNodeIds.value.add(rootId)
       }
+      const activeNodeId = resolveActiveNodeId(props.activeLinkedItemId)
+      if (activeNodeId) {
+        expandAncestors(activeNodeId)
+      }
     }
   }, { immediate: true })
 

@@ -142,6 +142,8 @@ class KnowledgeDocumentBatchBlockOperation(BaseModel):
     blockIds: List[str]
     targetBlockId: Optional[str] = None
     splitSegments: Optional[List[Dict[str, Any]]] = None
+    levelDelta: Optional[int] = None
+    targetLevel: Optional[int] = None
 
 # AI Chat 对话相关模型
 class ChatMessage(BaseModel):

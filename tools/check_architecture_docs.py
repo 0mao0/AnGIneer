@@ -241,7 +241,7 @@ def validate_ports(ports: Dict[str, str], errors: List[str]) -> None:
     expected_ports = {
         "web_console": "3005",
         "admin_console": "3002",
-        "api_server": "8033",
+        "api_server": "8789",
     }
     for key, expected in expected_ports.items():
         actual = ports.get(key)

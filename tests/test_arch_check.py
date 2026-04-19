@@ -102,7 +102,7 @@ system:
   default_ports:
     web_console: 3005
     admin_console: 3002
-    api_server: 8033
+    api_server: 8789
 
 modules:
   - id: web-console

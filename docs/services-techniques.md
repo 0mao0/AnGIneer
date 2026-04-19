@@ -2,6 +2,8 @@
 
 本文档描述文档解析与对比查改能力的后端改造方案，聚焦 API 网关、docs-core、engtools 三层联动。
 
+- 运行端口契约：`apps/api-server` 对外监听 `8789`，前端开发代理 `/api` 必须统一转发到 `http://localhost:8789`。
+
 ***
 
 ## 后端常用命令（自动同步）
@@ -338,4 +340,3 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 - Mineru Blocks 生成逻辑
 - Mineru Blocks <-> 数据库映射
 - PDF/Markdown 高亮及联动逻辑
-

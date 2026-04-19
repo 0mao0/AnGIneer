@@ -1,5 +1,5 @@
 version: 1
-last_updated: 2026-04-06
+last_updated: 2026-04-19
 
 truth_sources:
   - README.md
@@ -31,7 +31,7 @@ system:
   default_ports:
     web_console: 3005
     admin_console: 3002
-    api_server: 8033
+    api_server: 8789
 
 modules:
   - id: web-console
@@ -168,7 +168,7 @@ storage:
 
 invariants:
   - web-console and admin-console should share the resource protocol by default.
-  - frontend /api proxy must point to http://localhost:8033.
+  - frontend /api proxy must point to http://localhost:8789.
   - api-server is the gateway entry for frontend knowledge access.
   - docs parsing must remain asynchronous when work is long-running.
   - docs storage follows one-document-one-folder.

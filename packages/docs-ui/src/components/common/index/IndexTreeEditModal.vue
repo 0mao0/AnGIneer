@@ -129,6 +129,9 @@
                   placeholder="不合并，仅更新当前 block"
                 />
               </a-form-item>
+              <div v-if="hierarchyHintText" class="edit-hint-card">
+                <div class="edit-hint-text">{{ hierarchyHintText }}</div>
+              </div>
               <div v-if="mergeWarningText" class="edit-warning-card">
                 <div class="edit-warning-title">合并提醒</div>
                 <div class="edit-warning-text">{{ mergeWarningText }}</div>
@@ -232,7 +235,7 @@ const mergeTargetOptions = computed(() => {
 })
 const headingLevelOptions = computed(() => Array.from({ length: 6 }, (_, index) => ({
   value: index + 1,
-  label: `H${index + 1} / ${index + 1} 级标题`
+  label: `L${index + 1} / ${index + 1} 级标题`
 })))
 const editPlainTextLength = computed(() => String(editForm.value.plain_text || '').trim().length)
 const nodeDisplayTitle = computed(() => {
@@ -258,6 +261,14 @@ const mergeWarningText = computed(() => (
     ? '当前 block 会在保存后并入目标 block，并从结构树中移除，请确认目标节点选择正确。'
     : ''
 ))
+const hierarchyHintText = computed(() => {
+  const targetLevel = editForm.value.derived_title_level
+  if (typeof targetLevel !== 'number' || targetLevel <= 1) return ''
+  if (editForm.value.parent_block_uid !== ROOT_PARENT_VALUE) {
+    return `当前会作为 L${targetLevel} 节点挂到所选父级下。`
+  }
+  return `当前仅设置为 L${targetLevel} 时，保存后会自动挂到最近的上一级标题下；如需精确控制，请直接选择父级节点。`
+})
 
 /* 提交节点编辑结果给外层工作区。 */
 const submitEdit = () => {
@@ -461,6 +472,14 @@ const submitEdit = () => {
   background: color-mix(in srgb, #fef3c7 44%, #ffffff);
 }
 
+.edit-hint-card {
+  margin-top: 4px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  background: color-mix(in srgb, #dbeafe 34%, #ffffff);
+}
+
 .edit-warning-title {
   margin-bottom: 4px;
   font-size: 12px;
@@ -472,6 +491,12 @@ const submitEdit = () => {
   font-size: 12px;
   line-height: 1.6;
   color: #92400e;
+}
+
+.edit-hint-text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #1d4ed8;
 }
 
 .index-tree-modal-dark .edit-surface-card,
@@ -505,6 +530,11 @@ const submitEdit = () => {
   background: rgba(120, 53, 15, 0.18);
 }
 
+.index-tree-modal-dark .edit-hint-card {
+  border-color: rgba(96, 165, 250, 0.28);
+  background: rgba(30, 64, 175, 0.2);
+}
+
 .index-tree-modal-dark .edit-modal-title-text,
 .index-tree-modal-dark .edit-compact-title,
 .index-tree-modal-dark .edit-compact-metric,
@@ -529,6 +559,10 @@ const submitEdit = () => {
 
 .index-tree-modal-dark .edit-warning-text {
   color: #fcd34d;
+}
+
+.index-tree-modal-dark .edit-hint-text {
+  color: #93c5fd;
 }
 
 @media (max-width: 900px) {

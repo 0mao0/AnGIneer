@@ -16,40 +16,66 @@ export interface KnowledgeChatMessage {
   timestamp?: number
   // 多模态预留：图片列表
   images?: string[]
+  citations?: Array<{
+    target_id: string
+    doc_id: string
+    doc_title: string
+    page_idx: number
+    section_path: string
+    snippet: string
+    score: number
+  }>
 }
 
 // 对话请求参数
 export interface KnowledgeChatRequest {
   // 当前用户输入
-  message: string
+  query: string
   // 历史消息上下文
   history: KnowledgeChatMessage[]
-  // 使用的模型（可选）
-  model?: string
-  // 对话模式（可选，用于后续扩展）
-  mode?: 'chat' | 'reasoning' | 'vision'
-  // 扩展参数（预留）
-  context?: {
-    // 引用的规范/文档 ID 列表
-    references?: string[]
-    // 其他上下文项
-    [key: string]: any
-  }
+  // 指定知识库
+  library_id?: string
+  // 限定文档范围
+  doc_ids?: string[]
+  // 查询模式
+  mode?: 'auto' | 'retrieval' | 'sql' | 'schema' | 'table'
+  // 返回调试信息
+  include_debug?: boolean
+  // 返回检索详情
+  include_retrieved?: boolean
 }
 
-// 流式响应事件类型
-export type KnowledgeChatStreamEventType = 'start' | 'chunk' | 'end' | 'error'
-
-// 流式响应事件
-export interface KnowledgeChatStreamEvent {
-  type: KnowledgeChatStreamEventType
-  messageId?: string
-  content?: string
-  usage?: {
-    promptTokens: number
-    completionTokens: number
+// 知识查询响应
+export interface KnowledgeChatResponse {
+  query_id: string
+  task_type: string
+  strategy: string
+  answer: string
+  citations?: Array<{
+    target_id: string
+    target_type: string
+    doc_id: string
+    doc_title: string
+    page_idx: number
+    section_path: string
+    snippet: string
+    score: number
+  }>
+  retrieved_items?: Array<{
+    item_id: string
+    entity_type: string
+    text: string
+    score: number
+  }>
+  sql?: {
+    generated_sql: string
+    execution_status: string
+    result_preview: any
+    explanation: string
   }
-  error?: string
+  confidence?: number
+  latency_ms?: number
+  debug?: Record<string, any>
 }
 
 // 上下文管理配置
@@ -112,6 +138,8 @@ export function useKnowledgeChat(options?: {
   defaultModel?: string
   contextConfig?: Partial<KnowledgeChatContextConfig>
   systemPrompt?: string
+  libraryId?: string
+  getContextItems?: () => Array<{ id: string; title: string }>
 }) {
   // 合并上下文配置
   const contextConfig: KnowledgeChatContextConfig = {
@@ -163,23 +191,26 @@ export function useKnowledgeChat(options?: {
     const managedMessages = manageContext([...messages.value], contextConfig)
 
     // 准备请求参数
+    const contextItems = options?.getContextItems?.() || []
     const request: KnowledgeChatRequest = {
-      message: userMessage.content,
+      query: userMessage.content,
       history: managedMessages.filter(m => m.role !== 'system'),
-      model: model || options?.defaultModel,
-      mode: 'chat'
+      library_id: options?.libraryId || 'default',
+      doc_ids: contextItems.map(item => item.id),
+      mode: 'auto',
+      include_debug: false,
+      include_retrieved: false
     }
 
     // 创建 AbortController 用于取消请求
     abortController.value = new AbortController()
 
     try {
-      // 发送 SSE 请求
-      const response = await fetch('/api/chat', {
+      // 发送知识查询请求
+      const response = await fetch('/api/knowledge/query', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'text/event-stream'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(request),
         signal: abortController.value.signal
@@ -189,64 +220,45 @@ export function useKnowledgeChat(options?: {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
 
-      if (!response.body) {
-        throw new Error('Response body is null')
+      const payload: KnowledgeChatResponse = await response.json()
+      const citations = payload.citations || []
+      let assistantContent = payload.answer || ''
+
+      if (citations.length) {
+        const citationText = citations
+          .slice(0, 3)
+          .map((citation, index) =>
+            `${index + 1}. ${citation.doc_title}${citation.page_idx ? ` 第${citation.page_idx}页` : ''}${citation.section_path ? ` / ${citation.section_path}` : ''}`
+          )
+          .join('\n')
+        assistantContent += `\n\n参考依据：\n${citationText}`
       }
 
-      // 读取流式响应
-      const reader = response.body.getReader()
-      const decoder = new TextDecoder()
-      let assistantMessageId = generateMessageId()
-
-      while (true) {
-        const { done, value } = await reader.read()
-        if (done) break
-
-        const chunk = decoder.decode(value, { stream: true })
-        const lines = chunk.split('\n')
-
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const data = line.slice(6).trim()
-            if (data === '[DONE]') continue
-
-            try {
-              const event: KnowledgeChatStreamEvent = JSON.parse(data)
-
-              switch (event.type) {
-                case 'start':
-                  if (event.messageId) {
-                    assistantMessageId = event.messageId
-                  }
-                  break
-
-                case 'chunk':
-                  if (event.content) {
-                    currentStreamContent.value += event.content
-                    onChunk?.(event.content)
-                  }
-                  break
-
-                case 'end':
-                  // 流结束，添加助手消息到历史
-                  messages.value.push({
-                    id: assistantMessageId,
-                    role: 'assistant',
-                    content: currentStreamContent.value,
-                    timestamp: Date.now()
-                  })
-                  currentStreamContent.value = ''
-                  break
-
-                case 'error':
-                  throw new Error(event.error || 'Stream error')
-              }
-            } catch (e) {
-              console.error('Parse SSE data error:', e)
-            }
-          }
+      if (payload.sql?.generated_sql) {
+        assistantContent += `\n\nSQL：\n\`\`\`sql\n${payload.sql.generated_sql}\n\`\`\``
+        if (payload.sql.explanation) {
+          assistantContent += `\n${payload.sql.explanation}`
         }
       }
+
+      currentStreamContent.value = assistantContent
+      onChunk?.(assistantContent)
+      messages.value.push({
+        id: payload.query_id || generateMessageId(),
+        role: 'assistant',
+        content: assistantContent,
+        timestamp: Date.now(),
+        citations: citations.map(citation => ({
+          target_id: citation.target_id,
+          doc_id: citation.doc_id,
+          doc_title: citation.doc_title,
+          page_idx: citation.page_idx,
+          section_path: citation.section_path,
+          snippet: citation.snippet,
+          score: citation.score
+        }))
+      })
+      currentStreamContent.value = ''
     } catch (error) {
       if (error instanceof Error && error.name === 'AbortError') {
         console.log('Request aborted')

@@ -2,6 +2,8 @@
 
 本文档包含项目的详细技术实现、API 规范、组件使用示例。
 
+- 运行端口契约：`apps/web-console` 使用 `3005`，`apps/admin-console` 使用 `3002`，`apps/api-server` 使用 `8789`，前端开发代理 `/api` 必须指向 `http://localhost:8789`。
+
 ---
 
 ## 目录

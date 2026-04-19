@@ -226,6 +226,20 @@ class FileStorage:
             json.dump(data, f, ensure_ascii=False, indent=2)
         return str(middle_path)
 
+    def read_middle_json(self, library_id: str, doc_id: str) -> Dict[str, Any]:
+        """读取 middle.json 结构化中间数据。"""
+        middle_path = self.get_middle_json_path(library_id, doc_id)
+        if not middle_path.exists():
+            return {}
+        try:
+            with open(middle_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, dict):
+                return data
+        except Exception:
+            return {}
+        return {}
+
     def read_mineru_blocks(self, library_id: str, doc_id: str) -> List[Dict[str, Any]]:
         """读取 MinerU 块级结果。"""
         blocks_path = self.get_mineru_blocks_path(library_id, doc_id)
@@ -239,6 +253,20 @@ class FileStorage:
         except Exception:
             return []
         return []
+
+    def read_doc_blocks_graph(self, library_id: str, doc_id: str) -> Dict[str, Any]:
+        """读取 doc_blocks_graph.json。"""
+        graph_path = self.get_graph_path(library_id, doc_id)
+        if not graph_path.exists():
+            return {}
+        try:
+            with open(graph_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, dict):
+                return data
+        except Exception:
+            return {}
+        return {}
 
     def read_markdown(self, library_id: str, doc_id: str) -> Optional[str]:
         """读取 Markdown 文件。"""
@@ -790,6 +818,36 @@ def _resolve_parent_chain(node_map: Dict[str, Dict[str, Any]], parent_uid: Optio
         cursor = _normalize_block_uid(parent.get("parent_uid"))
     chain.reverse()
     return chain
+
+
+# 根据目标标题层级推断最近的上级结构节点。
+def _infer_parent_uid_from_level(
+    active_nodes: List[Dict[str, Any]],
+    target_block_uid: str,
+    target_level: Optional[int],
+) -> Optional[str]:
+    if target_level is None or target_level <= 1:
+        return None
+    latest_by_level: Dict[int, str] = {}
+    for node in _sort_graph_nodes(active_nodes):
+        block_uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
+        if not block_uid:
+            continue
+        if block_uid == target_block_uid:
+            break
+        derived_level = node.get("derived_level")
+        if derived_level is None or derived_level == "":
+            continue
+        try:
+            normalized_level = int(derived_level)
+        except (TypeError, ValueError):
+            continue
+        if normalized_level < 1:
+            continue
+        latest_by_level[normalized_level] = block_uid
+        for stale_level in [level for level in latest_by_level.keys() if level > normalized_level]:
+            latest_by_level.pop(stale_level, None)
+    return latest_by_level.get(int(target_level) - 1)
 
 
 # 把单值或数组中的 block 引用从旧 uid 替换为新 uid。
@@ -1591,6 +1649,89 @@ def _reorganize_graph_nodes(
     return [_normalize_block_uid(node.get("block_uid") or node.get("id")) for node in moving_nodes]
 
 
+# 按批次统一应用多个标题节点的目标层级，并重算它们的父子关系。
+def _apply_graph_node_levels(graph_data: Dict[str, Any], next_levels: Dict[str, int]) -> List[str]:
+    ordered_nodes = _sort_graph_nodes(_get_active_graph_nodes(graph_data))
+    node_map = _build_active_node_map(graph_data)
+    selected_set = set(next_levels.keys())
+    ordered_selected_uids = [
+        _normalize_block_uid(node.get("block_uid") or node.get("id"))
+        for node in ordered_nodes
+        if _normalize_block_uid(node.get("block_uid") or node.get("id")) in selected_set
+    ]
+    if not ordered_selected_uids:
+        raise ValueError("未找到可调整层级的 block")
+
+    latest_by_level: Dict[int, str] = {}
+    for node in ordered_nodes:
+        block_uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
+        if not block_uid:
+            continue
+        effective_level = next_levels.get(block_uid)
+        if effective_level is not None:
+            next_parent_uid = latest_by_level.get(effective_level - 1) if effective_level > 1 else None
+            node["derived_level"] = effective_level
+            node["parent_uid"] = next_parent_uid
+            latest_by_level[effective_level] = block_uid
+            for stale_level in [level for level in latest_by_level.keys() if level > effective_level]:
+                latest_by_level.pop(stale_level, None)
+            continue
+        derived_level = node.get("derived_level")
+        if derived_level is None or derived_level == "":
+            continue
+        try:
+            normalized_level = int(derived_level)
+        except (TypeError, ValueError):
+            continue
+        if normalized_level < 1:
+            continue
+        latest_by_level[normalized_level] = block_uid
+        for stale_level in [level for level in latest_by_level.keys() if level > normalized_level]:
+            latest_by_level.pop(stale_level, None)
+
+    return ordered_selected_uids
+
+
+# 按批次统一升降多个标题节点的层级，并重算它们的父子关系。
+def _relevel_graph_nodes(graph_data: Dict[str, Any], block_uids: List[str], level_delta: int) -> List[str]:
+    if level_delta == 0:
+        raise ValueError("层级调整量不能为 0")
+    ordered_nodes = _sort_graph_nodes(_get_active_graph_nodes(graph_data))
+    selected_set = set(block_uids)
+    next_levels: Dict[str, int] = {}
+    for node in ordered_nodes:
+        block_uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
+        if block_uid not in selected_set:
+            continue
+        current_level = node.get("derived_level")
+        if current_level is None or current_level == "":
+            raise ValueError("批量升降级仅支持已识别为标题的节点")
+        try:
+            normalized_level = int(current_level)
+        except (TypeError, ValueError) as exc:
+            raise ValueError("批量升降级仅支持已识别为标题的节点") from exc
+        target_level = normalized_level + int(level_delta)
+        if target_level < 1:
+            raise ValueError("L1 节点不能继续升一级")
+        next_levels[block_uid] = target_level
+    return _apply_graph_node_levels(graph_data, next_levels)
+
+
+# 按批次把多个节点直接设置为指定层级，并重算它们的父子关系。
+def _set_graph_nodes_level(graph_data: Dict[str, Any], block_uids: List[str], target_level: int) -> List[str]:
+    normalized_target_level = int(target_level)
+    if normalized_target_level < 1:
+        raise ValueError("目标层级必须大于等于 L1")
+    next_levels = {
+        _normalize_block_uid(block_uid): normalized_target_level
+        for block_uid in block_uids
+        if _normalize_block_uid(block_uid)
+    }
+    if not next_levels:
+        raise ValueError("未找到可调整层级的 block")
+    return _apply_graph_node_levels(graph_data, next_levels)
+
+
 # 执行批量结构操作，并同步图谱、索引库与结构化片段。
 def batch_operate_doc_blocks(
     library_id: str,
@@ -1610,6 +1751,7 @@ def batch_operate_doc_blocks(
         "created_block_ids": [],
         "removed_block_ids": [],
         "target_block_id": None,
+        "updated_block_ids": [],
     }
     if operation == "merge":
         if len(block_uids) < 2:
@@ -1631,6 +1773,23 @@ def batch_operate_doc_blocks(
         )
     elif operation == "delete":
         result_payload["removed_block_ids"] = _delete_graph_nodes(graph_data, block_uids)
+    elif operation == "relevel":
+        target_level = payload.get("targetLevel")
+        if target_level is not None:
+            try:
+                normalized_target_level = int(target_level)
+            except (TypeError, ValueError) as exc:
+                raise ValueError("targetLevel 必须是整数") from exc
+            result_payload["updated_block_ids"] = _set_graph_nodes_level(graph_data, block_uids, normalized_target_level)
+        else:
+            level_delta = payload.get("levelDelta")
+            if level_delta is None:
+                raise ValueError("批量层级调整必须提供 levelDelta 或 targetLevel")
+            try:
+                normalized_level_delta = int(level_delta)
+            except (TypeError, ValueError) as exc:
+                raise ValueError("levelDelta 必须是整数") from exc
+            result_payload["updated_block_ids"] = _relevel_graph_nodes(graph_data, block_uids, normalized_level_delta)
     else:
         raise ValueError(f"不支持的批量操作: {operation}")
 
@@ -1643,7 +1802,7 @@ def batch_operate_doc_blocks(
     _persist_graph_projection_to_index_store(doc_id, graph_data)
     record_block_uid = _normalize_block_uid(payload.get("targetBlockId")) or block_uids[0]
     correction_payload = dict(payload)
-    if operation in {"merge", "split", "delete"}:
+    if operation in {"merge", "split", "delete", "relevel"}:
         correction_payload["undo_graph_snapshot"] = graph_snapshot_before
     knowledge_service.index_store.record_doc_block_correction(doc_id, record_block_uid, operation, correction_payload)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
@@ -1734,6 +1893,15 @@ def update_doc_block_content(
     if "derived_title_level" in normalized_changes:
         level_value = normalized_changes.get("derived_title_level")
         target_node["derived_level"] = int(level_value) if level_value is not None else None
+        if "parent_block_uid" not in normalized_changes:
+            next_parent_uid = _infer_parent_uid_from_level(
+                _get_active_graph_nodes(graph_data),
+                target_block_uid,
+                target_node.get("derived_level"),
+            )
+            if next_parent_uid and _would_create_cycle(node_map, target_block_uid, next_parent_uid):
+                raise ValueError("自动推断出的父级节点形成循环，请手动指定父级节点")
+            target_node["parent_uid"] = next_parent_uid
     elif next_parent_uid and target_node.get("derived_level") is not None:
         parent_node = node_map.get(next_parent_uid)
         parent_level = parent_node.get("derived_level") if parent_node else None

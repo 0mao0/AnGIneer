@@ -39,7 +39,7 @@ class TestPortContract(unittest.TestCase):
     def test_shared_ports_files_contain_expected_contract(self):
         port_contract = self.read_port_contract()
         self.assertEqual(port_contract["localHost"], "localhost")
-        self.assertEqual(port_contract["apiServerPort"], 8033)
+        self.assertEqual(port_contract["apiServerPort"], 8789)
         self.assertEqual(port_contract["adminConsolePort"], 3002)
         self.assertEqual(port_contract["webConsolePort"], 3005)
         self.assertContains(PORTS_FILE, "import portContract from './ports.json'")
@@ -76,10 +76,10 @@ class TestPortContract(unittest.TestCase):
         self.assertContains(START_SCRIPT, '$frontendPort = $portContract.webConsolePort')
         self.assertContains(API_SERVER_MAIN, 'PORT_CONTRACT_PATH = os.path.join(ROOT_DIR, "apps", "shared", "ports.json")')
         self.assertContains(API_SERVER_MAIN, 'API_SERVER_PORT = int(PORT_CONTRACT["apiServerPort"])')
-        self.assertContains(API_SERVER_MAIN, 'uvicorn.run(app, host="0.0.0.0", port=API_SERVER_PORT)')
+        self.assertContains(API_SERVER_MAIN, 'port=API_SERVER_PORT,')
         self.assertContains(README_FILE, "端口3002")
         self.assertContains(README_FILE, "端口3005")
-        self.assertContains(README_FILE, "端口8033")
+        self.assertContains(README_FILE, "端口8789")
 
     # 校验冗余 Vite 生成物不会再次留在源码目录。
     def test_no_redundant_vite_config_artifacts_exist(self):

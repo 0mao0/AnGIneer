@@ -14,8 +14,11 @@ from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
+from docs_core.canonical import build_canonical_document
 from docs_core.knowledge_service import knowledge_service
 from docs_core.parser.mineru_parser import mineru_parser
+from docs_core.retrieval.contracts import KnowledgeQueryRequest, KnowledgeQueryResponse
+from docs_core.retrieval.service import knowledge_query_service
 from docs_core.structured.result_store_json import (
     build_structured_index_for_doc,
     get_doc_blocks_graph,
@@ -48,6 +51,15 @@ class DocBlocksGraphRequest(BaseModel):
 
     library_id: str
     doc_id: str
+
+
+class KnowledgeRetrieveRequest(BaseModel):
+    """知识检索调试请求。"""
+
+    query: str
+    library_id: str = "default"
+    doc_ids: list[str] = []
+    top_k: int = 5
 
 
 class ParseOrchestrator:
@@ -115,6 +127,17 @@ class ParseOrchestrator:
                 with open(markdown_path, "r", encoding="utf-8") as handle:
                     file_storage.save_markdown(library_id, doc_id, handle.read())
             file_storage.save_parse_artifacts(library_id, doc_id, temp_output_dir)
+            node = knowledge_service.get_node(doc_id)
+            canonical_document = build_canonical_document(
+                library_id=library_id,
+                doc_id=doc_id,
+                title=node.title if node else doc_id,
+            )
+            file_storage.save_middle_json(
+                library_id,
+                doc_id,
+                canonical_document.model_dump(mode="json"),
+            )
 
             self._update_progress(task_id, doc_id, progress=70, stage="indexing")
             build_structured_index_for_doc(
@@ -253,6 +276,44 @@ async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str,
         raise HTTPException(status_code=500, detail=str(error))
 
 
+# 执行统一知识查询，按路由返回证据化答案。
+@knowledge_router.post("/query", response_model=KnowledgeQueryResponse)
+async def query_knowledge(request: KnowledgeQueryRequest) -> KnowledgeQueryResponse:
+    try:
+        return knowledge_query_service.query(request)
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=str(error))
+
+
+# 返回检索候选，便于前端调试和后续评测。
+@knowledge_router.post("/retrieve")
+async def retrieve_knowledge(request: KnowledgeRetrieveRequest) -> Dict[str, Any]:
+    try:
+        response = knowledge_query_service.query(
+            KnowledgeQueryRequest(
+                query=request.query,
+                library_id=request.library_id,
+                doc_ids=request.doc_ids,
+                top_k=request.top_k,
+                include_retrieved=True,
+                include_debug=True,
+            )
+        )
+        return {
+            "query_id": response.query_id,
+            "task_type": response.task_type,
+            "strategy": response.strategy,
+            "answer": response.answer,
+            "citations": [item.model_dump(mode="json") for item in response.citations],
+            "retrieved_items": [item.model_dump(mode="json") for item in response.retrieved_items],
+            "confidence": response.confidence,
+            "latency_ms": response.latency_ms,
+            "debug": response.debug,
+        }
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=str(error))
+
+
 # 按绝对路径预览文件。
 @preview_router.get("/files")
 def get_file_for_preview(path: str):
@@ -293,6 +354,8 @@ __all__ = [
     "build_projection_for_doc",
     "build_structured_index",
     "create_parse_task",
+    "query_knowledge",
+    "retrieve_knowledge",
     "get_doc_blocks_graph_view",
     "get_file_for_preview",
     "get_parse_status",

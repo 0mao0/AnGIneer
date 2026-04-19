@@ -20,6 +20,7 @@
         @select="onSelect"
         @edit="onEdit"
         @toggle-check="onToggleCheck"
+        @context-action="onContextAction"
       />
     </ul>
   </div>
@@ -46,6 +47,7 @@ const props = defineProps<Props>()
 const emit = defineEmits<Pick<PreviewIndexInteractionEventMap, 'toggle' | 'select'> & {
   edit: [id: string]
   'toggle-check': [id: string]
+  'context-action': [payload: { nodeId: string; action: 'promote' | 'demote' | 'set-level'; targetLevel?: number }]
 }>()
 const treeContainerRef = ref<HTMLElement | null>(null)
 
@@ -64,6 +66,11 @@ const onEdit = (id: string) => {
 
 const onToggleCheck = (id: string) => {
   emit('toggle-check', id)
+}
+
+/* 转发树节点右键菜单动作给外层工作区。 */
+const onContextAction = (payload: { nodeId: string; action: 'promote' | 'demote' | 'set-level'; targetLevel?: number }) => {
+  emit('context-action', payload)
 }
 
 /**

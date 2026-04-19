@@ -43,6 +43,7 @@ interface StructuredBatchOperationResponse {
   target_block_id?: string | null
   created_block_ids?: string[]
   removed_block_ids?: string[]
+  updated_block_ids?: string[]
   saved_segments: number
 }
 
