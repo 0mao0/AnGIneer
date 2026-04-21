@@ -77,6 +77,8 @@ export const formatStructuredItemType = (itemType: string): string => {
   if (itemType === 'title') return '标题'
   if (itemType === 'paragraph') return '正文'
   if (itemType === 'equation_interline') return '公式'
+  if (itemType === 'formula_summary') return '公式摘要'
+  if (itemType === 'formula_param') return '公式参数'
   if (itemType === 'list') return '列表'
   return itemType || '未知'
 }
