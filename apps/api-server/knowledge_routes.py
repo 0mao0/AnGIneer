@@ -36,6 +36,14 @@ class KnowledgeParseRequest(BaseModel):
     library_id: str
     doc_id: str
     file_path: Optional[str] = None
+    parse_options: Optional["KnowledgeParseOptions"] = None
+
+
+class KnowledgeParseOptions(BaseModel):
+    """文档解析参数。"""
+
+    use_llm: bool = True
+    llm_model: Optional[str] = None
 
 
 class KnowledgeStructuredIndexRequest(BaseModel):
@@ -74,7 +82,13 @@ class ParseOrchestrator:
         return node.id
 
     # 创建解析任务并启动后台线程。
-    def create_parse_task(self, library_id: str, doc_id: str, file_path: str) -> Dict[str, Any]:
+    def create_parse_task(
+        self,
+        library_id: str,
+        doc_id: str,
+        file_path: str,
+        parse_options: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
         task_id = f"parse-{uuid.uuid4().hex[:12]}"
         task = knowledge_service.create_parse_task(task_id, library_id, doc_id)
         knowledge_service.update_node(
@@ -87,7 +101,7 @@ class ParseOrchestrator:
         )
         worker = threading.Thread(
             target=self._run_parse_task,
-            args=(task_id, library_id, doc_id, file_path),
+            args=(task_id, library_id, doc_id, file_path, parse_options or {}),
             daemon=True,
             name=f"parse-task-{task_id}",
         )
@@ -109,7 +123,14 @@ class ParseOrchestrator:
         return task.model_dump(mode="json")
 
     # 在后台执行文档解析并同步状态。
-    def _run_parse_task(self, task_id: str, library_id: str, doc_id: str, file_path: str) -> None:
+    def _run_parse_task(
+        self,
+        task_id: str,
+        library_id: str,
+        doc_id: str,
+        file_path: str,
+        parse_options: Dict[str, Any],
+    ) -> None:
         temp_output_dir = tempfile.mkdtemp(prefix=f"parse-{doc_id}-")
         try:
             self._update_progress(task_id, doc_id, status="processing", progress=5, stage="preparing")
@@ -140,11 +161,16 @@ class ParseOrchestrator:
             )
 
             self._update_progress(task_id, doc_id, progress=70, stage="indexing")
+            use_llm = bool(parse_options.get("use_llm", True))
+            llm_model = str(parse_options.get("llm_model") or "").strip() or None
             build_structured_index_for_doc(
                 library_id=library_id,
                 doc_id=doc_id,
                 strategy="A_structured",
-                options={"use_llm": True},
+                options={
+                    "use_llm": use_llm,
+                    "llm_model": llm_model,
+                },
             )
 
             self._update_progress(task_id, doc_id, progress=100, stage="completed", status="completed")
@@ -190,6 +216,17 @@ class ParseOrchestrator:
 
 
 parse_orchestrator = ParseOrchestrator()
+
+
+# 归一化解析参数，确保前后端传参格式稳定。
+def normalize_parse_options(options: Optional[KnowledgeParseOptions]) -> Dict[str, Any]:
+    if options is None:
+        return {"use_llm": True}
+    llm_model = str(options.llm_model or "").strip() or None
+    return {
+        "use_llm": bool(options.use_llm),
+        "llm_model": llm_model,
+    }
 
 
 # 按策略分发文档投影构建。
@@ -239,6 +276,7 @@ async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
         library_id=request.library_id,
         doc_id=doc_id,
         file_path=str(source_path),
+        parse_options=normalize_parse_options(request.parse_options),
     )
 
 

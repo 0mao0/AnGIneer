@@ -88,6 +88,17 @@
               >
                 {{ docParsedWorkspaceRef?.parseButtonText || '开始解析' }}
               </a-button>
+              <a-tooltip title="解析设置">
+                <a-button
+                  size="small"
+                  class="header-action-btn header-icon-btn"
+                  @click="showParseSettingsModal"
+                >
+                  <template #icon>
+                    <SettingOutlined />
+                  </template>
+                </a-button>
+              </a-tooltip>
             </a-space>
           </template>
 
@@ -157,6 +168,42 @@
       @delete="handleDeleteNode"
       @toggle-visible="toggleVisible"
     />
+
+    <a-modal
+      :open="parseSettingsVisible"
+      title="解析设置"
+      ok-text="保存"
+      cancel-text="取消"
+      @ok="handleParseSettingsConfirm"
+      @update:open="parseSettingsVisible = $event"
+    >
+      <a-form layout="vertical">
+        <a-form-item label="启用 LLM">
+          <a-switch
+            :checked="parseSettings.use_llm"
+            checked-children="开启"
+            un-checked-children="关闭"
+            @update:checked="handleParseUseLlmChange"
+          />
+        </a-form-item>
+        <a-form-item label="LLM 模型">
+          <a-select
+            :value="parseSettings.llm_model || undefined"
+            :options="llmModelOptions"
+            :loading="llmConfigsLoading"
+            :disabled="!parseSettings.use_llm"
+            placeholder="默认使用 Qwen3.6"
+            allow-clear
+            show-search
+            option-filter-prop="label"
+            @update:value="handleParseModelChange"
+          />
+        </a-form-item>
+        <a-typography-text type="secondary">
+          当前默认模型优先级为 Qwen3.6；若未显式选择，则按后端默认模型执行。
+        </a-typography-text>
+      </a-form>
+    </a-modal>
   </div>
 </template>
 
@@ -174,7 +221,8 @@ import {
   FilePdfOutlined,
   FileWordOutlined,
   FileMarkdownOutlined,
-  FileTextOutlined
+  FileTextOutlined,
+  SettingOutlined
 } from '@ant-design/icons-vue'
 
 // 导入 packages 中的组件和 composables
@@ -197,7 +245,7 @@ import {
   createOpenResourcePayload
 } from '@angineer/docs-ui'
 import { useKnowledgeTree } from '@angineer/docs-ui'
-import { knowledgeApi } from '@/api/knowledge'
+import { knowledgeApi, type KnowledgeParseOptions, type LlmConfigOption } from '@/api/knowledge'
 import { getWebDocumentUrl } from '../../../shared/ports'
 
 // 使用主题
@@ -227,7 +275,14 @@ const {
 
 const allowedFileTypes = ['.pdf', '.doc', '.docx', '.md']
 const PANEL_LAYOUT_STORAGE_KEY = 'angineer-admin-knowledge-layout-v1'
+const PARSE_SETTINGS_STORAGE_KEY = 'angineer-admin-knowledge-parse-settings-v1'
+const DEFAULT_PARSE_LLM_MODEL = 'Qwen3.6-35B-A3B (Private)'
 const workspaceRef = ref<HTMLElement | null>(null)
+
+type ParseSettingsState = {
+  use_llm: boolean
+  llm_model: string
+}
 
 const clampRatio = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value))
 
@@ -241,6 +296,13 @@ const parsePollTimer = ref<number | null>(null)
 const structuredStats = ref<StructuredStats>({})
 const structuredItems = ref<StructuredIndexItem[]>([])
 const graphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
+const parseSettingsVisible = ref(false)
+const llmConfigsLoading = ref(false)
+const llmConfigOptions = ref<LlmConfigOption[]>([])
+const parseSettings = ref<ParseSettingsState>({
+  use_llm: true,
+  llm_model: ''
+})
 
 // 弹窗状态
 const folderModalVisible = ref(false)
@@ -268,11 +330,121 @@ const folderSelectTreeData = computed(() => [
 const smartTreeProps = {
   showSearch: true,
   searchPlaceholder: '搜索文档...',
+  showAddRootFolder: true,
+  addRootFolderTitle: '新增一级文件夹',
   showStatus: true,
   draggable: true,
   allowAddFile: true,
   allowedFileTypes: allowedFileTypes,
   emptyText: '暂无文档'
+}
+
+const llmModelOptions = computed(() => llmConfigOptions.value.map(item => ({
+  label: item.configured ? item.name : `${item.name}（未配置）`,
+  value: item.name,
+  disabled: !item.configured
+})))
+
+/* 从可用模型列表中选择解析默认模型。 */
+const pickDefaultLlmModel = (configs: LlmConfigOption[]): string => {
+  const configuredConfigs = configs.filter(item => item.configured)
+  const preferredModel = configuredConfigs.find(item => item.name === DEFAULT_PARSE_LLM_MODEL)
+  return preferredModel?.name || configuredConfigs[0]?.name || ''
+}
+
+/* 归一化解析设置，兼容本地缓存与模型列表变化。 */
+const normalizeParseSettings = (raw?: Partial<ParseSettingsState> | null): ParseSettingsState => {
+  const useLlm = raw?.use_llm !== false
+  if (!useLlm) {
+    return {
+      use_llm: false,
+      llm_model: ''
+    }
+  }
+  const configuredModelNames = new Set(
+    llmConfigOptions.value.filter(item => item.configured).map(item => item.name)
+  )
+  const rawModel = typeof raw?.llm_model === 'string' ? raw.llm_model.trim() : ''
+  return {
+    use_llm: true,
+    llm_model: rawModel && configuredModelNames.has(rawModel)
+      ? rawModel
+      : pickDefaultLlmModel(llmConfigOptions.value)
+  }
+}
+
+/* 持久化解析设置，确保重新解析可复用同一组参数。 */
+const persistParseSettings = () => {
+  localStorage.setItem(PARSE_SETTINGS_STORAGE_KEY, JSON.stringify(parseSettings.value))
+}
+
+/* 读取本地缓存中的解析设置。 */
+const loadStoredParseSettings = () => {
+  try {
+    const raw = localStorage.getItem(PARSE_SETTINGS_STORAGE_KEY)
+    parseSettings.value = raw ? normalizeParseSettings(JSON.parse(raw)) : normalizeParseSettings()
+  } catch {
+    parseSettings.value = normalizeParseSettings()
+  }
+}
+
+/* 拉取可用 LLM 模型列表并同步默认解析设置。 */
+const fetchLlmConfigs = async () => {
+  llmConfigsLoading.value = true
+  try {
+    const result = await knowledgeApi.getLlmConfigs()
+    llmConfigOptions.value = Array.isArray(result) ? result : []
+  } catch {
+    llmConfigOptions.value = []
+  } finally {
+    llmConfigsLoading.value = false
+    parseSettings.value = normalizeParseSettings(parseSettings.value)
+    persistParseSettings()
+  }
+}
+
+/* 生成解析接口需要的参数载荷。 */
+const buildParseOptionsPayload = (): KnowledgeParseOptions => {
+  parseSettings.value = normalizeParseSettings(parseSettings.value)
+  persistParseSettings()
+  if (!parseSettings.value.use_llm) {
+    return { use_llm: false }
+  }
+  return {
+    use_llm: true,
+    llm_model: parseSettings.value.llm_model || undefined
+  }
+}
+
+/* 打开解析设置弹窗并按需刷新模型列表。 */
+const showParseSettingsModal = async () => {
+  parseSettingsVisible.value = true
+  if (!llmConfigOptions.value.length) {
+    await fetchLlmConfigs()
+  }
+}
+
+/* 确认解析设置并写入本地缓存。 */
+const handleParseSettingsConfirm = () => {
+  parseSettings.value = normalizeParseSettings(parseSettings.value)
+  persistParseSettings()
+  parseSettingsVisible.value = false
+}
+
+/* 切换是否启用 LLM。 */
+const handleParseUseLlmChange = (checked: boolean) => {
+  parseSettings.value = normalizeParseSettings({
+    ...parseSettings.value,
+    use_llm: checked
+  })
+}
+
+/* 更新解析使用的模型配置名。 */
+const handleParseModelChange = (value: string | undefined) => {
+  parseSettings.value = normalizeParseSettings({
+    ...parseSettings.value,
+    llm_model: value || ''
+  })
 }
 
 // 面板调整大小回调
@@ -646,13 +818,17 @@ const showDocDetail = (node: SmartTreeNode) => {
 // 解析文档
 const parseDocument = async (node: SmartTreeNode) => {
   try {
+    if (parseSettings.value.use_llm && !llmConfigOptions.value.length) {
+      await fetchLlmConfigs()
+    }
+    const parseOptions = buildParseOptionsPayload()
     if (selectedNode.value && selectedNode.value.key === node.key) {
       selectedNode.value.status = 'processing'
       selectedNode.value.parseError = ''
       selectedNode.value.parseProgress = 0
       selectedNode.value.parseStage = 'queued'
     }
-    const result = await knowledgeApi.parseDocumentAsync('default', node.key, node.filePath) as any
+    const result = await knowledgeApi.parseDocumentAsync('default', node.key, node.filePath, parseOptions) as any
     const taskId = result?.task_id
     message.success('开始解析文档')
     await loadNodes(node.key)
@@ -1049,6 +1225,7 @@ const onTreeDropRoot = async (dragNodeKey: string) => {
 
 // 组件挂载时加载数据
 onMounted(() => {
+  loadStoredParseSettings()
   try {
     const saved = localStorage.getItem(PANEL_LAYOUT_STORAGE_KEY)
     if (saved) {
@@ -1062,6 +1239,7 @@ onMounted(() => {
   } catch {
     panelRatios.value = { left: 0.15, right: 0.25 }
   }
+  void fetchLlmConfigs()
   loadNodes()
 })
 
@@ -1157,6 +1335,10 @@ onBeforeUnmount(() => {
   border-radius: 6px;
   font-size: 12px;
   padding-inline: 10px;
+}
+
+.header-icon-btn {
+  padding-inline: 8px;
 }
 
 .drop-hint {

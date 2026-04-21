@@ -871,6 +871,7 @@ def build_structured_from_rawfiles(
         llm_client: 可选的 LLM 客户端，用于标题层级细化
         options: 可选配置项
             - use_llm: 是否使用 LLM 细化 (默认 True)
+            - llm_model: 指定标题层级细化使用的模型配置名
             - derive_version: 推导版本标识
     
     Returns:
@@ -878,6 +879,7 @@ def build_structured_from_rawfiles(
     """
     opts = options or {}
     use_llm = opts.get("use_llm", True)
+    llm_model = str(opts.get("llm_model") or "").strip() or None
     derive_version = opts.get("derive_version", "v1")
     
     raw_dir = parsed_dir / "mineru_raw"
@@ -1007,6 +1009,7 @@ def build_structured_from_rawfiles(
         infer_title_level_func=infer_title_level,
         llm_client=llm_client,
         use_llm=use_llm,
+        llm_model=llm_model,
     )
     
     toc_row_ids = detect_toc_row_ids(rows)

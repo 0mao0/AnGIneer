@@ -65,6 +65,17 @@ interface DeleteNodePreviewResponse {
   sample_doc_titles: string[]
 }
 
+export interface KnowledgeParseOptions {
+  use_llm?: boolean
+  llm_model?: string
+}
+
+export interface LlmConfigOption {
+  name: string
+  model: string
+  configured: boolean
+}
+
 api.interceptors.request.use(config => {
   console.log('[API Request]:', config.method?.toUpperCase(), config.url, config.params || config.data)
   return config
@@ -106,12 +117,14 @@ export const knowledgeApi = {
   deleteNode: (nodeId: string) => api.delete(`/knowledge/nodes/${nodeId}`),
 
   // 文档解析
-  parseDocument: (libraryId: string, docId: string, filePath?: string) => 
-    api.post('/knowledge/parse', { library_id: libraryId, doc_id: docId, file_path: filePath }),
-  parseDocumentAsync: (libraryId: string, docId: string, filePath?: string) =>
-    api.post('/knowledge/parse', { library_id: libraryId, doc_id: docId, file_path: filePath }),
+  parseDocument: (libraryId: string, docId: string, filePath?: string, parseOptions?: KnowledgeParseOptions) => 
+    api.post('/knowledge/parse', { library_id: libraryId, doc_id: docId, file_path: filePath, parse_options: parseOptions }),
+  parseDocumentAsync: (libraryId: string, docId: string, filePath?: string, parseOptions?: KnowledgeParseOptions) =>
+    api.post('/knowledge/parse', { library_id: libraryId, doc_id: docId, file_path: filePath, parse_options: parseOptions }),
   getParseTask: (taskId: string) =>
     api.get(`/knowledge/parse/tasks/${taskId}`) as Promise<ParseTaskInfo>,
+  getLlmConfigs: () =>
+    api.get('/llm_configs') as Promise<LlmConfigOption[]>,
 
   // 策略
   getDocStrategy: (docId: string) => api.get(`/knowledge/strategies/${docId}`),

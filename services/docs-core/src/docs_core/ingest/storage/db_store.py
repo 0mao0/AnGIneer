@@ -13,9 +13,18 @@ KNOWLEDGE_META_DB_NAME = "knowledge_meta.sqlite"
 KNOWLEDGE_INDEX_DB_NAME = "knowledge_index.sqlite"
 
 
+# 解析仓库根目录，统一定位到 monorepo 根。
+def resolve_repo_root() -> Path:
+    current_file = Path(__file__).resolve()
+    for candidate in current_file.parents:
+        if (candidate / "apps").exists() and (candidate / "services").exists() and (candidate / "package.json").exists():
+            return candidate
+    return current_file.parents[6]
+
+
 # 解析仓库根目录并返回 docs-core 统一数据根目录。
 def resolve_knowledge_base_dir() -> Path:
-    root_dir = Path(__file__).resolve().parents[5]
+    root_dir = resolve_repo_root()
     data_dir = root_dir / "data" / "knowledge_base"
     data_dir.mkdir(parents=True, exist_ok=True)
     return data_dir

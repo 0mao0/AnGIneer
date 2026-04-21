@@ -8,7 +8,8 @@ if TYPE_CHECKING:
 
 def llm_refine_title_levels(
     title_items: list[dict[str, Any]],
-    llm_client: Optional["LLMClient"] = None
+    llm_client: Optional["LLMClient"] = None,
+    llm_model: Optional[str] = None,
 ) -> tuple[dict[str, tuple[int, float]], str]:
     """用 LLM 细化标题层级并返回状态。"""
     if not llm_client:
@@ -38,7 +39,8 @@ def llm_refine_title_levels(
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ],
-            temperature=0.0
+            temperature=0.0,
+            model=llm_model,
         )
 
         result = json.loads(result_text)
@@ -70,6 +72,7 @@ def resolve_title_level_refinement(
     infer_title_level_func: Callable[[str, Any], tuple[Optional[int], float, str]],
     llm_client: Optional["LLMClient"] = None,
     use_llm: bool = True,
+    llm_model: Optional[str] = None,
 ) -> tuple[list[dict[str, Any]], dict[str, tuple[int, float]], str]:
     """从结构化行中提取标题候选并执行标题层级 LLM 细化。"""
     title_candidates: list[dict[str, Any]] = []
@@ -90,7 +93,7 @@ def resolve_title_level_refinement(
     llm_levels: dict[str, tuple[int, float]] = {}
     llm_status = "disabled"
     if use_llm and llm_client and title_candidates:
-        llm_levels, llm_status = llm_refine_title_levels(title_candidates, llm_client)
+        llm_levels, llm_status = llm_refine_title_levels(title_candidates, llm_client, llm_model)
     return title_candidates, llm_levels, llm_status
 
 

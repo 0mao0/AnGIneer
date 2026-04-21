@@ -8,12 +8,13 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
+from docs_core.ingest.structured.formula_semantics import build_formula_representations
 from docs_core.ingest.structured.structure_builder import (
     StructuredResult,
     build_structured_from_rawfiles,
     extract_media_bbox_list,
 )
-from docs_core.ingest.storage.db_store import persist_doc_blocks
+from docs_core.ingest.storage.db_store import persist_doc_blocks, resolve_knowledge_base_dir
 
 
 class FileStorage:
@@ -21,8 +22,7 @@ class FileStorage:
 
     def __init__(self, base_dir: str = None):
         if base_dir is None:
-            root_dir = Path(__file__).resolve().parents[5]
-            base_dir = str(root_dir / "data" / "knowledge_base")
+            base_dir = str(resolve_knowledge_base_dir())
 
         self.base_dir = Path(base_dir)
         self.libraries_dir = self.base_dir / "libraries"
@@ -423,10 +423,18 @@ def _persist_structured_segments(
     doc_id: str,
     strategy: str,
     result: StructuredResult,
+    llm_client: Any = None,
+    llm_model: Optional[str] = None,
+    use_llm: bool = True,
 ) -> int:
     from docs_core.knowledge_service import knowledge_service
 
-    structured_items = _build_a_structured_segment_items(result)
+    structured_items = _build_a_structured_segment_items(
+        result,
+        llm_client=llm_client,
+        llm_model=llm_model,
+        use_llm=use_llm,
+    )
     return knowledge_service.save_document_segments(doc_id, library_id, strategy, structured_items)
 
 
@@ -547,6 +555,9 @@ def _collect_media_related_block_refs(
 # 从结构化结果构建 A_structured 片段投影。
 def _build_a_structured_segment_items(
     result: StructuredResult,
+    llm_client: Any = None,
+    llm_model: Optional[str] = None,
+    use_llm: bool = True,
 ) -> List[Dict[str, Any]]:
     node_map: Dict[str, Dict[str, Any]] = {}
     for node in result.nodes:
@@ -567,8 +578,23 @@ def _build_a_structured_segment_items(
         if block_uid:
             base_row_map[block_uid] = row
 
+    child_nodes_by_parent: Dict[str, List[Dict[str, Any]]] = {}
+    for node in result.nodes:
+        parent_uid = str(node.get("parent_uid") or "").strip()
+        if not parent_uid:
+            continue
+        child_nodes_by_parent.setdefault(parent_uid, []).append(node)
+    for children in child_nodes_by_parent.values():
+        children.sort(
+            key=lambda item: (
+                int(item.get("page_idx") or 0),
+                int(item.get("block_seq") or 0),
+                str(item.get("block_uid") or item.get("id") or ""),
+            )
+        )
+
     items: List[Dict[str, Any]] = []
-    for order_index, row in enumerate(result.index_rows):
+    for row in result.index_rows:
         block_uid = str(row.get("block_uid") or "").strip()
         if not block_uid:
             continue
@@ -629,6 +655,31 @@ def _build_a_structured_segment_items(
         }
         meta = {key: value for key, value in meta.items() if value is not None}
 
+        if block_type == "equation_interline":
+            explanation_lines = [
+                str(child.get("plain_text") or "").strip()
+                for child in child_nodes_by_parent.get(block_uid, [])
+                if str(child.get("block_type") or "").strip() in {"paragraph", "list"}
+                and str(child.get("plain_text") or "").strip()
+            ]
+            formula_semantics = build_formula_representations(
+                formula_text=str(node.get("math_content") or plain_text or ""),
+                explanation_lines=explanation_lines,
+                llm_client=llm_client,
+                llm_model=llm_model,
+                use_llm=use_llm,
+            )
+            meta.update(
+                {
+                    "formula_number": formula_semantics.get("formula_number"),
+                    "formula_param_count": len(formula_semantics.get("formula_params") or []),
+                    "formula_params": formula_semantics.get("formula_params") or None,
+                    "formula_summary": formula_semantics.get("formula_summary"),
+                    "formula_llm_status": formula_semantics.get("llm_status"),
+                }
+            )
+            meta = {key: value for key, value in meta.items() if value is not None}
+
         items.append(
             {
                 "id": block_uid,
@@ -636,9 +687,79 @@ def _build_a_structured_segment_items(
                 "title": title,
                 "content": plain_text or title,
                 "meta": meta,
-                "order_index": order_index,
+                "order_index": len(items),
             }
         )
+
+        if block_type != "equation_interline":
+            continue
+
+        formula_params = (meta.get("formula_params") or []) if isinstance(meta, dict) else []
+        formula_summary = str(meta.get("formula_summary") or "").strip() if isinstance(meta, dict) else ""
+        formula_number = str(meta.get("formula_number") or "").strip() if isinstance(meta, dict) else ""
+
+        if formula_summary:
+            items.append(
+                {
+                    "id": f"{block_uid}#summary",
+                    "item_type": "formula_summary",
+                    "title": f"公式摘要{f' ({formula_number})' if formula_number else ''}",
+                    "content": formula_summary,
+                    "meta": {
+                        "block_uid": block_uid,
+                        "block_id": block_uid,
+                        "source_block_id": block_uid,
+                        "formula_block_uid": block_uid,
+                        "formula_number": formula_number or None,
+                        "page_idx": page_idx,
+                        "page_seq": page_seq,
+                        "page": page_seq,
+                        "block_seq": block_seq,
+                        "item_type": "formula_summary",
+                    },
+                    "order_index": len(items),
+                }
+            )
+
+        for param_index, param in enumerate(formula_params):
+            symbol = str(param.get("symbol") or "").strip()
+            description = str(param.get("description") or "").strip()
+            if not symbol or not description:
+                continue
+            content_parts = [f"{symbol}: {description}"]
+            unit = str(param.get("unit") or "").strip()
+            reference_hint = str(param.get("reference_hint") or "").strip()
+            if unit:
+                content_parts.append(f"单位 {unit}")
+            if reference_hint:
+                content_parts.append(f"来源 {reference_hint}")
+            items.append(
+                {
+                    "id": f"{block_uid}#param:{param_index + 1}",
+                    "item_type": "formula_param",
+                    "title": symbol,
+                    "content": " | ".join(content_parts),
+                    "meta": {
+                        "block_uid": block_uid,
+                        "block_id": block_uid,
+                        "source_block_id": block_uid,
+                        "formula_block_uid": block_uid,
+                        "formula_number": formula_number or None,
+                        "page_idx": page_idx,
+                        "page_seq": page_seq,
+                        "page": page_seq,
+                        "block_seq": block_seq,
+                        "parameter_index": param_index + 1,
+                        "symbol": symbol,
+                        "unit": unit or None,
+                        "reference_hint": reference_hint or None,
+                        "extracted_by": param.get("extracted_by"),
+                        "confidence": param.get("confidence"),
+                        "item_type": "formula_param",
+                    },
+                    "order_index": len(items),
+                }
+            )
 
     return items
 
@@ -652,6 +773,7 @@ def build_structured_index_for_doc(
 ) -> Dict[str, Any]:
     opts = options or {}
     use_llm = opts.get("use_llm", True)
+    llm_model = str(opts.get("llm_model") or "").strip() or None
     derive_version = opts.get("derive_version", "v1")
 
     parsed_dir = file_storage.get_parsed_dir(library_id, doc_id)
@@ -677,6 +799,7 @@ def build_structured_index_for_doc(
         llm_client=llm_client,
         options={
             "use_llm": use_llm,
+            "llm_model": llm_model,
             "derive_version": derive_version,
         },
     )
@@ -686,7 +809,15 @@ def build_structured_index_for_doc(
 
     graph_path = _save_doc_blocks_graph(library_id, doc_id, result)
     doc_block_write_stats = persist_doc_blocks(result)
-    structured_saved_count = _persist_structured_segments(library_id, doc_id, strategy, result)
+    structured_saved_count = _persist_structured_segments(
+        library_id,
+        doc_id,
+        strategy,
+        result,
+        llm_client=llm_client,
+        llm_model=llm_model,
+        use_llm=use_llm,
+    )
 
     stats = {
         "nodes_count": len(result.nodes),
@@ -696,6 +827,7 @@ def build_structured_index_for_doc(
         "derived_rows_count": doc_block_write_stats["updated"],
         "structured_items_saved_count": structured_saved_count,
         "llm_status": result.stats.get("llm_status", "disabled"),
+        "llm_model": llm_model,
         "derive_version": derive_version,
         "graph_path": graph_path,
     }

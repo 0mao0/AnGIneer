@@ -125,7 +125,7 @@ def load_llm_models_from_env() -> List[LLMModelConfig]:
     aliyun_private_key = _get_env_str("Private_ALIYUN_API_KEY")
     if aliyun_private_key:
         models.append(LLMModelConfig(
-            name="Qwen3.5-35B-A3B (Private)",
+            name="Qwen3.6-35B-A3B (Private)",
             api_key=aliyun_private_key,
             base_url=_get_env_str("Private_ALIYUN_API_URL"),
             model=_get_env_str("Private_ALIYUN_MODEL"),
@@ -206,10 +206,10 @@ def load_llm_models_from_env() -> List[LLMModelConfig]:
     
     models.sort(key=lambda m: m.priority, reverse=True)
 
-    # 设置默认模型优先级：优先 Qwen2.5-7B
+    # 设置默认模型优先级：优先 Qwen3.6 私有模型
     for i, model in enumerate(models):
-        if 'Qwen2.5-7B' in model.name or 'qwen2.5-7b' in model.name.lower():
-            # 将 Qwen2.5-7B 移到最前面
+        if 'Qwen3.6-35B-A3B' in model.name or 'qwen3.6-35b-a3b' in model.name.lower():
+            # 将 Qwen3.6 私有模型移到最前面
             models.insert(0, models.pop(i))
             break
 

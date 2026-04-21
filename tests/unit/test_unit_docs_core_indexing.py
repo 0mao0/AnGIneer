@@ -24,6 +24,10 @@ from docs_core.ingest.storage.file_store import (
     batch_operate_doc_blocks,
     undo_last_doc_block_merge,
 )
+from docs_core.ingest.structured.formula_semantics import (
+    build_formula_representations,
+    parse_formula_param_rule,
+)
 from docs_core.ingest.structured.structure_builder import (
     StructuredResult,
     build_structured_from_rawfiles,
@@ -596,6 +600,141 @@ class TestMarkdownExtractor(unittest.TestCase):
         self.assertIn("clause", types)
         self.assertIn("table", types)
         self.assertIn("image", types)
+
+
+class FakeLLMClient:
+    """用于公式兜底测试的最小 LLM 假对象。"""
+
+    def __init__(self, response_text: str):
+        self._response_text = response_text
+
+    def chat(self, *args, **kwargs):
+        """返回预设的结构化响应文本。"""
+        return self._response_text
+
+
+class TestFormulaSemantics(unittest.TestCase):
+    """测试公式结构化提取与投影。"""
+
+    def test_parse_formula_param_rule(self):
+        """测试规则能识别常见公式参数行。"""
+        parsed = parse_formula_param_rule("γ——风、流压缩角（^circ），采用表6.4.2-2中的数值")
+        self.assertIsNotNone(parsed)
+        self.assertEqual(parsed["symbol"], "γ")
+        self.assertIn("风、流压缩角", parsed["description"])
+        self.assertEqual(parsed["unit"], "^circ")
+        self.assertIn("表6.4.2-2", parsed["reference_hint"])
+
+    def test_build_formula_representations_with_llm_fallback(self):
+        """测试规则不足时会启用 LLM 兜底补充参数。"""
+        llm_client = FakeLLMClient(
+            json.dumps(
+                {
+                    "params": [
+                        {
+                            "symbol": "B",
+                            "description": "设计槽宽",
+                            "unit": "m",
+                            "reference_hint": None,
+                            "confidence": 0.86,
+                        }
+                    ]
+                },
+                ensure_ascii=False,
+            )
+        )
+        result = build_formula_representations(
+            formula_text="A = n(Lsinγ + B)",
+            explanation_lines=["式中", "B 设计槽宽（m）"],
+            llm_client=llm_client,
+            llm_model="Qwen3.6-35B-A3B (Private)",
+            use_llm=True,
+        )
+        params = result["formula_params"]
+        self.assertEqual(len(params), 1)
+        self.assertEqual(params[0]["symbol"], "B")
+        self.assertEqual(params[0]["unit"], "m")
+        self.assertEqual(params[0]["extracted_by"], "llm")
+        self.assertEqual(result["llm_status"], "ok")
+
+    def test_build_a_structured_segment_items_adds_formula_items(self):
+        """测试 A_structured 会为公式补充摘要和参数条目。"""
+        structured_result = StructuredResult(
+            nodes=[
+                {
+                    "id": "doc-1:0:1",
+                    "block_uid": "doc-1:0:1",
+                    "block_type": "equation_interline",
+                    "page_idx": 0,
+                    "block_seq": 1,
+                    "plain_text": "A = n(Lsinγ + B)",
+                    "math_content": "A = n(Lsinγ + B)",
+                    "bbox": [0.1, 0.1, 0.4, 0.2],
+                    "bbox_source": "mixed_page",
+                    "derived_by": "rule",
+                    "confidence": 0.95,
+                },
+                {
+                    "id": "doc-1:0:2",
+                    "block_uid": "doc-1:0:2",
+                    "block_type": "paragraph",
+                    "page_idx": 0,
+                    "block_seq": 2,
+                    "plain_text": "式中",
+                    "parent_uid": "doc-1:0:1",
+                },
+                {
+                    "id": "doc-1:0:3",
+                    "block_uid": "doc-1:0:3",
+                    "block_type": "paragraph",
+                    "page_idx": 0,
+                    "block_seq": 3,
+                    "plain_text": "γ——风、流压缩角（^circ），采用表6.4.2-2中的数值",
+                    "parent_uid": "doc-1:0:1",
+                },
+                {
+                    "id": "doc-1:0:4",
+                    "block_uid": "doc-1:0:4",
+                    "block_type": "paragraph",
+                    "page_idx": 0,
+                    "block_seq": 4,
+                    "plain_text": "B——设计槽宽（m）",
+                    "parent_uid": "doc-1:0:1",
+                },
+            ],
+            index_rows=[
+                {
+                    "block_uid": "doc-1:0:1",
+                    "block_type": "equation_interline",
+                    "page_idx": 0,
+                    "block_seq": 1,
+                    "plain_text": "A = n(Lsinγ + B)",
+                    "derived_level": None,
+                    "title_path": None,
+                    "parent_uid": None,
+                }
+            ],
+            stats={
+                "derived_rows": [
+                    {
+                        "block_uid": "doc-1:0:1",
+                        "page_seq": 1,
+                        "parent_block_uid": None,
+                        "title_path": None,
+                    }
+                ],
+                "base_rows": [],
+            },
+        )
+
+        items = _build_a_structured_segment_items(structured_result, use_llm=False)
+        item_types = [item["item_type"] for item in items]
+        self.assertIn("equation_interline", item_types)
+        self.assertIn("formula_summary", item_types)
+        self.assertEqual(item_types.count("formula_param"), 2)
+        formula_param_titles = [item["title"] for item in items if item["item_type"] == "formula_param"]
+        self.assertIn("γ", formula_param_titles)
+        self.assertIn("B", formula_param_titles)
 
 
 class TestStructuredBatchOperations(unittest.TestCase):
