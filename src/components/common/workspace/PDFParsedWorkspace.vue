@@ -103,7 +103,7 @@ const parseButtonText = computed(() => {
 const structuredItemsValue = computed(() => props.structuredItems || [])
 const hasParsedContent = computed(() => Boolean((props.content || '').trim()))
 const indexSummaryStats = computed(() => {
-  const strategyStats = props.structuredStats?.strategies?.A_structured || {}
+  const strategyStats = props.structuredStats?.strategies?.doc_blocks_graph_v1 || {}
   const toCount = (value: unknown) => Number(value || 0)
   return {
     total: Object.values(strategyStats).reduce((sum, count) => sum + Number(count || 0), 0),

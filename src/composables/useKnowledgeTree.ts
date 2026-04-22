@@ -59,7 +59,7 @@ export function useKnowledgeTree() {
         parseStage: n.parse_stage || '',
         parseError: n.parse_error || '',
         parseTaskId: n.parse_task_id || '',
-        strategy: n.strategy || 'A_structured'
+        strategy: n.strategy || 'doc_blocks_graph_v1'
       })
     })
 

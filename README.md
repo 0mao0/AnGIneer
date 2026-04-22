@@ -240,7 +240,7 @@ src/
 ## 7. C 层契约清单（types）
 
 ### 7.1 `types/knowledge.ts`
-- `KnowledgeStrategy = 'A_structured'`
+- `KnowledgeStrategy = 'doc_blocks_graph_v1'`
 - `IngestStatus = 'idle' | 'processing' | 'completed' | 'failed'`
 - `ParseTaskInfo`
 - `StructuredIndexItem`

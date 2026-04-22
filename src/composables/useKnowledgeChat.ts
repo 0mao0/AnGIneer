@@ -27,6 +27,28 @@ export interface KnowledgeChatMessage {
   }>
 }
 
+/**
+ * 对引用做轻量去重，避免同一页同一区段重复刷屏。
+ */
+function dedupeCitations(
+  citations: NonNullable<KnowledgeChatResponse['citations']>
+): NonNullable<KnowledgeChatResponse['citations']> {
+  const seen = new Set<string>()
+  return citations.filter(citation => {
+    const key = [
+      citation.target_id,
+      citation.doc_id,
+      citation.page_idx,
+      citation.section_path
+    ].join('::')
+    if (seen.has(key)) {
+      return false
+    }
+    seen.add(key)
+    return true
+  })
+}
+
 // 对话请求参数
 export interface KnowledgeChatRequest {
   // 当前用户输入
@@ -168,7 +190,7 @@ export function useKnowledgeChat(options?: {
    */
   const sendMessage = async (
     content: string,
-    model?: string,
+    _model?: string,
     onChunk?: (chunk: string) => void
   ): Promise<void> => {
     if (!content.trim() || loading.value) return
@@ -221,18 +243,8 @@ export function useKnowledgeChat(options?: {
       }
 
       const payload: KnowledgeChatResponse = await response.json()
-      const citations = payload.citations || []
+      const citations = dedupeCitations(payload.citations || [])
       let assistantContent = payload.answer || ''
-
-      if (citations.length) {
-        const citationText = citations
-          .slice(0, 3)
-          .map((citation, index) =>
-            `${index + 1}. ${citation.doc_title}${citation.page_idx ? ` 第${citation.page_idx}页` : ''}${citation.section_path ? ` / ${citation.section_path}` : ''}`
-          )
-          .join('\n')
-        assistantContent += `\n\n参考依据：\n${citationText}`
-      }
 
       if (payload.sql?.generated_sql) {
         assistantContent += `\n\nSQL：\n\`\`\`sql\n${payload.sql.generated_sql}\n\`\`\``

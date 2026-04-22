@@ -56,15 +56,17 @@
         </div>
         <template #overlay>
           <a-menu @click="onContextMenuClick">
-            <a-menu-item key="promote">升一级</a-menu-item>
-            <a-menu-item key="demote">降一级</a-menu-item>
-            <a-menu-divider />
-            <a-menu-item
-              v-for="level in [1, 2, 3, 4, 5, 6]"
-              :key="`set-level-${level}`"
-            >
-              设为 L{{ level }}
-            </a-menu-item>
+            <a-sub-menu key="relevel-actions" title="调整层级">
+              <a-menu-item key="promote">升一级</a-menu-item>
+              <a-menu-item key="demote">降一级</a-menu-item>
+              <a-menu-divider />
+              <a-menu-item
+                v-for="level in [1, 2, 3, 4, 5, 6]"
+                :key="`set-level-${level}`"
+              >
+                设为 L{{ level }}
+              </a-menu-item>
+            </a-sub-menu>
           </a-menu>
         </template>
       </a-dropdown>
@@ -84,6 +86,7 @@
         @select="(id) => emit('select', id)"
         @edit="(id) => emit('edit', id)"
         @toggle-check="(id) => emit('toggle-check', id)"
+        @context-action="(payload) => emit('context-action', payload)"
       />
     </ul>
   </li>

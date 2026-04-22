@@ -1,6 +1,6 @@
 import type { KnowledgeTreeNode } from './tree'
 
-export type KnowledgeStrategy = 'A_structured'
+export type KnowledgeStrategy = 'doc_blocks_graph_v1'
 
 export interface ParseTaskInfo {
   id: string

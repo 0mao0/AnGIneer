@@ -61,29 +61,27 @@
             </span>
             <div v-if="activeTab === 'Preview_IndexTree'" class="summary-actions">
               <span v-if="selectedBlockIds.length" class="selected-count">已选 {{ selectedBlockIds.length }} 个</span>
-              <a-select
-                v-model:value="batchTargetLevel"
-                size="small"
-                class="batch-level-select"
-                :disabled="!selectedBlockIds.length || submittingBatchOperation"
-                :options="batchLevelOptions"
-                placeholder="设为 Lx"
-                @change="submitBatchSetLevel"
-              />
-              <a-button
-                size="small"
-                :disabled="!canBatchPromote"
-                @click="submitBatchRelevel(-1)"
+              <a-dropdown
+                :disabled="!selectedBlockIds.length || !canBatchRelevel || submittingBatchOperation"
               >
-                升一级
-              </a-button>
-              <a-button
-                size="small"
-                :disabled="!canBatchDemote"
-                @click="submitBatchRelevel(1)"
-              >
-                降一级
-              </a-button>
+                <a-button size="small">
+                  层级调整
+                  <DownOutlined />
+                </a-button>
+                <template #overlay>
+                  <a-menu @click="onBatchLevelMenuClick">
+                    <a-menu-item key="promote" :disabled="!canBatchPromote">升一级</a-menu-item>
+                    <a-menu-item key="demote" :disabled="!canBatchDemote">降一级</a-menu-item>
+                    <a-menu-divider />
+                    <a-menu-item
+                      v-for="level in [1, 2, 3, 4, 5, 6]"
+                      :key="`set-level-${level}`"
+                    >
+                      设为 L{{ level }}
+                    </a-menu-item>
+                  </a-menu>
+                </template>
+              </a-dropdown>
               <a-button size="small" :disabled="selectedBlockIds.length < 2" @click="openMergeModal">
                 合并
               </a-button>
@@ -266,7 +264,6 @@ const splitModalVisible = ref(false)
 const submittingBatchOperation = ref(false)
 const undoingLastOperation = ref(false)
 const selectedBlockIds = ref<string[]>([])
-const batchTargetLevel = ref<number | undefined>(undefined)
 
 const {
   rightPaneRef,
@@ -318,10 +315,6 @@ const canBatchPromote = computed(() => (
   && selectedHeadingNodes.value.every(node => Number(node.derived_level || 0) > 1)
 ))
 const canBatchDemote = computed(() => canBatchRelevel.value)
-const batchLevelOptions = computed(() => Array.from({ length: 6 }, (_, index) => ({
-  value: index + 1,
-  label: `L${index + 1}`
-})))
 const splitTargetBlockIds = computed(() => {
   if (selectedBlockIds.value.length === 1) {
     return [...selectedBlockIds.value]
@@ -356,7 +349,6 @@ const closeNodeEdit = () => {
 /* 清空树中通过勾选产生的多选状态。 */
 const resetSelectedBlocks = () => {
   selectedBlockIds.value = []
-  batchTargetLevel.value = undefined
 }
 
 /* 解析树节点右键动作所作用的节点集合。 */
@@ -504,6 +496,24 @@ const submitBatchSetLevel = async (targetLevel: number) => {
     message.error(detail)
   } finally {
     submittingBatchOperation.value = false
+  }
+}
+
+/* 处理顶部工具栏中的批量层级动作菜单。 */
+const onBatchLevelMenuClick = async ({ key }: { key: string }) => {
+  if (key === 'promote') {
+    await submitBatchRelevel(-1)
+    return
+  }
+  if (key === 'demote') {
+    await submitBatchRelevel(1)
+    return
+  }
+  if (key.startsWith('set-level-')) {
+    const targetLevel = Number(key.replace('set-level-', ''))
+    if (Number.isFinite(targetLevel) && targetLevel > 0) {
+      await submitBatchSetLevel(targetLevel)
+    }
   }
 }
 
@@ -738,10 +748,6 @@ defineExpose({
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
-}
-
-.batch-level-select {
-  min-width: 96px;
 }
 
 .selected-count {
