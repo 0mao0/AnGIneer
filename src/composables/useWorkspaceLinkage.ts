@@ -43,6 +43,15 @@ interface UseWorkspaceLinkageOptions {
   rightScrollPercent: Ref<number>
 }
 
+interface ResolveLinkedHighlightOptions {
+  preferLast?: boolean
+}
+
+interface SetActiveLinkedItemOptions {
+  preferredPage?: number | null
+  preferLastHighlight?: boolean
+}
+
 const readNumeric = (value: unknown): number | null => {
   const numberValue = Number(value)
   if (!Number.isFinite(numberValue)) return null
@@ -448,6 +457,7 @@ const findNearestHighlight = (
 
 export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   const activeLinkedItemId = ref<string | null>(null)
+  const activeLinkedHighlightOverrideId = ref<string | null>(null)
   const highlightLinkEnabled = ref(true)
   const middleMarkdownLines = computed(() => options.markdownContent.value.split('\n'))
   const showHighlightToggle = computed(() => (options.graphData.value?.nodes || []).length > 0)
@@ -732,19 +742,27 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   const resolveLinkedHighlight = (
     id: string | null | undefined,
     exactItemId: string | null = null,
-    preferredPage: number | null = options.isPdf.value ? options.pdfPage.value : null
+    preferredPage: number | null = options.isPdf.value ? options.pdfPage.value : null,
+    resolveOptions: ResolveLinkedHighlightOptions = {}
   ): LinkedHighlight | null => {
     if (!id) return null
     const candidates = linkedHighlights.value.filter(item =>
       item.itemId === id || item.structuredItemId === id
     )
     if (!candidates.length) return null
+    if (resolveOptions.preferLast) {
+      const pageMatchedCandidates = preferredPage !== null
+        ? candidates.filter(item => item.page === preferredPage)
+        : []
+      const preferredCandidates = pageMatchedCandidates.length ? pageMatchedCandidates : candidates
+      return preferredCandidates[preferredCandidates.length - 1] || null
+    }
     let target = candidates[0]
     let targetScore = scoreHighlightCandidate(target, id, exactItemId, preferredPage)
     for (let index = 1; index < candidates.length; index += 1) {
       const current = candidates[index]
       const score = scoreHighlightCandidate(current, id, exactItemId, preferredPage)
-      if (score > targetScore) {
+      if (score > targetScore || score === targetScore) {
         target = current
         targetScore = score
       }
@@ -753,11 +771,14 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   }
 
   const activeLinkedHighlight = computed(() => {
+    if (activeLinkedHighlightOverrideId.value) {
+      return linkedHighlights.value.find(item => item.id === activeLinkedHighlightOverrideId.value) || null
+    }
     if (!activeLinkedItemId.value) return null
     return resolveLinkedHighlight(activeLinkedItemId.value)
   })
 
-  const activeLeftHighlightId = computed(() => activeLinkedHighlight.value?.itemId || activeLinkedItemId.value)
+  const activeLeftHighlightId = computed(() => activeLinkedHighlight.value?.id || activeLinkedItemId.value)
 
   const activeLinkedLineRange = computed(() => {
     const current = activeLinkedHighlight.value
@@ -784,14 +805,49 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     return target.structuredItemId || target.itemId || fallbackId
   }
 
+  /**
+   * 统一写入当前激活目标，并保留左侧高亮框的精确 ID。
+   */
+  const applyResolvedHighlight = (target: LinkedHighlight | null, fallbackId: string | null = null) => {
+    activeLinkedItemId.value = target ? resolveRightPaneActiveId(target, fallbackId) : fallbackId
+    activeLinkedHighlightOverrideId.value = target?.id || null
+  }
+
+  /**
+   * 供外部主动设置联动目标，可按需偏向最后一个高亮框。
+   */
+  const setActiveLinkedItem = (itemId: string | null, setOptions: SetActiveLinkedItemOptions = {}) => {
+    if (!itemId) {
+      activeLinkedItemId.value = null
+      activeLinkedHighlightOverrideId.value = null
+      return
+    }
+    const target = resolveLinkedHighlight(
+      itemId,
+      itemId,
+      setOptions.preferredPage ?? (options.isPdf.value ? options.pdfPage.value : null),
+      { preferLast: setOptions.preferLastHighlight }
+    )
+    applyResolvedHighlight(target, itemId)
+    if (!target) return
+    if (isDocumentPreviewActive.value && target.lineStart !== null && target.lineEnd !== null) {
+      scrollRightByLine(target.lineStart)
+    }
+    if (options.isPdf.value && target.page !== options.pdfPage.value) {
+      options.pdfPage.value = target.page
+    }
+  }
+
   const onHoverLinkedItem = (itemId: string | null) => {
     if (!highlightLinkEnabled.value) return
     if (!itemId) {
       activeLinkedItemId.value = null
+      activeLinkedHighlightOverrideId.value = null
       return
     }
     const target = resolveLinkedHighlight(itemId, itemId)
     activeLinkedItemId.value = target?.itemId || itemId
+    activeLinkedHighlightOverrideId.value = target?.id || null
   }
 
   const onSelectHighlightFromLeft = (payload: string | LinkedHighlight) => {
@@ -802,7 +858,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     const fallbackId = typeof payload === 'string'
       ? payload
       : payload.itemId || payload.structuredItemId || null
-    activeLinkedItemId.value = target ? resolveRightPaneActiveId(target, fallbackId) : fallbackId
+    applyResolvedHighlight(target, fallbackId)
     if (!target) return
     if (isDocumentPreviewActive.value && target.lineStart !== null && target.lineEnd !== null) {
       scrollRightByLine(target.lineStart)
@@ -815,7 +871,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   const onSelectItemFromRight = (itemId: string) => {
     if (!highlightLinkEnabled.value) return
     const target = resolveLinkedHighlight(itemId, itemId, null)
-    activeLinkedItemId.value = target?.structuredItemId || target?.itemId || itemId
+    applyResolvedHighlight(target, itemId)
     if (!target) return
     if (isDocumentPreviewActive.value && target.lineStart !== null && target.lineEnd !== null) {
       scrollRightByLine(target.lineStart)
@@ -834,6 +890,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     )
     if (!target) return
     activeLinkedItemId.value = target.structuredItemId || target.itemId
+    activeLinkedHighlightOverrideId.value = target.id
     if (options.isPdf.value && target.page !== options.pdfPage.value) {
       options.pdfPage.value = target.page
     }
@@ -843,19 +900,25 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     highlightLinkEnabled.value = !highlightLinkEnabled.value
     if (!highlightLinkEnabled.value) {
       activeLinkedItemId.value = null
+      activeLinkedHighlightOverrideId.value = null
     }
   }
 
   const resetLinkageState = () => {
     activeLinkedItemId.value = null
+    activeLinkedHighlightOverrideId.value = null
   }
 
   watch([linkedHighlights, options.pdfPage, highlightLinkEnabled], () => {
     if (!highlightLinkEnabled.value) return
+    if (activeLinkedHighlightOverrideId.value && !linkedHighlights.value.some(item => item.id === activeLinkedHighlightOverrideId.value)) {
+      activeLinkedHighlightOverrideId.value = null
+    }
     if (activeLinkedItemId.value && !linkedHighlights.value.some(item =>
       item.itemId === activeLinkedItemId.value || item.structuredItemId === activeLinkedItemId.value
     )) {
       activeLinkedItemId.value = null
+      activeLinkedHighlightOverrideId.value = null
     }
   }, { immediate: true })
 
@@ -870,6 +933,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     onSelectHighlightFromLeft,
     onSelectItemFromRight,
     onSelectLineFromRight,
+    setActiveLinkedItem,
     toggleHighlightLink,
     resetLinkageState
   }
