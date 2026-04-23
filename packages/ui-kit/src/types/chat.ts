@@ -11,6 +11,7 @@ export interface BaseChatMessage {
   role: BaseChatMessageRole
   content: string
   timestamp?: number
+  queryChain?: string
   images?: string[]
   citations?: Array<{
     target_id: string

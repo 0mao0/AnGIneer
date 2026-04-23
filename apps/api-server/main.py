@@ -145,6 +145,88 @@ class KnowledgeDocumentBatchBlockOperation(BaseModel):
     levelDelta: Optional[int] = None
     targetLevel: Optional[int] = None
 
+
+# 读取知识库评测题集，并按需排除 SQL 题目。
+def _load_knowledge_eval_questions(include_sql: bool = False) -> List[Dict[str, Any]]:
+    from docs_core.evals.eval_answer import load_jsonl, resolve_eval_data_dir
+
+    base_dir = resolve_eval_data_dir()
+    questions = load_jsonl(base_dir / "questions.jsonl")
+    if include_sql:
+        return questions
+    return [row for row in questions if str(row.get("task_type") or "") != "analytic_sql"]
+
+
+# 组装知识库评测运行结果，便于前端直接展示逐题状态与汇总分数。
+def _build_knowledge_eval_payload() -> Dict[str, Any]:
+    from docs_core.evals.eval_reporter import build_eval_suite_report
+
+    all_questions = _load_knowledge_eval_questions(include_sql=True)
+    visible_questions = [row for row in all_questions if str(row.get("task_type") or "") != "analytic_sql"]
+    question_map = {
+        str(row.get("question_id") or ""): row
+        for row in all_questions
+        if row.get("question_id")
+    }
+    report = build_eval_suite_report()
+
+    answer_report = dict(report.get("answer") or {})
+    answer_details = []
+    for detail in list(answer_report.get("details") or []):
+        question = question_map.get(str(detail.get("question_id") or ""), {})
+        answer_details.append({
+            **detail,
+            "question": question.get("question", ""),
+            "difficulty": question.get("difficulty", ""),
+            "tags": list(question.get("tags") or []),
+        })
+    answer_report["details"] = answer_details
+
+    retrieval_report = dict(report.get("retrieval") or {})
+    retrieval_details = []
+    for detail in list(retrieval_report.get("details") or []):
+        question = question_map.get(str(detail.get("question_id") or ""), {})
+        retrieval_details.append({
+            **detail,
+            "question": question.get("question", ""),
+            "difficulty": question.get("difficulty", ""),
+            "tags": list(question.get("tags") or []),
+        })
+    retrieval_report["details"] = retrieval_details
+
+    text2sql_report = dict(report.get("text2sql") or {})
+    text2sql_details = []
+    for detail in list(text2sql_report.get("details") or []):
+        question = question_map.get(str(detail.get("question_id") or ""), {})
+        text2sql_details.append({
+            **detail,
+            "question": question.get("question", ""),
+            "difficulty": question.get("difficulty", ""),
+            "tags": list(question.get("tags") or []),
+        })
+    text2sql_report["details"] = text2sql_details
+
+    return {
+        "generated_at": datetime.now().isoformat(),
+        "questions": [
+            {
+                "question_id": str(row.get("question_id") or ""),
+                "question": str(row.get("question") or ""),
+                "task_type": str(row.get("task_type") or ""),
+                "difficulty": str(row.get("difficulty") or ""),
+                "tags": list(row.get("tags") or []),
+            }
+            for row in visible_questions
+            if row.get("question_id") and row.get("question")
+        ],
+        "report": {
+            **report,
+            "answer": answer_report,
+            "retrieval": retrieval_report,
+            "text2sql": text2sql_report,
+        },
+    }
+
 # AI Chat 对话相关模型
 class ChatMessage(BaseModel):
     """聊天消息"""
@@ -1337,6 +1419,24 @@ def build_structured_index(request: KnowledgeStructuredIndexRequest):
     except Exception as error:
         knowledge_service.update_node(doc_id, parse_error=str(error))
         raise HTTPException(status_code=500, detail=f"Build structured index failed: {str(error)}")
+
+
+@app.get("/api/knowledge/evals/questions")
+def list_knowledge_eval_questions():
+    """获取知识库评测题目列表。"""
+    try:
+        return {"questions": _load_knowledge_eval_questions(include_sql=False)}
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=f"Load eval questions failed: {str(error)}")
+
+
+@app.post("/api/knowledge/evals/run")
+def run_knowledge_eval_suite():
+    """执行知识库评测并返回前端可展示的完整结果。"""
+    try:
+        return _build_knowledge_eval_payload()
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=f"Run eval suite failed: {str(error)}")
 
 
 @app.get("/api/knowledge/structured/{doc_id}")

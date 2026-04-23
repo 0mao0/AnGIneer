@@ -436,28 +436,33 @@ Question
 - Canonical SQLite 真相源
 - `/api/knowledge/query` 主入口
 - 基础检索模块拆分
-- 基础回答与引用结构
-- 表格检索已有第一版分流
+- 基础回答模板与引用结构
+- 表格检索已有第一版专用分流
 - 公式/计算问答已有第一版专用链
 - `analytic_sql` 已接入最小 Text-to-SQL 闭环
 - `docs_core/evals/*` 已形成 retrieval / answer / text2sql 评测模块骨架
+- 已提供最小评测 API：题目列表与整套评测运行入口
 
 ### 9.2 已做但还不够深入的部分
 
 - Query Router 目前仍偏规则型
-- Hybrid retrieval 还不是真正的向量 + 稀疏融合
+- Dense / Sparse / Hybrid 仍是启发式检索，不是真正的向量 + 倒排融合
 - 表格策略已起步，但评测样本仍需继续扩充
-- 公式链已接入，但还需继续提升参数说明与多步解释质量
+- 公式链已接入，但还需继续提升参数说明、多步解释与复合问题协同能力
 - Text-to-SQL 目前只支持 canonical SQLite 上的最小只读计数类问题
-- 评测已模块化，但还没有 run/report API 与回放能力
+- 评测已模块化，且已有最小 run/report API，但还没有持久化回放、基线沉淀与 A/B 对比能力
 
 ### 9.3 还没有真正完成的部分
 
 - 真正的 embedding / vector retrieval
+- 独立的 embedding model 层与 vector store 接口
+- 向量化 ingest 工序（chunk / table / formula / schema 的 embedding 产物落盘）
+- 复合问题的 Query Decomposition 与多执行器协同
+- `synthesis_executor` 多证据综合链
 - Text-to-SQL 的复杂聚合、多表、排序与白名单扩展
 - 更强的 Schema linker
 - SQL 安全验证增强
-- 评测服务化 API
+- 真正可切换的 A/B/C 多策略执行平面
 - 策略回放与 A/B 对比
 
 ---
@@ -536,10 +541,9 @@ Question
 
 当前状态：
 
-- 已完成最小模块边界落地：`text2sql/*` + `executors/sql_executor.py`
-- 已接通 `schema_linker -> sql_planner -> sql_generator -> sql_validator -> sql_executor -> sql_explainer`
-- 当前只完成 canonical SQLite 上的只读计数类统计
-- 后续仍需补单表聚合、排序、多表与更强 schema linking
+- `table executor`、`formula executor`、`sql executor` 已落最小可用版本
+- 当前仍缺 `synthesis_executor`
+- 复合问题仍会被压缩为单路执行器，尚未形成协同编排
 
 ### Priority E：评测服务化
 
@@ -562,8 +566,9 @@ Question
 当前状态：
 
 - 已完成 `docs_core/evals/*` 模块化下沉
+- 已提供最小统一 API，但当前返回的是即时聚合结果
 - `tests/evals/knowledge_rag/*` 目前仅保留样本数据与薄入口
-- 后续仍需补统一 API、评测回放、基线沉淀与 A/B 对比
+- 后续仍需补评测回放、基线沉淀、持久化报告与 A/B 对比
 
 ---
 

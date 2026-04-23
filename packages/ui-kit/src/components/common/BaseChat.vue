@@ -23,6 +23,12 @@
         :class="['message', msg.role]"
       >
         <div class="message-content">
+          <div
+            v-if="shouldShowTimestamp(msg)"
+            class="message-time"
+          >
+            {{ formatMessageTimestamp(msg.timestamp) }}
+          </div>
           <template v-if="msg.role === 'user'">
             <div class="user-content">
               <div v-if="msg.images?.length" class="user-images">
@@ -40,21 +46,39 @@
 
           <template v-else-if="msg.role === 'assistant'">
             <div class="assistant-content">
+              <div v-if="msg.queryChain" class="message-chain">
+                {{ msg.queryChain }}
+              </div>
               <div class="answer-text" v-html="renderContent(msg.content)" />
               <div v-if="getVisibleCitations(msg).length" class="citation-panel">
                 <div class="citation-title">参考依据</div>
-                <div
+                <button
                   v-for="citation in getVisibleCitations(msg)"
                   :key="`${citation.target_id}-${citation.page_idx}-${citation.section_path}`"
                   class="citation-item"
+                  type="button"
+                  @click="handleCitationClick(citation)"
                 >
-                  <div class="citation-meta">
-                    <span class="citation-doc">{{ citation.doc_title }}</span>
-                    <span v-if="citation.page_idx" class="citation-page">P{{ citation.page_idx }}</span>
+                  <div class="citation-header">
+                    <span class="citation-toggle">
+                      <DownOutlined v-if="isCitationExpanded(getCitationKey(citation))" />
+                      <RightOutlined v-else />
+                    </span>
+                    <div class="citation-meta">
+                      <span class="citation-doc">{{ citation.doc_title }}</span>
+                      <span v-if="citation.page_idx" class="citation-page">P{{ citation.page_idx }}</span>
+                      <span v-if="getCitationLastSegment(citation.section_path)" class="citation-location">
+                        {{ getCitationLastSegment(citation.section_path) }}
+                      </span>
+                    </div>
                   </div>
-                  <div v-if="citation.section_path" class="citation-path">{{ citation.section_path }}</div>
-                  <div v-if="citation.snippet" class="citation-snippet">{{ citation.snippet }}</div>
-                </div>
+                  <div
+                    v-if="isCitationExpanded(getCitationKey(citation)) && citation.snippet"
+                    class="citation-snippet"
+                  >
+                    {{ citation.snippet }}
+                  </div>
+                </button>
               </div>
             </div>
           </template>
@@ -211,7 +235,9 @@ import {
   PauseCircleOutlined,
   PictureOutlined,
   CloseCircleOutlined,
-  InfoCircleOutlined
+  InfoCircleOutlined,
+  DownOutlined,
+  RightOutlined
 } from '@ant-design/icons-vue'
 import type { BaseChatContextItem, BaseChatMessage, BaseChatModelOption } from '../../types'
 
@@ -258,6 +284,7 @@ const emit = defineEmits<{
   stop: []
   removeContext: [id: string]
   modelChange: [model: string]
+  selectCitation: [citation: BaseChatCitation]
 }>()
 
 const messagesRef = ref<HTMLElement | null>(null)
@@ -270,6 +297,7 @@ const inputHeight = ref(150)
 const isResizing = ref(false)
 const startY = ref(0)
 const startHeight = ref(0)
+const expandedCitationKeys = ref<string[]>([])
 const minInputHeight = 100
 const maxInputHeightRatio = 0.5
 
@@ -303,10 +331,80 @@ const getUniqueCitations = (message: BaseChatMessage) => {
 }
 
 /**
- * 仅展示主引用，避免把辅助证据误读为多处正文答案。
+ * 返回去重后的可见引用列表。
  */
 const getVisibleCitations = (message: BaseChatMessage) => {
-  return getUniqueCitations(message).slice(0, 1)
+  return getUniqueCitations(message)
+}
+
+type BaseChatCitation = NonNullable<BaseChatMessage['citations']>[number]
+
+/**
+ * 为引用项生成稳定 key，便于维护折叠状态。
+ */
+const getCitationKey = (citation: BaseChatCitation) => [
+  citation.target_id,
+  citation.doc_id,
+  citation.page_idx,
+  citation.section_path
+].join('::')
+
+/**
+ * 判断某条引用当前是否处于展开状态。
+ */
+const isCitationExpanded = (key: string) => expandedCitationKeys.value.includes(key)
+
+/**
+ * 切换引用项的展开状态。
+ */
+const toggleCitationExpanded = (key: string) => {
+  if (isCitationExpanded(key)) {
+    expandedCitationKeys.value = expandedCitationKeys.value.filter(item => item !== key)
+    return
+  }
+  expandedCitationKeys.value = [...expandedCitationKeys.value, key]
+}
+
+/**
+ * 提取层级路径的最后一级，避免引用标题过长。
+ */
+const getCitationLastSegment = (sectionPath: string | undefined): string => {
+  const normalized = String(sectionPath || '').trim()
+  if (!normalized) return ''
+  const segments = normalized
+    .split(/\s*\/\s*|\s*>\s*/g)
+    .map(item => item.trim())
+    .filter(Boolean)
+  return segments[segments.length - 1] || normalized
+}
+
+/**
+ * 点击引用时同步触发展开和外部定位。
+ */
+const handleCitationClick = (citation: BaseChatCitation) => {
+  toggleCitationExpanded(getCitationKey(citation))
+  emit('selectCitation', citation)
+}
+
+/**
+ * 判断当前消息是否需要显示 hover 时间。
+ */
+const shouldShowTimestamp = (message: BaseChatMessage) => (
+  ['user', 'assistant'].includes(message.role) && typeof message.timestamp === 'number'
+)
+
+/**
+ * 将消息时间格式化为 yyyy-MM-dd HH:mm:ss。
+ */
+const formatMessageTimestamp = (timestamp?: number) => {
+  if (!timestamp) return ''
+  const value = new Date(timestamp)
+  const pad = (input: number) => String(input).padStart(2, '0')
+  return [
+    value.getFullYear(),
+    pad(value.getMonth() + 1),
+    pad(value.getDate())
+  ].join('-') + ` ${pad(value.getHours())}:${pad(value.getMinutes())}:${pad(value.getSeconds())}`
 }
 
 /**
@@ -526,7 +624,8 @@ onBeforeUnmount(() => {
 
 defineExpose({
   inputText,
-  selectedModel
+  selectedModel,
+  clearComposer: resetComposer
 })
 </script>
 
@@ -588,13 +687,14 @@ defineExpose({
     .message-content {
       width: 100%;
       display: flex;
+      flex-direction: column;
     }
 
     &.user {
       justify-content: flex-end;
 
       .message-content {
-        justify-content: flex-end;
+        align-items: flex-end;
       }
 
       .user-content {
@@ -638,7 +738,7 @@ defineExpose({
       justify-content: flex-start;
 
       .message-content {
-        justify-content: flex-start;
+        align-items: flex-start;
       }
 
       .assistant-content {
@@ -652,8 +752,27 @@ defineExpose({
         overflow-wrap: break-word;
         word-break: normal;
 
+        .message-chain {
+          font-size: 12px;
+          line-height: 1.5;
+          color: #8c8c8c;
+          margin-bottom: 10px;
+        }
+
         .answer-text {
           line-height: 1.6;
+
+          :deep(p),
+          :deep(ul),
+          :deep(ol),
+          :deep(blockquote),
+          :deep(pre),
+          :deep(table),
+          :deep(.math-block),
+          :deep(.media-table),
+          :deep(.media-formula) {
+            margin: 0.6em 0;
+          }
 
           :deep(code) {
             background: #e8e8e8;
@@ -679,6 +798,49 @@ defineExpose({
           :deep(strong) {
             font-weight: 600;
           }
+
+          :deep(.katex) {
+            font-size: 1em;
+          }
+
+          :deep(.katex-display) {
+            margin: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 4px 0;
+          }
+
+          :deep(.math-block),
+          :deep(.media-formula) {
+            overflow-x: auto;
+            max-width: 100%;
+          }
+
+          :deep(.media-table) {
+            overflow: auto;
+            max-width: 100%;
+          }
+
+          :deep(table) {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: auto;
+          }
+
+          :deep(th),
+          :deep(td) {
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            padding: 6px 8px;
+            background: transparent;
+            vertical-align: top;
+          }
+
+          :deep(img),
+          :deep(.markdown-image) {
+            display: block;
+            max-width: 100%;
+            border-radius: 8px;
+          }
         }
 
         .citation-panel {
@@ -698,24 +860,49 @@ defineExpose({
         }
 
         .citation-item {
+          width: 100%;
+          text-align: left;
           padding: 10px 12px;
           border-radius: 10px;
           background: #fffaf0;
           border-left: 3px solid #faad14;
           box-shadow: inset 0 0 0 1px rgba(250, 173, 20, 0.18);
+          border-top: none;
+          border-right: none;
+          border-bottom: none;
+          cursor: pointer;
+          color: inherit;
+          font: inherit;
+        }
+
+        .citation-header {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .citation-toggle {
+          color: #ad6800;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          flex: 0 0 auto;
         }
 
         .citation-meta {
           display: flex;
           align-items: center;
+          flex-wrap: wrap;
           gap: 8px;
-          margin-bottom: 4px;
           font-size: 12px;
+          min-width: 0;
         }
 
         .citation-doc {
           font-weight: 600;
           color: #595959;
+          min-width: 0;
+          word-break: break-word;
         }
 
         .citation-page {
@@ -725,11 +912,9 @@ defineExpose({
           padding: 1px 6px;
         }
 
-        .citation-path {
+        .citation-location {
           font-size: 12px;
           color: #8c8c8c;
-          line-height: 1.5;
-          margin-bottom: 4px;
         }
 
         .citation-snippet {
@@ -737,6 +922,7 @@ defineExpose({
           line-height: 1.6;
           color: #595959;
           white-space: pre-wrap;
+          margin-top: 8px;
         }
 
         .streaming-cursor {
@@ -770,6 +956,22 @@ defineExpose({
         color: #d46b08;
       }
     }
+  }
+
+  .message-time {
+    opacity: 0;
+    transform: translateY(2px);
+    transition: opacity 0.16s ease, transform 0.16s ease;
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    margin-bottom: 4px;
+    pointer-events: none;
+  }
+
+  .message:hover .message-time {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

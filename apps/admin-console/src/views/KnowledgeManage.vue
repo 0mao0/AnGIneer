@@ -136,10 +136,39 @@
       <!-- 右侧：AI 对话 -->
       <template #right>
         <Panel title="AI 对话" :icon="MessageOutlined">
+          <template #extra>
+            <a-space size="small">
+              <a-tooltip title="开启后，文档解析完成或结构修改成功后会自动跑一次知识库评测">
+                <div class="eval-auto-run-toggle">
+                  <span class="eval-auto-run-label">自动评测</span>
+                  <a-switch
+                    size="small"
+                    :checked="knowledgeEvalDrawerRef?.autoRunEnabled || false"
+                    @update:checked="handleKnowledgeEvalAutoRunChange"
+                  />
+                </div>
+              </a-tooltip>
+              <a-button
+                size="small"
+                class="header-action-btn"
+                :loading="knowledgeEvalDrawerRef?.running || false"
+                @click="openKnowledgeEvalDrawer"
+              >
+                {{ knowledgeEvalDrawerRef?.running ? '评测中' : '运行评测' }}
+              </a-button>
+            </a-space>
+          </template>
           <KnowledgeChatPanel
+            ref="knowledgeChatRef"
             title=""
             placeholder="输入消息，Ctrl+Enter 发送..."
             :show-context-info="true"
+            @answer-complete="handleKnowledgeAnswerComplete"
+            @select-citation="handleKnowledgeCitationSelect"
+          />
+          <KnowledgeEvalDrawer
+            ref="knowledgeEvalDrawerRef"
+            :run-question="runKnowledgeEvalQuestion"
           />
         </Panel>
       </template>
@@ -204,6 +233,7 @@
         </a-typography-text>
       </a-form>
     </a-modal>
+
   </div>
 </template>
 
@@ -245,7 +275,11 @@ import {
   createOpenResourcePayload
 } from '@angineer/docs-ui'
 import { useKnowledgeTree } from '@angineer/docs-ui'
-import { knowledgeApi, type KnowledgeParseOptions, type LlmConfigOption } from '@/api/knowledge'
+import {
+  knowledgeApi,
+  type KnowledgeParseOptions,
+  type LlmConfigOption
+} from '@/api/knowledge'
 import { getWebDocumentUrl } from '../../../shared/ports'
 
 // 使用主题
@@ -255,11 +289,32 @@ const { isDark } = useTheme()
 import FolderPreview from './components/FolderPreview.vue'
 import FolderModal from './components/FolderModal.vue'
 import DocDetailModal from './components/DocDetailModal.vue'
+import KnowledgeEvalDrawer from './components/KnowledgeEvalDrawer.vue'
 
 // SmartTree 组件引用
 const smartTreeRef = ref<InstanceType<typeof KnowledgeTree> | null>(null)
 // PDFParsedWorkspace 组件引用
 const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
+// KnowledgeChatPanel 组件引用
+const knowledgeChatRef = ref<InstanceType<typeof KnowledgeChatPanel> | null>(null)
+const knowledgeEvalDrawerRef = ref<InstanceType<typeof KnowledgeEvalDrawer> | null>(null)
+
+type KnowledgeChatCitation = {
+  target_id: string
+  doc_id: string
+  doc_title: string
+  page_idx: number
+  section_path: string
+  snippet: string
+  score: number
+}
+
+type KnowledgeAnswerMessage = {
+  role?: string
+  content?: string
+  queryChain?: string
+  citations?: KnowledgeChatCitation[]
+}
 
 // 使用知识树 composable
 const {
@@ -447,6 +502,45 @@ const handleParseModelChange = (value: string | undefined) => {
   })
 }
 
+/* 读取聊天面板中最新一条助手回答，用于同步评测过程结果。 */
+const getLatestKnowledgeAssistantMessage = (): KnowledgeAnswerMessage | null => {
+  const messages = Array.isArray(knowledgeChatRef.value?.messages)
+    ? knowledgeChatRef.value.messages as KnowledgeAnswerMessage[]
+    : []
+  const latestMessage = [...messages].reverse().find(item => item.role === 'assistant')
+  return latestMessage || null
+}
+
+/* 供评测抽屉调用，发送单条测试问题并返回回答、链路和引用。 */
+const runKnowledgeEvalQuestion = async (question: string) => {
+  knowledgeChatRef.value?.clearComposer?.()
+  await knowledgeChatRef.value?.sendMessage(question, '')
+  knowledgeChatRef.value?.clearComposer?.()
+  const latestAnswer = getLatestKnowledgeAssistantMessage()
+  return {
+    answer: latestAnswer?.content || '',
+    queryChain: latestAnswer?.queryChain || '',
+    citations: latestAnswer?.citations || []
+  }
+}
+
+/* 在用户切换自动评测时，同步到抽屉组件内部状态。 */
+const handleKnowledgeEvalAutoRunChange = (checked: boolean) => {
+  if (knowledgeEvalDrawerRef.value) {
+    knowledgeEvalDrawerRef.value.autoRunEnabled = checked
+  }
+}
+
+/* 打开评测抽屉并触发一次完整运行。 */
+const openKnowledgeEvalDrawer = async () => {
+  await knowledgeEvalDrawerRef.value?.openAndRun?.()
+}
+
+/* 在用户开启自动评测时，于知识库修改成功后后台触发一次批量回归。 */
+const maybeAutoRunKnowledgeEval = (triggeredBy: string) => {
+  void knowledgeEvalDrawerRef.value?.maybeAutoRun?.(triggeredBy)
+}
+
 // 面板调整大小回调
 const onPanelResize = (leftSize: number, rightSize: number) => {
   const containerWidth = workspaceRef.value?.clientWidth || window.innerWidth
@@ -476,6 +570,121 @@ const getStatusText = (status: string) => mapNodeStatusText(status)
 const getFileType = (node?: Partial<SmartTreeNode> | null) => getPreviewFileType(node)
 
 const keepCurrentPreview = (docId: string) => docContentDocId.value === docId && Boolean(docContent.value)
+
+/* 归一化引用文本，便于做层级与片段匹配。 */
+const normalizeCitationText = (value: string): string => String(value || '')
+  .replace(/[０-９]/g, char => String.fromCharCode(char.charCodeAt(0) - 65248))
+  .replace(/[Ａ-Ｚａ-ｚ]/g, char => String.fromCharCode(char.charCodeAt(0) - 65248))
+  .replace(/\s+/g, ' ')
+  .replace(/[^\u4e00-\u9fa5a-zA-Z0-9 ]+/g, ' ')
+  .trim()
+  .toLowerCase()
+
+/* 获取层级路径的最后一级标题。 */
+const getCitationLastSegment = (value: string): string => {
+  const segments = String(value || '')
+    .split(/\s*\/\s*|\s*>\s*/g)
+    .map(item => item.trim())
+    .filter(Boolean)
+  return segments[segments.length - 1] || String(value || '').trim()
+}
+
+/* 基于 target_id、页码、层级和片段内容，为引用挑选最可能的文档节点。 */
+const resolveCitationTargetNode = (citation: KnowledgeChatCitation | null | undefined) => {
+  const nodes = graphData.value?.nodes || []
+  if (!nodes.length || !citation) return null
+  const targetId = String(citation.target_id || '').trim()
+  const normalizedLastSegment = normalizeCitationText(getCitationLastSegment(citation.section_path))
+  const normalizedSnippet = normalizeCitationText(citation.snippet)
+  let bestNode: any = null
+  let bestScore = Number.NEGATIVE_INFINITY
+  nodes.forEach((node) => {
+    let score = 0
+    const nodeId = String(node?.id || '').trim()
+    const blockUid = String(node?.block_uid || '').trim()
+    if (targetId && (nodeId === targetId || blockUid === targetId)) {
+      score += 5000
+    }
+    const nodePage = Number(node?.page_idx ?? -1) + 1
+    const citationPage = Number(citation.page_idx || 0)
+    if (citationPage > 0) {
+      if (nodePage === citationPage) {
+        score += 320
+      } else if (nodePage === citationPage + 1 || nodePage === citationPage - 1) {
+        score += 120
+      }
+    }
+    const nodeLastSegment = normalizeCitationText(getCitationLastSegment(String(node?.title_path || node?.title || '')))
+    if (normalizedLastSegment && nodeLastSegment) {
+      if (nodeLastSegment === normalizedLastSegment) {
+        score += 520
+      } else if (
+        nodeLastSegment.includes(normalizedLastSegment)
+        || normalizedLastSegment.includes(nodeLastSegment)
+      ) {
+        score += 240
+      }
+    }
+    const nodeText = normalizeCitationText([
+      node?.plain_text,
+      node?.title,
+      node?.caption,
+      node?.footnote
+    ].filter(Boolean).join(' '))
+    if (normalizedSnippet && nodeText) {
+      const shortNodeText = nodeText.slice(0, 48)
+      if (shortNodeText && normalizedSnippet.includes(shortNodeText)) {
+        score += 160
+      } else if (nodeText.length >= 12 && (nodeText.includes(normalizedSnippet) || normalizedSnippet.includes(nodeText.slice(0, 24)))) {
+        score += 100
+      }
+    }
+    if (score > bestScore) {
+      bestNode = node
+      bestScore = score
+    }
+  })
+  return bestScore > 0 ? bestNode : null
+}
+
+/* 根据回答引用切换文档并把解析区定位到对应块。 */
+const focusCitationInWorkspace = async (citation: KnowledgeChatCitation | null | undefined) => {
+  const targetId = String(citation?.target_id || '').trim()
+  const docId = String(citation?.doc_id || '').trim()
+  if (!targetId) return
+  if (docId && (!selectedNode.value || selectedNode.value.key !== docId)) {
+    await loadNodes(docId)
+  } else if (docId && !keepCurrentPreview(docId)) {
+    await loadDocContent(docId)
+    await loadStructuredStats(docId)
+  }
+  if (selectedNode.value?.strategy) {
+    await loadStructuredIndex()
+  }
+  const resolvedNode = resolveCitationTargetNode(citation)
+  const resolvedTargetId = String(resolvedNode?.id || targetId).trim()
+  const resolvedPreferredPage = Number(resolvedNode?.page_idx ?? -1) >= 0
+    ? Number(resolvedNode.page_idx) + 1
+    : (Number(citation?.page_idx || 0) > 0 ? Number(citation?.page_idx) : null)
+  await nextTick()
+  docParsedWorkspaceRef.value?.setActiveLinkedItem(resolvedTargetId, {
+    preferredPage: resolvedPreferredPage,
+    preferLastHighlight: true
+  })
+}
+
+/* 回答完成后自动聚焦到最后一条引用，保证 PDF 与结构树同步。 */
+const handleKnowledgeAnswerComplete = async (message: KnowledgeAnswerMessage) => {
+  const citations = Array.isArray(message?.citations) ? message.citations : []
+  const targetCitation = citations[citations.length - 1]
+  if (!targetCitation) return
+  await focusCitationInWorkspace(targetCitation)
+}
+
+/* 手动点击参考依据时重新触发一次文档定位。 */
+const handleKnowledgeCitationSelect = async (citation: KnowledgeChatCitation) => {
+  await focusCitationInWorkspace(citation)
+}
 
 const extractPageHintFromLine = (line: string): number | null => {
   const match = line.match(/[（(]\s*(\d{1,4})\s*[）)]\s*$/)
@@ -850,6 +1059,7 @@ const updateStructuredNode = async (payload: StructuredNodeUpdatePayload) => {
     await loadStructuredStats(selectedNode.value.key)
     await loadStructuredIndex()
     message.success('节点内容已更新')
+    maybeAutoRunKnowledgeEval('结构节点更新')
   } catch (error) {
     const detail = (error as any)?.response?.data?.detail || (error as any)?.message
     message.error(detail ? `节点更新失败: ${detail}` : '节点更新失败')
@@ -897,6 +1107,7 @@ const batchOperateStructuredNodes = async (payload: StructuredBatchOperationPayl
         ? `已删除 ${result.removed_block_ids?.length || payload.blockIds.length || 0} 个 block`
         : `Block 已拆分为 ${Math.max(2, (result.created_block_ids?.length || 0) + 1)} 段`
     message.success(successText)
+    maybeAutoRunKnowledgeEval('结构批量操作')
   } catch (error) {
     const detail = (error as any)?.response?.data?.detail || (error as any)?.message
     message.error(detail ? `结构操作失败: ${detail}` : '结构操作失败')
@@ -917,6 +1128,7 @@ const undoLastStructuredOperation = async () => {
       docParsedWorkspaceRef.value?.setActiveLinkedItem(firstRestoredId)
     }
     message.success('最近一次结构操作已撤回')
+    maybeAutoRunKnowledgeEval('结构撤回')
   } catch (error) {
     const detail = (error as any)?.response?.data?.detail || (error as any)?.message
     message.error(detail ? `撤回结构操作失败: ${detail}` : '撤回结构操作失败')
@@ -953,6 +1165,7 @@ const startParsePolling = (taskId: string, docId: string) => {
           await loadDocContent(docId)
           await loadStructuredStats(docId)
           message.success('文档解析完成')
+          maybeAutoRunKnowledgeEval('文档解析')
         } else {
           message.error(task.error || '文档解析失败')
         }
@@ -1339,6 +1552,17 @@ onBeforeUnmount(() => {
 
 .header-icon-btn {
   padding-inline: 8px;
+}
+
+.eval-auto-run-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.eval-auto-run-label {
+  font-size: 12px;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.65));
 }
 
 .drop-hint {

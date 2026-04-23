@@ -76,6 +76,70 @@ export interface LlmConfigOption {
   configured: boolean
 }
 
+export interface KnowledgeEvalQuestion {
+  question_id: string
+  question: string
+  task_type: string
+  difficulty: string
+  tags: string[]
+  library_id?: string
+  doc_ids?: string[]
+  expected_route?: string
+}
+
+export interface KnowledgeEvalSummary {
+  retrieval_score: number
+  answer_health_score: number
+  answer_correctness_score: number | null
+  checked_answer_total: number
+  overall_score: number
+  text2sql_success_score: number
+}
+
+export interface KnowledgeEvalAnswerDetail {
+  question_id: string
+  question: string
+  difficulty: string
+  tags: string[]
+  task_type?: string
+  strategy?: string
+  answer_non_empty?: number
+  citation_hit?: number
+  refusal_correct?: number
+  answer_correct_checked?: boolean
+  answer_correct?: number | null
+  failed_correctness_checks?: Array<{ type?: string; keywords?: string[] }>
+  answer?: string
+  citations?: Array<{
+    target_id: string
+    doc_id: string
+    doc_title: string
+    page_idx: number
+    section_path: string
+    snippet: string
+    score: number
+  }>
+}
+
+export interface KnowledgeEvalRunResponse {
+  generated_at: string
+  questions: KnowledgeEvalQuestion[]
+  report: {
+    summary: KnowledgeEvalSummary
+    answer: {
+      total: number
+      answer_non_empty_rate: number
+      citation_hit_rate: number
+      refusal_correct_rate: number
+      correctness_checked_total: number
+      answer_correctness_rate: number
+      details: KnowledgeEvalAnswerDetail[]
+    }
+    retrieval: Record<string, any>
+    text2sql: Record<string, any>
+  }
+}
+
 api.interceptors.request.use(config => {
   console.log('[API Request]:', config.method?.toUpperCase(), config.url, config.params || config.data)
   return config
@@ -125,6 +189,10 @@ export const knowledgeApi = {
     api.get(`/knowledge/parse/tasks/${taskId}`) as Promise<ParseTaskInfo>,
   getLlmConfigs: () =>
     api.get('/llm_configs') as Promise<LlmConfigOption[]>,
+  getEvalQuestions: () =>
+    api.get('/knowledge/evals/questions') as Promise<{ questions: KnowledgeEvalQuestion[] }>,
+  runEvalSuite: () =>
+    api.post('/knowledge/evals/run', undefined, { timeout: 300000 }) as Promise<KnowledgeEvalRunResponse>,
 
   // 策略
   getDocStrategy: (docId: string) => api.get(`/knowledge/strategies/${docId}`),

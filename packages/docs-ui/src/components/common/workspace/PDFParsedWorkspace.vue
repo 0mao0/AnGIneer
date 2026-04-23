@@ -150,6 +150,7 @@ const {
   onSelectHighlightFromLeft,
   onSelectItemFromRight,
   onSelectLineFromRight,
+    setActiveLinkedItem: setWorkspaceLinkedItem,
   toggleHighlightLink,
   resetLinkageState
 } = useWorkspaceLinkage({
@@ -183,8 +184,14 @@ const renderedMarkdown = computed(() => renderMarkdownToHtml(
   filePath.value
 ))
 
-const setActiveLinkedItem = (itemId: string | null) => {
-  activeLinkedItemId.value = itemId
+/**
+ * 对外暴露联动定位入口，并允许调用方指定“最后一个高亮框”策略。
+ */
+const setActiveLinkedItem = (
+  itemId: string | null,
+  options: { preferredPage?: number | null; preferLastHighlight?: boolean } = {}
+) => {
+  setWorkspaceLinkedItem(itemId, options)
   if (itemId && props.graphData?.nodes?.length) {
     activeTab.value = 'Preview_IndexTree'
   }

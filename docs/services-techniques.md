@@ -132,14 +132,14 @@ flowchart TB
     ParseAPI["/api/knowledge/parse\n异步任务提交"]
     TaskAPI["/api/knowledge/parse/tasks/{task_id}\n进度查询"]
     DocAPI["/api/knowledge/document/*\n原文/编辑版/版本"]
-    StrategyAPI["/api/knowledge/strategies/*\nA/B/C 策略切换与查询"]
+    StrategyAPI["/api/knowledge/strategies/*\n当前为单策略配置接口"]
   end
 
   subgraph DocsCore["docs-core 知识引擎层"]
     KService["knowledge_service\n节点/任务元数据门面"]
     Parser["mineru_parser\n高保真解析"]
     Storage["document_storage\n一文档一目录与兼容路径"]
-    Struct["canonical_projection\nA 主链 canonical structure"]
+    Struct["ingest/canonical + file_store\n当前结构化主链"]
     CanonicalSql["canonical_store\ncanonical SQLite truth source"]
     Query["query/*\nintent/planner/service"]
     Executors["executors/*\ncontent/table/formula/sql"]
@@ -152,14 +152,14 @@ flowchart TB
   GatewayOrchestrator["knowledge_routes\n接口与解析调度"]
 
   subgraph Strategy["检索执行平面"]
-    A["A: 自研结构化检索\n(SQLite)"]
-    B["B: MinerU-RAG 检索\n(外部向量能力)"]
-    C["C: PageIndex 推理检索\n(树索引能力)"]
+    A["A: 自研结构化检索\n(当前唯一运行主链)"]
+    B["B: MinerU-RAG 检索\n(规划中，未接入运行时)"]
+    C["C: PageIndex 推理检索\n(规划中，未接入运行时)"]
   end
 
   subgraph DB["数据与工件层"]
-    MetaSqlite["data/knowledge_base/knowledge_meta.sqlite\nlibraries/nodes/tasks/artifacts/revisions/eval_logs"]
-    IndexSqlite["data/knowledge_base/knowledge_index.sqlite\ndoc_blocks/document_segments"]
+    MetaSqlite["data/knowledge_base/knowledge_meta.sqlite\nlibraries/nodes/tasks 等元数据"]
+    IndexSqlite["data/knowledge_base/knowledge_index.sqlite\ncanonical/doc_blocks/document_segments"]
     KB["data/knowledge_base/libraries/{library_id}/documents/{doc_id}\nsource/parsed/edited/structured"]
   end
 
@@ -179,8 +179,6 @@ flowchart TB
   TaskAPI --> GatewayOrchestrator
   DocAPI --> Storage
   StrategyAPI --> A
-  StrategyAPI --> B
-  StrategyAPI --> C
   A --> Struct
   Struct --> IndexSqlite
   CanonicalSql --> IndexSqlite
@@ -191,8 +189,6 @@ flowchart TB
   Retrieval --> CanonicalSql
   Answering --> CanonicalSql
   Text2Sql --> CanonicalSql
-  B --> IndexSqlite
-  C --> IndexSqlite
   KService --> MetaSqlite
   KTool --> IndexSqlite
   TTool --> IndexSqlite
@@ -225,8 +221,8 @@ flowchart TB
   end
 
   subgraph ReadApi["读取入口 apps/api-server/main.py"]
-    GetDoc["GET /api/knowledge/document/{library_id}/{doc_id}\n返回 content + storage + mineru_blocks"]
-    GetStructured["GET /api/knowledge/document/{library_id}/{doc_id}/structured\n返回 structured_index.items"]
+    GetDoc["GET /api/knowledge/document/{library_id}/{doc_id}\n返回 content + storage + graph_data"]
+    GetStructured["GET /api/knowledge/structured/{doc_id}\n返回 structured_index.items"]
   end
 
   subgraph Contract["前端联动契约"]
@@ -306,12 +302,12 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 
 ***
 
-## 三策略执行说明
+## 策略执行现状
 
-- A（自研结构化）作为默认生产策略，检索路径最可控、可审计。
-- B（MinerU-RAG）保留为对照策略，复用其检索能力并统一写评测日志。
-- C（PageIndex）作为长文档推理检索增强策略，统一回传证据路径与耗时。
-- 三策略统一写入 `strategy_eval_logs`，前端按文档与问题维度做横向比对。
+- A（自研结构化）是当前唯一接入生产主链的策略，运行时围绕 canonical SQLite、`doc_blocks_graph_v1` 和启发式 hybrid retrieval 展开。
+- B（MinerU-RAG）与 C（PageIndex）目前仍停留在规划层，文档中保留这些名称仅用于说明后续扩展方向，不代表仓库内已有可切换实现。
+- `/api/knowledge/strategies/*` 当前只承担单策略配置读写，不具备真实的多策略执行平面。
+- 多策略横向评测、`strategy_eval_logs` 持久化与 A/B 对比尚未形成当前真相源。
 
 ***
 

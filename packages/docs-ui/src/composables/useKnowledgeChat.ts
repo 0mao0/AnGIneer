@@ -14,6 +14,7 @@ export interface KnowledgeChatMessage {
   role: KnowledgeChatMessageRole
   content: string
   timestamp?: number
+  queryChain?: string
   // 多模态预留：图片列表
   images?: string[]
   citations?: Array<{
@@ -98,6 +99,41 @@ export interface KnowledgeChatResponse {
   confidence?: number
   latency_ms?: number
   debug?: Record<string, any>
+}
+
+/**
+ * 将任务类型转换为更易读的中文标签。
+ */
+function formatTaskType(taskType: string | undefined): string {
+  const normalized = String(taskType || '').trim()
+  const taskTypeMap: Record<string, string> = {
+    content_qa: '正文问答',
+    definition_qa: '定义问答',
+    locate_qa: '定位问答',
+    table_qa: '表格问答',
+    schema_qa: '结构问答',
+    analytic_sql: 'SQL 分析',
+    mixed: '混合问答'
+  }
+  return taskTypeMap[normalized] || normalized || '未知任务'
+}
+
+/**
+ * 将查询响应格式化为回答气泡顶部的查询链路文案。
+ */
+function buildQueryChain(payload: KnowledgeChatResponse): string {
+  const debug = payload.debug || {}
+  const segments = [
+    `意图 ${formatTaskType(payload.task_type || String(debug.route || ''))}`,
+    debug.executor ? `执行器 ${String(debug.executor)}` : '',
+    debug.retrieval_route ? `检索 ${String(debug.retrieval_route)}` : '',
+    payload.strategy ? `策略 ${payload.strategy}` : '',
+    debug.fallback_used ? '已回退' : ''
+  ].filter(Boolean)
+  if (!segments.length) {
+    return ''
+  }
+  return `查询链路：${segments.join(' -> ')}`
 }
 
 // 上下文管理配置
@@ -260,6 +296,7 @@ export function useKnowledgeChat(options?: {
         role: 'assistant',
         content: assistantContent,
         timestamp: Date.now(),
+        queryChain: buildQueryChain(payload),
         citations: citations.map(citation => ({
           target_id: citation.target_id,
           doc_id: citation.doc_id,

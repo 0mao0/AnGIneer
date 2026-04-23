@@ -57,6 +57,53 @@ def run_predictions(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]
     return predictions
 
 
+# 归一化评测文本，便于做关键词断言。
+def normalize_eval_text(value: str) -> str:
+    normalized = str(value or "")
+    normalized = normalized.replace("（", "(").replace("）", ")")
+    normalized = normalized.replace("，", ",").replace("。", ".").replace("：", ":")
+    normalized = normalized.replace("；", ";").replace("～", "~").replace("％", "%")
+    normalized = normalized.lower()
+    compact_chars: List[str] = []
+    for char in normalized:
+        if char.isspace():
+            continue
+        if char.isalnum() or "\u4e00" <= char <= "\u9fff" or char in {".", "%", "~", "=", "+", "-", "<", ">", "(", ")", ":", "/"}:
+            compact_chars.append(char)
+    return "".join(compact_chars)
+
+
+# 判断答案是否满足单条结构化正确性断言。
+def evaluate_correctness_check(answer: str, check: Dict[str, Any]) -> bool:
+    check_type = str(check.get("type") or "").strip()
+    keywords = [normalize_eval_text(str(item)) for item in check.get("keywords", []) if str(item).strip()]
+    normalized_answer = normalize_eval_text(answer)
+    if not check_type or not keywords:
+        return True
+    if check_type == "contains_all":
+        return all(keyword in normalized_answer for keyword in keywords)
+    if check_type == "contains_any":
+        return any(keyword in normalized_answer for keyword in keywords)
+    return True
+
+
+# 基于 gold 中的结构化断言判断回答是否正确。
+def evaluate_answer_correctness(answer: str, gold: Dict[str, Any]) -> Dict[str, Any]:
+    checks = [item for item in gold.get("correctness_checks", []) if isinstance(item, dict)]
+    if not checks:
+        return {
+            "checked": False,
+            "score": None,
+            "failed_checks": [],
+        }
+    failed_checks = [check for check in checks if not evaluate_correctness_check(answer, check)]
+    return {
+        "checked": True,
+        "score": 1.0 if not failed_checks else 0.0,
+        "failed_checks": failed_checks,
+    }
+
+
 # 判断回答是否触发系统默认拒答。
 def is_refusal(answer: str) -> bool:
     normalized = (answer or "").strip()
@@ -78,6 +125,8 @@ def evaluate_answers(
     answer_non_empty = 0.0
     citation_hit = 0.0
     refusal_correct = 0.0
+    correctness_total = 0
+    correctness_hit = 0.0
     details: List[Dict[str, Any]] = []
     for question in questions:
         question_id = str(question.get("question_id") or "")
@@ -95,9 +144,13 @@ def evaluate_answers(
         has_answer = 1.0 if answer else 0.0
         citation_ok = 1.0 if (not must_cite_target_ids or set(must_cite_target_ids) & set(predicted_target_ids)) else 0.0
         refusal_ok = 1.0 if refusal_expected == actual_refusal else 0.0
+        correctness = evaluate_answer_correctness(answer, gold)
         answer_non_empty += has_answer
         citation_hit += citation_ok
         refusal_correct += refusal_ok
+        if correctness["checked"]:
+            correctness_total += 1
+            correctness_hit += float(correctness["score"] or 0.0)
         details.append(
             {
                 "question_id": question_id,
@@ -108,6 +161,10 @@ def evaluate_answers(
                 "refusal_expected": refusal_expected,
                 "actual_refusal": actual_refusal,
                 "refusal_correct": refusal_ok,
+                "answer_correct_checked": correctness["checked"],
+                "answer_correct": correctness["score"],
+                "failed_correctness_checks": correctness["failed_checks"],
+                "citations": citations,
                 "predicted_target_ids": predicted_target_ids,
                 "must_cite_target_ids": must_cite_target_ids,
                 "answer": answer,
@@ -120,6 +177,8 @@ def evaluate_answers(
             "answer_non_empty_rate": 0.0,
             "citation_hit_rate": 0.0,
             "refusal_correct_rate": 0.0,
+            "correctness_checked_total": 0,
+            "answer_correctness_rate": 0.0,
             "details": [],
         }
     return {
@@ -127,6 +186,8 @@ def evaluate_answers(
         "answer_non_empty_rate": round(answer_non_empty / total, 4),
         "citation_hit_rate": round(citation_hit / total, 4),
         "refusal_correct_rate": round(refusal_correct / total, 4),
+        "correctness_checked_total": correctness_total,
+        "answer_correctness_rate": round(correctness_hit / correctness_total, 4) if correctness_total else 0.0,
         "details": details,
     }
 

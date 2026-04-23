@@ -1,5 +1,6 @@
 <template>
   <BaseChat
+    ref="baseChatRef"
     :messages="messages"
     :loading="loading"
     :current-stream-content="currentStreamContent"
@@ -14,12 +15,13 @@
     :show-system-messages="showSystemMessages"
     :context-tokens="contextTokens"
     :context-rounds="contextRounds"
-    :render-message="renderMarkdown"
+    :render-message="renderKnowledgeChatMessage"
     @send="handleSend"
     @clear="clearMessages"
     @stop="stopGeneration"
     @remove-context="removeContext"
     @ready="handleReady"
+    @select-citation="handleSelectCitation"
   />
 </template>
 
@@ -30,8 +32,11 @@
  */
 import { computed, onMounted, ref } from 'vue'
 import { BaseChat } from '@angineer/ui-kit'
-import { useKnowledgeChat } from '../../../composables/useKnowledgeChat'
-import { renderMarkdown } from '../../../utils/knowledge'
+import {
+  useKnowledgeChat,
+  type KnowledgeChatMessage
+} from '../../../composables/useKnowledgeChat'
+import { renderMarkdownToHtml } from '../../../utils/knowledge'
 
 interface ModelOption {
   value: string
@@ -42,6 +47,8 @@ interface ContextItem {
   id: string
   title: string
 }
+
+type KnowledgeChatCitation = NonNullable<KnowledgeChatMessage['citations']>[number]
 
 interface Props {
   defaultModel?: string
@@ -70,6 +77,8 @@ const emit = defineEmits<{
   ready: []
   removeContext: [id: string]
   error: [error: Error]
+  answerComplete: [message: KnowledgeChatMessage]
+  selectCitation: [citation: KnowledgeChatCitation]
 }>()
 
 const {
@@ -90,9 +99,15 @@ const {
 
 const loadingModels = ref(false)
 const models = ref<ModelOption[]>([])
+const baseChatRef = ref<InstanceType<typeof BaseChat> | null>(null)
 
 const contextTokens = computed(() => getContextTokens())
 const contextRounds = computed(() => getContextRounds())
+
+/**
+ * 使用 docs-ui 的增强 Markdown 渲染器渲染回答内容，支持公式、表格和原始 HTML。
+ */
+const renderKnowledgeChatMessage = (content: string) => renderMarkdownToHtml(content, '')
 
 /**
  * 拉取模型列表并补齐一个兜底项，避免空模型选择框。
@@ -126,11 +141,20 @@ const fetchModels = async () => {
  */
 const handleSend = async (message: string, model: string) => {
   emit('send', message, model)
+  baseChatRef.value?.clearComposer?.()
 
   try {
     await sendMessage(message, model)
+    const lastAssistantMessage = [...messages.value]
+      .reverse()
+      .find(item => item.role === 'assistant')
+    if (lastAssistantMessage) {
+      emit('answerComplete', lastAssistantMessage)
+    }
   } catch (error) {
     emit('error', error instanceof Error ? error : new Error(String(error)))
+  } finally {
+    baseChatRef.value?.clearComposer?.()
   }
 }
 
@@ -148,6 +172,13 @@ const handleReady = () => {
   emit('ready')
 }
 
+/**
+ * 把引用点击事件上抛给页面层，用于触发文档定位。
+ */
+const handleSelectCitation = (citation: KnowledgeChatCitation) => {
+  emit('selectCitation', citation)
+}
+
 onMounted(() => {
   fetchModels()
 })
@@ -155,6 +186,7 @@ onMounted(() => {
 defineExpose({
   messages,
   clearMessages,
-  sendMessage: handleSend
+  sendMessage: handleSend,
+  clearComposer: () => baseChatRef.value?.clearComposer?.()
 })
 </script>

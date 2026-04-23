@@ -112,7 +112,7 @@ ResourceAdapter(project/knowledge/sop)
 admin-console 与 web-console 共享同一套 KnowledgeTree / KnowledgeChatPanel / SOPTree / SOPChatPanel / 资源适配协议，基础 SmartTree / BaseChat 下沉至 ui-kit
 ```
 
-### 2.3 文档解析与对比查改架构（当前规划）
+### 2.3 文档解析与对比查改架构（当前实现）
 
 ![文档解析模块架构](./docs/Angineer-DocParseModule.png)
 
@@ -129,12 +129,12 @@ docs-core 后端实现
   -> parser: 对接 MinerU，输出原始解析结果目录
   -> structured: 完成结构化构建、索引落盘与文档存储
   -> knowledge_service.py: 提供知识库元数据与索引服务门面
-  -> query/: 负责问题理解、意图解析与执行规划
-  -> executors/: 负责 content/table/formula/sql 问答链编排
-  -> retrieval/: 负责召回、融合、重排
-  -> answering/: 负责回答拼装与引用构造
-  -> text2sql/: 负责 schema link、SQL planning / generation / validation / execution
-  -> evals/: 负责 retrieval / answer / text2sql 评测与报告
+  -> query/: 负责规则型问题理解、意图解析与执行规划
+  -> executors/: 已接入 content/table/formula/sql 四类最小执行链
+  -> retrieval/: 当前为 canonical SQLite 上的启发式 dense/sparse/hybrid 召回
+  -> answering/: 当前以证据片段选择 + 模板回答 + 引用构造为主
+  -> text2sql/: 已接入最小只读计数类链路
+  -> evals/: 已有 retrieval / answer / text2sql 评测模块与 API 入口
 ```
 
 ```text
@@ -146,9 +146,18 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 
 ```text
 数据库拆分（docs-core）
-  -> knowledge_meta.sqlite: libraries / nodes / parse_tasks / artifacts / revisions
-  -> knowledge_index.sqlite: doc_blocks / document_segments
+  -> knowledge_meta.sqlite: libraries / nodes / parse_tasks 等元数据
+  -> knowledge_index.sqlite: canonical_documents / doc_blocks / document_segments 等索引数据
   -> 仅保留双库：运行时与离线流程统一使用上述两库
+```
+
+```text
+尚未完全落地的能力
+  -> 真正的 embedding / vector retrieval
+  -> A/B/C 多策略检索运行面
+  -> synthesis executor 多证据综合链
+  -> 复杂聚合 / 排序 / 多表 Text-to-SQL
+  -> 评测回放、A/B 对比与长期基线沉淀
 ```
 
 ---

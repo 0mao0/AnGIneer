@@ -7,6 +7,14 @@ from docs_core.evals.eval_retrieval import evaluate_retrieval, load_jsonl as loa
 from docs_core.evals.eval_text2sql import evaluate_text2sql, run_predictions as run_sql_predictions
 
 
+# 计算多个分项分数的简单平均值。
+def average_scores(*values: Any) -> float:
+    numeric_values = [float(value) for value in values if isinstance(value, (int, float))]
+    if not numeric_values:
+        return 0.0
+    return round(sum(numeric_values) / len(numeric_values), 4)
+
+
 # 聚合 retrieval、answer、text2sql 三类评测结果。
 def build_eval_suite_report() -> Dict[str, Any]:
     base_dir = resolve_answer_eval_data_dir()
@@ -22,10 +30,36 @@ def build_eval_suite_report() -> Dict[str, Any]:
     sql_question_ids = set(gold_sql.keys())
     sql_questions = [question for question in questions if str(question.get("question_id") or "") in sql_question_ids]
     sql_predictions = run_sql_predictions(sql_questions)
+    retrieval_report = evaluate_retrieval(questions, gold_retrieval, retrieval_predictions)
+    answer_report = evaluate_answers(questions, gold_answers, answer_predictions)
+    text2sql_report = evaluate_text2sql(sql_questions, gold_sql, sql_predictions)
+    answer_health_score = average_scores(
+        answer_report.get("answer_non_empty_rate"),
+        answer_report.get("citation_hit_rate"),
+        answer_report.get("refusal_correct_rate"),
+    )
+    answer_correctness_score = (
+        answer_report.get("answer_correctness_rate")
+        if answer_report.get("correctness_checked_total")
+        else None
+    )
+    overall_score = average_scores(
+        retrieval_report.get("recall@5"),
+        answer_health_score,
+        answer_correctness_score,
+    )
     return {
-        "retrieval": evaluate_retrieval(questions, gold_retrieval, retrieval_predictions),
-        "answer": evaluate_answers(questions, gold_answers, answer_predictions),
-        "text2sql": evaluate_text2sql(sql_questions, gold_sql, sql_predictions),
+        "summary": {
+            "retrieval_score": retrieval_report.get("recall@5", 0.0),
+            "answer_health_score": answer_health_score,
+            "answer_correctness_score": answer_correctness_score,
+            "checked_answer_total": answer_report.get("correctness_checked_total", 0),
+            "overall_score": overall_score,
+            "text2sql_success_score": text2sql_report.get("sql_success_rate", 0.0),
+        },
+        "retrieval": retrieval_report,
+        "answer": answer_report,
+        "text2sql": text2sql_report,
     }
 
 

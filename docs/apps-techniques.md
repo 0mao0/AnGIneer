@@ -226,7 +226,7 @@ admin-console（管理路由型）
 
 ### 1. 整体架构概览
 
-Docs 模块（文档解析与知识管理）采用了 **“异步任务化解析 + 一文档一目录存储 + 多策略检索”** 的核心架构。
+Docs 模块（文档解析与知识管理）当前采用 **“异步任务化解析 + 一文档一目录存储 + 单策略结构化主链”** 的核心架构，并为后续多策略检索预留扩展位。
 
 ```mermaid
 flowchart TD
@@ -238,7 +238,7 @@ flowchart TD
 
     subgraph Backend["后端 (apps/api-server & docs-core)"]
         API["FastAPI 异步接口\n/parse, /tasks, /document"]
-        Task["TaskQueue\nCelery/Asyncio 异步处理"]
+        Task["ParseOrchestrator\n后台线程异步处理"]
         Parser["MinerU Parser\n云端解析 + 本地后处理"]
         Storage["FileStorage\n一文档一目录规范"]
         Query["Query Service\nintent + planner"]
@@ -247,9 +247,9 @@ flowchart TD
     end
 
     subgraph Strategy["检索策略层"]
-        SA["A: 结构化索引\n(Sqlite3)"]
-        SB["B: MinerU-RAG\n(Vector DB)"]
-        SC["C: PageIndex\n(Tree Index)"]
+        SA["A: 结构化索引\n(当前唯一生产主链)"]
+        SB["B: MinerU-RAG\n(规划中，未接入运行时)"]
+        SC["C: PageIndex\n(规划中，未接入运行时)"]
     end
 
     KM -- 提交解析 --> API
@@ -289,8 +289,9 @@ flowchart TD
 - **数据对齐**：后端返回的 `mineru_blocks` 必须包含 `page_idx` 和 `bbox`。`bbox` 统一采用 `[x0, y0, x1, y1]` 格式。
 - **错误恢复**：如果云端解析返回的 `mineru_blocks.json` 为空，后端应尝试从压缩包中的 `model.json` 恢复基础块信息。
 
-#### 多策略分发
-- 后端通过 `StrategyRouter` 根据文档设置的 `strategy` 字段，将检索请求分发到对应的 `StructuredStrategy`, `MinerURagStrategy` 或 `PageIndexStrategy`。
+#### 策略分发现状
+- 当前运行时仅支持 `doc_blocks_graph_v1` 一个结构化策略。
+- `strategy` 字段与 `/api/knowledge/strategies/*` 接口已落地，但仍属于“单策略配置位”，尚未接入 `MinerURagStrategy` 或 `PageIndexStrategy` 的真实执行链。
 
 ---
 
@@ -374,9 +375,10 @@ flowchart TB
   - 负责 B1/B2 布局、同步滚动、编辑开关、保存/放弃修改。
   - 预留“差异对比模式”入口（首版可只做按钮占位与接口联动）。
 - `apps/admin-console/src/api/knowledge.ts`
-  - 新增任务接口：`parseDocumentAsync`、`getParseTask`。
-  - 新增策略相关接口：`setDocStrategy`、`getDocStrategy`、`queryByStrategy`。
-  - 新增编辑接口：`getDocumentEditable`、`saveDocumentEditable`、`listDocumentRevisions`。
+  - 已接入任务接口：`parseDocumentAsync`、`getParseTask`。
+  - 已接入策略接口：`setDocStrategy`、`getDocStrategy`，但当前仅支持 `doc_blocks_graph_v1`。
+  - 已接入文档与结构操作接口：`getDocument`、`updateDocumentBlock`、`batchOperateDocumentBlocks`、`undoLastDocumentBlockOperation`。
+  - `queryByStrategy`、文档版本列表等接口仍未落地，不应视为当前已完成能力。
 - `packages/docs-ui/src/composables/useKnowledgeTree.ts`
   - 扩展节点字段：`parse_progress`、`parse_stage`、`parse_error`、`strategy`。
   - 保持 tree 构建兼容旧字段，避免前后台选择树断裂。
@@ -384,16 +386,15 @@ flowchart TB
 ### 2）后端接口（按文件级）
 
 - `apps/api-server/main.py`
-  - 将 `/api/knowledge/parse` 改为异步任务提交（返回 `task_id`）。
-  - 新增 `/api/knowledge/parse/tasks/{task_id}` 查询进度。
-  - 新增 `/api/knowledge/strategies/*`（文档策略设置、按策略检索）。
-  - 新增 `/api/knowledge/document/{library_id}/{doc_id}/revisions`。
-  - 新增 `/api/knowledge/document/{library_id}/{doc_id}/structured`（统一结构化输出）。
-  - 三策略构建逻辑分发到 `apps/api-server/knowledge_routes.py`，具体实现下沉到 `canonical_projection.py`、`rag_projection.py`、`page_projection.py`。
+  - 已将 `/api/knowledge/parse` 改为异步任务提交（返回 `task_id`）。
+  - 已提供 `/api/knowledge/parse/tasks/{task_id}` 查询进度。
+  - 已提供 `/api/knowledge/strategies/*`，但当前仅用于读取/写入单一策略配置。
+  - 已提供 `/api/knowledge/structured/*`、`/api/knowledge/document/*`、结构块编辑与撤回接口。
+  - `/api/knowledge/document/{library_id}/{doc_id}/revisions`、按策略查询与三策略构建分发仍未落地。
 - `apps/api-server/knowledge_routes.py`
   - 统一承载知识库路由、文件预览路由与解析主链编排：任务创建、阶段推进、MinerU 调用、产物落盘、A 主链索引构建。
 - `services/docs-core/src/docs_core/projection/*.py`
-  - A/B/C 三类投影策略分别承载 structured、MinerU-RAG、PageIndex 的下游投影逻辑。
+  - 当前仓库中尚未形成 A/B/C 三类独立 projection 模块，仍以 `ingest/canonical`、`ingest/structured`、`ingest/storage/file_store.py` 为主链实现。
 - `services/docs-core/src/docs_core/index/doc_block_store.py`
   - 抽离 `doc_blocks` 索引写入、查询、统计，避免与文件存储职责混放。
 - `services/docs-core/src/docs_core/parser/mineru_parser.py`
@@ -426,7 +427,7 @@ flowchart TB
   - 新增 `document_segments` 表：条文/段落/附注等结构化片段。
   - 新增 `document_tables`、`document_images` 表：表格与图片结构化索引。
   - 新增 `document_revisions` 表：编辑版本与 diff 摘要。
-  - 新增 `strategy_eval_logs` 表：A/B/C 三策略效果评测记录。
+  - `strategy_eval_logs` 等多策略评测持久化表仍未形成当前运行时真相源。
   - `document_segments` 与 `doc_blocks` 统一收口到 `knowledge_index.sqlite`。
 
 ### 4）迁移脚本（按文件级）
@@ -445,9 +446,9 @@ flowchart TB
 
 ### 5）分阶段交付建议
 
-- P0：B 区状态机 + 异步解析进度 + B1/B2 + Markdown 可编辑。
-- P1：A/B/C 策略切换与统一响应结构，支持效果对比。
-- P2：结构化索引深挖（表格跨页纠偏、图片语义增强、版本化 diff 可视化）。
+- P0：B 区状态机 + 异步解析进度 + B1/B2 + Markdown 可编辑，已基本落地。
+- P1：A/B/C 策略切换与统一响应结构，仍未落地。
+- P2：结构化索引深挖（表格跨页纠偏、图片语义增强、版本化 diff 可视化），仍在后续计划中。
 
 ---
 

@@ -159,7 +159,7 @@
               <div
                 v-for="item in getPageHighlights(pageMeta.page)"
                 :key="item.id"
-                :class="['pdf-highlight-box', { active: item.itemId === activeHighlightId }]"
+                :class="['pdf-highlight-box', { active: item.id === activeHighlightId || item.itemId === activeHighlightId }]"
                 :style="{
                   left: `${item.left * 100}%`,
                   top: `${item.top * 100}%`,
