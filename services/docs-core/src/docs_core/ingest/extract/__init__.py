@@ -1,4 +1,4 @@
-"""docs_core 解析层导出。"""
+"""docs_core extract 阶段导出。"""
 from .mineru_parser import MinerUParser, mineru_parser
 
 __all__ = [

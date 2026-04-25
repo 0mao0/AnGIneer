@@ -14,21 +14,21 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT / "services" / "docs-core" / "src"))
 sys.path.insert(0, str(PROJECT_ROOT / "apps" / "api-server"))
 
-from docs_core.ingest.storage.file_store import FileStorage
-import docs_core.ingest.storage.file_store as result_store_json_module
+from docs_core.ingest.store.assets_file_store import FileStorage
+import docs_core.ingest.store.assets_file_store as result_store_json_module
 import docs_core.knowledge_service as knowledge_service_module
 from docs_core.knowledge_service import KnowledgeService, KnowledgeNode
-from docs_core.ingest.storage.file_store import (
+from docs_core.ingest.store.assets_file_store import (
     extract_structured_items_from_markdown,
     _build_doc_blocks_graph_segment_items,
     batch_operate_doc_blocks,
     undo_last_doc_block_merge,
 )
-from docs_core.ingest.structured.formula_semantics import (
+from docs_core.ingest.normalize.formula_semantics import (
     build_formula_representations,
     parse_formula_param_rule,
 )
-from docs_core.ingest.structured.structure_builder import (
+from docs_core.ingest.normalize.structure_builder import (
     StructuredResult,
     build_structured_from_rawfiles,
     collect_media_related_block_refs
@@ -82,7 +82,7 @@ class TestFileStorage(unittest.TestCase):
             self.assertTrue(documents[0]["has_markdown"])
 
     def test_manifest_contains_raw_and_middle(self):
-        """测试清单字段包含 raw_dir 与 middle_json。"""
+        """测试清单字段包含 raw_dir middle_json。"""
         with tempfile.TemporaryDirectory() as temp_dir:
             storage = FileStorage(base_dir=temp_dir)
             lib_id = "default"
@@ -118,9 +118,9 @@ class TestStructuredSegments(unittest.TestCase):
             service.create_node(node)
 
             items = [
-                {"item_type": "heading", "title": "第一章", "content": "第一章", "meta": {"level": 1}, "order_index": 0},
+                {"item_type": "heading", "title": "第一", "content": "第一", "meta": {"level": 1}, "order_index": 0},
                 {"item_type": "table", "title": "表格1", "content": "|A|B|\n|-|-|\n|1|2|", "meta": {"line": 10}, "order_index": 1},
-                {"item_type": "segment", "title": "段落1", "content": "这是用于检索的段落内容。", "meta": {"line": 20}, "order_index": 2},
+                {"item_type": "segment", "title": "段落1", "content": "这是用于检索的段落内容", "meta": {"line": 20}, "order_index": 2},
             ]
             saved_count = service.save_document_segments("doc-2001", "default", "doc_blocks_graph_v1", items)
             self.assertEqual(saved_count, 3)
@@ -129,7 +129,7 @@ class TestStructuredSegments(unittest.TestCase):
             self.assertEqual(len(all_items), 3)
             table_items = service.list_document_segments("doc-2001", "doc_blocks_graph_v1", item_type="table")
             self.assertEqual(len(table_items), 1)
-            keyword_items = service.list_document_segments("doc-2001", "doc_blocks_graph_v1", keyword="检索")
+            keyword_items = service.list_document_segments("doc-2001", "doc_blocks_graph_v1", keyword="检")
             self.assertEqual(len(keyword_items), 1)
 
             stats = service.get_document_segment_stats("doc-2001")
@@ -153,7 +153,7 @@ class TestStructuredSegments(unittest.TestCase):
             try:
                 folder = KnowledgeNode(
                     id="folder-1",
-                    title="测试文件夹",
+                    title="测试文件",
                     type="folder",
                     library_id="default",
                     status="completed"
@@ -163,7 +163,7 @@ class TestStructuredSegments(unittest.TestCase):
                 isolated_storage.save_markdown("default", "doc-delete-1", "# 标题\n\n内容")
                 document = KnowledgeNode(
                     id="doc-delete-1",
-                    title="待删除文档",
+                    title="待删除文",
                     type="document",
                     parent_id="folder-1",
                     library_id="default",
@@ -176,13 +176,13 @@ class TestStructuredSegments(unittest.TestCase):
                     "doc-delete-1",
                     "default",
                     "doc_blocks_graph_v1",
-                    [{"item_type": "segment", "title": "段落", "content": "待清理内容"}],
+                    [{"item_type": "segment", "title": "段落", "content": "待清理内"}],
                 )
                 isolated_service.index_store.insert_doc_blocks_base_rows(
                     [
                         {
                             "doc_id": "doc-delete-1",
-                            "doc_name": "待删除文档",
+                            "doc_name": "待删除文",
                             "page_idx": 0,
                             "page_width": 100.0,
                             "page_height": 200.0,
@@ -265,7 +265,7 @@ class TestStructuredSegments(unittest.TestCase):
             )
             doc_two = KnowledgeNode(
                 id="doc-preview-2",
-                title="文档二",
+                title="文档",
                 type="document",
                 parent_id="folder-child",
                 library_id="default",
@@ -283,13 +283,13 @@ class TestStructuredSegments(unittest.TestCase):
             self.assertEqual(preview["document_count"], 2)
             self.assertEqual(preview["total_nodes"], 4)
             self.assertEqual(preview["doc_ids"], ["doc-preview-1", "doc-preview-2"])
-            self.assertEqual(preview["sample_doc_titles"], ["文档一", "文档二"])
+            self.assertEqual(preview["sample_doc_titles"], ["文档一", "文档"])
             del service
             gc.collect()
 
-    # 测试 doc_blocks_graph_v1 索引行会被转换为带精确定位元数据的结构化条目。
+    # 测试 doc_blocks_graph_v1 索引行会被转换为带精确定位元数据的结构化条目
     def test_build_doc_blocks_graph_segment_items_contains_exact_refs(self):
-        """测试 doc_blocks_graph_v1 条目会输出 block_uid、node_id 等精确引用。"""
+        """测试 doc_blocks_graph_v1 条目会输block_uid、node_id 等精确引用。"""
         result = StructuredResult(
             nodes=[
                 {
@@ -341,7 +341,7 @@ class TestStructuredSegments(unittest.TestCase):
         self.assertEqual(items[0]["meta"]["level"], 1)
 
     def test_build_doc_blocks_graph_segment_items_contains_caption_and_footnote_refs(self):
-        """测试图表条目会输出 caption 与 footnote 的显式 block_uid 引用。"""
+        """测试图表条目会输caption footnote 的显block_uid 引用。"""
         result = StructuredResult(
             nodes=[
                 {
@@ -350,7 +350,7 @@ class TestStructuredSegments(unittest.TestCase):
                     "block_type": "table",
                     "page_idx": 0,
                     "block_seq": 10,
-                    "plain_text": "表1 测试表 注：口径说明",
+                    "plain_text": " 测试注：口径说明",
                     "bbox": [0.1, 0.2, 0.3, 0.4],
                     "bbox_source": "layout",
                     "derived_by": "rule",
@@ -365,7 +365,7 @@ class TestStructuredSegments(unittest.TestCase):
                     "block_type": "table",
                     "page_idx": 0,
                     "block_seq": 10,
-                    "plain_text": "表1 测试表 注：口径说明",
+                    "plain_text": " 测试注：口径说明",
                     "derived_level": None,
                     "title_path": None,
                     "parent_uid": None,
@@ -380,7 +380,7 @@ class TestStructuredSegments(unittest.TestCase):
                         "block_type": "table",
                         "page_idx": 0,
                         "content_json": {
-                            "table_caption": [{"content": "表1 测试表"}],
+                            "table_caption": [{"content": " 测试"}],
                             "table_footnote": [{"content": "注：口径说明"}]
                         }
                     },
@@ -388,7 +388,7 @@ class TestStructuredSegments(unittest.TestCase):
                         "block_uid": "doc-1:0:11",
                         "block_type": "paragraph",
                         "page_idx": 0,
-                        "plain_text": "表1 测试表"
+                        "plain_text": "测试",
                     },
                     {
                         "block_uid": "doc-1:0:12",
@@ -418,28 +418,28 @@ class TestStructuredSegments(unittest.TestCase):
         self.assertEqual(items[0]["meta"]["footnote_block_uids"], ["doc-1:0:12"])
 
     def test_collect_media_related_block_refs_from_parser_rows(self):
-        """测试解析阶段会为图表块直接产出 caption 与 footnote 的关联 refs。"""
+        """测试解析阶段会为图表块直接产caption footnote 的关refs。"""
         rows = [
             {
                 "block_uid": "doc-1:0:10",
                 "block_type": "image",
                 "page_idx": 0,
                 "content_json": {
-                    "image_caption": [{"content": "图1 系统架构"}],
-                    "image_footnote": [{"content": "来源：测试环境"}]
+                    "image_caption": [{"content": " 系统架构"}],
+                    "image_footnote": [{"content": "来源：测试环"}]
                 }
             },
             {
                 "block_uid": "doc-1:0:11",
                 "block_type": "paragraph",
                 "page_idx": 0,
-                "plain_text": "图1 系统架构"
+                "plain_text": " 系统架构"
             },
             {
                 "block_uid": "doc-1:0:12",
                 "block_type": "paragraph",
                 "page_idx": 0,
-                "plain_text": "来源：测试环境"
+                "plain_text": "来源：测试环境",
             }
         ]
 
@@ -456,21 +456,21 @@ class TestStructuredSegments(unittest.TestCase):
                 "block_type": "image",
                 "page_idx": 0,
                 "content_json": {
-                    "image_caption": [{"content": "图6.4.1 航道设计基本尺度"}],
-                    "image_footnote": [{"content": "6.4.2 航道通航宽度应由航迹带宽度确定"}]
+                    "image_caption": [{"content": ".4.1 航道设计基本尺度"}],
+                    "image_footnote": [{"content": "6.4.2 航道通航宽度应由航迹带宽度确"}]
                 }
             },
             {
                 "block_uid": "doc-1:0:21",
                 "block_type": "title",
                 "page_idx": 0,
-                "plain_text": "6.4.2 航道通航宽度应由航迹带宽度确定"
+                "plain_text": "6.4.2 航道通航宽度应由航迹带宽度确定",
             },
             {
                 "block_uid": "doc-1:0:22",
                 "block_type": "paragraph",
                 "page_idx": 0,
-                "plain_text": "6.4.2 航道通航宽度应由航迹带宽度确定"
+                "plain_text": "6.4.2 航道通航宽度应由航迹带宽度确定",
             }
         ]
 
@@ -479,9 +479,9 @@ class TestStructuredSegments(unittest.TestCase):
         self.assertNotIn("caption_block_uids", refs)
         self.assertNotIn("footnote_block_uids", refs)
 
-    # 测试解析阶段会优先按顺序而非按文本把 model.json 的 bbox 对齐回来。
+    # 测试解析阶段会优先按顺序而非按文本把 model.json bbox 对齐回来
     def test_build_structured_from_rawfiles_enriches_caption_and_footnote_bboxes(self):
-        """测试 build_structured_from_rawfiles 会优先按顺序把 model.json 中的图表题注 bbox 写入结果。"""
+        """测试 build_structured_from_rawfiles 会优先按顺序model.json 中的图表题注 bbox 写入结果。"""
         with tempfile.TemporaryDirectory() as temp_dir:
             parsed_dir = Path(temp_dir)
             raw_dir = parsed_dir / "mineru_raw"
@@ -495,7 +495,7 @@ class TestStructuredSegments(unittest.TestCase):
       "type": "table",
       "bbox": [100, 200, 500, 600],
       "content": {
-        "table_caption": [{"content": "表1 测试表"}],
+        "table_caption": [{"content": " 测试"}],
         "table_footnote": [{"content": "注：口径说明"}]
       }
     },
@@ -503,7 +503,7 @@ class TestStructuredSegments(unittest.TestCase):
       "type": "paragraph",
       "bbox": [110, 610, 380, 640],
       "content": {
-        "paragraph_content": [{"content": "表1 测试表"}]
+        "paragraph_content": [{"content": " 测试"}]
       }
     },
     {
@@ -539,7 +539,7 @@ class TestStructuredSegments(unittest.TestCase):
     {
       "type": "table_caption",
       "bbox": [0.11, 0.61, 0.38, 0.64],
-      "content": "与 content_list 不同的 caption 文本"
+      "content": "content_list 不同caption 文本"
     },
     {
       "type": "table",
@@ -549,7 +549,7 @@ class TestStructuredSegments(unittest.TestCase):
     {
       "type": "table_footnote",
       "bbox": [0.11, 0.645, 0.42, 0.675],
-      "content": "与 content_list 不同的 footnote 文本"
+      "content": "content_list 不同footnote 文本"
     }
   ]
 ]
@@ -586,13 +586,13 @@ class TestMarkdownExtractor(unittest.TestCase):
         markdown = """# 总则
 
 1.1 适用范围
-本规范适用于测试场景，包含多个字段说明。
+本规范适用于测试场景，包含多个字段说明
 
 | 字段 | 含义 |
 | --- | --- |
-| A | 值 |
+| A | |
 
-![设备图](assets/a.png "图1")
+![设备图](assets/a.png "")
 """
         items = extract_structured_items_from_markdown(markdown)
         types = {item["item_type"] for item in items}
@@ -603,7 +603,7 @@ class TestMarkdownExtractor(unittest.TestCase):
 
 
 class FakeLLMClient:
-    """用于公式兜底测试的最小 LLM 假对象。"""
+    """用于公式兜底测试的最LLM 假对象。"""
 
     def __init__(self, response_text: str):
         self._response_text = response_text
@@ -618,12 +618,12 @@ class TestFormulaSemantics(unittest.TestCase):
 
     def test_parse_formula_param_rule(self):
         """测试规则能识别常见公式参数行。"""
-        parsed = parse_formula_param_rule("γ——风、流压缩角（^circ），采用表6.4.2-2中的数值")
+        parsed = parse_formula_param_rule("γ——风、流压缩角（^circ），采用.4.2-2中的数")
         self.assertIsNotNone(parsed)
         self.assertEqual(parsed["symbol"], "γ")
-        self.assertIn("风、流压缩角", parsed["description"])
+        self.assertIn("风、流压缩", parsed["description"])
         self.assertEqual(parsed["unit"], "^circ")
-        self.assertIn("表6.4.2-2", parsed["reference_hint"])
+        self.assertIn(".4.2-2", parsed["reference_hint"])
 
     def test_build_formula_representations_with_llm_fallback(self):
         """测试规则不足时会启用 LLM 兜底补充参数。"""
@@ -645,7 +645,7 @@ class TestFormulaSemantics(unittest.TestCase):
         )
         result = build_formula_representations(
             formula_text="A = n(Lsinγ + B)",
-            explanation_lines=["式中", "槽宽参数 B（m）"],
+            explanation_lines=["式中", "槽宽参数 B（m"],
             llm_client=llm_client,
             llm_model="Qwen3.6-35B-A3B (Private)",
             use_llm=True,
@@ -689,7 +689,7 @@ class TestFormulaSemantics(unittest.TestCase):
                     "block_type": "paragraph",
                     "page_idx": 0,
                     "block_seq": 3,
-                    "plain_text": "γ——风、流压缩角（^circ），采用表6.4.2-2中的数值",
+                    "plain_text": "γ——风、流压缩角（^circ），采用.4.2-2中的数",
                     "parent_uid": "doc-1:0:1",
                 },
                 {
@@ -698,7 +698,7 @@ class TestFormulaSemantics(unittest.TestCase):
                     "block_type": "paragraph",
                     "page_idx": 0,
                     "block_seq": 4,
-                    "plain_text": "B——设计槽宽（m）",
+                    "plain_text": "B——设计槽宽（m",
                     "parent_uid": "doc-1:0:1",
                 },
             ],
@@ -769,7 +769,7 @@ class TestStructuredBatchOperations(unittest.TestCase):
                             "block_type": "title",
                             "page_idx": 0,
                             "block_seq": 1,
-                            "plain_text": "第一章",
+                            "plain_text": "第一",
                             "bbox": [0.0, 0.0, 1.0, 0.1],
                             "bbox_source": "layout",
                             "derived_level": 1,
@@ -811,7 +811,7 @@ class TestStructuredBatchOperations(unittest.TestCase):
                             "block_type": "image",
                             "page_idx": 0,
                             "block_seq": 3,
-                            "plain_text": "段落二",
+                            "plain_text": "段落",
                             "bbox": [0.0, 0.2, 1.0, 0.3],
                             "bbox_source": "layout",
                             "derived_level": None,
@@ -819,16 +819,16 @@ class TestStructuredBatchOperations(unittest.TestCase):
                             "parent_uid": "doc-batch-1:0:1",
                             "derived_by": "rule",
                             "confidence": 0.9,
-                            "caption": "图注二",
-                            "footnote": "脚注二",
+                            "caption": "图注",
+                            "footnote": "脚注",
                             "image_path": "assets/img-b.png",
                             "caption_block_uids": ["doc-batch-1:0:6"],
                             "caption_bboxes": [[0.06, 0.28, 0.42, 0.31]],
                             "footnote_block_uids": ["doc-batch-1:0:7"],
                             "footnote_bboxes": [[0.06, 0.31, 0.46, 0.34]],
                             "content_json": {
-                                "image_caption": [{"content": "图注二"}],
-                                "image_footnote": [{"content": "脚注二"}],
+                                "image_caption": [{"content": "图注"}],
+                                "image_footnote": [{"content": "脚注"}],
                             },
                         },
                         {
@@ -837,7 +837,7 @@ class TestStructuredBatchOperations(unittest.TestCase):
                             "block_type": "title",
                             "page_idx": 1,
                             "block_seq": 1,
-                            "plain_text": "第二章",
+                            "plain_text": "第二",
                             "bbox": [0.0, 0.0, 1.0, 0.1],
                             "bbox_source": "layout",
                             "derived_level": 1,
@@ -880,9 +880,9 @@ class TestStructuredBatchOperations(unittest.TestCase):
                     if int(node.get("is_active", 1) or 0) != 0
                 }
                 merged_target = merged_node_map["doc-batch-1:0:2"]
-                self.assertEqual(merged_target["plain_text"], "段落一\n段落二")
-                self.assertEqual(merged_target["caption"], "图注一\n图注二")
-                self.assertEqual(merged_target["footnote"], "脚注一\n脚注二")
+                self.assertEqual(merged_target["plain_text"], "段落一\n段落")
+                self.assertEqual(merged_target["caption"], "图注一\n图注")
+                self.assertEqual(merged_target["footnote"], "脚注一\n脚注")
                 self.assertEqual(merged_target["image_path"], "assets/img-a.png")
                 self.assertEqual(merged_target["image_paths"], ["assets/img-a.png", "assets/img-b.png"])
                 self.assertEqual(
@@ -909,7 +909,7 @@ class TestStructuredBatchOperations(unittest.TestCase):
                 )
                 self.assertEqual(
                     merged_target["content_json"]["image_caption"],
-                    [{"content": "图注一"}, {"content": "图注二"}],
+                    [{"content": "图注一"}, {"content": "图注"}],
                 )
                 self.assertEqual(merged_target["bbox"], [0.0, 0.1, 1.0, 0.2])
                 self.assertEqual(
@@ -933,8 +933,8 @@ class TestStructuredBatchOperations(unittest.TestCase):
                         "blockIds": ["doc-batch-1:0:2"],
                         "splitSegments": [
                             {"plain_text": "段落一"},
-                            {"plain_text": "段落二"},
-                            {"plain_text": "段落三"},
+                            {"plain_text": "段落"},
+                            {"plain_text": "段落"},
                         ],
                     },
                 )
@@ -953,8 +953,8 @@ class TestStructuredBatchOperations(unittest.TestCase):
                 self.assertEqual(latest_node_map[split_result["created_block_ids"][0]]["page_idx"], 0)
                 self.assertEqual(latest_node_map[split_result["created_block_ids"][1]]["page_idx"], 0)
                 self.assertEqual(latest_node_map["doc-batch-1:0:2"]["plain_text"], "段落一")
-                self.assertEqual(latest_node_map[split_result["created_block_ids"][0]]["plain_text"], "段落二")
-                self.assertEqual(latest_node_map[split_result["created_block_ids"][1]]["plain_text"], "段落三")
+                self.assertEqual(latest_node_map[split_result["created_block_ids"][0]]["plain_text"], "段落")
+                self.assertEqual(latest_node_map[split_result["created_block_ids"][1]]["plain_text"], "段落")
                 self.assertEqual(latest_node_map[split_result["created_block_ids"][0]]["block_type"], "paragraph")
                 self.assertEqual(latest_node_map[split_result["created_block_ids"][1]]["block_type"], "paragraph")
                 self.assertIsNone(latest_node_map[split_result["created_block_ids"][0]].get("image_path"))
@@ -1076,7 +1076,7 @@ class TestStructuredBatchOperations(unittest.TestCase):
                             "block_type": "title",
                             "page_idx": 0,
                             "block_seq": 1,
-                            "plain_text": "第一章",
+                            "plain_text": "第一",
                             "bbox": [0.0, 0.0, 1.0, 0.1],
                             "bbox_source": "layout",
                             "derived_level": 1,
@@ -1092,7 +1092,7 @@ class TestStructuredBatchOperations(unittest.TestCase):
                             "block_type": "title",
                             "page_idx": 0,
                             "block_seq": 2,
-                            "plain_text": "第二章",
+                            "plain_text": "第二",
                             "bbox": [0.0, 0.1, 1.0, 0.2],
                             "bbox_source": "layout",
                             "derived_level": 1,
@@ -1108,7 +1108,7 @@ class TestStructuredBatchOperations(unittest.TestCase):
                             "block_type": "title",
                             "page_idx": 0,
                             "block_seq": 3,
-                            "plain_text": "第二章 第一节",
+                            "plain_text": "第二第一",
                             "bbox": [0.0, 0.2, 1.0, 0.3],
                             "bbox_source": "layout",
                             "derived_level": 1,
@@ -1124,7 +1124,7 @@ class TestStructuredBatchOperations(unittest.TestCase):
                             "block_type": "title",
                             "page_idx": 0,
                             "block_seq": 4,
-                            "plain_text": "第二章 第一节 第一条",
+                            "plain_text": "第二第一第一",
                             "bbox": [0.0, 0.3, 1.0, 0.4],
                             "bbox_source": "layout",
                             "derived_level": 2,
@@ -1232,7 +1232,7 @@ class TestStructuredBatchOperations(unittest.TestCase):
                             "block_type": "title",
                             "page_idx": 0,
                             "block_seq": 1,
-                            "plain_text": "第一章",
+                            "plain_text": "第一",
                             "bbox": [0.0, 0.0, 1.0, 0.1],
                             "bbox_source": "layout",
                             "derived_level": 1,
@@ -1248,7 +1248,7 @@ class TestStructuredBatchOperations(unittest.TestCase):
                             "block_type": "title",
                             "page_idx": 0,
                             "block_seq": 2,
-                            "plain_text": "第二章",
+                            "plain_text": "第二",
                             "bbox": [0.0, 0.1, 1.0, 0.2],
                             "bbox_source": "layout",
                             "derived_level": 1,

@@ -6,7 +6,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from docs_core.ingest.structured.structure_builder import StructuredResult
+from docs_core.ingest.normalize.structure_builder import StructuredResult
 
 
 KNOWLEDGE_META_DB_NAME = "knowledge_meta.sqlite"

@@ -1,4 +1,4 @@
-"""结构化结果文件与 JSON 存储。"""
+"""结构化结果文件与 JSON 存储"""
 import json
 import os
 import re
@@ -8,17 +8,17 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
-from docs_core.ingest.structured.formula_semantics import build_formula_representations
-from docs_core.ingest.structured.structure_builder import (
+from docs_core.ingest.normalize.formula_semantics import build_formula_representations
+from docs_core.ingest.normalize.structure_builder import (
     StructuredResult,
     build_structured_from_rawfiles,
     extract_media_bbox_list,
 )
-from docs_core.ingest.storage.db_store import persist_doc_blocks, resolve_knowledge_base_dir
+from docs_core.ingest.store.blocks_sql_store import persist_doc_blocks, resolve_knowledge_base_dir
 
 
 class FileStorage:
-    """文件存储管理器。"""
+    """文件存储管理器"""
 
     def __init__(self, base_dir: str = None):
         if base_dir is None:
@@ -30,7 +30,7 @@ class FileStorage:
         self._ensure_dirs()
 
     def _ensure_dirs(self):
-        """确保目录存在。"""
+        """确保目录存在"""
         self.libraries_dir.mkdir(parents=True, exist_ok=True)
 
     def _library_root(self, library_id: str) -> Path:
@@ -39,55 +39,55 @@ class FileStorage:
         return library_root
 
     def get_doc_root(self, library_id: str, doc_id: str) -> Path:
-        """获取一文档一目录根路径。"""
+        """获取一文档一目录根路径"""
         doc_root = self._library_root(library_id) / "documents" / doc_id
         doc_root.mkdir(parents=True, exist_ok=True)
         return doc_root
 
     def get_source_dir(self, library_id: str, doc_id: str) -> Path:
-        """获取源文件目录。"""
+        """获取源文件目录"""
         source_dir = self.get_doc_root(library_id, doc_id) / "source"
         source_dir.mkdir(parents=True, exist_ok=True)
         return source_dir
 
     def get_parsed_dir(self, library_id: str, doc_id: str) -> Path:
-        """获取解析结果目录。"""
+        """获取解析结果目录"""
         parsed_dir = self.get_doc_root(library_id, doc_id) / "parsed"
         parsed_dir.mkdir(parents=True, exist_ok=True)
         return parsed_dir
 
     def get_graph_path(self, library_id: str, doc_id: str) -> Path:
-        """获取结构图谱文件路径。"""
+        """获取结构图谱文件路径"""
         return self.get_parsed_dir(library_id, doc_id) / "doc_blocks_graph.json"
 
     def get_edited_dir(self, library_id: str, doc_id: str) -> Path:
-        """获取编辑目录。"""
+        """获取编辑目录"""
         edited_dir = self.get_doc_root(library_id, doc_id) / "edited"
         edited_dir.mkdir(parents=True, exist_ok=True)
         return edited_dir
 
     def get_raw_dir(self, library_id: str, doc_id: str) -> Path:
-        """获取解析原始返回目录。"""
+        """获取解析原始返回目录"""
         raw_dir = self.get_parsed_dir(library_id, doc_id) / "raw"
         raw_dir.mkdir(parents=True, exist_ok=True)
         return raw_dir
 
     def get_mineru_raw_dir(self, library_id: str, doc_id: str) -> Path:
-        """获取 MinerU 原始结构目录。"""
+        """获取 MinerU 原始结构目录"""
         raw_dir = self.get_parsed_dir(library_id, doc_id) / "mineru_raw"
         raw_dir.mkdir(parents=True, exist_ok=True)
         return raw_dir
 
     def get_parsed_markdown_path(self, library_id: str, doc_id: str) -> Path:
-        """获取解析 Markdown 路径。"""
+        """获取解析 Markdown 路径"""
         return self.get_parsed_dir(library_id, doc_id) / "content.md"
 
     def get_middle_json_path(self, library_id: str, doc_id: str) -> Path:
-        """获取中间语义数据文件路径。"""
+        """获取中间语义数据文件路径"""
         return self.get_parsed_dir(library_id, doc_id) / "middle.json"
 
     def get_edited_markdown_path(self, library_id: str, doc_id: str) -> Path:
-        """获取新版编辑 Markdown 路径。"""
+        """获取新版编辑 Markdown 路径"""
         return self.get_edited_dir(library_id, doc_id) / "current.md"
 
     def save_source_file(
@@ -97,7 +97,7 @@ class FileStorage:
         content: bytes,
         original_filename: Optional[str] = None,
     ) -> str:
-        """保存源文件。"""
+        """保存源文件"""
         safe_name = Path(original_filename or f"{doc_id}.pdf").name
         source_path = self.get_source_dir(library_id, doc_id) / safe_name
         with open(source_path, "wb") as f:
@@ -105,7 +105,7 @@ class FileStorage:
         return str(source_path)
 
     def save_markdown(self, library_id: str, doc_id: str, content: str) -> str:
-        """保存 Markdown 文件。"""
+        """保存 Markdown 文件"""
         parsed_md_path = self.get_parsed_markdown_path(library_id, doc_id)
         with open(parsed_md_path, "w", encoding="utf-8") as f:
             f.write(content)
@@ -116,7 +116,7 @@ class FileStorage:
         return str(parsed_md_path)
 
     def save_edited_markdown(self, library_id: str, doc_id: str, content: str) -> str:
-        """保存编辑后的 Markdown 文件。"""
+        """保存编辑后的 Markdown 文件"""
         edited_dir = self.get_edited_dir(library_id, doc_id)
         current_path = edited_dir / "current.md"
         with open(current_path, "w", encoding="utf-8") as f:
@@ -129,7 +129,7 @@ class FileStorage:
         return str(current_path)
 
     def save_parse_artifacts(self, library_id: str, doc_id: str, output_dir: str) -> Dict[str, Any]:
-        """保存解析产物到文档目录。"""
+        """保存解析产物到文档目录"""
         parsed_dir = self.get_parsed_dir(library_id, doc_id)
         if not parsed_dir.exists():
             parsed_dir.mkdir(parents=True, exist_ok=True)
@@ -178,7 +178,7 @@ class FileStorage:
         return final_files
 
     def save_assets(self, library_id: str, doc_id: str, source_dir: str) -> str:
-        """保存解析产物中的资产文件目录。"""
+        """保存解析产物中的资产文件目录"""
         assets_path = self.get_parsed_dir(library_id, doc_id) / "assets"
         if assets_path.exists():
             shutil.rmtree(assets_path)
@@ -189,7 +189,7 @@ class FileStorage:
         return str(assets_path)
 
     def save_raw_artifacts(self, library_id: str, doc_id: str, source_dir: str) -> str:
-        """保存解析流程中的原始返回文件目录。"""
+        """保存解析流程中的原始返回文件目录"""
         raw_path = self.get_raw_dir(library_id, doc_id)
         if raw_path.exists():
             shutil.rmtree(raw_path)
@@ -200,18 +200,18 @@ class FileStorage:
         return str(raw_path)
 
     def resolve_canonical_raw_dir(self, library_id: str, doc_id: str) -> Path:
-        """解析结构主链应优先读取的原始目录。"""
+        """解析结构主链应优先读取的原始目录"""
         mineru_raw_dir = self.get_parsed_dir(library_id, doc_id) / "mineru_raw"
         if mineru_raw_dir.exists():
             return mineru_raw_dir
         return self.get_parsed_dir(library_id, doc_id)
 
     def get_mineru_blocks_path(self, library_id: str, doc_id: str) -> Path:
-        """获取 MinerU 块级结果路径。"""
+        """获取 MinerU 块级结果路径"""
         return self.get_parsed_dir(library_id, doc_id) / "mineru_blocks.json"
 
     def save_mineru_blocks(self, library_id: str, doc_id: str, blocks: List[Dict[str, Any]]) -> str:
-        """保存 MinerU 块级结果。"""
+        """保存 MinerU 块级结果"""
         blocks_path = self.get_mineru_blocks_path(library_id, doc_id)
         with open(blocks_path, "w", encoding="utf-8") as f:
             json_blocks = blocks if isinstance(blocks, list) else []
@@ -219,7 +219,7 @@ class FileStorage:
         return str(blocks_path)
 
     def save_middle_json(self, library_id: str, doc_id: str, payload: Dict[str, Any]) -> str:
-        """保存 middle.json 结构化中间数据。"""
+        """保存 middle.json 结构化中间数据"""
         middle_path = self.get_middle_json_path(library_id, doc_id)
         data = payload if isinstance(payload, dict) else {}
         with open(middle_path, "w", encoding="utf-8") as f:
@@ -227,7 +227,7 @@ class FileStorage:
         return str(middle_path)
 
     def read_middle_json(self, library_id: str, doc_id: str) -> Dict[str, Any]:
-        """读取 middle.json 结构化中间数据。"""
+        """读取 middle.json 结构化中间数据"""
         middle_path = self.get_middle_json_path(library_id, doc_id)
         if not middle_path.exists():
             return {}
@@ -241,7 +241,7 @@ class FileStorage:
         return {}
 
     def read_mineru_blocks(self, library_id: str, doc_id: str) -> List[Dict[str, Any]]:
-        """读取 MinerU 块级结果。"""
+        """读取 MinerU 块级结果"""
         blocks_path = self.get_mineru_blocks_path(library_id, doc_id)
         if not blocks_path.exists():
             return []
@@ -255,7 +255,7 @@ class FileStorage:
         return []
 
     def read_doc_blocks_graph(self, library_id: str, doc_id: str) -> Dict[str, Any]:
-        """读取 doc_blocks_graph.json。"""
+        """读取 doc_blocks_graph.json"""
         graph_path = self.get_graph_path(library_id, doc_id)
         if not graph_path.exists():
             return {}
@@ -269,7 +269,7 @@ class FileStorage:
         return {}
 
     def read_markdown(self, library_id: str, doc_id: str) -> Optional[str]:
-        """读取 Markdown 文件。"""
+        """读取 Markdown 文件"""
         edited_path = self.get_edited_markdown_path(library_id, doc_id)
         parsed_path = self.get_parsed_markdown_path(library_id, doc_id)
         target_path = edited_path if edited_path.exists() else parsed_path
@@ -279,7 +279,7 @@ class FileStorage:
         return None
 
     def get_latest_source_file(self, library_id: str, doc_id: str) -> Optional[str]:
-        """获取源文件路径。"""
+        """获取源文件路径"""
         source_dir = self.get_doc_root(library_id, doc_id) / "source"
         if source_dir.exists():
             files = sorted(
@@ -292,7 +292,7 @@ class FileStorage:
         return None
 
     def ensure_doc_source_file(self, library_id: str, doc_id: str, file_path: Optional[str] = None) -> Optional[str]:
-        """确保文档源文件存在于一文档一目录并返回规范路径。"""
+        """确保文档源文件存在于一文档一目录并返回规范路径"""
         doc_source_dir = self.get_source_dir(library_id, doc_id)
         current_files = sorted([path for path in doc_source_dir.iterdir() if path.is_file()])
         if current_files:
@@ -305,7 +305,7 @@ class FileStorage:
         return None
 
     def delete_document(self, library_id: str, doc_id: str) -> bool:
-        """删除文档。"""
+        """删除文档"""
         doc_root = self._library_root(library_id) / "documents" / doc_id
         deleted = False
         if doc_root.exists():
@@ -314,7 +314,7 @@ class FileStorage:
         return deleted
 
     def list_documents(self, library_id: str) -> List[dict]:
-        """列出知识库中的文档。"""
+        """列出知识库中的文档"""
         documents = []
         documents_dir = self._library_root(library_id) / "documents"
         if documents_dir.exists():
@@ -339,11 +339,11 @@ class FileStorage:
         return documents
 
     def get_doc_root_path(self, library_id: str, doc_id: str) -> str:
-        """获取文档根目录字符串路径。"""
+        """获取文档根目录字符串路径"""
         return str(self.get_doc_root(library_id, doc_id))
 
     def get_doc_manifest(self, library_id: str, doc_id: str) -> Dict[str, Any]:
-        """获取文档清单。"""
+        """获取文档清单"""
         doc_root = self.get_doc_root(library_id, doc_id)
         source_file = self.get_latest_source_file(library_id, doc_id)
         parsed_path = self.get_parsed_markdown_path(library_id, doc_id)
@@ -387,7 +387,7 @@ class FileStorage:
 file_storage = FileStorage()
 
 
-# 延迟获取 AnGIneer LLM 客户端，避免循环导入。
+# 延迟获取 AnGIneer LLM 客户端，避免循环导入
 def _get_llm_client():
     try:
         from angineer_core.infra.llm_client import llm_client
@@ -396,7 +396,7 @@ def _get_llm_client():
         return None
 
 
-# 保存 doc_blocks_graph.json 文件。
+# 保存 doc_blocks_graph.json 文件
 def _save_doc_blocks_graph(
     library_id: str,
     doc_id: str,
@@ -417,7 +417,7 @@ def _save_doc_blocks_graph(
     return str(graph_path)
 
 
-# 把 canonical structure 投影为统一的 document_segments。
+# canonical structure 投影为统一document_segments
 def _persist_structured_segments(
     library_id: str,
     doc_id: str,
@@ -438,16 +438,16 @@ def _persist_structured_segments(
     return knowledge_service.save_document_segments(doc_id, library_id, strategy, structured_items)
 
 
-# 归一化文本以提升图表相关块匹配稳定性。
+# 归一化文本以提升图表相关块匹配稳定性
 def _normalize_related_text(text: str) -> str:
     if not text:
         return ""
     compact = re.sub(r"\s+", "", text)
-    compact = re.sub(r"[，。；：、“”‘’（）()\[\]【】<>《》,.;:!?！？·—\-~]", "", compact)
+    compact = re.sub(r"[，。；：、“”‘’（)\[\]【>《.;:!?！？·—\-~]", "", compact)
     return compact.strip().lower()
 
 
-# 递归收集任意结构中的文本片段。
+# 递归收集任意结构中的文本片段
 def _collect_texts_from_any(payload: Any) -> List[str]:
     fragments: List[str] = []
 
@@ -474,7 +474,7 @@ def _collect_texts_from_any(payload: Any) -> List[str]:
     return list(dict.fromkeys(fragments))
 
 
-# 把文本片段转换为可用于跨块匹配的归一化候选。
+# 把文本片段转换为可用于跨块匹配的归一化候选
 def _build_related_text_needles(values: List[str]) -> List[str]:
     needles: List[str] = []
     for value in values:
@@ -486,12 +486,12 @@ def _build_related_text_needles(values: List[str]) -> List[str]:
     return list(dict.fromkeys(filtered))
 
 
-# 判断文本是否看起来像图表题注编号。
+# 判断文本是否看起来像图表题注编号
 def _is_caption_like_text(value: str) -> bool:
     return bool(re.match(r"^(图|表|figure|table)\s*[0-9a-z\u4e00-\u9fa5]", value, re.IGNORECASE))
 
 
-# 判断候选行文本是否命中图表 caption 或 footnote 文本。
+# 判断候选行文本是否命中图表 caption footnote 文本
 def _matches_related_text(row_text: str, needles: List[str]) -> bool:
     if not row_text or not needles:
         return False
@@ -503,7 +503,7 @@ def _matches_related_text(row_text: str, needles: List[str]) -> bool:
     )
 
 
-# 为图表块收集同页 caption 与 footnote 的关联 block_uid。
+# 为图表块收集同页 caption footnote 的关block_uid
 def _collect_media_related_block_refs(
     row: Dict[str, Any],
     rows: List[Dict[str, Any]],
@@ -552,7 +552,7 @@ def _collect_media_related_block_refs(
     return result
 
 
-# 追加公式摘要和参数投影项，保持解析后与图谱重建后的展示一致。
+# 追加公式摘要和参数投影项，保持解析后与图谱重建后的展示一致
 def _append_formula_projection_items(
     items: List[Dict[str, Any]],
     *,
@@ -630,7 +630,7 @@ def _append_formula_projection_items(
         )
 
 
-# 从结构化结果构建 doc_blocks_graph_v1 片段投影。
+# 从结构化结果构建 doc_blocks_graph_v1 片段投影
 def _build_doc_blocks_graph_segment_items(
     result: StructuredResult,
     llm_client: Any = None,
@@ -783,7 +783,7 @@ def _build_doc_blocks_graph_segment_items(
     return items
 
 
-# 为文档构建结构化索引。
+# 为文档构建结构化索引
 def build_structured_index_for_doc(
     library_id: str,
     doc_id: str,
@@ -837,7 +837,7 @@ def build_structured_index_for_doc(
         llm_model=llm_model,
         use_llm=use_llm,
     )
-    from docs_core.ingest.canonical.builder import rebuild_canonical_document
+    from docs_core.ingest.organize.builder import rebuild_canonical_document
 
     canonical_document = rebuild_canonical_document(library_id, doc_id, title=doc_name)
 
@@ -863,7 +863,7 @@ def build_structured_index_for_doc(
     }
 
 
-# 获取文档的块图谱。
+# 获取文档的块图谱
 def get_doc_blocks_graph(library_id: str, doc_id: str) -> Optional[Dict[str, Any]]:
     graph_path = file_storage.get_graph_path(library_id, doc_id)
 
@@ -874,7 +874,7 @@ def get_doc_blocks_graph(library_id: str, doc_id: str) -> Optional[Dict[str, Any
         return json.load(f)
 
 
-# 写回 doc_blocks_graph.json 文件。
+# 写回 doc_blocks_graph.json 文件
 def _write_doc_blocks_graph(library_id: str, doc_id: str, payload: Dict[str, Any]) -> str:
     graph_path = file_storage.get_graph_path(library_id, doc_id)
     with open(graph_path, "w", encoding="utf-8") as f:
@@ -882,9 +882,9 @@ def _write_doc_blocks_graph(library_id: str, doc_id: str, payload: Dict[str, Any
     return str(graph_path)
 
 
-# 基于最新审核图谱重建 canonical，确保检索读模型与编辑结果一致。
+# 基于最新审核图谱重canonical，确保检索读模型与编辑结果一致
 def _rebuild_canonical_after_graph_change(library_id: str, doc_id: str) -> Dict[str, int]:
-    from docs_core.ingest.canonical.builder import rebuild_canonical_document
+    from docs_core.ingest.organize.builder import rebuild_canonical_document
 
     canonical_document = rebuild_canonical_document(library_id, doc_id)
     return {
@@ -894,19 +894,19 @@ def _rebuild_canonical_after_graph_change(library_id: str, doc_id: str) -> Dict[
     }
 
 
-# 判断节点引用是否命中指定 block_uid。
+# 判断节点引用是否命中指定 block_uid
 def _matches_block_ref(value: Any, block_uid: str) -> bool:
     if isinstance(value, list):
         return any(_matches_block_ref(item, block_uid) for item in value)
     return str(value or "").strip() == block_uid
 
 
-# 规范化 block_uid，统一空值处理。
+# 规范block_uid，统一空值处理
 def _normalize_block_uid(value: Any) -> str:
     return str(value or "").strip()
 
 
-# 仅返回图谱中当前仍然生效的节点集合。
+# 仅返回图谱中当前仍然生效的节点集合
 def _get_active_graph_nodes(graph_data: Dict[str, Any]) -> List[Dict[str, Any]]:
     return [
         node
@@ -915,7 +915,7 @@ def _get_active_graph_nodes(graph_data: Dict[str, Any]) -> List[Dict[str, Any]]:
     ]
 
 
-# 构造 block_uid 到节点的快速索引。
+# 构block_uid 到节点的快速索引
 def _build_active_node_map(graph_data: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
     node_map: Dict[str, Dict[str, Any]] = {}
     for node in _get_active_graph_nodes(graph_data):
@@ -925,7 +925,7 @@ def _build_active_node_map(graph_data: Dict[str, Any]) -> Dict[str, Dict[str, An
     return node_map
 
 
-# 按页面与块序对节点做稳定排序，便于重建结构投影。
+# 按页面与块序对节点做稳定排序，便于重建结构投影
 def _sort_graph_nodes(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return sorted(
         nodes,
@@ -937,12 +937,12 @@ def _sort_graph_nodes(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     )
 
 
-# 按稳定顺序回写图谱节点数组，避免前端树视图读取到旧顺序。
+# 按稳定顺序回写图谱节点数组，避免前端树视图读取到旧顺序
 def _sort_graph_data_nodes(graph_data: Dict[str, Any]) -> None:
     graph_data["nodes"] = _sort_graph_nodes(_get_active_graph_nodes(graph_data))
 
 
-# 获取指定节点及其规范化 block_uid。
+# 获取指定节点及其规范block_uid
 def _get_graph_node_or_raise(graph_data: Dict[str, Any], block_id: str) -> Any:
     target_block_uid = _normalize_block_uid(block_id)
     for node in _get_active_graph_nodes(graph_data):
@@ -956,7 +956,7 @@ def _get_graph_node_or_raise(graph_data: Dict[str, Any], block_id: str) -> Any:
     raise KeyError(f"未找到块节点: {block_id}")
 
 
-# 判断候选父节点是否会形成祖先环。
+# 判断候选父节点是否会形成祖先环
 def _would_create_cycle(node_map: Dict[str, Dict[str, Any]], node_uid: str, candidate_parent_uid: Optional[str]) -> bool:
     cursor = _normalize_block_uid(candidate_parent_uid)
     visited = set()
@@ -973,7 +973,7 @@ def _would_create_cycle(node_map: Dict[str, Dict[str, Any]], node_uid: str, cand
     return False
 
 
-# 解析节点到根节点的祖先路径。
+# 解析节点到根节点的祖先路径
 def _resolve_parent_chain(node_map: Dict[str, Dict[str, Any]], parent_uid: Optional[str]) -> List[str]:
     chain: List[str] = []
     cursor = _normalize_block_uid(parent_uid)
@@ -989,7 +989,7 @@ def _resolve_parent_chain(node_map: Dict[str, Dict[str, Any]], parent_uid: Optio
     return chain
 
 
-# 根据目标标题层级推断最近的上级结构节点。
+# 根据目标标题层级推断最近的上级结构节点
 def _infer_parent_uid_from_level(
     active_nodes: List[Dict[str, Any]],
     target_block_uid: str,
@@ -1019,7 +1019,7 @@ def _infer_parent_uid_from_level(
     return latest_by_level.get(int(target_level) - 1)
 
 
-# 把单值或数组中的 block 引用从旧 uid 替换为新 uid。
+# 把单值或数组中的 block 引用从旧 uid 替换为新 uid
 def _replace_block_ref(value: Any, source_uid: str, target_uid: str) -> Any:
     if isinstance(value, list):
         replaced = [_replace_block_ref(item, source_uid, target_uid) for item in value]
@@ -1027,7 +1027,7 @@ def _replace_block_ref(value: Any, source_uid: str, target_uid: str) -> Any:
     return target_uid if _matches_block_ref(value, source_uid) else value
 
 
-# 合并两个文本字段，避免重复内容。
+# 合并两个文本字段，避免重复内容
 def _merge_text_value(primary: Any, secondary: Any) -> str:
     primary_text = str(primary or "").strip()
     secondary_text = str(secondary or "").strip()
@@ -1038,7 +1038,7 @@ def _merge_text_value(primary: Any, secondary: Any) -> str:
     return f"{primary_text}\n{secondary_text}"
 
 
-# 归一化并去重节点合并产生的 bbox 列表。
+# 归一化并去重节点合并产生bbox 列表
 def _normalize_graph_bbox_list(values: List[Any]) -> List[List[float]]:
     normalized: List[List[float]] = []
     seen = set()
@@ -1051,7 +1051,7 @@ def _normalize_graph_bbox_list(values: List[Any]) -> List[List[float]]:
     return normalized
 
 
-# 提取节点当前应保留的所有 bbox 范围。
+# 提取节点当前应保留的所bbox 范围
 def _collect_node_bbox_list(node: Dict[str, Any]) -> List[List[float]]:
     values: List[Any] = []
     merged_bboxes = node.get("merged_bboxes")
@@ -1063,7 +1063,7 @@ def _collect_node_bbox_list(node: Dict[str, Any]) -> List[List[float]]:
     return _normalize_graph_bbox_list(values)
 
 
-# 归一化块引用字段，统一返回去重后的 block_uid 列表。
+# 归一化块引用字段，统一返回去重后的 block_uid 列表
 def _collect_block_ref_uids(value: Any) -> List[str]:
     if isinstance(value, list):
         return list(dict.fromkeys(
@@ -1075,7 +1075,7 @@ def _collect_block_ref_uids(value: Any) -> List[str]:
     return [normalized] if normalized else []
 
 
-# 收集节点关联的所有图片路径，兼容单图与多图合并结果。
+# 收集节点关联的所有图片路径，兼容单图与多图合并结果
 def _collect_node_image_paths(node: Dict[str, Any]) -> List[str]:
     raw_values: List[Any] = []
     image_paths = node.get("image_paths")
@@ -1091,12 +1091,12 @@ def _collect_node_image_paths(node: Dict[str, Any]) -> List[str]:
     ))
 
 
-# 深拷贝任意 JSON 兼容值，避免共享嵌套引用。
+# 深拷贝任JSON 兼容值，避免共享嵌套引用
 def _clone_json_compatible(value: Any) -> Any:
     return json.loads(json.dumps(value, ensure_ascii=False))
 
 
-# 为 JSON 值生成稳定签名，用于去重合并。
+# JSON 值生成稳定签名，用于去重合并
 def _build_json_signature(value: Any) -> str:
     try:
         return json.dumps(value, ensure_ascii=False, sort_keys=True)
@@ -1104,7 +1104,7 @@ def _build_json_signature(value: Any) -> str:
         return json.dumps(str(value), ensure_ascii=False)
 
 
-# 合并 content_json 里的富媒体载荷，尽量保留原始结构与顺序。
+# 合并 content_json 里的富媒体载荷，尽量保留原始结构与顺序
 def _merge_content_json_value(primary: Any, secondary: Any) -> Any:
     if primary in (None, "", [], {}):
         return _clone_json_compatible(secondary)
@@ -1133,7 +1133,7 @@ def _merge_content_json_value(primary: Any, secondary: Any) -> Any:
     return _clone_json_compatible(primary)
 
 
-# 把多个节点的富媒体字段聚合到目标节点，避免合并后图片与注释信息丢失。
+# 把多个节点的富媒体字段聚合到目标节点，避免合并后图片与注释信息丢失
 def _merge_rich_media_fields_into_target(target_node: Dict[str, Any], merged_nodes: List[Dict[str, Any]]) -> None:
     if not merged_nodes:
         return
@@ -1184,7 +1184,7 @@ def _merge_rich_media_fields_into_target(target_node: Dict[str, Any], merged_nod
     _sync_caption_bboxes_to_content_json(target_node, caption_bboxes, footnote_bboxes)
 
 
-# 把合并后的 caption/footnote bbox 同步写入 content_json，确保前端联动能正确读取。
+# 把合并后caption/footnote bbox 同步写入 content_json，确保前端联动能正确读取
 def _sync_caption_bboxes_to_content_json(
     target_node: Dict[str, Any],
     caption_bboxes: List[List[float]],
@@ -1211,7 +1211,7 @@ def _sync_caption_bboxes_to_content_json(
             content_json["image_footnote_bboxes"] = normalized_footnote_bboxes
 
 
-# 提取节点当前应保留的合并来源 block_uid 列表。
+# 提取节点当前应保留的合并来源 block_uid 列表
 def _collect_node_merge_block_uids(node: Dict[str, Any]) -> List[str]:
     ordered_uids: List[str] = []
     for value in node.get("merged_block_uids") or []:
@@ -1224,7 +1224,7 @@ def _collect_node_merge_block_uids(node: Dict[str, Any]) -> List[str]:
     return ordered_uids
 
 
-# 同步引用当前节点的题注与脚注显示字段。
+# 同步引用当前节点的题注与脚注显示字段
 def _sync_related_graph_fields(nodes: List[Dict[str, Any]], target_block_uid: str, target_node: Dict[str, Any]) -> None:
     caption_text = str(target_node.get("plain_text") or target_node.get("caption") or "").strip()
     footnote_text = str(target_node.get("plain_text") or target_node.get("footnote") or "").strip()
@@ -1235,7 +1235,7 @@ def _sync_related_graph_fields(nodes: List[Dict[str, Any]], target_block_uid: st
             node["footnote"] = footnote_text
 
 
-# 依据当前节点关系重建图谱边、前后关系与 title_path。
+# 依据当前节点关系重建图谱边、前后关系与 title_path
 def _rebuild_graph_projection(graph_data: Dict[str, Any]) -> None:
     active_nodes = _sort_graph_nodes(_get_active_graph_nodes(graph_data))
     node_map = _build_active_node_map({"nodes": active_nodes})
@@ -1338,7 +1338,7 @@ def _rebuild_graph_projection(graph_data: Dict[str, Any]) -> None:
         stats[row_key] = synced_rows
 
 
-# 从图谱节点重建结构化片段，确保合并和层级调整能实时投影。
+# 从图谱节点重建结构化片段，确保合并和层级调整能实时投影
 def _build_structured_segment_items_from_graph(graph_data: Dict[str, Any]) -> List[Dict[str, Any]]:
     excluded_types = {"page_header", "page_footer", "page_number", "header", "footer"}
     child_nodes_by_parent: Dict[str, List[Dict[str, Any]]] = {}
@@ -1424,7 +1424,7 @@ def _build_structured_segment_items_from_graph(graph_data: Dict[str, Any]) -> Li
     return items
 
 
-# 基于最新图谱节点重写结构化片段的展示字段。
+# 基于最新图谱节点重写结构化片段的展示字段
 def _sync_structured_segments_after_node_update(
     library_id: str,
     doc_id: str,
@@ -1436,7 +1436,7 @@ def _sync_structured_segments_after_node_update(
     return knowledge_service.save_document_segments(doc_id, library_id, "doc_blocks_graph_v1", updated_items)
 
 
-# 将源节点内容并入目标节点，并移除源节点。
+# 将源节点内容并入目标节点，并移除源节点
 def _merge_graph_nodes(graph_data: Dict[str, Any], source_uid: str, target_uid: str) -> Dict[str, Any]:
     if source_uid == target_uid:
         raise ValueError("不能把 block 合并到自身")
@@ -1484,12 +1484,12 @@ def _merge_graph_nodes(graph_data: Dict[str, Any], source_uid: str, target_uid: 
     return target_node
 
 
-# 深拷贝图谱节点，避免直接复用嵌套引用。
+# 深拷贝图谱节点，避免直接复用嵌套引用
 def _clone_graph_node(node: Dict[str, Any]) -> Dict[str, Any]:
     return json.loads(json.dumps(node, ensure_ascii=False))
 
 
-# 规范拆分后新文本节点的类型，避免继续挂着富媒体 block_type。
+# 规范拆分后新文本节点的类型，避免继续挂着富媒block_type
 def _normalize_split_block_type(block_type: Any) -> str:
     normalized = str(block_type or "").strip()
     if normalized in {"title", "heading", "clause", "list", "paragraph"}:
@@ -1497,12 +1497,12 @@ def _normalize_split_block_type(block_type: Any) -> str:
     return "paragraph"
 
 
-# 为拆分后的新节点生成稳定且唯一的 block_uid。
+# 为拆分后的新节点生成稳定且唯一block_uid
 def _generate_manual_block_uid(doc_id: str) -> str:
     return f"{doc_id}:manual:{uuid.uuid4().hex[:12]}"
 
 
-# 将当前活动节点按页码拆为可重排的顺序桶。
+# 将当前活动节点按页码拆为可重排的顺序桶
 def _build_page_node_buckets(graph_data: Dict[str, Any]) -> Dict[int, List[Dict[str, Any]]]:
     buckets: Dict[int, List[Dict[str, Any]]] = {}
     for node in _sort_graph_nodes(_get_active_graph_nodes(graph_data)):
@@ -1511,7 +1511,7 @@ def _build_page_node_buckets(graph_data: Dict[str, Any]) -> Dict[int, List[Dict[
     return buckets
 
 
-# 根据页面桶重写 page_idx 与 block_seq，保证跨页重组后的顺序稳定。
+# 根据页面桶重page_idx block_seq，保证跨页重组后的顺序稳定
 def _resequence_page_node_buckets(page_buckets: Dict[int, List[Dict[str, Any]]]) -> None:
     for page_idx in sorted(page_buckets.keys()):
         for block_seq, node in enumerate(page_buckets.get(page_idx) or [], start=1):
@@ -1520,7 +1520,7 @@ def _resequence_page_node_buckets(page_buckets: Dict[int, List[Dict[str, Any]]])
             node["page_seq"] = int(page_idx) + 1
 
 
-# 过滤多值 block 引用，移除已删除节点。
+# 过滤多block 引用，移除已删除节点
 def _filter_removed_block_refs(values: Any, removed_uids: Set[str]) -> Optional[List[str]]:
     normalized_values: List[str] = []
     for value in values or []:
@@ -1530,7 +1530,7 @@ def _filter_removed_block_refs(values: Any, removed_uids: Set[str]) -> Optional[
     return normalized_values or None
 
 
-# 校验并返回批量操作涉及的 block_uid 列表。
+# 校验并返回批量操作涉及的 block_uid 列表
 def _resolve_batch_block_uids(graph_data: Dict[str, Any], block_ids: List[str]) -> List[str]:
     normalized_uids: List[str] = []
     seen = set()
@@ -1542,11 +1542,11 @@ def _resolve_batch_block_uids(graph_data: Dict[str, Any], block_ids: List[str]) 
         seen.add(block_uid)
         normalized_uids.append(block_uid)
     if not normalized_uids:
-        raise ValueError("至少需要选择一个 block")
+        raise ValueError("至少需要选择一block")
     return normalized_uids
 
 
-# 把活动图谱节点重建为 doc_blocks 所需的基础行与派生行。
+# 把活动图谱节点重建为 doc_blocks 所需的基础行与派生行
 def _build_doc_block_projection_rows(doc_id: str, graph_data: Dict[str, Any]) -> Any:
     stats = graph_data.get("stats")
     if not isinstance(stats, dict):
@@ -1612,7 +1612,7 @@ def _build_doc_block_projection_rows(doc_id: str, graph_data: Dict[str, Any]) ->
     return base_rows, derived_rows
 
 
-# 把最新图谱整体同步到 doc_blocks 索引表，覆盖单块与批量结构改动。
+# 把最新图谱整体同步到 doc_blocks 索引表，覆盖单块与批量结构改动
 def _persist_graph_projection_to_index_store(doc_id: str, graph_data: Dict[str, Any]) -> None:
     from docs_core.knowledge_service import knowledge_service
 
@@ -1624,16 +1624,16 @@ def _persist_graph_projection_to_index_store(doc_id: str, graph_data: Dict[str, 
         knowledge_service.index_store.update_doc_blocks_derived_rows(derived_rows)
 
 
-# 批量把多个节点内容并入目标节点，并移除其余源节点。
+# 批量把多个节点内容并入目标节点，并移除其余源节点
 def _merge_multiple_graph_nodes(graph_data: Dict[str, Any], block_uids: List[str], target_uid: str) -> Dict[str, Any]:
     ordered_nodes = _sort_graph_nodes(_get_active_graph_nodes(graph_data))
     selected_set = set(block_uids)
     if target_uid not in selected_set:
-        raise ValueError("目标 block 必须在选中集合内")
+        raise ValueError("目标 block 必须在选中集合中")
     node_map = _build_active_node_map(graph_data)
     target_node = node_map.get(target_uid)
     if not target_node:
-        raise KeyError("未找到目标 block")
+        raise KeyError("未找到目block")
     merge_sources = [uid for uid in block_uids if uid != target_uid]
     for source_uid in merge_sources:
         if _would_create_cycle(node_map, source_uid, target_uid):
@@ -1689,7 +1689,7 @@ def _merge_multiple_graph_nodes(graph_data: Dict[str, Any], block_uids: List[str
     return target_node
 
 
-# 按用户提供的片段把单个 block 拆成多个连续节点。
+# 按用户提供的片段把单block 拆成多个连续节点
 def _split_graph_node(
     graph_data: Dict[str, Any],
     doc_id: str,
@@ -1750,7 +1750,7 @@ def _split_graph_node(
     return created_block_ids
 
 
-# 删除选中的 block，并把仍保留的子节点提升到最近的存活父级。
+# 删除选中block，并把仍保留的子节点提升到最近的存活父级
 def _delete_graph_nodes(graph_data: Dict[str, Any], block_uids: List[str]) -> List[str]:
     delete_uid_set = set(block_uids)
     ordered_delete_uids = [
@@ -1760,7 +1760,7 @@ def _delete_graph_nodes(graph_data: Dict[str, Any], block_uids: List[str]) -> Li
     ]
     delete_uids = set(ordered_delete_uids)
     if not delete_uids:
-        raise ValueError("至少需要删除一个 block")
+        raise ValueError("至少需要删除一block")
 
     node_map = _build_active_node_map(graph_data)
     parent_map = {
@@ -1798,7 +1798,7 @@ def _delete_graph_nodes(graph_data: Dict[str, Any], block_uids: List[str]) -> Li
     return ordered_delete_uids
 
 
-# 将选中的 block 跨页移动到目标页，并支持插入到指定锚点之后。
+# 将选中block 跨页移动到目标页，并支持插入到指定锚点之后
 def _reorganize_graph_nodes(
     graph_data: Dict[str, Any],
     block_uids: List[str],
@@ -1810,7 +1810,7 @@ def _reorganize_graph_nodes(
     selected_set = set(block_uids)
     node_map = _build_active_node_map(graph_data)
     if parent_block_uid and parent_block_uid in selected_set:
-        raise ValueError("目标父节点不能包含在移动集合内")
+        raise ValueError("目标父节点不能包含在移动集合中")
     page_buckets = _build_page_node_buckets(graph_data)
     moving_nodes: List[Dict[str, Any]] = []
     for page_idx, nodes in list(page_buckets.items()):
@@ -1823,17 +1823,17 @@ def _reorganize_graph_nodes(
                 retained_nodes.append(node)
         page_buckets[page_idx] = retained_nodes
     if not moving_nodes:
-        raise ValueError("未找到可移动的 block")
+        raise ValueError("未找到可移动block")
 
     target_page_value = int(target_page_idx) if target_page_idx is not None else None
     insertion_index = None
     if insert_after_block_uid:
         insert_after_uid = _normalize_block_uid(insert_after_block_uid)
         if insert_after_uid in selected_set:
-            raise ValueError("插入锚点不能位于当前移动集合内")
+            raise ValueError("插入锚点不能位于当前移动集合中")
         anchor_node = node_map.get(insert_after_uid)
         if not anchor_node:
-            raise KeyError(f"未找到插入锚点: {insert_after_uid}")
+            raise KeyError(f"未找到插入锚 {insert_after_uid}")
         target_page_value = int(anchor_node.get("page_idx") or 0)
         target_nodes = page_buckets.setdefault(target_page_value, [])
         insertion_index = next(
@@ -1859,7 +1859,7 @@ def _reorganize_graph_nodes(
     return [_normalize_block_uid(node.get("block_uid") or node.get("id")) for node in moving_nodes]
 
 
-# 按批次统一应用多个标题节点的目标层级，并重算它们的父子关系。
+# 按批次统一应用多个标题节点的目标层级，并重算它们的父子关系
 def _apply_graph_node_levels(graph_data: Dict[str, Any], next_levels: Dict[str, int]) -> List[str]:
     ordered_nodes = _sort_graph_nodes(_get_active_graph_nodes(graph_data))
     node_map = _build_active_node_map(graph_data)
@@ -1870,7 +1870,7 @@ def _apply_graph_node_levels(graph_data: Dict[str, Any], next_levels: Dict[str, 
         if _normalize_block_uid(node.get("block_uid") or node.get("id")) in selected_set
     ]
     if not ordered_selected_uids:
-        raise ValueError("未找到可调整层级的 block")
+        raise ValueError("未找到可调整层级block")
 
     latest_by_level: Dict[int, str] = {}
     for node in ordered_nodes:
@@ -1902,7 +1902,7 @@ def _apply_graph_node_levels(graph_data: Dict[str, Any], next_levels: Dict[str, 
     return ordered_selected_uids
 
 
-# 按批次统一升降多个标题节点的层级，并重算它们的父子关系。
+# 按批次统一升降多个标题节点的层级，并重算它们的父子关系
 def _relevel_graph_nodes(graph_data: Dict[str, Any], block_uids: List[str], level_delta: int) -> List[str]:
     if level_delta == 0:
         raise ValueError("层级调整量不能为 0")
@@ -1922,12 +1922,12 @@ def _relevel_graph_nodes(graph_data: Dict[str, Any], block_uids: List[str], leve
             raise ValueError("批量升降级仅支持已识别为标题的节点") from exc
         target_level = normalized_level + int(level_delta)
         if target_level < 1:
-            raise ValueError("L1 节点不能继续升一级")
+            raise ValueError("L1 节点不能继续上调一级")
         next_levels[block_uid] = target_level
     return _apply_graph_node_levels(graph_data, next_levels)
 
 
-# 按批次把多个节点直接设置为指定层级，并重算它们的父子关系。
+# 按批次把多个节点直接设置为指定层级，并重算它们的父子关系
 def _set_graph_nodes_level(graph_data: Dict[str, Any], block_uids: List[str], target_level: int) -> List[str]:
     normalized_target_level = int(target_level)
     if normalized_target_level < 1:
@@ -1938,11 +1938,11 @@ def _set_graph_nodes_level(graph_data: Dict[str, Any], block_uids: List[str], ta
         if _normalize_block_uid(block_uid)
     }
     if not next_levels:
-        raise ValueError("未找到可调整层级的 block")
+        raise ValueError("未找到可调整层级block")
     return _apply_graph_node_levels(graph_data, next_levels)
 
 
-# 执行批量结构操作，并同步图谱、索引库与结构化片段。
+# 执行批量结构操作，并同步图谱、索引库与结构化片段
 def batch_operate_doc_blocks(
     library_id: str,
     doc_id: str,
@@ -1994,7 +1994,7 @@ def batch_operate_doc_blocks(
         else:
             level_delta = payload.get("levelDelta")
             if level_delta is None:
-                raise ValueError("批量层级调整必须提供 levelDelta 或 targetLevel")
+                raise ValueError("批量层级调整必须提供 levelDelta targetLevel")
             try:
                 normalized_level_delta = int(level_delta)
             except (TypeError, ValueError) as exc:
@@ -2024,7 +2024,7 @@ def batch_operate_doc_blocks(
     return result_payload
 
 
-# 撤回当前文档最近一次可回滚的 block 结构操作，并恢复到操作前的图谱状态。
+# 撤回当前文档最近一次可回滚block 结构操作，并恢复到操作前的图谱状态
 def undo_last_doc_block_operation(library_id: str, doc_id: str) -> Dict[str, Any]:
     from docs_core.knowledge_service import knowledge_service
 
@@ -2059,12 +2059,12 @@ def undo_last_doc_block_operation(library_id: str, doc_id: str) -> Dict[str, Any
     }
 
 
-# 兼容旧调用名，统一走最近一次结构操作撤回。
+# 兼容旧调用名，统一走最近一次结构操作撤回
 def undo_last_doc_block_merge(library_id: str, doc_id: str) -> Dict[str, Any]:
     return undo_last_doc_block_operation(library_id, doc_id)
 
 
-# 更新单个结构节点的纠错内容并同步索引投影。
+# 更新单个结构节点的纠错内容并同步索引投影
 def update_doc_block_content(
     library_id: str,
     doc_id: str,
@@ -2099,7 +2099,7 @@ def update_doc_block_content(
     if "parent_block_uid" in normalized_changes:
         next_parent_uid = _normalize_block_uid(normalized_changes.get("parent_block_uid")) or None
         if next_parent_uid and next_parent_uid not in node_map:
-            raise KeyError(f"未找到父级节点: {next_parent_uid}")
+            raise KeyError(f"未找到父级节 {next_parent_uid}")
         if _would_create_cycle(node_map, target_block_uid, next_parent_uid):
             raise ValueError("父级节点不能设置为自身或子节点")
         target_node["parent_uid"] = next_parent_uid
@@ -2161,7 +2161,7 @@ def update_doc_block_content(
     }
 
 
-# 从 Markdown 提取结构化项目。
+# Markdown 提取结构化项目
 def extract_structured_items_from_markdown(
     markdown_text: str,
     mineru_blocks: List[Dict[str, Any]] = None,
@@ -2170,22 +2170,22 @@ def extract_structured_items_from_markdown(
     items: List[Dict[str, Any]] = []
     order_index = 0
 
-    image_pattern = re.compile(r'!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)')
+    image_pattern = re.compile(r'!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)')
     heading_pattern = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
-    clause_pattern = re.compile(r"^\s*(\d+(?:\.\d+)*(?:[、.)])?)\s+(.+)$")
+    clause_pattern = re.compile(r"^\s*(\d+(?:\.\d+)*(?:[)])?)\s+(.+)$")
 
-    # 清理文本，保留中文字符、字母和数字，用于模糊匹配。
+    # 清理文本，保留中文字符、字母和数字，用于模糊匹配
     def clean_text(text: str) -> str:
         if not text:
             return ""
         return re.sub(r"[^\u4e00-\u9fa5a-zA-Z0-9]", "", text).lower()
 
-    # 判断当前行是否属于 Markdown 表格行。
+    # 判断当前行是否属Markdown 表格行
     def is_table_row(text: str) -> bool:
         stripped = text.strip()
         return stripped.startswith("|") and stripped.endswith("|") and stripped.count("|") >= 2
 
-    # 判断当前行是否为 Markdown 表格分隔行。
+    # 判断当前行是否为 Markdown 表格分隔行
     def is_table_separator(text: str) -> bool:
         stripped = text.strip().replace(" ", "")
         return bool(stripped) and set(stripped) <= {"|", "-", ":"}
@@ -2206,7 +2206,7 @@ def extract_structured_items_from_markdown(
     }
     last_matched_idx: Dict[str, int] = {}
 
-    # 在指定类型块中查找最佳匹配项。
+    # 在指定类型块中查找最佳匹配项
     def find_best_match(text: str, block_type: str) -> Optional[Dict[str, Any]]:
         if not mineru_blocks or block_type not in blocks_by_type:
             return None
@@ -2247,7 +2247,7 @@ def extract_structured_items_from_markdown(
 
         return best_match
 
-    # 把匹配到的 MinerU 元信息写入 meta。
+    # 把匹配到MinerU 元信息写meta
     def enrich_meta(meta: Dict[str, Any], match: Optional[Dict[str, Any]], block_type: str) -> None:
         stats["total_items"] += 1
         stats["types"].setdefault(block_type, {"total": 0, "matched": 0})

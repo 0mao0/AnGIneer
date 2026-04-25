@@ -113,6 +113,53 @@ KnowledgeChat
 
 ### 4.2 模块职责边界
 
+#### `ingest`
+
+负责：
+
+- 原始文件解析与中间产物落盘
+- canonical schema 构建与持久化
+- 表格、公式、章节等结构化增强
+- 为后续 retrieval / indexing 提供稳定真相源
+
+不负责：
+
+- embedding provider 选择
+- 向量库写入与向量检索
+- dense / sparse 融合与召回排序
+
+当前代码映射：
+
+- `ingest/extract`：解析入口
+- `ingest/normalize`：表格/公式/结构增强
+- `ingest/organize`：canonical 类型与构建
+- `ingest/store`：文件、SQLite、调试产物持久化
+
+#### `indexing`
+
+负责：
+
+- embedding provider 配置与调用
+- 向量记录构建
+- 向量库存储与查询
+- retrieval 可消费的索引层抽象
+
+不负责：
+
+- canonical schema 定义
+- 原始文档存储
+- 文档结构化理解
+- 回答拼装
+
+当前代码映射：
+
+- `indexing/embedding_provider.py`
+- `indexing/vector_indexer.py`
+- `indexing/vector_store.py`
+- `indexing/chroma_vector_store.py`
+- `indexing/sqlite_vector_store.py`
+- `indexing/config.py`
+
 #### `query`
 
 只负责：
@@ -179,7 +226,11 @@ KnowledgeChat
 当前：
 
 - 主链已经以 `knowledge_index.sqlite` 中 canonical 数据为基础
-- 但所谓 `dense retrieval` 还不是 embedding 检索
+- `dense retrieval` 已升级为基于真实向量索引命中的最小实现
+- 已支持外部 embedding provider，当前默认使用 `DashScope`，并保留本地 `hash` 作为 fallback
+- 已接入 `Chroma` 作为默认 vector store，并保留 `SQLite` 作为 fallback
+- 当前向量索引已覆盖 `chunk`、`table schema`、`table row key`、`formula` 等核心对象
+- 当前 dense / sparse / hybrid 的融合与 rerank 仍偏启发式，不是完整生产级检索平面
 
 目标：
 
@@ -440,13 +491,18 @@ Question
 - 表格检索已有第一版专用分流
 - 公式/计算问答已有第一版专用链
 - `analytic_sql` 已接入最小 Text-to-SQL 闭环
+- `indexing/` 层已独立，embedding / vector store / vector indexer 已从原有分散目录收敛
+- 已接入 `DashScope` external embedding provider，并支持本地 `hash` fallback
+- 已接入 `ChromaVectorStore`，并支持 `SQLiteVectorStore` fallback
+- canonical 文档保存后会自动构建向量索引
+- dense retrieval 已切换为消费真实向量命中
 - `docs_core/evals/*` 已形成 retrieval / answer / text2sql 评测模块骨架
 - 已提供最小评测 API：题目列表与整套评测运行入口
 
 ### 9.2 已做但还不够深入的部分
 
 - Query Router 目前仍偏规则型
-- Dense / Sparse / Hybrid 仍是启发式检索，不是真正的向量 + 倒排融合
+- Dense 已接入真实向量召回，但 Dense / Sparse / Hybrid 的融合、归一化、rerank 仍偏启发式
 - 表格策略已起步，但评测样本仍需继续扩充
 - 公式链已接入，但还需继续提升参数说明、多步解释与复合问题协同能力
 - Text-to-SQL 目前只支持 canonical SQLite 上的最小只读计数类问题
@@ -454,9 +510,7 @@ Question
 
 ### 9.3 还没有真正完成的部分
 
-- 真正的 embedding / vector retrieval
-- 独立的 embedding model 层与 vector store 接口
-- 向量化 ingest 工序（chunk / table / formula / schema 的 embedding 产物落盘）
+- 生产级 embedding / vector retrieval
 - 复合问题的 Query Decomposition 与多执行器协同
 - `synthesis_executor` 多证据综合链
 - Text-to-SQL 的复杂聚合、多表、排序与白名单扩展
@@ -507,18 +561,18 @@ Question
 
 目标：
 
-- 从“伪 dense”升级到真正语义召回
+- 从最小向量闭环升级到更高质量语义召回
 
 必须完成：
 
-- embedding model 选型
-- vector store 落地
-- chunk / table / formula / schema 向量索引
-- dense + sparse 真融合
+- embedding provider 治理与质量评测
+- ANN / vector store 的稳定性、可观测性与索引增强
+- chunk / table / formula / schema 向量索引继续增强
+- dense + sparse 融合策略升级
 
 验收标准：
 
-- dense retrieval 不再只是 token overlap
+- dense retrieval 不再依赖启发式 token overlap 兜底才能工作
 
 ### Priority D：最小 Text-to-SQL 闭环
 
@@ -582,6 +636,14 @@ services/docs-core/src/docs_core/
     structured/
     storage/
 
+  indexing/
+    config.py
+    embedding_provider.py
+    vector_indexer.py
+    vector_store.py
+    chroma_vector_store.py
+    sqlite_vector_store.py
+
   query/
     contracts.py
     intent_parser.py
@@ -606,7 +668,6 @@ services/docs-core/src/docs_core/
   answering/
     citation_builder.py
     answer_assembler.py
-    refusal_policy.py
 
   text2sql/
     schema_linker.py
@@ -625,6 +686,8 @@ services/docs-core/src/docs_core/
 
 说明：
 
+- `ingest` 负责解析、canonical、structured 和真相源落盘
+- `indexing` 负责面向 retrieval 的索引构建，不等同于“所有存储”
 - `query` 是上层
 - `retrieval` 是下层
 - `answering` 最好独立
@@ -669,6 +732,7 @@ services/docs-core/src/docs_core/
 注：
 
 - 当前目录重构中的 Step 2 已先把 `text2sql/` 与 `evals/` 的模块边界落地
+- 当前目录重构中的 Step 3 已把 `indexing/`、`DashScope embedding` 与 `Chroma fallback` 落地到最小可用版本
 - roadmap 里的 Step 4 / Step 5 仍表示“把能力做深做强”，不是说目录层还没接入
 
 ---

@@ -11,7 +11,7 @@ docs_core_path = project_root / 'services' / 'docs-core' / 'src'
 sys.path.insert(0, str(docs_core_path))
 
 try:
-    from docs_core.ingest.structured.structure_builder import RawFilesStructureBuilder
+    from docs_core.ingest.normalize.structure_builder import RawFilesStructureBuilder
 except ImportError:
     print("Error: Could not import RawFilesStructureBuilder. Please ensure services/docs-core/src is in python path.")
     sys.exit(1)

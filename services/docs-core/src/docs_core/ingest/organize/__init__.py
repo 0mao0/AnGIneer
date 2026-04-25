@@ -1,4 +1,4 @@
-"""Docs canonical schema 导出。"""
+"""docs_core organize 阶段导出。"""
 
 from .builder import (
     build_canonical_blocks,

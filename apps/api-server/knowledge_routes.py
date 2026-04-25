@@ -1,4 +1,4 @@
-"""知识库路由与解析调度入口。"""
+"""知识库路由与解析调度入口"""
 import mimetypes
 import os
 import shutil
@@ -15,14 +15,14 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from docs_core.knowledge_service import knowledge_service
-from docs_core.ingest.parser.mineru_parser import mineru_parser
+from docs_core.ingest.extract.mineru_parser import mineru_parser
 from docs_core.query.contracts import KnowledgeQueryRequest, KnowledgeQueryResponse
 from docs_core.query.service import knowledge_query_service
-from docs_core.ingest.storage.file_store import (
+from docs_core.ingest.store.assets_file_store import (
     build_structured_index_for_doc,
     get_doc_blocks_graph,
 )
-from docs_core.ingest.storage.file_store import file_storage
+from docs_core.ingest.store.assets_file_store import file_storage
 
 
 knowledge_router = APIRouter()
@@ -30,7 +30,7 @@ preview_router = APIRouter()
 
 
 class KnowledgeParseRequest(BaseModel):
-    """文档解析请求。"""
+    """文档解析请求"""
 
     library_id: str
     doc_id: str
@@ -39,14 +39,14 @@ class KnowledgeParseRequest(BaseModel):
 
 
 class KnowledgeParseOptions(BaseModel):
-    """文档解析参数。"""
+    """文档解析参数"""
 
     use_llm: bool = True
     llm_model: Optional[str] = None
 
 
 class KnowledgeStructuredIndexRequest(BaseModel):
-    """结构化索引重建请求。"""
+    """结构化索引重建请求"""
 
     library_id: str
     doc_id: str
@@ -54,14 +54,14 @@ class KnowledgeStructuredIndexRequest(BaseModel):
 
 
 class DocBlocksGraphRequest(BaseModel):
-    """文档块图谱请求。"""
+    """文档块图谱请求"""
 
     library_id: str
     doc_id: str
 
 
 class KnowledgeRetrieveRequest(BaseModel):
-    """知识检索调试请求。"""
+    """知识检索调试请求"""
 
     query: str
     library_id: str = "default"
@@ -70,17 +70,17 @@ class KnowledgeRetrieveRequest(BaseModel):
 
 
 class ParseOrchestrator:
-    """负责 API 层与解析主链之间的编排。"""
+    """负责 API 层与解析主链之间的编排"""
 
     def __init__(self) -> None:
         self._threads: Dict[str, threading.Thread] = {}
 
-    # 注册或补全文档节点，确保解析主链使用统一文档标识。
+    # 注册或补全文档节点，确保解析主链使用统一文档标识
     def ensure_document(self, library_id: str, file_path: str, doc_id: Optional[str] = None) -> str:
         node = knowledge_service.register_document(library_id=library_id, file_path=file_path, doc_id=doc_id)
         return node.id
 
-    # 创建解析任务并启动后台线程。
+    # 创建解析任务并启动后台线程
     def create_parse_task(
         self,
         library_id: str,
@@ -114,14 +114,14 @@ class ParseOrchestrator:
             "stage": task.stage,
         }
 
-    # 返回当前任务状态。
+    # 返回当前任务状态
     def get_parse_task(self, task_id: str) -> Optional[Dict[str, Any]]:
         task = knowledge_service.get_parse_task(task_id)
         if not task:
             return None
         return task.model_dump(mode="json")
 
-    # 在后台执行文档解析并同步状态。
+    # 在后台执行文档解析并同步状态
     def _run_parse_task(
         self,
         task_id: str,
@@ -183,7 +183,7 @@ class ParseOrchestrator:
             self._threads.pop(task_id, None)
             shutil.rmtree(temp_output_dir, ignore_errors=True)
 
-    # 同步更新任务和节点的解析进度。
+    # 同步更新任务和节点的解析进度
     def _update_progress(
         self,
         task_id: str,
@@ -206,7 +206,7 @@ class ParseOrchestrator:
 parse_orchestrator = ParseOrchestrator()
 
 
-# 归一化解析参数，确保前后端传参格式稳定。
+# 归一化解析参数，确保前后端传参格式稳定
 def normalize_parse_options(options: Optional[KnowledgeParseOptions]) -> Dict[str, Any]:
     if options is None:
         return {"use_llm": True}
@@ -217,14 +217,14 @@ def normalize_parse_options(options: Optional[KnowledgeParseOptions]) -> Dict[st
     }
 
 
-# 按策略分发文档投影构建。
+# 按策略分发文档投影构建
 def build_projection_for_doc(library_id: str, doc_id: str, strategy: str = "doc_blocks_graph_v1") -> Dict[str, Any]:
     if strategy != "doc_blocks_graph_v1":
         raise ValueError(f"Unsupported strategy: {strategy}")
     return build_structured_index_for_doc(library_id, doc_id, strategy)
 
 
-# 返回文件预览允许访问的根目录列表。
+# 返回文件预览允许访问的根目录列表
 def _allowed_roots() -> list[str]:
     storage_root = os.path.abspath(str(file_storage.base_dir))
     repo_root = Path(__file__).resolve().parents[2]
@@ -235,7 +235,7 @@ def _allowed_roots() -> list[str]:
     return roots
 
 
-# 判断目标路径是否位于允许的根目录下。
+# 判断目标路径是否位于允许的根目录下
 def _is_path_allowed(target_path: str, roots: list[str]) -> bool:
     for root in roots:
         try:
@@ -246,7 +246,7 @@ def _is_path_allowed(target_path: str, roots: list[str]) -> bool:
     return False
 
 
-# 创建解析任务并交给编排层执行。
+# 创建解析任务并交给编排层执行
 @knowledge_router.post("/parse")
 async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
     if not request.file_path:
@@ -268,7 +268,7 @@ async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
     )
 
 
-# 查询解析任务状态。
+# 查询解析任务状态
 @knowledge_router.get("/parse/tasks/{task_id}")
 @knowledge_router.get("/parse/{task_id}", include_in_schema=False)
 async def get_parse_status(task_id: str) -> Dict[str, Any]:
@@ -278,7 +278,7 @@ async def get_parse_status(task_id: str) -> Dict[str, Any]:
     return task
 
 
-# 手动重建指定文档的策略投影。
+# 手动重建指定文档的策略投影
 @knowledge_router.post("/parse/structured-index")
 async def build_structured_index(request: KnowledgeStructuredIndexRequest) -> Dict[str, Any]:
     try:
@@ -288,7 +288,7 @@ async def build_structured_index(request: KnowledgeStructuredIndexRequest) -> Di
         raise HTTPException(status_code=500, detail=str(error))
 
 
-# 获取文档的块图谱视图。
+# 获取文档的块图谱视图
 @knowledge_router.post("/parse/doc-blocks-graph")
 async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str, Any]:
     try:
@@ -302,7 +302,7 @@ async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str,
         raise HTTPException(status_code=500, detail=str(error))
 
 
-# 执行统一知识查询，按路由返回证据化答案。
+# 执行统一知识查询，按路由返回证据化答案
 @knowledge_router.post("/query", response_model=KnowledgeQueryResponse)
 async def query_knowledge(request: KnowledgeQueryRequest) -> KnowledgeQueryResponse:
     try:
@@ -311,7 +311,7 @@ async def query_knowledge(request: KnowledgeQueryRequest) -> KnowledgeQueryRespo
         raise HTTPException(status_code=500, detail=str(error))
 
 
-# 返回检索候选，便于前端调试和后续评测。
+# 返回检索候选，便于前端调试和后续评测
 @knowledge_router.post("/retrieve")
 async def retrieve_knowledge(request: KnowledgeRetrieveRequest) -> Dict[str, Any]:
     try:
@@ -340,7 +340,7 @@ async def retrieve_knowledge(request: KnowledgeRetrieveRequest) -> Dict[str, Any
         raise HTTPException(status_code=500, detail=str(error))
 
 
-# 按绝对路径预览文件。
+# 按绝对路径预览文件
 @preview_router.get("/files")
 def get_file_for_preview(path: str):
     normalized_path = os.path.abspath(os.path.normpath(path))

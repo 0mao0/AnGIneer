@@ -1,10 +1,10 @@
-"""Docs canonical schema 构建器。"""
+"""Docs canonical schema 构建器"""
 from datetime import datetime
 from html.parser import HTMLParser
 import re
 from typing import Any, List, Tuple
 
-from docs_core.ingest.canonical.types import (
+from docs_core.ingest.organize.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
@@ -12,16 +12,16 @@ from docs_core.ingest.canonical.types import (
     CanonicalTable,
     CitationTarget,
 )
-from docs_core.ingest.storage.file_store import file_storage
-from docs_core.ingest.structured import build_table_representations
+from docs_core.ingest.store.assets_file_store import file_storage
+from docs_core.ingest.normalize import build_table_representations
 
 
-# 清洗文本，生成适合检索和比较的简化字段。
+# 清洗文本，生成适合检索和比较的简化字段
 def clean_text(text: str) -> str:
     return re.sub(r"\s+", " ", (text or "")).strip()
 
 
-# 基于字符长度做粗粒度 token 估算，用于 chunk 控制。
+# 基于字符长度做粗粒度 token 估算，用chunk 控制
 def estimate_token_count(text: str) -> int:
     normalized = clean_text(text)
     if not normalized:
@@ -29,7 +29,7 @@ def estimate_token_count(text: str) -> int:
     return max(1, len(normalized) // 4)
 
 
-# 基于标题编号和原始层级推断章节层级。
+# 基于标题编号和原始层级推断章节层级
 def infer_title_level(text: str, raw_level: object = None) -> int:
     if isinstance(raw_level, int) and raw_level > 0:
         return raw_level
@@ -41,13 +41,13 @@ def infer_title_level(text: str, raw_level: object = None) -> int:
         return 2
     if re.match(r"^\d+[\.\s、]", normalized):
         return 1
-    if re.match(r"^[一二三四五六七八九十]+[、.]", normalized):
+    if re.match(r"^[一二三四五六七八九十]+[]", normalized):
         return 1
     return 1
 
 
 class SimpleHtmlTableParser(HTMLParser):
-    """最小 HTML 表格解析器。"""
+    """最HTML 表格解析器"""
 
     def __init__(self) -> None:
         super().__init__()
@@ -77,14 +77,14 @@ class SimpleHtmlTableParser(HTMLParser):
             self._current_cell.append(data)
 
 
-# 解析 HTML 表格为二维数组。
+# 解析 HTML 表格为二维数组
 def parse_table_html(table_html: str) -> List[List[str]]:
     parser = SimpleHtmlTableParser()
     parser.feed(table_html or "")
     return [row for row in parser.rows if any(cell.strip() for cell in row)]
 
 
-# 归一化不同来源中的 block_type，收敛到 canonical schema 支持的枚举。
+# 归一化不同来源中block_type，收敛到 canonical schema 支持的枚举
 def normalize_block_type(raw_block_type: object) -> str:
     block_type = str(raw_block_type or "unknown").strip()
     mapping = {
@@ -109,13 +109,13 @@ def normalize_block_type(raw_block_type: object) -> str:
     return mapping.get(block_type, "unknown")
 
 
-# 归一化图谱中的章节标题，尽量去掉目录页里尾部页码噪声。
+# 归一化图谱中的章节标题，尽量去掉目录页里尾部页码噪声
 def normalize_graph_section_title(text: str) -> str:
     normalized = clean_text(text)
     return re.sub(r"\s*\(\d+\)\s*$", "", normalized)
 
 
-# 基于图谱父子关系推导当前节点的可读 section_path。
+# 基于图谱父子关系推导当前节点的可section_path
 def resolve_graph_section_path(
     block_uid: str,
     node_map: dict[str, dict[str, Any]],
@@ -141,7 +141,7 @@ def resolve_graph_section_path(
     return cache[block_uid]
 
 
-# 把单个 doc_blocks_graph 节点适配为 canonical builder 可消费的统一块结构。
+# 把单doc_blocks_graph 节点适配canonical builder 可消费的统一块结构
 def adapt_graph_node(raw_node: dict[str, Any], index: int, section_path: str) -> dict[str, Any]:
     block_type = normalize_block_type(raw_node.get("block_type"))
     content_json = raw_node.get("content_json") if isinstance(raw_node.get("content_json"), dict) else {}
@@ -166,7 +166,7 @@ def adapt_graph_node(raw_node: dict[str, Any], index: int, section_path: str) ->
     }
 
 
-# 把整份图谱节点转换为 canonical builder 可消费的最终审核块结构。
+# 把整份图谱节点转换为 canonical builder 可消费的最终审核块结构
 def adapt_graph_nodes(graph_nodes: List[dict[str, Any]]) -> List[dict[str, Any]]:
     node_map = {
         str(node.get("block_uid") or node.get("id") or "").strip(): node
@@ -184,7 +184,7 @@ def adapt_graph_nodes(graph_nodes: List[dict[str, Any]]) -> List[dict[str, Any]]
     return adapted_nodes
 
 
-# 统一加载 canonical 构建所需的最终审核块，优先 graph nodes，其次 mineru_blocks。
+# 统一加载 canonical 构建所需的最终审核块，优graph nodes，其mineru_blocks
 def load_source_blocks(library_id: str, doc_id: str) -> List[dict[str, Any]]:
     graph_payload = file_storage.read_doc_blocks_graph(library_id, doc_id)
     graph_nodes = graph_payload.get("nodes", []) if isinstance(graph_payload, dict) else []
@@ -197,7 +197,7 @@ def load_source_blocks(library_id: str, doc_id: str) -> List[dict[str, Any]]:
     return []
 
 
-# 从 MinerU blocks 构建 canonical blocks。
+# MinerU blocks 构建 canonical blocks
 def build_canonical_blocks(library_id: str, doc_id: str) -> List[CanonicalBlock]:
     raw_blocks = load_source_blocks(library_id, doc_id)
     canonical_blocks: List[CanonicalBlock] = []
@@ -230,7 +230,7 @@ def build_canonical_blocks(library_id: str, doc_id: str) -> List[CanonicalBlock]
     return canonical_blocks
 
 
-# 为 blocks 推导 section_path，并构建 outline 树。
+# blocks 推导 section_path，并构建 outline 树
 def build_canonical_outlines(blocks: List[CanonicalBlock]) -> Tuple[List[CanonicalBlock], List[CanonicalOutlineNode]]:
     ordered_blocks = sorted(blocks, key=lambda block: (block.page_idx, block.reading_order))
     normalized_blocks: List[CanonicalBlock] = []
@@ -266,7 +266,7 @@ def build_canonical_outlines(blocks: List[CanonicalBlock]) -> Tuple[List[Canonic
     return normalized_blocks, outlines
 
 
-# 将一组 blocks 合并为结构感知 chunk。
+# 将一blocks 合并为结构感chunk
 def build_canonical_chunks(blocks: List[CanonicalBlock]) -> List[CanonicalChunk]:
     ordered_blocks = sorted(blocks, key=lambda block: (block.page_idx, block.reading_order))
     chunks: List[CanonicalChunk] = []
@@ -358,7 +358,7 @@ def build_canonical_chunks(blocks: List[CanonicalBlock]) -> List[CanonicalChunk]
     return chunks
 
 
-# 从原始表格块构建 canonical tables 与 table chunks。
+# 从原始表格块构建 canonical tables table chunks
 def build_canonical_tables(
     library_id: str,
     doc_id: str,
@@ -477,7 +477,7 @@ def build_canonical_tables(
     return tables, table_chunks
 
 
-# 基于现有落盘结果构建最小 canonical document。
+# 基于现有落盘结果构建最canonical document
 def build_canonical_document(library_id: str, doc_id: str, title: str = "") -> CanonicalDocument:
     markdown = file_storage.read_markdown(library_id, doc_id) or ""
     blocks = build_canonical_blocks(library_id, doc_id)
@@ -512,7 +512,7 @@ def build_canonical_document(library_id: str, doc_id: str, title: str = "") -> C
     return document
 
 
-# 基于最终审核结果重建 canonical 文档并持久化到 SQLite。
+# 基于最终审核结果重canonical 文档并持久化SQLite
 def rebuild_canonical_document(library_id: str, doc_id: str, title: str = "") -> CanonicalDocument:
     from docs_core.knowledge_service import knowledge_service
 

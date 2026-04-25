@@ -56,12 +56,12 @@ def build_repo_fixture(root: Path) -> None:
         "knowledge_service.py",
     )
     write_file(
-        root / "services" / "docs-core" / "src" / "docs_core" / "parser" / "mineru_parser.py",
+        root / "services" / "docs-core" / "src" / "docs_core" / "ingest" / "extract" / "mineru_parser.py",
         "mineru_parser.py",
     )
     write_file(
-        root / "services" / "docs-core" / "src" / "docs_core" / "structured" / "result_store_json.py",
-        "result_store_json.py\nregister_document\nParseOrchestrator.create_parse_task\nmineru_parser.parse_document\nresult_store_json.save_markdown\nresult_store_json.save_parse_artifacts\nbuild_structured_index_for_doc",
+        root / "services" / "docs-core" / "src" / "docs_core" / "ingest" / "store" / "assets_file_store.py",
+        "assets_file_store.py\nregister_document\nParseOrchestrator.create_parse_task\nmineru_parser.parse_document\nresult_store_json.save_markdown\nresult_store_json.save_parse_artifacts\nbuild_structured_index_for_doc",
     )
     write_file(root / "services" / "angineer-core" / "src" / "index.py", "agent")
     write_file(root / "services" / "engtools" / "src" / "index.py", "tool")
@@ -158,7 +158,7 @@ modules:
     key_symbols:
       - knowledge_service.py
       - mineru_parser.py
-      - result_store_json.py
+      - assets_file_store.py
   - id: angineer-core
     path: services/angineer-core
     role: agent_orchestration
@@ -197,8 +197,8 @@ flows:
       - build_structured_index_for_doc
     anchors:
       - apps/api-server/knowledge_routes.py
-      - services/docs-core/src/docs_core/parser/mineru_parser.py
-      - services/docs-core/src/docs_core/structured/result_store_json.py
+      - services/docs-core/src/docs_core/ingest/extract/mineru_parser.py
+      - services/docs-core/src/docs_core/ingest/store/assets_file_store.py
       - services/docs-core/src/docs_core/knowledge_service.py
 
 storage:

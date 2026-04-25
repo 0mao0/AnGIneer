@@ -23,7 +23,7 @@
 
 当前不应误判为“已完成”的部分：
 
-- 真正的 embedding / vector retrieval
+- 高质量外部 embedding provider 与 ANN 级 vector retrieval
 - Query Decomposition 与多执行器协同
 - `synthesis_executor`
 - 复杂 Text-to-SQL
@@ -34,16 +34,17 @@
 
 ## 3. 核心问题
 
-### 3.1 检索层名实不符
+### 3.1 检索层基础已补齐，但质量上限仍受限
 
-- `dense_retriever` 与 `sparse_retriever` 当前仍是启发式匹配和规则计分
-- ingest 主链没有向量化工序
-- 仓库内没有独立 embedding 模型层与 vector store 适配层
+- `dense_retriever` 已改为读取真实向量索引，主逻辑不再依赖 token overlap
+- ingest 主链已在 canonical 保存时同步产出 chunk / table / formula / schema 向量索引
+- 仓库内已存在独立 `embedding/` 与 `vectorstore/` 最小实现
+- 当前默认 provider 仍为本地 hash embedding，vector store 仍为 SQLite 顺序扫描
 
 影响：
 
-- 语义召回质量上限较低
-- “dense / sparse / hybrid” 的命名容易让团队高估真实能力
+- 已消除“伪 dense”与实现不符的问题
+- 但语义召回质量上限仍低于生产级 embedding + ANN 方案
 
 ### 3.2 Query 层只能单路执行
 
@@ -127,7 +128,7 @@
 - 计划文档已建立
 - `docs-ui` 的清理目标已确认，但代码层清理尚未开始
 
-### P1：补齐检索基础设施
+### P1：补齐检索基础设施（最小闭环已完成）
 
 目标：
 
@@ -143,8 +144,7 @@
 
 建议落点：
 
-- `services/docs-core/src/docs_core/embedding/`
-- `services/docs-core/src/docs_core/vectorstore/`
+- `services/docs-core/src/docs_core/indexing/`
 - `services/docs-core/src/docs_core/ingest/`
 - `services/docs-core/src/docs_core/retrieval/dense_retriever.py`
 
@@ -153,6 +153,15 @@
 - 代码中存在可替换的 embedding provider
 - 向量索引可被 ingest 主链产出和读取
 - `dense_retriever` 不再依赖 token overlap 作为主逻辑
+
+当前状态：
+
+- `services/docs-core/src/docs_core/indexing/` 已统一承载 embedding provider、vector store 与 vector indexer
+- 已支持基于 `.env` 的 DashScope embedding provider，并保留 hash fallback
+- 已支持 Chroma vector store，缺少依赖时自动回退到 SQLite 实现
+- canonical 保存主链已同步产出 chunk / table / formula / schema 向量索引
+- `dense_retriever` 已改为基于向量命中的真实 dense 召回
+- 尚未完成召回质量调优、ANN 参数调优与更强的 dense+sparse 融合策略
 
 ### P2：补齐复合问题执行能力
 

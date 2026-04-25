@@ -1,7 +1,7 @@
-"""docs_core ?????????"""
+"""docs_core store 阶段导出"""
 
-from .canonical_store import CanonicalSQLiteStore
-from .db_store import (
+from .canonical_sql_store import CanonicalSQLiteStore
+from .blocks_sql_store import (
     KNOWLEDGE_INDEX_DB_NAME,
     KNOWLEDGE_META_DB_NAME,
     KnowledgeIndexStore,
@@ -13,7 +13,7 @@ from .db_store import (
     resolve_knowledge_index_db_path,
     resolve_knowledge_meta_db_path,
 )
-from .file_store import (
+from .assets_file_store import (
     FileStorage,
     batch_operate_doc_blocks,
     build_structured_index_for_doc,

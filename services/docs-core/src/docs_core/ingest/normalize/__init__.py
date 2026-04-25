@@ -1,4 +1,4 @@
-"""docs_core 结构化吸收阶段导出。"""
+"""docs_core normalize 阶段导出。"""
 
 from .LLM_refiner_titles import llm_refine_title_levels, resolve_title_level_refinement
 from .formula_semantics import (

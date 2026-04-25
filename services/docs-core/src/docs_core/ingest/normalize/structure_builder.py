@@ -16,7 +16,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple, TYPE_CHECKING
 
-from docs_core.ingest.structured.LLM_refiner_titles import resolve_title_level_refinement
+from docs_core.ingest.normalize.LLM_refiner_titles import resolve_title_level_refinement
 
 if TYPE_CHECKING:
     from angineer_core.infra.llm_client import LLMClient

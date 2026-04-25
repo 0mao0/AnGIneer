@@ -1,6 +1,16 @@
 """docs_core 文档吸收主链导出。"""
 
-from .canonical import (
+from .extract import MinerUParser, mineru_parser
+from .normalize import (
+    RawFilesStructureBuilder,
+    StructuredResult,
+    build_graph_from_rawfiles,
+    build_structured_from_rawfiles,
+    build_table_representations,
+    classify_table,
+    extract_table_features,
+)
+from .organize import (
     BoundingBox,
     CanonicalBlock,
     CanonicalChunk,
@@ -15,17 +25,8 @@ from .canonical import (
     build_canonical_outlines,
     build_canonical_tables,
 )
-from .parser import MinerUParser, mineru_parser
-from .storage import FileStorage, build_structured_index_for_doc, file_storage, get_doc_blocks_graph
-from .structured import (
-    RawFilesStructureBuilder,
-    StructuredResult,
-    build_graph_from_rawfiles,
-    build_structured_from_rawfiles,
-    build_table_representations,
-    classify_table,
-    extract_table_features,
-)
+from .store import FileStorage, build_structured_index_for_doc, file_storage, get_doc_blocks_graph
+from docs_core.indexing import build_vector_records, summarize_vector_records
 
 __all__ = [
     "BoundingBox",
@@ -49,9 +50,11 @@ __all__ = [
     "build_structured_from_rawfiles",
     "build_structured_index_for_doc",
     "build_table_representations",
+    "build_vector_records",
     "classify_table",
     "extract_table_features",
     "file_storage",
     "get_doc_blocks_graph",
     "mineru_parser",
+    "summarize_vector_records",
 ]

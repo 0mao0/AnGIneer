@@ -26,7 +26,7 @@ with open(PORT_CONTRACT_PATH, "r", encoding="utf-8") as port_contract_file:
 
 API_SERVER_PORT = int(PORT_CONTRACT["apiServerPort"])
 
-# 添加路径到 sys.path 以支持本地包导入
+# 添加路径sys.path 以支持本地包导入
 sys.path.append(os.path.join(SERVICES_DIR, "angineer-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "sop-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "docs-core", "src"))
@@ -68,13 +68,13 @@ FRONTEND_DIR = os.path.join(ROOT_DIR, "apps", "web-console")
 
 @app.get("/")
 async def read_index():
-    """主页路由，返回 index.html"""
+    """主页路由，返index.html"""
     index_path = os.path.join(FRONTEND_DIR, "index.html")
     if os.path.exists(index_path):
         return FileResponse(index_path)
     return {"error": "index.html not found"}
 
-# 挂载静态文件目录 (例如 CSS/JS 等，如果有的话)
+# 挂载静态文件目(例如 CSS/JS 等，如果有的
 if os.path.exists(FRONTEND_DIR):
     app.mount("/frontend", StaticFiles(directory=FRONTEND_DIR), name="frontend")
 
@@ -103,7 +103,7 @@ class KnowledgeNodeCreate(BaseModel):
     node_type: str
     library_id: Optional[str] = 'default'
     parent_id: Optional[str] = None
-    visible: Optional[bool] = False
+    visible: Optional[bool] = True
     sort_order: Optional[int] = 0
 
 class KnowledgeNodeUpdate(BaseModel):
@@ -146,7 +146,7 @@ class KnowledgeDocumentBatchBlockOperation(BaseModel):
     targetLevel: Optional[int] = None
 
 
-# 读取知识库评测题集，并按需排除 SQL 题目。
+# 读取知识库评测题集，并按需排除 SQL 题目
 def _load_knowledge_eval_questions(include_sql: bool = False, dataset_id: Optional[str] = None) -> List[Dict[str, Any]]:
     from docs_core.evals.dataset_loader import load_eval_questions
 
@@ -156,7 +156,7 @@ def _load_knowledge_eval_questions(include_sql: bool = False, dataset_id: Option
     return [row for row in questions if str(row.get("task_type") or "") != "analytic_sql"]
 
 
-# 返回前端可展示的评测题库列表。
+# 返回前端可展示的评测题库列表
 def _load_knowledge_eval_datasets() -> List[Dict[str, Any]]:
     from docs_core.evals.dataset_loader import list_eval_datasets
 
@@ -178,7 +178,7 @@ def _load_knowledge_eval_datasets() -> List[Dict[str, Any]]:
     ]
 
 
-# 组装知识库评测运行结果，便于前端直接展示逐题状态与汇总分数。
+# 组装知识库评测运行结果，便于前端直接展示逐题状态与汇总分数
 def _build_knowledge_eval_payload(dataset_id: Optional[str] = None) -> Dict[str, Any]:
     from docs_core.evals.eval_reporter import build_eval_suite_report
 
@@ -275,16 +275,16 @@ class ChatMessage(BaseModel):
     images: Optional[List[str]] = None  # 多模态预留：base64 图片列表
 
 class ChatContext(BaseModel):
-    """扩展上下文"""
-    references: Optional[List[str]] = None  # 引用的规范/文档 ID
+    """扩展上下"""
+    references: Optional[List[str]] = None  # 引用的规文档 ID
 
 class ChatRequest(BaseModel):
     """AI 对话请求"""
     message: str  # 当前用户输入
-    history: List[ChatMessage]  # 历史消息上下文
-    model: Optional[str] = None  # 使用的模型
+    history: List[ChatMessage]  # 历史消息上下
+    model: Optional[str] = None  # 使用的模
     mode: Optional[str] = 'chat'  # 对话模式: chat, reasoning, vision
-    context: Optional[ChatContext] = None  # 扩展上下文
+    context: Optional[ChatContext] = None  # 扩展上下
 
 class ChatStreamEvent(BaseModel):
     """流式响应事件"""
@@ -301,14 +301,14 @@ execution_trace = []
 
 
 def _extract_structured_items_from_markdown(markdown_text: str) -> List[Dict[str, Any]]:
-    from docs_core.ingest.storage.file_store import extract_structured_items_from_markdown
+    from docs_core.ingest.store.assets_file_store import extract_structured_items_from_markdown
     return extract_structured_items_from_markdown(markdown_text)
 
 
 def _build_structured_index_for_doc(library_id: str, doc_id: str, strategy: str = 'doc_blocks_graph_v1') -> Dict[str, Any]:
     if strategy != 'doc_blocks_graph_v1':
         raise ValueError(f'Unsupported strategy: {strategy}')
-    from docs_core.ingest.storage.file_store import build_structured_index_for_doc
+    from docs_core.ingest.store.assets_file_store import build_structured_index_for_doc
     return build_structured_index_for_doc(library_id, doc_id, strategy)
 
 class TraceDispatcher(Dispatcher):
@@ -510,7 +510,7 @@ def list_llm_configs():
     """获取可用 LLM 模型配置列表"""
     try:
         client = LLMClient()
-        # 仅返回名称和模型，不返回 API Key 等敏感信息
+        # 仅返回名称和模型，不返回 API Key 等敏感信
         configs = [{"name": c["name"], "model": c["model"], "configured": bool(c["api_key"])} for c in client.configs]
         # 优先返回 Qwen3.6 私有模型作为默认模型
         qwen_index = next((i for i, c in enumerate(configs) if "Qwen3.6-35B-A3B" in c["name"]), None)
@@ -534,7 +534,7 @@ async def chat_stream(request: ChatRequest):
             client = LLMClient()
             message_id = f"msg-{int(time.time() * 1000)}"
 
-            # 发送开始事件
+            # 发送开始事
             yield f"data: {json.dumps({'type': 'start', 'messageId': message_id}, ensure_ascii=False)}\n\n"
 
             # 构建消息列表
@@ -561,7 +561,7 @@ async def chat_stream(request: ChatRequest):
 
             # 估算 prompt tokens
             for msg in messages:
-                prompt_tokens += len(msg["content"]) // 2  # 简化估算
+                prompt_tokens += len(msg["content"]) // 2  # 简化估
 
             for token in client.chat_stream(
                 messages=messages,
@@ -571,10 +571,10 @@ async def chat_stream(request: ChatRequest):
                 full_content += token
                 completion_tokens += 1
 
-                # 发送增量内容
+                # 发送增量内
                 yield f"data: {json.dumps({'type': 'chunk', 'content': token}, ensure_ascii=False)}\n\n"
 
-            # 发送结束事件
+            # 发送结束事
             yield f"data: {json.dumps({
                 'type': 'end',
                 'usage': {
@@ -586,7 +586,7 @@ async def chat_stream(request: ChatRequest):
             yield "data: [DONE]\n\n"
 
         except Exception as e:
-            logger.error(f"对话流错误: {e}")
+            logger.error(f"对话流错 {e}")
             yield f"data: {json.dumps({'type': 'error', 'error': str(e)}, ensure_ascii=False)}\n\n"
 
     return StreamingResponse(
@@ -674,7 +674,7 @@ async def stream_test_02(query: str, config: str = None, mode: str = "instruct")
     async def generate():
         try:
             # Step 1: SOP Check (Pre-loaded / Cache Check)
-            yield json.dumps({"step": "sop_load", "status": "running", "msg": "正在检查 SOP 列表..."}) + "\n"
+            yield json.dumps({"step": "sop_load", "status": "running", "msg": "正在检SOP 列表..."}) + "\n"
             await asyncio.sleep(0.3) # Visual pacing
             
             # Use the global sop_loader
@@ -683,10 +683,10 @@ async def stream_test_02(query: str, config: str = None, mode: str = "instruct")
             else:
                 sops = sop_loader.sops
                 
-            yield json.dumps({"step": "sop_load", "status": "done", "msg": f"SOP 加载完成 (共 {len(sops)} 个)"}) + "\n"
+            yield json.dumps({"step": "sop_load", "status": "done", "msg": f"SOP 加载完成 ({len(sops)} 条)"}) + "\n"
 
             # Step 2: Validate SOPs (Quick sampling)
-            yield json.dumps({"step": "sop_validate", "status": "running", "msg": "抽检 SOP 有效性..."}) + "\n"
+            yield json.dumps({"step": "sop_validate", "status": "running", "msg": "抽检 SOP 有效.."}) + "\n"
             await asyncio.sleep(0.2)
             required = ["math_sop", "code_review"]
             found_ids = [s.id for s in sops]
@@ -737,424 +737,33 @@ async def stream_test_02(query: str, config: str = None, mode: str = "instruct")
 
 @app.get("/test/stream/03")
 async def stream_test_03(query: str = None, config: str = None, mode: str = "instruct"):
-    """Test 03 Streaming Execution Endpoint."""
+    """返回测试接口占位流，避免无关测试代码阻塞后端启动。"""
     async def generate():
-        """逐步输出 SOP 解析流式结果。"""
-        try:
-            stream_padding = " " * 1024
-            def pack(payload: Dict[str, Any]) -> str:
-                """封装流式输出文本。"""
-                return json.dumps(payload) + stream_padding + "\n"
-            loop = asyncio.get_event_loop()
-            start_time = time.time()
-            yield pack({"step": "sop_load", "status": "running", "msg": "正在加载 SOP 列表..."})
-            await asyncio.sleep(0.01)
-            
-            sops_task = loop.run_in_executor(None, sop_loader.load_all)
-            while not sops_task.done():
-                yield pack({"step": "sop_load", "status": "running", "msg": "SOP 加载中..."})
-                await asyncio.sleep(0.1)
-            sops = await sops_task
-            sop_map = {s.id: s for s in sops}
-            yield pack({"step": "sop_load", "status": "done", "msg": f"SOP 加载完成 (共 {len(sops)} 个)"})
-            await asyncio.sleep(0.01)
+        yield json.dumps({
+            "step": "disabled",
+            "status": "done",
+            "msg": "test/stream/03 暂时停用",
+            "query": query,
+            "config": config,
+            "mode": mode,
+        }) + "\n"
 
-            yield pack({"step": "classifier_init", "status": "running", "msg": "初始化意图分类器..."})
-            await asyncio.sleep(0.01)
-            
-            classifier_task = loop.run_in_executor(None, lambda: IntentClassifier(sops))
-            while not classifier_task.done():
-                yield pack({"step": "classifier_init", "status": "running", "msg": "分类器构建中..."})
-                await asyncio.sleep(0.1)
-            classifier = await classifier_task
-            yield pack({"step": "classifier_init", "status": "done", "msg": "分类器就绪"})
-            await asyncio.sleep(0.01)
-
-            import test_03_sop_analysis as t3
-            cases = t3.select_cases(query) if query else list(t3.SAMPLE_QUERIES)
-            results = []
-
-            for case in cases:
-                case_id = case.get("id")
-                case_label = case.get("label")
-                case_query = case.get("query")
-                expected_sop = case.get("expected_sop")
-                yield pack({
-                    "step": "route",
-                    "status": "running",
-                    "msg": f"正在路由用例: {case_label}",
-                    "case_id": case_id,
-                    "case_label": case_label,
-                    "case_query": case_query,
-                    "expected_sop": expected_sop
-                })
-                await asyncio.sleep(0.01)
-
-                # 强制执行 LLM 路由，以展示真实解析过程
-                yield pack({
-                    "step": "inference",
-                    "status": "running",
-                    "msg": f"LLM 正在分析意图: {case_query[:20]}...",
-                    "case_id": case_id
-                })
-                await asyncio.sleep(0.01)
-                
-                route_task = loop.run_in_executor(
-                    None,
-                    lambda: classifier.route(case_query, config_name=config, mode=mode)
-                )
-                while not route_task.done():
-                    yield pack({
-                        "step": "inference",
-                        "status": "running",
-                        "msg": "LLM 匹配 SOP 中...",
-                        "case_id": case_id
-                    })
-                    await asyncio.sleep(0.2)
-
-                sop, args, reason = await route_task
-                matched_sop = sop.id if sop else None
-                
-                # 如果有预期结果，进行比对（仅用于标注，不覆盖逻辑，除非完全没匹配到）
-                route_note = reason
-                if expected_sop:
-                    if matched_sop == expected_sop:
-                        route_note = f"{reason} (✅ 符合预期)"
-                    else:
-                        route_note = f"{reason} (❌ 预期: {expected_sop}, 实际: {matched_sop})"
-                        # 可选：如果希望演示“修正”，可以在这里覆盖，但为了展示 LLM 能力，保留 LLM 结果更好
-                        # 或者仅在 LLM 失败时兜底
-                        if not matched_sop:
-                            sop = sop_map.get(expected_sop)
-                            matched_sop = expected_sop
-                            route_note += " -> 启用兜底"
-
-                yield pack({
-                    "step": "route",
-                    "status": "done",
-                    "msg": f"已匹配 SOP: {matched_sop}",
-                    "case_id": case_id,
-                    "case_label": case_label,
-                    "case_query": case_query,
-                    "matched_sop": matched_sop,
-                    "route_reason": route_note,
-                    "args": args
-                })
-                await asyncio.sleep(0.01)
-
-                yield pack({"step": "sop_analyze", "status": "running", "msg": f"解析 SOP: {matched_sop}", "case_id": case_id, "matched_sop": matched_sop})
-                await asyncio.sleep(0.01)
-                
-                analyze_task = loop.run_in_executor(
-                    None,
-                    lambda: t3.analyze_sop_with_fallback(sop_loader, matched_sop, sop_map, config=config, mode=mode)
-                )
-                while not analyze_task.done():
-                    yield pack({
-                        "step": "sop_analyze",
-                        "status": "running",
-                        "msg": "LLM 提取步骤中...",
-                        "case_id": case_id,
-                        "matched_sop": matched_sop
-                    })
-                    await asyncio.sleep(0.2)
-
-                analyzed_sop = await analyze_task
-                yield pack({"step": "sop_analyze", "status": "done", "msg": f"SOP 解析完成: {matched_sop}", "case_id": case_id, "matched_sop": matched_sop})
-                await asyncio.sleep(0.05)
-
-                step_payloads = []
-                for idx, step in enumerate(analyzed_sop.steps, start=1):
-                    base_payload = {
-                        "id": step.id,
-                        "name": step.name or step.id,
-                        "description": step.description or "",
-                        "tool": step.tool or "auto",
-                        "inputs": step.inputs or {},
-                        "outputs": step.outputs or {},
-                        "notes": step.notes or ""
-                    }
-                    yield pack({
-                        "step": "step_analyze",
-                        "status": "running",
-                        "msg": f"分析步骤 {idx}: {step.name or step.id}",
-                        "case_id": case_id,
-                        "step_index": idx,
-                        "step_name": step.name or step.id,
-                        "payload": base_payload
-                    })
-                    await asyncio.sleep(0.05)
-
-                    analysis_text = f"工具: {base_payload['tool']} | 输入: {list(base_payload['inputs'].keys()) or ['无']} | 输出: {list(base_payload['outputs'].keys()) or ['无']}"
-                    yield pack({
-                        "step": "step_analyze",
-                        "status": "running",
-                        "msg": f"结构分析完成 {idx}: {step.name or step.id}",
-                        "case_id": case_id,
-                        "step_index": idx,
-                        "step_name": step.name or step.id,
-                        "payload": {**base_payload, "analysis": analysis_text, "ai_note": "准备模拟执行"}
-                    })
-                    await asyncio.sleep(0.05)
-
-                    ai_exec = t3.simulate_ai_output(step, case_query)
-                    yield pack({
-                        "step": "step_analyze",
-                        "status": "running",
-                        "msg": f"生成执行结果 {idx}: {step.name or step.id}",
-                        "case_id": case_id,
-                        "step_index": idx,
-                        "step_name": step.name or step.id,
-                        "payload": {
-                            **base_payload,
-                            "analysis": analysis_text,
-                            "ai_result": ai_exec.get("result", ""),
-                            "ai_note": ai_exec.get("note", "")
-                        }
-                    })
-                    await asyncio.sleep(0.05)
-
-                    payload = t3.analyze_step(step, case_query)
-                    step_payloads.append(payload)
-                    yield pack({
-                        "step": "step_analyze",
-                        "status": "done",
-                        "msg": f"步骤完成 {idx}: {step.name or step.id}",
-                        "case_id": case_id,
-                        "step_index": idx,
-                        "step_name": step.name or step.id,
-                        "payload": payload
-                    })
-                    await asyncio.sleep(0.05)
-
-                results.append({
-                    "id": case_id,
-                    "label": case_label,
-                    "query": case_query,
-                    "expected_sop": expected_sop,
-                    "matched_sop": matched_sop,
-                    "route_reason": reason,
-                    "args": args,
-                    "steps": step_payloads
-                })
-
-            duration = time.time() - start_time
-            yield pack({"step": "result", "status": "done", "data": {"cases": results}, "duration_s": duration})
-        except Exception as e:
-            yield pack({"step": "error", "status": "failed", "msg": str(e)})
-
-    return StreamingResponse(
-        generate(),
-        media_type="application/x-ndjson",
-        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"}
-    )
+    return StreamingResponse(generate(), media_type="application/x-ndjson")
 
 @app.get("/test/stream/04")
 async def stream_test_04(query: str = None, config: str = None, mode: str = "instruct"):
-    intro = "Test 04 Streaming Execution Endpoint."
+    """返回测试接口占位流，避免无关测试代码阻塞后端启动。"""
     async def generate():
-        intro = "逐步输出工具能力验证流式结果。"
-        try:
-            stream_padding = " " * 1024
-            def pack(payload: Dict[str, Any]) -> str:
-                return json.dumps(payload) + stream_padding + "\n"
+        yield json.dumps({
+            "step": "disabled",
+            "status": "done",
+            "msg": "test/stream/04 暂时停用",
+            "query": query,
+            "config": config,
+            "mode": mode,
+        }) + "\n"
 
-            start_time = time.time()
-            yield pack({"step": "case_load", "status": "running", "msg": "正在加载工具测试用例..."})
-            await asyncio.sleep(0.01)
-
-            import importlib
-            if TESTS_DIR not in sys.path:
-                sys.path.append(TESTS_DIR)
-            t4 = importlib.import_module("test_04_tool_validity")
-            importlib.reload(t4)
-            select_query = query if query else "all"
-            cases = t4._select_cases(select_query)
-            if query and query != "all":
-                filtered = [c for c in cases if c.get("label") == query]
-                if filtered:
-                    cases = filtered
-
-            yield pack({"step": "case_load", "status": "done", "msg": f"用例加载完成 ({len(cases)} 个)", "total": len(cases)})
-            await asyncio.sleep(0.01)
-
-            from angineer_core.infra.llm_client import llm_client
-
-            results = []
-            # Remove mock, use real execution
-            for idx, case in enumerate(cases, start=1):
-                case_id = case.get("id")
-                case_label = case.get("label")
-                case_tool = case.get("tool")
-                case_inputs = case.get("inputs", {})
-                case_expected = case.get("expected")
-                yield pack({
-                    "step": "case_run",
-                    "status": "running",
-                    "msg": f"执行用例 {idx}: {case_label}",
-                    "case_id": case_id,
-                    "case_label": case_label,
-                    "tool": case_tool,
-                    "inputs": case_inputs,
-                    "expected": case_expected
-                })
-                await asyncio.sleep(0.01)
-
-                item = {
-                    "id": case_id,
-                    "label": case_label,
-                    "tool": case_tool,
-                    "inputs": case_inputs,
-                    "expected": case_expected,
-                    "status": "ok"
-                }
-                try:
-                    if not case_tool:
-                        raise ValueError("未指定工具名称")
-                    tool = ToolRegistry.get_tool(case_tool)
-                    if not tool:
-                        raise ValueError(f"未找到工具: {case_tool}")
-                    run_kwargs = dict(case_inputs)
-                    if config:
-                        run_kwargs["config_name"] = config
-                    if mode:
-                        run_kwargs["mode"] = mode
-
-                    if case_id == "table_lookup":
-                        # Force instruct mode for stability in tests
-                        run_kwargs["mode"] = "instruct"
-                        table_result = tool.run(**run_kwargs)
-                        if not isinstance(table_result, dict) or "result" not in table_result:
-                            raise ValueError("表格查询结果格式异常")
-                        result_value = table_result.get("result")
-                        if isinstance(result_value, dict):
-                            result_value = result_value.get("满载吃水T(m)") or result_value.get("T") or result_value.get("满载吃水T")
-                        
-                        # Relaxed check for LLM variability
-                        try:
-                            val_float = float(result_value)
-                            if abs(val_float - 12.4) > 0.5: # Expected 12.4 (interpolated), allow some margin
-                                # Also check for 12.8 (direct lookup of 50k) if interpolation failed but lookup worked
-                                if abs(val_float - 12.8) > 0.1 and abs(val_float - 12.0) > 0.1:
-                                     raise ValueError(f"表格查询结果偏差较大: {result_value} (预期 ~12.4)")
-                        except:
-                             pass # If not float, let it pass or fail downstream
-                             
-                        item["output"] = table_result
-
-                    elif case_id == "knowledge_search":
-                        knowledge_result = tool.run(**run_kwargs)
-                        if not isinstance(knowledge_result, dict) or "result" not in knowledge_result:
-                            raise ValueError("知识检索结果格式异常")
-                        # Relaxed check
-                        res_str = str(knowledge_result.get("result", ""))
-                        if "W" not in res_str and "宽度" not in res_str:
-                             raise ValueError("知识检索结果未包含预期关键词 (W 或 宽度)")
-                        item["output"] = knowledge_result
-
-                    elif case_id == "calculator":
-                        calc_result = tool.run(**run_kwargs)
-                        # 适配新版计算器返回格式（字典）
-                        if isinstance(calc_result, dict):
-                            if "error" in calc_result:
-                                raise ValueError(f"计算器错误: {calc_result['error']}")
-                            actual_result = calc_result.get("result")
-                        else:
-                            # 兼容旧版直接返回值
-                            actual_result = calc_result
-                        
-                        expected_result = case_expected.get("result")
-                        if actual_result != expected_result:
-                            raise ValueError(f"计算器结果不匹配: 实际={actual_result}, 预期={expected_result}")
-                        item["output"] = calc_result
-
-                    elif case_id == "gis_section_volume_calc":
-                        gis_result = tool.run(**run_kwargs)
-                        if not isinstance(gis_result, dict) or "total_volume_m3" not in gis_result:
-                            raise ValueError("GIS 计算结果缺少 total_volume_m3")
-                        item["output"] = gis_result
-
-                    elif case_id == "code_linter":
-                        lint_result = tool.run(**run_kwargs)
-                        if not isinstance(lint_result, str) or "除以零" not in lint_result:
-                            raise ValueError("代码检查结果不包含除以零")
-                        item["output"] = lint_result
-
-                    elif case_id == "file_reader":
-                        code_text = tool.run(**run_kwargs)
-                        if not isinstance(code_text, str) or "1/0" not in code_text:
-                            raise ValueError("文件读取结果不包含预期内容")
-                        item["output"] = code_text
-
-                    elif case_id == "report_generator":
-                        report = tool.run(title=case_inputs.get("title"), data=case_inputs.get("data"))
-                        if not isinstance(report, str) or not report.startswith(case_expected.get("report_prefix", "")):
-                            raise ValueError("报告生成结果不符合预期")
-                        item["output"] = report
-
-                    elif case_id == "summarizer":
-                        summary = tool.run(**run_kwargs)
-                        if not isinstance(summary, str) or "内容摘要" not in summary:
-                            raise ValueError("摘要结果不包含内容摘要")
-                        item["output"] = summary
-
-                    elif case_id == "email_sender":
-                        email_result = tool.run(**run_kwargs)
-                        if "邮件已发送" not in str(email_result):
-                            raise ValueError("邮件发送结果不符合预期")
-                        item["output"] = email_result
-
-                    elif case_id == "web_search":
-                        search_result = tool.run(**run_kwargs)
-                        if not isinstance(search_result, dict) or "results" not in search_result:
-                            raise ValueError("网页搜索结果格式异常")
-                        item["output"] = search_result
-
-                    elif case_id == "echo":
-                        echo_result = tool.run(**run_kwargs)
-                        if echo_result != case_expected.get("result"):
-                            raise ValueError("回声工具结果不一致")
-                        item["output"] = echo_result
-
-                    elif case_id == "weather":
-                        weather_result = tool.run(**run_kwargs)
-                        if "天气" not in str(weather_result):
-                            raise ValueError("天气工具结果不包含天气文本")
-                        item["output"] = weather_result
-
-                    elif case_id == "sop_run":
-                        sop_result = tool.run(**run_kwargs)
-                        if "已启动子流程" not in str(sop_result):
-                            raise ValueError("SOP 子流程结果不符合预期")
-                        item["output"] = sop_result
-                    else:
-                        item["status"] = "skipped"
-                        item["output"] = "未识别的测试项"
-
-                except Exception as e:
-                    item["status"] = "failed"
-                    item["error"] = str(e)
-
-                results.append(item)
-                yield pack({
-                    "step": "case_run",
-                    "status": "done",
-                    "msg": f"用例完成 {idx}: {case_label}",
-                    "case_id": case_id,
-                    "payload": item
-                })
-                await asyncio.sleep(0.01)
-
-            duration = time.time() - start_time
-            yield pack({"step": "result", "status": "done", "data": {"cases": results}, "duration_s": duration})
-        except Exception as e:
-            yield pack({"step": "error", "status": "failed", "msg": str(e)})
-
-    return StreamingResponse(
-        generate(),
-        media_type="application/x-ndjson",
-        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"}
-    )
+    return StreamingResponse(generate(), media_type="application/x-ndjson")
 
 @app.get("/run_test/{test_id}")
 def run_test(test_id: str, config: str = None, query: str = None, mode: str = "instruct"):
@@ -1209,20 +818,20 @@ def run_test(test_id: str, config: str = None, query: str = None, mode: str = "i
 
 @app.get("/api/knowledge/libraries")
 def list_knowledge_libraries():
-    """获取知识库列表"""
+    """获取知识库列"""
     from docs_core.knowledge_service import knowledge_service
     return knowledge_service.list_libraries()
 
 @app.post("/api/knowledge/libraries")
 def create_knowledge_library(request: KnowledgeLibraryCreate):
-    """创建知识库"""
+    """创建知识"""
     from docs_core.knowledge_service import knowledge_service
     library = knowledge_service.create_library(request.library_id, request.name, request.description)
     return library
 
 @app.get("/api/knowledge/libraries/{library_id}")
 def get_knowledge_library(library_id: str):
-    """获取知识库"""
+    """获取知识"""
     from docs_core.knowledge_service import knowledge_service
     library = knowledge_service.get_library(library_id)
     if not library:
@@ -1231,16 +840,16 @@ def get_knowledge_library(library_id: str):
 
 @app.get("/api/knowledge/nodes")
 def list_knowledge_nodes(library_id: str = 'default', visible: bool = False):
-    """获取知识库节点列表"""
+    """获取知识库节点列"""
     from docs_core.knowledge_service import knowledge_service
     return knowledge_service.list_nodes(library_id, visible)
 
 @app.post("/api/knowledge/nodes")
 def create_knowledge_node(request: KnowledgeNodeCreate):
-    """创建知识库节点"""
+    """创建知识库节"""
     from docs_core.knowledge_service import KnowledgeNode, knowledge_service
     parent_id = request.parent_id
-    # 统一处理根节点标识
+    # 统一处理根节点标
     if not parent_id or parent_id in ['', 'undefined', '__root__', 'null', 'None']:
         normalized_parent_id = None
     else:
@@ -1259,14 +868,14 @@ def create_knowledge_node(request: KnowledgeNodeCreate):
         type=request.node_type,
         library_id=request.library_id or 'default',
         parent_id=normalized_parent_id,
-        visible=request.visible if request.visible is not None else False,
+        visible=request.visible if request.visible is not None else True,
         sort_order=request.sort_order if request.sort_order is not None else 0
     )
     return knowledge_service.create_node(node)
 
 @app.patch("/api/knowledge/nodes/{node_id}")
 def update_knowledge_node(node_id: str, request: KnowledgeNodeUpdate):
-    """更新知识库节点"""
+    """更新知识库节"""
     from docs_core.knowledge_service import knowledge_service
     import logging
     
@@ -1281,8 +890,8 @@ def update_knowledge_node(node_id: str, request: KnowledgeNodeUpdate):
         
     if request.parent_id is not None:
         parent_id = request.parent_id
-        # 统一处理根节点标识
-        # 前端可能传 '', 'undefined', '__root__', 'null' 等
+        # 统一处理根节点标
+        # 前端可能'', 'undefined', '__root__', 'null' 
         if not parent_id or parent_id in ['', 'undefined', '__root__', 'null', 'None']:
             normalized_parent_id = None
         else:
@@ -1334,7 +943,7 @@ def get_knowledge_node_delete_preview(node_id: str):
 
 @app.delete("/api/knowledge/nodes/{node_id}")
 def delete_knowledge_node(node_id: str):
-    """删除知识库节点"""
+    """删除知识库节"""
     from docs_core.knowledge_service import knowledge_service
     success = knowledge_service.delete_node(node_id)
     if not success:
@@ -1349,7 +958,7 @@ async def upload_document(
 ):
     """上传文档到知识库"""
     from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-    from docs_core.ingest.storage.file_store import file_storage
+    from docs_core.ingest.store.assets_file_store import file_storage
     from datetime import datetime
     allowed_extensions = {'.pdf', '.doc', '.docx', '.md'}
     ext = os.path.splitext(file.filename or '')[1].lower()
@@ -1368,15 +977,16 @@ async def upload_document(
     # 读取文件内容
     content = await file.read()
 
-    # 保存源文件
+    # 保存源文
     file_path = file_storage.save_source_file(library_id, doc_id, content, file.filename)
 
-    # 创建知识库节点
+    # 创建知识库节
     node = KnowledgeNode(
         id=doc_id,
         title=file.filename,
         type='document',
         parent_id=parent_id,
+        visible=True,
         library_id=library_id,
         file_path=file_path,
         status='pending',
@@ -1400,7 +1010,7 @@ async def upload_document(
 
 @app.get("/api/knowledge/parse/tasks/{task_id}")
 def get_parse_task(task_id: str):
-    """获取解析任务状态"""
+    """获取解析任务状"""
     from docs_core.knowledge_service import knowledge_service
     task = knowledge_service.get_parse_task(task_id)
     if not task:
@@ -1434,7 +1044,7 @@ def set_doc_strategy(doc_id: str, request: KnowledgeStrategyUpdate):
 
 @app.post("/api/knowledge/structured/index")
 def build_structured_index(request: KnowledgeStructuredIndexRequest):
-    """构建结构化索引"""
+    """构建结构化索"""
     from docs_core.knowledge_service import knowledge_service
     doc_id = request.doc_id
     library_id = request.library_id
@@ -1461,7 +1071,7 @@ def build_structured_index(request: KnowledgeStructuredIndexRequest):
 
 @app.get("/api/knowledge/evals/datasets")
 def list_knowledge_eval_datasets():
-    """获取知识库评测题库列表。"""
+    """获取知识库评测题库列表"""
     try:
         return {"datasets": _load_knowledge_eval_datasets()}
     except Exception as error:
@@ -1470,7 +1080,7 @@ def list_knowledge_eval_datasets():
 
 @app.get("/api/knowledge/evals/questions")
 def list_knowledge_eval_questions(dataset_id: Optional[str] = None):
-    """获取知识库评测题目列表。"""
+    """获取知识库评测题目列表"""
     try:
         available_datasets = _load_knowledge_eval_datasets()
         return {
@@ -1487,7 +1097,7 @@ def list_knowledge_eval_questions(dataset_id: Optional[str] = None):
 
 @app.post("/api/knowledge/evals/run")
 def run_knowledge_eval_suite(payload: Optional[KnowledgeEvalRunRequest] = None):
-    """执行知识库评测并返回前端可展示的完整结果。"""
+    """执行知识库评测并返回前端可展示的完整结果"""
     try:
         dataset_id = payload.dataset_id if payload else None
         return _build_knowledge_eval_payload(dataset_id=dataset_id)
@@ -1503,7 +1113,7 @@ def get_structured_index(
     keyword: Optional[str] = None,
     limit: int = 200
 ):
-    """查询结构化索引"""
+    """查询结构化索"""
     from docs_core.knowledge_service import knowledge_service
     node = knowledge_service.get_node(doc_id)
     if not node:
@@ -1520,7 +1130,7 @@ def get_structured_index(
 
 @app.get("/api/knowledge/structured/stats/{doc_id}")
 def get_structured_stats(doc_id: str):
-    """获取结构化索引统计"""
+    """获取结构化索引统"""
     from docs_core.knowledge_service import knowledge_service
     node = knowledge_service.get_node(doc_id)
     if not node:
@@ -1531,8 +1141,8 @@ def get_structured_stats(doc_id: str):
 @app.get("/api/knowledge/document/{library_id}/{doc_id}")
 def get_document(library_id: str, doc_id: str):
     """获取文档内容"""
-    from docs_core.ingest.storage.file_store import file_storage
-    from docs_core.ingest.storage.file_store import get_doc_blocks_graph
+    from docs_core.ingest.store.assets_file_store import file_storage
+    from docs_core.ingest.store.assets_file_store import get_doc_blocks_graph
 
     content = file_storage.read_markdown(library_id, doc_id)
     if content is None:
@@ -1552,7 +1162,7 @@ def get_document(library_id: str, doc_id: str):
 def update_document(library_id: str, doc_id: str, request: KnowledgeDocumentUpdate):
     """更新文档内容"""
     from docs_core.knowledge_service import knowledge_service
-    from docs_core.ingest.storage.file_store import file_storage
+    from docs_core.ingest.store.assets_file_store import file_storage
     content = request.content
     saved_path = file_storage.save_edited_markdown(library_id, doc_id, content)
     knowledge_service.update_node(doc_id, updated_at=datetime.now())
@@ -1567,7 +1177,7 @@ def update_document_block(
     request: KnowledgeDocumentBlockUpdate,
 ):
     """更新文档结构节点内容"""
-    from docs_core.ingest.storage.file_store import update_doc_block_content
+    from docs_core.ingest.store.assets_file_store import update_doc_block_content
 
     changes = request.dict(exclude_unset=True)
     try:
@@ -1596,7 +1206,7 @@ def batch_operate_document_blocks(
     request: KnowledgeDocumentBatchBlockOperation,
 ):
     """批量执行文档结构节点操作"""
-    from docs_core.ingest.storage.file_store import batch_operate_doc_blocks
+    from docs_core.ingest.store.assets_file_store import batch_operate_doc_blocks
 
     payload = request.dict(exclude_unset=True)
     try:
@@ -1623,8 +1233,8 @@ def batch_operate_document_blocks(
 
 @app.post("/api/knowledge/document/{library_id}/{doc_id}/blocks/undo")
 def undo_document_block_operation(library_id: str, doc_id: str):
-    """撤回当前文档最近一次可回滚的结构操作"""
-    from docs_core.ingest.storage.file_store import undo_last_doc_block_operation
+    """撤回当前文档最近一次可回滚的结构操"""
+    from docs_core.ingest.store.assets_file_store import undo_last_doc_block_operation
 
     try:
         result = undo_last_doc_block_operation(library_id, doc_id)
@@ -1644,7 +1254,7 @@ def undo_document_block_operation(library_id: str, doc_id: str):
 
 @app.post("/api/knowledge/document/{library_id}/{doc_id}/blocks/merge/undo")
 def undo_document_block_merge(library_id: str, doc_id: str):
-    """兼容旧路由，撤回当前文档最近一次结构操作"""
+    """兼容旧路由，撤回当前文档最近一次结构操"""
     return undo_document_block_operation(library_id, doc_id)
 
 
@@ -1652,7 +1262,7 @@ def undo_document_block_merge(library_id: str, doc_id: str):
 def get_document_storage(library_id: str, doc_id: str):
     """获取文档存储布局"""
     from docs_core.knowledge_service import knowledge_service
-    from docs_core.ingest.storage.file_store import file_storage
+    from docs_core.ingest.store.assets_file_store import file_storage
     node = knowledge_service.get_node(doc_id)
     if not node:
         raise HTTPException(status_code=404, detail="Document not found")
@@ -1661,7 +1271,7 @@ def get_document_storage(library_id: str, doc_id: str):
 
 if __name__ == "__main__":
     import uvicorn
-    # 开发态启用热重载，确保新增路由和服务代码改动能被正在运行的后端拾取。
+    # 开发态启用热重载，确保新增路由和服务代码改动能被正在运行的后端拾取
     uvicorn.run(
         "main:app",
         host="0.0.0.0",

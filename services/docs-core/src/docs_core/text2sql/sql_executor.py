@@ -1,11 +1,11 @@
-"""Text-to-SQL 的 SQL 执行。"""
+"""Text-to-SQL SQL 执行"""
 from pathlib import Path
 from typing import Any, Dict, Optional
 
-from docs_core.ingest.storage.db_store import create_connection, resolve_knowledge_index_db_path
+from docs_core.ingest.store.blocks_sql_store import create_connection, resolve_knowledge_index_db_path
 
 
-# 执行通过校验的只读 SQL，并返回最小结果预览。
+# 执行通过校验的只SQL，并返回最小结果预览
 def execute_sql(sql: str, parameters: tuple[object, ...], db_path: Optional[Path] = None) -> Dict[str, Any]:
     if not sql:
         return {

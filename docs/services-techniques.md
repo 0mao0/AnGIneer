@@ -64,8 +64,8 @@ flowchart LR
 
 - `apps/api-server/knowledge_routes.py`
 - `services/docs-core/src/docs_core/knowledge_service.py`
-- `services/docs-core/src/docs_core/ingest/parser/mineru_parser.py`
-- `services/docs-core/src/docs_core/ingest/storage/canonical_store.py`
+- `services/docs-core/src/docs_core/ingest/extract/mineru_parser.py`
+- `services/docs-core/src/docs_core/ingest/store/canonical_sql_store.py`
 - `services/docs-core/src/docs_core/query/service.py`
 - `services/docs-core/src/docs_core/query/execution_planner.py`
 - `services/docs-core/src/docs_core/executors/content_executor.py`
@@ -140,7 +140,7 @@ flowchart TB
     Parser["mineru_parser\n高保真解析"]
     Storage["document_storage\n一文档一目录与兼容路径"]
     Struct["ingest/canonical + file_store\n当前结构化主链"]
-    CanonicalSql["canonical_store\ncanonical SQLite truth source"]
+    CanonicalSql["canonical_sql_store\ncanonical SQLite truth source"]
     Query["query/*\nintent/planner/service"]
     Executors["executors/*\ncontent/table/formula/sql"]
     Retrieval["retrieval/*\nnormalizer/dense/sparse/hybrid/rerank"]
@@ -283,15 +283,15 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
   - 解析接口改异步任务化，返回 `task_id`。
   - 增加任务进度查询、文档版本、策略切换与统一查询接口。
   - 保持单一 `doc_blocks_graph_v1` 索引构建，调用 `docs_core.ingest.storage.file_store.build_structured_index_for_doc`。
-- `services/docs-core/src/docs_core/ingest/canonical/builder.py`
+- `services/docs-core/src/docs_core/ingest/organize/builder.py`
   - 结构化主链：统一生成 canonical structure，供后续索引与查询链路复用。
-- `services/docs-core/src/docs_core/ingest/storage/db_store.py`
+- `services/docs-core/src/docs_core/ingest/store/blocks_sql_store.py`
   - 承担 `doc_blocks` 与 `document_segments` 主索引的写入、查询与统计。
 - `services/docs-core/src/docs_core/knowledge_service.py`
   - 作为元数据门面，持有 `KnowledgeMetaStore` 与 `KnowledgeIndexStore` 双库访问。
-- `services/docs-core/src/docs_core/ingest/storage/file_store.py`
+- `services/docs-core/src/docs_core/ingest/store/assets_file_store.py`
   - 实现一文档一目录读写 API，并统一 canonical raw path 解析。
-- `services/docs-core/src/docs_core/ingest/parser/mineru_parser.py`
+- `services/docs-core/src/docs_core/ingest/extract/mineru_parser.py`
   - 输出解析产物清单并支持阶段进度回调。
 - `services/engtools/src/engtools/config.py`
   - 统一知识目录解析，支持新旧结构双栈。

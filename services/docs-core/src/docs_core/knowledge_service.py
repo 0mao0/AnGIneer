@@ -1,18 +1,19 @@
-"""知识库服务与仓储门面。"""
+"""知识库服务与仓储门面"""
 from datetime import datetime
+import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel
 
-from docs_core.ingest.canonical.types import (
+from docs_core.ingest.organize.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
     CanonicalTable,
 )
-from docs_core.ingest.storage.canonical_store import CanonicalSQLiteStore
-from docs_core.ingest.storage.db_store import (
+from docs_core.ingest.store.canonical_sql_store import CanonicalSQLiteStore
+from docs_core.ingest.store.blocks_sql_store import (
     KnowledgeIndexStore,
     KnowledgeMetaStore,
     STRUCTURED_DOC_GRAPH_STRATEGY,
@@ -20,9 +21,17 @@ from docs_core.ingest.storage.db_store import (
     resolve_knowledge_index_db_path,
     resolve_knowledge_meta_db_path,
 )
+from docs_core.indexing import (
+    ChromaVectorStore,
+    SQLiteVectorStore,
+    VectorRecord,
+    VectorSearchHit,
+    get_vectorstore_provider_name,
+)
 
 
 SCHEMA_VERSION = "1.0.0"
+logger = logging.getLogger(__name__)
 
 
 class KnowledgeNode(BaseModel):
@@ -90,19 +99,42 @@ class KnowledgeService:
             schema_version=SCHEMA_VERSION,
         )
         self.canonical_store = CanonicalSQLiteStore(db_path=self.index_db_path)
+        self.vector_store = self._create_vector_store()
         self._load_from_db()
         if not self.libraries:
             self.create_library("default", "默认知识库", "系统自动创建的默认知识库")
 
-    # 解析元数据库路径。
+    # 解析元数据库路径
     def _resolve_db_path(self) -> Path:
         return resolve_knowledge_meta_db_path()
 
-    # 解析索引数据库路径。
+    # 解析索引数据库路径
     def _resolve_index_db_path(self) -> Path:
         return resolve_knowledge_index_db_path()
 
-    # 把数据库记录加载为内存对象缓存。
+    # 按配置创建当前默认向量存储实现
+    def _create_vector_store(self):
+        provider_name = get_vectorstore_provider_name()
+        if provider_name == "sqlite":
+            vector_store = SQLiteVectorStore(db_path=self.index_db_path)
+            logger.info("docs_core 启用向量 provider=%s, backend=%s", provider_name, vector_store.__class__.__name__)
+            return vector_store
+        if provider_name == "chroma":
+            try:
+                vector_store = ChromaVectorStore()
+                logger.info("docs_core 启用向量 provider=%s, backend=%s", provider_name, vector_store.__class__.__name__)
+                return vector_store
+            except Exception as exc:
+                logger.warning("docs_core 初始Chroma 失败，回退SQLiteVectorStore: %s", exc)
+                vector_store = SQLiteVectorStore(db_path=self.index_db_path)
+                logger.info("docs_core 启用向量 provider=%s, backend=%s", "sqlite(fallback)", vector_store.__class__.__name__)
+                return vector_store
+        vector_store = SQLiteVectorStore(db_path=self.index_db_path)
+        logger.warning("docs_core 遇到未知向量provider=%s，回退%s", provider_name, vector_store.__class__.__name__)
+        logger.info("docs_core 启用向量 provider=%s, backend=%s", "sqlite(fallback)", vector_store.__class__.__name__)
+        return vector_store
+
+    # 把数据库记录加载为内存对象缓存
     def _load_from_db(self) -> None:
         self.libraries = [
             KnowledgeLibrary(
@@ -152,11 +184,11 @@ class KnowledgeService:
             for row in self.meta_store.list_parse_tasks()
         ]
 
-    # 删除指定节点集合。
+    # 删除指定节点集合
     def _delete_nodes(self, node_ids: List[str]) -> None:
         self.meta_store.delete_nodes(node_ids)
 
-    # 收集节点及其全部后代节点 ID。
+    # 收集节点及其全部后代节点 ID
     def _collect_subtree_node_ids(self, node_id: str) -> List[str]:
         to_delete = {node_id}
         changed = True
@@ -168,7 +200,7 @@ class KnowledgeService:
                     changed = True
         return list(to_delete)
 
-    # 收集指定节点集合中的文档节点。
+    # 收集指定节点集合中的文档节点
     def _collect_document_nodes(self, node_ids: List[str]) -> List[KnowledgeNode]:
         node_id_set = set(node_ids)
         return [
@@ -177,11 +209,11 @@ class KnowledgeService:
             if node.id in node_id_set and node.type == "document"
         ]
 
-    # 清理文档节点关联的存储产物与索引数据。
+    # 清理文档节点关联的存储产物与索引数据
     def _purge_document_artifacts(self, document_nodes: List[KnowledgeNode]) -> None:
         if not document_nodes:
             return
-        from docs_core.ingest.storage.file_store import file_storage
+        from docs_core.ingest.store.assets_file_store import file_storage
 
         doc_ids = [node.id for node in document_nodes]
         self.meta_store.delete_parse_tasks_by_doc_ids(doc_ids)
@@ -191,9 +223,10 @@ class KnowledgeService:
             self.index_store.clear_doc_blocks(node.id)
             self.index_store.clear_doc_block_corrections(node.id)
             self.canonical_store.clear_document(node.id)
+            self.vector_store.clear_document(node.id)
             file_storage.delete_document(node.library_id, node.id)
 
-    # 生成删除节点前的影响范围预览。
+    # 生成删除节点前的影响范围预览
     def get_delete_preview(self, node_id: str) -> Optional[Dict[str, Any]]:
         target = self.get_node(node_id)
         if not target:
@@ -215,7 +248,7 @@ class KnowledgeService:
             "sample_doc_titles": document_titles[:5],
         }
 
-    # 对兄弟节点重新排序。
+    # 对兄弟节点重新排序
     def _normalize_sibling_orders(self, library_id: str, parent_id: Optional[str]) -> None:
         siblings = sorted(
             [node for node in self.nodes if node.library_id == library_id and node.parent_id == parent_id],
@@ -227,32 +260,32 @@ class KnowledgeService:
                 sibling.updated_at = datetime.now()
                 self.meta_store.upsert_node(sibling)
 
-    # 获取知识库列表。
+    # 获取知识库列表
     def list_libraries(self) -> List[KnowledgeLibrary]:
         return self.libraries
 
-    # 创建知识库。
+    # 创建知识库
     def create_library(self, library_id: str, name: str, description: str = "") -> KnowledgeLibrary:
         library = KnowledgeLibrary(id=library_id, name=name, description=description)
         self.libraries.append(library)
         self.meta_store.upsert_library(library)
         return library
 
-    # 获取知识库。
+    # 获取知识库
     def get_library(self, library_id: str) -> Optional[KnowledgeLibrary]:
         for library in self.libraries:
             if library.id == library_id:
                 return library
         return None
 
-    # 获取知识库节点列表。
+    # 获取知识库节点列表
     def list_nodes(self, library_id: str, visible: bool = False) -> List[KnowledgeNode]:
         nodes = [node for node in self.nodes if node.library_id == library_id]
         if visible:
             nodes = [node for node in nodes if node.visible]
         return sorted(nodes, key=lambda node: (node.sort_order, node.created_at))
 
-    # 创建节点。
+    # 创建节点
     def create_node(self, node: KnowledgeNode) -> KnowledgeNode:
         sibling_orders = [
             item.sort_order for item in self.nodes if item.library_id == node.library_id and item.parent_id == node.parent_id
@@ -265,7 +298,7 @@ class KnowledgeService:
         self.meta_store.upsert_node(node)
         return node
 
-    # 按文件路径注册文档节点。
+    # 按文件路径注册文档节点
     def register_document(
         self,
         library_id: str,
@@ -291,7 +324,7 @@ class KnowledgeService:
         )
         return self.create_node(node)
 
-    # 更新节点。
+    # 更新节点
     def update_node(self, node_id: str, **kwargs: Any) -> Optional[KnowledgeNode]:
         for node in self.nodes:
             if node.id != node_id:
@@ -319,7 +352,7 @@ class KnowledgeService:
             return node
         return None
 
-    # 删除节点。
+    # 删除节点
     def delete_node(self, node_id: str) -> bool:
         if node_id not in {node.id for node in self.nodes}:
             return False
@@ -334,14 +367,14 @@ class KnowledgeService:
             self._normalize_sibling_orders(target.library_id, target.parent_id)
         return True
 
-    # 获取节点。
+    # 获取节点
     def get_node(self, node_id: str) -> Optional[KnowledgeNode]:
         for node in self.nodes:
             if node.id == node_id:
                 return node
         return None
 
-    # 创建解析任务。
+    # 创建解析任务
     def create_parse_task(self, task_id: str, library_id: str, doc_id: str) -> ParseTask:
         now = datetime.now()
         task = ParseTask(
@@ -358,14 +391,14 @@ class KnowledgeService:
         self.meta_store.upsert_parse_task(task)
         return task
 
-    # 获取解析任务。
+    # 获取解析任务
     def get_parse_task(self, task_id: str) -> Optional[ParseTask]:
         for task in self.parse_tasks:
             if task.id == task_id:
                 return task
         return None
 
-    # 更新解析任务。
+    # 更新解析任务
     def update_parse_task(self, task_id: str, **kwargs: Any) -> Optional[ParseTask]:
         task = self.get_parse_task(task_id)
         if not task:
@@ -377,11 +410,11 @@ class KnowledgeService:
         self.meta_store.upsert_parse_task(task)
         return task
 
-    # 删除文档结构化片段。
+    # 删除文档结构化片段
     def clear_document_segments(self, doc_id: str, strategy: Optional[str] = None) -> int:
         return self.index_store.clear_document_segments(doc_id, strategy)
 
-    # 保存文档结构化片段。
+    # 保存文档结构化片段
     def save_document_segments(
         self,
         doc_id: str,
@@ -391,7 +424,7 @@ class KnowledgeService:
     ) -> int:
         return self.index_store.save_document_segments(doc_id, library_id, strategy, items)
 
-    # 查询文档结构化片段。
+    # 查询文档结构化片段
     def list_document_segments(
         self,
         doc_id: str,
@@ -408,19 +441,54 @@ class KnowledgeService:
             limit=limit,
         )
 
-    # 统计文档结构化片段。
+    # 统计文档结构化片段
     def get_document_segment_stats(self, doc_id: str) -> Dict[str, Any]:
         return self.index_store.get_document_segment_stats(doc_id)
 
-    # 保存整份 canonical document 到 SQLite 真相源。
+    # 保存整份 canonical document SQLite 真相源
     def save_canonical_document(self, document: CanonicalDocument) -> Dict[str, int]:
-        return self.canonical_store.save_document(document)
+        from docs_core.indexing import build_vector_records
 
-    # 读取整份 canonical document。
+        stats = self.canonical_store.save_document(document)
+        self.vector_store.clear_document(document.doc_id)
+        vector_records = build_vector_records(document)
+        if vector_records:
+            self.vector_store.upsert_records(vector_records)
+        return stats
+
+    # 读取整份 canonical document
     def get_canonical_document(self, doc_id: str) -> Optional[CanonicalDocument]:
         return self.canonical_store.get_document(doc_id)
 
-    # 查询 canonical chunks。
+    # 清理指定文档的向量索引
+    def clear_document_vectors(self, doc_id: str, entity_types: Optional[List[str]] = None) -> int:
+        return self.vector_store.clear_document(doc_id, entity_types)
+
+    # 保存文档向量索引记录
+    def save_document_vectors(self, records: List[VectorRecord]) -> int:
+        return self.vector_store.upsert_records(records)
+
+    # 查询向量索引命中
+    def search_document_vectors(
+        self,
+        query_embedding: List[float],
+        *,
+        doc_ids: Optional[List[str]] = None,
+        entity_types: Optional[List[str]] = None,
+        top_k: int = 10,
+    ) -> List[VectorSearchHit]:
+        return self.vector_store.search(
+            query_embedding,
+            doc_ids=doc_ids,
+            entity_types=entity_types,
+            top_k=top_k,
+        )
+
+    # 获取单文档向量索引统计
+    def get_document_vector_stats(self, doc_id: str) -> Dict[str, Any]:
+        return self.vector_store.get_document_stats(doc_id)
+
+    # 查询 canonical chunks
     def list_canonical_chunks(
         self,
         doc_id: str,
@@ -435,7 +503,7 @@ class KnowledgeService:
             limit=limit,
         )
 
-    # 查询 canonical blocks。
+    # 查询 canonical blocks
     def list_canonical_blocks(
         self,
         doc_id: str,
@@ -450,7 +518,7 @@ class KnowledgeService:
             limit=limit,
         )
 
-    # 查询 canonical tables。
+    # 查询 canonical tables
     def list_canonical_tables(
         self,
         doc_id: str,

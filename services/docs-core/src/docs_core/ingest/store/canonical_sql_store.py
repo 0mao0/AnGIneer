@@ -1,11 +1,11 @@
-"""Canonical schema 的 SQLite 持久化实现。"""
+"""Canonical schema SQLite 持久化实现"""
 import json
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable, List, Optional
 
-from docs_core.ingest.canonical.types import (
+from docs_core.ingest.organize.types import (
     BoundingBox,
     CanonicalBlock,
     CanonicalChunk,
@@ -15,15 +15,15 @@ from docs_core.ingest.canonical.types import (
     CanonicalTable,
     CitationTarget,
 )
-from docs_core.ingest.storage.db_store import create_connection, resolve_knowledge_index_db_path
+from docs_core.ingest.store.blocks_sql_store import create_connection, resolve_knowledge_index_db_path
 
 
-# 统一序列化任意 JSON 字段。
+# 统一序列化任JSON 字段
 def _dump_json(payload: object) -> str:
     return json.dumps(payload, ensure_ascii=False)
 
 
-# 统一反序列化任意 JSON 字段。
+# 统一反序列化任意 JSON 字段
 def _load_json(payload: Optional[str], default: object) -> object:
     if not payload:
         return default
@@ -33,14 +33,14 @@ def _load_json(payload: Optional[str], default: object) -> object:
         return default
 
 
-# 统一序列化 bbox 对象。
+# 统一序列bbox 对象
 def _dump_bbox(bbox: Optional[BoundingBox]) -> Optional[str]:
     if bbox is None:
         return None
     return _dump_json(bbox.model_dump(mode="json"))
 
 
-# 统一反序列化 bbox 对象。
+# 统一反序列化 bbox 对象
 def _load_bbox(payload: Optional[str]) -> Optional[BoundingBox]:
     data = _load_json(payload, None)
     if not isinstance(data, dict):
@@ -49,17 +49,17 @@ def _load_bbox(payload: Optional[str]) -> Optional[BoundingBox]:
 
 
 class CanonicalSQLiteStore:
-    """把 canonical document 持久化到 knowledge_index.sqlite。"""
+    """canonical document 持久化到 knowledge_index.sqlite"""
 
     def __init__(self, db_path: Optional[Path] = None) -> None:
         self.db_path = db_path or resolve_knowledge_index_db_path()
         self.init_schema()
 
-    # 打开 canonical SQLite 连接。
+    # 打开 canonical SQLite 连接
     def connect(self):
         return create_connection(self.db_path)
 
-    # 初始化 canonical 相关表结构。
+    # 初始canonical 相关表结构
     def init_schema(self) -> None:
         with self.connect() as conn:
             conn.execute(
@@ -200,7 +200,7 @@ class CanonicalSQLiteStore:
             )
             conn.commit()
 
-    # 清理单个文档的全部 canonical 持久化数据。
+    # 清理单个文档的全canonical 持久化数据
     def clear_document(self, doc_id: str) -> None:
         with self.connect() as conn:
             conn.execute("DELETE FROM canonical_citation_targets WHERE doc_id = ?", (doc_id,))
@@ -212,7 +212,7 @@ class CanonicalSQLiteStore:
             conn.execute("DELETE FROM canonical_documents WHERE doc_id = ?", (doc_id,))
             conn.commit()
 
-    # 持久化整份 canonical document。
+    # 持久化整canonical document
     def save_document(self, document: CanonicalDocument) -> dict[str, int]:
         now = datetime.now(timezone.utc).isoformat()
         created_at = document.created_at or now
@@ -400,7 +400,7 @@ class CanonicalSQLiteStore:
             "citations": len(citation_rows),
         }
 
-    # 读取整份 canonical document。
+    # 读取整份 canonical document
     def get_document(self, doc_id: str) -> Optional[CanonicalDocument]:
         with self.connect() as conn:
             document_row = conn.execute(
@@ -567,7 +567,7 @@ class CanonicalSQLiteStore:
             ],
         )
 
-    # 查询 canonical chunks，供 retrieval 主链直接消费。
+    # 查询 canonical chunks，供 retrieval 主链直接消费
     def list_chunks(
         self,
         doc_id: str,
@@ -618,7 +618,7 @@ class CanonicalSQLiteStore:
             for row in rows
         ]
 
-    # 查询 canonical blocks，供 debug 与 fallback 检索使用。
+    # 查询 canonical blocks，供 debug fallback 检索使用
     def list_blocks(
         self,
         doc_id: str,
@@ -665,7 +665,7 @@ class CanonicalSQLiteStore:
             for row in rows
         ]
 
-    # 查询 canonical tables，供后续 table-aware retrieval 与 schema lookup 使用。
+    # 查询 canonical tables，供后续 table-aware retrieval schema lookup 使用
     def list_tables(
         self,
         doc_id: str,

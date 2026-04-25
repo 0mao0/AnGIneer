@@ -397,8 +397,8 @@ services/docs-core/
 │       │   └── reference/           # 引用增强
 │       │       └── indexer.py           # 引用索引
 │       │
-│       ├── ingest/storage/      # 存储层
-│       │   ├── canonical_store.py   # canonical SQLite 真相源
+│       ├── ingest/store/      # 存储层
+│       │   ├── sqlite_store.py      # canonical SQLite 真相源
 │       │   ├── db_store.py          # 元数据与索引存储
 │       │   └── file_store.py        # 文件存储
 │       │

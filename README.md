@@ -112,53 +112,60 @@ ResourceAdapter(project/knowledge/sop)
 admin-console 与 web-console 共享同一套 KnowledgeTree / KnowledgeChatPanel / SOPTree / SOPChatPanel / 资源适配协议，基础 SmartTree / BaseChat 下沉至 ui-kit
 ```
 
-### 2.3 文档解析与对比查改架构（当前实现）
+### 2.3 AnGIneer-Core主调度模块 
+  逻辑：负责用户请求的路由、任务调度与协调。逻辑架构如下：
 
+
+### 2.4 AnGIneer-Dcos知识库模块
+（1）模块截图：
 ![文档解析模块架构](./docs/Angineer-DocParseModule.png)
 
-```text
-Admin B区（文档生命周期）
-  -> 未解析（原文预览 + 解析 + 共享）
-  -> 解析中（任务进度可视化）
-  -> 已解析（B1原文 + B2 Markdown可编辑）
-  -> 结构化主链（doc_blocks_graph_v1）
+（2）逻辑架构
+```mermaid
+flowchart TB
+  User["用户检索\n web-console / admin-console"]
+  Query["检索入口\n apps/api-server / query / executors"]
+  Retrieval["检索方法\n keyword / dense / hybrid / text2sql"]
+  DualDB["双库构建\n knowledge_meta.sqlite + knowledge_index.sqlite"]
+  Parse["文档解析（MinerU）\n mineru_parser -> builder -> canonical_sql_store"]
+  Upload["文件上传\n source / parsed / edited / structured"]
+
+  User --> Query
+  Query --> Retrieval
+  Retrieval --> DualDB
+  DualDB --> Parse
+  Parse --> Upload
 ```
 
-```text
-docs-core 后端实现
-  -> parser: 对接 MinerU，输出原始解析结果目录
-  -> structured: 完成结构化构建、索引落盘与文档存储
-  -> knowledge_service.py: 提供知识库元数据与索引服务门面
-  -> query/: 负责规则型问题理解、意图解析与执行规划
-  -> executors/: 已接入 content/table/formula/sql 四类最小执行链
-  -> retrieval/: 当前为 canonical SQLite 上的启发式 dense/sparse/hybrid 召回
-  -> answering/: 当前以证据片段选择 + 模板回答 + 引用构造为主
-  -> text2sql/: 已接入最小只读计数类链路
-  -> evals/: 已有 retrieval / answer / text2sql 评测模块与 API 入口
-```
+（3）开发路线图
+状态：`已完成` / `进行中` / `未开始` / `待评估`
 
-```text
-存储规范（One Doc One Folder）
-data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
-  source/ + parsed(content.md / mineru_raw / doc_blocks_graph.json) + edited/ + structured/
-  (版本化: 基于 SCHEMA_VERSION 追踪解析产物结构一致性)
-```
+| 阶段 | 子任务 | 进度 |
+|:---|:---|:---|
+| P0 文档收敛 | README、`apps-techniques`、`services-techniques` 对齐真实实现 | 已完成 |
+| P0 文档收敛 | `docs-ui` 未接线 API / composable 盘点 | 已确认，待清理 |
+| P1 检索基础 | `docs_core/indexing` 重构落地 | 已完成 |
+| P1 检索基础 | DashScope embedding + hash fallback | 已完成 |
+| P1 检索基础 | Chroma / SQLite vector store 切换 | 已完成 |
+| P1 检索基础 | chunk / table / formula / schema 向量索引产出 | 已完成 |
+| P1 检索基础 | `dense_retriever` 改为真实向量召回 | 已完成 |
+| P1 检索基础 | 召回质量调优、ANN 参数、dense+sparse 融合 | 进行中 |
+| P2 复合问答 | Query Decomposition | 未开始 |
+| P2 复合问答 | 多路子查询规划 | 未开始 |
+| P2 复合问答 | `synthesis_executor` | 未开始 |
+| P2 复合问答 | 多证据拼装回答 | 未开始 |
+| P3 Text-to-SQL | 单表聚合 / 过滤 / 排序 | 未开始 |
+| P3 Text-to-SQL | SQL 校验与白名单增强 | 未开始 |
+| P4 评测平台 | 评测结果持久化 | 未开始 |
+| P4 评测平台 | 回放与 A/B 对比 | 未开始 |
+| P5 策略平面 | A/B/C 多策略是否保留 | 待评估 |
 
-```text
-数据库拆分（docs-core）
-  -> knowledge_meta.sqlite: libraries / nodes / parse_tasks 等元数据
-  -> knowledge_index.sqlite: canonical_documents / doc_blocks / document_segments 等索引数据
-  -> 仅保留双库：运行时与离线流程统一使用上述两库
-```
 
-```text
-尚未完全落地的能力
-  -> 真正的 embedding / vector retrieval
-  -> A/B/C 多策略检索运行面
-  -> synthesis executor 多证据综合链
-  -> 复杂聚合 / 排序 / 多表 Text-to-SQL
-  -> 评测回放、A/B 对比与长期基线沉淀
-```
+### 2.5 AnGIneer-SOPs经验库模块
+  暂未开发，计划v0.2完成
+
+### 2.6 AnGIneer-GeoWorld世界模型模块
+  暂未开发，计划v0.3完成
 
 ---
 

@@ -153,8 +153,8 @@ flows:
       - GET /api/knowledge/document/{library_id}/{doc_id}/structured
     anchors:
       - apps/api-server/knowledge_routes.py
-      - services/docs-core/src/docs_core/ingest/parser/mineru_parser.py
-      - services/docs-core/src/docs_core/ingest/storage/file_store.py
+      - services/docs-core/src/docs_core/ingest/extract/mineru_parser.py
+      - services/docs-core/src/docs_core/ingest/store/assets_file_store.py
       - services/docs-core/src/docs_core/knowledge_service.py
 
   - id: docs-query-runtime

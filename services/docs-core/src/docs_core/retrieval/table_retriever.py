@@ -2,8 +2,8 @@
 import re
 from typing import Iterable, List, Sequence
 
-from docs_core.ingest.canonical.types import CanonicalTable
-from docs_core.ingest.structured.table_semantics import (
+from docs_core.ingest.organize.types import CanonicalTable
+from docs_core.ingest.normalize.table_semantics import (
     TABLE_TYPE_HYBRID,
     TABLE_TYPE_MAPPING_ENUM,
     TABLE_TYPE_NUMERIC_DENSE,

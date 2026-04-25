@@ -397,7 +397,7 @@ flowchart TB
   - 当前仓库中尚未形成 A/B/C 三类独立 projection 模块，仍以 `ingest/canonical`、`ingest/structured`、`ingest/storage/file_store.py` 为主链实现。
 - `services/docs-core/src/docs_core/index/doc_block_store.py`
   - 抽离 `doc_blocks` 索引写入、查询、统计，避免与文件存储职责混放。
-- `services/docs-core/src/docs_core/parser/mineru_parser.py`
+- `services/docs-core/src/docs_core/ingest/extract/mineru_parser.py`
   - 保留 MinerU 解析能力，补充任务阶段回调（若 SDK 无实时进度则用阶段进度）。
   - 增加解析产物清单返回（md、assets、metadata）。
 - `services/docs-core/src/docs_core/storage/document_storage.py`
