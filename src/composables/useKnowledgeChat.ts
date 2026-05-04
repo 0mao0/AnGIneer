@@ -4,28 +4,43 @@
  */
 import { ref } from 'vue'
 import { generateMessageId, estimateTokens } from '../utils/common'
+import type { CitationRichMedia } from '@angineer/ui-kit'
 
-// 消息角色类型
 export type KnowledgeChatMessageRole = 'user' | 'assistant' | 'system'
 
-// 聊天消息类型
+export interface KnowledgeChatCitation {
+  target_id: string
+  target_type?: string
+  doc_id: string
+  doc_title: string
+  page_idx: number
+  section_path: string
+  snippet: string
+  content?: string
+  content_type?: string
+  score: number
+  rich_media?: CitationRichMedia
+}
+
 export interface KnowledgeChatMessage {
   id?: string
   role: KnowledgeChatMessageRole
   content: string
   timestamp?: number
   queryChain?: string
-  // 多模态预留：图片列表
   images?: string[]
-  citations?: Array<{
-    target_id: string
-    doc_id: string
-    doc_title: string
-    page_idx: number
-    section_path: string
-    snippet: string
+  citations?: KnowledgeChatCitation[]
+  strategy?: string
+  task_type?: string
+  confidence?: number
+  retrieved_items?: Array<{
+    item_id: string
+    entity_type: string
+    text: string
     score: number
+    metadata?: Record<string, any>
   }>
+  debug?: Record<string, any>
 }
 
 /**
@@ -82,13 +97,19 @@ export interface KnowledgeChatResponse {
     page_idx: number
     section_path: string
     snippet: string
+    content?: string
+    content_type?: string
     score: number
+    rich_media?: CitationRichMedia
   }>
   retrieved_items?: Array<{
     item_id: string
     entity_type: string
+    doc_id: string
+    title: string
     text: string
     score: number
+    metadata?: Record<string, any>
   }>
   sql?: {
     generated_sql: string
@@ -227,7 +248,8 @@ export function useKnowledgeChat(options?: {
   const sendMessage = async (
     content: string,
     _model?: string,
-    onChunk?: (chunk: string) => void
+    onChunk?: (chunk: string) => void,
+    options?: { includeDebug?: boolean; includeRetrieved?: boolean }
   ): Promise<void> => {
     if (!content.trim() || loading.value) return
 
@@ -256,8 +278,8 @@ export function useKnowledgeChat(options?: {
       library_id: options?.libraryId || 'default',
       doc_ids: contextItems.map(item => item.id),
       mode: 'auto',
-      include_debug: false,
-      include_retrieved: false
+      include_debug: options?.includeDebug ?? false,
+      include_retrieved: options?.includeRetrieved ?? false
     }
 
     // 创建 AbortController 用于取消请求
@@ -299,13 +321,22 @@ export function useKnowledgeChat(options?: {
         queryChain: buildQueryChain(payload),
         citations: citations.map(citation => ({
           target_id: citation.target_id,
+          target_type: citation.target_type,
           doc_id: citation.doc_id,
           doc_title: citation.doc_title,
           page_idx: citation.page_idx,
           section_path: citation.section_path,
           snippet: citation.snippet,
-          score: citation.score
-        }))
+          content: citation.content,
+          content_type: citation.content_type,
+          score: citation.score,
+          rich_media: citation.rich_media
+        })),
+        strategy: payload.strategy,
+        task_type: payload.task_type,
+        confidence: payload.confidence,
+        retrieved_items: payload.retrieved_items,
+        debug: payload.debug
       })
       currentStreamContent.value = ''
     } catch (error) {

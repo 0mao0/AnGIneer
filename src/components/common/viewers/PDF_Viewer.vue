@@ -1192,17 +1192,32 @@ const getHighlightTypeLabel = (type?: string) => {
   }
   return labelMap[normalizedType] || normalizedType.replace(/[_-]+/g, ' ').trim()
 }
-const getPageHighlights = (page: number) => {
-  if (!props.isPdf || !props.highlightLinkEnabled) return []
-  // 核心逻辑：只有当该页面的坐标度量（Metrics）已经测量完成，高亮位置才是准确的
-  if (!renderedPageMetrics.value[page]) return []
-  return props.highlights
-    .filter(h => h.page === page && h.hasRect !== false)
-    .sort((left, right) => {
+const highlightsByPage = computed(() => {
+  if (!props.isPdf || !props.highlightLinkEnabled) return new Map<number, LinkedHighlight[]>()
+  const map = new Map<number, LinkedHighlight[]>()
+  for (const h of props.highlights) {
+    if (h.hasRect === false) continue
+    let list = map.get(h.page)
+    if (!list) {
+      list = []
+      map.set(h.page, list)
+    }
+    list.push(h)
+  }
+  for (const [, list] of map) {
+    list.sort((left, right) => {
       const leftArea = (left.width || 0) * (left.height || 0)
       const rightArea = (right.width || 0) * (right.height || 0)
       return rightArea - leftArea
     })
+  }
+  return map
+})
+
+const getPageHighlights = (page: number) => {
+  if (!props.isPdf || !props.highlightLinkEnabled) return []
+  if (!renderedPageMetrics.value[page]) return []
+  return highlightsByPage.value.get(page) || []
 }
 
 // --- Watchers ---

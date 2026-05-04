@@ -459,7 +459,16 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   const activeLinkedItemId = ref<string | null>(null)
   const activeLinkedHighlightOverrideId = ref<string | null>(null)
   const highlightLinkEnabled = ref(true)
-  const middleMarkdownLines = computed(() => options.markdownContent.value.split('\n'))
+  let cachedMarkdownContent = ''
+  let cachedMarkdownLines: string[] = []
+  const middleMarkdownLines = computed(() => {
+    const content = options.markdownContent.value
+    if (content !== cachedMarkdownContent) {
+      cachedMarkdownContent = content
+      cachedMarkdownLines = content.split('\n')
+    }
+    return cachedMarkdownLines
+  })
   const showHighlightToggle = computed(() => (options.graphData.value?.nodes || []).length > 0)
   const isDocumentPreviewActive = computed(() => isDocumentPreviewTab(options.activeTab.value))
 
@@ -504,6 +513,8 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
       || options.activeTab.value === 'Preview_IndexGraph'
     const nodes = options.graphData.value?.nodes || []
     const baseRows = options.graphData.value?.stats?.base_rows || []
+    const hasBboxData = nodes.length > 0 && nodes.some(node => node.bbox || node.merged_bboxes)
+    if (!hasBboxData) return []
     const baseRowByUid = new Map<string, Record<string, any>>()
     baseRows.forEach((row) => {
       const rowId = String(row.block_uid || row.id || '').trim()

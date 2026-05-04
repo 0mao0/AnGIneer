@@ -186,7 +186,8 @@ onMounted(() => {
 defineExpose({
   messages,
   clearMessages,
-  sendMessage: handleSend,
+  sendMessage,
+  handleSend,
   clearComposer: () => baseChatRef.value?.clearComposer?.()
 })
 </script>

@@ -2,14 +2,23 @@
   <div
     ref="rootRef"
     class="markdown-preview"
-    v-html="renderedMarkdown"
     @click="onHtmlPreviewClick"
-  />
+  >
+    <div ref="visibleRef" class="markdown-visible" v-html="visibleHtml" />
+    <div
+      v-if="remainingCount > 0"
+      class="markdown-remaining-hint"
+    >
+      加载中... ({{ renderedCount }}/{{ totalBlocks }})
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { nextTick, ref, watch } from 'vue'
+import { nextTick, ref, watch, computed, onBeforeUnmount } from 'vue'
 import { toValidLine } from '../../../utils/common'
+
+const CHUNK_SIZE = 80
 
 const props = defineProps<{
   renderedMarkdown: string
@@ -21,6 +30,82 @@ const emit = defineEmits<{
 }>()
 
 const rootRef = ref<HTMLElement | null>(null)
+const visibleRef = ref<HTMLElement | null>(null)
+
+const allBlocks = ref<string[]>([])
+const renderedChunkCount = ref(0)
+let idleCallbackId: number | null = null
+
+const totalBlocks = computed(() => allBlocks.value.length)
+const renderedCount = computed(() => Math.min(renderedChunkCount.value * CHUNK_SIZE, totalBlocks.value))
+const remainingCount = computed(() => totalBlocks.value - renderedCount.value)
+
+const visibleHtml = computed(() => {
+  const end = renderedChunkCount.value * CHUNK_SIZE
+  return allBlocks.value.slice(0, end).join('\n')
+})
+
+const splitIntoBlocks = (html: string): string[] => {
+  if (!html) return []
+  const blockRegex = /(<(?:h[1-6]|p|pre|table|ul|ol|blockquote|div\.math-block|div\.media-table|div\.media-image|div\.media-formula)[^>]*>[\s\S]*?<\/(?:h[1-6]|p|pre|table|ul|ol|blockquote|div)>)/gi
+  const blocks: string[] = []
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+  while ((match = blockRegex.exec(html)) !== null) {
+    if (match.index > lastIndex) {
+      const between = html.slice(lastIndex, match.index).trim()
+      if (between) blocks.push(between)
+    }
+    blocks.push(match[1])
+    lastIndex = match.index + match[1].length
+  }
+  if (lastIndex < html.length) {
+    const remaining = html.slice(lastIndex).trim()
+    if (remaining) blocks.push(remaining)
+  }
+  return blocks
+}
+
+const scheduleChunkedRender = () => {
+  if (idleCallbackId !== null) {
+    cancelIdleCallback(idleCallbackId)
+    idleCallbackId = null
+  }
+  const maxChunks = Math.ceil(allBlocks.value.length / CHUNK_SIZE)
+  const renderNextChunk = () => {
+    if (renderedChunkCount.value >= maxChunks) {
+      idleCallbackId = null
+      return
+    }
+    renderedChunkCount.value += 1
+    if (renderedChunkCount.value < maxChunks) {
+      idleCallbackId = requestIdleCallback(renderNextChunk, { timeout: 100 })
+    } else {
+      idleCallbackId = null
+    }
+  }
+  idleCallbackId = requestIdleCallback(renderNextChunk, { timeout: 50 })
+}
+
+watch(() => props.renderedMarkdown, (html) => {
+  if (idleCallbackId !== null) {
+    cancelIdleCallback(idleCallbackId)
+    idleCallbackId = null
+  }
+  const blocks = splitIntoBlocks(html)
+  allBlocks.value = blocks
+  renderedChunkCount.value = blocks.length <= CHUNK_SIZE * 2 ? Math.ceil(blocks.length / CHUNK_SIZE) : 2
+  if (blocks.length > CHUNK_SIZE * 2) {
+    scheduleChunkedRender()
+  }
+}, { immediate: true })
+
+onBeforeUnmount(() => {
+  if (idleCallbackId !== null) {
+    cancelIdleCallback(idleCallbackId)
+    idleCallbackId = null
+  }
+})
 
 const onHtmlPreviewClick = (event: MouseEvent) => {
   const target = event.target as HTMLElement | null
@@ -62,7 +147,7 @@ watch(() => props.activeLineRange, () => {
   requestAnimationFrame(syncActiveLineHighlight)
 }, { immediate: true })
 
-watch(() => props.renderedMarkdown, async () => {
+watch(visibleHtml, async () => {
   await nextTick()
   syncActiveLineHighlight()
 })
@@ -83,6 +168,13 @@ watch(() => props.renderedMarkdown, async () => {
   padding: 12px 14px;
   color: var(--dp-title-text);
   line-height: 1.7;
+}
+
+.markdown-remaining-hint {
+  text-align: center;
+  padding: 12px;
+  color: var(--dp-sub-text);
+  font-size: 12px;
 }
 
 .markdown-preview :deep(h1),

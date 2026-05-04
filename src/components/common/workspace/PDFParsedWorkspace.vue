@@ -76,13 +76,16 @@ interface Props {
   structuredStats?: StructuredStats
   darkMode?: boolean
   graphData?: { nodes: any[]; edges: any[] } | null
+  graphDataFullLoaded?: boolean
   onUpdateStructuredNode?: (payload: StructuredNodeUpdatePayload) => Promise<void>
   onBatchStructuredOperation?: (payload: StructuredBatchOperationPayload) => Promise<void>
   onUndoLastOperation?: () => Promise<void>
+  onLoadFullGraphData?: () => Promise<void>
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  darkMode: false
+  darkMode: false,
+  graphDataFullLoaded: false
 })
 
 defineEmits<PDFParsedWorkspaceEventMap>()
@@ -176,6 +179,21 @@ watch(() => props.node.key, () => {
 watch(() => props.graphData?.nodes?.length || 0, (count, previousCount) => {
   if (count > 0 && previousCount === 0 && activeTab.value === 'Preview_IndexList') {
     activeTab.value = 'Preview_IndexTree'
+  }
+})
+
+watch(
+  [isPdf, () => props.graphData?.nodes?.length || 0, () => props.graphDataFullLoaded],
+  ([pdfMode, graphNodeCount, fullLoaded]) => {
+    if (!pdfMode || graphNodeCount <= 0 || fullLoaded || !props.onLoadFullGraphData) return
+    props.onLoadFullGraphData()
+  },
+  { immediate: true }
+)
+
+watch(activeTab, (tab) => {
+  if ((tab === 'Preview_IndexTree' || tab === 'Preview_IndexGraph') && !props.graphDataFullLoaded && props.onLoadFullGraphData) {
+    props.onLoadFullGraphData()
   }
 })
 
