@@ -13,23 +13,21 @@ export { useKnowledgeTree, type KnowledgeTreeNode, type UploadTask } from './use
 export { useSopTree, type SOPTreeNode } from './useSopTree'
 export {
   useKnowledgeChat,
+  buildSessionKey,
+  getSessionSnapshot,
+  getActiveSessionKeys,
+  removeSession,
+  clearSessionPool,
   type KnowledgeChatMessage,
   type KnowledgeChatMessageRole,
   type KnowledgeChatRequest,
-  type KnowledgeChatStreamEvent,
-  type KnowledgeChatStreamEventType,
-  type KnowledgeChatContextConfig
+  type KnowledgeChatResponse,
+  type QueryRequest,
+  type QueryResponse,
+  type KnowledgeChatContextConfig,
+  type SessionKey,
+  type SessionSnapshot,
 } from './useKnowledgeChat'
-export {
-  useSopChat,
-  type SopChatMessage,
-  type SopChatMessageRole,
-  type SopChatRequest,
-  type SopChatStreamEvent,
-  type SopChatStreamEventType,
-  type SopChatContextConfig,
-  type UseSopChatOptions
-} from './useSopChat'
 export {
   useDocBlocksGraph,
   type ViewMode,
