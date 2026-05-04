@@ -35,6 +35,7 @@ sys.path.append(os.path.join(SERVICES_DIR, "sop-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "docs-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "geo-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "engtools", "src"))
+sys.path.append(os.path.join(SERVICES_DIR, "evals-core", "src"))
 
 # Import logic from packages
 from ai_inference.llm_client import LLMClient
@@ -47,6 +48,7 @@ from engtools import *
 import geo_core.GisTool
 import engtools.KnowledgeTool
 from knowledge_routes import knowledge_router, preview_router
+from evals_routes import evals_router
 
 app = FastAPI(title="AnGIneer API Bridge")
 
@@ -74,6 +76,7 @@ async def global_exception_handler(request, exc):
 # Mount sub-routers
 app.include_router(knowledge_router, prefix="/api/knowledge", tags=["Knowledge"])
 app.include_router(preview_router, prefix="/api", tags=["Preview"])
+app.include_router(evals_router, prefix="/api/evals", tags=["Evals"])
 
 # Initialize SOP Loader
 SOP_DIR = os.path.join(ROOT_DIR, "data", "sops", "raw")
