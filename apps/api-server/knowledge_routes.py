@@ -60,6 +60,13 @@ class DocBlocksGraphRequest(BaseModel):
     doc_id: str
 
 
+class DocBlocksGraphSummaryRequest(BaseModel):
+    """文档块图谱摘要请求，仅返回树结构骨架不含 bbox/stats"""
+
+    library_id: str
+    doc_id: str
+
+
 class KnowledgeRetrieveRequest(BaseModel):
     """知识检索调试请求"""
 
@@ -302,6 +309,41 @@ async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str,
         raise HTTPException(status_code=500, detail=str(error))
 
 
+# 获取文档块图谱的轻量摘要，仅含树结构骨架
+@knowledge_router.post("/parse/doc-blocks-graph-summary")
+async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) -> Dict[str, Any]:
+    try:
+        graph = get_doc_blocks_graph(request.library_id, request.doc_id)
+        if not graph:
+            raise HTTPException(status_code=404, detail="Graph data not found. Please run structured-index first.")
+        light_nodes = []
+        heavy_keys = {
+            "bbox", "merged_bboxes", "caption_bboxes", "footnote_bboxes",
+            "content_json", "rich_media_order", "image_paths",
+            "table_html", "math_content",
+        }
+        for node in graph.get("nodes", []):
+            light_node = {k: v for k, v in node.items() if k not in heavy_keys}
+            light_nodes.append(light_node)
+        summary = {
+            "nodes": light_nodes,
+            "edges": graph.get("edges", []),
+        }
+        stats = graph.get("stats")
+        if stats:
+            summary["stats"] = {
+                "base_rows": [
+                    {k: v for k, v in row.items() if k not in heavy_keys}
+                    for row in stats.get("base_rows", [])
+                ],
+            }
+        return {"status": "success", "data": summary}
+    except HTTPException:
+        raise
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=str(error))
+
+
 # 执行统一知识查询，按路由返回证据化答案
 @knowledge_router.post("/query", response_model=KnowledgeQueryResponse)
 async def query_knowledge(request: KnowledgeQueryRequest) -> KnowledgeQueryResponse:
@@ -374,6 +416,7 @@ def get_file_for_preview(path: str):
 
 __all__ = [
     "DocBlocksGraphRequest",
+    "DocBlocksGraphSummaryRequest",
     "KnowledgeParseRequest",
     "KnowledgeStructuredIndexRequest",
     "ParseOrchestrator",
@@ -383,6 +426,7 @@ __all__ = [
     "query_knowledge",
     "retrieve_knowledge",
     "get_doc_blocks_graph_view",
+    "get_doc_blocks_graph_summary",
     "get_file_for_preview",
     "get_parse_status",
     "knowledge_router",

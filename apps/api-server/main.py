@@ -179,7 +179,10 @@ def _load_knowledge_eval_datasets() -> List[Dict[str, Any]]:
 
 
 # 组装知识库评测运行结果，便于前端直接展示逐题状态与汇总分数
-def _build_knowledge_eval_payload(dataset_id: Optional[str] = None) -> Dict[str, Any]:
+def _build_knowledge_eval_payload(
+    dataset_id: Optional[str] = None,
+    cached_predictions: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
     from docs_core.evals.eval_reporter import build_eval_suite_report
 
     all_questions = _load_knowledge_eval_questions(include_sql=True, dataset_id=dataset_id)
@@ -189,7 +192,7 @@ def _build_knowledge_eval_payload(dataset_id: Optional[str] = None) -> Dict[str,
         for row in all_questions
         if row.get("question_id")
     }
-    report = build_eval_suite_report(dataset_id=dataset_id)
+    report = build_eval_suite_report(dataset_id=dataset_id, cached_predictions=cached_predictions)
     available_datasets = _load_knowledge_eval_datasets()
     selected_dataset = next(
         (item for item in available_datasets if str(item.get("dataset_id") or "") == str(dataset_id or "")),
@@ -264,6 +267,7 @@ def _build_knowledge_eval_payload(dataset_id: Optional[str] = None) -> Dict[str,
 
 class KnowledgeEvalRunRequest(BaseModel):
     dataset_id: Optional[str] = None
+    cached_predictions: Optional[Dict[str, Any]] = None
 
 # AI Chat 对话相关模型
 class ChatMessage(BaseModel):
@@ -1100,7 +1104,8 @@ def run_knowledge_eval_suite(payload: Optional[KnowledgeEvalRunRequest] = None):
     """执行知识库评测并返回前端可展示的完整结果"""
     try:
         dataset_id = payload.dataset_id if payload else None
-        return _build_knowledge_eval_payload(dataset_id=dataset_id)
+        cached_predictions = payload.cached_predictions if payload else None
+        return _build_knowledge_eval_payload(dataset_id=dataset_id, cached_predictions=cached_predictions)
     except Exception as error:
         raise HTTPException(status_code=500, detail=f"Run eval suite failed: {str(error)}")
 
@@ -1139,8 +1144,8 @@ def get_structured_stats(doc_id: str):
 
 
 @app.get("/api/knowledge/document/{library_id}/{doc_id}")
-def get_document(library_id: str, doc_id: str):
-    """获取文档内容"""
+def get_document(library_id: str, doc_id: str, include_graph: bool = False):
+    """获取文档内容，默认不返回 graph_data 以提升大文档加载速度"""
     from docs_core.ingest.store.assets_file_store import file_storage
     from docs_core.ingest.store.assets_file_store import get_doc_blocks_graph
 
@@ -1149,14 +1154,17 @@ def get_document(library_id: str, doc_id: str):
         raise HTTPException(status_code=404, detail="Document not found")
     
     storage_manifest = file_storage.get_doc_manifest(library_id, doc_id)
-    
-    graph_data = get_doc_blocks_graph(library_id, doc_id)
 
-    return {
+    result: Dict[str, Any] = {
         "content": content,
         "storage": storage_manifest,
-        "graph_data": graph_data
     }
+
+    if include_graph:
+        graph_data = get_doc_blocks_graph(library_id, doc_id)
+        result["graph_data"] = graph_data
+
+    return result
 
 @app.put("/api/knowledge/document/{library_id}/{doc_id}")
 def update_document(library_id: str, doc_id: str, request: KnowledgeDocumentUpdate):

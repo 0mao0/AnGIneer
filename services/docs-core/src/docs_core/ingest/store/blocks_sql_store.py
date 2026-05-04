@@ -789,6 +789,51 @@ class KnowledgeIndexStore:
             rows = conn.execute(sql, params).fetchall()
         return [dict(row) for row in rows]
 
+    # 按 block_uid 列表批量查询富媒体字段。
+    def get_blocks_rich_media(self, doc_id: str, block_uids: List[str]) -> Dict[str, Dict[str, Any]]:
+        if not block_uids:
+            return {}
+        placeholders = ",".join(["?"] * len(block_uids))
+        sql = f"""
+            SELECT block_uid, table_html, math_content, image_path, content_json
+            FROM doc_blocks
+            WHERE doc_id = ? AND is_active = 1 AND block_uid IN ({placeholders})
+        """
+        params: List[Any] = [doc_id] + list(block_uids)
+        with self.connect() as conn:
+            rows = conn.execute(sql, params).fetchall()
+        result: Dict[str, Dict[str, Any]] = {}
+        for row in rows:
+            uid = str(row["block_uid"] or "")
+            if not uid:
+                continue
+            content_json = row["content_json"]
+            parsed_json = {}
+            if isinstance(content_json, str) and content_json.strip():
+                try:
+                    import json
+                    parsed_json = json.loads(content_json)
+                except Exception:
+                    pass
+            image_paths = []
+            if isinstance(parsed_json, dict):
+                img_paths = parsed_json.get("image_paths")
+                if isinstance(img_paths, list):
+                    image_paths = [str(p) for p in img_paths if p]
+            rich_media_order = []
+            if isinstance(parsed_json, dict):
+                rmo = parsed_json.get("rich_media_order")
+                if isinstance(rmo, list):
+                    rich_media_order = rmo
+            result[uid] = {
+                "table_html": str(row["table_html"] or ""),
+                "math_content": str(row["math_content"] or ""),
+                "image_path": str(row["image_path"] or ""),
+                "image_paths": image_paths,
+                "rich_media_order": rich_media_order,
+            }
+        return result
+
     # 统计文档块索引信息。
     def get_doc_blocks_stats(self, doc_id: str) -> Dict[str, Any]:
         with self.connect() as conn:

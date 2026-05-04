@@ -23,6 +23,8 @@ export interface PanelProps {
 export type {
   BaseChatMessageRole,
   BaseChatMessage,
+  BaseChatCitation,
+  CitationRichMedia,
   BaseChatContextItem,
   BaseChatModelOption
 } from './chat'

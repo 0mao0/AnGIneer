@@ -162,7 +162,7 @@ def load_llm_models_from_env() -> List[LLMModelConfig]:
     deepseek_key = _get_env_str("DEEPSEEK_API_KEY")
     if deepseek_key:
         models.append(LLMModelConfig(
-            name="DeepSeek_V3.2",
+            name="DeepSeek-V4-Flash",
             api_key=deepseek_key,
             base_url=_get_env_str("DEEPSEEK_API_URL"),
             model=_get_env_str("DEEPSEEK_MODEL"),

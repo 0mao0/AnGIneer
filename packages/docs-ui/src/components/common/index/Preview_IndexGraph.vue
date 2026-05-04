@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="graph-hint">
-        点击节点展开/折叠 | 拖拽平移 | 滚轮缩放
+        {{ graphHintText }}
       </div>
     </div>
   </div>
@@ -74,6 +74,9 @@ const props = defineProps<Props>()
 
 const emit = defineEmits<PreviewIndexInteractionEventMap>()
 
+const GRAPH_LIGHTWEIGHT_THRESHOLD = 220
+const MAX_RENDERED_GRAPH_NODES = 420
+
 const networkRef = ref<HTMLElement | null>(null)
 const network = ref<any>(null)
 const nodePositions = ref<Map<string, { x: number; y: number }>>(new Map())
@@ -94,21 +97,62 @@ const activeMediaType = computed(() => {
   return blockType ? formatStructuredItemType(blockType) : '节点'
 })
 
-const visibleNodes = computed(() => {
-  const visible = new Set<string>()
-  const addVisible = (id: string, depth: number) => {
-    visible.add(id)
+const getAncestorPath = (nodeId: string): string[] => {
+  const path: string[] = []
+  let currentId: string | null = nodeId
+  while (currentId) {
+    const node = props.nodeMap.get(currentId)
+    const parentId = node?.parent_uid || ''
+    if (!parentId || !props.nodeMap.has(parentId)) break
+    path.unshift(parentId)
+    currentId = parentId
+  }
+  return path
+}
+
+const visibleNodeIdsFull = computed(() => {
+  const visible: string[] = []
+  const visited = new Set<string>()
+  const addVisible = (id: string) => {
+    if (visited.has(id)) return
+    visited.add(id)
+    visible.push(id)
     if (props.expandedNodeIds.has(id)) {
       const children = props.childrenMap.get(id) || []
       for (const childId of children) {
-        addVisible(childId, depth + 1)
+        addVisible(childId)
       }
     }
   }
   for (const rootId of props.roots) {
-    addVisible(rootId, 0)
+    addVisible(rootId)
   }
-  return Array.from(visible)
+  return visible
+})
+
+const visibleNodes = computed(() => {
+  const orderedNodes = visibleNodeIdsFull.value
+  if (orderedNodes.length <= MAX_RENDERED_GRAPH_NODES) {
+    return orderedNodes
+  }
+  const priorityIds = new Set<string>(props.roots)
+  if (props.activeNodeId) {
+    getAncestorPath(props.activeNodeId).forEach(id => priorityIds.add(id))
+    priorityIds.add(props.activeNodeId)
+  }
+  const limited: string[] = []
+  for (const nodeId of orderedNodes) {
+    if (priorityIds.has(nodeId)) {
+      limited.push(nodeId)
+    }
+  }
+  for (const nodeId of orderedNodes) {
+    if (limited.length >= MAX_RENDERED_GRAPH_NODES) break
+    if (!priorityIds.has(nodeId)) {
+      limited.push(nodeId)
+    }
+  }
+  return limited.slice(0, MAX_RENDERED_GRAPH_NODES)
 })
 
 const visibleEdges = computed(() => {
@@ -123,6 +167,18 @@ const visibleEdges = computed(() => {
     }
   }
   return edges
+})
+
+const hiddenNodeCount = computed(() => Math.max(0, visibleNodeIdsFull.value.length - visibleNodes.value.length))
+const useLightweightLayout = computed(() => visibleNodeIdsFull.value.length > GRAPH_LIGHTWEIGHT_THRESHOLD)
+const graphHintText = computed(() => {
+  if (hiddenNodeCount.value > 0) {
+    return `已渲染 ${visibleNodes.value.length}/${visibleNodeIdsFull.value.length} 个节点，请收起部分分支以查看更多`
+  }
+  if (useLightweightLayout.value) {
+    return '大图模式已启用轻量层级布局 | 点击节点展开/折叠 | 拖拽平移 | 滚轮缩放'
+  }
+  return '点击节点展开/折叠 | 拖拽平移 | 滚轮缩放'
 })
 
 const getNodeType = (nodeId: string): 'root' | 'expanded' | 'collapsed' | 'leaf' => {
@@ -218,6 +274,7 @@ const buildVisNodes = () => {
     const siblingOffset = (siblingIndex - (siblings.length - 1) / 2) * 74
     const fallbackX = parentPos ? parentPos.x + 210 : 0
     const fallbackY = parentPos ? parentPos.y + siblingOffset : siblingIndex * 110
+    const lightweightLayout = useLightweightLayout.value
     const hasExplicitPos = Boolean(cachedPos) || layoutInitialized.value
 
     const typeTag = node.block_type ? `[${formatStructuredItemType(node.block_type)}] ` : ''
@@ -229,9 +286,9 @@ const buildVisNodes = () => {
       shape: type === 'root' ? 'diamond' : type === 'leaf' ? 'dot' : 'box',
       size,
       mass: Math.max(1.5, Math.min(4, size / 8)),
-      physics: !layoutInitialized.value && !cachedPos,
-      x: cachedPos?.x ?? (hasExplicitPos ? fallbackX : undefined),
-      y: cachedPos?.y ?? (hasExplicitPos ? fallbackY : undefined),
+      physics: !lightweightLayout && !layoutInitialized.value && !cachedPos,
+      x: lightweightLayout ? undefined : (cachedPos?.x ?? (hasExplicitPos ? fallbackX : undefined)),
+      y: lightweightLayout ? undefined : (cachedPos?.y ?? (hasExplicitPos ? fallbackY : undefined)),
       title: `${typeTag}${getNodeText(node)}\n${type === 'collapsed' ? '点击展开' : type === 'expanded' ? '点击折叠' : ''}`,
       font: {
         size: Math.max(13, Math.min(18, Math.floor(size * 0.62))),
@@ -281,34 +338,29 @@ const buildVisEdges = () => {
   })
 }
 
-const initNetwork = async () => {
-  if (!networkRef.value || !window.vis) return
-
-  const container = networkRef.value
-  const data = {
-    nodes: new window.vis.DataSet(buildVisNodes()),
-    edges: new window.vis.DataSet(buildVisEdges())
-  }
-
-  const options = {
+const buildNetworkOptions = () => {
+  const lightweightLayout = useLightweightLayout.value
+  return {
     autoResize: true,
-    physics: {
-      solver: 'hierarchicalRepulsion',
-      stabilization: {
-        enabled: true,
-        iterations: 150,
-        fit: true,
-        updateInterval: 30
+    physics: lightweightLayout
+      ? false
+      : {
+        solver: 'hierarchicalRepulsion',
+        stabilization: {
+          enabled: true,
+          iterations: 150,
+          fit: true,
+          updateInterval: 30
+        },
+        hierarchicalRepulsion: {
+          nodeDistance: 170,
+          centralGravity: 0.3,
+          springLength: 130,
+          springConstant: 0.01,
+          damping: 0.5
+        },
+        minVelocity: 0.5
       },
-      hierarchicalRepulsion: {
-        nodeDistance: 170,
-        centralGravity: 0.3,
-        springLength: 130,
-        springConstant: 0.01,
-        damping: 0.5
-      },
-      minVelocity: 0.5
-    },
     interaction: {
       hover: true,
       tooltipDelay: 80,
@@ -344,22 +396,55 @@ const initNetwork = async () => {
       }
     },
     layout: {
-      improvedLayout: true,
+      improvedLayout: !lightweightLayout,
       hierarchical: {
         enabled: true,
         direction: 'LR',
         sortMethod: 'directed',
-        nodeSpacing: 140,
-        levelSeparation: 220,
-        treeSpacing: 170,
-        blockShifting: true,
-        edgeMinimization: true,
+        nodeSpacing: lightweightLayout ? 120 : 140,
+        levelSeparation: lightweightLayout ? 180 : 220,
+        treeSpacing: lightweightLayout ? 140 : 170,
+        blockShifting: !lightweightLayout,
+        edgeMinimization: !lightweightLayout,
         parentCentralization: true
       }
     }
   }
+}
 
-  network.value = new window.vis.Network(container, data, options)
+const applyViewportState = () => {
+  if (!network.value) return
+  if (props.viewportState) {
+    network.value.moveTo({
+      position: { x: props.viewportState.x, y: props.viewportState.y },
+      scale: props.viewportState.scale,
+      animation: false
+    })
+    return
+  }
+  network.value.fit({
+    animation: { duration: 300, easingFunction: 'easeInOutQuad' }
+  })
+}
+
+const finalizeNetworkLayout = () => {
+  layoutInitialized.value = true
+  requestAnimationFrame(() => {
+    freezeNodes()
+    applyViewportState()
+  })
+}
+
+const initNetwork = async () => {
+  if (!networkRef.value || !window.vis) return
+
+  const container = networkRef.value
+  const data = {
+    nodes: new window.vis.DataSet(buildVisNodes()),
+    edges: new window.vis.DataSet(buildVisEdges())
+  }
+
+  network.value = new window.vis.Network(container, data, buildNetworkOptions())
 
   network.value.on('click', (params: any) => {
     if (!params.nodes || !params.nodes.length) return
@@ -371,20 +456,15 @@ const initNetwork = async () => {
     emit('select', nodeId)
   })
 
-  network.value.once('stabilized', () => {
-    layoutInitialized.value = true
-    freezeNodes()
-    network.value.fit({
-      animation: { duration: 300, easingFunction: 'easeInOutQuad' }
+  if (useLightweightLayout.value) {
+    requestAnimationFrame(() => {
+      finalizeNetworkLayout()
     })
-    if (props.viewportState) {
-      network.value.moveTo({
-        position: { x: props.viewportState.x, y: props.viewportState.y },
-        scale: props.viewportState.scale,
-        animation: false
-      })
-    }
-  })
+  } else {
+    network.value.once('stabilized', () => {
+      finalizeNetworkLayout()
+    })
+  }
 
   network.value.on('dragEnd', () => {
     saveViewportState()
@@ -429,6 +509,7 @@ const saveViewportState = () => {
 
 const updateNetwork = () => {
   if (!network.value) return
+  network.value.setOptions(buildNetworkOptions())
   const existingIds: string[] = network.value.body?.data?.nodes?.getIds?.() || []
   if (existingIds.length > 0) {
     const existingPositions = network.value.getPositions(existingIds)
@@ -445,10 +526,10 @@ const updateNetwork = () => {
   network.value.body.data.nodes.add(nodes)
   network.value.body.data.edges.clear()
   network.value.body.data.edges.add(edges)
-  if (!layoutInitialized.value) {
+  if (!layoutInitialized.value && !useLightweightLayout.value) {
     network.value.stabilize(100)
   } else {
-    nextTick(() => {
+    requestAnimationFrame(() => {
       freezeNodes()
     })
   }

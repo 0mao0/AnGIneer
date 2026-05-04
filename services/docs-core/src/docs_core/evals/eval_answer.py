@@ -1,15 +1,16 @@
 """知识回答评测模块。"""
 import json
+import math
 from typing import Any, Dict, List
 
 from docs_core.evals.dataset_loader import load_eval_answer_rows, load_eval_questions
 from docs_core.query.contracts import KnowledgeQueryRequest
-from docs_core.query.service import knowledge_query_service
 from docs_core.evals.eval_retrieval import normalize_section_path
 
 
 # 调用当前知识查询服务，获取真实回答结果。
 def run_predictions(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    from docs_core.query.service import knowledge_query_service
     predictions: Dict[str, Dict[str, Any]] = {}
     for question in questions:
         question_id = str(question.get("question_id") or "")
@@ -68,6 +69,29 @@ def evaluate_correctness_check(answer: str, check: Dict[str, Any]) -> bool:
     return True
 
 
+# 计算两个已归一化向量的余弦相似度。
+def _cosine_similarity(left: List[float], right: List[float]) -> float:
+    if not left or not right or len(left) != len(right):
+        return 0.0
+    return float(sum(l_value * r_value for l_value, r_value in zip(left, right)))
+
+
+# 基于 embedding 计算答案与标准答案的语义相似度，用于兜底校验关键词匹配。
+def _compute_semantic_similarity(answer: str, gold_answer: str) -> float:
+    answer_text = str(answer or "").strip()
+    gold_text = str(gold_answer or "").strip()
+    if not answer_text or not gold_text:
+        return 0.0
+    try:
+        from docs_core.indexing.embedding_provider import default_embedding_provider
+        embeddings = default_embedding_provider.embed_texts([answer_text, gold_text])
+        if len(embeddings) != 2:
+            return 0.0
+        return _cosine_similarity(embeddings[0], embeddings[1])
+    except Exception:
+        return 0.0
+
+
 # 基于 gold 中的结构化断言判断回答是否正确。
 def evaluate_answer_correctness(answer: str, gold: Dict[str, Any]) -> Dict[str, Any]:
     checks = [item for item in gold.get("correctness_checks", []) if isinstance(item, dict)]
@@ -78,6 +102,19 @@ def evaluate_answer_correctness(answer: str, gold: Dict[str, Any]) -> Dict[str, 
             "failed_checks": [],
         }
     failed_checks = [check for check in checks if not evaluate_correctness_check(answer, check)]
+    # 即使关键词全部命中，也要求与标准答案的语义相似度达到一定阈值，避免关键词拼凑。
+    semantic_threshold = float(gold.get("semantic_threshold", 0.55))
+    if not failed_checks and semantic_threshold > 0:
+        gold_answer = str(gold.get("gold_answer") or gold.get("gold_answer_text") or "").strip()
+        if gold_answer:
+            similarity = _compute_semantic_similarity(answer, gold_answer)
+            if similarity < semantic_threshold:
+                failed_checks.append({
+                    "type": "semantic_similarity",
+                    "keywords": [f"语义相似度 {similarity:.2f} < 阈值 {semantic_threshold}"],
+                    "similarity": similarity,
+                    "threshold": semantic_threshold,
+                })
     return {
         "checked": True,
         "score": 1.0 if not failed_checks else 0.0,

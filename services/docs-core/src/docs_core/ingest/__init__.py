@@ -26,7 +26,6 @@ from .organize import (
     build_canonical_tables,
 )
 from .store import FileStorage, build_structured_index_for_doc, file_storage, get_doc_blocks_graph
-from docs_core.indexing import build_vector_records, summarize_vector_records
 
 __all__ = [
     "BoundingBox",
@@ -50,11 +49,19 @@ __all__ = [
     "build_structured_from_rawfiles",
     "build_structured_index_for_doc",
     "build_table_representations",
-    "build_vector_records",
     "classify_table",
     "extract_table_features",
     "file_storage",
     "get_doc_blocks_graph",
     "mineru_parser",
-    "summarize_vector_records",
 ]
+
+
+def __getattr__(name: str):
+    if name == "build_vector_records":
+        from docs_core.indexing.vector_indexer import build_vector_records
+        return build_vector_records
+    if name == "summarize_vector_records":
+        from docs_core.indexing.vector_indexer import summarize_vector_records
+        return summarize_vector_records
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

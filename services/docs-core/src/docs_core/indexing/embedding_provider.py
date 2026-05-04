@@ -116,6 +116,15 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
     def is_configured(self) -> bool:
         return bool(self.model and self.api_key and self.api_url)
 
+    # 检测已有向量库的维度，用于 fallback 时对齐。
+    def _detect_existing_dimension(self) -> int:
+        try:
+            from docs_core.indexing.chroma_vector_store import ChromaVectorStore
+            store = ChromaVectorStore()
+            return store.get_existing_dimension()
+        except Exception:
+            return 0
+
     # 通过 DashScope 接口批量请求 embedding。
     def embed_texts(self, texts: Sequence[str]) -> List[List[float]]:
         normalized_texts = [str(text or "").strip() for text in texts]
@@ -123,7 +132,7 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
             return []
         if not self.is_configured():
             logger.warning("DOCS_EMBEDDING_PROVIDER=dashscope 但缺少配置，回退到 hash embedding。")
-            return self.fallback_provider.embed_texts(normalized_texts)
+            return self._fallback_with_dimension_alignment(normalized_texts)
         try:
             response = requests.post(
                 f"{self.api_url}/embeddings",
@@ -148,23 +157,53 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
             return embeddings
         except Exception as exc:
             logger.warning("DashScope embedding 调用失败，回退到 hash embedding: %s", exc)
-            return self.fallback_provider.embed_texts(normalized_texts)
+            return self._fallback_with_dimension_alignment(normalized_texts)
+
+    # fallback 时自动对齐已有向量库的维度，避免维度不匹配。
+    def _fallback_with_dimension_alignment(self, texts: Sequence[str]) -> List[List[float]]:
+        existing_dim = self._detect_existing_dimension()
+        if existing_dim > 0 and existing_dim != self.fallback_provider.dimension:
+            logger.warning(
+                "已有向量库维度=%d，hash embedding 维度=%d，自动对齐到 %d 维。",
+                existing_dim, self.fallback_provider.dimension, existing_dim,
+            )
+            aligned_provider = HashEmbeddingProvider(dimension=existing_dim)
+            return aligned_provider.embed_texts(texts)
+        return self.fallback_provider.embed_texts(texts)
+
+
+# 检测已有向量库的维度，用于创建 provider 时对齐。
+def _detect_existing_vector_dimension() -> int:
+    try:
+        from docs_core.indexing.chroma_vector_store import ChromaVectorStore
+        store = ChromaVectorStore()
+        return store.get_existing_dimension()
+    except Exception:
+        return 0
+
+
+# 使用 OpenAI 兼容接口的 embedding provider 名称集合。
+_OPENAI_COMPAT_PROVIDERS = {"dashscope", "bge_m3", "siliconflow", "zhipu", "openai"}
 
 
 # 按环境变量解析默认 embedding provider。
 def create_default_embedding_provider() -> EmbeddingProvider:
     provider_name = get_embedding_provider_name()
+    existing_dim = _detect_existing_vector_dimension()
     if provider_name == "hash":
-        return HashEmbeddingProvider()
-    if provider_name == "dashscope":
+        dimension = existing_dim if existing_dim > 0 else 256
+        return HashEmbeddingProvider(dimension=dimension)
+    if provider_name in _OPENAI_COMPAT_PROVIDERS:
+        fallback_dimension = existing_dim if existing_dim > 0 else 256
         return DashScopeEmbeddingProvider(
             model=get_embedding_model_name(),
             api_key=get_embedding_api_key(),
             api_url=get_embedding_api_url(),
-            fallback_provider=HashEmbeddingProvider(),
+            fallback_provider=HashEmbeddingProvider(dimension=fallback_dimension),
         )
     logger.warning("未知 DOCS_EMBEDDING_PROVIDER=%s，回退到 hash embedding。", provider_name)
-    return HashEmbeddingProvider()
+    dimension = existing_dim if existing_dim > 0 else 256
+    return HashEmbeddingProvider(dimension=dimension)
 
 
 default_embedding_provider = create_default_embedding_provider()

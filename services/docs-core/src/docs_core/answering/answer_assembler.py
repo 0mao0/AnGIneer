@@ -1,6 +1,7 @@
 """回答拼装器。"""
 import re
-from typing import List, Tuple
+import logging
+from typing import List, Optional, Tuple
 
 from docs_core.answering.citation_builder import build_snippet
 from docs_core.query.contracts import KnowledgeCitation, RetrievedItem
@@ -12,6 +13,52 @@ from docs_core.retrieval.query_normalizer import (
     normalize_match_text,
     tokenize_query,
 )
+
+logger = logging.getLogger(__name__)
+
+
+def _get_llm_client():
+    """延迟导入全局 LLM 客户端，避免循环依赖。"""
+    try:
+        from angineer_core.infra.llm_client import llm_client
+        return llm_client
+    except Exception:
+        return None
+
+
+# 构建让 LLM 基于证据回答问题的系统提示。
+_RAG_SYSTEM_PROMPT = (
+    "你是一个专业的知识库问答助手。请严格根据提供的参考证据回答用户问题。"
+    "回答应直接回应问题，语言简洁准确，不要重复证据原文，而是提取关键信息组织成自然语言回答。"
+    "如果证据不足以回答问题，请明确说明。"
+)
+
+
+# 将检索证据拼装为 LLM 的用户消息。
+def _build_rag_user_message(query: str, evidence: str, doc_title: str) -> str:
+    return (
+        f"参考证据（来自《{doc_title}》）：\n{evidence}\n\n"
+        f"问题：{query}\n\n"
+        f"请根据以上证据回答问题。"
+    )
+
+
+# 调用 LLM 基于证据生成回答，失败时返回空字符串。
+def _generate_llm_answer(query: str, evidence: str, doc_title: str) -> str:
+    client = _get_llm_client()
+    if client is None:
+        return ""
+    try:
+        user_message = _build_rag_user_message(query, evidence, doc_title)
+        messages = [
+            {"role": "system", "content": _RAG_SYSTEM_PROMPT},
+            {"role": "user", "content": user_message},
+        ]
+        result = client.chat(messages, temperature=0.3, mode="instruct")
+        return result.strip() if result else ""
+    except Exception as exc:
+        logger.warning("LLM 生成回答失败，回退到模板回答: %s", exc)
+        return ""
 
 
 # 将长证据拆成较短句段，便于从相邻条文中抽取最相关答案。
@@ -305,19 +352,22 @@ def assemble_answer(
         if matched_citation is not None:
             lead = matched_citation
     snippet = focused_snippet or lead.snippet
+    evidence_text = lead.content or snippet
     if task_type == "locate_qa":
-        answer = f"相关内容优先命中在《{lead.doc_title}》第 {lead.page_idx or 0} 页，片段为：{snippet}"
+        template_answer = f"相关内容优先命中在《{lead.doc_title}》第 {lead.page_idx or 0} 页，片段为：{snippet}"
     elif task_type == "table_qa":
-        answer = f"已命中与表格相关的证据，优先参考《{lead.doc_title}》中的以下片段：{snippet}"
+        template_answer = f"已命中与表格相关的证据，优先参考《{lead.doc_title}》中的以下片段：{snippet}"
     elif is_formula_or_calc_query(query):
-        answer = f"已命中与公式或计算相关的证据，优先参考《{lead.doc_title}》中的以下片段：{snippet}"
+        template_answer = f"已命中与公式或计算相关的证据，优先参考《{lead.doc_title}》中的以下片段：{snippet}"
     elif task_type == "schema_qa":
-        answer = f"当前先返回最相关的字段说明证据：{snippet}"
+        template_answer = f"当前先返回最相关的字段说明证据：{snippet}"
     elif task_type == "definition_qa" and is_reference_query(query):
-        answer = f"已命中编号或定义相关证据，优先参考《{lead.doc_title}》中的以下片段：{snippet}"
+        template_answer = f"已命中编号或定义相关证据，优先参考《{lead.doc_title}》中的以下片段：{snippet}"
     elif task_type == "analytic_sql":
-        answer = "该问题更适合走 Text-to-SQL 链路；当前已返回最相关证据，后续会补充 SQL 生成与执行能力。"
+        template_answer = "该问题更适合走 Text-to-SQL 链路；当前已返回最相关证据，后续会补充 SQL 生成与执行能力。"
     else:
-        answer = f"根据当前检索到的证据，优先答案片段为：{snippet}"
+        template_answer = f"根据当前检索到的证据，优先答案片段为：{snippet}"
+    llm_answer = _generate_llm_answer(query, evidence_text, lead.doc_title)
+    answer = llm_answer if llm_answer else template_answer
     confidence = min(0.95, 0.35 + lead.score / 10.0)
     return answer, confidence

@@ -221,8 +221,11 @@ export const knowledgeApi = {
     api.get('/knowledge/evals/questions', {
       params: datasetId ? { dataset_id: datasetId } : undefined
     }) as Promise<KnowledgeEvalQuestionsResponse>,
-  runEvalSuite: (datasetId?: string) =>
-    api.post('/knowledge/evals/run', datasetId ? { dataset_id: datasetId } : {}, { timeout: 300000 }) as Promise<KnowledgeEvalRunResponse>,
+  runEvalSuite: (datasetId?: string, cachedPredictions?: Record<string, any>) =>
+    api.post('/knowledge/evals/run', {
+      ...(datasetId ? { dataset_id: datasetId } : {}),
+      ...(cachedPredictions ? { cached_predictions: cachedPredictions } : {})
+    }, { timeout: 300000 }) as Promise<KnowledgeEvalRunResponse>,
 
   // 策略
   getDocStrategy: (docId: string) => api.get(`/knowledge/strategies/${docId}`),
@@ -268,7 +271,9 @@ export const knowledgeApi = {
 
   // 文档块图谱
   getDocBlocksGraph: (libraryId: string, docId: string) =>
-    api.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId })
+    api.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }),
+  getDocBlocksGraphSummary: (libraryId: string, docId: string) =>
+    api.post('/knowledge/parse/doc-blocks-graph-summary', { library_id: libraryId, doc_id: docId })
 }
 
 export default api

@@ -39,6 +39,17 @@ class KnowledgeQueryRequest(BaseModel):
     filters: Optional[KnowledgeQueryFilter] = None
 
 
+class CitationRichMedia(BaseModel):
+    """引用项富媒体信息。"""
+
+    table_html: str = ""
+    math_content: str = ""
+    image_path: str = ""
+    image_paths: List[str] = Field(default_factory=list)
+    rich_media_order: List[Dict[str, Any]] = Field(default_factory=list)
+    source_file_name: str = ""
+
+
 class KnowledgeCitation(BaseModel):
     """知识引用项。"""
 
@@ -49,7 +60,10 @@ class KnowledgeCitation(BaseModel):
     page_idx: int = 0
     section_path: str = ""
     snippet: str = ""
+    content: str = ""
+    content_type: str = "text"
     score: float = 0.0
+    rich_media: Optional[CitationRichMedia] = None
 
 
 class RetrievedItem(BaseModel):

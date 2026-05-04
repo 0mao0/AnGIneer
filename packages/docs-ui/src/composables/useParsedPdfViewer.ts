@@ -56,10 +56,7 @@ export function useParsedPdfViewer(
     return null
   })
 
-  const flatIndexItems = computed<StructuredIndexItem[]>(() => {
-    if (props.structuredItems.length > 0) {
-      return props.structuredItems
-    }
+  const graphDerivedIndexItems = computed<StructuredIndexItem[]>(() => {
     if (!props.graphData?.nodes?.length) {
       return []
     }
@@ -86,6 +83,17 @@ export function useParsedPdfViewer(
         }
       }
     })
+  })
+
+  const flatIndexItems = computed<StructuredIndexItem[]>(() => {
+    const graphItems = graphDerivedIndexItems.value
+    if (props.structuredItems.length > 0 && props.structuredItems.length >= graphItems.length) {
+      return props.structuredItems
+    }
+    if (graphItems.length > 0) {
+      return graphItems
+    }
+    return props.structuredItems
   })
 
   const findActiveItemIndex = (activeId: string | null): number => {

@@ -1,96 +1,76 @@
 <template>
-  <li class="tree-node">
-    <a-tooltip
-      placement="rightTop"
-      :mouse-enter-delay="0.15"
-      overlay-class-name="doc-block-tree-tooltip-overlay"
-      @visibleChange="onTooltipVisibleChange"
-    >
-      <template #title>
-        <div class="tree-tooltip">
-          <div v-if="tooltipTextHtml" class="tree-tooltip-text" v-html="tooltipTextHtml" />
-          <div v-else-if="tooltipText" class="tree-tooltip-text">{{ tooltipText }}</div>
-          <div v-if="tooltipRichMediaHtml" class="tree-tooltip-media" v-html="tooltipRichMediaHtml" />
-        </div>
-      </template>
-      <a-dropdown :trigger="['contextmenu']">
-        <div
-          :data-tree-node-id="nodeId"
-          :class="['tree-row', { active: nodeId === activeNodeId }]"
-          @click="onRowClick"
-          @contextmenu.prevent
-        >
-          <a-checkbox
-            class="tree-select-checkbox"
-            :checked="isChecked"
-            @click.stop
-            @change="onToggleCheck"
-          />
-          <span class="tree-toggle" @click.stop="onToggle">
-            <template v-if="hasChildren">
-              <RightOutlined v-if="!isExpanded" />
-              <DownOutlined v-else />
-            </template>
-            <span v-else class="toggle-placeholder" />
-          </span>
-          <div class="tree-main">
-            <div class="tree-meta">
-              <span v-if="displayTextHtml" class="tree-text" v-html="displayTextHtml" />
-              <span v-else-if="!suppressPlainText" class="tree-text">{{ displayText }}</span>
-              <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
-              <span v-if="typeTag" class="chip">{{ typeTag }}</span>
-              <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
-            </div>
-            <div v-if="inlineRichMediaHtml" class="tree-inline-media" v-html="inlineRichMediaHtml" />
+  <a-tooltip
+    placement="rightTop"
+    :mouse-enter-delay="0.15"
+    overlay-class-name="doc-block-tree-tooltip-overlay"
+    @visibleChange="onTooltipVisibleChange"
+  >
+    <template #title>
+      <div class="tree-tooltip">
+        <div v-if="tooltipTextHtml" class="tree-tooltip-text" v-html="tooltipTextHtml" />
+        <div v-else-if="tooltipText" class="tree-tooltip-text">{{ tooltipText }}</div>
+        <div v-if="tooltipRichMediaHtml" class="tree-tooltip-media" v-html="tooltipRichMediaHtml" />
+      </div>
+    </template>
+    <a-dropdown :trigger="['contextmenu']">
+      <div
+        :data-tree-node-id="row.id"
+        :class="['tree-row', { active: row.id === activeNodeId }]"
+        @click="onRowClick"
+        @contextmenu.prevent
+      >
+        <a-checkbox
+          class="tree-select-checkbox"
+          :checked="isChecked"
+          @click.stop
+          @change="onToggleCheck"
+        />
+        <span class="tree-toggle" @click.stop="onToggle">
+          <template v-if="row.hasChildren">
+            <RightOutlined v-if="!row.isExpanded" />
+            <DownOutlined v-else />
+          </template>
+          <span v-else class="toggle-placeholder" />
+        </span>
+        <div class="tree-main">
+          <div class="tree-meta">
+            <span v-if="displayTextHtml" class="tree-text" v-html="displayTextHtml" />
+            <span v-else-if="!suppressPlainText" class="tree-text">{{ displayText }}</span>
+            <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
+            <span v-if="typeTag" class="chip">{{ typeTag }}</span>
+            <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
           </div>
-          <a-button
-            v-if="node"
-            type="text"
-            size="small"
-            class="tree-edit-btn"
-            @click.stop="onEdit"
-          >
-            <template #icon>
-              <EditOutlined />
-            </template>
-          </a-button>
+          <div v-if="inlineRichMediaHtml" class="tree-inline-media" v-html="inlineRichMediaHtml" />
         </div>
-        <template #overlay>
-          <a-menu @click="onContextMenuClick">
-            <a-sub-menu key="relevel-actions" title="调整层级">
-              <a-menu-item key="promote">升一级</a-menu-item>
-              <a-menu-item key="demote">降一级</a-menu-item>
-              <a-menu-divider />
-              <a-menu-item
-                v-for="level in [1, 2, 3, 4, 5, 6]"
-                :key="`set-level-${level}`"
-              >
-                设为 L{{ level }}
-              </a-menu-item>
-            </a-sub-menu>
-          </a-menu>
-        </template>
-      </a-dropdown>
-    </a-tooltip>
-    <ul v-if="hasChildren && isExpanded" class="tree-children">
-      <IndexTreeNode
-        v-for="childId in children"
-        :key="childId"
-        :node-id="childId"
-        :node-map="nodeMap"
-        :children-map="childrenMap"
-        :expanded-ids="expandedIds"
-        :active-node-id="activeNodeId"
-        :selected-node-ids="selectedNodeIds"
-        :source-file-path="sourceFilePath"
-        @toggle="(id) => emit('toggle', id)"
-        @select="(id) => emit('select', id)"
-        @edit="(id) => emit('edit', id)"
-        @toggle-check="(id) => emit('toggle-check', id)"
-        @context-action="(payload) => emit('context-action', payload)"
-      />
-    </ul>
-  </li>
+        <a-button
+          v-if="node"
+          type="text"
+          size="small"
+          class="tree-edit-btn"
+          @click.stop="onEdit"
+        >
+          <template #icon>
+            <EditOutlined />
+          </template>
+        </a-button>
+      </div>
+      <template #overlay>
+        <a-menu @click="onContextMenuClick">
+          <a-sub-menu key="relevel-actions" title="调整层级">
+            <a-menu-item key="promote">升一级</a-menu-item>
+            <a-menu-item key="demote">降一级</a-menu-item>
+            <a-menu-divider />
+            <a-menu-item
+              v-for="level in [1, 2, 3, 4, 5, 6]"
+              :key="`set-level-${level}`"
+            >
+              设为 L{{ level }}
+            </a-menu-item>
+          </a-sub-menu>
+        </a-menu>
+      </template>
+    </a-dropdown>
+  </a-tooltip>
 </template>
 
 <script setup lang="ts">
@@ -109,10 +89,16 @@ import {
 } from '../../../utils/knowledge'
 import type { DocBlockNode } from '../../../types/knowledge'
 
+interface FlatRow {
+  id: string
+  depth: number
+  hasChildren: boolean
+  isExpanded: boolean
+}
+
 interface Props {
-  nodeId: string
+  row: FlatRow
   nodeMap: Map<string, DocBlockNode>
-  childrenMap: Map<string, string[]>
   expandedIds: Set<string>
   activeNodeId: string | null
   selectedNodeIds?: Set<string>
@@ -129,17 +115,14 @@ const emit = defineEmits<{
   'context-action': [payload: { nodeId: string; action: 'promote' | 'demote' | 'set-level'; targetLevel?: number }]
 }>()
 
-const node = computed(() => props.nodeMap.get(props.nodeId))
-const children = computed(() => props.childrenMap.get(props.nodeId) || [])
-const hasChildren = computed(() => children.value.length > 0)
-const isExpanded = computed(() => props.expandedIds.has(props.nodeId))
-const isChecked = computed(() => Boolean(props.selectedNodeIds?.has(props.nodeId)))
-const displayText = computed(() => getNodeDisplayText(node.value, props.nodeId))
+const node = computed(() => props.nodeMap.get(props.row.id))
+const isChecked = computed(() => Boolean(props.selectedNodeIds?.has(props.row.id)))
+const displayText = computed(() => getNodeDisplayText(node.value, props.row.id))
 const suppressPlainText = computed(() => shouldSuppressNodePlainText(node.value))
 
 const displayTextHtml = computed(() => {
   if (suppressPlainText.value) return ''
-  const rawText = String(node.value?.plain_text || '').trim() || props.nodeId
+  const rawText = String(node.value?.plain_text || '').trim() || props.row.id
   return renderMarkdownInlineToHtml(rawText, props.sourceFilePath || '')
 })
 
@@ -150,8 +133,13 @@ const positionTag = computed(() => getNodePositionTag(node.value))
 const tooltipText = computed(() => {
   if (suppressPlainText.value) return ''
   const text = String(node.value?.plain_text || '').trim()
-  return text || props.nodeId
+  return text || props.row.id
 })
+
+const tooltipHovered = ref(false)
+const onTooltipVisibleChange = (visible: boolean) => {
+  if (visible) tooltipHovered.value = true
+}
 
 const tooltipTextHtml = computed(() => {
   if (!tooltipHovered.value) return ''
@@ -167,10 +155,7 @@ const tooltipRichMediaHtml = computed(() => {
     includeMath: suppressPlainText.value || !isNodeMathRichMediaRedundant(node.value)
   })
 })
-const tooltipHovered = ref(false)
-const onTooltipVisibleChange = (visible: boolean) => {
-  if (visible) tooltipHovered.value = true
-}
+
 const hasRichMedia = computed(() => {
   const n = node.value
   if (!n) return false
@@ -181,36 +166,32 @@ const hasRichMedia = computed(() => {
     || (Array.isArray(n.image_paths) && n.image_paths.length > 0)
   )
 })
+
 const inlineRichMediaHtml = computed(() => {
   if (!hasRichMedia.value) return ''
   return renderNodeRichMedia(node.value, props.sourceFilePath)
 })
 
-/* 切换当前树节点的展开态。 */
 const onToggle = () => {
-  emit('toggle', props.nodeId)
+  emit('toggle', props.row.id)
 }
 
-/* 选中当前树节点。 */
 const onRowClick = () => {
-  emit('select', props.nodeId)
+  emit('select', props.row.id)
 }
 
-/* 触发当前树节点的内容纠错操作。 */
 const onEdit = () => {
-  emit('edit', props.nodeId)
+  emit('edit', props.row.id)
 }
 
-/* 切换当前树节点的批处理勾选状态。 */
 const onToggleCheck = () => {
-  emit('toggle-check', props.nodeId)
+  emit('toggle-check', props.row.id)
 }
 
-/* 响应当前树节点右键菜单动作。 */
 const onContextMenuClick = ({ key }: { key: string }) => {
   if (key === 'promote' || key === 'demote') {
     emit('context-action', {
-      nodeId: props.nodeId,
+      nodeId: props.row.id,
       action: key
     })
     return
@@ -219,7 +200,7 @@ const onContextMenuClick = ({ key }: { key: string }) => {
     const targetLevel = Number(key.replace('set-level-', ''))
     if (Number.isFinite(targetLevel) && targetLevel > 0) {
       emit('context-action', {
-        nodeId: props.nodeId,
+        nodeId: props.row.id,
         action: 'set-level',
         targetLevel
       })
@@ -229,10 +210,6 @@ const onContextMenuClick = ({ key }: { key: string }) => {
 </script>
 
 <style lang="less" scoped>
-.tree-node {
-  margin: 4px 0;
-}
-
 .tree-row {
   display: flex;
   align-items: flex-start;
@@ -286,15 +263,6 @@ const onContextMenuClick = ({ key }: { key: string }) => {
 .toggle-placeholder {
   width: 16px;
   height: 16px;
-}
-
-.tree-children {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  margin-left: 20px;
-  padding-left: 10px;
-  border-left: 1px dashed var(--dp-pane-border, #cbd5e1);
 }
 
 .tree-main {

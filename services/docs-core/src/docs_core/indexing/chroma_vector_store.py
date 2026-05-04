@@ -20,6 +20,16 @@ class ChromaVectorStore(VectorStore):
         self.client = chromadb.PersistentClient(path=str(self.persist_dir))
         self.collection = self.client.get_or_create_collection(name=collection_name, metadata={"hnsw:space": "cosine"})
 
+    # 获取已有向量的维度，用于 embedding provider 维度对齐。
+    def get_existing_dimension(self) -> int:
+        peek = self.collection.peek(limit=1)
+        embeddings = peek.get("embeddings")
+        if embeddings is not None:
+            embeddings_list = list(embeddings)
+            if len(embeddings_list) > 0 and len(embeddings_list[0]) > 0:
+                return len(embeddings_list[0])
+        return 0
+
     # 批量写入向量记录。
     def upsert_records(self, records: List[VectorRecord]) -> int:
         if not records:

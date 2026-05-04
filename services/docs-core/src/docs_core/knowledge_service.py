@@ -533,6 +533,17 @@ class KnowledgeService:
             limit=limit,
         )
 
+    # 按 block_uid 列表批量查询富媒体字段。
+    def get_blocks_rich_media(self, doc_id: str, block_uids: List[str]) -> Dict[str, Dict[str, Any]]:
+        return self.index_store.get_blocks_rich_media(doc_id=doc_id, block_uids=block_uids)
+
+    # 获取文档节点的源文件名。
+    def get_doc_source_file_name(self, doc_id: str) -> str:
+        node = self.get_node(doc_id)
+        if node and node.file_path:
+            return str(node.file_path)
+        return ""
+
 
 knowledge_service = KnowledgeService()
 

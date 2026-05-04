@@ -1,6 +1,7 @@
 """MinerU 文档解析服务 (Simplified)"""
 import json
 import os
+import tempfile
 from typing import Optional, Dict, Any, List
 from pathlib import Path
 from dotenv import load_dotenv
@@ -30,7 +31,7 @@ class MinerUParser:
             or os.getenv('MINERU_API_TOKEN', '')
             or os.getenv('MINERU_TOKEN', '')
         )
-        self.cloud_poll_max_attempts = max(1, int(os.getenv('MINERU_CLOUD_POLL_MAX_ATTEMPTS', '45')))
+        self.cloud_poll_max_attempts = max(1, int(os.getenv('MINERU_CLOUD_POLL_MAX_ATTEMPTS', '90')))
         self.cloud_poll_interval_seconds = max(1, int(os.getenv('MINERU_CLOUD_POLL_INTERVAL_SECONDS', '4')))
         self.proxy_fallback_enabled = os.getenv('MINERU_PROXY_FALLBACK_ENABLED', '1') != '0'
 
@@ -230,8 +231,131 @@ class MinerUParser:
         except Exception:
             return None
 
+    def _get_pdf_page_count(self, input_path: str) -> int:
+        """获取 PDF 页数，非 PDF 或读取失败返回 0。"""
+        try:
+            import fitz
+            doc = fitz.open(input_path)
+            count = doc.page_count
+            doc.close()
+            return count
+        except ImportError:
+            print("[MinerU] PyMuPDF not installed, cannot check page count")
+        except Exception as exc:
+            print(f"[MinerU] Page count check failed: {exc}")
+        return 0
+
+    def _split_pdf(self, input_path: str, chunk_size: int = 200) -> List[str]:
+        """将 PDF 按页数拆分为多个临时文件，返回文件路径列表。"""
+        import fitz
+
+        doc = fitz.open(input_path)
+        total_pages = doc.page_count
+        chunk_paths: List[str] = []
+
+        for start in range(0, total_pages, chunk_size):
+            end = min(start + chunk_size, total_pages)
+            chunk_doc = fitz.open()
+            chunk_doc.insert_pdf(doc, from_page=start, to_page=end - 1)
+            chunk_path = tempfile.mktemp(suffix=f"_pages_{start+1}-{end}.pdf")
+            chunk_doc.save(chunk_path)
+            chunk_doc.close()
+            chunk_paths.append(chunk_path)
+            print(f"[MinerU] Split chunk: pages {start+1}-{end} -> {chunk_path}")
+
+        doc.close()
+        return chunk_paths
+
+    def _merge_chunk_results(self, output_dir: str, chunk_output_dirs: List[str], chunk_results: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """合并多个分段的解析结果为一份完整文档。"""
+        merged_markdown_parts: List[str] = []
+
+        for idx, result in enumerate(chunk_results):
+            if not result.get("success"):
+                return result
+
+            md_file = result.get("md_file")
+            if md_file and os.path.isfile(md_file):
+                with open(md_file, "r", encoding="utf-8") as f:
+                    merged_markdown_parts.append(f.read())
+
+        merged_markdown = "\n\n".join(merged_markdown_parts)
+
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        for idx, chunk_dir in enumerate(chunk_output_dirs):
+            if not os.path.isdir(chunk_dir):
+                continue
+            self._merge_dir_contents(Path(chunk_dir), Path(output_dir), chunk_idx=idx)
+
+        return self._write_markdown_file(output_dir, merged_markdown)
+
+    def _merge_dir_contents(self, src_dir: Path, dest_dir: Path, chunk_idx: int) -> None:
+        """将源目录内容合并到目标目录，处理文件名冲突。"""
+        for item in src_dir.rglob("*"):
+            if item.is_dir():
+                continue
+            rel = item.relative_to(src_dir)
+            dest = dest_dir / rel
+            if dest.exists():
+                base_name = dest.stem
+                suffix = dest.suffix
+                dest = dest.with_name(f"{base_name}_chunk{chunk_idx+1}{suffix}")
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(str(item), str(dest))
+
     def _parse_document_cloud_batch(self, input_path: str, output_dir: str) -> Optional[Dict[str, Any]]:
-        """云端批量解析流程 (Simplified)"""
+        """云端批量解析流程，超页数自动拆分合并。"""
+        page_count = self._get_pdf_page_count(input_path)
+        max_pages = 200
+
+        if page_count > max_pages:
+            print(f"[MinerU] PDF has {page_count} pages (limit {max_pages}), auto-splitting...")
+            return self._parse_large_pdf_in_chunks(input_path, output_dir, page_count, max_pages)
+
+        return self._parse_single_file_cloud(input_path, output_dir)
+
+    def _parse_large_pdf_in_chunks(
+        self, input_path: str, output_dir: str, page_count: int, chunk_size: int
+    ) -> Dict[str, Any]:
+        """拆分大 PDF 为多段，逐段云端解析后合并结果。"""
+        chunk_paths = self._split_pdf(input_path, chunk_size)
+        total_chunks = len(chunk_paths)
+        chunk_results: List[Dict[str, Any]] = []
+        chunk_output_dirs: List[str] = []
+
+        for idx, chunk_path in enumerate(chunk_paths):
+            chunk_output_dir = tempfile.mkdtemp(prefix=f"parse-chunk-{idx}-")
+            chunk_output_dirs.append(chunk_output_dir)
+            print(f"[MinerU] Parsing chunk {idx+1}/{total_chunks}: {chunk_path}")
+            try:
+                result = self._parse_single_file_cloud(chunk_path, chunk_output_dir)
+                chunk_results.append(result)
+                if not result.get("success"):
+                    print(f"[MinerU] Chunk {idx+1}/{total_chunks} failed: {result.get('error')}")
+                    for remaining in chunk_paths[idx+1:]:
+                        try:
+                            os.unlink(remaining)
+                        except OSError:
+                            pass
+                    break
+            finally:
+                try:
+                    os.unlink(chunk_path)
+                except OSError:
+                    pass
+
+        if all(r.get("success") for r in chunk_results):
+            merged = self._merge_chunk_results(output_dir, chunk_output_dirs, chunk_results)
+            print(f"[MinerU] All {total_chunks} chunks merged successfully")
+            for d in chunk_output_dirs:
+                shutil.rmtree(d, ignore_errors=True)
+            return merged
+
+        failed = next((r for r in chunk_results if not r.get("success")), None)
+        return failed or self._build_parse_result(False, error="Chunk parse failed")
+
+    def _parse_single_file_cloud(self, input_path: str, output_dir: str) -> Dict[str, Any]:
+        """单文件云端解析流程（不含页数预检）。"""
         base_url = self._normalize_api_url(self.api_url)
         headers = self._build_cloud_headers()
         
@@ -287,13 +411,21 @@ class MinerUParser:
 
                 result_list = payload.get('data', {}).get('extract_result') or []
                 if not result_list:
+                    print(f"[MinerU] Poll returned empty extract_result. Payload: {json.dumps(payload, ensure_ascii=False)[:300]}")
                     continue
                     
                 first = result_list[0]
                 state = self._extract_nested_value(first, ['state', 'extract_state']).lower()
+                print(f"[MinerU] Poll state: {state}")
                 
                 if state in ('failed', 'error', 'timeout'):
-                    return self._build_parse_result(False, error=f'Cloud parse failed: {state}')
+                    error_msg = (
+                        self._extract_nested_value(first, ['err_msg', 'error_msg', 'error_message', 'fail_reason', 'message'])
+                        or self._extract_nested_value(first, ['msg', 'reason', 'detail'])
+                    )
+                    print(f"[MinerU] Cloud parse failed. State={state}. Full item: {json.dumps(first, ensure_ascii=False)}")
+                    detail = f": {error_msg}" if error_msg else ""
+                    return self._build_parse_result(False, error=f'Cloud parse failed: {state}{detail}')
                 
                 if state == 'done':
                     print(f"[MinerU] Full result payload: {json.dumps(first, ensure_ascii=False)}")

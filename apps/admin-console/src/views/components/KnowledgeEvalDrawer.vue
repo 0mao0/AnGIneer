@@ -10,72 +10,50 @@
 
     <div class="knowledge-eval-drawer">
       <div v-if="currentDataset" class="knowledge-eval-dataset-card">
-        <div class="dataset-card-title">{{ currentDataset.title }}</div>
-        <div v-if="currentDataset.description" class="dataset-card-description">
-          {{ currentDataset.description }}
-        </div>
-        <a-radio-group
-          v-if="datasetButtonOptions.length"
-          :value="selectedDatasetId"
-          size="small"
-          button-style="solid"
-          class="dataset-switch-group"
-          @update:value="handleDatasetChange"
-        >
-          <a-radio-button
-            v-for="option in datasetButtonOptions"
-            :key="option.value"
-            :value="option.value"
-            :disabled="running"
-          >
-            {{ option.label }}
-          </a-radio-button>
-        </a-radio-group>
-        <div class="dataset-action-row">
-          <a-button type="primary" size="small" :loading="running" @click="runSuite()">
-            {{ running ? '评测执行中' : currentDatasetRunLabel }}
-          </a-button>
-          <a-button size="small" :disabled="running || !hasCurrentDatasetState" @click="resetCases()">
-            还原题库
-          </a-button>
-        </div>
-        <div class="dataset-card-meta">
-          <span>可见题数：{{ currentDataset.visible_question_count }}</span>
-          <span>SQL 题：{{ currentDataset.sql_question_count }}</span>
-          <span v-if="currentDataset.version">版本：{{ currentDataset.version }}</span>
-        </div>
-      </div>
-
-      <div v-if="summary" class="knowledge-eval-summary">
-        <a-tooltip title="总分 = 检索分、回答健康度、回答正确率的简单平均值。若没有可计算的回答正确率，则只平均已有分项。">
-          <div class="summary-card">
-            <div class="summary-label">总分</div>
-            <div class="summary-value">{{ formatScore(summary.overall_score) }}</div>
-          </div>
-        </a-tooltip>
-        <a-tooltip title="检索分对应 retrieval_score，目前使用 Recall@5，表示标准证据是否进入前 5 个检索结果。">
-          <div class="summary-card">
-            <div class="summary-label">检索分</div>
-            <div class="summary-value">{{ formatScore(summary.retrieval_score) }}</div>
-          </div>
-        </a-tooltip>
-        <a-tooltip title="回答健康度 = 是否有回答、是否命中必须引用、拒答是否正确，三个指标的简单平均值。">
-          <div class="summary-card">
-            <div class="summary-label">回答健康度</div>
-            <div class="summary-value">{{ formatScore(summary.answer_health_score) }}</div>
-          </div>
-        </a-tooltip>
-        <a-tooltip title="正确率按检索结果计算：标准片段进入前 5 个结果记为正确；无需检索的题目在返回空结果时也记为正确。正确率 = 正确数量 / 总题数。">
-          <div class="summary-card">
-            <div class="summary-label">正确率</div>
-            <div class="summary-value">
-              {{ formatScore(correctRate) }}
+        <div class="dataset-card-top-row">
+          <div class="dataset-card-left">
+            <a-radio-group
+              v-if="datasetButtonOptions.length"
+              :value="selectedDatasetId"
+              size="small"
+              button-style="solid"
+              class="dataset-switch-group"
+              @update:value="handleDatasetChange"
+            >
+              <a-radio-button
+                v-for="option in datasetButtonOptions"
+                :key="option.value"
+                :value="option.value"
+                :disabled="running"
+              >
+                {{ option.label }}
+              </a-radio-button>
+            </a-radio-group>
+            <div v-if="currentDataset.description" class="dataset-card-description">
+              {{ currentDataset.description }}
             </div>
-            <div class="summary-hint">
-              正确 {{ passedCount }} / 总数 {{ cases.length }}
+            <div class="dataset-card-meta">
+              <span>可见题数：{{ currentDataset.visible_question_count }}</span>
+              <span>SQL 题：{{ currentDataset.sql_question_count }}</span>
+              <span v-if="currentDataset.version">版本：{{ currentDataset.version }}</span>
             </div>
           </div>
-        </a-tooltip>
+          <div v-if="summary || completedCount" class="dataset-card-right">
+            <div class="dataset-score-value">{{ formatScore(correctRate) }}</div>
+            <div class="dataset-score-hint">正确 {{ passedCount }} / {{ cases.length }}</div>
+          </div>
+        </div>
+        <div class="dataset-card-bottom-row">
+          <div />
+          <div class="dataset-action-row">
+            <a-button type="primary" size="small" :loading="running" @click="runSuite()">
+              {{ running ? '评测执行中' : currentDatasetRunLabel }}
+            </a-button>
+            <a-button size="small" :disabled="running || !hasCurrentDatasetState" @click="resetCases()">
+              还原题库
+            </a-button>
+          </div>
+        </div>
       </div>
 
       <div class="knowledge-eval-meta">
@@ -96,9 +74,19 @@
           :class="`status-${item.status}`"
         >
           <div class="eval-item-header">
-            <div class="eval-item-title">
-              <div class="eval-item-title-label">问题</div>
-              <div class="eval-item-question-row">
+            <div class="eval-item-title-area">
+              <div class="eval-item-first-row">
+                <span class="eval-item-title-label">问题</span>
+                <span v-if="item.difficulty" class="eval-meta-tag is-difficulty">{{ formatDifficulty(item.difficulty) }}</span>
+                <span
+                  v-for="tag in getDocTags(item)"
+                  :key="`${item.questionId}-doc-${tag}`"
+                  class="eval-meta-tag is-doc"
+                >
+                  {{ formatDocTag(tag, item) }}
+                </span>
+              </div>
+              <div class="eval-item-second-row">
                 <span class="eval-item-id">{{ item.questionId }}</span>
                 <span class="eval-item-question">{{ item.question }}</span>
               </div>
@@ -108,115 +96,91 @@
             </a-tag>
           </div>
 
-          <div class="eval-tag-groups">
-            <div v-if="item.difficulty" class="eval-tag-group">
-              <span class="eval-group-label">难度</span>
-              <span class="eval-meta-tag is-difficulty">{{ item.difficulty }}</span>
+          <div v-if="item.answerText || item.goldAnswer || item.failedChecks.length" class="eval-section">
+            <div v-if="item.answerText" class="eval-answer-block">
+              <div class="eval-answer-label">系统回答</div>
+              <div class="eval-rich-content" v-html="renderRichText(item.answerText)" />
             </div>
-            <div v-if="getDocTags(item).length" class="eval-tag-group">
-              <span class="eval-group-label">文档</span>
-              <span
-                v-for="tag in getDocTags(item)"
-                :key="`${item.questionId}-doc-${tag}`"
-                class="eval-meta-tag is-doc"
-              >
-                {{ tag }}
-              </span>
-            </div>
-            <div v-if="getAbilityTags(item).length" class="eval-tag-group">
-              <span class="eval-group-label">能力</span>
-              <span
-                v-for="tag in getAbilityTags(item)"
-                :key="`${item.questionId}-ability-${tag}`"
-                class="eval-meta-tag is-ability"
-              >
-                {{ tag }}
-              </span>
-            </div>
-          </div>
-
-          <div v-if="item.answerText || item.taskTypeLabel || item.strategyLabel" class="eval-section">
-            <div class="eval-section-header">
-              <div class="eval-section-title">回答</div>
-              <div class="eval-chain-tags">
-                <span v-if="item.taskTypeLabel" class="eval-inline-tag is-chain-label">意图</span>
-                <span v-if="item.taskTypeLabel" class="eval-inline-tag is-chain-value">{{ item.taskTypeLabel }}</span>
-                <span v-if="item.strategyLabel" class="eval-inline-arrow">-></span>
-                <span v-if="item.strategyLabel" class="eval-inline-tag is-chain-label">策略</span>
-                <span v-if="item.strategyLabel" class="eval-inline-tag is-chain-value">{{ item.strategyLabel }}</span>
+            <div v-if="item.failedChecks.length" class="eval-answer-block">
+              <div class="eval-answer-label">正确性校验</div>
+              <div class="eval-failed-checks">
+                未满足标准规则：{{ item.failedChecks.map(check => (check.keywords || []).join(' / ')).join('；') }}
               </div>
             </div>
-            <div class="eval-rich-content" v-html="renderRichText(item.answerText)" />
-          </div>
-
-          <div v-if="item.conclusion || item.retrievalScore != null || item.answerHealthScore != null" class="eval-section">
-            <div class="eval-section-header">
-              <div class="eval-section-title">检索结论</div>
-              <div class="eval-score-row">
-                <a-tooltip title="单题检索分：当前以 hit@5 展示，命中标准证据记 100%，否则 0%。">
-                  <div class="eval-score-chip">
-                    <span class="eval-score-label">检索分</span>
-                    <span class="eval-score-value">{{ formatScore(item.retrievalScore) }}</span>
-                  </div>
-                </a-tooltip>
-                <a-tooltip title="单题回答健康度：是否有回答、是否命中必须引用、拒答是否正确的平均值。">
-                  <div class="eval-score-chip">
-                    <span class="eval-score-label">回答健康度</span>
-                    <span class="eval-score-value">{{ formatScore(item.answerHealthScore) }}</span>
-                  </div>
-                </a-tooltip>
-              </div>
-            </div>
-            <div v-if="item.conclusion" class="eval-rich-content" v-html="renderRichText(item.conclusion)" />
-          </div>
-
-          <div v-if="item.goldAnswer || item.standardThinking" class="eval-section">
-            <div class="eval-section-header">
-              <div class="eval-section-title">标准参考</div>
-            </div>
-            <div v-if="item.goldAnswer" class="eval-standard-block">
-              <div class="eval-standard-label">标准答案</div>
+            <div v-if="item.goldAnswer" class="eval-answer-block">
+              <div class="eval-answer-label">标准答案</div>
               <div class="eval-rich-content" v-html="renderRichText(item.goldAnswer)" />
             </div>
-            <div v-if="item.standardThinking" class="eval-standard-block">
-              <div class="eval-standard-label">思考过程</div>
-              <div class="eval-rich-content" v-html="renderRichText(item.standardThinking)" />
+          </div>
+
+          <div v-if="buildThinkingChain(item).length" class="eval-section">
+            <div class="eval-section-header">
+              <div class="eval-section-title">思考链路</div>
+            </div>
+            <div class="eval-thinking-chain">
+              <div
+                v-for="(step, idx) in buildThinkingChain(item)"
+                :key="`${item.questionId}-step-${idx}`"
+                class="eval-thinking-step"
+              >
+                <span class="eval-step-badge">{{ idx + 1 }}</span>
+                <span class="eval-step-label">{{ step.label }}</span>
+                <span class="eval-step-value">{{ step.value }}</span>
+                <a-button
+                  v-if="step.hasDetail"
+                  type="link"
+                  size="small"
+                  @click="toggleStepDetail(item.questionId, idx)"
+                >
+                  {{ isStepDetailExpanded(item.questionId, idx) ? '收起' : '详情' }}
+                </a-button>
+                <div
+                  v-if="isStepDetailExpanded(item.questionId, idx)"
+                  class="eval-step-detail"
+                >
+                  <template v-if="step.label === '证据检索'">
+                    <div
+                      v-for="(c, ci) in item.citations"
+                      :key="`${item.questionId}-citation-${ci}`"
+                      class="eval-citation-card"
+                    >
+                      <div class="eval-citation-meta">
+                        <span class="eval-citation-score">[{{ ci + 1 }}] 得分{{ c.score.toFixed(4) }}</span>
+                      </div>
+                      <div class="eval-citation-location">
+                        <span>{{ c.doc_title || c.doc_id }}</span>
+                        <span v-if="c.page_idx" class="eval-citation-sep">·</span>
+                        <span v-if="c.page_idx">页码: P{{ c.page_idx }}</span>
+                      </div>
+                      <div v-if="c.section_path" class="eval-citation-section">
+                        章节: {{ c.section_path }}
+                      </div>
+                      <div
+                        v-if="c.rich_media && (c.rich_media.table_html || c.rich_media.math_content || c.rich_media.image_path || (c.rich_media.image_paths && c.rich_media.image_paths.length) || (c.rich_media.rich_media_order && c.rich_media.rich_media_order.length))"
+                        class="eval-citation-rich-media"
+                        v-html="renderCitationRichMedia(c)"
+                      />
+                      <div
+                        v-if="c.content || c.snippet"
+                        class="eval-citation-content eval-rich-content"
+                        v-html="renderRichText(c.content || c.snippet)"
+                      />
+                    </div>
+                  </template>
+                  <pre v-else>{{ formatStepDetail(item, step.label) }}</pre>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div v-if="item.citations.length" class="eval-section">
+          <div v-if="item.standardThinking" class="eval-section">
             <div class="eval-section-header">
-              <div class="eval-section-title">检索片段 (Top 5)</div>
+              <div class="eval-section-title">标准思考过程</div>
             </div>
-            <button
-              type="button"
-              class="eval-section-toggle"
-              @click="toggleCitations(item.questionId)"
-            >
-              <span class="eval-toggle-text">
-                {{ isCitationExpanded(item.questionId) ? '收起' : `展开 (${item.citations.length})` }}
-              </span>
-            </button>
-            <div v-if="isCitationExpanded(item.questionId)" class="eval-citation-list">
-              <div
-                v-for="citation in item.citations"
-                :key="`${item.questionId}-${citation.target_id}-${citation.page_idx}`"
-                class="eval-citation-item"
-              >
-                <div class="eval-citation-meta">
-                  <span class="eval-citation-doc">{{ citation.doc_title }}</span>
-                  <span v-if="citation.page_idx" class="eval-citation-page">P{{ citation.page_idx }}</span>
-                  <span v-if="citation.section_path" class="eval-citation-section">{{ citation.section_path }}</span>
-                </div>
-                <div class="eval-rich-content" v-html="renderRichText(citation.snippet || '')" />
-              </div>
-            </div>
+            <div class="eval-rich-content" v-html="renderRichText(item.standardThinking)" />
           </div>
 
           <div v-if="item.error" class="eval-item-error">{{ item.error }}</div>
-          <div v-if="item.failedChecks.length" class="eval-item-error">
-            未满足标准规则：{{ item.failedChecks.map(check => (check.keywords || []).join(' / ')).join('；') }}
-          </div>
         </div>
       </div>
     </div>
@@ -230,7 +194,7 @@
  */
 import { computed, ref, watch } from 'vue'
 import { message } from 'ant-design-vue'
-import { renderMarkdownToHtml } from '@angineer/docs-ui'
+import { renderMarkdownToHtml, renderFormula, resolveAssetUrl } from '@angineer/docs-ui'
 import {
   knowledgeApi,
   type KnowledgeEvalAnswerDetail,
@@ -241,14 +205,27 @@ import {
 
 type EvalCaseStatus = 'pending' | 'running' | 'answered' | 'passed' | 'failed' | 'error'
 
+type CitationRichMedia = {
+  table_html?: string
+  math_content?: string
+  image_path?: string
+  image_paths?: string[]
+  rich_media_order?: Array<{ type: 'image' | 'table' | 'math'; path?: string }>
+  source_file_name?: string
+}
+
 type EvalCitation = {
   target_id: string
+  target_type?: string
   doc_id: string
   doc_title: string
   page_idx: number
   section_path: string
   snippet: string
+  content?: string
+  content_type?: string
   score: number
+  rich_media?: CitationRichMedia
 }
 
 type EvalCaseState = {
@@ -269,6 +246,11 @@ type EvalCaseState = {
   failedChecks: Array<{ type?: string; keywords?: string[] }>
   retrievalScore: number | null
   answerHealthScore: number | null
+  strategy: string
+  taskType: string
+  confidence: number | null
+  retrievedItems: Array<Record<string, any>>
+  queryDebug: Record<string, any>
 }
 
 type DatasetEvalState = {
@@ -291,7 +273,6 @@ const props = defineProps<Props>()
 
 const drawerVisible = ref(false)
 const running = ref(false)
-const autoRunEnabled = ref(false)
 const datasets = ref<KnowledgeEvalDataset[]>([])
 const datasetStates = ref<Record<string, DatasetEvalState>>({})
 const selectedDatasetId = ref('')
@@ -301,6 +282,7 @@ const cases = ref<EvalCaseState[]>([])
 const summary = ref<KnowledgeEvalSummary | null>(null)
 const resultFilter = ref<'all' | 'passed' | 'failed'>('all')
 const expandedCitationQuestionIds = ref<string[]>([])
+const expandedStepDetails = ref<Record<string, Set<number>>>({})
 
 const completedCount = computed(() => cases.value.filter(item => (
   item.status === 'answered' || item.status === 'passed' || item.status === 'failed' || item.status === 'error'
@@ -318,7 +300,7 @@ const hasCurrentDatasetState = computed(() => {
   const datasetId = selectedDatasetId.value
   return Boolean(datasetId && datasetStates.value[datasetId])
 })
-const currentDatasetRunLabel = computed(() => currentDatasetHasResult.value ? '重新评测' : '运行评测')
+const currentDatasetRunLabel = computed(() => currentDatasetHasResult.value ? '重新评测' : '评测')
 const currentDatasetHasResult = computed(() => Boolean(summary.value || completedCount.value))
 const correctRate = computed(() => {
   if (!cases.value.length) {
@@ -372,7 +354,12 @@ function buildCasesFromQuestions(sourceQuestions: KnowledgeEvalQuestion[]): Eval
     error: '',
     failedChecks: [],
     retrievalScore: null,
-    answerHealthScore: null
+    answerHealthScore: null,
+    strategy: '',
+    taskType: '',
+    confidence: null,
+    retrievedItems: [],
+    queryDebug: {}
   }))
 }
 
@@ -489,13 +476,8 @@ const applyAnswerReport = (details: KnowledgeEvalAnswerDetail[]) => {
     return {
       ...item,
       status: typeof answerPassed === 'boolean' ? (answerPassed ? 'passed' : 'failed') : item.status,
-      answerText: detail.answer || item.answerText,
       goldAnswer: detail.gold_answer || item.goldAnswer,
       standardThinking: detail.thought_process || item.standardThinking,
-      thinking: item.thinking || buildThinkingText(detail),
-      taskTypeLabel: getTaskTypeLabel(detail.task_type),
-      strategyLabel: detail.strategy || '',
-      citations: Array.isArray(detail.citations) ? detail.citations : item.citations,
       failedChecks: Array.isArray(detail.failed_correctness_checks) ? detail.failed_correctness_checks : [],
       answerHealthScore: computeAnswerHealthScore(detail),
       error: answerPassed === false ? '答案未通过标准规则校验。' : item.error
@@ -516,9 +498,10 @@ const applyRetrievalReport = (details: Array<Record<string, any>>) => {
       return item
     }
     const passed = computeRetrievalPassed(detail)
+    const shouldOverrideStatus = item.status !== 'failed'
     return {
       ...item,
-      status: passed ? 'passed' : 'failed',
+      status: shouldOverrideStatus ? (passed ? 'passed' : 'failed') : item.status,
       conclusion: buildRetrievalConclusion(detail),
       retrievalScore: computeRetrievalScore(detail),
       error: passed ? '' : item.error
@@ -562,6 +545,113 @@ const getDocTags = (item: EvalCaseState) => item.tags.filter(tag => /^doc-/i.tes
 const getAbilityTags = (item: EvalCaseState) => item.tags.filter(tag => !/^doc-/i.test(tag))
 
 /**
+ * 将文档 ID 标签格式化为带 PDF 名称的显示。
+ */
+const formatDocTag = (tag: string, item?: EvalCaseState) => {
+  if (item && item.citations && item.citations.length) {
+    const matched = item.citations.find((c: EvalCitation) => c.doc_id === tag || c.target_id?.startsWith(tag))
+    if (matched && matched.doc_title) {
+      return `${tag}《${matched.doc_title}》`
+    }
+  }
+  return tag
+}
+
+/**
+ * 将难度代码转换为中文标签。
+ */
+const formatDifficulty = (difficulty: string) => {
+  const difficultyMap: Record<string, string> = {
+    easy: '难度：简单',
+    medium: '难度：中等',
+    hard: '难度：困难'
+  }
+  return difficultyMap[difficulty] || `难度：${difficulty}`
+}
+
+type ThinkingStep = {
+  label: string
+  value: string
+  hasDetail: boolean
+}
+
+/**
+ * 根据用例状态构建思考链路步骤列表。
+ */
+const buildThinkingChain = (item: EvalCaseState): ThinkingStep[] => {
+  const steps: ThinkingStep[] = []
+  if (item.taskTypeLabel) {
+    steps.push({ label: '意图识别', value: item.taskTypeLabel, hasDetail: false })
+  }
+  if (item.strategyLabel) {
+    steps.push({ label: '检索策略', value: item.strategyLabel, hasDetail: true })
+  }
+  if (item.citations.length) {
+    steps.push({ label: '证据检索', value: `命中 ${item.citations.length} 条`, hasDetail: true })
+  }
+  if (item.citations.length && item.answerText) {
+    steps.push({ label: 'Prompt 拼装', value: '问题 + 证据 → LLM', hasDetail: true })
+  }
+  if (item.answerText) {
+    steps.push({ label: '生成回答', value: 'LLM 生成', hasDetail: true })
+  }
+  return steps
+}
+
+/**
+ * 切换思考链路步骤详情的展开/收起状态。
+ */
+const toggleStepDetail = (questionId: string, stepIdx: number) => {
+  const key = `${questionId}`
+  if (!expandedStepDetails.value[key]) {
+    expandedStepDetails.value[key] = new Set()
+  }
+  const current = expandedStepDetails.value[key]
+  if (current.has(stepIdx)) {
+    current.delete(stepIdx)
+  } else {
+    current.add(stepIdx)
+  }
+  expandedStepDetails.value = { ...expandedStepDetails.value }
+}
+
+/**
+ * 判断思考链路步骤详情是否已展开。
+ */
+const isStepDetailExpanded = (questionId: string, stepIdx: number) => {
+  return expandedStepDetails.value[questionId]?.has(stepIdx) || false
+}
+
+/**
+ * 格式化思考链路步骤详情内容。
+ */
+const formatStepDetail = (item: EvalCaseState, label: string) => {
+  if (label === '证据检索' && item.citations.length) {
+    return item.citations.map((c, i) => {
+      const parts = [`[${i + 1}] ${c.doc_title || c.doc_id}`]
+      if (c.page_idx) parts.push(`  页码: P${c.page_idx}`)
+      if (c.section_path) parts.push(`  章节: ${c.section_path}`)
+      if (c.score) parts.push(`  得分: ${c.score.toFixed(4)}`)
+      if (c.snippet) parts.push(`  片段: ${c.snippet.slice(0, 200)}`)
+      return parts.join('\n')
+    }).join('\n\n')
+  }
+  if (label === '检索策略') {
+    return `策略: ${item.strategyLabel}\n意图: ${item.taskTypeLabel || '未知'}`
+  }
+  if (label === 'Prompt 拼装') {
+    const evidencePreview = item.citations.slice(0, 3).map((c, i) =>
+      `[${i + 1}] ${c.snippet ? c.snippet.slice(0, 150) : '(无片段)'}`
+    ).join('\n')
+    return `问题: ${item.question}\n\n证据:\n${evidencePreview}`
+  }
+  if (label === '生成回答') {
+    return item.answerText ? item.answerText.slice(0, 500) : '无回答内容'
+  }
+  return ''
+}
+
+/**
  * 判断单题检索是否命中标准结果。
  */
 const computeRetrievalPassed = (detail: Record<string, any>) => {
@@ -597,16 +687,31 @@ const computeAnswerPassed = (detail: KnowledgeEvalAnswerDetail) => {
 const buildRetrievalConclusion = (detail: Record<string, any>) => {
   const predictedIds = Array.isArray(detail.predicted_ids) ? detail.predicted_ids : []
   const goldChunkIds = Array.isArray(detail.gold_chunk_ids) ? detail.gold_chunk_ids : []
-  const hitCount = goldChunkIds.filter((item: string) => predictedIds.includes(item)).length
+  const goldSectionPaths = Array.isArray(detail.gold_section_paths) ? detail.gold_section_paths : []
+  const chunkHitCount = goldChunkIds.filter((item: string) => predictedIds.includes(item)).length
+  const hasChunkGold = goldChunkIds.length > 0
+  const hasSectionGold = goldSectionPaths.length > 0
   if (detail.retrieval_expected === false) {
     return computeRetrievalPassed(detail)
       ? '该题不要求召回标准片段，当前结果满足预期。'
       : '该题本应不返回相关片段，但当前检索结果返回了额外内容。'
   }
   if (computeRetrievalPassed(detail)) {
-    return `已命中标准片段。前 5 个检索结果已覆盖目标内容，命中 ${hitCount} 个目标片段。`
+    if (hasChunkGold) {
+      return `已命中标准片段。前 5 个检索结果已覆盖目标内容，命中 ${chunkHitCount}/${goldChunkIds.length} 个目标片段。`
+    }
+    if (hasSectionGold) {
+      return '已命中标准章节。前 5 个检索结果已覆盖目标章节路径。'
+    }
+    return '检索结果已通过。'
   }
-  return '未命中标准片段。前 5 个检索结果没有覆盖这道题要求的目标内容。'
+  if (hasChunkGold) {
+    return `未命中标准片段。前 5 个检索结果未覆盖目标内容，命中 ${chunkHitCount}/${goldChunkIds.length} 个目标片段。`
+  }
+  if (hasSectionGold) {
+    return '未命中标准章节。前 5 个检索结果未覆盖目标章节路径。'
+  }
+  return '未命中标准内容。'
 }
 
 /**
@@ -673,17 +778,40 @@ const runSuite = async (options?: { triggeredBy?: string }) => {
   resetCases()
 
   try {
+    const cachedPredictions: Record<string, any> = {}
     for (const item of cases.value) {
       item.status = 'running'
       const response = await props.runQuestion(item.question)
       item.conclusion = response.answer || ''
+      item.answerText = response.answer || ''
       item.thinking = response.queryChain || ''
       item.citations = Array.isArray(response.citations) ? response.citations : []
+      item.strategy = response.strategy || ''
+      item.taskType = response.task_type || ''
+      item.taskTypeLabel = getTaskTypeLabel(response.task_type || '')
+      item.strategyLabel = response.strategy || ''
+      item.confidence = response.confidence ?? null
+      item.retrievedItems = Array.isArray(response.retrieved_items) ? response.retrieved_items : []
+      item.queryDebug = response.debug || {}
       if (item.status === 'running') {
         item.status = 'answered'
       }
+      const retrievedItems = item.retrievedItems
+      cachedPredictions[item.questionId] = {
+        query_id: '',
+        strategy: item.strategy,
+        task_type: item.taskType,
+        retrieved_ids: retrievedItems.map((ri: any) => ri.item_id || ''),
+        retrieved_items: retrievedItems,
+        retrieved_section_paths: retrievedItems.map((ri: any) => ri.metadata?.section_path || ''),
+        retrieved_doc_ids: retrievedItems.map((ri: any) => ri.doc_id || ''),
+        debug: item.queryDebug,
+        answer: item.conclusion,
+        confidence: item.confidence,
+        citations: item.citations
+      }
     }
-    const report = await knowledgeApi.runEvalSuite(selectedDatasetId.value || undefined)
+    const report = await knowledgeApi.runEvalSuite(selectedDatasetId.value || undefined, cachedPredictions)
     if (Array.isArray(report.available_datasets) && report.available_datasets.length) {
       datasets.value = report.available_datasets
     }
@@ -726,19 +854,60 @@ const formatScore = (value?: number | null) => {
 const renderRichText = (content: string) => renderMarkdownToHtml(content || '', '')
 
 /**
- * 判断某道题的相关片段是否处于展开状态。
+ * 将 citation 的 rich_media 渲染为富媒体 HTML（图片、表格、公式）。
  */
-const isCitationExpanded = (questionId: string) => expandedCitationQuestionIds.value.includes(questionId)
+const renderCitationRichMedia = (citation: EvalCitation): string => {
+  const rm = citation.rich_media
+  if (!rm) return ''
+  const sections: string[] = []
+  const sourceFilePath = rm.source_file_name || ''
+  const renderedImages = new Set<string>()
 
-/**
- * 切换单题相关片段的折叠状态。
- */
-const toggleCitations = (questionId: string) => {
-  if (isCitationExpanded(questionId)) {
-    expandedCitationQuestionIds.value = expandedCitationQuestionIds.value.filter(item => item !== questionId)
-    return
+  if (Array.isArray(rm.rich_media_order) && rm.rich_media_order.length > 0) {
+    let tableRendered = false
+    let mathRendered = false
+    rm.rich_media_order.forEach((item) => {
+      if (item.type === 'image' && item.path) {
+        const src = resolveAssetUrl(item.path, sourceFilePath)
+        if (src && !renderedImages.has(src)) {
+          renderedImages.add(src)
+          sections.push(`<img class="media-image" src="${src}" alt="image" style="max-width:100%;border-radius:4px;" />`)
+        }
+      } else if (item.type === 'table' && !tableRendered && rm.table_html) {
+        tableRendered = true
+        sections.push(`<div class="media-table">${rm.table_html}</div>`)
+      } else if (item.type === 'math' && !mathRendered && rm.math_content) {
+        mathRendered = true
+        sections.push(`<div class="media-formula">${renderFormula(rm.math_content, true)}</div>`)
+      }
+    })
+    if (!tableRendered && rm.table_html) {
+      sections.push(`<div class="media-table">${rm.table_html}</div>`)
+    }
+    if (!mathRendered && rm.math_content) {
+      sections.push(`<div class="media-formula">${renderFormula(rm.math_content, true)}</div>`)
+    }
+  } else {
+    const allImagePaths = [
+      ...(rm.image_path ? [rm.image_path] : []),
+      ...(Array.isArray(rm.image_paths) ? rm.image_paths : [])
+    ]
+    allImagePaths.forEach((imagePath) => {
+      const src = resolveAssetUrl(imagePath, sourceFilePath)
+      if (src && !renderedImages.has(src)) {
+        renderedImages.add(src)
+        sections.push(`<img class="media-image" src="${src}" alt="image" style="max-width:100%;border-radius:4px;" />`)
+      }
+    })
+    if (rm.table_html) {
+      sections.push(`<div class="media-table">${rm.table_html}</div>`)
+    }
+    if (rm.math_content) {
+      sections.push(`<div class="media-formula">${renderFormula(rm.math_content, true)}</div>`)
+    }
   }
-  expandedCitationQuestionIds.value = [...expandedCitationQuestionIds.value, questionId]
+
+  return sections.join('')
 }
 
 /**
@@ -766,27 +935,24 @@ const getStatusText = (status: EvalCaseStatus) => {
 }
 
 /**
+ * 对外暴露打开抽屉的方法（不自动运行评测）。
+ */
+const open = async () => {
+  await ensureQuestions()
+  drawerVisible.value = true
+}
+
+/**
  * 对外暴露打开抽屉并立即执行的方法。
  */
 const openAndRun = async () => {
   await runSuite()
 }
 
-/**
- * 在启用自动评测时，由页面层调用此方法执行一次回归。
- */
-const maybeAutoRun = async (triggeredBy: string) => {
-  if (!autoRunEnabled.value || running.value) {
-    return
-  }
-  await runSuite({ triggeredBy })
-}
-
 defineExpose({
   running,
-  autoRunEnabled,
+  open,
   openAndRun,
-  maybeAutoRun
 })
 </script>
 
@@ -804,14 +970,39 @@ defineExpose({
   background: var(--bg-secondary, #fff);
 }
 
-.dataset-card-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+.dataset-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.dataset-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.dataset-card-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.dataset-score-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #faad14;
+  line-height: 1.2;
+}
+
+.dataset-score-hint {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
 }
 
 .dataset-card-description {
-  margin-top: 6px;
   font-size: 12px;
   line-height: 1.7;
   color: var(--text-secondary, rgba(0, 0, 0, 0.55));
@@ -821,48 +1012,27 @@ defineExpose({
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 10px;
+}
+
+.dataset-card-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 12px;
 }
 
 .dataset-action-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 10px;
 }
 
 .dataset-card-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 8px;
   font-size: 12px;
   color: var(--text-secondary, rgba(0, 0, 0, 0.45));
-}
-
-.knowledge-eval-summary {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.summary-card {
-  padding: 12px;
-  border-radius: 10px;
-  background: var(--bg-secondary, #fafafa);
-  border: 1px solid var(--border-color, #e8e8e8);
-}
-
-.summary-label {
-  font-size: 12px;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
-}
-
-.summary-value {
-  margin-top: 6px;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
 }
 
 .knowledge-eval-meta {
@@ -894,23 +1064,31 @@ defineExpose({
   gap: 12px;
 }
 
-.eval-item-title {
+.eval-item-title-label {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  flex-shrink: 0;
+}
+
+.eval-item-title-area {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
 }
 
-.eval-item-title-label {
-  font-size: 12px;
-  line-height: 1;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+.eval-item-first-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.eval-item-question-row {
+.eval-item-second-row {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 8px;
 }
 
 .eval-item-id {
@@ -927,20 +1105,6 @@ defineExpose({
   font-size: 15px;
   font-weight: 600;
   word-break: break-word;
-}
-
-.eval-tag-groups {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.eval-tag-group {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
 }
 
 .eval-group-label {
@@ -1104,6 +1268,17 @@ defineExpose({
   color: #cf1322;
 }
 
+.eval-failed-checks {
+  margin-top: 4px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, #cf1322 8%, var(--bg-secondary, #fff));
+  border: 1px solid color-mix(in srgb, #cf1322 20%, var(--border-color, #e8e8e8));
+  color: #cf1322;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 .eval-citation-list {
   display: flex;
   flex-direction: column;
@@ -1136,6 +1311,207 @@ defineExpose({
 
 .eval-citation-section {
   color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+}
+
+.eval-answer-block {
+  margin-top: 10px;
+}
+
+.eval-answer-block + .eval-answer-block {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed color-mix(in srgb, var(--border-color, #e8e8e8) 70%, transparent);
+}
+
+.eval-answer-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+  margin-bottom: 4px;
+}
+
+.eval-thinking-chain {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.eval-thinking-step {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.eval-step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: color-mix(in srgb, #1890ff 15%, var(--bg-secondary, #fff));
+  color: #1890ff;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.eval-step-label {
+  font-weight: 600;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.65));
+}
+
+.eval-step-value {
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+}
+
+.eval-step-detail {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--border-color, #e8e8e8) 40%, var(--bg-secondary, #fff));
+  overflow-x: auto;
+}
+
+.eval-step-detail pre {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+}
+
+.eval-citation-card {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--bg-secondary, #fff) 92%, var(--border-color, #e8e8e8) 8%);
+  border: 1px solid color-mix(in srgb, var(--border-color, #e8e8e8) 60%, transparent);
+  margin-bottom: 8px;
+}
+
+.eval-citation-card:last-child {
+  margin-bottom: 0;
+}
+
+.eval-citation-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.eval-citation-score {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fa8c16;
+}
+
+.eval-citation-location {
+  font-size: 12px;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  line-height: 1.6;
+}
+
+.eval-citation-sep {
+  margin: 0 4px;
+}
+
+.eval-citation-section {
+  font-size: 12px;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  line-height: 1.6;
+}
+
+.eval-citation-content {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed color-mix(in srgb, var(--border-color, #e8e8e8) 70%, transparent);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+}
+
+.eval-citation-rich-media {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed color-mix(in srgb, var(--border-color, #e8e8e8) 70%, transparent);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+}
+
+.eval-citation-rich-media :deep(.media-table) {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 0.4em 0;
+}
+
+.eval-citation-rich-media :deep(.media-table table) {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.eval-citation-rich-media :deep(.media-table th),
+.eval-citation-rich-media :deep(.media-table td) {
+  border: 1px solid var(--border-color, #e8e8e8);
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.eval-citation-rich-media :deep(.media-formula),
+.eval-citation-rich-media :deep(.math-block),
+.eval-citation-rich-media :deep(.katex-display) {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 0.4em 0;
+}
+
+.eval-citation-rich-media :deep(.media-image) {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.eval-citation-content :deep(p),
+.eval-citation-content :deep(ul),
+.eval-citation-content :deep(ol),
+.eval-citation-content :deep(blockquote),
+.eval-citation-content :deep(pre),
+.eval-citation-content :deep(table),
+.eval-citation-content :deep(.math-block),
+.eval-citation-content :deep(.media-table),
+.eval-citation-content :deep(.media-formula) {
+  margin: 0.4em 0;
+}
+
+.eval-citation-content :deep(.media-table),
+.eval-citation-content :deep(.math-block),
+.eval-citation-content :deep(.media-formula),
+.eval-citation-content :deep(.katex-display) {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.eval-citation-content :deep(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.4em 0;
+}
+
+.eval-citation-content :deep(th),
+.eval-citation-content :deep(td) {
+  border: 1px solid var(--border-color, #e8e8e8);
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.eval-citation-content :deep(img),
+.eval-citation-content :deep(.markdown-image) {
+  max-width: 100%;
+  border-radius: 4px;
 }
 
 .eval-rich-content {

@@ -102,6 +102,7 @@ def run_predictions(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]
             "debug": response.debug,
             "answer": response.answer,
             "confidence": response.confidence,
+            "citations": [item.model_dump(mode="json") for item in response.citations],
         }
     return predictions
 

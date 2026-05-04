@@ -32,6 +32,16 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "航迹带宽度",
+              "富裕宽度"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -59,6 +69,17 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "硬质底质",
+              "富裕宽度",
+              "增大"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -86,6 +107,20 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "引航",
+              "候潮",
+              "待泊",
+              "应急",
+              "检验检疫",
+              "避风"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -113,6 +148,17 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "候潮",
+              "进港航道",
+              "附近"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -140,6 +186,15 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "0.50B"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -167,6 +222,16 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "连接水域",
+              "船舶进出锚地通道"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -194,6 +259,19 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "货运量",
+              "船型",
+              "船流密度",
+              "自然条件",
+              "港口发展"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -221,6 +299,16 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "船流密度",
+              "复式航道"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -248,6 +336,16 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "航行安全",
+              "综合确定"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -275,6 +373,16 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "顺直",
+              "转向"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -302,6 +410,16 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "5倍",
+              "设计船长"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -329,6 +447,17 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "通航水深",
+              "通航宽度",
+              "转弯半径"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -356,6 +485,15 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "安全距离"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -383,6 +521,16 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "模拟试验",
+              "通航宽度"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -410,6 +558,18 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "到港船型",
+              "密度",
+              "港口生产组织",
+              "水域自然环境"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -437,6 +597,16 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "危险货物",
+              "分开设置"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -464,6 +634,16 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "液化天然气",
+              "应急锚地"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -491,6 +671,18 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "地理位置",
+              "自然条件",
+              "通航环境",
+              "进出锚地"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -518,6 +710,16 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "泥质",
+              "泥沙质"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
@@ -545,11 +747,21 @@
         "must_cite_target_ids": [],
         "allow_abstractive": true,
         "refusal_expected": false,
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "待泊",
+              "靠近码头"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
         "must_cite_section_paths": []
       }
     },
     {
-      "question_id": "q_045",
+      "question_id": "q_025",
       "question": "根据规范目次，港口的给水、排水设施主要在哪一章进行规定？",
       "task_type": "locate",
       "library_id": "default",
@@ -591,11 +803,12 @@
             ]
           }
         ],
-        "must_cite_section_paths": []
+        "must_cite_section_paths": [],
+        "semantic_threshold": 0.55
       }
     },
     {
-      "question_id": "q_046",
+      "question_id": "q_026",
       "question": "航道选线时，对于强风、强浪和水流主流向与航道轴线的关系，规范有什么一般性要求？",
       "task_type": "definition",
       "library_id": "default",
@@ -631,11 +844,12 @@
             ]
           }
         ],
-        "must_cite_section_paths": []
+        "must_cite_section_paths": [],
+        "semantic_threshold": 0.55
       }
     },
     {
-      "question_id": "q_047",
+      "question_id": "q_027",
       "question": "锚地按功能可划分为哪几种类型？",
       "task_type": "definition",
       "library_id": "default",
@@ -671,11 +885,12 @@
             ]
           }
         ],
-        "must_cite_section_paths": []
+        "must_cite_section_paths": [],
+        "semantic_threshold": 0.55
       }
     },
     {
-      "question_id": "q_048",
+      "question_id": "q_028",
       "question": "在公式6.2.8中，时间富裕系数Kt的取值范围是多少？",
       "task_type": "definition",
       "library_id": "default",
@@ -708,11 +923,12 @@
             ]
           }
         ],
-        "must_cite_section_paths": []
+        "must_cite_section_paths": [],
+        "semantic_threshold": 0.55
       }
     },
     {
-      "question_id": "q_049",
+      "question_id": "q_029",
       "question": "在什么特定前提下，航道设计水深可以采用估算公式D=kT进行计算？",
       "task_type": "definition",
       "library_id": "default",
@@ -745,11 +961,12 @@
             ]
           }
         ],
-        "must_cite_section_paths": []
+        "must_cite_section_paths": [],
+        "semantic_threshold": 0.55
       }
     },
     {
-      "question_id": "q_050",
+      "question_id": "q_030",
       "question": "防波堤头部的指示灯标应该怎么布置？",
       "task_type": "definition",
       "library_id": "default",
@@ -793,11 +1010,12 @@
             ]
           }
         ],
-        "must_cite_section_paths": []
+        "must_cite_section_paths": [],
+        "semantic_threshold": 0.55
       }
     },
     {
-      "question_id": "q_051",
+      "question_id": "q_031",
       "question": "我要计算一艘5万吨级散货船在横风8级、横流0.5m/s下的双线航道通航宽度，请帮我提取公式、对应公式里的所有查表参数值以及计算步骤。",
       "task_type": "multi_hop",
       "library_id": "default",
@@ -842,11 +1060,12 @@
             ]
           }
         ],
-        "must_cite_section_paths": []
+        "must_cite_section_paths": [],
+        "semantic_threshold": 0.55
       }
     },
     {
-      "question_id": "q_052",
+      "question_id": "q_032",
       "question": "如果现场勘探发现某段航道的转弯半径被设计成了正好4倍设计船长，根据规范，这大概对应多大的转向角范围？",
       "task_type": "reasoning",
       "library_id": "default",
@@ -889,11 +1108,12 @@
             ]
           }
         ],
-        "must_cite_section_paths": []
+        "must_cite_section_paths": [],
+        "semantic_threshold": 0.55
       }
     },
     {
-      "question_id": "q_053",
+      "question_id": "q_033",
       "question": "关于航道水深这一块，规范里针对普通航道和有全潮通航需求航道，在设计通航水位的取值思路上有什么核心区别？",
       "task_type": "compare",
       "library_id": "default",
@@ -934,11 +1154,12 @@
             ]
           }
         ],
-        "must_cite_section_paths": []
+        "must_cite_section_paths": [],
+        "semantic_threshold": 0.55
       }
     },
     {
-      "question_id": "q_054",
+      "question_id": "q_034",
       "question": "一艘8000吨级的杂货船，在船浪夹角90度时，它的波浪富裕深度系数该取多少？它和一艘2万吨级的船取值有什么不同？",
       "task_type": "table_explain",
       "library_id": "default",
@@ -974,7 +1195,8 @@
             ]
           }
         ],
-        "must_cite_section_paths": []
+        "must_cite_section_paths": [],
+        "semantic_threshold": 0.55
       }
     },
     {

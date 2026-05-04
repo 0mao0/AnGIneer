@@ -51,7 +51,7 @@ class KnowledgeQueryService:
             answer = execution_result.answer
             confidence = execution_result.confidence
         else:
-            citations = build_citations(execution_result.candidates, doc_title_map)
+            citations = build_citations(execution_result.candidates, doc_title_map, knowledge_service=self._knowledge_service)
             answer, confidence = assemble_answer(request.query, task_type, citations, execution_result.candidates)
         latency_ms = int((time.time() - started_at) * 1000)
 

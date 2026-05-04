@@ -122,9 +122,11 @@
               :structured-items="structuredItems"
               :dark-mode="isDark"
               :graph-data="graphData"
+              :graph-data-full-loaded="graphDataFullLoaded"
               :on-update-structured-node="updateStructuredNode"
               :on-batch-structured-operation="batchOperateStructuredNodes"
               :on-undo-last-operation="undoLastStructuredOperation"
+              :on-load-full-graph-data="loadFullGraphData"
               @parse="parseDocument"
               @toggle-visible="toggleVisible"
               @query-structured="loadStructuredIndex"
@@ -138,23 +140,13 @@
         <Panel title="AI 对话" :icon="MessageOutlined">
           <template #extra>
             <a-space size="small">
-              <a-tooltip title="开启后，文档解析完成或结构修改成功后会自动跑一次知识库评测">
-                <div class="eval-auto-run-toggle">
-                  <span class="eval-auto-run-label">自动评测</span>
-                  <a-switch
-                    size="small"
-                    :checked="knowledgeEvalDrawerRef?.autoRunEnabled || false"
-                    @update:checked="handleKnowledgeEvalAutoRunChange"
-                  />
-                </div>
-              </a-tooltip>
               <a-button
                 size="small"
                 class="header-action-btn"
                 :loading="knowledgeEvalDrawerRef?.running || false"
                 @click="openKnowledgeEvalDrawer"
               >
-                {{ knowledgeEvalDrawerRef?.running ? '评测中' : '运行评测' }}
+                评测
               </a-button>
             </a-space>
           </template>
@@ -299,14 +291,27 @@ const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null
 const knowledgeChatRef = ref<InstanceType<typeof KnowledgeChatPanel> | null>(null)
 const knowledgeEvalDrawerRef = ref<InstanceType<typeof KnowledgeEvalDrawer> | null>(null)
 
+type CitationRichMedia = {
+  table_html?: string
+  math_content?: string
+  image_path?: string
+  image_paths?: string[]
+  rich_media_order?: Array<{ type: 'image' | 'table' | 'math'; path?: string }>
+  source_file_name?: string
+}
+
 type KnowledgeChatCitation = {
   target_id: string
+  target_type?: string
   doc_id: string
   doc_title: string
   page_idx: number
   section_path: string
   snippet: string
+  content?: string
+  content_type?: string
   score: number
+  rich_media?: CitationRichMedia
 }
 
 type KnowledgeAnswerMessage = {
@@ -314,6 +319,17 @@ type KnowledgeAnswerMessage = {
   content?: string
   queryChain?: string
   citations?: KnowledgeChatCitation[]
+  strategy?: string
+  task_type?: string
+  confidence?: number
+  retrieved_items?: Array<{
+    item_id: string
+    entity_type: string
+    text: string
+    score: number
+    metadata?: Record<string, any>
+  }>
+  debug?: Record<string, any>
 }
 
 // 使用知识树 composable
@@ -351,6 +367,8 @@ const parsePollTimer = ref<number | null>(null)
 const structuredStats = ref<StructuredStats>({})
 const structuredItems = ref<StructuredIndexItem[]>([])
 const graphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
+const graphDataLoading = ref(false)
+const graphDataFullLoaded = ref(false)
 const parseSettingsVisible = ref(false)
 const llmConfigsLoading = ref(false)
 const llmConfigOptions = ref<LlmConfigOption[]>([])
@@ -514,31 +532,24 @@ const getLatestKnowledgeAssistantMessage = (): KnowledgeAnswerMessage | null => 
 /* 供评测抽屉调用，发送单条测试问题并返回回答、链路和引用。 */
 const runKnowledgeEvalQuestion = async (question: string) => {
   knowledgeChatRef.value?.clearComposer?.()
-  await knowledgeChatRef.value?.sendMessage(question, '')
+  await knowledgeChatRef.value?.sendMessage(question, '', undefined, { includeDebug: true, includeRetrieved: true })
   knowledgeChatRef.value?.clearComposer?.()
   const latestAnswer = getLatestKnowledgeAssistantMessage()
   return {
     answer: latestAnswer?.content || '',
     queryChain: latestAnswer?.queryChain || '',
-    citations: latestAnswer?.citations || []
+    citations: latestAnswer?.citations || [],
+    strategy: latestAnswer?.strategy || '',
+    task_type: latestAnswer?.task_type || '',
+    confidence: latestAnswer?.confidence,
+    retrieved_items: latestAnswer?.retrieved_items || [],
+    debug: latestAnswer?.debug || {}
   }
 }
 
-/* 在用户切换自动评测时，同步到抽屉组件内部状态。 */
-const handleKnowledgeEvalAutoRunChange = (checked: boolean) => {
-  if (knowledgeEvalDrawerRef.value) {
-    knowledgeEvalDrawerRef.value.autoRunEnabled = checked
-  }
-}
-
-/* 打开评测抽屉并触发一次完整运行。 */
+/* 打开评测抽屉。 */
 const openKnowledgeEvalDrawer = async () => {
-  await knowledgeEvalDrawerRef.value?.openAndRun?.()
-}
-
-/* 在用户开启自动评测时，于知识库修改成功后后台触发一次批量回归。 */
-const maybeAutoRunKnowledgeEval = (triggeredBy: string) => {
-  void knowledgeEvalDrawerRef.value?.maybeAutoRun?.(triggeredBy)
+  knowledgeEvalDrawerRef.value?.open?.()
 }
 
 // 面板调整大小回调
@@ -595,7 +606,7 @@ const resolveCitationTargetNode = (citation: KnowledgeChatCitation | null | unde
   if (!nodes.length || !citation) return null
   const targetId = String(citation.target_id || '').trim()
   const normalizedLastSegment = normalizeCitationText(getCitationLastSegment(citation.section_path))
-  const normalizedSnippet = normalizeCitationText(citation.snippet)
+  const normalizedSnippet = normalizeCitationText(citation.content || citation.snippet)
   let bestNode: any = null
   let bestScore = Number.NEGATIVE_INFINITY
   nodes.forEach((node) => {
@@ -841,15 +852,41 @@ const loadDocContent = async (docId: string) => {
     }
     docContent.value = result.content || '暂无内容'
     docContentDocId.value = docId
-    graphData.value = result?.graph_data || null
+    graphDataFullLoaded.value = false
     if (selectedNode.value && selectedNode.value.key === docId && result?.storage?.source_file) {
       selectedNode.value.filePath = result.storage.source_file
     }
+    loadGraphSummary(docId)
   } catch (error) {
     docContent.value = ''
     docContentDocId.value = ''
     graphData.value = null
     structuredStats.value = {}
+  }
+}
+
+const loadGraphSummary = async (docId: string) => {
+  try {
+    graphDataLoading.value = true
+    const result = await knowledgeApi.getDocBlocksGraphSummary('default', docId) as any
+    graphData.value = result?.data || null
+  } catch {
+    graphData.value = null
+  } finally {
+    graphDataLoading.value = false
+  }
+}
+
+const loadFullGraphData = async () => {
+  if (!selectedNode.value || graphDataFullLoaded.value || graphDataLoading.value) return
+  try {
+    graphDataLoading.value = true
+    const result = await knowledgeApi.getDocBlocksGraph('default', selectedNode.value.key) as any
+    graphData.value = result?.data || null
+    graphDataFullLoaded.value = true
+  } catch {
+  } finally {
+    graphDataLoading.value = false
   }
 }
 
@@ -1059,7 +1096,6 @@ const updateStructuredNode = async (payload: StructuredNodeUpdatePayload) => {
     await loadStructuredStats(selectedNode.value.key)
     await loadStructuredIndex()
     message.success('节点内容已更新')
-    maybeAutoRunKnowledgeEval('结构节点更新')
   } catch (error) {
     const detail = (error as any)?.response?.data?.detail || (error as any)?.message
     message.error(detail ? `节点更新失败: ${detail}` : '节点更新失败')
@@ -1107,7 +1143,6 @@ const batchOperateStructuredNodes = async (payload: StructuredBatchOperationPayl
         ? `已删除 ${result.removed_block_ids?.length || payload.blockIds.length || 0} 个 block`
         : `Block 已拆分为 ${Math.max(2, (result.created_block_ids?.length || 0) + 1)} 段`
     message.success(successText)
-    maybeAutoRunKnowledgeEval('结构批量操作')
   } catch (error) {
     const detail = (error as any)?.response?.data?.detail || (error as any)?.message
     message.error(detail ? `结构操作失败: ${detail}` : '结构操作失败')
@@ -1128,7 +1163,6 @@ const undoLastStructuredOperation = async () => {
       docParsedWorkspaceRef.value?.setActiveLinkedItem(firstRestoredId)
     }
     message.success('最近一次结构操作已撤回')
-    maybeAutoRunKnowledgeEval('结构撤回')
   } catch (error) {
     const detail = (error as any)?.response?.data?.detail || (error as any)?.message
     message.error(detail ? `撤回结构操作失败: ${detail}` : '撤回结构操作失败')
@@ -1165,7 +1199,6 @@ const startParsePolling = (taskId: string, docId: string) => {
           await loadDocContent(docId)
           await loadStructuredStats(docId)
           message.success('文档解析完成')
-          maybeAutoRunKnowledgeEval('文档解析')
         } else {
           message.error(task.error || '文档解析失败')
         }
@@ -1552,17 +1585,6 @@ onBeforeUnmount(() => {
 
 .header-icon-btn {
   padding-inline: 8px;
-}
-
-.eval-auto-run-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.eval-auto-run-label {
-  font-size: 12px;
-  color: var(--text-secondary, rgba(255, 255, 255, 0.65));
 }
 
 .drop-hint {

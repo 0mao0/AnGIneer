@@ -35,7 +35,7 @@ def looks_like_table_query(query: str) -> bool:
     lookup_markers = ("取值", "对应值", "对应关系", "哪个等级", "哪个代码")
     if any(marker in normalized_query for marker in lookup_markers):
         return True
-    return bool(re.search(r"[A-Za-z][A-Za-z0-9_]*\s*(?:\([^)]+\))?", query or ""))
+    return bool(re.search(r"[A-Za-z_][A-Za-z0-9_]{1,}\s*(?:\([^)]+\))?", query or ""))
 
 
 # 基于规则推断本次查询的任务类型。

@@ -73,10 +73,20 @@
                     </div>
                   </div>
                   <div
-                    v-if="isCitationExpanded(getCitationKey(citation)) && citation.snippet"
-                    class="citation-snippet"
+                    v-if="isCitationExpanded(getCitationKey(citation))"
+                    class="citation-detail"
                   >
-                    {{ citation.snippet }}
+                    <div
+                      v-if="citation.rich_media && (citation.rich_media.table_html || citation.rich_media.math_content || citation.rich_media.image_path || (citation.rich_media.image_paths && citation.rich_media.image_paths.length) || (citation.rich_media.rich_media_order && citation.rich_media.rich_media_order.length))"
+                      class="citation-rich-media"
+                      v-html="renderCitationRichMedia(citation)"
+                    />
+                    <div
+                      v-if="citation.content || citation.snippet"
+                      class="citation-snippet"
+                    >
+                      {{ citation.content || citation.snippet }}
+                    </div>
                   </div>
                 </button>
               </div>
@@ -239,7 +249,7 @@ import {
   DownOutlined,
   RightOutlined
 } from '@ant-design/icons-vue'
-import type { BaseChatContextItem, BaseChatMessage, BaseChatModelOption } from '../../types'
+import type { BaseChatCitation, BaseChatContextItem, BaseChatMessage, BaseChatModelOption } from '../../types'
 
 interface Props {
   messages: BaseChatMessage[]
@@ -337,8 +347,6 @@ const getVisibleCitations = (message: BaseChatMessage) => {
   return getUniqueCitations(message)
 }
 
-type BaseChatCitation = NonNullable<BaseChatMessage['citations']>[number]
-
 /**
  * 为引用项生成稳定 key，便于维护折叠状态。
  */
@@ -384,6 +392,33 @@ const getCitationLastSegment = (sectionPath: string | undefined): string => {
 const handleCitationClick = (citation: BaseChatCitation) => {
   toggleCitationExpanded(getCitationKey(citation))
   emit('selectCitation', citation)
+}
+
+/**
+ * 将 citation 的 rich_media 渲染为富媒体 HTML。
+ * ui-kit 不依赖 docs-ui，因此使用轻量内联实现。
+ */
+const renderCitationRichMedia = (citation: BaseChatCitation): string => {
+  const rm = citation.rich_media
+  if (!rm) return ''
+  const sections: string[] = []
+  if (rm.table_html) {
+    sections.push(`<div class="media-table">${rm.table_html}</div>`)
+  }
+  if (rm.math_content) {
+    sections.push(`<div class="media-formula">${rm.math_content}</div>`)
+  }
+  const allImagePaths = [
+    ...(rm.image_path ? [rm.image_path] : []),
+    ...(Array.isArray(rm.image_paths) ? rm.image_paths : [])
+  ]
+  allImagePaths.forEach((imagePath) => {
+    if (imagePath) {
+      const src = imagePath.startsWith('/') || imagePath.startsWith('http') ? imagePath : `/api/files?path=${encodeURIComponent(imagePath)}`
+      sections.push(`<img class="media-image" src="${src}" alt="image" style="max-width:100%;border-radius:4px;" />`)
+    }
+  })
+  return sections.join('')
 }
 
 /**
@@ -923,6 +958,42 @@ defineExpose({
           color: #595959;
           white-space: pre-wrap;
           margin-top: 8px;
+        }
+
+        .citation-rich-media {
+          margin-top: 8px;
+          font-size: 12px;
+          line-height: 1.6;
+        }
+
+        .citation-rich-media :deep(.media-table) {
+          overflow-x: auto;
+          max-width: 100%;
+          margin: 0.3em 0;
+        }
+
+        .citation-rich-media :deep(.media-table table) {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        .citation-rich-media :deep(.media-table th),
+        .citation-rich-media :deep(.media-table td) {
+          border: 1px solid #e8e8e8;
+          padding: 3px 6px;
+          font-size: 11px;
+        }
+
+        .citation-rich-media :deep(.media-formula) {
+          overflow-x: auto;
+          max-width: 100%;
+          margin: 0.3em 0;
+          font-family: 'Times New Roman', serif;
+        }
+
+        .citation-rich-media :deep(.media-image) {
+          max-width: 100%;
+          border-radius: 4px;
         }
 
         .streaming-cursor {
