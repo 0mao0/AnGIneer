@@ -9,6 +9,7 @@ export { default as Loading } from './common/Loading.vue'
 export { default as EmptyState } from './common/EmptyState.vue'
 export { default as ErrorBoundary } from './common/ErrorBoundary.vue'
 export { default as BaseChat } from './common/BaseChat.vue'
+export { default as AIChat } from './common/AIChat.vue'
 export { default as SmartTree } from './common/SmartTree.vue'
 
 // 导出类型

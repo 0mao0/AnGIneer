@@ -5,22 +5,25 @@ import unittest
 import os
 import sys
 
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/ai-inference/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
-from angineer_core.config import (
+from angineer_core.base_config import (
     AnGIneerConfig,
-    LLMClientConfig,
-    LLMModelConfig,
     MemoryConfig,
     DispatcherConfig,
     LoggingConfig,
-    RetryConfig,
-    CircuitBreakerConfig,
-    TimeoutConfig,
     get_config,
     set_config,
     reset_config,
     load_config_from_env,
+)
+from ai_inference.llm_config import (
+    LLMClientConfig,
+    LLMModelConfig,
+    RetryConfig,
+    CircuitBreakerConfig,
+    TimeoutConfig,
 )
 
 

@@ -3,7 +3,7 @@ import re
 from typing import List
 
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
 from docs_core.retrieval.query_normalizer import (
     contains_clause_ref,
     extract_clause_refs,
@@ -73,6 +73,11 @@ class SparseRetriever:
                             "source_kind": "canonical_sparse",
                             "chunk_type": chunk.chunk_type,
                             "strategy": "canonical_sparse_v1",
+                            "inherited_chapter": chunk.inherited_chapter,
+                            "entity_tags": chunk.entity_tags,
+                            "conditions": chunk.conditions,
+                            "exam_tags": chunk.exam_tags,
+                            "clause_id": chunk.clause_id,
                         },
                     )
                 )
@@ -106,6 +111,11 @@ class SparseRetriever:
                             "source_kind": "canonical_sparse",
                             "chunk_type": block.block_type,
                             "strategy": "canonical_sparse_v1",
+                            "inherited_chapter": block.inherited_chapter,
+                            "entity_tags": block.entity_tags,
+                            "conditions": block.conditions,
+                            "exam_tags": block.exam_tags,
+                            "clause_id": block.clause_id,
                         },
                     )
                 )

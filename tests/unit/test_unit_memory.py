@@ -7,12 +7,12 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
-from angineer_core.core.memory import (
+from angineer_core.memory import (
     Memory,
     StepRecord,
     UndefinedVariableError,
 )
-from angineer_core.config import MemoryConfig
+from angineer_core.base_config import MemoryConfig
 
 
 class TestMemory(unittest.TestCase):

@@ -16,8 +16,6 @@ from pydantic import BaseModel
 
 from docs_core.knowledge_service import knowledge_service
 from docs_core.ingest.extract.mineru_parser import mineru_parser
-from docs_core.query.contracts import KnowledgeQueryRequest, KnowledgeQueryResponse
-from docs_core.query.service import knowledge_query_service
 from docs_core.ingest.store.assets_file_store import (
     build_structured_index_for_doc,
     get_doc_blocks_graph,
@@ -65,15 +63,6 @@ class DocBlocksGraphSummaryRequest(BaseModel):
 
     library_id: str
     doc_id: str
-
-
-class KnowledgeRetrieveRequest(BaseModel):
-    """知识检索调试请求"""
-
-    query: str
-    library_id: str = "default"
-    doc_ids: list[str] = []
-    top_k: int = 5
 
 
 class ParseOrchestrator:
@@ -340,44 +329,6 @@ async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) ->
         return {"status": "success", "data": summary}
     except HTTPException:
         raise
-    except Exception as error:
-        raise HTTPException(status_code=500, detail=str(error))
-
-
-# 执行统一知识查询，按路由返回证据化答案
-@knowledge_router.post("/query", response_model=KnowledgeQueryResponse)
-async def query_knowledge(request: KnowledgeQueryRequest) -> KnowledgeQueryResponse:
-    try:
-        return knowledge_query_service.query(request)
-    except Exception as error:
-        raise HTTPException(status_code=500, detail=str(error))
-
-
-# 返回检索候选，便于前端调试和后续评测
-@knowledge_router.post("/retrieve")
-async def retrieve_knowledge(request: KnowledgeRetrieveRequest) -> Dict[str, Any]:
-    try:
-        response = knowledge_query_service.query(
-            KnowledgeQueryRequest(
-                query=request.query,
-                library_id=request.library_id,
-                doc_ids=request.doc_ids,
-                top_k=request.top_k,
-                include_retrieved=True,
-                include_debug=True,
-            )
-        )
-        return {
-            "query_id": response.query_id,
-            "task_type": response.task_type,
-            "strategy": response.strategy,
-            "answer": response.answer,
-            "citations": [item.model_dump(mode="json") for item in response.citations],
-            "retrieved_items": [item.model_dump(mode="json") for item in response.retrieved_items],
-            "confidence": response.confidence,
-            "latency_ms": response.latency_ms,
-            "debug": response.debug,
-        }
     except Exception as error:
         raise HTTPException(status_code=500, detail=str(error))
 

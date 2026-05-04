@@ -4,9 +4,31 @@ $rootDir = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Location).Path }
 $logsDir = Join-Path $rootDir "logs"
 $portContractPath = Join-Path $rootDir "apps/shared/ports.json"
 $portContract = Get-Content $portContractPath -Raw | ConvertFrom-Json
+$backendPort = $portContract.apiServerPort
+$adminPort = $portContract.adminConsolePort
 $frontendPort = $portContract.webConsolePort
 
-# Stop the target service process by PID file and clean stale state.
+# Recursively kill a process and all its child processes.
+function Stop-ProcessTree {
+    param(
+        [Parameter(Mandatory = $true)]
+        [int]$ProcessId
+    )
+
+    $process = Get-Process -Id $ProcessId -ErrorAction SilentlyContinue
+    if (-not $process) { return }
+
+    $children = Get-CimInstance Win32_Process | Where-Object {
+        $_.ParentProcessId -eq $ProcessId
+    }
+    foreach ($child in $children) {
+        Stop-ProcessTree -ProcessId $child.ProcessId
+    }
+
+    Stop-Process -Id $ProcessId -Force -ErrorAction SilentlyContinue
+}
+
+# Stop the target service process by PID file and kill the entire process tree.
 function Stop-ServiceProcess {
     param(
         [Parameter(Mandatory = $true)]
@@ -29,8 +51,8 @@ function Stop-ServiceProcess {
 
     $targetProcess = Get-Process -Id ([int]$pidText) -ErrorAction SilentlyContinue
     if ($targetProcess) {
-        Stop-Process -Id $targetProcess.Id -Force -ErrorAction SilentlyContinue
-        Write-Host "${ServiceName}: stopped PID $pidText" -ForegroundColor Green
+        Stop-ProcessTree -ProcessId $targetProcess.Id
+        Write-Host "${ServiceName}: stopped process tree PID $pidText" -ForegroundColor Green
     } else {
         Write-Host "${ServiceName}: process not found, removing stale PID $pidText" -ForegroundColor DarkYellow
     }
@@ -38,32 +60,56 @@ function Stop-ServiceProcess {
     Remove-Item $PidPath -Force -ErrorAction SilentlyContinue
 }
 
-# Stop any process occupying the specified port (for Frontend cleanup).
+# Stop any process occupying the specified port.
 function Stop-PortProcess {
     param(
+        [Parameter(Mandatory = $true)]
+        [string]$Label,
         [Parameter(Mandatory = $true)]
         [int]$Port
     )
 
-    $connections = Get-NetTCPConnection -LocalPort $Port -ErrorAction SilentlyContinue
+    $connections = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
     if (-not $connections) {
+        Write-Host "${Label} (port ${Port}): no listeners found." -ForegroundColor DarkGray
         return
     }
 
+    $killedPids = @{}
     foreach ($conn in $connections) {
-        $proc = Get-Process -Id $conn.OwningProcess -ErrorAction SilentlyContinue
+        $connPid = $conn.OwningProcess
+        if ($killedPids.ContainsKey($connPid)) { continue }
+        $killedPids[$connPid] = $true
+        $proc = Get-Process -Id $connPid -ErrorAction SilentlyContinue
         if ($proc) {
-            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
-            Write-Host "Frontend: stopped process on port $Port (PID $($proc.Id))" -ForegroundColor Green
+            Stop-ProcessTree -ProcessId $connPid
+            Write-Host "${Label} (port ${Port}): stopped process tree PID $connPid" -ForegroundColor Green
         }
     }
 }
 
-if (-not (Test-Path $logsDir)) {
-    Write-Host "logs directory not found, nothing to stop." -ForegroundColor DarkGray
-    exit 0
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host "   AnGIneer Stop Services" -ForegroundColor Cyan
+Write-Host "========================================" -ForegroundColor Cyan
+
+# Phase 1: Stop by PID files (graceful, kills process trees)
+Write-Host "[1/2] Stopping services by PID files..." -ForegroundColor Yellow
+if (Test-Path $logsDir) {
+    Stop-ServiceProcess -ServiceName "Backend" -PidPath (Join-Path $logsDir "backend.pid")
+    Stop-ServiceProcess -ServiceName "Admin" -PidPath (Join-Path $logsDir "admin.pid")
+    Stop-ServiceProcess -ServiceName "Embedding" -PidPath (Join-Path $logsDir "embedding.pid")
+    Stop-ServiceProcess -ServiceName "Reranker" -PidPath (Join-Path $logsDir "reranker.pid")
+} else {
+    Write-Host "logs directory not found, skipping PID-based stop." -ForegroundColor DarkGray
 }
 
-Stop-ServiceProcess -ServiceName "Backend" -PidPath (Join-Path $logsDir "backend.pid")
-Stop-ServiceProcess -ServiceName "Admin" -PidPath (Join-Path $logsDir "admin.pid")
-Stop-PortProcess -Port $frontendPort
+# Phase 2: Port-based fallback cleanup (catches orphaned processes)
+Write-Host "[2/2] Cleaning up orphaned processes by port..." -ForegroundColor Yellow
+Stop-PortProcess -Label "Backend" -Port $backendPort
+Stop-PortProcess -Label "Admin" -Port $adminPort
+Stop-PortProcess -Label "Frontend" -Port $frontendPort
+Stop-PortProcess -Label "Embedding" -Port 7997
+Stop-PortProcess -Label "Reranker" -Port 7998
+
+Write-Host ""
+Write-Host "All services stopped." -ForegroundColor Green

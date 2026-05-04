@@ -1,6 +1,6 @@
 # AnGIneer 后端技术实现细节
 
-本文档描述文档解析与对比查改能力的后端改造方案，聚焦 API 网关、docs-core、engtools 三层联动。
+本文档描述文档解析与对比查改能力的后端改造方案，聚焦 API 网关、ai-inference、docs-core、engtools 多层联动。
 
 - 运行端口契约：`apps/api-server` 对外监听 `8789`，前端开发代理 `/api` 必须统一转发到 `http://localhost:8789`。
 
@@ -22,15 +22,32 @@ pnpm harness:tooling
 
 ## 后端权威架构图（简版）
 
-这部分作为后端侧的权威简图，优先回答两个问题：
+这部分作为后端侧的权威简图，优先回答三个问题：
 
+- AI 推理能力由哪个模块提供，其他服务如何获取
 - 文档解析主链经过哪些稳定节点
 - 运行时数据最终落到哪里，并如何被前端读回
+
+### 依赖方向（强约束）
+
+```
+ai-inference（底层，零外部依赖）
+    ↑
+angineer-core / docs-core / engtools / sop-core（服务层，直接依赖 ai-inference）
+    ↑
+api-server（网关层）
+```
+
+**关键原则：**
+- `ai-inference` 是 AI 推理的唯一真相源，不依赖任何其他服务模块
+- 所有上层服务需要 LLM/语义能力时，直接 `from ai_inference import ...`，不经过 `angineer-core` 中转
+- `angineer-core` 不再重导出 `ai_inference` 的符号
 
 ```mermaid
 flowchart LR
   Front["web/admin consoles"]
   Api["api-server"]
+  AI["ai-inference\nLLM/Semantic"]
   Routes["knowledge_routes"]
   Parser["mineru_parser"]
   Store["result_store_json + document_storage"]
@@ -39,6 +56,7 @@ flowchart LR
   Read["document APIs"]
 
   Front --> Api
+  Api --> AI
   Api --> Routes
   Routes --> Parser
   Parser --> Store
@@ -62,14 +80,78 @@ flowchart LR
 
 ### 后端代码锚点
 
+- `services/ai-inference/src/ai_inference/llm_client.py`（LLM 客户端：多模型/重试/熔断）
+- `services/ai-inference/src/ai_inference/llm_config.py`（LLM 配置管理）
+- `services/ai-inference/src/ai_inference/llm_response_parser.py`（LLM 响应解析）
+- `services/ai-inference/src/ai_inference/llm_logger.py`（LLM 专用日志）
+- `services/ai-inference/src/ai_inference/semantic_embedding_service.py`（语义嵌入服务，端口 7997）
+- `services/ai-inference/src/ai_inference/semantic_reranker_service.py`（语义重排服务，端口 7998）
 - `apps/api-server/knowledge_routes.py`
 - `services/docs-core/src/docs_core/knowledge_service.py`
 - `services/docs-core/src/docs_core/ingest/extract/mineru_parser.py`
 - `services/docs-core/src/docs_core/ingest/store/canonical_sql_store.py`
-- `services/docs-core/src/docs_core/query/service.py`
-- `services/docs-core/src/docs_core/query/execution_planner.py`
-- `services/docs-core/src/docs_core/executors/content_executor.py`
-- `services/docs-core/src/docs_core/answering/answer_assembler.py`
+- `services/docs-core/src/docs_core/query/contracts.py`
+- `services/angineer-core/src/angineer_core/classifier.py`
+- `services/angineer-core/src/angineer_core/dispatcher.py`
+
+***
+
+## AI Inference 模块架构 (services/ai-inference)
+
+`ai-inference` 是整个系统的 AI 推理底座，提供 LLM 调用、语义嵌入、语义重排和响应解析能力。它是**唯一**的 AI 能力提供者，所有上层服务直接依赖此模块。
+
+### 模块结构
+
+```text
+services/ai-inference/
+├── src/ai_inference/
+│   ├── __init__.py                        # 公共 API 导出
+│   ├── llm_client.py                      # LLM 客户端（多模型/重试/熔断/流式）
+│   ├── llm_config.py                      # LLM 配置管理（Pydantic 模型 + 环境变量加载）
+│   ├── llm_response_parser.py             # LLM 响应解析（JSON 提取/校验/安全提取）
+│   ├── llm_logger.py                      # LLM 专用日志
+│   ├── semantic_embedding_service.py      # 语义嵌入服务（bge-m3，端口 7997）
+│   └── semantic_reranker_service.py       # 语义重排服务（bge-reranker-v2-m3，端口 7998）
+├── start-ai-services.ps1                  # 语义服务启动脚本
+└── pyproject.toml
+```
+
+### 依赖方向（强约束）
+
+```
+ai-inference（底层，零外部依赖）
+    ↑
+angineer-core / docs-core / engtools / sop-core（直接依赖 ai-inference）
+    ↑
+api-server（网关层）
+```
+
+- `ai-inference` 不依赖任何其他服务模块（零反向依赖）
+- 所有上层服务需要 LLM/语义能力时，直接 `from ai_inference import ...`
+- `angineer-core` 不再重导出 `ai_inference` 的符号
+
+### 核心组件
+
+| 组件 | 文件 | 说明 |
+|:---|:---|:---|
+| LLMClient | `llm_client.py` | 多模型管理、超时/重试/熔断、流式输出。无参初始化时自动从环境变量加载配置 |
+| LLM 配置 | `llm_config.py` | `LLMClientConfig` / `LLMModelConfig` 等 Pydantic 模型，`load_llm_config_from_env()` 从 `.env` 加载 |
+| 响应解析 | `llm_response_parser.py` | `extract_json_from_text()` / `parse_and_validate()` / `ParseError` |
+| 语义嵌入 | `semantic_embedding_service.py` | bge-m3 模型，OpenAI 兼容 `/v1/embeddings` 接口，端口 7997 |
+| 语义重排 | `semantic_reranker_service.py` | bge-reranker-v2-m3 模型，`/v1/rerank` 接口，端口 7998 |
+
+### 使用方式
+
+```python
+# 直接导入 LLM 客户端
+from ai_inference.llm_client import LLMClient, get_llm_client
+
+# 直接导入响应解析
+from ai_inference.llm_response_parser import ParseError, extract_json_from_text
+
+# 直接导入配置
+from ai_inference.llm_config import LLMClientConfig, load_llm_config_from_env
+```
 
 ***
 
@@ -141,10 +223,8 @@ flowchart TB
     Storage["document_storage\n一文档一目录与兼容路径"]
     Struct["ingest/canonical + file_store\n当前结构化主链"]
     CanonicalSql["canonical_sql_store\ncanonical SQLite truth source"]
-    Query["query/*\nintent/planner/service"]
-    Executors["executors/*\ncontent/table/formula/sql"]
+    Query["query/contracts\n协议模型"]
     Retrieval["retrieval/*\nnormalizer/dense/sparse/hybrid/rerank"]
-    Answering["answering/*\ncitation/answer/refusal"]
     Text2Sql["text2sql/*\nschema/planner/generator/validator/executor"]
     Evals["evals/*\nretrieval/answer/text2sql/report"]
   end

@@ -4,7 +4,7 @@ from typing import Iterable, List
 
 from docs_core.indexing import VectorSearchHit, default_embedding_provider
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
 from docs_core.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, tokenize_query
 
 

@@ -3,39 +3,46 @@ import json
 import math
 from typing import Any, Dict, List
 
+import httpx
+
 from docs_core.evals.dataset_loader import load_eval_answer_rows, load_eval_questions
-from docs_core.query.contracts import KnowledgeQueryRequest
 from docs_core.evals.eval_retrieval import normalize_section_path
 
+API_BASE = "http://localhost:8789"
 
-# 调用当前知识查询服务，获取真实回答结果。
+
+# 通过 /api/query 端点调用新链路，获取回答结果。
 def run_predictions(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
-    from docs_core.query.service import knowledge_query_service
     predictions: Dict[str, Dict[str, Any]] = {}
-    for question in questions:
-        question_id = str(question.get("question_id") or "")
-        query = str(question.get("question") or "").strip()
-        if not question_id or not query:
-            continue
-        request = KnowledgeQueryRequest(
-            query=query,
-            library_id=str(question.get("library_id") or "default"),
-            mode=str(question.get("expected_route") or "auto"),
-            top_k=5,
-            include_debug=True,
-            include_retrieved=True,
-        )
-        response = knowledge_query_service.query(request)
-        predictions[question_id] = {
-            "query_id": response.query_id,
-            "strategy": response.strategy,
-            "task_type": response.task_type,
-            "answer": response.answer,
-            "confidence": response.confidence,
-            "citations": [item.model_dump(mode="json") for item in response.citations],
-            "retrieved_items": [item.model_dump(mode="json") for item in response.retrieved_items],
-            "debug": response.debug,
-        }
+    with httpx.Client(timeout=60.0) as client:
+        for question in questions:
+            question_id = str(question.get("question_id") or "")
+            query = str(question.get("question") or "").strip()
+            if not question_id or not query:
+                continue
+            try:
+                resp = client.post(f"{API_BASE}/api/query", json={
+                    "query": query,
+                    "library_id": str(question.get("library_id") or "default"),
+                    "doc_ids": list(question.get("doc_ids") or []),
+                    "scene": "docs",
+                    "session_id": f"eval-{question_id}",
+                })
+                resp.raise_for_status()
+                data = resp.json()
+            except Exception as exc:
+                print(f"[eval] query failed for {question_id}: {exc}")
+                data = {}
+            predictions[question_id] = {
+                "query_id": data.get("query_id", ""),
+                "strategy": (data.get("intent") or {}).get("service_mode", ""),
+                "task_type": (data.get("intent") or {}).get("intent_level", ""),
+                "answer": data.get("answer", ""),
+                "confidence": data.get("confidence", 0.0),
+                "citations": list(data.get("citations") or []),
+                "retrieved_items": list(data.get("retrieved_items") or []),
+                "debug": data.get("debug", {}),
+            }
     return predictions
 
 
@@ -102,7 +109,6 @@ def evaluate_answer_correctness(answer: str, gold: Dict[str, Any]) -> Dict[str, 
             "failed_checks": [],
         }
     failed_checks = [check for check in checks if not evaluate_correctness_check(answer, check)]
-    # 即使关键词全部命中，也要求与标准答案的语义相似度达到一定阈值，避免关键词拼凑。
     semantic_threshold = float(gold.get("semantic_threshold", 0.55))
     if not failed_checks and semantic_threshold > 0:
         gold_answer = str(gold.get("gold_answer") or gold.get("gold_answer_text") or "").strip()
@@ -235,7 +241,7 @@ def evaluate_answers(
     }
 
 
-# 脚本入口：读取问题集与 gold answer，并调用当前知识查询主链。
+# 脚本入口：读取问题集与 gold answer，并调用 /api/query 端点。
 def main() -> None:
     questions = load_eval_questions()
     gold_answer_rows = load_eval_answer_rows()

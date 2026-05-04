@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.abspath("services/angineer-core/src"))
 sys.path.insert(0, os.path.abspath("services/sop-core/src"))
 sys.path.insert(0, os.path.abspath("services/engtools/src"))
 
-from angineer_core.infra.llm_client import llm_client
+from ai_inference.llm_client import llm_client
 from bs4 import BeautifulSoup
 import json
 

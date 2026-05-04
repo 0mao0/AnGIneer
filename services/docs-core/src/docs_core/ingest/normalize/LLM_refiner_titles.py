@@ -3,7 +3,7 @@ import json
 from typing import Any, Callable, Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from angineer_core.infra.llm_client import LLMClient
+    from ai_inference.llm_client import LLMClient
 
 
 def llm_refine_title_levels(

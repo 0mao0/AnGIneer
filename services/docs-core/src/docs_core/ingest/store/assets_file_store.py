@@ -390,7 +390,7 @@ file_storage = FileStorage()
 # 延迟获取 AnGIneer LLM 客户端，避免循环导入
 def _get_llm_client():
     try:
-        from angineer_core.infra.llm_client import llm_client
+        from ai_inference.llm_client import llm_client
         return llm_client
     except ImportError:
         return None

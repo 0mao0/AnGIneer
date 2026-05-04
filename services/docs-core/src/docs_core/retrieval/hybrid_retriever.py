@@ -1,7 +1,7 @@
 """融合 dense 与 sparse 候选的 hybrid 检索器。"""
 from typing import Any, Dict, List, Tuple
 
-from docs_core.query.contracts import KnowledgeQueryFilter, RetrievedItem
+from docs_core.query_protocols.contracts import KnowledgeQueryFilter, RetrievedItem
 
 
 # 对单个来源内的候选分数做归一化。

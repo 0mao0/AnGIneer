@@ -4,7 +4,7 @@
       placement="rightTop"
       :mouse-enter-delay="0.15"
       overlay-class-name="doc-block-tree-tooltip-overlay"
-      @visibleChange="onTooltipVisibleChange"
+      @openChange="onTooltipOpenChange"
     >
       <template #title>
         <div class="tree-tooltip">
@@ -168,8 +168,8 @@ const tooltipRichMediaHtml = computed(() => {
   })
 })
 const tooltipHovered = ref(false)
-const onTooltipVisibleChange = (visible: boolean) => {
-  if (visible) tooltipHovered.value = true
+const onTooltipOpenChange = (open: boolean) => {
+  if (open) tooltipHovered.value = true
 }
 const hasRichMedia = computed(() => {
   const n = node.value

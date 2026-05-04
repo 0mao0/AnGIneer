@@ -7,11 +7,12 @@ import json
 
 import sys
 import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/ai-inference/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
-from angineer_core.core.classifier import IntentClassifier
-from angineer_core.standard.context_models import SOP, Step
-from angineer_core.infra.response_parser import IntentResponse, ArgsExtractResponse
+from angineer_core.classifier import IntentClassifier
+from angineer_core.base_contracts import SOP, Step
+from angineer_core.base_contracts import IntentResponse, ArgsExtractResponse
 
 
 class TestIntentClassifierInit(unittest.TestCase):

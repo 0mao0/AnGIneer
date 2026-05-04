@@ -16,6 +16,26 @@ from docs_core.ingest.store.assets_file_store import file_storage
 from docs_core.ingest.normalize import build_table_representations
 
 
+# 从标题文本中提取规范条号，如 "5.2.3"
+def extract_clause_id(text: str) -> str | None:
+    if not text:
+        return None
+    match = re.match(r"^(\d+(?:\.\d+){1,4})\s", clean_text(text))
+    if match:
+        return match.group(1)
+    return None
+
+
+# 从 section_path 中提取最近章节归属（取最后一段）
+def extract_inherited_chapter(section_path: str) -> str | None:
+    if not section_path:
+        return None
+    parts = [part.strip() for part in section_path.split("/") if part.strip()]
+    if not parts:
+        return None
+    return parts[-1]
+
+
 # 清洗文本，生成适合检索和比较的简化字段
 def clean_text(text: str) -> str:
     return re.sub(r"\s+", " ", (text or "")).strip()
@@ -225,6 +245,8 @@ def build_canonical_blocks(library_id: str, doc_id: str) -> List[CanonicalBlock]
                 source="mineru",
                 source_ref=str(raw_block.get("source_ref") or "") or None,
                 parent_block_id=str(raw_block.get("parent_block_uid") or "") or None,
+                clause_id=extract_clause_id(text),
+                inherited_chapter=extract_inherited_chapter(str(raw_block.get("section_path") or "")),
             )
         )
     return canonical_blocks
@@ -246,7 +268,12 @@ def build_canonical_outlines(blocks: List[CanonicalBlock]) -> Tuple[List[Canonic
             outline_id = f"outline-{block.block_id or index}"
             title_stack.append((level, block.text_clean, outline_id))
             section_path = " / ".join(item[1] for item in title_stack)
-            next_block = block.model_copy(update={"title_level": level, "section_path": section_path})
+            next_block = block.model_copy(update={
+                "title_level": level,
+                "section_path": section_path,
+                "clause_id": extract_clause_id(block.text_clean),
+                "inherited_chapter": extract_inherited_chapter(section_path),
+            })
             outlines.append(
                 CanonicalOutlineNode(
                     outline_id=outline_id,
@@ -261,7 +288,10 @@ def build_canonical_outlines(blocks: List[CanonicalBlock]) -> Tuple[List[Canonic
             )
         elif title_stack and not block.section_path:
             section_path = " / ".join(item[1] for item in title_stack)
-            next_block = block.model_copy(update={"section_path": section_path})
+            next_block = block.model_copy(update={
+                "section_path": section_path,
+                "inherited_chapter": extract_inherited_chapter(section_path),
+            })
         normalized_blocks.append(next_block)
     return normalized_blocks, outlines
 
@@ -305,6 +335,11 @@ def build_canonical_chunks(blocks: List[CanonicalBlock]) -> List[CanonicalChunk]
                         snippet=clean_text(text)[:180],
                     )
                 ],
+                inherited_chapter=first_block.inherited_chapter,
+                entity_tags=first_block.entity_tags,
+                conditions=first_block.conditions,
+                exam_tags=first_block.exam_tags,
+                clause_id=first_block.clause_id,
             )
         )
         current_blocks = []
@@ -338,6 +373,11 @@ def build_canonical_chunks(blocks: List[CanonicalBlock]) -> List[CanonicalChunk]
                             snippet=block.text_clean,
                         )
                     ],
+                    inherited_chapter=block.inherited_chapter,
+                    entity_tags=block.entity_tags,
+                    conditions=block.conditions,
+                    exam_tags=block.exam_tags,
+                    clause_id=block.clause_id,
                 )
             )
             continue
@@ -443,6 +483,11 @@ def build_canonical_tables(
                         snippet=summary_text[:180],
                     )
                 ],
+                inherited_chapter=canonical_block.inherited_chapter if canonical_block else None,
+                entity_tags=canonical_block.entity_tags if canonical_block else [],
+                conditions=canonical_block.conditions if canonical_block else [],
+                exam_tags=canonical_block.exam_tags if canonical_block else [],
+                clause_id=canonical_block.clause_id if canonical_block else None,
             )
         )
 
@@ -471,6 +516,11 @@ def build_canonical_tables(
                             snippet=clean_text(row_text)[:180],
                         )
                     ],
+                    inherited_chapter=canonical_block.inherited_chapter if canonical_block else None,
+                    entity_tags=canonical_block.entity_tags if canonical_block else [],
+                    conditions=canonical_block.conditions if canonical_block else [],
+                    exam_tags=canonical_block.exam_tags if canonical_block else [],
+                    clause_id=canonical_block.clause_id if canonical_block else None,
                 )
             )
 

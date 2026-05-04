@@ -10,7 +10,7 @@ from docs_core.ingest.normalize.table_semantics import (
     TABLE_TYPE_TEXT_DENSE,
 )
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
 from docs_core.retrieval.dense_retriever import score_text
 from docs_core.retrieval.query_normalizer import extract_clause_refs, tokenize_query
 from docs_core.retrieval.sparse_retriever import score_sparse_match

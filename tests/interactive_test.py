@@ -17,13 +17,16 @@ import json
 import argparse
 from typing import Dict, Any, Optional, List
 
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/ai-inference/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/angineer-core/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/sop-core/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../services/engtools/src")))
 
-from angineer_core.core import IntentClassifier, Dispatcher, Memory
-from angineer_core.standard import SOP, Step
-from angineer_core.infra import get_logger, extract_json_from_text, ParseError
+from angineer_core import IntentClassifier, Dispatcher, Memory
+from angineer_core.base_contracts import SOP, Step
+from angineer_core import get_logger
+from ai_inference.llm_response_parser import extract_json_from_text, ParseError
+from ai_inference.llm_client import get_llm_client
 from sop_core.sop_loader import SopLoader
 
 logger = get_logger(__name__)
@@ -127,7 +130,7 @@ class InteractiveTestRunner:
             mock_client = MockLLMClient(fixture_data)
             classifier = IntentClassifier(sops, llm_client=mock_client)
         else:
-            from angineer_core.infra import get_llm_client
+            from ai_inference.llm_client import get_llm_client
             classifier = IntentClassifier(sops, llm_client=get_llm_client())
         
         sop, args, reason = classifier.route(user_query)

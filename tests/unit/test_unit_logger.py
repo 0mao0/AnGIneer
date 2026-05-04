@@ -8,7 +8,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
-from angineer_core.infra.logger import (
+from angineer_core.base_logger import (
     get_logger,
     get_default_logger,
     set_default_logger,
@@ -65,7 +65,7 @@ class TestLogger(unittest.TestCase):
         set_default_logger(custom_logger)
         self.assertIs(get_default_logger(), custom_logger)
         
-        from angineer_core.infra.logger import _default_logger
+        from angineer_core.base_logger import _default_logger
         self.assertIs(_default_logger, custom_logger)
 
 

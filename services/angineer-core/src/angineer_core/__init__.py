@@ -3,67 +3,61 @@ AnGIneer Core - AI Engineer Operating System Core Module.
 
 This module provides the core functionality for the AnGIneer system,
 including intent classification, SOP dispatching, and memory management.
+
+LLM 相关功能请直接使用 ai_inference：
+    from ai_inference.llm_client import LLMClient, get_llm_client
+    from ai_inference.llm_response_parser import ParseError, extract_json_from_text
 """
 
-from angineer_core.core import IntentClassifier, Dispatcher, Memory, StepRecord, UndefinedVariableError
-from angineer_core.standard import (
+from angineer_core.classifier import IntentClassifier
+from angineer_core.dispatcher import Dispatcher
+from angineer_core.memory import Memory, StepRecord, UndefinedVariableError
+from angineer_core.base_contracts import (
     SOP, Step, AgentResponse,
+    IntentResult, IntentLevel, ServiceMode,
     IntentResponse, ActionResponse, StepParseResponse, ArgsExtractResponse,
 )
-from angineer_core.infra import (
-    LLMClient,
-    llm_client,
-    get_llm_client,
-    set_llm_client,
-    reset_llm_client,
+from angineer_core.base_logger import (
     get_logger,
     get_default_logger,
     set_default_logger,
-    ParseError,
-    extract_json_from_text,
-    parse_and_validate,
 )
-from angineer_core.config import (
+from angineer_core.base_config import (
     AnGIneerConfig,
     get_config,
     set_config,
     reset_config,
 )
+from angineer_core.base_di import (
+    setup_container,
+    initialize_services,
+)
 
 __version__ = "0.1.0"
 
 __all__ = [
-    # Core components
     "IntentClassifier",
     "Dispatcher",
     "Memory",
     "StepRecord",
     "UndefinedVariableError",
-    # Standard data structures
     "SOP",
     "Step",
     "AgentResponse",
+    "IntentResult",
+    "IntentLevel",
+    "ServiceMode",
     "IntentResponse",
     "ActionResponse",
     "StepParseResponse",
     "ArgsExtractResponse",
-    # LLM client
-    "LLMClient",
-    "llm_client",
-    "get_llm_client",
-    "set_llm_client",
-    "reset_llm_client",
-    # Logging
     "get_logger",
     "get_default_logger",
     "set_default_logger",
-    # Response parsing
-    "ParseError",
-    "extract_json_from_text",
-    "parse_and_validate",
-    # Configuration
     "AnGIneerConfig",
     "get_config",
     "set_config",
     "reset_config",
+    "setup_container",
+    "initialize_services",
 ]

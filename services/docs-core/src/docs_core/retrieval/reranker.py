@@ -1,7 +1,7 @@
 """候选重排与证据充分性判断。"""
 from typing import List
 
-from docs_core.query.contracts import RetrievedItem
+from docs_core.query_protocols.contracts import RetrievedItem
 from docs_core.retrieval.hybrid_retriever import is_toc_candidate
 from docs_core.retrieval.query_normalizer import build_query_phrases, contains_clause_ref, extract_clause_refs, normalize_match_text
 

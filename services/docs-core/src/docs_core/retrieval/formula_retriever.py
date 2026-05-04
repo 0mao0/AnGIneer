@@ -3,7 +3,7 @@ from typing import List, Sequence
 
 from docs_core.ingest.organize.types import CanonicalBlock, CanonicalDocument
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
 from docs_core.retrieval.dense_retriever import score_text
 from docs_core.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, tokenize_query
 

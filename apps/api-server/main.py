@@ -8,13 +8,16 @@ import sys
 import uuid
 import tempfile
 import threading
+import logging
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 from fastapi import FastAPI, HTTPException, UploadFile, File as FastAPIFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+
+logger = logging.getLogger(__name__)
 
 # 设置路径
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
@@ -34,9 +37,9 @@ sys.path.append(os.path.join(SERVICES_DIR, "geo-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "engtools", "src"))
 
 # Import logic from packages
-from angineer_core.infra.llm_client import LLMClient
-from angineer_core.standard.context_models import Step, SOP
-from angineer_core.core import IntentClassifier, Dispatcher
+from ai_inference.llm_client import LLMClient
+from angineer_core.base_contracts import Step, SOP
+from angineer_core import IntentClassifier, Dispatcher
 from sop_core.sop_loader import SopLoader
 from engtools.BaseTool import ToolRegistry, register_tool
 # Import tools to ensure registration
@@ -46,6 +49,27 @@ import engtools.KnowledgeTool
 from knowledge_routes import knowledge_router, preview_router
 
 app = FastAPI(title="AnGIneer API Bridge")
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request, exc):
+    import traceback as _tb
+    _tb.print_exc()
+    logger.error(f"未处理异常: {exc}", exc_info=True)
+    from fastapi.responses import JSONResponse
+    return JSONResponse(
+        status_code=200,
+        content={
+            "query_id": f"q-{uuid.uuid4().hex[:12]}",
+            "session_key": "",
+            "intent": {},
+            "answer": f"抱歉，服务处理出现异常：{type(exc).__name__}: {exc}",
+            "citations": [],
+            "retrieved_items": [],
+            "sql": None,
+            "fallback_used": False,
+            "latency_ms": 0,
+        },
+    )
 
 # Mount sub-routers
 app.include_router(knowledge_router, prefix="/api/knowledge", tags=["Knowledge"])
@@ -81,9 +105,55 @@ if os.path.exists(FRONTEND_DIR):
 # --- Data Models for API ---
 
 class QueryRequest(BaseModel):
+    """统一查询请求，支持 scene + id 会话池路由。"""
     query: str
+    scene: str = "docs"
+    session_id: Optional[str] = None
+    library_id: str = "default"
+    doc_ids: List[str] = Field(default_factory=list)
     config: Optional[str] = None
     mode: Optional[str] = None
+    history: List[Dict[str, Any]] = Field(default_factory=list)
+
+
+class SessionEntry(BaseModel):
+    """服务端会话池条目，按 session_key 隔离对话上下文。"""
+    session_key: str
+    scene: str
+    history: List[Dict[str, Any]] = Field(default_factory=list)
+    last_active_at: float = 0.0
+
+
+_SESSION_POOL: Dict[str, SessionEntry] = {}
+
+_SESSION_POOL_MAX_SIZE = 200
+_SESSION_POOL_TTL_SECONDS = 3600 * 2
+
+
+# 获取或创建会话池条目
+def _get_or_create_session(scene: str, session_id: Optional[str]) -> SessionEntry:
+    key = f"{scene}:{session_id or 'default'}"
+    entry = _SESSION_POOL.get(key)
+    if entry:
+        entry.last_active_at = time.time()
+        return entry
+    if len(_SESSION_POOL) >= _SESSION_POOL_MAX_SIZE:
+        _evict_expired_sessions()
+    entry = SessionEntry(session_key=key, scene=scene, last_active_at=time.time())
+    _SESSION_POOL[key] = entry
+    return entry
+
+
+# 清理过期会话
+def _evict_expired_sessions() -> None:
+    now = time.time()
+    expired = [k for k, v in _SESSION_POOL.items() if now - v.last_active_at > _SESSION_POOL_TTL_SECONDS]
+    for k in expired:
+        del _SESSION_POOL[k]
+    if len(_SESSION_POOL) >= _SESSION_POOL_MAX_SIZE:
+        sorted_keys = sorted(_SESSION_POOL, key=lambda k: _SESSION_POOL[k].last_active_at)
+        for k in sorted_keys[: len(sorted_keys) // 4]:
+            del _SESSION_POOL[k]
 
 class SOPUpdate(BaseModel):
     id: str
@@ -1275,6 +1345,184 @@ def get_document_storage(library_id: str, doc_id: str):
     if not node:
         raise HTTPException(status_code=404, detail="Document not found")
     return {"library_id": library_id, "doc_id": doc_id, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
+
+
+@app.post("/api/query")
+async def query(request: QueryRequest):
+    """统一查询入口：IntentClassifier → Dispatcher → docs-core/sop-core/LLM"""
+    import uuid as _uuid
+    from angineer_core.classifier import IntentClassifier
+    from angineer_core.base_contracts import IntentResult
+    from docs_core.knowledge_service import knowledge_service
+    from docs_core.query_protocols.contracts import (
+        KnowledgeQueryRequest,
+        SemanticRetrievalRequest,
+        SemanticRetrievalResponse,
+        SqlRetrievalRequest,
+        SqlRetrievalResponse,
+    )
+
+    started_at = time.time()
+    query_id = f"q-{_uuid.uuid4().hex[:12]}"
+
+    try:
+        session = _get_or_create_session(request.scene, request.session_id)
+        session.history.append({"role": "user", "content": request.query})
+    except Exception as e:
+        logger.error(f"会话创建失败: {e}")
+        session = None
+
+    intent_result = IntentResult(intent_level="L1", service_mode="semantic_retrieval")
+
+    try:
+        sops = []
+        classifier = IntentClassifier(sops)
+        intent_result = classifier.classify_intent(request.query)
+    except Exception as e:
+        logger.warning(f"意图分类失败，降级为L1: {e}")
+
+    try:
+        library_nodes = knowledge_service.list_nodes(request.library_id)
+        doc_nodes = [node for node in library_nodes if node.type == "document"]
+        if request.doc_ids:
+            requested = set(request.doc_ids)
+            doc_nodes = [node for node in doc_nodes if node.id in requested]
+    except Exception as e:
+        logger.error(f"知识库节点查询失败: {e}")
+        return {
+            "query_id": query_id,
+            "session_key": session.session_key if session else "",
+            "intent": intent_result.model_dump(mode="json"),
+            "answer": "抱歉，知识库服务暂时不可用，请稍后重试。",
+            "citations": [],
+            "retrieved_items": [],
+            "sql": None,
+            "fallback_used": False,
+            "latency_ms": int((time.time() - started_at) * 1000),
+        }
+
+    answer = ""
+    citations = []
+    retrieved_items = []
+    sql_payload = None
+    fallback_used = False
+
+    try:
+        if intent_result.service_mode == "sql_first":
+            try:
+                from docs_core.text2sql.schema_linker import link_schema
+                from docs_core.text2sql.sql_validator import validate_sql
+                from docs_core.text2sql.sql_executor import execute_sql
+
+                schema_result = link_schema(request.query, KnowledgeQueryRequest(
+                    query=request.query, library_id=request.library_id, doc_ids=request.doc_ids,
+                ), doc_nodes)
+                if schema_result.get("supported"):
+                    metric = schema_result.get("metric", "")
+                    table_name = schema_result["table_name"]
+                    business_filters = schema_result.get("business_filters", {})
+
+                    if metric == "conditional_lookup":
+                        sql = f"SELECT chunk_id, text, section_path, clause_id, entity_tags_json, exam_tags_json, conditions_json FROM {table_name} WHERE doc_id IN ({','.join(['?' for _ in doc_nodes])})"
+                        params = [node.id for node in doc_nodes]
+                        if "clause_id" in business_filters:
+                            sql += " AND clause_id = ?"
+                            params.append(business_filters["clause_id"])
+                        for tag_field, json_key in [("entity_tags", "entity_tags"), ("exam_tags", "exam_tags"), ("conditions", "conditions")]:
+                            if json_key in business_filters:
+                                for tag in business_filters[json_key]:
+                                    sql += f" AND {json_key}_json LIKE ?"
+                                    params.append(f'%{tag}%')
+                        sql += " LIMIT 10"
+                        is_valid, reason = validate_sql(sql)
+                        if is_valid:
+                            sql_result = execute_sql(sql, params)
+                            if sql_result and sql_result.get("row_count", 0) > 0:
+                                context_parts = []
+                                for row in sql_result["rows"][:5]:
+                                    section = row.get("section_path", "")
+                                    text = row.get("text", "")
+                                    clause = row.get("clause_id", "")
+                                    prefix = f"[{section}]" if section else ""
+                                    if clause:
+                                        prefix += f" 第{clause}条"
+                                    context_parts.append(f"{prefix}: {text}" if prefix else text)
+                                from ai_inference.llm_client import get_llm_client
+                                llm = get_llm_client()
+                                answer = llm.chat([
+                                    {"role": "system", "content": "你是一个工程规范领域的专业助手。请根据以下结构化检索结果回答用户问题。\n\n规则：\n1. 优先直接回答用户问题\n2. 引用具体来源（章节号、条款号等）\n3. 如果检索结果中包含与问题相关的内容，请基于相关内容给出回答\n4. 如果检索结果完全不相关，才说明无法回答"},
+                                    {"role": "user", "content": f"问题: {request.query}\n\n结构化检索结果:\n" + "\n---\n".join(context_parts)},
+                                ], mode="instruct")
+                                retrieved_items = sql_result["rows"]
+                    else:
+                        sql = f"SELECT * FROM {table_name} WHERE doc_id IN ({','.join(['?' for _ in doc_nodes])})"
+                        params = [node.id for node in doc_nodes]
+                        if "clause_id" in business_filters:
+                            sql += " AND clause_id = ?"
+                            params.append(business_filters["clause_id"])
+                        is_valid, reason = validate_sql(sql)
+                        if is_valid:
+                            sql_result = execute_sql(sql, params)
+                            if sql_result:
+                                answer = str(sql_result)
+            except Exception as e:
+                logger.warning(f"SQL 检索失败，回退语义检索: {e}")
+                fallback_used = True
+
+        if intent_result.service_mode == "semantic_retrieval" or fallback_used or not answer:
+            try:
+                from docs_core.retrieval.dense_retriever import dense_retriever
+                from docs_core.retrieval.sparse_retriever import sparse_retriever
+                from docs_core.retrieval.hybrid_retriever import fuse_candidates
+
+                kq_request = KnowledgeQueryRequest(
+                    query=request.query,
+                    library_id=request.library_id,
+                    doc_ids=request.doc_ids,
+                    top_k=5,
+                )
+                dense_hits = dense_retriever.retrieve(kq_request, doc_nodes, "content_qa")
+                sparse_hits = sparse_retriever.retrieve(kq_request, doc_nodes, "content_qa")
+                source_candidates = {
+                    "canonical_dense": dense_hits,
+                    "canonical_sparse": sparse_hits,
+                }
+                fused, _debug = fuse_candidates(source_candidates, task_type="content_qa", top_k=5)
+                retrieved_items = [item.model_dump(mode="json") for item in fused]
+
+                if not answer and fused:
+                    context_text = "\n".join(item.text for item in fused[:5] if item.text)
+                    from ai_inference.llm_client import get_llm_client
+                    llm = get_llm_client()
+                    answer = llm.chat([
+                        {"role": "system", "content": "你是一个工程规范领域的专业助手。请根据以下检索结果回答用户问题。\n\n规则：\n1. 优先直接回答用户问题\n2. 如果检索结果中包含与问题相关的内容（即使术语不完全一致），请基于相关内容给出回答，并说明术语差异\n3. 如果检索结果完全不相关，才说明无法回答\n4. 引用具体来源（文档名、章节号等）"},
+                        {"role": "user", "content": f"问题: {request.query}\n\n检索结果:\n{context_text}"},
+                    ], mode="instruct")
+            except Exception as e:
+                logger.error(f"语义检索失败: {e}")
+                if not answer:
+                    answer = "抱歉，检索服务暂时不可用，请稍后重试。"
+    except Exception as e:
+        logger.error(f"查询处理异常: {e}", exc_info=True)
+        if not answer:
+            answer = "抱歉，查询处理出现异常，请稍后重试。"
+
+    if session:
+        session.history.append({"role": "assistant", "content": answer or ""})
+
+    latency_ms = int((time.time() - started_at) * 1000)
+
+    return {
+        "query_id": query_id,
+        "session_key": session.session_key if session else "",
+        "intent": intent_result.model_dump(mode="json"),
+        "answer": answer or "",
+        "citations": citations,
+        "retrieved_items": retrieved_items,
+        "sql": sql_payload,
+        "fallback_used": fallback_used,
+        "latency_ms": latency_ms,
+    }
 
 
 if __name__ == "__main__":

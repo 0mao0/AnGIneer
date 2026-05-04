@@ -3,7 +3,7 @@ import json
 from typing import Any, Dict, Optional
 
 from docs_core.evals.dataset_loader import load_eval_answer_rows, load_eval_questions, load_eval_retrieval_rows, load_eval_sql_rows
-from docs_core.evals.eval_answer import evaluate_answers
+from docs_core.evals.eval_answer import evaluate_answers, run_predictions as run_answer_predictions
 from docs_core.evals.eval_retrieval import evaluate_retrieval, run_predictions as run_unified_predictions
 from docs_core.evals.eval_text2sql import evaluate_text2sql, run_predictions as run_sql_predictions
 

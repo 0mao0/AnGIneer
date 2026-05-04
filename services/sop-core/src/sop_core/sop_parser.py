@@ -2,7 +2,7 @@ import json
 import re
 import os
 from typing import List, Dict, Any, Tuple
-from angineer_core.standard.context_models import SOP, Step
+from angineer_core.base_contracts import SOP, Step
 
 # ---------- 极简内联工具 ----------
 def _extract_json_from_text(text: str) -> Dict[str, Any]:
@@ -255,7 +255,7 @@ Guidelines for calculator:
             {"role": "user", "content": f"SOP Content:\n{content}"}
         ]
         try:
-            from angineer_core.infra.llm_client import llm_client
+            from ai_inference.llm_client import llm_client
             resp = llm_client.chat(messages, mode=mode, config_name=config_name)
             data = _extract_json_from_text(resp)
             llm_steps = []

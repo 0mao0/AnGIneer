@@ -4,7 +4,7 @@ import re
 from typing import Any, Dict, List, Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from angineer_core.infra.llm_client import LLMClient
+    from ai_inference.llm_client import LLMClient
 
 
 FORMULA_NUMBER_RE = re.compile(r"[（(](\d+(?:\.\d+)*(?:-\d+)?)[）)]")

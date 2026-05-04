@@ -20,10 +20,10 @@ try:
 except ImportError:
     pass
 
-from angineer_core.core import IntentClassifier
+from angineer_core import IntentClassifier
 from sop_core.sop_loader import SopLoader
-from angineer_core.core import Dispatcher
-from angineer_core.standard.context_models import SOP
+from angineer_core import Dispatcher
+from angineer_core.base_contracts import SOP
 from regression_report import build_report, emit_report
 
 class TestWholeWorkflow(unittest.TestCase):

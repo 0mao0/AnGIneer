@@ -1,8 +1,11 @@
 /**
+ * @deprecated 请使用 @angineer/ui-kit 的 useAIChat 替代。
+ * 本模块将在后续版本中移除。
+ *
  * 知识域对话 Composable
- * 提供流式知识对话的状态管理和消息发送功能
+ * 提供流式知识对话的状态管理、消息发送与会话池隔离功能
  */
-import { ref } from 'vue'
+import { ref, computed, watch, type Ref } from 'vue'
 import { generateMessageId, estimateTokens } from '../utils/common'
 import type { CitationRichMedia } from '@angineer/ui-kit'
 
@@ -43,6 +46,43 @@ export interface KnowledgeChatMessage {
   debug?: Record<string, any>
 }
 
+/** 会话池中单个会话的快照 */
+export interface SessionSnapshot {
+  messages: KnowledgeChatMessage[]
+  inputText: string
+}
+
+/** 会话池 key 格式：scene:id */
+export type SessionKey = `${string}:${string}`
+
+/** 根据 scene 和 id 构建会话池 key */
+export function buildSessionKey(scene: string, id: string): SessionKey {
+  return `${scene}:${id}`
+}
+
+/** 全局会话池，按 sessionKey 隔离各场景对话状态 */
+const sessionPool = new Map<SessionKey, SessionSnapshot>()
+
+/** 获取会话池中指定 key 的快照 */
+export function getSessionSnapshot(key: SessionKey): SessionSnapshot | undefined {
+  return sessionPool.get(key)
+}
+
+/** 获取会话池中所有活跃 key */
+export function getActiveSessionKeys(): SessionKey[] {
+  return Array.from(sessionPool.keys())
+}
+
+/** 删除会话池中指定 key 的快照 */
+export function removeSession(key: SessionKey): boolean {
+  return sessionPool.delete(key)
+}
+
+/** 清空整个会话池 */
+export function clearSessionPool(): void {
+  sessionPool.clear()
+}
+
 /**
  * 对引用做轻量去重，避免同一页同一区段重复刷屏。
  */
@@ -67,19 +107,12 @@ function dedupeCitations(
 
 // 对话请求参数
 export interface KnowledgeChatRequest {
-  // 当前用户输入
   query: string
-  // 历史消息上下文
   history: KnowledgeChatMessage[]
-  // 指定知识库
   library_id?: string
-  // 限定文档范围
   doc_ids?: string[]
-  // 查询模式
   mode?: 'auto' | 'retrieval' | 'sql' | 'schema' | 'table'
-  // 返回调试信息
   include_debug?: boolean
-  // 返回检索详情
   include_retrieved?: boolean
 }
 
@@ -122,6 +155,87 @@ export interface KnowledgeChatResponse {
   debug?: Record<string, any>
 }
 
+// 统一查询请求参数
+export interface QueryRequest {
+  query: string
+  scene?: string
+  session_id?: string
+  library_id?: string
+  doc_ids?: string[]
+  config?: string
+  mode?: string
+}
+
+// 统一查询响应
+export interface QueryResponse {
+  query_id: string
+  session_key?: string
+  intent: {
+    intent_level: string
+    intent_type: string
+    parameters: Record<string, any>
+    required_capabilities: string[]
+    matched_sop: string | null
+    service_mode: string
+    reason: string | null
+  }
+  answer: string
+  citations?: Array<{
+    target_id: string
+    target_type: string
+    doc_id: string
+    doc_title: string
+    page_idx: number
+    section_path: string
+    snippet: string
+    content?: string
+    content_type?: string
+    score: number
+    rich_media?: CitationRichMedia
+  }>
+  retrieved_items?: Array<{
+    item_id: string
+    entity_type: string
+    doc_id: string
+    title: string
+    text: string
+    score: number
+    metadata?: Record<string, any>
+  }>
+  sql?: {
+    generated_sql: string
+    execution_status: string
+    result_preview: any
+    explanation: string
+  }
+  fallback_used?: boolean
+  latency_ms?: number
+}
+
+// 将统一查询响应映射为 KnowledgeChatResponse 格式
+function mapQueryResponseToChatResponse(qr: QueryResponse): KnowledgeChatResponse {
+  const intentLevelMap: Record<string, string> = {
+    L1: 'content_qa',
+    L2: 'schema_qa',
+    L3: 'analytic_sql',
+    L4: 'mixed',
+  }
+  return {
+    query_id: qr.query_id,
+    task_type: intentLevelMap[qr.intent?.intent_level] || qr.intent?.intent_type || 'content_qa',
+    strategy: qr.intent?.service_mode || 'semantic_retrieval',
+    answer: qr.answer || '',
+    citations: qr.citations,
+    retrieved_items: qr.retrieved_items,
+    sql: qr.sql,
+    latency_ms: qr.latency_ms,
+    debug: {
+      intent: qr.intent,
+      fallback_used: qr.fallback_used,
+    },
+  }
+}
+
 /**
  * 将任务类型转换为更易读的中文标签。
  */
@@ -159,15 +273,11 @@ function buildQueryChain(payload: KnowledgeChatResponse): string {
 
 // 上下文管理配置
 export interface KnowledgeChatContextConfig {
-  // 最大保留消息轮数（一对问答算一轮）
   maxRounds: number
-  // 是否启用上下文压缩
   enableCompression: boolean
-  // 压缩阈值（token 数）
   compressionThreshold: number
 }
 
-// 默认上下文配置
 const DEFAULT_CONTEXT_CONFIG: KnowledgeChatContextConfig = {
   maxRounds: 10,
   enableCompression: true,
@@ -181,27 +291,20 @@ function manageContext(
   messages: KnowledgeChatMessage[],
   config: KnowledgeChatContextConfig = DEFAULT_CONTEXT_CONFIG
 ): KnowledgeChatMessage[] {
-  // 保留系统消息
   const systemMessages = messages.filter(m => m.role === 'system')
   let chatMessages = messages.filter(m => m.role !== 'system')
 
-  // 1. 滑动窗口：限制对话轮数
   if (config.maxRounds > 0) {
-    // 计算当前轮数（用户消息数）
     const userMessageCount = chatMessages.filter(m => m.role === 'user').length
     if (userMessageCount > config.maxRounds) {
-      // 需要丢弃的消息数
       const messagesToRemove = (userMessageCount - config.maxRounds) * 2
       chatMessages = chatMessages.slice(messagesToRemove)
     }
   }
 
-  // 2. 上下文压缩：如果总 token 超过阈值，进行压缩
   if (config.enableCompression) {
     let totalTokens = chatMessages.reduce((sum, m) => sum + estimateTokens(m.content), 0)
-
     while (totalTokens > config.compressionThreshold && chatMessages.length > 2) {
-      // 移除最早的一对对话（用户+助手）
       const removed = chatMessages.splice(0, 2)
       totalTokens -= removed.reduce((sum, m) => sum + estimateTokens(m.content), 0)
     }
@@ -211,35 +314,99 @@ function manageContext(
 }
 
 /**
- * 管理知识域对话状态与流式消息发送。
+ * 管理知识域对话状态与流式消息发送，支持会话池隔离。
+ *
+ * 通过 sessionKey（格式 "scene:id"）实现多场景对话隔离：
+ * - 切换页面/文档时调用 switchSession 保留各自思考痕迹
+ * - 后端根据 scene 字段切换 service mode
  */
 export function useKnowledgeChat(options?: {
   defaultModel?: string
   contextConfig?: Partial<KnowledgeChatContextConfig>
   systemPrompt?: string
   libraryId?: string
+  scene?: string
+  sessionId?: string | Ref<string>
   getContextItems?: () => Array<{ id: string; title: string }>
 }) {
-  // 合并上下文配置
   const contextConfig: KnowledgeChatContextConfig = {
     ...DEFAULT_CONTEXT_CONFIG,
     ...options?.contextConfig
   }
 
-  // 状态
+  const scene = options?.scene || 'docs'
+  const sessionIdRef: Ref<string> = typeof options?.sessionId === 'object' && 'value' in (options!.sessionId as any)
+    ? (options!.sessionId as Ref<string>)
+    : ref(options?.sessionId || 'default')
+  const currentSessionKey = ref<SessionKey>(buildSessionKey(scene, sessionIdRef.value))
+
   const messages = ref<KnowledgeChatMessage[]>([])
   const inputText = ref('')
   const loading = ref(false)
   const currentStreamContent = ref('')
   const abortController = ref<AbortController | null>(null)
 
-  // 初始化系统提示词
   if (options?.systemPrompt) {
     messages.value.push({
       role: 'system',
       content: options.systemPrompt,
       timestamp: Date.now()
     })
+  }
+
+  watch(sessionIdRef, (newId) => {
+    if (newId && buildSessionKey(scene, newId) !== currentSessionKey.value) {
+      switchSession(scene, newId)
+    }
+  })
+
+  /** 将当前会话状态保存到会话池 */
+  function saveToPool(): void {
+    sessionPool.set(currentSessionKey.value, {
+      messages: [...messages.value],
+      inputText: inputText.value,
+    })
+  }
+
+  /** 从会话池恢复指定 key 的状态 */
+  function restoreFromPool(key: SessionKey): boolean {
+    const snapshot = sessionPool.get(key)
+    if (!snapshot) return false
+    messages.value = [...snapshot.messages]
+    inputText.value = snapshot.inputText
+    return true
+  }
+
+  /** 切换到指定 scene:id 的会话，自动保存当前会话并恢复目标会话 */
+  function switchSession(newScene: string, newId: string): void {
+    saveToPool()
+    const newKey = buildSessionKey(newScene, newId)
+    currentSessionKey.value = newKey
+    if (!restoreFromPool(newKey)) {
+      messages.value = []
+      inputText.value = ''
+      if (options?.systemPrompt) {
+        messages.value.push({
+          role: 'system',
+          content: options.systemPrompt,
+          timestamp: Date.now()
+        })
+      }
+    }
+  }
+
+  /** 删除当前会话并清空本地状态 */
+  function removeCurrentSession(): void {
+    sessionPool.delete(currentSessionKey.value)
+    messages.value = []
+    inputText.value = ''
+    if (options?.systemPrompt) {
+      messages.value.push({
+        role: 'system',
+        content: options.systemPrompt,
+        timestamp: Date.now()
+      })
+    }
   }
 
   /**
@@ -249,11 +416,10 @@ export function useKnowledgeChat(options?: {
     content: string,
     _model?: string,
     onChunk?: (chunk: string) => void,
-    options?: { includeDebug?: boolean; includeRetrieved?: boolean }
+    sendOptions?: { includeDebug?: boolean; includeRetrieved?: boolean }
   ): Promise<void> => {
     if (!content.trim() || loading.value) return
 
-    // 创建用户消息
     const userMessage: KnowledgeChatMessage = {
       id: generateMessageId(),
       role: 'user',
@@ -261,16 +427,13 @@ export function useKnowledgeChat(options?: {
       timestamp: Date.now()
     }
 
-    // 添加用户消息到历史
     messages.value.push(userMessage)
     inputText.value = ''
     loading.value = true
     currentStreamContent.value = ''
 
-    // 管理上下文
     const managedMessages = manageContext([...messages.value], contextConfig)
 
-    // 准备请求参数
     const contextItems = options?.getContextItems?.() || []
     const request: KnowledgeChatRequest = {
       query: userMessage.content,
@@ -278,29 +441,35 @@ export function useKnowledgeChat(options?: {
       library_id: options?.libraryId || 'default',
       doc_ids: contextItems.map(item => item.id),
       mode: 'auto',
-      include_debug: options?.includeDebug ?? false,
-      include_retrieved: options?.includeRetrieved ?? false
+      include_debug: sendOptions?.includeDebug ?? false,
+      include_retrieved: sendOptions?.includeRetrieved ?? false
     }
 
-    // 创建 AbortController 用于取消请求
     abortController.value = new AbortController()
 
     try {
-      // 发送知识查询请求
-      const response = await fetch('/api/knowledge/query', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(request),
-        signal: abortController.value.signal
-      })
+      let payload: KnowledgeChatResponse
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+      const queryRequest: QueryRequest = {
+        query: userMessage.content,
+        scene,
+        session_id: currentSessionKey.value,
+        library_id: request.library_id || 'default',
+        doc_ids: request.doc_ids,
+        config: undefined,
+        mode: undefined,
       }
-
-      const payload: KnowledgeChatResponse = await response.json()
+      const queryResponse = await fetch('/api/query', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(queryRequest),
+        signal: abortController.value.signal,
+      })
+      if (!queryResponse.ok) {
+        throw new Error(`Query endpoint returned ${queryResponse.status}`)
+      }
+      const queryData: QueryResponse = await queryResponse.json()
+      payload = mapQueryResponseToChatResponse(queryData)
       const citations = dedupeCitations(payload.citations || [])
       let assistantContent = payload.answer || ''
 
@@ -339,10 +508,10 @@ export function useKnowledgeChat(options?: {
         debug: payload.debug
       })
       currentStreamContent.value = ''
+      saveToPool()
     } catch (error) {
       if (error instanceof Error && error.name === 'AbortError') {
         console.log('Request aborted')
-        // 添加已接收的内容（如果有）
         if (currentStreamContent.value) {
           messages.value.push({
             id: generateMessageId(),
@@ -364,6 +533,7 @@ export function useKnowledgeChat(options?: {
       loading.value = false
       currentStreamContent.value = ''
       abortController.value = null
+      saveToPool()
     }
   }
 
@@ -388,6 +558,7 @@ export function useKnowledgeChat(options?: {
         timestamp: Date.now()
       })
     }
+    saveToPool()
   }
 
   /**
@@ -404,19 +575,25 @@ export function useKnowledgeChat(options?: {
     return messages.value.filter(m => m.role === 'user').length
   }
 
+  const contextTokens = computed(getContextTokens)
+  const contextRounds = computed(getContextRounds)
+
   return {
-    // 状态
     messages,
     inputText,
     loading,
     currentStreamContent,
-    // 方法
+    currentSessionKey,
+    contextTokens,
+    contextRounds,
     sendMessage,
     stopGeneration,
     clearMessages,
     getContextTokens,
     getContextRounds,
-    // 工具
+    switchSession,
+    removeCurrentSession,
+    saveToPool,
     generateMessageId
   }
 }

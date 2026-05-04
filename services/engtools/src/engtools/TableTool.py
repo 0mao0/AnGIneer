@@ -6,7 +6,7 @@ from typing import Any, Dict, List, Optional
 from bs4 import BeautifulSoup
 from .BaseTool import BaseTool, register_tool
 from .config import KNOWLEDGE_DIR
-from angineer_core.infra.llm_client import get_llm_client
+from ai_inference.llm_client import get_llm_client
 
 
 # ============================================================================

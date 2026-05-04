@@ -150,11 +150,13 @@
               </a-button>
             </a-space>
           </template>
-          <KnowledgeChatPanel
+          <AIChat
             ref="knowledgeChatRef"
             title=""
             placeholder="输入消息，Ctrl+Enter 发送..."
             :show-context-info="true"
+            scene="knowledge"
+            :session-id="selectedNode && !selectedNode.isFolder ? selectedNode.key : 'default'"
             @answer-complete="handleKnowledgeAnswerComplete"
             @select-citation="handleKnowledgeCitationSelect"
           />
@@ -248,9 +250,8 @@ import {
 } from '@ant-design/icons-vue'
 
 // 导入 packages 中的组件和 composables
-import { SplitPanes, Panel, useTheme } from '@angineer/ui-kit'
+import { SplitPanes, Panel, AIChat, useTheme } from '@angineer/ui-kit'
 import {
-  KnowledgeChatPanel,
   KnowledgeTree,
   PDFParsedWorkspace,
   type SmartTreeNode,
@@ -287,8 +288,8 @@ import KnowledgeEvalDrawer from './components/KnowledgeEvalDrawer.vue'
 const smartTreeRef = ref<InstanceType<typeof KnowledgeTree> | null>(null)
 // PDFParsedWorkspace 组件引用
 const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
-// KnowledgeChatPanel 组件引用
-const knowledgeChatRef = ref<InstanceType<typeof KnowledgeChatPanel> | null>(null)
+// AIChat 组件引用
+const knowledgeChatRef = ref<InstanceType<typeof AIChat> | null>(null)
 const knowledgeEvalDrawerRef = ref<InstanceType<typeof KnowledgeEvalDrawer> | null>(null)
 
 type CitationRichMedia = {

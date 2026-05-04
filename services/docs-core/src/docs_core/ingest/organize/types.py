@@ -72,6 +72,11 @@ class CanonicalBlock(BaseModel):
     source: str = "mineru"
     source_ref: Optional[str] = None
     parent_block_id: Optional[str] = None
+    inherited_chapter: Optional[str] = None
+    entity_tags: List[str] = Field(default_factory=list)
+    conditions: List[str] = Field(default_factory=list)
+    exam_tags: List[str] = Field(default_factory=list)
+    clause_id: Optional[str] = None
 
 
 class CanonicalOutlineNode(BaseModel):
@@ -114,6 +119,11 @@ class CanonicalChunk(BaseModel):
     page_end: int = 0
     source_block_ids: List[str] = Field(default_factory=list)
     citation_targets: List[CitationTarget] = Field(default_factory=list)
+    inherited_chapter: Optional[str] = None
+    entity_tags: List[str] = Field(default_factory=list)
+    conditions: List[str] = Field(default_factory=list)
+    exam_tags: List[str] = Field(default_factory=list)
+    clause_id: Optional[str] = None
     version: str = "0.1.0"
 
 

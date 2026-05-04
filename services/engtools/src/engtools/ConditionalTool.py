@@ -11,7 +11,7 @@ def _get_llm_client():
     global llm_client
     if llm_client is None:
         try:
-            from angineer_core.infra.llm_client import llm_client as client
+            from ai_inference.llm_client import llm_client as client
             llm_client = client
         except ImportError:
             pass

@@ -5,18 +5,21 @@ import unittest
 import os
 import sys
 
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/ai-inference/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
-from angineer_core.infra.response_parser import (
+from ai_inference.llm_response_parser import (
     ParseError,
-    IntentResponse,
-    ActionResponse,
-    StepParseResponse,
-    ArgsExtractResponse,
     extract_json_from_text,
     parse_and_validate,
     safe_extract_string,
     safe_extract_dict,
+)
+from angineer_core.base_contracts import (
+    IntentResponse,
+    ActionResponse,
+    StepParseResponse,
+    ArgsExtractResponse,
 )
 
 
@@ -112,7 +115,7 @@ class TestParseAndValidate(unittest.TestCase):
     def test_strict_mode_with_invalid_json_structure(self):
         """测试严格模式下无效 JSON 结构抛出错误。"""
         text = '{"action": "test"}'
-        from angineer_core.infra.response_parser import StepParseResponse
+        from angineer_core.base_contracts import StepParseResponse
         with self.assertRaises(ParseError):
             parse_and_validate(text, StepParseResponse, strict=True)
     

@@ -108,7 +108,12 @@ class CanonicalSQLiteStore:
                     section_path TEXT,
                     source TEXT,
                     source_ref TEXT,
-                    parent_block_id TEXT
+                    parent_block_id TEXT,
+                    inherited_chapter TEXT,
+                    entity_tags_json TEXT,
+                    conditions_json TEXT,
+                    exam_tags_json TEXT,
+                    clause_id TEXT
                 )
                 """
             )
@@ -140,7 +145,12 @@ class CanonicalSQLiteStore:
                     page_end INTEGER NOT NULL,
                     source_block_ids_json TEXT,
                     citation_targets_json TEXT,
-                    version TEXT
+                    version TEXT,
+                    inherited_chapter TEXT,
+                    entity_tags_json TEXT,
+                    conditions_json TEXT,
+                    exam_tags_json TEXT,
+                    clause_id TEXT
                 )
                 """
             )
@@ -183,6 +193,7 @@ class CanonicalSQLiteStore:
                 )
                 """
             )
+            self._migrate_add_business_columns(conn)
             conn.execute(
                 "CREATE INDEX IF NOT EXISTS idx_canonical_blocks_doc_page ON canonical_blocks(doc_id, page_idx, reading_order)"
             )
@@ -198,7 +209,32 @@ class CanonicalSQLiteStore:
             conn.execute(
                 "CREATE INDEX IF NOT EXISTS idx_canonical_citations_doc_target ON canonical_citation_targets(doc_id, target_id)"
             )
+            conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_canonical_chunks_clause_id ON canonical_chunks(doc_id, clause_id)"
+            )
+            conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_canonical_blocks_clause_id ON canonical_blocks(doc_id, clause_id)"
+            )
             conn.commit()
+
+    # 迁移：为旧数据库添加业务语义字段
+    def _migrate_add_business_columns(self, conn) -> None:
+        blocks_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_blocks)").fetchall()]
+        chunks_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_chunks)").fetchall()]
+        blocks_new_cols = [
+            ("inherited_chapter", "TEXT"),
+            ("entity_tags_json", "TEXT"),
+            ("conditions_json", "TEXT"),
+            ("exam_tags_json", "TEXT"),
+            ("clause_id", "TEXT"),
+        ]
+        chunks_new_cols = blocks_new_cols
+        for col_name, col_type in blocks_new_cols:
+            if col_name not in blocks_cols:
+                conn.execute(f"ALTER TABLE canonical_blocks ADD COLUMN {col_name} {col_type}")
+        for col_name, col_type in chunks_new_cols:
+            if col_name not in chunks_cols:
+                conn.execute(f"ALTER TABLE canonical_chunks ADD COLUMN {col_name} {col_type}")
 
     # 清理单个文档的全canonical 持久化数据
     def clear_document(self, doc_id: str) -> None:
@@ -266,8 +302,9 @@ class CanonicalSQLiteStore:
                 """
                 INSERT INTO canonical_blocks (
                     block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
-                    reading_order, title_level, section_path, source, source_ref, parent_block_id
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    reading_order, title_level, section_path, source, source_ref, parent_block_id,
+                    inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     (
@@ -284,6 +321,11 @@ class CanonicalSQLiteStore:
                         block.source,
                         block.source_ref,
                         block.parent_block_id,
+                        block.inherited_chapter,
+                        _dump_json(block.entity_tags),
+                        _dump_json(block.conditions),
+                        _dump_json(block.exam_tags),
+                        block.clause_id,
                     )
                     for block in document.blocks
                 ],
@@ -313,8 +355,9 @@ class CanonicalSQLiteStore:
                 INSERT INTO canonical_chunks (
                     chunk_id, doc_id, chunk_type, text, text_clean, token_count,
                     section_path, page_start, page_end, source_block_ids_json,
-                    citation_targets_json, version
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    citation_targets_json, version,
+                    inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     (
@@ -330,6 +373,11 @@ class CanonicalSQLiteStore:
                         _dump_json(chunk.source_block_ids),
                         _dump_json([target.model_dump(mode="json") for target in chunk.citation_targets]),
                         chunk.version,
+                        chunk.inherited_chapter,
+                        _dump_json(chunk.entity_tags),
+                        _dump_json(chunk.conditions),
+                        _dump_json(chunk.exam_tags),
+                        chunk.clause_id,
                     )
                     for chunk in document.chunks
                 ],
@@ -427,7 +475,8 @@ class CanonicalSQLiteStore:
             block_rows = conn.execute(
                 """
                 SELECT block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
-                       reading_order, title_level, section_path, source, source_ref, parent_block_id
+                       reading_order, title_level, section_path, source, source_ref, parent_block_id,
+                       inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id
                 FROM canonical_blocks
                 WHERE doc_id = ?
                 ORDER BY page_idx ASC, reading_order ASC
@@ -447,7 +496,8 @@ class CanonicalSQLiteStore:
                 """
                 SELECT chunk_id, doc_id, chunk_type, text, text_clean, token_count,
                        section_path, page_start, page_end, source_block_ids_json,
-                       citation_targets_json, version
+                       citation_targets_json, version,
+                       inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id
                 FROM canonical_chunks
                 WHERE doc_id = ?
                 ORDER BY page_start ASC, chunk_id ASC
@@ -505,6 +555,11 @@ class CanonicalSQLiteStore:
                     source=row["source"] or "mineru",
                     source_ref=row["source_ref"],
                     parent_block_id=row["parent_block_id"],
+                    inherited_chapter=row["inherited_chapter"],
+                    entity_tags=list(_load_json(row["entity_tags_json"], [])),
+                    conditions=list(_load_json(row["conditions_json"], [])),
+                    exam_tags=list(_load_json(row["exam_tags_json"], [])),
+                    clause_id=row["clause_id"],
                 )
                 for row in block_rows
             ],
@@ -539,6 +594,11 @@ class CanonicalSQLiteStore:
                         if isinstance(target, dict)
                     ],
                     version=row["version"] or "0.1.0",
+                    inherited_chapter=row["inherited_chapter"],
+                    entity_tags=list(_load_json(row["entity_tags_json"], [])),
+                    conditions=list(_load_json(row["conditions_json"], [])),
+                    exam_tags=list(_load_json(row["exam_tags_json"], [])),
+                    clause_id=row["clause_id"],
                 )
                 for row in chunk_rows
             ],
@@ -578,7 +638,8 @@ class CanonicalSQLiteStore:
         sql = """
             SELECT chunk_id, doc_id, chunk_type, text, text_clean, token_count,
                    section_path, page_start, page_end, source_block_ids_json,
-                   citation_targets_json, version
+                   citation_targets_json, version,
+                   inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id
             FROM canonical_chunks
             WHERE doc_id = ?
         """
@@ -614,6 +675,11 @@ class CanonicalSQLiteStore:
                     if isinstance(target, dict)
                 ],
                 version=row["version"] or "0.1.0",
+                inherited_chapter=row["inherited_chapter"],
+                entity_tags=list(_load_json(row["entity_tags_json"], [])),
+                conditions=list(_load_json(row["conditions_json"], [])),
+                exam_tags=list(_load_json(row["exam_tags_json"], [])),
+                clause_id=row["clause_id"],
             )
             for row in rows
         ]
@@ -628,7 +694,8 @@ class CanonicalSQLiteStore:
     ) -> List[CanonicalBlock]:
         sql = """
             SELECT block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
-                   reading_order, title_level, section_path, source, source_ref, parent_block_id
+                   reading_order, title_level, section_path, source, source_ref, parent_block_id,
+                   inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id
             FROM canonical_blocks
             WHERE doc_id = ?
         """
@@ -661,6 +728,11 @@ class CanonicalSQLiteStore:
                 source=row["source"] or "mineru",
                 source_ref=row["source_ref"],
                 parent_block_id=row["parent_block_id"],
+                inherited_chapter=row["inherited_chapter"],
+                entity_tags=list(_load_json(row["entity_tags_json"], [])),
+                conditions=list(_load_json(row["conditions_json"], [])),
+                exam_tags=list(_load_json(row["exam_tags_json"], [])),
+                clause_id=row["clause_id"],
             )
             for row in rows
         ]

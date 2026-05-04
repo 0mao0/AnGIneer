@@ -3,9 +3,11 @@ import json
 import re
 from typing import Any, Dict, List
 
+import httpx
+
 from docs_core.evals.dataset_loader import load_eval_questions, load_eval_retrieval_rows
-from docs_core.query.contracts import KnowledgeQueryRequest
-from docs_core.query.service import knowledge_query_service
+
+API_BASE = "http://localhost:8789"
 
 
 # 计算单条样本的 Recall@K。
@@ -70,40 +72,45 @@ def compute_section_mrr(predicted_paths: List[str], gold_paths: List[str]) -> fl
     return 0.0
 
 
-# 调用当前知识查询服务，获取真实预测结果。
+# 通过 /api/query 端点调用新链路，获取检索与回答结果。
 def run_predictions(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
     predictions: Dict[str, Dict[str, Any]] = {}
-    for question in questions:
-        question_id = str(question.get("question_id") or "")
-        query = str(question.get("question") or "").strip()
-        if not question_id or not query:
-            continue
-        request = KnowledgeQueryRequest(
-            query=query,
-            library_id=str(question.get("library_id") or "default"),
-            mode=str(question.get("expected_route") or "auto"),
-            top_k=5,
-            include_debug=True,
-            include_retrieved=True,
-        )
-        response = knowledge_query_service.query(request)
-        retrieved_items = [item.model_dump(mode="json") for item in response.retrieved_items]
-        predictions[question_id] = {
-            "query_id": response.query_id,
-            "strategy": response.strategy,
-            "task_type": response.task_type,
-            "retrieved_ids": [item.item_id for item in response.retrieved_items],
-            "retrieved_items": retrieved_items,
-            "retrieved_section_paths": [
-                str(item.get("metadata", {}).get("section_path") or "")
-                for item in retrieved_items
-            ],
-            "retrieved_doc_ids": [str(item.get("doc_id") or "") for item in retrieved_items],
-            "debug": response.debug,
-            "answer": response.answer,
-            "confidence": response.confidence,
-            "citations": [item.model_dump(mode="json") for item in response.citations],
-        }
+    with httpx.Client(timeout=60.0) as client:
+        for question in questions:
+            question_id = str(question.get("question_id") or "")
+            query = str(question.get("question") or "").strip()
+            if not question_id or not query:
+                continue
+            try:
+                resp = client.post(f"{API_BASE}/api/query", json={
+                    "query": query,
+                    "library_id": str(question.get("library_id") or "default"),
+                    "doc_ids": list(question.get("doc_ids") or []),
+                    "scene": "docs",
+                    "session_id": f"eval-{question_id}",
+                })
+                resp.raise_for_status()
+                data = resp.json()
+            except Exception as exc:
+                print(f"[eval] query failed for {question_id}: {exc}")
+                data = {}
+            retrieved_items = list(data.get("retrieved_items") or [])
+            predictions[question_id] = {
+                "query_id": data.get("query_id", ""),
+                "strategy": (data.get("intent") or {}).get("service_mode", ""),
+                "task_type": (data.get("intent") or {}).get("intent_level", ""),
+                "retrieved_ids": [item.get("item_id", "") for item in retrieved_items if isinstance(item, dict)],
+                "retrieved_items": retrieved_items,
+                "retrieved_section_paths": [
+                    str(item.get("metadata", {}).get("section_path") or "")
+                    for item in retrieved_items if isinstance(item, dict)
+                ],
+                "retrieved_doc_ids": [str(item.get("doc_id") or "") for item in retrieved_items if isinstance(item, dict)],
+                "debug": data.get("debug", {}),
+                "answer": data.get("answer", ""),
+                "confidence": data.get("confidence", 0.0),
+                "citations": list(data.get("citations") or []),
+            }
     return predictions
 
 
@@ -213,7 +220,7 @@ def evaluate_retrieval(
     }
 
 
-# 脚本入口：读取问题集并直接调用当前知识查询主链。
+# 脚本入口：读取问题集并调用 /api/query 端点。
 def main() -> None:
     questions = load_eval_questions()
     gold_retrieval_rows = load_eval_retrieval_rows()

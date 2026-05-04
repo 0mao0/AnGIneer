@@ -34,6 +34,7 @@ flowchart LR
   Api["apps/api-server"]
   DocsUI["packages/docs-ui"]
   UIKit["packages/ui-kit"]
+  AI["services/ai-inference"]
   Agent["services/angineer-core"]
   SOP["services/sop-core"]
   Docs["services/docs-core"]
@@ -49,11 +50,15 @@ flowchart LR
   Admin --> UIKit
   Web --> Api
   Admin --> Api
+  Api --> AI
   Api --> Agent
   Api --> SOP
   Api --> Docs
   Api --> Geo
   Api --> Tools
+  Agent --> AI
+  Docs --> AI
+  Tools --> AI
   Docs --> Data
 ```
 
@@ -69,6 +74,7 @@ flowchart LR
 - 前端入口：`apps/web-console`、`apps/admin-console`
 - 网关入口：`apps/api-server`
 - 前端共享层：`packages/docs-ui`、`packages/ui-kit`
+- AI 推理层：`services/ai-inference`（LLM 客户端、语义嵌入、语义重排）
 - 核心服务层：`services/angineer-core`、`services/sop-core`、`services/docs-core`、`services/geo-core`、`services/engtools`
 - 运行时知识存储：`data/knowledge_base`
 
@@ -87,6 +93,11 @@ flowchart LR
 └────────────────────────────┬────────────────────────────────┘
                              │
 ┌────────────────────────────▼────────────────────────────────┐
+│                    AI 推理层 (ai-inference)                   │
+│         LLM 客户端 │ 语义嵌入 │ 语义重排 │ 响应解析           │
+└────────────────────────────┬────────────────────────────────┘
+                             │
+┌────────────────────────────▼────────────────────────────────┐
 │                      后端核心服务层                            │
 │  angineer-core | sop-core | docs-core | geo-core | engtools   │
 └─────────────────────────────────────────────────────────────┘
@@ -96,6 +107,7 @@ flowchart LR
 
 | 子系统 | 对应服务 | 核心职责 |
 |:---|:---|:---|
+| **AnGIneer-AI** | `services/ai-inference` | **AI 推理底座**。LLM 客户端（多模型/重试/熔断）、语义嵌入（bge-m3）、语义重排（bge-reranker）、响应解析。所有上层服务直接依赖此模块获取 AI 能力。 |
 | **AnGIneer-SOP** | `services/sop-core` | **流程大脑**。负责 SOP 的定义、解析与可视化编排。 |
 | **AnGIneer-Tools** | `services/engtools` | **专业工具**。高精度工程计算器、脚本库与交互界面。 |
 | **AnGIneer-Docs** | `services/docs-core` | **行业记忆**。基于AnGIneer数据标准的规范自动解析与知识库管理。 |
@@ -109,7 +121,7 @@ ResourceAdapter(project/knowledge/sop)
   -> openResource
   -> web-console Workbench Tabs
 
-admin-console 与 web-console 共享同一套 KnowledgeTree / KnowledgeChatPanel / SOPTree / SOPChatPanel / 资源适配协议，基础 SmartTree / BaseChat 下沉至 ui-kit
+admin-console 与 web-console 共享同一套 KnowledgeTree / SOPTree / 资源适配协议，基础 SmartTree / AIChat 下沉至 ui-kit
 ```
 
 ### 2.3 AnGIneer-Core主调度模块 
@@ -185,7 +197,7 @@ cd AnGIneer
 pnpm install
 
 # 安装后端依赖
-pip install -e services/angineer-core -e services/sop-core -e services/docs-core -e services/geo-core -e services/engtools
+pip install -e services/ai-inference -e services/angineer-core -e services/sop-core -e services/docs-core -e services/geo-core -e services/engtools
 ```
 
 ### 3.3 启动服务

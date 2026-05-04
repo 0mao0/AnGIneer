@@ -1,5 +1,5 @@
 version: 1
-last_updated: 2026-04-19
+last_updated: 2026-05-05
 
 truth_sources:
   - README.md
@@ -14,6 +14,7 @@ readme_required_tokens:
   - apps/api-server
   - packages/docs-ui
   - packages/ui-kit
+  - services/ai-inference
   - services/angineer-core
   - services/sop-core
   - services/docs-core
@@ -32,6 +33,8 @@ system:
     web_console: 3005
     admin_console: 3002
     api_server: 8789
+    embedding_service: 7997
+    reranker_service: 7998
 
 modules:
   - id: web-console
@@ -61,6 +64,7 @@ modules:
     path: apps/api-server
     role: gateway
     depends_on:
+      - ai-inference
       - docs-core
       - angineer-core
       - engtools
@@ -71,6 +75,7 @@ modules:
       - knowledge_routes.py
     exposes:
       - /api/knowledge/*
+      - /api/query
 
   - id: docs-ui
     path: packages/docs-ui
@@ -79,9 +84,7 @@ modules:
       - ui-kit
     key_symbols:
       - KnowledgeTree
-      - KnowledgeChatPanel
       - SOPTree
-      - SOPChatPanel
       - createResourceNodeFromKnowledge
       - createOpenResourcePayload
 
@@ -92,34 +95,68 @@ modules:
     key_symbols:
       - SmartTree
       - BaseChat
+      - AIChat
       - SplitPanes
       - useTheme
+
+  - id: ai-inference
+    path: services/ai-inference
+    role: ai_inference_foundation
+    depends_on: []
+    key_symbols:
+      - llm_client.py
+      - llm_config.py
+      - llm_response_parser.py
+      - llm_logger.py
+      - semantic_embedding_service.py
+      - semantic_reranker_service.py
+    description: >
+      AI 推理底座，零外部依赖。提供 LLM 客户端（多模型/重试/熔断/流式）、
+      语义嵌入（bge-m3）、语义重排（bge-reranker-v2-m3）、响应解析。
+      所有上层服务直接依赖此模块获取 AI 能力，不经过 angineer-core 中转。
 
   - id: docs-core
     path: services/docs-core
     role: document_parse_and_knowledge
-    depends_on: []
+    depends_on:
+      - ai-inference
     key_symbols:
       - knowledge_service.py
       - mineru_parser.py
-      - query/service.py
-      - executors/content_executor.py
-      - answering/answer_assembler.py
+      - query/contracts.py
+      - retrieval/dense_retriever.py
+      - retrieval/hybrid_retriever.py
 
   - id: angineer-core
     path: services/angineer-core
     role: agent_orchestration
-    depends_on: []
+    depends_on:
+      - ai-inference
+    key_symbols:
+      - core/classifier.py
+      - core/dispatcher.py
+      - core/memory.py
+    description: >
+      意图识别与调度核心。依赖 ai-inference 获取 LLM 能力，
+      但不再重导出 ai-inference 的符号。
 
   - id: engtools
     path: services/engtools
     role: engineering_tools
-    depends_on: []
+    depends_on:
+      - ai-inference
+    key_symbols:
+      - KnowledgeTool.py
+      - TableTool.py
+      - ConditionalTool.py
 
   - id: sop-core
     path: services/sop-core
     role: sop_runtime
-    depends_on: []
+    depends_on:
+      - ai-inference
+    key_symbols:
+      - sop_parser.py
 
   - id: geo-core
     path: services/geo-core
@@ -158,22 +195,22 @@ flows:
       - services/docs-core/src/docs_core/knowledge_service.py
 
   - id: docs-query-runtime
-    purpose: Route one knowledge question through planner, executor, retrieval, and answering layers.
+    purpose: Route one knowledge question through intent classification, retrieval, and LLM generation.
     steps:
-      - POST /api/knowledge/query
-      - KnowledgeQueryService.query
-      - parse_intent
-      - build_execution_plan
-      - content/table/formula/sql executor
-      - retrieval candidates and rerank or text2sql pipeline
-      - answer_assembler.assemble_answer or sql payload
+      - POST /api/query
+      - IntentClassifier.classify_intent (angineer-core, uses ai-inference LLMClient)
+      - service_mode dispatch (semantic_retrieval / sql_first)
+      - dense + sparse + hybrid retrieval (docs-core, uses ai-inference embedding)
+      - text2sql pipeline (docs-core)
+      - LLM generation (ai-inference LLMClient directly)
     anchors:
-      - apps/api-server/knowledge_routes.py
-      - services/docs-core/src/docs_core/query/service.py
-      - services/docs-core/src/docs_core/query/execution_planner.py
-      - services/docs-core/src/docs_core/executors/content_executor.py
-      - services/docs-core/src/docs_core/executors/sql_executor.py
-      - services/docs-core/src/docs_core/answering/answer_assembler.py
+      - apps/api-server/main.py
+      - services/ai-inference/src/ai_inference/llm_client.py
+      - services/angineer-core/src/angineer_core/classifier.py
+      - services/angineer-core/src/angineer_core/dispatcher.py
+      - services/docs-core/src/docs_core/retrieval/dense_retriever.py
+      - services/docs-core/src/docs_core/retrieval/hybrid_retriever.py
+      - services/docs-core/src/docs_core/text2sql/schema_linker.py
 
 storage:
   document_root: data/knowledge_base/libraries/{library_id}/documents/{doc_id}
@@ -193,9 +230,12 @@ invariants:
   - docs parsing must remain asynchronous when work is long-running.
   - docs storage follows one-document-one-folder.
   - docs-core runtime data uses knowledge_meta.sqlite and knowledge_index.sqlite.
+  - ai-inference is the sole AI inference provider with zero reverse dependencies.
+  - all services needing LLM/semantic capabilities must import directly from ai_inference, not via angineer-core re-export.
 
 change_checklist:
   - If ports change, update every reference in docs and frontend proxy config in the same change.
   - If resource protocol changes, update adapter, open flow, workbench mapping, and both consoles.
   - If docs storage layout changes, update docs-core, engtools compatibility, docs, and migration path.
   - If knowledge routes change, update README and both techniques documents.
+  - If ai-inference API changes, update all direct consumers (angineer-core, docs-core, engtools, sop-core, api-server).

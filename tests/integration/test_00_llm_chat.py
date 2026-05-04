@@ -9,7 +9,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from angineer_core.infra.llm_client import LLMClient
+from ai_inference.llm_client import LLMClient
 from regression_report import build_report, emit_report
 
 """
@@ -41,7 +41,7 @@ class TestLLMChat(unittest.TestCase):
 
         target_config = "Qwen3-4B (Public)"
         client = LLMClient()
-        configs_to_test = [c.model_dump() for c in client._config.llm.models if c.name == target_config]
+        configs_to_test = [c.model_dump() for c in client._config.models if c.name == target_config]
 
         print("  -> 步骤 1: 解析测试配置")
         if not configs_to_test:

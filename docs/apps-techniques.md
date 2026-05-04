@@ -15,7 +15,7 @@
 - [文档解析与对比查改改造清单（可直接开工）](#文档解析与对比查改改造清单可直接开工)
 - [统一资源架构（已落地）](#统一资源架构已落地)
 - [统一资源执行清单（按文件级）](#统一资源执行清单按文件级)
-- [KnowledgeChatPanel 对话系统](#knowledgechatpanel-对话系统)
+- [AIChat 对话系统](#aichat-对话系统)
 - [SmartTree 知识树系统](#smarttree-知识树系统)
 - [API 端点速查](#api-端点速查)
 - [数据模型](#数据模型)
@@ -136,7 +136,7 @@ flowchart TB
   end
 
   subgraph SharedUI["共享 UI / 交互层"]
-    DocsUI["packages/docs-ui\nKnowledgeTree / KnowledgeChatPanel / SOPTree / SOPChatPanel"]
+    DocsUI["packages/docs-ui\nKnowledgeTree / SOPTree"]
     UIKit["packages/ui-kit\nSmartTree / BaseChat / SplitPanes / Panel / Theme"]
   end
 
@@ -209,7 +209,7 @@ web-console（工作台型）
 └─ App.vue
    ├─ LeftPanel（项目/知识/SOP 入口）
    ├─ Workbench（统一资源标签页渲染）
-   └─ 右侧聊天区（KnowledgeChatPanel / SOPChatPanel 按左侧 Tab 切换）
+   └─ 右侧聊天区（AIChat 按 scene 切换知识/SOP 对话）
 
 admin-console（管理路由型）
 └─ App.vue
@@ -217,7 +217,7 @@ admin-console（管理路由型）
       └─ /knowledge -> KnowledgeManage
          ├─ 左：KnowledgeTree（管理态）
          ├─ 中：B区（状态机 + B1/B2 + 策略切换）
-         └─ 右：KnowledgeChatPanel（知识域对话封装）
+         └─ 右：AIChat（scene="knowledge"）
 ```
 
 ---
@@ -523,13 +523,15 @@ flowchart LR
 
 ---
 
-## KnowledgeChatPanel 对话系统
+## AIChat 对话系统
+
+> **后端依赖说明**：AIChat 的后端 LLM 能力由 `services/ai-inference` 提供（`ai_inference.llm_client`），所有上层服务直接依赖 `ai-inference`，不经过 `angineer-core` 中转。详见 [docs/services-techniques.md](./services-techniques.md)。
 
 ### 组件架构
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│      KnowledgeChatPanel.vue (docs-ui 知识域封装组件)         │
+│           AIChat.vue (ui-kit 统一 AI 对话组件)               │
 ├─────────────────────────────────────────────────────────────┤
 │            BaseChat.vue (ui-kit 基础聊天组件)                │
 ├─────────────────────────────────────────────────────────────┤
@@ -542,19 +544,21 @@ flowchart LR
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│               useKnowledgeChat.ts (业务逻辑)                 │
+│               useAIChat.ts (统一业务逻辑)                    │
 ├─────────────────────────────────────────────────────────────┤
 │  - 消息状态管理                                              │
 │  - 流式请求处理                                              │
 │  - 上下文压缩                                                │
 │  - Token 估算                                                │
+│  - 会话池隔离 (scene + sessionId)                            │
+│  - /api/query 统一调用                                       │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
 │             App Page / Domain Orchestration（可选）          │
 ├─────────────────────────────────────────────────────────────┤
-│  - 挂载 KnowledgeChatPanel                                   │
+│  - 挂载 AIChat，通过 scene 和 sessionId 区分场景             │
 │  - 补充领域上下文标签或页面级联动                            │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -565,64 +569,59 @@ flowchart LR
 
 - 前台左侧经验库入口由 [SOPSidebar.vue](file:///d:/AI/AnGIneer/apps/web-console/src/layouts/sidebar/SOPSidebar.vue) 承接，内部挂载 [SOPTree.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/widgets/SOPTree.vue)。
 - 经验库树状态由 [useSopTree.ts](file:///d:/AI/AnGIneer/packages/docs-ui/src/composables/useSopTree.ts) 提供，当前以内置示例树组织设计流程与能力测算节点。
-- 右侧聊天区在 [App.vue](file:///d:/AI/AnGIneer/apps/web-console/src/App.vue) 中按左侧 Tab 在 [KnowledgeChatPanel.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/widgets/KnowledgeChatPanel.vue) 和 [SOPChatPanel.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/widgets/SOPChatPanel.vue) 间切换。
-- `SOPChatPanel` 复用 `BaseChat`，领域逻辑通过 `useSopChat` 收口，并在默认系统提示词中强调流程、步骤和约束回答。
+- 右侧聊天区在 [App.vue](file:///d:/AI/AnGIneer/apps/web-console/src/App.vue) 中使用 [AIChat.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/AIChat.vue)，通过 `scene` prop 在知识域（`docs`）和经验域（`sops`）间切换。
+- `AIChat` 封装 `BaseChat` + `useAIChat`，领域逻辑通过 `scene` + `sessionId` 收口，后端 `/api/query` 自动路由意图分类与服务模式。
 
 ### 前后台拼装方式
 
 - 前台入口 [App.vue](file:///d:/AI/AnGIneer/apps/web-console/src/App.vue) 通过 [LeftPanel.vue](file:///d:/AI/AnGIneer/apps/web-console/src/layouts/LeftPanel.vue) 在「知识」Tab 挂载 `KnowledgeTree`，使用只读参数集。
-- 后台入口 [KnowledgeManage.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/views/KnowledgeManage.vue) 使用 TriplePane 三栏编排，左侧 `KnowledgeTree`、中心预览、右侧 `KnowledgeChatPanel`。
+- 后台入口 [KnowledgeManage.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/views/KnowledgeManage.vue) 使用 TriplePane 三栏编排，左侧 `KnowledgeTree`、中心预览、右侧 `AIChat`（scene="knowledge"）。
 - 基础树能力由 [SmartTree.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/SmartTree.vue) 提供，知识域树封装由 [KnowledgeTree.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/widgets/KnowledgeTree.vue) 承接。
-- 基础聊天能力由 [BaseChat.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/BaseChat.vue) 提供，知识域聊天封装由 [KnowledgeChatPanel.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/widgets/KnowledgeChatPanel.vue) 承接。
+- 统一 AI 对话能力由 [AIChat.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/AIChat.vue) 提供，封装 BaseChat + useAIChat + Markdown 渲染，通过 scene 和 sessionId 区分场景与会话。
 - 后台外层“包一层”是业务编排容器，负责文件上传、解析链路、树操作、拖拽重排等流程聚合，属于合理分层。
 
-### KnowledgeChatPanel Props
+### AIChat Props
 
 | Prop | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
+| `scene` | `string` | `'docs'` | 场景标识（docs/sops/knowledge） |
+| `sessionId` | `string` | `'default'` | 会话 ID，用于会话池隔离 |
 | `defaultModel` | `string` | - | 默认模型 |
 | `placeholder` | `string` | `'输入消息...'` | 输入框占位符 |
-| `contextItems` | `ContextItem[]` | `[]` | 上下文引用项 |
+| `contextItems` | `ContextItem[]` | `[]` | 上下文引用项（已移至内部管理） |
 | `title` | `string` | `'AI 助手'` | 标题 |
 | `icon` | `string` | - | 图标 |
 | `systemPrompt` | `string` | - | 系统提示词 |
 | `showContextInfo` | `boolean` | `false` | 是否显示上下文信息 |
 | `showSystemMessages` | `boolean` | `false` | 是否显示系统消息 |
 
-### KnowledgeChatPanel Events
+### AIChat Events
 
 | Event | 参数 | 说明 |
 |-------|------|------|
-| `send` | `(message: string, model: string)` | 发送消息时触发 |
-| `ready` | `()` | 组件就绪时触发 |
-
-### KnowledgeChatPanel Slots
-
-| Slot | 参数 | 说明 |
-|------|------|------|
-| `header` | - | 自定义头部 |
-| `empty` | - | 空状态自定义内容 |
+| `answerComplete` | `(message: AIChatMessage)` | 回答完成时触发 |
+| `selectCitation` | `(citation: AIChatCitation)` | 点击引用时触发 |
 
 ### 使用示例
 
 ```vue
 <template>
-  <KnowledgeChatPanel
+  <AIChat
     title="AI 助手"
     placeholder="输入消息..."
     :show-context-info="true"
-    @error="handleChatError"
+    scene="knowledge"
+    :session-id="docId"
+    @answer-complete="handleAnswerComplete"
   />
 </template>
 
 <script setup lang="ts">
-import { KnowledgeChatPanel } from '@angineer/docs-ui'
+import { AIChat } from '@angineer/ui-kit'
 
-/**
- * 处理聊天错误提示。
- */
-const handleChatError = (error: Error) => {
-  console.error('KnowledgeChatPanel error:', error)
+/** 处理回答完成事件 */
+const handleAnswerComplete = (message: any) => {
+  console.log('Answer complete:', message)
 }
 </script>
 ```
@@ -679,7 +678,7 @@ const handleChatError = (error: Error) => {
 ### 前后台拼装方式
 
 - 前台入口 [App.vue](file:///d:/AI/AnGIneer/apps/web-console/src/App.vue) 通过 [LeftPanel.vue](file:///d:/AI/AnGIneer/apps/web-console/src/layouts/LeftPanel.vue) 在「知识」Tab 挂载 `KnowledgeTree`，使用只读参数集。
-- 后台入口 [KnowledgeManage.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/views/KnowledgeManage.vue) 使用 TriplePane 三栏编排，左侧 `KnowledgeTree`、中心预览、右侧 `KnowledgeChatPanel`。
+- 后台入口 [KnowledgeManage.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/views/KnowledgeManage.vue) 使用 TriplePane 三栏编排，左侧 `KnowledgeTree`、中心预览、右侧 `AIChat`（scene="knowledge"）。
 - 基础树能力由 [SmartTree.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/SmartTree.vue) 提供，知识域封装由 [KnowledgeTree.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/widgets/KnowledgeTree.vue) 承接。
 - 后台外层“包一层”是业务编排容器，负责文件上传、解析链路、树操作、拖拽重排等流程聚合，属于合理分层。
 
@@ -957,7 +956,8 @@ interface ChatMessage {
 
 1. **组件导入优先使用 packages**
    ```typescript
-   import { KnowledgeTree, KnowledgeChatPanel } from '@angineer/docs-ui'
+   import { KnowledgeTree } from '@angineer/docs-ui'
+   import { AIChat } from '@angineer/ui-kit'
    import { AppHeader, Panel, SmartTree } from '@angineer/ui-kit'
    ```
 

@@ -11,7 +11,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'apps', 'api-serve
 
 def test_config_default_model():
     """测试默认模型配置"""
-    from angineer_core.config import load_llm_models_from_env
+    from ai_inference.llm_config import load_llm_models_from_env
     
     models = load_llm_models_from_env()
     
@@ -26,7 +26,7 @@ def test_config_default_model():
 
 def test_llm_client_stream_method():
     """测试 LLMClient 有流式方法"""
-    from angineer_core.infra.llm_client import LLMClient
+    from ai_inference.llm_client import LLMClient
     
     # 验证方法存在
     assert hasattr(LLMClient, 'chat_stream'), "LLMClient 应该有 chat_stream 方法"

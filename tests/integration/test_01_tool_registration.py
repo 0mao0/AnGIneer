@@ -12,7 +12,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../s
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from engtools.BaseTool import ToolRegistry
-from angineer_core.infra.llm_client import LLMClient
+from ai_inference.llm_client import LLMClient
 from regression_report import build_report, emit_report
 
 """
@@ -112,7 +112,7 @@ class TestResourceLoading(unittest.TestCase):
         tools = ToolRegistry.list_tools()
         tool_names = list(tools.keys())
         client = LLMClient()
-        configs_to_test = [c.model_dump() for c in client._config.llm.models if c.name == "Qwen3-4B (Public)"]
+        configs_to_test = [c.model_dump() for c in client._config.models if c.name == "Qwen3-4B (Public)"]
         test_file = os.path.abspath(__file__)
         prompt_tasks = [
             {

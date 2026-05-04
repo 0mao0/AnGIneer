@@ -26,6 +26,13 @@ export type {
   BaseChatCitation,
   CitationRichMedia,
   BaseChatContextItem,
-  BaseChatModelOption
+  BaseChatModelOption,
+  AIChatCitation,
+  AIChatMessage,
+  QueryRequest,
+  QueryResponse,
+  SessionKey,
+  SessionSnapshot,
+  AIChatContextConfig
 } from './chat'
 export type { SmartTreeNode, TreeNodeAction } from './tree'

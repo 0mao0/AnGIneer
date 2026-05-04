@@ -2,35 +2,43 @@
 import json
 from typing import Any, Dict, List
 
+import httpx
+
 from docs_core.evals.dataset_loader import load_eval_questions, load_eval_sql_rows
-from docs_core.query.contracts import KnowledgeQueryRequest
-from docs_core.query.service import knowledge_query_service
+
+API_BASE = "http://localhost:8789"
 
 
-# 调用当前知识查询服务，获取 SQL 结果。
+# 通过 /api/query 端点调用新链路，获取 SQL 结果。
 def run_predictions(sql_questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
     predictions: Dict[str, Dict[str, Any]] = {}
-    for question in sql_questions:
-        question_id = str(question.get("question_id") or "")
-        query = str(question.get("question") or "").strip()
-        if not question_id or not query:
-            continue
-        request = KnowledgeQueryRequest(
-            query=query,
-            library_id=str(question.get("library_id") or "default"),
-            doc_ids=list(question.get("doc_ids") or []),
-            mode="sql",
-            top_k=5,
-            include_debug=True,
-        )
-        response = knowledge_query_service.query(request)
-        predictions[question_id] = {
-            "query_id": response.query_id,
-            "task_type": response.task_type,
-            "sql": response.sql.model_dump(mode="json") if response.sql is not None else None,
-            "answer": response.answer,
-            "debug": response.debug,
-        }
+    with httpx.Client(timeout=60.0) as client:
+        for question in sql_questions:
+            question_id = str(question.get("question_id") or "")
+            query = str(question.get("question") or "").strip()
+            if not question_id or not query:
+                continue
+            try:
+                resp = client.post(f"{API_BASE}/api/query", json={
+                    "query": query,
+                    "library_id": str(question.get("library_id") or "default"),
+                    "doc_ids": list(question.get("doc_ids") or []),
+                    "scene": "docs",
+                    "session_id": f"eval-sql-{question_id}",
+                })
+                resp.raise_for_status()
+                data = resp.json()
+            except Exception as exc:
+                print(f"[eval] query failed for {question_id}: {exc}")
+                data = {}
+            sql_data = data.get("sql")
+            predictions[question_id] = {
+                "query_id": data.get("query_id", ""),
+                "task_type": (data.get("intent") or {}).get("intent_level", ""),
+                "sql": sql_data,
+                "answer": data.get("answer", ""),
+                "debug": data.get("debug", {}),
+            }
     return predictions
 
 
@@ -87,7 +95,7 @@ def evaluate_text2sql(
     }
 
 
-# 脚本入口：读取 SQL 样本并调用当前 Text-to-SQL 主链。
+# 脚本入口：读取 SQL 样本并调用 /api/query 端点。
 def main() -> None:
     questions = load_eval_questions()
     gold_sql_rows = load_eval_sql_rows()

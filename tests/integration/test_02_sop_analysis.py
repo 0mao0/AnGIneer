@@ -13,8 +13,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../s
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 
-from angineer_core.core import IntentClassifier
-from angineer_core.standard.context_models import Step, SOP
+from angineer_core import IntentClassifier
+from angineer_core.base_contracts import Step, SOP
 from sop_core.sop_loader import SopLoader
 from engtools.BaseTool import ToolRegistry
 from regression_report import build_report, emit_report

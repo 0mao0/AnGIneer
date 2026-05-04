@@ -29,8 +29,7 @@
   - 共享 UI 包：`packages/*`
   - 核心服务：`services/*`
 - 新增能力前优先复用共享组件：
-  - KnowledgeChatPanel：`packages/docs-ui/src/components/common/widgets/KnowledgeChatPanel.vue`
-  - SOPChatPanel：`packages/docs-ui/src/components/common/widgets/SOPChatPanel.vue`
+  - AIChat：`packages/ui-kit/src/components/common/AIChat.vue`
   - SOPTree：`packages/docs-ui/src/components/common/widgets/SOPTree.vue`
   - SmartTree：`packages/ui-kit/src/components/common/SmartTree.vue`
 - `web-console` 与 `admin-console` 默认保持行为一致，除非需求明确区分。
@@ -111,8 +110,8 @@ Definition of Done：
   - `apps/web-console`：`3005`
   - `apps/admin-console`：`3002`
 - 对内 API 端口：
-  - `apps/api-server/main.py`：`8033`
-  - 前端开发代理 `/api` 必须指向 `http://localhost:8033`
+  - `apps/api-server/main.py`：`8789`
+  - 前端开发代理 `/api` 必须指向 `http://localhost:8789`
 - 未经用户明确要求，不允许修改上述端口；如必须调整，必须在同一次变更中同步更新所有引用点并完成验证。
 
 ## 9. 常用命令

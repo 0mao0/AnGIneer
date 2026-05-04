@@ -168,6 +168,10 @@ importers:
   packages/sop-ui: {}
 
   packages/ui-kit:
+    dependencies:
+      katex:
+        specifier: ^0.16.37
+        version: 0.16.37
     devDependencies:
       '@ant-design/icons-vue':
         specifier: ^7.0.0

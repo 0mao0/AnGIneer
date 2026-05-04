@@ -24,11 +24,12 @@
         </template>
         <template #right>
           <Panel :title="chatPanelTitle" :icon="MessageOutlined">
-            <component
-              :is="currentChatPanel"
+            <AIChat
               title=""
               :placeholder="chatPanelPlaceholder"
               :show-context-info="true"
+              :scene="activeSection === 'sop' ? 'sops' : 'docs'"
+              :session-id="chatSessionId"
             />
           </Panel>
         </template>
@@ -41,24 +42,23 @@
 import { computed, ref } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { MessageOutlined } from '@ant-design/icons-vue'
-import { AppHeader, SplitPanes, Panel, useTheme, type NavItem } from '@angineer/ui-kit'
-import { KnowledgeChatPanel, SOPChatPanel } from '@angineer/docs-ui'
+import { AppHeader, SplitPanes, Panel, AIChat, useTheme, type NavItem } from '@angineer/ui-kit'
 import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
 import { ADMIN_CONSOLE_ORIGIN } from '../../shared/ports'
+import { useWorkbenchStore } from '@/stores/workbench'
 
 type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
 
 const { isDark, themeConfig, appClass, toggleTheme } = useTheme()
 const activeSection = ref<ResourcePanelSection>('knowledge')
-
-const currentChatPanel = computed(() => (
-  activeSection.value === 'sop' ? SOPChatPanel : KnowledgeChatPanel
-))
+const workbenchStore = useWorkbenchStore()
 
 const chatPanelTitle = computed(() => (
   activeSection.value === 'sop' ? 'SOP 对话' : '知识对话'
 ))
+
+const chatSessionId = computed(() => workbenchStore.activeTab || 'default')
 
 const chatPanelPlaceholder = computed(() => (
   activeSection.value === 'sop' ? '输入 SOP 问题，Enter 发送...' : '输入消息，Enter 发送...'
