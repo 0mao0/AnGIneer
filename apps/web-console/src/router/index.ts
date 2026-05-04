@@ -21,6 +21,11 @@ const routes: RouteRecordRaw[] = [
     path: '/gis',
     name: 'GIS',
     component: () => import('@/views/GISView.vue')
+  },
+  {
+    path: '/evals',
+    name: 'Evals',
+    component: () => import('@/views/EvalManage.vue')
   }
 ]
 

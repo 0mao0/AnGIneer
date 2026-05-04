@@ -6,7 +6,7 @@
         project-name="示例项目"
         :nav-items="navItems"
         :show-settings="true"
-        @nav-click="goToAdmin"
+        @nav-click="handleNavClick"
         @settings-click="openSettings"
         @toggle-theme="toggleTheme"
       />
@@ -47,12 +47,14 @@ import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
 import { ADMIN_CONSOLE_ORIGIN } from '../../shared/ports'
 import { useWorkbenchStore } from '@/stores/workbench'
+import { useRouter } from 'vue-router'
 
 type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
 
 const { isDark, themeConfig, appClass, toggleTheme } = useTheme()
 const activeSection = ref<ResourcePanelSection>('knowledge')
 const workbenchStore = useWorkbenchStore()
+const router = useRouter()
 
 const chatPanelTitle = computed(() => (
   activeSection.value === 'sop' ? 'SOP 对话' : '知识对话'
@@ -68,8 +70,22 @@ const chatPanelPlaceholder = computed(() => (
 const navItems: NavItem[] = [
   { key: 'project', label: '项目库' },
   { key: 'knowledge', label: '知识库' },
-  { key: 'experience', label: '经验库' }
+  { key: 'experience', label: '经验库' },
+  { key: 'evals', label: '评测' }
 ]
+
+const navRouteMap: Record<string, string> = {
+  evals: '/evals',
+}
+
+const handleNavClick = (key: string) => {
+  const route = navRouteMap[key]
+  if (route) {
+    router.push(route)
+  } else {
+    goToAdmin()
+  }
+}
 
 
 
