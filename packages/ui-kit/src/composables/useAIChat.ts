@@ -6,13 +6,11 @@
 import { ref, computed, watch, type Ref, type ComputedRef } from 'vue'
 import type {
   AIChatMessage,
-  AIChatCitation,
   QueryRequest,
   QueryResponse,
   SessionKey,
   SessionSnapshot,
   AIChatContextConfig,
-  CitationRichMedia
 } from '../types/chat'
 
 /** 生成唯一消息 ID */
@@ -99,6 +97,7 @@ function mapQueryResponseToChatResponse(qr: QueryResponse) {
     retrieved_items: qr.retrieved_items,
     sql: qr.sql,
     latency_ms: qr.latency_ms,
+    confidence: (qr.intent as any)?.confidence as number | undefined,
     debug: {
       intent: qr.intent,
       fallback_used: qr.fallback_used,
@@ -123,7 +122,7 @@ function formatTaskType(taskType: string | undefined): string {
 
 /** 将查询响应格式化为回答气泡顶部的查询链路文案 */
 function buildQueryChain(payload: ReturnType<typeof mapQueryResponseToChatResponse>): string {
-  const debug = payload.debug || {}
+  const debug = (payload.debug || {}) as Record<string, any>
   const segments = [
     `意图 ${formatTaskType(payload.task_type || String(debug.route || ''))}`,
     debug.executor ? `执行器 ${String(debug.executor)}` : '',
@@ -284,7 +283,7 @@ export function useAIChat(options?: {
     content: string,
     _model?: string,
     onChunk?: (chunk: string) => void,
-    sendOptions?: { includeDebug?: boolean; includeRetrieved?: boolean }
+    _sendOptions?: { includeDebug?: boolean; includeRetrieved?: boolean }
   ): Promise<void> => {
     if (!content.trim() || loading.value) return
 
@@ -300,7 +299,7 @@ export function useAIChat(options?: {
     loading.value = true
     currentStreamContent.value = ''
 
-    const managedMessages = manageContext([...messages.value], contextConfig)
+    manageContext([...messages.value], contextConfig)
 
     const contextItems = options?.getContextItems?.() || []
     const queryRequest: QueryRequest = {

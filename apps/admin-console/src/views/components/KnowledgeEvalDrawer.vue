@@ -266,6 +266,11 @@ interface Props {
     answer: string
     queryChain?: string
     citations?: EvalCitation[]
+    strategy?: string
+    task_type?: string
+    confidence?: number | null
+    retrieved_items?: any[]
+    debug?: Record<string, any>
   }>
 }
 
@@ -510,17 +515,6 @@ const applyRetrievalReport = (details: Array<Record<string, any>>) => {
 }
 
 /**
- * 根据评测明细生成易读的推理链提示。
- */
-const buildThinkingText = (detail: KnowledgeEvalAnswerDetail) => {
-  const segments = []
-  if (detail.strategy) {
-    segments.push(`检索策略：${detail.strategy}`)
-  }
-  return segments.join(' -> ')
-}
-
-/**
  * 将任务类型转换为更易读的中文标签。
  */
 const getTaskTypeLabel = (taskType?: string) => {
@@ -538,11 +532,6 @@ const getTaskTypeLabel = (taskType?: string) => {
  * 返回文档类标签。
  */
 const getDocTags = (item: EvalCaseState) => item.tags.filter(tag => /^doc-/i.test(tag))
-
-/**
- * 返回能力类标签。
- */
-const getAbilityTags = (item: EvalCaseState) => item.tags.filter(tag => !/^doc-/i.test(tag))
 
 /**
  * 将文档 ID 标签格式化为带 PDF 名称的显示。

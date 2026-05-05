@@ -1,6 +1,6 @@
 <template>
   <a-modal
-    v-model:open="visible"
+    :open="visible"
     title="导入测试集"
     :confirm-loading="uploading"
     @ok="handleUpload"

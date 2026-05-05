@@ -374,7 +374,7 @@ export const renderNodeRichMedia = (
       }
     })
     
-    imageSources.forEach((imagePath, index) => {
+    imageSources.forEach((imagePath) => {
       const src = resolveAssetUrl(imagePath, sourceFilePath)
       if (src && !renderedImages.has(src)) {
         renderedImages.add(src)
