@@ -20,6 +20,11 @@ const routes: RouteRecordRaw[] = [
     path: '/experience',
     name: 'experience',
     component: () => import('../views/PlaceholderPage.vue')
+  },
+  {
+    path: '/evals',
+    name: 'evals',
+    component: () => import('../views/EvalManage.vue')
   }
 ]
 

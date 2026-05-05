@@ -39,15 +39,16 @@ const { isDark, themeConfig, appClass, toggleTheme } = useTheme()
 const navItems: NavItem[] = [
   { key: 'project', label: '项目库' },
   { key: 'knowledge', label: '知识库' },
-  { key: 'experience', label: '经验库' }
+  { key: 'experience', label: '经验库' },
+  { key: 'evals', label: '评测' }
 ]
 
-// 处理导航点击
 const handleNavClick = (key: string) => {
   const routeMap: Record<string, string> = {
     project: '/project',
     knowledge: '/knowledge',
-    experience: '/experience'
+    experience: '/experience',
+    evals: '/evals'
   }
   const path = routeMap[key]
   if (path) {
