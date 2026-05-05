@@ -11,7 +11,7 @@
     "build:frontend": "pnpm --filter @angineer/web-console build",
     "build:admin": "pnpm --filter @angineer/admin-console build",
     "lint": "pnpm -r lint",
-    "services:install": "pip install -e services/ai-inference -e services/angineer-core -e services/sop-core -e services/docs-core -e services/geo-core -e services/engtools",
+    "services:install": "pip install -e services/ai-inference -e services/angineer-core -e services/sop-core -e services/docs-core -e services/geo-core -e services/engtools -e services/evals-core",
     "dev:ai-inference": "pwsh -File services/ai-inference/start-ai-services.ps1",
     "stop:ai-inference": "pwsh -File services/ai-inference/start-ai-services.ps1 -Stop",
     "api:dev": "python apps/api-server/main.py",
@@ -23,6 +23,7 @@
     "eval:knowledge-rag:text2sql": "python tests/evals/knowledge_rag/eval_text2sql.py",
     "eval:knowledge-rag:report": "python -c \"import sys; from pathlib import Path; sys.path.insert(0, str(Path('services/docs-core/src').resolve())); from docs_core.evals.eval_reporter import main; main()\"",
     "eval:knowledge-rag": "python tests/evals/knowledge_rag/eval_retrieval.py && python tests/evals/knowledge_rag/eval_answer.py && python tests/evals/knowledge_rag/eval_text2sql.py",
+    "eval:list": "python -c \"from evals_core.storage.result_store import init_db, list_datasets; init_db(); import json; print(json.dumps(list_datasets(), ensure_ascii=False, indent=2))\"",
     "docs:sync": "python tools/sync_tech_docs.py",
     "docs:check": "python tools/check_docs_suite.py",
     "docs:arch-check": "python tools/check_architecture_docs.py"
