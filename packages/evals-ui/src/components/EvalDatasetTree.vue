@@ -40,7 +40,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { UploadOutlined, PlusOutlined } from '@ant-design/icons-vue'
-import type { EvalDataset, EvalDatasetCategory } from '../types/eval'
+import type { EvalDataset } from '../types/eval'
 
 const props = defineProps<{
   datasets: EvalDataset[]

@@ -26,7 +26,7 @@ import { ref } from 'vue'
 import { InboxOutlined } from '@ant-design/icons-vue'
 import type { UploadFile } from 'ant-design-vue'
 
-const props = defineProps<{
+defineProps<{
   visible: boolean
 }>()
 

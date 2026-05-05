@@ -87,7 +87,7 @@
 
 <script setup lang="ts">
 /** 评测管理页面 - 三栏布局 */
-import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { message } from 'ant-design-vue'
 import {
   DatabaseOutlined,
@@ -102,9 +102,7 @@ import {
   EvalImportModal,
   EvalCompareView,
 } from '@angineer/evals-ui'
-import { useEvalDataset, useEvalRun, useEvalCompare } from '@angineer/evals-ui'
-import { evalsApi } from '@/api/evals'
-import type { EvalDataset, EvalQuestion, EvalRun, EvalRunDetail } from '@angineer/evals-ui'
+import { useEvalDataset, useEvalRun } from '@angineer/evals-ui'
 
 const { isDark } = useTheme()
 const workspaceRef = ref<HTMLElement | null>(null)
@@ -113,7 +111,6 @@ const {
   datasets,
   currentDataset,
   questions,
-  loading: datasetsLoading,
   fetchDatasets,
   fetchDataset,
   fetchQuestions,
@@ -123,15 +120,11 @@ const {
 const {
   currentRun,
   runs,
-  loading: runLoading,
   runDetails,
   startRun,
-  fetchRun,
   fetchRuns,
   stopPolling,
 } = useEvalRun()
-
-const { compareResult, compare: doCompare, clear: clearCompare } = useEvalCompare()
 
 const selectedDatasetId = ref('')
 const questionsLoading = ref(false)

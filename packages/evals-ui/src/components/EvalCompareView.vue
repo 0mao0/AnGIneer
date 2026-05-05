@@ -92,7 +92,7 @@ import { ref } from 'vue'
 import EvalScoreBar from './EvalScoreBar.vue'
 import type { EvalRun, EvalCompareResult } from '../types/eval'
 
-const props = defineProps<{
+defineProps<{
   runs: EvalRun[]
 }>()
 

@@ -31,8 +31,8 @@
         </div>
       </div>
       <div v-if="detail.scores" class="eval-question-card__scores">
-        <span v-if="detail.scores.hit@5 !== undefined" class="eval-question-card__score-item">
-          检索 Hit@5: {{ (detail.scores.hit@5 as number * 100).toFixed(1) }}%
+        <span v-if="detail.scores['hit@5'] !== undefined" class="eval-question-card__score-item">
+          检索 Hit@5: {{ ((detail.scores['hit@5'] as number) * 100).toFixed(1) }}%
         </span>
         <span v-if="detail.scores.correctness_score !== undefined" class="eval-question-card__score-item">
           正确性: {{ ((detail.scores.correctness_score as number) * 100).toFixed(1) }}%
