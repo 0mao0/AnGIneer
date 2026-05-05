@@ -48,7 +48,8 @@
     </SplitPanes>
 
     <EvalImportModal
-      v-model:visible="importModalVisible"
+      :visible="importModalVisible"
+      @update:visible="importModalVisible = $event"
       @uploaded="onImported"
     />
 

@@ -2,10 +2,10 @@
   <div class="eval-score-bar">
     <div v-if="label" class="eval-score-bar__label">{{ label }}</div>
     <a-progress
-      :percent="percentage"
+      :percent="displayPercentage"
       :stroke-color="strokeColor"
       :show-info="true"
-      :format="() => formatScore"
+      :format="() => displayText"
       size="small"
     />
   </div>
@@ -18,17 +18,13 @@ const props = withDefaults(defineProps<{
   label?: string
   score: number
   maxScore?: number
-  percentage?: number
 }>(), {
   maxScore: 1,
 })
 
-const computedPercentage = computed(() => {
-  if (props.percentage !== undefined) return props.percentage
+const displayPercentage = computed(() => {
   return Math.round((props.score / props.maxScore) * 100)
 })
-
-const percentage = computed(() => computedPercentage.value)
 
 const strokeColor = computed(() => {
   const ratio = props.score / props.maxScore
@@ -37,7 +33,7 @@ const strokeColor = computed(() => {
   return '#f5222d'
 })
 
-const formatScore = computed(() => {
+const displayText = computed(() => {
   return (props.score * 100).toFixed(1) + '%'
 })
 </script>
