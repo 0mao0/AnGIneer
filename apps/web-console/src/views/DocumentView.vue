@@ -61,12 +61,12 @@ onMounted(async () => {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--bg-secondary);
 }
 
 .doc-header {
   padding: 16px 24px;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid var(--border-color);
   
   h2 {
     margin: 0;
@@ -92,7 +92,7 @@ onMounted(async () => {
     font-size: 24px;
     margin-bottom: 16px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid var(--border-color);
   }
   
   :deep(h2) {
@@ -106,7 +106,7 @@ onMounted(async () => {
   }
   
   :deep(.formula) {
-    background: #f5f5f5;
+    background: var(--bg-tertiary);
     padding: 16px;
     border-radius: 4px;
     margin: 16px 0;
@@ -120,13 +120,13 @@ onMounted(async () => {
     margin: 16px 0;
     
     th, td {
-      border: 1px solid #e8e8e8;
+      border: 1px solid var(--border-color);
       padding: 8px 12px;
       text-align: center;
     }
     
     th {
-      background: #fafafa;
+      background: var(--bg-tertiary);
     }
   }
 }

@@ -10,8 +10,8 @@ from evals_core.runner.retrieval_eval import normalize_section_path
 API_BASE = "http://localhost:8789"
 
 
-# 归一化评测文本，便于做关键词断言。
 def normalize_eval_text(value: str) -> str:
+    """归一化评测文本，便于做关键词断言。"""
     normalized = str(value or "")
     normalized = normalized.replace("（", "(").replace("）", ")")
     normalized = normalized.replace("，", ",").replace("。", ".").replace("：", ":")
@@ -26,8 +26,8 @@ def normalize_eval_text(value: str) -> str:
     return "".join(compact_chars)
 
 
-# 判断答案是否满足单条结构化正确性断言。
 def evaluate_correctness_check(answer: str, check: Dict[str, Any]) -> bool:
+    """判断答案是否满足单条结构化正确性断言。"""
     check_type = str(check.get("type") or "").strip()
     keywords = [normalize_eval_text(str(item)) for item in check.get("keywords", []) if str(item).strip()]
     normalized_answer = normalize_eval_text(answer)
@@ -40,8 +40,8 @@ def evaluate_correctness_check(answer: str, check: Dict[str, Any]) -> bool:
     return True
 
 
-# 判断回答是否触发系统默认拒答。
 def is_refusal(answer: str) -> bool:
+    """判断回答是否触发系统默认拒答。"""
     normalized = (answer or "").strip()
     refusal_markers = (
         "没有检索到足够证据",
@@ -51,8 +51,8 @@ def is_refusal(answer: str) -> bool:
     return any(marker in normalized for marker in refusal_markers)
 
 
-# 判断引用中是否覆盖 gold 的章节路径要求。
 def citations_match_section_paths(citations: List[Dict[str, Any]], gold_section_paths: List[str]) -> bool:
+    """判断引用中是否覆盖 gold 的章节路径要求。"""
     normalized_gold_paths = [normalize_section_path(item) for item in gold_section_paths if normalize_section_path(item)]
     if not normalized_gold_paths:
         return True
@@ -96,6 +96,11 @@ class AnswerEvaluator(BaseEvaluator):
             "answer": data.get("answer", ""),
             "citations": list(data.get("citations") or []),
             "confidence": data.get("confidence", 0.0),
+            "retrieved_items": list(data.get("retrieved_items") or []),
+            "task_type": data.get("task_type", ""),
+            "strategy": data.get("strategy", ""),
+            "debug": data.get("debug", {}),
+            "thinking": data.get("queryChain", ""),
         }
 
     def evaluate(self, question: Dict[str, Any], gold: Dict[str, Any], prediction: Dict[str, Any]) -> Dict[str, Any]:
@@ -109,28 +114,52 @@ class AnswerEvaluator(BaseEvaluator):
         refusal_expected = bool(gold.get("refusal_expected", False))
         actual_refusal = is_refusal(answer)
         citation_ok = citations_match_section_paths(citations, must_cite_section_paths) if must_cite_section_paths else True
+        if not answer:
+            return {
+                "score": 0.0,
+                "evaluated": True,
+                "has_answer": False,
+                "citation_ok": citation_ok,
+                "refusal_correct": refusal_expected == actual_refusal,
+                "correctness_checked": False,
+            }
         if not checks:
-            score = 1.0 if (not refusal_expected or actual_refusal) and citation_ok else 0.0
+            if refusal_expected and not actual_refusal:
+                score = 0.0
+            elif refusal_expected and actual_refusal:
+                score = 1.0
+            elif not citation_ok:
+                score = 0.0
+            else:
+                score = 1.0
             return {
                 "score": score,
                 "evaluated": True,
-                "has_answer": bool(answer),
+                "has_answer": True,
                 "citation_ok": citation_ok,
                 "refusal_correct": refusal_expected == actual_refusal,
                 "correctness_checked": False,
             }
         failed_checks = [check for check in checks if not evaluate_correctness_check(answer, check)]
         correctness_score = 1.0 if not failed_checks else 0.0
-        overall_score = correctness_score if correctness_score > 0 else (0.5 if citation_ok else 0.0)
+        overall_score = correctness_score
         return {
             "score": overall_score,
             "evaluated": True,
-            "has_answer": bool(answer),
+            "has_answer": True,
             "citation_ok": citation_ok,
             "refusal_correct": refusal_expected == actual_refusal,
             "correctness_checked": True,
             "correctness_score": correctness_score,
             "failed_checks": failed_checks,
+            "check_details": [
+                {
+                    "type": check.get("type"),
+                    "keywords": check.get("keywords", []),
+                    "passed": evaluate_correctness_check(answer, check),
+                }
+                for check in checks
+            ],
         }
 
 

@@ -1,4 +1,3 @@
-export { useDocument } from './useDocument'
 export { useQuery } from './useQuery'
 export { useRefAnchor } from './useRefAnchor'
 export {
@@ -11,23 +10,6 @@ export {
 } from './useResourceAdapter'
 export { useKnowledgeTree, type KnowledgeTreeNode, type UploadTask } from './useKnowledgeTree'
 export { useSopTree, type SOPTreeNode } from './useSopTree'
-export {
-  useKnowledgeChat,
-  buildSessionKey,
-  getSessionSnapshot,
-  getActiveSessionKeys,
-  removeSession,
-  clearSessionPool,
-  type KnowledgeChatMessage,
-  type KnowledgeChatMessageRole,
-  type KnowledgeChatRequest,
-  type KnowledgeChatResponse,
-  type QueryRequest,
-  type QueryResponse,
-  type KnowledgeChatContextConfig,
-  type SessionKey,
-  type SessionSnapshot,
-} from './useKnowledgeChat'
 export {
   useDocBlocksGraph,
   type ViewMode,

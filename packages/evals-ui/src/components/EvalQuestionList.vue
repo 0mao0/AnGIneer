@@ -22,6 +22,7 @@
       >
         <a-select-option value="passed">通过</a-select-option>
         <a-select-option value="failed">未通过</a-select-option>
+        <a-select-option value="skipped">未评测</a-select-option>
         <a-select-option value="pending">待运行</a-select-option>
         <a-select-option value="error">错误</a-select-option>
       </a-select>
@@ -88,7 +89,7 @@ const onToggle = (questionId: string) => {
     display: flex;
     gap: 8px;
     padding: 8px 12px;
-    border-bottom: 1px solid var(--dp-border-color, rgba(255, 255, 255, 0.06));
+    border-bottom: 1px solid var(--border-color);
   }
 
   &__body {

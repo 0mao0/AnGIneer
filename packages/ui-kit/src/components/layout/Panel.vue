@@ -49,10 +49,10 @@ withDefaults(defineProps<Props>(), {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--panel-bg, #1f1f1f);
+  background: var(--panel-bg);
 
   &-bordered {
-    border: 1px solid var(--border-color, #303030);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
   }
 
@@ -62,8 +62,8 @@ withDefaults(defineProps<Props>(), {
     justify-content: space-between;
     height: 44px;
     padding: 0 16px;
-    border-bottom: 1px solid var(--border-color, #303030);
-    background: var(--panel-header-bg, #272727);
+    border-bottom: 1px solid var(--border-color);
+    background: var(--panel-header-bg);
     flex-shrink: 0;
 
     .header-title {
@@ -71,10 +71,10 @@ withDefaults(defineProps<Props>(), {
       align-items: center;
       gap: 8px;
       font-weight: 500;
-      color: var(--text-primary, rgba(255, 255, 255, 0.85));
+      color: var(--text-primary);
 
       .anticon {
-        color: #1890ff;
+        color: var(--primary-color);
       }
     }
 
@@ -87,6 +87,7 @@ withDefaults(defineProps<Props>(), {
 
   &-content {
     flex: 1;
+    min-height: 0;
     overflow: auto;
     position: relative;
   }

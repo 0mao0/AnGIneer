@@ -55,7 +55,7 @@ const openProject = (project: ProjectItem) => {
   :deep(.ant-list-item) {
     cursor: pointer;
     &:hover {
-      background: #f5f5f5;
+      background: var(--bg-tertiary);
     }
   }
 }

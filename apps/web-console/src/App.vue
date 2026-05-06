@@ -1,40 +1,41 @@
 <template>
   <a-config-provider :locale="zhCN" :theme="themeConfig">
-    <div class="app-container" :class="appClass">
-      <AppHeader
-        :is-dark="isDark"
-        project-name="示例项目"
-        :nav-items="navItems"
-        :show-settings="true"
-        @nav-click="handleNavClick"
-        @settings-click="openSettings"
-        @toggle-theme="toggleTheme"
-      />
-      <SplitPanes
-        class="main-content"
-        :initial-left-ratio="0.2"
-        :initial-right-ratio="0.2"
-        @resize="handleResize"
-      >
-        <template #left>
-          <LeftPanel v-model:active-section="activeSection" />
-        </template>
-        <template #center>
-          <Workbench />
-        </template>
-        <template #right>
-          <Panel :title="chatPanelTitle" :icon="MessageOutlined">
-            <AIChat
-              title=""
-              :placeholder="chatPanelPlaceholder"
-              :show-context-info="true"
-              :scene="activeSection === 'sop' ? 'sops' : 'docs'"
-              :session-id="chatSessionId"
-            />
-          </Panel>
-        </template>
-      </SplitPanes>
-    </div>
+    <a-app>
+      <div class="app-container" :class="appClass">
+        <AppHeader
+          project-name="示例项目"
+          :nav-items="navItems"
+          :active-nav="activeNav"
+          :show-settings="true"
+          @nav-click="handleNavClick"
+          @settings-click="openSettings"
+        />
+        <SplitPanes
+          class="main-content"
+          :initial-left-ratio="0.2"
+          :initial-right-ratio="0.2"
+          @resize="handleResize"
+        >
+          <template #left>
+            <LeftPanel v-model:active-section="activeSection" />
+          </template>
+          <template #center>
+            <Workbench />
+          </template>
+          <template #right>
+            <Panel :title="chatPanelTitle" :icon="MessageOutlined">
+              <AIChat
+                title=""
+                :placeholder="chatPanelPlaceholder"
+                :show-context-info="true"
+                :scene="activeSection === 'sop' ? 'sops' : 'docs'"
+                :session-id="chatSessionId"
+              />
+            </Panel>
+          </template>
+        </SplitPanes>
+      </div>
+    </a-app>
   </a-config-provider>
 </template>
 
@@ -47,14 +48,14 @@ import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
 import { ADMIN_CONSOLE_ORIGIN } from '../../shared/ports'
 import { useWorkbenchStore } from '@/stores/workbench'
-import { useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 
 type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
 
-const { isDark, themeConfig, appClass, toggleTheme } = useTheme()
+const { themeConfig, appClass } = useTheme()
 const activeSection = ref<ResourcePanelSection>('knowledge')
 const workbenchStore = useWorkbenchStore()
-const router = useRouter()
+const route = useRoute()
 
 const chatPanelTitle = computed(() => (
   activeSection.value === 'sop' ? 'SOP 对话' : '知识对话'
@@ -66,25 +67,21 @@ const chatPanelPlaceholder = computed(() => (
   activeSection.value === 'sop' ? '输入 SOP 问题，Enter 发送...' : '输入消息，Enter 发送...'
 ))
 
-// 导航项配置
 const navItems: NavItem[] = [
   { key: 'project', label: '项目库' },
   { key: 'knowledge', label: '知识库' },
   { key: 'experience', label: '经验库' },
-  { key: 'evals', label: '评测' }
 ]
 
-const navRouteMap: Record<string, string> = {
-  evals: '/evals',
-}
+const activeNav = computed(() => {
+  const path = route.path
+  if (path.startsWith('/project')) return 'project'
+  if (path.startsWith('/sop')) return 'experience'
+  return 'knowledge'
+})
 
-const handleNavClick = (key: string) => {
-  const route = navRouteMap[key]
-  if (route) {
-    router.push(route)
-  } else {
-    goToAdmin()
-  }
+const handleNavClick = (_key: string) => {
+  goToAdmin()
 }
 
 
@@ -117,19 +114,18 @@ html, body, #app {
   overflow: hidden;
 }
 
+.ant-app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: var(--bg-primary);
   transition: background-color 0.3s ease;
-
-  &.light-mode {
-    background-color: #f5f5f5;
-  }
-
-  &.dark-mode {
-    background-color: #141414;
-  }
 }
 
 .main-content {

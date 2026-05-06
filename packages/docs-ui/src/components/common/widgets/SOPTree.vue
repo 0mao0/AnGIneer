@@ -31,7 +31,10 @@
     @drop-root="(dragNodeKey) => emit('drop-root', dragNodeKey)"
   >
     <template #icon="slotProps">
-      <slot name="icon" v-bind="slotProps" />
+      <slot name="icon" v-bind="slotProps">
+        <FolderOutlined v-if="slotProps.node?.isFolder" style="color: var(--tree-folder-color)" />
+        <ApiOutlined v-else style="color: var(--primary-color)" />
+      </slot>
     </template>
     <template #title="slotProps">
       <slot name="title" v-bind="slotProps" />
@@ -54,6 +57,7 @@
  * 在 docs-ui 中承接经验库节点类型与基础树组件之间的边界，便于后续扩展经验库默认行为。
  */
 import { ref } from 'vue'
+import { ApiOutlined, FolderOutlined } from '@ant-design/icons-vue'
 import { SmartTree } from '@angineer/ui-kit'
 import type { SOPTreeNode } from '../../../types/tree'
 

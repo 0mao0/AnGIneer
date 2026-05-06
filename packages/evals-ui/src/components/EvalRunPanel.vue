@@ -113,7 +113,7 @@ const overallScoreDisplay = computed(() => {
   &__overall {
     text-align: center;
     padding: 16px 0;
-    border-bottom: 1px solid var(--dp-border-color, rgba(255, 255, 255, 0.06));
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 16px;
 
     &-score {
@@ -124,7 +124,7 @@ const overallScoreDisplay = computed(() => {
 
     &-label {
       font-size: 13px;
-      color: var(--dp-text-secondary, rgba(255, 255, 255, 0.45));
+      color: var(--text-secondary, rgba(0, 0, 0, 0.45));
       margin-top: 4px;
     }
   }
@@ -140,7 +140,7 @@ const overallScoreDisplay = computed(() => {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 8px;
-    color: var(--dp-text-secondary, rgba(255, 255, 255, 0.45));
+    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
   }
 
   &__levels {
@@ -161,7 +161,7 @@ const overallScoreDisplay = computed(() => {
   &__compare-btn {
     margin-top: auto;
     padding-top: 12px;
-    border-top: 1px solid var(--dp-border-color, rgba(255, 255, 255, 0.06));
+    border-top: 1px solid var(--border-color);
   }
 }
 </style>

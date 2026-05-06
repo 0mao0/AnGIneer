@@ -1,5 +1,5 @@
 <template>
-  <div ref="workspaceRef" class="knowledge-workspace" :class="{ 'dark-mode': isDark }">
+  <div ref="workspaceRef" class="knowledge-workspace" :class="appClass">
     <!-- 使用 SplitPanes 三栏布局组件 - 比例 1.5:6:2.5 -->
     <SplitPanes
       class="workspace-container"
@@ -39,26 +39,6 @@
               @drop-invalid="onInvalidDrop"
               @file-drop="handleFileDrop"
             >
-              <!-- 自定义图标 -->
-              <template #icon="{ node }">
-                <FolderOutlined v-if="node?.isFolder" style="color: #faad14" />
-                <FilePdfOutlined v-else-if="getFileType(node) === 'pdf'" style="color: #ff4d4f" />
-                <FileWordOutlined v-else-if="getFileType(node) === 'word'" style="color: #1890ff" />
-                <FileMarkdownOutlined v-else-if="getFileType(node) === 'markdown'" style="color: #13c2c2" />
-                <FileTextOutlined v-else style="color: #8c8c8c" />
-              </template>
-
-              <!-- 自定义状态标签 -->
-              <template #status="{ node }">
-                <a-tag
-                  v-if="!node?.isFolder"
-                  :color="node?.visible ? 'green' : 'default'"
-                  size="small"
-                  style="font-size: 10px; padding: 0 4px; line-height: 16px"
-                >
-                  {{ node?.visible ? '共享' : '本地' }}
-                </a-tag>
-              </template>
             </KnowledgeTree>
           </div>
         </Panel>
@@ -120,16 +100,15 @@
               :content="docContent"
               :structured-stats="structuredStats"
               :structured-items="structuredItems"
-              :dark-mode="isDark"
               :graph-data="graphData"
               :graph-data-full-loaded="graphDataFullLoaded"
-              :on-update-structured-node="updateStructuredNode"
-              :on-batch-structured-operation="batchOperateStructuredNodes"
-              :on-undo-last-operation="undoLastStructuredOperation"
+              :on-update-structured-node="_updateStructuredNodeWrapper"
+              :on-batch-structured-operation="_batchOperateStructuredNodesWrapper"
+              :on-undo-last-operation="_undoLastStructuredOperationWrapper"
               :on-load-full-graph-data="loadFullGraphData"
               @parse="parseDocument"
               @toggle-visible="toggleVisible"
-              @query-structured="loadStructuredIndex"
+              @query-structured="_loadStructuredIndexWrapper"
             />
           </template>
         </Panel>
@@ -157,8 +136,8 @@
             :show-context-info="true"
             scene="knowledge"
             :session-id="selectedNode && !selectedNode.isFolder ? selectedNode.key : 'default'"
-            @answer-complete="handleKnowledgeAnswerComplete"
-            @select-citation="handleKnowledgeCitationSelect"
+            @answer-complete="_handleKnowledgeAnswerCompleteWrapper"
+            @select-citation="_handleKnowledgeCitationSelectWrapper"
           />
           <KnowledgeEvalDrawer
             ref="knowledgeEvalDrawerRef"
@@ -235,17 +214,13 @@
 /**
  * 知识库管理页面 - 使用 KnowledgeChatPanel 组件进行 AI 对话
  */
-import { ref, computed, nextTick, onMounted, onBeforeUnmount, watch, h } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch, h } from 'vue'
 import { message, Modal } from 'ant-design-vue'
 import {
   FolderOutlined,
   FolderAddOutlined,
   FileSearchOutlined,
   MessageOutlined,
-  FilePdfOutlined,
-  FileWordOutlined,
-  FileMarkdownOutlined,
-  FileTextOutlined,
   SettingOutlined
 } from '@ant-design/icons-vue'
 
@@ -256,84 +231,31 @@ import {
   PDFParsedWorkspace,
   type SmartTreeNode,
   type KnowledgeTreeNode,
-  type KnowledgeStrategy,
-  type ParseTaskInfo,
-  type StructuredIndexItem,
   type StructuredBatchOperationPayload,
   type StructuredNodeUpdatePayload,
-  type StructuredStats,
-  getPreviewFileType,
-  mapNodeStatusText,
   createResourceNodeFromKnowledge,
   createOpenResourcePayload
 } from '@angineer/docs-ui'
 import { useKnowledgeTree } from '@angineer/docs-ui'
-import {
-  knowledgeApi,
-  type KnowledgeParseOptions,
-  type LlmConfigOption
-} from '@/api/knowledge'
+import { getStatusColor, getStatusText } from '@angineer/ui-kit/utils/tree'
+import { knowledgeApi } from '@/api/knowledge'
 import { getWebDocumentUrl } from '../../../shared/ports'
+import { useKnowledgeParse } from './composables/useKnowledgeParse'
+import { useKnowledgeStructuredIndex } from './composables/useKnowledgeStructuredIndex'
+import { useKnowledgeCitation, type KnowledgeChatCitation, type KnowledgeAnswerMessage } from './composables/useKnowledgeCitation'
 
-// 使用主题
-const { isDark } = useTheme()
+const { appClass } = useTheme()
 
-// 导入本地子组件
 import FolderPreview from './components/FolderPreview.vue'
 import FolderModal from './components/FolderModal.vue'
 import DocDetailModal from './components/DocDetailModal.vue'
 import KnowledgeEvalDrawer from './components/KnowledgeEvalDrawer.vue'
 
-// SmartTree 组件引用
 const smartTreeRef = ref<InstanceType<typeof KnowledgeTree> | null>(null)
-// PDFParsedWorkspace 组件引用
 const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
-// AIChat 组件引用
 const knowledgeChatRef = ref<InstanceType<typeof AIChat> | null>(null)
 const knowledgeEvalDrawerRef = ref<InstanceType<typeof KnowledgeEvalDrawer> | null>(null)
 
-type CitationRichMedia = {
-  table_html?: string
-  math_content?: string
-  image_path?: string
-  image_paths?: string[]
-  rich_media_order?: Array<{ type: 'image' | 'table' | 'math'; path?: string }>
-  source_file_name?: string
-}
-
-type KnowledgeChatCitation = {
-  target_id: string
-  target_type?: string
-  doc_id: string
-  doc_title: string
-  page_idx: number
-  section_path: string
-  snippet: string
-  content?: string
-  content_type?: string
-  score: number
-  rich_media?: CitationRichMedia
-}
-
-type KnowledgeAnswerMessage = {
-  role?: string
-  content?: string
-  queryChain?: string
-  citations?: KnowledgeChatCitation[]
-  strategy?: string
-  task_type?: string
-  confidence?: number
-  retrieved_items?: Array<{
-    item_id: string
-    entity_type: string
-    text: string
-    score: number
-    metadata?: Record<string, any>
-  }>
-  debug?: Record<string, any>
-}
-
-// 使用知识树 composable
 const {
   treeData,
   selectedKeys,
@@ -345,16 +267,42 @@ const {
   getFolderName
 } = useKnowledgeTree()
 
+const {
+  parseSettingsVisible,
+  llmConfigsLoading,
+  llmConfigOptions,
+  parseSettings,
+  llmModelOptions,
+  loadStoredParseSettings,
+  fetchLlmConfigs,
+  buildParseOptionsPayload,
+  showParseSettingsModal,
+  handleParseSettingsConfirm,
+  handleParseUseLlmChange,
+  handleParseModelChange,
+  stopParsePolling,
+  startParsePolling
+} = useKnowledgeParse()
+
+const {
+  structuredStats,
+  structuredItems,
+  buildMiddleFallbackItems,
+  loadStructuredStats,
+  loadStructuredIndex,
+  updateStructuredNode,
+  batchOperateStructuredNodes,
+  undoLastStructuredOperation
+} = useKnowledgeStructuredIndex()
+
+const {
+  handleKnowledgeAnswerComplete,
+  handleKnowledgeCitationSelect
+} = useKnowledgeCitation()
+
 const allowedFileTypes = ['.pdf', '.doc', '.docx', '.md']
 const PANEL_LAYOUT_STORAGE_KEY = 'angineer-admin-knowledge-layout-v1'
-const PARSE_SETTINGS_STORAGE_KEY = 'angineer-admin-knowledge-parse-settings-v1'
-const DEFAULT_PARSE_LLM_MODEL = 'Qwen3.6-35B-A3B (Private)'
 const workspaceRef = ref<HTMLElement | null>(null)
-
-type ParseSettingsState = {
-  use_llm: boolean
-  llm_model: string
-}
 
 const clampRatio = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value))
 
@@ -363,20 +311,9 @@ const panelRatios = ref({
   right: 0.25
 })
 
-// 面板尺寸状态
-const parsePollTimer = ref<number | null>(null)
-const structuredStats = ref<StructuredStats>({})
-const structuredItems = ref<StructuredIndexItem[]>([])
 const graphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
 const graphDataLoading = ref(false)
 const graphDataFullLoaded = ref(false)
-const parseSettingsVisible = ref(false)
-const llmConfigsLoading = ref(false)
-const llmConfigOptions = ref<LlmConfigOption[]>([])
-const parseSettings = ref<ParseSettingsState>({
-  use_llm: true,
-  llm_model: ''
-})
 
 // 弹窗状态
 const folderModalVisible = ref(false)
@@ -411,114 +348,6 @@ const smartTreeProps = {
   allowAddFile: true,
   allowedFileTypes: allowedFileTypes,
   emptyText: '暂无文档'
-}
-
-const llmModelOptions = computed(() => llmConfigOptions.value.map(item => ({
-  label: item.configured ? item.name : `${item.name}（未配置）`,
-  value: item.name,
-  disabled: !item.configured
-})))
-
-/* 从可用模型列表中选择解析默认模型。 */
-const pickDefaultLlmModel = (configs: LlmConfigOption[]): string => {
-  const configuredConfigs = configs.filter(item => item.configured)
-  const preferredModel = configuredConfigs.find(item => item.name === DEFAULT_PARSE_LLM_MODEL)
-  return preferredModel?.name || configuredConfigs[0]?.name || ''
-}
-
-/* 归一化解析设置，兼容本地缓存与模型列表变化。 */
-const normalizeParseSettings = (raw?: Partial<ParseSettingsState> | null): ParseSettingsState => {
-  const useLlm = raw?.use_llm !== false
-  if (!useLlm) {
-    return {
-      use_llm: false,
-      llm_model: ''
-    }
-  }
-  const configuredModelNames = new Set(
-    llmConfigOptions.value.filter(item => item.configured).map(item => item.name)
-  )
-  const rawModel = typeof raw?.llm_model === 'string' ? raw.llm_model.trim() : ''
-  return {
-    use_llm: true,
-    llm_model: rawModel && configuredModelNames.has(rawModel)
-      ? rawModel
-      : pickDefaultLlmModel(llmConfigOptions.value)
-  }
-}
-
-/* 持久化解析设置，确保重新解析可复用同一组参数。 */
-const persistParseSettings = () => {
-  localStorage.setItem(PARSE_SETTINGS_STORAGE_KEY, JSON.stringify(parseSettings.value))
-}
-
-/* 读取本地缓存中的解析设置。 */
-const loadStoredParseSettings = () => {
-  try {
-    const raw = localStorage.getItem(PARSE_SETTINGS_STORAGE_KEY)
-    parseSettings.value = raw ? normalizeParseSettings(JSON.parse(raw)) : normalizeParseSettings()
-  } catch {
-    parseSettings.value = normalizeParseSettings()
-  }
-}
-
-/* 拉取可用 LLM 模型列表并同步默认解析设置。 */
-const fetchLlmConfigs = async () => {
-  llmConfigsLoading.value = true
-  try {
-    const result = await knowledgeApi.getLlmConfigs()
-    llmConfigOptions.value = Array.isArray(result) ? result : []
-  } catch {
-    llmConfigOptions.value = []
-  } finally {
-    llmConfigsLoading.value = false
-    parseSettings.value = normalizeParseSettings(parseSettings.value)
-    persistParseSettings()
-  }
-}
-
-/* 生成解析接口需要的参数载荷。 */
-const buildParseOptionsPayload = (): KnowledgeParseOptions => {
-  parseSettings.value = normalizeParseSettings(parseSettings.value)
-  persistParseSettings()
-  if (!parseSettings.value.use_llm) {
-    return { use_llm: false }
-  }
-  return {
-    use_llm: true,
-    llm_model: parseSettings.value.llm_model || undefined
-  }
-}
-
-/* 打开解析设置弹窗并按需刷新模型列表。 */
-const showParseSettingsModal = async () => {
-  parseSettingsVisible.value = true
-  if (!llmConfigOptions.value.length) {
-    await fetchLlmConfigs()
-  }
-}
-
-/* 确认解析设置并写入本地缓存。 */
-const handleParseSettingsConfirm = () => {
-  parseSettings.value = normalizeParseSettings(parseSettings.value)
-  persistParseSettings()
-  parseSettingsVisible.value = false
-}
-
-/* 切换是否启用 LLM。 */
-const handleParseUseLlmChange = (checked: boolean) => {
-  parseSettings.value = normalizeParseSettings({
-    ...parseSettings.value,
-    use_llm: checked
-  })
-}
-
-/* 更新解析使用的模型配置名。 */
-const handleParseModelChange = (value: string | undefined) => {
-  parseSettings.value = normalizeParseSettings({
-    ...parseSettings.value,
-    llm_model: value || ''
-  })
 }
 
 /* 读取聊天面板中最新一条助手回答，用于同步评测过程结果。 */
@@ -564,186 +393,33 @@ const onPanelResize = (leftSize: number, rightSize: number) => {
   localStorage.setItem(PANEL_LAYOUT_STORAGE_KEY, JSON.stringify(panelRatios.value))
 }
 
-// 状态颜色
-const getStatusColor = (status: string) => {
-  const colors: Record<string, string> = {
-    pending: 'default',
-    uploading: 'processing',
-    processing: 'processing',
-    completed: 'success',
-    failed: 'error'
-  }
-  return colors[status] || 'default'
-}
-
-// 状态文本
-const getStatusText = (status: string) => mapNodeStatusText(status)
-
-const getFileType = (node?: Partial<SmartTreeNode> | null) => getPreviewFileType(node)
-
 const keepCurrentPreview = (docId: string) => docContentDocId.value === docId && Boolean(docContent.value)
 
-/* 归一化引用文本，便于做层级与片段匹配。 */
-const normalizeCitationText = (value: string): string => String(value || '')
-  .replace(/[０-９]/g, char => String.fromCharCode(char.charCodeAt(0) - 65248))
-  .replace(/[Ａ-Ｚａ-ｚ]/g, char => String.fromCharCode(char.charCodeAt(0) - 65248))
-  .replace(/\s+/g, ' ')
-  .replace(/[^\u4e00-\u9fa5a-zA-Z0-9 ]+/g, ' ')
-  .trim()
-  .toLowerCase()
+const _loadStructuredIndexWrapper = () => loadStructuredIndex(selectedNode.value, docContent.value)
 
-/* 获取层级路径的最后一级标题。 */
-const getCitationLastSegment = (value: string): string => {
-  const segments = String(value || '')
-    .split(/\s*\/\s*|\s*>\s*/g)
-    .map(item => item.trim())
-    .filter(Boolean)
-  return segments[segments.length - 1] || String(value || '').trim()
-}
+const _startParsePollingWrapper = (taskId: string, docId: string) => startParsePolling(
+  taskId, docId, selectedNode.value, loadNodes, loadDocContent, loadStructuredStats
+)
 
-/* 基于 target_id、页码、层级和片段内容，为引用挑选最可能的文档节点。 */
-const resolveCitationTargetNode = (citation: KnowledgeChatCitation | null | undefined) => {
-  const nodes = graphData.value?.nodes || []
-  if (!nodes.length || !citation) return null
-  const targetId = String(citation.target_id || '').trim()
-  const normalizedLastSegment = normalizeCitationText(getCitationLastSegment(citation.section_path))
-  const normalizedSnippet = normalizeCitationText(citation.content || citation.snippet)
-  let bestNode: any = null
-  let bestScore = Number.NEGATIVE_INFINITY
-  nodes.forEach((node) => {
-    let score = 0
-    const nodeId = String(node?.id || '').trim()
-    const blockUid = String(node?.block_uid || '').trim()
-    if (targetId && (nodeId === targetId || blockUid === targetId)) {
-      score += 5000
-    }
-    const nodePage = Number(node?.page_idx ?? -1) + 1
-    const citationPage = Number(citation.page_idx || 0)
-    if (citationPage > 0) {
-      if (nodePage === citationPage) {
-        score += 320
-      } else if (nodePage === citationPage + 1 || nodePage === citationPage - 1) {
-        score += 120
-      }
-    }
-    const nodeLastSegment = normalizeCitationText(getCitationLastSegment(String(node?.title_path || node?.title || '')))
-    if (normalizedLastSegment && nodeLastSegment) {
-      if (nodeLastSegment === normalizedLastSegment) {
-        score += 520
-      } else if (
-        nodeLastSegment.includes(normalizedLastSegment)
-        || normalizedLastSegment.includes(nodeLastSegment)
-      ) {
-        score += 240
-      }
-    }
-    const nodeText = normalizeCitationText([
-      node?.plain_text,
-      node?.title,
-      node?.caption,
-      node?.footnote
-    ].filter(Boolean).join(' '))
-    if (normalizedSnippet && nodeText) {
-      const shortNodeText = nodeText.slice(0, 48)
-      if (shortNodeText && normalizedSnippet.includes(shortNodeText)) {
-        score += 160
-      } else if (nodeText.length >= 12 && (nodeText.includes(normalizedSnippet) || normalizedSnippet.includes(nodeText.slice(0, 24)))) {
-        score += 100
-      }
-    }
-    if (score > bestScore) {
-      bestNode = node
-      bestScore = score
-    }
-  })
-  return bestScore > 0 ? bestNode : null
-}
+const _handleKnowledgeAnswerCompleteWrapper = (msg: KnowledgeAnswerMessage) => handleKnowledgeAnswerComplete(
+  msg, selectedNode, graphData, loadNodes, loadDocContent, loadStructuredStats, _loadStructuredIndexWrapper, docParsedWorkspaceRef.value, keepCurrentPreview
+)
 
-/* 根据回答引用切换文档并把解析区定位到对应块。 */
-const focusCitationInWorkspace = async (citation: KnowledgeChatCitation | null | undefined) => {
-  const targetId = String(citation?.target_id || '').trim()
-  const docId = String(citation?.doc_id || '').trim()
-  if (!targetId) return
-  if (docId && (!selectedNode.value || selectedNode.value.key !== docId)) {
-    await loadNodes(docId)
-  } else if (docId && !keepCurrentPreview(docId)) {
-    await loadDocContent(docId)
-    await loadStructuredStats(docId)
-  }
-  if (selectedNode.value?.strategy) {
-    await loadStructuredIndex()
-  }
-  const resolvedNode = resolveCitationTargetNode(citation)
-  const resolvedTargetId = String(resolvedNode?.id || targetId).trim()
-  const resolvedPreferredPage = Number(resolvedNode?.page_idx ?? -1) >= 0
-    ? Number(resolvedNode.page_idx) + 1
-    : (Number(citation?.page_idx || 0) > 0 ? Number(citation?.page_idx) : null)
-  await nextTick()
-  docParsedWorkspaceRef.value?.setActiveLinkedItem(resolvedTargetId, {
-    preferredPage: resolvedPreferredPage,
-    preferLastHighlight: true
-  })
-}
+const _handleKnowledgeCitationSelectWrapper = (citation: KnowledgeChatCitation) => handleKnowledgeCitationSelect(
+  citation, selectedNode, graphData, loadNodes, loadDocContent, loadStructuredStats, _loadStructuredIndexWrapper, docParsedWorkspaceRef.value, keepCurrentPreview
+)
 
-/* 回答完成后自动聚焦到最后一条引用，保证 PDF 与结构树同步。 */
-const handleKnowledgeAnswerComplete = async (message: KnowledgeAnswerMessage) => {
-  const citations = Array.isArray(message?.citations) ? message.citations : []
-  const targetCitation = citations[citations.length - 1]
-  if (!targetCitation) return
-  await focusCitationInWorkspace(targetCitation)
-}
+const _updateStructuredNodeWrapper = (payload: StructuredNodeUpdatePayload) => updateStructuredNode(
+  payload, selectedNode.value, loadDocContent, loadStructuredStats, _loadStructuredIndexWrapper
+)
 
-/* 手动点击参考依据时重新触发一次文档定位。 */
-const handleKnowledgeCitationSelect = async (citation: KnowledgeChatCitation) => {
-  await focusCitationInWorkspace(citation)
-}
+const _batchOperateStructuredNodesWrapper = (payload: StructuredBatchOperationPayload) => batchOperateStructuredNodes(
+  payload, selectedNode.value, docParsedWorkspaceRef.value, loadDocContent, loadStructuredStats, _loadStructuredIndexWrapper
+)
 
-const extractPageHintFromLine = (line: string): number | null => {
-  const match = line.match(/[（(]\s*(\d{1,4})\s*[）)]\s*$/)
-  if (!match) return null
-  const page = Number(match[1])
-  if (!Number.isFinite(page) || page <= 0) return null
-  return Math.round(page)
-}
-
-const buildMiddleFallbackItems = (content: string): StructuredIndexItem[] => {
-  if (!content.trim()) return []
-  const lines = content.split('\n')
-  const result: StructuredIndexItem[] = []
-  let orderIndex = 0
-  lines.forEach((line: string, index: number) => {
-    const trimmed = (line || '').trim()
-    if (!trimmed) return
-    const headingMatch = trimmed.match(/^(#{1,6})\s+(.+)$/)
-    const numberedMatch = trimmed.match(/^(\d+(?:\.\d+)*)(?:[、.)])?\s*(.*)$/)
-    if (!headingMatch && !numberedMatch) return
-    const numberedPrefix = numberedMatch?.[1] || ''
-    const numberedText = (numberedMatch?.[2] || '').trim()
-    const text = (
-      headingMatch?.[2]
-      || (numberedPrefix && numberedText ? `${numberedPrefix} ${numberedText}` : numberedPrefix)
-      || numberedText
-      || ''
-    ).trim().slice(0, 200)
-    if (!text) return
-    const pageHint = extractPageHintFromLine(trimmed)
-    result.push({
-      id: `middle-${index + 1}`,
-      item_type: headingMatch ? 'heading' : 'section',
-      title: text,
-      content: text,
-      order_index: orderIndex++,
-      meta: {
-        line_start: index + 1,
-        line_end: index + 1,
-        heading_level: headingMatch ? headingMatch[1].length : undefined,
-        page: pageHint ?? undefined,
-        page_no: pageHint ?? undefined
-      }
-    })
-  })
-  return result
-}
+const _undoLastStructuredOperationWrapper = () => undoLastStructuredOperation(
+  selectedNode.value, docParsedWorkspaceRef.value, loadDocContent, loadStructuredStats, _loadStructuredIndexWrapper
+)
 
 // 加载节点
 const loadNodes = async (focusNodeKey?: string) => {
@@ -797,7 +473,7 @@ const loadNodes = async (focusNodeKey?: string) => {
             }
           }
           if (node.status === 'processing' && (node as any).parseTaskId) {
-            startParsePolling((node as any).parseTaskId, node.key)
+            _startParsePollingWrapper((node as any).parseTaskId, node.key)
           } else {
             stopParsePolling()
           }
@@ -821,7 +497,7 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
         await loadDocContent(node.key)
         await loadStructuredStats(node.key)
         if (node.strategy) {
-          await loadStructuredIndex()
+          await _loadStructuredIndexWrapper()
         } else {
           structuredItems.value = buildMiddleFallbackItems(docContent.value)
         }
@@ -835,7 +511,7 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
         }
       }
       if (node.status === 'processing' && node.parseTaskId) {
-        startParsePolling(node.parseTaskId, node.key)
+        _startParsePollingWrapper(node.parseTaskId, node.key)
       } else {
         stopParsePolling()
       }
@@ -888,34 +564,6 @@ const loadFullGraphData = async () => {
   } catch {
   } finally {
     graphDataLoading.value = false
-  }
-}
-
-const loadStructuredStats = async (docId: string) => {
-  try {
-    const result = await knowledgeApi.getStructuredStats(docId) as any
-    structuredStats.value = result || {}
-  } catch (error) {
-    structuredStats.value = {}
-  }
-}
-
-const loadStructuredIndex = async (itemType?: string, keyword?: string) => {
-  if (!selectedNode.value || selectedNode.value.isFolder) {
-    structuredItems.value = []
-    return
-  }
-  const strategy = selectedNode.value.strategy as KnowledgeStrategy | undefined
-  if (!strategy) {
-    structuredItems.value = []
-    return
-  }
-  try {
-    const result = await knowledgeApi.getStructuredIndex(selectedNode.value.key, strategy, itemType, keyword)
-    const fromApi = Array.isArray(result?.items) ? result.items : []
-    structuredItems.value = fromApi.length ? fromApi : buildMiddleFallbackItems(docContent.value)
-  } catch (error) {
-    structuredItems.value = buildMiddleFallbackItems(docContent.value)
   }
 }
 
@@ -1010,7 +658,7 @@ const buildDeleteConfirmContent = (node: SmartTreeNode, preview: {
   return h('div', { style: 'white-space: pre-line;' }, [
     ...lines.map(line => h('div', line)),
     ...(preview.sample_doc_titles.length > 0
-      ? [h('div', { style: 'margin-top: 8px; color: #666;' }, preview.sample_doc_titles.slice(0, 3).join('、'))]
+      ? [h('div', { style: 'margin-top: 8px; color: var(--text-secondary);' }, preview.sample_doc_titles.slice(0, 3).join('、'))]
       : [])
   ])
 }
@@ -1080,134 +728,12 @@ const parseDocument = async (node: SmartTreeNode) => {
     message.success('开始解析文档')
     await loadNodes(node.key)
     if (taskId) {
-      startParsePolling(taskId, node.key)
+      _startParsePollingWrapper(taskId, node.key)
     }
   } catch (error) {
     const detail = (error as any)?.response?.data?.detail || (error as any)?.message
     message.error(detail ? `解析失败: ${detail}` : '解析失败')
   }
-}
-
-/* 更新单个结构节点并刷新当前文档的索引数据。 */
-const updateStructuredNode = async (payload: StructuredNodeUpdatePayload) => {
-  if (!selectedNode.value || selectedNode.value.isFolder) return
-  try {
-    await knowledgeApi.updateDocumentBlock('default', selectedNode.value.key, payload)
-    await loadDocContent(selectedNode.value.key)
-    await loadStructuredStats(selectedNode.value.key)
-    await loadStructuredIndex()
-    message.success('节点内容已更新')
-  } catch (error) {
-    const detail = (error as any)?.response?.data?.detail || (error as any)?.message
-    message.error(detail ? `节点更新失败: ${detail}` : '节点更新失败')
-    throw error
-  }
-}
-
-const batchOperateStructuredNodes = async (payload: StructuredBatchOperationPayload) => {
-  if (!selectedNode.value || selectedNode.value.isFolder) return
-  try {
-    const result = await knowledgeApi.batchOperateDocumentBlocks('default', selectedNode.value.key, payload)
-    await loadDocContent(selectedNode.value.key)
-    await loadStructuredStats(selectedNode.value.key)
-    await loadStructuredIndex()
-    if (payload.operation === 'merge') {
-      const targetBlockId = String(result.target_block_id || payload.targetBlockId || '').trim()
-      if (targetBlockId) {
-        await nextTick()
-        docParsedWorkspaceRef.value?.setActiveLinkedItem(targetBlockId)
-      }
-    }
-    if (payload.operation === 'split') {
-      const focusBlockId = String(result.created_block_ids?.[0] || payload.blockIds?.[0] || '').trim()
-      if (focusBlockId) {
-        await nextTick()
-        docParsedWorkspaceRef.value?.setActiveLinkedItem(focusBlockId)
-      }
-    }
-    if (payload.operation === 'relevel') {
-      const focusBlockId = String(result.updated_block_ids?.[0] || payload.blockIds?.[0] || '').trim()
-      if (focusBlockId) {
-        await nextTick()
-        docParsedWorkspaceRef.value?.setActiveLinkedItem(focusBlockId)
-      }
-    }
-    const successText = payload.operation === 'merge'
-      ? '批量合并已完成'
-      : payload.operation === 'relevel'
-        ? (
-            typeof payload.targetLevel === 'number'
-              ? `已将 ${result.updated_block_ids?.length || payload.blockIds.length || 0} 个节点设为 L${payload.targetLevel}`
-              : `已调整 ${result.updated_block_ids?.length || payload.blockIds.length || 0} 个标题层级`
-          )
-      : payload.operation === 'delete'
-        ? `已删除 ${result.removed_block_ids?.length || payload.blockIds.length || 0} 个 block`
-        : `Block 已拆分为 ${Math.max(2, (result.created_block_ids?.length || 0) + 1)} 段`
-    message.success(successText)
-  } catch (error) {
-    const detail = (error as any)?.response?.data?.detail || (error as any)?.message
-    message.error(detail ? `结构操作失败: ${detail}` : '结构操作失败')
-    throw error
-  }
-}
-
-const undoLastStructuredOperation = async () => {
-  if (!selectedNode.value || selectedNode.value.isFolder) return
-  try {
-    const result = await knowledgeApi.undoLastDocumentBlockOperation('default', selectedNode.value.key)
-    await loadDocContent(selectedNode.value.key)
-    await loadStructuredStats(selectedNode.value.key)
-    await loadStructuredIndex()
-    const firstRestoredId = String(result.restored_block_ids?.[0] || '').trim()
-    if (firstRestoredId) {
-      await nextTick()
-      docParsedWorkspaceRef.value?.setActiveLinkedItem(firstRestoredId)
-    }
-    message.success('最近一次结构操作已撤回')
-  } catch (error) {
-    const detail = (error as any)?.response?.data?.detail || (error as any)?.message
-    message.error(detail ? `撤回结构操作失败: ${detail}` : '撤回结构操作失败')
-    throw error
-  }
-}
-
-const stopParsePolling = () => {
-  if (parsePollTimer.value) {
-    window.clearInterval(parsePollTimer.value)
-    parsePollTimer.value = null
-  }
-}
-
-const startParsePolling = (taskId: string, docId: string) => {
-  stopParsePolling()
-  parsePollTimer.value = window.setInterval(async () => {
-    try {
-      const task = await knowledgeApi.getParseTask(taskId) as ParseTaskInfo
-      if (selectedNode.value && selectedNode.value.key === docId) {
-        selectedNode.value.parseProgress = task.progress || 0
-        selectedNode.value.parseStage = task.stage || ''
-        selectedNode.value.parseError = task.error || ''
-        selectedNode.value.status = task.status === 'completed'
-          ? 'completed'
-          : task.status === 'failed'
-            ? 'failed'
-            : 'processing'
-      }
-      if (task.status === 'completed' || task.status === 'failed') {
-        stopParsePolling()
-        await loadNodes(docId)
-        if (task.status === 'completed') {
-          await loadDocContent(docId)
-          await loadStructuredStats(docId)
-          message.success('文档解析完成')
-        } else {
-          message.error(task.error || '文档解析失败')
-        }
-      }
-    } catch (error) {
-      stopParsePolling()
-    }
-  }, 1500)
 }
 
 // 查看文档
@@ -1496,7 +1022,7 @@ watch(() => selectedNode.value?.key, () => {
     return
   }
   if (selectedNode.value.status === 'processing' && selectedNode.value.parseTaskId) {
-    startParsePolling(selectedNode.value.parseTaskId, selectedNode.value.key)
+    _startParsePollingWrapper(selectedNode.value.parseTaskId, selectedNode.value.key)
   }
 })
 
@@ -1508,11 +1034,7 @@ onBeforeUnmount(() => {
 <style lang="less" scoped>
 .knowledge-workspace {
   height: 100%;
-  background: var(--bg-primary, #141414);
-
-  &.dark-mode {
-    background: var(--bg-primary, #141414);
-  }
+  background: var(--bg-primary);
 }
 
 .workspace-container {
@@ -1544,13 +1066,13 @@ onBeforeUnmount(() => {
   justify-content: center;
   height: 300px;
   cursor: pointer;
-  border: 2px dashed var(--border-color, #434343);
+  border: 2px dashed var(--border-color);
   border-radius: 8px;
   margin: 16px;
 
   &:hover {
-    border-color: #1890ff;
-    background: rgba(24, 144, 255, 0.05);
+    border-color: var(--primary-color);
+    background: var(--bg-tertiary);
   }
 
   .empty-icon {
@@ -1593,8 +1115,8 @@ onBeforeUnmount(() => {
   bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
-  background: #1890ff;
-  color: #fff;
+  background: var(--primary-color);
+  color: var(--bg-secondary);
   padding: 8px 16px;
   border-radius: 20px;
   display: flex;

@@ -63,8 +63,19 @@
 
 - 主题与样式开发规范（Theme & Style Guardrails）：
   - **唯一真相源**：所有组件的主题状态（亮/暗模式）必须统一通过 `@angineer/ui-kit` 的 `useTheme()` 获取。严禁在组件内私自使用 `window.matchMedia` 获取系统主题，严禁通过组件层层传递 `darkMode` Props（Prop Drilling）。
-  - **避免局部硬编码**：禁止在各个组件的 `<style>` 中写死诸如 `.dark-mode { background: #0f141d; }` 的局部暗黑颜色覆盖。必须使用全局 CSS 变量（如 `var(--dp-pane-bg)`），并在全局或顶层统一声明不同主题下的变量值。
+  - **CSS 变量白名单**：组件样式中必须且只能使用 `@angineer/ui-kit/stores/theme.ts` 中定义的全局 CSS 变量。禁止使用未定义的变量（如 `--bg-color`，该变量不存在）。可用变量清单：
+    - 背景：`--bg-primary`、`--bg-secondary`、`--bg-tertiary`、`--panel-bg`、`--panel-header-bg`
+    - 文字：`--text-primary`、`--text-secondary`
+    - 边框：`--border-color`
+    - 文档域：`--docs-bg`、`--docs-pane-bg`、`--docs-pane-border`、`--docs-text`、`--docs-text-strong`、`--docs-text-subtle` 等
+  - **避免局部硬编码**：禁止在各个组件的 `<style>` 中写死诸如 `.dark-mode { background: #0f141d; }` 的局部暗黑颜色覆盖。必须使用全局 CSS 变量（如 `var(--panel-bg)`），并在全局或顶层统一声明不同主题下的变量值。`var()` 回退值必须与对应主题变量一致（暗色回退暗色值，亮色回退亮色值）。
+  - **暗黑模式样式完整性**：任何包含交互元素（按钮、图标、操作栏）的组件，必须在 `.dark-mode` 下提供完整的样式覆盖，包括但不限于：hover 背景、action icon 颜色、渐变遮罩背景色。禁止出现"暗色背景下白底白字"或"暗色背景下图标不可见"的情况。
   - **弹窗样式隔离**：对于挂载到 `body` 上的弹窗组件（如 Modal），严禁为了覆盖深色样式而移除 `<style scoped>` 导致样式污染全局。必须通过 `wrapClassName` 传入主题类名，并配合特定的命名空间（如 `.index-tree-modal`）进行安全隔离。
+
+- 组件复用与封装规范（Component Reuse Guardrails）：
+  - **禁止跨包复制组件**：同一组件只允许存在一份源码。`packages/ui-kit` 是共享 UI 的唯一真相源。`packages/docs-ui`、`packages/evals-ui` 等领域包必须通过 `import { SmartTree } from '@angineer/ui-kit'` 引用，不得创建本地副本。
+  - **SmartTree 使用模式**：所有基于 SmartTree 的领域树（KnowledgeTree、SOPTree、EvalDatasetTree 等）必须遵循语义封装模式——创建领域语义组件，透传 SmartTree 的 props/slots/events，暴露领域类型（如 `KnowledgeTreeNode`、`EvalTreeNode`），通过 `ref` 暴露 `expandedKeys`/`selectedKeys` 等方法。禁止直接在页面级组件中使用 SmartTree。
+  - **树节点操作按钮规范**：SmartTree 的 `#actions` 插槽中，叶子节点默认操作为"重命名、查看、删除"三个按钮；文件夹节点默认操作为"重命名、添加子文件夹、[可选]添加文件、删除"。如需增减按钮，必须在语义封装层中明确声明并注释原因。
 
 ### 5.3 编码后
 - 运行与改动范围匹配的质量检查。

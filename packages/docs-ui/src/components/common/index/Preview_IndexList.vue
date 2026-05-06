@@ -169,9 +169,9 @@ const getPrimaryContentHtml = (item: StructuredIndexItem): string => renderInlin
 }
 
 .index-item.active {
-  border-color: rgba(22, 119, 255, 0.8);
-  box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.14);
-  background: color-mix(in srgb, var(--dp-index-card-bg) 80%, #e6f4ff 20%);
+  border-color: var(--dp-active-border);
+  box-shadow: 0 0 0 2px var(--dp-active-shadow);
+  background: var(--dp-active-bg);
 }
 
 .index-item-header {
@@ -212,7 +212,7 @@ const getPrimaryContentHtml = (item: StructuredIndexItem): string => renderInlin
   padding: 8px;
   border-radius: 8px;
   border: 1px solid var(--dp-pane-border);
-  background: color-mix(in srgb, var(--dp-content-bg) 90%, #f1f5f9 10%);
+  background: var(--dp-surface-bg);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -223,7 +223,7 @@ const getPrimaryContentHtml = (item: StructuredIndexItem): string => renderInlin
   padding: 8px;
   border-radius: 8px;
   border: 1px solid var(--dp-pane-border);
-  background: color-mix(in srgb, var(--dp-content-bg) 92%, #eef2ff 8%);
+  background: var(--dp-inline-media-bg);
 }
 
 .index-media-text {
@@ -255,7 +255,7 @@ const getPrimaryContentHtml = (item: StructuredIndexItem): string => renderInlin
   object-fit: contain;
   border-radius: 6px;
   display: block;
-  background: color-mix(in srgb, var(--dp-content-bg) 92%, #f8fafc 8%);
+  background: var(--dp-surface-bg);
 }
 
 :deep(.index-media .media-formula) {

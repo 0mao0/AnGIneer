@@ -1547,7 +1547,7 @@ onBeforeUnmount(() => controller.onBeforeUnmount())
   flex: 1;
   overflow: auto;
   position: relative;
-  background: var(--dp-bg-tertiary, #f5f5f5);
+  background: var(--dp-bg-tertiary);
   display: flex;
   flex-direction: column;
 }

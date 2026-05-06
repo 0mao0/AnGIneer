@@ -6,7 +6,6 @@
     ok-text="保存修改"
     cancel-text="取消"
     :width="840"
-    :dark-mode="darkMode"
     @update:open="emit('update:open', $event)"
     @cancel="emit('cancel')"
     @ok="submitEdit"
@@ -165,12 +164,10 @@ interface Props {
   open: boolean
   node: DocBlockNode | null
   nodeMap: Map<string, DocBlockNode>
-  darkMode?: boolean
   saving?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  darkMode: false,
   saving: false
 })
 
@@ -292,7 +289,7 @@ const submitEdit = () => {
 .edit-modal-title-text {
   font-size: 15px;
   font-weight: 600;
-  color: var(--dp-title-strong, #0f172a);
+  color: var(--dp-title-strong);
 }
 
 .edit-node-meta {
@@ -310,8 +307,8 @@ const submitEdit = () => {
   margin-bottom: 8px;
   padding: 10px 12px;
   border-radius: 12px;
-  border: 1px solid var(--dp-pane-border, #e2e8f0);
-  background: color-mix(in srgb, var(--dp-pane-bg, #ffffff) 96%, #eff6ff 4%);
+  border: 1px solid var(--dp-pane-border);
+  background: var(--dp-surface-bg);
 }
 
 .edit-compact-main {
@@ -325,7 +322,7 @@ const submitEdit = () => {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.4;
-  color: var(--dp-title-strong, #0f172a);
+  color: var(--dp-title-strong);
   word-break: break-word;
 }
 
@@ -338,7 +335,7 @@ const submitEdit = () => {
 }
 
 .edit-node-id {
-  color: var(--dp-sub-text, #64748b);
+  color: var(--dp-sub-text);
   font-size: 12px;
 }
 
@@ -348,16 +345,16 @@ const submitEdit = () => {
   min-height: 22px;
   padding: 1px 8px;
   border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  background: color-mix(in srgb, var(--dp-content-bg, #ffffff) 94%, #f1f5f9 6%);
-  color: var(--dp-title-text, #0f172a);
+  border: 1px solid var(--dp-badge-border);
+  background: var(--dp-badge-bg);
+  color: var(--dp-badge-text);
   font-size: 12px;
 }
 
 .edit-compact-metric-active {
-  border-color: rgba(37, 99, 235, 0.2);
-  background: color-mix(in srgb, #dbeafe 20%, #ffffff);
-  color: #1d4ed8;
+  border-color: var(--dp-badge-active-border);
+  background: var(--dp-badge-active-bg);
+  color: var(--dp-badge-active-text);
 }
 
 .edit-inline-plan-tags {
@@ -374,17 +371,17 @@ const submitEdit = () => {
   min-height: 20px;
   padding: 0 8px;
   border-radius: 999px;
-  border: 1px solid var(--dp-pane-border, #d5dbe6);
-  background: color-mix(in srgb, var(--dp-content-bg, #ffffff) 92%, #eef2f7 8%);
-  color: var(--dp-title-text, #0f172a);
+  border: 1px solid var(--dp-tag-border);
+  background: var(--dp-tag-bg);
+  color: var(--dp-title-text);
   font-size: 11px;
 }
 
 .edit-node-tag-type,
 .edit-inline-plan-tag {
-  border-color: rgba(37, 99, 235, 0.18);
-  background: color-mix(in srgb, #dbeafe 24%, #ffffff);
-  color: #1d4ed8;
+  border-color: var(--dp-tag-active-border);
+  background: var(--dp-tag-active-bg);
+  color: var(--dp-tag-active-text);
   font-weight: 500;
 }
 
@@ -416,15 +413,15 @@ const submitEdit = () => {
 .edit-surface-card {
   padding: 10px;
   border-radius: 12px;
-  border: 1px solid var(--dp-pane-border, #e2e8f0);
-  background: color-mix(in srgb, var(--dp-pane-bg, #ffffff) 94%, #f8fafc 6%);
+  border: 1px solid var(--dp-pane-border);
+  background: var(--dp-surface-bg);
   box-shadow: none;
 }
 
 .edit-section-title {
   font-size: 12px;
   font-weight: 600;
-  color: var(--dp-title-strong, #0f172a);
+  color: var(--dp-title-strong);
 }
 
 .edit-form .ant-form-item {
@@ -459,7 +456,7 @@ const submitEdit = () => {
   display: flex;
   justify-content: flex-end;
   margin-top: 2px;
-  color: var(--dp-sub-text, #64748b);
+  color: var(--dp-sub-text);
   font-size: 11px;
   line-height: 1.2;
 }
@@ -468,101 +465,35 @@ const submitEdit = () => {
   margin-top: 4px;
   padding: 8px 10px;
   border-radius: 10px;
-  border: 1px solid rgba(245, 158, 11, 0.28);
-  background: color-mix(in srgb, #fef3c7 44%, #ffffff);
+  border: 1px solid var(--dp-warning-border);
+  background: var(--dp-warning-bg);
 }
 
 .edit-hint-card {
   margin-top: 4px;
   padding: 8px 10px;
   border-radius: 10px;
-  border: 1px solid rgba(59, 130, 246, 0.22);
-  background: color-mix(in srgb, #dbeafe 34%, #ffffff);
+  border: 1px solid var(--dp-hint-border);
+  background: var(--dp-hint-bg);
 }
 
 .edit-warning-title {
   margin-bottom: 4px;
   font-size: 12px;
   font-weight: 600;
-  color: #b45309;
+  color: var(--dp-warning-title);
 }
 
 .edit-warning-text {
   font-size: 12px;
   line-height: 1.6;
-  color: #92400e;
+  color: var(--dp-warning-text);
 }
 
 .edit-hint-text {
   font-size: 12px;
   line-height: 1.6;
-  color: #1d4ed8;
-}
-
-.index-tree-modal-dark .edit-surface-card,
-.index-tree-modal-dark .edit-compact-bar {
-  border-color: #242c39;
-  background: #171d27;
-}
-
-.index-tree-modal-dark .edit-compact-metric {
-  border-color: #2f3948;
-  background: #111722;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.index-tree-modal-dark .edit-compact-metric-active,
-.index-tree-modal-dark .edit-inline-plan-tag,
-.index-tree-modal-dark .edit-node-tag-type {
-  border-color: rgba(96, 165, 250, 0.3);
-  background: rgba(37, 99, 235, 0.18);
-  color: #93c5fd;
-}
-
-.index-tree-modal-dark .edit-node-tag {
-  border-color: #2f3948;
-  background: #111722;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.index-tree-modal-dark .edit-warning-card {
-  border-color: rgba(245, 158, 11, 0.3);
-  background: rgba(120, 53, 15, 0.18);
-}
-
-.index-tree-modal-dark .edit-hint-card {
-  border-color: rgba(96, 165, 250, 0.28);
-  background: rgba(30, 64, 175, 0.2);
-}
-
-.index-tree-modal-dark .edit-modal-title-text,
-.index-tree-modal-dark .edit-compact-title,
-.index-tree-modal-dark .edit-compact-metric,
-.index-tree-modal-dark .edit-section-title {
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.index-tree-modal-dark .edit-field-meta,
-.index-tree-modal-dark .edit-node-id {
-  color: rgba(255, 255, 255, 0.58);
-}
-
-.index-tree-modal-dark .edit-form-item-card textarea {
-  background: #0f141d;
-  border-color: #242c39;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.index-tree-modal-dark .edit-warning-title {
-  color: #fbbf24;
-}
-
-.index-tree-modal-dark .edit-warning-text {
-  color: #fcd34d;
-}
-
-.index-tree-modal-dark .edit-hint-text {
-  color: #93c5fd;
+  color: var(--dp-badge-active-text);
 }
 
 @media (max-width: 900px) {

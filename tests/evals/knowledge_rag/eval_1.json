@@ -2,8 +2,9 @@
   "dataset": {
     "dataset_id": "eval_1",
     "title": "知识库基线评测集 1",
+    "category": "knowledge",
     "description": "当前默认知识库评测集，按题目聚合 question/retrieval/answer/sql，支持后续继续扩展解析思路、评分细则与来源说明。",
-    "schema_version": "eval.bundle.v1",
+    "schema_version": "eval.bundle.v2",
     "version": "1.0",
     "library_id": "default"
   },
@@ -12,8 +13,11 @@
       "question_id": "q_001",
       "question": "航道通航宽度由哪些部分组成？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "easy",
       "tags": [
         "doc-89bc80c3",
@@ -21,17 +25,14 @@
         "尺度"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.4 航道尺度"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "航道通航宽度由航迹带宽度、船舶间富裕宽度和船舶与航道底边间的富裕宽度组成。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -42,15 +43,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_002",
       "question": "在什么情况下船舶与航道底边间的富裕宽度c应适当增大？",
       "task_type": "table_explain",
+      "intent_level": "L2",
       "library_id": "default",
-      "expected_route": "table_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -58,17 +64,14 @@
         "富裕宽度"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.4 航道尺度"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "对于坚硬黏性土、密实砂土及岩石底质等硬质底质且边坡坡度大于1:2的航道，船舶与航道底边间的富裕宽度c应适当增大。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -80,15 +83,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_003",
       "question": "锚地按功能可划分为哪些类型？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "easy",
       "tags": [
         "doc-89bc80c3",
@@ -96,17 +104,14 @@
         "分类"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.5 锚地"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "锚地按功能可划分为引航、候潮、待泊、应急、检验检疫和避风等锚地。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -121,15 +126,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_004",
       "question": "候潮锚地宜设置在哪里？",
       "task_type": "locate",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "locate_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "easy",
       "tags": [
         "doc-89bc80c3",
@@ -137,17 +147,14 @@
         "位置"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.5 锚地"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "候潮锚地宜设置在进港航道附近的水域。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -159,15 +166,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_005",
       "question": "杂货船、集装箱船在航速不大于6kn时，船舶与航道底边线间的富裕宽度c取多少？",
       "task_type": "table_lookup",
+      "intent_level": "L2",
       "library_id": "default",
-      "expected_route": "table_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -175,17 +187,14 @@
         "数值"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.4 航道尺度"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "杂货船、集装箱船在航速不大于6kn时，船舶与航道底边线间的富裕宽度c取0.50B。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -195,15 +204,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_006",
       "question": "锚地与航道距离较近时，其间连接水域可作为什么？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -211,17 +225,14 @@
         "连接水域"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.5 锚地"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "锚地与航道距离较近时，其间连接水域可作为船舶进出锚地通道。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -232,15 +243,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_007",
       "question": "航道建设规模应根据哪些因素确定？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -248,17 +264,14 @@
         "建设规模"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.2 航道建设规模及航行标准"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "航道建设规模应根据货运量、船型、船流密度、自然条件和港口发展状况等因素，经技术经济论证后确定。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -272,15 +285,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_008",
       "question": "什么情况下航道可采用复式航道？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -288,17 +306,14 @@
         "复式航道"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.2 航道建设规模及航行标准"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "航道内船流密度较大，经论证有必要使大、小船或重载、空载船多道航行时，可采用复式航道。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -309,15 +324,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_013",
       "question": "航道选线应满足什么要求？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -325,17 +345,14 @@
         "选线"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.3 航道选线与轴线布置"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "航道选线应满足船舶航行安全要求，结合港口总体规划、当地自然条件、交通流、引航条件、工程量和维护费用等因素综合确定，并适当留有发展余地。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -346,15 +363,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_014",
       "question": "航道轴线宜如何布置？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -362,17 +384,14 @@
         "轴线"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.3 航道选线与轴线布置"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "航道轴线宜顺直，避免多次转向。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -383,15 +402,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_015",
       "question": "两个反向连续转弯段之间的直线段长度不宜小于多少倍设计船长？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -399,17 +423,14 @@
         "转弯"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.3 航道选线与轴线布置"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "两个反向连续转弯段之间的直线段长度不宜小于5倍设计船长。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -420,15 +441,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_016",
       "question": "自然水深航道尺度包括哪些内容？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -436,17 +462,14 @@
         "尺度"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.4 航道尺度"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "自然水深航道尺度应包括航道通航水深、航道通航宽度和航道转弯半径。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -458,15 +481,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_017",
       "question": "航道底边线与建筑物、岛礁之间应有什么安全要求？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -474,17 +502,14 @@
         "安全距离"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.4 航道尺度"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "航道底边线与船舶可能触碰的建筑物、岛礁等之间应有一定的安全距离。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -494,15 +519,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_018",
       "question": "影响航道尺度的因素复杂时应如何确定航道通航宽度？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -510,17 +540,14 @@
         "通航宽度"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.4 航道尺度"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "影响航道尺度的因素复杂时，航道通航宽度应进行船舶操纵模拟试验验证，必要时可结合实船观测等方式确定。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -531,15 +558,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_019",
       "question": "锚地的规模和数量应根据哪些因素综合确定？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -547,17 +579,14 @@
         "规模"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.5 锚地"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "锚地的规模和数量应根据到港船型及其密度、港口生产组织和水域自然环境等因素综合确定。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -570,15 +599,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_020",
       "question": "危险货物船舶锚地与非危险货物船舶锚地应如何设置？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -586,17 +620,14 @@
         "危险货物"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.5 锚地"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "危险货物船舶锚地与非危险货物船舶锚地应分开设置。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -607,15 +638,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_021",
       "question": "建有液化天然气码头的港口应设置什么锚地或锚位？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -623,17 +659,14 @@
         "液化天然气"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.5 锚地"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "建有液化天然气码头的港口应设置液化天然气船舶应急锚地或锚位。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -644,15 +677,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_022",
       "question": "锚地位置应综合考虑哪些因素？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -660,17 +698,14 @@
         "选址"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.5 锚地"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "锚地位置应充分考虑水域地理位置、自然条件、通航环境和方便船舶进出锚地锚泊等因素综合确定。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -683,15 +718,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_023",
       "question": "锚地应优先布置在什么底质的水域？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -699,17 +739,14 @@
         "底质"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.5 锚地"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "锚地应优先布置在泥质、泥沙质底质的水域，也可布置在沙泥质底质的水域。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -720,15 +757,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_024",
       "question": "待泊锚地宜设置在什么水域？",
       "task_type": "locate",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "locate_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "medium",
       "tags": [
         "doc-89bc80c3",
@@ -736,17 +778,14 @@
         "位置"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.5 锚地"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "待泊锚地宜设置在靠近码头的水域。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -757,15 +796,20 @@
           }
         ],
         "semantic_threshold": 0.55,
-        "must_cite_section_paths": []
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_025",
       "question": "根据规范目次，港口的给水、排水设施主要在哪一章进行规定？",
       "task_type": "locate",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "locate_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "easy",
       "tags": [
         "doc-89bc80c3",
@@ -774,17 +818,14 @@
         "给水排水"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "9 给水、排水 (90)"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "港口的给水、排水设施主要在第9章“给水、排水”中规定，对应页码90。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -803,16 +844,21 @@
             ]
           }
         ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "semantic_threshold": 0.55
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_026",
       "question": "航道选线时，对于强风、强浪和水流主流向与航道轴线的关系，规范有什么一般性要求？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "easy",
       "tags": [
         "doc-89bc80c3",
@@ -820,17 +866,14 @@
         "航道选线"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.3 航道选线与轴线布置"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "通常情况下应减小强风、强浪和水流主流向与航道轴线的交角。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -844,16 +887,21 @@
             ]
           }
         ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "semantic_threshold": 0.55
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_027",
       "question": "锚地按功能可划分为哪几种类型？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "easy",
       "tags": [
         "doc-89bc80c3",
@@ -861,17 +909,14 @@
         "锚地分类"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.5 锚地"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "锚地按功能可划分为引航、候潮、待泊、应急、检验检疫和避风等锚地。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -885,16 +930,21 @@
             ]
           }
         ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "semantic_threshold": 0.55
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_028",
       "question": "在公式6.2.8中，时间富裕系数Kt的取值范围是多少？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "definition_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "easy",
       "tags": [
         "doc-89bc80c3",
@@ -902,17 +952,14 @@
         "公式"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.2 航道建设规模及航行标准"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "时间富裕系数Kt取1.1~1.3。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -923,16 +970,21 @@
             ]
           }
         ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "semantic_threshold": 0.55
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_029",
       "question": "在什么特定前提下，航道设计水深可以采用估算公式D=kT进行计算？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "definition_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "easy",
       "tags": [
         "doc-89bc80c3",
@@ -940,17 +992,14 @@
         "设计水深"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.4 航道尺度"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "当自然条件资料不足时，航道设计水深可按估算公式D=kT进行计算。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -961,16 +1010,21 @@
             ]
           }
         ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "semantic_threshold": 0.55
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_030",
       "question": "防波堤头部的指示灯标应该怎么布置？",
       "task_type": "definition",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "hard",
       "tags": [
         "doc-89bc80c3",
@@ -979,17 +1033,14 @@
         "导助航设施"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.6 导助航设施"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "靠近航道的防波堤、整治建筑物等堤头、转折点和堤身处应设置灯桩，标示建筑物的位置及走向。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -1010,16 +1061,21 @@
             ]
           }
         ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "semantic_threshold": 0.55
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_031",
       "question": "我要计算一艘5万吨级散货船在横风8级、横流0.5m/s下的双线航道通航宽度，请帮我提取公式、对应公式里的所有查表参数值以及计算步骤。",
       "task_type": "multi_hop",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "hard",
       "tags": [
         "doc-89bc80c3",
@@ -1029,17 +1085,14 @@
         "公式"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.4 航道尺度"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "双线航道通航宽度公式为W=2A+b+2c，其中A=n(Lsinγ+B)。在横风8级、横流0.5m/s条件下，表6.4.2-2取n=1.52、γ=12°；表6.4.2-1中5万吨级散货船取c=1.50B，船舶间富裕宽度b=B。计算时先算A，再代入W=2A+b+2c。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -1060,16 +1113,21 @@
             ]
           }
         ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "semantic_threshold": 0.55
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_032",
       "question": "如果现场勘探发现某段航道的转弯半径被设计成了正好4倍设计船长，根据规范，这大概对应多大的转向角范围？",
       "task_type": "reasoning",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "hard",
       "tags": [
         "doc-89bc80c3",
@@ -1078,17 +1136,14 @@
         "转弯半径"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.3 航道选线与轴线布置"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "当转弯半径约为4倍设计船长时，对应的转向角范围为10°<φ≤30°。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1108,16 +1163,21 @@
             ]
           }
         ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "semantic_threshold": 0.55
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_033",
       "question": "关于航道水深这一块，规范里针对普通航道和有全潮通航需求航道，在设计通航水位的取值思路上有什么核心区别？",
       "task_type": "compare",
+      "intent_level": "L1",
       "library_id": "default",
-      "expected_route": "content_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "hard",
       "tags": [
         "doc-89bc80c3",
@@ -1126,17 +1186,14 @@
         "通航水位"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.2 航道建设规模及航行标准"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "普通航道通常取设计低水位或乘潮水位；有全潮通航需要的航道，通航水位宜取理论最低潮面。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -1154,16 +1211,21 @@
             ]
           }
         ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "semantic_threshold": 0.55
+        "refusal_expected": false
       }
     },
     {
       "question_id": "q_034",
       "question": "一艘8000吨级的杂货船，在船浪夹角90度时，它的波浪富裕深度系数该取多少？它和一艘2万吨级的船取值有什么不同？",
       "task_type": "table_explain",
+      "intent_level": "L2",
       "library_id": "default",
-      "expected_route": "table_qa",
+      "doc_ids": [
+        "doc-89bc80c3"
+      ],
       "difficulty": "hard",
       "tags": [
         "doc-89bc80c3",
@@ -1172,17 +1234,14 @@
         "波浪富裕深度"
       ],
       "retrieval": {
-        "gold_chunk_ids": [],
-        "gold_table_ids": [],
         "gold_section_paths": [
           "6 进港航道、锚地及导助航设施 / 6.4 航道尺度"
-        ]
+        ],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
       },
       "answer": {
         "gold_answer": "8000吨级杂货船属于1万吨级以下船舶，在船浪夹角90度时，表6.4.5-2基础值为0.52，按表注应增加25%，实际取0.65；2万吨级船舶直接取0.52，不需要增加25%。",
-        "must_cite_target_ids": [],
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_all",
@@ -1195,16 +1254,19 @@
             ]
           }
         ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "semantic_threshold": 0.55
+        "refusal_expected": false
       }
     },
     {
       "question_id": "sql_001",
       "question": "默认知识库里有多少篇文档？",
       "task_type": "analytic_sql",
+      "intent_level": "L3",
       "library_id": "default",
-      "expected_route": "analytic_sql",
+      "doc_ids": [],
       "difficulty": "easy",
       "tags": [
         "sql",
@@ -1212,8 +1274,7 @@
         "文档数量"
       ],
       "sql": {
-        "expected_sql": "SELECT COUNT(*) AS total_count FROM canonical_documents WHERE library_id = ?",
-        "notes": "最小 Text-to-SQL 样本：统计默认知识库文档数量"
+        "expected_sql": "SELECT COUNT(*) AS total_count FROM canonical_documents WHERE library_id = ?"
       }
     }
   ]

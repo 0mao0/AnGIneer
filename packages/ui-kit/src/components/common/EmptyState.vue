@@ -2,7 +2,7 @@
   <div class="empty-state">
     <a-empty :description="description">
       <template #image>
-        <component :is="icon" v-if="icon" style="font-size: 48px; color: #ccc" />
+        <component :is="icon" v-if="icon" style="font-size: 48px; color: var(--text-secondary)" />
       </template>
       <slot />
     </a-empty>

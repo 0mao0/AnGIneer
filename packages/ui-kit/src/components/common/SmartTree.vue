@@ -85,29 +85,15 @@
                 <span class="node-actions" @click.stop>
                   <slot name="actions" :node="node">
                     <template v-if="node.isFolder">
-                      <a-tooltip title="重命名">
-                        <EditOutlined class="action-icon" @click="onRename(key)" />
-                      </a-tooltip>
-                      <a-tooltip title="添加子文件夹">
-                        <FolderAddOutlined class="action-icon" @click="onAddFolder(key)" />
-                      </a-tooltip>
-                      <a-tooltip v-if="allowAddFile" title="添加文件">
-                        <FileAddOutlined class="action-icon" @click="onAddFile(key)" />
-                      </a-tooltip>
-                      <a-tooltip title="删除">
-                        <DeleteOutlined class="action-icon delete" @click="onDelete(key)" />
-                      </a-tooltip>
+                      <EditOutlined class="action-icon" title="重命名" @click.stop="onRename(key)" />
+                      <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="onAddFolder(key)" />
+                      <FileAddOutlined v-if="allowAddFile" class="action-icon" title="添加文件" @click.stop="onAddFile(key)" />
+                      <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDelete(key)" />
                     </template>
                     <template v-else>
-                      <a-tooltip title="重命名">
-                        <EditOutlined class="action-icon" @click="onRename(key)" />
-                      </a-tooltip>
-                      <a-tooltip title="查看">
-                        <EyeOutlined class="action-icon" @click="onView(key)" />
-                      </a-tooltip>
-                      <a-tooltip title="删除">
-                        <DeleteOutlined class="action-icon delete" @click="onDelete(key)" />
-                      </a-tooltip>
+                      <EditOutlined class="action-icon" title="重命名" @click.stop="onRename(key)" />
+                      <EyeOutlined class="action-icon" title="查看" @click.stop="onView(key)" />
+                      <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDelete(key)" />
                     </template>
                   </slot>
                 </span>
@@ -188,117 +174,15 @@ import type { SmartTreeNode } from '../../types/tree'
 
 export type { SmartTreeNode }
 
-/**
- * 高亮文本中的搜索关键字。
- */
-const highlightText = (text: string, keyword: string): string => {
-  if (!keyword) return text
-  const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const regex = new RegExp(`(${escapedKeyword})`, 'gi')
-  return text.replace(regex, '<mark>$1</mark>')
-}
-
-/**
- * 根据文件名推断图标类型。
- */
-const getFileIconType = (fileName: string): string => {
-  const lowerFileName = fileName.toLowerCase()
-  if (lowerFileName.endsWith('.pdf')) return 'pdf'
-  if (/\.(doc|docx)$/.test(lowerFileName)) return 'word'
-  if (/\.(xls|xlsx|csv)$/.test(lowerFileName)) return 'excel'
-  if (/\.(ppt|pptx)$/.test(lowerFileName)) return 'ppt'
-  if (/\.(jpg|jpeg|png|gif|webp|svg)$/.test(lowerFileName)) return 'image'
-  if (/\.(zip|rar|7z|tar|gz)$/.test(lowerFileName)) return 'zip'
-  if (lowerFileName.endsWith('.md')) return 'markdown'
-  if (/\.(txt|json|yaml|yml|xml)$/.test(lowerFileName)) return 'text'
-  return 'file'
-}
-
-/**
- * 获取文件图标颜色。
- */
-const getFileIconColor = (fileName: string): string => {
-  const iconType = getFileIconType(fileName)
-  const colorMap: Record<string, string> = {
-    pdf: '#ff4d4f',
-    word: '#1890ff',
-    excel: '#52c41a',
-    ppt: '#fa8c16',
-    image: '#722ed1',
-    zip: '#8c8c8c',
-    markdown: '#13c2c2',
-    text: '#8c8c8c',
-    file: '#8c8c8c'
-  }
-  return colorMap[iconType] || colorMap.file
-}
-
-/**
- * 获取状态颜色。
- */
-const getStatusColor = (status: string): string => {
-  const colorMap: Record<string, string> = {
-    pending: 'default',
-    uploading: 'processing',
-    processing: 'processing',
-    completed: 'success',
-    failed: 'error'
-  }
-  return colorMap[status] || 'default'
-}
-
-/**
- * 获取状态文案。
- */
-const getStatusText = (status: string): string => {
-  const textMap: Record<string, string> = {
-    pending: '待处理',
-    uploading: '上传中',
-    processing: '处理中',
-    completed: '已完成',
-    failed: '失败'
-  }
-  return textMap[status] || status || '未知'
-}
-
-/**
- * 根据关键字过滤树节点。
- */
-function filterTree<T extends { title: string; children?: T[] }>(nodes: T[], keyword: string): T[] {
-  return nodes.reduce<T[]>((result, node) => {
-    const title = String(node.title || '').toLowerCase()
-    const filteredChildren = node.children ? filterTree(node.children, keyword) : []
-    if (title.includes(keyword) || filteredChildren.length > 0) {
-      result.push({
-        ...node,
-        children: filteredChildren
-      })
-    }
-    return result
-  }, [])
-}
-
-/**
- * 收集搜索命中路径上的父节点 key。
- */
-function getExpandedKeysForSearch<T extends { key: string; title: string; children?: T[] }>(
-  nodes: T[],
-  keyword: string,
-  parentKeys: string[] = []
-): string[] {
-  return nodes.reduce<string[]>((result, node) => {
-    const title = String(node.title || '').toLowerCase()
-    const currentParentKeys = [...parentKeys, node.key]
-    const childKeys = node.children
-      ? getExpandedKeysForSearch(node.children, keyword, currentParentKeys)
-      : []
-    if (title.includes(keyword)) {
-      result.push(...parentKeys)
-    }
-    result.push(...childKeys)
-    return result
-  }, [])
-}
+import {
+  highlightText,
+  getFileIconType,
+  getFileIconColor,
+  getStatusColor,
+  getStatusText,
+  filterTree,
+  getExpandedKeysForSearch
+} from '../../utils/tree'
 
 interface Props {
   treeData: SmartTreeNode[]
@@ -736,9 +620,21 @@ defineExpose({
   &.dark-mode {
     :deep(.ant-tree) {
       color: rgba(255, 255, 255, 0.85);
+
+      .ant-tree-node-content-wrapper {
+        &:hover {
+          background: rgba(255, 255, 255, 0.06);
+        }
+
+        &.ant-tree-node-selected {
+          background: rgba(24, 144, 255, 0.15);
+        }
+      }
     }
 
     .tree-search {
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+
       :deep(.ant-input) {
         .ant-input-affix-wrapper {
           .search-icon {
@@ -751,8 +647,48 @@ defineExpose({
         color: rgba(255, 255, 255, 0.65);
 
         &:hover {
-          color: #1890ff;
+          color: var(--primary-color);
         }
+      }
+    }
+
+    .tree-node-default {
+      .node-icon {
+        color: rgba(255, 255, 255, 0.55);
+
+        .anticon-folder {
+          color: var(--tree-folder-color);
+        }
+
+        .anticon-file {
+          color: rgba(255, 255, 255, 0.45);
+        }
+      }
+
+      .node-actions {
+        background: linear-gradient(to right, transparent, var(--panel-bg) 10px);
+
+        .action-icon {
+          color: rgba(255, 255, 255, 0.55);
+
+          &:hover {
+            color: var(--primary-color);
+            background: rgba(24, 144, 255, 0.15);
+          }
+
+          &.delete:hover {
+            color: var(--tree-danger-color);
+            background: rgba(255, 77, 79, 0.15);
+          }
+        }
+      }
+    }
+
+    .tree-content {
+      .root-drop-zone {
+        border-color: rgba(24, 144, 255, 0.4);
+        color: var(--primary-color);
+        background: var(--tree-drop-zone-bg);
       }
     }
   }
@@ -799,7 +735,7 @@ defineExpose({
       transition: color 0.3s;
 
       &:hover {
-        color: #1890ff;
+        color: var(--primary-color);
       }
 
       .anticon {
@@ -815,10 +751,10 @@ defineExpose({
 
     .root-drop-zone {
       margin: 8px 8px 4px;
-      border: 1px dashed #91caff;
+      border: 1px dashed var(--tree-drop-border);
       border-radius: 6px;
-      color: #1677ff;
-      background: #f0f8ff;
+      color: var(--primary-color);
+      background: var(--tree-drop-zone-bg);
       text-align: center;
       line-height: 32px;
       font-size: 12px;
@@ -933,7 +869,7 @@ defineExpose({
       width: 16px;
       height: 16px;
       font-size: 14px;
-      color: #8c8c8c;
+      color: var(--text-secondary, rgba(0,0,0,0.45));
       line-height: 1;
       overflow: visible;
       margin-left: 0;
@@ -945,11 +881,11 @@ defineExpose({
       }
 
       .anticon-folder {
-        color: #faad14;
+        color: var(--tree-folder-color);
       }
 
       .anticon-file {
-        color: #8c8c8c;
+        color: var(--text-secondary);
       }
     }
 
@@ -1008,14 +944,14 @@ defineExpose({
       right: 0;
       top: 0;
       bottom: 0;
-      background: linear-gradient(to right, transparent, var(--bg-color, #fff) 10px);
+      background: linear-gradient(to right, transparent, var(--panel-bg) 10px);
       padding-left: 16px;
       z-index: 10;
       pointer-events: none;
 
       .action-icon {
         font-size: 12px;
-        color: #8c8c8c;
+        color: var(--text-secondary, rgba(0,0,0,0.45));
         cursor: pointer;
         padding: 2px;
         border-radius: 3px;
@@ -1023,12 +959,12 @@ defineExpose({
         pointer-events: auto;
 
         &:hover {
-          color: #1890ff;
+          color: var(--primary-color);
           background: rgba(24, 144, 255, 0.1);
         }
 
         &.delete:hover {
-          color: #ff4d4f;
+          color: var(--tree-danger-hover);
           background: rgba(255, 77, 79, 0.1);
         }
       }

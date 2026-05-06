@@ -1,9 +1,16 @@
 """题集 CRUD 管理器。"""
+import json
+import os
 from typing import Any, Dict, List, Optional
 
 from evals_core.dataset.loader import export_bundle_to_dict, load_bundle_from_dict
 from evals_core.dataset.schema import EvalBundleV2
 from evals_core.storage import result_store
+
+_DATASETS_DIR = os.path.join(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../..")),
+    "data", "evals", "datasets",
+)
 
 
 def create_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
@@ -12,7 +19,7 @@ def create_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def import_bundle(payload: Dict[str, Any], source_file: str = "") -> Dict[str, Any]:
-    """导入 JSON 题集到数据库。"""
+    """导入 JSON 题集到数据库，并保存原始 JSON 到 data/evals/datasets/。"""
     bundle = load_bundle_from_dict(payload)
     dataset_meta = bundle.dataset
     dataset_data = {
@@ -31,6 +38,10 @@ def import_bundle(payload: Dict[str, Any], source_file: str = "") -> Dict[str, A
         question_data = _item_to_question_row(item, dataset_meta.dataset_id, index)
         result_store.insert_question(question_data)
     result_store.update_dataset_question_count(dataset_meta.dataset_id, len(bundle.items))
+    os.makedirs(_DATASETS_DIR, exist_ok=True)
+    json_path = os.path.join(_DATASETS_DIR, f"{dataset_meta.dataset_id}.json")
+    with open(json_path, "w", encoding="utf-8") as handle:
+        json.dump(payload, handle, ensure_ascii=False, indent=2)
     return result_store.get_dataset(dataset_meta.dataset_id)
 
 
@@ -47,6 +58,11 @@ def list_datasets() -> List[Dict[str, Any]]:
 def delete_dataset(dataset_id: str) -> bool:
     """删除测试集。"""
     return result_store.delete_dataset(dataset_id)
+
+
+def update_dataset(dataset_id: str, updates: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """更新测试集元信息（如标题）。"""
+    return result_store.update_dataset(dataset_id, updates)
 
 
 def add_question(dataset_id: str, data: Dict[str, Any]) -> Dict[str, Any]:

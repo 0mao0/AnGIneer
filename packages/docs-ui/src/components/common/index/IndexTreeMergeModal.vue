@@ -6,7 +6,6 @@
     ok-text="合并选中节点"
     cancel-text="取消"
     :width="760"
-    :dark-mode="darkMode"
     @update:open="emit('update:open', $event)"
     @cancel="emit('cancel')"
     @ok="submitMerge"
@@ -58,12 +57,10 @@ interface Props {
   open: boolean
   selectedBlockIds: string[]
   nodeMap: Map<string, DocBlockNode>
-  darkMode?: boolean
   loading?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  darkMode: false,
   loading: false
 })
 
@@ -107,15 +104,15 @@ const submitMerge = () => {
 .merge-modal-title {
   font-size: 15px;
   font-weight: 600;
-  color: var(--dp-title-strong, #0f172a);
+  color: var(--dp-title-strong);
 }
 
 .merge-overview-card {
   margin-bottom: 10px;
   padding: 10px 12px;
   border-radius: 12px;
-  border: 1px solid var(--dp-pane-border, #e2e8f0);
-  background: color-mix(in srgb, var(--dp-pane-bg, #ffffff) 96%, #eff6ff 4%);
+  border: 1px solid var(--dp-pane-border);
+  background: var(--dp-surface-bg);
 }
 
 .merge-overview-title-row {
@@ -128,12 +125,12 @@ const submitMerge = () => {
 .merge-overview-title {
   font-size: 13px;
   font-weight: 600;
-  color: var(--dp-title-strong, #0f172a);
+  color: var(--dp-title-strong);
 }
 
 .merge-overview-hint {
   margin-top: 2px;
-  color: var(--dp-sub-text, #64748b);
+  color: var(--dp-sub-text);
   font-size: 12px;
   line-height: 1.5;
 }
@@ -151,9 +148,9 @@ const submitMerge = () => {
   min-height: 22px;
   padding: 0 8px;
   border-radius: 999px;
-  border: 1px solid rgba(37, 99, 235, 0.16);
-  background: color-mix(in srgb, #dbeafe 18%, #ffffff);
-  color: #1d4ed8;
+  border: 1px solid var(--dp-badge-border);
+  background: var(--dp-badge-bg);
+  color: var(--dp-badge-text);
   font-size: 12px;
 }
 
@@ -172,54 +169,21 @@ const submitMerge = () => {
 .merge-warning-card {
   padding: 8px 10px;
   border-radius: 10px;
-  border: 1px solid rgba(245, 158, 11, 0.28);
-  background: color-mix(in srgb, #fef3c7 44%, #ffffff);
+  border: 1px solid var(--dp-warning-border);
+  background: var(--dp-warning-bg);
 }
 
 .merge-warning-title {
   margin-bottom: 4px;
   font-size: 12px;
   font-weight: 600;
-  color: #b45309;
+  color: var(--dp-warning-title);
 }
 
 .merge-warning-text {
   font-size: 12px;
   line-height: 1.6;
-  color: #92400e;
-}
-
-.index-tree-modal-dark .merge-modal-title,
-.index-tree-modal-dark .merge-overview-title {
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.index-tree-modal-dark .merge-overview-card {
-  border-color: #242c39;
-  background: #171d27;
-}
-
-.index-tree-modal-dark .merge-overview-hint {
-  color: rgba(255, 255, 255, 0.58);
-}
-
-.index-tree-modal-dark .merge-overview-stat {
-  border-color: rgba(96, 165, 250, 0.3);
-  background: rgba(37, 99, 235, 0.18);
-  color: #93c5fd;
-}
-
-.index-tree-modal-dark .merge-warning-card {
-  border-color: rgba(245, 158, 11, 0.3);
-  background: rgba(120, 53, 15, 0.18);
-}
-
-.index-tree-modal-dark .merge-warning-title {
-  color: #fbbf24;
-}
-
-.index-tree-modal-dark .merge-warning-text {
-  color: #fcd34d;
+  color: var(--dp-warning-text);
 }
 
 @media (max-width: 640px) {

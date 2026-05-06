@@ -96,6 +96,14 @@ def init_db() -> None:
         CREATE INDEX IF NOT EXISTS idx_eval_run_dataset ON eval_run(dataset_id);
         CREATE INDEX IF NOT EXISTS idx_eval_run_detail_run ON eval_run_detail(run_id);
     """)
+    try:
+        conn.execute("ALTER TABLE eval_run_detail ADD COLUMN all_scores TEXT")
+    except Exception:
+        pass
+    try:
+        conn.execute("ALTER TABLE eval_run_detail ADD COLUMN all_predictions TEXT")
+    except Exception:
+        pass
     conn.commit()
 
 
@@ -158,6 +166,20 @@ def delete_dataset(dataset_id: str) -> bool:
     cursor = conn.execute("DELETE FROM eval_dataset WHERE dataset_id = ?", (dataset_id,))
     conn.commit()
     return cursor.rowcount > 0
+
+
+def update_dataset(dataset_id: str, updates: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """更新测试集元信息。"""
+    allowed = {"title", "description", "category"}
+    fields = [k for k in updates if k in allowed and updates[k] is not None]
+    if not fields:
+        return get_dataset(dataset_id)
+    conn = _get_conn()
+    set_clause = ", ".join(f"{k} = ?" for k in fields)
+    values = [updates[k] for k in fields] + [dataset_id]
+    conn.execute(f"UPDATE eval_dataset SET {set_clause} WHERE dataset_id = ?", values)
+    conn.commit()
+    return get_dataset(dataset_id)
 
 
 def insert_question(data: Dict[str, Any]) -> Dict[str, Any]:
@@ -360,14 +382,16 @@ def insert_run_detail(data: Dict[str, Any]) -> Dict[str, Any]:
     """插入一条运行详情记录。"""
     conn = _get_conn()
     conn.execute(
-        """INSERT INTO eval_run_detail (run_id, question_id, status, prediction, scores, error, latency_ms)
-           VALUES (?, ?, ?, ?, ?, ?, ?)""",
+        """INSERT INTO eval_run_detail (run_id, question_id, status, prediction, scores, all_scores, all_predictions, error, latency_ms)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             data["run_id"],
             data["question_id"],
             data.get("status", "pending"),
             json.dumps(data["prediction"], ensure_ascii=False) if data.get("prediction") else None,
             json.dumps(data["scores"], ensure_ascii=False) if data.get("scores") else None,
+            json.dumps(data["all_scores"], ensure_ascii=False) if data.get("all_scores") else None,
+            json.dumps(data["all_predictions"], ensure_ascii=False) if data.get("all_predictions") else None,
             data.get("error"),
             data.get("latency_ms"),
         ),
@@ -380,10 +404,10 @@ def update_run_detail(run_id: str, question_id: str, updates: Dict[str, Any]) ->
     """更新运行详情记录。"""
     set_clauses = []
     values = []
-    for key in ("status", "prediction", "scores", "error", "latency_ms"):
+    for key in ("status", "prediction", "scores", "all_scores", "all_predictions", "error", "latency_ms"):
         if key in updates:
             set_clauses.append(f"{key} = ?")
-            if key in ("prediction", "scores") and updates[key] is not None:
+            if key in ("prediction", "scores", "all_scores", "all_predictions") and updates[key] is not None:
                 values.append(json.dumps(updates[key], ensure_ascii=False))
             else:
                 values.append(updates[key])
@@ -410,5 +434,7 @@ def list_run_details(run_id: str) -> List[Dict[str, Any]]:
         item = dict(row)
         item["prediction"] = json.loads(item["prediction"]) if item.get("prediction") else None
         item["scores"] = json.loads(item["scores"]) if item.get("scores") else None
+        item["all_scores"] = json.loads(item["all_scores"]) if item.get("all_scores") else None
+        item["all_predictions"] = json.loads(item["all_predictions"]) if item.get("all_predictions") else None
         result.append(item)
     return result

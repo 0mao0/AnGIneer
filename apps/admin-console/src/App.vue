@@ -1,47 +1,56 @@
 <template>
   <a-config-provider :locale="zhCN" :theme="themeConfig">
-    <div class="app-container" :class="appClass">
-      <!-- 使用通用头部组件 -->
-      <AppHeader
-        :is-dark="isDark"
-        project-name="管理后台"
-        :nav-items="navItems"
-        active-nav="knowledge"
-        :show-home="true"
-        :show-settings="true"
-        logo-clickable
-        @home-click="confirmGoToFrontend"
-        @logo-click="confirmGoToFrontend"
-        @nav-click="handleNavClick"
-        @settings-click="openSettings"
-        @toggle-theme="toggleTheme"
-      />
+    <a-app>
+      <div class="app-container" :class="appClass">
+        <!-- 使用通用头部组件 -->
+        <AppHeader
+          project-name="管理后台"
+          :nav-items="navItems"
+          :active-nav="activeNav"
+          :show-home="true"
+          :show-settings="true"
+          logo-clickable
+          @home-click="confirmGoToFrontend"
+          @logo-click="confirmGoToFrontend"
+          @nav-click="handleNavClick"
+          @settings-click="openSettings"
+        />
 
-      <!-- 主内容区 -->
-      <div class="main-content">
-        <router-view />
+        <!-- 主内容区 -->
+        <div class="main-content">
+          <router-view />
+        </div>
       </div>
-    </div>
+    </a-app>
   </a-config-provider>
 </template>
 
 <script setup lang="ts">
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { Modal } from 'ant-design-vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
+import { computed } from 'vue'
 import { AppHeader, useTheme, type NavItem } from '@angineer/ui-kit'
 import { WEB_CONSOLE_ORIGIN } from '../../shared/ports'
 
 const router = useRouter()
-const { isDark, themeConfig, appClass, toggleTheme } = useTheme()
+const route = useRoute()
+const { themeConfig, appClass } = useTheme()
 
-// 导航项配置
 const navItems: NavItem[] = [
   { key: 'project', label: '项目库' },
   { key: 'knowledge', label: '知识库' },
   { key: 'experience', label: '经验库' },
-  { key: 'evals', label: '评测' }
+  { key: 'evals', label: '评测集' }
 ]
+
+const activeNav = computed(() => {
+  const path = route.path
+  if (path.startsWith('/evals')) return 'evals'
+  if (path.startsWith('/project')) return 'project'
+  if (path.startsWith('/experience')) return 'experience'
+  return 'knowledge'
+})
 
 const handleNavClick = (key: string) => {
   const routeMap: Record<string, string> = {
@@ -88,11 +97,17 @@ html, body, #app {
   overflow: hidden;
 }
 
+.ant-app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: var(--bg-primary, #141414);
+  background-color: var(--bg-primary);
   transition: background-color 0.3s ease;
 }
 

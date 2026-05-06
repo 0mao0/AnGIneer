@@ -76,7 +76,7 @@ const openGIS = () => {
   align-items: center;
   justify-content: center;
   font-size: 48px;
-  color: #1890ff;
-  background: linear-gradient(135deg, #e6f7ff 0%, #f0f5ff 100%);
+  color: var(--primary-color);
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
 }
 </style>

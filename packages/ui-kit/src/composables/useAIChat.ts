@@ -12,25 +12,7 @@ import type {
   SessionSnapshot,
   AIChatContextConfig,
 } from '../types/chat'
-
-/** 生成唯一消息 ID */
-function generateMessageId(): string {
-  return `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
-}
-
-/** 估算消息的 token 数量 */
-function estimateTokens(content: string): number {
-  if (!content) return 0
-  let tokens = 0
-  for (const char of content) {
-    if (/[\u4e00-\u9fa5]/.test(char)) {
-      tokens += 1.5
-    } else {
-      tokens += 0.5
-    }
-  }
-  return Math.ceil(tokens)
-}
+import { generateMessageId, estimateTokens } from '../utils/tree'
 
 /** 根据 scene 和 id 构建会话池 key */
 export function buildSessionKey(scene: string, id: string): SessionKey {
@@ -186,7 +168,6 @@ export function useAIChat(options?: {
   getContextItems?: () => Array<{ id: string; title: string }>
 }): {
   messages: Ref<AIChatMessage[]>
-  inputText: Ref<string>
   loading: Ref<boolean>
   currentStreamContent: Ref<string>
   currentSessionKey: Ref<SessionKey>
@@ -210,7 +191,6 @@ export function useAIChat(options?: {
   const currentSessionKey = ref<SessionKey>(buildSessionKey(scene, sessionIdRef.value))
 
   const messages = ref<AIChatMessage[]>([])
-  const inputText = ref('')
   const loading = ref(false)
   const currentStreamContent = ref('')
   const abortController = ref<AbortController | null>(null)
@@ -233,7 +213,6 @@ export function useAIChat(options?: {
   function saveToPool(): void {
     sessionPool.set(currentSessionKey.value, {
       messages: [...messages.value],
-      inputText: inputText.value,
     })
   }
 
@@ -242,7 +221,6 @@ export function useAIChat(options?: {
     const snapshot = sessionPool.get(key)
     if (!snapshot) return false
     messages.value = [...snapshot.messages]
-    inputText.value = snapshot.inputText
     return true
   }
 
@@ -253,7 +231,6 @@ export function useAIChat(options?: {
     currentSessionKey.value = newKey
     if (!restoreFromPool(newKey)) {
       messages.value = []
-      inputText.value = ''
       if (options?.systemPrompt) {
         messages.value.push({
           role: 'system',
@@ -268,7 +245,6 @@ export function useAIChat(options?: {
   function removeCurrentSession(): void {
     sessionPool.delete(currentSessionKey.value)
     messages.value = []
-    inputText.value = ''
     if (options?.systemPrompt) {
       messages.value.push({
         role: 'system',
@@ -295,7 +271,6 @@ export function useAIChat(options?: {
     }
 
     messages.value.push(userMessage)
-    inputText.value = ''
     loading.value = true
     currentStreamContent.value = ''
 
@@ -421,7 +396,6 @@ export function useAIChat(options?: {
 
   return {
     messages,
-    inputText,
     loading,
     currentStreamContent,
     currentSessionKey,

@@ -1,30 +1,3 @@
-@import './variables.less';
-
-/* CSS 变量定义 - 亮色模式 */
-:root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #fafafa;
-  --bg-tertiary: #f5f5f5;
-  --text-primary: rgba(0, 0, 0, 0.88);
-  --text-secondary: rgba(0, 0, 0, 0.65);
-  --border-color: #d9d9d9;
-  --panel-bg: #ffffff;
-  --panel-header-bg: #fafafa;
-}
-
-/* CSS 变量定义 - 暗黑模式 */
-html.dark,
-.dark-mode {
-  --bg-primary: #141414;
-  --bg-secondary: #1f1f1f;
-  --bg-tertiary: #272727;
-  --text-primary: rgba(255, 255, 255, 0.85);
-  --text-secondary: rgba(255, 255, 255, 0.65);
-  --border-color: #434343;
-  --panel-bg: #1f1f1f;
-  --panel-header-bg: #272727;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -35,14 +8,9 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  color: @text-color;
-  background-color: @background-color;
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  background-color: var(--bg-primary, #f5f5f5);
   transition: background-color 0.3s, color 0.3s;
-}
-
-html.dark, html.dark body {
-  color: @dark-text-color;
-  background-color: @dark-background-color;
 }
 
 ::-webkit-scrollbar {
@@ -51,12 +19,8 @@ html.dark, html.dark body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: @border-color;
+  background: var(--border-color, #d9d9d9);
   border-radius: 3px;
-}
-
-html.dark ::-webkit-scrollbar-thumb {
-  background: @dark-border-color;
 }
 
 ::-webkit-scrollbar-track {

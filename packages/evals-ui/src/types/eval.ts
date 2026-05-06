@@ -34,6 +34,7 @@ export interface AnswerGold {
   must_cite_target_ids?: string[]
   must_cite_section_paths?: string[]
   refusal_expected?: boolean
+  thought_process?: string
 }
 
 /** SQL 评测标准答案 */
@@ -87,9 +88,11 @@ export interface EvalRunDetail {
   id: number
   run_id: string
   question_id: string
-  status: EvalQuestionStatus
+  status: EvalQuestionStatus | 'skipped'
   prediction?: Record<string, unknown> | null
   scores?: Record<string, unknown> | null
+  all_scores?: Record<string, Record<string, unknown>> | null
+  all_predictions?: Record<string, Record<string, unknown>> | null
   error?: string | null
   latency_ms?: number | null
 }

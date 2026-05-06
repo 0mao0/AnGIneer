@@ -8,25 +8,31 @@ import type {
   StructuredStats,
   DocumentStorageManifest
 } from '@angineer/docs-ui'
+import type {
+  DocumentResponse,
+  KnowledgeParseOptions,
+  LlmConfigOption,
+  KnowledgeEvalDataset,
+  KnowledgeEvalQuestionsResponse,
+  KnowledgeEvalRunResponse
+} from '../../../shared/knowledgeApi'
 
-const api = axios.create({
-  baseURL: '/api',
-  timeout: 30000
-})
+export type {
+  KnowledgeParseOptions,
+  LlmConfigOption,
+  KnowledgeEvalQuestion,
+  KnowledgeEvalDataset,
+  KnowledgeEvalSummary,
+  KnowledgeEvalAnswerDetail,
+  KnowledgeEvalRunResponse,
+  KnowledgeEvalQuestionsResponse
+} from '../../../shared/knowledgeApi'
 
 interface StructuredIndexResponse {
   doc_id: string
   strategy: KnowledgeStrategy
   count: number
   items: StructuredIndexItem[]
-}
-
-interface DocumentResponse {
-  content: string
-  storage: DocumentStorageManifest
-  mineru_blocks?: Record<string, any>[]
-  middle_data?: Record<string, any> | null
-  graph_data?: { nodes: Record<string, any>[]; edges: Record<string, any>[] } | null
 }
 
 interface StructuredNodeUpdateResponse {
@@ -65,132 +71,34 @@ interface DeleteNodePreviewResponse {
   sample_doc_titles: string[]
 }
 
-export interface KnowledgeParseOptions {
-  use_llm?: boolean
-  llm_model?: string
-}
+const api = axios.create({
+  baseURL: '/api',
+  timeout: 30000
+})
 
-export interface LlmConfigOption {
-  name: string
-  model: string
-  configured: boolean
-}
-
-export interface KnowledgeEvalQuestion {
-  question_id: string
-  question: string
-  task_type: string
-  difficulty: string
-  tags: string[]
-  library_id?: string
-  doc_ids?: string[]
-  expected_route?: string
-  dataset_id?: string
-  dataset_title?: string
-  gold_answer?: string
-  thought_process?: string
-}
-
-export interface KnowledgeEvalDataset {
-  dataset_id: string
-  title: string
-  description?: string
-  schema_version?: string
-  version?: string
-  library_id?: string
-  question_count: number
-  visible_question_count: number
-  sql_question_count: number
-}
-
-export interface KnowledgeEvalSummary {
-  retrieval_score: number | null
-  answer_health_score: number | null
-  answer_correctness_score: number | null
-  checked_answer_total: number
-  overall_score: number
-  text2sql_success_score: number | null
-}
-
-export interface KnowledgeEvalAnswerDetail {
-  question_id: string
-  question: string
-  difficulty: string
-  tags: string[]
-  task_type?: string
-  strategy?: string
-  answer_non_empty?: number
-  citation_hit?: number
-  refusal_correct?: number
-  answer_correct_checked?: boolean
-  answer_correct?: number | null
-  failed_correctness_checks?: Array<{ type?: string; keywords?: string[] }>
-  answer?: string
-  gold_answer?: string
-  thought_process?: string
-  citations?: Array<{
-    target_id: string
-    doc_id: string
-    doc_title: string
-    page_idx: number
-    section_path: string
-    snippet: string
-    score: number
-  }>
-}
-
-export interface KnowledgeEvalRunResponse {
-  generated_at: string
-  available_datasets?: KnowledgeEvalDataset[]
-  selected_dataset?: KnowledgeEvalDataset | null
-  questions: KnowledgeEvalQuestion[]
-  report: {
-    summary: KnowledgeEvalSummary
-    answer: {
-      total: number
-      answer_non_empty_rate: number
-      citation_hit_rate: number
-      refusal_correct_rate: number
-      correctness_checked_total: number
-      answer_correctness_rate: number
-      details: KnowledgeEvalAnswerDetail[]
-    }
-    retrieval: Record<string, any>
-    text2sql: Record<string, any>
-  }
-}
-
-export interface KnowledgeEvalQuestionsResponse {
-  datasets?: KnowledgeEvalDataset[]
-  selected_dataset?: KnowledgeEvalDataset | null
-  questions: KnowledgeEvalQuestion[]
-}
-
-api.interceptors.request.use(config => {
+api.interceptors.request.use((config: any) => {
   console.log('[API Request]:', config.method?.toUpperCase(), config.url, config.params || config.data)
   return config
 })
 
 api.interceptors.response.use(
-  response => {
+  (response: any) => {
     console.log('[API Response]:', response)
     return response.data
   },
-  error => {
+  (error: any) => {
     console.error('[API Error]:', error.response?.status, error.response?.data || error.message)
     return Promise.reject(error)
   }
 )
 
 export const knowledgeApi = {
-  // 知识库
   getLibraries: () => api.get('/knowledge/libraries'),
-  createLibrary: (name: string, description: string) => 
+  createLibrary: (name: string, description: string) =>
     api.post('/knowledge/libraries', { library_id: 'default', name, description }),
   getLibrary: (libraryId: string) => api.get(`/knowledge/libraries/${libraryId}`),
 
-  // 节点
-  getNodes: (libraryId: string = 'default', visible: boolean = false) => 
+  getNodes: (libraryId: string = 'default', visible: boolean = false) =>
     api.get('/knowledge/nodes', { params: { library_id: libraryId, visible } }),
   createNode: (data: {
     title: string
@@ -200,14 +108,13 @@ export const knowledgeApi = {
     visible?: boolean
     sort_order?: number
   }) => api.post('/knowledge/nodes', data),
-  updateNode: (nodeId: string, data: Record<string, any>) => 
+  updateNode: (nodeId: string, data: Record<string, any>) =>
     api.patch(`/knowledge/nodes/${nodeId}`, data),
   getDeleteNodePreview: (nodeId: string) =>
     api.get(`/knowledge/nodes/${nodeId}/delete-preview`) as Promise<DeleteNodePreviewResponse>,
   deleteNode: (nodeId: string) => api.delete(`/knowledge/nodes/${nodeId}`),
 
-  // 文档解析
-  parseDocument: (libraryId: string, docId: string, filePath?: string, parseOptions?: KnowledgeParseOptions) => 
+  parseDocument: (libraryId: string, docId: string, filePath?: string, parseOptions?: KnowledgeParseOptions) =>
     api.post('/knowledge/parse', { library_id: libraryId, doc_id: docId, file_path: filePath, parse_options: parseOptions }),
   parseDocumentAsync: (libraryId: string, docId: string, filePath?: string, parseOptions?: KnowledgeParseOptions) =>
     api.post('/knowledge/parse', { library_id: libraryId, doc_id: docId, file_path: filePath, parse_options: parseOptions }),
@@ -227,7 +134,6 @@ export const knowledgeApi = {
       ...(cachedPredictions ? { cached_predictions: cachedPredictions } : {})
     }, { timeout: 300000 }) as Promise<KnowledgeEvalRunResponse>,
 
-  // 策略
   getDocStrategy: (docId: string) => api.get(`/knowledge/strategies/${docId}`),
   setDocStrategy: (docId: string, strategy: KnowledgeStrategy) =>
     api.put(`/knowledge/strategies/${docId}`, { strategy }),
@@ -241,7 +147,6 @@ export const knowledgeApi = {
   ) => api.get(`/knowledge/structured/${docId}`, { params: { strategy, item_type: itemType, keyword } }) as Promise<StructuredIndexResponse>,
   getStructuredStats: (docId: string) => api.get(`/knowledge/structured/stats/${docId}`) as Promise<StructuredStats>,
 
-  // 上传文档
   uploadDocument: (libraryId: string, file: File, parentId?: string) => {
     const formData = new FormData()
     formData.append('file', file)
@@ -251,10 +156,9 @@ export const knowledgeApi = {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
   },
-  // 文档内容
-  getDocument: (libraryId: string, docId: string) => 
+  getDocument: (libraryId: string, docId: string) =>
     api.get(`/knowledge/document/${libraryId}/${docId}`) as Promise<DocumentResponse>,
-  updateDocument: (libraryId: string, docId: string, content: string) => 
+  updateDocument: (libraryId: string, docId: string, content: string) =>
     api.put(`/knowledge/document/${libraryId}/${docId}`, { content }),
   updateDocumentBlock: (libraryId: string, docId: string, payload: StructuredNodeUpdatePayload) =>
     api.patch(`/knowledge/document/${libraryId}/${docId}/blocks/${encodeURIComponent(payload.blockId)}`, payload) as Promise<StructuredNodeUpdateResponse>,
@@ -269,7 +173,6 @@ export const knowledgeApi = {
       storage: DocumentStorageManifest
     }>,
 
-  // 文档块图谱
   getDocBlocksGraph: (libraryId: string, docId: string) =>
     api.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }),
   getDocBlocksGraphSummary: (libraryId: string, docId: string) =>

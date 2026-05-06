@@ -1,5 +1,5 @@
 <template>
-  <div class="workbench-container" :class="{ 'dark-mode': themeStore.isDark }">
+  <div class="workbench-container" :class="appClass">
     <div class="tabs-bar">
       <a-tabs v-model:activeKey="activeTab" type="editable-card" hide-add @edit="handleTabEdit">
         <a-tab-pane v-for="tab in tabs" :key="tab.key" :closable="tabs.length > 1">
@@ -26,14 +26,14 @@ import { computed } from 'vue'
 import { FileTextOutlined, ApiOutlined, EnvironmentOutlined } from '@ant-design/icons-vue'
 import type { WorkbenchTabType } from '@angineer/docs-ui'
 import { useWorkbenchStore } from '@/stores/workbench'
-import { useThemeStore } from '@/stores'
+import { useTheme } from '@angineer/ui-kit'
 import DocumentView from '@/views/DocumentView.vue'
 import SOPView from '@/views/SOPView.vue'
 import GISView from '@/views/GISView.vue'
 import ProjectView from '@/views/ProjectView.vue'
 
 const workbenchStore = useWorkbenchStore()
-const themeStore = useThemeStore()
+const { appClass } = useTheme()
 
 const activeTab = computed({
   get: () => workbenchStore.activeTab,
@@ -77,39 +77,17 @@ const handleTabEdit = (targetKey: string | MouseEvent | KeyboardEvent, action: '
 </script>
 
 <style lang="less" scoped>
-@import '@/styles/variables.less';
-
 .workbench-container {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--bg-secondary);
   transition: background-color 0.3s;
 }
 
-.workbench-container:not(.dark-mode) {
-  .tabs-bar {
-    background: #fff;
-    border-bottom: 1px solid @border-color-light;
-  }
-  
-  .content-area {
-    background: #f5f5f5;
-  }
-}
-
-.workbench-container.dark-mode {
-  .tabs-bar {
-    background: #1f1f1f;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  
-  .content-area {
-    background: #141414;
-  }
-}
-
 .tabs-bar {
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.06));
   transition: background-color 0.3s, border-color 0.3s;
 
   :deep(.ant-tabs) {
@@ -123,6 +101,7 @@ const handleTabEdit = (targetKey: string | MouseEvent | KeyboardEvent, action: '
 .content-area {
   flex: 1;
   overflow: hidden;
+  background: var(--bg-primary);
   transition: background-color 0.3s;
 }
 

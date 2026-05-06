@@ -131,7 +131,6 @@ export type SessionKey = `${string}:${string}`
 
 export interface SessionSnapshot {
   messages: AIChatMessage[]
-  inputText: string
 }
 
 export interface AIChatContextConfig {

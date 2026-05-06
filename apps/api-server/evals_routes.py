@@ -52,8 +52,11 @@ async def import_dataset(file: UploadFile = FastAPIFile(...)):
         payload = json.loads(content)
     except json.JSONDecodeError as exc:
         raise HTTPException(status_code=400, detail=f"JSON 解析失败: {exc}")
-    dataset = manager.import_bundle(payload, source_file=file.filename)
-    return dataset
+    try:
+        dataset = manager.import_bundle(payload, source_file=file.filename)
+        return dataset
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=f"题集格式错误: {exc}")
 
 
 @evals_router.get("/datasets/{dataset_id}")
@@ -72,6 +75,17 @@ async def delete_dataset(dataset_id: str):
     if not success:
         raise HTTPException(status_code=404, detail="测试集不存在")
     return {"status": "deleted"}
+
+
+@evals_router.patch("/datasets/{dataset_id}")
+async def update_dataset(dataset_id: str, body: Dict[str, Any] = None):
+    """更新测试集元信息（如标题）。"""
+    if not body:
+        raise HTTPException(status_code=400, detail="无更新内容")
+    dataset = manager.update_dataset(dataset_id, body)
+    if not dataset:
+        raise HTTPException(status_code=404, detail="测试集不存在")
+    return dataset
 
 
 @evals_router.get("/datasets/{dataset_id}/questions")

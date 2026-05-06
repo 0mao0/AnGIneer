@@ -200,7 +200,7 @@ onUnmounted(() => {
 
   &:hover,
   &.resizing {
-    background: #1890ff;
+    background: var(--primary-color);
   }
 
   &::before {

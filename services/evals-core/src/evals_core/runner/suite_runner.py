@@ -10,6 +10,8 @@ from evals_core.runner.text2sql_eval import Text2SqlEvaluator
 from evals_core.runner.sop_eval import SopEvaluator
 from evals_core.storage import result_store
 
+PASSED_THRESHOLD = 0.8
+
 
 def _build_evaluators() -> Dict[str, Any]:
     """构建评测器映射。"""
@@ -21,61 +23,84 @@ def _build_evaluators() -> Dict[str, Any]:
     return evaluators
 
 
-def _average_scores(*values: Any) -> float:
-    """计算多个分项分数的简单平均值。"""
-    numeric_values = [float(v) for v in values if isinstance(v, (int, float))]
-    if not numeric_values:
-        return 0.0
-    return round(sum(numeric_values) / len(numeric_values), 4)
-
-
-def _determine_evaluator_name(question: Dict[str, Any]) -> str:
-    """根据题目类型确定使用的评测器。"""
+def _determine_evaluator_names(question: Dict[str, Any]) -> List[str]:
+    """根据题目类型确定使用的评测器列表（可同时跑多个）。"""
     task_type = str(question.get("task_type") or "").strip()
     if task_type == "analytic_sql":
-        return "text2sql"
+        return ["text2sql"]
     retrieval_gold = question.get("retrieval_gold")
     answer_gold = question.get("answer_gold")
-    if answer_gold:
-        return "answer"
+    names = []
     if retrieval_gold:
-        return "retrieval"
-    return "answer"
+        names.append("retrieval")
+    if answer_gold:
+        names.append("answer")
+    if not names:
+        names.append("answer")
+    return names
 
 
 def _run_single_question(
     question: Dict[str, Any],
-    evaluator_name: str,
+    evaluator_names: List[str],
     evaluators: Dict[str, Any],
 ) -> Dict[str, Any]:
-    """执行单题评测。"""
-    evaluator = evaluators.get(evaluator_name)
-    if not evaluator:
-        return {"status": "error", "error": f"评测器 {evaluator_name} 未注册", "scores": {}}
-    gold_data = {}
-    if evaluator_name == "retrieval":
-        gold_data = question.get("retrieval_gold") or {}
-    elif evaluator_name == "answer":
-        gold_data = question.get("answer_gold") or {}
-    elif evaluator_name == "text2sql":
-        gold_data = question.get("sql_gold") or {}
-    elif evaluator_name == "sop":
-        gold_data = question.get("sop_gold") or {}
+    """执行单题评测，支持多评测器。"""
+    all_scores: Dict[str, Any] = {}
+    all_predictions: Dict[str, Any] = {}
+    last_prediction: Dict[str, Any] = {}
+    primary_evaluator_name = evaluator_names[0] if evaluator_names else "answer"
+    primary_evaluator = evaluators.get(primary_evaluator_name)
+    if not primary_evaluator:
+        return {"status": "error", "error": f"评测器 {primary_evaluator_name} 未注册", "scores": {}}
     start_time = time.time()
     try:
-        prediction = evaluator.run_prediction(question)
-        scores = evaluator.evaluate(question, gold_data, prediction)
-        latency_ms = int((time.time() - start_time) * 1000)
-        status = "passed" if scores.get("score", 0) >= 0.5 else "failed"
-        return {
-            "status": status,
-            "prediction": prediction,
-            "scores": scores,
-            "latency_ms": latency_ms,
-        }
+        last_prediction = primary_evaluator.run_prediction(question)
+        if "error" in last_prediction:
+            latency_ms = int((time.time() - start_time) * 1000)
+            return {"status": "error", "error": last_prediction["error"], "scores": {}, "latency_ms": latency_ms}
     except Exception as exc:
         latency_ms = int((time.time() - start_time) * 1000)
         return {"status": "error", "error": str(exc), "scores": {}, "latency_ms": latency_ms}
+    for ev_name in evaluator_names:
+        evaluator = evaluators.get(ev_name)
+        if not evaluator:
+            continue
+        gold_data = {}
+        if ev_name == "retrieval":
+            gold_data = question.get("retrieval_gold") or {}
+        elif ev_name == "answer":
+            gold_data = question.get("answer_gold") or {}
+        elif ev_name == "text2sql":
+            gold_data = question.get("sql_gold") or {}
+        elif ev_name == "sop":
+            gold_data = question.get("sop_gold") or {}
+        prediction = last_prediction
+        if ev_name != primary_evaluator_name:
+            try:
+                prediction = evaluator.run_prediction(question)
+            except Exception:
+                prediction = last_prediction
+        scores = evaluator.evaluate(question, gold_data, prediction)
+        all_scores[ev_name] = scores
+        all_predictions[ev_name] = prediction
+    primary_scores = all_scores.get(primary_evaluator_name, {})
+    primary_score = primary_scores.get("score")
+    if primary_score is None:
+        status = "skipped"
+    elif primary_score >= PASSED_THRESHOLD:
+        status = "passed"
+    else:
+        status = "failed"
+    latency_ms = int((time.time() - start_time) * 1000)
+    return {
+        "status": status,
+        "prediction": last_prediction,
+        "all_predictions": all_predictions,
+        "scores": primary_scores,
+        "all_scores": all_scores,
+        "latency_ms": latency_ms,
+    }
 
 
 def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -84,13 +109,25 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         return {"overall_score": 0.0}
     total = len(details)
     passed = sum(1 for d in details if d.get("status") == "passed")
-    overall_score = round(passed / total, 4) if total else 0.0
-    retrieval_scores = [d.get("scores", {}).get("hit@5", None) for d in details
-                        if d.get("scores", {}).get("evaluated") and d.get("scores", {}).get("hit@5") is not None]
-    answer_scores = [d.get("scores", {}).get("score", None) for d in details
-                     if d.get("scores", {}).get("evaluated") and d.get("scores", {}).get("correctness_checked")]
-    sql_scores = [d.get("scores", {}).get("score", None) for d in details
-                  if d.get("scores", {}).get("evaluated") and d.get("scores", {}).get("execution_success") is not None]
+    skipped = sum(1 for d in details if d.get("status") == "skipped")
+    failed = sum(1 for d in details if d.get("status") == "failed")
+    errored = sum(1 for d in details if d.get("status") == "error")
+    evaluated_total = total - skipped
+    overall_score = round(passed / evaluated_total, 4) if evaluated_total else 0.0
+    retrieval_scores = []
+    answer_scores = []
+    sql_scores = []
+    for d in details:
+        all_s = d.get("all_scores", {})
+        for ev_name, s in all_s.items():
+            if not s.get("evaluated"):
+                continue
+            if ev_name == "retrieval" and s.get("hit@5") is not None:
+                retrieval_scores.append(s["hit@5"])
+            elif ev_name == "answer" and s.get("correctness_checked"):
+                answer_scores.append(s.get("correctness_score", s.get("score", 0)))
+            elif ev_name == "text2sql" and s.get("execution_success") is not None:
+                sql_scores.append(s.get("score", 0))
     retrieval_avg = round(sum(retrieval_scores) / len(retrieval_scores), 4) if retrieval_scores else None
     answer_avg = round(sum(answer_scores) / len(answer_scores), 4) if answer_scores else None
     sql_avg = round(sum(sql_scores) / len(sql_scores), 4) if sql_scores else None
@@ -106,6 +143,9 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         "overall_score": overall_score,
         "total": total,
         "passed": passed,
+        "failed": failed,
+        "skipped": skipped,
+        "errored": errored,
         "retrieval_score": retrieval_avg,
         "answer_score": answer_avg,
         "sql_score": sql_avg,
@@ -119,17 +159,19 @@ def _run_suite_thread(run_id: str, dataset_id: str, questions: List[Dict[str, An
     total = len(questions)
     for idx, question in enumerate(questions):
         question_id = str(question.get("question_id") or "")
-        evaluator_name = _determine_evaluator_name(question)
+        evaluator_names = _determine_evaluator_names(question)
         result_store.insert_run_detail({
             "run_id": run_id,
             "question_id": question_id,
             "status": "running",
         })
-        result = _run_single_question(question, evaluator_name, evaluators)
+        result = _run_single_question(question, evaluator_names, evaluators)
         result_store.update_run_detail(run_id, question_id, {
             "status": result.get("status", "error"),
             "prediction": result.get("prediction"),
             "scores": result.get("scores"),
+            "all_scores": result.get("all_scores"),
+            "all_predictions": result.get("all_predictions"),
             "error": result.get("error"),
             "latency_ms": result.get("latency_ms"),
         })

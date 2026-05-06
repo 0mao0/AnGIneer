@@ -2,19 +2,20 @@
   "dataset": {
     "dataset_id": "eval_2",
     "title": "eval_2(2020港航）",
+    "category": "knowledge",
     "description": "2020年注册土木工程师（港口与航道工程）专业案例上、下真题题库，包含标准答案与思考过程。",
-    "schema_version": "eval.bundle.v1",
+    "schema_version": "eval.bundle.v2",
     "version": "1.0",
-    "library_id": "default",
-    "source_file": "2020专业案例上+下.csv"
+    "library_id": "default"
   },
   "items": [
     {
       "question_id": "eval2_2020_up_001",
       "question": "某海港在部分掩护水域拟建100000 吨级矿石码头,采用东西向布置?码头结构为沉箱结构型式?设计低水位为0.5m,极端低水位为-1.35m,波浪为ENE 向,允许停泊波高 H4% 为 1.5m,平均周期6s,底质为含砂块状土,备淤富裕深度取0.4m?计算该码头前沿底高程应为:(取小数点后1 位)(A)-14.9m(B)-15.0m(C)-15.4m(D)-15.7m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -23,15 +24,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "1",
-      "thought_process": "据《海港总体设计规范》(JTS 165-2013)第A.0.1条:100000吨级矿石码头,查表A.0.1-2得 T=14.5m。据第5.4.27条和第5.4.12.1款:顺浪,K1=0.3;沉箱结构型式,查表5.4.12-1,得 Z1=0.60m;H4%=1.5m;式(5.4.12-3)和式(5.4.12-2):部分掩护情况,Z2=0.3×1.5=0.45m>max(0.3×1.5-0.60,0)=0m,Z2取为(0~0.45)m。Z3=0.15m,Z4=0.4m:式(5.4.12-1):D=T+Z1+Z2+Z3+Z4=14.5+0.60+(0~0.45)+0.15+0.4=(15.65~16.1)m。据第5.4.13条和第5.4.11条:码头前沿底高程=0.5-(15.65~16.1)=(-15.15~-15.6)m。",
       "answer": {
         "gold_answer": "D",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -44,15 +38,20 @@
               "D"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_002",
       "question": "某海港拟建煤炭出口码头,设计吞吐量为900 万t?其中由铁路集港占总量的50%,调车机车轴重为15t,站线轨道采用50kg/m 次重型钢轨?下列关于该铁路调车线铺设混凝土轨枕数量的取值,符合规范规定的是:(A)1360 根/km(B)1440 根/km(C)1520 根/km(D)1600 根/km",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -61,15 +60,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "2",
-      "thought_process": "据《海港总体设计规范》(JTS 165-2013)第8.2.1条:煤炭出口码头,设计吞吐量为900万t,重车方向年货运量 Q=900×50%=450 万t=4.5×10^6t,查表8.2.1得铁路等级为Ⅳ。据第8.2.13条:混凝土轨枕,调车机车轴重为15t,查表8.2.13-3得1360根/km。",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -82,15 +74,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_003",
       "question": "某海港拟建250000 吨级散货码头,船舶满载进港,采用拖轮协助作业?按载重吨估算的250000 吨级散货船最大排水量应为:(A)275000t(B)300000t(C)335000t(D)350000t",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -99,15 +96,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "3",
-      "thought_process": "据《海港总体设计规范》(JTS 165-2013)第A.0.4条:250000吨级散货船,查表A.0.4-4得250000吨级散货船最大排水量=291000t;B选项符合规范规定。",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -120,15 +110,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_004",
       "question": "某海港直墙式码头,受顺浪2 年一遇波高 H4%=3.5m,波长 L=143m,波浪超高 hs=0.09m;10 年一遇波高 H4%=4.5m,波长 L=145m,波浪超高 hs=0.16m;50 年一遇波高 H1%=5.5m,波长 L=150m,波浪超高 hs=0.22m?设计高水位为4.3m,极端高水位为6.1m?码头前沿底高程为-15.0m?按上水标准计算码头前沿顶高程应为:(取小数点后1 位)(A)6.7m(B)7.9m(C)9.0m(D)9.7m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -137,15 +132,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "4",
-      "thought_process": "据《海港总体设计规范》(JTS 165-2013)第5.4.8.1款和第5.4.8.2款:基本标准:DWL=4.3m,Δw=0.16+4.5/2=2.41m>1.0m 式(5.4.8-1):E=DWL+Δw=4.3+2.41=6.71m 复核标准:DWL=6.1m,Δw=0.09+3.5/2=1.84m 式(5.4.8-1):E=DWL+Δw=6.1+1.84=7.94m。上水标准码头前沿顶高程=max(6.71,7.94)=7.94m≈7.9m。",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -158,15 +146,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_005",
       "question": "某综合性海港设有100000 总吨液化天然气船舶港内应急锚地,设计船型尺度为298m×48m×12.3m(总长×型宽×满载吃水)?采用双浮筒系泊,系缆的水平投影长度为35m?该港潮差为5m,设计低水位为0.15m(当地理论最低潮面),波浪富裕深度取0.5m,底质为淤泥土,备淤富裕深度取0.4m?锚地与航道距离较近?下列关于锚地设计参数的取值,不符合规范规定的是何项?并请说明选择依据和理由?(A)锚地设计底高程为-14.0m(B)锚地边线至航道边线的安全距离为200m(C)系泊水域长度为378m,水域宽度为192m(D)锚地连接水域与航道夹角为50°",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -175,15 +168,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "5",
-      "thought_process": "据《液化天然气码头设计规范》(JTS 165-5-2016)第5.7.1条和《海港总体设计规范》(JTS 165-2013)第6.5.11.2款:港内锚地设计水深不宜小于码头前沿设计水深?据(JTS 165-5-2016)第5.4.4条和(JTS 165-2013)第5.4.12.1款:T=12.3m;底质为淤泥土,查表5.4.12-1,得 Z1=0.20m;Z2=0.5m,Z3=0.15m,Z4=0.4m;式(5.4.12-1):D=T+Z1+Z2+Z3+Z4=12.3+0.20+0.5+0.15+0.4=13.55m?据(JTS 165-5-2016)第5.4.3条:锚地设计底高程=0-13.55=-13.55m;A选项符合规范规定?据(JTS 165-2013)第6.5.10条:B=48m;港内应急锚地,双浮筒系泊,锚地边线至航道边线的安全距离≥2B=2×48=96m;B选项符合规范规定?据(JTS 165-2013)第6.5.6.3款:r=5×1=5m,l=35m;式(6.5.6-4):S=L+2(r+l)=298+2×(5+35)=378m 式(6.5.6-5):a=4B=4×48=192m;C选项符合规范规定?据(JTS 165-2013)第6.5.9条:连接水域与航道夹角宜取45°以下;D选项不符合规范规定?",
       "answer": {
         "gold_answer": "D",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -196,15 +182,20 @@
               "D"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_006",
       "question": "某海港100000 吨级单线航道轴线方位为270°~90°,通航船舶为散货船,航速为8kn?当地横风小于等于7 级,水流流速为0.5m/s,流向N60°?计算该航道的通航宽度应为:(取整数)(A)188m(B)199m(C)210m(D)223m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -213,15 +204,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "6",
-      "thought_process": "据《海港总体设计规范》(JTS 165-2013)第A.0.1条:100000吨级,散货船,查表A.0.1-2得 L=250m,B=43.0m 据第6.4.2条:V=0.5×sin(90°-60°)=0.25m/s,横风小于等于7级,查表6.4.2-1得 n=1.75,γ=5°;式(6.4.2-3):A=n(L sinγ+B)=1.75×(250×sin5°+43.0)≈113.4m 散货船,航速8kn,查表6.4.2-2得 c=B=43.0m:式(6.4.2-1):W=A+2c=113.4+2×43.0=199.4m≈199m。",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -234,15 +218,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_007",
       "question": "某海港非限制性航道方位为255°~75°,通航船舶为150000 吨级油船,满载吃水为17.1m,船舶航速为6kn,航道底质为坚硬粘性土,当地常?强浪向为SE,通航波高 H4%=2.0m,平均周期为9s,备淤深度取0.4m?计算该航道通航水深应为:(取小数点后1 位)(A)19.0m(B)19.3m(C)19.9m(D)20.3m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -251,15 +240,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "7",
-      "thought_process": "据《海港总体设计规范》(JTS 165-2013)第6.4.6.1款:T=17.1m;150000吨级,航速6kn,查图6.4.6得 Z0=0.40m:坚硬粘性土,150000吨级,查表6.4.6-1得 Z1=0.70m;航道方位255°~75°,浪向SE,得Ψ=60°;T=9s,查表6.4.6-2内插得 Z2/H4%=(0.48+1.02)/2=0.75;H4%=2.0m,Z2=0.75×2.0=1.5m:Z3=0.15m 式(6.4.6-1):D0=T+Z0+Z1+Z2+Z3=17.1+0.40+0.70+1.5+0.15=19.85m≈19.9m。",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -272,15 +254,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_008",
       "question": "某海港拟在冲淤平衡状态下的粉砂质浅滩开挖进港航道,轴线方位为260°~80°,航道宽度150m,实测大风天底部高浓度含沙水体厚1.2m,平均含沙量5kg/m3,平均流速0.4m/s,水流流向为N110°,淤积物干容重920kg/m3,大风作用2 天?计算底部高浓度含沙水体输移引起的航道底面淤积强度是:(取小数点后1 位)(A)1.5m(B)2.0m(C)2.5m(D)3.0m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -289,15 +276,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "8",
-      "thought_process": "据《港口与航道水文规范》(JTS 145-2015)第W.0.3条:ud=0.4m/s,hs=1.2m,Sd=5kg/m3,t2=2d=2×24×60×60=172800s,γ01=920kg/m3,b=150m,θ=30° 式(W.0.3-2):P=Pd=(ud×hs×Sd×t2×sinθ)/(γ01×b)=(0.4×1.2×5×172800×sin30°)/(920×150)≈1.5m",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -310,15 +290,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_012",
       "question": "某平原河流的渠化工程枢纽,设计通航船舶吨级为500 吨级,水库总库容为1.2 亿m3,挡水建筑物挡水高度为20m,上?下游水位差为12m,该枢纽永久性主要水工建筑物设计洪水重现期应取下列何项?并说明选择依据和理由?(A)20~10 年(B)50~20 年(C)100~50 年(D)500~100 年",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -327,15 +312,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "12",
-      "thought_process": "据《渠化工程枢纽总体设计规范》(JTS 182-1-2009)第3.2.1条:设计通航船舶吨级500吨级,查表3.2.1确定枢纽工程等别为“三”;水库总库容1.2亿m3,查表3.2.1确定枢纽工程等别为“二”;综合确定枢纽工程等别为“二”。据第3.2.2条:查表3.2.2确定主要建筑物级别“2”。据第3.3.2.1款和第3.3.2.2款:挡水高度20m>15m,上?下游水头差12m>10m,按山区?丘陵区标准确定;查表3.3.2-2确定设计洪水重现期为500~100年。",
       "answer": {
         "gold_answer": "D",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -348,15 +326,20 @@
               "D"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_013",
       "question": "某天然河流渠化工程枢纽下游瞬时最小下泄流量为1200m3/s,相应水位为5.50m,原天然河流设计最低通航水位时的流量为1000m3/s,相应水位为5.10m,船闸门槛设计最小水深为5.60m,枢纽下游因河床变形等引起的水位下降值为2.00m,不考虑其他因素的影响,计算该枢纽船闸门槛顶部高程应为:(取小数点后2 位)(A)-0.50m(B)-1.10m(C)-2.10m(D)-2.50m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -365,15 +348,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "13",
-      "thought_process": "据《内河通航标准》(GB 50139-2014)第6.4.3条和第6.4.1条:1200m3/s>1000m3/s,枢纽通航建筑物下游设计最低通航水位=5.50-2.00=3.50m 据第4.1.4条:门槛顶部高程=3.50-5.60=-2.10m",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -386,15 +362,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_014",
       "question": "某内河航道整治工程,处在顺直河段的某滩丁坝长度为150m,下挑丁坝轴线和流向间的夹角为75°,计算水面下冲刷前拟建丁坝坝头处的水深为5.0m,丁坝头部水流的垂线平均流速为3.20m/s;河床底质为松散粗沙,中值粒径为0.5mm,相应冲刷流速为0.805m/s;丁坝头部向河坡的边坡系数为1.5?计算水面下冲刷坑的最大水深应为:(取小数点后1 位)(A)6.5m(B)7.7m(C)9.6m(D)12.4m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -403,15 +384,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "14",
-      "thought_process": "据《航道工程设计规范》(JTS 181-2016)第A.5.1条:α=75°;式(A.5.1-2):Kα=(α/90)^(1/3)=(75/90)^(1/3)≈0.941 h=5.0m;L=150×sin75°≈144.89m;V=3.20m/s,Vc=0.805m/s;中值粒径为0.5mm,查表A.5.1-1得ω=5.1cm/s;边坡系数为1.5,查表A.5.1-2得 Km=0.55;式(A.5.1-1):hρ=((1.84h)/(0.5L+h)+0.0207×(V-Vc)/ω)×L×Km×Kα=((1.84×5.0)/(0.5×144.89+5.0)+0.0207×(3.20-0.805)/5.1)×144.89×0.55×0.941≈9.6m。",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -424,15 +398,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_015",
       "question": "某顺直河段上的正挑丁坝长度为200m,最大通航流量下的河宽为1500m,相应过水断面面积为6400m2?和丁坝高程齐平的整治水位下的工程前的河宽为800m?工程前的过水断面面积为3200m2,丁坝拦截的过水断面面积为640m2?计算丁坝收缩断面至丁坝的距离应为:(取整数)(A)204m(B)228m(C)304m(D)494m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -441,15 +420,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "15",
-      "thought_process": "据《航道工程设计规范》(JTS 181-2016)第A.4.4条:A=3200m2,A′=640m2;式(A.4.4-2):ΔA=(A-A′)/A=(3200-640)/3200=0.8 查表A.4.4得ψ=0.38;B2=800-200=600m;式(A.4.4-1):Ld=ψB2=0.38×600=228m",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -462,15 +434,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_016",
       "question": "某山区河流急滩采用疏炸方式扩大过水断面,整治后某流量级下的上?下游断面的平均流速分别为3.5m/s 和3.2m/s,整治后该流量级下的上?下游断面过水面积比为0.9,系数κ取5.0,重力加速度取9.81m/s2?计算整治后上?下游断面间的局部水头损失应为:(取小数点后2 位)(A)0.26m(B)0.31m(C)0.45m(D)0.52m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -479,15 +456,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "16",
-      "thought_process": "据《航道工程设计规范》(JTS 181-2016)第A.2.5.2款:κ=5.0 A2′/A1′=0.9;式(A.2.5-1):ζ′=κ(1-A2′/A1′)=5.0×(1-0.9)=0.5 据第A.2.1条:ζ=ζ′=0.5,V1=3.2m/s,g=9.81m/s2:hj=ζ×V12/(2g)=0.5×3.22/(2×9.81)≈0.26m",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -500,15 +470,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_017",
       "question": "某海港航道疏浚工程选用舱容为8000m3 的耙吸挖泥船施工?施工水域无不良水流流态,断面工程量采用断面面积法计算,工程中段计算断面与挖槽边线的交角为70°?计算每边的计算超宽值应为:(取小数点后1 位)(A)4.0m(B)4.5m(C)5.0m(D)5.3m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -517,15 +492,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "17",
-      "thought_process": "据《疏浚与吹填工程设计规范》(JTS 181-5-2012)第7.2.3条:8000m3的耙吸挖泥船,无不良水流流态,查表7.2.3得超宽为5.0m",
       "answer": {
         "gold_answer": "D",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -538,15 +506,20 @@
               "D"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_018",
       "question": "某海港建设航空燃料专用码头一座,其中航空汽油和航空煤油的运量各占总运量的50%,即重量相等?码头库区储罐总容量为40000m3,储存不平衡系数为1.3,油品平均贮存期为8d,航空汽油的密度为0.701t/m3,航空煤油的密度为0.775t/m3?油罐容积利用系数取0.9?计算该码头年货运量应为:(取整数)(A)891868t(B)894115t(C)938942t(D)999519t",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -555,15 +528,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "18",
-      "thought_process": "据《海港总体设计规范》(JTS 165-2013)第7.10.11.11款:E0=40000m3,KBK=1.3,tdc=8d,Tyk=350d,γ汽=0.701t/m3,γ煤=0.775t/m3,ηy=0.9;式(7.10.11-7):E0=(Qh×KBK×tdc)/(Tyk×γ×ηy) 40000=(Qh×50%×1.3×8)/(350×0.701×0.9)+(Qh×50%×1.3×8)/(350×0.775×0.9),解得Qh≈891868t",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -576,15 +542,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_019",
       "question": "某内河港集装箱码头设计船型为5000吨级海船,船舶载箱量为650TEU,码头配备2台装卸集装箱的设备同时作业,设计船时效率为45TEU/h?计算该码头装卸集装箱船设备台时效率最大值应为:(取整数)(A)17TEU/h(B)18TEU/h(C)20TEU/h(D)21TEU/h",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -593,15 +564,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "19",
-      "thought_process": "据《河港工程总体设计规范》(JTJ 212-2006)第4.10.4条:p=45TEU/h,n=2,k1=1.2,k2=0.90;式(4.10.4):p=n×k1×k2×p1;45=2×1.2×0.90×p1,解得p1≈20.8TEU/h,取20TEU/h",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -614,15 +578,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_020",
       "question": "某海港拟建10000 总吨级客船泊位?码头前沿顶高程为6.0m,年平均高潮位为4.0m?设计船型空载吃水为3.0m?码头设上水栓,口径为DN50,上水栓口至码头面垂直距离为30cm,上水栓至客船用衬胶水龙带,长度为50m,上水流量6L/s?计算码头上水栓口所需水头最小值应为:(取整数)(A)23m(B)26m(C)27m(D)29m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -631,15 +600,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "20",
-      "thought_process": "据《海港总体设计规范》(JTS 165-2013)第9.2.10条和第A.0.1条:10000总吨级客船,查表A.0.1-11得H=13.0m;H2=(6.0-30/100)-4.0=1.7m,H3=3.0m;式(9.2.10-2):H1=H-H2-H3=13.0-1.7-3.0=8.3m:衬胶的水龙带,口径为DN50,查表9.2.10得A=0.00677;l=50m,Q=6L/s,h=3m;式(9.2.10-1):H0=1.2AlQ2+h+H1=1.2×0.00677×50×62+3+8.3≈26m。",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -652,15 +614,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_021",
       "question": "某河港扩建工程,需新设一条热力管?下列关于该热力管与其它管线间距的取值,均符合规范规定的是何项?并请说明选择依据和理由?",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -669,15 +636,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "21",
-      "thought_process": "据《河港工程总体设计规范》(JTJ 212-2006)第3.8.8条:查表3.8.8得热力管与明沟沟底最小垂直净距=0.50m。据第3.8.6条:查表3.8.6得热力管与压缩空气管最小水平间距=1.0m;热力管与管径2500mm雨水管水平间距=1.5m;热力管与110kV埋地电缆最小水平间距=1.0×(1+50%)=1.5m。综上所述,D选项符合规范规定。",
       "answer": {
         "gold_answer": "D",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -690,15 +650,20 @@
               "D"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_022",
       "question": "某河港拟建50000 吨级油码头一座,设计船型总长为229m,最大船宽为32.2m?装卸-35 号轻柴油?其消防灭火介质采用低倍数泡沫混合液,泡沫混合液由泡沫原液与水通过比例混合器按3:97 的比例制备,泡沫混合液管道采用内径为207mm 的钢管,总长100 米?计算泡沫原液储备量的最小值应为:(取小数点后2 位)(A)3.78m3(B)4.91m3(C)5.01m3(D)5.12m3",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -707,15 +672,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "22",
-      "thought_process": "据《河港工程总体设计规范》(JTJ 212-2006)第B.0.1.1款:L=229m;式(B.0.1-3):LL=L-(5~10)=229-(5~10)=(219~224)m;B=32.2m;查表B.0.1,得bi=2.0m;式(B.0.1-2):Lp=(0.25bi/B+0.15)LL=(0.25×2.0/32.2+0.15)×(219~224)≈(36.25~37.08)m 据《装卸油品码头防火设计规范》(JTJ 237-99)第3.0.1条:-35号轻柴油,查表3.0.1得危险性分类为乙。据(JTJ 237-99)第6.3.3条和第6.3.4条:灭火泡沫混合液量=511.13×8.0×40=163561.6L=163.5616m3;泡沫混合液总量=163.5616+π×(207/1000)2/4×100≈166.927m3;泡沫原液量=166.927×3/(3+97)≈5.01m3。",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -728,15 +686,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_023",
       "question": "某河港3000 吨级浮码头,设计船型型长为110m,型宽为16.2m?计算码头配置的围油栏长度应为:(取整数)(A)140m(B)150m(C)165m(D)175m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -745,15 +708,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "23",
-      "thought_process": "据《水运工程环境保护设计规范》(JTS 149-2018)第10.3.2.1款:浮码头宜采用岸边诱导式敷设。据第10.3.2.2款:L2=110m,B=16.2m;L3=(0.15~0.25)L2=(0.15~0.25)×110=(16.5~27.5)m 式(10.3.2-2):L=L2+2B+L3=110+2×16.2+(16.5~27.5)≈(159~170)m。",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -766,15 +722,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_024",
       "question": "某沿海港口建设200000 吨级散货码头,需外购两种橡胶护舷并安装,一种为鼓型,H=2000mm,一鼓一板共36 套;另一种为D 型,H=300mm,L=1500mm,共162 套?水上安装鼓型护舷每套基价为5688.50 元,基价中确定的外购鼓型橡胶护舷本体价值为202400 元/套;陆上安装D 型橡胶护舷基价每10 套为1100.12 元,基价中确定的外购D 型橡胶护舷本体价值为3000 元/套?编制概算时,概算扩大系数取1.05?计算该分项工程的施工辅助费应为:(取小数点后2 位)(A)9368.55 元(B)10769.83 元(C)11716.22 元(D)13595.76 元",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -783,15 +744,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "24",
-      "thought_process": "据《沿海港口建设工程概算预算编制规定》(交水发[2004]247号发布)第二章第一节第一条:沿海港口建设200000吨级散货码头,外购橡胶护舷并安装,查表2-1确定为一类一般水工工程。据第二章第一节第三条第(二)款1:水工建筑工程的外购橡胶护舷,按其基价中确定的购置价格的10%计入计费基础。计费基础=36×(5688.50+202400×10%)×1.05+162×(1100.12/10+3000×10%)×1.05=1049840.34元。据第二章第一节第二条第(二)款4:查表2-5确定施工辅助费费率=1.116% 施工辅助费=1049840.34×1.116%≈11716.22元。",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -804,15 +758,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_up_025",
       "question": "某港口项目工程概算为91928 万元?工程概算第一部分费用为75747 万元,其中港务设施投资为75595 万元,其它设施投资为152 万元;第二部分其他费用为7458 万元,其中无形和其他资产为2954 万元;第三部分预留费用为5824 万元;第四部分建设期贷款利息为2899 万元?港务设施折旧年限为50 年,其他设施折旧年限为15 年,不计残值?采用年限平均法计算固定资产折旧,则项目投入运营后前三年的固定资产折旧总额应为:(取小数点后2 位)(A)4566.10 万元(B)5363.44 万元(C)5445.72 万元(D)5524.98 万元",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -821,15 +780,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（上）",
-      "question_no": "25",
-      "thought_process": "据《建设项目经济评价方法与参数》第三版“建设项目经济评价方法”编写说明第2.11条和第2.12条:固定资产原值=75747+(7458-2954)+5824+2899=88974万元。把可形成固定资产原值的其他费用?预留费用和建设期贷款利息按港务设施投资和其它设施投资的比例进行分摊,分别按不同的年限折旧:港务设施年折旧额=(88974×75595/75747)÷50≈1775.909万元;港口营运系统年折旧额=(88974×152/75747)÷15≈11.903万元;项目年折旧额=3×(1775.909+11.903)=5363.436≈5363.44万元。",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -842,15 +794,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_001",
       "question": "某矩形截面非预应力钢筋混凝土梁为一般受弯构件,混凝土强度等级为C40?梁截面有效高度为2.0m,宽度为0.8m;梁仅配置HPB300φ10箍筋,同一截面内箍筋肢数为4肢,沿梁长度方向箍筋间距为250mm?计算梁斜截面的受剪承载力设计值应为:(取整数)(A)1209kN(B)1710kN(C)2002kN(D)2505kN",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -859,15 +816,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "1",
-      "thought_process": "据《水运工程混凝土结构设计规范》(JTS 151-2011)第5.5.3条:h0=2.0m=2000mm;式(5.5.3-2):βh=(800/h0)^(1/4)=(800/2000)^(1/4)≈0.795。据第4.1.4条:C40;查表4.1.4,得ft=1.71N/mm2 据第4.2.3条:箍筋HPB300;查表4.2.3-1,得fyv=270N/mm2 据第5.5.4.3款和第5.5.4.1款:非预应力梁,Vp=0N;b=0.8m=800mm:Asv1=78.5mm2,Asv=nAsv1=4×78.5=314mm2,s=250mm;式(5.5.4-2):Vcs=0.7βhftbh0+fyv×(Asv/s)×h0=0.7×0.795×1.71×800×2000+270×(314/250)×2000=2200824N;γd=1.1;式(5.5.4-1):Vu=(Vcs+Vp)/γd=2200824/1.1≈2000749N≈2001kN。",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -880,15 +830,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_002",
       "question": "某港板桩码头前墙采用Q390钢板桩,厚度为13mm,其截面面积为472.54cm2/m,钢板桩弹性抵抗矩为5788.66cm3/m,作用标准值产生的轴向力为800kN/m?计算钢板桩强度满足规范要求时,作用标准值产生的每米板桩墙最大弯矩应为:(取整数)(A)1059kN·m(B)1231kN·m(C)1403kN·m(D)1682kN·m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -897,15 +852,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "2",
-      "thought_process": "据《水运工程钢结构设计规范》(JTS 152-2012)第3.2.8条:Q390钢板桩,厚度为13mm;查表3.2.8-1得f=350N/mm2 据《码头结构设计规范》(JTS 167-2018)第6.4.4条:γGQ=1.35,N=800kN,A=472.54cm2/m=0.047254m2/m,WZ=5788.66cm3/m=0.00578866m3/m ft=f=350N/mm2 式(6.4.4):(γGQ/1000)×(N/A+Mmax/WZ)≤ft; (1.35/1000)×(800/0.047254+Mmax/0.00578866)≤350,解得Mmax≈1403kN·m",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -918,15 +866,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_003",
       "question": "某海港位于潮流作用较大的区域,一断面为T 型的构件位于设计水位以下?该T 型构件截面翼缘宽1.995m,高2.85m;腹板宽0.5m;构件长6.0m?水流方向垂直于构件长度方向,水流设计流速为1.5m/s,水流力作用点位于构件高度中心,并在设计水位下2.85m,不考虑水深对水流力的影响?计算作用于该构件上的水流力标准值应为:(取小数点后1 位)(A)25.5kN(B)37.2kN(C)41.8kN(D)49.1kN",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -935,15 +888,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "3",
-      "thought_process": "据《港口工程荷载规范》(JTS 144-1-2010)第13.0.3条和第13.0.3.5款:T形梁,B=1.995m,h=2.85m,B/h=1.995/2.85=0.7,查表13.0.3-1得Cw=2.12 据第13.0.3.2款:h=2.85m,d1=2.85m,d1/h=2.85/2.85=1.00;查表13.0.3-3得n1=0.89;Cw1=2.12×0.89=1.8868 据第13.0.1条:V=1.5m/s,ρ=1.025t/m3,A=6.0×2.85=17.1m2:式(13.0.1):Fw=Cw1×(ρ/2)×V2×A=1.8868×(1.025/2)×1.52×17.1≈37.2kN。",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -956,15 +902,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_004",
       "question": "某海港重力式码头,结构安全等级为二级,码头重力墙底面为矩形,底宽为9m,下设抛石基床,抛石基床厚度为2.5m,基槽内经夯实的基床块石的水下重度取11kN/m3?作用在基床顶面的竖向合力标准值为2860kN/m,竖向合力标准值对码头墙底面前趾的稳定力矩为18000kN·m/m,倾覆力标准值对码头墙底面前趾的倾覆力矩为8020kN·m/m?计算抛石基床底面最大应力标准值应为:(取小数点后2 位)(A)369.40kPa(B)385.47kPa(C)402.25kPa(D)414.36kPa",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -973,15 +924,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "4",
-      "thought_process": "据《码头结构设计规范》(JTS 167-2018)第7.3.9条:MR=18000kN·m/m,MO=8020kN·m/m,VK=2860kN/m,B=9m:式(7.3.9-4):ξ=(MR-MO)/VK=(18000-8020)/2860≈3.490m>B/3=9/3=3m;式(7.3.9-3):e=B/2-ξ=9/2-3.490=1.01m;式(7.3.9-1):σmax=VK/B×(1+6e/B)=2860/9×(1+6×1.01/9)≈531.748kPa。据第7.3.12条:γ=11kN/m3,B1=B=9m,d1=2.5m;式(7.3.12-1):σmax′=(B1×σmax)/(B1+2d1)+γd1=(9×531.748)/(9+2×2.5)+11×2.5≈369.34kPa。",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -994,15 +938,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_005",
       "question": "某海港岸壁式重力式码头结构安全等级为二级?设计低水位时,墙后永久作用总主动土压力水平分力标准值为480kN/m,可变作用总主动土压力水平分力标准值为160kN/m;波峰作用时,水平波浪力标准值为310kN/m;波谷作用时,水平波浪力标准值为240kN/m;墙后剩余水压力标准值为120kN/m?当波浪力为主导可变作用时,计算该持久组合下,沿墙底面的抗滑稳定性的作用组合效应设计值应为:(取整数)(A)1010kN/m(B)1115kN/m(C)1237kN/m(D)1310kN",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1011,15 +960,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "5",
-      "thought_process": "据《码头结构设计规范》(JTS 167-2018)第7.3.2条和第3.2.6.1款:γE=1.35,γpw=1.05;持久组合设计低水位,γP=1.30,γE=1.35,Ψ=0.7;EH=480kN/m,PW=120kN/m,PB=240kN/m,EqH=160kN/m;式(7.3.2-3):作用组合效应设计值=1.35×480+1.05×120+1.30×240+0.7×1.35×160≈1237kN/m",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1032,15 +974,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_006",
       "question": "某高桩码头面板按单向板设计?板宽为8.5m,板搁置在两纵梁上,另两边自由,板的弯矩计算跨度为3.2m?一集中荷载作用在板正中心位置?其传递宽度分别为0.10m 和0.15m,板厚为0.40m?计算垂直板跨方向的弯矩计算宽度应为:(取小数点后2 位)(A)2.96m(B)3.20m(C)4.25m(D)8.50m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1049,15 +996,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "6",
-      "thought_process": "据《码头结构设计规范》(JTS 167-2018)第5.2.14.2款:B=8.5m,l0=3.2m;B/l0=8.5/3.2≈2.66>2.5,取2.5;式(5.2.14-3):K=(B/l0)/(1.0+0.9B/l0)=2.5/(1.0+0.9×2.5)≈0.769。x=3.2/2=1.6m,b1=0.10m,h=0.40m;式(5.2.14-2):bc=(Kl0)/(0.8+0.1l0/x)+b1+h=(0.769×3.2)/(0.8+0.1×3.2/1.6)+0.10+0.40≈2.96m<B;0.5bc=0.5×2.96=1.48m<y=8.5/2=4.25m,属于中置荷载。",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1070,15 +1010,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_007",
       "question": "某高桩码头轨道梁采用矩形截面,混凝土强度等级为C45,混凝土弹性模量E=3.35×107kPa。梁高为2.6m,梁宽为0.9m,支撑在桩帽上?轨道梁下排架间距为7.0m?支座总竖向刚性系数为7×106kN/m?轨道梁满足按弹性点支承连续梁计算的条件,以削峰的方法考虑支座宽度的影响?计算桩帽最大宽度应为:(取小数点后2 位)(A)1.54m(B)1.66m(C)1.78m(D)1.92m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1087,15 +1032,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "7",
-      "thought_process": "据《码头结构设计规范》(JTS 167-2018)第5.2.34条:E=3.35×107kPa,I=0.9×2.63/12=1.3182m4,K=7×106kN/m,l=7.0m;式(5.2.34-1):α=6EI/(Kl3)=6×3.35×107×1.3182/(7×106×7.03)≈0.11。根据表5.2.34,内插得β允许的上限值=0.21998;式(5.2.34-2):作为支座的横梁宽度的上限B2=β×l=0.21998×7.0≈1.54m",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1108,15 +1046,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_008",
       "question": "某工程地基土经颗粒分析,d10?d30?d60 分别表示在土的粒径分布曲线上某粒径,小于该粒径的土粒质量占总土粒质量的10%?30%?60%?下列关于应为级配良好的砂土粒径的取值,均符合规范规定的是何项?并请说明选择依据和理由?(取小数点后3 位)A)d10=0.010mm,d30=0.100mm,d60=0.200mm(B)d10=0.020mm,d30=0.150mm,d60=0.250mm(C)d10=0.050mm,d30=0.075mm,d60=0.500mm(D)d10=0.050mm,d30=0.250mm,d60=0.750mm",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1125,15 +1068,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "8",
-      "thought_process": "据《水运工程地基设计规范》(JTS 147-2017)第4.2.14条式(4.2.14-1)和式(4.2.14-2):Cu=d60/d10=0.200/0.010=20>5,Cc=d302/(d10×d60)=0.1002/(0.010×0.200)=5>3;A选项为级配不良好的砂土。Cc=d302/(d10×d60)=0.2502/(0.050×0.750)≈1.67,1<Cc<3;D选项为级配良好的砂土。Cu=d60/d10=0.750/0.050=15>5 Cc=d302/(d10×d60)=0.0752/(0.050×0.500)=0.225<1;C选项为级配不良好的砂土。Cu=d60/d10=0.500/0.050=10>5 Cc=d302/(d10×d60)=0.1502/(0.020×0.250)=4.5>3;B选项为级配不良好的砂土。Cu=d60/d10=0.250/0.020=12.5>5,",
       "answer": {
         "gold_answer": "D",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1146,15 +1082,20 @@
               "D"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_009",
       "question": "某港高桩码头桩基采用600mm×600mm 的预应力方桩,混凝土强度等级为C50,该桩承受水平力作用,桩顶可自由转动?桩侧地基土的水平抗力系数随深度增长的比例系数为40000kN/m4,桩的截面惯性矩为0.0108m4,不考虑群桩效应,计算满足弹性长桩条件时,桩的最小入土深度应为:(取小数点后2 位)(A)4.65m(B)5.84m(C)7.47m(D)8.93m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1163,15 +1104,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "9",
-      "thought_process": "据《水运工程混凝土结构设计规范》(JTS 151-2011)第4.1.5条:查表4.1.5得Ec=3.45×104N/mm2 据《码头结构设计规范》(JTS 167-2018)第B.3.2.1款:d=600mm=0.6m<1.0m;不考虑群桩效应,k=1.0;kr=1.0;式(B.3.2-4)bb0=kkf(1.5d+0.5)=1.0×1.0×(1.5×0.6+0.5)=1.4m Ep=Ec=3.45×104N/mm2=3.45×107kN/m2,Ip=0.0108m4,m=40000kN/m4:式(B.3.2-3):T=?√(EpIp/(mb0))=?√((3.45×107×0.0108)/(40000×1.4))≈1.461m。据第4.2.20条:L≥4T=4×1.461≈5.84m",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1184,15 +1118,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_010",
       "question": "下列关于港口码头工程抗震设计中对场地评价和地震作用一般规定的叙述,不符合规范规定的是何项?并请说明选择依据和理由?(A)对存在液化砂土层?粉土层的地基,应探明各液化土层的深度和厚度(B)当抗震设防烈度为6 度时,可不进行液化判别,但对液化敏感的码头结构,可按7 度考虑(C)重力式码头,当抗震设防烈度为8 度时,抗震验算计入的水平向地震惯性力应乘以0.5 的组合系数(D)计算地震惯性力时,重力应按空气中重力计算,水下土体应按饱和重度计算",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1201,15 +1140,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "10",
-      "thought_process": "据《水运工程抗震设计规范》(JTS 146-2012)第4.2.6条:A选项符合规范规定。据第4.2.1条:B选项符合规范规定。据第5.1.4 条:C 选项“水平向地震惯性力应乘以0.5 的组合系数”不符合规范规定;符合规范规定的叙述是“竖向地震惯性力系数,取水平向地震惯性力系数的2/3,并乘以0.5的组合系数” 据第5.1.10条:D选项符合规范规定。",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1222,15 +1154,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_011",
       "question": "某海港石料来源丰富,堤前水深较大,拟建人工块体护面斜坡堤?堤前海底高程为-24.00m;设计高水位2.00m 时,设计波高为11.00m,平均波高为7.00m,平均周期为9.0s?下列关于该深水斜坡堤设计的叙述,符合规范规定的是何项?并请说明选择依据和理由?(A)护面块体稳定重量计算时,设计波高的累积频率取13%(B)在静水面上?下半个波高范围内设戗台,戗台宽度取2.0 倍设计波高,风直接作用下不规则波的爬高计算值可相应减小12%(C)为减少波浪爬高设置肩台,肩台位置拟定在设计高水位以下7.00m 处,肩台宽度取2.0 倍设计波高(D)堤外侧采用扭王字块体护面,块体数量超过16 块,在外坡适当位置设置肩台",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1239,15 +1176,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "11",
-      "thought_process": "据《防波堤与护岸设计规范》(JTS 154-2018)第4.1.2条:A 选项“13%”不符合规范规定;符合规范规定的叙述是“13%或5%”。据《港口与航道水文规范》(JTS 145-2015)第10.2.3.2款:B选项符合规范规定。据(JTS 154-2018)第4.2.5.3款:C 选项“7.00m 处”不符合规范规定;符合规范规定的叙述是“0.5 倍设计波高范围以内” 据(JTS 154-2018)第4.2.1.6款:D 选项“16 块”不符合规范规定;符合规范规定的叙述是“18 块”。",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1260,15 +1190,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_012",
       "question": "某港拟建允许越浪的防波堤?根据现场条件,设计选用四脚空心方块护面的斜坡堤和削角型直立堤作比较?极端高水位5.30m 时,H1%=5.10m,H13%=4.00m;设计高水位4.00m时,H1%=4.00m,H13%=3.00m?下列关于两种堤型堤顶高程最小值的取值,均符合规范规定的是何项?并请说明选择依据和理由?(取小数点2 位)",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1277,15 +1212,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "12",
-      "thought_process": "据《防波堤与护岸设计规范》(JTS 154-2018)第4.1.2条和第4.2.2.1款:确定断面主尺度,设计波高累积频率F=13%;斜坡堤堤顶高程最小值=4.00+0.7×3.00=6.10。据第5.1.4条和第5.2.2.1款:确定断面主尺度,设计波高累积频率F=1%;斜坡堤堤顶高程最小值=4.00+0.7×4.00=6.80。",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1298,15 +1226,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_013",
       "question": "某海港沉箱式直立堤,计算水位为2.50m 时,H1%=4.20m,T=6.8s,L=56.59m;水的重度γ=10.25kN/m3,重力加速度g=9.81m/s2?计算该水位波峰作用下直墙底-7.00m 处的波浪压力强度应为:(取小数点后2 位)(A)26.74kPa(B)28.19kPa(C)31.23kPa(D)34.65kPa",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1315,15 +1248,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "13",
-      "thought_process": "据《港口与航道水文规范》(JTS 145-2015)第6.2.3条和第10.1.1条:直墙式建筑物,强度和稳定性,查表6.2.3得设计波高累积频率F=1% T=6.8s;d=2.50+7.00=9.50m;H=H1%=4.20m;T√(g/d)=6.8×√(9.81/9.50)≈6.910<8,d>2×4.20=8.40m,立波。H/L=4.20/56.59≈0.074>1/30,d/L=9.50/56.59≈0.168。据第10.1.3.1款:γ=10.25kN/m3,L=56.59m;式(10.1.3-2):Pb=Pd=γH/ch(2πd/L)=10.25×4.20/ch(2π×9.50/56.59)≈26.74kPa。",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1336,15 +1262,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_014",
       "question": "某直立式护岸,安全等级为二级,设计高水位工况时,作用于抛石基床顶面以上竖向合力标准值为651.65kN/m,作用对前趾的倾覆力矩为1156.70kN·m/m,稳定力矩为2199.34kN·m/m?计算基床顶面最大应力标准值应为:(取小数点后2 位)(A)244.37kPa(B)271.52kPa(C)298.67kPa(D)311.83kPa",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1353,15 +1284,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "14",
-      "thought_process": "据《防波堤与护岸设计规范》(JTS 154-2018)第8.3.7条和《码头结构设计规范》(JTS 167-2018)第7.3.9条:MR=2199.34kN·m/m,MO=1156.70kN·m/m,VK=651.65kN/m,B=4.50+0.30=4.80m 式(7.3.9-4):ξ=(MR-MO)/VK=(2199.34-1156.70)/651.65=1.6m=B/3=4.80/3=1.6m;式(7.3.9-1):σmax=VK/B×(1+6e/B)=651.65/4.80×(1+6×0.8/4.80)≈271.52kPa。",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1374,15 +1298,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_015",
       "question": "某方形沉箱墩,断面尺度为10.0m×10.0m,计算水位对应的设计波高H1%=3.5m,波长L=48.0m;水的重度γ=10.25kN/m3?计算波浪正向作用于墩底-6.50m 处的波浪力应为:(取小数点后2 位)(A)250.01kN/m(B)377.91kN/m(C)501.81kN/m(D)681.23kN/m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1391,15 +1320,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "15",
-      "thought_process": "据《港口与航道水文规范》(JTS 145-2015)第6.2.3条:直墙式建筑物,强度和稳定性,查表6.2.3得设计波高累积频率F=1% b=10.0m,L=48.0m;b/L=10.0/48.0≈0.208 d1=0.00-(-6.50)=6.50m,d=0.00-(-10.0)=10.0m;d1/d=6.50/10.0=0.65;式(R.0.1-3):pd1=γHL[0.68b/d1×(π/8 th(2πd/L))-0.388(b/L)^(2/3)(1+H/d1)] =10.25×3.5×48.0×[0.68×10.0/6.50×(π/8 th(2π×10.0/48.0))-0.388×(10.0/48.0)^(2/3)×(1+3.5/6.50)]≈250.01kN/m。",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1412,15 +1334,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_016",
       "question": "某干船坞采用分离式排水减压式坞室?为满足渗流稳定要求,坞墙后设置防渗铺盖,墙下设单排防渗板桩,图中K 点水头为0,地基土的渗径系数为3?下列关于渗径起点至终点水位差Hs 和换算渗径总长度L 的取值,均符合规范规定的是何项?",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1429,15 +1356,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "16",
-      "thought_process": "据《船厂水工工程设计规范》(JTS 190-2018)第5.6.4.4款:渗径起点至终点水位差Hs=5.5-(-2.0)=7.5m",
       "answer": {
         "gold_answer": "D",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1450,15 +1370,20 @@
               "D"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_017",
       "question": "某半坞式斜船台滑道,设计代表船舶载重量为100000t,船舶总长L=250m,船舶型宽B=43m,采用油脂滑道,滑道顶端至斜船台顶端距离l1=3.0m?计算该斜船台有效长度?宽度和滑道长度最小值应为:(取整数)",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1467,15 +1392,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "17",
-      "thought_process": "据《船厂水工工程设计规范》(JTS 190-2018)第8.3.2.1款:L=250m;半坞式斜船台,10000t,查表8.3.2-1得 l=25m:式(8.3.2-1):Lb=L+l=250+25=275m 据第8.3.2.2款:B=43m,b=4m;式(8.3.2-2):Bb=B+b=43+4=47m 据第8.3.2.4款:l1=3.0m;油脂滑道,l2=2m;式(8.3.2-4):Ls=Lb-l1-l2=275-3.0-2=270m。",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1488,15 +1406,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_018",
       "question": "某排水减压式干船坞水工建筑物结构安全等级为二级,采用分离式坞室,在持久状况设计低水位情况下,每延米重力式坞墙墙后总主动土压力水平分力标准值?总水压力水平分力标准值对墙底前趾的倾覆力矩分别为ME=640kN·m?Mw=460kN·m,坞墙自重及后趾板以上土重力标准值对前趾的稳定力矩为MG=1950kN·m?F 位置处浮托力强度为5kN/m2?墙底扬压力如图所示,计算沿坞墙底面的抗倾稳定的抗力设计值,并验证坞墙的抗倾稳定性是否满足规范要求?(取小数点后1 位)(A)1479.2kN·m/m,不满足(B)1506.0kN·m/m,满足(C)1721.3kN·m/m,满足(D)1768.2kN·m/m,满足",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1505,15 +1428,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "18",
-      "thought_process": "据《船厂水工工程设计规范》(JTS 190-2018)第5.5.2.1款和第3.2.6.1款:γR=1.0,γd=1.3,MG=1950kN·m,m=0.3,Mp=0kN·m;MU=(5×3.00×1)×(3.00×0.5)=22.5kN·m 查表3.2.6得γw=1.2;式(5.5.2-3):抗力设计值=(MG-γw×MU+m×Mp)/(γR×γd)=(1950-1.2×22.5+0.3×0)/(1.0×1.3)≈1479.2kN·m/m。据第3.1.7条:安全等级为二级,查表3.1.7得γ0=1.0 据第5.5.2.1款和第3.2.6.1款:ME=640kN·m,Mw=460kN·m,MEq=0kN·m;MS=[(30-5)×3.00×0.5×1]×(3.00×2/3)=75kN·m;查表3.2.6得γE=1.35;Ψ=0.7:式(5.5.2-3):γ0(γEME+γwMw+γwMS+ΨγEMEq)=1.0×(1.35×640+1.2×460+1.2×75+0.7×1.35×0)=1506kN·m/m>1479.2kN·m/m;抗倾稳定性不满足规范要求。",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1526,15 +1442,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_019",
       "question": "某沿海地区拟建一干船坞,根据修船工艺和坞址的水文条件,进出坞时间严格控制在2.0~2.5h,潮位情况见下表?设计船舶进出坞时最大吃水为5.0m,船舶最低点至龙骨墩顶面富裕高度为1.0m,龙骨墩高度为1.6m?下列关于该坞坞室底高程和坞门槛高程的取值,符合规范规定的是何项?并请说明选择依据和理由?(取小数点后1 位)",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1543,15 +1464,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "19",
-      "thought_process": "据《船厂水工工程设计规范》(JTS 190-2018)第4.3.1.5款:取历时2h~3h?年保证率为50%~80%的潮位作为进出坞设计水位;进出坞设计水位取2.20m。据第4.3.1.6款:LWL=2.20m,Tk=5.0m,hb=1.6m,z=1.0m;据第4.3.1.7款:坞门槛高程<-5.4+1.6-0.5=-4.3m。",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1564,15 +1478,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_020",
       "question": "某沿海排水减压分离式干船坞,坞室底板厚1.1m,其材料重度为24.5kN/m3?在营运期间某设计高水位情况下,坞内排水结束时,实测坞室底板下扬压力大小及分布如下图所示?计算此时该底板抗浮稳定性验算时,每延米作用组合的效应设计值与抗力设计值分别为:(取小数点后1位)(A)129.6kN/m,161.7kN/m(B)108.0kN/m,161.7kN/m(C)108.0kN/m,147.0kN/m(D)151.2kN/m,178.3kN/m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1581,15 +1500,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "20",
-      "thought_process": "据《船厂水工工程设计规范》(JTS 190-2018)第3.2.3.1款和第5.5.1.1款:FU=18×6.0×1=108kN;Fs=0kN;排水减压分离式干船坞,设计高水位,查表5.5.1得γF=1.2;式(3.2.3-1)和式(5.5.1):效应设计值=γF(FU+Fs)=1.2×(108+0)=129.6kN γR=1.0;GK=1.1×24.5×6.0×1=161.7kN;FM=0kN;式(3.2.3-1)和式(5.5.1):抗力设计值=1/γR(GK+FM)=161.7kN",
       "answer": {
         "gold_answer": "A",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1602,15 +1514,20 @@
               "A"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_021",
       "question": "某锚拉薄壁式衬砌闸墙,锚筋拉力为100kN,锚孔直径为100mm,砂浆与锚孔岩壁的极限粘结力为300kN/m2,钢筋直径为28mm,锚筋与砂浆的极限粘结力为800kN/m2?下列关于锚孔深度的最小取值,符合规范规定的是何项?并请说明选择依据和理由?(取小数点后2位)(A)2.12m(B)2.54m(C)2.90m(D)3.24m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1619,15 +1536,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "21",
-      "thought_process": "据《船闸水工建筑物设计规范》(JTJ 307-2001)第7.4.8.2款:m=2.0,Zi=100kN=100000N,da=28mm,Ra=800kN/m2=0.8MPa 式(7.4.8-2):La=mZi/(πdaRa)=2.0×100000/(π×28×0.8)≈2.84m?据第7.4.8.3款:m=2.0,Zi=100kN=100000N,dc=100mm,Rc=300kN/m2=0.3MPa;Lc=mZi/(πdcRc)=2.0×100000/(π×100×0.3)≈2.12m?锚孔深度应大于锚筋长度,取2.90m",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1640,15 +1550,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_022",
       "question": "某重力式闸墙,其横断面和扬压力如下图所示?作用于闸墙的每延米全部水平力总和为1000kN/m,全部向下的垂直力总和为4500kN/m,结构与土基的摩擦系数为0.45,水的重力密度为10.00kN/m3?计算沿基底面的抗滑稳定安全系数应为:(取小数点后2位)(A)1.33(B)1.41(C)1.49(D)1.52",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1657,15 +1572,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "22",
-      "thought_process": "据《船闸水工建筑物设计规范》(JTJ 307-2001)第3.2.3条:式(3.2.3-1):Kc=f∑V/∑H=0.45×3310/1000≈1.49",
       "answer": {
         "gold_answer": "C",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1678,15 +1586,20 @@
               "C"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_023",
       "question": "某单线船闸设计最大船舶宽度为18.4m,引航道为反对称型,一侧等候过闸的船舶总宽度为22m?下列关于引航道最小宽度的取值,符合规范规定的是何项?并请说明选择依据和理由?(A)67m(B)68m(C)69m(D)70m",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1695,15 +1608,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "23",
-      "thought_process": "据《船闸总体设计规范》(JTJ 305-2001)第5.5.2.1款:bc=18.4m,Δb1=bc=18.4m,Δb2=0.5bc=9.2m;bc1=22m 式(5.5.2-1):B0≥bc+bc1+Δb1+Δb2=18.4+22+18.4+9.2=68m",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1716,15 +1622,20 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_024",
       "question": "某船闸闸首,建筑物等级为1级?作用于闸首向下的垂直力总和为34000kN,扬压力总和为28000kN?计算该闸首的抗浮稳定安全系数应为:(取小数点后2位)(A)1.12(B)1.15(C)1.18(D)1.21",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1733,15 +1644,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "24",
-      "thought_process": "据《船闸水工建筑物设计规范》(JTJ 307-2001)第3.2.9条:式(3.2.9):Kf=V/U=34000/28000≈1.21",
       "answer": {
         "gold_answer": "D",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1754,15 +1658,20 @@
               "D"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     },
     {
       "question_id": "eval2_2020_down_025",
       "question": "某船闸有帷墙的上闸首,设有格栅式消能室,采用升降式平面闸门?平面闸门宽度为11m,门扇高度为8m?估算该船闸闸门的自重应为:(取小数点后1位)(A)155.6kN(B)170.5kN(C)181.4kN(D)205.3kN",
       "task_type": "exam_case",
+      "intent_level": "L4",
       "library_id": "default",
-      "expected_route": "auto",
+      "doc_ids": [],
       "difficulty": "hard",
       "tags": [
         "2020年",
@@ -1771,15 +1680,8 @@
         "真题",
         "选择题"
       ],
-      "year": "2020年",
-      "exam_name": "注册土木工程师(港口与航道工程)执业资格考试",
-      "exam_type": "专业案例（下）",
-      "question_no": "25",
-      "thought_process": "据《船闸闸阀门设计规范》(JTJ 308-2003)第A.0.1.2款:h=8m,B=11m;式(A.0.1-2):G=0.28×h^0.95×B^1.85=0.28×8^0.95×11^1.85≈170.5kN",
       "answer": {
         "gold_answer": "B",
-        "allow_abstractive": true,
-        "refusal_expected": false,
         "correctness_checks": [
           {
             "type": "contains_any",
@@ -1792,7 +1694,11 @@
               "B"
             ]
           }
-        ]
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
       }
     }
   ]

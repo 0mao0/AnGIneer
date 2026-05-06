@@ -6,7 +6,6 @@
     ok-text="拆分节点"
     cancel-text="取消"
     :width="1040"
-    :dark-mode="darkMode"
     @update:open="emit('update:open', $event)"
     @cancel="emit('cancel')"
     @ok="submitSplit"
@@ -117,12 +116,10 @@ import {
 interface Props {
   open: boolean
   node: DocBlockNode | null
-  darkMode?: boolean
   loading?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  darkMode: false,
   loading: false
 })
 
@@ -197,7 +194,7 @@ const submitSplit = () => {
 .split-modal-title {
   font-size: 15px;
   font-weight: 600;
-  color: var(--dp-title-strong, #0f172a);
+  color: var(--dp-title-strong);
 }
 
 .split-dialog-layout {
@@ -222,8 +219,8 @@ const submitSplit = () => {
 .split-editor-card,
 .split-segment-card {
   border-radius: 12px;
-  border: 1px solid var(--dp-pane-border, #e2e8f0);
-  background: color-mix(in srgb, var(--dp-pane-bg, #ffffff) 95%, #f8fafc 5%);
+  border: 1px solid var(--dp-pane-border);
+  background: var(--dp-surface-bg);
 }
 
 .split-overview-card,
@@ -255,13 +252,13 @@ const submitSplit = () => {
 .split-source-title {
   font-size: 13px;
   font-weight: 600;
-  color: var(--dp-title-strong, #0f172a);
+  color: var(--dp-title-strong);
 }
 
 .split-overview-hint,
 .split-segment-summary {
   margin-top: 2px;
-  color: var(--dp-sub-text, #64748b);
+  color: var(--dp-sub-text);
   font-size: 12px;
   line-height: 1.5;
 }
@@ -285,22 +282,22 @@ const submitSplit = () => {
   min-height: 22px;
   padding: 0 8px;
   border-radius: 999px;
-  border: 1px solid rgba(37, 99, 235, 0.16);
-  background: color-mix(in srgb, #dbeafe 18%, #ffffff);
-  color: #1d4ed8;
+  border: 1px solid var(--dp-badge-border);
+  background: var(--dp-badge-bg);
+  color: var(--dp-badge-text);
   font-size: 12px;
 }
 
 .split-target-text {
   margin-top: 8px;
-  color: var(--dp-title-text, #0f172a);
+  color: var(--dp-title-text);
   font-size: 13px;
   line-height: 1.6;
   word-break: break-word;
 }
 
 .split-source-meta {
-  color: var(--dp-sub-text, #64748b);
+  color: var(--dp-sub-text);
   font-size: 12px;
 }
 
@@ -308,9 +305,9 @@ const submitSplit = () => {
   margin: 8px 0 0;
   padding: 10px;
   border-radius: 10px;
-  border: 1px dashed var(--dp-pane-border, #d8dee9);
-  background: color-mix(in srgb, var(--dp-content-bg, #ffffff) 96%, #eff6ff 4%);
-  color: var(--dp-title-text, #0f172a);
+  border: 1px dashed var(--dp-pane-border);
+  background: var(--dp-surface-bg);
+  color: var(--dp-title-text);
   font-size: 12px;
   line-height: 1.6;
   white-space: pre-wrap;
@@ -331,7 +328,7 @@ const submitSplit = () => {
 .split-segment-title {
   font-size: 12px;
   font-weight: 600;
-  color: var(--dp-title-strong, #0f172a);
+  color: var(--dp-title-strong);
 }
 
 .split-segment-header {
@@ -340,51 +337,6 @@ const submitSplit = () => {
 
 .split-segment-textarea textarea {
   border-radius: 8px;
-}
-
-.index-tree-modal-dark .split-modal-title,
-.index-tree-modal-dark .split-overview-title,
-.index-tree-modal-dark .split-target-title,
-.index-tree-modal-dark .split-source-title,
-.index-tree-modal-dark .split-target-text,
-.index-tree-modal-dark .split-segment-title {
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.index-tree-modal-dark .split-overview-card,
-.index-tree-modal-dark .split-target-card,
-.index-tree-modal-dark .split-source-card,
-.index-tree-modal-dark .split-editor-card,
-.index-tree-modal-dark .split-segment-card {
-  border-color: #242c39;
-  background: #171d27;
-}
-
-.index-tree-modal-dark .split-overview-hint,
-.index-tree-modal-dark .split-segment-summary,
-.index-tree-modal-dark .split-source-meta {
-  color: rgba(255, 255, 255, 0.58);
-}
-
-.index-tree-modal-dark .split-overview-stat,
-.index-tree-modal-dark .split-target-tag,
-.index-tree-modal-dark .split-segment-badge,
-.index-tree-modal-dark .split-segment-meta {
-  border-color: rgba(96, 165, 250, 0.3);
-  background: rgba(37, 99, 235, 0.18);
-  color: #93c5fd;
-}
-
-.index-tree-modal-dark .split-source-text {
-  border-color: #2f3948;
-  background: #111722;
-  color: rgba(255, 255, 255, 0.76);
-}
-
-.index-tree-modal-dark .split-segment-textarea textarea {
-  background: #0f141d;
-  border-color: #242c39;
-  color: rgba(255, 255, 255, 0.82);
 }
 
 @media (max-width: 980px) {

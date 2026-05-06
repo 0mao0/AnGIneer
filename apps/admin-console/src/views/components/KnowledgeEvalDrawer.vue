@@ -955,8 +955,8 @@ defineExpose({
 .knowledge-eval-dataset-card {
   padding: 12px 14px;
   border-radius: 12px;
-  border: 1px solid var(--border-color, #e8e8e8);
-  background: var(--bg-secondary, #fff);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
 }
 
 .dataset-card-top-row {
@@ -981,7 +981,7 @@ defineExpose({
 .dataset-score-value {
   font-size: 28px;
   font-weight: 700;
-  color: #faad14;
+  color: var(--tree-folder-color);
   line-height: 1.2;
 }
 
@@ -1042,8 +1042,8 @@ defineExpose({
 .knowledge-eval-item {
   padding: 14px;
   border-radius: 14px;
-  border: 1px solid var(--border-color, #e8e8e8);
-  background: var(--bg-secondary, #fff);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
 }
 
 .eval-item-header {
@@ -1082,7 +1082,7 @@ defineExpose({
 
 .eval-item-id {
   font-size: 12px;
-  color: #1677ff;
+  color: var(--primary-color);
   font-weight: 600;
   line-height: 1.6;
   flex-shrink: 0;
@@ -1113,27 +1113,27 @@ defineExpose({
 }
 
 .eval-meta-tag.is-difficulty {
-  background: color-mix(in srgb, #faad14 12%, var(--bg-secondary, #fff));
-  border-color: color-mix(in srgb, #faad14 28%, var(--border-color, #e8e8e8));
-  color: color-mix(in srgb, #faad14 80%, var(--text-primary, rgba(0, 0, 0, 0.88)));
+  background: color-mix(in srgb, #faad14 12%, var(--bg-secondary));
+  border-color: color-mix(in srgb, #faad14 28%, var(--border-color));
+  color: color-mix(in srgb, #faad14 80%, var(--text-primary));
 }
 
 .eval-meta-tag.is-doc {
-  background: color-mix(in srgb, #1677ff 10%, var(--bg-secondary, #fff));
-  border-color: color-mix(in srgb, #1677ff 24%, var(--border-color, #e8e8e8));
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  background: color-mix(in srgb, #1677ff 10%, var(--bg-secondary));
+  border-color: color-mix(in srgb, #1677ff 24%, var(--border-color));
+  color: var(--text-primary);
 }
 
 .eval-meta-tag.is-ability {
-  background: color-mix(in srgb, #722ed1 10%, var(--bg-secondary, #fff));
-  border-color: color-mix(in srgb, #722ed1 22%, var(--border-color, #e8e8e8));
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  background: color-mix(in srgb, #722ed1 10%, var(--bg-secondary));
+  border-color: color-mix(in srgb, #722ed1 22%, var(--border-color));
+  color: var(--text-primary);
 }
 
 .eval-section {
   margin-top: 14px;
   padding-top: 14px;
-  border-top: 1px solid color-mix(in srgb, var(--border-color, #e8e8e8) 84%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--border-color) 84%, transparent);
 }
 
 .eval-standard-block + .eval-standard-block {
@@ -1190,23 +1190,23 @@ defineExpose({
 }
 
 .eval-inline-tag.is-chain-label {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
-  background: color-mix(in srgb, var(--border-color, #e8e8e8) 55%, transparent);
+  color: var(--text-secondary);
+  background: color-mix(in srgb, var(--border-color) 55%, transparent);
 }
 
 .eval-inline-tag.is-chain-value {
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
-  background: color-mix(in srgb, #1677ff 10%, var(--bg-secondary, #fff));
-  border: 1px solid color-mix(in srgb, #1677ff 20%, var(--border-color, #e8e8e8));
+  color: var(--text-primary);
+  background: color-mix(in srgb, #1677ff 10%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, #1677ff 20%, var(--border-color));
 }
 
 .eval-inline-arrow {
   font-size: 12px;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
 }
 
 .eval-toggle-text {
-  color: #1890ff;
+  color: var(--primary-color);
   font-size: 12px;
   flex-shrink: 0;
 }
@@ -1224,19 +1224,19 @@ defineExpose({
   gap: 6px;
   padding: 4px 10px;
   border-radius: 999px;
-  background: color-mix(in srgb, #1890ff 12%, var(--bg-secondary, #fff));
-  border: 1px solid color-mix(in srgb, #1890ff 25%, var(--border-color, #e8e8e8));
+  background: color-mix(in srgb, #1890ff 12%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, #1890ff 25%, var(--border-color));
 }
 
 .eval-score-label {
   font-size: 12px;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
 }
 
 .eval-score-value {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-primary);
 }
 
 .eval-thinking,
@@ -1254,16 +1254,16 @@ defineExpose({
 
 .eval-item-error {
   margin-top: 10px;
-  color: #cf1322;
+  color: var(--chat-error-color);
 }
 
 .eval-failed-checks {
   margin-top: 4px;
   padding: 8px 10px;
   border-radius: 6px;
-  background: color-mix(in srgb, #cf1322 8%, var(--bg-secondary, #fff));
-  border: 1px solid color-mix(in srgb, #cf1322 20%, var(--border-color, #e8e8e8));
-  color: #cf1322;
+  background: color-mix(in srgb, var(--chat-error-color) 8%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--chat-error-color) 20%, var(--border-color));
+  color: var(--chat-error-color);
   font-size: 13px;
   line-height: 1.6;
 }
@@ -1277,8 +1277,8 @@ defineExpose({
 .eval-citation-item {
   padding: 10px;
   border-radius: 8px;
-  background: color-mix(in srgb, #1890ff 8%, var(--bg-secondary, #1f1f1f));
-  border: 1px solid color-mix(in srgb, #1890ff 26%, var(--border-color, #303030));
+  background: color-mix(in srgb, #1890ff 8%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, #1890ff 26%, var(--border-color));
 }
 
 .eval-citation-meta {
@@ -1291,15 +1291,15 @@ defineExpose({
 
 .eval-citation-doc {
   font-weight: 600;
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-primary);
 }
 
 .eval-citation-page {
-  color: #1890ff;
+  color: var(--primary-color);
 }
 
 .eval-citation-section {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
 }
 
 .eval-answer-block {
@@ -1309,13 +1309,13 @@ defineExpose({
 .eval-answer-block + .eval-answer-block {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px dashed color-mix(in srgb, var(--border-color, #e8e8e8) 70%, transparent);
+  border-top: 1px dashed color-mix(in srgb, var(--border-color) 70%, transparent);
 }
 
 .eval-answer-label {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+  color: var(--text-secondary);
   margin-bottom: 4px;
 }
 
@@ -1341,8 +1341,8 @@ defineExpose({
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: color-mix(in srgb, #1890ff 15%, var(--bg-secondary, #fff));
-  color: #1890ff;
+  background: color-mix(in srgb, var(--primary-color) 15%, var(--bg-secondary));
+  color: var(--primary-color);
   font-size: 12px;
   font-weight: 600;
   flex-shrink: 0;
@@ -1350,11 +1350,11 @@ defineExpose({
 
 .eval-step-label {
   font-weight: 600;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.65));
+  color: var(--text-secondary);
 }
 
 .eval-step-value {
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-primary);
 }
 
 .eval-step-detail {
@@ -1362,7 +1362,7 @@ defineExpose({
   margin-top: 6px;
   padding: 10px;
   border-radius: 8px;
-  background: color-mix(in srgb, var(--border-color, #e8e8e8) 40%, var(--bg-secondary, #fff));
+  background: color-mix(in srgb, var(--border-color) 40%, var(--bg-secondary));
   overflow-x: auto;
 }
 
@@ -1372,14 +1372,14 @@ defineExpose({
   line-height: 1.6;
   white-space: pre-wrap;
   word-break: break-word;
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-primary);
 }
 
 .eval-citation-card {
   padding: 10px 12px;
   border-radius: 8px;
-  background: color-mix(in srgb, var(--bg-secondary, #fff) 92%, var(--border-color, #e8e8e8) 8%);
-  border: 1px solid color-mix(in srgb, var(--border-color, #e8e8e8) 60%, transparent);
+  background: color-mix(in srgb, var(--bg-secondary) 92%, var(--border-color) 8%);
+  border: 1px solid color-mix(in srgb, var(--border-color) 60%, transparent);
   margin-bottom: 8px;
 }
 
@@ -1396,12 +1396,12 @@ defineExpose({
 .eval-citation-score {
   font-size: 13px;
   font-weight: 600;
-  color: #fa8c16;
+  color: var(--chat-system-text);
 }
 
 .eval-citation-location {
   font-size: 12px;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -1418,19 +1418,19 @@ defineExpose({
 .eval-citation-content {
   margin-top: 6px;
   padding-top: 6px;
-  border-top: 1px dashed color-mix(in srgb, var(--border-color, #e8e8e8) 70%, transparent);
+  border-top: 1px dashed color-mix(in srgb, var(--border-color) 70%, transparent);
   font-size: 13px;
   line-height: 1.7;
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-primary);
 }
 
 .eval-citation-rich-media {
   margin-top: 6px;
   padding-top: 6px;
-  border-top: 1px dashed color-mix(in srgb, var(--border-color, #e8e8e8) 70%, transparent);
+  border-top: 1px dashed color-mix(in srgb, var(--border-color) 70%, transparent);
   font-size: 13px;
   line-height: 1.7;
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-primary);
 }
 
 .eval-citation-rich-media :deep(.media-table) {
@@ -1446,7 +1446,7 @@ defineExpose({
 
 .eval-citation-rich-media :deep(.media-table th),
 .eval-citation-rich-media :deep(.media-table td) {
-  border: 1px solid var(--border-color, #e8e8e8);
+  border: 1px solid var(--border-color);
   padding: 4px 8px;
   font-size: 12px;
 }
@@ -1492,7 +1492,7 @@ defineExpose({
 
 .eval-citation-content :deep(th),
 .eval-citation-content :deep(td) {
-  border: 1px solid var(--border-color, #e8e8e8);
+  border: 1px solid var(--border-color);
   padding: 4px 8px;
   font-size: 12px;
 }

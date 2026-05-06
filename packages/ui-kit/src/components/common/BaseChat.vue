@@ -669,18 +669,18 @@ defineExpose({
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--bg-primary, #fff);
+  background: var(--bg-primary);
 }
 
 .chat-header {
   display: flex;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--border-color, #e8e8e8);
-  background: var(--panel-header-bg, #fafafa);
+  border-bottom: 1px solid var(--border-color);
+  background: var(--panel-header-bg);
   font-weight: 500;
   font-size: 14px;
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-primary);
 
   .header-icon {
     margin-right: 8px;
@@ -699,7 +699,7 @@ defineExpose({
 
     .context-info {
       font-size: 12px;
-      color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+      color: var(--text-secondary);
       margin-right: 4px;
     }
 
@@ -713,7 +713,7 @@ defineExpose({
   flex: 1;
   overflow-y: auto;
   padding: 16px;
-  background: var(--bg-primary, #fff);
+  background: var(--bg-primary);
 
   .message {
     margin-bottom: 16px;
@@ -734,8 +734,8 @@ defineExpose({
 
       .user-content {
         display: inline-block;
-        background: #1890ff;
-        color: #fff;
+        background: var(--chat-user-bubble-bg);
+        color: var(--chat-user-bubble-text);
         padding: 10px 14px;
         border-radius: 12px 12px 0 12px;
         max-width: 85%;
@@ -778,8 +778,8 @@ defineExpose({
 
       .assistant-content {
         display: inline-block;
-        background: #f5f5f5;
-        color: #333;
+        background: var(--chat-assistant-bubble-bg);
+        color: var(--chat-assistant-bubble-text);
         padding: 12px 16px;
         border-radius: 12px 12px 12px 0;
         max-width: 85%;
@@ -790,7 +790,7 @@ defineExpose({
         .message-chain {
           font-size: 12px;
           line-height: 1.5;
-          color: #8c8c8c;
+          color: var(--text-secondary);
           margin-bottom: 10px;
         }
 
@@ -810,7 +810,7 @@ defineExpose({
           }
 
           :deep(code) {
-            background: #e8e8e8;
+            background: var(--chat-code-bg);
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'Courier New', monospace;
@@ -818,7 +818,7 @@ defineExpose({
           }
 
           :deep(pre) {
-            background: #f0f0f0;
+            background: var(--chat-pre-bg);
             padding: 12px;
             border-radius: 8px;
             overflow-x: auto;
@@ -864,7 +864,7 @@ defineExpose({
 
           :deep(th),
           :deep(td) {
-            border: 1px solid rgba(15, 23, 42, 0.12);
+            border: 1px solid var(--border-color);
             padding: 6px 8px;
             background: transparent;
             vertical-align: top;
@@ -881,7 +881,7 @@ defineExpose({
         .citation-panel {
           margin-top: 12px;
           padding-top: 10px;
-          border-top: 1px solid rgba(15, 23, 42, 0.08);
+          border-top: 1px solid var(--border-color);
           display: flex;
           flex-direction: column;
           gap: 8px;
@@ -890,7 +890,7 @@ defineExpose({
         .citation-title {
           font-size: 12px;
           font-weight: 600;
-          color: #8c8c8c;
+          color: var(--text-secondary);
           letter-spacing: 0.02em;
         }
 
@@ -899,8 +899,8 @@ defineExpose({
           text-align: left;
           padding: 10px 12px;
           border-radius: 10px;
-          background: #fffaf0;
-          border-left: 3px solid #faad14;
+          background: var(--chat-citation-bg);
+          border-left: 3px solid var(--chat-citation-border);
           box-shadow: inset 0 0 0 1px rgba(250, 173, 20, 0.18);
           border-top: none;
           border-right: none;
@@ -917,7 +917,7 @@ defineExpose({
         }
 
         .citation-toggle {
-          color: #ad6800;
+          color: var(--chat-citation-accent);
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -935,13 +935,13 @@ defineExpose({
 
         .citation-doc {
           font-weight: 600;
-          color: #595959;
+          color: var(--text-primary);
           min-width: 0;
           word-break: break-word;
         }
 
         .citation-page {
-          color: #ad6800;
+          color: var(--chat-citation-accent);
           background: rgba(250, 173, 20, 0.14);
           border-radius: 999px;
           padding: 1px 6px;
@@ -949,13 +949,13 @@ defineExpose({
 
         .citation-location {
           font-size: 12px;
-          color: #8c8c8c;
+          color: var(--text-secondary);
         }
 
         .citation-snippet {
           font-size: 12px;
           line-height: 1.6;
-          color: #595959;
+          color: var(--text-primary);
           white-space: pre-wrap;
           margin-top: 8px;
         }
@@ -979,7 +979,7 @@ defineExpose({
 
         .citation-rich-media :deep(.media-table th),
         .citation-rich-media :deep(.media-table td) {
-          border: 1px solid #e8e8e8;
+          border: 1px solid var(--border-color);
           padding: 3px 6px;
           font-size: 11px;
         }
@@ -998,17 +998,17 @@ defineExpose({
 
         .streaming-cursor {
           animation: blink 1s infinite;
-          color: #1890ff;
+          color: var(--chat-streaming-cursor);
         }
 
         .loading-text {
           margin-left: 8px;
-          color: #999;
+          color: var(--text-secondary);
         }
       }
 
       &.streaming .assistant-content {
-        background: #e6f7ff;
+        background: var(--chat-streaming-bg);
       }
     }
 
@@ -1020,11 +1020,11 @@ defineExpose({
         align-items: center;
         gap: 6px;
         padding: 6px 12px;
-        background: #fff7e6;
-        border: 1px solid #ffd591;
+        background: var(--chat-system-bg);
+        border: 1px solid var(--chat-system-border);
         border-radius: 16px;
         font-size: 12px;
-        color: #d46b08;
+        color: var(--chat-system-text);
       }
     }
   }
@@ -1035,7 +1035,7 @@ defineExpose({
     transition: opacity 0.16s ease, transform 0.16s ease;
     font-size: 11px;
     line-height: 1.4;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
     margin-bottom: 4px;
     pointer-events: none;
   }
@@ -1061,26 +1061,26 @@ defineExpose({
   transition: background 0.2s;
 
   &:hover {
-    background: var(--border-color, #e8e8e8);
+    background: var(--border-color);
   }
 
   .resize-indicator {
     width: 40px;
     height: 3px;
-    background: var(--border-color, #d9d9d9);
+    background: var(--border-color);
     border-radius: 2px;
     transition: background 0.2s;
   }
 
   &:hover .resize-indicator {
-    background: #1890ff;
+    background: var(--primary-color);
   }
 }
 
 .chat-input {
   padding: 12px 16px;
-  border-top: 1px solid var(--border-color, #e8e8e8);
-  background: var(--bg-secondary, #fafafa);
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-secondary);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1098,7 +1098,7 @@ defineExpose({
     gap: 8px;
     margin-bottom: 8px;
     padding: 8px;
-    background: #f0f0f0;
+    background: var(--bg-tertiary);
     border-radius: 8px;
 
     .preview-item {
@@ -1118,13 +1118,13 @@ defineExpose({
         top: -6px;
         right: -6px;
         font-size: 16px;
-        color: #ff4d4f;
-        background: #fff;
+        color: var(--chat-error-color);
+        background: var(--bg-secondary);
         border-radius: 50%;
         cursor: pointer;
 
         &:hover {
-          color: #ff7875;
+          color: var(--chat-error-hover);
         }
       }
     }
@@ -1141,20 +1141,20 @@ defineExpose({
       flex: 1;
       border-radius: 12px;
       resize: none;
-      background: var(--bg-secondary, #fff);
-      color: var(--text-primary, rgba(0, 0, 0, 0.88));
-      border-color: var(--border-color, #d9d9d9);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border-color: var(--border-color);
       padding: 12px 12px 48px 12px;
       font-size: 14px;
       line-height: 1.6;
       overflow-y: auto;
 
       &::placeholder {
-        color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+        color: var(--text-secondary);
       }
 
       &:focus {
-        border-color: #1890ff;
+        border-color: var(--primary-color);
         box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
       }
     }
@@ -1195,20 +1195,20 @@ defineExpose({
         :deep(.ant-select-selector) {
           font-size: 12px;
           border-radius: 6px;
-          background: var(--bg-secondary, rgba(255, 255, 255, 0.8));
-          color: var(--text-primary, rgba(0, 0, 0, 0.88));
-          border-color: var(--border-color, #d9d9d9);
+          background: var(--bg-secondary);
+          color: var(--text-primary);
+          border-color: var(--border-color);
         }
 
         :deep(.ant-select-selection-item) {
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-          color: var(--text-primary, rgba(0, 0, 0, 0.88));
+          color: var(--text-primary);
         }
 
         :deep(.ant-select-arrow) {
-          color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+          color: var(--text-secondary);
         }
       }
     }

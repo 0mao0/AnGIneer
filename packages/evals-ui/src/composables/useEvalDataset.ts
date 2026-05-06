@@ -2,6 +2,11 @@
 import { ref } from 'vue'
 import type { EvalDataset, EvalQuestion } from '../types/eval'
 
+/** 生成唯一 dataset_id */
+function generateDatasetId(): string {
+  return `ds-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
+}
+
 export function useEvalDataset() {
   const datasets = ref<EvalDataset[]>([])
   const currentDataset = ref<EvalDataset | null>(null)
@@ -47,16 +52,18 @@ export function useEvalDataset() {
   }
 
   const createDataset = async (payload: { title: string; category: string; description?: string }) => {
+    const body = { dataset_id: generateDatasetId(), ...payload }
     const resp = await fetch('/api/evals/datasets', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(body),
     })
     if (resp.ok) {
       await fetchDatasets()
       return await resp.json()
     }
-    return null
+    const errText = await resp.text().catch(() => '')
+    throw new Error(errText || `创建失败 (${resp.status})`)
   }
 
   const deleteDataset = async (datasetId: string) => {
@@ -65,7 +72,22 @@ export function useEvalDataset() {
       await fetchDatasets()
       return true
     }
-    return false
+    const errText = await resp.text().catch(() => '')
+    throw new Error(errText || `删除失败 (${resp.status})`)
+  }
+
+  const renameDataset = async (datasetId: string, newTitle: string) => {
+    const resp = await fetch(`/api/evals/datasets/${datasetId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: newTitle }),
+    })
+    if (resp.ok) {
+      await fetchDatasets()
+      return true
+    }
+    const errText = await resp.text().catch(() => '')
+    throw new Error(errText || `重命名失败 (${resp.status})`)
   }
 
   return {
@@ -78,5 +100,6 @@ export function useEvalDataset() {
     fetchQuestions,
     createDataset,
     deleteDataset,
+    renameDataset,
   }
 }

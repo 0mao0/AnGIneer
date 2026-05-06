@@ -1,7 +1,5 @@
 <template>
-  <!-- 通用应用头部组件 - 统一前台和后台的标题栏 -->
-  <div class="app-header" :class="{ 'dark-mode': isDark }">
-    <!-- 左侧：Logo、项目名称、管理后台入口 -->
+  <div class="app-header" :class="appClass">
     <div class="header-left">
       <div class="app-logo" @click="handleLogoClick" :class="{ clickable: logoClickable }">
         <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,37 +9,31 @@
           />
           <defs>
             <linearGradient id="gradient" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#667eea" />
-              <stop offset="1" stop-color="#764ba2" />
+              <stop stop-color="var(--brand-gradient-start, #667eea)" />
+              <stop offset="1" stop-color="var(--brand-gradient-end, #764ba2)" />
             </linearGradient>
           </defs>
         </svg>
         <span class="app-name">AnGIneer</span>
       </div>
 
-      <!-- 返回前台 -->
       <a-button v-if="showHome" type="text" class="home-btn" @click="$emit('home-click')" title="返回前台">
         <HomeOutlined />
       </a-button>
 
-      <!-- 项目名称 -->
       <span v-if="projectName" class="project-name">{{ projectName }}</span>
 
-      <!-- 管理后台入口 -->
       <a-button v-if="showAdmin" type="text" class="admin-btn" @click="$emit('admin-click')">
         管理后台
       </a-button>
     </div>
 
-    <!-- 中间：标题 -->
     <div v-if="centerTitle" class="header-center">
       <span class="center-title">{{ centerTitle }}</span>
     </div>
 
-    <!-- 右侧：导航标签 + 操作按钮 -->
     <div class="header-right">
       <a-space :size="4">
-        <!-- 导航标签 -->
         <div v-if="navItems.length" class="nav-tabs">
           <a-button
             v-for="item in navItems"
@@ -54,18 +46,15 @@
           </a-button>
         </div>
 
-        <!-- 主题切换 -->
-        <a-button type="text" @click="toggleTheme" class="theme-btn" title="切换主题">
+        <a-button type="text" @click="doToggleTheme" class="theme-btn" title="切换主题">
           <BulbFilled v-if="isDark" />
           <BulbOutlined v-else />
         </a-button>
 
-        <!-- 设置 -->
         <a-button v-if="showSettings" type="text" @click="$emit('settings-click')" title="设置">
           <SettingOutlined />
         </a-button>
 
-        <!-- 用户 -->
         <a-button type="text">
           <UserOutlined />
         </a-button>
@@ -82,37 +71,21 @@ import {
   BulbFilled,
   HomeOutlined
 } from '@ant-design/icons-vue'
+import { useTheme } from '../../composables/useTheme'
 
-/**
- * 导航项类型
- */
 export interface NavItem {
   key: string
   label: string
 }
 
-/**
- * 通用应用头部组件
- * 统一前台和后台的标题栏样式和功能
- */
 interface Props {
-  /** 是否暗黑模式 */
-  isDark: boolean
-  /** 项目名称 */
   projectName?: string
-  /** 导航项列表 */
   navItems?: NavItem[]
-  /** 当前激活的导航 */
   activeNav?: string
-  /** 中间标题 */
   centerTitle?: string
-  /** 是否显示管理后台按钮 */
   showAdmin?: boolean
-  /** 是否显示返回前台按钮 */
   showHome?: boolean
-  /** 是否显示设置按钮 */
   showSettings?: boolean
-  /** Logo 是否可点击 */
   logoClickable?: boolean
 }
 
@@ -133,19 +106,15 @@ const emit = defineEmits<{
   'home-click': []
   'settings-click': []
   'logo-click': []
-  'toggle-theme': []
 }>()
+
+const { isDark, appClass, toggleTheme: doToggleTheme } = useTheme()
 
 /** 处理 Logo 点击 */
 const handleLogoClick = () => {
   if (props.logoClickable) {
     emit('logo-click')
   }
-}
-
-/** 切换主题 */
-const toggleTheme = () => {
-  emit('toggle-theme')
 }
 </script>
 
@@ -159,18 +128,9 @@ const toggleTheme = () => {
   flex-shrink: 0;
   transition: all 0.3s ease;
   backdrop-filter: blur(8px);
-
-  &:not(.dark-mode) {
-    background: rgba(255, 255, 255, 0.8);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    color: rgba(0, 0, 0, 0.88);
-  }
-
-  &.dark-mode {
-    background: rgba(20, 20, 20, 0.9);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.85);
-  }
+  background: var(--panel-header-bg, rgba(255, 255, 255, 0.8));
+  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.06));
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
 }
 
 .header-left {
@@ -197,7 +157,7 @@ const toggleTheme = () => {
   }
 
   .app-name {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--brand-gradient-end, #764ba2) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -208,36 +168,24 @@ const toggleTheme = () => {
   font-size: 14px;
   font-weight: 500;
   padding-left: 16px;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-
-  .dark-mode & {
-    border-left-color: rgba(255, 255, 255, 0.1);
-  }
+  border-left: 1px solid var(--border-color);
 }
 
 .home-btn {
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.65);
-
-  .dark-mode & {
-    color: rgba(255, 255, 255, 0.65);
-  }
+  color: var(--text-secondary);
 
   &:hover {
-    color: #667eea;
+    color: var(--primary-color);
   }
 }
 
 .admin-btn {
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.65);
-
-  .dark-mode & {
-    color: rgba(255, 255, 255, 0.65);
-  }
+  color: var(--text-secondary);
 
   &:hover {
-    color: #667eea;
+    color: var(--primary-color);
   }
 }
 
@@ -251,7 +199,7 @@ const toggleTheme = () => {
     font-size: 14px;
 
     &.active {
-      color: #667eea;
+      color: var(--primary-color);
       background: rgba(102, 126, 234, 0.1);
     }
   }

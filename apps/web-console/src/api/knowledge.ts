@@ -1,39 +1,28 @@
-const baseURL = '/api'
+import axios from 'axios'
+import type { DocumentResponse } from '../../../shared/knowledgeApi'
 
-async function request<T>(url: string, options?: RequestInit): Promise<T> {
-  const response = await fetch(`${baseURL}${url}`, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options?.headers
-    }
-  })
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-  }
-  return response.json()
-}
+const api = axios.create({
+  baseURL: '/api',
+  timeout: 30000
+})
+
+api.interceptors.response.use(
+  (response: any) => response.data,
+  (error: any) => Promise.reject(error)
+)
 
 export const knowledgeApi = {
   getNodes: (libraryId: string = 'default', visible: boolean = false) =>
-    request(`/knowledge/nodes?library_id=${encodeURIComponent(libraryId)}&visible=${visible}`, {
-      method: 'GET'
-    }),
+    api.get('/knowledge/nodes', { params: { library_id: libraryId, visible } }),
 
   getDocument: (libraryId: string, docId: string) =>
-    request(`/knowledge/document/${libraryId}/${docId}`),
+    api.get(`/knowledge/document/${libraryId}/${docId}`) as Promise<DocumentResponse>,
 
   getDocBlocksGraph: (libraryId: string, docId: string) =>
-    request(`/knowledge/parse/doc-blocks-graph`, {
-      method: 'POST',
-      body: JSON.stringify({ library_id: libraryId, doc_id: docId })
-    }),
+    api.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }),
 
   buildStructuredIndex: (libraryId: string, docId: string, strategy: string = 'doc_blocks_graph_v1') =>
-    request(`/knowledge/parse/structured-index`, {
-      method: 'POST',
-      body: JSON.stringify({ library_id: libraryId, doc_id: docId, strategy })
-    })
+    api.post('/knowledge/parse/structured-index', { library_id: libraryId, doc_id: docId, strategy })
 }
 
-export default knowledgeApi
+export default api

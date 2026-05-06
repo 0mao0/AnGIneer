@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { message } from 'ant-design-vue'
 import { InboxOutlined } from '@ant-design/icons-vue'
 import type { UploadFile } from 'ant-design-vue'
 
@@ -44,20 +45,25 @@ const handleUpload = async () => {
   if (!fileList.value.length) return
   uploading.value = true
   try {
+    const file = fileList.value[0] as any
     const formData = new FormData()
-    formData.append('file', fileList.value[0] as any)
+    formData.append('file', file.originFileObj || file)
     const resp = await fetch('/api/evals/datasets/import', {
       method: 'POST',
       body: formData,
     })
+    const result = await resp.json().catch(() => ({}))
     if (!resp.ok) {
-      const err = await resp.json()
-      throw new Error(err.detail || '导入失败')
+      const errMsg = result.detail || result.message || JSON.stringify(result) || `请求失败 (${resp.status})`
+      throw new Error(errMsg)
     }
     fileList.value = []
     emit('update:visible', false)
     emit('uploaded')
+    message.success('导入成功')
   } catch (e: any) {
+    const errMsg = e?.message || '导入失败，请检查文件格式'
+    message.error(errMsg)
     console.error('导入失败:', e)
   } finally {
     uploading.value = false

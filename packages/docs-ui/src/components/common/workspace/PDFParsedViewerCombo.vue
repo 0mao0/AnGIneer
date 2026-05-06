@@ -165,7 +165,6 @@
       v-model:open="editModalVisible"
       :node="editingNode"
       :node-map="nodeMap"
-      :dark-mode="resolvedDarkMode"
       :saving="savingNodeEdit"
       @cancel="closeNodeEdit"
       @submit="submitNodeEdit"
@@ -174,7 +173,6 @@
       v-model:open="mergeModalVisible"
       :selected-block-ids="selectedBlockIds"
       :node-map="nodeMap"
-      :dark-mode="resolvedDarkMode"
       :loading="submittingBatchOperation"
       @cancel="closeMergeModal"
       @submit="submitMergeOperation"
@@ -182,7 +180,6 @@
     <IndexTreeSplitModal
       v-model:open="splitModalVisible"
       :node="splitTargetNode"
-      :dark-mode="resolvedDarkMode"
       :loading="submittingBatchOperation"
       @cancel="closeSplitModal"
       @submit="submitSplitOperation"
@@ -204,7 +201,6 @@ import {
 } from '@ant-design/icons-vue'
 import { computed, ref } from 'vue'
 import { message } from 'ant-design-vue'
-import { useTheme } from '@angineer/ui-kit'
 import type {
   StructuredIndexItem,
   StructuredNodeUpdatePayload,
@@ -239,7 +235,6 @@ const props = defineProps<{
     figure: number
   }
   hasParsedContent: boolean
-  darkMode?: boolean
   contentScrollPercent: number
   activeLinkedItemId: string | null
   activeLineRange: { start: number; end: number } | null
@@ -328,8 +323,6 @@ const splitTargetNode = computed<DocBlockNode | null>(() => {
   const nodeId = splitTargetBlockIds.value[0]
   return nodeId ? (nodeMap.value.get(nodeId) || null) : null
 })
-const { isDark } = useTheme()
-const resolvedDarkMode = computed(() => props.darkMode || isDark.value)
 
 /* 打开节点纠错弹窗并回填当前值。 */
 const openNodeEdit = (nodeId: string) => {
@@ -736,11 +729,11 @@ defineExpose({
   align-items: center;
   gap: 2px;
   font-size: 12px;
-  color: var(--dp-sub-text, #64748b);
-  background: var(--dp-pane-bg, #f8fafc);
+  color: var(--dp-sub-text);
+  background: var(--dp-pane-bg);
   padding: 4px 10px;
   border-radius: 6px;
-  border: 1px solid var(--dp-pane-border, #e2e8f0);
+  border: 1px solid var(--dp-pane-border);
 }
 
 .summary-actions {
@@ -752,31 +745,31 @@ defineExpose({
 
 .selected-count {
   font-size: 12px;
-  color: var(--dp-sub-text, #64748b);
+  color: var(--dp-sub-text);
 }
 
 .summary-item {
   font-weight: 500;
 
   &.total {
-    color: var(--dp-title-strong, #0f172a);
+    color: var(--dp-title-strong);
   }
 
   &.figure {
-    color: #7c3aed;
+    color: var(--dp-type-figure-color, #7c3aed);
   }
 
   &.table {
-    color: #0891b2;
+    color: var(--dp-type-table-color, #0891b2);
   }
 
   &.formula {
-    color: #2563eb;
+    color: var(--dp-type-formula-color, #2563eb);
   }
 }
 
 .summary-divider {
-  color: var(--dp-pane-border, #cbd5e1);
+  color: var(--dp-pane-border);
   margin: 0 2px;
 }
 

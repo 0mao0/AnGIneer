@@ -122,7 +122,7 @@ const doCompare = async () => {
     align-items: center;
     gap: 8px;
     padding: 12px;
-    border-bottom: 1px solid var(--dp-border-color, rgba(255, 255, 255, 0.06));
+    border-bottom: 1px solid var(--border-color);
   }
 
   &__body {
@@ -152,7 +152,7 @@ const doCompare = async () => {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 8px;
-    color: var(--dp-text-secondary, rgba(255, 255, 255, 0.45));
+    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
   }
 
   &__change-row {

@@ -94,35 +94,23 @@ const getAccept = (): string => {
     margin-bottom: 16px;
 
     &.folder {
-      color: #faad14;
+      color: var(--tree-folder-color);
     }
 
     &.file {
-      color: #ff4d4f;
+      color: var(--tree-danger-hover);
     }
   }
 
   h3 {
     margin: 0 0 8px;
     font-size: 18px;
+    color: var(--text-primary, rgba(0, 0, 0, 0.88));
   }
 
   p {
-    color: #8c8c8c;
+    color: var(--text-secondary);
     margin-bottom: 16px;
-  }
-}
-
-// Dark mode
-:global(.dark-mode) {
-  .folder-info {
-    h3 {
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    p {
-      color: rgba(255, 255, 255, 0.45);
-    }
   }
 }
 </style>

@@ -76,7 +76,7 @@ const nextStep = () => {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--bg-secondary);
   padding: 24px;
 }
 
@@ -99,6 +99,6 @@ const nextStep = () => {
 .sop-actions {
   margin-top: 24px;
   padding-top: 16px;
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid var(--border-color);
 }
 </style>

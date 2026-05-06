@@ -4,18 +4,12 @@
       :tree-data="treeData"
       v-bind="treeProps"
       @select="handleTreeSelect"
-    >
-      <template #icon="{ node }">
-        <FolderOutlined v-if="node?.isFolder" style="color: #faad14" />
-        <ApiOutlined v-else style="color: #1890ff" />
-      </template>
-    </SOPTree>
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { ApiOutlined, FolderOutlined } from '@ant-design/icons-vue'
 import { SOPTree, createResourceNodeFromSop, useSopTree, type SOPTreeNode } from '@angineer/docs-ui'
 import { useResourceOpen } from '@/composables/useResourceOpen'
 

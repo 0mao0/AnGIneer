@@ -31,12 +31,12 @@ import { BuildOutlined } from '@ant-design/icons-vue'
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-primary, #141414);
+  background: var(--bg-primary);
   transition: background-color 0.3s ease;
 
   .placeholder-icon {
     font-size: 72px;
-    color: #667eea;
+    color: var(--brand-gradient-start);
     margin-bottom: 24px;
   }
 
