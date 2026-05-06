@@ -599,7 +599,7 @@ defineExpose({
 .doc-blocks-graph {
   height: 100%;
   position: relative;
-  background: var(--dp-content-bg, #f8fafc);
+  background: var(--dp-content-bg);
   border-radius: 8px;
 }
 
@@ -613,8 +613,8 @@ defineExpose({
   flex-direction: column;
   gap: 8px;
   padding: 10px;
-  background: color-mix(in srgb, var(--dp-pane-bg, #ffffff) 94%, transparent 6%);
-  border: 1px solid var(--dp-pane-border, #e2e8f0);
+  background: var(--dp-surface-bg);
+  border: 1px solid var(--dp-pane-border);
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
   backdrop-filter: blur(8px);
@@ -633,7 +633,7 @@ defineExpose({
   flex: 1;
   min-width: 0;
   overflow: hidden;
-  color: var(--dp-title-strong, #0f172a);
+  color: var(--dp-title-strong);
   font-size: 13px;
   font-weight: 600;
   text-overflow: ellipsis;
@@ -654,9 +654,9 @@ defineExpose({
   flex-shrink: 0;
   padding: 2px 8px;
   border-radius: 999px;
-  border: 1px solid #dbeafe;
-  background: #eff6ff;
-  color: #1d4ed8;
+  border: 1px solid var(--dp-badge-border);
+  background: var(--dp-badge-bg);
+  color: var(--dp-badge-text);
   font-size: 11px;
   line-height: 1.4;
 }
@@ -667,12 +667,6 @@ defineExpose({
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-:global(.dark-mode) .graph-media-panel-tag {
-  border-color: #1e3a8a;
-  background: #1e293b;
-  color: #93c5fd;
 }
 
 :deep(.graph-media-panel-body .media-table) {
@@ -688,7 +682,7 @@ defineExpose({
 
 :deep(.graph-media-panel-body .media-table th),
 :deep(.graph-media-panel-body .media-table td) {
-  border: 1px solid var(--dp-pane-border, #cbd5e1) !important;
+  border: 1px solid var(--dp-pane-border) !important;
   padding: 6px 8px;
   background: transparent !important;
 }
@@ -700,7 +694,7 @@ defineExpose({
   display: block;
   object-fit: contain;
   border-radius: 8px;
-  background: color-mix(in srgb, var(--dp-content-bg, #ffffff) 92%, #f8fafc 8%);
+  background: var(--dp-surface-bg);
 }
 
 :deep(.graph-media-panel-body .media-formula),
@@ -718,8 +712,8 @@ defineExpose({
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: var(--dp-sub-text, #6b7280);
-  background: rgba(255, 255, 255, 0.9);
+  color: var(--dp-sub-text);
+  background: var(--dp-surface-bg);
   z-index: 10;
 }
 
@@ -745,9 +739,9 @@ defineExpose({
   flex-direction: column;
   gap: 4px;
   padding: 8px 10px;
-  background: color-mix(in srgb, var(--dp-pane-bg, #ffffff) 90%, transparent 10%);
+  background: var(--dp-surface-bg);
   border-radius: 6px;
-  border: 1px solid var(--dp-pane-border, #e2e8f0);
+  border: 1px solid var(--dp-pane-border);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   font-size: 11px;
 }
@@ -756,7 +750,7 @@ defineExpose({
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--dp-sub-text, #64748b);
+  color: var(--dp-sub-text);
 }
 
 .legend-dot {
@@ -766,25 +760,25 @@ defineExpose({
   border: 2px solid;
 
   &.root {
-    background: #ddd6fe;
-    border-color: #7c3aed;
+    background: var(--graph-root-bg);
+    border-color: var(--graph-root-border);
     transform: rotate(45deg);
     border-radius: 2px;
   }
 
   &.expanded {
-    background: #bfdbfe;
-    border-color: #2563eb;
+    background: var(--graph-expanded-bg);
+    border-color: var(--graph-expanded-border);
   }
 
   &.collapsed {
-    background: #fef3c7;
-    border-color: #f59e0b;
+    background: var(--graph-collapsed-bg);
+    border-color: var(--graph-collapsed-border);
   }
 
   &.leaf {
-    background: #e5e7eb;
-    border-color: #6b7280;
+    background: var(--graph-leaf-bg);
+    border-color: var(--graph-leaf-border);
   }
 }
 
@@ -794,12 +788,12 @@ defineExpose({
   width: fit-content;
   max-width: 100%;
   padding: 4px 8px;
-  background: color-mix(in srgb, var(--dp-pane-bg, #ffffff) 90%, transparent 10%);
+  background: var(--dp-surface-bg);
   border-radius: 6px;
-  border: 1px solid var(--dp-pane-border, #e2e8f0);
+  border: 1px solid var(--dp-pane-border);
   font-size: 10px;
   line-height: 1.2;
-  color: var(--dp-sub-text, #64748b);
+  color: var(--dp-sub-text);
   white-space: nowrap;
 }
 </style>

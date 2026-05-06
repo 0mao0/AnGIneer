@@ -1,26 +1,16 @@
 /**
- * 通用树组件类型定义
+ * docs-ui 领域树类型定义。
+ * SmartTreeNode 和 TreeNodeAction 从 @angineer/ui-kit 统一导出，不在本地重复定义。
  */
+import type { SmartTreeNode as BaseSmartTreeNode, TreeNodeAction } from '@angineer/ui-kit'
 
-/** 树节点数据接口 */
-export interface SmartTreeNode {
-  key: string
-  title: string
-  isFolder?: boolean
-  isLeaf?: boolean
-  level?: number
-  status?: 'pending' | 'uploading' | 'processing' | 'completed' | 'failed'
-  visible?: boolean
-  parentId?: string
-  filePath?: string
-  children?: SmartTreeNode[]
-  [key: string]: any
-}
+export type { TreeNodeAction }
+export type SmartTreeNode = BaseSmartTreeNode
 
 export type KnowledgeNodeStatus = 'pending' | 'uploading' | 'processing' | 'completed' | 'failed'
 export type KnowledgeStrategy = 'doc_blocks_graph_v1'
 
-export interface KnowledgeTreeNode extends SmartTreeNode {
+export interface KnowledgeTreeNode extends BaseSmartTreeNode {
   isFolder: boolean
   visible: boolean
   status: KnowledgeNodeStatus
@@ -33,12 +23,9 @@ export interface KnowledgeTreeNode extends SmartTreeNode {
   children?: KnowledgeTreeNode[]
 }
 
-export interface SOPTreeNode extends SmartTreeNode {
+export interface SOPTreeNode extends BaseSmartTreeNode {
   isFolder: boolean
   description?: string
   category?: string
   children?: SOPTreeNode[]
 }
-
-/** 树节点操作类型 */
-export type TreeNodeAction = 'rename' | 'add-folder' | 'add-file' | 'delete' | 'view'

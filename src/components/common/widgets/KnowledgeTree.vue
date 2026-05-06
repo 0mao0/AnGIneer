@@ -31,13 +31,28 @@
     @drop-root="(dragNodeKey) => emit('drop-root', dragNodeKey)"
   >
     <template #icon="slotProps">
-      <slot name="icon" v-bind="slotProps" />
+      <slot name="icon" v-bind="slotProps">
+        <FolderOutlined v-if="slotProps.node?.isFolder" style="color: var(--tree-folder-color)" />
+        <FilePdfOutlined v-else-if="getKnowledgeFileType(slotProps.node) === 'pdf'" style="color: var(--tree-danger-hover)" />
+        <FileWordOutlined v-else-if="getKnowledgeFileType(slotProps.node) === 'word'" style="color: var(--primary-color)" />
+        <FileMarkdownOutlined v-else-if="getKnowledgeFileType(slotProps.node) === 'markdown'" style="color: var(--tree-markdown-color, #13c2c2)" />
+        <FileTextOutlined v-else style="color: var(--text-secondary)" />
+      </slot>
     </template>
     <template #title="slotProps">
       <slot name="title" v-bind="slotProps" />
     </template>
     <template #status="slotProps">
-      <slot name="status" v-bind="slotProps" />
+      <slot name="status" v-bind="slotProps">
+        <a-tag
+          v-if="!slotProps.node?.isFolder"
+          :color="slotProps.node?.visible ? 'green' : 'default'"
+          size="small"
+          style="font-size: 10px; padding: 0 4px; line-height: 16px"
+        >
+          {{ slotProps.node?.visible ? '共享' : '本地' }}
+        </a-tag>
+      </slot>
     </template>
     <template #actions="slotProps">
       <slot name="actions" v-bind="slotProps" />
@@ -55,7 +70,15 @@
  */
 import { ref } from 'vue'
 import { SmartTree } from '@angineer/ui-kit'
+import {
+  FolderOutlined,
+  FilePdfOutlined,
+  FileWordOutlined,
+  FileMarkdownOutlined,
+  FileTextOutlined
+} from '@ant-design/icons-vue'
 import type { KnowledgeTreeNode } from '../../../types/tree'
+import { getPreviewFileType as getKnowledgeFileType } from '../../../utils/knowledge'
 
 export type { KnowledgeTreeNode }
 

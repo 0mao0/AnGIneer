@@ -165,7 +165,7 @@ watch(() => props.expandedNodeIds, () => {
   justify-content: center;
   gap: 8px;
   padding: 24px;
-  color: var(--dp-sub-text, #6b7280);
+  color: var(--dp-sub-text);
 }
 
 .tree-virtual-spacer {

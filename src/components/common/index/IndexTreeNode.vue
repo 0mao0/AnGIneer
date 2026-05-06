@@ -240,20 +240,20 @@ const onContextMenuClick = ({ key }: { key: string }) => {
   cursor: pointer;
   padding: 5px 8px;
   border-radius: 10px;
-  border: 1px solid var(--dp-pane-border, #e2e8f0);
-  background: var(--dp-index-card-bg, #ffffff);
+  border: 1px solid var(--dp-pane-border);
+  background: var(--dp-index-card-bg);
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   transition: all 0.16s ease;
 
   &:hover {
-    border-color: #bfdbfe;
-    background: color-mix(in srgb, var(--dp-index-card-bg, #ffffff) 90%, #eff6ff 10%);
+    border-color: var(--dp-hover-border);
+    background: var(--dp-hover-bg);
   }
 
   &.active {
-    border-color: rgba(22, 119, 255, 0.8);
-    box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.14);
-    background: color-mix(in srgb, var(--dp-index-card-bg, #ffffff) 80%, #e6f4ff 20%);
+    border-color: var(--dp-active-border);
+    box-shadow: 0 0 0 2px var(--dp-active-shadow);
+    background: var(--dp-active-bg);
   }
 }
 
@@ -267,19 +267,12 @@ const onContextMenuClick = ({ key }: { key: string }) => {
   margin-left: 4px;
 }
 
-:global(.dark-mode) .tree-row {
-  &:hover {
-    border-color: #1e40af;
-    background: color-mix(in srgb, var(--dp-index-card-bg, #1e293b) 90%, #1e3a5f 10%);
-  }
-}
-
 .tree-toggle {
   width: 16px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  color: var(--dp-sub-text, #64748b);
+  color: var(--dp-sub-text);
   font-size: 10px;
 }
 
@@ -294,7 +287,7 @@ const onContextMenuClick = ({ key }: { key: string }) => {
   padding: 0;
   margin-left: 20px;
   padding-left: 10px;
-  border-left: 1px dashed var(--dp-pane-border, #cbd5e1);
+  border-left: 1px dashed var(--dp-children-border);
 }
 
 .tree-main {
@@ -317,7 +310,7 @@ const onContextMenuClick = ({ key }: { key: string }) => {
   display: block;
   white-space: pre-wrap;
   word-break: break-word;
-  color: var(--dp-title-text, #0f172a);
+  color: var(--dp-title-text);
 }
 
 .tree-text :deep(.katex) {
@@ -334,8 +327,8 @@ const onContextMenuClick = ({ key }: { key: string }) => {
   width: 100%;
   padding: 8px;
   border-radius: 8px;
-  border: 1px solid var(--dp-pane-border, #e2e8f0);
-  background: color-mix(in srgb, var(--dp-content-bg, #ffffff) 92%, #eef2ff 8%);
+  border: 1px solid var(--dp-pane-border);
+  background: var(--dp-inline-media-bg);
 }
 
 :global(.doc-block-tree-tooltip-overlay .ant-tooltip-inner) {
@@ -429,7 +422,7 @@ const onContextMenuClick = ({ key }: { key: string }) => {
   max-height: 320px;
   object-fit: contain;
   border-radius: 8px;
-  background: color-mix(in srgb, var(--dp-content-bg, #ffffff) 90%, #f8fafc 10%);
+  background: var(--dp-surface-bg);
 }
 
 .chip {
@@ -437,39 +430,21 @@ const onContextMenuClick = ({ key }: { key: string }) => {
   line-height: 1;
   padding: 3px 6px;
   border-radius: 999px;
-  border: 1px solid #dbeafe;
-  background: #eff6ff;
-  color: #1d4ed8;
+  border: 1px solid var(--chip-default-border);
+  background: var(--chip-default-bg);
+  color: var(--chip-default-text);
   flex-shrink: 0;
 
   &.lv {
-    border-color: #e9d5ff;
-    background: #faf5ff;
-    color: #7e22ce;
+    border-color: var(--chip-lv-border);
+    background: var(--chip-lv-bg);
+    color: var(--chip-lv-text);
   }
 
   &.pos {
-    border-color: #fed7aa;
-    background: #fff7ed;
-    color: #9a3412;
-  }
-}
-
-:global(.dark-mode) .chip {
-  border-color: #1e3a8a;
-  background: #1e293b;
-  color: #93c5fd;
-
-  &.lv {
-    border-color: #581c87;
-    background: #2e1065;
-    color: #c4b5fd;
-  }
-
-  &.pos {
-    border-color: #7c2d12;
-    background: #431407;
-    color: #fdba74;
+    border-color: var(--chip-pos-border);
+    background: var(--chip-pos-bg);
+    color: var(--chip-pos-text);
   }
 }
 </style>

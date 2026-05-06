@@ -22,6 +22,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useTheme } from '@angineer/ui-kit'
 
 interface Props {
   open: boolean
@@ -30,17 +31,15 @@ interface Props {
   confirmLoading?: boolean
   okText?: string
   cancelText?: string
-  darkMode?: boolean
   okButtonProps?: Record<string, unknown>
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   title: '',
   width: 840,
   confirmLoading: false,
   okText: '确认',
   cancelText: '取消',
-  darkMode: false,
   okButtonProps: () => ({})
 })
 
@@ -50,9 +49,12 @@ const emit = defineEmits<{
   cancel: []
 }>()
 
-const wrapClassName = computed(() => (
-  props.darkMode ? 'index-tree-modal index-tree-modal-dark' : 'index-tree-modal'
-))
+const { isDark } = useTheme()
+
+const wrapClassName = computed(() => {
+  const base = 'index-tree-modal'
+  return isDark.value ? `${base} ${base}-dark` : base
+})
 
 /* 同步关闭行为给外层弹窗状态。 */
 const onCancel = () => {
@@ -61,78 +63,80 @@ const onCancel = () => {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .index-tree-modal-title {
   font-size: 15px;
   font-weight: 600;
-  color: var(--dp-title-strong, #0f172a);
+  color: var(--dp-title-strong);
 }
 
-.index-tree-modal .ant-modal-content {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+:deep(.ant-modal-content) {
+  background: var(--dp-pane-bg);
+  border: 1px solid var(--dp-pane-border);
   box-shadow: 0 18px 48px rgba(15, 23, 42, 0.24);
 }
 
-.index-tree-modal .ant-modal-header {
+:deep(.ant-modal-header) {
   background: transparent;
-  border-bottom: 1px solid #edf1f7;
+  border-bottom: 1px solid var(--dp-pane-border);
   padding-top: 12px;
   padding-bottom: 10px;
 }
 
-.index-tree-modal .ant-modal-title,
-.index-tree-modal .ant-form-item-label > label,
-.index-tree-modal .ant-select-selection-item,
-.index-tree-modal .ant-select-selection-placeholder,
-.index-tree-modal .ant-input,
-.index-tree-modal .ant-input-textarea,
-.index-tree-modal .ant-modal-close-x {
-  color: #0f172a;
+:deep(.ant-modal-title),
+:deep(.ant-form-item-label > label),
+:deep(.ant-select-selection-item),
+:deep(.ant-select-selection-placeholder),
+:deep(.ant-input),
+:deep(.ant-input-textarea),
+:deep(.ant-modal-close-x) {
+  color: var(--dp-title-strong);
 }
 
-.index-tree-modal .ant-input,
-.index-tree-modal .ant-input-affix-wrapper,
-.index-tree-modal .ant-select-selector,
-.index-tree-modal .ant-input-number,
-.index-tree-modal .ant-input-textarea textarea {
-  background: #ffffff;
-  border-color: #e2e8f0;
+:deep(.ant-input),
+:deep(.ant-input-affix-wrapper),
+:deep(.ant-select-selector),
+:deep(.ant-input-number),
+:deep(.ant-input-textarea textarea) {
+  background: var(--dp-pane-bg);
+  border-color: var(--dp-pane-border);
 }
 
-.index-tree-modal .ant-modal-footer {
-  border-top: 1px solid #edf1f7;
+:deep(.ant-modal-footer) {
+  border-top: 1px solid var(--dp-pane-border);
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.index-tree-modal .ant-modal-body {
+:deep(.ant-modal-body) {
   background: transparent;
   padding-top: 10px;
   max-height: min(66vh, 680px);
   overflow: auto;
 }
 
-.index-tree-modal .ant-modal-close {
+:deep(.ant-modal-close) {
   top: 10px;
 }
 
-.index-tree-modal .ant-select-selector,
-.index-tree-modal .ant-input,
-.index-tree-modal .ant-input-textarea textarea {
+:deep(.ant-select-selector),
+:deep(.ant-input),
+:deep(.ant-input-textarea textarea) {
   min-height: 34px;
   padding-top: 4px;
   padding-bottom: 4px;
 }
+</style>
 
+<style lang="less">
 .index-tree-modal-dark .ant-modal-content {
-  background: #141922;
-  border-color: #242c39;
+  background: var(--dp-pane-bg);
+  border-color: var(--dp-pane-border);
 }
 
 .index-tree-modal-dark .ant-modal-header,
 .index-tree-modal-dark .ant-modal-footer {
-  border-color: #242c39;
+  border-color: var(--dp-pane-border);
 }
 
 .index-tree-modal-dark .ant-modal-title,
@@ -144,7 +148,7 @@ const onCancel = () => {
 .index-tree-modal-dark .ant-input,
 .index-tree-modal-dark .ant-input-textarea,
 .index-tree-modal-dark .ant-modal-close-x {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--dp-title-text);
 }
 
 .index-tree-modal-dark .ant-input,
@@ -152,26 +156,26 @@ const onCancel = () => {
 .index-tree-modal-dark .ant-select-selector,
 .index-tree-modal-dark .ant-input-number,
 .index-tree-modal-dark .ant-input-textarea textarea {
-  background: #0f141d;
-  border-color: #242c39;
+  background: var(--dp-content-bg);
+  border-color: var(--dp-pane-border);
 }
 
 .index-tree-modal-dark .ant-select-disabled .ant-select-selector,
 .index-tree-modal-dark .ant-select-multiple.ant-select-disabled .ant-select-selection-item {
-  background: #0f141d;
-  color: rgba(255, 255, 255, 0.72);
+  background: var(--dp-content-bg);
+  color: var(--dp-sub-text);
 }
 
 .index-tree-modal-dark .ant-btn-text {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--dp-sub-text);
 }
 
 .index-tree-modal-dark .ant-btn-text:hover {
-  background: rgba(148, 163, 184, 0.14);
+  background: var(--dp-hover-bg);
 }
 
 .index-tree-modal-dark .ant-select-arrow,
 .index-tree-modal-dark .ant-modal-close-x {
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--dp-sub-text);
 }
 </style>

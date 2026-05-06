@@ -1,5 +1,5 @@
 <template>
-  <div class="doc-preview" :class="{ 'dark-mode': props.darkMode }">
+  <div class="doc-preview" :class="appClass">
     <div class="preview-content">
       <div class="split-preview">
         <PDF_Viewer
@@ -33,7 +33,6 @@
           :structuredItems="structuredItemsValue"
           :indexSummaryStats="indexSummaryStats"
           :hasParsedContent="hasParsedContent"
-          :dark-mode="props.darkMode"
           :contentScrollPercent="rightScrollPercent"
           :activeLinkedItemId="activeLinkedItemId"
           :activeLineRange="activeLinkedLineRange"
@@ -56,6 +55,7 @@
 import { computed, ref, watch } from 'vue'
 import PDF_Viewer from '../viewers/PDF_Viewer.vue'
 import PDFParsedViewerCombo from './PDFParsedViewerCombo.vue'
+import { useTheme } from '@angineer/ui-kit'
 import { useWorkspaceLinkage } from '../../../composables/useWorkspaceLinkage'
 import { useWorkspacePreview } from '../../../composables/useWorkspacePreview'
 import type { PreviewMode } from '../../../composables/useParsedPdfViewer'
@@ -74,7 +74,6 @@ interface Props {
   content: string
   structuredItems?: StructuredIndexItem[]
   structuredStats?: StructuredStats
-  darkMode?: boolean
   graphData?: { nodes: any[]; edges: any[] } | null
   graphDataFullLoaded?: boolean
   onUpdateStructuredNode?: (payload: StructuredNodeUpdatePayload) => Promise<void>
@@ -84,11 +83,13 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  darkMode: false,
   graphDataFullLoaded: false
 })
 
 defineEmits<PDFParsedWorkspaceEventMap>()
+
+const { appClass } = useTheme()
+
 /* 计算解析面板的默认展示 tab。 */
 const getDefaultParsedTab = (): PreviewMode => (
   props.graphData?.nodes?.length ? 'Preview_IndexTree' : 'Preview_IndexList'
@@ -284,12 +285,12 @@ defineExpose({
 
   .ingest-stage {
     font-size: 13px;
-    color: #595959;
+    color: var(--text-secondary);
   }
 
   .ingest-result {
     font-size: 14px;
-    color: #1677ff;
+    color: var(--primary-color);
     font-weight: 600;
   }
 

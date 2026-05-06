@@ -1,7 +1,32 @@
 /**
  * 通用工具函数
  * 包含文本处理、树操作、状态映射等跨组件逻辑
+ * 树相关工具函数从 @angineer/ui-kit 统一导出，不在本地重复定义。
  */
+
+import {
+  highlightText,
+  getFileIconType,
+  getFileIconColor,
+  getStatusColor,
+  getStatusText,
+  filterTree,
+  getExpandedKeysForSearch,
+  generateMessageId,
+  estimateTokens
+} from '@angineer/ui-kit/utils/tree'
+
+export {
+  highlightText,
+  getFileIconType,
+  getFileIconColor,
+  getStatusColor,
+  getStatusText,
+  filterTree,
+  getExpandedKeysForSearch,
+  generateMessageId,
+  estimateTokens
+}
 
 /**
  * 截断文本并添加省略号
@@ -9,142 +34,6 @@
 export const truncateText = (text: string, length: number = 24): string => {
   if (!text) return ''
   return text.length > length ? text.slice(0, length) + '…' : text
-}
-
-/**
- * 高亮文本中的关键词
- */
-export const highlightText = (text: string, keyword: string): string => {
-  if (!keyword) return text
-  const regex = new RegExp(`(${keyword})`, 'gi')
-  return text.replace(regex, '<mark style="background: #ffe58f; padding: 0 2px;">$1</mark>')
-}
-
-/**
- * 根据文件名获取文件图标类型
- */
-export const getFileIconType = (fileName: string): string => {
-  const ext = fileName.toLowerCase().split('.').pop() || ''
-  const iconMap: Record<string, string> = {
-    pdf: 'pdf',
-    doc: 'word',
-    docx: 'word',
-    xls: 'excel',
-    xlsx: 'excel',
-    ppt: 'ppt',
-    pptx: 'ppt',
-    txt: 'text',
-    md: 'markdown',
-    jpg: 'image',
-    jpeg: 'image',
-    png: 'image',
-    gif: 'image',
-    zip: 'zip',
-    rar: 'zip',
-    mp4: 'video',
-    mp3: 'audio'
-  }
-  return iconMap[ext] || 'file'
-}
-
-/**
- * 获取文件图标颜色
- */
-export const getFileIconColor = (fileName: string): string => {
-  const type = getFileIconType(fileName)
-  const colorMap: Record<string, string> = {
-    pdf: '#ff4d4f',
-    word: '#1890ff',
-    excel: '#52c41a',
-    ppt: '#fa8c16',
-    text: '#8c8c8c',
-    markdown: '#13c2c2',
-    image: '#eb2f96',
-    zip: '#722ed1',
-    video: '#f5222d',
-    audio: '#fa541c',
-    file: '#8c8c8c'
-  }
-  return colorMap[type] || '#8c8c8c'
-}
-
-/**
- * 获取状态颜色
- */
-export const getStatusColor = (status: string): string => {
-  const colors: Record<string, string> = {
-    pending: 'default',
-    uploading: 'processing',
-    processing: 'processing',
-    completed: 'success',
-    failed: 'error'
-  }
-  return colors[status] || 'default'
-}
-
-/**
- * 获取状态文本
- */
-export const getStatusText = (status: string): string => {
-  const texts: Record<string, string> = {
-    pending: '待处理',
-    uploading: '上传中',
-    processing: '处理中',
-    completed: '已完成',
-    failed: '失败'
-  }
-  return texts[status] || '未知'
-}
-
-/**
- * 递归过滤树节点
- */
-export function filterTree<T extends { title: string; children?: T[] }>(
-  nodes: T[],
-  keyword: string
-): T[] {
-  const result: T[] = []
-  const lowerKeyword = keyword.toLowerCase()
-
-  for (const node of nodes) {
-    const matchTitle = node.title.toLowerCase().includes(lowerKeyword)
-    const filteredChildren = node.children ? filterTree(node.children, keyword) : []
-
-    if (matchTitle || filteredChildren.length > 0) {
-      result.push({
-        ...node,
-        children: filteredChildren.length > 0 ? filteredChildren : node.children
-      })
-    }
-  }
-
-  return result
-}
-
-/**
- * 收集所有需要展开的父节点 keys
- */
-export function getExpandedKeysForSearch<T extends { key: string; title: string; children?: T[] }>(
-  nodes: T[],
-  keyword: string,
-  parentKeys: string[] = []
-): string[] {
-  const expandedKeys: string[] = []
-  const lowerKeyword = keyword.toLowerCase()
-  
-  for (const node of nodes) {
-    const matchTitle = node.title.toLowerCase().includes(lowerKeyword)
-    const childKeys = node.children ? getExpandedKeysForSearch(node.children, keyword, [...parentKeys, node.key]) : []
-    
-    if (matchTitle || childKeys.length > 0) {
-      if (parentKeys.length > 0) {
-        expandedKeys.push(...parentKeys)
-      }
-      expandedKeys.push(...childKeys)
-    }
-  }
-  
-  return [...new Set(expandedKeys)]
 }
 
 /**
@@ -157,29 +46,6 @@ export const formatPositionTag = (pageIdx: number | string, blockSeq: number | s
     return null
   }
   return `P${page}b${block}`
-}
-
-/**
- * 生成唯一消息 ID
- */
-export const generateMessageId = (): string => {
-  return `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
-}
-
-/**
- * 估算消息的 token 数量
- */
-export function estimateTokens(content: string): number {
-  if (!content) return 0
-  let tokens = 0
-  for (const char of content) {
-    if (/[\u4e00-\u9fa5]/.test(char)) {
-      tokens += 1.5
-    } else {
-      tokens += 0.5
-    }
-  }
-  return Math.ceil(tokens)
 }
 
 /**
