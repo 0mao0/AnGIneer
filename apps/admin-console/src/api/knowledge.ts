@@ -1,4 +1,3 @@
-import axios from 'axios'
 import type {
   KnowledgeStrategy,
   ParseTaskInfo,
@@ -6,16 +5,16 @@ import type {
   StructuredNodeUpdatePayload,
   StructuredBatchOperationPayload,
   StructuredStats,
-  DocumentStorageManifest
-} from '@angineer/docs-ui'
-import type {
+  DocumentStorageManifest,
   DocumentResponse,
   KnowledgeParseOptions,
   LlmConfigOption,
   KnowledgeEvalDataset,
   KnowledgeEvalQuestionsResponse,
   KnowledgeEvalRunResponse
-} from '../../../shared/knowledgeApi'
+} from '@angineer/docs-ui'
+import axios from 'axios'
+import { getApiClientConfig, registerDataUnwrapInterceptor } from '../../../shared/apiClient'
 
 export type {
   KnowledgeParseOptions,
@@ -26,7 +25,7 @@ export type {
   KnowledgeEvalAnswerDetail,
   KnowledgeEvalRunResponse,
   KnowledgeEvalQuestionsResponse
-} from '../../../shared/knowledgeApi'
+} from '@angineer/docs-ui'
 
 interface StructuredIndexResponse {
   doc_id: string
@@ -71,26 +70,12 @@ interface DeleteNodePreviewResponse {
   sample_doc_titles: string[]
 }
 
-const api = axios.create({
-  baseURL: '/api',
-  timeout: 30000
-})
+const api = registerDataUnwrapInterceptor(axios.create(getApiClientConfig({ baseURL: '/api' })))
 
 api.interceptors.request.use((config: any) => {
   console.log('[API Request]:', config.method?.toUpperCase(), config.url, config.params || config.data)
   return config
 })
-
-api.interceptors.response.use(
-  (response: any) => {
-    console.log('[API Response]:', response)
-    return response.data
-  },
-  (error: any) => {
-    console.error('[API Error]:', error.response?.status, error.response?.data || error.message)
-    return Promise.reject(error)
-  }
-)
 
 export const knowledgeApi = {
   getLibraries: () => api.get('/knowledge/libraries'),

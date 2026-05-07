@@ -17,7 +17,7 @@
 | 修改 | `services/evals-core/src/evals_core/storage/result_store.py` | 新增 eval_folder 表、folder_id/sort_order 字段、文件夹 CRUD |
 | 修改 | `services/evals-core/src/evals_core/dataset/manager.py` | 新增文件夹管理函数 |
 | 修改 | `services/evals-core/src/evals_core/contracts.py` | 新增文件夹请求/响应模型 |
-| 修改 | `apps/api-server/evals_routes.py` | 新增文件夹 API 路由 |
+| 修改 | `services/api-server/evals_routes.py` | 新增文件夹 API 路由 |
 | 修改 | `packages/evals-ui/src/types/eval.ts` | 新增 EvalFolder 类型，扩展 EvalDataset |
 | 修改 | `packages/evals-ui/src/composables/useEvalDatasetTree.ts` | 从后端获取文件夹，替换 LocalFolder |
 | 修改 | `packages/evals-ui/src/composables/useEvalDataset.ts` | 新增 moveDataset 方法 |
@@ -289,7 +289,7 @@ git commit -m "feat(evals): add folder management functions and contracts"
 ### Task 3: 后端 — API 路由
 
 **Files:**
-- Modify: `apps/api-server/evals_routes.py`
+- Modify: `services/api-server/evals_routes.py`
 
 - [ ] **Step 1: 新增文件夹 API 路由**
 
@@ -362,7 +362,7 @@ async def move_dataset(dataset_id: str, req: MoveDatasetRequest):
 - [ ] **Step 2: Commit**
 
 ```bash
-git add apps/api-server/evals_routes.py
+git add services/api-server/evals_routes.py
 git commit -m "feat(evals): add folder CRUD and dataset move API routes"
 ```
 

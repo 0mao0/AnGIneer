@@ -236,13 +236,10 @@ import {
   createResourceNodeFromKnowledge,
   createOpenResourcePayload
 } from '@angineer/docs-ui'
-import { useKnowledgeTree } from '@angineer/docs-ui'
+import { useKnowledgeTree, useKnowledgeParse, useKnowledgeStructuredIndex, useKnowledgeCitation, type KnowledgeChatCitation, type KnowledgeAnswerMessage } from '@angineer/docs-ui'
 import { getStatusColor, getStatusText } from '@angineer/ui-kit/utils/tree'
 import { knowledgeApi } from '@/api/knowledge'
 import { getWebDocumentUrl } from '../../../shared/ports'
-import { useKnowledgeParse } from './composables/useKnowledgeParse'
-import { useKnowledgeStructuredIndex } from './composables/useKnowledgeStructuredIndex'
-import { useKnowledgeCitation, type KnowledgeChatCitation, type KnowledgeAnswerMessage } from './composables/useKnowledgeCitation'
 
 const { appClass } = useTheme()
 
@@ -282,7 +279,7 @@ const {
   handleParseModelChange,
   stopParsePolling,
   startParsePolling
-} = useKnowledgeParse()
+} = useKnowledgeParse(knowledgeApi)
 
 const {
   structuredStats,
@@ -293,7 +290,7 @@ const {
   updateStructuredNode,
   batchOperateStructuredNodes,
   undoLastStructuredOperation
-} = useKnowledgeStructuredIndex()
+} = useKnowledgeStructuredIndex(knowledgeApi)
 
 const {
   handleKnowledgeAnswerComplete,

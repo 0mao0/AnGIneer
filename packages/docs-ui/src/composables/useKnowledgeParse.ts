@@ -1,12 +1,12 @@
 import { ref, computed } from 'vue'
-import { knowledgeApi, type KnowledgeParseOptions, type LlmConfigOption } from '@/api/knowledge'
+import type { KnowledgeParseApi, KnowledgeParseOptions, LlmConfigOption } from '../types'
 
 type ParseSettingsState = {
   use_llm: boolean
   llm_model: string
 }
 
-const PARSE_SETTINGS_STORAGE_KEY = 'angineer-admin-knowledge-parse-settings-v1'
+const PARSE_SETTINGS_STORAGE_KEY = 'angineer-knowledge-parse-settings-v1'
 const DEFAULT_PARSE_LLM_MODEL = 'Qwen3.6-35B-A3B (Private)'
 
 /** 从可用模型列表中选择解析默认模型 */
@@ -17,7 +17,7 @@ const pickDefaultLlmModel = (configs: LlmConfigOption[]): string => {
 }
 
 /** 管理文档解析流程：触发解析、轮询状态、解析设置 */
-export function useKnowledgeParse() {
+export function useKnowledgeParse(api: KnowledgeParseApi) {
   const parsePollTimer = ref<number | null>(null)
   const parseSettingsVisible = ref(false)
   const llmConfigsLoading = ref(false)
@@ -70,7 +70,7 @@ export function useKnowledgeParse() {
   const fetchLlmConfigs = async () => {
     llmConfigsLoading.value = true
     try {
-      const result = await knowledgeApi.getLlmConfigs()
+      const result = await api.getLlmConfigs()
       llmConfigOptions.value = Array.isArray(result) ? result : []
     } catch {
       llmConfigOptions.value = []
@@ -145,7 +145,7 @@ export function useKnowledgeParse() {
     stopParsePolling()
     parsePollTimer.value = window.setInterval(async () => {
       try {
-        const task = await knowledgeApi.getParseTask(taskId) as any
+        const task = await api.getParseTask(taskId) as any
         if (selectedNode && selectedNode.key === docId) {
           selectedNode.parseProgress = task.progress || 0
           selectedNode.parseStage = task.stage || ''

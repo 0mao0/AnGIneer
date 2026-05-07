@@ -137,8 +137,132 @@ export interface PDFParsedWorkspaceEventMap {
   'toggle-visible': [node: KnowledgeTreeNode]
 }
 
+export interface DocumentResponse {
+  content: string
+  storage: Record<string, any>
+  mineru_blocks?: Record<string, any>[]
+  middle_data?: Record<string, any> | null
+  graph_data?: { nodes: Record<string, any>[]; edges: Record<string, any>[] } | null
+}
+
+export interface KnowledgeParseOptions {
+  use_llm?: boolean
+  llm_model?: string
+}
+
+export interface LlmConfigOption {
+  name: string
+  model: string
+  configured: boolean
+}
+
+export interface KnowledgeEvalQuestion {
+  question_id: string
+  question: string
+  task_type: string
+  difficulty: string
+  tags: string[]
+  library_id?: string
+  doc_ids?: string[]
+  expected_route?: string
+  dataset_id?: string
+  dataset_title?: string
+  gold_answer?: string
+  thought_process?: string
+}
+
+export interface KnowledgeEvalDataset {
+  dataset_id: string
+  title: string
+  description?: string
+  schema_version?: string
+  version?: string
+  library_id?: string
+  question_count: number
+  visible_question_count: number
+  sql_question_count: number
+}
+
+export interface KnowledgeEvalSummary {
+  retrieval_score: number | null
+  answer_health_score: number | null
+  answer_correctness_score: number | null
+  checked_answer_total: number
+  overall_score: number
+  text2sql_success_score: number | null
+}
+
+export interface KnowledgeEvalAnswerDetail {
+  question_id: string
+  question: string
+  difficulty: string
+  tags: string[]
+  task_type?: string
+  strategy?: string
+  answer_non_empty?: number
+  citation_hit?: number
+  refusal_correct?: number
+  answer_correct_checked?: boolean
+  answer_correct?: number | null
+  failed_correctness_checks?: Array<{ type?: string; keywords?: string[] }>
+  answer?: string
+  gold_answer?: string
+  thought_process?: string
+  citations?: Array<{
+    target_id: string
+    doc_id: string
+    doc_title: string
+    page_idx: number
+    section_path: string
+    snippet: string
+    score: number
+  }>
+}
+
+export interface KnowledgeEvalRunResponse {
+  generated_at: string
+  available_datasets?: KnowledgeEvalDataset[]
+  selected_dataset?: KnowledgeEvalDataset | null
+  questions: KnowledgeEvalQuestion[]
+  report: {
+    summary: KnowledgeEvalSummary
+    answer: {
+      total: number
+      answer_non_empty_rate: number
+      citation_hit_rate: number
+      refusal_correct_rate: number
+      correctness_checked_total: number
+      answer_correctness_rate: number
+      details: KnowledgeEvalAnswerDetail[]
+    }
+    retrieval: Record<string, any>
+    text2sql: Record<string, any>
+  }
+}
+
+export interface KnowledgeEvalQuestionsResponse {
+  datasets?: KnowledgeEvalDataset[]
+  selected_dataset?: KnowledgeEvalDataset | null
+  questions: KnowledgeEvalQuestion[]
+}
+
 export interface PreviewIndexInteractionEventMap {
   toggle: [id: string]
   select: [id: string]
   'update-viewport': [state: { x: number; y: number; scale: number }]
+}
+
+/** 知识解析 API 接口，供 composable 依赖注入 */
+export interface KnowledgeParseApi {
+  getLlmConfigs: () => Promise<any>
+  getParseTask: (taskId: string) => Promise<any>
+}
+
+/** 知识结构化索引 API 接口，供 composable 依赖注入 */
+export interface KnowledgeStructuredApi {
+  getStructuredStats: (docId: string) => Promise<any>
+  getStructuredIndex: (docId: string, strategy: KnowledgeStrategy, itemType?: string, keyword?: string) => Promise<any>
+  updateDocumentBlock: (libraryId: string, docId: string, payload: StructuredNodeUpdatePayload) => Promise<any>
+  batchOperateDocumentBlocks: (libraryId: string, docId: string, payload: StructuredBatchOperationPayload) => Promise<any>
+  undoLastDocumentBlockOperation: (libraryId: string, docId: string) => Promise<any>
 }

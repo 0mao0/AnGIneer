@@ -23,7 +23,7 @@ def build_repo_fixture(root: Path) -> None:
                 "### 全局代码锚点",
                 "apps/web-console",
                 "apps/admin-console",
-                "apps/api-server",
+                "services/api-server",
                 "packages/docs-ui",
                 "packages/ui-kit",
                 "services/angineer-core",
@@ -44,8 +44,8 @@ def build_repo_fixture(root: Path) -> None:
     write_file(root / "docs" / "services-techniques.md", "## 后端权威架构图（简版）")
     write_file(root / "apps" / "web-console" / "src" / "open.ts", "useResourceOpen\nworkbenchStore.openResource\nWorkbench")
     write_file(root / "apps" / "admin-console" / "src" / "view.ts", "KnowledgeManage\nrouter-view")
-    write_file(root / "apps" / "api-server" / "main.py", "main.py")
-    write_file(root / "apps" / "api-server" / "knowledge_routes.py", "knowledge_routes")
+    write_file(root / "services" / "api-server" / "main.py", "main.py")
+    write_file(root / "services" / "api-server" / "knowledge_routes.py", "knowledge_routes")
     write_file(
         root / "packages" / "docs-ui" / "src" / "adapter.ts",
         "SmartTree\nAIChat\ncreateResourceNode\ncreateOpenResourcePayload",
@@ -82,7 +82,7 @@ truth_sources:
 readme_required_tokens:
   - apps/web-console
   - apps/admin-console
-  - apps/api-server
+  - services/api-server
   - packages/docs-ui
   - packages/ui-kit
   - services/angineer-core
@@ -127,7 +127,7 @@ modules:
       - KnowledgeManage
       - router-view
   - id: api-server
-    path: apps/api-server
+    path: services/api-server
     role: gateway
     depends_on:
       - docs-core
@@ -196,7 +196,7 @@ flows:
       - result_store_json.save_parse_artifacts
       - build_structured_index_for_doc
     anchors:
-      - apps/api-server/knowledge_routes.py
+      - services/api-server/knowledge_routes.py
       - services/docs-core/src/docs_core/ingest/extract/mineru_parser.py
       - services/docs-core/src/docs_core/ingest/store/assets_file_store.py
       - services/docs-core/src/docs_core/knowledge_service.py

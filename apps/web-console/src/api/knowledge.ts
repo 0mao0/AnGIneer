@@ -1,15 +1,8 @@
+import type { DocumentResponse } from '@angineer/docs-ui'
 import axios from 'axios'
-import type { DocumentResponse } from '../../../shared/knowledgeApi'
+import { getApiClientConfig, registerDataUnwrapInterceptor } from '../../../shared/apiClient'
 
-const api = axios.create({
-  baseURL: '/api',
-  timeout: 30000
-})
-
-api.interceptors.response.use(
-  (response: any) => response.data,
-  (error: any) => Promise.reject(error)
-)
+const api = registerDataUnwrapInterceptor(axios.create(getApiClientConfig({ baseURL: '/api' })))
 
 export const knowledgeApi = {
   getNodes: (libraryId: string = 'default', visible: boolean = false) =>

@@ -25,7 +25,7 @@
 ## 4. 架构护栏
 - Monorepo 边界：
   - 前端应用：`apps/web-console`、`apps/admin-console`
-  - API 网关：`apps/api-server`
+  - API 网关：`services/api-server`
   - 共享 UI 包：`packages/*`
   - 核心服务：`services/*`
 - 新增能力前优先复用共享组件：

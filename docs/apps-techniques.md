@@ -2,7 +2,7 @@
 
 本文档包含项目的详细技术实现、API 规范、组件使用示例。
 
-- 运行端口契约：`apps/web-console` 使用 `3005`，`apps/admin-console` 使用 `3002`，`apps/api-server` 使用 `8789`，前端开发代理 `/api` 必须指向 `http://localhost:8789`。
+- 运行端口契约：`apps/web-console` 使用 `3005`，`apps/admin-console` 使用 `3002`，`services/api-server` 使用 `8789`，前端开发代理 `/api` 必须指向 `http://localhost:8789`。
 
 ---
 
@@ -236,7 +236,7 @@ flowchart TD
         PV["PDF_Viewer.vue\n高保真 PDF 渲染器"]
     end
 
-    subgraph Backend["后端 (apps/api-server & docs-core)"]
+    subgraph Backend["后端 (services/api-server & docs-core)"]
         API["FastAPI 异步接口\n/parse, /tasks, /document"]
         Task["ParseOrchestrator\n后台线程异步处理"]
         Parser["MinerU Parser\n云端解析 + 本地后处理"]
@@ -385,13 +385,13 @@ flowchart TB
 
 ### 2）后端接口（按文件级）
 
-- `apps/api-server/main.py`
+- `services/api-server/main.py`
   - 已将 `/api/knowledge/parse` 改为异步任务提交（返回 `task_id`）。
   - 已提供 `/api/knowledge/parse/tasks/{task_id}` 查询进度。
   - 已提供 `/api/knowledge/strategies/*`，但当前仅用于读取/写入单一策略配置。
   - 已提供 `/api/knowledge/structured/*`、`/api/knowledge/document/*`、结构块编辑与撤回接口。
   - `/api/knowledge/document/{library_id}/{doc_id}/revisions`、按策略查询与三策略构建分发仍未落地。
-- `apps/api-server/knowledge_routes.py`
+- `services/api-server/knowledge_routes.py`
   - 统一承载知识库路由、文件预览路由与解析主链编排：任务创建、阶段推进、MinerU 调用、产物落盘、A 主链索引构建。
 - `services/docs-core/src/docs_core/projection/*.py`
   - 当前仓库中尚未形成 A/B/C 三类独立 projection 模块，仍以 `ingest/canonical`、`ingest/structured`、`ingest/storage/file_store.py` 为主链实现。
@@ -439,7 +439,7 @@ flowchart TB
 - `services/docs-core/src/docs_core/migrations/migrate_engtools_refs.py`（新增）
   - 扫描 engtools 配置与引用，建立旧文件名到 `doc_id` 的映射表。
   - 输出校验报告：可解析/缺失/冲突条目。
-- `apps/api-server/main.py`
+- `services/api-server/main.py`
   - 新增管理端迁移触发接口（仅开发环境启用）。
 - `tests/`（补充）
   - 新增迁移脚本单元测试与回归测试：确保旧路径仍可读、新路径优先。
@@ -841,8 +841,8 @@ const onDropRoot = async (dragNodeKey: string) => {
 
 | 端点 | 方法 | 功能 | 位置 |
 |------|------|------|------|
-| `/api/chat` | POST | AI 流式对话（SSE） | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L325) |
-| `/api/llm_configs` | GET | 获取模型列表 | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L310) |
+| `/api/chat` | POST | AI 流式对话（SSE） | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L325) |
+| `/api/llm_configs` | GET | 获取模型列表 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L310) |
 
 **KnowledgeChatRequest:**
 ```typescript
@@ -865,15 +865,15 @@ const onDropRoot = async (dragNodeKey: string) => {
 
 | 端点 | 方法 | 功能 | 位置 |
 |------|------|------|------|
-| `/api/knowledge/libraries` | GET | 获取知识库列表 | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L1010) |
-| `/api/knowledge/libraries` | POST | 创建知识库 | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L1016) |
-| `/api/knowledge/nodes` | GET | 获取节点列表 | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L1032) |
-| `/api/knowledge/nodes` | POST | 创建节点 | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L1038) |
-| `/api/knowledge/nodes/{id}` | PATCH | 更新节点 | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L1058) |
-| `/api/knowledge/nodes/{id}` | DELETE | 删除节点 | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L1067) |
-| `/api/knowledge/upload` | POST | 上传文档 | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L1077) |
-| `/api/knowledge/parse` | POST | 解析文档 | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L1113) |
-| `/api/knowledge/document/{library_id}/{doc_id}` | GET | 获取文档内容 | [main.py](file:///d:/AI/AnGIneer/apps/api-server/main.py#L1169) |
+| `/api/knowledge/libraries` | GET | 获取知识库列表 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1010) |
+| `/api/knowledge/libraries` | POST | 创建知识库 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1016) |
+| `/api/knowledge/nodes` | GET | 获取节点列表 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1032) |
+| `/api/knowledge/nodes` | POST | 创建节点 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1038) |
+| `/api/knowledge/nodes/{id}` | PATCH | 更新节点 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1058) |
+| `/api/knowledge/nodes/{id}` | DELETE | 删除节点 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1067) |
+| `/api/knowledge/upload` | POST | 上传文档 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1077) |
+| `/api/knowledge/parse` | POST | 解析文档 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1113) |
+| `/api/knowledge/document/{library_id}/{doc_id}` | GET | 获取文档内容 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1169) |
 
 ---
 

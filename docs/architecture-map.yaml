@@ -11,7 +11,7 @@ truth_sources:
 readme_required_tokens:
   - apps/web-console
   - apps/admin-console
-  - apps/api-server
+  - services/api-server
   - packages/docs-ui
   - packages/ui-kit
   - services/ai-inference
@@ -63,7 +63,7 @@ modules:
       - router-view
 
   - id: api-server
-    path: apps/api-server
+    path: services/api-server
     role: gateway
     depends_on:
       - ai-inference
@@ -214,7 +214,7 @@ flows:
       - GET /api/knowledge/document/{library_id}/{doc_id}
       - GET /api/knowledge/document/{library_id}/{doc_id}/structured
     anchors:
-      - apps/api-server/knowledge_routes.py
+      - services/api-server/knowledge_routes.py
       - services/docs-core/src/docs_core/ingest/extract/mineru_parser.py
       - services/docs-core/src/docs_core/ingest/store/assets_file_store.py
       - services/docs-core/src/docs_core/knowledge_service.py
@@ -229,7 +229,7 @@ flows:
       - text2sql pipeline (docs-core)
       - LLM generation (ai-inference LLMClient directly)
     anchors:
-      - apps/api-server/main.py
+      - services/api-server/main.py
       - services/ai-inference/src/ai_inference/llm_client.py
       - services/angineer-core/src/angineer_core/classifier.py
       - services/angineer-core/src/angineer_core/dispatcher.py

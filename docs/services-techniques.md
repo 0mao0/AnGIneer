@@ -2,7 +2,7 @@
 
 本文档描述文档解析与对比查改能力的后端改造方案，聚焦 API 网关、ai-inference、docs-core、engtools 多层联动。
 
-- 运行端口契约：`apps/api-server` 对外监听 `8789`，前端开发代理 `/api` 必须统一转发到 `http://localhost:8789`。
+- 运行端口契约：`services/api-server` 对外监听 `8789`，前端开发代理 `/api` 必须统一转发到 `http://localhost:8789`。
 
 ***
 
@@ -73,7 +73,7 @@ flowchart LR
 
 ### 后端不变量
 
-- 前端知识访问入口固定经过 `apps/api-server`
+- 前端知识访问入口固定经过 `services/api-server`
 - 解析长链路保持异步任务化，不直接在请求中同步阻塞完成
 - 文档存储遵循 `data/knowledge_base/libraries/{library_id}/documents/{doc_id}`
 - 运行时双库固定为 `knowledge_meta.sqlite` 与 `knowledge_index.sqlite`
@@ -90,7 +90,7 @@ flowchart LR
 - `services/ai-inference/src/ai_inference/llm_logger.py`（LLM 专用日志）
 - `services/ai-inference/src/ai_inference/semantic_embedding_service.py`（语义嵌入服务，端口 7997）
 - `services/ai-inference/src/ai_inference/semantic_reranker_service.py`（语义重排服务，端口 7998）
-- `apps/api-server/knowledge_routes.py`
+- `services/api-server/knowledge_routes.py`
 - `services/docs-core/src/docs_core/knowledge_service.py`
 - `services/docs-core/src/docs_core/ingest/extract/mineru_parser.py`
 - `services/docs-core/src/docs_core/ingest/store/canonical_sql_store.py`
@@ -208,7 +208,7 @@ sequenceDiagram
 
 - **坐标标准化**：所有 `bbox` 统一采用 `[x0, y0, x1, y1]` 格式，并与 `page_idx` 严格绑定。
 - **索引幂等性**：重新解析文档时，必须先清理该文档旧的索引数据，防止数据库冗余。
-- **并发控制**：在处理大规模并发解析请求时，利用任务队列 (TaskQueue) 进行限流，并已将接口与调度逻辑收口到 `apps/api-server/knowledge_routes.py`，减少跨层薄文件带来的心智负担。
+- **并发控制**：在处理大规模并发解析请求时，利用任务队列 (TaskQueue) 进行限流，并已将接口与调度逻辑收口到 `services/api-server/knowledge_routes.py`，减少跨层薄文件带来的心智负担。
 
 ***
 
@@ -216,7 +216,7 @@ sequenceDiagram
 
 ```mermaid
 flowchart TB
-  subgraph Gateway["API 网关层 apps/api-server"]
+  subgraph Gateway["API 网关层 services/api-server"]
     ParseAPI["/api/knowledge/parse\n异步任务提交"]
     TaskAPI["/api/knowledge/parse/tasks/{task_id}\n进度查询"]
     DocAPI["/api/knowledge/document/*\n原文/编辑版/版本"]
@@ -288,7 +288,7 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  subgraph Ingest["解析入口 apps/api-server/main.py"]
+  subgraph Ingest["解析入口 services/api-server/main.py"]
     ParseReq["POST /api/knowledge/parse\n提交解析任务"]
     ParseTask["knowledge_routes.ParseOrchestrator\n执行解析主链与状态推进"]
   end
@@ -306,7 +306,7 @@ flowchart TB
     KeepAssets["保留解析原始工件\n用于前端图片展示与重建"]
   end
 
-  subgraph ReadApi["读取入口 apps/api-server/main.py"]
+  subgraph ReadApi["读取入口 services/api-server/main.py"]
     GetDoc["GET /api/knowledge/document/{library_id}/{doc_id}\n返回 content + storage + graph_data"]
     GetStructured["GET /api/knowledge/structured/{doc_id}\n返回 structured_index.items"]
   end
@@ -365,7 +365,7 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 
 ## 可直接开工清单（后端文件级）
 
-- `apps/api-server/main.py`
+- `services/api-server/main.py`
   - 解析接口改异步任务化，返回 `task_id`。
   - 增加任务进度查询、文档版本、策略切换与统一查询接口。
   - 保持单一 `doc_blocks_graph_v1` 索引构建，调用 `docs_core.ingest.storage.file_store.build_structured_index_for_doc`。

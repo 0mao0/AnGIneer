@@ -1,72 +1,24 @@
 import { ref, nextTick } from 'vue'
 import { message } from 'ant-design-vue'
-import { knowledgeApi } from '@/api/knowledge'
 import type {
+  KnowledgeStructuredApi,
   StructuredIndexItem,
   StructuredStats,
   StructuredNodeUpdatePayload,
   StructuredBatchOperationPayload,
   KnowledgeStrategy
-} from '@angineer/docs-ui'
-
-/** 从行文本中提取页码提示 */
-const extractPageHintFromLine = (line: string): number | null => {
-  const match = line.match(/[（(]\s*(\d{1,4})\s*[）)]\s*$/)
-  if (!match) return null
-  const page = Number(match[1])
-  if (!Number.isFinite(page) || page <= 0) return null
-  return Math.round(page)
-}
+} from '../types'
+import { buildMiddleFallbackItems } from '../utils/knowledge'
 
 /** 管理结构化索引：加载、CRUD、批量操作、undo */
-export function useKnowledgeStructuredIndex() {
+export function useKnowledgeStructuredIndex(api: KnowledgeStructuredApi) {
   const structuredStats = ref<StructuredStats>({})
   const structuredItems = ref<StructuredIndexItem[]>([])
-
-  /** 当无结构化索引时，从文档内容中提取标题行作为回退索引 */
-  const buildMiddleFallbackItems = (content: string): StructuredIndexItem[] => {
-    if (!content.trim()) return []
-    const lines = content.split('\n')
-    const result: StructuredIndexItem[] = []
-    let orderIndex = 0
-    lines.forEach((line: string, index: number) => {
-      const trimmed = (line || '').trim()
-      if (!trimmed) return
-      const headingMatch = trimmed.match(/^(#{1,6})\s+(.+)$/)
-      const numberedMatch = trimmed.match(/^(\d+(?:\.\d+)*)(?:[、.)])?\s*(.*)$/)
-      if (!headingMatch && !numberedMatch) return
-      const numberedPrefix = numberedMatch?.[1] || ''
-      const numberedText = (numberedMatch?.[2] || '').trim()
-      const text = (
-        headingMatch?.[2]
-        || (numberedPrefix && numberedText ? `${numberedPrefix} ${numberedText}` : numberedPrefix)
-        || numberedText
-        || ''
-      ).trim().slice(0, 200)
-      if (!text) return
-      const pageHint = extractPageHintFromLine(trimmed)
-      result.push({
-        id: `middle-${index + 1}`,
-        item_type: headingMatch ? 'heading' : 'section',
-        title: text,
-        content: text,
-        order_index: orderIndex++,
-        meta: {
-          line_start: index + 1,
-          line_end: index + 1,
-          heading_level: headingMatch ? headingMatch[1].length : undefined,
-          page: pageHint ?? undefined,
-          page_no: pageHint ?? undefined
-        }
-      })
-    })
-    return result
-  }
 
   /** 加载结构化索引统计 */
   const loadStructuredStats = async (docId: string) => {
     try {
-      const result = await knowledgeApi.getStructuredStats(docId) as any
+      const result = await api.getStructuredStats(docId) as any
       structuredStats.value = result || {}
     } catch {
       structuredStats.value = {}
@@ -90,7 +42,7 @@ export function useKnowledgeStructuredIndex() {
       return
     }
     try {
-      const result = await knowledgeApi.getStructuredIndex(selectedNode.key, strategy, itemType, keyword)
+      const result = await api.getStructuredIndex(selectedNode.key, strategy, itemType, keyword)
       const fromApi = Array.isArray(result?.items) ? result.items : []
       structuredItems.value = fromApi.length ? fromApi : buildMiddleFallbackItems(docContent)
     } catch {
@@ -108,7 +60,7 @@ export function useKnowledgeStructuredIndex() {
   ) => {
     if (!selectedNode || selectedNode.isFolder) return
     try {
-      await knowledgeApi.updateDocumentBlock('default', selectedNode.key, payload)
+      await api.updateDocumentBlock('default', selectedNode.key, payload)
       await onLoadDocContent(selectedNode.key)
       await onLoadStructuredStats(selectedNode.key)
       await onLoadStructuredIndex()
@@ -131,7 +83,7 @@ export function useKnowledgeStructuredIndex() {
   ) => {
     if (!selectedNode || selectedNode.isFolder) return
     try {
-      const result = await knowledgeApi.batchOperateDocumentBlocks('default', selectedNode.key, payload)
+      const result = await api.batchOperateDocumentBlocks('default', selectedNode.key, payload) as any
       await onLoadDocContent(selectedNode.key)
       await onLoadStructuredStats(selectedNode.key)
       await onLoadStructuredIndex()
@@ -185,7 +137,7 @@ export function useKnowledgeStructuredIndex() {
   ) => {
     if (!selectedNode || selectedNode.isFolder) return
     try {
-      const result = await knowledgeApi.undoLastDocumentBlockOperation('default', selectedNode.key)
+      const result = await api.undoLastDocumentBlockOperation('default', selectedNode.key) as any
       await onLoadDocContent(selectedNode.key)
       await onLoadStructuredStats(selectedNode.key)
       await onLoadStructuredIndex()

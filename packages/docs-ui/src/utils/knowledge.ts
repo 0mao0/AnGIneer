@@ -455,3 +455,52 @@ export const hasExactItemRef = (item: StructuredIndexItem, nodeMap?: Map<string,
   if (hasMetaRefs) return true
   return nodeMap?.has(item.id) || false
 }
+
+/** 从行文本中提取页码提示 */
+export const extractPageHintFromLine = (line: string): number | null => {
+  const match = line.match(/[（(]\s*(\d{1,4})\s*[）)]\s*$/)
+  if (!match) return null
+  const page = Number(match[1])
+  if (!Number.isFinite(page) || page <= 0) return null
+  return Math.round(page)
+}
+
+/** 当无结构化索引时，从文档内容中提取标题行作为回退索引 */
+export const buildMiddleFallbackItems = (content: string): StructuredIndexItem[] => {
+  if (!content.trim()) return []
+  const lines = content.split('\n')
+  const result: StructuredIndexItem[] = []
+  let orderIndex = 0
+  lines.forEach((line: string, index: number) => {
+    const trimmed = (line || '').trim()
+    if (!trimmed) return
+    const headingMatch = trimmed.match(/^(#{1,6})\s+(.+)$/)
+    const numberedMatch = trimmed.match(/^(\d+(?:\.\d+)*)(?:[、.)])?\s*(.*)$/)
+    if (!headingMatch && !numberedMatch) return
+    const numberedPrefix = numberedMatch?.[1] || ''
+    const numberedText = (numberedMatch?.[2] || '').trim()
+    const text = (
+      headingMatch?.[2]
+      || (numberedPrefix && numberedText ? `${numberedPrefix} ${numberedText}` : numberedPrefix)
+      || numberedText
+      || ''
+    ).trim().slice(0, 200)
+    if (!text) return
+    const pageHint = extractPageHintFromLine(trimmed)
+    result.push({
+      id: `middle-${index + 1}`,
+      item_type: headingMatch ? 'heading' : 'section',
+      title: text,
+      content: text,
+      order_index: orderIndex++,
+      meta: {
+        line_start: index + 1,
+        line_end: index + 1,
+        heading_level: headingMatch ? headingMatch[1].length : undefined,
+        page: pageHint ?? undefined,
+        page_no: pageHint ?? undefined
+      }
+    })
+  })
+  return result
+}

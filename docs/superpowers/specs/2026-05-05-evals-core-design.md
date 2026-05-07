@@ -351,7 +351,7 @@ packages/evals-ui/
 ### 阶段 2：清理（联调通过后）
 
 1. 删除 `services/docs-core/src/docs_core/evals/` 目录
-2. 删除 `apps/api-server/main.py` 中旧的 `/api/knowledge/evals/*` 路由
+2. 删除 `services/api-server/main.py` 中旧的 `/api/knowledge/evals/*` 路由
 3. 删除 `apps/admin-console/src/views/components/KnowledgeEvalDrawer.vue`
 4. 删除 `tests/evals/knowledge_rag/` 下的旧评测脚本
 5. 更新 `docs-core` 的 `__init__.py` 和 `pyproject.toml` 移除 evals 相关导出

@@ -17,7 +17,7 @@ ADMIN_VITE_CONFIG = ROOT_DIR / "apps" / "admin-console" / "vite.config.ts"
 WEB_VITE_CONFIG = ROOT_DIR / "apps" / "web-console" / "vite.config.ts"
 README_FILE = ROOT_DIR / "README.md"
 START_SCRIPT = ROOT_DIR / "start.ps1"
-API_SERVER_MAIN = ROOT_DIR / "apps" / "api-server" / "main.py"
+API_SERVER_MAIN = ROOT_DIR / "services" / "api-server" / "main.py"
 
 
 class TestPortContract(unittest.TestCase):
