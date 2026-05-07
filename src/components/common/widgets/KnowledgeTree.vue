@@ -70,6 +70,7 @@
  */
 import { ref } from 'vue'
 import { SmartTree } from '@angineer/ui-kit'
+import type { DropEvent } from '@angineer/ui-kit'
 import {
   FolderOutlined,
   FilePdfOutlined,
@@ -111,7 +112,7 @@ const emit = defineEmits<{
   'add-file': [node: KnowledgeTreeNode]
   delete: [node: KnowledgeTreeNode]
   view: [node: KnowledgeTreeNode]
-  drop: [info: any]
+  drop: [event: DropEvent]
   search: [text: string]
   'file-drop': [files: File[], targetFolder: KnowledgeTreeNode | null]
   'drop-invalid': [reason: string]
