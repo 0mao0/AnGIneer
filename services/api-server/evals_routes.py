@@ -155,7 +155,11 @@ async def create_folder(req: CreateFolderRequest):
 @evals_router.patch("/folders/{folder_id}")
 async def update_folder(folder_id: str, req: UpdateFolderRequest):
     """更新文件夹信息。"""
-    updates = req.model_dump(exclude_none=True)
+    updates = {}
+    for field in req.model_fields_set:
+        value = getattr(req, field)
+        if value is not None or field == 'parent_folder_id':
+            updates[field] = value
     if not updates:
         raise HTTPException(status_code=400, detail="无更新内容")
     folder = manager.update_folder(folder_id, updates)

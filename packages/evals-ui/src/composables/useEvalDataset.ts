@@ -149,6 +149,21 @@ export function useEvalDataset() {
     throw new Error(errText || `删除文件夹失败 (${resp.status})`)
   }
 
+  /** 更新文件夹属性（如移动到新父级、更改类别等） */
+  const updateFolder = async (folderId: string, updates: Record<string, any>) => {
+    const resp = await fetch(`/api/evals/folders/${folderId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updates),
+    })
+    if (resp.ok) {
+      await fetchFolders()
+      return true
+    }
+    const errText = await resp.text().catch(() => '')
+    throw new Error(errText || `更新文件夹失败 (${resp.status})`)
+  }
+
   const moveDataset = async (datasetId: string, folderId: string, sortOrder: number = 0) => {
     const resp = await fetch(`/api/evals/datasets/${datasetId}/move`, {
       method: 'PATCH',
@@ -179,6 +194,7 @@ export function useEvalDataset() {
     createFolder,
     renameFolder,
     deleteFolder,
+    updateFolder,
     moveDataset,
   }
 }

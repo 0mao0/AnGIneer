@@ -35,4 +35,4 @@ export type {
   SessionSnapshot,
   AIChatContextConfig
 } from './chat'
-export type { SmartTreeNode, TreeNodeAction } from './tree'
+export type { SmartTreeNode, TreeNodeAction, DropEvent } from './tree'

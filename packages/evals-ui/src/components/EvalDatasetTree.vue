@@ -59,26 +59,14 @@
 <script lang="ts">
 import type { SmartTreeNode } from '@angineer/ui-kit'
 import type { EvalDatasetCategory } from '../types/eval'
-import { isGroupNode, isPersistedFolder, getCategoryFromGroupKey } from '../composables/useEvalDatasetTree'
+import { isCategoryFolder, isPersistedFolder } from '../composables/useEvalDatasetTree'
 
 export interface EvalTreeNode extends SmartTreeNode {
   questionCount?: number
   category?: EvalDatasetCategory
 }
 
-export { isGroupNode, isPersistedFolder, getCategoryFromGroupKey }
-</script>
-
-<script setup lang="ts">
-/**
- * 评测数据集树语义组件。
- * 在 evals-ui 中承接评测节点类型与基础树组件之间的边界，便于后续扩展评测域默认行为。
- */
-import { ref } from 'vue'
-import { SmartTree } from '@angineer/ui-kit'
-import { FolderOutlined, FileTextOutlined } from '@ant-design/icons-vue'
-
-interface Props {
+export interface EvalDatasetTreeProps {
   treeData: EvalTreeNode[]
   showSearch?: boolean
   searchPlaceholder?: string
@@ -98,7 +86,20 @@ interface Props {
   defaultSelectedKeys?: string[]
 }
 
-defineProps<Props>()
+export { isCategoryFolder, isPersistedFolder }
+</script>
+
+<script setup lang="ts">
+/**
+ * 评测数据集树语义组件。
+ * 在 evals-ui 中承接评测节点类型与基础树组件之间的边界，便于后续扩展评测域默认行为。
+ */
+import { ref } from 'vue'
+import { SmartTree } from '@angineer/ui-kit'
+import type { DropEvent } from '@angineer/ui-kit'
+import { FolderOutlined, FileTextOutlined } from '@ant-design/icons-vue'
+
+defineProps<EvalDatasetTreeProps>()
 
 const emit = defineEmits<{
   select: [keys: string[], nodes: EvalTreeNode[]]
@@ -107,7 +108,7 @@ const emit = defineEmits<{
   'add-file': [node: EvalTreeNode]
   delete: [node: EvalTreeNode]
   view: [node: EvalTreeNode]
-  drop: [info: any]
+  drop: [event: DropEvent]
   search: [text: string]
   'file-drop': [files: File[], targetFolder: EvalTreeNode | null]
   'drop-invalid': [reason: string]

@@ -2,12 +2,11 @@
   <a-config-provider :locale="zhCN" :theme="themeConfig">
     <a-app>
       <div class="app-container" :class="appClass">
-        <!-- 使用通用头部组件 -->
         <AppHeader
-          project-name="管理后台"
           :nav-items="navItems"
           :active-nav="activeNav"
           :show-home="true"
+          :show-home-in-right="true"
           :show-settings="true"
           logo-clickable
           @home-click="confirmGoToFrontend"
@@ -16,7 +15,6 @@
           @settings-click="openSettings"
         />
 
-        <!-- 主内容区 -->
         <div class="main-content">
           <router-view />
         </div>
@@ -52,6 +50,7 @@ const activeNav = computed(() => {
   return 'knowledge'
 })
 
+/** 导航项点击 */
 const handleNavClick = (key: string) => {
   const routeMap: Record<string, string> = {
     project: '/project',
@@ -65,13 +64,12 @@ const handleNavClick = (key: string) => {
   }
 }
 
-// 打开设置
+/** 打开设置 */
 const openSettings = () => {
   console.log('Open settings')
-  // TODO: 实现设置弹窗
 }
 
-// 确认返回前台
+/** 确认返回前台 */
 const confirmGoToFrontend = () => {
   Modal.confirm({
     title: '返回前台首页',

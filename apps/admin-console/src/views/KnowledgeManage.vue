@@ -225,7 +225,7 @@ import {
 } from '@ant-design/icons-vue'
 
 // 导入 packages 中的组件和 composables
-import { SplitPanes, Panel, AIChat, useTheme } from '@angineer/ui-kit'
+import { SplitPanes, Panel, AIChat, useTheme, type DropEvent } from '@angineer/ui-kit'
 import {
   KnowledgeTree,
   PDFParsedWorkspace,
@@ -340,6 +340,7 @@ const smartTreeProps = {
   searchPlaceholder: '搜索文档...',
   showAddRootFolder: true,
   addRootFolderTitle: '新增一级文件夹',
+  showIcon: true,
   showStatus: true,
   draggable: true,
   allowAddFile: true,
@@ -794,168 +795,18 @@ const handleFolderUpload = (file: File, folderId: string) => {
 }
 
 // 树拖拽
-const onTreeDrop = async (info: any) => {
-  const { dragNode, node: dropNode } = info
-  if (!dragNode || !dropNode) {
-    return
-  }
-
-  if (dragNode.key === dropNode.key) {
-    return
-  }
-
-  const nodeId = dragNode.key as string
-  const isDropNodeFolder = dropNode.dataRef?.isFolder === true
-  const dropToGap = info.dropToGap
-  const dropPos = String(dropNode.pos || '')
-  const dropPosParts = dropPos.split('-')
-  const dropNodeIndex = Number(dropPosParts[dropPosParts.length - 1] || 0)
-  const relativeDropPosition = (info.dropPosition as number) - dropNodeIndex
-
-  if (!dropToGap && !isDropNodeFolder) {
-    message.warning('不能将节点拖入文件')
-    await loadNodes()
-    return
-  }
-
-  const findNodeByKey = (nodes: SmartTreeNode[], key: string): SmartTreeNode | null => {
-    for (const node of nodes) {
-      if (node.key === key) return node
-      if (node.children?.length) {
-        const child = findNodeByKey(node.children, key)
-        if (child) return child
-      }
-    }
-    return null
-  }
-
-  const isDescendantNode = (source: SmartTreeNode | null, targetKey: string): boolean => {
-    if (!source?.children?.length) return false
-    for (const child of source.children) {
-      if (child.key === targetKey || isDescendantNode(child, targetKey)) return true
-    }
-    return false
-  }
-
-  const sourceNode = findNodeByKey(treeData.value as unknown as SmartTreeNode[], nodeId)
-  if (isDescendantNode(sourceNode, dropNode.key as string)) {
-    message.warning('不能拖拽到自身子级目录')
-    await loadNodes()
-    return
-  }
-
-  const nextTree = JSON.parse(JSON.stringify(treeData.value as unknown as SmartTreeNode[])) as SmartTreeNode[]
-  let dragObj: SmartTreeNode | undefined
-
-  const removeNode = (nodes: SmartTreeNode[]): boolean => {
-    for (let i = 0; i < nodes.length; i++) {
-      if (nodes[i].key === nodeId) {
-        dragObj = nodes[i]
-        nodes.splice(i, 1)
-        return true
-      }
-      const childNodes = nodes[i].children
-      if (childNodes?.length && removeNode(childNodes)) {
-        return true
-      }
-    }
-    return false
-  }
-
-  const insertIntoNode = (nodes: SmartTreeNode[], targetKey: string, node: SmartTreeNode): boolean => {
-    for (const current of nodes) {
-      if (current.key === targetKey) {
-        if (!current.children) current.children = []
-        current.children.push(node)
-        return true
-      }
-      if (current.children?.length && insertIntoNode(current.children, targetKey, node)) {
-        return true
-      }
-    }
-    return false
-  }
-
-  const insertAtGap = (nodes: SmartTreeNode[], targetKey: string, node: SmartTreeNode): boolean => {
-    for (let i = 0; i < nodes.length; i++) {
-      if (nodes[i].key === targetKey) {
-        const insertIndex = relativeDropPosition < 0 ? i : i + 1
-        nodes.splice(insertIndex, 0, node)
-        return true
-      }
-      const childNodes = nodes[i].children
-      if (childNodes?.length && insertAtGap(childNodes, targetKey, node)) {
-        return true
-      }
-    }
-    return false
-  }
-
-  const getSiblingList = (nodes: SmartTreeNode[], parentId: string | null): SmartTreeNode[] => {
-    if (!parentId) return nodes
-    const walk = (items: SmartTreeNode[]): SmartTreeNode | null => {
-      for (const item of items) {
-        if (item.key === parentId) return item
-        if (item.children?.length) {
-          const found = walk(item.children)
-          if (found) return found
-        }
-      }
-      return null
-    }
-    const parentNode = walk(nodes)
-    return parentNode?.children || []
-  }
-
-  const findParentIdByKey = (
-    nodes: SmartTreeNode[],
-    key: string,
-    parentId: string | null = null
-  ): string | null | undefined => {
-    for (const node of nodes) {
-      if (node.key === key) {
-        return parentId
-      }
-      if (node.children?.length) {
-        const found = findParentIdByKey(node.children, key, node.key)
-        if (found !== undefined) {
-          return found
-        }
-      }
-    }
-    return undefined
-  }
-
-  removeNode(nextTree)
-  if (!dragObj) {
-    await loadNodes()
-    return
-  }
-
-  if (!dropToGap) {
-    insertIntoNode(nextTree, dropNode.key as string, dragObj)
-  } else {
-    insertAtGap(nextTree, dropNode.key as string, dragObj)
-  }
-
-  const fallbackParentId = (dropNode.dataRef?.parentId as string | undefined) || null
-  const resolvedGapParentId = findParentIdByKey(nextTree, dropNode.key as string)
-  const newParentId = !dropToGap
-    ? (dropNode.key as string)
-    : (resolvedGapParentId === undefined ? fallbackParentId : resolvedGapParentId)
-
-  const siblings = getSiblingList(nextTree, newParentId)
+const onTreeDrop = async (event: DropEvent) => {
+  const { dragKey, targetParentKey, siblings } = event
 
   try {
     for (let index = 0; index < siblings.length; index++) {
-      const sibling = siblings[index]
-      await knowledgeApi.updateNode(sibling.key, {
-        parent_id: newParentId,
-        sort_order: index
+      await knowledgeApi.updateNode(siblings[index].key, {
+        parent_id: targetParentKey,
+        sort_order: index,
       })
     }
     message.success('移动成功')
-    await loadNodes(nodeId)
+    await loadNodes(dragKey)
   } catch (error: any) {
     message.error('移动失败: ' + (error.response?.data?.detail || error?.message || '未知错误'))
     await loadNodes()

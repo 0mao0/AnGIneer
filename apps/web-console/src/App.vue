@@ -3,11 +3,13 @@
     <a-app>
       <div class="app-container" :class="appClass">
         <AppHeader
-          project-name="示例项目"
-          :nav-items="navItems"
-          :active-nav="activeNav"
+          :project-name="projectName"
+          :editable-project-name="true"
+          :show-admin="true"
+          :show-admin-in-right="true"
           :show-settings="true"
-          @nav-click="handleNavClick"
+          @admin-click="goToAdmin"
+          @update:project-name="onProjectNameChange"
           @settings-click="openSettings"
         />
         <SplitPanes
@@ -43,19 +45,19 @@
 import { computed, ref } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { MessageOutlined } from '@ant-design/icons-vue'
-import { AppHeader, SplitPanes, Panel, AIChat, useTheme, type NavItem } from '@angineer/ui-kit'
+import { AppHeader, SplitPanes, Panel, AIChat, useTheme } from '@angineer/ui-kit'
 import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
 import { ADMIN_CONSOLE_ORIGIN } from '../../shared/ports'
 import { useWorkbenchStore } from '@/stores/workbench'
-import { useRoute } from 'vue-router'
 
 type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
 
 const { themeConfig, appClass } = useTheme()
 const activeSection = ref<ResourcePanelSection>('knowledge')
 const workbenchStore = useWorkbenchStore()
-const route = useRoute()
+
+const projectName = ref('示例项目')
 
 const chatPanelTitle = computed(() => (
   activeSection.value === 'sop' ? 'SOP 对话' : '知识对话'
@@ -67,34 +69,19 @@ const chatPanelPlaceholder = computed(() => (
   activeSection.value === 'sop' ? '输入 SOP 问题，Enter 发送...' : '输入消息，Enter 发送...'
 ))
 
-const navItems: NavItem[] = [
-  { key: 'project', label: '项目库' },
-  { key: 'knowledge', label: '知识库' },
-  { key: 'experience', label: '经验库' },
-]
-
-const activeNav = computed(() => {
-  const path = route.path
-  if (path.startsWith('/project')) return 'project'
-  if (path.startsWith('/sop')) return 'experience'
-  return 'knowledge'
-})
-
-const handleNavClick = (_key: string) => {
-  goToAdmin()
-}
-
-
-
-// 跳转到管理后台
+/** 跳转到管理后台 */
 const goToAdmin = () => {
   window.location.href = ADMIN_CONSOLE_ORIGIN
 }
 
-// 打开设置
+/** 项目名称变更回调 */
+const onProjectNameChange = (name: string) => {
+  projectName.value = name
+}
+
+/** 打开设置 */
 const openSettings = () => {
   console.log('Open settings')
-  // TODO: 实现设置弹窗
 }
 
 const handleResize = (leftSize: number, rightSize: number) => {

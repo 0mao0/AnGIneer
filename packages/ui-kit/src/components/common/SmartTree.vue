@@ -110,7 +110,9 @@
       <div
         v-if="draggable && draggingNodeKey"
         class="root-drop-zone"
+        @dragenter.prevent="onRootDragEnter"
         @dragover.prevent="onRootDragOver"
+        @dragleave="onRootDragLeave"
         @drop.prevent="onRootDrop"
       >
         拖到此处移动到根目录
@@ -171,9 +173,9 @@ import {
   SearchOutlined
 } from '@ant-design/icons-vue'
 import { useTheme } from '../../composables/useTheme'
-import type { SmartTreeNode } from '../../types/tree'
+import type { SmartTreeNode, DropEvent } from '../../types/tree'
 
-export type { SmartTreeNode }
+export type { SmartTreeNode, DropEvent }
 
 import {
   highlightText,
@@ -231,7 +233,7 @@ const emit = defineEmits<{
   'add-file': [node: SmartTreeNode]
   delete: [node: SmartTreeNode]
   view: [node: SmartTreeNode]
-  drop: [info: any]
+  drop: [event: DropEvent]
   search: [text: string]
   'file-drop': [files: File[], targetFolder: SmartTreeNode | null]
   'drop-invalid': [reason: string]
@@ -365,6 +367,41 @@ const onSelect: TreeProps['onSelect'] = (keys, info) => {
 /**
  * 处理节点拖拽，先本地更新避免回弹。
  */
+const findParentKeyInTree = (nodes: SmartTreeNode[], targetKey: string, isInsertInto: boolean): string | null => {
+  if (isInsertInto) return targetKey
+
+  const findParent = (items: SmartTreeNode[], key: string, parentKey: string | null): string | null | undefined => {
+    for (const item of items) {
+      if (item.key === key) return parentKey
+      if (item.children?.length) {
+        const found = findParent(item.children, key, item.key)
+        if (found !== undefined) return found
+      }
+    }
+    return undefined
+  }
+
+  const result = findParent(nodes, targetKey, null)
+  return result === undefined ? null : result
+}
+
+const getSiblingsAtLevel = (nodes: SmartTreeNode[], parentKey: string | null): SmartTreeNode[] => {
+  if (!parentKey) return nodes
+
+  const findChildren = (items: SmartTreeNode[], key: string): SmartTreeNode[] | null => {
+    for (const item of items) {
+      if (item.key === key) return item.children || []
+      if (item.children?.length) {
+        const found = findChildren(item.children, key)
+        if (found) return found
+      }
+    }
+    return null
+  }
+
+  return findChildren(nodes, parentKey) || []
+}
+
 const onDrop: TreeProps['onDrop'] = (info) => {
   const { dragNode, node: dropNode } = info
   if (!dragNode || !dropNode) return
@@ -460,7 +497,21 @@ const onDrop: TreeProps['onDrop'] = (info) => {
   }
 
   internalTreeData.value = data
-  emit('drop', info)
+
+  const targetParentKey = findParentKeyInTree(data, String(dropNode.key), shouldInsertInto)
+  const siblings = getSiblingsAtLevel(data, targetParentKey)
+
+  const dropEvent: DropEvent = {
+    dragKey: String(dragNode.key),
+    dragNode: dragObj,
+    dropKey: String(dropNode.key),
+    dropNode: getOriginalNode(String(dropNode.key)) || (dropNode as unknown as SmartTreeNode),
+    dropToGap,
+    targetParentKey,
+    siblings,
+  }
+
+  emit('drop', dropEvent)
 }
 
 const onNodeDragStart: TreeProps['onDragstart'] = (info) => {
@@ -468,6 +519,7 @@ const onNodeDragStart: TreeProps['onDragstart'] = (info) => {
 }
 
 const onNodeDragEnd: TreeProps['onDragend'] = () => {
+  draggingNodeKey.value = null
 }
 
 /** 容器级 dragend 清空拖拽状态，避免移出 a-tree 区域时过早丢失 draggingNodeKey */
@@ -475,9 +527,17 @@ const onContainerDragEnd = () => {
   draggingNodeKey.value = null
 }
 
+const onRootDragEnter = (event: DragEvent) => {
+  if (event.dataTransfer?.types.includes('Files')) return
+  event.preventDefault()
+}
+
 const onRootDragOver = (event: DragEvent) => {
   if (event.dataTransfer?.types.includes('Files')) return
   event.preventDefault()
+}
+
+const onRootDragLeave = (_event: DragEvent) => {
 }
 
 const onRootDrop = (event: DragEvent) => {

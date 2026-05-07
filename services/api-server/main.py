@@ -965,7 +965,7 @@ def update_knowledge_node(node_id: str, request: KnowledgeNodeUpdate):
     if request.title is not None:
         kwargs['title'] = request.title
         
-    if request.parent_id is not None:
+    if 'parent_id' in request.model_fields_set:
         parent_id = request.parent_id
         # 统一处理根节点标
         # 前端可能'', 'undefined', '__root__', 'null' 

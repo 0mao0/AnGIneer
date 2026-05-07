@@ -127,6 +127,30 @@ def init_db() -> None:
     # 初始化 tree_node 表
     tree_store.init_table(conn)
 
+    # 种子数据：确保三个分类文件夹存在
+    _seed_category_folders(conn)
+
+
+def _seed_category_folders(conn: sqlite3.Connection) -> None:
+    """确保三个分类文件夹（知识库评测/SOP评测/全链路评测）作为真实文件夹存在。"""
+    category_folders = [
+        ("folder-knowledge", "知识库评测", "knowledge", 0),
+        ("folder-sop", "SOP 评测", "sop", 1),
+        ("folder-full_chain", "全链路评测", "full_chain", 2),
+    ]
+    for folder_id, title, category, sort_order in category_folders:
+        existing = tree_store.get_node(conn, folder_id)
+        if not existing:
+            tree_store.insert_node(conn, {
+                "node_id": folder_id,
+                "tree_type": "eval_folder",
+                "title": title,
+                "parent_id": None,
+                "scope_id": category,
+                "sort_order": sort_order,
+                "is_folder": True,
+            })
+
 
 def _enrich_dataset_with_tree_info(conn: sqlite3.Connection, dataset: Dict[str, Any]) -> Dict[str, Any]:
     """从 tree_node 中读取 folder_id 和 sort_order，附加到 dataset 字典上。"""
@@ -346,7 +370,7 @@ def update_folder(folder_id: str, updates: Dict[str, Any]) -> Optional[Dict[str,
     tree_updates: Dict[str, Any] = {}
     if "title" in updates and updates["title"] is not None:
         tree_updates["title"] = updates["title"]
-    if "parent_folder_id" in updates and updates["parent_folder_id"] is not None:
+    if "parent_folder_id" in updates:
         tree_updates["parent_id"] = updates["parent_folder_id"] or None
     if "sort_order" in updates and updates["sort_order"] is not None:
         tree_updates["sort_order"] = updates["sort_order"]

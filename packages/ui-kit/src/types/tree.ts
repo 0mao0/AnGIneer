@@ -16,3 +16,13 @@ export interface SmartTreeNode {
 }
 
 export type TreeNodeAction = 'rename' | 'add-folder' | 'add-file' | 'delete' | 'view'
+
+export interface DropEvent {
+  dragKey: string
+  dragNode: SmartTreeNode
+  dropKey: string
+  dropNode: SmartTreeNode
+  dropToGap: boolean
+  targetParentKey: string | null
+  siblings: SmartTreeNode[]
+}

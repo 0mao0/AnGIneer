@@ -17,19 +17,38 @@
         <span class="app-name">AnGIneer</span>
       </div>
 
-      <a-button v-if="showHome" type="text" class="home-btn" @click="$emit('home-click')" title="返回前台">
+      <a-button v-if="showHome && !showHomeInRight" type="text" class="home-btn" @click="$emit('home-click')" title="返回前台">
         <HomeOutlined />
       </a-button>
 
-      <span v-if="projectName" class="project-name">{{ projectName }}</span>
+      <span v-if="projectName && !editableProjectName" class="project-name">{{ projectName }}</span>
 
-      <a-button v-if="showAdmin" type="text" class="admin-btn" @click="$emit('admin-click')">
+      <a-button v-if="showAdmin && !showAdminInRight" type="text" class="admin-btn" @click="$emit('admin-click')" title="管理后台">
+        <ControlOutlined />
         管理后台
       </a-button>
     </div>
 
-    <div v-if="centerTitle" class="header-center">
-      <span class="center-title">{{ centerTitle }}</span>
+    <div v-if="editableProjectName || centerTitle" class="header-center">
+      <template v-if="editableProjectName">
+        <input
+          v-if="isEditing"
+          ref="editInputRef"
+          class="editable-name-input"
+          :value="localProjectName"
+          @blur="finishEdit"
+          @keydown.enter="finishEdit"
+          @keydown.escape="cancelEdit"
+          @input="localProjectName = ($event.target as HTMLInputElement).value"
+        />
+        <span
+          v-else
+          class="editable-name"
+          @dblclick="startEdit"
+          title="双击编辑项目名称"
+        >{{ localProjectName }}</span>
+      </template>
+      <span v-else-if="centerTitle" class="center-title">{{ centerTitle }}</span>
     </div>
 
     <div class="header-right">
@@ -45,6 +64,14 @@
             {{ item.label }}
           </a-button>
         </div>
+
+        <a-button v-if="showAdmin && showAdminInRight" type="text" class="admin-btn" @click="$emit('admin-click')" title="管理后台">
+          <ControlOutlined />
+        </a-button>
+
+        <a-button v-if="showHome && showHomeInRight" type="text" class="home-btn" @click="$emit('home-click')" title="返回前台">
+          <HomeOutlined />
+        </a-button>
 
         <a-button type="text" @click="doToggleTheme" class="theme-btn" title="切换主题">
           <BulbFilled v-if="isDark" />
@@ -64,12 +91,14 @@
 </template>
 
 <script setup lang="ts">
+import { ref, nextTick, watch } from 'vue'
 import {
   SettingOutlined,
   UserOutlined,
   BulbOutlined,
   BulbFilled,
-  HomeOutlined
+  HomeOutlined,
+  ControlOutlined
 } from '@ant-design/icons-vue'
 import { useTheme } from '../../composables/useTheme'
 
@@ -87,6 +116,9 @@ interface Props {
   showHome?: boolean
   showSettings?: boolean
   logoClickable?: boolean
+  editableProjectName?: boolean
+  showHomeInRight?: boolean
+  showAdminInRight?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -97,7 +129,10 @@ const props = withDefaults(defineProps<Props>(), {
   showAdmin: false,
   showHome: false,
   showSettings: false,
-  logoClickable: false
+  logoClickable: false,
+  editableProjectName: false,
+  showHomeInRight: false,
+  showAdminInRight: false
 })
 
 const emit = defineEmits<{
@@ -106,15 +141,51 @@ const emit = defineEmits<{
   'home-click': []
   'settings-click': []
   'logo-click': []
+  'update:projectName': [value: string]
 }>()
 
 const { isDark, appClass, toggleTheme: doToggleTheme } = useTheme()
+
+const isEditing = ref(false)
+const localProjectName = ref(props.projectName || '示例项目')
+const editInputRef = ref<HTMLInputElement | null>(null)
+
+watch(() => props.projectName, (val) => {
+  if (val) localProjectName.value = val
+})
 
 /** 处理 Logo 点击 */
 const handleLogoClick = () => {
   if (props.logoClickable) {
     emit('logo-click')
   }
+}
+
+/** 开始编辑项目名称 */
+const startEdit = () => {
+  isEditing.value = true
+  nextTick(() => {
+    editInputRef.value?.focus()
+    editInputRef.value?.select()
+  })
+}
+
+/** 完成编辑 */
+const finishEdit = () => {
+  isEditing.value = false
+  const trimmed = localProjectName.value.trim()
+  if (trimmed && trimmed !== props.projectName) {
+    localProjectName.value = trimmed
+    emit('update:projectName', trimmed)
+  } else if (!trimmed) {
+    localProjectName.value = props.projectName || '示例项目'
+  }
+}
+
+/** 取消编辑 */
+const cancelEdit = () => {
+  isEditing.value = false
+  localProjectName.value = props.projectName || '示例项目'
 }
 </script>
 
@@ -213,6 +284,35 @@ const handleLogoClick = () => {
   .center-title {
     font-size: 16px;
     font-weight: 500;
+  }
+
+  .editable-name {
+    font-size: 16px;
+    font-weight: 500;
+    cursor: text;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--border-color, rgba(0, 0, 0, 0.15));
+      background: var(--bg-tertiary, rgba(0, 0, 0, 0.04));
+    }
+  }
+
+  .editable-name-input {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    outline: none;
+    background: var(--bg-primary, #fff);
+    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    text-align: center;
+    min-width: 120px;
+    max-width: 300px;
   }
 }
 

@@ -37,13 +37,7 @@
               @drop-invalid="onInvalidDrop"
             >
               <template #actions="{ node }">
-                <template v-if="isGroupNodeFn(node)">
-                  <EditOutlined class="action-icon" title="重命名" @click.stop="onDatasetRename(node as EvalTreeNode)" />
-                  <FileAddOutlined class="action-icon" title="添加测试集" @click.stop="onAddFile(node as EvalTreeNode)" />
-                  <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="onAddFolder(node as EvalTreeNode)" />
-                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDatasetDelete(node as EvalTreeNode)" />
-                </template>
-                <template v-else-if="node.isFolder">
+                <template v-if="node.isFolder">
                   <EditOutlined class="action-icon" title="重命名" @click.stop="onDatasetRename(node as EvalTreeNode)" />
                   <FileAddOutlined class="action-icon" title="添加测试集" @click.stop="onAddFile(node as EvalTreeNode)" />
                   <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="onAddFolder(node as EvalTreeNode)" />
@@ -188,7 +182,7 @@ import {
   DeleteOutlined,
   PlusOutlined,
 } from '@ant-design/icons-vue'
-import { SplitPanes, Panel, useTheme } from '@angineer/ui-kit'
+import { SplitPanes, Panel, useTheme, type DropEvent } from '@angineer/ui-kit'
 import {
   EvalDatasetTree,
   EvalQuestionList,
@@ -198,14 +192,11 @@ import {
 } from '@angineer/evals-ui'
 import { useEvalDataset, useEvalRun, useEvalDatasetTree } from '@angineer/evals-ui'
 import type { EvalTreeNode } from '@angineer/evals-ui'
-import { isPersistedFolder as isPersistedFolderFn } from '@angineer/evals-ui'
 import type { EvalDataset, EvalQuestion } from '@angineer/evals-ui'
 import FolderModal from './components/FolderModal.vue'
 
 const { appClass } = useTheme()
 const { modal } = App.useApp()
-const workspaceRef = ref<HTMLElement | null>(null)
-const evalTreeRef = ref<InstanceType<typeof EvalDatasetTree> | null>(null)
 
 const {
   datasets,
@@ -222,13 +213,15 @@ const {
   createFolder,
   renameFolder,
   deleteFolder,
+  updateFolder,
   moveDataset,
 } = useEvalDataset()
 
 const {
   treeData: evalTreeData,
   defaultExpandedKeys: evalDefaultExpandedKeys,
-  isGroupNode: isGroupNodeFn,
+  isCategoryFolder: isCategoryFolderFn,
+  isPersistedFolder: isPersistedFolderFn,
   getCategoryFromNode,
 } = useEvalDatasetTree(datasets, folders)
 
@@ -253,7 +246,7 @@ const detailQuestions = ref<EvalQuestion[]>([])
 
 const folderModalVisible = ref(false)
 const folderModalLoading = ref(false)
-const folderForm = ref({ name: '', parentId: undefined as string | undefined, isNew: true, nodeId: '' })
+const folderForm = ref({ name: '', parentId: undefined as string | undefined, isNew: true, nodeId: '', category: 'knowledge' as string })
 
 /** 格式化日期 */
 const formatDate = (iso: string) => {
@@ -261,7 +254,7 @@ const formatDate = (iso: string) => {
   return new Date(iso).toLocaleString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
 }
 
-/** 构建 FolderModal 所需的文件夹树数据 */
+/** 构建 FolderModal 所需的文件夹树数据，追加根目录选项 */
 const folderTreeData = computed(() => {
   const convert = (nodes: EvalTreeNode[]): any[] =>
     nodes
@@ -271,7 +264,10 @@ const folderTreeData = computed(() => {
         title: n.title,
         children: n.children ? convert(n.children as EvalTreeNode[]) : [],
       }))
-  return convert(evalTreeData.value as EvalTreeNode[])
+  return [
+    { value: '__root__', title: '根目录' },
+    ...convert(evalTreeData.value as EvalTreeNode[]),
+  ]
 })
 
 /** 计算 L1-L4 等级分布 */
@@ -296,7 +292,7 @@ const levelStats = computed(() => {
 const onDatasetSelect = async (keys: string[], _nodes: EvalTreeNode[]) => {
   if (keys.length === 0) return
   const key = keys[0]
-  if (key.startsWith('group-')) return
+  if (key.startsWith('folder-')) return
   selectedDatasetId.value = key
   questionsLoading.value = true
   try {
@@ -347,7 +343,7 @@ const handleCreateDataset = async () => {
 /** 处理重命名 */
 const onDatasetRename = (node: EvalTreeNode) => {
   const key = String(node.key)
-  if (key.startsWith('group-')) {
+  if (isCategoryFolderFn(node)) {
     message.info('分类目录不支持重命名')
     return
   }
@@ -357,6 +353,7 @@ const onDatasetRename = (node: EvalTreeNode) => {
       parentId: undefined,
       isNew: false,
       nodeId: key,
+      category: getCategoryFromNode(node),
     }
     folderModalVisible.value = true
     return
@@ -390,7 +387,7 @@ const onDatasetRename = (node: EvalTreeNode) => {
 /** 处理删除 */
 const onDatasetDelete = (node: EvalTreeNode) => {
   const key = String(node.key)
-  if (key.startsWith('group-')) {
+  if (isCategoryFolderFn(node)) {
     message.info('分类目录不支持删除')
     return
   }
@@ -435,7 +432,7 @@ const onDatasetDelete = (node: EvalTreeNode) => {
 /** 处理查看详情 - 弹框显示题目数量与等级分布 */
 const onDatasetView = async (node: EvalTreeNode) => {
   const key = String(node.key)
-  if (key.startsWith('group-')) return
+  if (isCategoryFolderFn(node)) return
 
   const ds = datasets.value.find(d => d.dataset_id === key)
   if (!ds) return
@@ -454,13 +451,15 @@ const onDatasetView = async (node: EvalTreeNode) => {
   }
 }
 
-/** 处理新建文件夹 */
+/** 处理新建文件夹，记录当前分组类别以便"根目录"选择时保留上下文 */
 const onAddFolder = (parentNode: EvalTreeNode | null) => {
+  const category = parentNode ? getCategoryFromNode(parentNode) : 'knowledge'
   folderForm.value = {
     name: '',
-    parentId: parentNode?.key || undefined,
+    parentId: parentNode?.key || '__root__',
     isNew: true,
     nodeId: '',
+    category,
   }
   folderModalVisible.value = true
 }
@@ -471,39 +470,37 @@ const onAddFile = (_node: EvalTreeNode) => {
 }
 
 /** 处理树节点拖放 */
-const onTreeDrop = async (info: any) => {
-  const dragKey = String(info.dragNode?.key || '')
-  const dropKey = String(info.node?.key || '')
+const onTreeDrop = async (event: DropEvent) => {
+  const { dragKey, targetParentKey } = event
 
-  if (isGroupNodeFn({ key: dragKey } as EvalTreeNode)) return
-  if (isGroupNodeFn({ key: dropKey } as EvalTreeNode) && !info.dropToGap) return
-
-  const dropToGap = info.dropToGap
-  const dropNode = info.node
-  const isDropFolder = dropNode?.isFolder === true
-
-  let targetFolderId = ''
-  if (!dropToGap && isDropFolder) {
-    targetFolderId = dropKey.startsWith('folder-') ? dropKey : ''
-  } else if (dropToGap) {
-    targetFolderId = dropKey.startsWith('folder-') ? dropKey : ''
-  }
+  if (isCategoryFolderFn({ key: dragKey } as EvalTreeNode)) return
 
   try {
-    await moveDataset(dragKey, targetFolderId)
+    if (isPersistedFolderFn({ key: dragKey } as EvalTreeNode)) {
+      await updateFolder(dragKey, { parent_folder_id: targetParentKey || '' })
+    } else {
+      await moveDataset(dragKey, targetParentKey || '')
+    }
     message.success('移动成功')
   } catch (e: any) {
     message.error(e.message || '移动失败')
     await fetchDatasets()
+    await fetchFolders()
   }
 }
 
 /** 处理拖到根目录 */
 const onTreeDropRoot = async (dragNodeKey: string) => {
-  if (isGroupNodeFn({ key: dragNodeKey } as EvalTreeNode)) return
+  if (isCategoryFolderFn({ key: dragNodeKey } as EvalTreeNode)) return
   try {
-    await moveDataset(dragNodeKey, '')
-    message.success('已移动到根目录')
+    if (isPersistedFolderFn({ key: dragNodeKey } as EvalTreeNode)) {
+      const category = getCategoryFromNode({ key: dragNodeKey } as EvalTreeNode)
+      await updateFolder(dragNodeKey, { parent_folder_id: '', category })
+      message.success('已移动到根目录')
+    } else {
+      await moveDataset(dragNodeKey, '')
+      message.success('已移动到根目录')
+    }
   } catch (e: any) {
     message.error(e.message || '移动失败')
     await fetchDatasets()
@@ -530,10 +527,10 @@ const handleFolderModalOk = async () => {
   folderModalLoading.value = true
   try {
     if (folderForm.value.isNew) {
-      const category = folderForm.value.parentId
-        ? (getCategoryFromNode({ key: folderForm.value.parentId } as EvalTreeNode) || 'knowledge')
-        : 'knowledge'
-      const parentFolderId = folderForm.value.parentId?.startsWith('folder-') ? folderForm.value.parentId : ''
+      const parentId = folderForm.value.parentId
+      const isRoot = !parentId || parentId === '__root__'
+      const category = isRoot ? folderForm.value.category : getCategoryFromNode({ key: parentId } as EvalTreeNode)
+      const parentFolderId = (!isRoot && parentId.startsWith('folder-')) ? parentId : ''
       await createFolder({
         title: folderForm.value.name.trim(),
         category,
