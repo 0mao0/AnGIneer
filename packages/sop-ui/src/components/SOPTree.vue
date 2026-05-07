@@ -54,12 +54,12 @@
 <script setup lang="ts">
 /**
  * 经验库树语义组件。
- * 在 docs-ui 中承接经验库节点类型与基础树组件之间的边界，便于后续扩展经验库默认行为。
+ * 在 sop-ui 中承接经验库节点类型与基础树组件之间的边界，便于后续扩展经验库默认行为。
  */
 import { ref } from 'vue'
 import { ApiOutlined, FolderOutlined } from '@ant-design/icons-vue'
 import { SmartTree } from '@angineer/ui-kit'
-import type { SOPTreeNode } from '../../../types/tree'
+import type { SOPTreeNode } from '../types/sop'
 
 export type { SOPTreeNode }
 

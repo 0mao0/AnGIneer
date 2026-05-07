@@ -3,9 +3,9 @@
  * 提供经验库树数据的默认构造、查找与选中状态管理
  */
 import { ref } from 'vue'
-import type { SOPTreeNode } from '../types/tree'
+import type { SOPTreeNode } from '../types/sop'
 
-export type { SOPTreeNode } from '../types/tree'
+export type { SOPTreeNode } from '../types/sop'
 
 /**
  * 创建默认的经验库树数据。

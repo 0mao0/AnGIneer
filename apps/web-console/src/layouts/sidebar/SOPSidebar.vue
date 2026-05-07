@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { SOPTree, createResourceNodeFromSop, useSopTree, type SOPTreeNode } from '@angineer/docs-ui'
+import { SOPTree, createResourceNodeFromSop, useSopTree, type SOPTreeNode } from '@angineer/sop-ui'
 import { useResourceOpen } from '@/composables/useResourceOpen'
 
 const { openResource } = useResourceOpen()
