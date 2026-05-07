@@ -67,6 +67,8 @@
             :questions="questions"
             :run-details="runDetails"
             :loading="questionsLoading"
+            :evaluating-question-ids="evaluatingQuestionIds"
+            @evaluate="onEvaluateQuestion"
           />
           <a-empty v-else description="请从左侧选择测试集" class="center-empty" />
         </Panel>
@@ -74,11 +76,16 @@
 
       <template #right>
         <Panel title="评测运行" :icon="ThunderboltOutlined">
+          <template #extra>
+            <a-button type="text" size="small" title="历史对比" @click="compareVisible = true">
+              <template #icon><BarChartOutlined /></template>
+            </a-button>
+          </template>
           <EvalRunPanel
             :dataset-id="selectedDatasetId"
             :current-run="currentRun"
+            :last-run="lastRun"
             @run="onStartRun"
-            @compare="compareVisible = true"
           />
         </Panel>
       </template>
@@ -181,6 +188,7 @@ import {
   FolderAddOutlined,
   DeleteOutlined,
   PlusOutlined,
+  BarChartOutlined,
 } from '@ant-design/icons-vue'
 import { SplitPanes, Panel, useTheme, type DropEvent } from '@angineer/ui-kit'
 import {
@@ -227,10 +235,13 @@ const {
 
 const {
   currentRun,
+  lastRun,
   runs,
   runDetails,
+  evaluatingQuestionIds,
   startRun,
-  fetchRuns,
+  fetchLastRun,
+  evaluateQuestion,
   stopPolling,
 } = useEvalRun()
 
@@ -298,7 +309,7 @@ const onDatasetSelect = async (keys: string[], _nodes: EvalTreeNode[]) => {
   try {
     await fetchDataset(key)
     await fetchQuestions(key)
-    await fetchRuns(key)
+    await fetchLastRun(key)
   } finally {
     questionsLoading.value = false
   }
@@ -311,6 +322,17 @@ const onStartRun = async () => {
     message.success('评测已启动')
   } catch (e: any) {
     message.error(e.message || '启动评测失败')
+  }
+}
+
+/** 对单道题目发起评测 */
+const onEvaluateQuestion = async (questionId: string) => {
+  if (!selectedDatasetId.value) return
+  try {
+    await evaluateQuestion(selectedDatasetId.value, questionId)
+    message.success('评测完成')
+  } catch (e: any) {
+    message.error(e.message || '评测失败')
   }
 }
 

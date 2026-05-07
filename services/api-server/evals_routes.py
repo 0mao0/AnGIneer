@@ -191,9 +191,9 @@ async def move_dataset(dataset_id: str, req: MoveDatasetRequest):
 
 @evals_router.post("/runs")
 async def start_run(req: StartEvalRunRequest):
-    """启动评测运行（异步）。"""
+    """启动评测运行（异步），可指定单题。"""
     try:
-        run_data = suite_runner.start_eval_run(req.dataset_id)
+        run_data = suite_runner.start_eval_run(req.dataset_id, req.question_id)
         return run_data
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))

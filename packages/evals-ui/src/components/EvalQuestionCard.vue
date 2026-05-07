@@ -10,6 +10,15 @@
       <a-tag v-if="statusTag" :color="statusTag.color" class="eval-question-card__status">
         {{ statusTag.label }}
       </a-tag>
+      <a-button
+        type="link"
+        size="small"
+        class="eval-question-card__eval-btn"
+        :loading="evaluating"
+        @click.stop="$emit('evaluate', question.question_id)"
+      >
+        评测
+      </a-button>
       <span class="eval-question-card__arrow">
         <RightOutlined :class="{ 'eval-question-card__arrow--expanded': expanded }" />
       </span>
@@ -204,10 +213,12 @@ const props = defineProps<{
   question: EvalQuestion
   detail: EvalRunDetail | null
   expanded: boolean
+  evaluating: boolean
 }>()
 
 defineEmits<{
   toggle: [questionId: string]
+  evaluate: [questionId: string]
 }>()
 
 const expandedSteps = ref<Set<number>>(new Set())
@@ -360,6 +371,12 @@ const enrichedQuestion = computed(() => {
 
   &__status {
     flex-shrink: 0;
+  }
+
+  &__eval-btn {
+    flex-shrink: 0;
+    padding: 0 4px;
+    font-size: 12px;
   }
 
   &__arrow {

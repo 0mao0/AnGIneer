@@ -8,11 +8,11 @@
         block
         @click="$emit('run')"
       >
-        {{ isRunning ? `运行中 ${progressText}` : '运行评测' }}
+        {{ isRunning ? `运行中 ${progressText}` : '整体评测' }}
       </a-button>
     </div>
 
-    <div v-if="currentRun" class="eval-run-panel__content">
+    <div class="eval-run-panel__content">
       <div class="eval-run-panel__overall">
         <div class="eval-run-panel__overall-score">
           {{ overallScoreDisplay }}
@@ -51,12 +51,6 @@
           </span>
         </div>
       </div>
-
-      <div class="eval-run-panel__compare-btn">
-        <a-button size="small" block @click="$emit('compare')">
-          历史对比
-        </a-button>
-      </div>
     </div>
   </div>
 </template>
@@ -70,11 +64,11 @@ import type { EvalRun, EvalSummaryScores } from '../types/eval'
 const props = defineProps<{
   datasetId: string
   currentRun: EvalRun | null
+  lastRun: EvalRun | null
 }>()
 
 defineEmits<{
   run: []
-  compare: []
 }>()
 
 const isRunning = computed(() => props.currentRun?.status === 'running')
@@ -85,7 +79,7 @@ const progressText = computed(() => {
 })
 
 const summary = computed((): EvalSummaryScores | null => {
-  return props.currentRun?.summary_scores || null
+  return props.currentRun?.summary_scores || props.lastRun?.summary_scores || null
 })
 
 const overallScoreDisplay = computed(() => {
@@ -156,12 +150,6 @@ const overallScoreDisplay = computed(() => {
 
   &__level-text {
     font-size: 13px;
-  }
-
-  &__compare-btn {
-    margin-top: auto;
-    padding-top: 12px;
-    border-top: 1px solid var(--border-color);
   }
 }
 </style>

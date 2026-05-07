@@ -35,7 +35,9 @@
           :question="q"
           :detail="runDetails.get(q.question_id) || null"
           :expanded="expandedId === q.question_id"
+          :evaluating="evaluatingQuestionIds.has(q.question_id)"
           @toggle="onToggle"
+          @evaluate="(qid) => $emit('evaluate', qid)"
         />
         <a-empty v-if="!filteredQuestions.length" description="暂无题目" />
       </a-spin>
@@ -52,10 +54,12 @@ const props = defineProps<{
   questions: EvalQuestion[]
   runDetails: Map<string, EvalRunDetail>
   loading: boolean
+  evaluatingQuestionIds: Set<string>
 }>()
 
 defineEmits<{
   toggle: [questionId: string]
+  evaluate: [questionId: string]
 }>()
 
 const filterLevel = ref<EvalIntentLevel | undefined>(undefined)

@@ -187,11 +187,17 @@ def _run_suite_thread(run_id: str, dataset_id: str, questions: List[Dict[str, An
     result_store.complete_run(run_id, summary)
 
 
-def start_eval_run(dataset_id: str) -> Dict[str, Any]:
-    """启动评测运行（异步）。"""
-    questions = result_store.list_questions(dataset_id)
-    if not questions:
+def start_eval_run(dataset_id: str, question_id: Optional[str] = None) -> Dict[str, Any]:
+    """启动评测运行（异步），可指定单题。"""
+    all_questions = result_store.list_questions(dataset_id)
+    if not all_questions:
         raise ValueError(f"测试集 {dataset_id} 没有题目")
+    if question_id:
+        questions = [q for q in all_questions if str(q.get("question_id") or "") == question_id]
+        if not questions:
+            raise ValueError(f"题目 {question_id} 不存在于测试集 {dataset_id}")
+    else:
+        questions = all_questions
     run_data = result_store.create_run(dataset_id, len(questions))
     run_id = run_data["run_id"]
     thread = threading.Thread(target=_run_suite_thread, args=(run_id, dataset_id, questions), daemon=True)
