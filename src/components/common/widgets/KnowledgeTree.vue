@@ -63,27 +63,12 @@
   </SmartTree>
 </template>
 
-<script setup lang="ts">
-/**
- * 知识树语义组件。
- * 在 docs-ui 中承接知识节点类型与基础树组件之间的边界，便于后续扩展知识域默认行为。
- */
-import { ref } from 'vue'
-import { SmartTree } from '@angineer/ui-kit'
-import type { DropEvent } from '@angineer/ui-kit'
-import {
-  FolderOutlined,
-  FilePdfOutlined,
-  FileWordOutlined,
-  FileMarkdownOutlined,
-  FileTextOutlined
-} from '@ant-design/icons-vue'
+<script lang="ts">
 import type { KnowledgeTreeNode } from '../../../types/tree'
-import { getPreviewFileType as getKnowledgeFileType } from '../../../utils/knowledge'
 
 export type { KnowledgeTreeNode }
 
-interface Props {
+export interface KnowledgeTreeProps {
   treeData: KnowledgeTreeNode[]
   showSearch?: boolean
   searchPlaceholder?: string
@@ -102,8 +87,26 @@ interface Props {
   defaultExpandedKeys?: string[]
   defaultSelectedKeys?: string[]
 }
+</script>
 
-defineProps<Props>()
+<script setup lang="ts">
+/**
+ * 知识树语义组件。
+ * 在 docs-ui 中承接知识节点类型与基础树组件之间的边界，便于后续扩展知识域默认行为。
+ */
+import { ref } from 'vue'
+import { SmartTree } from '@angineer/ui-kit'
+import type { DropEvent } from '@angineer/ui-kit'
+import {
+  FolderOutlined,
+  FilePdfOutlined,
+  FileWordOutlined,
+  FileMarkdownOutlined,
+  FileTextOutlined
+} from '@ant-design/icons-vue'
+import { getPreviewFileType as getKnowledgeFileType } from '../../../utils/knowledge'
+
+defineProps<KnowledgeTreeProps>()
 
 const emit = defineEmits<{
   select: [keys: string[], nodes: KnowledgeTreeNode[]]
