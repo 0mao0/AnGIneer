@@ -282,7 +282,7 @@ src/
 - 预览文件：`/api/files?path=...`
 
 ### 9.2 后端解析/存储关键点（D 层落盘）
-- 解析任务接口：`apps/api-server/knowledge_routes.py`
+- 解析任务接口：`services/api-server/knowledge_routes.py`
   - `POST /parse`
   - `GET /parse/{task_id}`
   - `POST /parse/structured-index`

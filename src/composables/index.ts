@@ -34,3 +34,10 @@ export {
 export {
   useWorkspacePreview
 } from './useWorkspacePreview'
+export {
+  useKnowledgeCitation,
+  type KnowledgeChatCitation,
+  type KnowledgeAnswerMessage
+} from './useKnowledgeCitation'
+export { useKnowledgeParse } from './useKnowledgeParse'
+export { useKnowledgeStructuredIndex } from './useKnowledgeStructuredIndex'

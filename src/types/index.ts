@@ -17,5 +17,16 @@ export type {
   DocBlocksGraph as DocBlocksGraphData,
   DocBlocksGraphState,
   PDFParsedWorkspaceEventMap,
-  PreviewIndexInteractionEventMap
+  PreviewIndexInteractionEventMap,
+  DocumentResponse,
+  KnowledgeParseOptions,
+  LlmConfigOption,
+  KnowledgeEvalQuestion,
+  KnowledgeEvalDataset,
+  KnowledgeEvalSummary,
+  KnowledgeEvalAnswerDetail,
+  KnowledgeEvalRunResponse,
+  KnowledgeEvalQuestionsResponse,
+  KnowledgeParseApi,
+  KnowledgeStructuredApi
 } from './knowledge'
