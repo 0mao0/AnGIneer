@@ -1,6 +1,5 @@
 export { SmartTree } from '@angineer/ui-kit'
 export { default as KnowledgeTree } from './common/widgets/KnowledgeTree.vue'
-export { default as SOPTree } from './common/widgets/SOPTree.vue'
 export { default as PDFParsedWorkspace } from './common/workspace/PDFParsedWorkspace.vue'
 export { default as PDFParsedViewerCombo } from './common/workspace/PDFParsedViewerCombo.vue'
 export { default as PDF_Viewer } from './common/viewers/PDF_Viewer.vue'

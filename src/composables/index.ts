@@ -3,13 +3,10 @@ export { useRefAnchor } from './useRefAnchor'
 export {
   createResourceNodeFromKnowledge,
   createResourceNodeFromProject,
-  createResourceNodeFromSop,
   createOpenResourcePayload,
-  type ProjectItem,
-  type SopItem
+  type ProjectItem
 } from './useResourceAdapter'
 export { useKnowledgeTree, type KnowledgeTreeNode, type UploadTask } from './useKnowledgeTree'
-export { useSopTree, type SOPTreeNode } from './useSopTree'
 export {
   useDocBlocksGraph,
   type ViewMode,

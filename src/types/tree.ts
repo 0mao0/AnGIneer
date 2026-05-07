@@ -1,6 +1,7 @@
 /**
  * docs-ui 领域树类型定义。
  * SmartTreeNode 和 TreeNodeAction 从 @angineer/ui-kit 统一导出，不在本地重复定义。
+ * SOPTreeNode 已迁移至 @angineer/sop-ui，不在本地定义。
  */
 import type { SmartTreeNode as BaseSmartTreeNode, TreeNodeAction } from '@angineer/ui-kit'
 
@@ -21,11 +22,4 @@ export interface KnowledgeTreeNode extends BaseSmartTreeNode {
   parseTaskId?: string
   strategy?: KnowledgeStrategy
   children?: KnowledgeTreeNode[]
-}
-
-export interface SOPTreeNode extends BaseSmartTreeNode {
-  isFolder: boolean
-  description?: string
-  category?: string
-  children?: SOPTreeNode[]
 }
