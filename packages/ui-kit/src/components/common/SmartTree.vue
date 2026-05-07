@@ -5,6 +5,7 @@
     @dragover="onFileDragOver"
     @dragleave="onFileDragLeave"
     @drop="onFileDrop"
+    @dragend="onContainerDragEnd"
   >
     <div v-if="showSearch || showAddRootFolder" class="tree-search">
       <a-input
@@ -467,6 +468,10 @@ const onNodeDragStart: TreeProps['onDragstart'] = (info) => {
 }
 
 const onNodeDragEnd: TreeProps['onDragend'] = () => {
+}
+
+/** 容器级 dragend 清空拖拽状态，避免移出 a-tree 区域时过早丢失 draggingNodeKey */
+const onContainerDragEnd = () => {
   draggingNodeKey.value = null
 }
 
@@ -668,7 +673,7 @@ defineExpose({
       .node-actions {
         background: linear-gradient(to right, transparent, var(--panel-bg) 10px);
 
-        .action-icon {
+        :deep(.action-icon) {
           color: rgba(255, 255, 255, 0.55);
 
           &:hover {
@@ -949,7 +954,7 @@ defineExpose({
       z-index: 10;
       pointer-events: none;
 
-      .action-icon {
+      :deep(.action-icon) {
         font-size: 12px;
         color: var(--text-secondary, rgba(0,0,0,0.45));
         cursor: pointer;

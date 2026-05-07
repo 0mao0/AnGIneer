@@ -6,6 +6,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+from tree_core import tree_store
+
 from docs_core.ingest.normalize.structure_builder import StructuredResult
 
 
@@ -56,11 +58,12 @@ def parse_datetime(dt_str: Optional[str]) -> datetime:
             return datetime.now()
 
 
-# 构造 SQLite 连接并启用 Row 映射。
+# 构造 SQLite 连接并启用 WAL 模式与 Row 映射。
 def create_connection(db_path: Path) -> sqlite3.Connection:
     db_path.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(str(db_path), timeout=10)
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA journal_mode=WAL")
     return conn
 
 
@@ -80,9 +83,10 @@ class KnowledgeMetaStore:
     def connect(self) -> sqlite3.Connection:
         return create_connection(self.db_path)
 
-    # 初始化元数据库 Schema。
+    # 初始化元数据库 Schema，含自动迁移逻辑。
     def init_schema(self) -> None:
         with self.connect() as conn:
+            self._migrate_if_needed(conn)
             conn.execute(
                 """
                 CREATE TABLE IF NOT EXISTS libraries (
@@ -100,12 +104,10 @@ class KnowledgeMetaStore:
                     id TEXT PRIMARY KEY,
                     title TEXT NOT NULL,
                     type TEXT NOT NULL,
-                    parent_id TEXT,
                     visible INTEGER NOT NULL,
                     library_id TEXT NOT NULL,
                     file_path TEXT,
                     status TEXT NOT NULL,
-                    sort_order INTEGER NOT NULL DEFAULT 0,
                     parse_progress INTEGER NOT NULL DEFAULT 0,
                     parse_stage TEXT,
                     parse_error TEXT,
@@ -135,8 +137,8 @@ class KnowledgeMetaStore:
             )
             conn.execute(
                 """
-                CREATE INDEX IF NOT EXISTS idx_nodes_library_parent_sort
-                ON nodes (library_id, parent_id, sort_order, created_at)
+                CREATE INDEX IF NOT EXISTS idx_nodes_library_type
+                ON nodes (library_id, type, created_at)
                 """
             )
             conn.execute(
@@ -146,6 +148,70 @@ class KnowledgeMetaStore:
                 """
             )
             conn.commit()
+            tree_store.init_table(conn)
+
+    # 检测并迁移旧版 nodes 表（含 parent_id/sort_order 列）。
+    def _migrate_if_needed(self, conn: sqlite3.Connection) -> None:
+        cols = [r[1] for r in conn.execute("PRAGMA table_info(nodes)").fetchall()]
+        if "parent_id" not in cols:
+            return
+        tree_store.init_table(conn)
+        rows = conn.execute(
+            "SELECT id, title, type, parent_id, sort_order, library_id, visible, file_path, status, created_at, updated_at FROM nodes"
+        ).fetchall()
+        for row in rows:
+            node_id, title, node_type, parent_id, sort_order, library_id, visible, file_path, status, created_at, updated_at = row
+            is_folder = node_type == "folder"
+            tree_type = "knowledge_folder" if is_folder else "knowledge_doc"
+            extra = {}
+            if not is_folder:
+                extra = {"visible": bool(visible), "file_path": file_path, "status": status}
+            tree_store.insert_node(conn, {
+                "node_id": node_id,
+                "tree_type": tree_type,
+                "title": title,
+                "parent_id": parent_id,
+                "scope_id": library_id,
+                "sort_order": sort_order,
+                "is_folder": is_folder,
+                "extra": extra,
+            })
+        conn.execute(
+            """
+            CREATE TABLE nodes_new (
+                id TEXT PRIMARY KEY,
+                title TEXT NOT NULL,
+                type TEXT NOT NULL,
+                visible INTEGER NOT NULL,
+                library_id TEXT NOT NULL,
+                file_path TEXT,
+                status TEXT NOT NULL,
+                parse_progress INTEGER NOT NULL DEFAULT 0,
+                parse_stage TEXT,
+                parse_error TEXT,
+                parse_task_id TEXT,
+                strategy TEXT NOT NULL DEFAULT 'doc_blocks_graph_v1',
+                schema_version TEXT NOT NULL DEFAULT '1.0.0',
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL
+            )
+            """
+        )
+        conn.execute(
+            """
+            INSERT INTO nodes_new (id, title, type, visible, library_id, file_path, status,
+                                   parse_progress, parse_stage, parse_error, parse_task_id,
+                                   strategy, schema_version, created_at, updated_at)
+            SELECT id, title, type, visible, library_id, file_path, status,
+                   parse_progress, parse_stage, parse_error, parse_task_id,
+                   strategy, schema_version, created_at, updated_at
+            FROM nodes
+            WHERE type != 'folder'
+            """
+        )
+        conn.execute("DROP TABLE nodes")
+        conn.execute("ALTER TABLE nodes_new RENAME TO nodes")
+        conn.commit()
 
     # 读取所有知识库。
     def list_libraries(self) -> List[sqlite3.Row]:
@@ -154,18 +220,59 @@ class KnowledgeMetaStore:
                 "SELECT id, name, description, created_at, updated_at FROM libraries ORDER BY created_at ASC"
             ).fetchall()
 
-    # 读取所有节点。
-    def list_nodes(self) -> List[sqlite3.Row]:
+    # 读取所有节点：folder 从 tree_node 读取，document 从 nodes + tree_node 合并。
+    def list_nodes(self) -> List[Dict[str, Any]]:
         with self.connect() as conn:
-            return conn.execute(
+            result = []
+            doc_rows = conn.execute(
                 """
-                SELECT id, title, type, parent_id, visible, library_id, file_path, status,
+                SELECT id, title, type, visible, library_id, file_path, status,
                        parse_progress, parse_stage, parse_error, parse_task_id, strategy,
-                       schema_version, sort_order, created_at, updated_at
+                       schema_version, created_at, updated_at
                 FROM nodes
-                ORDER BY library_id ASC, parent_id ASC, sort_order ASC, created_at ASC
+                ORDER BY library_id ASC, created_at ASC
                 """
             ).fetchall()
+            for row in doc_rows:
+                item = dict(row)
+                tree_node = tree_store.get_node(conn, item["id"])
+                if tree_node:
+                    item["parent_id"] = tree_node.get("parent_id")
+                    item["sort_order"] = tree_node.get("sort_order", 0)
+                else:
+                    item["parent_id"] = None
+                    item["sort_order"] = 0
+                result.append(item)
+            folder_rows = conn.execute(
+                """
+                SELECT node_id, title, parent_id, scope_id, sort_order, created_at, updated_at
+                FROM tree_node
+                WHERE tree_type = 'knowledge_folder'
+                ORDER BY scope_id ASC, sort_order ASC
+                """
+            ).fetchall()
+            for row in folder_rows:
+                item = dict(row)
+                result.append({
+                    "id": item["node_id"],
+                    "title": item["title"],
+                    "type": "folder",
+                    "parent_id": item["parent_id"],
+                    "visible": True,
+                    "library_id": item["scope_id"],
+                    "file_path": None,
+                    "status": "completed",
+                    "parse_progress": 0,
+                    "parse_stage": None,
+                    "parse_error": None,
+                    "parse_task_id": None,
+                    "strategy": STRUCTURED_DOC_GRAPH_STRATEGY,
+                    "schema_version": "1.0.0",
+                    "sort_order": item["sort_order"],
+                    "created_at": item["created_at"],
+                    "updated_at": item["updated_at"],
+                })
+            return result
 
     # 读取所有解析任务。
     def list_parse_tasks(self) -> List[sqlite3.Row]:
@@ -200,53 +307,76 @@ class KnowledgeMetaStore:
             )
             conn.commit()
 
-    # 持久化节点记录。
+    # 持久化节点记录：folder 只写 tree_node，document 写 nodes + tree_node。
     def upsert_node(self, node: Any) -> None:
         with self.connect() as conn:
-            conn.execute(
-                """
-                INSERT INTO nodes (
-                    id, title, type, parent_id, visible, library_id, file_path, status, parse_progress,
-                    parse_stage, parse_error, parse_task_id, strategy, schema_version, sort_order, created_at, updated_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ON CONFLICT(id) DO UPDATE SET
-                    title = excluded.title,
-                    type = excluded.type,
-                    parent_id = excluded.parent_id,
-                    visible = excluded.visible,
-                    library_id = excluded.library_id,
-                    file_path = excluded.file_path,
-                    status = excluded.status,
-                    parse_progress = excluded.parse_progress,
-                    parse_stage = excluded.parse_stage,
-                    parse_error = excluded.parse_error,
-                    parse_task_id = excluded.parse_task_id,
-                    strategy = excluded.strategy,
-                    schema_version = excluded.schema_version,
-                    sort_order = excluded.sort_order,
-                    updated_at = excluded.updated_at
-                """,
-                (
-                    node.id,
-                    node.title,
-                    node.type,
-                    node.parent_id,
-                    1 if node.visible else 0,
-                    node.library_id,
-                    node.file_path,
-                    node.status,
-                    node.parse_progress,
-                    node.parse_stage,
-                    node.parse_error,
-                    node.parse_task_id,
-                    node.strategy,
-                    node.schema_version,
-                    node.sort_order,
-                    node.created_at.isoformat(),
-                    node.updated_at.isoformat(),
-                ),
-            )
-            conn.commit()
+            is_folder = getattr(node, "type", "") == "folder"
+            if is_folder:
+                tree_store.insert_node(conn, {
+                    "node_id": node.id,
+                    "tree_type": "knowledge_folder",
+                    "title": node.title,
+                    "parent_id": node.parent_id,
+                    "scope_id": node.library_id,
+                    "sort_order": node.sort_order,
+                    "is_folder": True,
+                })
+                conn.commit()
+            else:
+                tree_store.insert_node(conn, {
+                    "node_id": node.id,
+                    "tree_type": "knowledge_doc",
+                    "title": node.title,
+                    "parent_id": node.parent_id,
+                    "scope_id": node.library_id,
+                    "sort_order": node.sort_order,
+                    "is_folder": False,
+                    "extra": {
+                        "visible": node.visible,
+                        "file_path": node.file_path,
+                        "status": node.status,
+                    },
+                })
+                conn.execute(
+                    """
+                    INSERT INTO nodes (
+                        id, title, type, visible, library_id, file_path, status, parse_progress,
+                        parse_stage, parse_error, parse_task_id, strategy, schema_version, created_at, updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(id) DO UPDATE SET
+                        title = excluded.title,
+                        type = excluded.type,
+                        visible = excluded.visible,
+                        library_id = excluded.library_id,
+                        file_path = excluded.file_path,
+                        status = excluded.status,
+                        parse_progress = excluded.parse_progress,
+                        parse_stage = excluded.parse_stage,
+                        parse_error = excluded.parse_error,
+                        parse_task_id = excluded.parse_task_id,
+                        strategy = excluded.strategy,
+                        schema_version = excluded.schema_version,
+                        updated_at = excluded.updated_at
+                    """,
+                    (
+                        node.id,
+                        node.title,
+                        node.type,
+                        1 if node.visible else 0,
+                        node.library_id,
+                        node.file_path,
+                        node.status,
+                        node.parse_progress,
+                        node.parse_stage,
+                        node.parse_error,
+                        node.parse_task_id,
+                        node.strategy,
+                        node.schema_version,
+                        node.created_at.isoformat(),
+                        node.updated_at.isoformat(),
+                    ),
+                )
+                conn.commit()
 
     # 持久化解析任务记录。
     def upsert_parse_task(self, task: Any) -> None:
@@ -278,13 +408,15 @@ class KnowledgeMetaStore:
             )
             conn.commit()
 
-    # 删除节点记录。
+    # 删除节点记录，同步删除 tree_node。
     def delete_nodes(self, node_ids: List[str]) -> None:
         if not node_ids:
             return
         placeholders = ",".join(["?"] * len(node_ids))
         with self.connect() as conn:
             conn.execute(f"DELETE FROM nodes WHERE id IN ({placeholders})", node_ids)
+            for nid in node_ids:
+                tree_store.delete_node(conn, nid)
             conn.commit()
 
     # 删除指定文档集合的解析任务记录。

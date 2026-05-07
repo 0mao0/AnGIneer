@@ -6,7 +6,9 @@ import uuid
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-_DB_PATH = os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../..")), "data", "evals", "evals.db")
+from tree_core import tree_store
+
+_DB_PATH = os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../..")), "data", "evals", "evals.sqlite")
 
 _LOCAL = threading_local = None
 
@@ -18,6 +20,21 @@ def _get_thread_local():
         import threading
         _LOCAL = threading.local()
     return _LOCAL
+
+
+def _migrate_db_extension() -> None:
+    """将旧版 evals.db 重命名为 evals.sqlite。应在打开连接前调用。"""
+    old_path = _DB_PATH.replace("evals.sqlite", "evals.db")
+    if not os.path.exists(old_path) or os.path.exists(_DB_PATH):
+        return
+    try:
+        os.rename(old_path, _DB_PATH)
+    except OSError:
+        import logging
+        logging.getLogger(__name__).warning(
+            "无法将 %s 重命名为 %s（文件可能被占用），请手动重命名后重启服务",
+            old_path, _DB_PATH,
+        )
 
 
 def _get_conn() -> sqlite3.Connection:
@@ -35,6 +52,7 @@ def _get_conn() -> sqlite3.Connection:
 
 def init_db() -> None:
     """初始化数据库表结构。"""
+    _migrate_db_extension()
     conn = _get_conn()
     conn.executescript("""
         CREATE TABLE IF NOT EXISTS eval_dataset (
@@ -106,9 +124,24 @@ def init_db() -> None:
         pass
     conn.commit()
 
+    # 初始化 tree_node 表
+    tree_store.init_table(conn)
+
+
+def _enrich_dataset_with_tree_info(conn: sqlite3.Connection, dataset: Dict[str, Any]) -> Dict[str, Any]:
+    """从 tree_node 中读取 folder_id 和 sort_order，附加到 dataset 字典上。"""
+    node = tree_store.get_node(conn, dataset["dataset_id"])
+    if node and node.get("tree_type") == "eval_dataset":
+        dataset["folder_id"] = node.get("parent_id") or ""
+        dataset["sort_order"] = node.get("sort_order", 0)
+    else:
+        dataset["folder_id"] = ""
+        dataset["sort_order"] = 0
+    return dataset
+
 
 def insert_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
-    """插入一条测试集记录。"""
+    """插入一条测试集记录，同时在 tree_node 中创建对应节点。"""
     now = datetime.now().isoformat()
     conn = _get_conn()
     conn.execute(
@@ -131,7 +164,30 @@ def insert_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
         ),
     )
     conn.commit()
-    return {**data, "created_at": now, "updated_at": now}
+
+    # 在 tree_node 中创建数据集节点
+    folder_id = data.get("folder_id", "")
+    parent_id = folder_id if folder_id else None
+    tree_store.insert_node(conn, {
+        "node_id": data["dataset_id"],
+        "tree_type": "eval_dataset",
+        "title": data.get("title", ""),
+        "parent_id": parent_id,
+        "scope_id": data.get("category", "knowledge"),
+        "sort_order": data.get("sort_order", -1),
+        "is_folder": False,
+        "extra": {
+            "description": data.get("description", ""),
+            "schema_version": data.get("schema_version", "eval.bundle.v2"),
+            "version": data.get("version", "1.0"),
+            "library_id": data.get("library_id", "default"),
+            "question_count": data.get("question_count", 0),
+            "source_file": data.get("source_file", ""),
+        },
+    })
+
+    result = dict(conn.execute("SELECT * FROM eval_dataset WHERE dataset_id = ?", (data["dataset_id"],)).fetchone())
+    return _enrich_dataset_with_tree_info(conn, result)
 
 
 def update_dataset_question_count(dataset_id: str, count: int) -> None:
@@ -146,39 +202,57 @@ def update_dataset_question_count(dataset_id: str, count: int) -> None:
 
 
 def list_datasets() -> List[Dict[str, Any]]:
-    """列出所有测试集。"""
+    """列出所有测试集，附带 tree_node 中的 folder_id 和 sort_order。"""
     conn = _get_conn()
     rows = conn.execute("SELECT * FROM eval_dataset ORDER BY created_at DESC").fetchall()
-    return [dict(row) for row in rows]
+    return [_enrich_dataset_with_tree_info(conn, dict(row)) for row in rows]
 
 
 def get_dataset(dataset_id: str) -> Optional[Dict[str, Any]]:
-    """获取单个测试集。"""
+    """获取单个测试集，附带 tree_node 中的 folder_id 和 sort_order。"""
     conn = _get_conn()
     row = conn.execute("SELECT * FROM eval_dataset WHERE dataset_id = ?", (dataset_id,)).fetchone()
-    return dict(row) if row else None
+    if not row:
+        return None
+    return _enrich_dataset_with_tree_info(conn, dict(row))
 
 
 def delete_dataset(dataset_id: str) -> bool:
-    """删除测试集及其所有题目。"""
+    """删除测试集及其所有题目，同时删除 tree_node 中的节点。"""
     conn = _get_conn()
     conn.execute("DELETE FROM eval_question WHERE dataset_id = ?", (dataset_id,))
     cursor = conn.execute("DELETE FROM eval_dataset WHERE dataset_id = ?", (dataset_id,))
+    # 同步删除 tree_node 中的数据集节点
+    tree_store.delete_node(conn, dataset_id)
     conn.commit()
     return cursor.rowcount > 0
 
 
 def update_dataset(dataset_id: str, updates: Dict[str, Any]) -> Optional[Dict[str, Any]]:
-    """更新测试集元信息。"""
+    """更新测试集元信息，同步更新 tree_node 中的节点。"""
     allowed = {"title", "description", "category"}
     fields = [k for k in updates if k in allowed and updates[k] is not None]
-    if not fields:
-        return get_dataset(dataset_id)
-    conn = _get_conn()
-    set_clause = ", ".join(f"{k} = ?" for k in fields)
-    values = [updates[k] for k in fields] + [dataset_id]
-    conn.execute(f"UPDATE eval_dataset SET {set_clause} WHERE dataset_id = ?", values)
-    conn.commit()
+    if fields:
+        conn = _get_conn()
+        set_clause = ", ".join(f"{k} = ?" for k in fields)
+        values = [updates[k] for k in fields] + [dataset_id]
+        conn.execute(f"UPDATE eval_dataset SET {set_clause} WHERE dataset_id = ?", values)
+        conn.commit()
+
+    # 同步更新 tree_node 中的节点
+    tree_updates: Dict[str, Any] = {}
+    if "title" in updates and updates["title"] is not None:
+        tree_updates["title"] = updates["title"]
+    if "category" in updates and updates["category"] is not None:
+        tree_updates["scope_id"] = updates["category"]
+    if "folder_id" in updates and updates["folder_id"] is not None:
+        tree_updates["parent_id"] = updates["folder_id"] or None
+    if "sort_order" in updates and updates["sort_order"] is not None:
+        tree_updates["sort_order"] = updates["sort_order"]
+    if tree_updates:
+        conn = _get_conn()
+        tree_store.update_node(conn, dataset_id, tree_updates)
+
     return get_dataset(dataset_id)
 
 
@@ -229,6 +303,89 @@ def list_questions(dataset_id: str) -> List[Dict[str, Any]]:
         item["sop_gold"] = json.loads(item["sop_gold"]) if item.get("sop_gold") else None
         result.append(item)
     return result
+
+
+# --- 文件夹管理（通过 tree_core.tree_store） ---
+
+
+def insert_folder(data: Dict[str, Any]) -> Dict[str, Any]:
+    """插入一条文件夹记录。"""
+    conn = _get_conn()
+    parent_id = data.get("parent_folder_id") or None
+    node = tree_store.insert_node(conn, {
+        "node_id": data["folder_id"],
+        "tree_type": "eval_folder",
+        "title": data.get("title", ""),
+        "parent_id": parent_id,
+        "scope_id": data.get("category", "knowledge"),
+        "sort_order": data.get("sort_order", -1),
+        "is_folder": True,
+    })
+    return _tree_node_to_folder(node)
+
+
+def list_folders() -> List[Dict[str, Any]]:
+    """列出所有文件夹。"""
+    conn = _get_conn()
+    nodes = tree_store.list_nodes_by_type(conn, "eval_folder")
+    return [_tree_node_to_folder(n) for n in nodes]
+
+
+def get_folder(folder_id: str) -> Optional[Dict[str, Any]]:
+    """获取单个文件夹。"""
+    conn = _get_conn()
+    node = tree_store.get_node(conn, folder_id)
+    if not node or node.get("tree_type") != "eval_folder":
+        return None
+    return _tree_node_to_folder(node)
+
+
+def update_folder(folder_id: str, updates: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """更新文件夹信息。"""
+    conn = _get_conn()
+    tree_updates: Dict[str, Any] = {}
+    if "title" in updates and updates["title"] is not None:
+        tree_updates["title"] = updates["title"]
+    if "parent_folder_id" in updates and updates["parent_folder_id"] is not None:
+        tree_updates["parent_id"] = updates["parent_folder_id"] or None
+    if "sort_order" in updates and updates["sort_order"] is not None:
+        tree_updates["sort_order"] = updates["sort_order"]
+    if "category" in updates and updates["category"] is not None:
+        tree_updates["scope_id"] = updates["category"]
+    if not tree_updates:
+        return get_folder(folder_id)
+    node = tree_store.update_node(conn, folder_id, tree_updates)
+    if not node:
+        return None
+    return _tree_node_to_folder(node)
+
+
+def delete_folder(folder_id: str) -> bool:
+    """删除文件夹，其下数据集移至分组根目录。"""
+    conn = _get_conn()
+    folder = get_folder(folder_id)
+    if not folder:
+        return False
+    category = folder.get("category", "knowledge")
+    # 将该文件夹下的数据集的 tree_node 记录的 parent_id 置空
+    children = tree_store.list_children(conn, folder_id, category)
+    for child in children:
+        if not child.get("is_folder"):
+            tree_store.move_node(conn, child["node_id"], None)
+    return tree_store.delete_node(conn, folder_id)
+
+
+def _tree_node_to_folder(node: Dict[str, Any]) -> Dict[str, Any]:
+    """将 tree_node 记录转换为 EvalFolder 格式，保持前端兼容。"""
+    return {
+        "folder_id": node["node_id"],
+        "title": node.get("title", ""),
+        "category": node.get("scope_id", "knowledge"),
+        "parent_folder_id": node.get("parent_id") or "",
+        "sort_order": node.get("sort_order", 0),
+        "created_at": node.get("created_at", ""),
+        "updated_at": node.get("updated_at", ""),
+    }
 
 
 def get_question(dataset_id: str, question_id: str) -> Optional[Dict[str, Any]]:

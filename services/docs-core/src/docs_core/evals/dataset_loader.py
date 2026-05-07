@@ -7,7 +7,7 @@ from typing import Any, Dict, List
 # 解析 docs-core 评测样本目录。
 def resolve_eval_data_dir() -> Path:
     current_file = Path(__file__).resolve()
-    return current_file.parents[5] / "tests" / "evals" / "knowledge_rag"
+    return current_file.parents[5] / "data" / "evals" / "datasets"
 
 
 # 返回目录下全部单文件题库，按文件名稳定排序。

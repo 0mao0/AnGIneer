@@ -32,52 +32,47 @@
   - AIChat：`packages/ui-kit/src/components/common/AIChat.vue`
   - SOPTree：`packages/docs-ui/src/components/common/widgets/SOPTree.vue`
   - SmartTree：`packages/ui-kit/src/components/common/SmartTree.vue`
+- 应用级可复用组件（同应用内多页面共用）：
+  - FolderModal：`apps/admin-console/src/views/components/FolderModal.vue`（新建/重命名文件夹弹窗，KnowledgeManage 与 EvalManage 共用）
 - `web-console` 与 `admin-console` 默认保持行为一致，除非需求明确区分。
 - 优先扩展既有协议和适配器，避免平行实现。
 
 ## 5. 执行契约
 
-### 5.1 编码前
+### 5.1 设计原则
 - 编码前先思考:不确定时要询问，不要默默选择一种解释就直接开始
 - 简约至上:代码最简化，任何过度设计都一目了然
 - 精确编辑:只修改必要的部分，不要顺便修复旁边的代码
 - 目标驱动:在开始前将模糊的指令转化为可验证的目标
 
-### 5.2 编码前
+### 5.2 编码前检查
 - 检查相邻文件的风格、导入与实现模式。
+- **同应用 UI 模式复用检查**：实现弹窗、表单、操作流程等 UI 交互前，必须先搜索同应用（`apps/admin-console` 或 `apps/web-console`）内是否已有相同或相似的实现。若已有声明式组件覆盖该功能（如 `FolderModal.vue` 覆盖文件夹新建/重命名），必须复用，不得用 `modal.confirm`/`h()` 等命令式 API 重新实现。简单确认弹窗（如删除确认）使用 `modal.confirm` 是合理的。
 - 引入新依赖前先确认仓库已使用或确有必要。
 - 在动手前明确验收标准与验证方式。
 
 ### 5.3 编码中
-- 对于Python文件，需要在函数上方增加一句话注释，说明函数的功能。
 - 不把无关重构混入功能或缺陷修复。
 - 非迁移任务不随意破坏已有 API 契约。
 - Vite 配置以 `vite.config.ts` 为唯一真相源，不保留同名 `vite.config.js` 副本。
 - 禁止写入密钥、凭据和环境敏感信息。
-- 对于 Vue 3 项目，涉及第三方库（如 pdf.js）的对象时，若其内部包含原生私有字段（以 # 开头），必须使用 `shallowRef` 而非 `ref`，以避免 Proxy 代理导致的私有字段访问错误。
-- PDF 渲染优化准则：
-  - 必须在渲染前填充白色背景（`fillStyle = '#ffffff'`），确保在深色模式或不同背景下颜色显示一致。
-  - 设置 Canvas 尺寸前必须校验是否发生变化，避免因重复设置尺寸导致 Canvas 被清空而产生的闪烁。
-  - 必须对容器使用 `ResizeObserver` 监听尺寸变化，以实现准确的自适应缩放。
-  - 使用 `shallowRef` 存储 `ResizeObserver` 实例以避免潜在的私有字段访问错误。
+- 对于 Vue 3 项目，涉及第三方库（如 pdf.js）的对象时，若其内部包含原生私有字段（以 # 开头），必须使用 `shallowRef` 而非 `ref`，以避免 Proxy 代理导致的私有字段访问错误。`ResizeObserver` 等浏览器原生对象同理。
+- PDF 渲染约束（详细实践见 `docs/apps-techniques.md`）：
+  - 渲染前必须填充白色背景，设置 Canvas 尺寸前必须校验是否变化，防止闪烁。
+  - 必须使用 `ResizeObserver` 监听容器尺寸变化以实现自适应缩放。
 
 - 主题与样式开发规范（Theme & Style Guardrails）：
-  - **唯一真相源**：所有组件的主题状态（亮/暗模式）必须统一通过 `@angineer/ui-kit` 的 `useTheme()` 获取。严禁在组件内私自使用 `window.matchMedia` 获取系统主题，严禁通过组件层层传递 `darkMode` Props（Prop Drilling）。
-  - **CSS 变量白名单**：组件样式中必须且只能使用 `@angineer/ui-kit/stores/theme.ts` 中定义的全局 CSS 变量。禁止使用未定义的变量（如 `--bg-color`，该变量不存在）。可用变量清单：
-    - 背景：`--bg-primary`、`--bg-secondary`、`--bg-tertiary`、`--panel-bg`、`--panel-header-bg`
-    - 文字：`--text-primary`、`--text-secondary`
-    - 边框：`--border-color`
-    - 文档域：`--docs-bg`、`--docs-pane-bg`、`--docs-pane-border`、`--docs-text`、`--docs-text-strong`、`--docs-text-subtle` 等
-  - **避免局部硬编码**：禁止在各个组件的 `<style>` 中写死诸如 `.dark-mode { background: #0f141d; }` 的局部暗黑颜色覆盖。必须使用全局 CSS 变量（如 `var(--panel-bg)`），并在全局或顶层统一声明不同主题下的变量值。`var()` 回退值必须与对应主题变量一致（暗色回退暗色值，亮色回退亮色值）。
-  - **暗黑模式样式完整性**：任何包含交互元素（按钮、图标、操作栏）的组件，必须在 `.dark-mode` 下提供完整的样式覆盖，包括但不限于：hover 背景、action icon 颜色、渐变遮罩背景色。禁止出现"暗色背景下白底白字"或"暗色背景下图标不可见"的情况。
-  - **弹窗样式隔离**：对于挂载到 `body` 上的弹窗组件（如 Modal），严禁为了覆盖深色样式而移除 `<style scoped>` 导致样式污染全局。必须通过 `wrapClassName` 传入主题类名，并配合特定的命名空间（如 `.index-tree-modal`）进行安全隔离。
+  - **唯一真相源**：主题状态统一通过 `@angineer/ui-kit` 的 `useTheme()` 获取，CSS 变量统一由 `@angineer/ui-kit/stores/theme.ts` 定义。禁止私自使用 `window.matchMedia` 获取系统主题，禁止使用未在 `theme.ts` 中定义的 CSS 变量。
+  - **禁止局部硬编码**：禁止在组件 `<style>` 中写死暗黑颜色覆盖（如 `.dark-mode { background: #0f141d; }`），必须使用 `theme.ts` 定义的全局 CSS 变量。
+  - **弹窗样式隔离**：挂载到 `body` 的弹窗组件，必须通过 `wrapClassName` 传入主题类名进行样式隔离，严禁移除 `<style scoped>` 导致样式污染全局。
 
 - 组件复用与封装规范（Component Reuse Guardrails）：
   - **禁止跨包复制组件**：同一组件只允许存在一份源码。`packages/ui-kit` 是共享 UI 的唯一真相源。`packages/docs-ui`、`packages/evals-ui` 等领域包必须通过 `import { SmartTree } from '@angineer/ui-kit'` 引用，不得创建本地副本。
+  - **禁止同应用内重复实现 UI 模式**：同一应用内，若已有声明式组件覆盖某功能（如 `FolderModal.vue` 覆盖文件夹新建/重命名），必须复用该组件，不得用 `modal.confirm`/`h()` 等命令式 API 重新实现。简单确认弹窗（如删除确认）使用 `modal.confirm` 是合理的。若已有组件不满足需求，应扩展已有组件而非另起炉灶。
   - **SmartTree 使用模式**：所有基于 SmartTree 的领域树（KnowledgeTree、SOPTree、EvalDatasetTree 等）必须遵循语义封装模式——创建领域语义组件，透传 SmartTree 的 props/slots/events，暴露领域类型（如 `KnowledgeTreeNode`、`EvalTreeNode`），通过 `ref` 暴露 `expandedKeys`/`selectedKeys` 等方法。禁止直接在页面级组件中使用 SmartTree。
   - **树节点操作按钮规范**：SmartTree 的 `#actions` 插槽中，叶子节点默认操作为"重命名、查看、删除"三个按钮；文件夹节点默认操作为"重命名、添加子文件夹、[可选]添加文件、删除"。如需增减按钮，必须在语义封装层中明确声明并注释原因。
 
-### 5.3 编码后
+### 5.4 编码后
 - 运行与改动范围匹配的质量检查。
 - 涉及架构调整时，同步更新 `docs/services-techniques.md`、`docs/apps-techniques.md` 与 `README.md`。
 - 涉及架构边界、模块依赖、主链路或端口契约调整时，必须同步更新 `docs/architecture-map.yaml` 并执行 `pnpm docs:arch-check`。
@@ -115,24 +110,7 @@ Definition of Done：
 - 后端：`services/*` 下 Python 服务
 - 包管理器：`pnpm`
 - Node 基线：`>=18.12.0`（项目实践通常使用 Node 20）
-
-### 8.1 端口契约（强约束）
-- 对外访问端口：
-  - `apps/web-console`：`3005`
-  - `apps/admin-console`：`3002`
-- 对内 API 端口：
-  - `apps/api-server/main.py`：`8789`
-  - 前端开发代理 `/api` 必须指向 `http://localhost:8789`
-- 未经用户明确要求，不允许修改上述端口；如必须调整，必须在同一次变更中同步更新所有引用点并完成验证。
+- 端口契约见 `docs/apps-techniques.md`，未经用户明确要求不得修改。
 
 ## 9. 常用命令
-- 安装依赖：`pnpm install`
-- 启动全部：`pnpm dev`
-- 启动前台：`pnpm dev:frontend`
-- 启动后台：`pnpm dev:admin`
-- 启动后端：`pnpm dev:backend`
-- 构建全部：`pnpm build`
-- 代码检查：`pnpm lint`
-- Harness 测试：`pnpm harness`
-- 同步技术文档：`pnpm docs:sync`
-- 校验技术文档：`pnpm docs:check`
+见 `package.json` 的 `scripts`。常用入口：`pnpm install`、`pnpm dev`、`pnpm build`、`pnpm lint`。

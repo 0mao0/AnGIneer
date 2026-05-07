@@ -67,3 +67,25 @@ class CompareResult(BaseModel):
     run_b: EvalRunProgress
     score_diff: Dict[str, float] = Field(default_factory=dict)
     question_changes: List[Dict[str, Any]] = Field(default_factory=list)
+
+
+class CreateFolderRequest(BaseModel):
+    """创建文件夹请求。"""
+    folder_id: str
+    title: str
+    category: str = "knowledge"
+    parent_folder_id: str = ""
+
+
+class UpdateFolderRequest(BaseModel):
+    """更新文件夹请求。"""
+    title: Optional[str] = None
+    category: Optional[str] = None
+    parent_folder_id: Optional[str] = None
+    sort_order: Optional[int] = None
+
+
+class MoveDatasetRequest(BaseModel):
+    """移动数据集请求。"""
+    folder_id: str = ""
+    sort_order: int = 0

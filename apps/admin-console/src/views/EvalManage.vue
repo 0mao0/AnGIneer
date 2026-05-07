@@ -7,19 +7,55 @@
     >
       <template #left>
         <Panel title="测试集" :icon="DatabaseOutlined" contentClass="tree-panel-content">
+          <template #extra>
+            <a-button type="text" size="small" title="手动创建空测试集" @click="openCreateModal">
+              <template #icon><PlusOutlined /></template>
+            </a-button>
+          </template>
           <div class="tree-container">
             <EvalDatasetTree
               ref="evalTreeRef"
               :tree-data="evalTreeData"
+              :show-search="true"
+              search-placeholder="搜索测试集..."
+              :show-add-root-folder="true"
+              add-root-folder-title="新建文件夹"
+              :show-icon="true"
+              :show-status="false"
+              :draggable="true"
               :default-expanded-keys="evalDefaultExpandedKeys"
               :default-selected-keys="selectedDatasetId ? [selectedDatasetId] : []"
+              empty-text="暂无测试集"
               @select="onDatasetSelect"
               @rename="onDatasetRename"
-              @delete="onDatasetDelete"
-              @view="onDatasetView"
               @add-folder="onAddFolder"
               @add-file="onAddFile"
-            />
+              @delete="onDatasetDelete"
+              @view="onDatasetView"
+              @drop="onTreeDrop"
+              @drop-root="onTreeDropRoot"
+              @drop-invalid="onInvalidDrop"
+            >
+              <template #actions="{ node }">
+                <template v-if="isGroupNodeFn(node)">
+                  <EditOutlined class="action-icon" title="重命名" @click.stop="onDatasetRename(node as EvalTreeNode)" />
+                  <FileAddOutlined class="action-icon" title="添加测试集" @click.stop="onAddFile(node as EvalTreeNode)" />
+                  <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="onAddFolder(node as EvalTreeNode)" />
+                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDatasetDelete(node as EvalTreeNode)" />
+                </template>
+                <template v-else-if="node.isFolder">
+                  <EditOutlined class="action-icon" title="重命名" @click.stop="onDatasetRename(node as EvalTreeNode)" />
+                  <FileAddOutlined class="action-icon" title="添加测试集" @click.stop="onAddFile(node as EvalTreeNode)" />
+                  <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="onAddFolder(node as EvalTreeNode)" />
+                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDatasetDelete(node as EvalTreeNode)" />
+                </template>
+                <template v-else>
+                  <EditOutlined class="action-icon" title="重命名" @click.stop="onDatasetRename(node as EvalTreeNode)" />
+                  <EyeOutlined class="action-icon" title="查看详情" @click.stop="onDatasetView(node as EvalTreeNode)" />
+                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDatasetDelete(node as EvalTreeNode)" />
+                </template>
+              </template>
+            </EvalDatasetTree>
           </div>
         </Panel>
       </template>
@@ -91,6 +127,20 @@
       </a-form>
     </a-modal>
 
+    <FolderModal
+      :visible="folderModalVisible"
+      :title="folderForm.isNew ? '新建文件夹' : '重命名文件夹'"
+      :loading="folderModalLoading"
+      :name="folderForm.name"
+      :parent-id="folderForm.parentId"
+      :is-new="folderForm.isNew"
+      :folder-tree-data="folderTreeData"
+      @update:visible="folderModalVisible = $event"
+      @update:name="folderForm.name = $event"
+      @update:parent-id="folderForm.parentId = $event"
+      @confirm="handleFolderModalOk"
+    />
+
     <a-modal
       v-model:open="detailVisible"
       :title="detailDataset?.title || '测试集详情'"
@@ -131,9 +181,14 @@ import {
   DatabaseOutlined,
   UnorderedListOutlined,
   ThunderboltOutlined,
+  EditOutlined,
+  EyeOutlined,
+  FileAddOutlined,
+  FolderAddOutlined,
+  DeleteOutlined,
+  PlusOutlined,
 } from '@ant-design/icons-vue'
 import { SplitPanes, Panel, useTheme } from '@angineer/ui-kit'
-import type { SmartTreeNode } from '@angineer/ui-kit'
 import {
   EvalDatasetTree,
   EvalQuestionList,
@@ -143,7 +198,9 @@ import {
 } from '@angineer/evals-ui'
 import { useEvalDataset, useEvalRun, useEvalDatasetTree } from '@angineer/evals-ui'
 import type { EvalTreeNode } from '@angineer/evals-ui'
+import { isPersistedFolder as isPersistedFolderFn } from '@angineer/evals-ui'
 import type { EvalDataset, EvalQuestion } from '@angineer/evals-ui'
+import FolderModal from './components/FolderModal.vue'
 
 const { appClass } = useTheme()
 const { modal } = App.useApp()
@@ -154,20 +211,26 @@ const {
   datasets,
   currentDataset,
   questions,
+  folders,
   fetchDatasets,
   fetchDataset,
   fetchQuestions,
   createDataset,
   deleteDataset,
   renameDataset,
+  fetchFolders,
+  createFolder,
+  renameFolder,
+  deleteFolder,
+  moveDataset,
 } = useEvalDataset()
 
 const {
   treeData: evalTreeData,
   defaultExpandedKeys: evalDefaultExpandedKeys,
   isGroupNode: isGroupNodeFn,
-  getCategoryFromGroupKey,
-} = useEvalDatasetTree(datasets)
+  getCategoryFromNode,
+} = useEvalDatasetTree(datasets, folders)
 
 const {
   currentRun,
@@ -188,11 +251,28 @@ const detailVisible = ref(false)
 const detailDataset = ref<EvalDataset | null>(null)
 const detailQuestions = ref<EvalQuestion[]>([])
 
+const folderModalVisible = ref(false)
+const folderModalLoading = ref(false)
+const folderForm = ref({ name: '', parentId: undefined as string | undefined, isNew: true, nodeId: '' })
+
 /** 格式化日期 */
 const formatDate = (iso: string) => {
   if (!iso) return '-'
   return new Date(iso).toLocaleString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
 }
+
+/** 构建 FolderModal 所需的文件夹树数据 */
+const folderTreeData = computed(() => {
+  const convert = (nodes: EvalTreeNode[]): any[] =>
+    nodes
+      .filter(n => n.isFolder)
+      .map(n => ({
+        value: n.key,
+        title: n.title,
+        children: n.children ? convert(n.children as EvalTreeNode[]) : [],
+      }))
+  return convert(evalTreeData.value as EvalTreeNode[])
+})
 
 /** 计算 L1-L4 等级分布 */
 const levelStats = computed(() => {
@@ -213,13 +293,16 @@ const levelStats = computed(() => {
     }))
 })
 
-const onDatasetSelect = async (datasetId: string) => {
-  selectedDatasetId.value = datasetId
+const onDatasetSelect = async (keys: string[], _nodes: EvalTreeNode[]) => {
+  if (keys.length === 0) return
+  const key = keys[0]
+  if (key.startsWith('group-')) return
+  selectedDatasetId.value = key
   questionsLoading.value = true
   try {
-    await fetchDataset(datasetId)
-    await fetchQuestions(datasetId)
-    await fetchRuns(datasetId)
+    await fetchDataset(key)
+    await fetchQuestions(key)
+    await fetchRuns(key)
   } finally {
     questionsLoading.value = false
   }
@@ -241,6 +324,12 @@ const onImported = async () => {
   message.success('导入成功')
 }
 
+/** 打开手动创建空测试集弹窗 */
+const openCreateModal = () => {
+  createForm.value = { title: '', category: 'knowledge', description: '' }
+  createModalVisible.value = true
+}
+
 const handleCreateDataset = async () => {
   if (!createForm.value.title) {
     message.warning('请输入名称')
@@ -255,19 +344,21 @@ const handleCreateDataset = async () => {
   }
 }
 
-/** 从节点提取 category */
-const getCategoryFromNode = (node: SmartTreeNode): string => {
-  if (isGroupNodeFn(node)) {
-    return getCategoryFromGroupKey(String(node.key))
-  }
-  return (node as EvalTreeNode).category || 'knowledge'
-}
-
 /** 处理重命名 */
 const onDatasetRename = (node: EvalTreeNode) => {
   const key = String(node.key)
   if (key.startsWith('group-')) {
     message.info('分类目录不支持重命名')
+    return
+  }
+  if (isPersistedFolderFn(node)) {
+    folderForm.value = {
+      name: node.title,
+      parentId: undefined,
+      isNew: false,
+      nodeId: key,
+    }
+    folderModalVisible.value = true
     return
   }
   const renameValue = ref(node.title)
@@ -301,6 +392,24 @@ const onDatasetDelete = (node: EvalTreeNode) => {
   const key = String(node.key)
   if (key.startsWith('group-')) {
     message.info('分类目录不支持删除')
+    return
+  }
+  if (isPersistedFolderFn(node)) {
+    modal.confirm({
+      title: '确认删除',
+      content: `删除后，文件夹内的数据集将移至分组根目录。确定删除文件夹「${node.title}」吗？`,
+      okText: '删除',
+      okType: 'danger',
+      cancelText: '取消',
+      async onOk() {
+        try {
+          await deleteFolder(key)
+          message.success('删除成功')
+        } catch (e: any) {
+          throw new Error(e.message || '删除失败')
+        }
+      },
+    })
     return
   }
   modal.confirm({
@@ -345,22 +454,107 @@ const onDatasetView = async (node: EvalTreeNode) => {
   }
 }
 
-/** 处理新建文件夹/测试集 */
+/** 处理新建文件夹 */
 const onAddFolder = (parentNode: EvalTreeNode | null) => {
-  const category = parentNode ? getCategoryFromNode(parentNode) : 'knowledge'
-  createForm.value = { title: '', category, description: '' }
-  createModalVisible.value = true
+  folderForm.value = {
+    name: '',
+    parentId: parentNode?.key || undefined,
+    isNew: true,
+    nodeId: '',
+  }
+  folderModalVisible.value = true
 }
 
-/** 处理添加测试集（在分类目录下新建） */
-const onAddFile = (node: EvalTreeNode) => {
-  const category = getCategoryFromNode(node)
-  createForm.value = { title: '', category, description: '' }
-  createModalVisible.value = true
+/** 处理添加测试集（上传 JSON 文件导入） */
+const onAddFile = (_node: EvalTreeNode) => {
+  importModalVisible.value = true
+}
+
+/** 处理树节点拖放 */
+const onTreeDrop = async (info: any) => {
+  const dragKey = String(info.dragNode?.key || '')
+  const dropKey = String(info.node?.key || '')
+
+  if (isGroupNodeFn({ key: dragKey } as EvalTreeNode)) return
+  if (isGroupNodeFn({ key: dropKey } as EvalTreeNode) && !info.dropToGap) return
+
+  const dropToGap = info.dropToGap
+  const dropNode = info.node
+  const isDropFolder = dropNode?.isFolder === true
+
+  let targetFolderId = ''
+  if (!dropToGap && isDropFolder) {
+    targetFolderId = dropKey.startsWith('folder-') ? dropKey : ''
+  } else if (dropToGap) {
+    targetFolderId = dropKey.startsWith('folder-') ? dropKey : ''
+  }
+
+  try {
+    await moveDataset(dragKey, targetFolderId)
+    message.success('移动成功')
+  } catch (e: any) {
+    message.error(e.message || '移动失败')
+    await fetchDatasets()
+  }
+}
+
+/** 处理拖到根目录 */
+const onTreeDropRoot = async (dragNodeKey: string) => {
+  if (isGroupNodeFn({ key: dragNodeKey } as EvalTreeNode)) return
+  try {
+    await moveDataset(dragNodeKey, '')
+    message.success('已移动到根目录')
+  } catch (e: any) {
+    message.error(e.message || '移动失败')
+    await fetchDatasets()
+  }
+}
+
+/** 处理无效拖放 */
+const onInvalidDrop = (reason: string) => {
+  const messages: Record<string, string> = {
+    'same-node': '不能拖到自身',
+    'drop-to-descendant': '不能拖到子节点中',
+    'drop-into-file': '不能拖入文件节点',
+  }
+  message.warning(messages[reason] || '无效的拖放操作')
+}
+
+/** 处理文件夹弹窗确认 */
+const handleFolderModalOk = async () => {
+  if (!folderForm.value.name.trim()) {
+    message.error('请输入文件夹名称')
+    return
+  }
+
+  folderModalLoading.value = true
+  try {
+    if (folderForm.value.isNew) {
+      const category = folderForm.value.parentId
+        ? (getCategoryFromNode({ key: folderForm.value.parentId } as EvalTreeNode) || 'knowledge')
+        : 'knowledge'
+      const parentFolderId = folderForm.value.parentId?.startsWith('folder-') ? folderForm.value.parentId : ''
+      await createFolder({
+        title: folderForm.value.name.trim(),
+        category,
+        parent_folder_id: parentFolderId || undefined,
+      })
+      message.success('创建成功')
+    } else {
+      await renameFolder(folderForm.value.nodeId, folderForm.value.name.trim())
+      message.success('重命名成功')
+    }
+    folderModalVisible.value = false
+  } catch (e: any) {
+    message.error(e.message || '操作失败')
+  } finally {
+    folderModalLoading.value = false
+  }
 }
 
 onMounted(() => {
   fetchDatasets()
+  fetchFolders()
 })
 
 onBeforeUnmount(() => {

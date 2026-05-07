@@ -75,7 +75,8 @@ flowchart LR
 - 网关入口：`apps/api-server`
 - 前端共享层：`packages/docs-ui`、`packages/ui-kit`
 - AI 推理层：`services/ai-inference`（LLM 客户端、语义嵌入、语义重排）
-- 核心服务层：`services/angineer-core`、`services/sop-core`、`services/docs-core`、`services/geo-core`、`services/engtools`
+- 树操作基础设施：`services/tree-core`（通用树节点 CRUD/移动/排序归一化）
+- 核心服务层：`services/angineer-core`、`services/sop-core`、`services/docs-core`、`services/evals-core`、`services/geo-core`、`services/engtools`
 - 运行时知识存储：`data/knowledge_base`
 
 ```
@@ -98,8 +99,13 @@ flowchart LR
 └────────────────────────────┬────────────────────────────────┘
                              │
 ┌────────────────────────────▼────────────────────────────────┐
+│                 树操作基础设施 (tree-core)                     │
+│          节点 CRUD │ 移动 │ 排序归一化 │ 单表 tree_node        │
+└────────────────────────────┬────────────────────────────────┘
+                             │
+┌────────────────────────────▼────────────────────────────────┐
 │                      后端核心服务层                            │
-│  angineer-core | sop-core | docs-core | geo-core | engtools   │
+│  angineer-core | sop-core | docs-core | evals-core | geo-core | engtools   │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -108,6 +114,8 @@ flowchart LR
 | 子系统 | 对应服务 | 核心职责 |
 |:---|:---|:---|
 | **AnGIneer-AI** | `services/ai-inference` | **AI 推理底座**。LLM 客户端（多模型/重试/熔断）、语义嵌入（bge-m3）、语义重排（bge-reranker）、响应解析。所有上层服务直接依赖此模块获取 AI 能力。 |
+| **AnGIneer-Tree** | `services/tree-core` | **树操作基础设施**。通用树节点 CRUD、移动、排序归一化。各服务在自己的 SQLite 中创建 tree_node 表，消除重复的树 CRUD 代码。 |
+| **AnGIneer-Evals** | `services/evals-core` | **评测引擎**。测试集管理、评测运行、结果对比。依赖 tree-core 管理文件夹和数据集的树结构。 |
 | **AnGIneer-SOP** | `services/sop-core` | **流程大脑**。负责 SOP 的定义、解析与可视化编排。 |
 | **AnGIneer-Tools** | `services/engtools` | **专业工具**。高精度工程计算器、脚本库与交互界面。 |
 | **AnGIneer-Docs** | `services/docs-core` | **行业记忆**。基于AnGIneer数据标准的规范自动解析与知识库管理。 |

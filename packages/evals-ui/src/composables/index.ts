@@ -1,5 +1,5 @@
 export { useEvalDataset } from './useEvalDataset'
 export { useEvalRun } from './useEvalRun'
 export { useEvalCompare } from './useEvalCompare'
-export { useEvalDatasetTree } from './useEvalDatasetTree'
+export { useEvalDatasetTree, isGroupNode, isPersistedFolder, getCategoryFromGroupKey, getCategoryFromNode } from './useEvalDatasetTree'
 export type { EvalTreeNode } from './useEvalDatasetTree'

@@ -6,6 +6,8 @@ from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel
 
+from tree_core import tree_store
+
 from docs_core.ingest.organize.types import (
     CanonicalBlock,
     CanonicalChunk,
@@ -188,17 +190,10 @@ class KnowledgeService:
     def _delete_nodes(self, node_ids: List[str]) -> None:
         self.meta_store.delete_nodes(node_ids)
 
-    # 收集节点及其全部后代节点 ID
+    # 收集节点及其全部后代节点 ID，委托给 tree_store。
     def _collect_subtree_node_ids(self, node_id: str) -> List[str]:
-        to_delete = {node_id}
-        changed = True
-        while changed:
-            changed = False
-            for node in self.nodes:
-                if node.parent_id in to_delete and node.id not in to_delete:
-                    to_delete.add(node.id)
-                    changed = True
-        return list(to_delete)
+        with self.meta_store.connect() as conn:
+            return tree_store._collect_subtree_ids(conn, node_id)
 
     # 收集指定节点集合中的文档节点
     def _collect_document_nodes(self, node_ids: List[str]) -> List[KnowledgeNode]:
@@ -248,17 +243,15 @@ class KnowledgeService:
             "sample_doc_titles": document_titles[:5],
         }
 
-    # 对兄弟节点重新排序
+    # 对兄弟节点重新排序，委托给 tree_store。
     def _normalize_sibling_orders(self, library_id: str, parent_id: Optional[str]) -> None:
-        siblings = sorted(
-            [node for node in self.nodes if node.library_id == library_id and node.parent_id == parent_id],
-            key=lambda node: (node.sort_order, node.created_at),
-        )
+        with self.meta_store.connect() as conn:
+            tree_store.normalize_siblings(conn, parent_id, library_id)
+        siblings = [node for node in self.nodes if node.library_id == library_id and node.parent_id == parent_id]
+        siblings.sort(key=lambda node: (node.sort_order, node.created_at))
         for idx, sibling in enumerate(siblings):
             if sibling.sort_order != idx:
                 sibling.sort_order = idx
-                sibling.updated_at = datetime.now()
-                self.meta_store.upsert_node(sibling)
 
     # 获取知识库列表
     def list_libraries(self) -> List[KnowledgeLibrary]:
@@ -285,17 +278,14 @@ class KnowledgeService:
             nodes = [node for node in nodes if node.visible]
         return sorted(nodes, key=lambda node: (node.sort_order, node.created_at))
 
-    # 创建节点
+    # 创建节点，sort_order 由 tree_store 自动计算。
     def create_node(self, node: KnowledgeNode) -> KnowledgeNode:
-        sibling_orders = [
-            item.sort_order for item in self.nodes if item.library_id == node.library_id and item.parent_id == node.parent_id
-        ]
-        if node.sort_order < 0:
-            node.sort_order = 0
-        elif sibling_orders and node.sort_order == 0:
-            node.sort_order = max(sibling_orders, default=-1) + 1
         self.nodes.append(node)
         self.meta_store.upsert_node(node)
+        with self.meta_store.connect() as conn:
+            tree_node = tree_store.get_node(conn, node.id)
+            if tree_node:
+                node.sort_order = tree_node.get("sort_order", 0)
         return node
 
     # 按文件路径注册文档节点
@@ -324,7 +314,7 @@ class KnowledgeService:
         )
         return self.create_node(node)
 
-    # 更新节点
+    # 更新节点，树属性变更委托给 tree_store。
     def update_node(self, node_id: str, **kwargs: Any) -> Optional[KnowledgeNode]:
         for node in self.nodes:
             if node.id != node_id:
@@ -334,21 +324,29 @@ class KnowledgeService:
             for key, value in kwargs.items():
                 if hasattr(node, key):
                     setattr(node, key, value)
-            has_explicit_sort_order = "sort_order" in kwargs
+            tree_updates: Dict[str, Any] = {}
+            if "parent_id" in kwargs:
+                tree_updates["parent_id"] = kwargs["parent_id"]
+            if "library_id" in kwargs:
+                tree_updates["scope_id"] = kwargs["library_id"]
+            if "sort_order" in kwargs:
+                tree_updates["sort_order"] = kwargs["sort_order"]
+            if "title" in kwargs:
+                tree_updates["title"] = kwargs["title"]
+            if tree_updates:
+                with self.meta_store.connect() as conn:
+                    tree_result = tree_store.update_node(conn, node_id, tree_updates)
+                    if tree_result:
+                        node.parent_id = tree_result.get("parent_id")
+                        node.sort_order = tree_result.get("sort_order", 0)
+                        if "scope_id" in tree_updates:
+                            node.library_id = tree_result.get("scope_id", node.library_id)
             parent_or_library_changed = old_parent_id != node.parent_id or old_library_id != node.library_id
-            if ("parent_id" in kwargs or "library_id" in kwargs) and not has_explicit_sort_order:
-                sibling_orders = [
-                    item.sort_order
-                    for item in self.nodes
-                    if item.id != node.id and item.library_id == node.library_id and item.parent_id == node.parent_id
-                ]
-                node.sort_order = max(sibling_orders, default=-1) + 1
             if parent_or_library_changed:
                 self._normalize_sibling_orders(old_library_id, old_parent_id)
-                if not has_explicit_sort_order:
-                    self._normalize_sibling_orders(node.library_id, node.parent_id)
             node.updated_at = datetime.now()
-            self.meta_store.upsert_node(node)
+            if node.type != "folder":
+                self.meta_store.upsert_node(node)
             return node
         return None
 

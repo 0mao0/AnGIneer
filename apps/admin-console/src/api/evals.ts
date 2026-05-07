@@ -50,6 +50,20 @@ export const evalsApi = {
 
   compare: (runIdA: string, runIdB: string) =>
     api.get('/compare', { params: { run_id_a: runIdA, run_id_b: runIdB } }).then(r => r.data),
+
+  getFolders: () => api.get('/folders').then(r => r.data),
+
+  createFolder: (payload: { folder_id: string; title: string; category: string; parent_folder_id?: string }) =>
+    api.post('/folders', payload).then(r => r.data),
+
+  updateFolder: (folderId: string, payload: { title?: string; parent_folder_id?: string; sort_order?: number }) =>
+    api.patch(`/folders/${folderId}`, payload).then(r => r.data),
+
+  deleteFolder: (folderId: string) =>
+    api.delete(`/folders/${folderId}`).then(r => r.data),
+
+  moveDataset: (datasetId: string, payload: { folder_id: string; sort_order: number }) =>
+    api.patch(`/datasets/${datasetId}/move`, payload).then(r => r.data),
 }
 
 export default evalsApi

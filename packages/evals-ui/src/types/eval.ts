@@ -13,6 +13,17 @@ export type EvalRunStatus = 'running' | 'completed' | 'failed'
 /** 测试集类别 */
 export type EvalDatasetCategory = 'knowledge' | 'sop' | 'full_chain'
 
+/** 评测文件夹 */
+export interface EvalFolder {
+  folder_id: string
+  title: string
+  category: EvalDatasetCategory
+  parent_folder_id: string
+  sort_order: number
+  created_at: string
+  updated_at: string
+}
+
 /** 检索评测标准答案 */
 export interface RetrievalGold {
   gold_section_paths: string[]
@@ -79,6 +90,8 @@ export interface EvalDataset {
   library_id: string
   question_count: number
   source_file: string
+  folder_id: string
+  sort_order: number
   created_at: string
   updated_at: string
 }

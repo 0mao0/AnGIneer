@@ -8,8 +8,11 @@ from evals_core.contracts import (
     AddQuestionRequest,
     CompareResult,
     CreateDatasetRequest,
+    CreateFolderRequest,
     EvalRunProgress,
+    MoveDatasetRequest,
     StartEvalRunRequest,
+    UpdateFolderRequest,
     UpdateQuestionRequest,
 )
 from evals_core.dataset import manager
@@ -130,6 +133,53 @@ async def export_dataset(dataset_id: str):
     if not data:
         raise HTTPException(status_code=404, detail="测试集不存在")
     return data
+
+
+# --- 文件夹管理 ---
+
+
+@evals_router.get("/folders")
+async def get_folders():
+    """列出所有文件夹。"""
+    folders = manager.list_folders()
+    return {"folders": folders}
+
+
+@evals_router.post("/folders")
+async def create_folder(req: CreateFolderRequest):
+    """创建文件夹。"""
+    folder = manager.create_folder(req.model_dump())
+    return folder
+
+
+@evals_router.patch("/folders/{folder_id}")
+async def update_folder(folder_id: str, req: UpdateFolderRequest):
+    """更新文件夹信息。"""
+    updates = req.model_dump(exclude_none=True)
+    if not updates:
+        raise HTTPException(status_code=400, detail="无更新内容")
+    folder = manager.update_folder(folder_id, updates)
+    if not folder:
+        raise HTTPException(status_code=404, detail="文件夹不存在")
+    return folder
+
+
+@evals_router.delete("/folders/{folder_id}")
+async def delete_folder(folder_id: str):
+    """删除文件夹。"""
+    success = manager.delete_folder(folder_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="文件夹不存在")
+    return {"status": "deleted"}
+
+
+@evals_router.patch("/datasets/{dataset_id}/move")
+async def move_dataset(dataset_id: str, req: MoveDatasetRequest):
+    """移动数据集到指定文件夹。"""
+    dataset = manager.move_dataset(dataset_id, req.folder_id, req.sort_order)
+    if not dataset:
+        raise HTTPException(status_code=404, detail="测试集不存在")
+    return dataset
 
 
 # --- 评测运行 ---

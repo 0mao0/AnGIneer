@@ -180,3 +180,31 @@ def _question_row_to_item(row: Dict[str, Any]) -> Dict[str, Any]:
     if row.get("sop_gold"):
         item["sop"] = row["sop_gold"]
     return item
+
+
+# --- 文件夹管理 ---
+
+
+def list_folders() -> List[Dict[str, Any]]:
+    """列出所有文件夹。"""
+    return result_store.list_folders()
+
+
+def create_folder(data: Dict[str, Any]) -> Dict[str, Any]:
+    """创建文件夹。"""
+    return result_store.insert_folder(data)
+
+
+def update_folder(folder_id: str, updates: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """更新文件夹信息。"""
+    return result_store.update_folder(folder_id, updates)
+
+
+def delete_folder(folder_id: str) -> bool:
+    """删除文件夹。"""
+    return result_store.delete_folder(folder_id)
+
+
+def move_dataset(dataset_id: str, folder_id: str, sort_order: int = 0) -> Optional[Dict[str, Any]]:
+    """移动数据集到指定文件夹。"""
+    return result_store.update_dataset(dataset_id, {"folder_id": folder_id, "sort_order": sort_order})

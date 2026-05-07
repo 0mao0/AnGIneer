@@ -33,14 +33,18 @@ pnpm harness:tooling
 ```
 ai-inference（底层，零外部依赖）
     ↑
-angineer-core / docs-core / engtools / sop-core（服务层，直接依赖 ai-inference）
+tree-core（树操作基础设施，零外部依赖）
+    ↑
+angineer-core / docs-core / evals-core / sop-core（服务层，直接依赖 ai-inference）
     ↑
 api-server（网关层）
 ```
 
 **关键原则：**
 - `ai-inference` 是 AI 推理的唯一真相源，不依赖任何其他服务模块
+- `tree-core` 是树操作（节点 CRUD、移动、排序归一化）的唯一真相源，零外部依赖
 - 所有上层服务需要 LLM/语义能力时，直接 `from ai_inference import ...`，不经过 `angineer-core` 中转
+- 所有上层服务需要树操作能力时，直接 `from tree_core import tree_store`，各服务在自己的 SQLite 中创建 `tree_node` 表
 - `angineer-core` 不再重导出 `ai_inference` 的符号
 
 ```mermaid
@@ -93,6 +97,8 @@ flowchart LR
 - `services/docs-core/src/docs_core/query/contracts.py`
 - `services/angineer-core/src/angineer_core/classifier.py`
 - `services/angineer-core/src/angineer_core/dispatcher.py`
+- `services/tree-core/src/tree_core/tree_store.py`（通用树节点 CRUD/移动/排序归一化）
+- `services/tree-core/src/tree_core/tree_contracts.py`（树操作契约模型）
 
 ***
 

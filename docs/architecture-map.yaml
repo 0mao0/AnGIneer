@@ -15,9 +15,11 @@ readme_required_tokens:
   - packages/docs-ui
   - packages/ui-kit
   - services/ai-inference
+  - services/tree-core
   - services/angineer-core
   - services/sop-core
   - services/docs-core
+  - services/evals-core
   - services/geo-core
   - services/engtools
   - data/knowledge_base
@@ -115,11 +117,34 @@ modules:
       语义嵌入（bge-m3）、语义重排（bge-reranker-v2-m3）、响应解析。
       所有上层服务直接依赖此模块获取 AI 能力，不经过 angineer-core 中转。
 
+  - id: tree-core
+    path: services/tree-core
+    role: tree_operations_foundation
+    depends_on: []
+    key_symbols:
+      - tree_store.py
+      - tree_contracts.py
+    description: >
+      通用树操作基础设施，零外部依赖。提供树节点 CRUD、移动、排序归一化等操作。
+      各服务在自己的 SQLite 中创建 tree_node 表，调用 tree_core 的函数操作。
+      消除各服务（evals-core、docs-core 等）重复的树 CRUD 代码。
+
+  - id: evals-core
+    path: services/evals-core
+    role: evaluation_engine
+    depends_on:
+      - tree-core
+    key_symbols:
+      - dataset/manager.py
+      - storage/result_store.py
+      - contracts.py
+
   - id: docs-core
     path: services/docs-core
     role: document_parse_and_knowledge
     depends_on:
       - ai-inference
+      - tree-core
     key_symbols:
       - knowledge_service.py
       - mineru_parser.py
@@ -231,7 +256,9 @@ invariants:
   - docs storage follows one-document-one-folder.
   - docs-core runtime data uses knowledge_meta.sqlite and knowledge_index.sqlite.
   - ai-inference is the sole AI inference provider with zero reverse dependencies.
+  - tree-core is the sole tree operations provider with zero reverse dependencies.
   - all services needing LLM/semantic capabilities must import directly from ai_inference, not via angineer-core re-export.
+  - all services needing tree operations must import directly from tree_core, not re-implement CRUD/move/normalize.
 
 change_checklist:
   - If ports change, update every reference in docs and frontend proxy config in the same change.
@@ -239,3 +266,4 @@ change_checklist:
   - If docs storage layout changes, update docs-core, engtools compatibility, docs, and migration path.
   - If knowledge routes change, update README and both techniques documents.
   - If ai-inference API changes, update all direct consumers (angineer-core, docs-core, engtools, sop-core, api-server).
+  - If tree-core API changes, update all direct consumers (evals-core, docs-core).

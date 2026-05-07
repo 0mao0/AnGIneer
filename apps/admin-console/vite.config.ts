@@ -12,7 +12,8 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src'),
       '@angineer/ui-kit': resolve(__dirname, '../../packages/ui-kit/src'),
-      '@angineer/docs-ui': resolve(__dirname, '../../packages/docs-ui/src')
+      '@angineer/docs-ui': resolve(__dirname, '../../packages/docs-ui/src'),
+      '@angineer/evals-ui': resolve(__dirname, '../../packages/evals-ui/src')
     }
   },
   css: {
