@@ -204,7 +204,18 @@ export interface KnowledgeEvalAnswerDetail {
   refusal_correct?: number
   answer_correct_checked?: boolean
   answer_correct?: number | null
-  failed_correctness_checks?: Array<{ type?: string; keywords?: string[] }>
+  failed_correctness_checks?: Array<{
+    type?: string
+    keywords?: string[]
+    check_type?: string
+    keyword_results?: Array<{ keyword: string; normalized: string; found: boolean }>
+  }>
+  all_checks_detail?: Array<{
+    type: string
+    check_type: string
+    passed: boolean
+    keyword_results: Array<{ keyword: string; normalized: string; found: boolean }>
+  }>
   answer?: string
   gold_answer?: string
   thought_process?: string
@@ -217,6 +228,13 @@ export interface KnowledgeEvalAnswerDetail {
     snippet: string
     score: number
   }>
+  retrieval_hit_at_5?: number | null
+  retrieval_mrr?: number | null
+  retrieval_evaluated?: boolean
+  predicted_section_paths?: string[]
+  retrieval_gold_section_paths?: string[]
+  retrieval_gold_chunk_ids?: string[]
+  retrieval_gold_doc_ids?: string[]
 }
 
 export interface KnowledgeEvalRunResponse {
