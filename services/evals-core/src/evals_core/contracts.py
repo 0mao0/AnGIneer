@@ -47,6 +47,8 @@ class StartEvalRunRequest(BaseModel):
     """启动评测运行请求。"""
     dataset_id: str
     question_id: Optional[str] = None
+    save: bool = True
+    doc_ids: Optional[List[str]] = None
 
 
 class EvalRunProgress(BaseModel):

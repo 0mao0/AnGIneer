@@ -68,7 +68,10 @@
             :run-details="runDetails"
             :loading="questionsLoading"
             :evaluating-question-ids="evaluatingQuestionIds"
+            :doc-tree-data="docTreeData"
+            :doc-flat-list="docFlatList"
             @evaluate="onEvaluateQuestion"
+            @update:selected-doc-ids="onSelectedDocIdsChange"
           />
           <a-empty v-else description="请从左侧选择测试集" class="center-empty" />
         </Panel>
@@ -85,6 +88,8 @@
             :dataset-id="selectedDatasetId"
             :current-run="currentRun"
             :last-run="lastRun"
+            :is-full-run="isFullRun"
+            :last-run-time="lastRunTime"
             @run="onStartRun"
           />
         </Panel>
@@ -202,9 +207,59 @@ import { useEvalDataset, useEvalRun, useEvalDatasetTree } from '@angineer/evals-
 import type { EvalTreeNode } from '@angineer/evals-ui'
 import type { EvalDataset, EvalQuestion } from '@angineer/evals-ui'
 import FolderModal from './components/FolderModal.vue'
+import { knowledgeApi } from '../api/knowledge'
 
 const { appClass } = useTheme()
 const { modal } = App.useApp()
+
+/** 知识库树节点（用于规范筛选） */
+interface DocTreeNode {
+  key: string
+  title: string
+  type: 'folder' | 'document'
+  parentId: string | null
+  children?: DocTreeNode[]
+}
+const docTreeData = ref<DocTreeNode[]>([])
+const docFlatList = ref<DocTreeNode[]>([])
+
+/** 从扁平节点列表构建树 */
+const buildDocTree = (nodes: any[]): { tree: DocTreeNode[]; flat: DocTreeNode[] } => {
+  const flat: DocTreeNode[] = nodes.map(n => ({
+    key: n.id,
+    title: n.title,
+    type: n.type,
+    parentId: n.parent_id || null,
+  }))
+  const map = new Map<string, DocTreeNode>()
+  for (const item of flat) map.set(item.key, item)
+  const tree: DocTreeNode[] = []
+  for (const item of flat) {
+    if (!item.parentId || !map.has(item.parentId)) {
+      tree.push(item)
+    } else {
+      const parent = map.get(item.parentId)!
+      if (!parent.children) parent.children = []
+      parent.children.push(item)
+    }
+  }
+  return { tree, flat }
+}
+
+/** 加载知识库节点树 */
+const fetchDocOptions = async () => {
+  try {
+    const resp = await knowledgeApi.getNodes('default', true)
+    const nodes = (resp as any)?.data || resp || []
+    const list = Array.isArray(nodes) ? nodes : []
+    const { tree, flat } = buildDocTree(list)
+    docTreeData.value = tree
+    docFlatList.value = flat
+  } catch {
+    docTreeData.value = []
+    docFlatList.value = []
+  }
+}
 
 const {
   datasets,
@@ -239,6 +294,7 @@ const {
   runs,
   runDetails,
   evaluatingQuestionIds,
+  isFullRun,
   startRun,
   fetchLastRun,
   evaluateQuestion,
@@ -264,6 +320,18 @@ const formatDate = (iso: string) => {
   if (!iso) return '-'
   return new Date(iso).toLocaleString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
 }
+
+/** 格式化上次整体测试时间，格式如 "04-09 18:42" */
+const lastRunTime = computed(() => {
+  const iso = lastRun.value?.completed_at || lastRun.value?.started_at
+  if (!iso) return undefined
+  const d = new Date(iso)
+  const mm = String(d.getMonth() + 1).padStart(2, '0')
+  const dd = String(d.getDate()).padStart(2, '0')
+  const hh = String(d.getHours()).padStart(2, '0')
+  const mi = String(d.getMinutes()).padStart(2, '0')
+  return `${mm}-${dd} ${hh}:${mi}`
+})
 
 /** 构建 FolderModal 所需的文件夹树数据，追加根目录选项 */
 const folderTreeData = computed(() => {
@@ -305,6 +373,9 @@ const onDatasetSelect = async (keys: string[], _nodes: EvalTreeNode[]) => {
   const key = keys[0]
   if (key.startsWith('folder-')) return
   selectedDatasetId.value = key
+  stopPolling()
+  currentRun.value = null
+  isFullRun.value = false
   questionsLoading.value = true
   try {
     await fetchDataset(key)
@@ -315,10 +386,17 @@ const onDatasetSelect = async (keys: string[], _nodes: EvalTreeNode[]) => {
   }
 }
 
+/** 当前规范筛选选中的文档 ID 列表 */
+const selectedDocIds = ref<string[]>([])
+
+const onSelectedDocIdsChange = (docIds: string[]) => {
+  selectedDocIds.value = docIds
+}
+
 const onStartRun = async () => {
   if (!selectedDatasetId.value) return
   try {
-    await startRun(selectedDatasetId.value)
+    await startRun(selectedDatasetId.value, selectedDocIds.value)
     message.success('评测已启动')
   } catch (e: any) {
     message.error(e.message || '启动评测失败')
@@ -329,7 +407,7 @@ const onStartRun = async () => {
 const onEvaluateQuestion = async (questionId: string) => {
   if (!selectedDatasetId.value) return
   try {
-    await evaluateQuestion(selectedDatasetId.value, questionId)
+    await evaluateQuestion(selectedDatasetId.value, questionId, selectedDocIds.value)
     message.success('评测完成')
   } catch (e: any) {
     message.error(e.message || '评测失败')
@@ -574,6 +652,7 @@ const handleFolderModalOk = async () => {
 onMounted(() => {
   fetchDatasets()
   fetchFolders()
+  fetchDocOptions()
 })
 
 onBeforeUnmount(() => {

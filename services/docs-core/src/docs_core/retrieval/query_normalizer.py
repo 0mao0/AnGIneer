@@ -6,7 +6,13 @@ from typing import List
 # 归一化文本以提升中文检索匹配稳定性。
 def normalize_match_text(text: str) -> str:
     compact = re.sub(r"\s+", "", text or "")
-    compact = re.sub(r"[，。；：、“”‘’（）()\[\]【】<>《》,.;:!?！？·—\-~$\\]", "", compact)
+    compact = re.sub(
+        r"[\uff0c\u3002\uff1b\uff1a\u3001\u201c\u201d\u2018\u2019"
+        r"\uff08\uff09()\[\]\u3010\u3011\u300a\u300b"
+        r"<>.,;:!\?\uff01\uff1f\u00b7\u2014\-~$\\]",
+        "",
+        compact,
+    )
     return compact.lower().strip()
 
 

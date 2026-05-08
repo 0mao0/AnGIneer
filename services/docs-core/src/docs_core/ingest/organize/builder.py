@@ -382,19 +382,34 @@ def build_canonical_chunks(blocks: List[CanonicalBlock]) -> List[CanonicalChunk]
             )
             continue
 
-        if current_blocks and (
-            block.section_path != current_blocks[0].section_path
+        is_in_formula_group = current_blocks and any(b.block_type == "formula" for b in current_blocks)
+        is_formula_param = is_in_formula_group and block.block_type == "paragraph"
+        should_flush = current_blocks and (
+            (block.section_path != current_blocks[0].section_path and not is_formula_param)
             or block.page_idx - current_blocks[-1].page_idx > 1
-            or estimate_token_count("\n".join(item.text_clean for item in current_blocks + [block])) > 260
-        ):
-            flush_current("list_procedure" if current_blocks[0].block_type == "list_item" else "content")
+            or (not is_formula_param and estimate_token_count("\n".join(item.text_clean for item in current_blocks + [block])) > 260)
+        )
+        if should_flush:
+            flush_current("formula_block" if is_in_formula_group else ("list_procedure" if current_blocks[0].block_type == "list_item" else "content"))
 
         current_blocks.append(block)
 
         if block.block_type == "table" and block.text_clean:
+            has_formula = any(b.block_type == "formula" for b in current_blocks[:-1])
+            if has_formula:
+                formula_idx = next(i for i, b in enumerate(current_blocks) if b.block_type == "formula")
+                formula_group = current_blocks[formula_idx:-1]
+                pre_formula = current_blocks[:formula_idx]
+                if pre_formula:
+                    current_blocks = pre_formula
+                    flush_current("content")
+                current_blocks = formula_group
+                flush_current("formula_block")
+                current_blocks = [block]
             flush_current("table_summary")
 
-    flush_current("list_procedure" if current_blocks and current_blocks[0].block_type == "list_item" else "content")
+    is_formula_tail = current_blocks and any(b.block_type == "formula" for b in current_blocks)
+    flush_current("formula_block" if is_formula_tail else ("list_procedure" if current_blocks and current_blocks[0].block_type == "list_item" else "content"))
     return chunks
 
 

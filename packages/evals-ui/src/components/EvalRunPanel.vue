@@ -14,6 +14,9 @@
 
     <div class="eval-run-panel__content">
       <div class="eval-run-panel__overall">
+        <div v-if="lastRunTime" class="eval-run-panel__overall-time">
+          {{ lastRunTime }}
+        </div>
         <div class="eval-run-panel__overall-score">
           {{ overallScoreDisplay }}
         </div>
@@ -47,7 +50,7 @@
         >
           <EvalLevelBadge :level="(level as any)" />
           <span class="eval-run-panel__level-text">
-            {{ data.passed }}/{{ data.total }} 通过
+            {{ data.correct }}/{{ data.total }} 正确
           </span>
         </div>
       </div>
@@ -65,6 +68,10 @@ const props = defineProps<{
   datasetId: string
   currentRun: EvalRun | null
   lastRun: EvalRun | null
+  /** 当前运行是否为整体评测（非单题评测） */
+  isFullRun: boolean
+  /** 上次整体测试时间，格式如 "04-09 18:42" */
+  lastRunTime?: string
 }>()
 
 defineEmits<{
@@ -78,8 +85,12 @@ const progressText = computed(() => {
   return `${props.currentRun.completed_questions}/${props.currentRun.total_questions}`
 })
 
+/** 整体评测时优先取 currentRun，单题评测时只取 lastRun */
 const summary = computed((): EvalSummaryScores | null => {
-  return props.currentRun?.summary_scores || props.lastRun?.summary_scores || null
+  if (props.isFullRun) {
+    return props.currentRun?.summary_scores || props.lastRun?.summary_scores || null
+  }
+  return props.lastRun?.summary_scores || null
 })
 
 const overallScoreDisplay = computed(() => {
@@ -109,6 +120,12 @@ const overallScoreDisplay = computed(() => {
     padding: 16px 0;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 16px;
+
+    &-time {
+      font-size: 12px;
+      color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+      margin-bottom: 4px;
+    }
 
     &-score {
       font-size: 36px;

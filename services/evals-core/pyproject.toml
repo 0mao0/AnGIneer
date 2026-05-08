@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "AnGIneer evaluation engine"
 requires-python = ">=3.10"
 dependencies = [
+    "angineer-ai-inference",
     "angineer-tree-core",
     "pydantic>=2.0.0",
     "httpx>=0.25.0",

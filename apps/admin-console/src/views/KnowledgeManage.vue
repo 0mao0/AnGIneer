@@ -118,16 +118,7 @@
       <template #right>
         <Panel title="AI 对话" :icon="MessageOutlined">
           <template #extra>
-            <a-space size="small">
-              <a-button
-                size="small"
-                class="header-action-btn"
-                :loading="knowledgeEvalDrawerRef?.running || false"
-                @click="openKnowledgeEvalDrawer"
-              >
-                评测
-              </a-button>
-            </a-space>
+            <span />
           </template>
           <AIChat
             ref="knowledgeChatRef"
@@ -138,10 +129,6 @@
             :session-id="selectedNode && !selectedNode.isFolder ? selectedNode.key : 'default'"
             @answer-complete="_handleKnowledgeAnswerCompleteWrapper"
             @select-citation="_handleKnowledgeCitationSelectWrapper"
-          />
-          <KnowledgeEvalDrawer
-            ref="knowledgeEvalDrawerRef"
-            :run-question="runKnowledgeEvalQuestion"
           />
         </Panel>
       </template>
@@ -246,12 +233,10 @@ const { appClass } = useTheme()
 import FolderPreview from './components/FolderPreview.vue'
 import FolderModal from './components/FolderModal.vue'
 import DocDetailModal from './components/DocDetailModal.vue'
-import KnowledgeEvalDrawer from './components/KnowledgeEvalDrawer.vue'
 
 const smartTreeRef = ref<InstanceType<typeof KnowledgeTree> | null>(null)
 const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
 const knowledgeChatRef = ref<InstanceType<typeof AIChat> | null>(null)
-const knowledgeEvalDrawerRef = ref<InstanceType<typeof KnowledgeEvalDrawer> | null>(null)
 
 const {
   treeData,
@@ -346,38 +331,6 @@ const smartTreeProps = {
   allowAddFile: true,
   allowedFileTypes: allowedFileTypes,
   emptyText: '暂无文档'
-}
-
-/* 读取聊天面板中最新一条助手回答，用于同步评测过程结果。 */
-const getLatestKnowledgeAssistantMessage = (): KnowledgeAnswerMessage | null => {
-  const messages = Array.isArray(knowledgeChatRef.value?.messages)
-    ? knowledgeChatRef.value.messages as KnowledgeAnswerMessage[]
-    : []
-  const latestMessage = [...messages].reverse().find(item => item.role === 'assistant')
-  return latestMessage || null
-}
-
-/* 供评测抽屉调用，发送单条测试问题并返回回答、链路和引用。 */
-const runKnowledgeEvalQuestion = async (question: string) => {
-  knowledgeChatRef.value?.clearComposer?.()
-  await knowledgeChatRef.value?.sendMessage(question, '', undefined, { includeDebug: true, includeRetrieved: true })
-  knowledgeChatRef.value?.clearComposer?.()
-  const latestAnswer = getLatestKnowledgeAssistantMessage()
-  return {
-    answer: latestAnswer?.content || '',
-    queryChain: latestAnswer?.queryChain || '',
-    citations: latestAnswer?.citations || [],
-    strategy: latestAnswer?.strategy || '',
-    task_type: latestAnswer?.task_type || '',
-    confidence: latestAnswer?.confidence,
-    retrieved_items: latestAnswer?.retrieved_items || [],
-    debug: latestAnswer?.debug || {}
-  }
-}
-
-/* 打开评测抽屉。 */
-const openKnowledgeEvalDrawer = async () => {
-  knowledgeEvalDrawerRef.value?.open?.()
 }
 
 // 面板调整大小回调

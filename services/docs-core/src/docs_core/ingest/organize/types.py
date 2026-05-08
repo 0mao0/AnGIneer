@@ -26,6 +26,7 @@ ChunkType = Literal[
     "table_mapping_row",
     "table_summary",
     "schema_desc",
+    "formula_block",
 ]
 
 TableType = Literal[

@@ -219,129 +219,6 @@ class KnowledgeDocumentBatchBlockOperation(BaseModel):
     targetLevel: Optional[int] = None
 
 
-# 读取知识库评测题集，并按需排除 SQL 题目
-def _load_knowledge_eval_questions(include_sql: bool = False, dataset_id: Optional[str] = None) -> List[Dict[str, Any]]:
-    from docs_core.evals.dataset_loader import load_eval_questions
-
-    questions = load_eval_questions(dataset_id=dataset_id)
-    if include_sql:
-        return questions
-    return [row for row in questions if str(row.get("task_type") or "") != "analytic_sql"]
-
-
-# 返回前端可展示的评测题库列表
-def _load_knowledge_eval_datasets() -> List[Dict[str, Any]]:
-    from docs_core.evals.dataset_loader import list_eval_datasets
-
-    datasets = list_eval_datasets()
-    return [
-        {
-            "dataset_id": str(row.get("dataset_id") or ""),
-            "title": str(row.get("title") or ""),
-            "description": str(row.get("description") or ""),
-            "schema_version": str(row.get("schema_version") or ""),
-            "version": str(row.get("version") or ""),
-            "library_id": str(row.get("library_id") or ""),
-            "question_count": int(row.get("question_count") or 0),
-            "visible_question_count": int(row.get("visible_question_count") or 0),
-            "sql_question_count": int(row.get("sql_question_count") or 0),
-        }
-        for row in datasets
-        if row.get("dataset_id")
-    ]
-
-
-# 组装知识库评测运行结果，便于前端直接展示逐题状态与汇总分数
-def _build_knowledge_eval_payload(
-    dataset_id: Optional[str] = None,
-    cached_predictions: Optional[Dict[str, Any]] = None,
-) -> Dict[str, Any]:
-    from docs_core.evals.eval_reporter import build_eval_suite_report
-
-    all_questions = _load_knowledge_eval_questions(include_sql=True, dataset_id=dataset_id)
-    visible_questions = [row for row in all_questions if str(row.get("task_type") or "") != "analytic_sql"]
-    question_map = {
-        str(row.get("question_id") or ""): row
-        for row in all_questions
-        if row.get("question_id")
-    }
-    report = build_eval_suite_report(dataset_id=dataset_id, cached_predictions=cached_predictions)
-    available_datasets = _load_knowledge_eval_datasets()
-    selected_dataset = next(
-        (item for item in available_datasets if str(item.get("dataset_id") or "") == str(dataset_id or "")),
-        None,
-    )
-
-    answer_report = dict(report.get("answer") or {})
-    answer_details = []
-    for detail in list(answer_report.get("details") or []):
-        question = question_map.get(str(detail.get("question_id") or ""), {})
-        answer_details.append({
-            **detail,
-            "question": question.get("question", ""),
-            "difficulty": question.get("difficulty", ""),
-            "tags": list(question.get("tags") or []),
-            "gold_answer": str((question.get("answer") or {}).get("gold_answer") or ""),
-            "thought_process": str(question.get("thought_process") or ""),
-        })
-    answer_report["details"] = answer_details
-
-    retrieval_report = dict(report.get("retrieval") or {})
-    retrieval_details = []
-    for detail in list(retrieval_report.get("details") or []):
-        question = question_map.get(str(detail.get("question_id") or ""), {})
-        retrieval_details.append({
-            **detail,
-            "question": question.get("question", ""),
-            "difficulty": question.get("difficulty", ""),
-            "tags": list(question.get("tags") or []),
-        })
-    retrieval_report["details"] = retrieval_details
-
-    text2sql_report = dict(report.get("text2sql") or {})
-    text2sql_details = []
-    for detail in list(text2sql_report.get("details") or []):
-        question = question_map.get(str(detail.get("question_id") or ""), {})
-        text2sql_details.append({
-            **detail,
-            "question": question.get("question", ""),
-            "difficulty": question.get("difficulty", ""),
-            "tags": list(question.get("tags") or []),
-        })
-    text2sql_report["details"] = text2sql_details
-
-    return {
-        "generated_at": datetime.now().isoformat(),
-        "available_datasets": available_datasets,
-        "selected_dataset": selected_dataset,
-        "questions": [
-            {
-                "question_id": str(row.get("question_id") or ""),
-                "question": str(row.get("question") or ""),
-                "task_type": str(row.get("task_type") or ""),
-                "difficulty": str(row.get("difficulty") or ""),
-                "tags": list(row.get("tags") or []),
-                "dataset_id": str(row.get("dataset_id") or ""),
-                "dataset_title": str(row.get("dataset_title") or ""),
-                "gold_answer": str((row.get("answer") or {}).get("gold_answer") or ""),
-                "thought_process": str(row.get("thought_process") or ""),
-            }
-            for row in visible_questions
-            if row.get("question_id") and row.get("question")
-        ],
-        "report": {
-            **report,
-            "answer": answer_report,
-            "retrieval": retrieval_report,
-            "text2sql": text2sql_report,
-        },
-    }
-
-
-class KnowledgeEvalRunRequest(BaseModel):
-    dataset_id: Optional[str] = None
-    cached_predictions: Optional[Dict[str, Any]] = None
-
 # AI Chat 对话相关模型
 class ChatMessage(BaseModel):
     """聊天消息"""
@@ -1146,43 +1023,6 @@ def build_structured_index(request: KnowledgeStructuredIndexRequest):
         raise HTTPException(status_code=500, detail=f"Build structured index failed: {str(error)}")
 
 
-@app.get("/api/knowledge/evals/datasets")
-def list_knowledge_eval_datasets():
-    """获取知识库评测题库列表"""
-    try:
-        return {"datasets": _load_knowledge_eval_datasets()}
-    except Exception as error:
-        raise HTTPException(status_code=500, detail=f"Load eval datasets failed: {str(error)}")
-
-
-@app.get("/api/knowledge/evals/questions")
-def list_knowledge_eval_questions(dataset_id: Optional[str] = None):
-    """获取知识库评测题目列表"""
-    try:
-        available_datasets = _load_knowledge_eval_datasets()
-        return {
-            "datasets": available_datasets,
-            "selected_dataset": next(
-                (item for item in available_datasets if str(item.get("dataset_id") or "") == str(dataset_id or "")),
-                None,
-            ),
-            "questions": _load_knowledge_eval_questions(include_sql=False, dataset_id=dataset_id),
-        }
-    except Exception as error:
-        raise HTTPException(status_code=500, detail=f"Load eval questions failed: {str(error)}")
-
-
-@app.post("/api/knowledge/evals/run")
-def run_knowledge_eval_suite(payload: Optional[KnowledgeEvalRunRequest] = None):
-    """执行知识库评测并返回前端可展示的完整结果"""
-    try:
-        dataset_id = payload.dataset_id if payload else None
-        cached_predictions = payload.cached_predictions if payload else None
-        return _build_knowledge_eval_payload(dataset_id=dataset_id, cached_predictions=cached_predictions)
-    except Exception as error:
-        raise HTTPException(status_code=500, detail=f"Run eval suite failed: {str(error)}")
-
-
 @app.get("/api/knowledge/structured/{doc_id}")
 def get_structured_index(
     doc_id: str,
@@ -1350,6 +1190,83 @@ def get_document_storage(library_id: str, doc_id: str):
     return {"library_id": library_id, "doc_id": doc_id, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
 
 
+# 将意图分类结果映射为检索器可识别的任务类型
+def _map_intent_to_retriever_task(intent_result) -> str:
+    intent_level = str(getattr(intent_result, "intent_level", "") or "")
+    intent_type = str(getattr(intent_result, "intent_type", "") or "")
+    task_type = str(getattr(intent_result, "task_type", "") or "")
+
+    if intent_level == "L1":
+        if "locate" in intent_type.lower() or "locate" in task_type.lower():
+            return "locate_qa"
+        if "definition" in intent_type.lower() or "definition" in task_type.lower():
+            return "definition_qa"
+        return "definition_qa"
+
+    if intent_level == "L2":
+        if "table" in intent_type.lower() or "table" in task_type.lower():
+            return "table_qa"
+        return "content_qa"
+
+    return "content_qa"
+
+
+# 根据检索任务类型构建对应的 system prompt
+def _build_system_prompt(retriever_task_type: str) -> str:
+    base_prompt = "你是一个工程规范领域的专业助手。请根据以下检索结果回答用户问题。"
+
+    if retriever_task_type == "definition_qa":
+        return base_prompt + (
+            "\n\n规则：\n"
+            "1. 直接、完整地回答用户问题，给出定义或组成\n"
+            "2. 如果检索结果中包含与问题相关的内容，请基于相关内容给出准确回答\n"
+            '3. 引用具体来源（章节号），格式如"根据第X章..."\n'
+            "4. 如果检索结果完全不相关，才说明无法回答"
+        )
+
+    if retriever_task_type == "locate_qa":
+        return base_prompt + (
+            "\n\n规则：\n"
+            "1. 直接回答位置/设置要求，明确指出具体地点或条件\n"
+            '2. 引用具体来源（章节号），格式如"根据第X章..."\n'
+            "3. 如果检索结果中包含与问题相关的内容，请基于相关内容给出准确回答\n"
+            "4. 如果检索结果完全不相关，才说明无法回答"
+        )
+
+    return base_prompt + (
+        "\n\n规则：\n"
+        "1. 优先直接回答用户问题\n"
+        "2. 如果检索结果中包含与问题相关的内容，请基于相关内容给出回答\n"
+        "3. 如果检索结果完全不相关，才说明无法回答\n"
+        "4. 引用具体来源（文档名、章节号等）"
+    )
+
+
+# 从检索结果构建 citations 数组，供评测使用
+def _build_citations_from_retrieved(fused, doc_nodes) -> list:
+    doc_title_map = {node.id: node.title for node in doc_nodes}
+    citations = []
+    for item in fused[:5]:
+        if not item.text:
+            continue
+        doc_id = str(item.doc_id or "")
+        fusion_sources = item.metadata.get("fusion_sources", [])
+        if not fusion_sources:
+            source_kind = str(item.metadata.get("source_kind") or "")
+            fusion_sources = [source_kind] if source_kind else []
+        citations.append({
+            "target_id": str(item.item_id or ""),
+            "doc_id": doc_id,
+            "doc_title": doc_title_map.get(doc_id, ""),
+            "page_idx": int(item.metadata.get("page_idx", 0) or 0),
+            "section_path": str(item.metadata.get("section_path") or ""),
+            "snippet": str(item.text or "")[:200],
+            "score": float(item.rerank_score or item.score or 0.0),
+            "fusion_sources": fusion_sources,
+        })
+    return citations
+
+
 @app.post("/api/query")
 async def query(request: QueryRequest):
     """统一查询入口：IntentClassifier → Dispatcher → docs-core/sop-core/LLM"""
@@ -1367,6 +1284,7 @@ async def query(request: QueryRequest):
 
     started_at = time.time()
     query_id = f"q-{_uuid.uuid4().hex[:12]}"
+    stage_timings: Dict[str, float] = {}
 
     try:
         session = _get_or_create_session(request.scene, request.session_id)
@@ -1377,12 +1295,14 @@ async def query(request: QueryRequest):
 
     intent_result = IntentResult(intent_level="L1", service_mode="semantic_retrieval")
 
+    _t0 = time.time()
     try:
         sops = []
         classifier = IntentClassifier(sops)
         intent_result = classifier.classify_intent(request.query)
     except Exception as e:
         logger.warning(f"意图分类失败，降级为L1: {e}")
+    stage_timings["intent"] = round(time.time() - _t0, 2)
 
     try:
         library_nodes = knowledge_service.list_nodes(request.library_id)
@@ -1409,6 +1329,9 @@ async def query(request: QueryRequest):
     retrieved_items = []
     sql_payload = None
     fallback_used = False
+    strategy_desc = ""
+    system_prompt = ""
+    retrieval_debug = {}
 
     try:
         if intent_result.service_mode == "sql_first":
@@ -1476,7 +1399,12 @@ async def query(request: QueryRequest):
             try:
                 from docs_core.retrieval.dense_retriever import dense_retriever
                 from docs_core.retrieval.sparse_retriever import sparse_retriever
+                from docs_core.retrieval.table_retriever import table_retriever
                 from docs_core.retrieval.hybrid_retriever import fuse_candidates
+
+                _t1 = time.time()
+                retriever_task_type = _map_intent_to_retriever_task(intent_result)
+                strategy_desc = "Dense(正文+公式) + Sparse(全文+图表+公式) + Table(表格) → Hybrid融合"
 
                 kq_request = KnowledgeQueryRequest(
                     query=request.query,
@@ -1484,23 +1412,47 @@ async def query(request: QueryRequest):
                     doc_ids=request.doc_ids,
                     top_k=5,
                 )
-                dense_hits = dense_retriever.retrieve(kq_request, doc_nodes, "content_qa")
-                sparse_hits = sparse_retriever.retrieve(kq_request, doc_nodes, "content_qa")
+                dense_hits = dense_retriever.retrieve(kq_request, doc_nodes, retriever_task_type)
+                sparse_hits = sparse_retriever.retrieve(kq_request, doc_nodes, retriever_task_type)
+                table_hits = table_retriever.retrieve(kq_request, doc_nodes)
                 source_candidates = {
                     "canonical_dense": dense_hits,
                     "canonical_sparse": sparse_hits,
                 }
-                fused, _debug = fuse_candidates(source_candidates, task_type="content_qa", top_k=5)
+                for item in table_hits:
+                    source_kind = str(item.metadata.get("source_kind") or "table_aware")
+                    source_candidates.setdefault(source_kind, []).append(item)
+                fused, retrieval_debug = fuse_candidates(source_candidates, task_type=retriever_task_type, top_k=5)
+                stage_timings["retrieval"] = round(time.time() - _t1, 2)
                 retrieved_items = [item.model_dump(mode="json") for item in fused]
 
                 if not answer and fused:
-                    context_text = "\n".join(item.text for item in fused[:5] if item.text)
+                    context_parts = []
+                    for item in fused[:5]:
+                        if not item.text:
+                            continue
+                        section = str(item.metadata.get("section_path") or "")
+                        title = str(item.title or "")
+                        prefix = f"[{section}]" if section else (f"[{title}]" if title else "")
+                        context_parts.append(f"{prefix}\n{item.text}" if prefix else item.text)
+                    context_text = "\n---\n".join(context_parts)
+
+                    _t_prompt = time.time()
+                    system_prompt = _build_system_prompt(retriever_task_type)
+                    stage_timings["prompt"] = round(time.time() - _t_prompt, 2)
+                    full_prompt = f"{system_prompt}\n问题: {request.query}\n\n检索结果:\n{context_text}"
+                    stage_timings["prompt_tokens"] = len(full_prompt) // 2
+
+                    _t2 = time.time()
                     from ai_inference.llm_client import get_llm_client
                     llm = get_llm_client()
                     answer = llm.chat([
-                        {"role": "system", "content": "你是一个工程规范领域的专业助手。请根据以下检索结果回答用户问题。\n\n规则：\n1. 优先直接回答用户问题\n2. 如果检索结果中包含与问题相关的内容（即使术语不完全一致），请基于相关内容给出回答，并说明术语差异\n3. 如果检索结果完全不相关，才说明无法回答\n4. 引用具体来源（文档名、章节号等）"},
+                        {"role": "system", "content": system_prompt},
                         {"role": "user", "content": f"问题: {request.query}\n\n检索结果:\n{context_text}"},
                     ], mode="instruct")
+                    stage_timings["llm"] = round(time.time() - _t2, 2)
+
+                citations = _build_citations_from_retrieved(fused, doc_nodes)
             except Exception as e:
                 logger.error(f"语义检索失败: {e}")
                 if not answer:
@@ -1525,6 +1477,10 @@ async def query(request: QueryRequest):
         "sql": sql_payload,
         "fallback_used": fallback_used,
         "latency_ms": latency_ms,
+        "strategy": strategy_desc,
+        "system_prompt": system_prompt,
+        "retrieval_debug": retrieval_debug,
+        "stage_timings": stage_timings,
     }
 
 
@@ -1544,5 +1500,6 @@ if __name__ == "__main__":
             os.path.join(SERVICES_DIR, "docs-core", "src"),
             os.path.join(SERVICES_DIR, "geo-core", "src"),
             os.path.join(SERVICES_DIR, "engtools", "src"),
+            os.path.join(SERVICES_DIR, "evals-core", "src"),
         ],
     )

@@ -4,8 +4,11 @@ export type EvalIntentLevel = 'L1' | 'L2' | 'L3' | 'L4'
 /** 评测题目难度 */
 export type EvalDifficulty = 'easy' | 'medium' | 'hard'
 
-/** 评测题目状态 */
-export type EvalQuestionStatus = 'pending' | 'running' | 'passed' | 'failed' | 'error'
+/** 评测题目流程状态 */
+export type EvalQuestionStatus = 'pending' | 'running' | 'completed' | 'error'
+
+/** 评测题目质量结果（仅 completed 时有意义） */
+export type EvalQuality = 'correct' | 'wrong'
 
 /** 评测运行状态 */
 export type EvalRunStatus = 'running' | 'completed' | 'failed'
@@ -46,6 +49,16 @@ export interface AnswerGold {
   must_cite_section_paths?: string[]
   refusal_expected?: boolean
   thought_process?: string
+}
+
+/** 语义评判结果 */
+export interface SemanticEvalResult {
+  semantic_score: number | null
+  semantic_reason: string
+  semantic_evaluated: boolean
+  semantic_fallback: boolean
+  semantic_passed: boolean | null
+  semantic_threshold: number
 }
 
 /** SQL 评测标准答案 */
@@ -101,7 +114,8 @@ export interface EvalRunDetail {
   id: number
   run_id: string
   question_id: string
-  status: EvalQuestionStatus | 'skipped'
+  status: EvalQuestionStatus
+  quality: EvalQuality | null
   prediction?: Record<string, unknown> | null
   scores?: Record<string, unknown> | null
   all_scores?: Record<string, Record<string, unknown>> | null
@@ -127,11 +141,14 @@ export interface EvalRun {
 export interface EvalSummaryScores {
   overall_score: number
   total?: number
-  passed?: number
+  correct?: number
+  wrong?: number
+  skipped?: number
+  errored?: number
   retrieval_score?: number | null
   answer_score?: number | null
   sql_score?: number | null
-  by_level?: Record<string, { total: number; passed: number }>
+  by_level?: Record<string, { total: number; correct: number }>
   error?: string
 }
 

@@ -40,6 +40,11 @@ def get_source_weight(source_kind: str, task_type: str) -> float:
         "canonical_sparse": 1.20,
         "toc_dense": 1.05 if task_type == "locate_qa" else 0.18,
         "toc_sparse": 1.10 if task_type == "locate_qa" else 0.12,
+        "table_row_key": 1.80 if task_type in ("table_qa", "table_explain") else 1.30,
+        "table_schema": 1.50 if task_type in ("table_qa", "table_explain") else 1.10,
+        "table_summary": 1.20 if task_type in ("table_qa", "table_explain") else 0.90,
+        "table_text_row": 1.40 if task_type in ("table_qa", "table_explain") else 1.00,
+        "table_mapping": 1.40 if task_type in ("table_qa", "table_explain") else 1.00,
     }
     return source_weights.get(source_kind, 1.0)
 
@@ -49,6 +54,8 @@ def get_task_type_bonus(task_type: str, item: RetrievedItem) -> float:
     chunk_type = str(item.metadata.get("chunk_type") or "")
     if is_toc_candidate(item):
         return 0.12 if task_type == "locate_qa" else -0.35
+    if task_type in ("table_qa", "table_explain") and chunk_type in ("table_row_key", "table_schema", "table_summary", "table_text_row", "table_mapping_row"):
+        return 0.35
     if task_type == "table_qa" and chunk_type.startswith("table_"):
         return 0.25
     if task_type == "locate_qa" and chunk_type in {"outline_anchor", "title"}:
@@ -60,6 +67,16 @@ def get_task_type_bonus(task_type: str, item: RetrievedItem) -> float:
 
 # 构造候选去重键。
 def build_candidate_key(item: RetrievedItem) -> str:
+    chunk_type = str(item.metadata.get("chunk_type") or "")
+    source_kind = str(item.metadata.get("source_kind") or "")
+    if chunk_type.startswith("table_") or source_kind.startswith("table_"):
+        table_id = item.metadata.get("table_id", "") or ""
+        return f"table:{table_id}" if table_id else (item.item_id or "")
+    if chunk_type in {"formula_block", "formula_context", "formula_clause"} or source_kind in {"formula_block", "formula_context", "formula_clause"}:
+        base_id = (item.item_id or "").rsplit(":", 1)[0]
+        return f"formula:{base_id}" if base_id else (item.item_id or "")
+    if item.entity_type in {"figure", "figure_caption"} or chunk_type == "figure":
+        return f"figure:{item.item_id}" if item.item_id else (item.item_id or "")
     return item.item_id or f"{item.doc_id}:{item.entity_type}:{item.title}"
 
 
@@ -133,7 +150,11 @@ def fuse_candidates(
             existing.metadata.setdefault("fusion_sources", [])
             if source_kind not in existing.metadata["fusion_sources"]:
                 existing.metadata["fusion_sources"].append(source_kind)
-            if fusion_score > existing_score:
+            is_formula_key = key.startswith("formula:")
+            prefer_new = fusion_score > existing_score
+            if is_formula_key and len(item.text or "") > len(existing.text or ""):
+                prefer_new = True
+            if prefer_new:
                 existing.score = item.score
                 existing.title = item.title
                 existing.text = item.text

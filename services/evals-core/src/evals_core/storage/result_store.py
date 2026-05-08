@@ -122,6 +122,10 @@ def init_db() -> None:
         conn.execute("ALTER TABLE eval_run_detail ADD COLUMN all_predictions TEXT")
     except Exception:
         pass
+    try:
+        conn.execute("ALTER TABLE eval_run_detail ADD COLUMN quality TEXT")
+    except Exception:
+        pass
     conn.commit()
 
     # 初始化 tree_node 表
@@ -563,12 +567,13 @@ def insert_run_detail(data: Dict[str, Any]) -> Dict[str, Any]:
     """插入一条运行详情记录。"""
     conn = _get_conn()
     conn.execute(
-        """INSERT INTO eval_run_detail (run_id, question_id, status, prediction, scores, all_scores, all_predictions, error, latency_ms)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        """INSERT INTO eval_run_detail (run_id, question_id, status, quality, prediction, scores, all_scores, all_predictions, error, latency_ms)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             data["run_id"],
             data["question_id"],
             data.get("status", "pending"),
+            data.get("quality"),
             json.dumps(data["prediction"], ensure_ascii=False) if data.get("prediction") else None,
             json.dumps(data["scores"], ensure_ascii=False) if data.get("scores") else None,
             json.dumps(data["all_scores"], ensure_ascii=False) if data.get("all_scores") else None,
@@ -585,7 +590,7 @@ def update_run_detail(run_id: str, question_id: str, updates: Dict[str, Any]) ->
     """更新运行详情记录。"""
     set_clauses = []
     values = []
-    for key in ("status", "prediction", "scores", "all_scores", "all_predictions", "error", "latency_ms"):
+    for key in ("status", "quality", "prediction", "scores", "all_scores", "all_predictions", "error", "latency_ms"):
         if key in updates:
             set_clauses.append(f"{key} = ?")
             if key in ("prediction", "scores", "all_scores", "all_predictions") and updates[key] is not None:

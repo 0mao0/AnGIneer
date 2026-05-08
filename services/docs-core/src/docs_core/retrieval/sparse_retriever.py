@@ -13,7 +13,7 @@ from docs_core.retrieval.query_normalizer import (
 
 
 # 计算偏精确匹配的 sparse 分数。
-def score_sparse_match(query: str, text: str, title: str = "") -> float:
+def score_sparse_match(query: str, text: str, title: str = "", task_type: str = "") -> float:
     normalized_query = normalize_match_text(query)
     normalized_text = normalize_match_text(f"{title}\n{text}")
     if not normalized_query or not normalized_text:
@@ -22,6 +22,8 @@ def score_sparse_match(query: str, text: str, title: str = "") -> float:
     query_tokens = tokenize_query(query)
     for token in query_tokens:
         if re.fullmatch(r"\d+", token or ""):
+            if task_type in ("table_qa", "table_explain") and token and token in normalized_text:
+                score += 1.0
             continue
         if token and token in normalized_text:
             score += 1.0
@@ -52,7 +54,7 @@ class SparseRetriever:
                 limit=max(40, request.top_k * 10),
             )
             for chunk in chunks:
-                score = score_sparse_match(request.query, chunk.text, chunk.section_path)
+                score = score_sparse_match(request.query, chunk.text, chunk.section_path, task_type)
                 if score <= 0:
                     continue
                 if clause_refs and any(contains_clause_ref(f"{chunk.section_path}\n{chunk.text}", ref) for ref in clause_refs):
@@ -88,7 +90,7 @@ class SparseRetriever:
                 limit=max(20, request.top_k * 6),
             )
             for block in blocks:
-                score = score_sparse_match(request.query, block.text, block.section_path)
+                score = score_sparse_match(request.query, block.text, block.section_path, task_type)
                 if score <= 0:
                     continue
                 if clause_refs and any(contains_clause_ref(f"{block.section_path}\n{block.text}", ref) for ref in clause_refs):

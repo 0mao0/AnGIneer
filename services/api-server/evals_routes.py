@@ -1,4 +1,5 @@
 """Evals API 路由。"""
+import asyncio
 import json
 from typing import Any, Dict, Optional
 
@@ -193,7 +194,12 @@ async def move_dataset(dataset_id: str, req: MoveDatasetRequest):
 async def start_run(req: StartEvalRunRequest):
     """启动评测运行（异步），可指定单题。"""
     try:
-        run_data = suite_runner.start_eval_run(req.dataset_id, req.question_id)
+        loop = asyncio.get_event_loop()
+        run_data = await loop.run_in_executor(
+            None,
+            suite_runner.start_eval_run,
+            req.dataset_id, req.question_id, req.save, req.doc_ids,
+        )
         return run_data
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))

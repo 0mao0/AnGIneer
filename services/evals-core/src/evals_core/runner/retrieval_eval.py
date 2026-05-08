@@ -61,7 +61,7 @@ class RetrievalEvaluator(BaseEvaluator):
         if not query:
             return {}
         try:
-            with httpx.Client(timeout=60.0) as client:
+            with httpx.Client(timeout=180.0) as client:
                 resp = client.post(f"{API_BASE}/api/query", json={
                     "query": query,
                     "library_id": str(question.get("library_id") or "default"),
@@ -87,6 +87,9 @@ class RetrievalEvaluator(BaseEvaluator):
             "task_type": data.get("task_type", ""),
             "strategy": data.get("strategy", ""),
             "debug": data.get("debug", {}),
+            "system_prompt": data.get("system_prompt", ""),
+            "retrieval_debug": data.get("retrieval_debug", {}),
+            "stage_timings": data.get("stage_timings", {}),
         }
 
     def evaluate(self, question: Dict[str, Any], gold: Dict[str, Any], prediction: Dict[str, Any]) -> Dict[str, Any]:

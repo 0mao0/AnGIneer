@@ -76,25 +76,30 @@ def _run_single_question(
         elif ev_name == "sop":
             gold_data = question.get("sop_gold") or {}
         prediction = last_prediction
-        if ev_name != primary_evaluator_name:
-            try:
-                prediction = evaluator.run_prediction(question)
-            except Exception:
-                prediction = last_prediction
         scores = evaluator.evaluate(question, gold_data, prediction)
         all_scores[ev_name] = scores
         all_predictions[ev_name] = prediction
     primary_scores = all_scores.get(primary_evaluator_name, {})
     primary_score = primary_scores.get("score")
     if primary_score is None:
-        status = "skipped"
-    elif primary_score >= PASSED_THRESHOLD:
-        status = "passed"
+        status = "completed"
+        quality = None
+    elif primary_score < PASSED_THRESHOLD:
+        status = "completed"
+        quality = "wrong"
     else:
-        status = "failed"
+        answer_scores = all_scores.get("answer", {})
+        answer_correctness = answer_scores.get("correctness_score") if answer_scores.get("correctness_checked") else None
+        if answer_correctness is not None and answer_correctness < PASSED_THRESHOLD:
+            status = "completed"
+            quality = "wrong"
+        else:
+            status = "completed"
+            quality = "correct"
     latency_ms = int((time.time() - start_time) * 1000)
     return {
         "status": status,
+        "quality": quality,
         "prediction": last_prediction,
         "all_predictions": all_predictions,
         "scores": primary_scores,
@@ -108,12 +113,12 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     if not details:
         return {"overall_score": 0.0}
     total = len(details)
-    passed = sum(1 for d in details if d.get("status") == "passed")
-    skipped = sum(1 for d in details if d.get("status") == "skipped")
-    failed = sum(1 for d in details if d.get("status") == "failed")
+    correct = sum(1 for d in details if d.get("quality") == "correct")
+    wrong = sum(1 for d in details if d.get("quality") == "wrong")
+    skipped = sum(1 for d in details if d.get("status") == "completed" and d.get("quality") is None)
     errored = sum(1 for d in details if d.get("status") == "error")
-    evaluated_total = total - skipped
-    overall_score = round(passed / evaluated_total, 4) if evaluated_total else 0.0
+    evaluated_total = total - skipped - errored
+    overall_score = round(correct / evaluated_total, 4) if evaluated_total else 0.0
     retrieval_scores = []
     answer_scores = []
     sql_scores = []
@@ -135,15 +140,15 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     for d in details:
         level = d.get("intent_level", "L1")
         if level not in by_level:
-            by_level[level] = {"total": 0, "passed": 0}
+            by_level[level] = {"total": 0, "correct": 0}
         by_level[level]["total"] += 1
-        if d.get("status") == "passed":
-            by_level[level]["passed"] += 1
+        if d.get("quality") == "correct":
+            by_level[level]["correct"] += 1
     return {
         "overall_score": overall_score,
         "total": total,
-        "passed": passed,
-        "failed": failed,
+        "correct": correct,
+        "wrong": wrong,
         "skipped": skipped,
         "errored": errored,
         "retrieval_score": retrieval_avg,
@@ -153,42 +158,56 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     }
 
 
-def _run_suite_thread(run_id: str, dataset_id: str, questions: List[Dict[str, Any]]) -> None:
-    """在线程中执行评测套件。"""
-    evaluators = _build_evaluators()
-    total = len(questions)
-    for idx, question in enumerate(questions):
-        question_id = str(question.get("question_id") or "")
-        evaluator_names = _determine_evaluator_names(question)
-        result_store.insert_run_detail({
-            "run_id": run_id,
-            "question_id": question_id,
-            "status": "running",
-        })
-        result = _run_single_question(question, evaluator_names, evaluators)
-        result_store.update_run_detail(run_id, question_id, {
-            "status": result.get("status", "error"),
-            "prediction": result.get("prediction"),
-            "scores": result.get("scores"),
-            "all_scores": result.get("all_scores"),
-            "all_predictions": result.get("all_predictions"),
-            "error": result.get("error"),
-            "latency_ms": result.get("latency_ms"),
-        })
-        completed = idx + 1
-        result_store.update_run_progress(run_id, completed)
-    details = result_store.list_run_details(run_id)
-    enriched_details = []
-    for d in details:
-        q = next((q for q in questions if str(q.get("question_id") or "") == d["question_id"]), {})
-        enriched = {**d, "intent_level": q.get("intent_level", "L1"), "question": q.get("question", "")}
-        enriched_details.append(enriched)
-    summary = _compute_summary(enriched_details)
-    result_store.complete_run(run_id, summary)
+def _run_suite_thread(
+    run_id: str, dataset_id: str, questions: List[Dict[str, Any]],
+    override_doc_ids: Optional[List[str]] = None,
+) -> None:
+    """在线程中执行评测套件，含异常保护。"""
+    try:
+        evaluators = _build_evaluators()
+        total = len(questions)
+        for idx, question in enumerate(questions):
+            question_id = str(question.get("question_id") or "")
+            evaluator_names = _determine_evaluator_names(question)
+            if override_doc_ids is not None:
+                question = {**question, "doc_ids": override_doc_ids}
+            result_store.insert_run_detail({
+                "run_id": run_id,
+                "question_id": question_id,
+                "status": "running",
+            })
+            result = _run_single_question(question, evaluator_names, evaluators)
+            result_store.update_run_detail(run_id, question_id, {
+                "status": result.get("status", "error"),
+                "quality": result.get("quality"),
+                "prediction": result.get("prediction"),
+                "scores": result.get("scores"),
+                "all_scores": result.get("all_scores"),
+                "all_predictions": result.get("all_predictions"),
+                "error": result.get("error"),
+                "latency_ms": result.get("latency_ms"),
+            })
+            completed = idx + 1
+            result_store.update_run_progress(run_id, completed)
+        details = result_store.list_run_details(run_id)
+        enriched_details = []
+        for d in details:
+            q = next((q for q in questions if str(q.get("question_id") or "") == d["question_id"]), {})
+            enriched = {**d, "intent_level": q.get("intent_level", "L1"), "question": q.get("question", "")}
+            enriched_details.append(enriched)
+        summary = _compute_summary(enriched_details)
+        result_store.complete_run(run_id, summary)
+    except Exception as exc:
+        import traceback
+        traceback.print_exc()
+        result_store.fail_run(run_id, str(exc))
 
 
-def start_eval_run(dataset_id: str, question_id: Optional[str] = None) -> Dict[str, Any]:
-    """启动评测运行（异步），可指定单题。"""
+def start_eval_run(
+    dataset_id: str, question_id: Optional[str] = None, save: bool = True,
+    override_doc_ids: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    """启动评测运行。save=False 时同步执行单题评测，不入库，直接返回结果。"""
     all_questions = result_store.list_questions(dataset_id)
     if not all_questions:
         raise ValueError(f"测试集 {dataset_id} 没有题目")
@@ -198,20 +217,57 @@ def start_eval_run(dataset_id: str, question_id: Optional[str] = None) -> Dict[s
             raise ValueError(f"题目 {question_id} 不存在于测试集 {dataset_id}")
     else:
         questions = all_questions
+
+    if not save and question_id and len(questions) == 1:
+        question = questions[0]
+        if override_doc_ids is not None:
+            question = {**question, "doc_ids": override_doc_ids}
+        evaluators = _build_evaluators()
+        evaluator_names = _determine_evaluator_names(question)
+        result = _run_single_question(question, evaluator_names, evaluators)
+        return {
+            "status": "completed",
+            "details": [{
+                "question_id": question_id,
+                "status": result.get("status", "error"),
+                "quality": result.get("quality"),
+                "prediction": result.get("prediction"),
+                "scores": result.get("scores"),
+                "all_scores": result.get("all_scores"),
+                "all_predictions": result.get("all_predictions"),
+                "error": result.get("error"),
+                "latency_ms": result.get("latency_ms"),
+            }],
+        }
+
     run_data = result_store.create_run(dataset_id, len(questions))
     run_id = run_data["run_id"]
-    thread = threading.Thread(target=_run_suite_thread, args=(run_id, dataset_id, questions), daemon=True)
+    thread = threading.Thread(
+        target=_run_suite_thread,
+        args=(run_id, dataset_id, questions, override_doc_ids),
+        daemon=True,
+    )
     thread.start()
     return run_data
 
 
 def get_eval_run(run_id: str) -> Optional[Dict[str, Any]]:
-    """查询运行进度/结果。"""
+    """查询运行进度/结果，运行中时实时计算汇总指标。"""
     run = result_store.get_run(run_id)
     if not run:
         return None
     details = result_store.list_run_details(run_id)
-    return {**run, "details": details}
+    result = {**run, "details": details}
+    if run.get("status") == "running" and not run.get("summary_scores"):
+        completed_details = [d for d in details if d.get("status") not in ("pending", "running")]
+        if completed_details:
+            questions = result_store.list_questions(run["dataset_id"])
+            enriched = []
+            for d in completed_details:
+                q = next((q for q in questions if str(q.get("question_id") or "") == d["question_id"]), {})
+                enriched.append({**d, "intent_level": q.get("intent_level", "L1"), "question": q.get("question", "")})
+            result["summary_scores"] = _compute_summary(enriched)
+    return result
 
 
 def list_eval_runs(dataset_id: Optional[str] = None) -> List[Dict[str, Any]]:
@@ -239,14 +295,14 @@ def compare_runs(run_id_a: str, run_id_b: str) -> Optional[Dict[str, Any]]:
     for qid in sorted(all_ids):
         da = details_a.get(qid, {})
         db = details_b.get(qid, {})
-        status_a = da.get("status", "missing")
-        status_b = db.get("status", "missing")
-        if status_a != status_b:
+        quality_a = da.get("quality") or da.get("status", "missing")
+        quality_b = db.get("quality") or db.get("status", "missing")
+        if quality_a != quality_b:
             question_changes.append({
                 "question_id": qid,
-                "status_a": status_a,
-                "status_b": status_b,
-                "change": "improved" if status_b == "passed" and status_a != "passed" else "regressed",
+                "status_a": quality_a,
+                "status_b": quality_b,
+                "change": "improved" if quality_b == "correct" and quality_a != "correct" else "regressed",
             })
     return {
         "run_a": {"run_id": run_id_a, "status": run_a["status"], "summary_scores": summary_a},

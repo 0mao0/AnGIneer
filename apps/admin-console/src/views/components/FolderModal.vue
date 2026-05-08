@@ -54,7 +54,7 @@ interface Props {
 
 defineProps<Props>()
 
-const emit = defineEmits<{
+defineEmits<{
   'update:visible': [value: boolean]
   'update:name': [value: string]
   'update:parent-id': [value: string | undefined]

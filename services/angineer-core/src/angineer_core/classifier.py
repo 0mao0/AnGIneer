@@ -17,6 +17,7 @@ from angineer_core.base_logger import get_logger
 
 logger = get_logger(__name__)
 
+L1_KEYWORDS = ["什么是", "是什么", "哪些", "定义", "概念", "组成", "包括", "分为", "划分", "分类", "类型", "位于", "设置", "位置", "在哪里", "宜设置", "应设置", "如何确定", "怎么确定", "怎样确定", "如何定义", "怎么定义", "如何划分", "怎么划分"]
 L2_KEYWORDS = ["取值", "范围", "规定", "条款", "要求", "标准值", "限值", "允许值", "应符合", "不应超过"]
 L3_KEYWORDS = ["计算", "求", "验算", "核算", "校核", "公式", "等于多少", "结果是多少"]
 L4_KEYWORDS = ["评价", "评估", "分析", "综合", "方案", "设计", "比较", "选择", "优化"]
@@ -53,6 +54,27 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             service_mode="sql_first",
             reason=f"检测到条款编号({clause_match.group(1)})和条款关键词",
         )
+
+    has_l1_keyword = any(kw in query for kw in L1_KEYWORDS)
+    if has_l1_keyword:
+        if any(kw in query for kw in ["位于", "设置", "位置", "在哪里", "宜设置", "应设置"]):
+            return IntentResult(
+                intent_level="L1",
+                intent_type="locate_navigation",
+                parameters={},
+                required_capabilities=["retrieval"],
+                service_mode="semantic_retrieval",
+                reason="检测到定位/位置类关键词",
+            )
+        return IntentResult(
+            intent_level="L1",
+            intent_type="concept_resolution",
+            parameters={},
+            required_capabilities=["retrieval"],
+            service_mode="semantic_retrieval",
+            reason="检测到概念/定义类关键词",
+        )
+
     if has_l4_keyword:
         return IntentResult(
             intent_level="L4",
@@ -80,6 +102,7 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             service_mode="sql_first",
             reason="检测到条款应用关键词",
         )
+
     return None
 
 

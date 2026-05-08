@@ -50,6 +50,26 @@ def build_schema_text(table: CanonicalTable) -> str:
     return "\n".join(part for part in parts if part).strip()
 
 
+def build_full_table_text(table: CanonicalTable) -> str:
+    """将完整表格组装为一段文本：caption + title + summary + header + body"""
+    parts: list[str] = []
+    if table.caption:
+        parts.append(table.caption)
+    if table.title and table.title != table.caption:
+        parts.append(table.title)
+    if table.summary:
+        parts.append(table.summary)
+    if table.header_rows:
+        header_lines = [" | ".join(normalize_cell(c) for c in row if normalize_cell(c)) for row in table.header_rows]
+        parts.append(" | ".join(header_lines[0]) if len(header_lines) == 1 else "\n".join(header_lines))
+    if table.body_rows:
+        for row in table.body_rows:
+            line = " | ".join(normalize_cell(c) for c in row if normalize_cell(c))
+            if line:
+                parts.append(line)
+    return "\n".join(parts).strip()
+
+
 # 为单条行文本构造统一 RetrievedItem。
 def build_table_item(
     *,
@@ -103,7 +123,7 @@ def retrieve_row_key_candidates(
             continue
         row_key = row_values[0] if row_values else ""
         row_text = f"{table.title} | {header_text} | {' | '.join(row_values)}".strip(" |")
-        score = score_sparse_match(query, row_text, table.title)
+        score = score_sparse_match(query, row_text, table.title, "table_qa")
         if row_key:
             if any(hint and hint in row_key for hint in reference_hints):
                 score += 8.0
@@ -115,9 +135,9 @@ def retrieve_row_key_candidates(
             build_table_item(
                 table=table,
                 doc_node=doc_node,
-                item_id=f"{table.table_id}:row-key:{row_index}",
+                item_id=f"{table.table_id}:row-key",
                 entity_type="table_row_key",
-                text=row_text,
+                text=build_full_table_text(table),
                 score=score,
                 row_index=row_index,
                 chunk_type="table_row_key",
@@ -139,7 +159,7 @@ def retrieve_schema_candidates(
     schema_text = build_schema_text(table)
     if not schema_text:
         return []
-    score = score_sparse_match(query, schema_text, table.title)
+    score = score_sparse_match(query, schema_text, table.title, "table_qa")
     if score_text(query_tokens, table.title, schema_text) > 0:
         score += 1.2
     if any(hint and hint in schema_text for hint in reference_hints):
@@ -152,7 +172,7 @@ def retrieve_schema_candidates(
             doc_node=doc_node,
             item_id=f"{table.table_id}:schema",
             entity_type="table_schema",
-            text=schema_text,
+            text=build_full_table_text(table),
             score=score,
             chunk_type="table_schema",
             source_kind="table_schema",
@@ -178,7 +198,7 @@ def retrieve_text_row_candidates(
         normalized_row_text = normalize_cell(row_text)
         if not normalized_row_text:
             continue
-        score = score_sparse_match(query, normalized_row_text, table.title) + score_text(query_tokens, table.title, normalized_row_text) * 0.5
+        score = score_sparse_match(query, normalized_row_text, table.title, "table_qa") + score_text(query_tokens, table.title, normalized_row_text) * 0.5
         if mapping_mode and is_definition_style_query(query):
             score += 1.5
         if score <= 0:
@@ -187,9 +207,9 @@ def retrieve_text_row_candidates(
             build_table_item(
                 table=table,
                 doc_node=doc_node,
-                item_id=f"{table.table_id}:text-row:{row_index}",
+                item_id=f"{table.table_id}:text-row",
                 entity_type=chunk_type,
-                text=normalized_row_text,
+                text=build_full_table_text(table),
                 score=score,
                 row_index=row_index,
                 chunk_type=chunk_type,
@@ -211,7 +231,7 @@ def retrieve_summary_candidate(
     summary_text = "\n".join(part for part in [table.title, table.caption, table.summary] if part).strip()
     if not summary_text:
         return []
-    score = score_sparse_match(query, summary_text, table.title) + score_text(query_tokens, table.title, summary_text) * 0.3
+    score = score_sparse_match(query, summary_text, table.title, "table_qa") + score_text(query_tokens, table.title, summary_text) * 0.3
     if any(hint and hint in summary_text for hint in reference_hints):
         score += 4.0
     if score <= 0:
@@ -222,7 +242,7 @@ def retrieve_summary_candidate(
             doc_node=doc_node,
             item_id=f"{table.table_id}:summary",
             entity_type="table_summary",
-            text=summary_text,
+            text=build_full_table_text(table),
             score=score,
             chunk_type="table_summary",
             source_kind="table_summary",

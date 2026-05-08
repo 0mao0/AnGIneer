@@ -10,6 +10,9 @@
       <a-tag v-if="statusTag" :color="statusTag.color" class="eval-question-card__status">
         {{ statusTag.label }}
       </a-tag>
+      <a-tag v-if="qualityTag" :color="qualityTag.color" class="eval-question-card__quality">
+        {{ qualityTag.label }}
+      </a-tag>
       <a-button
         type="link"
         size="small"
@@ -33,6 +36,9 @@
           class="eval-chain__step"
         >
           <span class="eval-chain__badge">{{ idx + 1 }}</span>
+          <a-tag v-if="step.timing !== undefined" color="processing" class="eval-chain__timing">
+            {{ (step.timing as number).toFixed(2) }}s
+          </a-tag>
           <span class="eval-chain__label">{{ step.label }}</span>
           <span class="eval-chain__value">{{ step.value }}</span>
           <a-button
@@ -55,8 +61,12 @@
                 <span>{{ question.intent_level }}</span>
               </div>
               <div v-if="prediction?.strategy" class="eval-detail-row">
-                <span class="eval-detail-label">策略:</span>
+                <span class="eval-detail-label">检索策略:</span>
                 <span>{{ String(prediction.strategy) }}</span>
+              </div>
+              <div class="eval-detail-row">
+                <span class="eval-detail-label">元 SOP:</span>
+                <span>{{ metaSopPath }}</span>
               </div>
             </template>
 
@@ -70,6 +80,9 @@
                 <div class="eval-citation-meta">
                   <span class="eval-citation-index">[{{ ci + 1 }}]</span>
                   <span v-if="c.score" class="eval-citation-score">得分: {{ Number(c.score).toFixed(4) }}</span>
+                  <span v-if="c.fusion_sources && c.fusion_sources.length" class="eval-citation-source">
+                    来源: {{ formatFusionSources(c.fusion_sources) }}
+                  </span>
                 </div>
                 <div v-if="c.doc_title || c.doc_id" class="eval-citation-location">
                   {{ String(c.doc_title || c.doc_id) }}
@@ -83,16 +96,31 @@
                 </div>
               </div>
               <div v-if="!citations.length" class="eval-detail-empty">无检索结果</div>
+              <div v-if="retrievalScores" class="eval-retrieval-scores">
+                <div class="eval-detail-row">
+                  <span class="eval-detail-label">检索评测:</span>
+                  <span>
+                    <template v-if="retrievalScores['hit@3'] !== undefined">Hit@3: {{ ((retrievalScores['hit@3'] as number) * 100).toFixed(1) }}% </template>
+                    <template v-if="retrievalScores['hit@5'] !== undefined">Hit@5: {{ ((retrievalScores['hit@5'] as number) * 100).toFixed(1) }}% </template>
+                    <template v-if="retrievalScores.mrr !== undefined">MRR: {{ ((retrievalScores.mrr as number) * 100).toFixed(1) }}%</template>
+                    <template v-if="retrievalScores.evaluated === false">未评测（无检索标准）</template>
+                  </span>
+                </div>
+              </div>
             </template>
 
             <!-- Prompt 拼装详情 -->
             <template v-if="step.label === 'Prompt 拼装'">
+              <div v-if="systemPromptText" class="eval-prompt-block">
+                <div class="eval-prompt-label">System Prompt:</div>
+                <div class="eval-prompt-text">{{ systemPromptText }}</div>
+              </div>
               <div class="eval-prompt-block">
-                <div class="eval-prompt-label">问题:</div>
+                <div class="eval-prompt-label">User Message - 问题:</div>
                 <div class="eval-prompt-text">{{ question.question }}</div>
               </div>
               <div class="eval-prompt-block">
-                <div class="eval-prompt-label">证据片段:</div>
+                <div class="eval-prompt-label">User Message - 证据片段:</div>
                 <div
                   v-for="(c, ci) in citations.slice(0, 5)"
                   :key="`prompt-citation-${ci}`"
@@ -134,29 +162,6 @@
         </div>
       </div>
 
-      <!-- 检索评测结果 -->
-      <div v-if="retrievalScores" class="eval-section">
-        <div class="eval-section__title">检索评测</div>
-        <div class="eval-score-grid">
-          <div v-if="retrievalScores['hit@3'] !== undefined" class="eval-score-item">
-            <span class="eval-score-label">Hit@3</span>
-            <span class="eval-score-value">{{ ((retrievalScores['hit@3'] as number) * 100).toFixed(1) }}%</span>
-          </div>
-          <div v-if="retrievalScores['hit@5'] !== undefined" class="eval-score-item">
-            <span class="eval-score-label">Hit@5</span>
-            <span class="eval-score-value">{{ ((retrievalScores['hit@5'] as number) * 100).toFixed(1) }}%</span>
-          </div>
-          <div v-if="retrievalScores.mrr !== undefined" class="eval-score-item">
-            <span class="eval-score-label">MRR</span>
-            <span class="eval-score-value">{{ ((retrievalScores.mrr as number) * 100).toFixed(1) }}%</span>
-          </div>
-          <div v-if="retrievalScores.evaluated === false" class="eval-score-item eval-score-item--na">
-            <span class="eval-score-label">状态</span>
-            <span class="eval-score-value">未评测（无检索标准）</span>
-          </div>
-        </div>
-      </div>
-
       <!-- 标准答案对比 -->
       <div class="eval-section">
         <div class="eval-section__title">答案对比</div>
@@ -184,14 +189,35 @@
         </div>
       </div>
 
+      <!-- 语义评判 -->
+      <div v-if="semanticResult" class="eval-section">
+        <div class="eval-semantic-header">
+          <span class="eval-section__title">语义评判</span>
+          <span
+            class="eval-semantic-score"
+            :class="{
+              'eval-semantic-score--passed': semanticResult.semantic_passed === true,
+              'eval-semantic-score--failed': semanticResult.semantic_passed === false,
+              'eval-semantic-score--fallback': semanticResult.semantic_fallback,
+            }"
+          >
+            {{ semanticResult.semantic_score !== null ? Math.round(semanticResult.semantic_score * 100) + '分' : '—' }}
+          </span>
+          <span class="eval-semantic-threshold">
+            （阈值{{ Math.round(semanticResult.semantic_threshold * 100) }}分）
+          </span>
+        </div>
+        <div v-if="semanticResult.semantic_reason" class="eval-semantic-reason">
+          {{ semanticResult.semantic_reason }}
+        </div>
+        <div v-if="semanticResult.semantic_fallback" class="eval-semantic-fallback-hint">
+          ⚠ LLM 语义评判失败，已降级为关键词匹配
+        </div>
+      </div>
+
       <!-- 错误信息 -->
       <div v-if="detail.error" class="eval-section eval-section--error">
         错误: {{ detail.error }}
-      </div>
-
-      <!-- 耗时 -->
-      <div v-if="detail.latency_ms" class="eval-latency">
-        耗时: {{ detail.latency_ms }}ms
       </div>
     </div>
   </div>
@@ -201,12 +227,25 @@
 import { computed, ref } from 'vue'
 import { RightOutlined } from '@ant-design/icons-vue'
 import EvalLevelBadge from './EvalLevelBadge.vue'
-import type { EvalQuestion, EvalRunDetail } from '../types/eval'
+import type { EvalQuestion, EvalRunDetail, SemanticEvalResult } from '../types/eval'
 
 interface ThinkingStep {
   label: string
   value: string
   hasDetail: boolean
+  timing?: number
+}
+
+interface CitationItem {
+  score?: unknown
+  fusion_sources?: string[]
+  doc_title?: unknown
+  doc_id?: unknown
+  page_idx?: unknown
+  section_path?: unknown
+  text?: unknown
+  content?: unknown
+  snippet?: unknown
 }
 
 const props = defineProps<{
@@ -234,12 +273,15 @@ const toggleStep = (idx: number) => {
 }
 
 const statusTagMap: Record<string, { color: string; label: string }> = {
-  passed: { color: 'success', label: '通过' },
-  failed: { color: 'error', label: '未通过' },
-  running: { color: 'processing', label: '运行中' },
-  error: { color: 'warning', label: '错误' },
-  pending: { color: 'default', label: '待运行' },
-  skipped: { color: 'default', label: '未评测' },
+  completed: { color: 'success', label: '已完成' },
+  running: { color: 'processing', label: '评测中' },
+  error: { color: 'warning', label: '出错' },
+  pending: { color: 'default', label: '待评测' },
+}
+
+const qualityTagMap: Record<string, { color: string; label: string }> = {
+  correct: { color: 'success', label: '正确' },
+  wrong: { color: 'error', label: '错误' },
 }
 
 const statusTag = computed(() => {
@@ -247,14 +289,20 @@ const statusTag = computed(() => {
   return statusTagMap[status] || null
 })
 
+const qualityTag = computed(() => {
+  const quality = props.detail?.quality as string | null | undefined
+  if (!quality) return null
+  return qualityTagMap[quality] || null
+})
+
 const prediction = computed(() => {
   const p = props.detail?.prediction as Record<string, unknown> | null
   return p
 })
 
-const citations = computed<Array<Record<string, unknown>>>(() => {
+const citations = computed<CitationItem[]>(() => {
   const c = prediction.value?.citations
-  return Array.isArray(c) ? c : []
+  return Array.isArray(c) ? (c as CitationItem[]) : []
 })
 
 const retrievalScores = computed<Record<string, unknown> | null>(() => {
@@ -277,25 +325,61 @@ const checkDetails = computed<Array<{ type: string; keywords: string[]; passed: 
   return details || []
 })
 
+const semanticResult = computed<SemanticEvalResult | null>(() => {
+  const allScores = props.detail?.all_scores as Record<string, Record<string, unknown>> | null
+  const answerScores = allScores?.answer || props.detail?.scores
+  if (!answerScores) return null
+  const evaluated = answerScores.semantic_evaluated as boolean | undefined
+  if (evaluated === undefined) return null
+  return {
+    semantic_score: (answerScores.semantic_score as number | null) ?? null,
+    semantic_reason: String(answerScores.semantic_reason || ''),
+    semantic_evaluated: evaluated,
+    semantic_fallback: Boolean(answerScores.semantic_fallback),
+    semantic_passed: answerScores.semantic_passed as boolean | null ?? null,
+    semantic_threshold: Number(answerScores.semantic_threshold || 0.7),
+  }
+})
+
+const stageTimings = computed<Record<string, number>>(() => {
+  return (prediction.value?.stage_timings as Record<string, number>) || {}
+})
+
 const thinkingChain = computed<ThinkingStep[]>(() => {
   const steps: ThinkingStep[] = []
+  const timings = stageTimings.value
   steps.push({
     label: '意图识别',
     value: `${enrichedQuestion.value.task_typeLabel || enrichedQuestion.value.task_type} · ${enrichedQuestion.value.intent_level}`,
     hasDetail: true,
+    timing: timings['intent'],
   })
   if (citations.value.length) {
+    const rd = (prediction.value?.retrieval_debug as Record<string, unknown>) || {}
+    const sources = (rd.sources as Record<string, Record<string, unknown>>) || {}
+    const denseCount = ((sources.canonical_dense?.input_hits as number) || 0)
+    const sparseCount = ((sources.canonical_sparse?.input_hits as number) || 0)
+    let tableCount = 0
+    for (const key of Object.keys(sources)) {
+      if (key.startsWith('table_') || key.startsWith('table')) {
+        tableCount += (sources[key]?.input_hits as number) || 0
+      }
+    }
+    const deduped = (rd.deduped_hits as number) || citations.value.length
     steps.push({
       label: '证据检索',
-      value: `命中 ${citations.value.length} 条`,
+      value: `模糊语义 ${denseCount} 条 | 精确匹配 ${sparseCount} 条 | 表格 ${tableCount} 条 = 去重后 ${deduped} 条`,
       hasDetail: true,
+      timing: timings['retrieval'],
     })
   }
   if (citations.value.length && prediction.value?.answer) {
+    const promptTokens = (timings['prompt_tokens'] as number) || 0
     steps.push({
       label: 'Prompt 拼装',
-      value: '问题 + 证据 → LLM',
+      value: promptTokens ? `${promptTokens} tokens` : 'System Prompt + 问题 + 证据 → LLM',
       hasDetail: true,
+      timing: timings['prompt'],
     })
   }
   if (prediction.value?.answer) {
@@ -303,6 +387,7 @@ const thinkingChain = computed<ThinkingStep[]>(() => {
       label: 'LLM 回答',
       value: 'LLM 生成',
       hasDetail: true,
+      timing: timings['llm'],
     })
   }
   return steps
@@ -327,6 +412,37 @@ const enrichedQuestion = computed(() => {
   q.task_typeLabel = taskTypeLabels[q.task_type] || q.task_type
   return q
 })
+
+const metaSopPath = computed(() => {
+  const level = props.question.intent_level || 'L1'
+  const approachMap: Record<string, string> = {
+    L1: '语义检索 → 直接回答（基于检索到的规范条文给出定义/组成）',
+    L2: '语义检索 → 条款定位 → 回答（定位到具体条款后给出答案）',
+    L3: '语义检索 → 标准计算 → 回答（检索规范参数后进行工程计算）',
+    L4: '动态编排 → 多步推理 → 回答（复杂问题拆解为多步子任务）',
+  }
+  return approachMap[level] || '—'
+})
+
+const systemPromptText = computed(() => {
+  return (prediction.value?.system_prompt as string) || ''
+})
+
+const fusionSourceLabels: Record<string, string> = {
+  canonical_dense: 'Dense',
+  canonical_sparse: 'Sparse',
+  table_row_key: 'Table-RowKey',
+  table_schema: 'Table-Schema',
+  table_summary: 'Table-Summary',
+  table_text_row: 'Table-TextRow',
+  table_mapping: 'Table-Mapping',
+  toc_dense: 'TOC-Dense',
+  toc_sparse: 'TOC-Sparse',
+}
+
+const formatFusionSources = (sources: string[]): string => {
+  return sources.map(s => fusionSourceLabels[s] || s).join(' + ')
+}
 </script>
 
 <style lang="less" scoped>
@@ -373,6 +489,10 @@ const enrichedQuestion = computed(() => {
     flex-shrink: 0;
   }
 
+  &__quality {
+    flex-shrink: 0;
+  }
+
   &__eval-btn {
     flex-shrink: 0;
     padding: 0 4px;
@@ -412,6 +532,7 @@ const enrichedQuestion = computed(() => {
     font-size: 12px;
     line-height: 1.6;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   &__badge {
@@ -434,7 +555,16 @@ const enrichedQuestion = computed(() => {
   }
 
   &__value {
-    color: var(--text-secondary, rgba(0, 0, 0, 0.65));
+    color: var(--text-secondary, rgba(0, 0, 0, 0.25));
+    font-size: 11px;
+  }
+
+  &__timing {
+    flex-shrink: 0;
+    font-size: 11px;
+    line-height: 1;
+    padding: 0 4px;
+    border-radius: 2px;
   }
 
   &__detail {
@@ -466,6 +596,12 @@ const enrichedQuestion = computed(() => {
   font-style: italic;
 }
 
+.eval-retrieval-scores {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border-color);
+}
+
 .eval-citation-card {
   padding: 6px 8px;
   margin-bottom: 4px;
@@ -489,18 +625,27 @@ const enrichedQuestion = computed(() => {
   color: var(--text-secondary, rgba(0, 0, 0, 0.45));
 }
 
+.eval-citation-source {
+  color: @evals-primary;
+  font-size: 11px;
+  margin-left: auto;
+}
+
 .eval-citation-location {
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  font-family: 'KaiTi', 'STKaiti', serif;
   margin-top: 2px;
 }
 
 .eval-citation-section {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.65));
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  font-family: 'KaiTi', 'STKaiti', serif;
   margin-top: 2px;
 }
 
 .eval-citation-content {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  font-size: 13px;
   margin-top: 4px;
   line-height: 1.5;
   max-height: 80px;
@@ -596,6 +741,48 @@ const enrichedQuestion = computed(() => {
   color: var(--text-secondary, rgba(0, 0, 0, 0.45));
 }
 
+.eval-semantic-header {
+  display: flex;
+  align-items: center;
+}
+
+.eval-semantic-header .eval-section__title {
+  flex: 1;
+}
+
+.eval-semantic-score {
+  font-weight: 600;
+
+  &--passed {
+    color: var(--chat-success-color, #52c41a);
+  }
+
+  &--failed {
+    color: var(--chat-error-color);
+  }
+
+  &--fallback {
+    color: @evals-warning;
+  }
+}
+
+.eval-semantic-threshold {
+  color: var(--text-secondary, rgba(0, 0, 0, 0.35));
+  font-size: 11px;
+}
+
+.eval-semantic-reason {
+  margin-top: 4px;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.65));
+  line-height: 1.5;
+}
+
+.eval-semantic-fallback-hint {
+  margin-top: 4px;
+  color: @evals-warning;
+  font-size: 11px;
+}
+
 .eval-score-grid {
   display: flex;
   gap: 16px;
@@ -655,11 +842,5 @@ const enrichedQuestion = computed(() => {
   max-height: 200px;
   overflow-y: auto;
   white-space: pre-wrap;
-}
-
-.eval-latency {
-  margin-top: 8px;
-  font-size: 11px;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.35));
 }
 </style>

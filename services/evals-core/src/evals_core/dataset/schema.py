@@ -20,7 +20,7 @@ class AnswerGold(BaseModel):
     """回答评测标准答案。"""
     gold_answer: str = ""
     correctness_checks: List[CorrectnessCheck] = Field(default_factory=list)
-    semantic_threshold: float = 0.55
+    semantic_threshold: float = 0.65
     must_cite_target_ids: List[str] = Field(default_factory=list)
     must_cite_section_paths: List[str] = Field(default_factory=list)
     refusal_expected: bool = False
