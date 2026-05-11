@@ -14,7 +14,7 @@ import { SOPTree, createResourceNodeFromSop, useSopTree, type SOPTreeNode } from
 import { useResourceOpen } from '@/composables/useResourceOpen'
 
 const { openResource } = useResourceOpen()
-const { treeData, resetToDefaultTree, setSelectedNode } = useSopTree()
+const { treeData, fetchTreeFromApi, setSelectedNode } = useSopTree()
 
 const treeProps = {
   showSearch: true,
@@ -47,7 +47,7 @@ const handleTreeSelect = (_keys: string[], nodes: SOPTreeNode[]) => {
 }
 
 onMounted(() => {
-  resetToDefaultTree()
+  fetchTreeFromApi()
 })
 </script>
 

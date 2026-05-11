@@ -6,15 +6,16 @@ import tempfile
 import threading
 import traceback
 import uuid
+from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 from urllib.parse import quote
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, UploadFile, File as FastAPIFile, Form
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
-from docs_core.knowledge_service import knowledge_service
+from docs_core.knowledge_service import get_knowledge_service, KnowledgeNode
 from docs_core.ingest.extract.mineru_parser import mineru_parser
 from docs_core.ingest.store.assets_file_store import (
     build_structured_index_for_doc,
@@ -27,9 +28,76 @@ knowledge_router = APIRouter()
 preview_router = APIRouter()
 
 
-class KnowledgeParseRequest(BaseModel):
-    """文档解析请求"""
+# --- Pydantic 请求模型 ---
 
+
+class KnowledgeLibraryCreate(BaseModel):
+    """创建知识库请求。"""
+    library_id: str
+    name: str
+    description: Optional[str] = ''
+
+
+class KnowledgeNodeCreate(BaseModel):
+    """创建知识库节点请求。"""
+    title: str
+    node_type: str
+    library_id: Optional[str] = 'default'
+    parent_id: Optional[str] = None
+    visible: Optional[bool] = True
+    sort_order: Optional[int] = 0
+
+
+class KnowledgeNodeUpdate(BaseModel):
+    """更新知识库节点请求。"""
+    title: Optional[str] = None
+    parent_id: Optional[str] = None
+    visible: Optional[bool] = None
+    sort_order: Optional[int] = None
+
+
+class KnowledgeStrategyUpdate(BaseModel):
+    """更新文档策略请求。"""
+    strategy: str
+
+
+class KnowledgeStructuredIndexRequest(BaseModel):
+    """结构化索引重建请求。"""
+    library_id: str
+    doc_id: str
+    strategy: Optional[str] = "doc_blocks_graph_v1"
+
+
+class KnowledgeDocumentUpdate(BaseModel):
+    """更新文档内容请求。"""
+    content: str
+
+
+class KnowledgeDocumentBlockUpdate(BaseModel):
+    """更新文档结构节点内容请求。"""
+    plain_text: Optional[str] = None
+    math_content: Optional[str] = None
+    table_html: Optional[str] = None
+    title: Optional[str] = None
+    caption: Optional[str] = None
+    footnote: Optional[str] = None
+    parent_block_uid: Optional[str] = None
+    derived_title_level: Optional[int] = None
+    merge_into_block_uid: Optional[str] = None
+
+
+class KnowledgeDocumentBatchBlockOperation(BaseModel):
+    """批量执行文档结构节点操作请求。"""
+    operation: str
+    blockIds: List[str]
+    targetBlockId: Optional[str] = None
+    splitSegments: Optional[List[Dict[str, Any]]] = None
+    levelDelta: Optional[int] = None
+    targetLevel: Optional[int] = None
+
+
+class KnowledgeParseRequest(BaseModel):
+    """文档解析请求。"""
     library_id: str
     doc_id: str
     file_path: Optional[str] = None
@@ -37,46 +105,38 @@ class KnowledgeParseRequest(BaseModel):
 
 
 class KnowledgeParseOptions(BaseModel):
-    """文档解析参数"""
-
+    """文档解析参数。"""
     use_llm: bool = True
     llm_model: Optional[str] = None
 
 
-class KnowledgeStructuredIndexRequest(BaseModel):
-    """结构化索引重建请求"""
-
-    library_id: str
-    doc_id: str
-    strategy: Optional[str] = "doc_blocks_graph_v1"
-
-
 class DocBlocksGraphRequest(BaseModel):
-    """文档块图谱请求"""
-
+    """文档块图谱请求。"""
     library_id: str
     doc_id: str
 
 
 class DocBlocksGraphSummaryRequest(BaseModel):
-    """文档块图谱摘要请求，仅返回树结构骨架不含 bbox/stats"""
-
+    """文档块图谱摘要请求，仅返回树结构骨架不含 bbox/stats。"""
     library_id: str
     doc_id: str
 
 
+# --- 解析编排器 ---
+
+
 class ParseOrchestrator:
-    """负责 API 层与解析主链之间的编排"""
+    """负责 API 层与解析主链之间的编排。"""
 
     def __init__(self) -> None:
         self._threads: Dict[str, threading.Thread] = {}
 
-    # 注册或补全文档节点，确保解析主链使用统一文档标识
     def ensure_document(self, library_id: str, file_path: str, doc_id: Optional[str] = None) -> str:
-        node = knowledge_service.register_document(library_id=library_id, file_path=file_path, doc_id=doc_id)
+        """注册或补全文档节点，确保解析主链使用统一文档标识。"""
+        ks = get_knowledge_service()
+        node = ks.register_document(library_id=library_id, file_path=file_path, doc_id=doc_id)
         return node.id
 
-    # 创建解析任务并启动后台线程
     def create_parse_task(
         self,
         library_id: str,
@@ -84,9 +144,11 @@ class ParseOrchestrator:
         file_path: str,
         parse_options: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
+        """创建解析任务并启动后台线程。"""
+        ks = get_knowledge_service()
         task_id = f"parse-{uuid.uuid4().hex[:12]}"
-        task = knowledge_service.create_parse_task(task_id, library_id, doc_id)
-        knowledge_service.update_node(
+        task = ks.create_parse_task(task_id, library_id, doc_id)
+        ks.update_node(
             doc_id,
             status="processing",
             parse_progress=0,
@@ -110,14 +172,14 @@ class ParseOrchestrator:
             "stage": task.stage,
         }
 
-    # 返回当前任务状态
     def get_parse_task(self, task_id: str) -> Optional[Dict[str, Any]]:
-        task = knowledge_service.get_parse_task(task_id)
+        """返回当前任务状态。"""
+        ks = get_knowledge_service()
+        task = ks.get_parse_task(task_id)
         if not task:
             return None
         return task.model_dump(mode="json")
 
-    # 在后台执行文档解析并同步状态
     def _run_parse_task(
         self,
         task_id: str,
@@ -126,6 +188,8 @@ class ParseOrchestrator:
         file_path: str,
         parse_options: Dict[str, Any],
     ) -> None:
+        """在后台执行文档解析并同步状态。"""
+        ks = get_knowledge_service()
         temp_output_dir = tempfile.mkdtemp(prefix=f"parse-{doc_id}-")
         try:
             self._update_progress(task_id, doc_id, status="processing", progress=5, stage="preparing")
@@ -160,14 +224,14 @@ class ParseOrchestrator:
             self._update_progress(task_id, doc_id, progress=100, stage="completed", status="completed")
         except Exception as exc:
             error_message = f"{exc}\n{traceback.format_exc()}"
-            knowledge_service.update_parse_task(
+            ks.update_parse_task(
                 task_id,
                 status="failed",
                 progress=100,
                 stage="failed",
                 error=error_message,
             )
-            knowledge_service.update_node(
+            ks.update_node(
                 doc_id,
                 status="failed",
                 parse_progress=100,
@@ -179,7 +243,6 @@ class ParseOrchestrator:
             self._threads.pop(task_id, None)
             shutil.rmtree(temp_output_dir, ignore_errors=True)
 
-    # 同步更新任务和节点的解析进度
     def _update_progress(
         self,
         task_id: str,
@@ -188,8 +251,10 @@ class ParseOrchestrator:
         stage: str,
         status: str = "processing",
     ) -> None:
-        knowledge_service.update_parse_task(task_id, status=status, progress=progress, stage=stage, error=None)
-        knowledge_service.update_node(
+        """同步更新任务和节点的解析进度。"""
+        ks = get_knowledge_service()
+        ks.update_parse_task(task_id, status=status, progress=progress, stage=stage, error=None)
+        ks.update_node(
             doc_id,
             status="completed" if status == "completed" else "processing",
             parse_progress=progress,
@@ -202,8 +267,11 @@ class ParseOrchestrator:
 parse_orchestrator = ParseOrchestrator()
 
 
-# 归一化解析参数，确保前后端传参格式稳定
+# --- 辅助函数 ---
+
+
 def normalize_parse_options(options: Optional[KnowledgeParseOptions]) -> Dict[str, Any]:
+    """归一化解析参数，确保前后端传参格式稳定。"""
     if options is None:
         return {"use_llm": True}
     llm_model = str(options.llm_model or "").strip() or None
@@ -213,15 +281,15 @@ def normalize_parse_options(options: Optional[KnowledgeParseOptions]) -> Dict[st
     }
 
 
-# 按策略分发文档投影构建
 def build_projection_for_doc(library_id: str, doc_id: str, strategy: str = "doc_blocks_graph_v1") -> Dict[str, Any]:
+    """按策略分发文档投影构建。"""
     if strategy != "doc_blocks_graph_v1":
         raise ValueError(f"Unsupported strategy: {strategy}")
     return build_structured_index_for_doc(library_id, doc_id, strategy)
 
 
-# 返回文件预览允许访问的根目录列表
 def _allowed_roots() -> list[str]:
+    """返回文件预览允许访问的根目录列表。"""
     storage_root = os.path.abspath(str(file_storage.base_dir))
     repo_root = Path(__file__).resolve().parents[2]
     knowledge_root = os.path.abspath(str(repo_root / "data" / "knowledge_base"))
@@ -231,8 +299,8 @@ def _allowed_roots() -> list[str]:
     return roots
 
 
-# 判断目标路径是否位于允许的根目录下
 def _is_path_allowed(target_path: str, roots: list[str]) -> bool:
+    """判断目标路径是否位于允许的根目录下。"""
     for root in roots:
         try:
             if os.path.commonpath([target_path, root]).lower() == root.lower():
@@ -242,9 +310,422 @@ def _is_path_allowed(target_path: str, roots: list[str]) -> bool:
     return False
 
 
-# 创建解析任务并交给编排层执行
+def _normalize_parent_id(parent_id: Optional[str]) -> Optional[str]:
+    """归一化父节点 ID，将空值统一转为 None。"""
+    if not parent_id or parent_id in ['', 'undefined', '__root__', 'null', 'None']:
+        return None
+    return parent_id
+
+
+# --- 知识库 CRUD 路由 ---
+
+
+@knowledge_router.get("/libraries")
+def list_knowledge_libraries():
+    """获取知识库列表。"""
+    ks = get_knowledge_service()
+    return ks.list_libraries()
+
+
+@knowledge_router.post("/libraries")
+def create_knowledge_library(request: KnowledgeLibraryCreate):
+    """创建知识库。"""
+    ks = get_knowledge_service()
+    library = ks.create_library(request.library_id, request.name, request.description)
+    return library
+
+
+@knowledge_router.get("/libraries/{library_id}")
+def get_knowledge_library(library_id: str):
+    """获取知识库详情。"""
+    ks = get_knowledge_service()
+    library = ks.get_library(library_id)
+    if not library:
+        raise HTTPException(status_code=404, detail="Library not found")
+    return library
+
+
+@knowledge_router.get("/nodes")
+def list_knowledge_nodes(library_id: str = 'default', visible: bool = False):
+    """获取知识库节点列表。"""
+    ks = get_knowledge_service()
+    return ks.list_nodes(library_id, visible)
+
+
+@knowledge_router.post("/nodes")
+def create_knowledge_node(request: KnowledgeNodeCreate):
+    """创建知识库节点。"""
+    ks = get_knowledge_service()
+    normalized_parent_id = _normalize_parent_id(request.parent_id)
+
+    if normalized_parent_id:
+        parent_node = ks.get_node(normalized_parent_id)
+        if not parent_node:
+            raise HTTPException(status_code=400, detail=f"Parent node {normalized_parent_id} not found")
+        if parent_node.type != 'folder':
+            raise HTTPException(status_code=400, detail="Parent node must be a folder")
+
+    node = KnowledgeNode(
+        id=f'node-{uuid.uuid4().hex[:8]}',
+        title=request.title,
+        type=request.node_type,
+        library_id=request.library_id or 'default',
+        parent_id=normalized_parent_id,
+        visible=request.visible if request.visible is not None else True,
+        sort_order=request.sort_order if request.sort_order is not None else 0
+    )
+    return ks.create_node(node)
+
+
+@knowledge_router.patch("/nodes/{node_id}")
+def update_knowledge_node(node_id: str, request: KnowledgeNodeUpdate):
+    """更新知识库节点。"""
+    ks = get_knowledge_service()
+    current_node = ks.get_node(node_id)
+    if not current_node:
+        raise HTTPException(status_code=404, detail=f"Node {node_id} not found")
+
+    kwargs = {}
+    if request.title is not None:
+        kwargs['title'] = request.title
+
+    if 'parent_id' in request.model_fields_set:
+        normalized_parent_id = _normalize_parent_id(request.parent_id)
+
+        if normalized_parent_id:
+            parent_node = ks.get_node(normalized_parent_id)
+            if not parent_node:
+                raise HTTPException(status_code=400, detail=f"Parent node {normalized_parent_id} not found")
+            if parent_node.type != 'folder':
+                raise HTTPException(status_code=400, detail="Parent node must be a folder")
+            if normalized_parent_id == node_id:
+                raise HTTPException(status_code=400, detail="Node cannot be its own parent")
+
+            parent_map = {node.id: node.parent_id for node in ks.nodes}
+            curr = normalized_parent_id
+            visited = {node_id}
+            while curr:
+                if curr in visited:
+                    raise HTTPException(status_code=400, detail="Cannot move node into its own descendant (circular move)")
+                visited.add(curr)
+                curr = parent_map.get(curr)
+
+        kwargs['parent_id'] = normalized_parent_id
+
+    if request.visible is not None:
+        kwargs['visible'] = request.visible
+
+    if request.sort_order is not None:
+        kwargs['sort_order'] = max(0, int(request.sort_order))
+
+    try:
+        node = ks.update_node(node_id, **kwargs)
+        return node
+    except Exception as e:
+        import logging
+        logging.error(f"Failed to update node {node_id}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Database update failed: {str(e)}")
+
+
+@knowledge_router.get("/nodes/{node_id}/delete-preview")
+def get_knowledge_node_delete_preview(node_id: str):
+    """获取删除节点前的影响范围预览。"""
+    ks = get_knowledge_service()
+    preview = ks.get_delete_preview(node_id)
+    if not preview:
+        raise HTTPException(status_code=404, detail="Node not found")
+    return preview
+
+
+@knowledge_router.delete("/nodes/{node_id}")
+def delete_knowledge_node(node_id: str):
+    """删除知识库节点。"""
+    ks = get_knowledge_service()
+    success = ks.delete_node(node_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Node not found")
+    return {"status": "success"}
+
+
+@knowledge_router.post("/upload")
+async def upload_document(
+    library_id: str = Form(...),
+    file: UploadFile = FastAPIFile(...),
+    parent_id: Optional[str] = Form(None)
+):
+    """上传文档到知识库。"""
+    ks = get_knowledge_service()
+    allowed_extensions = {'.pdf', '.doc', '.docx', '.md'}
+    ext = os.path.splitext(file.filename or '')[1].lower()
+    if ext not in allowed_extensions:
+        raise HTTPException(status_code=400, detail=f"Unsupported file type: {ext or 'unknown'}")
+    normalized_parent_id = _normalize_parent_id(parent_id)
+    if normalized_parent_id:
+        parent_node = ks.get_node(normalized_parent_id)
+        if not parent_node:
+            raise HTTPException(status_code=400, detail="Parent node not found")
+        if parent_node.type != 'folder':
+            raise HTTPException(status_code=400, detail="Parent node must be folder")
+
+    doc_id = f"doc-{uuid.uuid4().hex[:8]}"
+    content = await file.read()
+    file_path = file_storage.save_source_file(library_id, doc_id, content, file.filename)
+
+    node = KnowledgeNode(
+        id=doc_id,
+        title=file.filename,
+        type='document',
+        parent_id=normalized_parent_id,
+        visible=True,
+        library_id=library_id,
+        file_path=file_path,
+        status='pending',
+        parse_progress=0,
+        parse_stage='pending',
+        parse_error=None,
+        parse_task_id=None,
+        created_at=datetime.now(),
+        updated_at=datetime.now()
+    )
+    ks.create_node(node)
+
+    return {
+        "status": "success",
+        "doc_id": doc_id,
+        "file_path": file_path,
+        "storage": file_storage.get_doc_manifest(library_id, doc_id),
+        "node": node
+    }
+
+
+@knowledge_router.get("/parse/tasks/{task_id}")
+def get_parse_task(task_id: str):
+    """获取解析任务状态。"""
+    ks = get_knowledge_service()
+    task = ks.get_parse_task(task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+    return task
+
+
+@knowledge_router.get("/strategies/{doc_id}")
+def get_doc_strategy(doc_id: str):
+    """获取文档策略。"""
+    ks = get_knowledge_service()
+    node = ks.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return {"doc_id": doc_id, "strategy": node.strategy}
+
+
+@knowledge_router.put("/strategies/{doc_id}")
+def set_doc_strategy(doc_id: str, request: KnowledgeStrategyUpdate):
+    """设置文档策略。"""
+    ks = get_knowledge_service()
+    strategy = request.strategy
+    allowed = {'doc_blocks_graph_v1'}
+    if strategy not in allowed:
+        raise HTTPException(status_code=400, detail="Unsupported strategy")
+    node = ks.update_node(doc_id, strategy=strategy)
+    if not node:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return {"doc_id": doc_id, "strategy": strategy}
+
+
+@knowledge_router.post("/structured/index")
+def build_structured_index(request: KnowledgeStructuredIndexRequest):
+    """构建结构化索引。"""
+    ks = get_knowledge_service()
+    doc_id = request.doc_id
+    library_id = request.library_id
+    strategy = request.strategy or 'doc_blocks_graph_v1'
+    node = ks.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail="Document not found")
+    allowed = {'doc_blocks_graph_v1'}
+    if strategy not in allowed:
+        raise HTTPException(status_code=400, detail="Unsupported strategy")
+    try:
+        result = build_projection_for_doc(library_id, doc_id, strategy)
+        ks.update_node(
+            doc_id,
+            strategy=strategy,
+            parse_stage='structured_indexed',
+            parse_error=None
+        )
+        return {"status": "success", "doc_id": doc_id, "strategy": strategy, **result}
+    except Exception as error:
+        ks.update_node(doc_id, parse_error=str(error))
+        raise HTTPException(status_code=500, detail=f"Build structured index failed: {str(error)}")
+
+
+@knowledge_router.get("/structured/{doc_id}")
+def get_structured_index(
+    doc_id: str,
+    strategy: str = 'doc_blocks_graph_v1',
+    item_type: Optional[str] = None,
+    keyword: Optional[str] = None,
+    limit: int = 200
+):
+    """查询结构化索引。"""
+    ks = get_knowledge_service()
+    node = ks.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail="Document not found")
+    items = ks.list_document_segments(
+        doc_id=doc_id,
+        strategy=strategy,
+        item_type=item_type,
+        keyword=keyword,
+        limit=limit
+    )
+    return {"doc_id": doc_id, "strategy": strategy, "count": len(items), "items": items}
+
+
+@knowledge_router.get("/structured/stats/{doc_id}")
+def get_structured_stats(doc_id: str):
+    """获取结构化索引统计。"""
+    ks = get_knowledge_service()
+    node = ks.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return ks.get_document_segment_stats(doc_id)
+
+
+@knowledge_router.get("/document/{library_id}/{doc_id}")
+def get_document(library_id: str, doc_id: str, include_graph: bool = False):
+    """获取文档内容，默认不返回 graph_data 以提升大文档加载速度。"""
+    content = file_storage.read_markdown(library_id, doc_id)
+    if content is None:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    storage_manifest = file_storage.get_doc_manifest(library_id, doc_id)
+    result: Dict[str, Any] = {
+        "content": content,
+        "storage": storage_manifest,
+    }
+
+    if include_graph:
+        graph_data = get_doc_blocks_graph(library_id, doc_id)
+        result["graph_data"] = graph_data
+
+    return result
+
+
+@knowledge_router.put("/document/{library_id}/{doc_id}")
+def update_document(library_id: str, doc_id: str, request: KnowledgeDocumentUpdate):
+    """更新文档内容。"""
+    ks = get_knowledge_service()
+    saved_path = file_storage.save_edited_markdown(library_id, doc_id, request.content)
+    ks.update_node(doc_id, updated_at=datetime.now())
+    return {"status": "success", "path": saved_path, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
+
+
+@knowledge_router.patch("/document/{library_id}/{doc_id}/blocks/{block_id}")
+def update_document_block(
+    library_id: str,
+    doc_id: str,
+    block_id: str,
+    request: KnowledgeDocumentBlockUpdate,
+):
+    """更新文档结构节点内容。"""
+    from docs_core.ingest.store.assets_file_store import update_doc_block_content
+
+    changes = request.dict(exclude_unset=True)
+    try:
+        result = update_doc_block_content(library_id, doc_id, block_id, changes)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    return {
+        "status": "success",
+        "doc_id": doc_id,
+        "block_id": result["block_id"],
+        "updated_fields": result["updated_fields"],
+        "node": result["node"],
+        "storage": result["graph_path"],
+    }
+
+
+@knowledge_router.post("/document/{library_id}/{doc_id}/blocks/batch")
+def batch_operate_document_blocks(
+    library_id: str,
+    doc_id: str,
+    request: KnowledgeDocumentBatchBlockOperation,
+):
+    """批量执行文档结构节点操作。"""
+    from docs_core.ingest.store.assets_file_store import batch_operate_doc_blocks
+
+    payload = request.dict(exclude_unset=True)
+    try:
+        result = batch_operate_doc_blocks(library_id, doc_id, request.operation, payload)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    return {
+        "status": "success",
+        "doc_id": doc_id,
+        "operation": result["operation"],
+        "block_ids": result["block_ids"],
+        "target_block_id": result.get("target_block_id"),
+        "created_block_ids": result.get("created_block_ids") or [],
+        "removed_block_ids": result.get("removed_block_ids") or [],
+        "saved_segments": result["saved_segments"],
+        "storage": result["graph_path"],
+    }
+
+
+@knowledge_router.post("/document/{library_id}/{doc_id}/blocks/undo")
+def undo_document_block_operation(library_id: str, doc_id: str):
+    """撤回当前文档最近一次可回滚的结构操作。"""
+    from docs_core.ingest.store.assets_file_store import undo_last_doc_block_operation
+
+    try:
+        result = undo_last_doc_block_operation(library_id, doc_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    return {
+        "status": "success",
+        "doc_id": doc_id,
+        "restored_block_ids": result["restored_block_ids"],
+        "saved_segments": result["saved_segments"],
+        "storage": result["graph_path"],
+    }
+
+
+@knowledge_router.post("/document/{library_id}/{doc_id}/blocks/merge/undo")
+def undo_document_block_merge(library_id: str, doc_id: str):
+    """兼容旧路由，撤回当前文档最近一次结构操作。"""
+    return undo_document_block_operation(library_id, doc_id)
+
+
+@knowledge_router.get("/storage/{library_id}/{doc_id}")
+def get_document_storage(library_id: str, doc_id: str):
+    """获取文档存储布局。"""
+    ks = get_knowledge_service()
+    node = ks.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return {"library_id": library_id, "doc_id": doc_id, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
+
+
+# --- 解析路由 ---
+
+
 @knowledge_router.post("/parse")
 async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
+    """创建解析任务并交给编排层执行。"""
     if not request.file_path:
         raise HTTPException(status_code=400, detail="缺少文档文件路径")
     source_path = Path(request.file_path)
@@ -264,19 +745,18 @@ async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
     )
 
 
-# 查询解析任务状态
-@knowledge_router.get("/parse/tasks/{task_id}")
 @knowledge_router.get("/parse/{task_id}", include_in_schema=False)
 async def get_parse_status(task_id: str) -> Dict[str, Any]:
+    """查询解析任务状态。"""
     task = parse_orchestrator.get_parse_task(task_id)
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
     return task
 
 
-# 手动重建指定文档的策略投影
 @knowledge_router.post("/parse/structured-index")
-async def build_structured_index(request: KnowledgeStructuredIndexRequest) -> Dict[str, Any]:
+async def build_structured_index_legacy(request: KnowledgeStructuredIndexRequest) -> Dict[str, Any]:
+    """手动重建指定文档的策略投影。"""
     try:
         result = build_projection_for_doc(request.library_id, request.doc_id, request.strategy or "doc_blocks_graph_v1")
         return {"status": "success", "data": result}
@@ -284,9 +764,9 @@ async def build_structured_index(request: KnowledgeStructuredIndexRequest) -> Di
         raise HTTPException(status_code=500, detail=str(error))
 
 
-# 获取文档的块图谱视图
 @knowledge_router.post("/parse/doc-blocks-graph")
 async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str, Any]:
+    """获取文档的块图谱视图。"""
     try:
         graph = get_doc_blocks_graph(request.library_id, request.doc_id)
         if not graph:
@@ -298,9 +778,9 @@ async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str,
         raise HTTPException(status_code=500, detail=str(error))
 
 
-# 获取文档块图谱的轻量摘要，仅含树结构骨架
 @knowledge_router.post("/parse/doc-blocks-graph-summary")
 async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) -> Dict[str, Any]:
+    """获取文档块图谱的轻量摘要，仅含树结构骨架。"""
     try:
         graph = get_doc_blocks_graph(request.library_id, request.doc_id)
         if not graph:
@@ -333,9 +813,12 @@ async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) ->
         raise HTTPException(status_code=500, detail=str(error))
 
 
-# 按绝对路径预览文件
+# --- 文件预览路由 ---
+
+
 @preview_router.get("/files")
 def get_file_for_preview(path: str):
+    """按绝对路径预览文件。"""
     normalized_path = os.path.abspath(os.path.normpath(path))
     allowed_roots = _allowed_roots()
     if not _is_path_allowed(normalized_path, allowed_roots):
@@ -368,8 +851,16 @@ def get_file_for_preview(path: str):
 __all__ = [
     "DocBlocksGraphRequest",
     "DocBlocksGraphSummaryRequest",
-    "KnowledgeParseRequest",
+    "KnowledgeLibraryCreate",
+    "KnowledgeNodeCreate",
+    "KnowledgeNodeUpdate",
+    "KnowledgeStrategyUpdate",
     "KnowledgeStructuredIndexRequest",
+    "KnowledgeDocumentUpdate",
+    "KnowledgeDocumentBlockUpdate",
+    "KnowledgeDocumentBatchBlockOperation",
+    "KnowledgeParseRequest",
+    "KnowledgeParseOptions",
     "ParseOrchestrator",
     "build_projection_for_doc",
     "build_structured_index",

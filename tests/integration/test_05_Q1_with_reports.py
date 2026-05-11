@@ -53,7 +53,10 @@ class TestWholeWorkflow(unittest.TestCase):
         
         # 1. 意图识别
         clf_start = time.time()
-        matched_sop_stub, args, reason = self.classifier.route(query, config_name=target_model)
+        route_result = self.classifier.route(query, config_name=target_model)
+        matched_sop_stub = route_result.sop
+        args = route_result.args
+        reason = route_result.reason
         clf_duration = time.time() - clf_start
         
         print(f"  -> 识别 SOP: {matched_sop_stub.id if matched_sop_stub else None}")

@@ -75,6 +75,7 @@
           :evaluating="evaluatingQuestionIds.has(q.question_id)"
           @toggle="onToggle"
           @evaluate="(qid) => $emit('evaluate', qid)"
+          @updated="() => $emit('questionUpdated')"
         />
         <a-empty v-if="!filteredQuestions.length" description="暂无题目" />
       </a-spin>
@@ -109,6 +110,7 @@ const emit = defineEmits<{
   toggle: [questionId: string]
   evaluate: [questionId: string]
   'update:selectedDocIds': [docIds: string[]]
+  questionUpdated: []
 }>()
 
 const filterLevel = ref<EvalIntentLevel | undefined>(undefined)

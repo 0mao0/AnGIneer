@@ -13,7 +13,8 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
       '@angineer/ui-kit': resolve(__dirname, '../../packages/ui-kit/src'),
       '@angineer/docs-ui': resolve(__dirname, '../../packages/docs-ui/src'),
-      '@angineer/evals-ui': resolve(__dirname, '../../packages/evals-ui/src')
+      '@angineer/evals-ui': resolve(__dirname, '../../packages/evals-ui/src'),
+      '@angineer/sop-ui': resolve(__dirname, '../../packages/sop-ui/src')
     }
   },
   css: {

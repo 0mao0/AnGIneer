@@ -1,13 +1,11 @@
-"""回答评测器。"""
+"""回答评测器，通过 query_engine 直接调用回答链路。"""
 import json
-from typing import Any, Dict, List, Optional
-
-import httpx
+from typing import Any, Callable, Dict, List, Optional
 
 from evals_core.runner.base import BaseEvaluator, register_evaluator
+from evals_core.runner._query_helper import run_eval_query
 from evals_core.runner.retrieval_eval import normalize_section_path
-
-API_BASE = "http://localhost:8789"
+from angineer_core.base_utils import is_fatal_exception
 
 DEFAULT_SEMANTIC_THRESHOLD = 0.65
 
@@ -132,6 +130,8 @@ def _llm_semantic_evaluate(
             "semantic_passed": passed,
         }
     except Exception as exc:
+        if is_fatal_exception(exc):
+            raise
         return {
             "semantic_score": None,
             "semantic_reason": f"LLM 语义评判失败: {exc}",
@@ -161,27 +161,25 @@ def citations_match_section_paths(citations: List[Dict[str, Any]], gold_section_
 
 
 class AnswerEvaluator(BaseEvaluator):
-    """回答评测器，通过 /api/query 调用回答链路。"""
+    """回答评测器，通过 query_engine 直接调用回答链路。"""
 
-    def run_prediction(self, question: Dict[str, Any]) -> Dict[str, Any]:
-        """通过 /api/query 端点调用回答链路。"""
+    def run_prediction(self, question: Dict[str, Any], *, stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None) -> Dict[str, Any]:
+        """通过 query_engine 直接调用回答链路。"""
         question_id = str(question.get("question_id") or "")
         query = str(question.get("question") or "").strip()
         if not query:
             return {}
-        try:
-            with httpx.Client(timeout=180.0) as client:
-                resp = client.post(f"{API_BASE}/api/query", json={
-                    "query": query,
-                    "library_id": str(question.get("library_id") or "default"),
-                    "doc_ids": list(question.get("doc_ids") or []),
-                    "scene": "docs",
-                    "session_id": f"eval-{question_id}",
-                })
-                resp.raise_for_status()
-                data = resp.json()
-        except Exception as exc:
-            return {"error": str(exc)}
+
+        data = run_eval_query(
+            query=query,
+            library_id=str(question.get("library_id") or "default"),
+            doc_ids=list(question.get("doc_ids") or []),
+            session_id=f"eval-{question_id}",
+        )
+
+        if "error" in data:
+            return data
+
         return {
             "answer": data.get("answer", ""),
             "citations": list(data.get("citations") or []),

@@ -13,6 +13,7 @@ import type {
   AIChatContextConfig,
 } from '../types/chat'
 import { generateMessageId, estimateTokens } from '../utils/tree'
+import { queryApi } from '../api/client'
 
 /** 根据 scene 和 id 构建会话池 key */
 export function buildSessionKey(scene: string, id: string): SessionKey {
@@ -288,16 +289,9 @@ export function useAIChat(options?: {
     abortController.value = new AbortController()
 
     try {
-      const queryResponse = await fetch('/api/query', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(queryRequest),
+      const queryData: QueryResponse = await queryApi.query(queryRequest, {
         signal: abortController.value.signal,
       })
-      if (!queryResponse.ok) {
-        throw new Error(`Query endpoint returned ${queryResponse.status}`)
-      }
-      const queryData: QueryResponse = await queryResponse.json()
       const payload = mapQueryResponseToChatResponse(queryData)
       const citations = dedupeCitations(payload.citations || [])
       let assistantContent = payload.answer || ''

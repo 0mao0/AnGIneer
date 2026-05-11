@@ -36,6 +36,7 @@ import { onMounted, ref, computed } from 'vue'
 import BaseChat from './BaseChat.vue'
 import { useAIChat } from '../../composables/useAIChat'
 import { renderMarkdownToHtml } from '../../utils/markdown'
+import { llmApi } from '../../api/client'
 import type { AIChatMessage, AIChatCitation, BaseChatContextItem } from '../../types'
 
 interface Props {
@@ -108,9 +109,7 @@ const renderAIChatMessage = (content: string) => renderMarkdownToHtml(content, '
 const fetchModels = async () => {
   loadingModels.value = true
   try {
-    const response = await fetch('/api/llm_configs')
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
-    const data = await response.json()
+    const data = await llmApi.getConfigs()
     models.value = data
       .filter((model: any) => model.configured)
       .map((model: any) => ({ value: model.name, label: model.name }))

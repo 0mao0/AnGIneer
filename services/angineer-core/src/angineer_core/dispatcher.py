@@ -1,17 +1,24 @@
 """
-执行调度核心模块，负责 SOP 步骤编排、工具调用与上下文更新。
+执行调度核心模块，负责 L1~L4 分级调度与 SOP 步骤编排。
 
-支持依赖注入：
-- memory: Memory 实例
-- llm_client: LLMClient 实例
+Dispatcher 是 angineer-core 的大脑入口：
+- dispatch(): 顶层分级调度入口，根据意图分类结果选择 L1/L2/L3/L4 路径
+- run(): SOP 步骤执行引擎，被 dispatch() 在 L3 路径中调用
+
+依赖关系：
+- angineer-core → docs-core（检索/SQL）
+- angineer-core → sop-core（SOP 加载）
+- angineer-core → ai-inference（LLM 调用）
 """
 import time
 import json
+import uuid
 import os
 from typing import Dict, Any, Tuple, List, Optional, TYPE_CHECKING
-from angineer_core.base_contracts import SOP, Step
+from angineer_core.base_contracts import SOP, Step, IntentResult
 from angineer_core.memory import Memory, StepRecord
 from angineer_core.base_logger import get_logger
+from angineer_core.base_utils import is_fatal_exception
 
 logger = get_logger(__name__)
 
@@ -23,7 +30,7 @@ try:
 except ImportError:
     ToolRegistry = None
 
-from ai_inference.llm_client import llm_client as default_llm_client
+from ai_inference.llm_client import get_llm_client
 
 
 class Dispatcher:
@@ -33,7 +40,9 @@ class Dispatcher:
         mode: str = "instruct",
         result_md_path: str = None,
         memory: Optional[Memory] = None,
-        llm_client: Optional["LLMClient"] = None
+        llm_client: Optional["LLMClient"] = None,
+        knowledge_provider: Optional[Any] = None,
+        sop_provider: Optional[Any] = None,
     ):
         """
         初始化执行器上下文与模型配置。
@@ -44,12 +53,16 @@ class Dispatcher:
             result_md_path: Markdown 日志文件路径
             memory: 可选的 Memory 实例（依赖注入）
             llm_client: 可选的 LLMClient 实例（依赖注入）
+            knowledge_provider: 可选的知识库服务提供者（依赖注入，替代内部 from docs_core import）
+            sop_provider: 可选的 SOP 服务提供者（依赖注入，替代内部 from sop_core import）
         """
         self.memory = memory or Memory()
         self.config_name = config_name
         self.mode = mode or "instruct"
         self.result_md_path = result_md_path
-        self._llm_client = llm_client or default_llm_client
+        self._llm_client = llm_client or get_llm_client()
+        self._knowledge_provider = knowledge_provider
+        self._sop_provider = sop_provider
         self.variable_metadata = {}
         self.start_time = None
         self.step_durations = {}
@@ -60,7 +73,682 @@ class Dispatcher:
             with open(self.result_md_path, "w", encoding="utf-8") as f:
                 f.write("# SOP 执行日志 (LLM 风格小结版)\n\n")
                 f.write("> **说明**: 本日志展示了每一步的执行小结与 Blackboard 状态快照。更新的内容已高亮显示。\n\n")
-    
+
+    def dispatch(
+        self,
+        query: str,
+        library_id: str = "default",
+        doc_ids: Optional[List[str]] = None,
+        sop_loader=None,
+    ) -> Dict[str, Any]:
+        """
+        顶层分级调度入口：意图分类 → L1/L2/L3/L4 路径选择 → 返回结果。
+
+        纯同步函数，不依赖 HTTP / FastAPI / asyncio。
+        可在任意线程中直接调用（包括评测器的 daemon 线程）。
+
+        Args:
+            query: 用户查询文本
+            library_id: 知识库 ID
+            doc_ids: 限定文档 ID 列表
+            sop_loader: SOP 加载器实例（由调用方注入）
+
+        Returns:
+            包含 answer、citations、intent 等字段的字典
+        """
+        from angineer_core.classifier import IntentClassifier
+
+        started_at = time.time()
+        query_id = f"q-{uuid.uuid4().hex[:12]}"
+        stage_timings: Dict[str, float] = {}
+        doc_ids = doc_ids or []
+
+        # --- 1. 意图分类 ---
+        intent_result = IntentResult(
+            intent_level="L1", service_mode="semantic_retrieval"
+        )
+        _t0 = time.time()
+        try:
+            if sop_loader is not None:
+                sops = sop_loader.load_all()
+                classifier = IntentClassifier(sops)
+                intent_result = classifier.classify_intent(
+                    query, config_name=self.config_name, mode=self.mode
+                )
+        except Exception as e:
+            if is_fatal_exception(e):
+                raise
+            logger.warning(f"意图分类失败，降级为L1: {e}")
+        stage_timings["intent"] = round(time.time() - _t0, 2)
+
+        # --- 2. 获取知识库节点 ---
+        try:
+            kp = self._knowledge_provider
+            if kp is None:
+                from docs_core.knowledge_service import get_knowledge_service
+                kp = get_knowledge_service()
+            library_nodes = kp.list_nodes(library_id)
+            doc_nodes = [node for node in library_nodes if node.type == "document"]
+            if doc_ids:
+                requested = set(doc_ids)
+                doc_nodes = [node for node in doc_nodes if node.id in requested]
+        except Exception as e:
+            if is_fatal_exception(e):
+                raise
+            logger.error(f"知识库节点查询失败: {e}")
+            return {
+                "query_id": query_id,
+                "session_key": "",
+                "intent": intent_result.model_dump(mode="json"),
+                "answer": "抱歉，知识库服务暂时不可用，请稍后重试。",
+                "citations": [],
+                "retrieved_items": [],
+                "sql": None,
+                "fallback_used": False,
+                "latency_ms": int((time.time() - started_at) * 1000),
+            }
+
+        answer = ""
+        citations = []
+        retrieved_items = []
+        sql_payload = None
+        fallback_used = False
+        strategy_desc = ""
+        system_prompt = ""
+        retrieval_debug = {}
+
+        # --- 3. 分级调度 ---
+        try:
+            # --- 3a. L0: 闲聊 ---
+            if intent_result.service_mode == "casual_chat":
+                answer = self._dispatch_chat(query)
+                strategy_desc = "L0 闲聊"
+
+            # --- 3b. L2: SQL 检索 ---
+            if intent_result.service_mode == "sql_first":
+                answer, citations, retrieved_items, sql_payload, fallback_used = (
+                    self._dispatch_sql(query, doc_nodes, library_id, doc_ids)
+                )
+
+            # --- 3c. L3: SOP 执行 ---
+            sop_trace: list = []
+            if intent_result.service_mode == "standard_sop" and not fallback_used:
+                answer, citations, strategy_desc, fallback_used, sop_timing, sop_trace = (
+                    self._dispatch_sop(query, sop_loader, intent_result)
+                )
+                if sop_timing is not None:
+                    stage_timings["sop_route"] = sop_timing
+
+            # --- 3d. L1/L2/L3回退: 语义检索 ---
+            if (
+                intent_result.service_mode == "semantic_retrieval"
+                or fallback_used
+                or not answer
+            ):
+                answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings = (
+                    self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result)
+                )
+                stage_timings.update(ret_timings)
+
+        except Exception as e:
+            if is_fatal_exception(e):
+                raise
+            logger.error(f"查询处理异常: {e}", exc_info=True)
+            if not answer:
+                answer = "抱歉，查询处理出现异常，请稍后重试。"
+
+        latency_ms = int((time.time() - started_at) * 1000)
+
+        return {
+            "query_id": query_id,
+            "session_key": "",
+            "intent": intent_result.model_dump(mode="json"),
+            "answer": answer or "",
+            "citations": citations,
+            "retrieved_items": retrieved_items,
+            "sql": sql_payload,
+            "fallback_used": fallback_used,
+            "latency_ms": latency_ms,
+            "strategy": strategy_desc,
+            "system_prompt": system_prompt,
+            "retrieval_debug": retrieval_debug,
+            "stage_timings": stage_timings,
+            "sop_trace": sop_trace,
+        }
+
+    def _dispatch_chat(self, query: str) -> str:
+        """L0 路径：闲聊寒暄，直接用 LLM 做轻松对话，不检索、不查库。"""
+        from ai_inference.llm_client import get_llm_client
+
+        llm = get_llm_client()
+        return llm.chat(
+            [
+                {
+                    "role": "system",
+                    "content": (
+                        "你是 AnGIneer，一个工程规范领域的智能助手。"
+                        "当前用户在和你闲聊，请友好、简洁地回应。"
+                        "如果用户问你能做什么，简要介绍你是工程规范领域的专业助手，"
+                        "可以回答工程规范问题、做标准计算、查询条款等。"
+                    ),
+                },
+                {"role": "user", "content": query},
+            ],
+            mode="instruct",
+            config_name=self.config_name,
+        )
+
+    def _dispatch_sql(
+        self,
+        query: str,
+        doc_nodes: list,
+        library_id: str,
+        doc_ids: List[str],
+    ) -> Tuple[str, list, list, Optional[Dict], bool]:
+        """L2 路径：SQL 结构化检索。"""
+        from docs_core.query_protocols.contracts import KnowledgeQueryRequest
+        from docs_core.text2sql.schema_linker import link_schema
+        from docs_core.text2sql.sql_validator import validate_sql
+        from docs_core.text2sql.sql_executor import execute_sql
+        from ai_inference.llm_client import get_llm_client
+
+        answer = ""
+        citations = []
+        retrieved_items = []
+        sql_payload = None
+        fallback_used = False
+
+        try:
+            schema_result = link_schema(
+                query,
+                KnowledgeQueryRequest(
+                    query=query, library_id=library_id, doc_ids=doc_ids,
+                ),
+                doc_nodes,
+            )
+            if schema_result.get("supported"):
+                metric = schema_result.get("metric", "")
+                table_name = schema_result["table_name"]
+                business_filters = schema_result.get("business_filters", {})
+
+                if metric == "standard_lookup":
+                    standard_code = business_filters.get("standard_code", "")
+                    sql = (
+                        "SELECT doc_id, title, source_file_name "
+                        "FROM canonical_documents "
+                        "WHERE title LIKE ? OR source_file_name LIKE ?"
+                    )
+                    like_pattern = f"%{standard_code}%"
+                    params = [like_pattern, like_pattern]
+                    is_valid, reason = validate_sql(sql)
+                    if is_valid:
+                        sql_result = execute_sql(sql, params)
+                        if sql_result and sql_result.get("row_count", 0) > 0:
+                            matched_doc_ids = [
+                                row.get("doc_id", "")
+                                for row in sql_result["rows"]
+                            ]
+                            doc_titles = {
+                                row.get("doc_id", ""): row.get("title", "")
+                                for row in sql_result["rows"]
+                            }
+                            chunk_sql = (
+                                "SELECT chunk_id, text, section_path, clause_id "
+                                "FROM canonical_chunks "
+                                f"WHERE doc_id IN ({','.join(['?' for _ in matched_doc_ids])}) "
+                                "AND chunk_type = 'content' "
+                                "ORDER BY page_idx ASC, chunk_idx ASC LIMIT 3"
+                            )
+                            chunk_params = list(matched_doc_ids)
+                            is_valid2, reason2 = validate_sql(chunk_sql)
+                            if is_valid2:
+                                chunk_result = execute_sql(chunk_sql, chunk_params)
+                                if chunk_result and chunk_result.get("row_count", 0) > 0:
+                                    context_parts = []
+                                    for row in chunk_result["rows"][:3]:
+                                        section = row.get("section_path", "")
+                                        text = row.get("text", "")
+                                        prefix = f"[{section}]" if section else ""
+                                        context_parts.append(
+                                            f"{prefix}: {text}" if prefix else text
+                                        )
+                                    doc_title_list = [
+                                        doc_titles.get(did, "")
+                                        for did in matched_doc_ids
+                                        if doc_titles.get(did)
+                                    ]
+                                    llm = get_llm_client()
+                                    answer = llm.chat(
+                                        [
+                                            {
+                                                "role": "system",
+                                                "content": (
+                                                    "你是一个工程规范领域的专业助手。"
+                                                    "用户正在查找某条规范，请根据检索结果给出该规范的核心信息。\n\n规则：\n"
+                                                    "1. 明确告知该规范的名称和编号\n"
+                                                    "2. 简要概述该规范的主要内容\n"
+                                                    "3. 只基于检索结果回答，不要引用检索结果中未提及的版本号\n"
+                                                    "4. 如果检索结果中同时包含新旧版本信息，优先介绍最新版本"
+                                                ),
+                                            },
+                                            {
+                                                "role": "user",
+                                                "content": (
+                                                    f"问题: {query}\n\n"
+                                                    f"匹配到的文档: {', '.join(doc_title_list)}\n\n"
+                                                    f"文档内容:\n" + "\n---\n".join(context_parts)
+                                                ),
+                                            },
+                                        ],
+                                        mode="instruct",
+                                        config_name=self.config_name,
+                                    )
+                                    retrieved_items = chunk_result["rows"]
+                                    citations = [
+                                        {"doc_id": did, "title": doc_titles.get(did, "")}
+                                        for did in matched_doc_ids
+                                    ]
+
+                elif metric == "conditional_lookup":
+                    sql = (
+                        f"SELECT chunk_id, text, section_path, clause_id, "
+                        f"entity_tags_json, exam_tags_json, conditions_json "
+                        f"FROM {table_name} "
+                        f"WHERE doc_id IN ({','.join(['?' for _ in doc_nodes])})"
+                    )
+                    params = [node.id for node in doc_nodes]
+                    if "clause_id" in business_filters:
+                        sql += " AND clause_id = ?"
+                        params.append(business_filters["clause_id"])
+                    for tag_field, json_key in [
+                        ("entity_tags", "entity_tags"),
+                        ("exam_tags", "exam_tags"),
+                        ("conditions", "conditions"),
+                    ]:
+                        if json_key in business_filters:
+                            for tag in business_filters[json_key]:
+                                sql += f" AND {json_key}_json LIKE ?"
+                                params.append(f"%{tag}%")
+                    sql += " LIMIT 10"
+                    is_valid, reason = validate_sql(sql)
+                    if is_valid:
+                        sql_result = execute_sql(sql, params)
+                        if sql_result and sql_result.get("row_count", 0) > 0:
+                            context_parts = []
+                            for row in sql_result["rows"][:5]:
+                                section = row.get("section_path", "")
+                                text = row.get("text", "")
+                                clause = row.get("clause_id", "")
+                                prefix = f"[{section}]" if section else ""
+                                if clause:
+                                    prefix += f" 第{clause}条"
+                                context_parts.append(
+                                    f"{prefix}: {text}" if prefix else text
+                                )
+                            llm = get_llm_client()
+                            answer = llm.chat(
+                                [
+                                    {
+                                        "role": "system",
+                                        "content": (
+                                            "你是一个工程规范领域的专业助手。"
+                                            "请根据以下结构化检索结果回答用户问题。\n\n规则：\n"
+                                            "1. 优先直接回答用户问题\n"
+                                            "2. 引用具体来源（章节号、条款号等）\n"
+                                            "3. 如果检索结果中包含与问题相关的内容，请基于相关内容给出回答\n"
+                                            "4. 如果检索结果完全不相关，才说明无法回答"
+                                        ),
+                                    },
+                                    {
+                                        "role": "user",
+                                        "content": (
+                                            f"问题: {query}\n\n结构化检索结果:\n"
+                                            + "\n---\n".join(context_parts)
+                                        ),
+                                    },
+                                ],
+                                mode="instruct",
+                            )
+                            retrieved_items = sql_result["rows"]
+                else:
+                    sql = (
+                        f"SELECT * FROM {table_name} "
+                        f"WHERE doc_id IN ({','.join(['?' for _ in doc_nodes])})"
+                    )
+                    params = [node.id for node in doc_nodes]
+                    if "clause_id" in business_filters:
+                        sql += " AND clause_id = ?"
+                        params.append(business_filters["clause_id"])
+                    is_valid, reason = validate_sql(sql)
+                    if is_valid:
+                        sql_result = execute_sql(sql, params)
+                        if sql_result:
+                            answer = str(sql_result)
+        except Exception as e:
+            logger.warning(f"SQL 检索失败，回退语义检索: {e}")
+            fallback_used = True
+
+        return answer, citations, retrieved_items, sql_payload, fallback_used
+
+    def _dispatch_sop(
+        self,
+        query: str,
+        sop_loader,
+        intent_result: IntentResult,
+    ) -> Tuple[str, list, str, bool, Optional[float], list]:
+        """L3 路径：SOP 匹配与执行。"""
+        from angineer_core.classifier import IntentClassifier
+
+        answer = ""
+        citations = []
+        strategy_desc = ""
+        fallback_used = False
+        sop_timing = None
+        sop_trace: list = []
+
+        try:
+            _t_sop = time.time()
+            if sop_loader is not None:
+                sops = sop_loader.load_all()
+                classifier = IntentClassifier(sops)
+            else:
+                classifier = None
+
+            if classifier is not None:
+                route_result = classifier.route(
+                    query, config_name=self.config_name, mode=self.mode
+                )
+
+                if route_result.sop and route_result.confidence >= 0.6:
+                    sop_full = sop_loader.analyze_sop(
+                        route_result.sop.id, prefer_llm=False
+                    )
+
+                    sop_dispatcher = Dispatcher(
+                        config_name=self.config_name, mode=self.mode
+                    )
+                    initial_context = {"user_query": query}
+                    initial_context.update(route_result.args)
+                    final_context = sop_dispatcher.run_sop(sop_full, initial_context)
+
+                    answer = self._extract_answer_from_sop_context(
+                        final_context, query
+                    )
+                    citations = self._build_citations_from_sop_trace(sop_dispatcher)
+                    sop_trace = self._build_sop_trace(sop_dispatcher, sop_full)
+                    strategy_desc = (
+                        f"SOP 执行 ({route_result.sop.id}, "
+                        f"confidence={route_result.confidence:.2f})"
+                    )
+                    sop_timing = round(time.time() - _t_sop, 2)
+                else:
+                    logger.info(
+                        f"SOP 未匹配或置信度不足: {route_result.reason}"
+                    )
+                    fallback_used = True
+            else:
+                fallback_used = True
+        except Exception as e:
+            logger.warning(f"SOP 执行失败，回退语义检索: {e}")
+            fallback_used = True
+
+        return answer, citations, strategy_desc, fallback_used, sop_timing, sop_trace
+
+    def _dispatch_semantic(
+        self,
+        query: str,
+        doc_nodes: list,
+        library_id: str,
+        doc_ids: List[str],
+        intent_result: IntentResult,
+    ) -> Tuple[str, list, list, str, str, Dict, Dict[str, float]]:
+        """L1/L2回退/L3回退：语义检索路径。"""
+        from docs_core.query_protocols.contracts import KnowledgeQueryRequest
+        from docs_core.retrieval.dense_retriever import dense_retriever
+        from docs_core.retrieval.sparse_retriever import sparse_retriever
+        from docs_core.retrieval.table_retriever import table_retriever
+        from docs_core.retrieval.hybrid_retriever import fuse_candidates
+        from ai_inference.llm_client import get_llm_client
+
+        answer = ""
+        citations = []
+        retrieved_items = []
+        strategy_desc = ""
+        system_prompt = ""
+        retrieval_debug = {}
+        timings: Dict[str, float] = {}
+
+        try:
+            _t1 = time.time()
+            retriever_task_type = self._map_intent_to_retriever_task(intent_result)
+            strategy_desc = (
+                "Dense(正文+公式) + Sparse(全文+图表+公式) + Table(表格) → Hybrid融合"
+            )
+
+            kq_request = KnowledgeQueryRequest(
+                query=query,
+                library_id=library_id,
+                doc_ids=doc_ids,
+                top_k=5,
+            )
+            dense_hits = dense_retriever.retrieve(
+                kq_request, doc_nodes, retriever_task_type
+            )
+            sparse_hits = sparse_retriever.retrieve(
+                kq_request, doc_nodes, retriever_task_type
+            )
+            table_hits = table_retriever.retrieve(kq_request, doc_nodes)
+            source_candidates = {
+                "canonical_dense": dense_hits,
+                "canonical_sparse": sparse_hits,
+            }
+            for item in table_hits:
+                source_kind = str(
+                    item.metadata.get("source_kind") or "table_aware"
+                )
+                source_candidates.setdefault(source_kind, []).append(item)
+            fused, retrieval_debug = fuse_candidates(
+                source_candidates,
+                task_type=retriever_task_type,
+                top_k=5,
+            )
+            timings["retrieval"] = round(time.time() - _t1, 2)
+            retrieved_items = [
+                item.model_dump(mode="json") for item in fused
+            ]
+
+            if not answer and fused:
+                context_parts = []
+                for item in fused[:5]:
+                    if not item.text:
+                        continue
+                    section = str(item.metadata.get("section_path") or "")
+                    title = str(item.title or "")
+                    prefix = (
+                        f"[{section}]"
+                        if section
+                        else (f"[{title}]" if title else "")
+                    )
+                    context_parts.append(
+                        f"{prefix}\n{item.text}" if prefix else item.text
+                    )
+                context_text = "\n---\n".join(context_parts)
+
+                _t_prompt = time.time()
+                system_prompt = self._build_system_prompt(retriever_task_type)
+                full_prompt = (
+                    f"{system_prompt}\n问题: {query}\n\n检索结果:\n{context_text}"
+                )
+                timings["prompt_tokens"] = len(full_prompt) // 2
+                timings["prompt"] = round(time.time() - _t_prompt, 2)
+
+                _t2 = time.time()
+                llm = get_llm_client()
+                answer = llm.chat(
+                    [
+                        {"role": "system", "content": system_prompt},
+                        {
+                            "role": "user",
+                            "content": (
+                                f"问题: {query}\n\n检索结果:\n{context_text}"
+                            ),
+                        },
+                    ],
+                    mode="instruct",
+                )
+                timings["llm"] = round(time.time() - _t2, 2)
+
+            citations = self._build_citations_from_retrieved(fused, doc_nodes)
+        except Exception as e:
+            logger.error(f"语义检索失败: {e}")
+            if not answer:
+                answer = "抱歉，检索服务暂时不可用，请稍后重试。"
+
+        return answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, timings
+
+    @staticmethod
+    def _map_intent_to_retriever_task(intent_result: IntentResult) -> str:
+        """根据意图结果映射到检索任务类型。"""
+        intent_level = str(getattr(intent_result, "intent_level", "") or "")
+        intent_type = str(getattr(intent_result, "intent_type", "") or "")
+
+        if intent_level == "L1":
+            if "locate" in intent_type.lower():
+                return "locate_qa"
+            return "definition_qa"
+
+        if intent_level == "L2":
+            if "table" in intent_type.lower():
+                return "table_qa"
+            return "content_qa"
+
+        return "content_qa"
+
+    @staticmethod
+    def _build_system_prompt(retriever_task_type: str) -> str:
+        """根据检索任务类型构建对应的 system prompt。"""
+        base_prompt = "你是一个工程规范领域的专业助手。请根据以下检索结果回答用户问题。"
+
+        if retriever_task_type == "definition_qa":
+            return base_prompt + (
+                "\n\n规则：\n"
+                "1. 直接、完整地回答用户问题，给出定义或组成\n"
+                "2. 如果检索结果中包含与问题相关的内容，请基于相关内容给出准确回答\n"
+                '3. 引用具体来源（章节号），格式如"根据第X章..."\n'
+                "4. 如果检索结果完全不相关，才说明无法回答"
+            )
+
+        if retriever_task_type == "locate_qa":
+            return base_prompt + (
+                "\n\n规则：\n"
+                "1. 直接回答位置/设置要求，明确指出具体地点或条件\n"
+                '2. 引用具体来源（章节号），格式如"根据第X章..."\n'
+                "3. 如果检索结果中包含与问题相关的内容，请基于相关内容给出准确回答\n"
+                "4. 如果检索结果完全不相关，才说明无法回答"
+            )
+
+        return base_prompt + (
+            "\n\n规则：\n"
+            "1. 优先直接回答用户问题\n"
+            "2. 如果检索结果中包含与问题相关的内容，请基于相关内容给出回答\n"
+            "3. 如果检索结果完全不相关，才说明无法回答\n"
+            "4. 引用具体来源（文档名、章节号等）"
+        )
+
+    @staticmethod
+    def _extract_answer_from_sop_context(
+        context: Dict[str, Any], query: str, config_name: str = None,
+    ) -> str:
+        """从 SOP 执行上下文中提取答案，优先取已有 answer，否则用 LLM 生成。"""
+        if context.get("answer"):
+            return str(context["answer"])
+
+        calc_vars = {
+            k: v for k, v in context.items()
+            if isinstance(v, (int, float, str)) and not k.startswith("_") and k != "user_query"
+        }
+        if not calc_vars:
+            return ""
+
+        from ai_inference.llm_client import get_llm_client
+        llm = get_llm_client()
+        return llm.chat(
+            [
+                {"role": "system", "content": "你是工程规范领域的专业助手。请根据以下计算结果回答用户问题，列出关键计算步骤和最终结果。"},
+                {"role": "user", "content": f"问题: {query}\n\n计算结果: {json.dumps(calc_vars, ensure_ascii=False, default=str)}"},
+            ],
+            mode="instruct",
+            config_name=config_name,
+        )
+
+    @staticmethod
+    def _build_citations_from_sop_trace(dispatcher) -> list:
+        """从 SOP 执行追踪中构建 citations。"""
+        citations = []
+        history = getattr(dispatcher.memory, "history", [])
+        for record in history:
+            tool_name = getattr(record, "tool_name", "") or ""
+            step_id = getattr(record, "step_id", "") or ""
+            outputs = getattr(record, "outputs", None) or {}
+            if tool_name in ("table_lookup", "knowledge_search"):
+                citations.append({
+                    "source": tool_name,
+                    "step_id": step_id,
+                    "snippet": str(outputs)[:200],
+                })
+        return citations
+
+    @staticmethod
+    def _build_citations_from_retrieved(fused, doc_nodes) -> list:
+        """从检索结果构建 citations 数组。"""
+        doc_title_map = {node.id: node.title for node in doc_nodes}
+        citations = []
+        for item in fused[:5]:
+            if not item.text:
+                continue
+            doc_id = str(item.doc_id or "")
+            fusion_sources = item.metadata.get("fusion_sources", [])
+            if not fusion_sources:
+                source_kind = str(item.metadata.get("source_kind") or "")
+                fusion_sources = [source_kind] if source_kind else []
+            citations.append({
+                "target_id": str(item.item_id or ""),
+                "doc_id": doc_id,
+                "doc_title": doc_title_map.get(doc_id, ""),
+                "page_idx": int(item.metadata.get("page_idx", 0) or 0),
+                "section_path": str(item.metadata.get("section_path") or ""),
+                "snippet": str(item.text or "")[:200],
+                "score": float(item.rerank_score or item.score or 0.0),
+                "fusion_sources": fusion_sources,
+            })
+        return citations
+
+    @staticmethod
+    def _build_sop_trace(dispatcher, sop: "SOP") -> list:
+        """从 SOP 执行追踪中构建步骤明细列表。"""
+        step_durations = getattr(dispatcher, "step_durations", {}) or {}
+        history = getattr(dispatcher.memory, "history", [])
+        trace = []
+        for idx, step in enumerate(sop.steps):
+            record = None
+            for r in history:
+                if r.step_id == step.id:
+                    record = r
+                    break
+            trace.append({
+                "step_id": step.id,
+                "step_name": step.name or step.name_zh or step.id,
+                "step_index": idx + 1,
+                "tool": step.tool or "auto",
+                "description": step.description or step.description_zh or "",
+                "inputs": (record.inputs if record else step.inputs) or {},
+                "outputs": (record.outputs if record else None),
+                "duration": step_durations.get(step.id, 0.0),
+                "status": (record.status if record else "pending"),
+                "error": (record.error if record else None),
+            })
+        return trace
+
     @property
     def llm_client(self):
         """获取 LLM 客户端。"""
@@ -124,7 +812,7 @@ class Dispatcher:
             
             f.write("\n---\n\n")
 
-    def run(self, sop: SOP, initial_context: Dict[str, Any], pre_logs: List[Dict[str, Any]] = None):
+    def run_sop(self, sop: SOP, initial_context: Dict[str, Any], pre_logs: List[Dict[str, Any]] = None):
         """
         Execute the SOP with the given initial context.
         """
@@ -384,6 +1072,27 @@ class Dispatcher:
         inputs = action_data.get("inputs", {})
         self._execute_tool_safe(tool_name, inputs, step)
 
+    def _handle_action_table_lookup(self, step: Step, action_data: Dict[str, Any]):
+        """处理 table_lookup Action：查表操作，映射到 table_lookup 工具。"""
+        table_name = action_data.get("table_name", "")
+        conditions = action_data.get("conditions", {})
+        target_column = action_data.get("target_column", "")
+        file_name = action_data.get("file_name", "")
+        inputs = {
+            "table_name": table_name,
+            "query_conditions": conditions if isinstance(conditions, dict) else {},
+            "target_column": target_column,
+        }
+        if file_name:
+            inputs["file_name"] = file_name
+        self._execute_tool_safe("table_lookup", inputs, step)
+
+    def _handle_action_search_knowledge(self, step: Step, action_data: Dict[str, Any]):
+        """处理 search_knowledge Action：知识检索，映射到语义检索工具。"""
+        query = action_data.get("query", "")
+        inputs = {"query": query}
+        self._execute_tool_safe("knowledge_search", inputs, step)
+
     def _handle_action_skip(self, step: Step, action_data: Dict[str, Any]):
         """处理 skip Action：跳过步骤。"""
         skip_reason = action_data.get('reason', 'No reason provided')
@@ -418,7 +1127,10 @@ class Dispatcher:
         
         # 构建 Prompt 并调用 LLM
         system_prompt = self._build_smart_execution_prompt(step, reason, context_str)
-        messages = [{"role": "system", "content": system_prompt}]
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": f"请完成步骤: {step.name or step.id}"},
+        ]
         
         try:
             response = self.llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
@@ -432,6 +1144,8 @@ class Dispatcher:
                 "return_value": self._handle_action_return_value,
                 "ask_user": self._handle_action_ask_user,
                 "execute_tool": self._handle_action_execute_tool,
+                "table_lookup": self._handle_action_table_lookup,
+                "search_knowledge": self._handle_action_search_knowledge,
                 "skip": self._handle_action_skip,
             }
             
@@ -578,8 +1292,10 @@ class Dispatcher:
             elif result_path == "result":
                 if isinstance(result, dict) and "result" in result:
                     val = result["result"]
+                elif isinstance(result, dict) and context_key in result:
+                    val = result[context_key]
                 else:
-                    val = result  # Fallback to whole result if no 'result' field
+                    val = result
             elif isinstance(result, dict) and result_path in result:
                 val = result[result_path]
             else:

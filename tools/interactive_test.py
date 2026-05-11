@@ -133,13 +133,14 @@ class InteractiveTestRunner:
             from ai_inference.llm_client import get_llm_client
             classifier = IntentClassifier(sops, llm_client=get_llm_client())
         
-        sop, args, reason = classifier.route(user_query)
+        route_result = classifier.route(user_query)
         
         return {
             "query": user_query,
-            "matched_sop": sop.id if sop else None,
-            "extracted_args": args,
-            "reason": reason
+            "matched_sop": route_result.sop.id if route_result.sop else None,
+            "extracted_args": route_result.args,
+            "reason": route_result.reason,
+            "confidence": route_result.confidence,
         }
     
     def run_memory_test(self, test_data: Dict[str, Any]) -> Dict[str, Any]:

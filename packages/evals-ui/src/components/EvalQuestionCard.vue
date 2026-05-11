@@ -6,7 +6,20 @@
     <div class="eval-question-card__header" @click="$emit('toggle', question.question_id)">
       <EvalLevelBadge :level="question.intent_level" />
       <span class="eval-question-card__id">{{ question.question_id }}</span>
-      <span class="eval-question-card__text">{{ question.question }}</span>
+      <span
+        v-if="!editing"
+        class="eval-question-card__text"
+        @dblclick.stop="startEditing"
+      >{{ question.question }}</span>
+      <a-textarea
+        v-else
+        v-model:value="editText"
+        class="eval-question-card__edit-input"
+        :auto-size="{ minRows: 1, maxRows: 4 }"
+        @blur="saveEdit"
+        @keydown.enter.ctrl="saveEdit"
+        @click.stop
+      />
       <a-tag v-if="statusTag" :color="statusTag.color" class="eval-question-card__status">
         {{ statusTag.label }}
       </a-tag>
@@ -27,8 +40,64 @@
       </span>
     </div>
     <div v-if="expanded && detail" class="eval-question-card__body">
-      <!-- 思考链路 -->
-      <div class="eval-chain">
+      <!-- L3: SOP 步骤左右对照 -->
+      <div v-if="isL3WithSopTrace" class="eval-sop-trace">
+        <div class="eval-sop-trace__title">SOP 执行追踪</div>
+        <div class="eval-sop-trace__layout">
+          <div class="eval-sop-trace__left">
+            <div class="eval-sop-trace__col-header">SOP 步骤</div>
+            <div
+              v-for="step in sopTraceSteps"
+              :key="step.step_id"
+              class="eval-sop-trace__step-row"
+            >
+              <span class="eval-sop-trace__step-index">{{ step.step_index }}</span>
+              <span class="eval-sop-trace__step-name">{{ step.step_name }}</span>
+              <span v-if="step.description" class="eval-sop-trace__step-desc">{{ step.description }}</span>
+            </div>
+          </div>
+          <div class="eval-sop-trace__right">
+            <div class="eval-sop-trace__col-header">执行情况</div>
+            <div
+              v-for="step in sopTraceSteps"
+              :key="`exec-${step.step_id}`"
+              class="eval-sop-trace__exec-row"
+              :class="{
+                'eval-sop-trace__exec-row--success': step.status === 'success',
+                'eval-sop-trace__exec-row--error': step.status === 'error',
+                'eval-sop-trace__exec-row--pending': step.status === 'pending',
+              }"
+            >
+              <div class="eval-sop-trace__exec-status">
+                <span v-if="step.status === 'success'" class="eval-sop-trace__status-icon eval-sop-trace__status-icon--success">✓</span>
+                <span v-else-if="step.status === 'error'" class="eval-sop-trace__status-icon eval-sop-trace__status-icon--error">✗</span>
+                <span v-else-if="step.status === 'pending'" class="eval-sop-trace__status-icon eval-sop-trace__status-icon--pending">○</span>
+                <span v-else class="eval-sop-trace__status-icon">·</span>
+                <span class="eval-sop-trace__tool-name">{{ step.tool }}</span>
+                <a-tag v-if="step.duration" color="processing" class="eval-sop-trace__duration">
+                  {{ step.duration.toFixed(2) }}s
+                </a-tag>
+              </div>
+              <div v-if="step.outputs && Object.keys(step.outputs).length" class="eval-sop-trace__outputs">
+                <div
+                  v-for="(val, key) in step.outputs"
+                  :key="key"
+                  class="eval-sop-trace__output-item"
+                >
+                  <span class="eval-sop-trace__output-key">{{ key }}:</span>
+                  <span class="eval-sop-trace__output-val">{{ formatOutputVal(val) }}</span>
+                </div>
+              </div>
+              <div v-if="step.error" class="eval-sop-trace__error">
+                {{ step.error }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 非 L3 或无 sop_trace: 常规思考链路 -->
+      <div v-else class="eval-chain">
         <div class="eval-chain__title">分析链路</div>
         <div
           v-for="(step, idx) in thinkingChain"
@@ -225,6 +294,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { message } from 'ant-design-vue'
 import { RightOutlined } from '@ant-design/icons-vue'
 import EvalLevelBadge from './EvalLevelBadge.vue'
 import type { EvalQuestion, EvalRunDetail, SemanticEvalResult } from '../types/eval'
@@ -248,6 +318,19 @@ interface CitationItem {
   snippet?: unknown
 }
 
+interface SopTraceStep {
+  step_id: string
+  step_name: string
+  step_index: number
+  tool: string
+  description: string
+  inputs: Record<string, unknown>
+  outputs: Record<string, unknown> | null
+  duration: number
+  status: string
+  error: string | null
+}
+
 const props = defineProps<{
   question: EvalQuestion
   detail: EvalRunDetail | null
@@ -255,12 +338,47 @@ const props = defineProps<{
   evaluating: boolean
 }>()
 
-defineEmits<{
+const emit = defineEmits<{
   toggle: [questionId: string]
   evaluate: [questionId: string]
+  updated: []
 }>()
 
 const expandedSteps = ref<Set<number>>(new Set())
+const editing = ref(false)
+const editText = ref('')
+
+/** 双击进入编辑模式 */
+const startEditing = () => {
+  editText.value = props.question.question
+  editing.value = true
+}
+
+/** 保存编辑后的题目文本 */
+const saveEdit = async () => {
+  editing.value = false
+  const trimmed = editText.value.trim()
+  if (!trimmed || trimmed === props.question.question) return
+  try {
+    const resp = await fetch(
+      `/api/evals/datasets/${props.question.dataset_id}/questions/${props.question.question_id}`,
+      {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: trimmed }),
+      }
+    )
+    if (resp.ok) {
+      message.success('题目已保存')
+      emit('updated')
+    } else {
+      const errText = await resp.text().catch(() => '')
+      message.error(`保存失败: ${errText || resp.status}`)
+    }
+  } catch (e: any) {
+    message.error(`保存失败: ${e.message || e}`)
+  }
+}
 
 const toggleStep = (idx: number) => {
   const next = new Set(expandedSteps.value)
@@ -344,6 +462,27 @@ const semanticResult = computed<SemanticEvalResult | null>(() => {
 const stageTimings = computed<Record<string, number>>(() => {
   return (prediction.value?.stage_timings as Record<string, number>) || {}
 })
+
+/** 判断是否为 L3 且有 sop_trace 数据 */
+const isL3WithSopTrace = computed(() => {
+  if (props.question.intent_level !== 'L3') return false
+  const trace = prediction.value?.sop_trace
+  return Array.isArray(trace) && trace.length > 0
+})
+
+/** 获取 SOP 追踪步骤列表 */
+const sopTraceSteps = computed<SopTraceStep[]>(() => {
+  const trace = prediction.value?.sop_trace
+  if (!Array.isArray(trace)) return []
+  return trace as SopTraceStep[]
+})
+
+/** 格式化输出值，截断过长的内容 */
+const formatOutputVal = (val: unknown): string => {
+  if (val === null || val === undefined) return '—'
+  const str = typeof val === 'object' ? JSON.stringify(val, null, 2) : String(val)
+  return str.length > 200 ? str.slice(0, 200) + '…' : str
+}
 
 const thinkingChain = computed<ThinkingStep[]>(() => {
   const steps: ThinkingStep[] = []
@@ -440,6 +579,7 @@ const fusionSourceLabels: Record<string, string> = {
   toc_sparse: 'TOC-Sparse',
 }
 
+/** 格式化检索来源标签 */
 const formatFusionSources = (sources: string[]): string => {
   return sources.map(s => fusionSourceLabels[s] || s).join(' + ')
 }
@@ -461,6 +601,12 @@ const formatFusionSources = (sources: string[]): string => {
   &--expanded {
     border-color: @evals-primary;
     cursor: default;
+
+    .eval-question-card__text {
+      white-space: normal;
+      text-overflow: unset;
+      overflow: visible;
+    }
   }
 
   &__header {
@@ -483,6 +629,13 @@ const formatFusionSources = (sources: string[]): string => {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    cursor: text;
+  }
+
+  &__edit-input {
+    flex: 1;
+    font-size: 13px;
+    min-width: 0;
   }
 
   &__status {
@@ -574,6 +727,156 @@ const formatFusionSources = (sources: string[]): string => {
     background: var(--bg-tertiary);
     border-radius: 4px;
     margin-top: 4px;
+  }
+}
+
+.eval-sop-trace {
+  margin-top: 10px;
+
+  &__title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  }
+
+  &__layout {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__left,
+  &__right {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__col-header {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 4px;
+  }
+
+  &__step-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 6px 8px;
+    font-size: 12px;
+    border-bottom: 1px dashed var(--border-color);
+  }
+
+  &__step-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: @evals-primary;
+    color: var(--bg-secondary);
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  &__step-name {
+    font-weight: 500;
+    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  }
+
+  &__step-desc {
+    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    font-size: 11px;
+    margin-left: 4px;
+  }
+
+  &__exec-row {
+    padding: 6px 8px;
+    font-size: 12px;
+    border-bottom: 1px dashed var(--border-color);
+
+    &--success {
+      border-left: 2px solid var(--chat-success-color, #52c41a);
+    }
+
+    &--error {
+      border-left: 2px solid var(--chat-error-color);
+    }
+
+    &--pending {
+      border-left: 2px solid var(--text-secondary, rgba(0, 0, 0, 0.15));
+    }
+  }
+
+  &__exec-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__status-icon {
+    font-size: 12px;
+    font-weight: 700;
+
+    &--success {
+      color: var(--chat-success-color, #52c41a);
+    }
+
+    &--error {
+      color: var(--chat-error-color);
+    }
+
+    &--pending {
+      color: var(--text-secondary, rgba(0, 0, 0, 0.25));
+    }
+  }
+
+  &__tool-name {
+    color: @evals-primary;
+    font-size: 11px;
+  }
+
+  &__duration {
+    font-size: 11px;
+    line-height: 1;
+    padding: 0 4px;
+    border-radius: 2px;
+    margin-left: auto;
+  }
+
+  &__outputs {
+    margin-top: 4px;
+    padding: 4px 8px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+  }
+
+  &__output-item {
+    display: flex;
+    gap: 4px;
+    font-size: 11px;
+    padding: 2px 0;
+  }
+
+  &__output-key {
+    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    flex-shrink: 0;
+  }
+
+  &__output-val {
+    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    word-break: break-all;
+    max-height: 60px;
+    overflow-y: auto;
+  }
+
+  &__error {
+    margin-top: 4px;
+    color: var(--chat-error-color);
+    font-size: 11px;
   }
 }
 

@@ -38,6 +38,11 @@ COUNT_METRIC_CATALOG = {
 
 CLAUSE_ID_PATTERN = re.compile(r"(?:第\s*)?(\d+(?:\.\d+){1,4})\s*(?:条|款|节|章)?")
 
+STANDARD_CODE_PATTERN = re.compile(
+    r"(?:GB|GB/T|JGJ|JGJ/T|JTS|JTJ|JTG|JTG/T|JTSC|CJJ|CJJ/T|DL|DL/T|SL|SL/T|NB|NB/T|SY|SY/T|HJ|HJ/T|YB|YB/T|TB|TB/T|SH|SH/T|HG|HG/T|CECS|DB)\s*[/\-]?\s*\d+(?:\s*[-—–]\s*\d+)?",
+    re.IGNORECASE,
+)
+
 _DEFAULT_ENTITY_KEYWORDS = {
     "边坡": "边坡", "地基": "地基", "挡土墙": "挡土墙",
     "桩基": "桩基", "基坑": "基坑", "隧道": "隧道",
@@ -158,6 +163,8 @@ def link_schema(
     domain_kw = _get_domain_keywords()
 
     clause_id = extract_clause_id_from_query(query)
+    standard_code_match = STANDARD_CODE_PATTERN.search(query)
+    standard_code = standard_code_match.group(0) if standard_code_match else None
     entity_tags = extract_entity_tags_from_query(query, keywords=domain_kw["entity_tags"])
     conditions = extract_conditions_from_query(query, keywords=domain_kw["conditions"])
     exam_tags = extract_exam_tags_from_query(query, keywords=domain_kw["exam_tags"])
@@ -165,6 +172,8 @@ def link_schema(
     business_filters: Dict[str, object] = {}
     if clause_id:
         business_filters["clause_id"] = clause_id
+    if standard_code:
+        business_filters["standard_code"] = standard_code
     if entity_tags:
         business_filters["entity_tags"] = entity_tags
     if conditions:
@@ -183,6 +192,16 @@ def link_schema(
                 "filters": filters,
                 "business_filters": business_filters,
             }
+
+    if standard_code:
+        return {
+            "supported": True,
+            "metric": "standard_lookup",
+            "table_name": "canonical_documents",
+            "description": "按规范编号精确查找文档",
+            "filters": filters,
+            "business_filters": business_filters,
+        }
 
     if entity_tags or exam_tags or conditions or clause_id:
         return {

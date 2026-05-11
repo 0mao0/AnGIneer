@@ -1,6 +1,6 @@
 """评测器基类与注册表。"""
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 _EVALUATOR_REGISTRY: Dict[str, type] = {}
 
@@ -9,7 +9,7 @@ class BaseEvaluator(ABC):
     """评测器抽象基类。"""
 
     @abstractmethod
-    def run_prediction(self, question: Dict[str, Any]) -> Dict[str, Any]:
+    def run_prediction(self, question: Dict[str, Any], *, stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None) -> Dict[str, Any]:
         """对单题执行预测调用。"""
         ...
 

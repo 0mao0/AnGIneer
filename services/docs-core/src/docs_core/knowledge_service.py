@@ -543,7 +543,28 @@ class KnowledgeService:
         return ""
 
 
-knowledge_service = KnowledgeService()
+_knowledge_service: Optional["KnowledgeService"] = None
+
+
+def get_knowledge_service() -> "KnowledgeService":
+    """获取全局知识库服务实例（懒加载单例）。"""
+    global _knowledge_service
+    if _knowledge_service is None:
+        _knowledge_service = KnowledgeService()
+    return _knowledge_service
+
+
+class _KnowledgeServiceProxy:
+    """模块级懒加载代理，使 knowledge_service.xxx 自动触发 get_knowledge_service()。"""
+
+    def __getattr__(self, name):
+        return getattr(get_knowledge_service(), name)
+
+    def __bool__(self):
+        return True
+
+
+knowledge_service = _KnowledgeServiceProxy()
 
 
 __all__ = [
@@ -553,4 +574,5 @@ __all__ = [
     "ParseTask",
     "SCHEMA_VERSION",
     "knowledge_service",
+    "get_knowledge_service",
 ]

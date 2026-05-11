@@ -1,1 +1,5 @@
 export { default as SOPTree } from './SOPTree.vue'
+export { default as SOPFlowCanvas } from './SOPFlowCanvas.vue'
+export { default as SOPStepNode } from './SOPStepNode.vue'
+export { default as SOPStepEdge } from './SOPStepEdge.vue'
+export { default as SOPPropertyPanel } from './SOPPropertyPanel.vue'

@@ -1,16 +1,21 @@
 """评测套件编排 + 异步任务管理。"""
 import threading
 import time
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 from evals_core.runner import base as evaluator_base
 from evals_core.runner.retrieval_eval import RetrievalEvaluator
 from evals_core.runner.answer_eval import AnswerEvaluator
 from evals_core.runner.text2sql_eval import Text2SqlEvaluator
 from evals_core.runner.sop_eval import SopEvaluator
+from angineer_core.base_utils import is_fatal_exception
 from evals_core.storage import result_store
 
 PASSED_THRESHOLD = 0.8
+
+# 全局并发控制锁：确保同一时间只有一个评测任务在运行
+_eval_lock = threading.RLock()
+_current_run_id: Optional[str] = None
 
 
 def _build_evaluators() -> Dict[str, Any]:
@@ -30,11 +35,15 @@ def _determine_evaluator_names(question: Dict[str, Any]) -> List[str]:
         return ["text2sql"]
     retrieval_gold = question.get("retrieval_gold")
     answer_gold = question.get("answer_gold")
+    sop_gold = question.get("sop_gold")
+    intent_level = str(question.get("intent_level") or "")
     names = []
     if retrieval_gold:
         names.append("retrieval")
     if answer_gold:
         names.append("answer")
+    if sop_gold or intent_level == "L3":
+        names.append("sop")
     if not names:
         names.append("answer")
     return names
@@ -44,8 +53,9 @@ def _run_single_question(
     question: Dict[str, Any],
     evaluator_names: List[str],
     evaluators: Dict[str, Any],
+    stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
 ) -> Dict[str, Any]:
-    """执行单题评测，支持多评测器。"""
+    """执行单题评测，支持多评测器和阶段回调。"""
     all_scores: Dict[str, Any] = {}
     all_predictions: Dict[str, Any] = {}
     last_prediction: Dict[str, Any] = {}
@@ -55,7 +65,7 @@ def _run_single_question(
         return {"status": "error", "error": f"评测器 {primary_evaluator_name} 未注册", "scores": {}}
     start_time = time.time()
     try:
-        last_prediction = primary_evaluator.run_prediction(question)
+        last_prediction = primary_evaluator.run_prediction(question, stage_callback=stage_callback)
         if "error" in last_prediction:
             latency_ms = int((time.time() - start_time) * 1000)
             return {"status": "error", "error": last_prediction["error"], "scores": {}, "latency_ms": latency_ms}
@@ -162,7 +172,17 @@ def _run_suite_thread(
     run_id: str, dataset_id: str, questions: List[Dict[str, Any]],
     override_doc_ids: Optional[List[str]] = None,
 ) -> None:
-    """在线程中执行评测套件，含异常保护。"""
+    """在线程中执行评测套件，含异常保护和并发控制。"""
+    global _current_run_id
+    
+    # 获取并发控制锁（阻塞等待，直到其他评测任务完成）
+    acquired = _eval_lock.acquire(timeout=0.1)
+    if not acquired:
+        result_store.fail_run(run_id, "已有其他评测任务正在运行，请稍后再试")
+        return
+    
+    _current_run_id = run_id
+    
     try:
         evaluators = _build_evaluators()
         total = len(questions)
@@ -176,7 +196,14 @@ def _run_suite_thread(
                 "question_id": question_id,
                 "status": "running",
             })
-            result = _run_single_question(question, evaluator_names, evaluators)
+
+            def _stage_callback(partial_prediction: Dict[str, Any]) -> None:
+                """阶段回调：将中间结果增量写入数据库。"""
+                result_store.update_run_detail(run_id, question_id, {
+                    "prediction": partial_prediction,
+                })
+
+            result = _run_single_question(question, evaluator_names, evaluators, stage_callback=_stage_callback)
             result_store.update_run_detail(run_id, question_id, {
                 "status": result.get("status", "error"),
                 "quality": result.get("quality"),
@@ -198,16 +225,25 @@ def _run_suite_thread(
         summary = _compute_summary(enriched_details)
         result_store.complete_run(run_id, summary)
     except Exception as exc:
+        if is_fatal_exception(exc):
+            raise
         import traceback
         traceback.print_exc()
         result_store.fail_run(run_id, str(exc))
+    finally:
+        # 确保锁被释放
+        _current_run_id = None
+        _eval_lock.release()
 
 
 def start_eval_run(
     dataset_id: str, question_id: Optional[str] = None, save: bool = True,
     override_doc_ids: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
-    """启动评测运行。save=False 时同步执行单题评测，不入库，直接返回结果。"""
+    """启动评测运行（异步线程），立即返回 run_id，前端轮询获取进度。"""
+    if _current_run_id is not None:
+        raise ValueError(f"已有评测任务正在运行 (run_id: {_current_run_id})，请等待完成后再试")
+    
     all_questions = result_store.list_questions(dataset_id)
     if not all_questions:
         raise ValueError(f"测试集 {dataset_id} 没有题目")
@@ -217,28 +253,6 @@ def start_eval_run(
             raise ValueError(f"题目 {question_id} 不存在于测试集 {dataset_id}")
     else:
         questions = all_questions
-
-    if not save and question_id and len(questions) == 1:
-        question = questions[0]
-        if override_doc_ids is not None:
-            question = {**question, "doc_ids": override_doc_ids}
-        evaluators = _build_evaluators()
-        evaluator_names = _determine_evaluator_names(question)
-        result = _run_single_question(question, evaluator_names, evaluators)
-        return {
-            "status": "completed",
-            "details": [{
-                "question_id": question_id,
-                "status": result.get("status", "error"),
-                "quality": result.get("quality"),
-                "prediction": result.get("prediction"),
-                "scores": result.get("scores"),
-                "all_scores": result.get("all_scores"),
-                "all_predictions": result.get("all_predictions"),
-                "error": result.get("error"),
-                "latency_ms": result.get("latency_ms"),
-            }],
-        }
 
     run_data = result_store.create_run(dataset_id, len(questions))
     run_id = run_data["run_id"]

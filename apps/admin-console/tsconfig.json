@@ -19,7 +19,9 @@
     "paths": {
       "@/*": ["src/*"],
       "@angineer/ui-kit": ["../../packages/ui-kit/src"],
-      "@angineer/docs-ui": ["../../packages/docs-ui/src"]
+      "@angineer/docs-ui": ["../../packages/docs-ui/src"],
+      "@angineer/sop-ui": ["../../packages/sop-ui/src"],
+      "@angineer/evals-ui": ["../../packages/evals-ui/src"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "../shared/**/*.ts", "../shared/**/*.json"],

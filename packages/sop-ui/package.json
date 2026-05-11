@@ -27,7 +27,11 @@
     "vue": "^3.4.21"
   },
   "dependencies": {
+    "@angineer/docs-ui": "workspace:*",
     "@angineer/ui-kit": "workspace:*",
-    "@angineer/docs-ui": "workspace:*"
+    "@vue-flow/background": "^1.3.2",
+    "@vue-flow/controls": "^1.1.3",
+    "@vue-flow/core": "^1.48.2",
+    "@vue-flow/minimap": "^1.5.4"
   }
 }

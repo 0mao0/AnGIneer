@@ -24,6 +24,8 @@ classifiers = [
 ]
 dependencies = [
     "angineer-ai-inference",
+    "angineer-docs-core",
+    "angineer-sop-core",
     "pydantic>=2.0.0,<3.0.0",
     "python-dotenv>=1.0.0",
 ]

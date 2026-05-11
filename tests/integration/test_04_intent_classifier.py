@@ -107,7 +107,10 @@ class TestIntentClassifier(unittest.TestCase):
             print(f"  Query: {case['query']}")
             
             # 执行路由
-            sop, args, reason = self.classifier.route(case['query'], config_name="Qwen3-4B (Public)")
+            route_result = self.classifier.route(case['query'], config_name="Qwen3-4B (Public)")
+            sop = route_result.sop
+            args = route_result.args
+            reason = route_result.reason
             
             # 结果展示
             sop_id = sop.id if sop else "None"

@@ -9,9 +9,8 @@ import uuid
 import tempfile
 import threading
 import logging
-from datetime import datetime
 from typing import List, Dict, Any, Optional
-from fastapi import FastAPI, HTTPException, UploadFile, File as FastAPIFile, Form
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -54,6 +53,9 @@ app = FastAPI(title="AnGIneer API Bridge")
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request, exc):
+    from angineer_core.base_utils import is_fatal_exception
+    if is_fatal_exception(exc):
+        raise
     import traceback as _tb
     _tb.print_exc()
     logger.error(f"未处理异常: {exc}", exc_info=True)
@@ -78,9 +80,12 @@ app.include_router(knowledge_router, prefix="/api/knowledge", tags=["Knowledge"]
 app.include_router(preview_router, prefix="/api", tags=["Preview"])
 app.include_router(evals_router, prefix="/api/evals", tags=["Evals"])
 
-# Initialize SOP Loader
-SOP_DIR = os.path.join(ROOT_DIR, "data", "sops", "raw")
-sop_loader = SopLoader(SOP_DIR)
+from sop_routes import sop_router
+app.include_router(sop_router, prefix="/api/sops", tags=["SOPs"])
+
+# Initialize SOP Loader (传入 SOP 根目录，包含 json/ 和 raw/)
+SOP_BASE_DIR = os.path.join(ROOT_DIR, "data", "sops")
+sop_loader = SopLoader(SOP_BASE_DIR)
 
 # Enable CORS for Vue frontend
 app.add_middleware(
@@ -132,92 +137,38 @@ _SESSION_POOL: Dict[str, SessionEntry] = {}
 _SESSION_POOL_MAX_SIZE = 200
 _SESSION_POOL_TTL_SECONDS = 3600 * 2
 
+_SESSION_LOCK = threading.RLock()
 
-# 获取或创建会话池条目
+
 def _get_or_create_session(scene: str, session_id: Optional[str]) -> SessionEntry:
-    key = f"{scene}:{session_id or 'default'}"
-    entry = _SESSION_POOL.get(key)
-    if entry:
-        entry.last_active_at = time.time()
+    with _SESSION_LOCK:
+        key = f"{scene}:{session_id or 'default'}"
+        entry = _SESSION_POOL.get(key)
+        if entry:
+            entry.last_active_at = time.time()
+            return entry
+        if len(_SESSION_POOL) >= _SESSION_POOL_MAX_SIZE:
+            _evict_expired_sessions()
+        entry = SessionEntry(session_key=key, scene=scene, last_active_at=time.time())
+        _SESSION_POOL[key] = entry
         return entry
-    if len(_SESSION_POOL) >= _SESSION_POOL_MAX_SIZE:
-        _evict_expired_sessions()
-    entry = SessionEntry(session_key=key, scene=scene, last_active_at=time.time())
-    _SESSION_POOL[key] = entry
-    return entry
 
 
-# 清理过期会话
 def _evict_expired_sessions() -> None:
-    now = time.time()
-    expired = [k for k, v in _SESSION_POOL.items() if now - v.last_active_at > _SESSION_POOL_TTL_SECONDS]
-    for k in expired:
-        del _SESSION_POOL[k]
-    if len(_SESSION_POOL) >= _SESSION_POOL_MAX_SIZE:
-        sorted_keys = sorted(_SESSION_POOL, key=lambda k: _SESSION_POOL[k].last_active_at)
-        for k in sorted_keys[: len(sorted_keys) // 4]:
+    with _SESSION_LOCK:
+        now = time.time()
+        expired = [k for k, v in _SESSION_POOL.items() if now - v.last_active_at > _SESSION_POOL_TTL_SECONDS]
+        for k in expired:
             del _SESSION_POOL[k]
+        if len(_SESSION_POOL) >= _SESSION_POOL_MAX_SIZE:
+            sorted_keys = sorted(_SESSION_POOL, key=lambda k: _SESSION_POOL[k].last_active_at)
+            for k in sorted_keys[: len(sorted_keys) // 4]:
+                del _SESSION_POOL[k]
 
 class SOPUpdate(BaseModel):
     id: str
     description: str
     steps: List[Dict[str, Any]]
-
-class KnowledgeUpdate(BaseModel):
-    data: Dict[str, Any]
-
-class KnowledgeLibraryCreate(BaseModel):
-    library_id: str
-    name: str
-    description: Optional[str] = ''
-
-class KnowledgeNodeCreate(BaseModel):
-    title: str
-    node_type: str
-    library_id: Optional[str] = 'default'
-    parent_id: Optional[str] = None
-    visible: Optional[bool] = True
-    sort_order: Optional[int] = 0
-
-class KnowledgeNodeUpdate(BaseModel):
-    title: Optional[str] = None
-    parent_id: Optional[str] = None
-    visible: Optional[bool] = None
-    sort_order: Optional[int] = None
-
-
-class KnowledgeStrategyUpdate(BaseModel):
-    strategy: str
-
-class KnowledgeStructuredIndexRequest(BaseModel):
-    library_id: str
-    doc_id: str
-    strategy: Optional[str] = 'doc_blocks_graph_v1'
-
-class KnowledgeDocumentUpdate(BaseModel):
-    content: str
-
-
-class KnowledgeDocumentBlockUpdate(BaseModel):
-    plain_text: Optional[str] = None
-    math_content: Optional[str] = None
-    table_html: Optional[str] = None
-    title: Optional[str] = None
-    caption: Optional[str] = None
-    footnote: Optional[str] = None
-    parent_block_uid: Optional[str] = None
-    derived_title_level: Optional[int] = None
-    merge_into_block_uid: Optional[str] = None
-
-
-class KnowledgeDocumentBatchBlockOperation(BaseModel):
-    operation: str
-    blockIds: List[str]
-    targetBlockId: Optional[str] = None
-    splitSegments: Optional[List[Dict[str, Any]]] = None
-    levelDelta: Optional[int] = None
-    targetLevel: Optional[int] = None
-
 
 # AI Chat 对话相关模型
 class ChatMessage(BaseModel):
@@ -253,17 +204,6 @@ class ChatStreamEvent(BaseModel):
 # We'll use a simple global list to store execution logs for the frontend to poll
 execution_trace = []
 
-
-def _extract_structured_items_from_markdown(markdown_text: str) -> List[Dict[str, Any]]:
-    from docs_core.ingest.store.assets_file_store import extract_structured_items_from_markdown
-    return extract_structured_items_from_markdown(markdown_text)
-
-
-def _build_structured_index_for_doc(library_id: str, doc_id: str, strategy: str = 'doc_blocks_graph_v1') -> Dict[str, Any]:
-    if strategy != 'doc_blocks_graph_v1':
-        raise ValueError(f'Unsupported strategy: {strategy}')
-    from docs_core.ingest.store.assets_file_store import build_structured_index_for_doc
-    return build_structured_index_for_doc(library_id, doc_id, strategy)
 
 class TraceDispatcher(Dispatcher):
     """
@@ -339,28 +279,6 @@ class TraceDispatcher(Dispatcher):
 
 # --- API Endpoints ---
 
-@app.get("/sops")
-def list_sops():
-    # Load dynamically from MD files
-    sops = sop_loader.load_all()
-    # Convert to dict for JSON response
-    return [sop.dict() for sop in sops]
-
-@app.post("/sops")
-def save_sop(sop: SOPUpdate):
-    # For now, we only support reading MD files in this new mode.
-    # Editing MD files via this API would require mapping JSON structure back to MD text,
-    # which is complex. For now, we return error or disable.
-    raise HTTPException(status_code=501, detail="SOP modification via JSON API is not supported in Markdown-only mode.")
-
-@app.delete("/sops/{sop_id}")
-def delete_sop(sop_id: str):
-    fpath = os.path.join(SOP_DIR, f"{sop_id}.md")
-    if os.path.exists(fpath):
-        os.remove(fpath)
-        return {"status": "success"}
-    raise HTTPException(status_code=404, detail="SOP not found")
-
 @app.get("/knowledge")
 def list_knowledge():
     kb_data = {}
@@ -390,7 +308,10 @@ def chat(request: QueryRequest):
     sops = sop_loader.load_all()
     
     classifier = IntentClassifier(sops)
-    sop, args, reason = classifier.route(request.query, config_name=request.config, mode=request.mode or "instruct")
+    route_result = classifier.route(request.query, config_name=request.config, mode=request.mode or "instruct")
+    sop = route_result.sop
+    args = route_result.args
+    reason = route_result.reason
     
     if not sop:
         return {
@@ -405,7 +326,7 @@ def chat(request: QueryRequest):
     dispatcher.memory.add_chat_message("user", request.query)
     initial_context = {"user_query": request.query}
     initial_context.update(args)
-    final_context = dispatcher.run(sop, initial_context)
+    final_context = dispatcher.run_sop(sop, initial_context)
     
     return {
         "sop_id": sop.id,
@@ -427,7 +348,10 @@ def chat_stream(request: QueryRequest):
             sops = sop_loader.load_all()
 
             classifier = IntentClassifier(sops)
-            sop, args, reason = classifier.route(request.query, config_name=request.config, mode=request.mode or "instruct")
+            route_result = classifier.route(request.query, config_name=request.config, mode=request.mode or "instruct")
+            sop = route_result.sop
+            args = route_result.args
+            reason = route_result.reason
 
             if not sop:
                 yield json.dumps({"type": "nomatch"}) + "\n"
@@ -667,7 +591,10 @@ async def stream_test_02(query: str, config: str = None, mode: str = "instruct")
             def run_route():
                 return classifier.route(query, config_name=config, mode=mode)
                 
-            sop, args, reason = await loop.run_in_executor(None, run_route)
+            route_result = await loop.run_in_executor(None, run_route)
+            sop = route_result.sop
+            args = route_result.args
+            reason = route_result.reason
             duration = asyncio.get_event_loop().time() - start_time
             
             yield json.dumps({"step": "inference", "status": "done", "msg": f"推理完成 ({duration:.2f}s)"}) + "\n"
@@ -768,523 +695,17 @@ def run_test(test_id: str, config: str = None, query: str = None, mode: str = "i
     except Exception as e:
         return {"error": str(e)}
 
-# --- Knowledge Base API Endpoints ---
 
-@app.get("/api/knowledge/libraries")
-def list_knowledge_libraries():
-    """获取知识库列"""
-    from docs_core.knowledge_service import knowledge_service
-    return knowledge_service.list_libraries()
-
-@app.post("/api/knowledge/libraries")
-def create_knowledge_library(request: KnowledgeLibraryCreate):
-    """创建知识"""
-    from docs_core.knowledge_service import knowledge_service
-    library = knowledge_service.create_library(request.library_id, request.name, request.description)
-    return library
-
-@app.get("/api/knowledge/libraries/{library_id}")
-def get_knowledge_library(library_id: str):
-    """获取知识"""
-    from docs_core.knowledge_service import knowledge_service
-    library = knowledge_service.get_library(library_id)
-    if not library:
-        raise HTTPException(status_code=404, detail="Library not found")
-    return library
-
-@app.get("/api/knowledge/nodes")
-def list_knowledge_nodes(library_id: str = 'default', visible: bool = False):
-    """获取知识库节点列"""
-    from docs_core.knowledge_service import knowledge_service
-    return knowledge_service.list_nodes(library_id, visible)
-
-@app.post("/api/knowledge/nodes")
-def create_knowledge_node(request: KnowledgeNodeCreate):
-    """创建知识库节"""
-    from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-    parent_id = request.parent_id
-    # 统一处理根节点标
-    if not parent_id or parent_id in ['', 'undefined', '__root__', 'null', 'None']:
-        normalized_parent_id = None
-    else:
-        normalized_parent_id = parent_id
-
-    if normalized_parent_id:
-        parent_node = knowledge_service.get_node(normalized_parent_id)
-        if not parent_node:
-            raise HTTPException(status_code=400, detail=f"Parent node {normalized_parent_id} not found")
-        if parent_node.type != 'folder':
-            raise HTTPException(status_code=400, detail="Parent node must be a folder")
-    
-    node = KnowledgeNode(
-        id=f'node-{uuid.uuid4().hex[:8]}',
-        title=request.title,
-        type=request.node_type,
-        library_id=request.library_id or 'default',
-        parent_id=normalized_parent_id,
-        visible=request.visible if request.visible is not None else True,
-        sort_order=request.sort_order if request.sort_order is not None else 0
-    )
-    return knowledge_service.create_node(node)
-
-@app.patch("/api/knowledge/nodes/{node_id}")
-def update_knowledge_node(node_id: str, request: KnowledgeNodeUpdate):
-    """更新知识库节"""
-    from docs_core.knowledge_service import knowledge_service
-    import logging
-    
-    # 获取原始节点
-    current_node = knowledge_service.get_node(node_id)
-    if not current_node:
-        raise HTTPException(status_code=404, detail=f"Node {node_id} not found")
-        
-    kwargs = {}
-    if request.title is not None:
-        kwargs['title'] = request.title
-        
-    if 'parent_id' in request.model_fields_set:
-        parent_id = request.parent_id
-        # 统一处理根节点标
-        # 前端可能'', 'undefined', '__root__', 'null' 
-        if not parent_id or parent_id in ['', 'undefined', '__root__', 'null', 'None']:
-            normalized_parent_id = None
-        else:
-            normalized_parent_id = parent_id
-            
-        # 校验新父节点
-        if normalized_parent_id:
-            parent_node = knowledge_service.get_node(normalized_parent_id)
-            if not parent_node:
-                raise HTTPException(status_code=400, detail=f"Parent node {normalized_parent_id} not found")
-            if parent_node.type != 'folder':
-                raise HTTPException(status_code=400, detail="Parent node must be a folder")
-            if normalized_parent_id == node_id:
-                raise HTTPException(status_code=400, detail="Node cannot be its own parent")
-                
-            # 循环移动校验
-            parent_map = {node.id: node.parent_id for node in knowledge_service.nodes}
-            curr = normalized_parent_id
-            visited = {node_id}
-            while curr:
-                if curr in visited:
-                    raise HTTPException(status_code=400, detail="Cannot move node into its own descendant (circular move)")
-                visited.add(curr)
-                curr = parent_map.get(curr)
-        
-        kwargs['parent_id'] = normalized_parent_id
-        
-    if request.visible is not None:
-        kwargs['visible'] = request.visible
-        
-    if request.sort_order is not None:
-        kwargs['sort_order'] = max(0, int(request.sort_order))
-        
-    try:
-        node = knowledge_service.update_node(node_id, **kwargs)
-        return node
-    except Exception as e:
-        logging.error(f"Failed to update node {node_id}: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Database update failed: {str(e)}")
-
-@app.get("/api/knowledge/nodes/{node_id}/delete-preview")
-def get_knowledge_node_delete_preview(node_id: str):
-    """获取删除节点前的影响范围预览"""
-    from docs_core.knowledge_service import knowledge_service
-    preview = knowledge_service.get_delete_preview(node_id)
-    if not preview:
-        raise HTTPException(status_code=404, detail="Node not found")
-    return preview
-
-@app.delete("/api/knowledge/nodes/{node_id}")
-def delete_knowledge_node(node_id: str):
-    """删除知识库节"""
-    from docs_core.knowledge_service import knowledge_service
-    success = knowledge_service.delete_node(node_id)
-    if not success:
-        raise HTTPException(status_code=404, detail="Node not found")
-    return {"status": "success"}
-
-@app.post("/api/knowledge/upload")
-async def upload_document(
-    library_id: str = Form(...),
-    file: UploadFile = FastAPIFile(...),
-    parent_id: Optional[str] = Form(None)
-):
-    """上传文档到知识库"""
-    from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-    from docs_core.ingest.store.assets_file_store import file_storage
-    from datetime import datetime
-    allowed_extensions = {'.pdf', '.doc', '.docx', '.md'}
-    ext = os.path.splitext(file.filename or '')[1].lower()
-    if ext not in allowed_extensions:
-        raise HTTPException(status_code=400, detail=f"Unsupported file type: {ext or 'unknown'}")
-    if parent_id:
-        parent_node = knowledge_service.get_node(parent_id)
-        if not parent_node:
-            raise HTTPException(status_code=400, detail="Parent node not found")
-        if parent_node.type != 'folder':
-            raise HTTPException(status_code=400, detail="Parent node must be folder")
-
-    # 生成文档ID
-    doc_id = f"doc-{uuid.uuid4().hex[:8]}"
-
-    # 读取文件内容
-    content = await file.read()
-
-    # 保存源文
-    file_path = file_storage.save_source_file(library_id, doc_id, content, file.filename)
-
-    # 创建知识库节
-    node = KnowledgeNode(
-        id=doc_id,
-        title=file.filename,
-        type='document',
-        parent_id=parent_id,
-        visible=True,
-        library_id=library_id,
-        file_path=file_path,
-        status='pending',
-        parse_progress=0,
-        parse_stage='pending',
-        parse_error=None,
-        parse_task_id=None,
-        created_at=datetime.now(),
-        updated_at=datetime.now()
-    )
-    knowledge_service.create_node(node)
-
-    return {
-        "status": "success",
-        "doc_id": doc_id,
-        "file_path": file_path,
-        "storage": file_storage.get_doc_manifest(library_id, doc_id),
-        "node": node
-    }
-
-
-@app.get("/api/knowledge/parse/tasks/{task_id}")
-def get_parse_task(task_id: str):
-    """获取解析任务状"""
-    from docs_core.knowledge_service import knowledge_service
-    task = knowledge_service.get_parse_task(task_id)
-    if not task:
-        raise HTTPException(status_code=404, detail="Task not found")
-    return task
-
-
-@app.get("/api/knowledge/strategies/{doc_id}")
-def get_doc_strategy(doc_id: str):
-    """获取文档策略"""
-    from docs_core.knowledge_service import knowledge_service
-    node = knowledge_service.get_node(doc_id)
-    if not node:
-        raise HTTPException(status_code=404, detail="Document not found")
-    return {"doc_id": doc_id, "strategy": node.strategy}
-
-
-@app.put("/api/knowledge/strategies/{doc_id}")
-def set_doc_strategy(doc_id: str, request: KnowledgeStrategyUpdate):
-    """设置文档策略"""
-    from docs_core.knowledge_service import knowledge_service
-    strategy = request.strategy
-    allowed = {'doc_blocks_graph_v1'}
-    if strategy not in allowed:
-        raise HTTPException(status_code=400, detail="Unsupported strategy")
-    node = knowledge_service.update_node(doc_id, strategy=strategy)
-    if not node:
-        raise HTTPException(status_code=404, detail="Document not found")
-    return {"doc_id": doc_id, "strategy": strategy}
-
-
-@app.post("/api/knowledge/structured/index")
-def build_structured_index(request: KnowledgeStructuredIndexRequest):
-    """构建结构化索"""
-    from docs_core.knowledge_service import knowledge_service
-    doc_id = request.doc_id
-    library_id = request.library_id
-    strategy = request.strategy or 'doc_blocks_graph_v1'
-    node = knowledge_service.get_node(doc_id)
-    if not node:
-        raise HTTPException(status_code=404, detail="Document not found")
-    allowed = {'doc_blocks_graph_v1'}
-    if strategy not in allowed:
-        raise HTTPException(status_code=400, detail="Unsupported strategy")
-    try:
-        result = _build_structured_index_for_doc(library_id, doc_id, strategy)
-        knowledge_service.update_node(
-            doc_id,
-            strategy=strategy,
-            parse_stage='structured_indexed',
-            parse_error=None
-        )
-        return {"status": "success", "doc_id": doc_id, "strategy": strategy, **result}
-    except Exception as error:
-        knowledge_service.update_node(doc_id, parse_error=str(error))
-        raise HTTPException(status_code=500, detail=f"Build structured index failed: {str(error)}")
-
-
-@app.get("/api/knowledge/structured/{doc_id}")
-def get_structured_index(
-    doc_id: str,
-    strategy: str = 'doc_blocks_graph_v1',
-    item_type: Optional[str] = None,
-    keyword: Optional[str] = None,
-    limit: int = 200
-):
-    """查询结构化索"""
-    from docs_core.knowledge_service import knowledge_service
-    node = knowledge_service.get_node(doc_id)
-    if not node:
-        raise HTTPException(status_code=404, detail="Document not found")
-    items = knowledge_service.list_document_segments(
-        doc_id=doc_id,
-        strategy=strategy,
-        item_type=item_type,
-        keyword=keyword,
-        limit=limit
-    )
-    return {"doc_id": doc_id, "strategy": strategy, "count": len(items), "items": items}
-
-
-@app.get("/api/knowledge/structured/stats/{doc_id}")
-def get_structured_stats(doc_id: str):
-    """获取结构化索引统"""
-    from docs_core.knowledge_service import knowledge_service
-    node = knowledge_service.get_node(doc_id)
-    if not node:
-        raise HTTPException(status_code=404, detail="Document not found")
-    return knowledge_service.get_document_segment_stats(doc_id)
-
-
-@app.get("/api/knowledge/document/{library_id}/{doc_id}")
-def get_document(library_id: str, doc_id: str, include_graph: bool = False):
-    """获取文档内容，默认不返回 graph_data 以提升大文档加载速度"""
-    from docs_core.ingest.store.assets_file_store import file_storage
-    from docs_core.ingest.store.assets_file_store import get_doc_blocks_graph
-
-    content = file_storage.read_markdown(library_id, doc_id)
-    if content is None:
-        raise HTTPException(status_code=404, detail="Document not found")
-    
-    storage_manifest = file_storage.get_doc_manifest(library_id, doc_id)
-
-    result: Dict[str, Any] = {
-        "content": content,
-        "storage": storage_manifest,
-    }
-
-    if include_graph:
-        graph_data = get_doc_blocks_graph(library_id, doc_id)
-        result["graph_data"] = graph_data
-
-    return result
-
-@app.put("/api/knowledge/document/{library_id}/{doc_id}")
-def update_document(library_id: str, doc_id: str, request: KnowledgeDocumentUpdate):
-    """更新文档内容"""
-    from docs_core.knowledge_service import knowledge_service
-    from docs_core.ingest.store.assets_file_store import file_storage
-    content = request.content
-    saved_path = file_storage.save_edited_markdown(library_id, doc_id, content)
-    knowledge_service.update_node(doc_id, updated_at=datetime.now())
-    return {"status": "success", "path": saved_path, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
-
-
-@app.patch("/api/knowledge/document/{library_id}/{doc_id}/blocks/{block_id}")
-def update_document_block(
-    library_id: str,
-    doc_id: str,
-    block_id: str,
-    request: KnowledgeDocumentBlockUpdate,
-):
-    """更新文档结构节点内容"""
-    from docs_core.ingest.store.assets_file_store import update_doc_block_content
-
-    changes = request.dict(exclude_unset=True)
-    try:
-        result = update_doc_block_content(library_id, doc_id, block_id, changes)
-    except FileNotFoundError as exc:
-        raise HTTPException(status_code=404, detail=str(exc)) from exc
-    except KeyError as exc:
-        raise HTTPException(status_code=404, detail=str(exc)) from exc
-    except ValueError as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
-
-    return {
-        "status": "success",
-        "doc_id": doc_id,
-        "block_id": result["block_id"],
-        "updated_fields": result["updated_fields"],
-        "node": result["node"],
-        "storage": result["graph_path"],
-    }
-
-
-@app.post("/api/knowledge/document/{library_id}/{doc_id}/blocks/batch")
-def batch_operate_document_blocks(
-    library_id: str,
-    doc_id: str,
-    request: KnowledgeDocumentBatchBlockOperation,
-):
-    """批量执行文档结构节点操作"""
-    from docs_core.ingest.store.assets_file_store import batch_operate_doc_blocks
-
-    payload = request.dict(exclude_unset=True)
-    try:
-        result = batch_operate_doc_blocks(library_id, doc_id, request.operation, payload)
-    except FileNotFoundError as exc:
-        raise HTTPException(status_code=404, detail=str(exc)) from exc
-    except KeyError as exc:
-        raise HTTPException(status_code=404, detail=str(exc)) from exc
-    except ValueError as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
-
-    return {
-        "status": "success",
-        "doc_id": doc_id,
-        "operation": result["operation"],
-        "block_ids": result["block_ids"],
-        "target_block_id": result.get("target_block_id"),
-        "created_block_ids": result.get("created_block_ids") or [],
-        "removed_block_ids": result.get("removed_block_ids") or [],
-        "saved_segments": result["saved_segments"],
-        "storage": result["graph_path"],
-    }
-
-
-@app.post("/api/knowledge/document/{library_id}/{doc_id}/blocks/undo")
-def undo_document_block_operation(library_id: str, doc_id: str):
-    """撤回当前文档最近一次可回滚的结构操"""
-    from docs_core.ingest.store.assets_file_store import undo_last_doc_block_operation
-
-    try:
-        result = undo_last_doc_block_operation(library_id, doc_id)
-    except FileNotFoundError as exc:
-        raise HTTPException(status_code=404, detail=str(exc)) from exc
-    except ValueError as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
-
-    return {
-        "status": "success",
-        "doc_id": doc_id,
-        "restored_block_ids": result["restored_block_ids"],
-        "saved_segments": result["saved_segments"],
-        "storage": result["graph_path"],
-    }
-
-
-@app.post("/api/knowledge/document/{library_id}/{doc_id}/blocks/merge/undo")
-def undo_document_block_merge(library_id: str, doc_id: str):
-    """兼容旧路由，撤回当前文档最近一次结构操"""
-    return undo_document_block_operation(library_id, doc_id)
-
-
-@app.get("/api/knowledge/storage/{library_id}/{doc_id}")
-def get_document_storage(library_id: str, doc_id: str):
-    """获取文档存储布局"""
-    from docs_core.knowledge_service import knowledge_service
-    from docs_core.ingest.store.assets_file_store import file_storage
-    node = knowledge_service.get_node(doc_id)
-    if not node:
-        raise HTTPException(status_code=404, detail="Document not found")
-    return {"library_id": library_id, "doc_id": doc_id, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
 
 
 # 将意图分类结果映射为检索器可识别的任务类型
-def _map_intent_to_retriever_task(intent_result) -> str:
-    intent_level = str(getattr(intent_result, "intent_level", "") or "")
-    intent_type = str(getattr(intent_result, "intent_type", "") or "")
-    task_type = str(getattr(intent_result, "task_type", "") or "")
-
-    if intent_level == "L1":
-        if "locate" in intent_type.lower() or "locate" in task_type.lower():
-            return "locate_qa"
-        if "definition" in intent_type.lower() or "definition" in task_type.lower():
-            return "definition_qa"
-        return "definition_qa"
-
-    if intent_level == "L2":
-        if "table" in intent_type.lower() or "table" in task_type.lower():
-            return "table_qa"
-        return "content_qa"
-
-    return "content_qa"
-
-
-# 根据检索任务类型构建对应的 system prompt
-def _build_system_prompt(retriever_task_type: str) -> str:
-    base_prompt = "你是一个工程规范领域的专业助手。请根据以下检索结果回答用户问题。"
-
-    if retriever_task_type == "definition_qa":
-        return base_prompt + (
-            "\n\n规则：\n"
-            "1. 直接、完整地回答用户问题，给出定义或组成\n"
-            "2. 如果检索结果中包含与问题相关的内容，请基于相关内容给出准确回答\n"
-            '3. 引用具体来源（章节号），格式如"根据第X章..."\n'
-            "4. 如果检索结果完全不相关，才说明无法回答"
-        )
-
-    if retriever_task_type == "locate_qa":
-        return base_prompt + (
-            "\n\n规则：\n"
-            "1. 直接回答位置/设置要求，明确指出具体地点或条件\n"
-            '2. 引用具体来源（章节号），格式如"根据第X章..."\n'
-            "3. 如果检索结果中包含与问题相关的内容，请基于相关内容给出准确回答\n"
-            "4. 如果检索结果完全不相关，才说明无法回答"
-        )
-
-    return base_prompt + (
-        "\n\n规则：\n"
-        "1. 优先直接回答用户问题\n"
-        "2. 如果检索结果中包含与问题相关的内容，请基于相关内容给出回答\n"
-        "3. 如果检索结果完全不相关，才说明无法回答\n"
-        "4. 引用具体来源（文档名、章节号等）"
-    )
-
-
-# 从检索结果构建 citations 数组，供评测使用
-def _build_citations_from_retrieved(fused, doc_nodes) -> list:
-    doc_title_map = {node.id: node.title for node in doc_nodes}
-    citations = []
-    for item in fused[:5]:
-        if not item.text:
-            continue
-        doc_id = str(item.doc_id or "")
-        fusion_sources = item.metadata.get("fusion_sources", [])
-        if not fusion_sources:
-            source_kind = str(item.metadata.get("source_kind") or "")
-            fusion_sources = [source_kind] if source_kind else []
-        citations.append({
-            "target_id": str(item.item_id or ""),
-            "doc_id": doc_id,
-            "doc_title": doc_title_map.get(doc_id, ""),
-            "page_idx": int(item.metadata.get("page_idx", 0) or 0),
-            "section_path": str(item.metadata.get("section_path") or ""),
-            "snippet": str(item.text or "")[:200],
-            "score": float(item.rerank_score or item.score or 0.0),
-            "fusion_sources": fusion_sources,
-        })
-    return citations
-
-
 @app.post("/api/query")
 async def query(request: QueryRequest):
-    """统一查询入口：IntentClassifier → Dispatcher → docs-core/sop-core/LLM"""
-    import uuid as _uuid
-    from angineer_core.classifier import IntentClassifier
-    from angineer_core.base_contracts import IntentResult
-    from docs_core.knowledge_service import knowledge_service
-    from docs_core.query_protocols.contracts import (
-        KnowledgeQueryRequest,
-        SemanticRetrievalRequest,
-        SemanticRetrievalResponse,
-        SqlRetrievalRequest,
-        SqlRetrievalResponse,
-    )
+    """统一查询入口：委托 Dispatcher.dispatch() 执行完整链路。"""
+    from angineer_core.dispatcher import Dispatcher
 
     started_at = time.time()
-    query_id = f"q-{_uuid.uuid4().hex[:12]}"
-    stage_timings: Dict[str, float] = {}
+    query_id = f"q-{uuid.uuid4().hex[:12]}"
 
     try:
         session = _get_or_create_session(request.scene, request.session_id)
@@ -1293,195 +714,26 @@ async def query(request: QueryRequest):
         logger.error(f"会话创建失败: {e}")
         session = None
 
-    intent_result = IntentResult(intent_level="L1", service_mode="semantic_retrieval")
+    dispatcher = Dispatcher(
+        config_name=request.config,
+        mode=request.mode or "instruct",
+    )
+    result = dispatcher.dispatch(
+        query=request.query,
+        library_id=request.library_id,
+        doc_ids=request.doc_ids or [],
+        sop_loader=sop_loader,
+    )
 
-    _t0 = time.time()
-    try:
-        sops = []
-        classifier = IntentClassifier(sops)
-        intent_result = classifier.classify_intent(request.query)
-    except Exception as e:
-        logger.warning(f"意图分类失败，降级为L1: {e}")
-    stage_timings["intent"] = round(time.time() - _t0, 2)
-
-    try:
-        library_nodes = knowledge_service.list_nodes(request.library_id)
-        doc_nodes = [node for node in library_nodes if node.type == "document"]
-        if request.doc_ids:
-            requested = set(request.doc_ids)
-            doc_nodes = [node for node in doc_nodes if node.id in requested]
-    except Exception as e:
-        logger.error(f"知识库节点查询失败: {e}")
-        return {
-            "query_id": query_id,
-            "session_key": session.session_key if session else "",
-            "intent": intent_result.model_dump(mode="json"),
-            "answer": "抱歉，知识库服务暂时不可用，请稍后重试。",
-            "citations": [],
-            "retrieved_items": [],
-            "sql": None,
-            "fallback_used": False,
-            "latency_ms": int((time.time() - started_at) * 1000),
-        }
-
-    answer = ""
-    citations = []
-    retrieved_items = []
-    sql_payload = None
-    fallback_used = False
-    strategy_desc = ""
-    system_prompt = ""
-    retrieval_debug = {}
-
-    try:
-        if intent_result.service_mode == "sql_first":
-            try:
-                from docs_core.text2sql.schema_linker import link_schema
-                from docs_core.text2sql.sql_validator import validate_sql
-                from docs_core.text2sql.sql_executor import execute_sql
-
-                schema_result = link_schema(request.query, KnowledgeQueryRequest(
-                    query=request.query, library_id=request.library_id, doc_ids=request.doc_ids,
-                ), doc_nodes)
-                if schema_result.get("supported"):
-                    metric = schema_result.get("metric", "")
-                    table_name = schema_result["table_name"]
-                    business_filters = schema_result.get("business_filters", {})
-
-                    if metric == "conditional_lookup":
-                        sql = f"SELECT chunk_id, text, section_path, clause_id, entity_tags_json, exam_tags_json, conditions_json FROM {table_name} WHERE doc_id IN ({','.join(['?' for _ in doc_nodes])})"
-                        params = [node.id for node in doc_nodes]
-                        if "clause_id" in business_filters:
-                            sql += " AND clause_id = ?"
-                            params.append(business_filters["clause_id"])
-                        for tag_field, json_key in [("entity_tags", "entity_tags"), ("exam_tags", "exam_tags"), ("conditions", "conditions")]:
-                            if json_key in business_filters:
-                                for tag in business_filters[json_key]:
-                                    sql += f" AND {json_key}_json LIKE ?"
-                                    params.append(f'%{tag}%')
-                        sql += " LIMIT 10"
-                        is_valid, reason = validate_sql(sql)
-                        if is_valid:
-                            sql_result = execute_sql(sql, params)
-                            if sql_result and sql_result.get("row_count", 0) > 0:
-                                context_parts = []
-                                for row in sql_result["rows"][:5]:
-                                    section = row.get("section_path", "")
-                                    text = row.get("text", "")
-                                    clause = row.get("clause_id", "")
-                                    prefix = f"[{section}]" if section else ""
-                                    if clause:
-                                        prefix += f" 第{clause}条"
-                                    context_parts.append(f"{prefix}: {text}" if prefix else text)
-                                from ai_inference.llm_client import get_llm_client
-                                llm = get_llm_client()
-                                answer = llm.chat([
-                                    {"role": "system", "content": "你是一个工程规范领域的专业助手。请根据以下结构化检索结果回答用户问题。\n\n规则：\n1. 优先直接回答用户问题\n2. 引用具体来源（章节号、条款号等）\n3. 如果检索结果中包含与问题相关的内容，请基于相关内容给出回答\n4. 如果检索结果完全不相关，才说明无法回答"},
-                                    {"role": "user", "content": f"问题: {request.query}\n\n结构化检索结果:\n" + "\n---\n".join(context_parts)},
-                                ], mode="instruct")
-                                retrieved_items = sql_result["rows"]
-                    else:
-                        sql = f"SELECT * FROM {table_name} WHERE doc_id IN ({','.join(['?' for _ in doc_nodes])})"
-                        params = [node.id for node in doc_nodes]
-                        if "clause_id" in business_filters:
-                            sql += " AND clause_id = ?"
-                            params.append(business_filters["clause_id"])
-                        is_valid, reason = validate_sql(sql)
-                        if is_valid:
-                            sql_result = execute_sql(sql, params)
-                            if sql_result:
-                                answer = str(sql_result)
-            except Exception as e:
-                logger.warning(f"SQL 检索失败，回退语义检索: {e}")
-                fallback_used = True
-
-        if intent_result.service_mode == "semantic_retrieval" or fallback_used or not answer:
-            try:
-                from docs_core.retrieval.dense_retriever import dense_retriever
-                from docs_core.retrieval.sparse_retriever import sparse_retriever
-                from docs_core.retrieval.table_retriever import table_retriever
-                from docs_core.retrieval.hybrid_retriever import fuse_candidates
-
-                _t1 = time.time()
-                retriever_task_type = _map_intent_to_retriever_task(intent_result)
-                strategy_desc = "Dense(正文+公式) + Sparse(全文+图表+公式) + Table(表格) → Hybrid融合"
-
-                kq_request = KnowledgeQueryRequest(
-                    query=request.query,
-                    library_id=request.library_id,
-                    doc_ids=request.doc_ids,
-                    top_k=5,
-                )
-                dense_hits = dense_retriever.retrieve(kq_request, doc_nodes, retriever_task_type)
-                sparse_hits = sparse_retriever.retrieve(kq_request, doc_nodes, retriever_task_type)
-                table_hits = table_retriever.retrieve(kq_request, doc_nodes)
-                source_candidates = {
-                    "canonical_dense": dense_hits,
-                    "canonical_sparse": sparse_hits,
-                }
-                for item in table_hits:
-                    source_kind = str(item.metadata.get("source_kind") or "table_aware")
-                    source_candidates.setdefault(source_kind, []).append(item)
-                fused, retrieval_debug = fuse_candidates(source_candidates, task_type=retriever_task_type, top_k=5)
-                stage_timings["retrieval"] = round(time.time() - _t1, 2)
-                retrieved_items = [item.model_dump(mode="json") for item in fused]
-
-                if not answer and fused:
-                    context_parts = []
-                    for item in fused[:5]:
-                        if not item.text:
-                            continue
-                        section = str(item.metadata.get("section_path") or "")
-                        title = str(item.title or "")
-                        prefix = f"[{section}]" if section else (f"[{title}]" if title else "")
-                        context_parts.append(f"{prefix}\n{item.text}" if prefix else item.text)
-                    context_text = "\n---\n".join(context_parts)
-
-                    _t_prompt = time.time()
-                    system_prompt = _build_system_prompt(retriever_task_type)
-                    stage_timings["prompt"] = round(time.time() - _t_prompt, 2)
-                    full_prompt = f"{system_prompt}\n问题: {request.query}\n\n检索结果:\n{context_text}"
-                    stage_timings["prompt_tokens"] = len(full_prompt) // 2
-
-                    _t2 = time.time()
-                    from ai_inference.llm_client import get_llm_client
-                    llm = get_llm_client()
-                    answer = llm.chat([
-                        {"role": "system", "content": system_prompt},
-                        {"role": "user", "content": f"问题: {request.query}\n\n检索结果:\n{context_text}"},
-                    ], mode="instruct")
-                    stage_timings["llm"] = round(time.time() - _t2, 2)
-
-                citations = _build_citations_from_retrieved(fused, doc_nodes)
-            except Exception as e:
-                logger.error(f"语义检索失败: {e}")
-                if not answer:
-                    answer = "抱歉，检索服务暂时不可用，请稍后重试。"
-    except Exception as e:
-        logger.error(f"查询处理异常: {e}", exc_info=True)
-        if not answer:
-            answer = "抱歉，查询处理出现异常，请稍后重试。"
+    result["query_id"] = query_id
+    result["session_key"] = session.session_key if session else ""
 
     if session:
-        session.history.append({"role": "assistant", "content": answer or ""})
+        session.history.append({"role": "assistant", "content": result.get("answer", "")})
 
-    latency_ms = int((time.time() - started_at) * 1000)
+    result["latency_ms"] = int((time.time() - started_at) * 1000)
 
-    return {
-        "query_id": query_id,
-        "session_key": session.session_key if session else "",
-        "intent": intent_result.model_dump(mode="json"),
-        "answer": answer or "",
-        "citations": citations,
-        "retrieved_items": retrieved_items,
-        "sql": sql_payload,
-        "fallback_used": fallback_used,
-        "latency_ms": latency_ms,
-        "strategy": strategy_desc,
-        "system_prompt": system_prompt,
-        "retrieval_debug": retrieval_debug,
-        "stage_timings": stage_timings,
-    }
+    return result
 
 
 if __name__ == "__main__":

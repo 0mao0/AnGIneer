@@ -58,6 +58,12 @@ export function useEvalRun() {
         stopPolling()
         if (isFullRun.value) {
           lastRun.value = currentRun.value
+        } else {
+          for (const d of currentRun.value?.details || []) {
+            const next = new Set(evaluatingQuestionIds.value)
+            next.delete(d.question_id)
+            evaluatingQuestionIds.value = next
+          }
         }
       }
     }
@@ -103,7 +109,7 @@ export function useEvalRun() {
     }
   }
 
-  /** 对单道题目发起评测，同步执行，不入库，直接返回结果 */
+  /** 对单道题目发起评测，异步执行，通过轮询获取结果 */
   const evaluateQuestion = async (datasetId: string, questionId: string, docIds?: string[]) => {
     evaluatingQuestionIds.value = new Set(evaluatingQuestionIds.value).add(questionId)
     isFullRun.value = false
@@ -119,19 +125,17 @@ export function useEvalRun() {
         const errText = await resp.text().catch(() => '')
         throw new Error(errText || `评测失败 (${resp.status})`)
       }
-      const result = await resp.json()
-      if (result.details && result.details.length > 0) {
-        const detail = result.details[0] as EvalRunDetail
-        const map = new Map(runDetails.value)
-        map.set(questionId, detail)
-        runDetails.value = map
+      const runData = await resp.json()
+      if (runData.run_id) {
+        startPolling(runData.run_id)
       } else {
-        throw new Error('评测未返回结果')
+        throw new Error('评测未返回 run_id')
       }
-    } finally {
+    } catch (e) {
       const next = new Set(evaluatingQuestionIds.value)
       next.delete(questionId)
       evaluatingQuestionIds.value = next
+      throw e
     }
   }
 

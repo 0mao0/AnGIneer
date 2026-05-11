@@ -72,6 +72,7 @@
             :doc-flat-list="docFlatList"
             @evaluate="onEvaluateQuestion"
             @update:selected-doc-ids="onSelectedDocIdsChange"
+            @question-updated="onQuestionUpdated"
           />
           <a-empty v-else description="请从左侧选择测试集" class="center-empty" />
         </Panel>
@@ -208,6 +209,7 @@ import type { EvalTreeNode } from '@angineer/evals-ui'
 import type { EvalDataset, EvalQuestion } from '@angineer/evals-ui'
 import FolderModal from './components/FolderModal.vue'
 import { knowledgeApi } from '../api/knowledge'
+import { evalsApi } from '../api/evals'
 
 const { appClass } = useTheme()
 const { modal } = App.useApp()
@@ -393,6 +395,13 @@ const onSelectedDocIdsChange = (docIds: string[]) => {
   selectedDocIds.value = docIds
 }
 
+/** 题目文本编辑后刷新列表 */
+const onQuestionUpdated = async () => {
+  if (selectedDatasetId.value) {
+    await fetchQuestions(selectedDatasetId.value)
+  }
+}
+
 const onStartRun = async () => {
   if (!selectedDatasetId.value) return
   try {
@@ -541,11 +550,8 @@ const onDatasetView = async (node: EvalTreeNode) => {
   detailVisible.value = true
 
   try {
-    const resp = await fetch(`/api/evals/datasets/${key}/questions`)
-    if (resp.ok) {
-      const data = await resp.json()
-      detailQuestions.value = data.questions || []
-    }
+    const data = await evalsApi.getQuestions(key)
+    detailQuestions.value = (data as any)?.questions || []
   } catch {
     detailQuestions.value = []
   }

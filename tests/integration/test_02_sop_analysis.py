@@ -225,7 +225,10 @@ class TestSopAnalysis(unittest.TestCase):
             print(f"  Query: {case['query']}")
 
             # 路由分类：根据用户查询匹配最合适的SOP
-            sop, args, reason = classifier.route(case["query"], config_name="Qwen3-4B (Public)")
+            route_result = classifier.route(case["query"], config_name="Qwen3-4B (Public)")
+            sop = route_result.sop
+            args = route_result.args
+            reason = route_result.reason
             matched_sop = sop.id if sop else None
             expected_sop = case.get("expected_sop")
             if expected_sop and expected_sop != matched_sop:

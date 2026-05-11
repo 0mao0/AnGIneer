@@ -19,7 +19,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/experience',
     name: 'experience',
-    component: () => import('../views/PlaceholderPage.vue')
+    component: () => import('../views/ExperienceManage.vue')
   },
   {
     path: '/evals',

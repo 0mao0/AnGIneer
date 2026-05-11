@@ -263,6 +263,13 @@ class LLMClient:
         logger.error(f"[错误] (耗时: {duration:.2f}秒): {str(error)}")
         logger.error("=" * 50)
 
+    @staticmethod
+    def _normalize_base_url(base_url: str) -> str:
+        """规范化 base_url，移除多余的路径后缀。"""
+        if base_url.endswith("/chat/completions"):
+            base_url = base_url.replace("/chat/completions", "")
+        return base_url
+
     def _call_openai(
         self,
         config: LLMModelConfig,
@@ -271,9 +278,7 @@ class LLMClient:
         timeout_config: TimeoutConfig
     ) -> str:
         """调用 OpenAI 兼容的 API。"""
-        base_url = config.base_url
-        if base_url.endswith("/chat/completions"):
-            base_url = base_url.replace("/chat/completions", "")
+        base_url = self._normalize_base_url(config.base_url)
 
         client = OpenAI(
             api_key=config.api_key,
@@ -303,9 +308,7 @@ class LLMClient:
         timeout_config: TimeoutConfig
     ) -> Generator[str, None, None]:
         """调用 OpenAI 兼容的 API（流式输出）。"""
-        base_url = config.base_url
-        if base_url.endswith("/chat/completions"):
-            base_url = base_url.replace("/chat/completions", "")
+        base_url = self._normalize_base_url(config.base_url)
 
         client = OpenAI(
             api_key=config.api_key,
@@ -508,27 +511,35 @@ class LLMClient:
             logger.info(f"已重置熔断器: {config_name}")
 
 
-llm_client: Optional[LLMClient] = None
+class _LLMClientProxy:
+    """模块级懒加载代理，使 llm_client.xxx 自动触发 get_llm_client()。"""
+
+    def __getattr__(self, name):
+        return getattr(get_llm_client(), name)
+
+    def __bool__(self):
+        return True
+
+
+_llm_client_instance: Optional[LLMClient] = None
+llm_client: LLMClient = _LLMClientProxy()
 
 
 def get_llm_client() -> LLMClient:
-    """获取全局 LLM 客户端实例。"""
-    global llm_client
-    if llm_client is None:
-        llm_client = LLMClient()
-    return llm_client
+    """获取全局 LLM 客户端实例（懒加载单例）。"""
+    global _llm_client_instance
+    if _llm_client_instance is None:
+        _llm_client_instance = LLMClient()
+    return _llm_client_instance
 
 
 def set_llm_client(client: LLMClient):
     """设置全局 LLM 客户端实例。"""
-    global llm_client
-    llm_client = client
+    global _llm_client_instance
+    _llm_client_instance = client
 
 
 def reset_llm_client():
     """重置全局 LLM 客户端（主要用于测试）。"""
-    global llm_client
-    llm_client = None
-
-
-llm_client = get_llm_client()
+    global _llm_client_instance
+    _llm_client_instance = None

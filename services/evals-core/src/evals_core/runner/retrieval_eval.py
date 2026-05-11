@@ -1,12 +1,9 @@
-"""检索评测器。"""
+"""检索评测器，通过 query_engine 直接调用检索链路。"""
 import re
-from typing import Any, Dict, List
-
-import httpx
+from typing import Any, Callable, Dict, List, Optional
 
 from evals_core.runner.base import BaseEvaluator, register_evaluator
-
-API_BASE = "http://localhost:8789"
+from evals_core.runner._query_helper import run_eval_query
 
 
 def normalize_section_path(value: str) -> str:
@@ -52,27 +49,25 @@ def compute_section_mrr(predicted_paths: List[str], gold_paths: List[str]) -> fl
 
 
 class RetrievalEvaluator(BaseEvaluator):
-    """检索评测器，通过 /api/query 调用检索链路。"""
+    """检索评测器，通过 query_engine 直接调用检索链路。"""
 
-    def run_prediction(self, question: Dict[str, Any]) -> Dict[str, Any]:
-        """通过 /api/query 端点调用检索链路。"""
+    def run_prediction(self, question: Dict[str, Any], *, stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None) -> Dict[str, Any]:
+        """通过 query_engine 直接调用检索链路。"""
         question_id = str(question.get("question_id") or "")
         query = str(question.get("question") or "").strip()
         if not query:
             return {}
-        try:
-            with httpx.Client(timeout=180.0) as client:
-                resp = client.post(f"{API_BASE}/api/query", json={
-                    "query": query,
-                    "library_id": str(question.get("library_id") or "default"),
-                    "doc_ids": list(question.get("doc_ids") or []),
-                    "scene": "docs",
-                    "session_id": f"eval-{question_id}",
-                })
-                resp.raise_for_status()
-                data = resp.json()
-        except Exception as exc:
-            return {"error": str(exc)}
+
+        data = run_eval_query(
+            query=query,
+            library_id=str(question.get("library_id") or "default"),
+            doc_ids=list(question.get("doc_ids") or []),
+            session_id=f"eval-{question_id}",
+        )
+
+        if "error" in data:
+            return data
+
         retrieved_items = list(data.get("retrieved_items") or [])
         return {
             "retrieved_ids": [item.get("item_id", "") for item in retrieved_items if isinstance(item, dict)],

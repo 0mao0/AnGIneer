@@ -48,9 +48,10 @@ class SOP(BaseModel):
         return None
 
 
-IntentLevel = Literal["L1", "L2", "L3", "L4"]
+IntentLevel = Literal["L0", "L1", "L2", "L3", "L4"]
 
 ServiceMode = Literal[
+    "casual_chat",
     "semantic_retrieval",
     "sql_first",
     "standard_sop",
@@ -59,7 +60,7 @@ ServiceMode = Literal[
 
 
 class IntentResult(BaseModel):
-    """L1~L4 意图识别结果，由 IntentClassifier 输出。"""
+    """L0~L4 意图识别结果，由 IntentClassifier 输出。"""
     intent_level: IntentLevel = "L1"
     intent_type: str = ""
     parameters: Dict[str, Any] = Field(default_factory=dict)
@@ -109,3 +110,12 @@ class StepParseResponse(BaseModel):
 class ArgsExtractResponse(BaseModel):
     """参数提取响应结构。"""
     args: Dict[str, Any] = {}
+
+
+class RouteResult(BaseModel):
+    """SOP 路由结果，由 IntentClassifier.route() 输出。"""
+    sop: Optional[Any] = None
+    args: Dict[str, Any] = Field(default_factory=dict)
+    reason: Optional[str] = None
+    confidence: float = 0.0
+    candidates: List[Dict[str, Any]] = Field(default_factory=list)
