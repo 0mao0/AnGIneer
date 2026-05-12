@@ -201,8 +201,9 @@
 /**
  * 知识库管理页面 - 使用 KnowledgeChatPanel 组件进行 AI 对话
  */
-import { ref, computed, onMounted, onBeforeUnmount, watch, h } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch, h, nextTick } from 'vue'
 import { message, Modal } from 'ant-design-vue'
+import { useRoute } from 'vue-router'
 import {
   FolderOutlined,
   FolderAddOutlined,
@@ -229,6 +230,7 @@ import { knowledgeApi } from '@/api/knowledge'
 import { getWebDocumentUrl } from '../../../shared/ports'
 
 const { appClass } = useTheme()
+const route = useRoute()
 
 import FolderPreview from './components/FolderPreview.vue'
 import FolderModal from './components/FolderModal.vue'
@@ -371,6 +373,43 @@ const _batchOperateStructuredNodesWrapper = (payload: StructuredBatchOperationPa
 const _undoLastStructuredOperationWrapper = () => undoLastStructuredOperation(
   selectedNode.value, docParsedWorkspaceRef.value, loadDocContent, loadStructuredStats, _loadStructuredIndexWrapper
 )
+
+/**
+ * 根据路由 query 自动聚焦文档并定位到结构化块（用于 SOP/AI 引用跳转）。
+ */
+const focusFromRouteQuery = async () => {
+  const docId = String(route.query.doc_id || '').trim()
+  if (!docId) {
+    return
+  }
+
+  const targetId = String(route.query.target_id || '').trim()
+  const preferredPageRaw = route.query.page_idx
+  const preferredPageNumber = Number(preferredPageRaw)
+  const preferredPage = Number.isFinite(preferredPageNumber) && preferredPageNumber > 0
+    ? preferredPageNumber
+    : null
+
+  await loadNodes(docId)
+
+  if (selectedNode.value?.key === docId && !selectedNode.value.isFolder && selectedNode.value.status === 'completed') {
+    await loadGraphSummary(docId)
+    if (selectedNode.value.strategy) {
+      await _loadStructuredIndexWrapper()
+    }
+  }
+
+  if (!targetId) {
+    return
+  }
+
+  await nextTick()
+  await nextTick()
+  docParsedWorkspaceRef.value?.setActiveLinkedItem(targetId, {
+    preferredPage,
+    preferLastHighlight: true
+  })
+}
 
 // 加载节点
 const loadNodes = async (focusNodeKey?: string) => {
@@ -798,7 +837,7 @@ const onTreeDropRoot = async (dragNodeKey: string) => {
 }
 
 // 组件挂载时加载数据
-onMounted(() => {
+onMounted(async () => {
   loadStoredParseSettings()
   try {
     const saved = localStorage.getItem(PANEL_LAYOUT_STORAGE_KEY)
@@ -814,8 +853,23 @@ onMounted(() => {
     panelRatios.value = { left: 0.15, right: 0.25 }
   }
   void fetchLlmConfigs()
-  loadNodes()
+  const routeDocId = String(route.query.doc_id || '').trim()
+  if (routeDocId) {
+    await focusFromRouteQuery()
+  } else {
+    await loadNodes()
+  }
 })
+
+watch(
+  () => [route.query.doc_id, route.query.target_id, route.query.page_idx],
+  () => {
+    if (!String(route.query.doc_id || '').trim()) {
+      return
+    }
+    void focusFromRouteQuery()
+  }
+)
 
 watch(() => selectedNode.value?.key, () => {
   if (!selectedNode.value || selectedNode.value.isFolder) {

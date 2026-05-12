@@ -4,31 +4,34 @@ import { getApiClientConfig, registerDataUnwrapInterceptor } from '../../../shar
 
 const api = registerDataUnwrapInterceptor(axios.create(getApiClientConfig({ baseURL: '/api/evals' })))
 
+/** 将路径参数编码为 URL 安全的 segment，避免中文/空格/斜杠等导致请求路径解析异常。 */
+const encodePathSegment = (value: string): string => encodeURIComponent(value)
+
 export const evalsApi = {
   getDatasets: () => api.get('/datasets'),
 
-  getDataset: (datasetId: string) => api.get(`/datasets/${datasetId}`),
+  getDataset: (datasetId: string) => api.get(`/datasets/${encodePathSegment(datasetId)}`),
 
   createDataset: (payload: { title: string; category: string; description?: string }) =>
     api.post('/datasets', payload),
 
   deleteDataset: (datasetId: string) =>
-    api.delete(`/datasets/${datasetId}`),
+    api.delete(`/datasets/${encodePathSegment(datasetId)}`),
 
   getQuestions: (datasetId: string) =>
-    api.get(`/datasets/${datasetId}/questions`),
+    api.get(`/datasets/${encodePathSegment(datasetId)}/questions`),
 
   addQuestion: (datasetId: string, payload: any) =>
-    api.post(`/datasets/${datasetId}/questions`, payload),
+    api.post(`/datasets/${encodePathSegment(datasetId)}/questions`, payload),
 
   updateQuestion: (datasetId: string, questionId: string, payload: any) =>
-    api.put(`/datasets/${datasetId}/questions/${questionId}`, payload),
+    api.put(`/datasets/${encodePathSegment(datasetId)}/questions/${encodePathSegment(questionId)}`, payload),
 
   deleteQuestion: (datasetId: string, questionId: string) =>
-    api.delete(`/datasets/${datasetId}/questions/${questionId}`),
+    api.delete(`/datasets/${encodePathSegment(datasetId)}/questions/${encodePathSegment(questionId)}`),
 
   exportDataset: (datasetId: string) =>
-    api.get(`/datasets/${datasetId}/export`),
+    api.get(`/datasets/${encodePathSegment(datasetId)}/export`),
 
   importDataset: (file: File) => {
     const formData = new FormData()
@@ -41,7 +44,7 @@ export const evalsApi = {
   startRun: (datasetId: string) =>
     api.post('/runs', { dataset_id: datasetId }),
 
-  getRun: (runId: string) => api.get(`/runs/${runId}`),
+  getRun: (runId: string) => api.get(`/runs/${encodePathSegment(runId)}`),
 
   listRuns: (datasetId?: string) => {
     const params = datasetId ? { dataset_id: datasetId } : {}
@@ -57,13 +60,13 @@ export const evalsApi = {
     api.post('/folders', payload),
 
   updateFolder: (folderId: string, payload: { title?: string; parent_folder_id?: string; sort_order?: number }) =>
-    api.patch(`/folders/${folderId}`, payload),
+    api.patch(`/folders/${encodePathSegment(folderId)}`, payload),
 
   deleteFolder: (folderId: string) =>
-    api.delete(`/folders/${folderId}`),
+    api.delete(`/folders/${encodePathSegment(folderId)}`),
 
   moveDataset: (datasetId: string, payload: { folder_id: string; sort_order: number }) =>
-    api.patch(`/datasets/${datasetId}/move`, payload),
+    api.patch(`/datasets/${encodePathSegment(datasetId)}/move`, payload),
 }
 
 export default evalsApi

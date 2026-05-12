@@ -2,6 +2,16 @@
 import { ref } from 'vue'
 import type { EvalRun, EvalRunDetail } from '../types/eval'
 
+/** 将路径参数编码为 URL 安全的 segment，避免中文/空格/斜杠等导致请求路径解析异常。 */
+function encodePathSegment(value: string): string {
+  return encodeURIComponent(value)
+}
+
+/** 将 query 参数编码为 URL 安全的值。 */
+function encodeQueryValue(value: string): string {
+  return encodeURIComponent(value)
+}
+
 export function useEvalRun() {
   const currentRun = ref<EvalRun | null>(null)
   const lastRun = ref<EvalRun | null>(null)
@@ -36,7 +46,7 @@ export function useEvalRun() {
 
   /** 整体评测轮询时整体替换 runDetails；单题评测时仅合并对应题目 */
   const fetchRun = async (runId: string) => {
-    const resp = await fetch(`/api/evals/runs/${runId}`)
+    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}`)
     if (resp.ok) {
       currentRun.value = await resp.json()
       if (currentRun.value?.details) {
@@ -71,7 +81,7 @@ export function useEvalRun() {
 
   const fetchRuns = async (datasetId?: string) => {
     const url = datasetId
-      ? `/api/evals/runs?dataset_id=${datasetId}`
+      ? `/api/evals/runs?dataset_id=${encodeQueryValue(datasetId)}`
       : '/api/evals/runs'
     const resp = await fetch(url)
     if (resp.ok) {
@@ -88,7 +98,7 @@ export function useEvalRun() {
       const latest = finishedRuns.reduce((a, b) =>
         new Date(a.completed_at || a.started_at) > new Date(b.completed_at || b.started_at) ? a : b
       )
-      const resp = await fetch(`/api/evals/runs/${latest.run_id}`)
+      const resp = await fetch(`/api/evals/runs/${encodePathSegment(latest.run_id)}`)
       if (resp.ok) {
         lastRun.value = await resp.json()
         if (lastRun.value?.details) {

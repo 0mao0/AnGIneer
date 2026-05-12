@@ -15,6 +15,7 @@
     :show-system-messages="showSystemMessages"
     :context-tokens="contextTokens"
     :context-rounds="contextRounds"
+    :search-citations="searchInlineCitations"
     :render-message="renderAIChatMessage"
     :allow-image-upload="false"
     @send="handleSend"
@@ -36,8 +37,16 @@ import { onMounted, ref, computed } from 'vue'
 import BaseChat from './BaseChat.vue'
 import { useAIChat } from '../../composables/useAIChat'
 import { renderMarkdownToHtml } from '../../utils/markdown'
-import { llmApi } from '../../api/client'
-import type { AIChatMessage, AIChatCitation, BaseChatContextItem } from '../../types'
+import { llmApi, referenceApi } from '../../api/client'
+import type {
+  AIChatMessage,
+  AIChatCitation,
+  BaseChatContextItem,
+  BaseChatSendPayload,
+  InlineCitationCandidate,
+  InlineCitationSearchPayload
+} from '../../types'
+import { mapReferenceSearchCandidate } from '../../utils/citation'
 
 interface Props {
   defaultModel?: string
@@ -122,10 +131,13 @@ const fetchModels = async () => {
 }
 
 /** 处理用户发送消息 */
-const handleSend = async (message: string, model: string) => {
-  emit('send', message, model)
+const handleSend = async (payload: string | BaseChatSendPayload, model: string) => {
+  const normalizedPayload: BaseChatSendPayload = typeof payload === 'string'
+    ? { content: payload, citations: [] }
+    : payload
+  emit('send', normalizedPayload.content, model)
   try {
-    await sendMessage(message, model)
+    await sendMessage(normalizedPayload as any, model)
     const lastAssistantMessage = [...messages.value]
       .reverse()
       .find(item => item.role === 'assistant')
@@ -135,6 +147,18 @@ const handleSend = async (message: string, model: string) => {
   } catch (error) {
     emit('error', error instanceof Error ? error : new Error(String(error)))
   }
+}
+
+const searchInlineCitations = async (query: string): Promise<InlineCitationCandidate[]> => {
+  const payload: InlineCitationSearchPayload = {
+    library_id: props.libraryId,
+    query,
+    limit: 10,
+    types: ['content', 'table', 'formula', 'figure']
+  }
+  const response = await referenceApi.search(payload)
+  const items = Array.isArray(response?.items) ? response.items : []
+  return items.map((item: Record<string, any>) => mapReferenceSearchCandidate(item, payload))
 }
 
 /** 处理移除上下文标签 */

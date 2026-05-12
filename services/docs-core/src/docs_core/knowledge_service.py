@@ -1,6 +1,7 @@
 """知识库服务与仓储门面"""
 from datetime import datetime
 import logging
+import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -34,6 +35,110 @@ from docs_core.indexing import (
 
 SCHEMA_VERSION = "1.0.0"
 logger = logging.getLogger(__name__)
+
+
+REFERENCE_TARGET_TYPE_MAP = {
+    "text": "content",
+    "title": "content",
+    "heading": "content",
+    "paragraph": "content",
+    "list": "content",
+    "content": "content",
+    "table": "table",
+    "formula": "formula",
+    "equation": "formula",
+    "image": "figure",
+    "figure": "figure",
+}
+
+
+def _normalize_reference_text(value: str) -> str:
+    return (
+        str(value or "")
+        .replace("（", "(")
+        .replace("）", ")")
+        .replace("－", "-")
+        .replace("_", " ")
+        .strip()
+        .lower()
+    )
+
+
+def _resolve_reference_target_type(block_type: str) -> str:
+    return REFERENCE_TARGET_TYPE_MAP.get(str(block_type or "").strip().lower(), "content")
+
+
+def _extract_reference_identifier(value: str) -> str:
+    normalized = " ".join(str(value or "").split()).strip()
+    if not normalized:
+        return ""
+    patterns = [
+        r"(表\s*\d+(?:[.\-]\d+)*)",
+        r"(图\s*\d+(?:[.\-]\d+)*)",
+        r"(公式\s*\d+(?:[.\-]\d+)*)",
+        r"(式\s*\d+(?:[.\-]\d+)*)",
+        r"(第\s*\d+(?:\.\d+)*(?:章|节|条|款|项))",
+        r"^(\d+(?:\.\d+)*(?:\.\d+)*)",
+    ]
+    for pattern in patterns:
+        matched = re.search(pattern, normalized, flags=re.IGNORECASE)
+        if matched:
+            return matched.group(1).replace(" ", "")
+    return ""
+
+
+def _build_reference_label(section_path: str, content: str, target_type: str) -> str:
+    section_identifier = _extract_reference_identifier(section_path)
+    if section_identifier:
+        return section_identifier
+    content_identifier = _extract_reference_identifier(content)
+    if content_identifier:
+        return content_identifier
+    normalized_section = str(section_path or "").strip()
+    if normalized_section:
+        segments = [segment.strip() for segment in normalized_section.replace(">", "/").split("/") if segment.strip()]
+        if segments:
+            return segments[-1][:24]
+    fallback_map = {
+        "table": "表格条文",
+        "formula": "公式条文",
+        "figure": "图片条文",
+        "content": "正文条文",
+    }
+    return fallback_map.get(target_type, "知识条文")
+
+
+def _score_reference_candidate(
+    query: str,
+    section_path: str,
+    content: str,
+    *,
+    target_type: str,
+    current_doc_boost: bool,
+) -> float:
+    normalized_query = _normalize_reference_text(query)
+    normalized_section = _normalize_reference_text(section_path)
+    normalized_content = _normalize_reference_text(content)
+    score = 0.0
+    if not normalized_query:
+        return score
+    if normalized_query == normalized_section:
+        score += 24.0
+    elif normalized_query and normalized_query in normalized_section:
+        score += 18.0
+    if normalized_query and normalized_query in normalized_content:
+        score += 14.0
+    query_tokens = [token for token in normalized_query.replace("/", " ").split() if len(token) >= 2]
+    for token in query_tokens:
+        if token in normalized_section:
+            score += 4.0
+        if token in normalized_content:
+            score += 2.5
+    if target_type in {"table", "formula", "figure"}:
+        score += 1.5
+    if current_doc_boost:
+        score += 2.0
+    return score
 
 
 class KnowledgeNode(BaseModel):
@@ -534,6 +639,109 @@ class KnowledgeService:
     # 按 block_uid 列表批量查询富媒体字段。
     def get_blocks_rich_media(self, doc_id: str, block_uids: List[str]) -> Dict[str, Dict[str, Any]]:
         return self.index_store.get_blocks_rich_media(doc_id=doc_id, block_uids=block_uids)
+
+    # 搜索可供 @ 引用的知识候选。
+    def search_references(
+        self,
+        library_id: str,
+        query: str,
+        *,
+        limit: int = 10,
+        types: Optional[List[str]] = None,
+        current_doc_id: Optional[str] = None,
+    ) -> List[Dict[str, Any]]:
+        normalized_query = str(query or "").strip()
+        allowed_types = {
+            str(item or "").strip().lower()
+            for item in (types or ["content", "table", "formula", "figure"])
+            if str(item or "").strip()
+        }
+        keyword_candidates: List[Optional[str]] = []
+        if normalized_query:
+            keyword_candidates.append(normalized_query)
+            fallback_tokens = [
+                token for token in normalized_query.replace("/", " ").replace("-", " ").split()
+                if len(token) >= 2
+            ]
+            keyword_candidates.extend(token for token in fallback_tokens if token not in keyword_candidates)
+        else:
+            keyword_candidates.append(None)
+
+        nodes = [
+            node for node in self.list_nodes(library_id)
+            if node.type == "document"
+        ]
+        candidates: List[Dict[str, Any]] = []
+        for node in nodes:
+            blocks = []
+            for keyword in keyword_candidates:
+                blocks = self.list_canonical_blocks(
+                    doc_id=node.id,
+                    keyword=keyword or None,
+                    limit=max(limit * 6, 40),
+                )
+                if blocks:
+                    break
+            if not blocks:
+                continue
+            rich_media_map = self.get_blocks_rich_media(node.id, [block.block_id for block in blocks])
+            for block in blocks:
+                target_type = _resolve_reference_target_type(block.block_type)
+                if target_type not in allowed_types:
+                    continue
+                block_content = str(block.text or block.text_clean or "").strip()
+                score = _score_reference_candidate(
+                    normalized_query,
+                    block.section_path,
+                    block_content,
+                    target_type=target_type,
+                    current_doc_boost=bool(current_doc_id and current_doc_id == node.id),
+                )
+                if not normalized_query:
+                    score = 1.0 + (2.0 if current_doc_id and current_doc_id == node.id else 0.0)
+                if score <= 0:
+                    continue
+                rich_media = dict(rich_media_map.get(block.block_id, {}) or {})
+                source_file_name = self.get_doc_source_file_name(node.id)
+                if source_file_name and not rich_media.get("source_file_name"):
+                    rich_media["source_file_name"] = source_file_name
+                candidates.append({
+                    "target_id": block.block_id,
+                    "target_type": target_type,
+                    "library_id": library_id,
+                    "doc_id": node.id,
+                    "doc_title": node.title,
+                    "page_idx": int(block.page_idx or 0) + 1,
+                    "section_path": block.section_path or "",
+                    "label": _build_reference_label(block.section_path or "", block_content, target_type),
+                    "snippet": block_content[:240],
+                    "content": block_content,
+                    "content_type": target_type,
+                    "score": round(score, 3),
+                    "rich_media": rich_media,
+                    "source_version": SCHEMA_VERSION,
+                })
+        candidates.sort(
+            key=lambda item: (
+                -float(item.get("score", 0.0) or 0.0),
+                str(item.get("doc_title") or ""),
+                int(item.get("page_idx") or 0),
+            )
+        )
+        deduped: List[Dict[str, Any]] = []
+        seen = set()
+        for item in candidates:
+            key = (
+                str(item.get("target_id") or ""),
+                str(item.get("doc_id") or ""),
+            )
+            if key in seen:
+                continue
+            seen.add(key)
+            deduped.append(item)
+            if len(deduped) >= max(1, min(limit, 20)):
+                break
+        return deduped
 
     # 获取文档节点的源文件名。
     def get_doc_source_file_name(self, doc_id: str) -> str:

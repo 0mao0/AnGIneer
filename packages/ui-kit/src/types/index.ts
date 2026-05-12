@@ -21,8 +21,19 @@ export interface PanelProps {
 }
 
 export type {
+  CitationRichMediaOrderItem,
+  CitationRichMediaValue,
+  CitationReference,
+  CitationRange,
+  CitationBinding,
+  InlineCitationDraftValue,
+  InlineCitationCandidate,
+  InlineCitationSearchPayload
+} from './citation'
+export type {
   BaseChatMessageRole,
   BaseChatMessage,
+  BaseChatSendPayload,
   BaseChatCitation,
   CitationRichMedia,
   BaseChatContextItem,

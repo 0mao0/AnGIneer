@@ -43,4 +43,10 @@ export const queryApi = {
   query: (payload: any, options?: ApiPostOptions) => apiPost<any>('/api/query', payload, options),
 }
 
+/** 知识引用检索 API */
+export const referenceApi = {
+  /** 搜索知识引用候选 */
+  search: (payload: any, options?: ApiPostOptions) => apiPost<any>('/api/knowledge/references/search', payload, options),
+}
+
 export const apiClient = { get: apiGet, post: apiPost }

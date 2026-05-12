@@ -2,7 +2,7 @@
  * SOP 步骤自定义边组件，贝塞尔曲线带箭头，选中时高亮。
  */
 <template>
-  <BaseEdge :id="id" :style="edgeStyle" :path="path[0]" :marker-end="markerEnd" :label="data?.label" />
+  <BaseEdge :id="id" :style="edgeStyle" :path="path[0]" :marker-end="props.markerEnd" />
   <path
     :d="path[0]"
     fill="none"
@@ -36,11 +36,7 @@ const path = computed(() =>
 const edgeStyle = computed(() => ({
   stroke: hovered.value || props.selected
     ? 'var(--primary-color, #1890ff)'
-    : 'var(--border-color, #b8b8b8)',
-  strokeWidth: hovered.value || props.selected ? 2.5 : 1.5,
+    : 'var(--text-secondary, #667085)',
+  strokeWidth: hovered.value || props.selected ? 2.75 : 2,
 }))
-
-const markerEnd = computed(() => hovered.value || props.selected
-  ? 'url(#arrowhead-selected)'
-  : 'url(#arrowhead)')
 </script>

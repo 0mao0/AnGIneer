@@ -11,13 +11,19 @@ from typing import List, Dict, Any, Literal, Optional
 from pydantic import BaseModel, Field
 
 
+class InlineCitationDraftValue(BaseModel):
+    """结构化正文（支持内联引用的草稿值）。"""
+    content: str = ""
+    citations: List[Dict[str, Any]] = Field(default_factory=list)
+
+
 class Step(BaseModel):
     """定义 SOP 中的原子执行步骤。"""
     id: str
     name: Optional[str] = None
     name_zh: Optional[str] = None
     name_en: Optional[str] = None
-    description: Optional[str] = None
+    description: InlineCitationDraftValue = Field(default_factory=InlineCitationDraftValue)
     description_zh: Optional[str] = None
     description_en: Optional[str] = None
     tool: str

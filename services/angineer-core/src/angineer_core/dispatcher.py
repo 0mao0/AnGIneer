@@ -79,6 +79,7 @@ class Dispatcher:
         query: str,
         library_id: str = "default",
         doc_ids: Optional[List[str]] = None,
+        inline_citations: Optional[List[Dict[str, Any]]] = None,
         sop_loader=None,
     ) -> Dict[str, Any]:
         """
@@ -102,6 +103,7 @@ class Dispatcher:
         query_id = f"q-{uuid.uuid4().hex[:12]}"
         stage_timings: Dict[str, float] = {}
         doc_ids = doc_ids or []
+        inline_citations = inline_citations or []
 
         # --- 1. 意图分类 ---
         intent_result = IntentResult(
@@ -186,7 +188,7 @@ class Dispatcher:
                 or not answer
             ):
                 answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings = (
-                    self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result)
+                    self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations)
                 )
                 stage_timings.update(ret_timings)
 
@@ -213,6 +215,7 @@ class Dispatcher:
             "system_prompt": system_prompt,
             "retrieval_debug": retrieval_debug,
             "stage_timings": stage_timings,
+            "inline_citation_count": len(inline_citations),
             "sop_trace": sop_trace,
         }
 
@@ -501,6 +504,7 @@ class Dispatcher:
         library_id: str,
         doc_ids: List[str],
         intent_result: IntentResult,
+        inline_citations: Optional[List[Dict[str, Any]]] = None,
     ) -> Tuple[str, list, list, str, str, Dict, Dict[str, float]]:
         """L1/L2回退/L3回退：语义检索路径。"""
         from docs_core.query_protocols.contracts import KnowledgeQueryRequest
@@ -573,11 +577,17 @@ class Dispatcher:
                         f"{prefix}\n{item.text}" if prefix else item.text
                     )
                 context_text = "\n---\n".join(context_parts)
+                explicit_evidence_text = self._build_inline_citation_context(inline_citations or [])
+                user_prompt_content = (
+                    f"问题: {query}\n\n显式引用证据:\n{explicit_evidence_text}\n\n检索结果:\n{context_text}"
+                    if explicit_evidence_text
+                    else f"问题: {query}\n\n检索结果:\n{context_text}"
+                )
 
                 _t_prompt = time.time()
                 system_prompt = self._build_system_prompt(retriever_task_type)
                 full_prompt = (
-                    f"{system_prompt}\n问题: {query}\n\n检索结果:\n{context_text}"
+                    f"{system_prompt}\n{user_prompt_content}"
                 )
                 timings["prompt_tokens"] = len(full_prompt) // 2
                 timings["prompt"] = round(time.time() - _t_prompt, 2)
@@ -587,12 +597,7 @@ class Dispatcher:
                 answer = llm.chat(
                     [
                         {"role": "system", "content": system_prompt},
-                        {
-                            "role": "user",
-                            "content": (
-                                f"问题: {query}\n\n检索结果:\n{context_text}"
-                            ),
-                        },
+                        {"role": "user", "content": user_prompt_content},
                     ],
                     mode="instruct",
                 )
@@ -605,6 +610,45 @@ class Dispatcher:
                 answer = "抱歉，检索服务暂时不可用，请稍后重试。"
 
         return answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, timings
+
+    @staticmethod
+    def _build_inline_citation_context(inline_citations: List[Dict[str, Any]]) -> str:
+        """把前端显式确认的引用对象转成高优先级证据文本。"""
+        evidence_blocks: List[str] = []
+        for item in inline_citations[:5]:
+            reference = item.get("reference") if isinstance(item, dict) else {}
+            if not isinstance(reference, dict):
+                reference = {}
+            label = str(item.get("label") or reference.get("label") or "").strip()
+            doc_title = str(reference.get("docTitle") or reference.get("doc_title") or "").strip()
+            section_path = str(reference.get("sectionPath") or reference.get("section_path") or "").strip()
+            page_idx = reference.get("pageIdx", reference.get("page_idx", ""))
+            content = str(reference.get("content") or reference.get("snippet") or "").strip()
+            rich_media = reference.get("richMedia") or reference.get("rich_media") or {}
+            rich_media_summary: List[str] = []
+            if isinstance(rich_media, dict):
+                if rich_media.get("tableHtml") or rich_media.get("table_html"):
+                    rich_media_summary.append("包含表格")
+                if rich_media.get("mathContent") or rich_media.get("math_content"):
+                    rich_media_summary.append("包含公式")
+                image_paths = rich_media.get("imagePaths") or rich_media.get("image_paths") or []
+                if rich_media.get("imagePath") or rich_media.get("image_path") or image_paths:
+                    rich_media_summary.append("包含图片")
+            meta_parts = [part for part in [
+                f"标签: {label}" if label else "",
+                f"文档: {doc_title}" if doc_title else "",
+                f"页码: {page_idx}" if page_idx else "",
+                f"位置: {section_path}" if section_path else "",
+                f"富媒体: {'/'.join(rich_media_summary)}" if rich_media_summary else "",
+            ] if part]
+            block_parts = []
+            if meta_parts:
+                block_parts.append("\n".join(meta_parts))
+            if content:
+                block_parts.append(f"证据内容:\n{content}")
+            if block_parts:
+                evidence_blocks.append("\n".join(block_parts))
+        return "\n---\n".join(evidence_blocks)
 
     @staticmethod
     def _map_intent_to_retriever_task(intent_result: IntentResult) -> str:
@@ -740,7 +784,7 @@ class Dispatcher:
                 "step_name": step.name or step.name_zh or step.id,
                 "step_index": idx + 1,
                 "tool": step.tool or "auto",
-                "description": step.description or step.description_zh or "",
+                "description": step.description_zh or (step.description.content if step.description else ""),
                 "inputs": (record.inputs if record else step.inputs) or {},
                 "outputs": (record.outputs if record else None),
                 "duration": step_durations.get(step.id, 0.0),
@@ -1169,7 +1213,7 @@ class Dispatcher:
         step_id = step.id
         step_name = step.name or step_id
         tool_name = step.tool
-        description = step.description or ""
+        description = step.description.content if step.description else ""
         
         # Determine current step note based on tool
         current_step_note = f"工具: {tool_name}"
@@ -1367,7 +1411,7 @@ Available Tools:
 
 Current Step Information:
 - ID: {step.id}
-- Description: {step.description_zh or step.description}
+- Description: {step.description_zh or (step.description.content if step.description else '')}
 - Pre-resolved Inputs: {json.dumps(current_inputs, default=str, ensure_ascii=False)}
 
 Global Context:
@@ -1411,7 +1455,7 @@ Example Output:
 
 Current Step:
 - Name: {step.name}
-- Description: {step.description}
+- Description: {(step.description.content if step.description else '')}
 - Notes/Warnings: {step.notes}
 - Required Inputs: {step.inputs}
 

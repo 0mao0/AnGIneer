@@ -119,6 +119,7 @@ class QueryRequest(BaseModel):
     session_id: Optional[str] = None
     library_id: str = "default"
     doc_ids: List[str] = Field(default_factory=list)
+    inline_citations: List[Dict[str, Any]] = Field(default_factory=list)
     config: Optional[str] = None
     mode: Optional[str] = None
     history: List[Dict[str, Any]] = Field(default_factory=list)
@@ -722,6 +723,7 @@ async def query(request: QueryRequest):
         query=request.query,
         library_id=request.library_id,
         doc_ids=request.doc_ids or [],
+        inline_citations=request.inline_citations or [],
         sop_loader=sop_loader,
     )
 

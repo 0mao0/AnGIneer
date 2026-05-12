@@ -264,7 +264,7 @@ Guidelines for calculator:
                 llm_steps.append(Step(
                     id=s.get("id"),
                     name=s.get("name"),
-                    description=s.get("description"),
+                    description={"content": str(s.get("description") or ""), "citations": []},
                     tool=s.get("tool", "auto"),
                     inputs=ins,
                     outputs=outs,

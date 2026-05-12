@@ -1,3 +1,8 @@
+import type {
+  CitationBinding,
+  InlineCitationDraftValue
+} from './citation'
+
 /**
  * 基础聊天组件消息类型
  */
@@ -11,6 +16,8 @@ export interface CitationRichMedia {
   rich_media_order?: Array<{ type: 'image' | 'table' | 'math'; path?: string }>
   source_file_name?: string
 }
+
+export interface BaseChatSendPayload extends InlineCitationDraftValue {}
 
 export interface BaseChatCitation {
   target_id: string
@@ -37,6 +44,7 @@ export interface BaseChatMessage {
   queryChain?: string
   images?: string[]
   citations?: BaseChatCitation[]
+  inlineCitations?: CitationBinding[]
 }
 
 /**
@@ -69,6 +77,7 @@ export interface AIChatMessage {
   queryChain?: string
   images?: string[]
   citations?: AIChatCitation[]
+  inlineCitations?: CitationBinding[]
   strategy?: string
   task_type?: string
   confidence?: number
@@ -92,6 +101,7 @@ export interface QueryRequest {
   doc_ids?: string[]
   config?: string
   mode?: string
+  inline_citations?: CitationBinding[]
 }
 
 export interface QueryResponse {

@@ -40,7 +40,19 @@
                   alt="上传的图片"
                 />
               </div>
-              <div class="user-text">{{ msg.content }}</div>
+              <div class="user-text">
+                <template v-for="segment in getInlineSegments(msg)" :key="segment.key">
+                  <span v-if="segment.type === 'text'">{{ segment.text }}</span>
+                  <CitationInline
+                    v-else
+                    :label="segment.binding.label"
+                    :reference="segment.binding.reference"
+                    :mismatch="segment.binding.status === 'mismatch'"
+                    @select="handleInlineCitationSelect(segment.binding)"
+                    @open="handleInlineCitationSelect(segment.binding)"
+                  />
+                </template>
+              </div>
             </div>
           </template>
 
@@ -76,10 +88,10 @@
                     v-if="isCitationExpanded(getCitationKey(citation))"
                     class="citation-detail"
                   >
-                    <div
+                    <CitationRichContent
                       v-if="citation.rich_media && (citation.rich_media.table_html || citation.rich_media.math_content || citation.rich_media.image_path || (citation.rich_media.image_paths && citation.rich_media.image_paths.length) || (citation.rich_media.rich_media_order && citation.rich_media.rich_media_order.length))"
                       class="citation-rich-media"
-                      v-html="renderCitationRichMedia(citation)"
+                      :reference="mapBaseChatCitationToReference(citation)"
                     />
                     <div
                       v-if="citation.content || citation.snippet"
@@ -153,16 +165,28 @@
       </div>
 
       <div class="input-wrapper">
-        <a-textarea
-          v-model:value="inputText"
+        <InlineCitationEditor
+          ref="inlineCitationEditorRef"
+          v-model="composerValue"
           :placeholder="placeholder"
           :disabled="loading"
-          :rows="3"
-          @keydown.enter.prevent="handleEnter"
+          :search-citations="searchCitations"
+          @submit="handleSend"
+          @select-citation="handleInlineCitationSelect"
         />
 
         <div class="input-actions">
           <div class="left-actions">
+            <a-button
+              type="text"
+              size="small"
+              class="mention-trigger-btn"
+              :disabled="loading"
+              title="插入引用 @"
+              @click="handleInsertMentionTrigger"
+            >
+              @
+            </a-button>
             <a-button
               type="text"
               size="small"
@@ -220,7 +244,7 @@
               type="primary"
               size="small"
               class="icon-btn"
-              :disabled="!inputText.trim() && !pendingImages.length"
+              :disabled="!composerValue.content.trim() && !pendingImages.length"
               title="发送消息 (Enter)"
               @click="handleSend"
             >
@@ -249,7 +273,23 @@ import {
   DownOutlined,
   RightOutlined
 } from '@ant-design/icons-vue'
-import type { BaseChatCitation, BaseChatContextItem, BaseChatMessage, BaseChatModelOption } from '../../types'
+import CitationInline from './CitationInline.vue'
+import CitationRichContent from './CitationRichContent.vue'
+import InlineCitationEditor from './InlineCitationEditor.vue'
+import type {
+  BaseChatCitation,
+  BaseChatContextItem,
+  BaseChatMessage,
+  BaseChatModelOption,
+  BaseChatSendPayload,
+  CitationBinding,
+  InlineCitationCandidate
+} from '../../types'
+import {
+  buildCitationSegments,
+  mapBaseChatCitationToReference,
+  mapReferenceToBaseChatCitation
+} from '../../utils/citation'
 
 interface Props {
   messages: BaseChatMessage[]
@@ -268,6 +308,7 @@ interface Props {
   contextRounds?: number
   renderMessage?: (content: string) => string
   allowImageUpload?: boolean
+  searchCitations?: (query: string) => Promise<InlineCitationCandidate[]>
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -284,11 +325,12 @@ const props = withDefaults(defineProps<Props>(), {
   contextTokens: 0,
   contextRounds: 0,
   renderMessage: undefined,
-  allowImageUpload: true
+  allowImageUpload: true,
+  searchCitations: undefined
 })
 
 const emit = defineEmits<{
-  send: [message: string, model: string]
+  send: [payload: BaseChatSendPayload, model: string]
   ready: []
   clear: []
   stop: []
@@ -300,7 +342,8 @@ const emit = defineEmits<{
 const messagesRef = ref<HTMLElement | null>(null)
 const chatInputRef = ref<HTMLElement | null>(null)
 const imageInputRef = ref<HTMLInputElement | null>(null)
-const inputText = ref('')
+const inlineCitationEditorRef = ref<InstanceType<typeof InlineCitationEditor> | null>(null)
+const composerValue = ref<BaseChatSendPayload>({ content: '', citations: [] })
 const pendingImages = ref<string[]>([])
 const selectedModel = ref(props.defaultModel)
 const inputHeight = ref(150)
@@ -395,33 +438,6 @@ const handleCitationClick = (citation: BaseChatCitation) => {
 }
 
 /**
- * 将 citation 的 rich_media 渲染为富媒体 HTML。
- * ui-kit 不依赖 docs-ui，因此使用轻量内联实现。
- */
-const renderCitationRichMedia = (citation: BaseChatCitation): string => {
-  const rm = citation.rich_media
-  if (!rm) return ''
-  const sections: string[] = []
-  if (rm.table_html) {
-    sections.push(`<div class="media-table">${rm.table_html}</div>`)
-  }
-  if (rm.math_content) {
-    sections.push(`<div class="media-formula">${rm.math_content}</div>`)
-  }
-  const allImagePaths = [
-    ...(rm.image_path ? [rm.image_path] : []),
-    ...(Array.isArray(rm.image_paths) ? rm.image_paths : [])
-  ]
-  allImagePaths.forEach((imagePath) => {
-    if (imagePath) {
-      const src = imagePath.startsWith('/') || imagePath.startsWith('http') ? imagePath : `/api/files?path=${encodeURIComponent(imagePath)}`
-      sections.push(`<img class="media-image" src="${src}" alt="image" style="max-width:100%;border-radius:4px;" />`)
-    }
-  })
-  return sections.join('')
-}
-
-/**
  * 判断当前消息是否需要显示 hover 时间。
  */
 const shouldShowTimestamp = (message: BaseChatMessage) => (
@@ -466,6 +482,11 @@ const renderContent = (content: string): string => {
   return escapeHtml(content).replace(/\n/g, '<br />')
 }
 
+const getInlineSegments = (message: BaseChatMessage) => buildCitationSegments({
+  content: message.content,
+  citations: Array.isArray(message.inlineCitations) ? message.inlineCitations : []
+})
+
 /**
  * 将消息区域滚动到底部。
  */
@@ -496,27 +517,19 @@ const syncSelectedModel = () => {
 }
 
 /**
- * 处理回车发送与 Shift+Enter 换行。
- */
-const handleEnter = (event: KeyboardEvent) => {
-  if (event.shiftKey) {
-    return
-  }
-
-  event.preventDefault()
-  handleSend()
-}
-
-/**
  * 触发发送事件并在成功发起后清空输入态。
  */
 const handleSend = () => {
-  const content = inputText.value.trim()
+  const payload: BaseChatSendPayload = {
+    content: composerValue.value.content.trim(),
+    citations: Array.isArray(composerValue.value.citations) ? composerValue.value.citations : []
+  }
+  const content = payload.content
   if (!content && !pendingImages.value.length) {
     return
   }
 
-  emit('send', content, selectedModel.value)
+  emit('send', payload, selectedModel.value)
   resetComposer()
   scrollToBottom()
 }
@@ -525,8 +538,12 @@ const handleSend = () => {
  * 重置输入态，确保发送后不会残留旧问题。
  */
 const resetComposer = () => {
-  inputText.value = ''
+  composerValue.value = { content: '', citations: [] }
   pendingImages.value = []
+}
+
+const handleInlineCitationSelect = (binding: CitationBinding) => {
+  emit('selectCitation', mapReferenceToBaseChatCitation(binding.reference))
 }
 
 /**
@@ -567,6 +584,13 @@ const handleImageUpload = () => {
   }
 
   imageInputRef.value?.click()
+}
+
+const handleInsertMentionTrigger = async () => {
+  if (props.loading) {
+    return
+  }
+  await inlineCitationEditorRef.value?.insertMentionTrigger()
 }
 
 /**
@@ -658,7 +682,7 @@ onBeforeUnmount(() => {
 })
 
 defineExpose({
-  inputText,
+  composerValue,
   selectedModel,
   clearComposer: resetComposer
 })
@@ -1083,7 +1107,9 @@ defineExpose({
   background: var(--bg-secondary);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
+  z-index: 5;
 
   .context-hint {
     margin-bottom: 8px;
@@ -1136,6 +1162,8 @@ defineExpose({
     flex-direction: column;
     flex: 1;
     min-height: 0;
+    overflow: visible;
+    z-index: 6;
 
     :deep(.ant-input) {
       flex: 1;
@@ -1178,8 +1206,17 @@ defineExpose({
 
     .left-actions {
       display: flex;
-      gap: 8px;
+      gap: 2px;
       flex-shrink: 0;
+
+      .mention-trigger-btn {
+        color: rgba(255, 255, 255, 0.7);
+
+        &:hover,
+        &:focus {
+          color: rgba(255, 255, 255, 0.88);
+        }
+      }
     }
 
     .center-actions {

@@ -10,6 +10,27 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")
 from angineer_core.base_contracts import SOP, Step
 from sop_core.sop_parser import SopParser
 
+def _normalize_inline_description(value: Any) -> Dict[str, Any]:
+    """将步骤描述规范化为 {content, citations[]} 结构。"""
+    if isinstance(value, dict):
+        return {
+            "content": str(value.get("content") or ""),
+            "citations": value.get("citations") if isinstance(value.get("citations"), list) else [],
+        }
+    if value is None:
+        return {"content": "", "citations": []}
+    if isinstance(value, str):
+        return {"content": value, "citations": []}
+    return {"content": str(value), "citations": []}
+
+
+def _normalize_step_dict(step_dict: Dict[str, Any]) -> Dict[str, Any]:
+    """对 Step 字典做最小归一化，确保能通过 Step 契约校验。"""
+    normalized = dict(step_dict or {})
+    normalized["description"] = _normalize_inline_description(normalized.get("description"))
+    return normalized
+
+
 class SopLoader:
     """
     SOP 加载器，管理结构化 SOP 的索引与加载。
@@ -176,7 +197,7 @@ class SopLoader:
             loaded_steps = []
             if steps_data:
                 for s_dict in steps_data:
-                    loaded_steps.append(Step(**s_dict))
+                    loaded_steps.append(Step(**_normalize_step_dict(s_dict)))
 
             sop = SOP(
                 id=sop_data.get("id", sop_id),
@@ -198,7 +219,7 @@ class SopLoader:
         step = Step(
             id="execute_md",
             tool="sop_run",
-            description=f"Run SOP: {entry.get('filename', sop_id)}",
+            description={"content": f"Run SOP: {entry.get('filename', sop_id)}", "citations": []},
             inputs={
                 "question": "${user_query}",
                 "filename": entry.get('filename', f"{sop_id}.md")
@@ -222,7 +243,7 @@ class SopLoader:
                 with open(json_path, "r", encoding="utf-8") as jf:
                     cached = json.load(jf)
                 if cached.get("steps"):
-                    loaded_steps = [Step(**s) for s in cached.get("steps")]
+                    loaded_steps = [Step(**_normalize_step_dict(s)) for s in cached.get("steps")]
                     sop.steps = loaded_steps
                     sop.blackboard = cached.get("blackboard") or self.parser.build_blackboard_from_steps(loaded_steps)
                 elif cached.get("blackboard"):

@@ -73,6 +73,15 @@ class KnowledgeDocumentUpdate(BaseModel):
     content: str
 
 
+class KnowledgeReferenceSearchRequest(BaseModel):
+    """知识引用搜索请求。"""
+    library_id: str
+    query: str
+    limit: int = 10
+    types: List[str] = ["content", "table", "formula", "figure"]
+    current_doc_id: Optional[str] = None
+
+
 class KnowledgeDocumentBlockUpdate(BaseModel):
     """更新文档结构节点内容请求。"""
     plain_text: Optional[str] = None
@@ -590,6 +599,25 @@ def get_structured_stats(doc_id: str):
     if not node:
         raise HTTPException(status_code=404, detail="Document not found")
     return ks.get_document_segment_stats(doc_id)
+
+
+@knowledge_router.post("/references/search")
+def search_knowledge_references(request: KnowledgeReferenceSearchRequest):
+    """搜索知识引用候选，供前端 @ 提示面板使用。"""
+    ks = get_knowledge_service()
+    items = ks.search_references(
+        library_id=request.library_id,
+        query=request.query,
+        limit=request.limit,
+        types=request.types,
+        current_doc_id=request.current_doc_id,
+    )
+    return {
+        "library_id": request.library_id,
+        "query": request.query,
+        "count": len(items),
+        "items": items,
+    }
 
 
 @knowledge_router.get("/document/{library_id}/{doc_id}")

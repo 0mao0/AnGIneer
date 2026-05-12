@@ -12,6 +12,11 @@ function generateFolderId(): string {
   return `folder-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
 }
 
+/** 将路径参数编码为 URL 安全的 segment，避免中文/空格/斜杠等导致请求路径解析异常。 */
+function encodePathSegment(value: string): string {
+  return encodeURIComponent(value)
+}
+
 export function useEvalDataset() {
   const datasets = ref<EvalDataset[]>([])
   const currentDataset = ref<EvalDataset | null>(null)
@@ -35,7 +40,7 @@ export function useEvalDataset() {
   const fetchDataset = async (datasetId: string) => {
     loading.value = true
     try {
-      const resp = await fetch(`/api/evals/datasets/${datasetId}`)
+      const resp = await fetch(`/api/evals/datasets/${encodePathSegment(datasetId)}`)
       if (resp.ok) {
         currentDataset.value = await resp.json()
       }
@@ -47,7 +52,7 @@ export function useEvalDataset() {
   const fetchQuestions = async (datasetId: string) => {
     loading.value = true
     try {
-      const resp = await fetch(`/api/evals/datasets/${datasetId}/questions`)
+      const resp = await fetch(`/api/evals/datasets/${encodePathSegment(datasetId)}/questions`)
       if (resp.ok) {
         const data = await resp.json()
         questions.value = data.questions || []
@@ -73,7 +78,7 @@ export function useEvalDataset() {
   }
 
   const deleteDataset = async (datasetId: string) => {
-    const resp = await fetch(`/api/evals/datasets/${datasetId}`, { method: 'DELETE' })
+    const resp = await fetch(`/api/evals/datasets/${encodePathSegment(datasetId)}`, { method: 'DELETE' })
     if (resp.ok) {
       await fetchDatasets()
       return true
@@ -83,7 +88,7 @@ export function useEvalDataset() {
   }
 
   const renameDataset = async (datasetId: string, newTitle: string) => {
-    const resp = await fetch(`/api/evals/datasets/${datasetId}`, {
+    const resp = await fetch(`/api/evals/datasets/${encodePathSegment(datasetId)}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title: newTitle }),
@@ -125,7 +130,7 @@ export function useEvalDataset() {
   }
 
   const renameFolder = async (folderId: string, newTitle: string) => {
-    const resp = await fetch(`/api/evals/folders/${folderId}`, {
+    const resp = await fetch(`/api/evals/folders/${encodePathSegment(folderId)}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title: newTitle }),
@@ -139,7 +144,7 @@ export function useEvalDataset() {
   }
 
   const deleteFolder = async (folderId: string) => {
-    const resp = await fetch(`/api/evals/folders/${folderId}`, { method: 'DELETE' })
+    const resp = await fetch(`/api/evals/folders/${encodePathSegment(folderId)}`, { method: 'DELETE' })
     if (resp.ok) {
       await fetchFolders()
       await fetchDatasets()
@@ -151,7 +156,7 @@ export function useEvalDataset() {
 
   /** 更新文件夹属性（如移动到新父级、更改类别等） */
   const updateFolder = async (folderId: string, updates: Record<string, any>) => {
-    const resp = await fetch(`/api/evals/folders/${folderId}`, {
+    const resp = await fetch(`/api/evals/folders/${encodePathSegment(folderId)}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updates),
@@ -165,7 +170,7 @@ export function useEvalDataset() {
   }
 
   const moveDataset = async (datasetId: string, folderId: string, sortOrder: number = 0) => {
-    const resp = await fetch(`/api/evals/datasets/${datasetId}/move`, {
+    const resp = await fetch(`/api/evals/datasets/${encodePathSegment(datasetId)}/move`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ folder_id: folderId, sort_order: sortOrder }),

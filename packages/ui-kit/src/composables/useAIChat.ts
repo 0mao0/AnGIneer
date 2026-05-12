@@ -6,6 +6,7 @@
 import { ref, computed, watch, type Ref, type ComputedRef } from 'vue'
 import type {
   AIChatMessage,
+  BaseChatSendPayload,
   QueryRequest,
   QueryResponse,
   SessionKey,
@@ -174,7 +175,7 @@ export function useAIChat(options?: {
   currentSessionKey: Ref<SessionKey>
   contextTokens: ComputedRef<number>
   contextRounds: ComputedRef<number>
-  sendMessage: (content: string, model?: string, onChunk?: (chunk: string) => void, sendOptions?: { includeDebug?: boolean; includeRetrieved?: boolean }) => Promise<void>
+  sendMessage: (payload: string | BaseChatSendPayload, model?: string, onChunk?: (chunk: string) => void, sendOptions?: { includeDebug?: boolean; includeRetrieved?: boolean }) => Promise<void>
   stopGeneration: () => void
   clearMessages: () => void
   switchSession: (newScene: string, newId: string) => void
@@ -257,17 +258,27 @@ export function useAIChat(options?: {
 
   /** 发送消息并获取 AI 回复 */
   const sendMessage = async (
-    content: string,
+    payload: string | BaseChatSendPayload,
     _model?: string,
     onChunk?: (chunk: string) => void,
     _sendOptions?: { includeDebug?: boolean; includeRetrieved?: boolean }
   ): Promise<void> => {
-    if (!content.trim() || loading.value) return
+    const normalizedPayload: BaseChatSendPayload = typeof payload === 'string'
+      ? { content: payload, citations: [] }
+      : {
+        content: String(payload.content || ''),
+        citations: Array.isArray(payload.citations) ? payload.citations : []
+      }
+    const normalizedContent = normalizedPayload.content.trim()
+    const inlineCitations = normalizedPayload.citations
+
+    if (!normalizedContent || loading.value) return
 
     const userMessage: AIChatMessage = {
       id: generateMessageId(),
       role: 'user',
-      content: content.trim(),
+      content: normalizedContent,
+      inlineCitations: normalizedPayload.citations,
       timestamp: Date.now()
     }
 
@@ -284,6 +295,7 @@ export function useAIChat(options?: {
       session_id: currentSessionKey.value,
       library_id: options?.libraryId || 'default',
       doc_ids: contextItems.map(item => item.id),
+      inline_citations: inlineCitations,
     }
 
     abortController.value = new AbortController()
