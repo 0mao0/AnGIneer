@@ -5,16 +5,15 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "angineer-ai-inference"
 version = "0.1.0"
-description = "AnGIneer AI inference services (embedding + reranker + LLM client)"
+description = "AnGIneer AI inference services (LLM client + cloud embedding/reranker API)"
 requires-python = ">=3.10"
 dependencies = [
-    "sentence-transformers>=2.2.0",
     "fastapi>=0.100.0",
     "uvicorn>=0.23.0",
-    "torch>=2.0.0",
     "openai>=1.0.0,<2.0.0",
     "pydantic>=2.0.0,<3.0.0",
     "python-dotenv>=1.0.0",
+    "python-multipart>=0.0.6",
 ]
 
 [tool.setuptools]

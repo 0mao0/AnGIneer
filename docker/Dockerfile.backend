@@ -2,9 +2,50 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+RUN sed -i 's|deb.debian.org|mirrors.tencent.com|g' /etc/apt/sources.list.d/debian.sources
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc g++ && \
     rm -rf /var/lib/apt/lists/*
+
+RUN pip config set global.index-url https://mirrors.tencent.com/pypi/simple/ \
+    && pip config set install.trusted-host mirrors.tencent.com \
+    && pip install --no-cache-dir --upgrade pip
+
+COPY services/ai-inference/pyproject.toml services/ai-inference/pyproject.toml
+COPY services/tree-core/pyproject.toml services/tree-core/pyproject.toml
+COPY services/angineer-core/pyproject.toml services/angineer-core/pyproject.toml
+COPY services/sop-core/pyproject.toml services/sop-core/pyproject.toml
+COPY services/docs-core/pyproject.toml services/docs-core/pyproject.toml
+COPY services/geo-core/pyproject.toml services/geo-core/pyproject.toml
+COPY services/engtools/pyproject.toml services/engtools/pyproject.toml
+COPY services/evals-core/pyproject.toml services/evals-core/pyproject.toml
+
+RUN mkdir -p services/ai-inference/src/ai_inference \
+    && touch services/ai-inference/src/ai_inference/__init__.py \
+    && mkdir -p services/tree-core/src/tree_core \
+    && touch services/tree-core/src/tree_core/__init__.py \
+    && mkdir -p services/angineer-core/src/angineer_core \
+    && touch services/angineer-core/src/angineer_core/__init__.py \
+    && mkdir -p services/sop-core/src/sop_core \
+    && touch services/sop-core/src/sop_core/__init__.py \
+    && mkdir -p services/docs-core/src/docs_core \
+    && touch services/docs-core/src/docs_core/__init__.py \
+    && mkdir -p services/geo-core/src/geo_core \
+    && touch services/geo-core/src/geo_core/__init__.py \
+    && mkdir -p services/engtools/src/engtools \
+    && touch services/engtools/src/engtools/__init__.py \
+    && mkdir -p services/evals-core/src/evals_core \
+    && touch services/evals-core/src/evals_core/__init__.py
+
+RUN pip install --no-cache-dir -e services/ai-inference \
+    -e services/tree-core \
+    -e services/angineer-core \
+    -e services/sop-core \
+    -e services/docs-core \
+    -e services/geo-core \
+    -e services/engtools \
+    -e services/evals-core
 
 COPY services/ai-inference/ services/ai-inference/
 COPY services/angineer-core/ services/angineer-core/
@@ -26,7 +67,9 @@ RUN pip install --no-cache-dir -e services/ai-inference \
     -e services/engtools \
     -e services/evals-core
 
-RUN mkdir -p /app/data/knowledge_base /app/data/sops /app/logs
+RUN mkdir -p /app/data/knowledge_base /app/data/sops /app/logs \
+    && mkdir -p /app/apps/shared \
+    && touch /app/package.json
 
 WORKDIR /app/services/api-server
 

@@ -9,7 +9,6 @@ description = "AnGIneer docs engine"
 requires-python = ">=3.10"
 dependencies = [
     "angineer-tree-core",
-    "mineru-rag[rag]>=0.1.0",
     "python-dotenv>=1.0.0",
     "requests>=2.31.0",
     "chromadb>=0.5.5",

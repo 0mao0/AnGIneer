@@ -7,7 +7,9 @@ name = "angineer-geo-core"
 version = "0.1.0"
 description = "AnGIneer geo engine"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "angineer-engtools",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}

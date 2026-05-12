@@ -9,7 +9,7 @@ export const WEB_CONSOLE_PORT = portContract.webConsolePort
 export const createLocalOrigin = (port: number) => `http://${LOCAL_HOST}:${port}`
 
 export const API_PROXY_TARGET = createLocalOrigin(API_SERVER_PORT)
-export const ADMIN_CONSOLE_ORIGIN = createLocalOrigin(ADMIN_CONSOLE_PORT)
+export const ADMIN_CONSOLE_ORIGIN = '/admin/'
 export const WEB_CONSOLE_ORIGIN = createLocalOrigin(WEB_CONSOLE_PORT)
 
 export const getWebDocumentUrl = (docId: string) =>

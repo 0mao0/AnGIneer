@@ -22,6 +22,8 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
+RUN find /app -path "*/node_modules/.bin" -type d -exec chmod -R +x {} + 2>/dev/null; true
+
 RUN pnpm build:frontend && pnpm build:admin
 
 # 阶段2: Nginx 服务静态文件

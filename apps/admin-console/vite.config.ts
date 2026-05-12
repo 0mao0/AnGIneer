@@ -10,6 +10,7 @@ const rootPackage = JSON.parse(readFileSync(resolve(__dirname, '../../package.js
 const APP_VERSION = rootPackage.version || '0.1.0'
 
 export default defineConfig({
+  base: '/admin/',
   plugins: [vue()],
   define: {
     'import.meta.env.VITE_APP_VERSION': JSON.stringify(APP_VERSION)

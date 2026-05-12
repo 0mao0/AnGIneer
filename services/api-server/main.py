@@ -453,14 +453,18 @@ async def chat_stream(request: ChatRequest):
                 # 发送增量内
                 yield f"data: {json.dumps({'type': 'chunk', 'content': token}, ensure_ascii=False)}\n\n"
 
-            # 发送结束事
-            yield f"data: {json.dumps({
-                'type': 'end',
-                'usage': {
-                    'promptTokens': prompt_tokens,
-                    'completionTokens': completion_tokens
-                }
-            }, ensure_ascii=False)}\n\n"
+            # 发送结束事件
+            end_payload = json.dumps(
+                {
+                    "type": "end",
+                    "usage": {
+                        "promptTokens": prompt_tokens,
+                        "completionTokens": completion_tokens,
+                    },
+                },
+                ensure_ascii=False,
+            )
+            yield f"data: {end_payload}\n\n"
 
             yield "data: [DONE]\n\n"
 
