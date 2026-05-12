@@ -3,6 +3,7 @@
     <a-app>
       <div class="app-container" :class="appClass">
         <AppHeader
+          :version="appVersion"
           :nav-items="navItems"
           :active-nav="activeNav"
           :show-home="true"
@@ -34,6 +35,7 @@ import { WEB_CONSOLE_ORIGIN } from '../../shared/ports'
 const router = useRouter()
 const route = useRoute()
 const { themeConfig, appClass } = useTheme()
+const appVersion = import.meta.env.VITE_APP_VERSION || ''
 
 const navItems: NavItem[] = [
   { key: 'project', label: '项目库' },

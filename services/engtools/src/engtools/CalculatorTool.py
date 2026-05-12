@@ -1,6 +1,6 @@
 import math
 import re
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 from .BaseTool import BaseTool, register_tool
 try:
     import sympy as sp
@@ -50,7 +50,15 @@ class Calculator(BaseTool):
         "radians": math.radians,
     }
 
-    def run(self, expression: str = None, variables: Optional[Dict[str, Any]] = None, solve_for: Optional[str] = None, **kwargs) -> Any:
+    def run(
+        self,
+        expression: str = None,
+        variables: Optional[Dict[str, Any]] = None,
+        solve_for: Optional[str] = None,
+        expressions: Optional[List[str]] = None,
+        labels: Optional[List[str]] = None,
+        **kwargs,
+    ) -> Any:
         """
         执行工程计算表达式。
 
@@ -64,6 +72,14 @@ class Calculator(BaseTool):
         # 兼容 LLM 把 expression 放到 kwargs 的情况
         if expression is None:
             expression = kwargs.pop("expression", None)
+        if expressions is None:
+            expressions = kwargs.pop("expressions", None)
+        if labels is None:
+            labels = kwargs.pop("labels", None)
+
+        if expressions:
+            return self._run_batch(expressions, variables, solve_for, labels)
+
         if not expression or not isinstance(expression, str):
             return {"error": "表达式不能为空", "expression": expression}
         if sp is None:
@@ -103,6 +119,56 @@ class Calculator(BaseTool):
             return {"error": "数值溢出", "expression": expression}
         except Exception as e:
             return {"error": f"计算错误: {str(e)}", "expression": expression}
+
+    def _run_batch(
+        self,
+        expressions: List[str],
+        variables: Optional[Dict[str, Any]],
+        solve_for: Optional[str],
+        labels: Optional[List[str]],
+    ) -> Dict[str, Any]:
+        """兼容 LLM 返回 expressions 列表的批量计算场景。"""
+        normalized_labels = labels if isinstance(labels, list) else []
+        batch_results: List[Dict[str, Any]] = []
+        labeled_results: Dict[str, Any] = {}
+        errors: List[Dict[str, Any]] = []
+
+        for index, expr in enumerate(expressions):
+            label = normalized_labels[index] if index < len(normalized_labels) else f"expr_{index + 1}"
+            item_result = self.run(
+                expression=expr,
+                variables=variables,
+                solve_for=solve_for,
+            )
+            item_payload = {
+                "label": label,
+                "expression": expr,
+            }
+            if isinstance(item_result, dict):
+                item_payload.update(item_result)
+                if item_result.get("result") is not None:
+                    labeled_results[label] = item_result.get("result")
+                if item_result.get("error"):
+                    errors.append({
+                        "label": label,
+                        "error": item_result.get("error"),
+                    })
+            else:
+                item_payload["result"] = item_result
+                labeled_results[label] = item_result
+            batch_results.append(item_payload)
+
+        response: Dict[str, Any] = {
+            "results": batch_results,
+            "labeled_results": labeled_results,
+        }
+        if len(batch_results) == 1:
+            response["result"] = batch_results[0].get("result")
+            response["expression"] = batch_results[0].get("expression")
+        if errors:
+            response["error"] = f"{len(errors)} 个表达式计算失败"
+            response["errors"] = errors
+        return response
 
     def _clean_expression(self, expression: str) -> str:
         """

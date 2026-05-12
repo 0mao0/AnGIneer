@@ -1,0 +1,34 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT || 22 }}
+          script: |
+            cd ${{ secrets.PROJECT_PATH }}
+
+            echo ">>> 拉取最新代码..."
+            git pull origin main
+
+            echo ">>> 重新构建并启动服务..."
+            cd docker
+            docker compose build
+            docker compose up -d
+
+            echo ">>> 清理无用镜像..."
+            docker image prune -f
+
+            echo ">>> 部署完成！"
+            docker compose ps

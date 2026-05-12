@@ -40,34 +40,73 @@ AnGIneer的大脑，负责与用户交互并调度自身资源以完成任务。
 
 #### (2) 主要功能
 
-1. **Agent 主调度** — 基于 L0~L4 分级的意图路由，支持语义检索、SQL 查询、SOP 执行等多路径调度
-2. **双引擎意图分类** — 规则快速匹配（关键词+正则，毫秒级响应）+ LLM 语义理解，失败自动降级为 L1 语义检索
-3. **工具调度与运行时** — 统一工具契约与注册表，支持按场景组织能力（Docs/SOP/Evals/EngTools/Geo）并可组合调用
-4. **上下文构建** — 从知识库、SOP、历史对话等来源抽取上下文
-5. **记忆管理** — 维护对话状态与黑板数据，用于持续交互与一致性
-6. **运行时治理** — 错误分级、兜底策略、日志与可观测性基础设施
+1. **Agent 主调度** — 以 `L0~L4` 分级策略为总开关，统一决定问题应走闲聊、语义检索、SQL、SOP 还是复杂编排链路
+2. **双引擎意图分类** — 规则快速匹配（关键词+正则，毫秒级响应）+ LLM 语义理解，失败自动降级为 `L1` 语义检索
+3. **SOP 路由与执行** — 先做 SOP 粗召回，再做 LLM 精排与参数抽取，命中后进入黑板式步骤执行
+4. **工具调度与运行时** — 统一工具契约与注册表，支持按场景组织能力（Docs/SOP/Evals/EngTools/Geo）并可组合调用
+5. **上下文构建与记忆管理** — 从知识库、SOP、历史对话等来源抽取上下文，维护对话状态与 blackboard 数据
+6. **运行时治理** — 错误分级、兜底回退、日志、阶段耗时、步骤追踪与可观测性基础设施
 
-#### (3) 逻辑架构
+#### (3) L0-L4 分级策略
 
-```text
-┌────────┐   ┌──────────────────┐   ┌──────────────┐   ┌──────────────┐
-│  用户  │ → │  控制台/工作台界面  │ → │  API 服务层   │ → │  Core 主调度  │
-└────────┘   └──────────────────┘   └──────────────┘   └──────────────┘
-                                                     │
-                                                     ▼
-                                            ┌────────────────┐
-                                            │  专项能力模块群  │
-                                            │ Docs/SOP/Evals/ │
-                                            │ Tools/Geo/AI     │
-                                            └────────────────┘
-                                                     │
-                                                     ▼
-                                            ┌──────────────┐
-                                            │  结果/引用/报告 │
-                                            └──────────────┘
+| 层级 | 问题类型 | 典型特征 | service_mode | 主处理链路 |
+| :--- | :--- | :--- | :--- | :--- |
+| **L0** | 闲聊寒暄 | 问候、自我介绍、情绪表达，与工程规范无关 | `casual_chat` | 直接走 LLM 对话，不检索、不查库 |
+| **L1** | 概念解析/定位问答 | “什么是…”、“在哪里…”、“如何定义…” | `semantic_retrieval` | Docs 多路召回 → Hybrid 融合 → LLM 基于证据作答 |
+| **L2** | 条款应用/规范查询 | 规范编号、条款号、条件取值、查表类问题 | `sql_first` | Text2SQL / 结构化 SQL → 失败再回退语义检索 |
+| **L3** | 标准工程计算 | 含明确参数、存在预定义 SOP 的标准计算题 | `standard_sop` | SOP 粗召回 → LLM 精排 → 参数抽取 → SOP 执行 |
+| **L4** | 复杂复合任务 | 综合分析、方案比选、无单一 SOP 可承接 | `dynamic_orchestration` | 由 Core 动态组合 Docs/SOP/Tools/LLM 多能力链路 |
+
+一句话：Core 不是“直接回答问题”，而是先判定问题层级，再选择最稳的执行链路。
+
+#### (4) 主调度时序
+
+```mermaid
+sequenceDiagram
+    participant User as 用户
+    participant UI as 控制台/工作台
+    participant API as API 服务层
+    participant Core as AnGIneer-Core
+    participant Docs as Docs/SQL
+    participant SOP as SOP/Tools
+    participant LLM as AI 模型
+
+    User->>UI: 输入问题
+    UI->>API: /api/query
+    API->>Core: dispatch(query, library_id, doc_ids, sop_loader)
+    Core->>Core: classify_intent()
+
+    alt L0 casual_chat
+        Core->>LLM: 直接闲聊响应
+        LLM-->>Core: answer
+    else L1 semantic_retrieval
+        Core->>Docs: dense/sparse/table retrieval
+        Docs-->>Core: fused context
+        Core->>LLM: 基于证据生成回答
+        LLM-->>Core: answer + citations
+    else L2 sql_first
+        Core->>Docs: schema_link + validate_sql + execute_sql
+        Docs-->>Core: structured rows
+        Core->>LLM: 结构化结果总结
+        LLM-->>Core: answer
+    else L3 standard_sop
+        Core->>Core: route() 粗召回/精排/参数抽取
+        Core->>SOP: analyze_sop() + run_sop()
+        SOP-->>Core: sop_trace + blackboard
+        Core->>LLM: 必要时生成总结答案
+        LLM-->>Core: answer
+    else L4 dynamic_orchestration
+        Core->>Docs: 检索/查询
+        Core->>SOP: 选择或组合流程
+        Core->>LLM: 分解任务/生成中间决策
+        LLM-->>Core: multi-step answer
+    end
+
+    Core-->>API: answer / citations / strategy / stage_timings / sop_trace
+    API-->>UI: 可追溯结果
 ```
 
-一句话：Core 把"用户目标"翻译成可执行流程，并按需编排 Docs/SOP/Evals/Tools 等能力，最终输出可追溯结果。
+一句话：Core 把“用户目标”翻译成可执行流程，并按需编排 Docs/SOP/Evals/Tools 等能力，最终输出可追溯结果。
 
 ***
 

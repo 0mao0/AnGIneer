@@ -3,6 +3,7 @@
     <a-app>
       <div class="app-container" :class="appClass">
         <AppHeader
+          :version="appVersion"
           :project-name="projectName"
           :editable-project-name="true"
           :show-admin="true"
@@ -56,6 +57,7 @@ type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
 const { themeConfig, appClass } = useTheme()
 const activeSection = ref<ResourcePanelSection>('knowledge')
 const workbenchStore = useWorkbenchStore()
+const appVersion = import.meta.env.VITE_APP_VERSION || ''
 
 const projectName = ref('示例项目')
 

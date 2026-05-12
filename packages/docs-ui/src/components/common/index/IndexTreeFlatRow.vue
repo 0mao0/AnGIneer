@@ -34,9 +34,9 @@
         </span>
         <div class="tree-main">
           <div class="tree-meta">
+            <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
             <span v-if="displayTextHtml" class="tree-text" v-html="displayTextHtml" />
             <span v-else-if="!suppressPlainText" class="tree-text">{{ displayText }}</span>
-            <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
             <span v-if="typeTag" class="chip">{{ typeTag }}</span>
             <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
           </div>
@@ -215,7 +215,7 @@ const onContextMenuClick = ({ key }: { key: string }) => {
   align-items: flex-start;
   gap: 6px;
   cursor: pointer;
-  padding: 5px 8px;
+  padding: 6px 8px;
   border-radius: 10px;
   border: 1px solid var(--dp-pane-border);
   background: var(--dp-index-card-bg);
@@ -261,7 +261,7 @@ const onContextMenuClick = ({ key }: { key: string }) => {
 .tree-main {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   flex: 1;
   min-width: 0;
 }

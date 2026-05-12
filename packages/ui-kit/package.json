@@ -18,6 +18,10 @@
     "./utils/markdown": {
       "import": "./src/utils/markdown.ts",
       "types": "./src/utils/markdown.ts"
+    },
+    "./utils/citation": {
+      "import": "./src/utils/citation.ts",
+      "types": "./src/utils/citation.ts"
     }
   },
   "peerDependencies": {

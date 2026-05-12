@@ -417,7 +417,6 @@ const onEvaluateQuestion = async (questionId: string) => {
   if (!selectedDatasetId.value) return
   try {
     await evaluateQuestion(selectedDatasetId.value, questionId, selectedDocIds.value)
-    message.success('评测完成')
   } catch (e: any) {
     message.error(e.message || '评测失败')
   }

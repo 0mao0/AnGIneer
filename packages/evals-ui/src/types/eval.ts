@@ -1,5 +1,5 @@
 /** 评测意图层级 */
-export type EvalIntentLevel = 'L1' | 'L2' | 'L3' | 'L4'
+export type EvalIntentLevel = 'L0' | 'L1' | 'L2' | 'L3' | 'L4'
 
 /** 评测题目难度 */
 export type EvalDifficulty = 'easy' | 'medium' | 'hard'

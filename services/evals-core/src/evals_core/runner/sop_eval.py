@@ -2,6 +2,7 @@
 from typing import Any, Callable, Dict, Optional
 
 from evals_core.runner.base import BaseEvaluator, register_evaluator
+from evals_core.runner._prediction_trace import enrich_prediction_trace
 from evals_core.runner._query_helper import run_eval_query
 from evals_core.runner.answer_eval import (
     DEFAULT_SEMANTIC_THRESHOLD,
@@ -49,6 +50,7 @@ class SopEvaluator(BaseEvaluator):
             "intent": data.get("intent", {}),
             "sop_trace": data.get("sop_trace", []),
         }
+        result = enrich_prediction_trace(question, data, result)
 
         if stage_callback:
             stage_callback(result)

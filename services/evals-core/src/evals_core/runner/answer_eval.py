@@ -3,6 +3,7 @@ import json
 from typing import Any, Callable, Dict, List, Optional
 
 from evals_core.runner.base import BaseEvaluator, register_evaluator
+from evals_core.runner._prediction_trace import enrich_prediction_trace
 from evals_core.runner._query_helper import run_eval_query
 from evals_core.runner.retrieval_eval import normalize_section_path
 from angineer_core.base_utils import is_fatal_exception
@@ -180,7 +181,7 @@ class AnswerEvaluator(BaseEvaluator):
         if "error" in data:
             return data
 
-        return {
+        prediction = {
             "answer": data.get("answer", ""),
             "citations": list(data.get("citations") or []),
             "confidence": data.get("confidence", 0.0),
@@ -192,7 +193,9 @@ class AnswerEvaluator(BaseEvaluator):
             "system_prompt": data.get("system_prompt", ""),
             "retrieval_debug": data.get("retrieval_debug", {}),
             "stage_timings": data.get("stage_timings", {}),
+            "intent": data.get("intent", {}),
         }
+        return enrich_prediction_trace(question, data, prediction)
 
     def evaluate(self, question: Dict[str, Any], gold: Dict[str, Any], prediction: Dict[str, Any]) -> Dict[str, Any]:
         """计算回答评测指标，使用 LLM 作为主判，关键词作为 prompt 提示。"""

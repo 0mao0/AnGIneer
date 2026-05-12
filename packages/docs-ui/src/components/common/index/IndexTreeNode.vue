@@ -35,9 +35,9 @@
           </span>
           <div class="tree-main">
             <div class="tree-meta">
+              <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
               <span v-if="displayTextHtml" class="tree-text" v-html="displayTextHtml" />
               <span v-else-if="!suppressPlainText" class="tree-text">{{ displayText }}</span>
-              <span v-if="levelTag" :class="['chip', 'lv']">{{ levelTag }}</span>
               <span v-if="typeTag" class="chip">{{ typeTag }}</span>
               <span v-if="positionTag" class="chip pos">{{ positionTag }}</span>
             </div>
@@ -235,7 +235,7 @@ const onContextMenuClick = ({ key }: { key: string }) => {
 
 .tree-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 6px;
   cursor: pointer;
   padding: 5px 8px;
@@ -244,6 +244,7 @@ const onContextMenuClick = ({ key }: { key: string }) => {
   background: var(--dp-index-card-bg);
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   transition: all 0.16s ease;
+  overflow: hidden;
 
   &:hover {
     border-color: var(--dp-hover-border);
@@ -293,23 +294,28 @@ const onContextMenuClick = ({ key }: { key: string }) => {
 .tree-main {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   flex: 1;
   min-width: 0;
+  overflow: hidden;
 }
 
 .tree-meta {
   display: flex;
   align-items: center;
   gap: 6px;
-  flex-wrap: wrap;
   min-width: 0;
+  overflow: hidden;
 }
 
 .tree-text {
-  display: block;
-  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
   word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--dp-title-text);
 }
 

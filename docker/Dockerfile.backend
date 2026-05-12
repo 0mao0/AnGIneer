@@ -1,0 +1,35 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc g++ && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY services/ai-inference/ services/ai-inference/
+COPY services/angineer-core/ services/angineer-core/
+COPY services/docs-core/ services/docs-core/
+COPY services/sop-core/ services/sop-core/
+COPY services/evals-core/ services/evals-core/
+COPY services/geo-core/ services/geo-core/
+COPY services/engtools/ services/engtools/
+COPY services/tree-core/ services/tree-core/
+COPY services/api-server/ services/api-server/
+COPY apps/shared/ports.json apps/shared/ports.json
+
+RUN pip install --no-cache-dir -e services/ai-inference \
+    -e services/tree-core \
+    -e services/angineer-core \
+    -e services/sop-core \
+    -e services/docs-core \
+    -e services/geo-core \
+    -e services/engtools \
+    -e services/evals-core
+
+RUN mkdir -p /app/data/knowledge_base /app/data/sops /app/logs
+
+WORKDIR /app/services/api-server
+
+EXPOSE 8789
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8789"]

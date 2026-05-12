@@ -3,6 +3,7 @@ import re
 from typing import Any, Callable, Dict, List, Optional
 
 from evals_core.runner.base import BaseEvaluator, register_evaluator
+from evals_core.runner._prediction_trace import enrich_prediction_trace
 from evals_core.runner._query_helper import run_eval_query
 
 
@@ -69,7 +70,7 @@ class RetrievalEvaluator(BaseEvaluator):
             return data
 
         retrieved_items = list(data.get("retrieved_items") or [])
-        return {
+        prediction = {
             "retrieved_ids": [item.get("item_id", "") for item in retrieved_items if isinstance(item, dict)],
             "retrieved_section_paths": [
                 str(item.get("metadata", {}).get("section_path") or "")
@@ -85,7 +86,9 @@ class RetrievalEvaluator(BaseEvaluator):
             "system_prompt": data.get("system_prompt", ""),
             "retrieval_debug": data.get("retrieval_debug", {}),
             "stage_timings": data.get("stage_timings", {}),
+            "intent": data.get("intent", {}),
         }
+        return enrich_prediction_trace(question, data, prediction)
 
     def evaluate(self, question: Dict[str, Any], gold: Dict[str, Any], prediction: Dict[str, Any]) -> Dict[str, Any]:
         """计算检索评测指标。"""

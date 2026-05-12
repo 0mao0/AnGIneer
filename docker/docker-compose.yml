@@ -1,0 +1,39 @@
+services:
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
+    container_name: angineer-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - api-server
+    restart: unless-stopped
+    networks:
+      - angineer-net
+
+  api-server:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: angineer-api
+    ports:
+      - "8789:8789"
+    env_file:
+      - ../.env
+    volumes:
+      - ../data:/app/data
+      - ../logs:/app/logs
+    restart: unless-stopped
+    networks:
+      - angineer-net
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8789/docs')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+networks:
+  angineer-net:
+    driver: bridge

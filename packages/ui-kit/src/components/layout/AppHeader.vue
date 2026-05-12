@@ -15,6 +15,7 @@
           </defs>
         </svg>
         <span class="app-name">AnGIneer</span>
+        <span v-if="version" class="app-version">v{{ version }}</span>
       </div>
 
       <a-button v-if="showHome && !showHomeInRight" type="text" class="home-btn" @click="$emit('home-click')" title="返回前台">
@@ -109,6 +110,7 @@ export interface NavItem {
 
 interface Props {
   projectName?: string
+  version?: string
   navItems?: NavItem[]
   activeNav?: string
   centerTitle?: string
@@ -123,6 +125,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   projectName: '',
+  version: '',
   navItems: () => [],
   activeNav: '',
   centerTitle: '',
@@ -232,6 +235,14 @@ const cancelEdit = () => {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .app-version {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    letter-spacing: 0;
+    transform: translateY(1px);
   }
 }
 

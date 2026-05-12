@@ -2,6 +2,7 @@
 from typing import Any, Callable, Dict, Optional
 
 from evals_core.runner.base import BaseEvaluator, register_evaluator
+from evals_core.runner._prediction_trace import enrich_prediction_trace
 from evals_core.runner._query_helper import run_eval_query
 
 
@@ -26,12 +27,14 @@ class Text2SqlEvaluator(BaseEvaluator):
             return data
 
         sql_data = data.get("sql")
-        return {
+        prediction = {
             "sql": sql_data,
             "answer": data.get("answer", ""),
             "execution_status": (sql_data or {}).get("execution_status", "") if sql_data else "",
             "generated_sql": (sql_data or {}).get("generated_sql", "") if sql_data else "",
+            "intent": data.get("intent", {}),
         }
+        return enrich_prediction_trace(question, data, prediction)
 
     def evaluate(self, question: Dict[str, Any], gold: Dict[str, Any], prediction: Dict[str, Any]) -> Dict[str, Any]:
         """计算 SQL 评测指标。"""

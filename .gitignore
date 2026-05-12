@@ -11,6 +11,9 @@ ENV/
 .mypy_cache/
 .ruff_cache/
 build/
+tests/
+tools/
+scripts/
 
 # Node.js
 node_modules/
@@ -30,3 +33,7 @@ data/
 logs/
 .superpowers/
 .infinity_cache/
+docs/superpowers/
+
+# Docker deployment
+.env

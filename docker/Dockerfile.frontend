@@ -1,0 +1,36 @@
+# 阶段1: 构建前端应用
+FROM node:20-alpine AS builder
+
+RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
+
+WORKDIR /app
+
+ENV NODE_OPTIONS=--max-old-space-size=1024
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY apps/shared/ apps/shared/
+COPY apps/web-console/package.json apps/web-console/
+COPY apps/admin-console/package.json apps/admin-console/
+COPY packages/ui-kit/package.json packages/ui-kit/
+COPY packages/docs-ui/package.json packages/docs-ui/
+COPY packages/sop-ui/package.json packages/sop-ui/
+COPY packages/evals-ui/package.json packages/evals-ui/
+COPY packages/geo-ui/package.json packages/geo-ui/
+COPY packages/engtools-ui/package.json packages/engtools-ui/
+
+RUN pnpm install --frozen-lockfile
+
+COPY . .
+
+RUN pnpm build:frontend && pnpm build:admin
+
+# 阶段2: Nginx 服务静态文件
+FROM nginx:alpine
+
+COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /app/apps/web-console/dist /usr/share/nginx/html/web
+COPY --from=builder /app/apps/admin-console/dist /usr/share/nginx/html/admin
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

@@ -158,6 +158,24 @@ class Dispatcher:
         strategy_desc = ""
         system_prompt = ""
         retrieval_debug = {}
+        route_debug: Dict[str, Any] = {
+            "route_kind": "",
+            "matched_sop_id": "",
+            "matched_sop_name": "",
+            "confidence": None,
+            "candidates": [],
+            "args": {},
+            "missing_args": [],
+            "reason": intent_result.reason or "",
+        }
+        flow_debug: Dict[str, Any] = {
+            "flow_type": "",
+            "sop_id": "",
+            "sop_name": "",
+            "generated_sop": None,
+            "final_context": {},
+            "summary": "",
+        }
 
         # --- 3. 分级调度 ---
         try:
@@ -165,19 +183,29 @@ class Dispatcher:
             if intent_result.service_mode == "casual_chat":
                 answer = self._dispatch_chat(query)
                 strategy_desc = "L0 闲聊"
+                route_debug.update({
+                    "route_kind": "none",
+                    "reason": intent_result.reason or "命中 L0 闲聊直答路径。",
+                })
 
             # --- 3b. L2: SQL 检索 ---
             if intent_result.service_mode == "sql_first":
                 answer, citations, retrieved_items, sql_payload, fallback_used = (
                     self._dispatch_sql(query, doc_nodes, library_id, doc_ids)
                 )
+                route_debug.update({
+                    "route_kind": "sql",
+                    "reason": intent_result.reason or "命中 L2 SQL/条款定位路径。",
+                })
 
             # --- 3c. L3: SOP 执行 ---
             sop_trace: list = []
             if intent_result.service_mode == "standard_sop" and not fallback_used:
-                answer, citations, strategy_desc, fallback_used, sop_timing, sop_trace = (
+                answer, citations, strategy_desc, fallback_used, sop_timing, sop_trace, sop_route_debug, sop_flow_debug = (
                     self._dispatch_sop(query, sop_loader, intent_result)
                 )
+                route_debug.update(sop_route_debug)
+                flow_debug.update(sop_flow_debug)
                 if sop_timing is not None:
                     stage_timings["sop_route"] = sop_timing
 
@@ -190,6 +218,19 @@ class Dispatcher:
                 answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings = (
                     self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations)
                 )
+                if not route_debug.get("route_kind"):
+                    route_kind = "retrieval"
+                    if intent_result.service_mode == "dynamic_orchestration":
+                        route_kind = "dynamic_sop"
+                    route_debug.update({
+                        "route_kind": route_kind,
+                        "reason": intent_result.reason or strategy_desc,
+                    })
+                if intent_result.service_mode == "dynamic_orchestration":
+                    flow_debug.update({
+                        "flow_type": "dynamic_sop",
+                        "summary": "当前动态 SOP 编排结果回退到语义检索路径。",
+                    })
                 stage_timings.update(ret_timings)
 
         except Exception as e:
@@ -214,6 +255,8 @@ class Dispatcher:
             "strategy": strategy_desc,
             "system_prompt": system_prompt,
             "retrieval_debug": retrieval_debug,
+            "route_debug": route_debug,
+            "flow_debug": flow_debug,
             "stage_timings": stage_timings,
             "inline_citation_count": len(inline_citations),
             "sop_trace": sop_trace,
@@ -438,7 +481,7 @@ class Dispatcher:
         query: str,
         sop_loader,
         intent_result: IntentResult,
-    ) -> Tuple[str, list, str, bool, Optional[float], list]:
+    ) -> Tuple[str, list, str, bool, Optional[float], list, Dict[str, Any], Dict[str, Any]]:
         """L3 路径：SOP 匹配与执行。"""
         from angineer_core.classifier import IntentClassifier
 
@@ -448,6 +491,24 @@ class Dispatcher:
         fallback_used = False
         sop_timing = None
         sop_trace: list = []
+        route_debug: Dict[str, Any] = {
+            "route_kind": "standard_sop",
+            "matched_sop_id": "",
+            "matched_sop_name": "",
+            "confidence": None,
+            "candidates": [],
+            "args": {},
+            "missing_args": [],
+            "reason": intent_result.reason or "",
+        }
+        flow_debug: Dict[str, Any] = {
+            "flow_type": "standard_sop",
+            "sop_id": "",
+            "sop_name": "",
+            "generated_sop": None,
+            "final_context": {},
+            "summary": "",
+        }
 
         try:
             _t_sop = time.time()
@@ -461,11 +522,28 @@ class Dispatcher:
                 route_result = classifier.route(
                     query, config_name=self.config_name, mode=self.mode
                 )
+                matched_sop = route_result.sop
+                route_debug.update({
+                    "matched_sop_id": matched_sop.id if matched_sop else "",
+                    "matched_sop_name": (
+                        matched_sop.name_zh
+                        or matched_sop.name_en
+                        or matched_sop.id
+                    ) if matched_sop else "",
+                    "confidence": route_result.confidence,
+                    "candidates": route_result.candidates or [],
+                    "args": route_result.args or {},
+                    "reason": route_result.reason or "",
+                })
 
                 if route_result.sop and route_result.confidence >= 0.6:
                     sop_full = sop_loader.analyze_sop(
                         route_result.sop.id, prefer_llm=False
                     )
+                    required_args = list(((sop_full.blackboard or {}).get("required") or []))
+                    route_debug["missing_args"] = [
+                        key for key in required_args if key not in (route_result.args or {})
+                    ]
 
                     sop_dispatcher = Dispatcher(
                         config_name=self.config_name, mode=self.mode
@@ -483,19 +561,32 @@ class Dispatcher:
                         f"SOP 执行 ({route_result.sop.id}, "
                         f"confidence={route_result.confidence:.2f})"
                     )
+                    flow_debug.update({
+                        "sop_id": sop_full.id,
+                        "sop_name": sop_full.name_zh or sop_full.name_en or sop_full.id,
+                        "final_context": final_context or {},
+                        "summary": (
+                            f"命中 SOP `{sop_full.id}`，执行 {len(sop_full.steps)} 个步骤。"
+                        ),
+                    })
                     sop_timing = round(time.time() - _t_sop, 2)
                 else:
                     logger.info(
                         f"SOP 未匹配或置信度不足: {route_result.reason}"
                     )
+                    flow_debug["summary"] = route_result.reason or "SOP 未匹配或置信度不足。"
                     fallback_used = True
             else:
+                route_debug["reason"] = "SOP Loader 不可用，无法执行标准 SOP 路径。"
+                flow_debug["summary"] = route_debug["reason"]
                 fallback_used = True
         except Exception as e:
             logger.warning(f"SOP 执行失败，回退语义检索: {e}")
+            route_debug["reason"] = str(e)
+            flow_debug["summary"] = f"SOP 执行失败: {e}"
             fallback_used = True
 
-        return answer, citations, strategy_desc, fallback_used, sop_timing, sop_trace
+        return answer, citations, strategy_desc, fallback_used, sop_timing, sop_trace, route_debug, flow_debug
 
     def _dispatch_semantic(
         self,
@@ -1033,10 +1124,12 @@ class Dispatcher:
                 result = self._execute_meta_sop_tool(tool_name, inputs, step)
                 tool_duration = time.time() - tool_start
                 self.tool_durations[step.id] = tool_duration
-                updates = self._process_outputs(step, result)
-                self._record_step(step, inputs, result)
+                normalized_result = self._adapt_result_for_step(step, tool_name, inputs, result)
+                tool_error = self._extract_tool_error(normalized_result)
+                updates = {} if tool_error else self._process_outputs(step, normalized_result)
+                self._record_step(step, inputs, normalized_result, error=tool_error)
                 if self.result_md_path:
-                    self._write_markdown_log(step, inputs, result, updates, duration=tool_duration)
+                    self._write_markdown_log(step, inputs, normalized_result, updates, duration=tool_duration)
             except Exception as e:
                 logger.error(f"元 SOP 工具执行错误: {e}")
                 self.tool_durations[step.id] = 0.0
@@ -1072,17 +1165,19 @@ class Dispatcher:
             # Record tool duration
             self.tool_durations[step.id] = tool_duration
             
-            logger.debug(f"Tool result: {result}")
+            normalized_result = self._adapt_result_for_step(step, tool_name, inputs, result)
+            tool_error = self._extract_tool_error(normalized_result)
+            logger.debug(f"Tool result: {normalized_result}")
             
             # Process outputs using the standard method
-            updates = self._process_outputs(step, result)
+            updates = {} if tool_error else self._process_outputs(step, normalized_result)
             
             # Record history
-            self._record_step(step, inputs, result)
+            self._record_step(step, inputs, normalized_result, error=tool_error)
             
             # Write log
             if self.result_md_path:
-                self._write_markdown_log(step, inputs, result, updates, duration=tool_duration)
+                self._write_markdown_log(step, inputs, normalized_result, updates, duration=tool_duration)
                 
         except Exception as e:
             logger.error(f"Tool execution error: {e}")
@@ -1095,10 +1190,12 @@ class Dispatcher:
         """处理 return_value Action：直接返回值。"""
         value = action_data.get("value")
         logger.info(f"Returning value: {value}")
-        updates = self._process_outputs(step, value)
-        self._record_step(step, {}, value)
+        normalized_value = self._adapt_result_for_step(step, "return_value", {}, value)
+        tool_error = self._extract_tool_error(normalized_value)
+        updates = {} if tool_error else self._process_outputs(step, normalized_value)
+        self._record_step(step, {}, normalized_value, error=tool_error)
         if self.result_md_path:
-            self._write_markdown_log(step, {}, value, updates)
+            self._write_markdown_log(step, {}, normalized_value, updates)
 
     def _handle_action_ask_user(self, step: Step, action_data: Dict[str, Any]):
         """处理 ask_user Action：向用户询问输入。"""
@@ -1339,7 +1436,7 @@ class Dispatcher:
                 elif isinstance(result, dict) and context_key in result:
                     val = result[context_key]
                 else:
-                    val = result
+                    val = result if not isinstance(result, dict) else None
             elif isinstance(result, dict) and result_path in result:
                 val = result[result_path]
             else:
@@ -1367,22 +1464,155 @@ class Dispatcher:
         
         return updates
                 
+    def _extract_tool_error(self, result: Any) -> Optional[str]:
+        """从工具输出中提取显式错误信息。"""
+        if not isinstance(result, dict):
+            return None
+        error = result.get("error")
+        return str(error) if error else None
+
+    def _adapt_result_for_step(self, step: Step, tool_name: str, inputs: Dict[str, Any], result: Any) -> Any:
+        """按步骤输出契约为工具结果补齐别名键，降低 LLM 返回格式漂移的影响。"""
+        if not isinstance(result, dict):
+            return result
+
+        adapted = dict(result)
+        output_keys = list(step.outputs.keys()) if isinstance(step.outputs, dict) else []
+        if not output_keys:
+            return adapted
+
+        if tool_name == "calculator" and isinstance(adapted.get("results"), list):
+            for item in adapted["results"]:
+                if not isinstance(item, dict):
+                    continue
+                label = item.get("label")
+                value = item.get("result")
+                expression = item.get("expression")
+                if label and value is not None and label not in adapted:
+                    adapted[str(label)] = value
+                if expression and value is not None and expression not in adapted:
+                    adapted[str(expression)] = value
+
+        for output_key in output_keys:
+            if output_key in adapted:
+                continue
+            candidate_value = self._select_output_value(output_key, adapted)
+            if candidate_value is not None:
+                adapted[output_key] = candidate_value
+
+        if "result" not in adapted and len(output_keys) == 1 and output_keys[0] in adapted:
+            adapted["result"] = adapted[output_keys[0]]
+
+        return adapted
+
+    def _select_output_value(self, output_key: str, result: Dict[str, Any]) -> Any:
+        """根据输出键语义从结果字典中选择最合适的值。"""
+        candidates = self._collect_result_candidates(result)
+        if not candidates:
+            return None
+
+        normalized_key = output_key.lower()
+        exact_value = candidates.get(output_key)
+        if exact_value is not None:
+            return exact_value
+
+        if normalized_key == "e":
+            numeric_values = [value for value in candidates.values() if isinstance(value, (int, float))]
+            if numeric_values:
+                return max(numeric_values)
+
+        aliases = []
+        if normalized_key == "dwl_basic":
+            aliases = ["design_high_water_level", "basic", "design"]
+        elif normalized_key == "dwl_extreme":
+            aliases = ["extreme_high_water_level", "extreme"]
+        elif normalized_key == "delta_w_basic":
+            aliases = ["delta_w_10yr", "10yr", "10_year", "10年", "basic"]
+        elif normalized_key == "delta_w_extreme":
+            aliases = ["delta_w_2yr", "2yr", "2_year", "2年", "extreme"]
+        elif normalized_key == "e_basic":
+            aliases = ["e_basic", "basic", "10yr", "10年"]
+        elif normalized_key == "e_extreme":
+            aliases = ["e_extreme", "extreme", "2yr", "2年"]
+
+        for alias in aliases:
+            for candidate_key, candidate_value in candidates.items():
+                candidate_text = str(candidate_key).lower()
+                if alias in candidate_text:
+                    return candidate_value
+
+        if len(candidates) == 1:
+            return next(iter(candidates.values()))
+        return None
+
+    def _collect_result_candidates(self, result: Dict[str, Any]) -> Dict[str, Any]:
+        """从结果字典中提取可映射到 blackboard 的候选值。"""
+        meta_keys = {
+            "result",
+            "results",
+            "labeled_results",
+            "errors",
+            "error",
+            "expression",
+            "cleaned_expression",
+            "variables_used",
+            "solve_for",
+            "unknowns",
+        }
+        candidates: Dict[str, Any] = {}
+
+        for key, value in result.items():
+            if key in meta_keys:
+                continue
+            if isinstance(value, dict):
+                nested_value = value.get("result")
+                if nested_value is not None:
+                    candidates[str(key)] = nested_value
+                continue
+            if isinstance(value, list):
+                continue
+            candidates[str(key)] = value
+
+        labeled_results = result.get("labeled_results")
+        if isinstance(labeled_results, dict):
+            for key, value in labeled_results.items():
+                if value is not None:
+                    candidates[str(key)] = value
+
+        results = result.get("results")
+        if isinstance(results, list):
+            for index, item in enumerate(results):
+                if not isinstance(item, dict):
+                    continue
+                item_value = item.get("result")
+                if item_value is None:
+                    continue
+                label = item.get("label") or f"expr_{index + 1}"
+                candidates[str(label)] = item_value
+                expression = item.get("expression")
+                if expression:
+                    candidates[str(expression)] = item_value
+
+        return candidates
+
     def _record_step(self, step: Step, inputs: Any, outputs: Any, error: str = None):
+        inferred_error = error or self._extract_tool_error(outputs)
+        status = "failed" if inferred_error else "success"
         record = StepRecord(
             step_id=step.id,
             tool_name=step.tool,
             inputs=inputs,
             outputs=outputs,
-            status="failed" if error else "success",
-            error=error
+            status=status,
+            error=inferred_error
         )
         self.memory.add_step_io({
             "step_id": step.id,
             "tool_name": step.tool,
             "inputs": inputs,
             "outputs": outputs,
-            "status": "failed" if error else "success",
-            "error": error
+            "status": status,
+            "error": inferred_error
         })
         self.memory.add_history(record)
 
