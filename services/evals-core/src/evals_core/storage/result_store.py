@@ -532,6 +532,17 @@ def fail_run(run_id: str, error: str) -> None:
     conn.commit()
 
 
+def cancel_run(run_id: str, summary_scores: Dict[str, Any]) -> None:
+    """标记运行为已取消状态，保留已完成的题目结果和汇总指标。"""
+    now = datetime.now().isoformat()
+    conn = _get_conn()
+    conn.execute(
+        "UPDATE eval_run SET status = 'cancelled', completed_at = ?, summary_scores = ? WHERE run_id = ?",
+        (now, json.dumps(summary_scores, ensure_ascii=False), run_id),
+    )
+    conn.commit()
+
+
 def get_run(run_id: str) -> Optional[Dict[str, Any]]:
     """获取单条运行记录。"""
     conn = _get_conn()

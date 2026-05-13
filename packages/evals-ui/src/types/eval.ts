@@ -11,7 +11,7 @@ export type EvalQuestionStatus = 'pending' | 'running' | 'completed' | 'error'
 export type EvalQuality = 'correct' | 'wrong'
 
 /** 评测运行状态 */
-export type EvalRunStatus = 'running' | 'completed' | 'failed'
+export type EvalRunStatus = 'running' | 'completed' | 'failed' | 'cancelled'
 
 /** 测试集类别 */
 export type EvalDatasetCategory = 'knowledge' | 'sop' | 'full_chain'

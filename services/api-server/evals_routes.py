@@ -205,6 +205,15 @@ async def start_run(req: StartEvalRunRequest):
         raise HTTPException(status_code=400, detail=str(exc))
 
 
+@evals_router.post("/runs/{run_id}/stop")
+async def stop_run(run_id: str):
+    """停止正在运行的评测任务。"""
+    success = suite_runner.stop_eval_run(run_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="未找到运行中的任务或任务已结束")
+    return {"status": "stopping", "run_id": run_id}
+
+
 @evals_router.get("/runs/{run_id}")
 async def get_run(run_id: str):
     """查询运行进度/结果。"""

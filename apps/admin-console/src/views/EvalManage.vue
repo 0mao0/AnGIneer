@@ -39,7 +39,7 @@
               <template #actions="{ node }">
                 <template v-if="node.isFolder">
                   <EditOutlined class="action-icon" title="重命名" @click.stop="onDatasetRename(node as EvalTreeNode)" />
-                  <FileAddOutlined class="action-icon" title="添加测试集" @click.stop="onAddFile(node as EvalTreeNode)" />
+                  <UploadOutlined class="action-icon" title="导入测试集" @click.stop="onAddFile(node as EvalTreeNode)" />
                   <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="onAddFolder(node as EvalTreeNode)" />
                   <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDatasetDelete(node as EvalTreeNode)" />
                 </template>
@@ -91,7 +91,9 @@
             :last-run="lastRun"
             :is-full-run="isFullRun"
             :last-run-time="lastRunTime"
+            :loading="evalLoading"
             @run="onStartRun"
+            @stop="onStopRun"
           />
         </Panel>
       </template>
@@ -190,11 +192,11 @@ import {
   ThunderboltOutlined,
   EditOutlined,
   EyeOutlined,
-  FileAddOutlined,
   FolderAddOutlined,
   DeleteOutlined,
   PlusOutlined,
   BarChartOutlined,
+  UploadOutlined,
 } from '@ant-design/icons-vue'
 import { SplitPanes, Panel, useTheme, type DropEvent } from '@angineer/ui-kit'
 import {
@@ -301,10 +303,12 @@ const {
   fetchLastRun,
   evaluateQuestion,
   stopPolling,
+  stopRun,
 } = useEvalRun()
 
 const selectedDatasetId = ref('')
 const questionsLoading = ref(false)
+const evalLoading = ref(false)
 const importModalVisible = ref(false)
 const compareVisible = ref(false)
 const createModalVisible = ref(false)
@@ -404,11 +408,25 @@ const onQuestionUpdated = async () => {
 
 const onStartRun = async () => {
   if (!selectedDatasetId.value) return
+  evalLoading.value = true
   try {
     await startRun(selectedDatasetId.value, selectedDocIds.value)
     message.success('评测已启动')
   } catch (e: any) {
     message.error(e.message || '启动评测失败')
+  } finally {
+    evalLoading.value = false
+  }
+}
+
+/** 停止当前评测任务 */
+const onStopRun = async () => {
+  if (!currentRun.value?.run_id) return
+  try {
+    await stopRun(currentRun.value.run_id)
+    message.info('评测已停止')
+  } catch (e: any) {
+    message.error(e.message || '停止评测失败')
   }
 }
 

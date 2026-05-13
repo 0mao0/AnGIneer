@@ -16,6 +16,16 @@ PASSED_THRESHOLD = 0.8
 # 全局并发控制锁：确保同一时间只有一个评测任务在运行
 _eval_lock = threading.RLock()
 _current_run_id: Optional[str] = None
+_stop_event: Optional[threading.Event] = None
+
+
+def stop_eval_run(run_id: str) -> bool:
+    """请求停止指定运行ID的评测任务（优雅停止：完成当前题目后退出）"""
+    global _stop_event
+    if _current_run_id != run_id or _stop_event is None:
+        return False
+    _stop_event.set()
+    return True
 
 
 def _build_evaluators() -> Dict[str, Any]:
@@ -172,8 +182,8 @@ def _run_suite_thread(
     run_id: str, dataset_id: str, questions: List[Dict[str, Any]],
     override_doc_ids: Optional[List[str]] = None,
 ) -> None:
-    """在线程中执行评测套件，含异常保护和并发控制。"""
-    global _current_run_id
+    """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。"""
+    global _current_run_id, _stop_event
     
     # 获取并发控制锁（阻塞等待，直到其他评测任务完成）
     acquired = _eval_lock.acquire(timeout=0.1)
@@ -182,11 +192,25 @@ def _run_suite_thread(
         return
     
     _current_run_id = run_id
+    _stop_event = threading.Event()
     
     try:
         evaluators = _build_evaluators()
         total = len(questions)
         for idx, question in enumerate(questions):
+            # 检查是否收到停止信号（在每道题目开始前检查）
+            if _stop_event.is_set():
+                # 优雅退出：计算已完成的汇总指标并标记为已取消
+                details = result_store.list_run_details(run_id)
+                enriched_details = []
+                for d in details:
+                    q = next((q for q in questions if str(q.get("question_id") or "") == d["question_id"]), {})
+                    enriched = {**d, "intent_level": q.get("intent_level", "L1"), "question": q.get("question", "")}
+                    enriched_details.append(enriched)
+                summary = _compute_summary(enriched_details)
+                result_store.cancel_run(run_id, summary)
+                return
+            
             question_id = str(question.get("question_id") or "")
             evaluator_names = _determine_evaluator_names(question)
             if override_doc_ids is not None:
@@ -231,8 +255,9 @@ def _run_suite_thread(
         traceback.print_exc()
         result_store.fail_run(run_id, str(exc))
     finally:
-        # 确保锁被释放
+        # 确保清理状态并释放锁
         _current_run_id = None
+        _stop_event = None
         _eval_lock.release()
 
 

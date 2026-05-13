@@ -64,7 +64,7 @@ export function useEvalRun() {
           runDetails.value = map
         }
       }
-      if (currentRun.value?.status === 'completed' || currentRun.value?.status === 'failed') {
+      if (currentRun.value?.status === 'completed' || currentRun.value?.status === 'failed' || currentRun.value?.status === 'cancelled') {
         stopPolling()
         if (isFullRun.value) {
           lastRun.value = currentRun.value
@@ -93,7 +93,7 @@ export function useEvalRun() {
   /** 获取最近一次已完成的运行记录 */
   const fetchLastRun = async (datasetId: string) => {
     await fetchRuns(datasetId)
-    const finishedRuns = runs.value.filter(r => r.status === 'completed' || r.status === 'failed')
+    const finishedRuns = runs.value.filter(r => r.status === 'completed' || r.status === 'failed' || r.status === 'cancelled')
     if (finishedRuns.length > 0) {
       const latest = finishedRuns.reduce((a, b) =>
         new Date(a.completed_at || a.started_at) > new Date(b.completed_at || b.started_at) ? a : b
@@ -161,6 +161,29 @@ export function useEvalRun() {
     }
   }
 
+  /** 停止当前评测任务 */
+  const stopRun = async (runId: string) => {
+    try {
+      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}/stop`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      })
+      if (resp.ok) {
+        stopPolling()
+        await fetchRun(runId)
+        if (isFullRun.value && currentRun.value) {
+          lastRun.value = currentRun.value
+        }
+      } else {
+        const errText = await resp.text().catch(() => '')
+        throw new Error(errText || '停止失败')
+      }
+    } catch (e) {
+      console.error('停止评测失败:', e)
+      throw e
+    }
+  }
+
   return {
     currentRun,
     lastRun,
@@ -176,5 +199,6 @@ export function useEvalRun() {
     evaluateQuestion,
     startPolling,
     stopPolling,
+    stopRun,
   }
 }

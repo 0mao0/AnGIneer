@@ -3,12 +3,18 @@
     <div class="eval-run-panel__run-btn">
       <a-button
         type="primary"
-        :loading="isRunning"
-        :disabled="!datasetId || isRunning"
+        :danger="isRunning"
+        :loading="loading && !isRunning"
+        :disabled="!datasetId || (loading && !isRunning)"
         block
-        @click="$emit('run')"
+        @click="handleClick"
       >
-        {{ isRunning ? `运行中 ${progressText}` : '整体评测' }}
+        <template v-if="isRunning">
+          {{ stopping ? '正在停止...' : '停止评测' }}
+        </template>
+        <template v-else>
+          整体评测
+        </template>
       </a-button>
     </div>
 
@@ -59,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import EvalLevelBadge from './EvalLevelBadge.vue'
 import EvalScoreBar from './EvalScoreBar.vue'
 import type { EvalRun, EvalSummaryScores } from '../types/eval'
@@ -72,11 +78,16 @@ const props = defineProps<{
   isFullRun: boolean
   /** 上次整体测试时间，格式如 "04-09 18:42" */
   lastRunTime?: string
+  /** 是否正在加载（如启动中） */
+  loading?: boolean
 }>()
 
-defineEmits<{
+const emit = defineEmits<{
   run: []
+  stop: []
 }>()
+
+const stopping = ref(false)
 
 const isRunning = computed(() => props.currentRun?.status === 'running')
 
@@ -97,6 +108,18 @@ const overallScoreDisplay = computed(() => {
   if (!summary.value?.overall_score) return '—'
   return (summary.value.overall_score * 100).toFixed(1) + '%'
 })
+
+/** 处理按钮点击：根据运行状态触发启动或停止 */
+const handleClick = () => {
+  if (stopping.value) return
+  if (isRunning.value) {
+    stopping.value = true
+    emit('stop')
+    setTimeout(() => { stopping.value = false }, 1000)
+  } else {
+    emit('run')
+  }
+}
 </script>
 
 <style lang="less" scoped>
