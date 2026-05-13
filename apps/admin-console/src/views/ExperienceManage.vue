@@ -193,7 +193,7 @@
 
     <a-modal
       :open="importModalVisible"
-      title="导入 SOP JSON"
+      title="导入 SOP"
       :confirm-loading="importing"
       ok-text="导入"
       cancel-text="取消"
@@ -204,14 +204,19 @@
         v-model:fileList="importFileList"
         :before-upload="beforeImportUpload"
         :max-count="1"
-        accept=".json"
+        accept=".md"
       >
         <p class="ant-upload-drag-icon">
           <InboxOutlined />
         </p>
-        <p class="ant-upload-text">点击或拖拽 JSON 文件到此处</p>
-        <p class="ant-upload-hint">仅支持 .json 格式的 SOP 文件</p>
+        <p class="ant-upload-text">点击或拖拽 Markdown 文件到此处</p>
+        <p class="ant-upload-hint">仅支持 .md 格式的 SOP 文件，系统将自动解析步骤与变量</p>
       </a-upload-dragger>
+      <div class="import-sample-tip">
+        <DownloadOutlined />
+        <a @click.prevent="downloadSampleMd">下载示例文件</a>
+        <span class="import-sample-hint">，按此格式编写后导入</span>
+      </div>
     </a-modal>
 
     <FolderModal
@@ -237,6 +242,7 @@ import { useRouter } from 'vue-router'
 import {
   ApartmentOutlined,
   DeleteOutlined,
+  DownloadOutlined,
   EditOutlined,
   EyeOutlined,
   FileAddOutlined,
@@ -346,12 +352,12 @@ const findParentChain = (nodes: SOPTreeNode[], key: string, parents: string[] = 
 }
 
 /**
- * 弹出未保存修改确认弹窗，返回用户选择：'save' | 'discard' | 'cancel'。
+ * 弹出未保存修改确认弹窗，返回用户选择：'save' | 'cancel'。
  */
-const confirmUnsavedNavigation = (): Promise<'save' | 'discard' | 'cancel'> => {
+const confirmUnsavedNavigation = (): Promise<'save' | 'cancel'> => {
   return new Promise((resolve) => {
     let resolved = false
-    const safeResolve = (value: 'save' | 'discard' | 'cancel') => {
+    const safeResolve = (value: 'save' | 'cancel') => {
       if (resolved) return
       resolved = true
       resolve(value)
@@ -360,12 +366,10 @@ const confirmUnsavedNavigation = (): Promise<'save' | 'discard' | 'cancel'> => {
       title: '未保存的修改',
       content: '当前有未保存的修改，切换后将丢失。是否保存？',
       okText: '保存并继续',
-      cancelText: '丢弃修改',
+      cancelText: '取消',
       onOk: () => safeResolve('save'),
-      onCancel: () => safeResolve('discard'),
-      closable: true,
+      onCancel: () => safeResolve('cancel'),
       maskClosable: false,
-      onClose: () => safeResolve('cancel'),
     })
   })
 }
@@ -511,7 +515,7 @@ const openImportModal = (parentNode?: SOPTreeNode | null) => {
 const beforeImportUpload = () => false
 
 /**
- * 执行 SOP JSON 导入。
+ * 执行 SOP Markdown 导入。
  */
 const handleImportUpload = async () => {
   if (!importFileList.value.length) {
@@ -535,12 +539,56 @@ const handleImportUpload = async () => {
 }
 
 /**
- * 关闭 SOP JSON 导入弹窗。
+ * 关闭 SOP 导入弹窗。
  */
 const handleImportCancel = () => {
   importModalVisible.value = false
   importFileList.value = []
   pendingImportFolderId.value = undefined
+}
+
+/**
+ * 下载示例 Markdown 文件。
+ */
+const downloadSampleMd = () => {
+  const content = `# 示例：矩形面积计算
+
+Description: 根据矩形的长和宽计算面积。
+
+**输出变量**: 面积 S
+
+## 实施步骤
+
+### Step 1. 获取矩形的长 L
+
+*   **Inputs**: L（矩形长度）
+*   **Tool**: user_input
+*   **Action**: 查阅【已知条件】获取矩形的长 L。
+*   **Outputs**: L
+
+### Step 2. 获取矩形的宽 W
+
+*   **Inputs**: W（矩形宽度）
+*   **Tool**: user_input
+*   **Action**: 查阅【已知条件】获取矩形的宽 W。
+*   **Outputs**: W
+
+### Step 3. 计算矩形面积 S
+
+*   **Inputs**: L、W
+*   **Tool**: calculator
+*   **Action**: 代入公式计算：S = L × W。
+*   **Outputs**: S
+`
+  const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = '示例.md'
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
 }
 
 /**
@@ -734,8 +782,8 @@ const onInvalidDrop = (reason: string) => {
  */
 const handleFileDrop = async (files: File[], targetFolder: SOPTreeNode | null) => {
   for (const file of files) {
-    if (!file.name.toLowerCase().endsWith('.json')) {
-      message.warning(`仅支持导入 JSON 文件: ${file.name}`)
+    if (!file.name.toLowerCase().endsWith('.md')) {
+      message.warning(`仅支持导入 Markdown 文件: ${file.name}`)
       continue
     }
     try {
@@ -1106,5 +1154,27 @@ onMounted(() => {
 
 :deep(.right-panel-content) {
   padding: 0;
+}
+
+.import-sample-tip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-secondary, #8c8c8c);
+
+  a {
+    color: var(--primary-color, #1890ff);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.import-sample-hint {
+  color: var(--text-tertiary, #bfbfbf);
 }
 </style>

@@ -147,7 +147,7 @@ export function useSopTree() {
     return result.id
   }
 
-  /** 导入 JSON 文件并创建 SOP。 */
+  /** 导入 Markdown 文件并创建 SOP。 */
   const importSopJson = async (file: File, folderId?: string) => {
     const result = await sopApi.importSop(file, folderId)
     return result.id

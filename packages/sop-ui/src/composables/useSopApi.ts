@@ -129,7 +129,7 @@ export const sopApi = {
   getFolderDeletePreview: (folderId: string): Promise<SopDeletePreview> =>
     sopGet(`${API_PREFIX}/folders/${folderId}/delete-preview`),
 
-  /** 通过 JSON 文件导入 SOP。 */
+  /** 通过 Markdown 文件导入 SOP。 */
   importSop: async (file: File, folderId?: string): Promise<{ status: string; id: string }> => {
     const formData = new FormData()
     formData.append('file', file)

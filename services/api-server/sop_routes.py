@@ -8,11 +8,20 @@ from typing import Any, Dict, List, Optional, Set
 from fastapi import APIRouter, HTTPException, UploadFile, File as FastAPIFile, Form
 from pydantic import BaseModel, Field
 
+from angineer_core.base_contracts import SOP as SopModel, Step as StepModel
+from sop_core.sop_parser import SopParser
+from sop_core.sop_loader import SopLoader
+
 sop_router = APIRouter()
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+SOP_BASE_DIR = os.path.join(ROOT_DIR, "data", "sops")
 SOP_JSON_DIR = os.path.join(ROOT_DIR, "data", "sops", "json")
+SOP_RAW_DIR = os.path.join(SOP_BASE_DIR, "raw")
 SOP_FOLDERS_FILE = os.path.join(ROOT_DIR, "data", "sops", "folders.json")
+
+_sop_loader = SopLoader(SOP_BASE_DIR)
+_sop_parser = SopParser()
 
 
 class SopCreateRequest(BaseModel):
@@ -408,37 +417,99 @@ def get_folder_delete_preview(folder_id: str):
 
 @sop_router.post("/import")
 async def import_sop(file: UploadFile = FastAPIFile(...), folder_id: Optional[str] = Form(default=None)):
-    """导入 JSON SOP 文件。"""
-    if not file.filename or not file.filename.lower().endswith(".json"):
-        raise HTTPException(status_code=400, detail="仅支持 .json 文件")
+    """导入 Markdown SOP 文件，自动解析为结构化 JSON。"""
+    if not file.filename or not file.filename.lower().endswith(".md"):
+        raise HTTPException(status_code=400, detail="仅支持 .md 文件")
 
     content = await file.read()
     try:
-        payload = json.loads(content)
-    except json.JSONDecodeError as exc:
-        raise HTTPException(status_code=400, detail=f"JSON 解析失败: {exc}")
+        md_text = content.decode("utf-8")
+    except UnicodeDecodeError:
+        raise HTTPException(status_code=400, detail="文件编码错误，请使用 UTF-8 编码")
 
-    if not isinstance(payload, dict):
-        raise HTTPException(status_code=400, detail="SOP 文件内容必须为 JSON 对象")
-
-    fallback_name = os.path.splitext(file.filename)[0]
-    sop_id = payload.get("id") or f"sop-{uuid.uuid4().hex[:8]}"
-    json_path = os.path.join(SOP_JSON_DIR, f"{sop_id}.json")
-    if os.path.exists(json_path):
+    sop_id = os.path.splitext(file.filename)[0]
+    existing_json = os.path.join(SOP_JSON_DIR, f"{sop_id}.json")
+    if os.path.exists(existing_json):
         raise HTTPException(status_code=409, detail=f"SOP {sop_id} already exists")
 
-    target_folder_id = folder_id if folder_id else payload.get("folder_id")
+    os.makedirs(SOP_RAW_DIR, exist_ok=True)
+    raw_path = os.path.join(SOP_RAW_DIR, file.filename)
+    with open(raw_path, "w", encoding="utf-8") as f:
+        f.write(md_text)
+
+    name_zh = sop_id
+    description = ""
+    for line in md_text.split("\n"):
+        stripped = line.strip()
+        if stripped.startswith("# "):
+            name_zh = stripped.lstrip("#").strip()
+            continue
+        if stripped and not stripped.startswith("#"):
+            description = stripped
+            break
+    if len(description) > 200:
+        description = description[:197] + "..."
+
+    parse_content = md_text
+    lines = md_text.splitlines()
+    start_idx = 0
+    step_keywords = ["## 实施步骤", "## 步骤", "## Steps", "## Implementation", "# Steps"]
+    for i, ln in enumerate(lines):
+        if any(ln.strip().startswith(k) for k in step_keywords):
+            start_idx = i
+            break
+    if start_idx > 0:
+        parse_content = "\n".join(lines[start_idx:])
+    if len(parse_content) > 8000:
+        parse_content = parse_content[:8000] + "\n...(内容已截断)"
+
+    initial_step = StepModel(
+        id="execute_md",
+        tool="auto",
+        description={"content": f"Run SOP: {file.filename}", "citations": []},
+        inputs={"question": "${user_query}", "filename": file.filename},
+        outputs={"result": "result"},
+    )
+    sop = SopModel(
+        id=sop_id,
+        name_zh=name_zh,
+        name_en=name_zh,
+        description=description,
+        steps=[initial_step],
+        blackboard=None,
+    )
+
+    try:
+        sop = _sop_parser.parse(
+            sop=sop,
+            content=parse_content,
+            filename=file.filename,
+            save_to_json=False,
+        )
+    except Exception:
+        sop.blackboard = _sop_parser.extract_blackboard_from_markdown(md_text)
+
+    serialized_steps = []
+    for step in sop.steps:
+        if hasattr(step, "model_dump"):
+            serialized_steps.append(step.model_dump(exclude_none=True))
+        else:
+            serialized_steps.append({k: v for k, v in step.dict().items() if v is not None})
+
+    target_folder_id = folder_id if folder_id else None
     data = {
         "id": sop_id,
-        "name_zh": payload.get("name_zh") or payload.get("name") or fallback_name,
-        "name_en": payload.get("name_en") or payload.get("name") or payload.get("name_zh") or fallback_name,
-        "description": payload.get("description") or "",
+        "name_zh": sop.name_zh or name_zh,
+        "name_en": sop.name_en or name_zh,
+        "description": sop.description or description,
         "folder_id": target_folder_id,
-        "sort_order": payload.get("sort_order") if payload.get("sort_order") is not None else _get_next_sop_sort_order(target_folder_id),
-        "steps": _normalize_steps_payload(payload.get("steps") or [], allow_string=True),
-        "blackboard": payload.get("blackboard"),
+        "sort_order": _get_next_sop_sort_order(target_folder_id),
+        "steps": _normalize_steps_payload(serialized_steps, allow_string=True),
+        "blackboard": sop.blackboard,
     }
     _write_sop_json(sop_id, data)
+    _sop_loader.refresh_index()
+
     return {"status": "success", "id": sop_id}
 
 
