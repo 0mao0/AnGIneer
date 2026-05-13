@@ -50,15 +50,40 @@
       <div v-else class="index-layout">
         <div class="index-toolbar">
           <div class="index-summary-row">
-            <span class="summary-tag">
-              <span class="summary-item total">总{{ indexSummaryStats.total }}</span>
-              <span class="summary-divider">|</span>
-              <span class="summary-item figure">图{{ indexSummaryStats.figure }}</span>
-              <span class="summary-divider">|</span>
-              <span class="summary-item table">表{{ indexSummaryStats.table }}</span>
-              <span class="summary-divider">|</span>
-              <span class="summary-item formula">公式{{ indexSummaryStats.formula }}</span>
-            </span>
+            <div class="summary-left">
+              <span class="summary-tag">
+                <span class="summary-item total">总{{ indexSummaryStats.total }}</span>
+                <span class="summary-divider">|</span>
+                <span class="summary-item figure">图{{ indexSummaryStats.figure }}</span>
+                <span class="summary-divider">|</span>
+                <span class="summary-item table">表{{ indexSummaryStats.table }}</span>
+                <span class="summary-divider">|</span>
+                <span class="summary-item formula">公式{{ indexSummaryStats.formula }}</span>
+              </span>
+              <div class="index-search-wrap">
+                <a-input
+                  v-model:value="indexSearchKeyword"
+                  placeholder="搜索解析结果..."
+                  size="small"
+                  allow-clear
+                  class="index-search-input"
+                  @press-enter="onSearchNavigate('next')"
+                >
+                  <template #prefix>
+                    <SearchOutlined class="index-search-icon" />
+                  </template>
+                </a-input>
+                <span v-if="searchMatchInfo" class="search-match-info">{{ searchMatchInfo }}</span>
+                <template v-if="indexSearchKeyword.trim()">
+                  <a-button size="small" class="search-nav-btn" @click="onSearchNavigate('prev')">
+                    <UpOutlined />
+                  </a-button>
+                  <a-button size="small" class="search-nav-btn" @click="onSearchNavigate('next')">
+                    <DownOutlined />
+                  </a-button>
+                </template>
+              </div>
+            </div>
             <div v-if="activeTab === 'Preview_IndexTree'" class="summary-actions">
               <span v-if="selectedBlockIds.length" class="selected-count">已选 {{ selectedBlockIds.length }} 个</span>
               <a-dropdown
@@ -110,7 +135,7 @@
           <Preview_IndexList
             v-if="activeTab === 'Preview_IndexList'"
             ref="indexContentScrollRef"
-            :items="flatIndexItems"
+            :items="filteredIndexItems"
             :current-page="indexCurrentPage"
             :page-size="indexPageSize"
             :active-linked-item-id="activeLinkedItemId"
@@ -197,9 +222,12 @@ import {
   EditOutlined,
   UnorderedListOutlined,
   BranchesOutlined,
-  DotChartOutlined
+  DotChartOutlined,
+  SearchOutlined,
+  UpOutlined,
+  DownOutlined
 } from '@ant-design/icons-vue'
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { message } from 'ant-design-vue'
 import type {
   StructuredIndexItem,
@@ -259,6 +287,73 @@ const splitModalVisible = ref(false)
 const submittingBatchOperation = ref(false)
 const undoingLastOperation = ref(false)
 const selectedBlockIds = ref<string[]>([])
+
+const indexSearchKeyword = ref('')
+const searchCurrentIndex = ref(0)
+
+/** 对搜索关键词做模糊匹配：支持空格分隔的多关键词 */
+const searchMatchedIds = computed<string[]>(() => {
+  const keyword = indexSearchKeyword.value.trim()
+  if (!keyword) return []
+  const tokens = keyword.split(/\s+/).filter(Boolean)
+  if (!tokens.length) return []
+  const lowerTokens = tokens.map(t => t.toLowerCase())
+  const matched: string[] = []
+  for (const item of flatIndexItems.value) {
+    const node = graphNodeLookup.value.get(item.id)
+    const texts = [
+      item.title || '',
+      item.content || '',
+      item.item_type || '',
+      node?.plain_text || '',
+      node?.title_path || '',
+      node?.math_content || '',
+      node?.caption || '',
+      node?.footnote || '',
+    ]
+    const haystack = texts.join(' ').toLowerCase()
+    if (lowerTokens.every(token => haystack.includes(token))) {
+      matched.push(item.id)
+    }
+  }
+  return matched
+})
+
+const searchMatchInfo = computed<string | null>(() => {
+  const keyword = indexSearchKeyword.value.trim()
+  if (!keyword) return null
+  const total = searchMatchedIds.value.length
+  if (total === 0) return '0/0'
+  const current = Math.min(searchCurrentIndex.value + 1, total)
+  return `${current}/${total}`
+})
+
+/** 搜索过滤后的列表项 */
+const filteredIndexItems = computed<StructuredIndexItem[]>(() => {
+  const keyword = indexSearchKeyword.value.trim()
+  if (!keyword) return flatIndexItems.value
+  const matchedSet = new Set(searchMatchedIds.value)
+  return flatIndexItems.value.filter(item => matchedSet.has(item.id))
+})
+
+/** 搜索导航：上/下一条匹配结果 */
+const onSearchNavigate = (direction: 'prev' | 'next') => {
+  const total = searchMatchedIds.value.length
+  if (total === 0) return
+  if (direction === 'next') {
+    searchCurrentIndex.value = (searchCurrentIndex.value + 1) % total
+  } else {
+    searchCurrentIndex.value = (searchCurrentIndex.value - 1 + total) % total
+  }
+  const targetId = searchMatchedIds.value[searchCurrentIndex.value]
+  if (!targetId) return
+  handleViewerNodeSelect(targetId)
+  expandAncestors(targetId)
+}
+
+watch(indexSearchKeyword, () => {
+  searchCurrentIndex.value = 0
+})
 
 const {
   rightPaneRef,
@@ -722,6 +817,61 @@ defineExpose({
   gap: 8px;
   margin-bottom: 10px;
   flex-wrap: wrap;
+}
+
+.summary-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.index-search-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.index-search-input {
+  width: 180px;
+  font-size: 12px;
+
+  :deep(.ant-input) {
+    font-size: 12px;
+    padding-left: 6px;
+  }
+
+  :deep(.ant-input-suffix) {
+    font-size: 12px;
+  }
+
+  :deep(.ant-input-prefix) {
+    margin-inline-end: 4px;
+  }
+}
+
+.index-search-icon {
+  font-size: 12px;
+  color: var(--dp-sub-text);
+}
+
+.search-match-info {
+  font-size: 11px;
+  color: var(--dp-sub-text);
+  white-space: nowrap;
+  min-width: 32px;
+  text-align: center;
+}
+
+.search-nav-btn {
+  padding: 0 4px;
+  height: 22px;
+  width: 22px;
+  min-width: 22px;
+  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .summary-tag {
