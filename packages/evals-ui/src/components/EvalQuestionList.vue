@@ -60,7 +60,7 @@
           </div>
         </template>
         <a-button size="small" class="eval-doc-filter-btn">
-          规范: {{ docFilterLabel }}
+          测试规范：{{ docFilterLabel }}
         </a-button>
       </a-popover>
     </div>

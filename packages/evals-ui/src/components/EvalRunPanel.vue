@@ -91,11 +91,6 @@ const stopping = ref(false)
 
 const isRunning = computed(() => props.currentRun?.status === 'running')
 
-const progressText = computed(() => {
-  if (!props.currentRun) return ''
-  return `${props.currentRun.completed_questions}/${props.currentRun.total_questions}`
-})
-
 /** 整体评测时优先取 currentRun，单题评测时只取 lastRun */
 const summary = computed((): EvalSummaryScores | null => {
   if (props.isFullRun) {

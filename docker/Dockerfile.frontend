@@ -5,7 +5,7 @@ RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
 
 WORKDIR /app
 
-ENV NODE_OPTIONS=--max-old-space-size=1024
+ENV NODE_OPTIONS=--max-old-space-size=2048
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/shared/ apps/shared/
