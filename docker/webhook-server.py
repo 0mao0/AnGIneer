@@ -94,7 +94,7 @@ def execute_deploy(commit_sha: str, action: str = 'deploy') -> Dict[str, Any]:
             ['docker', 'compose', 'pull'],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            text=True,
+            universal_newlines=True,
             timeout=300
         )
         
@@ -106,7 +106,7 @@ def execute_deploy(commit_sha: str, action: str = 'deploy') -> Dict[str, Any]:
             ['docker', 'compose', 'up', '-d', '--force-recreate'],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            text=True,
+            universal_newlines=True,
             timeout=120
         )
         
@@ -133,7 +133,7 @@ def execute_deploy(commit_sha: str, action: str = 'deploy') -> Dict[str, Any]:
             ['docker', 'compose', 'ps'],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            text=True,
+            universal_newlines=True,
             timeout=30
         )
         
