@@ -75,49 +75,111 @@ def login_ghcr() -> bool:
         return False
 
 
-def execute_deploy(commit_sha: str, action: str = 'deploy') -> Dict[str, Any]:
-    """执行部署流程"""
+REGISTRY = os.getenv('REGISTRY', 'ghcr.io')
+IMAGE_PREFIX = os.getenv('IMAGE_PREFIX', '0mao0/angineer')
+
+SERVICE_IMAGE_MAP = {
+    'frontend': f'{REGISTRY}/{IMAGE_PREFIX}-frontend',
+    'api-server': f'{REGISTRY}/{IMAGE_PREFIX}-api',
+}
+
+
+def _run_cmd(cmd, timeout=120):
+    """执行命令并返回 (returncode, stdout_str, stderr_str)"""
+    result = subprocess.run(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        timeout=timeout
+    )
+    return (
+        result.returncode,
+        result.stdout.decode('utf-8', errors='replace'),
+        result.stderr.decode('utf-8', errors='replace')
+    )
+
+
+def pull_service_image(service_name, tag):
+    """拉取指定服务的镜像"""
+    image_ref = SERVICE_IMAGE_MAP.get(service_name)
+    if not image_ref:
+        logger.error(f"❌ 未知服务: {service_name}")
+        return False
+
+    full_ref = f"{image_ref}:{tag}"
+    logger.info(f"📥 拉取 {full_ref}")
+    rc, stdout, stderr = _run_cmd(['docker', 'pull', full_ref], timeout=600)
+
+    if rc != 0:
+        logger.error(f"❌ 拉取失败 {full_ref}: {stderr}")
+        return False
+
+    logger.info(f"✅ 拉取完成 {full_ref}")
+    return True
+
+
+def retag_to_latest(service_name, sha_tag):
+    """将 SHA tag 重新标记为 latest，使 docker compose up 使用新镜像"""
+    image_ref = SERVICE_IMAGE_MAP.get(service_name)
+    if not image_ref:
+        return False
+
+    sha_ref = f"{image_ref}:{sha_tag}"
+    latest_ref = f"{image_ref}:latest"
+
+    rc, _, stderr = _run_cmd(['docker', 'tag', sha_ref, latest_ref], timeout=30)
+    if rc != 0:
+        logger.error(f"❌ 重新标记失败 {sha_ref} -> {latest_ref}: {stderr}")
+        return False
+
+    logger.info(f"🏷️ 标记 {sha_ref} -> {latest_ref}")
+    return True
+
+
+def execute_deploy(commit_sha: str, action: str = 'deploy', services=None) -> Dict[str, Any]:
+    """执行部署流程，支持按服务增量拉取"""
     start_time = datetime.now()
-    
+    target_services = services if services else list(SERVICE_IMAGE_MAP.keys())
+
     try:
         os.chdir(DEPLOY_DIR)
-        
+
         if not login_ghcr():
             return {
                 'success': False,
                 'error': 'GHCR认证失败',
                 'duration': (datetime.now() - start_time).total_seconds()
             }
-        
-        logger.info(f"📥 开始拉取最新镜像 (commit: {commit_sha[:8]})")
-        pull_result = subprocess.run(
-            ['docker', 'compose', 'pull'],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            universal_newlines=True,
-            timeout=300
-        )
-        
-        if pull_result.returncode != 0:
-            logger.warning(f"拉取镜像警告: {pull_result.stderr}")
-        
-        logger.info("🚀 重新创建容器...")
+
+        for svc in target_services:
+            if not pull_service_image(svc, commit_sha):
+                if not pull_service_image(svc, 'latest'):
+                    return {
+                        'success': False,
+                        'error': f'拉取 {svc} 镜像失败',
+                        'duration': (datetime.now() - start_time).total_seconds()
+                    }
+                logger.warning(f"⚠️ {svc} 的 SHA tag 不存在，回退到 latest")
+            else:
+                retag_to_latest(svc, commit_sha)
+
+        logger.info(f"🚀 重新创建容器 (服务: {', '.join(target_services)})...")
         up_result = subprocess.run(
-            ['docker', 'compose', 'up', '-d', '--force-recreate'],
+            ['docker', 'compose', 'up', '-d', '--force-recreate', '--no-deps'] + target_services,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            universal_newlines=True,
             timeout=120
         )
-        
+
         if up_result.returncode != 0:
-            logger.error(f"容器启动失败: {up_result.stderr}")
+            stderr_text = up_result.stderr.decode('utf-8', errors='replace')
+            logger.error(f"容器启动失败: {stderr_text}")
             return {
                 'success': False,
-                'error': up_result.stderr,
+                'error': stderr_text,
                 'duration': (datetime.now() - start_time).total_seconds()
             }
-        
+
         logger.info("🧹 清理旧镜像...")
         subprocess.run(
             ['docker', 'image', 'prune', '-f'],
@@ -125,38 +187,39 @@ def execute_deploy(commit_sha: str, action: str = 'deploy') -> Dict[str, Any]:
             stderr=subprocess.PIPE,
             timeout=60
         )
-        
+
         logger.info("⏳ 等待服务启动...")
         subprocess.run(['sleep', '10'], timeout=15)
-        
+
         ps_result = subprocess.run(
             ['docker', 'compose', 'ps'],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            universal_newlines=True,
             timeout=30
         )
-        
-        if 'running' in ps_result.stdout or 'Up' in ps_result.stdout:
+
+        ps_stdout = ps_result.stdout.decode('utf-8', errors='replace')
+        if 'running' in ps_stdout or 'Up' in ps_stdout:
             duration = (datetime.now() - start_time).total_seconds()
             logger.info(f"✅ 部署成功！耗时 {duration:.1f} 秒")
-            
+
             return {
                 'success': True,
                 'commit': commit_sha,
                 'action': action,
+                'services': target_services,
                 'duration': duration,
-                'containers': ps_result.stdout
+                'containers': ps_stdout
             }
         else:
             logger.error("⚠️ 容器状态异常")
             return {
                 'success': False,
                 'error': '容器未正常运行',
-                'containers': ps_result.stdout,
+                'containers': ps_stdout,
                 'duration': (datetime.now() - start_time).total_seconds()
             }
-            
+
     except subprocess.TimeoutExpired:
         logger.error("❌ 部署超时")
         return {
@@ -201,13 +264,14 @@ def handle_deploy():
         action = data.get('action', 'deploy')
         commit_sha = data.get('commit', 'unknown')
         timestamp = data.get('timestamp', datetime.now().isoformat())
+        services = data.get('services')
         
-        logger.info(f"🔔 收到部署请求: action={action}, commit={commit_sha[:8]}, time={timestamp}")
+        logger.info(f"🔔 收到部署请求: action={action}, commit={commit_sha[:8]}, time={timestamp}, services={services or '全部'}")
         
         if action not in ALLOWED_ACTIONS:
             return jsonify({'error': f'Invalid action: {action}'}), 400
         
-        result = execute_deploy(commit_sha, action)
+        result = execute_deploy(commit_sha, action, services)
         
         if result['success']:
             return jsonify({

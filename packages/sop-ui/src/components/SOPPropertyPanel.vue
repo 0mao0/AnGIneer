@@ -9,7 +9,13 @@
           <span class="meta-label">步骤 ID</span>
           <span class="meta-id">{{ draft.id }}</span>
         </div>
-        <span v-if="readOnly" class="mode-badge">只读</span>
+        <div class="top-bar-actions">
+          <span v-if="readOnly" class="mode-badge">只读</span>
+          <template v-if="!readOnly && hasChanges">
+            <a-button size="small" @click="handleCancel">取消</a-button>
+            <a-button size="small" type="primary" @click="handleSave">保存</a-button>
+          </template>
+        </div>
       </div>
 
       <a-input
@@ -144,11 +150,6 @@
           </div>
         </div>
       </section>
-    </div>
-
-    <div v-if="!readOnly && hasChanges" class="panel-actions">
-      <a-button size="small" @click="handleCancel">取消</a-button>
-      <a-button size="small" type="primary" @click="handleSave">保存</a-button>
     </div>
 
     <a-modal
@@ -504,6 +505,12 @@ watch(() => props.step, (step) => {
   border: 1px solid var(--border-color);
 }
 
+.top-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .name-input,
 .description-input {
   :deep(.ant-input) {
@@ -626,16 +633,6 @@ watch(() => props.step, (step) => {
   color: var(--text-secondary, #8c8c8c);
   font-size: 12px;
   padding: 6px 0;
-}
-
-.panel-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-  padding: 12px;
-  border-top: 1px solid var(--border-color);
-  background: var(--panel-header-bg);
-  flex-shrink: 0;
 }
 
 .preview-block + .preview-block {

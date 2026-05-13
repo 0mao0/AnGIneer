@@ -150,7 +150,15 @@
 
             <div class="tab-body">
               <div v-if="rightTabKey === 'property'" class="property-pane">
-                <div v-if="!sopFlow.selectedStep.value" class="panel-empty">
+                <SopMetaPanel
+                  v-if="!sopFlow.selectedStep.value && sopTree.currentSopData.value"
+                  :sop-data="sopTree.currentSopData.value"
+                  :all-sop-names="allSopNames"
+                  :read-only="currentMode === 'view'"
+                  @save="onSopMetaSave"
+                  @cancel="onSopMetaCancel"
+                />
+                <div v-else-if="!sopFlow.selectedStep.value" class="panel-empty">
                   选择流程图节点查看属性
                 </div>
                 <SOPPropertyPanel
@@ -232,7 +240,7 @@ import {
   UploadOutlined,
 } from '@ant-design/icons-vue'
 import { SplitPanes, Panel, AIChat, useTheme, type CitationBinding, type DropEvent } from '@angineer/ui-kit'
-import { SOPTree, SOPFlowCanvas, SOPPropertyPanel, useSopTree, useSopFlow, sopApi } from '@angineer/sop-ui'
+import { SOPTree, SOPFlowCanvas, SOPPropertyPanel, SopMetaPanel, useSopTree, useSopFlow, sopApi } from '@angineer/sop-ui'
 import type { SOPTreeNode, SopStep } from '@angineer/sop-ui'
 import type { Connection } from '@vue-flow/core'
 import FolderModal from './components/FolderModal.vue'
@@ -261,6 +269,24 @@ const folderForm = ref({
 })
 
 const hasData = computed(() => sopTree.treeData.value.length > 0)
+
+/**
+ * 递归提取所有非文件夹 SOP 名称，用于重名校验。
+ */
+const collectSopNames = (nodes: SOPTreeNode[]): string[] => {
+  const names: string[] = []
+  for (const node of nodes) {
+    if (node.isFolder) {
+      names.push(...collectSopNames(node.children || []))
+    } else {
+      names.push(node.title)
+    }
+  }
+  return names
+}
+
+const allSopNames = computed(() => collectSopNames(sopTree.treeData.value))
+
 const folderTreeData = computed(() => {
   const convert = (nodes: SOPTreeNode[]): Array<{ value: string; title: string; children?: any[] }> => {
     return nodes
@@ -667,6 +693,34 @@ const handleSopCitationSelect = (binding: CitationBinding) => {
  * 属性面板取消时保留当前已保存状态。
  */
 const onPropertyCancel = () => {}
+
+/**
+ * 保存 SOP 元数据（名称、描述）。
+ */
+const onSopMetaSave = async (payload: { name_zh: string; description: string }) => {
+  const currentData = sopTree.currentSopData.value
+  if (!currentData) return
+  try {
+    await sopApi.updateSopMeta(currentData.id, {
+      name_zh: payload.name_zh,
+      description: payload.description,
+    })
+    currentData.name_zh = payload.name_zh
+    currentData.description = payload.description
+    if (sopTree.selectedNode.value) {
+      sopTree.selectedNode.value.title = payload.name_zh
+    }
+    await refreshTreeAndFocus(currentData.id)
+    message.success('SOP 元数据已保存')
+  } catch (error: any) {
+    message.error(error?.message || '保存 SOP 元数据失败')
+  }
+}
+
+/**
+ * SOP 元数据面板取消编辑。
+ */
+const onSopMetaCancel = () => {}
 
 /**
  * 从只读模式切换回编辑模式。

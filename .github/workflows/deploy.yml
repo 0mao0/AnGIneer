@@ -4,13 +4,75 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      services:
+        description: 'Services to build (comma-separated: frontend,api-server, or all)'
+        required: false
+        default: 'all'
 
 env:
   REGISTRY: ghcr.io
   IMAGE_PREFIX: ${{ github.repository_owner }}/angineer
 
 jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      frontend_changed: ${{ steps.filter.outputs.frontend }}
+      backend_changed: ${{ steps.filter.outputs.backend }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Detect changed paths
+        if: github.event_name == 'push'
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            frontend:
+              - 'apps/web-console/**'
+              - 'apps/admin-console/**'
+              - 'packages/ui-kit/**'
+              - 'packages/docs-ui/**'
+              - 'packages/sop-ui/**'
+              - 'packages/evals-ui/**'
+              - 'packages/geo-ui/**'
+              - 'packages/engtools-ui/**'
+              - 'apps/shared/**'
+              - 'docker/Dockerfile.frontend'
+              - 'docker/nginx/**'
+              - 'package.json'
+              - 'pnpm-lock.yaml'
+            backend:
+              - 'services/**'
+              - 'apps/shared/ports.json'
+              - 'docker/Dockerfile.backend'
+              - 'package.json'
+
+      - name: Manual dispatch defaults
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          SERVICES="${{ github.event.inputs.services }}"
+          if [ "$SERVICES" = "all" ]; then
+            echo "frontend=true" >> $GITHUB_OUTPUT
+            echo "backend=true" >> $GITHUB_OUTPUT
+          else
+            if echo "$SERVICES" | grep -q "frontend"; then
+              echo "frontend=true" >> $GITHUB_OUTPUT
+            else
+              echo "frontend=false" >> $GITHUB_OUTPUT
+            fi
+            if echo "$SERVICES" | grep -q "api-server"; then
+              echo "backend=true" >> $GITHUB_OUTPUT
+            else
+              echo "backend=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+        id: manual
+
   build-and-push:
+    needs: detect-changes
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -19,6 +81,32 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Determine services to build
+        id: targets
+        run: |
+          CHANGED_SERVICES=""
+          if [ "${{ needs.detect-changes.outputs.frontend_changed }}" = "true" ]; then
+            CHANGED_SERVICES="frontend"
+            echo "build_frontend=true" >> $GITHUB_OUTPUT
+          else
+            echo "build_frontend=false" >> $GITHUB_OUTPUT
+          fi
+          if [ "${{ needs.detect-changes.outputs.backend_changed }}" = "true" ]; then
+            if [ -n "$CHANGED_SERVICES" ]; then
+              CHANGED_SERVICES="$CHANGED_SERVICES,api-server"
+            else
+              CHANGED_SERVICES="api-server"
+            fi
+            echo "build_backend=true" >> $GITHUB_OUTPUT
+          else
+            echo "build_backend=false" >> $GITHUB_OUTPUT
+          fi
+          if [ -z "$CHANGED_SERVICES" ]; then
+            CHANGED_SERVICES="all"
+          fi
+          echo "services=$CHANGED_SERVICES" >> $GITHUB_OUTPUT
+          echo "📋 需要构建的服务: $CHANGED_SERVICES"
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
@@ -31,6 +119,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build and push frontend image
+        if: steps.targets.outputs.build_frontend == 'true'
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -43,6 +132,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Build and push backend image
+        if: steps.targets.outputs.build_backend == 'true'
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -59,6 +149,7 @@ jobs:
         env:
           WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL }}
           WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
+          DEPLOY_SERVICES: ${{ steps.targets.outputs.services }}
         run: |
           if [ -n "$WEBHOOK_URL" ]; then
             echo "🔔 触发部署webhook..."
@@ -70,7 +161,8 @@ jobs:
             "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
             "repository": "${{ github.repository }}",
             "ref": "${{ github.ref }}",
-            "actor": "${{ github.actor }}"
+            "actor": "${{ github.actor }}",
+            "services": "$(echo $DEPLOY_SERVICES | tr ',' ' ')"
           }
           EOF
             )
@@ -102,9 +194,14 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| 镜像 | Tag |" >> $GITHUB_STEP_SUMMARY
           echo "|------|-----|" >> $GITHUB_STEP_SUMMARY
-          echo "| frontend | \`${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-frontend:latest\` |" >> $GITHUB_STEP_SUMMARY
-          echo "| api | \`${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-api:latest\` |" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.targets.outputs.build_frontend }}" = "true" ]; then
+            echo "| frontend | \`${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-frontend:latest\` |" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ "${{ steps.targets.outputs.build_backend }}" = "true" ]; then
+            echo "| api | \`${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-api:latest\` |" >> $GITHUB_STEP_SUMMARY
+          fi
           echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📋 部署服务: ${{ steps.targets.outputs.services }}" >> $GITHUB_STEP_SUMMARY
           if [ -n "${{ secrets.DEPLOY_WEBHOOK_URL }}" ]; then
             echo "🚀 Webhook已触发，服务器正在部署..." >> $GITHUB_STEP_SUMMARY
           else
