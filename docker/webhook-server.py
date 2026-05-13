@@ -60,7 +60,8 @@ def login_ghcr() -> bool:
         result = subprocess.run(
             ['docker', 'login', 'ghcr.io', '-u', GITHUB_USERNAME, '--password-stdin'],
             input=GITHUB_TOKEN.encode('utf-8'),
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             timeout=30
         )
         if result.returncode == 0:
@@ -91,7 +92,8 @@ def execute_deploy(commit_sha: str, action: str = 'deploy') -> Dict[str, Any]:
         logger.info(f"📥 开始拉取最新镜像 (commit: {commit_sha[:8]})")
         pull_result = subprocess.run(
             ['docker', 'compose', 'pull'],
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
             timeout=300
         )
@@ -102,7 +104,8 @@ def execute_deploy(commit_sha: str, action: str = 'deploy') -> Dict[str, Any]:
         logger.info("🚀 重新创建容器...")
         up_result = subprocess.run(
             ['docker', 'compose', 'up', '-d', '--force-recreate'],
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
             timeout=120
         )
@@ -118,7 +121,8 @@ def execute_deploy(commit_sha: str, action: str = 'deploy') -> Dict[str, Any]:
         logger.info("🧹 清理旧镜像...")
         subprocess.run(
             ['docker', 'image', 'prune', '-f'],
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             timeout=60
         )
         
@@ -127,7 +131,8 @@ def execute_deploy(commit_sha: str, action: str = 'deploy') -> Dict[str, Any]:
         
         ps_result = subprocess.run(
             ['docker', 'compose', 'ps'],
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
             timeout=30
         )
@@ -167,7 +172,7 @@ def execute_deploy(commit_sha: str, action: str = 'deploy') -> Dict[str, Any]:
             'duration': (datetime.now() - start_time).total_seconds()
         }
     finally:
-        subprocess.run(['docker', 'logout', 'ghcr.io'], capture_output=True)
+        subprocess.run(['docker', 'logout', 'ghcr.io'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
 @app.route('/health', methods=['GET'])
