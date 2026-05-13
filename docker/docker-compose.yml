@@ -1,8 +1,6 @@
 services:
   frontend:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile.frontend
+    image: ghcr.io/0mao0/angineer-frontend:latest
     container_name: angineer-frontend
     ports:
       - "80:80"
@@ -13,9 +11,7 @@ services:
       - angineer-net
 
   api-server:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile.backend
+    image: ghcr.io/0mao0/angineer-api:latest
     container_name: angineer-api
     ports:
       - "8789:8789"

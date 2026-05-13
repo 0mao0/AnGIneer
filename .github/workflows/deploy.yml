@@ -1,34 +1,66 @@
-name: Deploy to Server
+name: Build & Push Docker Images
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_PREFIX: ${{ github.repository_owner }}/angineer
+
 jobs:
-  deploy:
+  build-and-push:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          port: ${{ secrets.SERVER_PORT || 22 }}
-          script: |
-            cd ${{ secrets.PROJECT_PATH }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-            echo ">>> 拉取最新代码..."
-            git pull origin main
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-            echo ">>> 重新构建并启动服务..."
-            cd docker
-            docker compose build
-            docker compose up -d
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./docker/Dockerfile.frontend
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-frontend:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-frontend:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
-            echo ">>> 清理无用镜像..."
-            docker image prune -f
+      - name: Build and push backend image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./docker/Dockerfile.backend
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-api:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-api:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
-            echo ">>> 部署完成！"
-            docker compose ps
+      - name: Summary
+        run: |
+          echo "✅ 镜像构建并推送成功！" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| 镜像 | Tag |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-----|" >> $GITHUB_STEP_SUMMARY
+          echo "| frontend | \`${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-frontend:latest\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| api | \`${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-api:latest\` |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "服务器将在 2 分钟内自动拉取并部署 🔄" >> $GITHUB_STEP_SUMMARY
