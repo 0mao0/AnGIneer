@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.11-slim AS builder
 
 WORKDIR /app
 
@@ -47,15 +47,7 @@ RUN pip install --no-cache-dir -e services/ai-inference \
     -e services/engtools \
     -e services/evals-core
 
-COPY services/ai-inference/ services/ai-inference/
-COPY services/angineer-core/ services/angineer-core/
-COPY services/docs-core/ services/docs-core/
-COPY services/sop-core/ services/sop-core/
-COPY services/evals-core/ services/evals-core/
-COPY services/geo-core/ services/geo-core/
-COPY services/engtools/ services/engtools/
-COPY services/tree-core/ services/tree-core/
-COPY services/api-server/ services/api-server/
+COPY services/ services/
 COPY apps/shared/ports.json apps/shared/ports.json
 
 RUN pip install --no-cache-dir -e services/ai-inference \
@@ -65,10 +57,23 @@ RUN pip install --no-cache-dir -e services/ai-inference \
     -e services/docs-core \
     -e services/geo-core \
     -e services/engtools \
-    -e services/evals-core
+    -e services/evals-core \
+    && find /usr/local/lib/python3.11/site-packages -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null; true \
+    && find /usr/local/lib/python3.11/site-packages -type f -name "*.pyc" -delete 2>/dev/null; true
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN pip config set global.index-url https://mirrors.tencent.com/pypi/simple/ \
+    && pip config set install.trusted-host mirrors.tencent.com
+
+COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
+COPY --from=builder /app/services /app/services
+COPY --from=builder /app/apps /app/apps
 
 RUN mkdir -p /app/data/knowledge_base /app/data/sops /app/logs \
-    && mkdir -p /app/apps/shared \
     && touch /app/package.json
 
 WORKDIR /app/services/api-server
