@@ -54,6 +54,48 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Trigger deployment webhook
+        if: success()
+        env:
+          WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
+        run: |
+          if [ -n "$WEBHOOK_URL" ]; then
+            echo "🔔 触发部署webhook..."
+            
+            PAYLOAD=$(cat <<EOF
+          {
+            "action": "deploy",
+            "commit": "${{ github.sha }}",
+            "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "repository": "${{ github.repository }}",
+            "ref": "${{ github.ref }}",
+            "actor": "${{ github.actor }}"
+          }
+          EOF
+            )
+            
+            if [ -n "$WEBHOOK_SECRET" ]; then
+              SIGNATURE=$(echo -n "$PAYLOAD" | openssl sha256 -hmac "$WEBHOOK_SECRET" | sed 's/^.* //')
+              curl -s -X POST "$WEBHOOK_URL" \
+                -H 'Content-Type: application/json' \
+                -H "X-Hub-Signature-256: sha256=$SIGNATURE" \
+                -d "$PAYLOAD" \
+                --max-time 30 \
+                || echo "⚠️ Webhook调用失败（非致命错误）"
+            else
+              curl -s -X POST "$WEBHOOK_URL" \
+                -H 'Content-Type: application/json' \
+                -d "$PAYLOAD" \
+                --max-time 30 \
+                || echo "⚠️ Webhook调用失败（非致命错误）"
+            fi
+            
+            echo "✅ Webhook已触发，服务器将立即部署"
+          else
+            echo "ℹ️ 未配置DEPLOY_WEBHOOK_URL，跳过webhook触发"
+          fi
+
       - name: Summary
         run: |
           echo "✅ 镜像构建并推送成功！" >> $GITHUB_STEP_SUMMARY
@@ -63,4 +105,8 @@ jobs:
           echo "| frontend | \`${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-frontend:latest\` |" >> $GITHUB_STEP_SUMMARY
           echo "| api | \`${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-api:latest\` |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "服务器将在 2 分钟内自动拉取并部署 🔄" >> $GITHUB_STEP_SUMMARY
+          if [ -n "${{ secrets.DEPLOY_WEBHOOK_URL }}" ]; then
+            echo "🚀 Webhook已触发，服务器正在部署..." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⏳ 服务器将在 2 分钟内自动拉取并部署（cron模式）" >> $GITHUB_STEP_SUMMARY
+          fi

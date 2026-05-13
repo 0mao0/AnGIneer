@@ -98,6 +98,12 @@ export const knowledgeApi = {
   getDeleteNodePreview: (nodeId: string) =>
     api.get(`/knowledge/nodes/${nodeId}/delete-preview`) as Promise<DeleteNodePreviewResponse>,
   deleteNode: (nodeId: string) => api.delete(`/knowledge/nodes/${nodeId}`),
+  forceDeleteNode: (nodeId: string) =>
+    api.delete(`/knowledge/nodes/${nodeId}/force`) as Promise<{ status: string; message: string }>,
+  cancelParseTask: (taskId: string) =>
+    api.post(`/knowledge/parse/${taskId}/cancel`) as Promise<{ status: string; task_id: string; message: string }>,
+  retryParseTask: (docId: string) =>
+    api.post('/knowledge/parse/retry', { doc_id: docId }) as Promise<{ status: string; task_id: string; doc_id: string; message: string }>,
 
   parseDocument: (libraryId: string, docId: string, filePath?: string, parseOptions?: KnowledgeParseOptions) =>
     api.post('/knowledge/parse', { library_id: libraryId, doc_id: docId, file_path: filePath, parse_options: parseOptions }),

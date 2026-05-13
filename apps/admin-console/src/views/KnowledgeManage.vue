@@ -39,6 +39,34 @@
               @drop-invalid="onInvalidDrop"
               @file-drop="handleFileDrop"
             >
+              <!-- 自定义操作按钮：根据节点状态显示不同按钮 -->
+              <template #actions="{ node }">
+                <template v-if="node.isFolder">
+                  <EditOutlined class="action-icon" title="重命名" @click.stop="showRenameModal(node)" />
+                  <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="showCreateSubFolderModal(node)" />
+                  <FileAddOutlined class="action-icon" title="添加文件" @click.stop="showCreateFileModal(node)" />
+                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="handleDeleteNode(node)" />
+                </template>
+                <template v-else>
+                  <EditOutlined class="action-icon" title="重命名" @click.stop="showRenameModal(node)" />
+                  <EyeOutlined class="action-icon" title="查看" @click.stop="showDocDetail(node)" />
+                  <!-- processing状态：显示取消按钮 -->
+                  <StopOutlined
+                    v-if="node.status === 'processing' && node.parseTaskId"
+                    class="action-icon warning"
+                    title="取消解析"
+                    @click.stop="handleCancelParseTask(node)"
+                  />
+                  <!-- 非processing状态：显示重试按钮（支持已完成/失败/取消/待处理状态的文档重新解析） -->
+                  <ReloadOutlined
+                    v-if="node.status !== 'processing' && !node.isFolder"
+                    class="action-icon success"
+                    title="重新解析"
+                    @click.stop="handleRetryParseTask(node)"
+                  />
+                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="handleDeleteNode(node)" />
+                </template>
+              </template>
             </KnowledgeTree>
           </div>
         </Panel>
@@ -209,7 +237,13 @@ import {
   FolderAddOutlined,
   FileSearchOutlined,
   MessageOutlined,
-  SettingOutlined
+  SettingOutlined,
+  StopOutlined,
+  ReloadOutlined,
+  EditOutlined,
+  FileAddOutlined,
+  DeleteOutlined,
+  EyeOutlined
 } from '@ant-design/icons-vue'
 
 // 导入 packages 中的组件和 composables
@@ -690,8 +724,83 @@ const handleDeleteNode = async (node: SmartTreeNode) => {
     showDeleteConfirm(node, nodeType, preview)
   } catch (error) {
     console.error('获取删除影响范围失败。', error)
-    message.error('获取删除影响范围失败，请确认后端服务已更新并重试')
+    Modal.confirm({
+      title: '删除失败',
+      content: '获取删除影响范围失败，该文件可能处于异常状态（如解析卡住）。是否要强制删除？',
+      okText: '强制删除',
+      okType: 'danger',
+      cancelText: '取消',
+      async onOk() {
+        await handleForceDelete(node)
+      }
+    })
   }
+}
+
+/** 强制删除异常状态的节点 */
+const handleForceDelete = async (node: SmartTreeNode) => {
+  try {
+    stopParsePolling()
+    const result = await knowledgeApi.forceDeleteNode(node.key) as any
+    message.success(result?.message || '已强制删除')
+    if (selectedNode.value?.key === node.key) {
+      selectedNode.value = null
+    }
+    await loadNodes()
+  } catch (error) {
+    const detail = (error as any)?.response?.data?.detail || (error as any)?.message
+    message.error(detail ? `强制删除失败: ${detail}` : '强制删除失败')
+  }
+}
+
+/** 取消正在运行的解析任务 */
+const handleCancelParseTask = async (node: SmartTreeNode) => {
+  if (!node.parseTaskId) {
+    message.warning('该节点没有正在运行的任务')
+    return
+  }
+  Modal.confirm({
+    title: '确认取消解析',
+    content: `确定要取消「${node.title}」的解析任务吗？取消后可以重新解析或删除该文件。`,
+    okText: '取消任务',
+    okType: 'danger',
+    cancelText: '保留任务',
+    async onOk() {
+      try {
+        stopParsePolling()
+        await knowledgeApi.cancelParseTask(node.parseTaskId!)
+        message.success('任务已取消')
+        await loadNodes(node.key)
+      } catch (error) {
+        const detail = (error as any)?.response?.data?.detail || (error as any)?.message
+        message.error(detail ? `取消失败: ${detail}` : '取消失败')
+      }
+    }
+  })
+}
+
+/** 重试失败的解析任务 */
+const handleRetryParseTask = async (node: SmartTreeNode) => {
+  Modal.confirm({
+    title: '重新解析',
+    content: `确定要重新解析「${node.title}」吗？将使用之前的设置重新开始解析。`,
+    okText: '开始解析',
+    cancelText: '取消',
+    async onOk() {
+      try {
+        const result = await knowledgeApi.retryParseTask(node.key) as any
+        message.success(result?.message || '已重新启动解析')
+        await loadNodes(node.key)
+        const taskId = result?.task_id
+        if (taskId) {
+          _startParsePollingWrapper(taskId, node.key)
+        }
+      } catch (error) {
+        const detail = (error as any)?.response?.data?.detail || (error as any)?.message
+        message.error(detail ? `重试失败: ${detail}` : '重试失败')
+      }
+    }
+  })
 }
 
 // 显示文档详情

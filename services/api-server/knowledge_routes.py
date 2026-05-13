@@ -193,6 +193,52 @@ class ParseOrchestrator:
             return None
         return task.model_dump(mode="json")
 
+    def cancel_parse_task(self, task_id: str) -> bool:
+        """取消正在运行的解析任务。"""
+        if task_id not in self._threads:
+            return False
+        thread = self._threads[task_id]
+        if not thread.is_alive():
+            return False
+        ks = get_knowledge_service()
+        task = ks.get_parse_task(task_id)
+        if task and task.status in ("queued", "processing"):
+            ks.update_parse_task(
+                task_id,
+                status="cancelled",
+                progress=task.progress,
+                stage=task.stage,
+                error="用户手动取消任务",
+            )
+            doc_id = task.doc_id
+            ks.update_node(
+                doc_id,
+                status="failed",
+                parse_progress=task.progress,
+                parse_stage="cancelled",
+                parse_error="用户手动取消任务",
+                parse_task_id=task_id,
+            )
+        self._threads.pop(task_id, None)
+        return True
+
+    def retry_parse_task(self, doc_id: str) -> Optional[Dict[str, Any]]:
+        """重试解析任务（支持已完成、失败、取消、待处理状态的文档重新解析）。"""
+        ks = get_knowledge_service()
+        node = ks.get_node(doc_id)
+        if not node:
+            return None
+        if node.status == "processing":
+            raise ValueError(f"节点 {doc_id} 正在解析中，请先取消当前任务")
+        file_path = node.file_path
+        if not file_path:
+            raise ValueError(f"节点 {doc_id} 缺少文件路径信息")
+        return self.create_parse_task(
+            library_id=node.library_id,
+            doc_id=doc_id,
+            file_path=file_path,
+        )
+
     def _run_parse_task(
         self,
         task_id: str,
@@ -236,22 +282,27 @@ class ParseOrchestrator:
 
             self._update_progress(task_id, doc_id, progress=100, stage="completed", status="completed")
         except Exception as exc:
-            error_message = f"{exc}\n{traceback.format_exc()}"
-            ks.update_parse_task(
-                task_id,
-                status="failed",
-                progress=100,
-                stage="failed",
-                error=error_message,
-            )
-            ks.update_node(
-                doc_id,
-                status="failed",
-                parse_progress=100,
-                parse_stage="failed",
-                parse_error=error_message,
-                parse_task_id=task_id,
-            )
+            error_message = f"{type(exc).__name__}: {exc}"
+            error_detail = traceback.format_exc()
+            logger.error(f"解析任务 {task_id} 失败: {error_message}\n{error_detail}")
+            try:
+                ks.update_parse_task(
+                    task_id,
+                    status="failed",
+                    progress=100,
+                    stage="failed",
+                    error=error_message,
+                )
+                ks.update_node(
+                    doc_id,
+                    status="failed",
+                    parse_progress=100,
+                    parse_stage="failed",
+                    parse_error=error_message,
+                    parse_task_id=task_id,
+                )
+            except Exception as update_exc:
+                logger.error(f"更新任务状态失败: {update_exc}")
         finally:
             self._threads.pop(task_id, None)
             shutil.rmtree(temp_output_dir, ignore_errors=True)
@@ -481,6 +532,57 @@ def delete_knowledge_node(node_id: str):
     if not success:
         raise HTTPException(status_code=404, detail="Node not found")
     return {"status": "success"}
+
+
+@knowledge_router.delete("/nodes/{node_id}/force")
+def force_delete_knowledge_node(node_id: str):
+    """强制删除知识库节点（跳过预览，用于处理异常状态节点）。"""
+    ks = get_knowledge_service()
+    node = ks.get_node(node_id)
+    if not node:
+        raise HTTPException(status_code=404, detail="Node not found")
+    try:
+        if node.parse_task_id:
+            parse_orchestrator.cancel_parse_task(node.parse_task_id)
+        success = ks.delete_node(node_id)
+        if not success:
+            raise HTTPException(status_code=500, detail="删除失败")
+        return {"status": "success", "message": f"已强制删除节点 {node.title}"}
+    except Exception as e:
+        logger.error(f"强制删除节点 {node_id} 失败: {e}")
+        raise HTTPException(status_code=500, detail=f"强制删除失败: {str(e)}")
+
+
+@knowledge_router.post("/parse/{task_id}/cancel")
+def cancel_parse_task(task_id: str):
+    """取消正在运行的解析任务。"""
+    success = parse_orchestrator.cancel_parse_task(task_id)
+    if not success:
+        raise HTTPException(status_code=400, detail="任务不存在、已完成或无法取消")
+    return {"status": "success", "task_id": task_id, "message": "任务已取消"}
+
+
+@knowledge_router.post("/parse/retry")
+async def retry_parse_task(request: Dict[str, str]):
+    """重试失败或被取消的解析任务。"""
+    doc_id = request.get("doc_id")
+    if not doc_id:
+        raise HTTPException(status_code=400, detail="缺少 doc_id 参数")
+    try:
+        result = parse_orchestrator.retry_parse_task(doc_id)
+        if not result:
+            raise HTTPException(status_code=404, detail=f"文档 {doc_id} 不存在或无法重试")
+        return {
+            "status": "success",
+            "task_id": result["task_id"],
+            "doc_id": doc_id,
+            "message": "已重新启动解析任务",
+        }
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        logger.error(f"重试解析任务失败: {e}")
+        raise HTTPException(status_code=500, detail=f"重试失败: {str(e)}")
 
 
 @knowledge_router.post("/upload")

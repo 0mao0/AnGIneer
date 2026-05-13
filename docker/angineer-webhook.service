@@ -1,0 +1,22 @@
+[Unit]
+Description=AnGIneer Webhook Deployment Service
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/AnGIneer/docker
+Environment="WEBHOOK_PORT=9000"
+Environment="WEBHOOK_SECRET=your-webhook-secret-here"
+Environment="GITHUB_USERNAME=0mao0"
+EnvironmentFile=/root/angineer-webhook.env
+ExecStart=/usr/bin/python3 /root/AnGIneer/docker/webhook-server.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=angineer-webhook
+
+[Install]
+WantedBy=multi-user.target
