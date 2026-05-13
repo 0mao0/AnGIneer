@@ -172,8 +172,6 @@ const clearAllDocs = () => {
 }
 
 const filteredQuestions = computed(() => {
-  const allDocCount = (props.docFlatList || []).filter(n => n.type === 'document').length
-  const shouldFilterByDoc = selectedDocIds.value.length > 0 && selectedDocIds.value.length < allDocCount
   return props.questions.filter(q => {
     if (filterLevel.value && q.intent_level !== filterLevel.value) return false
     if (filterStatus.value) {
@@ -185,10 +183,6 @@ const filteredQuestions = computed(() => {
       const detail = props.runDetails.get(q.question_id)
       const quality = (detail?.quality as string | null) || null
       if (quality !== filterQuality.value) return false
-    }
-    if (shouldFilterByDoc && q.doc_ids?.length > 0) {
-      const hasOverlap = q.doc_ids.some(id => selectedDocIds.value.includes(id))
-      if (!hasOverlap) return false
     }
     return true
   })

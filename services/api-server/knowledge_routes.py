@@ -355,6 +355,32 @@ def build_projection_for_doc(library_id: str, doc_id: str, strategy: str = "doc_
 _allowed_roots_cache: Optional[list[str]] = None
 
 
+def _remap_path_for_container(raw_path: str) -> str:
+    """将外部路径映射为容器内路径。
+
+    Docker 部署时，数据库可能存储了宿主机格式的路径（如 D:\\AI\\data\\knowledge_base\\...），
+    但容器内文件系统看到的路径是 /app/data/knowledge_base/...。
+    此函数通过识别路径中的 knowledge_base 段，自动将路径重定向到容器内的知识库目录。
+    """
+    norm_raw = raw_path.replace("\\", "/")
+    kb_segment = "/knowledge_base/"
+    idx = norm_raw.lower().find(kb_segment)
+    if idx < 0 and norm_raw.lower().endswith("/knowledge_base"):
+        idx = norm_raw.lower().rfind("/knowledge_base")
+    if idx < 0:
+        return raw_path
+    relative = norm_raw[idx + len(kb_segment) - 1:].lstrip("/")
+    container_kb = os.path.abspath(str(file_storage.base_dir))
+    remapped = os.path.join(container_kb, relative)
+    if os.path.abspath(raw_path) == remapped:
+        return raw_path
+    logger.info(
+        "[Preview] Remapped path %s -> %s",
+        raw_path, remapped,
+    )
+    return remapped
+
+
 def _allowed_roots() -> list[str]:
     """返回文件预览允许访问的根目录列表。"""
     global _allowed_roots_cache
@@ -976,12 +1002,13 @@ async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) ->
 @preview_router.get("/files")
 def get_file_for_preview(path: str):
     """按绝对路径预览文件。"""
-    normalized_path = os.path.abspath(os.path.normpath(path))
+    remapped = _remap_path_for_container(path)
+    normalized_path = os.path.abspath(os.path.normpath(remapped))
     allowed_roots = _allowed_roots()
     if not _is_path_allowed(normalized_path, allowed_roots):
         logger.warning(
-            "[Preview] Path not allowed: %s (allowed roots: %s)",
-            normalized_path, allowed_roots,
+            "[Preview] Path not allowed: %s (raw: %s, allowed roots: %s)",
+            normalized_path, path, allowed_roots,
         )
         raise HTTPException(status_code=403, detail="Forbidden path")
     if not os.path.exists(normalized_path):
