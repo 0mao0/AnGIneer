@@ -103,6 +103,7 @@ const props = defineProps<{
 const emit = defineEmits<{
   save: [payload: { name_zh: string; description: string }]
   cancel: []
+  'dirty-change': [dirty: boolean]
 }>()
 
 const draftName = ref('')
@@ -196,9 +197,15 @@ const handleSave = () => {
   lastSavedDescription.value = draftDescription.value.trim()
 }
 
+watch(hasChanges, (val) => {
+  emit('dirty-change', val)
+})
+
 watch(() => props.sopData, (data) => {
   syncDraft(data)
 }, { immediate: true, deep: true })
+
+defineExpose({ hasChanges, draftName, draftDescription })
 </script>
 
 <style lang="less" scoped>

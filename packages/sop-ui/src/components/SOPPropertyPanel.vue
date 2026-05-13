@@ -227,6 +227,7 @@ const emit = defineEmits<{
   save: [step: SopStep]
   cancel: []
   selectCitation: [binding: CitationBinding]
+  'dirty-change': [dirty: boolean]
 }>()
 
 const draft = ref<SopStep>({
@@ -446,10 +447,16 @@ const handleSave = () => {
   lastLoadedSignature.value = getStepSignature(nextStep)
 }
 
+watch(hasChanges, (val) => {
+  emit('dirty-change', val)
+})
+
 watch(() => props.step, (step) => {
   syncDraft(step)
   executionExpanded.value = false
 }, { immediate: true, deep: true })
+
+defineExpose({ hasChanges, buildDraftStep })
 </script>
 
 <style lang="less" scoped>
