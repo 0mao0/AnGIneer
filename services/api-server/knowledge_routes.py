@@ -1,4 +1,5 @@
 """知识库路由与解析调度入口"""
+import logging
 import mimetypes
 import os
 import shutil
@@ -22,6 +23,9 @@ from docs_core.ingest.store.assets_file_store import (
     get_doc_blocks_graph,
 )
 from docs_core.ingest.store.assets_file_store import file_storage
+from docs_core.ingest.store.blocks_sql_store import resolve_repo_root
+
+logger = logging.getLogger(__name__)
 
 
 knowledge_router = APIRouter()
@@ -297,14 +301,37 @@ def build_projection_for_doc(library_id: str, doc_id: str, strategy: str = "doc_
     return build_structured_index_for_doc(library_id, doc_id, strategy)
 
 
+_allowed_roots_cache: Optional[list[str]] = None
+
+
 def _allowed_roots() -> list[str]:
     """返回文件预览允许访问的根目录列表。"""
+    global _allowed_roots_cache
+    if _allowed_roots_cache is not None:
+        return _allowed_roots_cache
+
+    roots: list[str] = []
+
+    env_dir = os.getenv("KNOWLEDGE_BASE_DIR", "").strip()
+    if env_dir:
+        env_root = os.path.abspath(env_dir)
+        roots.append(env_root)
+        logger.info("[Preview] KNOWLEDGE_BASE_DIR env override: %s", env_root)
+
     storage_root = os.path.abspath(str(file_storage.base_dir))
-    repo_root = Path(__file__).resolve().parents[2]
-    knowledge_root = os.path.abspath(str(repo_root / "data" / "knowledge_base"))
-    roots = [knowledge_root]
     if storage_root not in roots:
         roots.append(storage_root)
+
+    try:
+        repo_root = resolve_repo_root()
+        knowledge_root = os.path.abspath(str(repo_root / "data" / "knowledge_base"))
+        if knowledge_root not in roots:
+            roots.append(knowledge_root)
+    except Exception:
+        logger.warning("[Preview] resolve_repo_root() failed, skipping repo-based root", exc_info=True)
+
+    _allowed_roots_cache = roots
+    logger.info("[Preview] Allowed roots: %s", roots)
     return roots
 
 
@@ -850,6 +877,10 @@ def get_file_for_preview(path: str):
     normalized_path = os.path.abspath(os.path.normpath(path))
     allowed_roots = _allowed_roots()
     if not _is_path_allowed(normalized_path, allowed_roots):
+        logger.warning(
+            "[Preview] Path not allowed: %s (allowed roots: %s)",
+            normalized_path, allowed_roots,
+        )
         raise HTTPException(status_code=403, detail="Forbidden path")
     if not os.path.exists(normalized_path):
         raise HTTPException(status_code=404, detail="File not found")

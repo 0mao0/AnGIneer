@@ -49,7 +49,7 @@ import { MessageOutlined } from '@ant-design/icons-vue'
 import { AppHeader, SplitPanes, Panel, AIChat, useTheme } from '@angineer/ui-kit'
 import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
-import { ADMIN_CONSOLE_ORIGIN } from '../../shared/ports'
+import { ADMIN_CONSOLE_ORIGIN, ADMIN_CONSOLE_PORT, LOCAL_HOST } from '../../shared/ports'
 import { useWorkbenchStore } from '@/stores/workbench'
 
 type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
@@ -71,9 +71,14 @@ const chatPanelPlaceholder = computed(() => (
   activeSection.value === 'sop' ? '输入 SOP 问题，Enter 发送...' : '输入消息，Enter 发送...'
 ))
 
+/** 跳转到管理后台（开发环境用独立端口，生产环境同源） */
+const adminConsoleHref = import.meta.env.DEV
+  ? `http://${LOCAL_HOST}:${ADMIN_CONSOLE_PORT}/admin/`
+  : ADMIN_CONSOLE_ORIGIN
+
 /** 跳转到管理后台 */
 const goToAdmin = () => {
-  window.location.href = ADMIN_CONSOLE_ORIGIN
+  window.location.href = adminConsoleHref
 }
 
 /** 项目名称变更回调 */

@@ -37,6 +37,9 @@ const route = useRoute()
 const { themeConfig, appClass } = useTheme()
 const appVersion = import.meta.env.VITE_APP_VERSION || ''
 
+/** 获取前台首页地址（开发环境用独立端口，生产环境同源） */
+const webConsoleHref = import.meta.env.DEV ? WEB_CONSOLE_ORIGIN : '/'
+
 const navItems: NavItem[] = [
   { key: 'project', label: '项目库' },
   { key: 'knowledge', label: '知识库' },
@@ -79,7 +82,7 @@ const confirmGoToFrontend = () => {
     okText: '确定',
     cancelText: '取消',
     onOk: () => {
-      window.location.href = WEB_CONSOLE_ORIGIN
+      window.location.href = webConsoleHref
     }
   })
 }
