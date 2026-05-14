@@ -265,6 +265,8 @@ def handle_deploy():
         commit_sha = data.get('commit', 'unknown')
         timestamp = data.get('timestamp', datetime.now().isoformat())
         services = data.get('services')
+        if isinstance(services, str):
+            services = services.split()
         
         logger.info(f"🔔 收到部署请求: action={action}, commit={commit_sha[:8]}, time={timestamp}, services={services or '全部'}")
         
