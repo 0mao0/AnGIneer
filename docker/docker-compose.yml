@@ -5,6 +5,7 @@ services:
       dockerfile: docker/Dockerfile.frontend
     image: angineer-frontend:latest
     container_name: angineer-frontend
+    user: "1001:1001"  # ← 加这行
     ports:
       - "80:80"
     volumes:
@@ -21,6 +22,7 @@ services:
       dockerfile: docker/Dockerfile.backend
     image: angineer-api:latest
     container_name: angineer-api
+    user: "1001:1001"  # ← 加这行
     ports:
       - "8789:8789"
     env_file:
