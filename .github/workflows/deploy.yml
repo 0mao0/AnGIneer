@@ -4,99 +4,15 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-    inputs:
-      services:
-        description: 'Services to build (comma-separated: frontend,api-server, or all)'
-        required: false
-        default: 'all'
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  detect-changes:
-    runs-on: ubuntu-latest
-    outputs:
-      frontend_changed: ${{ steps.check.outputs.frontend }}
-      backend_changed: ${{ steps.check.outputs.backend }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # 获取完整历史用于对比
-      
-      - name: Check changed files
-        id: check
-        run: |
-          FRONTEND_CHANGED="false"
-          BACKEND_CHANGED="false"
-          
-          # 获取本次 push 的变更文件
-          if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
-            # 首次 push 或新分支
-            CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
-          else
-            CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-          fi
-          
-          echo "Changed files:"
-          echo "$CHANGED_FILES"
-          
-          # 检查前端相关
-          if echo "$CHANGED_FILES" | grep -qE '^(apps/web-console/|apps/admin-console/|packages/ui-kit/|packages/docs-ui/|packages/sop-ui/|packages/evals-ui/|packages/geo-ui/|packages/engtools-ui/|apps/shared/|docker/Dockerfile\.frontend|docker/nginx/|package\.json|pnpm-lock\.yaml)'; then
-            FRONTEND_CHANGED="true"
-          fi
-          
-          # 检查后端相关
-          if echo "$CHANGED_FILES" | grep -qE '^(services/|apps/shared/ports\.json|docker/Dockerfile\.backend|package\.json)'; then
-            BACKEND_CHANGED="true"
-          fi
-          
-          echo "frontend=$FRONTEND_CHANGED" >> $GITHUB_OUTPUT
-          echo "backend=$BACKEND_CHANGED" >> $GITHUB_OUTPUT
-          echo "Frontend changed: $FRONTEND_CHANGED"
-          echo "Backend changed: $BACKEND_CHANGED"
-
   build-and-deploy:
-    needs: detect-changes
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
-
-      - name: Determine services
-        id: targets
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            SERVICES="${{ github.event.inputs.services }}"
-            if [ "$SERVICES" = "all" ]; then
-              echo "build_frontend=true" >> $GITHUB_OUTPUT
-              echo "build_backend=true" >> $GITHUB_OUTPUT
-            else
-              echo "build_frontend=$(echo $SERVICES | grep -q frontend && echo true || echo false)" >> $GITHUB_OUTPUT
-              echo "build_backend=$(echo $SERVICES | grep -q api-server && echo true || echo false)" >> $GITHUB_OUTPUT
-            fi
-          else
-            echo "build_frontend=${{ needs.detect-changes.outputs.frontend_changed }}" >> $GITHUB_OUTPUT
-            echo "build_backend=${{ needs.detect-changes.outputs.backend_changed }}" >> $GITHUB_OUTPUT
-          fi
-
+      
       - name: Build & deploy
         run: |
-          export FRONTEND_BUILD=${{ steps.targets.outputs.build_frontend }}
-          export BACKEND_BUILD=${{ steps.targets.outputs.build_backend }}
-          
           cd ${{ github.workspace }}/docker
-          
-          # 强制重建
           docker-compose down || true
-          
-          if [ "$FRONTEND_BUILD" = "true" ] && [ "$BACKEND_BUILD" = "true" ]; then
-            docker-compose up -d --build --force-recreate
-          elif [ "$FRONTEND_BUILD" = "true" ]; then
-            docker-compose build --no-cache frontend
-            docker-compose up -d --force-recreate frontend
-          elif [ "$BACKEND_BUILD" = "true" ]; then
-            docker-compose build --no-cache api-server
-            docker-compose up -d --force-recreate api-server
-          else
-            echo "No changes detected, skipping build"
-          fi
+          docker-compose up -d --build --force-recreate
