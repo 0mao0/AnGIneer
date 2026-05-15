@@ -1,4 +1,4 @@
-name: Build & Push Docker Images
+name: Build & Deploy
 
 on:
   push:
@@ -10,10 +10,6 @@ on:
         required: false
         default: 'all'
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_PREFIX: ${{ github.repository_owner }}/angineer
-
 jobs:
   detect-changes:
     runs-on: ubuntu-latest
@@ -21,12 +17,8 @@ jobs:
       frontend_changed: ${{ steps.filter.outputs.frontend }}
       backend_changed: ${{ steps.filter.outputs.backend }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Detect changed paths
-        if: github.event_name == 'push'
-        uses: dorny/paths-filter@v3
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
         id: filter
         with:
           filters: |
@@ -50,160 +42,42 @@ jobs:
               - 'docker/Dockerfile.backend'
               - 'package.json'
 
-      - name: Manual dispatch defaults
-        if: github.event_name == 'workflow_dispatch'
-        run: |
-          SERVICES="${{ github.event.inputs.services }}"
-          if [ "$SERVICES" = "all" ]; then
-            echo "frontend=true" >> $GITHUB_OUTPUT
-            echo "backend=true" >> $GITHUB_OUTPUT
-          else
-            if echo "$SERVICES" | grep -q "frontend"; then
-              echo "frontend=true" >> $GITHUB_OUTPUT
-            else
-              echo "frontend=false" >> $GITHUB_OUTPUT
-            fi
-            if echo "$SERVICES" | grep -q "api-server"; then
-              echo "backend=true" >> $GITHUB_OUTPUT
-            else
-              echo "backend=false" >> $GITHUB_OUTPUT
-            fi
-          fi
-        id: manual
-
-  build-and-push:
+  build-and-deploy:
     needs: detect-changes
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-
+    runs-on: self-hosted
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Determine services to build
+      - name: Determine services
         id: targets
         run: |
-          CHANGED_SERVICES=""
-          if [ "${{ needs.detect-changes.outputs.frontend_changed }}" = "true" ]; then
-            CHANGED_SERVICES="frontend"
-            echo "build_frontend=true" >> $GITHUB_OUTPUT
-          else
-            echo "build_frontend=false" >> $GITHUB_OUTPUT
-          fi
-          if [ "${{ needs.detect-changes.outputs.backend_changed }}" = "true" ]; then
-            if [ -n "$CHANGED_SERVICES" ]; then
-              CHANGED_SERVICES="$CHANGED_SERVICES,api-server"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SERVICES="${{ github.event.inputs.services }}"
+            if [ "$SERVICES" = "all" ]; then
+              echo "build_frontend=true" >> $GITHUB_OUTPUT
+              echo "build_backend=true" >> $GITHUB_OUTPUT
             else
-              CHANGED_SERVICES="api-server"
+              echo "build_frontend=$(echo $SERVICES | grep -q frontend && echo true || echo false)" >> $GITHUB_OUTPUT
+              echo "build_backend=$(echo $SERVICES | grep -q api-server && echo true || echo false)" >> $GITHUB_OUTPUT
             fi
-            echo "build_backend=true" >> $GITHUB_OUTPUT
           else
-            echo "build_backend=false" >> $GITHUB_OUTPUT
+            echo "build_frontend=${{ needs.detect-changes.outputs.frontend_changed }}" >> $GITHUB_OUTPUT
+            echo "build_backend=${{ needs.detect-changes.outputs.backend_changed }}" >> $GITHUB_OUTPUT
           fi
-          if [ -z "$CHANGED_SERVICES" ]; then
-            CHANGED_SERVICES="all"
-          fi
-          echo "services=$CHANGED_SERVICES" >> $GITHUB_OUTPUT
-          echo "📋 需要构建的服务: $CHANGED_SERVICES"
 
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build and push frontend image
-        if: steps.targets.outputs.build_frontend == 'true'
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./docker/Dockerfile.frontend
-          push: true
-          tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-frontend:latest
-            ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-frontend:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-      - name: Build and push backend image
-        if: steps.targets.outputs.build_backend == 'true'
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./docker/Dockerfile.backend
-          push: true
-          tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-api:latest
-            ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-api:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-      - name: Trigger deployment webhook
-        if: success()
-        env:
-          WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL }}
-          WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
-          DEPLOY_SERVICES: ${{ steps.targets.outputs.services }}
+      - name: Build & deploy
         run: |
-          if [ -n "$WEBHOOK_URL" ]; then
-            echo "🔔 触发部署webhook..."
-            
-            PAYLOAD=$(cat <<EOF
-          {
-            "action": "deploy",
-            "commit": "${{ github.sha }}",
-            "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
-            "repository": "${{ github.repository }}",
-            "ref": "${{ github.ref }}",
-            "actor": "${{ github.actor }}",
-            "services": "$(echo $DEPLOY_SERVICES | tr ',' ' ')"
-          }
-          EOF
-            )
-            
-            if [ -n "$WEBHOOK_SECRET" ]; then
-              SIGNATURE=$(echo -n "$PAYLOAD" | openssl sha256 -hmac "$WEBHOOK_SECRET" | sed 's/^.* //')
-              curl -s -X POST "$WEBHOOK_URL" \
-                -H 'Content-Type: application/json' \
-                -H "X-Hub-Signature-256: sha256=$SIGNATURE" \
-                -d "$PAYLOAD" \
-                --max-time 30 \
-                || echo "⚠️ Webhook调用失败（非致命错误）"
-            else
-              curl -s -X POST "$WEBHOOK_URL" \
-                -H 'Content-Type: application/json' \
-                -d "$PAYLOAD" \
-                --max-time 30 \
-                || echo "⚠️ Webhook调用失败（非致命错误）"
-            fi
-            
-            echo "✅ Webhook已触发，服务器将立即部署"
+          export FRONTEND_BUILD=${{ steps.targets.outputs.build_frontend }}
+          export BACKEND_BUILD=${{ steps.targets.outputs.build_backend }}
+          
+          if [ "$FRONTEND_BUILD" = "true" ] && [ "$BACKEND_BUILD" = "true" ]; then
+            docker-compose -f docker/docker-compose.yml up -d --build
+          elif [ "$FRONTEND_BUILD" = "true" ]; then
+            docker-compose -f docker/docker-compose.yml build frontend
+            docker-compose -f docker/docker-compose.yml up -d frontend
+          elif [ "$BACKEND_BUILD" = "true" ]; then
+            docker-compose -f docker/docker-compose.yml build api-server
+            docker-compose -f docker/docker-compose.yml up -d api-server
           else
-            echo "ℹ️ 未配置DEPLOY_WEBHOOK_URL，跳过webhook触发"
-          fi
-
-      - name: Summary
-        run: |
-          echo "✅ 镜像构建并推送成功！" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| 镜像 | Tag |" >> $GITHUB_STEP_SUMMARY
-          echo "|------|-----|" >> $GITHUB_STEP_SUMMARY
-          if [ "${{ steps.targets.outputs.build_frontend }}" = "true" ]; then
-            echo "| frontend | \`${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-frontend:latest\` |" >> $GITHUB_STEP_SUMMARY
-          fi
-          if [ "${{ steps.targets.outputs.build_backend }}" = "true" ]; then
-            echo "| api | \`${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}-api:latest\` |" >> $GITHUB_STEP_SUMMARY
-          fi
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "📋 部署服务: ${{ steps.targets.outputs.services }}" >> $GITHUB_STEP_SUMMARY
-          if [ -n "${{ secrets.DEPLOY_WEBHOOK_URL }}" ]; then
-            echo "🚀 Webhook已触发，服务器正在部署..." >> $GITHUB_STEP_SUMMARY
-          else
-            echo "⏳ 服务器将在 2 分钟内自动拉取并部署（cron模式）" >> $GITHUB_STEP_SUMMARY
+            echo "No changes detected, skipping build"
           fi
