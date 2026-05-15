@@ -2,7 +2,7 @@
 
 **AnGIneer** (AGI + Engineer) 是专为严谨工程领域打造的Agent系统。
 
-充分利用小型语言模型 (SLM)的能力，融合结构化规范库 (Docs)、标准作业程序 (SOPs)、工程工具链 (EngTools) 与地理信息世界 (GeoWorld) ，成为工程师的最佳助手。
+仅使用不微调的小型语言模型 (SLM)的能力，融合结构化规范库 (Docs)、标准作业程序 (SOPs)、工程工具链 (EngTools) 与地理信息世界 (GeoWorld) ，成为工程师的最佳助手。
 
 > <br />
 
