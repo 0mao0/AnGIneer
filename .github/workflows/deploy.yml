@@ -84,16 +84,16 @@ jobs:
           export FRONTEND_BUILD=${{ steps.targets.outputs.build_frontend }}
           export BACKEND_BUILD=${{ steps.targets.outputs.build_backend }}
           
-          cd ${{ github.workspace }}
+          cd ${{ github.workspace }}/docker
           
           if [ "$FRONTEND_BUILD" = "true" ] && [ "$BACKEND_BUILD" = "true" ]; then
-            docker-compose -f docker/docker-compose.yml up -d --build
+            docker-compose up -d --build
           elif [ "$FRONTEND_BUILD" = "true" ]; then
-            docker-compose -f docker/docker-compose.yml build frontend
-            docker-compose -f docker/docker-compose.yml up -d frontend
+            docker-compose build frontend
+            docker-compose up -d frontend
           elif [ "$BACKEND_BUILD" = "true" ]; then
-            docker-compose -f docker/docker-compose.yml build api-server
-            docker-compose -f docker/docker-compose.yml up -d api-server
+            docker-compose build api-server
+            docker-compose up -d api-server
           else
             echo "No changes detected, skipping build"
           fi
