@@ -86,14 +86,17 @@ jobs:
           
           cd ${{ github.workspace }}/docker
           
+          # 强制重建
+          docker-compose down || true
+          
           if [ "$FRONTEND_BUILD" = "true" ] && [ "$BACKEND_BUILD" = "true" ]; then
-            docker-compose up -d --build
+            docker-compose up -d --build --force-recreate
           elif [ "$FRONTEND_BUILD" = "true" ]; then
-            docker-compose build frontend
-            docker-compose up -d frontend
+            docker-compose build --no-cache frontend
+            docker-compose up -d --force-recreate frontend
           elif [ "$BACKEND_BUILD" = "true" ]; then
-            docker-compose build api-server
-            docker-compose up -d api-server
+            docker-compose build --no-cache api-server
+            docker-compose up -d --force-recreate api-server
           else
             echo "No changes detected, skipping build"
           fi
