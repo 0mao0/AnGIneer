@@ -450,6 +450,62 @@ class TableLookupTool(BaseTool):
         if knowledge_dir:
             self.knowledge_dir = knowledge_dir
 
+    def _resolve_file(self, file_name: str) -> Optional[str]:
+        """解析知识库文件路径，仅基于数据库中的文档存储查找。"""
+        doc_title = file_name
+        if doc_title.startswith("markdown/"):
+            doc_title = doc_title[len("markdown/"):]
+        if doc_title.endswith(".md"):
+            doc_title = doc_title[:-3]
+        if doc_title.endswith(".pdf"):
+            doc_title = doc_title[:-4]
+        normalized = doc_title.replace("_", " ").replace("—", "-").replace("–", "-")
+        normalized = re.sub(r"\s+", " ", normalized).strip()
+        if not normalized:
+            return None
+        try:
+            from docs_core.ingest.store.assets_file_store import file_storage
+            from docs_core.knowledge_service import knowledge_service as ks
+            nodes = ks.list_nodes("default")
+            for node in nodes:
+                if node.type != "document":
+                    continue
+                node_title = node.title.replace("_", " ").replace("—", "-").replace("–", "-")
+                node_title = re.sub(r"\s+", " ", node_title).strip()
+                if node_title.endswith(".pdf"):
+                    node_title = node_title[:-4]
+                if node_title.endswith(".md"):
+                    node_title = node_title[:-3]
+                q = normalized.lower()
+                nt = node_title.lower()
+                match = False
+                if q in nt or nt in q:
+                    match = True
+                if not match:
+                    q_no_year = re.sub(r"[-_]\d{4}\s*$", "", q).strip()
+                    nt_no_year = re.sub(r"[-_]\d{4}\s*$", "", nt).strip()
+                    if q_no_year and (q_no_year in nt_no_year or nt_no_year in q_no_year):
+                        match = True
+                if not match:
+                    q_prefix = q[:15] if len(q) > 15 else q
+                    if q_prefix and nt.startswith(q_prefix):
+                        match = True
+                if not match:
+                    q_code = re.search(r"(jts|jtj|gb|jgj)\s*\d+", q)
+                    nt_code = re.search(r"(jts|jtj|gb|jgj)\s*\d+", nt)
+                    if q_code and nt_code and q_code.group(0) == nt_code.group(0):
+                        match = True
+                if match:
+                    content_path = file_storage.get_parsed_markdown_path("default", node.id)
+                    if content_path.exists():
+                        return str(content_path)
+                    edited_path = file_storage.get_edited_markdown_path("default", node.id)
+                    if edited_path.exists():
+                        return str(edited_path)
+        except Exception:
+            pass
+        return None
+
     def run(self, table_name: str, query_conditions: Any, file_name: str = "《海港水文规范》.md", target_column: str = None, config_name: str = None, mode: str = "instruct", use_llm: bool = True, **kwargs) -> Any:
         """从结构化表格中查询。
         
@@ -459,8 +515,8 @@ class TableLookupTool(BaseTool):
         # LLM 模式（默认）
         if use_llm:
             file_name = file_name.replace("《", "").replace("》", "")
-            knowledge_file = os.path.join(self.knowledge_dir, file_name)
-            if not os.path.exists(knowledge_file):
+            knowledge_file = self._resolve_file(file_name)
+            if not knowledge_file:
                 return {"error": f"未找到知识库文件: {file_name}"}
             with open(knowledge_file, 'r', encoding='utf-8') as f:
                 content = f.read()
@@ -488,8 +544,8 @@ class TableLookupTool(BaseTool):
         reset = "\033[0m" if use_color else ""
         print(f"{color}  [表格查询] 正在查找表格 '{table_name}'，查询条件: {query_conditions}，来源: {file_name}{reset}")
         trace = []
-        knowledge_file = os.path.join(self.knowledge_dir, file_name)
-        if not os.path.exists(knowledge_file):
+        knowledge_file = self._resolve_file(file_name)
+        if not knowledge_file:
             return {"error": f"未找到知识库文件: {file_name}"}
         
         try:

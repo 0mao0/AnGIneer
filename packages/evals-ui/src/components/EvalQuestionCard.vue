@@ -108,7 +108,7 @@
               </div>
               <div class="eval-detail-row">
                 <span class="eval-detail-label">意图层级:</span>
-                <span>{{ intentDebug.intent_level || question.intent_level || '—' }}</span>
+                <span>{{ intentDebug.intent_level || traceMeta.level || '—' }}</span>
               </div>
               <div class="eval-detail-row">
                 <span class="eval-detail-label">意图类型:</span>
@@ -209,7 +209,7 @@
                   <div class="eval-flow-step-card__header">
                     <span class="eval-flow-step-card__index">{{ step.step_index }}</span>
                     <span class="eval-flow-step-card__name">{{ step.step_name }}</span>
-                    <span class="eval-flow-step-card__tool">{{ step.tool }}</span>
+                    <span v-if="step.tool" class="eval-flow-step-card__tool">{{ step.tool }}</span>
                     <a-tag v-if="step.duration" color="processing" class="eval-flow-step-card__duration">
                       {{ step.duration.toFixed(2) }}s
                     </a-tag>
@@ -330,7 +330,7 @@
             <template v-if="step.detailType === 'intent'">
               <div class="eval-detail-row">
                 <span class="eval-detail-label">意图层级:</span>
-                <span>{{ intentDebug.intent_level || question.intent_level || '—' }}</span>
+                <span>{{ intentDebug.intent_level || traceMeta.level || '—' }}</span>
               </div>
               <div class="eval-detail-row">
                 <span class="eval-detail-label">服务模式:</span>
@@ -384,7 +384,7 @@
               </div>
               <div class="eval-detail-row">
                 <span class="eval-detail-label">意图层级:</span>
-                <span>{{ intentDebug.intent_level || question.intent_level }}</span>
+                <span>{{ intentDebug.intent_level || traceMeta.level }}</span>
               </div>
               <div class="eval-detail-row">
                 <span class="eval-detail-label">服务模式:</span>
@@ -860,7 +860,7 @@ const stageTimings = computed<Record<string, number>>(() => {
 
 const currentIntentLevel = computed(() => {
   return String(
-    intentDebug.value.intent_level || traceMeta.value.level || props.question.intent_level || 'L1'
+    intentDebug.value.intent_level || traceMeta.value.level || 'L1'
   )
 })
 
@@ -886,11 +886,30 @@ const casualTraceTitle = computed(() => {
   return String(traceMeta.value.title || '闲聊链路')
 })
 
-/** 获取 SOP 追踪步骤列表 */
+/** 获取 SOP 追踪步骤列表，并插入第0步显示题干已知条件。 */
 const sopTraceSteps = computed<SopTraceStep[]>(() => {
   const trace = prediction.value?.sop_trace
-  if (!Array.isArray(trace)) return []
-  return trace as SopTraceStep[]
+  const steps: SopTraceStep[] = Array.isArray(trace) ? [...trace] : []
+  const args = routeArgsEntries.value
+  if (args.length) {
+    const inputs: Record<string, unknown> = {}
+    for (const [key, val] of args) {
+      inputs[key] = val
+    }
+    steps.unshift({
+      step_id: 'step_0',
+      step_name: '已知条件',
+      step_index: 0,
+      tool: '',
+      description: '从题干中提取的已知参数',
+      inputs,
+      outputs: null,
+      duration: 0,
+      status: 'success',
+      error: null,
+    })
+  }
+  return steps
 })
 
 const routeCandidates = computed<RouteCandidate[]>(() => {
@@ -1076,6 +1095,14 @@ const casualTraceSteps = computed<ThinkingStep[]>(() => {
   ]
 })
 
+/** 计算 SOP 步骤执行总耗时（不含虚拟的第0步）。 */
+const sopExecutionTiming = computed(() => {
+  const steps = sopTraceSteps.value.filter(s => s.step_index > 0)
+  if (!steps.length) return undefined
+  const total = steps.reduce((sum, s) => sum + (s.duration || 0), 0)
+  return total || undefined
+})
+
 const flowTraceStages = computed<ThinkingStep[]>(() => {
   const timings = stageTimings.value
   return [
@@ -1088,16 +1115,8 @@ const flowTraceStages = computed<ThinkingStep[]>(() => {
       timing: timings['intent'],
     },
     {
-      key: 'flow-source',
-      label: 'SOP 来源',
-      value: flowTraceTitle.value,
-      hasDetail: true,
-      detailType: 'source',
-      timing: timings['sop_route'],
-    },
-    {
       key: 'flow-route',
-      label: isDynamicFlowLevel.value ? '动态 SOP 生成' : 'SOP 路由',
+      label: 'SOP 路由',
       value: String(routeDebug.value.matched_sop_name || routeDebug.value.matched_sop_id || '待补充'),
       hasDetail: true,
       detailType: 'route',
@@ -1106,9 +1125,13 @@ const flowTraceStages = computed<ThinkingStep[]>(() => {
     {
       key: 'flow-steps',
       label: '步骤推进',
-      value: sopTraceSteps.value.length ? `${sopTraceSteps.value.length} 步` : '暂无步骤追踪',
+      value: (() => {
+        const realStepCount = sopTraceSteps.value.filter(s => s.step_index > 0).length
+        return realStepCount ? `${realStepCount} 步` : '暂无步骤追踪'
+      })(),
       hasDetail: true,
       detailType: 'steps',
+      timing: sopExecutionTiming.value,
     },
     {
       key: 'flow-answer',

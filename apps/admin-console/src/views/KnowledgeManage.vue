@@ -445,32 +445,36 @@ const focusFromRouteQuery = async () => {
   })
 }
 
+// 查找节点
+const findNode = (nodes: SmartTreeNode[], key: string): SmartTreeNode | null => {
+  for (const node of nodes) {
+    if (node.key === key) return node
+    if (node.children?.length) {
+      const found = findNode(node.children, key)
+      if (found) return found
+    }
+  }
+  return null
+}
+
+// 查找父节点链
+const findParentChain = (nodes: SmartTreeNode[], key: string, parents: string[] = []): string[] | null => {
+  for (const node of nodes) {
+    if (node.key === key) return parents
+    if (node.children?.length) {
+      const found = findParentChain(node.children, key, [...parents, node.key])
+      if (found) return found
+    }
+  }
+  return null
+}
+
 // 加载节点
 const loadNodes = async (focusNodeKey?: string) => {
   try {
     const response = await knowledgeApi.getNodes('default', false) as unknown as any[]
     treeData.value = buildTree(response)
     if (focusNodeKey) {
-      const findParentChain = (nodes: SmartTreeNode[], key: string, parents: string[] = []): string[] | null => {
-        for (const node of nodes) {
-          if (node.key === key) return parents
-          if (node.children?.length) {
-            const found = findParentChain(node.children, key, [...parents, node.key])
-            if (found) return found
-          }
-        }
-        return null
-      }
-      const findNode = (nodes: SmartTreeNode[], key: string): SmartTreeNode | null => {
-        for (const node of nodes) {
-          if (node.key === key) return node
-          if (node.children?.length) {
-            const found = findNode(node.children, key)
-            if (found) return found
-          }
-        }
-        return null
-      }
       const parents = findParentChain(treeData.value as unknown as SmartTreeNode[], focusNodeKey) || []
       if (smartTreeRef.value) {
         smartTreeRef.value.expandedKeys = Array.from(new Set([
@@ -880,6 +884,39 @@ const handleFileDrop = async (files: File[], targetFolder: SmartTreeNode | null)
 
 // 上传文件
 const uploadFile = async (file: File, parentId?: string) => {
+  const tempKey = `__uploading_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
+  const tempNode: KnowledgeTreeNode = {
+    key: tempKey,
+    title: file.name,
+    isFolder: false,
+    visible: false,
+    status: 'uploading',
+    parentId,
+    filePath: file.name
+  }
+
+  if (parentId) {
+    const parent = findNode(treeData.value as unknown as SmartTreeNode[], parentId)
+    if (parent) {
+      if (!parent.children) parent.children = []
+      parent.children.push(tempNode)
+    }
+  } else {
+    treeData.value.push(tempNode)
+  }
+
+  if (smartTreeRef.value) {
+    if (parentId) {
+      smartTreeRef.value.expandedKeys = Array.from(new Set([
+        ...(smartTreeRef.value.expandedKeys || []),
+        parentId
+      ]))
+    }
+    smartTreeRef.value.selectedKeys = [tempKey]
+  }
+  selectedKeys.value = [tempKey]
+  selectedNode.value = tempNode
+
   try {
     const result = await knowledgeApi.uploadDocument('default', file, parentId) as any
     message.success(`上传成功: ${file.name}`)
@@ -887,6 +924,18 @@ const uploadFile = async (file: File, parentId?: string) => {
     await loadNodes(focusNodeKey)
   } catch (error) {
     message.error(`上传失败: ${file.name}`)
+    if (parentId) {
+      const parent = findNode(treeData.value as unknown as SmartTreeNode[], parentId)
+      if (parent?.children) {
+        parent.children = parent.children.filter(n => n.key !== tempKey)
+      }
+    } else {
+      treeData.value = treeData.value.filter(n => n.key !== tempKey)
+    }
+    if (selectedKeys.value[0] === tempKey) {
+      selectedKeys.value = []
+      selectedNode.value = null
+    }
   }
 }
 

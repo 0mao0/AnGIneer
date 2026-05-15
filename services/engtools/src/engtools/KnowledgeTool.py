@@ -1,8 +1,70 @@
 import os
-from typing import Any, Dict
+import re
+from typing import Any, Dict, Optional
 from .BaseTool import BaseTool, register_tool
 from .config import KNOWLEDGE_DIR
 from ai_inference.llm_client import llm_client
+
+
+def _normalize_doc_title(raw: str) -> str:
+    """规范化文档标题用于匹配，去除路径前缀、扩展名、年份后缀、统一空格/下划线。"""
+    t = raw
+    if t.startswith("markdown/"):
+        t = t[len("markdown/"):]
+    if t.endswith(".md"):
+        t = t[:-3]
+    if t.endswith(".pdf"):
+        t = t[:-4]
+    t = t.replace("_", " ").replace("—", "-").replace("–", "-")
+    t = re.sub(r"\s+", " ", t).strip()
+    return t
+
+
+def _title_matches(query_title: str, node_title: str) -> bool:
+    """宽松匹配文档标题，忽略年份/版本号后缀差异。"""
+    q = query_title.lower()
+    nt = node_title.lower()
+    if q in nt or nt in q:
+        return True
+    q_no_year = re.sub(r"[-_]\d{4}\s*$", "", q).strip()
+    nt_no_year = re.sub(r"[-_]\d{4}\s*$", "", nt).strip()
+    if q_no_year and (q_no_year in nt_no_year or nt_no_year in q_no_year):
+        return True
+    q_prefix = q[:15] if len(q) > 15 else q
+    if q_prefix and nt.startswith(q_prefix):
+        return True
+    # 提取规范编号模式如 JTS 165 进行匹配
+    q_code = re.search(r"(jts|jtj|gb|jgj)\s*\d+", q)
+    nt_code = re.search(r"(jts|jtj|gb|jgj)\s*\d+", nt)
+    if q_code and nt_code and q_code.group(0) == nt_code.group(0):
+        return True
+    return False
+
+
+def _resolve_knowledge_file(file_name: str) -> Optional[str]:
+    """解析知识库文件路径，仅基于数据库中的文档存储查找。"""
+    normalized = _normalize_doc_title(file_name)
+    if not normalized:
+        return None
+    try:
+        from docs_core.ingest.store.assets_file_store import file_storage
+        from docs_core.knowledge_service import knowledge_service as ks
+        nodes = ks.list_nodes("default")
+        for node in nodes:
+            if node.type != "document":
+                continue
+            node_norm = _normalize_doc_title(node.title)
+            if _title_matches(normalized, node_norm):
+                content_path = file_storage.get_parsed_markdown_path("default", node.id)
+                if content_path.exists():
+                    return str(content_path)
+                edited_path = file_storage.get_edited_markdown_path("default", node.id)
+                if edited_path.exists():
+                    return str(edited_path)
+    except Exception:
+        pass
+    return None
+
 
 @register_tool
 class KnowledgeSearchTool(BaseTool):
@@ -20,10 +82,9 @@ class KnowledgeSearchTool(BaseTool):
     def run(self, query: str, file_name: str = "《海港水文规范》.md", config_name: str = None, mode: str = "instruct", **kwargs) -> Dict[str, Any]:
         """优先使用 BM25 快速检索段落，可选再用 LLM 精炼。"""
         print(f"  [知识检索] 正在检索文档: {query}，来源: {file_name}")
-        knowledge_file = os.path.join(self.knowledge_dir, file_name)
-        if not os.path.exists(knowledge_file):
+        knowledge_file = _resolve_knowledge_file(file_name)
+        if not knowledge_file:
             return {"error": f"未找到知识库文件: {file_name}"}
-            
         with open(knowledge_file, 'r', encoding='utf-8') as f:
             full_content = f.read()
 

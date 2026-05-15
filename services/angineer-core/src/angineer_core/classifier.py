@@ -177,6 +177,21 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             reason="检测到歧义闲聊关键词且无实质性内容",
         )
 
+    # 考试多选题计算模式：多选题（ABCD选项）+ 计算关键词 + 多个数值 = 强制L3
+    # 必须在规范编号规则之前检查，防止规范编号导致的错误L2路由
+    is_multiple_choice = bool(re.search(r"\([A-D]\)", query) or re.search(r"[（][A-D][）]", query))
+    has_l3_keyword = any(kw in query for kw in L3_KEYWORDS)
+    num_values = NUM_VALUE_PATTERN.findall(query)
+    if is_multiple_choice and has_l3_keyword and len(num_values) >= 1:
+        return IntentResult(
+            intent_level="L3",
+            intent_type="standard_calculation",
+            parameters={"num_values_count": len(num_values)},
+            required_capabilities=["retrieval", "calculation", "sop"],
+            service_mode="standard_sop",
+            reason=f"检测到多选题计算模式：{len(num_values)}个数值参数(考试题模式)",
+        )
+
     # 规范编号精确查找（如 JGJ 162、GB 50010、JTS 165-2025 等）
     standard_code_match = STANDARD_CODE_PATTERN.search(query)
     if standard_code_match:
@@ -192,7 +207,6 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
     clause_match = CLAUSE_ID_PATTERN.search(query)
     param_matches = PARAM_PATTERN.findall(query)
     has_l2_keyword = any(kw in query for kw in L2_KEYWORDS)
-    has_l3_keyword = any(kw in query for kw in L3_KEYWORDS)
     has_l4_keyword = any(kw in query for kw in L4_KEYWORDS)
     if param_matches and has_l3_keyword:
         return IntentResult(
@@ -203,8 +217,6 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             service_mode="standard_sop",
             reason=f"检测到参数提取({len(param_matches)}个)和计算关键词",
         )
-    num_values = NUM_VALUE_PATTERN.findall(query)
-    is_multiple_choice = bool(re.search(r"\([A-D]\)", query) or re.search(r"[（][A-D][）]", query))
     if has_l3_keyword and len(num_values) >= 2:
         return IntentResult(
             intent_level="L3",

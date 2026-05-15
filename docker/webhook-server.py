@@ -267,6 +267,8 @@ def handle_deploy():
         services = data.get('services')
         if isinstance(services, str):
             services = services.split()
+        if not services or 'all' in services:
+            services = None
         
         logger.info(f"🔔 收到部署请求: action={action}, commit={commit_sha[:8]}, time={timestamp}, services={services or '全部'}")
         
