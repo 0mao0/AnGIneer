@@ -10,37 +10,51 @@ on:
         required: false
         default: 'all'
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   detect-changes:
     runs-on: ubuntu-latest
     outputs:
-      frontend_changed: ${{ steps.filter.outputs.frontend }}
-      backend_changed: ${{ steps.filter.outputs.backend }}
+      frontend_changed: ${{ steps.check.outputs.frontend }}
+      backend_changed: ${{ steps.check.outputs.backend }}
     steps:
       - uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v3
-        id: filter
         with:
-          filters: |
-            frontend:
-              - 'apps/web-console/**'
-              - 'apps/admin-console/**'
-              - 'packages/ui-kit/**'
-              - 'packages/docs-ui/**'
-              - 'packages/sop-ui/**'
-              - 'packages/evals-ui/**'
-              - 'packages/geo-ui/**'
-              - 'packages/engtools-ui/**'
-              - 'apps/shared/**'
-              - 'docker/Dockerfile.frontend'
-              - 'docker/nginx/**'
-              - 'package.json'
-              - 'pnpm-lock.yaml'
-            backend:
-              - 'services/**'
-              - 'apps/shared/ports.json'
-              - 'docker/Dockerfile.backend'
-              - 'package.json'
+          fetch-depth: 0  # 获取完整历史用于对比
+      
+      - name: Check changed files
+        id: check
+        run: |
+          FRONTEND_CHANGED="false"
+          BACKEND_CHANGED="false"
+          
+          # 获取本次 push 的变更文件
+          if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            # 首次 push 或新分支
+            CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
+          else
+            CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          fi
+          
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+          
+          # 检查前端相关
+          if echo "$CHANGED_FILES" | grep -qE '^(apps/web-console/|apps/admin-console/|packages/ui-kit/|packages/docs-ui/|packages/sop-ui/|packages/evals-ui/|packages/geo-ui/|packages/engtools-ui/|apps/shared/|docker/Dockerfile\.frontend|docker/nginx/|package\.json|pnpm-lock\.yaml)'; then
+            FRONTEND_CHANGED="true"
+          fi
+          
+          # 检查后端相关
+          if echo "$CHANGED_FILES" | grep -qE '^(services/|apps/shared/ports\.json|docker/Dockerfile\.backend|package\.json)'; then
+            BACKEND_CHANGED="true"
+          fi
+          
+          echo "frontend=$FRONTEND_CHANGED" >> $GITHUB_OUTPUT
+          echo "backend=$BACKEND_CHANGED" >> $GITHUB_OUTPUT
+          echo "Frontend changed: $FRONTEND_CHANGED"
+          echo "Backend changed: $BACKEND_CHANGED"
 
   build-and-deploy:
     needs: detect-changes
@@ -69,6 +83,8 @@ jobs:
         run: |
           export FRONTEND_BUILD=${{ steps.targets.outputs.build_frontend }}
           export BACKEND_BUILD=${{ steps.targets.outputs.build_backend }}
+          
+          cd ${{ github.workspace }}
           
           if [ "$FRONTEND_BUILD" = "true" ] && [ "$BACKEND_BUILD" = "true" ]; then
             docker-compose -f docker/docker-compose.yml up -d --build
