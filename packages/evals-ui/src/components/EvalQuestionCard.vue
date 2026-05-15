@@ -4,7 +4,7 @@
     :class="{ 'eval-question-card--expanded': expanded }"
   >
     <div class="eval-question-card__header">
-      <EvalLevelBadge :level="question.intent_level" />
+      <EvalLevelBadge :level="localIntentLevel" />
       <span class="eval-question-card__id">{{ question.question_id }}</span>
       <span class="eval-question-card__text">{{ localQuestionText }}</span>
       <a-tag v-if="displayStatusTag" :color="displayStatusTag.color" class="eval-question-card__status">
@@ -63,14 +63,24 @@
             </template>
           </a-space>
         </div>
-        <a-textarea
-          v-if="editing"
-          v-model:value="editText"
-          class="eval-question-card__edit-input"
-          :auto-size="{ minRows: 2, maxRows: 6 }"
-          :disabled="savingEdit"
-          @keydown.ctrl.enter.prevent="saveEdit"
-        />
+        <div v-if="editing" class="eval-question-card__edit-form">
+          <div class="eval-question-card__edit-row">
+            <span class="eval-question-card__edit-label">意图等级</span>
+            <a-radio-group v-model:value="editLevel" size="small" :disabled="savingEdit">
+              <a-radio-button value="L1">L1</a-radio-button>
+              <a-radio-button value="L2">L2</a-radio-button>
+              <a-radio-button value="L3">L3</a-radio-button>
+              <a-radio-button value="L4">L4</a-radio-button>
+            </a-radio-group>
+          </div>
+          <a-textarea
+            v-model:value="editText"
+            class="eval-question-card__edit-input"
+            :auto-size="{ minRows: 2, maxRows: 6 }"
+            :disabled="savingEdit"
+            @keydown.ctrl.enter.prevent="saveEdit"
+          />
+        </div>
         <div v-else class="eval-question-card__editor-content">{{ localQuestionText }}</div>
       </div>
 
@@ -588,7 +598,7 @@ import { message } from 'ant-design-vue'
 import { RightOutlined } from '@ant-design/icons-vue'
 import { renderMarkdownToHtml } from '@angineer/ui-kit/utils/markdown'
 import EvalLevelBadge from './EvalLevelBadge.vue'
-import type { EvalQuestion, EvalRunDetail, SemanticEvalResult } from '../types/eval'
+import type { EvalQuestion, EvalRunDetail, SemanticEvalResult, EvalIntentLevel } from '../types/eval'
 
 interface ThinkingStep {
   key: string
@@ -658,11 +668,17 @@ const emit = defineEmits<{
 const expandedSteps = ref<Set<string>>(new Set())
 const editing = ref(false)
 const editText = ref('')
+const editLevel = ref<EvalIntentLevel>(props.question.intent_level)
 const localQuestionText = ref(props.question.question)
+const localIntentLevel = ref<EvalIntentLevel>(props.question.intent_level)
 const savingEdit = ref(false)
 
 watch(() => props.question.question, (value) => {
   localQuestionText.value = value
+})
+
+watch(() => props.question.intent_level, (value) => {
+  localIntentLevel.value = value
 })
 
 watch(() => props.expanded, (value) => {
@@ -674,38 +690,46 @@ watch(() => props.expanded, (value) => {
 /** 进入展开区题目编辑模式。 */
 const startEditing = () => {
   editText.value = localQuestionText.value
+  editLevel.value = localIntentLevel.value
   editing.value = true
 }
 
-/** 取消题目编辑并恢复到当前已知文本。 */
+/** 取消题目编辑并恢复到当前已知文本和等级。 */
 const cancelEdit = () => {
   editing.value = false
   editText.value = localQuestionText.value
+  editLevel.value = localIntentLevel.value
 }
 
-/** 保存编辑后的题目文本。 */
+/** 保存编辑后的题目文本和意图等级。 */
 const saveEdit = async () => {
   const trimmed = editText.value.trim()
   if (!trimmed) {
     message.warning('题目不能为空')
     return
   }
-  if (trimmed === localQuestionText.value) {
+  const textChanged = trimmed !== localQuestionText.value
+  const levelChanged = editLevel.value !== localIntentLevel.value
+  if (!textChanged && !levelChanged) {
     editing.value = false
     return
   }
   savingEdit.value = true
   try {
+    const payload: Record<string, string> = {}
+    if (textChanged) payload.question = trimmed
+    if (levelChanged) payload.intent_level = editLevel.value
     const resp = await fetch(
       `/api/evals/datasets/${props.question.dataset_id}/questions/${props.question.question_id}`,
       {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: trimmed }),
+        body: JSON.stringify(payload),
       }
     )
     if (resp.ok) {
-      localQuestionText.value = trimmed
+      if (textChanged) localQuestionText.value = trimmed
+      if (levelChanged) localIntentLevel.value = editLevel.value
       editing.value = false
       message.success('题目已保存')
       emit('updated')
@@ -1252,6 +1276,24 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     white-space: nowrap;
     cursor: text;
     user-select: text;
+  }
+
+  &__edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__edit-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__edit-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    white-space: nowrap;
   }
 
   &__edit-input {

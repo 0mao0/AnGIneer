@@ -581,6 +581,7 @@ def delete_sop(sop_id: str):
     json_path = os.path.join(SOP_JSON_DIR, f"{sop_id}.json")
     if os.path.exists(json_path):
         os.remove(json_path)
+        _sop_loader.refresh_index()
         return {"status": "success"}
     raise HTTPException(status_code=404, detail="SOP not found")
 
