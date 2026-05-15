@@ -24,10 +24,10 @@ services:
     ports:
       - "8789:8789"
     env_file:
-      - /root/AnGIneer/.env
+      - /opt/angineer/.env
     volumes:
-      - /root/AnGIneer/data:/app/data
-      - /root/AnGIneer/logs:/app/logs
+      - /opt/angineer/data:/app/data
+      - /opt/angineer/logs:/app/logs
     restart: unless-stopped
     networks:
       - angineer-net
