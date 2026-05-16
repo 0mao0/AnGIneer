@@ -1,5 +1,5 @@
 #!/bin/bash
-# AnGIneer 一键部署脚本
+# AnGIneer 服务器端部署脚本（由 deploy-local.sh 调用）
 # 用法: bash deploy.sh [选项]
 #   --build-only  仅构建镜像，不启动服务
 #   --stop        停止所有服务
@@ -56,16 +56,12 @@ check_prerequisites() {
 
 deploy() {
     echo "=========================================="
-    echo "   AnGIneer 部署"
+    echo "   AnGIneer 部署 (服务器端)"
     echo "=========================================="
     echo "项目目录: $PROJECT_DIR"
     echo "=========================================="
 
     check_prerequisites
-
-    echo ">>> 拉取最新代码..."
-    cd "$PROJECT_DIR"
-    git pull origin main
 
     echo ">>> 构建 Docker 镜像（首次较慢，约 5-10 分钟）..."
     docker compose -f "$COMPOSE_FILE" build

@@ -1,55 +1,32 @@
-name: Build & Deploy
+name: CI
 
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
-    runs-on: self-hosted
+  lint-and-test:
+    runs-on: ubuntu-latest
     steps:
-      - name: Check environment
-        run: |
-          echo "📍 Working directory: $(pwd)"
-          echo "👤 Current user: $(whoami)"
-          echo "🐳 Docker version: $(docker --version)"
-          echo "📁 Workspace: ${{ github.workspace }}"
-          docker ps || echo "⚠️ Docker permission issue detected"
-
       - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          clean: true
-          fetch-depth: 0
+          node-version: '20'
+          cache: 'pnpm'
 
-      - name: Verify checkout
-        run: |
-          echo "✅ Git status:"
-          git status
-          echo ""
-          echo "📦 Latest commit:"
-          git log -1 --oneline
-          echo ""
-          echo "📂 Files in workspace:"
-          ls -la ${{ github.workspace }}
+      - name: Install pnpm
+        run: corepack enable pnpm
 
-      - name: Build & deploy
-        working-directory: ${{ github.workspace }}/docker
-        run: |
-          echo "🛑 Stopping existing containers..."
-          docker-compose down --remove-orphans || true
-          
-          echo "🏗️ Building and starting containers..."
-          docker-compose up -d --build --force-recreate
-          
-          echo "✅ Checking container status..."
-          sleep 5
-          docker-compose ps
-          
-          echo "🌐 Verifying services are running..."
-          curl -f http://localhost:8789/docs || echo "⚠️ API server may still be starting..."
+      - name: Install dependencies
+        run: pnpm install
 
-      - name: Cleanup old images (optional)
-        if: always()
-        run: |
-          docker image prune -f --filter "until=24h" || true
+      - name: Run lint
+        run: pnpm run lint
+
+      - name: Build check (optional)
+        run: pnpm run build || echo "⚠️ Build failed, but CI continues for review"

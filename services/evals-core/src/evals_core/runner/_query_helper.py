@@ -44,6 +44,8 @@ def run_eval_query(
     不走 HTTP，不依赖 FastAPI，不依赖 asyncio。
     在评测器的 daemon 线程中直接调用即可。
 
+    强制使用 Qwen3.6-35B-A3B (Private) 模型，确保评测结果一致性。
+
     Args:
         query: 用户查询文本
         library_id: 知识库 ID
@@ -58,7 +60,7 @@ def run_eval_query(
 
         sop_loader = _ensure_sop_loader()
 
-        dispatcher = Dispatcher()
+        dispatcher = Dispatcher(config_name="Qwen3.6-35B-A3B (Private)")
         result = dispatcher.dispatch(
             query=query,
             library_id=library_id,

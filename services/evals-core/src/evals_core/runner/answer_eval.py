@@ -100,7 +100,7 @@ def _llm_semantic_evaluate(
     checks: List[Dict[str, Any]],
     semantic_threshold: float,
 ) -> Dict[str, Any]:
-    """调用 LLM 对系统答案做语义评判，返回评分与理由。"""
+    """调用 LLM 对系统答案做语义评判，返回评分与理由。强制使用 Qwen3.6-35B-A3B 模型确保一致性。"""
     from ai_inference.llm_client import get_llm_client
     from ai_inference.llm_response_parser import extract_json_from_text, ParseError
 
@@ -117,7 +117,7 @@ def _llm_semantic_evaluate(
     ]
     try:
         client = get_llm_client()
-        raw_response = client.chat(messages, mode="instruct")
+        raw_response = client.chat(messages, mode="instruct", config_name="Qwen3.6-35B-A3B (Private)")
         parsed = extract_json_from_text(raw_response)
         score = float(parsed.get("score", 0.0))
         score = max(0.0, min(1.0, score))
