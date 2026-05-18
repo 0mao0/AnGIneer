@@ -41,17 +41,20 @@ def _build_evaluators() -> Dict[str, Any]:
 def _determine_evaluator_names(question: Dict[str, Any]) -> List[str]:
     """根据题目类型确定使用的评测器列表（可同时跑多个）。"""
     task_type = str(question.get("task_type") or "").strip()
-    if task_type == "analytic_sql":
-        return ["text2sql"]
     retrieval_gold = question.get("retrieval_gold")
     answer_gold = question.get("answer_gold")
     sop_gold = question.get("sop_gold")
+    sql_gold = question.get("sql_gold")
     intent_level = str(question.get("intent_level") or "")
     names = []
     if retrieval_gold:
         names.append("retrieval")
+    if task_type == "analytic_sql" and sql_gold:
+        names.append("text2sql")
     if answer_gold:
         names.append("answer")
+    if task_type == "analytic_sql" and not answer_gold and not sql_gold:
+        names.append("text2sql")
     if sop_gold or intent_level == "L3":
         names.append("sop")
     if not names:
@@ -69,7 +72,12 @@ def _run_single_question(
     all_scores: Dict[str, Any] = {}
     all_predictions: Dict[str, Any] = {}
     last_prediction: Dict[str, Any] = {}
-    primary_evaluator_name = evaluator_names[0] if evaluator_names else "answer"
+    if "answer" in evaluator_names:
+        primary_evaluator_name = "answer"
+    elif evaluator_names:
+        primary_evaluator_name = evaluator_names[0]
+    else:
+        primary_evaluator_name = "answer"
     primary_evaluator = evaluators.get(primary_evaluator_name)
     if not primary_evaluator:
         return {"status": "error", "error": f"评测器 {primary_evaluator_name} 未注册", "scores": {}}
@@ -102,8 +110,25 @@ def _run_single_question(
     primary_scores = all_scores.get(primary_evaluator_name, {})
     primary_score = primary_scores.get("score")
     if primary_score is None:
-        status = "completed"
-        quality = None
+        # 尝试从其他评测器获取有效 score 作为 fallback
+        fallback_score = None
+        for ev_name in evaluator_names:
+            if ev_name == primary_evaluator_name:
+                continue
+            ev_scores = all_scores.get(ev_name, {})
+            candidate = ev_scores.get("score")
+            if candidate is not None:
+                fallback_score = candidate
+                break
+        if fallback_score is None:
+            status = "completed"
+            quality = None
+        elif fallback_score < PASSED_THRESHOLD:
+            status = "completed"
+            quality = "wrong"
+        else:
+            status = "completed"
+            quality = "correct"
     elif primary_score < PASSED_THRESHOLD:
         status = "completed"
         quality = "wrong"
@@ -259,6 +284,7 @@ def _run_suite_thread(
         _current_run_id = None
         _stop_event = None
         _eval_lock.release()
+        result_store.cleanup_old_runs(dataset_id, keep=3)
 
 
 def start_eval_run(

@@ -9,6 +9,32 @@ from evals_core.runner._query_helper import run_eval_query
 class Text2SqlEvaluator(BaseEvaluator):
     """SQL 评测器，通过 query_engine 直接调用 SQL 链路。"""
 
+    @staticmethod
+    def _emit_enriched_stage(
+        question: Dict[str, Any],
+        partial: Dict[str, Any],
+        stage_callback: Optional[Callable[[Dict[str, Any]], None]],
+    ) -> None:
+        """把 SQL 链路的中间态归一化后回传给评测轮询层。"""
+        if not stage_callback:
+            return
+        sql_data = partial.get("sql")
+        prediction = {
+            "sql": sql_data,
+            "answer": partial.get("answer", ""),
+            "citations": list(partial.get("citations") or []),
+            "retrieved_items": list(partial.get("retrieved_items") or []),
+            "execution_status": (sql_data or {}).get("execution_status", "") if isinstance(sql_data, dict) else "",
+            "generated_sql": (sql_data or {}).get("generated_sql", "") if isinstance(sql_data, dict) else "",
+            "intent": partial.get("intent", {}),
+            "stage_timings": partial.get("stage_timings", {}),
+            "strategy": partial.get("strategy", ""),
+            "system_prompt": partial.get("system_prompt", ""),
+            "retrieval_debug": partial.get("retrieval_debug", {}),
+            "stage": partial.get("stage", ""),
+        }
+        stage_callback(enrich_prediction_trace(question, partial, prediction))
+
     def run_prediction(self, question: Dict[str, Any], *, stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None) -> Dict[str, Any]:
         """通过 query_engine 直接调用 SQL 链路。"""
         question_id = str(question.get("question_id") or "")
@@ -21,6 +47,7 @@ class Text2SqlEvaluator(BaseEvaluator):
             library_id=str(question.get("library_id") or "default"),
             doc_ids=list(question.get("doc_ids") or []),
             session_id=f"eval-sql-{question_id}",
+            stage_callback=(lambda partial: self._emit_enriched_stage(question, partial, stage_callback)) if stage_callback else None,
         )
 
         if "error" in data:
@@ -30,8 +57,14 @@ class Text2SqlEvaluator(BaseEvaluator):
         prediction = {
             "sql": sql_data,
             "answer": data.get("answer", ""),
+            "citations": list(data.get("citations") or []),
+            "retrieved_items": list(data.get("retrieved_items") or []),
             "execution_status": (sql_data or {}).get("execution_status", "") if sql_data else "",
             "generated_sql": (sql_data or {}).get("generated_sql", "") if sql_data else "",
+            "stage_timings": data.get("stage_timings", {}),
+            "strategy": data.get("strategy", ""),
+            "system_prompt": data.get("system_prompt", ""),
+            "retrieval_debug": data.get("retrieval_debug", {}),
             "intent": data.get("intent", {}),
         }
         return enrich_prediction_trace(question, data, prediction)

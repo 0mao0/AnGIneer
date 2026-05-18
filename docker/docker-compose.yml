@@ -26,8 +26,8 @@ services:
     env_file:
       - /opt/angineer/.env
     volumes:
-      - /opt/angineer/data:/app/data
-      - /opt/angineer/logs:/app/logs
+      - ../data:/app/data
+      - ../logs:/app/logs
     restart: unless-stopped
     networks:
       - angineer-net

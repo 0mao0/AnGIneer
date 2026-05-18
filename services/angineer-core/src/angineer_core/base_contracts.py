@@ -65,14 +65,26 @@ ServiceMode = Literal[
 ]
 
 
+class AttemptedPathResult(BaseModel):
+    """记录分层尝试链中单一路径的执行结果。"""
+    path: ServiceMode
+    status: Literal["success", "insufficient", "no_match", "failed", "skipped"] = "skipped"
+    reason: Optional[str] = None
+
+
 class IntentResult(BaseModel):
     """L0~L4 意图识别结果，由 IntentClassifier 输出。"""
     intent_level: IntentLevel = "L1"
+    primary_level: IntentLevel = "L1"
     intent_type: str = ""
     parameters: Dict[str, Any] = Field(default_factory=dict)
     required_capabilities: List[str] = Field(default_factory=list)
     matched_sop: Optional[str] = None
     service_mode: ServiceMode = "semantic_retrieval"
+    execution_plan: List[ServiceMode] = Field(default_factory=list)
+    attempted_paths: List[AttemptedPathResult] = Field(default_factory=list)
+    final_path: Optional[ServiceMode] = None
+    fallback_reason: Optional[str] = None
     reason: Optional[str] = None
 
 

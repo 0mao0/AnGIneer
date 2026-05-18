@@ -23,13 +23,90 @@ class SopEvaluator(BaseEvaluator):
             return {}
 
         if stage_callback:
-            stage_callback({"answer": "", "stage": "intent", "stage_timings": {}, "sop_trace": []})
+            stage_callback({
+                "answer": "",
+                "stage": "intent",
+                "stage_timings": {},
+                "sop_trace": [],
+                "intent": {"intent_level": "", "service_mode": ""},
+            })
+
+        partial_sop_trace = []
+        route_context = {}
+
+        def _enrich_partial(partial: Dict[str, Any]) -> Dict[str, Any]:
+            """对中间结果进行 trace enrichment，确保前端能正确解析。"""
+            intent = partial.get("intent", {})
+            route_debug = partial.get("route_debug", {})
+            if not route_debug and not intent:
+                return partial
+
+            intent_level = str(intent.get("intent_level", "L1"))
+            service_mode = str(intent.get("service_mode", ""))
+            trace_meta = {
+                "level": intent_level,
+                "trace_mode": "standard_sop" if intent_level in ("L3", "L4") else "direct",
+                "service_mode": service_mode,
+                "title": f"标准 SOP 执行 ({service_mode})" if service_mode else "流程执行",
+            }
+            flow_debug = {
+                "strategy": f"SOP 执行 ({route_debug.get('matched_sop_id', '')})",
+                "summary": f"执行中... 已完成 {len(partial.get('sop_trace', []))} 个步骤",
+            }
+
+            return {
+                **partial,
+                "intent": {
+                    **intent,
+                    "primary_level": intent.get("primary_level", intent.get("intent_level", "")),
+                    "execution_plan": list(intent.get("execution_plan") or [intent.get("service_mode", "")] if intent.get("service_mode") else []),
+                },
+                "route_debug": route_debug,
+                "flow_debug": flow_debug,
+                "trace_meta": trace_meta,
+                "issues": [],
+                "trace_summary": "",
+            }
+
+        def _on_step_complete(step_info: Dict[str, Any]):
+            """每个 SOP 步骤完成时的回调，实时推送部分结果给前端。"""
+            nonlocal partial_sop_trace
+
+            if isinstance(step_info, dict) and step_info.get("event") == "route_completed":
+                route_context["route_debug"] = step_info.get("route_debug", {})
+                route_context["intent"] = step_info.get("intent", {})
+                if stage_callback:
+                    partial_result = {
+                        "answer": "",
+                        "stage": "route_completed",
+                        "stage_timings": {},
+                        "sop_trace": [],
+                        **route_context,
+                    }
+                    enriched = _enrich_partial(partial_result)
+                    stage_callback(enriched)
+                return
+
+            partial_sop_trace.append(step_info)
+            if stage_callback:
+                partial_result = {
+                    "answer": "",
+                    "stage": "sop_executing",
+                    "stage_timings": {},
+                    "sop_trace": list(partial_sop_trace),
+                }
+                if route_context:
+                    partial_result.update(route_context)
+
+                enriched = _enrich_partial(partial_result)
+                stage_callback(enriched)
 
         data = run_eval_query(
             query=query,
             library_id=str(question.get("library_id") or "default"),
             doc_ids=list(question.get("doc_ids") or []),
             session_id=f"eval-sop-{question_id}",
+            step_callback=_on_step_complete if stage_callback else None,
         )
 
         if "error" in data:
@@ -50,6 +127,7 @@ class SopEvaluator(BaseEvaluator):
             "intent": data.get("intent", {}),
             "sop_trace": data.get("sop_trace", []),
         }
+
         result = enrich_prediction_trace(question, data, result)
 
         if stage_callback:

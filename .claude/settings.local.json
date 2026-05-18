@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/c/Python312/python *)",
+      "Read(//c/Users/飞/.claude/projects/D--AI/**)",
+      "Bash(curl -s http://localhost:8000/api/evals/runs)",
+      "Bash(curl -s http://localhost:8789/api/evals/datasets)",
+      "Bash(curl *)",
+      "Bash(python -c \"import py_compile; py_compile.compile\\('services/docs-core/src/docs_core/retrieval/hybrid_retriever.py', doraise=True\\); print\\('hybrid_retriever OK'\\)\")",
+      "Bash(python -c \"import py_compile; py_compile.compile\\('services/angineer-core/src/angineer_core/dispatcher.py', doraise=True\\); print\\('dispatcher OK'\\)\")",
+      "Bash(cd /d D:\\\\AI\\\\AnGIneer)",
+      "Bash(python scripts/run_l1_eval.py)",
+      "Bash(python -c ' *)",
+      "Bash(python scripts/rerun_wrong_l1.py)",
+      "Bash(python *)"
+    ]
+  }
+}

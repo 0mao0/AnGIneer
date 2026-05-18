@@ -14,13 +14,17 @@ import time
 import json
 import uuid
 import os
+import re
 from typing import Dict, Any, Tuple, List, Optional, TYPE_CHECKING
-from angineer_core.base_contracts import SOP, Step, IntentResult
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
+from angineer_core.base_contracts import SOP, Step, IntentResult, AttemptedPathResult
 from angineer_core.memory import Memory, StepRecord
 from angineer_core.base_logger import get_logger
 from angineer_core.base_utils import is_fatal_exception
 
 logger = get_logger(__name__)
+
+_TOOL_EXEC_TIMEOUT_SECONDS = 120
 
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
@@ -81,6 +85,8 @@ class Dispatcher:
         doc_ids: Optional[List[str]] = None,
         inline_citations: Optional[List[Dict[str, Any]]] = None,
         sop_loader=None,
+        stage_callback=None,
+        step_callback=None,
     ) -> Dict[str, Any]:
         """
         顶层分级调度入口：意图分类 → L1/L2/L3/L4 路径选择 → 返回结果。
@@ -93,9 +99,8 @@ class Dispatcher:
             library_id: 知识库 ID
             doc_ids: 限定文档 ID 列表
             sop_loader: SOP 加载器实例（由调用方注入）
-
-        Returns:
-            包含 answer、citations、intent 等字段的字典
+            stage_callback: 主阶段更新回调
+            step_callback: SOP 执行时每个步骤完成后的回调函数
         """
         from angineer_core.classifier import IntentClassifier
 
@@ -104,10 +109,14 @@ class Dispatcher:
         stage_timings: Dict[str, float] = {}
         doc_ids = doc_ids or []
         inline_citations = inline_citations or []
+        sop_trace: list = []
 
         # --- 1. 意图分类 ---
         intent_result = IntentResult(
-            intent_level="L1", service_mode="semantic_retrieval"
+            intent_level="L1",
+            primary_level="L1",
+            service_mode="semantic_retrieval",
+            execution_plan=["semantic_retrieval"],
         )
         _t0 = time.time()
         try:
@@ -122,6 +131,20 @@ class Dispatcher:
                 raise
             logger.warning(f"意图分类失败，降级为L1: {e}")
         stage_timings["intent"] = round(time.time() - _t0, 2)
+        self._emit_stage_callback(
+            stage_callback,
+            stage="intent",
+            intent_result=intent_result,
+            answer="",
+            citations=[],
+            retrieved_items=[],
+            sql_payload=None,
+            route_debug={},
+            flow_debug={},
+            stage_timings=stage_timings,
+            sop_trace=[],
+            fallback_used=False,
+        )
 
         # --- 2. 获取知识库节点 ---
         try:
@@ -158,6 +181,7 @@ class Dispatcher:
         strategy_desc = ""
         system_prompt = ""
         retrieval_debug = {}
+        attempted_paths: List[Dict[str, Any]] = []
         route_debug: Dict[str, Any] = {
             "route_kind": "",
             "matched_sop_id": "",
@@ -167,6 +191,11 @@ class Dispatcher:
             "args": {},
             "missing_args": [],
             "reason": intent_result.reason or "",
+            "primary_level": intent_result.primary_level or intent_result.intent_level,
+            "execution_plan": list(intent_result.execution_plan or [intent_result.service_mode]),
+            "attempted_paths": [],
+            "final_path": None,
+            "fallback_reason": "",
         }
         flow_debug: Dict[str, Any] = {
             "flow_type": "",
@@ -179,59 +208,240 @@ class Dispatcher:
 
         # --- 3. 分级调度 ---
         try:
-            # --- 3a. L0: 闲聊 ---
-            if intent_result.service_mode == "casual_chat":
-                answer = self._dispatch_chat(query)
-                strategy_desc = "L0 闲聊"
-                route_debug.update({
-                    "route_kind": "none",
-                    "reason": intent_result.reason or "命中 L0 闲聊直答路径。",
-                })
+            execution_plan = self._resolve_execution_plan(intent_result)
+            route_debug["primary_level"] = intent_result.primary_level or intent_result.intent_level
+            route_debug["execution_plan"] = list(execution_plan)
 
-            # --- 3b. L2: SQL 检索 ---
-            if intent_result.service_mode == "sql_first":
-                answer, citations, retrieved_items, sql_payload, fallback_used = (
-                    self._dispatch_sql(query, doc_nodes, library_id, doc_ids)
-                )
-                route_debug.update({
-                    "route_kind": "sql",
-                    "reason": intent_result.reason or "命中 L2 SQL/条款定位路径。",
-                })
+            for index, path in enumerate(execution_plan):
+                if path == "casual_chat":
+                    _t_path = time.time()
+                    answer = self._dispatch_chat(query)
+                    stage_timings[path] = round(time.time() - _t_path, 2)
+                    strategy_desc = "L0 闲聊"
+                    route_debug.update({
+                        "route_kind": "none",
+                        "reason": intent_result.reason or "命中 L0 闲聊直答路径。",
+                    })
+                    self._append_attempted_path(attempted_paths, path, "success", route_debug["reason"], stage_timings[path])
+                    break
 
-            # --- 3c. L3: SOP 执行 ---
-            sop_trace: list = []
-            if intent_result.service_mode == "standard_sop" and not fallback_used:
-                answer, citations, strategy_desc, fallback_used, sop_timing, sop_trace, sop_route_debug, sop_flow_debug = (
-                    self._dispatch_sop(query, sop_loader, intent_result)
-                )
-                route_debug.update(sop_route_debug)
-                flow_debug.update(sop_flow_debug)
-                if sop_timing is not None:
-                    stage_timings["sop_route"] = sop_timing
+                if path == "sql_first":
+                    _t_path = time.time()
+                    answer, citations, retrieved_items, sql_payload, _sql_fallback = (
+                        self._dispatch_sql(query, doc_nodes, library_id, doc_ids)
+                    )
+                    stage_timings[path] = round(time.time() - _t_path, 2)
+                    route_debug.update({
+                        "route_kind": "sql",
+                        "reason": intent_result.reason or "命中 L2 SQL/条款定位路径。",
+                    })
+                    if answer:
+                        strategy_desc = "L2 SQL/条款定位"
+                        self._append_attempted_path(attempted_paths, path, "success", route_debug["reason"], stage_timings[path])
+                        self._emit_stage_callback(
+                            stage_callback,
+                            stage="answer_generated",
+                            intent_result=intent_result,
+                            answer=answer,
+                            citations=citations,
+                            retrieved_items=retrieved_items,
+                            sql_payload=sql_payload,
+                            route_debug=route_debug,
+                            flow_debug=flow_debug,
+                            stage_timings=stage_timings,
+                            sop_trace=sop_trace,
+                            attempted_paths=attempted_paths,
+                            fallback_used=fallback_used,
+                            system_prompt=system_prompt,
+                            retrieval_debug=retrieval_debug,
+                            strategy_desc=strategy_desc,
+                        )
+                        break
+                    fallback_used = fallback_used or index < len(execution_plan) - 1 or _sql_fallback
+                    sql_status, sql_reason = self._summarize_sql_attempt(
+                        citations=citations,
+                        retrieved_items=retrieved_items,
+                        sql_payload=sql_payload,
+                        fallback_used=_sql_fallback,
+                    )
+                    self._append_attempted_path(attempted_paths, path, sql_status, sql_reason, stage_timings[path])
+                    route_debug["reason"] = sql_reason
+                    self._emit_stage_callback(
+                        stage_callback,
+                        stage="sop_executing",
+                        intent_result=intent_result,
+                        answer="",
+                        citations=citations,
+                        retrieved_items=retrieved_items,
+                        sql_payload=sql_payload,
+                        route_debug=route_debug,
+                        flow_debug=flow_debug,
+                        stage_timings=stage_timings,
+                        sop_trace=sop_trace,
+                        attempted_paths=attempted_paths,
+                        fallback_used=fallback_used,
+                        system_prompt=system_prompt,
+                        retrieval_debug=retrieval_debug,
+                        strategy_desc=strategy_desc,
+                    )
+                    continue
 
-            # --- 3d. L1/L2/L3回退: 语义检索 ---
-            if (
-                intent_result.service_mode == "semantic_retrieval"
-                or fallback_used
-                or not answer
-            ):
+                if path == "standard_sop":
+                    _t_path = time.time()
+                    answer, citations, strategy_desc, sop_fallback_used, sop_timing, sop_trace, sop_route_debug, sop_flow_debug = (
+                        self._dispatch_sop(query, sop_loader, intent_result, step_callback=step_callback)
+                    )
+                    stage_timings[path] = round(time.time() - _t_path, 2)
+                    route_debug.update(sop_route_debug)
+                    flow_debug.update(sop_flow_debug)
+                    if sop_timing is not None:
+                        stage_timings["sop_route"] = sop_timing
+                    sop_status, sop_reason = self._summarize_sop_attempt(
+                        answer=answer,
+                        fallback_used=sop_fallback_used,
+                        route_debug=sop_route_debug,
+                        flow_debug=sop_flow_debug,
+                    )
+                    self._append_attempted_path(attempted_paths, path, sop_status, sop_reason, stage_timings[path])
+                    if sop_status == "success":
+                        self._emit_stage_callback(
+                            stage_callback,
+                            stage="answer_generated",
+                            intent_result=intent_result,
+                            answer=answer,
+                            citations=citations,
+                            retrieved_items=retrieved_items,
+                            sql_payload=sql_payload,
+                            route_debug=route_debug,
+                            flow_debug=flow_debug,
+                            stage_timings=stage_timings,
+                            sop_trace=sop_trace,
+                            attempted_paths=attempted_paths,
+                            fallback_used=fallback_used,
+                            system_prompt=system_prompt,
+                            retrieval_debug=retrieval_debug,
+                            strategy_desc=strategy_desc,
+                        )
+                        break
+                    fallback_used = fallback_used or index < len(execution_plan) - 1 or sop_fallback_used
+                    self._emit_stage_callback(
+                        stage_callback,
+                        stage="sop_executing",
+                        intent_result=intent_result,
+                        answer="",
+                        citations=citations,
+                        retrieved_items=retrieved_items,
+                        sql_payload=sql_payload,
+                        route_debug=route_debug,
+                        flow_debug=flow_debug,
+                        stage_timings=stage_timings,
+                        sop_trace=sop_trace,
+                        attempted_paths=attempted_paths,
+                        fallback_used=fallback_used,
+                        system_prompt=system_prompt,
+                        retrieval_debug=retrieval_debug,
+                        strategy_desc=strategy_desc,
+                    )
+                    continue
+
+                if path in {"semantic_retrieval", "dynamic_orchestration"}:
+                    _t_path = time.time()
+                    answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings = (
+                        self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations)
+                    )
+                    stage_timings[path] = round(time.time() - _t_path, 2)
+                    route_kind = "retrieval"
+                    if path == "dynamic_orchestration":
+                        route_kind = "semantic_fallback"
+                        flow_debug.update({
+                            "flow_type": "semantic_fallback",
+                            "summary": "当前路径进入证据受约束的语义兜底回答。",
+                        })
+                    if not route_debug.get("route_kind") or path == "dynamic_orchestration":
+                        route_debug.update({
+                            "route_kind": route_kind,
+                            "reason": intent_result.reason or strategy_desc,
+                        })
+                    stage_timings.update(ret_timings)
+                    status = "success" if answer else "failed"
+                    reason = strategy_desc or route_debug.get("reason") or "语义检索未产出可用答案。"
+                    self._append_attempted_path(attempted_paths, path, status, reason, stage_timings[path])
+                    if answer:
+                        self._emit_stage_callback(
+                            stage_callback,
+                            stage="answer_generated",
+                            intent_result=intent_result,
+                            answer=answer,
+                            citations=citations,
+                            retrieved_items=retrieved_items,
+                            sql_payload=sql_payload,
+                            route_debug=route_debug,
+                            flow_debug=flow_debug,
+                            stage_timings=stage_timings,
+                            sop_trace=sop_trace,
+                            attempted_paths=attempted_paths,
+                            fallback_used=fallback_used,
+                            system_prompt=system_prompt,
+                            retrieval_debug=retrieval_debug,
+                            strategy_desc=strategy_desc,
+                        )
+                        break
+                    self._emit_stage_callback(
+                        stage_callback,
+                        stage="sop_executing",
+                        intent_result=intent_result,
+                        answer="",
+                        citations=citations,
+                        retrieved_items=retrieved_items,
+                        sql_payload=sql_payload,
+                        route_debug=route_debug,
+                        flow_debug=flow_debug,
+                        stage_timings=stage_timings,
+                        sop_trace=sop_trace,
+                        attempted_paths=attempted_paths,
+                        fallback_used=fallback_used,
+                        system_prompt=system_prompt,
+                        retrieval_debug=retrieval_debug,
+                        strategy_desc=strategy_desc,
+                    )
+
+            if not answer and (not attempted_paths or attempted_paths[-1]["path"] != "semantic_retrieval"):
+                fallback_used = True
+                _t_path = time.time()
                 answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings = (
                     self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations)
                 )
-                if not route_debug.get("route_kind"):
-                    route_kind = "retrieval"
-                    if intent_result.service_mode == "dynamic_orchestration":
-                        route_kind = "dynamic_sop"
-                    route_debug.update({
-                        "route_kind": route_kind,
-                        "reason": intent_result.reason or strategy_desc,
-                    })
-                if intent_result.service_mode == "dynamic_orchestration":
-                    flow_debug.update({
-                        "flow_type": "dynamic_sop",
-                        "summary": "当前动态 SOP 编排结果回退到语义检索路径。",
-                    })
+                stage_timings["semantic_retrieval"] = round(time.time() - _t_path, 2)
                 stage_timings.update(ret_timings)
+                route_debug.update({
+                    "route_kind": route_debug.get("route_kind") or "retrieval",
+                    "reason": route_debug.get("reason") or strategy_desc or "主执行链未收敛，回退到语义检索。",
+                })
+                self._append_attempted_path(
+                    attempted_paths,
+                    "semantic_retrieval",
+                    "success" if answer else "failed",
+                    strategy_desc or "主执行链未收敛，回退到语义检索。",
+                    stage_timings["semantic_retrieval"],
+                )
+                self._emit_stage_callback(
+                    stage_callback,
+                    stage="answer_generated" if answer else "sop_executing",
+                    intent_result=intent_result,
+                    answer=answer,
+                    citations=citations,
+                    retrieved_items=retrieved_items,
+                    sql_payload=sql_payload,
+                    route_debug=route_debug,
+                    flow_debug=flow_debug,
+                    stage_timings=stage_timings,
+                    sop_trace=sop_trace,
+                    attempted_paths=attempted_paths,
+                    fallback_used=fallback_used,
+                    system_prompt=system_prompt,
+                    retrieval_debug=retrieval_debug,
+                    strategy_desc=strategy_desc,
+                )
 
         except Exception as e:
             if is_fatal_exception(e):
@@ -239,6 +449,16 @@ class Dispatcher:
             logger.error(f"查询处理异常: {e}", exc_info=True)
             if not answer:
                 answer = "抱歉，查询处理出现异常，请稍后重试。"
+
+        final_path, fallback_reason = self._finalize_attempts(
+            intent_result=intent_result,
+            attempted_paths=attempted_paths,
+        )
+        route_debug.update({
+            "attempted_paths": attempted_paths,
+            "final_path": final_path,
+            "fallback_reason": fallback_reason,
+        })
 
         latency_ms = int((time.time() - started_at) * 1000)
 
@@ -261,6 +481,154 @@ class Dispatcher:
             "inline_citation_count": len(inline_citations),
             "sop_trace": sop_trace,
         }
+
+    @staticmethod
+    def _resolve_execution_plan(intent_result: IntentResult) -> List[str]:
+        """返回当前请求的执行计划，兼容旧版仅靠 service_mode 的分发方式。"""
+        plan = list(intent_result.execution_plan or [])
+        if not plan:
+            plan = [intent_result.service_mode]
+        return plan
+
+    @staticmethod
+    def _append_attempted_path(
+        attempted_paths: List[Dict[str, Any]],
+        path: str,
+        status: str,
+        reason: str,
+        duration: Optional[float] = None,
+    ) -> None:
+        """向尝试链追加一条执行记录。"""
+        attempted_paths.append({
+            "path": path,
+            "status": status,
+            "reason": reason,
+            "duration": duration,
+        })
+
+    @staticmethod
+    def _summarize_sql_attempt(
+        *,
+        citations: List[Dict[str, Any]],
+        retrieved_items: List[Dict[str, Any]],
+        sql_payload: Optional[Dict[str, Any]],
+        fallback_used: bool,
+    ) -> Tuple[str, str]:
+        """根据 SQL 检索结果给出更准确的尝试状态与说明。"""
+        """根据 SQL 检索结果给出更准确的尝试状态与说明。"""
+        row_count = 0
+        execution_status = ""
+        if isinstance(sql_payload, dict):
+            row_count = int(sql_payload.get("row_count") or 0)
+            execution_status = str(sql_payload.get("execution_status") or "")
+        evidence_count = max(len(citations), len(retrieved_items), row_count)
+        if fallback_used:
+            return "failed", "SQL/条款定位执行异常，已转入下一级尝试。"
+        if execution_status == "bridged" and evidence_count > 0:
+            return "insufficient", "L2 已命中可复用的条文/公式证据，但还需要后续计算链继续收敛最终答案。"
+        if evidence_count > 0:
+            return "insufficient", "SQL/条款定位已命中部分结构化依据，但这些依据还不足以直接完成最终作答。"
+        return "no_match", "SQL/条款定位未找到可直接使用的结构化依据，已转入下一级尝试。"
+
+    @staticmethod
+    def _summarize_sop_attempt(
+        *,
+        answer: str,
+        fallback_used: bool,
+        route_debug: Dict[str, Any],
+        flow_debug: Dict[str, Any],
+    ) -> Tuple[str, str]:
+        """根据 SOP 路由与执行结果归纳当前尝试状态。"""
+        if answer and not fallback_used:
+            return "success", str(flow_debug.get("summary") or route_debug.get("reason") or "SOP 执行成功。")
+        if not route_debug.get("matched_sop_id"):
+            return "no_match", str(route_debug.get("reason") or "未命中标准 SOP。")
+        if fallback_used:
+            return "failed", str(flow_debug.get("summary") or route_debug.get("reason") or "SOP 执行失败。")
+        return "insufficient", str(flow_debug.get("summary") or route_debug.get("reason") or "SOP 执行后仍未得到最终答案。")
+
+    @staticmethod
+    def _finalize_attempts(
+        *,
+        intent_result: IntentResult,
+        attempted_paths: List[Dict[str, Any]],
+    ) -> Tuple[Optional[str], str]:
+        """根据尝试链回填最终落点与回退原因。"""
+        final_path = None
+        fallback_reason = ""
+        for item in attempted_paths:
+            if item.get("status") == "success":
+                final_path = str(item.get("path") or "")
+                break
+        if not final_path and attempted_paths:
+            final_path = str(attempted_paths[-1].get("path") or "")
+        if len(attempted_paths) > 1:
+            for item in attempted_paths[:-1]:
+                if item.get("status") != "success":
+                    fallback_reason = str(item.get("reason") or "")
+                    break
+        intent_result.attempted_paths = [
+            AttemptedPathResult(
+                path=str(item.get("path") or ""),
+                status=str(item.get("status") or "skipped"),
+                reason=str(item.get("reason") or "") or None,
+            )
+            for item in attempted_paths
+        ]
+        intent_result.final_path = final_path  # type: ignore[assignment]
+        intent_result.fallback_reason = fallback_reason
+        return final_path, fallback_reason
+
+    def _emit_stage_callback(
+        self,
+        callback,
+        *,
+        stage: str,
+        intent_result: IntentResult,
+        answer: str,
+        citations: List[Dict[str, Any]],
+        retrieved_items: List[Dict[str, Any]],
+        sql_payload: Optional[Dict[str, Any]],
+        route_debug: Dict[str, Any],
+        flow_debug: Dict[str, Any],
+        stage_timings: Dict[str, float],
+        sop_trace: List[Dict[str, Any]],
+        attempted_paths: Optional[List[Dict[str, Any]]] = None,
+        fallback_used: bool = False,
+        system_prompt: str = "",
+        retrieval_debug: Optional[Dict[str, Any]] = None,
+        strategy_desc: str = "",
+    ) -> None:
+        """向评测层发送主阶段的中间态，支撑逐步展示。"""
+        if callback is None:
+            return
+        safe_route_debug = dict(route_debug or {})
+        if attempted_paths is not None:
+            safe_route_debug["attempted_paths"] = list(attempted_paths)
+        safe_route_debug.setdefault(
+            "execution_plan",
+            list(intent_result.execution_plan or [intent_result.service_mode]),
+        )
+        safe_route_debug.setdefault("primary_level", intent_result.primary_level or intent_result.intent_level)
+        try:
+            callback({
+                "stage": stage,
+                "answer": answer,
+                "citations": list(citations or []),
+                "retrieved_items": list(retrieved_items or []),
+                "sql": sql_payload,
+                "intent": intent_result.model_dump(mode="json"),
+                "route_debug": safe_route_debug,
+                "flow_debug": dict(flow_debug or {}),
+                "stage_timings": dict(stage_timings or {}),
+                "sop_trace": list(sop_trace or []),
+                "fallback_used": fallback_used,
+                "system_prompt": system_prompt,
+                "retrieval_debug": dict(retrieval_debug or {}),
+                "strategy": strategy_desc,
+            })
+        except Exception as exc:
+            logger.warning(f"阶段回调失败: {exc}")
 
     def _dispatch_chat(self, query: str) -> str:
         """L0 路径：闲聊寒暄，直接用 LLM 做轻松对话，不检索、不查库。"""
@@ -316,6 +684,15 @@ class Dispatcher:
                 metric = schema_result.get("metric", "")
                 table_name = schema_result["table_name"]
                 business_filters = schema_result.get("business_filters", {})
+                sql_payload = {
+                    "supported": True,
+                    "metric": metric,
+                    "table_name": table_name,
+                    "business_filters": business_filters,
+                    "execution_status": "empty",
+                    "row_count": 0,
+                    "bridge_hits": 0,
+                }
 
                 if metric == "standard_lookup":
                     standard_code = business_filters.get("standard_code", "")
@@ -330,6 +707,8 @@ class Dispatcher:
                     if is_valid:
                         sql_result = execute_sql(sql, params)
                         if sql_result and sql_result.get("row_count", 0) > 0:
+                            sql_payload["execution_status"] = "success"
+                            sql_payload["row_count"] = int(sql_result.get("row_count", 0) or 0)
                             matched_doc_ids = [
                                 row.get("doc_id", "")
                                 for row in sql_result["rows"]
@@ -394,6 +773,11 @@ class Dispatcher:
                                         {"doc_id": did, "title": doc_titles.get(did, "")}
                                         for did in matched_doc_ids
                                     ]
+                        else:
+                            sql_payload["execution_status"] = "empty"
+                    else:
+                        sql_payload["execution_status"] = "invalid_sql"
+                        sql_payload["reason"] = reason
 
                 elif metric == "conditional_lookup":
                     sql = (
@@ -404,8 +788,20 @@ class Dispatcher:
                     )
                     params = [node.id for node in doc_nodes]
                     if "clause_id" in business_filters:
-                        sql += " AND clause_id = ?"
-                        params.append(business_filters["clause_id"])
+                        clause_id_val = business_filters["clause_id"]
+                        check_sql = (
+                            f"SELECT 1 FROM {table_name} "
+                            f"WHERE clause_id = ? "
+                            f"AND doc_id IN ({','.join(['?' for _ in doc_nodes])}) "
+                            f"LIMIT 1"
+                        )
+                        check_params = [clause_id_val] + [node.id for node in doc_nodes]
+                        is_check_valid, _ = validate_sql(check_sql)
+                        if is_check_valid:
+                            check_result = execute_sql(check_sql, check_params)
+                            if check_result and check_result.get("row_count", 0) > 0:
+                                sql += " AND clause_id = ?"
+                                params.append(clause_id_val)
                     for tag_field, json_key in [
                         ("entity_tags", "entity_tags"),
                         ("exam_tags", "exam_tags"),
@@ -420,6 +816,8 @@ class Dispatcher:
                     if is_valid:
                         sql_result = execute_sql(sql, params)
                         if sql_result and sql_result.get("row_count", 0) > 0:
+                            sql_payload["execution_status"] = "success"
+                            sql_payload["row_count"] = int(sql_result.get("row_count", 0) or 0)
                             context_parts = []
                             for row in sql_result["rows"][:5]:
                                 section = row.get("section_path", "")
@@ -456,6 +854,20 @@ class Dispatcher:
                                 mode="instruct",
                             )
                             retrieved_items = sql_result["rows"]
+                            citations = [
+                                {
+                                    "doc_id": str(row.get("doc_id") or ""),
+                                    "section_path": str(row.get("section_path") or ""),
+                                    "snippet": str(row.get("text") or "")[:200],
+                                    "clause_id": str(row.get("clause_id") or ""),
+                                }
+                                for row in sql_result["rows"][:5]
+                            ]
+                        else:
+                            sql_payload["execution_status"] = "empty"
+                    else:
+                        sql_payload["execution_status"] = "invalid_sql"
+                        sql_payload["reason"] = reason
                 else:
                     sql = (
                         f"SELECT * FROM {table_name} "
@@ -469,18 +881,75 @@ class Dispatcher:
                     if is_valid:
                         sql_result = execute_sql(sql, params)
                         if sql_result:
+                            sql_payload["execution_status"] = "success"
+                            sql_payload["row_count"] = int(sql_result.get("row_count", 0) or 0)
                             answer = str(sql_result)
+                    else:
+                        sql_payload["execution_status"] = "invalid_sql"
+                        sql_payload["reason"] = reason
+                if not answer and not citations:
+                    bridge_items, bridge_citations = self._bridge_l2_evidence(
+                        query=query,
+                        library_id=library_id,
+                        doc_ids=doc_ids,
+                        doc_nodes=doc_nodes,
+                    )
+                    if bridge_items:
+                        retrieved_items = bridge_items
+                        citations = bridge_citations
+                        sql_payload["execution_status"] = "bridged"
+                        sql_payload["bridge_hits"] = len(bridge_items)
+            else:
+                sql_payload = {
+                    "supported": False,
+                    "execution_status": "unsupported",
+                }
         except Exception as e:
             logger.warning(f"SQL 检索失败，回退语义检索: {e}")
             fallback_used = True
+            sql_payload = {
+                "supported": False,
+                "execution_status": "error",
+                "reason": str(e),
+            }
 
         return answer, citations, retrieved_items, sql_payload, fallback_used
+
+    def _bridge_l2_evidence(
+        self,
+        *,
+        query: str,
+        library_id: str,
+        doc_ids: List[str],
+        doc_nodes: list,
+    ) -> Tuple[list, list]:
+        """当 SQL 命中为空时，补充条文/公式级证据，作为 L2 的可承接依据。"""
+        from docs_core.query_protocols.contracts import KnowledgeQueryRequest
+        from docs_core.retrieval.formula_retriever import formula_retriever, is_calculation_query
+
+        if not doc_nodes:
+            return [], []
+        clause_like = bool(re.search(r"\d+(?:\.\d+){1,4}\s*(?:条|款|式)?", query or ""))
+        if not clause_like and not is_calculation_query(query or "") and "计算" not in (query or ""):
+            return [], []
+        request = KnowledgeQueryRequest(
+            query=query,
+            library_id=library_id,
+            doc_ids=list(doc_ids or []),
+            top_k=5,
+        )
+        bridge_items = formula_retriever.retrieve(request, doc_nodes)
+        if not bridge_items:
+            return [], []
+        bridge_citations = self._build_citations_from_retrieved(bridge_items, doc_nodes)
+        return bridge_items, bridge_citations
 
     def _dispatch_sop(
         self,
         query: str,
         sop_loader,
         intent_result: IntentResult,
+        step_callback=None,
     ) -> Tuple[str, list, str, bool, Optional[float], list, Dict[str, Any], Dict[str, Any]]:
         """L3 路径：SOP 匹配与执行。"""
         from angineer_core.classifier import IntentClassifier
@@ -490,6 +959,7 @@ class Dispatcher:
         strategy_desc = ""
         fallback_used = False
         sop_timing = None
+        stage_timings: Dict[str, Any] = {}
         sop_trace: list = []
         route_debug: Dict[str, Any] = {
             "route_kind": "standard_sop",
@@ -519,9 +989,11 @@ class Dispatcher:
                 classifier = None
 
             if classifier is not None:
+                _t_route = time.time()
                 route_result = classifier.route(
                     query, config_name=self.config_name, mode=self.mode
                 )
+                route_timing = round(time.time() - _t_route, 2)
                 matched_sop = route_result.sop
                 route_debug.update({
                     "matched_sop_id": matched_sop.id if matched_sop else "",
@@ -550,11 +1022,35 @@ class Dispatcher:
                     )
                     initial_context = {"user_query": query}
                     initial_context.update(route_result.args)
-                    final_context = sop_dispatcher.run_sop(sop_full, initial_context)
 
+                    if step_callback:
+                        try:
+                            step_callback({
+                                "event": "route_completed",
+                                "route_debug": {
+                                    "route_kind": "standard_sop",
+                                    "matched_sop_id": sop_full.id,
+                                    "matched_sop_name": sop_full.name_zh or sop_full.name_en or sop_full.id,
+                                    "confidence": route_result.confidence,
+                                    "candidates": route_result.candidates or [],
+                                    "args": route_result.args or {},
+                                    "missing_args": route_debug.get("missing_args", []),
+                                    "reason": route_result.reason or "",
+                                },
+                                "intent": {"intent_level": "L3", "service_mode": "standard_sop"},
+                            })
+                        except Exception as e:
+                            logger.warning(f"路由完成回调失败: {e}")
+
+                    _t_execute = time.time()
+                    final_context = sop_dispatcher.run_sop(sop_full, initial_context, step_callback=step_callback)
+                    execute_timing = round(time.time() - _t_execute, 2)
+
+                    _t_answer = time.time()
                     answer = self._extract_answer_from_sop_context(
                         final_context, query
                     )
+                    stage_timings["llm"] = round(time.time() - _t_answer, 2)
                     citations = self._build_citations_from_sop_trace(sop_dispatcher)
                     sop_trace = self._build_sop_trace(sop_dispatcher, sop_full)
                     strategy_desc = (
@@ -569,7 +1065,8 @@ class Dispatcher:
                             f"命中 SOP `{sop_full.id}`，执行 {len(sop_full.steps)} 个步骤。"
                         ),
                     })
-                    sop_timing = round(time.time() - _t_sop, 2)
+                    sop_timing = route_timing
+                    stage_timings["sop_execute"] = execute_timing
                 else:
                     logger.info(
                         f"SOP 未匹配或置信度不足: {route_result.reason}"
@@ -617,7 +1114,7 @@ class Dispatcher:
             _t1 = time.time()
             retriever_task_type = self._map_intent_to_retriever_task(intent_result)
             strategy_desc = (
-                "Dense(正文+公式) + Sparse(全文+图表+公式) + Table(表格) → Hybrid融合"
+                "Dense(正文+公式) + Sparse(全文+图表+公式) + Table(表格) → Hybrid融合（证据受约束）"
             )
 
             kq_request = KnowledgeQueryRequest(
@@ -645,9 +1142,15 @@ class Dispatcher:
             fused, retrieval_debug = fuse_candidates(
                 source_candidates,
                 task_type=retriever_task_type,
-                top_k=5,
+                top_k=20,
             )
             timings["retrieval"] = round(time.time() - _t1, 2)
+
+            fused = self._boost_clause_matches(query, fused)
+            if len(fused) > 5:
+                _t_rerank = time.time()
+                fused = self._rerank_candidates(query, fused)
+                timings["rerank"] = round(time.time() - _t_rerank, 2)
             retrieved_items = [
                 item.model_dump(mode="json") for item in fused
             ]
@@ -674,25 +1177,93 @@ class Dispatcher:
                     if explicit_evidence_text
                     else f"问题: {query}\n\n检索结果:\n{context_text}"
                 )
+                evidence_text = f"{explicit_evidence_text}\n{context_text}".strip()
 
                 _t_prompt = time.time()
-                system_prompt = self._build_system_prompt(retriever_task_type)
-                full_prompt = (
-                    f"{system_prompt}\n{user_prompt_content}"
-                )
-                timings["prompt_tokens"] = len(full_prompt) // 2
+                system_prompt = self._build_system_prompt(retriever_task_type, query)
                 timings["prompt"] = round(time.time() - _t_prompt, 2)
 
                 _t2 = time.time()
                 llm = get_llm_client()
-                answer = llm.chat(
-                    [
-                        {"role": "system", "content": system_prompt},
-                        {"role": "user", "content": user_prompt_content},
-                    ],
-                    mode="instruct",
+                is_choice = bool(
+                    Dispatcher._MULTI_CHOICE_PATTERN.search(query)
                 )
-                timings["llm"] = round(time.time() - _t2, 2)
+                if is_choice and context_text.strip():
+                    # 两阶段选择题流程：先提取条款，再逐选项判断
+                    extract_user = (
+                        "请从以下检索结果中提取与题目相关的所有规范条款。"
+                        "对每个条款列出：(1)条款编号 (2)条款关键内容。"
+                        "只提取客观存在的条款，不要推理、不要判断、不要补充。\n\n"
+                        f"检索结果：\n{context_text}"
+                    )
+                    try:
+                        clauses_text = llm.chat(
+                            [
+                                {"role": "system", "content": "你是一个工程规范分析助手，只做信息提取，不做推理判断。"},
+                                {"role": "user", "content": extract_user},
+                            ],
+                            mode="instruct",
+                        )
+                        timings["llm_extract"] = round(time.time() - _t2, 2)
+
+                        _t3 = time.time()
+                        judge_user = (
+                            f"问题: {query}\n\n"
+                            f"已提取的规范条款:\n{clauses_text}\n\n"
+                            "请根据以上条款，逐一判断每个选项是否符合规范要求。\n"
+                            "必须按以下格式输出（无论单选还是多选都必须使用此格式）：\n"
+                            "A: [符合/不符合/证据不足] - 一句话依据\n"
+                            "B: [符合/不符合/证据不足] - 一句话依据\n"
+                            "C: [符合/不符合/证据不足] - 一句话依据\n"
+                            "D: [符合/不符合/证据不足] - 一句话依据\n"
+                            "答案: [符合题目要求的所有选项字母]"
+                        )
+                        if explicit_evidence_text:
+                            judge_user = (
+                                f"问题: {query}\n\n"
+                                f"显式引用证据:\n{explicit_evidence_text}\n\n"
+                                f"已提取的规范条款:\n{clauses_text}\n\n"
+                                "请根据以上条款，逐一判断每个选项是否符合规范要求。\n"
+                                "必须按以下格式输出（无论单选还是多选都必须使用此格式）：\n"
+                                "A: [符合/不符合/证据不足] - 一句话依据\n"
+                                "B: [符合/不符合/证据不足] - 一句话依据\n"
+                                "C: [符合/不符合/证据不足] - 一句话依据\n"
+                                "D: [符合/不符合/证据不足] - 一句话依据\n"
+                                "答案: [符合题目要求的所有选项字母]"
+                            )
+                        answer = llm.chat(
+                            [
+                                {"role": "system", "content": system_prompt},
+                                {"role": "user", "content": judge_user},
+                            ],
+                            mode="instruct",
+                        )
+                        timings["llm_judge"] = round(time.time() - _t3, 2)
+                        timings["llm"] = timings.get("llm_extract", 0) + timings.get("llm_judge", 0)
+                    except Exception:
+                        # 两阶段失败时回退单次调用
+                        answer = llm.chat(
+                            [
+                                {"role": "system", "content": system_prompt},
+                                {"role": "user", "content": user_prompt_content},
+                            ],
+                            mode="instruct",
+                        )
+                        timings["llm"] = round(time.time() - _t2, 2)
+                else:
+                    answer = llm.chat(
+                        [
+                            {"role": "system", "content": system_prompt},
+                            {"role": "user", "content": user_prompt_content},
+                        ],
+                        mode="instruct",
+                    )
+                    timings["llm"] = round(time.time() - _t2, 2)
+                if self._has_unsupported_reference(answer, evidence_text):
+                    answer = (
+                        "没有检索到足够证据支持最终结论。"
+                        "当前仅能确认已有片段与问题相关，但不足以安全地给出完整答案，请继续补充可核对的规范依据。"
+                    )
 
             citations = self._build_citations_from_retrieved(fused, doc_nodes)
         except Exception as e:
@@ -759,10 +1330,63 @@ class Dispatcher:
 
         return "content_qa"
 
+    _MULTI_CHOICE_PATTERN = re.compile(r"[(（][A-E][)）]")
+
     @staticmethod
-    def _build_system_prompt(retriever_task_type: str) -> str:
+    def _build_system_prompt(retriever_task_type: str, query: str = "") -> str:
         """根据检索任务类型构建对应的 system prompt。"""
-        base_prompt = "你是一个工程规范领域的专业助手。请根据以下检索结果回答用户问题。"
+        base_prompt = (
+            "你是一个工程规范领域的专业助手。"
+            "你只能依据提供的检索证据回答，但可以基于证据中的规范条款进行合理的推导和计算。"
+            "不要编造证据中未出现的规范编号，但应积极使用已检索到的条款内容进行判断。"
+        )
+
+        is_choice = bool(query) and bool(
+            Dispatcher._MULTI_CHOICE_PATTERN.search(query)
+        )
+
+        if retriever_task_type == "definition_qa":
+            prompt = base_prompt + (
+                '\n\n规则：\n'
+                '1. 直接、完整地回答用户问题，给出定义或组成\n'
+                '2. 基于检索结果中与问题相关的内容给出准确回答\n'
+                '3. 引用具体来源（章节号），格式如【根据第X章...】\n'
+                '4. 检索结果即使不完整，也应基于已有内容尽力回答，避免轻易放弃'
+            )
+        elif retriever_task_type == "locate_qa":
+            prompt = base_prompt + (
+                '\n\n规则：\n'
+                '1. 直接回答位置/设置要求，明确指出具体地点或条件\n'
+                '2. 引用具体来源（章节号），格式如【根据第X章...】\n'
+                '3. 基于检索结果中与问题相关的内容给出准确回答\n'
+                '4. 检索结果即使不完整，也应基于已有内容尽力回答，避免轻易放弃'
+            )
+        else:
+            prompt = base_prompt + (
+                '\n\n规则：\n'
+                '1. 优先直接回答用户问题\n'
+                '2. 只能复述或推导证据中明确出现的信息，禁止引用证据里未出现的规范编号、年份或考试背景\n'
+                '3. 每个关键结论后都要指出对应证据来源（文档名、章节号等）\n'
+                '4. 如果证据不足以支撑最终结论，明确说明【没有检索到足够证据】，不要自行补全'
+            )
+
+        if is_choice:
+            prompt += (
+                "\n\n选择题分析规则（问题包含选项A/B/C/D时适用）：\n"
+                "1. 先整理检索结果中涉及的所有规范章节和条款，确定可依据的规范条目清单\n"
+                "2. 对每个选项A/B/C/D逐一核查，必须给出明确判断（符合规范/不符合规范）\n"
+                "   - 只有检索结果完全不涉及该选项主题时才标注为\"证据不足\"\n"
+                "   - 禁止主观推测题目是\"单选\"还是\"多选\"，禁止以\"题目可能是单选\"为由跳过任何选项的分析\n"
+                "3. 检索结果中包含计算公式或数据表格时，代入题目参数计算或查表\n"
+                "4. 最终严格按以下格式输出答案（无论单选还是多选都必须使用此格式）：\n"
+                "   A: [符合/不符合/证据不足] - 一句话依据\n"
+                "   B: [符合/不符合/证据不足] - 一句话依据\n"
+                "   C: [符合/不符合/证据不足] - 一句话依据\n"
+                "   D: [符合/不符合/证据不足] - 一句话依据\n"
+                "   答案: [符合题目要求的所有选项字母]"
+            )
+
+        return prompt
 
         if retriever_task_type == "definition_qa":
             return base_prompt + (
@@ -770,7 +1394,7 @@ class Dispatcher:
                 "1. 直接、完整地回答用户问题，给出定义或组成\n"
                 "2. 如果检索结果中包含与问题相关的内容，请基于相关内容给出准确回答\n"
                 '3. 引用具体来源（章节号），格式如"根据第X章..."\n'
-                "4. 如果检索结果完全不相关，才说明无法回答"
+                "4. 如果证据不足以支撑结论，明确说明“没有检索到足够证据”，不要自行补全"
             )
 
         if retriever_task_type == "locate_qa":
@@ -779,16 +1403,106 @@ class Dispatcher:
                 "1. 直接回答位置/设置要求，明确指出具体地点或条件\n"
                 '2. 引用具体来源（章节号），格式如"根据第X章..."\n'
                 "3. 如果检索结果中包含与问题相关的内容，请基于相关内容给出准确回答\n"
-                "4. 如果检索结果完全不相关，才说明无法回答"
+                "4. 如果证据不足以支撑结论，明确说明“没有检索到足够证据”，不要自行补全"
             )
 
         return base_prompt + (
             "\n\n规则：\n"
             "1. 优先直接回答用户问题\n"
-            "2. 如果检索结果中包含与问题相关的内容，请基于相关内容给出回答\n"
-            "3. 如果检索结果完全不相关，才说明无法回答\n"
-            "4. 引用具体来源（文档名、章节号等）"
+            "2. 只能复述或推导证据中明确出现的信息，禁止引用证据里未出现的规范编号、年份或考试背景\n"
+            "3. 每个关键结论后都要指出对应证据来源（文档名、章节号等）\n"
+            "4. 如果证据不足以支撑最终结论，明确说明“没有检索到足够证据”，不要自行补全"
         )
+
+    @staticmethod
+    def _boost_clause_matches(query: str, candidates: list) -> list:
+        """题目含章节号时，给匹配该章节的候选加分，确保关键条款不被挤出 top-5。"""
+        import re
+        clause_refs = re.findall(r'(?:第\s*)?(\d+\.\d+(?:\.\d+)*)', query)
+        if not clause_refs:
+            return candidates
+        for item in candidates:
+            text = str(item.text or "")
+            section = str(item.metadata.get("section_path") or "")
+            combined = f"{section}\n{text}"
+            if any(ref in combined for ref in clause_refs):
+                current = float(item.rerank_score or 0.0)
+                item.rerank_score = round(current + 0.30, 6)
+        candidates.sort(key=lambda item: float(item.rerank_score or 0.0), reverse=True)
+        return candidates
+
+    @staticmethod
+    def _rerank_candidates(query: str, candidates: list) -> list:
+        """用 bge-reranker-v2-m3 重排序候选，失败时回退原始顺序。"""
+        if len(candidates) <= 5:
+            return candidates
+        try:
+            import requests
+            docs = [item.text or "" for item in candidates]
+            resp = requests.post(
+                "http://127.0.0.1:7998/v1/rerank",
+                json={"query": query, "documents": docs, "top_n": len(candidates)},
+                timeout=10,
+            )
+            if resp.status_code != 200:
+                return candidates
+            results = resp.json().get("results", [])
+            if not results:
+                return candidates
+            score_map = {r["index"]: r["relevance_score"] for r in results}
+            for i, item in enumerate(candidates):
+                item.rerank_score = score_map.get(i, 0.0)
+            candidates.sort(key=lambda item: item.rerank_score or 0.0, reverse=True)
+            return candidates
+        except Exception:
+            return candidates
+
+    # 常见中国工程规范代号前缀
+    _KNOWN_STD_PREFIXES = frozenset({
+        "JTS", "JTJ", "JT", "GB", "GBJ", "GB/T", "SL", "DL", "SY", "SH",
+        "HG", "NB", "CJJ", "CJ", "TB", "YB", "JGJ", "JG", "DB",
+    })
+
+    @staticmethod
+    def _has_unsupported_reference(answer: str, evidence_text: str) -> bool:
+        """检测答案中是否出现未在证据中出现的规范编号或题库背景引用。"""
+        answer_text = str(answer or "")
+        corpus = str(evidence_text or "")
+        if not answer_text.strip():
+            return False
+        # Extract Chinese standard names from the answer — if the corpus
+        # mentions the same standard by name, its code is acceptable even
+        # when not written verbatim in the evidence.
+        answer_std_names = set(re.findall(r'《([^》]+)》', answer_text))
+        corpus_std_names = set(re.findall(r'《([^》]+)》', corpus))
+        any_std_name_in_corpus = bool(answer_std_names & corpus_std_names)
+        # 证据中已有规范章节号（如 5.4.12、第3.1.19条），说明引用了规范内容
+        corpus_has_section_nums = bool(re.search(r'(?:第\s*)?\d+\.\d+', corpus))
+        patterns = [
+            r"[A-Z]{2,}\s*\d+(?:[-/]\d+)*(?:-\d{4})?",
+            r"20\d{2}年[^\n，。；]*真题",
+        ]
+        for pat in patterns:
+            for match in re.findall(pat, answer_text):
+                token = str(match).strip()
+                if not token or token in corpus:
+                    continue
+                numeric_part = re.search(r'\d+(?:[-/]\d+)*(?:-\d{4})?', token)
+                if numeric_part and numeric_part.group() in corpus:
+                    continue
+                code_match = re.match(r'([A-Z]{2,})\s*(\d+)', token)
+                if code_match:
+                    prefix = code_match.group(1)
+                    num = code_match.group(2)
+                    if prefix in corpus and num in corpus:
+                        continue
+                    # 常见规范代号 + 证据中有章节号 ≈ 合法引用
+                    if prefix in Dispatcher._KNOWN_STD_PREFIXES and corpus_has_section_nums:
+                        continue
+                if any_std_name_in_corpus:
+                    continue
+                return True
+        return False
 
     @staticmethod
     def _extract_answer_from_sop_context(
@@ -897,6 +1611,7 @@ class Dispatcher:
         - ```json {...} ```
         - ``` {...} ```
         - 纯 JSON 字符串
+        - 嵌入在文本中的首个 {...} 对象（正则兜底）
         
         Args:
             response: LLM 的原始响应字符串
@@ -914,7 +1629,32 @@ class Dispatcher:
         elif "```" in cleaned:
             cleaned = cleaned.split("```")[1].split("```")[0]
         
-        return json.loads(cleaned.strip())
+        try:
+            return json.loads(cleaned.strip())
+        except json.JSONDecodeError:
+            pass
+        
+        json_match = re.search(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', cleaned, re.DOTALL)
+        if json_match:
+            try:
+                return json.loads(json_match.group(0))
+            except json.JSONDecodeError:
+                pass
+        
+        brace_start = cleaned.find('{')
+        brace_end = cleaned.rfind('}')
+        if brace_start >= 0 and brace_end > brace_start:
+            candidate = cleaned[brace_start:brace_end + 1]
+            try:
+                return json.loads(candidate)
+            except json.JSONDecodeError:
+                pass
+        
+        raise json.JSONDecodeError(
+            f"无法从响应中提取有效JSON (长度={len(response)})",
+            response,
+            0
+        )
     
     def log_pre_execution(self, logs: List[Dict[str, Any]]):
         """
@@ -947,24 +1687,36 @@ class Dispatcher:
             
             f.write("\n---\n\n")
 
-    def run_sop(self, sop: SOP, initial_context: Dict[str, Any], pre_logs: List[Dict[str, Any]] = None):
+    def run_sop(self, sop: SOP, initial_context: Dict[str, Any], pre_logs: List[Dict[str, Any]] = None, step_callback=None):
         """
         Execute the SOP with the given initial context.
+        Args:
+            sop: SOP 对象
+            initial_context: 初始上下文
+            pre_logs: 预执行日志
+            step_callback: 每个步骤执行完后的回调函数，签名为 callback(step_info: Dict)
         """
         self.start_time = time.time()
         logger.info(f"[{sop.id}] Starting execution: {sop.description}")
-        
+
         # Log pre-execution events if provided
         if pre_logs:
             self.log_pre_execution(pre_logs)
-            
+
         self.memory.update_context(initial_context)
-        
+
         # Simple linear execution for now
         # In a real FSM, we would follow next_step_id
         for step in sop.steps:
             self._execute_step(step)
-            
+
+            if step_callback:
+                step_info = self._build_step_info(step)
+                try:
+                    step_callback(step_info)
+                except Exception as e:
+                    logger.warning(f"step_callback 调用失败: {e}")
+
         logger.info(f"[{sop.id}] Execution finished.")
         
         # Log total time
@@ -987,7 +1739,29 @@ class Dispatcher:
                 f.write(f"\n> 注: '调度开销' 包含 Python 代码执行、文件 I/O 及其他逻辑处理时间。\n")
         
         return self.memory.blackboard
-        
+
+    def _build_step_info(self, step: Step) -> Dict[str, Any]:
+        """构建单个步骤的执行信息，用于回调通知。"""
+        history = getattr(self.memory, "history", [])
+        step_durations = getattr(self, "step_durations", {}) or {}
+        record = None
+        for r in history:
+            if r.step_id == step.id:
+                record = r
+                break
+        return {
+            "step_id": step.id,
+            "step_name": step.name or step.name_zh or step.id,
+            "step_index": len([s for s in history if s]) + 1,
+            "tool": step.tool or "auto",
+            "description": step.description_zh or (step.description.content if step.description else ""),
+            "inputs": (record.inputs if record else step.inputs) or {},
+            "outputs": (record.outputs if record else None),
+            "duration": step_durations.get(step.id, 0.0),
+            "status": (record.status if record else "pending"),
+            "error": (record.error if record else None),
+        }
+
     def _execute_step(self, step: Step):
         step_start = time.time()
         logger.info(f"Executing Step: {step.name or step.id} ({step.tool})")
@@ -1063,6 +1837,10 @@ class Dispatcher:
                  # This is a heuristic, but often useful
                  missing_params.append(f"{param_name} (unresolved: {resolved_value})")
 
+        # 1.5. Try to derive missing variables from context (K1, 折减系数, etc.)
+        if missing_params and step.tool == "calculator":
+            logger.debug(f"Missing calculator params, will rely on LLM: {missing_params}")
+
         # 2. Decision Logic
         needs_llm = False
         reason = ""
@@ -1070,9 +1848,6 @@ class Dispatcher:
         if missing_params:
             needs_llm = True
             reason = f"Missing parameters: {missing_params}"
-        elif step.notes:
-            needs_llm = True
-            reason = f"Notes present: {step.notes}"
         elif step.tool == "auto":
             needs_llm = True
             reason = "Tool is 'auto'"
@@ -1083,6 +1858,8 @@ class Dispatcher:
         else:
             logger.debug("Hybrid mode: rule-based execution (all params ready)")
             # Execute directly
+            if step.tool == "table_lookup" and "use_llm" not in ready_inputs:
+                ready_inputs["use_llm"] = False
             self._execute_tool_safe(step.tool, ready_inputs, step)
 
     def _should_skip_step(self, step: Step, context: Dict[str, Any]) -> bool:
@@ -1159,7 +1936,19 @@ class Dispatcher:
                 run_kwargs["mode"] = self.mode
                 
             tool_start = time.time()
-            result = tool.run(**run_kwargs)
+            
+            def _do_tool_run():
+                return tool.run(**run_kwargs)
+            
+            try:
+                with ThreadPoolExecutor(max_workers=1) as executor:
+                    future = executor.submit(_do_tool_run)
+                    result = future.result(timeout=_TOOL_EXEC_TIMEOUT_SECONDS)
+            except FuturesTimeoutError:
+                error_msg = f"Tool '{tool_name}' execution timed out after {_TOOL_EXEC_TIMEOUT_SECONDS}s"
+                logger.error(error_msg)
+                raise TimeoutError(error_msg)
+                
             tool_duration = time.time() - tool_start
             
             # Record tool duration
@@ -1211,6 +2000,8 @@ class Dispatcher:
         """处理 execute_tool Action：执行指定工具。"""
         tool_name = action_data.get("tool")
         inputs = action_data.get("inputs", {})
+        if tool_name == "table_lookup" and "use_llm" not in inputs:
+            inputs["use_llm"] = False
         self._execute_tool_safe(tool_name, inputs, step)
 
     def _handle_action_table_lookup(self, step: Step, action_data: Dict[str, Any]):
@@ -1223,10 +2014,27 @@ class Dispatcher:
             "table_name": table_name,
             "query_conditions": conditions if isinstance(conditions, dict) else {},
             "target_column": target_column,
+            "use_llm": False,
         }
         if file_name:
             inputs["file_name"] = file_name
         self._execute_tool_safe("table_lookup", inputs, step)
+
+    def _handle_action_conditional(self, step: Step, action_data: Dict[str, Any]):
+        """处理 conditional Action：执行条件分支工具。"""
+        condition_var = action_data.get("condition_var")
+        resolved_condition = condition_var
+        if isinstance(condition_var, str):
+            if "${" in condition_var:
+                resolved_condition = self.memory.resolve_value(condition_var)
+            elif condition_var in self.memory.blackboard:
+                resolved_condition = self.memory.resolve_value(f"${{{condition_var}}}")
+        inputs = {
+            "condition_var": resolved_condition,
+            "branches": action_data.get("branches", []),
+            "default": action_data.get("default"),
+        }
+        self._execute_tool_safe("conditional", inputs, step)
 
     def _handle_action_search_knowledge(self, step: Step, action_data: Dict[str, Any]):
         """处理 search_knowledge Action：知识检索，映射到语义检索工具。"""
@@ -1274,7 +2082,12 @@ class Dispatcher:
         ]
         
         try:
-            response = self.llm_client.chat(messages, mode=self.mode, config_name=self.config_name)
+            response = self.llm_client.chat(
+                messages,
+                mode=self.mode,
+                config_name=self.config_name,
+                max_tokens=512
+            )
             action_data = self._extract_json_from_response(response)
             action = action_data.get("action")
             
@@ -1286,6 +2099,7 @@ class Dispatcher:
                 "ask_user": self._handle_action_ask_user,
                 "execute_tool": self._handle_action_execute_tool,
                 "table_lookup": self._handle_action_table_lookup,
+                "conditional": self._handle_action_conditional,
                 "search_knowledge": self._handle_action_search_knowledge,
                 "skip": self._handle_action_skip,
             }
@@ -1534,6 +2348,16 @@ class Dispatcher:
             aliases = ["e_basic", "basic", "10yr", "10年"]
         elif normalized_key == "e_extreme":
             aliases = ["e_extreme", "extreme", "2yr", "2年"]
+        elif normalized_key == "t":
+            aliases = ["满载吃水t", "吃水t", "design_draft", "draft", "吃水"]
+        elif normalized_key == "z1":
+            aliases = ["z1", "龙骨下最小富裕深度"]
+        elif normalized_key == "z2":
+            aliases = ["z2", "波浪富裕深度"]
+        elif normalized_key == "z3":
+            aliases = ["z3", "船舶装载纵倾富裕深度", "船尾吃水"]
+        elif normalized_key == "z4":
+            aliases = ["z4", "备淤富裕深度"]
 
         for alias in aliases:
             for candidate_key, candidate_value in candidates.items():
@@ -1592,6 +2416,12 @@ class Dispatcher:
                 expression = item.get("expression")
                 if expression:
                     candidates[str(expression)] = item_value
+
+        nested_result = result.get("result")
+        if isinstance(nested_result, dict):
+            for key, value in nested_result.items():
+                if value is not None and not isinstance(value, (dict, list)):
+                    candidates[str(key)] = value
 
         return candidates
 
@@ -1681,41 +2511,53 @@ Example Output:
         Returns:
             构建好的 system prompt
         """
-        return f"""You are the Step Executor of an expert system. You are facing a step that requires your attention.
+        tool_hint = ""
+        if step.tool == "calculator":
+            tool_hint = """
+IMPORTANT for calculator steps:
+- If expression contains unresolved variables like ${K1}, ${折减系数}, derive them from Context Variables and user query.
+- For K1 (wave coefficient): if wave direction vs dock angle < 45° → K1=0.3 (顺浪), else → K1=0.5~0.7 (横浪).
+- For 折减系数 (reduction factor): 良好掩护→1.0, 部分掩护→(0,1)取中间值如0.5, 开敞→0.
+- Output the FINAL computed expression with all variables resolved to numbers.
+"""
+        
+        return f"""You are an expert engineering calculation executor. Be CONCISE.
 
 Current Step:
 - Name: {step.name}
 - Description: {(step.description.content if step.description else '')}
 - Notes/Warnings: {step.notes}
-- Required Inputs: {step.inputs}
+- Required Inputs: {json.dumps(step.inputs, ensure_ascii=False)}
 
 Context Variables:
 {context_str}
 
 Situation: {reason}
+{tool_hint}
 
-Your Goal: Complete this step or make progress towards it.
-
-Available Actions (Output JSON):
-1. ASK_USER: If parameters are missing and you cannot deduce them.
-   {{ "action": "ask_user", "question": "...", "variable": "变量名" }}
+Available Actions (Output ONE compact JSON object only):
+1. ASK_USER: If parameters are truly missing.
+   {{"action": "ask_user", "question": "...", "variable": "..."}}
    
-2. SEARCH_KNOWLEDGE: If you need to check textual regulations.
-    {{ "action": "search_knowledge", "query": "..." }}
+2. SEARCH_KNOWLEDGE: If you need textual regulations.
+    {{"action": "search_knowledge", "query": "..."}}
     
- 3. TABLE_LOOKUP: If you need to find a value in a standard table (e.g. Dimensions of 10000 DWT ship).
-    {{ "action": "table_lookup", "table_name": "...", "conditions": "...", "target_column": "..." }}
+3. TABLE_LOOKUP: If you need table values.
+   {{"action": "table_lookup", "table_name": "...", "conditions": {{...}}, "target_column": "..."}}
 
- 4. EXECUTE_TOOL: If you have enough info to run the tool (calculator, etc).
-    {{ "action": "execute_tool", "tool": "{step.tool if step.tool != 'auto' else 'appropriate_tool'}", "inputs": {{ ... }} }}
+4. EXECUTE_TOOL: If you have enough info (calculator with resolved expression).
+   {{"action": "execute_tool", "tool": "{step.tool if step.tool != 'auto' else 'calculator'}", "inputs": {{"expression": "..."}}}}
     
- 5. RETURN_VALUE: If the step is just setting a value or you know the answer directly.
-    {{ "action": "return_value", "value": 0.15 }}
+5. RETURN_VALUE: If you know the answer directly.
+   {{"action": "return_value", "value": ...}}
 
- 6. SKIP: If this step is already done or irrelevant.
-    {{ "action": "skip", "reason": "..." }}
+6. SKIP: If already done.
+   {{"action": "skip", "reason": "..."}}
 
-Output ONLY the JSON."""
+CRITICAL OUTPUT RULES:
+- Output ONLY valid JSON. No markdown fences, no explanation, no reasoning text.
+- Keep JSON under 300 characters total.
+- For calculator: expression must use NUMBERS only, no ${{}} templates."""
 
     def _generate_step_summary(self, step_name: str, tool_name: str, resolved_inputs: Any, result: Any, updates: Dict[str, Any]) -> str:
         """Use LLM to generate a natural language summary of the step execution."""

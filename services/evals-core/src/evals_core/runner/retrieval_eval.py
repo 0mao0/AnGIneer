@@ -52,6 +52,36 @@ def compute_section_mrr(predicted_paths: List[str], gold_paths: List[str]) -> fl
 class RetrievalEvaluator(BaseEvaluator):
     """检索评测器，通过 query_engine 直接调用检索链路。"""
 
+    @staticmethod
+    def _emit_enriched_stage(
+        question: Dict[str, Any],
+        partial: Dict[str, Any],
+        stage_callback: Optional[Callable[[Dict[str, Any]], None]],
+    ) -> None:
+        """把检索链路的中间态归一化后回传给评测轮询层。"""
+        if not stage_callback:
+            return
+        retrieved_items = list(partial.get("retrieved_items") or [])
+        prediction = {
+            "retrieved_ids": [item.get("item_id", "") for item in retrieved_items if isinstance(item, dict)],
+            "retrieved_section_paths": [
+                str(item.get("metadata", {}).get("section_path") or "")
+                for item in retrieved_items if isinstance(item, dict)
+            ],
+            "retrieved_doc_ids": [str(item.get("doc_id") or "") for item in retrieved_items if isinstance(item, dict)],
+            "retrieved_items": retrieved_items,
+            "answer": partial.get("answer", ""),
+            "citations": list(partial.get("citations") or []),
+            "task_type": partial.get("task_type", ""),
+            "strategy": partial.get("strategy", ""),
+            "system_prompt": partial.get("system_prompt", ""),
+            "retrieval_debug": partial.get("retrieval_debug", {}),
+            "stage_timings": partial.get("stage_timings", {}),
+            "intent": partial.get("intent", {}),
+            "stage": partial.get("stage", ""),
+        }
+        stage_callback(enrich_prediction_trace(question, partial, prediction))
+
     def run_prediction(self, question: Dict[str, Any], *, stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None) -> Dict[str, Any]:
         """通过 query_engine 直接调用检索链路。"""
         question_id = str(question.get("question_id") or "")
@@ -64,6 +94,7 @@ class RetrievalEvaluator(BaseEvaluator):
             library_id=str(question.get("library_id") or "default"),
             doc_ids=list(question.get("doc_ids") or []),
             session_id=f"eval-{question_id}",
+            stage_callback=(lambda partial: self._emit_enriched_stage(question, partial, stage_callback)) if stage_callback else None,
         )
 
         if "error" in data:

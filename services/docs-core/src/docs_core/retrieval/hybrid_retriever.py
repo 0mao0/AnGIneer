@@ -35,16 +35,17 @@ def is_toc_candidate(item: RetrievedItem) -> bool:
 
 # 为不同来源分配第一版融合权重。
 def get_source_weight(source_kind: str, task_type: str) -> float:
+    is_table_task = task_type in ("table_qa", "table_explain")
     source_weights = {
-        "canonical_dense": 1.15,
-        "canonical_sparse": 1.20,
+        "canonical_dense": 1.30,
+        "canonical_sparse": 1.30,
         "toc_dense": 1.05 if task_type == "locate_qa" else 0.18,
         "toc_sparse": 1.10 if task_type == "locate_qa" else 0.12,
-        "table_row_key": 1.80 if task_type in ("table_qa", "table_explain") else 1.30,
-        "table_schema": 1.50 if task_type in ("table_qa", "table_explain") else 1.10,
-        "table_summary": 1.20 if task_type in ("table_qa", "table_explain") else 0.90,
-        "table_text_row": 1.40 if task_type in ("table_qa", "table_explain") else 1.00,
-        "table_mapping": 1.40 if task_type in ("table_qa", "table_explain") else 1.00,
+        "table_row_key": 1.80 if is_table_task else 0.60,
+        "table_schema": 1.50 if is_table_task else 0.50,
+        "table_summary": 1.20 if is_table_task else 0.50,
+        "table_text_row": 1.40 if is_table_task else 0.60,
+        "table_mapping": 1.40 if is_table_task else 0.60,
     }
     return source_weights.get(source_kind, 1.0)
 

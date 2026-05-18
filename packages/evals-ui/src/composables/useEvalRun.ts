@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import type { EvalRun, EvalRunDetail } from '../types/eval'
 
+const EVAL_POLL_INTERVAL_MS = 200
+
 /** 将路径参数编码为 URL 安全的 segment，避免中文/空格/斜杠等导致请求路径解析异常。 */
 function encodePathSegment(value: string): string {
   return encodeURIComponent(value)
@@ -10,6 +12,41 @@ function encodePathSegment(value: string): string {
 /** 将 query 参数编码为 URL 安全的值。 */
 function encodeQueryValue(value: string): string {
   return encodeURIComponent(value)
+}
+
+/** 合并 prediction 的增量字段，避免轮询中间态抖动导致步骤链闪回。 */
+function mergePredictionState(
+  existing: Record<string, unknown> | null | undefined,
+  incoming: Record<string, unknown> | null | undefined
+): Record<string, unknown> | undefined {
+  if (!existing && !incoming) return undefined
+  if (!existing) return incoming || undefined
+  if (!incoming) return existing
+
+  const merged: Record<string, unknown> = { ...existing }
+  for (const [key, value] of Object.entries(incoming)) {
+    if (value !== undefined) {
+      merged[key] = value
+    }
+  }
+  return merged
+}
+
+/** 合并题目运行详情，优先保留已到达的 prediction 字段。 */
+function mergeRunDetail(
+  existing: EvalRunDetail | undefined,
+  incoming: EvalRunDetail
+): EvalRunDetail {
+  if (!existing) return { ...incoming }
+
+  return {
+    ...existing,
+    ...incoming,
+    prediction: mergePredictionState(
+      existing.prediction as Record<string, unknown> | null | undefined,
+      incoming.prediction as Record<string, unknown> | null | undefined
+    ) as EvalRunDetail['prediction'],
+  }
 }
 
 export function useEvalRun() {
@@ -50,16 +87,15 @@ export function useEvalRun() {
     if (resp.ok) {
       currentRun.value = await resp.json()
       if (currentRun.value?.details) {
+        const map = new Map(runDetails.value)
         if (isFullRun.value) {
-          const map = new Map<string, EvalRunDetail>()
           for (const d of currentRun.value.details) {
-            map.set(d.question_id, d)
+            map.set(d.question_id, mergeRunDetail(map.get(d.question_id), d))
           }
           runDetails.value = map
         } else {
-          const map = new Map(runDetails.value)
           for (const d of currentRun.value.details) {
-            map.set(d.question_id, d)
+            map.set(d.question_id, mergeRunDetail(map.get(d.question_id), d))
           }
           runDetails.value = map
         }
@@ -151,7 +187,8 @@ export function useEvalRun() {
 
   const startPolling = (runId: string) => {
     stopPolling()
-    pollTimer = setInterval(() => fetchRun(runId), 2000)
+    void fetchRun(runId)
+    pollTimer = setInterval(() => fetchRun(runId), EVAL_POLL_INTERVAL_MS)
   }
 
   const stopPolling = () => {

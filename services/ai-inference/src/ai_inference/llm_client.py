@@ -275,7 +275,8 @@ class LLMClient:
         config: LLMModelConfig,
         messages: List[Dict],
         temperature: float,
-        timeout_config: TimeoutConfig
+        timeout_config: TimeoutConfig,
+        max_tokens: Optional[int] = None
     ) -> str:
         """调用 OpenAI 兼容的 API。"""
         base_url = self._normalize_base_url(config.base_url)
@@ -290,11 +291,12 @@ class LLMClient:
         if "dashscope" in config.base_url or "aliyun" in config.base_url:
             extra_body["enable_thinking"] = False
 
+        effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
         response = client.chat.completions.create(
             model=config.model,
             messages=messages,
             temperature=temperature,
-            max_tokens=self._config.max_tokens,
+            max_tokens=effective_max_tokens,
             extra_body=extra_body if extra_body else None
         )
 
@@ -339,7 +341,8 @@ class LLMClient:
         temperature: Optional[float] = None,
         model: Optional[str] = None,
         mode: str = "instruct",
-        config_name: Optional[str] = None
+        config_name: Optional[str] = None,
+        max_tokens: Optional[int] = None
     ) -> str:
         """发送对话请求并获取响应。"""
         env_mode = os.getenv("FORCE_LLM_MODE")
@@ -347,6 +350,7 @@ class LLMClient:
             mode = env_mode
 
         temp = temperature if temperature is not None else self._config.temperature
+        effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
         processed_messages = self._prepare_messages(messages, mode)
 
         target_config_name = model if model else config_name
@@ -369,7 +373,7 @@ class LLMClient:
 
             try:
                 content = self._call_with_retry(
-                    config, processed_messages, temp, self._config.timeout
+                    config, processed_messages, temp, self._config.timeout, effective_max_tokens
                 )
 
                 duration = time.time() - start_time
@@ -457,7 +461,8 @@ class LLMClient:
         config: LLMModelConfig,
         messages: List[Dict],
         temperature: float,
-        timeout_config: TimeoutConfig
+        timeout_config: TimeoutConfig,
+        max_tokens: Optional[int] = None
     ) -> str:
         """带重试机制的 API 调用。"""
         retry_config = self._config.retry
@@ -465,7 +470,7 @@ class LLMClient:
 
         for attempt in range(retry_config.max_retries + 1):
             try:
-                return self._call_openai(config, messages, temperature, timeout_config)
+                return self._call_openai(config, messages, temperature, timeout_config, max_tokens)
 
             except (APITimeoutError, APIConnectionError, RateLimitError) as e:
                 last_error = e

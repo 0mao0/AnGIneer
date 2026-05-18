@@ -100,7 +100,8 @@ def _llm_semantic_evaluate(
     checks: List[Dict[str, Any]],
     semantic_threshold: float,
 ) -> Dict[str, Any]:
-    """调用 LLM 对系统答案做语义评判，返回评分与理由。强制使用 Qwen3.6-35B-A3B 模型确保一致性。"""
+    """调用 LLM 对系统答案做语义评判，返回评分与理由。"""
+    import time as _time
     from ai_inference.llm_client import get_llm_client
     from ai_inference.llm_response_parser import extract_json_from_text, ParseError
 
@@ -116,8 +117,10 @@ def _llm_semantic_evaluate(
         {"role": "user", "content": prompt},
     ]
     try:
+        _t_start = _time.time()
         client = get_llm_client()
         raw_response = client.chat(messages, mode="instruct", config_name="Qwen3.6-35B-A3B (Private)")
+        eval_duration = round(_time.time() - _t_start, 2)
         parsed = extract_json_from_text(raw_response)
         score = float(parsed.get("score", 0.0))
         score = max(0.0, min(1.0, score))
@@ -129,6 +132,7 @@ def _llm_semantic_evaluate(
             "semantic_evaluated": True,
             "semantic_fallback": False,
             "semantic_passed": passed,
+            "eval_duration": eval_duration,
         }
     except Exception as exc:
         if is_fatal_exception(exc):
@@ -164,22 +168,54 @@ def citations_match_section_paths(citations: List[Dict[str, Any]], gold_section_
 class AnswerEvaluator(BaseEvaluator):
     """回答评测器，通过 query_engine 直接调用回答链路。"""
 
+    @staticmethod
+    def _emit_enriched_stage(
+        question: Dict[str, Any],
+        partial: Dict[str, Any],
+        stage_callback: Optional[Callable[[Dict[str, Any]], None]],
+    ) -> None:
+        """把 dispatcher 中间态归一化后回传给评测轮询层。"""
+        if not stage_callback:
+            return
+        prediction = {
+            "answer": partial.get("answer", ""),
+            "citations": list(partial.get("citations") or []),
+            "retrieved_items": list(partial.get("retrieved_items") or []),
+            "task_type": partial.get("task_type", ""),
+            "strategy": partial.get("strategy", ""),
+            "system_prompt": partial.get("system_prompt", ""),
+            "retrieval_debug": partial.get("retrieval_debug", {}),
+            "stage_timings": partial.get("stage_timings", {}),
+            "intent": partial.get("intent", {}),
+            "stage": partial.get("stage", ""),
+        }
+        stage_callback(enrich_prediction_trace(question, partial, prediction))
+
     def run_prediction(self, question: Dict[str, Any], *, stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None) -> Dict[str, Any]:
-        """通过 query_engine 直接调用回答链路。"""
+        """通过 query_engine 直接调用回答链路，支持渐进式阶段回调。"""
         question_id = str(question.get("question_id") or "")
         query = str(question.get("question") or "").strip()
         if not query:
             return {}
+
+        if stage_callback:
+            stage_callback({
+                "answer": "",
+                "stage": "intent",
+                "stage_timings": {},
+                "intent": {},
+            })
 
         data = run_eval_query(
             query=query,
             library_id=str(question.get("library_id") or "default"),
             doc_ids=list(question.get("doc_ids") or []),
             session_id=f"eval-{question_id}",
+            stage_callback=(lambda partial: self._emit_enriched_stage(question, partial, stage_callback)) if stage_callback else None,
         )
 
         if "error" in data:
-            return data
+            return {"error": data["error"]}
 
         prediction = {
             "answer": data.get("answer", ""),
@@ -195,7 +231,12 @@ class AnswerEvaluator(BaseEvaluator):
             "stage_timings": data.get("stage_timings", {}),
             "intent": data.get("intent", {}),
         }
-        return enrich_prediction_trace(question, data, prediction)
+        result = enrich_prediction_trace(question, data, prediction)
+
+        if stage_callback:
+            stage_callback(result)
+
+        return result
 
     def evaluate(self, question: Dict[str, Any], gold: Dict[str, Any], prediction: Dict[str, Any]) -> Dict[str, Any]:
         """计算回答评测指标，使用 LLM 作为主判，关键词作为 prompt 提示。"""

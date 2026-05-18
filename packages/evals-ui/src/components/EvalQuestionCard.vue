@@ -84,13 +84,16 @@
         <div v-else class="eval-question-card__editor-content">{{ localQuestionText }}</div>
       </div>
 
-      <div v-if="evaluating" class="eval-question-card__loading-state">
+      <div v-if="evaluating && !detail" class="eval-question-card__loading-state">
         <a-spin size="small" />
-        <span>{{ detail ? '正在更新本次评测结果...' : '正在评测，结果返回后会自动展示。' }}</span>
+        <span>正在评测，结果返回后会自动展示。</span>
       </div>
 
       <div v-if="detail && isFlowTraceLevel" class="eval-chain">
-        <div class="eval-chain__title">{{ flowTraceTitle }}</div>
+        <div class="eval-chain__title">
+          {{ flowTraceTitle }}
+          <a-spin v-if="evaluating" size="small" class="eval-chain__spinner" />
+        </div>
         <div
           v-for="(stage, idx) in flowTraceStages"
           :key="stage.key"
@@ -117,8 +120,12 @@
                 <span>{{ String(prediction?.task_type || question.task_type || '—') }}</span>
               </div>
               <div class="eval-detail-row">
-                <span class="eval-detail-label">意图层级:</span>
+                <span class="eval-detail-label">识别层级:</span>
                 <span>{{ intentDebug.intent_level || traceMeta.level || '—' }}</span>
+              </div>
+              <div class="eval-detail-row">
+                <span class="eval-detail-label">首选层级:</span>
+                <span>{{ primaryIntentLevel || '—' }}</span>
               </div>
               <div class="eval-detail-row">
                 <span class="eval-detail-label">意图类型:</span>
@@ -127,6 +134,10 @@
               <div class="eval-detail-row">
                 <span class="eval-detail-label">服务模式:</span>
                 <span>{{ intentDebug.service_mode || traceMeta.service_mode || '—' }}</span>
+              </div>
+              <div v-if="hasTieredRouting" class="eval-detail-row">
+                <span class="eval-detail-label">执行计划:</span>
+                <span>{{ formatExecutionPlanText(executionPlan) }}</span>
               </div>
               <div v-if="intentDebug.reason" class="eval-detail-block">
                 <div class="eval-prompt-label">判定理由:</div>
@@ -159,48 +170,54 @@
             <template v-else-if="stage.detailType === 'route'">
               <div class="eval-detail-row">
                 <span class="eval-detail-label">路由类型:</span>
-                <span>{{ routeDebug.route_kind || '—' }}</span>
+                <span>{{ hasTieredRouting ? '分层尝试链' : (routeDebug.route_kind || '—') }}</span>
+              </div>
+              <div v-if="hasTieredRouting" class="eval-detail-row">
+                <span class="eval-detail-label">尝试路径:</span>
+                <span>{{ formatExecutionPlanText(executionPlan) }}</span>
+              </div>
+              <div v-if="finalPath" class="eval-detail-row">
+                <span class="eval-detail-label">最终落点:</span>
+                <span>{{ formatExecutionPathLabel(finalPath) }}</span>
               </div>
               <div class="eval-detail-row">
                 <span class="eval-detail-label">命中 SOP:</span>
-                <span>{{ routeDebug.matched_sop_name || routeDebug.matched_sop_id || '—' }}</span>
+                <span class="eval-matched-sop">{{ routeDebug.matched_sop_name || routeDebug.matched_sop_id || '—' }}</span>
               </div>
-              <div v-if="routeDebug.reason" class="eval-detail-block">
-                <div class="eval-prompt-label">路由说明:</div>
-                <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(routeDebug.reason)" />
+              <div v-if="fallbackReason" class="eval-detail-block">
+                <div class="eval-prompt-label">回退原因:</div>
+                <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(fallbackReason)" />
               </div>
-              <div v-if="routeArgsEntries.length" class="eval-detail-block">
-                <div class="eval-prompt-label">参数抽取:</div>
-                <div
-                  v-for="([key, val]) in routeArgsEntries"
-                  :key="`arg-${key}`"
-                  class="eval-detail-row"
-                >
-                  <span class="eval-detail-label">{{ key }}:</span>
-                  <span>{{ formatOutputVal(val) }}</span>
-                </div>
-              </div>
-              <div v-if="routeMissingArgs.length" class="eval-detail-block">
-                <div class="eval-prompt-label">缺失参数:</div>
-                <div class="eval-detail-empty">{{ routeMissingArgs.join(', ') }}</div>
-              </div>
+
               <div v-if="routeCandidates.length" class="eval-detail-block">
-                <div class="eval-prompt-label">{{ isDynamicFlowLevel ? '动态候选' : 'SOP 候选' }}:</div>
+                <div class="eval-prompt-label">Stage 1 - 候选召回 ({{ routeCandidates.length }} 个):</div>
                 <div
                   v-for="candidate in routeCandidates"
                   :key="candidate.id"
                   class="eval-citation-card"
                 >
                   <div class="eval-citation-meta">
-                    <span class="eval-citation-index">{{ candidate.id }}</span>
-                    <span v-if="candidate.recall_score !== undefined" class="eval-citation-score">
-                      recall: {{ Number(candidate.recall_score).toFixed(4) }}
+                    <span class="eval-citation-index">{{ candidate.name_zh || candidate.id }}</span>
+                    <span class="eval-citation-score">
+                      召回分: {{ candidate.recall_score !== undefined ? Number(candidate.recall_score).toFixed(4) : '—' }}
                     </span>
                   </div>
                   <div
                     class="eval-citation-content"
-                    v-html="renderRichText(candidate.name || candidate.description || '—')"
+                    v-html="renderRichText(candidate.description || '—')"
                   />
+                </div>
+              </div>
+
+              <div v-if="routeDebug.confidence !== null && routeDebug.confidence !== ''" class="eval-detail-block">
+                <div class="eval-prompt-label">Stage 2 - LLM 精排结果:</div>
+                <div class="eval-detail-row">
+                  <span class="eval-detail-label">置信度:</span>
+                  <span>{{ routeConfidenceText }}</span>
+                </div>
+                <div v-if="routeDebug.reason" class="eval-detail-row">
+                  <span class="eval-detail-label">精排理由:</span>
+                  <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(routeDebug.reason)" />
                 </div>
               </div>
             </template>
@@ -251,6 +268,27 @@
                       <div class="eval-prompt-text">{{ formatOutputVal(step.outputs) }}</div>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div v-else-if="attemptedPaths.length" class="eval-flow-steps">
+                <div
+                  v-for="(path, pathIdx) in attemptedPaths"
+                  :key="`attempted-path-${pathIdx}-${path.path}`"
+                  class="eval-flow-step-card"
+                  :class="{
+                    'eval-flow-step-card--success': path.status === 'success',
+                    'eval-flow-step-card--error': isErrorStatus(path.status),
+                  }"
+                >
+                  <div class="eval-flow-step-card__header">
+                    <span class="eval-flow-step-card__index">{{ pathIdx + 1 }}</span>
+                    <span class="eval-flow-step-card__name">{{ formatExecutionPathLabel(path.path) }}</span>
+                    <span class="eval-flow-step-card__tool">{{ formatAttemptedStatus(path.status) }}</span>
+                    <a-tag v-if="path.duration" color="processing" class="eval-flow-step-card__duration">
+                      {{ path.duration.toFixed(2) }}s
+                    </a-tag>
+                  </div>
+                  <div v-if="path.reason" class="eval-flow-step-card__desc">{{ path.reason }}</div>
                 </div>
               </div>
               <div v-else class="eval-detail-empty">暂无 SOP 步骤追踪</div>
@@ -316,7 +354,10 @@
       </div>
 
       <div v-else-if="detail && isCasualTraceLevel" class="eval-chain">
-        <div class="eval-chain__title">{{ casualTraceTitle }}</div>
+        <div class="eval-chain__title">
+          {{ casualTraceTitle }}
+          <a-spin v-if="evaluating" size="small" class="eval-chain__spinner" />
+        </div>
         <div
           v-for="(step, idx) in casualTraceSteps"
           :key="step.key"
@@ -365,7 +406,10 @@
       </div>
 
       <div v-else-if="detail" class="eval-chain">
-        <div class="eval-chain__title">{{ knowledgeTraceTitle }}</div>
+        <div class="eval-chain__title">
+          {{ knowledgeTraceTitle }}
+          <a-spin v-if="evaluating" size="small" class="eval-chain__spinner" />
+        </div>
         <div
           v-for="(step, idx) in knowledgeTraceSteps"
           :key="step.key"
@@ -393,8 +437,12 @@
                 <span>{{ String(prediction?.task_type || question.task_type || '—') }}</span>
               </div>
               <div class="eval-detail-row">
-                <span class="eval-detail-label">意图层级:</span>
+                <span class="eval-detail-label">识别层级:</span>
                 <span>{{ intentDebug.intent_level || traceMeta.level }}</span>
+              </div>
+              <div class="eval-detail-row">
+                <span class="eval-detail-label">首选层级:</span>
+                <span>{{ primaryIntentLevel || '—' }}</span>
               </div>
               <div class="eval-detail-row">
                 <span class="eval-detail-label">服务模式:</span>
@@ -641,6 +689,13 @@ interface RouteCandidate {
   recall_score?: number
 }
 
+interface AttemptedPathEntry {
+  path: string
+  status: string
+  reason?: string
+  duration?: number
+}
+
 interface TraceIssue {
   code: string
   message: string
@@ -672,6 +727,9 @@ const editLevel = ref<EvalIntentLevel>(props.question.intent_level)
 const localQuestionText = ref(props.question.question)
 const localIntentLevel = ref<EvalIntentLevel>(props.question.intent_level)
 const savingEdit = ref(false)
+
+/** 记录上一步的步骤数量，用于检测增量变化。 */
+const prevStepCount = ref(0)
 
 watch(() => props.question.question, (value) => {
   localQuestionText.value = value
@@ -875,6 +933,7 @@ const semanticResult = computed<SemanticEvalResult | null>(() => {
     semantic_fallback: Boolean(answerScores.semantic_fallback),
     semantic_passed: answerScores.semantic_passed as boolean | null ?? null,
     semantic_threshold: Number(answerScores.semantic_threshold || 0.7),
+    eval_duration: (answerScores.eval_duration as number | null) ?? null,
   }
 })
 
@@ -882,27 +941,134 @@ const stageTimings = computed<Record<string, number>>(() => {
   return (prediction.value?.stage_timings as Record<string, number>) || {}
 })
 
+const detailStatus = computed(() => String(props.detail?.status || 'pending'))
+
+/** 获取步骤耗时，支持多 key 回退。 */
+const getStageTiming = (...keys: string[]): number | undefined => {
+  const t = stageTimings.value
+  for (const k of keys) {
+    if (typeof t[k] === 'number' && t[k] > 0) return t[k]
+  }
+  return undefined
+}
+
 const currentIntentLevel = computed(() => {
   return String(
     intentDebug.value.intent_level || traceMeta.value.level || 'L1'
   )
 })
 
+const primaryIntentLevel = computed(() => {
+  return String(
+    intentDebug.value.primary_level
+    || routeDebug.value.primary_level
+    || traceMeta.value.primary_level
+    || currentIntentLevel.value
+    || 'L1'
+  )
+})
+
+const executionPlan = computed<string[]>(() => {
+  const plan = routeDebug.value.execution_plan ?? intentDebug.value.execution_plan
+  return Array.isArray(plan) ? plan.map(item => String(item)).filter(Boolean) : []
+})
+
+const attemptedPaths = computed<AttemptedPathEntry[]>(() => {
+  const raw = routeDebug.value.attempted_paths ?? intentDebug.value.attempted_paths
+  if (!Array.isArray(raw)) return []
+  return raw.map(item => {
+    const record = (item as Record<string, unknown>) || {}
+    return {
+      path: String(record.path || ''),
+      status: String(record.status || ''),
+      reason: record.reason ? String(record.reason) : '',
+      duration: typeof record.duration === 'number' ? record.duration : undefined,
+    }
+  }).filter(item => item.path)
+})
+
+const finalPath = computed(() => {
+  return String(routeDebug.value.final_path || intentDebug.value.final_path || '')
+})
+
+const fallbackReason = computed(() => {
+  return String(routeDebug.value.fallback_reason || intentDebug.value.fallback_reason || '')
+})
+
+const hasTieredRouting = computed(() => {
+  return executionPlan.value.length > 1 || attemptedPaths.value.length > 1
+})
+
+const executionPathLabels: Record<string, string> = {
+  casual_chat: 'L0 闲聊直答',
+  semantic_retrieval: 'L1 语义检索',
+  sql_first: 'L2 条文/SQL',
+  standard_sop: 'L3 标准 SOP',
+  dynamic_orchestration: 'L4 语义兜底',
+}
+
+/** 将 service_mode 路径格式化为可读的层级文案。 */
+const formatExecutionPathLabel = (path: string): string => {
+  return executionPathLabels[path] || path || '—'
+}
+
+/** 将执行计划格式化为首选层级与回退链的摘要文本。 */
+const formatExecutionPlanText = (paths: string[]): string => {
+  if (!paths.length) return '—'
+  return paths.map(path => formatExecutionPathLabel(path)).join(' -> ')
+}
+
+/** 将路径尝试状态格式化为前端可读文案。 */
+const formatAttemptedStatus = (status: string): string => {
+  const labels: Record<string, string> = {
+    success: '成功',
+    insufficient: '结果不足',
+    no_match: '未命中',
+    failed: '失败',
+    skipped: '跳过',
+  }
+  return labels[status] || status || '—'
+}
+
+/** 用于展示的意图层级：未识别完成时返回空字符串，前端显示"识别中"。 */
+const displayIntentLevel = computed(() => {
+  const raw = intentDebug.value.intent_level
+  return raw || ''
+})
+
+/** 格式化意图步骤的展示文本，未识别完成时显示"识别中"。 */
+const formatIntentLabel = (): string => {
+  const taskType = enrichedQuestion.value.taskTypeLabel || enrichedQuestion.value.task_type
+  const level = primaryIntentLevel.value || displayIntentLevel.value
+  if (!level) return `${taskType} · 识别中...`
+  if (hasTieredRouting.value) return `${taskType} · 首选 ${level}`
+  return `${taskType} · ${level}`
+}
+
 /** 判断是否为需要展示闲聊直答链路的题目。 */
 const isCasualTraceLevel = computed(() => currentIntentLevel.value === 'L0')
 
 /** 判断是否为 L3/L4 的流程执行链路。 */
 const isFlowTraceLevel = computed(() => {
-  return currentIntentLevel.value === 'L3' || currentIntentLevel.value === 'L4'
+  return (
+    currentIntentLevel.value === 'L3'
+    || currentIntentLevel.value === 'L4'
+    || executionPlan.value.some(path => ['standard_sop', 'dynamic_orchestration'].includes(path))
+    || attemptedPaths.value.some(item => ['standard_sop', 'dynamic_orchestration'].includes(item.path))
+  )
 })
 
-const isDynamicFlowLevel = computed(() => currentIntentLevel.value === 'L4')
+const isDynamicFlowLevel = computed(() => {
+  return currentIntentLevel.value === 'L4' || finalPath.value === 'dynamic_orchestration'
+})
 
 const flowTraceTitle = computed(() => {
+  if (hasTieredRouting.value) return '分层尝试链路'
   return String(traceMeta.value.title || (isDynamicFlowLevel.value ? '动态 SOP 执行' : '标准 SOP 执行'))
 })
 
 const knowledgeTraceTitle = computed(() => {
+  if (hasTieredRouting.value) return '分层尝试链路'
   return String(traceMeta.value.title || (currentIntentLevel.value === 'L2' ? '分析链路（SQL/条款定位）' : '分析链路'))
 })
 
@@ -935,6 +1101,28 @@ const sopTraceSteps = computed<SopTraceStep[]>(() => {
   }
   return steps
 })
+
+/** 返回真实的 SOP 执行步骤，不包含虚拟的第0步已知条件。 */
+const realSopTraceSteps = computed(() => {
+  return sopTraceSteps.value.filter(step => step.step_index > 0)
+})
+
+/** 当 SOP 步骤逐个到达时，自动展开"步骤推进"详情面板。 */
+watch(() => prediction.value?.sop_trace as SopTraceStep[] | undefined, (trace) => {
+  const steps = (trace || []).filter((s: SopTraceStep) => s.step_index > 0)
+  if (steps.length === 0) {
+    prevStepCount.value = 0
+    return
+  }
+  if (steps.length > prevStepCount.value) {
+    prevStepCount.value = steps.length
+    const next = new Set(expandedSteps.value)
+    next.add('flow-steps')
+    expandedSteps.value = next
+    return
+  }
+  prevStepCount.value = steps.length
+}, { deep: true })
 
 const routeCandidates = computed<RouteCandidate[]>(() => {
   const candidates = routeDebug.value.candidates
@@ -1042,7 +1230,7 @@ const knowledgeTraceSteps = computed<ThinkingStep[]>(() => {
   steps.push({
     key: 'knowledge-intent',
     label: '意图识别',
-    value: `${enrichedQuestion.value.taskTypeLabel || enrichedQuestion.value.task_type} · ${currentIntentLevel.value}`,
+    value: formatIntentLabel(),
     hasDetail: true,
     detailType: 'intent',
     timing: timings['intent'],
@@ -1084,19 +1272,22 @@ const knowledgeTraceSteps = computed<ThinkingStep[]>(() => {
       label: 'LLM 回答',
       value: 'LLM 生成',
       hasDetail: true,
-      timing: timings['llm'],
+      timing: getStageTiming('llm', 'answer', 'generation'),
     })
   }
+  // 渐进展示：评测中时只显示意图步骤，完成后显示全部
+  if (props.detail?.status === 'completed') return steps
+  if (currentStage.value === 'intent') return steps.slice(0, 1)
   return steps
 })
 
 const casualTraceSteps = computed<ThinkingStep[]>(() => {
   const timings = stageTimings.value
-  return [
+  const allSteps: ThinkingStep[] = [
     {
       key: 'casual-intent',
       label: '意图识别',
-      value: `${enrichedQuestion.value.taskTypeLabel || enrichedQuestion.value.task_type} · ${currentIntentLevel.value}`,
+      value: formatIntentLabel(),
       hasDetail: true,
       detailType: 'intent',
       timing: timings['intent'],
@@ -1114,48 +1305,111 @@ const casualTraceSteps = computed<ThinkingStep[]>(() => {
       value: prediction.value?.answer ? 'LLM 生成' : '—',
       hasDetail: true,
       detailType: 'answer',
-      timing: timings['llm'],
+      timing: getStageTiming('llm', 'answer', 'generation'),
     },
   ]
+  // 渐进展示：评测中时只显示意图步骤，完成后显示全部
+  if (props.detail?.status === 'completed') return allSteps
+  if (currentStage.value === 'intent') return allSteps.slice(0, 1)
+  return allSteps
 })
 
 /** 计算 SOP 步骤执行总耗时（不含虚拟的第0步）。 */
 const sopExecutionTiming = computed(() => {
-  const steps = sopTraceSteps.value.filter(s => s.step_index > 0)
+  const steps = realSopTraceSteps.value
   if (!steps.length) return undefined
   const total = steps.reduce((sum, s) => sum + (s.duration || 0), 0)
   return total || undefined
 })
 
+/** 当前评测所处的阶段，用于渐进式展示步骤。 */
+const currentStage = computed(() => {
+  return (prediction.value?.stage as string) || ''
+})
+
+/** 判断流程链路是否已经拿到可展示的 SOP 路由结果。 */
+const hasFlowRoute = computed(() => {
+  return Boolean(
+    executionPlan.value.length
+    || attemptedPaths.value.length
+    || routeDebug.value.matched_sop_id
+    || routeDebug.value.matched_sop_name
+    || routeCandidates.value.length
+  )
+})
+
+const attemptedPathTotalDuration = computed(() => {
+  return attemptedPaths.value.reduce((sum, item) => sum + (item.duration || 0), 0)
+})
+
+/** 判断流程链路是否已经拿到最终回答。 */
+const hasFlowAnswer = computed(() => Boolean(prediction.value?.answer))
+
+/**
+ * 基于数据可用性动态计算应展示的步骤数。
+ * 比纯 stage 字符串更可靠：即使轮询错过中间回调，
+ * 只要数据已写入 DB 就能正确展示对应步骤。
+ */
+const stageDisplayMax = computed(() => {
+  const stage = currentStage.value
+  const isCompleted = detailStatus.value === 'completed'
+
+  if (isCompleted) return 5
+
+  if (hasFlowAnswer.value) return 4
+  if (realSopTraceSteps.value.length > 0 || attemptedPaths.value.length > 0) return 3
+  if (hasFlowRoute.value) return 2
+
+  const idxMap: Record<string, number> = {
+    intent: 1,
+    route_completed: 2,
+    sop_executing: 3,
+    answer_generated: 4,
+  }
+  return idxMap[stage] ?? 1
+})
+
 const flowTraceStages = computed<ThinkingStep[]>(() => {
   const timings = stageTimings.value
-  return [
+  const allStages: ThinkingStep[] = [
     {
       key: 'flow-intent',
       label: '意图识别',
-      value: `${enrichedQuestion.value.taskTypeLabel || enrichedQuestion.value.task_type} · ${currentIntentLevel.value}`,
+      value: formatIntentLabel(),
       hasDetail: true,
       detailType: 'intent',
       timing: timings['intent'],
     },
     {
       key: 'flow-route',
-      label: 'SOP 路由',
-      value: String(routeDebug.value.matched_sop_name || routeDebug.value.matched_sop_id || '待补充'),
+      label: hasTieredRouting.value ? '分层尝试' : 'SOP 路由',
+      value: String(
+        hasTieredRouting.value
+          ? (attemptedPaths.value.length
+              ? `${formatExecutionPlanText(executionPlan.value)} | 已尝试 ${attemptedPaths.value.length} 段`
+              : formatExecutionPlanText(executionPlan.value))
+          : (
+              routeDebug.value.matched_sop_name
+              || routeDebug.value.matched_sop_id
+              || (routeCandidates.value.length ? `候选 ${routeCandidates.value.length} 个` : '已完成')
+            )
+      ),
       hasDetail: true,
       detailType: 'route',
-      timing: timings['sop_route'],
+      timing: getStageTiming('route', 'sop_route', 'sql_first', 'standard_sop', 'dynamic_orchestration', 'semantic_retrieval'),
     },
     {
       key: 'flow-steps',
-      label: '步骤推进',
+      label: hasTieredRouting.value ? '路径推进' : '步骤推进',
       value: (() => {
-        const realStepCount = sopTraceSteps.value.filter(s => s.step_index > 0).length
-        return realStepCount ? `${realStepCount} 步` : '暂无步骤追踪'
+        const realStepCount = realSopTraceSteps.value.length
+        if (realStepCount) return `${realStepCount} 步`
+        if (attemptedPaths.value.length) return `${attemptedPaths.value.length} 段路径`
+        return '暂无步骤追踪'
       })(),
       hasDetail: true,
       detailType: 'steps',
-      timing: sopExecutionTiming.value,
+      timing: sopExecutionTiming.value || (attemptedPathTotalDuration.value > 0 ? attemptedPathTotalDuration.value : undefined),
     },
     {
       key: 'flow-answer',
@@ -1163,7 +1417,7 @@ const flowTraceStages = computed<ThinkingStep[]>(() => {
       value: prediction.value?.answer ? 'LLM 生成' : '—',
       hasDetail: true,
       detailType: 'answer',
-      timing: timings['llm'],
+      timing: getStageTiming('llm', 'answer', 'generation'),
     },
     {
       key: 'flow-evaluation',
@@ -1171,8 +1425,10 @@ const flowTraceStages = computed<ThinkingStep[]>(() => {
       value: traceIssues.value.length ? `${traceIssues.value.length} 个诊断问题` : '通过当前链路校验',
       hasDetail: true,
       detailType: 'evaluation',
+      timing: semanticResult.value?.eval_duration || getStageTiming('eval', 'evaluation'),
     },
   ]
+  return allStages.slice(0, stageDisplayMax.value)
 })
 
 const enrichedQuestion = computed(() => {
@@ -1197,6 +1453,9 @@ const enrichedQuestion = computed(() => {
 })
 
 const metaSopPath = computed(() => {
+  if (hasTieredRouting.value) {
+    return formatExecutionPlanText(executionPlan.value)
+  }
   const level = currentIntentLevel.value || 'L1'
   const approachMap: Record<string, string> = {
     L0: '闲聊直答 → 回答（非工程规范问题，不进入检索与 SOP）',
@@ -1409,6 +1668,13 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     font-weight: 600;
     margin-bottom: 8px;
     color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__spinner {
+    flex-shrink: 0;
   }
 
   &__step {
@@ -1420,6 +1686,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     line-height: 1.6;
     flex-wrap: wrap;
     align-items: center;
+    animation: eval-step-enter 0.3s ease-out both;
   }
 
   &__badge {
@@ -1758,6 +2025,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-secondary);
+  animation: eval-step-enter 0.3s ease-out both;
 
   &--success {
     border-color: fade(#52c41a, 35%);
@@ -1849,6 +2117,11 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 
 .eval-citation-index {
   color: @evals-primary;
+  font-weight: 600;
+}
+
+.eval-matched-sop {
+  color: var(--chat-success-color, #52c41a);
   font-weight: 600;
 }
 
@@ -2102,5 +2375,16 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   max-height: 200px;
   overflow-y: auto;
   white-space: pre-wrap;
+}
+
+@keyframes eval-step-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

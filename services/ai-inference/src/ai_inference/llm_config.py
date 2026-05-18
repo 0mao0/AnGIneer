@@ -118,12 +118,21 @@ def load_llm_models_from_env() -> List[LLMModelConfig]:
 
     deepseek_key = _get_env_str("DEEPSEEK_API_KEY")
     if deepseek_key:
+        deepseek_url = _get_env_str("DEEPSEEK_API_URL")
+        deepseek_model = _get_env_str("DEEPSEEK_MODEL")
         models.append(LLMModelConfig(
             name="DeepSeek-V4-Flash",
             api_key=deepseek_key,
-            base_url=_get_env_str("DEEPSEEK_API_URL"),
-            model=_get_env_str("DEEPSEEK_MODEL"),
+            base_url=deepseek_url,
+            model=deepseek_model,
             priority=7
+        ))
+        models.append(LLMModelConfig(
+            name="DeepSeek-V4-Pro",
+            api_key=deepseek_key,
+            base_url=deepseek_url,
+            model="deepseek-reasoner",
+            priority=8
         ))
 
     zhipu_key = _get_env_str("ZHIPU_API_KEY")

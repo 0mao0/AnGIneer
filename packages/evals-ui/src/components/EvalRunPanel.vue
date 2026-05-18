@@ -100,7 +100,7 @@ const summary = computed((): EvalSummaryScores | null => {
 })
 
 const overallScoreDisplay = computed(() => {
-  if (!summary.value?.overall_score) return '—'
+  if (summary.value?.overall_score == null) return '—'
   return (summary.value.overall_score * 100).toFixed(1) + '%'
 })
 

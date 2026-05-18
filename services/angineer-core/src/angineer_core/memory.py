@@ -157,8 +157,8 @@ class Memory(BaseModel):
                 context=f"黑板键: {list(self.blackboard.keys())}"
             )
 
-        logger.warning(f"变量 ${{{variable_name}}} 未定义，使用替换值: '{replacement}'")
-        return replacement
+        logger.warning(f"变量 ${{{variable_name}}} 未定义，保留模板标记以便上层检测")
+        return f"${{{variable_name}}}"
 
     # 获取变量值，支持点号(.)嵌套访问
     def _get_value(self, key: str) -> Any:

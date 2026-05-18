@@ -23,7 +23,7 @@ def _title_for_level(intent_level: str, service_mode: str) -> str:
     if intent_level == "L3":
         return "标准 SOP 执行"
     if intent_level == "L4" or service_mode == "dynamic_orchestration":
-        return "动态 SOP 执行"
+        return "语义兜底"
     return "知识问答"
 
 
@@ -34,7 +34,7 @@ def _route_kind_from_service_mode(service_mode: str) -> str:
         "semantic_retrieval": "retrieval",
         "sql_first": "sql",
         "standard_sop": "standard_sop",
-        "dynamic_orchestration": "dynamic_sop",
+        "dynamic_orchestration": "semantic_fallback",
     }
     return mapping.get(service_mode, "")
 
@@ -63,6 +63,8 @@ def _normalize_route_debug(
     route_debug = dict(raw_data.get("route_debug") or {})
     strategy = str(raw_data.get("strategy") or "")
     service_mode = str(intent.get("service_mode") or "")
+    execution_plan = list(route_debug.get("execution_plan") or intent.get("execution_plan") or [])
+    attempted_paths = list(route_debug.get("attempted_paths") or intent.get("attempted_paths") or [])
     parsed_sop_id, parsed_confidence = _parse_sop_strategy(strategy)
     route_kind = str(route_debug.get("route_kind") or _route_kind_from_service_mode(service_mode) or "")
 
@@ -80,6 +82,11 @@ def _normalize_route_debug(
         "args": dict(route_debug.get("args") or {}),
         "missing_args": list(route_debug.get("missing_args") or []),
         "reason": str(route_debug.get("reason") or intent.get("reason") or strategy or ""),
+        "primary_level": str(route_debug.get("primary_level") or intent.get("primary_level") or intent.get("intent_level") or ""),
+        "execution_plan": execution_plan,
+        "attempted_paths": attempted_paths,
+        "final_path": str(route_debug.get("final_path") or intent.get("final_path") or ""),
+        "fallback_reason": str(route_debug.get("fallback_reason") or intent.get("fallback_reason") or ""),
     }
     return normalized
 
@@ -123,8 +130,9 @@ def _build_trace_issues(
     sop_trace = list(raw_data.get("sop_trace") or [])
     fallback_used = bool(raw_data.get("fallback_used"))
     sql_payload = raw_data.get("sql") or {}
+    execution_plan = list(route_debug.get("execution_plan") or [])
 
-    if fallback_used:
+    if fallback_used and len(execution_plan) <= 1:
         issues.append({
             "code": "dispatch_fallback_used",
             "message": "当前题目执行中发生回退，未稳定停留在预期主链。",
@@ -182,7 +190,7 @@ def _build_trace_issues(
 
     if intent_level == "L2":
         execution_status = str(sql_payload.get("execution_status") or raw_data.get("execution_status") or "")
-        if execution_status and execution_status != "success":
+        if execution_status and execution_status not in {"success", "empty", "unsupported"}:
             issues.append({
                 "code": "sql_execution_failed",
                 "message": f"SQL 执行状态为 {execution_status}。",
@@ -215,6 +223,14 @@ def _build_trace_summary(
     if level == "L0":
         return "当前题目走闲聊直答链路。"
     if level == "L2":
+        final_path = str(route_debug.get("final_path") or "")
+        if final_path and final_path != "sql_first":
+            final_path_label = {
+                "semantic_retrieval": "L1 语义检索",
+                "standard_sop": "L3 标准 SOP",
+                "dynamic_orchestration": "L4 语义兜底",
+            }.get(final_path, final_path)
+            return f"当前题目从 L2 起步，最终由 `{final_path_label}` 完成收敛。"
         return "当前题目走 SQL/条款定位链路。"
     matched_sop_id = str(route_debug.get("matched_sop_id") or "")
     if matched_sop_id:
@@ -236,6 +252,7 @@ def enrich_prediction_trace(
 
     trace_meta = {
         "level": intent_level,
+        "primary_level": str(intent.get("primary_level") or intent_level),
         "trace_mode": _trace_mode_for_level(intent_level),
         "service_mode": service_mode,
         "title": _title_for_level(intent_level, service_mode),

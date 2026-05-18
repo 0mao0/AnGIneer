@@ -36,7 +36,7 @@ COUNT_METRIC_CATALOG = {
     },
 }
 
-CLAUSE_ID_PATTERN = re.compile(r"(?:第\s*)?(\d+(?:\.\d+){1,4})\s*(?:条|款|节|章)?")
+CLAUSE_ID_PATTERN = re.compile(r"第\s*([A-Za-z]?\d+(?:\.\d+){1,4})|([A-Za-z]?\d+(?:\.\d+){1,4})\s*(?:条|款|节|章|式)")
 
 STANDARD_CODE_PATTERN = re.compile(
     r"(?:GB|GB/T|JGJ|JGJ/T|JTS|JTJ|JTG|JTG/T|JTSC|CJJ|CJJ/T|DL|DL/T|SL|SL/T|NB|NB/T|SY|SY/T|HJ|HJ/T|YB|YB/T|TB|TB/T|SH|SH/T|HG|HG/T|CECS|DB)\s*[/\-]?\s*\d+(?:\s*[-—–]\s*\d+)?",
@@ -117,12 +117,21 @@ def _get_domain_keywords() -> Dict[str, Dict[str, str]]:
     }
 
 
-# 从用户查询中提取条款编号
+# 从用户查询中提取条款编号（需有"第X.X.X"或"X.X.X条/款/节/章/式"上下文）
 def extract_clause_id_from_query(query: str) -> Optional[str]:
+    if not query:
+        return None
     match = CLAUSE_ID_PATTERN.search(query)
-    if match:
-        return match.group(1)
-    return None
+    if not match:
+        return None
+    candidate = match.group(1) or match.group(2)
+    if not candidate:
+        return None
+    match_end = match.end()
+    after = query[match_end:match_end + 3].lstrip()
+    if after and after[0] in "mkntsgMKNTSG%℃°数位0123456789":
+        return None
+    return candidate
 
 
 # 从用户查询中提取工程对象标签

@@ -619,6 +619,24 @@ def update_run_detail(run_id: str, question_id: str, updates: Dict[str, Any]) ->
     conn.commit()
 
 
+def cleanup_old_runs(dataset_id: str, keep: int = 3) -> int:
+    """删除指定数据集超出保留数量的旧运行记录（保留最近 keep 条）。"""
+    conn = _get_conn()
+    rows = conn.execute(
+        "SELECT run_id FROM eval_run WHERE dataset_id = ? AND status != 'running' ORDER BY started_at DESC",
+        (dataset_id,),
+    ).fetchall()
+    stale_ids = [row["run_id"] for row in rows[keep:]]
+    if stale_ids:
+        placeholders = ",".join("?" for _ in stale_ids)
+        conn.execute(
+            f"DELETE FROM eval_run WHERE run_id IN ({placeholders})",
+            stale_ids,
+        )
+        conn.commit()
+    return len(stale_ids)
+
+
 def list_run_details(run_id: str) -> List[Dict[str, Any]]:
     """列出某次运行的所有详情。"""
     conn = _get_conn()
