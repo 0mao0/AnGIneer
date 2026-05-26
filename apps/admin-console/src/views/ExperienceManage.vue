@@ -902,7 +902,7 @@ const onAddStep = () => {
 /**
  * 保存属性面板草稿到流程图状态。
  */
-const onPropertySave = (step: SopStep) => {
+const onPropertySave = async (step: SopStep) => {
   if (currentMode.value === 'view') {
     message.warning('只读模式下不能修改步骤')
     return
@@ -910,9 +910,20 @@ const onPropertySave = (step: SopStep) => {
   if (!sopFlow.selectedStepId.value) {
     return
   }
+  const currentData = sopTree.currentSopData.value
+  if (!currentData) return
   sopFlow.updateStepData(sopFlow.selectedStepId.value, step)
-  propertyPanelDirty.value = false
-  message.success('步骤属性已更新，请保存 SOP')
+  const updatedData = sopFlow.exportToSopData(currentData)
+  try {
+    await sopApi.saveSop(currentData.id, updatedData)
+    sopTree.currentSopData.value = updatedData
+    sopFlow.isDirty.value = false
+    sopFlow.clearDirty()
+    propertyPanelDirty.value = false
+    message.success('步骤已保存')
+  } catch (error: any) {
+    message.error(error?.message || '保存步骤失败')
+  }
 }
 
 const handleSopCitationSelect = (binding: CitationBinding) => {
