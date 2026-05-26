@@ -30,6 +30,8 @@
       @pane-click="focusCanvas"
       @connect="onConnect"
       @edge-update="onEdgeUpdate"
+      @edge-double-click="onEdgeDoubleClick"
+      @edge-click="onEdgeClick"
       @nodes-change="onNodesChange"
       @edges-change="onEdgesChange"
     >
@@ -41,7 +43,33 @@
           @select-citation="emit('select-citation', $event)"
         />
       </template>
+      <template #node-sop-fork="nodeProps">
+        <SOPForkNode
+          v-bind="nodeProps"
+          :deletable="!readOnly"
+          @delete="emit('delete-step', nodeProps.id)"
+        />
+      </template>
     </VueFlow>
+
+    <!-- Edge inline edit overlay -->
+    <div
+      v-if="editingEdgeId"
+      class="edge-inline-edit"
+      :style="{
+        left: editingEdgePosition.x + 'px',
+        top: editingEdgePosition.y + 'px',
+      }"
+    >
+      <a-input
+        ref="edgeInputRef"
+        v-model:value="editingEdgeLabel"
+        size="small"
+        @keydown.enter="confirmEdgeEdit"
+        @keydown.escape="cancelEdgeEdit"
+        @blur="confirmEdgeEdit"
+      />
+    </div>
 
     <div class="sop-flow-toolbar">
       <a-tooltip title="适应画布">
@@ -79,7 +107,7 @@
 </template>
 
 <script setup lang="ts">
-import { markRaw, ref } from 'vue'
+import { markRaw, nextTick, provide, ref, toRef, watch } from 'vue'
 import { ConnectionMode, VueFlow, useVueFlow, type Connection } from '@vue-flow/core'
 import '@vue-flow/core/dist/style.css'
 import '@vue-flow/core/dist/theme-default.css'
@@ -93,6 +121,7 @@ import {
   SaveOutlined,
 } from '@ant-design/icons-vue'
 import SOPStepNode from './SOPStepNode.vue'
+import SOPForkNode from './SOPForkNode.vue'
 import SOPStepEdge from './SOPStepEdge.vue'
 
 const props = defineProps<{
@@ -102,6 +131,7 @@ const props = defineProps<{
   themeClass?: string
   readOnly?: boolean
   selectedStepId?: string | null
+  dirtyStepIds?: Set<string>
 }>()
 
 const emit = defineEmits<{
@@ -115,12 +145,24 @@ const emit = defineEmits<{
   'edges-change': [changes: any[]]
   'connect': [connection: Connection]
   'edge-update': [{ edgeId: string; connection: Connection }]
+  'edge-dblclick': [edgeId: string]
   'delete-step': [stepId: string]
+  'delete-edge': [edgeId: string]
   'select-citation': [binding: CitationBinding]
+  'edge-label-change': [{ edgeId: string; label: string }]
 }>()
+
+// 注入给子边组件使用（Vue Flow 内部渲染的 edge 组件事件不冒泡）
+provide('onDeleteEdge', (edgeId: string) => {
+  emit('delete-edge', edgeId)
+})
+
+// 注入脏节点 ID 集合，子节点组件用于显示红点
+provide('dirtyStepIds', toRef(props, 'dirtyStepIds'))
 
 const nodeTypes: Record<string, any> = {
   'sop-step': markRaw(SOPStepNode),
+  'sop-fork': markRaw(SOPForkNode),
 }
 
 const edgeTypes: Record<string, any> = {
@@ -129,16 +171,36 @@ const edgeTypes: Record<string, any> = {
 
 const { fitView: _fitView, zoomIn: _zoomIn, zoomOut: _zoomOut } = useVueFlow()
 const canvasRef = ref<HTMLElement | null>(null)
+const selectedEdgeId = ref<string | null>(null)
+const editingEdgeId = ref<string | null>(null)
+const editingEdgeLabel = ref('')
+const editingEdgePosition = ref({ x: 0, y: 0 })
+const edgeInputRef = ref<any>(null)
 
 const fitView = () => _fitView({ padding: 0.2 })
 const zoomIn = () => _zoomIn()
 const zoomOut = () => _zoomOut()
+
+const computeEdgeMidpoint = (edgeId: string): { x: number; y: number } => {
+  const { getNodes } = useVueFlow()
+  const edge = props.edges.find((e: any) => e.id === edgeId)
+  if (!edge) return { x: 0, y: 0 }
+  const nodes = getNodes.value
+  const sourceNode = nodes.find((n: any) => n.id === edge.source)
+  const targetNode = nodes.find((n: any) => n.id === edge.target)
+  if (!sourceNode || !targetNode) return { x: 0, y: 0 }
+  return {
+    x: (sourceNode.position.x + targetNode.position.x) / 2,
+    y: (sourceNode.position.y + targetNode.position.y) / 2,
+  }
+}
 
 /**
  * 让画布容器获得焦点，以支持键盘删除。
  */
 const focusCanvas = () => {
   canvasRef.value?.focus()
+  selectedEdgeId.value = null
 }
 
 const onNodeClick = (event: any) => {
@@ -163,6 +225,29 @@ const onConnect = (connection: Connection) => {
 }
 
 /**
+ * 处理边双击（用于编辑分支条件标签）。
+ */
+const onEdgeDoubleClick = (event: any) => {
+  if (props.readOnly) return
+  if (event.edge) {
+    const mid = computeEdgeMidpoint(event.edge.id)
+    editingEdgeId.value = event.edge.id
+    editingEdgeLabel.value = event.edge.data?.label || ''
+    editingEdgePosition.value = mid
+    emit('edge-dblclick', event.edge.id)
+  }
+}
+
+/**
+ * 处理边单击（选中边以支持键盘删除）。
+ */
+const onEdgeClick = (event: any) => {
+  if (event.edge) {
+    selectedEdgeId.value = event.edge.id
+  }
+}
+
+/**
  * 处理边重连。
  */
 const onEdgeUpdate = (...args: any[]) => {
@@ -178,18 +263,44 @@ const onEdgeUpdate = (...args: any[]) => {
   })
 }
 
+const confirmEdgeEdit = () => {
+  if (editingEdgeId.value && editingEdgeLabel.value.trim()) {
+    emit('edge-label-change', {
+      edgeId: editingEdgeId.value,
+      label: editingEdgeLabel.value.trim(),
+    })
+  }
+  editingEdgeId.value = null
+  editingEdgeLabel.value = ''
+}
+
+const cancelEdgeEdit = () => {
+  editingEdgeId.value = null
+  editingEdgeLabel.value = ''
+}
+
+watch(editingEdgeId, async (val) => {
+  if (val) {
+    await nextTick()
+    edgeInputRef.value?.focus?.()
+  }
+})
+
 /**
- * 通过键盘删除当前选中步骤。
+ * 通过键盘删除当前选中步骤或边。
  */
 const onCanvasKeydown = (event: KeyboardEvent) => {
-  if (props.readOnly || !props.selectedStepId) {
-    return
-  }
-  if (event.key !== 'Delete' && event.key !== 'Backspace') {
-    return
-  }
+  if (props.readOnly) return
+  if (event.key !== 'Delete' && event.key !== 'Backspace') return
   event.preventDefault()
-  emit('delete-step', props.selectedStepId)
+  if (selectedEdgeId.value) {
+    emit('delete-edge', selectedEdgeId.value)
+    selectedEdgeId.value = null
+    return
+  }
+  if (props.selectedStepId) {
+    emit('delete-step', props.selectedStepId)
+  }
 }
 
 const onNodesChange = (changes: any[]) => {
@@ -221,5 +332,20 @@ const onEdgesChange = (changes: any[]) => {
   background: var(--panel-bg, #fff);
   border: 1px solid var(--border-color, #e8e8e8);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.edge-inline-edit {
+  position: absolute;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+
+  :deep(.ant-input) {
+    width: 140px;
+    text-align: center;
+    border: 2px solid var(--primary-color, #1890ff);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
+  }
 }
 </style>
