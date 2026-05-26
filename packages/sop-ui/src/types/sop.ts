@@ -56,7 +56,7 @@ export interface RawSopStep {
   tool?: string
   inputs?: Record<string, any>
   outputs?: Record<string, string>
-  next_step_id?: string
+  next_step_id?: string | null
   on_failure?: string
   notes?: string
   analysis_status?: string
@@ -74,7 +74,7 @@ export interface SopStep {
   name_en?: string
   description: SopStepDescription
   execution: SopExecution
-  next_step_id?: string
+  next_step_id?: string | null
   on_failure?: string
   notes?: string
   analysis_status?: string

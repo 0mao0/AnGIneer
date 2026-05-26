@@ -345,7 +345,11 @@ export function useSopFlow() {
         return
       }
 
-      const nextId = validIds.has(step.next_step_id || '') ? step.next_step_id : data.steps[index + 1]?.id
+      // null = 显式无下一步（用户删除了边），undefined = 旧数据回退到顺序推断
+      const nextId: string | undefined =
+        step.next_step_id !== undefined
+          ? (step.next_step_id && validIds.has(step.next_step_id) ? step.next_step_id : undefined)
+          : data.steps[index + 1]?.id
       if (!nextId || nextId === step.id) {
         return
       }
@@ -419,7 +423,7 @@ export function useSopFlow() {
 
         return {
           ...node.data.step,
-          next_step_id: outgoingEdge?.target,
+          next_step_id: outgoingEdge?.target ?? null,
           ui_meta: {
             position: {
               x: Number(node.position.x || 0),
