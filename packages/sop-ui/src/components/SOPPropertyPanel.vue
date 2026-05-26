@@ -150,6 +150,71 @@
           </div>
         </div>
       </section>
+
+      <!-- 分支条件编辑区 -->
+      <section v-if="draft.execution.tool === 'conditional'" class="section-block fork-section">
+        <div class="section-header">
+          <span class="section-title">⑂ 分支条件</span>
+          <a-tag color="orange">{{ forkBranches.length }} 个分支</a-tag>
+        </div>
+
+        <div class="fork-field">
+          <span class="mini-label">条件变量</span>
+          <div class="var-input-wrap">
+            <span class="var-prefix">$</span>
+            <a-input
+              v-model:value="forkConditionVar"
+              size="small"
+              placeholder="变量名"
+              :disabled="readOnly"
+            />
+          </div>
+        </div>
+
+        <div class="fork-field">
+          <div class="kv-section-header">
+            <span>分支列表</span>
+            <a-button v-if="!readOnly" type="text" size="small" @click="forkBranches.push({ match: '', goto: '' })">
+              <template #icon><PlusOutlined /></template>
+            </a-button>
+          </div>
+          <div class="kv-header-row">
+            <span>匹配条件</span>
+            <span>跳转目标</span>
+            <span />
+          </div>
+          <div v-if="!forkBranches.length" class="kv-empty">暂无分支</div>
+          <div v-for="(branch, idx) in forkBranches" :key="idx" class="kv-row">
+            <a-input
+              v-model:value="branch.match"
+              size="small"
+              class="kv-key"
+              placeholder="例如: 上水标准"
+              :disabled="readOnly"
+            />
+            <a-input
+              v-model:value="branch.goto"
+              size="small"
+              class="kv-value"
+              placeholder="目标步骤 ID"
+              :disabled="readOnly"
+            />
+            <a-button v-if="!readOnly" type="text" size="small" danger @click="forkBranches.splice(idx, 1)">
+              <template #icon><DeleteOutlined /></template>
+            </a-button>
+          </div>
+        </div>
+
+        <div class="fork-field">
+          <span class="mini-label">默认跳转</span>
+          <a-input
+            v-model:value="forkDefaultGoto"
+            size="small"
+            placeholder="无匹配时的目标步骤 ID"
+            :disabled="readOnly"
+          />
+        </div>
+      </section>
     </div>
 
     <a-modal
@@ -216,6 +281,7 @@ const toolOptions = [
   { value: 'auto', label: '自动' },
   { value: 'sop_run', label: 'SOP 执行' },
   { value: 'llm_call', label: 'LLM 调用' },
+  { value: 'conditional', label: '条件分支' },
 ]
 
 const props = defineProps<{
@@ -247,6 +313,9 @@ const parsingAi = ref(false)
 const aiPreviewVisible = ref(false)
 const aiSuggestion = ref<AiSuggestion | null>(null)
 const executionExpanded = ref(false)
+const forkConditionVar = ref('')
+const forkBranches = ref<Array<{ match: string; goto: string }>>([])
+const forkDefaultGoto = ref('')
 
 /**
  * 将对象映射为可编辑键值对列表。
@@ -275,14 +344,26 @@ const toRecord = (rows: KvRow[]): Record<string, string> => {
 /**
  * 生成当前草稿对应的完整步骤对象。
  */
-const buildDraftStep = (): SopStep => ({
-  ...draft.value,
-  execution: {
-    tool: draft.value.execution.tool,
-    inputs: toRecord(inputRows.value),
-    outputs: toRecord(outputRows.value),
-  },
-})
+const buildDraftStep = (): SopStep => {
+  const base: SopStep = {
+    ...draft.value,
+    execution: {
+      tool: draft.value.execution.tool,
+      inputs: toRecord(inputRows.value),
+      outputs: toRecord(outputRows.value),
+    },
+  }
+  if (draft.value.execution.tool === 'conditional') {
+    base.condition_var = forkConditionVar.value || undefined
+    base.branches = forkBranches.value.filter((b) => b.match)
+    base.default_goto = forkDefaultGoto.value || undefined
+  } else {
+    base.condition_var = undefined
+    base.branches = undefined
+    base.default_goto = undefined
+  }
+  return base
+}
 
 /**
  * 生成可比较的草稿签名。
@@ -301,6 +382,12 @@ const getStepSignature = (step: SopStep): string => {
       .map(([key, value]) => [key.trim(), String(value ?? '').trim()])
       .filter(([key]) => key)
       .sort(([a], [b]) => a.localeCompare(b, 'zh-CN')),
+    branches: (step.branches || []).map((b) => ({
+      match: String(b.match || '').trim(),
+      goto: b.goto || '',
+    })),
+    condition_var: (step.condition_var || '').trim(),
+    default_goto: (step.default_goto || '').trim(),
   })
 }
 
@@ -330,6 +417,20 @@ const syncDraft = (step: SopStep) => {
   }
   inputRows.value = toRows(step.execution?.inputs)
   outputRows.value = toRows(step.execution?.outputs)
+  if (step.execution?.tool === 'conditional') {
+    forkConditionVar.value = step.condition_var
+      || step.execution?.inputs?.condition_var
+      || ''
+    forkBranches.value = (step.branches || []).map((b) => ({
+      match: String(b.match || ''),
+      goto: b.goto || '',
+    }))
+    forkDefaultGoto.value = step.default_goto || ''
+  } else {
+    forkConditionVar.value = ''
+    forkBranches.value = []
+    forkDefaultGoto.value = ''
+  }
   lastLoadedSignature.value = getStepSignature(buildDraftStep())
   aiPreviewVisible.value = false
   aiSuggestion.value = null
@@ -665,5 +766,39 @@ defineExpose({ hasChanges, buildDraftStep })
   padding: 4px 0;
   font-size: 12px;
   color: var(--text-secondary);
+}
+
+.fork-section {
+  border-color: #faad14 !important;
+  background: #fffbe6 !important;
+}
+
+.fork-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.var-input-wrap {
+  display: flex;
+  align-items: stretch;
+
+  .var-prefix {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-right: 0;
+    border-radius: 4px 0 0 4px;
+    white-space: nowrap;
+  }
+
+  :deep(.ant-input) {
+    border-radius: 0 4px 4px 0;
+    height: 100%;
+  }
 }
 </style>
