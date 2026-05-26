@@ -6,13 +6,18 @@ import {
   MarkerType,
   type Connection,
 } from '@vue-flow/core'
-import type { SopData, SopStep } from '../types/sop'
+import type { SopData, SopStep, BranchTarget, FlowBranchEdgeData } from '../types/sop'
 
 interface FlowNode {
   id: string
-  type: 'sop-step'
+  type: 'sop-step' | 'sop-fork'
   position: { x: number; y: number }
-  data: { step: SopStep; stepIndex: number }
+  data: {
+    step: SopStep
+    stepIndex: number
+    dirty?: boolean
+    branchEdges?: Array<{ id: string; label: string; target: string; isDefault?: boolean }>
+  }
   selected?: boolean
 }
 
@@ -23,7 +28,7 @@ interface FlowEdge {
   sourceHandle?: string
   targetHandle?: string
   type: 'sop-edge'
-  data: { label: string }
+  data: FlowBranchEdgeData
   markerEnd: {
     type: MarkerType
     width: number
@@ -119,15 +124,18 @@ function getNodeById(nodesList: FlowNode[], nodeId: string): FlowNode | undefine
  */
 function getOrderedNodeIds(nodesList: FlowNode[], edgesList: FlowEdge[]): string[] {
   const incomingCount = new Map<string, number>()
-  const outgoingMap = new Map<string, string>()
+  const outgoingMap = new Map<string, string[]>()
   const nodeMap = new Map(nodesList.map((node) => [node.id, node]))
 
   for (const node of nodesList) {
     incomingCount.set(node.id, 0)
+    outgoingMap.set(node.id, [])
   }
   for (const edge of edgesList) {
     incomingCount.set(edge.target, (incomingCount.get(edge.target) || 0) + 1)
-    outgoingMap.set(edge.source, edge.target)
+    const targets = outgoingMap.get(edge.source) || []
+    targets.push(edge.target)
+    outgoingMap.set(edge.source, targets)
   }
 
   const startNodes = nodesList
@@ -136,13 +144,18 @@ function getOrderedNodeIds(nodesList: FlowNode[], edgesList: FlowEdge[]): string
 
   const ordered: string[] = []
   const visited = new Set<string>()
+  const queue: string[] = startNodes.map((n) => n.id)
 
-  for (const startNode of startNodes) {
-    let currentId: string | undefined = startNode.id
-    while (currentId && !visited.has(currentId) && nodeMap.has(currentId)) {
-      visited.add(currentId)
-      ordered.push(currentId)
-      currentId = outgoingMap.get(currentId)
+  while (queue.length > 0) {
+    const currentId = queue.shift()!
+    if (visited.has(currentId) || !nodeMap.has(currentId)) continue
+    visited.add(currentId)
+    ordered.push(currentId)
+    const targets = outgoingMap.get(currentId) || []
+    for (const targetId of targets) {
+      if (!visited.has(targetId) && !queue.includes(targetId)) {
+        queue.push(targetId)
+      }
     }
   }
 
@@ -160,6 +173,7 @@ export function useSopFlow() {
   const edges = ref<FlowEdge[]>([])
   const isDirty = ref(false)
   const selectedStepId = ref<string | null>(null)
+  const dirtyStepIds = ref<Set<string>>(new Set())
 
   /**
    * 同步节点中的步骤序号。
@@ -179,13 +193,42 @@ export function useSopFlow() {
   }
 
   /**
+   * 同步所有 fork 节点的 branchEdges，确保 handles 与 edges 始终一致。
+   */
+  const syncBranchEdges = () => {
+    const sourceEdgesMap = new Map<string, Array<{ id: string; label: string; target: string; isDefault: boolean }>>()
+    for (const edge of edges.value) {
+      if (!sourceEdgesMap.has(edge.source)) {
+        sourceEdgesMap.set(edge.source, [])
+      }
+      sourceEdgesMap.get(edge.source)!.push({
+        id: edge.id,
+        label: edge.data?.label || '',
+        target: edge.target,
+        isDefault: !!edge.data?.isDefault,
+      })
+    }
+    nodes.value = nodes.value.map((node) => {
+      if (node.type !== 'sop-fork') return node
+      return {
+        ...node,
+        data: {
+          ...node.data,
+          branchEdges: sourceEdgesMap.get(node.id) || [],
+        },
+      }
+    })
+  }
+
+  /**
    * 根据步骤数据创建节点。
    */
-  const createFlowNode = (step: SopStep, index: number): FlowNode => {
+  const createFlowNode = (step: SopStep, index: number, nodeType?: 'sop-step' | 'sop-fork'): FlowNode => {
     const position = step.ui_meta?.position || computeDefaultPosition(index)
+    const type = nodeType || (step.execution?.tool === 'conditional' ? 'sop-fork' : 'sop-step')
     return {
       id: step.id,
-      type: 'sop-step',
+      type,
       position: {
         x: position.x,
         y: position.y,
@@ -193,12 +236,18 @@ export function useSopFlow() {
       data: {
         step,
         stepIndex: index,
+        dirty: false,
       },
     }
   }
 
+  /** 判断节点是否为分叉类型。 */
+  const isForkNode = (nodeId: string): boolean => {
+    return nodes.value.some((n) => n.id === nodeId && n.type === 'sop-fork')
+  }
+
   /**
-   * 统一约束单主链路边集合。
+   * 约束边集合，分叉节点允许多出边，汇合节点允许多入边。
    */
   const normalizeEdges = (inputEdges: FlowEdge[]): FlowEdge[] => {
     const filtered: FlowEdge[] = []
@@ -206,13 +255,28 @@ export function useSopFlow() {
     const usedTargets = new Set<string>()
     const usedPairs = new Set<string>()
     const validNodeIds = new Set(nodes.value.map((node) => node.id))
+    const forkNodeIds = new Set(nodes.value.filter((n) => n.type === 'sop-fork').map((n) => n.id))
 
     for (const edge of inputEdges) {
       if (!validNodeIds.has(edge.source) || !validNodeIds.has(edge.target) || edge.source === edge.target) {
         continue
       }
       const pairKey = createPairKey(edge.source, edge.target)
-      if (usedSources.has(edge.source) || usedTargets.has(edge.target) || usedPairs.has(pairKey)) {
+      if (usedPairs.has(pairKey)) {
+        continue
+      }
+      // 非分叉节点只允许一条出边
+      if (!forkNodeIds.has(edge.source) && usedSources.has(edge.source)) {
+        continue
+      }
+      // 非汇合节点只允许一条入边（汇合 = 被多个来源指向的节点）
+      const convergingTargets = new Set(
+        inputEdges
+          .filter((e) => validNodeIds.has(e.source) && validNodeIds.has(e.target) && e.source !== e.target)
+          .filter((e) => inputEdges.filter((e2) => e2.target === e.target).length > 1)
+          .map((e) => e.target),
+      )
+      if (!convergingTargets.has(edge.target) && usedTargets.has(edge.target)) {
         continue
       }
       usedSources.add(edge.source)
@@ -226,6 +290,7 @@ export function useSopFlow() {
           resolveTargetHandle(edge.targetHandle),
         ),
         id: edge.id || createEdgeId(edge.source, edge.target),
+        data: { label: edge.data?.label || '' },
       })
     }
     return filtered
@@ -241,6 +306,45 @@ export function useSopFlow() {
     const runtimeEdges: FlowEdge[] = []
 
     data.steps.forEach((step, index) => {
+      // 条件分叉步骤：从 branches 创建多条出边
+      if (step.execution?.tool === 'conditional') {
+        const branches = step.branches
+        if (branches && branches.length > 0) {
+          branches.forEach((branch, branchIdx) => {
+            const targetId = branch.goto
+            if (targetId && validIds.has(targetId) && targetId !== step.id) {
+              const targetStep = stepMap.get(targetId)
+              runtimeEdges.push({
+                ...createFlowEdge(
+                  step.id,
+                  targetId,
+                  `branch-${branchIdx}`,
+                  targetStep?.ui_meta?.target_handle || DEFAULT_TARGET_HANDLE,
+                ),
+                id: `edge-${step.id}-branch-${branchIdx}`,
+                data: { label: branch.match || '' },
+              })
+            }
+          })
+        }
+        // default_goto
+        const defaultGoto = step.default_goto
+        if (defaultGoto && validIds.has(defaultGoto) && defaultGoto !== step.id) {
+          const targetStep = stepMap.get(defaultGoto)
+          runtimeEdges.push({
+            ...createFlowEdge(
+              step.id,
+              defaultGoto,
+              `branch-default`,
+              targetStep?.ui_meta?.target_handle || DEFAULT_TARGET_HANDLE,
+            ),
+            id: `edge-${step.id}-branch-default`,
+            data: { label: '默认', isDefault: true },
+          })
+        }
+        return
+      }
+
       const nextId = validIds.has(step.next_step_id || '') ? step.next_step_id : data.steps[index + 1]?.id
       if (!nextId || nextId === step.id) {
         return
@@ -255,8 +359,10 @@ export function useSopFlow() {
     })
 
     edges.value = normalizeEdges(runtimeEdges)
+    syncBranchEdges()
     syncStepIndexes()
     isDirty.value = false
+    dirtyStepIds.value = new Set()
     selectedStepId.value = null
   }
 
@@ -266,15 +372,51 @@ export function useSopFlow() {
   const exportToSopData = (baseData: SopData): SopData => {
     const orderedIds = getOrderedNodeIds(nodes.value, edges.value)
     const nodeMap = new Map(nodes.value.map((node) => [node.id, node]))
-    const outgoingEdgeMap = new Map(edges.value.map((edge) => [edge.source, edge]))
-    const incomingEdgeMap = new Map(edges.value.map((edge) => [edge.target, edge]))
+    const outgoingEdgesMap = new Map<string, FlowEdge[]>()
+    const incomingEdgesMap = new Map<string, FlowEdge[]>()
+    for (const edge of edges.value) {
+      if (!outgoingEdgesMap.has(edge.source)) outgoingEdgesMap.set(edge.source, [])
+      outgoingEdgesMap.get(edge.source)!.push(edge)
+      if (!incomingEdgesMap.has(edge.target)) incomingEdgesMap.set(edge.target, [])
+      incomingEdgesMap.get(edge.target)!.push(edge)
+    }
 
     const steps: SopStep[] = orderedIds
       .map((id) => nodeMap.get(id))
       .filter((node): node is FlowNode => Boolean(node))
       .map((node) => {
-        const outgoingEdge = outgoingEdgeMap.get(node.id)
-        const incomingEdge = incomingEdgeMap.get(node.id)
+        const outgoingEdges = outgoingEdgesMap.get(node.id) || []
+        const incomingEdges = incomingEdgesMap.get(node.id) || []
+        const outgoingEdge = outgoingEdges[0]
+        const incomingEdge = incomingEdges[0]
+
+        // 分叉节点：从出边构建 branches，正确分离 default_goto
+        if (node.type === 'sop-fork') {
+          const defaultEdge = outgoingEdges.find((e) => e.data?.isDefault)
+          const branchEdges = outgoingEdges.filter((e) => !e.data?.isDefault)
+          const branches: BranchTarget[] = branchEdges.map((edge) => ({
+            match: edge.data?.label || '',
+            goto: edge.target || undefined,
+          }))
+          return {
+            ...node.data.step,
+            next_step_id: undefined,
+            branches,
+            default_goto: defaultEdge?.target || undefined,
+            execution: {
+              ...node.data.step.execution,
+            },
+            ui_meta: {
+              position: {
+                x: Number(node.position.x || 0),
+                y: Number(node.position.y || 0),
+              },
+              source_handle: node.data.step.ui_meta?.source_handle || DEFAULT_SOURCE_HANDLE,
+              target_handle: node.data.step.ui_meta?.target_handle || DEFAULT_TARGET_HANDLE,
+            },
+          }
+        }
+
         return {
           ...node.data.step,
           next_step_id: outgoingEdge?.target,
@@ -311,7 +453,6 @@ export function useSopFlow() {
       return
     }
 
-    let changed = false
     const nextNodes = [...nodes.value]
     for (const change of changes) {
       const node = getNodeById(nextNodes, String(change.id || ''))
@@ -319,11 +460,14 @@ export function useSopFlow() {
         continue
       }
       if (change.type === 'position' && change.position) {
-        node.position = {
-          x: Number(change.position.x ?? node.position.x),
-          y: Number(change.position.y ?? node.position.y),
+        const newX = Number(change.position.x ?? node.position.x)
+        const newY = Number(change.position.y ?? node.position.y)
+        if (node.position.x !== newX || node.position.y !== newY) {
+          node.position = { x: newX, y: newY }
+          const next = new Set(dirtyStepIds.value)
+          next.add(node.id)
+          dirtyStepIds.value = next
         }
-        changed = true
         continue
       }
       if (change.type === 'select') {
@@ -331,9 +475,6 @@ export function useSopFlow() {
       }
     }
     nodes.value = nextNodes
-    if (changed) {
-      isDirty.value = true
-    }
     syncStepIndexes()
   }
 
@@ -364,19 +505,24 @@ export function useSopFlow() {
   }
 
   /**
-   * 建立或替换单主链路连接。
+   * 建立连接。分叉节点允许多条出边。
    */
   const connectSteps = (connection: Connection) => {
     if (!connection.source || !connection.target || connection.source === connection.target) {
       return
     }
     const pairKey = createPairKey(connection.source, connection.target)
-    const nextEdges = edges.value.filter(
-      (edge) =>
-        edge.source !== connection.source &&
-        edge.target !== connection.target &&
-        createPairKey(edge.source, edge.target) !== pairKey,
+    const sourceIsFork = isForkNode(connection.source)
+
+    let nextEdges = edges.value.filter(
+      (edge) => createPairKey(edge.source, edge.target) !== pairKey,
     )
+
+    // 非分叉节点：替换已有出边
+    if (!sourceIsFork) {
+      nextEdges = nextEdges.filter((edge) => edge.source !== connection.source)
+    }
+
     nextEdges.push(createFlowEdge(
       connection.source,
       connection.target,
@@ -384,7 +530,13 @@ export function useSopFlow() {
       connection.targetHandle || DEFAULT_TARGET_HANDLE,
     ))
     edges.value = normalizeEdges(nextEdges)
+    if (connection.source) {
+      const next = new Set(dirtyStepIds.value)
+      next.add(connection.source)
+      dirtyStepIds.value = next
+    }
     isDirty.value = true
+    syncBranchEdges()
     syncStepIndexes()
   }
 
@@ -396,13 +548,18 @@ export function useSopFlow() {
       return
     }
     const pairKey = createPairKey(connection.source, connection.target)
-    const nextEdges = edges.value.filter(
+    const sourceIsFork = isForkNode(connection.source)
+
+    let nextEdges = edges.value.filter(
       (edge) =>
         edge.id !== edgeId &&
-        edge.source !== connection.source &&
-        edge.target !== connection.target &&
         createPairKey(edge.source, edge.target) !== pairKey,
     )
+
+    if (!sourceIsFork) {
+      nextEdges = nextEdges.filter((edge) => edge.source !== connection.source)
+    }
+
     nextEdges.push(createFlowEdge(
       connection.source,
       connection.target,
@@ -411,6 +568,7 @@ export function useSopFlow() {
     ))
     edges.value = normalizeEdges(nextEdges)
     isDirty.value = true
+    syncBranchEdges()
     syncStepIndexes()
   }
 
@@ -444,13 +602,22 @@ export function useSopFlow() {
     nodes.value = [...nodes.value, createFlowNode(newStep, nodes.value.length)]
 
     if (afterStepId) {
-      const replacedEdge = edges.value.find((edge) => edge.source === afterStepId)
-      const nextEdges = edges.value.filter((edge) => edge.source !== afterStepId)
-      nextEdges.push(createFlowEdge(afterStepId, newStepId))
-      if (replacedEdge) {
-        nextEdges.push(createFlowEdge(newStepId, replacedEdge.target))
+      const sourceIsFork = isForkNode(afterStepId)
+      // 分叉节点：追加一条新出边（不影响已有分支）
+      if (sourceIsFork) {
+        edges.value = normalizeEdges([
+          ...edges.value,
+          createFlowEdge(afterStepId, newStepId),
+        ])
+      } else {
+        const replacedEdge = edges.value.find((edge) => edge.source === afterStepId)
+        const nextEdges = edges.value.filter((edge) => edge.source !== afterStepId)
+        nextEdges.push(createFlowEdge(afterStepId, newStepId))
+        if (replacedEdge) {
+          nextEdges.push(createFlowEdge(newStepId, replacedEdge.target))
+        }
+        edges.value = normalizeEdges(nextEdges)
       }
-      edges.value = normalizeEdges(nextEdges)
     } else if (nodes.value.length > 1) {
       const orderedIds = getOrderedNodeIds(nodes.value, edges.value)
       const previousId = orderedIds[orderedIds.length - 2]
@@ -464,6 +631,7 @@ export function useSopFlow() {
 
     selectedStepId.value = newStepId
     isDirty.value = true
+    syncBranchEdges()
     syncStepIndexes()
     return newStepId
   }
@@ -472,17 +640,37 @@ export function useSopFlow() {
    * 删除步骤节点及相关边。
    */
   const removeStep = (stepId: string) => {
-    const incomingEdge = edges.value.find((edge) => edge.target === stepId)
-    const outgoingEdge = edges.value.find((edge) => edge.source === stepId)
+    const incomingEdges = edges.value.filter((edge) => edge.target === stepId)
+    const outgoingEdges = edges.value.filter((edge) => edge.source === stepId)
+    const deletedIsFork = isForkNode(stepId)
     const nextEdges = edges.value.filter((edge) => edge.source !== stepId && edge.target !== stepId)
 
-    if (incomingEdge && outgoingEdge && incomingEdge.source !== outgoingEdge.target) {
-      nextEdges.push(createFlowEdge(
-        incomingEdge.source,
-        outgoingEdge.target,
-        incomingEdge.sourceHandle || DEFAULT_SOURCE_HANDLE,
-        outgoingEdge.targetHandle || DEFAULT_TARGET_HANDLE,
-      ))
+    // 分叉节点删除：将每条入边连接到每条出边（或第一条出边）
+    if (deletedIsFork && outgoingEdges.length > 0) {
+      for (const inEdge of incomingEdges) {
+        for (const outEdge of outgoingEdges) {
+          if (inEdge.source !== outEdge.target) {
+            nextEdges.push(createFlowEdge(
+              inEdge.source,
+              outEdge.target,
+              inEdge.sourceHandle || DEFAULT_SOURCE_HANDLE,
+              outEdge.targetHandle || DEFAULT_TARGET_HANDLE,
+            ))
+          }
+        }
+      }
+    } else {
+      // 普通节点：入边接出边
+      const incomingEdge = incomingEdges[0]
+      const outgoingEdge = outgoingEdges[0]
+      if (incomingEdge && outgoingEdge && incomingEdge.source !== outgoingEdge.target) {
+        nextEdges.push(createFlowEdge(
+          incomingEdge.source,
+          outgoingEdge.target,
+          incomingEdge.sourceHandle || DEFAULT_SOURCE_HANDLE,
+          outgoingEdge.targetHandle || DEFAULT_TARGET_HANDLE,
+        ))
+      }
     }
 
     edges.value = normalizeEdges(nextEdges)
@@ -491,30 +679,136 @@ export function useSopFlow() {
       selectedStepId.value = null
     }
     isDirty.value = true
+    syncBranchEdges()
     syncStepIndexes()
   }
 
   /**
-   * 自动布局（垂直排列）。
+   * 删除单条边。
+   */
+  const removeEdge = (edgeId: string) => {
+    const edge = edges.value.find((e) => e.id === edgeId)
+    if (edge) {
+      const next = new Set(dirtyStepIds.value)
+      next.add(edge.source)
+      dirtyStepIds.value = next
+    }
+    edges.value = normalizeEdges(edges.value.filter((e) => e.id !== edgeId))
+    isDirty.value = true
+    syncBranchEdges()
+    syncStepIndexes()
+  }
+
+  /**
+   * 自动布局（DAG 分支布局，BFS 分配层级 + 分支水平展开）。
    */
   const autoLayout = () => {
-    const orderedIds = getOrderedNodeIds(nodes.value, edges.value)
-    const indexMap = new Map(orderedIds.map((id, index) => [id, index]))
-    nodes.value = nodes.value.map((node) => ({
-      ...node,
-      position: computeDefaultPosition(indexMap.get(node.id) ?? 0),
-      data: {
-        ...node.data,
-        step: {
-          ...node.data.step,
-          ui_meta: {
-            ...(node.data.step.ui_meta || {}),
-            position: computeDefaultPosition(indexMap.get(node.id) ?? 0),
+    const outgoingMap = new Map<string, string[]>()
+    const incomingMap = new Map<string, string[]>()
+    for (const n of nodes.value) {
+      outgoingMap.set(n.id, [])
+      incomingMap.set(n.id, [])
+    }
+    for (const edge of edges.value) {
+      outgoingMap.get(edge.source)?.push(edge.target)
+      incomingMap.get(edge.target)?.push(edge.source)
+    }
+
+    // BFS from start nodes to assign depth
+    const depthMap = new Map<string, number>()
+    const startIds = nodes.value
+      .filter((n) => (incomingMap.get(n.id) || []).length === 0)
+      .map((n) => n.id)
+
+    const queue: string[] = [...startIds]
+    for (const id of queue) depthMap.set(id, 0)
+
+    while (queue.length > 0) {
+      const cur = queue.shift()!
+      const curDepth = depthMap.get(cur) || 0
+      for (const target of outgoingMap.get(cur) || []) {
+        const newDepth = curDepth + 1
+        if (!depthMap.has(target) || depthMap.get(target)! < newDepth) {
+          depthMap.set(target, newDepth)
+        }
+        if (!queue.includes(target)) queue.push(target)
+      }
+    }
+
+    // Assign columns via BFS traversal
+    const columnMap = new Map<string, number>()
+    for (const id of startIds) columnMap.set(id, 0)
+
+    const visited = new Set<string>()
+    const colQueue: string[] = [...startIds]
+    while (colQueue.length > 0) {
+      const cur = colQueue.shift()!
+      if (visited.has(cur)) continue
+      visited.add(cur)
+      const curCol = columnMap.get(cur) || 0
+      const children = outgoingMap.get(cur) || []
+
+      if (children.length === 1) {
+        // Single child: inherit column
+        if (!columnMap.has(children[0])) {
+          columnMap.set(children[0], curCol)
+        }
+        if (!visited.has(children[0]) && !colQueue.includes(children[0])) {
+          colQueue.push(children[0])
+        }
+      } else if (children.length > 1) {
+        // Fork: spread children horizontally
+        const spread = children.length - 1
+        children.forEach((childId, idx) => {
+          const offset = idx - spread / 2
+          if (!columnMap.has(childId)) {
+            columnMap.set(childId, curCol + offset)
+          }
+          if (!visited.has(childId) && !colQueue.includes(childId)) {
+            colQueue.push(childId)
+          }
+        })
+      }
+    }
+
+    // For join nodes (multiple predecessors), average their predecessors' columns
+    for (const node of nodes.value) {
+      const preds = incomingMap.get(node.id) || []
+      if (preds.length > 1) {
+        const avgCol = preds.reduce((sum, pid) => sum + (columnMap.get(pid) || 0), 0) / preds.length
+        columnMap.set(node.id, Math.round(avgCol))
+      }
+    }
+
+    // Apply positions
+    nodes.value = nodes.value.map((node) => {
+      const depth = depthMap.get(node.id) ?? 0
+      const col = columnMap.get(node.id) ?? 0
+      const x = HORIZONTAL_OFFSET + col * HORIZONTAL_OFFSET
+      const y = depth * VERTICAL_GAP + 40
+      const oldPos = node.position
+      if (oldPos.x !== x || oldPos.y !== y) {
+        const next = new Set(dirtyStepIds.value)
+        next.add(node.id)
+        dirtyStepIds.value = next
+      }
+      return {
+        ...node,
+        position: { x, y },
+        data: {
+          ...node.data,
+          step: {
+            ...node.data.step,
+            ui_meta: {
+              ...(node.data.step.ui_meta || {}),
+              position: { x, y },
+            },
           },
         },
-      },
-    }))
+      }
+    })
     isDirty.value = true
+    syncBranchEdges()
     syncStepIndexes()
   }
 
@@ -527,29 +821,47 @@ export function useSopFlow() {
       return
     }
 
-    targetNode.data = {
-      ...targetNode.data,
-      step: {
-        ...targetNode.data.step,
-        ...updates,
-        execution: {
-          ...targetNode.data.step.execution,
-          ...(updates.execution || {}),
-          inputs: updates.execution?.inputs
-            ? { ...updates.execution.inputs }
-            : { ...targetNode.data.step.execution.inputs },
-          outputs: updates.execution?.outputs
-            ? { ...updates.execution.outputs }
-            : { ...targetNode.data.step.execution.outputs },
+    const next = new Set(dirtyStepIds.value)
+    next.add(stepId)
+    dirtyStepIds.value = next
+
+    nodes.value = nodes.value.map((node) => {
+      if (node.id !== stepId) return node
+      return {
+        ...node,
+        data: {
+          ...node.data,
+          step: {
+            ...node.data.step,
+            ...updates,
+            execution: {
+              ...node.data.step.execution,
+              ...(updates.execution || {}),
+              inputs: updates.execution?.inputs
+                ? { ...updates.execution.inputs }
+                : { ...node.data.step.execution.inputs },
+              outputs: updates.execution?.outputs
+                ? { ...updates.execution.outputs }
+                : { ...node.data.step.execution.outputs },
+            },
+            ui_meta: {
+              ...(node.data.step.ui_meta || {}),
+              ...(updates.ui_meta || {}),
+            },
+          },
         },
-        ui_meta: {
-          ...(targetNode.data.step.ui_meta || {}),
-          ...(updates.ui_meta || {}),
-        },
-      },
-    }
-    nodes.value = [...nodes.value]
+      }
+    })
     isDirty.value = true
+  }
+
+  /**
+   * 标记步骤节点为脏（红点），由属性面板 dirty-change 事件触发。
+   */
+  const markStepDirty = (stepId: string) => {
+    const next = new Set(dirtyStepIds.value)
+    next.add(stepId)
+    dirtyStepIds.value = next
   }
 
   /**
@@ -568,12 +880,37 @@ export function useSopFlow() {
     return node?.data.step ?? null
   })
 
+  /**
+   * 更新边标签（分支条件文字）。
+   */
+  const updateEdgeLabel = (edgeId: string, label: string) => {
+    const edge = edges.value.find((e) => e.id === edgeId)
+    if (!edge) return
+    edge.data = { ...edge.data, label }
+    edges.value = [...edges.value]
+    if (edge.source) {
+      const next = new Set(dirtyStepIds.value)
+      next.add(edge.source)
+      dirtyStepIds.value = next
+    }
+    isDirty.value = true
+    syncBranchEdges()
+  }
+
+  /**
+   * 清除所有节点的 dirty 标记。
+   */
+  const clearDirty = () => {
+    dirtyStepIds.value = new Set()
+  }
+
   return {
     nodes,
     edges,
     isDirty,
     selectedStepId,
     selectedStep,
+    dirtyStepIds,
     loadFromSopData,
     exportToSopData,
     handleNodesChange,
@@ -582,8 +919,13 @@ export function useSopFlow() {
     updateEdgeConnection,
     addStep,
     removeStep,
+    removeEdge,
     autoLayout,
     updateStepData,
+    syncBranchEdges,
+    updateEdgeLabel,
+    clearDirty,
+    markStepDirty,
     selectStep,
   }
 }
