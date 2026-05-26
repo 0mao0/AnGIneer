@@ -111,6 +111,7 @@
               :is-dirty="sopFlow.isDirty.value"
               :read-only="currentMode === 'view'"
               :selected-step-id="sopFlow.selectedStepId.value"
+              :dirty-step-ids="sopFlow.dirtyStepIds.value"
               @step-select="onStepSelect"
               @step-dblclick="onStepDblClick"
               @select-citation="handleSopCitationSelect"
@@ -121,7 +122,10 @@
               @edges-change="onEdgesChange"
               @connect="onConnect"
               @edge-update="onEdgeUpdate"
+              @edge-dblclick="onEdgeDblClick"
+              @delete-edge="onDeleteEdge"
               @delete-step="onDeleteStep"
+              @edge-label-change="onEdgeLabelChange"
             />
           </div>
         </Panel>
@@ -232,11 +236,19 @@
       @update:parent-id="folderForm.parentId = $event"
       @confirm="onFolderModalConfirm"
     />
+
+    <ForkEditModal
+      v-model:visible="forkModalVisible"
+      :condition-var="forkModalConditionVar"
+      :branches="forkModalBranches"
+      :default-goto="forkModalDefaultGoto"
+      @confirm="onForkModalConfirm"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, h, onMounted, ref } from 'vue'
+import { computed, h, nextTick, onMounted, ref } from 'vue'
 import { App, Input, message, type UploadFile } from 'ant-design-vue'
 import { useRouter } from 'vue-router'
 import {
@@ -251,7 +263,7 @@ import {
   UploadOutlined,
 } from '@ant-design/icons-vue'
 import { SplitPanes, Panel, AIChat, useTheme, type CitationBinding, type DropEvent } from '@angineer/ui-kit'
-import { SOPTree, SOPFlowCanvas, SOPPropertyPanel, SopMetaPanel, useSopTree, useSopFlow, sopApi } from '@angineer/sop-ui'
+import { SOPTree, SOPFlowCanvas, SOPPropertyPanel, SopMetaPanel, ForkEditModal, useSopTree, useSopFlow, sopApi } from '@angineer/sop-ui'
 import type { SOPTreeNode, SopStep } from '@angineer/sop-ui'
 import type { Connection } from '@vue-flow/core'
 import FolderModal from './components/FolderModal.vue'
@@ -270,6 +282,11 @@ const rightTabKey = ref<'property' | 'ai'>('property')
 const currentMode = ref<'edit' | 'view'>('edit')
 const metaPanelDirty = ref(false)
 const propertyPanelDirty = ref(false)
+const forkModalVisible = ref(false)
+const forkModalStepId = ref('')
+const forkModalConditionVar = ref('')
+const forkModalBranches = ref<Array<{ match: string; goto: string }>>([])
+const forkModalDefaultGoto = ref('')
 const pendingImportFolderId = ref<string | undefined>(undefined)
 const importModalVisible = ref(false)
 const importFileList = ref<UploadFile[]>([])
@@ -394,6 +411,7 @@ const saveCurrentChanges = async () => {
     await sopApi.saveSop(currentData.id, updatedData)
     sopTree.currentSopData.value = updatedData
     sopFlow.isDirty.value = false
+    sopFlow.clearDirty()
   }
 
   if (metaPanelDirty.value) {
@@ -597,10 +615,12 @@ Description: 根据矩形的长和宽计算面积。
 const onTreeSelect = async (_keys: string[], nodes: SOPTreeNode[]) => {
   const node = nodes[0]
   if (!node) return
+  const previousKey = sopTree.selectedNode.value?.key
   const canNavigate = await guardAndNavigate()
   if (!canNavigate) {
-    if (sopTreeRef.value && sopTree.selectedNode.value) {
-      sopTreeRef.value.selectedKeys = [sopTree.selectedNode.value.key]
+    await nextTick()
+    if (sopTreeRef.value && previousKey) {
+      sopTreeRef.value.selectedKeys = [previousKey]
     }
     return
   }
@@ -611,8 +631,15 @@ const onTreeSelect = async (_keys: string[], nodes: SOPTreeNode[]) => {
  * 查看节点时直接载入。
  */
 const onTreeView = async (node: SOPTreeNode) => {
+  const previousKey = sopTree.selectedNode.value?.key
   const canNavigate = await guardAndNavigate()
-  if (!canNavigate) return
+  if (!canNavigate) {
+    await nextTick()
+    if (sopTreeRef.value && previousKey) {
+      sopTreeRef.value.selectedKeys = [previousKey]
+    }
+    return
+  }
   await loadNode(node, 'view')
 }
 
@@ -799,11 +826,7 @@ const handleFileDrop = async (files: File[], targetFolder: SOPTreeNode | null) =
 /**
  * 选中步骤后切到属性页。
  */
-const onStepSelect = async (stepId: string) => {
-  if (sopFlow.selectedStepId.value !== stepId && hasUnsavedChanges()) {
-    const canSwitch = await guardAndNavigate()
-    if (!canSwitch) return
-  }
+const onStepSelect = (stepId: string) => {
   sopFlow.selectStep(stepId)
   rightTabKey.value = 'property'
 }
@@ -811,13 +834,46 @@ const onStepSelect = async (stepId: string) => {
 /**
  * 双击步骤后切到属性页。
  */
-const onStepDblClick = async (stepId: string) => {
-  if (sopFlow.selectedStepId.value !== stepId && hasUnsavedChanges()) {
-    const canSwitch = await guardAndNavigate()
-    if (!canSwitch) return
+const onStepDblClick = (stepId: string) => {
+  const node = sopFlow.nodes.value.find((n) => n.id === stepId)
+  if (node?.type === 'sop-fork') {
+    const step = node.data.step
+    forkModalStepId.value = stepId
+    forkModalConditionVar.value = step.condition_var || ''
+    forkModalBranches.value = (step.branches || []).map((b: any) => ({
+      match: String(b.match || ''),
+      goto: b.goto || '',
+    }))
+    forkModalDefaultGoto.value = step.default_goto || ''
+    forkModalVisible.value = true
+    return
   }
   sopFlow.selectStep(stepId)
   rightTabKey.value = 'property'
+}
+
+/**
+ * 确认 Fork 编辑弹窗内容，更新步骤数据并同步分支连线。
+ */
+const onForkModalConfirm = (payload: { conditionVar: string; branches: Array<{ match: string; goto: string }>; defaultGoto: string }) => {
+  if (!forkModalStepId.value) return
+  sopFlow.updateStepData(forkModalStepId.value, {
+    condition_var: payload.conditionVar || undefined,
+    branches: payload.branches.map((b) => ({
+      match: b.match,
+      goto: b.goto || undefined,
+    })),
+    default_goto: payload.defaultGoto || undefined,
+  } as any)
+  sopFlow.syncBranchEdges()
+  message.success('分支条件已更新')
+}
+
+/**
+ * 处理连线标签变更事件。
+ */
+const onEdgeLabelChange = (payload: { edgeId: string; label: string }) => {
+  sopFlow.updateEdgeLabel(payload.edgeId, payload.label)
 }
 
 /**
@@ -925,6 +981,7 @@ const onSaveSop = async () => {
     await sopApi.saveSop(currentData.id, updatedData)
     sopTree.currentSopData.value = updatedData
     sopFlow.isDirty.value = false
+    sopFlow.clearDirty()
     propertyPanelDirty.value = false
     message.success('保存成功')
   } catch (error: any) {
@@ -967,14 +1024,55 @@ const onEdgeUpdate = ({ edgeId, connection }: { edgeId: string; connection: Conn
 }
 
 /**
- * 删除当前步骤节点。
+ * 双击边 → 编辑分支条件标签。
  */
+const onEdgeDblClick = (edgeId: string) => {
+  if (currentMode.value === 'view') return
+  const edge = sopFlow.edges.value.find((e) => e.id === edgeId)
+  if (!edge) return
+  let inputValue = edge.data?.label || ''
+  modal.confirm({
+    title: '编辑分支条件',
+    content: h('div', { style: 'margin-top: 16px' }, [
+      h('div', { style: 'margin-bottom: 8px; font-size: 13px; color: var(--text-secondary, #666)' }, '分支条件文字（显示在连接线上）：'),
+      h(Input, {
+        modelValue: inputValue,
+        'onUpdate:modelValue': (v: string) => { inputValue = v },
+        placeholder: '例如：岩石、≥50、淤泥...',
+        style: 'margin-top: 4px',
+      }),
+    ]),
+    okText: '确定',
+    cancelText: '取消',
+    onOk: () => {
+      if (inputValue.trim()) {
+        sopFlow.updateEdgeLabel(edgeId, inputValue.trim())
+      }
+    },
+  })
+}
 const onDeleteStep = (stepId: string) => {
   if (currentMode.value === 'view') {
     message.warning('只读模式下不能删除步骤')
     return
   }
-  sopFlow.removeStep(stepId)
+  const node = sopFlow.nodes.value.find((n) => n.id === stepId)
+  const stepName = node?.data?.step?.name || stepId
+  modal.confirm({
+    title: '确认删除',
+    content: `确定要删除步骤「${stepName}」吗？`,
+    okText: '删除',
+    okType: 'danger',
+    cancelText: '取消',
+    onOk: () => {
+      sopFlow.removeStep(stepId)
+    },
+  })
+}
+
+const onDeleteEdge = (edgeId: string) => {
+  if (currentMode.value === 'view') return
+  sopFlow.removeEdge(edgeId)
 }
 
 onMounted(() => {
