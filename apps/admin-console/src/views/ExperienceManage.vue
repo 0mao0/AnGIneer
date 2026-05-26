@@ -1008,6 +1008,12 @@ const onSaveSop = async () => {
   }
   const currentData = sopTree.currentSopData.value
   if (!currentData) return
+  // 先刷新属性面板草稿到节点内存
+  if (propertyPanelDirty.value && sopFlow.selectedStepId.value) {
+    const panel = propertyPanelRef.value as any
+    const draft = panel?.buildDraftStep?.()
+    if (draft) sopFlow.updateStepData(sopFlow.selectedStepId.value, draft)
+  }
   const updatedData = sopFlow.exportToSopData(currentData)
   try {
     await sopApi.saveSop(currentData.id, updatedData)
