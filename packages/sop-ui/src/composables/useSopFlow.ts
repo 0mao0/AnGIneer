@@ -464,9 +464,14 @@ export function useSopFlow() {
         const newY = Number(change.position.y ?? node.position.y)
         if (node.position.x !== newX || node.position.y !== newY) {
           node.position = { x: newX, y: newY }
+          if (!node.data.step.ui_meta) {
+            node.data.step.ui_meta = {}
+          }
+          node.data.step.ui_meta.position = { x: newX, y: newY }
           const next = new Set(dirtyStepIds.value)
           next.add(node.id)
           dirtyStepIds.value = next
+          isDirty.value = true
         }
         continue
       }

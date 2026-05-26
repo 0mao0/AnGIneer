@@ -176,7 +176,7 @@
                   @save="onPropertySave"
                   @cancel="onPropertyCancel"
                   @select-citation="handleSopCitationSelect"
-                  @dirty-change="propertyPanelDirty = $event"
+                  @dirty-change="onPropertyDirtyChange"
                 />
               </div>
 
@@ -242,6 +242,7 @@
       :condition-var="forkModalConditionVar"
       :branches="forkModalBranches"
       :default-goto="forkModalDefaultGoto"
+      :step-targets="forkStepTargets"
       @confirm="onForkModalConfirm"
     />
   </div>
@@ -287,6 +288,16 @@ const forkModalStepId = ref('')
 const forkModalConditionVar = ref('')
 const forkModalBranches = ref<Array<{ match: string; goto: string }>>([])
 const forkModalDefaultGoto = ref('')
+
+const forkStepTargets = computed(() => {
+  return sopFlow.nodes.value
+    .filter((n) => n.id !== forkModalStepId.value)
+    .map((n) => ({
+      id: n.id,
+      name: n.data.step.name || n.data.step.name_zh || n.id,
+    }))
+})
+
 const pendingImportFolderId = ref<string | undefined>(undefined)
 const importModalVisible = ref(false)
 const importFileList = ref<UploadFile[]>([])
@@ -927,6 +938,16 @@ const handleSopCitationSelect = (binding: CitationBinding) => {
 const onPropertyCancel = () => {}
 
 /**
+ * 属性面板内容变化时标记步骤为脏，显示红点。
+ */
+const onPropertyDirtyChange = (dirty: boolean) => {
+  propertyPanelDirty.value = dirty
+  if (dirty && sopFlow.selectedStepId.value) {
+    sopFlow.markStepDirty(sopFlow.selectedStepId.value)
+  }
+}
+
+/**
  * 保存 SOP 元数据（名称、描述）。
  */
 const onSopMetaSave = async (payload: { name_zh: string; description: string }) => {
@@ -1072,7 +1093,16 @@ const onDeleteStep = (stepId: string) => {
 
 const onDeleteEdge = (edgeId: string) => {
   if (currentMode.value === 'view') return
-  sopFlow.removeEdge(edgeId)
+  modal.confirm({
+    title: '确认删除',
+    content: '确定要删除这条连线吗？',
+    okText: '删除',
+    okType: 'danger',
+    cancelText: '取消',
+    onOk: () => {
+      sopFlow.removeEdge(edgeId)
+    },
+  })
 }
 
 onMounted(() => {

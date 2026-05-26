@@ -192,13 +192,28 @@
               placeholder="例如: 上水标准"
               :disabled="readOnly"
             />
-            <a-input
+            <a-select
               v-model:value="branch.goto"
               size="small"
               class="kv-value"
-              placeholder="目标步骤 ID"
+              placeholder="目标步骤"
               :disabled="readOnly"
-            />
+              allow-clear
+              show-search
+              :filter-option="(input: string, option: any) => {
+                const label = option.label || ''
+                return label.toLowerCase().includes(input.toLowerCase())
+              }"
+            >
+              <a-select-option
+                v-for="target in stepTargets"
+                :key="target.id"
+                :value="target.id"
+                :label="target.name || target.id"
+              >
+                {{ target.name || target.id }}
+              </a-select-option>
+            </a-select>
             <a-button v-if="!readOnly" type="text" size="small" danger @click="forkBranches.splice(idx, 1)">
               <template #icon><DeleteOutlined /></template>
             </a-button>
@@ -207,12 +222,27 @@
 
         <div class="fork-field">
           <span class="mini-label">默认跳转</span>
-          <a-input
+          <a-select
             v-model:value="forkDefaultGoto"
             size="small"
-            placeholder="无匹配时的目标步骤 ID"
+            placeholder="无匹配时的目标步骤（可选）"
             :disabled="readOnly"
-          />
+            allow-clear
+            show-search
+            :filter-option="(input: string, option: any) => {
+              const label = option.label || ''
+              return label.toLowerCase().includes(input.toLowerCase())
+            }"
+          >
+            <a-select-option
+              v-for="target in stepTargets"
+              :key="target.id"
+              :value="target.id"
+              :label="target.name || target.id"
+            >
+              {{ target.name || target.id }}
+            </a-select-option>
+          </a-select>
         </div>
       </section>
     </div>
@@ -284,9 +314,15 @@ const toolOptions = [
   { value: 'conditional', label: '条件分支' },
 ]
 
+interface StepTarget {
+  id: string
+  name?: string
+}
+
 const props = defineProps<{
   step: SopStep
   readOnly?: boolean
+  stepTargets?: StepTarget[]
 }>()
 
 const emit = defineEmits<{

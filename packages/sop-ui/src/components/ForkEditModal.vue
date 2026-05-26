@@ -33,12 +33,23 @@
             style="flex: 1;"
           />
           <span class="arrow">→</span>
-          <a-input
+          <a-select
             v-model:value="branch.goto"
             size="small"
-            placeholder="目标步骤 ID"
-            style="width: 120px;"
-          />
+            placeholder="目标步骤"
+            style="width: 140px;"
+            allow-clear
+            show-search
+            :filter-option="filterStepOption"
+          >
+            <a-select-option
+              v-for="target in stepTargets"
+              :key="target.id"
+              :value="target.id"
+            >
+              {{ target.name || target.id }}
+            </a-select-option>
+          </a-select>
           <a-button type="text" size="small" danger @click="localBranches.splice(idx, 1)">
             <template #icon><DeleteOutlined /></template>
           </a-button>
@@ -51,12 +62,23 @@
       <!-- default_goto -->
       <div class="fork-modal-field default-field">
         <span class="field-label">否则 →</span>
-        <a-input
+        <a-select
           v-model:value="localDefaultGoto"
           size="small"
-          placeholder="默认目标步骤 ID"
+          placeholder="默认目标步骤（可选）"
           style="flex: 1;"
-        />
+          allow-clear
+          show-search
+          :filter-option="filterStepOption"
+        >
+          <a-select-option
+            v-for="target in stepTargets"
+            :key="target.id"
+            :value="target.id"
+          >
+            {{ target.name || target.id }}
+          </a-select-option>
+        </a-select>
       </div>
     </div>
   </a-modal>
@@ -71,11 +93,17 @@ interface BranchItem {
   goto: string
 }
 
+interface StepTarget {
+  id: string
+  name?: string
+}
+
 const props = defineProps<{
   visible: boolean
   conditionVar?: string
   branches?: BranchItem[]
   defaultGoto?: string
+  stepTargets?: StepTarget[]
 }>()
 
 const emit = defineEmits<{
@@ -94,6 +122,11 @@ watch(() => props.visible, (val) => {
     localDefaultGoto.value = props.defaultGoto || ''
   }
 })
+
+const filterStepOption = (input: string, option: any) => {
+  const label = option.children?.default?.() || option.label || ''
+  return label.toLowerCase().includes(input.toLowerCase())
+}
 
 const handleOk = () => {
   emit('confirm', {
@@ -124,13 +157,13 @@ const handleCancel = () => {
 
 .field-label {
   font-size: 13px;
-  color: var(--text-secondary);
+  color: var(--text-secondary, rgba(255, 255, 255, 0.45));
   white-space: nowrap;
 }
 
 .var-wrapper {
   font-size: 12px;
-  color: var(--text-secondary);
+  color: var(--text-secondary, rgba(255, 255, 255, 0.45));
 }
 
 .fork-modal-branches {
@@ -150,17 +183,17 @@ const handleCancel = () => {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #faad14;
+  background: var(--warning-color, #faad14);
   flex-shrink: 0;
 }
 
 .arrow {
   font-size: 12px;
-  color: var(--text-secondary);
+  color: var(--text-secondary, rgba(255, 255, 255, 0.45));
 }
 
 .default-field {
-  border-top: 1px dashed var(--border-color);
+  border-top: 1px dashed var(--border-color, rgba(255, 255, 255, 0.12));
   padding-top: 10px;
 }
 </style>
