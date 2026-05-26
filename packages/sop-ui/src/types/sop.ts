@@ -13,11 +13,24 @@ export interface SOPTreeNode extends SmartTreeNode {
   children?: SOPTreeNode[]
 }
 
+/** 条件分支目标。 */
+export interface BranchTarget {
+  match: string
+  goto?: string
+  value?: any
+}
+
 /** SOP 步骤执行定义。 */
 export interface SopExecution {
   tool: string
   inputs: Record<string, any>
   outputs: Record<string, string>
+}
+
+/** 流程图内部使用的分支边数据。 */
+export interface FlowBranchEdgeData {
+  label: string
+  isDefault?: boolean
 }
 
 /** 流程图节点 UI 元数据。 */
@@ -48,6 +61,9 @@ export interface RawSopStep {
   notes?: string
   analysis_status?: string
   ui_meta?: SopStepUiMeta | null
+  branches?: BranchTarget[]
+  condition_var?: string
+  default_goto?: string
 }
 
 /** 运行时统一使用的 SOP 步骤定义。 */
@@ -63,6 +79,9 @@ export interface SopStep {
   notes?: string
   analysis_status?: string
   ui_meta?: SopStepUiMeta
+  branches?: BranchTarget[]
+  condition_var?: string
+  default_goto?: string
 }
 
 /** 兼容旧结构的原始 SOP 数据。 */
@@ -135,13 +154,22 @@ export const normalizeSopStep = (step: RawSopStep): SopStep => ({
   description: normalizeInlineDescription(step.description),
   execution: {
     tool: step.execution?.tool || step.tool || 'manual',
-    inputs: { ...(step.execution?.inputs || step.inputs || {}) },
+    inputs: (() => {
+      const raw = { ...(step.execution?.inputs || step.inputs || {}) }
+      delete raw.branches
+      delete raw.condition_var
+      delete raw.default_goto
+      return raw
+    })(),
     outputs: { ...(step.execution?.outputs || step.outputs || {}) },
   },
   next_step_id: step.next_step_id,
   on_failure: step.on_failure,
   notes: step.notes,
   analysis_status: step.analysis_status,
+  branches: step.branches,
+  condition_var: step.condition_var,
+  default_goto: step.default_goto,
   ui_meta: step.ui_meta ? {
     position: step.ui_meta.position
       ? {
@@ -186,6 +214,9 @@ export const serializeSopStep = (step: SopStep): RawSopStep => ({
   on_failure: step.on_failure,
   notes: step.notes,
   analysis_status: step.analysis_status,
+  branches: step.branches,
+  condition_var: step.condition_var,
+  default_goto: step.default_goto,
   ui_meta: step.ui_meta
     ? {
         position: step.ui_meta.position
@@ -218,6 +249,7 @@ export const serializeSopData = (data: SopData): RawSopData => ({
 export type SopFlowNode = Node<{
   step: SopStep
   stepIndex: number
+  branchEdges?: Array<{ id: string; label: string; target: string; isDefault?: boolean }>
 }>
 
 /** Vue Flow 边类型别名。 */
