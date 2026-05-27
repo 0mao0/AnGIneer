@@ -381,8 +381,9 @@ const toRecord = (rows: KvRow[]): Record<string, string> => {
  * 生成当前草稿对应的完整步骤对象。
  */
 const buildDraftStep = (): SopStep => {
+  const { ui_meta: _ui_meta, ...rest } = draft.value as any
   const base: SopStep = {
-    ...draft.value,
+    ...rest,
     execution: {
       tool: draft.value.execution.tool,
       inputs: toRecord(inputRows.value),
