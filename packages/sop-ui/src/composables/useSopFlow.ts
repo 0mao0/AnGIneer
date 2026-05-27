@@ -639,6 +639,7 @@ export function useSopFlow() {
     }
 
     selectedStepId.value = newStepId
+    markStepDirty(newStepId)
     isDirty.value = true
     syncBranchEdges()
     syncStepIndexes()
@@ -871,6 +872,7 @@ export function useSopFlow() {
     const next = new Set(dirtyStepIds.value)
     next.add(stepId)
     dirtyStepIds.value = next
+    isDirty.value = true
   }
 
   /**
