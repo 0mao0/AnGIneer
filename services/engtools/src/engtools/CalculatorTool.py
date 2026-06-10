@@ -172,11 +172,12 @@ class Calculator(BaseTool):
 
     def _clean_expression(self, expression: str) -> str:
         """
-        清理表达式，处理常见的工程表示法。
+        清理表达式，处理常见的工程表示法和特殊字符。
         """
         # 去除首尾空白
         expr = expression.strip()
 
+        # 变量替换：${var} → var（保留变量名供后续替换）
         expr = re.sub(r"\$\{([^}]+)\}", r"\1", expr)
 
         # 处理工程表示法中的上标（如 m² → m2, m³ → m3）
@@ -189,10 +190,24 @@ class Calculator(BaseTool):
         expr = expr.replace("＋", "+").replace("－", "-")
         expr = expr.replace("×", "*").replace("÷", "/")
         expr = expr.replace("＝", "=")
+        expr = expr.replace("—", "-")  # 中文破折号
+        expr = expr.replace("–", "-")  # 英文 en-dash
+        expr = expr.replace("−", "-")  # Unicode 减号
 
         # 处理数学函数的中文别名
         expr = expr.replace("平方根", "sqrt").replace("开方", "sqrt")
         expr = expr.replace("平方", "**2").replace("立方", "**3")
+
+        # 清理工程单位（如 12.3m → 12.3，保留数值）
+        # 注意：只清理附着在数字后的单位，独立变量名保留
+        expr = re.sub(r'(?<=[\d.])\s*[a-zA-Zα-ωΑ-Ω_]+(?![a-zA-Zα-ωΑ-Ω_0-9])', '', expr)
+
+        # 清理度数符号（如 30° → 30）
+        expr = expr.replace("°", "")
+        expr = expr.replace("%%", "%")
+
+        # 清理千分位逗号（如 1,000 → 1000）
+        expr = re.sub(r'(?<=\d),(?=\d)', '', expr)
 
         # 去除多余空格
         expr = re.sub(r'\s+', ' ', expr)
@@ -211,6 +226,7 @@ class Calculator(BaseTool):
     def _is_safe_expression(self, expression: str) -> bool:
         """
         验证表达式是否安全（不包含危险操作）。
+        采用白名单机制：先移除所有允许的数学函数名，再检查剩余字符。
         """
         # 黑名单：危险的关键字和函数
         dangerous_keywords = [
@@ -224,17 +240,24 @@ class Calculator(BaseTool):
             if keyword in expr_lower:
                 return False
 
-        # 检查是否包含非法字符（只允许数学相关字符）
-        # 允许的字符：数字、字母、下划线、运算符、括号、空格、小数点、逗号
-        allowed_pattern = r'^[\w\s\+\-\*\/\%\(\)\,\.\*\^=]+$'
-        if not re.match(allowed_pattern, expression):
-            # 允许一些数学函数的调用
-            allowed_funcs = ['sqrt', 'sin', 'cos', 'tan', 'log', 'ln', 'exp', 'abs', 'round', 'min', 'max', 'pow']
-            for func in allowed_funcs:
-                expression = expression.replace(func, '')
-            # 再次检查
-            if not re.match(allowed_pattern, expression):
-                return False
+        # 白名单：允许的数学函数和常量
+        allowed_funcs = [
+            'sqrt', 'sin', 'cos', 'tan', 'log', 'ln', 'exp', 'abs',
+            'round', 'min', 'max', 'pow', 'asin', 'acos', 'atan',
+            'sinh', 'cosh', 'tanh', 'log2', 'ceil', 'floor',
+            'degrees', 'radians', 'pi', 'e'
+        ]
+
+        # 创建用于字符检查的副本（移除所有允许的函数名）
+        check_expr = expression
+        for func in allowed_funcs:
+            check_expr = check_expr.replace(func, '')
+
+        # 允许的字符：数字、字母、下划线、运算符、括号、空格、小数点、逗号、百分号
+        # 支持希腊字母（工程变量常用）
+        allowed_pattern = r'^[\w\s\+\-\*\/\%\(\)\,\.\*\^=<>!]+$'
+        if not re.match(allowed_pattern, check_expr):
+            return False
 
         return True
 

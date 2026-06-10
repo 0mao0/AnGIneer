@@ -60,10 +60,25 @@
             <CaretRightOutlined class="section-toggle-icon" :class="{ expanded: executionExpanded }" />
             <span class="section-title">执行定义</span>
           </button>
+          <a-select
+            v-if="draft.execution.tool === 'conditional'"
+            v-model:value="draft.execution.tool"
+            size="small"
+            class="header-tool-select"
+            :disabled="readOnly"
+          >
+            <a-select-option
+              v-for="option in toolOptions"
+              :key="option.value"
+              :value="option.value"
+            >
+              {{ option.label }}
+            </a-select-option>
+          </a-select>
         </div>
 
         <div v-show="executionExpanded" class="execution-body">
-          <div class="tool-row">
+          <div v-if="draft.execution.tool !== 'conditional'" class="tool-row">
             <span class="mini-label">工具</span>
             <a-select
               v-model:value="draft.execution.tool"
@@ -81,6 +96,7 @@
             </a-select>
           </div>
 
+          <template v-if="draft.execution.tool !== 'conditional'">
           <div class="kv-table">
             <div class="kv-section-header">
               <span>输入参数</span>
@@ -148,55 +164,75 @@
               </a-button>
             </div>
           </div>
-        </div>
-      </section>
+          </template>
 
-      <!-- 分支条件编辑区 -->
-      <section v-if="draft.execution.tool === 'conditional'" class="section-block fork-section">
-        <div class="section-header">
-          <span class="section-title">⑂ 分支条件</span>
-          <a-tag color="orange">{{ forkBranches.length }} 个分支</a-tag>
-        </div>
+          <template v-else>
+          <div class="fork-field">
+            <span class="mini-label">条件变量</span>
+            <div class="var-input-wrap">
+              <span class="var-prefix">$</span>
+              <a-input
+                v-model:value="forkConditionVar"
+                size="small"
+                placeholder="变量名"
+                :disabled="readOnly"
+              />
+            </div>
+          </div>
 
-        <div class="fork-field">
-          <span class="mini-label">条件变量</span>
-          <div class="var-input-wrap">
-            <span class="var-prefix">$</span>
-            <a-input
-              v-model:value="forkConditionVar"
-              size="small"
-              placeholder="变量名"
-              :disabled="readOnly"
-            />
+          <div class="fork-field">
+            <div class="kv-section-header">
+              <span>分支列表</span>
+              <a-button v-if="!readOnly" type="text" size="small" @click="forkBranches.push({ match: '', goto: '' })">
+                <template #icon><PlusOutlined /></template>
+              </a-button>
+            </div>
+            <div v-if="!forkBranches.length" class="kv-empty">暂无分支</div>
+            <div v-for="(branch, idx) in forkBranches" :key="idx" class="branch-card">
+              <div class="branch-card-row">
+                <a-input
+                  v-model:value="branch.match"
+                  size="small"
+                  placeholder="匹配条件，例如: 上水标准"
+                  :disabled="readOnly"
+                />
+                <a-button v-if="!readOnly" type="text" size="small" danger @click="forkBranches.splice(idx, 1)">
+                  <template #icon><DeleteOutlined /></template>
+                </a-button>
+              </div>
+              <div class="branch-card-row">
+                <span class="mini-label">跳转</span>
+                <a-select
+                  v-model:value="branch.goto"
+                  size="small"
+                  placeholder="目标步骤"
+                  :disabled="readOnly"
+                  allow-clear
+                  show-search
+                  :filter-option="(input: string, option: any) => {
+                    const label = option.label || ''
+                    return label.toLowerCase().includes(input.toLowerCase())
+                  }"
+                >
+                  <a-select-option
+                    v-for="target in stepTargets"
+                    :key="target.id"
+                    :value="target.id"
+                    :label="target.name || target.id"
+                  >
+                    {{ target.name || target.id }}
+                  </a-select-option>
+                </a-select>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="fork-field">
-          <div class="kv-section-header">
-            <span>分支列表</span>
-            <a-button v-if="!readOnly" type="text" size="small" @click="forkBranches.push({ match: '', goto: '' })">
-              <template #icon><PlusOutlined /></template>
-            </a-button>
-          </div>
-          <div class="kv-header-row">
-            <span>匹配条件</span>
-            <span>跳转目标</span>
-            <span />
-          </div>
-          <div v-if="!forkBranches.length" class="kv-empty">暂无分支</div>
-          <div v-for="(branch, idx) in forkBranches" :key="idx" class="kv-row">
-            <a-input
-              v-model:value="branch.match"
-              size="small"
-              class="kv-key"
-              placeholder="例如: 上水标准"
-              :disabled="readOnly"
-            />
+          <div class="fork-field">
+            <span class="mini-label">默认跳转</span>
             <a-select
-              v-model:value="branch.goto"
+              v-model:value="forkDefaultGoto"
               size="small"
-              class="kv-value"
-              placeholder="目标步骤"
+              placeholder="无匹配时的目标步骤（可选）"
               :disabled="readOnly"
               allow-clear
               show-search
@@ -214,35 +250,19 @@
                 {{ target.name || target.id }}
               </a-select-option>
             </a-select>
-            <a-button v-if="!readOnly" type="text" size="small" danger @click="forkBranches.splice(idx, 1)">
-              <template #icon><DeleteOutlined /></template>
-            </a-button>
           </div>
+          </template>
         </div>
+      </section>
 
-        <div class="fork-field">
-          <span class="mini-label">默认跳转</span>
-          <a-select
-            v-model:value="forkDefaultGoto"
-            size="small"
-            placeholder="无匹配时的目标步骤（可选）"
-            :disabled="readOnly"
-            allow-clear
-            show-search
-            :filter-option="(input: string, option: any) => {
-              const label = option.label || ''
-              return label.toLowerCase().includes(input.toLowerCase())
-            }"
-          >
-            <a-select-option
-              v-for="target in stepTargets"
-              :key="target.id"
-              :value="target.id"
-              :label="target.name || target.id"
-            >
-              {{ target.name || target.id }}
-            </a-select-option>
-          </a-select>
+      <!-- 失败跳转（只读，由画布失败边控制） -->
+      <section v-if="failureTargetName" class="section-block failure-section">
+        <div class="section-header">
+          <span class="section-title">⚠ 失败跳转</span>
+        </div>
+        <div class="failure-info">
+          <span class="failure-label">目标步骤</span>
+          <a-tag color="red">{{ failureTargetName }}</a-tag>
         </div>
       </section>
     </div>
@@ -323,6 +343,7 @@ const props = defineProps<{
   step: SopStep
   readOnly?: boolean
   stepTargets?: StepTarget[]
+  failureTargetName?: string
 }>()
 
 const emit = defineEmits<{
@@ -585,6 +606,13 @@ const handleSave = () => {
   lastLoadedSignature.value = getStepSignature(nextStep)
 }
 
+/**
+ * 外部接受草稿（如画布统一保存时），更新签名使面板不再显示为脏。
+ */
+const acceptDraft = () => {
+  lastLoadedSignature.value = getStepSignature(buildDraftStep())
+}
+
 watch(hasChanges, (val) => {
   emit('dirty-change', val)
 })
@@ -592,9 +620,9 @@ watch(hasChanges, (val) => {
 watch(() => props.step, (step) => {
   syncDraft(step)
   executionExpanded.value = false
-}, { immediate: true, deep: true })
+}, { immediate: true })
 
-defineExpose({ hasChanges, buildDraftStep })
+defineExpose({ hasChanges, buildDraftStep, acceptDraft })
 </script>
 
 <style lang="less" scoped>
@@ -805,15 +833,69 @@ defineExpose({ hasChanges, buildDraftStep })
   color: var(--text-secondary);
 }
 
-.fork-section {
-  border-color: #faad14 !important;
-  background: #fffbe6 !important;
+.failure-section {
+  border-color: rgba(255, 77, 79, 0.35) !important;
+  background: rgba(255, 77, 79, 0.04) !important;
+}
+
+.failure-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.failure-label {
+  font-size: 12px;
+  color: var(--text-secondary, #667085);
 }
 
 .fork-field {
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+.header-tool-select {
+  margin-left: auto;
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.branch-card {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: var(--bg-secondary, rgba(0, 0, 0, 0.02));
+  border-radius: 4px;
+}
+
+.branch-card + .branch-card {
+  margin-top: 6px;
+}
+
+.branch-card-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &:first-child {
+    flex-shrink: 0;
+  }
+
+  &:last-child {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mini-label {
+    flex-shrink: 0;
+  }
+
+  :deep(.ant-select) {
+    flex: 1;
+    min-width: 0;
+  }
 }
 
 .var-input-wrap {

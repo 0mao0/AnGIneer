@@ -22,10 +22,16 @@ L0_PURE_CHAT_KEYWORDS = ["你好", "您好", "嗨", "hi", "hello", "早上好", 
                           "心情", "开心", "难过", "无聊", "累", "烦", "高兴", "生气", "焦虑",
                           "今天天气", "吃了吗", "在吗", "聊聊天", "闲聊"]
 L0_AMBIGUOUS_KEYWORDS = ["你是谁", "你叫什么", "能做什么", "有什么功能", "帮我", "怎么用"]
-L1_KEYWORDS = ["什么是", "是什么", "哪些", "定义", "概念", "组成", "包括", "分为", "划分", "分类", "类型", "位于", "设置", "位置", "在哪里", "宜设置", "应设置", "如何确定", "怎么确定", "怎样确定", "如何定义", "怎么定义", "如何划分", "怎么划分"]
-L2_KEYWORDS = ["取值", "范围", "规定", "条款", "要求", "标准值", "限值", "允许值", "应符合", "不应超过"]
-L3_KEYWORDS = ["计算", "求", "验算", "核算", "校核", "公式", "等于多少", "结果是多少"]
-L4_KEYWORDS = ["评价", "评估", "分析", "综合", "方案", "设计", "比较", "选择", "优化"]
+L1_KEYWORDS = ["什么是", "是什么", "哪些", "定义", "概念", "组成", "包括", "分为", "划分", "分类", "类型", "位于", "设置", "位置", "在哪里", "宜设置", "应设置", "如何确定", "怎么确定", "怎样确定", "如何定义", "怎么定义", "如何划分", "怎么划分", "简述", "说明", "列举", "阐述", "解释", "原理", "作用", "功能", "特点", "特征", "区别", "异同", "对比", "比较", "差异", "选用", "选型", "适用条件", "适用范围", "影响因素", "注意事项"]
+L2_KEYWORDS = ["取值", "范围", "规定", "条款", "要求", "标准值", "限值", "允许值", "应符合", "不应超过", "查表", "依据", "按照", "遵照", "应满足", "取值表", "参数表", "数据表", "条文"]
+L3_KEYWORDS = ["计算", "求", "验算", "核算", "校核", "公式", "等于多少", "结果是多少", "求解", "算出", "推定", "是多少", "求值", "推算"]
+# L4 关键词：仅当题目明确要求多步骤综合/方案设计/多方案比较时才触发
+# 注意：单独的"分析""评价"等词在工程考试中常是L1/L3，不能单独作为L4依据
+L4_KEYWORDS = ["综合评价", "综合评估", "系统分析", "方案设计", "设计方案", "多方案比较", 
+                "优化设计", "比选", "技术经济比较", "可行性研究", "初步设计", "施工图设计"]
+# L4 辅助信号：需要多个强信号同时出现才判定为L4
+L4_COMPOUND_SIGNALS = ["并", "且", "同时", "再", "然后", "最后", "分步", "步骤", 
+                        "第一", "第二", "第三", "首先", "其次", "接着"]
 
 CLAUSE_ID_PATTERN = re.compile(r"(?:第\s*([A-Za-z]?\d+(?:\.\d+){1,4})\s*(?:条|款|节|章|式)?)|(?:(?:[A-Za-z]?\d+(?:\.\d+){1,4})\s*(?:条|款|节|章|式))")
 
@@ -37,16 +43,16 @@ STANDARD_CODE_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
-ROUTE_CONFIDENCE_THRESHOLD = 0.6
-ROUTE_RECALL_TOP_K = 3
-ROUTE_RECALL_MIN_SCORE = 0.05
+ROUTE_CONFIDENCE_THRESHOLD = 0.45
+ROUTE_RECALL_TOP_K = 5
+ROUTE_RECALL_MIN_SCORE = 0.02
 
 # 各意图层级的默认升级链：当前路径失败后逐级回退
 DEFAULT_EXECUTION_PLANS: Dict[str, List[str]] = {
     "L0": ["casual_chat"],
-    "L1": ["semantic_retrieval", "sql_first", "dynamic_orchestration"],
-    "L2": ["sql_first", "standard_sop", "dynamic_orchestration"],
-    "L3": ["standard_sop", "dynamic_orchestration"],
+    "L1": ["semantic_retrieval"],
+    "L2": ["sql_first", "semantic_retrieval"],
+    "L3": ["standard_sop", "semantic_retrieval"],
     "L4": ["dynamic_orchestration"],
 }
 
@@ -579,13 +585,11 @@ def _has_substantive_content(query: str) -> bool:
     return False
 
 
-# 基于规则快速判定意图层级
-def _rule_based_classify(query: str) -> Optional[IntentResult]:
-    """基于规则快速判定意图层级，并为混合题生成执行计划。"""
+# L0 闲聊快速检测（独立函数，供 classify_intent 优先调用）
+def _check_l0_intent(query: str) -> Optional[IntentResult]:
+    """仅检测明确的闲聊/问候意图，不做 L1-L4 判定。"""
     if not query:
         return None
-
-    # L0: 闲聊检测 — 纯闲聊关键词直接判定
     has_pure_chat = any(kw in query for kw in L0_PURE_CHAT_KEYWORDS)
     has_ambiguous = any(kw in query for kw in L0_AMBIGUOUS_KEYWORDS)
     if has_pure_chat and not has_ambiguous and not _has_substantive_content(query):
@@ -604,6 +608,16 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             service_mode="casual_chat",
             reason="检测到歧义闲聊关键词且无实质性内容",
         )
+    return None
+
+
+# 基于规则快速判定意图层级（LLM 分类失败时的兜底）
+def _rule_based_classify(query: str) -> Optional[IntentResult]:
+    """基于规则判定意图层级。仅用作 LLM 分类失败后的兜底。"""
+    if not query:
+        return None
+
+    # L0 闲聊已由 _check_l0_intent 在前置处理，此处跳过
 
     is_multiple_choice = bool(re.search(r"\([A-D]\)", query) or re.search(r"[（][A-D][）]", query))
     has_l3_keyword = any(kw in query for kw in L3_KEYWORDS)
@@ -682,8 +696,14 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             reason=f"检测到条款编号({clause_id_value})和条款关键词",
         )
 
+    # ========== 渐进式意图层级判定（L1 → L2 → L3 → L4） ==========
+    # 原则：低层级优先，只有明确不满足低层级特征时才进入更高层级
+    
     has_l1_keyword = any(kw in query for kw in L1_KEYWORDS)
-    if has_l1_keyword:
+    has_l4_compound = any(kw in query for kw in L4_COMPOUND_SIGNALS)
+    
+    # L1: 概念/定义/位置类查询（只要检测到L1关键词且没有强L3信号）
+    if has_l1_keyword and not (has_l3_keyword and len(num_values) >= 1):
         if any(kw in query for kw in ["位于", "设置", "位置", "在哪里", "宜设置", "应设置"]):
             return _build_intent_result(
                 intent_level="L1",
@@ -700,23 +720,53 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             reason="检测到概念/定义类关键词",
         )
 
-    if has_l4_keyword:
+    # L3: 计算类查询（优先于L4，工程考试题中"计算"是强信号）
+    # 只要满足以下任一条件即判定为L3：
+    # 1. 有计算关键词 + 参数匹配
+    # 2. 有计算关键词 + 多个数值
+    # 3. 多选题 + 计算关键词
+    if has_l3_keyword:
+        if param_matches:
+            return _build_intent_result(
+                intent_level="L3",
+                intent_type="standard_calculation",
+                parameters={name: float(value) for name, value in param_matches},
+                required_capabilities=["retrieval", "calculation", "sop"],
+                service_mode="standard_sop",
+                reason=f"检测到计算关键词和参数提取({len(param_matches)}个)",
+            )
+        if len(num_values) >= 1:
+            return _build_intent_result(
+                intent_level="L3",
+                intent_type="standard_calculation",
+                parameters={"num_values_count": len(num_values)},
+                required_capabilities=["retrieval", "calculation", "sop"],
+                service_mode="standard_sop",
+                reason=f"检测到计算关键词和{len(num_values)}个数值参数",
+            )
+        # 纯计算关键词（无参数）也走L3，由SOP内部处理
+        return _build_intent_result(
+            intent_level="L3",
+            intent_type="standard_calculation",
+            required_capabilities=["retrieval", "calculation", "sop"],
+            service_mode="standard_sop",
+            reason="检测到计算关键词",
+        )
+
+    # L4: 复杂任务 —— 必须同时满足：
+    # 1. 包含L4关键词（多步骤综合类）
+    # 2. 包含复合信号词（多步骤指示）或题目长度较长（>30字）
+    # 3. 不满足L1/L2/L3的强信号
+    if has_l4_keyword and (has_l4_compound or len(query) > 30):
         return _build_intent_result(
             intent_level="L4",
             intent_type="complex_task",
             required_capabilities=["retrieval", "calculation", "sop", "orchestration"],
             service_mode="dynamic_orchestration",
-            reason="检测到复杂任务关键词",
+            reason="检测到复杂任务关键词及多步骤/长文本特征",
         )
-    if has_l3_keyword:
-        return _build_intent_result(
-            intent_level="L3",
-            intent_type="standard_calculation",
-            parameters={name: float(value) for name, value in param_matches} if param_matches else {},
-            required_capabilities=["retrieval", "calculation", "sop"],
-            service_mode="standard_sop",
-            reason="检测到计算关键词",
-        )
+    
+    # L2: 条款应用（兜底，只要检测到L2关键词）
     if has_l2_keyword:
         clause_id_value = (clause_match.group(1) or clause_match.group(2)) if clause_match else None
         return _build_intent_result(
@@ -764,25 +814,35 @@ class IntentClassifier:
         logger.info(f"[DEBUG-SOP-ROUTE] 用户查询: {user_query[:100]}{'...' if len(user_query) > 100 else ''}")
         logger.info(f"[DEBUG-SOP-ROUTE] 配置: config_name={config_name}, mode={mode}")
 
-        rule_result = _rule_based_classify(user_query)
-        if rule_result:
-            logger.info(f"[DEBUG-SOP-ROUTE] 规则匹配结果: level=L{rule_result.intent_level}, type={rule_result.intent_type}, mode={rule_result.service_mode}, reason={rule_result.reason}")
-            return rule_result
+        # 步骤 1: 规则优先检查 L0（闲聊/问候，规则足够精准）
+        l0_result = _check_l0_intent(user_query)
+        if l0_result:
+            logger.info(f"[DEBUG-SOP-ROUTE] L0 规则命中: reason={l0_result.reason}")
+            return l0_result
 
-        logger.debug("[DEBUG-SOP-ROUTE] 规则未命中，进入 LLM 分类...")
+        # 步骤 2: LLM 直接分类 L1/L2/L3/L4（主力分类器）
+        logger.debug("[DEBUG-SOP-ROUTE] 非L0查询，进入 LLM 主力分类...")
         llm_result = self._llm_classify_intent(user_query, config_name=config_name, mode=mode)
         if llm_result:
             logger.info(f"[DEBUG-SOP-ROUTE] LLM分类结果: level=L{llm_result.intent_level}, type={llm_result.intent_type}, mode={llm_result.service_mode}")
             return llm_result
 
+        # 步骤 3: LLM 分类失败，规则兜底
+        logger.debug("[DEBUG-SOP-ROUTE] LLM分类失败，进入规则兜底...")
+        rule_result = _rule_based_classify(user_query)
+        if rule_result:
+            logger.info(f"[DEBUG-SOP-ROUTE] 规则兜底结果: level=L{rule_result.intent_level}, type={rule_result.intent_type}, mode={rule_result.service_mode}, reason={rule_result.reason}")
+            return rule_result
+
+        # 步骤 4: 最终默认 L1
         fallback_result = _build_intent_result(
             intent_level="L1",
             intent_type="concept_resolution",
             required_capabilities=["retrieval"],
             service_mode="semantic_retrieval",
-            reason="默认降级为L1语义检索",
+            reason="LLM和规则均分类失败，默认降级为L1语义检索",
         )
-        logger.warning(f"[DEBUG-SOP-ROUTE] LLM分类失败，使用降级策略: {fallback_result.reason}")
+        logger.warning(f"[DEBUG-SOP-ROUTE] 最终降级: {fallback_result.reason}")
         return fallback_result
 
     # 调用 LLM 进行意图分类
@@ -792,34 +852,50 @@ class IntentClassifier:
         config_name: str = None,
         mode: str = "instruct",
     ) -> Optional[IntentResult]:
+        """LLM 主力分类器：直接判定 L1/L2/L3/L4，含置信度阈值过滤。"""
         system_prompt = """你是工程规范领域的意图分类器。根据用户问题判断意图层级和服务模式。
 
 ## 意图层级定义
 
 | 层级 | 名称 | 判定特征 | service_mode（必须严格对应） |
 |------|------|----------|------------------------------|
-| L0 | 闲聊寒暄 | 问候、情感表达、日常闲聊、自我介绍请求，与工程规范无关 | casual_chat |
-| L1 | 概念解析 | 问"什么是XX"、"XX的定义/原理"，无具体参数 | semantic_retrieval |
-| L2 | 条款应用 | 问条款取值、规范参数、简单查表，不需要多步计算流程 | sql_first |
-| L3 | 标准计算 | 有具体数值参数需要计算，且存在预定义SOP可承接（如码头水深、航道宽度、顶高程等标准工程计算） | standard_sop |
-| L4 | 复杂任务 | 无预定义SOP可承接的复合任务、综合分析、方案设计 | dynamic_orchestration |
+| L1 | 概念解析 | 问"什么是XX"、"XX的定义/原理"、"简述XX"、"XX的分类"、"XX的作用"，无计算参数 | semantic_retrieval |
+| L2 | 条款应用 | 问条款取值、规范参数、查表取值（如"依据XX规范确定XX"、"查表得XX值"），不涉及多步计算 | sql_first |
+| L3 | 标准计算 | 有具体数值参数需要计算（吨级、水位、波高、尺寸等工程参数），且存在预定义SOP可承接 | standard_sop |
+| L4 | 复杂任务 | 无预定义SOP可承接的复合任务、多方案比较、系统设计分析 | dynamic_orchestration |
 
 ## 关键判断规则
 
-0. 如果用户只是打招呼、闲聊、表达情绪、问你是谁，与工程规范无关 = L0 / casual_chat
-1. 只要题目包含"计算/求/验算"等动词 + 多个工程参数（吨级、水位、波高等），优先判为 L3 / standard_sop
-2. 考试选择题（带选项ABCD）+ 计算类 = L3 / standard_sop
-3. 只有概念问答 = L1 / semantic_retrieval
-4. 只有条款编号或取值查询 = L2 / sql_first
-5. 综合性评价/设计/多步骤复合题 = L4 / dynamic_orchestration
+1. 只要题目包含"计算/求/验算/求解/算出"等动词 + 工程参数（吨级、水位、波高、尺寸等数值），优先判为 L3
+2. 考试选择题（带选项A/B/C/D）+ 含计算意图 = L3
+3. "查表""依据XX规范""取值""应符合XX条" + 无计算 = L2
+4. 纯概念问答（"什么是""简述""原理""分类""作用"）+ 无参数 = L1
+5. 多方案比较/系统设计/综合评价 = L4
 
-输出JSON对象（service_mode 必须从上述五种中选一）：
+## Few-shot 示例
+
+Q: "什么是港口吞吐量？"
+A: {"intent_level": "L1", "intent_type": "概念解析", "confidence": 0.95, "service_mode": "semantic_retrieval", "reason": "纯概念定义查询，无计算参数"}
+
+Q: "依据《海港总体设计规范》确定5万吨级散货船的设计船型尺度"
+A: {"intent_level": "L2", "intent_type": "条款查表", "confidence": 0.90, "service_mode": "sql_first", "reason": "规范条款查表取值，不涉及计算"}
+
+Q: "某5万吨级散货船，设计船型总长L=230m，型宽B=32m，满载吃水T=12.8m，试计算码头前沿水深。"
+A: {"intent_level": "L3", "intent_type": "标准计算", "confidence": 0.92, "service_mode": "standard_sop", "reason": "含具体参数需要码头水深SOP计算"}
+
+Q: "试对某港区进行总体布置方案设计，包括码头选型、泊位数量确定和陆域堆场布局。"
+A: {"intent_level": "L4", "intent_type": "复杂方案设计", "confidence": 0.88, "service_mode": "dynamic_orchestration", "reason": "多步骤综合分析，无单一SOP可承接"}
+
+## 输出格式
+
+输出JSON对象（service_mode 必须从上述四种中选一，confidence 为 0.0-1.0）：
 {
-  "intent_level": "L1",
+  "intent_level": "L3",
   "intent_type": "简短意图标签",
+  "confidence": 0.85,
   "parameters": {"提取的参数": "值"},
   "required_capabilities": ["retrieval"],
-  "service_mode": "semantic_retrieval",
+  "service_mode": "standard_sop",
   "reason": "一句话说明判断依据"
 }"""
         try:
@@ -841,6 +917,14 @@ class IntentClassifier:
             if not parsed:
                 logger.warning(f"[DEBUG-SOP-ROUTE] LLM 意图分类解析失败, 原始文本: {response_text[:100]}")
                 return None
+            # 置信度阈值检查：低置信度时拒绝 LLM 结果，回退到规则
+            confidence = float(parsed.get("confidence", 1.0))
+            if confidence < 0.5:
+                logger.warning(
+                    f"[DEBUG-SOP-ROUTE] LLM 分类置信度过低 ({confidence:.2f})，回退规则兜底: "
+                    f"level={parsed.get('intent_level')}, reason={parsed.get('reason')}"
+                )
+                return None
             result = _build_intent_result(
                 intent_level=parsed.get("intent_level", "L1"),
                 intent_type=parsed.get("intent_type", ""),
@@ -850,7 +934,7 @@ class IntentClassifier:
                 execution_plan=parsed.get("execution_plan"),
                 reason=parsed.get("reason", ""),
             )
-            logger.info(f"[DEBUG-SOP-ROUTE] LLM 意图分类成功: {json.dumps(parsed, ensure_ascii=False)}")
+            logger.info(f"[DEBUG-SOP-ROUTE] LLM 意图分类成功 (confidence={confidence:.2f}): {json.dumps(parsed, ensure_ascii=False)}")
             return result
         except Exception as e:
             logger.warning(f"[DEBUG-SOP-ROUTE] LLM 意图分类异常: {e}")

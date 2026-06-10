@@ -27,6 +27,8 @@
       :delete-key-code="null"
       @node-click="onNodeClick"
       @node-double-click="onNodeDoubleClick"
+      @node-drag-start="onNodeDragStart"
+      @node-drag-stop="$emit('node-drag-stop')"
       @pane-click="focusCanvas"
       @connect="onConnect"
       @edge-update="onEdgeUpdate"
@@ -71,7 +73,59 @@
       />
     </div>
 
-    <div class="sop-flow-toolbar">
+    <div class="sop-flow-toolbar sop-flow-toolbar--top">
+      <a-tooltip v-if="!readOnly" title="撤销">
+        <a-button size="small" :disabled="!canUndo" @click="$emit('undo')">
+          <template #icon><UndoOutlined /></template>
+        </a-button>
+      </a-tooltip>
+      <a-tooltip v-if="!readOnly" title="重做">
+        <a-button size="small" :disabled="!canRedo" @click="$emit('redo')">
+          <template #icon><RedoOutlined /></template>
+        </a-button>
+      </a-tooltip>
+      <a-tooltip v-if="!readOnly" title="添加步骤">
+        <a-button size="small" @click="$emit('add-step')">
+          <template #icon><PlusOutlined /></template>
+        </a-button>
+      </a-tooltip>
+      <a-tooltip v-if="!readOnly" title="删除选中节点">
+        <a-button size="small" :disabled="!selectedStepId" @click="$emit('delete-step', selectedStepId!)">
+          <template #icon><DeleteOutlined /></template>
+        </a-button>
+      </a-tooltip>
+      <a-tooltip v-if="!readOnly" title="保存">
+        <a-button size="small" type="primary" :disabled="!isDirty" @click="$emit('save')">
+          <template #icon><SaveOutlined /></template>
+        </a-button>
+      </a-tooltip>
+    </div>
+
+    <!-- 全局黑板面板 -->
+    <div v-if="blackboardEntries.length" class="sop-blackboard-panel" :class="{ collapsed: blackboardCollapsed }">
+      <div class="blackboard-header" @click="blackboardCollapsed = !blackboardCollapsed">
+        <span class="blackboard-title">全局变量 ({{ blackboardEntries.length }})</span>
+        <component :is="blackboardCollapsed ? RightOutlined : DownOutlined" class="blackboard-toggle" />
+      </div>
+      <div v-if="!blackboardCollapsed" class="blackboard-body">
+        <table class="blackboard-table">
+          <thead>
+            <tr>
+              <th>变量名</th>
+              <th>值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="entry in blackboardEntries" :key="entry.key">
+              <td class="bb-key">{{ entry.key }}</td>
+              <td class="bb-value">{{ entry.displayValue }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sop-flow-toolbar sop-flow-toolbar--bottom">
       <a-tooltip title="适应画布">
         <a-button size="small" @click="fitView">
           <template #icon><CompressOutlined /></template>
@@ -92,22 +146,12 @@
           <template #icon><ApartmentOutlined /></template>
         </a-button>
       </a-tooltip>
-      <a-tooltip v-if="!readOnly" title="添加步骤">
-        <a-button size="small" @click="$emit('add-step')">
-          <template #icon><PlusOutlined /></template>
-        </a-button>
-      </a-tooltip>
-      <a-tooltip v-if="!readOnly" title="保存">
-        <a-button size="small" type="primary" :disabled="!isDirty" @click="$emit('save')">
-          <template #icon><SaveOutlined /></template>
-        </a-button>
-      </a-tooltip>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { markRaw, nextTick, provide, ref, toRef, watch } from 'vue'
+import { computed, markRaw, nextTick, provide, ref, watch } from 'vue'
 import { ConnectionMode, VueFlow, useVueFlow, type Connection } from '@vue-flow/core'
 import '@vue-flow/core/dist/style.css'
 import '@vue-flow/core/dist/theme-default.css'
@@ -119,6 +163,11 @@ import {
   ApartmentOutlined,
   PlusOutlined,
   SaveOutlined,
+  UndoOutlined,
+  RedoOutlined,
+  DeleteOutlined,
+  RightOutlined,
+  DownOutlined,
 } from '@ant-design/icons-vue'
 import SOPStepNode from './SOPStepNode.vue'
 import SOPForkNode from './SOPForkNode.vue'
@@ -128,16 +177,21 @@ const props = defineProps<{
   nodes: any[]
   edges: any[]
   isDirty?: boolean
+  canUndo?: boolean
+  canRedo?: boolean
   themeClass?: string
   readOnly?: boolean
   selectedStepId?: string | null
   dirtyStepIds?: Set<string>
+  blackboard?: Record<string, any> | null
 }>()
 
 const emit = defineEmits<{
   'step-select': [nodeId: string]
   'step-dblclick': [nodeId: string]
   'save': []
+  'undo': []
+  'redo': []
   'dirty-change': [dirty: boolean]
   'add-step': []
   'auto-layout': []
@@ -150,6 +204,8 @@ const emit = defineEmits<{
   'delete-edge': [edgeId: string]
   'select-citation': [binding: CitationBinding]
   'edge-label-change': [{ edgeId: string; label: string }]
+  'node-drag-start': []
+  'node-drag-stop': []
 }>()
 
 // 注入给子边组件使用（Vue Flow 内部渲染的 edge 组件事件不冒泡）
@@ -157,8 +213,6 @@ provide('onDeleteEdge', (edgeId: string) => {
   emit('delete-edge', edgeId)
 })
 
-// 注入脏节点 ID 集合，子节点组件用于显示红点
-provide('dirtyStepIds', toRef(props, 'dirtyStepIds'))
 
 const nodeTypes: Record<string, any> = {
   'sop-step': markRaw(SOPStepNode),
@@ -176,6 +230,17 @@ const editingEdgeId = ref<string | null>(null)
 const editingEdgeLabel = ref('')
 const editingEdgePosition = ref({ x: 0, y: 0 })
 const edgeInputRef = ref<any>(null)
+const blackboardCollapsed = ref(true)
+
+/** 将 blackboard 对象转为扁平的 key-value 列表。 */
+const blackboardEntries = computed(() => {
+  const bb = props.blackboard
+  if (!bb || typeof bb !== 'object') return []
+  return Object.entries(bb).map(([key, value]) => ({
+    key,
+    displayValue: typeof value === 'object' ? JSON.stringify(value, null, 2) : String(value ?? ''),
+  }))
+})
 
 const fitView = () => _fitView({ padding: 0.2 })
 const zoomIn = () => _zoomIn()
@@ -215,6 +280,16 @@ const onNodeDoubleClick = (event: any) => {
   if (event.node) {
     emit('step-dblclick', event.node.id)
   }
+}
+
+/**
+ * 节点拖拽开始时选中该步骤，确保属性面板切换到对应节点。
+ */
+const onNodeDragStart = (event: any) => {
+  if (event.node) {
+    emit('step-select', event.node.id)
+  }
+  emit('node-drag-start')
 }
 
 /**
@@ -322,7 +397,6 @@ const onEdgesChange = (changes: any[]) => {
 
 .sop-flow-toolbar {
   position: absolute;
-  top: 12px;
   right: 12px;
   display: flex;
   gap: 4px;
@@ -332,6 +406,16 @@ const onEdgesChange = (changes: any[]) => {
   background: var(--panel-bg, #fff);
   border: 1px solid var(--border-color, #e8e8e8);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  &--top {
+    top: 12px;
+    flex-direction: row;
+  }
+
+  &--bottom {
+    bottom: 12px;
+    flex-direction: column;
+  }
 }
 
 .edge-inline-edit {
@@ -347,5 +431,90 @@ const onEdgesChange = (changes: any[]) => {
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
   }
+}
+
+.sop-blackboard-panel {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 10;
+  min-width: 200px;
+  max-width: 320px;
+  max-height: 260px;
+  border-radius: 6px;
+  background: var(--panel-bg, #fff);
+  border: 1px solid var(--border-color, #e8e8e8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &.collapsed {
+    max-height: none;
+  }
+}
+
+.blackboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid var(--border-color, #e8e8e8);
+
+  &:hover {
+    background: var(--hover-bg, rgba(0, 0, 0, 0.02));
+  }
+}
+
+.blackboard-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary, #262626);
+}
+
+.blackboard-toggle {
+  font-size: 10px;
+  color: var(--text-secondary, #667085);
+}
+
+.blackboard-body {
+  overflow-y: auto;
+  max-height: 220px;
+}
+
+.blackboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+
+  th {
+    padding: 4px 10px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--text-secondary, #667085);
+    background: var(--hover-bg, rgba(0, 0, 0, 0.02));
+    border-bottom: 1px solid var(--border-color, #e8e8e8);
+  }
+
+  td {
+    padding: 4px 10px;
+    border-bottom: 1px solid var(--border-color, #e8e8e8);
+  }
+}
+
+.bb-key {
+  font-weight: 500;
+  color: var(--text-primary, #262626);
+  white-space: nowrap;
+}
+
+.bb-value {
+  color: var(--text-secondary, #667085);
+  word-break: break-all;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

@@ -24,7 +24,7 @@ services:
     ports:
       - "8789:8789"
     env_file:
-      - /opt/angineer/.env
+      - ../.env
     volumes:
       - ../data:/app/data
       - ../logs:/app/logs

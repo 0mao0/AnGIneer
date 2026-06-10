@@ -135,6 +135,8 @@ export interface EvalRun {
   completed_at?: string | null
   summary_scores?: EvalSummaryScores | null
   details?: EvalRunDetail[]
+  run_name?: string
+  is_full_run?: boolean
 }
 
 /** 评测汇总得分 */
@@ -154,13 +156,28 @@ export interface EvalSummaryScores {
 
 /** 对比结果 */
 export interface EvalCompareResult {
-  run_a: { run_id: string; status: string; summary_scores: EvalSummaryScores }
-  run_b: { run_id: string; status: string; summary_scores: EvalSummaryScores }
+  run_a: {
+    run_id: string
+    status: string
+    summary_scores: EvalSummaryScores
+    total_questions?: number
+    completed_questions?: number
+    details_count?: number
+  }
+  run_b: {
+    run_id: string
+    status: string
+    summary_scores: EvalSummaryScores
+    total_questions?: number
+    completed_questions?: number
+    details_count?: number
+  }
   score_diff: Record<string, number>
   question_changes: Array<{
     question_id: string
     status_a: string
     status_b: string
-    change: 'improved' | 'regressed'
+    consistent: boolean
+    change: 'improved' | 'regressed' | null
   }>
 }

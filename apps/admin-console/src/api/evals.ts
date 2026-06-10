@@ -44,6 +44,9 @@ export const evalsApi = {
   startRun: (datasetId: string) =>
     api.post('/runs', { dataset_id: datasetId }),
 
+  deleteRun: (runId: string) =>
+    api.delete(`/runs/${encodePathSegment(runId)}`),
+
   getRun: (runId: string) => api.get(`/runs/${encodePathSegment(runId)}`),
 
   listRuns: (datasetId?: string) => {
@@ -53,6 +56,9 @@ export const evalsApi = {
 
   compare: (runIdA: string, runIdB: string) =>
     api.get('/compare', { params: { run_id_a: runIdA, run_id_b: runIdB } }),
+
+  analyzeCompare: (runIdA: string, runIdB: string, questionId: string) =>
+    api.post('/compare/analyze', { run_id_a: runIdA, run_id_b: runIdB, question_id: questionId }),
 
   getFolders: () => api.get('/folders'),
 

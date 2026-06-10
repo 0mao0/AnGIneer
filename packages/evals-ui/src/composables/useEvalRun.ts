@@ -74,6 +74,7 @@ export function useEvalRun() {
       })
       if (resp.ok) {
         currentRun.value = await resp.json()
+        runs.value = [currentRun.value, ...runs.value.filter(r => r.run_id !== currentRun.value!.run_id)]
         startPolling(currentRun.value!.run_id)
       }
     } finally {
@@ -126,10 +127,53 @@ export function useEvalRun() {
     }
   }
 
-  /** 获取最近一次已完成的运行记录 */
+  const deleteRun = async (runId: string, datasetId?: string) => {
+    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}`, { method: 'DELETE' })
+    if (!resp.ok) {
+      const errText = await resp.text().catch(() => '')
+      throw new Error(errText || '删除失败')
+    }
+    // 如果删除的是当前选中的运行，清除相关状态
+    if (lastRun.value?.run_id === runId) {
+      lastRun.value = null
+      runDetails.value = new Map()
+    }
+    if (currentRun.value?.run_id === runId) {
+      stopPolling()
+      currentRun.value = null
+    }
+    // 刷新运行列表
+    const dsId = datasetId || currentRun.value?.dataset_id || lastRun.value?.dataset_id
+    await fetchRuns(dsId)
+  }
+
+  /** 获取最近一次已完成的运行记录，同时检测运行中任务并恢复轮询 */
   const fetchLastRun = async (datasetId: string) => {
     await fetchRuns(datasetId)
-    const finishedRuns = runs.value.filter(r => r.status === 'completed' || r.status === 'failed' || r.status === 'cancelled')
+
+    // 优先检测运行中的任务，恢复轮询
+    const runningRun = runs.value.find(r => r.status === 'running')
+    if (runningRun) {
+      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runningRun.run_id)}`)
+      if (resp.ok) {
+        currentRun.value = await resp.json()
+        isFullRun.value = runningRun.is_full_run ?? true
+        if (currentRun.value?.details) {
+          const map = new Map<string, EvalRunDetail>()
+          for (const d of currentRun.value.details) {
+            map.set(d.question_id, d)
+          }
+          runDetails.value = map
+        }
+        startPolling(runningRun.run_id)
+      }
+    }
+
+    // 加载最近的已完成整体运行作为 lastRun
+    const finishedRuns = runs.value.filter(
+      r => r.run_id !== runningRun?.run_id &&
+        (r.status === 'completed' || r.status === 'failed' || r.status === 'cancelled')
+    )
     if (finishedRuns.length > 0) {
       const latest = finishedRuns.reduce((a, b) =>
         new Date(a.completed_at || a.started_at) > new Date(b.completed_at || b.started_at) ? a : b
@@ -137,21 +181,43 @@ export function useEvalRun() {
       const resp = await fetch(`/api/evals/runs/${encodePathSegment(latest.run_id)}`)
       if (resp.ok) {
         lastRun.value = await resp.json()
-        if (lastRun.value?.details) {
-          const map = new Map<string, EvalRunDetail>()
-          for (const d of lastRun.value.details) {
-            map.set(d.question_id, d)
+        // 如果没有运行中的任务，才从 lastRun 加载 runDetails
+        if (!runningRun) {
+          if (lastRun.value?.details) {
+            const map = new Map<string, EvalRunDetail>()
+            for (const d of lastRun.value.details) {
+              map.set(d.question_id, d)
+            }
+            runDetails.value = map
+          } else {
+            runDetails.value = new Map()
           }
-          runDetails.value = map
-        } else {
-          runDetails.value = new Map()
         }
+      }
+    } else if (!runningRun) {
+      lastRun.value = null
+      runDetails.value = new Map()
+    }
+  }
+
+  /** 加载指定历史运行的完整详情用于展示 */
+  const selectHistoricalRun = async (runId: string) => {
+    stopPolling()
+    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}`)
+    if (resp.ok) {
+      const run: EvalRun = await resp.json()
+      lastRun.value = run
+      currentRun.value = null
+      isFullRun.value = true
+      if (run.details) {
+        const map = new Map<string, EvalRunDetail>()
+        for (const d of run.details) {
+          map.set(d.question_id, d)
+        }
+        runDetails.value = map
       } else {
         runDetails.value = new Map()
       }
-    } else {
-      lastRun.value = null
-      runDetails.value = new Map()
     }
   }
 
@@ -234,8 +300,10 @@ export function useEvalRun() {
     fetchRuns,
     fetchLastRun,
     evaluateQuestion,
+    selectHistoricalRun,
     startPolling,
     stopPolling,
     stopRun,
+    deleteRun,
   }
 }

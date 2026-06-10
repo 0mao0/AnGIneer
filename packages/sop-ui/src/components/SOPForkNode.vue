@@ -10,6 +10,7 @@
   >
     <span v-if="isDirty" class="node-dirty-dot" />
     <Handle id="top" type="target" :position="Position.Top" class="handle handle-top" />
+    <Handle id="failure" type="source" :position="Position.Right" class="handle handle-failure" />
     <button
       v-if="deletable && (hovered || selected)"
       type="button"
@@ -44,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, type Ref } from 'vue'
+import { computed, ref } from 'vue'
 import { Handle, Position } from '@vue-flow/core'
 import { DeleteOutlined, BranchesOutlined } from '@ant-design/icons-vue'
 import type { SopStep } from '../types/sop'
@@ -62,8 +63,7 @@ const emit = defineEmits<{
 
 const hovered = ref(false)
 
-const dirtyStepIds = inject<Ref<Set<string> | undefined>>('dirtyStepIds', ref(new Set()))
-const isDirty = computed(() => dirtyStepIds.value?.has(props.id) ?? false)
+const isDirty = computed(() => props.data.dirty ?? false)
 
 const branchEdges = computed(() => {
   return (props.data as any)?.branchEdges as Array<{
@@ -210,5 +210,13 @@ const branchHandleStyle = (idx: number, total: number): Record<string, string> =
 
 .handle-branch {
   transform: translate(-50%, 7px);
+}
+
+.handle-failure {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 77, 79, 0.12);
+  border-color: rgba(255, 77, 79, 0.5);
+  transform: translate(8px, 0);
 }
 </style>

@@ -253,7 +253,7 @@ class SopLoader:
 
         return sop
 
-    def analyze_sop(self, sop_id: str, config_name: str = "Qwen3-4B (Public)", mode: str = "instruct", save_to_json: bool = False, prefer_llm: bool = True, force_refresh: bool = False) -> SOP:
+    def analyze_sop(self, sop_id: str, config_name: str = None, mode: str = "instruct", save_to_json: bool = False, prefer_llm: bool = True, force_refresh: bool = False) -> SOP:
         """获取 SOP 的详细执行步骤。
 
         策略：
@@ -357,7 +357,7 @@ class SopLoader:
 
         return sop
 
-    def preparse_all(self, config_name: str = "Qwen3-4B (Public)", mode: str = "instruct", force: bool = False) -> Dict[str, object]:
+    def preparse_all(self, config_name: str = None, mode: str = "instruct", force: bool = False) -> Dict[str, object]:
         """批量预解析所有 SOP 并输出到 json/。"""
         sops = self.load_all()
         results = {"total": len(sops), "success": 0, "failed": 0, "items": []}
@@ -382,7 +382,7 @@ class SopLoader:
 def _run_preparse_from_cli():
     """从命令行触发 SOP 预解析。"""
     sop_base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "sops"))
-    config_name = "Qwen3-4B (Public)"
+    config_name = None
     mode = "instruct"
     sop_id = None
     force = False

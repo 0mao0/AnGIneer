@@ -119,7 +119,7 @@ def _llm_semantic_evaluate(
     try:
         _t_start = _time.time()
         client = get_llm_client()
-        raw_response = client.chat(messages, mode="instruct", config_name="Qwen3.6-35B-A3B (Private)")
+        raw_response = client.chat(messages, mode="instruct", config_name=None)
         eval_duration = round(_time.time() - _t_start, 2)
         parsed = extract_json_from_text(raw_response)
         score = float(parsed.get("score", 0.0))

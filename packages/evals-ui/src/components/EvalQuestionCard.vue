@@ -223,51 +223,180 @@
             </template>
 
             <template v-else-if="stage.detailType === 'steps'">
-              <div v-if="sopTraceSteps.length" class="eval-flow-steps">
-                <div
-                  v-for="step in sopTraceSteps"
-                  :key="step.step_id"
-                  class="eval-flow-step-card"
-                  :class="{
-                    'eval-flow-step-card--success': step.status === 'success',
-                    'eval-flow-step-card--error': isErrorStatus(step.status),
-                  }"
-                >
-                  <div class="eval-flow-step-card__header">
-                    <span class="eval-flow-step-card__index">{{ step.step_index }}</span>
-                    <span class="eval-flow-step-card__name">{{ step.step_name }}</span>
-                    <span v-if="step.tool" class="eval-flow-step-card__tool">{{ step.tool }}</span>
-                    <a-tag v-if="step.duration" color="processing" class="eval-flow-step-card__duration">
-                      {{ step.duration.toFixed(2) }}s
-                    </a-tag>
-                    <a-button
-                      type="link"
-                      size="small"
-                      @click.stop="toggleStep(`flow-step-${step.step_id}`)"
+              <div v-if="sopTraceSteps.length" class="eval-flow-chart-layout">
+                <!-- 左侧：流程图 -->
+                <div class="eval-flow-chart">
+                  <svg
+                    :width="FLOW_CHART_W"
+                    :height="flowChartHeight"
+                    class="eval-flow-chart__svg"
+                  >
+                    <defs>
+                      <marker :id="'flow-arrow-' + question.question_id" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                        <polygon points="0 0, 8 3, 0 6" :fill="flowLineColor" />
+                      </marker>
+                    </defs>
+                    <template v-for="(step, idx) in sopTraceSteps" :key="step.step_id">
+                      <!-- 连线（非首节点） -->
+                      <line
+                        v-if="idx > 0"
+                        :x1="FLOW_CHART_W / 2"
+                        :y1="flowNodeY(idx - 1) + FLOW_NODE_H"
+                        :x2="FLOW_CHART_W / 2"
+                        :y2="flowNodeY(idx)"
+                        :stroke="flowLineColor"
+                        stroke-width="1.5"
+                        :marker-end="'url(#flow-arrow-' + question.question_id + ')'"
+                      />
+                      <!-- 节点矩形 -->
+                      <rect
+                        :x="(FLOW_CHART_W - FLOW_NODE_W) / 2"
+                        :y="flowNodeY(idx)"
+                        :width="FLOW_NODE_W"
+                        :height="FLOW_NODE_H"
+                        rx="6"
+                        :fill="flowStepColor(step.status).fill"
+                        :stroke="selectedStepId === step.step_id ? flowStepColor(step.status).border : flowStepColor(step.status).border"
+                        :stroke-width="selectedStepId === step.step_id ? 2.5 : 1.5"
+                        class="eval-flow-chart-node"
+                        @click="onFlowNodeClick(step.step_id)"
+                      />
+                      <!-- 序号圆点 -->
+                      <circle
+                        :cx="(FLOW_CHART_W - FLOW_NODE_W) / 2 + 16"
+                        :cy="flowNodeY(idx) + FLOW_NODE_H / 2"
+                        r="10"
+                        :fill="flowStepColor(step.status).dot"
+                        class="eval-flow-chart-node"
+                        @click="onFlowNodeClick(step.step_id)"
+                      />
+                      <text
+                        :x="(FLOW_CHART_W - FLOW_NODE_W) / 2 + 16"
+                        :y="flowNodeY(idx) + FLOW_NODE_H / 2 + 1"
+                        text-anchor="middle"
+                        dominant-baseline="middle"
+                        fill="#fff"
+                        font-size="11"
+                        font-weight="600"
+                        class="eval-flow-chart-node"
+                        @click="onFlowNodeClick(step.step_id)"
+                      >{{ step.step_index }}</text>
+                      <!-- 步骤名称 -->
+                      <text
+                        :x="(FLOW_CHART_W - FLOW_NODE_W) / 2 + 32"
+                        :y="flowNodeY(idx) + 22"
+                        :fill="flowStepTextColor"
+                        font-size="12"
+                        font-weight="500"
+                        class="eval-flow-chart-node"
+                        @click="onFlowNodeClick(step.step_id)"
+                      >{{ step.step_name.length > 14 ? step.step_name.slice(0, 13) + '…' : step.step_name }}</text>
+                      <!-- 工具名 -->
+                      <text
+                        v-if="step.tool"
+                        :x="(FLOW_CHART_W - FLOW_NODE_W) / 2 + 32"
+                        :y="flowNodeY(idx) + 42"
+                        :fill="flowStepColor(step.status).border"
+                        font-size="10"
+                        class="eval-flow-chart-node"
+                        @click="onFlowNodeClick(step.step_id)"
+                      >{{ step.tool }}</text>
+                    </template>
+                  </svg>
+                </div>
+                <!-- 右侧：详情面板 -->
+                <div class="eval-flow-chart-detail">
+                  <template v-if="selectedStep">
+                    <div class="eval-flow-chart-detail__header">
+                      <span class="eval-flow-step-card__index">{{ selectedStep.step_index }}</span>
+                      <span class="eval-flow-step-card__name">{{ selectedStep.step_name }}</span>
+                      <span v-if="selectedStep.tool" class="eval-flow-step-card__tool">{{ selectedStep.tool }}</span>
+                      <a-tag v-if="selectedStep.duration" color="processing" class="eval-flow-step-card__duration">
+                        {{ selectedStep.duration.toFixed(2) }}s
+                      </a-tag>
+                      <a-tag
+                        :color="selectedStep.status === 'success' ? 'success' : selectedStep.status === 'error' ? 'error' : 'default'"
+                      >{{ selectedStep.status }}</a-tag>
+                    </div>
+                    <div v-if="selectedStep.description" class="eval-flow-chart-detail__desc">
+                      <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(selectedStep.description)" />
+                    </div>
+                    <div
+                      v-if="selectedStep.error"
+                      class="eval-flow-step-card__error"
                     >
-                      {{ isExpanded(`flow-step-${step.step_id}`) ? '收起' : '详情' }}
-                    </a-button>
-                  </div>
-                  <div v-if="step.description" class="eval-flow-step-card__desc">{{ step.description }}</div>
-                  <div
-                    v-if="step.error"
-                    class="eval-flow-step-card__error"
-                  >
-                    {{ step.error }}
-                  </div>
-                  <div
-                    v-if="isExpanded(`flow-step-${step.step_id}`)"
-                    class="eval-flow-step-card__detail"
-                  >
-                    <div class="eval-prompt-block">
-                      <div class="eval-prompt-label">输入:</div>
-                      <div class="eval-prompt-text">{{ formatOutputVal(step.inputs) }}</div>
+                      {{ selectedStep.error }}
                     </div>
-                    <div class="eval-prompt-block">
-                      <div class="eval-prompt-label">输出:</div>
-                      <div class="eval-prompt-text">{{ formatOutputVal(step.outputs) }}</div>
+                    <!-- 思考过程 -->
+                    <div v-if="selectedStep.thinking" class="eval-prompt-block">
+                      <div class="eval-prompt-label">思考过程:</div>
+                      <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(selectedStep.thinking)" />
                     </div>
-                  </div>
+                    <!-- 证据 -->
+                    <div v-if="selectedStep.evidence && Object.keys(selectedStep.evidence).length" class="eval-prompt-block">
+                      <div class="eval-prompt-label">证据:</div>
+                      <table v-if="isTableLike(selectedStep.evidence)" class="eval-known-params-table">
+                        <thead><tr><th>来源</th><th>内容</th></tr></thead>
+                        <tbody>
+                          <tr v-for="(val, key) in selectedStep.evidence" :key="key">
+                            <td>{{ key }}</td>
+                            <td>{{ val }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div v-else class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(selectedStep.evidence)" />
+                    </div>
+                    <!-- 输入 -->
+                    <div class="eval-prompt-block">
+                      <div class="eval-prompt-label">
+                        输入:
+                        <a-button type="link" size="small" @click.stop="copyToClipboard(formatOutputVal(selectedStep.inputs))">复制</a-button>
+                      </div>
+                      <table v-if="isTableLike(selectedStep.inputs)" class="eval-known-params-table">
+                        <thead><tr><th>参数</th><th>值</th></tr></thead>
+                        <tbody>
+                          <tr v-for="(val, key) in selectedStep.inputs" :key="key">
+                            <td class="eval-param-key">{{ key }}</td>
+                            <td><span v-html="renderFieldValue(val)" /></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div v-else-if="selectedStep.inputs && typeof selectedStep.inputs === 'object' && !Array.isArray(selectedStep.inputs)" class="eval-field-list">
+                        <div v-for="(val, key) in selectedStep.inputs" :key="key" class="eval-field-item">
+                          <span class="eval-field-key">{{ key }}</span>
+                          <span v-if="val === null || val === undefined || typeof val === 'string' || typeof val === 'number' || typeof val === 'boolean'" v-html="renderFieldValue(val)" />
+                          <pre v-else class="eval-field-json">{{ JSON.stringify(val, null, 2) }}</pre>
+                        </div>
+                      </div>
+                      <div v-else class="eval-prompt-text">{{ formatOutputVal(selectedStep.inputs) }}</div>
+                    </div>
+                    <!-- 输出 -->
+                    <div class="eval-prompt-block">
+                      <div class="eval-prompt-label">
+                        输出:
+                        <a-button type="link" size="small" @click.stop="copyToClipboard(formatOutputVal(selectedStep.outputs))">复制</a-button>
+                      </div>
+                      <table v-if="isTableLike(selectedStep.outputs)" class="eval-known-params-table">
+                        <thead><tr><th>字段</th><th>值</th></tr></thead>
+                        <tbody>
+                          <tr v-for="(val, key) in selectedStep.outputs!" :key="key">
+                            <td class="eval-param-key">{{ key }}</td>
+                            <td><span v-html="renderFieldValue(val)" /></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div v-else-if="selectedStep.outputs && typeof selectedStep.outputs === 'object' && !Array.isArray(selectedStep.outputs)" class="eval-field-list">
+                        <div v-for="(val, key) in selectedStep.outputs!" :key="key" class="eval-field-item">
+                          <span class="eval-field-key">{{ key }}</span>
+                          <span v-if="val === null || val === undefined || typeof val === 'string' || typeof val === 'number' || typeof val === 'boolean'" v-html="renderFieldValue(val)" />
+                          <pre v-else class="eval-field-json">{{ JSON.stringify(val, null, 2) }}</pre>
+                        </div>
+                      </div>
+                      <div v-else-if="typeof selectedStep.outputs === 'string'" class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(selectedStep.outputs)" />
+                      <div v-else class="eval-prompt-text">{{ formatOutputVal(selectedStep.outputs) }}</div>
+                    </div>
+                  </template>
+                  <div v-else class="eval-detail-empty">点击流程图节点查看详情</div>
                 </div>
               </div>
               <div v-else-if="attemptedPaths.length" class="eval-flow-steps">
@@ -295,6 +424,10 @@
             </template>
 
             <template v-else-if="stage.detailType === 'answer'">
+              <div v-if="prediction?.thinking" class="eval-thinking-block">
+                <div class="eval-prompt-label">思考过程:</div>
+                <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(prediction.thinking)" />
+              </div>
               <div v-if="answerHeadline" class="eval-answer-summary">
                 {{ answerHeadline }}
               </div>
@@ -317,7 +450,7 @@
                   </div>
                   <div
                     class="eval-citation-content"
-                    v-html="renderRichText(String(c.content || c.snippet || '—').slice(0, 300))"
+                    v-html="renderRichText(String(c.content || c.snippet || '—').slice(0, 2000))"
                   />
                 </div>
               </div>
@@ -393,6 +526,10 @@
               </div>
             </template>
             <template v-else>
+              <div v-if="prediction?.thinking" class="eval-thinking-block">
+                <div class="eval-prompt-label">思考过程:</div>
+                <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(prediction.thinking)" />
+              </div>
               <div v-if="answerHeadline" class="eval-answer-summary">
                 {{ answerHeadline }}
               </div>
@@ -482,7 +619,7 @@
                 <div
                   v-if="c.content || c.snippet"
                   class="eval-citation-content"
-                  v-html="renderRichText(String(c.content || c.snippet).slice(0, 300))"
+                  v-html="renderRichText(String(c.content || c.snippet).slice(0, 2000))"
                 />
               </div>
               <div v-if="!citations.length" class="eval-detail-empty">无检索结果</div>
@@ -645,6 +782,7 @@ import { computed, ref, watch } from 'vue'
 import { message } from 'ant-design-vue'
 import { RightOutlined } from '@ant-design/icons-vue'
 import { renderMarkdownToHtml } from '@angineer/ui-kit/utils/markdown'
+import { useTheme } from '@angineer/ui-kit'
 import EvalLevelBadge from './EvalLevelBadge.vue'
 import type { EvalQuestion, EvalRunDetail, SemanticEvalResult, EvalIntentLevel } from '../types/eval'
 
@@ -680,6 +818,30 @@ interface SopTraceStep {
   duration: number
   status: string
   error: string | null
+  thinking?: string | null
+  evidence?: Record<string, unknown> | null
+}
+
+/** 判断值是否可渲染为紧凑表格（简单 key-value 对象，所有值均为原始类型） */
+function isTableLike(val: unknown): val is Record<string, unknown> {
+  if (!val || typeof val !== 'object' || Array.isArray(val)) return false
+  const keys = Object.keys(val)
+  return keys.length > 0 && keys.every(k => {
+    const v = (val as Record<string, unknown>)[k]
+    return v === null || v === undefined || typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean'
+  })
+}
+
+/** 渲染单个值：字符串用富文本，对象/数组用格式化文本 */
+function renderFieldValue(val: unknown): string {
+  if (val === null || val === undefined) return '—'
+  if (typeof val === 'string') return renderMarkdownToHtml(val, '')
+  if (typeof val === 'object') return '<pre style="margin:0;font-size:11px;white-space:pre-wrap">' + escapeHtml(JSON.stringify(val, null, 2)) + '</pre>'
+  return escapeHtml(String(val))
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 }
 
 interface RouteCandidate {
@@ -721,6 +883,8 @@ const emit = defineEmits<{
 }>()
 
 const expandedSteps = ref<Set<string>>(new Set())
+const selectedStepId = ref<string | null>(null)
+const { isDark } = useTheme()
 const editing = ref(false)
 const editText = ref('')
 const editLevel = ref<EvalIntentLevel>(props.question.intent_level)
@@ -1107,7 +1271,70 @@ const realSopTraceSteps = computed(() => {
   return sopTraceSteps.value.filter(step => step.step_index > 0)
 })
 
-/** 当 SOP 步骤逐个到达时，自动展开"步骤推进"详情面板。 */
+// ---- 流程图 SVG 参数 ----
+const FLOW_NODE_W = 220
+const FLOW_NODE_H = 60
+const FLOW_NODE_GAP = 16
+const FLOW_CHART_W = 240
+
+const flowChartHeight = computed(() => {
+  const n = sopTraceSteps.value.length
+  return n > 0 ? n * (FLOW_NODE_H + FLOW_NODE_GAP) : 0
+})
+
+const selectedStep = computed(() => {
+  if (!selectedStepId.value) return null
+  return sopTraceSteps.value.find(s => s.step_id === selectedStepId.value) || null
+})
+
+const flowStepColor = (status: string): { border: string; fill: string; dot: string } => {
+  const dark = isDark.value
+  switch (status) {
+    case 'success': return {
+      border: dark ? '#49aa19' : '#52c41a',
+      fill: dark ? '#162312' : '#f6ffed',
+      dot: dark ? '#49aa19' : '#52c41a',
+    }
+    case 'error': return {
+      border: dark ? '#e84749' : '#ff4d4f',
+      fill: dark ? '#2a1215' : '#fff2f0',
+      dot: dark ? '#e84749' : '#ff4d4f',
+    }
+    case 'running': return {
+      border: dark ? '#177ddc' : '#1890ff',
+      fill: dark ? '#111d2c' : '#e6f7ff',
+      dot: dark ? '#177ddc' : '#1890ff',
+    }
+    default: return {
+      border: dark ? '#434343' : '#d9d9d9',
+      fill: dark ? '#262626' : '#fafafa',
+      dot: dark ? '#595959' : '#bfbfbf',
+    }
+  }
+}
+
+const flowStepTextColor = computed(() => isDark.value ? 'rgba(255,255,255,0.85)' : '#262626')
+const flowLineColor = computed(() => isDark.value ? '#434343' : '#bfbfbf')
+
+/** 流程图节点 Y 坐标 */
+const flowNodeY = (idx: number): number => idx * (FLOW_NODE_H + FLOW_NODE_GAP)
+
+const onFlowNodeClick = (stepId: string) => {
+  selectedStepId.value = stepId
+}
+
+/** 初始化默认选中第一步实际步骤 */
+const initFlowSelection = () => {
+  const real = realSopTraceSteps.value
+  if (real.length > 0) {
+    selectedStepId.value = real[0].step_id
+  } else if (sopTraceSteps.value.length > 0) {
+    selectedStepId.value = sopTraceSteps.value[0].step_id
+  }
+}
+
+
+/** 当 SOP 步骤逐个到达时，自动展开"步骤推进"详情面板，并初始化流程图选中。 */
 watch(() => prediction.value?.sop_trace as SopTraceStep[] | undefined, (trace) => {
   const steps = (trace || []).filter((s: SopTraceStep) => s.step_index > 0)
   if (steps.length === 0) {
@@ -1119,10 +1346,20 @@ watch(() => prediction.value?.sop_trace as SopTraceStep[] | undefined, (trace) =
     const next = new Set(expandedSteps.value)
     next.add('flow-steps')
     expandedSteps.value = next
+    if (!selectedStepId.value || !steps.find(s => s.step_id === selectedStepId.value)) {
+      initFlowSelection()
+    }
     return
   }
   prevStepCount.value = steps.length
 }, { deep: true })
+
+/** 当用户展开"路径推进"面板时，若流程图未选中则自动初始化。 */
+watch(() => expandedSteps.value.has('flow-steps'), (isOpen) => {
+  if (isOpen && !selectedStepId.value && sopTraceSteps.value.length > 0) {
+    initFlowSelection()
+  }
+})
 
 const routeCandidates = computed<RouteCandidate[]>(() => {
   const candidates = routeDebug.value.candidates
@@ -1154,7 +1391,16 @@ const answerText = computed(() => String(prediction.value?.answer || ''))
 const formatOutputVal = (val: unknown): string => {
   if (val === null || val === undefined) return '—'
   const str = typeof val === 'object' ? JSON.stringify(val, null, 2) : String(val)
-  return str.length > 200 ? str.slice(0, 200) + '…' : str
+  return str.length > 2000 ? str.slice(0, 2000) + '\n\n[内容过长，已截断前2000字符。完整内容可通过导出查看]' : str
+}
+
+const copyToClipboard = async (text: string) => {
+  try {
+    await navigator.clipboard.writeText(text)
+    message.success('已复制到剪贴板')
+  } catch {
+    message.error('复制失败')
+  }
 }
 
 /** 将 markdown/公式文本渲染为可读 HTML。 */
@@ -1537,6 +1783,14 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     user-select: text;
   }
 
+  &__text:hover {
+    white-space: normal;
+    overflow: visible;
+    background: var(--bg-secondary);
+    z-index: 10;
+    position: relative;
+  }
+
   &__edit-form {
     display: flex;
     flex-direction: column;
@@ -1870,7 +2124,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   &__output-val {
     color: var(--text-primary, rgba(0, 0, 0, 0.88));
     word-break: break-all;
-    max-height: 60px;
+    max-height: 200px;
     overflow-y: auto;
   }
 
@@ -1998,7 +2252,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   :deep(th),
   :deep(td) {
     padding: 6px 8px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #c0c0c0;
     text-align: left;
     vertical-align: top;
   }
@@ -2012,6 +2266,122 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     overflow-x: auto;
     overflow-y: hidden;
   }
+}
+
+.eval-flow-chart-layout {
+  display: flex;
+  gap: 16px;
+  min-height: 300px;
+}
+
+.eval-flow-chart {
+  flex: 0 0 240px;
+  overflow-y: auto;
+  max-height: 520px;
+  padding-right: 4px;
+
+  &__svg {
+    display: block;
+  }
+}
+
+.eval-flow-chart-node {
+  cursor: pointer;
+  transition: stroke-width 0.15s ease;
+
+  &:hover {
+    filter: brightness(0.96);
+  }
+}
+
+.eval-flow-chart-detail {
+  flex: 1;
+  min-width: 0;
+  padding-left: 16px;
+  border-left: 1px solid var(--border-color);
+  overflow-y: auto;
+  max-height: 520px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  &__desc {
+    margin-bottom: 8px;
+    color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 6px 8px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+  }
+}
+
+.eval-known-params-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 4px;
+
+  th, td {
+    padding: 5px 8px;
+    border: 1px solid #c0c0c0;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--bg-tertiary);
+    font-weight: 600;
+    color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+    white-space: nowrap;
+  }
+
+  .eval-param-key {
+    white-space: nowrap;
+    font-weight: 500;
+    color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+    width: 30%;
+  }
+}
+
+.eval-field-item {
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.eval-field-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.eval-field-key {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+  margin-right: 8px;
+  min-width: 80px;
+  white-space: nowrap;
+}
+
+.eval-field-json {
+  margin: 4px 0 0 0;
+  padding: 4px 8px;
+  font-size: 11px;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .eval-flow-steps {
@@ -2152,7 +2522,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   font-size: 13px;
   margin-top: 4px;
   line-height: 1.5;
-  max-height: 80px;
+  max-height: 300px;
   overflow-y: auto;
 }
 
@@ -2173,7 +2543,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   padding: 6px 8px;
   background: var(--bg-tertiary);
   border-radius: 4px;
-  max-height: 150px;
+  max-height: 400px;
   overflow-y: auto;
 }
 
@@ -2196,7 +2566,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   padding: 6px 8px;
   background: var(--bg-tertiary);
   border-radius: 4px;
-  max-height: 200px;
+  max-height: 400px;
   overflow-y: auto;
   white-space: pre-wrap;
 }
@@ -2361,7 +2731,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     padding: 8px;
     background: var(--bg-tertiary);
     border-radius: 4px;
-    max-height: 200px;
+    max-height: 400px;
     overflow-y: auto;
   }
 }
@@ -2372,7 +2742,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   padding: 8px;
   background: var(--bg-tertiary);
   border-radius: 4px;
-  max-height: 200px;
+  max-height: 400px;
   overflow-y: auto;
   white-space: pre-wrap;
 }

@@ -12,12 +12,13 @@
     @mouseenter="hovered = true"
     @mouseleave="hovered = false"
   />
-  <EdgeLabelRenderer v-if="label">
+  <EdgeLabelRenderer v-if="label || isFailure">
     <div
       :style="labelStyle"
       class="sop-edge-label"
+      :class="{ 'failure-label': isFailure }"
     >
-      {{ label }}
+      {{ isFailure && !label ? '失败' : label }}
     </div>
   </EdgeLabelRenderer>
   <!-- hover 时显示删除按钮 -->
@@ -44,6 +45,11 @@ const props = defineProps<EdgeProps>()
 const onDeleteEdge = inject<(edgeId: string) => void>('onDeleteEdge', () => {})
 
 const hovered = ref(false)
+
+const isFailure = computed(() => {
+  const d = props.data as { isFailure?: boolean } | undefined
+  return !!d?.isFailure
+})
 
 const label = computed(() => {
   const d = props.data as { label?: string } | undefined
@@ -80,12 +86,21 @@ const deleteBtnStyle = computed(() => ({
   pointerEvents: 'auto' as const,
 }))
 
-const edgeStyle = computed(() => ({
-  stroke: hovered.value || props.selected
-    ? 'var(--primary-color, #1890ff)'
-    : 'var(--text-secondary, #667085)',
-  strokeWidth: hovered.value || props.selected ? 2.75 : 2,
-}))
+const edgeStyle = computed(() => {
+  if (isFailure.value) {
+    return {
+      stroke: hovered.value || props.selected ? '#ff7875' : '#ff4d4f',
+      strokeWidth: hovered.value || props.selected ? 2.75 : 2,
+      strokeDasharray: '6 3',
+    }
+  }
+  return {
+    stroke: hovered.value || props.selected
+      ? 'var(--primary-color, #1890ff)'
+      : 'var(--text-secondary, #667085)',
+    strokeWidth: hovered.value || props.selected ? 2.75 : 2,
+  }
+})
 </script>
 
 <style lang="less" scoped>
@@ -103,6 +118,12 @@ const edgeStyle = computed(() => ({
   padding: 2px 8px;
   white-space: nowrap;
   user-select: none;
+
+  &.failure-label {
+    color: #cf1322;
+    background: rgba(255, 77, 79, 0.08);
+    border-color: rgba(255, 77, 79, 0.35);
+  }
 }
 
 .sop-edge-delete-btn {

@@ -1,6 +1,8 @@
 """评测套件编排 + 异步任务管理。"""
+import os
 import threading
 import time
+from datetime import datetime
 from typing import Any, Callable, Dict, List, Optional
 
 from evals_core.runner import base as evaluator_base
@@ -17,6 +19,14 @@ PASSED_THRESHOLD = 0.8
 _eval_lock = threading.RLock()
 _current_run_id: Optional[str] = None
 _stop_event: Optional[threading.Event] = None
+
+
+def _generate_run_name() -> str:
+    """生成运行名称，格式: {模型名}_{MMDD-HHmm}。"""
+    model_name = os.getenv("ANGINEER_DEFAULT_MODEL", "eval")
+    now = datetime.now()
+    timestamp = now.strftime("%m%d-%H%M")
+    return f"{model_name}_{timestamp}"
 
 
 def stop_eval_run(run_id: str) -> bool:
@@ -162,8 +172,7 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     wrong = sum(1 for d in details if d.get("quality") == "wrong")
     skipped = sum(1 for d in details if d.get("status") == "completed" and d.get("quality") is None)
     errored = sum(1 for d in details if d.get("status") == "error")
-    evaluated_total = total - skipped - errored
-    overall_score = round(correct / evaluated_total, 4) if evaluated_total else 0.0
+    overall_score = round(correct / total, 4) if total else 0.0
     retrieval_scores = []
     answer_scores = []
     sql_scores = []
@@ -285,6 +294,7 @@ def _run_suite_thread(
         _stop_event = None
         _eval_lock.release()
         result_store.cleanup_old_runs(dataset_id, keep=3)
+        result_store.cleanup_individual_runs(dataset_id)
 
 
 def start_eval_run(
@@ -305,7 +315,9 @@ def start_eval_run(
     else:
         questions = all_questions
 
-    run_data = result_store.create_run(dataset_id, len(questions))
+    is_full_run = question_id is None
+    run_name = _generate_run_name() if is_full_run else ""
+    run_data = result_store.create_run(dataset_id, len(questions), run_name=run_name, is_full_run=is_full_run)
     run_id = run_data["run_id"]
     thread = threading.Thread(
         target=_run_suite_thread,
@@ -340,6 +352,11 @@ def list_eval_runs(dataset_id: Optional[str] = None) -> List[Dict[str, Any]]:
     return result_store.list_runs(dataset_id)
 
 
+def delete_eval_run(run_id: str) -> bool:
+    """删除指定评测运行。"""
+    return result_store.delete_run(run_id)
+
+
 def compare_runs(run_id_a: str, run_id_b: str) -> Optional[Dict[str, Any]]:
     """对比两次运行结果。"""
     run_a = get_eval_run(run_id_a)
@@ -355,6 +372,12 @@ def compare_runs(run_id_a: str, run_id_b: str) -> Optional[Dict[str, Any]]:
         score_diff[key] = round(val_b - val_a, 4)
     details_a = {d["question_id"]: d for d in run_a.get("details", [])}
     details_b = {d["question_id"]: d for d in run_b.get("details", [])}
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(
+        f"对比运行: A={run_id_a} (details={len(details_a)}, total={run_a.get('total_questions')}), "
+        f"B={run_id_b} (details={len(details_b)}, total={run_b.get('total_questions')})"
+    )
     question_changes = []
     all_ids = set(list(details_a.keys()) + list(details_b.keys()))
     for qid in sorted(all_ids):
@@ -362,16 +385,36 @@ def compare_runs(run_id_a: str, run_id_b: str) -> Optional[Dict[str, Any]]:
         db = details_b.get(qid, {})
         quality_a = da.get("quality") or da.get("status", "missing")
         quality_b = db.get("quality") or db.get("status", "missing")
-        if quality_a != quality_b:
-            question_changes.append({
-                "question_id": qid,
-                "status_a": quality_a,
-                "status_b": quality_b,
-                "change": "improved" if quality_b == "correct" and quality_a != "correct" else "regressed",
-            })
-    return {
-        "run_a": {"run_id": run_id_a, "status": run_a["status"], "summary_scores": summary_a},
-        "run_b": {"run_id": run_id_b, "status": run_b["status"], "summary_scores": summary_b},
+        is_consistent = (quality_a == quality_b)
+        change_type = None
+        if not is_consistent:
+            change_type = "improved" if quality_b == "correct" and quality_a != "correct" else "regressed"
+        question_changes.append({
+            "question_id": qid,
+            "status_a": quality_a,
+            "status_b": quality_b,
+            "consistent": is_consistent,
+            "change": change_type,
+        })
+    result = {
+        "run_a": {
+            "run_id": run_id_a,
+            "status": run_a["status"],
+            "summary_scores": summary_a,
+            "total_questions": run_a.get("total_questions"),
+            "completed_questions": run_a.get("completed_questions"),
+            "details_count": len(details_a),
+        },
+        "run_b": {
+            "run_id": run_id_b,
+            "status": run_b["status"],
+            "summary_scores": summary_b,
+            "total_questions": run_b.get("total_questions"),
+            "completed_questions": run_b.get("completed_questions"),
+            "details_count": len(details_b),
+        },
         "score_diff": score_diff,
         "question_changes": question_changes,
     }
+    logger.info(f"对比结果: 共 {len(question_changes)} 条题目变化")
+    return result

@@ -197,6 +197,14 @@ const handleSave = () => {
   lastSavedDescription.value = draftDescription.value.trim()
 }
 
+/**
+ * 外部接受草稿（如画布统一保存时），更新签名使面板不再显示为脏。
+ */
+const acceptDraft = () => {
+  lastSavedName.value = draftName.value.trim()
+  lastSavedDescription.value = draftDescription.value.trim()
+}
+
 watch(hasChanges, (val) => {
   emit('dirty-change', val)
 })
@@ -205,7 +213,7 @@ watch(() => props.sopData, (data) => {
   syncDraft(data)
 }, { immediate: true, deep: true })
 
-defineExpose({ hasChanges, draftName, draftDescription })
+defineExpose({ hasChanges, draftName, draftDescription, acceptDraft })
 </script>
 
 <style lang="less" scoped>

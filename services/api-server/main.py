@@ -391,10 +391,12 @@ def list_llm_configs():
         client = LLMClient()
         # 仅返回名称和模型，不返回 API Key 等敏感信
         configs = [{"name": c["name"], "model": c["model"], "configured": bool(c["api_key"])} for c in client.configs]
-        # 优先返回 Qwen3.6 私有模型作为默认模型
-        qwen_index = next((i for i, c in enumerate(configs) if "Qwen3.6-35B-A3B" in c["name"]), None)
-        if qwen_index is not None and qwen_index > 0:
-            configs.insert(0, configs.pop(qwen_index))
+        # 将 ANGINEER_DEFAULT_MODEL 指定的默认模型排到最前面
+        default_model = os.getenv("ANGINEER_DEFAULT_MODEL", "")
+        if default_model:
+            idx = next((i for i, c in enumerate(configs) if c["name"] == default_model), None)
+            if idx is not None and idx > 0:
+                configs.insert(0, configs.pop(idx))
         return configs
     except Exception as e:
         logger.error(f"获取 LLM 配置失败: {e}")

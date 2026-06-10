@@ -105,7 +105,9 @@ const renderInline = (content: string, sourceFilePath: string): string => {
     if (!normalizedFormula) return prefix
     return `${String(prefix || '')}${setPlaceholder(renderFormula(normalizedFormula, false))}`
   })
-  const rendered = escapeHtml(withFormulas)
+  const htmlTableTagPattern = /<\/?(?:table|thead|tbody|tfoot|tr|td|th|caption|colgroup|col)\b[^>]*\/?>/gi
+  const withProtectedTableTags = withFormulas.replace(htmlTableTagPattern, (match) => setPlaceholder(match))
+  const rendered = escapeHtml(withProtectedTableTags)
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/`([^`]+)`/g, '<code>$1</code>')

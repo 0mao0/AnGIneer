@@ -4,14 +4,16 @@
 <template>
   <div
     class="sop-step-node"
-    :class="{ selected: selected, hovered: hovered }"
+    :class="{ selected: selected, hovered: hovered, dirty: isDirty }"
     @mouseenter="hovered = true"
     @mouseleave="hovered = false"
   >
-    <Handle id="top" type="source" :position="Position.Top" class="handle handle-top" />
+    <span v-if="isDirty" class="node-dirty-dot" />
+    <Handle id="top" type="target" :position="Position.Top" class="handle handle-top" />
     <Handle id="left" type="source" :position="Position.Left" class="handle handle-left" />
     <Handle id="right" type="source" :position="Position.Right" class="handle handle-right" />
     <Handle id="bottom" type="source" :position="Position.Bottom" class="handle handle-bottom" />
+    <Handle id="failure" type="source" :position="Position.Right" class="handle handle-failure" />
     <button
       v-if="deletable && (hovered || selected)"
       type="button"
@@ -58,7 +60,7 @@ import type { SopStep } from '../types/sop'
 
 const props = defineProps<{
   id: string
-  data: { step: SopStep; stepIndex: number }
+  data: { step: SopStep; stepIndex: number; dirty?: boolean }
   selected?: boolean
   deletable?: boolean
 }>()
@@ -69,6 +71,8 @@ const emit = defineEmits<{
 }>()
 
 const hovered = ref(false)
+
+const isDirty = computed(() => props.data.dirty ?? false)
 
 const step = computed(() => props.data.step)
 const stepIndex = computed(() => props.data.stepIndex)
@@ -157,6 +161,18 @@ const displaySegments = computed<Segment[]>(() => {
     background: rgba(24, 144, 255, 0.14);
     border-color: rgba(24, 144, 255, 0.45);
   }
+}
+
+.node-dirty-dot {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff4d4f;
+  z-index: 4;
+  box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
 }
 
 .node-delete-btn {
@@ -250,5 +266,13 @@ const displaySegments = computed<Segment[]>(() => {
 
 .handle-right {
   transform: translate(8px, -50%);
+}
+
+.handle-failure {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 77, 79, 0.12);
+  border-color: rgba(255, 77, 79, 0.5);
+  transform: translate(8px, 16px);
 }
 </style>

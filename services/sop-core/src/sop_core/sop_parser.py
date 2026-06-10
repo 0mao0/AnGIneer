@@ -193,7 +193,7 @@ class SopParser:
                 ensure_ascii=False
             )
 
-    def parse(self, sop: SOP, content: str, filename: str, config_name: str = "Qwen3-4B (Public)", mode: str = "instruct", save_to_json: bool = False, file_mtime: float = 0, json_path: str = None) -> SOP:
+    def parse(self, sop: SOP, content: str, filename: str, config_name: str = None, mode: str = "instruct", save_to_json: bool = False, file_mtime: float = 0, json_path: str = None) -> SOP:
         """
         利用 LLM 解析 SOP 内容。
         """

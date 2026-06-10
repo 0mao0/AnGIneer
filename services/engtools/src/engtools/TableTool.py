@@ -91,7 +91,7 @@ def _parse_query_conditions(query_conditions: Any) -> Dict[str, Any]:
     return {}
 
 
-def _llm_chat_with_timeout(model: str, messages: List[Dict], timeout: int = None) -> str:
+def _llm_chat_with_timeout(model: str = None, messages: List[Dict] = None, timeout: int = None) -> str:
     """
     带超时保护的 LLM 调用，防止模型响应慢导致整个链路卡死。
     """
@@ -547,7 +547,7 @@ def _expand_range_candidates(all_tables: List[Dict], prefix: str, start_num: int
     return candidates
 
 
-def _llm_select_table(candidates: List[Dict], query_conditions: Any, model: str = "Qwen3-4B (Public)") -> Optional[Dict]:
+def _llm_select_table(candidates: List[Dict], query_conditions: Any, model: str = None) -> Optional[Dict]:
     """
     使用 LLM 根据查询条件从候选表格中选择最合适的一个。
     """
@@ -599,12 +599,17 @@ def _inject_fallback_meta(result: Dict[str, Any], target_table: Dict, fallback_u
     return result
 
 
-def _llm_query_table(html_content: str, table_hint: str, query: str, query_conditions: Any = None, model: str = "Qwen3.6-35B-A3B (Private)") -> Dict[str, Any]:
-    """使用 LLM 查询表格数据。"""
+def _llm_query_table(html_content: str, table_hint: str, query: str, query_conditions: Any = None, model: str = None) -> Dict[str, Any]:
+    """
+    两阶段表格查询：
+    阶段1：使用 LLM 语义定位最相关的表格
+    阶段2：使用结构化解析在定位的表格内查找行和列
+    """
     soup = BeautifulSoup(html_content, 'html.parser')
     html_tables = soup.find_all('table')
     table_titles = re.findall(r'([^<\n]+?)\s*<table', html_content)
     
+    # 构建所有候选表格
     all_tables = []
     for i, table in enumerate(html_tables):
         caption = table_titles[i] if i < len(table_titles) else f"表格 {i+1}"
@@ -612,8 +617,11 @@ def _llm_query_table(html_content: str, table_hint: str, query: str, query_condi
             "index": i + 1,
             "caption": caption,
             "html": str(table),
+            "table": table,
+            "type": "html"
         })
     
+    # ========== 阶段1：LLM 定位表格 ==========
     target_table = _llm_find_table(all_tables, table_hint)
     fallback_used = False
     if not target_table:
@@ -625,16 +633,201 @@ def _llm_query_table(html_content: str, table_hint: str, query: str, query_condi
                 fallback_used = True
 
     if not target_table:
-        return {"error": f"未找到匹配的表格: {table_hint}"}
+        return {
+            "error": f"未找到匹配的表格: {table_hint}",
+            "_diagnostic_info": {
+                "table_hint": table_hint,
+                "available_table_count": len(all_tables),
+                "available_captions": [t["caption"] for t in all_tables[:10]],
+                "suggestions": [
+                    f"共找到 {len(all_tables)} 个表格，请确认表名是否匹配",
+                    "尝试使用更具体的表格名称或直接指定 file_name",
+                ],
+            },
+        }
     
+    # ========== 阶段2：结构化解析查行 ==========
+    # 解析表头和行
+    headers = _parse_table_headers(target_table["table"])
+    rows = _parse_table_rows(target_table["table"])
+    
+    if not headers or not rows:
+        # 结构化解析失败，回退到 LLM 提取
+        return _llm_extract_from_table_html(target_table, query, fallback_used)
+    
+    # 解析查询条件
+    conditions = _parse_query_conditions(query_conditions)
+    trace = [f"LLM定位表格: {target_table['caption']}", f"解析表头: {headers}"]
+    
+    # 分离文本和数值条件
+    numeric_conditions = {}
+    text_conditions = {}
+    for k, v in conditions.items():
+        val_num = _extract_first_number(str(v))
+        if val_num is not None:
+            numeric_conditions[k] = val_num
+        else:
+            text_conditions[k] = str(v)
+    
+    # 筛选行（文本条件）
+    rows_to_scan = rows
+    if text_conditions:
+        filtered_rows = []
+        for row in rows:
+            match = True
+            for k, v in text_conditions.items():
+                col_indices = _find_column_indices(headers, k, [k])
+                if col_indices:
+                    if not any(idx < len(row) and _text_condition_matches(row[idx], v) for idx in col_indices):
+                        match = False
+                        break
+                else:
+                    row_str = " ".join(row)
+                    if not _text_condition_matches(row_str, v):
+                        match = False
+                        break
+            if match:
+                filtered_rows.append(row)
+        rows_to_scan = filtered_rows if filtered_rows else rows
+        trace.append(f"文本条件过滤后剩余行数: {len(rows_to_scan)}")
+    
+    if not rows_to_scan:
+        return {
+            "error": "未找到符合文本条件的行",
+            "_table_name": table_hint,
+            "_table_context": target_table['caption'],
+            "_table_headers": headers,
+            "_diagnostic_info": {
+                "text_conditions": list(text_conditions.items()) if text_conditions else [],
+                "headers_available": headers,
+                "rows_total": len(rows),
+                "rows_after_text_filter": 0,
+                "suggestions": [
+                    f"检查列名是否在表头 {headers} 中",
+                    f"共扫描 {len(rows)} 行，文本条件过滤后无匹配行",
+                    "确认表格中是否存在对应文本值的行，或尝试 LLM 模式",
+                ],
+            },
+        }
+    
+    # 数值条件匹配（找最佳行）
+    best_row = None
+    if numeric_conditions:
+        scored_rows = []
+        for row in rows_to_scan:
+            dist = 0
+            valid = True
+            for k, target_val in numeric_conditions.items():
+                col_idx = _find_column_index(headers, k, [k])
+                if col_idx is not None and col_idx < len(row):
+                    cell_val = _extract_first_number(row[col_idx])
+                    if cell_val is not None:
+                        dist += abs(cell_val - target_val)
+                    else:
+                        rng = _parse_range(row[col_idx])
+                        if rng and rng[0] <= target_val <= rng[1]:
+                            dist += 0
+                        else:
+                            valid = False
+                            break
+                else:
+                    # 未找到对应列，尝试在全行中匹配
+                    row_str = " ".join(row)
+                    cell_val = _extract_first_number(row_str)
+                    if cell_val is not None:
+                        dist += abs(cell_val - target_val)
+            if valid:
+                scored_rows.append((dist, row))
+        
+        if scored_rows:
+            scored_rows.sort(key=lambda x: x[0])
+            best_row = scored_rows[0][1]
+            trace.append(f"最佳行匹配距离: {scored_rows[0][0]}")
+    
+    if not best_row:
+        best_row = rows_to_scan[0]
+        trace.append("无数值条件，取第一行")
+    
+    # 确定目标列
+    final_target_col_idx = None
+    # 从 query 中提取目标列
+    target_col_candidates = []
+    if isinstance(query_conditions, dict):
+        # query_conditions 的键是条件列，值不是目标列
+        # 尝试从 query 字符串中提取目标列
+        pass
+    
+    # 尝试从 query 中识别目标列名（如 "查B值"、"求T"）
+    target_col_patterns = [
+        r'查\s*([A-Za-zα-ωΑ-Ω][a-zA-Zα-ωΑ-Ω_]*)\s*值?',
+        r'求\s*([A-Za-zα-ωΑ-Ω][a-zA-Zα-ωΑ-Ω_]*)',
+        r'([A-Za-zα-ωΑ-Ω][a-zA-Zα-ωΑ-Ω_]*)\s*是多少',
+    ]
+    for pattern in target_col_patterns:
+        match = re.search(pattern, query)
+        if match:
+            target_col_candidates.append(match.group(1))
+    
+    if target_col_candidates:
+        for col_name in target_col_candidates:
+            idx = _find_column_index(headers, col_name, [col_name])
+            if idx is not None:
+                final_target_col_idx = idx
+                trace.append(f"从查询中提取目标列: {col_name} -> 列{idx}")
+                break
+    
+    # 如果未找到目标列，尝试自动推断
+    if final_target_col_idx is None:
+        # 排除已用作条件的列
+        used_indices = set()
+        for k in conditions:
+            idx = _find_column_index(headers, k, [k])
+            if idx is not None:
+                used_indices.add(idx)
+        
+        remaining = [i for i in range(len(headers)) if i not in used_indices]
+        # 排除常见非目标列
+        remaining = [i for i in remaining if headers[i] not in ["序号", "备注", "说明"]]
+        
+        if len(remaining) == 1:
+            final_target_col_idx = remaining[0]
+            trace.append(f"自动推断目标列: {headers[remaining[0]]}")
+        elif len(remaining) > 1 and numeric_conditions:
+            # 如果有数值条件，优先返回数值列
+            for i in remaining:
+                val = _extract_first_number(best_row[i]) if i < len(best_row) else None
+                if val is not None:
+                    final_target_col_idx = i
+                    trace.append(f"自动推断目标列(数值优先): {headers[i]}")
+                    break
+    
+    # 构建结果
+    result = {
+        "_table_name": table_hint,
+        "_table_context": target_table['caption'],
+        "_table_headers": headers,
+        "_trace": trace,
+        "_mode": "structured" if not fallback_used else "structured_fallback"
+    }
+    
+    if final_target_col_idx is not None and final_target_col_idx < len(best_row):
+        val_text = best_row[final_target_col_idx]
+        val_num = _extract_first_number(val_text)
+        result["result"] = val_num if val_num is not None else val_text
+        result["description"] = f"从表格 {target_table['caption']} 的 {headers[final_target_col_idx]} 列获取"
+    else:
+        # 未找到目标列，返回整行
+        result["result"] = None
+        result["description"] = f"未确定目标列，最佳匹配行: {best_row}"
+        result["_best_row"] = best_row
+    
+    return result
+
+
+def _llm_extract_from_table_html(target_table: Dict, query: str, fallback_used: bool = False) -> Dict[str, Any]:
+    """当结构化解析失败时，回退到 LLM 从 HTML 中提取数值。"""
     table_text = f"表格 {target_table['index']}: {target_table['caption']}\n"
     table_text += target_table['html']
-    
-    # 提取目标列名
-    target_col_match = re.search(r'[^\u4e00-\u9fa5a-zA-Z0-9]?([^\u4e00-\u9fa5a-zA-Z0-9]+)$', query)
-    target_col = ""
-    if target_col_match:
-        target_col = target_col_match.group(1).strip()
     
     prompt = f"""你是一个港口工程专家。请根据以下表格内容回答问题。
 
@@ -646,25 +839,6 @@ def _llm_query_table(html_content: str, table_hint: str, query: str, query_condi
 请从表格中提取数值并按以下 JSON 格式返回：
 {{"result": <数值>, "description": "<简单描述>"}}
 
-表格列说明：
-- 第1列：船舶吨级
-- 第2列：总长L (船长)
-- 第3列：型宽B
-- 第4列：型深H  
-- 第5列：满载吃水T (吃水深度)
-
-你必须严格按以下规则提取：
-1. 如果问"满载吃水T"、"吃水T"或"T"，必须提取表格第5列（满载吃水T列）的数值
-2. 如果问"总长L"或"船长"，必须提取表格第2列（总长L列）的数值
-3. 如果问"型宽B"，必须提取表格第3列的数值
-4. 如果问"型深H"，必须提取表格第4列的数值
-5. 如果问"航行下沉量"，查找表格中标注为"航行下沉量"的列
-6. 如果问"龙骨下最小富裕深度Z1"，查找表格中标注为"Z1"或"龙骨下最小富裕深度"的列
-7. 如果问"波浪富裕深度Z2"，查找表格中标注为"Z2"或"波浪富裕深度"的列
-
-绝对禁止提取除目标列之外的任何数值！
-
-如果表格中没有精确匹配的数据，请返回最接近的值。
 如果无法提取数值，请返回 {{
   "result": null, 
   "error": "<原因>", 
@@ -673,7 +847,6 @@ def _llm_query_table(html_content: str, table_hint: str, query: str, query_condi
 
     try:
         response = _llm_chat_with_timeout(
-            model=model,
             messages=[{"role": "user", "content": prompt}]
         )
     except (TimeoutError, Exception) as exc:
@@ -688,8 +861,6 @@ def _llm_query_table(html_content: str, table_hint: str, query: str, query_condi
     
     # 尝试解析 JSON
     try:
-        import json
-        # 提取 JSON 部分
         json_match = re.search(r'\{[^{}]*"result"[^{}]*\}', response, re.DOTALL)
         if json_match:
             result_data = json.loads(json_match.group())
@@ -744,7 +915,10 @@ class TableLookupTool(BaseTool):
             self.knowledge_dir = knowledge_dir
 
     def _resolve_file(self, file_name: str) -> Optional[str]:
-        """解析知识库文件路径，仅基于数据库中的文档存储查找。"""
+        """
+        解析知识库文件路径。
+        优先从数据库中查找，如果失败则回退到文件系统。
+        """
         doc_title = file_name
         if doc_title.startswith("markdown/"):
             doc_title = doc_title[len("markdown/"):]
@@ -756,6 +930,8 @@ class TableLookupTool(BaseTool):
         normalized = re.sub(r"\s+", " ", normalized).strip()
         if not normalized:
             return None
+        
+        # 阶段1：从数据库查找
         try:
             from docs_core.ingest.store.assets_file_store import file_storage
             from docs_core.knowledge_service import knowledge_service as ks
@@ -795,8 +971,33 @@ class TableLookupTool(BaseTool):
                     edited_path = file_storage.get_edited_markdown_path("default", node.id)
                     if edited_path.exists():
                         return str(edited_path)
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"[TableTool] 数据库查找失败: {e}，尝试文件系统回退")
+        
+        # 阶段2：回退到文件系统
+        try:
+            knowledge_dir = self.knowledge_dir or KNOWLEDGE_DIR
+            if os.path.isdir(knowledge_dir):
+                # 直接匹配文件名
+                for fname in os.listdir(knowledge_dir):
+                    if not fname.endswith(".md"):
+                        continue
+                    fbase = fname[:-3].replace("_", " ").replace("—", "-").replace("–", "-")
+                    fbase = re.sub(r"\s+", " ", fbase).strip().lower()
+                    if normalized.lower() in fbase or fbase in normalized.lower():
+                        return os.path.join(knowledge_dir, fname)
+                # 递归查找子目录
+                for root, dirs, files in os.walk(knowledge_dir):
+                    for fname in files:
+                        if not fname.endswith(".md"):
+                            continue
+                        fbase = fname[:-3].replace("_", " ").replace("—", "-").replace("–", "-")
+                        fbase = re.sub(r"\s+", " ", fbase).strip().lower()
+                        if normalized.lower() in fbase or fbase in normalized.lower():
+                            return os.path.join(root, fname)
+        except Exception as e:
+            logger.warning(f"[TableTool] 文件系统查找失败: {e}")
+        
         return None
 
     def run(self, table_name: str, query_conditions: Any, file_name: str = "《海港水文规范》.md", target_column: str = None, config_name: str = None, mode: str = "instruct", use_llm: bool = True, **kwargs) -> Any:
@@ -978,7 +1179,17 @@ class TableLookupTool(BaseTool):
                     trace.append("表格选择策略: HTML 内容包含表名")
                     break
         if not target_table:
-            return {"error": f"未找到匹配表格: {table_name}"}
+            return {
+                "error": f"未找到匹配表格: {table_name}",
+                "_diagnostic_info": {
+                    "table_name": table_name,
+                    "total_candidates": len(html_candidates) + len(md_candidates),
+                    "suggestions": [
+                        "请确认表格名称是否与文档中的标题一致",
+                        "尝试使用更具体的表名，或检查表格是否存在于指定的知识库文件中",
+                    ],
+                },
+            }
 
         if target_table.get("headers") is not None:
             headers = target_table.get("headers") or []
@@ -993,7 +1204,19 @@ class TableLookupTool(BaseTool):
         # 2. 解析查询条件
         conditions = _parse_query_conditions(query_conditions)
         if not conditions:
-            return {"error": "查询条件为空", "_table_name": table_name, "_table_context": target_table["context"], "_table_headers": headers}
+            return {
+                "error": "查询条件为空",
+                "_table_name": table_name,
+                "_table_context": target_table["context"],
+                "_table_headers": headers,
+                "_diagnostic_info": {
+                    "raw_query_conditions": query_conditions,
+                    "suggestions": [
+                        "请提供至少一个查询条件（如列名=值）",
+                        "检查 query_conditions 参数格式是否正确",
+                    ],
+                },
+            }
 
         # 分离文本和数值条件
         numeric_conditions = {}
@@ -1095,7 +1318,21 @@ class TableLookupTool(BaseTool):
                 # 如果有多个最佳匹配（例如距离都是0），如何处理？目前取第一个。
                 # 对于插值，如果正好落在两个档位之间... 这里简化处理，取最近。
             else:
-                 return {"error": "数值条件无法匹配任何行", "_table_name": table_name}
+                 return {
+                     "error": "数值条件无法匹配任何行",
+                     "_table_name": table_name,
+                     "_table_headers": headers,
+                     "_diagnostic_info": {
+                         "numeric_conditions": list(numeric_conditions.items()),
+                         "col_conditions": {str(k): v for k, v in col_conditions.items()},
+                         "rows_scanned": len(rows_to_scan),
+                         "suggestions": [
+                             "检查数值条件是否在表格的数据范围内",
+                             "如表格数值范围与条件不重叠，请确认参数是否正确",
+                             "考虑使用 LLM 模式 (use_llm=True) 进行语义查找",
+                         ],
+                     },
+                 }
         else:
             # 如果没有列条件（只有文本条件或Header Lookup），默认取第一行（如果有文本筛选）
             # 或者如果 Header Lookup 存在，我们可能不需要特定行（如果表只有一行数据？）
@@ -1103,7 +1340,21 @@ class TableLookupTool(BaseTool):
                 best_row = rows_to_scan[0]
 
         if not best_row:
-             return {"error": "无法确定目标行", "_table_name": table_name}
+             return {
+                 "error": "无法确定目标行",
+                 "_table_name": table_name,
+                 "_table_headers": headers,
+                 "_diagnostic_info": {
+                     "text_conditions": list(text_conditions.items()) if text_conditions else [],
+                     "numeric_conditions": list(numeric_conditions.items()) if numeric_conditions else [],
+                     "rows_available": len(rows_to_scan),
+                     "suggestions": [
+                         "文本和数值条件均未能定位到具体行",
+                         "检查查询条件是否过于严格，或尝试放宽条件",
+                         "考虑使用 LLM 模式进行语义行匹配",
+                     ],
+                 },
+             }
 
         # 5. 确定目标列 (Target Column)
         final_target_col_idx = None

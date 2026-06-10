@@ -353,11 +353,11 @@ class LLMClient:
         effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
         processed_messages = self._prepare_messages(messages, mode)
 
-        target_config_name = model if model else config_name
+        target_config_name = model if model else (config_name or self._config.default_model)
         model_configs = self._get_model_configs(target_config_name)
 
         if not model_configs:
-            raise ValueError(f"未找到有效的 LLM 配置 (config_name={config_name})")
+            raise ValueError(f"未找到有效的 LLM 配置 (config_name={target_config_name})")
 
         last_error = None
 
@@ -412,11 +412,11 @@ class LLMClient:
         temp = temperature if temperature is not None else self._config.temperature
         processed_messages = self._prepare_messages(messages, mode)
 
-        target_config_name = model if model else config_name
+        target_config_name = model if model else (config_name or self._config.default_model)
         model_configs = self._get_model_configs(target_config_name)
 
         if not model_configs:
-            raise ValueError(f"未找到有效的 LLM 配置 (config_name={config_name})")
+            raise ValueError(f"未找到有效的 LLM 配置 (config_name={target_config_name})")
 
         last_error = None
 

@@ -156,9 +156,41 @@ class SopEvaluator(BaseEvaluator):
 
         semantic_result = _llm_semantic_evaluate(answer, gold_answer, [], semantic_threshold)
 
+        # 步骤执行验证：统计成功/失败/跳过，对过度跳过施加惩罚
+        sop_trace = prediction.get("sop_trace") or []
+        successful_steps = 0
+        failed_steps = 0
+        skipped_steps = 0
+        for s in sop_trace:
+            status = str(s.get("status") or "").lower()
+            outputs = s.get("outputs")
+            if status in ("error", "failed"):
+                failed_steps += 1
+            elif status == "skipped" or (isinstance(outputs, dict) and outputs.get("skipped")):
+                skipped_steps += 1
+            elif status == "success":
+                successful_steps += 1
+
+        total_steps = len(sop_trace)
+        step_bypass_ratio = skipped_steps / max(total_steps, 1)
+        step_penalty = 1.0
+        if step_bypass_ratio > 0.5:
+            step_penalty = max(0.5, 1.0 - (step_bypass_ratio - 0.5))
+        elif total_steps > 0 and successful_steps == 0 and failed_steps > 0:
+            step_penalty = 0.3
+
+        step_execution_detail = {
+            "total_steps": total_steps,
+            "successful": successful_steps,
+            "failed": failed_steps,
+            "skipped": skipped_steps,
+            "bypass_ratio": round(step_bypass_ratio, 2),
+            "penalty_applied": step_penalty < 1.0,
+        }
+
         if semantic_result["semantic_evaluated"]:
             correctness_score = semantic_result["semantic_score"]
-            overall_score = 1.0 if semantic_result["semantic_passed"] else 0.0
+            overall_score = (1.0 if semantic_result["semantic_passed"] else 0.0) * step_penalty
         else:
             correctness_score = 0.0
             overall_score = 0.0
@@ -178,6 +210,7 @@ class SopEvaluator(BaseEvaluator):
             "semantic_fallback": semantic_result["semantic_fallback"],
             "semantic_passed": semantic_result["semantic_passed"],
             "semantic_threshold": semantic_threshold,
+            "step_execution": step_execution_detail,
         }
 
 

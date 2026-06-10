@@ -1,3 +1,6 @@
+# Claude Code
+.claude/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -38,5 +41,6 @@ docs/superpowers/
 
 # Docker deployment
 .env
+.deploy-marker
 docker/deploy-local.sh
 docker/deploy-local.ps1

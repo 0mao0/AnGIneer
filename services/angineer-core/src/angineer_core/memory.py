@@ -30,6 +30,8 @@ class StepRecord(BaseModel):
     outputs: Any
     status: str = "success"
     error: Optional[str] = None
+    thinking: Optional[str] = None
+    evidence: Optional[Dict[str, Any]] = None
 
 
 class Memory(BaseModel):

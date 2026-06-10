@@ -126,6 +126,14 @@ def init_db() -> None:
         conn.execute("ALTER TABLE eval_run_detail ADD COLUMN quality TEXT")
     except Exception:
         pass
+    try:
+        conn.execute("ALTER TABLE eval_run ADD COLUMN run_name TEXT NOT NULL DEFAULT ''")
+    except Exception:
+        pass
+    try:
+        conn.execute("ALTER TABLE eval_run ADD COLUMN is_full_run INTEGER NOT NULL DEFAULT 1")
+    except Exception:
+        pass
     conn.commit()
 
     # 初始化 tree_node 表
@@ -485,19 +493,20 @@ def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) 
     return existing
 
 
-def create_run(dataset_id: str, total_questions: int) -> Dict[str, Any]:
+def create_run(dataset_id: str, total_questions: int, run_name: str = "", is_full_run: bool = True) -> Dict[str, Any]:
     """创建一条评测运行记录。"""
     run_id = f"run-{uuid.uuid4().hex[:12]}"
     now = datetime.now().isoformat()
     conn = _get_conn()
     conn.execute(
-        """INSERT INTO eval_run (run_id, dataset_id, status, total_questions, completed_questions, started_at)
-           VALUES (?, ?, 'running', ?, 0, ?)""",
-        (run_id, dataset_id, total_questions, now),
+        """INSERT INTO eval_run (run_id, dataset_id, status, total_questions, completed_questions, started_at, run_name, is_full_run)
+           VALUES (?, ?, 'running', ?, 0, ?, ?, ?)""",
+        (run_id, dataset_id, total_questions, now, run_name, 1 if is_full_run else 0),
     )
     conn.commit()
     return {"run_id": run_id, "dataset_id": dataset_id, "status": "running",
-            "total_questions": total_questions, "completed_questions": 0, "started_at": now}
+            "total_questions": total_questions, "completed_questions": 0, "started_at": now,
+            "run_name": run_name, "is_full_run": is_full_run}
 
 
 def update_run_progress(run_id: str, completed_questions: int) -> None:
@@ -560,11 +569,11 @@ def list_runs(dataset_id: Optional[str] = None) -> List[Dict[str, Any]]:
     conn = _get_conn()
     if dataset_id:
         rows = conn.execute(
-            "SELECT * FROM eval_run WHERE dataset_id = ? ORDER BY started_at DESC",
+            "SELECT * FROM eval_run WHERE dataset_id = ? AND (is_full_run = 1 OR status = 'running') ORDER BY started_at DESC",
             (dataset_id,),
         ).fetchall()
     else:
-        rows = conn.execute("SELECT * FROM eval_run ORDER BY started_at DESC").fetchall()
+        rows = conn.execute("SELECT * FROM eval_run WHERE is_full_run = 1 OR status = 'running' ORDER BY started_at DESC").fetchall()
     result = []
     for row in rows:
         item = dict(row)
@@ -620,10 +629,10 @@ def update_run_detail(run_id: str, question_id: str, updates: Dict[str, Any]) ->
 
 
 def cleanup_old_runs(dataset_id: str, keep: int = 3) -> int:
-    """删除指定数据集超出保留数量的旧运行记录（保留最近 keep 条）。"""
+    """删除指定数据集超出保留数量的旧整体运行记录（保留最近 keep 条）。"""
     conn = _get_conn()
     rows = conn.execute(
-        "SELECT run_id FROM eval_run WHERE dataset_id = ? AND status != 'running' ORDER BY started_at DESC",
+        "SELECT run_id FROM eval_run WHERE dataset_id = ? AND status != 'running' AND is_full_run = 1 ORDER BY started_at DESC",
         (dataset_id,),
     ).fetchall()
     stale_ids = [row["run_id"] for row in rows[keep:]]
@@ -635,6 +644,27 @@ def cleanup_old_runs(dataset_id: str, keep: int = 3) -> int:
         )
         conn.commit()
     return len(stale_ids)
+
+
+def delete_run(run_id: str) -> bool:
+    """删除指定评测运行及其关联详情（CASCADE 自动清除 run_detail）。"""
+    conn = _get_conn()
+    cursor = conn.execute("DELETE FROM eval_run WHERE run_id = ?", (run_id,))
+    conn.commit()
+    return cursor.rowcount > 0
+
+
+def cleanup_individual_runs(dataset_id: str) -> int:
+    """删除 1 小时前完成的单独题目评测运行记录。"""
+    from datetime import timedelta
+    cutoff = (datetime.now() - timedelta(hours=1)).isoformat()
+    conn = _get_conn()
+    cursor = conn.execute(
+        "DELETE FROM eval_run WHERE dataset_id = ? AND is_full_run = 0 AND completed_at IS NOT NULL AND completed_at < ?",
+        (dataset_id, cutoff),
+    )
+    conn.commit()
+    return cursor.rowcount
 
 
 def list_run_details(run_id: str) -> List[Dict[str, Any]]:

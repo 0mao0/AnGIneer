@@ -15,10 +15,10 @@ from sop_core.sop_loader import SopLoader
 sop_router = APIRouter()
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-SOP_BASE_DIR = os.path.join(ROOT_DIR, "data", "sops")
-SOP_JSON_DIR = os.path.join(ROOT_DIR, "data", "sops", "json")
+SOP_BASE_DIR = os.environ.get("SOP_DATA_DIR", os.path.join(ROOT_DIR, "data", "sops"))
+SOP_JSON_DIR = os.path.join(SOP_BASE_DIR, "json")
 SOP_RAW_DIR = os.path.join(SOP_BASE_DIR, "raw")
-SOP_FOLDERS_FILE = os.path.join(ROOT_DIR, "data", "sops", "folders.json")
+SOP_FOLDERS_FILE = os.path.join(SOP_BASE_DIR, "folders.json")
 
 _sop_loader = SopLoader(SOP_BASE_DIR)
 _sop_parser = SopParser()
@@ -429,11 +429,18 @@ async def import_sop(file: UploadFile = FastAPIFile(...), folder_id: Optional[st
 
     sop_id = os.path.splitext(file.filename)[0]
     existing_json = os.path.join(SOP_JSON_DIR, f"{sop_id}.json")
-    if os.path.exists(existing_json):
-        raise HTTPException(status_code=409, detail=f"SOP {sop_id} already exists")
+
+    # 同名冲突自动加 1：文件.json → 文件(1).json → 文件(2).json
+    counter = 1
+    original_id = sop_id
+    while os.path.exists(existing_json):
+        sop_id = f"{original_id}({counter})"
+        existing_json = os.path.join(SOP_JSON_DIR, f"{sop_id}.json")
+        counter += 1
 
     os.makedirs(SOP_RAW_DIR, exist_ok=True)
-    raw_path = os.path.join(SOP_RAW_DIR, file.filename)
+    new_filename = f"{sop_id}.md"
+    raw_path = os.path.join(SOP_RAW_DIR, new_filename)
     with open(raw_path, "w", encoding="utf-8") as f:
         f.write(md_text)
 
@@ -513,6 +520,8 @@ async def import_sop(file: UploadFile = FastAPIFile(...), folder_id: Optional[st
     return {"status": "success", "id": sop_id}
 
 
+
+
 @sop_router.post("/steps/parse")
 def parse_step_description(request: SopStepParseRequest):
     """解析步骤描述中的工具、输入与输出建议。"""
@@ -550,6 +559,7 @@ def update_sop(sop_id: str, request: SopUpdateRequest):
     if "blackboard" in field_set:
         existing["blackboard"] = request.blackboard
     _write_sop_json(sop_id, existing)
+    _sop_loader.refresh_index()
     return {"status": "success", "id": sop_id}
 
 
@@ -572,6 +582,7 @@ def create_sop(request: SopCreateRequest):
         "blackboard": request.blackboard,
     }
     _write_sop_json(sop_id, data)
+    _sop_loader.refresh_index()
     return {"status": "success", "id": sop_id}
 
 

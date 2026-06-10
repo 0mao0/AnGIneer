@@ -567,18 +567,66 @@ flowchart LR
 
 ### 前台拼装方式
 
-- 前台左侧经验库入口由 [SOPSidebar.vue](file:///d:/AI/AnGIneer/apps/web-console/src/layouts/sidebar/SOPSidebar.vue) 承接，内部挂载 [SOPTree.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/widgets/SOPTree.vue)。
-- 经验库树状态由 [useSopTree.ts](file:///d:/AI/AnGIneer/packages/docs-ui/src/composables/useSopTree.ts) 提供，当前以内置示例树组织设计流程与能力测算节点。
+- 前台左侧经验库入口由 [SOPSidebar.vue](file:///d:/AI/AnGIneer/apps/web-console/src/layouts/sidebar/SOPSidebar.vue) 承接，内部挂载 [SOPTree.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPTree.vue)。
+- 经验库树状态由 [useSopTree.ts](file:///d:/AI/AnGIneer/packages/sop-ui/src/composables/useSopTree.ts) 提供，从后端 API 加载并构建树结构。
 - 右侧聊天区在 [App.vue](file:///d:/AI/AnGIneer/apps/web-console/src/App.vue) 中使用 [AIChat.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/AIChat.vue)，通过 `scene` prop 在知识域（`docs`）和经验域（`sops`）间切换。
 - `AIChat` 封装 `BaseChat` + `useAIChat`，领域逻辑通过 `scene` + `sessionId` 收口，后端 `/api/query` 自动路由意图分类与服务模式。
 
 ### 前后台拼装方式
 
 - 前台入口 [App.vue](file:///d:/AI/AnGIneer/apps/web-console/src/App.vue) 通过 [LeftPanel.vue](file:///d:/AI/AnGIneer/apps/web-console/src/layouts/LeftPanel.vue) 在「知识」Tab 挂载 `KnowledgeTree`，使用只读参数集。
-- 后台入口 [KnowledgeManage.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/views/KnowledgeManage.vue) 使用 TriplePane 三栏编排，左侧 `KnowledgeTree`、中心预览、右侧 `AIChat`（scene="knowledge"）。
-- 基础树能力由 [SmartTree.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/SmartTree.vue) 提供，知识域树封装由 [KnowledgeTree.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/widgets/KnowledgeTree.vue) 承接。
+- 后台入口 [ExperienceManage.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/views/ExperienceManage.vue) 使用 TriplePane 三栏编排，左侧 `SOPTree`、中心 `SOPFlowCanvas`（Vue Flow 流程图）、右侧属性/对话切换。
+- 基础树能力由 [SmartTree.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/SmartTree.vue) 提供，SOP 域树封装由 [SOPTree.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPTree.vue) 承接。流程图由 [SOPFlowCanvas.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPFlowCanvas.vue) 提供，基于 Vue Flow。
 - 统一 AI 对话能力由 [AIChat.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/AIChat.vue) 提供，封装 BaseChat + useAIChat + Markdown 渲染，通过 scene 和 sessionId 区分场景与会话。
-- 后台外层“包一层”是业务编排容器，负责文件上传、解析链路、树操作、拖拽重排等流程聚合，属于合理分层。
+- 后台外层“包一层”是业务编排容器，负责树操作、流程图编辑、保存等流程聚合。
+
+### 后台保存链路
+
+SOP 编辑涉及**两类数据**，保存由节点属性变化逐级向上触发：
+
+| 数据 | 位置 | 修改来源 |
+|------|------|----------|
+| **节点属性**（name, execution, branches 等） | `sopFlow` 的 `nodes[]` | `SOPPropertyPanel` 编辑 / 画布拖拽 |
+| **SOP 元数据**（name_zh, description） | `sopTree.currentSopData` | `SopMetaPanel` 编辑 |
+
+#### 脏标记体系
+
+```
+属性面板编辑 ──→ updateStepData() ──→ dirtyStepIds.add(id) + isDirty=true
+画布拖拽     ──→ handleNodesChange  ──→ dirtyStepIds.add(id) + isDirty=true
+元数据面板编辑 ──→ 仅更新内存  ──→ metaPanelDirty=true
+```
+
+- **`dirtyStepIds`**：`Set<stepId>`，脏步骤集合（画布节点红点据此）
+- **`isDirty`**：SOP 整体脏标记，任一节点/边变更即置位
+- **`metaPanelDirty`**：SOP 级元数据脏标记（与 `isDirty` 并列）
+
+#### 统一保存入口 `saveCurrentChanges()`
+
+画布"保存"按钮和路由离开守卫走同一入口，一次全量写入：
+
+```
+saveCurrentChanges()
+  ├─ flushPropertyDraft()          ← 刷属性面板草稿到节点内存
+  ├─ 刷 metaPanelDirty 到 currentData  ← 刷元数据草稿到内存
+  ├─ exportToSopData(currentData)  ← 合并步骤序列化 + 元数据
+  └─ api.saveSop()                 ← 后端全量写入 JSON
+```
+
+- 属性面板"保存"仅调 `updateStepData()` 写入内存 + 标记脏，**不写 DB**
+- 元数据面板"保存"仅更新 `currentData` 内存 + 设 `metaPanelDirty`，**不写 DB**
+- 取消编辑只恢复面板内部草稿状态
+
+#### 相关文件
+
+| 文件 | 职责 |
+|------|------|
+| [ExperienceManage.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/views/ExperienceManage.vue) | 父视图：编排树、画布、面板、保存逻辑 |
+| [useSopFlow.ts](file:///d:/AI/AnGIneer/packages/sop-ui/src/composables/useSopFlow.ts) | 流程图状态管理（nodes, edges, dirtyStepIds, isDirty, 序列化） |
+| [SOPPropertyPanel.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPPropertyPanel.vue) | 步骤属性编辑面板 |
+| [SopMetaPanel.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SopMetaPanel.vue) | SOP 元数据（名称/描述）编辑面板 |
+| [SOPFlowCanvas.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPFlowCanvas.vue) | Vue Flow 流程图画布 |
+| [sop_routes.py](file:///d:/AI/AnGIneer/services/api-server/sop_routes.py) | 后端保存端点 PUT /api/sops/{id} |
 
 ### AIChat Props
 

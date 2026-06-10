@@ -6,7 +6,9 @@
       <slot name="header">
         <div class="header-title">
           <component v-if="icon" :is="icon" />
-          <span>{{ title }}</span>
+          <slot name="title">
+            <span>{{ title }}</span>
+          </slot>
         </div>
         <div v-if="$slots.extra" class="header-extra">
           <slot name="extra" />

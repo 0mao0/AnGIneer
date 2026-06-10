@@ -31,6 +31,7 @@ export interface SopExecution {
 export interface FlowBranchEdgeData {
   label: string
   isDefault?: boolean
+  isFailure?: boolean
 }
 
 /** 流程图节点 UI 元数据。 */

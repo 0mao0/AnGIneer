@@ -205,6 +205,15 @@ async def start_run(req: StartEvalRunRequest):
         raise HTTPException(status_code=400, detail=str(exc))
 
 
+@evals_router.delete("/runs/{run_id}")
+async def delete_run(run_id: str):
+    """删除评测运行记录。"""
+    success = suite_runner.delete_eval_run(run_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="评测记录不存在")
+    return {"status": "deleted"}
+
+
 @evals_router.post("/runs/{run_id}/stop")
 async def stop_run(run_id: str):
     """停止正在运行的评测任务。"""
@@ -237,3 +246,70 @@ async def compare_runs(run_id_a: str, run_id_b: str):
     if not result:
         raise HTTPException(status_code=404, detail="运行记录不存在")
     return result
+
+
+@evals_router.post("/compare/analyze")
+async def analyze_compare(body: Dict[str, Any] = None):
+    """使用 LLM 分析两次评测结果的差异。"""
+    if not body:
+        raise HTTPException(status_code=400, detail="无请求内容")
+    run_id_a = body.get("run_id_a")
+    run_id_b = body.get("run_id_b")
+    question_id = body.get("question_id")
+    if not run_id_a or not run_id_b or not question_id:
+        raise HTTPException(status_code=400, detail="缺少 run_id_a、run_id_b 或 question_id")
+
+    from ai_inference.llm_client import get_llm_client
+
+    run_a = suite_runner.get_eval_run(run_id_a)
+    run_b = suite_runner.get_eval_run(run_id_b)
+    if not run_a or not run_b:
+        raise HTTPException(status_code=404, detail="运行记录不存在")
+
+    details_a = {d["question_id"]: d for d in run_a.get("details", [])}
+    details_b = {d["question_id"]: d for d in run_b.get("details", [])}
+    detail_a = details_a.get(question_id, {})
+    detail_b = details_b.get(question_id, {})
+
+    quality_a = detail_a.get("quality") or detail_a.get("status", "missing")
+    quality_b = detail_b.get("quality") or detail_b.get("status", "missing")
+
+    scores_a = detail_a.get("scores") or {}
+    scores_b = detail_b.get("scores") or {}
+    prediction_a = detail_a.get("prediction") or {}
+    prediction_b = detail_b.get("prediction") or {}
+
+    prompt = (
+        f"你是评测结果分析专家。请分析以下两次评测中同一道题目的差异。\n\n"
+        f"题目ID: {question_id}\n\n"
+        f"评测1 (运行 {run_id_a[:12]}):\n"
+        f"- 结果: {quality_a}\n"
+        f"- 评分: {scores_a}\n"
+        f"- 系统输出: {prediction_a}\n\n"
+        f"评测2 (运行 {run_id_b[:12]}):\n"
+        f"- 结果: {quality_b}\n"
+        f"- 评分: {scores_b}\n"
+        f"- 系统输出: {prediction_b}\n\n"
+        f"请分析:\n"
+        f"1. 两次评测的计算过程是否一致？\n"
+        f"2. 如果不一致，差异在哪里？\n"
+        f"3. 可能的原因是什么？\n\n"
+        f"请用简洁的中文回答，不超过200字。"
+    )
+
+    try:
+        loop = asyncio.get_event_loop()
+        client = get_llm_client()
+        analysis = await loop.run_in_executor(
+            None,
+            lambda: client.chat(
+                messages=[
+                    {"role": "system", "content": "你是评测结果分析专家，请用简洁的中文回答。"},
+                    {"role": "user", "content": prompt},
+                ],
+                mode="instruct",
+            ),
+        )
+        return {"question_id": question_id, "analysis": analysis}
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"LLM 分析失败: {exc}")

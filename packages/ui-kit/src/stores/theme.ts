@@ -138,6 +138,8 @@ export const useThemeStore = defineStore('theme', () => {
       root.style.setProperty('--dp-hint-border', 'rgba(59,130,246,0.3)')
       root.style.setProperty('--brand-gradient-start', '#667eea')
       root.style.setProperty('--brand-gradient-end', '#764ba2')
+      root.style.setProperty('--fork-border', '#7c6200')
+      root.style.setProperty('--fork-bg', '#2b2500')
     } else {
       root.classList.remove('dark')
       root.classList.add('light')
@@ -247,6 +249,8 @@ export const useThemeStore = defineStore('theme', () => {
       root.style.setProperty('--dp-hint-border', 'rgba(59,130,246,0.22)')
       root.style.setProperty('--brand-gradient-start', '#667eea')
       root.style.setProperty('--brand-gradient-end', '#764ba2')
+      root.style.setProperty('--fork-border', '#faad14')
+      root.style.setProperty('--fork-bg', '#fffbe6')
     }
   }
 

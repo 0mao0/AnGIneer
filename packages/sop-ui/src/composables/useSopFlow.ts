@@ -95,15 +95,17 @@ function createFlowEdge(
   target: string,
   sourceHandle: string = DEFAULT_SOURCE_HANDLE,
   targetHandle: string = DEFAULT_TARGET_HANDLE,
+  isFailure: boolean = false,
 ): FlowEdge {
+  const id = isFailure ? `edge-failure-${source}-${target}` : createEdgeId(source, target)
   return {
-    id: createEdgeId(source, target),
+    id,
     source,
     target,
     sourceHandle: resolveSourceHandle(sourceHandle),
     targetHandle: resolveTargetHandle(targetHandle),
     type: 'sop-edge',
-    data: { label: '' },
+    data: { label: isFailure ? '失败' : '', isFailure },
     markerEnd: {
       type: MarkerType.ArrowClosed,
       width: 18,
@@ -174,6 +176,87 @@ export function useSopFlow() {
   const isDirty = ref(false)
   const selectedStepId = ref<string | null>(null)
   const dirtyStepIds = ref<Set<string>>(new Set())
+  /** SOP 全局黑板变量，只读展示用。 */
+  const blackboard = ref<Record<string, any> | null>(null)
+
+  /**
+   * 步骤属性面板草稿脏标记：stepId → true 表示该步骤有未 flush 的属性草稿。
+   * 控制 BB 按钮显示 + 节点红点。
+   */
+  const stepPanelDirty = ref<Map<string, boolean>>(new Map())
+
+  /**
+   * 撤销栈：保存 nodes + edges 快照，支持 Ctrl+Z 回退。
+   */
+  const undoStack = ref<Array<{ nodes: FlowNode[]; edges: FlowEdge[] }>>([])
+  const redoStack = ref<Array<{ nodes: FlowNode[]; edges: FlowEdge[] }>>([])
+  const MAX_UNDO_DEPTH = 30
+  let isDragging = false
+
+  /**
+   * 推入当前状态到撤销栈（在变更前调用），同时清空重做栈。
+   */
+  const pushUndo = () => {
+    undoStack.value.push({
+      nodes: JSON.parse(JSON.stringify(nodes.value)),
+      edges: JSON.parse(JSON.stringify(edges.value)),
+    })
+    if (undoStack.value.length > MAX_UNDO_DEPTH) {
+      undoStack.value.shift()
+    }
+    redoStack.value = []
+  }
+
+  /**
+   * 撤销上一步操作，恢复到栈顶快照，同时推入重做栈。
+   */
+  const undo = () => {
+    if (undoStack.value.length === 0) return
+    redoStack.value.push({
+      nodes: JSON.parse(JSON.stringify(nodes.value)),
+      edges: JSON.parse(JSON.stringify(edges.value)),
+    })
+    const snapshot = undoStack.value.pop()!
+    nodes.value = snapshot.nodes
+    edges.value = snapshot.edges
+    isDirty.value = true
+    syncBranchEdges()
+    syncStepIndexes()
+  }
+
+  /**
+   * 重做上一步撤销的操作，恢复到重做栈顶快照，同时推入撤销栈。
+   */
+  const redo = () => {
+    if (redoStack.value.length === 0) return
+    undoStack.value.push({
+      nodes: JSON.parse(JSON.stringify(nodes.value)),
+      edges: JSON.parse(JSON.stringify(edges.value)),
+    })
+    const snapshot = redoStack.value.pop()!
+    nodes.value = snapshot.nodes
+    edges.value = snapshot.edges
+    isDirty.value = true
+    syncBranchEdges()
+    syncStepIndexes()
+  }
+
+  /**
+   * 节点拖拽开始时推入撤销栈。
+   */
+  const onNodeDragStart = () => {
+    if (!isDragging) {
+      pushUndo()
+      isDragging = true
+    }
+  }
+
+  /**
+   * 节点拖拽结束。
+   */
+  const onNodeDragStop = () => {
+    isDragging = false
+  }
 
   /**
    * 同步节点中的步骤序号。
@@ -247,13 +330,14 @@ export function useSopFlow() {
   }
 
   /**
-   * 约束边集合，分叉节点允许多出边，汇合节点允许多入边。
+   * 约束边集合，分叉节点允许多出边，汇合节点允许多入边，失败边与正常边可共存。
    */
   const normalizeEdges = (inputEdges: FlowEdge[]): FlowEdge[] => {
     const filtered: FlowEdge[] = []
     const usedSources = new Set<string>()
     const usedTargets = new Set<string>()
     const usedPairs = new Set<string>()
+    const usedFailureSources = new Set<string>()
     const validNodeIds = new Set(nodes.value.map((node) => node.id))
     const forkNodeIds = new Set(nodes.value.filter((n) => n.type === 'sop-fork').map((n) => n.id))
 
@@ -261,11 +345,32 @@ export function useSopFlow() {
       if (!validNodeIds.has(edge.source) || !validNodeIds.has(edge.target) || edge.source === edge.target) {
         continue
       }
-      const pairKey = createPairKey(edge.source, edge.target)
+      const isFailure = !!edge.data?.isFailure
+      const pairKey = isFailure ? `failure::${createPairKey(edge.source, edge.target)}` : createPairKey(edge.source, edge.target)
       if (usedPairs.has(pairKey)) {
         continue
       }
-      // 非分叉节点只允许一条出边
+      // 失败边：每个源节点只允许一条
+      if (isFailure) {
+        if (usedFailureSources.has(edge.source)) {
+          continue
+        }
+        usedFailureSources.add(edge.source)
+        usedPairs.add(pairKey)
+        filtered.push({
+          ...createFlowEdge(
+            edge.source,
+            edge.target,
+            resolveSourceHandle(edge.sourceHandle),
+            resolveTargetHandle(edge.targetHandle),
+            true,
+          ),
+          id: edge.id || `edge-failure-${edge.source}-${edge.target}`,
+          data: { label: edge.data?.label || '失败', isFailure: true },
+        })
+        continue
+      }
+      // 非分叉节点只允许一条正常出边
       if (!forkNodeIds.has(edge.source) && usedSources.has(edge.source)) {
         continue
       }
@@ -362,11 +467,28 @@ export function useSopFlow() {
       ))
     })
 
+    // 为有 on_failure 的步骤创建失败边
+    data.steps.forEach((step) => {
+      if (step.on_failure && validIds.has(step.on_failure) && step.on_failure !== step.id) {
+        const targetStep = stepMap.get(step.on_failure)
+        runtimeEdges.push(createFlowEdge(
+          step.id,
+          step.on_failure,
+          'failure',
+          targetStep?.ui_meta?.target_handle || DEFAULT_TARGET_HANDLE,
+          true,
+        ))
+      }
+    })
+
     edges.value = normalizeEdges(runtimeEdges)
     syncBranchEdges()
     syncStepIndexes()
+    blackboard.value = data.blackboard || null
     isDirty.value = false
     dirtyStepIds.value = new Set()
+    stepPanelDirty.value = new Map()
+    undoStack.value = []
     selectedStepId.value = null
   }
 
@@ -391,13 +513,15 @@ export function useSopFlow() {
       .map((node) => {
         const outgoingEdges = outgoingEdgesMap.get(node.id) || []
         const incomingEdges = incomingEdgesMap.get(node.id) || []
-        const outgoingEdge = outgoingEdges[0]
+        const normalOutgoingEdges = outgoingEdges.filter((e) => !e.data?.isFailure)
+        const failureEdge = outgoingEdges.find((e) => e.data?.isFailure)
+        const outgoingEdge = normalOutgoingEdges[0]
         const incomingEdge = incomingEdges[0]
 
         // 分叉节点：从出边构建 branches，正确分离 default_goto
         if (node.type === 'sop-fork') {
-          const defaultEdge = outgoingEdges.find((e) => e.data?.isDefault)
-          const branchEdges = outgoingEdges.filter((e) => !e.data?.isDefault)
+          const defaultEdge = normalOutgoingEdges.find((e) => e.data?.isDefault)
+          const branchEdges = normalOutgoingEdges.filter((e) => !e.data?.isDefault)
           const branches: BranchTarget[] = branchEdges.map((edge) => ({
             match: edge.data?.label || '',
             goto: edge.target || undefined,
@@ -407,6 +531,7 @@ export function useSopFlow() {
             next_step_id: undefined,
             branches,
             default_goto: defaultEdge?.target || undefined,
+            on_failure: failureEdge?.target || undefined,
             execution: {
               ...node.data.step.execution,
             },
@@ -424,6 +549,7 @@ export function useSopFlow() {
         return {
           ...node.data.step,
           next_step_id: outgoingEdge?.target ?? null,
+          on_failure: failureEdge?.target || undefined,
           ui_meta: {
             position: {
               x: Number(node.position.x || 0),
@@ -444,6 +570,7 @@ export function useSopFlow() {
     return {
       ...baseData,
       steps,
+      blackboard: blackboard.value,
     }
   }
 
@@ -453,6 +580,7 @@ export function useSopFlow() {
   const handleNodesChange = (changes: Array<any>) => {
     const removeChanges = changes.filter((change) => change.type === 'remove' && typeof change.id === 'string')
     if (removeChanges.length) {
+      pushUndo()
       removeChanges.forEach((change) => removeStep(String(change.id)))
       return
     }
@@ -472,6 +600,7 @@ export function useSopFlow() {
             node.data.step.ui_meta = {}
           }
           node.data.step.ui_meta.position = { x: newX, y: newY }
+          node.data.dirty = true
           const next = new Set(dirtyStepIds.value)
           next.add(node.id)
           dirtyStepIds.value = next
@@ -514,22 +643,37 @@ export function useSopFlow() {
   }
 
   /**
-   * 建立连接。分叉节点允许多条出边。
+   * 建立连接。分叉节点允许多条出边，失败边与正常边可共存。
    */
   const connectSteps = (connection: Connection) => {
     if (!connection.source || !connection.target || connection.source === connection.target) {
       return
     }
-    const pairKey = createPairKey(connection.source, connection.target)
+    pushUndo()
+    const isFailure = connection.sourceHandle === 'failure'
+    const pairKey = isFailure
+      ? `failure::${createPairKey(connection.source, connection.target)}`
+      : createPairKey(connection.source, connection.target)
     const sourceIsFork = isForkNode(connection.source)
 
     let nextEdges = edges.value.filter(
-      (edge) => createPairKey(edge.source, edge.target) !== pairKey,
+      (edge) => {
+        const edgeIsFailure = !!edge.data?.isFailure
+        const edgePairKey = edgeIsFailure
+          ? `failure::${createPairKey(edge.source, edge.target)}`
+          : createPairKey(edge.source, edge.target)
+        return edgePairKey !== pairKey
+      },
     )
 
-    // 非分叉节点：替换已有出边
-    if (!sourceIsFork) {
-      nextEdges = nextEdges.filter((edge) => edge.source !== connection.source)
+    if (isFailure) {
+      // 失败边：移除已有的失败边，替换
+      nextEdges = nextEdges.filter((edge) => !(edge.source === connection.source && edge.data?.isFailure))
+    } else {
+      // 非分叉节点：替换已有正常出边
+      if (!sourceIsFork) {
+        nextEdges = nextEdges.filter((edge) => !(edge.source === connection.source && !edge.data?.isFailure))
+      }
     }
 
     nextEdges.push(createFlowEdge(
@@ -537,12 +681,16 @@ export function useSopFlow() {
       connection.target,
       connection.sourceHandle || DEFAULT_SOURCE_HANDLE,
       connection.targetHandle || DEFAULT_TARGET_HANDLE,
+      isFailure,
     ))
     edges.value = normalizeEdges(nextEdges)
     if (connection.source) {
       const next = new Set(dirtyStepIds.value)
       next.add(connection.source)
       dirtyStepIds.value = next
+      nodes.value = nodes.value.map((n) =>
+        n.id === connection.source ? { ...n, data: { ...n.data, dirty: true } } : n,
+      )
     }
     isDirty.value = true
     syncBranchEdges()
@@ -556,17 +704,29 @@ export function useSopFlow() {
     if (!connection.source || !connection.target || connection.source === connection.target) {
       return
     }
-    const pairKey = createPairKey(connection.source, connection.target)
+    pushUndo()
+    const isFailure = connection.sourceHandle === 'failure'
+    const pairKey = isFailure
+      ? `failure::${createPairKey(connection.source, connection.target)}`
+      : createPairKey(connection.source, connection.target)
     const sourceIsFork = isForkNode(connection.source)
 
     let nextEdges = edges.value.filter(
-      (edge) =>
-        edge.id !== edgeId &&
-        createPairKey(edge.source, edge.target) !== pairKey,
+      (edge) => {
+        const edgeIsFailure = !!edge.data?.isFailure
+        const edgePairKey = edgeIsFailure
+          ? `failure::${createPairKey(edge.source, edge.target)}`
+          : createPairKey(edge.source, edge.target)
+        return edge.id !== edgeId && edgePairKey !== pairKey
+      },
     )
 
-    if (!sourceIsFork) {
-      nextEdges = nextEdges.filter((edge) => edge.source !== connection.source)
+    if (isFailure) {
+      nextEdges = nextEdges.filter((edge) => !(edge.source === connection.source && edge.data?.isFailure))
+    } else {
+      if (!sourceIsFork) {
+        nextEdges = nextEdges.filter((edge) => !(edge.source === connection.source && !edge.data?.isFailure))
+      }
     }
 
     nextEdges.push(createFlowEdge(
@@ -574,8 +734,17 @@ export function useSopFlow() {
       connection.target,
       connection.sourceHandle || DEFAULT_SOURCE_HANDLE,
       connection.targetHandle || DEFAULT_TARGET_HANDLE,
+      isFailure,
     ))
     edges.value = normalizeEdges(nextEdges)
+    if (connection.source) {
+      const next = new Set(dirtyStepIds.value)
+      next.add(connection.source)
+      dirtyStepIds.value = next
+      nodes.value = nodes.value.map((n) =>
+        n.id === connection.source ? { ...n, data: { ...n.data, dirty: true } } : n,
+      )
+    }
     isDirty.value = true
     syncBranchEdges()
     syncStepIndexes()
@@ -585,6 +754,7 @@ export function useSopFlow() {
    * 添加新步骤节点。
    */
   const addStep = (afterStepId?: string) => {
+    pushUndo()
     const newStepId = `step-${Date.now().toString(36)}`
     const sourceNode = afterStepId ? nodes.value.find((node) => node.id === afterStepId) : null
     const newStep: SopStep = {
@@ -619,8 +789,8 @@ export function useSopFlow() {
           createFlowEdge(afterStepId, newStepId),
         ])
       } else {
-        const replacedEdge = edges.value.find((edge) => edge.source === afterStepId)
-        const nextEdges = edges.value.filter((edge) => edge.source !== afterStepId)
+        const replacedEdge = edges.value.find((edge) => edge.source === afterStepId && !edge.data?.isFailure)
+        const nextEdges = edges.value.filter((edge) => !(edge.source === afterStepId && !edge.data?.isFailure))
         nextEdges.push(createFlowEdge(afterStepId, newStepId))
         if (replacedEdge) {
           nextEdges.push(createFlowEdge(newStepId, replacedEdge.target))
@@ -650,9 +820,11 @@ export function useSopFlow() {
    * 删除步骤节点及相关边。
    */
   const removeStep = (stepId: string) => {
-    const incomingEdges = edges.value.filter((edge) => edge.target === stepId)
-    const outgoingEdges = edges.value.filter((edge) => edge.source === stepId)
+    pushUndo()
+    const incomingEdges = edges.value.filter((edge) => edge.target === stepId && !edge.data?.isFailure)
+    const outgoingEdges = edges.value.filter((edge) => edge.source === stepId && !edge.data?.isFailure)
     const deletedIsFork = isForkNode(stepId)
+    // 失败边直接移除，不做桥接
     const nextEdges = edges.value.filter((edge) => edge.source !== stepId && edge.target !== stepId)
 
     // 分叉节点删除：将每条入边连接到每条出边（或第一条出边）
@@ -697,11 +869,15 @@ export function useSopFlow() {
    * 删除单条边。
    */
   const removeEdge = (edgeId: string) => {
+    pushUndo()
     const edge = edges.value.find((e) => e.id === edgeId)
     if (edge) {
       const next = new Set(dirtyStepIds.value)
       next.add(edge.source)
       dirtyStepIds.value = next
+      nodes.value = nodes.value.map((n) =>
+        n.id === edge.source ? { ...n, data: { ...n.data, dirty: true } } : n,
+      )
     }
     edges.value = normalizeEdges(edges.value.filter((e) => e.id !== edgeId))
     isDirty.value = true
@@ -713,6 +889,7 @@ export function useSopFlow() {
    * 自动布局（DAG 分支布局，BFS 分配层级 + 分支水平展开）。
    */
   const autoLayout = () => {
+    pushUndo()
     const outgoingMap = new Map<string, string[]>()
     const incomingMap = new Map<string, string[]>()
     for (const n of nodes.value) {
@@ -807,6 +984,7 @@ export function useSopFlow() {
         position: { x, y },
         data: {
           ...node.data,
+          dirty: oldPos.x !== x || oldPos.y !== y ? true : node.data.dirty,
           step: {
             ...node.data.step,
             ui_meta: {
@@ -825,7 +1003,8 @@ export function useSopFlow() {
   /**
    * 更新指定步骤的数据。
    */
-  const updateStepData = (stepId: string, updates: Partial<SopStep>) => {
+  const updateStepData = (stepId: string, updates: Partial<SopStep>, skipUndo = false) => {
+    if (!skipUndo) pushUndo()
     const targetNode = nodes.value.find((node) => node.id === stepId)
     if (!targetNode) {
       return
@@ -841,6 +1020,7 @@ export function useSopFlow() {
         ...node,
         data: {
           ...node.data,
+          dirty: true,
           step: {
             ...node.data.step,
             ...updates,
@@ -867,12 +1047,30 @@ export function useSopFlow() {
 
   /**
    * 标记步骤节点为脏（红点），由属性面板 dirty-change 事件触发。
+   * 同时更新节点 data.dirty 以强制 Vue Flow 重新渲染自定义节点。
    */
   const markStepDirty = (stepId: string) => {
     const next = new Set(dirtyStepIds.value)
     next.add(stepId)
     dirtyStepIds.value = next
     isDirty.value = true
+    nodes.value = nodes.value.map((n) =>
+      n.id === stepId ? { ...n, data: { ...n.data, dirty: true } } : n,
+    )
+  }
+
+  /**
+   * 清除步骤节点的脏标记（红点），由属性面板取消编辑时触发。
+   * 仅清除红点视觉标记，不重置 isDirty（可能存在其他类型的变更）。
+   */
+  const unmarkStepDirty = (stepId: string) => {
+    if (!dirtyStepIds.value.has(stepId)) return
+    const next = new Set(dirtyStepIds.value)
+    next.delete(stepId)
+    dirtyStepIds.value = next
+    nodes.value = nodes.value.map((n) =>
+      n.id === stepId ? { ...n, data: { ...n.data, dirty: false } } : n,
+    )
   }
 
   /**
@@ -895,6 +1093,7 @@ export function useSopFlow() {
    * 更新边标签（分支条件文字）。
    */
   const updateEdgeLabel = (edgeId: string, label: string) => {
+    pushUndo()
     const edge = edges.value.find((e) => e.id === edgeId)
     if (!edge) return
     edge.data = { ...edge.data, label }
@@ -903,6 +1102,9 @@ export function useSopFlow() {
       const next = new Set(dirtyStepIds.value)
       next.add(edge.source)
       dirtyStepIds.value = next
+      nodes.value = nodes.value.map((n) =>
+        n.id === edge.source ? { ...n, data: { ...n.data, dirty: true } } : n,
+      )
     }
     isDirty.value = true
     syncBranchEdges()
@@ -913,6 +1115,14 @@ export function useSopFlow() {
    */
   const clearDirty = () => {
     dirtyStepIds.value = new Set()
+    stepPanelDirty.value = new Map()
+    undoStack.value = []
+    redoStack.value = []
+    isDragging = false
+    nodes.value = nodes.value.map((n) => ({
+      ...n,
+      data: { ...n.data, dirty: false },
+    }))
   }
 
   return {
@@ -922,6 +1132,10 @@ export function useSopFlow() {
     selectedStepId,
     selectedStep,
     dirtyStepIds,
+    stepPanelDirty,
+    blackboard,
+    undoStack,
+    redoStack,
     loadFromSopData,
     exportToSopData,
     handleNodesChange,
@@ -937,6 +1151,12 @@ export function useSopFlow() {
     updateEdgeLabel,
     clearDirty,
     markStepDirty,
+    unmarkStepDirty,
     selectStep,
+    pushUndo,
+    undo,
+    redo,
+    onNodeDragStart,
+    onNodeDragStop,
   }
 }

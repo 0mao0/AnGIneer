@@ -15,6 +15,7 @@ import json
 import uuid
 import os
 import re
+import math
 from typing import Dict, Any, Tuple, List, Optional, TYPE_CHECKING
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
 from angineer_core.base_contracts import SOP, Step, IntentResult, AttemptedPathResult
@@ -346,8 +347,9 @@ class Dispatcher:
 
                 if path in {"semantic_retrieval", "dynamic_orchestration"}:
                     _t_path = time.time()
+                    _enforce = (path == "semantic_retrieval")
                     answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings = (
-                        self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations)
+                        self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations, enforce_evidence=_enforce)
                     )
                     stage_timings[path] = round(time.time() - _t_path, 2)
                     route_kind = "retrieval"
@@ -409,7 +411,7 @@ class Dispatcher:
                 fallback_used = True
                 _t_path = time.time()
                 answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings = (
-                    self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations)
+                    self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations, enforce_evidence=False)
                 )
                 stage_timings["semantic_retrieval"] = round(time.time() - _t_path, 2)
                 stage_timings.update(ret_timings)
@@ -1093,8 +1095,12 @@ class Dispatcher:
         doc_ids: List[str],
         intent_result: IntentResult,
         inline_citations: Optional[List[Dict[str, Any]]] = None,
+        enforce_evidence: bool = False,
     ) -> Tuple[str, list, list, str, str, Dict, Dict[str, float]]:
-        """L1/L2回退/L3回退：语义检索路径。"""
+        """L1/L2回退/L3回退：语义检索路径。
+
+        enforce_evidence=True 时，若检索无结果则直接返回空，不调用 LLM 自由生成。
+        """
         from docs_core.query_protocols.contracts import KnowledgeQueryRequest
         from docs_core.retrieval.dense_retriever import dense_retriever
         from docs_core.retrieval.sparse_retriever import sparse_retriever
@@ -1121,7 +1127,7 @@ class Dispatcher:
                 query=query,
                 library_id=library_id,
                 doc_ids=doc_ids,
-                top_k=5,
+                top_k=10,
             )
             dense_hits = dense_retriever.retrieve(
                 kq_request, doc_nodes, retriever_task_type
@@ -1157,7 +1163,7 @@ class Dispatcher:
 
             if not answer and fused:
                 context_parts = []
-                for item in fused[:5]:
+                for item in fused[:10]:
                     if not item.text:
                         continue
                     section = str(item.metadata.get("section_path") or "")
@@ -1171,6 +1177,10 @@ class Dispatcher:
                         f"{prefix}\n{item.text}" if prefix else item.text
                     )
                 context_text = "\n---\n".join(context_parts)
+                # enforce_evidence 模式下，若无有效上下文则拒绝生成
+                if enforce_evidence and not context_text.strip():
+                    logger.info("语义检索：enforce_evidence=True，未检索到有效证据，拒绝 LLM 自由生成")
+                    return "", citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, timings
                 explicit_evidence_text = self._build_inline_citation_context(inline_citations or [])
                 user_prompt_content = (
                     f"问题: {query}\n\n显式引用证据:\n{explicit_evidence_text}\n\n检索结果:\n{context_text}"
@@ -1188,18 +1198,27 @@ class Dispatcher:
                 is_choice = bool(
                     Dispatcher._MULTI_CHOICE_PATTERN.search(query)
                 )
-                if is_choice and context_text.strip():
-                    # 两阶段选择题流程：先提取条款，再逐选项判断
-                    extract_user = (
-                        "请从以下检索结果中提取与题目相关的所有规范条款。"
-                        "对每个条款列出：(1)条款编号 (2)条款关键内容。"
-                        "只提取客观存在的条款，不要推理、不要判断、不要补充。\n\n"
-                        f"检索结果：\n{context_text}"
-                    )
+                if context_text.strip():
+                    # 通用两阶段流程：LLM 先预过滤证据，再基于过滤结果回答
+                    extract_system = "你是一个工程规范分析助手，只做信息提取，不做推理判断。"
+                    if is_choice:
+                        extract_user = (
+                            "请从以下检索结果中提取与题目相关的所有规范条款。"
+                            "对每个条款列出：(1)条款编号 (2)条款关键内容。"
+                            "只提取客观存在的条款，不要推理、不要判断、不要补充。\n\n"
+                            f"检索结果：\n{context_text}"
+                        )
+                    else:
+                        extract_user = (
+                            "请从以下检索结果中提取与问题相关的所有关键信息。\n"
+                            "包括：规范条款、定义、数据表格、公式、计算参数等。\n"
+                            "只提取客观存在的信息，不要推理、不要回答。\n\n"
+                            f"问题：{query}\n\n检索结果：\n{context_text}"
+                        )
                     try:
-                        clauses_text = llm.chat(
+                        filtered_evidence = llm.chat(
                             [
-                                {"role": "system", "content": "你是一个工程规范分析助手，只做信息提取，不做推理判断。"},
+                                {"role": "system", "content": extract_system},
                                 {"role": "user", "content": extract_user},
                             ],
                             mode="instruct",
@@ -1207,23 +1226,12 @@ class Dispatcher:
                         timings["llm_extract"] = round(time.time() - _t2, 2)
 
                         _t3 = time.time()
-                        judge_user = (
-                            f"问题: {query}\n\n"
-                            f"已提取的规范条款:\n{clauses_text}\n\n"
-                            "请根据以上条款，逐一判断每个选项是否符合规范要求。\n"
-                            "必须按以下格式输出（无论单选还是多选都必须使用此格式）：\n"
-                            "A: [符合/不符合/证据不足] - 一句话依据\n"
-                            "B: [符合/不符合/证据不足] - 一句话依据\n"
-                            "C: [符合/不符合/证据不足] - 一句话依据\n"
-                            "D: [符合/不符合/证据不足] - 一句话依据\n"
-                            "答案: [符合题目要求的所有选项字母]"
-                        )
-                        if explicit_evidence_text:
+                        if is_choice:
                             judge_user = (
                                 f"问题: {query}\n\n"
-                                f"显式引用证据:\n{explicit_evidence_text}\n\n"
-                                f"已提取的规范条款:\n{clauses_text}\n\n"
+                                f"已提取的规范条款:\n{filtered_evidence}\n\n"
                                 "请根据以上条款，逐一判断每个选项是否符合规范要求。\n"
+                                "注意：仔细阅读题目要求，区分题目问的是'符合'还是'不符合'规范。\n"
                                 "必须按以下格式输出（无论单选还是多选都必须使用此格式）：\n"
                                 "A: [符合/不符合/证据不足] - 一句话依据\n"
                                 "B: [符合/不符合/证据不足] - 一句话依据\n"
@@ -1231,6 +1239,33 @@ class Dispatcher:
                                 "D: [符合/不符合/证据不足] - 一句话依据\n"
                                 "答案: [符合题目要求的所有选项字母]"
                             )
+                            if explicit_evidence_text:
+                                judge_user = (
+                                    f"问题: {query}\n\n"
+                                    f"显式引用证据:\n{explicit_evidence_text}\n\n"
+                                    f"已提取的规范条款:\n{filtered_evidence}\n\n"
+                                    "请根据以上条款，逐一判断每个选项是否符合规范要求。\n"
+                                    "注意：仔细阅读题目要求，区分题目问的是'符合'还是'不符合'规范。\n"
+                                    "必须按以下格式输出（无论单选还是多选都必须使用此格式）：\n"
+                                    "A: [符合/不符合/证据不足] - 一句话依据\n"
+                                    "B: [符合/不符合/证据不足] - 一句话依据\n"
+                                    "C: [符合/不符合/证据不足] - 一句话依据\n"
+                                    "D: [符合/不符合/证据不足] - 一句话依据\n"
+                                    "答案: [符合题目要求的所有选项字母]"
+                                )
+                        else:
+                            judge_user = (
+                                f"问题: {query}\n\n"
+                                f"关键证据:\n{filtered_evidence}\n\n"
+                                "请根据以上关键证据回答问题。"
+                            )
+                            if explicit_evidence_text:
+                                judge_user = (
+                                    f"问题: {query}\n\n"
+                                    f"显式引用证据:\n{explicit_evidence_text}\n\n"
+                                    f"关键证据:\n{filtered_evidence}\n\n"
+                                    "请根据以上关键证据回答问题。"
+                                )
                         answer = llm.chat(
                             [
                                 {"role": "system", "content": system_prompt},
@@ -1508,23 +1543,104 @@ class Dispatcher:
     def _extract_answer_from_sop_context(
         context: Dict[str, Any], query: str, config_name: str = None,
     ) -> str:
-        """从 SOP 执行上下文中提取答案，优先取已有 answer，否则用 LLM 生成。"""
+        """
+        从 SOP 执行上下文中提取答案，并进行步骤输出强一致性校验。
+        
+        校验规则：
+        1. 优先取 context["answer"] 如果存在且有效
+        2. 收集所有步骤输出（非内部变量）
+        3. 检查数值一致性（如果多个步骤输出数值结果，确保它们不矛盾）
+        4. 最终答案必须基于步骤输出，不能 hallucinate
+        """
+        # 1. 优先取已有的 answer
         if context.get("answer"):
-            return str(context["answer"])
+            answer = str(context["answer"])
+            # 简单校验：answer 中不应包含错误标记
+            if answer.strip().lower() not in {"error", "failed", "null", "none", "undefined"}:
+                return answer
 
-        calc_vars = {
-            k: v for k, v in context.items()
-            if isinstance(v, (int, float, str)) and not k.startswith("_") and k != "user_query"
-        }
+        # 2. 收集所有步骤输出（排除内部变量）
+        calc_vars = {}
+        step_outputs = {}
+        for k, v in context.items():
+            if k.startswith("_") or k == "user_query":
+                continue
+            if isinstance(v, (int, float)):
+                calc_vars[k] = v
+            elif isinstance(v, str) and v.strip():
+                # 排除错误标记
+                if v.strip().lower() not in {"error", "failed", "null", "none", "undefined", "nan"}:
+                    calc_vars[k] = v
+            elif isinstance(v, dict) and v.get("result") is not None:
+                # 工具输出（如 table_lookup 结果）
+                step_outputs[k] = v["result"]
+                calc_vars[k] = v["result"]
+
         if not calc_vars:
             return ""
 
+        # 3. 数值一致性校验
+        numeric_values = {}
+        for k, v in calc_vars.items():
+            if isinstance(v, (int, float)):
+                numeric_values[k] = float(v)
+            elif isinstance(v, str):
+                # 尝试提取数值
+                num_match = re.search(r'[-+]?\d+(?:\.\d+)?', v)
+                if num_match:
+                    try:
+                        numeric_values[k] = float(num_match.group(0))
+                    except ValueError:
+                        pass
+        
+        # 如果存在多个数值输出，检查它们是否合理（不矛盾）
+        consistency_warning = None
+        if len(numeric_values) >= 2:
+            values = list(numeric_values.values())
+            # 检查是否有明显矛盾的值（如一个为正一个为负，但工程场景中可能有合理情况）
+            # 这里只做简单检查：确保没有 NaN 或 Inf
+            if any(math.isnan(v) or math.isinf(v) for v in values):
+                consistency_warning = "检测到无效数值（NaN 或 Inf）"
+
+        # 4. 构建最终答案
+        # 优先使用最后一步的输出作为答案
+        final_answer = None
+        # 尝试找到最可能是最终答案的变量
+        answer_candidates = [k for k in calc_vars if any(
+            suffix in k.lower() for suffix in ["answer", "result", "final", "output", "值", "结果"]
+        )]
+        if answer_candidates:
+            final_answer = calc_vars[answer_candidates[-1]]
+        elif calc_vars:
+            # 取最后一个数值变量
+            final_answer = list(calc_vars.values())[-1]
+
+        if final_answer is not None:
+            result_text = str(final_answer)
+            if consistency_warning:
+                result_text = f"{result_text}\n\n[警告: {consistency_warning}]"
+            return result_text
+
+        # 5. 如果没有明确答案，使用 LLM 生成（严格限制在步骤输出范围内）
         from ai_inference.llm_client import get_llm_client
         llm = get_llm_client()
+        prompt = f"""你是工程规范领域的专业助手。请根据以下计算结果回答用户问题。
+
+重要约束 - **必须严格遵守**:
+- 你的回答必须逐字逐句基于以下计算结果
+- 如果计算结果中没有包含问题的完整答案，必须明确说明"当前步骤计算结果不足以完整回答此问题，以下仅基于已有结果:"
+- **绝对禁止**添加任何你自己知道但计算结果中未出现的规范编号、数值或公式
+- 只能引用计算结果中**已经出现**的变量名和数值
+- 将计算结果中的数值代入问题所问的语境中组织语言，但不要改变数值
+
+问题: {query}
+
+计算结果: {json.dumps(calc_vars, ensure_ascii=False, default=str)}
+"""
         return llm.chat(
             [
-                {"role": "system", "content": "你是工程规范领域的专业助手。请根据以下计算结果回答用户问题，列出关键计算步骤和最终结果。"},
-                {"role": "user", "content": f"问题: {query}\n\n计算结果: {json.dumps(calc_vars, ensure_ascii=False, default=str)}"},
+                {"role": "system", "content": "你是工程规范领域的专业助手。请严格基于提供的计算结果回答问题，不要添加未经验证的信息。"},
+                {"role": "user", "content": prompt},
             ],
             mode="instruct",
             config_name=config_name,
@@ -1595,6 +1711,8 @@ class Dispatcher:
                 "duration": step_durations.get(step.id, 0.0),
                 "status": (record.status if record else "pending"),
                 "error": (record.error if record else None),
+                "thinking": (record.thinking if record else None),
+                "evidence": (record.evidence if record else None),
             })
         return trace
 
@@ -1760,6 +1878,8 @@ class Dispatcher:
             "duration": step_durations.get(step.id, 0.0),
             "status": (record.status if record else "pending"),
             "error": (record.error if record else None),
+            "thinking": (record.thinking if record else None),
+            "evidence": (record.evidence if record else None),
         }
 
     def _execute_step(self, step: Step):
@@ -1837,7 +1957,22 @@ class Dispatcher:
                  # This is a heuristic, but often useful
                  missing_params.append(f"{param_name} (unresolved: {resolved_value})")
 
-        # 1.5. Try to derive missing variables from context (K1, 折减系数, etc.)
+        # 1.5. 检查所有输入是否有效（非空），避免将空值传递给工具
+        non_auto_tools = {"calculator", "table_lookup", "knowledge_search", "user_input"}
+        if step.tool in non_auto_tools:
+            all_inputs_empty = all(
+                v in (None, "", {}, [])
+                or (isinstance(v, str) and not v.strip())
+                for v in ready_inputs.values()
+            )
+            if all_inputs_empty and ready_inputs:
+                logger.warning(f"[Step {step.id}] 所有输入参数均为空值，无法执行工具调用")
+                self._record_step(step, ready_inputs,
+                    {"error": "所有输入参数均为空值，无法执行工具调用。请检查前序步骤输出是否正常。"},
+                    error="empty_inputs")
+                return
+
+        # 1.6. Try to derive missing variables from context (K1, 折减系数, etc.)
         if missing_params and step.tool == "calculator":
             logger.debug(f"Missing calculator params, will rely on LLM: {missing_params}")
 
@@ -1863,7 +1998,7 @@ class Dispatcher:
             self._execute_tool_safe(step.tool, ready_inputs, step)
 
     def _should_skip_step(self, step: Step, context: Dict[str, Any]) -> bool:
-        """Check if step outputs are already present in context."""
+        """Check if step outputs are already present in context and valid."""
         if not step.outputs:
             return False
         # If outputs is "*" we can't easily check, so don't skip
@@ -1874,9 +2009,24 @@ class Dispatcher:
         if not output_keys:
             return False
             
-        # Check if all output keys exist and are not None
-        # Exception: if the value in context is explicitly "None" string or something? No.
-        return all(key in context and context.get(key) is not None for key in output_keys)
+        for key in output_keys:
+            value = context.get(key)
+            # 值必须存在且不为 None
+            if value is None:
+                return False
+            # 值不能是空字符串
+            if isinstance(value, str) and not value.strip():
+                return False
+            # 值不能是明显的错误标记
+            if isinstance(value, str) and value.strip().lower() in {"error", "failed", "null", "none", "undefined", "nan"}:
+                return False
+            # 数值类型不能是 NaN
+            if isinstance(value, float) and math.isnan(value):
+                return False
+            # 如果是字典/列表，不能为空
+            if isinstance(value, (dict, list)) and not value:
+                return False
+        return True
 
     # 执行元 SOP 内置工具（llm_generate）
     def _execute_meta_sop_tool(self, tool_name: str, inputs: Dict[str, Any], step: Step) -> Any:
@@ -2056,6 +2206,29 @@ class Dispatcher:
         logger.error(error_msg)
         self._record_step(step, {}, None, error=error_msg)
 
+    def _is_value_from_context(self, value) -> bool:
+        """检查 return_value 的值是否可追溯到当前上下文。"""
+        if isinstance(value, (int, float)):
+            return True
+        value_str = str(value)
+        if value_str in self.memory.blackboard:
+            return True
+        for v in self.memory.blackboard.values():
+            if value_str in str(v):
+                return True
+        return False
+
+    def _should_allow_skip(self, step: Step) -> bool:
+        """检查步骤是否应该允许跳过（其输出已存在于上下文中）。"""
+        if not step.outputs:
+            return False
+        for output_def in step.outputs:
+            key = getattr(output_def, "key", None) or getattr(output_def, "name", None)
+            if key and key in self.memory.blackboard and self.memory.blackboard[key] is not None:
+                continue
+            return False
+        return True
+
     def _smart_step_execution(self, step: Step, reason: str, missing_params: List[str]):
         """
         LLM 智能执行步骤。
@@ -2090,7 +2263,24 @@ class Dispatcher:
             )
             action_data = self._extract_json_from_response(response)
             action = action_data.get("action")
-            
+
+            # 验证 return_value 和 skip 不会绕过必要的工具执行
+            if action == "return_value":
+                value = action_data.get("value")
+                if value is not None and not self._is_value_from_context(value):
+                    logger.warning(f"LLM 尝试 return_value 但值未在上下文中找到: {value}")
+                    self._record_step(step, action_data,
+                        {"error": "return_value 使用的值未在当前上下文中找到，LLM 可能正在绕过必要的计算步骤"},
+                        error="return_value_rejected")
+                    return
+            if action == "skip":
+                if not self._should_allow_skip(step):
+                    logger.warning(f"LLM 尝试 skip 步骤 {step.id} 但输出尚未在上下文中")
+                    self._record_step(step, action_data,
+                        {"error": "skip 被拒绝：步骤的必要输出尚未在上下文中，请完成此步骤"},
+                        error="skip_rejected")
+                    return
+
             logger.debug(f"AI decision: {action}")
             
             # 使用策略模式分发到对应的处理方法
@@ -2425,7 +2615,7 @@ class Dispatcher:
 
         return candidates
 
-    def _record_step(self, step: Step, inputs: Any, outputs: Any, error: str = None):
+    def _record_step(self, step: Step, inputs: Any, outputs: Any, error: str = None, thinking: str = None, evidence: Dict[str, Any] = None):
         inferred_error = error or self._extract_tool_error(outputs)
         status = "failed" if inferred_error else "success"
         record = StepRecord(
@@ -2434,7 +2624,9 @@ class Dispatcher:
             inputs=inputs,
             outputs=outputs,
             status=status,
-            error=inferred_error
+            error=inferred_error,
+            thinking=thinking,
+            evidence=evidence,
         )
         self.memory.add_step_io({
             "step_id": step.id,
@@ -2442,7 +2634,9 @@ class Dispatcher:
             "inputs": inputs,
             "outputs": outputs,
             "status": status,
-            "error": inferred_error
+            "error": inferred_error,
+            "thinking": thinking,
+            "evidence": evidence,
         })
         self.memory.add_history(record)
 

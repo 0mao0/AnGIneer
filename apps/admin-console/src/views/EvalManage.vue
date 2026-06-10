@@ -46,6 +46,7 @@
                 <template v-else>
                   <EditOutlined class="action-icon" title="重命名" @click.stop="onDatasetRename(node as EvalTreeNode)" />
                   <EyeOutlined class="action-icon" title="查看详情" @click.stop="onDatasetView(node as EvalTreeNode)" />
+                  <ExportOutlined class="action-icon" title="导出" @click.stop="onDatasetExport(node as EvalTreeNode)" />
                   <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDatasetDelete(node as EvalTreeNode)" />
                 </template>
               </template>
@@ -81,8 +82,14 @@
       <template #right>
         <Panel title="评测运行" :icon="ThunderboltOutlined">
           <template #extra>
-            <a-button type="text" size="small" title="历史对比" @click="compareVisible = true">
-              <template #icon><BarChartOutlined /></template>
+            <a-button
+              type="text"
+              size="small"
+              :disabled="!selectedDatasetId || historyFullRuns.length < 2"
+              title="对比两次评测结果"
+              @click="compareVisible = true"
+            >
+              <template #icon><SwapOutlined /></template>
             </a-button>
           </template>
           <EvalRunPanel
@@ -92,8 +99,11 @@
             :is-full-run="isFullRun"
             :last-run-time="lastRunTime"
             :loading="evalLoading"
+            :runs="runs"
             @run="onStartRun"
             @stop="onStopRun"
+            @select-run="onSelectHistoricalRun"
+            @delete-run="onDeleteRun"
           />
         </Panel>
       </template>
@@ -105,14 +115,11 @@
       @uploaded="onImported"
     />
 
-    <a-modal
+    <EvalCompareModal
       v-model:open="compareVisible"
-      title="历史对比"
-      width="800px"
-      :footer="null"
-    >
-      <EvalCompareView :runs="runs" />
-    </a-modal>
+      :runs="historyFullRuns"
+      :dataset-id="selectedDatasetId"
+    />
 
     <a-modal
       v-model:open="createModalVisible"
@@ -179,13 +186,14 @@
         </div>
       </template>
     </a-modal>
+
   </div>
 </template>
 
 <script setup lang="ts">
 /** 评测管理页面 - 三栏布局 */
 import { ref, computed, h, onMounted, onBeforeUnmount } from 'vue'
-import { App, Input, message } from 'ant-design-vue'
+import { App, Input, message, Modal } from 'ant-design-vue'
 import {
   DatabaseOutlined,
   UnorderedListOutlined,
@@ -195,8 +203,9 @@ import {
   FolderAddOutlined,
   DeleteOutlined,
   PlusOutlined,
-  BarChartOutlined,
   UploadOutlined,
+  ExportOutlined,
+  SwapOutlined,
 } from '@ant-design/icons-vue'
 import { SplitPanes, Panel, useTheme, type DropEvent } from '@angineer/ui-kit'
 import {
@@ -204,12 +213,12 @@ import {
   EvalQuestionList,
   EvalRunPanel,
   EvalImportModal,
-  EvalCompareView,
 } from '@angineer/evals-ui'
 import { useEvalDataset, useEvalRun, useEvalDatasetTree } from '@angineer/evals-ui'
 import type { EvalTreeNode } from '@angineer/evals-ui'
 import type { EvalDataset, EvalQuestion } from '@angineer/evals-ui'
 import FolderModal from './components/FolderModal.vue'
+import EvalCompareModal from './components/EvalCompareModal.vue'
 import { knowledgeApi } from '../api/knowledge'
 import { evalsApi } from '../api/evals'
 
@@ -302,8 +311,10 @@ const {
   startRun,
   fetchLastRun,
   evaluateQuestion,
+  selectHistoricalRun,
   stopPolling,
   stopRun,
+  deleteRun,
 } = useEvalRun()
 
 const selectedDatasetId = ref('')
@@ -326,6 +337,12 @@ const formatDate = (iso: string) => {
   if (!iso) return '-'
   return new Date(iso).toLocaleString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
 }
+
+/** 历史整体运行列表（过滤掉单题评测，用于对比弹窗） */
+const historyFullRuns = computed(() => {
+  if (!runs.value) return []
+  return runs.value.filter(r => r.is_full_run !== false && r.is_full_run !== 0)
+})
 
 /** 格式化上次整体测试时间，格式如 "04-09 18:42" */
 const lastRunTime = computed(() => {
@@ -380,7 +397,6 @@ const onDatasetSelect = async (keys: string[], _nodes: EvalTreeNode[]) => {
   if (key.startsWith('folder-')) return
   selectedDatasetId.value = key
   stopPolling()
-  currentRun.value = null
   isFullRun.value = false
   questionsLoading.value = true
   try {
@@ -428,6 +444,29 @@ const onStopRun = async () => {
   } catch (e: any) {
     message.error(e.message || '停止评测失败')
   }
+}
+
+/** 选择历史运行记录查看 */
+const onSelectHistoricalRun = async (runId: string) => {
+  await selectHistoricalRun(runId)
+}
+
+const onDeleteRun = (runId: string) => {
+  Modal.confirm({
+    title: '确认删除',
+    content: '删除后该次评测记录及所有题目详情将永久移除，不可恢复。',
+    okText: '删除',
+    okType: 'danger',
+    cancelText: '取消',
+    onOk: async () => {
+      try {
+        await deleteRun(runId, selectedDatasetId.value)
+        message.success('评测记录已删除')
+      } catch (e: any) {
+        message.error(e.message || '删除失败')
+      }
+    },
+  })
 }
 
 /** 对单道题目发起评测 */
@@ -571,6 +610,27 @@ const onDatasetView = async (node: EvalTreeNode) => {
     detailQuestions.value = (data as any)?.questions || []
   } catch {
     detailQuestions.value = []
+  }
+}
+
+/** 处理导出测试集 - 下载 JSON 文件 */
+const onDatasetExport = async (node: EvalTreeNode) => {
+  const key = String(node.key)
+  if (isCategoryFolderFn(node)) return
+  try {
+    const data = await evalsApi.exportDataset(key)
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${node.title}.json`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+    message.success('导出成功')
+  } catch (e: any) {
+    message.error(e.message || '导出失败')
   }
 }
 
@@ -772,4 +832,5 @@ onBeforeUnmount(() => {
     color: var(--text-secondary, rgba(0, 0, 0, 0.45));
   }
 }
+
 </style>

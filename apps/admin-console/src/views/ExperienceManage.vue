@@ -12,7 +12,7 @@
               <a-button type="text" size="small" title="新建 SOP" @click="openCreateSopModal()">
                 <template #icon><FileAddOutlined /></template>
               </a-button>
-              <a-button type="text" size="small" title="导入 JSON" @click="openImportModal()">
+              <a-button type="text" size="small" title="导入 MD" @click="openImportModal()">
                 <template #icon><UploadOutlined /></template>
               </a-button>
             </a-space>
@@ -49,7 +49,7 @@
                 <template v-if="node.isFolder">
                   <EditOutlined class="action-icon" title="重命名" @click.stop="onTreeRename(node as SOPTreeNode)" />
                   <FileAddOutlined class="action-icon" title="新增 SOP" @click.stop="openCreateSopModal(node as SOPTreeNode)" />
-                  <UploadOutlined class="action-icon" title="导入 JSON" @click.stop="openImportModal(node as SOPTreeNode)" />
+                  <UploadOutlined class="action-icon" title="导入 MD" @click.stop="openImportModal(node as SOPTreeNode)" />
                   <FolderAddOutlined class="action-icon" title="新增子文件夹" @click.stop="onAddFolder(node as SOPTreeNode)" />
                   <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onTreeDelete(node as SOPTreeNode)" />
                 </template>
@@ -89,15 +89,10 @@
       </template>
 
       <template #center>
-        <Panel title="流程图" :icon="ApartmentOutlined">
-          <template #extra>
-            <a-space>
-              <a-tag v-if="anyUnsaved" color="orange">未保存</a-tag>
-              <a-tag v-if="currentMode === 'view'" color="blue">只读查看</a-tag>
-              <a-button v-if="currentMode === 'view'" size="small" type="default" @click="switchToEditMode">
-                进入编辑
-              </a-button>
-            </a-space>
+        <Panel :title="centerPanelTitle" :icon="ApartmentOutlined">
+          <template #title>
+            <span>{{ centerPanelTitle }}</span>
+            <span v-if="metaPanelDirty" class="sop-title-dirty-dot"></span>
           </template>
           <div class="canvas-container">
             <div v-if="!sopTree.currentSopData.value" class="canvas-empty">
@@ -108,16 +103,21 @@
               v-else
               :nodes="sopFlow.nodes.value"
               :edges="sopFlow.edges.value"
-              :is-dirty="sopFlow.isDirty.value"
+              :is-dirty="persistDirty"
+              :can-undo="sopFlow.undoStack.value.length > 0"
+              :can-redo="sopFlow.redoStack.value.length > 0"
               :read-only="currentMode === 'view'"
               :selected-step-id="sopFlow.selectedStepId.value"
               :dirty-step-ids="sopFlow.dirtyStepIds.value"
+              :blackboard="sopFlow.blackboard.value"
               @step-select="onStepSelect"
               @step-dblclick="onStepDblClick"
               @select-citation="handleSopCitationSelect"
               @save="onSaveSop"
+              @undo="onUndo"
+              @redo="onRedo"
               @add-step="onAddStep"
-              @auto-layout="sopFlow.autoLayout()"
+              @auto-layout="onAutoLayout"
               @nodes-change="onNodesChange"
               @edges-change="onEdgesChange"
               @connect="onConnect"
@@ -126,6 +126,8 @@
               @delete-edge="onDeleteEdge"
               @delete-step="onDeleteStep"
               @edge-label-change="onEdgeLabelChange"
+              @node-drag-start="sopFlow.onNodeDragStart()"
+              @node-drag-stop="sopFlow.onNodeDragStop()"
             />
           </div>
         </Panel>
@@ -163,7 +165,7 @@
                   :read-only="currentMode === 'view'"
                   @save="onSopMetaSave"
                   @cancel="onSopMetaCancel"
-                  @dirty-change="metaPanelDirty = $event"
+                  @dirty-change="onSopMetaDirtyChange"
                 />
                 <div v-else-if="!sopFlow.selectedStep.value" class="panel-empty">
                   选择流程图节点查看属性
@@ -173,6 +175,8 @@
                   ref="propertyPanelRef"
                   :step="sopFlow.selectedStep.value"
                   :read-only="currentMode === 'view'"
+                  :step-targets="propertyStepTargets"
+                  :failure-target-name="failureTargetName"
                   @save="onPropertySave"
                   @cancel="onPropertyCancel"
                   @select-citation="handleSopCitationSelect"
@@ -251,7 +255,7 @@
 <script setup lang="ts">
 import { computed, h, nextTick, onMounted, ref } from 'vue'
 import { App, Input, message, type UploadFile } from 'ant-design-vue'
-import { useRouter } from 'vue-router'
+import { useRouter, onBeforeRouteLeave } from 'vue-router'
 import {
   ApartmentOutlined,
   DeleteOutlined,
@@ -282,7 +286,7 @@ const propertyPanelRef = ref<InstanceType<typeof SOPPropertyPanel> | null>(null)
 const rightTabKey = ref<'property' | 'ai'>('property')
 const currentMode = ref<'edit' | 'view'>('edit')
 const metaPanelDirty = ref(false)
-const propertyPanelDirty = ref(false)
+const persistDirty = ref(false)
 const forkModalVisible = ref(false)
 const forkModalStepId = ref('')
 const forkModalConditionVar = ref('')
@@ -298,8 +302,39 @@ const forkStepTargets = computed(() => {
     }))
 })
 
+/** 属性面板可用的跳转目标步骤列表，排除当前选中步骤自身。 */
+const propertyStepTargets = computed(() => {
+  const selectedId = sopFlow.selectedStepId.value
+  return sopFlow.nodes.value
+    .filter((n) => n.id !== selectedId)
+    .map((n) => ({
+      id: n.id,
+      name: n.data.step.name || n.data.step.name_zh || n.id,
+    }))
+})
+
+/** 当前选中步骤的失败跳转目标名称，用于属性面板只读展示。 */
+const failureTargetName = computed(() => {
+  const stepId = sopFlow.selectedStepId.value
+  if (!stepId) return ''
+  const failureEdge = sopFlow.edges.value.find(
+    (e) => e.source === stepId && e.data?.isFailure,
+  )
+  if (!failureEdge) return ''
+  const targetNode = sopFlow.nodes.value.find((n) => n.id === failureEdge.target)
+  return targetNode?.data.step.name || targetNode?.data.step.name_zh || failureEdge.target
+})
+
 const pendingImportFolderId = ref<string | undefined>(undefined)
 const importModalVisible = ref(false)
+
+/**
+ * 中间面板标题：显示当前 SOP 名称，无 SOP 时显示"流程图"。
+ */
+const centerPanelTitle = computed(() => {
+  const data = sopTree.currentSopData.value
+  return data?.name_zh || '流程图'
+})
 const importFileList = ref<UploadFile[]>([])
 const importing = ref(false)
 const folderModalVisible = ref(false)
@@ -334,16 +369,8 @@ const allSopNames = computed(() => collectSopNames(sopTree.treeData.value))
  * 检查当前是否有未保存的修改。
  */
 const hasUnsavedChanges = (): boolean => {
-  if (sopFlow.isDirty.value) return true
-  if (metaPanelDirty.value) return true
-  if (propertyPanelDirty.value) return true
-  return false
+  return persistDirty.value
 }
-
-/**
- * 当前是否有任何未保存的修改（流程图 / 元数据 / 步骤属性）。
- */
-const anyUnsaved = computed(() => hasUnsavedChanges())
 
 const folderTreeData = computed(() => {
   const convert = (nodes: SOPTreeNode[]): Array<{ value: string; title: string; children?: any[] }> => {
@@ -380,76 +407,151 @@ const findParentChain = (nodes: SOPTreeNode[], key: string, parents: string[] = 
 }
 
 /**
- * 弹出未保存修改确认弹窗，返回用户选择：'save' | 'cancel'。
+ * 弹出未保存修改确认弹窗，返回用户选择：'save' | 'discard' | 'stay'。
+ * save: 保存后继续导航；discard: 不保存直接导航；stay: 留在当前页面。
  */
-const confirmUnsavedNavigation = (): Promise<'save' | 'cancel'> => {
+const confirmUnsavedNavigation = (): Promise<'save' | 'discard' | 'stay'> => {
   return new Promise((resolve) => {
     let resolved = false
-    const safeResolve = (value: 'save' | 'cancel') => {
+    const safeResolve = (value: 'save' | 'discard' | 'stay') => {
       if (resolved) return
       resolved = true
       resolve(value)
     }
     modal.confirm({
       title: '未保存的修改',
-      content: '当前有未保存的修改，切换后将丢失。是否保存？',
+      content: '当前有未保存的修改，是否保存？',
       okText: '保存并继续',
-      cancelText: '取消',
+      cancelText: '不保存',
       onOk: () => safeResolve('save'),
-      onCancel: () => safeResolve('cancel'),
+      onCancel: () => safeResolve('discard'),
       maskClosable: false,
     })
   })
 }
 
 /**
- * 执行保存当前所有未保存的修改（步骤属性 + 流程图 + 元数据）。
+ * 刷入属性面板草稿到内存。
+ * force=false 时仅在有实际修改（hasChanges）时才刷入，避免点击切换节点误标脏。
+ * force=true 时强制刷入，用于 AA 总保存（防止签名被意外重置导致漏刷）。
+ */
+const flushPropertyDraft = (force = false) => {
+  if (!sopFlow.selectedStepId.value) return
+  const panel = propertyPanelRef.value as any
+  if (!panel) return
+  if (!force && !panel.hasChanges?.value) return
+  const draft = panel.buildDraftStep?.()
+  if (draft) {
+    sopFlow.updateStepData(sopFlow.selectedStepId.value, draft, true)
+    panel.acceptDraft?.()
+    sopFlow.stepPanelDirty.value.set(sopFlow.selectedStepId.value, false)
+    sopFlow.stepPanelDirty.value = new Map(sopFlow.stepPanelDirty.value)
+  }
+}
+
+/**
+ * AA 总保存：刷所有面板草稿到内存 → 序列化整份 SOP → 持久化到 DB。
+ * 步骤属性 + 流程图位置 + SOP 元数据一次性写入。
+ * AA 覆盖 BB 和 CC：无论面板草稿是否已提交，都强制刷入并保存。
  */
 const saveCurrentChanges = async () => {
   const currentData = sopTree.currentSopData.value
   if (!currentData) return
 
-  if (propertyPanelDirty.value && sopFlow.selectedStepId.value) {
-    const propertyPanel = propertyPanelRef.value as any
-    const draftStep = propertyPanel.buildDraftStep?.()
-    if (draftStep) {
-      sopFlow.updateStepData(sopFlow.selectedStepId.value, draftStep)
+  flushPropertyDraft(true)
+
+  if (metaPanelDirty.value) {
+    const metaPanel = metaPanelRef.value as any
+    if (metaPanel) {
+      currentData.name_zh = (metaPanel.draftName || '').trim() || currentData.name_zh
+      currentData.description = (metaPanel.draftDescription || '').trim() || currentData.description || ''
+      if (sopTree.selectedNode.value) {
+        sopTree.selectedNode.value.title = currentData.name_zh
+      }
+      metaPanel.acceptDraft?.()
+      metaPanelDirty.value = false
     }
   }
 
-  if (sopFlow.isDirty.value) {
+  if (sopFlow.isDirty.value || persistDirty.value) {
     const updatedData = sopFlow.exportToSopData(currentData)
     await sopApi.saveSop(currentData.id, updatedData)
     sopTree.currentSopData.value = updatedData
     sopFlow.isDirty.value = false
     sopFlow.clearDirty()
+    persistDirty.value = false
+    ;(propertyPanelRef.value as any)?.acceptDraft?.()
   }
+}
 
-  if (metaPanelDirty.value) {
-    const metaPanel = metaPanelRef.value as any
-    const nameZh = (metaPanel.draftName || '').trim() || currentData.name_zh
-    const description = (metaPanel.draftDescription || '').trim() || currentData.description || ''
-    await sopApi.updateSopMeta(currentData.id, { name_zh: nameZh, description })
-    currentData.name_zh = nameZh
-    currentData.description = description
-    if (sopTree.selectedNode.value) {
-      sopTree.selectedNode.value.title = nameZh
-    }
+/**
+ * BB 智能保存：flush 草稿到内存 → 检查是否可以自动触发 AA。
+ * 如果所有面板草稿都已提交（无其他 BB 或 CC 脏），则自动触发 AA 持久化。
+ */
+const onPropertySave = (step: SopStep) => {
+  if (currentMode.value === 'view') return
+  if (!sopFlow.selectedStepId.value) return
+  sopFlow.updateStepData(sopFlow.selectedStepId.value, step)
+  sopFlow.stepPanelDirty.value.set(sopFlow.selectedStepId.value, false)
+  sopFlow.stepPanelDirty.value = new Map(sopFlow.stepPanelDirty.value)
+  persistDirty.value = true
+  checkAutoPersist()
+}
+
+/**
+ * CC 保存：flush 元数据草稿到内存 → 检查是否可以自动触发 AA。
+ */
+const onSopMetaSave = (payload: { name_zh: string; description: string }) => {
+  const currentData = sopTree.currentSopData.value
+  if (!currentData) return
+  currentData.name_zh = payload.name_zh
+  currentData.description = payload.description || ''
+  if (sopTree.selectedNode.value) {
+    sopTree.selectedNode.value.title = payload.name_zh
   }
-
-  propertyPanelDirty.value = false
   metaPanelDirty.value = false
+  persistDirty.value = true
+  sopFlow.isDirty.value = true
+  checkAutoPersist()
+}
+
+/**
+ * 检查是否可以自动触发 AA 持久化。
+ * 条件：所有面板草稿都已提交（无 BB 脏、无 CC 脏）且 persistDirty 为 true。
+ */
+const checkAutoPersist = async () => {
+  const hasStepPanelDirty = Array.from(sopFlow.stepPanelDirty.value.values()).some(Boolean)
+  if (hasStepPanelDirty || metaPanelDirty.value) return
+  if (!persistDirty.value) return
+  try {
+    await saveCurrentChanges()
+    message.success('保存成功')
+  } catch (error: any) {
+    message.error(error?.message || '保存 SOP 失败')
+  }
+}
+
+/**
+ * 重置所有脏状态（不保存，仅清除标记），用于用户选择"不保存"时。
+ */
+const resetDirtyState = () => {
+  sopFlow.isDirty.value = false
+  sopFlow.clearDirty()
+  persistDirty.value = false
+  metaPanelDirty.value = false
+  ;(propertyPanelRef.value as any)?.acceptDraft?.()
+  ;(metaPanelRef.value as any)?.acceptDraft?.()
 }
 
 /**
  * 带未保存守卫的导航：检查是否有未保存修改，有则弹窗确认。
- * 返回 true 表示可以继续导航，false 表示用户取消了。
+ * 返回 true 表示可以继续导航，false 表示用户选择留在当前页面。
  */
 const guardAndNavigate = async (): Promise<boolean> => {
   if (!hasUnsavedChanges()) return true
 
   const choice = await confirmUnsavedNavigation()
-  if (choice === 'cancel') return false
+  if (choice === 'stay') return false
   if (choice === 'save') {
     try {
       await saveCurrentChanges()
@@ -458,6 +560,9 @@ const guardAndNavigate = async (): Promise<boolean> => {
       message.error(error?.message || '保存失败')
       return false
     }
+  }
+  if (choice === 'discard') {
+    resetDirtyState()
   }
   return true
 }
@@ -483,10 +588,12 @@ const refreshTreeAndFocus = async (focusKey?: string) => {
  * 载入指定树节点对应的 SOP 或文件夹状态。
  */
 const loadNode = async (node: SOPTreeNode, mode: 'edit' | 'view' = 'edit') => {
-  sopTree.setSelectedNode(node)
+  // SmartTree deep-clones treeData internally; use original node for reactive propagation
+  const originalNode = sopTree.findNode(sopTree.treeData.value, node.key) || node
+  sopTree.setSelectedNode(originalNode)
   currentMode.value = node.isFolder ? 'edit' : mode
   metaPanelDirty.value = false
-  propertyPanelDirty.value = false
+  persistDirty.value = false
   if (node.isFolder) {
     sopTree.currentSopData.value = null
     sopFlow.nodes.value = []
@@ -836,8 +943,10 @@ const handleFileDrop = async (files: File[], targetFolder: SOPTreeNode | null) =
 
 /**
  * 选中步骤后切到属性页。
+ * 切换前先把上一个步骤的面板草稿刷入内存，避免丢失未保存的属性修改。
  */
 const onStepSelect = (stepId: string) => {
+  flushPropertyDraft()
   sopFlow.selectStep(stepId)
   rightTabKey.value = 'property'
 }
@@ -885,6 +994,7 @@ const onForkModalConfirm = (payload: { conditionVar: string; branches: Array<{ m
  */
 const onEdgeLabelChange = (payload: { edgeId: string; label: string }) => {
   sopFlow.updateEdgeLabel(payload.edgeId, payload.label)
+  persistDirty.value = true
 }
 
 /**
@@ -897,35 +1007,12 @@ const onAddStep = () => {
   const newId = sopFlow.addStep(sopFlow.selectedStepId.value || undefined)
   sopFlow.selectStep(newId)
   rightTabKey.value = 'property'
+  persistDirty.value = true
 }
 
 /**
- * 保存属性面板草稿到流程图状态。
+ * 引用跳转。
  */
-const onPropertySave = async (step: SopStep) => {
-  if (currentMode.value === 'view') {
-    message.warning('只读模式下不能修改步骤')
-    return
-  }
-  if (!sopFlow.selectedStepId.value) {
-    return
-  }
-  const currentData = sopTree.currentSopData.value
-  if (!currentData) return
-  sopFlow.updateStepData(sopFlow.selectedStepId.value, step)
-  const updatedData = sopFlow.exportToSopData(currentData)
-  try {
-    await sopApi.saveSop(currentData.id, updatedData)
-    sopTree.currentSopData.value = updatedData
-    sopFlow.isDirty.value = false
-    sopFlow.clearDirty()
-    propertyPanelDirty.value = false
-    message.success('步骤已保存')
-  } catch (error: any) {
-    message.error(error?.message || '保存步骤失败')
-  }
-}
-
 const handleSopCitationSelect = (binding: CitationBinding) => {
   const reference = binding?.reference
   if (!reference?.docId) {
@@ -950,35 +1037,18 @@ const onPropertyCancel = () => {}
 
 /**
  * 属性面板内容变化时标记步骤为脏，显示红点。
+ * 当面板草稿变脏时：标记红点 + stepPanelDirty + persistDirty。
+ * 当面板草稿变干净时（BB 保存后）：仅清除 stepPanelDirty，
+ * 不移除红点（因为数据可能还没持久化，红点由 persistDirty 控制）。
  */
 const onPropertyDirtyChange = (dirty: boolean) => {
-  propertyPanelDirty.value = dirty
-  if (dirty && sopFlow.selectedStepId.value) {
-    sopFlow.markStepDirty(sopFlow.selectedStepId.value)
-  }
-}
-
-/**
- * 保存 SOP 元数据（名称、描述）。
- */
-const onSopMetaSave = async (payload: { name_zh: string; description: string }) => {
-  const currentData = sopTree.currentSopData.value
-  if (!currentData) return
-  try {
-    await sopApi.updateSopMeta(currentData.id, {
-      name_zh: payload.name_zh,
-      description: payload.description,
-    })
-    currentData.name_zh = payload.name_zh
-    currentData.description = payload.description
-    if (sopTree.selectedNode.value) {
-      sopTree.selectedNode.value.title = payload.name_zh
+  if (sopFlow.selectedStepId.value) {
+    sopFlow.stepPanelDirty.value.set(sopFlow.selectedStepId.value, dirty)
+    sopFlow.stepPanelDirty.value = new Map(sopFlow.stepPanelDirty.value)
+    if (dirty) {
+      sopFlow.markStepDirty(sopFlow.selectedStepId.value)
+      persistDirty.value = true
     }
-    await refreshTreeAndFocus(currentData.id)
-    metaPanelDirty.value = false
-    message.success('SOP 元数据已保存')
-  } catch (error: any) {
-    message.error(error?.message || '保存 SOP 元数据失败')
   }
 }
 
@@ -988,16 +1058,19 @@ const onSopMetaSave = async (payload: { name_zh: string; description: string }) 
 const onSopMetaCancel = () => {}
 
 /**
- * 从只读模式切换回编辑模式。
+ * SOP 元数据面板脏状态变化时，同步 CC 脏标记和 persistDirty。
  */
-const switchToEditMode = () => {
-  if (!sopTree.selectedNode.value || sopTree.selectedNode.value.isFolder) {
-    return
+const onSopMetaDirtyChange = (dirty: boolean) => {
+  metaPanelDirty.value = dirty
+  if (dirty) {
+    persistDirty.value = true
+    sopFlow.isDirty.value = true
   }
-  currentMode.value = 'edit'
-  message.success('已切换为编辑模式')
 }
 
+/**
+ * 从只读模式切换回编辑模式。
+ */
 /**
  * 保存整份 SOP。
  */
@@ -1006,21 +1079,8 @@ const onSaveSop = async () => {
     message.warning('只读模式下不能保存')
     return
   }
-  const currentData = sopTree.currentSopData.value
-  if (!currentData) return
-  // 先刷新属性面板草稿到节点内存
-  if (propertyPanelDirty.value && sopFlow.selectedStepId.value) {
-    const panel = propertyPanelRef.value as any
-    const draft = panel?.buildDraftStep?.()
-    if (draft) sopFlow.updateStepData(sopFlow.selectedStepId.value, draft)
-  }
-  const updatedData = sopFlow.exportToSopData(currentData)
   try {
-    await sopApi.saveSop(currentData.id, updatedData)
-    sopTree.currentSopData.value = updatedData
-    sopFlow.isDirty.value = false
-    sopFlow.clearDirty()
-    propertyPanelDirty.value = false
+    await saveCurrentChanges()
     message.success('保存成功')
   } catch (error: any) {
     message.error(error?.message || '保存 SOP 失败')
@@ -1028,17 +1088,59 @@ const onSaveSop = async () => {
 }
 
 /**
- * 同步流程图节点变化。
+ * 撤销上一步操作。
+ * 若撤销栈已空且无其他脏标记，说明回到初始状态，persistDirty 置 false。
  */
-const onNodesChange = (changes: any[]) => {
-  sopFlow.handleNodesChange(changes)
+const onUndo = () => {
+  sopFlow.undo()
+  const hasStepPanelDirty = Array.from(sopFlow.stepPanelDirty.value.values()).some(Boolean)
+  if (sopFlow.undoStack.value.length === 0 && !hasStepPanelDirty && !metaPanelDirty.value) {
+    persistDirty.value = false
+    sopFlow.isDirty.value = false
+    sopFlow.dirtyStepIds.value = new Set()
+    sopFlow.nodes.value = sopFlow.nodes.value.map((n) => ({
+      ...n,
+      data: { ...n.data, dirty: false },
+    }))
+  } else {
+    persistDirty.value = true
+  }
 }
 
 /**
- * 同步流程图连线变化。
+ * 重做上一步撤销的操作。
+ */
+const onRedo = () => {
+  sopFlow.redo()
+  persistDirty.value = true
+}
+
+/**
+ * 自动布局画布。
+ */
+const onAutoLayout = () => {
+  sopFlow.autoLayout()
+  persistDirty.value = true
+}
+
+/**
+ * 同步流程图节点变化，同步 persistDirty。
+ */
+const onNodesChange = (changes: any[]) => {
+  sopFlow.handleNodesChange(changes)
+  if (sopFlow.isDirty.value) {
+    persistDirty.value = true
+  }
+}
+
+/**
+ * 同步流程图连线变化，同步 persistDirty。
  */
 const onEdgesChange = (changes: any[]) => {
   sopFlow.handleEdgesChange(changes)
+  if (sopFlow.isDirty.value) {
+    persistDirty.value = true
+  }
 }
 
 /**
@@ -1049,6 +1151,7 @@ const onConnect = (connection: Connection) => {
     return
   }
   sopFlow.connectSteps(connection)
+  persistDirty.value = true
 }
 
 /**
@@ -1059,6 +1162,7 @@ const onEdgeUpdate = ({ edgeId, connection }: { edgeId: string; connection: Conn
     return
   }
   sopFlow.updateEdgeConnection(edgeId, connection)
+  persistDirty.value = true
 }
 
 /**
@@ -1104,6 +1208,7 @@ const onDeleteStep = (stepId: string) => {
     cancelText: '取消',
     onOk: () => {
       sopFlow.removeStep(stepId)
+      persistDirty.value = true
     },
   })
 }
@@ -1118,9 +1223,19 @@ const onDeleteEdge = (edgeId: string) => {
     cancelText: '取消',
     onOk: () => {
       sopFlow.removeEdge(edgeId)
+      persistDirty.value = true
     },
   })
 }
+
+onBeforeRouteLeave(async (_to, _from, next) => {
+  const canLeave = await guardAndNavigate()
+  if (canLeave) {
+    next()
+  } else {
+    next(false)
+  }
+})
 
 onMounted(() => {
   refreshTreeAndFocus()
@@ -1321,5 +1436,15 @@ onMounted(() => {
 
 .import-sample-hint {
   color: var(--text-tertiary, #bfbfbf);
+}
+
+.sop-title-dirty-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--error-color, #ff4d4f);
+  margin-left: 6px;
+  vertical-align: middle;
 }
 </style>

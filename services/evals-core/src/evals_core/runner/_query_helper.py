@@ -64,7 +64,7 @@ def run_eval_query(
 
         sop_loader = _ensure_sop_loader()
 
-        dispatcher = Dispatcher(config_name="Qwen3.6-35B-A3B (Private)")
+        dispatcher = Dispatcher(config_name=None)
         result = dispatcher.dispatch(
             query=query,
             library_id=library_id,
