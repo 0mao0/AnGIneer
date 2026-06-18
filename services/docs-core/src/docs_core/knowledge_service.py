@@ -182,6 +182,7 @@ class ParseTask(BaseModel):
     status: str = "queued"
     progress: int = 0
     stage: str = "queued"
+    stage_message: Optional[str] = None
     error: Optional[str] = None
     schema_version: str = SCHEMA_VERSION
     created_at: datetime = datetime.now()
@@ -283,6 +284,7 @@ class KnowledgeService:
                 status=row["status"],
                 progress=int(row["progress"] or 0),
                 stage=row["stage"] or "queued",
+                stage_message=row["stage_message"],
                 error=row["error"],
                 schema_version=row["schema_version"] or SCHEMA_VERSION,
                 created_at=parse_datetime(row["created_at"]),
@@ -512,6 +514,26 @@ class KnowledgeService:
         task.updated_at = datetime.now()
         self.meta_store.upsert_parse_task(task)
         return task
+
+    # 请求取消解析任务
+    def request_parse_task_cancel(self, task_id: str, message: str = "用户手动取消任务") -> Optional[ParseTask]:
+        task = self.get_parse_task(task_id)
+        if not task:
+            return None
+        return self.update_parse_task(
+            task_id,
+            status="cancel_requested",
+            stage="cancel_requested",
+            stage_message=message,
+            error=message,
+        )
+
+    # 判断解析任务是否已请求取消
+    def is_parse_task_cancel_requested(self, task_id: str) -> bool:
+        task = self.get_parse_task(task_id)
+        if not task:
+            return False
+        return str(task.status or "").strip() == "cancel_requested"
 
     # 删除文档结构化片段
     def clear_document_segments(self, doc_id: str, strategy: Optional[str] = None) -> int:

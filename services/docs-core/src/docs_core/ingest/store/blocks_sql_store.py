@@ -128,6 +128,7 @@ class KnowledgeMetaStore:
                     status TEXT NOT NULL,
                     progress INTEGER NOT NULL DEFAULT 0,
                     stage TEXT NOT NULL,
+                    stage_message TEXT,
                     error TEXT,
                     schema_version TEXT NOT NULL DEFAULT '1.0.0',
                     created_at TEXT NOT NULL,
@@ -135,6 +136,14 @@ class KnowledgeMetaStore:
                 )
                 """
             )
+            try:
+                conn.execute(
+                    """
+                    ALTER TABLE parse_tasks ADD COLUMN stage_message TEXT
+                    """
+                )
+            except sqlite3.OperationalError:
+                pass
             conn.execute(
                 """
                 CREATE INDEX IF NOT EXISTS idx_nodes_library_type
@@ -279,7 +288,7 @@ class KnowledgeMetaStore:
         with self.connect() as conn:
             return conn.execute(
                 """
-                SELECT id, library_id, doc_id, status, progress, stage, error, schema_version, created_at, updated_at
+                SELECT id, library_id, doc_id, status, progress, stage, stage_message, error, schema_version, created_at, updated_at
                 FROM parse_tasks
                 ORDER BY created_at DESC
                 """
@@ -383,12 +392,13 @@ class KnowledgeMetaStore:
         with self.connect() as conn:
             conn.execute(
                 """
-                INSERT INTO parse_tasks (id, library_id, doc_id, status, progress, stage, error, schema_version, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO parse_tasks (id, library_id, doc_id, status, progress, stage, stage_message, error, schema_version, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(id) DO UPDATE SET
                     status = excluded.status,
                     progress = excluded.progress,
                     stage = excluded.stage,
+                    stage_message = excluded.stage_message,
                     error = excluded.error,
                     schema_version = excluded.schema_version,
                     updated_at = excluded.updated_at
@@ -400,6 +410,7 @@ class KnowledgeMetaStore:
                     task.status,
                     task.progress,
                     task.stage,
+                    getattr(task, "stage_message", None),
                     task.error,
                     task.schema_version,
                     task.created_at.isoformat(),

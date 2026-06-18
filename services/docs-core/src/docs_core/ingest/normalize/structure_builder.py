@@ -608,6 +608,8 @@ def build_layout_candidates(layout_payload: Any) -> dict[int, list[dict[str, Any
 def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple[float, float]], str, dict[str, Any], Any]:
     """读取解析结果并返回内容、页面尺寸、解析器版本与原始 model 数据。"""
     content_list_path = raw_dir / "content_list_v2.json"
+    if not content_list_path.exists():
+        content_list_path = raw_dir / "content_list.json"
     layout_path = raw_dir / "layout.json"
     model_path = raw_dir / "model.json"
     

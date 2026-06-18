@@ -195,31 +195,23 @@ class ParseOrchestrator:
 
     def cancel_parse_task(self, task_id: str) -> bool:
         """取消正在运行的解析任务。"""
-        if task_id not in self._threads:
-            return False
-        thread = self._threads[task_id]
-        if not thread.is_alive():
-            return False
         ks = get_knowledge_service()
         task = ks.get_parse_task(task_id)
-        if task and task.status in ("queued", "processing"):
-            ks.update_parse_task(
-                task_id,
-                status="cancelled",
-                progress=task.progress,
-                stage=task.stage,
-                error="用户手动取消任务",
-            )
-            doc_id = task.doc_id
-            ks.update_node(
-                doc_id,
-                status="failed",
-                parse_progress=task.progress,
-                parse_stage="cancelled",
-                parse_error="用户手动取消任务",
-                parse_task_id=task_id,
-            )
-        self._threads.pop(task_id, None)
+        if not task:
+            return False
+        if task.status in ("completed", "failed", "cancelled"):
+            return False
+        requested = ks.request_parse_task_cancel(task_id)
+        if not requested:
+            return False
+        ks.update_node(
+            task.doc_id,
+            status="processing",
+            parse_progress=task.progress,
+            parse_stage="cancel_requested",
+            parse_error="用户手动取消任务",
+            parse_task_id=task_id,
+        )
         return True
 
     def retry_parse_task(self, doc_id: str) -> Optional[Dict[str, Any]]:
@@ -251,13 +243,14 @@ class ParseOrchestrator:
         ks = get_knowledge_service()
         temp_output_dir = tempfile.mkdtemp(prefix=f"parse-{doc_id}-")
         try:
-            self._update_progress(task_id, doc_id, status="processing", progress=5, stage="preparing")
+            self._update_progress(task_id, doc_id, status="processing", progress=5, stage="preparing", stage_message="准备源文件")
             source_path = file_storage.ensure_doc_source_file(library_id, doc_id, file_path=file_path)
             if not source_path:
                 raise RuntimeError("源文件不存在或无法复制到规范目录")
+            self._raise_if_cancel_requested(task_id)
 
-            self._update_progress(task_id, doc_id, progress=20, stage="parsing")
-            parse_result = mineru_parser.parse_document(input_path=source_path, output_dir=temp_output_dir)
+            self._update_progress(task_id, doc_id, progress=20, stage="raw_parse", stage_message="MinerU 原始结果下载中")
+            parse_result = mineru_parser.parse_to_raw_artifacts(input_path=source_path, output_dir=temp_output_dir)
             if not parse_result.get("success"):
                 raise RuntimeError(parse_result.get("error") or "MinerU 解析失败")
 
@@ -266,8 +259,9 @@ class ParseOrchestrator:
                 with open(markdown_path, "r", encoding="utf-8") as handle:
                     file_storage.save_markdown(library_id, doc_id, handle.read())
             file_storage.save_parse_artifacts(library_id, doc_id, temp_output_dir)
+            self._raise_if_cancel_requested(task_id)
 
-            self._update_progress(task_id, doc_id, progress=70, stage="indexing")
+            self._update_progress(task_id, doc_id, progress=70, stage="indexing", stage_message="构建结构化索引")
             use_llm = bool(parse_options.get("use_llm", True))
             llm_model = str(parse_options.get("llm_model") or "").strip() or None
             build_structured_index_for_doc(
@@ -280,7 +274,25 @@ class ParseOrchestrator:
                 },
             )
 
-            self._update_progress(task_id, doc_id, progress=100, stage="completed", status="completed")
+            self._update_progress(task_id, doc_id, progress=100, stage="completed", status="completed", stage_message="解析完成")
+        except ParseTaskCancelledError as exc:
+            error_message = str(exc) or "用户手动取消任务"
+            ks.update_parse_task(
+                task_id,
+                status="cancelled",
+                progress=100,
+                stage="cancelled",
+                stage_message=error_message,
+                error=error_message,
+            )
+            ks.update_node(
+                doc_id,
+                status="failed",
+                parse_progress=100,
+                parse_stage="cancelled",
+                parse_error=error_message,
+                parse_task_id=task_id,
+            )
         except Exception as exc:
             error_message = f"{type(exc).__name__}: {exc}"
             error_detail = traceback.format_exc()
@@ -291,6 +303,7 @@ class ParseOrchestrator:
                     status="failed",
                     progress=100,
                     stage="failed",
+                    stage_message=error_message,
                     error=error_message,
                 )
                 ks.update_node(
@@ -314,10 +327,18 @@ class ParseOrchestrator:
         progress: int,
         stage: str,
         status: str = "processing",
+        stage_message: Optional[str] = None,
     ) -> None:
         """同步更新任务和节点的解析进度。"""
         ks = get_knowledge_service()
-        ks.update_parse_task(task_id, status=status, progress=progress, stage=stage, error=None)
+        ks.update_parse_task(
+            task_id,
+            status=status,
+            progress=progress,
+            stage=stage,
+            stage_message=stage_message,
+            error=None,
+        )
         ks.update_node(
             doc_id,
             status="completed" if status == "completed" else "processing",
@@ -326,6 +347,16 @@ class ParseOrchestrator:
             parse_error=None,
             parse_task_id=task_id,
         )
+
+    def _raise_if_cancel_requested(self, task_id: str) -> None:
+        """在阶段边界检查用户是否请求取消任务。"""
+        ks = get_knowledge_service()
+        if ks.is_parse_task_cancel_requested(task_id):
+            raise ParseTaskCancelledError("用户手动取消任务")
+
+
+class ParseTaskCancelledError(RuntimeError):
+    """解析任务被取消。"""
 
 
 parse_orchestrator = ParseOrchestrator()

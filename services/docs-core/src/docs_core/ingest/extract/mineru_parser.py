@@ -480,4 +480,8 @@ class MinerUParser:
         """解析文档入口"""
         return self._parse_document_cloud_batch(input_path, output_dir) or self._build_parse_result(False, error="Unknown error")
 
+    def parse_to_raw_artifacts(self, input_path: str, output_dir: str, **kwargs) -> Dict[str, Any]:
+        """仅返回 MinerU 原始产物与 markdown，不在解析器内派生结构化索引。"""
+        return self.parse_document(input_path=input_path, output_dir=output_dir, **kwargs)
+
 mineru_parser = MinerUParser()

@@ -17,6 +17,17 @@ from docs_core.ingest.normalize.structure_builder import (
 from docs_core.ingest.store.blocks_sql_store import persist_doc_blocks, resolve_knowledge_base_dir
 
 
+def resolve_structured_input_dir(raw_dir: Path) -> Path:
+    """解析结构化主链应优先读取的原始目录。"""
+    if (raw_dir / "content_list_v2.json").exists():
+        return raw_dir
+    if (raw_dir / "content_list.json").exists():
+        return raw_dir
+    if (raw_dir / "layout.json").exists() and (raw_dir / "model.json").exists():
+        return raw_dir
+    raise ValueError(f"文档尚无可用解析输入: {raw_dir}")
+
+
 class FileStorage:
     """文件存储管理器"""
 
@@ -131,13 +142,15 @@ class FileStorage:
     def save_parse_artifacts(self, library_id: str, doc_id: str, output_dir: str) -> Dict[str, Any]:
         """保存解析产物到文档目录"""
         parsed_dir = self.get_parsed_dir(library_id, doc_id)
-        if not parsed_dir.exists():
-            parsed_dir.mkdir(parents=True, exist_ok=True)
-        shutil.copytree(output_dir, parsed_dir, dirs_exist_ok=True)
+        staging_dir = parsed_dir.parent / f"{parsed_dir.name}.staging-{uuid.uuid4().hex[:8]}"
+        if staging_dir.exists():
+            shutil.rmtree(staging_dir, ignore_errors=True)
+        shutil.copytree(output_dir, staging_dir)
 
-        mineru_raw_dir = self.get_mineru_raw_dir(library_id, doc_id)
+        mineru_raw_dir = staging_dir / "mineru_raw"
+        mineru_raw_dir.mkdir(parents=True, exist_ok=True)
 
-        for pdf_file in list(parsed_dir.rglob("*.pdf")):
+        for pdf_file in list(staging_dir.rglob("*.pdf")):
             try:
                 pdf_file.unlink()
             except Exception:
@@ -148,12 +161,13 @@ class FileStorage:
             "*model.json": "model.json",
             "layout.json": "layout.json",
             "*content_list_v2.json": "content_list_v2.json",
+            "content_list.json": "content_list.json",
             "*_content_list.json": "content_list.json",
         }
 
         final_files = {}
         for pattern, target_name in artifact_map.items():
-            found_files = list(parsed_dir.rglob(pattern))
+            found_files = list(staging_dir.rglob(pattern))
             for artifact_file in found_files:
                 if target_name == "content_list.json" and artifact_file.name == "content_list_v2.json":
                     continue
@@ -167,13 +181,20 @@ class FileStorage:
                 except Exception:
                     pass
 
-        assets_path = parsed_dir / "assets"
-        images_path = parsed_dir / "images"
+        assets_path = staging_dir / "assets"
+        images_path = staging_dir / "images"
         if assets_path.exists() and images_path.exists():
             try:
                 shutil.rmtree(assets_path)
             except Exception:
                 pass
+
+        backup_dir = parsed_dir.parent / f"{parsed_dir.name}.backup-{uuid.uuid4().hex[:8]}"
+        if parsed_dir.exists():
+            parsed_dir.replace(backup_dir)
+        staging_dir.replace(parsed_dir)
+        if backup_dir.exists():
+            shutil.rmtree(backup_dir, ignore_errors=True)
 
         return final_files
 
@@ -203,8 +224,8 @@ class FileStorage:
         """解析结构主链应优先读取的原始目录"""
         mineru_raw_dir = self.get_parsed_dir(library_id, doc_id) / "mineru_raw"
         if mineru_raw_dir.exists():
-            return mineru_raw_dir
-        return self.get_parsed_dir(library_id, doc_id)
+            return resolve_structured_input_dir(mineru_raw_dir)
+        return resolve_structured_input_dir(self.get_parsed_dir(library_id, doc_id))
 
     def get_mineru_blocks_path(self, library_id: str, doc_id: str) -> Path:
         """获取 MinerU 块级结果路径"""
@@ -797,10 +818,7 @@ def build_structured_index_for_doc(
 
     parsed_dir = file_storage.get_parsed_dir(library_id, doc_id)
     raw_dir = file_storage.resolve_canonical_raw_dir(library_id, doc_id)
-
-    content_list_path = raw_dir / "content_list_v2.json"
-    if not content_list_path.exists():
-        raise ValueError(f"文档尚无 MinerU 解析结果: {content_list_path}")
+    resolve_structured_input_dir(raw_dir)
 
     llm_client = None
     if use_llm:
