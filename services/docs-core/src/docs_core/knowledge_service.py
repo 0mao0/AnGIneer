@@ -14,6 +14,7 @@ from docs_core.ingest.organize.types import (
     CanonicalChunk,
     CanonicalDocument,
     CanonicalTable,
+    CitationTarget,
 )
 from docs_core.ingest.store.canonical_sql_store import CanonicalSQLiteStore
 from docs_core.ingest.store.blocks_sql_store import (
@@ -581,6 +582,31 @@ class KnowledgeService:
             self.vector_store.upsert_records(vector_records)
         return stats
 
+    # 以语义图为唯一真相源重建 canonical 与向量索引
+    def save_semantic_graph_projection(
+        self,
+        library_id: str,
+        doc_id: str,
+        graph_data: Dict[str, Any],
+        *,
+        title: str = "",
+    ) -> Dict[str, int]:
+        from docs_core.indexing import build_vector_records
+        from docs_core.ingest.organize.builder import rebuild_canonical_document_from_graph
+
+        canonical_document = rebuild_canonical_document_from_graph(
+            library_id=library_id,
+            doc_id=doc_id,
+            graph_data=graph_data,
+            title=title,
+        )
+        stats = self.canonical_store.save_document(canonical_document)
+        self.vector_store.clear_document(doc_id)
+        vector_records = build_vector_records(canonical_document)
+        if vector_records:
+            self.vector_store.upsert_records(vector_records)
+        return stats
+
     # 读取整份 canonical document
     def get_canonical_document(self, doc_id: str) -> Optional[CanonicalDocument]:
         return self.canonical_store.get_document(doc_id)
@@ -642,6 +668,10 @@ class KnowledgeService:
             keyword=keyword,
             limit=limit,
         )
+
+    # 查询图级 citation targets
+    def list_citation_targets(self, doc_id: str, limit: int = 200) -> List[Dict[str, Any]]:
+        return self.canonical_store.list_citation_targets(doc_id=doc_id, limit=limit)
 
     # 查询 canonical tables
     def list_canonical_tables(

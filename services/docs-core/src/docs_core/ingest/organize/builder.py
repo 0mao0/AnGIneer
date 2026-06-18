@@ -1,5 +1,5 @@
 """Docs canonical schema 构建器"""
-from datetime import datetime
+from datetime import UTC, datetime
 from html.parser import HTMLParser
 import re
 from typing import Any, List, Tuple
@@ -14,6 +14,20 @@ from docs_core.ingest.organize.types import (
 )
 from docs_core.ingest.store.assets_file_store import file_storage
 from docs_core.ingest.normalize import build_table_representations
+
+
+def _coerce_bbox(raw_bbox: object) -> object:
+    """把语义图中的 bbox 归一化为 canonical BoundingBox 兼容字典。"""
+    if isinstance(raw_bbox, dict):
+        return raw_bbox
+    if isinstance(raw_bbox, (list, tuple)) and len(raw_bbox) >= 4:
+        return {
+            "x0": float(raw_bbox[0] or 0.0),
+            "y0": float(raw_bbox[1] or 0.0),
+            "x1": float(raw_bbox[2] or 0.0),
+            "y1": float(raw_bbox[3] or 0.0),
+        }
+    return None
 
 
 # 从标题文本中提取规范条号，如 "5.2.3"
@@ -179,6 +193,7 @@ def adapt_graph_node(raw_node: dict[str, Any], index: int, section_path: str) ->
         "section_path": section_path,
         "parent_block_uid": raw_node.get("parent_uid"),
         "source_ref": raw_node.get("id"),
+        "bbox": _coerce_bbox(raw_node.get("bbox")),
         "table_html": raw_node.get("table_html"),
         "content_json": content_json,
         "caption": raw_node.get("caption") or (raw_node.get("plain_text") if block_type == "table" else ""),
@@ -220,6 +235,11 @@ def load_source_blocks(library_id: str, doc_id: str) -> List[dict[str, Any]]:
 # MinerU blocks 构建 canonical blocks
 def build_canonical_blocks(library_id: str, doc_id: str) -> List[CanonicalBlock]:
     raw_blocks = load_source_blocks(library_id, doc_id)
+    return build_canonical_blocks_from_source(doc_id, raw_blocks)
+
+
+# 从已归一化的 source blocks 构建 canonical blocks
+def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, Any]]) -> List[CanonicalBlock]:
     canonical_blocks: List[CanonicalBlock] = []
     for index, raw_block in enumerate(raw_blocks):
         text = str(raw_block.get("text") or raw_block.get("content") or "").strip()
@@ -231,6 +251,7 @@ def build_canonical_blocks(library_id: str, doc_id: str) -> List[CanonicalBlock]
                 block_type=normalize_block_type(raw_block.get("block_type") or raw_block.get("type")),
                 text=text,
                 text_clean=clean_text(text),
+                bbox=raw_block.get("bbox"),
                 reading_order=int(raw_block.get("block_seq") or index),
                 title_level=(
                     int(raw_block.get("derived_title_level"))
@@ -420,6 +441,15 @@ def build_canonical_tables(
     blocks: List[CanonicalBlock],
 ) -> Tuple[List[CanonicalTable], List[CanonicalChunk]]:
     raw_blocks = load_source_blocks(library_id, doc_id)
+    return build_canonical_tables_from_source(doc_id, raw_blocks, blocks)
+
+
+# 从已归一化的 source blocks 构建 canonical tables/table chunks
+def build_canonical_tables_from_source(
+    doc_id: str,
+    raw_blocks: List[dict[str, Any]],
+    blocks: List[CanonicalBlock],
+) -> Tuple[List[CanonicalTable], List[CanonicalChunk]]:
     block_map = {block.block_id: block for block in blocks}
     tables: List[CanonicalTable] = []
     table_chunks: List[CanonicalChunk] = []
@@ -542,6 +572,101 @@ def build_canonical_tables(
     return tables, table_chunks
 
 
+# 从语义图重建稳定的独立 citation targets
+def build_citation_targets_from_graph(
+    doc_id: str,
+    graph_data: dict[str, Any],
+    blocks: List[CanonicalBlock],
+    tables: List[CanonicalTable],
+) -> List[CitationTarget]:
+    raw_blocks = adapt_graph_nodes(graph_data.get("nodes", []))
+    raw_block_map = {
+        str(item.get("block_uid") or item.get("id") or "").strip(): item
+        for item in raw_blocks
+        if isinstance(item, dict)
+    }
+    table_block_ids = {table.source_block_ids[0]: table for table in tables if table.source_block_ids}
+    targets: List[CitationTarget] = []
+    seen_keys: set[tuple[str, str]] = set()
+
+    def append_target(target: CitationTarget) -> None:
+        dedupe_key = (target.target_id, target.target_type)
+        if dedupe_key in seen_keys:
+            return
+        seen_keys.add(dedupe_key)
+        targets.append(target)
+
+    for block in blocks:
+        raw_block = raw_block_map.get(block.block_id, {})
+        block_type = block.block_type
+        if block_type == "table" and block.block_id in table_block_ids:
+            table = table_block_ids[block.block_id]
+            append_target(
+                CitationTarget(
+                    target_id=table.table_id,
+                    target_type="table",
+                    doc_id=doc_id,
+                    page_idx=table.page_start,
+                    bbox=block.bbox,
+                    section_path=block.section_path,
+                    display_title=table.title or table.caption or "表格",
+                    snippet=clean_text(table.summary or table.caption or block.text_clean)[:180],
+                )
+            )
+            continue
+        if block_type == "figure":
+            caption = str(raw_block.get("caption") or "").strip()
+            footnote = str(raw_block.get("footnote") or "").strip()
+            display_title = caption or block.text_clean or "图片"
+            snippet = clean_text(" ".join(item for item in [block.text_clean, caption, footnote] if item))[:180]
+            append_target(
+                CitationTarget(
+                    target_id=block.block_id,
+                    target_type="figure",
+                    doc_id=doc_id,
+                    page_idx=block.page_idx,
+                    bbox=block.bbox,
+                    section_path=block.section_path,
+                    display_title=display_title,
+                    snippet=snippet or display_title,
+                )
+            )
+            continue
+        if block_type == "formula":
+            content_json = raw_block.get("content_json") if isinstance(raw_block.get("content_json"), dict) else {}
+            formula_number = str(content_json.get("formula_number") or "").strip()
+            formula_summary = str(content_json.get("formula_summary") or "").strip()
+            display_title = clean_text(" ".join(item for item in ["公式", formula_number] if item)) or "公式"
+            snippet = clean_text(" ".join(item for item in [formula_summary, block.text_clean] if item))[:180]
+            append_target(
+                CitationTarget(
+                    target_id=block.block_id,
+                    target_type="formula",
+                    doc_id=doc_id,
+                    page_idx=block.page_idx,
+                    bbox=block.bbox,
+                    section_path=block.section_path,
+                    display_title=display_title,
+                    snippet=snippet or display_title,
+                )
+            )
+            continue
+        if block_type == "title":
+            append_target(
+                CitationTarget(
+                    target_id=block.block_id,
+                    target_type="title",
+                    doc_id=doc_id,
+                    page_idx=block.page_idx,
+                    bbox=block.bbox,
+                    section_path=block.section_path,
+                    display_title=block.text_clean or "标题",
+                    snippet=(block.text_clean or block.section_path or "标题")[:180],
+                )
+            )
+    return targets
+
+
 # 基于现有落盘结果构建最canonical document
 def build_canonical_document(library_id: str, doc_id: str, title: str = "") -> CanonicalDocument:
     markdown = file_storage.read_markdown(library_id, doc_id) or ""
@@ -573,8 +698,47 @@ def build_canonical_document(library_id: str, doc_id: str, title: str = "") -> C
         outlines=outlines,
         chunks=chunks + table_chunks,
         tables=tables,
+        citation_targets=build_citation_targets_from_graph(
+            doc_id,
+            file_storage.read_doc_blocks_graph(library_id, doc_id),
+            blocks,
+            tables,
+        ),
     )
     return document
+
+
+# 直接从给定语义图重建 canonical document
+def rebuild_canonical_document_from_graph(
+    library_id: str,
+    doc_id: str,
+    graph_data: dict[str, Any],
+    title: str = "",
+) -> CanonicalDocument:
+    raw_blocks = adapt_graph_nodes(graph_data.get("nodes", []))
+    blocks = build_canonical_blocks_from_source(doc_id, raw_blocks)
+    blocks, outlines = build_canonical_outlines(blocks)
+    chunks = build_canonical_chunks(blocks)
+    tables, table_chunks = build_canonical_tables_from_source(doc_id, raw_blocks, blocks)
+    inferred_title = title or next((block.text for block in blocks if block.block_type == "title" and block.text), doc_id)
+    page_count = max((block.page_idx for block in blocks), default=-1) + 1 if blocks else 0
+    timestamp = datetime.now(UTC).isoformat()
+    return CanonicalDocument(
+        doc_id=doc_id,
+        library_id=library_id,
+        title=inferred_title,
+        source_file_name=doc_id,
+        source_file_type="pdf",
+        page_count=page_count,
+        status="completed" if blocks else "pending",
+        created_at=timestamp,
+        updated_at=timestamp,
+        blocks=blocks,
+        outlines=outlines,
+        chunks=chunks + table_chunks,
+        tables=tables,
+        citation_targets=build_citation_targets_from_graph(doc_id, graph_data, blocks, tables),
+    )
 
 
 # 基于最终审核结果重canonical 文档并持久化SQLite

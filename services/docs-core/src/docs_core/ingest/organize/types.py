@@ -171,3 +171,4 @@ class CanonicalDocument(BaseModel):
     outlines: List[CanonicalOutlineNode] = Field(default_factory=list)
     chunks: List[CanonicalChunk] = Field(default_factory=list)
     tables: List[CanonicalTable] = Field(default_factory=list)
+    citation_targets: List[CitationTarget] = Field(default_factory=list)

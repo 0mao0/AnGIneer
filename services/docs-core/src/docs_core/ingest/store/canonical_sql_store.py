@@ -414,21 +414,26 @@ class CanonicalSQLiteStore:
                     for table in document.tables
                 ],
             )
+            deduped_targets: dict[tuple[str, str], CitationTarget] = {}
+            for target in document.citation_targets:
+                deduped_targets[(target.target_id, target.target_type)] = target
             for chunk in document.chunks:
                 for target in chunk.citation_targets:
-                    citation_rows.append(
-                        (
-                            f"cit-{uuid.uuid4().hex[:16]}",
-                            target.doc_id,
-                            target.target_id,
-                            target.target_type,
-                            target.page_idx,
-                            _dump_bbox(target.bbox),
-                            target.section_path,
-                            target.display_title,
-                            target.snippet,
-                        )
+                    deduped_targets.setdefault((target.target_id, target.target_type), target)
+            for target in deduped_targets.values():
+                citation_rows.append(
+                    (
+                        f"cit-{uuid.uuid4().hex[:16]}",
+                        target.doc_id,
+                        target.target_id,
+                        target.target_type,
+                        target.page_idx,
+                        _dump_bbox(target.bbox),
+                        target.section_path,
+                        target.display_title,
+                        target.snippet,
                     )
+                )
             conn.executemany(
                 """
                 INSERT INTO canonical_citation_targets (
@@ -515,7 +520,15 @@ class CanonicalSQLiteStore:
                 """,
                 (doc_id,),
             ).fetchall()
-
+            citation_target_rows = conn.execute(
+                """
+                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet
+                FROM canonical_citation_targets
+                WHERE doc_id = ?
+                ORDER BY page_idx ASC, target_id ASC
+                """,
+                (doc_id,),
+            ).fetchall()
         return CanonicalDocument(
             doc_id=document_row["doc_id"],
             library_id=document_row["library_id"],
@@ -624,6 +637,19 @@ class CanonicalSQLiteStore:
                     version=row["version"] or "0.1.0",
                 )
                 for row in table_rows
+            ],
+            citation_targets=[
+                CitationTarget(
+                    target_id=row["target_id"],
+                    target_type=row["target_type"],
+                    doc_id=row["doc_id"],
+                    page_idx=int(row["page_idx"] or 0),
+                    bbox=_load_bbox(row["bbox_json"]),
+                    section_path=row["section_path"] or "",
+                    display_title=row["display_title"] or "",
+                    snippet=row["snippet"] or "",
+                )
+                for row in citation_target_rows
             ],
         )
 
@@ -734,6 +760,33 @@ class CanonicalSQLiteStore:
                 exam_tags=list(_load_json(row["exam_tags_json"], [])),
                 clause_id=row["clause_id"],
             )
+            for row in rows
+        ]
+
+    # 查询图级 citation targets，供 dispatcher / 前端联动直接消费
+    def list_citation_targets(self, doc_id: str, limit: int = 200) -> List[dict[str, object]]:
+        with self.connect() as conn:
+            rows = conn.execute(
+                """
+                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet
+                FROM canonical_citation_targets
+                WHERE doc_id = ?
+                ORDER BY page_idx ASC, target_id ASC
+                LIMIT ?
+                """,
+                (doc_id, max(1, min(1000, limit))),
+            ).fetchall()
+        return [
+            {
+                "target_id": row["target_id"],
+                "target_type": row["target_type"],
+                "doc_id": row["doc_id"],
+                "page_idx": int(row["page_idx"] or 0),
+                "bbox": _load_json(row["bbox_json"], None),
+                "section_path": row["section_path"] or "",
+                "display_title": row["display_title"] or "",
+                "snippet": row["snippet"] or "",
+            }
             for row in rows
         ]
 
