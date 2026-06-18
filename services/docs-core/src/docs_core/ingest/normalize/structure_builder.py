@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple, TYPE_CHECKING
 
 from docs_core.ingest.normalize.LLM_refiner_titles import resolve_title_level_refinement
+from docs_core.ingest.normalize.formula_semantics import build_formula_representations
 
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
@@ -740,6 +741,74 @@ def derive_explain_target(rows: list[Any], idx: int) -> tuple[str | None, str | 
     return None, None, 0.2, "rule"
 
 
+def collect_equation_explanation_lines(rows: list[dict[str, Any]], equation_idx: int) -> list[str]:
+    """收集紧跟公式块后的说明行，作为公式语义抽取上下文。"""
+    if equation_idx < 0 or equation_idx >= len(rows):
+        return []
+    equation_row = rows[equation_idx]
+    if str(equation_row.get("block_type") or "").strip() != "equation_interline":
+        return []
+
+    explanation_lines: list[str] = []
+    equation_uid = str(equation_row.get("block_uid") or "").strip()
+    page_idx = int(equation_row.get("page_idx") or 0)
+    hard_stop_types = {"title", "equation_interline", "table", "image", "page_header", "page_number"}
+
+    for cursor in range(equation_idx + 1, len(rows)):
+        candidate = rows[cursor]
+        if int(candidate.get("page_idx") or 0) != page_idx:
+            break
+        candidate_type = str(candidate.get("block_type") or "").strip()
+        if candidate_type in hard_stop_types:
+            break
+        if candidate_type not in {"paragraph", "list"}:
+            continue
+
+        text = str(candidate.get("plain_text") or "").strip()
+        if not text:
+            continue
+
+        explain_uid, explain_type, _, _ = derive_explain_target(rows, cursor)
+        if explain_uid == equation_uid and explain_type == "equation":
+            explanation_lines.append(text)
+            continue
+        if explanation_lines:
+            break
+
+    return explanation_lines
+
+
+def build_formula_semantic_contract(
+    row: dict[str, Any],
+    rows: list[dict[str, Any]],
+    row_index: int,
+    llm_client: Optional["LLMClient"] = None,
+    llm_model: Optional[str] = None,
+    use_llm: bool = True,
+) -> dict[str, Any]:
+    """为公式块生成稳定的语义图契约字段。"""
+    if str(row.get("block_type") or "").strip() != "equation_interline":
+        return {}
+
+    content = row.get("content_json") if isinstance(row.get("content_json"), dict) else {}
+    math_content = str(content.get("math_content") or row.get("plain_text") or "").strip()
+    formula_semantics = build_formula_representations(
+        formula_text=math_content,
+        explanation_lines=collect_equation_explanation_lines(rows, row_index),
+        llm_client=llm_client,
+        llm_model=llm_model,
+        use_llm=use_llm,
+    )
+    return {
+        "formula_number": formula_semantics.get("formula_number"),
+        "formula_params": formula_semantics.get("formula_params") or [],
+        "formula_param_count": int(formula_semantics.get("formula_param_count") or 0),
+        "formula_summary": formula_semantics.get("formula_summary"),
+        "formula_llm_status": formula_semantics.get("llm_status"),
+        "formula_explanation_lines": formula_semantics.get("explanation_lines") or [],
+    }
+
+
 def detect_toc_row_ids(rows: list[Any]) -> set[int]:
     """检测目录页并返回目录相关行ID集合。"""
     def is_toc_marker(text: str) -> bool:
@@ -1261,6 +1330,15 @@ def build_structured_from_rawfiles(
             math_content = content.get("math_content") if isinstance(content.get("math_content"), str) else None
             math_type = content.get("math_type") if isinstance(content.get("math_type"), str) else None
 
+        formula_contract = build_formula_semantic_contract(
+            row=row,
+            rows=rows,
+            row_index=i,
+            llm_client=llm_client,
+            llm_model=llm_model,
+            use_llm=use_llm,
+        )
+
         related_refs = collect_media_related_block_refs(row, rows)
         caption_block_uids = related_refs.get("caption_block_uids", [])
         footnote_block_uids = related_refs.get("footnote_block_uids", [])
@@ -1290,6 +1368,7 @@ def build_structured_from_rawfiles(
             "math_type": math_type,
             "math_content": math_content,
             "image_path": image_path,
+            **formula_contract,
             "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
             "caption_block_uids": caption_block_uids or None,
             "caption_bboxes": caption_bboxes or None,
@@ -1326,6 +1405,7 @@ def build_structured_from_rawfiles(
                     "image_path": image_path,
                     "table_html": table_html,
                     "math_content": math_content,
+                    **formula_contract,
                     "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
                     "caption_block_uids": caption_block_uids or None,
                     "caption_bboxes": caption_bboxes or None,
@@ -1344,6 +1424,7 @@ def build_structured_from_rawfiles(
                     "derived_level": derived_level,
                     "title_path": title_path,
                     "parent_uid": parent_uid,
+                    **formula_contract,
                     "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
                     "caption_block_uids": caption_block_uids or None,
                     "caption_bboxes": caption_bboxes or None,

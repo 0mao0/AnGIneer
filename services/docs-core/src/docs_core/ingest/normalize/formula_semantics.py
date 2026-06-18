@@ -1,7 +1,7 @@
 """公式结构化提取工具。"""
 import json
 import re
-from typing import Any, Dict, List, Optional, TYPE_CHECKING
+from typing import Any, Dict, List, Optional, TYPE_CHECKING, TypedDict
 
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
@@ -16,6 +16,29 @@ FORMULA_PARAM_SOFT_RE = re.compile(rf"^\s*({FORMULA_PARAM_SYMBOL_RE})\s+(.+?)\s*
 REFERENCE_HINT_RE = re.compile(r"(采用[^；。]*|按[^；。]*|取[^；。]*|见[^；。]*|按表[^；。]*)")
 UNIT_RE = re.compile(r"[（(]([^()（）]{1,20})[）)]")
 JSON_BLOCK_RE = re.compile(r"```(?:json)?\s*(.*?)```", re.DOTALL | re.IGNORECASE)
+
+
+class FormulaParamContract(TypedDict):
+    """公式参数语义契约。"""
+
+    symbol: str
+    description: str
+    unit: Optional[str]
+    reference_hint: Optional[str]
+    confidence: float
+    extracted_by: str
+
+
+class FormulaSemanticsContract(TypedDict):
+    """公式语义图契约。"""
+
+    formula_text: str
+    formula_number: Optional[str]
+    formula_params: List[FormulaParamContract]
+    formula_param_count: int
+    formula_summary: str
+    llm_status: str
+    explanation_lines: List[str]
 
 
 # 清洗公式相关文本，避免空白和尾部标点干扰规则识别。
@@ -226,7 +249,7 @@ def build_formula_representations(
     llm_client: Optional["LLMClient"] = None,
     llm_model: Optional[str] = None,
     use_llm: bool = True,
-) -> Dict[str, Any]:
+) -> FormulaSemanticsContract:
     cleaned_formula = clean_formula_text(formula_text)
     normalized_lines = split_formula_explanation_lines(explanation_lines)
     formula_number = extract_formula_number(cleaned_formula, normalized_lines)
@@ -265,6 +288,7 @@ def build_formula_representations(
         "formula_text": cleaned_formula,
         "formula_number": formula_number,
         "formula_params": formula_params,
+        "formula_param_count": len(formula_params),
         "formula_summary": summary,
         "llm_status": llm_status,
         "explanation_lines": normalized_lines,
@@ -272,6 +296,8 @@ def build_formula_representations(
 
 
 __all__ = [
+    "FormulaParamContract",
+    "FormulaSemanticsContract",
     "build_formula_representations",
     "clean_formula_text",
     "extract_formula_number",

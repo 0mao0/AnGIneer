@@ -2,6 +2,8 @@
 
 from .LLM_refiner_titles import llm_refine_title_levels, resolve_title_level_refinement
 from .formula_semantics import (
+    FormulaParamContract,
+    FormulaSemanticsContract,
     build_formula_representations,
     parse_formula_param_rule,
 )
@@ -24,6 +26,8 @@ from .structure_builder import (
 
 __all__ = [
     "RawFilesStructureBuilder",
+    "FormulaParamContract",
+    "FormulaSemanticsContract",
     "StructuredResult",
     "TABLE_TYPE_HYBRID",
     "TABLE_TYPE_MAPPING_ENUM",
