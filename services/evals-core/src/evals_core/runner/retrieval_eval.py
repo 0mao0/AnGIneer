@@ -49,6 +49,26 @@ def compute_section_mrr(predicted_paths: List[str], gold_paths: List[str]) -> fl
     return 0.0
 
 
+def compute_citation_hit(predicted_citations: List[Dict[str, Any]], gold_target_ids: List[str]) -> float:
+    """判断预测 citations 是否命中任一 gold target。"""
+    normalized_gold = {str(item or "").strip() for item in gold_target_ids if str(item or "").strip()}
+    if not normalized_gold:
+        return 0.0
+    for citation in predicted_citations:
+        if not isinstance(citation, dict):
+            continue
+        reference = citation.get("reference") if isinstance(citation.get("reference"), dict) else {}
+        predicted_target_id = str(
+            reference.get("targetId")
+            or reference.get("target_id")
+            or citation.get("target_id")
+            or ""
+        ).strip()
+        if predicted_target_id and predicted_target_id in normalized_gold:
+            return 1.0
+    return 0.0
+
+
 class RetrievalEvaluator(BaseEvaluator):
     """检索评测器，通过 query_engine 直接调用检索链路。"""
 
@@ -127,6 +147,8 @@ class RetrievalEvaluator(BaseEvaluator):
         predicted_ids = list(prediction.get("retrieved_ids") or [])
         gold_section_paths = list(gold.get("gold_section_paths") or [])
         gold_doc_ids = list(gold.get("gold_doc_ids") or [])
+        predicted_citations = list(prediction.get("citations") or [])
+        gold_target_ids = list(gold.get("gold_target_ids") or [])
         retrieval_expected = bool(gold_section_paths or gold_doc_ids)
         if not retrieval_expected:
             return {
@@ -138,6 +160,7 @@ class RetrievalEvaluator(BaseEvaluator):
         hit_at_3 = compute_section_hit(predicted_section_paths, gold_section_paths, 3)
         hit_at_5 = compute_section_hit(predicted_section_paths, gold_section_paths, 5)
         mrr = compute_section_mrr(predicted_section_paths, gold_section_paths)
+        citation_hit = compute_citation_hit(predicted_citations, gold_target_ids)
         return {
             "score": hit_at_5,
             "evaluated": True,
@@ -145,6 +168,7 @@ class RetrievalEvaluator(BaseEvaluator):
             "hit@3": hit_at_3,
             "hit@5": hit_at_5,
             "mrr": round(mrr, 4),
+            "citation_hit": citation_hit,
         }
 
 

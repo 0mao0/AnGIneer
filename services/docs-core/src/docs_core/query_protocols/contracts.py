@@ -76,6 +76,8 @@ class RetrievedItem(BaseModel):
     text: str = ""
     score: float = 0.0
     rerank_score: Optional[float] = None
+    citation_target_id: Optional[str] = None
+    retrieval_policy: Optional[str] = None
     metadata: Dict[str, Any] = Field(default_factory=dict)
 
 

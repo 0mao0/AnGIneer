@@ -103,6 +103,8 @@ def build_table_item(
         title=table.title or doc_node.title,
         text=text,
         score=score,
+        citation_target_id=table.table_id,
+        retrieval_policy=source_kind,
         metadata=metadata,
     )
 

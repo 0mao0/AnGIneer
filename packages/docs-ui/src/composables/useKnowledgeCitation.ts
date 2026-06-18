@@ -1,3 +1,4 @@
+import type { CitationReference } from '@angineer/ui-kit'
 import { nextTick, type Ref } from 'vue'
 
 type CitationRichMedia = {
@@ -10,16 +11,18 @@ type CitationRichMedia = {
 }
 
 export type KnowledgeChatCitation = {
-  target_id: string
+  label?: string
+  target_id?: string
   target_type?: string
-  doc_id: string
-  doc_title: string
-  page_idx: number
-  section_path: string
-  snippet: string
+  doc_id?: string
+  doc_title?: string
+  page_idx?: number
+  section_path?: string
+  snippet?: string
   content?: string
   content_type?: string
   score: number
+  reference?: Partial<CitationReference> | null
   rich_media?: CitationRichMedia
 }
 
@@ -59,6 +62,38 @@ const getCitationLastSegment = (value: string): string => {
   return segments[segments.length - 1] || String(value || '').trim()
 }
 
+/** 统一解析引用目标 ID，优先兼容新的 reference 协议。 */
+const getCitationTargetId = (citation: KnowledgeChatCitation | null | undefined): string => String(
+  citation?.reference?.targetId || citation?.target_id || ''
+).trim()
+
+/** 统一解析引用所在文档 ID，优先兼容新的 reference 协议。 */
+const getCitationDocId = (citation: KnowledgeChatCitation | null | undefined): string => String(
+  citation?.reference?.docId || citation?.doc_id || ''
+).trim()
+
+/** 统一解析引用层级路径，优先兼容新的 reference 协议。 */
+const getCitationSectionPath = (citation: KnowledgeChatCitation | null | undefined): string => String(
+  citation?.reference?.sectionPath || citation?.section_path || ''
+).trim()
+
+/** 统一解析引用片段文本，优先读取 reference 中更完整的正文信息。 */
+const getCitationSnippet = (citation: KnowledgeChatCitation | null | undefined): string => String(
+  citation?.reference?.content
+  || citation?.reference?.snippet
+  || citation?.content
+  || citation?.snippet
+  || ''
+).trim()
+
+/** 统一解析引用页码，兼容 reference.pageIdx 与旧 page_idx。 */
+const getCitationPage = (citation: KnowledgeChatCitation | null | undefined): number => {
+  const referencePage = Number(citation?.reference?.pageIdx || 0)
+  if (referencePage > 0) return referencePage
+  const legacyPage = Number(citation?.page_idx || 0)
+  return legacyPage > 0 ? legacyPage : 0
+}
+
 /** 管理引用定位：解析引用目标节点、聚焦文档到对应块 */
 export function useKnowledgeCitation() {
   /** 基于 target_id、页码、层级和片段内容，为引用挑选最可能的文档节点 */
@@ -67,9 +102,9 @@ export function useKnowledgeCitation() {
     graphNodes: any[]
   ) => {
     if (!graphNodes.length || !citation) return null
-    const targetId = String(citation.target_id || '').trim()
-    const normalizedLastSegment = normalizeCitationText(getCitationLastSegment(citation.section_path))
-    const normalizedSnippet = normalizeCitationText(citation.content || citation.snippet)
+    const targetId = getCitationTargetId(citation)
+    const normalizedLastSegment = normalizeCitationText(getCitationLastSegment(getCitationSectionPath(citation)))
+    const normalizedSnippet = normalizeCitationText(getCitationSnippet(citation))
     let bestNode: any = null
     let bestScore = Number.NEGATIVE_INFINITY
     graphNodes.forEach((node) => {
@@ -80,7 +115,7 @@ export function useKnowledgeCitation() {
         score += 5000
       }
       const nodePage = Number(node?.page_idx ?? -1) + 1
-      const citationPage = Number(citation.page_idx || 0)
+      const citationPage = getCitationPage(citation)
       if (citationPage > 0) {
         if (nodePage === citationPage) {
           score += 320
@@ -133,8 +168,8 @@ export function useKnowledgeCitation() {
     workspaceRef: any,
     keepCurrentPreview: (docId: string) => boolean
   ) => {
-    const targetId = String(citation?.target_id || '').trim()
-    const docId = String(citation?.doc_id || '').trim()
+    const targetId = getCitationTargetId(citation)
+    const docId = getCitationDocId(citation)
     if (!targetId) return
     if (docId && (!selectedNode.value || selectedNode.value.key !== docId)) {
       await onLoadNodes(docId)
@@ -149,7 +184,7 @@ export function useKnowledgeCitation() {
     const resolvedTargetId = String(resolvedNode?.id || targetId).trim()
     const resolvedPreferredPage = Number(resolvedNode?.page_idx ?? -1) >= 0
       ? Number(resolvedNode.page_idx) + 1
-      : (Number(citation?.page_idx || 0) > 0 ? Number(citation?.page_idx) : null)
+      : (getCitationPage(citation) > 0 ? getCitationPage(citation) : null)
     await nextTick()
     workspaceRef?.setActiveLinkedItem(resolvedTargetId, {
       preferredPage: resolvedPreferredPage,

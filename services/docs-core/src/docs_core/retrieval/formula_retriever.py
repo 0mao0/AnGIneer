@@ -48,12 +48,15 @@ def build_formula_item(
         title=block.section_path or doc_node.title,
         text=text,
         score=score,
+        citation_target_id=block.block_id,
+        retrieval_policy=source_kind,
         metadata={
             "page_idx": block.page_idx,
             "section_path": block.section_path,
             "source_kind": source_kind,
             "chunk_type": entity_type,
             "strategy": strategy,
+            "citation_target_id": block.block_id,
             "source_block_ids": list(anchor_block_ids),
         },
     )

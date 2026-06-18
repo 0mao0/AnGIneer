@@ -1666,16 +1666,42 @@ class Dispatcher:
     @staticmethod
     def _build_citations_from_retrieved(fused, doc_nodes) -> list:
         """从检索结果构建 citations 数组。"""
+        from docs_core.knowledge_service import get_knowledge_service
+
         doc_title_map = {node.id: node.title for node in doc_nodes}
+        knowledge_service = get_knowledge_service()
         citations = []
         for item in fused[:5]:
-            if not item.text:
-                continue
             doc_id = str(item.doc_id or "")
+            citation_target_id = str(
+                getattr(item, "citation_target_id", None)
+                or item.metadata.get("citation_target_id")
+                or item.item_id
+                or ""
+            ).strip()
             fusion_sources = item.metadata.get("fusion_sources", [])
             if not fusion_sources:
                 source_kind = str(item.metadata.get("source_kind") or "")
                 fusion_sources = [source_kind] if source_kind else []
+            target = knowledge_service.get_citation_target(doc_id, citation_target_id) if citation_target_id else None
+            if target:
+                citations.append({
+                    "label": str(target.get("display_title") or item.title or "").strip(),
+                    "reference": {
+                        "targetId": str(target.get("target_id") or citation_target_id),
+                        "targetType": str(target.get("target_type") or item.entity_type or "content"),
+                        "docId": doc_id,
+                        "docTitle": doc_title_map.get(doc_id, ""),
+                        "pageIdx": int(target.get("page_idx") or 0),
+                        "sectionPath": str(target.get("section_path") or ""),
+                        "snippet": str(target.get("snippet") or item.text or "")[:200],
+                    },
+                    "score": float(item.rerank_score or item.score or 0.0),
+                    "fusion_sources": fusion_sources,
+                })
+                continue
+            if not item.text:
+                continue
             citations.append({
                 "target_id": str(item.item_id or ""),
                 "doc_id": doc_id,

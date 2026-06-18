@@ -40,6 +40,10 @@ class VectorStore:
     def clear_document(self, doc_id: str, entity_types: Optional[List[str]] = None) -> int:
         raise NotImplementedError("VectorStore.clear_document must be implemented by subclasses.")
 
+    # 按实体 ID 删除指定文档下的一组向量记录。
+    def delete_records(self, doc_id: str, entity_ids: List[str]) -> int:
+        raise NotImplementedError("VectorStore.delete_records must be implemented by subclasses.")
+
     # 执行向量检索并返回 top-k 命中。
     def search(
         self,

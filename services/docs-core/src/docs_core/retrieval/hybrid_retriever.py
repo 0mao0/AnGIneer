@@ -4,6 +4,15 @@ from typing import Any, Dict, List, Tuple
 from docs_core.query_protocols.contracts import KnowledgeQueryFilter, RetrievedItem
 
 
+DEFAULT_HYBRID_POLICY: Dict[str, Dict[str, float]] = {
+    "definition_qa": {"canonical_dense": 1.2, "canonical_sparse": 1.4},
+    "locate_qa": {"canonical_dense": 0.9, "canonical_sparse": 1.6, "caption_sparse": 1.4},
+    "table_qa": {"table_summary": 1.3, "table_text_row": 1.8, "table_schema": 1.5, "table_row_key": 1.8},
+    "table_explain": {"table_summary": 1.3, "table_text_row": 1.8, "table_schema": 1.5, "table_row_key": 1.8},
+    "formula_qa": {"formula_block": 1.8, "canonical_sparse": 1.1},
+}
+
+
 # 对单个来源内的候选分数做归一化。
 def normalize_candidate_scores(candidates: List[RetrievedItem]) -> List[RetrievedItem]:
     if not candidates:
@@ -33,8 +42,8 @@ def is_toc_candidate(item: RetrievedItem) -> bool:
     return False
 
 
-# 为不同来源分配第一版融合权重。
-def get_source_weight(source_kind: str, task_type: str) -> float:
+# 为不同来源分配融合权重，支持按任务类型策略覆写。
+def get_source_weight(source_kind: str, task_type: str, policy: Dict[str, Dict[str, float]] | None = None) -> float:
     is_table_task = task_type in ("table_qa", "table_explain")
     source_weights = {
         "canonical_dense": 1.30,
@@ -47,7 +56,9 @@ def get_source_weight(source_kind: str, task_type: str) -> float:
         "table_text_row": 1.40 if is_table_task else 0.60,
         "table_mapping": 1.40 if is_table_task else 0.60,
     }
-    return source_weights.get(source_kind, 1.0)
+    merged_policy = dict(source_weights)
+    merged_policy.update((policy or {}).get(task_type, {}))
+    return merged_policy.get(source_kind, 1.0)
 
 
 # 按任务类型给候选加轻量业务权重。
@@ -120,13 +131,14 @@ def fuse_candidates(
     task_type: str,
     top_k: int,
     filters: KnowledgeQueryFilter | None = None,
+    policy: Dict[str, Dict[str, float]] | None = None,
 ) -> Tuple[List[RetrievedItem], Dict[str, Any]]:
     fused: Dict[str, RetrievedItem] = {}
     source_debug: Dict[str, Any] = {}
 
     for source_kind, candidates in source_candidates.items():
         normalized = normalize_candidate_scores(candidates)
-        source_weight = get_source_weight(source_kind, task_type)
+        source_weight = get_source_weight(source_kind, task_type, policy)
         source_debug[source_kind] = {
             "input_hits": len(candidates),
             "weight": source_weight,
@@ -139,8 +151,12 @@ def fuse_candidates(
             if existing is None:
                 next_item = item.model_copy(deep=True)
                 next_item.rerank_score = round(fusion_score, 6)
+                next_item.retrieval_policy = source_kind
                 next_item.metadata["fusion_score"] = round(fusion_score, 6)
                 next_item.metadata["fusion_sources"] = [source_kind]
+                next_item.metadata["retrieval_policy"] = source_kind
+                if not next_item.citation_target_id:
+                    next_item.citation_target_id = str(next_item.metadata.get("citation_target_id") or "").strip() or None
                 fused[key] = next_item
                 continue
 
@@ -160,9 +176,12 @@ def fuse_candidates(
                 existing.title = item.title
                 existing.text = item.text
                 existing.entity_type = item.entity_type
+                existing.citation_target_id = item.citation_target_id or str(item.metadata.get("citation_target_id") or "").strip() or existing.citation_target_id
                 existing.metadata.update(item.metadata)
                 existing.metadata["fusion_score"] = round(merged_score, 6)
                 existing.metadata["fusion_sources"] = list(dict.fromkeys(existing.metadata.get("fusion_sources", [])))
+            existing.retrieval_policy = ",".join(existing.metadata.get("fusion_sources", []))
+            existing.metadata["retrieval_policy"] = existing.retrieval_policy
 
     filtered = apply_metadata_filter(list(fused.values()), filters)
     ranked = sorted(

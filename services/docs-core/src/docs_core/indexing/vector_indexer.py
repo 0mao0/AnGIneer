@@ -29,6 +29,8 @@ def build_table_vector_entities(table: CanonicalTable) -> List[Dict[str, Any]]:
                     "chunk_type": "table_schema",
                     "page_idx": table.page_start,
                     "section_path": table.caption or table.title,
+                    "citation_target_id": table.table_id,
+                    "citation_target_type": "table",
                     "table_id": table.table_id,
                     "table_type": table.table_type,
                     "table_title": table.title,
@@ -53,6 +55,8 @@ def build_table_vector_entities(table: CanonicalTable) -> List[Dict[str, Any]]:
                     "chunk_type": "table_row_key",
                     "page_idx": table.page_start,
                     "section_path": table.caption or table.title,
+                    "citation_target_id": table.table_id,
+                    "citation_target_type": "table",
                     "table_id": table.table_id,
                     "table_type": table.table_type,
                     "table_title": table.title,
@@ -86,6 +90,8 @@ def build_formula_vector_entities(document: CanonicalDocument) -> List[Dict[str,
                     "chunk_type": "formula",
                     "page_idx": block.page_idx,
                     "section_path": block.section_path,
+                    "citation_target_id": block.block_id,
+                    "citation_target_type": "formula",
                     "source_block_ids": [block.block_id],
                     "title": block.section_path,
                     "text": block.text,
@@ -101,10 +107,14 @@ def build_formula_vector_entities(document: CanonicalDocument) -> List[Dict[str,
 def build_vector_records(
     document: CanonicalDocument,
     provider: EmbeddingProvider | None = None,
+    only_chunk_ids: List[str] | None = None,
 ) -> List[VectorRecord]:
     resolved_provider = provider or default_embedding_provider
     payloads: List[Dict[str, Any]] = []
+    normalized_chunk_ids = {item for item in (only_chunk_ids or []) if item}
     for chunk in document.chunks:
+        if normalized_chunk_ids and chunk.chunk_id not in normalized_chunk_ids:
+            continue
         text = " ".join(part for part in [chunk.section_path, chunk.text] if part).strip()
         if not text:
             continue
@@ -119,6 +129,16 @@ def build_vector_records(
                     "page_idx": chunk.page_start,
                     "section_path": chunk.section_path,
                     "source_block_ids": list(chunk.source_block_ids),
+                    "citation_target_id": (
+                        chunk.citation_targets[0].target_id
+                        if chunk.citation_targets
+                        else None
+                    ),
+                    "citation_target_type": (
+                        chunk.citation_targets[0].target_type
+                        if chunk.citation_targets
+                        else None
+                    ),
                     "title": chunk.section_path,
                     "text": chunk.text,
                     "source_kind": "canonical_chunk",
@@ -126,9 +146,10 @@ def build_vector_records(
                 },
             }
         )
-    for table in document.tables:
-        payloads.extend(build_table_vector_entities(table))
-    payloads.extend(build_formula_vector_entities(document))
+    if not normalized_chunk_ids:
+        for table in document.tables:
+            payloads.extend(build_table_vector_entities(table))
+        payloads.extend(build_formula_vector_entities(document))
     if not payloads:
         return []
     embeddings = resolved_provider.embed_texts([payload["content"] for payload in payloads])

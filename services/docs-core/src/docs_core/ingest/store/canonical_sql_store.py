@@ -204,6 +204,18 @@ class CanonicalSQLiteStore:
                 "CREATE INDEX IF NOT EXISTS idx_canonical_chunks_doc_text ON canonical_chunks(doc_id, text_clean)"
             )
             conn.execute(
+                """
+                CREATE VIRTUAL TABLE IF NOT EXISTS canonical_chunk_fts USING fts5(
+                    chunk_id UNINDEXED,
+                    doc_id UNINDEXED,
+                    chunk_type UNINDEXED,
+                    section_path,
+                    text_clean,
+                    tokenize = 'unicode61'
+                )
+                """
+            )
+            conn.execute(
                 "CREATE INDEX IF NOT EXISTS idx_canonical_tables_doc_type ON canonical_tables(doc_id, table_type, page_start)"
             )
             conn.execute(
@@ -239,6 +251,7 @@ class CanonicalSQLiteStore:
     # 清理单个文档的全canonical 持久化数据
     def clear_document(self, doc_id: str) -> None:
         with self.connect() as conn:
+            conn.execute("DELETE FROM canonical_chunk_fts WHERE doc_id = ?", (doc_id,))
             conn.execute("DELETE FROM canonical_citation_targets WHERE doc_id = ?", (doc_id,))
             conn.execute("DELETE FROM canonical_tables WHERE doc_id = ?", (doc_id,))
             conn.execute("DELETE FROM canonical_chunks WHERE doc_id = ?", (doc_id,))
@@ -441,6 +454,16 @@ class CanonicalSQLiteStore:
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 citation_rows,
+            )
+            conn.execute("DELETE FROM canonical_chunk_fts WHERE doc_id = ?", (document.doc_id,))
+            conn.execute(
+                """
+                INSERT INTO canonical_chunk_fts (chunk_id, doc_id, chunk_type, section_path, text_clean)
+                SELECT chunk_id, doc_id, chunk_type, section_path, text_clean
+                FROM canonical_chunks
+                WHERE doc_id = ?
+                """,
+                (document.doc_id,),
             )
             conn.commit()
 
@@ -786,6 +809,76 @@ class CanonicalSQLiteStore:
                 "section_path": row["section_path"] or "",
                 "display_title": row["display_title"] or "",
                 "snippet": row["snippet"] or "",
+            }
+            for row in rows
+        ]
+
+    # 查询单个 citation target，供回答链稳定引用
+    def get_citation_target(self, doc_id: str, target_id: str) -> Optional[dict[str, object]]:
+        with self.connect() as conn:
+            row = conn.execute(
+                """
+                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet
+                FROM canonical_citation_targets
+                WHERE doc_id = ? AND target_id = ?
+                LIMIT 1
+                """,
+                (doc_id, target_id),
+            ).fetchone()
+        if not row:
+            return None
+        return {
+            "target_id": row["target_id"],
+            "target_type": row["target_type"],
+            "doc_id": row["doc_id"],
+            "page_idx": int(row["page_idx"] or 0),
+            "bbox": _load_json(row["bbox_json"], None),
+            "section_path": row["section_path"] or "",
+            "display_title": row["display_title"] or "",
+            "snippet": row["snippet"] or "",
+        }
+
+    # 重建单文档 chunk FTS 索引
+    def rebuild_chunk_fts(self, doc_id: str) -> None:
+        with self.connect() as conn:
+            conn.execute("DELETE FROM canonical_chunk_fts WHERE doc_id = ?", (doc_id,))
+            conn.execute(
+                """
+                INSERT INTO canonical_chunk_fts (chunk_id, doc_id, chunk_type, section_path, text_clean)
+                SELECT chunk_id, doc_id, chunk_type, section_path, text_clean
+                FROM canonical_chunks
+                WHERE doc_id = ?
+                """,
+                (doc_id,),
+            )
+            conn.commit()
+
+    # 使用 FTS5 + bm25 查询 chunk 候选
+    def search_chunk_fts(self, doc_id: str, query: str, limit: int = 20) -> List[dict[str, object]]:
+        normalized_query = " ".join(str(query or "").split()).strip()
+        if not normalized_query:
+            return []
+        tokens = [token for token in normalized_query.split() if token]
+        match_query = " OR ".join(tokens)
+        with self.connect() as conn:
+            rows = conn.execute(
+                """
+                SELECT chunk_id, doc_id, chunk_type, section_path, text_clean, bm25(canonical_chunk_fts) AS bm25_score
+                FROM canonical_chunk_fts
+                WHERE doc_id = ? AND canonical_chunk_fts MATCH ?
+                ORDER BY bm25_score ASC, chunk_id ASC
+                LIMIT ?
+                """,
+                (doc_id, match_query, max(1, min(200, limit))),
+            ).fetchall()
+        return [
+            {
+                "chunk_id": row["chunk_id"],
+                "doc_id": row["doc_id"],
+                "chunk_type": row["chunk_type"],
+                "section_path": row["section_path"] or "",
+                "text_clean": row["text_clean"] or "",
+                "bm25_score": float(row["bm25_score"] or 0.0),
             }
             for row in rows
         ]

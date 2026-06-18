@@ -1,3 +1,5 @@
+import type { CitationReference } from '@angineer/ui-kit'
+
 import type { KnowledgeTreeNode } from './tree'
 
 export type KnowledgeStrategy = 'doc_blocks_graph_v1'
@@ -192,6 +194,30 @@ export interface KnowledgeEvalSummary {
   text2sql_success_score: number | null
 }
 
+/** 统一描述知识问答/评测返回的引用记录，兼容新旧两套协议。 */
+export interface KnowledgeCitationRecord {
+  label?: string
+  target_id?: string
+  target_type?: string
+  doc_id?: string
+  doc_title?: string
+  page_idx?: number
+  section_path?: string
+  snippet?: string
+  content?: string
+  content_type?: string
+  score: number
+  reference?: Partial<CitationReference> | null
+  rich_media?: {
+    table_html?: string
+    math_content?: string
+    image_path?: string
+    image_paths?: string[]
+    rich_media_order?: Array<{ type: 'image' | 'table' | 'math'; path?: string }>
+    source_file_name?: string
+  }
+}
+
 export interface KnowledgeEvalAnswerDetail {
   question_id: string
   question: string
@@ -219,15 +245,7 @@ export interface KnowledgeEvalAnswerDetail {
   answer?: string
   gold_answer?: string
   thought_process?: string
-  citations?: Array<{
-    target_id: string
-    doc_id: string
-    doc_title: string
-    page_idx: number
-    section_path: string
-    snippet: string
-    score: number
-  }>
+  citations?: KnowledgeCitationRecord[]
   retrieval_hit_at_5?: number | null
   retrieval_mrr?: number | null
   retrieval_evaluated?: boolean

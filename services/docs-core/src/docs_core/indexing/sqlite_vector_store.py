@@ -126,6 +126,18 @@ class SQLiteVectorStore(VectorStore):
             conn.commit()
             return int(cursor.rowcount or 0)
 
+    # 按 entity_id 删除增量重建前的旧向量记录
+    def delete_records(self, doc_id: str, entity_ids: List[str]) -> int:
+        normalized_ids = [item for item in entity_ids if item]
+        if not normalized_ids:
+            return 0
+        placeholders = ",".join(["?"] * len(normalized_ids))
+        sql = f"DELETE FROM canonical_vectors WHERE doc_id = ? AND entity_id IN ({placeholders})"
+        with self.connect() as conn:
+            cursor = conn.execute(sql, [doc_id, *normalized_ids])
+            conn.commit()
+            return int(cursor.rowcount or 0)
+
     # 执行 SQLite 内存侧相似度检索
     def search(
         self,

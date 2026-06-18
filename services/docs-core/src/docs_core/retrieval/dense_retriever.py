@@ -84,6 +84,8 @@ def build_retrieved_item(hit: VectorSearchHit, fallback_title: str, score: float
         title=str(metadata.get("title") or metadata.get("section_path") or fallback_title),
         text=str(metadata.get("text") or hit.content or ""),
         score=score,
+        citation_target_id=str(metadata.get("citation_target_id") or "").strip() or None,
+        retrieval_policy="canonical_dense",
         metadata=metadata,
     )
 

@@ -48,11 +48,24 @@ class SparseRetriever:
         clause_refs = extract_clause_refs(request.query)
         for node in doc_nodes:
             chunk_keyword = clause_refs[0] if clause_refs else next((token for token in tokenize_query(request.query) if len(token) >= 2), None)
-            chunks = knowledge_service.list_canonical_chunks(
-                doc_id=node.id,
-                keyword=chunk_keyword,
-                limit=max(40, request.top_k * 10),
-            )
+            if chunk_keyword:
+                fts_hits = knowledge_service.canonical_store.search_chunk_fts(
+                    doc_id=node.id,
+                    query=request.query,
+                    limit=max(40, request.top_k * 10),
+                )
+                chunk_ids = [str(item.get("chunk_id") or "") for item in fts_hits if str(item.get("chunk_id") or "")]
+                chunks = [
+                    chunk
+                    for chunk in knowledge_service.list_canonical_chunks(doc_id=node.id, limit=max(40, request.top_k * 10))
+                    if chunk.chunk_id in set(chunk_ids)
+                ]
+            else:
+                chunks = knowledge_service.list_canonical_chunks(
+                    doc_id=node.id,
+                    keyword=chunk_keyword,
+                    limit=max(40, request.top_k * 10),
+                )
             for chunk in chunks:
                 score = score_sparse_match(request.query, chunk.text, chunk.section_path, task_type)
                 if score <= 0:
@@ -69,12 +82,23 @@ class SparseRetriever:
                         title=chunk.section_path or node.title,
                         text=chunk.text,
                         score=score,
+                        citation_target_id=(
+                            chunk.citation_targets[0].target_id
+                            if chunk.citation_targets
+                            else None
+                        ),
+                        retrieval_policy="canonical_sparse",
                         metadata={
                             "page_idx": chunk.page_start,
                             "section_path": chunk.section_path,
                             "source_kind": "canonical_sparse",
                             "chunk_type": chunk.chunk_type,
                             "strategy": "canonical_sparse_v1",
+                            "citation_target_id": (
+                                chunk.citation_targets[0].target_id
+                                if chunk.citation_targets
+                                else None
+                            ),
                             "inherited_chapter": chunk.inherited_chapter,
                             "entity_tags": chunk.entity_tags,
                             "conditions": chunk.conditions,
@@ -107,12 +131,15 @@ class SparseRetriever:
                         title=block.section_path or node.title,
                         text=block.text,
                         score=score * 0.85,
+                        citation_target_id=block.block_id,
+                        retrieval_policy="canonical_sparse",
                         metadata={
                             "page_idx": block.page_idx,
                             "section_path": block.section_path,
                             "source_kind": "canonical_sparse",
                             "chunk_type": block.block_type,
                             "strategy": "canonical_sparse_v1",
+                            "citation_target_id": block.block_id,
                             "inherited_chapter": block.inherited_chapter,
                             "entity_tags": block.entity_tags,
                             "conditions": block.conditions,

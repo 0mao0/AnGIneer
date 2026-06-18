@@ -573,13 +573,8 @@ class KnowledgeService:
 
     # 保存整份 canonical document SQLite 真相源
     def save_canonical_document(self, document: CanonicalDocument) -> Dict[str, int]:
-        from docs_core.indexing import build_vector_records
-
         stats = self.canonical_store.save_document(document)
-        self.vector_store.clear_document(document.doc_id)
-        vector_records = build_vector_records(document)
-        if vector_records:
-            self.vector_store.upsert_records(vector_records)
+        self.rebuild_document_indexes(document.doc_id, document)
         return stats
 
     # 以语义图为唯一真相源重建 canonical 与向量索引
@@ -601,11 +596,28 @@ class KnowledgeService:
             title=title,
         )
         stats = self.canonical_store.save_document(canonical_document)
-        self.vector_store.clear_document(doc_id)
-        vector_records = build_vector_records(canonical_document)
+        self.rebuild_document_indexes(doc_id, canonical_document)
+        return stats
+
+    # 统一重建文档 FTS 与向量索引，支持 chunk 级增量刷新
+    def rebuild_document_indexes(
+        self,
+        doc_id: str,
+        canonical_document: CanonicalDocument,
+        *,
+        changed_chunk_ids: Optional[List[str]] = None,
+    ) -> None:
+        from docs_core.indexing import build_vector_records
+
+        self.canonical_store.rebuild_chunk_fts(doc_id)
+        vector_records = build_vector_records(canonical_document, only_chunk_ids=changed_chunk_ids)
+        normalized_chunk_ids = [item for item in (changed_chunk_ids or []) if item]
+        if normalized_chunk_ids:
+            self.vector_store.delete_records(doc_id=doc_id, entity_ids=normalized_chunk_ids)
+        else:
+            self.vector_store.clear_document(doc_id)
         if vector_records:
             self.vector_store.upsert_records(vector_records)
-        return stats
 
     # 读取整份 canonical document
     def get_canonical_document(self, doc_id: str) -> Optional[CanonicalDocument]:
@@ -672,6 +684,10 @@ class KnowledgeService:
     # 查询图级 citation targets
     def list_citation_targets(self, doc_id: str, limit: int = 200) -> List[Dict[str, Any]]:
         return self.canonical_store.list_citation_targets(doc_id=doc_id, limit=limit)
+
+    # 查询单个 citation target
+    def get_citation_target(self, doc_id: str, target_id: str) -> Optional[Dict[str, Any]]:
+        return self.canonical_store.get_citation_target(doc_id=doc_id, target_id=target_id)
 
     # 查询 canonical tables
     def list_canonical_tables(

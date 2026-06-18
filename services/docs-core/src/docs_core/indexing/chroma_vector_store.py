@@ -65,6 +65,18 @@ class ChromaVectorStore(VectorStore):
             self.collection.delete(ids=ids)
         return len(ids)
 
+    # 按 entity_id 删除指定记录，供增量重建使用。
+    def delete_records(self, doc_id: str, entity_ids: List[str]) -> int:
+        normalized_ids = [item for item in entity_ids if item]
+        if not normalized_ids:
+            return 0
+        where: Dict[str, Any] = {"$and": [{"doc_id": doc_id}, {"entity_id": {"$in": normalized_ids}}]}
+        existing = self.collection.get(where=where, include=[])
+        ids = list(existing.get("ids") or [])
+        if ids:
+            self.collection.delete(ids=ids)
+        return len(ids)
+
     # 执行向量检索并返回 top-k 命中。
     def search(
         self,
