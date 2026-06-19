@@ -5,8 +5,18 @@ from docs_core.query_protocols.contracts import KnowledgeQueryFilter, RetrievedI
 
 
 DEFAULT_HYBRID_POLICY: Dict[str, Dict[str, float]] = {
-    "definition_qa": {"canonical_dense": 1.2, "canonical_sparse": 1.4},
-    "locate_qa": {"canonical_dense": 0.9, "canonical_sparse": 1.6, "caption_sparse": 1.4},
+    "definition_qa": {"canonical_dense": 1.2, "canonical_sparse": 1.4, "target_sparse": 1.1},
+    "locate_qa": {"canonical_dense": 0.9, "canonical_sparse": 1.6, "caption_sparse": 1.4, "target_sparse": 1.5},
+    "locate_clause": {"canonical_sparse": 1.8, "target_sparse": 1.5},
+    "locate_figure": {"target_sparse": 1.9, "canonical_sparse": 1.2},
+    "locate_table": {"target_sparse": 1.9, "canonical_sparse": 1.2},
+    "locate_formula": {
+        "target_sparse": 2.0,
+        "canonical_sparse": 1.1,
+        "formula_context": 1.6,
+        "formula_block": 1.5,
+        "formula_clause": 1.4,
+    },
     "table_qa": {"table_summary": 1.3, "table_text_row": 1.8, "table_schema": 1.5, "table_row_key": 1.8},
     "table_explain": {"table_summary": 1.3, "table_text_row": 1.8, "table_schema": 1.5, "table_row_key": 1.8},
     "formula_qa": {"formula_block": 1.8, "canonical_sparse": 1.1},
@@ -44,6 +54,7 @@ def is_toc_candidate(item: RetrievedItem) -> bool:
 
 # 为不同来源分配融合权重，支持按任务类型策略覆写。
 def get_source_weight(source_kind: str, task_type: str, policy: Dict[str, Dict[str, float]] | None = None) -> float:
+    """返回指定来源在当前任务下的融合权重。"""
     is_table_task = task_type in ("table_qa", "table_explain")
     source_weights = {
         "canonical_dense": 1.30,
@@ -56,16 +67,26 @@ def get_source_weight(source_kind: str, task_type: str, policy: Dict[str, Dict[s
         "table_text_row": 1.40 if is_table_task else 0.60,
         "table_mapping": 1.40 if is_table_task else 0.60,
     }
+    active_policy = policy or DEFAULT_HYBRID_POLICY
     merged_policy = dict(source_weights)
-    merged_policy.update((policy or {}).get(task_type, {}))
+    merged_policy.update(active_policy.get(task_type, {}))
     return merged_policy.get(source_kind, 1.0)
 
 
 # 按任务类型给候选加轻量业务权重。
 def get_task_type_bonus(task_type: str, item: RetrievedItem) -> float:
     chunk_type = str(item.metadata.get("chunk_type") or "")
+    target_type = str(item.metadata.get("target_type") or item.entity_type or "")
     if is_toc_candidate(item):
         return 0.12 if task_type == "locate_qa" else -0.35
+    if task_type == "locate_figure" and target_type == "figure":
+        return 0.45
+    if task_type == "locate_table" and target_type == "table":
+        return 0.45
+    if task_type == "locate_formula" and target_type in {"formula", "formula_param"}:
+        return 0.50
+    if task_type == "locate_clause" and target_type == "title":
+        return 0.35
     if task_type in ("table_qa", "table_explain") and chunk_type in ("table_row_key", "table_schema", "table_summary", "table_text_row", "table_mapping_row"):
         return 0.35
     if task_type == "table_qa" and chunk_type.startswith("table_"):
@@ -79,6 +100,9 @@ def get_task_type_bonus(task_type: str, item: RetrievedItem) -> float:
 
 # 构造候选去重键。
 def build_candidate_key(item: RetrievedItem) -> str:
+    citation_target_id = str(item.citation_target_id or item.metadata.get("citation_target_id") or "").strip()
+    if citation_target_id:
+        return f"target:{citation_target_id}"
     chunk_type = str(item.metadata.get("chunk_type") or "")
     source_kind = str(item.metadata.get("source_kind") or "")
     if chunk_type.startswith("table_") or source_kind.startswith("table_"):
@@ -142,6 +166,7 @@ def fuse_candidates(
         source_debug[source_kind] = {
             "input_hits": len(candidates),
             "weight": source_weight,
+            "task_type": task_type,
         }
         for item in normalized:
             normalized_score = float(item.metadata.get("normalized_score") or 0.0)
@@ -155,13 +180,18 @@ def fuse_candidates(
                 next_item.metadata["fusion_score"] = round(fusion_score, 6)
                 next_item.metadata["fusion_sources"] = [source_kind]
                 next_item.metadata["retrieval_policy"] = source_kind
+                next_item.metadata["fusion_target_type"] = str(next_item.metadata.get("target_type") or next_item.entity_type or "")
+                next_item.metadata["fusion_question_type"] = task_type
                 if not next_item.citation_target_id:
                     next_item.citation_target_id = str(next_item.metadata.get("citation_target_id") or "").strip() or None
                 fused[key] = next_item
                 continue
 
             existing_score = float(existing.rerank_score or 0.0)
-            merged_score = 1 - (1 - min(existing_score, 0.999999)) * (1 - min(fusion_score, 0.999999))
+            if max(existing_score, fusion_score) > 1.0:
+                merged_score = max(existing_score, fusion_score)
+            else:
+                merged_score = 1 - (1 - min(existing_score, 0.999999)) * (1 - min(fusion_score, 0.999999))
             existing.rerank_score = round(merged_score, 6)
             existing.metadata["fusion_score"] = round(merged_score, 6)
             existing.metadata.setdefault("fusion_sources", [])

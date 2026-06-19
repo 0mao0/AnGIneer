@@ -5,17 +5,19 @@ from typing import Iterable, List
 from docs_core.indexing import VectorSearchHit, default_embedding_provider
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
 from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
-from docs_core.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, tokenize_query
+from docs_core.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, normalize_match_text, tokenize_query
 
 
 # 基于关键词重叠计算轻量业务加权，不再作为 dense 主召回逻辑。
 def score_text(query_tokens: Iterable[str], title: str, content: str) -> float:
+    """在统一归一化后的文本上做轻量词项重叠打分。"""
     score = 0.0
-    haystack = f"{title}\n{content}".lower()
+    haystack = normalize_match_text(f"{title}\n{content}")
     for token in query_tokens:
-        if re.fullmatch(r"\d+", token or ""):
+        normalized_token = normalize_match_text(token or "")
+        if re.fullmatch(r"\d+", normalized_token or ""):
             continue
-        if token and token in haystack:
+        if normalized_token and normalized_token in haystack:
             score += 1.0
     return score
 

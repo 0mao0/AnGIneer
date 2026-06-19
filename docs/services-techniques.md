@@ -100,6 +100,22 @@ flowchart LR
 - `services/tree-core/src/tree_core/tree_store.py`（通用树节点 CRUD/移动/排序归一化）
 - `services/tree-core/src/tree_core/tree_contracts.py`（树操作契约模型）
 
+### Docs 检索精度评测
+
+- 基准集文件：`data/evals/datasets/docs-retrieval-precision-v1.json`
+- 语料范围：`《海港1》`、`《海港2》`、`《混凝土结构设计规范》`
+- 主指标：`hit@1`、`hit@3`、`hit@5`、`MRR`、`citation_hit`
+- 分组统计：按 `question_type`、`doc_id`、`failure_bucket` 聚合
+- 失败分桶：`missed_exact_target`、`wrong_section_bias`、`caption_body_confusion`、`formula_symbol_confusion`
+- 默认流程：导入基准集 -> 跑 retrieval 基线 -> 按失败桶迭代 `query signal` / `target recall` / `target-level fusion` -> 每轮回归全部样本
+- 当前实现锚点：
+  - `services/evals-core/src/evals_core/dataset/manager.py`
+  - `services/evals-core/src/evals_core/runner/retrieval_eval.py`
+  - `services/evals-core/src/evals_core/runner/suite_runner.py`
+  - `services/docs-core/src/docs_core/retrieval/query_normalizer.py`
+  - `services/docs-core/src/docs_core/retrieval/sparse_retriever.py`
+  - `services/docs-core/src/docs_core/retrieval/hybrid_retriever.py`
+
 ***
 
 ## AI Inference 模块架构 (services/ai-inference)

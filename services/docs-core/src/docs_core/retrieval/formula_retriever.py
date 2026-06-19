@@ -5,7 +5,7 @@ from docs_core.ingest.organize.types import CanonicalBlock, CanonicalDocument
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
 from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
 from docs_core.retrieval.dense_retriever import score_text
-from docs_core.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, tokenize_query
+from docs_core.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, extract_formula_identifiers, tokenize_query
 
 
 # 判断问题是否在询问公式、按式计算或计算步骤。
@@ -106,11 +106,22 @@ def build_formula_context_text(
     return "\n".join(selected_texts).strip(), selected_block_ids
 
 
+def count_formula_identifier_matches(query_identifiers: Sequence[str], text: str) -> int:
+    """统计问句中的公式符号与候选文本中的精确标识重合数量。"""
+    if not query_identifiers:
+        return 0
+    text_identifiers = set(extract_formula_identifiers(text))
+    if not text_identifiers:
+        return 0
+    return sum(1 for item in query_identifiers if item in text_identifiers)
+
+
 # 为单个公式 block 构造 block 级与上下文级候选。
 def build_formula_candidates(
     query: str,
     query_tokens: Sequence[str],
     clause_refs: Sequence[str],
+    query_formula_identifiers: Sequence[str],
     blocks: Sequence[CanonicalBlock],
     index: int,
     doc_node: KnowledgeNode,
@@ -133,6 +144,12 @@ def build_formula_candidates(
         block_score += 4.0
     if ref_query:
         block_score += 2.0
+    formula_identifier_hits = count_formula_identifier_matches(
+        query_formula_identifiers,
+        f"{formula_block.section_path}\n{block_text}",
+    )
+    if formula_identifier_hits:
+        block_score += 6.0 * formula_identifier_hits
     if block_score > 0:
         candidates.append(
             build_formula_item(
@@ -157,6 +174,8 @@ def build_formula_candidates(
             context_score += 6.0
         if any(marker in context_text for marker in ("按式", "式中", "统计", "频率", "计算", "确定")):
             context_score += 4.0
+        if formula_identifier_hits:
+            context_score += 4.0 * formula_identifier_hits
         if context_score > 0:
             candidates.append(
                 build_formula_item(
@@ -182,6 +201,7 @@ def build_formula_chunk_candidates(
 ) -> List[RetrievedItem]:
     query_tokens = tokenize_query(request.query)
     clause_refs = extract_clause_refs(request.query)
+    query_formula_identifiers = extract_formula_identifiers(request.query)
     calc_query = is_calculation_query(request.query)
     candidates: List[RetrievedItem] = []
     for chunk in document.chunks:
@@ -195,6 +215,10 @@ def build_formula_chunk_candidates(
             score += 8.0
         if calc_query and has_calc_marker:
             score += 5.0
+        score += 4.0 * count_formula_identifier_matches(
+            query_formula_identifiers,
+            f"{chunk.section_path}\n{chunk_text}",
+        )
         if not exact_ref and not has_calc_marker and score <= 0:
             continue
         if score <= 0:
@@ -256,6 +280,7 @@ class FormulaRetriever:
     ) -> List[RetrievedItem]:
         query_tokens = tokenize_query(request.query)
         clause_refs = extract_clause_refs(request.query)
+        query_formula_identifiers = extract_formula_identifiers(request.query)
         candidates: List[RetrievedItem] = []
         for node in doc_nodes:
             document = knowledge_service.get_canonical_document(node.id)
@@ -270,6 +295,7 @@ class FormulaRetriever:
                         request.query,
                         query_tokens,
                         clause_refs,
+                        query_formula_identifiers,
                         ordered_blocks,
                         index,
                         node,

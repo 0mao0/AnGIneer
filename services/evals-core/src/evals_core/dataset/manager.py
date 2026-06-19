@@ -13,13 +13,20 @@ _DATASETS_DIR = os.path.join(
 )
 
 
+def _ensure_dataset_store_ready() -> None:
+    """确保评测数据集相关 SQLite 表已完成初始化。"""
+    result_store.init_db()
+
+
 def create_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
     """创建空测试集。"""
+    _ensure_dataset_store_ready()
     return result_store.insert_dataset(data)
 
 
 def import_bundle(payload: Dict[str, Any], source_file: str = "") -> Dict[str, Any]:
     """导入 JSON 题集到数据库，并保存原始 JSON 到 data/evals/datasets/。"""
+    _ensure_dataset_store_ready()
     bundle = load_bundle_from_dict(payload)
     dataset_meta = bundle.dataset
     dataset_data = {
@@ -47,26 +54,31 @@ def import_bundle(payload: Dict[str, Any], source_file: str = "") -> Dict[str, A
 
 def get_dataset(dataset_id: str) -> Optional[Dict[str, Any]]:
     """获取测试集详情。"""
+    _ensure_dataset_store_ready()
     return result_store.get_dataset(dataset_id)
 
 
 def list_datasets() -> List[Dict[str, Any]]:
     """列出所有测试集。"""
+    _ensure_dataset_store_ready()
     return result_store.list_datasets()
 
 
 def delete_dataset(dataset_id: str) -> bool:
     """删除测试集。"""
+    _ensure_dataset_store_ready()
     return result_store.delete_dataset(dataset_id)
 
 
 def update_dataset(dataset_id: str, updates: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     """更新测试集元信息（如标题）。"""
+    _ensure_dataset_store_ready()
     return result_store.update_dataset(dataset_id, updates)
 
 
 def add_question(dataset_id: str, data: Dict[str, Any]) -> Dict[str, Any]:
     """向测试集添加单题。"""
+    _ensure_dataset_store_ready()
     question_data = {
         "question_id": data["question_id"],
         "dataset_id": dataset_id,
@@ -90,6 +102,7 @@ def add_question(dataset_id: str, data: Dict[str, Any]) -> Dict[str, Any]:
 
 def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     """编辑题目。"""
+    _ensure_dataset_store_ready()
     field_mapping = {
         "retrieval": "retrieval_gold",
         "answer": "answer_gold",
@@ -105,6 +118,7 @@ def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) 
 
 def delete_question(dataset_id: str, question_id: str) -> bool:
     """删除题目。"""
+    _ensure_dataset_store_ready()
     success = result_store.delete_question(dataset_id, question_id)
     if success:
         questions = result_store.list_questions(dataset_id)
@@ -114,11 +128,13 @@ def delete_question(dataset_id: str, question_id: str) -> bool:
 
 def list_questions(dataset_id: str) -> List[Dict[str, Any]]:
     """列出测试集题目。"""
+    _ensure_dataset_store_ready()
     return result_store.list_questions(dataset_id)
 
 
 def export_dataset(dataset_id: str) -> Optional[Dict[str, Any]]:
     """导出测试集为规范 JSON。"""
+    _ensure_dataset_store_ready()
     dataset = result_store.get_dataset(dataset_id)
     if not dataset:
         return None
@@ -187,24 +203,29 @@ def _question_row_to_item(row: Dict[str, Any]) -> Dict[str, Any]:
 
 def list_folders() -> List[Dict[str, Any]]:
     """列出所有文件夹。"""
+    _ensure_dataset_store_ready()
     return result_store.list_folders()
 
 
 def create_folder(data: Dict[str, Any]) -> Dict[str, Any]:
     """创建文件夹。"""
+    _ensure_dataset_store_ready()
     return result_store.insert_folder(data)
 
 
 def update_folder(folder_id: str, updates: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     """更新文件夹信息。"""
+    _ensure_dataset_store_ready()
     return result_store.update_folder(folder_id, updates)
 
 
 def delete_folder(folder_id: str) -> bool:
     """删除文件夹。"""
+    _ensure_dataset_store_ready()
     return result_store.delete_folder(folder_id)
 
 
 def move_dataset(dataset_id: str, folder_id: str, sort_order: int = 0) -> Optional[Dict[str, Any]]:
     """移动数据集到指定文件夹。"""
+    _ensure_dataset_store_ready()
     return result_store.update_dataset(dataset_id, {"folder_id": folder_id, "sort_order": sort_order})

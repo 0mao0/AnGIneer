@@ -8,6 +8,12 @@ class RetrievalGold(BaseModel):
     gold_section_paths: List[str] = Field(default_factory=list)
     gold_chunk_ids: List[str] = Field(default_factory=list)
     gold_doc_ids: List[str] = Field(default_factory=list)
+    gold_target_ids: List[str] = Field(default_factory=list)
+    gold_target_types: List[str] = Field(default_factory=list)
+    question_type: str = "definition_qa"
+    notes: str = ""
+    must_include_terms: List[str] = Field(default_factory=list)
+    must_exclude_terms: List[str] = Field(default_factory=list)
 
 
 class CorrectnessCheck(BaseModel):

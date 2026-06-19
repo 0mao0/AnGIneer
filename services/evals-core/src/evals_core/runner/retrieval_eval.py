@@ -69,6 +69,40 @@ def compute_citation_hit(predicted_citations: List[Dict[str, Any]], gold_target_
     return 0.0
 
 
+def compute_failure_bucket(
+    predicted_section_paths: List[str],
+    predicted_citations: List[Dict[str, Any]],
+    predicted_items: List[Dict[str, Any]],
+    gold: Dict[str, Any],
+) -> str:
+    """按失败模式输出稳定分桶。"""
+    gold_target_ids = {str(item or "").strip() for item in gold.get("gold_target_ids", []) if str(item or "").strip()}
+    gold_target_types = {str(item or "").strip() for item in gold.get("gold_target_types", []) if str(item or "").strip()}
+    predicted_target_ids = {
+        str(
+            ((citation.get("reference") or {}) if isinstance(citation, dict) else {}).get("targetId")
+            or ((citation.get("reference") or {}) if isinstance(citation, dict) else {}).get("target_id")
+            or ""
+        ).strip()
+        for citation in predicted_citations
+        if isinstance(citation, dict)
+    }
+    predicted_target_types = {
+        str((item.get("metadata") or {}).get("target_type") or item.get("entity_type") or "").strip()
+        for item in predicted_items
+        if isinstance(item, dict)
+    }
+    if gold_target_ids and predicted_target_ids.intersection(gold_target_ids):
+        return "ok"
+    if compute_section_hit(predicted_section_paths, list(gold.get("gold_section_paths") or []), 5) > 0:
+        return "wrong_section_bias"
+    if "figure" in gold_target_types and "content" in predicted_target_types:
+        return "caption_body_confusion"
+    if "formula" in gold_target_types and "formula_param" in predicted_target_types:
+        return "formula_symbol_confusion"
+    return "missed_exact_target"
+
+
 class RetrievalEvaluator(BaseEvaluator):
     """检索评测器，通过 query_engine 直接调用检索链路。"""
 
@@ -144,10 +178,10 @@ class RetrievalEvaluator(BaseEvaluator):
     def evaluate(self, question: Dict[str, Any], gold: Dict[str, Any], prediction: Dict[str, Any]) -> Dict[str, Any]:
         """计算检索评测指标。"""
         predicted_section_paths = list(prediction.get("retrieved_section_paths") or [])
-        predicted_ids = list(prediction.get("retrieved_ids") or [])
         gold_section_paths = list(gold.get("gold_section_paths") or [])
         gold_doc_ids = list(gold.get("gold_doc_ids") or [])
         predicted_citations = list(prediction.get("citations") or [])
+        predicted_items = list(prediction.get("retrieved_items") or [])
         gold_target_ids = list(gold.get("gold_target_ids") or [])
         retrieval_expected = bool(gold_section_paths or gold_doc_ids)
         if not retrieval_expected:
@@ -165,10 +199,19 @@ class RetrievalEvaluator(BaseEvaluator):
             "score": hit_at_5,
             "evaluated": True,
             "retrieval_expected": True,
+            "hit@1": compute_section_hit(predicted_section_paths, gold_section_paths, 1),
             "hit@3": hit_at_3,
             "hit@5": hit_at_5,
             "mrr": round(mrr, 4),
             "citation_hit": citation_hit,
+            "question_type": str(gold.get("question_type") or ""),
+            "gold_target_types": list(gold.get("gold_target_types") or []),
+            "failure_bucket": compute_failure_bucket(
+                predicted_section_paths,
+                predicted_citations,
+                predicted_items,
+                gold,
+            ),
         }
 
 

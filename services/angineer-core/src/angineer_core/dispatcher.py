@@ -156,7 +156,7 @@ class Dispatcher:
             library_nodes = kp.list_nodes(library_id)
             doc_nodes = [node for node in library_nodes if node.type == "document"]
             if doc_ids:
-                requested = set(doc_ids)
+                requested = self._resolve_requested_doc_ids(doc_nodes, doc_ids)
                 doc_nodes = [node for node in doc_nodes if node.id in requested]
         except Exception as e:
             if is_fatal_exception(e):
@@ -491,6 +491,46 @@ class Dispatcher:
         if not plan:
             plan = [intent_result.service_mode]
         return plan
+
+    @staticmethod
+    def _normalize_doc_alias(value: Any) -> str:
+        """归一化文档别名，兼容标题、文件名与去扩展名的匹配。"""
+        normalized = str(value or "").strip().lower()
+        if not normalized:
+            return ""
+        normalized = normalized.replace("\\", "/").split("/")[-1]
+        normalized = re.sub(r"\.(pdf|docx?|md|txt)$", "", normalized)
+        normalized = re.sub(r"[\s_.\-]+", "", normalized)
+        return normalized
+
+    @classmethod
+    def _resolve_requested_doc_ids(cls, doc_nodes: List[Any], requested_doc_ids: List[str]) -> set[str]:
+        """把逻辑文档别名映射为当前知识库中的真实运行时 doc_id。"""
+        requested = {
+            str(doc_id or "").strip()
+            for doc_id in (requested_doc_ids or [])
+            if str(doc_id or "").strip()
+        }
+        if not requested:
+            return set()
+        alias_to_doc_id: Dict[str, str] = {}
+        for node in doc_nodes:
+            node_id = str(getattr(node, "id", "") or "").strip()
+            if not node_id:
+                continue
+            for candidate in (
+                node_id,
+                getattr(node, "title", ""),
+                os.path.basename(str(getattr(node, "file_path", "") or "")),
+                os.path.splitext(os.path.basename(str(getattr(node, "file_path", "") or "")))[0],
+            ):
+                normalized = cls._normalize_doc_alias(candidate)
+                if normalized and normalized not in alias_to_doc_id:
+                    alias_to_doc_id[normalized] = node_id
+        resolved = set()
+        for doc_id in requested:
+            resolved.add(alias_to_doc_id.get(cls._normalize_doc_alias(doc_id), doc_id))
+        return resolved
 
     @staticmethod
     def _append_attempted_path(
@@ -1103,6 +1143,7 @@ class Dispatcher:
         """
         from docs_core.query_protocols.contracts import KnowledgeQueryRequest
         from docs_core.retrieval.dense_retriever import dense_retriever
+        from docs_core.retrieval.formula_retriever import formula_retriever, is_formula_query
         from docs_core.retrieval.sparse_retriever import sparse_retriever
         from docs_core.retrieval.table_retriever import table_retriever
         from docs_core.retrieval.hybrid_retriever import fuse_candidates
@@ -1115,10 +1156,11 @@ class Dispatcher:
         system_prompt = ""
         retrieval_debug = {}
         timings: Dict[str, float] = {}
+        fused = []
 
         try:
             _t1 = time.time()
-            retriever_task_type = self._map_intent_to_retriever_task(intent_result)
+            retriever_task_type = self._resolve_semantic_retriever_task(query, intent_result)
             strategy_desc = (
                 "Dense(正文+公式) + Sparse(全文+图表+公式) + Table(表格) → Hybrid融合（证据受约束）"
             )
@@ -1136,10 +1178,16 @@ class Dispatcher:
                 kq_request, doc_nodes, retriever_task_type
             )
             table_hits = table_retriever.retrieve(kq_request, doc_nodes)
+            formula_hits = []
+            if retriever_task_type in {"locate_formula", "formula_qa"} or is_formula_query(query, retriever_task_type):
+                formula_hits = formula_retriever.retrieve(kq_request, doc_nodes)
             source_candidates = {
                 "canonical_dense": dense_hits,
                 "canonical_sparse": sparse_hits,
             }
+            for item in formula_hits:
+                source_kind = str(item.metadata.get("source_kind") or "formula_block")
+                source_candidates.setdefault(source_kind, []).append(item)
             for item in table_hits:
                 source_kind = str(
                     item.metadata.get("source_kind") or "table_aware"
@@ -1160,6 +1208,7 @@ class Dispatcher:
             retrieved_items = [
                 item.model_dump(mode="json") for item in fused
             ]
+            citations = self._build_citations_from_retrieved(fused, doc_nodes)
 
             if not answer and fused:
                 context_parts = []
@@ -1299,8 +1348,6 @@ class Dispatcher:
                         "没有检索到足够证据支持最终结论。"
                         "当前仅能确认已有片段与问题相关，但不足以安全地给出完整答案，请继续补充可核对的规范依据。"
                     )
-
-            citations = self._build_citations_from_retrieved(fused, doc_nodes)
         except Exception as e:
             logger.error(f"语义检索失败: {e}")
             if not answer:
@@ -1364,6 +1411,24 @@ class Dispatcher:
             return "content_qa"
 
         return "content_qa"
+
+    @classmethod
+    def _resolve_semantic_retriever_task(cls, query: str, intent_result: IntentResult) -> str:
+        """根据问句和意图结果选择更贴合的语义检索任务类型。"""
+        normalized_query = str(query or "").strip()
+        base_task_type = cls._map_intent_to_retriever_task(intent_result)
+        has_location_hint = any(
+            token in normalized_query for token in ("哪一节", "哪一章", "哪一条", "在哪里", "在哪", "位于")
+        )
+        if has_location_hint and "公式" in normalized_query:
+            return "locate_formula"
+        if has_location_hint and "图" in normalized_query:
+            return "locate_figure"
+        if has_location_hint and "表" in normalized_query:
+            return "locate_table"
+        if base_task_type == "content_qa" and "公式" in normalized_query:
+            return "formula_qa"
+        return base_task_type
 
     _MULTI_CHOICE_PATTERN = re.compile(r"[(（][A-E][)）]")
 
@@ -1470,6 +1535,11 @@ class Dispatcher:
     def _rerank_candidates(query: str, candidates: list) -> list:
         """用 bge-reranker-v2-m3 重排序候选，失败时回退原始顺序。"""
         if len(candidates) <= 5:
+            return candidates
+        normalized_query = str(query or "").strip()
+        if "公式" in normalized_query and any(
+            token in normalized_query for token in ("哪一节", "哪一章", "哪一条", "在哪里", "在哪", "位于")
+        ):
             return candidates
         try:
             import requests
