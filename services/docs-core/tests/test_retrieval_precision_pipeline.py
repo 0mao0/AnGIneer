@@ -15,7 +15,8 @@ if str(DOCS_CORE_SRC) not in sys.path:
 
 from docs_core.ingest.organize.types import CanonicalBlock, CanonicalChunk, CanonicalDocument, CitationTarget
 from docs_core.ingest.store.canonical_sql_store import CanonicalSQLiteStore
-from docs_core.query_protocols.contracts import KnowledgeQueryRequest
+from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.retrieval.hybrid_retriever import fuse_candidates
 from docs_core.retrieval.query_normalizer import extract_query_signals
 from docs_core.retrieval.sparse_retriever import sparse_retriever
 
@@ -125,6 +126,50 @@ class RetrievalPrecisionPipelineTests(unittest.TestCase):
 
         self.assertEqual(items[0].citation_target_id, "figure:3")
         self.assertEqual(items[0].retrieval_policy, "target_sparse")
+
+    def test_fuse_candidates_merges_chunk_and_target_for_same_figure(self) -> None:
+        """相同 citation target 的 chunk 与 target 候选应在融合后归并。"""
+        figure_chunk = RetrievedItem(
+            item_id="chunk-figure-3",
+            entity_type="content",
+            doc_id="harbor-2",
+            title="第三章/图3",
+            text="图 3 港池布置形式说明",
+            score=0.8,
+            citation_target_id="figure:3",
+            metadata={
+                "source_kind": "canonical_sparse",
+                "chunk_type": "content",
+                "citation_target_id": "figure:3",
+                "target_type": "figure",
+            },
+        )
+        figure_target = RetrievedItem(
+            item_id="figure:3",
+            entity_type="figure",
+            doc_id="harbor-2",
+            title="图 3 港池布置形式",
+            text="图 3 港池布置形式",
+            score=1.0,
+            citation_target_id="figure:3",
+            metadata={
+                "source_kind": "target_sparse",
+                "chunk_type": "figure",
+                "citation_target_id": "figure:3",
+                "target_type": "figure",
+            },
+        )
+
+        fused, debug = fuse_candidates(
+            {"canonical_sparse": [figure_chunk], "target_sparse": [figure_target]},
+            task_type="locate_figure",
+            top_k=5,
+        )
+
+        self.assertEqual(len(fused), 1)
+        self.assertEqual(fused[0].citation_target_id, "figure:3")
+        self.assertIn("target_sparse", fused[0].metadata["fusion_sources"])
+        self.assertEqual(debug["returned_hits"], 1)
 
 
 if __name__ == "__main__":
