@@ -1,5 +1,6 @@
 """检索精度基准集与评测协议的回归测试。"""
 
+import tempfile
 import sys
 import unittest
 from pathlib import Path
@@ -10,8 +11,11 @@ if str(EVALS_CORE_SRC) not in sys.path:
     sys.path.insert(0, str(EVALS_CORE_SRC))
 
 from evals_core.dataset.loader import load_bundle_from_dict
+from evals_core.dataset import manager as dataset_manager
+from evals_core.dataset.manager import import_bundle
 from evals_core.runner.retrieval_eval import RetrievalEvaluator
 from evals_core.runner.suite_runner import _compute_summary
+from evals_core.storage import result_store
 
 
 class RetrievalPrecisionBundleTests(unittest.TestCase):
@@ -120,6 +124,59 @@ class RetrievalPrecisionBundleTests(unittest.TestCase):
         self.assertEqual(summary["grouped_scores"]["question_type"]["locate_clause"], 1.0)
         self.assertEqual(summary["grouped_scores"]["question_type"]["locate_figure"], 0.0)
         self.assertEqual(summary["grouped_scores"]["failure_bucket"]["caption_body_confusion"], 1)
+
+    def test_import_bundle_initializes_empty_eval_store(self) -> None:
+        """导入基准集时应能在空 SQLite 上自动建表。"""
+        payload = {
+            "dataset": {
+                "dataset_id": "docs-retrieval-precision-v1",
+                "title": "Docs 检索精度基准集",
+                "category": "knowledge",
+                "description": "检索基准样本",
+                "schema_version": "eval.bundle.v2",
+                "version": "1.0",
+                "library_id": "default",
+            },
+            "items": [{
+                "question_id": "harbor-1-clause-001",
+                "question": "4.2.3 条关于港口水位有什么要求？",
+                "task_type": "definition",
+                "intent_level": "L1",
+                "doc_ids": ["harbor-1"],
+                "retrieval": {
+                    "gold_section_paths": ["第四章/4.2/4.2.3"],
+                    "gold_doc_ids": ["harbor-1"],
+                    "gold_target_ids": ["title:4.2.3"],
+                    "gold_target_types": ["title"],
+                    "question_type": "locate_clause",
+                    "notes": "条款精确定位题",
+                },
+            }],
+        }
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            original_db_path = result_store._DB_PATH
+            original_local = result_store._LOCAL
+            original_datasets_dir = dataset_manager._DATASETS_DIR
+            try:
+                result_store._DB_PATH = str(Path(temp_dir) / "evals.sqlite")
+                result_store._LOCAL = None
+                dataset_manager._DATASETS_DIR = str(Path(temp_dir) / "datasets")
+
+                imported = import_bundle(payload, source_file="data/evals/datasets/docs-retrieval-precision-v1.json")
+
+                self.assertEqual(imported["dataset_id"], "docs-retrieval-precision-v1")
+                self.assertEqual(imported["question_count"], 1)
+                self.assertTrue(Path(result_store._DB_PATH).exists())
+                self.assertTrue(Path(dataset_manager._DATASETS_DIR, "docs-retrieval-precision-v1.json").exists())
+            finally:
+                local = result_store._get_thread_local()
+                conn = getattr(local, "conn", None)
+                if conn is not None:
+                    conn.close()
+                dataset_manager._DATASETS_DIR = original_datasets_dir
+                result_store._LOCAL = original_local
+                result_store._DB_PATH = original_db_path
 
 
 if __name__ == "__main__":

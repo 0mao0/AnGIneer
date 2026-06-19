@@ -15,14 +15,28 @@
       "task_type": "definition",
       "intent_level": "L1",
       "library_id": "default",
-      "doc_ids": ["harbor-1"],
+      "doc_ids": [
+        "harbor-1"
+      ],
       "difficulty": "medium",
-      "tags": ["harbor-1", "clause", "precision"],
+      "tags": [
+        "harbor-1",
+        "clause",
+        "precision"
+      ],
       "retrieval": {
-        "gold_section_paths": ["第四章/4.2/4.2.3"],
-        "gold_doc_ids": ["harbor-1"],
-        "gold_target_ids": ["title:4.2.3"],
-        "gold_target_types": ["title"],
+        "gold_section_paths": [
+          "第四章/4.2/4.2.3"
+        ],
+        "gold_doc_ids": [
+          "harbor-1"
+        ],
+        "gold_target_ids": [
+          "title:4.2.3"
+        ],
+        "gold_target_types": [
+          "title"
+        ],
         "question_type": "locate_clause",
         "notes": "条款精确定位题"
       }
@@ -33,14 +47,28 @@
       "task_type": "definition",
       "intent_level": "L1",
       "library_id": "default",
-      "doc_ids": ["harbor-2"],
+      "doc_ids": [
+        "harbor-2"
+      ],
       "difficulty": "medium",
-      "tags": ["harbor-2", "figure", "caption"],
+      "tags": [
+        "harbor-2",
+        "figure",
+        "caption"
+      ],
       "retrieval": {
-        "gold_section_paths": ["第三章/图3"],
-        "gold_doc_ids": ["harbor-2"],
-        "gold_target_ids": ["figure:3"],
-        "gold_target_types": ["figure"],
+        "gold_section_paths": [
+          "第三章/图3"
+        ],
+        "gold_doc_ids": [
+          "harbor-2"
+        ],
+        "gold_target_ids": [
+          "figure:3"
+        ],
+        "gold_target_types": [
+          "figure"
+        ],
         "question_type": "locate_figure",
         "notes": "图题与正文容易混淆"
       }
@@ -51,14 +79,28 @@
       "task_type": "definition",
       "intent_level": "L1",
       "library_id": "default",
-      "doc_ids": ["concrete-design-code"],
+      "doc_ids": [
+        "concrete-design-code"
+      ],
       "difficulty": "hard",
-      "tags": ["concrete", "formula", "locate"],
+      "tags": [
+        "concrete",
+        "formula",
+        "locate"
+      ],
       "retrieval": {
-        "gold_section_paths": ["第六章/受弯构件/公式"],
-        "gold_doc_ids": ["concrete-design-code"],
-        "gold_target_ids": ["formula:moment-design"],
-        "gold_target_types": ["formula"],
+        "gold_section_paths": [
+          "第六章/受弯构件/公式"
+        ],
+        "gold_doc_ids": [
+          "concrete-design-code"
+        ],
+        "gold_target_ids": [
+          "formula:moment-design"
+        ],
+        "gold_target_types": [
+          "formula"
+        ],
         "question_type": "locate_formula",
         "notes": "公式本体和参数说明需区分"
       }
