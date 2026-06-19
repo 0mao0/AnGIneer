@@ -14,6 +14,8 @@ class RetrievalGold(BaseModel):
     notes: str = ""
     must_include_terms: List[str] = Field(default_factory=list)
     must_exclude_terms: List[str] = Field(default_factory=list)
+    hard_negative_target_ids: List[str] = Field(default_factory=list)
+    robustness_tags: List[str] = Field(default_factory=list)
 
 
 class CorrectnessCheck(BaseModel):
@@ -55,6 +57,10 @@ class EvalQuestionItem(BaseModel):
     doc_ids: List[str] = Field(default_factory=list)
     difficulty: str = "easy"
     tags: List[str] = Field(default_factory=list)
+    question_family: str = ""
+    canonical_question_id: str = ""
+    variant_type: str = "canonical"
+    perturbation_tags: List[str] = Field(default_factory=list)
     retrieval: Optional[RetrievalGold] = None
     answer: Optional[AnswerGold] = None
     sql: Optional[SqlGold] = None
@@ -104,6 +110,10 @@ class EvalQuestionRow(BaseModel):
     tags: List[str] = Field(default_factory=list)
     library_id: str = "default"
     doc_ids: List[str] = Field(default_factory=list)
+    question_family: str = ""
+    canonical_question_id: str = ""
+    variant_type: str = "canonical"
+    perturbation_tags: List[str] = Field(default_factory=list)
     retrieval_gold: Optional[Dict[str, Any]] = None
     answer_gold: Optional[Dict[str, Any]] = None
     sql_gold: Optional[Dict[str, Any]] = None

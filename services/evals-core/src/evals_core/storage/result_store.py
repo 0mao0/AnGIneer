@@ -79,6 +79,10 @@ def init_db() -> None:
             tags TEXT NOT NULL DEFAULT '[]',
             library_id TEXT NOT NULL DEFAULT 'default',
             doc_ids TEXT NOT NULL DEFAULT '[]',
+            question_family TEXT NOT NULL DEFAULT '',
+            canonical_question_id TEXT NOT NULL DEFAULT '',
+            variant_type TEXT NOT NULL DEFAULT 'canonical',
+            perturbation_tags TEXT NOT NULL DEFAULT '[]',
             retrieval_gold TEXT,
             answer_gold TEXT,
             sql_gold TEXT,
@@ -134,6 +138,7 @@ def init_db() -> None:
         conn.execute("ALTER TABLE eval_run ADD COLUMN is_full_run INTEGER NOT NULL DEFAULT 1")
     except Exception:
         pass
+    _ensure_eval_question_columns(conn)
     conn.commit()
 
     # 初始化 tree_node 表
@@ -141,6 +146,20 @@ def init_db() -> None:
 
     # 种子数据：确保三个分类文件夹存在
     _seed_category_folders(conn)
+
+
+def _ensure_eval_question_columns(conn: sqlite3.Connection) -> None:
+    """确保 eval_question 表具备第二轮 benchmark 元数据列。"""
+    existing = {row["name"] for row in conn.execute("PRAGMA table_info(eval_question)")}
+    column_defs = {
+        "question_family": "TEXT NOT NULL DEFAULT ''",
+        "canonical_question_id": "TEXT NOT NULL DEFAULT ''",
+        "variant_type": "TEXT NOT NULL DEFAULT 'canonical'",
+        "perturbation_tags": "TEXT NOT NULL DEFAULT '[]'",
+    }
+    for column_name, column_def in column_defs.items():
+        if column_name not in existing:
+            conn.execute(f"ALTER TABLE eval_question ADD COLUMN {column_name} {column_def}")
 
 
 def _seed_category_folders(conn: sqlite3.Connection) -> None:
@@ -298,8 +317,9 @@ def insert_question(data: Dict[str, Any]) -> Dict[str, Any]:
     conn.execute(
         """INSERT OR REPLACE INTO eval_question
            (question_id, dataset_id, question, task_type, intent_level, difficulty,
-            tags, library_id, doc_ids, retrieval_gold, answer_gold, sql_gold, sop_gold, sort_order)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            tags, library_id, doc_ids, question_family, canonical_question_id, variant_type,
+            perturbation_tags, retrieval_gold, answer_gold, sql_gold, sop_gold, sort_order)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             data["question_id"],
             data["dataset_id"],
@@ -310,6 +330,10 @@ def insert_question(data: Dict[str, Any]) -> Dict[str, Any]:
             json.dumps(data.get("tags", []), ensure_ascii=False),
             data.get("library_id", "default"),
             json.dumps(data.get("doc_ids", []), ensure_ascii=False),
+            data.get("question_family", ""),
+            data.get("canonical_question_id", ""),
+            data.get("variant_type", "canonical"),
+            json.dumps(data.get("perturbation_tags", []), ensure_ascii=False),
             json.dumps(data["retrieval_gold"], ensure_ascii=False) if data.get("retrieval_gold") else None,
             json.dumps(data["answer_gold"], ensure_ascii=False) if data.get("answer_gold") else None,
             json.dumps(data["sql_gold"], ensure_ascii=False) if data.get("sql_gold") else None,
@@ -333,6 +357,7 @@ def list_questions(dataset_id: str) -> List[Dict[str, Any]]:
         item = dict(row)
         item["tags"] = json.loads(item.get("tags") or "[]")
         item["doc_ids"] = json.loads(item.get("doc_ids") or "[]")
+        item["perturbation_tags"] = json.loads(item.get("perturbation_tags") or "[]")
         item["retrieval_gold"] = json.loads(item["retrieval_gold"]) if item.get("retrieval_gold") else None
         item["answer_gold"] = json.loads(item["answer_gold"]) if item.get("answer_gold") else None
         item["sql_gold"] = json.loads(item["sql_gold"]) if item.get("sql_gold") else None
@@ -436,6 +461,7 @@ def get_question(dataset_id: str, question_id: str) -> Optional[Dict[str, Any]]:
     item = dict(row)
     item["tags"] = json.loads(item.get("tags") or "[]")
     item["doc_ids"] = json.loads(item.get("doc_ids") or "[]")
+    item["perturbation_tags"] = json.loads(item.get("perturbation_tags") or "[]")
     item["retrieval_gold"] = json.loads(item["retrieval_gold"]) if item.get("retrieval_gold") else None
     item["answer_gold"] = json.loads(item["answer_gold"]) if item.get("answer_gold") else None
     item["sql_gold"] = json.loads(item["sql_gold"]) if item.get("sql_gold") else None
@@ -460,18 +486,27 @@ def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) 
     if not existing:
         return None
     for key, value in updates.items():
-        if key in ("tags", "doc_ids"):
+        if key in ("tags", "doc_ids", "perturbation_tags"):
             existing[key] = value
         elif key in ("retrieval_gold", "answer_gold", "sql_gold", "sop_gold"):
             existing[key] = value
-        elif key in ("question", "task_type", "intent_level", "difficulty", "library_id"):
+        elif key in (
+            "question",
+            "task_type",
+            "intent_level",
+            "difficulty",
+            "library_id",
+            "question_family",
+            "canonical_question_id",
+            "variant_type",
+        ):
             existing[key] = value
     conn = _get_conn()
     conn.execute(
         """UPDATE eval_question SET
            question=?, task_type=?, intent_level=?, difficulty=?,
-           tags=?, library_id=?, doc_ids=?,
-           retrieval_gold=?, answer_gold=?, sql_gold=?, sop_gold=?
+           tags=?, library_id=?, doc_ids=?, question_family=?, canonical_question_id=?, variant_type=?,
+           perturbation_tags=?, retrieval_gold=?, answer_gold=?, sql_gold=?, sop_gold=?
            WHERE dataset_id=? AND question_id=?""",
         (
             existing.get("question", ""),
@@ -481,6 +516,10 @@ def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) 
             json.dumps(existing.get("tags", []), ensure_ascii=False),
             existing.get("library_id", "default"),
             json.dumps(existing.get("doc_ids", []), ensure_ascii=False),
+            existing.get("question_family", ""),
+            existing.get("canonical_question_id", ""),
+            existing.get("variant_type", "canonical"),
+            json.dumps(existing.get("perturbation_tags", []), ensure_ascii=False),
             json.dumps(existing["retrieval_gold"], ensure_ascii=False) if existing.get("retrieval_gold") else None,
             json.dumps(existing["answer_gold"], ensure_ascii=False) if existing.get("answer_gold") else None,
             json.dumps(existing["sql_gold"], ensure_ascii=False) if existing.get("sql_gold") else None,

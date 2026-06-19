@@ -89,6 +89,10 @@ def add_question(dataset_id: str, data: Dict[str, Any]) -> Dict[str, Any]:
         "tags": data.get("tags", []),
         "library_id": data.get("library_id", "default"),
         "doc_ids": data.get("doc_ids", []),
+        "question_family": data.get("question_family", ""),
+        "canonical_question_id": data.get("canonical_question_id", ""),
+        "variant_type": data.get("variant_type", "canonical"),
+        "perturbation_tags": data.get("perturbation_tags", []),
         "retrieval_gold": data.get("retrieval"),
         "answer_gold": data.get("answer"),
         "sql_gold": data.get("sql"),
@@ -167,6 +171,10 @@ def _item_to_question_row(item: Any, dataset_id: str, sort_order: int = 0) -> Di
         "tags": item.tags,
         "library_id": item.library_id,
         "doc_ids": item.doc_ids,
+        "question_family": item.question_family,
+        "canonical_question_id": item.canonical_question_id,
+        "variant_type": item.variant_type,
+        "perturbation_tags": item.perturbation_tags,
         "retrieval_gold": item.retrieval.model_dump(exclude_none=True) if item.retrieval else None,
         "answer_gold": item.answer.model_dump(exclude_none=True) if item.answer else None,
         "sql_gold": item.sql.model_dump(exclude_none=True) if item.sql else None,
@@ -186,6 +194,10 @@ def _question_row_to_item(row: Dict[str, Any]) -> Dict[str, Any]:
         "doc_ids": row.get("doc_ids", []),
         "difficulty": row.get("difficulty", "easy"),
         "tags": row.get("tags", []),
+        "question_family": row.get("question_family", ""),
+        "canonical_question_id": row.get("canonical_question_id", ""),
+        "variant_type": row.get("variant_type", "canonical"),
+        "perturbation_tags": row.get("perturbation_tags", []),
     }
     if row.get("retrieval_gold"):
         item["retrieval"] = row["retrieval_gold"]
