@@ -2,14 +2,64 @@
 import re
 from typing import List
 
+_GREEK_ALIAS_MAP = {
+    "α": "alpha",
+    "β": "beta",
+    "γ": "gamma",
+    "δ": "delta",
+    "ε": "varepsilon",
+    "η": "eta",
+    "θ": "theta",
+    "κ": "kappa",
+    "λ": "lambda",
+    "μ": "mu",
+    "ν": "nu",
+    "ξ": "xi",
+    "π": "pi",
+    "ρ": "rho",
+    "σ": "sigma",
+    "τ": "tau",
+    "φ": "phi",
+    "ψ": "psi",
+    "ω": "omega",
+}
+
+_FORMULA_SYMBOL_ROOTS = tuple(sorted(set(_GREEK_ALIAS_MAP.values()) | {
+    "alpha", "beta", "gamma", "delta", "epsilon", "varepsilon", "eta", "theta",
+    "kappa", "lambda", "mu", "nu", "xi", "pi", "rho", "sigma", "tau", "phi",
+    "psi", "omega",
+}))
+
+
+def replace_greek_formula_aliases(text: str) -> str:
+    """把 Unicode 希腊字母替换为稳定的 ASCII 别名，便于与 LaTeX 形式对齐。"""
+    normalized = text or ""
+    for source, target in _GREEK_ALIAS_MAP.items():
+        normalized = normalized.replace(source, target)
+    return normalized
+
+
+def strip_latex_text_wrappers(text: str) -> str:
+    """移除 `\\mathrm{}` 这类仅影响展示、不影响公式语义的 LaTeX 包装。"""
+    normalized = text or ""
+    while True:
+        next_text = re.sub(r"\\mathrm\s*\{([^{}]+)\}", r"\1", normalized)
+        if next_text == normalized:
+            return normalized
+        normalized = next_text
+
 
 # 归一化文本以提升中文检索匹配稳定性。
 def normalize_match_text(text: str) -> str:
-    compact = re.sub(r"\s+", "", text or "")
+    compact = re.sub(
+        r"\s+",
+        "",
+        strip_latex_text_wrappers(replace_greek_formula_aliases(text or "")),
+    )
     compact = re.sub(
         r"[\uff0c\u3002\uff1b\uff1a\u3001\u201c\u201d\u2018\u2019"
         r"\uff08\uff09()\[\]\u3010\u3011\u300a\u300b"
-        r"<>.,;:!\?\uff01\uff1f\u00b7\u2014\-~$\\]",
+        r"{}<>.,;:!\?\uff01\uff1f\u00b7\u2014\-~$\\]",
         "",
         compact,
     )
@@ -31,7 +81,8 @@ def build_cjk_ngrams(text: str, min_n: int = 2, max_n: int = 6) -> List[str]:
 
 # 切分用户问题为简单关键词，兼容中英文和数字。
 def tokenize_query(query: str) -> List[str]:
-    raw_tokens = re.findall(r"[\u4e00-\u9fff]+|[a-zA-Z0-9_]+", query or "")
+    raw_query = replace_greek_formula_aliases(query or "")
+    raw_tokens = re.findall(r"[\u4e00-\u9fff]+|[a-zA-Z0-9_]+", raw_query)
     tokens: List[str] = []
     for token in raw_tokens:
         normalized = normalize_match_text(token)
@@ -40,6 +91,7 @@ def tokenize_query(query: str) -> List[str]:
         tokens.append(normalized)
         if re.fullmatch(r"[\u4e00-\u9fff]+", token) and len(normalized) >= 4:
             tokens.extend(build_cjk_ngrams(normalized))
+    tokens.extend(extract_formula_identifiers(raw_query))
     deduped: List[str] = []
     seen = set()
     for token in tokens:
@@ -48,6 +100,29 @@ def tokenize_query(query: str) -> List[str]:
         seen.add(token)
         deduped.append(token)
     return deduped
+
+
+def extract_formula_identifiers(text: str) -> List[str]:
+    """抽取 `ε_t,r`、`\\varepsilon_{t,r}` 这类公式符号的稳定标识。"""
+    normalized_text = strip_latex_text_wrappers(replace_greek_formula_aliases(text or ""))
+    matches = re.findall(
+        r"(?:\\?[A-Za-z]+(?:_\s*\{?\s*[A-Za-z0-9,\-\s]+\}?)?)",
+        normalized_text,
+    )
+    identifiers: List[str] = []
+    seen = set()
+    for match in matches:
+        candidate = normalize_match_text(match)
+        if not candidate or len(candidate) < 2:
+            continue
+        has_subscript = "_" in match
+        if not has_subscript and not any(candidate.startswith(root) for root in _FORMULA_SYMBOL_ROOTS):
+            continue
+        if candidate in seen:
+            continue
+        seen.add(candidate)
+        identifiers.append(candidate)
+    return identifiers
 
 
 # 提取问题中的条款编号，便于优先命中精确条文。

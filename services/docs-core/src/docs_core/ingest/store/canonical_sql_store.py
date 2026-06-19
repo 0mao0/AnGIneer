@@ -48,6 +48,16 @@ def _load_bbox(payload: Optional[str]) -> Optional[BoundingBox]:
     return BoundingBox(**data)
 
 
+def _build_fts_match_query(query: str) -> str:
+    """构造安全的 FTS MATCH 表达式，避免条款编号触发语法错误。"""
+    tokens = [
+        token.replace('"', '""')
+        for token in str(query or "").split()
+        if token
+    ]
+    return " OR ".join(f'"{token}"' for token in tokens)
+
+
 class CanonicalSQLiteStore:
     """canonical document 持久化到 knowledge_index.sqlite"""
 
@@ -898,8 +908,9 @@ class CanonicalSQLiteStore:
         normalized_query = " ".join(str(query or "").split()).strip()
         if not normalized_query:
             return []
-        tokens = [token for token in normalized_query.split() if token]
-        match_query = " OR ".join(tokens)
+        match_query = _build_fts_match_query(normalized_query)
+        if not match_query:
+            return []
         with self.connect() as conn:
             rows = conn.execute(
                 """

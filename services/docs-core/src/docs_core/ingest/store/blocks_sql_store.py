@@ -1,5 +1,6 @@
 """结构化结果数据库存储。"""
 import json
+import os
 import sqlite3
 import uuid
 from datetime import datetime
@@ -27,6 +28,11 @@ def resolve_repo_root() -> Path:
 
 # 解析仓库根目录并返回 docs-core 统一数据根目录。
 def resolve_knowledge_base_dir() -> Path:
+    env_override = os.getenv("KNOWLEDGE_BASE_DIR", "").strip()
+    if env_override:
+        data_dir = Path(env_override).expanduser()
+        data_dir.mkdir(parents=True, exist_ok=True)
+        return data_dir
     root_dir = resolve_repo_root()
     data_dir = root_dir / "data" / "knowledge_base"
     data_dir.mkdir(parents=True, exist_ok=True)

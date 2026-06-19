@@ -11,12 +11,12 @@
   "items": [
     {
       "question_id": "harbor-1-clause-001",
-      "question": "4.2.3 条关于港口水位有什么要求？",
+      "question": "6.2.7 条关于航道设计通航水位有什么要求？",
       "task_type": "definition",
       "intent_level": "L1",
       "library_id": "default",
       "doc_ids": [
-        "harbor-1"
+        "海港1"
       ],
       "difficulty": "medium",
       "tags": [
@@ -26,16 +26,16 @@
       ],
       "retrieval": {
         "gold_section_paths": [
-          "第四章/4.2/4.2.3"
+          "6.2 航道建设规模及航行标准 / 6.2.7 航道设计通航水位"
         ],
         "gold_doc_ids": [
-          "harbor-1"
+          "海港1"
         ],
         "gold_target_ids": [
-          "title:4.2.3"
+          "doc-24aa8f8a:0:5:li7"
         ],
         "gold_target_types": [
-          "title"
+          "list_procedure"
         ],
         "question_type": "locate_clause",
         "notes": "条款精确定位题"
@@ -43,12 +43,12 @@
     },
     {
       "question_id": "harbor-2-figure-001",
-      "question": "海港2 中图 3 说明的是哪种布置形式？",
+      "question": "海港2 中图 6.3.7 说明的是哪种加宽示意？",
       "task_type": "definition",
       "intent_level": "L1",
       "library_id": "default",
       "doc_ids": [
-        "harbor-2"
+        "海港2"
       ],
       "difficulty": "medium",
       "tags": [
@@ -58,13 +58,13 @@
       ],
       "retrieval": {
         "gold_section_paths": [
-          "第三章/图3"
+          "6.3 航道选线与轴线布置 / 6.3.7 航道转弯段转弯半径 R 和加宽方式(图 6.3.7)"
         ],
         "gold_doc_ids": [
-          "harbor-2"
+          "海港2"
         ],
         "gold_target_ids": [
-          "figure:3"
+          "doc-5c9031df:6:3"
         ],
         "gold_target_types": [
           "figure"
@@ -75,12 +75,12 @@
     },
     {
       "question_id": "concrete-formula-001",
-      "question": "混凝土结构设计规范里弯矩设计值的公式在哪一节？",
+      "question": "混凝土结构设计规范附录 C 中 ε_t,r 的公式在哪一节？",
       "task_type": "definition",
       "intent_level": "L1",
       "library_id": "default",
       "doc_ids": [
-        "concrete-design-code"
+        "混凝土结构设计规范"
       ],
       "difficulty": "hard",
       "tags": [
@@ -90,13 +90,13 @@
       ],
       "retrieval": {
         "gold_section_paths": [
-          "第六章/受弯构件/公式"
+          "附录 C 钢筋、混凝土本构关系与混凝土多轴强度准则 / C.2 混凝土本构关系"
         ],
         "gold_doc_ids": [
-          "concrete-design-code"
+          "混凝土结构设计规范"
         ],
         "gold_target_ids": [
-          "formula:moment-design"
+          "doc-8474a7fe:19:1"
         ],
         "gold_target_types": [
           "formula"

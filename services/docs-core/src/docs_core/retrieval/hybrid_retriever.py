@@ -10,7 +10,13 @@ DEFAULT_HYBRID_POLICY: Dict[str, Dict[str, float]] = {
     "locate_clause": {"canonical_sparse": 1.8, "target_sparse": 1.5},
     "locate_figure": {"target_sparse": 1.9, "canonical_sparse": 1.2},
     "locate_table": {"target_sparse": 1.9, "canonical_sparse": 1.2},
-    "locate_formula": {"target_sparse": 2.0, "canonical_sparse": 1.1},
+    "locate_formula": {
+        "target_sparse": 2.0,
+        "canonical_sparse": 1.1,
+        "formula_context": 1.6,
+        "formula_block": 1.5,
+        "formula_clause": 1.4,
+    },
     "table_qa": {"table_summary": 1.3, "table_text_row": 1.8, "table_schema": 1.5, "table_row_key": 1.8},
     "table_explain": {"table_summary": 1.3, "table_text_row": 1.8, "table_schema": 1.5, "table_row_key": 1.8},
     "formula_qa": {"formula_block": 1.8, "canonical_sparse": 1.1},
@@ -48,6 +54,7 @@ def is_toc_candidate(item: RetrievedItem) -> bool:
 
 # 为不同来源分配融合权重，支持按任务类型策略覆写。
 def get_source_weight(source_kind: str, task_type: str, policy: Dict[str, Dict[str, float]] | None = None) -> float:
+    """返回指定来源在当前任务下的融合权重。"""
     is_table_task = task_type in ("table_qa", "table_explain")
     source_weights = {
         "canonical_dense": 1.30,
@@ -60,8 +67,9 @@ def get_source_weight(source_kind: str, task_type: str, policy: Dict[str, Dict[s
         "table_text_row": 1.40 if is_table_task else 0.60,
         "table_mapping": 1.40 if is_table_task else 0.60,
     }
+    active_policy = policy or DEFAULT_HYBRID_POLICY
     merged_policy = dict(source_weights)
-    merged_policy.update((policy or {}).get(task_type, {}))
+    merged_policy.update(active_policy.get(task_type, {}))
     return merged_policy.get(source_kind, 1.0)
 
 
@@ -180,7 +188,10 @@ def fuse_candidates(
                 continue
 
             existing_score = float(existing.rerank_score or 0.0)
-            merged_score = 1 - (1 - min(existing_score, 0.999999)) * (1 - min(fusion_score, 0.999999))
+            if max(existing_score, fusion_score) > 1.0:
+                merged_score = max(existing_score, fusion_score)
+            else:
+                merged_score = 1 - (1 - min(existing_score, 0.999999)) * (1 - min(fusion_score, 0.999999))
             existing.rerank_score = round(merged_score, 6)
             existing.metadata["fusion_score"] = round(merged_score, 6)
             existing.metadata.setdefault("fusion_sources", [])

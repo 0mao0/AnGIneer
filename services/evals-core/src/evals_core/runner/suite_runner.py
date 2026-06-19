@@ -189,7 +189,7 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         "failure_bucket": {},
     }
     for d in details:
-        all_s = d.get("all_scores", {})
+        all_s = d.get("all_scores") or {}
         for ev_name, s in all_s.items():
             if not s.get("evaluated"):
                 continue
@@ -247,6 +247,16 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     }
 
 
+def _enrich_detail_with_question(detail: Dict[str, Any], question: Dict[str, Any]) -> Dict[str, Any]:
+    """把题目元信息补回运行详情，保证 doc_ids 与意图维度可观测。"""
+    return {
+        **detail,
+        "intent_level": question.get("intent_level", "L1"),
+        "question": question.get("question", ""),
+        "doc_ids": list(question.get("doc_ids") or []),
+    }
+
+
 def _run_suite_thread(
     run_id: str, dataset_id: str, questions: List[Dict[str, Any]],
     override_doc_ids: Optional[List[str]] = None,
@@ -274,7 +284,7 @@ def _run_suite_thread(
                 enriched_details = []
                 for d in details:
                     q = next((q for q in questions if str(q.get("question_id") or "") == d["question_id"]), {})
-                    enriched = {**d, "intent_level": q.get("intent_level", "L1"), "question": q.get("question", "")}
+                    enriched = _enrich_detail_with_question(d, q)
                     enriched_details.append(enriched)
                 summary = _compute_summary(enriched_details)
                 result_store.cancel_run(run_id, summary)
@@ -313,7 +323,7 @@ def _run_suite_thread(
         enriched_details = []
         for d in details:
             q = next((q for q in questions if str(q.get("question_id") or "") == d["question_id"]), {})
-            enriched = {**d, "intent_level": q.get("intent_level", "L1"), "question": q.get("question", "")}
+            enriched = _enrich_detail_with_question(d, q)
             enriched_details.append(enriched)
         summary = _compute_summary(enriched_details)
         result_store.complete_run(run_id, summary)
@@ -370,15 +380,18 @@ def get_eval_run(run_id: str) -> Optional[Dict[str, Any]]:
         return None
     details = result_store.list_run_details(run_id)
     result = {**run, "details": details}
+    questions = result_store.list_questions(run["dataset_id"])
+    detail_questions = {
+        str(question.get("question_id") or ""): question for question in questions
+    }
+    result["details"] = [
+        _enrich_detail_with_question(detail, detail_questions.get(str(detail.get("question_id") or ""), {}))
+        for detail in details
+    ]
     if run.get("status") == "running" and not run.get("summary_scores"):
-        completed_details = [d for d in details if d.get("status") not in ("pending", "running")]
+        completed_details = [d for d in result["details"] if d.get("status") not in ("pending", "running")]
         if completed_details:
-            questions = result_store.list_questions(run["dataset_id"])
-            enriched = []
-            for d in completed_details:
-                q = next((q for q in questions if str(q.get("question_id") or "") == d["question_id"]), {})
-                enriched.append({**d, "intent_level": q.get("intent_level", "L1"), "question": q.get("question", "")})
-            result["summary_scores"] = _compute_summary(enriched)
+            result["summary_scores"] = _compute_summary(completed_details)
     return result
 
 

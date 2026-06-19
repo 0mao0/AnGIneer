@@ -14,7 +14,7 @@ from evals_core.dataset.loader import load_bundle_from_dict
 from evals_core.dataset import manager as dataset_manager
 from evals_core.dataset.manager import import_bundle
 from evals_core.runner.retrieval_eval import RetrievalEvaluator
-from evals_core.runner.suite_runner import _compute_summary
+from evals_core.runner.suite_runner import _compute_summary, get_eval_run
 from evals_core.storage import result_store
 
 
@@ -175,6 +175,55 @@ class RetrievalPrecisionBundleTests(unittest.TestCase):
                 if conn is not None:
                     conn.close()
                 dataset_manager._DATASETS_DIR = original_datasets_dir
+                result_store._LOCAL = original_local
+                result_store._DB_PATH = original_db_path
+
+    def test_get_eval_run_backfills_doc_ids_from_dataset_question(self) -> None:
+        """运行详情未持久化 doc_ids 时，查询运行结果仍应回填题目文档范围。"""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            original_db_path = result_store._DB_PATH
+            original_local = result_store._LOCAL
+            try:
+                result_store._DB_PATH = str(Path(temp_dir) / "evals.sqlite")
+                result_store._LOCAL = None
+                result_store.init_db()
+                result_store.insert_dataset({
+                    "dataset_id": "docs-retrieval-precision-v1",
+                    "title": "Docs 检索精度基准集",
+                    "category": "knowledge",
+                    "library_id": "default",
+                    "question_count": 1,
+                })
+                result_store.insert_question({
+                    "question_id": "concrete-formula-001",
+                    "dataset_id": "docs-retrieval-precision-v1",
+                    "question": "混凝土结构设计规范附录 C 中 ε_t,r 的公式在哪一节？",
+                    "task_type": "definition",
+                    "intent_level": "L1",
+                    "doc_ids": ["混凝土结构设计规范"],
+                    "retrieval_gold": {
+                        "gold_section_paths": ["附录 C / C.2 混凝土本构关系"],
+                        "gold_doc_ids": ["混凝土结构设计规范"],
+                    },
+                })
+                run = result_store.create_run("docs-retrieval-precision-v1", 1)
+                result_store.insert_run_detail({
+                    "run_id": run["run_id"],
+                    "question_id": "concrete-formula-001",
+                    "status": "completed",
+                    "quality": "wrong",
+                    "scores": {"score": 0.0},
+                    "all_scores": {"retrieval": {"evaluated": False}},
+                })
+
+                current = get_eval_run(run["run_id"])
+
+                self.assertEqual(current["details"][0]["doc_ids"], ["混凝土结构设计规范"])
+            finally:
+                local = result_store._get_thread_local()
+                conn = getattr(local, "conn", None)
+                if conn is not None:
+                    conn.close()
                 result_store._LOCAL = original_local
                 result_store._DB_PATH = original_db_path
 
