@@ -187,6 +187,9 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         "question_type": {},
         "doc_id": {},
         "failure_bucket": {},
+        "question_family": {},
+        "variant_type": {},
+        "runtime_flag": {},
     }
     for d in details:
         all_s = d.get("all_scores") or {}
@@ -210,6 +213,22 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
                     str(s.get("failure_bucket") or "unknown"),
                     1.0,
                 )
+                _append_group_score(
+                    grouped_scores_raw["question_family"],
+                    str(d.get("question_family") or "unknown"),
+                    s.get("hit@5"),
+                )
+                _append_group_score(
+                    grouped_scores_raw["variant_type"],
+                    str(d.get("variant_type") or "canonical"),
+                    s.get("hit@5"),
+                )
+                for runtime_flag in list(d.get("runtime_flags") or []):
+                    _append_group_score(
+                        grouped_scores_raw["runtime_flag"],
+                        str(runtime_flag),
+                        s.get("hit@5"),
+                    )
             elif ev_name == "answer" and s.get("correctness_checked"):
                 answer_scores.append(s.get("correctness_score", s.get("score", 0)))
             elif ev_name == "text2sql" and s.get("execution_success") is not None:
@@ -248,12 +267,17 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
 
 
 def _enrich_detail_with_question(detail: Dict[str, Any], question: Dict[str, Any]) -> Dict[str, Any]:
-    """把题目元信息补回运行详情，保证 doc_ids 与意图维度可观测。"""
+    """把题目元信息补回运行详情，保证第二轮维度可观测。"""
+    prediction = detail.get("prediction") or {}
     return {
         **detail,
         "intent_level": question.get("intent_level", "L1"),
         "question": question.get("question", ""),
         "doc_ids": list(question.get("doc_ids") or []),
+        "question_family": str(question.get("question_family") or ""),
+        "variant_type": str(question.get("variant_type") or "canonical"),
+        "perturbation_tags": list(question.get("perturbation_tags") or []),
+        "runtime_flags": list(prediction.get("runtime_flags") or []),
     }
 
 

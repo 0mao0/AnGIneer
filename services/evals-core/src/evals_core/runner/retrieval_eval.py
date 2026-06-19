@@ -77,6 +77,11 @@ def compute_failure_bucket(
 ) -> str:
     """按失败模式输出稳定分桶。"""
     gold_target_ids = {str(item or "").strip() for item in gold.get("gold_target_ids", []) if str(item or "").strip()}
+    hard_negative_target_ids = {
+        str(item or "").strip()
+        for item in gold.get("hard_negative_target_ids", [])
+        if str(item or "").strip()
+    }
     gold_target_types = {str(item or "").strip() for item in gold.get("gold_target_types", []) if str(item or "").strip()}
     predicted_target_ids = {
         str(
@@ -94,6 +99,8 @@ def compute_failure_bucket(
     }
     if gold_target_ids and predicted_target_ids.intersection(gold_target_ids):
         return "ok"
+    if hard_negative_target_ids and predicted_target_ids.intersection(hard_negative_target_ids):
+        return "hard_negative_bias"
     if compute_section_hit(predicted_section_paths, list(gold.get("gold_section_paths") or []), 5) > 0:
         return "wrong_section_bias"
     if "figure" in gold_target_types and "content" in predicted_target_types:

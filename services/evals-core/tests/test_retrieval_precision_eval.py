@@ -13,7 +13,7 @@ if str(EVALS_CORE_SRC) not in sys.path:
 from evals_core.dataset.loader import load_bundle_from_dict
 from evals_core.dataset import manager as dataset_manager
 from evals_core.dataset.manager import import_bundle
-from evals_core.runner.retrieval_eval import RetrievalEvaluator
+from evals_core.runner.retrieval_eval import RetrievalEvaluator, compute_failure_bucket
 from evals_core.runner.suite_runner import _compute_summary, get_eval_run
 from evals_core.storage import result_store
 
@@ -124,6 +124,82 @@ class RetrievalPrecisionBundleTests(unittest.TestCase):
         self.assertEqual(summary["grouped_scores"]["question_type"]["locate_clause"], 1.0)
         self.assertEqual(summary["grouped_scores"]["question_type"]["locate_figure"], 0.0)
         self.assertEqual(summary["grouped_scores"]["failure_bucket"]["caption_body_confusion"], 1)
+
+    def test_compute_failure_bucket_marks_hard_negative_bias(self) -> None:
+        """命中 hard negative target 时应输出专用失败桶。"""
+        gold = {
+            "gold_section_paths": ["附录 C / C.2 混凝土本构关系"],
+            "gold_target_ids": ["doc-8474a7fe:19:1"],
+            "gold_target_types": ["formula"],
+            "hard_negative_target_ids": ["doc-8474a7fe:19:3"],
+        }
+        predicted_items = [
+            {
+                "entity_type": "formula",
+                "metadata": {
+                    "target_type": "formula",
+                    "citation_target_id": "doc-8474a7fe:19:3",
+                },
+            }
+        ]
+        predicted_citations = [
+            {"reference": {"targetId": "doc-8474a7fe:19:3"}},
+        ]
+
+        bucket = compute_failure_bucket(
+            predicted_section_paths=[],
+            predicted_citations=predicted_citations,
+            predicted_items=predicted_items,
+            gold=gold,
+        )
+
+        self.assertEqual(bucket, "hard_negative_bias")
+
+    def test_compute_summary_groups_retrieval_score_by_variant_type(self) -> None:
+        """评测汇总应输出 family、variant 与 runtime flag 视角。"""
+        details = [
+            {
+                "quality": "correct",
+                "status": "completed",
+                "doc_ids": ["海港1"],
+                "question_family": "harbor-1-clause-water-level",
+                "variant_type": "canonical",
+                "perturbation_tags": [],
+                "runtime_flags": [],
+                "all_scores": {
+                    "retrieval": {
+                        "evaluated": True,
+                        "hit@5": 1.0,
+                        "question_type": "locate_clause",
+                        "failure_bucket": "ok",
+                    }
+                },
+            },
+            {
+                "quality": "wrong",
+                "status": "completed",
+                "doc_ids": ["海港1"],
+                "question_family": "harbor-1-clause-water-level",
+                "variant_type": "noisy_symbol",
+                "perturbation_tags": ["symbol-variant"],
+                "runtime_flags": ["embedding_hash_fallback"],
+                "all_scores": {
+                    "retrieval": {
+                        "evaluated": True,
+                        "hit@5": 0.0,
+                        "question_type": "locate_clause",
+                        "failure_bucket": "missed_exact_target",
+                    }
+                },
+            },
+        ]
+
+        summary = _compute_summary(details)
+
+        self.assertEqual(summary["grouped_scores"]["variant_type"]["canonical"], 1.0)
+        self.assertEqual(summary["grouped_scores"]["variant_type"]["noisy_symbol"], 0.0)
+        self.assertEqual(summary["grouped_scores"]["question_family"]["harbor-1-clause-water-level"], 0.5)
+        self.assertEqual(summary["grouped_scores"]["runtime_flag"]["embedding_hash_fallback"], 0.0)
 
     def test_import_bundle_initializes_empty_eval_store(self) -> None:
         """导入基准集时应能在空 SQLite 上自动建表。"""
