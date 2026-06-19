@@ -111,6 +111,7 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
         self.api_key = api_key
         self.api_url = api_url.rstrip("/")
         self.fallback_provider = fallback_provider or HashEmbeddingProvider()
+        self.runtime_flags: List[str] = []
 
     # 判断当前 provider 是否具备可调用的配置。
     def is_configured(self) -> bool:
@@ -128,9 +129,11 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
     # 通过 DashScope 接口批量请求 embedding。
     def embed_texts(self, texts: Sequence[str]) -> List[List[float]]:
         normalized_texts = [str(text or "").strip() for text in texts]
+        self.runtime_flags = []
         if not normalized_texts:
             return []
         if not self.is_configured():
+            self.runtime_flags.append("embedding_hash_fallback")
             logger.warning("DOCS_EMBEDDING_PROVIDER=dashscope 但缺少配置，回退到 hash embedding。")
             return self._fallback_with_dimension_alignment(normalized_texts)
         try:
@@ -156,6 +159,7 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
             self.dimension = len(embeddings[0])
             return embeddings
         except Exception as exc:
+            self.runtime_flags.append("embedding_hash_fallback")
             logger.warning("DashScope embedding 调用失败，回退到 hash embedding: %s", exc)
             return self._fallback_with_dimension_alignment(normalized_texts)
 

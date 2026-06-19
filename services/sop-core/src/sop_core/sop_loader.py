@@ -59,6 +59,7 @@ class SopLoader:
         self.index_file = os.path.join(sop_base_dir, "index.json")
         self.sops: List[SOP] = []
         self.parser = SopParser()
+        self.load_errors: Dict[str, str] = {}
 
     def load_all(self) -> List[SOP]:
         """从索引文件加载 SOP 列表。如果索引不存在则自动生成。"""
@@ -190,6 +191,7 @@ class SopLoader:
             return None
 
         try:
+            self.load_errors.pop(sop_id, None)
             with open(json_path, 'r', encoding='utf-8') as f:
                 sop_data = json.load(f)
 
@@ -209,6 +211,7 @@ class SopLoader:
             )
             return sop
         except Exception as e:
+            self.load_errors[sop_id] = str(e)
             print(f"Error loading JSON SOP {sop_id}: {e}")
             return None
 

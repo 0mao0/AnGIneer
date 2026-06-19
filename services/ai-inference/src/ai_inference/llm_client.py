@@ -30,6 +30,30 @@ load_dotenv()
 logger = get_logger(__name__)
 
 
+def _format_missing_config_error(target_config_name: str, model_configs: List[LLMModelConfig]) -> ValueError:
+    """生成带可用配置列表的缺省配置错误。"""
+    available = [
+        str(item.name or "").strip()
+        for item in model_configs
+        if str(item.name or "").strip()
+    ]
+    joined = ", ".join(sorted(set(available))) or "<none>"
+    return ValueError(f"未找到有效的 LLM 配置 (config_name={target_config_name})；可用配置: {joined}")
+
+
+def _resolve_target_config_name(
+    model: Optional[str],
+    config_name: Optional[str],
+    default_model: Optional[str],
+) -> tuple[str, bool]:
+    """统一解析优先使用的配置名，并标记是否显式要求了配置解析。"""
+    if model:
+        return model, True
+    if config_name is not None:
+        return str(config_name or default_model or "").strip(), True
+    return str(default_model or "").strip(), False
+
+
 class CircuitState(Enum):
     """熔断器状态。"""
     CLOSED = "closed"
@@ -353,11 +377,17 @@ class LLMClient:
         effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
         processed_messages = self._prepare_messages(messages, mode)
 
-        target_config_name = model if model else (config_name or self._config.default_model)
+        target_config_name, explicit_config = _resolve_target_config_name(
+            model,
+            config_name,
+            self._config.default_model,
+        )
+        if explicit_config and not target_config_name:
+            raise _format_missing_config_error(target_config_name, self._config.models)
         model_configs = self._get_model_configs(target_config_name)
 
         if not model_configs:
-            raise ValueError(f"未找到有效的 LLM 配置 (config_name={target_config_name})")
+            raise _format_missing_config_error(target_config_name, self._config.models)
 
         last_error = None
 
@@ -412,11 +442,17 @@ class LLMClient:
         temp = temperature if temperature is not None else self._config.temperature
         processed_messages = self._prepare_messages(messages, mode)
 
-        target_config_name = model if model else (config_name or self._config.default_model)
+        target_config_name, explicit_config = _resolve_target_config_name(
+            model,
+            config_name,
+            self._config.default_model,
+        )
+        if explicit_config and not target_config_name:
+            raise _format_missing_config_error(target_config_name, self._config.models)
         model_configs = self._get_model_configs(target_config_name)
 
         if not model_configs:
-            raise ValueError(f"未找到有效的 LLM 配置 (config_name={target_config_name})")
+            raise _format_missing_config_error(target_config_name, self._config.models)
 
         last_error = None
 
@@ -530,11 +566,20 @@ _llm_client_instance: Optional[LLMClient] = None
 llm_client: LLMClient = _LLMClientProxy()
 
 
-def get_llm_client() -> LLMClient:
+def get_llm_client(config_name: Optional[str] = None) -> LLMClient:
     """获取全局 LLM 客户端实例（懒加载单例）。"""
     global _llm_client_instance
     if _llm_client_instance is None:
         _llm_client_instance = LLMClient()
+    target_config_name, explicit_config = _resolve_target_config_name(
+        None,
+        config_name,
+        _llm_client_instance._config.default_model,
+    )
+    if explicit_config and not target_config_name:
+        raise _format_missing_config_error(target_config_name, _llm_client_instance._config.models)
+    if target_config_name and not _llm_client_instance._get_model_configs(target_config_name):
+        raise _format_missing_config_error(target_config_name, _llm_client_instance._config.models)
     return _llm_client_instance
 
 
