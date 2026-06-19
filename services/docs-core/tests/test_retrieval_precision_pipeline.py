@@ -82,6 +82,13 @@ class RetrievalPrecisionPipelineTests(unittest.TestCase):
 
         self.assertIn("varepsilon_tr", identifiers)
 
+    def test_extract_query_signals_marks_latex_formula_variant(self) -> None:
+        """LaTeX 公式问法应保留公式定位意图和符号引用。"""
+        signals = extract_query_signals(r"混凝土规范附录C里 \varepsilon_{t,r} 这条式子在哪？")
+
+        self.assertEqual(signals["question_type"], "locate_formula")
+        self.assertIn(r"\varepsilon_{t,r}", signals["formula_refs"])
+
     def test_search_citation_targets_prefers_direct_figure_target_hits(self) -> None:
         """图查询应优先命中 figure 对象，而不是只返回正文 chunk。"""
         temp_dir = tempfile.mkdtemp()

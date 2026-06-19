@@ -102,6 +102,16 @@ class DatasetManagerRound2DatasetTests(unittest.TestCase):
         self.assertIn("harbor-2-figure-001", item_ids)
         self.assertIn("harbor-2-table-hard-negative-001", item_ids)
 
+    def test_docs_retrieval_precision_v2_contains_concrete_formula_items(self) -> None:
+        """v2 数据集应包含混凝土公式 family 的 round 2 题目。"""
+        with open("data/evals/datasets/docs-retrieval-precision-v2.json", "r", encoding="utf-8") as handle:
+            payload = json.load(handle)
+
+        item_ids = {item["question_id"] for item in payload["items"]}
+        self.assertIn("concrete-formula-001", item_ids)
+        self.assertIn("concrete-formula-variant-001", item_ids)
+        self.assertIn("concrete-formula-hard-negative-001", item_ids)
+
 
 if __name__ == "__main__":
     unittest.main()

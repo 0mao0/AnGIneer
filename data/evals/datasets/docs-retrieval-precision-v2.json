@@ -1,0 +1,521 @@
+{
+  "dataset": {
+    "dataset_id": "docs-retrieval-precision-v2",
+    "title": "Docs 检索稳健性基准集 v2",
+    "category": "knowledge",
+    "description": "《海港1》《海港2》《混凝土结构设计规范》的 round 2 检索稳健性基准集",
+    "schema_version": "eval.bundle.v2",
+    "version": "2.0",
+    "library_id": "default"
+  },
+  "items": [
+    {
+      "question_id": "harbor-1-clause-001",
+      "question": "6.2.7 条关于航道设计通航水位有什么要求？",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "海港1"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "harbor1",
+        "clause",
+        "canonical"
+      ],
+      "question_family": "harbor-1-clause-water-level",
+      "canonical_question_id": "harbor-1-clause-001",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "question_type": "locate_clause",
+        "gold_section_paths": [
+          "6.2 航道建设规模及航行标准 / 6.2.7 航道设计通航水位"
+        ],
+        "gold_doc_ids": [
+          "海港1"
+        ],
+        "gold_target_ids": [
+          "doc-24aa8f8a:0:5:li7"
+        ],
+        "gold_target_types": [
+          "list_procedure"
+        ],
+        "hard_negative_target_ids": [
+          "doc-24aa8f8a:0:4"
+        ],
+        "robustness_tags": [
+          "canonical"
+        ]
+      }
+    },
+    {
+      "question_id": "harbor-1-clause-variant-001",
+      "question": "海港1 里航道设计通航水位那条写在哪？",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "海港1"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "harbor1",
+        "clause",
+        "paraphrase"
+      ],
+      "question_family": "harbor-1-clause-water-level",
+      "canonical_question_id": "harbor-1-clause-001",
+      "variant_type": "paraphrase",
+      "perturbation_tags": [
+        "implicit-clause-ref"
+      ],
+      "retrieval": {
+        "question_type": "locate_clause",
+        "gold_section_paths": [
+          "6.2 航道建设规模及航行标准 / 6.2.7 航道设计通航水位"
+        ],
+        "gold_doc_ids": [
+          "海港1"
+        ],
+        "gold_target_ids": [
+          "doc-24aa8f8a:0:5:li7"
+        ],
+        "gold_target_types": [
+          "list_procedure"
+        ],
+        "hard_negative_target_ids": [
+          "doc-24aa8f8a:0:4"
+        ],
+        "robustness_tags": [
+          "paraphrase"
+        ]
+      }
+    },
+    {
+      "question_id": "harbor-1-clause-noisy-001",
+      "question": "海港1里 6 2 7 航道设计通航水位 那条要求是什么",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "海港1"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "harbor1",
+        "clause",
+        "noisy"
+      ],
+      "question_family": "harbor-1-clause-water-level",
+      "canonical_question_id": "harbor-1-clause-001",
+      "variant_type": "noisy_symbol",
+      "perturbation_tags": [
+        "missing-punctuation"
+      ],
+      "retrieval": {
+        "question_type": "locate_clause",
+        "gold_section_paths": [
+          "6.2 航道建设规模及航行标准 / 6.2.7 航道设计通航水位"
+        ],
+        "gold_doc_ids": [
+          "海港1"
+        ],
+        "gold_target_ids": [
+          "doc-24aa8f8a:0:5:li7"
+        ],
+        "gold_target_types": [
+          "list_procedure"
+        ],
+        "hard_negative_target_ids": [
+          "doc-24aa8f8a:0:4"
+        ],
+        "robustness_tags": [
+          "noisy-symbol"
+        ]
+      }
+    },
+    {
+      "question_id": "harbor-2-figure-001",
+      "question": "海港2 中图 6.3.7 说明的是哪种加宽示意？",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "海港2"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "harbor2",
+        "figure",
+        "canonical"
+      ],
+      "question_family": "harbor-2-figure-widening",
+      "canonical_question_id": "harbor-2-figure-001",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "question_type": "locate_figure",
+        "gold_section_paths": [
+          "6.3 航道选线与轴线布置 / 6.3.7 航道转弯段转弯半径 R 和加宽方式(图 6.3.7)"
+        ],
+        "gold_doc_ids": [
+          "海港2"
+        ],
+        "gold_target_ids": [
+          "doc-5c9031df:6:3"
+        ],
+        "gold_target_types": [
+          "figure"
+        ],
+        "hard_negative_target_ids": [
+          "doc-5c9031df:6:2"
+        ],
+        "robustness_tags": [
+          "canonical"
+        ]
+      }
+    },
+    {
+      "question_id": "harbor-2-figure-variant-001",
+      "question": "海港2 中图6.3.7讲的是哪种加宽示意",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "海港2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "harbor2",
+        "figure",
+        "noisy"
+      ],
+      "question_family": "harbor-2-figure-widening",
+      "canonical_question_id": "harbor-2-figure-001",
+      "variant_type": "noisy_symbol",
+      "perturbation_tags": [
+        "missing-punctuation"
+      ],
+      "retrieval": {
+        "question_type": "locate_figure",
+        "gold_section_paths": [
+          "6.3 航道选线与轴线布置 / 6.3.7 航道转弯段转弯半径 R 和加宽方式(图 6.3.7)"
+        ],
+        "gold_doc_ids": [
+          "海港2"
+        ],
+        "gold_target_ids": [
+          "doc-5c9031df:6:3"
+        ],
+        "gold_target_types": [
+          "figure"
+        ],
+        "hard_negative_target_ids": [
+          "doc-5c9031df:6:2"
+        ],
+        "robustness_tags": [
+          "noisy-symbol"
+        ]
+      }
+    },
+    {
+      "question_id": "harbor-2-table-001",
+      "question": "海港2 中表 6.4.7 写的是哪张表？",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "海港2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "harbor2",
+        "table",
+        "canonical"
+      ],
+      "question_family": "harbor-2-table-slope",
+      "canonical_question_id": "harbor-2-table-001",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "question_type": "locate_table",
+        "gold_section_paths": [
+          "6.4 航道尺度 / 6.4.7 不同岩土类别航道边坡坡度"
+        ],
+        "gold_doc_ids": [
+          "海港2"
+        ],
+        "gold_target_ids": [
+          "doc-5c9031df:10:14"
+        ],
+        "gold_target_types": [
+          "table"
+        ],
+        "hard_negative_target_ids": [
+          "doc-5c9031df:9:2"
+        ],
+        "robustness_tags": [
+          "canonical"
+        ]
+      }
+    },
+    {
+      "question_id": "harbor-2-table-hard-negative-001",
+      "question": "海港2 里不同岩土类别航道边坡坡度那个表写在哪？",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "海港2"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "harbor2",
+        "table",
+        "hard-negative"
+      ],
+      "question_family": "harbor-2-table-slope",
+      "canonical_question_id": "harbor-2-table-001",
+      "variant_type": "hard_negative",
+      "perturbation_tags": [
+        "nearby-table-confusion"
+      ],
+      "retrieval": {
+        "question_type": "locate_table",
+        "gold_section_paths": [
+          "6.4 航道尺度 / 6.4.7 不同岩土类别航道边坡坡度"
+        ],
+        "gold_doc_ids": [
+          "海港2"
+        ],
+        "gold_target_ids": [
+          "doc-5c9031df:10:14"
+        ],
+        "gold_target_types": [
+          "table"
+        ],
+        "hard_negative_target_ids": [
+          "doc-5c9031df:9:2"
+        ],
+        "robustness_tags": [
+          "hard-negative"
+        ]
+      }
+    },
+    {
+      "question_id": "concrete-formula-001",
+      "question": "混凝土结构设计规范附录 C 中 ε_t,r 的公式在哪一节？",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "混凝土结构设计规范"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "concrete",
+        "formula",
+        "canonical"
+      ],
+      "question_family": "concrete-formula-eps-tr",
+      "canonical_question_id": "concrete-formula-001",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "question_type": "locate_formula",
+        "gold_section_paths": [
+          "附录 C 钢筋、混凝土本构关系与混凝土多轴强度准则 / C.2 混凝土本构关系"
+        ],
+        "gold_doc_ids": [
+          "混凝土结构设计规范"
+        ],
+        "gold_target_ids": [
+          "doc-8474a7fe:19:1"
+        ],
+        "gold_target_types": [
+          "formula"
+        ],
+        "hard_negative_target_ids": [
+          "doc-8474a7fe:19:3"
+        ],
+        "robustness_tags": [
+          "canonical"
+        ]
+      }
+    },
+    {
+      "question_id": "concrete-formula-paraphrase-001",
+      "question": "混凝土规范附录 C 里 ε_t,r 那条式子写在哪？",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "混凝土结构设计规范"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "concrete",
+        "formula",
+        "paraphrase"
+      ],
+      "question_family": "concrete-formula-eps-tr",
+      "canonical_question_id": "concrete-formula-001",
+      "variant_type": "paraphrase",
+      "perturbation_tags": [
+        "implicit-formula-ref"
+      ],
+      "retrieval": {
+        "question_type": "locate_formula",
+        "gold_section_paths": [
+          "附录 C 钢筋、混凝土本构关系与混凝土多轴强度准则 / C.2 混凝土本构关系"
+        ],
+        "gold_doc_ids": [
+          "混凝土结构设计规范"
+        ],
+        "gold_target_ids": [
+          "doc-8474a7fe:19:1"
+        ],
+        "gold_target_types": [
+          "formula"
+        ],
+        "hard_negative_target_ids": [
+          "doc-8474a7fe:19:3"
+        ],
+        "robustness_tags": [
+          "paraphrase"
+        ]
+      }
+    },
+    {
+      "question_id": "concrete-formula-variant-001",
+      "question": "混凝土规范附录C里 \\varepsilon_{t,r} 这条式子在哪？",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "混凝土结构设计规范"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "concrete",
+        "formula",
+        "latex"
+      ],
+      "question_family": "concrete-formula-eps-tr",
+      "canonical_question_id": "concrete-formula-001",
+      "variant_type": "symbol_variant",
+      "perturbation_tags": [
+        "latex-inline"
+      ],
+      "retrieval": {
+        "question_type": "locate_formula",
+        "gold_section_paths": [
+          "附录 C 钢筋、混凝土本构关系与混凝土多轴强度准则 / C.2 混凝土本构关系"
+        ],
+        "gold_doc_ids": [
+          "混凝土结构设计规范"
+        ],
+        "gold_target_ids": [
+          "doc-8474a7fe:19:1"
+        ],
+        "gold_target_types": [
+          "formula"
+        ],
+        "hard_negative_target_ids": [
+          "doc-8474a7fe:19:3"
+        ],
+        "robustness_tags": [
+          "symbol-variant"
+        ]
+      }
+    },
+    {
+      "question_id": "concrete-formula-noisy-001",
+      "question": "混凝土规范附录C里 varepsilon tr 这条式子在哪",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "混凝土结构设计规范"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "concrete",
+        "formula",
+        "noisy"
+      ],
+      "question_family": "concrete-formula-eps-tr",
+      "canonical_question_id": "concrete-formula-001",
+      "variant_type": "noisy_symbol",
+      "perturbation_tags": [
+        "ascii-formula-alias"
+      ],
+      "retrieval": {
+        "question_type": "locate_formula",
+        "gold_section_paths": [
+          "附录 C 钢筋、混凝土本构关系与混凝土多轴强度准则 / C.2 混凝土本构关系"
+        ],
+        "gold_doc_ids": [
+          "混凝土结构设计规范"
+        ],
+        "gold_target_ids": [
+          "doc-8474a7fe:19:1"
+        ],
+        "gold_target_types": [
+          "formula"
+        ],
+        "hard_negative_target_ids": [
+          "doc-8474a7fe:19:3"
+        ],
+        "robustness_tags": [
+          "noisy-symbol"
+        ]
+      }
+    },
+    {
+      "question_id": "concrete-formula-hard-negative-001",
+      "question": "混凝土结构设计规范附录 C 中 ε_t,r 相关公式写在哪一节？",
+      "task_type": "retrieval",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [
+        "混凝土结构设计规范"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "concrete",
+        "formula",
+        "hard-negative"
+      ],
+      "question_family": "concrete-formula-eps-tr",
+      "canonical_question_id": "concrete-formula-001",
+      "variant_type": "hard_negative",
+      "perturbation_tags": [
+        "nearby-formula-confusion"
+      ],
+      "retrieval": {
+        "question_type": "locate_formula",
+        "gold_section_paths": [
+          "附录 C 钢筋、混凝土本构关系与混凝土多轴强度准则 / C.2 混凝土本构关系"
+        ],
+        "gold_doc_ids": [
+          "混凝土结构设计规范"
+        ],
+        "gold_target_ids": [
+          "doc-8474a7fe:19:1"
+        ],
+        "gold_target_types": [
+          "formula"
+        ],
+        "hard_negative_target_ids": [
+          "doc-8474a7fe:19:3"
+        ],
+        "robustness_tags": [
+          "hard-negative"
+        ]
+      }
+    }
+  ]
+}

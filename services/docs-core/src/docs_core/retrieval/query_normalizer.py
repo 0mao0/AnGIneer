@@ -143,15 +143,22 @@ def extract_query_signals(query: str) -> dict:
     raw_tokens = re.findall(r"[\u4e00-\u9fff]+|[a-zA-Z0-9_.]+", query or "")
     figure_refs = re.findall(r"(?:图|figure)\s*([0-9]+)", query or "", flags=re.IGNORECASE)
     table_refs = re.findall(r"(?:表|table)\s*([0-9]+)", query or "", flags=re.IGNORECASE)
-    formula_refs = re.findall(r"(?:公式)\s*([0-9]+)", query or "", flags=re.IGNORECASE)
+    formula_refs = re.findall(
+        r"(\\[A-Za-z]+\s*_\s*\{[A-Za-z0-9,\-\s]+\}|[α-ωΑ-Ω]\s*_\s*\{?[A-Za-z0-9,\-\s]+\}?)",
+        query or "",
+        flags=re.IGNORECASE,
+    )
+    if not formula_refs:
+        formula_refs = re.findall(r"(?:公式)\s*([0-9]+)", query or "", flags=re.IGNORECASE)
     clause_refs = extract_clause_refs(query)
+    formula_identifiers = extract_formula_identifiers(query)
 
     question_type = "definition_qa"
     if figure_refs:
         question_type = "locate_figure"
     elif table_refs:
         question_type = "locate_table"
-    elif formula_refs or "公式" in query:
+    elif formula_refs or "公式" in query or (formula_identifiers and any(token in query for token in ("式", "式子"))):
         question_type = "locate_formula"
     elif clause_refs:
         question_type = "locate_clause"
