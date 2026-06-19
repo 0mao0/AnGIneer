@@ -813,6 +813,46 @@ class CanonicalSQLiteStore:
             for row in rows
         ]
 
+    # 按标题、章节路径和片段搜索 citation targets，供结构召回直接命中图表/公式对象
+    def search_citation_targets(self, doc_id: str, query: str, limit: int = 20) -> List[dict[str, object]]:
+        normalized_query = " ".join(str(query or "").split()).strip()
+        if not normalized_query:
+            return []
+        tokens = [token for token in normalized_query.split() if token]
+        if not tokens:
+            return []
+        conditions: List[str] = []
+        values: List[object] = [doc_id]
+        for token in tokens:
+            like_pattern = f"%{token}%"
+            conditions.append("(display_title LIKE ? OR section_path LIKE ? OR snippet LIKE ?)")
+            values.extend([like_pattern, like_pattern, like_pattern])
+        values.append(max(1, min(1000, limit)))
+        with self.connect() as conn:
+            rows = conn.execute(
+                f"""
+                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet
+                FROM canonical_citation_targets
+                WHERE doc_id = ? AND ({' OR '.join(conditions)})
+                ORDER BY page_idx ASC, target_id ASC
+                LIMIT ?
+                """,
+                values,
+            ).fetchall()
+        return [
+            {
+                "target_id": row["target_id"],
+                "target_type": row["target_type"],
+                "doc_id": row["doc_id"],
+                "page_idx": int(row["page_idx"] or 0),
+                "bbox": _load_json(row["bbox_json"], None),
+                "section_path": row["section_path"] or "",
+                "display_title": row["display_title"] or "",
+                "snippet": row["snippet"] or "",
+            }
+            for row in rows
+        ]
+
     # 查询单个 citation target，供回答链稳定引用
     def get_citation_target(self, doc_id: str, target_id: str) -> Optional[dict[str, object]]:
         with self.connect() as conn:

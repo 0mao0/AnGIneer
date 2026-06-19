@@ -7,6 +7,7 @@ from docs_core.query_protocols.contracts import KnowledgeQueryRequest, Retrieved
 from docs_core.retrieval.query_normalizer import (
     contains_clause_ref,
     extract_clause_refs,
+    extract_query_signals,
     normalize_match_text,
     tokenize_query,
 )
@@ -46,7 +47,49 @@ class SparseRetriever:
     ) -> List[RetrievedItem]:
         candidates: List[RetrievedItem] = []
         clause_refs = extract_clause_refs(request.query)
+        signals = extract_query_signals(request.query)
         for node in doc_nodes:
+            target_hits = knowledge_service.canonical_store.search_citation_targets(
+                doc_id=node.id,
+                query=request.query,
+                limit=max(20, request.top_k * 4),
+            )
+            for target in target_hits:
+                score = score_sparse_match(
+                    request.query,
+                    str(target.get("snippet") or ""),
+                    str(target.get("display_title") or ""),
+                    task_type,
+                ) + 6.0
+                target_type = str(target.get("target_type") or "")
+                if signals["question_type"] == "locate_figure" and target_type == "figure":
+                    score += 4.0
+                if signals["question_type"] == "locate_table" and target_type == "table":
+                    score += 4.0
+                if signals["question_type"] == "locate_formula" and target_type == "formula":
+                    score += 4.0
+                candidates.append(
+                    RetrievedItem(
+                        item_id=str(target.get("target_id") or ""),
+                        entity_type=target_type or "content",
+                        doc_id=node.id,
+                        title=str(target.get("display_title") or node.title),
+                        text=str(target.get("snippet") or ""),
+                        score=score,
+                        citation_target_id=str(target.get("target_id") or ""),
+                        retrieval_policy="target_sparse",
+                        metadata={
+                            "page_idx": target.get("page_idx"),
+                            "section_path": target.get("section_path"),
+                            "source_kind": "target_sparse",
+                            "chunk_type": target_type or "content",
+                            "strategy": "target_sparse_v1",
+                            "citation_target_id": target.get("target_id"),
+                            "target_type": target_type or "content",
+                        },
+                    )
+                )
+
             chunk_keyword = clause_refs[0] if clause_refs else next((token for token in tokenize_query(request.query) if len(token) >= 2), None)
             if chunk_keyword:
                 fts_hits = knowledge_service.canonical_store.search_chunk_fts(
