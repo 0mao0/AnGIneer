@@ -1,0 +1,67 @@
+{
+  "dataset": {
+    "dataset_id": "docs-retrieval-precision-v1",
+    "title": "Docs 检索精度基准集",
+    "category": "knowledge",
+    "description": "《海港1》《海港2》《混凝土结构设计规范》的检索基准样本",
+    "schema_version": "eval.bundle.v2",
+    "version": "1.0",
+    "library_id": "default"
+  },
+  "items": [
+    {
+      "question_id": "harbor-1-clause-001",
+      "question": "4.2.3 条关于港口水位有什么要求？",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": ["harbor-1"],
+      "difficulty": "medium",
+      "tags": ["harbor-1", "clause", "precision"],
+      "retrieval": {
+        "gold_section_paths": ["第四章/4.2/4.2.3"],
+        "gold_doc_ids": ["harbor-1"],
+        "gold_target_ids": ["title:4.2.3"],
+        "gold_target_types": ["title"],
+        "question_type": "locate_clause",
+        "notes": "条款精确定位题"
+      }
+    },
+    {
+      "question_id": "harbor-2-figure-001",
+      "question": "海港2 中图 3 说明的是哪种布置形式？",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": ["harbor-2"],
+      "difficulty": "medium",
+      "tags": ["harbor-2", "figure", "caption"],
+      "retrieval": {
+        "gold_section_paths": ["第三章/图3"],
+        "gold_doc_ids": ["harbor-2"],
+        "gold_target_ids": ["figure:3"],
+        "gold_target_types": ["figure"],
+        "question_type": "locate_figure",
+        "notes": "图题与正文容易混淆"
+      }
+    },
+    {
+      "question_id": "concrete-formula-001",
+      "question": "混凝土结构设计规范里弯矩设计值的公式在哪一节？",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": ["concrete-design-code"],
+      "difficulty": "hard",
+      "tags": ["concrete", "formula", "locate"],
+      "retrieval": {
+        "gold_section_paths": ["第六章/受弯构件/公式"],
+        "gold_doc_ids": ["concrete-design-code"],
+        "gold_target_ids": ["formula:moment-design"],
+        "gold_target_types": ["formula"],
+        "question_type": "locate_formula",
+        "notes": "公式本体和参数说明需区分"
+      }
+    }
+  ]
+}
