@@ -63,6 +63,37 @@ def extract_clause_refs(query: str) -> List[str]:
     return deduped
 
 
+# 抽取规范文档检索所需的结构化 query 信号。
+def extract_query_signals(query: str) -> dict:
+    raw_tokens = re.findall(r"[\u4e00-\u9fff]+|[a-zA-Z0-9_.]+", query or "")
+    figure_refs = re.findall(r"(?:图|figure)\s*([0-9]+)", query or "", flags=re.IGNORECASE)
+    table_refs = re.findall(r"(?:表|table)\s*([0-9]+)", query or "", flags=re.IGNORECASE)
+    formula_refs = re.findall(r"(?:公式)\s*([0-9]+)", query or "", flags=re.IGNORECASE)
+    clause_refs = extract_clause_refs(query)
+
+    question_type = "definition_qa"
+    if figure_refs:
+        question_type = "locate_figure"
+    elif table_refs:
+        question_type = "locate_table"
+    elif formula_refs or "公式" in query:
+        question_type = "locate_formula"
+    elif clause_refs:
+        question_type = "locate_clause"
+    elif any(token in query for token in ("不得", "不应", "应", "允许")):
+        question_type = "cross_section_constraint"
+
+    return {
+        "question_type": question_type,
+        "clause_refs": clause_refs,
+        "figure_refs": figure_refs,
+        "table_refs": table_refs,
+        "formula_refs": formula_refs,
+        "raw_tokens": raw_tokens,
+        "keywords": tokenize_query(query),
+    }
+
+
 # 判断文本中是否精确包含某个条款编号，避免 6.2.1 误命中 6.6.2.1。
 def contains_clause_ref(text: str, clause_ref: str) -> bool:
     if not text or not clause_ref:
