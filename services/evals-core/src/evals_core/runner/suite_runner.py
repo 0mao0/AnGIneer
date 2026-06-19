@@ -167,6 +167,13 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     """根据逐题结果计算汇总指标。"""
     if not details:
         return {"overall_score": 0.0}
+
+    def _append_group_score(bucket: Dict[str, List[float]], name: str, score: Any) -> None:
+        """向分组桶追加分数。"""
+        if score is None:
+            return
+        bucket.setdefault(name, []).append(float(score))
+
     total = len(details)
     correct = sum(1 for d in details if d.get("quality") == "correct")
     wrong = sum(1 for d in details if d.get("quality") == "wrong")
@@ -176,6 +183,11 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     retrieval_scores = []
     answer_scores = []
     sql_scores = []
+    grouped_scores_raw: Dict[str, Dict[str, List[float]]] = {
+        "question_type": {},
+        "doc_id": {},
+        "failure_bucket": {},
+    }
     for d in details:
         all_s = d.get("all_scores", {})
         for ev_name, s in all_s.items():
@@ -183,6 +195,21 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
                 continue
             if ev_name == "retrieval" and s.get("hit@5") is not None:
                 retrieval_scores.append(s["hit@5"])
+                _append_group_score(
+                    grouped_scores_raw["question_type"],
+                    str(s.get("question_type") or "unknown"),
+                    s.get("hit@5"),
+                )
+                _append_group_score(
+                    grouped_scores_raw["doc_id"],
+                    str((d.get("doc_ids") or ["unknown"])[0]),
+                    s.get("hit@5"),
+                )
+                _append_group_score(
+                    grouped_scores_raw["failure_bucket"],
+                    str(s.get("failure_bucket") or "unknown"),
+                    1.0,
+                )
             elif ev_name == "answer" and s.get("correctness_checked"):
                 answer_scores.append(s.get("correctness_score", s.get("score", 0)))
             elif ev_name == "text2sql" and s.get("execution_success") is not None:
@@ -198,6 +225,13 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         by_level[level]["total"] += 1
         if d.get("quality") == "correct":
             by_level[level]["correct"] += 1
+    grouped_scores = {
+        group_name: {
+            item_name: round(sum(values) / len(values), 4) if group_name != "failure_bucket" else int(sum(values))
+            for item_name, values in items.items()
+        }
+        for group_name, items in grouped_scores_raw.items()
+    }
     return {
         "overall_score": overall_score,
         "total": total,
@@ -209,6 +243,7 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         "answer_score": answer_avg,
         "sql_score": sql_avg,
         "by_level": by_level,
+        "grouped_scores": grouped_scores,
     }
 
 
