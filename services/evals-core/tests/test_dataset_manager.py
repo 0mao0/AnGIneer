@@ -1,5 +1,6 @@
 """题集管理器的回归测试。"""
 
+import json
 import tempfile
 import sys
 import unittest
@@ -85,6 +86,21 @@ class DatasetManagerRoundTripTests(unittest.TestCase):
                 manager._DATASETS_DIR = original_datasets_dir
                 result_store._LOCAL = original_local
                 result_store._DB_PATH = original_db_path
+
+
+class DatasetManagerRound2DatasetTests(unittest.TestCase):
+    """验证第二轮 benchmark 文件结构稳定。"""
+
+    def test_docs_retrieval_precision_v2_contains_harbor_round2_items(self) -> None:
+        """v2 数据集应包含海港条款、图和表的 round 2 题目。"""
+        with open("data/evals/datasets/docs-retrieval-precision-v2.json", "r", encoding="utf-8") as handle:
+            payload = json.load(handle)
+
+        item_ids = {item["question_id"] for item in payload["items"]}
+        self.assertIn("harbor-1-clause-001", item_ids)
+        self.assertIn("harbor-1-clause-variant-001", item_ids)
+        self.assertIn("harbor-2-figure-001", item_ids)
+        self.assertIn("harbor-2-table-hard-negative-001", item_ids)
 
 
 if __name__ == "__main__":
