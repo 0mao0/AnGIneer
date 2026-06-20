@@ -41,6 +41,38 @@ def _format_missing_config_error(target_config_name: str, model_configs: List[LL
     return ValueError(f"未找到有效的 LLM 配置 (config_name={target_config_name})；可用配置: {joined}")
 
 
+def _normalize_model_identifier(value: Optional[str]) -> str:
+    """归一化模型标识，兼容展示名、底层模型名和轻量后缀差异。"""
+    normalized = str(value or "").strip().lower()
+    if not normalized:
+        return ""
+    normalized = normalized.replace("_", "-").replace(" ", "")
+    return normalized
+
+
+def _match_config_alias(config_name: Optional[str], model_configs: List[LLMModelConfig]) -> str:
+    """把配置名或底层模型别名解析为已注册的配置名。"""
+    target = _normalize_model_identifier(config_name)
+    if not target:
+        return ""
+
+    for item in model_configs:
+        if _normalize_model_identifier(item.name) == target:
+            return str(item.name or "").strip()
+
+    alias_candidates: List[str] = []
+    for item in model_configs:
+        model_alias = _normalize_model_identifier(item.model)
+        if not model_alias:
+            continue
+        if model_alias == target or model_alias.startswith(f"{target}-"):
+            alias_candidates.append(str(item.name or "").strip())
+
+    if len(alias_candidates) == 1:
+        return alias_candidates[0]
+    return str(config_name or "").strip()
+
+
 def _resolve_target_config_name(
     model: Optional[str],
     config_name: Optional[str],
@@ -219,11 +251,12 @@ class LLMClient:
 
     def _get_model_configs(self, config_name: Optional[str] = None) -> List[LLMModelConfig]:
         """获取可用的模型配置列表。"""
+        matched_config_name = _match_config_alias(config_name, self._config.models)
         configs = []
         for mc in self._config.models:
             if not mc.enabled or not mc.api_key or not mc.base_url:
                 continue
-            if config_name and mc.name != config_name:
+            if matched_config_name and mc.name != matched_config_name:
                 continue
             configs.append(mc)
 

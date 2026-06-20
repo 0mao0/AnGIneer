@@ -113,5 +113,23 @@ class DatasetManagerRound2DatasetTests(unittest.TestCase):
         self.assertIn("concrete-formula-hard-negative-001", item_ids)
 
 
+class DatasetManagerAcceptanceTests(unittest.TestCase):
+    """验证第二轮 benchmark 文件满足最小覆盖面。"""
+
+    def test_docs_retrieval_precision_v2_has_minimum_round2_coverage(self) -> None:
+        """v2 数据集应满足题量、family 数和关键变体类型下限。"""
+        with open("data/evals/datasets/docs-retrieval-precision-v2.json", "r", encoding="utf-8") as handle:
+            payload = json.load(handle)
+
+        families = {item["question_family"] for item in payload["items"]}
+        variant_types = {item["variant_type"] for item in payload["items"]}
+
+        self.assertGreaterEqual(len(payload["items"]), 12)
+        self.assertGreaterEqual(len(families), 4)
+        self.assertIn("canonical", variant_types)
+        self.assertIn("paraphrase", variant_types)
+        self.assertIn("symbol_variant", variant_types)
+
+
 if __name__ == "__main__":
     unittest.main()

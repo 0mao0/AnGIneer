@@ -27,6 +27,29 @@ class LlmClientConfigResolutionTests(unittest.TestCase):
             finally:
                 reset_llm_client()
 
+    def test_default_model_alias_resolves_to_available_config(self) -> None:
+        """默认模型名指向底层模型别名时，应回落到已注册配置名。"""
+        llm_configs = (
+            '[{"name":"Qwen3.6-A3B","model":"Qwen3.6-35B-A3B-FP8",'
+            '"api_key":"demo","base_url":"https://example.com","priority":10}]'
+        )
+        with patch.dict(
+            os.environ,
+            {
+                "ANGINEER_DEFAULT_MODEL": "Qwen3.6-35B-A3B",
+                "LLM_CONFIGS": llm_configs,
+            },
+            clear=True,
+        ):
+            reset_llm_client()
+            try:
+                client = get_llm_client()
+            finally:
+                reset_llm_client()
+
+        self.assertEqual(client._config.default_model, "Qwen3.6-35B-A3B")
+        self.assertEqual(client._get_model_configs("Qwen3.6-A3B")[0].name, "Qwen3.6-A3B")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -139,6 +139,7 @@ class RetrievalEvaluator(BaseEvaluator):
             "retrieval_debug": partial.get("retrieval_debug", {}),
             "stage_timings": partial.get("stage_timings", {}),
             "intent": partial.get("intent", {}),
+            "runtime_flags": list(partial.get("runtime_flags") or []),
             "stage": partial.get("stage", ""),
         }
         stage_callback(enrich_prediction_trace(question, partial, prediction))
@@ -179,6 +180,7 @@ class RetrievalEvaluator(BaseEvaluator):
             "retrieval_debug": data.get("retrieval_debug", {}),
             "stage_timings": data.get("stage_timings", {}),
             "intent": data.get("intent", {}),
+            "runtime_flags": list(data.get("runtime_flags") or []),
         }
         return enrich_prediction_trace(question, data, prediction)
 

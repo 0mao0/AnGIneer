@@ -4,6 +4,7 @@ import tempfile
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 EVALS_CORE_SRC = Path(__file__).resolve().parents[1] / "src"
@@ -200,6 +201,48 @@ class RetrievalPrecisionBundleTests(unittest.TestCase):
         self.assertEqual(summary["grouped_scores"]["variant_type"]["noisy_symbol"], 0.0)
         self.assertEqual(summary["grouped_scores"]["question_family"]["harbor-1-clause-water-level"], 0.5)
         self.assertEqual(summary["grouped_scores"]["runtime_flag"]["embedding_hash_fallback"], 0.0)
+
+    def test_run_prediction_preserves_runtime_flags(self) -> None:
+        """检索预测结果应保留 query engine 返回的 runtime flags。"""
+        evaluator = RetrievalEvaluator()
+        question = {
+            "question_id": "concrete-formula-variant-001",
+            "question": r"混凝土规范附录C里 \varepsilon_{t,r} 这条式子在哪？",
+            "library_id": "default",
+            "doc_ids": ["混凝土结构设计规范"],
+        }
+
+        with patch("evals_core.runner.retrieval_eval.run_eval_query") as mock_run_eval_query:
+            mock_run_eval_query.return_value = {
+                "retrieved_items": [],
+                "citations": [],
+                "runtime_flags": ["embedding_hash_fallback", "llm_config_missing"],
+            }
+
+            prediction = evaluator.run_prediction(question)
+
+        self.assertEqual(
+            prediction["runtime_flags"],
+            ["embedding_hash_fallback", "llm_config_missing"],
+        )
+
+    def test_stage_callback_preserves_runtime_flags(self) -> None:
+        """阶段回调也应透传 runtime flags，便于轮询观察中间态。"""
+        emitted = []
+        question = {
+            "question_id": "concrete-formula-variant-001",
+            "question": r"混凝土规范附录C里 \varepsilon_{t,r} 这条式子在哪？",
+        }
+        partial = {
+            "retrieved_items": [],
+            "citations": [],
+            "runtime_flags": ["embedding_hash_fallback"],
+            "stage": "retrieval",
+        }
+
+        RetrievalEvaluator._emit_enriched_stage(question, partial, emitted.append)
+
+        self.assertEqual(emitted[0]["runtime_flags"], ["embedding_hash_fallback"])
 
     def test_import_bundle_initializes_empty_eval_store(self) -> None:
         """导入基准集时应能在空 SQLite 上自动建表。"""

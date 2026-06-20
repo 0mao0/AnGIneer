@@ -182,6 +182,7 @@ class Dispatcher:
         strategy_desc = ""
         system_prompt = ""
         retrieval_debug = {}
+        runtime_flags: List[str] = []
         attempted_paths: List[Dict[str, Any]] = []
         route_debug: Dict[str, Any] = {
             "route_kind": "",
@@ -348,7 +349,7 @@ class Dispatcher:
                 if path in {"semantic_retrieval", "dynamic_orchestration"}:
                     _t_path = time.time()
                     _enforce = (path == "semantic_retrieval")
-                    answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings = (
+                    answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings, runtime_flags = (
                         self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations, enforce_evidence=_enforce)
                     )
                     stage_timings[path] = round(time.time() - _t_path, 2)
@@ -385,6 +386,7 @@ class Dispatcher:
                             fallback_used=fallback_used,
                             system_prompt=system_prompt,
                             retrieval_debug=retrieval_debug,
+                            runtime_flags=runtime_flags,
                             strategy_desc=strategy_desc,
                         )
                         break
@@ -404,13 +406,14 @@ class Dispatcher:
                         fallback_used=fallback_used,
                         system_prompt=system_prompt,
                         retrieval_debug=retrieval_debug,
+                        runtime_flags=runtime_flags,
                         strategy_desc=strategy_desc,
                     )
 
             if not answer and (not attempted_paths or attempted_paths[-1]["path"] != "semantic_retrieval"):
                 fallback_used = True
                 _t_path = time.time()
-                answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings = (
+                answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings, runtime_flags = (
                     self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations, enforce_evidence=False)
                 )
                 stage_timings["semantic_retrieval"] = round(time.time() - _t_path, 2)
@@ -442,6 +445,7 @@ class Dispatcher:
                     fallback_used=fallback_used,
                     system_prompt=system_prompt,
                     retrieval_debug=retrieval_debug,
+                    runtime_flags=runtime_flags,
                     strategy_desc=strategy_desc,
                 )
 
@@ -477,6 +481,7 @@ class Dispatcher:
             "strategy": strategy_desc,
             "system_prompt": system_prompt,
             "retrieval_debug": retrieval_debug,
+            "runtime_flags": list(runtime_flags or []),
             "route_debug": route_debug,
             "flow_debug": flow_debug,
             "stage_timings": stage_timings,
@@ -639,6 +644,7 @@ class Dispatcher:
         fallback_used: bool = False,
         system_prompt: str = "",
         retrieval_debug: Optional[Dict[str, Any]] = None,
+        runtime_flags: Optional[List[str]] = None,
         strategy_desc: str = "",
     ) -> None:
         """向评测层发送主阶段的中间态，支撑逐步展示。"""
@@ -667,6 +673,7 @@ class Dispatcher:
                 "fallback_used": fallback_used,
                 "system_prompt": system_prompt,
                 "retrieval_debug": dict(retrieval_debug or {}),
+                "runtime_flags": list(runtime_flags or []),
                 "strategy": strategy_desc,
             })
         except Exception as exc:
@@ -1155,6 +1162,7 @@ class Dispatcher:
         strategy_desc = ""
         system_prompt = ""
         retrieval_debug = {}
+        runtime_flags: List[str] = []
         timings: Dict[str, float] = {}
         fused = []
 
@@ -1174,6 +1182,11 @@ class Dispatcher:
             dense_hits = dense_retriever.retrieve(
                 kq_request, doc_nodes, retriever_task_type
             )
+            runtime_flags = list(
+                getattr(getattr(dense_retriever, "_embedding_provider", None), "runtime_flags", []) or []
+            )
+            if runtime_flags:
+                retrieval_debug["runtime_flags"] = list(dict.fromkeys(runtime_flags))
             sparse_hits = sparse_retriever.retrieve(
                 kq_request, doc_nodes, retriever_task_type
             )
@@ -1229,7 +1242,7 @@ class Dispatcher:
                 # enforce_evidence 模式下，若无有效上下文则拒绝生成
                 if enforce_evidence and not context_text.strip():
                     logger.info("语义检索：enforce_evidence=True，未检索到有效证据，拒绝 LLM 自由生成")
-                    return "", citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, timings
+                    return "", citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, timings, runtime_flags
                 explicit_evidence_text = self._build_inline_citation_context(inline_citations or [])
                 user_prompt_content = (
                     f"问题: {query}\n\n显式引用证据:\n{explicit_evidence_text}\n\n检索结果:\n{context_text}"
@@ -1353,7 +1366,7 @@ class Dispatcher:
             if not answer:
                 answer = "抱歉，检索服务暂时不可用，请稍后重试。"
 
-        return answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, timings
+        return answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, timings, runtime_flags
 
     @staticmethod
     def _build_inline_citation_context(inline_citations: List[Dict[str, Any]]) -> str:
