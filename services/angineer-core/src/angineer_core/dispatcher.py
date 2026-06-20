@@ -1217,7 +1217,6 @@ class Dispatcher:
             )
             timings["retrieval"] = round(time.time() - _t1, 2)
 
-            fused = self._boost_clause_matches(query, fused)
             if len(fused) > 5:
                 _t_rerank = time.time()
                 fused = self._rerank_candidates(query, fused)
@@ -1530,23 +1529,6 @@ class Dispatcher:
             "3. 每个关键结论后都要指出对应证据来源（文档名、章节号等）\n"
             "4. 如果证据不足以支撑最终结论，明确说明“没有检索到足够证据”，不要自行补全"
         )
-
-    @staticmethod
-    def _boost_clause_matches(query: str, candidates: list) -> list:
-        """题目含章节号时，给匹配该章节的候选加分，确保关键条款不被挤出 top-5。"""
-        import re
-        clause_refs = re.findall(r'(?:第\s*)?(\d+\.\d+(?:\.\d+)*)', query)
-        if not clause_refs:
-            return candidates
-        for item in candidates:
-            text = str(item.text or "")
-            section = str(item.metadata.get("section_path") or "")
-            combined = f"{section}\n{text}"
-            if any(ref in combined for ref in clause_refs):
-                current = float(item.rerank_score or 0.0)
-                item.rerank_score = round(current + 0.30, 6)
-        candidates.sort(key=lambda item: float(item.rerank_score or 0.0), reverse=True)
-        return candidates
 
     @staticmethod
     def _rerank_candidates(query: str, candidates: list) -> list:

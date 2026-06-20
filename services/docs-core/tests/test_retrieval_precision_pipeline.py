@@ -9,6 +9,7 @@ if str(DOCS_CORE_SRC) not in sys.path:
     sys.path.insert(0, str(DOCS_CORE_SRC))
 
 from docs_core.query_protocols.contracts import KnowledgeQueryFilter, RetrievedItem
+from docs_core.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs
 
 
 class RetrievalPrecisionPipelineTests(unittest.TestCase):
@@ -86,3 +87,14 @@ class RetrievalPrecisionPipelineTests(unittest.TestCase):
             filters=KnowledgeQueryFilter(tags=["强制性条文"]),
         )
         self.assertEqual(len(filtered), 1)
+
+    def test_extract_clause_refs_normalizes_space_and_hyphen_variants(self):
+        self.assertEqual(extract_clause_refs("6 2 7 条的要求"), ["6.2.7"])
+        self.assertEqual(extract_clause_refs("6-2-7 条的要求"), ["6.2.7"])
+
+    def test_extract_clause_refs_normalizes_chinese_digit_variants(self):
+        self.assertEqual(extract_clause_refs("六点二点七条的要求"), ["6.2.7"])
+
+    def test_contains_clause_ref_uses_boundary_aware_match_for_variants(self):
+        self.assertTrue(contains_clause_ref("第6.2.7条 抗震要求", "6.2.7"))
+        self.assertFalse(contains_clause_ref("第6.6.2.7条 其他内容", "6.2.7"))

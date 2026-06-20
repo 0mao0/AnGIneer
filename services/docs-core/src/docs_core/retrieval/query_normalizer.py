@@ -125,16 +125,53 @@ def extract_formula_identifiers(text: str) -> List[str]:
     return identifiers
 
 
+# 归一化条款号中的空格/连字符/中文数字为点分格式。
+# 注：本函数只处理数字编号的归一化，不处理汉字序数如"第六十二条"。
+_CN_NUM_MAP = {
+    "一": "1", "二": "2", "三": "3", "四": "4", "五": "5",
+    "六": "6", "七": "7", "八": "8", "九": "9",
+}
+
+def normalize_clause_ref_text(raw: str) -> str:
+    """将条款号归一化为点分格式（如 6.2.7）。"""
+    text = str(raw or "").strip()
+    if not text:
+        return ""
+    cn_match = re.fullmatch(
+        r"([一二三四五六七八九十]+)(?:点([一二三四五六七八九十]+))?(?:点([一二三四五六七八九十]+))?(?:点([一二三四五六七八九十]+))?",
+        text,
+    )
+    if cn_match and cn_match.group(1):
+        parts = [g for g in cn_match.groups() if g]
+        converted = [_CN_NUM_MAP.get(g, g) for g in parts]
+        return ".".join(converted)
+    result = re.sub(r"\s+", ".", text)
+    result = re.sub(r"-+", ".", result)
+    result = re.sub(r"\.{2,}", ".", result)
+    return result.strip(".")
+
+
 # 提取问题中的条款编号，便于优先命中精确条文。
+# 支持多形态：6.2.7 / 6 2 7 / 6-2-7 / 六点二点七
 def extract_clause_refs(query: str) -> List[str]:
-    refs = re.findall(r"\d+(?:\.\d+){1,4}", query or "")
+    raw = str(query or "")
+    candidates = []
+    candidates.extend(re.findall(r"\d+(?:\.\d+){1,4}", raw))
+    candidates.extend(re.findall(r"\d+(?:\s+\d+){1,4}", raw))
+    candidates.extend(re.findall(r"\d+(?:-\d+){1,4}", raw))
+    candidates.extend(
+        re.findall(r"[一二三四五六七八九十]+(?:点[一二三四五六七八九十]+){1,4}", raw)
+    )
     deduped: List[str] = []
     seen = set()
-    for ref in refs:
-        if ref in seen:
+    for ref in candidates:
+        normalized = normalize_clause_ref_text(ref)
+        if not normalized:
             continue
-        seen.add(ref)
-        deduped.append(ref)
+        if normalized in seen:
+            continue
+        seen.add(normalized)
+        deduped.append(normalized)
     return deduped
 
 
