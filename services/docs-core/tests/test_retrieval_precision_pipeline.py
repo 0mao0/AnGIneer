@@ -99,6 +99,27 @@ class RetrievalPrecisionPipelineTests(unittest.TestCase):
         self.assertTrue(contains_clause_ref("第6.2.7条 抗震要求", "6.2.7"))
         self.assertFalse(contains_clause_ref("第6.6.2.7条 其他内容", "6.2.7"))
 
+    def test_fuse_candidates_rrf_cross_source_additive(self):
+        """RRF 下同一候选跨源命中时分数应累加而非 max。"""
+        from docs_core.retrieval.hybrid_retriever import fuse_candidates
+
+        item = RetrievedItem(
+            item_id="cross-source-item", entity_type="content", doc_id="d1",
+            title="共用候选", text="同一个候选在两个来源中出现",
+            score=1.0,
+            metadata={"source_kind": "canonical_dense", "chunk_type": "content", "section_path": "第六章"},
+        )
+        filtered, debug = fuse_candidates(
+            {"canonical_dense": [item], "canonical_sparse": [item]},
+            task_type="definition_qa",
+            top_k=5,
+        )
+        self.assertEqual(len(filtered), 1, "跨源相同候选应去重")
+        fusion_score = float(filtered[0].rerank_score or 0.0)
+        self.assertGreater(fusion_score, 0.0)
+        self.assertGreater(len(filtered[0].metadata.get("fusion_sources", [])), 1,
+                           "跨源候选应记录多个 fusion_sources")
+
     def test_dense_score_is_penalized_when_embedding_fallback_used(self):
         """hash fallback 标记下 dense 分数应降权。"""
         from unittest.mock import patch, MagicMock

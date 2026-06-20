@@ -158,6 +158,13 @@ def prefer_non_toc_candidates(
     return candidates[:limit]
 
 
+# Reciprocal Rank Fusion 常数。
+RRF_K = 60
+
+def compute_rrf_score(rank: int, k: int = RRF_K) -> float:
+    return 1.0 / (k + rank)
+
+
 # 融合多来源候选并输出最终排序结果。
 def fuse_candidates(
     source_candidates: Dict[str, List[RetrievedItem]],
@@ -177,15 +184,22 @@ def fuse_candidates(
             "weight": source_weight,
             "task_type": task_type,
         }
-        for item in normalized:
-            normalized_score = float(item.metadata.get("normalized_score") or 0.0)
-            fusion_score = normalized_score * source_weight + get_task_type_bonus(task_type, item)
+        ranked = sorted(
+            normalized,
+            key=lambda item: float(item.rerank_score or item.metadata.get("normalized_score") or item.score or 0.0),
+            reverse=True,
+        )
+        for rank, item in enumerate(ranked):
+            task_bonus = get_task_type_bonus(task_type, item)
+            rrf_contrib = compute_rrf_score(rank) * source_weight
+            fusion_score = rrf_contrib + task_bonus
             key = build_candidate_key(item)
             existing = fused.get(key)
             if existing is None:
                 next_item = item.model_copy(deep=True)
                 next_item.rerank_score = round(fusion_score, 6)
                 next_item.retrieval_policy = source_kind
+                next_item.metadata["rrf_score"] = round(rrf_contrib, 6)
                 next_item.metadata["fusion_score"] = round(fusion_score, 6)
                 next_item.metadata["fusion_sources"] = [source_kind]
                 next_item.metadata["retrieval_policy"] = source_kind
@@ -197,10 +211,7 @@ def fuse_candidates(
                 continue
 
             existing_score = float(existing.rerank_score or 0.0)
-            if max(existing_score, fusion_score) > 1.0:
-                merged_score = max(existing_score, fusion_score)
-            else:
-                merged_score = 1 - (1 - min(existing_score, 0.999999)) * (1 - min(fusion_score, 0.999999))
+            merged_score = existing_score + rrf_contrib + task_bonus
             existing.rerank_score = round(merged_score, 6)
             existing.metadata["fusion_score"] = round(merged_score, 6)
             existing.metadata.setdefault("fusion_sources", [])
