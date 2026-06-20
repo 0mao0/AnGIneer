@@ -40,6 +40,21 @@ def get_vectorstore_provider_name() -> str:
     return get_env_str("DOCS_VECTORSTORE_PROVIDER", "chroma").lower() or "chroma"
 
 
+# 解析 embedding strict fallback 模式
+def get_embedding_strict_fallback() -> bool:
+    return os.getenv("DOCS_EMBEDDING_STRICT_FALLBACK", "false").lower() in ("true", "1", "yes", "on")
+
+
+# 解析 hash fallback 时的 dense 分数降权系数
+_DEFAULT_HASH_PENALTY = 0.35
+
+def get_embedding_hash_penalty() -> float:
+    try:
+        return max(0.0, min(1.0, float(os.getenv("DOCS_EMBEDDING_HASH_PENALTY", str(_DEFAULT_HASH_PENALTY)))))
+    except (ValueError, TypeError):
+        return _DEFAULT_HASH_PENALTY
+
+
 # 解析 Chroma 持久化目录
 def resolve_chroma_persist_dir(base_path: Path | None = None) -> Path:
     if base_path is not None:
@@ -52,8 +67,10 @@ def resolve_chroma_persist_dir(base_path: Path | None = None) -> Path:
 __all__ = [
     "get_embedding_api_key",
     "get_embedding_api_url",
+    "get_embedding_hash_penalty",
     "get_embedding_model_name",
     "get_embedding_provider_name",
+    "get_embedding_strict_fallback",
     "get_vectorstore_provider_name",
     "resolve_chroma_persist_dir",
 ]

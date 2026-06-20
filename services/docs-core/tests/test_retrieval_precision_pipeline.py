@@ -98,3 +98,29 @@ class RetrievalPrecisionPipelineTests(unittest.TestCase):
     def test_contains_clause_ref_uses_boundary_aware_match_for_variants(self):
         self.assertTrue(contains_clause_ref("第6.2.7条 抗震要求", "6.2.7"))
         self.assertFalse(contains_clause_ref("第6.6.2.7条 其他内容", "6.2.7"))
+
+    def test_dense_score_is_penalized_when_embedding_fallback_used(self):
+        """hash fallback 标记下 dense 分数应降权。"""
+        from unittest.mock import patch, MagicMock
+        from docs_core.retrieval.dense_retriever import DenseRetriever
+        from docs_core.query_protocols.contracts import KnowledgeQueryRequest
+
+        provider = MagicMock()
+        provider.runtime_flags = ["embedding_hash_fallback"]
+        provider.embed_text.return_value = [0.1] * 256
+
+        retriever = DenseRetriever()
+        retriever._embedding_provider = provider
+
+        doc_node = MagicMock()
+        doc_node.id = "d1"
+        doc_node.title = "doc"
+
+        request = KnowledgeQueryRequest(query="抗震要求", top_k=5)
+
+        with patch(
+            "docs_core.retrieval.dense_retriever.knowledge_service.search_document_vectors",
+            return_value=[],
+        ):
+            items = retriever.retrieve(request, [doc_node], "definition_qa")
+        self.assertEqual(len(items), 0)

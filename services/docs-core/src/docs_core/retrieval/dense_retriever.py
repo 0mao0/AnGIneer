@@ -119,11 +119,18 @@ class DenseRetriever:
         )
         candidates: List[RetrievedItem] = []
         seen_item_ids = set()
+        embedding_fallback = "embedding_hash_fallback" in self._embedding_provider.runtime_flags
+        from docs_core.indexing.config import get_embedding_hash_penalty
+        penalty = get_embedding_hash_penalty()
         for hit in vector_hits:
             score = score_vector_hit(request, task_type, query_tokens, clause_refs, hit)
             if score <= 0:
                 continue
+            if embedding_fallback and not task_type.startswith("locate_"):
+                score *= max(0.0, 1.0 - penalty)
             item = build_retrieved_item(hit, doc_title_map.get(hit.doc_id, ""), score)
+            if embedding_fallback:
+                item.metadata["embedding_fallback"] = True
             dedupe_key = (item.doc_id, item.item_id, item.entity_type)
             if dedupe_key in seen_item_ids:
                 continue

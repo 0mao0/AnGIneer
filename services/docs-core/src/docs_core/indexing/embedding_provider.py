@@ -104,7 +104,7 @@ class HashEmbeddingProvider(EmbeddingProvider):
 class DashScopeEmbeddingProvider(EmbeddingProvider):
     """基于 DashScope OpenAI 兼容接口的 embedding provider。"""
 
-    def __init__(self, model: str, api_key: str, api_url: str, fallback_provider: EmbeddingProvider | None = None) -> None:
+    def __init__(self, model: str, api_key: str, api_url: str, fallback_provider: EmbeddingProvider | None = None, strict_fallback: bool | None = None) -> None:
         self.name = "dashscope_embedding_v1"
         self.dimension = 0
         self.model = model
@@ -112,6 +112,8 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
         self.api_url = api_url.rstrip("/")
         self.fallback_provider = fallback_provider or HashEmbeddingProvider()
         self.runtime_flags: List[str] = []
+        from docs_core.indexing.config import get_embedding_strict_fallback
+        self._strict_fallback = get_embedding_strict_fallback() if strict_fallback is None else strict_fallback
 
     # 判断当前 provider 是否具备可调用的配置。
     def is_configured(self) -> bool:
@@ -133,6 +135,11 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
         if not normalized_texts:
             return []
         if not self.is_configured():
+            if self._strict_fallback:
+                raise RuntimeError(
+                    "DOCS_EMBEDDING_PROVIDER=dashscope 未配置且启用严格模式，"
+                    "禁止回退到 hash embedding。请检查 DOCS_EMBEDDING_API_KEY 等环境变量。"
+                )
             self.runtime_flags.append("embedding_hash_fallback")
             logger.warning("DOCS_EMBEDDING_PROVIDER=dashscope 但缺少配置，回退到 hash embedding。")
             return self._fallback_with_dimension_alignment(normalized_texts)
@@ -159,6 +166,8 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
             self.dimension = len(embeddings[0])
             return embeddings
         except Exception as exc:
+            if self._strict_fallback:
+                raise RuntimeError(f"DashScope embedding 调用失败且启用严格模式: {exc}") from exc
             self.runtime_flags.append("embedding_hash_fallback")
             logger.warning("DashScope embedding 调用失败，回退到 hash embedding: %s", exc)
             return self._fallback_with_dimension_alignment(normalized_texts)
