@@ -126,6 +126,31 @@ class RetrievalPrecisionBundleTests(unittest.TestCase):
         self.assertEqual(summary["grouped_scores"]["question_type"]["locate_figure"], 0.0)
         self.assertEqual(summary["grouped_scores"]["failure_bucket"]["caption_body_confusion"], 1)
 
+    def test_retrieval_evaluator_reports_hard_negative_bias(self) -> None:
+        """通过 evaluate 方法验证 hard_negative_bias 桶能被正确触发。"""
+        evaluator = RetrievalEvaluator()
+        question = {"question_id": "hard-neg-test-001"}
+        gold = {
+            "gold_section_paths": ["第六章 / 6.3"],
+            "gold_doc_ids": ["doc-1"],
+            "gold_target_ids": ["target:correct"],
+            "gold_target_types": ["content"],
+            "hard_negative_target_ids": ["target:hard-neg"],
+        }
+        prediction = {
+            "retrieved_section_paths": ["第六章 / 6.3"],
+            "retrieved_doc_ids": ["doc-1"],
+            "citations": [{"reference": {"targetId": "target:hard-neg"}}],
+            "retrieved_items": [{
+                "item_id": "chunk-hard-neg",
+                "doc_id": "doc-1",
+                "metadata": {"section_path": "第六章 / 6.3", "target_type": "content"},
+            }],
+        }
+        result = evaluator.evaluate(question, gold, prediction)
+        self.assertEqual(result["failure_bucket"], "hard_negative_bias")
+        self.assertEqual(result["citation_hit"], 0.0)
+
     def test_compute_failure_bucket_marks_hard_negative_bias(self) -> None:
         """命中 hard negative target 时应输出专用失败桶。"""
         gold = {
