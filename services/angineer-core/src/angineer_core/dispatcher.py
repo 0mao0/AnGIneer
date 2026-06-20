@@ -1217,9 +1217,9 @@ class Dispatcher:
             )
             timings["retrieval"] = round(time.time() - _t1, 2)
 
-            if len(fused) > 5:
+            if len(fused) > 1 and (retriever_task_type.startswith("locate_") or len(fused) > 5):
                 _t_rerank = time.time()
-                fused = self._rerank_candidates(query, fused)
+                fused = self._rerank_candidates(query, fused, task_type=retriever_task_type)
                 timings["rerank"] = round(time.time() - _t_rerank, 2)
             retrieved_items = [
                 item.model_dump(mode="json") for item in fused
@@ -1531,35 +1531,39 @@ class Dispatcher:
         )
 
     @staticmethod
-    def _rerank_candidates(query: str, candidates: list) -> list:
-        """用 bge-reranker-v2-m3 重排序候选，失败时回退原始顺序。"""
-        if len(candidates) <= 5:
+    def _rerank_candidates(query: str, candidates: list, task_type: str = "") -> list:
+        """用 bge-reranker-v2-m3 重排序候选，失败时回退本地 phrase rerank。"""
+        if len(candidates) <= 1:
+            return candidates
+        if not task_type.startswith("locate_") and len(candidates) <= 5:
             return candidates
         normalized_query = str(query or "").strip()
-        if "公式" in normalized_query and any(
-            token in normalized_query for token in ("哪一节", "哪一章", "哪一条", "在哪里", "在哪", "位于")
-        ):
-            return candidates
+        from angineer_core.base_config import get_config
+        cfg = get_config().dispatcher
+        remote_url = cfg.reranker_url or "http://127.0.0.1:7998/v1/rerank"
+        timeout = cfg.reranker_timeout_sec
         try:
             import requests
             docs = [item.text or "" for item in candidates]
             resp = requests.post(
-                "http://127.0.0.1:7998/v1/rerank",
+                remote_url,
                 json={"query": query, "documents": docs, "top_n": len(candidates)},
-                timeout=10,
+                timeout=timeout,
             )
             if resp.status_code != 200:
-                return candidates
+                raise RuntimeError(f"reranker status {resp.status_code}")
             results = resp.json().get("results", [])
             if not results:
-                return candidates
+                raise RuntimeError("reranker empty results")
             score_map = {r["index"]: r["relevance_score"] for r in results}
             for i, item in enumerate(candidates):
                 item.rerank_score = score_map.get(i, 0.0)
             candidates.sort(key=lambda item: item.rerank_score or 0.0, reverse=True)
             return candidates
-        except Exception:
-            return candidates
+        except Exception as exc:
+            from docs_core.retrieval.reranker import rerank_candidates as local_rerank
+            logger.warning("远端 reranker 调用失败，回退到本地 phrase rerank: %s", exc)
+            return local_rerank(normalized_query, task_type, candidates)
 
     # 常见中国工程规范代号前缀
     _KNOWN_STD_PREFIXES = frozenset({

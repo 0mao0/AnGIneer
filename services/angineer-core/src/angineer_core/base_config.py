@@ -28,6 +28,8 @@ class DispatcherConfig(BaseModel):
     config_name: Optional[str] = None
     enable_summary: bool = True
     summary_max_length: int = 80
+    reranker_url: Optional[str] = None
+    reranker_timeout_sec: float = 10.0
 
 
 class LoggingConfig(BaseModel):
@@ -94,9 +96,15 @@ def load_config_from_env() -> AnGIneerConfig:
         log_file=_get_env_str("ANGINEER_LOG_FILE") or None
     )
 
+    dispatcher_config = DispatcherConfig(
+        reranker_url=_get_env_str("ANGINEER_RERANKER_URL") or None,
+        reranker_timeout_sec=_get_env_float("ANGINEER_RERANKER_TIMEOUT_SEC", 10.0),
+    )
+
     return AnGIneerConfig(
         llm=llm_config,
         memory=memory_config,
+        dispatcher=dispatcher_config,
         logging=logging_config
     )
 
