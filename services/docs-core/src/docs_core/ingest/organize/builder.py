@@ -4,6 +4,7 @@ from html.parser import HTMLParser
 import re
 from typing import Any, List, Tuple
 
+from docs_core.ingest.organize.tag_rules import infer_conditions, infer_entity_tags
 from docs_core.ingest.organize.types import (
     CanonicalBlock,
     CanonicalChunk,
@@ -243,6 +244,7 @@ def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, A
     canonical_blocks: List[CanonicalBlock] = []
     for index, raw_block in enumerate(raw_blocks):
         text = str(raw_block.get("text") or raw_block.get("content") or "").strip()
+        section_path = str(raw_block.get("section_path") or "")
         canonical_blocks.append(
             CanonicalBlock(
                 block_id=str(raw_block.get("block_uid") or raw_block.get("id") or f"block-{index}"),
@@ -267,7 +269,9 @@ def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, A
                 source_ref=str(raw_block.get("source_ref") or "") or None,
                 parent_block_id=str(raw_block.get("parent_block_uid") or "") or None,
                 clause_id=extract_clause_id(text),
-                inherited_chapter=extract_inherited_chapter(str(raw_block.get("section_path") or "")),
+                inherited_chapter=extract_inherited_chapter(section_path),
+                entity_tags=infer_entity_tags(text, section_path),
+                conditions=infer_conditions(text, section_path),
             )
         )
     return canonical_blocks
@@ -294,6 +298,8 @@ def build_canonical_outlines(blocks: List[CanonicalBlock]) -> Tuple[List[Canonic
                 "section_path": section_path,
                 "clause_id": extract_clause_id(block.text_clean),
                 "inherited_chapter": extract_inherited_chapter(section_path),
+                "entity_tags": infer_entity_tags(block.text_clean, section_path),
+                "conditions": infer_conditions(block.text_clean, section_path),
             })
             outlines.append(
                 CanonicalOutlineNode(

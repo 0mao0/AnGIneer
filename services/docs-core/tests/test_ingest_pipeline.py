@@ -103,5 +103,41 @@ class IngestPipelineTests(unittest.TestCase):
         self.assertTrue(cancelled_calls)
 
 
+
+class TagRulesTest(unittest.TestCase):
+    """覆盖 tag_rules 信号提取。"""
+
+    def test_infer_entity_tags_detects_must(self) -> None:
+        from docs_core.ingest.organize.tag_rules import infer_entity_tags, infer_conditions
+        text = "严禁在施工期间拆除支撑"
+        tags = infer_entity_tags(text)
+        self.assertIn("强制性条文", tags)
+
+    def test_infer_entity_tags_detects_earthquake(self) -> None:
+        from docs_core.ingest.organize.tag_rules import infer_entity_tags
+        text = "本规程适用于抗震设防烈度为6度"
+        tags = infer_entity_tags(text)
+        self.assertIn("抗震", tags)
+
+    def test_infer_conditions_mandatory(self) -> None:
+        from docs_core.ingest.organize.tag_rules import infer_conditions
+        tags = infer_conditions("必须采用甲级资质")
+        self.assertIn("强制性条文", tags)
+
+    def test_infer_entity_tags_from_section_path(self) -> None:
+        from docs_core.ingest.organize.tag_rules import infer_entity_tags
+        tags = infer_entity_tags("", "第三章 / 换算 / 第一節")
+        self.assertIn("换算", tags)
+
+    def test_builder_passes_tags_to_block(self) -> None:
+        from docs_core.ingest.organize.builder import build_canonical_blocks_from_source
+        blocks = build_canonical_blocks_from_source("doc-1", [
+            {"block_uid": "b1", "text": "应遵守本规程要求", "section_path": "第一章 / 总则"},
+        ])
+        self.assertEqual(len(blocks), 1)
+        self.assertTrue(blocks[0].entity_tags, "block 应有 entity_tags")
+        self.assertTrue(blocks[0].conditions, "block 应有 conditions")
+
+
 if __name__ == "__main__":
     unittest.main()
