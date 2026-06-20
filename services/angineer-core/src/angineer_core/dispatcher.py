@@ -85,6 +85,7 @@ class Dispatcher:
         library_id: str = "default",
         doc_ids: Optional[List[str]] = None,
         inline_citations: Optional[List[Dict[str, Any]]] = None,
+        filters=None,
         sop_loader=None,
         stage_callback=None,
         step_callback=None,
@@ -350,7 +351,7 @@ class Dispatcher:
                     _t_path = time.time()
                     _enforce = (path == "semantic_retrieval")
                     answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings, runtime_flags = (
-                        self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations, enforce_evidence=_enforce)
+                        self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations, filters=filters, enforce_evidence=_enforce)
                     )
                     stage_timings[path] = round(time.time() - _t_path, 2)
                     route_kind = "retrieval"
@@ -414,7 +415,7 @@ class Dispatcher:
                 fallback_used = True
                 _t_path = time.time()
                 answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings, runtime_flags = (
-                    self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations, enforce_evidence=False)
+                    self._dispatch_semantic(query, doc_nodes, library_id, doc_ids, intent_result, inline_citations, filters=filters, enforce_evidence=False)
                 )
                 stage_timings["semantic_retrieval"] = round(time.time() - _t_path, 2)
                 stage_timings.update(ret_timings)
@@ -1142,6 +1143,7 @@ class Dispatcher:
         doc_ids: List[str],
         intent_result: IntentResult,
         inline_citations: Optional[List[Dict[str, Any]]] = None,
+        filters=None,
         enforce_evidence: bool = False,
     ) -> Tuple[str, list, list, str, str, Dict, Dict[str, float]]:
         """L1/L2回退/L3回退：语义检索路径。
@@ -1178,6 +1180,7 @@ class Dispatcher:
                 library_id=library_id,
                 doc_ids=doc_ids,
                 top_k=10,
+                filters=filters,
             )
             dense_hits = dense_retriever.retrieve(
                 kq_request, doc_nodes, retriever_task_type
@@ -1210,6 +1213,7 @@ class Dispatcher:
                 source_candidates,
                 task_type=retriever_task_type,
                 top_k=20,
+                filters=filters,
             )
             timings["retrieval"] = round(time.time() - _t1, 2)
 

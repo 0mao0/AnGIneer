@@ -130,6 +130,15 @@ def apply_metadata_filter(candidates: List[RetrievedItem], filters: KnowledgeQue
             continue
         if filters.page_end is not None and page_idx > filters.page_end:
             continue
+        if filters.tags:
+            candidate_tags = {
+                *[str(x).strip() for x in item.metadata.get("entity_tags", []) if str(x).strip()],
+                *[str(x).strip() for x in item.metadata.get("conditions", []) if str(x).strip()],
+                *[str(x).strip() for x in item.metadata.get("exam_tags", []) if str(x).strip()],
+            }
+            requested_tags = {str(x).strip() for x in filters.tags if str(x).strip()}
+            if requested_tags and not candidate_tags.intersection(requested_tags):
+                continue
         filtered.append(item)
     return filtered
 
