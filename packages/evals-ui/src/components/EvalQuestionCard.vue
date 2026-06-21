@@ -444,13 +444,17 @@
                 >
                   <div class="eval-citation-meta">
                     <span class="eval-citation-index">[{{ ci + 1 }}]</span>
-                    <span v-if="c.doc_title || c.doc_id" class="eval-citation-source">
-                      {{ String(c.doc_title || c.doc_id) }}
+                    <span v-if="getCitationDocTitle(c)" class="eval-citation-source">
+                      {{ getCitationDocTitle(c) }}
                     </span>
                   </div>
+                  <div v-if="getCitationEntryLabel(c)" class="eval-citation-location">
+                    {{ getCitationEntryLabel(c) }}
+                  </div>
                   <div
+                    v-if="getCitationText(c)"
                     class="eval-citation-content"
-                    v-html="renderRichText(String(c.content || c.snippet || '—').slice(0, 2000))"
+                    v-html="renderRichText(getCitationText(c).slice(0, 2000))"
                   />
                 </div>
               </div>
@@ -604,28 +608,71 @@
               >
                 <div class="eval-citation-meta">
                   <span class="eval-citation-index">[{{ ci + 1 }}]</span>
-                  <span v-if="c.score" class="eval-citation-score">得分: {{ Number(c.score).toFixed(4) }}</span>
+                  <span
+                    v-if="c.score !== undefined && c.score !== null && c.score !== ''"
+                    class="eval-citation-score"
+                  >得分: {{ Number(c.score).toFixed(4) }}</span>
                   <span v-if="c.fusion_sources && c.fusion_sources.length" class="eval-citation-source">
                     来源: {{ formatFusionSources(c.fusion_sources) }}
                   </span>
                 </div>
-                <div v-if="c.doc_title || c.doc_id" class="eval-citation-location">
-                  {{ String(c.doc_title || c.doc_id) }}
-                  <template v-if="c.page_idx"> · 页码: P{{ c.page_idx }}</template>
+                <div v-if="getCitationEntryLabel(c)" class="eval-citation-location">
+                  {{ getCitationEntryLabel(c) }}
                 </div>
-                <div v-if="c.section_path" class="eval-citation-section">
-                  章节: {{ String(c.section_path) }}
+                <div v-if="getCitationDocTitle(c)" class="eval-citation-location">
+                  {{ getCitationDocTitle(c) }}
+                  <template v-if="getCitationPage(c)"> · 页码: P{{ getCitationPage(c) }}</template>
+                </div>
+                <div v-if="getCitationSectionPath(c)" class="eval-citation-section">
+                  章节: {{ getCitationSectionPath(c) }}
                 </div>
                 <div
-                  v-if="c.content || c.snippet"
+                  v-if="getCitationText(c)"
                   class="eval-citation-content"
-                  v-html="renderRichText(String(c.content || c.snippet).slice(0, 2000))"
+                  v-html="renderRichText(getCitationText(c).slice(0, 2000))"
                 />
               </div>
               <div v-if="!citations.length" class="eval-detail-empty">无检索结果</div>
               <div v-if="step.label === 'SQL/条款定位'" class="eval-detail-row">
                 <span class="eval-detail-label">查询策略:</span>
                 <span>{{ String(prediction?.strategy || routeDebug.route_kind || '—') }}</span>
+              </div>
+              <div v-if="sqlDebug" class="eval-sql-debug">
+                <div class="eval-prompt-label">SQL 执行详情</div>
+                <div class="eval-detail-row">
+                  <span class="eval-detail-label">执行状态:</span>
+                  <span :class="sqlDebug.execution_success ? 'eval-sql-success' : 'eval-sql-fail'">
+                    {{ sqlDebug.execution_success ? '成功' : '失败' }}
+                  </span>
+                  <span v-if="sqlDebug.score !== undefined" class="eval-sql-score">
+                    得分: {{ (sqlDebug.score * 100).toFixed(0) }}
+                  </span>
+                </div>
+                <div v-if="sqlDebug.execution_status" class="eval-detail-row">
+                  <span class="eval-detail-label">执行状态码:</span>
+                  <span>{{ sqlDebug.execution_status }}</span>
+                </div>
+                <div v-if="sqlDebug.generated_sql" class="eval-prompt-block">
+                  <div class="eval-prompt-label">生成 SQL:</div>
+                  <pre class="eval-sql-code">{{ sqlDebug.generated_sql }}</pre>
+                </div>
+                <div v-if="question.sql_gold?.expected_sql" class="eval-prompt-block">
+                  <div class="eval-prompt-label">期望 SQL:</div>
+                  <pre class="eval-sql-code">{{ question.sql_gold.expected_sql }}</pre>
+                </div>
+                <div v-if="sqlDebug.sql_exact_match !== undefined" class="eval-detail-row">
+                  <span class="eval-detail-label">SQL 精确匹配:</span>
+                  <span :class="sqlDebug.sql_exact_match ? 'eval-sql-success' : 'eval-sql-fail'">
+                    {{ sqlDebug.sql_exact_match ? '是' : '否' }}
+                  </span>
+                </div>
+                <div v-if="sqlDebug.execution_result" class="eval-prompt-block">
+                  <div class="eval-prompt-label">执行结果:</div>
+                  <pre class="eval-sql-code">{{ sqlDebug.execution_result }}</pre>
+                </div>
+                <div v-if="sqlDebug.error" class="eval-sql-error">
+                  错误: {{ sqlDebug.error }}
+                </div>
               </div>
               <div v-if="retrievalScores" class="eval-retrieval-scores">
                 <div class="eval-detail-row">
@@ -658,7 +705,7 @@
                   class="eval-prompt-citation"
                 >
                   <span class="eval-citation-index">[{{ ci + 1 }}]</span>
-                  {{ String(c.snippet || c.content || '').slice(0, 200) || '(无片段)' }}
+                  {{ getCitationText(c).slice(0, 200) || '(无片段)' }}
                 </div>
               </div>
             </template>
@@ -783,6 +830,14 @@ import { message } from 'ant-design-vue'
 import { RightOutlined } from '@ant-design/icons-vue'
 import { renderMarkdownToHtml } from '@angineer/ui-kit/utils/markdown'
 import { useTheme } from '@angineer/ui-kit'
+import {
+  getCitationDocTitle,
+  getCitationEntryLabel,
+  getCitationPage,
+  getCitationSectionPath,
+  getCitationText,
+  type EvalCitationItem,
+} from '../utils/citation'
 import EvalLevelBadge from './EvalLevelBadge.vue'
 import type { EvalQuestion, EvalRunDetail, SemanticEvalResult, EvalIntentLevel } from '../types/eval'
 
@@ -793,18 +848,6 @@ interface ThinkingStep {
   hasDetail: boolean
   detailType?: 'intent' | 'source' | 'route' | 'steps' | 'answer' | 'evaluation'
   timing?: number
-}
-
-interface CitationItem {
-  score?: unknown
-  fusion_sources?: string[]
-  doc_title?: unknown
-  doc_id?: unknown
-  page_idx?: unknown
-  section_path?: unknown
-  text?: unknown
-  content?: unknown
-  snippet?: unknown
 }
 
 interface SopTraceStep {
@@ -1036,9 +1079,9 @@ const traceSummary = computed(() => {
   return String(prediction.value?.trace_summary || prediction.value?.summary || '')
 })
 
-const citations = computed<CitationItem[]>(() => {
+const citations = computed<EvalCitationItem[]>(() => {
   const c = prediction.value?.citations
-  return Array.isArray(c) ? (c as CitationItem[]) : []
+  return Array.isArray(c) ? (c as EvalCitationItem[]) : []
 })
 
 const retrievalScores = computed<Record<string, unknown> | null>(() => {
@@ -1051,6 +1094,35 @@ const retrievalScores = computed<Record<string, unknown> | null>(() => {
     return scores
   }
   return null
+})
+
+interface SqlDebugInfo {
+  score?: number
+  execution_success?: boolean
+  execution_status?: string
+  sql_exact_match?: boolean | null
+  generated_sql?: string
+  execution_result?: string
+  error?: string
+}
+
+const sqlDebug = computed<SqlDebugInfo | null>(() => {
+  const allScores = props.detail?.all_scores as Record<string, Record<string, unknown>> | null
+  const allPredictions = props.detail?.all_predictions as Record<string, Record<string, unknown>> | null
+  const t2sScores = allScores?.text2sql
+  const t2sPred = allPredictions?.text2sql as Record<string, unknown> | undefined
+  if (!t2sScores && !t2sPred) return null
+  const sqlPayload = t2sPred?.sql as Record<string, unknown> | undefined
+  const execResult = sqlPayload?.execution_result
+  return {
+    score: t2sScores?.score as number | undefined,
+    execution_success: t2sScores?.execution_success as boolean | undefined,
+    execution_status: t2sScores?.execution_status as string | undefined,
+    sql_exact_match: t2sScores?.sql_exact_match as boolean | null | undefined,
+    generated_sql: (t2sPred?.generated_sql as string) || (sqlPayload?.generated_sql as string),
+    execution_result: execResult ? JSON.stringify(execResult, null, 2) : undefined,
+    error: sqlPayload?.error as string | undefined,
+  }
 })
 
 const checkDetails = computed<CorrectnessDetail[]>(() => {
@@ -2745,6 +2817,52 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   max-height: 400px;
   overflow-y: auto;
   white-space: pre-wrap;
+}
+
+.eval-sql-debug {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.eval-sql-code {
+  margin: 4px 0;
+  padding: 8px;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 4px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.eval-sql-success {
+  color: var(--chat-success-color, #52c41a);
+  font-weight: 600;
+}
+
+.eval-sql-fail {
+  color: var(--chat-error-color);
+  font-weight: 600;
+}
+
+.eval-sql-score {
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  margin-left: 8px;
+}
+
+.eval-sql-error {
+  margin-top: 4px;
+  padding: 6px 8px;
+  background: rgba(255, 77, 79, 0.08);
+  border: 1px solid rgba(255, 77, 79, 0.2);
+  border-radius: 4px;
+  color: var(--chat-error-color);
+  font-size: 12px;
+  font-family: Consolas, 'Courier New', monospace;
 }
 
 @keyframes eval-step-enter {
