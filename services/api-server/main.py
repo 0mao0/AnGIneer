@@ -83,6 +83,12 @@ app.include_router(evals_router, prefix="/api/evals", tags=["Evals"])
 from sop_routes import sop_router
 app.include_router(sop_router, prefix="/api/sops", tags=["SOPs"])
 
+from sop_research_routes import sop_research_router
+app.include_router(sop_research_router, prefix="/api/sops/research", tags=["SOP Research"])
+
+from graph_routes import graph_router
+app.include_router(graph_router, prefix="/api/graph", tags=["Knowledge Graph"])
+
 # Initialize SOP Loader (传入 SOP 根目录，包含 json/ 和 raw/)
 SOP_BASE_DIR = os.path.join(ROOT_DIR, "data", "sops")
 sop_loader = SopLoader(SOP_BASE_DIR)
