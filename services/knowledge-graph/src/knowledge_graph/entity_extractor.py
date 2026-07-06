@@ -2,7 +2,6 @@
 
 import json
 import logging
-import re
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
 from ai_inference.llm_client import LLMClient
@@ -10,6 +9,8 @@ from ai_inference.llm_client import LLMClient
 from knowledge_graph.config import EntityLayer, EntitySeed, load_seed_entities
 
 logger = logging.getLogger(__name__)
+
+MAX_TEXT_CHARS = 8000
 
 EXTRACT_SYSTEM_PROMPT = """You are an engineering standards analyst. Given a section of an engineering standard, extract all technical entities and their relationships to the given seed entity.
 
@@ -116,7 +117,7 @@ class EntityExtractor:
 Seed Entity: {seed_entity_name}
 
 Text:
-{packet_text[:8000]}
+{packet_text[:MAX_TEXT_CHARS]}
 
 Extract all entities and relationships related to "{seed_entity_name}"."""
 
