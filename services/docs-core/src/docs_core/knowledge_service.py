@@ -851,4 +851,51 @@ __all__ = [
     "SCHEMA_VERSION",
     "knowledge_service",
     "get_knowledge_service",
+    "push_to_graph",
 ]
+
+
+def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = None) -> Dict[str, Any]:
+    """Push a parsed document's blocks to the knowledge graph for entity extraction.
+
+    This is the producer side of the docs-core → knowledge-graph pipeline.
+    """
+    import sys
+    import os as _os
+
+    kg_src = _os.path.join(_os.path.dirname(__file__), "..", "..", "..", "knowledge-graph", "src")
+    if kg_src not in sys.path:
+        sys.path.insert(0, _os.path.abspath(kg_src))
+
+    try:
+        from knowledge_graph.graph_store import GraphStore
+        from knowledge_graph.evidence_builder import build_evidence_packets
+        from knowledge_graph.graph_orchestrator import GraphOrchestrator
+
+        from docs_core.ingest.store.assets_file_store import file_storage, get_doc_blocks_graph
+    except ImportError as e:
+        logger.warning("knowledge-graph module not available: %s", e)
+        return {"pushed": False, "error": str(e)}
+
+    default_db = _os.path.join(_os.path.dirname(__file__), "..", "..", "..", "..", "data", "knowledge_graph.sqlite")
+    db_path = graph_db_path or _os.path.abspath(default_db)
+
+    content = file_storage.read_markdown(library_id, doc_id) or ""
+    graph = get_doc_blocks_graph(library_id, doc_id)
+    structured_items = graph.get("nodes", []) if graph else []
+
+    packets = build_evidence_packets(
+        library_id=library_id,
+        doc_id=doc_id,
+        doc_title="",
+        document_content=content,
+        structured_items=structured_items,
+        doc_blocks_graph=graph,
+    )
+
+    store = GraphStore(db_path)
+    orchestrator = GraphOrchestrator(store)
+    orchestrator.load_seed_entities()
+    result = orchestrator.expand_all_packets(packets)
+
+    return {"pushed": True, **result}
