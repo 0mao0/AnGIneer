@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
-from knowledge_graph.config import EntityLayer, RelationType
+from knowledge_graph.config import Confidence, EntityLayer, RelationType
 
 
 def _generate_id() -> str:
@@ -135,9 +135,12 @@ class GraphStore:
 
     def upsert_entity(self, entity: GraphEntity) -> GraphEntity:
         now = _now()
-        existing = self.get_entity_by_name(entity.name)
         with self._connect() as conn:
-            if existing:
+            row = conn.execute(
+                "SELECT * FROM graph_entities WHERE name = ?", (entity.name,)
+            ).fetchone()
+            if row:
+                existing = GraphEntity.from_row(row)
                 merged_aliases = list(set(existing.aliases + entity.aliases))
                 entity.entity_id = existing.entity_id
                 entity.created_at = existing.created_at
@@ -201,8 +204,8 @@ class GraphStore:
     def search_entities(self, query: str, limit: int = 20) -> List[GraphEntity]:
         with self._connect() as conn:
             rows = conn.execute(
-                "SELECT * FROM graph_entities WHERE name LIKE ? LIMIT ?",
-                (f"%{query}%", limit),
+                "SELECT * FROM graph_entities WHERE name LIKE ? OR aliases_json LIKE ? LIMIT ?",
+                (f"%{query}%", f"%{query}%", limit),
             ).fetchall()
             return [GraphEntity.from_row(r) for r in rows]
 
@@ -228,15 +231,19 @@ class GraphStore:
         source_clause: str = "",
     ) -> GraphRelation:
         now = _now()
-        existing = self._get_relation_by_triple(source_id, target_id, relation_type)
         with self._connect() as conn:
-            if existing:
+            row = conn.execute(
+                "SELECT * FROM graph_relations WHERE source_id=? AND target_id=? AND relation_type=?",
+                (source_id, target_id, relation_type.value),
+            ).fetchone()
+            if row:
+                existing = GraphRelation.from_row(row)
                 new_confidence = max(existing.confidence, confidence)
                 merged_evidence = existing.evidence_text
-                if evidence_text and evidence_text not in merged_evidence:
+                if evidence_text and evidence_text != merged_evidence:
                     merged_evidence = evidence_text
                 merged_clause = existing.source_clause
-                if source_clause and source_clause not in merged_clause:
+                if source_clause and source_clause != merged_clause:
                     merged_clause = source_clause
                 conn.execute(
                     """UPDATE graph_relations SET
@@ -325,7 +332,7 @@ class GraphStore:
             conn.execute(
                 """UPDATE graph_relations SET confidence=?, conflict_note=?, updated_at=?
                 WHERE relation_id=?""",
-                (-1.0, note, now, relation_id),
+                (Confidence.CONFLICT, note, now, relation_id),
             )
 
     def get_stats(self) -> Dict[str, Any]:
