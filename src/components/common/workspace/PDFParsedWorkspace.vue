@@ -193,7 +193,7 @@ watch(
 )
 
 watch(activeTab, (tab) => {
-  if ((tab === 'Preview_IndexTree' || tab === 'Preview_IndexGraph') && !props.graphDataFullLoaded && props.onLoadFullGraphData) {
+  if ((tab === 'Preview_IndexTree' || tab === 'Preview_IndexGraph' || tab === 'Preview_KnowledgeGraph') && !props.graphDataFullLoaded && props.onLoadFullGraphData) {
     props.onLoadFullGraphData()
   }
 })

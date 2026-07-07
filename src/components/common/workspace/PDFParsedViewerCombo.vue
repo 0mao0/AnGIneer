@@ -26,9 +26,9 @@
             <a-radio-button value="Preview_IndexTree" :disabled="!hasGraphData" title="树形">
               <BranchesOutlined />
             </a-radio-button>
-            <a-radio-button value="Preview_IndexGraph" :disabled="!hasGraphData" title="图形">
-              <DotChartOutlined />
-            </a-radio-button>
+<a-radio-button value="Preview_KnowledgeGraph" title="知识图谱">
+  <DotChartOutlined />
+</a-radio-button>
           </a-radio-group>
         </div>
       </div>
@@ -161,19 +161,9 @@
             @toggle-check="toggleNodeSelection"
             @context-action="handleTreeContextAction"
           />
-          <Preview_IndexGraph
-            v-else
-            :loading="!hasGraphData"
-            :node-map="nodeMap"
-            :children-map="childrenMap"
-            :roots="roots"
-            :expanded-node-ids="expandedGraphNodeIds"
-            :active-node-id="activeNodeIdForGraphTree"
-            :viewport-state="graphViewportState"
-            :source-file-path="sourceFilePath"
-            @toggle="onGraphToggle"
-            @select="onNodeSelect"
-            @update-viewport="onViewportUpdate"
+          <Preview_KnowledgeGraph
+            v-else-if="activeTab === 'Preview_KnowledgeGraph' || activeTab === 'Preview_IndexGraph'"
+            ref="knowledgeGraphRef"
           />
         </div>
       </div>
@@ -246,7 +236,7 @@ import Preview_HTML from '../viewers/Preview_HTML.vue'
 import Preview_Markdown from '../viewers/Preview_Markdown.vue'
 import Preview_IndexList from '../index/Preview_IndexList.vue'
 import Preview_IndexTree from '../index/Preview_IndexTree.vue'
-import Preview_IndexGraph from '../index/Preview_IndexGraph.vue'
+import Preview_KnowledgeGraph from '../index/Preview_KnowledgeGraph.vue'
 import IndexTreeEditModal from '../index/IndexTreeEditModal.vue'
 import IndexTreeMergeModal from '../index/IndexTreeMergeModal.vue'
 import IndexTreeSplitModal from '../index/IndexTreeSplitModal.vue'
