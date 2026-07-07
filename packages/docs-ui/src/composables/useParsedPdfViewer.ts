@@ -9,6 +9,7 @@ export type PreviewMode =
   | 'Preview_IndexList'
   | 'Preview_IndexTree'
   | 'Preview_IndexGraph'
+  | 'Preview_KnowledgeGraph'
 
 export interface ParsedPdfViewerBridgeEventMap {
   'update:activeTab': [value: PreviewMode]
@@ -47,6 +48,7 @@ export function useParsedPdfViewer(
     props.activeTab === 'Preview_IndexList'
     || props.activeTab === 'Preview_IndexTree'
     || props.activeTab === 'Preview_IndexGraph'
+    || props.activeTab === 'Preview_KnowledgeGraph'
   ))
 
   const indexContentScrollElement = computed<HTMLElement | null>(() => {
@@ -151,6 +153,7 @@ export function useParsedPdfViewer(
       || value === 'Preview_IndexList'
       || value === 'Preview_IndexTree'
       || value === 'Preview_IndexGraph'
+      || value === 'Preview_KnowledgeGraph'
     ) {
       if ((value === 'Preview_IndexTree' || value === 'Preview_IndexGraph') && !hasGraphData.value) {
         emit('update:activeTab', 'Preview_IndexList')

@@ -74,7 +74,7 @@ export function useEvalRun() {
       })
       if (resp.ok) {
         currentRun.value = await resp.json()
-        runs.value = [currentRun.value, ...runs.value.filter(r => r.run_id !== currentRun.value!.run_id)]
+        runs.value = [currentRun.value!, ...runs.value.filter(r => r.run_id !== currentRun.value!.run_id)]
         startPolling(currentRun.value!.run_id)
       }
     } finally {

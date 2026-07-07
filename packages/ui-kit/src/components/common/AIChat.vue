@@ -122,6 +122,7 @@ const fetchModels = async () => {
     models.value = data
       .filter((model: any) => model.configured)
       .map((model: any) => ({ value: model.name, label: model.name }))
+      .sort((a, b) => Number(a.label.includes('(付费)')) - Number(b.label.includes('(付费)')))
   } catch (error) {
     console.error('获取模型列表失败:', error)
     models.value = [{ value: 'default', label: '默认模型' }]

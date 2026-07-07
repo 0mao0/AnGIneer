@@ -52,6 +52,10 @@ def import_bundle(payload: Dict[str, Any], source_file: str = "") -> Dict[str, A
     return result_store.get_dataset(dataset_meta.dataset_id)
 
 
+def import_generated_bundle(payload: Dict[str, Any], source_file: str = "") -> Dict[str, Any]:
+    return import_bundle(payload, source_file=source_file)
+
+
 def get_dataset(dataset_id: str) -> Optional[Dict[str, Any]]:
     """获取测试集详情。"""
     _ensure_dataset_store_ready()

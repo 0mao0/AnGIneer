@@ -131,11 +131,6 @@ const summary = computed((): EvalSummaryScores | null => {
   return props.lastRun?.summary_scores || null
 })
 
-const overallScoreDisplay = computed(() => {
-  if (summary.value?.overall_score == null) return '—'
-  return (summary.value.overall_score * 100).toFixed(1) + '%'
-})
-
 /** 得分数字部分：正确数/总数 的百分比，而非 overall_score */
 const scoreNumber = computed(() => {
   const s = summary.value
@@ -172,7 +167,7 @@ const selectedRunId = ref<string | undefined>(undefined)
 /** 用于下拉的历史运行列表（过滤掉单题评测） */
 const historyRuns = computed(() => {
   if (!props.runs) return []
-  return props.runs.filter(r => r.is_full_run !== false && r.is_full_run !== 0)
+  return props.runs.filter(r => r.is_full_run !== false)
 })
 
 /** 当前得分对应的运行名称（不含评测中状态，进度已在下方单独显示） */

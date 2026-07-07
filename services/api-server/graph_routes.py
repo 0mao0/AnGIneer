@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 graph_router = APIRouter()
 
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 KG_SRC = os.path.join(ROOT_DIR, "services", "knowledge-graph", "src")
 if KG_SRC not in sys.path:
     sys.path.insert(0, KG_SRC)

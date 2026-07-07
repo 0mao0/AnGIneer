@@ -890,6 +890,7 @@ function escapeHtml(s: string): string {
 interface RouteCandidate {
   id: string
   name?: string
+  name_zh?: string
   description?: string
   recall_score?: number
 }
@@ -1442,11 +1443,6 @@ const routeArgsEntries = computed<Array<[string, unknown]>>(() => {
   const args = routeDebug.value.args
   if (!args || Array.isArray(args) || typeof args !== 'object') return []
   return Object.entries(args as Record<string, unknown>)
-})
-
-const routeMissingArgs = computed<string[]>(() => {
-  const missing = routeDebug.value.missing_args
-  return Array.isArray(missing) ? missing.map(item => String(item)) : []
 })
 
 const routeConfidenceText = computed(() => {

@@ -25,6 +25,11 @@ const routes: RouteRecordRaw[] = [
     path: '/evals',
     name: 'evals',
     component: () => import('../views/EvalManage.vue')
+  },
+  {
+    path: '/sop-research',
+    name: 'sop-research',
+    component: () => import('../views/SopResearchManage.vue')
   }
 ]
 

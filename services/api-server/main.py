@@ -35,6 +35,7 @@ sys.path.append(os.path.join(SERVICES_DIR, "docs-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "geo-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "engtools", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "evals-core", "src"))
+sys.path.append(os.path.join(SERVICES_DIR, "knowledge-graph", "src"))
 
 # Import logic from packages
 from ai_inference.llm_client import LLMClient
@@ -83,8 +84,7 @@ app.include_router(evals_router, prefix="/api/evals", tags=["Evals"])
 from sop_routes import sop_router
 app.include_router(sop_router, prefix="/api/sops", tags=["SOPs"])
 
-from sop_research_routes import sop_research_router
-app.include_router(sop_research_router, prefix="/api/sops/research", tags=["SOP Research"])
+# sop_research_routes 已废弃 — 使用 /api/graph/* 替代
 
 from graph_routes import graph_router
 app.include_router(graph_router, prefix="/api/graph", tags=["Knowledge Graph"])
@@ -767,5 +767,6 @@ if __name__ == "__main__":
             os.path.join(SERVICES_DIR, "geo-core", "src"),
             os.path.join(SERVICES_DIR, "engtools", "src"),
             os.path.join(SERVICES_DIR, "evals-core", "src"),
+            os.path.join(SERVICES_DIR, "knowledge-graph", "src"),
         ],
     )

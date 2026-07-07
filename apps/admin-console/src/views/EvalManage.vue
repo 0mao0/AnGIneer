@@ -341,7 +341,7 @@ const formatDate = (iso: string) => {
 /** 历史整体运行列表（过滤掉单题评测，用于对比弹窗） */
 const historyFullRuns = computed(() => {
   if (!runs.value) return []
-  return runs.value.filter(r => r.is_full_run !== false && r.is_full_run !== 0)
+  return runs.value.filter(r => r.is_full_run !== false)
 })
 
 /** 格式化上次整体测试时间，格式如 "04-09 18:42" */

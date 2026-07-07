@@ -511,6 +511,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   const linkedHighlights = computed<LinkedHighlight[]>(() => {
     const isStrictRightPaneLinkage = options.activeTab.value === 'Preview_IndexTree'
       || options.activeTab.value === 'Preview_IndexGraph'
+      || options.activeTab.value === 'Preview_KnowledgeGraph'
     const nodes = options.graphData.value?.nodes || []
     const baseRows = options.graphData.value?.stats?.base_rows || []
     const hasBboxData = nodes.length > 0 && nodes.some(node => node.bbox || node.merged_bboxes)
@@ -810,7 +811,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
    * 根据当前右侧视图，选择更合适的激活 ID。
    */
   const resolveRightPaneActiveId = (target: LinkedHighlight, fallbackId: string | null = null) => {
-    if (options.activeTab.value === 'Preview_IndexTree' || options.activeTab.value === 'Preview_IndexGraph') {
+    if (options.activeTab.value === 'Preview_IndexTree' || options.activeTab.value === 'Preview_IndexGraph' || options.activeTab.value === 'Preview_KnowledgeGraph') {
       return target.itemId || target.structuredItemId || fallbackId
     }
     return target.structuredItemId || target.itemId || fallbackId

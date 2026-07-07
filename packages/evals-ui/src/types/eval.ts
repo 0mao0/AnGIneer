@@ -59,6 +59,7 @@ export interface SemanticEvalResult {
   semantic_fallback: boolean
   semantic_passed: boolean | null
   semantic_threshold: number
+  eval_duration?: number | null
 }
 
 /** SQL 评测标准答案 */

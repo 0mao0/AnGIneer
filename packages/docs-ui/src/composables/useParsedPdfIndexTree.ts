@@ -10,7 +10,7 @@ export interface GraphViewportState {
 }
 
 export interface ParsedPdfIndexTreeProps {
-  activeTab: 'Preview_HTML' | 'Preview_Markdown' | 'Preview_IndexList' | 'Preview_IndexTree' | 'Preview_IndexGraph'
+  activeTab: 'Preview_HTML' | 'Preview_Markdown' | 'Preview_IndexList' | 'Preview_IndexTree' | 'Preview_IndexGraph' | 'Preview_KnowledgeGraph'
   activeLinkedItemId: string | null
   graphData?: DocBlocksGraph | null
 }
@@ -92,7 +92,7 @@ export function useParsedPdfIndexTree(
     const activeIndex = findActiveItemIndex(activeId)
     if (activeIndex < 0) return null
     const item = options.flatIndexItems.value[activeIndex]
-    const node = props.activeTab === 'Preview_IndexTree' || props.activeTab === 'Preview_IndexGraph'
+    const node = props.activeTab === 'Preview_IndexTree' || props.activeTab === 'Preview_IndexGraph' || props.activeTab === 'Preview_KnowledgeGraph'
       ? findNodeForItemExact(item, graphNodeLookup.value)
       : findNodeForItem(item, graphNodeLookup.value)
     return node?.id || null

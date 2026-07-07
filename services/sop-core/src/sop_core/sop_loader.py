@@ -215,6 +215,37 @@ class SopLoader:
             print(f"Error loading JSON SOP {sop_id}: {e}")
             return None
 
+    def save_generated_sop(
+        self,
+        sop_id: str,
+        payload: Dict[str, Any],
+        *,
+        overwrite: bool = False,
+    ) -> str:
+        json_path = os.path.join(self.json_dir, f"{sop_id}.json")
+        if os.path.exists(json_path) and not overwrite:
+            raise FileExistsError(f"SOP {sop_id} already exists at {json_path}. Use overwrite=True to replace.")
+
+        os.makedirs(self.json_dir, exist_ok=True)
+
+        data = dict(payload)
+        data["id"] = sop_id
+
+        steps = data.get("steps", [])
+        if isinstance(steps, list):
+            normalized_steps = []
+            for step in steps:
+                s = dict(step) if isinstance(step, dict) else {}
+                s["description"] = _normalize_inline_description(s.get("description"))
+                normalized_steps.append(s)
+            data["steps"] = normalized_steps
+
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+
+        self.refresh_index()
+        return json_path
+
     def _load_raw_sop(self, entry: Dict[str, Any]) -> Optional[SOP]:
         """从 raw/ 索引条目加载 SOP，并尝试用 json/ 中的缓存补充详情。"""
         sop_id = entry["id"]

@@ -220,9 +220,11 @@
                 v-for="model in models"
                 :key="model.value"
                 :value="model.value"
+                :label="model.label"
                 :title="model.label"
               >
-                {{ model.label }}
+                <span class="model-option-label">{{ model.label.replace('(付费)', '') }}</span>
+                <a-tag v-if="model.label.includes('(付费)')" class="paid-tag" color="warning" size="small">付费</a-tag>
               </a-select-option>
             </a-select>
           </div>
@@ -1230,7 +1232,7 @@ defineExpose({
         max-width: 180px;
 
         :deep(.ant-select-selector) {
-          font-size: 12px;
+          font-size: 11px;
           border-radius: 6px;
           background: var(--bg-secondary);
           color: var(--text-primary);
@@ -1242,12 +1244,35 @@ defineExpose({
           text-overflow: ellipsis;
           white-space: nowrap;
           color: var(--text-primary);
+          font-size: 11px;
         }
 
         :deep(.ant-select-arrow) {
           color: var(--text-secondary);
         }
+
+        :deep(.ant-select-item-option-content) {
+          font-size: 11px;
+        }
       }
+    }
+
+    :global(.ant-select-dropdown .ant-select-item-option-content) {
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    :global(.paid-tag) {
+      font-size: 10px;
+      line-height: 16px;
+      height: 18px;
+      padding: 0 4px;
+      margin: 0;
+      border-radius: 3px;
+      transform: scale(0.9);
+      transform-origin: center center;
     }
 
     .right-actions {

@@ -242,4 +242,9 @@ if (-not $backendHealthy) {
 # 6. Start Frontend in current window
 Write-Host ""
 Write-Host "Starting Frontend..." -ForegroundColor Yellow
-pnpm dev:frontend
+Push-Location $rootDir
+try {
+    pnpm dev:frontend
+} finally {
+    Pop-Location
+}
