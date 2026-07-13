@@ -49,7 +49,7 @@
       />
       <div v-else class="index-layout">
         <div class="index-toolbar">
-          <div class="index-summary-row">
+          <div v-if="activeTab !== 'Preview_KnowledgeGraph'" class="index-summary-row">
             <div class="summary-left">
               <span class="summary-tag">
                 <span class="summary-item total">总{{ indexSummaryStats.total }}</span>
@@ -162,9 +162,11 @@
             @context-action="handleTreeContextAction"
           />
           <Preview_KnowledgeGraph
-            v-else-if="activeTab === 'Preview_KnowledgeGraph' || activeTab === 'Preview_IndexGraph'"
-            ref="knowledgeGraphRef"
-          />
+    v-else-if="activeTab === 'Preview_KnowledgeGraph' || activeTab === 'Preview_IndexGraph'"
+    ref="knowledgeGraphRef"
+    :library-id="props.libraryId"
+    :doc-id="props.docId"
+  />
         </div>
       </div>
       <a-empty
@@ -258,6 +260,8 @@ const props = defineProps<{
   activeLineRange: { start: number; end: number } | null
   sourceFilePath?: string
   graphData?: DocBlocksGraphType | null
+  libraryId?: string
+  docId?: string
   onUpdateStructuredNode?: (payload: StructuredNodeUpdatePayload) => Promise<void>
   onBatchStructuredOperation?: (payload: StructuredBatchOperationPayload) => Promise<void>
   onUndoLastOperation?: () => Promise<void>
