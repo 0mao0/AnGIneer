@@ -972,7 +972,9 @@ const onInvalidDrop = async (reason: string) => {
   await loadNodes()
 }
 
-const onTreeDropRoot = async (dragNodeKey: string) => {
+const onTreeDropRoot = async (dragNodeKeys: string[]) => {
+  const dragNodeKey = dragNodeKeys[0]
+  if (!dragNodeKey) return
   try {
     const rootNodes = (treeData.value as unknown as SmartTreeNode[]).filter(node => node.key !== dragNodeKey)
     for (let index = 0; index < rootNodes.length; index++) {

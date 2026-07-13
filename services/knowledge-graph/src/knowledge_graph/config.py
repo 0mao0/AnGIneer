@@ -109,3 +109,8 @@ class Confidence:
     HUMAN_REVIEWED = 0.8
     HUMAN_ENTERED = 1.0
     CONFLICT = -1.0
+
+
+# 知识图谱相关 LLM 调用（实体抽取、5 路抽取器、SOP 生成）共用的默认模型配置名。
+# 抽取器与 SOP 生成都从这里取值，保证换模型时只改一处。
+DEFAULT_LLM_CONFIG = "Qwen3.6-A3B"

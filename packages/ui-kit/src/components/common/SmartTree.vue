@@ -40,6 +40,7 @@
         :block-node="true"
         :draggable="draggable"
         :show-line="showLine"
+        :multiple="multiple"
         @select="onSelect"
         @drop="onDrop"
         @dragstart="onNodeDragStart"
@@ -108,7 +109,7 @@
       </a-tree>
 
       <div
-        v-if="draggable && draggingNodeKey"
+        v-if="draggable && draggingNodeKeys.length"
         class="root-drop-zone"
         @dragenter.prevent="onRootDragEnter"
         @dragover.prevent="onRootDragOver"
@@ -199,6 +200,7 @@ interface Props {
   showStatus?: boolean
   showLine?: boolean
   draggable?: boolean
+  multiple?: boolean
   allowAddFile?: boolean
   allowedFileTypes?: string[]
   loading?: boolean
@@ -218,6 +220,7 @@ const props = withDefaults(defineProps<Props>(), {
   showStatus: true,
   showLine: false,
   draggable: false,
+  multiple: false,
   allowAddFile: true,
   allowedFileTypes: () => ['.pdf'],
   loading: false,
@@ -237,7 +240,7 @@ const emit = defineEmits<{
   search: [text: string]
   'file-drop': [files: File[], targetFolder: SmartTreeNode | null]
   'drop-invalid': [reason: string]
-  'drop-root': [dragNodeKey: string]
+  'drop-root': [dragNodeKeys: string[]]
 }>()
 
 const { isDark } = useTheme()
@@ -247,7 +250,7 @@ const selectedKeys = ref<string[]>(props.defaultSelectedKeys)
 const internalTreeData = ref<SmartTreeNode[]>([])
 const isDraggingFile = ref(false)
 const dragOverKey = ref<string | null>(null)
-const draggingNodeKey = ref<string | null>(null)
+const draggingNodeKeys = ref<string[]>([])
 
 const sourceTreeData = computed(() => {
   if (internalTreeData.value.length === 0 && props.treeData.length > 0) {
@@ -402,48 +405,60 @@ const getSiblingsAtLevel = (nodes: SmartTreeNode[], parentKey: string | null): S
   return findChildren(nodes, parentKey) || []
 }
 
+const removeNodeFromTree = (nodes: SmartTreeNode[], key: string): SmartTreeNode | undefined => {
+  for (let index = 0; index < nodes.length; index += 1) {
+    if (nodes[index].key === key) {
+      const removed = nodes[index]
+      nodes.splice(index, 1)
+      return removed
+    }
+    const childNodes = nodes[index].children
+    if (childNodes) {
+      const found = removeNodeFromTree(childNodes, key)
+      if (found) return found
+    }
+  }
+  return undefined
+}
+
+const hasDescendant = (root: SmartTreeNode | undefined, targetKey: string): boolean => {
+  if (!root?.children?.length) return false
+  for (const child of root.children) {
+    if (child.key === targetKey || hasDescendant(child, targetKey)) return true
+  }
+  return false
+}
+
 const onDrop: TreeProps['onDrop'] = (info) => {
   const { dragNode, node: dropNode } = info
   if (!dragNode || !dropNode) return
-  if (dragNode.key === dropNode.key) {
+
+  const dragKeys: string[] = (info as any).dragNodesKeys
+    ? (info as any).dragNodesKeys.map(String)
+    : [String(dragNode.key)]
+
+  if (dragKeys.includes(String(dropNode.key))) {
     emit('drop-invalid', 'same-node')
     return
   }
 
-  const hasNodeInSubTree = (root: SmartTreeNode | undefined, targetKey: string): boolean => {
-    if (!root?.children?.length) return false
-    for (const child of root.children) {
-      if (child.key === targetKey || hasNodeInSubTree(child, targetKey)) return true
+  for (const key of dragKeys) {
+    const sourceNode = getOriginalNode(key)
+    if (hasDescendant(sourceNode, String(dropNode.key))) {
+      emit('drop-invalid', 'drop-to-descendant')
+      return
     }
-    return false
-  }
-
-  const sourceNode = getOriginalNode(String(dragNode.key))
-  if (hasNodeInSubTree(sourceNode, String(dropNode.key))) {
-    emit('drop-invalid', 'drop-to-descendant')
-    return
   }
 
   const data = JSON.parse(JSON.stringify(internalTreeData.value))
-  let dragObj: SmartTreeNode | undefined
+  const dragObjs: SmartTreeNode[] = []
 
-  const removeNode = (nodes: SmartTreeNode[]): boolean => {
-    for (let index = 0; index < nodes.length; index += 1) {
-      if (nodes[index].key === dragNode.key) {
-        dragObj = nodes[index]
-        nodes.splice(index, 1)
-        return true
-      }
-      const childNodes = nodes[index].children
-      if (childNodes && removeNode(childNodes)) {
-        return true
-      }
-    }
-    return false
+  for (const key of dragKeys) {
+    const obj = removeNodeFromTree(data, key)
+    if (obj) dragObjs.push(obj)
   }
-  removeNode(data)
 
-  if (!dragObj) return
+  if (!dragObjs.length) return
 
   const dropToGap = (info as any).dropToGap
   const pos = String((dropNode as any).pos || '')
@@ -466,7 +481,9 @@ const onDrop: TreeProps['onDrop'] = (info) => {
             nodes[index].children = []
           }
           const childNodes = nodes[index].children || []
-          childNodes.push(dragObj!)
+          for (const obj of dragObjs) {
+            childNodes.push(obj)
+          }
           nodes[index].children = childNodes
           return true
         }
@@ -479,21 +496,24 @@ const onDrop: TreeProps['onDrop'] = (info) => {
     }
     insertInto(data)
   } else {
-    const insertAt = (nodes: SmartTreeNode[]): boolean => {
+    let offset = 0
+    const insertAtGap = (nodes: SmartTreeNode[]): boolean => {
       for (let index = 0; index < nodes.length; index += 1) {
         if (nodes[index].key === dropNode.key) {
           const insertIndex = relativeDropPosition < 0 ? index : index + 1
-          nodes.splice(insertIndex, 0, dragObj!)
+          for (let i = 0; i < dragObjs.length; i++) {
+            nodes.splice(insertIndex + offset + i, 0, dragObjs[i])
+          }
           return true
         }
         const childNodes = nodes[index].children
-        if (childNodes && insertAt(childNodes)) {
+        if (childNodes && insertAtGap(childNodes)) {
           return true
         }
       }
       return false
     }
-    insertAt(data)
+    insertAtGap(data)
   }
 
   internalTreeData.value = data
@@ -503,7 +523,9 @@ const onDrop: TreeProps['onDrop'] = (info) => {
 
   const dropEvent: DropEvent = {
     dragKey: String(dragNode.key),
-    dragNode: dragObj,
+    dragKeys,
+    dragNode: dragObjs[0],
+    dragNodes: dragObjs,
     dropKey: String(dropNode.key),
     dropNode: getOriginalNode(String(dropNode.key)) || (dropNode as unknown as SmartTreeNode),
     dropToGap,
@@ -515,16 +537,17 @@ const onDrop: TreeProps['onDrop'] = (info) => {
 }
 
 const onNodeDragStart: TreeProps['onDragstart'] = (info) => {
-  draggingNodeKey.value = String(info.node?.key || '')
+  const keys = ((info as any).selectedKeys as string[])?.map(String) || [String(info.node?.key || '')]
+  draggingNodeKeys.value = keys
 }
 
 const onNodeDragEnd: TreeProps['onDragend'] = () => {
-  draggingNodeKey.value = null
+  draggingNodeKeys.value = []
 }
 
 /** 容器级 dragend 清空拖拽状态，避免移出 a-tree 区域时过早丢失 draggingNodeKey */
 const onContainerDragEnd = () => {
-  draggingNodeKey.value = null
+  draggingNodeKeys.value = []
 }
 
 const onRootDragEnter = (event: DragEvent) => {
@@ -542,9 +565,9 @@ const onRootDragLeave = (_event: DragEvent) => {
 
 const onRootDrop = (event: DragEvent) => {
   if (event.dataTransfer?.types.includes('Files')) return
-  if (!draggingNodeKey.value) return
-  emit('drop-root', draggingNodeKey.value)
-  draggingNodeKey.value = null
+  if (!draggingNodeKeys.value.length) return
+  emit('drop-root', [...draggingNodeKeys.value])
+  draggingNodeKeys.value = []
 }
 
 /**

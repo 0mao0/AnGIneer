@@ -12,6 +12,7 @@
     :show-status="showStatus"
     :show-line="showLine"
     :draggable="draggable"
+    :multiple="multiple"
     :allow-add-file="allowAddFile"
     :allowed-file-types="allowedFileTypes"
     :loading="loading"
@@ -75,6 +76,7 @@ interface Props {
   showStatus?: boolean
   showLine?: boolean
   draggable?: boolean
+  multiple?: boolean
   allowAddFile?: boolean
   allowedFileTypes?: string[]
   loading?: boolean
@@ -96,7 +98,7 @@ const emit = defineEmits<{
   search: [text: string]
   'file-drop': [files: File[], targetFolder: SOPTreeNode | null]
   'drop-invalid': [reason: string]
-  'drop-root': [dragNodeKey: string]
+  'drop-root': [dragNodeKeys: string[]]
 }>()
 
 const smartTreeRef = ref<InstanceType<typeof SmartTree> | null>(null)

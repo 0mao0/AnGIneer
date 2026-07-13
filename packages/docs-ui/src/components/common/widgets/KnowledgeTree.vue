@@ -119,7 +119,7 @@ const emit = defineEmits<{
   search: [text: string]
   'file-drop': [files: File[], targetFolder: KnowledgeTreeNode | null]
   'drop-invalid': [reason: string]
-  'drop-root': [dragNodeKey: string]
+  'drop-root': [dragNodeKeys: string[]]
 }>()
 
 const smartTreeRef = ref<InstanceType<typeof SmartTree> | null>(null)

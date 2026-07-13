@@ -20,6 +20,33 @@ export interface BranchTarget {
   value?: any
 }
 
+export interface StepPrinciple {
+  principle_id: string
+  principle_text: string
+  category: string
+  source_clause: string
+}
+
+export interface StepWarning {
+  warning_id: string
+  warning_text: string
+  severity: string
+  source_section: string
+}
+
+export interface StepExample {
+  example_id: string
+  title: string
+  computation_text?: string
+  inputs_json?: string
+}
+
+export interface DocForSopGen {
+  library_id: string
+  doc_id: string
+  relation_count: number
+}
+
 /** SOP 步骤执行定义。 */
 export interface SopExecution {
   tool: string
@@ -65,6 +92,9 @@ export interface RawSopStep {
   branches?: BranchTarget[]
   condition_var?: string
   default_goto?: string
+  principles?: StepPrinciple[]
+  warnings?: StepWarning[]
+  examples?: StepExample[]
 }
 
 /** 运行时统一使用的 SOP 步骤定义。 */
@@ -83,6 +113,9 @@ export interface SopStep {
   branches?: BranchTarget[]
   condition_var?: string
   default_goto?: string
+  principles?: StepPrinciple[]
+  warnings?: StepWarning[]
+  examples?: StepExample[]
 }
 
 /** 兼容旧结构的原始 SOP 数据。 */
@@ -171,6 +204,9 @@ export const normalizeSopStep = (step: RawSopStep): SopStep => ({
   branches: step.branches,
   condition_var: step.condition_var,
   default_goto: step.default_goto,
+  principles: step.principles,
+  warnings: step.warnings,
+  examples: step.examples,
   ui_meta: step.ui_meta ? {
     position: step.ui_meta.position
       ? {
@@ -218,6 +254,9 @@ export const serializeSopStep = (step: SopStep): RawSopStep => ({
   branches: step.branches,
   condition_var: step.condition_var,
   default_goto: step.default_goto,
+  principles: step.principles,
+  warnings: step.warnings,
+  examples: step.examples,
   ui_meta: step.ui_meta
     ? {
         position: step.ui_meta.position

@@ -95,7 +95,7 @@ def _sort_items(items: List[Dict[str, Any]], title_key: str) -> List[Dict[str, A
     return sorted(
         items,
         key=lambda item: (
-            item.get("sort_order", 10**9),
+            item.get("sort_order") if isinstance(item.get("sort_order"), int) else 10**9,
             str(item.get(title_key) or ""),
         ),
     )
@@ -140,7 +140,7 @@ def _scan_json_sops() -> List[Dict[str, Any]]:
                 "name_en": data.get("name_en", ""),
                 "description": data.get("description", ""),
                 "folder_id": data.get("folder_id"),
-                "sort_order": data.get("sort_order"),
+                "sort_order": data.get("sort_order", 10**9),
                 "step_count": len(data.get("steps", [])),
             })
         except Exception:
@@ -388,7 +388,10 @@ def _parse_step_description(description: str) -> Dict[str, Any]:
 @sop_router.get("")
 def list_sops():
     """列出所有 SOP。"""
-    return {"sops": _scan_json_sops()}
+    result = _scan_json_sops()
+    return {"sops": result}
+
+
 
 
 @sop_router.get("/{sop_id}/delete-preview")

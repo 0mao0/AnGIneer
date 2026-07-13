@@ -19,7 +19,9 @@ export type TreeNodeAction = 'rename' | 'add-folder' | 'add-file' | 'delete' | '
 
 export interface DropEvent {
   dragKey: string
+  dragKeys: string[]
   dragNode: SmartTreeNode
+  dragNodes: SmartTreeNode[]
   dropKey: string
   dropNode: SmartTreeNode
   dropToGap: boolean

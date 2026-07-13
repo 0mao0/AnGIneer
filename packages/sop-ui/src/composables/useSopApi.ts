@@ -163,4 +163,12 @@ export const sopApi = {
 
   searchKnowledgeReferences: (payload: InlineCitationSearchPayload): Promise<any> =>
     sopRequest(`${KNOWLEDGE_PREFIX}/references/search`, 'POST', payload),
+
+  /** 从文档图谱一键生成 SOP 列表 */
+  generateSopsFromDoc: (libraryId: string, docId: string): Promise<{ generated: string[]; total: number }> =>
+    sopRequest(`/api/graph/sop/generate-from-doc`, 'POST', { library_id: libraryId, doc_id: docId }),
+
+  /** 获取有图谱数据的文档列表 */
+  listDocsWithGraph: (libraryId: string = 'default'): Promise<Array<{ library_id: string; doc_id: string; name: string; relation_count: number }>> =>
+    sopGet(`/api/graph/docs-with-graph?library_id=${libraryId}`),
 }

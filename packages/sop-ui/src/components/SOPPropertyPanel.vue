@@ -265,6 +265,39 @@
           <a-tag color="red">{{ failureTargetName }}</a-tag>
         </div>
       </section>
+
+      <!-- 知识图谱标注：原则 / 反例 / 案例 -->
+      <section v-if="step.principles?.length" class="section-block enrichment-section">
+        <div class="section-header">
+          <span class="section-title">✅ 原则 ({{ step.principles.length }})</span>
+        </div>
+        <div v-for="p in step.principles" :key="p.principle_id" class="enrich-item">
+          <a-tag color="green" class="enrich-cat">{{ categoryLabel(p.category) }}</a-tag>
+          <span class="enrich-text">{{ p.principle_text }}</span>
+          <span v-if="p.source_clause" class="enrich-source">{{ p.source_clause }}</span>
+        </div>
+      </section>
+      <section v-if="step.warnings?.length" class="section-block enrichment-section">
+        <div class="section-header">
+          <span class="section-title">⚠️ 反例 ({{ step.warnings.length }})</span>
+        </div>
+        <div v-for="w in step.warnings" :key="w.warning_id" class="enrich-item">
+          <a-tag :color="severityColor(w.severity)" class="enrich-cat">{{ w.severity }}</a-tag>
+          <span class="enrich-text">{{ w.warning_text }}</span>
+          <span v-if="w.source_section" class="enrich-source">{{ w.source_section }}</span>
+        </div>
+      </section>
+      <section v-if="step.examples?.length" class="section-block enrichment-section">
+        <div class="section-header">
+          <span class="section-title">📋 案例 ({{ step.examples.length }})</span>
+        </div>
+        <a-collapse ghost expand-icon-position="right">
+          <a-collapse-panel v-for="ex in step.examples" :key="ex.example_id" :header="ex.title">
+            <div v-if="ex.inputs_json && ex.inputs_json !== '{}'" class="enrich-code">{{ ex.inputs_json }}</div>
+            <div v-if="ex.computation_text" class="enrich-code">{{ ex.computation_text }}</div>
+          </a-collapse-panel>
+        </a-collapse>
+      </section>
     </div>
 
     <a-modal
@@ -516,6 +549,14 @@ const aiOutputPreview = computed(() => toRows(aiSuggestion.value?.outputs))
  */
 const getToolLabel = (tool: string) => {
   return toolOptions.find((option) => option.value === tool)?.label || tool || '手动'
+}
+
+const categoryLabel = (cat: string) => {
+  return { mandatory: '强制', recommended: '推荐', constraint: '限制', optional: '可选' }[cat] || cat
+}
+
+const severityColor = (sev: string) => {
+  return { safety: 'red', economic: 'orange', quality: 'gold' }[sev] || 'default'
 }
 
 /**
@@ -919,5 +960,41 @@ defineExpose({ hasChanges, buildDraftStep, acceptDraft })
     border-radius: 0 4px 4px 0;
     height: 100%;
   }
+}
+
+.enrichment-section {
+  margin-top: 12px;
+}
+.enrich-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 4px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  flex-wrap: wrap;
+}
+.enrich-cat {
+  flex-shrink: 0;
+  font-size: 11px;
+}
+.enrich-text {
+  flex: 1;
+  min-width: 0;
+  color: var(--text-primary, #1e293b);
+}
+.enrich-source {
+  font-size: 11px;
+  color: var(--text-secondary, #64748b);
+  flex-shrink: 0;
+}
+.enrich-code {
+  background: var(--bg-secondary, #f8fafc);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 12px;
+  white-space: pre-wrap;
+  margin: 4px 0;
 }
 </style>

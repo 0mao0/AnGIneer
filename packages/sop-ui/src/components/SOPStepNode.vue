@@ -9,6 +9,7 @@
     @mouseleave="hovered = false"
   >
     <span v-if="isDirty" class="node-dirty-dot" />
+    <span v-if="hasWarnings" class="node-warning-badge" title="包含反例/注意项">⚠</span>
     <Handle id="top" type="target" :position="Position.Top" class="handle handle-top" />
     <Handle id="left" type="source" :position="Position.Left" class="handle handle-left" />
     <Handle id="right" type="source" :position="Position.Right" class="handle handle-right" />
@@ -73,6 +74,7 @@ const emit = defineEmits<{
 const hovered = ref(false)
 
 const isDirty = computed(() => props.data.dirty ?? false)
+const hasWarnings = computed(() => props.data.step.warnings?.length ?? false)
 
 const step = computed(() => props.data.step)
 const stepIndex = computed(() => props.data.stepIndex)
@@ -274,5 +276,14 @@ const displaySegments = computed<Segment[]>(() => {
   background: rgba(255, 77, 79, 0.12);
   border-color: rgba(255, 77, 79, 0.5);
   transform: translate(8px, 16px);
+}
+
+.node-warning-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  font-size: 12px;
+  line-height: 1;
+  z-index: 10;
 }
 </style>

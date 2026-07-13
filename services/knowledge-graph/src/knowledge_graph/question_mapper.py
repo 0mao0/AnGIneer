@@ -7,6 +7,8 @@ from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
 from ai_inference.llm_client import LLMClient
 
+from knowledge_graph.config import DEFAULT_LLM_CONFIG
+
 logger = logging.getLogger(__name__)
 
 
@@ -41,7 +43,7 @@ Return JSON:
 
 class QuestionMapper:
     def __init__(self, config_name: Optional[str] = None, mode: str = "instruct"):
-        self.config_name = config_name or "DeepseekV4-Flash(付费)"
+        self.config_name = config_name or DEFAULT_LLM_CONFIG
         self.mode = mode
 
     def cluster_questions(

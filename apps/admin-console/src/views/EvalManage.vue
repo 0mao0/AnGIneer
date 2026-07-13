@@ -673,7 +673,9 @@ const onTreeDrop = async (event: DropEvent) => {
 }
 
 /** 处理拖到根目录 */
-const onTreeDropRoot = async (dragNodeKey: string) => {
+const onTreeDropRoot = async (dragNodeKeys: string[]) => {
+  const dragNodeKey = dragNodeKeys[0]
+  if (!dragNodeKey) return
   if (isCategoryFolderFn({ key: dragNodeKey } as EvalTreeNode)) return
   try {
     if (isPersistedFolderFn({ key: dragNodeKey } as EvalTreeNode)) {

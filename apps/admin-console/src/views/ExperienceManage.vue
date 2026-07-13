@@ -9,6 +9,9 @@
         <Panel title="经验库" :icon="ApartmentOutlined" contentClass="tree-panel-content">
           <template #extra>
             <a-space :size="4">
+              <a-button type="text" size="small" title="从文档生成" @click="openSopGenerateFromDoc">
+                <template #icon><FileTextOutlined /></template>
+              </a-button>
               <a-button type="text" size="small" title="新建 SOP" @click="openCreateSopModal()">
                 <template #icon><FileAddOutlined /></template>
               </a-button>
@@ -30,6 +33,7 @@
               :show-icon="true"
               :show-status="false"
               :draggable="true"
+              :multiple="true"
               :allow-add-file="false"
               :allowed-file-types="['.json']"
               :loading="sopTree.loading.value"
@@ -220,11 +224,38 @@
         <p class="ant-upload-text">点击或拖拽 Markdown 文件到此处</p>
         <p class="ant-upload-hint">仅支持 .md 格式的 SOP 文件，系统将自动解析步骤与变量</p>
       </a-upload-dragger>
-      <div class="import-sample-tip">
+<div class="import-sample-tip">
         <DownloadOutlined />
         <a @click.prevent="downloadSampleMd">下载示例文件</a>
         <span class="import-sample-hint">，按此格式编写后导入</span>
       </div>
+    </a-modal>
+
+    <a-modal
+      :open="sopGenerateFromDocVisible"
+      title="从文档生成 SOP"
+      :confirm-loading="sopGenerateFromDocLoading"
+      ok-text="生成"
+      cancel-text="取消"
+      @ok="confirmSopGenerateFromDoc"
+      @cancel="sopGenerateFromDocVisible = false"
+    >
+      <div v-if="!docsWithGraph.length" style="padding: 16px 0; color: #9ca3af;">
+        暂无已提取图谱的文档。请先在文档页面提取知识图谱。
+      </div>
+      <a-radio-group v-else v-model:value="selectedGenerateDocKey" :style="{ width: '100%' }">
+        <a-radio
+          v-for="doc in docsWithGraph"
+          :key="doc.doc_id"
+          :value="doc.library_id + '::' + doc.doc_id"
+          :style="{ display: 'block', padding: '6px 0' }"
+        >
+          <span>{{ doc.name || doc.doc_id }}</span>
+          <span :style="{ color: '#9ca3af', fontSize: '12px', marginLeft: '8px' }">
+            {{ doc.doc_id }} · {{ doc.relation_count }} 条关系
+          </span>
+        </a-radio>
+      </a-radio-group>
     </a-modal>
 
     <FolderModal
@@ -263,6 +294,7 @@ import {
   EditOutlined,
   EyeOutlined,
   FileAddOutlined,
+  FileTextOutlined,
   FolderAddOutlined,
   InboxOutlined,
   UploadOutlined,
@@ -683,6 +715,50 @@ const handleImportCancel = () => {
   pendingImportFolderId.value = undefined
 }
 
+const sopGenerateFromDocVisible = ref(false)
+const sopGenerateFromDocLoading = ref(false)
+const docsWithGraph = ref<Array<{ library_id: string; doc_id: string; name: string; relation_count: number }>>([])
+const selectedGenerateDocKey = ref<string>('')
+
+const openSopGenerateFromDoc = async () => {
+  sopGenerateFromDocLoading.value = true
+  try {
+    docsWithGraph.value = await sopApi.listDocsWithGraph()
+    selectedGenerateDocKey.value = ''
+    sopGenerateFromDocVisible.value = true
+  } catch (e: any) {
+    message.error(e?.message || '获取文档列表失败')
+  } finally {
+    sopGenerateFromDocLoading.value = false
+  }
+}
+
+const confirmSopGenerateFromDoc = async () => {
+  if (!selectedGenerateDocKey.value) {
+    message.warning('请先选择一个文档')
+    return
+  }
+  const parts = selectedGenerateDocKey.value.split('::')
+  const libraryId = parts[0]
+  const docId = parts.slice(1).join('::')
+  sopGenerateFromDocLoading.value = true
+  try {
+    const result = await sopApi.generateSopsFromDoc(libraryId, docId)
+    const count = result?.total ?? result?.generated?.length ?? 0
+    message.success(`成功生成 ${count} 个 SOP`)
+    sopGenerateFromDocVisible.value = false
+    selectedGenerateDocKey.value = ''
+    await sopTree.fetchTreeFromApi()
+    setTimeout(async () => {
+      await sopTree.fetchTreeFromApi()
+    }, 500)
+  } catch (e: any) {
+    message.error(e?.message || '生成失败')
+  } finally {
+    sopGenerateFromDocLoading.value = false
+  }
+}
+
 /**
  * 下载示例 Markdown 文件。
  */
@@ -731,6 +807,7 @@ Description: 根据矩形的长和宽计算面积。
  * 响应树节点选择。
  */
 const onTreeSelect = async (_keys: string[], nodes: SOPTreeNode[]) => {
+  if (nodes.length !== 1) return
   const node = nodes[0]
   if (!node) return
   const previousKey = sopTree.selectedNode.value?.key
@@ -889,7 +966,8 @@ const onTreeDrop = async (event: DropEvent) => {
   try {
     await sopTree.moveNode(event)
     message.success('移动成功')
-    await refreshTreeAndFocus(event.dragKey)
+    const focusKey = event.dragKeys?.[0] || event.dragKey
+    await refreshTreeAndFocus(focusKey)
   } catch (error: any) {
     message.error(error?.message || '移动失败')
     await refreshTreeAndFocus()
@@ -899,11 +977,16 @@ const onTreeDrop = async (event: DropEvent) => {
 /**
  * 拖到根目录。
  */
-const onTreeDropRoot = async (dragNodeKey: string) => {
+const onTreeDropRoot = async (dragNodeKeys: string[]) => {
   try {
-    await sopTree.moveNodeToRoot(dragNodeKey)
+    const firstKey = dragNodeKeys[0]
+    if (dragNodeKeys.length === 1) {
+      await sopTree.moveNodeToRoot(firstKey)
+    } else {
+      await sopTree.moveNodesToRoot(dragNodeKeys)
+    }
     message.success('已移动到根目录')
-    await refreshTreeAndFocus(dragNodeKey)
+    await refreshTreeAndFocus(firstKey)
   } catch (error: any) {
     message.error(error?.message || '移动失败')
     await refreshTreeAndFocus()

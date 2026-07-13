@@ -38,6 +38,8 @@
           :activeLineRange="activeLinkedLineRange"
           :sourceFilePath="filePath"
           :graphData="props.graphData"
+          :libraryId="'default'"
+          :docId="props.node.key"
           :onUpdateStructuredNode="props.onUpdateStructuredNode"
           :onBatchStructuredOperation="props.onBatchStructuredOperation"
           :onUndoLastOperation="props.onUndoLastOperation"

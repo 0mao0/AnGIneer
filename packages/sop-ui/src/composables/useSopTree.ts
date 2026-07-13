@@ -197,6 +197,13 @@ export function useSopTree() {
     ])
   }
 
+  /** 将多个节点移动到根目录。 */
+  const moveNodesToRoot = async (dragNodeKeys: string[]) => {
+    for (const key of dragNodeKeys) {
+      await moveNodeToRoot(key)
+    }
+  }
+
   /** 删除 SOP */
   const deleteSop = async (sopId: string) => {
     try {
@@ -248,6 +255,7 @@ export function useSopTree() {
     renameSop,
     moveNode,
     moveNodeToRoot,
+    moveNodesToRoot,
     deleteSop,
     findNode,
     setSelectedNode,

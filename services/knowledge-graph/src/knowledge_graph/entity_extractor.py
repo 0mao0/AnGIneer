@@ -6,7 +6,12 @@ from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
 from ai_inference.llm_client import LLMClient
 
-from knowledge_graph.config import EntityLayer, EntitySeed, load_seed_entities
+from knowledge_graph.config import (
+    EntityLayer,
+    EntitySeed,
+    DEFAULT_LLM_CONFIG,
+    load_seed_entities,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +40,7 @@ Format:
 
 class EntityExtractor:
     def __init__(self, config_name: Optional[str] = None, mode: str = "instruct"):
-        self.config_name = config_name or "Qwen3.6-A3B"
+        self.config_name = config_name or DEFAULT_LLM_CONFIG
         self.mode = mode
         self._seeds = load_seed_entities()
         self._seed_names: Set[str] = set()
@@ -107,19 +112,20 @@ class EntityExtractor:
         self,
         packet_text: str,
         section_path: str,
-        seed_entity_name: str,
+        seed_entity_names: List[str],
         progress_callback: Optional[Callable[[str], None]] = None,
     ) -> Dict[str, Any]:
+        seeds_str = ", ".join(seed_entity_names[:20])
         if progress_callback:
-            progress_callback(f"LLM 提取实体 [{seed_entity_name}]...")
+            progress_callback(f"LLM 提取实体 [{seeds_str}]...")
 
         prompt = f"""Section: {section_path}
-Seed Entity: {seed_entity_name}
+Seed Entities: {seeds_str}
 
 Text:
 {packet_text[:MAX_TEXT_CHARS]}
 
-Extract all entities and relationships related to "{seed_entity_name}"."""
+Extract all entities and relationships related to seed entities: "{seeds_str}"."""
 
         try:
             client = LLMClient()
