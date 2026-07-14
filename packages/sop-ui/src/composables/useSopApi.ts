@@ -164,9 +164,18 @@ export const sopApi = {
   searchKnowledgeReferences: (payload: InlineCitationSearchPayload): Promise<any> =>
     sopRequest(`${KNOWLEDGE_PREFIX}/references/search`, 'POST', payload),
 
-  /** 从文档图谱一键生成 SOP 列表 */
-  generateSopsFromDoc: (libraryId: string, docId: string): Promise<{ generated: string[]; total: number }> =>
-    sopRequest(`/api/graph/sop/generate-from-doc`, 'POST', { library_id: libraryId, doc_id: docId }),
+  /** 从文档图谱一键生成 SOP 列表（图谱未就绪时返回 412） */
+  generateSopsFromDoc: async (libraryId: string, docId: string): Promise<{ generated: string[]; total: number }> => {
+    try {
+      return await sopRequest(`/api/sops/generate-from-doc`, 'POST', { library_id: libraryId, doc_id: docId })
+    } catch (err: any) {
+      if (err?.response?.status === 412) {
+        const detail = err.response.data?.detail || {}
+        throw new Error(detail.message || '图谱未就绪，请先在知识图谱模块跑 AI 深度提取')
+      }
+      throw err
+    }
+  },
 
   /** 获取有图谱数据的文档列表 */
   listDocsWithGraph: (libraryId: string = 'default'): Promise<Array<{ library_id: string; doc_id: string; name: string; relation_count: number }>> =>
