@@ -7,7 +7,9 @@ name = "angineer-sop-core"
 version = "0.1.0"
 description = "AnGIneer SOP engine"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "angineer-knowledge-graph",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
