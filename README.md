@@ -21,8 +21,9 @@
 | 子系统                | 核心职责      | 主要任务                   |
 | :----------------- | :-------- | :--------------------- |
 | **AnGIneer-Core**  | **核心大脑**  | Agent意图识别、工具调度、记忆黑板等   |
-| **AnGIneer-Docs**  | **结构化规范** | 基于MinerU的规范自动解析与知识库管理 |
-| **AnGIneer-SOP**   | **经验流程**  | 工程经验制作与解析              |
+| **AnGIneer-Docs**           | **结构化规范**  | 基于MinerU的规范自动解析与知识库管理       |
+| **AnGIneer-KnowledgeGraph** | **知识图谱**   | 基于文档A，LLM提取实体关系动态生成图谱B + cangjie-skill提取器附加语义标注 |
+| **AnGIneer-SOP**            | **经验流程**   | 基于图谱B自动生成SOP + SOP CRUD + 运行时契约 |
 | **AnGIneer-Evals** | **评测引擎**  | 测试集                    |
 | **AnGIneer-Tools** | **专业工具**  | 工程计算器、脚本库等             |
 | **AnGIneer-Geo**   | **世界底座**  | 集成GIS、水文气象等，供AI使用。     |
@@ -154,26 +155,49 @@ sequenceDiagram
 
 ***
 
-### 2.4 AnGIneer-SOPs经验库模块
+### 2.4 AnGIneer-KnowledgeGraph知识图谱模块
+
+#### (1) 定位
+
+```
+基于文档A，LLM 顺藤摸瓜动态生成知识图谱B。
+```
+
+#### (2) 主要功能
+
+1. **种子共现兜底** — 70 个工程标准术语的文本扫描，秒级完成基础实体关系
+2. **LLM 实体+关系抽取** — 每 packet 一次调用，发现文档专属实体与关系
+3. **三重验证（V1 跨域/V2 预测力/V3 独特性）** — 关系置信度后处理，通过 3/3 升级为 QUESTION_VALIDATED
+4. **Zettelkasten 跨段语义连接** — 整篇文档一次调用，发现跨章节隐含关系
+5. **cangjie-skill E1-E5 提取器** — 为图谱附加原则/案例/反例/术语/框架标注
+6. **按文档强隔离** — library_id + doc_id 维度隔离与过滤，实体跨文档共享、关系归属文档
+
+一句话：KnowledgeGraph 把"文档A"变成"图谱B + 语义标注"，为 SOP 生成与复杂推理提供结构化基础。
+
+***
+
+### 2.5 AnGIneer-SOPs经验库模块
 
 ![文档解析模块架构](./docs/Angineer-SOPModule.png)
 
 #### (1) 定位
 
 ```
-老师傅的经验库，针对复杂问题供AI参考的素材。
+基于知识图谱B，通过 cangjie-skill 提取器产出的语义标注自动生成 SOP list，
+并提供 SOP 的 CRUD 与运行时执行支持。
 ```
 
 #### (2) 主要功能
 
-1. **LLM 驱动的 SOP 解析引擎** — Markdown SOP 自动转 JSON 结构化执行计划，支持 5 种工具类型识别（calculator/knowledge_search/table_lookup/user_input/conditional）
-2. **黑板变量依赖提取** — 自动分析步骤间 `${variable}` 引用关系，构建 required/outputs 依赖图，失败自动降级到规则提取
-3. **智能条件分支工具** — 支持精确匹配、排除法匹配、LLM 语义匹配三级降级，可嵌套查表/计算，自动识别"其他"等兜底关键词
-4. **SOP 结构化** — 将"经验"沉淀为 JSON 格式的可复用流程资产
-5. **步骤级引用与结构化** — 步骤描述支持结构化内容与引用，便于与规范证据联动与审阅
-6. **SOP 分层管理** — SOP 与文件夹树结构管理、排序、检索
-7. **SOP CRUD** — 创建/编辑/删除 SOP，支持 steps 与 blackboard 等运行字段
-8. **与 Core 联动** — 作为调度输入的一部分，为复杂任务提供"可执行的经验流程"
+1. **基于图谱的 SOP 自动生成** — 从文档图谱中识别 framework 路径或 ACTION 实体链，自动生成包含原则/案例/反例/术语标注的 SOP JSON
+2. **LLM 驱动的 SOP 解析引擎** — Markdown SOP 自动转 JSON 结构化执行计划，支持 5 种工具类型识别（calculator/knowledge_search/table_lookup/user_input/conditional）
+3. **黑板变量依赖提取** — 自动分析步骤间 `${variable}` 引用关系，构建 required/outputs 依赖图，失败自动降级到规则提取
+4. **智能条件分支工具** — 支持精确匹配、排除法匹配、LLM 语义匹配三级降级，可嵌套查表/计算，自动识别"其他"等兜底关键词
+5. **SOP 结构化** — 将"经验"沉淀为 JSON 格式的可复用流程资产
+6. **步骤级引用与结构化** — 步骤描述支持结构化内容与引用，便于与规范证据联动与审阅
+7. **SOP 分层管理** — SOP 与文件夹树结构管理、排序、检索
+8. **SOP CRUD** — 创建/编辑/删除 SOP，支持 steps 与 blackboard 等运行字段
+9. **与 Core 联动** — 作为调度输入的一部分，为复杂任务提供"可执行的经验流程"
 
 #### (3) 逻辑架构
 
@@ -227,7 +251,7 @@ sequenceDiagram
 
 ***
 
-### 2.6 AnGIneer-GeoWorld世界模型模块
+### 2.7 AnGIneer-GeoWorld世界模型模块
 
 暂未开发，计划v0.2完成
 
@@ -279,7 +303,7 @@ sequenceDiagram
 ┌────────────────────────────▼────────────────────────────────┐
 │                      后端核心服务层                           │
 │                      angineer-core                          │
-│    sop-core | docs-core | evals-core | geo-core | engtools  │
+│ sop-core | knowledge-graph | docs-core | evals-core | geo-core | engtools │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -289,7 +313,7 @@ sequenceDiagram
   - **智能树组件体系**：SmartTree 通用组件 + 领域语义封装（SOPTree/KnowledgeTree/EvalDatasetTree）
   - **AIChat 对话组件**：通用 AI 对话交互组件
 - AI 推理层：`services/ai-inference`（LLM 客户端、语义嵌入、语义重排）
-- 核心服务层：`services/angineer-core`、`services/sop-core`、`services/docs-core`、`services/evals-core`、`services/geo-core`、`services/engtools`
+- 核心服务层：`services/angineer-core`、`services/sop-core`、`services/knowledge-graph`、`services/docs-core`、`services/evals-core`、`services/geo-core`、`services/engtools`
 - 运行时知识存储：`data/knowledge_base`
 
 ```mermaid
@@ -303,6 +327,7 @@ flowchart LR
   AI["services/ai-inference"]
   Agent["services/angineer-core"]
   SOP["services/sop-core"]
+  KG["services/knowledge-graph"]
   Docs["services/docs-core"]
   Geo["services/geo-core"]
   Tools["services/engtools"]
@@ -319,13 +344,16 @@ flowchart LR
   Api --> AI
   Api --> Agent
   Api --> SOP
+  Api --> KG
   Api --> Docs
   Api --> Geo
   Api --> Tools
   Agent --> AI
+  SOP --> KG
   Docs --> AI
   Tools --> AI
   Docs --> Data
+  KG --> Data
 ```
 
 ***
@@ -356,7 +384,7 @@ cd AnGIneer
 pnpm install
 
 # 安装后端依赖
-pip install -e services/ai-inference -e services/angineer-core -e services/sop-core -e services/docs-core -e services/geo-core -e services/engtools
+pip install -e services/ai-inference -e services/angineer-core -e services/sop-core -e services/knowledge-graph -e services/docs-core -e services/geo-core -e services/engtools
 ```
 
 ### 4.3 启动服务
