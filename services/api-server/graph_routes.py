@@ -44,19 +44,6 @@ class HumanReviewRequest(BaseModel):
     note: str = ""
 
 
-class SopExportRequest(BaseModel):
-    path: List[str]
-    title: str
-    clause: str = ""
-    include_extractions: bool = True
-    library_id: str = ""
-    doc_id: str = ""
-
-
-class SopGenerateFromDocRequest(BaseModel):
-    library_id: str
-    doc_id: str
-
 
 class ExtractorsRunRequest(BaseModel):
     library_id: str
@@ -203,60 +190,6 @@ async def human_review(req: HumanReviewRequest):
             evidence_text=req.note,
         )
     return {"status": "ok"}
-
-
-@graph_router.post("/sop/generate")
-async def generate_sop_from_path(req: SopExportRequest):
-    from knowledge_graph.sop_path_generator import SopPathGenerator
-    store = _get_store()
-    generator = SopPathGenerator(store=store if req.include_extractions else None)
-    entities_map = {}
-    for name in req.path:
-        entity = store.get_entity_by_name(name)
-        entities_map[name] = entity.layer if entity else "concept"
-    sop = generator.generate_sop_skeleton(
-        sop_id=req.title,
-        title=req.title,
-        path_entities=req.path,
-        entities=entities_map,
-        source_clause=req.clause,
-        library_id=req.library_id,
-        doc_id=req.doc_id,
-    )
-    return sop
-
-
-@graph_router.post("/sop/generate-from-doc")
-async def generate_sops_from_doc(req: SopGenerateFromDocRequest):
-    from docs_core.ingest.store.assets_file_store import file_storage
-    from knowledge_graph.sop_path_generator import SopPathGenerator
-    from knowledge_graph.graph_orchestrator import GraphOrchestrator
-
-    store = _get_store()
-    generator = SopPathGenerator(store=store)
-    doc_entities = store.list_entities_by_doc(req.library_id, req.doc_id)
-    if not doc_entities:
-        raise HTTPException(status_code=404, detail=f"No entities found for doc {req.doc_id}")
-
-    entity_names = [e.name for e in doc_entities]
-    content = file_storage.read_markdown(req.library_id, req.doc_id) or ""
-
-    existing_frameworks = store.get_frameworks_by_doc(req.library_id, req.doc_id)
-    if not existing_frameworks and content:
-        logger.info("Running extractors for doc %s before SOP generation...", req.doc_id)
-        try:
-            orchestrator = GraphOrchestrator(store)
-            orchestrator._run_extractors(req.doc_id, req.library_id, entity_names, content)
-        except Exception as e:
-            logger.warning("Extractor run partially failed: %s", e)
-
-    try:
-        result = generator.generate_sops_from_doc(req.library_id, req.doc_id, store)
-        logger.info("generate-sops-from-doc result: %s", result)
-        return result
-    except Exception as e:
-        logger.error("generate-sops-from-doc failed: %s", e, exc_info=True)
-        raise HTTPException(status_code=500, detail=str(e))
 
 
 @graph_router.post("/extractors/run")
