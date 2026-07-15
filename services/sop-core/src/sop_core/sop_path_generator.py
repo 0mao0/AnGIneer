@@ -502,8 +502,6 @@ class SopPathGenerator:
                 fw_steps = json.loads(fw.steps_json) if fw.steps_json else []
                 if not fw_steps:
                     continue
-                if fw.name in existing_names:
-                    continue
 
                 llm_sop = self._generate_sop_via_llm(
                     framework_name=fw.name,

@@ -10,7 +10,6 @@ import threading
 from typing import Dict, List, Optional, Any, Generator
 from datetime import datetime
 from enum import Enum
-from functools import wraps
 from dotenv import load_dotenv
 
 from openai import OpenAI, APIError, APIConnectionError, APITimeoutError, RateLimitError
@@ -168,42 +167,6 @@ class CircuitBreaker:
                 "failure_count": self.failure_count,
                 "last_failure_time": self.last_failure_time.isoformat() if self.last_failure_time else None
             }
-
-
-def retry_with_backoff(retry_config: RetryConfig):
-    """重试装饰器，支持指数退避。"""
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            last_error = None
-
-            for attempt in range(retry_config.max_retries + 1):
-                try:
-                    return func(*args, **kwargs)
-                except (APITimeoutError, APIConnectionError, RateLimitError) as e:
-                    last_error = e
-
-                    if attempt < retry_config.max_retries:
-                        delay = min(
-                            retry_config.initial_delay * (retry_config.exponential_base ** attempt),
-                            retry_config.max_delay
-                        )
-                        logger.warning(
-                            f"请求失败 (尝试 {attempt + 1}/{retry_config.max_retries + 1})，"
-                            f"{delay:.1f} 秒后重试: {e}"
-                        )
-                        time.sleep(delay)
-                    else:
-                        logger.error(f"重试次数耗尽: {e}")
-                except Exception as e:
-                    last_error = e
-                    logger.error(f"请求发生不可重试的错误: {e}")
-                    break
-
-            raise last_error or Exception("重试失败")
-
-        return wrapper
-    return decorator
 
 
 class LLMClient:
