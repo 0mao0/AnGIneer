@@ -88,10 +88,6 @@ const projectName = ref('示例项目')
 const aiChatVisible = ref(false)
 const leftCollapsed = ref(false)
 
-const chatPanelTitle = computed(() => (
-  activeSection.value === 'sop' ? 'SOP 对话' : '知识对话'
-))
-
 const chatSessionId = computed(() => workbenchStore.activeTab || 'default')
 
 const chatPanelPlaceholder = computed(() => (

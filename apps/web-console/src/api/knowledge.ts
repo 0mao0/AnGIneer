@@ -1,5 +1,5 @@
 import type { DocumentResponse } from '@angineer/docs-ui'
-import { sharedApiClient } from '../../../shared/createApiClient'
+import { sharedApiClient } from '../../../shared/apiClient'
 
 export const knowledgeApi = {
   getNodes: (libraryId: string = 'default', visible: boolean = false) =>

@@ -9,7 +9,8 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/tab/:tabKey+',
-    name: 'TabDeepLink'
+    name: 'TabDeepLink',
+    redirect: '/'
   },
   {
     path: '/:pathMatch(.*)*',

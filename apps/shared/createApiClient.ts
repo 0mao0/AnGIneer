@@ -21,8 +21,8 @@ export function normalizeApiError(err: unknown): ApiErrorDetail {
     (typeof detail === 'object' && detail !== null && 'message' in detail
       ? String((detail as { message: unknown }).message)
       : undefined) ||
+    err.response?.statusText ||
     err.message ||
-    err.statusText ||
     `API 请求失败（${status}）`
   return { status, detail, message, raw: err }
 }

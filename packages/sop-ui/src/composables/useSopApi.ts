@@ -1,7 +1,8 @@
 import type { InlineCitationSearchPayload } from '@angineer/ui-kit'
 import type { RawSopData, SopData, SopFolder, SopListItem } from '../types/sop'
 import { normalizeSopData, serializeSopData } from '../types/sop'
-import { sharedApiClient, FORM_DATA_CONFIG } from '../../../../apps/shared/createApiClient'
+import { sharedApiClient } from '../../../../apps/shared/apiClient'
+import { FORM_DATA_CONFIG } from '../../../../apps/shared/createApiClient'
 import type { ApiErrorDetail } from '../../../../apps/shared/types'
 import type { AxiosRequestConfig } from 'axios'
 

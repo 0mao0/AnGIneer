@@ -1,4 +1,4 @@
-import { sharedApiClient } from '../../../../apps/shared/createApiClient'
+import { sharedApiClient } from '../../../../apps/shared/apiClient'
 import type { AxiosRequestConfig } from 'axios'
 
 interface ApiPostOptions {
