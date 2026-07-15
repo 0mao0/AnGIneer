@@ -197,7 +197,7 @@ html, body, #app {
   width: 440px;
   height: 600px;
   max-height: calc(100vh - 140px);
-  background: var(--panel-bg, #fff);
+  background: var(--panel-bg);
   border-radius: 12px;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -205,7 +205,7 @@ html, body, #app {
   overflow: hidden;
   pointer-events: auto;
   z-index: 1001;
-  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+  border: 1px solid var(--border-color);
 }
 
 .ai-chat-panel-header {
@@ -213,7 +213,7 @@ html, body, #app {
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.06));
+  border-bottom: 1px solid var(--border-color);
   flex-shrink: 0;
   background: var(--panel-header-bg);
 }

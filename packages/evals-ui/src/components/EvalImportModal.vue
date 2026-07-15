@@ -160,10 +160,10 @@ const handleCancel = () => {
   gap: 4px;
   margin-top: 12px;
   font-size: 13px;
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
 
   a {
-    color: var(--primary-color, #1890ff);
+    color: var(--primary-color);
     text-decoration: none;
 
     &:hover {

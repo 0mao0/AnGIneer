@@ -92,7 +92,7 @@ const branchHandleStyle = (idx: number, total: number): Record<string, string> =
   height: 40px;
   padding: 0 12px;
   border-radius: 6px;
-  background: var(--panel-bg, #fff);
+  background: var(--panel-bg);
   border: 2px solid rgba(250, 173, 20, 0.45);
   border-left: 4px solid rgba(250, 173, 20, 0.55);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
@@ -140,7 +140,7 @@ const branchHandleStyle = (idx: number, total: number): Record<string, string> =
   height: 20px;
   border: 1px solid rgba(255, 77, 79, 0.35);
   border-radius: 50%;
-  background: var(--panel-bg, #fff);
+  background: var(--panel-bg);
   color: #ff4d4f;
   display: inline-flex;
   align-items: center;
@@ -175,7 +175,7 @@ const branchHandleStyle = (idx: number, total: number): Record<string, string> =
   flex: 1;
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-primary, #262626);
+  color: var(--text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

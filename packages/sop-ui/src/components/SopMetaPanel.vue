@@ -249,7 +249,7 @@ defineExpose({ hasChanges, draftName, draftDescription, acceptDraft })
 }
 
 .meta-label {
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
 }
 
 .meta-id {
@@ -324,7 +324,7 @@ defineExpose({ hasChanges, draftName, draftDescription, acceptDraft })
 
 .stat-label {
   font-size: 12px;
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
 }
 
 .stat-value {
@@ -356,7 +356,7 @@ defineExpose({ hasChanges, draftName, draftDescription, acceptDraft })
 }
 
 .stat-empty {
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
   font-size: 12px;
   margin-top: 4px;
 }

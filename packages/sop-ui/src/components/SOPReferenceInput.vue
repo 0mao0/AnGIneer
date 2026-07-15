@@ -201,8 +201,8 @@ const removeReference = (id: string) => {
   z-index: 100;
   max-height: 200px;
   overflow-y: auto;
-  background: var(--panel-bg, #fff);
-  border: 1px solid var(--border-color, #e8e8e8);
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
@@ -225,7 +225,7 @@ const removeReference = (id: string) => {
 
 .dropdown-item-title {
   font-size: 13px;
-  color: var(--text-primary, #262626);
+  color: var(--text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -234,7 +234,7 @@ const removeReference = (id: string) => {
 
 .dropdown-item-sub {
   font-size: 11px;
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
   flex-shrink: 0;
   margin-left: 8px;
 }

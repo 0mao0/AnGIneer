@@ -106,7 +106,7 @@ onMounted(() => {
   flex-direction: column;
   transition: all 0.3s ease;
   background: var(--panel-bg);
-  border-right: 1px solid var(--border-color, rgba(0, 0, 0, 0.06));
+  border-right: 1px solid var(--border-color);
 }
 
 .resource-tabs {
@@ -119,7 +119,7 @@ onMounted(() => {
     padding: 0 16px;
     flex-shrink: 0;
     transition: background-color 0.3s ease;
-    background: var(--bg-tertiary, rgba(0, 0, 0, 0.02));
+    background: var(--bg-tertiary);
   }
 
   :deep(.ant-tabs-content-holder) {

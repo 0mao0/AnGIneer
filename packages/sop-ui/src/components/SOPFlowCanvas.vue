@@ -392,7 +392,7 @@ const onEdgesChange = (changes: any[]) => {
   position: relative;
   width: 100%;
   height: 100%;
-  background: var(--panel-bg, #fff);
+  background: var(--panel-bg);
 }
 
 .sop-flow-toolbar {
@@ -403,8 +403,8 @@ const onEdgesChange = (changes: any[]) => {
   z-index: 10;
   padding: 4px 8px;
   border-radius: 6px;
-  background: var(--panel-bg, #fff);
-  border: 1px solid var(--border-color, #e8e8e8);
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 
   &--top {
@@ -427,7 +427,7 @@ const onEdgesChange = (changes: any[]) => {
   :deep(.ant-input) {
     width: 140px;
     text-align: center;
-    border: 2px solid var(--primary-color, #1890ff);
+    border: 2px solid var(--primary-color);
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
   }
@@ -442,8 +442,8 @@ const onEdgesChange = (changes: any[]) => {
   max-width: 320px;
   max-height: 260px;
   border-radius: 6px;
-  background: var(--panel-bg, #fff);
-  border: 1px solid var(--border-color, #e8e8e8);
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   display: flex;
@@ -461,7 +461,7 @@ const onEdgesChange = (changes: any[]) => {
   padding: 6px 10px;
   cursor: pointer;
   user-select: none;
-  border-bottom: 1px solid var(--border-color, #e8e8e8);
+  border-bottom: 1px solid var(--border-color);
 
   &:hover {
     background: var(--hover-bg, rgba(0, 0, 0, 0.02));
@@ -471,12 +471,12 @@ const onEdgesChange = (changes: any[]) => {
 .blackboard-title {
   font-size: 12px;
   font-weight: 500;
-  color: var(--text-primary, #262626);
+  color: var(--text-primary);
 }
 
 .blackboard-toggle {
   font-size: 10px;
-  color: var(--text-secondary, #667085);
+  color: var(--text-secondary);
 }
 
 .blackboard-body {
@@ -493,25 +493,25 @@ const onEdgesChange = (changes: any[]) => {
     padding: 4px 10px;
     text-align: left;
     font-weight: 500;
-    color: var(--text-secondary, #667085);
+    color: var(--text-secondary);
     background: var(--hover-bg, rgba(0, 0, 0, 0.02));
-    border-bottom: 1px solid var(--border-color, #e8e8e8);
+    border-bottom: 1px solid var(--border-color);
   }
 
   td {
     padding: 4px 10px;
-    border-bottom: 1px solid var(--border-color, #e8e8e8);
+    border-bottom: 1px solid var(--border-color);
   }
 }
 
 .bb-key {
   font-weight: 500;
-  color: var(--text-primary, #262626);
+  color: var(--text-primary);
   white-space: nowrap;
 }
 
 .bb-value {
-  color: var(--text-secondary, #667085);
+  color: var(--text-secondary);
   word-break: break-all;
   max-width: 180px;
   overflow: hidden;

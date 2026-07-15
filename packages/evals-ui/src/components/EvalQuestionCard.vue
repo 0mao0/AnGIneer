@@ -1836,7 +1836,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 
   &__id {
     font-size: 12px;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
     flex-shrink: 0;
   }
 
@@ -1903,13 +1903,13 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     border: none;
     border-radius: 4px;
     background: transparent;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
 
     &:hover {
       background: var(--bg-tertiary);
-      color: var(--text-primary, rgba(0, 0, 0, 0.88));
+      color: var(--text-primary);
     }
   }
 
@@ -1944,7 +1944,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   &__editor-title {
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    color: var(--text-primary);
   }
 
   &__editor-action {
@@ -1954,7 +1954,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   &__editor-content {
     font-size: 13px;
     line-height: 1.7;
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    color: var(--text-primary);
     white-space: pre-wrap;
     user-select: text;
   }
@@ -1968,7 +1968,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     border-radius: 6px;
     background: fade(@evals-primary, 8%);
     border: 1px solid fade(@evals-primary, 18%);
-    color: var(--text-secondary, rgba(0, 0, 0, 0.65));
+    color: var(--text-secondary);
     font-size: 12px;
   }
 
@@ -1977,7 +1977,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     padding: 12px;
     border-radius: 6px;
     background: var(--bg-tertiary);
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
     font-size: 12px;
   }
 }
@@ -1989,7 +1989,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 8px;
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: 6px;
@@ -2026,12 +2026,12 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 
   &__label {
     font-weight: 500;
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    color: var(--text-primary);
     flex-shrink: 0;
   }
 
   &__value {
-    color: var(--text-secondary, rgba(0, 0, 0, 0.25));
+    color: var(--text-secondary);
     font-size: 11px;
   }
 
@@ -2060,7 +2060,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 8px;
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    color: var(--text-primary);
   }
 
   &__layout {
@@ -2077,7 +2077,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   &__col-header {
     font-size: 12px;
     font-weight: 600;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
     padding: 4px 8px;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 4px;
@@ -2107,11 +2107,11 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 
   &__step-name {
     font-weight: 500;
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    color: var(--text-primary);
   }
 
   &__step-desc {
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
     font-size: 11px;
     margin-left: 4px;
   }
@@ -2130,7 +2130,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     }
 
     &--pending {
-      border-left: 2px solid var(--text-secondary, rgba(0, 0, 0, 0.15));
+      border-left: 2px solid var(--text-secondary);
     }
   }
 
@@ -2153,7 +2153,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     }
 
     &--pending {
-      color: var(--text-secondary, rgba(0, 0, 0, 0.25));
+      color: var(--text-secondary);
     }
   }
 
@@ -2185,12 +2185,12 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   }
 
   &__output-key {
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
     flex-shrink: 0;
   }
 
   &__output-val {
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    color: var(--text-primary);
     word-break: break-all;
     max-height: 200px;
     overflow-y: auto;
@@ -2211,14 +2211,14 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 }
 
 .eval-detail-label {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
   flex-shrink: 0;
   min-width: 60px;
 }
 
 .eval-detail-empty {
   font-size: 12px;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.35));
+  color: var(--text-secondary);
   font-style: italic;
 }
 
@@ -2232,7 +2232,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   border-radius: 6px;
   border: 1px solid fade(@evals-primary, 25%);
   background: fade(@evals-primary, 8%);
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-primary);
   font-size: 12px;
   font-weight: 600;
 }
@@ -2307,7 +2307,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     margin: 8px 0;
     padding-left: 10px;
     border-left: 3px solid fade(@evals-primary, 35%);
-    color: var(--text-secondary, rgba(0, 0, 0, 0.65));
+    color: var(--text-secondary);
   }
 
   :deep(table) {
@@ -2380,7 +2380,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 
   &__desc {
     margin-bottom: 8px;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+    color: var(--text-secondary);
     font-size: 12px;
     line-height: 1.5;
     padding: 6px 8px;
@@ -2405,14 +2405,14 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   th {
     background: var(--bg-tertiary);
     font-weight: 600;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+    color: var(--text-secondary);
     white-space: nowrap;
   }
 
   .eval-param-key {
     white-space: nowrap;
     font-weight: 500;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+    color: var(--text-secondary);
     width: 30%;
   }
 }
@@ -2434,7 +2434,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 .eval-field-key {
   display: inline-block;
   font-weight: 600;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+  color: var(--text-secondary);
   margin-right: 8px;
   min-width: 80px;
   white-space: nowrap;
@@ -2495,7 +2495,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 
   &__name {
     font-weight: 600;
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    color: var(--text-primary);
   }
 
   &__tool {
@@ -2515,7 +2515,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 
   &__desc {
     margin-top: 6px;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+    color: var(--text-secondary);
     font-size: 12px;
     line-height: 1.5;
   }
@@ -2564,7 +2564,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 }
 
 .eval-citation-score {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
 }
 
 .eval-citation-source {
@@ -2574,19 +2574,19 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 }
 
 .eval-citation-location {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
   font-family: 'KaiTi', 'STKaiti', serif;
   margin-top: 2px;
 }
 
 .eval-citation-section {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
   font-family: 'KaiTi', 'STKaiti', serif;
   margin-top: 2px;
 }
 
 .eval-citation-content {
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-primary);
   font-size: 13px;
   margin-top: 4px;
   line-height: 1.5;
@@ -2601,7 +2601,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 .eval-prompt-label {
   font-size: 12px;
   font-weight: 500;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
   margin-bottom: 4px;
 }
 
@@ -2646,7 +2646,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 6px;
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    color: var(--text-primary);
   }
 
   &__header {
@@ -2706,11 +2706,11 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 .eval-check-type {
   font-weight: 500;
   min-width: 84px;
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--text-primary);
 }
 
 .eval-check-keywords {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
 }
 
 .eval-semantic-header {
@@ -2739,13 +2739,13 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 }
 
 .eval-semantic-threshold {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.35));
+  color: var(--text-secondary);
   font-size: 11px;
 }
 
 .eval-semantic-reason {
   margin-top: 4px;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.65));
+  color: var(--text-secondary);
 }
 
 .eval-semantic-fallback-hint {
@@ -2766,12 +2766,12 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   font-size: 12px;
 
   &--na {
-    color: var(--text-secondary, rgba(0, 0, 0, 0.35));
+    color: var(--text-secondary);
   }
 }
 
 .eval-score-label {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
 }
 
 .eval-score-value {
@@ -2789,7 +2789,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   &__label {
     font-size: 12px;
     font-weight: 500;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
     margin-bottom: 4px;
   }
 
@@ -2846,7 +2846,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 }
 
 .eval-sql-score {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
   margin-left: 8px;
 }
 

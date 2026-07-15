@@ -157,13 +157,13 @@ const handleCancel = () => {
 
 .field-label {
   font-size: 13px;
-  color: var(--text-secondary, rgba(255, 255, 255, 0.45));
+  color: var(--text-secondary);
   white-space: nowrap;
 }
 
 .var-wrapper {
   font-size: 12px;
-  color: var(--text-secondary, rgba(255, 255, 255, 0.45));
+  color: var(--text-secondary);
 }
 
 .fork-modal-branches {
@@ -189,11 +189,11 @@ const handleCancel = () => {
 
 .arrow {
   font-size: 12px;
-  color: var(--text-secondary, rgba(255, 255, 255, 0.45));
+  color: var(--text-secondary);
 }
 
 .default-field {
-  border-top: 1px dashed var(--border-color, rgba(255, 255, 255, 0.12));
+  border-top: 1px dashed var(--border-color);
   padding-top: 10px;
 }
 </style>

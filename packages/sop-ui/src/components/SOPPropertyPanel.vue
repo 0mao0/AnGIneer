@@ -699,7 +699,7 @@ defineExpose({ hasChanges, buildDraftStep, acceptDraft })
 }
 
 .meta-label {
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
 }
 
 .meta-id {
@@ -770,12 +770,12 @@ defineExpose({ hasChanges, buildDraftStep, acceptDraft })
 
 .section-toggle-icon {
   font-size: 12px;
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
   transition: transform 0.2s ease, color 0.2s ease;
 
   &.expanded {
     transform: rotate(90deg);
-    color: var(--primary-color, #1890ff);
+    color: var(--primary-color);
   }
 }
 
@@ -800,7 +800,7 @@ defineExpose({ hasChanges, buildDraftStep, acceptDraft })
 
 .mini-label {
   font-size: 12px;
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
 }
 
 .tool-select {
@@ -835,7 +835,7 @@ defineExpose({ hasChanges, buildDraftStep, acceptDraft })
 .kv-header-row {
   padding: 0 2px 6px;
   font-size: 11px;
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
 }
 
 .kv-row + .kv-row {
@@ -844,7 +844,7 @@ defineExpose({ hasChanges, buildDraftStep, acceptDraft })
 
 .kv-empty,
 .preview-empty {
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
   font-size: 12px;
   padding: 6px 0;
 }
@@ -887,7 +887,7 @@ defineExpose({ hasChanges, buildDraftStep, acceptDraft })
 
 .failure-label {
   font-size: 12px;
-  color: var(--text-secondary, #667085);
+  color: var(--text-secondary);
 }
 
 .fork-field {
@@ -907,7 +907,7 @@ defineExpose({ hasChanges, buildDraftStep, acceptDraft })
   align-items: center;
   gap: 6px;
   padding: 6px 8px;
-  background: var(--bg-secondary, rgba(0, 0, 0, 0.02));
+  background: var(--bg-secondary);
   border-radius: 4px;
 }
 
@@ -981,16 +981,16 @@ defineExpose({ hasChanges, buildDraftStep, acceptDraft })
 .enrich-text {
   flex: 1;
   min-width: 0;
-  color: var(--text-primary, #1e293b);
+  color: var(--text-primary);
 }
 .enrich-source {
   font-size: 11px;
-  color: var(--text-secondary, #64748b);
+  color: var(--text-secondary);
   flex-shrink: 0;
 }
 .enrich-code {
-  background: var(--bg-secondary, #f8fafc);
-  border: 1px solid var(--border-color, #e2e8f0);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 8px;
   font-size: 12px;

@@ -152,7 +152,7 @@ const doCompare = async () => {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 8px;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
   }
 
   &__change-row {

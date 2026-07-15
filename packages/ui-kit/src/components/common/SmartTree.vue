@@ -957,7 +957,7 @@ defineExpose({
       width: 16px;
       height: 16px;
       font-size: 14px;
-      color: var(--text-secondary, rgba(0,0,0,0.45));
+      color: var(--text-secondary);
       line-height: 1;
       overflow: visible;
       margin-left: 0;
@@ -1039,7 +1039,7 @@ defineExpose({
 
       :deep(.action-icon) {
         font-size: 12px;
-        color: var(--text-secondary, rgba(0,0,0,0.45));
+        color: var(--text-secondary);
         cursor: pointer;
         padding: 2px;
         border-radius: 3px;

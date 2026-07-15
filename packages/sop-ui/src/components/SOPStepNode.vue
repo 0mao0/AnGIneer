@@ -132,8 +132,8 @@ const displaySegments = computed<Segment[]>(() => {
   max-width: 260px;
   padding: 10px 14px;
   border-radius: 8px;
-  background: var(--panel-bg, #fff);
-  border: 2px solid var(--border-color, #e8e8e8);
+  background: var(--panel-bg);
+  border: 2px solid var(--border-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   cursor: pointer;
@@ -147,7 +147,7 @@ const displaySegments = computed<Segment[]>(() => {
   }
 
   &.selected {
-    border-color: var(--primary-color, #1890ff);
+    border-color: var(--primary-color);
     box-shadow:
       0 0 0 2px rgba(24, 144, 255, 0.22),
       0 10px 22px rgba(24, 144, 255, 0.16);
@@ -214,7 +214,7 @@ const displaySegments = computed<Segment[]>(() => {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--primary-color, #1890ff);
+  background: var(--primary-color);
   color: #fff;
   font-size: 12px;
   font-weight: 600;
@@ -225,7 +225,7 @@ const displaySegments = computed<Segment[]>(() => {
   flex: 1;
   font-size: 13px;
   font-weight: 500;
-  color: var(--text-primary, #262626);
+  color: var(--text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -233,14 +233,14 @@ const displaySegments = computed<Segment[]>(() => {
 
 .step-tool-icon {
   font-size: 14px;
-  color: var(--primary-color, #1890ff);
+  color: var(--primary-color);
   flex-shrink: 0;
 }
 
 .step-desc {
   margin-top: 6px;
   font-size: 11px;
-  color: var(--text-secondary, #8c8c8c);
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 

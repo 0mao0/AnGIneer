@@ -202,9 +202,9 @@ const cancelEdit = () => {
   flex-shrink: 0;
   transition: all 0.3s ease;
   backdrop-filter: blur(8px);
-  background: var(--panel-header-bg, rgba(255, 255, 255, 0.8));
-  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.06));
-  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  background: var(--panel-header-bg);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
 }
 
 .header-left {
@@ -240,7 +240,7 @@ const cancelEdit = () => {
   .app-version {
     font-size: 11px;
     font-weight: 500;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
     letter-spacing: 0;
     transform: translateY(1px);
   }
@@ -307,8 +307,8 @@ const cancelEdit = () => {
     transition: all 0.2s ease;
 
     &:hover {
-      border-color: var(--border-color, rgba(0, 0, 0, 0.15));
-      background: var(--bg-tertiary, rgba(0, 0, 0, 0.04));
+      border-color: var(--border-color);
+      background: var(--bg-tertiary);
     }
   }
 
@@ -319,8 +319,8 @@ const cancelEdit = () => {
     border-radius: 4px;
     border: 1px solid var(--primary-color);
     outline: none;
-    background: var(--bg-primary, #fff);
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    background: var(--bg-primary);
+    color: var(--text-primary);
     text-align: center;
     min-width: 120px;
     max-width: 300px;

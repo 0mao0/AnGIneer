@@ -267,7 +267,7 @@ const canStop = computed(() => {
         justify-content: center;
         font-size: 10px;
         font-weight: 500;
-        background: var(--bg-tertiary, #f0f0f0);
+        background: var(--bg-tertiary);
         color: var(--text-tertiary, #999);
 
         .step-num {
@@ -291,7 +291,7 @@ const canStop = computed(() => {
           color: #fff;
         }
         .step-text {
-          color: var(--text-secondary, #666);
+          color: var(--text-secondary);
         }
       }
 
@@ -345,7 +345,7 @@ const canStop = computed(() => {
       line-height: 1.4;
       margin-top: 4px;
       padding: 6px 8px;
-      background: var(--bg-secondary, #fafafa);
+      background: var(--bg-secondary);
       border-radius: 4px;
 
       .stage-detail-icon {

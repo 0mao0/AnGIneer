@@ -96,8 +96,8 @@ const edgeStyle = computed(() => {
   }
   return {
     stroke: hovered.value || props.selected
-      ? 'var(--primary-color, #1890ff)'
-      : 'var(--text-secondary, #667085)',
+      ? 'var(--primary-color)'
+      : 'var(--text-secondary)',
     strokeWidth: hovered.value || props.selected ? 2.75 : 2,
   }
 })
@@ -130,7 +130,7 @@ const edgeStyle = computed(() => {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--panel-bg, #fff);
+  background: var(--panel-bg);
   border: 1px solid rgba(255, 77, 79, 0.45);
   color: #ff4d4f;
   display: flex;

@@ -170,7 +170,7 @@ defineExpose({
 <style lang="less" scoped>
 .eval-node-count {
   font-size: 12px;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--text-secondary);
   background: var(--bg-tertiary);
   padding: 0 6px;
   border-radius: 10px;

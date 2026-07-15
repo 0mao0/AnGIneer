@@ -28,7 +28,7 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         javascriptEnabled: true,
-        additionalData: `@import "${resolve(__dirname, '../../packages/evals-ui/src/styles/variables.less')}";\n`
+        additionalData: `@import "${resolve(__dirname, '../../packages/ui-kit/src/styles/variables.less')}";\n`
       }
     }
   },

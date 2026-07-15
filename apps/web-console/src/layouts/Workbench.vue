@@ -98,7 +98,7 @@ const closeTabFromError = (tabKey: string) => {
 
 .tabs-bar {
   background: var(--panel-bg);
-  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.06));
+  border-bottom: 1px solid var(--border-color);
   transition: background-color 0.3s, border-color 0.3s;
 
   :deep(.ant-tabs) {

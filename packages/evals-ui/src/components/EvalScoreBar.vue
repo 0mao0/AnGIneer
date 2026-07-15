@@ -47,7 +47,7 @@ const displayText = computed(() => {
   &__label {
     flex-shrink: 0;
     font-size: 13px;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
     min-width: 60px;
   }
 

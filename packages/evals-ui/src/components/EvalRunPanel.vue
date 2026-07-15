@@ -234,7 +234,7 @@ const onDeleteClick = () => {
 
     &-time {
       font-size: 12px;
-      color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+      color: var(--text-secondary);
       margin-bottom: 4px;
     }
 
@@ -257,7 +257,7 @@ const onDeleteClick = () => {
 
     &-label {
       font-size: 13px;
-      color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+      color: var(--text-secondary);
       margin-top: 4px;
     }
 
@@ -270,7 +270,7 @@ const onDeleteClick = () => {
 
     &-run {
       font-size: 11px;
-      color: var(--text-secondary, rgba(0, 0, 0, 0.35));
+      color: var(--text-secondary);
       margin-top: 2px;
 
       :deep(.ant-select) {
@@ -297,7 +297,7 @@ const onDeleteClick = () => {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 8px;
-    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+    color: var(--text-secondary);
   }
 
   &__levels {
