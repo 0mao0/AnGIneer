@@ -1,6 +1,7 @@
 export { default as AppHeader } from './layout/AppHeader.vue'
 export { default as Panel } from './layout/Panel.vue'
 export { default as SplitPanes } from './layout/SplitPanes.vue'
+export { default as TabErrorBoundary } from './layout/TabErrorBoundary.vue'
 export { default as IconFont } from './common/IconFont.vue'
 export { default as Loading } from './common/Loading.vue'
 export { default as EmptyState } from './common/EmptyState.vue'

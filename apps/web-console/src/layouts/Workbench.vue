@@ -16,7 +16,13 @@
       <div v-if="tabs.length === 0" class="empty-state">
         <a-empty description="打开文档或项目开始工作" />
       </div>
-      <component v-else :is="currentViewer" v-bind="currentTab?.props" />
+      <TabErrorBoundary
+        v-else
+        :tab-key="currentTab?.key"
+        @close="closeTabFromError"
+      >
+        <component :is="currentViewer" v-bind="currentTab?.props" />
+      </TabErrorBoundary>
     </div>
   </div>
 </template>
@@ -25,6 +31,7 @@
 import { computed } from 'vue'
 import { FileTextOutlined, ApiOutlined, EnvironmentOutlined } from '@ant-design/icons-vue'
 import type { WorkbenchTabType } from '@angineer/docs-ui'
+import { TabErrorBoundary } from '@angineer/ui-kit'
 import { useWorkbenchStore } from '@/stores/workbench'
 import { useTheme } from '@angineer/ui-kit'
 import DocumentView from '@/views/DocumentView.vue'
@@ -73,6 +80,10 @@ const handleTabEdit = (targetKey: string | MouseEvent | KeyboardEvent, action: '
     return
   }
   workbenchStore.closeTab(targetKey)
+}
+
+const closeTabFromError = (tabKey: string) => {
+  workbenchStore.closeTab(tabKey)
 }
 </script>
 
