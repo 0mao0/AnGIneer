@@ -42,20 +42,20 @@
 
 <script setup lang="ts">
 import { BookOutlined, ApiOutlined, EnvironmentOutlined } from '@ant-design/icons-vue'
-import { useRouter } from 'vue-router'
+import { useWorkbenchStore } from '@/stores/workbench'
 
-const router = useRouter()
+const workbenchStore = useWorkbenchStore()
 
 const openKnowledge = () => {
-  router.push('/document/kb-1-ch1')
+  workbenchStore.setActiveTab('')
 }
 
 const openSOP = () => {
-  router.push('/sop/sop-1')
+  workbenchStore.setActiveTab('')
 }
 
 const openGIS = () => {
-  router.push('/gis')
+  workbenchStore.setActiveTab('')
 }
 </script>
 

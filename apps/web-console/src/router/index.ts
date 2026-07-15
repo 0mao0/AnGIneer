@@ -8,19 +8,12 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/Home.vue')
   },
   {
-    path: '/document/:id',
-    name: 'Document',
-    component: () => import('@/views/DocumentView.vue')
+    path: '/tab/:tabKey+',
+    name: 'TabDeepLink'
   },
   {
-    path: '/sop/:id',
-    name: 'SOP',
-    component: () => import('@/views/SOPView.vue')
-  },
-  {
-    path: '/gis',
-    name: 'GIS',
-    component: () => import('@/views/GISView.vue')
+    path: '/:pathMatch(.*)*',
+    redirect: '/'
   }
 ]
 

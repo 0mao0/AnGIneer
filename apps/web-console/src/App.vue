@@ -79,10 +79,13 @@ import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
 import { ADMIN_CONSOLE_ORIGIN, ADMIN_CONSOLE_PORT, LOCAL_HOST } from '../../shared/ports'
 import { useWorkbenchStore } from '@/stores/workbench'
+import { useTabRouterSync } from '@/composables/useTabRouterSync'
 
 type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
 
 const { themeConfig, appClass } = useTheme()
+
+useTabRouterSync()
 const activeSection = ref<ResourcePanelSection>('knowledge')
 const workbenchStore = useWorkbenchStore()
 const appVersion = import.meta.env.VITE_APP_VERSION || ''
