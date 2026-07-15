@@ -9,7 +9,16 @@
       <a-tab-pane key="knowledge" tab="知识">
         <keep-alive>
           <div class="knowledge-panel">
+            <EmptyState
+              v-if="error && !treeData.length"
+              variant="error"
+              title="加载失败"
+              :description="error.message"
+              cta-text="重试"
+              @cta-click="loadNodes"
+            />
             <KnowledgeTree
+              v-else
               :tree-data="treeData"
               v-bind="treeProps"
               :loading="loading"
@@ -28,14 +37,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted } from 'vue'
 import { KnowledgeTree, useKnowledgeTree, createResourceNodeFromKnowledge } from '@angineer/docs-ui'
 import SOPSidebar from './sidebar/SOPSidebar.vue'
 import ProjectSidebar from './sidebar/ProjectSidebar.vue'
-import { useTheme } from '@angineer/ui-kit'
+import { useTheme, EmptyState } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
 import type { SmartTreeNode } from '@angineer/docs-ui'
 import { useResourceOpen } from '@/composables/useResourceOpen'
+import { useRetryableLoad } from '@/composables/useRetryableLoad'
 
 type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
 
@@ -56,7 +66,14 @@ const activeTab = computed({
 })
 
 const { treeData, buildTree } = useKnowledgeTree()
-const loading = ref(false)
+const { loading, error, reload: loadNodes } = useRetryableLoad(
+  async () => {
+    const response = await knowledgeApi.getNodes('default', true) as unknown as any[]
+    treeData.value = buildTree(response)
+    return response
+  },
+  { errorMessage: '加载知识库节点失败，请检查网络或后端服务' }
+)
 const { openResource } = useResourceOpen()
 const treeProps = {
   showSearch: true,
@@ -66,18 +83,6 @@ const treeProps = {
   draggable: false,
   allowAddFile: false,
   emptyText: '暂无文档'
-}
-
-const loadNodes = async () => {
-  loading.value = true
-  try {
-    const response = await knowledgeApi.getNodes('default', true) as unknown as any[]
-    treeData.value = buildTree(response)
-  } catch (error) {
-    console.error('加载知识库节点失败:', error)
-  } finally {
-    loading.value = false
-  }
 }
 
 const onTreeSelect = async (_keys: string[], nodes: SmartTreeNode[]) => {
