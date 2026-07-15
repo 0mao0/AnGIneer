@@ -29,42 +29,35 @@
           </template>
         </SplitPanes>
 
-        <!-- AI 对话悬浮按钮 -->
         <a-button
           class="ai-chat-fab"
           type="primary"
           shape="circle"
           size="large"
           :icon="h(MessageOutlined)"
-          @click="aiChatVisible = !aiChatVisible"
-          :title="aiChatVisible ? '关闭AI对话' : '打开AI对话'"
+          @click="aiChatVisible = true"
+          :title="'打开AI对话'"
         />
 
-        <!-- AI 对话悬浮面板 -->
-        <Transition name="ai-panel">
-          <div v-if="aiChatVisible" class="ai-chat-overlay" @click.self="aiChatVisible = false">
-            <div class="ai-chat-panel" @click.stop>
-              <div class="ai-chat-panel-header">
-                <div class="ai-chat-panel-title">
-                  <MessageOutlined />
-                  <span>{{ chatPanelTitle }}</span>
-                </div>
-                <a-button type="text" size="small" @click="aiChatVisible = false">
-                  <template #icon><CloseOutlined /></template>
-                </a-button>
-              </div>
-              <div class="ai-chat-panel-body">
-                <AIChat
-                  title=""
-                  :placeholder="chatPanelPlaceholder"
-                  :show-context-info="true"
-                  :scene="activeSection === 'sop' ? 'sops' : 'docs'"
-                  :session-id="chatSessionId"
-                />
-              </div>
-            </div>
+        <a-drawer
+          v-model:open="aiChatVisible"
+          title="AI 对话"
+          placement="right"
+          :width="440"
+          :body-style="{ padding: 0, height: '100%', display: 'flex', flexDirection: 'column' }"
+          :mask="false"
+          :z-index="1001"
+        >
+          <div class="ai-chat-panel-body">
+            <AIChat
+              title=""
+              :placeholder="chatPanelPlaceholder"
+              :show-context-info="true"
+              :scene="activeSection === 'sop' ? 'sops' : 'docs'"
+              :session-id="chatSessionId"
+            />
           </div>
-        </Transition>
+        </a-drawer>
       </div>
     </a-app>
   </a-config-provider>
@@ -73,7 +66,7 @@
 <script setup lang="ts">
 import { computed, ref, h } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import { MessageOutlined, CloseOutlined } from '@ant-design/icons-vue'
+import { MessageOutlined } from '@ant-design/icons-vue'
 import { AppHeader, SplitPanes, AIChat, useTheme } from '@angineer/ui-kit'
 import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
@@ -105,22 +98,18 @@ const chatPanelPlaceholder = computed(() => (
   activeSection.value === 'sop' ? '输入 SOP 问题，Enter 发送...' : '输入消息，Enter 发送...'
 ))
 
-/** 跳转到管理后台（开发环境用独立端口，生产环境同源） */
 const adminConsoleHref = import.meta.env.DEV
   ? `http://${LOCAL_HOST}:${ADMIN_CONSOLE_PORT}/admin/`
   : ADMIN_CONSOLE_ORIGIN
 
-/** 跳转到管理后台 */
 const goToAdmin = () => {
   window.location.href = adminConsoleHref
 }
 
-/** 项目名称变更回调 */
 const onProjectNameChange = (name: string) => {
   projectName.value = name
 }
 
-/** 打开设置 */
 const openSettings = () => {
   console.log('Open settings')
 }
@@ -161,7 +150,6 @@ html, body, #app {
   min-height: 0;
 }
 
-/* --- AI 对话悬浮按钮 --- */
 .ai-chat-fab {
   position: fixed;
   right: 24px;
@@ -179,58 +167,6 @@ html, body, #app {
   }
 }
 
-/* --- AI 对话悬浮面板 --- */
-.ai-chat-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  pointer-events: none;
-}
-
-.ai-chat-panel {
-  position: fixed;
-  right: 24px;
-  bottom: 84px;
-  width: 440px;
-  height: 600px;
-  max-height: calc(100vh - 140px);
-  background: var(--panel-bg);
-  border-radius: 12px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  pointer-events: auto;
-  z-index: 1001;
-  border: 1px solid var(--border-color);
-}
-
-.ai-chat-panel-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border-color);
-  flex-shrink: 0;
-  background: var(--panel-header-bg);
-}
-
-.ai-chat-panel-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--text-primary);
-
-  .anticon {
-    color: var(--primary-color);
-  }
-}
-
 .ai-chat-panel-body {
   flex: 1;
   min-height: 0;
@@ -239,17 +175,5 @@ html, body, #app {
   .base-chat-component {
     height: 100%;
   }
-}
-
-/* --- 面板进出动画 --- */
-.ai-panel-enter-active,
-.ai-panel-leave-active {
-  transition: all 0.25s ease;
-}
-
-.ai-panel-enter-from,
-.ai-panel-leave-to {
-  opacity: 0;
-  transform: translateY(12px) scale(0.97);
 }
 </style>
