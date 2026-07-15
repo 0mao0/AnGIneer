@@ -1,21 +1,18 @@
 import type { DocumentResponse } from '@angineer/docs-ui'
-import axios from 'axios'
-import { getApiClientConfig, registerDataUnwrapInterceptor } from '../../../shared/apiClient'
-
-const api = registerDataUnwrapInterceptor(axios.create(getApiClientConfig({ baseURL: '/api' })))
+import { sharedApiClient } from '../../../shared/createApiClient'
 
 export const knowledgeApi = {
   getNodes: (libraryId: string = 'default', visible: boolean = false) =>
-    api.get('/knowledge/nodes', { params: { library_id: libraryId, visible } }),
+    sharedApiClient.get('/knowledge/nodes', { params: { library_id: libraryId, visible } }),
 
   getDocument: (libraryId: string, docId: string) =>
-    api.get(`/knowledge/document/${libraryId}/${docId}`) as Promise<DocumentResponse>,
+    sharedApiClient.get<DocumentResponse>(`/knowledge/document/${libraryId}/${docId}`),
 
   getDocBlocksGraph: (libraryId: string, docId: string) =>
-    api.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }),
+    sharedApiClient.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }),
 
   buildStructuredIndex: (libraryId: string, docId: string, strategy: string = 'doc_blocks_graph_v1') =>
-    api.post('/knowledge/parse/structured-index', { library_id: libraryId, doc_id: docId, strategy })
+    sharedApiClient.post('/knowledge/parse/structured-index', { library_id: libraryId, doc_id: docId, strategy })
 }
 
-export default api
+export default sharedApiClient
