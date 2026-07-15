@@ -93,12 +93,17 @@ app.include_router(graph_router, prefix="/api/graph", tags=["Knowledge Graph"])
 SOP_BASE_DIR = os.path.join(ROOT_DIR, "data", "sops")
 sop_loader = SopLoader(SOP_BASE_DIR)
 
+# 允许的 CORS 来源（从环境变量读取，逗号分隔；默认仅允许本地前端）
+_default_origins = "http://localhost:3005,http://localhost:3002,http://127.0.0.1:3005,http://127.0.0.1:3002"
+_allowed_origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", _default_origins).split(",") if o.strip()]
+
 # Enable CORS for Vue frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=_allowed_origins,
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=False,
 )
 
 # --- Static Files Handling ---

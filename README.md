@@ -18,16 +18,16 @@
 
 ### 2.1 系统矩阵
 
-| 子系统                | 核心职责      | 主要任务                   |
-| :----------------- | :-------- | :--------------------- |
-| **AnGIneer-Core**  | **核心大脑**  | Agent意图识别、工具调度、记忆黑板等   |
-| **AnGIneer-Docs**           | **结构化规范**  | 基于MinerU的规范自动解析与知识库管理       |
-| **AnGIneer-KnowledgeGraph** | **知识图谱**   | 基于文档A，LLM提取实体关系动态生成图谱B + cangjie-skill提取器附加语义标注 |
-| **AnGIneer-SOP**            | **经验流程**   | 基于图谱B自动生成SOP + SOP CRUD + 运行时契约 |
-| **AnGIneer-Evals** | **评测引擎**  | 测试集                    |
-| **AnGIneer-Tools** | **专业工具**  | 工程计算器、脚本库等             |
-| **AnGIneer-Geo**   | **世界底座**  | 集成GIS、水文气象等，供AI使用。     |
-| **AnGIneer-AI**    | **AI 模型** | LLM 客户端 + 本地 Embedding/Reranker 模型服务 |
+| 子系统                | 核心职责      | 主要任务                   | 输入                          | 输出                          |
+| :----------------- | :-------- | :--------------------- | :-------------------------- | :-------------------------- |
+| **AnGIneer-Core**  | **核心大脑**  | Agent意图识别、工具调度、记忆黑板等   | 用户问题、对话上下文、历史会话              | 调度决策（L0-L4）、最终答案、执行轨迹        |
+| **AnGIneer-Docs**           | **结构化规范**  | 基于MinerU的规范自动解析与知识库管理       | PDF / DOCX / 图片（规范文档）       | 结构化 JSON、Markdown、知识库索引、引用证据 |
+| **AnGIneer-KnowledgeGraph** | **知识图谱**   | 基于文档A，LLM提取实体关系动态生成图谱B + cangjie-skill提取器附加语义标注 | 结构化文档 A（来自 Docs）            | 知识图谱 B（实体/关系/路径）            |
+| **AnGIneer-SOP**            | **经验流程**   | 基于图谱B自动生成SOP + SOP CRUD + 运行时契约 | 知识图谱 B（实体路径）、用户手动修改         | SOP JSON、运行时执行结果、黑板变量       |
+| **AnGIneer-Evals** | **评测引擎**  | 测试集                    | 题集（问/答/期望）、被测模块调用结果         | 评分报告、对比看板、误差分析              |
+| **AnGIneer-Tools** | **专业工具**  | 工程计算器、脚本库等             | 工程参数（数值/表格）                 | 计算结果、中间过程、单位/校验结论           |
+| **AnGIneer-Geo**   | **世界底座**  | 集成GIS、水文气象等，供AI使用。     | 地理位置、查询条件（行政区/坐标/流域）        | GIS 数据、水文气象数据、底图要素          |
+| **AnGIneer-AI**    | **AI 模型** | LLM 客户端 + 本地 Embedding/Reranker 模型服务 | prompt、对话历史、文档片段            | LLM 文本回复、嵌入向量、重排得分          |
 
 ***
 
@@ -403,6 +403,25 @@ pnpm harness
 pnpm harness:workflow
 pnpm harness:tooling
 pnpm docs:arch-check
+```
+
+## 5. 开发约定
+
+### 5.1 多租户预留（tenant_id 规约）
+
+当前为单租户形态，但所有持久化层**必须预留 `tenant_id` 字段**，为未来 SaaS 化（v2.0）避免痛苦的 schema 迁移。
+
+- **所有新建表**必须包含 `tenant_id TEXT NOT NULL DEFAULT 'default'` 字段，并建立联合索引 `(tenant_id, ...)`。
+- **现有表**暂不强行迁移；如本就有 schema 变更时，顺带补上该字段。
+- **查询路径**所有 list/get 接口预留 `tenant_id` 形参（默认 `'default'`），暂不启用过滤；启用时机为 v2.0 多租户改造。
+- **配置项**：通过环境变量 `ALLOWED_ORIGINS`、`DEFAULT_TENANT_ID` 控制；上线时再启用 API Key 中间件按 `api_key → tenant_id` 映射。
+
+### 5.2 CORS 配置
+
+生产/对外部署时，必须通过环境变量显式配置允许的前端来源，禁止使用 `*`：
+
+```
+ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com
 ```
 
 ***
