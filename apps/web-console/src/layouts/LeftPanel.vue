@@ -2,20 +2,26 @@
   <div class="left-panel-container" :class="appClass">
     <a-tabs v-model:activeKey="activeTab" class="resource-tabs">
       <a-tab-pane key="project" tab="项目">
-        <ProjectSidebar />
+        <keep-alive>
+          <ProjectSidebar />
+        </keep-alive>
       </a-tab-pane>
       <a-tab-pane key="knowledge" tab="知识">
-        <div class="knowledge-panel">
-          <KnowledgeTree
-            :tree-data="treeData"
-            v-bind="treeProps"
-            :loading="loading"
-            @select="onTreeSelect"
-          />
-        </div>
+        <keep-alive>
+          <div class="knowledge-panel">
+            <KnowledgeTree
+              :tree-data="treeData"
+              v-bind="treeProps"
+              :loading="loading"
+              @select="onTreeSelect"
+            />
+          </div>
+        </keep-alive>
       </a-tab-pane>
       <a-tab-pane key="sop" tab="经验">
-        <SOPSidebar />
+        <keep-alive>
+          <SOPSidebar />
+        </keep-alive>
       </a-tab-pane>
     </a-tabs>
   </div>
