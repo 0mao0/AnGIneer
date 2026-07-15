@@ -55,4 +55,8 @@ export const useWorkbenchStore = defineStore('workbench', () => {
     closeTab,
     setActiveTab
   }
+}, {
+  persist: {
+    pick: ['tabs', 'activeTab']
+  }
 })
