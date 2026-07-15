@@ -13,9 +13,18 @@
       </a-tabs>
     </div>
     <div class="content-area">
-      <div v-if="tabs.length === 0" class="empty-state">
-        <a-empty description="打开文档或项目开始工作" />
-      </div>
+      <EmptyState
+        v-if="tabs.length === 0"
+        title="开始工作"
+        description="从左侧选择文档或 SOP，或点击下方按钮快速导航"
+      >
+        <template #action>
+          <a-space>
+            <a-button type="primary" @click="$emit('navigate-section', 'knowledge')">打开知识库</a-button>
+            <a-button @click="$emit('navigate-section', 'sop')">查看 SOP</a-button>
+          </a-space>
+        </template>
+      </EmptyState>
       <TabErrorBoundary
         v-else
         :tab-key="currentTab?.key"
@@ -31,9 +40,8 @@
 import { computed } from 'vue'
 import { FileTextOutlined, ApiOutlined, EnvironmentOutlined } from '@ant-design/icons-vue'
 import type { WorkbenchTabType } from '@angineer/docs-ui'
-import { TabErrorBoundary } from '@angineer/ui-kit'
+import { TabErrorBoundary, EmptyState, useTheme } from '@angineer/ui-kit'
 import { useWorkbenchStore } from '@/stores/workbench'
-import { useTheme } from '@angineer/ui-kit'
 import DocumentView from '@/views/DocumentView.vue'
 import SOPView from '@/views/SOPView.vue'
 import GISView from '@/views/GISView.vue'
@@ -41,6 +49,10 @@ import ProjectView from '@/views/ProjectView.vue'
 
 const workbenchStore = useWorkbenchStore()
 const { appClass } = useTheme()
+
+defineEmits<{
+  'navigate-section': [section: 'project' | 'knowledge' | 'sop' | 'gis']
+}>()
 
 const activeTab = computed({
   get: () => workbenchStore.activeTab,
@@ -114,12 +126,5 @@ const closeTabFromError = (tabKey: string) => {
   overflow: hidden;
   background: var(--bg-primary);
   transition: background-color 0.3s;
-}
-
-.empty-state {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 </style>

@@ -25,7 +25,7 @@
             <LeftPanel v-model:active-section="activeSection" />
           </template>
           <template #center>
-            <Workbench />
+            <Workbench @navigate-section="onNavigateSection" />
           </template>
         </SplitPanes>
 
@@ -112,6 +112,13 @@ const openSettings = () => {
 
 const handleResize = (leftSize: number, rightSize: number) => {
   console.log('Resize:', leftSize, rightSize)
+}
+
+const onNavigateSection = (section: 'project' | 'knowledge' | 'sop' | 'gis') => {
+  if (section === 'gis') {
+    return
+  }
+  activeSection.value = section
 }
 </script>
 

@@ -12,7 +12,7 @@
     <a-divider />
     
     <a-row :gutter="16" class="quick-actions">
-      <a-col :span="8">
+      <a-col :xs="24" :sm="12" :md="8">
         <a-card hoverable @click="openKnowledge">
           <template #cover>
             <div class="card-icon"><BookOutlined /></div>
@@ -20,7 +20,7 @@
           <a-card-meta title="知识库" description="浏览工程规范、标准文档" />
         </a-card>
       </a-col>
-      <a-col :span="8">
+      <a-col :xs="24" :sm="12" :md="8">
         <a-card hoverable @click="openSOP">
           <template #cover>
             <div class="card-icon"><ApiOutlined /></div>
@@ -28,7 +28,7 @@
           <a-card-meta title="SOP 流程" description="执行标准作业流程" />
         </a-card>
       </a-col>
-      <a-col :span="8">
+      <a-col :xs="24" :sm="12" :md="8">
         <a-card hoverable @click="openGIS">
           <template #cover>
             <div class="card-icon"><EnvironmentOutlined /></div>
@@ -42,20 +42,21 @@
 
 <script setup lang="ts">
 import { BookOutlined, ApiOutlined, EnvironmentOutlined } from '@ant-design/icons-vue'
-import { useWorkbenchStore } from '@/stores/workbench'
 
-const workbenchStore = useWorkbenchStore()
+const emit = defineEmits<{
+  'navigate-section': [section: 'project' | 'knowledge' | 'sop' | 'gis']
+}>()
 
 const openKnowledge = () => {
-  workbenchStore.setActiveTab('')
+  emit('navigate-section', 'knowledge')
 }
 
 const openSOP = () => {
-  workbenchStore.setActiveTab('')
+  emit('navigate-section', 'sop')
 }
 
 const openGIS = () => {
-  workbenchStore.setActiveTab('')
+  emit('navigate-section', 'gis')
 }
 </script>
 
