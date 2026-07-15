@@ -75,27 +75,27 @@
 
     <div class="sop-flow-toolbar sop-flow-toolbar--top">
       <a-tooltip v-if="!readOnly" title="撤销">
-        <a-button size="small" :disabled="!canUndo" @click="$emit('undo')">
+        <a-button size="small" :disabled="!canUndo" aria-label="撤销" @click="$emit('undo')">
           <template #icon><UndoOutlined /></template>
         </a-button>
       </a-tooltip>
       <a-tooltip v-if="!readOnly" title="重做">
-        <a-button size="small" :disabled="!canRedo" @click="$emit('redo')">
+        <a-button size="small" :disabled="!canRedo" aria-label="重做" @click="$emit('redo')">
           <template #icon><RedoOutlined /></template>
         </a-button>
       </a-tooltip>
       <a-tooltip v-if="!readOnly" title="添加步骤">
-        <a-button size="small" @click="$emit('add-step')">
+        <a-button size="small" aria-label="添加步骤" @click="$emit('add-step')">
           <template #icon><PlusOutlined /></template>
         </a-button>
       </a-tooltip>
       <a-tooltip v-if="!readOnly" title="删除选中节点">
-        <a-button size="small" :disabled="!selectedStepId" @click="$emit('delete-step', selectedStepId!)">
+        <a-button size="small" :disabled="!selectedStepId" aria-label="删除选中节点" @click="$emit('delete-step', selectedStepId!)">
           <template #icon><DeleteOutlined /></template>
         </a-button>
       </a-tooltip>
       <a-tooltip v-if="!readOnly" title="保存">
-        <a-button size="small" type="primary" :disabled="!isDirty" @click="$emit('save')">
+        <a-button size="small" type="primary" :disabled="!isDirty" aria-label="保存" @click="$emit('save')">
           <template #icon><SaveOutlined /></template>
         </a-button>
       </a-tooltip>
@@ -127,22 +127,22 @@
 
     <div class="sop-flow-toolbar sop-flow-toolbar--bottom">
       <a-tooltip title="适应画布">
-        <a-button size="small" @click="fitView">
+        <a-button size="small" aria-label="适应视图" @click="fitView">
           <template #icon><CompressOutlined /></template>
         </a-button>
       </a-tooltip>
       <a-tooltip title="放大">
-        <a-button size="small" @click="zoomIn">
+        <a-button size="small" aria-label="放大" @click="zoomIn">
           <template #icon><ZoomInOutlined /></template>
         </a-button>
       </a-tooltip>
       <a-tooltip title="缩小">
-        <a-button size="small" @click="zoomOut">
+        <a-button size="small" aria-label="缩小" @click="zoomOut">
           <template #icon><ZoomOutOutlined /></template>
         </a-button>
       </a-tooltip>
       <a-tooltip title="自动布局">
-        <a-button size="small" @click="$emit('auto-layout')">
+        <a-button size="small" aria-label="自动布局" @click="$emit('auto-layout')">
           <template #icon><ApartmentOutlined /></template>
         </a-button>
       </a-tooltip>
