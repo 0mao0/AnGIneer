@@ -1,52 +1,29 @@
-/**
- * 统一 API 客户端封装，替代组件内直接使用 fetch。
- * 提供领域 API（llmApi、queryApi）供 ui-kit 内部组件使用。
- */
+import { sharedApiClient } from '../../../../apps/shared/createApiClient'
+import type { AxiosRequestConfig } from 'axios'
 
-/** POST 请求可选参数 */
 interface ApiPostOptions {
   signal?: AbortSignal
 }
 
-/** 通用 GET 请求 */
 async function apiGet<T = any>(url: string): Promise<T> {
-  const response = await fetch(url)
-  if (!response.ok) {
-    throw new Error(`API GET ${url} failed: ${response.status}`)
-  }
-  return response.json()
+  return sharedApiClient.get<T>(url)
 }
 
-/** 通用 POST 请求，支持 AbortSignal */
 async function apiPost<T = any>(url: string, body: any, options?: ApiPostOptions): Promise<T> {
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-    signal: options?.signal,
-  })
-  if (!response.ok) {
-    throw new Error(`API POST ${url} failed: ${response.status}`)
-  }
-  return response.json()
+  const config: AxiosRequestConfig = { signal: options?.signal }
+  return sharedApiClient.post<T>(url, body, config)
 }
 
-/** LLM 配置 API */
 export const llmApi = {
-  /** 获取可用模型配置列表 */
-  getConfigs: () => apiGet<any[]>('/api/llm_configs'),
+  getConfigs: () => apiGet<any[]>('/llm_configs'),
 }
 
-/** 查询 API */
 export const queryApi = {
-  /** 发送查询请求 */
-  query: (payload: any, options?: ApiPostOptions) => apiPost<any>('/api/query', payload, options),
+  query: (payload: any, options?: ApiPostOptions) => apiPost<any>('/query', payload, options),
 }
 
-/** 知识引用检索 API */
 export const referenceApi = {
-  /** 搜索知识引用候选 */
-  search: (payload: any, options?: ApiPostOptions) => apiPost<any>('/api/knowledge/references/search', payload, options),
+  search: (payload: any, options?: ApiPostOptions) => apiPost<any>('/knowledge/references/search', payload, options),
 }
 
 export const apiClient = { get: apiGet, post: apiPost }
