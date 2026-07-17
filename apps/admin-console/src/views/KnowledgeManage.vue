@@ -2,15 +2,28 @@
   <div ref="workspaceRef" class="knowledge-workspace" :class="appClass">
     <!-- 使用 SplitPanes 三栏布局组件 - 比例 1.5:6:2.5 -->
     <SplitPanes
+      ref="splitPanesRef"
       class="workspace-container"
       :initial-left-ratio="panelRatios.left"
       :initial-right-ratio="panelRatios.right"
+      :left-collapsible="true"
+      :left-collapsed="leftPanelCollapsed"
+      @update:left-collapsed="onLeftCollapsedChange"
+      :right-collapsible="true"
+      :right-collapsed="rightPanelCollapsed"
+      @update:right-collapsed="onRightCollapsedChange"
       @resize="onPanelResize"
     >
       <!-- 左侧：知识树 -->
       <template #left>
         <Panel title="知识树" :icon="FolderOutlined" contentClass="tree-panel-content">
-
+          <template #extra>
+            <a-tooltip title="收起侧边栏">
+              <a-button size="small" class="header-icon-btn" @click="splitPanesRef?.toggleLeft()">
+                <template #icon><MenuFoldOutlined /></template>
+              </a-button>
+            </a-tooltip>
+          </template>
           <div
             class="tree-container"
           >
@@ -146,7 +159,11 @@
       <template #right>
         <Panel title="AI 对话" :icon="MessageOutlined">
           <template #extra>
-            <span />
+            <a-tooltip title="收起侧边栏">
+              <a-button size="small" class="header-icon-btn" @click="splitPanesRef?.toggleRight()">
+                <template #icon><MenuUnfoldOutlined /></template>
+              </a-button>
+            </a-tooltip>
           </template>
           <AIChat
             ref="knowledgeChatRef"
@@ -243,7 +260,9 @@ import {
   EditOutlined,
   FileAddOutlined,
   DeleteOutlined,
-  EyeOutlined
+  EyeOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined
 } from '@ant-design/icons-vue'
 
 // 导入 packages 中的组件和 composables
@@ -321,6 +340,7 @@ const {
 const allowedFileTypes = ['.pdf', '.doc', '.docx', '.md']
 const PANEL_LAYOUT_STORAGE_KEY = 'angineer-admin-knowledge-layout-v1'
 const workspaceRef = ref<HTMLElement | null>(null)
+const splitPanesRef = ref<InstanceType<typeof SplitPanes> | null>(null)
 
 const clampRatio = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value))
 
@@ -328,6 +348,22 @@ const panelRatios = ref({
   left: 0.15,
   right: 0.25
 })
+
+// 面板收起状态，从 localStorage 恢复
+const leftPanelCollapsed = ref(localStorage.getItem('angineer-knowledge-left-collapsed') === 'true')
+const rightPanelCollapsed = ref(localStorage.getItem('angineer-knowledge-right-collapsed') === 'true')
+
+/** 持久化左侧收起状态 */
+const onLeftCollapsedChange = (val: boolean) => {
+  leftPanelCollapsed.value = val
+  localStorage.setItem('angineer-knowledge-left-collapsed', String(val))
+}
+
+/** 持久化右侧收起状态 */
+const onRightCollapsedChange = (val: boolean) => {
+  rightPanelCollapsed.value = val
+  localStorage.setItem('angineer-knowledge-right-collapsed', String(val))
+}
 
 const graphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
 const graphDataLoading = ref(false)

@@ -7,25 +7,25 @@
         </keep-alive>
       </a-tab-pane>
       <a-tab-pane key="knowledge" tab="知识">
-        <keep-alive>
-          <div class="knowledge-panel">
-            <EmptyState
-              v-if="error && !treeData.length"
-              variant="error"
-              title="加载失败"
-              :description="error.message"
-              cta-text="重试"
-              @cta-click="loadNodes"
-            />
+        <div class="knowledge-panel">
+          <EmptyState
+            v-if="error && !treeData.length"
+            variant="error"
+            title="加载失败"
+            :description="error.message"
+            cta-text="重试"
+            @cta-click="loadNodes"
+          />
+          <!-- keep-alive 只包 KnowledgeTree，确保切 tab 后展开状态保留 -->
+          <keep-alive v-else>
             <KnowledgeTree
-              v-else
               :tree-data="treeData"
               v-bind="treeProps"
               :loading="loading"
               @select="onTreeSelect"
             />
-          </div>
-        </keep-alive>
+          </keep-alive>
+        </div>
       </a-tab-pane>
       <a-tab-pane key="sop" tab="经验">
         <keep-alive>

@@ -22,7 +22,7 @@
             <a-button type="primary" @click="restart">从头重新执行</a-button>
           </template>
         </a-result>
-        <a-steps v-else :current="currentStep" direction="vertical" v-if="stepList.length">
+        <a-steps v-else-if="stepList.length" :current="currentStep" direction="vertical">
           <a-step v-for="(step, index) in stepList" :key="step.id" :title="step.title" :description="step.desc">
             <template #icon>
               <CheckCircleFilled v-if="index < currentStep" />

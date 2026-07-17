@@ -35,8 +35,9 @@
           shape="circle"
           size="large"
           :icon="h(MessageOutlined)"
-          @click="aiChatVisible = true"
-          :title="'打开AI对话'"
+          :aria-label="aiChatVisible ? '关闭AI对话' : '打开AI对话'"
+          :title="aiChatVisible ? '关闭AI对话' : '打开AI对话'"
+          @click="aiChatVisible = !aiChatVisible"
         />
 
         <a-drawer

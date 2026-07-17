@@ -1,21 +1,30 @@
 <template>
-  <!-- 三栏可调整面板组件 - 支持左右两侧面板宽度调整 -->
-  <div class="split-pane" ref="containerRef" :class="{ 'left-collapsed': leftCollapsed }">
-    <div class="pane pane-left" :style="{ width: effectiveLeftWidth + 'px' }" v-show="!leftCollapsed">
+  <!-- 三栏可调整面板组件 - 支持左右两侧面板宽度拖拽调整和收起 -->
+  <div
+    class="split-pane"
+    ref="containerRef"
+    :class="{ 'left-collapsed': leftCollapsed, 'right-collapsed': rightCollapsed }"
+  >
+    <!-- 左侧面板 -->
+    <div
+      v-show="!leftCollapsed"
+      class="pane pane-left"
+      :style="{ width: effectiveLeftWidth + 'px' }"
+    >
       <slot name="left" />
     </div>
 
+    <!-- 左侧收起/展开细条入口（仅在收起后显示） -->
     <div
-      v-if="leftCollapsible"
-      class="collapse-toggle left-collapse-toggle"
-      :class="{ collapsed: leftCollapsed }"
-      @click="toggleLeftCollapse"
-      :title="leftCollapsed ? '展开侧边栏' : '收起侧边栏'"
+      v-if="leftCollapsible && leftCollapsed"
+      class="collapse-toggle left-collapse-toggle collapsed"
+      @click="toggleLeft"
+      title="展开侧边栏"
     >
-      <LeftOutlined v-if="!leftCollapsed" />
-      <RightOutlined v-else />
+      <RightOutlined />
     </div>
 
+    <!-- 左侧拖拽分隔条 -->
     <div
       v-show="!leftCollapsed"
       class="splitter splitter-left"
@@ -23,17 +32,37 @@
       :class="{ resizing: isLeftResizing }"
     />
 
+    <!-- 中间面板 -->
     <div class="pane pane-center">
       <slot name="center" />
     </div>
 
-    <template v-if="showRightPane">
-      <div class="splitter splitter-right" @mousedown="startRightResize" :class="{ resizing: isRightResizing }" />
+    <!-- 右侧拖拽分隔条 -->
+    <div
+      v-show="rightCollapsible ? !rightCollapsed : showRightPane"
+      class="splitter splitter-right"
+      @mousedown="startRightResize"
+      :class="{ resizing: isRightResizing }"
+    />
 
-      <div class="pane pane-right" :style="{ width: rightSize + 'px' }">
-        <slot name="right" />
-      </div>
-    </template>
+    <!-- 右侧面板 -->
+    <div
+      v-show="rightCollapsible ? !rightCollapsed : showRightPane"
+      class="pane pane-right"
+      :style="{ width: effectiveRightWidth + 'px' }"
+    >
+      <slot name="right" />
+    </div>
+
+    <!-- 右侧收起/展开细条入口（仅在收起后显示） -->
+    <div
+      v-if="rightCollapsible && rightCollapsed"
+      class="collapse-toggle right-collapse-toggle collapsed"
+      @click="toggleRight"
+      title="展开侧边栏"
+    >
+      <LeftOutlined />
+    </div>
   </div>
 </template>
 
@@ -41,15 +70,18 @@
 import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons-vue'
 
+/** 拖拽到此宽度以下自动收起面板 */
+const DRAG_COLLAPSE_THRESHOLD = 30
+
 /**
- * 三栏可调整面板组件 - 支持左右两侧面板宽度拖拽调整
+ * 三栏可调整面板组件 - 支持左右两侧面板拖拽调整宽度和收起/展开
  */
 interface Props {
-  /** 左侧面板最小宽度 */
+  /** 左侧面板最小宽度（拖拽不会低于此值，但可收起到0） */
   leftMin?: number
   /** 左侧面板最大宽度 */
   leftMax?: number
-  /** 右侧面板最小宽度 */
+  /** 右侧面板最小宽度（拖拽不会低于此值，但可收起到0） */
   rightMin?: number
   /** 右侧面板最大宽度 */
   rightMax?: number
@@ -59,9 +91,13 @@ interface Props {
   initialRightRatio?: number
   /** 左侧面板是否可收起 */
   leftCollapsible?: boolean
-  /** 左侧面板是否已收起（v-model） */
+  /** 左侧面板是否已收起（v-model:leftCollapsed） */
   leftCollapsed?: boolean
-  /** 是否显示右侧面板 */
+  /** 右侧面板是否可收起 */
+  rightCollapsible?: boolean
+  /** 右侧面板是否已收起（v-model:rightCollapsed） */
+  rightCollapsed?: boolean
+  /** 是否显示右侧面板（仅在不可收起时生效） */
   showRightPane?: boolean
 }
 
@@ -74,40 +110,61 @@ const props = withDefaults(defineProps<Props>(), {
   initialRightRatio: 0.25,
   leftCollapsible: false,
   leftCollapsed: false,
+  rightCollapsible: false,
+  rightCollapsed: false,
   showRightPane: true
 })
 
 const emit = defineEmits<{
   resize: [leftSize: number, rightSize: number]
   'update:leftCollapsed': [value: boolean]
+  'update:rightCollapsed': [value: boolean]
 }>()
 
 const containerRef = ref<HTMLElement | null>(null)
 const leftSize = ref(300)
 const rightSize = ref(380)
 const previousLeftWidth = ref(300)
+const previousRightWidth = ref(380)
 const isLeftResizing = ref(false)
 const isRightResizing = ref(false)
 
 const effectiveLeftWidth = computed(() => props.leftCollapsed ? 0 : leftSize.value)
+const effectiveRightWidth = computed(() => props.rightCollapsed ? 0 : rightSize.value)
 
 /** 切换左侧面板收起/展开 */
-const toggleLeftCollapse = () => {
+const toggleLeft = () => {
   const next = !props.leftCollapsed
   if (next) {
-    // 收起：保存当前宽度
     previousLeftWidth.value = leftSize.value
   } else {
-    // 展开：恢复之前宽度
     leftSize.value = Math.max(props.leftMin, Math.min(props.leftMax, previousLeftWidth.value))
   }
   emit('update:leftCollapsed', next)
+}
+
+/** 切换右侧面板收起/展开 */
+const toggleRight = () => {
+  const next = !props.rightCollapsed
+  if (next) {
+    previousRightWidth.value = rightSize.value
+  } else {
+    rightSize.value = Math.max(props.rightMin, Math.min(props.rightMax, previousRightWidth.value))
+  }
+  emit('update:rightCollapsed', next)
 }
 
 /** 同步外部 leftCollapsed 变化 */
 watch(() => props.leftCollapsed, (collapsed) => {
   if (!collapsed && leftSize.value === 0) {
     leftSize.value = Math.max(props.leftMin, Math.min(props.leftMax, previousLeftWidth.value))
+  }
+})
+
+/** 同步外部 rightCollapsed 变化 */
+watch(() => props.rightCollapsed, (collapsed) => {
+  if (!collapsed && rightSize.value === 0) {
+    rightSize.value = Math.max(props.rightMin, Math.min(props.rightMax, previousRightWidth.value))
   }
 })
 
@@ -118,7 +175,7 @@ const onLeftResize = (e: MouseEvent) => {
   const containerRect = containerRef.value.getBoundingClientRect()
   let newWidth = e.clientX - containerRect.left
 
-  newWidth = Math.max(props.leftMin, Math.min(props.leftMax, newWidth))
+  newWidth = Math.max(0, Math.min(props.leftMax, newWidth))
   leftSize.value = newWidth
   emit('resize', leftSize.value, rightSize.value)
 }
@@ -131,11 +188,17 @@ const startLeftResize = (e: MouseEvent) => {
   document.addEventListener('mouseup', stopLeftResize)
 }
 
-/** 停止左侧拖拽 */
+/** 停止左侧拖拽，低于阈值则自动收起 */
 const stopLeftResize = () => {
   isLeftResizing.value = false
   document.removeEventListener('mousemove', onLeftResize)
   document.removeEventListener('mouseup', stopLeftResize)
+
+  // 拖拽到阈值以下自动收起
+  if (props.leftCollapsible && leftSize.value < DRAG_COLLAPSE_THRESHOLD) {
+    previousLeftWidth.value = Math.max(props.leftMin, DRAG_COLLAPSE_THRESHOLD + 10)
+    emit('update:leftCollapsed', true)
+  }
 }
 
 /** 处理右侧拖拽调整 */
@@ -143,11 +206,9 @@ const onRightResize = (e: MouseEvent) => {
   if (!containerRef.value) return
 
   const containerRect = containerRef.value.getBoundingClientRect()
-  // 计算右侧面板的新宽度：容器右边 - 鼠标位置
   let newWidth = containerRect.right - e.clientX
 
-  // 限制在最小和最大宽度之间
-  newWidth = Math.max(props.rightMin, Math.min(props.rightMax, newWidth))
+  newWidth = Math.max(0, Math.min(props.rightMax, newWidth))
   rightSize.value = newWidth
   emit('resize', leftSize.value, rightSize.value)
 }
@@ -160,11 +221,17 @@ const startRightResize = (e: MouseEvent) => {
   document.addEventListener('mouseup', stopRightResize)
 }
 
-/** 停止右侧拖拽 */
+/** 停止右侧拖拽，低于阈值则自动收起 */
 const stopRightResize = () => {
   isRightResizing.value = false
   document.removeEventListener('mousemove', onRightResize)
   document.removeEventListener('mouseup', stopRightResize)
+
+  // 拖拽到阈值以下自动收起
+  if (props.rightCollapsible && rightSize.value < DRAG_COLLAPSE_THRESHOLD) {
+    previousRightWidth.value = Math.max(props.rightMin, DRAG_COLLAPSE_THRESHOLD + 10)
+    emit('update:rightCollapsed', true)
+  }
 }
 
 /** 初始化面板尺寸 */
@@ -172,22 +239,27 @@ const initSizes = () => {
   if (!containerRef.value) return
 
   const containerWidth = containerRef.value.offsetWidth
-  // 只有在获取到有效宽度时才初始化
   if (containerWidth === 0) return
 
   leftSize.value = Math.max(props.leftMin, Math.min(props.leftMax, containerWidth * props.initialLeftRatio))
   previousLeftWidth.value = leftSize.value
 
-  if (props.showRightPane) {
+  if (props.showRightPane || props.rightCollapsible) {
     rightSize.value = Math.max(props.rightMin, Math.min(props.rightMax, containerWidth * props.initialRightRatio))
+    previousRightWidth.value = rightSize.value
   }
 }
+
+// 暴露方法供父组件通过 ref 调用
+defineExpose({
+  toggleLeft,
+  toggleRight
+})
 
 // ResizeObserver 实例
 let resizeObserver: ResizeObserver | null = null
 
 onMounted(() => {
-  // 使用 ResizeObserver 监听容器尺寸变化
   if (containerRef.value && typeof ResizeObserver !== 'undefined') {
     resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
@@ -198,10 +270,8 @@ onMounted(() => {
     })
     resizeObserver.observe(containerRef.value)
   } else {
-    // 降级方案：使用 nextTick 和 setTimeout
     nextTick(() => {
       initSizes()
-      // 延迟再次初始化，确保父容器布局完成
       setTimeout(initSizes, 100)
     })
   }
@@ -238,6 +308,7 @@ onUnmounted(() => {
 .pane-left,
 .pane-right {
   flex-shrink: 0;
+  transition: width 0.15s ease-out;
 }
 
 .pane-center {
@@ -282,11 +353,15 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
+  width: 20px;
+  height: 100%;
+
+  &:hover {
+    color: var(--primary-color);
+  }
 }
 
 .left-collapse-toggle {
-  width: 20px;
-  height: 100%;
   background: rgba(0, 0, 0, 0.03);
   color: var(--text-secondary);
   border-right: 1px solid var(--border-color);
@@ -297,9 +372,29 @@ onUnmounted(() => {
   }
 
   &.collapsed {
-    width: 20px;
     border-right: 1px solid var(--border-color);
     border-left: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.03);
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+.right-collapse-toggle {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-secondary);
+  border-left: 1px solid var(--border-color);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--primary-color);
+  }
+
+  &.collapsed {
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
     background: rgba(0, 0, 0, 0.03);
 
     &:hover {
