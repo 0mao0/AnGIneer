@@ -122,6 +122,21 @@
     </div>
     <div class="file-preview">
       <div v-if="isPdf" class="pdf-preview-wrap">
+        <!-- PDF加载进度指示器 -->
+        <div v-if="isPdfLoading" class="pdf-loading-overlay">
+          <a-spin size="large" />
+          <div class="pdf-loading-text">
+            <span v-if="pdfLoadingProgress > 0">加载中 {{ pdfLoadingProgress }}%</span>
+            <span v-else>正在加载PDF文档...</span>
+          </div>
+          <a-progress
+            v-if="pdfLoadingProgress > 0"
+            :percent="pdfLoadingProgress"
+            :show-info="false"
+            size="small"
+            class="pdf-loading-progress"
+          />
+        </div>
         <div v-if="useNativePdfPreview" class="office-frame-wrap">
           <iframe
             :src="nativePdfViewerUrl"
@@ -211,6 +226,8 @@
 import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive, toRefs } from 'vue'
 import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined } from '@ant-design/icons-vue'
 import * as pdfjsLib from 'pdfjs-dist'
+// Vite标准worker导入方式，确保生产构建路径正确
+import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 
 import type { KnowledgeTreeNode } from '../../../types/tree'
 
@@ -276,8 +293,8 @@ const emit = defineEmits<{
  */
 class PdfViewerController {
   // --- 常量配置 ---
-  private readonly MIN_SCALE = 0.5
-  private readonly MAX_SCALE = 2.5
+  private readonly MIN_SCALE = 0.1
+  private readonly MAX_SCALE = 5.0
   private readonly SCALE_STEP = 0.1
   private readonly VERTICAL_PADDING = 24
   private readonly PAGE_GAP = 16
@@ -306,6 +323,8 @@ class PdfViewerController {
     virtualContentHeight: 0,
     maxPageWidth: 0,
     forceReRenderToken: 0,
+    pdfLoadingProgress: 0,
+    isPdfLoading: false,
   })
 
   // --- 引用与非响应式成员 ---
@@ -328,6 +347,7 @@ class PdfViewerController {
   private pageLastRenderedScale = new Map<number, number>()
   private pageRenderTasks = new Map<number, { cancel: () => void; promise: Promise<any> }>()
   private pageRenderRafIds = new Map<number, number>()
+  private pageRenderFailCount = new Map<number, number>()
   
   private headerResizeObserver = shallowRef<ResizeObserver | null>(null)
   private pdfScrollResizeObserver = shallowRef<ResizeObserver | null>(null)
@@ -339,7 +359,8 @@ class PdfViewerController {
   private pendingRangeUpdate = false
 
   constructor() {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString()
+    // 使用Vite标准?url导入的worker路径，兼容开发和生产环境
+    pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
   }
 
   // --- 计算属性桥接 ---
@@ -376,9 +397,16 @@ class PdfViewerController {
     const topByPage: number[] = []
     let cursor = this.VERTICAL_PADDING
     const count = this.displayPdfPageCount
+    
     for (let page = 1; page <= count; page += 1) {
       topByPage[page] = cursor
-      cursor += this.pageHeightOf(page)
+      const pageHeight = this.state.pageHeights[page]
+      if (pageHeight > 0) {
+        cursor += pageHeight
+      } else {
+        // 如果没有当前页高度，使用已知比例估算
+        cursor += this.state.estimatedPageHeight
+      }
       if (page < count) {
         cursor += this.PAGE_GAP
       }
@@ -387,6 +415,17 @@ class PdfViewerController {
       topByPage,
       totalHeight: Math.max(1, cursor + this.VERTICAL_PADDING)
     }
+  }
+  
+  /**
+   * 获取PDF页面的固有宽高比，优先使用已测量数据，兜底使用A4比例
+   */
+  private getIntrinsicPageAspectRatio() {
+    if (this.state.intrinsicPdfPageWidth && this.state.estimatedPageHeight) {
+      // 当前缩放比例下的宽高比
+      return this.state.estimatedPageHeight / (this.state.intrinsicPdfPageWidth * this.state.pdfScale)
+    }
+    return 1.414 // A4 比例兜底
   }
 
   // --- 核心方法 ---
@@ -513,44 +552,100 @@ class PdfViewerController {
    */
   private async onPdfDocumentLoaded(nextDocument: any) {
     this.state.useNativePdfPreview = false
+    this.state.isPdfLoading = false
+    this.state.pdfLoadingProgress = 100
     this.pdfDocument.value = nextDocument
     this.state.localPdfPageCount = Number(nextDocument?.numPages || 0)
     
-    // 获取第一页并记录原始宽度，加速自适应缩放响应速度
+    // 获取第一页并记录原始宽高，加速自适应缩放和虚拟滚动高度计算
     if (this.state.localPdfPageCount > 0) {
       try {
         const firstPage = await nextDocument.getPage(1)
         const viewport = firstPage.getViewport({ scale: 1 })
-        if (viewport.width > 0) {
+        if (viewport.width > 0 && viewport.height > 0) {
           this.state.intrinsicPdfPageWidth = viewport.width
-          console.log(`[PDFViewer] Initialized intrinsicPdfPageWidth: ${this.state.intrinsicPdfPageWidth}`)
-          // 立即触发一次自适应缩放计算，提高首屏渲染体验
-          if (this.state.isFitToWindowMode) {
-            this.applyFitToWindowScale()
+          // 估算缩放后的页面高度，避免初始虚拟滚动高度错误
+          if (this.refs.pdfScroll.value) {
+            const containerWidth = this.refs.pdfScroll.value.clientWidth
+            if (containerWidth > this.FIT_PADDING * 2) {
+              const fitScale = (containerWidth - this.FIT_PADDING * 2) / viewport.width
+              this.state.pdfScale = this.clampScale(fitScale)
+              this.state.estimatedPageHeight = Math.round(viewport.height * this.state.pdfScale)
+            }
           }
         }
       } catch (e) {
-        console.warn('[PDFViewer] Failed to pre-fetch first page width:', e)
+        console.warn('[PDFViewer] Failed to pre-fetch first page dimensions:', e)
       }
     }
     
     this.scheduleRenderedPageRangeUpdate()
-    this.scheduleFitToWindowScale()
     await nextTick()
     this.renderVisiblePages()
+    // 渲染完成后再次确认自适应缩放
+    requestAnimationFrame(() => {
+      this.scheduleFitToWindowScale()
+      this.state.isScaleTransitioning = false
+      this.state.hasAppliedInitialFit = true
+    })
   }
 
   public async loadPdfDocument(source: string) {
     if (!source || !props.isPdf) return
     this.state.useNativePdfPreview = false
     this.state.nativeFallbackTriggered = false
+    this.state.isPdfLoading = true
+    this.state.pdfLoadingProgress = 0
     const nextToken = this.pdfLoadToken + 1
     this.pdfLoadToken = nextToken
     this.destroyPdfLoadingTask()
     this.destroyPdfDocument()
     this.clearPdfRenderState()
+
+    // 优先尝试流式Range加载，失败后回退到全量加载，最后回退到原生预览
+    let loadError: unknown = null
+
+    // 第一次尝试：标准流式Range加载（性能最佳）
+    try {
+      const loadingTask = pdfjsLib.getDocument({
+        url: source,
+        credentials: 'same-origin',
+        // 启用Range和流式加载，大文件加载更快
+        disableRange: false,
+        disableStream: false,
+        disableAutoFetch: false,
+        // 大分块减少HTTP请求数，提升大文件加载速度
+        rangeChunkSize: 65536 * 8, // 512KB
+      }) as { promise: Promise<any>, destroy?: () => void, onProgress?: ({ loaded, total }: { loaded: number; total: number }) => void }
+
+      // 监听加载进度，提供用户反馈
+      if (loadingTask.onProgress) {
+        loadingTask.onProgress(({ loaded, total }) => {
+          if (total > 0) {
+            this.state.pdfLoadingProgress = Math.min(99, Math.round((loaded / total) * 100))
+          }
+        })
+      }
+      
+      this.pdfLoadingTask.value = loadingTask
+      const nextDocument = await loadingTask.promise
+      
+      if (this.pdfLoadToken !== nextToken) {
+        nextDocument?.destroy?.()
+        return
+      }
+      
+      await this.onPdfDocumentLoaded(nextDocument)
+      return
+    } catch (error) {
+      loadError = error
+      console.warn('[PDFViewer] Stream load failed, trying full array buffer load:', error)
+      if (this.pdfLoadToken !== nextToken) return
+      this.destroyPdfLoadingTask()
+      this.destroyPdfDocument()
+    }
     
-    // 强制使用 fetch + ArrayBuffer 方式加载，彻底避开代理对 Range 请求处理不当导致的 ERR_ABORTED
+    // 第二次尝试：全量ArrayBuffer加载（兼容不支持Range的代理）
     try {
       const response = await fetch(source, { credentials: 'same-origin' })
       if (!response.ok) throw new Error(`Failed to fetch PDF (${response.status})`)
@@ -560,8 +655,8 @@ class PdfViewerController {
 
       const loadingTask = pdfjsLib.getDocument({
         data: pdfBinary,
-        disableRange: true,    // 内存数据不需要 Range 请求
-        disableStream: true,   // 内存数据不需要流式
+        disableRange: true,
+        disableStream: true,
         disableAutoFetch: true
       }) as { promise: Promise<any>, destroy?: () => void }
       
@@ -574,17 +669,18 @@ class PdfViewerController {
       }
       
       await this.onPdfDocumentLoaded(nextDocument)
+      return
     } catch (error) {
-      console.error('[PDFViewer] PDF load failed:', error)
-      if (this.pdfLoadToken !== nextToken) return
-      this.state.useNativePdfPreview = true
-      this.pdfDocument.value = null
-      this.state.localPdfPageCount = 0
-    } finally {
-      if (this.pdfLoadToken === nextToken) {
-        this.pdfLoadingTask.value = null
-      }
+      loadError = error
+      console.error('[PDFViewer] PDF load failed after all attempts:', error)
     }
+    
+    // 所有加载方式都失败，回退到浏览器原生预览
+    if (this.pdfLoadToken !== nextToken) return
+    this.state.useNativePdfPreview = true
+    this.state.isPdfLoading = false
+    this.pdfDocument.value = null
+    this.state.localPdfPageCount = 0
   }
 
   public renderVisiblePages() {
@@ -619,7 +715,7 @@ class PdfViewerController {
 
     if (this.pageRenderTasks.has(page)) {
       if (!isScaleChanged) return
-      
+
       // Cancel the ongoing task and wait for it to fully abort before starting a new one
       // This prevents Canvas 2D context state corruption (e.g. 180-degree mirror inversion)
       const oldTask = this.pageRenderTasks.get(page)
@@ -678,10 +774,15 @@ class PdfViewerController {
       canvasContext.fillStyle = '#ffffff'
       canvasContext.fillRect(0, 0, targetWidth, targetHeight)
 
+      /**
+       * 使用 print 模式渲染，解决 display 模式下复杂矢量图/CAD嵌入图出现黑色块的已知问题
+       * print 模式对透明度、渐变、复杂路径的兼容性更好
+       */
       const renderTask = pdfPage.render({
         canvasContext,
         viewport: viewport,
-        intent: 'display'
+        intent: 'print',
+        transform: [1, 0, 0, 1, 0, 0],
       })
       this.pageRenderTasks.set(page, renderTask)
       await renderTask.promise
@@ -710,11 +811,26 @@ class PdfViewerController {
       this.cancelPageRenderTask(page)
       if (this.isRenderCancelledError(error)) return
       
-      console.warn(`[PDFViewer] Failed to render page ${page}:`, error)
-      // 不再因为单页渲染失败而直接切换到原生预览，除非是文档本身已损坏
+      const failCount = (this.pageRenderFailCount.get(page) || 0) + 1
+      this.pageRenderFailCount.set(page, failCount)
+      
+      console.warn(`[PDFViewer] Failed to render page ${page} (attempt ${failCount}):`, error)
+      
+      // 密码保护的PDF直接降级到原生预览
       if (error && typeof error === 'object' && (error as any).name === 'PasswordException') {
         this.state.nativeFallbackTriggered = true
         this.state.useNativePdfPreview = true
+        return
+      }
+      
+      // 单页渲染失败最多重试2次，避免无限重试
+      if (failCount < 3) {
+        // 延迟后重试渲染
+        setTimeout(() => {
+          if (this.pageCanvasElements.has(page)) {
+            this.scheduleRenderPage(page)
+          }
+        }, 200 * failCount)
       }
     }
   }
@@ -809,14 +925,36 @@ class PdfViewerController {
       return
     }
     
-    // 缩放比例发生变化时，旧的页面高度和测量数据全部失效
-    // 必须清空以避免混合不同缩放比例下的高度，导致滚动跳动和白屏
-    this.state.pageHeights = {}
-    this.state.renderedPageMetrics = {}
-    this.state.maxPageWidth = 0
-    // 基于新缩放比例估算新的默认高度 (假设 A4 比例)
+    const oldScale = this.state.pdfScale
+    const scaleRatio = safeScale / oldScale
+    
+    // 渐进式更新：按比例缩放现有页面高度，而不是暴力清空
+    // 这样虚拟滚动容器高度不会瞬间坍塌，避免白屏和滚动跳变
+    const scaledPageHeights: Record<number, number> = {}
+    for (const [page, height] of Object.entries(this.state.pageHeights)) {
+      scaledPageHeights[Number(page)] = Math.max(400, Math.round(height * scaleRatio))
+    }
+    this.state.pageHeights = scaledPageHeights
+    
+    // 同样按比例缩放已渲染页面的度量数据
+    const scaledMetrics: Record<number, RenderedPageMetrics> = {}
+    for (const [page, metric] of Object.entries(this.state.renderedPageMetrics)) {
+      scaledMetrics[Number(page)] = {
+        ...metric,
+        top: metric.top * scaleRatio,
+        left: metric.left * scaleRatio,
+        width: metric.width * scaleRatio,
+        height: metric.height * scaleRatio,
+        scale: safeScale
+      }
+    }
+    this.state.renderedPageMetrics = scaledMetrics
+    this.state.maxPageWidth = this.state.maxPageWidth * scaleRatio
+    
+    // 基于新缩放比例估算新的默认高度 (使用已获取的页面比例而非硬编码A4)
     if (this.state.intrinsicPdfPageWidth) {
-      this.state.estimatedPageHeight = Math.round(this.state.intrinsicPdfPageWidth * safeScale * 1.414)
+      const aspectRatio = this.state.estimatedPageHeight / (this.state.intrinsicPdfPageWidth * oldScale) || 1.414
+      this.state.estimatedPageHeight = Math.round(this.state.intrinsicPdfPageWidth * safeScale * aspectRatio)
     }
 
     this.state.isScaleTransitioning = true
@@ -943,6 +1081,8 @@ class PdfViewerController {
       this.measurePageElement(page)
     }
 
+    // 立即同步测量一次，再在rAF中确认，减少布局滞后
+    measureHeight()
     requestAnimationFrame(measureHeight)
     if (typeof ResizeObserver !== 'undefined' && !this.pageResizeObservers.has(page)) {
       const observer = new ResizeObserver(() => measureHeight())
@@ -964,7 +1104,8 @@ class PdfViewerController {
     const values = Object.values(this.state.pageHeights).filter(h => h > 0)
     if (!values.length) return
     const total = values.reduce((s, i) => s + i, 0)
-    this.state.estimatedPageHeight = Math.max(600, Math.round(total / values.length))
+    // 安全上限：单页高度不超过 6000px，防止正反馈导致数值爆炸
+    this.state.estimatedPageHeight = Math.max(600, Math.min(6000, Math.round(total / values.length)))
   }
 
   public clearPdfRenderState() {
@@ -974,6 +1115,7 @@ class PdfViewerController {
     this.pageRenderTasks.clear()
     this.pageCanvasElements.clear()
     this.pageLastRenderedScale.clear()
+    this.pageRenderFailCount.clear()
   }
 
   /**
@@ -1093,12 +1235,13 @@ class PdfViewerController {
     const wrapperRect = element.getBoundingClientRect()
     if (mediaRect.width <= 1 || mediaRect.height <= 1) return
 
-    const nextHeight = Math.max(400, Math.round(mediaRect.height))
+    // 使用 canvas 实际高度而非 wrapper 高度，避免 minHeight 导致正反馈循环
+    const nextHeight = Math.max(400, Math.round(mediaRect.height + 12))
     const nextMetrics: RenderedPageMetrics = {
       top: Math.max(0, mediaRect.top - wrapperRect.top),
       left: Math.max(0, mediaRect.left - wrapperRect.left),
       width: Math.max(1, mediaRect.width),
-      height: nextHeight,
+      height: Math.round(mediaRect.height),
       scale: this.state.pdfScale
     }
 
@@ -1126,10 +1269,10 @@ class PdfViewerController {
 
 const controller = new PdfViewerController()
 const { state, refs } = controller
-const { 
+const {
   pdfScale, activePdfPage, isCompactHeader, isFitToWindowMode, useNativePdfPreview,
   virtualContentHeight, maxPageWidth, renderedPageRange, renderedPageMetrics, isScaleTransitioning,
-  hasAppliedInitialFit
+  hasAppliedInitialFit, isPdfLoading, pdfLoadingProgress
 } = toRefs(state)
 
 const {
@@ -1157,7 +1300,7 @@ const shouldShowPdfHighlights = computed(() => {
 })
 
 // 模板引用占位，防止 Linter 报错
-void [headerTitleRef, headerMainRef, pdfToolbarRef, pdfToolbarMeasureRef, minPdfScale, maxPdfScale, normalizedPdfSource, nativePdfViewerUrl, pageLayout, shouldShowPdfHighlights, hasAppliedInitialFit]
+void [headerTitleRef, headerMainRef, pdfToolbarRef, pdfToolbarMeasureRef, minPdfScale, maxPdfScale, normalizedPdfSource, nativePdfViewerUrl, pageLayout, shouldShowPdfHighlights, hasAppliedInitialFit, isPdfLoading, pdfLoadingProgress]
 
 const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   const pages: VirtualPageMeta[] = []
@@ -1169,7 +1312,7 @@ const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   return pages
 })
 
-const getPdfPageStyle = (pageMeta: VirtualPageMeta) => ({ top: `${pageMeta.top}px`, minHeight: `${pageMeta.height}px` })
+const getPdfPageStyle = (pageMeta: VirtualPageMeta) => ({ top: `${pageMeta.top}px` })
 const getHighlightLayerStyle = (page: number) => {
   const m = renderedPageMetrics.value[page]
   return m ? { top: `${m.top}px`, left: `${m.left}px`, width: `${m.width}px`, height: `${m.height}px` } : { inset: '0' }
@@ -1424,6 +1567,30 @@ onBeforeUnmount(() => controller.onBeforeUnmount())
   min-height: 0;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.pdf-loading-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
+}
+
+.pdf-loading-text {
+  font-size: 14px;
+  color: var(--text-secondary, #666);
+}
+
+.pdf-loading-progress {
+  width: 240px;
+  max-width: 80%;
 }
 
 .pdf-tool-btn {
