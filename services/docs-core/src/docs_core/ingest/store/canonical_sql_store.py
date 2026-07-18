@@ -123,7 +123,10 @@ class CanonicalSQLiteStore:
                     entity_tags_json TEXT,
                     conditions_json TEXT,
                     exam_tags_json TEXT,
-                    clause_id TEXT
+                    clause_id TEXT,
+                    contd_target_id TEXT,
+                    image_assoc_id TEXT,
+                    table_merge_id TEXT
                 )
                 """
             )
@@ -249,6 +252,9 @@ class CanonicalSQLiteStore:
             ("conditions_json", "TEXT"),
             ("exam_tags_json", "TEXT"),
             ("clause_id", "TEXT"),
+            ("contd_target_id", "TEXT"),
+            ("image_assoc_id", "TEXT"),
+            ("table_merge_id", "TEXT"),
         ]
         chunks_new_cols = blocks_new_cols
         for col_name, col_type in blocks_new_cols:
@@ -326,8 +332,9 @@ class CanonicalSQLiteStore:
                 INSERT INTO canonical_blocks (
                     block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
                     reading_order, title_level, section_path, source, source_ref, parent_block_id,
-                    inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id,
+                    contd_target_id, image_assoc_id, table_merge_id
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     (
@@ -349,6 +356,9 @@ class CanonicalSQLiteStore:
                         _dump_json(block.conditions),
                         _dump_json(block.exam_tags),
                         block.clause_id,
+                        block.contd_target_id,
+                        block.image_assoc_id,
+                        block.table_merge_id,
                     )
                     for block in document.blocks
                 ],
@@ -514,7 +524,8 @@ class CanonicalSQLiteStore:
                 """
                 SELECT block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
                        reading_order, title_level, section_path, source, source_ref, parent_block_id,
-                       inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id
+                       inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id,
+                       contd_target_id, image_assoc_id, table_merge_id
                 FROM canonical_blocks
                 WHERE doc_id = ?
                 ORDER BY page_idx ASC, reading_order ASC
@@ -606,6 +617,9 @@ class CanonicalSQLiteStore:
                     conditions=list(_load_json(row["conditions_json"], [])),
                     exam_tags=list(_load_json(row["exam_tags_json"], [])),
                     clause_id=row["clause_id"],
+                    contd_target_id=row["contd_target_id"],
+                    image_assoc_id=row["image_assoc_id"],
+                    table_merge_id=row["table_merge_id"],
                 )
                 for row in block_rows
             ],
@@ -754,7 +768,8 @@ class CanonicalSQLiteStore:
         sql = """
             SELECT block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
                    reading_order, title_level, section_path, source, source_ref, parent_block_id,
-                   inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id
+                   inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id,
+                   contd_target_id, image_assoc_id, table_merge_id
             FROM canonical_blocks
             WHERE doc_id = ?
         """
@@ -792,6 +807,9 @@ class CanonicalSQLiteStore:
                 conditions=list(_load_json(row["conditions_json"], [])),
                 exam_tags=list(_load_json(row["exam_tags_json"], [])),
                 clause_id=row["clause_id"],
+                contd_target_id=row["contd_target_id"],
+                image_assoc_id=row["image_assoc_id"],
+                table_merge_id=row["table_merge_id"],
             )
             for row in rows
         ]

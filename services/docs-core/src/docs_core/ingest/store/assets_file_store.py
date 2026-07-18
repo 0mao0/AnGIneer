@@ -239,6 +239,43 @@ class FileStorage:
             json.dump(json_blocks, f, ensure_ascii=False, indent=2)
         return str(blocks_path)
 
+    def get_popo_dir(self, library_id: str, doc_id: str) -> Path:
+        popo_dir = self.get_parsed_dir(library_id, doc_id) / "popo"
+        popo_dir.mkdir(parents=True, exist_ok=True)
+        return popo_dir
+
+    def get_popo_enriched_blocks_path(self, library_id: str, doc_id: str) -> Path:
+        return self.get_popo_dir(library_id, doc_id) / "enriched_blocks.json"
+
+    def get_popo_document_tree_path(self, library_id: str, doc_id: str) -> Path:
+        return self.get_popo_dir(library_id, doc_id) / "document_tree.json"
+
+    def save_popo_results(self, library_id: str, doc_id: str, enriched_blocks: list, document_tree: dict) -> None:
+        import json as _json
+        eb_path = self.get_popo_enriched_blocks_path(library_id, doc_id)
+        dt_path = self.get_popo_document_tree_path(library_id, doc_id)
+        eb_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(eb_path, "w", encoding="utf-8") as f:
+            _json.dump(enriched_blocks, f, ensure_ascii=False, indent=2)
+        with open(dt_path, "w", encoding="utf-8") as f:
+            _json.dump(document_tree, f, ensure_ascii=False, indent=2)
+
+    def read_popo_enriched_blocks(self, library_id: str, doc_id: str) -> list:
+        import json as _json
+        path = self.get_popo_enriched_blocks_path(library_id, doc_id)
+        if not path.exists():
+            raise FileNotFoundError(f"PoPo enriched blocks not found: {path}")
+        with open(path, "r", encoding="utf-8") as f:
+            return _json.load(f)
+
+    def read_popo_document_tree(self, library_id: str, doc_id: str) -> dict:
+        import json as _json
+        path = self.get_popo_document_tree_path(library_id, doc_id)
+        if not path.exists():
+            raise FileNotFoundError(f"PoPo document tree not found: {path}")
+        with open(path, "r", encoding="utf-8") as f:
+            return _json.load(f)
+
     def save_middle_json(self, library_id: str, doc_id: str, payload: Dict[str, Any]) -> str:
         """保存 middle.json 结构化中间数据"""
         middle_path = self.get_middle_json_path(library_id, doc_id)

@@ -2,7 +2,7 @@
 from datetime import UTC, datetime
 from html.parser import HTMLParser
 import re
-from typing import Any, List, Tuple
+from typing import Any, List, Optional, Tuple
 
 from docs_core.ingest.organize.tag_rules import infer_conditions, infer_entity_tags
 from docs_core.ingest.organize.types import (
@@ -759,3 +759,46 @@ def rebuild_canonical_document(library_id: str, doc_id: str, title: str = "") ->
         document.model_dump(mode="json"),
     )
     return document
+
+
+def build_canonical_document_from_popoblocks(
+    library_id: str,
+    doc_id: str,
+    title: str = "",
+    blocks: Optional[List[CanonicalBlock]] = None,
+    outlines: Optional[List[CanonicalOutlineNode]] = None,
+) -> CanonicalDocument:
+    from docs_core.ingest.store.assets_file_store import file_storage
+
+    local_blocks = list(blocks) if blocks else []
+    chunks = build_canonical_chunks(local_blocks)
+    tables, table_chunks = build_canonical_tables(library_id, doc_id, local_blocks)
+    graph_data = file_storage.read_doc_blocks_graph(library_id, doc_id)
+    citation_targets = build_citation_targets_from_graph(doc_id, graph_data, local_blocks, tables)
+    local_outlines = list(outlines) if outlines else []
+    inferred_title = title or next(
+        (block.text for block in local_blocks if block.block_type == "title" and block.text), doc_id
+    )
+    page_count = max((block.page_idx for block in local_blocks), default=-1) + 1 if local_blocks else 0
+    manifest = file_storage.get_doc_manifest(library_id, doc_id)
+    source_file_name = ""
+    if manifest.get("source_file"):
+        source_file_name = str(manifest.get("source_file") or "").split("\\")[-1].split("/")[-1]
+    timestamp = datetime.now(UTC).isoformat()
+
+    return CanonicalDocument(
+        doc_id=doc_id,
+        library_id=library_id,
+        title=inferred_title,
+        source_file_name=source_file_name or doc_id,
+        source_file_type="pdf",
+        page_count=page_count,
+        status="completed" if local_blocks else "pending",
+        created_at=timestamp,
+        updated_at=timestamp,
+        blocks=local_blocks,
+        outlines=local_outlines,
+        chunks=chunks + table_chunks,
+        tables=tables,
+        citation_targets=citation_targets,
+    )

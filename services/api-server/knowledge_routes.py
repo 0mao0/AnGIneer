@@ -138,6 +138,75 @@ class DocBlocksGraphSummaryRequest(BaseModel):
 # --- 解析编排器 ---
 
 
+def _run_popo_stage(library_id: str, doc_id: str) -> None:
+    """执行 PoPo pipeline + 兼容投影 + 精简 Organize。"""
+    from docs_core.ingest.normalize.popo_pipeline import get_popo_pipeline
+    from docs_core.ingest.normalize.popo_mapper import po_po_blocks_to_canonical
+    from docs_core.ingest.normalize.popo_projection import run_popo_projection
+    from docs_core.ingest.organize.builder import build_canonical_document_from_popoblocks
+    from docs_core.ingest.store.assets_file_store import file_storage
+    from docs_core.knowledge_service import knowledge_service
+
+    mineru_raw_dir = file_storage.get_mineru_raw_dir(library_id, doc_id)
+    content_list_path = mineru_raw_dir / "content_list.json"
+    layout_path = mineru_raw_dir / "layout.json"
+
+    if not content_list_path.exists():
+        raise FileNotFoundError(f"content_list.json not found at {content_list_path}")
+
+    popo_output_dir = str(file_storage.get_popo_dir(library_id, doc_id))
+    pipeline = get_popo_pipeline()
+    pipeline.run_full_pipeline(
+        content_list_path=str(content_list_path),
+        layout_path=str(layout_path) if layout_path.exists() else "",
+        output_dir=popo_output_dir,
+    )
+
+    enriched_blocks = file_storage.read_popo_enriched_blocks(library_id, doc_id)
+    document_tree = file_storage.read_popo_document_tree(library_id, doc_id)
+    blocks, outlines, id_map = po_po_blocks_to_canonical(doc_id, enriched_blocks, document_tree)
+
+    mineru_md_path = mineru_raw_dir / "content.md"
+    mineru_content_md = ""
+    if mineru_md_path.exists():
+        mineru_content_md = mineru_md_path.read_text(encoding="utf-8")
+
+    parsed_dir = file_storage.get_parsed_dir(library_id, doc_id)
+    content_md_output = str(parsed_dir / "content.md")
+    graph_output = str(parsed_dir / "doc_blocks_graph.json")
+
+    projection = run_popo_projection(
+        library_id=library_id,
+        doc_id=doc_id,
+        blocks=blocks,
+        outlines=outlines,
+        mineru_content_md=mineru_content_md,
+        graph_output_path=graph_output,
+        content_md_output_path=content_md_output,
+    )
+
+    knowledge_service.clear_document_segments(doc_id)
+    knowledge_service.save_document_segments(
+        doc_id, library_id, "doc_blocks_graph_v1", projection["segments"],
+    )
+
+    doc_title = file_storage.get_doc_manifest(library_id, doc_id).get("title", doc_id)
+    canonical_doc = build_canonical_document_from_popoblocks(
+        library_id=library_id, doc_id=doc_id, title=doc_title,
+        blocks=blocks, outlines=outlines,
+    )
+    knowledge_service.save_canonical_document(canonical_doc)
+    file_storage.save_middle_json(library_id, doc_id, canonical_doc.model_dump(mode="json"))
+
+    from docs_core.ingest.store.blocks_sql_store import KnowledgeIndexStore, resolve_knowledge_index_db_path
+    index_store = KnowledgeIndexStore(
+        db_path=resolve_knowledge_index_db_path(), schema_version="1.0.0",
+    )
+    index_store.clear_doc_blocks(doc_id)
+    for row in projection["base_rows"]:
+        index_store.insert_doc_block_row(row)
+
+
 class ParseOrchestrator:
     """负责 API 层与解析主链之间的编排。"""
 
@@ -260,6 +329,24 @@ class ParseOrchestrator:
                     file_storage.save_markdown(library_id, doc_id, handle.read())
             file_storage.save_parse_artifacts(library_id, doc_id, temp_output_dir)
             self._raise_if_cancel_requested(task_id)
+
+            # Stage 2.5: popo_normalize (progress=50)
+            normalizer_backend = os.environ.get("DOCS_CORE_NORMALIZER_BACKEND", "legacy")
+            popo_fallback = os.environ.get("DOCS_CORE_POPO_FALLBACK_ENABLED", "true").lower() != "false"
+
+            if normalizer_backend == "popo":
+                try:
+                    self._update_progress(task_id, doc_id, progress=50, stage="popo_normalize",
+                                          stage_message="PoPo 语义增强中")
+                    _run_popo_stage(library_id, doc_id)
+                    logger.info("PoPo stage completed for doc %s", doc_id)
+                except Exception as popo_error:
+                    logger.warning("PoPo stage failed for doc %s: %s", doc_id, popo_error)
+                    if not popo_fallback:
+                        raise
+                    logger.info("Falling back to legacy normalizer for doc %s", doc_id)
+                    self._update_progress(task_id, doc_id, progress=50, stage="popo_normalize",
+                                          stage_message="PoPo 失败，回退 legacy 规则引擎")
 
             self._update_progress(task_id, doc_id, progress=70, stage="indexing", stage_message="构建结构化索引")
             use_llm = bool(parse_options.get("use_llm", True))

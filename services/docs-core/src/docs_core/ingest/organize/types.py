@@ -78,6 +78,9 @@ class CanonicalBlock(BaseModel):
     conditions: List[str] = Field(default_factory=list)
     exam_tags: List[str] = Field(default_factory=list)
     clause_id: Optional[str] = None
+    contd_target_id: Optional[str] = None
+    image_assoc_id: Optional[str] = None
+    table_merge_id: Optional[str] = None
 
 
 class CanonicalOutlineNode(BaseModel):
