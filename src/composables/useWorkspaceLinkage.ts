@@ -16,6 +16,8 @@ export interface LinkedHighlight {
   lineStart: number | null
   lineEnd: number | null
   type?: string
+  contdTargetId?: string | null
+  tableMergeId?: string | null
 }
 
 interface RectBounds {
@@ -563,9 +565,11 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
             top: normalizedRect?.top ?? 0,
             width: normalizedRect?.width ?? 0,
             height: normalizedRect?.height ?? 0,
-            lineStart: null,
-            lineEnd: null,
-            type
+            lineStart: node.markdown_line_start ?? null,
+            lineEnd: node.markdown_line_end ?? null,
+            type,
+            contdTargetId: node.contd_target_id ?? null,
+            tableMergeId: node.table_merge_id ?? null,
           }
         })
       })
