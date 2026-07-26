@@ -65,6 +65,15 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+RUN sed -i 's|deb.debian.org|mirrors.tencent.com|g' /etc/apt/sources.list.d/debian.sources
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libreoffice-core \
+    libreoffice-writer \
+    libreoffice-calc \
+    libreoffice-impress \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN pip config set global.index-url https://mirrors.tencent.com/pypi/simple/ \
     && pip config set install.trusted-host mirrors.tencent.com
 

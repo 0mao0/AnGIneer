@@ -13,6 +13,7 @@ interface UseWorkspacePreviewOptions {
   filePath: ComputedRef<string>
   graphData: ComputedRef<GraphDataLike | null | undefined>
   activeTab: ComputedRef<PreviewMode>
+  renderPdfPath?: ComputedRef<string | undefined>
 }
 
 export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
@@ -33,8 +34,16 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
     file_path: options.filePath.value,
     title: options.node.value.title
   }))
-  const isPdf = computed(() => previewFileType.value === 'pdf')
-  const isOffice = computed(() => ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'].includes(fileExtension.value))
+  const isPdf = computed(() => {
+    // 非 PDF 但有渲染好的 PDF 底图时，也用 PDF 查看器
+    if (options.renderPdfPath?.value) return true
+    return previewFileType.value === 'pdf'
+  })
+  const isOffice = computed(() => {
+    // 有渲染好的 PDF 底图时，不当作 Office 文档
+    if (options.renderPdfPath?.value) return false
+    return ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'].includes(fileExtension.value)
+  })
   const isImage = computed(() => previewFileType.value === 'image')
   const isText = computed(() => previewFileType.value === 'text' || previewFileType.value === 'markdown')
   const isDocumentScrollSyncEnabled = computed(() => (
@@ -43,9 +52,11 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
   ))
 
   const fileUrl = computed(() => {
-    if (!options.filePath.value) return ''
-    if (options.filePath.value.startsWith('http')) return options.filePath.value
-    return `/api/files?path=${encodeURIComponent(options.filePath.value)}`
+    // 有 PDF 底图时用它替代原始文件
+    const effectivePath = options.renderPdfPath?.value || options.filePath.value
+    if (!effectivePath) return ''
+    if (effectivePath.startsWith('http')) return effectivePath
+    return `/api/files?path=${encodeURIComponent(effectivePath)}`
   })
 
   const pdfViewerUrl = computed(() => {

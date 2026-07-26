@@ -9,8 +9,8 @@ ENV NODE_OPTIONS=--max-old-space-size=2048
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/shared/ apps/shared/
-COPY apps/web-console/package.json apps/web-console/
-COPY apps/admin-console/package.json apps/admin-console/
+COPY apps/user-web/package.json apps/user-web/
+COPY apps/admin-web/package.json apps/admin-web/
 COPY packages/ui-kit/package.json packages/ui-kit/
 COPY packages/docs-ui/package.json packages/docs-ui/
 COPY packages/sop-ui/package.json packages/sop-ui/
@@ -30,8 +30,8 @@ RUN pnpm build:frontend && pnpm build:admin
 FROM nginx:alpine
 
 COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /app/apps/web-console/dist /usr/share/nginx/html/web
-COPY --from=builder /app/apps/admin-console/dist /usr/share/nginx/html/admin
+COPY --from=builder /app/apps/user-web/dist /usr/share/nginx/html/web
+COPY --from=builder /app/apps/admin-web/dist /usr/share/nginx/html/admin
 
 EXPOSE 80
 

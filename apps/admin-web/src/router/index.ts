@@ -30,6 +30,16 @@ const routes: RouteRecordRaw[] = [
     path: '/sop-research',
     name: 'sop-research',
     component: () => import('../views/SopResearchManage.vue')
+  },
+  {
+    path: '/dream-cycle',
+    name: 'dream-cycle',
+    component: () => import('../views/DreamCycleView.vue')
+  },
+  {
+    path: '/api-keys',
+    name: 'api-keys',
+    component: () => import('../views/ApiKeyManage.vue')
   }
 ]
 

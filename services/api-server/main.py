@@ -36,6 +36,7 @@ sys.path.append(os.path.join(SERVICES_DIR, "geo-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "engtools", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "evals-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "knowledge-graph", "src"))
+sys.path.append(os.path.join(SERVICES_DIR, "dream-cycle", "src"))
 
 # Import logic from packages
 from ai_inference.llm_client import LLMClient
@@ -50,7 +51,31 @@ import engtools.KnowledgeTool
 from knowledge_routes import knowledge_router, preview_router
 from evals_routes import evals_router
 
-app = FastAPI(title="AnGIneer API Bridge")
+app = FastAPI(
+    title="AnGIneer API",
+    description=(
+        "AnGIneer 深度文档解析 API 服务。\n\n"
+        "提供 PDF/DOCX/PPTX 等格式的文档结构化解析，"
+        "返回带归一化 bbox 坐标的文本块，供前端做精准高亮渲染。\n\n"
+        "**认证方式：** 所有 `/api/v1/*` 端点需在 Header 中携带 `X-API-Key`。"
+    ),
+    version="0.1.0",
+    contact={
+        "name": "AnGIneer Team",
+    },
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_tags=[
+        {"name": "Documents", "description": "文档解析 — 上传、轮询、获取结构化结果"},
+        {"name": "Auth", "description": "API Key 验证与状态查询"},
+        {"name": "Knowledge", "description": "【内部】知识库管理"},
+        {"name": "Preview", "description": "【内部】文件预览"},
+        {"name": "Evals", "description": "【内部】评测集管理"},
+        {"name": "SOPs", "description": "【内部】SOP 管理"},
+        {"name": "Knowledge Graph", "description": "【内部】知识图谱管理"},
+        {"name": "Dream Cycle", "description": "【内部】健康检查"},
+    ],
+)
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request, exc):
@@ -89,6 +114,16 @@ app.include_router(sop_router, prefix="/api/sops", tags=["SOPs"])
 from graph_routes import graph_router
 app.include_router(graph_router, prefix="/api/graph", tags=["Knowledge Graph"])
 
+from dream_cycle_routes import dream_cycle_router
+app.include_router(dream_cycle_router, prefix="/api/dream-cycle", tags=["Dream Cycle"])
+
+from api_key_routes import router as api_key_router
+app.include_router(api_key_router)
+
+# v1 外部 API
+from routes.v1 import router as v1_router
+app.include_router(v1_router)
+
 # Initialize SOP Loader (传入 SOP 根目录，包含 json/ 和 raw/)
 SOP_BASE_DIR = os.path.join(ROOT_DIR, "data", "sops")
 sop_loader = SopLoader(SOP_BASE_DIR)
@@ -106,8 +141,12 @@ app.add_middleware(
     allow_credentials=False,
 )
 
+# v1 API Key 认证
+from middleware.api_key_auth import APIKeyAuthMiddleware
+app.add_middleware(APIKeyAuthMiddleware)
+
 # --- Static Files Handling ---
-FRONTEND_DIR = os.path.join(ROOT_DIR, "apps", "web-console")
+FRONTEND_DIR = os.path.join(ROOT_DIR, "apps", "user-web")
 
 @app.get("/")
 async def read_index():

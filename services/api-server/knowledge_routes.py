@@ -18,6 +18,7 @@ from pydantic import BaseModel
 
 from docs_core.knowledge_service import get_knowledge_service, KnowledgeNode
 from docs_core.ingest.extract.mineru_parser import mineru_parser
+from docs_core.ingest.convert.pdf_converter import convert_to_pdf
 from docs_core.ingest.store.assets_file_store import (
     build_structured_index_for_doc,
     get_doc_blocks_graph,
@@ -148,18 +149,15 @@ def _run_popo_stage(library_id: str, doc_id: str) -> None:
     from docs_core.knowledge_service import knowledge_service
 
     mineru_raw_dir = file_storage.get_mineru_raw_dir(library_id, doc_id)
-    content_list_path = mineru_raw_dir / "content_list.json"
-    layout_path = mineru_raw_dir / "layout.json"
-
-    if not content_list_path.exists():
-        raise FileNotFoundError(f"content_list.json not found at {content_list_path}")
+    if not mineru_raw_dir.exists():
+        raise FileNotFoundError(f"mineru_raw_dir not found at {mineru_raw_dir}")
 
     popo_output_dir = str(file_storage.get_popo_dir(library_id, doc_id))
     pipeline = get_popo_pipeline()
     pipeline.run_full_pipeline(
-        content_list_path=str(content_list_path),
-        layout_path=str(layout_path) if layout_path.exists() else "",
+        mineru_raw_dir=str(mineru_raw_dir),
         output_dir=popo_output_dir,
+        doc_id=doc_id,
     )
 
     enriched_blocks = file_storage.read_popo_enriched_blocks(library_id, doc_id)
@@ -318,7 +316,19 @@ class ParseOrchestrator:
                 raise RuntimeError("源文件不存在或无法复制到规范目录")
             self._raise_if_cancel_requested(task_id)
 
-            self._update_progress(task_id, doc_id, progress=20, stage="raw_parse", stage_message="MinerU 原始结果下载中")
+            # 非 PDF 输入：先 LO 转 PDF，存好底图，再给 MinerU
+            ext = Path(source_path).suffix.lower()
+            if ext != ".pdf":
+                self._update_progress(task_id, doc_id, progress=20, stage="converting", stage_message="LibreOffice 转换中")
+                lo_dir = tempfile.mkdtemp(prefix=f"lo-{doc_id}-")
+                source_path = convert_to_pdf(source_path, lo_dir)
+                # 存为底图（save_parse_artifacts 会覆盖 parsed 目录，后面再重新放回）
+                parsed_dir = file_storage.get_parsed_dir(library_id, doc_id)
+                parsed_dir.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source_path, str(parsed_dir / "mineru_render.pdf"))
+                logger.info(f"LO PDF saved for doc {doc_id}: {source_path}")
+
+            self._update_progress(task_id, doc_id, progress=30, stage="raw_parse", stage_message="MinerU 原始结果下载中")
             parse_result = mineru_parser.parse_to_raw_artifacts(input_path=source_path, output_dir=temp_output_dir)
             if not parse_result.get("success"):
                 raise RuntimeError(parse_result.get("error") or "MinerU 解析失败")
@@ -330,9 +340,17 @@ class ParseOrchestrator:
             file_storage.save_parse_artifacts(library_id, doc_id, temp_output_dir)
             self._raise_if_cancel_requested(task_id)
 
+            # save_parse_artifacts 覆盖了 parsed 目录，非 PDF 需重新放回 LO PDF
+            if ext != ".pdf":
+                lo_pdf_path = file_storage.get_parsed_dir(library_id, doc_id) / "mineru_render.pdf"
+                if not lo_pdf_path.exists():
+                    shutil.copy2(source_path, str(lo_pdf_path))
+                    logger.info(f"LO PDF restored for doc {doc_id}")
+
             # Stage 2.5: popo_normalize (progress=50)
             normalizer_backend = os.environ.get("DOCS_CORE_NORMALIZER_BACKEND", "legacy")
             popo_fallback = os.environ.get("DOCS_CORE_POPO_FALLBACK_ENABLED", "true").lower() != "false"
+            popo_ran_successfully = False
 
             if normalizer_backend == "popo":
                 try:
@@ -340,6 +358,7 @@ class ParseOrchestrator:
                                           stage_message="PoPo 语义增强中")
                     _run_popo_stage(library_id, doc_id)
                     logger.info("PoPo stage completed for doc %s", doc_id)
+                    popo_ran_successfully = True
                 except Exception as popo_error:
                     logger.warning("PoPo stage failed for doc %s: %s", doc_id, popo_error)
                     if not popo_fallback:
@@ -348,18 +367,19 @@ class ParseOrchestrator:
                     self._update_progress(task_id, doc_id, progress=50, stage="popo_normalize",
                                           stage_message="PoPo 失败，回退 legacy 规则引擎")
 
-            self._update_progress(task_id, doc_id, progress=70, stage="indexing", stage_message="构建结构化索引")
-            use_llm = bool(parse_options.get("use_llm", True))
-            llm_model = str(parse_options.get("llm_model") or "").strip() or None
-            build_structured_index_for_doc(
-                library_id=library_id,
-                doc_id=doc_id,
-                strategy="doc_blocks_graph_v1",
-                options={
-                    "use_llm": use_llm,
-                    "llm_model": llm_model,
-                },
-            )
+            if not popo_ran_successfully:
+                self._update_progress(task_id, doc_id, progress=70, stage="indexing", stage_message="构建结构化索引")
+                use_llm = bool(parse_options.get("use_llm", True))
+                llm_model = str(parse_options.get("llm_model") or "").strip() or None
+                build_structured_index_for_doc(
+                    library_id=library_id,
+                    doc_id=doc_id,
+                    strategy="doc_blocks_graph_v1",
+                    options={
+                        "use_llm": use_llm,
+                        "llm_model": llm_model,
+                    },
+                )
 
             self._update_progress(task_id, doc_id, progress=100, stage="completed", status="completed", stage_message="解析完成")
         except ParseTaskCancelledError as exc:

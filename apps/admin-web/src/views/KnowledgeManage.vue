@@ -143,6 +143,7 @@
               :structured-items="structuredItems"
               :graph-data="graphData"
               :graph-data-full-loaded="graphDataFullLoaded"
+              :render-pdf-path="docRenderPdfPath"
               :on-update-structured-node="_updateStructuredNodeWrapper"
               :on-batch-structured-operation="_batchOperateStructuredNodesWrapper"
               :on-undo-last-operation="_undoLastStructuredOperationWrapper"
@@ -584,16 +585,18 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
 }
 
 // 加载文档内容
+const docRenderPdfPath = ref<string>('')
 const loadDocContent = async (docId: string) => {
   try {
     const result = await knowledgeApi.getDocument('default', docId) as unknown as {
       content: string
-      storage?: { source_file?: string | null }
+      storage?: { source_file?: string | null; render_pdf?: string | null }
       graph_data?: { nodes: any[]; edges: any[] } | null
     }
     docContent.value = result.content || '暂无内容'
     docContentDocId.value = docId
     graphDataFullLoaded.value = false
+    docRenderPdfPath.value = result?.storage?.render_pdf || ''
     if (selectedNode.value && selectedNode.value.key === docId && result?.storage?.source_file) {
       selectedNode.value.filePath = result.storage.source_file
     }

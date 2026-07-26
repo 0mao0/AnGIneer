@@ -150,11 +150,17 @@ class FileStorage:
         mineru_raw_dir = staging_dir / "mineru_raw"
         mineru_raw_dir.mkdir(parents=True, exist_ok=True)
 
-        for pdf_file in list(staging_dir.rglob("*.pdf")):
+        pdf_files = list(staging_dir.rglob("*.pdf"))
+        if pdf_files:
             try:
-                pdf_file.unlink()
+                pdf_files[0].rename(staging_dir / "mineru_render.pdf")
             except Exception:
                 pass
+            for pdf_file in pdf_files[1:]:
+                try:
+                    pdf_file.unlink()
+                except Exception:
+                    pass
 
         artifact_map = {
             "origin.zip": "origin.zip",
@@ -411,6 +417,7 @@ class FileStorage:
         middle_json_path = self.get_middle_json_path(library_id, doc_id)
         mineru_blocks_path = self.get_mineru_blocks_path(library_id, doc_id)
         history_dir = self.get_edited_dir(library_id, doc_id) / "history"
+        render_pdf_path = self.get_parsed_dir(library_id, doc_id) / "mineru_render.pdf"
         return {
             "doc_root": str(doc_root),
             "source_file": source_file,
@@ -420,6 +427,7 @@ class FileStorage:
             "raw_dir": str(raw_dir) if raw_dir.exists() else None,
             "middle_json": str(middle_json_path) if middle_json_path.exists() else None,
             "mineru_blocks": str(mineru_blocks_path) if mineru_blocks_path.exists() else None,
+            "render_pdf": str(render_pdf_path) if render_pdf_path.exists() else None,
             "history_files": sorted([str(path) for path in history_dir.glob("*.md")], reverse=True) if history_dir.exists() else [],
         }
 

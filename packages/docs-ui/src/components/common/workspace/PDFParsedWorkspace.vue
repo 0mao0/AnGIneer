@@ -78,6 +78,7 @@ interface Props {
   structuredStats?: StructuredStats
   graphData?: { nodes: any[]; edges: any[] } | null
   graphDataFullLoaded?: boolean
+  renderPdfPath?: string  // LO 生成的 PDF 底图路径（对非 PDF 输入）
   onUpdateStructuredNode?: (payload: StructuredNodeUpdatePayload) => Promise<void>
   onBatchStructuredOperation?: (payload: StructuredBatchOperationPayload) => Promise<void>
   onUndoLastOperation?: () => Promise<void>
@@ -141,7 +142,8 @@ const {
   node: computed(() => props.node),
   filePath,
   graphData: computed(() => props.graphData || null),
-  activeTab: computed(() => activeTab.value)
+  activeTab: computed(() => activeTab.value),
+  renderPdfPath: computed(() => props.renderPdfPath)
 })
 
 const markdownContent = computed(() => props.content || '')
