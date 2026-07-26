@@ -129,7 +129,7 @@ SOP_BASE_DIR = os.path.join(ROOT_DIR, "data", "sops")
 sop_loader = SopLoader(SOP_BASE_DIR)
 
 # 允许的 CORS 来源（从环境变量读取，逗号分隔；默认仅允许本地前端）
-_default_origins = "http://localhost:3005,http://localhost:3002,http://127.0.0.1:3005,http://127.0.0.1:3002"
+_default_origins = "http://localhost:3005,http://localhost:3002,http://127.0.0.1:3005,http://127.0.0.1:3002,http://localhost,http://127.0.0.1,http://124.221.238.70"
 _allowed_origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", _default_origins).split(",") if o.strip()]
 
 # Enable CORS for Vue frontend

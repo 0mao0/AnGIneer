@@ -63,8 +63,8 @@ deploy() {
 
     check_prerequisites
 
-    echo ">>> 构建 Docker 镜像（首次较慢，约 5-10 分钟）..."
-    docker compose -f "$COMPOSE_FILE" build --no-cache
+    echo ">>> 构建 Docker 镜像..."
+    docker compose -f "$COMPOSE_FILE" build
 
     if [ "$BUILD_ONLY" = true ]; then
         echo ">>> 仅构建模式，跳过启动"

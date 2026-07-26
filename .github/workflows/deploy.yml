@@ -1,32 +1,46 @@
-name: CI
+name: Deploy
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
 jobs:
-  lint-and-test:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: [self-hosted, deploy]
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Pull latest code
+        run: |
+          cd /root/AnGIneer
+          git pull origin main
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'pnpm'
+      - name: Check .env exists
+        run: |
+          if [ ! -f /root/AnGIneer/.env ]; then
+            echo "ERROR: /root/AnGIneer/.env not found"
+            exit 1
+          fi
 
-      - name: Install pnpm
-        run: corepack enable pnpm
+      - name: Build images
+        run: |
+          cd /root/AnGIneer/docker
+          docker compose build
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Restart services
+        run: |
+          cd /root/AnGIneer/docker
+          docker compose down
+          docker compose up -d
 
-      - name: Run lint
-        run: pnpm run lint
+      - name: Cleanup old images
+        run: docker image prune -f
 
-      - name: Build check (optional)
-        run: pnpm run build || echo "⚠️ Build failed, but CI continues for review"
+      - name: Health check
+        run: |
+          echo "Waiting for services..."
+          sleep 10
+          echo "Frontend:"; curl -s -o /dev/null -w "%{http_code}" http://localhost/ || true; echo ""
+          echo "Admin:"; curl -s -o /dev/null -w "%{http_code}" http://localhost/admin/ || true; echo ""
+          echo "API docs:"; curl -s -o /dev/null -w "%{http_code}" http://localhost/api/docs || true; echo ""
+          cd /root/AnGIneer/docker && docker compose ps
