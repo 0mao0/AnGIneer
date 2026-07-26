@@ -50,12 +50,17 @@ def build_doc_blocks_graph(
     blocks: List[CanonicalBlock],
     outlines: List[CanonicalOutlineNode],
     block_line_ranges: List[Dict[str, int]],
+    base_rows: Optional[List[Dict[str, Any]]] = None,
 ) -> Dict[str, Any]:
     """从 PoPo blocks + outlines 构建兼容 doc_blocks_graph.json 格式。"""
     line_map = {item["block_id"]: item for item in block_line_ranges}
 
     nodes = []
     for block in blocks:
+        bbox_array = (
+            [block.bbox.x0, block.bbox.y0, block.bbox.x1, block.bbox.y1]
+            if block.bbox else None
+        )
         node = {
             "id": block.block_id,
             "block_uid": block.block_id,
@@ -63,7 +68,11 @@ def build_doc_blocks_graph(
             "page_idx": block.page_idx,
             "block_seq": block.reading_order,
             "plain_text": block.text,
-            "bbox": [block.bbox.x0, block.bbox.y0, block.bbox.x1, block.bbox.y1] if block.bbox else None,
+            "bbox": bbox_array,
+            "bbox_norm_x1": block.bbox.x0 if block.bbox else None,
+            "bbox_norm_y1": block.bbox.y0 if block.bbox else None,
+            "bbox_norm_x2": block.bbox.x1 if block.bbox else None,
+            "bbox_norm_y2": block.bbox.y1 if block.bbox else None,
             "derived_level": block.title_level,
             "title_path": block.section_path,
             "parent_uid": block.parent_block_id,
@@ -122,6 +131,7 @@ def build_doc_blocks_graph(
             "nodes_count": len(nodes),
             "edges_count": len(edges),
             "outline_count": len(outlines),
+            "base_rows": base_rows or [],
             "generated_by": "mineru-popo",
         },
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -164,12 +174,20 @@ def build_base_rows(blocks: List[CanonicalBlock]) -> List[Dict[str, Any]]:
     """从 PoPo blocks 构建 base_rows 兼容投影。"""
     rows = []
     for block in blocks:
+        bbox_array = (
+            [block.bbox.x0, block.bbox.y0, block.bbox.x1, block.bbox.y1]
+            if block.bbox else None
+        )
         rows.append({
             "block_uid": block.block_id,
             "page_idx": block.page_idx,
             "page_seq": block.reading_order,
             "block_type": block.block_type,
-            "bbox": [block.bbox.x0, block.bbox.y0, block.bbox.x1, block.bbox.y1] if block.bbox else None,
+            "bbox": bbox_array,
+            "bbox_norm_x1": block.bbox.x0 if block.bbox else None,
+            "bbox_norm_y1": block.bbox.y0 if block.bbox else None,
+            "bbox_norm_x2": block.bbox.x1 if block.bbox else None,
+            "bbox_norm_y2": block.bbox.y1 if block.bbox else None,
             "plain_text": block.text,
             "content_json": {},
             "caption_block_uid": None,
@@ -189,13 +207,12 @@ def run_popo_projection(
 ) -> Dict[str, Any]:
     """一站式兼容投影：生成 content.md / doc_blocks_graph / segments / base_rows。"""
     block_line_ranges = regenerate_content_md(blocks, mineru_content_md, content_md_output_path)
-
-    graph_data = build_doc_blocks_graph(blocks, outlines, block_line_ranges)
-    with open(graph_output_path, "w", encoding="utf-8") as f:
-        json.dump(graph_data, f, ensure_ascii=False, indent=2)
-
     segments = build_document_segments(blocks, block_line_ranges)
     base_rows = build_base_rows(blocks)
+
+    graph_data = build_doc_blocks_graph(blocks, outlines, block_line_ranges, base_rows)
+    with open(graph_output_path, "w", encoding="utf-8") as f:
+        json.dump(graph_data, f, ensure_ascii=False, indent=2)
 
     return {
         "graph_path": graph_output_path,

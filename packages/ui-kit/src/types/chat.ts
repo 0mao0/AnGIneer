@@ -91,6 +91,15 @@ export interface AIChatMessage {
     metadata?: Record<string, any>
   }>
   debug?: Record<string, any>
+  gap_analysis?: Array<{
+    gap_description: string
+    suggested_sources: string[]
+  }>
+  confidence_breakdown?: {
+    high?: string[]
+    medium?: string[]
+    low?: string[]
+  }
 }
 
 export interface QueryRequest {
@@ -135,6 +144,15 @@ export interface QueryResponse {
   }
   fallback_used?: boolean
   latency_ms?: number
+  gap_analysis?: Array<{
+    gap_description: string
+    suggested_sources: string[]
+  }>
+  confidence_breakdown?: {
+    high?: string[]
+    medium?: string[]
+    low?: string[]
+  }
 }
 
 export type SessionKey = `${string}:${string}`

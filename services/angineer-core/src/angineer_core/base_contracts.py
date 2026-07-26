@@ -88,10 +88,18 @@ class IntentResult(BaseModel):
     reason: Optional[str] = None
 
 
+class GapAnalysis(BaseModel):
+    """知识盲区分析项。"""
+    gap_description: str = ""
+    suggested_sources: List[str] = Field(default_factory=list)
+
+
 class AgentResponse(BaseModel):
     """Agent 标准响应结构。"""
     content: str
     data: Optional[Dict[str, Any]] = None
+    gap_analysis: Optional[List[GapAnalysis]] = None
+    confidence_breakdown: Optional[Dict[str, List[str]]] = None
 
 
 class IntentResponse(BaseModel):

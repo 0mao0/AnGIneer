@@ -102,6 +102,85 @@
                   </div>
                 </button>
               </div>
+
+              <!-- 知识盲区分析 -->
+              <div
+                v-if="(msg as any).gap_analysis && (msg as any).gap_analysis.length > 0"
+                class="gap-analysis-panel"
+              >
+                <div class="gap-analysis-header" @click="toggleGapAnalysis(msg)">
+                  <span class="gap-analysis-toggle">
+                    <DownOutlined v-if="isGapAnalysisExpanded(msg)" />
+                    <RightOutlined v-else />
+                  </span>
+                  <WarningOutlined class="gap-analysis-icon" />
+                  <span class="gap-analysis-title">
+                    知识盲区（{{ (msg as any).gap_analysis.length }}项）
+                  </span>
+                </div>
+                <div v-if="isGapAnalysisExpanded(msg)" class="gap-analysis-body">
+                  <div
+                    v-for="(gap, idx) in (msg as any).gap_analysis"
+                    :key="idx"
+                    class="gap-item"
+                  >
+                    <div class="gap-description">
+                      <span class="gap-index">{{ idx + 1 }}.</span>
+                      {{ gap.gap_description }}
+                    </div>
+                    <div
+                      v-if="gap.suggested_sources && gap.suggested_sources.length > 0"
+                      class="gap-suggestions"
+                    >
+                      <span class="gap-suggestion-label">建议补充：</span>
+                      <a-tag
+                        v-for="(src, sIdx) in gap.suggested_sources"
+                        :key="sIdx"
+                        color="orange"
+                        class="gap-tag"
+                      >
+                        {{ src }}
+                      </a-tag>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 置信度说明 -->
+              <div
+                v-if="(msg as any).confidence_breakdown && getConfidenceKeys(msg).length > 0"
+                class="confidence-panel"
+              >
+                <div class="confidence-header" @click="toggleConfidence(msg)">
+                  <span class="confidence-toggle">
+                    <DownOutlined v-if="isConfidenceExpanded(msg)" />
+                    <RightOutlined v-else />
+                  </span>
+                  <span class="confidence-title">置信度说明</span>
+                </div>
+                <div v-if="isConfidenceExpanded(msg)" class="confidence-body">
+                  <div
+                    v-for="level in getConfidenceKeys(msg)"
+                    :key="level"
+                    class="confidence-level"
+                  >
+                    <div class="confidence-label">
+                      <span
+                        class="confidence-dot"
+                        :class="`confidence-dot-${level}`"
+                      />
+                      {{ getConfidenceLabel(level) }}
+                    </div>
+                    <div
+                      v-for="(item, cIdx) in (msg as any).confidence_breakdown[level]"
+                      :key="cIdx"
+                      class="confidence-item"
+                    >
+                      {{ item }}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </template>
 
@@ -273,7 +352,8 @@ import {
   CloseCircleOutlined,
   InfoCircleOutlined,
   DownOutlined,
-  RightOutlined
+  RightOutlined,
+  WarningOutlined
 } from '@ant-design/icons-vue'
 import CitationInline from './CitationInline.vue'
 import CitationRichContent from './CitationRichContent.vue'
@@ -437,6 +517,48 @@ const getCitationLastSegment = (sectionPath: string | undefined): string => {
 const handleCitationClick = (citation: BaseChatCitation) => {
   toggleCitationExpanded(getCitationKey(citation))
   emit('selectCitation', citation)
+}
+
+/**
+ * 知识盲区分析展开/折叠状态（按消息 ID 追踪）
+ */
+const expandedGapAnalysisKeys = ref<string[]>([])
+const expandedConfidenceKeys = ref<string[]>([])
+
+const getGapMsgKey = (msg: BaseChatMessage) => msg.id || ''
+const isGapAnalysisExpanded = (msg: BaseChatMessage) => expandedGapAnalysisKeys.value.includes(getGapMsgKey(msg))
+const toggleGapAnalysis = (msg: BaseChatMessage) => {
+  const key = getGapMsgKey(msg)
+  if (isGapAnalysisExpanded(msg)) {
+    expandedGapAnalysisKeys.value = expandedGapAnalysisKeys.value.filter(k => k !== key)
+  } else {
+    expandedGapAnalysisKeys.value = [...expandedGapAnalysisKeys.value, key]
+  }
+}
+
+const isConfidenceExpanded = (msg: BaseChatMessage) => expandedConfidenceKeys.value.includes(getGapMsgKey(msg))
+const toggleConfidence = (msg: BaseChatMessage) => {
+  const key = getGapMsgKey(msg)
+  if (isConfidenceExpanded(msg)) {
+    expandedConfidenceKeys.value = expandedConfidenceKeys.value.filter(k => k !== key)
+  } else {
+    expandedConfidenceKeys.value = [...expandedConfidenceKeys.value, key]
+  }
+}
+
+const getConfidenceKeys = (msg: BaseChatMessage): string[] => {
+  const cb = (msg as any).confidence_breakdown
+  if (!cb) return []
+  return (['high', 'medium', 'low'] as const).filter(k => cb[k] && cb[k].length > 0)
+}
+
+const getConfidenceLabel = (level: string): string => {
+  const labels: Record<string, string> = {
+    high: '高置信度',
+    medium: '中置信度',
+    low: '低置信度 / 推测'
+  }
+  return labels[level] || level
 }
 
 /**
@@ -1020,6 +1142,166 @@ defineExpose({
         .citation-rich-media :deep(.media-image) {
           max-width: 100%;
           border-radius: 4px;
+        }
+
+        /* 知识盲区分析面板 */
+        .gap-analysis-panel {
+          margin-top: 10px;
+          padding-top: 10px;
+          border-top: 1px solid var(--border-color);
+        }
+
+        .gap-analysis-header {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          cursor: pointer;
+          padding: 4px 0;
+          user-select: none;
+        }
+
+        .gap-analysis-toggle {
+          color: var(--warning-color, #fa8c16);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          flex: 0 0 auto;
+        }
+
+        .gap-analysis-icon {
+          color: var(--warning-color, #fa8c16);
+          font-size: 14px;
+        }
+
+        .gap-analysis-title {
+          font-size: 12px;
+          font-weight: 600;
+          color: var(--warning-color, #fa8c16);
+          letter-spacing: 0.02em;
+        }
+
+        .gap-analysis-body {
+          margin-top: 8px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .gap-item {
+          padding: 8px 10px;
+          border-radius: 8px;
+          background: rgba(250, 140, 22, 0.06);
+          border-left: 3px solid var(--warning-color, #fa8c16);
+        }
+
+        .gap-description {
+          font-size: 12px;
+          line-height: 1.6;
+          color: var(--text-primary);
+        }
+
+        .gap-index {
+          font-weight: 700;
+          color: var(--warning-color, #fa8c16);
+          margin-right: 2px;
+        }
+
+        .gap-suggestions {
+          margin-top: 6px;
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 4px;
+        }
+
+        .gap-suggestion-label {
+          font-size: 11px;
+          color: var(--text-secondary);
+        }
+
+        .gap-tag {
+          font-size: 11px;
+          line-height: 1;
+        }
+
+        /* 置信度说明面板 */
+        .confidence-panel {
+          margin-top: 10px;
+          padding-top: 10px;
+          border-top: 1px solid var(--border-color);
+        }
+
+        .confidence-header {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          cursor: pointer;
+          padding: 4px 0;
+          user-select: none;
+        }
+
+        .confidence-toggle {
+          color: var(--text-secondary);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          flex: 0 0 auto;
+        }
+
+        .confidence-title {
+          font-size: 12px;
+          font-weight: 600;
+          color: var(--text-secondary);
+          letter-spacing: 0.02em;
+        }
+
+        .confidence-body {
+          margin-top: 8px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .confidence-level {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+
+        .confidence-label {
+          font-size: 12px;
+          font-weight: 600;
+          color: var(--text-primary);
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .confidence-dot {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          flex: 0 0 auto;
+        }
+
+        .confidence-dot-high {
+          background: #52c41a;
+        }
+
+        .confidence-dot-medium {
+          background: #faad14;
+        }
+
+        .confidence-dot-low {
+          background: #ff4d4f;
+        }
+
+        .confidence-item {
+          font-size: 12px;
+          line-height: 1.5;
+          color: var(--text-secondary);
+          padding-left: 14px;
         }
 
         .streaming-cursor {

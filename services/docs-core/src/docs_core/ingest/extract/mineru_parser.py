@@ -354,8 +354,194 @@ class MinerUParser:
         failed = next((r for r in chunk_results if not r.get("success")), None)
         return failed or self._build_parse_result(False, error="Chunk parse failed")
 
+    def _is_company_api(self) -> bool:
+        """检测是否使用公司自部署的 MinerU API（区别于公共 API）。"""
+        url = self.api_url.lower()
+        return ':50170' in url or '/file_parse' in url
+
+    def _parse_single_file_company_api(self, input_path: str, output_dir: str) -> Dict[str, Any]:
+        """公司自部署 API 的单文件同步解析。
+        
+        POST 文件到 /file_parse 端点，返回 ZIP 包含所有产物。
+        """
+        import io as _io
+        import zipfile as _zipfile
+        import time as _time
+        
+        api_endpoint = self.api_url.strip().rstrip('/')
+        headers = {'Authorization': f'Bearer {self.api_key}'}
+        file_name = Path(input_path).name
+        
+        print(f"[MinerU] Company API: POST {api_endpoint} file={file_name}")
+        try:
+            with open(input_path, 'rb') as f:
+                file_bytes = f.read()
+            
+            resp = self._request_with_proxy_fallback(
+                'POST', api_endpoint,
+                headers=headers,
+                files={'files': (file_name, file_bytes, 'application/pdf')},
+                data={
+                    'return_md': 'true',
+                    'return_content_list': 'true',
+                    'return_middle_json': 'true',
+                    'return_model_output': 'true',
+                    'response_format_zip': 'true',
+                    'backend': 'pipeline',
+                    'formula_enable': 'true',
+                    'table_enable': 'true',
+                    'is_async': 'false',
+                },
+                timeout=600,
+                verify=False,
+            )
+
+            # 200 → ZIP 直接返回
+            if resp.status_code == 200:
+                return self._extract_zip_response(resp, output_dir)
+
+            # 202 → async 模式，需要轮询
+            if resp.status_code == 202:
+                try:
+                    task_info = resp.json()
+                    task_id = task_info.get("task_id", "")
+                except Exception:
+                    task_info = {}
+                    task_id = ""
+                if task_id:
+                    print(f"[MinerU] Async task {task_id}, polling...")
+                    return self._poll_async_task(task_id, api_endpoint, headers, output_dir)
+                return self._build_parse_result(False, error=f'Company API returned 202 without task_id')
+
+            # 409 → 冲突（并发限制或任务失败）
+            if resp.status_code == 409:
+                try:
+                    body = resp.json()
+                    task_id = body.get("task_id", "")
+                    status = body.get("status", "")
+                    if status == "failed":
+                        return self._build_parse_result(
+                            False,
+                            error=f'MinerU pipeline failed for "{file_name}": '
+                                  f'task_id={task_id}. The document may contain unsupported content '
+                                  f'or be too complex for automatic parsing.'
+                        )
+                    if status in ("pending", "processing"):
+                        print(f"[MinerU] Retrying after conflict (task {task_id} in progress)...")
+                        _time.sleep(5)
+                        return self._parse_single_file_company_api(input_path, output_dir)
+                except Exception:
+                    pass
+                return self._build_parse_result(
+                    False,
+                    error=f'Company API returned 409 (conflict): {resp.text[:300]}'
+                )
+
+            return self._build_parse_result(
+                False,
+                error=f'Company API returned {resp.status_code}: {resp.text[:200]}'
+            )
+            
+        except Exception as error:
+            import traceback
+            traceback.print_exc()
+            return self._build_parse_result(False, error=f'Company API exception: {error}')
+
+    def _poll_async_task(self, task_id: str, api_endpoint: str, headers: dict, output_dir: str) -> Dict[str, Any]:
+        """轮询异步任务直到完成，返回解析结果。"""
+        import time as _time
+        poll_url = f"{api_endpoint}/status/{task_id}"
+        max_attempts = 120
+        for attempt in range(max_attempts):
+            _time.sleep(3 if attempt < 10 else 5)
+            try:
+                resp = self._request_with_proxy_fallback(
+                    'GET', poll_url, headers=headers, timeout=30, verify=False,
+                )
+            except Exception as e:
+                print(f"[MinerU] Poll attempt {attempt + 1} failed: {e}")
+                continue
+            if resp.status_code != 200:
+                continue
+            try:
+                info = resp.json()
+            except Exception:
+                continue
+            status = str(info.get("status", "")).lower()
+            if status == "done":
+                download_url = info.get("download_url") or info.get("result_url") or ""
+                if download_url:
+                    dl_resp = self._request_with_proxy_fallback(
+                        'GET', download_url, headers=headers, timeout=60, verify=False,
+                    )
+                    if dl_resp.status_code == 200:
+                        return self._extract_zip_response(dl_resp, output_dir)
+                return self._build_parse_result(False, error=f'Async task {task_id} done but no download URL')
+            if status == "failed":
+                return self._build_parse_result(False, error=f'Async task {task_id} failed')
+            if status in ("pending", "processing"):
+                continue
+        return self._build_parse_result(False, error=f'Async task {task_id} timed out after {max_attempts} polls')
+
+    def _extract_zip_response(self, resp: 'requests.Response', output_dir: str) -> Dict[str, Any]:
+        """从原始 ZIP 响应中提取产物并写入 output_dir。"""
+        import shutil as _shutil
+        zip_bytes = resp.content
+
+        # 保存 origin.zip
+        try:
+            zip_path = Path(output_dir) / 'origin.zip'
+            with open(zip_path, 'wb') as f:
+                f.write(zip_bytes)
+        except Exception as e:
+            print(f"[MinerU] Failed to save origin.zip: {e}")
+
+        # 解压 ZIP 到 output_dir
+        self._extract_zip_archive(zip_bytes, Path(output_dir))
+
+        # 寻找 markdown
+        md_content = None
+        for md_file in Path(output_dir).rglob('*.md'):
+            try:
+                text = md_file.read_text(encoding='utf-8').strip()
+                if text:
+                    md_content = text
+                    dest = Path(output_dir) / 'content.md'
+                    if md_file.resolve() != dest.resolve():
+                        _shutil.copy2(str(md_file), str(dest))
+                    break
+            except Exception:
+                continue
+
+        # 整理 JSON 产物到 output_dir 根目录
+        json_patterns = {
+            'content_list.json': ['*content_list.json', '*content_list_v2.json'],
+            'content_list_v2.json': ['*content_list_v2.json'],
+            'model.json': ['*model.json'],
+            'middle.json': ['*middle.json'],
+        }
+        for target_name, patterns in json_patterns.items():
+            for pattern in patterns:
+                matches = list(Path(output_dir).rglob(pattern))
+                if matches:
+                    dest = Path(output_dir) / target_name
+                    try:
+                        _shutil.copy2(str(matches[0]), str(dest))
+                    except Exception:
+                        pass
+                    break
+
+        if not md_content:
+            return self._build_parse_result(False, error='Company API: no markdown found in ZIP response')
+
+        return self._write_markdown_file(output_dir, md_content)
+
     def _parse_single_file_cloud(self, input_path: str, output_dir: str) -> Dict[str, Any]:
         """单文件云端解析流程（不含页数预检）。"""
+        # 检测是否使用公司自部署 API
+        if self._is_company_api():
+            return self._parse_single_file_company_api(input_path, output_dir)
+
         base_url = self._normalize_api_url(self.api_url)
         headers = self._build_cloud_headers()
         
@@ -463,10 +649,6 @@ class MinerUParser:
                                     pass
                     
                     # 写入 content.md
-                    # MinerUParser 不再负责生成 mineru_blocks.json，只负责下载和解压原始数据
-                    # 原始 JSON 文件 (model.json, layout.json, content_list.json) 将保留在 output_dir 中
-                    # 由调用方 (Orchestrator) 负责后续处理
-                    
                     return self._write_markdown_file(output_dir, markdown)
 
             return self._build_parse_result(False, error='Polling timed out')

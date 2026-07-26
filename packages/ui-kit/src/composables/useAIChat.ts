@@ -82,6 +82,8 @@ function mapQueryResponseToChatResponse(qr: QueryResponse) {
     sql: qr.sql,
     latency_ms: qr.latency_ms,
     confidence: (qr.intent as any)?.confidence as number | undefined,
+    gap_analysis: qr.gap_analysis,
+    confidence_breakdown: qr.confidence_breakdown,
     debug: {
       intent: qr.intent,
       fallback_used: qr.fallback_used,
@@ -340,6 +342,8 @@ export function useAIChat(options?: {
         task_type: payload.task_type,
         confidence: payload.confidence,
         retrieved_items: payload.retrieved_items,
+        gap_analysis: payload.gap_analysis,
+        confidence_breakdown: payload.confidence_breakdown,
         debug: payload.debug
       })
       currentStreamContent.value = ''

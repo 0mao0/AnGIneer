@@ -18,7 +18,7 @@ import re
 import math
 from typing import Dict, Any, Tuple, List, Optional, TYPE_CHECKING
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
-from angineer_core.base_contracts import SOP, Step, IntentResult, AttemptedPathResult
+from angineer_core.base_contracts import SOP, Step, IntentResult, AttemptedPathResult, GapAnalysis
 from angineer_core.memory import Memory, StepRecord
 from angineer_core.base_logger import get_logger
 from angineer_core.base_utils import is_fatal_exception
@@ -467,6 +467,15 @@ class Dispatcher:
             "fallback_reason": fallback_reason,
         })
 
+        # 解析知识盲区分析（从 LLM 合成回答中提取）
+        gap_analysis = None
+        confidence_breakdown = None
+        if answer and os.environ.get("ANGINEER_GAP_ANALYSIS_ENABLED", "true").lower() == "true":
+            try:
+                answer, gap_analysis, confidence_breakdown = self._parse_gap_analysis(answer)
+            except Exception as e:
+                logger.warning(f"知识盲区解析失败: {e}")
+
         latency_ms = int((time.time() - started_at) * 1000)
 
         return {
@@ -488,6 +497,8 @@ class Dispatcher:
             "stage_timings": stage_timings,
             "inline_citation_count": len(inline_citations),
             "sop_trace": sop_trace,
+            "gap_analysis": gap_analysis,
+            "confidence_breakdown": confidence_breakdown,
         }
 
     @staticmethod
@@ -1451,6 +1462,8 @@ class Dispatcher:
     @staticmethod
     def _build_system_prompt(retriever_task_type: str, query: str = "") -> str:
         """根据检索任务类型构建对应的 system prompt。"""
+        gap_analysis_enabled = os.environ.get("ANGINEER_GAP_ANALYSIS_ENABLED", "true").lower() == "true"
+
         base_prompt = (
             "你是一个工程规范领域的专业助手。"
             "你只能依据提供的检索证据回答，但可以基于证据中的规范条款进行合理的推导和计算。"
@@ -1502,33 +1515,23 @@ class Dispatcher:
                 "   答案: [符合题目要求的所有选项字母]"
             )
 
+        # 知识盲区分析指令（可通过环境变量关闭）
+        if gap_analysis_enabled and not is_choice:
+            prompt += (
+                "\n\n知识盲区分析要求：\n"
+                "在回答末尾，必须附加以下两个段落：\n\n"
+                "## 知识盲区分析\n"
+                "对于用户问题中以下方面，当前检索结果中**未找到**充分依据：\n"
+                "1. **[盲区描述]** — 建议补充的文档类型：[具体建议]\n"
+                "2. ...（如无盲区则写\"当前检索结果已覆盖问题的所有关键方面。\"）\n\n"
+                "## 置信度说明\n"
+                "- 高置信度：[列出有充分证据支持的论述]\n"
+                "- 中置信度：[列出只有部分证据支持的论述]\n"
+                "- 低置信度/推测：[列出基于通用工程知识的推测，非本知识库内容]\n\n"
+                "注意：只在检索结果确实缺少相关信息时才标注盲区，不要将检索结果中已有但不够详细的内容标注为盲区。"
+            )
+
         return prompt
-
-        if retriever_task_type == "definition_qa":
-            return base_prompt + (
-                "\n\n规则：\n"
-                "1. 直接、完整地回答用户问题，给出定义或组成\n"
-                "2. 如果检索结果中包含与问题相关的内容，请基于相关内容给出准确回答\n"
-                '3. 引用具体来源（章节号），格式如"根据第X章..."\n'
-                "4. 如果证据不足以支撑结论，明确说明“没有检索到足够证据”，不要自行补全"
-            )
-
-        if retriever_task_type == "locate_qa":
-            return base_prompt + (
-                "\n\n规则：\n"
-                "1. 直接回答位置/设置要求，明确指出具体地点或条件\n"
-                '2. 引用具体来源（章节号），格式如"根据第X章..."\n'
-                "3. 如果检索结果中包含与问题相关的内容，请基于相关内容给出准确回答\n"
-                "4. 如果证据不足以支撑结论，明确说明“没有检索到足够证据”，不要自行补全"
-            )
-
-        return base_prompt + (
-            "\n\n规则：\n"
-            "1. 优先直接回答用户问题\n"
-            "2. 只能复述或推导证据中明确出现的信息，禁止引用证据里未出现的规范编号、年份或考试背景\n"
-            "3. 每个关键结论后都要指出对应证据来源（文档名、章节号等）\n"
-            "4. 如果证据不足以支撑最终结论，明确说明“没有检索到足够证据”，不要自行补全"
-        )
 
     @staticmethod
     def _rerank_candidates(query: str, candidates: list, task_type: str = "") -> list:
@@ -1611,6 +1614,150 @@ class Dispatcher:
                     continue
                 return True
         return False
+
+    @staticmethod
+    def _parse_gap_analysis(answer: str) -> Tuple[str, Optional[List[Dict[str, Any]]], Optional[Dict[str, List[str]]]]:
+        """
+        从 LLM 合成回答中解析知识盲区分析和置信度说明。
+
+        解析策略：
+        1. 按「知识盲区分析」和「置信度说明」标题切分
+        2. 提取盲区列表（每条格式：序号. 描述 — 建议补充）
+        3. 提取置信度分类（高/中/低）
+
+        Returns:
+            (clean_answer, gap_analysis_list, confidence_breakdown)
+            - clean_answer: 去除盲区和置信度段落后的纯回答文本
+            - gap_analysis_list: [{"gap_description": "...", "suggested_sources": [...]}]
+            - confidence_breakdown: {"high": [...], "medium": [...], "low": [...]}
+        """
+        answer_text = str(answer or "")
+        if not answer_text.strip():
+            return answer_text, None, None
+
+        gap_analysis: Optional[List[Dict[str, Any]]] = None
+        confidence_breakdown: Optional[Dict[str, List[str]]] = None
+        clean_answer = answer_text
+
+        # 按「知识盲区分析」标题切分
+        gap_patterns = [
+            r'##\s*知识盲区分析\s*\n',
+            r'###?\s*知识盲区分析\s*\n',
+            r'知识盲区分析[：:]\s*\n',
+        ]
+        gap_split = None
+        for pat in gap_patterns:
+            parts = re.split(pat, answer_text, maxsplit=1)
+            if len(parts) >= 2:
+                clean_answer = parts[0].strip()
+                gap_split = parts[1]
+                break
+
+        if gap_split is None:
+            return clean_answer, None, None
+
+        # 按「置信度说明」切分 gap 段落
+        conf_patterns = [
+            r'##\s*置信度说明\s*\n',
+            r'###?\s*置信度说明\s*\n',
+            r'置信度说明[：:]\s*\n',
+        ]
+        conf_split = None
+        for pat in conf_patterns:
+            parts = re.split(pat, gap_split, maxsplit=1)
+            if len(parts) >= 2:
+                gap_text = parts[0].strip()
+                conf_split = parts[1].strip()
+                break
+
+        if conf_split is None:
+            gap_text = gap_split.strip()
+        else:
+            gap_text = gap_split.split(conf_split)[0] if conf_split in gap_split else parts[0].strip() if 'parts' in dir() else gap_split.strip()
+
+        # 重新计算：从原始 gap_split 中提取 gap 部分和 conf 部分
+        gap_text = gap_split
+        conf_text = ""
+        for pat in conf_patterns:
+            conf_parts = re.split(pat, gap_split, maxsplit=1)
+            if len(conf_parts) >= 2:
+                gap_text = conf_parts[0].strip()
+                conf_text = conf_parts[1].strip()
+                break
+
+        # 解析盲区列表
+        if gap_text and gap_text.strip():
+            # 匹配格式：1. **盲区描述** — 建议：xxx 或 1. 盲区描述 — 建议补充xxx
+            gap_items = []
+            # 按数字编号拆分
+            gap_lines = re.split(r'\n(?=\d+\.\s)', gap_text.strip())
+            for line in gap_lines:
+                line_clean = re.sub(r'^\d+\.\s*\*?\*?', '', line.strip()).strip()
+                if not line_clean or len(line_clean) < 5:
+                    continue
+                # 跳过"无盲区"的陈述
+                if any(kw in line_clean for kw in ['无盲区', '已覆盖', '未发现明显', '所有关键方面']):
+                    continue
+                # 提取盲区描述和建议
+                gap_desc = line_clean
+                suggested = []
+                # 尝试按 "—" 或 "：" 分割描述和建议
+                for sep in [' — 建议', ' — ', '：建议', '：']:
+                    if sep in line_clean:
+                        parts_sep = line_clean.split(sep, 1)
+                        gap_desc = parts_sep[0].strip().rstrip('：:')
+                        suggest_text = parts_sep[1].strip() if len(parts_sep) > 1 else ""
+                        if suggest_text:
+                            suggested = [s.strip() for s in re.split(r'[、,，]', suggest_text) if s.strip()]
+                        break
+                gap_items.append({
+                    "gap_description": gap_desc,
+                    "suggested_sources": suggested,
+                })
+            if gap_items:
+                gap_analysis = gap_items
+
+        # 解析置信度说明
+        if conf_text and conf_text.strip():
+            cb: Dict[str, List[str]] = {"high": [], "medium": [], "low": []}
+            current_level = None
+            for line in conf_text.split('\n'):
+                line_stripped = line.strip()
+                if not line_stripped:
+                    continue
+                # 检测置信度级别
+                if '高置信度' in line_stripped:
+                    current_level = 'high'
+                    # 提取该行中冒号后的内容
+                    if '：' in line_stripped or ':' in line_stripped:
+                        content = re.split(r'[：:]', line_stripped, maxsplit=1)[-1].strip()
+                        if content and len(content) > 2:
+                            cb['high'].append(content)
+                    continue
+                if '中置信度' in line_stripped:
+                    current_level = 'medium'
+                    if '：' in line_stripped or ':' in line_stripped:
+                        content = re.split(r'[：:]', line_stripped, maxsplit=1)[-1].strip()
+                        if content and len(content) > 2:
+                            cb['medium'].append(content)
+                    continue
+                if '低置信度' in line_stripped:
+                    current_level = 'low'
+                    if '：' in line_stripped or ':' in line_stripped:
+                        content = re.split(r'[：:]', line_stripped, maxsplit=1)[-1].strip()
+                        if content and len(content) > 2:
+                            cb['low'].append(content)
+                    continue
+                # 列表项
+                if current_level and line_stripped.startswith('-'):
+                    item_text = re.sub(r'^[-*]\s*', '', line_stripped).strip()
+                    if item_text and len(item_text) > 2:
+                        cb[current_level].append(item_text)
+            # 只返回非空的置信度
+            if any(cb.values()):
+                confidence_breakdown = {k: v for k, v in cb.items() if v}
+
+        return clean_answer, gap_analysis, confidence_breakdown
 
     @staticmethod
     def _extract_answer_from_sop_context(
@@ -2876,8 +3023,8 @@ CRITICAL OUTPUT RULES:
 
 【撰写要求】
 1. **极其简洁**：字数控制在 80 字以内。
-2. **客观陈述**：直接陈述事实，不要使用“我”、“系统”、“执行了”等主语。
-3. **重点突出**：核心关注“根据什么输入（如条件、公式），得到了什么结果（关键数值）”。
+2. **客观陈述**：直接陈述事实，不要使用"我"、"系统"、"执行了"等主语。
+3. **重点突出**：核心关注"根据什么输入（如条件、公式），得到了什么结果（关键数值）"。
 4. **错误处理**：如果输出包含 error，必须明确指出错误原因。
 5. **格式示例**：
    - 查表（表A），在条件 x=1 下获取到 y=2。
