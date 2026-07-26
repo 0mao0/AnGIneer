@@ -12,29 +12,29 @@ jobs:
     steps:
       - name: Pull latest code
         run: |
-          cd /root/AnGIneer
+          cd /home/runner/AnGIneer
           git pull origin main
 
       - name: Check .env exists
         run: |
-          if [ ! -f /root/AnGIneer/.env ]; then
-            echo "ERROR: /root/AnGIneer/.env not found"
+          if [ ! -f /home/runner/AnGIneer/.env ]; then
+            echo "ERROR: /home/runner/AnGIneer/.env not found"
             exit 1
           fi
 
       - name: Build images
         run: |
-          cd /root/AnGIneer/docker
-          docker compose build
+          cd /home/runner/AnGIneer/docker
+          sudo docker compose build
 
       - name: Restart services
         run: |
-          cd /root/AnGIneer/docker
-          docker compose down
-          docker compose up -d
+          cd /home/runner/AnGIneer/docker
+          sudo docker compose down
+          sudo docker compose up -d
 
       - name: Cleanup old images
-        run: docker image prune -f
+        run: sudo docker image prune -f
 
       - name: Health check
         id: health
@@ -47,7 +47,7 @@ jobs:
           echo "Frontend: $FRONTEND"
           echo "Admin: $ADMIN"
           echo "API docs: $API"
-          cd /root/AnGIneer/docker && docker compose ps
+          cd /home/runner/AnGIneer/docker && sudo docker compose ps
           echo "frontend=$FRONTEND" >> $GITHUB_OUTPUT
           echo "admin=$ADMIN" >> $GITHUB_OUTPUT
           echo "api=$API" >> $GITHUB_OUTPUT
