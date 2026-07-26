@@ -285,8 +285,8 @@ sequenceDiagram
 ┌─────────────────────────────────────────────────────────────┐
 │                         用户界面层                           │
 │  ┌──────────────────────────────────────────────────────┐  │
-│  │  apps/web-console/ (Vue 3 + Ant Design Vue)  端口3005 │  │
-│  │  apps/admin-console/ (Vue 3 + Ant Design Vue) 端口3002│  │
+│  │  apps/user-web/ (Vue 3 + Ant Design Vue)   端口3005 │  │
+│  │  apps/admin-web/ (Vue 3 + Ant Design Vue)  端口3002│  │
 │  └──────────────────────────────────────────────────────┘  │
 └────────────────────────────┬────────────────────────────────┘
                              │ HTTP API
@@ -307,7 +307,8 @@ sequenceDiagram
 └─────────────────────────────────────────────────────────────┘
 ```
 
-- 前端入口：`apps/web-console`、`apps/admin-console`
+- 前端入口：`apps/user-web`（工作台）、`apps/admin-web`（管理后台）
+- 外部 API：`/api/v1/*`（文档解析、实体提取、图谱等，需 `X-API-Key` 认证）
 - API 服务入口：`services/api-server`
 - 前端共享层：`packages/docs-ui`、`packages/ui-kit`
   - **智能树组件体系**：SmartTree 通用组件 + 领域语义封装（SOPTree/KnowledgeTree/EvalDatasetTree）
@@ -319,8 +320,8 @@ sequenceDiagram
 ```mermaid
 flowchart LR
   User["User"]
-  Web["apps/web-console"]
-  Admin["apps/admin-console"]
+  Web["apps/user-web"]
+  Admin["apps/admin-web"]
   Api["services/api-server"]
   DocsUI["packages/docs-ui"]
   UIKit["packages/ui-kit"]
@@ -373,7 +374,7 @@ flowchart LR
 ### 4.1 环境准备
 
 ```bash
-git clone https://github.com/YourOrg/AnGIneer.git
+git clone https://github.com/0mao0/AnGIneer.git
 cd AnGIneer
 ```
 
@@ -387,7 +388,7 @@ pnpm install
 pip install -e services/ai-inference -e services/angineer-core -e services/sop-core -e services/knowledge-graph -e services/docs-core -e services/geo-core -e services/engtools
 ```
 
-### 4.3 启动服务
+### 4.3 启动服务（开发模式）
 
 ```bash
 pnpm dev
@@ -396,7 +397,61 @@ pnpm dev:admin
 pnpm dev:backend
 ```
 
-### 4.4 运行测试
+### 4.4 外部 API 服务
+
+AnGIneer 提供 `HTTP API` 接口，支持文档解析、实体提取、知识图谱查询等能力。
+
+**获取 API Key：**
+
+管理后台首次使用需先初始化 Key：
+
+```bash
+python scripts/init_api_keys.py
+```
+
+管理后台 → API 密钥页面，也可直接创建和管理 Key。
+
+**调用示例：**
+
+```bash
+curl -X POST http://localhost:8789/api/v1/documents/parse \
+  -H "X-API-Key: ag_your_key_here" \
+  -F "file=@document.pdf"
+
+# 轮询解析状态
+curl -H "X-API-Key: ag_your_key_here" http://localhost:8789/api/v1/documents/{doc_id}/status
+
+# 获取结构化 blocks
+curl -H "X-API-Key: ag_your_key_here" http://localhost:8789/api/v1/documents/{doc_id}/blocks
+```
+
+支持格式：PDF（直接解析）、DOCX/PPTX/XLSX（自动经 LibreOffice 转 PDF 后解析）。
+
+### 4.5 Docker 部署
+
+```bash
+cd docker
+
+# 首次构建并启动
+docker compose build
+docker compose up -d
+
+# 验证
+curl http://localhost/
+curl http://localhost/admin/
+curl http://localhost/docs
+```
+
+**自动部署（GitHub Actions + 自托管 Runner）：**
+
+仓库已配置自托管 GitHub Actions Runner 部署到服务器：
+
+1. 服务器上安装 runner（`https://github.com/0mao0/AnGIneer/settings/actions/runners/new`）
+2. 配置完成后，每次 `git push main` 自动触发：
+   - `git pull` → `docker compose build` → `docker compose up -d`
+3. 工作流文件：`.github/workflows/deploy.yml`
+
+### 4.6 运行测试
 
 ```bash
 pnpm harness
@@ -421,8 +476,12 @@ pnpm docs:arch-check
 生产/对外部署时，必须通过环境变量显式配置允许的前端来源，禁止使用 `*`：
 
 ```
-ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com
+ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,http://124.221.238.70
 ```
+
+### 5.3 API Key 认证
+
+所有 `/api/v1/*` 端点需在 Header 携带 `X-API-Key`。Key 通过管理后台或 `scripts/init_api_keys.py` 生成，存储于 `data/api_keys.sqlite`。
 
 ***
 
