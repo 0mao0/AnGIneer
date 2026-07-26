@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, deploy]
+    runs-on: [self-hosted]
 
     steps:
       - name: Pull latest code
