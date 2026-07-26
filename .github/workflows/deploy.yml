@@ -62,6 +62,10 @@ jobs:
             const adm = '${{ steps.health.outputs.admin }}';
             const api = '${{ steps.health.outputs.api }}';
             const commit = '${{ github.sha }}'.slice(0, 7);
+            let msgLine = 'manual trigger';
+            if ('${{ github.event_name }}' === 'push') {
+              msgLine = ('${{ github.event.head_commit.message }}' || '').split('\n')[0];
+            }
             const now = new Date().toLocaleString('zh-CN', { hour12: false });
             const url = process.env.WEBHOOK;
             if (!url || url === '') {
@@ -71,7 +75,7 @@ jobs:
             const msg = {
               msgtype: 'markdown',
               markdown: {
-                content: `## ✅ AnGIneer 部署完成\n> **Commit:** \`${commit}\`\n> **分支:** \`${{ github.ref_name }}\`\n> **时间:** \`${now}\`\n\n**服务状态**\n> 前台: \`${fe}\`\n> 管理后台: \`${adm}\`\n> API 文档: \`${api}\`\n\n[查看 Actions](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})`
+                content: `## ✅ AnGIneer 部署完成\n> **提交:** \`${commit}\` - ${msgLine}\n> **分支:** \`${{ github.ref_name }}\`\n> **时间:** \`${now}\`\n\n**服务状态**\n> 前台: \`${fe}\`\n> 管理后台: \`${adm}\`\n> API 文档: \`${api}\`\n\n[查看 Actions](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})`
               }
             };
             const resp = await fetch(url, {
