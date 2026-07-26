@@ -37,10 +37,46 @@ jobs:
         run: docker image prune -f
 
       - name: Health check
+        id: health
         run: |
           echo "Waiting for services..."
           sleep 10
-          echo "Frontend:"; curl -s -o /dev/null -w "%{http_code}" http://localhost/ || true; echo ""
-          echo "Admin:"; curl -s -o /dev/null -w "%{http_code}" http://localhost/admin/ || true; echo ""
-          echo "API docs:"; curl -s -o /dev/null -w "%{http_code}" http://localhost/api/docs || true; echo ""
+          FRONTEND=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/ || echo "000")
+          ADMIN=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/admin/ || echo "000")
+          API=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/docs || echo "000")
+          echo "Frontend: $FRONTEND"
+          echo "Admin: $ADMIN"
+          echo "API docs: $API"
           cd /root/AnGIneer/docker && docker compose ps
+          echo "frontend=$FRONTEND" >> $GITHUB_OUTPUT
+          echo "admin=$ADMIN" >> $GITHUB_OUTPUT
+          echo "api=$API" >> $GITHUB_OUTPUT
+
+      - name: Notify WeCom group
+        uses: actions/github-script@v7
+        env:
+          WEBHOOK: ${{ secrets.WECOM_WEBHOOK_URL }}
+        with:
+          script: |
+            const fe = '${{ steps.health.outputs.frontend }}';
+            const adm = '${{ steps.health.outputs.admin }}';
+            const api = '${{ steps.health.outputs.api }}';
+            const commit = '${{ github.sha }}'.slice(0, 7);
+            const now = new Date().toLocaleString('zh-CN', { hour12: false });
+            const url = process.env.WEBHOOK;
+            if (!url || url === '') {
+              console.log('WECOM_WEBHOOK_URL not set, skipping notification');
+              return;
+            }
+            const msg = {
+              msgtype: 'markdown',
+              markdown: {
+                content: `## ✅ AnGIneer 部署完成\n> **Commit:** \`${commit}\`\n> **分支:** \`${{ github.ref_name }}\`\n> **时间:** \`${now}\`\n\n**服务状态**\n> 前台: \`${fe}\`\n> 管理后台: \`${adm}\`\n> API 文档: \`${api}\`\n\n[查看 Actions](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})`
+              }
+            };
+            const resp = await fetch(url, {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify(msg)
+            });
+            console.log('WeCom notify status:', resp.status);
