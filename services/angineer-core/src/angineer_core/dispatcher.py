@@ -1162,6 +1162,7 @@ class Dispatcher:
         enforce_evidence=True 时，若检索无结果则直接返回空，不调用 LLM 自由生成。
         """
         from docs_core.query_protocols.contracts import KnowledgeQueryRequest
+        from docs_core.retrieval.clause_resolver import clause_resolver
         from docs_core.retrieval.dense_retriever import dense_retriever
         from docs_core.retrieval.formula_retriever import formula_retriever, is_formula_query
         from docs_core.retrieval.sparse_retriever import sparse_retriever
@@ -1212,6 +1213,9 @@ class Dispatcher:
                 "canonical_dense": dense_hits,
                 "canonical_sparse": sparse_hits,
             }
+            clause_hits = clause_resolver.retrieve(kq_request, doc_nodes, retriever_task_type)
+            if clause_hits:
+                source_candidates["clause_direct"] = clause_hits
             for item in formula_hits:
                 source_kind = str(item.metadata.get("source_kind") or "formula_block")
                 source_candidates.setdefault(source_kind, []).append(item)
@@ -1535,7 +1539,7 @@ class Dispatcher:
 
     @staticmethod
     def _rerank_candidates(query: str, candidates: list, task_type: str = "") -> list:
-        """用 bge-reranker-v2-m3 重排序候选，失败时回退本地 phrase rerank。"""
+        """用在线 reranker 服务重排序候选；未配置或失败时回退本地 phrase rerank 算法。"""
         if len(candidates) <= 1:
             return candidates
         if not task_type.startswith("locate_") and len(candidates) <= 5:
@@ -1543,14 +1547,26 @@ class Dispatcher:
         normalized_query = str(query or "").strip()
         from angineer_core.base_config import get_config
         cfg = get_config().dispatcher
-        remote_url = cfg.reranker_url or "http://127.0.0.1:7998/v1/rerank"
+        remote_url = str(cfg.reranker_url or "").strip().rstrip("/")
+        if remote_url and not remote_url.endswith("/rerank"):
+            remote_url = f"{remote_url}/v1/rerank"
+        if not remote_url:
+            from docs_core.retrieval.reranker import rerank_candidates as local_rerank
+            logger.debug("未配置在线 reranker（ANGINEER_RERANKER_URL），使用本地 phrase rerank")
+            return local_rerank(normalized_query, task_type, candidates)
         timeout = cfg.reranker_timeout_sec
         try:
+            import os
             import requests
             docs = [item.text or "" for item in candidates]
+            headers = {}
+            api_key = str(os.getenv("DOCS_RERANKER_API_KEY") or "").strip()
+            if api_key:
+                headers["Authorization"] = f"Bearer {api_key}"
             resp = requests.post(
                 remote_url,
                 json={"query": query, "documents": docs, "top_n": len(candidates)},
+                headers=headers or None,
                 timeout=timeout,
             )
             if resp.status_code != 200:
@@ -1777,7 +1793,9 @@ class Dispatcher:
             answer = str(context["answer"])
             # 简单校验：answer 中不应包含错误标记
             if answer.strip().lower() not in {"error", "failed", "null", "none", "undefined"}:
-                return answer
+                # 裸数值不算完整答案，继续走下方 LLM 总结生成
+                if not re.fullmatch(r"[-+]?\d+(?:\.\d+)?", answer.strip()):
+                    return answer
 
         # 2. 收集所有步骤输出（排除内部变量）
         calc_vars = {}
@@ -1836,14 +1854,29 @@ class Dispatcher:
             final_answer = list(calc_vars.values())[-1]
 
         if final_answer is not None:
-            result_text = str(final_answer)
+            fallback_text = str(final_answer)
             if consistency_warning:
-                result_text = f"{result_text}\n\n[警告: {consistency_warning}]"
-            return result_text
+                fallback_text = f"{fallback_text}\n\n[警告: {consistency_warning}]"
+            # 不直接返回裸值：统一经 LLM 基于计算结果组织成完整答案，失败时回退裸值
+            try:
+                return Dispatcher._compose_sop_answer(query, calc_vars, config_name)
+            except Exception as exc:
+                logger.warning(f"SOP 答案总结生成失败，回退为原始计算值: {exc}")
+                return fallback_text
 
-        # 5. 如果没有明确答案，使用 LLM 生成（严格限制在步骤输出范围内）
+        # 5. 如果没有明确答案，同样用 LLM 生成（严格限制在步骤输出范围内）
+        return Dispatcher._compose_sop_answer(query, calc_vars, config_name)
+
+    @staticmethod
+    def _compose_sop_answer(query: str, calc_vars: Dict[str, Any], config_name: str = None) -> str:
+        """基于 SOP 计算结果，用 LLM 组织成完整自然语言答案（严格禁止杜撰）。"""
         from ai_inference.llm_client import get_llm_client
         llm = get_llm_client()
+        # 截断超长值（如表格 HTML），避免撑爆 prompt
+        trimmed_vars = {
+            k: (v[:500] + "…") if isinstance(v, str) and len(v) > 500 else v
+            for k, v in calc_vars.items()
+        }
         prompt = f"""你是工程规范领域的专业助手。请根据以下计算结果回答用户问题。
 
 重要约束 - **必须严格遵守**:
@@ -1852,10 +1885,11 @@ class Dispatcher:
 - **绝对禁止**添加任何你自己知道但计算结果中未出现的规范编号、数值或公式
 - 只能引用计算结果中**已经出现**的变量名和数值
 - 将计算结果中的数值代入问题所问的语境中组织语言，但不要改变数值
+- 如果问题是选择题，请根据计算结果明确给出选项字母，并简要说明计算依据
 
 问题: {query}
 
-计算结果: {json.dumps(calc_vars, ensure_ascii=False, default=str)}
+计算结果: {json.dumps(trimmed_vars, ensure_ascii=False, default=str)}
 """
         return llm.chat(
             [
@@ -2072,7 +2106,12 @@ class Dispatcher:
         # Simple linear execution for now
         # In a real FSM, we would follow next_step_id
         for step in sop.steps:
-            self._execute_step(step)
+            try:
+                self._execute_step(step)
+            except Exception as e:
+                # 单步异常不应中断整个 SOP：记录错误并继续后续步骤
+                logger.error(f"[{sop.id}] Step {step.id} 执行异常，继续后续步骤: {e}")
+                self._record_step(step, {}, None, error=f"unhandled: {e}")
 
             if step_callback:
                 step_info = self._build_step_info(step)

@@ -94,25 +94,39 @@ export const formatStructuredItemType = (itemType: string): string => {
   return itemType || '未知'
 }
 
-const stageMap: Record<string, string> = {
-  queued: '任务排队中',
-  initializing: '正在初始化',
-  mineru_processing: 'MinerU 解析中',
-  reading_markdown: '读取 Markdown',
-  saving_markdown: '保存解析结果',
-  completed: '解析完成',
-  failed: '解析失败'
+const stageSteps: Record<string, [number, string]> = {
+  queued:              [0, '排队等待'],
+  preparing:           [1, '准备文件'],
+  converting:          [2, '格式转换'],
+  raw_parse:           [3, 'MinerU解析'],
+  popo_normalize:      [4, 'PoPo增强'],
+  indexing:            [5, '构建索引'],
+  completed:           [6, '解析完成'],
+  initializing:        [0, '正在初始化'],
+  mineru_processing:   [3, 'MinerU解析'],
+  reading_markdown:    [5, '读取 Markdown'],
+  saving_markdown:     [6, '保存解析结果'],
 }
 
+const STAGE_TOTAL = 6
+
 export const mapParseStageText = (stage?: string, parseError?: string): string => {
+  if (stage === 'cancelled') return '已取消'
   if (parseError) return `解析失败：${parseError}`
   const normalized = stage || 'processing'
-  return stageMap[normalized] || normalized
+  const entry = stageSteps[normalized]
+  if (entry) {
+    const [step, label] = entry
+    if (step > 0) return `步骤${step}/${STAGE_TOTAL} ${label}`
+    return label
+  }
+  return normalized
 }
 
 const knowledgeStatusOverrides: Record<string, string> = {
   processing: '解析中',
-  failed: '解析失败'
+  failed: '解析失败',
+  cancelled: '已取消'
 }
 
 export const mapNodeStatusText = (status?: string): string => {

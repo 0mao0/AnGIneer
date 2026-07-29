@@ -101,10 +101,22 @@
                 高亮联动
               </a-button>
               <a-button
+                v-if="selectedNode.status === 'processing'"
+                danger
+                size="small"
+                class="header-action-btn"
+                @click="handleCancelParseTask(selectedNode)"
+              >
+                <template #icon>
+                  <StopOutlined />
+                </template>
+                停止解析
+              </a-button>
+              <a-button
+                v-else
                 type="primary"
                 size="small"
                 class="header-action-btn"
-                :loading="selectedNode.status === 'processing'"
                 @click="parseDocument(selectedNode)"
               >
                 {{ docParsedWorkspaceRef?.parseButtonText || '开始解析' }}
@@ -213,7 +225,7 @@
       @update:open="parseSettingsVisible = $event"
     >
       <a-form layout="vertical">
-        <a-form-item label="启用 LLM">
+        <a-form-item label="启用 LLM" style="margin-bottom: 12px;">
           <a-switch
             :checked="parseSettings.use_llm"
             checked-children="开启"
@@ -221,18 +233,25 @@
             @update:checked="handleParseUseLlmChange"
           />
         </a-form-item>
-        <a-form-item label="LLM 模型">
+        <a-form-item label="LLM 模型" style="margin-bottom: 12px;">
           <a-select
             :value="parseSettings.llm_model || undefined"
-            :options="llmModelOptions"
             :loading="llmConfigsLoading"
             :disabled="!parseSettings.use_llm"
             placeholder="默认使用 Qwen3.6"
             allow-clear
             show-search
             option-filter-prop="label"
+            style="width: 100%;"
+            dropdown-class-name="llm-select-dropdown"
             @update:value="handleParseModelChange"
-          />
+          >
+            <a-select-option v-for="opt in llmModelOptions" :key="opt.value" :value="opt.value" :disabled="opt.disabled">
+              <span style="font-size: 14px;">{{ opt.label }}</span>
+              <a-tag v-if="opt.value.includes('付费')" color="orange" style="margin-left: 6px; font-size: 12px;">付费</a-tag>
+              <a-tag v-else color="green" style="margin-left: 6px; font-size: 12px;">免费</a-tag>
+            </a-select-option>
+          </a-select>
         </a-form-item>
         <a-typography-text type="secondary">
           当前默认模型优先级为 Qwen3.6；若未显式选择，则按后端默认模型执行。
@@ -812,6 +831,13 @@ const handleCancelParseTask = async (node: SmartTreeNode) => {
       try {
         stopParsePolling()
         await knowledgeApi.cancelParseTask(node.parseTaskId!)
+        // 立即更新选中节点状态，无需等待树刷新
+        if (selectedNode.value && selectedNode.value.key === node.key) {
+          selectedNode.value.status = 'failed'
+          selectedNode.value.parseStage = 'cancelled'
+          selectedNode.value.parseError = '用户手动取消任务'
+          selectedNode.value.parseProgress = 100
+        }
         message.success('任务已取消')
         await loadNodes(node.key)
       } catch (error) {
@@ -959,8 +985,14 @@ const uploadFile = async (file: File, parentId?: string) => {
   try {
     const result = await knowledgeApi.uploadDocument('default', file, parentId) as any
     message.success(`上传成功: ${file.name}`)
-    const focusNodeKey = result?.doc_id || result?.node?.id
-    await loadNodes(focusNodeKey)
+    const docId = result?.doc_id || result?.node?.id
+    await loadNodes(docId)
+    if (docId) {
+      const uploadedNode = findNode(treeData.value as unknown as SmartTreeNode[], docId)
+      if (uploadedNode) {
+        parseDocument(uploadedNode)
+      }
+    }
   } catch (error) {
     message.error(`上传失败: ${file.name}`)
     if (parentId) {
@@ -1185,5 +1217,11 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+:deep(.llm-select-dropdown) {
+  .ant-select-item-option-content {
+    font-size: 14px !important;
+  }
 }
 </style>

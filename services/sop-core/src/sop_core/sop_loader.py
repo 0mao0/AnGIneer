@@ -10,6 +10,30 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")
 from angineer_core.base_contracts import SOP, Step
 from sop_core.sop_parser import SopParser
 
+try:
+    from engtools import ToolRegistry as _ToolRegistry
+except Exception:
+    _ToolRegistry = None
+
+# engtools 注册表不可用时兜底识别的工具名
+_FALLBACK_KNOWN_TOOLS = {
+    "calculator", "knowledge_search", "table_lookup", "user_input", "conditional",
+    "auto", "sop_run", "llm_generate", "echo", "weather", "web_search",
+    "email_sender", "file_reader", "code_linter", "report_generator",
+    "summarizer", "docs_retrieval",
+}
+
+
+def _is_known_tool(tool_name: str) -> bool:
+    """判断工具名在运行时是否可执行（注册表可用时以注册表为准）。"""
+    if _ToolRegistry is not None:
+        try:
+            return _ToolRegistry.get_tool(tool_name) is not None
+        except Exception:
+            pass
+    return str(tool_name or "").strip().lower() in _FALLBACK_KNOWN_TOOLS
+
+
 def _normalize_inline_description(value: Any) -> Dict[str, Any]:
     """将步骤描述规范化为 {content, citations[]} 结构。"""
     if isinstance(value, dict):
@@ -25,9 +49,25 @@ def _normalize_inline_description(value: Any) -> Dict[str, Any]:
 
 
 def _normalize_step_dict(step_dict: Dict[str, Any]) -> Dict[str, Any]:
-    """对 Step 字典做最小归一化，确保能通过 Step 契约校验。"""
+    """对 Step 字典做最小归一化，确保能通过 Step 契约校验并可被执行。
+
+    - description 归一化为 {content, citations[]}；
+    - 兼容图谱生成器的 LLM 输出：execution.{tool,inputs,outputs} 提升为扁平字段；
+    - tool 缺失或未在 engtools 注册时兜底为 "auto"（运行时由 LLM 决策执行方式），
+      避免执行期 Tool not found 直接中断。
+    """
     normalized = dict(step_dict or {})
     normalized["description"] = _normalize_inline_description(normalized.get("description"))
+    execution = normalized.get("execution")
+    if isinstance(execution, dict):
+        if not normalized.get("tool") and execution.get("tool"):
+            normalized["tool"] = execution["tool"]
+        if not normalized.get("inputs") and isinstance(execution.get("inputs"), dict):
+            normalized["inputs"] = execution["inputs"]
+        if not normalized.get("outputs") and isinstance(execution.get("outputs"), dict):
+            normalized["outputs"] = execution["outputs"]
+    if not normalized.get("tool") or not _is_known_tool(str(normalized["tool"])):
+        normalized["tool"] = "auto"
     return normalized
 
 
@@ -164,9 +204,22 @@ class SopLoader:
             with open(self.index_file, 'r', encoding='utf-8') as f:
                 index_data = json.load(f)
 
+            # 兼容两种索引格式：refresh_index 产出的裸列表，以及生成器产出的 {"sops": [...]}
+            if isinstance(index_data, dict):
+                index_data = index_data.get("sops", [])
+            if not isinstance(index_data, list):
+                return sops
+
             for entry in index_data:
-                source = entry.get("_source", "raw")
-                sop_id = entry["id"]
+                if not isinstance(entry, dict):
+                    continue
+                sop_id = entry.get("id")
+                if not sop_id:
+                    continue
+                source = entry.get("_source")
+                if not source:
+                    # 未标注来源时按 json/ 目录（唯一真相源）是否存在对应文件推断
+                    source = "json" if os.path.exists(os.path.join(self.json_dir, f"{sop_id}.json")) else "raw"
 
                 if source == "json":
                     sop = self._load_json_sop(sop_id)
@@ -322,7 +375,7 @@ class SopLoader:
                     cached_data = json.load(f)
                 steps_data = cached_data.get("steps", [])
                 if steps_data:
-                    loaded_steps = [Step(**s) for s in steps_data]
+                    loaded_steps = [Step(**_normalize_step_dict(s)) for s in steps_data]
                     sop.steps = loaded_steps
                     sop.blackboard = cached_data.get("blackboard") or self.parser.build_blackboard_from_steps(loaded_steps)
                     return sop
@@ -353,7 +406,7 @@ class SopLoader:
                         cached_data = json.load(jf)
                     steps_data = cached_data.get("steps", [])
                     if steps_data:
-                        loaded_steps = [Step(**s) for s in steps_data]
+                        loaded_steps = [Step(**_normalize_step_dict(s)) for s in steps_data]
                         sop.steps = loaded_steps
                         sop.blackboard = cached_data.get("blackboard") or self.parser.build_blackboard_from_steps(loaded_steps)
                         return sop

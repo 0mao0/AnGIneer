@@ -40,6 +40,11 @@ const routes: RouteRecordRaw[] = [
     path: '/api-keys',
     name: 'api-keys',
     component: () => import('../views/ApiKeyManage.vue')
+  },
+  {
+    path: '/knowledge-stats',
+    name: 'knowledge-stats',
+    component: () => import('../views/KnowledgeStatsPage.vue')
   }
 ]
 

@@ -20,6 +20,7 @@ from models.v1_responses import (
     ParseResponse, ParseStatusResponse, BlocksResponse, ContentResponse,
     Block, OutlineItem,
 )
+from models.parse_record import insert_record, update_record_status, ParseRecord
 
 router = APIRouter()
 
@@ -51,6 +52,23 @@ async def parse_document_v1(
 
     output_dir = tempfile.mkdtemp(prefix=f"parse-{doc_id}-")
 
+    # 提取 API key 信息用于统计
+    api_key_info = getattr(request.state, "api_key_info", None)
+    uploaded_by = api_key_info.user_name if api_key_info else "未知"
+    api_key_id = api_key_info.id if api_key_info else None
+
+    # 插入统计记录
+    insert_record(ParseRecord(
+        doc_id=doc_id,
+        task_id=task_id,
+        uploaded_by=uploaded_by,
+        api_key_id=api_key_id,
+        file_name=file.filename,
+        file_format=ext,
+        file_size=len(content),
+        status="queued",
+    ))
+
     doc_registry[task_id] = {
         "doc_id": doc_id,
         "status": "queued",
@@ -70,6 +88,7 @@ async def parse_document_v1(
                     "stage": "converting", "stage_message": "LibreOffice 转换中",
                     "pdf_ready": False, "is_pdf_input": is_pdf,
                 }
+                update_record_status(task_id, "processing")
 
                 lo_dir = tempfile.mkdtemp(prefix=f"lo-{doc_id}-")
                 lo_pdf = convert_to_pdf(source_path, lo_dir)
@@ -93,6 +112,7 @@ async def parse_document_v1(
                     "stage": "mineru", "stage_message": "MinerU 解析中",
                     "pdf_ready": False, "is_pdf_input": is_pdf,
                 }
+                update_record_status(task_id, "processing")
                 mineru_input = source_path
 
             # MinerU 解析（慢的部分）
@@ -126,6 +146,7 @@ async def parse_document_v1(
                 "pdf_ready": True if not is_pdf else False,
                 "is_pdf_input": is_pdf,
             }
+            update_record_status(task_id, "completed")
             logger.info(f"parse completed: task={task_id}")
 
         except Exception as e:
@@ -138,6 +159,7 @@ async def parse_document_v1(
                 "is_pdf_input": is_pdf,
                 "error": f"{type(e).__name__}: {e}",
             }
+            update_record_status(task_id, "failed", f"{type(e).__name__}: {e}")
 
     t = threading.Thread(target=_run, daemon=True)
     t.start()
@@ -230,6 +252,19 @@ async def get_pdf(doc_id: str):
     if not pdf_path or not os.path.isfile(pdf_path):
         raise HTTPException(404, "PDF 不可用")
     return FileResponse(pdf_path, media_type="application/pdf", filename=f"{doc_id}.pdf")
+
+
+@router.delete("/{doc_id}")
+async def delete_document_v1(request: Request, doc_id: str):
+    """外部用户标记删除自己的文档。"""
+    from models.parse_record import soft_delete_record
+    api_key_info = getattr(request.state, "api_key_info", None)
+    if not api_key_info:
+        raise HTTPException(status_code=401, detail="需要认证")
+    success = soft_delete_record(doc_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="文档不存在或已删除")
+    return {"status": "success", "message": "已标记为删除"}
 
 
 @router.get("/{doc_id}/content", response_model=ContentResponse)

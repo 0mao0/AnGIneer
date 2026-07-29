@@ -311,6 +311,10 @@ onUnmounted(() => {
   transition: width 0.15s ease-out;
 }
 
+.pane-right {
+  border-left: 1px solid var(--border-color);
+}
+
 .pane-center {
   flex: 1;
   min-width: 0;

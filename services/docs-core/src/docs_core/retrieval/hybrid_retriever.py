@@ -7,7 +7,7 @@ from docs_core.query_protocols.contracts import KnowledgeQueryFilter, RetrievedI
 DEFAULT_HYBRID_POLICY: Dict[str, Dict[str, float]] = {
     "definition_qa": {"canonical_dense": 1.2, "canonical_sparse": 1.4, "target_sparse": 1.1},
     "locate_qa": {"canonical_dense": 0.9, "canonical_sparse": 1.6, "caption_sparse": 1.4, "target_sparse": 1.5},
-    "locate_clause": {"canonical_sparse": 1.8, "target_sparse": 1.5},
+    "locate_clause": {"clause_direct": 2.2, "canonical_sparse": 1.8, "target_sparse": 1.5},
     "locate_figure": {"target_sparse": 1.9, "canonical_sparse": 1.2},
     "locate_table": {"target_sparse": 1.9, "canonical_sparse": 1.2},
     "locate_formula": {
@@ -59,6 +59,7 @@ def get_source_weight(source_kind: str, task_type: str, policy: Dict[str, Dict[s
     source_weights = {
         "canonical_dense": 1.30,
         "canonical_sparse": 1.30,
+        "clause_direct": 1.60,
         "toc_dense": 1.05 if task_type == "locate_qa" else 0.18,
         "toc_sparse": 1.10 if task_type == "locate_qa" else 0.12,
         "table_row_key": 1.80 if is_table_task else 0.60,

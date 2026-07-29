@@ -55,15 +55,32 @@
     <div class="header-right">
       <a-space :size="4">
         <div v-if="navItems.length" class="nav-tabs">
-          <a-button
-            v-for="item in navItems"
-            :key="item.key"
-            type="text"
-            :class="{ active: activeNav === item.key }"
-            @click="$emit('nav-click', item.key)"
-          >
-            {{ item.label }}
-          </a-button>
+          <template v-for="item in navItems" :key="item.key">
+            <a-dropdown v-if="item.children?.length" :trigger="['hover']">
+              <a-button
+                type="text"
+                :class="{ active: item.children.some(c => activeNav === c.key) }"
+              >
+                {{ item.label }}
+                <DownOutlined />
+              </a-button>
+              <template #overlay>
+                <a-menu @click="(e: any) => $emit('nav-click', e.key)">
+                  <a-menu-item v-for="child in item.children" :key="child.key">
+                    {{ child.label }}
+                  </a-menu-item>
+                </a-menu>
+              </template>
+            </a-dropdown>
+            <a-button
+              v-else
+              type="text"
+              :class="{ active: activeNav === item.key }"
+              @click="$emit('nav-click', item.key)"
+            >
+              {{ item.label }}
+            </a-button>
+          </template>
         </div>
 
         <a-button v-if="showAdmin && showAdminInRight" type="text" class="admin-btn" @click="$emit('admin-click')" title="管理后台">
@@ -99,13 +116,15 @@ import {
   BulbOutlined,
   BulbFilled,
   HomeOutlined,
-  ControlOutlined
+  ControlOutlined,
+  DownOutlined
 } from '@ant-design/icons-vue'
 import { useTheme } from '../../composables/useTheme'
 
 export interface NavItem {
   key: string
   label: string
+  children?: NavItem[]
 }
 
 interface Props {

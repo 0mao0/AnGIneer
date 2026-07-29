@@ -167,7 +167,48 @@ export const knowledgeApi = {
   getDocBlocksGraph: (libraryId: string, docId: string) =>
     api.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }),
   getDocBlocksGraphSummary: (libraryId: string, docId: string) =>
-    api.post('/knowledge/parse/doc-blocks-graph-summary', { library_id: libraryId, doc_id: docId })
+    api.post('/knowledge/parse/doc-blocks-graph-summary', { library_id: libraryId, doc_id: docId }),
+
+  listRecords: (params?: {
+    status?: string
+    uploaded_by?: string
+    show_deleted?: boolean
+    start_date?: string
+    end_date?: string
+    limit?: number
+    offset?: number
+  }) => api.get('/knowledge/records', { params }) as Promise<{
+    status: string
+    data: ParseRecordItem[]
+    total: number
+  }>,
+
+  cleanOrphanedRecords: () =>
+    api.post('/knowledge/records/clean-orphaned') as Promise<{ status: string; message: string }>,
+
+  restoreRecord: (recordId: number) =>
+    api.put(`/knowledge/records/${recordId}/restore`) as Promise<{ status: string; message: string }>,
+
+  hardDeleteRecord: (recordId: number) =>
+    api.delete(`/knowledge/records/${recordId}/hard-delete`) as Promise<{ status: string; message: string }>,
+
+  purgeAllDeleted: () =>
+    api.delete('/knowledge/records/purge-deleted') as Promise<{ status: string; message: string }>,
+}
+
+export interface ParseRecordItem {
+  id: number
+  doc_id: string
+  task_id: string
+  uploaded_by: string
+  api_key_id: number | null
+  api_key_name?: string
+  file_name: string
+  file_format: string
+  file_size: number
+  status: string
+  error: string | null
+  created_at: string
 }
 
 export default api

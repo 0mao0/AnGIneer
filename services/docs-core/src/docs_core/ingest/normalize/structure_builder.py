@@ -636,7 +636,19 @@ def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple
 
     if model_path.exists():
         model_payload = read_json(model_path)
-    
+
+    if not page_size_map and model_payload:
+        pages = model_payload if isinstance(model_payload, list) else [model_payload]
+        for page in pages:
+            if not isinstance(page, dict):
+                continue
+            info = page.get("page_info") or {}
+            idx = int(info.get("page_no", 0))
+            w = float(info.get("width") or 0)
+            h = float(info.get("height") or 0)
+            if w > 0 and h > 0:
+                page_size_map[idx] = (w, h)
+
     return parsed_blocks, page_size_map, parser_version, layout_payload, model_payload
 
 

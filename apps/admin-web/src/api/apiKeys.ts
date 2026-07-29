@@ -10,27 +10,28 @@ export interface KeyItem {
   id: number
   key_prefix: string
   user_name: string
-  email: string
   is_active: boolean
-  rate_limit_per_minute: number
   created_at: string
   last_used_at: string | null
+  doc_count?: number
 }
 
-export interface CreateKeyResponse {
-  api_key: string
-  key_prefix: string
-  user_name: string
-  email: string
-  rate_limit_per_minute: number
-  created_at: string
-  message: string
+export interface StatisticsItem {
+  date?: string
+  uploaded_by: string
+  count: number
 }
 
 export const apiKeysApi = {
   list: (): Promise<KeyItem[]> => api.get('/api-keys'),
-  create: (data: { user_name: string; email?: string; rate_limit_per_minute?: number }): Promise<CreateKeyResponse> =>
+  create: (data: { user_name: string }): Promise<{ api_key: string }> =>
     api.post('/api-keys', data),
-  deactivate: (keyId: number): Promise<{ status: string }> => api.post(`/api-keys/${keyId}/deactivate`),
-  reactivate: (keyId: number): Promise<{ status: string }> => api.post(`/api-keys/${keyId}/reactivate`),
+  rename: (keyId: number, name: string): Promise<{ status: string; message: string }> =>
+    api.put(`/api-keys/${keyId}/rename`, { name }),
+  toggle: (keyId: number, active: boolean): Promise<{ status: string }> =>
+    api.post(`/api-keys/${keyId}/${active ? 'reactivate' : 'deactivate'}`),
+  del: (keyId: number): Promise<{ status: string; message: string }> =>
+    api.delete(`/api-keys/${keyId}`),
+  getStatistics: (startDate: string, endDate: string, groupBy: string = 'day'): Promise<{ status: string; data: StatisticsItem[] }> =>
+    api.get('/api-keys/statistics', { params: { start_date: startDate, end_date: endDate, group_by: groupBy } }),
 }

@@ -28,7 +28,7 @@ export function useKnowledgeParse(api: KnowledgeParseApi) {
   })
 
   const llmModelOptions = computed(() => llmConfigOptions.value.map(item => ({
-    label: item.configured ? item.name : `${item.name}（未配置）`,
+    label: (item.configured ? item.name : `${item.name}（未配置）`).replace(/[（(]付费[）)]$/, ''),
     value: item.name,
     disabled: !item.configured
   })))

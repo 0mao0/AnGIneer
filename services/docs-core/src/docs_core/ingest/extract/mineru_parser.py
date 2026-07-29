@@ -2,6 +2,7 @@
 import json
 import os
 import tempfile
+import threading
 from typing import Optional, Dict, Any, List
 from pathlib import Path
 from dotenv import load_dotenv
@@ -34,12 +35,22 @@ class MinerUParser:
         self.cloud_poll_max_attempts = max(1, int(os.getenv('MINERU_CLOUD_POLL_MAX_ATTEMPTS', '90')))
         self.cloud_poll_interval_seconds = max(1, int(os.getenv('MINERU_CLOUD_POLL_INTERVAL_SECONDS', '4')))
         self.proxy_fallback_enabled = os.getenv('MINERU_PROXY_FALLBACK_ENABLED', '1') != '0'
+        self.ocr_enabled = os.getenv('MINERU_OCR_ENABLED', 'false').lower() == 'true'
+        self._abort_event = threading.Event()
+
+    def cancel(self):
+        """中断所有正在进行的请求。"""
+        self._abort_event.set()
 
     def _request_with_proxy_fallback(self, method: str, url: str, **kwargs):
         """执行请求，代理失败时自动回退直连。"""
+        if self._abort_event.is_set():
+            raise RuntimeError("MinerU 请求已取消")
         try:
             return requests.request(method=method, url=url, **kwargs)
         except (requests.exceptions.ProxyError, requests.exceptions.ConnectionError) as error:
+            if self._abort_event.is_set():
+                raise RuntimeError("MinerU 请求已取消")
             if not self.proxy_fallback_enabled:
                 raise
             if isinstance(error, requests.exceptions.ConnectionError) and 'proxy' not in str(error).lower():
@@ -359,10 +370,11 @@ class MinerUParser:
         url = self.api_url.lower()
         return ':50170' in url or '/file_parse' in url
 
-    def _parse_single_file_company_api(self, input_path: str, output_dir: str) -> Dict[str, Any]:
+    def _parse_single_file_company_api(self, input_path: str, output_dir: str, _retry_count: int = 0, _force_ocr: Optional[bool] = None) -> Dict[str, Any]:
         """公司自部署 API 的单文件同步解析。
         
         POST 文件到 /file_parse 端点，返回 ZIP 包含所有产物。
+        _force_ocr: None=使用全局 OCR 配置, True/False=强制开关
         """
         import io as _io
         import zipfile as _zipfile
@@ -371,8 +383,9 @@ class MinerUParser:
         api_endpoint = self.api_url.strip().rstrip('/')
         headers = {'Authorization': f'Bearer {self.api_key}'}
         file_name = Path(input_path).name
+        use_ocr = _force_ocr if _force_ocr is not None else self.ocr_enabled
         
-        print(f"[MinerU] Company API: POST {api_endpoint} file={file_name}")
+        print(f"[MinerU] Company API: POST {api_endpoint} file={file_name} ocr={use_ocr}")
         try:
             with open(input_path, 'rb') as f:
                 file_bytes = f.read()
@@ -390,6 +403,7 @@ class MinerUParser:
                     'backend': 'pipeline',
                     'formula_enable': 'true',
                     'table_enable': 'true',
+                    **({'is_ocr': 'true'} if use_ocr else {}),
                     'is_async': 'false',
                 },
                 timeout=600,
@@ -420,11 +434,20 @@ class MinerUParser:
                     task_id = body.get("task_id", "")
                     status = body.get("status", "")
                     if status == "failed":
+                        error_detail = body.get("error", "")
+                        # 未开 OCR 的扫描件会自动开 OCR 重试一次
+                        if not use_ocr:
+                            print(f"[MinerU] Task {task_id} failed, retrying with OCR enabled...")
+                            _time.sleep(3)
+                            return self._parse_single_file_company_api(input_path, output_dir, _retry_count + 1, _force_ocr=True)
+                        if _retry_count < 2:
+                            print(f"[MinerU] Task {task_id} failed, retry {_retry_count + 1}/2...")
+                            _time.sleep(3)
+                            return self._parse_single_file_company_api(input_path, output_dir, _retry_count + 1, _force_ocr=use_ocr)
                         return self._build_parse_result(
                             False,
                             error=f'MinerU pipeline failed for "{file_name}": '
-                                  f'task_id={task_id}. The document may contain unsupported content '
-                                  f'or be too complex for automatic parsing.'
+                                  f'task_id={task_id}. MinerU error: {error_detail}'
                         )
                     if status in ("pending", "processing"):
                         print(f"[MinerU] Retrying after conflict (task {task_id} in progress)...")

@@ -543,33 +543,17 @@ class SopPathGenerator:
         return {"generated": [s["id"] for s in generated], "total": len(generated)}
 
     def _write_sops_to_disk(self, sops: List[Dict[str, Any]], library_id: str) -> None:
-        sop_dir = os.path.join(os.environ.get("DATA_DIR", "data"), "sops", "json")
-        index_dir = os.path.join(os.environ.get("DATA_DIR", "data"), "sops")
+        sop_base = os.path.join(os.environ.get("DATA_DIR", "data"), "sops")
+        sop_dir = os.path.join(sop_base, "json")
         os.makedirs(sop_dir, exist_ok=True)
         for sop in sops:
             sop_path = os.path.join(sop_dir, f"{sop['id']}.json")
             with open(sop_path, "w", encoding="utf-8") as f:
                 json.dump(sop, f, ensure_ascii=False, indent=2)
-        index_path = os.path.join(index_dir, "index.json")
-        if os.path.exists(index_path):
-            with open(index_path, "r", encoding="utf-8") as f:
-                raw = json.load(f)
-            if isinstance(raw, dict):
-                index_data = raw
-            else:
-                index_data = {"sops": raw if isinstance(raw, list) else []}
-        else:
-            index_data = {"sops": []}
-        existing_ids = {s["id"] for s in index_data.get("sops", [])}
-        for sop in sops:
-            if sop["id"] not in existing_ids:
-                index_data.setdefault("sops", []).append({
-                    "id": sop["id"],
-                    "name_zh": sop["name_zh"],
-                    "library_id": library_id,
-                })
-        with open(index_path, "w", encoding="utf-8") as f:
-            json.dump(index_data, f, ensure_ascii=False, indent=2)
+        # 索引统一由 SopLoader 从 json/ 目录重建（json/ 为唯一真相源），
+        # 避免与 refresh_index 双写格式分叉导致运行时加载失败
+        from sop_core.sop_loader import SopLoader
+        SopLoader(sop_base).refresh_index()
 
     def _node_to_step(self, node: Dict[str, Any], index: int, clause: str) -> Dict[str, Any]:
         step_type = self.LAYER_TO_STEP_TYPE.get(node.get("layer", EntityLayer.CONCEPT), "inspection")

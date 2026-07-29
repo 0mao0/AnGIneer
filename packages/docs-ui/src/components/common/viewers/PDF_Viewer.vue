@@ -8,11 +8,14 @@
         <a-tag v-if="node.status === 'failed'" color="error" class="parse-state-tag">
           解析失败
         </a-tag>
+        <a-tag v-else-if="node.status === 'cancelled'" class="parse-state-tag">
+          已取消
+        </a-tag>
       </div>
       <div
         v-if="isPdf"
         ref="pdfToolbarRef"
-        :class="['pane-actions-pdf', { 'pane-actions-pdf-compact': isCompactHeader }]"
+        :class="['pane-actions-pdf', { 'pane-actions-pdf-compact': compactLevel > 0 }]"
       >
         <template v-if="!useNativePdfPreview">
           <a-button
@@ -21,12 +24,10 @@
             :disabled="activePdfPage <= 1"
             @click="goPrevPage"
           >
-            <template #icon>
-              <LeftOutlined />
-            </template>
+            <template #icon><LeftOutlined /></template>
           </a-button>
           <a-input-number
-            v-if="!isCompactHeader"
+            v-if="compactLevel <= 1"
             :value="activePdfPage"
             size="small"
             :min="1"
@@ -34,32 +35,24 @@
             class="pdf-page-input"
             @change="onPageInputChange"
           />
-          <span v-if="!isCompactHeader" class="pdf-toolbar-text">/ {{ displayPdfPageCount }}</span>
+          <span v-if="compactLevel <= 5" class="pdf-toolbar-text">/ {{ displayPdfPageCount }}</span>
           <a-button
             size="small"
             class="pdf-tool-btn"
             :disabled="activePdfPage >= displayPdfPageCount"
             @click="goNextPage"
           >
-            <template #icon>
-              <RightOutlined />
-            </template>
+            <template #icon><RightOutlined /></template>
           </a-button>
-          <a-button size="small" class="pdf-tool-btn" :disabled="pdfScale <= minPdfScale" @click="zoomOut">
-            <template #icon>
-              <ZoomOutOutlined />
-            </template>
+          <a-button v-if="compactLevel <= 3" size="small" class="pdf-tool-btn" :disabled="pdfScale <= minPdfScale" @click="zoomOut">
+            <template #icon><ZoomOutOutlined /></template>
           </a-button>
-          <span v-if="!isCompactHeader" class="pdf-toolbar-text">{{ zoomPercentLabel }}</span>
-          <a-button size="small" class="pdf-tool-btn" :disabled="pdfScale >= maxPdfScale" @click="zoomIn">
-            <template #icon>
-              <ZoomInOutlined />
-            </template>
+          <span v-if="compactLevel <= 0" class="pdf-toolbar-text">{{ zoomPercentLabel }}</span>
+          <a-button v-if="compactLevel <= 2" size="small" class="pdf-tool-btn" :disabled="pdfScale >= maxPdfScale" @click="zoomIn">
+            <template #icon><ZoomInOutlined /></template>
           </a-button>
-          <a-button size="small" class="pdf-tool-btn" title="适应" @click="resetZoom">
-            <template #icon>
-              <CompressOutlined />
-            </template>
+          <a-button v-if="compactLevel <= 4" size="small" class="pdf-tool-btn" title="适应" @click="resetZoom">
+            <template #icon><CompressOutlined /></template>
           </a-button>
         </template>
       </div>
@@ -103,21 +96,18 @@
         </a-button>
       </div>
       <!-- 右侧占位，用于平衡左侧标题，使中间工具栏居中 -->
-      <div v-if="isPdf && !useNativePdfPreview && !isCompactHeader" class="pane-title-right-placeholder" />
+      <div v-if="isPdf && !useNativePdfPreview && compactLevel <= 1" class="pane-title-right-placeholder" />
     </div>
-    <div v-if="node.status === 'processing' || node.status === 'failed'" class="parse-progress-row">
+    <div v-if="node.status === 'processing' || node.status === 'failed' || node.status === 'cancelled'" class="parse-progress-row">
       <div class="parse-progress-content">
-        <a-progress
-          :percent="progressPercent"
-          :status="node.parseError ? 'exception' : 'active'"
-          size="small"
-          class="processing-progress"
-          :show-info="false"
-        />
-        <div class="progress-text-info">
-          <span class="progress-text">{{ stageText }}</span>
-          <span v-if="node.status === 'processing'" class="progress-percentage">{{ progressPercent }}%</span>
-        </div>
+        <a-steps :current="parseStepIndex" size="small" class="parse-steps">
+          <a-step title="准备文件" />
+          <a-step title="格式转换" />
+          <a-step title="MinerU解析" />
+          <a-step title="PoPo增强" />
+          <a-step title="构建索引" />
+          <a-step title="解析完成" />
+        </a-steps>
       </div>
     </div>
     <div class="file-preview">
@@ -193,7 +183,11 @@
         </div>
       </div>
       <div v-else-if="isOffice" class="office-preview">
-        <div class="office-frame-wrap">
+        <div v-if="showNonPdfLoading" class="pdf-loading-overlay">
+          <a-spin size="large" />
+          <div class="pdf-loading-text">文档转换中，请耐心等待...</div>
+        </div>
+        <div v-else class="office-frame-wrap">
           <iframe
             :src="officePreviewUrl"
             class="office-viewer"
@@ -317,6 +311,7 @@ class PdfViewerController {
     nativeFallbackTriggered: false,
     renderedPageMetrics: {} as Record<number, RenderedPageMetrics>,
     isCompactHeader: false,
+    compactLevel: 0,
     applyingExternalPdfScroll: false,
     isPdfUserScrolling: false,
     lastEmittedPdfPercent: -1,
@@ -448,32 +443,51 @@ class PdfViewerController {
   /**
    * 更新标题栏紧凑模式
    */
+  private _toolbarFullWidth = 0
+
+  public setToolbarFullWidth(width: number) {
+    if (width > 0) this._toolbarFullWidth = width
+  }
+
   public updateHeaderCompactMode() {
     if (!props.isPdf) {
       this.state.isCompactHeader = false
+      this.state.compactLevel = 0
       return
     }
     const headerElement = this.refs.headerTitle.value
+    const titleElement = this.refs.headerMain.value
     if (!headerElement) return
 
-    const headerWidth = headerElement.clientWidth
-    const titleElement = this.refs.headerMain.value
-    const titleWidth = titleElement?.scrollWidth || 0
-    
-    // 获取工具栏宽度，优先使用隐藏的测量工具栏
-    const measureToolbar = this.refs.pdfToolbarMeasure.value
-    const toolbarWidth = measureToolbar?.scrollWidth || 0
-    
-    if (headerWidth <= 0 || toolbarWidth <= 0) return
+    // 量一次完整宽度并缓存
+    if (this._toolbarFullWidth <= 0) {
+      const measureToolbar = this.refs.pdfToolbarMeasure.value
+      if (measureToolbar) {
+        const w = measureToolbar.scrollWidth || measureToolbar.clientWidth || measureToolbar.offsetWidth || measureToolbar.getBoundingClientRect().width
+        if (w > 0) this._toolbarFullWidth = w
+      }
+    }
+    const full = this._toolbarFullWidth
+    if (full <= 0) return
 
-    // 如果标题 + 工具栏占用了超过 92% 的宽度，则进入紧凑模式
-    // 留出一定的缓冲区避免频繁切换
-    const threshold = headerWidth * 0.92
-    const requiredWidth = titleWidth + toolbarWidth + 24
-    
-    const nextCompact = requiredWidth > threshold
-    if (this.state.isCompactHeader !== nextCompact) {
-      this.state.isCompactHeader = nextCompact
+    const headerWidth = headerElement.clientWidth
+    const titleWidth = titleElement?.scrollWidth || 0
+    if (headerWidth <= 0) return
+
+    // 每级隐藏宽度：比例50, 页码输入60, 放大36, 缩小36, 适应36, 总页码44
+    const HIDE = [50, 60, 36, 36, 36, 44]
+    const levels: number[] = [full]
+    for (let i = 0; i < HIDE.length; i++) levels.push(levels[i] - HIDE[i])
+
+    const availWidth = headerWidth - titleWidth - 24
+    let level = 6
+    for (let lvl = 0; lvl <= 6; lvl++) {
+      if (availWidth >= levels[lvl]) { level = lvl; break }
+    }
+
+    if (this.state.compactLevel !== level) {
+      this.state.compactLevel = level
+      this.state.isCompactHeader = level > 0
     }
   }
 
@@ -1270,7 +1284,7 @@ class PdfViewerController {
 const controller = new PdfViewerController()
 const { state, refs } = controller
 const {
-  pdfScale, activePdfPage, isCompactHeader, isFitToWindowMode, useNativePdfPreview,
+  pdfScale, activePdfPage, isCompactHeader, compactLevel, isFitToWindowMode, useNativePdfPreview,
   virtualContentHeight, maxPageWidth, renderedPageRange, renderedPageMetrics, isScaleTransitioning,
   hasAppliedInitialFit, isPdfLoading, pdfLoadingProgress
 } = toRefs(state)
@@ -1299,8 +1313,27 @@ const shouldShowPdfHighlights = computed(() => {
   return true
 })
 
+const showNonPdfLoading = computed(() => {
+  if (props.isPdf) return false
+  const status = props.node.status
+  return status === 'processing' || status === 'pending' || status === 'queued'
+})
+
+const parseStepIndex = computed(() => {
+  const stage = (props.node.parseStage || '').toLowerCase()
+  const order: Record<string, number> = {
+    preparing: 0,
+    converting: 1,
+    raw_parse: 2,
+    popo_normalize: 3,
+    indexing: 4,
+    completed: 5,
+  }
+  return order[stage] !== undefined ? order[stage] : 0
+})
+
 // 模板引用占位，防止 Linter 报错
-void [headerTitleRef, headerMainRef, pdfToolbarRef, pdfToolbarMeasureRef, minPdfScale, maxPdfScale, normalizedPdfSource, nativePdfViewerUrl, pageLayout, shouldShowPdfHighlights, hasAppliedInitialFit, isPdfLoading, pdfLoadingProgress]
+void [headerTitleRef, headerMainRef, pdfToolbarRef, pdfToolbarMeasureRef, minPdfScale, maxPdfScale, normalizedPdfSource, nativePdfViewerUrl, pageLayout, shouldShowPdfHighlights, showNonPdfLoading, parseStepIndex, hasAppliedInitialFit, isPdfLoading, pdfLoadingProgress]
 
 const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   const pages: VirtualPageMeta[] = []
@@ -1427,7 +1460,16 @@ const onLeftTextScroll = () => {
   if (leftTextRef.value) emit('text-scroll', leftTextRef.value.scrollTop / (leftTextRef.value.scrollHeight - leftTextRef.value.clientHeight))
 }
 
-onMounted(() => controller.onMounted())
+onMounted(() => {
+  controller.onMounted()
+  nextTick(() => {
+    const measureToolbar = controller.refs.pdfToolbarMeasure.value
+    if (measureToolbar) {
+      const w = measureToolbar.scrollWidth || measureToolbar.clientWidth || measureToolbar.offsetWidth || measureToolbar.getBoundingClientRect().width
+      controller.setToolbarFullWidth(w)
+    }
+  })
+})
 onBeforeUnmount(() => controller.onBeforeUnmount())
 </script>
 
@@ -1522,7 +1564,7 @@ onBeforeUnmount(() => controller.onBeforeUnmount())
 }
 
 .parse-progress-row {
-  padding: 8px 12px;
+  padding: 5px 12px;
   border-bottom: 1px solid var(--dp-title-border);
   background: var(--dp-progress-bg);
 }
@@ -1533,8 +1575,38 @@ onBeforeUnmount(() => controller.onBeforeUnmount())
   gap: 4px;
 }
 
-.processing-progress {
-  width: 100%;
+.parse-steps {
+  :deep(.ant-steps-item) {
+    flex: 1;
+  }
+  :deep(.ant-steps-item-container) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 0;
+    position: relative;
+  }
+  :deep(.ant-steps-item-icon) {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    margin: 0;
+    order: 2;
+  }
+  :deep(.ant-steps-item-content) {
+    min-height: 0;
+    order: 1;
+    margin-bottom: 2px;
+  }
+  :deep(.ant-steps-item-title) {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+  :deep(.ant-steps-item-tail) {
+    top: 15px !important;
+    padding: 0 6px;
+  }
 }
 
 .progress-text-info {
@@ -1544,12 +1616,12 @@ onBeforeUnmount(() => controller.onBeforeUnmount())
 }
 
 .progress-text {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--dp-sub-text);
 }
 
 .progress-percentage {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
   color: var(--dp-brand-primary);
 }
@@ -1604,7 +1676,7 @@ onBeforeUnmount(() => controller.onBeforeUnmount())
 }
 
 .pdf-toolbar-text {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--dp-title-text);
   min-width: 34px;
   text-align: center;

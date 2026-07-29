@@ -17,7 +17,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from docs_core.knowledge_service import get_knowledge_service, KnowledgeNode
-from docs_core.ingest.extract.mineru_parser import mineru_parser
+from docs_core.ingest.extract.mineru_parser import mineru_parser, MinerUParser
 from docs_core.ingest.convert.pdf_converter import convert_to_pdf
 from docs_core.ingest.store.assets_file_store import (
     build_structured_index_for_doc,
@@ -25,6 +25,7 @@ from docs_core.ingest.store.assets_file_store import (
 )
 from docs_core.ingest.store.assets_file_store import file_storage
 from docs_core.ingest.store.blocks_sql_store import resolve_repo_root
+from models.parse_record import insert_record, update_record_status, update_record_task_id, update_record_by_doc_id, ParseRecord, list_records, hard_delete_record, hard_delete_all_deleted, soft_delete_record, soft_delete_record_by_id, restore_record
 
 logger = logging.getLogger(__name__)
 
@@ -210,6 +211,8 @@ class ParseOrchestrator:
 
     def __init__(self) -> None:
         self._threads: Dict[str, threading.Thread] = {}
+        self._parsers: Dict[str, MinerUParser] = {}
+        self._cancelled: set = set()
 
     def ensure_document(self, library_id: str, file_path: str, doc_id: Optional[str] = None) -> str:
         """注册或补全文档节点，确保解析主链使用统一文档标识。"""
@@ -236,6 +239,21 @@ class ParseOrchestrator:
             parse_error=None,
             parse_task_id=task_id,
         )
+        # 更新统计记录：将 pending 记录的 task_id 改为真实 task_id，状态改为 processing
+        # 如果 pending 记录不存在（如重启），则查找同 doc 的其他记录更新
+        if update_record_task_id(f"pending-{doc_id}", task_id):
+            update_record_status(task_id, "processing")
+        elif update_record_by_doc_id(doc_id, task_id, "processing"):
+            pass
+        else:
+            # 如果完全没有记录（如直接调用 parse 而非上传），则插入一条新记录
+            insert_record(ParseRecord(
+                doc_id=doc_id,
+                task_id=task_id,
+                uploaded_by="管理员",
+                status="processing",
+            ))
+
         worker = threading.Thread(
             target=self._run_parse_task,
             args=(task_id, library_id, doc_id, file_path, parse_options or {}),
@@ -243,6 +261,7 @@ class ParseOrchestrator:
             name=f"parse-task-{task_id}",
         )
         self._threads[task_id] = worker
+        self._parsers[task_id] = MinerUParser()
         worker.start()
         return {
             "task_id": task.id,
@@ -273,12 +292,17 @@ class ParseOrchestrator:
             return False
         ks.update_node(
             task.doc_id,
-            status="processing",
-            parse_progress=task.progress,
-            parse_stage="cancel_requested",
+            status="failed",
+            parse_progress=100,
+            parse_stage="cancelled",
             parse_error="用户手动取消任务",
             parse_task_id=task_id,
         )
+        update_record_status(task_id, "cancelled", "用户手动取消任务")
+        self._cancelled.add(task_id)
+        parser = self._parsers.get(task_id)
+        if parser:
+            parser.cancel()
         return True
 
     def retry_parse_task(self, doc_id: str) -> Optional[Dict[str, Any]]:
@@ -329,7 +353,10 @@ class ParseOrchestrator:
                 logger.info(f"LO PDF saved for doc {doc_id}: {source_path}")
 
             self._update_progress(task_id, doc_id, progress=30, stage="raw_parse", stage_message="MinerU 原始结果下载中")
-            parse_result = mineru_parser.parse_to_raw_artifacts(input_path=source_path, output_dir=temp_output_dir)
+            task_parser = self._parsers.get(task_id)
+            if task_parser is None:
+                raise RuntimeError("解析任务已取消")
+            parse_result = task_parser.parse_to_raw_artifacts(input_path=source_path, output_dir=temp_output_dir)
             if not parse_result.get("success"):
                 raise RuntimeError(parse_result.get("error") or "MinerU 解析失败")
 
@@ -382,6 +409,7 @@ class ParseOrchestrator:
                 )
 
             self._update_progress(task_id, doc_id, progress=100, stage="completed", status="completed", stage_message="解析完成")
+            update_record_status(task_id, "completed")
         except ParseTaskCancelledError as exc:
             error_message = str(exc) or "用户手动取消任务"
             ks.update_parse_task(
@@ -400,7 +428,16 @@ class ParseOrchestrator:
                 parse_error=error_message,
                 parse_task_id=task_id,
             )
+            update_record_status(task_id, "cancelled", error_message)
         except Exception as exc:
+            if task_id in self._cancelled:
+                update_record_status(task_id, "cancelled", "用户手动取消任务")
+                ks.update_node(doc_id, status="failed", parse_stage="cancelled", parse_error="用户手动取消任务")
+                try:
+                    ks.update_parse_task(task_id, status="cancelled")
+                except Exception:
+                    pass
+                return
             error_message = f"{type(exc).__name__}: {exc}"
             error_detail = traceback.format_exc()
             logger.error(f"解析任务 {task_id} 失败: {error_message}\n{error_detail}")
@@ -421,10 +458,15 @@ class ParseOrchestrator:
                     parse_error=error_message,
                     parse_task_id=task_id,
                 )
+                update_record_status(task_id, "failed", error_message)
             except Exception as update_exc:
                 logger.error(f"更新任务状态失败: {update_exc}")
         finally:
             self._threads.pop(task_id, None)
+            self._cancelled.discard(task_id)
+            parser = self._parsers.pop(task_id, None)
+            if parser:
+                parser.cancel()
             shutil.rmtree(temp_output_dir, ignore_errors=True)
 
     def _update_progress(
@@ -695,6 +737,7 @@ def delete_knowledge_node(node_id: str):
     success = ks.delete_node(node_id)
     if not success:
         raise HTTPException(status_code=404, detail="Node not found")
+    soft_delete_record(node_id)
     return {"status": "success"}
 
 
@@ -711,18 +754,101 @@ def force_delete_knowledge_node(node_id: str):
         success = ks.delete_node(node_id)
         if not success:
             raise HTTPException(status_code=500, detail="删除失败")
+        soft_delete_record(node_id)
         return {"status": "success", "message": f"已强制删除节点 {node.title}"}
     except Exception as e:
         logger.error(f"强制删除节点 {node_id} 失败: {e}")
         raise HTTPException(status_code=500, detail=f"强制删除失败: {str(e)}")
 
 
+@knowledge_router.get("/records")
+def list_parse_records(
+    status: Optional[str] = None,
+    uploaded_by: Optional[str] = None,
+    show_deleted: bool = False,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    limit: int = 500,
+    offset: int = 0,
+):
+    """列出解析记录（知识库统计页面的表格数据源）。"""
+    records = list_records(
+        status_filter=status,
+        uploaded_by_filter=uploaded_by,
+        deleted_filter=show_deleted,
+        start_date=start_date,
+        end_date=end_date,
+        limit=limit,
+        offset=offset,
+    )
+    return {"status": "success", "data": records, "total": len(records)}
+
+
+@knowledge_router.put("/records/{record_id}/soft-delete")
+def soft_delete_record_by_id(record_id: int):
+    """标记单条解析记录为已删除（按 record_id）。"""
+    success = soft_delete_record_by_id(record_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="记录不存在或已删除")
+    return {"status": "success", "message": f"记录 {record_id} 已标记为 deleted"}
+
+
+@knowledge_router.post("/records/clean-orphaned")
+def clean_orphaned_records():
+    """清理孤立记录：将 doc_id 在知识库中已不存在的记录标记为 deleted。"""
+    ks = get_knowledge_service()
+    records = list_records()
+    cleaned = 0
+    for record in records:
+        doc_id = record.get("doc_id", "")
+        if not doc_id:
+            continue
+        if record.get("status") == "deleted":
+            continue
+        node = ks.get_node(doc_id)
+        if node is None:
+            soft_delete_record(doc_id)
+            cleaned += 1
+    return {"status": "success", "message": f"已清理 {cleaned} 条孤立记录"}
+
+
+@knowledge_router.delete("/records/{record_id}/hard-delete")
+def admin_hard_delete_record(record_id: int):
+    """管理员永久删除（仅允许用户已标记删除的记录）。"""
+    success = hard_delete_record(record_id)
+    if not success:
+        raise HTTPException(status_code=400, detail="仅允许删除用户已标记删除的记录")
+    return {"status": "success", "message": "已永久删除"}
+
+
+@knowledge_router.put("/records/{record_id}/restore")
+def restore_deleted_record(record_id: int):
+    """将已删除的解析记录恢复到待解析状态。"""
+    success = restore_record(record_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="记录不存在或未被删除")
+    return {"status": "success", "message": "已恢复"}
+
+
+@knowledge_router.delete("/records/purge-deleted")
+def admin_purge_all_deleted():
+    """一键清除所有用户已删除的记录。"""
+    count = hard_delete_all_deleted()
+    return {"status": "success", "message": f"已清除 {count} 条记录"}
+
+
 @knowledge_router.post("/parse/{task_id}/cancel")
 def cancel_parse_task(task_id: str):
     """取消正在运行的解析任务。"""
+    ks = get_knowledge_service()
+    task = ks.get_parse_task(task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail="任务不存在")
+    if task.status in ("completed", "failed", "cancelled"):
+        return {"status": "success", "task_id": task_id, "message": f"任务已处于「{task.status}」状态，无需停止"}
     success = parse_orchestrator.cancel_parse_task(task_id)
     if not success:
-        raise HTTPException(status_code=400, detail="任务不存在、已完成或无法取消")
+        raise HTTPException(status_code=400, detail="无法取消")
     return {"status": "success", "task_id": task_id, "message": "任务已取消"}
 
 
@@ -790,6 +916,18 @@ async def upload_document(
         updated_at=datetime.now()
     )
     ks.create_node(node)
+
+    # 插入解析统计记录
+    insert_record(ParseRecord(
+        doc_id=doc_id,
+        task_id=f"pending-{doc_id}",
+        uploaded_by="管理员",
+        api_key_id=None,
+        file_name=file.filename or "未知文件",
+        file_format=ext,
+        file_size=len(content),
+        status="pending",
+    ))
 
     return {
         "status": "success",

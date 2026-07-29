@@ -88,8 +88,6 @@ flowchart LR
 - `services/ai-inference/src/ai_inference/llm_config.py`（LLM 配置管理）
 - `services/ai-inference/src/ai_inference/llm_response_parser.py`（LLM 响应解析）
 - `services/ai-inference/src/ai_inference/llm_logger.py`（LLM 专用日志）
-- `services/ai-inference/src/ai_inference/semantic_embedding_service.py`（语义嵌入服务，端口 7997）
-- `services/ai-inference/src/ai_inference/semantic_reranker_service.py`（语义重排服务，端口 7998）
 - `services/api-server/knowledge_routes.py`
 - `services/docs-core/src/docs_core/knowledge_service.py`
 - `services/docs-core/src/docs_core/ingest/extract/mineru_parser.py`
@@ -131,10 +129,7 @@ services/ai-inference/
 │   ├── llm_client.py                      # LLM 客户端（多模型/重试/熔断/流式）
 │   ├── llm_config.py                      # LLM 配置管理（Pydantic 模型 + 环境变量加载）
 │   ├── llm_response_parser.py             # LLM 响应解析（JSON 提取/校验/安全提取）
-│   ├── llm_logger.py                      # LLM 专用日志
-│   ├── semantic_embedding_service.py      # 语义嵌入服务（bge-m3，端口 7997）
-│   └── semantic_reranker_service.py       # 语义重排服务（bge-reranker-v2-m3，端口 7998）
-├── start-ai-services.ps1                  # 语义服务启动脚本
+│   └── llm_logger.py                      # LLM 专用日志
 └── pyproject.toml
 ```
 
@@ -159,8 +154,8 @@ api-server（网关层）
 | LLMClient | `llm_client.py` | 多模型管理、超时/重试/熔断、流式输出。无参初始化时自动从环境变量加载配置 |
 | LLM 配置 | `llm_config.py` | `LLMClientConfig` / `LLMModelConfig` 等 Pydantic 模型，`load_llm_config_from_env()` 从 `.env` 加载 |
 | 响应解析 | `llm_response_parser.py` | `extract_json_from_text()` / `parse_and_validate()` / `ParseError` |
-| 语义嵌入 | `semantic_embedding_service.py` | bge-m3 模型，OpenAI 兼容 `/v1/embeddings` 接口，端口 7997 |
-| 语义重排 | `semantic_reranker_service.py` | bge-reranker-v2-m3 模型，`/v1/rerank` 接口，端口 7998 |
+| 语义嵌入 | 在线 API（`DOCS_EMBEDDING_*`） | 统一走云端 embedding 服务，不再内置本地推理服务 |
+| 语义重排 | 在线 API（`ANGINEER_RERANKER_URL`） | 统一走云端 reranker 服务，失败时回退本地 phrase rerank 算法 |
 
 ### 使用方式
 

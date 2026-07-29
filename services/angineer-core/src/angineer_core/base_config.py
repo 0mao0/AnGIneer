@@ -97,7 +97,7 @@ def load_config_from_env() -> AnGIneerConfig:
     )
 
     dispatcher_config = DispatcherConfig(
-        reranker_url=_get_env_str("ANGINEER_RERANKER_URL") or None,
+        reranker_url=_get_env_str("ANGINEER_RERANKER_URL") or _get_env_str("DOCS_RERANKER_API_URL") or None,
         reranker_timeout_sec=_get_env_float("ANGINEER_RERANKER_TIMEOUT_SEC", 10.0),
     )
 

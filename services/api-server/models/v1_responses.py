@@ -82,16 +82,12 @@ class MeResponse(BaseModel):
 
 class CreateKeyRequest(BaseModel):
     user_name: str = Field(..., min_length=1, max_length=100)
-    email: str = Field("", max_length=200)
-    rate_limit_per_minute: int = Field(60, ge=1, le=10000)
 
 
 class CreateKeyResponse(BaseModel):
     api_key: str = Field(..., description="完整 key，仅此时可见")
     key_prefix: str
     user_name: str
-    email: str
-    rate_limit_per_minute: int
     created_at: str
     message: str = Field("请妥善保管此 Key，离开此页面后将无法再次查看完整 Key。")
 

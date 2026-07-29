@@ -6,8 +6,8 @@ AnGIneer AI Inference - AI 推理基础设施层。
 - LLM 配置管理
 - LLM 响应解析
 
-注：本地 Embedding/Reranker 服务（semantic_embedding_service / semantic_reranker_service）
-已由云端 API 替代，不再作为默认依赖。如需本地部署，请单独安装 sentence-transformers 和 torch。
+注：Embedding/Reranker 统一使用云端 API（见 .env 中 DOCS_EMBEDDING_* 与
+ANGINEER_RERANKER_URL / DOCS_RERANKER_API_URL 配置），本项目不再内置本地推理服务。
 """
 from ai_inference.llm_config import (
     LLMModelConfig,

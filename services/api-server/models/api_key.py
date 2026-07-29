@@ -119,7 +119,7 @@ def list_keys() -> list[dict]:
     init_db()
     conn = _get_conn()
     rows = conn.execute(
-        "SELECT id, key_prefix, user_name, email, is_active, rate_limit_per_minute, created_at, last_used_at "
+        "SELECT id, key_prefix, user_name, is_active, created_at, last_used_at "
         "FROM api_keys ORDER BY id DESC"
     ).fetchall()
     conn.close()
@@ -136,10 +136,31 @@ def deactivate_key(key_id: int) -> bool:
     return affected > 0
 
 
+def rename_key(key_id: int, new_name: str) -> bool:
+    init_db()
+    conn = _get_conn()
+    conn.execute("UPDATE api_keys SET user_name = ? WHERE id = ?", (new_name, key_id))
+    conn.commit()
+    affected = conn.total_changes
+    conn.close()
+    return affected > 0
+
+
 def reactivate_key(key_id: int) -> bool:
     init_db()
     conn = _get_conn()
     conn.execute("UPDATE api_keys SET is_active = 1 WHERE id = ?", (key_id,))
+    conn.commit()
+    affected = conn.total_changes
+    conn.close()
+    return affected > 0
+
+
+def delete_key(key_id: int) -> bool:
+    """永久删除 API Key。"""
+    init_db()
+    conn = _get_conn()
+    conn.execute("DELETE FROM api_keys WHERE id = ?", (key_id,))
     conn.commit()
     affected = conn.total_changes
     conn.close()

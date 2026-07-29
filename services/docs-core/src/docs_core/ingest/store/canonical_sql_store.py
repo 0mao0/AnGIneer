@@ -1,5 +1,6 @@
 """Canonical schema SQLite 持久化实现"""
 import json
+import re
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -48,11 +49,36 @@ def _load_bbox(payload: Optional[str]) -> Optional[BoundingBox]:
     return BoundingBox(**data)
 
 
+_CJK_RUN_PATTERN = re.compile(r"[一-鿿]+")
+
+
+# 为 CJK 文本生成 bigram 索引文本。
+# unicode61 分词器会把整段中文当成一个 token，导致中文短语无法被 MATCH 命中；
+# 将每个 CJK 连续段展开为 bigram 序列后，中文短语查询即可通过 bigram 命中。
+def build_cjk_ngram_text(text: str) -> str:
+    parts: List[str] = []
+    last_end = 0
+    for match in _CJK_RUN_PATTERN.finditer(str(text or "")):
+        start, end = match.span()
+        parts.append((text or "")[last_end:start])
+        run = match.group(0)
+        parts.append(" ")
+        if len(run) == 1:
+            parts.append(run)
+        else:
+            parts.append(" ".join(run[i:i + 2] for i in range(len(run) - 1)))
+        parts.append(" ")
+        last_end = end
+    parts.append((text or "")[last_end:])
+    return "".join(parts)
+
+
 def _build_fts_match_query(query: str) -> str:
-    """构造安全的 FTS MATCH 表达式，避免条款编号触发语法错误。"""
+    """构造安全的 FTS MATCH 表达式：CJK 片段展开为 bigram，条款编号加引号避免语法错误。"""
+    expanded = build_cjk_ngram_text(query)
     tokens = [
         token.replace('"', '""')
-        for token in str(query or "").split()
+        for token in expanded.split()
         if token
     ]
     return " OR ".join(f'"{token}"' for token in tokens)
@@ -223,7 +249,8 @@ class CanonicalSQLiteStore:
                     doc_id UNINDEXED,
                     chunk_type UNINDEXED,
                     section_path,
-                    text_clean,
+                    text_clean UNINDEXED,
+                    text_ngrams,
                     tokenize = 'unicode61'
                 )
                 """
@@ -240,6 +267,7 @@ class CanonicalSQLiteStore:
             conn.execute(
                 "CREATE INDEX IF NOT EXISTS idx_canonical_blocks_clause_id ON canonical_blocks(doc_id, clause_id)"
             )
+            self._migrate_chunk_fts_ngrams(conn)
             conn.commit()
 
     # 迁移：为旧数据库添加业务语义字段
@@ -263,6 +291,46 @@ class CanonicalSQLiteStore:
         for col_name, col_type in chunks_new_cols:
             if col_name not in chunks_cols:
                 conn.execute(f"ALTER TABLE canonical_chunks ADD COLUMN {col_name} {col_type}")
+
+    # 迁移：为 FTS 表补充 text_ngrams 列（CJK bigram 索引），并按新结构重建
+    def _migrate_chunk_fts_ngrams(self, conn) -> None:
+        fts_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_chunk_fts)").fetchall()]
+        if "text_ngrams" in fts_cols:
+            return
+        conn.execute("DROP TABLE IF EXISTS canonical_chunk_fts")
+        conn.execute(
+            """
+            CREATE VIRTUAL TABLE canonical_chunk_fts USING fts5(
+                chunk_id UNINDEXED,
+                doc_id UNINDEXED,
+                chunk_type UNINDEXED,
+                section_path,
+                text_clean UNINDEXED,
+                text_ngrams,
+                tokenize = 'unicode61'
+            )
+            """
+        )
+        rows = conn.execute(
+            "SELECT chunk_id, doc_id, chunk_type, section_path, text_clean FROM canonical_chunks"
+        ).fetchall()
+        conn.executemany(
+            """
+            INSERT INTO canonical_chunk_fts (chunk_id, doc_id, chunk_type, section_path, text_clean, text_ngrams)
+            VALUES (?, ?, ?, ?, ?, ?)
+            """,
+            [
+                (
+                    row["chunk_id"],
+                    row["doc_id"],
+                    row["chunk_type"],
+                    row["section_path"] or "",
+                    row["text_clean"] or "",
+                    build_cjk_ngram_text(f"{row['section_path'] or ''}\n{row['text_clean'] or ''}"),
+                )
+                for row in rows
+            ],
+        )
 
     # 清理单个文档的全canonical 持久化数据
     def clear_document(self, doc_id: str) -> None:
@@ -476,14 +544,22 @@ class CanonicalSQLiteStore:
                 citation_rows,
             )
             conn.execute("DELETE FROM canonical_chunk_fts WHERE doc_id = ?", (document.doc_id,))
-            conn.execute(
+            conn.executemany(
                 """
-                INSERT INTO canonical_chunk_fts (chunk_id, doc_id, chunk_type, section_path, text_clean)
-                SELECT chunk_id, doc_id, chunk_type, section_path, text_clean
-                FROM canonical_chunks
-                WHERE doc_id = ?
+                INSERT INTO canonical_chunk_fts (chunk_id, doc_id, chunk_type, section_path, text_clean, text_ngrams)
+                VALUES (?, ?, ?, ?, ?, ?)
                 """,
-                (document.doc_id,),
+                [
+                    (
+                        chunk.chunk_id,
+                        document.doc_id,
+                        chunk.chunk_type,
+                        chunk.section_path or "",
+                        chunk.text_clean or "",
+                        build_cjk_ngram_text(f"{chunk.section_path or ''}\n{chunk.text_clean or ''}"),
+                    )
+                    for chunk in document.chunks
+                ],
             )
             conn.commit()
 
@@ -910,16 +986,54 @@ class CanonicalSQLiteStore:
     def rebuild_chunk_fts(self, doc_id: str) -> None:
         with self.connect() as conn:
             conn.execute("DELETE FROM canonical_chunk_fts WHERE doc_id = ?", (doc_id,))
-            conn.execute(
-                """
-                INSERT INTO canonical_chunk_fts (chunk_id, doc_id, chunk_type, section_path, text_clean)
-                SELECT chunk_id, doc_id, chunk_type, section_path, text_clean
-                FROM canonical_chunks
-                WHERE doc_id = ?
-                """,
+            rows = conn.execute(
+                "SELECT chunk_id, doc_id, chunk_type, section_path, text_clean FROM canonical_chunks WHERE doc_id = ?",
                 (doc_id,),
+            ).fetchall()
+            conn.executemany(
+                """
+                INSERT INTO canonical_chunk_fts (chunk_id, doc_id, chunk_type, section_path, text_clean, text_ngrams)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                [
+                    (
+                        row["chunk_id"],
+                        row["doc_id"],
+                        row["chunk_type"],
+                        row["section_path"] or "",
+                        row["text_clean"] or "",
+                        build_cjk_ngram_text(f"{row['section_path'] or ''}\n{row['text_clean'] or ''}"),
+                    )
+                    for row in rows
+                ],
             )
             conn.commit()
+
+    # 按条款编号（含父子层级）精确查询 canonical blocks，供条款号直达解析使用
+    def list_blocks_by_clause_refs(self, doc_id: str, clause_refs: List[str], limit: int = 12) -> List[dict[str, object]]:
+        refs = [str(ref or "").strip() for ref in clause_refs if str(ref or "").strip()]
+        if not refs:
+            return []
+        conditions: List[str] = []
+        params: List[object] = [doc_id]
+        for ref in refs:
+            # 双向层级匹配：block 与 ref 互为祖先/后代或同级均可命中
+            conditions.append(
+                "(clause_id = ? OR clause_id LIKE ? OR clause_id LIKE ? "
+                "OR ? LIKE clause_id || '.%' OR ? LIKE clause_id || '-%')"
+            )
+            params.extend([ref, f"{ref}.%", f"{ref}-%", ref, ref])
+        sql = (
+            "SELECT block_id, block_type, text, text_clean, page_idx, section_path, clause_id "
+            "FROM canonical_blocks "
+            f"WHERE doc_id = ? AND clause_id IS NOT NULL AND clause_id != '' AND ({' OR '.join(conditions)}) "
+            "ORDER BY page_idx ASC, reading_order ASC "
+            "LIMIT ?"
+        )
+        params.append(max(1, min(50, limit)))
+        with self.connect() as conn:
+            rows = conn.execute(sql, params).fetchall()
+        return [dict(row) for row in rows]
 
     # 使用 FTS5 + bm25 查询 chunk 候选
     def search_chunk_fts(self, doc_id: str, query: str, limit: int = 20) -> List[dict[str, object]]:

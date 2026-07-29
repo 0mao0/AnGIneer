@@ -13,8 +13,6 @@
 "build:admin": "pnpm --filter @angineer/admin-web build",
     "lint": "pnpm -r lint",
     "services:install": "pip install -e services/ai-inference -e services/angineer-core -e services/sop-core -e services/docs-core -e services/geo-core -e services/engtools -e services/evals-core",
-    "dev:ai-inference": "pwsh -File services/ai-inference/start-ai-services.ps1",
-    "stop:ai-inference": "pwsh -File services/ai-inference/start-ai-services.ps1 -Stop",
     "api:dev": "python services/api-server/main.py",
     "harness": "python -m unittest discover -s tests -p \"test_*.py\"",
     "harness:workflow": "python -m unittest tests.integration.test_05_Q1_with_reports",
