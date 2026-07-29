@@ -649,6 +649,31 @@ def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple
             if w > 0 and h > 0:
                 page_size_map[idx] = (w, h)
 
+    # 校准：content_list_v2 的 bbox 可能与 model.json 的 page_info 使用不同坐标系。
+    # 当 bbox 最大值远小于 page_info 报告的页面尺寸时，说明 scale 不匹配，
+    # 需要用 bbox 自身的最大值反推实际页面尺寸。
+    # 注意：仅当 layout.json 缺失（page_size_map 来自 model.json）时才校准。
+    if not layout_payload and page_size_map and parsed_blocks:
+        max_x, max_y = 0.0, 0.0
+        for page_items in parsed_blocks:
+            for item in page_items:
+                bbox = item.get("bbox")
+                if isinstance(bbox, list) and len(bbox) == 4:
+                    max_x = max(max_x, float(bbox[2]))
+                    max_y = max(max_y, float(bbox[3]))
+        if max_x > 0 and max_y > 0:
+            for idx, (w, h) in page_size_map.items():
+                if max_y < h * 0.5:
+                    if max_x <= 1100 and max_y <= 1100:
+                        # bbox 值域在 0~1100 内：判定为 1000 归一化坐标系
+                        # （MinerU 3.4 自部署版 content_list_v2 的输出格式）
+                        page_size_map[idx] = (1000.0, 1000.0)
+                    else:
+                        # 兜底：用 bbox 最大值 + 5% 边距估算
+                        margin_x = max_x * 0.05
+                        margin_y = max_y * 0.05
+                        page_size_map[idx] = (max_x + margin_x, max_y + margin_y)
+
     return parsed_blocks, page_size_map, parser_version, layout_payload, model_payload
 
 

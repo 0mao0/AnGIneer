@@ -614,12 +614,13 @@ const loadDocContent = async (docId: string) => {
     }
     docContent.value = result.content || '暂无内容'
     docContentDocId.value = docId
+    graphData.value = null
     graphDataFullLoaded.value = false
     docRenderPdfPath.value = result?.storage?.render_pdf || ''
     if (selectedNode.value && selectedNode.value.key === docId && result?.storage?.source_file) {
       selectedNode.value.filePath = result.storage.source_file
     }
-    loadGraphSummary(docId)
+    await loadGraphSummary(docId)
   } catch (error) {
     docContent.value = ''
     docContentDocId.value = ''
