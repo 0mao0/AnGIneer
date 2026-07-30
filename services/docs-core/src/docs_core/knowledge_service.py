@@ -497,6 +497,14 @@ class KnowledgeService:
         self.meta_store.upsert_parse_task(task)
         return task
 
+    # 记录解析步骤
+    def log_parse_step(self, task_id: str, doc_id: str, stage: str, progress: int, stage_message: Optional[str] = None) -> None:
+        self.meta_store.insert_parse_task_step(task_id, doc_id, stage, progress, stage_message)
+
+    # 获取解析步骤历史
+    def get_parse_task_steps(self, task_id: str) -> list[dict]:
+        return self.meta_store.get_parse_task_steps(task_id)
+
     # 获取解析任务
     def get_parse_task(self, task_id: str) -> Optional[ParseTask]:
         for task in self.parse_tasks:

@@ -152,6 +152,25 @@ class KnowledgeMetaStore:
                 pass
             conn.execute(
                 """
+                CREATE TABLE IF NOT EXISTS parse_task_steps (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    task_id TEXT NOT NULL,
+                    doc_id TEXT NOT NULL,
+                    stage TEXT NOT NULL,
+                    progress INTEGER NOT NULL DEFAULT 0,
+                    stage_message TEXT,
+                    created_at TEXT NOT NULL
+                )
+                """
+            )
+            conn.execute(
+                """
+                CREATE INDEX IF NOT EXISTS idx_parse_task_steps_task
+                ON parse_task_steps (task_id, created_at ASC)
+                """
+            )
+            conn.execute(
+                """
                 CREATE INDEX IF NOT EXISTS idx_nodes_library_type
                 ON nodes (library_id, type, created_at)
                 """
@@ -424,6 +443,26 @@ class KnowledgeMetaStore:
                 ),
             )
             conn.commit()
+
+    def insert_parse_task_step(self, task_id: str, doc_id: str, stage: str, progress: int, stage_message: Optional[str] = None) -> None:
+        with self.connect() as conn:
+            conn.execute(
+                """
+                INSERT INTO parse_task_steps (task_id, doc_id, stage, progress, stage_message, created_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (task_id, doc_id, stage, progress, stage_message, datetime.now().isoformat()),
+            )
+            conn.commit()
+
+    def get_parse_task_steps(self, task_id: str) -> list[dict]:
+        with self.connect() as conn:
+            conn.row_factory = sqlite3.Row
+            rows = conn.execute(
+                "SELECT * FROM parse_task_steps WHERE task_id = ? ORDER BY created_at ASC",
+                (task_id,),
+            ).fetchall()
+            return [dict(r) for r in rows]
 
     # 删除节点记录，同步删除 tree_node。
     def delete_nodes(self, node_ids: List[str]) -> None:

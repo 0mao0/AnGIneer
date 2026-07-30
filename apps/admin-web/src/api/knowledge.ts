@@ -192,6 +192,9 @@ export const knowledgeApi = {
   hardDeleteRecord: (recordId: number) =>
     api.delete(`/knowledge/records/${recordId}/hard-delete`) as Promise<{ status: string; message: string }>,
 
+  getTaskSteps: (taskId: string) =>
+    api.get(`/knowledge/parse/tasks/${taskId}/steps`) as Promise<{ status: string; data: any[] }>,
+
   purgeAllDeleted: () =>
     api.delete('/knowledge/records/purge-deleted') as Promise<{ status: string; message: string }>,
 }
@@ -209,6 +212,7 @@ export interface ParseRecordItem {
   status: string
   error: string | null
   created_at: string
+  file_status?: string
 }
 
 export default api

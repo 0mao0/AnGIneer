@@ -4,12 +4,6 @@
       <h2>解析记录统计</h2>
       <div class="stats-actions">
         <a-popconfirm
-          title="将知识库中已删除的文档对应的解析记录标记为可删除状态"
-          @confirm="cleanOrphaned"
-        >
-          <a-button type="default" size="small">清理孤立记录</a-button>
-        </a-popconfirm>
-        <a-popconfirm
           title="确定永久删除选中的记录？此操作不可恢复"
           @confirm="batchHardDelete"
         >
@@ -60,44 +54,43 @@
             </a-tooltip>
           </span>
         </template>
+        <template v-if="column.key === 'file_status'">
+          <a-tag :color="fileStatusColor(record.file_status)">{{ record.file_status }}</a-tag>
+        </template>
         <template v-if="column.key === 'action'">
-          <!-- 待解析/排队中：查看 + 解析 -->
-          <template v-if="record.status === 'pending' || record.status === 'queued'">
-            <a-button type="link" size="small" @click="viewDetail(record)">查看</a-button>
-            <a-divider type="vertical" />
-            <a-button type="link" size="small" @click="parseTask(record)">解析</a-button>
-          </template>
-          <!-- 进行中：查看 + 停止 -->
-          <template v-else-if="record.status === 'processing'">
-            <a-button type="link" size="small" @click="viewDetail(record)">查看</a-button>
-            <a-divider type="vertical" />
-            <a-popconfirm title="确定停止当前解析任务？" @confirm="stopTask(record)">
-              <a-button type="link" size="small">停止</a-button>
-            </a-popconfirm>
-          </template>
-          <!-- 完成：查看 -->
-          <template v-else-if="record.status === 'completed'">
-            <a-button type="link" size="small" @click="viewDetail(record)">查看</a-button>
-          </template>
-          <!-- 失败/已取消：查看 + 重启 -->
-          <template v-else-if="record.status === 'failed' || record.status === 'cancelled'">
-            <a-button type="link" size="small" @click="viewDetail(record)">查看</a-button>
-            <a-divider type="vertical" />
-            <a-button type="link" size="small" @click="restartTask(record)">重启</a-button>
-          </template>
-          <!-- 已删除：查看 + 退回 + 删除 -->
-          <template v-else-if="record.status === 'deleted'">
-            <a-button type="link" size="small" @click="viewDetail(record)">查看</a-button>
-            <a-divider type="vertical" />
-            <a-button type="link" size="small" @click="restoreRecord(record.id)">退回</a-button>
-            <a-divider type="vertical" />
-            <a-popconfirm title="确定永久删除此记录？" @confirm="hardDelete(record.id)">
-              <a-button type="link" danger size="small">删除</a-button>
-            </a-popconfirm>
-          </template>
+          <a-button type="link" size="small" @click="viewParseSteps(record)">解析</a-button>
+          <a-divider type="vertical" />
+          <a-button type="link" size="small" @click="viewDetail(record)">文件</a-button>
         </template>
       </template>
     </a-table>
+
+    <a-modal
+      v-model:open="stepsModalOpen"
+      title="解析步骤"
+      :footer="null"
+      width="600px"
+    >
+      <template #extra>
+        <a-button size="small" @click="refreshSteps">刷新</a-button>
+      </template>
+      <a-timeline v-if="steps.length > 0">
+        <a-timeline-item v-for="s in steps" :key="s.id">
+          <template #dot>
+            <CheckCircleOutlined v-if="s.progress >= 100" style="color: #52c41a;" />
+            <LoadingOutlined v-else-if="s.progress > 0 && s.progress < 100" style="color: #1890ff;" />
+            <ClockCircleOutlined v-else style="color: #999;" />
+          </template>
+          <div style="display: flex; justify-content: space-between; gap: 12px;">
+            <span><strong>{{ s.stage }}</strong></span>
+            <span style="color: var(--text-secondary); font-size: 12px;">{{ s.progress }}%</span>
+          </div>
+          <div v-if="s.stage_message" style="color: var(--text-secondary); font-size: 12px; margin-top: 2px;">{{ s.stage_message }}</div>
+          <div style="color: #999; font-size: 11px; margin-top: 2px;">{{ formatTime(s.created_at) }}</div>
+        </a-timeline-item>
+      </a-timeline>
+      <a-empty v-else description="暂无解析步骤记录" />
+    </a-modal>
 
     <a-drawer
       v-model:open="viewerOpen"
@@ -142,7 +135,7 @@
 import { ref, onMounted, computed } from 'vue'
 import dayjs from 'dayjs'
 import { message } from 'ant-design-vue'
-import { ExclamationCircleOutlined } from '@ant-design/icons-vue'
+import { ExclamationCircleOutlined, CheckCircleOutlined, LoadingOutlined, ClockCircleOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
 import { PDFParsedWorkspace } from '@angineer/docs-ui'
@@ -162,6 +155,10 @@ const viewerContent = ref('')
 const viewerStructuredItems = ref([])
 const viewerGraphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
 const viewerRenderPdfPath = ref('')
+const stepsModalOpen = ref(false)
+const steps = ref<any[]>([])
+const currentStepTaskId = ref('')
+
 const viewerParseButtonText = computed(() => {
   const status = viewerNode.value?.status
   if (status === 'completed' || status === 'failed' || status === 'cancelled') return '重新解析'
@@ -170,27 +167,28 @@ const viewerParseButtonText = computed(() => {
 })
 
 const columns = [
-  { title: '上传人员', dataIndex: 'uploaded_by', key: 'uploaded_by', width: 110 },
-  { title: 'API', dataIndex: 'api_key_name', key: 'api_key_name', width: 140, ellipsis: true },
-  { title: '上传文件', dataIndex: 'file_name', key: 'file_name', ellipsis: true },
-  { title: '格式', dataIndex: 'file_format', key: 'file_format', width: 70 },
-  { title: '大小', key: 'file_size', width: 90 },
-  { title: '状态', key: 'status', width: 90 },
-  { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 150 },
-  { title: '操作', key: 'action', width: 220, fixed: 'right' as const },
+  { title: '上传人员', dataIndex: 'uploaded_by', key: 'uploaded_by', width: 80 },
+  { title: 'API', dataIndex: 'api_key_name', key: 'api_key_name', width: 65, ellipsis: true },
+  { title: '文件名称', dataIndex: 'file_name', key: 'file_name', ellipsis: true },
+  { title: '格式', dataIndex: 'file_format', key: 'file_format', width: 60 },
+  { title: '大小', key: 'file_size', width: 80 },
+  { title: '解析状态', key: 'status', width: 80 },
+  { title: '文件状态', dataIndex: 'file_status', key: 'file_status', width: 85 },
+  { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
+  { title: '操作', key: 'action', width: 120, fixed: 'right' as const },
 ]
 
 const rowSelection = computed(() => ({
   selectedRowKeys: selectedRowKeys.value,
   onChange: (keys: number[]) => { selectedRowKeys.value = keys },
   getCheckboxProps: (record: ParseRecordItem) => ({
-    disabled: record.status !== 'deleted',
+    disabled: record.file_status === '已入库',
   }),
 }))
 
 const selectedDeletedIds = computed(() =>
   selectedRowKeys.value.filter(id =>
-    records.value.find(r => r.id === id)?.status === 'deleted'
+    records.value.find(r => r.id === id)?.file_status !== '已入库'
   )
 )
 
@@ -204,7 +202,7 @@ function formatFileSize(bytes: number): string {
   const units = ['B', 'KB', 'MB', 'GB']
   let i = 0
   let size = bytes
-  while (size >= 1024 && i < units.length - 1) { size /= 1024; i++ }
+  while (size >= 1000 && i < units.length - 1) { size /= 1024; i++ }
   return `${size.toFixed(1)} ${units[i]}`
 }
 
@@ -219,6 +217,15 @@ function statusColor(status: string): string {
     deleted: '#999',
   }
   return map[status] || 'default'
+}
+
+function fileStatusColor(fileStatus: string): string {
+  const map: Record<string, string> = {
+    '已入库': 'green',
+    '用户已删': 'red',
+    '冗余': 'orange',
+  }
+  return map[fileStatus] || 'default'
 }
 
 function statusLabel(status: string): string {
@@ -268,6 +275,22 @@ async function restartTask(record: ParseRecordItem) {
     await loadRecords()
   } catch (e: any) {
     message.error('重启失败: ' + (e.message || e))
+  }
+}
+
+async function viewParseSteps(record: ParseRecordItem) {
+  currentStepTaskId.value = record.task_id
+  stepsModalOpen.value = true
+  await refreshSteps()
+}
+
+async function refreshSteps() {
+  if (!currentStepTaskId.value) return
+  try {
+    const res = await knowledgeApi.getTaskSteps(currentStepTaskId.value) as any
+    steps.value = res.data || []
+  } catch {
+    steps.value = []
   }
 }
 
@@ -435,6 +458,7 @@ onMounted(() => {
 }
 .stats-actions {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 :deep(.ant-table) {
