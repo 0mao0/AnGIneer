@@ -4,7 +4,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from docs_core.write.ingest.store.blocks_sql_store import resolve_knowledge_base_dir
+from docs_core.write.store.blocks_sql_store import resolve_knowledge_base_dir
 
 
 load_dotenv()

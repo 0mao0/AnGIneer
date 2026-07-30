@@ -50,20 +50,29 @@
           >
             <template #icon><RightOutlined /></template>
           </Button>
-          <Button v-if="compactLevel <= 3" size="small" class="pdf-tool-btn" title="适应宽度" @click="resetZoom">
-            <template #icon><CompressOutlined /></template>
-          </Button>
-          <Button v-if="compactLevel <= 2" size="small" class="pdf-tool-btn" :disabled="pdfScale <= minPdfScale" @click="zoomOut">
+          <Button v-if="compactLevel <= 2" size="small" class="pdf-tool-btn pdf-tool-zoomout-gap" :disabled="pdfScale <= minPdfScale" @click="zoomOut">
             <template #icon><ZoomOutOutlined /></template>
           </Button>
           <span v-if="compactLevel <= 0" class="pdf-toolbar-text">{{ zoomPercentLabel }}</span>
           <Button v-if="compactLevel <= 1" size="small" class="pdf-tool-btn" :disabled="pdfScale >= maxPdfScale" @click="zoomIn">
             <template #icon><ZoomInOutlined /></template>
           </Button>
+          <Button v-if="compactLevel <= 3" size="small" class="pdf-tool-btn" title="适应宽度" @click="resetZoom">
+            <template #icon><CompressOutlined /></template>
+          </Button>
         </template>
       </div>
       <div v-if="isPdf" class="pane-title-right">
         <template v-if="!useNativePdfPreview">
+          <Button
+            size="small"
+            class="pdf-tool-btn"
+            :class="{ 'pdf-tool-btn-active': showSearchPanel }"
+            title="搜索"
+            @click="toggleSearchPanel"
+          >
+            <template #icon><SearchOutlined /></template>
+          </Button>
           <Button
             size="small"
             class="pdf-tool-btn"
@@ -82,10 +91,12 @@
         <span class="pdf-toolbar-text pdf-toolbar-text-slim">/</span>
         <span class="pdf-toolbar-text pdf-toolbar-text-slim">{{ displayPdfPageCount }}</span>
         <Button size="small" class="pdf-tool-btn"><template #icon><RightOutlined /></template></Button>
-        <Button size="small" class="pdf-tool-btn"><template #icon><CompressOutlined /></template></Button>
-        <Button size="small" class="pdf-tool-btn"><template #icon><ZoomOutOutlined /></template></Button>
+        <Button size="small" class="pdf-tool-btn pdf-tool-zoomout-gap"><template #icon><ZoomOutOutlined /></template></Button>
         <span class="pdf-toolbar-text">{{ zoomPercentLabel }}</span>
         <Button size="small" class="pdf-tool-btn"><template #icon><ZoomInOutlined /></template></Button>
+        <Button size="small" class="pdf-tool-btn"><template #icon><CompressOutlined /></template></Button>
+        <Button size="small" class="pdf-tool-btn"><template #icon><SearchOutlined /></template></Button>
+        <Button size="small" class="pdf-tool-btn"><template #icon><BulbOutlined /></template></Button>
       </div>
     </div>
     <div v-if="node.status === 'processing' || node.status === 'failed' || node.status === 'cancelled'" class="parse-progress-row">
@@ -98,6 +109,42 @@
           <Step title="构建索引" />
           <Step title="解析完成" />
         </Steps>
+      </div>
+    </div>
+    <!-- 搜索面板 -->
+    <div v-if="showSearchPanel && isPdf && !useNativePdfPreview" ref="searchPanelRef" class="search-panel">
+      <div class="search-panel-input-row">
+        <Input
+          v-model:value="searchQuery"
+          size="small"
+          class="search-input"
+          placeholder="搜索 PDF 文本..."
+          allow-clear
+          @pressEnter="performTextSearch"
+          autofocus
+        />
+        <Button size="small" class="pdf-tool-btn" @click="closeSearchPanel">
+          <template #icon><CloseOutlined /></template>
+        </Button>
+      </div>
+      <div v-if="searchResults.length > 0" class="search-results">
+        <div class="search-results-count">{{ searchResults.length }} 条结果</div>
+        <div
+          v-for="(result, idx) in searchResults"
+          :key="idx"
+          class="search-result-item"
+          :class="{ active: idx === searchActiveIndex }"
+          @click="jumpToSearchResult(result, idx)"
+        >
+          <span class="search-result-page">p{{ result.page || '-' }}</span>
+          <span class="search-result-text">{{ result.text }}</span>
+        </div>
+      </div>
+      <div v-else-if="isSearching" class="search-searching">
+        搜索中...
+      </div>
+      <div v-else-if="searchQuery" class="search-no-results">
+        未找到匹配结果
       </div>
     </div>
     <div class="file-preview">
@@ -168,6 +215,24 @@
                 <span v-if="getHighlightTypeLabel(item.type)" class="highlight-type-tag">{{ getHighlightTypeLabel(item.type) }}</span>
               </div>
             </div>
+            <!-- 搜索结果黄色高亮（仅命中页显示） -->
+            <div
+              v-if="pageMeta.page === searchActivePage && searchActiveHighlights.length"
+              class="pdf-highlight-layer pdf-search-active-layer"
+              :style="getHighlightLayerStyle(pageMeta.page)"
+            >
+              <div
+                v-for="item in searchActiveHighlights"
+                :key="`search-${item.id}`"
+                class="pdf-highlight-box search-active"
+                :style="{
+                  left: `${item.left * 100}%`,
+                  top: `${item.top * 100}%`,
+                  width: `${item.width * 100}%`,
+                  height: `${item.height * 100}%`
+                }"
+              />
+            </div>
           </div>
         </div>
         </div>
@@ -207,10 +272,35 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * PDF_Viewer — 可直接移植到任何 Vue 3 项目的 PDF 预览组件。
+ *
+ * ## 依赖
+ *   vue ^3.3     ant-design-vue ^4     pdfjs-dist ^4     @ant-design/icons-vue ^7
+ *
+ * ## 最少 prop（开箱即用）
+ *   :node="{ status: 'completed', filePath: '/path/doc.pdf' }"
+ *   :isPdf="true"  :isOffice="false"  :isImage="false"  :isText="false"
+ *   :pdfViewerUrl="url"  :officePreviewUrl=""  :fileUrl="url"  :textContent=""
+ *   :currentPdfPage="1"  :highlights="[]"  :activeHighlightId="null"
+ *   :textScrollPercent="0"
+ *
+ * ## 主题适配
+ *   theme='auto'           → 跟随 @media (prefers-color-scheme)
+ *   theme='dark'|'light'   → 显式指定
+ *   不传 theme 并在父级设  --dp-pane-bg / --dp-title-bg 等 CSS 变量
+ *
+ * ## 事件
+ *   @text-scroll (percent)  @pdf-active-page (page)  @select-highlight (item)
+ *   @hover-highlight (id)   @download
+ *
+ * ## 事件：搜索跳转（新增）
+ *   @search-jump (page, textIndex) — 外部可附加二次定位逻辑
+ */
 import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
-import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined } from '@ant-design/icons-vue'
-import { Button, Tag, Spin, Progress, Steps, Step, InputNumber, Empty } from 'ant-design-vue'
+import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons-vue'
+import { Button, Tag, Spin, Progress, Steps, Step, InputNumber, Input, Empty } from 'ant-design-vue'
 import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正�?
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
@@ -264,11 +354,11 @@ const props = defineProps<{
   officePreviewUrl: string
   fileUrl: string
   textContent: string
+  searchText?: string
   currentPdfPage: number
   pdfPageCount?: number
   highlights: LinkedHighlight[]
   activeHighlightId: string | null
-  highlightLinkEnabled: boolean
   textScrollPercent: number
 }>()
 
@@ -278,6 +368,7 @@ const emit = defineEmits<{
   'hover-highlight': [id: string | null]
   'select-highlight': [highlight: LinkedHighlight]
   'pdf-active-page': [page: number]
+  'search-jump': [page: number, lineNumber: number]
 }>()
 
 // --- 常量配置 ---
@@ -303,13 +394,128 @@ const toolbarMeasureRef = ref<HTMLElement | null>(null)
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
 // --- 灯泡（bbox 显示切换）---
-const showBbox = ref(false)
+const showBbox = ref(true)
 const toggleBbox = () => { showBbox.value = !showBbox.value }
 
-// 外部联动高亮时自动打开灯泡
-watch(() => props.highlightLinkEnabled, (enabled) => {
-  if (enabled) showBbox.value = true
+// --- 搜索 ---
+interface SearchResult {
+  page: number
+  text: string
+  lineNumber: number
+}
+const showSearchPanel = ref(false)
+const searchQuery = ref('')
+const searchResults = ref<SearchResult[]>([])
+const searchActiveIndex = ref(0)
+const isSearching = ref(false)
+const searchActivePage = ref(0)
+const searchActiveLine = ref(0)
+const searchPanelRef = ref<HTMLElement | null>(null)
+
+// 把 highlights 的 lineStart/lineEnd 映射成 行号→页码
+const highlightPageMap = computed(() => {
+  const map = new Map<number, number>()
+  for (const h of props.highlights) {
+    if (h.lineStart != null && h.lineEnd != null && h.lineEnd >= h.lineStart) {
+      for (let l = h.lineStart; l <= h.lineEnd; l++) {
+        if (!map.has(l)) map.set(l, h.page)
+      }
+    }
+  }
+  return map
 })
+
+const toggleSearchPanel = () => {
+  showSearchPanel.value = !showSearchPanel.value
+  if (!showSearchPanel.value) {
+    searchResults.value = []
+    searchQuery.value = ''
+    searchActiveIndex.value = 0
+    searchActivePage.value = 0
+    searchActiveLine.value = 0
+  }
+}
+
+const closeSearchPanel = () => {
+  showSearchPanel.value = false
+  searchResults.value = []
+  searchActiveIndex.value = 0
+  searchActivePage.value = 0
+  searchActiveLine.value = 0
+}
+
+const performTextSearch = () => {
+  const q = searchQuery.value.trim()
+  if (!q) return
+
+  isSearching.value = true
+  searchResults.value = []
+  searchActiveIndex.value = 0
+  searchActivePage.value = 0
+  searchActiveLine.value = 0
+
+  const lowerQ = q.toLowerCase()
+  const sourceText = props.searchText || props.textContent || ''
+  const lines = sourceText.split('\n')
+  const pageMap = highlightPageMap.value
+  const results: SearchResult[] = []
+
+  for (let i = 0; i < lines.length && results.length < 200; i++) {
+    const line = lines[i]
+    const lineLower = line.toLowerCase()
+    let pos = lineLower.indexOf(lowerQ)
+    while (pos >= 0 && results.length < 200) {
+      const start = Math.max(0, pos - 30)
+      const end = Math.min(line.length, pos + lowerQ.length + 50)
+      const page = pageMap.get(i + 1) ?? 0
+      results.push({
+        page,
+        text: line.slice(start, end),
+        lineNumber: i + 1,
+      })
+      pos = lineLower.indexOf(lowerQ, pos + 1)
+    }
+  }
+
+  searchResults.value = results
+  isSearching.value = false
+  if (results.length > 0) {
+    jumpToSearchResult(results[0], 0)
+  }
+}
+
+const jumpToSearchResult = (result: SearchResult, idx: number) => {
+  searchActiveIndex.value = idx
+  searchActivePage.value = result.page
+  searchActiveLine.value = result.lineNumber
+  if (result.page > 0) {
+    scroll.scrollToPdfPage(result.page, 'auto')
+  }
+  emit('search-jump', result.page, result.lineNumber)
+}
+
+// 当前选中搜索结果对应的黄色高亮框（该页内行范围覆盖命中行的 bbox）
+const searchActiveHighlights = computed<LinkedHighlight[]>(() => {
+  if (!searchActivePage.value || !searchActiveLine.value) return []
+  const page = searchActivePage.value
+  const line = searchActiveLine.value
+  return props.highlights.filter(h =>
+    h.page === page &&
+    h.hasRect !== false &&
+    h.lineStart != null && h.lineEnd != null &&
+    h.lineStart <= line && line <= h.lineEnd
+  )
+})
+
+// 点击外部关闭搜索面板
+const onSearchPanelClickOutside = (e: MouseEvent) => {
+  if (searchPanelRef.value && !searchPanelRef.value.contains(e.target as Node)) {
+    closeSearchPanel()
+  }
+}
+
+onMounted(() => document.addEventListener('mousedown', onSearchPanelClickOutside))
+onBeforeUnmount(() => document.removeEventListener('mousedown', onSearchPanelClickOutside))
 
 // --- Composable: usePdfHeader ---
 function usePdfHeader() {
@@ -552,9 +758,7 @@ function usePdfVirtualScroll(
     const page = clampPage(targetPage)
     const targetTop = Math.max(0, (pageLayout.value.topByPage[page] || 0) - 8)
     activePdfPage.value = page
-    const currentTop = pdfScrollRef.value.scrollTop
     scheduleRenderedPageRangeUpdate()
-    if (Math.abs(currentTop - targetTop) < pageHeightOf(page)) return
     pdfScrollRef.value.scrollTo({ top: targetTop, behavior })
   }
 
@@ -1191,8 +1395,7 @@ const themeClass = computed(() => {
 
 const shouldShowPdfHighlights = computed(() => {
   if (!props.isPdf || doc.useNativePdfPreview.value) return false
-  if (zoom.isScaleTransitioning.value) return false
-  if (!showBbox.value && !props.highlightLinkEnabled) return false
+  if (!showBbox.value) return false
   return true
 })
 
@@ -1239,7 +1442,7 @@ const getHighlightTypeLabel = (type?: string) => {
   return labelMap[normalizedType] || normalizedType.replace(/[_-]+/g, ' ').trim()
 }
 const highlightsByPage = computed(() => {
-  if (!props.isPdf || !props.highlightLinkEnabled) return new Map<number, LinkedHighlight[]>()
+  if (!props.isPdf) return new Map<number, LinkedHighlight[]>()
   const map = new Map<number, LinkedHighlight[]>()
   for (const h of props.highlights) {
     if (h.hasRect === false) continue
@@ -1253,8 +1456,7 @@ const highlightsByPage = computed(() => {
   return map
 })
 const getPageHighlights = (page: number) => {
-  if (!props.isPdf || !props.highlightLinkEnabled) return []
-  if (!_renderedPageMetrics[page]) return []
+  if (!props.isPdf) return []
   return highlightsByPage.value.get(page) || []
 }
 
@@ -1346,6 +1548,7 @@ onBeforeUnmount(() => {
 
 <style lang="less" scoped>
 .split-pane {
+  position: relative;
   flex: 1;
   min-width: 0;
   display: flex;
@@ -1409,6 +1612,7 @@ onBeforeUnmount(() => {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
+  gap: 2px;
 }
 
 /* 隐形测量镜像：不占布局、不可见，但保持自然宽度供 scrollWidth 测量 */
@@ -1441,6 +1645,106 @@ onBeforeUnmount(() => {
   font-weight: 500;
   color: var(--dp-title-strong);
   white-space: nowrap;
+}
+
+/* --- 搜索面板 --- */
+.search-panel {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  z-index: 100;
+  width: 300px;
+  max-height: 320px;
+  opacity: 0.7;
+  backdrop-filter: blur(4px);
+  background: var(--dp-pane-bg);
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  border-radius: 6px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25), 0 2px 10px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.search-panel-input-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--dp-pane-border);
+}
+
+.search-input {
+  flex: 1;
+}
+
+.search-results {
+  overflow-y: auto;
+  max-height: 260px;
+}
+
+.search-results-count {
+  padding: 6px 12px;
+  font-size: 11px;
+  color: var(--dp-sub-text);
+  border-bottom: 1px solid var(--dp-pane-border);
+}
+
+.search-result-item {
+  display: flex;
+  gap: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--dp-pane-border);
+  transition: background 0.15s;
+
+  &:last-child { border-bottom: none; }
+
+  &:hover {
+    background: var(--dp-bg);
+  }
+
+  &.active {
+    background: rgba(22, 119, 255, 0.10);
+    box-shadow: inset 2px 0 0 rgba(22, 119, 255, 0.6);
+  }
+}
+
+.search-result-page {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--dp-title-strong);
+  font-weight: 600;
+  min-width: 28px;
+  padding-top: 1px;
+}
+
+.search-result-text {
+  font-size: 11px;
+  color: var(--dp-title-text);
+  line-height: 1.5;
+  word-break: break-all;
+
+  mark {
+    background: #ffe58f;
+    color: #1f2937;
+    padding: 0 1px;
+    border-radius: 2px;
+  }
+}
+
+.search-no-results {
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--dp-sub-text);
+}
+
+.search-searching {
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--dp-title-text);
 }
 
 .parse-state-tag {
@@ -1571,6 +1875,11 @@ onBeforeUnmount(() => {
   padding-inline: 4px;
 }
 
+/* 缩小按钮与前组（翻页）之间留出 8px 间距 */
+.pdf-tool-zoomout-gap {
+  margin-left: 4px;
+}
+
 .pdf-tool-btn-active {
   color: #1677ff;
   border-color: #1677ff;
@@ -1672,6 +1981,24 @@ onBeforeUnmount(() => {
   z-index: 10;
 }
 
+/* 搜索结果黄色高亮 */
+.pdf-search-active-layer {
+  pointer-events: none;
+  z-index: 12;
+}
+
+.pdf-highlight-box.search-active {
+  border: 1.5px solid rgba(250, 173, 20, 0.95);
+  background: rgba(250, 219, 20, 0.30);
+  box-shadow: 0 0 0 1px rgba(250, 173, 20, 0.35);
+  animation: searchActivePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes searchActivePulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(250, 173, 20, 0.35); }
+  50% { box-shadow: 0 0 0 4px rgba(250, 173, 20, 0.12); }
+}
+
 .highlight-type-tag {
   position: absolute;
   left: 0;
@@ -1761,6 +2088,10 @@ onBeforeUnmount(() => {
     --dp-math-color: var(--dp-math-color-override, rgba(219,234,254,0.95));
     --dp-bg-tertiary: var(--dp-bg-tertiary-override, #1a1f2e);
   }
+  .search-panel {
+    border-color: rgba(255, 255, 255, 0.28);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.55), 0 2px 10px rgba(0, 0, 0, 0.35);
+  }
 }
 
 /* Dark mode �?props.theme='dark' 显式指定 */
@@ -1785,6 +2116,9 @@ onBeforeUnmount(() => {
   --dp-math-bg: var(--dp-math-bg-override, rgba(59,130,246,0.18));
   --dp-math-color: var(--dp-math-color-override, rgba(219,234,254,0.95));
   --dp-bg-tertiary: var(--dp-bg-tertiary-override, #1a1f2e);
+}
+.split-pane.dark-mode .search-panel {
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 /* Light mode �?props.theme='light' 显式指定 */

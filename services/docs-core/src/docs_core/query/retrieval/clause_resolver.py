@@ -9,8 +9,8 @@ import re
 from typing import List
 
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
-from docs_core.read.retrieval.query_normalizer import normalize_clause_ref_text
+from docs_core.query.protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.retrieval.query_normalizer import normalize_clause_ref_text
 
 # 直达候选的基础分，确保精确命中排在稀疏召回（条款加成最高 +8）之前
 _CLAUSE_DIRECT_BASE_SCORE = 12.0

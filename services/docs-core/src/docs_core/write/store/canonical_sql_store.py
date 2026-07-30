@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable, List, Optional
 
-from docs_core.write.ingest.organize.types import (
+from docs_core.read.organize.types import (
     BoundingBox,
     CanonicalBlock,
     CanonicalChunk,
@@ -16,7 +16,7 @@ from docs_core.write.ingest.organize.types import (
     CanonicalTable,
     CitationTarget,
 )
-from docs_core.write.ingest.store.blocks_sql_store import create_connection, resolve_knowledge_index_db_path
+from docs_core.write.store.blocks_sql_store import create_connection, resolve_knowledge_index_db_path
 
 
 # 统一序列化任JSON 字段

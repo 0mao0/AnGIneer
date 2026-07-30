@@ -1,6 +1,6 @@
 """Text-to-SQL 的结果解释。"""
 
-from docs_core.read.text2sql.sql_planner import SqlPlan
+from docs_core.query.text2sql.sql_planner import SqlPlan
 
 
 # 将 SQL 计划与执行结果组织成用户可读说明。

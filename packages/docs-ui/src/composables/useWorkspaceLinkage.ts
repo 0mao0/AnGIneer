@@ -460,9 +460,9 @@ const findNearestHighlight = (
 export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   const activeLinkedItemId = ref<string | null>(null)
   const activeLinkedHighlightOverrideId = ref<string | null>(null)
-  const highlightLinkEnabled = ref(true)
   let cachedMarkdownContent = ''
   let cachedMarkdownLines: string[] = []
+  const isDocumentPreviewActive = computed(() => isDocumentPreviewTab(options.activeTab.value))
   const middleMarkdownLines = computed(() => {
     const content = options.markdownContent.value
     if (content !== cachedMarkdownContent) {
@@ -471,8 +471,6 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     }
     return cachedMarkdownLines
   })
-  const showHighlightToggle = computed(() => (options.graphData.value?.nodes || []).length > 0)
-  const isDocumentPreviewActive = computed(() => isDocumentPreviewTab(options.activeTab.value))
 
   const findLineRangeFromMiddle = (item: StructuredIndexItem): { lineStart: number; lineEnd: number } | null => {
     const source = [item.content, item.title]
@@ -855,7 +853,6 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   }
 
   const onHoverLinkedItem = (itemId: string | null) => {
-    if (!highlightLinkEnabled.value) return
     if (!itemId) {
       activeLinkedItemId.value = null
       activeLinkedHighlightOverrideId.value = null
@@ -867,7 +864,6 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   }
 
   const onSelectHighlightFromLeft = (payload: string | LinkedHighlight) => {
-    if (!highlightLinkEnabled.value) return
     const target = typeof payload === 'string'
       ? resolveLinkedHighlight(payload, payload, options.isPdf.value ? options.pdfPage.value : null)
       : payload
@@ -885,7 +881,6 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   }
 
   const onSelectItemFromRight = (itemId: string) => {
-    if (!highlightLinkEnabled.value) return
     const target = resolveLinkedHighlight(itemId, itemId, null)
     applyResolvedHighlight(target, itemId)
     if (!target) return
@@ -898,7 +893,6 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   }
 
   const onSelectLineFromRight = (line: number) => {
-    if (!highlightLinkEnabled.value) return
     const target = findNearestHighlight(
       Math.max(1, Math.round(line)),
       options.isPdf.value ? options.pdfPage.value : null,
@@ -912,21 +906,12 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     }
   }
 
-  const toggleHighlightLink = () => {
-    highlightLinkEnabled.value = !highlightLinkEnabled.value
-    if (!highlightLinkEnabled.value) {
-      activeLinkedItemId.value = null
-      activeLinkedHighlightOverrideId.value = null
-    }
-  }
-
   const resetLinkageState = () => {
     activeLinkedItemId.value = null
     activeLinkedHighlightOverrideId.value = null
   }
 
-  watch([linkedHighlights, options.pdfPage, highlightLinkEnabled], () => {
-    if (!highlightLinkEnabled.value) return
+  watch(linkedHighlights, () => {
     if (activeLinkedHighlightOverrideId.value && !linkedHighlights.value.some(item => item.id === activeLinkedHighlightOverrideId.value)) {
       activeLinkedHighlightOverrideId.value = null
     }
@@ -941,8 +926,6 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   return {
     linkedHighlights,
     activeLinkedItemId,
-    highlightLinkEnabled,
-    showHighlightToggle,
     activeLeftHighlightId,
     activeLinkedLineRange,
     onHoverLinkedItem,
@@ -950,7 +933,6 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     onSelectItemFromRight,
     onSelectLineFromRight,
     setActiveLinkedItem,
-    toggleHighlightLink,
     resetLinkageState
   }
 }

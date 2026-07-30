@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, List, Optional
 
 from docs_core.knowledge_service import KnowledgeNode
-from docs_core.query_protocols.contracts import KnowledgeQueryRequest
+from docs_core.query.protocols.contracts import KnowledgeQueryRequest
 
 
 COUNT_METRIC_CATALOG = {

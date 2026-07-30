@@ -933,7 +933,7 @@ class TableLookupTool(BaseTool):
         
         # 阶段1：从数据库查找
         try:
-            from docs_core.write.ingest.store.assets_file_store import file_storage
+            from docs_core.write.store.assets_file_store import file_storage
             from docs_core.knowledge_service import knowledge_service as ks
             nodes = ks.list_nodes("default")
             for node in nodes:

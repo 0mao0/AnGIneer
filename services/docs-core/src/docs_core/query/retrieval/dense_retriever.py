@@ -4,8 +4,8 @@ from typing import Iterable, List
 
 from docs_core.write.indexing import VectorSearchHit, default_embedding_provider
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
-from docs_core.read.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, normalize_match_text, tokenize_query
+from docs_core.query.protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, normalize_match_text, tokenize_query
 
 
 # 基于关键词重叠计算轻量业务加权，不再作为 dense 主召回逻辑。

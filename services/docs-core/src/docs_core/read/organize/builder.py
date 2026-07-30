@@ -4,8 +4,8 @@ from html.parser import HTMLParser
 import re
 from typing import Any, List, Optional, Tuple
 
-from docs_core.write.ingest.organize.tag_rules import infer_conditions, infer_entity_tags
-from docs_core.write.ingest.organize.types import (
+from docs_core.read.organize.tag_rules import infer_conditions, infer_entity_tags
+from docs_core.read.organize.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
@@ -13,8 +13,8 @@ from docs_core.write.ingest.organize.types import (
     CanonicalTable,
     CitationTarget,
 )
-from docs_core.write.ingest.store.assets_file_store import file_storage
-from docs_core.write.ingest.normalize import build_table_representations
+from docs_core.write.store.assets_file_store import file_storage
+from docs_core.read.normalize import build_table_representations
 
 
 def _coerce_bbox(raw_bbox: object) -> object:
@@ -768,7 +768,7 @@ def build_canonical_document_from_popoblocks(
     blocks: Optional[List[CanonicalBlock]] = None,
     outlines: Optional[List[CanonicalOutlineNode]] = None,
 ) -> CanonicalDocument:
-    from docs_core.write.ingest.store.assets_file_store import file_storage
+    from docs_core.write.store.assets_file_store import file_storage
 
     local_blocks = list(blocks) if blocks else []
     chunks = build_canonical_chunks(local_blocks)

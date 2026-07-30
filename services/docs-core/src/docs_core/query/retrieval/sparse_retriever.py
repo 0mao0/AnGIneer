@@ -3,8 +3,8 @@ import re
 from typing import List
 
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
-from docs_core.read.retrieval.query_normalizer import (
+from docs_core.query.protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.retrieval.query_normalizer import (
     contains_clause_ref,
     extract_clause_refs,
     extract_query_signals,

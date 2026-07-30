@@ -52,7 +52,7 @@ class DispatcherRetrievalTests(unittest.TestCase):
     def test_rerank_is_invoked_for_locate_tasks_even_when_candidate_count_is_small(self):
         """locate 任务候选数 ≤5 时 rerank 仍应执行。"""
         from angineer_core.dispatcher import Dispatcher
-        from docs_core.query_protocols.contracts import RetrievedItem
+        from docs_core.query.protocols.contracts import RetrievedItem
 
         items = [
             RetrievedItem(item_id=f"id-{i}", entity_type="content", doc_id="d1",
@@ -90,7 +90,7 @@ class DispatcherRetrievalTests(unittest.TestCase):
     def test_rerank_falls_back_to_local_reranker_when_remote_fails(self):
         """远端 reranker 失败时回退到本地 phrase rerank。"""
         from angineer_core.dispatcher import Dispatcher
-        from docs_core.query_protocols.contracts import RetrievedItem
+        from docs_core.query.protocols.contracts import RetrievedItem
 
         candidates = [
             RetrievedItem(item_id=f"id-{i}", entity_type="content", doc_id="d1",

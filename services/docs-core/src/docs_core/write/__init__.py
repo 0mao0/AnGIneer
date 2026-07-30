@@ -1,1 +1,1 @@
-"""docs_core write pipeline — 数据产生：ingest + graph + indexing"""
+"""docs_core write pipeline — 数据持久化与治理：store + indexing + graph + maintain"""

@@ -2,8 +2,8 @@
 
 from .knowledge_service import KnowledgeService, get_knowledge_service, knowledge_service
 
-# write pipeline
-from .write.ingest.organize.types import (
+# read pipeline
+from .read.organize.types import (
     CanonicalBlock,
     CanonicalDocument,
     CanonicalTable,
@@ -12,6 +12,7 @@ from .write.ingest.organize.types import (
     CitationTarget,
     BoundingBox,
 )
+# write pipeline
 from .write.graph import (
     EntityLayer,
     RelationType,
@@ -28,9 +29,7 @@ from .write.graph import (
     RelationInferrer,
     EntityExtractor,
 )
-
-# maintain pipeline
-from .maintain.cycle import (
+from .write.maintain import (
     DreamCycleRunner,
     DreamCycleReport,
     DreamCycleConfig,

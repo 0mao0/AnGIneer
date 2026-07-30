@@ -1,11 +1,11 @@
 """公式/计算问答专用检索器。"""
 from typing import List, Sequence
 
-from docs_core.write.ingest.organize.types import CanonicalBlock, CanonicalDocument
+from docs_core.read.organize.types import CanonicalBlock, CanonicalDocument
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
-from docs_core.read.retrieval.dense_retriever import score_text
-from docs_core.read.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, extract_formula_identifiers, tokenize_query
+from docs_core.query.protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.retrieval.dense_retriever import score_text
+from docs_core.query.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, extract_formula_identifiers, tokenize_query
 
 
 # 判断问题是否在询问公式、按式计算或计算步骤。

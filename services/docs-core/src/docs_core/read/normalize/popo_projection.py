@@ -5,7 +5,7 @@ from copy import deepcopy
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
-from docs_core.write.ingest.organize.types import CanonicalBlock, CanonicalOutlineNode
+from docs_core.read.organize.types import CanonicalBlock, CanonicalOutlineNode
 
 logger = logging.getLogger(__name__)
 

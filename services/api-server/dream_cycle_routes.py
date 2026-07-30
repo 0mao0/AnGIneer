@@ -84,7 +84,7 @@ async def trigger_run():
     """手动触发一次 Dream Cycle 运行（后台执行）。"""
     def _run_in_background():
         try:
-            from docs_core.maintain.cycle.runner import DreamCycleRunner
+            from docs_core.write.maintain.runner import DreamCycleRunner
             runner = DreamCycleRunner()
             runner.run()
         except Exception as e:
@@ -108,8 +108,8 @@ async def confirm_dedup_merge(
 ):
     """确认合并两个疑似重复实体。"""
     try:
-        from docs_core.maintain.cycle.config import get_config
-        from docs_core.maintain.cycle.runner import DreamCycleRunner
+        from docs_core.write.maintain.config import get_config
+        from docs_core.write.maintain.runner import DreamCycleRunner
 
         cfg = get_config()
         runner = DreamCycleRunner(cfg)
@@ -136,8 +136,8 @@ async def confirm_dedup_merge(
 async def dismiss_dedup_candidate(entity_a_id: str, entity_b_id: str):
     """驳回一个去重建议（记录为误报）。"""
     try:
-        from docs_core.maintain.cycle.config import get_config
-        from docs_core.maintain.cycle.runner import DreamCycleRunner
+        from docs_core.write.maintain.config import get_config
+        from docs_core.write.maintain.runner import DreamCycleRunner
 
         cfg = get_config()
         runner = DreamCycleRunner(cfg)
@@ -159,7 +159,7 @@ async def dismiss_dedup_candidate(entity_a_id: str, entity_b_id: str):
 async def orphan_keep(entity_id: str):
     """保留孤立实体（标记为非孤立）。"""
     try:
-        from docs_core.maintain.cycle.config import get_config
+        from docs_core.write.maintain.config import get_config
         cfg = get_config()
         conn = sqlite3.connect(cfg.graph_db_path)
         conn.execute(
@@ -177,7 +177,7 @@ async def orphan_keep(entity_id: str):
 async def orphan_delete(entity_id: str):
     """确认清理孤立实体（标记为 inactive）。"""
     try:
-        from docs_core.maintain.cycle.config import get_config
+        from docs_core.write.maintain.config import get_config
         cfg = get_config()
         conn = sqlite3.connect(cfg.graph_db_path)
         conn.execute(

@@ -8,13 +8,13 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
-from docs_core.write.ingest.normalize.formula_semantics import build_formula_representations
-from docs_core.write.ingest.normalize.structure_builder import (
+from docs_core.read.normalize.formula_semantics import build_formula_representations
+from docs_core.read.normalize.structure_builder import (
     StructuredResult,
     build_structured_from_rawfiles,
     extract_media_bbox_list,
 )
-from docs_core.write.ingest.store.blocks_sql_store import persist_doc_blocks, resolve_knowledge_base_dir
+from docs_core.write.store.blocks_sql_store import persist_doc_blocks, resolve_knowledge_base_dir
 
 
 def resolve_structured_input_dir(raw_dir: Path) -> Path:
@@ -900,7 +900,7 @@ def build_structured_index_for_doc(
         llm_model=llm_model,
         use_llm=use_llm,
     )
-    from docs_core.write.ingest.organize.builder import rebuild_canonical_document
+    from docs_core.read.organize.builder import rebuild_canonical_document
 
     canonical_document = rebuild_canonical_document(library_id, doc_id, title=doc_name)
 
@@ -947,7 +947,7 @@ def _write_doc_blocks_graph(library_id: str, doc_id: str, payload: Dict[str, Any
 
 # 基于最新审核图谱重canonical，确保检索读模型与编辑结果一致
 def _rebuild_canonical_after_graph_change(library_id: str, doc_id: str) -> Dict[str, int]:
-    from docs_core.write.ingest.organize.builder import rebuild_canonical_document
+    from docs_core.read.organize.builder import rebuild_canonical_document
 
     canonical_document = rebuild_canonical_document(library_id, doc_id)
     return {

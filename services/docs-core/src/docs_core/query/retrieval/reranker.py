@@ -1,9 +1,9 @@
 """候选重排与证据充分性判断。"""
 from typing import List
 
-from docs_core.query_protocols.contracts import RetrievedItem
-from docs_core.read.retrieval.hybrid_retriever import is_toc_candidate
-from docs_core.read.retrieval.query_normalizer import build_query_phrases, contains_clause_ref, extract_clause_refs, normalize_match_text
+from docs_core.query.protocols.contracts import RetrievedItem
+from docs_core.query.retrieval.hybrid_retriever import is_toc_candidate
+from docs_core.query.retrieval.query_normalizer import build_query_phrases, contains_clause_ref, extract_clause_refs, normalize_match_text
 
 
 # 基于长短语命中和原始分数判断证据是否足够支撑回答。

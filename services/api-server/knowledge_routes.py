@@ -17,14 +17,14 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from docs_core.knowledge_service import get_knowledge_service, KnowledgeNode
-from docs_core.write.ingest.extract.mineru_parser import mineru_parser, MinerUParser
-from docs_core.write.ingest.convert.pdf_converter import convert_to_pdf
-from docs_core.write.ingest.store.assets_file_store import (
+from docs_core.read.extract.mineru_parser import mineru_parser, MinerUParser
+from docs_core.read.convert.pdf_converter import convert_to_pdf
+from docs_core.write.store.assets_file_store import (
     build_structured_index_for_doc,
     get_doc_blocks_graph,
 )
-from docs_core.write.ingest.store.assets_file_store import file_storage
-from docs_core.write.ingest.store.blocks_sql_store import resolve_repo_root
+from docs_core.write.store.assets_file_store import file_storage
+from docs_core.write.store.blocks_sql_store import resolve_repo_root
 from models.parse_record import insert_record, update_record_status, update_record_task_id, update_record_by_doc_id, ParseRecord, list_records, hard_delete_record, hard_delete_all_deleted, soft_delete_record, soft_delete_record_by_id, restore_record
 
 logger = logging.getLogger(__name__)
@@ -142,11 +142,11 @@ class DocBlocksGraphSummaryRequest(BaseModel):
 
 def _run_popo_stage(library_id: str, doc_id: str) -> None:
     """执行 PoPo pipeline + 兼容投影 + 精简 Organize。"""
-    from docs_core.write.ingest.normalize.popo_pipeline import get_popo_pipeline
-    from docs_core.write.ingest.normalize.popo_mapper import po_po_blocks_to_canonical
-    from docs_core.write.ingest.normalize.popo_projection import run_popo_projection
-    from docs_core.write.ingest.organize.builder import build_canonical_document_from_popoblocks
-    from docs_core.write.ingest.store.assets_file_store import file_storage
+    from docs_core.read.normalize.popo_pipeline import get_popo_pipeline
+    from docs_core.read.normalize.popo_mapper import po_po_blocks_to_canonical
+    from docs_core.read.normalize.popo_projection import run_popo_projection
+    from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
+    from docs_core.write.store.assets_file_store import file_storage
     from docs_core.knowledge_service import knowledge_service
 
     mineru_raw_dir = file_storage.get_mineru_raw_dir(library_id, doc_id)
@@ -197,7 +197,7 @@ def _run_popo_stage(library_id: str, doc_id: str) -> None:
     knowledge_service.save_canonical_document(canonical_doc)
     file_storage.save_middle_json(library_id, doc_id, canonical_doc.model_dump(mode="json"))
 
-    from docs_core.write.ingest.store.blocks_sql_store import KnowledgeIndexStore, resolve_knowledge_index_db_path
+    from docs_core.write.store.blocks_sql_store import KnowledgeIndexStore, resolve_knowledge_index_db_path
     index_store = KnowledgeIndexStore(
         db_path=resolve_knowledge_index_db_path(), schema_version="1.0.0",
     )
@@ -1107,7 +1107,7 @@ def update_document_block(
     request: KnowledgeDocumentBlockUpdate,
 ):
     """更新文档结构节点内容。"""
-    from docs_core.write.ingest.store.assets_file_store import update_doc_block_content
+    from docs_core.write.store.assets_file_store import update_doc_block_content
 
     changes = request.dict(exclude_unset=True)
     try:
@@ -1136,7 +1136,7 @@ def batch_operate_document_blocks(
     request: KnowledgeDocumentBatchBlockOperation,
 ):
     """批量执行文档结构节点操作。"""
-    from docs_core.write.ingest.store.assets_file_store import batch_operate_doc_blocks
+    from docs_core.write.store.assets_file_store import batch_operate_doc_blocks
 
     payload = request.dict(exclude_unset=True)
     try:
@@ -1164,7 +1164,7 @@ def batch_operate_document_blocks(
 @knowledge_router.post("/document/{library_id}/{doc_id}/blocks/undo")
 def undo_document_block_operation(library_id: str, doc_id: str):
     """撤回当前文档最近一次可回滚的结构操作。"""
-    from docs_core.write.ingest.store.assets_file_store import undo_last_doc_block_operation
+    from docs_core.write.store.assets_file_store import undo_last_doc_block_operation
 
     try:
         result = undo_last_doc_block_operation(library_id, doc_id)

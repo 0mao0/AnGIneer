@@ -9,15 +9,15 @@ from pydantic import BaseModel
 
 from tree_core import tree_store
 
-from docs_core.write.ingest.organize.types import (
+from docs_core.read.organize.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
     CanonicalTable,
     CitationTarget,
 )
-from docs_core.write.ingest.store.canonical_sql_store import CanonicalSQLiteStore
-from docs_core.write.ingest.store.blocks_sql_store import (
+from docs_core.write.store.canonical_sql_store import CanonicalSQLiteStore
+from docs_core.write.store.blocks_sql_store import (
     KnowledgeIndexStore,
     KnowledgeMetaStore,
     STRUCTURED_DOC_GRAPH_STRATEGY,
@@ -316,7 +316,7 @@ class KnowledgeService:
     def _purge_document_artifacts(self, document_nodes: List[KnowledgeNode]) -> None:
         if not document_nodes:
             return
-        from docs_core.write.ingest.store.assets_file_store import file_storage
+        from docs_core.write.store.assets_file_store import file_storage
 
         doc_ids = [node.id for node in document_nodes]
         self.meta_store.delete_parse_tasks_by_doc_ids(doc_ids)
@@ -595,7 +595,7 @@ class KnowledgeService:
         title: str = "",
     ) -> Dict[str, int]:
         from docs_core.write.indexing import build_vector_records
-        from docs_core.write.ingest.organize.builder import rebuild_canonical_document_from_graph
+        from docs_core.read.organize.builder import rebuild_canonical_document_from_graph
 
         canonical_document = rebuild_canonical_document_from_graph(
             library_id=library_id,
@@ -875,7 +875,7 @@ def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = N
         from docs_core.write.graph.evidence_builder import build_evidence_packets
         from docs_core.write.graph.graph_orchestrator import GraphOrchestrator
 
-        from docs_core.write.ingest.store.assets_file_store import file_storage, get_doc_blocks_graph
+        from docs_core.write.store.assets_file_store import file_storage, get_doc_blocks_graph
     except ImportError as e:
         logger.warning("knowledge-graph module not available: %s", e)
         return {"pushed": False, "error": str(e)}

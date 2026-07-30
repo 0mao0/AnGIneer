@@ -25,13 +25,13 @@ class DocsRetrievalTool(BaseTool):
 
     def run(self, query: str = "", library_id: str = "default", doc_ids: Optional[List[str]] = None, top_k: int = 5, **kwargs) -> Dict[str, Any]:
         """执行语义检索，返回命中的知识片段列表。"""
-        from docs_core.query_protocols.contracts import (
+        from docs_core.query.protocols.contracts import (
             KnowledgeQueryRequest,
             SemanticRetrievalResponse,
         )
-        from docs_core.read.retrieval.dense_retriever import dense_retriever
-        from docs_core.read.retrieval.sparse_retriever import sparse_retriever
-        from docs_core.read.retrieval.hybrid_retriever import fuse_candidates
+        from docs_core.query.retrieval.dense_retriever import dense_retriever
+        from docs_core.query.retrieval.sparse_retriever import sparse_retriever
+        from docs_core.query.retrieval.hybrid_retriever import fuse_candidates
 
         doc_nodes = _resolve_doc_nodes(library_id, doc_ids)
         kq_request = KnowledgeQueryRequest(
@@ -60,14 +60,14 @@ class DocsSqlTool(BaseTool):
 
     def run(self, query: str = "", library_id: str = "default", doc_ids: Optional[List[str]] = None, sql_filters: Optional[Dict[str, Any]] = None, **kwargs) -> Dict[str, Any]:
         """执行 SQL 检索，返回命中的知识片段列表。"""
-        from docs_core.query_protocols.contracts import (
+        from docs_core.query.protocols.contracts import (
             KnowledgeQueryRequest,
             RetrievedItem,
             SqlRetrievalResponse,
         )
-        from docs_core.read.text2sql.schema_linker import link_schema
-        from docs_core.read.text2sql.sql_validator import validate_sql
-        from docs_core.read.text2sql.sql_executor import execute_sql
+        from docs_core.query.text2sql.schema_linker import link_schema
+        from docs_core.query.text2sql.sql_validator import validate_sql
+        from docs_core.query.text2sql.sql_executor import execute_sql
 
         doc_nodes = _resolve_doc_nodes(library_id, doc_ids)
         kq_request = KnowledgeQueryRequest(

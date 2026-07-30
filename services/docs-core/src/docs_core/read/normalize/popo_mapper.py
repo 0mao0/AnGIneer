@@ -4,7 +4,7 @@ import re
 from typing import Any, Dict, List, Optional, Tuple
 from uuid import uuid4
 
-from docs_core.write.ingest.organize.types import (
+from docs_core.read.organize.types import (
     BoundingBox,
     CanonicalBlock,
     CanonicalOutlineNode,

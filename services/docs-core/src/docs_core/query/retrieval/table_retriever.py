@@ -2,18 +2,18 @@
 import re
 from typing import Iterable, List, Sequence
 
-from docs_core.write.ingest.organize.types import CanonicalTable
-from docs_core.write.ingest.normalize.table_semantics import (
+from docs_core.read.organize.types import CanonicalTable
+from docs_core.read.normalize.table_semantics import (
     TABLE_TYPE_HYBRID,
     TABLE_TYPE_MAPPING_ENUM,
     TABLE_TYPE_NUMERIC_DENSE,
     TABLE_TYPE_TEXT_DENSE,
 )
 from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query_protocols.contracts import KnowledgeQueryRequest, RetrievedItem
-from docs_core.read.retrieval.dense_retriever import score_text
-from docs_core.read.retrieval.query_normalizer import extract_clause_refs, tokenize_query
-from docs_core.read.retrieval.sparse_retriever import score_sparse_match
+from docs_core.query.protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.retrieval.dense_retriever import score_text
+from docs_core.query.retrieval.query_normalizer import extract_clause_refs, tokenize_query
+from docs_core.query.retrieval.sparse_retriever import score_sparse_match
 
 
 # 归一化表格单元格文本，避免空白干扰后续匹配。

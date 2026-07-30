@@ -1,4 +1,4 @@
-"""dream cycle — 定时知识库维护和健康检查"""
+"""docs_core write.maintain — 数据治理：定时知识库维护和健康检查"""
 
 from .runner import DreamCycleRunner
 from .report import DreamCycleReport, TaskResult, OrphanEntity, DuplicateCandidate, ContradictionCandidate, SopHealthStats

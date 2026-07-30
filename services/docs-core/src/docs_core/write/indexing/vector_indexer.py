@@ -4,7 +4,7 @@ from typing import Any, Dict, List
 from docs_core.write.indexing.embedding_provider import EmbeddingProvider, default_embedding_provider
 from docs_core.write.indexing.sqlite_vector_store import build_content_hash
 from docs_core.write.indexing.vector_store import VectorRecord
-from docs_core.write.ingest.organize.types import CanonicalDocument, CanonicalTable
+from docs_core.read.organize.types import CanonicalDocument, CanonicalTable
 
 
 # 拼装表格 schema 文本，兼容 dense 检索与后续调试。

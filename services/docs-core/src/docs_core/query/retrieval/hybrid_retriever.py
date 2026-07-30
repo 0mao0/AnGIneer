@@ -1,7 +1,7 @@
 """融合 dense 与 sparse 候选的 hybrid 检索器。"""
 from typing import Any, Dict, List, Tuple
 
-from docs_core.query_protocols.contracts import KnowledgeQueryFilter, RetrievedItem
+from docs_core.query.protocols.contracts import KnowledgeQueryFilter, RetrievedItem
 
 
 DEFAULT_HYBRID_POLICY: Dict[str, Dict[str, float]] = {
