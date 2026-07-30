@@ -196,6 +196,14 @@ class KnowledgeMetaStore:
                 )
                 """
             )
+            try:
+                conn.execute("ALTER TABLE doc_parse_stages ADD COLUMN input_summary TEXT DEFAULT ''")
+            except sqlite3.OperationalError:
+                pass
+            try:
+                conn.execute("ALTER TABLE doc_parse_stages ADD COLUMN output_summary TEXT DEFAULT ''")
+            except sqlite3.OperationalError:
+                pass
             conn.commit()
             tree_store.init_table(conn)
 
@@ -489,29 +497,33 @@ class KnowledgeMetaStore:
         error: str = "",
         started_at: Optional[str] = None,
         finished_at: Optional[str] = None,
+        input_summary: str = "",
+        output_summary: str = "",
     ) -> None:
         now = datetime.now().isoformat()
         with self.connect() as conn:
             conn.execute(
                 """
-                INSERT INTO doc_parse_stages (doc_id, stage, status, message, error, started_at, finished_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO doc_parse_stages (doc_id, stage, status, message, error, started_at, finished_at, updated_at, input_summary, output_summary)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT (doc_id, stage) DO UPDATE SET
                     status = excluded.status,
                     message = excluded.message,
                     error = excluded.error,
                     started_at = COALESCE(excluded.started_at, doc_parse_stages.started_at),
                     finished_at = COALESCE(excluded.finished_at, doc_parse_stages.finished_at),
-                    updated_at = excluded.updated_at
+                    updated_at = excluded.updated_at,
+                    input_summary = COALESCE(excluded.input_summary, doc_parse_stages.input_summary),
+                    output_summary = COALESCE(excluded.output_summary, doc_parse_stages.output_summary)
                 """,
-                (doc_id, stage, status, message, error, started_at, finished_at, now),
+                (doc_id, stage, status, message, error, started_at, finished_at, now, input_summary, output_summary),
             )
             conn.commit()
 
     def list_parse_stages(self, doc_id: str) -> List[dict]:
         with self.connect() as conn:
             rows = conn.execute(
-                "SELECT doc_id, stage, status, message, error, started_at, finished_at, updated_at "
+                "SELECT doc_id, stage, status, message, error, started_at, finished_at, updated_at, input_summary, output_summary "
                 "FROM doc_parse_stages WHERE doc_id = ? ORDER BY updated_at ASC",
                 (doc_id,),
             ).fetchall()

@@ -37,6 +37,8 @@ class StageContext:
     temp_output_dir: Optional[str] = None
     popo_ran: bool = False
     task_parser: Any = None
+    input_summary: str = ""
+    output_summary: str = ""
 
 
 @dataclass
@@ -56,6 +58,8 @@ def _run_source_prep(ctx: StageContext) -> str:
     source_path = file_storage.ensure_doc_source_file(ctx.library_id, ctx.doc_id, file_path=ctx.file_path)
     if not source_path:
         raise RuntimeError("源文件不存在或无法复制到规范目录")
+    ctx.input_summary = ctx.file_path
+    ctx.output_summary = source_path
     ctx.source_path = source_path
     ctx.ext = Path(source_path).suffix.lower()
     return f"源文件就绪: {Path(source_path).name}"
@@ -74,6 +78,8 @@ def _run_convert(ctx: StageContext) -> str:
         parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
         parsed_dir.mkdir(parents=True, exist_ok=True)
         shutil.copy2(str(source_path), str(parsed_dir / "mineru_render.pdf"))
+        ctx.input_summary = ctx.source_path
+        ctx.output_summary = str(source_path)
         ctx.source_path = source_path
         return f"LO 转换完成: {Path(source_path).name}"
     finally:
@@ -102,6 +108,9 @@ def _run_raw_parse(ctx: StageContext) -> str:
         if not lo_pdf_path.exists():
             shutil.copy2(str(ctx.source_path), str(lo_pdf_path))
 
+    parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
+    ctx.input_summary = ctx.source_path
+    ctx.output_summary = f"{parsed_dir / 'content.md'} + {parsed_dir / 'mineru_raw/'} + {parsed_dir / 'assets/'}"
     return "MinerU 解析完成"
 
 
@@ -183,6 +192,8 @@ def _run_popo(ctx: StageContext) -> str:
         index_store.insert_doc_block_row(row)
 
     ctx.popo_ran = True
+    ctx.input_summary = str(mineru_raw_dir)
+    ctx.output_summary = f"{popo_output_dir} (enriched_blocks + document_tree) + {parsed_dir}/content.md + {parsed_dir}/doc_blocks_graph.json"
     return f"PoPo 完成，{len(blocks)} blocks，{len(outlines)} outlines"
 
 
@@ -204,14 +215,20 @@ def _run_structure(ctx: StageContext) -> str:
         },
     )
     stats = result.get("stats", {})
+    from docs_core.write.store.assets_file_store import file_storage
+    ctx.input_summary = str(file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id))
+    ctx.output_summary = str(file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id))
     return f"结构化完成，{stats.get('canonical_blocks_count', 0)} blocks"
 
 
 def _run_fts(ctx: StageContext) -> str:
     from docs_core.knowledge_service import get_knowledge_service
+    from docs_core.write.store.assets_file_store import file_storage
 
     ks = get_knowledge_service()
     ks.canonical_store.rebuild_chunk_fts(ctx.doc_id)
+    ctx.input_summary = ctx.doc_id
+    ctx.output_summary = "canonical_chunk_fts (FTS5 table)"
     return "FTS 重建完成"
 
 
@@ -221,6 +238,8 @@ def _run_vectors(ctx: StageContext) -> str:
 
     ks = get_knowledge_service()
     ks.rebuild_document_vectors(ctx.doc_id)
+    ctx.input_summary = ctx.doc_id
+    ctx.output_summary = "vector store (entity_id + embedding)"
 
     flags = getattr(default_embedding_provider, "runtime_flags", [])
     if "embedding_hash_fallback" in flags:
@@ -236,6 +255,10 @@ def _run_graph(ctx: StageContext) -> str:
     if not result.get("pushed"):
         error = result.get("error", "未知错误")
         raise RuntimeError(f"图谱构建失败: {error}")
+
+    from docs_core.write.store.assets_file_store import file_storage
+    ctx.input_summary = str(file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "doc_blocks_graph.json")
+    ctx.output_summary = "knowledge_graph.sqlite (entities + relations)"
 
     entities = result.get("entities_count", 0)
     relations = result.get("relations_count", 0)
@@ -264,6 +287,8 @@ def _run_sop(ctx: StageContext) -> str:
 
     generator = SopPathGenerator(store=store)
     result = generator.generate_sops_from_doc(ctx.library_id, ctx.doc_id, store)
+    ctx.input_summary = f"{ctx.library_id}/{ctx.doc_id} (图谱数据)"
+    ctx.output_summary = "SOP JSON 文件 (sops/*.json)"
     sop_count = len(result.get("sops", [])) if isinstance(result, dict) else 1
     return f"SOP 生成完成，{sop_count} 个流程"
 
@@ -340,6 +365,8 @@ def run_pipeline(
         started = datetime.now().isoformat()
         meta_store.upsert_parse_stage(ctx.doc_id, key, status="running", started_at=started)
         t0 = time.time()
+        ctx.input_summary = ""
+        ctx.output_summary = ""
         try:
             message = stage.run(ctx) or "完成"
             if str(message).startswith("__skipped__"):
@@ -356,6 +383,7 @@ def run_pipeline(
                 ctx.doc_id, key, status="completed",
                 message=f"{message}（{round(time.time() - t0, 1)}s）",
                 started_at=started, finished_at=datetime.now().isoformat(),
+                input_summary=ctx.input_summary, output_summary=ctx.output_summary,
             )
         except Exception as exc:
             results[key] = "failed"

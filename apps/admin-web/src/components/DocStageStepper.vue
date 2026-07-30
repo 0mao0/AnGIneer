@@ -46,7 +46,7 @@ import {
 } from '@ant-design/icons-vue'
 
 const props = defineProps<{
-  stages: { stage: string; status: string; error?: string; message?: string; started_at?: string; finished_at?: string }[]
+  stages: { stage: string; status: string; error?: string; message?: string; started_at?: string; finished_at?: string; input_summary?: string; output_summary?: string }[]
 }>()
 
 defineEmits<{
@@ -60,7 +60,7 @@ const STAGE_TITLES: Record<string, string> = {
 }
 const PIPELINE_ORDER = Object.keys(STAGE_TITLES)
 
-const STAGE_INPUT: Record<string, string> = {
+const STAGE_INPUT_FALLBACK: Record<string, string> = {
   source_prep: '用户上传/拖拽的原始文件（本地路径）',
   convert: '系统源目录中的非 PDF 文件（DOCX/DOC/MD）',
   raw_parse: '源 PDF 文件（源文件准备后路径）',
@@ -71,7 +71,7 @@ const STAGE_INPUT: Record<string, string> = {
   graph: 'doc_blocks_graph.json（文档图谱 JSON 文件）',
 }
 
-const STAGE_OUTPUT: Record<string, string> = {
+const STAGE_OUTPUT_FALLBACK: Record<string, string> = {
   source_prep: '知识库源目录中的规范路径文件（data/knowledge_base/.../source/）',
   convert: 'LibreOffice 转换后的 PDF 文件（parsed/mineru_render.pdf）',
   raw_parse: 'Markdown 正文 + 原始产物（parsed/content.md、parsed/mineru_raw/、parsed/assets/）',
@@ -93,6 +93,8 @@ const orderedStages = computed(() =>
       message: found.message || '',
       started_at: found.started_at || '',
       finished_at: found.finished_at || '',
+      input_summary: found.input_summary || '',
+      output_summary: found.output_summary || '',
     }
   })
 )
@@ -139,12 +141,12 @@ function formatDuration(stage: { started_at?: string; finished_at?: string; stat
   }
 }
 
-function stageInput(stage: { key: string }): string {
-  return STAGE_INPUT[stage.key] || '—'
+function stageInput(stage: { key: string; input_summary: string }): string {
+  return stage.input_summary || STAGE_INPUT_FALLBACK[stage.key] || '—'
 }
 
-function stageOutput(stage: { key: string }): string {
-  return STAGE_OUTPUT[stage.key] || '—'
+function stageOutput(stage: { key: string; output_summary: string }): string {
+  return stage.output_summary || STAGE_OUTPUT_FALLBACK[stage.key] || '—'
 }
 
 async function copyStageError(stage: { error?: string; title: string }) {
