@@ -1,5 +1,5 @@
 <template>
-  <div class="split-pane split-pane-left">
+  <div class="split-pane">
     <div ref="headerTitleRef" class="pane-title pane-title-with-actions">
       <div ref="headerMainRef" class="pane-title-main">
         <div class="pane-title-prefix-wrap">
@@ -14,7 +14,6 @@
       </div>
       <div
         v-if="isPdf"
-        ref="pdfToolbarRef"
         :class="['pane-actions-pdf', { 'pane-actions-pdf-compact': compactLevel > 0 }]"
       >
         <template v-if="!useNativePdfPreview">
@@ -138,7 +137,7 @@
           v-else
           :class="['pdf-scroll-container', { 'pdf-scroll-container-fit': isFitToWindowMode }]"
           ref="pdfScrollRef"
-          @scroll="onPdfScroll"
+          @scroll.passive="onPdfScroll"
         >
           <div class="pdf-virtual-spacer" :style="{ height: `${virtualContentHeight}px`, minWidth: maxPageWidth ? `${maxPageWidth}px` : '100%' }">
             <div
@@ -256,8 +255,6 @@ interface RenderedPageMetrics {
 
 const props = defineProps<{
   node: KnowledgeTreeNode
-  progressPercent: number
-  stageText: string
   isPdf: boolean
   isOffice: boolean
   isImage: boolean
@@ -289,11 +286,13 @@ class PdfViewerController {
   // --- 常量配置 ---
   private readonly MIN_SCALE = 0.1
   private readonly MAX_SCALE = 5.0
+  private readonly MAX_PIXEL_SCALE = 3.0
   private readonly SCALE_STEP = 0.1
   private readonly VERTICAL_PADDING = 24
   private readonly PAGE_GAP = 16
   private readonly RENDER_BUFFER = 4
   private readonly FIT_PADDING = 12
+  private readonly MIN_PAGE_HEIGHT = 400
 
   // --- 响应式状态 ---
   public state = reactive({
@@ -308,9 +307,7 @@ class PdfViewerController {
     intrinsicPdfPageWidth: null as number | null,
     hasAppliedInitialFit: false,
     useNativePdfPreview: false,
-    nativeFallbackTriggered: false,
     renderedPageMetrics: {} as Record<number, RenderedPageMetrics>,
-    isCompactHeader: false,
     compactLevel: 0,
     applyingExternalPdfScroll: false,
     isPdfUserScrolling: false,
@@ -328,7 +325,6 @@ class PdfViewerController {
     leftText: ref<HTMLElement | null>(null),
     headerTitle: ref<HTMLElement | null>(null),
     headerMain: ref<HTMLElement | null>(null),
-    pdfToolbar: ref<HTMLElement | null>(null),
     pdfToolbarMeasure: ref<HTMLElement | null>(null),
   }
 
@@ -350,6 +346,7 @@ class PdfViewerController {
   private pdfUserScrollTimeout: number | null = null
   private pendingPdfSyncPercent: number | null = null
   private pdfSyncRafId: number | null = null
+  private _lastEmitTime = 0
   private fitScaleRafId: number | null = null
   private pendingRangeUpdate = false
 
@@ -412,17 +409,6 @@ class PdfViewerController {
     }
   }
   
-  /**
-   * 获取PDF页面的固有宽高比，优先使用已测量数据，兜底使用A4比例
-   */
-  private getIntrinsicPageAspectRatio() {
-    if (this.state.intrinsicPdfPageWidth && this.state.estimatedPageHeight) {
-      // 当前缩放比例下的宽高比
-      return this.state.estimatedPageHeight / (this.state.intrinsicPdfPageWidth * this.state.pdfScale)
-    }
-    return 1.414 // A4 比例兜底
-  }
-
   // --- 核心方法 ---
 
   public pageHeightOf(page: number) {
@@ -451,7 +437,6 @@ class PdfViewerController {
 
   public updateHeaderCompactMode() {
     if (!props.isPdf) {
-      this.state.isCompactHeader = false
       this.state.compactLevel = 0
       return
     }
@@ -487,7 +472,6 @@ class PdfViewerController {
 
     if (this.state.compactLevel !== level) {
       this.state.compactLevel = level
-      this.state.isCompactHeader = level > 0
     }
   }
 
@@ -607,7 +591,6 @@ class PdfViewerController {
   public async loadPdfDocument(source: string) {
     if (!source || !props.isPdf) return
     this.state.useNativePdfPreview = false
-    this.state.nativeFallbackTriggered = false
     this.state.isPdfLoading = true
     this.state.pdfLoadingProgress = 0
     const nextToken = this.pdfLoadToken + 1
@@ -617,7 +600,6 @@ class PdfViewerController {
     this.clearPdfRenderState()
 
     // 优先尝试流式Range加载，失败后回退到全量加载，最后回退到原生预览
-    let loadError: unknown = null
 
     // 第一次尝试：标准流式Range加载（性能最佳）
     try {
@@ -633,12 +615,10 @@ class PdfViewerController {
       }) as { promise: Promise<any>, destroy?: () => void, onProgress?: ({ loaded, total }: { loaded: number; total: number }) => void }
 
       // 监听加载进度，提供用户反馈
-      if (loadingTask.onProgress) {
-        loadingTask.onProgress(({ loaded, total }) => {
-          if (total > 0) {
-            this.state.pdfLoadingProgress = Math.min(99, Math.round((loaded / total) * 100))
-          }
-        })
+      loadingTask.onProgress = ({ loaded, total }) => {
+        if (total > 0) {
+          this.state.pdfLoadingProgress = Math.min(99, Math.round((loaded / total) * 100))
+        }
       }
       
       this.pdfLoadingTask.value = loadingTask
@@ -652,7 +632,6 @@ class PdfViewerController {
       await this.onPdfDocumentLoaded(nextDocument)
       return
     } catch (error) {
-      loadError = error
       console.warn('[PDFViewer] Stream load failed, trying full array buffer load:', error)
       if (this.pdfLoadToken !== nextToken) return
       this.destroyPdfLoadingTask()
@@ -685,7 +664,6 @@ class PdfViewerController {
       await this.onPdfDocumentLoaded(nextDocument)
       return
     } catch (error) {
-      loadError = error
       console.error('[PDFViewer] PDF load failed after all attempts:', error)
     }
     
@@ -758,13 +736,14 @@ class PdfViewerController {
       
       const outputScale = window.devicePixelRatio || 1
       
-      // 1. 物理像素尺寸 (Canvas) 的 viewport
-      const viewport = pdfPage.getViewport({ scale: this.state.pdfScale * outputScale })
+      // Logical viewport for CSS sizing (unclamped, correct page layout)
+      const logicalViewport = pdfPage.getViewport({ scale: this.state.pdfScale })
+      const cssWidth = Math.max(1, logicalViewport.width)
+      const cssHeight = Math.max(1, logicalViewport.height)
       
-      // 2. 逻辑像素尺寸 (CSS)
-      const cssWidth = Math.max(1, viewport.width / outputScale)
-      const cssHeight = Math.max(1, viewport.height / outputScale)
-      
+      // Physical viewport for canvas rendering, capped to prevent memory bombs on high-DPI displays
+      const effectiveScale = Math.min(this.state.pdfScale * outputScale, this.MAX_PIXEL_SCALE)
+      const viewport = pdfPage.getViewport({ scale: effectiveScale })
       const targetWidth = Math.max(1, Math.floor(viewport.width))
       const targetHeight = Math.max(1, Math.floor(viewport.height))
 
@@ -796,7 +775,6 @@ class PdfViewerController {
         canvasContext,
         viewport: viewport,
         intent: 'print',
-        transform: [1, 0, 0, 1, 0, 0],
       })
       this.pageRenderTasks.set(page, renderTask)
       await renderTask.promise
@@ -808,7 +786,7 @@ class PdfViewerController {
       requestAnimationFrame(() => this.measurePageElement(page))
       
       // 修复 baseViewport 引用错误，使用当前视口的基础宽度
-      const baseWidth = viewport.width / (this.state.pdfScale * outputScale)
+      const baseWidth = cssWidth / this.state.pdfScale
       if (!this.state.intrinsicPdfPageWidth && baseWidth > 0) {
         this.state.intrinsicPdfPageWidth = baseWidth
         console.log(`[PDFViewer] Set intrinsicPdfPageWidth: ${this.state.intrinsicPdfPageWidth} from page ${page}`)
@@ -832,7 +810,6 @@ class PdfViewerController {
       
       // 密码保护的PDF直接降级到原生预览
       if (error && typeof error === 'object' && (error as any).name === 'PasswordException') {
-        this.state.nativeFallbackTriggered = true
         this.state.useNativePdfPreview = true
         return
       }
@@ -946,7 +923,7 @@ class PdfViewerController {
     // 这样虚拟滚动容器高度不会瞬间坍塌，避免白屏和滚动跳变
     const scaledPageHeights: Record<number, number> = {}
     for (const [page, height] of Object.entries(this.state.pageHeights)) {
-      scaledPageHeights[Number(page)] = Math.max(400, Math.round(height * scaleRatio))
+      scaledPageHeights[Number(page)] = Math.max(this.MIN_PAGE_HEIGHT, Math.round(height * scaleRatio))
     }
     this.state.pageHeights = scaledPageHeights
     
@@ -992,8 +969,15 @@ class PdfViewerController {
     const page = this.clampPage(targetPage)
     const targetTop = Math.max(0, (this.pageLayout.topByPage[page] || 0) - 8)
     this.state.activePdfPage = page
-    this.refs.pdfScroll.value.scrollTo({ top: targetTop, behavior })
+    const currentTop = this.refs.pdfScroll.value.scrollTop
     this.scheduleRenderedPageRangeUpdate()
+    
+    // 当前已在目标页附近时跳过实际滚动，避免与宿主页码算法形成反馈回环
+    if (Math.abs(currentTop - targetTop) < this.pageHeightOf(page)) {
+      return
+    }
+    
+    this.refs.pdfScroll.value.scrollTo({ top: targetTop, behavior })
   }
 
   public onPdfScroll(e: Event) {
@@ -1046,8 +1030,10 @@ class PdfViewerController {
   private emitPdfScrollPercent(percent: number) {
     this.pendingPdfSyncPercent = percent
     if (this.pdfSyncRafId !== null) return
-    this.pdfSyncRafId = requestAnimationFrame(() => {
+    this.pdfSyncRafId = requestAnimationFrame((timestamp) => {
       this.pdfSyncRafId = null
+      if (timestamp - this._lastEmitTime < 50) return
+      this._lastEmitTime = timestamp
       const nextPercent = this.pendingPdfSyncPercent
       this.pendingPdfSyncPercent = null
       if (nextPercent === null) return
@@ -1119,7 +1105,7 @@ class PdfViewerController {
     if (!values.length) return
     const total = values.reduce((s, i) => s + i, 0)
     // 安全上限：单页高度不超过 6000px，防止正反馈导致数值爆炸
-    this.state.estimatedPageHeight = Math.max(600, Math.min(6000, Math.round(total / values.length)))
+    this.state.estimatedPageHeight = Math.max(this.MIN_PAGE_HEIGHT, Math.min(6000, Math.round(total / values.length)))
   }
 
   public clearPdfRenderState() {
@@ -1197,6 +1183,7 @@ class PdfViewerController {
   }
 
   public onBeforeUnmount() {
+    this.pdfLoadToken += 1
     window.removeEventListener('resize', this.resizeHandler)
     if (this.pdfUserScrollTimeout) window.clearTimeout(this.pdfUserScrollTimeout)
     if (this.pdfSyncRafId) cancelAnimationFrame(this.pdfSyncRafId)
@@ -1236,7 +1223,7 @@ class PdfViewerController {
   private measurePageElement(page: number) {
     const element = this.pageElements.get(page)
     if (!element) return
-    const mediaElement = element.querySelector('canvas, img')
+    const mediaElement = element.querySelector('canvas')
     if (!(mediaElement instanceof HTMLElement)) return
     if (mediaElement instanceof HTMLCanvasElement) {
       const renderedScale = this.pageLastRenderedScale.get(page)
@@ -1250,7 +1237,7 @@ class PdfViewerController {
     if (mediaRect.width <= 1 || mediaRect.height <= 1) return
 
     // 使用 canvas 实际高度而非 wrapper 高度，避免 minHeight 导致正反馈循环
-    const nextHeight = Math.max(400, Math.round(mediaRect.height + 12))
+    const nextHeight = Math.max(this.MIN_PAGE_HEIGHT, Math.round(mediaRect.height + 12))
     const nextMetrics: RenderedPageMetrics = {
       top: Math.max(0, mediaRect.top - wrapperRect.top),
       left: Math.max(0, mediaRect.left - wrapperRect.left),
@@ -1284,7 +1271,7 @@ class PdfViewerController {
 const controller = new PdfViewerController()
 const { state, refs } = controller
 const {
-  pdfScale, activePdfPage, isCompactHeader, compactLevel, isFitToWindowMode, useNativePdfPreview,
+  pdfScale, activePdfPage, compactLevel, isFitToWindowMode, useNativePdfPreview,
   virtualContentHeight, maxPageWidth, renderedPageRange, renderedPageMetrics, isScaleTransitioning,
   hasAppliedInitialFit, isPdfLoading, pdfLoadingProgress
 } = toRefs(state)
@@ -1294,7 +1281,6 @@ const {
   leftText: leftTextRef,
   headerTitle: headerTitleRef,
   headerMain: headerMainRef,
-  pdfToolbar: pdfToolbarRef,
   pdfToolbarMeasure: pdfToolbarMeasureRef,
 } = refs
 
@@ -1333,7 +1319,7 @@ const parseStepIndex = computed(() => {
 })
 
 // 模板引用占位，防止 Linter 报错
-void [headerTitleRef, headerMainRef, pdfToolbarRef, pdfToolbarMeasureRef, minPdfScale, maxPdfScale, normalizedPdfSource, nativePdfViewerUrl, pageLayout, shouldShowPdfHighlights, showNonPdfLoading, parseStepIndex, hasAppliedInitialFit, isPdfLoading, pdfLoadingProgress]
+void [headerTitleRef, headerMainRef, pdfToolbarMeasureRef, minPdfScale, maxPdfScale, normalizedPdfSource, nativePdfViewerUrl, pageLayout, shouldShowPdfHighlights, showNonPdfLoading, parseStepIndex, hasAppliedInitialFit, isPdfLoading, pdfLoadingProgress]
 
 const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   const pages: VirtualPageMeta[] = []
@@ -1402,7 +1388,6 @@ watch([normalizedPdfSource, () => props.isPdf], async ([source, isPdf]) => {
   controller.clearAllPageData()
   Object.assign(state, {
     useNativePdfPreview: false,
-    nativeFallbackTriggered: false,
     estimatedPageHeight: 1100,
     renderedPageRange: { start: 1, end: 1 },
     lastEmittedPdfPercent: -1,
@@ -1457,7 +1442,10 @@ const onPdfScroll = (e: Event) => controller.onPdfScroll(e)
 const setPdfCanvasElement = (p: number, el: any) => controller.setPdfCanvasElement(p, el)
 const setPdfPageElement = (p: number, el: any) => controller.setPdfPageElement(p, el)
 const onLeftTextScroll = () => {
-  if (leftTextRef.value) emit('text-scroll', leftTextRef.value.scrollTop / (leftTextRef.value.scrollHeight - leftTextRef.value.clientHeight))
+  if (leftTextRef.value) {
+    const maxScroll = leftTextRef.value.scrollHeight - leftTextRef.value.clientHeight
+    emit('text-scroll', maxScroll > 0 ? leftTextRef.value.scrollTop / maxScroll : 0)
+  }
 }
 
 onMounted(() => {

@@ -4,8 +4,6 @@
       <div class="split-preview">
         <PDF_Viewer
           :node="node"
-          :progressPercent="progressPercent"
-          :stageText="stageText"
           :isPdf="isPdf"
           :isOffice="isOffice"
           :isImage="isImage"
