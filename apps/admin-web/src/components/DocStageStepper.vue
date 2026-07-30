@@ -5,6 +5,7 @@
         v-for="(stage, idx) in orderedStages"
         :key="stage.key"
         :size="'small'"
+        :disabled="stage.status === 'skipped'"
       >
         <template #header>
           <div class="stage-header">
