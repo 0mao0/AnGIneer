@@ -10,11 +10,13 @@
 
     <!-- 解析模式 -->
     <div v-else class="knowledge-parse-view">
-      <div class="parse-toolbar">
-        <a-radio-group v-model:value="activeView" button-style="solid" size="small">
+      <div class="parse-toolbar stats-header-like">
+        <h2>知识库</h2>
+        <a-radio-group v-model:value="activeView" button-style="solid" size="small" style="margin-left: 16px;">
           <a-radio-button value="list">列表</a-radio-button>
           <a-radio-button value="parse">解析</a-radio-button>
         </a-radio-group>
+        <div style="flex: 1;" />
       </div>
       <!-- 使用 SplitPanes 三栏布局组件 - 比例 1.5:6:2.5 -->
     <SplitPanes
@@ -1155,11 +1157,16 @@ onBeforeUnmount(() => {
 
 .parse-toolbar {
   flex: 0 0 auto;
-  padding: 8px 16px;
-  min-height: 44px;
+  padding: 16px 16px 8px;
   border-bottom: 1px solid var(--border-color, #f0f0f0);
   display: flex;
   align-items: center;
+  gap: 8px;
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-primary);
+  }
 }
 
 .knowledge-parse-view {
