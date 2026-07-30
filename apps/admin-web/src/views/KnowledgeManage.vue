@@ -10,13 +10,14 @@
 
     <!-- 解析模式 -->
     <div v-else class="knowledge-parse-view">
-      <div class="parse-toolbar stats-header-like">
-        <h2>知识库</h2>
-        <a-radio-group v-model:value="activeView" button-style="solid" size="small" style="margin-left: 16px;">
-          <a-radio-button value="list">列表</a-radio-button>
-          <a-radio-button value="parse">解析</a-radio-button>
-        </a-radio-group>
-        <div style="flex: 1;" />
+      <div class="parse-toolbar">
+        <div class="parse-toolbar-left">
+          <h2>知识库</h2>
+          <a-radio-group v-model:value="activeView" button-style="solid" size="small">
+            <a-radio-button value="list">列表</a-radio-button>
+            <a-radio-button value="parse">解析</a-radio-button>
+          </a-radio-group>
+        </div>
       </div>
       <!-- 使用 SplitPanes 三栏布局组件 - 比例 1.5:6:2.5 -->
     <SplitPanes
@@ -1161,12 +1162,16 @@ onBeforeUnmount(() => {
   border-bottom: 1px solid var(--border-color, #f0f0f0);
   display: flex;
   align-items: center;
-  gap: 8px;
   h2 {
     margin: 0;
     font-size: 18px;
     color: var(--text-primary);
   }
+}
+.parse-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .knowledge-parse-view {

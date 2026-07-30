@@ -1,17 +1,18 @@
 <template>
   <div class="knowledge-stats" :class="appClass">
     <div class="stats-header">
-      <h2>知识库</h2>
-      <a-radio-group
-        :value="activeView"
-        button-style="solid"
-        size="small"
-        style="margin-left: 16px;"
-        @change="e => $emit('update:active-view', e.target.value)"
-      >
-        <a-radio-button value="list">列表</a-radio-button>
-        <a-radio-button value="parse">解析</a-radio-button>
-      </a-radio-group>
+      <div class="stats-header-left">
+        <h2>知识库</h2>
+        <a-radio-group
+          :value="activeView"
+          button-style="solid"
+          size="small"
+          @change="e => $emit('update:active-view', e.target.value)"
+        >
+          <a-radio-button value="list">列表</a-radio-button>
+          <a-radio-button value="parse">解析</a-radio-button>
+        </a-radio-group>
+      </div>
       <div class="stats-actions">
         <a-popconfirm
           title="确定永久删除选中的记录？此操作不可恢复"
@@ -480,6 +481,11 @@ onMounted(() => {
     font-size: 18px;
     color: var(--text-primary);
   }
+}
+.stats-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .stats-actions {
   display: flex;
