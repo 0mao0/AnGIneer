@@ -20,9 +20,11 @@
           <a-descriptions-item label="输入">
             <div class="file-summary" v-if="stageInput(stage)">
               <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
-                <FolderOutlined v-if="file.isDir" class="file-icon file-icon-dir" />
-                <FileOutlined v-else class="file-icon file-icon-file" />
-                <a-tag :color="fileTagColor(file)" style="margin: 1px 4px 1px 0;">{{ file.name }}</a-tag>
+                <a-tag :color="fileTagColor(file)" style="margin: 1px 4px 1px 0;">
+                  <FolderOutlined v-if="file.isDir" class="tag-icon" />
+                  <FileOutlined v-else class="tag-icon" />
+                  {{ file.name }}
+                </a-tag>
                 <span class="file-path">{{ file.path }}</span>
               </div>
             </div>
@@ -31,9 +33,11 @@
           <a-descriptions-item label="产出">
             <div class="file-summary" v-if="stageOutput(stage)">
               <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
-                <FolderOutlined v-if="file.isDir" class="file-icon file-icon-dir" />
-                <FileOutlined v-else class="file-icon file-icon-file" />
-                <a-tag :color="fileTagColor(file)" style="margin: 1px 4px 1px 0;">{{ file.name }}</a-tag>
+                <a-tag :color="fileTagColor(file)" style="margin: 1px 4px 1px 0;">
+                  <FolderOutlined v-if="file.isDir" class="tag-icon" />
+                  <FileOutlined v-else class="tag-icon" />
+                  {{ file.name }}
+                </a-tag>
                 <span class="file-path">{{ file.path }}</span>
               </div>
             </div>
@@ -259,11 +263,5 @@ function fileTagColor(_file: { name: string }): string {
   word-break: break-all;
   flex: 1;
   min-width: 0;
-}
-.file-icon {
-  font-size: 13px;
-  margin-right: 2px;
-  &.file-icon-dir { color: var(--warning-color, #faad14); }
-  &.file-icon-file { color: var(--text-secondary, #888); }
 }
 </style>
