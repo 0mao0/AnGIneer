@@ -181,6 +181,21 @@ class KnowledgeMetaStore:
                 ON parse_tasks (doc_id, created_at DESC)
                 """
             )
+            conn.execute(
+                """
+                CREATE TABLE IF NOT EXISTS doc_parse_stages (
+                    doc_id TEXT NOT NULL,
+                    stage TEXT NOT NULL,
+                    status TEXT NOT NULL,
+                    message TEXT DEFAULT '',
+                    error TEXT DEFAULT '',
+                    started_at TEXT,
+                    finished_at TEXT,
+                    updated_at TEXT NOT NULL,
+                    PRIMARY KEY (doc_id, stage)
+                )
+                """
+            )
             conn.commit()
             tree_store.init_table(conn)
 
@@ -463,6 +478,49 @@ class KnowledgeMetaStore:
                 (task_id,),
             ).fetchall()
             return [dict(r) for r in rows]
+
+    def upsert_parse_stage(
+        self,
+        doc_id: str,
+        stage: str,
+        *,
+        status: str,
+        message: str = "",
+        error: str = "",
+        started_at: Optional[str] = None,
+        finished_at: Optional[str] = None,
+    ) -> None:
+        now = datetime.now().isoformat()
+        with self.connect() as conn:
+            conn.execute(
+                """
+                INSERT INTO doc_parse_stages (doc_id, stage, status, message, error, started_at, finished_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT (doc_id, stage) DO UPDATE SET
+                    status = excluded.status,
+                    message = excluded.message,
+                    error = excluded.error,
+                    started_at = COALESCE(excluded.started_at, doc_parse_stages.started_at),
+                    finished_at = COALESCE(excluded.finished_at, doc_parse_stages.finished_at),
+                    updated_at = excluded.updated_at
+                """,
+                (doc_id, stage, status, message, error, started_at, finished_at, now),
+            )
+            conn.commit()
+
+    def list_parse_stages(self, doc_id: str) -> List[dict]:
+        with self.connect() as conn:
+            rows = conn.execute(
+                "SELECT doc_id, stage, status, message, error, started_at, finished_at, updated_at "
+                "FROM doc_parse_stages WHERE doc_id = ? ORDER BY updated_at ASC",
+                (doc_id,),
+            ).fetchall()
+        return [dict(row) for row in rows]
+
+    def clear_parse_stages(self, doc_id: str) -> None:
+        with self.connect() as conn:
+            conn.execute("DELETE FROM doc_parse_stages WHERE doc_id = ?", (doc_id,))
+            conn.commit()
 
     # 删除节点记录，同步删除 tree_node。
     def delete_nodes(self, node_ids: List[str]) -> None:
