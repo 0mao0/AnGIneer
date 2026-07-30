@@ -124,26 +124,7 @@ def _run_popo(ctx: StageContext) -> str:
 
     popo_output_dir = str(file_storage.get_popo_dir(ctx.library_id, ctx.doc_id))
     pipeline = get_popo_pipeline()
-
-    parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
-    pdf_candidates = [
-        parsed_dir / "mineru_render.pdf",
-        mineru_raw_dir / "mineru_render.pdf",
-        Path(ctx.source_path) if ctx.source_path and ctx.source_path.lower().endswith(".pdf") else None,
-    ]
-    # Also check for any *.pdf in parsed_dir or mineru_raw_dir
-    for base_dir in [parsed_dir, mineru_raw_dir]:
-        for f in base_dir.glob("*.pdf"):
-            pdf_candidates.append(f)
-    source_pdf = ""
-    for p in pdf_candidates:
-        if p and p.exists():
-            source_pdf = str(p)
-            break
-    logger.info("PoPo source_pdf: %s (found %d candidates)", source_pdf or "(none)", len(pdf_candidates))
-    all_files = list(parsed_dir.rglob("*"))
-    logger.info("PoPo parsed_dir contents (%d files): %s", len(all_files),
-                [str(f.relative_to(parsed_dir)) for f in all_files[:20]])
+    source_pdf = str(file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "mineru_render.pdf")
     try:
         pipeline.run_full_pipeline(
             mineru_raw_dir=str(mineru_raw_dir),
