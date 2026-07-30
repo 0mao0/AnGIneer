@@ -73,7 +73,8 @@ class PoPoPipelineRunner:
         Path(dest_path).write_text(json.dumps(out_pages, ensure_ascii=False), encoding="utf-8")
 
     def run_full_pipeline(
-        self, mineru_raw_dir: str, output_dir: str, doc_id: str = DOC_ID
+        self, mineru_raw_dir: str, output_dir: str, doc_id: str = DOC_ID,
+        source_pdf_path: str = "",
     ) -> Dict[str, Any]:
         """Run PoPo: label normalization -> inference (cloud 4B) -> build tree.
 
@@ -81,12 +82,13 @@ class PoPoPipelineRunner:
         """
         tmp_dir = tempfile.mkdtemp(prefix="popo-")
         try:
-            return self._run_stages(mineru_raw_dir, output_dir, tmp_dir, doc_id)
+            return self._run_stages(mineru_raw_dir, output_dir, tmp_dir, doc_id, source_pdf_path)
         finally:
             shutil.rmtree(tmp_dir, ignore_errors=True)
 
     def _run_stages(
-        self, mineru_raw_dir: str, output_dir: str, tmp_dir: str, doc_id: str
+        self, mineru_raw_dir: str, output_dir: str, tmp_dir: str, doc_id: str,
+        source_pdf_path: str = "",
     ) -> Dict[str, Any]:
         mineru_raw = Path(mineru_raw_dir)
         tmp = Path(tmp_dir)
@@ -113,6 +115,15 @@ class PoPoPipelineRunner:
             if content_list_src.exists():
                 shutil.copy2(str(content_list_src), str(vlm_dir / f"{doc_id}_content_list.json"))
 
+        pdf_dir_arg: List[str] = []
+        if source_pdf_path:
+            src_pdf = Path(source_pdf_path)
+            if src_pdf.exists():
+                pdf_staging = tmp / "input" / "pdfs"
+                pdf_staging.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(str(src_pdf), str(pdf_staging / f"{doc_id}.pdf"))
+                pdf_dir_arg = ["--pdf-dir", str(pdf_staging)]
+
         normalized_out = tmp / "normalized"
         label_norm_script = self._popo_script("post_processing/label_normalization.py")
         subprocess.run(
@@ -121,7 +132,7 @@ class PoPoPipelineRunner:
              "--input-dir", str(tmp / "input"),
              "--output-dir", str(normalized_out),
              "--doc-id", doc_id,
-             ],
+             ] + pdf_dir_arg,
             env=env, check=True, timeout=60, capture_output=True, text=True,
         )
 
