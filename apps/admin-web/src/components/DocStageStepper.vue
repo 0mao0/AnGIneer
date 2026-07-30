@@ -20,9 +20,9 @@
           <a-descriptions-item label="输入">
             <div class="file-summary" v-if="stageInput(stage)">
               <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
-                <a-tag :color="fileTagColor(file)" style="margin: 1px 4px 1px 0;">
-                  <FolderOutlined v-if="file.isDir" class="tag-icon" />
-                  <FileOutlined v-else class="tag-icon" />
+                <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
+                  <template v-if="file.isDir">📁</template>
+                  <template v-else>📄</template>
                   {{ file.name }}
                 </a-tag>
                 <span class="file-path">{{ file.path }}</span>
@@ -33,9 +33,9 @@
           <a-descriptions-item label="产出">
             <div class="file-summary" v-if="stageOutput(stage)">
               <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
-                <a-tag :color="fileTagColor(file)" style="margin: 1px 4px 1px 0;">
-                  <FolderOutlined v-if="file.isDir" class="tag-icon" />
-                  <FileOutlined v-else class="tag-icon" />
+                <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
+                  <template v-if="file.isDir">📁</template>
+                  <template v-else>📄</template>
                   {{ file.name }}
                 </a-tag>
                 <span class="file-path">{{ file.path }}</span>
@@ -68,8 +68,6 @@ import {
   ClockCircleFilled,
   MinusCircleFilled,
   SyncOutlined,
-  FileOutlined,
-  FolderOutlined,
 } from '@ant-design/icons-vue'
 
 const props = defineProps<{
@@ -177,9 +175,6 @@ function parseFiles(text: string): { name: string; path: string; isDir: boolean 
   })
 }
 
-function fileTagColor(_file: { name: string }): string {
-  return 'default'
-}
 </script>
 
 <style lang="less" scoped>
@@ -263,10 +258,5 @@ function fileTagColor(_file: { name: string }): string {
   word-break: break-all;
   flex: 1;
   min-width: 0;
-}
-.tag-icon {
-  font-size: 12px;
-  margin-right: 2px;
-  color: inherit;
 }
 </style>
