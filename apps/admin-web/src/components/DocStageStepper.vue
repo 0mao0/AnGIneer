@@ -20,6 +20,8 @@
           <a-descriptions-item label="输入">
             <div class="file-summary" v-if="stageInput(stage)">
               <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
+                <FolderOutlined v-if="file.isDir" class="file-icon file-icon-dir" />
+                <FileOutlined v-else class="file-icon file-icon-file" />
                 <a-tag :color="fileTagColor(file)" style="margin: 1px 4px 1px 0;">{{ file.name }}</a-tag>
                 <span class="file-path">{{ file.path }}</span>
               </div>
@@ -29,6 +31,8 @@
           <a-descriptions-item label="产出">
             <div class="file-summary" v-if="stageOutput(stage)">
               <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
+                <FolderOutlined v-if="file.isDir" class="file-icon file-icon-dir" />
+                <FileOutlined v-else class="file-icon file-icon-file" />
                 <a-tag :color="fileTagColor(file)" style="margin: 1px 4px 1px 0;">{{ file.name }}</a-tag>
                 <span class="file-path">{{ file.path }}</span>
               </div>
@@ -60,6 +64,8 @@ import {
   ClockCircleFilled,
   MinusCircleFilled,
   SyncOutlined,
+  FileOutlined,
+  FolderOutlined,
 } from '@ant-design/icons-vue'
 
 const props = defineProps<{
@@ -155,14 +161,15 @@ async function copyStageError(stage: { error?: string; title: string }) {
   }
 }
 
-function parseFiles(text: string): { name: string; path: string }[] {
+function parseFiles(text: string): { name: string; path: string; isDir: boolean }[] {
   return text.split(/\s*\+\s*/).filter(Boolean).map(part => {
     part = part.trim()
     if (/[/\\]/.test(part) || part.includes(':')) {
       const name = part.split(/[/\\]/).filter(Boolean).pop() || part
-      return { name, path: part }
+      const isDir = !name.includes('.') || part.endsWith('/') || part.endsWith('\\')
+      return { name, path: part, isDir }
     }
-    return { name: part, path: '' }
+    return { name: part, path: '', isDir: false }
   })
 }
 
@@ -252,5 +259,11 @@ function fileTagColor(_file: { name: string }): string {
   word-break: break-all;
   flex: 1;
   min-width: 0;
+}
+.file-icon {
+  font-size: 13px;
+  margin-right: 2px;
+  &.file-icon-dir { color: var(--warning-color, #faad14); }
+  &.file-icon-file { color: var(--text-secondary, #888); }
 }
 </style>
