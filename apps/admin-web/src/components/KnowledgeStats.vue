@@ -69,9 +69,9 @@
           <a-tag :color="fileStatusColor(record.file_status)">{{ record.file_status }}</a-tag>
         </template>
         <template v-if="column.key === 'action'">
-          <a-button type="link" size="small" @click="viewParseSteps(record)">解析</a-button>
+          <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
           <a-divider type="vertical" />
-          <a-button type="link" size="small" @click="viewDetail(record)">文件</a-button>
+          <a-button type="link" size="small" @click="viewDetail(record)">结果</a-button>
         </template>
       </template>
     </a-table>
