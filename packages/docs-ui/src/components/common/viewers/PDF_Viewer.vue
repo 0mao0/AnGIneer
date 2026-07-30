@@ -307,6 +307,803 @@ const pdfToolbarMeasureRef = ref<HTMLElement | null>(null)
 // --- PDF Worker 初始化 ---
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
+// --- Composable: usePdfHeader ---
+function usePdfHeader() {
+  const compactLevel = ref(0)
+  let _toolbarFullWidth = 0
+  const headerResizeObserver = shallowRef<ResizeObserver | null>(null)
+
+  function setToolbarFullWidth(width: number) {
+    if (width > 0) _toolbarFullWidth = width
+  }
+
+  function updateHeaderCompactMode() {
+    if (!props.isPdf) {
+      compactLevel.value = 0
+      return
+    }
+    const headerElement = headerTitleRef.value
+    const titleElement = headerMainRef.value
+    if (!headerElement) return
+
+    if (_toolbarFullWidth <= 0) {
+      const measureToolbar = pdfToolbarMeasureRef.value
+      if (measureToolbar) {
+        const w = measureToolbar.scrollWidth || measureToolbar.clientWidth || measureToolbar.offsetWidth || measureToolbar.getBoundingClientRect().width
+        if (w > 0) _toolbarFullWidth = w
+      }
+    }
+    const full = _toolbarFullWidth
+    if (full <= 0) return
+
+    const headerWidth = headerElement.clientWidth
+    const titleWidth = titleElement?.scrollWidth || 0
+    if (headerWidth <= 0) return
+
+    const HIDE = [50, 60, 36, 36, 36, 44]
+    const levels: number[] = [full]
+    for (let i = 0; i < HIDE.length; i++) levels.push(levels[i] - HIDE[i])
+    const availWidth = headerWidth - titleWidth - 24
+    let level = 6
+    for (let lvl = 0; lvl <= 6; lvl++) {
+      if (availWidth >= levels[lvl]) { level = lvl; break }
+    }
+    if (compactLevel.value !== level) compactLevel.value = level
+  }
+
+  function setup() {
+    updateHeaderCompactMode()
+    if (typeof ResizeObserver !== 'undefined' && headerTitleRef.value) {
+      headerResizeObserver.value = new ResizeObserver(() => updateHeaderCompactMode())
+      headerResizeObserver.value.observe(headerTitleRef.value)
+    }
+  }
+
+  function teardown() {
+    headerResizeObserver.value?.disconnect()
+  }
+
+  return { compactLevel, updateHeaderCompactMode, setToolbarFullWidth, setup, teardown }
+}
+
+// --- Composable: usePdfVirtualScroll ---
+function usePdfVirtualScroll(
+  emit: (event: 'text-scroll', percent: number) => void,
+  shared: {
+    localPdfPageCount: ReturnType<typeof ref<number>>
+    pdfScale: ReturnType<typeof ref<number>>
+    intrinsicPdfPageWidth: ReturnType<typeof ref<number | null>>
+    useNativePdfPreview: ReturnType<typeof ref<boolean>>
+  },
+) {
+  const pageHeights = reactive<Record<number, number>>({})
+  const estimatedPageHeight = ref(1100)
+  const renderedPageRange = reactive({ start: 1, end: 1 })
+  const activePdfPage = ref(1)
+  const virtualContentHeight = ref(0)
+  const applyingExternalPdfScroll = ref(false)
+  const isPdfUserScrolling = ref(false)
+  const lastEmittedPdfPercent = ref(-1)
+
+  let pendingRangeUpdate = false
+  let pdfUserScrollTimeout: number | null = null
+  let pendingPdfSyncPercent: number | null = null
+  let pdfSyncRafId: number | null = null
+  let _lastEmitTime = 0
+
+  const displayPdfPageCount = computed(() => {
+    if (props.pdfPageCount && props.pdfPageCount > 1) return props.pdfPageCount
+    if (shared.localPdfPageCount.value > 1) return shared.localPdfPageCount.value
+    return 1
+  })
+
+  function clampPage(value: number) {
+    const total = Math.max(1, displayPdfPageCount.value)
+    if (!Number.isFinite(value)) return 1
+    return Math.max(1, Math.min(total, Math.round(value)))
+  }
+
+  function pageHeightOf(page: number) {
+    return pageHeights[page] || estimatedPageHeight.value
+  }
+
+  const pageLayout = computed(() => {
+    const topByPage: number[] = []
+    let cursor = VERTICAL_PADDING
+    const count = displayPdfPageCount.value
+    for (let page = 1; page <= count; page += 1) {
+      topByPage[page] = cursor
+      const ph = pageHeights[page]
+      cursor += (ph > 0) ? ph : estimatedPageHeight.value
+      if (page < count) cursor += PAGE_GAP
+    }
+    return { topByPage, totalHeight: Math.max(1, cursor + VERTICAL_PADDING) }
+  })
+
+  function updateRenderedPageRange() {
+    const container = pdfScrollRef.value
+    const layout = pageLayout.value
+    virtualContentHeight.value = layout.totalHeight
+    if (!container || !props.isPdf) {
+      renderedPageRange.start = 1
+      renderedPageRange.end = Math.max(1, displayPdfPageCount.value)
+      return
+    }
+    const pageCount = Math.max(1, displayPdfPageCount.value)
+    if (pageCount <= 1) { renderedPageRange.start = 1; renderedPageRange.end = 1; return }
+    const viewportTop = container.scrollTop
+    const viewportBottom = viewportTop + container.clientHeight
+    let firstVisibleIndex = -1
+    let lastVisibleIndex = -1
+    for (let page = 1; page <= pageCount; page += 1) {
+      const pageTop = layout.topByPage[page] || 0
+      const pageBottom = pageTop + pageHeightOf(page) + PAGE_GAP
+      const intersectsViewport = pageBottom >= viewportTop && pageTop <= viewportBottom
+      if (intersectsViewport) {
+        if (firstVisibleIndex === -1) firstVisibleIndex = page
+        lastVisibleIndex = page
+      }
+    }
+    if (firstVisibleIndex === -1 || lastVisibleIndex === -1) {
+      let closestPage = 1
+      let minDiff = Number.POSITIVE_INFINITY
+      for (let page = 1; page <= pageCount; page += 1) {
+        const diff = Math.abs((layout.topByPage[page] || 0) - viewportTop)
+        if (diff < minDiff) { minDiff = diff; closestPage = page }
+      }
+      renderedPageRange.start = Math.max(1, closestPage - RENDER_BUFFER)
+      renderedPageRange.end = Math.min(pageCount, closestPage + RENDER_BUFFER)
+      return
+    }
+    renderedPageRange.start = Math.max(1, firstVisibleIndex - RENDER_BUFFER)
+    renderedPageRange.end = Math.min(pageCount, lastVisibleIndex + RENDER_BUFFER)
+  }
+
+  function scheduleRenderedPageRangeUpdate() {
+    if (pendingRangeUpdate) return
+    pendingRangeUpdate = true
+    requestAnimationFrame(() => {
+      pendingRangeUpdate = false
+      updateRenderedPageRange()
+    })
+  }
+
+  function resolveViewportPage(scrollTop: number, clientHeight: number) {
+    const pageCount = Math.max(1, displayPdfPageCount.value)
+    const viewportCenter = scrollTop + (clientHeight / 2)
+    let bestPage = 1
+    let minDistance = Number.POSITIVE_INFINITY
+    const layout = pageLayout.value
+    for (let page = 1; page <= pageCount; page += 1) {
+      const top = layout.topByPage[page] || 0
+      const center = top + (pageHeightOf(page) / 2)
+      const distance = Math.abs(center - viewportCenter)
+      if (distance < minDistance) { minDistance = distance; bestPage = page }
+    }
+    return bestPage
+  }
+
+  function markPdfUserScrolling() {
+    isPdfUserScrolling.value = true
+    if (pdfUserScrollTimeout !== null) window.clearTimeout(pdfUserScrollTimeout)
+    pdfUserScrollTimeout = window.setTimeout(() => {
+      isPdfUserScrolling.value = false
+      pdfUserScrollTimeout = null
+    }, 140)
+  }
+
+  function emitPdfScrollPercent(percent: number) {
+    pendingPdfSyncPercent = percent
+    if (pdfSyncRafId !== null) return
+    pdfSyncRafId = requestAnimationFrame((timestamp) => {
+      pdfSyncRafId = null
+      if (timestamp - _lastEmitTime < 50) return
+      _lastEmitTime = timestamp
+      const nextPercent = pendingPdfSyncPercent
+      pendingPdfSyncPercent = null
+      if (nextPercent === null) return
+      if (Math.abs(nextPercent - lastEmittedPdfPercent.value) < 0.006) return
+      lastEmittedPdfPercent.value = nextPercent
+      emit('text-scroll', nextPercent)
+    })
+  }
+
+  function onPdfScroll(e: Event) {
+    if (shared.useNativePdfPreview.value) return
+    const target = e.target as HTMLElement
+    if (!target) return
+    activePdfPage.value = resolveViewportPage(target.scrollTop, target.clientHeight)
+    if (!applyingExternalPdfScroll.value) markPdfUserScrolling()
+    scheduleRenderedPageRangeUpdate()
+    const { scrollTop, scrollHeight, clientHeight } = target
+    if (scrollHeight <= clientHeight) return
+    const percent = scrollTop / (scrollHeight - clientHeight)
+    if (!applyingExternalPdfScroll.value) emitPdfScrollPercent(percent)
+  }
+
+  function scrollToPdfPage(targetPage: number, behavior: ScrollBehavior = 'auto') {
+    if (!props.isPdf || !pdfScrollRef.value) return
+    const page = clampPage(targetPage)
+    const targetTop = Math.max(0, (pageLayout.value.topByPage[page] || 0) - 8)
+    activePdfPage.value = page
+    const currentTop = pdfScrollRef.value.scrollTop
+    scheduleRenderedPageRangeUpdate()
+    if (Math.abs(currentTop - targetTop) < pageHeightOf(page)) return
+    pdfScrollRef.value.scrollTo({ top: targetTop, behavior })
+  }
+
+  function goPrevPage() { scrollToPdfPage(activePdfPage.value - 1, 'smooth') }
+  function goNextPage() { scrollToPdfPage(activePdfPage.value + 1, 'smooth') }
+  function onPageInputChange(v: any) { const p = Number(v); if (Number.isFinite(p)) scrollToPdfPage(p, 'smooth') }
+
+  return {
+    pageHeights, estimatedPageHeight, renderedPageRange, activePdfPage,
+    virtualContentHeight, applyingExternalPdfScroll, isPdfUserScrolling,
+    lastEmittedPdfPercent, displayPdfPageCount, pageHeightOf,
+    pageLayout, updateRenderedPageRange, scheduleRenderedPageRangeUpdate,
+    scrollToPdfPage, onPdfScroll, goPrevPage, goNextPage, onPageInputChange,
+  }
+}
+
+// --- Composable: usePdfZoom ---
+function usePdfZoom(
+  scroll: {
+    pageHeights: Record<number, number>
+    estimatedPageHeight: ReturnType<typeof ref<number>>
+    activePdfPage: ReturnType<typeof ref<number>>
+    renderedPageMetrics: ReturnType<typeof reactive<Record<number, RenderedPageMetrics>>>
+    scheduleRenderedPageRangeUpdate: () => void
+    scrollToPdfPage: (page: number, behavior: ScrollBehavior) => void
+  },
+) {
+  const pdfScale = ref(1)
+  const isFitToWindowMode = ref(true)
+  const isScaleTransitioning = ref(false)
+  const hasAppliedInitialFit = ref(false)
+  const intrinsicPdfPageWidth = ref<number | null>(null)
+  const maxPageWidth = ref(0)
+
+  let fitScaleRafId: number | null = null
+
+  const zoomPercentLabel = computed(() => `${Math.round(pdfScale.value * 100)}%`)
+  const normalizedPdfSource = computed(() => props.fileUrl || props.pdfViewerUrl.split('#')[0] || props.pdfViewerUrl)
+
+  const nativePdfViewerUrl = computed(() => {
+    const page = clampPage(scroll.activePdfPage.value)
+    const zoom = Math.max(10, Math.round(pdfScale.value * 100))
+    return `${normalizedPdfSource.value}#page=${page}&zoom=${zoom}&toolbar=0&navpanes=0&scrollbar=0`
+  })
+
+  function clampPage(value: number) {
+    const total = Math.max(1, scroll.displayPdfPageCount.value)
+    if (!Number.isFinite(value)) return 1
+    return Math.max(1, Math.min(total, Math.round(value)))
+  }
+
+  function clampScale(value: number) {
+    if (!Number.isFinite(value)) return 1
+    return Math.max(MIN_SCALE, Math.min(MAX_SCALE, Number(value.toFixed(2))))
+  }
+
+  function getFitToWindowScale() {
+    if (!props.isPdf || !pdfScrollRef.value) return null
+    const containerWidth = pdfScrollRef.value.clientWidth
+    if (!containerWidth || containerWidth <= FIT_PADDING * 2) return null
+    const availableWidth = Math.max(1, containerWidth - FIT_PADDING * 2)
+    let baseWidth = 0
+    const currentPage = scroll.activePdfPage.value || props.currentPdfPage || 1
+    const metrics = scroll.renderedPageMetrics[currentPage]
+    if (metrics && metrics.width > 0) {
+      baseWidth = metrics.width / (pdfScale.value || 1)
+    }
+    if (baseWidth <= 0) baseWidth = intrinsicPdfPageWidth.value || 0
+    if (baseWidth <= 0) {
+      const allHeights = Object.values(scroll.pageHeights)
+      if (allHeights.length > 0) {
+        const avgHeight = allHeights.reduce((s, h) => s + h, 0) / allHeights.length
+        baseWidth = (avgHeight / 1.414) / (pdfScale.value || 1)
+      }
+    }
+    if (baseWidth > 0) return availableWidth / baseWidth
+    return null
+  }
+
+  function applyFitToWindowScale() {
+    const nextScale = getFitToWindowScale()
+    if (nextScale === null) { isScaleTransitioning.value = false; return }
+    const safeScale = clampScale(nextScale)
+    if (Math.abs(safeScale - pdfScale.value) >= 0.001) {
+      applyPdfScale(safeScale)
+    } else {
+      isScaleTransitioning.value = false
+    }
+    requestAnimationFrame(() => { hasAppliedInitialFit.value = true })
+  }
+
+  function scheduleFitToWindowScale() {
+    if (!isFitToWindowMode.value) return
+    if (fitScaleRafId !== null) return
+    fitScaleRafId = requestAnimationFrame(() => {
+      fitScaleRafId = null
+      applyFitToWindowScale()
+    })
+  }
+
+  function applyPdfScale(nextScale: number) {
+    const safeScale = clampScale(nextScale)
+    if (Math.abs(safeScale - pdfScale.value) < 0.005) { isScaleTransitioning.value = false; return }
+    const oldScale = pdfScale.value
+    const scaleRatio = safeScale / oldScale
+
+    const scaledPageHeights: Record<number, number> = {}
+    for (const [page, height] of Object.entries(scroll.pageHeights)) {
+      scaledPageHeights[Number(page)] = Math.max(MIN_PAGE_HEIGHT, Math.round(height * scaleRatio))
+    }
+    for (const key of Object.keys(scroll.pageHeights)) delete scroll.pageHeights[Number(key)]
+    for (const [k, v] of Object.entries(scaledPageHeights)) scroll.pageHeights[Number(k)] = v
+
+    const scaledMetrics: Record<number, RenderedPageMetrics> = {}
+    for (const [page, metric] of Object.entries(scroll.renderedPageMetrics)) {
+      scaledMetrics[Number(page)] = {
+        ...metric,
+        top: metric.top * scaleRatio, left: metric.left * scaleRatio,
+        width: metric.width * scaleRatio, height: metric.height * scaleRatio,
+        scale: safeScale,
+      }
+    }
+    for (const key of Object.keys(scroll.renderedPageMetrics)) delete scroll.renderedPageMetrics[Number(key)]
+    for (const [k, v] of Object.entries(scaledMetrics)) scroll.renderedPageMetrics[Number(k)] = v
+
+    maxPageWidth.value = maxPageWidth.value * scaleRatio
+
+    if (intrinsicPdfPageWidth.value) {
+      const aspectRatio = scroll.estimatedPageHeight.value / (intrinsicPdfPageWidth.value * oldScale) || 1.414
+      scroll.estimatedPageHeight.value = Math.round(intrinsicPdfPageWidth.value * safeScale * aspectRatio)
+    }
+
+    isScaleTransitioning.value = true
+    pdfScale.value = safeScale
+    nextTick(() => {
+      scroll.scheduleRenderedPageRangeUpdate()
+      if (!isFitToWindowMode.value) scroll.scrollToPdfPage(scroll.activePdfPage.value, 'auto')
+      requestAnimationFrame(() => requestAnimationFrame(() => { isScaleTransitioning.value = false }))
+    })
+  }
+
+  function watchIntrinsicWidth() {
+    watch(intrinsicPdfPageWidth, (val) => {
+      if (val && isFitToWindowMode.value) scheduleFitToWindowScale()
+    })
+  }
+
+  function watchFitMode() {
+    watch(isFitToWindowMode, (val) => {
+      if (val) { hasAppliedInitialFit.value = false; scheduleFitToWindowScale() }
+    })
+  }
+
+  function zoomIn() { isFitToWindowMode.value = false; applyPdfScale(pdfScale.value + SCALE_STEP) }
+  function zoomOut() { isFitToWindowMode.value = false; applyPdfScale(pdfScale.value - SCALE_STEP) }
+  function resetZoom() { isFitToWindowMode.value = true; hasAppliedInitialFit.value = false; scheduleFitToWindowScale() }
+
+  return {
+    pdfScale, isFitToWindowMode, isScaleTransitioning, hasAppliedInitialFit,
+    intrinsicPdfPageWidth, maxPageWidth, zoomPercentLabel, normalizedPdfSource,
+    nativePdfViewerUrl, clampScale, applyPdfScale, scheduleFitToWindowScale,
+    zoomIn, zoomOut, resetZoom, watchIntrinsicWidth, watchFitMode, clampPage,
+  }
+}
+
+// --- Composable: usePdfMeasurement ---
+function usePdfMeasurement(
+  scroll: {
+    pageHeights: Record<number, number>
+    estimatedPageHeight: ReturnType<typeof ref<number>>
+    scheduleRenderedPageRangeUpdate: () => void
+  },
+  zoom: {
+    pdfScale: ReturnType<typeof ref<number>>
+    isFitToWindowMode: ReturnType<typeof ref<boolean>>
+    hasAppliedInitialFit: ReturnType<typeof ref<boolean>>
+    maxPageWidth: ReturnType<typeof ref<number>>
+    scheduleFitToWindowScale: () => void
+    intrinsicPdfPageWidth: ReturnType<typeof ref<number | null>>
+    isScaleTransitioning: ReturnType<typeof ref<boolean>>
+  },
+  pageLastRenderedScale: Map<number, number>,
+) {
+  const renderedPageMetrics = reactive<Record<number, RenderedPageMetrics>>({})
+  const pageElements = new Map<number, HTMLElement>()
+  const pageResizeObservers = new Map<number, ResizeObserver>()
+
+  function updateMaxPageWidth() {
+    let max = 0
+    for (const key in renderedPageMetrics) {
+      const w = renderedPageMetrics[key]?.width || 0
+      if (w > max) max = w
+    }
+    zoom.maxPageWidth.value = max
+  }
+
+  function updateEstimatedHeight() {
+    const values = Object.values(scroll.pageHeights).filter(h => h > 0)
+    if (!values.length) return
+    const total = values.reduce((s, i) => s + i, 0)
+    scroll.estimatedPageHeight.value = Math.max(MIN_PAGE_HEIGHT, Math.min(6000, Math.round(total / values.length)))
+  }
+
+  function clearAllPageData() {
+    console.log('[PDFViewer] Clearing all page data for document switch/unmount')
+    pageResizeObservers.forEach(o => o.disconnect())
+    pageResizeObservers.clear()
+    pageElements.clear()
+    for (const key of Object.keys(scroll.pageHeights)) delete scroll.pageHeights[Number(key)]
+    for (const key of Object.keys(renderedPageMetrics)) delete renderedPageMetrics[Number(key)]
+    zoom.maxPageWidth.value = 0
+    zoom.hasAppliedInitialFit.value = false
+    zoom.isScaleTransitioning.value = false
+    zoom.intrinsicPdfPageWidth.value = null
+    zoom.pdfScale.value = 1
+  }
+
+  function measurePageElement(page: number) {
+    const element = pageElements.get(page)
+    if (!element) return
+    const mediaElement = element.querySelector('canvas')
+    if (!(mediaElement instanceof HTMLElement)) return
+    if (mediaElement instanceof HTMLCanvasElement) {
+      const renderedScale = pageLastRenderedScale.get(page)
+      const hasRenderedAtCurrentScale = renderedScale !== undefined && Math.abs(renderedScale - zoom.pdfScale.value) < 0.001
+      const hasCanvasSize = mediaElement.width > 0 && mediaElement.height > 0
+      if (!hasRenderedAtCurrentScale || !hasCanvasSize) return
+    }
+    const mediaRect = mediaElement.getBoundingClientRect()
+    const wrapperRect = element.getBoundingClientRect()
+    if (mediaRect.width <= 1 || mediaRect.height <= 1) return
+    const nextHeight = Math.max(MIN_PAGE_HEIGHT, Math.round(mediaRect.height + 12))
+    const nextMetrics: RenderedPageMetrics = {
+      top: Math.max(0, mediaRect.top - wrapperRect.top),
+      left: Math.max(0, mediaRect.left - wrapperRect.left),
+      width: Math.max(1, mediaRect.width),
+      height: Math.round(mediaRect.height),
+      scale: zoom.pdfScale.value,
+    }
+    const currentHeight = scroll.pageHeights[page]
+    const currentMetrics = renderedPageMetrics[page]
+    const metricsChanged = !currentMetrics ||
+      Math.abs(currentMetrics.scale - nextMetrics.scale) > 0.001 ||
+      ['top', 'left', 'width', 'height'].some(k => Math.abs((currentMetrics as any)[k] - (nextMetrics as any)[k]) > 0.5)
+    if (currentHeight !== nextHeight) {
+      scroll.pageHeights[page] = nextHeight
+      updateEstimatedHeight()
+      scroll.scheduleRenderedPageRangeUpdate()
+    }
+    if (metricsChanged) {
+      renderedPageMetrics[page] = nextMetrics
+      updateMaxPageWidth()
+      if (zoom.isFitToWindowMode.value && !zoom.hasAppliedInitialFit.value) {
+        zoom.scheduleFitToWindowScale()
+      }
+    }
+  }
+
+  function setPdfPageElement(page: number, el: unknown) {
+    const element = el instanceof HTMLElement ? el : (el && typeof el === 'object' && '$el' in (el as any) ? (el as any).$el : null)
+    const previous = pageElements.get(page)
+    if (previous && previous !== element) {
+      pageResizeObservers.get(page)?.disconnect()
+      pageResizeObservers.delete(page)
+      pageElements.delete(page)
+    }
+    if (!(element instanceof HTMLElement)) return
+    pageElements.set(page, element)
+    const measureHeight = () => measurePageElement(page)
+    measureHeight()
+    requestAnimationFrame(measureHeight)
+    if (typeof ResizeObserver !== 'undefined' && !pageResizeObservers.has(page)) {
+      const observer = new ResizeObserver(() => measureHeight())
+      observer.observe(element)
+      pageResizeObservers.set(page, observer)
+    }
+  }
+
+  return { renderedPageMetrics, measurePageElement, setPdfPageElement, clearAllPageData }
+}
+
+// --- Composable: usePdfRendering ---
+function usePdfRendering(
+  pdfDocumentRef: ReturnType<typeof shallowRef<any>>,
+  zoom: {
+    pdfScale: ReturnType<typeof ref<number>>
+    intrinsicPdfPageWidth: ReturnType<typeof ref<number | null>>
+    isFitToWindowMode: ReturnType<typeof ref<boolean>>
+    hasAppliedInitialFit: ReturnType<typeof ref<boolean>>
+    scheduleFitToWindowScale: () => void
+  },
+  scroll: {
+    renderedPageRange: { start: number; end: number }
+    scheduleRenderedPageRangeUpdate: () => void
+  },
+  measurement: {
+    measurePageElement: (page: number) => void
+  },
+) {
+  const pageCanvasElements = new Map<number, HTMLCanvasElement>()
+  const pageLastRenderedScale = new Map<number, number>()
+  const pageRenderTasks = new Map<number, { cancel: () => void; promise: Promise<any> }>()
+  const pageRenderRafIds = new Map<number, number>()
+  const pageRenderFailCount = new Map<number, number>()
+
+  function cancelPageRenderTask(page: number) {
+    const task = pageRenderTasks.get(page)
+    task?.cancel()
+    pageRenderTasks.delete(page)
+  }
+
+  function isRenderCancelledError(error: unknown) {
+    if (!error || typeof error !== 'object') return false
+    return (error as { name?: string }).name === 'RenderingCancelledException'
+  }
+
+  function scheduleRenderPage(page: number) {
+    const previousRafId = pageRenderRafIds.get(page)
+    if (previousRafId !== undefined) cancelAnimationFrame(previousRafId)
+    const rafId = requestAnimationFrame(() => {
+      pageRenderRafIds.delete(page)
+      void renderPageToCanvas(page)
+    })
+    pageRenderRafIds.set(page, rafId)
+  }
+
+  function renderVisiblePages() {
+    if (!props.isPdf || !pdfDocumentRef.value) return
+    const start = scroll.renderedPageRange.start
+    const end = scroll.renderedPageRange.end
+    for (let page = start; page <= end; page += 1) scheduleRenderPage(page)
+  }
+
+  function setPdfCanvasElement(page: number, element: unknown) {
+    const canvas = element instanceof HTMLCanvasElement ? element : null
+    const previousCanvas = pageCanvasElements.get(page)
+    if (previousCanvas && previousCanvas !== canvas) {
+      previousCanvas.width = 0
+      previousCanvas.height = 0
+      pageCanvasElements.delete(page)
+      cancelPageRenderTask(page)
+      pageLastRenderedScale.delete(page)
+    }
+    if (!canvas) return
+    pageCanvasElements.set(page, canvas)
+    if (props.isPdf) scheduleRenderPage(page)
+  }
+
+  function clearPdfRenderState() {
+    pageRenderRafIds.forEach(id => cancelAnimationFrame(id))
+    pageRenderRafIds.clear()
+    pageRenderTasks.forEach(t => t.cancel())
+    pageRenderTasks.clear()
+    pageCanvasElements.clear()
+    pageLastRenderedScale.clear()
+    pageRenderFailCount.clear()
+  }
+
+  async function renderPageToCanvas(page: number) {
+    if (!props.isPdf) return
+    const doc = pdfDocumentRef.value
+    const canvas = pageCanvasElements.get(page)
+    if (!doc || !canvas) return
+    const lastRenderedScale = pageLastRenderedScale.get(page)
+    const isScaleChanged = lastRenderedScale !== zoom.pdfScale.value
+    const canvasOk = canvas.width > 0 && canvas.height > 0
+    if (pageRenderTasks.has(page)) {
+      if (!isScaleChanged) return
+      const oldTask = pageRenderTasks.get(page)
+      oldTask?.cancel()
+      try { await oldTask?.promise } catch (e) {}
+      pageRenderTasks.delete(page)
+    } else {
+      if (!isScaleChanged && canvasOk) return
+    }
+    try {
+      let isCancelled = false
+      const taskPlaceholder = { cancel: () => { isCancelled = true }, promise: Promise.resolve() }
+      pageRenderTasks.set(page, taskPlaceholder as any)
+      const pdfPage = await doc.getPage(page)
+      if (isCancelled || !pdfDocumentRef.value || pdfDocumentRef.value !== doc) return
+      const outputScale = window.devicePixelRatio || 1
+      const logicalViewport = pdfPage.getViewport({ scale: zoom.pdfScale.value })
+      const cssWidth = Math.max(1, logicalViewport.width)
+      const cssHeight = Math.max(1, logicalViewport.height)
+      const effectiveScale = Math.min(zoom.pdfScale.value * outputScale, MAX_PIXEL_SCALE)
+      const viewport = pdfPage.getViewport({ scale: effectiveScale })
+      const targetWidth = Math.max(1, Math.floor(viewport.width))
+      const targetHeight = Math.max(1, Math.floor(viewport.height))
+      const isSizeChanged = canvas.width !== targetWidth || canvas.height !== targetHeight
+      if (isSizeChanged) { canvas.width = targetWidth; canvas.height = targetHeight }
+      canvas.style.width = `${cssWidth}px`
+      canvas.style.height = `${cssHeight}px`
+      const canvasContext = canvas.getContext('2d', { alpha: false })
+      if (!canvasContext) return
+      canvasContext.setTransform(1, 0, 0, 1, 0, 0)
+      canvasContext.fillStyle = '#ffffff'
+      canvasContext.fillRect(0, 0, targetWidth, targetHeight)
+      const renderTask = pdfPage.render({ canvasContext, viewport: viewport, intent: 'print' })
+      pageRenderTasks.set(page, renderTask)
+      await renderTask.promise
+      if (pageRenderTasks.get(page) === renderTask) {
+        pageRenderTasks.delete(page)
+        pageLastRenderedScale.set(page, zoom.pdfScale.value)
+      }
+      requestAnimationFrame(() => measurement.measurePageElement(page))
+      const baseWidth = cssWidth / zoom.pdfScale.value
+      if (!zoom.intrinsicPdfPageWidth.value && baseWidth > 0) {
+        zoom.intrinsicPdfPageWidth.value = baseWidth
+        if (zoom.isFitToWindowMode.value) zoom.scheduleFitToWindowScale()
+      }
+      scroll.scheduleRenderedPageRangeUpdate()
+      if (zoom.isFitToWindowMode.value && !zoom.hasAppliedInitialFit.value) {
+        zoom.scheduleFitToWindowScale()
+      }
+    } catch (error) {
+      cancelPageRenderTask(page)
+      if (isRenderCancelledError(error)) return
+      const failCount = (pageRenderFailCount.get(page) || 0) + 1
+      pageRenderFailCount.set(page, failCount)
+      console.warn(`[PDFViewer] Failed to render page ${page} (attempt ${failCount}):`, error)
+      if (error && typeof error === 'object' && (error as any).name === 'PasswordException') {
+        return
+      }
+      if (failCount < 3) {
+        setTimeout(() => {
+          if (pageCanvasElements.has(page)) scheduleRenderPage(page)
+        }, 200 * failCount)
+      }
+    }
+  }
+
+  return { renderVisiblePages, renderPageToCanvas, setPdfCanvasElement, clearPdfRenderState, pageLastRenderedScale }
+}
+
+// --- Composable: usePdfDocument ---
+function usePdfDocument(
+  scroll: {
+    scheduleRenderedPageRangeUpdate: () => void
+    displayPdfPageCount: ReturnType<typeof computed<number>>
+    estimatedPageHeight: ReturnType<typeof ref<number>>
+  },
+  zoom: {
+    clampScale: (v: number) => number
+    scheduleFitToWindowScale: () => void
+    pdfScale: ReturnType<typeof ref<number>>
+    isScaleTransitioning: ReturnType<typeof ref<boolean>>
+    hasAppliedInitialFit: ReturnType<typeof ref<boolean>>
+    intrinsicPdfPageWidth: ReturnType<typeof ref<number | null>>
+  },
+  render: {
+    renderVisiblePages: () => void
+    clearPdfRenderState: () => void
+  },
+) {
+  const useNativePdfPreview = ref(false)
+  const isPdfLoading = ref(false)
+  const pdfLoadingProgress = ref(0)
+  const localPdfPageCount = ref(0)
+  const pdfDocument = shallowRef<any>(null)
+  const pdfLoadingTask = shallowRef<any>(null)
+  let pdfLoadToken = 0
+
+  function destroyPdfLoadingTask() {
+    pdfLoadingTask.value?.destroy?.()
+    pdfLoadingTask.value = null
+  }
+
+  function destroyPdfDocument() {
+    pdfDocument.value?.destroy?.()
+    pdfDocument.value = null
+  }
+
+  async function onPdfDocumentLoaded(nextDocument: any) {
+    useNativePdfPreview.value = false
+    isPdfLoading.value = false
+    pdfLoadingProgress.value = 100
+    pdfDocument.value = nextDocument
+    localPdfPageCount.value = Number(nextDocument?.numPages || 0)
+    if (localPdfPageCount.value > 0) {
+      try {
+        const firstPage = await nextDocument.getPage(1)
+        const viewport = firstPage.getViewport({ scale: 1 })
+        if (viewport.width > 0 && viewport.height > 0) {
+          zoom.intrinsicPdfPageWidth.value = viewport.width
+          if (pdfScrollRef.value) {
+            const containerWidth = pdfScrollRef.value.clientWidth
+            if (containerWidth > FIT_PADDING * 2) {
+              const fitScale = (containerWidth - FIT_PADDING * 2) / viewport.width
+              zoom.pdfScale.value = zoom.clampScale(fitScale)
+              scroll.estimatedPageHeight.value = Math.round(viewport.height * zoom.pdfScale.value)
+            }
+          }
+        }
+      } catch (e) {
+        console.warn('[PDFViewer] Failed to pre-fetch first page dimensions:', e)
+      }
+    }
+    scroll.scheduleRenderedPageRangeUpdate()
+    await nextTick()
+    render.renderVisiblePages()
+    requestAnimationFrame(() => {
+      zoom.scheduleFitToWindowScale()
+      zoom.isScaleTransitioning.value = false
+      zoom.hasAppliedInitialFit.value = true
+    })
+  }
+
+  async function loadPdfDocument(source: string) {
+    if (!source || !props.isPdf) return
+    useNativePdfPreview.value = false
+    isPdfLoading.value = true
+    pdfLoadingProgress.value = 0
+    const nextToken = pdfLoadToken + 1
+    pdfLoadToken = nextToken
+    destroyPdfLoadingTask()
+    destroyPdfDocument()
+    render.clearPdfRenderState()
+
+    try {
+      const loadingTask = pdfjsLib.getDocument({
+        url: source, credentials: 'same-origin',
+        disableRange: false, disableStream: false, disableAutoFetch: false,
+        rangeChunkSize: 65536 * 8,
+      }) as unknown as { promise: Promise<any>; destroy?: () => void }
+
+      loadingTask.onProgress = ({ loaded, total }: { loaded: number; total: number }) => {
+        if (total > 0) pdfLoadingProgress.value = Math.min(99, Math.round((loaded / total) * 100))
+      }
+
+      pdfLoadingTask.value = loadingTask
+      const nextDocument = await loadingTask.promise
+      if (pdfLoadToken !== nextToken) { nextDocument?.destroy?.(); return }
+      await onPdfDocumentLoaded(nextDocument)
+      return
+    } catch (error) {
+      console.warn('[PDFViewer] Stream load failed, trying full array buffer load:', error)
+      if (pdfLoadToken !== nextToken) return
+      destroyPdfLoadingTask()
+      destroyPdfDocument()
+    }
+
+    try {
+      const response = await fetch(source, { credentials: 'same-origin' })
+      if (!response.ok) throw new Error(`Failed to fetch PDF (${response.status})`)
+      const pdfBinary = new Uint8Array(await response.arrayBuffer())
+      if (pdfLoadToken !== nextToken) return
+      const loadingTask = pdfjsLib.getDocument({
+        data: pdfBinary, disableRange: true, disableStream: true, disableAutoFetch: true
+      })
+      pdfLoadingTask.value = loadingTask
+      const nextDocument = await loadingTask.promise
+      if (pdfLoadToken !== nextToken) { nextDocument?.destroy?.(); return }
+      await onPdfDocumentLoaded(nextDocument)
+      return
+    } catch (error) {
+      console.error('[PDFViewer] PDF load failed after all attempts:', error)
+    }
+
+    if (pdfLoadToken !== nextToken) return
+    useNativePdfPreview.value = true
+    isPdfLoading.value = false
+    pdfDocument.value = null
+    localPdfPageCount.value = 0
+  }
+
+  function onBeforeUnmount() {
+    pdfLoadToken += 1
+    destroyPdfLoadingTask()
+    destroyPdfDocument()
+  }
+
+  return { useNativePdfPreview, isPdfLoading, pdfLoadingProgress, localPdfPageCount, pdfDocument, loadPdfDocument, destroyPdfLoadingTask, destroyPdfDocument, onBeforeUnmount }
+}
+
 /**
  * PDF 查看器控制器类
  * 封装所有 PDF 渲染、缩放、滚动和状态管理逻辑
