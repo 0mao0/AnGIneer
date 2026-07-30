@@ -9,6 +9,7 @@ import json
 import logging
 import os
 import shutil
+import subprocess
 import tempfile
 import time
 import traceback
@@ -123,11 +124,17 @@ def _run_popo(ctx: StageContext) -> str:
 
     popo_output_dir = str(file_storage.get_popo_dir(ctx.library_id, ctx.doc_id))
     pipeline = get_popo_pipeline()
-    pipeline.run_full_pipeline(
-        mineru_raw_dir=str(mineru_raw_dir),
-        output_dir=popo_output_dir,
-        doc_id=ctx.doc_id,
-    )
+    try:
+        pipeline.run_full_pipeline(
+            mineru_raw_dir=str(mineru_raw_dir),
+            output_dir=popo_output_dir,
+            doc_id=ctx.doc_id,
+        )
+    except subprocess.CalledProcessError as exc:
+        stderr = (exc.stderr or "").strip()
+        stdout = (exc.stdout or "").strip()
+        detail = stderr or stdout or str(exc)
+        raise RuntimeError(f"PoPo 子进程失败:\n{detail}") from exc
 
     enriched_blocks = file_storage.read_popo_enriched_blocks(ctx.library_id, ctx.doc_id)
     document_tree = file_storage.read_popo_document_tree(ctx.library_id, ctx.doc_id)

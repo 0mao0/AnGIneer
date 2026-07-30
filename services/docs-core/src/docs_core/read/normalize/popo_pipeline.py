@@ -128,28 +128,36 @@ class PoPoPipelineRunner:
         # ---- Step 2: Inference (cloud 4B API via vLLM) ----
         enriched_out = tmp / "enriched"
         inference_script = self._popo_script("post_processing/run_inference.py")
-        subprocess.run(
-            [sys.executable, str(inference_script),
-             "--model", "mineru",
-             "--input-dir", str(normalized_out),
-             "--output-dir", str(enriched_out),
-             "--limit", "0",
-             ],
-            env=env, check=True, timeout=300, capture_output=True, text=True,
-        )
+        try:
+            subprocess.run(
+                [sys.executable, str(inference_script),
+                 "--model", "mineru",
+                 "--input-dir", str(normalized_out),
+                 "--output-dir", str(enriched_out),
+                 "--limit", "0",
+                 ],
+                env=env, check=True, timeout=300, capture_output=True, text=True,
+            )
+        except subprocess.CalledProcessError as exc:
+            logger.error("PoPo inference failed.\nSTDERR:\n%s\nSTDOUT:\n%s", exc.stderr, exc.stdout)
+            raise
 
         # ---- Step 3: Build document tree ----
         tree_out = tmp / "tree"
         txt_out = tmp / "tree_txt"
         tree_script = self._popo_script("post_processing/get_json_tree.py")
-        subprocess.run(
-            [sys.executable, str(tree_script),
-             "--input-dir", str(enriched_out),
-             "--output-dir", str(tree_out),
-             "--txt-dir", str(txt_out),
-             ],
-            env=env, check=True, timeout=60, capture_output=True, text=True,
-        )
+        try:
+            subprocess.run(
+                [sys.executable, str(tree_script),
+                 "--input-dir", str(enriched_out),
+                 "--output-dir", str(tree_out),
+                 "--txt-dir", str(txt_out),
+                 ],
+                env=env, check=True, timeout=60, capture_output=True, text=True,
+            )
+        except subprocess.CalledProcessError as exc:
+            logger.error("PoPo tree build failed.\nSTDERR:\n%s\nSTDOUT:\n%s", exc.stderr, exc.stdout)
+            raise
 
         final_enriched = str(out / "enriched_blocks.json")
         final_tree = str(out / "document_tree.json")
