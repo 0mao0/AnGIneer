@@ -18,7 +18,14 @@ class PoPoPipelineRunner:
     """封装 PoPo 本地 pipeline 调用。"""
 
     def __init__(self, popo_repo_path: Optional[str] = None):
-        self.popo_repo_path = Path(popo_repo_path or os.environ.get("POPO_REPO_PATH", ""))
+        if popo_repo_path:
+            self.popo_repo_path = Path(popo_repo_path)
+        else:
+            env_path = os.environ.get("POPO_REPO_PATH", "").strip()
+            if env_path:
+                self.popo_repo_path = Path(env_path)
+            else:
+                self.popo_repo_path = Path(__file__).resolve().parent.parent.parent.parent / "popo"
 
     def _popo_script(self, relative_path: str) -> Path:
         return self.popo_repo_path / relative_path
