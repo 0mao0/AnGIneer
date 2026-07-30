@@ -141,6 +141,9 @@ def _run_popo(ctx: StageContext) -> str:
             source_pdf = str(p)
             break
     logger.info("PoPo source_pdf: %s (found %d candidates)", source_pdf or "(none)", len(pdf_candidates))
+    all_files = list(parsed_dir.rglob("*"))
+    logger.info("PoPo parsed_dir contents (%d files): %s", len(all_files),
+                [str(f.relative_to(parsed_dir)) for f in all_files[:20]])
     try:
         pipeline.run_full_pipeline(
             mineru_raw_dir=str(mineru_raw_dir),
