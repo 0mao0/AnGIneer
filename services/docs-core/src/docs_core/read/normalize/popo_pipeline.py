@@ -22,7 +22,7 @@ class PoPoPipelineRunner:
             self.popo_repo_path = Path(popo_repo_path)
         else:
             env_path = os.environ.get("POPO_REPO_PATH", "").strip()
-            if env_path:
+            if env_path and Path(env_path).exists():
                 self.popo_repo_path = Path(env_path)
             else:
                 self.popo_repo_path = Path(__file__).resolve().parent.parent.parent.parent / "popo"
