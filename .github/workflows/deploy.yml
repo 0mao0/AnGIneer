@@ -53,34 +53,33 @@ jobs:
           echo "api=$API" >> $GITHUB_OUTPUT
 
       - name: Notify WeCom group
-        uses: actions/github-script@v7
         env:
           WEBHOOK: ${{ secrets.WECOM_WEBHOOK_URL }}
-        with:
-          script: |
-            const fe = '${{ steps.health.outputs.frontend }}';
-            const adm = '${{ steps.health.outputs.admin }}';
-            const api = '${{ steps.health.outputs.api }}';
-            const commit = '${{ github.sha }}'.slice(0, 7);
-            let msgLine = 'manual trigger';
-            if ('${{ github.event_name }}' === 'push') {
-              msgLine = ('${{ github.event.head_commit.message }}' || '').split('\n')[0];
-            }
-            const now = new Date().toLocaleString('zh-CN', { hour12: false });
-            const url = process.env.WEBHOOK;
-            if (!url || url === '') {
-              console.log('WECOM_WEBHOOK_URL not set, skipping notification');
-              return;
-            }
-            const msg = {
-              msgtype: 'markdown',
-              markdown: {
-                content: `## ✅ AnGIneer 部署完成\n> **提交:** \`${commit}\` - ${msgLine}\n> **分支:** \`${{ github.ref_name }}\`\n> **时间:** \`${now}\`\n\n**服务状态**\n> 前台: \`${fe}\`\n> 管理后台: \`${adm}\`\n> API 文档: \`${api}\`\n\n[查看 Actions](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})`
-              }
-            };
-            const resp = await fetch(url, {
-              method: 'POST',
-              headers: {'Content-Type': 'application/json'},
-              body: JSON.stringify(msg)
-            });
-            console.log('WeCom notify status:', resp.status);
+        run: |
+          if [ -z "$WEBHOOK" ]; then echo "WEBHOOK not set, skipping"; exit 0; fi
+          cd /home/runner/AnGIneer
+          export SHA=$(git log -1 --format="%H" | head -c 7)
+          export MSG=$(git log -1 --format="%s")
+          export REF=$(git rev-parse --abbrev-ref HEAD)
+          export FE=${{ steps.health.outputs.frontend }}
+          export ADM=${{ steps.health.outputs.admin }}
+          export API=${{ steps.health.outputs.api }}
+          export RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          python3 << 'PYEOF'
+import os, json, datetime, urllib.request
+content = f"""## ✅ AnGIneer 部署完成
+> **提交:** `{os.environ['SHA']}` - {os.environ['MSG']}
+> **分支:** `{os.environ['REF']}`
+> **时间:** `{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}`
+
+**服务状态**
+> 前台: `{os.environ['FE']}`
+> 管理后台: `{os.environ['ADM']}`
+> API 文档: `{os.environ['API']}`
+
+[查看 Actions]({os.environ['RUN_URL']})"""
+payload = json.dumps({"msgtype":"markdown","markdown":{"content":content}}).encode()
+req = urllib.request.Request(os.environ['WEBHOOK'], data=payload, headers={"Content-Type":"application/json"})
+resp = urllib.request.urlopen(req)
+print("WeCom notify status:", resp.status)
+PYEOF
