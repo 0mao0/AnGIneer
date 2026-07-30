@@ -17,8 +17,24 @@
           </div>
         </template>
         <a-descriptions :column="1" bordered size="small">
-          <a-descriptions-item label="输入">{{ stageInput(stage) }}</a-descriptions-item>
-          <a-descriptions-item label="产出">{{ stageOutput(stage) }}</a-descriptions-item>
+          <a-descriptions-item label="输入">
+            <div class="file-summary" v-if="stageInput(stage)">
+              <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
+                <a-tag :color="fileTagColor(file)" style="margin: 1px 4px 1px 0;">{{ file.name }}</a-tag>
+                <span class="file-path">{{ file.path }}</span>
+              </div>
+            </div>
+            <span v-else>—</span>
+          </a-descriptions-item>
+          <a-descriptions-item label="产出">
+            <div class="file-summary" v-if="stageOutput(stage)">
+              <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
+                <a-tag :color="fileTagColor(file)" style="margin: 1px 4px 1px 0;">{{ file.name }}</a-tag>
+                <span class="file-path">{{ file.path }}</span>
+              </div>
+            </div>
+            <span v-else>—</span>
+          </a-descriptions-item>
           <a-descriptions-item label="过程">
             <div v-if="stage.status === 'failed'" class="stage-error-block">
               <pre>{{ stage.error }}</pre>
@@ -138,6 +154,28 @@ async function copyStageError(stage: { error?: string; title: string }) {
     message.error('复制失败')
   }
 }
+
+function parseFiles(text: string): { name: string; path: string }[] {
+  return text.split(/\s*\+\s*/).filter(Boolean).map(part => {
+    part = part.trim()
+    if (/[/\\]/.test(part) || part.includes(':')) {
+      const name = part.split(/[/\\]/).filter(Boolean).pop() || part
+      return { name, path: part }
+    }
+    return { name: part, path: '' }
+  })
+}
+
+function fileTagColor(file: { name: string }): string {
+  const ext = file.name.split('.').pop()?.toLowerCase() || ''
+  const extColors: Record<string, string> = {
+    pdf: 'red', md: 'blue', json: 'orange', py: 'green',
+    txt: 'default', docx: 'purple', doc: 'purple',
+    sqlite: 'cyan', yml: 'lime', yaml: 'lime',
+    graph: 'geekblue',
+  }
+  return extColors[ext] || 'default'
+}
 </script>
 
 <style lang="less" scoped>
@@ -202,5 +240,24 @@ async function copyStageError(stage: { error?: string; title: string }) {
     max-height: 200px;
     overflow-y: auto;
   }
+}
+
+.file-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.file-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.file-path {
+  font-size: 11px;
+  color: var(--text-tertiary, #999);
+  word-break: break-all;
+  flex: 1;
+  min-width: 0;
 }
 </style>
