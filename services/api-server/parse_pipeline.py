@@ -193,7 +193,7 @@ def _run_popo(ctx: StageContext) -> str:
 
     ctx.popo_ran = True
     ctx.input_summary = str(mineru_raw_dir)
-    ctx.output_summary = f"{popo_output_dir} (enriched_blocks + document_tree) + {parsed_dir}/content.md + {parsed_dir}/doc_blocks_graph.json"
+    ctx.output_summary = f"{popo_output_dir} + {parsed_dir}/content.md + {parsed_dir}/doc_blocks_graph.json"
     return f"PoPo 完成，{len(blocks)} blocks，{len(outlines)} outlines"
 
 
