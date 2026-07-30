@@ -115,21 +115,6 @@ class PoPoPipelineRunner:
             if content_list_src.exists():
                 shutil.copy2(str(content_list_src), str(vlm_dir / f"{doc_id}_content_list.json"))
 
-        pdf_dir_arg: List[str] = []
-        if source_pdf_path:
-            src_pdf = Path(source_pdf_path)
-            if src_pdf.exists():
-                pdf_staging = tmp / "input" / "pdfs"
-                pdf_staging.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(str(src_pdf), str(pdf_staging / f"{doc_id}.pdf"))
-                pdf_dir_arg = ["--pdf-dir", str(pdf_staging)]
-                logger.info("PoPo label_norm: copied PDF %s -> %s / %s.pdf",
-                            src_pdf, pdf_staging, doc_id)
-            else:
-                logger.warning("PoPo label_norm: source PDF not found at %s", source_pdf_path)
-        else:
-            logger.warning("PoPo label_norm: no source_pdf_path provided")
-
         normalized_out = tmp / "normalized"
         label_norm_script = self._popo_script("post_processing/label_normalization.py")
         subprocess.run(
@@ -138,9 +123,31 @@ class PoPoPipelineRunner:
              "--input-dir", str(tmp / "input"),
              "--output-dir", str(normalized_out),
              "--doc-id", doc_id,
-             ] + pdf_dir_arg,
+             ],
             env=env, check=True, timeout=60, capture_output=True, text=True,
         )
+
+        # Patch input_label in normalized output so inference can find the PDF
+        if source_pdf_path:
+            src_pdf = Path(source_pdf_path)
+            if src_pdf.exists():
+                pdf_staging = tmp / "input" / "pdfs"
+                pdf_staging.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(str(src_pdf), str(pdf_staging / f"{doc_id}.pdf"))
+                norm_files = list(normalized_out.rglob(f"{doc_id}*.json"))
+                if not norm_files:
+                    norm_files = list(normalized_out.rglob("*.json"))
+                for nf in norm_files:
+                    data = json.loads(nf.read_text(encoding="utf-8"))
+                    if isinstance(data, list):
+                        for item in data:
+                            if item.get("doc_id") == doc_id:
+                                item["input_label"] = str(pdf_staging / f"{doc_id}.pdf")
+                    elif isinstance(data, dict):
+                        if data.get("doc_id") == doc_id:
+                            data["input_label"] = str(pdf_staging / f"{doc_id}.pdf")
+                    nf.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+                logger.info("PoPo: patched input_label in %d normalized files", len(norm_files))
 
         # ---- Step 2: Inference (cloud 4B API via vLLM) ----
         enriched_out = tmp / "enriched"
