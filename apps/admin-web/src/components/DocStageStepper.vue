@@ -97,7 +97,10 @@ const orderedStages = computed(() =>
   })
 )
 
-const activeKeys = computed(() => orderedStages.value.filter(s => s.status === 'failed').map(s => s.key))
+const activeKeys = computed(() => {
+  const failed = orderedStages.value.find(s => s.status === 'failed')
+  return failed ? failed.key : ''
+})
 
 function statusIcon(status: string) {
   const map: Record<string, any> = {
