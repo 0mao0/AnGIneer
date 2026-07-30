@@ -14,6 +14,7 @@
       </div>
       <div
         v-if="isPdf"
+        ref="pdfToolbarRef"
         :class="['pane-actions-pdf', { 'pane-actions-pdf-compact': compactLevel > 0 }]"
       >
         <template v-if="!useNativePdfPreview">
@@ -54,45 +55,6 @@
             <template #icon><CompressOutlined /></template>
           </Button>
         </template>
-      </div>
-      <div
-        v-if="isPdf"
-        ref="pdfToolbarMeasureRef"
-        :class="['pane-actions-pdf', 'pane-actions-pdf-measure']"
-        aria-hidden="true"
-      >
-        <Button size="small" class="pdf-tool-btn">
-          <template #icon>
-            <LeftOutlined />
-          </template>
-        </Button>
-        <InputNumber
-          :value="activePdfPage"
-          size="small"
-          class="pdf-page-input"
-        />
-        <span class="pdf-toolbar-text">/ {{ displayPdfPageCount }}</span>
-        <Button size="small" class="pdf-tool-btn">
-          <template #icon>
-            <RightOutlined />
-          </template>
-        </Button>
-        <Button size="small" class="pdf-tool-btn">
-          <template #icon>
-            <ZoomOutOutlined />
-          </template>
-        </Button>
-        <span class="pdf-toolbar-text">{{ zoomPercentLabel }}</span>
-        <Button size="small" class="pdf-tool-btn">
-          <template #icon>
-            <ZoomInOutlined />
-          </template>
-        </Button>
-        <Button size="small" class="pdf-tool-btn">
-          <template #icon>
-            <CompressOutlined />
-          </template>
-        </Button>
       </div>
       <!-- 右侧占位，用于平衡左侧标题，使中间工具栏居中 -->
       <div v-if="isPdf && !useNativePdfPreview && compactLevel <= 1" class="pane-title-right-placeholder" />
@@ -304,7 +266,7 @@ const pdfScrollRef = ref<HTMLElement | null>(null)
 const leftTextRef = ref<HTMLElement | null>(null)
 const headerTitleRef = ref<HTMLElement | null>(null)
 const headerMainRef = ref<HTMLElement | null>(null)
-const pdfToolbarMeasureRef = ref<HTMLElement | null>(null)
+const pdfToolbarRef = ref<HTMLElement | null>(null)
 
 // --- PDF Worker 初始�?---
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
@@ -314,9 +276,14 @@ function usePdfHeader() {
   const compactLevel = ref(0)
   let _toolbarFullWidth = 0
   const headerResizeObserver = shallowRef<ResizeObserver | null>(null)
+  const toolbarResizeObserver = shallowRef<ResizeObserver | null>(null)
 
-  function setToolbarFullWidth(width: number) {
-    if (width > 0) _toolbarFullWidth = width
+  function measureToolbarWidth() {
+    const toolbar = pdfToolbarRef.value
+    if (toolbar) {
+      const w = toolbar.scrollWidth || toolbar.clientWidth || toolbar.offsetWidth || toolbar.getBoundingClientRect().width
+      if (w > 0) _toolbarFullWidth = w
+    }
   }
 
   function updateHeaderCompactMode() {
@@ -329,11 +296,7 @@ function usePdfHeader() {
     if (!headerElement) return
 
     if (_toolbarFullWidth <= 0) {
-      const measureToolbar = pdfToolbarMeasureRef.value
-      if (measureToolbar) {
-        const w = measureToolbar.scrollWidth || measureToolbar.clientWidth || measureToolbar.offsetWidth || measureToolbar.getBoundingClientRect().width
-        if (w > 0) _toolbarFullWidth = w
-      }
+      measureToolbarWidth()
     }
     const full = _toolbarFullWidth
     if (full <= 0) return
@@ -354,18 +317,29 @@ function usePdfHeader() {
   }
 
   function setup() {
+    measureToolbarWidth()
     updateHeaderCompactMode()
-    if (typeof ResizeObserver !== 'undefined' && headerTitleRef.value) {
-      headerResizeObserver.value = new ResizeObserver(() => updateHeaderCompactMode())
-      headerResizeObserver.value.observe(headerTitleRef.value)
+    if (typeof ResizeObserver !== 'undefined') {
+      if (headerTitleRef.value) {
+        headerResizeObserver.value = new ResizeObserver(() => updateHeaderCompactMode())
+        headerResizeObserver.value.observe(headerTitleRef.value)
+      }
+      if (pdfToolbarRef.value) {
+        toolbarResizeObserver.value = new ResizeObserver(() => {
+          measureToolbarWidth()
+          updateHeaderCompactMode()
+        })
+        toolbarResizeObserver.value.observe(pdfToolbarRef.value)
+      }
     }
   }
 
   function teardown() {
     headerResizeObserver.value?.disconnect()
+    toolbarResizeObserver.value?.disconnect()
   }
 
-  return { compactLevel, updateHeaderCompactMode, setToolbarFullWidth, setup, teardown }
+  return { compactLevel, updateHeaderCompactMode, setup, teardown }
 }
 
 // --- Composable: usePdfVirtualScroll ---
@@ -387,6 +361,10 @@ function usePdfVirtualScroll(
   let pendingPdfSyncPercent: number | null = null
   let pdfSyncRafId: number | null = null
   let _lastEmitTime = 0
+  let _layoutDirty = true
+  let _cachedLayout: { topByPage: number[]; totalHeight: number } | null = null
+  let _cachedPageCount = 0
+  let _cachedEstHeight = 0
 
   const displayPdfPageCount = computed(() => {
     if (props.pdfPageCount && props.pdfPageCount > 1) return props.pdfPageCount
@@ -405,17 +383,26 @@ function usePdfVirtualScroll(
   }
 
   const pageLayout = computed(() => {
+    const count = displayPdfPageCount.value
+    if (!_layoutDirty && _cachedLayout && count === _cachedPageCount && estimatedPageHeight.value === _cachedEstHeight) {
+      return _cachedLayout
+    }
     const topByPage: number[] = []
     let cursor = VERTICAL_PADDING
-    const count = displayPdfPageCount.value
     for (let page = 1; page <= count; page += 1) {
       topByPage[page] = cursor
       const ph = pageHeights[page]
       cursor += (ph > 0) ? ph : estimatedPageHeight.value
       if (page < count) cursor += PAGE_GAP
     }
-    return { topByPage, totalHeight: Math.max(1, cursor + VERTICAL_PADDING) }
+    _cachedLayout = { topByPage, totalHeight: Math.max(1, cursor + VERTICAL_PADDING) }
+    _cachedPageCount = count
+    _cachedEstHeight = estimatedPageHeight.value
+    _layoutDirty = false
+    return _cachedLayout
   })
+
+  function invalidateLayout() { _layoutDirty = true }
 
   function updateRenderedPageRange() {
     const container = pdfScrollRef.value
@@ -538,6 +525,7 @@ function usePdfVirtualScroll(
     lastEmittedPdfPercent, displayPdfPageCount, pageHeightOf,
     pageLayout, updateRenderedPageRange, scheduleRenderedPageRangeUpdate,
     scrollToPdfPage, onPdfScroll, goPrevPage, goNextPage, onPageInputChange,
+    invalidateLayout,
   }
 }
 
@@ -550,6 +538,7 @@ function usePdfZoom(
     scheduleRenderedPageRangeUpdate: () => void
     scrollToPdfPage: (page: number, behavior: ScrollBehavior) => void
     displayPdfPageCount: ComputedRef<number>
+    invalidateLayout: () => void
   },
   renderedPageMetrics: Record<number, RenderedPageMetrics>,
 ) {
@@ -637,6 +626,7 @@ function usePdfZoom(
       scaledPageHeights[Number(page)] = Math.max(MIN_PAGE_HEIGHT, Math.round(height * scaleRatio))
     }
     for (const key of Object.keys(scroll.pageHeights)) delete scroll.pageHeights[Number(key)]
+    scroll.invalidateLayout()
     for (const [k, v] of Object.entries(scaledPageHeights)) scroll.pageHeights[Number(k)] = v
 
     const scaledMetrics: Record<number, RenderedPageMetrics> = {}
@@ -697,6 +687,7 @@ function usePdfMeasurement(
     pageHeights: Record<number, number>
     estimatedPageHeight: Ref<number>
     scheduleRenderedPageRangeUpdate: () => void
+    invalidateLayout: () => void
   },
   zoom: {
     pdfScale: Ref<number>
@@ -735,6 +726,7 @@ function usePdfMeasurement(
     pageResizeObservers.clear()
     pageElements.clear()
     for (const key of Object.keys(scroll.pageHeights)) delete scroll.pageHeights[Number(key)]
+    scroll.invalidateLayout()
     for (const key of Object.keys(renderedPageMetrics)) delete renderedPageMetrics[Number(key)]
     zoom.maxPageWidth.value = 0
     zoom.hasAppliedInitialFit.value = false
@@ -771,6 +763,7 @@ function usePdfMeasurement(
       Math.abs(currentMetrics.scale - nextMetrics.scale) > 0.001 ||
       ['top', 'left', 'width', 'height'].some(k => Math.abs((currentMetrics as any)[k] - (nextMetrics as any)[k]) > 0.5)
     if (currentHeight !== nextHeight) {
+      scroll.invalidateLayout()
       scroll.pageHeights[page] = nextHeight
       updateEstimatedHeight()
       scroll.scheduleRenderedPageRangeUpdate()
@@ -1169,7 +1162,7 @@ const parseStepIndex = computed(() => {
   return order[stage] !== undefined ? order[stage] : 0
 })
 
-void [pdfToolbarMeasureRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseStepIndex, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview]
+void [pdfToolbarRef, headerTitleRef, headerMainRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseStepIndex, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview]
 
 const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   const pages: VirtualPageMeta[] = []
@@ -1291,11 +1284,6 @@ onMounted(() => {
   nextTick(() => {
     scroll.scheduleRenderedPageRangeUpdate()
     if (zoom.isFitToWindowMode.value) zoom.scheduleFitToWindowScale()
-    const measureToolbar = pdfToolbarMeasureRef.value
-    if (measureToolbar) {
-      const w = measureToolbar.scrollWidth || measureToolbar.clientWidth || measureToolbar.offsetWidth || measureToolbar.getBoundingClientRect().width
-      header.setToolbarFullWidth(w)
-    }
   })
 })
 
@@ -1398,16 +1386,6 @@ onBeforeUnmount(() => {
   flex: 0 0 auto;
   margin-left: auto;
   margin-right: auto;
-}
-
-.pane-actions-pdf-measure {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  visibility: hidden;
-  pointer-events: none;
-  transform: none;
-  white-space: nowrap;
 }
 
 .pane-actions-pdf-compact {
