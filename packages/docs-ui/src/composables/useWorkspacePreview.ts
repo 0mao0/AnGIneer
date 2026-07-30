@@ -137,10 +137,13 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
     if (syncingFromRight.value) return
     syncingFromLeft.value = true
     rightScrollPercent.value = percent
-    syncPdfPageByPercent(percent)
     requestAnimationFrame(() => {
       syncingFromLeft.value = false
     })
+  }
+
+  const onPdfPageChanged = (page: number) => {
+    pdfPage.value = page
   }
 
   const downloadFile = () => {
@@ -179,6 +182,7 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
     rightScrollPercent,
     onRightPaneScrollPercent,
     onLeftTextScrollPercent,
+    onPdfPageChanged,
     downloadFile,
     resetPreviewState
   }

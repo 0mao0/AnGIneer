@@ -248,6 +248,7 @@ const emit = defineEmits<{
   'text-scroll': [percent: number]
   'hover-highlight': [id: string | null]
   'select-highlight': [highlight: LinkedHighlight]
+  'pdf-active-page': [page: number]
 }>()
 
 // --- 常量配置 ---
@@ -1266,7 +1267,10 @@ const zoomIn = () => zoom.zoomIn()
 const zoomOut = () => zoom.zoomOut()
 const resetZoom = () => zoom.resetZoom()
 const onPdfScroll = (e: Event) => {
-  if (!doc.useNativePdfPreview.value) scroll.onPdfScroll(e)
+  if (!doc.useNativePdfPreview.value) {
+    scroll.onPdfScroll(e)
+    emit('pdf-active-page', scroll.activePdfPage.value)
+  }
 }
 const setPdfCanvasElement = (p: number, el: any) => render.setPdfCanvasElement(p, el)
 const setPdfPageElement = (p: number, el: any) => measurement.setPdfPageElement(p, el)

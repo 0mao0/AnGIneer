@@ -20,6 +20,7 @@
           :textScrollPercent="leftScrollPercent"
           @download="downloadFile"
           @text-scroll="onLeftTextScrollPercent"
+          @pdf-active-page="onPdfPageChanged"
           @hover-highlight="onHoverLinkedItem"
           @select-highlight="onSelectHighlightFromLeft"
         />
@@ -135,6 +136,7 @@ const {
   rightScrollPercent,
   onRightPaneScrollPercent,
   onLeftTextScrollPercent,
+  onPdfPageChanged,
   downloadFile,
   resetPreviewState
 } = useWorkspacePreview({
