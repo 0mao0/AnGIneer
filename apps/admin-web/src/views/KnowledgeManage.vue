@@ -1155,7 +1155,8 @@ onBeforeUnmount(() => {
 
 .parse-toolbar {
   flex: 0 0 auto;
-  padding: 6px 16px;
+  padding: 8px 16px;
+  min-height: 44px;
   border-bottom: 1px solid var(--border-color, #f0f0f0);
   display: flex;
   align-items: center;
