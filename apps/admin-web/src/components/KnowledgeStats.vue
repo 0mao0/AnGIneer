@@ -2,6 +2,16 @@
   <div class="knowledge-stats" :class="appClass">
     <div class="stats-header">
       <h2>知识库</h2>
+      <a-radio-group
+        :value="activeView"
+        button-style="solid"
+        size="small"
+        style="margin-left: 16px;"
+        @change="e => $emit('update:active-view', e.target.value)"
+      >
+        <a-radio-button value="list">列表</a-radio-button>
+        <a-radio-button value="parse">解析</a-radio-button>
+      </a-radio-group>
       <div class="stats-actions">
         <a-popconfirm
           title="确定永久删除选中的记录？此操作不可恢复"
@@ -131,6 +141,14 @@ import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
 import { PDFParsedWorkspace } from '@angineer/docs-ui'
 import type { KnowledgeTreeNode } from '@angineer/docs-ui'
 import DocStageStepper from '@/components/DocStageStepper.vue'
+
+defineProps<{
+  activeView: 'list' | 'parse'
+}>()
+
+defineEmits<{
+  'update:active-view': [value: 'list' | 'parse']
+}>()
 
 const { appClass } = useTheme()
 

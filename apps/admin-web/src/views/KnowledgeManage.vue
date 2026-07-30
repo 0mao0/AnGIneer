@@ -1,20 +1,21 @@
 <template>
   <div ref="workspaceRef" class="knowledge-workspace" :class="appClass">
-    <!-- 视图切换 -->
-    <div class="knowledge-toolbar">
-      <a-radio-group v-model:value="activeView" button-style="solid" size="small">
-        <a-radio-button value="list">列表</a-radio-button>
-        <a-radio-button value="parse">解析</a-radio-button>
-      </a-radio-group>
-    </div>
-
     <!-- 列表模式 -->
     <div v-if="activeView === 'list'" class="knowledge-list-view">
-      <KnowledgeStats />
+      <KnowledgeStats
+        :active-view="activeView"
+        @update:active-view="activeView = $event"
+      />
     </div>
 
     <!-- 解析模式 -->
     <div v-else class="knowledge-parse-view">
+      <div class="parse-toolbar">
+        <a-radio-group v-model:value="activeView" button-style="solid" size="small">
+          <a-radio-button value="list">列表</a-radio-button>
+          <a-radio-button value="parse">解析</a-radio-button>
+        </a-radio-group>
+      </div>
       <!-- 使用 SplitPanes 三栏布局组件 - 比例 1.5:6:2.5 -->
     <SplitPanes
       ref="splitPanesRef"
@@ -1146,18 +1147,18 @@ onBeforeUnmount(() => {
   flex-direction: column;
 }
 
-.knowledge-toolbar {
-  flex: 0 0 auto;
-  padding: 8px 16px;
-  border-bottom: 1px solid var(--border-color, #f0f0f0);
-  display: flex;
-  align-items: center;
-}
-
 .knowledge-list-view {
   flex: 1;
   min-height: 0;
   overflow: hidden;
+}
+
+.parse-toolbar {
+  flex: 0 0 auto;
+  padding: 6px 16px;
+  border-bottom: 1px solid var(--border-color, #f0f0f0);
+  display: flex;
+  align-items: center;
 }
 
 .knowledge-parse-view {
