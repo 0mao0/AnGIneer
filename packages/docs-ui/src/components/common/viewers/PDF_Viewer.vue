@@ -1,5 +1,5 @@
 <template>
-  <div class="split-pane">
+  <div :class="['split-pane', themeClass]">
     <div ref="headerTitleRef" class="pane-title pane-title-with-actions">
       <div ref="headerMainRef" class="pane-title-main">
         <div class="pane-title-prefix-wrap">
@@ -1137,6 +1137,12 @@ const isFitToWindowMode = zoom.isFitToWindowMode
 const useNativePdfPreview = doc.useNativePdfPreview
 const virtualContentHeight = scroll.virtualContentHeight
 
+const themeClass = computed(() => {
+  if (props.theme === 'dark') return 'dark-mode'
+  if (props.theme === 'light') return 'light-mode'
+  return ''
+})
+
 const shouldShowPdfHighlights = computed(() => {
   if (!props.isPdf || doc.useNativePdfPreview.value) return false
   if (zoom.isScaleTransitioning.value) return false
@@ -1304,6 +1310,27 @@ onBeforeUnmount(() => {
   border-radius: 8px;
   background: var(--dp-pane-bg);
   overflow: hidden;
+  /* Light mode defaults — 宿主可通过 --dp-*-override 覆盖 */
+  --dp-bg: var(--dp-bg-override, #f3f5f8);
+  --dp-pane-bg: var(--dp-pane-bg-override, #fff);
+  --dp-pane-border: var(--dp-pane-border-override, #e8edf4);
+  --dp-title-bg: var(--dp-title-bg-override, #fff);
+  --dp-title-border: var(--dp-title-border-override, #edf1f7);
+  --dp-title-text: var(--dp-title-text-override, #595959);
+  --dp-title-strong: var(--dp-title-strong-override, #4f5d7a);
+  --dp-sub-text: var(--dp-sub-text-override, #8c8c8c);
+  --dp-progress-bg: var(--dp-progress-bg-override, #f7f9fc);
+  --dp-content-bg: var(--dp-content-bg-override, #fff);
+  --dp-scroll-thumb: var(--dp-scroll-thumb-override, rgba(15,23,42,0.22));
+  --dp-empty-overlay: var(--dp-empty-overlay-override, rgba(255,255,255,0.92));
+  --dp-empty-text: var(--dp-empty-text-override, rgba(0,0,0,0.45));
+  --dp-segment-bg: var(--dp-segment-bg-override, #dfe5f2);
+  --dp-segment-border: var(--dp-segment-border-override, #cdd6e7);
+  --dp-segment-selected-bg: var(--dp-segment-selected-bg-override, #fff);
+  --dp-segment-selected-text: var(--dp-segment-selected-text-override, #1f2937);
+  --dp-math-bg: var(--dp-math-bg-override, #eef3ff);
+  --dp-math-color: var(--dp-math-color-override, #1d3a8a);
+  --dp-bg-tertiary: var(--dp-bg-tertiary-override, #eef1f5);
 }
 
 .pane-title {
@@ -1640,5 +1667,79 @@ onBeforeUnmount(() => {
 
 .pdf-page-canvas {
   display: block;
+}
+
+/* Dark mode — 跟随系统 */
+@media (prefers-color-scheme: dark) {
+  .split-pane {
+    --dp-bg: var(--dp-bg-override, #101319);
+    --dp-pane-bg: var(--dp-pane-bg-override, #171b24);
+    --dp-pane-border: var(--dp-pane-border-override, #2a3140);
+    --dp-title-bg: var(--dp-title-bg-override, #171b24);
+    --dp-title-border: var(--dp-title-border-override, #2a3140);
+    --dp-title-text: var(--dp-title-text-override, rgba(255,255,255,0.78));
+    --dp-title-strong: var(--dp-title-strong-override, rgba(255,255,255,0.92));
+    --dp-sub-text: var(--dp-sub-text-override, rgba(255,255,255,0.62));
+    --dp-progress-bg: var(--dp-progress-bg-override, #171b24);
+    --dp-content-bg: var(--dp-content-bg-override, #171b24);
+    --dp-scroll-thumb: var(--dp-scroll-thumb-override, rgba(148,163,184,0.42));
+    --dp-empty-overlay: var(--dp-empty-overlay-override, rgba(16,19,25,0.92));
+    --dp-empty-text: var(--dp-empty-text-override, rgba(255,255,255,0.6));
+    --dp-segment-bg: var(--dp-segment-bg-override, #2a3345);
+    --dp-segment-border: var(--dp-segment-border-override, #38445b);
+    --dp-segment-selected-bg: var(--dp-segment-selected-bg-override, #3a4660);
+    --dp-segment-selected-text: var(--dp-segment-selected-text-override, rgba(255,255,255,0.9));
+    --dp-math-bg: var(--dp-math-bg-override, rgba(59,130,246,0.18));
+    --dp-math-color: var(--dp-math-color-override, rgba(219,234,254,0.95));
+    --dp-bg-tertiary: var(--dp-bg-tertiary-override, #1a1f2e);
+  }
+}
+
+/* Dark mode — props.theme='dark' 显式指定 */
+.split-pane.dark-mode {
+  --dp-bg: var(--dp-bg-override, #101319);
+  --dp-pane-bg: var(--dp-pane-bg-override, #171b24);
+  --dp-pane-border: var(--dp-pane-border-override, #2a3140);
+  --dp-title-bg: var(--dp-title-bg-override, #171b24);
+  --dp-title-border: var(--dp-title-border-override, #2a3140);
+  --dp-title-text: var(--dp-title-text-override, rgba(255,255,255,0.78));
+  --dp-title-strong: var(--dp-title-strong-override, rgba(255,255,255,0.92));
+  --dp-sub-text: var(--dp-sub-text-override, rgba(255,255,255,0.62));
+  --dp-progress-bg: var(--dp-progress-bg-override, #171b24);
+  --dp-content-bg: var(--dp-content-bg-override, #171b24);
+  --dp-scroll-thumb: var(--dp-scroll-thumb-override, rgba(148,163,184,0.42));
+  --dp-empty-overlay: var(--dp-empty-overlay-override, rgba(16,19,25,0.92));
+  --dp-empty-text: var(--dp-empty-text-override, rgba(255,255,255,0.6));
+  --dp-segment-bg: var(--dp-segment-bg-override, #2a3345);
+  --dp-segment-border: var(--dp-segment-border-override, #38445b);
+  --dp-segment-selected-bg: var(--dp-segment-selected-bg-override, #3a4660);
+  --dp-segment-selected-text: var(--dp-segment-selected-text-override, rgba(255,255,255,0.9));
+  --dp-math-bg: var(--dp-math-bg-override, rgba(59,130,246,0.18));
+  --dp-math-color: var(--dp-math-color-override, rgba(219,234,254,0.95));
+  --dp-bg-tertiary: var(--dp-bg-tertiary-override, #1a1f2e);
+}
+
+/* Light mode — props.theme='light' 显式指定 */
+.split-pane.light-mode {
+  --dp-bg: var(--dp-bg-override, #f3f5f8);
+  --dp-pane-bg: var(--dp-pane-bg-override, #fff);
+  --dp-pane-border: var(--dp-pane-border-override, #e8edf4);
+  --dp-title-bg: var(--dp-title-bg-override, #fff);
+  --dp-title-border: var(--dp-title-border-override, #edf1f7);
+  --dp-title-text: var(--dp-title-text-override, #595959);
+  --dp-title-strong: var(--dp-title-strong-override, #4f5d7a);
+  --dp-sub-text: var(--dp-sub-text-override, #8c8c8c);
+  --dp-progress-bg: var(--dp-progress-bg-override, #f7f9fc);
+  --dp-content-bg: var(--dp-content-bg-override, #fff);
+  --dp-scroll-thumb: var(--dp-scroll-thumb-override, rgba(15,23,42,0.22));
+  --dp-empty-overlay: var(--dp-empty-overlay-override, rgba(255,255,255,0.92));
+  --dp-empty-text: var(--dp-empty-text-override, rgba(0,0,0,0.45));
+  --dp-segment-bg: var(--dp-segment-bg-override, #dfe5f2);
+  --dp-segment-border: var(--dp-segment-border-override, #cdd6e7);
+  --dp-segment-selected-bg: var(--dp-segment-selected-bg-override, #fff);
+  --dp-segment-selected-text: var(--dp-segment-selected-text-override, #1f2937);
+  --dp-math-bg: var(--dp-math-bg-override, #eef3ff);
+  --dp-math-color: var(--dp-math-color-override, #1d3a8a);
+  --dp-bg-tertiary: var(--dp-bg-tertiary-override, #eef1f5);
 }
 </style>
