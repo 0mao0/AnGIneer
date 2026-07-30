@@ -76,11 +76,12 @@
       </template>
     </a-table>
 
-    <a-modal
+    <a-drawer
       v-model:open="stepsModalOpen"
       title="解析阶段"
+      placement="right"
+      :width="520"
       :footer="null"
-      width="620px"
     >
       <template #extra>
         <a-button size="small" @click="refreshStages">刷新</a-button>
@@ -91,7 +92,7 @@
         @retry="onRetryStage"
       />
       <a-empty v-else description="暂无解析阶段记录" />
-    </a-modal>
+    </a-drawer>
 
     <a-drawer
       v-model:open="viewerOpen"
