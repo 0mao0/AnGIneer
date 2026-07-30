@@ -59,4 +59,4 @@ jobs:
           ADM: ${{ steps.health.outputs.admin }}
           API: ${{ steps.health.outputs.api }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: python3 /home/runner/AnGIneer/scripts/webhook_notify.py
+        run: python3 /home/runner/AnGIneer/.github/scripts/webhook_notify.py
