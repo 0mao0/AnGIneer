@@ -488,6 +488,7 @@ class ParseOrchestrator:
             stage_message=stage_message,
             error=None,
         )
+        ks.log_parse_step(task_id, doc_id, stage, progress, stage_message)
         ks.update_node(
             doc_id,
             status="completed" if status == "completed" else "processing",
@@ -781,6 +782,16 @@ def list_parse_records(
         limit=limit,
         offset=offset,
     )
+    # 补充 file_status：已入库 / 用户已删 / 冗余
+    ks = get_knowledge_service()
+    existing_doc_ids = {n.id for n in ks.nodes}
+    for r in records:
+        if r.get("status") == "deleted":
+            r["file_status"] = "用户已删"
+        elif r.get("doc_id") in existing_doc_ids:
+            r["file_status"] = "已入库"
+        else:
+            r["file_status"] = "冗余"
     return {"status": "success", "data": records, "total": len(records)}
 
 
@@ -946,6 +957,14 @@ def get_parse_task(task_id: str):
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
     return task
+
+
+@knowledge_router.get("/parse/tasks/{task_id}/steps")
+def get_parse_task_steps(task_id: str):
+    """获取解析任务步骤历史。"""
+    ks = get_knowledge_service()
+    steps = ks.get_parse_task_steps(task_id)
+    return {"status": "success", "data": steps}
 
 
 @knowledge_router.get("/strategies/{doc_id}")

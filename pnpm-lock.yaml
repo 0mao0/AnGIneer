@@ -169,9 +169,6 @@ importers:
       pdfjs-dist:
         specifier: ^4.10.38
         version: 4.10.38
-      vue-pdf-embed:
-        specifier: ^2.1.4
-        version: 2.1.4(vue@3.5.29(typescript@5.4.5))
     devDependencies:
       '@ant-design/icons-vue':
         specifier: ^7.0.1
@@ -1704,11 +1701,6 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  vue-pdf-embed@2.1.4:
-    resolution: {integrity: sha512-rZuRpQ4kJXKXCdZBCg3WZcYfrhDMJElcJQsS1V8KlJICDtFzzAzeDDSJwQU89Dx447Dv018P3zj/4UiAjBwvyg==}
-    peerDependencies:
-      vue: ^3.3.0
-
   vue-router@4.6.4:
     resolution: {integrity: sha512-Hz9q5sa33Yhduglwz6g9skT8OBPii+4bFn88w6J+J4MfEo4KRRpmiNG/hHHkdbRFlLBOqxN8y8gf2Fb0MTUgVg==}
     peerDependencies:
@@ -3106,11 +3098,6 @@ snapshots:
       semver: 7.7.4
     transitivePeerDependencies:
       - supports-color
-
-  vue-pdf-embed@2.1.4(vue@3.5.29(typescript@5.4.5)):
-    dependencies:
-      pdfjs-dist: 4.10.38
-      vue: 3.5.29(typescript@5.4.5)
 
   vue-router@4.6.4(vue@3.5.29(typescript@5.4.5)):
     dependencies:
