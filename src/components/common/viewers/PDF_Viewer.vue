@@ -296,8 +296,16 @@ const PAGE_GAP = 16
 const RENDER_BUFFER = 4
 const FIT_PADDING = 12
 const MIN_PAGE_HEIGHT = 400
-const RENDER_BUFFER = 4
-const FIT_PADDING = 12
+
+// --- 共享 DOM 引用 ---
+const pdfScrollRef = ref<HTMLElement | null>(null)
+const leftTextRef = ref<HTMLElement | null>(null)
+const headerTitleRef = ref<HTMLElement | null>(null)
+const headerMainRef = ref<HTMLElement | null>(null)
+const pdfToolbarMeasureRef = ref<HTMLElement | null>(null)
+
+// --- PDF Worker 初始化 ---
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
 /**
  * PDF 查看器控制器类
