@@ -9,15 +9,15 @@ from pydantic import BaseModel
 
 from tree_core import tree_store
 
-from docs_core.ingest.organize.types import (
+from docs_core.write.ingest.organize.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
     CanonicalTable,
     CitationTarget,
 )
-from docs_core.ingest.store.canonical_sql_store import CanonicalSQLiteStore
-from docs_core.ingest.store.blocks_sql_store import (
+from docs_core.write.ingest.store.canonical_sql_store import CanonicalSQLiteStore
+from docs_core.write.ingest.store.blocks_sql_store import (
     KnowledgeIndexStore,
     KnowledgeMetaStore,
     STRUCTURED_DOC_GRAPH_STRATEGY,
@@ -25,7 +25,7 @@ from docs_core.ingest.store.blocks_sql_store import (
     resolve_knowledge_index_db_path,
     resolve_knowledge_meta_db_path,
 )
-from docs_core.indexing import (
+from docs_core.write.indexing import (
     ChromaVectorStore,
     SQLiteVectorStore,
     VectorRecord,
@@ -316,7 +316,7 @@ class KnowledgeService:
     def _purge_document_artifacts(self, document_nodes: List[KnowledgeNode]) -> None:
         if not document_nodes:
             return
-        from docs_core.ingest.store.assets_file_store import file_storage
+        from docs_core.write.ingest.store.assets_file_store import file_storage
 
         doc_ids = [node.id for node in document_nodes]
         self.meta_store.delete_parse_tasks_by_doc_ids(doc_ids)
@@ -594,8 +594,8 @@ class KnowledgeService:
         *,
         title: str = "",
     ) -> Dict[str, int]:
-        from docs_core.indexing import build_vector_records
-        from docs_core.ingest.organize.builder import rebuild_canonical_document_from_graph
+        from docs_core.write.indexing import build_vector_records
+        from docs_core.write.ingest.organize.builder import rebuild_canonical_document_from_graph
 
         canonical_document = rebuild_canonical_document_from_graph(
             library_id=library_id,
@@ -615,7 +615,7 @@ class KnowledgeService:
         *,
         changed_chunk_ids: Optional[List[str]] = None,
     ) -> None:
-        from docs_core.indexing import build_vector_records
+        from docs_core.write.indexing import build_vector_records
 
         self.canonical_store.rebuild_chunk_fts(doc_id)
         vector_records = build_vector_records(canonical_document, only_chunk_ids=changed_chunk_ids)
@@ -868,19 +868,14 @@ def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = N
 
     This is the producer side of the docs-core → knowledge-graph pipeline.
     """
-    import sys
     import os as _os
 
-    kg_src = _os.path.join(_os.path.dirname(__file__), "..", "..", "..", "knowledge-graph", "src")
-    if kg_src not in sys.path:
-        sys.path.insert(0, _os.path.abspath(kg_src))
-
     try:
-        from knowledge_graph.graph_store import GraphStore
-        from knowledge_graph.evidence_builder import build_evidence_packets
-        from knowledge_graph.graph_orchestrator import GraphOrchestrator
+        from docs_core.write.graph.graph_store import GraphStore
+        from docs_core.write.graph.evidence_builder import build_evidence_packets
+        from docs_core.write.graph.graph_orchestrator import GraphOrchestrator
 
-        from docs_core.ingest.store.assets_file_store import file_storage, get_doc_blocks_graph
+        from docs_core.write.ingest.store.assets_file_store import file_storage, get_doc_blocks_graph
     except ImportError as e:
         logger.warning("knowledge-graph module not available: %s", e)
         return {"pushed": False, "error": str(e)}

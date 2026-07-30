@@ -47,7 +47,7 @@ def _resolve_knowledge_file(file_name: str) -> Optional[str]:
     if not normalized:
         return None
     try:
-        from docs_core.ingest.store.assets_file_store import file_storage
+        from docs_core.write.ingest.store.assets_file_store import file_storage
         from docs_core.knowledge_service import knowledge_service as ks
         nodes = ks.list_nodes("default")
         for node in nodes:

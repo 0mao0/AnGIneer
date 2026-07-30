@@ -722,9 +722,9 @@ class Dispatcher:
     ) -> Tuple[str, list, list, Optional[Dict], bool]:
         """L2 路径：SQL 结构化检索。"""
         from docs_core.query_protocols.contracts import KnowledgeQueryRequest
-        from docs_core.text2sql.schema_linker import link_schema
-        from docs_core.text2sql.sql_validator import validate_sql
-        from docs_core.text2sql.sql_executor import execute_sql
+        from docs_core.read.text2sql.schema_linker import link_schema
+        from docs_core.read.text2sql.sql_validator import validate_sql
+        from docs_core.read.text2sql.sql_executor import execute_sql
         from ai_inference.llm_client import get_llm_client
 
         answer = ""
@@ -986,7 +986,7 @@ class Dispatcher:
     ) -> Tuple[list, list]:
         """当 SQL 命中为空时，补充条文/公式级证据，作为 L2 的可承接依据。"""
         from docs_core.query_protocols.contracts import KnowledgeQueryRequest
-        from docs_core.retrieval.formula_retriever import formula_retriever, is_calculation_query
+        from docs_core.read.retrieval.formula_retriever import formula_retriever, is_calculation_query
 
         if not doc_nodes:
             return [], []
@@ -1162,12 +1162,12 @@ class Dispatcher:
         enforce_evidence=True 时，若检索无结果则直接返回空，不调用 LLM 自由生成。
         """
         from docs_core.query_protocols.contracts import KnowledgeQueryRequest
-        from docs_core.retrieval.clause_resolver import clause_resolver
-        from docs_core.retrieval.dense_retriever import dense_retriever
-        from docs_core.retrieval.formula_retriever import formula_retriever, is_formula_query
-        from docs_core.retrieval.sparse_retriever import sparse_retriever
-        from docs_core.retrieval.table_retriever import table_retriever
-        from docs_core.retrieval.hybrid_retriever import fuse_candidates
+        from docs_core.read.retrieval.clause_resolver import clause_resolver
+        from docs_core.read.retrieval.dense_retriever import dense_retriever
+        from docs_core.read.retrieval.formula_retriever import formula_retriever, is_formula_query
+        from docs_core.read.retrieval.sparse_retriever import sparse_retriever
+        from docs_core.read.retrieval.table_retriever import table_retriever
+        from docs_core.read.retrieval.hybrid_retriever import fuse_candidates
         from ai_inference.llm_client import get_llm_client
 
         answer = ""
@@ -1551,7 +1551,7 @@ class Dispatcher:
         if remote_url and not remote_url.endswith("/rerank"):
             remote_url = f"{remote_url}/v1/rerank"
         if not remote_url:
-            from docs_core.retrieval.reranker import rerank_candidates as local_rerank
+            from docs_core.read.retrieval.reranker import rerank_candidates as local_rerank
             logger.debug("未配置在线 reranker（ANGINEER_RERANKER_URL），使用本地 phrase rerank")
             return local_rerank(normalized_query, task_type, candidates)
         timeout = cfg.reranker_timeout_sec
@@ -1580,7 +1580,7 @@ class Dispatcher:
             candidates.sort(key=lambda item: item.rerank_score or 0.0, reverse=True)
             return candidates
         except Exception as exc:
-            from docs_core.retrieval.reranker import rerank_candidates as local_rerank
+            from docs_core.read.retrieval.reranker import rerank_candidates as local_rerank
             logger.warning("远端 reranker 调用失败，回退到本地 phrase rerank: %s", exc)
             return local_rerank(normalized_query, task_type, candidates)
 

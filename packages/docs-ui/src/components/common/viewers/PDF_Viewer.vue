@@ -23,41 +23,70 @@
             class="pdf-tool-btn"
             :disabled="activePdfPage <= 1"
             @click="goPrevPage"
+            v-if="compactLevel <= 4"
           >
             <template #icon><LeftOutlined /></template>
           </Button>
-          <InputNumber
-            v-if="compactLevel <= 1"
-            :value="activePdfPage"
-            size="small"
-            :min="1"
-            :max="displayPdfPageCount"
-            class="pdf-page-input"
-            @change="onPageInputChange"
-          />
-          <span v-if="compactLevel <= 5" class="pdf-toolbar-text">/ {{ displayPdfPageCount }}</span>
+          <template v-if="compactLevel <= 5">
+            <InputNumber
+              :value="activePdfPage"
+              size="small"
+              :min="1"
+              :max="displayPdfPageCount"
+              class="pdf-page-input"
+              :style="{ width: pageInputWidth + 'px' }"
+              :controls="false"
+              @change="onPageInputChange"
+            />
+            <span class="pdf-toolbar-text pdf-toolbar-text-slim">/</span>
+          </template>
+          <span v-if="compactLevel <= 6" class="pdf-toolbar-text pdf-toolbar-text-slim">{{ displayPdfPageCount }}</span>
           <Button
             size="small"
             class="pdf-tool-btn"
             :disabled="activePdfPage >= displayPdfPageCount"
             @click="goNextPage"
+            v-if="compactLevel <= 4"
           >
             <template #icon><RightOutlined /></template>
           </Button>
-          <Button v-if="compactLevel <= 3" size="small" class="pdf-tool-btn" :disabled="pdfScale <= minPdfScale" @click="zoomOut">
+          <Button v-if="compactLevel <= 3" size="small" class="pdf-tool-btn" title="适应宽度" @click="resetZoom">
+            <template #icon><CompressOutlined /></template>
+          </Button>
+          <Button v-if="compactLevel <= 2" size="small" class="pdf-tool-btn" :disabled="pdfScale <= minPdfScale" @click="zoomOut">
             <template #icon><ZoomOutOutlined /></template>
           </Button>
           <span v-if="compactLevel <= 0" class="pdf-toolbar-text">{{ zoomPercentLabel }}</span>
-          <Button v-if="compactLevel <= 2" size="small" class="pdf-tool-btn" :disabled="pdfScale >= maxPdfScale" @click="zoomIn">
+          <Button v-if="compactLevel <= 1" size="small" class="pdf-tool-btn" :disabled="pdfScale >= maxPdfScale" @click="zoomIn">
             <template #icon><ZoomInOutlined /></template>
-          </Button>
-          <Button v-if="compactLevel <= 4" size="small" class="pdf-tool-btn" title="适应" @click="resetZoom">
-            <template #icon><CompressOutlined /></template>
           </Button>
         </template>
       </div>
-      <!-- 右侧占位，用于平衡左侧标题，使中间工具栏居中 -->
-      <div v-if="isPdf && !useNativePdfPreview && compactLevel <= 1" class="pane-title-right-placeholder" />
+      <div v-if="isPdf" class="pane-title-right">
+        <template v-if="!useNativePdfPreview">
+          <Button
+            size="small"
+            class="pdf-tool-btn"
+            :class="{ 'pdf-tool-btn-active': showBbox }"
+            title="显示定位框"
+            @click="toggleBbox"
+          >
+            <template #icon><BulbOutlined /></template>
+          </Button>
+        </template>
+      </div>
+      <!-- 隐形测量镜像：包含全部控件，用于精确测量自然宽度 -->
+      <div v-if="isPdf && !useNativePdfPreview" ref="toolbarMeasureRef" class="toolbar-measure" aria-hidden="true">
+        <Button size="small" class="pdf-tool-btn"><template #icon><LeftOutlined /></template></Button>
+        <InputNumber :value="activePdfPage" size="small" class="pdf-page-input" :style="{ width: pageInputWidth + 'px' }" :controls="false" />
+        <span class="pdf-toolbar-text pdf-toolbar-text-slim">/</span>
+        <span class="pdf-toolbar-text pdf-toolbar-text-slim">{{ displayPdfPageCount }}</span>
+        <Button size="small" class="pdf-tool-btn"><template #icon><RightOutlined /></template></Button>
+        <Button size="small" class="pdf-tool-btn"><template #icon><CompressOutlined /></template></Button>
+        <Button size="small" class="pdf-tool-btn"><template #icon><ZoomOutOutlined /></template></Button>
+        <span class="pdf-toolbar-text">{{ zoomPercentLabel }}</span>
+        <Button size="small" class="pdf-tool-btn"><template #icon><ZoomInOutlined /></template></Button>
+      </div>
     </div>
     <div v-if="node.status === 'processing' || node.status === 'failed' || node.status === 'cancelled'" class="parse-progress-row">
       <div class="parse-progress-content">
@@ -180,7 +209,7 @@
 <script setup lang="ts">
 import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
-import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined } from '@ant-design/icons-vue'
+import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined } from '@ant-design/icons-vue'
 import { Button, Tag, Spin, Progress, Steps, Step, InputNumber, Empty } from 'ant-design-vue'
 import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正�?
@@ -268,9 +297,19 @@ const leftTextRef = ref<HTMLElement | null>(null)
 const headerTitleRef = ref<HTMLElement | null>(null)
 const headerMainRef = ref<HTMLElement | null>(null)
 const pdfToolbarRef = ref<HTMLElement | null>(null)
+const toolbarMeasureRef = ref<HTMLElement | null>(null)
 
 // --- PDF Worker 初始�?---
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
+
+// --- 灯泡（bbox 显示切换）---
+const showBbox = ref(false)
+const toggleBbox = () => { showBbox.value = !showBbox.value }
+
+// 外部联动高亮时自动打开灯泡
+watch(() => props.highlightLinkEnabled, (enabled) => {
+  if (enabled) showBbox.value = true
+})
 
 // --- Composable: usePdfHeader ---
 function usePdfHeader() {
@@ -280,9 +319,9 @@ function usePdfHeader() {
   const toolbarResizeObserver = shallowRef<ResizeObserver | null>(null)
 
   function measureToolbarWidth() {
-    const toolbar = pdfToolbarRef.value
-    if (toolbar) {
-      const w = toolbar.scrollWidth || toolbar.clientWidth || toolbar.offsetWidth || toolbar.getBoundingClientRect().width
+    const measureEl = toolbarMeasureRef.value
+    if (measureEl) {
+      const w = measureEl.scrollWidth || measureEl.offsetWidth
       if (w > 0) _toolbarFullWidth = w
     }
   }
@@ -296,22 +335,25 @@ function usePdfHeader() {
     const titleElement = headerMainRef.value
     if (!headerElement) return
 
-    if (_toolbarFullWidth <= 0) {
-      measureToolbarWidth()
-    }
+    measureToolbarWidth()
     const full = _toolbarFullWidth
     if (full <= 0) return
 
     const headerWidth = headerElement.clientWidth
     const titleWidth = titleElement?.scrollWidth || 0
+    const rightSection = headerElement.querySelector('.pane-title-right') as HTMLElement | null
+    const rightWidth = rightSection?.offsetWidth || 0
     if (headerWidth <= 0) return
 
-    const HIDE = [50, 60, 36, 36, 36, 44]
+    // 优先级：比例 < 放大 < 缩小 < 适应 < 翻页 < 输入框+斜杠 < 总页数 (灯泡永不隐藏)
+    const HIDE = [38, 34, 34, 38, 68, 46, 36]
+    const MAX_LEVEL = HIDE.length
     const levels: number[] = [full]
-    for (let i = 0; i < HIDE.length; i++) levels.push(levels[i] - HIDE[i])
-    const availWidth = headerWidth - titleWidth - 24
-    let level = 6
-    for (let lvl = 0; lvl <= 6; lvl++) {
+    for (let i = 0; i < MAX_LEVEL; i++) levels.push(levels[i] - HIDE[i])
+
+    const availWidth = headerWidth - titleWidth - rightWidth - 24
+    let level = MAX_LEVEL
+    for (let lvl = 0; lvl <= MAX_LEVEL; lvl++) {
       if (availWidth >= levels[lvl]) { level = lvl; break }
     }
     if (compactLevel.value !== level) compactLevel.value = level
@@ -325,12 +367,12 @@ function usePdfHeader() {
         headerResizeObserver.value = new ResizeObserver(() => updateHeaderCompactMode())
         headerResizeObserver.value.observe(headerTitleRef.value)
       }
-      if (pdfToolbarRef.value) {
+      if (toolbarMeasureRef.value) {
         toolbarResizeObserver.value = new ResizeObserver(() => {
           measureToolbarWidth()
           updateHeaderCompactMode()
         })
-        toolbarResizeObserver.value.observe(pdfToolbarRef.value)
+        toolbarResizeObserver.value.observe(toolbarMeasureRef.value)
       }
     }
   }
@@ -1136,6 +1178,10 @@ const virtualContentHeight = scroll.virtualContentHeight
 const minPdfScale = MIN_SCALE
 const maxPdfScale = MAX_SCALE
 const pdfScale = zoom.pdfScale
+const pageInputWidth = computed(() => {
+  const w = Math.max(32, String(activePdfPage.value).length * 10 + 12)
+  return w
+})
 
 const themeClass = computed(() => {
   if (props.theme === 'dark') return 'dark-mode'
@@ -1146,6 +1192,7 @@ const themeClass = computed(() => {
 const shouldShowPdfHighlights = computed(() => {
   if (!props.isPdf || doc.useNativePdfPreview.value) return false
   if (zoom.isScaleTransitioning.value) return false
+  if (!showBbox.value && !props.highlightLinkEnabled) return false
   return true
 })
 
@@ -1163,7 +1210,7 @@ const parseStepIndex = computed(() => {
   return order[stage] !== undefined ? order[stage] : 0
 })
 
-void [pdfToolbarRef, headerTitleRef, headerMainRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseStepIndex, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview]
+void [pdfToolbarRef, headerTitleRef, headerMainRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseStepIndex, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview, pageInputWidth]
 
 const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   const pages: VirtualPageMeta[] = []
@@ -1309,26 +1356,26 @@ onBeforeUnmount(() => {
   background: var(--dp-pane-bg);
   overflow: hidden;
   /* Light mode defaults �?宿主可通过 --dp-*-override 覆盖 */
-  --dp-bg: var(--dp-bg-override, #f3f5f8);
-  --dp-pane-bg: var(--dp-pane-bg-override, #fff);
-  --dp-pane-border: var(--dp-pane-border-override, #e8edf4);
-  --dp-title-bg: var(--dp-title-bg-override, #fff);
-  --dp-title-border: var(--dp-title-border-override, #edf1f7);
-  --dp-title-text: var(--dp-title-text-override, #595959);
-  --dp-title-strong: var(--dp-title-strong-override, #4f5d7a);
-  --dp-sub-text: var(--dp-sub-text-override, #8c8c8c);
-  --dp-progress-bg: var(--dp-progress-bg-override, #f7f9fc);
-  --dp-content-bg: var(--dp-content-bg-override, #fff);
-  --dp-scroll-thumb: var(--dp-scroll-thumb-override, rgba(15,23,42,0.22));
-  --dp-empty-overlay: var(--dp-empty-overlay-override, rgba(255,255,255,0.92));
-  --dp-empty-text: var(--dp-empty-text-override, rgba(0,0,0,0.45));
-  --dp-segment-bg: var(--dp-segment-bg-override, #dfe5f2);
-  --dp-segment-border: var(--dp-segment-border-override, #cdd6e7);
-  --dp-segment-selected-bg: var(--dp-segment-selected-bg-override, #fff);
-  --dp-segment-selected-text: var(--dp-segment-selected-text-override, #1f2937);
-  --dp-math-bg: var(--dp-math-bg-override, #eef3ff);
-  --dp-math-color: var(--dp-math-color-override, #1d3a8a);
-  --dp-bg-tertiary: var(--dp-bg-tertiary-override, #eef1f5);
+  --dp-bg: var(--dp-bg-override, var(--dp-bg, #f3f5f8));
+  --dp-pane-bg: var(--dp-pane-bg-override, var(--dp-pane-bg, #fff));
+  --dp-pane-border: var(--dp-pane-border-override, var(--dp-pane-border, #e8edf4));
+  --dp-title-bg: var(--dp-title-bg-override, var(--dp-title-bg, #fff));
+  --dp-title-border: var(--dp-title-border-override, var(--dp-title-border, #edf1f7));
+  --dp-title-text: var(--dp-title-text-override, var(--dp-title-text, #595959));
+  --dp-title-strong: var(--dp-title-strong-override, var(--dp-title-strong, #4f5d7a));
+  --dp-sub-text: var(--dp-sub-text-override, var(--dp-sub-text, #8c8c8c));
+  --dp-progress-bg: var(--dp-progress-bg-override, var(--dp-progress-bg, #f7f9fc));
+  --dp-content-bg: var(--dp-content-bg-override, var(--dp-content-bg, #fff));
+  --dp-scroll-thumb: var(--dp-scroll-thumb-override, var(--dp-scroll-thumb, rgba(15,23,42,0.22)));
+  --dp-empty-overlay: var(--dp-empty-overlay-override, var(--dp-empty-overlay, rgba(255,255,255,0.92)));
+  --dp-empty-text: var(--dp-empty-text-override, var(--dp-empty-text, rgba(0,0,0,0.45)));
+  --dp-segment-bg: var(--dp-segment-bg-override, var(--dp-segment-bg, #dfe5f2));
+  --dp-segment-border: var(--dp-segment-border-override, var(--dp-segment-border, #cdd6e7));
+  --dp-segment-selected-bg: var(--dp-segment-selected-bg-override, var(--dp-segment-selected-bg, #fff));
+  --dp-segment-selected-text: var(--dp-segment-selected-text-override, var(--dp-segment-selected-text, #1f2937));
+  --dp-math-bg: var(--dp-math-bg-override, var(--dp-math-bg, #eef3ff));
+  --dp-math-color: var(--dp-math-color-override, var(--dp-math-color, #1d3a8a));
+  --dp-bg-tertiary: var(--dp-bg-tertiary-override, var(--dp-bg-tertiary, #eef1f5));
 }
 
 .pane-title {
@@ -1345,7 +1392,6 @@ onBeforeUnmount(() => {
 .pane-title-with-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 8px;
   position: relative;
   overflow: hidden;
@@ -1356,7 +1402,27 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 6px;
   min-width: 0;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
+}
+
+.pane-title-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* 隐形测量镜像：不占布局、不可见，但保持自然宽度供 scrollWidth 测量 */
+.toolbar-measure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  z-index: -1;
 }
 
 .pane-title-right-placeholder {
@@ -1384,12 +1450,11 @@ onBeforeUnmount(() => {
 .pane-actions-pdf {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   position: relative;
   z-index: 1;
-  flex: 0 0 auto;
-  margin-left: auto;
-  margin-right: auto;
+  flex: 1;
 }
 
 .pane-actions-pdf-compact {
@@ -1506,15 +1571,30 @@ onBeforeUnmount(() => {
   padding-inline: 4px;
 }
 
+.pdf-tool-btn-active {
+  color: #1677ff;
+  border-color: #1677ff;
+}
+
 .pdf-page-input {
-  width: 56px;
+  min-width: 0;
+}
+.pdf-page-input :deep(.ant-input-number-input) {
+  padding-inline: 4px;
+  text-align: center;
+  font-size: 12px;
 }
 
 .pdf-toolbar-text {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--dp-title-text);
   min-width: 34px;
   text-align: center;
+}
+
+.pdf-toolbar-text-slim {
+  min-width: 0;
+  padding-inline: 1px;
 }
 
 .office-frame-wrap {

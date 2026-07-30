@@ -3,6 +3,7 @@
     <div class="preview-content">
       <div class="split-preview">
         <PDF_Viewer
+          :theme="isDark ? 'dark' : 'light'"
           :node="node"
           :isPdf="isPdf"
           :isOffice="isOffice"
@@ -90,7 +91,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 defineEmits<PDFParsedWorkspaceEventMap>()
 
-const { appClass } = useTheme()
+const { appClass, isDark } = useTheme()
 
 /* 计算解析面板的默认展示 tab。 */
 const getDefaultParsedTab = (): PreviewMode => (

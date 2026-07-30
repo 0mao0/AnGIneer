@@ -35,8 +35,6 @@ sys.path.append(os.path.join(SERVICES_DIR, "docs-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "geo-core", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "engtools", "src"))
 sys.path.append(os.path.join(SERVICES_DIR, "evals-core", "src"))
-sys.path.append(os.path.join(SERVICES_DIR, "knowledge-graph", "src"))
-sys.path.append(os.path.join(SERVICES_DIR, "dream-cycle", "src"))
 
 # Import logic from packages
 from ai_inference.llm_client import LLMClient
@@ -811,6 +809,6 @@ if __name__ == "__main__":
             os.path.join(SERVICES_DIR, "geo-core", "src"),
             os.path.join(SERVICES_DIR, "engtools", "src"),
             os.path.join(SERVICES_DIR, "evals-core", "src"),
-            os.path.join(SERVICES_DIR, "knowledge-graph", "src"),
+
         ],
     )

@@ -29,9 +29,9 @@ class DocsRetrievalTool(BaseTool):
             KnowledgeQueryRequest,
             SemanticRetrievalResponse,
         )
-        from docs_core.retrieval.dense_retriever import dense_retriever
-        from docs_core.retrieval.sparse_retriever import sparse_retriever
-        from docs_core.retrieval.hybrid_retriever import fuse_candidates
+        from docs_core.read.retrieval.dense_retriever import dense_retriever
+        from docs_core.read.retrieval.sparse_retriever import sparse_retriever
+        from docs_core.read.retrieval.hybrid_retriever import fuse_candidates
 
         doc_nodes = _resolve_doc_nodes(library_id, doc_ids)
         kq_request = KnowledgeQueryRequest(
@@ -65,9 +65,9 @@ class DocsSqlTool(BaseTool):
             RetrievedItem,
             SqlRetrievalResponse,
         )
-        from docs_core.text2sql.schema_linker import link_schema
-        from docs_core.text2sql.sql_validator import validate_sql
-        from docs_core.text2sql.sql_executor import execute_sql
+        from docs_core.read.text2sql.schema_linker import link_schema
+        from docs_core.read.text2sql.sql_validator import validate_sql
+        from docs_core.read.text2sql.sql_executor import execute_sql
 
         doc_nodes = _resolve_doc_nodes(library_id, doc_ids)
         kq_request = KnowledgeQueryRequest(
