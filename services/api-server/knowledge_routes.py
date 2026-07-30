@@ -1216,6 +1216,69 @@ def get_file_for_preview(path: str):
     )
 
 
+# --- 阶段化解析端点 ---
+
+
+@knowledge_router.get("/documents/{doc_id}/stages")
+def get_document_stages(doc_id: str):
+    ks = get_knowledge_service()
+    node = ks.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail=f"文档不存在: {doc_id}")
+    return {"doc_id": doc_id, "stages": ks.meta_store.list_parse_stages(doc_id)}
+
+
+@knowledge_router.post("/documents/{doc_id}/stages/{stage_key}/retry")
+def retry_document_stage(doc_id: str, stage_key: str):
+    from parse_pipeline import validate_stage_retry, resolve_stage_order
+
+    ks = get_knowledge_service()
+    node = ks.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail=f"文档不存在: {doc_id}")
+    try:
+        validate_stage_retry(node.status, stage_key)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    file_path = node.file_path
+    if not file_path:
+        raise HTTPException(status_code=400, detail="文档缺少文件路径信息")
+    try:
+        resolve_stage_order([stage_key])
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    return parse_orchestrator.create_parse_task(
+        library_id=node.library_id,
+        doc_id=doc_id,
+        file_path=file_path,
+        parse_options={"stages": [stage_key], "use_llm": True},
+    )
+
+
+@knowledge_router.post("/documents/{doc_id}/parse")
+def parse_document_stages(doc_id: str, stages: str = "all"):
+    from parse_pipeline import resolve_stage_order
+
+    ks = get_knowledge_service()
+    node = ks.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail=f"文档不存在: {doc_id}")
+    stage_list = "all" if stages == "all" else [s.strip() for s in stages.split(",") if s.strip()]
+    try:
+        resolve_stage_order(stage_list)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    file_path = node.file_path
+    if not file_path:
+        raise HTTPException(status_code=400, detail="文档缺少文件路径信息")
+    return parse_orchestrator.create_parse_task(
+        library_id=node.library_id,
+        doc_id=doc_id,
+        file_path=file_path,
+        parse_options={"stages": stage_list, "use_llm": True},
+    )
+
+
 __all__ = [
     "DocBlocksGraphRequest",
     "DocBlocksGraphSummaryRequest",
