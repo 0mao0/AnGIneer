@@ -124,15 +124,29 @@ def _run_popo(ctx: StageContext) -> str:
 
     popo_output_dir = str(file_storage.get_popo_dir(ctx.library_id, ctx.doc_id))
     pipeline = get_popo_pipeline()
-    source_pdf = str(file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "mineru_render.pdf")
-    source_pdf_exists = Path(source_pdf).exists()
-    logger.info("PoPo source_pdf: %s (exists=%s)", source_pdf, source_pdf_exists)
+
+    parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
+    pdf_candidates = [
+        parsed_dir / "mineru_render.pdf",
+        mineru_raw_dir / "mineru_render.pdf",
+        Path(ctx.source_path) if ctx.source_path and ctx.source_path.lower().endswith(".pdf") else None,
+    ]
+    # Also check for any *.pdf in parsed_dir or mineru_raw_dir
+    for base_dir in [parsed_dir, mineru_raw_dir]:
+        for f in base_dir.glob("*.pdf"):
+            pdf_candidates.append(f)
+    source_pdf = ""
+    for p in pdf_candidates:
+        if p and p.exists():
+            source_pdf = str(p)
+            break
+    logger.info("PoPo source_pdf: %s (found %d candidates)", source_pdf or "(none)", len(pdf_candidates))
     try:
         pipeline.run_full_pipeline(
             mineru_raw_dir=str(mineru_raw_dir),
             output_dir=popo_output_dir,
             doc_id=ctx.doc_id,
-            source_pdf_path=source_pdf if source_pdf_exists else "",
+            source_pdf_path=source_pdf,
         )
     except subprocess.CalledProcessError as exc:
         stderr = (exc.stderr or "").strip()
