@@ -41,15 +41,37 @@ const appVersion = import.meta.env.VITE_APP_VERSION || ''
 const webConsoleHref = import.meta.env.DEV ? WEB_CONSOLE_ORIGIN : '/'
 
 const navItems: NavItem[] = [
-  { key: 'knowledge', label: '知识库' }
+  { key: 'project', label: '项目库' },
+  { key: 'knowledge', label: '知识库' },
+  { key: 'experience', label: '经验库' },
+  { key: 'evals', label: '评测集' },
+  { key: 'dream-cycle', label: '健康检查' },
+  { key: 'api-keys', label: 'API 密钥' }
 ]
 
-const activeNav = computed(() => 'knowledge')
+const activeNav = computed(() => {
+  const path = route.path
+  if (path.startsWith('/evals')) return 'evals'
+  if (path.startsWith('/project')) return 'project'
+  if (path.startsWith('/experience')) return 'experience'
+  if (path.startsWith('/dream-cycle')) return 'dream-cycle'
+  if (path.startsWith('/api-keys')) return 'api-keys'
+  return 'knowledge'
+})
 
 /** 导航项点击 */
 const handleNavClick = (key: string) => {
-  if (key === 'knowledge') {
-    router.push('/knowledge')
+  const routeMap: Record<string, string> = {
+    project: '/project',
+    knowledge: '/knowledge',
+    experience: '/experience',
+    evals: '/evals',
+    'dream-cycle': '/dream-cycle',
+    'api-keys': '/api-keys'
+  }
+  const path = routeMap[key]
+  if (path) {
+    router.push(path)
   }
 }
 
