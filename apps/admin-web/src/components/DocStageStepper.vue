@@ -264,4 +264,9 @@ function fileTagColor(_file: { name: string }): string {
   flex: 1;
   min-width: 0;
 }
+.tag-icon {
+  font-size: 12px;
+  margin-right: 2px;
+  color: inherit;
+}
 </style>
