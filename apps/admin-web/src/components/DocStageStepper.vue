@@ -61,27 +61,7 @@ const STAGE_TITLES: Record<string, string> = {
 }
 const PIPELINE_ORDER = Object.keys(STAGE_TITLES)
 
-const STAGE_INPUT_FALLBACK: Record<string, string> = {
-  source_prep: '用户上传/拖拽的原始文件（本地路径）',
-  convert: '系统源目录中的非 PDF 文件（DOCX/DOC/MD）',
-  raw_parse: '源 PDF 文件（源文件准备后路径）',
-  popo: 'MinerU 原始产物（middle.json / content_list.json、layout.json）',
-  structure: 'MinerU 解析产物 + PoPo 结果（JSON、MD、图片 assets）',
-  fts: 'canonical chunks（结构化文本块，已入库至 SQLite）',
-  vectors: 'canonical chunks（结构化文本块，已入库至 SQLite）',
-  graph: 'doc_blocks_graph.json（文档图谱 JSON 文件）',
-}
-
-const STAGE_OUTPUT_FALLBACK: Record<string, string> = {
-  source_prep: '知识库源目录中的规范路径文件（data/knowledge_base/.../source/）',
-  convert: 'LibreOffice 转换后的 PDF 文件（parsed/mineru_render.pdf）',
-  raw_parse: 'Markdown 正文 + 原始产物（parsed/content.md、parsed/mineru_raw/、parsed/assets/）',
-  popo: 'enriched_blocks.json + document_tree.json + 重写的 content.md + doc_blocks_graph.json',
-  structure: '结构化索引入库（canonical blocks/chunks/tables/outlines + doc_blocks 行记录 + segments）',
-  fts: 'FTS5 全文检索索引（canonical_chunk_fts 虚拟表，支持 BM25 排序）',
-  vectors: '向量 Embeddings 入库（vector store，支持稠密检索）',
-  graph: '知识图谱实体 + 关系持久化（knowledge_graph.sqlite，含 evidence 包）',
-}
+const STAGE_INPUT_FALLBACK: Record<string, string> = {}
 
 const orderedStages = computed(() =>
   PIPELINE_ORDER.map(key => {
