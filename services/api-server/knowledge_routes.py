@@ -140,72 +140,6 @@ class DocBlocksGraphSummaryRequest(BaseModel):
 # --- 解析编排器 ---
 
 
-def _run_popo_stage(library_id: str, doc_id: str) -> None:
-    """执行 PoPo pipeline + 兼容投影 + 精简 Organize。"""
-    from docs_core.read.normalize.popo_pipeline import get_popo_pipeline
-    from docs_core.read.normalize.popo_mapper import po_po_blocks_to_canonical
-    from docs_core.read.normalize.popo_projection import run_popo_projection
-    from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
-    from docs_core.write.store.assets_file_store import file_storage
-    from docs_core.knowledge_service import knowledge_service
-
-    mineru_raw_dir = file_storage.get_mineru_raw_dir(library_id, doc_id)
-    if not mineru_raw_dir.exists():
-        raise FileNotFoundError(f"mineru_raw_dir not found at {mineru_raw_dir}")
-
-    popo_output_dir = str(file_storage.get_popo_dir(library_id, doc_id))
-    pipeline = get_popo_pipeline()
-    pipeline.run_full_pipeline(
-        mineru_raw_dir=str(mineru_raw_dir),
-        output_dir=popo_output_dir,
-        doc_id=doc_id,
-    )
-
-    enriched_blocks = file_storage.read_popo_enriched_blocks(library_id, doc_id)
-    document_tree = file_storage.read_popo_document_tree(library_id, doc_id)
-    blocks, outlines, id_map = po_po_blocks_to_canonical(doc_id, enriched_blocks, document_tree)
-
-    mineru_md_path = mineru_raw_dir / "content.md"
-    mineru_content_md = ""
-    if mineru_md_path.exists():
-        mineru_content_md = mineru_md_path.read_text(encoding="utf-8")
-
-    parsed_dir = file_storage.get_parsed_dir(library_id, doc_id)
-    content_md_output = str(parsed_dir / "content.md")
-    graph_output = str(parsed_dir / "doc_blocks_graph.json")
-
-    projection = run_popo_projection(
-        library_id=library_id,
-        doc_id=doc_id,
-        blocks=blocks,
-        outlines=outlines,
-        mineru_content_md=mineru_content_md,
-        graph_output_path=graph_output,
-        content_md_output_path=content_md_output,
-    )
-
-    knowledge_service.clear_document_segments(doc_id)
-    knowledge_service.save_document_segments(
-        doc_id, library_id, "doc_blocks_graph_v1", projection["segments"],
-    )
-
-    doc_title = file_storage.get_doc_manifest(library_id, doc_id).get("title", doc_id)
-    canonical_doc = build_canonical_document_from_popoblocks(
-        library_id=library_id, doc_id=doc_id, title=doc_title,
-        blocks=blocks, outlines=outlines,
-    )
-    knowledge_service.save_canonical_document(canonical_doc)
-    file_storage.save_middle_json(library_id, doc_id, canonical_doc.model_dump(mode="json"))
-
-    from docs_core.write.store.blocks_sql_store import KnowledgeIndexStore, resolve_knowledge_index_db_path
-    index_store = KnowledgeIndexStore(
-        db_path=resolve_knowledge_index_db_path(), schema_version="1.0.0",
-    )
-    index_store.clear_doc_blocks(doc_id)
-    for row in projection["base_rows"]:
-        index_store.insert_doc_block_row(row)
-
-
 class ParseOrchestrator:
     """负责 API 层与解析主链之间的编排。"""
 
@@ -330,86 +264,37 @@ class ParseOrchestrator:
         file_path: str,
         parse_options: Dict[str, Any],
     ) -> None:
-        """在后台执行文档解析并同步状态。"""
+        """在后台执行文档解析：驱动阶段化管线并同步总体状态。"""
+        from parse_pipeline import StageContext, derive_overall_status, run_pipeline
+
         ks = get_knowledge_service()
-        temp_output_dir = tempfile.mkdtemp(prefix=f"parse-{doc_id}-")
+        meta_store = ks.meta_store
+        meta_store.clear_parse_stages(doc_id)
+        ctx = StageContext(
+            task_id=task_id, library_id=library_id, doc_id=doc_id,
+            file_path=file_path, parse_options=parse_options,
+            temp_output_dir=tempfile.mkdtemp(prefix=f"parse-{doc_id}-"),
+            task_parser=self._parsers.get(task_id),
+        )
+
+        def _on_stage_update(stage_key, results):
+            overall = derive_overall_status(dict(results))
+            self._update_progress(task_id, doc_id, status=overall, stage=stage_key,
+                                  stage_message=f"阶段 {stage_key} 完成", progress=0)
+
         try:
-            self._update_progress(task_id, doc_id, status="processing", progress=5, stage="preparing", stage_message="准备源文件")
-            source_path = file_storage.ensure_doc_source_file(library_id, doc_id, file_path=file_path)
-            if not source_path:
-                raise RuntimeError("源文件不存在或无法复制到规范目录")
-            self._raise_if_cancel_requested(task_id)
-
-            # 非 PDF 输入：先 LO 转 PDF，存好底图，再给 MinerU
-            ext = Path(source_path).suffix.lower()
-            if ext != ".pdf":
-                self._update_progress(task_id, doc_id, progress=20, stage="converting", stage_message="LibreOffice 转换中")
-                lo_dir = tempfile.mkdtemp(prefix=f"lo-{doc_id}-")
-                source_path = convert_to_pdf(source_path, lo_dir)
-                # 存为底图（save_parse_artifacts 会覆盖 parsed 目录，后面再重新放回）
-                parsed_dir = file_storage.get_parsed_dir(library_id, doc_id)
-                parsed_dir.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(source_path, str(parsed_dir / "mineru_render.pdf"))
-                logger.info(f"LO PDF saved for doc {doc_id}: {source_path}")
-
-            self._update_progress(task_id, doc_id, progress=30, stage="raw_parse", stage_message="MinerU 原始结果下载中")
-            task_parser = self._parsers.get(task_id)
-            if task_parser is None:
-                raise RuntimeError("解析任务已取消")
-            parse_result = task_parser.parse_to_raw_artifacts(input_path=source_path, output_dir=temp_output_dir)
-            if not parse_result.get("success"):
-                raise RuntimeError(parse_result.get("error") or "MinerU 解析失败")
-
-            markdown_path = parse_result.get("md_file")
-            if markdown_path:
-                with open(markdown_path, "r", encoding="utf-8") as handle:
-                    file_storage.save_markdown(library_id, doc_id, handle.read())
-            file_storage.save_parse_artifacts(library_id, doc_id, temp_output_dir)
-            self._raise_if_cancel_requested(task_id)
-
-            # save_parse_artifacts 覆盖了 parsed 目录，非 PDF 需重新放回 LO PDF
-            if ext != ".pdf":
-                lo_pdf_path = file_storage.get_parsed_dir(library_id, doc_id) / "mineru_render.pdf"
-                if not lo_pdf_path.exists():
-                    shutil.copy2(source_path, str(lo_pdf_path))
-                    logger.info(f"LO PDF restored for doc {doc_id}")
-
-            # Stage 2.5: popo_normalize (progress=50)
-            normalizer_backend = os.environ.get("DOCS_CORE_NORMALIZER_BACKEND", "legacy")
-            popo_fallback = os.environ.get("DOCS_CORE_POPO_FALLBACK_ENABLED", "true").lower() != "false"
-            popo_ran_successfully = False
-
-            if normalizer_backend == "popo":
-                try:
-                    self._update_progress(task_id, doc_id, progress=50, stage="popo_normalize",
-                                          stage_message="PoPo 语义增强中")
-                    _run_popo_stage(library_id, doc_id)
-                    logger.info("PoPo stage completed for doc %s", doc_id)
-                    popo_ran_successfully = True
-                except Exception as popo_error:
-                    logger.warning("PoPo stage failed for doc %s: %s", doc_id, popo_error)
-                    if not popo_fallback:
-                        raise
-                    logger.info("Falling back to legacy normalizer for doc %s", doc_id)
-                    self._update_progress(task_id, doc_id, progress=50, stage="popo_normalize",
-                                          stage_message="PoPo 失败，回退 legacy 规则引擎")
-
-            if not popo_ran_successfully:
-                self._update_progress(task_id, doc_id, progress=70, stage="indexing", stage_message="构建结构化索引")
-                use_llm = bool(parse_options.get("use_llm", True))
-                llm_model = str(parse_options.get("llm_model") or "").strip() or None
-                build_structured_index_for_doc(
-                    library_id=library_id,
-                    doc_id=doc_id,
-                    strategy="doc_blocks_graph_v1",
-                    options={
-                        "use_llm": use_llm,
-                        "llm_model": llm_model,
-                    },
-                )
-
-            self._update_progress(task_id, doc_id, progress=100, stage="completed", status="completed", stage_message="解析完成")
-            update_record_status(task_id, "completed")
+            results = run_pipeline(
+                ctx, parse_options.get("stages", "all"),
+                meta_store=meta_store,
+                on_stage_update=_on_stage_update,
+                raise_if_cancelled=lambda: self._raise_if_cancel_requested(task_id),
+            )
+            overall = derive_overall_status(results)
+            ks.update_parse_task(task_id, status=overall, progress=100, stage=overall,
+                                 stage_message=f"解析结束: {overall}")
+            ks.update_node(doc_id, status=overall, parse_progress=100, parse_stage=overall,
+                           parse_task_id=task_id)
+            update_record_status(task_id, overall)
         except ParseTaskCancelledError as exc:
             error_message = str(exc) or "用户手动取消任务"
             ks.update_parse_task(
@@ -467,7 +352,7 @@ class ParseOrchestrator:
             parser = self._parsers.pop(task_id, None)
             if parser:
                 parser.cancel()
-            shutil.rmtree(temp_output_dir, ignore_errors=True)
+            shutil.rmtree(ctx.temp_output_dir, ignore_errors=True)
 
     def _update_progress(
         self,

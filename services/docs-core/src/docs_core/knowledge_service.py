@@ -585,6 +585,26 @@ class KnowledgeService:
         self.rebuild_document_indexes(document.doc_id, document)
         return stats
 
+    # 仅保存 canonical document 不重建向量索引（FTS 由 canonical_store.save_document 内部处理）
+    def save_canonical_document_bare(self, document: CanonicalDocument) -> Dict[str, int]:
+        return self.canonical_store.save_document(document)
+
+    # 仅重建 FTS 索引
+    def rebuild_document_fts(self, doc_id: str) -> None:
+        self.canonical_store.rebuild_chunk_fts(doc_id)
+
+    # 仅重建向量索引
+    def rebuild_document_vectors(self, doc_id: str, canonical_document: Optional[CanonicalDocument] = None) -> None:
+        from docs_core.write.indexing import build_vector_records
+
+        document = canonical_document or self.canonical_store.get_document(doc_id)
+        if document is None:
+            raise ValueError(f"canonical document 不存在: {doc_id}")
+        vector_records = build_vector_records(document)
+        self.vector_store.clear_document(doc_id)
+        if vector_records:
+            self.vector_store.upsert_records(vector_records)
+
     # 以语义图为唯一真相源重建 canonical 与向量索引
     def save_semantic_graph_projection(
         self,
