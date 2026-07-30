@@ -9,7 +9,7 @@
           解析失败
         </Tag>
         <Tag v-else-if="node.status === 'cancelled'" class="parse-state-tag">
-          已取消
+          已取�?
         </Tag>
       </div>
       <div
@@ -111,11 +111,11 @@
     </div>
     <div class="file-preview">
       <div v-if="isPdf" class="pdf-preview-wrap">
-        <!-- PDF加载进度指示器 -->
+        <!-- PDF加载进度指示�?-->
         <div v-if="isPdfLoading" class="pdf-loading-overlay">
           <Spin size="large" />
           <div class="pdf-loading-text">
-            <span v-if="pdfLoadingProgress > 0">加载中 {{ pdfLoadingProgress }}%</span>
+            <span v-if="pdfLoadingProgress > 0">加载�?{{ pdfLoadingProgress }}%</span>
             <span v-else>正在加载PDF文档...</span>
           </div>
           <Progress
@@ -216,11 +216,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive, toRefs } from 'vue'
+import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive } from 'vue'
+import type { Ref, ComputedRef } from 'vue'
 import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined } from '@ant-design/icons-vue'
 import { Button, Tag, Spin, Progress, Steps, Step, InputNumber, Empty } from 'ant-design-vue'
 import * as pdfjsLib from 'pdfjs-dist'
-// Vite标准worker导入方式，确保生产构建路径正确
+// Vite标准worker导入方式，确保生产构建路径正�?
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 
 export interface PDFViewerNode {
@@ -285,7 +286,7 @@ const emit = defineEmits<{
   'text-scroll': [percent: number]
   'hover-highlight': [id: string | null]
   'select-highlight': [highlight: LinkedHighlight]
-}()
+}>()
 
 // --- 常量配置 ---
 const MIN_SCALE = 0.1
@@ -305,7 +306,7 @@ const headerTitleRef = ref<HTMLElement | null>(null)
 const headerMainRef = ref<HTMLElement | null>(null)
 const pdfToolbarMeasureRef = ref<HTMLElement | null>(null)
 
-// --- PDF Worker 初始化 ---
+// --- PDF Worker 初始�?---
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
 // --- Composable: usePdfHeader ---
@@ -544,12 +545,13 @@ function usePdfVirtualScroll(
 function usePdfZoom(
   scroll: {
     pageHeights: Record<number, number>
-    estimatedPageHeight: ReturnType<typeof ref<number>>
-    activePdfPage: ReturnType<typeof ref<number>>
-    renderedPageMetrics: ReturnType<typeof reactive<Record<number, RenderedPageMetrics>>>
+    estimatedPageHeight: Ref<number>
+    activePdfPage: Ref<number>
     scheduleRenderedPageRangeUpdate: () => void
     scrollToPdfPage: (page: number, behavior: ScrollBehavior) => void
+    displayPdfPageCount: ComputedRef<number>
   },
+  renderedPageMetrics: Record<number, RenderedPageMetrics>,
 ) {
   const pdfScale = ref(1)
   const isFitToWindowMode = ref(true)
@@ -587,7 +589,7 @@ function usePdfZoom(
     const availableWidth = Math.max(1, containerWidth - FIT_PADDING * 2)
     let baseWidth = 0
     const currentPage = scroll.activePdfPage.value || props.currentPdfPage || 1
-    const metrics = scroll.renderedPageMetrics[currentPage]
+    const metrics = renderedPageMetrics[currentPage]
     if (metrics && metrics.width > 0) {
       baseWidth = metrics.width / (pdfScale.value || 1)
     }
@@ -638,7 +640,7 @@ function usePdfZoom(
     for (const [k, v] of Object.entries(scaledPageHeights)) scroll.pageHeights[Number(k)] = v
 
     const scaledMetrics: Record<number, RenderedPageMetrics> = {}
-    for (const [page, metric] of Object.entries(scroll.renderedPageMetrics)) {
+    for (const [page, metric] of Object.entries(renderedPageMetrics)) {
       scaledMetrics[Number(page)] = {
         ...metric,
         top: metric.top * scaleRatio, left: metric.left * scaleRatio,
@@ -646,8 +648,8 @@ function usePdfZoom(
         scale: safeScale,
       }
     }
-    for (const key of Object.keys(scroll.renderedPageMetrics)) delete scroll.renderedPageMetrics[Number(key)]
-    for (const [k, v] of Object.entries(scaledMetrics)) scroll.renderedPageMetrics[Number(k)] = v
+    for (const key of Object.keys(renderedPageMetrics)) delete renderedPageMetrics[Number(key)]
+    for (const [k, v] of Object.entries(scaledMetrics)) renderedPageMetrics[Number(k)] = v
 
     maxPageWidth.value = maxPageWidth.value * scaleRatio
 
@@ -693,21 +695,21 @@ function usePdfZoom(
 function usePdfMeasurement(
   scroll: {
     pageHeights: Record<number, number>
-    estimatedPageHeight: ReturnType<typeof ref<number>>
+    estimatedPageHeight: Ref<number>
     scheduleRenderedPageRangeUpdate: () => void
   },
   zoom: {
-    pdfScale: ReturnType<typeof ref<number>>
-    isFitToWindowMode: ReturnType<typeof ref<boolean>>
-    hasAppliedInitialFit: ReturnType<typeof ref<boolean>>
-    maxPageWidth: ReturnType<typeof ref<number>>
+    pdfScale: Ref<number>
+    isFitToWindowMode: Ref<boolean>
+    hasAppliedInitialFit: Ref<boolean>
+    maxPageWidth: Ref<number>
     scheduleFitToWindowScale: () => void
-    intrinsicPdfPageWidth: ReturnType<typeof ref<number | null>>
-    isScaleTransitioning: ReturnType<typeof ref<boolean>>
+    intrinsicPdfPageWidth: Ref<number | null>
+    isScaleTransitioning: Ref<boolean>
   },
   pageLastRenderedScale: Map<number, number>,
+  renderedPageMetrics: Record<number, RenderedPageMetrics>,
 ) {
-  const renderedPageMetrics = reactive<Record<number, RenderedPageMetrics>>({})
   const pageElements = new Map<number, HTMLElement>()
   const pageResizeObservers = new Map<number, ResizeObserver>()
 
@@ -802,17 +804,17 @@ function usePdfMeasurement(
     }
   }
 
-  return { renderedPageMetrics, measurePageElement, setPdfPageElement, clearAllPageData }
+  return { measurePageElement, setPdfPageElement, clearAllPageData }
 }
 
 // --- Composable: usePdfRendering ---
 function usePdfRendering(
-  pdfDocumentRef: ReturnType<typeof shallowRef<any>>,
+  pdfDocumentRef: Ref<any>,
   zoom: {
-    pdfScale: ReturnType<typeof ref<number>>
-    intrinsicPdfPageWidth: ReturnType<typeof ref<number | null>>
-    isFitToWindowMode: ReturnType<typeof ref<boolean>>
-    hasAppliedInitialFit: ReturnType<typeof ref<boolean>>
+    pdfScale: Ref<number>
+    intrinsicPdfPageWidth: Ref<number | null>
+    isFitToWindowMode: Ref<boolean>
+    hasAppliedInitialFit: Ref<boolean>
     scheduleFitToWindowScale: () => void
   },
   scroll: {
@@ -962,24 +964,24 @@ function usePdfRendering(
 // --- Composable: usePdfDocument ---
 function usePdfDocument(
   shared: {
-    pdfDocumentRef: ReturnType<typeof shallowRef<any>>
-    localPdfPageCount: ReturnType<typeof ref<number>>
-    useNativePdfPreview: ReturnType<typeof ref<boolean>>
-    isPdfLoading: ReturnType<typeof ref<boolean>>
-    pdfLoadingProgress: ReturnType<typeof ref<number>>
+    pdfDocumentRef: Ref<any>
+    localPdfPageCount: Ref<number>
+    useNativePdfPreview: Ref<boolean>
+    isPdfLoading: Ref<boolean>
+    pdfLoadingProgress: Ref<number>
   },
   scroll: {
     scheduleRenderedPageRangeUpdate: () => void
-    displayPdfPageCount: ReturnType<typeof computed<number>>
-    estimatedPageHeight: ReturnType<typeof ref<number>>
+    displayPdfPageCount: ComputedRef<number>
+    estimatedPageHeight: Ref<number>
   },
   zoom: {
     clampScale: (v: number) => number
     scheduleFitToWindowScale: () => void
-    pdfScale: ReturnType<typeof ref<number>>
-    isScaleTransitioning: ReturnType<typeof ref<boolean>>
-    hasAppliedInitialFit: ReturnType<typeof ref<boolean>>
-    intrinsicPdfPageWidth: ReturnType<typeof ref<number | null>>
+    pdfScale: Ref<number>
+    isScaleTransitioning: Ref<boolean>
+    hasAppliedInitialFit: Ref<boolean>
+    intrinsicPdfPageWidth: Ref<number | null>
   },
   render: {
     renderVisiblePages: () => void
@@ -1111,11 +1113,12 @@ const _pageLastRenderedScale = new Map<number, number>()
 const _localPdfPageCount = ref(0)
 const _useNativePdfPreview = ref(false)
 const _pdfDocumentRef = shallowRef<any>(null)
+const _renderedPageMetrics = reactive<Record<number, RenderedPageMetrics>>({})
 
 const header = usePdfHeader()
 const scroll = usePdfVirtualScroll(emit, () => _localPdfPageCount.value)
-const zoom = usePdfZoom(scroll)
-const measurement = usePdfMeasurement(scroll, zoom, _pageLastRenderedScale)
+const zoom = usePdfZoom(scroll, _renderedPageMetrics)
+const measurement = usePdfMeasurement(scroll, zoom, _pageLastRenderedScale, _renderedPageMetrics)
 const render = usePdfRendering(_pdfDocumentRef, zoom, scroll, measurement, _pageLastRenderedScale)
 const doc = usePdfDocument(
   { pdfDocumentRef: _pdfDocumentRef, localPdfPageCount: _localPdfPageCount, useNativePdfPreview: _useNativePdfPreview, isPdfLoading: ref(false), pdfLoadingProgress: ref(0) },
@@ -1136,6 +1139,9 @@ const displayPdfPageCount = scroll.displayPdfPageCount
 const isFitToWindowMode = zoom.isFitToWindowMode
 const useNativePdfPreview = doc.useNativePdfPreview
 const virtualContentHeight = scroll.virtualContentHeight
+const minPdfScale = MIN_SCALE
+const maxPdfScale = MAX_SCALE
+const pdfScale = zoom.pdfScale
 
 const themeClass = computed(() => {
   if (props.theme === 'dark') return 'dark-mode'
@@ -1163,7 +1169,7 @@ const parseStepIndex = computed(() => {
   return order[stage] !== undefined ? order[stage] : 0
 })
 
-void [pdfToolbarMeasureRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseStepIndex, hasAppliedInitialFit]
+void [pdfToolbarMeasureRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseStepIndex, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview]
 
 const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   const pages: VirtualPageMeta[] = []
@@ -1177,7 +1183,7 @@ const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
 
 const getPdfPageStyle = (pageMeta: VirtualPageMeta) => ({ top: `${pageMeta.top}px` })
 const getHighlightLayerStyle = (page: number) => {
-  const m = measurement.renderedPageMetrics[page]
+  const m = _renderedPageMetrics[page]
   return m ? { top: `${m.top}px`, left: `${m.left}px`, width: `${m.width}px`, height: `${m.height}px` } : { inset: '0' }
 }
 const getHighlightTypeLabel = (type?: string) => {
@@ -1207,7 +1213,7 @@ const highlightsByPage = computed(() => {
 })
 const getPageHighlights = (page: number) => {
   if (!props.isPdf || !props.highlightLinkEnabled) return []
-  if (!measurement.renderedPageMetrics[page]) return []
+  if (!_renderedPageMetrics[page]) return []
   return highlightsByPage.value.get(page) || []
 }
 
@@ -1259,7 +1265,7 @@ watch(() => props.textScrollPercent, (percent) => {
   }
 })
 
-// --- 暴露方法给模板 ---
+// --- 暴露方法给模�?---
 const goPrevPage = () => scroll.goPrevPage()
 const goNextPage = () => scroll.goNextPage()
 const onPageInputChange = (v: any) => scroll.onPageInputChange(v)
@@ -1310,7 +1316,7 @@ onBeforeUnmount(() => {
   border-radius: 8px;
   background: var(--dp-pane-bg);
   overflow: hidden;
-  /* Light mode defaults — 宿主可通过 --dp-*-override 覆盖 */
+  /* Light mode defaults �?宿主可通过 --dp-*-override 覆盖 */
   --dp-bg: var(--dp-bg-override, #f3f5f8);
   --dp-pane-bg: var(--dp-pane-bg-override, #fff);
   --dp-pane-border: var(--dp-pane-border-override, #e8edf4);
@@ -1645,7 +1651,7 @@ onBeforeUnmount(() => {
 .pdf-virtual-spacer {
   position: relative;
   width: 100%;
-  min-width: min-content; /* 确保虚拟占位符能够撑开容器，支持横向滚动 */
+  min-width: min-content; /* 确保虚拟占位符能够撑开容器，支持横向滚�?*/
 }
 
 .pdf-page-wrapper {
@@ -1669,7 +1675,7 @@ onBeforeUnmount(() => {
   display: block;
 }
 
-/* Dark mode — 跟随系统 */
+/* Dark mode �?跟随系统 */
 @media (prefers-color-scheme: dark) {
   .split-pane {
     --dp-bg: var(--dp-bg-override, #101319);
@@ -1695,7 +1701,7 @@ onBeforeUnmount(() => {
   }
 }
 
-/* Dark mode — props.theme='dark' 显式指定 */
+/* Dark mode �?props.theme='dark' 显式指定 */
 .split-pane.dark-mode {
   --dp-bg: var(--dp-bg-override, #101319);
   --dp-pane-bg: var(--dp-pane-bg-override, #171b24);
@@ -1719,7 +1725,7 @@ onBeforeUnmount(() => {
   --dp-bg-tertiary: var(--dp-bg-tertiary-override, #1a1f2e);
 }
 
-/* Light mode — props.theme='light' 显式指定 */
+/* Light mode �?props.theme='light' 显式指定 */
 .split-pane.light-mode {
   --dp-bg: var(--dp-bg-override, #f3f5f8);
   --dp-pane-bg: var(--dp-pane-bg-override, #fff);
