@@ -374,6 +374,33 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 
 ***
 
+***
+
+## 9阶段解析管线（2026-07 重构）
+
+解析任务由 `services/api-server/parse_pipeline.py` 驱动，按阶段拆分执行：
+
+| stage_key | 标题 | 类型 | 依赖 | 说明 |
+|---|---|---|---|---|
+| `source_prep` | 源文件准备 | hard | [] | 复制源文件到规范目录 |
+| `convert` | 格式转换 | hard | [source_prep] | 非 PDF 经 LibreOffice 转 PDF；PDF 输入自动 skipped |
+| `raw_parse` | MinerU 解析 | hard | [convert] | 调 MinerU 产出 md+images+JSON |
+| `popo` | PoPo 语义增强 | soft | [raw_parse] | 默认关（`DOCS_CORE_NORMALIZER_BACKEND`），失败回退 legacy |
+| `structure` | 结构化入库 | hard | [raw_parse] | canonical blocks/chunks/表格/大纲 |
+| `fts` | 全文索引 | hard | [structure] | 重建 FTS（无外部依赖） |
+| `vectors` | 向量索引 | soft | [structure] | embedding API；strict 模式下失败只标本阶段 |
+| `graph` | 知识图谱 | soft | [structure] | `push_to_graph` |
+| `sop` | SOP 生成 | soft | [graph] | `generate_sops_from_doc` |
+
+hard 阶段失败 → 终止后续阶段；soft 阶段失败 → 仅标记自身，后续继续。
+
+新增 API 端点：
+- `GET /api/knowledge/documents/{doc_id}/stages` — 查询各阶段状态
+- `POST /api/knowledge/documents/{doc_id}/stages/{stage_key}/retry` — 单阶段重试
+- `POST /api/knowledge/documents/{doc_id}/parse` — 指定阶段解析
+
+阶段状态持久化至 `knowledge_meta.sqlite` 的 `doc_parse_stages` 表。
+
 ## 可直接开工清单（后端文件级）
 
 - `services/api-server/main.py`
