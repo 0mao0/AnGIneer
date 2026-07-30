@@ -5,27 +5,27 @@
         <div class="pane-title-prefix-wrap">
           <span class="pane-title-prefix">原文</span>
         </div>
-        <a-tag v-if="node.status === 'failed'" color="error" class="parse-state-tag">
+        <Tag v-if="node.status === 'failed'" color="error" class="parse-state-tag">
           解析失败
-        </a-tag>
-        <a-tag v-else-if="node.status === 'cancelled'" class="parse-state-tag">
+        </Tag>
+        <Tag v-else-if="node.status === 'cancelled'" class="parse-state-tag">
           已取消
-        </a-tag>
+        </Tag>
       </div>
       <div
         v-if="isPdf"
         :class="['pane-actions-pdf', { 'pane-actions-pdf-compact': compactLevel > 0 }]"
       >
         <template v-if="!useNativePdfPreview">
-          <a-button
+          <Button
             size="small"
             class="pdf-tool-btn"
             :disabled="activePdfPage <= 1"
             @click="goPrevPage"
           >
             <template #icon><LeftOutlined /></template>
-          </a-button>
-          <a-input-number
+          </Button>
+          <InputNumber
             v-if="compactLevel <= 1"
             :value="activePdfPage"
             size="small"
@@ -35,24 +35,24 @@
             @change="onPageInputChange"
           />
           <span v-if="compactLevel <= 5" class="pdf-toolbar-text">/ {{ displayPdfPageCount }}</span>
-          <a-button
+          <Button
             size="small"
             class="pdf-tool-btn"
             :disabled="activePdfPage >= displayPdfPageCount"
             @click="goNextPage"
           >
             <template #icon><RightOutlined /></template>
-          </a-button>
-          <a-button v-if="compactLevel <= 3" size="small" class="pdf-tool-btn" :disabled="pdfScale <= minPdfScale" @click="zoomOut">
+          </Button>
+          <Button v-if="compactLevel <= 3" size="small" class="pdf-tool-btn" :disabled="pdfScale <= minPdfScale" @click="zoomOut">
             <template #icon><ZoomOutOutlined /></template>
-          </a-button>
+          </Button>
           <span v-if="compactLevel <= 0" class="pdf-toolbar-text">{{ zoomPercentLabel }}</span>
-          <a-button v-if="compactLevel <= 2" size="small" class="pdf-tool-btn" :disabled="pdfScale >= maxPdfScale" @click="zoomIn">
+          <Button v-if="compactLevel <= 2" size="small" class="pdf-tool-btn" :disabled="pdfScale >= maxPdfScale" @click="zoomIn">
             <template #icon><ZoomInOutlined /></template>
-          </a-button>
-          <a-button v-if="compactLevel <= 4" size="small" class="pdf-tool-btn" title="适应" @click="resetZoom">
+          </Button>
+          <Button v-if="compactLevel <= 4" size="small" class="pdf-tool-btn" title="适应" @click="resetZoom">
             <template #icon><CompressOutlined /></template>
-          </a-button>
+          </Button>
         </template>
       </div>
       <div
@@ -61,64 +61,64 @@
         :class="['pane-actions-pdf', 'pane-actions-pdf-measure']"
         aria-hidden="true"
       >
-        <a-button size="small" class="pdf-tool-btn">
+        <Button size="small" class="pdf-tool-btn">
           <template #icon>
             <LeftOutlined />
           </template>
-        </a-button>
-        <a-input-number
+        </Button>
+        <InputNumber
           :value="activePdfPage"
           size="small"
           class="pdf-page-input"
         />
         <span class="pdf-toolbar-text">/ {{ displayPdfPageCount }}</span>
-        <a-button size="small" class="pdf-tool-btn">
+        <Button size="small" class="pdf-tool-btn">
           <template #icon>
             <RightOutlined />
           </template>
-        </a-button>
-        <a-button size="small" class="pdf-tool-btn">
+        </Button>
+        <Button size="small" class="pdf-tool-btn">
           <template #icon>
             <ZoomOutOutlined />
           </template>
-        </a-button>
+        </Button>
         <span class="pdf-toolbar-text">{{ zoomPercentLabel }}</span>
-        <a-button size="small" class="pdf-tool-btn">
+        <Button size="small" class="pdf-tool-btn">
           <template #icon>
             <ZoomInOutlined />
           </template>
-        </a-button>
-        <a-button size="small" class="pdf-tool-btn">
+        </Button>
+        <Button size="small" class="pdf-tool-btn">
           <template #icon>
             <CompressOutlined />
           </template>
-        </a-button>
+        </Button>
       </div>
       <!-- 右侧占位，用于平衡左侧标题，使中间工具栏居中 -->
       <div v-if="isPdf && !useNativePdfPreview && compactLevel <= 1" class="pane-title-right-placeholder" />
     </div>
     <div v-if="node.status === 'processing' || node.status === 'failed' || node.status === 'cancelled'" class="parse-progress-row">
       <div class="parse-progress-content">
-        <a-steps :current="parseStepIndex" size="small" class="parse-steps">
-          <a-step title="准备文件" />
-          <a-step title="格式转换" />
-          <a-step title="MinerU解析" />
-          <a-step title="PoPo增强" />
-          <a-step title="构建索引" />
-          <a-step title="解析完成" />
-        </a-steps>
+        <Steps :current="parseStepIndex" size="small" class="parse-steps">
+          <Step title="准备文件" />
+          <Step title="格式转换" />
+          <Step title="MinerU解析" />
+          <Step title="PoPo增强" />
+          <Step title="构建索引" />
+          <Step title="解析完成" />
+        </Steps>
       </div>
     </div>
     <div class="file-preview">
       <div v-if="isPdf" class="pdf-preview-wrap">
         <!-- PDF加载进度指示器 -->
         <div v-if="isPdfLoading" class="pdf-loading-overlay">
-          <a-spin size="large" />
+          <Spin size="large" />
           <div class="pdf-loading-text">
             <span v-if="pdfLoadingProgress > 0">加载中 {{ pdfLoadingProgress }}%</span>
             <span v-else>正在加载PDF文档...</span>
           </div>
-          <a-progress
+          <Progress
             v-if="pdfLoadingProgress > 0"
             :percent="pdfLoadingProgress"
             :show-info="false"
@@ -183,7 +183,7 @@
       </div>
       <div v-else-if="isOffice" class="office-preview">
         <div v-if="showNonPdfLoading" class="pdf-loading-overlay">
-          <a-spin size="large" />
+          <Spin size="large" />
           <div class="pdf-loading-text">文档转换中，请耐心等待...</div>
         </div>
         <div v-else class="office-frame-wrap">
@@ -206,11 +206,11 @@
         class="text-viewer"
         @scroll.passive="onLeftTextScroll"
       >{{ textContent }}</pre>
-      <a-empty v-else description="暂不支持该格式预览，请下载后查看">
+      <Empty v-else description="暂不支持该格式预览，请下载后查看">
         <template #extra>
-          <a-button type="primary" @click="emit('download')">下载文件</a-button>
+          <Button type="primary" @click="emit('download')">下载文件</Button>
         </template>
-      </a-empty>
+      </Empty>
     </div>
   </div>
 </template>
@@ -218,6 +218,7 @@
 <script setup lang="ts">
 import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive, toRefs } from 'vue'
 import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined } from '@ant-design/icons-vue'
+import { Button, Tag, Spin, Progress, Steps, Step, InputNumber, Empty } from 'ant-design-vue'
 import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
