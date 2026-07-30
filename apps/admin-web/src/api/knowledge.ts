@@ -195,6 +195,12 @@ export const knowledgeApi = {
   getTaskSteps: (taskId: string) =>
     api.get(`/knowledge/parse/tasks/${taskId}/steps`) as Promise<{ status: string; data: any[] }>,
 
+  getDocStages: (docId: string) =>
+    api.get(`/knowledge/documents/${docId}/stages`) as Promise<{ doc_id: string; stages: { stage: string; status: string; error: string; message: string; started_at: string; finished_at: string; updated_at: string }[] }>,
+
+  retryDocStage: (docId: string, stageKey: string) =>
+    api.post(`/knowledge/documents/${docId}/stages/${stageKey}/retry`) as Promise<{ status: string; task_id: string }>,
+
   purgeAllDeleted: () =>
     api.delete('/knowledge/records/purge-deleted') as Promise<{ status: string; message: string }>,
 }

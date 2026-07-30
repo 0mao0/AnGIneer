@@ -67,29 +67,19 @@
 
     <a-modal
       v-model:open="stepsModalOpen"
-      title="解析步骤"
+      title="解析阶段"
       :footer="null"
-      width="600px"
+      width="620px"
     >
       <template #extra>
-        <a-button size="small" @click="refreshSteps">刷新</a-button>
+        <a-button size="small" @click="refreshStages">刷新</a-button>
       </template>
-      <a-timeline v-if="steps.length > 0">
-        <a-timeline-item v-for="s in steps" :key="s.id">
-          <template #dot>
-            <CheckCircleOutlined v-if="s.progress >= 100" style="color: #52c41a;" />
-            <LoadingOutlined v-else-if="s.progress > 0 && s.progress < 100" style="color: #1890ff;" />
-            <ClockCircleOutlined v-else style="color: #999;" />
-          </template>
-          <div style="display: flex; justify-content: space-between; gap: 12px;">
-            <span><strong>{{ s.stage }}</strong></span>
-            <span style="color: var(--text-secondary); font-size: 12px;">{{ s.progress }}%</span>
-          </div>
-          <div v-if="s.stage_message" style="color: var(--text-secondary); font-size: 12px; margin-top: 2px;">{{ s.stage_message }}</div>
-          <div style="color: #999; font-size: 11px; margin-top: 2px;">{{ formatTime(s.created_at) }}</div>
-        </a-timeline-item>
-      </a-timeline>
-      <a-empty v-else description="暂无解析步骤记录" />
+      <DocStageStepper
+        v-if="currentStepDocId"
+        :stages="currentStages"
+        @retry="onRetryStage"
+      />
+      <a-empty v-else description="暂无解析阶段记录" />
     </a-modal>
 
     <a-drawer
@@ -135,11 +125,12 @@
 import { ref, onMounted, computed } from 'vue'
 import dayjs from 'dayjs'
 import { message } from 'ant-design-vue'
-import { ExclamationCircleOutlined, CheckCircleOutlined, LoadingOutlined, ClockCircleOutlined } from '@ant-design/icons-vue'
+import { ExclamationCircleOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
 import { PDFParsedWorkspace } from '@angineer/docs-ui'
 import type { KnowledgeTreeNode } from '@angineer/docs-ui'
+import DocStageStepper from '@/components/DocStageStepper.vue'
 
 const { appClass } = useTheme()
 
@@ -156,8 +147,8 @@ const viewerStructuredItems = ref([])
 const viewerGraphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
 const viewerRenderPdfPath = ref('')
 const stepsModalOpen = ref(false)
-const steps = ref<any[]>([])
-const currentStepTaskId = ref('')
+const currentStepDocId = ref('')
+const currentStages = ref<any[]>([])
 
 const viewerParseButtonText = computed(() => {
   const status = viewerNode.value?.status
@@ -279,18 +270,34 @@ async function restartTask(record: ParseRecordItem) {
 }
 
 async function viewParseSteps(record: ParseRecordItem) {
-  currentStepTaskId.value = record.task_id
   stepsModalOpen.value = true
-  await refreshSteps()
+  currentStepDocId.value = record.doc_id
+  await loadDocStages(record.doc_id)
 }
 
-async function refreshSteps() {
-  if (!currentStepTaskId.value) return
+async function loadDocStages(docId: string) {
   try {
-    const res = await knowledgeApi.getTaskSteps(currentStepTaskId.value) as any
-    steps.value = res.data || []
+    const res = await knowledgeApi.getDocStages(docId) as any
+    currentStages.value = (res as any).stages || []
   } catch {
-    steps.value = []
+    currentStages.value = []
+  }
+}
+
+async function refreshStages() {
+  if (currentStepDocId.value) {
+    await loadDocStages(currentStepDocId.value)
+  }
+}
+
+async function onRetryStage(stageKey: string) {
+  if (!currentStepDocId.value) return
+  try {
+    await knowledgeApi.retryDocStage(currentStepDocId.value, stageKey)
+    message.success(`阶段「${stageKey}」重试已提交`)
+    setTimeout(() => loadDocStages(currentStepDocId.value), 2000)
+  } catch (e: any) {
+    message.error(`重试失败: ${e?.response?.data?.detail || e?.message}`)
   }
 }
 
