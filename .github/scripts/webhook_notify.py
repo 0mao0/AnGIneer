@@ -10,11 +10,14 @@ if not webhook:
     print("WEBHOOK not set, skipping")
     sys.exit(0)
 
+def _git(args):
+    return subprocess.Popen(["git"] + args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=repo).communicate()[0].decode().strip()
+
 # repo root is parent of .github/scripts/ directory
 repo = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sha = subprocess.run(["git", "log", "-1", "--format=%H"], capture_output=True, text=True, cwd=repo).stdout.strip()[:7]
-msg = subprocess.run(["git", "log", "-1", "--format=%s"], capture_output=True, text=True, cwd=repo).stdout.strip()
-ref = subprocess.run(["git", "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True, text=True, cwd=repo).stdout.strip()
+sha = _git(["log", "-1", "--format=%H"])[:7]
+msg = _git(["log", "-1", "--format=%s"])
+ref = _git(["rev-parse", "--abbrev-ref", "HEAD"])
 
 fe = os.environ.get("FE", "?")
 adm = os.environ.get("ADM", "?")
