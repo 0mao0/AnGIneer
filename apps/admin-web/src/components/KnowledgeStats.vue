@@ -83,9 +83,7 @@
       :width="520"
       :footer="null"
     >
-      <template #extra>
-        <a-button size="small" @click="refreshStages">刷新</a-button>
-      </template>
+      <a-button type="link" size="small" @click="refreshStages" style="margin-bottom: 12px;">刷新</a-button>
       <DocStageStepper
         v-if="currentStepDocId"
         :stages="currentStages"
