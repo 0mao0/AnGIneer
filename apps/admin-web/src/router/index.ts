@@ -10,41 +10,6 @@ const routes: RouteRecordRaw[] = [
     path: '/knowledge',
     name: 'knowledge',
     component: () => import('../views/KnowledgeManage.vue')
-  },
-  {
-    path: '/project',
-    name: 'project',
-    component: () => import('../views/PlaceholderPage.vue')
-  },
-  {
-    path: '/experience',
-    name: 'experience',
-    component: () => import('../views/ExperienceManage.vue')
-  },
-  {
-    path: '/evals',
-    name: 'evals',
-    component: () => import('../views/EvalManage.vue')
-  },
-  {
-    path: '/sop-research',
-    name: 'sop-research',
-    component: () => import('../views/SopResearchManage.vue')
-  },
-  {
-    path: '/dream-cycle',
-    name: 'dream-cycle',
-    component: () => import('../views/DreamCycleView.vue')
-  },
-  {
-    path: '/api-keys',
-    name: 'api-keys',
-    component: () => import('../views/ApiKeyManage.vue')
-  },
-  {
-    path: '/knowledge-stats',
-    name: 'knowledge-stats',
-    component: () => import('../views/KnowledgeStatsPage.vue')
   }
 ]
 

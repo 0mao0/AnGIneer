@@ -1,6 +1,21 @@
 <template>
   <div ref="workspaceRef" class="knowledge-workspace" :class="appClass">
-    <!-- 使用 SplitPanes 三栏布局组件 - 比例 1.5:6:2.5 -->
+    <!-- 视图切换 -->
+    <div class="knowledge-toolbar">
+      <a-radio-group v-model:value="activeView" button-style="solid" size="small">
+        <a-radio-button value="list">列表</a-radio-button>
+        <a-radio-button value="parse">解析</a-radio-button>
+      </a-radio-group>
+    </div>
+
+    <!-- 列表模式 -->
+    <div v-if="activeView === 'list'" class="knowledge-list-view">
+      <KnowledgeStats />
+    </div>
+
+    <!-- 解析模式 -->
+    <div v-else class="knowledge-parse-view">
+      <!-- 使用 SplitPanes 三栏布局组件 - 比例 1.5:6:2.5 -->
     <SplitPanes
       ref="splitPanesRef"
       class="workspace-container"
@@ -192,6 +207,8 @@
       </template>
     </SplitPanes>
 
+    </div><!-- /.knowledge-parse-view -->
+
     <!-- 新建/重命名文件夹弹窗 -->
     <FolderModal
       v-model:visible="folderModalVisible"
@@ -308,6 +325,9 @@ const route = useRoute()
 import FolderPreview from './components/FolderPreview.vue'
 import FolderModal from './components/FolderModal.vue'
 import DocDetailModal from './components/DocDetailModal.vue'
+import KnowledgeStats from '@/components/KnowledgeStats.vue'
+
+const activeView = ref<'list' | 'parse'>('list')
 
 const smartTreeRef = ref<InstanceType<typeof KnowledgeTree> | null>(null)
 const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
@@ -1122,6 +1142,29 @@ onBeforeUnmount(() => {
 .knowledge-workspace {
   height: 100%;
   background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.knowledge-toolbar {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border-color, #f0f0f0);
+  display: flex;
+  align-items: center;
+}
+
+.knowledge-list-view {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.knowledge-parse-view {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .workspace-container {

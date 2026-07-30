@@ -1,7 +1,7 @@
 <template>
   <div class="knowledge-stats" :class="appClass">
     <div class="stats-header">
-      <h2>解析记录统计</h2>
+      <h2>知识库</h2>
       <div class="stats-actions">
         <a-popconfirm
           title="确定永久删除选中的记录？此操作不可恢复"
