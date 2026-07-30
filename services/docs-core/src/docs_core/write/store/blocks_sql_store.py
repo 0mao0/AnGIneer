@@ -9,7 +9,7 @@ from typing import Any, Dict, List, Optional
 
 from tree_core import tree_store
 
-from docs_core.read.normalize.structure_builder import StructuredResult
+from docs_core.read.normalize.solo.structure_builder import StructuredResult
 
 
 KNOWLEDGE_META_DB_NAME = "knowledge_meta.sqlite"

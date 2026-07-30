@@ -8,8 +8,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
-from docs_core.read.normalize.formula_semantics import build_formula_representations
-from docs_core.read.normalize.structure_builder import (
+from docs_core.read.normalize.solo.formula_semantics import build_formula_representations
+from docs_core.read.normalize.solo.structure_builder import (
     StructuredResult,
     build_structured_from_rawfiles,
     extract_media_bbox_list,

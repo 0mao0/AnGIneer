@@ -110,9 +110,9 @@ def _run_popo(ctx: StageContext) -> str:
     if normalizer_backend != "popo":
         return "__skipped__:未启用（DOCS_CORE_NORMALIZER_BACKEND != popo）"
 
-    from docs_core.read.normalize.popo_pipeline import get_popo_pipeline
-    from docs_core.read.normalize.popo_mapper import po_po_blocks_to_canonical
-    from docs_core.read.normalize.popo_projection import run_popo_projection
+    from docs_core.read.normalize.popo import get_popo_pipeline
+    from docs_core.read.normalize.popo import po_po_blocks_to_canonical
+    from docs_core.read.normalize.popo import run_popo_projection
     from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
     from docs_core.write.store.assets_file_store import file_storage
     from docs_core.knowledge_service import get_knowledge_service

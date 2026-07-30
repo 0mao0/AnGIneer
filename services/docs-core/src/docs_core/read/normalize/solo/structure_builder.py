@@ -16,8 +16,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple, TYPE_CHECKING
 
-from docs_core.read.normalize.LLM_refiner_titles import resolve_title_level_refinement
-from docs_core.read.normalize.formula_semantics import build_formula_representations
+from .LLM_refiner_titles import resolve_title_level_refinement
+from .formula_semantics import build_formula_representations
 
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient

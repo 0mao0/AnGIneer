@@ -3,7 +3,7 @@ import re
 from typing import Iterable, List, Sequence
 
 from docs_core.read.organize.types import CanonicalTable
-from docs_core.read.normalize.table_semantics import (
+from docs_core.read.normalize.solo.table_semantics import (
     TABLE_TYPE_HYBRID,
     TABLE_TYPE_MAPPING_ENUM,
     TABLE_TYPE_NUMERIC_DENSE,
