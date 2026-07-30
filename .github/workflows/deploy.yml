@@ -55,31 +55,8 @@ jobs:
       - name: Notify WeCom group
         env:
           WEBHOOK: ${{ secrets.WECOM_WEBHOOK_URL }}
-        run: |
-          if [ -z "$WEBHOOK" ]; then echo "WEBHOOK not set, skipping"; exit 0; fi
-          cd /home/runner/AnGIneer
-          export SHA=$(git log -1 --format="%H" | head -c 7)
-          export MSG=$(git log -1 --format="%s")
-          export REF=$(git rev-parse --abbrev-ref HEAD)
-          export FE=${{ steps.health.outputs.frontend }}
-          export ADM=${{ steps.health.outputs.admin }}
-          export API=${{ steps.health.outputs.api }}
-          export RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          python3 << 'PYEOF'
-import os, json, datetime, urllib.request
-content = f"""## ✅ AnGIneer 部署完成
-> **提交:** `{os.environ['SHA']}` - {os.environ['MSG']}
-> **分支:** `{os.environ['REF']}`
-> **时间:** `{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}`
-
-**服务状态**
-> 前台: `{os.environ['FE']}`
-> 管理后台: `{os.environ['ADM']}`
-> API 文档: `{os.environ['API']}`
-
-[查看 Actions]({os.environ['RUN_URL']})"""
-payload = json.dumps({"msgtype":"markdown","markdown":{"content":content}}).encode()
-req = urllib.request.Request(os.environ['WEBHOOK'], data=payload, headers={"Content-Type":"application/json"})
-resp = urllib.request.urlopen(req)
-print("WeCom notify status:", resp.status)
-PYEOF
+          FE: ${{ steps.health.outputs.frontend }}
+          ADM: ${{ steps.health.outputs.admin }}
+          API: ${{ steps.health.outputs.api }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 /home/runner/AnGIneer/scripts/webhook_notify.py
