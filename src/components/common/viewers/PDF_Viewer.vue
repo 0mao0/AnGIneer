@@ -222,7 +222,14 @@ import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 
-import type { KnowledgeTreeNode } from '../../../types/tree'
+export interface PDFViewerNode {
+  status?: string
+  parseStage?: string
+  parseError?: string
+  key?: string
+  filePath?: string
+  file_path?: string
+}
 
 interface LinkedHighlight {
   id: string
@@ -254,7 +261,8 @@ interface RenderedPageMetrics {
 }
 
 const props = defineProps<{
-  node: KnowledgeTreeNode
+  node: PDFViewerNode
+  theme?: 'light' | 'dark' | 'auto'
   isPdf: boolean
   isOffice: boolean
   isImage: boolean
@@ -276,23 +284,26 @@ const emit = defineEmits<{
   'text-scroll': [percent: number]
   'hover-highlight': [id: string | null]
   'select-highlight': [highlight: LinkedHighlight]
-}>()
+}()
+
+// --- 常量配置 ---
+const MIN_SCALE = 0.1
+const MAX_SCALE = 5.0
+const MAX_PIXEL_SCALE = 3.0
+const SCALE_STEP = 0.1
+const VERTICAL_PADDING = 24
+const PAGE_GAP = 16
+const RENDER_BUFFER = 4
+const FIT_PADDING = 12
+const MIN_PAGE_HEIGHT = 400
+const RENDER_BUFFER = 4
+const FIT_PADDING = 12
 
 /**
  * PDF 查看器控制器类
  * 封装所有 PDF 渲染、缩放、滚动和状态管理逻辑
  */
 class PdfViewerController {
-  // --- 常量配置 ---
-  private readonly MIN_SCALE = 0.1
-  private readonly MAX_SCALE = 5.0
-  private readonly MAX_PIXEL_SCALE = 3.0
-  private readonly SCALE_STEP = 0.1
-  private readonly VERTICAL_PADDING = 24
-  private readonly PAGE_GAP = 16
-  private readonly RENDER_BUFFER = 4
-  private readonly FIT_PADDING = 12
-  private readonly MIN_PAGE_HEIGHT = 400
 
   // --- 响应式状态 ---
   public state = reactive({
@@ -367,11 +378,11 @@ class PdfViewerController {
   }
 
   public get minPdfScale() {
-    return this.MIN_SCALE
+    return MIN_SCALE
   }
 
   public get maxPdfScale() {
-    return this.MAX_SCALE
+    return MAX_SCALE
   }
 
   public get normalizedPdfSource() {
@@ -387,7 +398,7 @@ class PdfViewerController {
 
   public get pageLayout() {
     const topByPage: number[] = []
-    let cursor = this.VERTICAL_PADDING
+    let cursor = VERTICAL_PADDING
     const count = this.displayPdfPageCount
     
     for (let page = 1; page <= count; page += 1) {
@@ -400,12 +411,12 @@ class PdfViewerController {
         cursor += this.state.estimatedPageHeight
       }
       if (page < count) {
-        cursor += this.PAGE_GAP
+        cursor += PAGE_GAP
       }
     }
     return {
       topByPage,
-      totalHeight: Math.max(1, cursor + this.VERTICAL_PADDING)
+      totalHeight: Math.max(1, cursor + VERTICAL_PADDING)
     }
   }
   
@@ -423,7 +434,7 @@ class PdfViewerController {
 
   public clampScale(value: number) {
     if (!Number.isFinite(value)) return 1
-    return Math.max(this.MIN_SCALE, Math.min(this.MAX_SCALE, Number(value.toFixed(2))))
+    return Math.max(MIN_SCALE, Math.min(MAX_SCALE, Number(value.toFixed(2))))
   }
 
   /**
@@ -500,7 +511,7 @@ class PdfViewerController {
     for (let page = 1; page <= pageCount; page += 1) {
       const pageTop = layout.topByPage[page] || 0
       // 包含 PAGE_GAP 在内，确保没有缝隙导致判定失败
-      const pageBottom = pageTop + this.pageHeightOf(page) + this.PAGE_GAP
+      const pageBottom = pageTop + this.pageHeightOf(page) + PAGE_GAP
       const intersectsViewport = pageBottom >= viewportTop && pageTop <= viewportBottom
       if (intersectsViewport) {
         if (firstVisibleIndex === -1) firstVisibleIndex = page
@@ -520,15 +531,15 @@ class PdfViewerController {
         }
       }
       this.state.renderedPageRange = {
-        start: Math.max(1, closestPage - this.RENDER_BUFFER),
-        end: Math.min(pageCount, closestPage + this.RENDER_BUFFER)
+        start: Math.max(1, closestPage - RENDER_BUFFER),
+        end: Math.min(pageCount, closestPage + RENDER_BUFFER)
       }
       return
     }
 
     this.state.renderedPageRange = {
-      start: Math.max(1, firstVisibleIndex - this.RENDER_BUFFER),
-      end: Math.min(pageCount, lastVisibleIndex + this.RENDER_BUFFER)
+      start: Math.max(1, firstVisibleIndex - RENDER_BUFFER),
+      end: Math.min(pageCount, lastVisibleIndex + RENDER_BUFFER)
     }
   }
 
@@ -565,8 +576,8 @@ class PdfViewerController {
           // 估算缩放后的页面高度，避免初始虚拟滚动高度错误
           if (this.refs.pdfScroll.value) {
             const containerWidth = this.refs.pdfScroll.value.clientWidth
-            if (containerWidth > this.FIT_PADDING * 2) {
-              const fitScale = (containerWidth - this.FIT_PADDING * 2) / viewport.width
+            if (containerWidth > FIT_PADDING * 2) {
+              const fitScale = (containerWidth - FIT_PADDING * 2) / viewport.width
               this.state.pdfScale = this.clampScale(fitScale)
               this.state.estimatedPageHeight = Math.round(viewport.height * this.state.pdfScale)
             }
@@ -742,7 +753,7 @@ class PdfViewerController {
       const cssHeight = Math.max(1, logicalViewport.height)
       
       // Physical viewport for canvas rendering, capped to prevent memory bombs on high-DPI displays
-      const effectiveScale = Math.min(this.state.pdfScale * outputScale, this.MAX_PIXEL_SCALE)
+      const effectiveScale = Math.min(this.state.pdfScale * outputScale, MAX_PIXEL_SCALE)
       const viewport = pdfPage.getViewport({ scale: effectiveScale })
       const targetWidth = Math.max(1, Math.floor(viewport.width))
       const targetHeight = Math.max(1, Math.floor(viewport.height))
@@ -872,9 +883,9 @@ class PdfViewerController {
   private getFitToWindowScale() {
     if (!props.isPdf || !this.refs.pdfScroll.value) return null
     const containerWidth = this.refs.pdfScroll.value.clientWidth
-    if (!containerWidth || containerWidth <= this.FIT_PADDING * 2) return null
+    if (!containerWidth || containerWidth <= FIT_PADDING * 2) return null
 
-    const availableWidth = Math.max(1, containerWidth - this.FIT_PADDING * 2)
+    const availableWidth = Math.max(1, containerWidth - FIT_PADDING * 2)
     
     // 优先使用当前页面的原始宽度进行计算，如果没有则使用全局记录的宽度
     let baseWidth = 0
@@ -923,7 +934,7 @@ class PdfViewerController {
     // 这样虚拟滚动容器高度不会瞬间坍塌，避免白屏和滚动跳变
     const scaledPageHeights: Record<number, number> = {}
     for (const [page, height] of Object.entries(this.state.pageHeights)) {
-      scaledPageHeights[Number(page)] = Math.max(this.MIN_PAGE_HEIGHT, Math.round(height * scaleRatio))
+      scaledPageHeights[Number(page)] = Math.max(MIN_PAGE_HEIGHT, Math.round(height * scaleRatio))
     }
     this.state.pageHeights = scaledPageHeights
     
@@ -1105,7 +1116,7 @@ class PdfViewerController {
     if (!values.length) return
     const total = values.reduce((s, i) => s + i, 0)
     // 安全上限：单页高度不超过 6000px，防止正反馈导致数值爆炸
-    this.state.estimatedPageHeight = Math.max(this.MIN_PAGE_HEIGHT, Math.min(6000, Math.round(total / values.length)))
+    this.state.estimatedPageHeight = Math.max(MIN_PAGE_HEIGHT, Math.min(6000, Math.round(total / values.length)))
   }
 
   public clearPdfRenderState() {
@@ -1196,8 +1207,8 @@ class PdfViewerController {
   }
 
   // --- 暴露给 Template 的方法 ---
-  public zoomIn() { this.state.isFitToWindowMode = false; this.applyPdfScale(this.state.pdfScale + this.SCALE_STEP) }
-  public zoomOut() { this.state.isFitToWindowMode = false; this.applyPdfScale(this.state.pdfScale - this.SCALE_STEP) }
+  public zoomIn() { this.state.isFitToWindowMode = false; this.applyPdfScale(this.state.pdfScale + SCALE_STEP) }
+  public zoomOut() { this.state.isFitToWindowMode = false; this.applyPdfScale(this.state.pdfScale - SCALE_STEP) }
   public resetZoom() { this.state.isFitToWindowMode = true; this.state.hasAppliedInitialFit = false; this.scheduleFitToWindowScale() }
   public goPrevPage() { this.scrollToPdfPage(this.state.activePdfPage - 1, 'smooth') }
   public goNextPage() { this.scrollToPdfPage(this.state.activePdfPage + 1, 'smooth') }
@@ -1237,7 +1248,7 @@ class PdfViewerController {
     if (mediaRect.width <= 1 || mediaRect.height <= 1) return
 
     // 使用 canvas 实际高度而非 wrapper 高度，避免 minHeight 导致正反馈循环
-    const nextHeight = Math.max(this.MIN_PAGE_HEIGHT, Math.round(mediaRect.height + 12))
+    const nextHeight = Math.max(MIN_PAGE_HEIGHT, Math.round(mediaRect.height + 12))
     const nextMetrics: RenderedPageMetrics = {
       top: Math.max(0, mediaRect.top - wrapperRect.top),
       left: Math.max(0, mediaRect.left - wrapperRect.left),
