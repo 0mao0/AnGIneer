@@ -166,15 +166,8 @@ function parseFiles(text: string): { name: string; path: string }[] {
   })
 }
 
-function fileTagColor(file: { name: string }): string {
-  const ext = file.name.split('.').pop()?.toLowerCase() || ''
-  const extColors: Record<string, string> = {
-    pdf: 'red', md: 'blue', json: 'orange', py: 'green',
-    txt: 'default', docx: 'purple', doc: 'purple',
-    sqlite: 'cyan', yml: 'lime', yaml: 'lime',
-    graph: 'geekblue',
-  }
-  return extColors[ext] || 'default'
+function fileTagColor(_file: { name: string }): string {
+  return 'default'
 }
 </script>
 
