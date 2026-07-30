@@ -123,6 +123,12 @@ class PoPoPipelineRunner:
                 pdf_staging.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(str(src_pdf), str(pdf_staging / f"{doc_id}.pdf"))
                 pdf_dir_arg = ["--pdf-dir", str(pdf_staging)]
+                logger.info("PoPo label_norm: copied PDF %s -> %s / %s.pdf",
+                            src_pdf, pdf_staging, doc_id)
+            else:
+                logger.warning("PoPo label_norm: source PDF not found at %s", source_pdf_path)
+        else:
+            logger.warning("PoPo label_norm: no source_pdf_path provided")
 
         normalized_out = tmp / "normalized"
         label_norm_script = self._popo_script("post_processing/label_normalization.py")
