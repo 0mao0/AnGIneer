@@ -18,10 +18,10 @@
           @confirm="batchHardDelete"
         >
           <a-button
+            v-show="selectedDeletedIds.length > 0"
             type="primary"
             danger
             size="small"
-            :disabled="selectedDeletedIds.length === 0"
           >
             批量删除 ({{ selectedDeletedIds.length }})
           </a-button>
@@ -464,7 +464,7 @@ onMounted(() => {
 <style lang="less" scoped>
 .knowledge-stats {
   height: 100%;
-  padding: 24px;
+  padding: 16px 16px 24px;
   background: var(--bg-primary);
   overflow-y: auto;
 }
