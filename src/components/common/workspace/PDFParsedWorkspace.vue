@@ -17,13 +17,14 @@
           :pdfPageCount="inferredPdfPageCount"
           :highlights="linkedHighlights"
           :activeHighlightId="activeLeftHighlightId"
-          :highlightLinkEnabled="highlightLinkEnabled"
+          :searchText="markdownContent"
           :textScrollPercent="leftScrollPercent"
           @download="downloadFile"
           @text-scroll="onLeftTextScrollPercent"
           @pdf-active-page="onPdfPageChanged"
           @hover-highlight="onHoverLinkedItem"
           @select-highlight="onSelectHighlightFromLeft"
+          @search-jump="onSearchJump"
         />
 
         <PDFParsedViewerCombo
@@ -152,8 +153,6 @@ const markdownContent = computed(() => props.content || '')
 const {
   linkedHighlights,
   activeLinkedItemId,
-  highlightLinkEnabled,
-  showHighlightToggle,
   activeLeftHighlightId,
   activeLinkedLineRange,
   onHoverLinkedItem,
@@ -161,7 +160,6 @@ const {
   onSelectItemFromRight,
   onSelectLineFromRight,
     setActiveLinkedItem: setWorkspaceLinkedItem,
-  toggleHighlightLink,
   resetLinkageState
 } = useWorkspaceLinkage({
   graphData: computed(() => props.graphData || null),
@@ -209,6 +207,13 @@ const renderedMarkdown = computed(() => renderMarkdownToHtml(
   filePath.value
 ))
 
+// 搜索跳转后，右侧面板同步滚动到命中行
+const onSearchJump = (page: number, lineNumber: number) => {
+  const totalLines = Math.max(1, markdownContent.value.split('\n').length)
+  const ratio = Math.max(0, Math.min(1, (lineNumber - 1) / totalLines))
+  rightScrollPercent.value = ratio
+}
+
 /**
  * 对外暴露联动定位入口，并允许调用方指定“最后一个高亮框”策略。
  */
@@ -224,9 +229,6 @@ const setActiveLinkedItem = (
 
 defineExpose({
   setActiveLinkedItem,
-  toggleHighlightLink,
-  highlightLinkEnabled,
-  showHighlightToggle,
   parseButtonText
 })
 </script>
