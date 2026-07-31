@@ -305,17 +305,31 @@ function parseFiles(text: string): { name: string; path: string; isDir: boolean 
 .convert-side {
   flex: 1;
   min-width: 0;
-  padding: 8px 10px;
+  padding: 6px 10px 10px;
   border: 1px solid var(--border-color, #f0f0f0);
   border-radius: 6px;
   background: var(--bg-tertiary, #fafafa);
   display: flex;
   flex-direction: column;
   gap: 4px;
+  align-items: center;
+  text-align: center;
 }
 .convert-side-title {
-  font-size: 11px;
-  color: var(--text-tertiary, #999);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary, #666);
+  margin-bottom: 2px;
+}
+.convert-side .file-row {
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+}
+.convert-side .file-path {
+  font-size: 10px;
+  max-width: 100%;
+  text-align: center;
 }
 .convert-arrow {
   display: flex;
