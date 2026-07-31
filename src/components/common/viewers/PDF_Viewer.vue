@@ -105,6 +105,7 @@
         <Progress :percent="parseProgressPercent" :show-info="false" size="small" class="parse-progress-bar" />
         <span class="parse-progress-count">{{ parseProgressCount }}</span>
       </div>
+      <div v-if="node.parseError" class="parse-error-text" :title="node.parseError">{{ node.parseError }}</div>
     </div>
     <!-- 搜索面板 -->
     <div v-if="showSearchPanel && isPdf && !useNativePdfPreview" ref="searchPanelRef" class="search-panel">
@@ -1830,6 +1831,15 @@ onBeforeUnmount(() => {
   min-width: 30px;
   text-align: left;
   flex-shrink: 0;
+}
+
+.parse-error-text {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--dp-error, #ff4d4f);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .progress-text-info {
