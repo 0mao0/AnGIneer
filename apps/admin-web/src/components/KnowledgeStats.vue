@@ -169,7 +169,7 @@ const currentStages = ref<any[]>([])
 
 const viewerParseButtonText = computed(() => {
   const status = viewerNode.value?.status
-  if (status === 'completed' || status === 'failed' || status === 'cancelled') return '重新解析'
+  if (status === 'completed' || status === 'failed' || status === 'cancelled' || status === 'partial') return '重新解析'
   if (status === 'processing') return '解析中...'
   return '开始解析'
 })

@@ -154,12 +154,17 @@ export function useKnowledgeParse(api: KnowledgeParseApi) {
             ? 'completed'
             : task.status === 'failed'
               ? 'failed'
-              : 'processing'
+              : task.status === 'partial'
+                ? 'partial'
+                : task.status === 'cancelled'
+                  ? 'cancelled'
+                  : 'processing'
         }
-        if (task.status === 'completed' || task.status === 'failed') {
+        if (task.status === 'completed' || task.status === 'failed'
+          || task.status === 'partial' || task.status === 'cancelled') {
           stopParsePolling()
           await onLoadNodes(docId)
-          if (task.status === 'completed') {
+          if (task.status === 'completed' || task.status === 'partial') {
             await onLoadDocContent(docId)
             await onLoadStructuredStats(docId)
           }
