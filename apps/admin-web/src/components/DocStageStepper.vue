@@ -40,7 +40,7 @@
                     <template v-else>📄</template>
                     {{ file.name }}
                   </a-tag>
-                  <span class="file-path">{{ file.path }}</span>
+                  <span class="file-path">{{ dirOf(file.path) }}</span>
                 </div>
               </div>
             </div>
@@ -57,7 +57,7 @@
                     <template v-else>📄</template>
                     {{ file.name }}
                   </a-tag>
-                  <span class="file-path">{{ file.path }}</span>
+                  <span class="file-path">{{ dirOf(file.path) }}</span>
                 </div>
               </div>
             </div>
@@ -210,6 +210,12 @@ function parseFiles(text: string): { name: string; path: string; isDir: boolean 
     }
     return { name: part, path: '', isDir: false }
   })
+}
+
+function dirOf(path: string): string {
+  if (!path) return path
+  const idx = Math.max(path.lastIndexOf('/'), path.lastIndexOf('\\'))
+  return idx > 0 ? path.slice(0, idx + 1) : path
 }
 
 </script>
