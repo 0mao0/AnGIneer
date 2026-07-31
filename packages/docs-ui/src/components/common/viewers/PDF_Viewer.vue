@@ -1803,7 +1803,7 @@ onBeforeUnmount(() => {
 
 .parse-progress-label {
   font-size: 12px;
-  color: var(--dp-text-primary, rgba(0, 0, 0, 0.88));
+  color: var(--dp-title-text);
   white-space: nowrap;
   min-width: 70px;
   text-align: right;
@@ -1817,7 +1817,7 @@ onBeforeUnmount(() => {
 
 .parse-progress-count {
   font-size: 12px;
-  color: var(--dp-text-secondary, rgba(0, 0, 0, 0.45));
+  color: var(--dp-sub-text);
   white-space: nowrap;
   min-width: 30px;
   text-align: left;
