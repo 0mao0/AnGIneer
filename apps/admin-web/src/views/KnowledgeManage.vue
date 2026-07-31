@@ -156,42 +156,44 @@
 
           <a-empty v-if="!selectedNode" description="请从左侧选择文档" class="center-empty" />
 
-          <!-- 解析进度条 -->
-          <div v-if="selectedNode && selectedNode.status === 'processing'" class="parse-progress-bar">
-            <a-progress :percent="parseProgressPercent" :show-info="false" :stroke-color="{ from: '#108ee9', to: '#87d068' }" />
-            <div class="parse-progress-text">
-              <span class="parse-progress-stage">{{ parseProgressLabel }}</span>
-              <span class="parse-progress-step">{{ parseProgressStep }}</span>
+          <template v-else>
+            <!-- 解析进度条 -->
+            <div v-if="selectedNode.status === 'processing'" class="parse-progress-bar">
+              <a-progress :percent="parseProgressPercent" :show-info="false" :stroke-color="{ from: '#108ee9', to: '#87d068' }" />
+              <div class="parse-progress-text">
+                <span class="parse-progress-stage">{{ parseProgressLabel }}</span>
+                <span class="parse-progress-step">{{ parseProgressStep }}</span>
+              </div>
             </div>
-          </div>
 
-          <template v-else-if="selectedNode.isFolder">
+            <template v-if="selectedNode.isFolder">
             <FolderPreview
               :node="selectedNode"
               :child-count="getChildCount(selectedNode.key, 'document')"
               :allowed-file-types="allowedFileTypes"
               @upload="handleFolderUpload"
             />
-          </template>
+            </template>
 
-          <template v-else>
-            <PDFParsedWorkspace
-              ref="docParsedWorkspaceRef"
-              :node="selectedNode"
-              :content="docContent"
-              :structured-stats="structuredStats"
-              :structured-items="structuredItems"
-              :graph-data="graphData"
-              :graph-data-full-loaded="graphDataFullLoaded"
-              :render-pdf-path="docRenderPdfPath"
-              :on-update-structured-node="_updateStructuredNodeWrapper"
-              :on-batch-structured-operation="_batchOperateStructuredNodesWrapper"
-              :on-undo-last-operation="_undoLastStructuredOperationWrapper"
-              :on-load-full-graph-data="loadFullGraphData"
-              @parse="parseDocument"
-              @toggle-visible="toggleVisible"
-              @query-structured="_loadStructuredIndexWrapper"
-            />
+            <template v-else>
+              <PDFParsedWorkspace
+                ref="docParsedWorkspaceRef"
+                :node="selectedNode"
+                :content="docContent"
+                :structured-stats="structuredStats"
+                :structured-items="structuredItems"
+                :graph-data="graphData"
+                :graph-data-full-loaded="graphDataFullLoaded"
+                :render-pdf-path="docRenderPdfPath"
+                :on-update-structured-node="_updateStructuredNodeWrapper"
+                :on-batch-structured-operation="_batchOperateStructuredNodesWrapper"
+                :on-undo-last-operation="_undoLastStructuredOperationWrapper"
+                :on-load-full-graph-data="loadFullGraphData"
+                @parse="parseDocument"
+                @toggle-visible="toggleVisible"
+                @query-structured="_loadStructuredIndexWrapper"
+              />
+            </template>
           </template>
         </Panel>
       </template>
