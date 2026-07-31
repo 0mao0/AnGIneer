@@ -85,11 +85,9 @@ const STAGE_TITLES: Record<string, string> = {
 }
 const PIPELINE_ORDER = Object.keys(STAGE_TITLES)
 
-const STAGE_INPUT_FALLBACK: Record<string, string> = {}
-
 const orderedStages = computed(() =>
   PIPELINE_ORDER.map(key => {
-    const found = props.stages.find(s => s.stage === key) || {}
+    const found: Partial<NonNullable<typeof props.stages>[number]> = props.stages.find(s => s.stage === key) || {}
     return {
       key,
       title: STAGE_TITLES[key],
@@ -138,11 +136,11 @@ function formatDuration(stage: { started_at?: string; finished_at?: string; stat
 }
 
 function stageInput(stage: { key: string; input_summary: string }): string {
-  return stage.input_summary || STAGE_INPUT_FALLBACK[stage.key] || '—'
+  return stage.input_summary || '—'
 }
 
 function stageOutput(stage: { key: string; output_summary: string }): string {
-  return stage.output_summary || STAGE_OUTPUT_FALLBACK[stage.key] || '—'
+  return stage.output_summary || '—'
 }
 
 async function copyStageError(stage: { error?: string; title: string }) {

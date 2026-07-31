@@ -101,14 +101,9 @@
     </div>
     <div v-if="node.status === 'processing' || node.status === 'failed' || node.status === 'cancelled'" class="parse-progress-row">
       <div class="parse-progress-content">
-        <Steps :current="parseStepIndex" size="small" class="parse-steps">
-          <Step title="准备文件" />
-          <Step title="格式转换" />
-          <Step title="MinerU解析" />
-          <Step title="PoPo增强" />
-          <Step title="构建索引" />
-          <Step title="解析完成" />
-        </Steps>
+        <span class="parse-progress-label">{{ parseProgressLabel }}</span>
+        <Progress :percent="parseProgressPercent" :show-info="false" size="small" class="parse-progress-bar" />
+        <span class="parse-progress-count">{{ parseProgressCount }}</span>
       </div>
     </div>
     <!-- 搜索面板 -->
@@ -300,7 +295,7 @@
 import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
 import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons-vue'
-import { Button, Tag, Spin, Progress, Steps, Step, InputNumber, Input, Empty } from 'ant-design-vue'
+import { Button, Tag, Spin, Progress, InputNumber, Input, Empty } from 'ant-design-vue'
 import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正�?
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
@@ -1405,15 +1400,42 @@ const showNonPdfLoading = computed(() => {
   return status === 'processing' || status === 'pending' || status === 'queued'
 })
 
-const parseStepIndex = computed(() => {
-  const stage = (props.node.parseStage || '').toLowerCase()
-  const order: Record<string, number> = {
-    preparing: 0, converting: 1, raw_parse: 2, popo_normalize: 3, indexing: 4, completed: 5,
-  }
-  return order[stage] !== undefined ? order[stage] : 0
+const PARSE_STAGE_LABELS: Record<string, string> = {
+  source_prep: '源文件准备', convert: '格式转换', raw_parse: 'MinerU 解析',
+  build_blocks: '区块提取', popo: 'PoPo 增强', structure: 'Solo 入库',
+  fts: '全文索引', vectors: '向量索引', graph: '知识图谱',
+  preparing: '准备文件', converting: '格式转换', popo_normalize: 'PoPo 增强',
+  indexing: '构建索引', completed: '解析完成',
+}
+const PARSE_STAGE_KEYS = ['source_prep', 'convert', 'raw_parse', 'build_blocks', 'popo', 'structure', 'fts', 'vectors', 'graph']
+
+const parseProgressLabel = computed(() => {
+  const stage = String(props.node.parseStage || '').toLowerCase()
+  return PARSE_STAGE_LABELS[stage] || stage || '—'
 })
 
-void [pdfToolbarRef, headerTitleRef, headerMainRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseStepIndex, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview, pageInputWidth]
+const parseProgressIndex = computed(() => {
+  const stage = String(props.node.parseStage || '').toLowerCase()
+  const idx = PARSE_STAGE_KEYS.indexOf(stage)
+  return idx >= 0 ? idx : -1
+})
+
+const parseProgressPercent = computed(() => {
+  const idx = parseProgressIndex.value
+  if (idx < 0) {
+    const status = props.node.status
+    if (status === 'failed' || status === 'cancelled') return 100
+    return 0
+  }
+  return Math.round(((idx + 1) / PARSE_STAGE_KEYS.length) * 100)
+})
+
+const parseProgressCount = computed(() => {
+  const idx = parseProgressIndex.value
+  return idx >= 0 ? `${idx + 1}/${PARSE_STAGE_KEYS.length}` : '—'
+})
+
+void [pdfToolbarRef, headerTitleRef, headerMainRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseProgressLabel, parseProgressPercent, parseProgressCount, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview, pageInputWidth]
 
 const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   const pages: VirtualPageMeta[] = []
@@ -1775,42 +1797,30 @@ onBeforeUnmount(() => {
 
 .parse-progress-content {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 8px;
 }
 
-.parse-steps {
-  :deep(.ant-steps-item) {
-    flex: 1;
-  }
-  :deep(.ant-steps-item-container) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px 0;
-    position: relative;
-  }
-  :deep(.ant-steps-item-icon) {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    font-size: 10px;
-    margin: 0;
-    order: 2;
-  }
-  :deep(.ant-steps-item-content) {
-    min-height: 0;
-    order: 1;
-    margin-bottom: 2px;
-  }
-  :deep(.ant-steps-item-title) {
-    font-size: 10px;
-    line-height: 1.2;
-  }
-  :deep(.ant-steps-item-tail) {
-    top: 15px !important;
-    padding: 0 6px;
-  }
+.parse-progress-label {
+  font-size: 12px;
+  color: var(--dp-text-primary, rgba(0, 0, 0, 0.88));
+  white-space: nowrap;
+  min-width: 70px;
+  text-align: right;
+}
+
+.parse-progress-bar {
+  flex: 1;
+  min-width: 0;
+  margin: 0 !important;
+}
+
+.parse-progress-count {
+  font-size: 12px;
+  color: var(--dp-text-secondary, rgba(0, 0, 0, 0.45));
+  white-space: nowrap;
+  min-width: 30px;
+  text-align: left;
 }
 
 .progress-text-info {
