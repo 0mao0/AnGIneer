@@ -103,15 +103,16 @@ def _run_raw_parse(ctx: StageContext) -> str:
             file_storage.save_markdown(ctx.library_id, ctx.doc_id, handle.read())
     file_storage.save_parse_artifacts(ctx.library_id, ctx.doc_id, ctx.temp_output_dir)
 
-    if ctx.ext != ".pdf":
-        lo_pdf_path = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "mineru_render.pdf"
-        if not lo_pdf_path.exists():
-            shutil.copy2(str(ctx.source_path), str(lo_pdf_path))
+    pdf_path = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "mineru_render.pdf"
+    if not pdf_path.exists() and ctx.source_path and Path(ctx.source_path).exists():
+        shutil.copy2(str(ctx.source_path), str(pdf_path))
 
     parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
+    assets_dir = parsed_dir / "assets"
+    has_assets = assets_dir.exists() and any(assets_dir.iterdir())
     ctx.input_summary = ctx.source_path
-    ctx.output_summary = f"{parsed_dir / 'content.md'} + {parsed_dir / 'mineru_raw/'} + {parsed_dir / 'assets/'}"
-    return "MinerU 解析完成"
+    ctx.output_summary = f"{parsed_dir / 'content.md'} + {parsed_dir / 'mineru_raw/'}" + (f" + {parsed_dir / 'assets/'}" if has_assets else "")
+    return f"MinerU 解析完成{'' if has_assets else '（无图片资源）'}"
 
 
 def _run_build_blocks(ctx: StageContext) -> str:
