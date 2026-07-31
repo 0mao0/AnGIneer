@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="doc-stage-stepper">
     <a-collapse>
       <a-collapse-panel
@@ -20,8 +20,7 @@
           <div class="file-summary" v-if="stageInput(stage)">
             <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
               <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                <template v-if="file.isDir">📁</template>
-                <template v-else>📄</template>
+                <component :is="fileIcon(file)" class="tag-file-icon" />
                 {{ file.name }}
               </a-tag>
               <span class="file-path">{{ file.path }}</span>
@@ -36,8 +35,7 @@
               <div class="file-summary" v-if="stageInput(stage)">
                 <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
                   <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                    <template v-if="file.isDir">📁</template>
-                    <template v-else>📄</template>
+                    <component :is="fileIcon(file)" class="tag-file-icon" />
                     {{ file.name }}
                   </a-tag>
                   <span class="file-path">{{ dirOf(file.path) }}</span>
@@ -53,8 +51,7 @@
               <div class="file-summary" v-if="stageOutput(stage)">
                 <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
                   <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                    <template v-if="file.isDir">📁</template>
-                    <template v-else>📄</template>
+                    <component :is="fileIcon(file)" class="tag-file-icon" />
                     {{ file.name }}
                   </a-tag>
                   <span class="file-path">{{ dirOf(file.path) }}</span>
@@ -68,8 +65,7 @@
             <div class="file-summary" v-if="stageInput(stage)">
               <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
                 <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                  <template v-if="file.isDir">📁</template>
-                  <template v-else>📄</template>
+                  <component :is="fileIcon(file)" class="tag-file-icon" />
                   {{ file.name }}
                 </a-tag>
                 <span class="file-path">{{ file.path }}</span>
@@ -81,8 +77,7 @@
             <div class="file-summary" v-if="stageOutput(stage)">
               <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
                 <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                  <template v-if="file.isDir">📁</template>
-                  <template v-else>📄</template>
+                  <component :is="fileIcon(file)" class="tag-file-icon" />
                   {{ file.name }}
                 </a-tag>
                 <span class="file-path">{{ file.path }}</span>
@@ -116,6 +111,10 @@ import {
   MinusCircleFilled,
   SyncOutlined,
   RightOutlined,
+  FileOutlined,
+  FilePdfOutlined,
+  FileWordOutlined,
+  FolderOutlined,
 } from '@ant-design/icons-vue'
 
 const props = defineProps<{
@@ -218,6 +217,14 @@ function dirOf(path: string): string {
   return idx > 0 ? path.slice(0, idx + 1) : path
 }
 
+function fileIcon(file: { name: string; isDir: boolean }) {
+  if (file.isDir) return FolderOutlined
+  const ext = file.name.split('.').pop()?.toLowerCase() || ''
+  if (ext === 'pdf') return FilePdfOutlined
+  if (['doc', 'docx'].includes(ext)) return FileWordOutlined
+  return FileOutlined
+}
+
 </script>
 
 <style lang="less" scoped>
@@ -301,6 +308,11 @@ function dirOf(path: string): string {
   word-break: break-all;
   flex: 1;
   min-width: 0;
+}
+
+.tag-file-icon {
+  font-size: 12px;
+  margin-right: 4px;
 }
 
 .convert-flow {
