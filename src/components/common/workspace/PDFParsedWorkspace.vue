@@ -106,6 +106,7 @@ const parseButtonText = computed(() => {
   if (props.node.status === 'completed') return '重新解析'
   if (props.node.status === 'failed') return '重新解析'
   if (props.node.status === 'cancelled') return '重新解析'
+  if (props.node.status === 'partial') return '重新解析'
   if (props.node.status === 'processing') return '解析中...'
   return '开始解析'
 })
