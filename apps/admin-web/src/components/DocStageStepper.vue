@@ -31,28 +31,34 @@
         </template>
         <template v-else-if="stage.key === 'convert'">
           <div class="convert-flow">
-            <div class="file-summary" v-if="stageInput(stage)">
-              <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
-                <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                  <template v-if="file.isDir">📁</template>
-                  <template v-else>📄</template>
-                  {{ file.name }}
-                </a-tag>
-                <span class="file-path">{{ file.path }}</span>
+            <div class="convert-side">
+              <div class="convert-side-title">输入</div>
+              <div class="file-summary" v-if="stageInput(stage)">
+                <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
+                  <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
+                    <template v-if="file.isDir">📁</template>
+                    <template v-else>📄</template>
+                    {{ file.name }}
+                  </a-tag>
+                  <span class="file-path">{{ file.path }}</span>
+                </div>
               </div>
             </div>
             <div class="convert-arrow">
-              <span class="convert-arrow-icon">↓</span>
-              <span class="convert-arrow-label">{{ stage.message || '格式转换' }}</span>
+              <RightOutlined class="convert-arrow-icon" />
+              <div class="convert-arrow-label">{{ stage.message || '格式转换' }}</div>
             </div>
-            <div class="file-summary" v-if="stageOutput(stage)">
-              <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
-                <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                  <template v-if="file.isDir">📁</template>
-                  <template v-else>📄</template>
-                  {{ file.name }}
-                </a-tag>
-                <span class="file-path">{{ file.path }}</span>
+            <div class="convert-side">
+              <div class="convert-side-title">输出</div>
+              <div class="file-summary" v-if="stageOutput(stage)">
+                <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
+                  <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
+                    <template v-if="file.isDir">📁</template>
+                    <template v-else>📄</template>
+                    {{ file.name }}
+                  </a-tag>
+                  <span class="file-path">{{ file.path }}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -109,6 +115,7 @@ import {
   ClockCircleFilled,
   MinusCircleFilled,
   SyncOutlined,
+  RightOutlined,
 } from '@ant-design/icons-vue'
 
 const props = defineProps<{
@@ -292,21 +299,41 @@ function parseFiles(text: string): { name: string; path: string; isDir: boolean 
 
 .convert-flow {
   display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.convert-side {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color, #f0f0f0);
+  border-radius: 6px;
+  background: var(--bg-tertiary, #fafafa);
+  display: flex;
   flex-direction: column;
   gap: 4px;
 }
+.convert-side-title {
+  font-size: 11px;
+  color: var(--text-tertiary, #999);
+}
 .convert-arrow {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding-left: 4px;
+  justify-content: center;
+  gap: 4px;
+  flex-shrink: 0;
+  min-width: 64px;
 }
 .convert-arrow-icon {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--primary-color, #1890ff);
 }
 .convert-arrow-label {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-secondary, #666);
+  text-align: center;
+  line-height: 1.3;
 }
 </style>
