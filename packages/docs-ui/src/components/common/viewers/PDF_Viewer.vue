@@ -1406,6 +1406,8 @@ const PARSE_STAGE_LABELS: Record<string, string> = {
   fts: '全文索引', vectors: '向量索引', graph: '知识图谱',
   preparing: '准备文件', converting: '格式转换', popo_normalize: 'PoPo 增强',
   indexing: '构建索引', completed: '解析完成',
+  queued: '排队中', processing: '解析中', pending: '等待中',
+  failed: '解析失败', cancelled: '已取消', cancel: '已取消',
 }
 const PARSE_STAGE_KEYS = ['source_prep', 'convert', 'raw_parse', 'build_blocks', 'popo', 'structure', 'fts', 'vectors', 'graph']
 
