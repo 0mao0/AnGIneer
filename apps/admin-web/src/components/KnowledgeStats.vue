@@ -69,7 +69,7 @@
           <a-tag :color="fileStatusColor(record.file_status)">{{ record.file_status }}</a-tag>
         </template>
         <template v-if="column.key === 'action'">
-          <span style="white-space: nowrap;">
+          <span class="action-btns">
             <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
             <a-divider type="vertical" />
             <a-button type="link" size="small" @click="viewDetail(record)">结果</a-button>
@@ -519,5 +519,15 @@ onMounted(() => {
 }
 :deep(.ant-table) {
   th, td { text-align: center !important; }
+}
+.action-btns {
+  white-space: nowrap;
+  :deep(.ant-btn) {
+    padding-inline: 0;
+    margin-inline: 2px;
+  }
+  :deep(.ant-divider-vertical) {
+    margin-inline: 2px;
+  }
 }
 </style>
