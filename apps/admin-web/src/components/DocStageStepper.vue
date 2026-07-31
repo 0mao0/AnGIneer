@@ -1,6 +1,6 @@
 <template>
   <div class="doc-stage-stepper">
-    <a-collapse v-model:activeKey="activeKeys" accordion>
+    <a-collapse>
       <a-collapse-panel
         v-for="(stage, idx) in orderedStages"
         :key="stage.key"
@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed } from 'vue'
 import { message } from 'ant-design-vue'
 import {
   CopyOutlined,
@@ -103,15 +103,6 @@ const orderedStages = computed(() =>
     }
   })
 )
-
-const activeKeys = ref('')
-
-watch(orderedStages, (stages) => {
-  if (!activeKeys.value) {
-    const failed = stages.find(s => s.status === 'failed')
-    if (failed) activeKeys.value = failed.key
-  }
-}, { immediate: true })
 
 function statusIcon(status: string) {
   const map: Record<string, any> = {
