@@ -69,13 +69,15 @@
           <a-tag :color="fileStatusColor(record.file_status)">{{ record.file_status }}</a-tag>
         </template>
         <template v-if="column.key === 'action'">
-          <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
-          <a-divider type="vertical" />
-          <a-button type="link" size="small" @click="viewDetail(record)">结果</a-button>
-          <template v-if="record.file_status === '用户已删'">
+          <span style="white-space: nowrap;">
+            <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
             <a-divider type="vertical" />
-            <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
-          </template>
+            <a-button type="link" size="small" @click="viewDetail(record)">结果</a-button>
+            <template v-if="record.file_status === '用户已删'">
+              <a-divider type="vertical" />
+              <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
+            </template>
+          </span>
         </template>
       </template>
     </a-table>
@@ -187,7 +189,7 @@ const columns = [
   { title: '解析状态', key: 'status', width: 80 },
   { title: '文件状态', dataIndex: 'file_status', key: 'file_status', width: 85 },
   { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
-  { title: '操作', key: 'action', width: 120, fixed: 'right' as const },
+  { title: '操作', key: 'action', width: 160, fixed: 'right' as const },
 ]
 
 const rowSelection = computed(() => ({
