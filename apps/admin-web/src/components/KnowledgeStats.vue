@@ -72,6 +72,10 @@
           <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
           <a-divider type="vertical" />
           <a-button type="link" size="small" @click="viewDetail(record)">结果</a-button>
+          <template v-if="record.file_status !== '用户已删'">
+            <a-divider type="vertical" />
+            <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
+          </template>
         </template>
       </template>
     </a-table>
@@ -133,7 +137,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import dayjs from 'dayjs'
-import { message } from 'ant-design-vue'
+import { message, Modal } from 'ant-design-vue'
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
@@ -402,6 +406,25 @@ async function hardDelete(recordId: number) {
   } catch (e: any) {
     message.error('删除失败: ' + (e.message || e))
   }
+}
+
+async function deleteRecord(record: ParseRecordItem) {
+  Modal.confirm({
+    title: '确认删除',
+    content: `确定要删除「${record.file_name}」吗？删除后可在「仅显示已删除」中恢复或永久删除。`,
+    okText: '删除',
+    okType: 'danger',
+    cancelText: '取消',
+    async onOk() {
+      try {
+        await knowledgeApi.deleteNode(record.doc_id)
+        message.success('已删除')
+        await loadRecords()
+      } catch (e: any) {
+        message.error('删除失败: ' + (e?.response?.data?.detail || e?.message || e))
+      }
+    }
+  })
 }
 
 async function cleanOrphaned() {
