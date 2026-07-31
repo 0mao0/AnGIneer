@@ -20,7 +20,7 @@
           <div class="file-summary" v-if="stageInput(stage)">
             <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
               <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                <component :is="fileIcon(file)" class="tag-file-icon" />
+                <component :is="fileIcon(file)" class="tag-file-icon" :style="fileIconStyle(file)" />
                 {{ file.name }}
               </a-tag>
               <span class="file-path">{{ file.path }}</span>
@@ -35,7 +35,7 @@
               <div class="file-summary" v-if="stageInput(stage)">
                 <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
                   <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                    <component :is="fileIcon(file)" class="tag-file-icon" />
+                    <component :is="fileIcon(file)" class="tag-file-icon" :style="fileIconStyle(file)" />
                     {{ file.name }}
                   </a-tag>
                   <span class="file-path">{{ dirOf(file.path) }}</span>
@@ -51,7 +51,7 @@
               <div class="file-summary" v-if="stageOutput(stage)">
                 <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
                   <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                    <component :is="fileIcon(file)" class="tag-file-icon" />
+                    <component :is="fileIcon(file)" class="tag-file-icon" :style="fileIconStyle(file)" />
                     {{ file.name }}
                   </a-tag>
                   <span class="file-path">{{ dirOf(file.path) }}</span>
@@ -65,7 +65,7 @@
             <div class="file-summary" v-if="stageInput(stage)">
               <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
                 <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                  <component :is="fileIcon(file)" class="tag-file-icon" />
+                  <component :is="fileIcon(file)" class="tag-file-icon" :style="fileIconStyle(file)" />
                   {{ file.name }}
                 </a-tag>
                 <span class="file-path">{{ file.path }}</span>
@@ -77,7 +77,7 @@
             <div class="file-summary" v-if="stageOutput(stage)">
               <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
                 <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                  <component :is="fileIcon(file)" class="tag-file-icon" />
+                  <component :is="fileIcon(file)" class="tag-file-icon" :style="fileIconStyle(file)" />
                   {{ file.name }}
                 </a-tag>
                 <span class="file-path">{{ file.path }}</span>
@@ -223,6 +223,14 @@ function fileIcon(file: { name: string; isDir: boolean }) {
   if (ext === 'pdf') return FilePdfOutlined
   if (['doc', 'docx'].includes(ext)) return FileWordOutlined
   return FileOutlined
+}
+
+function fileIconStyle(file: { name: string; isDir: boolean }): Record<string, string> | undefined {
+  if (file.isDir) return undefined
+  const ext = file.name.split('.').pop()?.toLowerCase() || ''
+  if (ext === 'pdf') return { color: '#e74c3c' }
+  if (['doc', 'docx'].includes(ext)) return { color: '#2b7cd3' }
+  return undefined
 }
 
 </script>
