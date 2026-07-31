@@ -292,8 +292,18 @@ class ParseOrchestrator:
             overall = derive_overall_status(results)
             ks.update_parse_task(task_id, status=overall, progress=100, stage=overall,
                                  stage_message=f"解析结束: {overall}")
+            parse_error = ""
+            if overall in ("failed", "partial"):
+                failed_stages = [
+                    s for s in meta_store.list_parse_stages(doc_id)
+                    if s.get("status") == "failed" and s.get("error")
+                ]
+                parse_error = "; ".join(
+                    f"{s.get('stage')}: {str(s.get('error')).splitlines()[0]}"
+                    for s in failed_stages[:3]
+                ) or overall
             ks.update_node(doc_id, status=overall, parse_progress=100, parse_stage=overall,
-                           parse_task_id=task_id)
+                           parse_error=parse_error or None, parse_task_id=task_id)
             update_record_status(task_id, overall)
         except ParseTaskCancelledError as exc:
             error_message = str(exc) or "用户手动取消任务"

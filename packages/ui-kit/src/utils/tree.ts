@@ -49,7 +49,9 @@ export const getStatusColor = (status: string): string => {
     uploading: 'processing',
     processing: 'processing',
     completed: 'success',
-    failed: 'error'
+    partial: 'warning',
+    failed: 'error',
+    cancelled: 'default'
   }
   return colorMap[status] || 'default'
 }
@@ -61,7 +63,9 @@ export const getStatusText = (status: string): string => {
     uploading: '上传中',
     processing: '处理中',
     completed: '已完成',
-    failed: '失败'
+    partial: '部分完成',
+    failed: '失败',
+    cancelled: '已取消'
   }
   return textMap[status] || status || '未知'
 }
