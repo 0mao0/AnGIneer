@@ -514,7 +514,8 @@ const focusFromRouteQuery = async () => {
 
   await loadNodes(docId)
 
-  if (selectedNode.value?.key === docId && !selectedNode.value.isFolder && selectedNode.value.status === 'completed') {
+  if (selectedNode.value?.key === docId && !selectedNode.value.isFolder
+    && (selectedNode.value.status === 'completed' || selectedNode.value.status === 'partial')) {
     await loadGraphSummary(docId)
     if (selectedNode.value.strategy) {
       await _loadStructuredIndexWrapper()
@@ -596,7 +597,7 @@ const loadNodes = async (focusNodeKey?: string) => {
       if (node) {
         selectedNode.value = node as unknown as KnowledgeTreeNode
         if (!node.isFolder) {
-          if (node.status === 'completed') {
+          if (node.status === 'completed' || node.status === 'partial') {
             await loadDocContent(node.key)
             await loadStructuredStats(node.key)
           } else {
@@ -629,7 +630,7 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
     const node = nodes[0] as KnowledgeTreeNode
     selectedNode.value = node
     if (!node.isFolder) {
-      if (node.status === 'completed') {
+      if (node.status === 'completed' || node.status === 'partial') {
         await loadDocContent(node.key)
         await loadStructuredStats(node.key)
         if (node.strategy) {
