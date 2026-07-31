@@ -189,7 +189,7 @@ const columns = [
   { title: '解析状态', key: 'status', width: 80 },
   { title: '文件状态', dataIndex: 'file_status', key: 'file_status', width: 85 },
   { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
-  { title: '操作', key: 'action', width: 160, fixed: 'right' as const },
+  { title: '操作', key: 'action', width: 100, fixed: 'right' as const },
 ]
 
 const rowSelection = computed(() => ({
