@@ -39,6 +39,7 @@ class StageContext:
     task_parser: Any = None
     input_summary: str = ""
     output_summary: str = ""
+    temp_dirs: List[str] = field(default_factory=list)
 
 
 @dataclass
@@ -73,17 +74,15 @@ def _run_convert(ctx: StageContext) -> str:
     from docs_core.write.store.assets_file_store import file_storage
 
     lo_dir = tempfile.mkdtemp(prefix=f"lo-{ctx.doc_id}-")
-    try:
-        source_path = convert_to_pdf(ctx.source_path, lo_dir)
-        parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
-        parsed_dir.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(str(source_path), str(parsed_dir / "mineru_render.pdf"))
-        ctx.input_summary = ctx.source_path
-        ctx.output_summary = str(source_path)
-        ctx.source_path = source_path
-        return f"LO 转换完成: {Path(source_path).name}"
-    finally:
-        shutil.rmtree(lo_dir, ignore_errors=True)
+    ctx.temp_dirs.append(lo_dir)
+    source_path = convert_to_pdf(ctx.source_path, lo_dir)
+    parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
+    parsed_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(str(source_path), str(parsed_dir / "mineru_render.pdf"))
+    ctx.input_summary = ctx.source_path
+    ctx.output_summary = str(source_path)
+    ctx.source_path = source_path
+    return f"LO 转换完成: {Path(source_path).name}"
 
 
 def _run_raw_parse(ctx: StageContext) -> str:

@@ -362,6 +362,8 @@ class ParseOrchestrator:
             parser = self._parsers.pop(task_id, None)
             if parser:
                 parser.cancel()
+            for d in getattr(ctx, "temp_dirs", []) or []:
+                shutil.rmtree(d, ignore_errors=True)
             shutil.rmtree(ctx.temp_output_dir, ignore_errors=True)
 
     def _update_progress(
