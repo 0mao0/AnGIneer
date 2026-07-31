@@ -131,7 +131,6 @@ def build_doc_blocks_graph(
             "nodes_count": len(nodes),
             "edges_count": len(edges),
             "outline_count": len(outlines),
-            "base_rows": base_rows or [],
             "generated_by": "mineru-popo",
         },
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -213,6 +212,20 @@ def run_popo_projection(
     graph_data = build_doc_blocks_graph(blocks, outlines, block_line_ranges, base_rows)
     with open(graph_output_path, "w", encoding="utf-8") as f:
         json.dump(graph_data, f, ensure_ascii=False, indent=2)
+
+    jsonl_path = graph_output_path[: -len(".json")] + ".jsonl" if graph_output_path.endswith(".json") else graph_output_path + ".jsonl"
+    with open(jsonl_path, "w", encoding="utf-8") as f:
+        for node in graph_data["nodes"]:
+            f.write(json.dumps(node, ensure_ascii=False) + "\n")
+
+    meta_path = graph_output_path[: -len(".json")] + "_meta.json" if graph_output_path.endswith(".json") else graph_output_path + "_meta.json"
+    meta = {
+        "edges": graph_data["edges"],
+        "stats": graph_data["stats"],
+        "generated_at": graph_data["generated_at"],
+    }
+    with open(meta_path, "w", encoding="utf-8") as f:
+        json.dump(meta, f, ensure_ascii=False, indent=2)
 
     return {
         "graph_path": graph_output_path,

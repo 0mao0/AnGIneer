@@ -513,16 +513,8 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
       || options.activeTab.value === 'Preview_IndexGraph'
       || options.activeTab.value === 'Preview_KnowledgeGraph'
     const nodes = options.graphData.value?.nodes || []
-    const baseRows = options.graphData.value?.stats?.base_rows || []
     const hasBboxData = nodes.length > 0 && nodes.some(node => node.bbox || node.merged_bboxes)
     if (!hasBboxData) return []
-    const baseRowByUid = new Map<string, Record<string, any>>()
-    baseRows.forEach((row) => {
-      const rowId = String(row.block_uid || row.id || '').trim()
-      if (rowId) {
-        baseRowByUid.set(rowId, row)
-      }
-    })
     const nodeSeqKeyMap = new Map<string, string>()
     nodes.forEach(node => {
       const nodeId = String(node.id || '').trim()
@@ -577,28 +569,28 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
       if (!['image', 'table'].includes(blockType)) return []
       const nodeId = String(node.id || `node-${index}`)
       const page = Number(node.page_idx ?? 0) + 1
-      const baseRow = baseRowByUid.get(nodeId) || null
       const contentJson = node.content_json && typeof node.content_json === 'object'
         ? node.content_json as Record<string, any>
         : null
-      const rowContentJson = baseRow?.content_json && typeof baseRow.content_json === 'object'
-        ? baseRow.content_json as Record<string, any>
-        : null
-      const mediaRects = collectMediaRects(node, baseRow)
-      const pageWidth = readFirstNumeric(baseRow || node, ['page_width'])
-      const pageHeight = readFirstNumeric(baseRow || node, ['page_height'])
+      const mediaRects = collectMediaRects(node, null)
+      const pageWidth = readFirstNumeric(node, ['page_width'])
+      const pageHeight = readFirstNumeric(node, ['page_height'])
       const captionBBoxKeys = blockType === 'table'
         ? ['table_caption_bboxes', 'table_footnote_bboxes']
         : ['image_caption_bboxes', 'image_footnote_bboxes']
-      const { captionRefs, footnoteRefs } = collectRelatedBlockRefs(node, baseRow)
+      const { captionRefs, footnoteRefs } = collectRelatedBlockRefs(node, null)
       const contentSpanHighlights = filterMediaRelatedHighlights(mediaRects, blockType, [
         ...collectCaptionSpanHighlights(nodeId, page, blockType, contentJson, captionBBoxKeys, pageWidth, pageHeight),
-        ...collectCaptionSpanHighlights(nodeId, page, blockType, rowContentJson, captionBBoxKeys, pageWidth, pageHeight)
       ])
+      const nodeById = new Map<string, Record<string, any>>()
+      nodes.forEach((n) => {
+        const uid = String(n.id || n.block_uid || '').trim()
+        if (uid) nodeById.set(uid, n)
+      })
       const explicitRefHighlights = filterMediaRelatedHighlights(mediaRects, blockType, [
         ...captionRefs.flatMap((refId) => {
-          const targetRow = baseRowByUid.get(refId)
-          const normalizedRect = targetRow ? normalizeRectFromBaseRow(targetRow) : null
+          const targetRow = nodeById.get(refId)
+          const normalizedRect = targetRow ? normalizeRect(node.bbox) : null
           const rowType = String(targetRow?.block_type || targetRow?.type || '').toLowerCase()
           const rowText = String(targetRow?.plain_text || targetRow?.text || '').trim()
           if (!targetRow || !normalizedRect || isStructHeadingCandidate(rowType, rowText)) return []
@@ -617,15 +609,15 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
           }]
         }),
         ...footnoteRefs.flatMap((refId) => {
-          const targetRow = baseRowByUid.get(refId)
-          const normalizedRect = targetRow ? normalizeRectFromBaseRow(targetRow) : null
+          const targetRow = nodeById.get(refId)
+          const normalizedRect = targetRow ? normalizeRect(targetRow.bbox) : null
           const rowType = String(targetRow?.block_type || targetRow?.type || '').toLowerCase()
           const rowText = String(targetRow?.plain_text || targetRow?.text || '').trim()
           if (!targetRow || !normalizedRect || isStructHeadingCandidate(rowType, rowText)) return []
           return [{
             id: `highlight-${nodeId}-footnote-ref-${refId}`,
             itemId: nodeId,
-            page: Number(targetRow.page_seq || targetRow.page || ((Number(targetRow.page_idx ?? -1) + 1) || page)),
+            page: Number(targetRow.page_idx ?? -1) + 1 || page,
             hasRect: true,
             left: normalizedRect.left,
             top: normalizedRect.top,
@@ -637,26 +629,26 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
           }]
         })
       ])
-      const captionSourceTexts = extractRelatedTextCandidates(node, 'caption', baseRow)
-      const footnoteSourceTexts = extractRelatedTextCandidates(node, 'footnote', baseRow)
+      const captionSourceTexts = extractRelatedTextCandidates(node, 'caption', null)
+      const footnoteSourceTexts = extractRelatedTextCandidates(node, 'footnote', null)
       const hasCaptionHighlights = [...contentSpanHighlights, ...explicitRefHighlights].some(item => item.type?.includes('caption'))
       const hasFootnoteHighlights = [...contentSpanHighlights, ...explicitRefHighlights].some(item => item.type?.includes('footnote'))
       if (!captionSourceTexts.length && !footnoteSourceTexts.length && !explicitRefHighlights.length && !contentSpanHighlights.length) return []
-      const matchedRowHighlights = baseRows.flatMap((row, rowIndex) => {
+      const matchedRowHighlights = nodes.flatMap((row, rowIndex) => {
         const rowId = String(row.block_uid || row.id || '').trim()
         if (!rowId || rowId === nodeId) return []
         if (captionRefs.includes(rowId) || footnoteRefs.includes(rowId)) return []
-        const rowPage = Number(row.page_seq || row.page || ((Number(row.page_idx ?? -1) + 1) || 0))
+        const rowPage = (Number(row.page_idx ?? 0) + 1) || 0
         if (rowPage !== page) return []
-        const rowType = String(row.block_type || row.type || '').toLowerCase()
+        const rowType = String(row.block_type || '').toLowerCase()
         if (['image', 'table', 'header', 'footer', 'page_header', 'page_number'].includes(rowType)) {
           return []
         }
-        const rowTextRaw = String(row.plain_text || row.text || '').trim()
+        const rowTextRaw = String(row.plain_text || '').trim()
         if (isStructHeadingCandidate(rowType, rowTextRaw)) return []
         const rowText = normalizeForMatch(rowTextRaw)
         if (!rowText || rowText.length < 4) return []
-        const normalizedRect = normalizeRectFromBaseRow(row)
+        const normalizedRect = normalizeRect(row.bbox)
         if (!normalizedRect) return []
         return [
           ...(!hasCaptionHighlights && captionSourceTexts.length > 0 && matchesRelatedTextCandidate(rowText, captionSourceTexts) && isMediaRelationRectValid(mediaRects, normalizedRect, blockType, 'caption')

@@ -80,7 +80,7 @@ defineEmits<{
 
 const STAGE_TITLES: Record<string, string> = {
   source_prep: '源文件准备', convert: '格式转换', raw_parse: 'MinerU 解析',
-  popo: 'PoPo 增强', structure: '结构化入库', fts: '全文索引',
+  popo: 'PoPo 增强', structure: 'Solo 结构化入库', fts: '全文索引',
   vectors: '向量索引', graph: '知识图谱',
 }
 const PIPELINE_ORDER = Object.keys(STAGE_TITLES)

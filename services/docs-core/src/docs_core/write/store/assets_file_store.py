@@ -71,6 +71,12 @@ class FileStorage:
         """获取结构图谱文件路径"""
         return self.get_parsed_dir(library_id, doc_id) / "doc_blocks_graph.json"
 
+    def get_graph_jsonl_path(self, library_id: str, doc_id: str) -> Path:
+        return self.get_parsed_dir(library_id, doc_id) / "doc_blocks_graph.jsonl"
+
+    def get_graph_meta_path(self, library_id: str, doc_id: str) -> Path:
+        return self.get_parsed_dir(library_id, doc_id) / "doc_blocks_graph_meta.json"
+
     def get_edited_dir(self, library_id: str, doc_id: str) -> Path:
         """获取编辑目录"""
         edited_dir = self.get_doc_root(library_id, doc_id) / "edited"
@@ -319,12 +325,16 @@ class FileStorage:
         return []
 
     def read_doc_blocks_graph(self, library_id: str, doc_id: str) -> Dict[str, Any]:
-        """读取 doc_blocks_graph.json"""
-        graph_path = self.get_graph_path(library_id, doc_id)
-        if not graph_path.exists():
+        """读取 doc_blocks_graph (jsonl + meta 新格式，回退 json 旧格式)"""
+        jsonl_path = self.get_graph_jsonl_path(library_id, doc_id)
+        meta_path = self.get_graph_meta_path(library_id, doc_id)
+        if jsonl_path.exists():
+            return _read_doc_blocks_graph_split(jsonl_path, meta_path)
+        legacy_path = self.get_graph_path(library_id, doc_id)
+        if not legacy_path.exists():
             return {}
         try:
-            with open(graph_path, "r", encoding="utf-8") as f:
+            with open(legacy_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
             if isinstance(data, dict):
                 return data
@@ -462,25 +472,38 @@ def _get_llm_client():
         return None
 
 
-# 保存 doc_blocks_graph.json 文件
+# 保存 doc_blocks_graph.jsonl + doc_blocks_graph_meta.json
 def _save_doc_blocks_graph(
     library_id: str,
     doc_id: str,
     result: StructuredResult,
 ) -> str:
-    graph_path = file_storage.get_graph_path(library_id, doc_id)
+    jsonl_path = file_storage.get_graph_jsonl_path(library_id, doc_id)
+    with open(jsonl_path, "w", encoding="utf-8") as f:
+        for node in result.nodes:
+            f.write(json.dumps(node, ensure_ascii=False) + "\n")
 
-    payload = {
-        "nodes": result.nodes,
+    meta_path = file_storage.get_graph_meta_path(library_id, doc_id)
+    meta = {
         "edges": result.edges,
         "stats": result.stats,
         "generated_at": datetime.now().isoformat(),
     }
+    with open(meta_path, "w", encoding="utf-8") as f:
+        json.dump(meta, f, ensure_ascii=False, indent=2)
 
-    with open(graph_path, "w", encoding="utf-8") as f:
+    # also write old format json for backward compat during transition
+    legacy_path = file_storage.get_graph_path(library_id, doc_id)
+    payload = {
+        "nodes": result.nodes,
+        "edges": result.edges,
+        "stats": result.stats,
+        "generated_at": meta["generated_at"],
+    }
+    with open(legacy_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
-    return str(graph_path)
+    return str(meta_path)
 
 
 # canonical structure 投影为统一document_segments
@@ -928,21 +951,61 @@ def build_structured_index_for_doc(
 
 # 获取文档的块图谱
 def get_doc_blocks_graph(library_id: str, doc_id: str) -> Optional[Dict[str, Any]]:
-    graph_path = file_storage.get_graph_path(library_id, doc_id)
+    jsonl_path = file_storage.get_graph_jsonl_path(library_id, doc_id)
+    meta_path = file_storage.get_graph_meta_path(library_id, doc_id)
+    if jsonl_path.exists():
+        return _read_doc_blocks_graph_split(jsonl_path, meta_path)
+    return _read_legacy_doc_blocks_graph(library_id, doc_id)
 
+
+def _read_doc_blocks_graph_split(jsonl_path: Path, meta_path: Path) -> Dict[str, Any]:
+    nodes = []
+    with open(jsonl_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                nodes.append(json.loads(line))
+    meta: Dict[str, Any] = {}
+    if meta_path.exists():
+        with open(meta_path, "r", encoding="utf-8") as f:
+            meta = json.load(f)
+    return {
+        "nodes": nodes,
+        "edges": meta.get("edges", []),
+        "stats": meta.get("stats", {}),
+        "generated_at": meta.get("generated_at", ""),
+    }
+
+
+def _read_legacy_doc_blocks_graph(library_id: str, doc_id: str) -> Optional[Dict[str, Any]]:
+    graph_path = file_storage.get_graph_path(library_id, doc_id)
     if not graph_path.exists():
         return None
-
     with open(graph_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-# 写回 doc_blocks_graph.json 文件
+# 写回 doc_blocks_graph (jsonl + meta.json + legacy json)
 def _write_doc_blocks_graph(library_id: str, doc_id: str, payload: Dict[str, Any]) -> str:
-    graph_path = file_storage.get_graph_path(library_id, doc_id)
-    with open(graph_path, "w", encoding="utf-8") as f:
+    nodes = payload.get("nodes")
+    if isinstance(nodes, list) and nodes:
+        jsonl_path = file_storage.get_graph_jsonl_path(library_id, doc_id)
+        with open(jsonl_path, "w", encoding="utf-8") as f:
+            for node in nodes:
+                f.write(json.dumps(node, ensure_ascii=False) + "\n")
+    meta_path = file_storage.get_graph_meta_path(library_id, doc_id)
+    meta = {
+        "edges": payload.get("edges", []),
+        "stats": payload.get("stats", {}),
+        "generated_at": payload.get("generated_at", datetime.now().isoformat()),
+    }
+    with open(meta_path, "w", encoding="utf-8") as f:
+        json.dump(meta, f, ensure_ascii=False, indent=2)
+    # legacy format for backward compat
+    legacy_path = file_storage.get_graph_path(library_id, doc_id)
+    with open(legacy_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
-    return str(graph_path)
+    return str(meta_path)
 
 
 # 基于最新审核图谱重canonical，确保检索读模型与编辑结果一致

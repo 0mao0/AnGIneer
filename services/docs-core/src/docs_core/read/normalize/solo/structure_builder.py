@@ -1451,6 +1451,9 @@ def build_structured_from_rawfiles(
                     "footnote_block_uid": footnote_block_uids[0] if len(footnote_block_uids) == 1 else None,
                     "footnote_block_uids": footnote_block_uids or None,
                     "footnote_bboxes": footnote_bboxes or None,
+                    "content_json": row.get("content_json"),
+                    "page_width": row.get("page_width"),
+                    "page_height": row.get("page_height"),
                 }
                 nodes.append(node)
                 
@@ -1529,8 +1532,6 @@ def build_structured_from_rawfiles(
         "parser_version": parser_version,
         "toc_pages": list(toc_pages),
         "title_candidates": len(title_candidates),
-        "base_rows": rows,
-        "derived_rows": derived_rows,
     }
     
     return StructuredResult(
