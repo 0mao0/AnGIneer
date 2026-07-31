@@ -114,6 +114,46 @@ def _run_raw_parse(ctx: StageContext) -> str:
     return "MinerU 解析完成"
 
 
+def _run_build_blocks(ctx: StageContext) -> str:
+    from docs_core.read.normalize.solo.structure_builder import build_structured_from_rawfiles
+    from docs_core.write.store.assets_file_store import file_storage, _save_doc_blocks_graph
+
+    parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
+    raw_dir = file_storage.resolve_canonical_raw_dir(ctx.library_id, ctx.doc_id)
+    from docs_core.write.store.assets_file_store import resolve_structured_input_dir
+    resolve_structured_input_dir(raw_dir)
+
+    use_llm = bool(ctx.parse_options.get("use_llm", True))
+    llm_model = str(ctx.parse_options.get("llm_model") or "").strip() or None
+    llm_client = None
+    if use_llm:
+        try:
+            from ai_inference.llm_client import llm_client
+        except ImportError:
+            pass
+
+    doc_info = file_storage.get_doc_manifest(ctx.library_id, ctx.doc_id)
+    doc_name = ""
+    if doc_info.get("source_file"):
+        doc_name = Path(doc_info["source_file"]).name
+
+    result = build_structured_from_rawfiles(
+        parsed_dir=parsed_dir,
+        doc_id=ctx.doc_id,
+        doc_name=doc_name,
+        llm_client=llm_client,
+        options={"use_llm": use_llm, "llm_model": llm_model, "derive_version": "v1"},
+    )
+
+    if result.stats.get("error"):
+        raise ValueError(f"构建结构失败: {result.stats.get('error')}")
+
+    _save_doc_blocks_graph(ctx.library_id, ctx.doc_id, result)
+    ctx.input_summary = f"{parsed_dir / 'mineru_raw/'}"
+    ctx.output_summary = f"{file_storage.get_graph_jsonl_path(ctx.library_id, ctx.doc_id)} + {file_storage.get_graph_meta_path(ctx.library_id, ctx.doc_id)}"
+    return f"区块提取完成，{len(result.nodes)} nodes"
+
+
 def _run_popo(ctx: StageContext) -> str:
     normalizer_backend = os.environ.get("DOCS_CORE_NORMALIZER_BACKEND", "legacy")
     if normalizer_backend != "popo":
@@ -297,8 +337,9 @@ STAGE_REGISTRY: Dict[str, StageDef] = {s.key: s for s in [
     StageDef("source_prep", "源文件准备", STAGE_KIND_HARD, [], _run_source_prep),
     StageDef("convert", "格式转换", STAGE_KIND_HARD, ["source_prep"], _run_convert),
     StageDef("raw_parse", "MinerU 解析", STAGE_KIND_HARD, ["convert"], _run_raw_parse),
-    StageDef("popo", "PoPo 语义增强", STAGE_KIND_SOFT, ["raw_parse"], _run_popo),
-    StageDef("structure", "结构化入库", STAGE_KIND_HARD, ["raw_parse"], _run_structure),
+    StageDef("build_blocks", "区块提取", STAGE_KIND_HARD, ["raw_parse"], _run_build_blocks),
+    StageDef("popo", "PoPo 增强", STAGE_KIND_SOFT, ["raw_parse"], _run_popo),
+    StageDef("structure", "Solo 结构化入库", STAGE_KIND_HARD, ["raw_parse"], _run_structure),
     StageDef("fts", "全文索引", STAGE_KIND_HARD, ["structure"], _run_fts),
     StageDef("vectors", "向量索引", STAGE_KIND_SOFT, ["structure"], _run_vectors),
     StageDef("graph", "知识图谱", STAGE_KIND_SOFT, ["structure"], _run_graph),
@@ -306,7 +347,7 @@ STAGE_REGISTRY: Dict[str, StageDef] = {s.key: s for s in [
 ]}
 
 _PIPELINE_ORDER = [
-    "source_prep", "convert", "raw_parse", "popo", "structure", "fts", "vectors", "graph", "sop",
+    "source_prep", "convert", "raw_parse", "build_blocks", "popo", "structure", "fts", "vectors", "graph", "sop",
 ]
 
 
