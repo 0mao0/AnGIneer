@@ -72,7 +72,7 @@
           <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
           <a-divider type="vertical" />
           <a-button type="link" size="small" @click="viewDetail(record)">结果</a-button>
-          <template v-if="record.file_status !== '用户已删'">
+          <template v-if="record.file_status === '用户已删'">
             <a-divider type="vertical" />
             <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
           </template>
@@ -410,15 +410,15 @@ async function hardDelete(recordId: number) {
 
 async function deleteRecord(record: ParseRecordItem) {
   Modal.confirm({
-    title: '确认删除',
-    content: `确定要删除「${record.file_name}」吗？删除后可在「仅显示已删除」中恢复或永久删除。`,
-    okText: '删除',
+    title: '确认永久删除',
+    content: `确定要永久删除「${record.file_name}」吗？此操作不可恢复。`,
+    okText: '永久删除',
     okType: 'danger',
     cancelText: '取消',
     async onOk() {
       try {
-        await knowledgeApi.deleteNode(record.doc_id)
-        message.success('已删除')
+        await knowledgeApi.hardDeleteRecord(record.id)
+        message.success('已永久删除')
         await loadRecords()
       } catch (e: any) {
         message.error('删除失败: ' + (e?.response?.data?.detail || e?.message || e))
