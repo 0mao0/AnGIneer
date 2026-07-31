@@ -16,7 +16,20 @@
             <span class="stage-duration">{{ formatDuration(stage) }}</span>
           </div>
         </template>
-        <a-descriptions :column="1" bordered size="small">
+        <template v-if="stage.key === 'source_prep'">
+          <div class="file-summary" v-if="stageInput(stage)">
+            <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
+              <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
+                <template v-if="file.isDir">📁</template>
+                <template v-else>📄</template>
+                {{ file.name }}
+              </a-tag>
+              <span class="file-path">{{ file.path }}</span>
+            </div>
+          </div>
+          <span v-else>—</span>
+        </template>
+        <a-descriptions v-else :column="1" bordered size="small">
           <a-descriptions-item label="输入">
             <div class="file-summary" v-if="stageInput(stage)">
               <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
