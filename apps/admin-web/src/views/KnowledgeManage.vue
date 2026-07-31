@@ -156,6 +156,15 @@
 
           <a-empty v-if="!selectedNode" description="请从左侧选择文档" class="center-empty" />
 
+          <!-- 解析进度条 -->
+          <div v-if="selectedNode && selectedNode.status === 'processing'" class="parse-progress-bar">
+            <a-progress :percent="parseProgressPercent" :show-info="false" :stroke-color="{ from: '#108ee9', to: '#87d068' }" />
+            <div class="parse-progress-text">
+              <span class="parse-progress-stage">{{ parseProgressLabel }}</span>
+              <span class="parse-progress-step">{{ parseProgressStep }}</span>
+            </div>
+          </div>
+
           <template v-else-if="selectedNode.isFolder">
             <FolderPreview
               :node="selectedNode"
@@ -332,6 +341,30 @@ import DocDetailModal from './components/DocDetailModal.vue'
 import KnowledgeStats from '@/components/KnowledgeStats.vue'
 
 const activeView = ref<'list' | 'parse'>('list')
+
+const PARSE_STAGE_LABELS: Record<string, string> = {
+  source_prep: '源文件准备', convert: '格式转换', raw_parse: 'MinerU 解析',
+  build_blocks: '区块提取', popo: 'PoPo 增强', structure: 'Solo 入库',
+  fts: '全文索引', vectors: '向量索引', graph: '知识图谱',
+}
+const PARSE_STAGE_KEYS = Object.keys(PARSE_STAGE_LABELS)
+
+const parseProgressLabel = computed(() => {
+  const stage = selectedNode.value?.parseStage || ''
+  return PARSE_STAGE_LABELS[stage] || stage || '—'
+})
+
+const parseProgressStep = computed(() => {
+  const stage = selectedNode.value?.parseStage || ''
+  const idx = PARSE_STAGE_KEYS.indexOf(stage)
+  return idx >= 0 ? `${idx + 1}/${PARSE_STAGE_KEYS.length}` : '—'
+})
+
+const parseProgressPercent = computed(() => {
+  const stage = selectedNode.value?.parseStage || ''
+  const idx = PARSE_STAGE_KEYS.indexOf(stage)
+  return idx >= 0 ? Math.round(((idx + 1) / PARSE_STAGE_KEYS.length) * 100) : 0
+})
 
 const smartTreeRef = ref<InstanceType<typeof KnowledgeTree> | null>(null)
 const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
@@ -1282,4 +1315,18 @@ onBeforeUnmount(() => {
     font-size: 14px !important;
   }
 }
+
+.parse-progress-bar {
+  padding: 12px 16px 4px;
+  :deep(.ant-progress) { margin-bottom: 0; }
+}
+.parse-progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 2px;
+  color: var(--text-secondary, #888);
+}
+.parse-progress-stage { color: var(--text-primary, #333); }
+.parse-progress-step { color: var(--text-tertiary, #999); }
 </style>
