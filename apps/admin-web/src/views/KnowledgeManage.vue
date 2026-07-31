@@ -551,11 +551,29 @@ const findParentChain = (nodes: SmartTreeNode[], key: string, parents: string[] 
   return null
 }
 
+// 查找第一个文件节点（深度优先）
+const findFirstFileNode = (nodes: SmartTreeNode[]): SmartTreeNode | null => {
+  for (const node of nodes) {
+    if (!node.isFolder) return node
+    if (node.children?.length) {
+      const found = findFirstFileNode(node.children)
+      if (found) return found
+    }
+  }
+  return null
+}
+
 // 加载节点
 const loadNodes = async (focusNodeKey?: string) => {
   try {
     const response = await knowledgeApi.getNodes('default', false) as unknown as any[]
     treeData.value = buildTree(response)
+    if (!focusNodeKey && !selectedKeys.value.length) {
+      const firstFile = findFirstFileNode(treeData.value as unknown as SmartTreeNode[])
+      if (firstFile) {
+        focusNodeKey = firstFile.key
+      }
+    }
     if (focusNodeKey) {
       const parents = findParentChain(treeData.value as unknown as SmartTreeNode[], focusNodeKey) || []
       if (smartTreeRef.value) {
