@@ -563,6 +563,20 @@ const findFirstFileNode = (nodes: SmartTreeNode[]): SmartTreeNode | null => {
   return null
 }
 
+// 收集所有文件夹节点 key（用于默认全部展开）
+const collectFolderKeys = (nodes: SmartTreeNode[]): string[] => {
+  const keys: string[] = []
+  for (const node of nodes) {
+    if (node.isFolder) {
+      keys.push(node.key)
+      if (node.children?.length) {
+        keys.push(...collectFolderKeys(node.children))
+      }
+    }
+  }
+  return keys
+}
+
 // 加载节点
 const loadNodes = async (focusNodeKey?: string) => {
   try {
@@ -575,11 +589,12 @@ const loadNodes = async (focusNodeKey?: string) => {
       }
     }
     if (focusNodeKey) {
-      const parents = findParentChain(treeData.value as unknown as SmartTreeNode[], focusNodeKey) || []
+      // 模拟用户点击：展开全部文件夹 + 高亮选中目标文件
+      const folderKeys = collectFolderKeys(treeData.value as unknown as SmartTreeNode[])
       if (smartTreeRef.value) {
         smartTreeRef.value.expandedKeys = Array.from(new Set([
           ...(smartTreeRef.value.expandedKeys || []),
-          ...parents
+          ...folderKeys
         ]))
         smartTreeRef.value.selectedKeys = [focusNodeKey]
       }
