@@ -29,6 +29,34 @@
           </div>
           <span v-else>—</span>
         </template>
+        <template v-else-if="stage.key === 'convert'">
+          <div class="convert-flow">
+            <div class="file-summary" v-if="stageInput(stage)">
+              <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
+                <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
+                  <template v-if="file.isDir">📁</template>
+                  <template v-else>📄</template>
+                  {{ file.name }}
+                </a-tag>
+                <span class="file-path">{{ file.path }}</span>
+              </div>
+            </div>
+            <div class="convert-arrow">
+              <span class="convert-arrow-icon">↓</span>
+              <span class="convert-arrow-label">{{ stage.message || '格式转换' }}</span>
+            </div>
+            <div class="file-summary" v-if="stageOutput(stage)">
+              <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
+                <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
+                  <template v-if="file.isDir">📁</template>
+                  <template v-else>📄</template>
+                  {{ file.name }}
+                </a-tag>
+                <span class="file-path">{{ file.path }}</span>
+              </div>
+            </div>
+          </div>
+        </template>
         <a-descriptions v-else :column="1" bordered size="small">
           <a-descriptions-item label="输入">
             <div class="file-summary" v-if="stageInput(stage)">
@@ -260,5 +288,25 @@ function parseFiles(text: string): { name: string; path: string; isDir: boolean 
   word-break: break-all;
   flex: 1;
   min-width: 0;
+}
+
+.convert-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.convert-arrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 4px;
+}
+.convert-arrow-icon {
+  font-size: 14px;
+  color: var(--primary-color, #1890ff);
+}
+.convert-arrow-label {
+  font-size: 12px;
+  color: var(--text-secondary, #666);
 }
 </style>
