@@ -65,9 +65,6 @@
             </a-tooltip>
           </span>
         </template>
-        <template v-if="column.key === 'file_status'">
-          <a-tag :color="fileStatusColor(record.file_status)">{{ record.file_status }}</a-tag>
-        </template>
         <template v-if="column.key === 'action'">
           <span class="action-btns">
             <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
@@ -187,7 +184,6 @@ const columns = [
   { title: '格式', dataIndex: 'file_format', key: 'file_format', width: 60 },
   { title: '大小', key: 'file_size', width: 80 },
   { title: '解析状态', key: 'status', width: 80 },
-  { title: '文件状态', dataIndex: 'file_status', key: 'file_status', width: 85 },
   { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
   { title: '操作', key: 'action', width: 130, fixed: 'right' as const },
 ]
@@ -232,15 +228,6 @@ function statusColor(status: string): string {
     deleted: '#999',
   }
   return map[status] || 'default'
-}
-
-function fileStatusColor(fileStatus: string): string {
-  const map: Record<string, string> = {
-    '已入库': 'green',
-    '用户已删': 'red',
-    '冗余': 'orange',
-  }
-  return map[fileStatus] || 'default'
 }
 
 function statusLabel(status: string): string {
