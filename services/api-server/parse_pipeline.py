@@ -124,6 +124,15 @@ def _run_build_blocks(ctx: StageContext) -> str:
     from docs_core.write.store.assets_file_store import resolve_structured_input_dir
     resolve_structured_input_dir(raw_dir)
 
+    logger.info("build_blocks: parsed_dir=%s, raw_dir=%s", parsed_dir, raw_dir)
+    # list mineru_raw contents for debugging
+    raw_files = []
+    try:
+        raw_files = [f.name for f in raw_dir.iterdir()] if raw_dir.exists() else []
+    except Exception:
+        pass
+    logger.info("build_blocks: raw_dir files: %s", raw_files)
+
     use_llm = bool(ctx.parse_options.get("use_llm", True))
     llm_model = str(ctx.parse_options.get("llm_model") or "").strip() or None
     llm_client = None
@@ -379,7 +388,7 @@ def derive_overall_status(stage_status: Dict[str, str]) -> str:
         return "failed"
     if any(v == "failed" for v in values):
         return "partial"
-    if all(v in ("completed", "skipped") for v in values):
+    if all(stage_status.get(key) in ("completed", "skipped") for key in STAGE_REGISTRY):
         return "completed"
     return "processing"
 
