@@ -492,17 +492,6 @@ def _save_doc_blocks_graph(
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
 
-    # also write old format json for backward compat during transition
-    legacy_path = file_storage.get_graph_path(library_id, doc_id)
-    payload = {
-        "nodes": result.nodes,
-        "edges": result.edges,
-        "stats": result.stats,
-        "generated_at": meta["generated_at"],
-    }
-    with open(legacy_path, "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
-
     return str(meta_path)
 
 
@@ -1001,10 +990,6 @@ def _write_doc_blocks_graph(library_id: str, doc_id: str, payload: Dict[str, Any
     }
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
-    # legacy format for backward compat
-    legacy_path = file_storage.get_graph_path(library_id, doc_id)
-    with open(legacy_path, "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
     return str(meta_path)
 
 

@@ -210,8 +210,6 @@ def run_popo_projection(
     base_rows = build_base_rows(blocks)
 
     graph_data = build_doc_blocks_graph(blocks, outlines, block_line_ranges, base_rows)
-    with open(graph_output_path, "w", encoding="utf-8") as f:
-        json.dump(graph_data, f, ensure_ascii=False, indent=2)
 
     jsonl_path = graph_output_path[: -len(".json")] + ".jsonl" if graph_output_path.endswith(".json") else graph_output_path + ".jsonl"
     with open(jsonl_path, "w", encoding="utf-8") as f:
