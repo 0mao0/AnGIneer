@@ -684,7 +684,8 @@ const loadDocContent = async (docId: string) => {
 const loadGraphSummary = async (docId: string) => {
   try {
     graphDataLoading.value = true
-    const result = await knowledgeApi.getDocBlocksGraphSummary('default', docId) as any
+    // 高亮依赖节点 bbox，必须加载完整图（summary 会剥离 bbox）
+    const result = await knowledgeApi.getDocBlocksGraph('default', docId) as any
     graphData.value = result?.data || null
   } catch {
     graphData.value = null
