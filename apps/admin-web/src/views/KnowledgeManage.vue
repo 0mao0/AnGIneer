@@ -59,6 +59,8 @@
               v-else
               ref="smartTreeRef"
               :tree-data="treeData"
+              :default-expanded-keys="defaultExpandedKeys"
+              :default-selected-keys="defaultSelectedKeys"
               v-bind="smartTreeProps"
               @select="onTreeSelect"
               @rename="showRenameModal"
@@ -451,6 +453,10 @@ const smartTreeProps = {
   emptyText: '暂无文档'
 }
 
+// 默认展开/选中（SmartTree 监听 prop 变化并应用）
+const defaultExpandedKeys = ref<string[]>([])
+const defaultSelectedKeys = ref<string[]>([])
+
 // 面板调整大小回调
 const onPanelResize = (leftSize: number, rightSize: number) => {
   const containerWidth = workspaceRef.value?.clientWidth || window.innerWidth
@@ -575,14 +581,14 @@ const loadNodes = async (focusNodeKey?: string) => {
       }
     }
     if (focusNodeKey) {
-      // 等树数据渲染完成后，展开目标文件祖先链 + 高亮选中目标文件
-      await nextTick()
+      // 模拟用户点击：展开目标文件祖先链 + 高亮选中目标文件
       const parents = findParentChain(treeData.value as unknown as SmartTreeNode[], focusNodeKey) || []
+      defaultExpandedKeys.value = Array.from(new Set([
+        ...defaultExpandedKeys.value,
+        ...parents
+      ]))
+      defaultSelectedKeys.value = [focusNodeKey]
       if (smartTreeRef.value) {
-        smartTreeRef.value.expandedKeys = Array.from(new Set([
-          ...(smartTreeRef.value.expandedKeys || []),
-          ...parents
-        ]))
         smartTreeRef.value.selectedKeys = [focusNodeKey]
       }
       selectedKeys.value = [focusNodeKey]
