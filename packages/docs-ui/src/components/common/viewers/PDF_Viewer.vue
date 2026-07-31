@@ -1793,12 +1793,14 @@ onBeforeUnmount(() => {
   padding: 5px 12px;
   border-bottom: 1px solid var(--dp-title-border);
   background: var(--dp-progress-bg);
+  width: 100%;
 }
 
 .parse-progress-content {
   display: flex;
   align-items: center;
   gap: 8px;
+  width: 100%;
 }
 
 .parse-progress-label {
@@ -1807,12 +1809,16 @@ onBeforeUnmount(() => {
   white-space: nowrap;
   min-width: 70px;
   text-align: right;
+  flex-shrink: 0;
 }
 
 .parse-progress-bar {
   flex: 1;
   min-width: 0;
   margin: 0 !important;
+  :deep(.ant-progress) {
+    width: 100% !important;
+  }
 }
 
 .parse-progress-count {
@@ -1821,6 +1827,7 @@ onBeforeUnmount(() => {
   white-space: nowrap;
   min-width: 30px;
   text-align: left;
+  flex-shrink: 0;
 }
 
 .progress-text-info {
