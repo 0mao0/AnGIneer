@@ -158,6 +158,11 @@ def _run_build_blocks(ctx: StageContext) -> str:
     if result.stats.get("error"):
         raise ValueError(f"构建结构失败: {result.stats.get('error')}")
 
+    bbox_count = sum(1 for n in result.nodes if n.get("bbox"))
+    logger.info("build_blocks: %d nodes, %d with bbox", len(result.nodes), bbox_count)
+    if bbox_count == 0 and result.nodes:
+        logger.warning("build_blocks: no nodes have bbox data, highlights will not work")
+
     _save_doc_blocks_graph(ctx.library_id, ctx.doc_id, result)
     ctx.input_summary = f"{parsed_dir / 'mineru_raw/'}"
     ctx.output_summary = f"{file_storage.get_graph_jsonl_path(ctx.library_id, ctx.doc_id)} + {file_storage.get_graph_meta_path(ctx.library_id, ctx.doc_id)}"
