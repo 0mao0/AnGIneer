@@ -98,6 +98,8 @@ export const knowledgeApi = {
   getDeleteNodePreview: (nodeId: string) =>
     api.get(`/knowledge/nodes/${nodeId}/delete-preview`) as Promise<DeleteNodePreviewResponse>,
   deleteNode: (nodeId: string) => api.delete(`/knowledge/nodes/${nodeId}`),
+  softDeleteNode: (nodeId: string) =>
+    api.delete(`/knowledge/nodes/${nodeId}/soft-delete`) as Promise<{ status: string; message: string; affected: number }>,
   forceDeleteNode: (nodeId: string) =>
     api.delete(`/knowledge/nodes/${nodeId}/force`) as Promise<{ status: string; message: string }>,
   cancelParseTask: (taskId: string) =>

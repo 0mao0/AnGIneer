@@ -291,7 +291,7 @@
 /**
  * 知识库管理页面 - 使用 KnowledgeChatPanel 组件进行 AI 对话
  */
-import { ref, computed, onMounted, onBeforeUnmount, watch, h, nextTick } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 import { message, Modal } from 'ant-design-vue'
 import { useRoute } from 'vue-router'
 import {
@@ -597,7 +597,8 @@ const loadNodes = async (focusNodeKey?: string) => {
       if (node) {
         selectedNode.value = node as unknown as KnowledgeTreeNode
         if (!node.isFolder) {
-          if (node.status === 'completed' || node.status === 'partial') {
+          // completed/partial/failed 均尝试加载：failed 可能有部分产物（如结构完成但 fts 失败），可预览与高亮
+          if (['completed', 'partial', 'failed'].includes(String(node.status))) {
             await loadDocContent(node.key)
             await loadStructuredStats(node.key)
           } else {
@@ -630,7 +631,8 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
     const node = nodes[0] as KnowledgeTreeNode
     selectedNode.value = node
     if (!node.isFolder) {
-      if (node.status === 'completed' || node.status === 'partial') {
+      // completed/partial/failed 均尝试加载：failed 可能有部分产物（如结构完成但 fts 失败），可预览与高亮
+      if (['completed', 'partial', 'failed'].includes(node.status)) {
         await loadDocContent(node.key)
         await loadStructuredStats(node.key)
         if (node.strategy) {
@@ -782,93 +784,31 @@ const handleFolderModalOk = async () => {
   }
 }
 
-// 生成删除确认弹窗内容
-const buildDeleteConfirmContent = (node: SmartTreeNode, preview: {
-  total_nodes: number
-  folder_count: number
-  document_count: number
-  sample_doc_titles: string[]
-}) => {
-  const stats = preview.document_count > 0
-    ? `${preview.document_count} 个文档${preview.folder_count > 0 ? `、${preview.folder_count} 个文件夹` : ''}`
-    : `${preview.folder_count} 个文件夹`
-  const lines = [
-    `确定删除 "${node.title}"？此操作不可恢复。`,
-    `将删除 ${stats}（共 ${preview.total_nodes} 个节点）。`
-  ]
-  return h('div', { style: 'white-space: pre-line;' }, [
-    ...lines.map(line => h('div', line)),
-    ...(preview.sample_doc_titles.length > 0
-      ? [h('div', { style: 'margin-top: 8px; color: var(--text-secondary);' }, preview.sample_doc_titles.slice(0, 3).join('、'))]
-      : [])
-  ])
-}
-
-// 显示删除确认弹窗
-const showDeleteConfirm = (
-  node: SmartTreeNode,
-  nodeType: string,
-  preview: {
-    total_nodes: number
-    folder_count: number
-    document_count: number
-    sample_doc_titles: string[]
-  }
-) => {
+// 删除节点
+const handleDeleteNode = async (node: SmartTreeNode) => {
+  const nodeType = node.isFolder ? '文件夹' : '文件'
+  const previewText = node.isFolder
+    ? `确定要删除「${node.title}」文件夹吗？其中所有文件将被标记删除并从树中隐藏，数据保留。`
+    : `确定要删除「${node.title}」吗？将标记为已删除并从树中隐藏，文件内容保留，可在「列表」模式恢复或永久删除。`
   Modal.confirm({
     title: `确认删除${nodeType}`,
-    content: buildDeleteConfirmContent(node, preview),
+    content: previewText,
     okText: '删除',
     okType: 'danger',
     cancelText: '取消',
     async onOk() {
       try {
-        await knowledgeApi.deleteNode(node.key)
-        message.success('删除成功')
+        await knowledgeApi.softDeleteNode(node.key)
+        message.success('已删除（数据保留）')
         await loadNodes()
       } catch (error) {
-        message.error('删除失败')
+        const detail = (error as any)?.response?.data?.detail || (error as any)?.message
+        message.error(detail ? `删除失败: ${detail}` : '删除失败')
       }
     }
   })
 }
 
-// 删除节点
-const handleDeleteNode = async (node: SmartTreeNode) => {
-  const nodeType = node.isFolder ? '文件夹' : '文件'
-  try {
-    const preview = await knowledgeApi.getDeleteNodePreview(node.key)
-    showDeleteConfirm(node, nodeType, preview)
-  } catch (error) {
-    console.error('获取删除影响范围失败。', error)
-    Modal.confirm({
-      title: '删除失败',
-      content: '获取删除影响范围失败，该文件可能处于异常状态（如解析卡住）。是否要强制删除？',
-      okText: '强制删除',
-      okType: 'danger',
-      cancelText: '取消',
-      async onOk() {
-        await handleForceDelete(node)
-      }
-    })
-  }
-}
-
-/** 强制删除异常状态的节点 */
-const handleForceDelete = async (node: SmartTreeNode) => {
-  try {
-    stopParsePolling()
-    const result = await knowledgeApi.forceDeleteNode(node.key) as any
-    message.success(result?.message || '已强制删除')
-    if (selectedNode.value?.key === node.key) {
-      selectedNode.value = null
-    }
-    await loadNodes()
-  } catch (error) {
-    const detail = (error as any)?.response?.data?.detail || (error as any)?.message
-    message.error(detail ? `强制删除失败: ${detail}` : '强制删除失败')
-  }
-}
 
 /** 取消正在运行的解析任务 */
 const handleCancelParseTask = async (node: SmartTreeNode) => {

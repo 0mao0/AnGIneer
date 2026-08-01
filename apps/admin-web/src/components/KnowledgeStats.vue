@@ -83,13 +83,15 @@
       v-model:open="stepsModalOpen"
       title="解析阶段"
       placement="right"
-      :width="520"
+      :width="640"
       :footer="null"
     >
       <DocStageStepper
         v-if="currentStepDocId"
         :stages="currentStages"
         @retry="onRetryStage"
+        @launch="onLaunchStage"
+        @cancel="onCancelRunning"
       />
       <a-empty v-else description="暂无解析阶段记录" />
     </a-drawer>
@@ -134,7 +136,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import dayjs from 'dayjs'
 import { message, Modal } from 'ant-design-vue'
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue'
@@ -168,6 +170,7 @@ const viewerGraphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
 const viewerRenderPdfPath = ref('')
 const stepsModalOpen = ref(false)
 const currentStepDocId = ref('')
+const currentStepTaskId = ref('')
 const currentStages = ref<any[]>([])
 
 const viewerParseButtonText = computed(() => {
@@ -284,8 +287,36 @@ async function restartTask(record: ParseRecordItem) {
 async function viewParseSteps(record: ParseRecordItem) {
   stepsModalOpen.value = true
   currentStepDocId.value = record.doc_id
+  currentStepTaskId.value = record.task_id || ''
   await loadDocStages(record.doc_id)
 }
+
+// 抽屉打开期间持续轮询阶段状态（1s），关闭才停止
+let stagesPollTimer: number | null = null
+
+function startStagesPolling() {
+  if (stagesPollTimer !== null) return
+  stagesPollTimer = window.setInterval(async () => {
+    if (!currentStepDocId.value) return
+    await loadDocStages(currentStepDocId.value)
+  }, 1000)
+}
+
+function stopStagesPolling() {
+  if (stagesPollTimer !== null) {
+    window.clearInterval(stagesPollTimer)
+    stagesPollTimer = null
+  }
+}
+
+watch(stepsModalOpen, (open) => {
+  if (open) startStagesPolling()
+  else stopStagesPolling()
+})
+
+onBeforeUnmount(() => {
+  stopStagesPolling()
+})
 
 async function loadDocStages(docId: string) {
   try {
@@ -306,10 +337,35 @@ async function onRetryStage(stageKey: string) {
   if (!currentStepDocId.value) return
   try {
     await knowledgeApi.retryDocStage(currentStepDocId.value, stageKey)
-    message.success(`阶段「${stageKey}」重试已提交`)
-    setTimeout(() => loadDocStages(currentStepDocId.value), 2000)
+    startStagesPolling()
+    await loadDocStages(currentStepDocId.value)
   } catch (e: any) {
     message.error(`重试失败: ${e?.response?.data?.detail || e?.message}`)
+  }
+}
+
+async function onLaunchStage(stageKey: string) {
+  if (!currentStepDocId.value) return
+  try {
+    await knowledgeApi.retryDocStage(currentStepDocId.value, stageKey)
+    startStagesPolling()
+    await loadDocStages(currentStepDocId.value)
+  } catch (e: any) {
+    message.error(`启动失败: ${e?.response?.data?.detail || e?.message}`)
+  }
+}
+
+async function onCancelRunning() {
+  if (!currentStepTaskId.value) {
+    message.warning('没有正在运行的任务')
+    return
+  }
+  try {
+    await knowledgeApi.cancelParseTask(currentStepTaskId.value)
+    message.success('已取消当前任务')
+    setTimeout(() => loadDocStages(currentStepDocId.value || ''), 1000)
+  } catch (e: any) {
+    message.error(`取消失败: ${e?.response?.data?.detail || e?.message}`)
   }
 }
 
@@ -399,15 +455,17 @@ async function hardDelete(recordId: number) {
 
 async function deleteRecord(record: ParseRecordItem) {
   Modal.confirm({
-    title: '确认永久删除',
-    content: `确定要永久删除「${record.file_name}」吗？此操作不可恢复。`,
-    okText: '永久删除',
+    title: '确认删除',
+    content: `确定要删除「${record.file_name}」吗？将删除节点、文件内容与解析记录，此操作不可恢复。`,
+    okText: '删除',
     okType: 'danger',
     cancelText: '取消',
     async onOk() {
       try {
+        // 真删除：先删节点（含文件系统内容），再永久删除记录
+        await knowledgeApi.deleteNode(record.doc_id)
         await knowledgeApi.hardDeleteRecord(record.id)
-        message.success('已永久删除')
+        message.success('已删除')
         await loadRecords()
       } catch (e: any) {
         message.error('删除失败: ' + (e?.response?.data?.detail || e?.message || e))
