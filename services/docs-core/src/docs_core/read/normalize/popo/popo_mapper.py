@@ -40,8 +40,8 @@ def clean_text(text: str) -> str:
     return re.sub(r"\s+", " ", (text or "")).strip()
 
 
-def _make_block_uid(popo_id: int) -> str:
-    return f"b{popo_id}"
+def _make_block_uid(popo_id: int, doc_id: str) -> str:
+    return f"{doc_id}:b{popo_id}"
 
 
 def po_po_blocks_to_canonical(
@@ -57,7 +57,7 @@ def po_po_blocks_to_canonical(
     id_map: Dict[str, str] = {}
     for pb in po_po_blocks:
         popo_id = str(pb["id"])
-        id_map[popo_id] = _make_block_uid(pb["id"])
+        id_map[popo_id] = _make_block_uid(pb["id"], doc_id)
 
     # Step 2: 从树中提取 section_path 映射
     section_map: Dict[str, str] = {}
@@ -134,27 +134,26 @@ def po_po_tree_to_outlines(
     def traverse(node: dict, parent_outline_id: Optional[str] = None, path_parts: Optional[List[str]] = None):
         path_parts = path_parts or []
         if node.get("type") == "root":
-            pass
-        else:
-            bid_list = node.get("block_ids", [])
-            anchor_id = id_map.get(str(bid_list[0])) if bid_list else str(uuid4())
-            title = node.get("title", "")
-            current_path = "/".join(path_parts + [title]) if title else "/".join(path_parts)
-            outline_id = f"outline-{anchor_id}"
-            outlines.append(CanonicalOutlineNode(
-                outline_id=outline_id,
-                doc_id=doc_id,
-                level=node.get("level", 1),
-                title=title,
-                section_path=current_path,
-                page_idx=node.get("location", [{}])[0].get("page", 1) - 1 if node.get("location") else 0,
-                anchor_block_id=anchor_id,
-                parent_outline_id=parent_outline_id,
-            ))
             for child in node.get("children", []):
-                traverse(child, outline_id, path_parts + ([title] if title else []))
+                traverse(child, parent_outline_id, path_parts)
+            return
+        bid_list = node.get("block_ids", [])
+        anchor_id = id_map.get(str(bid_list[0])) if bid_list else str(uuid4())
+        title = node.get("title", "")
+        current_path = "/".join(path_parts + [title]) if title else "/".join(path_parts)
+        outline_id = f"outline-{anchor_id}"
+        outlines.append(CanonicalOutlineNode(
+            outline_id=outline_id,
+            doc_id=doc_id,
+            level=node.get("level", 1),
+            title=title,
+            section_path=current_path,
+            page_idx=node.get("location", [{}])[0].get("page", 1) - 1 if node.get("location") else 0,
+            anchor_block_id=anchor_id,
+            parent_outline_id=parent_outline_id,
+        ))
         for child in node.get("children", []):
-            traverse(child, parent_outline_id, path_parts)
+            traverse(child, outline_id, path_parts + ([title] if title else []))
 
     traverse(tree)
     return outlines

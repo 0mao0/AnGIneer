@@ -25,7 +25,12 @@ class PoPoPipelineRunner:
             if env_path and Path(env_path).exists():
                 self.popo_repo_path = Path(env_path)
             else:
-                self.popo_repo_path = Path(__file__).resolve().parent.parent.parent.parent / "popo"
+                src_root = Path(__file__).resolve().parent.parent.parent.parent.parent
+                candidates = [
+                    src_root / "popo",
+                    src_root / "docs_core" / "popo",
+                ]
+                self.popo_repo_path = next((c for c in candidates if c.exists()), candidates[0])
 
     def _popo_script(self, relative_path: str) -> Path:
         return self.popo_repo_path / relative_path
@@ -138,7 +143,7 @@ class PoPoPipelineRunner:
                 pdf_candidates.append(Path(source_pdf_path))
             parsed_parent = mineru_raw.parent  # parsed_dir
             pdf_candidates.append(parsed_parent / "mineru_render.pdf")
-            for base_dir in [parsed_parent, mineru_raw]:
+            for base_dir in [parsed_parent, mineru_raw, parsed_parent.parent / "source"]:
                 try:
                     pdf_candidates.extend(sorted(base_dir.rglob("*.pdf")))
                 except OSError:

@@ -170,27 +170,31 @@ def build_document_segments(
 
 
 def build_base_rows(blocks: List[CanonicalBlock]) -> List[Dict[str, Any]]:
-    """从 PoPo blocks 构建 base_rows 兼容投影。"""
+    """从 PoPo blocks 构建 base_rows 兼容投影（doc_blocks 表 schema）。"""
+    now = datetime.now().isoformat()
     rows = []
     for block in blocks:
-        bbox_array = (
+        bbox = (
             [block.bbox.x0, block.bbox.y0, block.bbox.x1, block.bbox.y1]
-            if block.bbox else None
+            if block.bbox else [0.0, 0.0, 0.0, 0.0]
         )
         rows.append({
-            "block_uid": block.block_id,
+            "doc_id": block.doc_id,
+            "doc_name": block.doc_id,
             "page_idx": block.page_idx,
-            "page_seq": block.reading_order,
+            "page_width": 0.0,
+            "page_height": 0.0,
+            "block_seq": block.reading_order,
+            "block_uid": block.block_id,
             "block_type": block.block_type,
-            "bbox": bbox_array,
-            "bbox_norm_x1": block.bbox.x0 if block.bbox else None,
-            "bbox_norm_y1": block.bbox.y0 if block.bbox else None,
-            "bbox_norm_x2": block.bbox.x1 if block.bbox else None,
-            "bbox_norm_y2": block.bbox.y1 if block.bbox else None,
-            "plain_text": block.text,
             "content_json": {},
-            "caption_block_uid": None,
-            "footnote_block_uid": None,
+            "plain_text": block.text,
+            "bbox_abs_x1": bbox[0],
+            "bbox_abs_y1": bbox[1],
+            "bbox_abs_x2": bbox[2],
+            "bbox_abs_y2": bbox[3],
+            "created_at": now,
+            "updated_at": now,
         })
     return rows
 
