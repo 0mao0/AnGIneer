@@ -239,7 +239,9 @@
           <div class="pdf-loading-text">文档转换中，请耐心等待...</div>
         </div>
         <div v-else class="office-frame-wrap">
+          <OfficePreview v-if="isLocalOffice" :file-url="fileUrl" class="office-viewer" />
           <iframe
+            v-else
             :src="officePreviewUrl"
             class="office-viewer"
             frameborder="0"
@@ -298,8 +300,9 @@ import type { Ref, ComputedRef } from 'vue'
 import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons-vue'
 import { Button, Tag, Spin, Progress, InputNumber, Input, Empty } from 'ant-design-vue'
 import * as pdfjsLib from 'pdfjs-dist'
-// Vite标准worker导入方式，确保生产构建路径正�?
+// Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
+import OfficePreview from './OfficePreview.vue'
 
 export interface PDFViewerNode {
   status?: string
@@ -1375,6 +1378,13 @@ const displayPdfPageCount = scroll.displayPdfPageCount
 const isFitToWindowMode = zoom.isFitToWindowMode
 const useNativePdfPreview = doc.useNativePdfPreview
 const virtualContentHeight = scroll.virtualContentHeight
+// docx/xlsx/xls 用本地轻量组件渲染；ppt/pptx 等保留微软在线预览兜底
+const isLocalOffice = computed(() => {
+  const m = props.fileUrl.match(/path=([^&#]*)/)
+  const decoded = m ? decodeURIComponent(m[1]) : props.fileUrl
+  const ext = (decoded.split('.').pop() || '').toLowerCase()
+  return ['docx', 'xls', 'xlsx'].includes(ext)
+})
 const minPdfScale = MIN_SCALE
 const maxPdfScale = MAX_SCALE
 const pdfScale = zoom.pdfScale
@@ -1403,14 +1413,14 @@ const showNonPdfLoading = computed(() => {
 
 const PARSE_STAGE_LABELS: Record<string, string> = {
   source_prep: '源文件准备', convert: '格式转换', raw_parse: 'MinerU 解析',
-  build_blocks: '区块提取', popo: 'PoPo 增强', structure: 'Solo 入库',
+  popo: 'PoPo 强化', structure: 'Solo 强化',
   fts: '全文索引', vectors: '向量索引', graph: '知识图谱',
-  preparing: '准备文件', converting: '格式转换', popo_normalize: 'PoPo 增强',
+  preparing: '准备文件', converting: '格式转换', popo_normalize: 'PoPo 强化',
   indexing: '构建索引', completed: '解析完成',
   queued: '排队中', processing: '解析中', pending: '等待中',
   failed: '解析失败', cancelled: '已取消', cancel: '已取消',
 }
-const PARSE_STAGE_KEYS = ['source_prep', 'convert', 'raw_parse', 'build_blocks', 'popo', 'structure', 'fts', 'vectors', 'graph']
+const PARSE_STAGE_KEYS = ['source_prep', 'convert', 'raw_parse', 'popo', 'structure', 'fts', 'vectors', 'graph']
 
 const parseProgressLabel = computed(() => {
   const stage = String(props.node.parseStage || '').toLowerCase()
