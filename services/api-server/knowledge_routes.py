@@ -3,7 +3,6 @@ import logging
 import mimetypes
 import os
 import shutil
-import tempfile
 import threading
 import traceback
 import uuid
@@ -17,8 +16,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from docs_core.knowledge_service import get_knowledge_service, KnowledgeNode
-from docs_core.read.extract.mineru_parser import mineru_parser, MinerUParser
-from docs_core.read.convert.pdf_converter import convert_to_pdf
+from docs_core.read.extract.mineru_parser import MinerUParser
 from docs_core.write.store.assets_file_store import (
     build_structured_index_for_doc,
     get_doc_blocks_graph,
@@ -265,15 +263,24 @@ class ParseOrchestrator:
         parse_options: Dict[str, Any],
     ) -> None:
         """在后台执行文档解析：驱动阶段化管线并同步总体状态。"""
-        from parse_pipeline import StageContext, derive_overall_status, run_pipeline
+        from parse_pipeline import StageContext, derive_overall_status, run_pipeline, ParseTaskCancelledError
 
         ks = get_knowledge_service()
         meta_store = ks.meta_store
-        meta_store.clear_parse_stages(doc_id)
+        stage_filter = parse_options.get("stages", "all")
+        # 单阶段启动的输入提示：源文件路径（convert/raw_parse 的输入 = 上一步 source_prep 的内容）
+        node = ks.get_node(doc_id)
+        input_hint = node.file_path if node else None
+        # 全量解析清空全部阶段；单阶段启动只重置目标阶段，保留其他阶段状态
+        if stage_filter == "all":
+            meta_store.clear_parse_stages(doc_id)
+        else:
+            for s in (stage_filter if isinstance(stage_filter, list) else [stage_filter]):
+                meta_store.upsert_parse_stage(doc_id, s, status="pending", message="", error="",
+                                              input_summary=input_hint or "")
         ctx = StageContext(
             task_id=task_id, library_id=library_id, doc_id=doc_id,
             file_path=file_path, parse_options=parse_options,
-            temp_output_dir=tempfile.mkdtemp(prefix=f"parse-{doc_id}-"),
             task_parser=self._parsers.get(task_id),
         )
 
@@ -284,12 +291,23 @@ class ParseOrchestrator:
 
         try:
             results = run_pipeline(
-                ctx, parse_options.get("stages", "all"),
+                ctx, stage_filter,
                 meta_store=meta_store,
                 on_stage_update=_on_stage_update,
                 raise_if_cancelled=lambda: self._raise_if_cancel_requested(task_id),
             )
-            overall = derive_overall_status(results)
+            # 单阶段启动：最终状态由本次实际运行的阶段决定，避免误判 processing
+            if stage_filter == "all":
+                overall = derive_overall_status(results)
+            else:
+                keys = stage_filter if isinstance(stage_filter, list) else [stage_filter]
+                statuses = [results.get(k) for k in keys]
+                if any(s == "failed" for s in statuses):
+                    overall = "failed"
+                elif all(s in ("completed", "skipped") for s in statuses):
+                    overall = "completed"
+                else:
+                    overall = "processing"
             ks.update_parse_task(task_id, status=overall, progress=100, stage=overall,
                                  stage_message=f"解析结束: {overall}")
             parse_error = ""
@@ -362,9 +380,6 @@ class ParseOrchestrator:
             parser = self._parsers.pop(task_id, None)
             if parser:
                 parser.cancel()
-            for d in getattr(ctx, "temp_dirs", []) or []:
-                shutil.rmtree(d, ignore_errors=True)
-            shutil.rmtree(ctx.temp_output_dir, ignore_errors=True)
 
     def _update_progress(
         self,
@@ -396,14 +411,9 @@ class ParseOrchestrator:
         )
 
     def _raise_if_cancel_requested(self, task_id: str) -> None:
-        """在阶段边界检查用户是否请求取消任务。"""
-        ks = get_knowledge_service()
-        if ks.is_parse_task_cancel_requested(task_id):
+        """在阶段边界/阶段内部取消点检查用户是否请求取消任务（内存标志，无数据库竞态）。"""
+        if task_id in self._cancelled:
             raise ParseTaskCancelledError("用户手动取消任务")
-
-
-class ParseTaskCancelledError(RuntimeError):
-    """解析任务被取消。"""
 
 
 parse_orchestrator = ParseOrchestrator()
@@ -639,6 +649,23 @@ def delete_knowledge_node(node_id: str):
     return {"status": "success"}
 
 
+@knowledge_router.delete("/nodes/{node_id}/soft-delete")
+def soft_delete_knowledge_node(node_id: str):
+    """软删除：标记节点（含子树）为已删除并从树视图隐藏，节点与文件系统内容保持不变。"""
+    ks = get_knowledge_service()
+    success = ks.soft_delete_node(node_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Node not found")
+    try:
+        soft_delete_record(node_id)
+    except Exception as e:
+        logger.error(f"软删除节点 {node_id} 记录失败: {e}")
+    return {
+        "status": "success",
+        "message": "已标记删除（数据保留，可在列表模式恢复或永久删除）",
+    }
+
+
 @knowledge_router.delete("/nodes/{node_id}/force")
 def force_delete_knowledge_node(node_id: str):
     """强制删除知识库节点（跳过预览，用于处理异常状态节点）。"""
@@ -731,10 +758,23 @@ def admin_hard_delete_record(record_id: int):
 
 @knowledge_router.put("/records/{record_id}/restore")
 def restore_deleted_record(record_id: int):
-    """将已删除的解析记录恢复到待解析状态。"""
+    """将已删除的解析记录恢复到待解析状态，并恢复对应节点的树显示。"""
     success = restore_record(record_id)
     if not success:
         raise HTTPException(status_code=404, detail="记录不存在或未被删除")
+    # 恢复节点软删除标记（若节点仍存在）
+    try:
+        rec = None
+        for r in list_records(limit=5000):
+            if r.get("id") == record_id:
+                rec = r
+                break
+        if rec and rec.get("doc_id"):
+            ks = get_knowledge_service()
+            if ks.get_node(rec["doc_id"]):
+                ks.restore_soft_deleted_node(rec["doc_id"])
+    except Exception as e:
+        logger.error(f"恢复记录 {record_id} 时恢复节点失败: {e}")
     return {"status": "success", "message": "已恢复"}
 
 
@@ -1120,25 +1160,6 @@ async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
     )
 
 
-@knowledge_router.get("/parse/{task_id}", include_in_schema=False)
-async def get_parse_status(task_id: str) -> Dict[str, Any]:
-    """查询解析任务状态。"""
-    task = parse_orchestrator.get_parse_task(task_id)
-    if not task:
-        raise HTTPException(status_code=404, detail="Task not found")
-    return task
-
-
-@knowledge_router.post("/parse/structured-index")
-async def build_structured_index_legacy(request: KnowledgeStructuredIndexRequest) -> Dict[str, Any]:
-    """手动重建指定文档的策略投影。"""
-    try:
-        result = build_projection_for_doc(request.library_id, request.doc_id, request.strategy or "doc_blocks_graph_v1")
-        return {"status": "success", "data": result}
-    except Exception as error:
-        raise HTTPException(status_code=500, detail=str(error))
-
-
 @knowledge_router.post("/parse/doc-blocks-graph")
 async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str, Any]:
     """获取文档的块图谱视图。"""
@@ -1233,11 +1254,51 @@ def get_file_for_preview(path: str):
 
 @knowledge_router.get("/documents/{doc_id}/stages")
 def get_document_stages(doc_id: str):
+    from parse_pipeline import _PIPELINE_ORDER
+
     ks = get_knowledge_service()
     node = ks.get_node(doc_id)
     if not node:
         raise HTTPException(status_code=404, detail=f"文档不存在: {doc_id}")
-    return {"doc_id": doc_id, "stages": ks.meta_store.list_parse_stages(doc_id)}
+    existing = {s["stage"]: s for s in ks.meta_store.list_parse_stages(doc_id)}
+    rows = []
+    for key in _PIPELINE_ORDER:
+        stage = existing.get(key)
+        if stage is None:
+            # 从未启动的阶段：补 pending 记录，输入提示按各阶段输入规则生成
+            rows.append({
+                "doc_id": doc_id, "stage": key, "status": "pending", "message": "",
+                "error": "", "started_at": "", "finished_at": "", "updated_at": "",
+                "input_summary": _stage_input_hint(key, node), "output_summary": "",
+            })
+        else:
+            rows.append(stage)
+    return {"doc_id": doc_id, "stages": rows}
+
+
+def _stage_input_hint(stage_key: str, node) -> str:
+    from docs_core.write.store.assets_file_store import file_storage
+
+    if stage_key == "raw_parse":
+        # MinerU 输入是 PDF（convert 产出或上传即 PDF），优先取 source_dir 内最新的 pdf
+        source_dir = file_storage.get_source_dir(node.library_id, node.id)
+        if source_dir.exists():
+            pdf_files = sorted(
+                [p for p in source_dir.iterdir() if p.suffix.lower() == '.pdf' and p.is_file()],
+                key=lambda p: p.stat().st_mtime, reverse=True,
+            )
+            if pdf_files:
+                return str(pdf_files[0])
+        return ""
+    if stage_key in ("source_prep", "convert"):
+        return node.file_path or ""
+    if stage_key in ("popo", "structure"):
+        return str(file_storage.get_mineru_raw_dir(node.library_id, node.id))
+    if stage_key in ("fts", "vectors"):
+        return node.id
+    if stage_key == "graph":
+        return str(file_storage.get_parsed_dir(node.library_id, node.id) / "doc_blocks_graph.json")
+    return ""
 
 
 @knowledge_router.post("/documents/{doc_id}/stages/{stage_key}/retry")
@@ -1308,12 +1369,9 @@ __all__ = [
     "build_projection_for_doc",
     "build_structured_index",
     "create_parse_task",
-    "query_knowledge",
-    "retrieve_knowledge",
     "get_doc_blocks_graph_view",
     "get_doc_blocks_graph_summary",
     "get_file_for_preview",
-    "get_parse_status",
     "knowledge_router",
     "parse_orchestrator",
     "preview_router",

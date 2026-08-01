@@ -5,7 +5,6 @@
 - hard 阶段失败 → 终止后续阶段；soft 阶段失败 → 仅标记自身 failed，继续后续；
 - 阶段状态通过 meta_store.upsert_parse_stage 持久化（doc_parse_stages 表）。
 """
-import json
 import logging
 import os
 import shutil
@@ -24,6 +23,10 @@ STAGE_KIND_HARD = "hard"
 STAGE_KIND_SOFT = "soft"
 
 
+class ParseTaskCancelledError(RuntimeError):
+    """任务被用户取消（阶段内部取消点抛出，向上传播至任务线程）。"""
+
+
 @dataclass
 class StageContext:
     """跨阶段共享的上下文。"""
@@ -39,7 +42,9 @@ class StageContext:
     task_parser: Any = None
     input_summary: str = ""
     output_summary: str = ""
-    temp_dirs: List[str] = field(default_factory=list)
+    meta_store: Any = None
+    stage_started_at: Optional[str] = None
+    cancel_check: Optional[Callable[[], None]] = None
 
 
 @dataclass
@@ -49,16 +54,69 @@ class StageDef:
     kind: str
     depends_on: List[str]
     run: Callable[["StageContext"], str]
+    verify: Optional[Callable[["StageContext"], str]] = None
+
+
+# ---- 阶段输入核查（启动前先核查输入，通过后通知前端「核查通过」再运行） ----
+
+def _verify_source_file(ctx: StageContext) -> str:
+    if not Path(ctx.file_path).is_file():
+        raise RuntimeError(f"源文件不存在: {ctx.file_path}")
+    ctx.input_summary = ctx.file_path
+    return "核查通过"
+
+
+def _verify_convert_input(ctx: StageContext) -> str:
+    from docs_core.read.convert.pdf_converter import prepare_source
+
+    if not ctx.source_path:
+        ctx.source_path = prepare_source(ctx.library_id, ctx.doc_id, ctx.file_path)
+    if not Path(ctx.source_path).is_file():
+        raise RuntimeError(f"源文件不存在: {ctx.source_path}")
+    ctx.input_summary = ctx.source_path
+    return "核查通过"
+
+
+def _verify_raw_parse_input(ctx: StageContext) -> str:
+    """MinerU 输入必须是 PDF（convert 转换后或上传即 PDF）。"""
+    from docs_core.read.convert.pdf_converter import resolve_pdf_input
+
+    ctx.source_path = resolve_pdf_input(ctx.library_id, ctx.doc_id)
+    if not Path(ctx.source_path).is_file():
+        raise RuntimeError(f"PDF 输入文件不存在: {ctx.source_path}")
+    ctx.input_summary = ctx.source_path
+    return "核查通过"
+
+
+def _verify_mineru_raw_input(ctx: StageContext) -> str:
+    from docs_core.write.store.assets_file_store import file_storage
+
+    mineru_raw_dir = file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
+    if not mineru_raw_dir.exists():
+        raise RuntimeError(f"输入目录不存在: {mineru_raw_dir}")
+    ctx.input_summary = str(mineru_raw_dir)
+    return "核查通过"
+
+
+def _verify_doc_blocks_graph_input(ctx: StageContext) -> str:
+    from docs_core.write.store.assets_file_store import file_storage
+
+    # 结构产物以 jsonl+meta 为主（Solo/PoPo 均产出），legacy 单文件兜底
+    graph_path = file_storage.get_graph_jsonl_path(ctx.library_id, ctx.doc_id)
+    if not graph_path.exists():
+        graph_path = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "doc_blocks_graph.json"
+    if not graph_path.exists():
+        raise RuntimeError(f"输入文件不存在: {graph_path}")
+    ctx.input_summary = str(graph_path)
+    return "核查通过"
 
 
 # ---- 阶段执行函数 ----
 
 def _run_source_prep(ctx: StageContext) -> str:
-    from docs_core.write.store.assets_file_store import file_storage
+    from docs_core.read.convert.pdf_converter import prepare_source
 
-    source_path = file_storage.ensure_doc_source_file(ctx.library_id, ctx.doc_id, file_path=ctx.file_path)
-    if not source_path:
-        raise RuntimeError("源文件不存在或无法复制到规范目录")
+    source_path = prepare_source(ctx.library_id, ctx.doc_id, ctx.file_path)
     ctx.input_summary = ctx.file_path
     ctx.output_summary = source_path
     ctx.source_path = source_path
@@ -67,105 +125,51 @@ def _run_source_prep(ctx: StageContext) -> str:
 
 
 def _run_convert(ctx: StageContext) -> str:
-    if ctx.ext == ".pdf":
+    # 输入核查已由 _verify_convert_input 完成（prepare_source 兜底解析源文件路径 + 存在性检查）
+    ext = Path(ctx.source_path).suffix.lower()
+    if ext == ".pdf":
         return "__skipped__:PDF 输入，无需转换"
 
     from docs_core.read.convert.pdf_converter import convert_to_pdf
-    from docs_core.write.store.assets_file_store import file_storage
 
-    lo_dir = tempfile.mkdtemp(prefix=f"lo-{ctx.doc_id}-")
-    ctx.temp_dirs.append(lo_dir)
-    source_path = convert_to_pdf(ctx.source_path, lo_dir)
-    parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
-    parsed_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(str(source_path), str(parsed_dir / "mineru_render.pdf"))
+    # 转换输出直接落在源文件目录（与上传的 docx 同目录），地址稳定且与上传位置一致
+    source_dir = Path(ctx.source_path).parent
+    source_dir.mkdir(parents=True, exist_ok=True)
+    # 转换期间可取消：cancel_check 由任务线程注入，取消时终止 soffice 子进程
+    pdf_path = convert_to_pdf(ctx.source_path, str(source_dir), cancel_check=ctx.cancel_check)
     ctx.input_summary = ctx.source_path
-    ctx.output_summary = str(source_path)
-    ctx.source_path = source_path
-    return f"LO 转换完成: {Path(source_path).name}"
+    ctx.output_summary = pdf_path
+    ctx.source_path = pdf_path
+    return "LibreOffice转换"
 
 
 def _run_raw_parse(ctx: StageContext) -> str:
-    from docs_core.write.store.assets_file_store import file_storage
-
+    # 输入核查已由 _verify_raw_parse_input 完成（resolve_pdf_input 取 source 目录最新 PDF）
     task_parser = ctx.task_parser
     if task_parser is None:
         raise RuntimeError("解析器不可用（任务已取消）")
 
-    parse_result = task_parser.parse_to_raw_artifacts(input_path=ctx.source_path, output_dir=ctx.temp_output_dir)
-    if not parse_result.get("success"):
-        raise RuntimeError(parse_result.get("error") or "MinerU 解析失败")
-
-    markdown_path = parse_result.get("md_file")
-    if markdown_path:
-        with open(markdown_path, "r", encoding="utf-8") as handle:
-            file_storage.save_markdown(ctx.library_id, ctx.doc_id, handle.read())
-    file_storage.save_parse_artifacts(ctx.library_id, ctx.doc_id, ctx.temp_output_dir)
-
-    pdf_path = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "mineru_render.pdf"
-    if not pdf_path.exists() and ctx.source_path and Path(ctx.source_path).exists():
-        shutil.copy2(str(ctx.source_path), str(pdf_path))
-
-    parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
-    assets_dir = parsed_dir / "assets"
-    has_assets = assets_dir.exists() and any(assets_dir.iterdir())
-    ctx.input_summary = ctx.source_path
-    ctx.output_summary = f"{parsed_dir / 'content.md'} + {parsed_dir / 'mineru_raw/'}" + (f" + {parsed_dir / 'assets/'}" if has_assets else "")
-    return f"MinerU 解析完成{'' if has_assets else '（无图片资源）'}"
-
-
-def _run_build_blocks(ctx: StageContext) -> str:
-    from docs_core.read.normalize.solo.structure_builder import build_structured_from_rawfiles
-    from docs_core.write.store.assets_file_store import file_storage, _save_doc_blocks_graph
-
-    parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
-    raw_dir = file_storage.resolve_canonical_raw_dir(ctx.library_id, ctx.doc_id)
-    from docs_core.write.store.assets_file_store import resolve_structured_input_dir
-    resolve_structured_input_dir(raw_dir)
-
-    logger.info("build_blocks: parsed_dir=%s, raw_dir=%s", parsed_dir, raw_dir)
-    # list mineru_raw contents for debugging
-    raw_files = []
     try:
-        raw_files = [f.name for f in raw_dir.iterdir()] if raw_dir.exists() else []
-    except Exception:
-        pass
-    logger.info("build_blocks: raw_dir files: %s", raw_files)
+        # 解析器自建临时目录并负责落盘（save_markdown + save_parse_artifacts）
+        parse_result = task_parser.parse_to_raw_artifacts(
+            input_path=ctx.source_path,
+            library_id=ctx.library_id,
+            doc_id=ctx.doc_id,
+        )
+    except Exception as exc:
+        # MinerU 解析被取消（_abort_event 已设置）：转成取消异常，向上传播为 cancelled
+        if getattr(task_parser, "_abort_event", None) is not None and task_parser._abort_event.is_set():
+            raise ParseTaskCancelledError("用户手动取消任务") from exc
+        raise
+    if not parse_result.get("success"):
+        raise RuntimeError(parse_result.get("error") or "MinerU解析失败")
 
-    use_llm = bool(ctx.parse_options.get("use_llm", True))
-    llm_model = str(ctx.parse_options.get("llm_model") or "").strip() or None
-    llm_client = None
-    if use_llm:
-        try:
-            from ai_inference.llm_client import llm_client
-        except ImportError:
-            pass
-
-    doc_info = file_storage.get_doc_manifest(ctx.library_id, ctx.doc_id)
-    doc_name = ""
-    if doc_info.get("source_file"):
-        doc_name = Path(doc_info["source_file"]).name
-
-    result = build_structured_from_rawfiles(
-        parsed_dir=parsed_dir,
-        doc_id=ctx.doc_id,
-        doc_name=doc_name,
-        llm_client=llm_client,
-        options={"use_llm": use_llm, "llm_model": llm_model, "derive_version": "v1"},
-    )
-
-    if result.stats.get("error"):
-        raise ValueError(f"构建结构失败: {result.stats.get('error')}")
-
-    bbox_count = sum(1 for n in result.nodes if n.get("bbox"))
-    logger.info("build_blocks: %d nodes, %d with bbox", len(result.nodes), bbox_count)
-    if bbox_count == 0 and result.nodes:
-        logger.warning("build_blocks: no nodes have bbox data, highlights will not work")
-
-    _save_doc_blocks_graph(ctx.library_id, ctx.doc_id, result)
-    ctx.input_summary = f"{parsed_dir / 'mineru_raw/'}"
-    ctx.output_summary = f"{file_storage.get_graph_jsonl_path(ctx.library_id, ctx.doc_id)} + {file_storage.get_graph_meta_path(ctx.library_id, ctx.doc_id)}"
-    return f"区块提取完成，{len(result.nodes)} nodes"
+    persisted = parse_result.get("persisted") or {}
+    ctx.input_summary = ctx.source_path
+    ctx.output_summary = persisted.get("output_summary") or ""
+    has_images = bool(persisted.get("has_images"))
+    backend = getattr(ctx.task_parser, "backend", None) or os.environ.get("MINERU_BACKEND", "hybrid-engine")
+    return f"MinerU解析完成||{backend}||{'' if has_images else '（无图片资源）'}"
 
 
 def _run_popo(ctx: StageContext) -> str:
@@ -187,7 +191,13 @@ def _run_popo(ctx: StageContext) -> str:
 
     popo_output_dir = str(file_storage.get_popo_dir(ctx.library_id, ctx.doc_id))
     pipeline = get_popo_pipeline()
-    source_pdf = str(file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "mineru_render.pdf")
+    # PDF 源在 source 目录（转换后的 PDF 或上传的 PDF），重试/resume 时 ctx.source_path 可能为空，兜底解析
+    source_pdf = str(ctx.source_path or "")
+    if not source_pdf:
+        source_dir = file_storage.get_source_dir(ctx.library_id, ctx.doc_id)
+        pdfs = sorted(source_dir.glob("*.pdf"))
+        if pdfs:
+            source_pdf = str(pdfs[-1])
     try:
         pipeline.run_full_pipeline(
             mineru_raw_dir=str(mineru_raw_dir),
@@ -242,8 +252,7 @@ def _run_popo(ctx: StageContext) -> str:
         db_path=resolve_knowledge_index_db_path(), schema_version="1.0.0",
     )
     index_store.clear_doc_blocks(ctx.doc_id)
-    for row in projection["base_rows"]:
-        index_store.insert_doc_block_row(row)
+    index_store.insert_doc_blocks_base_rows(projection["base_rows"])
 
     ctx.popo_ran = True
     ctx.input_summary = str(mineru_raw_dir)
@@ -277,7 +286,6 @@ def _run_structure(ctx: StageContext) -> str:
 
 def _run_fts(ctx: StageContext) -> str:
     from docs_core.knowledge_service import get_knowledge_service
-    from docs_core.write.store.assets_file_store import file_storage
 
     ks = get_knowledge_service()
     ks.canonical_store.rebuild_chunk_fts(ctx.doc_id)
@@ -319,49 +327,19 @@ def _run_graph(ctx: StageContext) -> str:
     return f"图谱完成，{entities} 实体，{relations} 关系"
 
 
-def _run_sop(ctx: StageContext) -> str:
-    from docs_core.write.graph.config import EntityLayer
-
-    try:
-        from sop_routes import _get_kg_store
-    except ImportError:
-        return "__skipped__:SOP 模块不可用"
-
-    store = _get_kg_store()
-    doc_entities = store.list_entities_by_doc(ctx.library_id, ctx.doc_id)
-    if not doc_entities:
-        return "__skipped__:该文档尚无图谱数据"
-
-    frameworks = store.get_frameworks_by_doc(ctx.library_id, ctx.doc_id)
-    action_entities = [e for e in doc_entities if e.layer == EntityLayer.ACTION]
-    if not frameworks and not action_entities:
-        return "__skipped__:图谱无 framework 或 action 实体"
-
-    from sop_core.sop_path_generator import SopPathGenerator
-
-    generator = SopPathGenerator(store=store)
-    result = generator.generate_sops_from_doc(ctx.library_id, ctx.doc_id, store)
-    ctx.input_summary = f"{ctx.library_id}/{ctx.doc_id} (图谱数据)"
-    ctx.output_summary = "SOP JSON 文件 (sops/*.json)"
-    sop_count = len(result.get("sops", [])) if isinstance(result, dict) else 1
-    return f"SOP 生成完成，{sop_count} 个流程"
-
-
 STAGE_REGISTRY: Dict[str, StageDef] = {s.key: s for s in [
-    StageDef("source_prep", "源文件准备", STAGE_KIND_HARD, [], _run_source_prep),
-    StageDef("convert", "格式转换", STAGE_KIND_HARD, ["source_prep"], _run_convert),
-    StageDef("raw_parse", "MinerU 解析", STAGE_KIND_HARD, ["convert"], _run_raw_parse),
-    StageDef("build_blocks", "区块提取", STAGE_KIND_HARD, ["raw_parse"], _run_build_blocks),
-    StageDef("popo", "PoPo 增强", STAGE_KIND_SOFT, ["build_blocks"], _run_popo),
-    StageDef("structure", "Solo 结构化入库", STAGE_KIND_HARD, ["build_blocks"], _run_structure),
-    StageDef("fts", "全文索引", STAGE_KIND_HARD, ["structure"], _run_fts),
-    StageDef("vectors", "向量索引", STAGE_KIND_SOFT, ["structure"], _run_vectors),
-    StageDef("graph", "知识图谱", STAGE_KIND_SOFT, ["structure"], _run_graph),
-    StageDef("sop", "SOP 生成", STAGE_KIND_SOFT, ["graph"], _run_sop),
+    StageDef("source_prep", "源文件准备", STAGE_KIND_HARD, [], _run_source_prep, _verify_source_file),
+    StageDef("convert", "格式转换", STAGE_KIND_HARD, ["source_prep"], _run_convert, _verify_convert_input),
+    StageDef("raw_parse", "MinerU解析", STAGE_KIND_HARD, ["convert"], _run_raw_parse, _verify_raw_parse_input),
+    StageDef("popo", "PoPo 强化", STAGE_KIND_SOFT, ["raw_parse"], _run_popo, _verify_mineru_raw_input),
+    StageDef("structure", "Solo 强化", STAGE_KIND_HARD, ["raw_parse"], _run_structure, _verify_mineru_raw_input),
+    StageDef("fts", "全文索引", STAGE_KIND_HARD, ["structure"], _run_fts, _verify_doc_blocks_graph_input),
+    StageDef("vectors", "向量索引", STAGE_KIND_SOFT, ["structure"], _run_vectors, _verify_doc_blocks_graph_input),
+    StageDef("graph", "知识图谱", STAGE_KIND_SOFT, ["structure"], _run_graph, _verify_doc_blocks_graph_input),
 ]}
 
 _PIPELINE_ORDER = [
-    "source_prep", "convert", "raw_parse", "build_blocks", "popo", "structure", "fts", "vectors", "graph", "sop",
+    "source_prep", "convert", "raw_parse", "popo", "structure", "fts", "vectors", "graph",
 ]
 
 
@@ -390,9 +368,14 @@ def derive_overall_status(stage_status: Dict[str, str]) -> str:
     )
     if hard_failed:
         return "failed"
+    # 被兜底的失败不计入 partial：PoPo 失败但 Solo 成功 → 结构强化已完成
+    effective = dict(stage_status)
+    if effective.get("popo") == "failed" and effective.get("structure") == "completed":
+        effective["popo"] = "completed"
+    values = list(effective.values())
     if any(v == "failed" for v in values):
         return "partial"
-    if all(stage_status.get(key) in ("completed", "skipped") for key in STAGE_REGISTRY):
+    if all(effective.get(key) in ("completed", "skipped") for key in STAGE_REGISTRY):
         return "completed"
     return "processing"
 
@@ -422,7 +405,17 @@ def run_pipeline(
         t0 = time.time()
         ctx.input_summary = ""
         ctx.output_summary = ""
+        ctx.meta_store = meta_store
+        ctx.stage_started_at = started
+        ctx.cancel_check = raise_if_cancelled
         try:
+            # 启动前先核查输入：通过则先通知前端「核查通过」，再驱动本阶段运行
+            if stage.verify is not None:
+                stage.verify(ctx)
+                meta_store.upsert_parse_stage(
+                    ctx.doc_id, key, status="running", message="核查通过",
+                    input_summary=ctx.input_summary, started_at=started,
+                )
             message = stage.run(ctx) or "完成"
             if str(message).startswith("__skipped__"):
                 results[key] = "skipped"
@@ -436,10 +429,13 @@ def run_pipeline(
             results[key] = "completed"
             meta_store.upsert_parse_stage(
                 ctx.doc_id, key, status="completed",
-                message=f"{message}（{round(time.time() - t0, 1)}s）",
+                message=f"{message}，耗时{round(time.time() - t0, 1)}s",
                 started_at=started, finished_at=datetime.now().isoformat(),
                 input_summary=ctx.input_summary, output_summary=ctx.output_summary,
             )
+        except ParseTaskCancelledError:
+            # 用户取消：不做 failed 标记，直接向上传播至任务线程
+            raise
         except Exception as exc:
             results[key] = "failed"
             error_message = f"{type(exc).__name__}: {exc}"

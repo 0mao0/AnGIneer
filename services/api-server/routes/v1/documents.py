@@ -50,8 +50,6 @@ async def parse_document_v1(
         library_id, doc_id, content, file.filename,
     )
 
-    output_dir = tempfile.mkdtemp(prefix=f"parse-{doc_id}-")
-
     # 提取 API key 信息用于统计
     api_key_info = getattr(request.state, "api_key_info", None)
     uploaded_by = api_key_info.user_name if api_key_info else "未知"
@@ -93,10 +91,12 @@ async def parse_document_v1(
                 lo_dir = tempfile.mkdtemp(prefix=f"lo-{doc_id}-")
                 lo_pdf = convert_to_pdf(source_path, lo_dir)
 
-                parsed_dir = file_storage.get_parsed_dir(library_id, doc_id)
-                parsed_dir.mkdir(parents=True, exist_ok=True)
-                render_pdf = parsed_dir / "mineru_render.pdf"
-                shutil.copy2(lo_pdf, str(render_pdf))
+                # LO 转换 PDF 落 source 目录（与上传文件同目录），前端渲染底图直接引用，无需 parsed 副本
+                source_dir = file_storage.get_source_dir(library_id, doc_id)
+                source_dir.mkdir(parents=True, exist_ok=True)
+                lo_pdf_in_source = source_dir / Path(lo_pdf).name
+                shutil.copy2(lo_pdf, str(lo_pdf_in_source))
+                render_pdf = lo_pdf_in_source
                 logger.info(f"LO PDF saved: {render_pdf}")
 
                 local[task_id] = {
@@ -115,25 +115,14 @@ async def parse_document_v1(
                 update_record_status(task_id, "processing")
                 mineru_input = source_path
 
-            # MinerU 解析（慢的部分）
+            # MinerU 解析（慢的部分）：解析器自建临时目录并落盘（save_markdown + save_parse_artifacts）
             result = mineru_parser.parse_to_raw_artifacts(
-                input_path=mineru_input, output_dir=output_dir,
+                input_path=mineru_input,
+                library_id=library_id,
+                doc_id=doc_id,
             )
             if not result.get("success"):
                 raise RuntimeError(result.get("error") or "MinerU 解析失败")
-
-            md_path = result.get("md_file")
-            if md_path and os.path.isfile(md_path):
-                with open(md_path, "r", encoding="utf-8") as f:
-                    file_storage.save_markdown(library_id, doc_id, f.read())
-
-            file_storage.save_parse_artifacts(library_id, doc_id, output_dir)
-
-            # save_parse_artifacts 覆盖了 parsed 目录，重新放回 LO PDF
-            if not is_pdf:
-                parsed_dir = file_storage.get_parsed_dir(library_id, doc_id)
-                parsed_dir.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(lo_pdf, str(parsed_dir / "mineru_render.pdf"))
 
             build_structured_index_for_doc(
                 library_id=library_id, doc_id=doc_id,
