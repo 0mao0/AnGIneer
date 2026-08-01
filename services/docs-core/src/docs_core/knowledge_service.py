@@ -160,6 +160,7 @@ class KnowledgeNode(BaseModel):
     strategy: str = STRUCTURED_DOC_GRAPH_STRATEGY
     schema_version: str = SCHEMA_VERSION
     sort_order: int = 0
+    deleted: bool = False
     created_at: datetime = datetime.now()
     updated_at: datetime = datetime.now()
 
@@ -272,6 +273,7 @@ class KnowledgeService:
                 strategy=row["strategy"] or STRUCTURED_DOC_GRAPH_STRATEGY,
                 schema_version=row["schema_version"] or SCHEMA_VERSION,
                 sort_order=int(row["sort_order"] or 0),
+                deleted=bool(row.get("deleted")),
                 created_at=parse_datetime(row["created_at"]),
                 updated_at=parse_datetime(row["updated_at"]),
             )
@@ -381,7 +383,7 @@ class KnowledgeService:
 
     # 获取知识库节点列表
     def list_nodes(self, library_id: str, visible: bool = False) -> List[KnowledgeNode]:
-        nodes = [node for node in self.nodes if node.library_id == library_id]
+        nodes = [node for node in self.nodes if node.library_id == library_id and not node.deleted]
         if visible:
             nodes = [node for node in nodes if node.visible]
         return sorted(nodes, key=lambda node: (node.sort_order, node.created_at))
@@ -471,6 +473,30 @@ class KnowledgeService:
         self._delete_nodes(to_delete)
         if target:
             self._normalize_sibling_orders(target.library_id, target.parent_id)
+        return True
+
+    # 软删除节点及子树：仅标记 deleted，节点与文件系统内容保留。
+    def soft_delete_node(self, node_id: str) -> bool:
+        if node_id not in {node.id for node in self.nodes}:
+            return False
+        to_delete = self._collect_subtree_node_ids(node_id)
+        self.meta_store.mark_nodes_deleted(to_delete, True)
+        id_set = set(to_delete)
+        for node in self.nodes:
+            if node.id in id_set:
+                node.deleted = True
+        return True
+
+    # 恢复软删除的节点及子树。
+    def restore_soft_deleted_node(self, node_id: str) -> bool:
+        if node_id not in {node.id for node in self.nodes}:
+            return False
+        to_restore = self._collect_subtree_node_ids(node_id)
+        self.meta_store.mark_nodes_deleted(to_restore, False)
+        id_set = set(to_restore)
+        for node in self.nodes:
+            if node.id in id_set:
+                node.deleted = False
         return True
 
     # 获取节点

@@ -25,6 +25,10 @@ def init_table(conn: sqlite3.Connection) -> None:
             updated_at TEXT NOT NULL DEFAULT ''
         )
     """)
+    try:
+        conn.execute("ALTER TABLE tree_node ADD COLUMN deleted INTEGER NOT NULL DEFAULT 0")
+    except sqlite3.OperationalError:
+        pass
     conn.execute("""
         CREATE INDEX IF NOT EXISTS idx_tree_node_scope
         ON tree_node(tree_type, scope_id, parent_id, sort_order)
@@ -138,6 +142,20 @@ def delete_node(conn: sqlite3.Connection, node_id: str) -> bool:
 
     normalize_siblings(conn, node.get("parent_id"), node.get("scope_id"))
     return True
+
+
+def mark_node_deleted(conn: sqlite3.Connection, node_id: str, deleted: bool) -> None:
+    """标记/取消标记节点软删除状态（tree_node）。"""
+    conn.execute(
+        "UPDATE tree_node SET deleted = ?, updated_at = ? WHERE node_id = ?",
+        (1 if deleted else 0, datetime.now().isoformat(), node_id),
+    )
+
+
+def is_node_deleted(conn: sqlite3.Connection, node_id: str) -> bool:
+    """查询节点是否被软删除。"""
+    row = conn.execute("SELECT deleted FROM tree_node WHERE node_id = ?", (node_id,)).fetchone()
+    return bool(row and row.get("deleted"))
 
 
 def move_node(conn: sqlite3.Connection, node_id: str, new_parent_id: Optional[str], sort_order: int = -1) -> Optional[Dict[str, Any]]:

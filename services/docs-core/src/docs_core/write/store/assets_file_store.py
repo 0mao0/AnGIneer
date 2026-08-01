@@ -175,6 +175,7 @@ class FileStorage:
             "*content_list_v2.json": "content_list_v2.json",
             "content_list.json": "content_list.json",
             "*_content_list.json": "content_list.json",
+            "middle.json": "middle.json",
         }
 
         final_files = {}
@@ -427,7 +428,9 @@ class FileStorage:
         middle_json_path = self.get_middle_json_path(library_id, doc_id)
         mineru_blocks_path = self.get_mineru_blocks_path(library_id, doc_id)
         history_dir = self.get_edited_dir(library_id, doc_id) / "history"
-        render_pdf_path = self.get_parsed_dir(library_id, doc_id) / "mineru_render.pdf"
+        # 渲染底图 PDF：优先 source 目录（转换后 PDF 与上传文件同目录），兼容旧数据回退 parsed/mineru_render.pdf
+        source_pdf = Path(source_file).with_suffix(".pdf") if source_file else None
+        render_pdf_path = source_pdf if (source_pdf and source_pdf.exists()) else (self.get_parsed_dir(library_id, doc_id) / "mineru_render.pdf")
         return {
             "doc_root": str(doc_root),
             "source_file": source_file,

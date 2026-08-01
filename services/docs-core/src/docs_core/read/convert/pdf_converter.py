@@ -1,10 +1,11 @@
 """通过 LibreOffice headless 将常见办公文档转换为 PDF。"""
-import subprocess
 import os
 import shutil
+import subprocess
 import tempfile
+import time
 from pathlib import Path
-from typing import Optional
+from typing import Callable, Optional
 
 
 def find_libreoffice() -> Optional[str]:
@@ -46,11 +47,49 @@ def _kill_stale_soffice() -> None:
         pass
 
 
-def convert_to_pdf(input_path: str, output_dir: str) -> Optional[str]:
+def prepare_source(library_id: str, doc_id: str, file_path: str) -> str:
+    """确保源文件位于规范 source 目录，返回规范路径（docx 或 pdf）。
+
+    供解析管线 source_prep/convert 阶段调用；文件复制等物理操作委托 file_storage。
+    """
+    from docs_core.write.store.assets_file_store import file_storage
+
+    source_path = file_storage.ensure_doc_source_file(library_id, doc_id, file_path=file_path)
+    if not source_path:
+        raise RuntimeError("源文件不存在或无法复制到规范目录")
+    return source_path
+
+
+def resolve_pdf_input(library_id: str, doc_id: str) -> str:
+    """只读：返回 source 目录下最新 PDF（convert 产物或上传即 PDF）。
+
+    供 raw_parse 输入核查使用；找不到时抛出带指引的 RuntimeError。
+    """
+    from docs_core.write.store.assets_file_store import file_storage
+
+    source_dir = file_storage.get_source_dir(library_id, doc_id)
+    if not source_dir.exists():
+        raise RuntimeError(f"源文件目录不存在: {source_dir}")
+    pdf_files = sorted(
+        [p for p in source_dir.iterdir() if p.suffix.lower() == '.pdf' and p.is_file()],
+        key=lambda p: p.stat().st_mtime, reverse=True,
+    )
+    if not pdf_files:
+        raise RuntimeError(f"未找到 PDF 输入文件（请先运行格式转换）: {source_dir}")
+    return str(pdf_files[0])
+
+
+def convert_to_pdf(
+    input_path: str,
+    output_dir: str,
+    cancel_check: Optional[Callable[[], None]] = None,
+) -> Optional[str]:
     """将常见办公文档转换为 PDF，返回生成的 PDF 路径，失败返回 None。
 
     支持格式：doc, docx, ppt, pptx, xls, xlsx, odt, odp, ods, rtf, txt 等。
     对已经是 PDF 的文件直接返回原路径。
+    cancel_check：可选取消检查回调，转换期间每 0.3s 调用一次；
+    若抛出异常（如取消异常）则终止 soffice 子进程并向外传播该异常。
     """
     input_path = os.path.abspath(input_path)
     if not os.path.isfile(input_path):
@@ -92,20 +131,37 @@ def convert_to_pdf(input_path: str, output_dir: str) -> Optional[str]:
     try:
         with open(stdout_path, "w", encoding="utf-8", errors="replace") as fout, \
              open(stderr_path, "w", encoding="utf-8", errors="replace") as ferr:
+            # Popen + 轮询：转换期间每 0.3s 检查一次取消回调，可随时终止子进程
+            proc = subprocess.Popen(cmd, stdout=fout, stderr=ferr, env=env)
+            deadline = time.time() + 180
             try:
-                result = subprocess.run(
-                    cmd,
-                    stdout=fout,
-                    stderr=ferr,
-                    timeout=180,
-                    env=env,
-                )
-            except subprocess.TimeoutExpired:
+                while True:
+                    if cancel_check is not None:
+                        cancel_check()
+                    if proc.poll() is not None:
+                        break
+                    if time.time() > deadline:
+                        raise TimeoutError()
+                    time.sleep(0.3)
+            except TimeoutError:
+                proc.terminate()
+                try:
+                    proc.wait(timeout=5)
+                except Exception:
+                    proc.kill()
                 _kill_stale_soffice()
                 raise RuntimeError(
                     f"LibreOffice 转换超时（180s）: {Path(input_path).name}，"
                     f"已清理 soffice 进程，请重试。"
                 )
+            finally:
+                if proc.poll() is None:
+                    proc.terminate()
+                    try:
+                        proc.wait(timeout=5)
+                    except Exception:
+                        proc.kill()
+            result = proc
     finally:
         shutil.rmtree(profile_dir, ignore_errors=True)
 

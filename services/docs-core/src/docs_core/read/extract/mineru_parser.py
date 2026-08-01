@@ -36,6 +36,7 @@ class MinerUParser:
         self.cloud_poll_interval_seconds = max(1, int(os.getenv('MINERU_CLOUD_POLL_INTERVAL_SECONDS', '4')))
         self.proxy_fallback_enabled = os.getenv('MINERU_PROXY_FALLBACK_ENABLED', '1') != '0'
         self.ocr_enabled = os.getenv('MINERU_OCR_ENABLED', 'false').lower() == 'true'
+        self.backend = os.getenv('MINERU_BACKEND', 'hybrid-engine').strip().lower()
         self._abort_event = threading.Event()
 
     def cancel(self):
@@ -58,6 +59,10 @@ class MinerUParser:
             retry_kwargs = dict(kwargs)
             retry_kwargs['proxies'] = {'http': None, 'https': None}
             return requests.request(method=method, url=url, **retry_kwargs)
+        except requests.exceptions.Timeout:
+            if self._abort_event.is_set():
+                raise RuntimeError("MinerU 请求已取消")
+            raise
 
     def _normalize_api_url(self, api_url: str) -> str:
         """规范化 MinerU API 地址"""
@@ -488,15 +493,20 @@ class MinerUParser:
                     'return_middle_json': 'true',
                     'return_model_output': 'true',
                     'response_format_zip': 'true',
-                    'backend': 'pipeline',
+                    'backend': self.backend,
                     'formula_enable': 'true',
                     'table_enable': 'true',
+                    'return_images': 'true',
                     **({'is_ocr': 'true'} if use_ocr else {}),
                     'is_async': 'false',
                 },
                 timeout=600,
                 verify=False,
             )
+
+            # 请求返回后立即检查取消（请求期间 requests 阻塞无法中断，返回后立即中止处理）
+            if self._abort_event.is_set():
+                raise RuntimeError("MinerU 请求已取消")
 
             # 200 → ZIP 直接返回
             if resp.status_code == 200:
@@ -564,6 +574,8 @@ class MinerUParser:
         poll_url = f"{api_endpoint}/status/{task_id}"
         max_attempts = 120
         for attempt in range(max_attempts):
+            if self._abort_event.is_set():
+                raise RuntimeError("MinerU 请求已取消")
             _time.sleep(3 if attempt < 10 else 5)
             try:
                 resp = self._request_with_proxy_fallback(
@@ -571,6 +583,8 @@ class MinerUParser:
                 )
             except Exception as e:
                 print(f"[MinerU] Poll attempt {attempt + 1} failed: {e}")
+                if self._abort_event.is_set():
+                    raise RuntimeError("MinerU 请求已取消")
                 continue
             if resp.status_code != 200:
                 continue
@@ -610,6 +624,21 @@ class MinerUParser:
         # 解压 ZIP 到 output_dir
         self._extract_zip_archive(zip_bytes, Path(output_dir))
 
+        # 合并所有 images 子目录到 output_dir/images（content.md 引用 images/xxx.jpg 相对路径）
+        images_root = Path(output_dir) / 'images'
+        images_root.mkdir(parents=True, exist_ok=True)
+        for img_dir in list(Path(output_dir).rglob('images')):
+            if img_dir.resolve() == images_root.resolve():
+                continue
+            try:
+                for img_file in img_dir.iterdir():
+                    if img_file.is_file():
+                        dest = images_root / img_file.name
+                        if not dest.exists():
+                            _shutil.copy2(str(img_file), str(dest))
+            except Exception as e:
+                print(f"[MinerU] 合并图片目录失败 {img_dir}: {e}")
+
         # 寻找 markdown
         md_content = None
         for md_file in Path(output_dir).rglob('*.md'):
@@ -641,6 +670,14 @@ class MinerUParser:
                     except Exception:
                         pass
                     break
+
+        # 铺平：删除所有中间子目录（auto/、hybrid_auto/、vlm/ 等），只保留 images/ 与根文件
+        for sub in list(Path(output_dir).iterdir()):
+            if sub.is_dir() and sub.name != 'images':
+                try:
+                    _shutil.rmtree(sub)
+                except Exception as e:
+                    print(f"[MinerU] 清理中间目录失败 {sub}: {e}")
 
         if not md_content:
             return self._build_parse_result(False, error='Company API: no markdown found in ZIP response')
@@ -773,8 +810,62 @@ class MinerUParser:
         """解析文档入口"""
         return self._parse_document_cloud_batch(input_path, output_dir) or self._build_parse_result(False, error="Unknown error")
 
-    def parse_to_raw_artifacts(self, input_path: str, output_dir: str, **kwargs) -> Dict[str, Any]:
-        """仅返回 MinerU 原始产物与 markdown，不在解析器内派生结构化索引。"""
-        return self.parse_document(input_path=input_path, output_dir=output_dir, **kwargs)
+    def parse_to_raw_artifacts(
+        self,
+        input_path: str,
+        output_dir: Optional[str] = None,
+        *,
+        library_id: Optional[str] = None,
+        doc_id: Optional[str] = None,
+        **kwargs,
+    ) -> Dict[str, Any]:
+        """MinerU 原始产物解析；提供 library_id/doc_id 时解析完成后自动落盘到文档目录。
+
+        返回 dict 含 'persisted'：{parsed_dir, output_summary, has_images}（落盘后产物清单）。
+        output_dir 缺省时内部自建临时目录并在结束后清理。
+        """
+        own_temp = output_dir is None
+        if own_temp:
+            output_dir = tempfile.mkdtemp(prefix="mineru-parse-")
+        try:
+            result = self.parse_document(input_path=input_path, output_dir=output_dir, **kwargs)
+            if result.get("success") and library_id and doc_id:
+                result["persisted"] = self._persist_to_doc(library_id, doc_id, output_dir)
+            else:
+                result.setdefault("persisted", {})
+            return result
+        finally:
+            if own_temp:
+                shutil.rmtree(output_dir, ignore_errors=True)
+
+    def _persist_to_doc(self, library_id: str, doc_id: str, output_dir: str) -> Dict[str, Any]:
+        """解析产物落盘到文档目录：content.md + mineru_raw/images 等归位，返回产物清单。"""
+        from docs_core.write.store.assets_file_store import file_storage
+
+        markdown_path = os.path.join(output_dir, "content.md")
+        if os.path.isfile(markdown_path):
+            with open(markdown_path, "r", encoding="utf-8") as handle:
+                file_storage.save_markdown(library_id, doc_id, handle.read())
+        file_storage.save_parse_artifacts(library_id, doc_id, output_dir)
+
+        parsed_dir = file_storage.get_parsed_dir(library_id, doc_id)
+        output_parts = []
+        try:
+            for item in sorted(parsed_dir.iterdir(), key=lambda p: p.name):
+                if item.name in ("popo",) or item.name.startswith("doc_blocks_graph"):
+                    continue
+                output_parts.append(str(item))
+                if item.is_dir() and item.name == "mineru_raw":
+                    for sub in sorted(item.iterdir(), key=lambda p: p.name):
+                        output_parts.append(str(sub))
+        except OSError:
+            pass
+        images_dir = parsed_dir / "images"
+        has_images = images_dir.exists() and any(images_dir.iterdir())
+        return {
+            "parsed_dir": str(parsed_dir),
+            "output_summary": " + ".join(output_parts) if output_parts else str(parsed_dir),
+            "has_images": has_images,
+        }
 
 mineru_parser = MinerUParser()

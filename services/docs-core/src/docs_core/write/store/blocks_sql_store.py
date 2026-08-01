@@ -204,6 +204,10 @@ class KnowledgeMetaStore:
                 conn.execute("ALTER TABLE doc_parse_stages ADD COLUMN output_summary TEXT DEFAULT ''")
             except sqlite3.OperationalError:
                 pass
+            try:
+                conn.execute("ALTER TABLE nodes ADD COLUMN deleted INTEGER NOT NULL DEFAULT 0")
+            except sqlite3.OperationalError:
+                pass
             conn.commit()
             tree_store.init_table(conn)
 
@@ -285,8 +289,9 @@ class KnowledgeMetaStore:
                 """
                 SELECT id, title, type, visible, library_id, file_path, status,
                        parse_progress, parse_stage, parse_error, parse_task_id, strategy,
-                       schema_version, created_at, updated_at
+                       schema_version, deleted, created_at, updated_at
                 FROM nodes
+                WHERE deleted = 0
                 ORDER BY library_id ASC, created_at ASC
                 """
             ).fetchall()
@@ -304,7 +309,7 @@ class KnowledgeMetaStore:
                 """
                 SELECT node_id, title, parent_id, scope_id, sort_order, created_at, updated_at
                 FROM tree_node
-                WHERE tree_type = 'knowledge_folder'
+                WHERE tree_type = 'knowledge_folder' AND deleted = 0
                 ORDER BY scope_id ASC, sort_order ASC
                 """
             ).fetchall()
@@ -398,8 +403,8 @@ class KnowledgeMetaStore:
                     """
                     INSERT INTO nodes (
                         id, title, type, visible, library_id, file_path, status, parse_progress,
-                        parse_stage, parse_error, parse_task_id, strategy, schema_version, created_at, updated_at
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        parse_stage, parse_error, parse_task_id, strategy, schema_version, deleted, created_at, updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ON CONFLICT(id) DO UPDATE SET
                         title = excluded.title,
                         type = excluded.type,
@@ -413,6 +418,7 @@ class KnowledgeMetaStore:
                         parse_task_id = excluded.parse_task_id,
                         strategy = excluded.strategy,
                         schema_version = excluded.schema_version,
+                        deleted = excluded.deleted,
                         updated_at = excluded.updated_at
                     """,
                     (
@@ -429,6 +435,7 @@ class KnowledgeMetaStore:
                         node.parse_task_id,
                         node.strategy,
                         node.schema_version,
+                        1 if getattr(node, "deleted", False) else 0,
                         node.created_at.isoformat(),
                         node.updated_at.isoformat(),
                     ),
@@ -532,6 +539,21 @@ class KnowledgeMetaStore:
     def clear_parse_stages(self, doc_id: str) -> None:
         with self.connect() as conn:
             conn.execute("DELETE FROM doc_parse_stages WHERE doc_id = ?", (doc_id,))
+            conn.commit()
+
+    # 标记/取消标记节点软删除状态（nodes 表 + tree_node 表）。
+    def mark_nodes_deleted(self, node_ids: List[str], deleted: bool) -> None:
+        if not node_ids:
+            return
+        placeholders = ",".join(["?"] * len(node_ids))
+        flag = 1 if deleted else 0
+        with self.connect() as conn:
+            conn.execute(
+                f"UPDATE nodes SET deleted = ? WHERE id IN ({placeholders})",
+                [flag, *node_ids],
+            )
+            for nid in node_ids:
+                tree_store.mark_node_deleted(conn, nid, deleted)
             conn.commit()
 
     # 删除节点记录，同步删除 tree_node。
