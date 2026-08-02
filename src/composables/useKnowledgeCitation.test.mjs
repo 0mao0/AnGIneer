@@ -101,3 +101,17 @@ test('focusCitationInWorkspace 继续兼容旧扁平 citation 字段', async () 
   assert.equal(context.calls[0]?.options.preferredPage, 5)
   assert.equal(context.selectedNode.value?.key, 'doc-legacy')
 })
+
+test('getCitationDisplayPageLabel 印刷页码优先，缺省回退现有页码展示', () => {
+  const { getCitationDisplayPageLabel } = useKnowledgeCitation()
+  assert.equal(
+    getCitationDisplayPageLabel({ reference: { pageLabel: 'iv' }, page_idx: 4, score: 1 }),
+    'iv'
+  )
+  assert.equal(
+    getCitationDisplayPageLabel({ page_label: 'A-3', page_idx: 9, score: 1 }),
+    'A-3'
+  )
+  assert.equal(getCitationDisplayPageLabel({ page_idx: 5, score: 1 }), '5')
+  assert.equal(getCitationDisplayPageLabel(null), '')
+})
