@@ -4,25 +4,34 @@ import logging
 from copy import deepcopy
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
+from uuid import uuid4
 
 from docs_core.read.organize.types import CanonicalBlock, CanonicalOutlineNode
 
 logger = logging.getLogger(__name__)
 
 
+def generate_build_id() -> str:
+    """生成孪生产物版本戳（12 位 hex）。"""
+    return uuid4().hex[:12]
+
+
 def regenerate_content_md(
     blocks: List[CanonicalBlock],
     mineru_content_md: str,
     output_path: str,
+    build_id: Optional[str] = None,
 ) -> List[Dict[str, int]]:
     """以 MinerU content.md 文本为基准，按 PoPo 块顺序重建 content.md。
 
     同时计算每个 block 的 markdown_line_start / markdown_line_end 并返回。
+    若指定 build_id，首行写入 `<!-- build_id: xxx -->` 注释（行号偏移已计入）。
     返回: [{"block_id": str, "markdown_line_start": int, "markdown_line_end": int}]
     """
     sorted_blocks = sorted(blocks, key=lambda b: (b.page_idx, b.reading_order))
 
-    lines: List[str] = []
+    header_lines = [f"<!-- build_id: {build_id} -->"] if build_id else []
+    lines: List[str] = list(header_lines)
     block_line_ranges: List[Dict[str, Any]] = []
 
     for block in sorted_blocks:
@@ -208,8 +217,12 @@ def run_popo_projection(
     graph_output_path: str,
     content_md_output_path: str,
 ) -> Dict[str, Any]:
-    """一站式兼容投影：生成 content.md / doc_blocks_graph / segments / base_rows。"""
-    block_line_ranges = regenerate_content_md(blocks, mineru_content_md, content_md_output_path)
+    """一站式兼容投影：生成 content.md / doc_blocks_graph / segments / base_rows。
+
+    孪生产物（content.md + graph jsonl/meta）写入同一 build_id，保证同源一致。
+    """
+    build_id = generate_build_id()
+    block_line_ranges = regenerate_content_md(blocks, mineru_content_md, content_md_output_path, build_id=build_id)
     segments = build_document_segments(blocks, block_line_ranges)
     base_rows = build_base_rows(blocks)
 
@@ -225,6 +238,7 @@ def run_popo_projection(
         "edges": graph_data["edges"],
         "stats": graph_data["stats"],
         "generated_at": graph_data["generated_at"],
+        "build_id": build_id,
     }
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
@@ -235,4 +249,5 @@ def run_popo_projection(
         "segments": segments,
         "base_rows": base_rows,
         "block_line_ranges": block_line_ranges,
+        "build_id": build_id,
     }

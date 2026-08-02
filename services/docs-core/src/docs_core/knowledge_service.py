@@ -807,6 +807,11 @@ class KnowledgeService:
             if not blocks:
                 continue
             rich_media_map = self.get_blocks_rich_media(node.id, [block.block_id for block in blocks])
+            page_labels = {
+                page.page_idx: page.printed_page_label
+                for page in self.canonical_store.list_pages(node.id)
+                if page.printed_page_label
+            }
             for block in blocks:
                 target_type = _resolve_reference_target_type(block.block_type)
                 if target_type not in allowed_types:
@@ -834,6 +839,7 @@ class KnowledgeService:
                     "doc_id": node.id,
                     "doc_title": node.title,
                     "page_idx": int(block.page_idx or 0) + 1,
+                    "page_label": page_labels.get(int(block.page_idx or 0)),
                     "section_path": block.section_path or "",
                     "label": _build_reference_label(block.section_path or "", block_content, target_type),
                     "snippet": block_content[:240],

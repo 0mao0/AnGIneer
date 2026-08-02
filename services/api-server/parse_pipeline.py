@@ -213,7 +213,7 @@ def _run_popo(ctx: StageContext) -> str:
 
     enriched_blocks = file_storage.read_popo_enriched_blocks(ctx.library_id, ctx.doc_id)
     document_tree = file_storage.read_popo_document_tree(ctx.library_id, ctx.doc_id)
-    blocks, outlines, id_map = po_po_blocks_to_canonical(ctx.doc_id, enriched_blocks, document_tree)
+    blocks, outlines, id_map, pages = po_po_blocks_to_canonical(ctx.doc_id, enriched_blocks, document_tree)
 
     mineru_md_path = mineru_raw_dir / "content.md"
     mineru_content_md = ""
@@ -242,7 +242,7 @@ def _run_popo(ctx: StageContext) -> str:
     doc_title = file_storage.get_doc_manifest(ctx.library_id, ctx.doc_id).get("title", ctx.doc_id)
     canonical_doc = build_canonical_document_from_popoblocks(
         library_id=ctx.library_id, doc_id=ctx.doc_id, title=doc_title,
-        blocks=blocks, outlines=outlines,
+        blocks=blocks, outlines=outlines, pages=pages,
     )
     ks.save_canonical_document_bare(canonical_doc)
     file_storage.save_middle_json(ctx.library_id, ctx.doc_id, canonical_doc.model_dump(mode="json"))

@@ -169,6 +169,14 @@
             </template>
 
             <template v-else>
+              <div v-if="buildIdMismatch" class="build-id-mismatch-banner">
+                <a-alert
+                  type="warning"
+                  show-icon
+                  :closable="false"
+                  message="内容与图谱版本不一致（build_id 不匹配），已禁用高亮联动。请重建文档解析（popo/structure 阶段）后再试。"
+                />
+              </div>
               <PDFParsedWorkspace
                 ref="docParsedWorkspaceRef"
                 :node="selectedNode"
@@ -433,6 +441,9 @@ const detailDoc = ref<KnowledgeTreeNode | null>(null)
 // 文档内容
 const docContent = ref('')
 const docContentDocId = ref('')
+const docContentBuildId = ref<string | null>(null)
+const graphBuildId = ref<string | null>(null)
+const buildIdMismatch = ref(false)
 
 // 计算属性
 const folderModalTitle = computed(() => folderForm.value.isNew ? '新建文件夹' : '重命名')
@@ -666,11 +677,14 @@ const loadDocContent = async (docId: string) => {
       content: string
       storage?: { source_file?: string | null; render_pdf?: string | null }
       graph_data?: { nodes: any[]; edges: any[] } | null
+      build_id?: string | null
     }
     docContent.value = result.content || '暂无内容'
     docContentDocId.value = docId
+    docContentBuildId.value = result.build_id || null
     graphData.value = null
     graphDataFullLoaded.value = false
+    buildIdMismatch.value = false
     docRenderPdfPath.value = result?.storage?.render_pdf || ''
     if (selectedNode.value && selectedNode.value.key === docId && result?.storage?.source_file) {
       selectedNode.value.filePath = result.storage.source_file
@@ -680,6 +694,7 @@ const loadDocContent = async (docId: string) => {
     docContent.value = ''
     docContentDocId.value = ''
     graphData.value = null
+    buildIdMismatch.value = false
     structuredStats.value = {}
   }
 }
@@ -689,9 +704,21 @@ const loadGraphSummary = async (docId: string) => {
     graphDataLoading.value = true
     // 高亮依赖节点 bbox，必须加载完整图（summary 会剥离 bbox）
     const result = await knowledgeApi.getDocBlocksGraph('default', docId) as any
+    graphBuildId.value = result?.build_id || null
+    // 孪生产物一致性校验：md 与 graph 的 build_id 都存在且不一致时禁用高亮
+    if (
+      docContentBuildId.value &&
+      graphBuildId.value &&
+      docContentBuildId.value !== graphBuildId.value
+    ) {
+      buildIdMismatch.value = true
+      graphData.value = null
+      return
+    }
     graphData.value = result?.data || null
   } catch {
     graphData.value = null
+    buildIdMismatch.value = false
   } finally {
     graphDataLoading.value = false
   }
@@ -1118,6 +1145,11 @@ onBeforeUnmount(() => {
   background: var(--bg-primary);
   display: flex;
   flex-direction: column;
+}
+
+.build-id-mismatch-banner {
+  flex: 0 0 auto;
+  padding: 8px 16px 0;
 }
 
 .knowledge-list-view {

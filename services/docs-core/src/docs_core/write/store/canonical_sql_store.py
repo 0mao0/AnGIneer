@@ -125,6 +125,7 @@ class CanonicalSQLiteStore:
                     height REAL NOT NULL,
                     rotation INTEGER NOT NULL,
                     image_path TEXT,
+                    printed_page_label TEXT,
                     PRIMARY KEY (doc_id, page_idx)
                 )
                 """
@@ -152,7 +153,8 @@ class CanonicalSQLiteStore:
                     clause_id TEXT,
                     contd_target_id TEXT,
                     image_assoc_id TEXT,
-                    table_merge_id TEXT
+                    table_merge_id TEXT,
+                    raw_type TEXT
                 )
                 """
             )
@@ -228,7 +230,8 @@ class CanonicalSQLiteStore:
                     bbox_json TEXT,
                     section_path TEXT,
                     display_title TEXT,
-                    snippet TEXT
+                    snippet TEXT,
+                    printed_page_label TEXT
                 )
                 """
             )
@@ -274,6 +277,8 @@ class CanonicalSQLiteStore:
     def _migrate_add_business_columns(self, conn) -> None:
         blocks_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_blocks)").fetchall()]
         chunks_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_chunks)").fetchall()]
+        pages_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_pages)").fetchall()]
+        targets_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_citation_targets)").fetchall()]
         blocks_new_cols = [
             ("inherited_chapter", "TEXT"),
             ("entity_tags_json", "TEXT"),
@@ -283,6 +288,7 @@ class CanonicalSQLiteStore:
             ("contd_target_id", "TEXT"),
             ("image_assoc_id", "TEXT"),
             ("table_merge_id", "TEXT"),
+            ("raw_type", "TEXT"),
         ]
         chunks_new_cols = blocks_new_cols
         for col_name, col_type in blocks_new_cols:
@@ -291,6 +297,10 @@ class CanonicalSQLiteStore:
         for col_name, col_type in chunks_new_cols:
             if col_name not in chunks_cols:
                 conn.execute(f"ALTER TABLE canonical_chunks ADD COLUMN {col_name} {col_type}")
+        if "printed_page_label" not in pages_cols:
+            conn.execute("ALTER TABLE canonical_pages ADD COLUMN printed_page_label TEXT")
+        if "printed_page_label" not in targets_cols:
+            conn.execute("ALTER TABLE canonical_citation_targets ADD COLUMN printed_page_label TEXT")
 
     # 迁移：为 FTS 表补充 text_ngrams 列（CJK bigram 索引），并按新结构重建
     def _migrate_chunk_fts_ngrams(self, conn) -> None:
@@ -380,8 +390,8 @@ class CanonicalSQLiteStore:
             conn.executemany(
                 """
                 INSERT INTO canonical_pages (
-                    doc_id, page_idx, width, height, rotation, image_path
-                ) VALUES (?, ?, ?, ?, ?, ?)
+                    doc_id, page_idx, width, height, rotation, image_path, printed_page_label
+                ) VALUES (?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     (
@@ -391,6 +401,7 @@ class CanonicalSQLiteStore:
                         page.height,
                         page.rotation,
                         page.image_path,
+                        page.printed_page_label,
                     )
                     for page in document.pages
                 ],
@@ -401,8 +412,8 @@ class CanonicalSQLiteStore:
                     block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
                     reading_order, title_level, section_path, source, source_ref, parent_block_id,
                     inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id,
-                    contd_target_id, image_assoc_id, table_merge_id
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    contd_target_id, image_assoc_id, table_merge_id, raw_type
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     (
@@ -427,6 +438,7 @@ class CanonicalSQLiteStore:
                         block.contd_target_id,
                         block.image_assoc_id,
                         block.table_merge_id,
+                        block.raw_type,
                     )
                     for block in document.blocks
                 ],
@@ -533,13 +545,14 @@ class CanonicalSQLiteStore:
                         target.section_path,
                         target.display_title,
                         target.snippet,
+                        target.printed_page_label,
                     )
                 )
             conn.executemany(
                 """
                 INSERT INTO canonical_citation_targets (
-                    row_id, doc_id, target_id, target_type, page_idx, bbox_json, section_path, display_title, snippet
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    row_id, doc_id, target_id, target_type, page_idx, bbox_json, section_path, display_title, snippet, printed_page_label
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 citation_rows,
             )
@@ -589,7 +602,7 @@ class CanonicalSQLiteStore:
                 return None
             page_rows = conn.execute(
                 """
-                SELECT doc_id, page_idx, width, height, rotation, image_path
+                SELECT doc_id, page_idx, width, height, rotation, image_path, printed_page_label
                 FROM canonical_pages
                 WHERE doc_id = ?
                 ORDER BY page_idx ASC
@@ -601,7 +614,7 @@ class CanonicalSQLiteStore:
                 SELECT block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
                        reading_order, title_level, section_path, source, source_ref, parent_block_id,
                        inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id,
-                       contd_target_id, image_assoc_id, table_merge_id
+                       contd_target_id, image_assoc_id, table_merge_id, raw_type
                 FROM canonical_blocks
                 WHERE doc_id = ?
                 ORDER BY page_idx ASC, reading_order ASC
@@ -642,7 +655,7 @@ class CanonicalSQLiteStore:
             ).fetchall()
             citation_target_rows = conn.execute(
                 """
-                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet
+                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet, printed_page_label
                 FROM canonical_citation_targets
                 WHERE doc_id = ?
                 ORDER BY page_idx ASC, target_id ASC
@@ -670,6 +683,7 @@ class CanonicalSQLiteStore:
                     height=float(row["height"] or 0.0),
                     rotation=int(row["rotation"] or 0),
                     image_path=row["image_path"],
+                    printed_page_label=row["printed_page_label"],
                 )
                 for row in page_rows
             ],
@@ -696,6 +710,7 @@ class CanonicalSQLiteStore:
                     contd_target_id=row["contd_target_id"],
                     image_assoc_id=row["image_assoc_id"],
                     table_merge_id=row["table_merge_id"],
+                    raw_type=row["raw_type"],
                 )
                 for row in block_rows
             ],
@@ -771,6 +786,7 @@ class CanonicalSQLiteStore:
                     section_path=row["section_path"] or "",
                     display_title=row["display_title"] or "",
                     snippet=row["snippet"] or "",
+                    printed_page_label=row["printed_page_label"],
                 )
                 for row in citation_target_rows
             ],
@@ -895,7 +911,7 @@ class CanonicalSQLiteStore:
         with self.connect() as conn:
             rows = conn.execute(
                 """
-                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet
+                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet, printed_page_label
                 FROM canonical_citation_targets
                 WHERE doc_id = ?
                 ORDER BY page_idx ASC, target_id ASC
@@ -913,6 +929,7 @@ class CanonicalSQLiteStore:
                 "section_path": row["section_path"] or "",
                 "display_title": row["display_title"] or "",
                 "snippet": row["snippet"] or "",
+                "page_label": row["printed_page_label"],
             }
             for row in rows
         ]
@@ -935,7 +952,7 @@ class CanonicalSQLiteStore:
         with self.connect() as conn:
             rows = conn.execute(
                 f"""
-                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet
+                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet, printed_page_label
                 FROM canonical_citation_targets
                 WHERE doc_id = ? AND ({' OR '.join(conditions)})
                 ORDER BY page_idx ASC, target_id ASC
@@ -953,6 +970,7 @@ class CanonicalSQLiteStore:
                 "section_path": row["section_path"] or "",
                 "display_title": row["display_title"] or "",
                 "snippet": row["snippet"] or "",
+                "page_label": row["printed_page_label"],
             }
             for row in rows
         ]
@@ -962,7 +980,7 @@ class CanonicalSQLiteStore:
         with self.connect() as conn:
             row = conn.execute(
                 """
-                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet
+                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet, printed_page_label
                 FROM canonical_citation_targets
                 WHERE doc_id = ? AND target_id = ?
                 LIMIT 1
@@ -980,7 +998,33 @@ class CanonicalSQLiteStore:
             "section_path": row["section_path"] or "",
             "display_title": row["display_title"] or "",
             "snippet": row["snippet"] or "",
+            "page_label": row["printed_page_label"],
         }
+
+    # 查询文档页面列表（含印刷页码），供引用展示层构造 page_idx → printed_page_label 映射
+    def list_pages(self, doc_id: str) -> List[CanonicalPage]:
+        with self.connect() as conn:
+            rows = conn.execute(
+                """
+                SELECT doc_id, page_idx, width, height, rotation, image_path, printed_page_label
+                FROM canonical_pages
+                WHERE doc_id = ?
+                ORDER BY page_idx ASC
+                """,
+                (doc_id,),
+            ).fetchall()
+        return [
+            CanonicalPage(
+                doc_id=row["doc_id"],
+                page_idx=row["page_idx"],
+                width=row["width"],
+                height=row["height"],
+                rotation=row["rotation"],
+                image_path=row["image_path"],
+                printed_page_label=row["printed_page_label"],
+            )
+            for row in rows
+        ]
 
     # 重建单文档 chunk FTS 索引
     def rebuild_chunk_fts(self, doc_id: str) -> None:

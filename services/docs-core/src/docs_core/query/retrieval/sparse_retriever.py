@@ -49,6 +49,11 @@ class SparseRetriever:
         clause_refs = extract_clause_refs(request.query)
         signals = extract_query_signals(request.query)
         for node in doc_nodes:
+            page_label_map = {
+                page.page_idx: page.printed_page_label
+                for page in knowledge_service.canonical_store.list_pages(node.id)
+                if page.printed_page_label
+            }
             target_hits = knowledge_service.canonical_store.search_citation_targets(
                 doc_id=node.id,
                 query=request.query,
@@ -80,6 +85,7 @@ class SparseRetriever:
                         retrieval_policy="target_sparse",
                         metadata={
                             "page_idx": target.get("page_idx"),
+                            "page_label": target.get("page_label"),
                             "section_path": target.get("section_path"),
                             "source_kind": "target_sparse",
                             "chunk_type": target_type or "content",
@@ -133,6 +139,7 @@ class SparseRetriever:
                         retrieval_policy="canonical_sparse",
                         metadata={
                             "page_idx": chunk.page_start,
+                            "page_label": page_label_map.get(chunk.page_start),
                             "section_path": chunk.section_path,
                             "source_kind": "canonical_sparse",
                             "chunk_type": chunk.chunk_type,
@@ -178,6 +185,7 @@ class SparseRetriever:
                         retrieval_policy="canonical_sparse",
                         metadata={
                             "page_idx": block.page_idx,
+                            "page_label": page_label_map.get(block.page_idx),
                             "section_path": block.section_path,
                             "source_kind": "canonical_sparse",
                             "chunk_type": block.block_type,

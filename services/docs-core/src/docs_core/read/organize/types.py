@@ -55,6 +55,7 @@ class CanonicalPage(BaseModel):
     height: float = 0.0
     rotation: int = 0
     image_path: Optional[str] = None
+    printed_page_label: Optional[str] = None
 
 
 class CanonicalBlock(BaseModel):
@@ -81,6 +82,7 @@ class CanonicalBlock(BaseModel):
     contd_target_id: Optional[str] = None
     image_assoc_id: Optional[str] = None
     table_merge_id: Optional[str] = None
+    raw_type: Optional[str] = None
 
 
 class CanonicalOutlineNode(BaseModel):
@@ -107,6 +109,12 @@ class CitationTarget(BaseModel):
     section_path: str = ""
     display_title: str = ""
     snippet: str = ""
+    printed_page_label: Optional[str] = None
+
+    @property
+    def display_page_label(self) -> str:
+        """展示页码：印刷页码优先，缺省回退物理页序（1-based）。"""
+        return self.printed_page_label or str(self.page_idx + 1)
 
 
 class CanonicalChunk(BaseModel):

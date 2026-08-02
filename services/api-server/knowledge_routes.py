@@ -19,6 +19,8 @@ from docs_core.knowledge_service import get_knowledge_service, KnowledgeNode
 from docs_core.read.extract.mineru_parser import MinerUParser
 from docs_core.write.store.assets_file_store import (
     build_structured_index_for_doc,
+    extract_build_id_from_markdown,
+    extract_build_id_from_meta,
     get_doc_blocks_graph,
 )
 from docs_core.write.store.assets_file_store import file_storage
@@ -1018,6 +1020,7 @@ def get_document(library_id: str, doc_id: str, include_graph: bool = False):
     result: Dict[str, Any] = {
         "content": content,
         "storage": storage_manifest,
+        "build_id": extract_build_id_from_markdown(content),
     }
 
     if include_graph:
@@ -1167,7 +1170,16 @@ async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str,
         graph = get_doc_blocks_graph(request.library_id, request.doc_id)
         if not graph:
             raise HTTPException(status_code=404, detail="Graph data not found. Please run structured-index first.")
-        return {"status": "success", "data": graph}
+        meta_path = file_storage.get_graph_meta_path(request.library_id, request.doc_id)
+        meta_build_id = None
+        if meta_path.exists():
+            import json
+
+            try:
+                meta_build_id = extract_build_id_from_meta(json.loads(meta_path.read_text(encoding="utf-8")))
+            except (OSError, json.JSONDecodeError):
+                meta_build_id = None
+        return {"status": "success", "data": graph, "build_id": meta_build_id}
     except HTTPException:
         raise
     except Exception as error:
@@ -1202,7 +1214,16 @@ async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) ->
                     for row in stats.get("base_rows", [])
                 ],
             }
-        return {"status": "success", "data": summary}
+        meta_path = file_storage.get_graph_meta_path(request.library_id, request.doc_id)
+        meta_build_id = None
+        if meta_path.exists():
+            import json
+
+            try:
+                meta_build_id = extract_build_id_from_meta(json.loads(meta_path.read_text(encoding="utf-8")))
+            except (OSError, json.JSONDecodeError):
+                meta_build_id = None
+        return {"status": "success", "data": summary, "build_id": meta_build_id}
     except HTTPException:
         raise
     except Exception as error:

@@ -10,11 +10,27 @@ from docs_core.read.organize.types import (
     CanonicalChunk,
     CanonicalDocument,
     CanonicalOutlineNode,
+    CanonicalPage,
     CanonicalTable,
     CitationTarget,
 )
 from docs_core.write.store.assets_file_store import file_storage
 from docs_core.read.normalize import build_table_representations
+
+
+# 基于 blocks 的 page_idx 推导页面列表（solo 路径；popo 路径由 mapper 提供 pages）
+def build_pages_from_blocks(blocks: List[CanonicalBlock]) -> List[CanonicalPage]:
+    if not blocks:
+        return []
+    max_page = max((block.page_idx for block in blocks), default=0)
+    return [
+        CanonicalPage(doc_id=blocks[0].doc_id, page_idx=page_idx)
+        for page_idx in range(max_page + 1)
+    ]
+
+
+def build_page_label_map(pages: List[CanonicalPage]) -> dict[int, str]:
+    return {page.page_idx: page.printed_page_label for page in pages if page.printed_page_label}
 
 
 def _coerce_bbox(raw_bbox: object) -> object:
@@ -324,10 +340,14 @@ def build_canonical_outlines(blocks: List[CanonicalBlock]) -> Tuple[List[Canonic
 
 
 # 将一blocks 合并为结构感chunk
-def build_canonical_chunks(blocks: List[CanonicalBlock]) -> List[CanonicalChunk]:
+def build_canonical_chunks(
+    blocks: List[CanonicalBlock],
+    page_label_map: Optional[dict[int, str]] = None,
+) -> List[CanonicalChunk]:
     ordered_blocks = sorted(blocks, key=lambda block: (block.page_idx, block.reading_order))
     chunks: List[CanonicalChunk] = []
     current_blocks: List[CanonicalBlock] = []
+    label_map = page_label_map or {}
 
     def flush_current(chunk_type: str = "content") -> None:
         nonlocal current_blocks
@@ -360,6 +380,7 @@ def build_canonical_chunks(blocks: List[CanonicalBlock]) -> List[CanonicalChunk]
                         section_path=first_block.section_path,
                         display_title=first_block.section_path or first_block.text_clean[:32],
                         snippet=clean_text(text)[:180],
+                        printed_page_label=label_map.get(first_block.page_idx),
                     )
                 ],
                 inherited_chapter=first_block.inherited_chapter,
@@ -398,6 +419,7 @@ def build_canonical_chunks(blocks: List[CanonicalBlock]) -> List[CanonicalChunk]
                             section_path=block.section_path,
                             display_title=block.text_clean,
                             snippet=block.text_clean,
+                            printed_page_label=label_map.get(block.page_idx),
                         )
                     ],
                     inherited_chapter=block.inherited_chapter,
@@ -417,7 +439,7 @@ def build_canonical_chunks(blocks: List[CanonicalBlock]) -> List[CanonicalChunk]
             or (not is_formula_param and estimate_token_count("\n".join(item.text_clean for item in current_blocks + [block])) > 260)
         )
         if should_flush:
-            flush_current("formula_block" if is_in_formula_group else ("list_procedure" if current_blocks[0].block_type == "list_item" else "content"))
+            flush_current("formula_block" if is_in_formula_group else ("list_procedure" if _is_list_procedure_group(current_blocks) else "content"))
 
         current_blocks.append(block)
 
@@ -436,8 +458,16 @@ def build_canonical_chunks(blocks: List[CanonicalBlock]) -> List[CanonicalChunk]
             flush_current("table_summary")
 
     is_formula_tail = current_blocks and any(b.block_type == "formula" for b in current_blocks)
-    flush_current("formula_block" if is_formula_tail else ("list_procedure" if current_blocks and current_blocks[0].block_type == "list_item" else "content"))
+    flush_current("formula_block" if is_formula_tail else ("list_procedure" if _is_list_procedure_group(current_blocks) else "content"))
     return chunks
+
+
+# P9 加固：组内 list_item 占比过半（>50%）才定流程块类型
+def _is_list_procedure_group(blocks: List[CanonicalBlock]) -> bool:
+    if not blocks:
+        return False
+    list_items = sum(1 for block in blocks if block.block_type == "list_item")
+    return list_items >= 1 and list_items / len(blocks) > 0.5
 
 
 # 从原始表格块构建 canonical tables table chunks
@@ -584,6 +614,7 @@ def build_citation_targets_from_graph(
     graph_data: dict[str, Any],
     blocks: List[CanonicalBlock],
     tables: List[CanonicalTable],
+    pages: Optional[List[CanonicalPage]] = None,
 ) -> List[CitationTarget]:
     raw_blocks = adapt_graph_nodes(graph_data.get("nodes", []))
     raw_block_map = {
@@ -591,6 +622,7 @@ def build_citation_targets_from_graph(
         for item in raw_blocks
         if isinstance(item, dict)
     }
+    label_map = build_page_label_map(pages or [])
     table_block_ids = {table.source_block_ids[0]: table for table in tables if table.source_block_ids}
     targets: List[CitationTarget] = []
     seen_keys: set[tuple[str, str]] = set()
@@ -617,6 +649,7 @@ def build_citation_targets_from_graph(
                     section_path=block.section_path,
                     display_title=table.title or table.caption or "表格",
                     snippet=clean_text(table.summary or table.caption or block.text_clean)[:180],
+                    printed_page_label=label_map.get(table.page_start),
                 )
             )
             continue
@@ -635,6 +668,7 @@ def build_citation_targets_from_graph(
                     section_path=block.section_path,
                     display_title=display_title,
                     snippet=snippet or display_title,
+                    printed_page_label=label_map.get(block.page_idx),
                 )
             )
             continue
@@ -654,6 +688,7 @@ def build_citation_targets_from_graph(
                     section_path=block.section_path,
                     display_title=display_title,
                     snippet=snippet or display_title,
+                    printed_page_label=label_map.get(block.page_idx),
                 )
             )
             continue
@@ -668,6 +703,7 @@ def build_citation_targets_from_graph(
                     section_path=block.section_path,
                     display_title=block.text_clean or "标题",
                     snippet=(block.text_clean or block.section_path or "标题")[:180],
+                    printed_page_label=label_map.get(block.page_idx),
                 )
             )
     return targets
@@ -678,7 +714,9 @@ def build_canonical_document(library_id: str, doc_id: str, title: str = "") -> C
     markdown = file_storage.read_markdown(library_id, doc_id) or ""
     blocks = build_canonical_blocks(library_id, doc_id)
     blocks, outlines = build_canonical_outlines(blocks)
-    chunks = build_canonical_chunks(blocks)
+    pages = build_pages_from_blocks(blocks)
+    label_map = build_page_label_map(pages)
+    chunks = build_canonical_chunks(blocks, label_map)
     tables, table_chunks = build_canonical_tables(library_id, doc_id, blocks)
     inferred_title = title or next((block.text for block in blocks if block.block_type == "title" and block.text), doc_id)
     manifest = file_storage.get_doc_manifest(library_id, doc_id)
@@ -700,6 +738,7 @@ def build_canonical_document(library_id: str, doc_id: str, title: str = "") -> C
         status="completed" if markdown or blocks else "pending",
         created_at=timestamp,
         updated_at=timestamp,
+        pages=pages,
         blocks=blocks,
         outlines=outlines,
         chunks=chunks + table_chunks,
@@ -709,6 +748,7 @@ def build_canonical_document(library_id: str, doc_id: str, title: str = "") -> C
             file_storage.read_doc_blocks_graph(library_id, doc_id),
             blocks,
             tables,
+            pages,
         ),
     )
     return document
@@ -724,7 +764,9 @@ def rebuild_canonical_document_from_graph(
     raw_blocks = adapt_graph_nodes(graph_data.get("nodes", []))
     blocks = build_canonical_blocks_from_source(doc_id, raw_blocks)
     blocks, outlines = build_canonical_outlines(blocks)
-    chunks = build_canonical_chunks(blocks)
+    pages = build_pages_from_blocks(blocks)
+    label_map = build_page_label_map(pages)
+    chunks = build_canonical_chunks(blocks, label_map)
     tables, table_chunks = build_canonical_tables_from_source(doc_id, raw_blocks, blocks)
     inferred_title = title or next((block.text for block in blocks if block.block_type == "title" and block.text), doc_id)
     page_count = max((block.page_idx for block in blocks), default=-1) + 1 if blocks else 0
@@ -739,11 +781,12 @@ def rebuild_canonical_document_from_graph(
         status="completed" if blocks else "pending",
         created_at=timestamp,
         updated_at=timestamp,
+        pages=pages,
         blocks=blocks,
         outlines=outlines,
         chunks=chunks + table_chunks,
         tables=tables,
-        citation_targets=build_citation_targets_from_graph(doc_id, graph_data, blocks, tables),
+        citation_targets=build_citation_targets_from_graph(doc_id, graph_data, blocks, tables, pages),
     )
 
 
@@ -767,14 +810,17 @@ def build_canonical_document_from_popoblocks(
     title: str = "",
     blocks: Optional[List[CanonicalBlock]] = None,
     outlines: Optional[List[CanonicalOutlineNode]] = None,
+    pages: Optional[List[CanonicalPage]] = None,
 ) -> CanonicalDocument:
     from docs_core.write.store.assets_file_store import file_storage
 
     local_blocks = list(blocks) if blocks else []
-    chunks = build_canonical_chunks(local_blocks)
+    local_pages = list(pages) if pages else build_pages_from_blocks(local_blocks)
+    label_map = build_page_label_map(local_pages)
+    chunks = build_canonical_chunks(local_blocks, label_map)
     tables, table_chunks = build_canonical_tables(library_id, doc_id, local_blocks)
     graph_data = file_storage.read_doc_blocks_graph(library_id, doc_id)
-    citation_targets = build_citation_targets_from_graph(doc_id, graph_data, local_blocks, tables)
+    citation_targets = build_citation_targets_from_graph(doc_id, graph_data, local_blocks, tables, local_pages)
     local_outlines = list(outlines) if outlines else []
     inferred_title = title or next(
         (block.text for block in local_blocks if block.block_type == "title" and block.text), doc_id
@@ -796,6 +842,7 @@ def build_canonical_document_from_popoblocks(
         status="completed" if local_blocks else "pending",
         created_at=timestamp,
         updated_at=timestamp,
+        pages=local_pages,
         blocks=local_blocks,
         outlines=local_outlines,
         chunks=chunks + table_chunks,
