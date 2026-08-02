@@ -145,6 +145,7 @@ export interface DocumentResponse {
   mineru_blocks?: Record<string, any>[]
   middle_data?: Record<string, any> | null
   graph_data?: { nodes: Record<string, any>[]; edges: Record<string, any>[] } | null
+  build_id?: string | null
 }
 
 export interface KnowledgeParseOptions {
@@ -202,6 +203,7 @@ export interface KnowledgeCitationRecord {
   doc_id?: string
   doc_title?: string
   page_idx?: number
+  page_label?: string
   section_path?: string
   snippet?: string
   content?: string
