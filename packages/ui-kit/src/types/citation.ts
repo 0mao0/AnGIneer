@@ -19,6 +19,7 @@ export interface CitationReference {
   docId: string
   docTitle: string
   pageIdx?: number
+  pageLabel?: string
   sectionPath?: string
   snippet?: string
   content?: string

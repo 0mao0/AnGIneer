@@ -107,3 +107,51 @@ class DispatcherRetrievalTests(unittest.TestCase):
                 self.assertTrue(mock_local.called,
                                 "远端失败时应调用本地 phrase reranker")
                 self.assertEqual(len(reranked), len(candidates))
+
+    def test_build_citations_from_retrieved_carries_page_label(self):
+        """回答引用应携带印刷页码（pageLabel）。"""
+        from angineer_core.dispatcher import Dispatcher
+        from docs_core.query.protocols.contracts import RetrievedItem
+
+        fake_ks = MagicMock()
+        fake_ks.get_citation_target.return_value = {
+            "target_id": "doc-1:b1",
+            "target_type": "title",
+            "doc_id": "doc-1",
+            "page_idx": 4,
+            "page_label": "iv",
+            "section_path": "前言",
+            "snippet": "示例",
+        }
+        with patch("docs_core.knowledge_service.get_knowledge_service", return_value=fake_ks):
+            item = RetrievedItem(
+                item_id="doc-1:b1", entity_type="title", doc_id="doc-1",
+                title="前言", text="示例", score=1.0,
+                citation_target_id="doc-1:b1", metadata={},
+            )
+            doc_node = MagicMock()
+            doc_node.id = "doc-1"
+            doc_node.title = "示例文档"
+            citations = Dispatcher._build_citations_from_retrieved([item], [doc_node])
+            self.assertTrue(citations)
+            self.assertEqual(citations[0]["reference"]["pageLabel"], "iv")
+
+    def test_build_citations_fallback_carries_page_label(self):
+        """无 citation target 时，fallback 引用也应携带 page_label。"""
+        from angineer_core.dispatcher import Dispatcher
+        from docs_core.query.protocols.contracts import RetrievedItem
+
+        fake_ks = MagicMock()
+        fake_ks.get_citation_target.return_value = None
+        with patch("docs_core.knowledge_service.get_knowledge_service", return_value=fake_ks):
+            item = RetrievedItem(
+                item_id="chunk-1", entity_type="content", doc_id="doc-1",
+                title="章节", text="正文", score=1.0,
+                metadata={"page_idx": 3, "page_label": "iv"},
+            )
+            doc_node = MagicMock()
+            doc_node.id = "doc-1"
+            doc_node.title = "示例文档"
+            citations = Dispatcher._build_citations_from_retrieved([item], [doc_node])
+            self.assertTrue(citations)
+            self.assertEqual(citations[0]["page_label"], "iv")

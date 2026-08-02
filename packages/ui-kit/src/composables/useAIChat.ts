@@ -331,6 +331,7 @@ export function useAIChat(options?: {
           doc_id: citation.doc_id,
           doc_title: citation.doc_title,
           page_idx: citation.page_idx,
+          page_label: citation.page_label,
           section_path: citation.section_path,
           snippet: citation.snippet,
           content: citation.content,

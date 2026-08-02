@@ -621,7 +621,7 @@
                 </div>
                 <div v-if="getCitationDocTitle(c)" class="eval-citation-location">
                   {{ getCitationDocTitle(c) }}
-                  <template v-if="getCitationPage(c)"> · 页码: P{{ getCitationPage(c) }}</template>
+                  <template v-if="getCitationPageLabel(c)"> · 页码: P{{ getCitationPageLabel(c) }}</template>
                 </div>
                 <div v-if="getCitationSectionPath(c)" class="eval-citation-section">
                   章节: {{ getCitationSectionPath(c) }}
@@ -833,7 +833,7 @@ import { useTheme } from '@angineer/ui-kit'
 import {
   getCitationDocTitle,
   getCitationEntryLabel,
-  getCitationPage,
+  getCitationPageLabel,
   getCitationSectionPath,
   getCitationText,
   type EvalCitationItem,

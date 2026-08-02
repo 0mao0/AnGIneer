@@ -22,7 +22,7 @@
           <div class="editor-citation-popover__title">{{ hoveredCitation.label }}</div>
           <div class="editor-citation-popover__meta">
             <span>{{ formatCitationDocTitle(hoveredCitation.reference.docTitle) }}</span>
-            <span v-if="hoveredCitation.reference.pageIdx">P{{ hoveredCitation.reference.pageIdx }}</span>
+            <span v-if="hoveredCitation.reference.pageIdx || hoveredCitation.reference.pageLabel">P{{ hoveredCitation.reference.pageLabel || hoveredCitation.reference.pageIdx }}</span>
             <span v-if="hoveredCitation.reference.sectionPath">{{ hoveredCitation.reference.sectionPath }}</span>
           </div>
         </div>

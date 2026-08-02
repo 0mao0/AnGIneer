@@ -25,6 +25,7 @@ export interface BaseChatCitation {
   doc_id: string
   doc_title: string
   page_idx: number
+  page_label?: string
   section_path: string
   snippet: string
   content?: string
@@ -61,6 +62,7 @@ export interface AIChatCitation {
   doc_id: string
   doc_title: string
   page_idx: number
+  page_label?: string
   section_path: string
   snippet: string
   content?: string

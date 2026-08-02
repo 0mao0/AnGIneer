@@ -9,7 +9,7 @@
         <div class="popover-header">
           <div class="popover-title">{{ reference.docTitle || '引用预览' }}</div>
           <div class="popover-meta">
-            <span v-if="reference.pageIdx">P{{ reference.pageIdx }}</span>
+            <span v-if="reference.pageIdx || reference.pageLabel">P{{ reference.pageLabel || reference.pageIdx }}</span>
             <span v-if="reference.sectionPath">{{ reference.sectionPath }}</span>
           </div>
         </div>

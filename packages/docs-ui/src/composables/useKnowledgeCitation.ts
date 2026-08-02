@@ -17,6 +17,7 @@ export type KnowledgeChatCitation = {
   doc_id?: string
   doc_title?: string
   page_idx?: number
+  page_label?: string
   section_path?: string
   snippet?: string
   content?: string
@@ -92,6 +93,16 @@ const getCitationPage = (citation: KnowledgeChatCitation | null | undefined): nu
   if (referencePage > 0) return referencePage
   const legacyPage = Number(citation?.page_idx || 0)
   return legacyPage > 0 ? legacyPage : 0
+}
+
+/** 统一解析引用展示页码：印刷页码优先，缺省回退现有页码展示（page_idx 原样透出）。 */
+const getCitationDisplayPageLabel = (citation: KnowledgeChatCitation | null | undefined): string => {
+  const label = String(
+    citation?.reference?.pageLabel || citation?.page_label || ''
+  ).trim()
+  if (label) return label
+  const rawPage = Number(citation?.reference?.pageIdx || citation?.page_idx || 0)
+  return rawPage > 0 ? String(rawPage) : ''
 }
 
 /** 管理引用定位：解析引用目标节点、聚焦文档到对应块 */
@@ -237,6 +248,7 @@ export function useKnowledgeCitation() {
     resolveCitationTargetNode,
     focusCitationInWorkspace,
     handleKnowledgeAnswerComplete,
-    handleKnowledgeCitationSelect
+    handleKnowledgeCitationSelect,
+    getCitationDisplayPageLabel
   }
 }

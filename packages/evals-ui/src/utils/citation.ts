@@ -5,6 +5,7 @@ export interface EvalCitationItem {
   doc_title?: unknown
   doc_id?: unknown
   page_idx?: unknown
+  page_label?: unknown
   section_path?: unknown
   text?: unknown
   content?: unknown
@@ -15,6 +16,7 @@ export interface EvalCitationItem {
     docId?: unknown
     docTitle?: unknown
     pageIdx?: unknown
+    pageLabel?: unknown
     sectionPath?: unknown
     snippet?: unknown
     content?: unknown
@@ -40,6 +42,18 @@ export function getCitationPage(citation: EvalCitationItem | null | undefined): 
   if (referencePage > 0) return referencePage
   const legacyPage = Number(citation?.page_idx || 0)
   return legacyPage > 0 ? legacyPage : 0
+}
+
+/** 引用展示页码：印刷页码优先，缺省回退现有页码展示。 */
+export function getCitationPageLabel(citation: EvalCitationItem | null | undefined): string {
+  const label = String(
+    citation?.reference?.pageLabel
+    || citation?.page_label
+    || ''
+  ).trim()
+  if (label) return label
+  const page = getCitationPage(citation)
+  return page > 0 ? String(page) : ''
 }
 
 export function getCitationSectionPath(citation: EvalCitationItem | null | undefined): string {

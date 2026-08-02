@@ -15,7 +15,7 @@
       </div>
       <div class="mention-meta">
         <span class="mention-doc">{{ formatCitationDocTitle(candidate.reference.docTitle) }}</span>
-        <span v-if="candidate.reference.pageIdx">P{{ candidate.reference.pageIdx }}</span>
+        <span v-if="candidate.reference.pageIdx || candidate.reference.pageLabel">P{{ candidate.reference.pageLabel || candidate.reference.pageIdx }}</span>
       </div>
       <div v-if="candidate.reference.sectionPath" class="mention-path">{{ candidate.reference.sectionPath }}</div>
       <div

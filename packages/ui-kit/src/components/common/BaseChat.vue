@@ -78,7 +78,7 @@
                     </span>
                     <div class="citation-meta">
                       <span class="citation-doc">{{ citation.doc_title }}</span>
-                      <span v-if="citation.page_idx" class="citation-page">P{{ citation.page_idx }}</span>
+                      <span v-if="citation.page_idx || citation.page_label" class="citation-page">P{{ citation.page_label || citation.page_idx }}</span>
                       <span v-if="getCitationLastSegment(citation.section_path)" class="citation-location">
                         {{ getCitationLastSegment(citation.section_path) }}
                       </span>
