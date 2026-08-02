@@ -18,8 +18,12 @@ from .solo import (
     enrich_canonical_block,
     enrich_canonical_table,
     extract_table_features,
-    llm_refine_title_levels,
     parse_formula_param_rule,
+)
+from .structure.title_level_refiner import (
+    DEFAULT_CONFIDENCE_THRESHOLD,
+    estimate_backend_level_confidence,
+    llm_refine_title_levels,
     resolve_title_level_refinement,
 )
 
@@ -41,8 +45,10 @@ __all__ = [
     "collect_media_related_block_refs",
     "enrich_canonical_block",
     "enrich_canonical_table",
+    "estimate_backend_level_confidence",
     "extract_table_features",
     "llm_refine_title_levels",
     "parse_formula_param_rule",
     "resolve_title_level_refinement",
+    "DEFAULT_CONFIDENCE_THRESHOLD",
 ]

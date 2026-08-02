@@ -984,7 +984,14 @@ def build_structured_index_for_doc(
     )
     from docs_core.read.organize.builder import rebuild_canonical_document
 
-    canonical_document = rebuild_canonical_document(library_id, doc_id, title=doc_name)
+    canonical_document = rebuild_canonical_document(
+        library_id,
+        doc_id,
+        title=doc_name,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
+    )
 
     stats = {
         "nodes_count": len(result.nodes),

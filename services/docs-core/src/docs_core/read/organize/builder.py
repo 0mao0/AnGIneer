@@ -16,6 +16,7 @@ from docs_core.read.organize.types import (
 from docs_core.write.store.assets_file_store import file_storage
 from docs_core.read.normalize import enrich_canonical_block, enrich_canonical_table
 from docs_core.read.normalize.structure.popo.popo_table_extract import parse_table_html
+from docs_core.read.normalize.structure.title_level_refiner import resolve_title_level_refinement
 
 
 # 基于 blocks 的 page_idx 推导页面列表（solo 路径；popo 路径由 mapper 提供 pages）
@@ -302,6 +303,42 @@ def build_canonical_outlines(blocks: List[CanonicalBlock]) -> Tuple[List[Canonic
             })
         normalized_blocks.append(next_block)
     return normalized_blocks, outlines
+
+
+# 阶段二：标题层级 LLM 校正（Canonical 生成之后、outlines/chunks 之前），
+# 对两条后端统一生效。置信度 ≥ 阈值的标题不发起 LLM 调用。
+def refine_document_title_levels(
+    blocks: List[CanonicalBlock],
+    *,
+    use_llm: bool = False,
+    llm_client: Any = None,
+    llm_model: Optional[str] = None,
+) -> List[CanonicalBlock]:
+    title_blocks = [
+        block for block in blocks
+        if block.block_type == "title" and (block.text_clean or block.text)
+    ]
+    if not title_blocks:
+        return blocks
+    candidates, llm_levels, _status = resolve_title_level_refinement(
+        title_blocks,
+        llm_client,
+        use_llm=use_llm,
+        llm_model=llm_model,
+    )
+    if not llm_levels:
+        return blocks
+    candidate_map = {candidate["block_id"]: candidate for candidate in candidates}
+    by_id = {block.block_id: block for block in blocks}
+    for block_id, (level, confidence) in llm_levels.items():
+        block = by_id.get(block_id)
+        if block is None:
+            continue
+        candidate = candidate_map.get(block_id)
+        current_confidence = float(candidate.get("confidence") or 0.0) if candidate else 0.0
+        if block.title_level is None or confidence >= current_confidence:
+            by_id[block_id] = block.model_copy(update={"title_level": level})
+    return [by_id[block.block_id] for block in blocks]
 
 
 # 将一blocks 合并为结构感chunk
@@ -771,9 +808,23 @@ def enrich_document_semantics(
 
 
 # 基于现有落盘结果构建最canonical document
-def build_canonical_document(library_id: str, doc_id: str, title: str = "") -> CanonicalDocument:
+def build_canonical_document(
+    library_id: str,
+    doc_id: str,
+    title: str = "",
+    *,
+    use_llm: bool = False,
+    llm_client: Any = None,
+    llm_model: Optional[str] = None,
+) -> CanonicalDocument:
     markdown = file_storage.read_markdown(library_id, doc_id) or ""
     blocks = build_canonical_blocks(library_id, doc_id)
+    blocks = refine_document_title_levels(
+        blocks,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
+    )
     blocks, outlines = build_canonical_outlines(blocks)
     pages = build_pages_from_blocks(blocks)
     label_map = build_page_label_map(pages)
@@ -821,9 +872,19 @@ def rebuild_canonical_document_from_graph(
     doc_id: str,
     graph_data: dict[str, Any],
     title: str = "",
+    *,
+    use_llm: bool = False,
+    llm_client: Any = None,
+    llm_model: Optional[str] = None,
 ) -> CanonicalDocument:
     raw_blocks = adapt_graph_nodes(graph_data.get("nodes", []))
     blocks = build_canonical_blocks_from_source(doc_id, raw_blocks)
+    blocks = refine_document_title_levels(
+        blocks,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
+    )
     blocks, outlines = build_canonical_outlines(blocks)
     pages = build_pages_from_blocks(blocks)
     label_map = build_page_label_map(pages)
@@ -853,10 +914,25 @@ def rebuild_canonical_document_from_graph(
 
 
 # 基于最终审核结果重canonical 文档并持久化SQLite
-def rebuild_canonical_document(library_id: str, doc_id: str, title: str = "") -> CanonicalDocument:
+def rebuild_canonical_document(
+    library_id: str,
+    doc_id: str,
+    title: str = "",
+    *,
+    use_llm: bool = False,
+    llm_client: Any = None,
+    llm_model: Optional[str] = None,
+) -> CanonicalDocument:
     from docs_core.knowledge_service import knowledge_service
 
-    document = build_canonical_document(library_id, doc_id, title=title)
+    document = build_canonical_document(
+        library_id,
+        doc_id,
+        title=title,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
+    )
     knowledge_service.save_canonical_document(document)
     file_storage.save_middle_json(
         library_id,
@@ -873,10 +949,20 @@ def build_canonical_document_from_popoblocks(
     blocks: Optional[List[CanonicalBlock]] = None,
     outlines: Optional[List[CanonicalOutlineNode]] = None,
     pages: Optional[List[CanonicalPage]] = None,
+    *,
+    use_llm: bool = False,
+    llm_client: Any = None,
+    llm_model: Optional[str] = None,
 ) -> CanonicalDocument:
     from docs_core.write.store.assets_file_store import file_storage
 
     local_blocks = list(blocks) if blocks else []
+    local_blocks = refine_document_title_levels(
+        local_blocks,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
+    )
     local_pages = list(pages) if pages else build_pages_from_blocks(local_blocks)
     label_map = build_page_label_map(local_pages)
     chunks = build_canonical_chunks(local_blocks, label_map)

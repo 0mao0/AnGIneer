@@ -16,7 +16,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple, TYPE_CHECKING
 
-from .LLM_refiner_titles import resolve_title_level_refinement
 from .formula_semantics import build_formula_representations
 
 if TYPE_CHECKING:
@@ -1135,14 +1134,6 @@ def build_structured_from_rawfiles(
                 "footnote_bboxes": media_bbox_info.get("footnote_bboxes"),
             })
     
-    title_candidates, llm_levels, llm_status = resolve_title_level_refinement(
-        rows=rows,
-        infer_title_level_func=infer_title_level,
-        llm_client=llm_client,
-        use_llm=use_llm,
-        llm_model=llm_model,
-    )
-    
     toc_row_ids = detect_toc_row_ids(rows)
     toc_pages = {int(r["page_idx"]) for r in rows if int(r["id"]) in toc_row_ids}
     
@@ -1179,13 +1170,6 @@ def build_structured_from_rawfiles(
         if block_type == "title":
             derived_level, confidence, by = infer_title_level(row["plain_text"] or "", raw_level)
             derived_by = by
-            llm_pred = llm_levels.get(row["block_uid"])
-            if llm_pred is not None:
-                llm_level, llm_conf = llm_pred
-                if derived_level is None or llm_conf >= confidence:
-                    derived_level = llm_level
-                    confidence = llm_conf
-                    derived_by = "llm" if by in ("none", "raw") else "rule+llm"
             
             if is_toc_row:
                 title_path = None
@@ -1527,11 +1511,13 @@ def build_structured_from_rawfiles(
         "nodes_count": len(nodes),
         "edges_count": len(edges),
         "index_rows_count": len(index_rows),
-        "llm_status": llm_status,
+        # 阶段二：标题 LLM 校正已上移到 builder 层（Canonical 之后、入库之前），
+        # 结构阶段不再执行；llm_status 固定为 disabled 表示该阶段无标题 LLM。
+        "llm_status": "disabled",
         "derive_version": derive_version,
         "parser_version": parser_version,
         "toc_pages": list(toc_pages),
-        "title_candidates": len(title_candidates),
+        "title_candidates": len([row for row in rows if row.get("block_type") == "title"]),
     }
     
     return StructuredResult(
