@@ -10,6 +10,10 @@ from docs_core.read.organize.types import (
     CanonicalOutlineNode,
     CanonicalPage,
 )
+from docs_core.read.normalize.structure.popo.popo_table_extract import (
+    extract_table_html,
+    textify_table_html,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -159,13 +163,19 @@ def po_po_blocks_to_canonical(
             # 无宿主可并入时降级保留为段落，raw_type 仍记原始标签
             block_type = "paragraph"
 
+        # 阶段一（G1）：表格原始 HTML 只进 table_html，text 保留 textified 内容避免污染 FTS
+        table_html: Optional[str] = None
+        if popo_type == "table":
+            table_html = extract_table_html(pb)
+        text = textify_table_html(table_html) if table_html else str(pb.get("content", "") or "")
+
         blocks.append(CanonicalBlock(
             block_id=canonical_id,
             doc_id=doc_id,
             page_idx=int(pb.get("page", 1)) - 1,
             block_type=block_type,
-            text=pb.get("content", ""),
-            text_clean=clean_text(pb.get("content", "")),
+            text=text,
+            text_clean=clean_text(text),
             bbox=BoundingBox(**{
                 "x0": float(pb["bbox"][0]), "y0": float(pb["bbox"][1]),
                 "x1": float(pb["bbox"][2]), "y1": float(pb["bbox"][3])
@@ -180,6 +190,7 @@ def po_po_blocks_to_canonical(
             image_assoc_id=id_map.get(str(pb.get("image"))) if pb.get("image", -1) >= 0 else None,
             table_merge_id=id_map.get(str(pb.get("table_merge"))) if pb.get("table_merge", -1) >= 0 else None,
             raw_type=popo_type,
+            table_html=table_html,
         ))
 
     # Step 4b: caption/footnote 文本并入宿主

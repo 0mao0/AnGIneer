@@ -61,6 +61,7 @@ class CanonicalPage(BaseModel):
 class CanonicalBlock(BaseModel):
     """原子内容块。"""
 
+    schema_version: str = "v2"
     block_id: str
     doc_id: str
     page_idx: int = 0
@@ -83,6 +84,11 @@ class CanonicalBlock(BaseModel):
     image_assoc_id: Optional[str] = None
     table_merge_id: Optional[str] = None
     raw_type: Optional[str] = None
+    # 构建期旁路字段（阶段一）：原始表格 HTML 只进 table_html，text 保持 textified，避免污染 FTS。
+    # 不落库 canonical_blocks 列式表，middle.json model_dump 保留。
+    table_html: Optional[str] = None
+    # 构建期旁路字段（阶段一）：公式语义契约（FormulaSemanticsContract），挂载点由阶段三统一投影时定。
+    formula_semantics: Optional[dict] = None
 
 
 class CanonicalOutlineNode(BaseModel):

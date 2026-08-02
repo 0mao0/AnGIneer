@@ -4,6 +4,8 @@ from .formula_semantics import (
     FormulaParamContract,
     FormulaSemanticsContract,
     build_formula_representations,
+    collect_canonical_explanation_lines,
+    enrich_canonical_block,
     parse_formula_param_rule,
 )
 from .table_semantics import (
@@ -13,6 +15,7 @@ from .table_semantics import (
     TABLE_TYPE_TEXT_DENSE,
     build_table_representations,
     classify_table,
+    enrich_canonical_table,
     extract_table_features,
 )
 from .structure_builder import (

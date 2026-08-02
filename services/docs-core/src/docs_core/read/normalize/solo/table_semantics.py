@@ -1,5 +1,8 @@
 """表格内容表示与分类工具。"""
-from typing import Any, Dict, List
+from typing import Any, Dict, List, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from docs_core.read.organize.types import CanonicalTable
 
 
 TABLE_TYPE_NUMERIC_DENSE = "numeric_dense"
@@ -144,6 +147,29 @@ def build_table_representations(
     return payload
 
 
+# 阶段一：语义层后端无关入口——消费 CanonicalTable，产物沿用现有专用字段，
+# 不新增列。返回 dict 与 build_table_representations 的专用字段对齐。
+def enrich_canonical_table(table: "CanonicalTable") -> Dict[str, Any]:
+    if table is None:
+        return {
+            "table_type": TABLE_TYPE_HYBRID,
+            "summary": "",
+            "row_keys": [],
+            "text_chunks": [],
+        }
+    representations = build_table_representations(
+        table.title,
+        table.header_rows,
+        table.body_rows,
+    )
+    return {
+        "table_type": representations["table_type"],
+        "summary": str(representations.get("table_summary") or ""),
+        "row_keys": [str(item) for item in representations.get("table_row_keys", [])],
+        "text_chunks": [str(item) for item in representations.get("table_text_chunks", [])],
+    }
+
+
 __all__ = [
     "TABLE_TYPE_HYBRID",
     "TABLE_TYPE_MAPPING_ENUM",
@@ -154,6 +180,7 @@ __all__ = [
     "build_table_schema",
     "build_text_row_chunks",
     "classify_table",
+    "enrich_canonical_table",
     "extract_table_features",
     "is_numeric_like",
     "normalize_table_cell",

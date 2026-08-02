@@ -7,6 +7,13 @@ TABLE_HTML = (
     "<tr><td>高度</td><td>100</td></tr></table>"
 )
 
+MERGED_TABLE_HTML = (
+    "<table><tr><th colspan=\"2\">参数</th><th>数值</th></tr>"
+    "<tr><td>高度</td><td>H</td><td>100</td></tr>"
+    "<tr><td>宽度</td><td>B</td><td>200</td></tr>"
+    "<tr><td>深度</td><td>D</td><td>300</td></tr></table>"
+)
+
 
 def make_block(
     block_id: int,
@@ -18,8 +25,9 @@ def make_block(
     image: int = -1,
     table_merge: int = -1,
     contd: int = -1,
+    cell_list: list = None,
 ) -> dict:
-    return {
+    payload = {
         "id": block_id,
         "page": page,
         "type": block_type,
@@ -30,6 +38,9 @@ def make_block(
         "table_merge": table_merge,
         "contd": contd,
     }
+    if cell_list is not None:
+        payload["cell_list"] = cell_list
+    return payload
 
 
 def build_noise_fixture() -> list[dict]:
@@ -61,4 +72,14 @@ def build_clean_fixture() -> list[dict]:
         make_block(2, 1, "text", "这是正文段落。"),
         make_block(3, 2, "equation", "F = ma"),
         make_block(4, 2, "text", "式中：F 为合力。"),
+    ]
+
+
+def build_table_fixture() -> list[dict]:
+    """含跨页合并表格（多数据行 + colspan + cell_list）的 popo enriched_blocks 样本。"""
+    return [
+        make_block(1, 1, "title", "第五章 构件", level=1),
+        make_block(2, 2, "table", MERGED_TABLE_HTML, table_merge=-1, cell_list=[0, 1, 0]),
+        make_block(3, 2, "table_caption", "表 5.2-1 构件尺寸参数", table_merge=2),
+        make_block(4, 2, "table_footnote", "注：单位 mm", table_merge=2),
     ]

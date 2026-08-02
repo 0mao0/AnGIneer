@@ -1,6 +1,5 @@
 """Docs canonical schema 构建器"""
 from datetime import UTC, datetime
-from html.parser import HTMLParser
 import re
 from typing import Any, List, Optional, Tuple
 
@@ -15,7 +14,8 @@ from docs_core.read.organize.types import (
     CitationTarget,
 )
 from docs_core.write.store.assets_file_store import file_storage
-from docs_core.read.normalize import build_table_representations
+from docs_core.read.normalize import enrich_canonical_block, enrich_canonical_table
+from docs_core.read.normalize.structure.popo.popo_table_extract import parse_table_html
 
 
 # 基于 blocks 的 page_idx 推导页面列表（solo 路径；popo 路径由 mapper 提供 pages）
@@ -97,44 +97,6 @@ def infer_title_level(text: str, raw_level: object = None) -> int:
     return 1
 
 
-class SimpleHtmlTableParser(HTMLParser):
-    """最HTML 表格解析器"""
-
-    def __init__(self) -> None:
-        super().__init__()
-        self.rows: List[List[str]] = []
-        self._current_row: List[str] = []
-        self._current_cell: List[str] = []
-        self._in_cell = False
-
-    def handle_starttag(self, tag: str, attrs: List[Tuple[str, str | None]]) -> None:
-        if tag == "tr":
-            self._current_row = []
-        if tag in {"td", "th"}:
-            self._in_cell = True
-            self._current_cell = []
-
-    def handle_endtag(self, tag: str) -> None:
-        if tag in {"td", "th"} and self._in_cell:
-            self._in_cell = False
-            self._current_row.append(clean_text("".join(self._current_cell)))
-            self._current_cell = []
-        if tag == "tr" and self._current_row:
-            self.rows.append(self._current_row)
-            self._current_row = []
-
-    def handle_data(self, data: str) -> None:
-        if self._in_cell:
-            self._current_cell.append(data)
-
-
-# 解析 HTML 表格为二维数组
-def parse_table_html(table_html: str) -> List[List[str]]:
-    parser = SimpleHtmlTableParser()
-    parser.feed(table_html or "")
-    return [row for row in parser.rows if any(cell.strip() for cell in row)]
-
-
 # 归一化不同来源中block_type，收敛到 canonical schema 支持的枚举
 def normalize_block_type(raw_block_type: object) -> str:
     block_type = str(raw_block_type or "unknown").strip()
@@ -212,6 +174,7 @@ def adapt_graph_node(raw_node: dict[str, Any], index: int, section_path: str) ->
         "source_ref": raw_node.get("id"),
         "bbox": _coerce_bbox(raw_node.get("bbox")),
         "table_html": raw_node.get("table_html"),
+        "raw_type": raw_node.get("raw_type"),
         "content_json": content_json,
         "caption": raw_node.get("caption") or (raw_node.get("plain_text") if block_type == "table" else ""),
         "footnote": raw_node.get("footnote") or "",
@@ -284,6 +247,8 @@ def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, A
                 source="mineru",
                 source_ref=str(raw_block.get("source_ref") or "") or None,
                 parent_block_id=str(raw_block.get("parent_block_uid") or "") or None,
+                raw_type=raw_block.get("raw_type"),
+                table_html=raw_block.get("table_html"),
                 clause_id=extract_clause_id(text),
                 inherited_chapter=extract_inherited_chapter(section_path),
                 entity_tags=infer_entity_tags(text, section_path),
@@ -487,16 +452,43 @@ def build_canonical_tables_from_source(
     blocks: List[CanonicalBlock],
 ) -> Tuple[List[CanonicalTable], List[CanonicalChunk]]:
     block_map = {block.block_id: block for block in blocks}
-    tables: List[CanonicalTable] = []
-    table_chunks: List[CanonicalChunk] = []
+    raw_by_id = {
+        str(raw_block.get("block_uid") or raw_block.get("id") or f"table-{index}"): raw_block
+        for index, raw_block in enumerate(raw_blocks)
+    }
 
+    # 候选表格块：graph 原始块优先（solo）；popo 路径 graph 节点无 table_html 或
+    # graph 为空时，回退 CanonicalBlock.table_html 旁路字段（阶段一 G1）。
+    candidates: List[tuple[str, dict[str, Any], Optional[CanonicalBlock]]] = []
+    seen_ids: set[str] = set()
     for index, raw_block in enumerate(raw_blocks):
         block_type = str(raw_block.get("block_type") or raw_block.get("type") or "")
         if block_type != "table":
             continue
-
         block_id = str(raw_block.get("block_uid") or raw_block.get("id") or f"table-{index}")
         canonical_block = block_map.get(block_id)
+        content_payload: Any = raw_block.get("content") if isinstance(raw_block.get("content"), dict) else {}
+        table_html = (
+            str(raw_block.get("table_html") or "")
+            or str(content_payload.get("html") or "")
+            or str((canonical_block.table_html or "") if canonical_block else "")
+        ).strip()
+        if not table_html:
+            continue
+        candidates.append((block_id, raw_block, canonical_block))
+        seen_ids.add(block_id)
+    for block in blocks:
+        if block.block_type != "table" or not block.table_html:
+            continue
+        if block.block_id in seen_ids:
+            continue
+        candidates.append((block.block_id, raw_by_id.get(block.block_id, {}), block))
+        seen_ids.add(block.block_id)
+
+    tables: List[CanonicalTable] = []
+    table_chunks: List[CanonicalChunk] = []
+
+    for index, (block_id, raw_block, canonical_block) in enumerate(candidates):
         page_idx = canonical_block.page_idx if canonical_block else int(raw_block.get("page_idx") or 0)
         section_path = canonical_block.section_path if canonical_block else str(raw_block.get("section_path") or "")
 
@@ -504,6 +496,7 @@ def build_canonical_tables_from_source(
         table_html = (
             str(raw_block.get("table_html") or "")
             or str(content_payload.get("html") or "")
+            or str((canonical_block.table_html or "") if canonical_block else "")
         ).strip()
         if not table_html:
             continue
@@ -518,8 +511,7 @@ def build_canonical_tables_from_source(
             str(raw_block.get("caption") or "")
             or str(content_payload.get("table_caption") or "")
         ).strip()
-        title = caption or (canonical_block.text_clean if canonical_block else "") or f"表格-{index + 1}"
-        representations = build_table_representations(title, header_rows, body_rows)
+        title = _resolve_table_title(caption, canonical_block, header_rows, index)
 
         table = CanonicalTable(
             table_id=f"table-{block_id}",
@@ -528,15 +520,23 @@ def build_canonical_tables_from_source(
             page_end=page_idx,
             title=title,
             caption=caption,
-            table_type=representations["table_type"],
             header_rows=[[str(cell) for cell in row] for row in header_rows],
             body_rows=[[str(cell) for cell in row] for row in body_rows],
             row_count=len(body_rows),
             col_count=max((len(row) for row in parsed_rows), default=0),
             source_block_ids=[block_id],
-            summary=str(representations.get("table_summary") or ""),
-            row_keys=[str(item) for item in representations.get("table_row_keys", [])],
-            text_chunks=[str(item) for item in representations.get("table_text_chunks", [])],
+            summary="",
+            row_keys=[],
+            text_chunks=[],
+        )
+        enriched = enrich_canonical_table(table)
+        table = table.model_copy(
+            update={
+                "table_type": enriched["table_type"],
+                "summary": enriched["summary"],
+                "row_keys": enriched["row_keys"],
+                "text_chunks": enriched["text_chunks"],
+            }
         )
         tables.append(table)
 
@@ -606,6 +606,34 @@ def build_canonical_tables_from_source(
             )
 
     return tables, table_chunks
+
+
+# 阶段一：解析表格展示标题。popo 路径（raw_type=="table"）优先取并入宿主文本中的
+# “表 N xxx” caption 行，否则回退表头行；solo 路径保持原行为（text_clean 回退）。
+def _resolve_table_title(
+    caption: str,
+    canonical_block: Optional[CanonicalBlock],
+    header_rows: List[List[str]],
+    index: int,
+) -> str:
+    if caption:
+        return caption
+    if canonical_block is not None and canonical_block.raw_type == "table":
+        caption_line = next(
+            (
+                line.strip()
+                for line in (canonical_block.text or "").splitlines()
+                if re.match(r"^\s*表\s*\d", line)
+            ),
+            "",
+        )
+        if caption_line:
+            return caption_line
+        header_text = " | ".join(cell for cell in (header_rows[0] if header_rows else []) if cell).strip()
+        if header_text:
+            return header_text[:60]
+        return f"表格-{index + 1}"
+    return (canonical_block.text_clean if canonical_block else "") or f"表格-{index + 1}"
 
 
 # 从语义图重建稳定的独立 citation targets
@@ -709,6 +737,39 @@ def build_citation_targets_from_graph(
     return targets
 
 
+# 阶段一：语义层挂在 Canonical 之后——公式语义增强（表格已在 build_canonical_tables_*
+# 内经 enrich_canonical_table 填充），两条后端统一受益。产物挂在 CanonicalBlock 的
+# formula_semantics 旁路字段（构建期，不落库；挂载点由阶段三统一投影时定）。
+def enrich_document_semantics(
+    document: CanonicalDocument,
+    *,
+    use_llm: bool = False,
+    llm_client: Any = None,
+    llm_model: Optional[str] = None,
+) -> CanonicalDocument:
+    if not document.blocks:
+        return document
+    ordered = sorted(document.blocks, key=lambda block: (block.page_idx, block.reading_order))
+    formula_contracts: dict[str, dict] = {}
+    for block in ordered:
+        if block.block_type == "formula":
+            contract = enrich_canonical_block(
+                block,
+                ordered,
+                llm_client=llm_client,
+                llm_model=llm_model,
+                use_llm=use_llm,
+            )
+            formula_contracts[block.block_id] = contract
+    new_blocks: List[CanonicalBlock] = [
+        block.model_copy(update={"formula_semantics": formula_contracts[block.block_id]})
+        if block.block_id in formula_contracts
+        else block
+        for block in document.blocks
+    ]
+    return document.model_copy(update={"blocks": new_blocks})
+
+
 # 基于现有落盘结果构建最canonical document
 def build_canonical_document(library_id: str, doc_id: str, title: str = "") -> CanonicalDocument:
     markdown = file_storage.read_markdown(library_id, doc_id) or ""
@@ -751,7 +812,7 @@ def build_canonical_document(library_id: str, doc_id: str, title: str = "") -> C
             pages,
         ),
     )
-    return document
+    return enrich_document_semantics(document)
 
 
 # 直接从给定语义图重建 canonical document
@@ -771,7 +832,7 @@ def rebuild_canonical_document_from_graph(
     inferred_title = title or next((block.text for block in blocks if block.block_type == "title" and block.text), doc_id)
     page_count = max((block.page_idx for block in blocks), default=-1) + 1 if blocks else 0
     timestamp = datetime.now(UTC).isoformat()
-    return CanonicalDocument(
+    document = CanonicalDocument(
         doc_id=doc_id,
         library_id=library_id,
         title=inferred_title,
@@ -788,6 +849,7 @@ def rebuild_canonical_document_from_graph(
         tables=tables,
         citation_targets=build_citation_targets_from_graph(doc_id, graph_data, blocks, tables, pages),
     )
+    return enrich_document_semantics(document)
 
 
 # 基于最终审核结果重canonical 文档并持久化SQLite
@@ -832,7 +894,7 @@ def build_canonical_document_from_popoblocks(
         source_file_name = str(manifest.get("source_file") or "").split("\\")[-1].split("/")[-1]
     timestamp = datetime.now(UTC).isoformat()
 
-    return CanonicalDocument(
+    document = CanonicalDocument(
         doc_id=doc_id,
         library_id=library_id,
         title=inferred_title,
@@ -849,3 +911,4 @@ def build_canonical_document_from_popoblocks(
         tables=tables,
         citation_targets=citation_targets,
     )
+    return enrich_document_semantics(document)

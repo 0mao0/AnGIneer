@@ -5,6 +5,7 @@ from typing import Any, Dict, List, Optional, TYPE_CHECKING, TypedDict
 
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
+    from docs_core.read.organize.types import CanonicalBlock
 
 
 FORMULA_NUMBER_RE = re.compile(r"[（(](\d+(?:\.\d+)*(?:-\d+)?)[）)]")
@@ -104,7 +105,7 @@ def parse_formula_param_rule(line: str) -> Optional[Dict[str, Any]]:
     if not candidate:
         return None
     candidate = re.sub(r"^[•·]\s*", "", candidate)
-    candidate = re.sub(r"^(式中|其中|注[:：]?)\s*", "", candidate)
+    candidate = re.sub(r"^(?:式中|其中|注)[:：]?\s*", "", candidate)
     match = FORMULA_PARAM_RE.match(candidate)
     if not match:
         soft_match = FORMULA_PARAM_SOFT_RE.match(candidate)
@@ -295,11 +296,79 @@ def build_formula_representations(
     }
 
 
+# 阶段一：从公式块下文定位解释段（section_path + reading_order 邻近，替代 solo 的
+# explain_for 下挂逻辑）。公式后紧跟的同节段落优先，可跨一页取邻近段。
+def collect_canonical_explanation_lines(
+    block: "CanonicalBlock",
+    following_blocks: Optional[List["CanonicalBlock"]] = None,
+    max_lines: int = 8,
+) -> List[str]:
+    if block is None:
+        return []
+    lines: List[str] = []
+    for nb in following_blocks or []:
+        if len(lines) >= max_lines:
+            break
+        if nb.block_type == "formula":
+            continue
+        if nb.block_type not in {"paragraph", "list_item"}:
+            continue
+        same_section = (nb.section_path == block.section_path) or not nb.section_path
+        nearby = abs(int(nb.page_idx or 0) - int(block.page_idx or 0)) <= 1
+        if not (same_section and nearby):
+            continue
+        text = clean_formula_text(nb.text or nb.text_clean or "")
+        if text:
+            lines.append(text)
+    return lines
+
+
+# 阶段一：语义层后端无关入口——输入 CanonicalBlock（type=="formula"）及其下文
+# 解释段，产出 FormulaSemanticsContract，不依赖任何后端内部格式。
+def enrich_canonical_block(
+    block: "CanonicalBlock",
+    blocks: Optional[List["CanonicalBlock"]] = None,
+    *,
+    llm_client: Optional["LLMClient"] = None,
+    llm_model: Optional[str] = None,
+    use_llm: bool = False,
+) -> FormulaSemanticsContract:
+    if block is None or block.block_type != "formula":
+        return {
+            "formula_text": "",
+            "formula_number": None,
+            "formula_params": [],
+            "formula_param_count": 0,
+            "formula_summary": "",
+            "llm_status": "skipped",
+            "explanation_lines": [],
+        }
+    following: List["CanonicalBlock"] = []
+    if blocks:
+        ordered = sorted(blocks, key=lambda item: (item.page_idx, item.reading_order))
+        start = next(
+            (i for i, item in enumerate(ordered) if item.block_id == block.block_id),
+            None,
+        )
+        if start is not None:
+            following = ordered[start + 1:]
+    explanation_lines = collect_canonical_explanation_lines(block, following)
+    return build_formula_representations(
+        formula_text=block.text or block.text_clean or "",
+        explanation_lines=explanation_lines,
+        llm_client=llm_client,
+        llm_model=llm_model,
+        use_llm=use_llm,
+    )
+
+
 __all__ = [
     "FormulaParamContract",
     "FormulaSemanticsContract",
     "build_formula_representations",
     "clean_formula_text",
+    "collect_canonical_explanation_lines",
+    "enrich_canonical_block",
     "extract_formula_number",
     "extract_formula_reference_hint",
     "extract_formula_unit",
