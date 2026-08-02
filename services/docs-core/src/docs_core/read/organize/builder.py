@@ -14,7 +14,8 @@ from docs_core.read.organize.types import (
     CitationTarget,
 )
 from docs_core.write.store.assets_file_store import file_storage
-from docs_core.read.normalize import enrich_canonical_block, enrich_canonical_table
+from docs_core.read.normalize.semantics.formula_semantics import enrich_canonical_block
+from docs_core.read.normalize.semantics.table_semantics import enrich_canonical_table
 from docs_core.read.normalize.structure.popo.popo_table_extract import parse_table_html
 from docs_core.read.normalize.structure.title_level_refiner import resolve_title_level_refinement
 
@@ -807,7 +808,65 @@ def enrich_document_semantics(
     return document.model_copy(update={"blocks": new_blocks})
 
 
-# 基于现有落盘结果构建最canonical document
+# 阶段四（G3/P1b）：直接消费后端产出的 CanonicalBlock 构建 canonical document，
+# 不再经 graph jsonl 中转（表格/引用目标均从 Canonical 对象生成）。
+def build_canonical_document_from_blocks(
+    library_id: str,
+    doc_id: str,
+    title: str = "",
+    blocks: Optional[List[CanonicalBlock]] = None,
+    pages: Optional[List[CanonicalPage]] = None,
+    *,
+    use_llm: bool = False,
+    llm_client: Any = None,
+    llm_model: Optional[str] = None,
+) -> CanonicalDocument:
+    markdown = file_storage.read_markdown(library_id, doc_id) or ""
+    local_blocks = list(blocks) if blocks else []
+    local_blocks = refine_document_title_levels(
+        local_blocks,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
+    )
+    local_blocks, outlines = build_canonical_outlines(local_blocks)
+    local_pages = list(pages) if pages else build_pages_from_blocks(local_blocks)
+    label_map = build_page_label_map(local_pages)
+    chunks = build_canonical_chunks(local_blocks, label_map)
+    tables, table_chunks = build_canonical_tables_from_source(doc_id, [], local_blocks)
+    inferred_title = title or next(
+        (block.text for block in local_blocks if block.block_type == "title" and block.text), doc_id
+    )
+    manifest = file_storage.get_doc_manifest(library_id, doc_id)
+    source_file_name = ""
+    if manifest.get("source_file"):
+        source_file_name = str(manifest.get("source_file") or "").split("\\")[-1].split("/")[-1]
+    page_count = 0
+    if local_blocks:
+        page_count = max(block.page_idx for block in local_blocks) + 1
+    timestamp = datetime.now(UTC).isoformat()
+
+    document = CanonicalDocument(
+        doc_id=doc_id,
+        library_id=library_id,
+        title=inferred_title,
+        source_file_name=source_file_name or doc_id,
+        source_file_type="pdf",
+        page_count=page_count,
+        status="completed" if markdown or local_blocks else "pending",
+        created_at=timestamp,
+        updated_at=timestamp,
+        pages=local_pages,
+        blocks=local_blocks,
+        outlines=outlines,
+        chunks=chunks + table_chunks,
+        tables=tables,
+        citation_targets=build_citation_targets_from_graph(doc_id, {}, local_blocks, tables, local_pages),
+    )
+    return enrich_document_semantics(document)
+
+
+# 基于现有落盘结果构建最canonical document（load_source_blocks 仅保留为旧数据兼容回退）
 def build_canonical_document(
     library_id: str,
     doc_id: str,
@@ -817,53 +876,16 @@ def build_canonical_document(
     llm_client: Any = None,
     llm_model: Optional[str] = None,
 ) -> CanonicalDocument:
-    markdown = file_storage.read_markdown(library_id, doc_id) or ""
     blocks = build_canonical_blocks(library_id, doc_id)
-    blocks = refine_document_title_levels(
-        blocks,
+    return build_canonical_document_from_blocks(
+        library_id,
+        doc_id,
+        title=title,
+        blocks=blocks,
         use_llm=use_llm,
         llm_client=llm_client,
         llm_model=llm_model,
     )
-    blocks, outlines = build_canonical_outlines(blocks)
-    pages = build_pages_from_blocks(blocks)
-    label_map = build_page_label_map(pages)
-    chunks = build_canonical_chunks(blocks, label_map)
-    tables, table_chunks = build_canonical_tables(library_id, doc_id, blocks)
-    inferred_title = title or next((block.text for block in blocks if block.block_type == "title" and block.text), doc_id)
-    manifest = file_storage.get_doc_manifest(library_id, doc_id)
-    source_file_name = ""
-    if manifest.get("source_file"):
-        source_file_name = str(manifest.get("source_file") or "").split("\\")[-1].split("/")[-1]
-    page_count = 0
-    if blocks:
-        page_count = max(block.page_idx for block in blocks) + 1
-    timestamp = datetime.utcnow().isoformat()
-
-    document = CanonicalDocument(
-        doc_id=doc_id,
-        library_id=library_id,
-        title=inferred_title,
-        source_file_name=source_file_name or doc_id,
-        source_file_type="pdf",
-        page_count=page_count,
-        status="completed" if markdown or blocks else "pending",
-        created_at=timestamp,
-        updated_at=timestamp,
-        pages=pages,
-        blocks=blocks,
-        outlines=outlines,
-        chunks=chunks + table_chunks,
-        tables=tables,
-        citation_targets=build_citation_targets_from_graph(
-            doc_id,
-            file_storage.read_doc_blocks_graph(library_id, doc_id),
-            blocks,
-            tables,
-            pages,
-        ),
-    )
-    return enrich_document_semantics(document)
 
 
 # 直接从给定语义图重建 canonical document
@@ -929,6 +951,37 @@ def rebuild_canonical_document(
         library_id,
         doc_id,
         title=title,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
+    )
+    knowledge_service.save_canonical_document(document)
+    file_storage.save_middle_json(
+        library_id,
+        doc_id,
+        document.model_dump(mode="json"),
+    )
+    return document
+
+
+# 阶段四：从后端产出的 CanonicalBlock 重建并持久化 canonical 文档（solo 适配器路径）。
+def rebuild_canonical_document_from_blocks(
+    library_id: str,
+    doc_id: str,
+    title: str = "",
+    blocks: Optional[List[CanonicalBlock]] = None,
+    *,
+    use_llm: bool = False,
+    llm_client: Any = None,
+    llm_model: Optional[str] = None,
+) -> CanonicalDocument:
+    from docs_core.knowledge_service import knowledge_service
+
+    document = build_canonical_document_from_blocks(
+        library_id,
+        doc_id,
+        title=title,
+        blocks=blocks,
         use_llm=use_llm,
         llm_client=llm_client,
         llm_model=llm_model,

@@ -1,4 +1,10 @@
-"""公式结构化提取工具。"""
+"""公式结构化提取工具（阶段四：迁入 semantics/ 顶层包）。
+
+语义层契约：输入 ``CanonicalBlock``（block_type=="formula"）及其下文解释段
+（section_path + reading_order 邻近定位），输出 ``FormulaSemanticsContract``。
+契约挂 ``CanonicalBlock.formula_semantics`` 旁路字段（构建期，middle.json 保留）；
+graph node meta / derived_rows 的最终挂载点由后续统一投影确定。
+"""
 import json
 import re
 from typing import Any, Dict, List, Optional, TYPE_CHECKING, TypedDict

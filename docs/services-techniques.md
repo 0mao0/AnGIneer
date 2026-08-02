@@ -385,14 +385,16 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 | `source_prep` | 源文件准备 | hard | [] | 复制源文件到规范目录 |
 | `convert` | 格式转换 | hard | [source_prep] | 非 PDF 经 LibreOffice 转 PDF；PDF 输入自动 skipped |
 | `raw_parse` | MinerU 解析 | hard | [convert] | 调 MinerU 产出 md+images+JSON |
-| `popo` | PoPo 语义增强 | soft | [raw_parse] | 默认关（`DOCS_CORE_NORMALIZER_BACKEND`），失败回退 legacy |
-| `structure` | 结构化入库 | hard | [raw_parse] | canonical blocks/chunks/表格/大纲 |
+| `popo` | PoPo 语义增强 | soft | [raw_parse] | 主链路（`DOCS_CORE_NORMALIZER_BACKEND=auto/popo` 默认 auto）；失败自动降级 solo 并在 `doc_parse_stages` 记 `fallback=solo` |
+| `structure` | 结构化入库 | hard | [raw_parse] | 唯一结构化者：popo enriched 存在走 popo 后端，否则 solo 降级；产出 canonical + 统一写出口产物 |
 | `fts` | 全文索引 | hard | [structure] | 重建 FTS（无外部依赖） |
 | `vectors` | 向量索引 | soft | [structure] | embedding API；strict 模式下失败只标本阶段 |
 | `graph` | 知识图谱 | soft | [structure] | `push_to_graph` |
 | `sop` | SOP 生成 | soft | [graph] | `generate_sops_from_doc` |
 
 hard 阶段失败 → 终止后续阶段；soft 阶段失败 → 仅标记自身，后续继续。
+
+降级语义：popo 为 soft 阶段，失败后 `_run_popo` 会回滚半成品（删 popo 目录、清 doc_blocks、恢复 MinerU 版 markdown），再由 structure 以 solo 后端完成结构化；`derive_overall_status` 将「popo failed + structure completed」视为 completed。
 
 新增 API 端点：
 - `GET /api/knowledge/documents/{doc_id}/stages` — 查询各阶段状态

@@ -1,7 +1,9 @@
 """统一写入投影（阶段三：写入唯一出口）。
 
 下游产物（content.md / doc_blocks_graph / segments / base_rows+derived_rows）统一从
-CanonicalDocument 生成——popo 路径不再经过 popo_projection，solo 侧由阶段四切换。
+CanonicalDocument 生成——popo 路径不再经过 popo_projection（阶段三已删除）；
+solo 路径的展示投影（graph/segments/富字段）暂由其 write 侧保留，canonical 已通过
+G3 适配器直接消费后端块（阶段四）。
 
 - ``build_doc_blocks_graph``：与 popo_projection 的 graph 字段逐项对齐（含
   contd/image/table_merge 三边与 markdown 行号），保证改造前后 popo graph 一致；

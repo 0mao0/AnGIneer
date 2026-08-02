@@ -25,8 +25,8 @@ flowchart LR
 
     G --> H["popo_mapper.py<br/>映射"]
     H --> I["CanonicalBlock + OutlineNode"]
-    I --> J["popo_projection.py<br/>投影"]
-    J --> K["content.md<br/>doc_blocks_graph.json<br/>segments / base_rows"]
+    I --> J["structure 阶段（统一结构化者）<br/>builder + write/projection.py 统一写出口"]
+    J --> K["content.md<br/>doc_blocks_graph.jsonl/meta<br/>segments / base_rows+derived_rows"]
 ```
 
 ## 2. 数据流转 + 各层 Schema（字段视图）
@@ -70,11 +70,11 @@ flowchart TB
         C1["block_id=b12<br/>block_type(10种)<br/>text, text_clean<br/>page_idx, reading_order<br/>title_level?<br/>section_path=第一节/1.1<br/>parent_block_id?<br/>contd_target_id?<br/>image_assoc_id?<br/>table_merge_id?<br/>source=mineru-popo"]
     end
 
-    L5 -->|"投影"| L6
+    L5 -->|"统一写出口<br/>(write/projection.py)"| L6
 
     subgraph L6["⑥ 下游产物层"]
         P1["content.md<br/>(按块顺序重建)"]
-        P2["doc_blocks_graph.json<br/>nodes + edges(parent/contd/<br/>table_merge/before)"]
+        P2["doc_blocks_graph.jsonl/meta<br/>nodes + edges(parent/contd/<br/>table_merge/before)"]
         P3["document_segments[]<br/>+ base_rows[]"]
     end
 ```
@@ -141,6 +141,7 @@ flowchart TD
 
 ## 要点
 
-- **输入是页面级布局 → 归一化 → 模型推理出语义 → 树 → 映射成内部统一块 → 投影成下游产物**
+- **输入是页面级布局 → 归一化 → 模型推理出语义 → 树 → 映射成内部统一块（CanonicalBlock）→ structure 阶段统一写出口生成下游产物**
 - 中间任何一层都只是数据格式转换，不改语义
 - 跨页表格合并发生在第 ④ 层之前（`merge_cross_page_tables`，commit 97d5601 修复）
+- popo 不再经 `popo_projection.py`（阶段三已删除）：graph/segments/base_rows 由 `write/projection.py` 从 CanonicalDocument 统一生成，表格 HTML/math_content 经 derived_rows 落库

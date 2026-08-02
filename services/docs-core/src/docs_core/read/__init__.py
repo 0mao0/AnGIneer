@@ -1,11 +1,13 @@
 """docs_core read pipeline — 文档解析：convert / extract / normalize / organize"""
 
 from .extract import MinerUParser, mineru_parser
-from .normalize import (
+from .normalize.structure.solo import (
     RawFilesStructureBuilder,
     StructuredResult,
     build_graph_from_rawfiles,
     build_structured_from_rawfiles,
+)
+from .normalize.semantics.table_semantics import (
     build_table_representations,
     classify_table,
     extract_table_features,

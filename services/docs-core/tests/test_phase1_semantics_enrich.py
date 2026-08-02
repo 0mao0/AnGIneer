@@ -3,11 +3,11 @@
 from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
 from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
 from docs_core.read.organize.types import CanonicalBlock, CanonicalTable
-from docs_core.read.normalize.solo.formula_semantics import (
+from docs_core.read.normalize.semantics.formula_semantics import (
     collect_canonical_explanation_lines,
     enrich_canonical_block,
 )
-from docs_core.read.normalize.solo.table_semantics import (
+from docs_core.read.normalize.semantics.table_semantics import (
     TABLE_TYPE_HYBRID,
     TABLE_TYPE_MAPPING_ENUM,
     TABLE_TYPE_NUMERIC_DENSE,

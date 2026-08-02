@@ -45,6 +45,7 @@ class StageContext:
     meta_store: Any = None
     stage_started_at: Optional[str] = None
     cancel_check: Optional[Callable[[], None]] = None
+    fallback_target: Optional[str] = None
 
 
 @dataclass
@@ -173,18 +174,13 @@ def _run_raw_parse(ctx: StageContext) -> str:
 
 
 def _run_popo(ctx: StageContext) -> str:
-    normalizer_backend = os.environ.get("DOCS_CORE_NORMALIZER_BACKEND", "legacy")
-    if normalizer_backend != "popo":
-        return "__skipped__:未启用（DOCS_CORE_NORMALIZER_BACKEND != popo）"
+    normalizer_backend = os.environ.get("DOCS_CORE_NORMALIZER_BACKEND", "auto")
+    if normalizer_backend not in ("popo", "auto"):
+        return "__skipped__:未启用（DOCS_CORE_NORMALIZER_BACKEND != popo/auto）"
 
     from docs_core.read.normalize.popo import get_popo_pipeline
-    from docs_core.read.normalize.popo import po_po_blocks_to_canonical
-    from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
-    from docs_core.write.store.assets_file_store import file_storage, _get_llm_client
-    from docs_core.write.projection import write_canonical_products
-    from docs_core.knowledge_service import get_knowledge_service
+    from docs_core.write.store.assets_file_store import file_storage
 
-    ks = get_knowledge_service()
     mineru_raw_dir = file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
     if not mineru_raw_dir.exists():
         raise FileNotFoundError(f"mineru_raw_dir not found at {mineru_raw_dir}")
@@ -205,53 +201,118 @@ def _run_popo(ctx: StageContext) -> str:
             doc_id=ctx.doc_id,
             source_pdf_path=source_pdf,
         )
-    except subprocess.CalledProcessError as exc:
-        stderr = (exc.stderr or "").strip()
-        stdout = (exc.stdout or "").strip()
-        detail = stderr or stdout or str(exc)
-        raise RuntimeError(f"PoPo 子进程失败:\n{detail}") from exc
+    except Exception as exc:
+        # 阶段四（G7）：auto 模式回滚半成品并记录 fallback=solo，由 structure 转 solo
+        if normalizer_backend == "auto":
+            _rollback_popo_products(ctx)
+            ctx.fallback_target = "solo"
+        if isinstance(exc, subprocess.CalledProcessError):
+            stderr = (exc.stderr or "").strip()
+            stdout = (exc.stdout or "").strip()
+            detail = stderr or stdout or str(exc)
+            raise RuntimeError(f"PoPo 子进程失败:\n{detail}") from exc
+        raise
 
     enriched_blocks = file_storage.read_popo_enriched_blocks(ctx.library_id, ctx.doc_id)
-    document_tree = file_storage.read_popo_document_tree(ctx.library_id, ctx.doc_id)
-    blocks, outlines, id_map, pages = po_po_blocks_to_canonical(ctx.doc_id, enriched_blocks, document_tree)
+    ctx.input_summary = str(mineru_raw_dir)
+    ctx.output_summary = popo_output_dir
+    return f"PoPo 强化完成，{len(enriched_blocks)} blocks（结构由 structure 阶段统一构建）"
 
-    doc_title = file_storage.get_doc_manifest(ctx.library_id, ctx.doc_id).get("title", ctx.doc_id)
+
+def _rollback_popo_products(ctx: StageContext) -> None:
+    """G7：popo 失败时回滚已写产物，避免 structure 读到 popo 风格残缺数据。"""
+    from docs_core.write.store.assets_file_store import file_storage
+    from docs_core.knowledge_service import get_knowledge_service
+
+    popo_dir = file_storage.get_popo_dir(ctx.library_id, ctx.doc_id)
+    if popo_dir.exists():
+        shutil.rmtree(popo_dir, ignore_errors=True)
+    try:
+        get_knowledge_service().index_store.clear_doc_blocks(ctx.doc_id)
+    except Exception:
+        logger.warning("popo rollback: clear doc_blocks failed", exc_info=True)
+    mineru_md = file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id) / "content.md"
+    parsed_md = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "content.md"
+    if mineru_md.exists():
+        try:
+            parsed_md.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(str(mineru_md), str(parsed_md))
+        except OSError:
+            logger.warning("popo rollback: restore markdown failed", exc_info=True)
+
+
+def _run_structure(ctx: StageContext) -> str:
+    """统一结构化者：popo enriched 产物存在 → 从 popo 块构建；否则 solo 降级。"""
+    from docs_core.write.store.assets_file_store import file_storage, _get_llm_client
+
     use_llm = bool(ctx.parse_options.get("use_llm", True))
     llm_model = str(ctx.parse_options.get("llm_model") or "").strip() or None
+    llm_client = _get_llm_client()
+
+    try:
+        enriched_blocks = file_storage.read_popo_enriched_blocks(ctx.library_id, ctx.doc_id)
+    except FileNotFoundError:
+        enriched_blocks = []
+
+    if enriched_blocks:
+        return _run_structure_from_popo(
+            ctx,
+            enriched_blocks,
+            use_llm=use_llm,
+            llm_client=llm_client,
+            llm_model=llm_model,
+        )
+    return _run_structure_solo(ctx, use_llm=use_llm, llm_model=llm_model)
+
+
+def _run_structure_from_popo(
+    ctx: StageContext,
+    enriched_blocks,
+    *,
+    use_llm: bool,
+    llm_client,
+    llm_model: Optional[str],
+) -> str:
+    from docs_core.read.normalize.popo import po_po_blocks_to_canonical
+    from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
+    from docs_core.write.projection import write_canonical_products
+    from docs_core.write.store.assets_file_store import file_storage
+    from docs_core.knowledge_service import get_knowledge_service
+
+    ks = get_knowledge_service()
+    document_tree = file_storage.read_popo_document_tree(ctx.library_id, ctx.doc_id)
+    blocks, outlines, _id_map, pages = po_po_blocks_to_canonical(
+        ctx.doc_id, enriched_blocks, document_tree
+    )
+    doc_title = file_storage.get_doc_manifest(ctx.library_id, ctx.doc_id).get("title", ctx.doc_id)
     canonical_doc = build_canonical_document_from_popoblocks(
         library_id=ctx.library_id, doc_id=ctx.doc_id, title=doc_title,
         blocks=blocks, outlines=outlines, pages=pages,
-        use_llm=use_llm,
-        llm_client=_get_llm_client(),
-        llm_model=llm_model,
+        use_llm=use_llm, llm_client=llm_client, llm_model=llm_model,
     )
     ks.save_canonical_document_bare(canonical_doc)
     file_storage.save_middle_json(ctx.library_id, ctx.doc_id, canonical_doc.model_dump(mode="json"))
-
-    # 阶段三：下游产物统一由 write 出口从 CanonicalDocument 生成（不再经 popo_projection）
     products = write_canonical_products(
         library_id=ctx.library_id,
         doc_id=ctx.doc_id,
         document=canonical_doc,
     )
-
-    ctx.popo_ran = True
-    ctx.input_summary = str(mineru_raw_dir)
-    ctx.output_summary = f"{popo_output_dir} + {products['content_md_path']} + {products['graph_path']}"
+    ctx.input_summary = str(file_storage.get_popo_dir(ctx.library_id, ctx.doc_id))
+    ctx.output_summary = f"{products['content_md_path']} + {products['graph_path']}"
     return (
-        f"PoPo 完成，{len(blocks)} blocks，{len(outlines)} outlines，"
+        f"结构化完成（popo 后端），{len(blocks)} blocks，"
         f"graph {products['stats'].get('nodes_count', 0)} 节点"
     )
 
 
-def _run_structure(ctx: StageContext) -> str:
-    if ctx.popo_ran:
-        return "__skipped__:PoPo 已完成结构化"
+def _run_structure_solo(
+    ctx: StageContext,
+    *,
+    use_llm: bool,
+    llm_model: Optional[str],
+) -> str:
+    from docs_core.write.store.assets_file_store import build_structured_index_for_doc, file_storage
 
-    from docs_core.write.store.assets_file_store import build_structured_index_for_doc
-
-    use_llm = bool(ctx.parse_options.get("use_llm", True))
-    llm_model = str(ctx.parse_options.get("llm_model") or "").strip() or None
     result = build_structured_index_for_doc(
         library_id=ctx.library_id,
         doc_id=ctx.doc_id,
@@ -262,10 +323,9 @@ def _run_structure(ctx: StageContext) -> str:
         },
     )
     stats = result.get("stats", {})
-    from docs_core.write.store.assets_file_store import file_storage
     ctx.input_summary = str(file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id))
     ctx.output_summary = str(file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id))
-    return f"结构化完成，{stats.get('canonical_blocks_count', 0)} blocks"
+    return f"结构化完成（solo 降级），{stats.get('canonical_blocks_count', 0)} blocks"
 
 
 def _run_fts(ctx: StageContext) -> str:
@@ -423,11 +483,14 @@ def run_pipeline(
         except Exception as exc:
             results[key] = "failed"
             error_message = f"{type(exc).__name__}: {exc}"
+            fallback = str(getattr(ctx, "fallback_target", None) or "")
             meta_store.upsert_parse_stage(
                 ctx.doc_id, key, status="failed",
                 error=error_message + "\n" + traceback.format_exc(limit=3),
                 started_at=started, finished_at=datetime.now().isoformat(),
+                fallback=fallback,
             )
+            ctx.fallback_target = None
             if stage.kind == STAGE_KIND_HARD:
                 for rest in order[order.index(key) + 1:]:
                     results[rest] = "skipped"

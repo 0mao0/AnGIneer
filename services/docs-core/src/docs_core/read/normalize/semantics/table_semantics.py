@@ -1,14 +1,20 @@
-"""表格内容表示与分类工具。"""
+"""表格内容表示与分类工具（阶段四：迁入 semantics/ 顶层包）。
+
+语义层契约：输入 ``CanonicalTable``（header_rows/body_rows），输出沿用现有专用
+字段 ``table_type`` / ``summary`` / ``row_keys`` / ``text_chunks``（canonical_tables
+列式表已有列，无新增列）。不依赖任何后端内部格式。
+"""
 from typing import Any, Dict, List, TYPE_CHECKING
+
+from docs_core.query.protocols.contracts import (
+    TABLE_TYPE_HYBRID,
+    TABLE_TYPE_MAPPING_ENUM,
+    TABLE_TYPE_NUMERIC_DENSE,
+    TABLE_TYPE_TEXT_DENSE,
+)
 
 if TYPE_CHECKING:
     from docs_core.read.organize.types import CanonicalTable
-
-
-TABLE_TYPE_NUMERIC_DENSE = "numeric_dense"
-TABLE_TYPE_TEXT_DENSE = "text_dense"
-TABLE_TYPE_HYBRID = "hybrid"
-TABLE_TYPE_MAPPING_ENUM = "mapping_enum"
 
 
 # 归一化单元格文本，便于后续做规则统计和表示构建。

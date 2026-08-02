@@ -4,10 +4,14 @@
 核心算法：
 - 无限深度层级推断
 - 编号段落提升
-- 公式解释连续下挂
 - parent/title_path/explain_for 推断
 
-输出：结构化结果对象（nodes, edges, index_rows, stats）
+输出：结构化结果对象（nodes, edges, index_rows, stats）。
+
+阶段四（G3）契约：结构层输出到下游的真相是 CanonicalBlock——
+``structured_result_to_canonical_blocks`` 把本结果转换为 CanonicalBlock 列表，
+builder 直接消费后端块，不再经 graph jsonl 中转；graph/segments/doc_blocks
+等展示投影由 write 侧保留。
 """
 import datetime as dt
 import json
@@ -15,8 +19,6 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple, TYPE_CHECKING
-
-from .formula_semantics import build_formula_representations
 
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
@@ -779,74 +781,6 @@ def derive_explain_target(rows: list[Any], idx: int) -> tuple[str | None, str | 
     return None, None, 0.2, "rule"
 
 
-def collect_equation_explanation_lines(rows: list[dict[str, Any]], equation_idx: int) -> list[str]:
-    """收集紧跟公式块后的说明行，作为公式语义抽取上下文。"""
-    if equation_idx < 0 or equation_idx >= len(rows):
-        return []
-    equation_row = rows[equation_idx]
-    if str(equation_row.get("block_type") or "").strip() != "equation_interline":
-        return []
-
-    explanation_lines: list[str] = []
-    equation_uid = str(equation_row.get("block_uid") or "").strip()
-    page_idx = int(equation_row.get("page_idx") or 0)
-    hard_stop_types = {"title", "equation_interline", "table", "image", "page_header", "page_number"}
-
-    for cursor in range(equation_idx + 1, len(rows)):
-        candidate = rows[cursor]
-        if int(candidate.get("page_idx") or 0) != page_idx:
-            break
-        candidate_type = str(candidate.get("block_type") or "").strip()
-        if candidate_type in hard_stop_types:
-            break
-        if candidate_type not in {"paragraph", "list"}:
-            continue
-
-        text = str(candidate.get("plain_text") or "").strip()
-        if not text:
-            continue
-
-        explain_uid, explain_type, _, _ = derive_explain_target(rows, cursor)
-        if explain_uid == equation_uid and explain_type == "equation":
-            explanation_lines.append(text)
-            continue
-        if explanation_lines:
-            break
-
-    return explanation_lines
-
-
-def build_formula_semantic_contract(
-    row: dict[str, Any],
-    rows: list[dict[str, Any]],
-    row_index: int,
-    llm_client: Optional["LLMClient"] = None,
-    llm_model: Optional[str] = None,
-    use_llm: bool = True,
-) -> dict[str, Any]:
-    """为公式块生成稳定的语义图契约字段。"""
-    if str(row.get("block_type") or "").strip() != "equation_interline":
-        return {}
-
-    content = row.get("content_json") if isinstance(row.get("content_json"), dict) else {}
-    math_content = str(content.get("math_content") or row.get("plain_text") or "").strip()
-    formula_semantics = build_formula_representations(
-        formula_text=math_content,
-        explanation_lines=collect_equation_explanation_lines(rows, row_index),
-        llm_client=llm_client,
-        llm_model=llm_model,
-        use_llm=use_llm,
-    )
-    return {
-        "formula_number": formula_semantics.get("formula_number"),
-        "formula_params": formula_semantics.get("formula_params") or [],
-        "formula_param_count": int(formula_semantics.get("formula_param_count") or 0),
-        "formula_summary": formula_semantics.get("formula_summary"),
-        "formula_llm_status": formula_semantics.get("llm_status"),
-        "formula_explanation_lines": formula_semantics.get("explanation_lines") or [],
-    }
-
-
 def detect_toc_row_ids(rows: list[Any]) -> set[int]:
     """检测目录页并返回目录相关行ID集合。"""
     def is_toc_marker(text: str) -> bool:
@@ -1353,15 +1287,6 @@ def build_structured_from_rawfiles(
             math_content = content.get("math_content") if isinstance(content.get("math_content"), str) else None
             math_type = content.get("math_type") if isinstance(content.get("math_type"), str) else None
 
-        formula_contract = build_formula_semantic_contract(
-            row=row,
-            rows=rows,
-            row_index=i,
-            llm_client=llm_client,
-            llm_model=llm_model,
-            use_llm=use_llm,
-        )
-
         related_refs = collect_media_related_block_refs(row, rows)
         caption_block_uids = related_refs.get("caption_block_uids", [])
         footnote_block_uids = related_refs.get("footnote_block_uids", [])
@@ -1391,7 +1316,6 @@ def build_structured_from_rawfiles(
             "math_type": math_type,
             "math_content": math_content,
             "image_path": image_path,
-            **formula_contract,
             "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
             "caption_block_uids": caption_block_uids or None,
             "caption_bboxes": caption_bboxes or None,
@@ -1428,7 +1352,6 @@ def build_structured_from_rawfiles(
                     "image_path": image_path,
                     "table_html": table_html,
                     "math_content": math_content,
-                    **formula_contract,
                     "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
                     "caption_block_uids": caption_block_uids or None,
                     "caption_bboxes": caption_bboxes or None,
@@ -1450,7 +1373,6 @@ def build_structured_from_rawfiles(
                     "derived_level": derived_level,
                     "title_path": title_path,
                     "parent_uid": parent_uid,
-                    **formula_contract,
                     "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
                     "caption_block_uids": caption_block_uids or None,
                     "caption_bboxes": caption_bboxes or None,
@@ -1993,10 +1915,83 @@ class RawFilesStructureBuilder:
         }
 
 
+# 阶段四（G3）：solo rows → CanonicalBlock 适配器——builder 直接消费后端产出的
+# CanonicalBlock，不再经 graph jsonl 中转。携带 table_html / math_content /
+# 标题细化结果（derived_level）与 explain_for 邻近上下文所需的顺序信息。
+def _normalize_solo_block_type(raw: Any) -> str:
+    block_type = str(raw or "").strip().lower()
+    mapping = {
+        "text": "paragraph",
+        "paragraph": "paragraph",
+        "list": "list_item",
+        "table": "table",
+        "image": "figure",
+        "chart": "figure",
+        "equation_interline": "formula",
+        "equation": "formula",
+        "formula": "formula",
+        "title": "title",
+        "caption": "figure_caption",
+        "image_caption": "figure_caption",
+        "figure_caption": "figure_caption",
+        "table_caption": "table_caption",
+        "footnote": "footnote",
+        "header_footer": "header_footer",
+    }
+    return mapping.get(block_type, "unknown")
+
+
+def structured_result_to_canonical_blocks(
+    doc_id: str,
+    result: StructuredResult,
+) -> list[Any]:
+    """把 solo 结构化结果（nodes + derived_rows）转换为 CanonicalBlock 列表。"""
+    from docs_core.read.organize.types import BoundingBox, CanonicalBlock
+
+    derived_map = {
+        str(row.get("block_uid") or ""): row
+        for row in (result.stats.get("derived_rows") or [])
+        if str(row.get("block_uid") or "")
+    }
+    blocks: list[CanonicalBlock] = []
+    for node in result.nodes:
+        uid = str(node.get("block_uid") or node.get("id") or "").strip()
+        if not uid:
+            continue
+        derived = derived_map.get(uid, {})
+        text = str(node.get("plain_text") or "")
+        bbox = node.get("bbox")
+        bbox_obj = None
+        if isinstance(bbox, (list, tuple)) and len(bbox) >= 4:
+            bbox_obj = BoundingBox(
+                x0=float(bbox[0]), y0=float(bbox[1]),
+                x1=float(bbox[2]), y1=float(bbox[3]),
+            )
+        blocks.append(CanonicalBlock(
+            block_id=uid,
+            doc_id=doc_id,
+            page_idx=int(node.get("page_idx") or 0),
+            block_type=_normalize_solo_block_type(node.get("block_type")),
+            text=text,
+            text_clean=re.sub(r"\s+", " ", text).strip(),
+            bbox=bbox_obj,
+            reading_order=int(node.get("block_seq") or 0),
+            title_level=node.get("derived_level"),
+            section_path=str(node.get("title_path") or derived.get("title_path") or ""),
+            source="mineru",
+            source_ref=str(node.get("id") or uid),
+            parent_block_id=node.get("parent_uid") or derived.get("parent_block_uid"),
+            table_html=node.get("table_html"),
+            raw_type=node.get("raw_type"),
+        ))
+    return blocks
+
+
 __all__ = [
     "StructuredResult",
     "RawFilesStructureBuilder",
     "build_structured_from_rawfiles",
     "build_graph_from_rawfiles",
     "collect_media_related_block_refs",
+    "structured_result_to_canonical_blocks",
 ]

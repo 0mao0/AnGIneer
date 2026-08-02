@@ -8,8 +8,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
-from docs_core.read.normalize.solo.formula_semantics import build_formula_representations
-from docs_core.read.normalize.solo.structure_builder import (
+from docs_core.read.normalize.semantics.formula_semantics import build_formula_representations
+from docs_core.read.normalize.structure.solo import (
     StructuredResult,
     build_structured_from_rawfiles,
     extract_media_bbox_list,
@@ -982,12 +982,16 @@ def build_structured_index_for_doc(
         llm_model=llm_model,
         use_llm=use_llm,
     )
-    from docs_core.read.organize.builder import rebuild_canonical_document
+    from docs_core.read.organize.builder import rebuild_canonical_document_from_blocks
+    from docs_core.read.normalize.structure.solo import structured_result_to_canonical_blocks
 
-    canonical_document = rebuild_canonical_document(
+    # 阶段四（G3）：solo rows → CanonicalBlock 适配器，builder 直接消费后端块
+    canonical_blocks = structured_result_to_canonical_blocks(doc_id, result)
+    canonical_document = rebuild_canonical_document_from_blocks(
         library_id,
         doc_id,
         title=doc_name,
+        blocks=canonical_blocks,
         use_llm=use_llm,
         llm_client=llm_client,
         llm_model=llm_model,
