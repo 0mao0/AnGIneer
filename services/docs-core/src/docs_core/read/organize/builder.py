@@ -954,8 +954,6 @@ def build_canonical_document_from_popoblocks(
     llm_client: Any = None,
     llm_model: Optional[str] = None,
 ) -> CanonicalDocument:
-    from docs_core.write.store.assets_file_store import file_storage
-
     local_blocks = list(blocks) if blocks else []
     local_blocks = refine_document_title_levels(
         local_blocks,
@@ -966,9 +964,9 @@ def build_canonical_document_from_popoblocks(
     local_pages = list(pages) if pages else build_pages_from_blocks(local_blocks)
     label_map = build_page_label_map(local_pages)
     chunks = build_canonical_chunks(local_blocks, label_map)
-    tables, table_chunks = build_canonical_tables(library_id, doc_id, local_blocks)
-    graph_data = file_storage.read_doc_blocks_graph(library_id, doc_id)
-    citation_targets = build_citation_targets_from_graph(doc_id, graph_data, local_blocks, tables, local_pages)
+    # 阶段三（P1b）：popo 路径直接消费 CanonicalBlock，不再经 graph jsonl 中转
+    tables, table_chunks = build_canonical_tables_from_source(doc_id, [], local_blocks)
+    citation_targets = build_citation_targets_from_graph(doc_id, {}, local_blocks, tables, local_pages)
     local_outlines = list(outlines) if outlines else []
     inferred_title = title or next(
         (block.text for block in local_blocks if block.block_type == "title" and block.text), doc_id

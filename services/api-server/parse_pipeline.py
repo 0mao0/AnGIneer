@@ -89,7 +89,7 @@ def _verify_raw_parse_input(ctx: StageContext) -> str:
 
 
 def _verify_mineru_raw_input(ctx: StageContext) -> str:
-    from docs_core.write.store.assets_file_store import file_storage
+    from docs_core.write.store.assets_file_store import file_storage, _get_llm_client
 
     mineru_raw_dir = file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
     if not mineru_raw_dir.exists():
@@ -179,9 +179,9 @@ def _run_popo(ctx: StageContext) -> str:
 
     from docs_core.read.normalize.popo import get_popo_pipeline
     from docs_core.read.normalize.popo import po_po_blocks_to_canonical
-    from docs_core.read.normalize.popo import run_popo_projection
     from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
-    from docs_core.write.store.assets_file_store import file_storage
+    from docs_core.write.store.assets_file_store import file_storage, _get_llm_client
+    from docs_core.write.projection import write_canonical_products
     from docs_core.knowledge_service import get_knowledge_service
 
     ks = get_knowledge_service()
@@ -215,49 +215,33 @@ def _run_popo(ctx: StageContext) -> str:
     document_tree = file_storage.read_popo_document_tree(ctx.library_id, ctx.doc_id)
     blocks, outlines, id_map, pages = po_po_blocks_to_canonical(ctx.doc_id, enriched_blocks, document_tree)
 
-    mineru_md_path = mineru_raw_dir / "content.md"
-    mineru_content_md = ""
-    if mineru_md_path.exists():
-        mineru_content_md = mineru_md_path.read_text(encoding="utf-8")
-
-    parsed_dir = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id)
-    content_md_output = str(parsed_dir / "content.md")
-    graph_output = str(parsed_dir / "doc_blocks_graph.json")
-
-    projection = run_popo_projection(
-        library_id=ctx.library_id,
-        doc_id=ctx.doc_id,
-        blocks=blocks,
-        outlines=outlines,
-        mineru_content_md=mineru_content_md,
-        graph_output_path=graph_output,
-        content_md_output_path=content_md_output,
-    )
-
-    ks.clear_document_segments(ctx.doc_id)
-    ks.save_document_segments(
-        ctx.doc_id, ctx.library_id, "doc_blocks_graph_v1", projection["segments"],
-    )
-
     doc_title = file_storage.get_doc_manifest(ctx.library_id, ctx.doc_id).get("title", ctx.doc_id)
+    use_llm = bool(ctx.parse_options.get("use_llm", True))
+    llm_model = str(ctx.parse_options.get("llm_model") or "").strip() or None
     canonical_doc = build_canonical_document_from_popoblocks(
         library_id=ctx.library_id, doc_id=ctx.doc_id, title=doc_title,
         blocks=blocks, outlines=outlines, pages=pages,
+        use_llm=use_llm,
+        llm_client=_get_llm_client(),
+        llm_model=llm_model,
     )
     ks.save_canonical_document_bare(canonical_doc)
     file_storage.save_middle_json(ctx.library_id, ctx.doc_id, canonical_doc.model_dump(mode="json"))
 
-    from docs_core.write.store.blocks_sql_store import KnowledgeIndexStore, resolve_knowledge_index_db_path
-    index_store = KnowledgeIndexStore(
-        db_path=resolve_knowledge_index_db_path(), schema_version="1.0.0",
+    # 阶段三：下游产物统一由 write 出口从 CanonicalDocument 生成（不再经 popo_projection）
+    products = write_canonical_products(
+        library_id=ctx.library_id,
+        doc_id=ctx.doc_id,
+        document=canonical_doc,
     )
-    index_store.clear_doc_blocks(ctx.doc_id)
-    index_store.insert_doc_blocks_base_rows(projection["base_rows"])
 
     ctx.popo_ran = True
     ctx.input_summary = str(mineru_raw_dir)
-    ctx.output_summary = f"{popo_output_dir} + {parsed_dir}/content.md + {parsed_dir}/doc_blocks_graph.json"
-    return f"PoPo 完成，{len(blocks)} blocks，{len(outlines)} outlines"
+    ctx.output_summary = f"{popo_output_dir} + {products['content_md_path']} + {products['graph_path']}"
+    return (
+        f"PoPo 完成，{len(blocks)} blocks，{len(outlines)} outlines，"
+        f"graph {products['stats'].get('nodes_count', 0)} 节点"
+    )
 
 
 def _run_structure(ctx: StageContext) -> str:
