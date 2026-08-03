@@ -1296,7 +1296,11 @@ function usePdfDocument(
         url: source, credentials: 'same-origin',
         disableRange: false, disableStream: false, disableAutoFetch: false,
         rangeChunkSize: 65536 * 8,
-      }) as unknown as { promise: Promise<any>; destroy?: () => void }
+      } as unknown as Parameters<typeof pdfjsLib.getDocument>[0]) as unknown as {
+        promise: Promise<any>
+        destroy?: () => void
+        onProgress?: (progress: { loaded: number; total: number }) => void
+      }
 
       loadingTask.onProgress = ({ loaded, total }: { loaded: number; total: number }) => {
         if (total > 0) pdfLoadingProgress.value = Math.min(99, Math.round((loaded / total) * 100))
@@ -1496,6 +1500,9 @@ const getPageHighlights = (page: number) => {
 }
 
 // --- Watchers ---
+// 记录最后一次由本组件滚动上报的页号，用于识别 currentPdfPage 的“回声”并跳过吸附
+let lastReportedPdfPage = 0
+
 watch([normalizedPdfSource, () => props.isPdf], async ([source, isPdf]) => {
   if (!isPdf || !source) return
   measurement.clearAllPageData()
@@ -1505,6 +1512,7 @@ watch([normalizedPdfSource, () => props.isPdf], async ([source, isPdf]) => {
   zoom.isScaleTransitioning.value = true
   zoom.hasAppliedInitialFit.value = false
   scroll.activePdfPage.value = 1
+  lastReportedPdfPage = 0
   scroll.estimatedPageHeight.value = 1100
   scroll.renderedPageRange.start = 1
   scroll.renderedPageRange.end = 1
@@ -1525,6 +1533,8 @@ watch([() => scroll.renderedPageRange.start, () => scroll.renderedPageRange.end,
 
 watch(() => props.currentPdfPage, (newPage) => {
   if (!props.isPdf || newPage <= 0) return
+  // 自身滚动上报后被父级原样回传的页号，不触发吸附跳页
+  if (newPage === lastReportedPdfPage) return
   scroll.applyingExternalPdfScroll.value = true
   scroll.scrollToPdfPage(newPage, 'auto')
   requestAnimationFrame(() => { scroll.applyingExternalPdfScroll.value = false })
@@ -1553,6 +1563,7 @@ const resetZoom = () => zoom.resetZoom()
 const onPdfScroll = (e: Event) => {
   if (!doc.useNativePdfPreview.value) {
     scroll.onPdfScroll(e)
+    lastReportedPdfPage = scroll.activePdfPage.value
     emit('pdf-active-page', scroll.activePdfPage.value)
   }
 }
