@@ -1,21 +1,26 @@
-"""文档解析阶段化管线：阶段注册表 + 依赖排序 + 状态派生 + 运行器。
+"""文档解析阶段化管线：阶段注册表 + 依赖排序 + 状态派生 + 运行器 + 任务编排器。
 
 设计约定：
 - 每个阶段是 {key, title, kind(hard/soft), depends_on, run(ctx)} 的注册项；
 - hard 阶段失败 → 终止后续阶段；soft 阶段失败 → 仅标记自身 failed，继续后续；
 - 阶段状态通过 meta_store.upsert_parse_stage 持久化（doc_parse_stages 表）。
+- ParseOrchestrator：创建/取消/重试解析任务，在后台线程驱动本管线并同步状态。
 """
 import logging
 import os
 import shutil
 import subprocess
-import tempfile
+import threading
 import time
 import traceback
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
+
+from docs_core.knowledge_service import get_knowledge_service
+from docs_core.read.mineru_parser import MinerUParser
 
 logger = logging.getLogger(__name__)
 
@@ -516,3 +521,281 @@ def validate_stage_retry(node_status: str, stage_key: str) -> None:
         raise ValueError(f"未知阶段: {stage_key}")
     if node_status == "processing":
         raise ValueError("文档正在解析中，请先取消当前任务")
+
+
+class ParseOrchestrator:
+    """负责 API 层与解析主链之间的编排。"""
+
+    def __init__(
+        self,
+        record_updater: Optional[Callable[[str, str, str, Optional[str]], None]] = None,
+    ) -> None:
+        """record_updater(task_id, doc_id, status, error)：可选，用于把任务状态同步到解析记录表。"""
+        self._threads: Dict[str, threading.Thread] = {}
+        self._parsers: Dict[str, MinerUParser] = {}
+        self._cancelled: set = set()
+        self._record_updater = record_updater
+
+    def _sync_record(self, task_id: str, doc_id: str, status: str, error: Optional[str] = None) -> None:
+        """把任务状态同步到解析记录表（由 API 层注入的实现负责）。"""
+        if not self._record_updater:
+            return
+        try:
+            self._record_updater(task_id, doc_id, status, error)
+        except Exception as exc:
+            logger.warning("同步解析记录失败 task=%s: %s", task_id, exc)
+
+    def ensure_document(self, library_id: str, file_path: str, doc_id: Optional[str] = None) -> str:
+        """注册或补全文档节点，确保解析主链使用统一文档标识。"""
+        ks = get_knowledge_service()
+        node = ks.register_document(library_id=library_id, file_path=file_path, doc_id=doc_id)
+        return node.id
+
+    def create_parse_task(
+        self,
+        library_id: str,
+        doc_id: str,
+        file_path: str,
+        parse_options: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        """创建解析任务并启动后台线程。"""
+        ks = get_knowledge_service()
+        task_id = f"parse-{uuid.uuid4().hex[:12]}"
+        task = ks.create_parse_task(task_id, library_id, doc_id)
+        ks.update_node(
+            doc_id,
+            status="processing",
+            parse_progress=0,
+            parse_stage="queued",
+            parse_error=None,
+            parse_task_id=task_id,
+        )
+        # 记录表同步交给 API 层注入的钩子（docs_core 不依赖 api-server 模型）
+        self._sync_record(task_id, doc_id, "processing")
+
+        worker = threading.Thread(
+            target=self._run_parse_task,
+            args=(task_id, library_id, doc_id, file_path, parse_options or {}),
+            daemon=True,
+            name=f"parse-task-{task_id}",
+        )
+        self._threads[task_id] = worker
+        self._parsers[task_id] = MinerUParser()
+        worker.start()
+        return {
+            "task_id": task.id,
+            "doc_id": doc_id,
+            "status": task.status,
+            "progress": task.progress,
+            "stage": task.stage,
+        }
+
+    def get_parse_task(self, task_id: str) -> Optional[Dict[str, Any]]:
+        """返回当前任务状态。"""
+        ks = get_knowledge_service()
+        task = ks.get_parse_task(task_id)
+        if not task:
+            return None
+        return task.model_dump(mode="json")
+
+    def cancel_parse_task(self, task_id: str) -> bool:
+        """取消正在运行的解析任务。"""
+        ks = get_knowledge_service()
+        task = ks.get_parse_task(task_id)
+        if not task:
+            return False
+        if task.status in ("completed", "failed", "cancelled"):
+            return False
+        requested = ks.request_parse_task_cancel(task_id)
+        if not requested:
+            return False
+        ks.update_node(
+            task.doc_id,
+            status="failed",
+            parse_progress=100,
+            parse_stage="cancelled",
+            parse_error="用户手动取消任务",
+            parse_task_id=task_id,
+        )
+        self._sync_record(task_id, task.doc_id, "cancelled", "用户手动取消任务")
+        self._cancelled.add(task_id)
+        parser = self._parsers.get(task_id)
+        if parser:
+            parser.cancel()
+        return True
+
+    def retry_parse_task(self, doc_id: str) -> Optional[Dict[str, Any]]:
+        """重试解析任务（支持已完成、失败、取消、待处理状态的文档重新解析）。"""
+        ks = get_knowledge_service()
+        node = ks.get_node(doc_id)
+        if not node:
+            return None
+        if node.status == "processing":
+            raise ValueError(f"节点 {doc_id} 正在解析中，请先取消当前任务")
+        file_path = node.file_path
+        if not file_path:
+            raise ValueError(f"节点 {doc_id} 缺少文件路径信息")
+        return self.create_parse_task(
+            library_id=node.library_id,
+            doc_id=doc_id,
+            file_path=file_path,
+        )
+
+    def _run_parse_task(
+        self,
+        task_id: str,
+        library_id: str,
+        doc_id: str,
+        file_path: str,
+        parse_options: Dict[str, Any],
+    ) -> None:
+        """在后台执行文档解析：驱动阶段化管线并同步总体状态。"""
+        ks = get_knowledge_service()
+        meta_store = ks.meta_store
+        stage_filter = parse_options.get("stages", "all")
+        # 单阶段启动的输入提示：源文件路径（convert/raw_parse 的输入 = 上一步 source_prep 的内容）
+        node = ks.get_node(doc_id)
+        input_hint = node.file_path if node else None
+        # 全量解析清空全部阶段；单阶段启动只重置目标阶段，保留其他阶段状态
+        if stage_filter == "all":
+            meta_store.clear_parse_stages(doc_id)
+        else:
+            for s in (stage_filter if isinstance(stage_filter, list) else [stage_filter]):
+                meta_store.upsert_parse_stage(doc_id, s, status="pending", message="", error="",
+                                              input_summary=input_hint or "")
+        ctx = StageContext(
+            task_id=task_id, library_id=library_id, doc_id=doc_id,
+            file_path=file_path, parse_options=parse_options,
+            task_parser=self._parsers.get(task_id),
+        )
+
+        def _on_stage_update(stage_key, results):
+            overall = derive_overall_status(dict(results))
+            self._update_progress(task_id, doc_id, status=overall, stage=stage_key,
+                                  stage_message=f"阶段 {stage_key} 完成", progress=0)
+
+        try:
+            results = run_pipeline(
+                ctx, stage_filter,
+                meta_store=meta_store,
+                on_stage_update=_on_stage_update,
+                raise_if_cancelled=lambda: self._raise_if_cancel_requested(task_id),
+            )
+            # 单阶段启动：最终状态由本次实际运行的阶段决定，避免误判 processing
+            if stage_filter == "all":
+                overall = derive_overall_status(results)
+            else:
+                keys = stage_filter if isinstance(stage_filter, list) else [stage_filter]
+                statuses = [results.get(k) for k in keys]
+                if any(s == "failed" for s in statuses):
+                    overall = "failed"
+                elif all(s in ("completed", "skipped") for s in statuses):
+                    overall = "completed"
+                else:
+                    overall = "processing"
+            ks.update_parse_task(task_id, status=overall, progress=100, stage=overall,
+                                 stage_message=f"解析结束: {overall}")
+            parse_error = ""
+            if overall in ("failed", "partial"):
+                failed_stages = [
+                    s for s in meta_store.list_parse_stages(doc_id)
+                    if s.get("status") == "failed" and s.get("error")
+                ]
+                parse_error = "; ".join(
+                    f"{s.get('stage')}: {str(s.get('error')).splitlines()[0]}"
+                    for s in failed_stages[:3]
+                ) or overall
+            ks.update_node(doc_id, status=overall, parse_progress=100, parse_stage=overall,
+                           parse_error=parse_error or None, parse_task_id=task_id)
+            self._sync_record(task_id, doc_id, overall)
+        except ParseTaskCancelledError as exc:
+            error_message = str(exc) or "用户手动取消任务"
+            ks.update_parse_task(
+                task_id,
+                status="cancelled",
+                progress=100,
+                stage="cancelled",
+                stage_message=error_message,
+                error=error_message,
+            )
+            ks.update_node(
+                doc_id,
+                status="failed",
+                parse_progress=100,
+                parse_stage="cancelled",
+                parse_error=error_message,
+                parse_task_id=task_id,
+            )
+            self._sync_record(task_id, doc_id, "cancelled", error_message)
+        except Exception as exc:
+            if task_id in self._cancelled:
+                self._sync_record(task_id, doc_id, "cancelled", "用户手动取消任务")
+                ks.update_node(doc_id, status="failed", parse_stage="cancelled", parse_error="用户手动取消任务")
+                try:
+                    ks.update_parse_task(task_id, status="cancelled")
+                except Exception:
+                    pass
+                return
+            error_message = f"{type(exc).__name__}: {exc}"
+            error_detail = traceback.format_exc()
+            logger.error(f"解析任务 {task_id} 失败: {error_message}\n{error_detail}")
+            try:
+                ks.update_parse_task(
+                    task_id,
+                    status="failed",
+                    progress=100,
+                    stage="failed",
+                    stage_message=error_message,
+                    error=error_message,
+                )
+                ks.update_node(
+                    doc_id,
+                    status="failed",
+                    parse_progress=100,
+                    parse_stage="failed",
+                    parse_error=error_message,
+                    parse_task_id=task_id,
+                )
+                self._sync_record(task_id, doc_id, "failed", error_message)
+            except Exception as update_exc:
+                logger.error(f"更新任务状态失败: {update_exc}")
+        finally:
+            self._threads.pop(task_id, None)
+            self._cancelled.discard(task_id)
+            parser = self._parsers.pop(task_id, None)
+            if parser:
+                parser.cancel()
+
+    def _update_progress(
+        self,
+        task_id: str,
+        doc_id: str,
+        progress: int,
+        stage: str,
+        status: str = "processing",
+        stage_message: Optional[str] = None,
+    ) -> None:
+        """同步更新任务和节点的解析进度。"""
+        ks = get_knowledge_service()
+        ks.update_parse_task(
+            task_id,
+            status=status,
+            progress=progress,
+            stage=stage,
+            stage_message=stage_message,
+            error=None,
+        )
+        ks.log_parse_step(task_id, doc_id, stage, progress, stage_message)
+        ks.update_node(
+            doc_id,
+            status="completed" if status == "completed" else "processing",
+            parse_progress=progress,
+            parse_stage=stage,
+            parse_error=None,
+            parse_task_id=task_id,
+        )
+
+    def _raise_if_cancel_requested(self, task_id: str) -> None:
+        """在阶段边界/阶段内部取消点检查用户是否请求取消任务（内存标志，无数据库竞态）。"""
+        if task_id in self._cancelled:
+            raise ParseTaskCancelledError("用户手动取消任务")

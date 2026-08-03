@@ -170,7 +170,7 @@ def test_rollback_popo_products(monkeypatch, tmp_path) -> None:
     ks_module = importlib.import_module("docs_core.knowledge_service")
     monkeypatch.setattr(ks_module, "_knowledge_service", fake_ks)
 
-    from parse_pipeline import _rollback_popo_products, StageContext
+    from docs_core.parse_pipeline import _rollback_popo_products, StageContext
 
     ctx = StageContext(task_id="t", library_id="lib", doc_id="doc", file_path="x.pdf")
     _rollback_popo_products(ctx)
@@ -194,7 +194,7 @@ def test_popo_failure_sets_fallback_target_in_auto_mode(monkeypatch, tmp_path) -
 
     monkeypatch.setattr(popo_pkg, "get_popo_pipeline", lambda: _BoomPipeline())
 
-    import parse_pipeline as pp
+    from docs_core import parse_pipeline as pp
 
     ctx = pp.StageContext(task_id="t", library_id="lib", doc_id="doc", file_path="x.pdf")
     with pytest.raises(RuntimeError, match="4B API down"):
@@ -211,7 +211,7 @@ def test_runner_records_fallback_and_structure_completes(monkeypatch, tmp_path) 
     monkeypatch.setenv("DOCS_CORE_NORMALIZER_BACKEND", "auto")
 
     import docs_core.read.popo_enhance as popo_pkg
-    import parse_pipeline as pp
+    from docs_core import parse_pipeline as pp
 
     class _BoomPipeline:
         def run_full_pipeline(self, **kwargs):
@@ -251,7 +251,7 @@ def test_runner_records_fallback_and_structure_completes(monkeypatch, tmp_path) 
 
 def test_structure_picks_backend_by_enriched_existence(monkeypatch, tmp_path) -> None:
     import docs_core.write.store.assets_file_store as afs
-    import parse_pipeline as pp
+    from docs_core import parse_pipeline as pp
 
     class _FSWithPopo:
         def __init__(self, has_popo):

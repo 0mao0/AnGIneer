@@ -1,4 +1,4 @@
-"""MinerU 文档解析服务 (Simplified)"""
+"""MinerU 文档解析服务 (公司自部署 API)"""
 import json
 import logging
 import os
@@ -8,7 +8,6 @@ from typing import Optional, Dict, Any, List
 from pathlib import Path
 from dotenv import load_dotenv
 import requests
-import time
 import io
 import zipfile
 import shutil
@@ -109,14 +108,13 @@ def save_parse_artifacts(
 
 
 class MinerUParser:
-    """MinerU 文档解析器 (仅支持 Cloud Batch 模式)"""
+    """MinerU 文档解析器 (公司自部署 API)"""
 
     def __init__(self):
         self.api_url = (
             os.getenv('MINERU_API_URL', '')
             or os.getenv('MINERU_BASE_URL', '')
             or os.getenv('MINERU_ENDPOINT', '')
-            or 'https://mineru.net/api/v4'
         ).strip().rstrip('/')
         self.api_key = (
             os.getenv('MINERU_API_KEY', '')
@@ -124,11 +122,12 @@ class MinerUParser:
             or os.getenv('MINERU_TOKEN', '')
         )
         self.cloud_poll_max_attempts = max(1, int(os.getenv('MINERU_CLOUD_POLL_MAX_ATTEMPTS', '90')))
-        self.cloud_poll_interval_seconds = max(1, int(os.getenv('MINERU_CLOUD_POLL_INTERVAL_SECONDS', '4')))
         self.proxy_fallback_enabled = os.getenv('MINERU_PROXY_FALLBACK_ENABLED', '1') != '0'
         self.ocr_enabled = os.getenv('MINERU_OCR_ENABLED', 'false').lower() == 'true'
         self.backend = os.getenv('MINERU_BACKEND', 'hybrid-engine').strip().lower()
         self.max_download_bytes = max(1, int(os.getenv('MINERU_DOWNLOAD_MAX_BYTES', str(1 << 30))))
+        self.max_uncompressed_bytes = max(1, int(os.getenv('MINERU_UNCOMPRESSED_MAX_BYTES', str(4 << 30))))
+        self.company_api_timeout = max(30, int(os.getenv('MINERU_COMPANY_API_TIMEOUT', '600')))
         self._abort_event = threading.Event()
 
     def cancel(self):
@@ -174,35 +173,6 @@ class MinerUParser:
             chunks.append(chunk)
         return b"".join(chunks)
 
-    def _normalize_api_url(self, api_url: str) -> str:
-        """规范化 MinerU API 地址"""
-        normalized = (api_url or '').strip().rstrip('/')
-        if not normalized:
-            return 'https://mineru.net/api/v4'
-        if '/api/v4' in normalized:
-            return f"{normalized.split('/api/v4')[0]}/api/v4"
-        if normalized.endswith('/api'):
-            return f"{normalized}/v4"
-        return f"{normalized}/api/v4"
-
-    def _is_valid_markdown_text(self, text: Optional[str]) -> bool:
-        if not text:
-            return False
-        return len(text.strip()) >= 10  # 简化校验逻辑
-
-    def _extract_nested_value(self, data: Dict[str, Any], keys: List[str]) -> str:
-        for key in keys:
-            value = data.get(key)
-            if isinstance(value, str) and value.strip():
-                return value.strip()
-        return ''
-
-    def _build_cloud_headers(self) -> Dict[str, str]:
-        headers = {'Content-Type': 'application/json', 'Accept': '*/*'}
-        if self.api_key:
-            headers['Authorization'] = f'Bearer {self.api_key}'
-        return headers
-
     def _build_parse_result(
         self,
         success: bool,
@@ -228,15 +198,9 @@ class MinerUParser:
         raw_artifacts: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """将 Markdown 写入 content.md 并返回成功结果。"""
-        # 修正文件名：parsed.md -> content.md
         md_file_path = os.path.join(output_dir, 'content.md')
-
-        # 简单处理图片路径：假设图片都在 images/ 目录下
-        # 这里可以根据需要做更复杂的路径修正，但如果解压后结构正确，通常不需要
-
         with open(md_file_path, 'w', encoding='utf-8') as output_file:
             output_file.write(markdown)
-
         return self._build_parse_result(
             True,
             md_file=md_file_path,
@@ -246,54 +210,11 @@ class MinerUParser:
             output_dir=output_dir
         )
 
-    def _fetch_markdown_from_cloud_urls(self, markdown_url: str, zip_url: str) -> Dict[str, Any]:
-        markdown: Optional[str] = None
-        source = ''
-        zip_bytes: Optional[bytes] = None
-
-        if markdown_url:
-            logger.info("Downloading Markdown: %s", markdown_url)
-            data = self._download_bytes(markdown_url, 120)
-            if data is not None:
-                text = data.decode('utf-8', errors='replace')
-                if self._is_valid_markdown_text(text):
-                    markdown = text
-                    source = 'markdown_url'
-
-        if not markdown and zip_url:
-            logger.info("Downloading ZIP (fallback): %s", zip_url)
-            data = self._download_bytes(zip_url, 120)
-            if data is not None:
-                zip_bytes = data
-                markdown = self._download_markdown_from_zip(zip_bytes)
-                if markdown:
-                    source = 'zip_url'
-        elif markdown and zip_url:
-            logger.info("Downloading ZIP (archive): %s", zip_url)
-            data = self._download_bytes(zip_url, 120)
-            if data is not None:
-                zip_bytes = data
-
-        return {'markdown': markdown, 'source': source, 'zip_bytes': zip_bytes}
-
-    def _download_markdown_from_zip(self, zip_bytes: bytes) -> Optional[str]:
-        try:
-            with zipfile.ZipFile(io.BytesIO(zip_bytes)) as archive:
-                file_list = archive.namelist()
-                markdown_candidates = [name for name in file_list if name.lower().endswith('.md')]
-                for name in markdown_candidates:
-                    with archive.open(name) as file_obj:
-                        content = file_obj.read().decode('utf-8', errors='ignore').strip()
-                        if content:
-                            return content
-        except Exception as e:
-            logger.warning("Error extracting markdown from ZIP: %s", e)
-        return None
-
     def _extract_zip_archive(self, zip_bytes: bytes, target_dir: Path) -> None:
-        """将云端 ZIP 解压到目标目录，智能扁平化结构；失败时抛出 RuntimeError。"""
+        """将云端 ZIP 解压到目标目录，智能扁平化结构；失败或超限时抛出 RuntimeError。"""
         target_dir.mkdir(parents=True, exist_ok=True)
         target_root = target_dir.resolve()
+        total_uncompressed = 0
         try:
             with zipfile.ZipFile(io.BytesIO(zip_bytes)) as archive:
                 namelist = archive.namelist()
@@ -315,6 +236,11 @@ class MinerUParser:
                 for info in archive.infolist():
                     if info.is_dir():
                         continue
+
+                    # zip bomb 防护：解压总大小限制
+                    total_uncompressed += info.file_size
+                    if total_uncompressed > self.max_uncompressed_bytes:
+                        raise RuntimeError(f"解压总大小超过限制 {self.max_uncompressed_bytes} bytes")
 
                     member = Path(info.filename.replace("\\", "/"))
                     # Zip Slip 防护：拒绝绝对路径与含 .. 的条目
@@ -512,8 +438,8 @@ class MinerUParser:
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(str(item), str(dest))
 
-    def _parse_document_cloud_batch(self, input_path: str, output_dir: str) -> Optional[Dict[str, Any]]:
-        """云端批量解析流程，超页数自动拆分合并。"""
+    def _parse_document(self, input_path: str, output_dir: str) -> Optional[Dict[str, Any]]:
+        """文档解析流程：超页数自动拆分合并，单文件走公司自部署 API。"""
         page_count = self._get_pdf_page_count(input_path)
         max_pages = 200
 
@@ -521,12 +447,12 @@ class MinerUParser:
             logger.info("PDF has %d pages (limit %d), auto-splitting...", page_count, max_pages)
             return self._parse_large_pdf_in_chunks(input_path, output_dir, page_count, max_pages)
 
-        return self._parse_single_file_cloud(input_path, output_dir)
+        return self._parse_single_file(input_path, output_dir)
 
     def _parse_large_pdf_in_chunks(
         self, input_path: str, output_dir: str, page_count: int, chunk_size: int
     ) -> Dict[str, Any]:
-        """拆分大 PDF 为多段，逐段云端解析后合并结果。"""
+        """拆分大 PDF 为多段，逐段解析后合并结果。"""
         chunk_paths = self._split_pdf(input_path, chunk_size)
         total_chunks = len(chunk_paths)
         chunk_results: List[Dict[str, Any]] = []
@@ -537,7 +463,7 @@ class MinerUParser:
             chunk_output_dirs.append(chunk_output_dir)
             logger.info("Parsing chunk %d/%d: %s", idx + 1, total_chunks, chunk_path)
             try:
-                result = self._parse_single_file_cloud(chunk_path, chunk_output_dir)
+                result = self._parse_single_file(chunk_path, chunk_output_dir)
                 chunk_results.append(result)
                 if not result.get("success"):
                     logger.error("Chunk %d/%d failed: %s", idx + 1, total_chunks, result.get('error'))
@@ -565,12 +491,7 @@ class MinerUParser:
         failed = next((r for r in chunk_results if not r.get("success")), None)
         return failed or self._build_parse_result(False, error="Chunk parse failed")
 
-    def _is_company_api(self) -> bool:
-        """检测是否使用公司自部署的 MinerU API（区别于公共 API）。"""
-        url = self.api_url.lower()
-        return ':50170' in url or '/file_parse' in url
-
-    def _parse_single_file_company_api(self, input_path: str, output_dir: str, _retry_count: int = 0, _force_ocr: Optional[bool] = None) -> Dict[str, Any]:
+    def _parse_single_file(self, input_path: str, output_dir: str, _retry_count: int = 0, _force_ocr: Optional[bool] = None) -> Dict[str, Any]:
         """公司自部署 API 的单文件同步解析。
 
         POST 文件到 /file_parse 端点，返回 ZIP 包含所有产物。
@@ -586,28 +507,26 @@ class MinerUParser:
         logger.info("Company API: POST %s file=%s ocr=%s", api_endpoint, file_name, use_ocr)
         try:
             with open(input_path, 'rb') as f:
-                file_bytes = f.read()
-
-            resp = self._request_with_proxy_fallback(
-                'POST', api_endpoint,
-                headers=headers,
-                files={'files': (file_name, file_bytes, 'application/pdf')},
-                data={
-                    'return_md': 'true',
-                    'return_content_list': 'true',
-                    'return_middle_json': 'true',
-                    'return_model_output': 'true',
-                    'response_format_zip': 'true',
-                    'backend': self.backend,
-                    'formula_enable': 'true',
-                    'table_enable': 'true',
-                    'return_images': 'true',
-                    **({'is_ocr': 'true'} if use_ocr else {}),
-                    'is_async': 'false',
-                },
-                timeout=600,
-                verify=False,
-            )
+                resp = self._request_with_proxy_fallback(
+                    'POST', api_endpoint,
+                    headers=headers,
+                    files={'files': (file_name, f, 'application/pdf')},
+                    data={
+                        'return_md': 'true',
+                        'return_content_list': 'true',
+                        'return_middle_json': 'true',
+                        'return_model_output': 'true',
+                        'response_format_zip': 'true',
+                        'backend': self.backend,
+                        'formula_enable': 'true',
+                        'table_enable': 'true',
+                        'return_images': 'true',
+                        **({'is_ocr': 'true'} if use_ocr else {}),
+                        'is_async': 'false',
+                    },
+                    timeout=self.company_api_timeout,
+                    verify=False,
+                )
 
             # 请求返回后立即检查取消（请求期间 requests 阻塞无法中断，返回后立即中止处理）
             if self._abort_event.is_set():
@@ -647,11 +566,11 @@ class MinerUParser:
                     if not use_ocr:
                         logger.info("Task %s failed, retrying with OCR enabled...", task_id)
                         _time.sleep(3)
-                        return self._parse_single_file_company_api(input_path, output_dir, _retry_count + 1, _force_ocr=True)
+                        return self._parse_single_file(input_path, output_dir, _retry_count + 1, _force_ocr=True)
                     if _retry_count < 2:
                         logger.info("Task %s failed, retry %d/2...", task_id, _retry_count + 1)
                         _time.sleep(3)
-                        return self._parse_single_file_company_api(input_path, output_dir, _retry_count + 1, _force_ocr=use_ocr)
+                        return self._parse_single_file(input_path, output_dir, _retry_count + 1, _force_ocr=use_ocr)
                     return self._build_parse_result(
                         False,
                         error=f'MinerU pipeline failed for "{file_name}": '
@@ -684,7 +603,8 @@ class MinerUParser:
         for attempt in range(max_attempts):
             if self._abort_event.is_set():
                 raise RuntimeError("MinerU 请求已取消")
-            _time.sleep(3 if attempt < 10 else 5)
+            if attempt > 0:
+                _time.sleep(3 if attempt < 10 else 5)
             try:
                 resp = self._request_with_proxy_fallback(
                     'GET', poll_url, headers=headers, timeout=30, verify=False,
@@ -795,137 +715,9 @@ class MinerUParser:
 
         return self._write_markdown_file(output_dir, md_content)
 
-    def _parse_single_file_cloud(self, input_path: str, output_dir: str) -> Dict[str, Any]:
-        """单文件云端解析流程（不含页数预检）。"""
-        # 检测是否使用公司自部署 API
-        if self._is_company_api():
-            return self._parse_single_file_company_api(input_path, output_dir)
-
-        base_url = self._normalize_api_url(self.api_url)
-        headers = self._build_cloud_headers()
-
-        try:
-            # 1. 获取上传链接 (Create Batch)
-            # 接口文档: POST /file-urls/batch
-            create_resp = self._request_with_proxy_fallback(
-                'POST', f'{base_url}/file-urls/batch',
-                headers=headers,
-                json={
-                    'files': [{'name': Path(input_path).name}],
-                    'model_version': 'vlm',
-                    'is_ocr': True
-                },
-                timeout=30, verify=False
-            )
-            try:
-                create_json = create_resp.json()
-            except (json.JSONDecodeError, requests.exceptions.JSONDecodeError) as e:
-                logger.warning("Create batch JSON error: %s. Content: %s", e, create_resp.text[:200])
-                return self._build_parse_result(False, error=f'Create response invalid JSON: {create_resp.text[:100]}')
-
-            if create_resp.status_code != 200 or create_json.get('code') != 0:
-                return self._build_parse_result(False, error=f'Create failed: {create_resp.text}')
-
-            batch_data = create_json.get('data', {}) or {}
-            batch_id = batch_data.get('batch_id')
-            file_urls = batch_data.get('file_urls') or []
-            if not batch_id or not file_urls:
-                return self._build_parse_result(False, error=f'Create response missing batch_id/file_urls: {create_resp.text[:200]}')
-            upload_url = file_urls[0]
-
-            # 2. 上传文件
-            logger.info("Uploading to: %s...", upload_url[:60])
-            with open(input_path, 'rb') as file_obj:
-                upload_resp = self._request_with_proxy_fallback(
-                    'PUT', upload_url, data=file_obj, timeout=300, verify=False
-                )
-            if upload_resp.status_code not in (200, 201):
-                return self._build_parse_result(False, error=f'Upload failed: {upload_resp.status_code}')
-
-            # 3. 轮询状态
-            for _ in range(self.cloud_poll_max_attempts):
-                if self._abort_event.is_set():
-                    raise RuntimeError("MinerU 请求已取消")
-                time.sleep(self.cloud_poll_interval_seconds)
-                poll_url = f'{base_url}/extract-results/batch/{batch_id}'
-                query_resp = self._request_with_proxy_fallback('GET', poll_url, headers=headers, timeout=60, verify=False)
-
-                try:
-                    payload = query_resp.json()
-                except (json.JSONDecodeError, requests.exceptions.JSONDecodeError) as e:
-                    logger.warning("Poll JSON error: %s. Content: %s", e, query_resp.text[:200])
-                    continue  # Retry polling if JSON fails temporarily
-
-                if query_resp.status_code != 200:
-                    continue
-
-                result_list = payload.get('data', {}).get('extract_result') or []
-                if not result_list:
-                    logger.warning("Poll returned empty extract_result. Payload: %s", json.dumps(payload, ensure_ascii=False)[:300])
-                    continue
-
-                first = result_list[0]
-                state = self._extract_nested_value(first, ['state', 'extract_state']).lower()
-                logger.info("Poll state: %s", state)
-
-                if state in ('failed', 'error', 'timeout'):
-                    error_msg = (
-                        self._extract_nested_value(first, ['err_msg', 'error_msg', 'error_message', 'fail_reason', 'message'])
-                        or self._extract_nested_value(first, ['msg', 'reason', 'detail'])
-                    )
-                    logger.error("Cloud parse failed. State=%s. Full item: %s", state, json.dumps(first, ensure_ascii=False))
-                    detail = f": {error_msg}" if error_msg else ""
-                    return self._build_parse_result(False, error=f'Cloud parse failed: {state}{detail}')
-
-                if state == 'done':
-                    logger.debug("Full result payload: %s", json.dumps(first, ensure_ascii=False))
-                    markdown_url = self._extract_nested_value(first, ['full_md_url', 'markdown_url'])
-                    zip_url = self._extract_nested_value(first, ['full_zip_url', 'zip_url'])
-
-                    logger.info("Done. MD: %s, ZIP: %s", markdown_url, zip_url)
-                    markdown_bundle = self._fetch_markdown_from_cloud_urls(markdown_url, zip_url)
-                    markdown = markdown_bundle.get('markdown')
-
-                    if not markdown:
-                        logger.warning("Markdown not ready, retrying...")
-                        continue
-
-                    # 解压 ZIP 到 output_dir (扁平化，去除 raw/ 目录)
-                    zip_bytes = markdown_bundle.get('zip_bytes')
-                    if zip_bytes:
-                        # Save original ZIP file
-                        try:
-                            zip_path = Path(output_dir) / 'origin.zip'
-                            with open(zip_path, 'wb') as f:
-                                f.write(zip_bytes)
-                            logger.info("Saved origin.zip to %s", zip_path)
-                        except Exception as e:
-                            logger.warning("Failed to save origin.zip: %s", e)
-
-                        self._extract_zip_archive(zip_bytes, Path(output_dir))
-
-                        # 清理：删除解压出来的多余 markdown 文件，避免混淆，只保留 content.md
-                        for md_file in Path(output_dir).glob('*.md'):
-                            if md_file.name != 'content.md':
-                                try:
-                                    md_file.unlink()
-                                except Exception:
-                                    pass
-
-                    # 写入 content.md
-                    return self._write_markdown_file(output_dir, markdown)
-
-            return self._build_parse_result(False, error='Polling timed out')
-
-        except Exception as error:
-            if self._abort_event.is_set():
-                raise RuntimeError("MinerU 请求已取消") from error
-            logger.exception("Cloud parse exception: %s", error)
-            return self._build_parse_result(False, error=f'Exception: {error}')
-
     def parse_document(self, input_path: str, output_dir: str, **kwargs) -> Dict[str, Any]:
         """解析文档入口"""
-        return self._parse_document_cloud_batch(input_path, output_dir) or self._build_parse_result(False, error="Unknown error")
+        return self._parse_document(input_path, output_dir) or self._build_parse_result(False, error="Unknown error")
 
     def parse_to_raw_artifacts(
         self,
