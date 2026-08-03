@@ -19,20 +19,8 @@ from docs_core.ingest.structure.solo import (
     build_structured_from_rawfiles,
     extract_media_bbox_list,
 )
-from docs_core.write.store.blocks_sql_store import KnowledgeIndexStore, persist_doc_blocks
+from docs_core.write.store.blocks_sql_store import get_index_store, persist_doc_blocks
 import docs_core.write.store.assets_file_store as _afs
-
-
-_index_stores: Dict[str, KnowledgeIndexStore] = {}
-
-
-def _get_index_store() -> KnowledgeIndexStore:
-    """索引库访问（按 db 路径懒加载，路径解析与 knowledge_service 一致）。"""
-    db_path = str(paths.resolve_knowledge_index_db_path())
-    if db_path not in _index_stores:
-        _index_stores[db_path] = KnowledgeIndexStore()
-    return _index_stores[db_path]
-
 
 
 # 保存 doc_blocks_graph.jsonl + doc_blocks_graph_meta.json
@@ -142,7 +130,7 @@ def _persist_structured_segments(
         llm_model=llm_model,
         use_llm=use_llm,
     )
-    return _get_index_store().save_document_segments(doc_id, library_id, strategy, structured_items)
+    return get_index_store().save_document_segments(doc_id, library_id, strategy, structured_items)
 
 
 # 归一化文本以提升图表相关块匹配稳定性
@@ -1207,7 +1195,7 @@ def _sync_structured_segments_after_node_update(
     graph_data: Dict[str, Any],
 ) -> int:
     updated_items = _build_structured_segment_items_from_graph(graph_data)
-    return _get_index_store().save_document_segments(doc_id, library_id, "doc_blocks_graph_v1", updated_items)
+    return get_index_store().save_document_segments(doc_id, library_id, "doc_blocks_graph_v1", updated_items)
 
 
 # 将源节点内容并入目标节点，并移除源节点
@@ -1389,11 +1377,11 @@ def _build_doc_block_projection_rows(doc_id: str, graph_data: Dict[str, Any]) ->
 # 把最新图谱整体同步到 doc_blocks 索引表，覆盖单块与批量结构改动
 def _persist_graph_projection_to_index_store(doc_id: str, graph_data: Dict[str, Any]) -> None:
     base_rows, derived_rows = _build_doc_block_projection_rows(doc_id, graph_data)
-    _get_index_store().clear_doc_blocks(doc_id)
+    get_index_store().clear_doc_blocks(doc_id)
     if base_rows:
-        _get_index_store().insert_doc_blocks_base_rows(base_rows)
+        get_index_store().insert_doc_blocks_base_rows(base_rows)
     if derived_rows:
-        _get_index_store().update_doc_blocks_derived_rows(derived_rows)
+        get_index_store().update_doc_blocks_derived_rows(derived_rows)
 
 
 # 批量把多个节点内容并入目标节点，并移除其余源节点
@@ -1786,7 +1774,7 @@ def batch_operate_doc_blocks(
     correction_payload = dict(payload)
     if operation in {"merge", "split", "delete", "relevel"}:
         correction_payload["undo_graph_snapshot"] = graph_snapshot_before
-    _get_index_store().record_doc_block_correction(doc_id, record_block_uid, operation, correction_payload)
+    get_index_store().record_doc_block_correction(doc_id, record_block_uid, operation, correction_payload)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
     canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
     knowledge_service.update_node(doc_id, updated_at=datetime.now())
@@ -1800,7 +1788,7 @@ def batch_operate_doc_blocks(
 def undo_last_doc_block_operation(library_id: str, doc_id: str) -> Dict[str, Any]:
     from docs_core.knowledge_service import knowledge_service
 
-    correction_record = _get_index_store().get_latest_doc_block_correction(doc_id)
+    correction_record = get_index_store().get_latest_doc_block_correction(doc_id)
     if not correction_record:
         raise ValueError("当前文档没有可撤回的结构操作")
     operation_type = str(correction_record.get("operation_type") or "").strip() or "unknown"
@@ -1817,7 +1805,7 @@ def undo_last_doc_block_operation(library_id: str, doc_id: str) -> Dict[str, Any
     _persist_graph_projection_to_index_store(doc_id, graph_data)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
     canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
-    _get_index_store().delete_doc_block_correction(str(correction_record.get("id") or ""))
+    get_index_store().delete_doc_block_correction(str(correction_record.get("id") or ""))
     knowledge_service.update_node(doc_id, updated_at=datetime.now())
     return {
         "graph_path": graph_path,
@@ -1918,7 +1906,7 @@ def update_doc_block_content(
     correction_payload = dict(normalized_changes)
     if merge_target_uid:
         correction_payload["undo_graph_snapshot"] = graph_snapshot_before
-    _get_index_store().record_doc_block_correction(doc_id, target_block_uid, operation_type, correction_payload)
+    get_index_store().record_doc_block_correction(doc_id, target_block_uid, operation_type, correction_payload)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
     canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
     knowledge_service.update_node(doc_id, updated_at=datetime.now())

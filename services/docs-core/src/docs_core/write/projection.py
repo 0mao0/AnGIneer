@@ -265,7 +265,7 @@ def write_canonical_products(
     """从 CanonicalDocument 统一落盘 content.md / graph jsonl+meta / segments / doc_blocks 行。"""
     import docs_core.paths as paths
     from docs_core.write.store.doc_blocks_graph import new_or_reuse_build_id
-    from docs_core.knowledge_service import knowledge_service
+    from docs_core.write.store.blocks_sql_store import get_index_store
 
     resolved_build_id = build_id or new_or_reuse_build_id(library_id, doc_id)
 
@@ -297,8 +297,9 @@ def write_canonical_products(
 
     # document_segments
     segments = build_document_segments(document, block_line_ranges)
-    knowledge_service.clear_document_segments(doc_id)
-    saved_segments = knowledge_service.save_document_segments(doc_id, library_id, strategy, segments)
+    index_store = get_index_store()
+    index_store.clear_document_segments(doc_id)
+    saved_segments = index_store.save_document_segments(doc_id, library_id, strategy, segments)
 
     # doc_blocks 主索引：base_rows + derived_rows
     base_rows, derived_rows = build_doc_block_rows(
@@ -306,7 +307,6 @@ def write_canonical_products(
         derive_version=derive_version,
         parser_version=parser_version,
     )
-    index_store = knowledge_service.index_store
     index_store.clear_doc_blocks(doc_id)
     inserted = index_store.insert_doc_blocks_base_rows(base_rows) if base_rows else 0
     updated = index_store.update_doc_blocks_derived_rows(derived_rows) if derived_rows else 0

@@ -11,6 +11,7 @@ from tree_core import tree_store
 
 from docs_core.ingest.structure.solo import StructuredResult
 from docs_core.ingest.canonical.types import STRUCTURED_DOC_GRAPH_STRATEGY
+from docs_core.write.store.sqlite_utils import create_connection
 
 
 # 安全解析数据库中的时间字符串。
@@ -26,15 +27,6 @@ def parse_datetime(dt_str: Optional[str]) -> datetime:
             return parser.parse(dt_str)
         except Exception:
             return datetime.now()
-
-
-# 构造 SQLite 连接并启用 WAL 模式与 Row 映射。
-def create_connection(db_path: Path) -> sqlite3.Connection:
-    db_path.parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(str(db_path), timeout=10)
-    conn.row_factory = sqlite3.Row
-    conn.execute("PRAGMA journal_mode=WAL")
-    return conn
 
 
 class KnowledgeMetaStore:
@@ -1193,7 +1185,15 @@ class KnowledgeIndexStore:
             summary.setdefault(strategy, {})[item_type] = cnt
         return {"doc_id": doc_id, "total": total, "strategies": summary}
 
-_index_store = KnowledgeIndexStore()
+_index_stores: Dict[str, KnowledgeIndexStore] = {}
+
+
+def get_index_store() -> KnowledgeIndexStore:
+    """索引库访问（按 db 路径懒加载，兼容 KNOWLEDGE_BASE_DIR 隔离）。"""
+    db_path = str(paths.resolve_knowledge_index_db_path())
+    if db_path not in _index_stores:
+        _index_stores[db_path] = KnowledgeIndexStore()
+    return _index_stores[db_path]
 
 
 # 持久化 doc_blocks 主索引。
@@ -1206,9 +1206,9 @@ def persist_doc_blocks(result: StructuredResult) -> Dict[str, int]:
     elif derived_rows:
         doc_id = str(derived_rows[0].get("doc_id") or "")
     if doc_id:
-        _index_store.clear_doc_blocks(doc_id)
-    inserted = _index_store.insert_doc_blocks_base_rows(base_rows) if base_rows else 0
-    updated = _index_store.update_doc_blocks_derived_rows(derived_rows) if derived_rows else 0
+        get_index_store().clear_doc_blocks(doc_id)
+    inserted = get_index_store().insert_doc_blocks_base_rows(base_rows) if base_rows else 0
+    updated = get_index_store().update_doc_blocks_derived_rows(derived_rows) if derived_rows else 0
     return {"inserted": inserted, "updated": updated}
 
 
@@ -1219,7 +1219,7 @@ def query_doc_blocks(
     derived_level: Optional[int] = None,
     limit: int = 100,
 ) -> List[Dict[str, Any]]:
-    return _index_store.query_doc_blocks(
+    return get_index_store().query_doc_blocks(
         doc_id=doc_id,
         block_type=block_type,
         derived_level=derived_level,
@@ -1229,7 +1229,7 @@ def query_doc_blocks(
 
 # 获取文档块统计信息。
 def get_doc_blocks_stats(doc_id: str) -> Dict[str, Any]:
-    return _index_store.get_doc_blocks_stats(doc_id)
+    return get_index_store().get_doc_blocks_stats(doc_id)
 
 
 __all__ = [
@@ -1237,6 +1237,7 @@ __all__ = [
     "KnowledgeMetaStore",
     "create_connection",
     "get_doc_blocks_stats",
+    "get_index_store",
     "parse_datetime",
     "persist_doc_blocks",
     "query_doc_blocks",

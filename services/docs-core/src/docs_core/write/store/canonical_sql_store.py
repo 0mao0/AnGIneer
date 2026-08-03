@@ -17,7 +17,7 @@ from docs_core.ingest.canonical.types import (
     CitationTarget,
 )
 from docs_core.paths import resolve_knowledge_index_db_path
-from docs_core.write.store.blocks_sql_store import create_connection
+from docs_core.write.store.sqlite_utils import create_connection
 
 
 # 统一序列化任JSON 字段
