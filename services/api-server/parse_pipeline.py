@@ -278,6 +278,7 @@ def _run_structure_from_popo(
     llm_client,
     llm_model: Optional[str],
 ) -> str:
+    import docs_core.paths as paths
     from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
     from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
     from docs_core.write.projection import write_canonical_products
