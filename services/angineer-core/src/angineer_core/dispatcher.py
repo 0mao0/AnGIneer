@@ -152,8 +152,8 @@ class Dispatcher:
         try:
             kp = self._knowledge_provider
             if kp is None:
-                from docs_core.knowledge_service import get_knowledge_service
-                kp = get_knowledge_service()
+                from docs_core.docs_service import get_docs_service
+                kp = get_docs_service()
             library_nodes = kp.list_nodes(library_id)
             doc_nodes = [node for node in library_nodes if node.type == "document"]
             if doc_ids:
@@ -1920,10 +1920,10 @@ class Dispatcher:
     @staticmethod
     def _build_citations_from_retrieved(fused, doc_nodes) -> list:
         """从检索结果构建 citations 数组。"""
-        from docs_core.knowledge_service import get_knowledge_service
+        from docs_core.docs_service import get_docs_service
 
         doc_title_map = {node.id: node.title for node in doc_nodes}
-        knowledge_service = get_knowledge_service()
+        docs_service = get_docs_service()
         citations = []
         for item in fused[:5]:
             doc_id = str(item.doc_id or "")
@@ -1937,7 +1937,7 @@ class Dispatcher:
             if not fusion_sources:
                 source_kind = str(item.metadata.get("source_kind") or "")
                 fusion_sources = [source_kind] if source_kind else []
-            target = knowledge_service.get_citation_target(doc_id, citation_target_id) if citation_target_id else None
+            target = docs_service.get_citation_target(doc_id, citation_target_id) if citation_target_id else None
             if target:
                 citations.append({
                     "label": str(target.get("display_title") or item.title or "").strip(),

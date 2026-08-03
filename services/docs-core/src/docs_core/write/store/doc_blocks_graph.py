@@ -2,7 +2,7 @@
 
 ? assets_file_store???? IO??????????? jsonl ???????
 ??? segments/doc_blocks ?????????????? blocks_sql_store?
-???????? canonical ????????? knowledge_service ???
+???????? canonical ????????? docs_service ???
 """
 import json
 import os
@@ -531,7 +531,7 @@ def build_structured_index_for_doc(
     )
     from docs_core.ingest.canonical.builder import rebuild_canonical_document_from_blocks
     from docs_core.ingest.structure.solo import structured_result_to_canonical_blocks
-    from docs_core.knowledge_service import knowledge_service
+    from docs_core.docs_service import docs_service
 
     # 阶段四（G3）：solo rows → CanonicalBlock 适配器，builder 纯构建，落库由本层负责
     canonical_blocks = structured_result_to_canonical_blocks(doc_id, result)
@@ -546,7 +546,7 @@ def build_structured_index_for_doc(
         llm_client=llm_client,
         llm_model=llm_model,
     )
-    knowledge_service.save_canonical_document(canonical_document)
+    docs_service.save_canonical_document(canonical_document)
     _afs.file_storage.save_middle_json(library_id, doc_id, canonical_document.model_dump(mode="json"))
 
     stats = {
@@ -635,7 +635,7 @@ def _rebuild_canonical_after_graph_change(
     graph_data: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, int]:
     from docs_core.ingest.canonical.builder import CanonicalSourceInput, rebuild_canonical_document
-    from docs_core.knowledge_service import knowledge_service
+    from docs_core.docs_service import docs_service
 
     graph_payload = (
         graph_data
@@ -649,7 +649,7 @@ def _rebuild_canonical_after_graph_change(
         manifest=_afs.file_storage.get_doc_manifest(library_id, doc_id),
     )
     canonical_document = rebuild_canonical_document(library_id, doc_id, source=source)
-    knowledge_service.save_canonical_document(canonical_document)
+    docs_service.save_canonical_document(canonical_document)
     _afs.file_storage.save_middle_json(library_id, doc_id, canonical_document.model_dump(mode="json"))
     return {
         "canonical_blocks": len(canonical_document.blocks),
@@ -1767,7 +1767,7 @@ def batch_operate_doc_blocks(
     graph_data["updated_at"] = datetime.now().isoformat()
     graph_path = _write_doc_blocks_graph(library_id, doc_id, graph_data)
 
-    from docs_core.knowledge_service import knowledge_service
+    from docs_core.docs_service import docs_service
 
     _persist_graph_projection_to_index_store(doc_id, graph_data)
     record_block_uid = _normalize_block_uid(payload.get("targetBlockId")) or block_uids[0]
@@ -1777,7 +1777,7 @@ def batch_operate_doc_blocks(
     get_index_store().record_doc_block_correction(doc_id, record_block_uid, operation, correction_payload)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
     canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
-    knowledge_service.update_node(doc_id, updated_at=datetime.now())
+    docs_service.update_node(doc_id, updated_at=datetime.now())
     result_payload["graph_path"] = graph_path
     result_payload["saved_segments"] = saved_segments
     result_payload["canonical_stats"] = canonical_stats
@@ -1786,7 +1786,7 @@ def batch_operate_doc_blocks(
 
 # 撤回当前文档最近一次可回滚block 结构操作，并恢复到操作前的图谱状态
 def undo_last_doc_block_operation(library_id: str, doc_id: str) -> Dict[str, Any]:
-    from docs_core.knowledge_service import knowledge_service
+    from docs_core.docs_service import docs_service
 
     correction_record = get_index_store().get_latest_doc_block_correction(doc_id)
     if not correction_record:
@@ -1806,7 +1806,7 @@ def undo_last_doc_block_operation(library_id: str, doc_id: str) -> Dict[str, Any
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
     canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
     get_index_store().delete_doc_block_correction(str(correction_record.get("id") or ""))
-    knowledge_service.update_node(doc_id, updated_at=datetime.now())
+    docs_service.update_node(doc_id, updated_at=datetime.now())
     return {
         "graph_path": graph_path,
         "saved_segments": saved_segments,
@@ -1899,7 +1899,7 @@ def update_doc_block_content(
     graph_data["updated_at"] = datetime.now().isoformat()
     graph_path = _write_doc_blocks_graph(library_id, doc_id, graph_data)
 
-    from docs_core.knowledge_service import knowledge_service
+    from docs_core.docs_service import docs_service
 
     _persist_graph_projection_to_index_store(doc_id, graph_data)
     operation_type = "merge" if merge_target_uid else "update"
@@ -1909,7 +1909,7 @@ def update_doc_block_content(
     get_index_store().record_doc_block_correction(doc_id, target_block_uid, operation_type, correction_payload)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
     canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
-    knowledge_service.update_node(doc_id, updated_at=datetime.now())
+    docs_service.update_node(doc_id, updated_at=datetime.now())
 
     return {
         "graph_path": graph_path,

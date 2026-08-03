@@ -19,7 +19,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
-from docs_core.knowledge_service import get_knowledge_service
+from docs_core.docs_service import get_docs_service
 from docs_core.read.mineru_parser import MinerUParser
 
 logger = logging.getLogger(__name__)
@@ -232,13 +232,13 @@ def _run_popo(ctx: StageContext) -> str:
 def _rollback_popo_products(ctx: StageContext) -> None:
     """G7：popo 失败时回滚已写产物，避免 structure 读到 popo 风格残缺数据。"""
     import docs_core.paths as paths
-    from docs_core.knowledge_service import get_knowledge_service
+    from docs_core.docs_service import get_docs_service
 
     popo_dir = paths.get_popo_dir(ctx.library_id, ctx.doc_id)
     if popo_dir.exists():
         shutil.rmtree(popo_dir, ignore_errors=True)
     try:
-        get_knowledge_service().index_store.clear_doc_blocks(ctx.doc_id)
+        get_docs_service().index_store.clear_doc_blocks(ctx.doc_id)
     except Exception:
         logger.warning("popo rollback: clear doc_blocks failed", exc_info=True)
     mineru_md = paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id) / "content.md"
@@ -288,9 +288,9 @@ def _run_structure_from_popo(
     from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
     from docs_core.write.projection import write_canonical_products
     from docs_core.write.store.assets_file_store import file_storage
-    from docs_core.knowledge_service import get_knowledge_service
+    from docs_core.docs_service import get_docs_service
 
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     document_tree = file_storage.read_popo_document_tree(ctx.library_id, ctx.doc_id)
     blocks, outlines, _id_map, pages = po_po_blocks_to_canonical(
         ctx.doc_id, enriched_blocks, document_tree
@@ -343,9 +343,9 @@ def _run_structure_solo(
 
 
 def _run_fts(ctx: StageContext) -> str:
-    from docs_core.knowledge_service import get_knowledge_service
+    from docs_core.docs_service import get_docs_service
 
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     ks.canonical_store.rebuild_chunk_fts(ctx.doc_id)
     ctx.input_summary = ctx.doc_id
     ctx.output_summary = "canonical_chunk_fts (FTS5 table)"
@@ -353,10 +353,10 @@ def _run_fts(ctx: StageContext) -> str:
 
 
 def _run_vectors(ctx: StageContext) -> str:
-    from docs_core.knowledge_service import get_knowledge_service
+    from docs_core.docs_service import get_docs_service
     from docs_core.write.indexing.embedding_provider import default_embedding_provider
 
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     ks.rebuild_document_vectors(ctx.doc_id)
     ctx.input_summary = ctx.doc_id
     ctx.output_summary = "vector store (entity_id + embedding)"
@@ -369,7 +369,7 @@ def _run_vectors(ctx: StageContext) -> str:
 
 
 def _run_graph(ctx: StageContext) -> str:
-    from docs_core.knowledge_service import push_to_graph
+    from docs_core.docs_service import push_to_graph
 
     result = push_to_graph(ctx.library_id, ctx.doc_id)
     if not result.get("pushed"):
@@ -547,7 +547,7 @@ class ParseOrchestrator:
 
     def ensure_document(self, library_id: str, file_path: str, doc_id: Optional[str] = None) -> str:
         """注册或补全文档节点，确保解析主链使用统一文档标识。"""
-        ks = get_knowledge_service()
+        ks = get_docs_service()
         node = ks.register_document(library_id=library_id, file_path=file_path, doc_id=doc_id)
         return node.id
 
@@ -559,7 +559,7 @@ class ParseOrchestrator:
         parse_options: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         """创建解析任务并启动后台线程。"""
-        ks = get_knowledge_service()
+        ks = get_docs_service()
         task_id = f"parse-{uuid.uuid4().hex[:12]}"
         task = ks.create_parse_task(task_id, library_id, doc_id)
         ks.update_node(
@@ -592,7 +592,7 @@ class ParseOrchestrator:
 
     def get_parse_task(self, task_id: str) -> Optional[Dict[str, Any]]:
         """返回当前任务状态。"""
-        ks = get_knowledge_service()
+        ks = get_docs_service()
         task = ks.get_parse_task(task_id)
         if not task:
             return None
@@ -600,7 +600,7 @@ class ParseOrchestrator:
 
     def cancel_parse_task(self, task_id: str) -> bool:
         """取消正在运行的解析任务。"""
-        ks = get_knowledge_service()
+        ks = get_docs_service()
         task = ks.get_parse_task(task_id)
         if not task:
             return False
@@ -626,7 +626,7 @@ class ParseOrchestrator:
 
     def retry_parse_task(self, doc_id: str) -> Optional[Dict[str, Any]]:
         """重试解析任务（支持已完成、失败、取消、待处理状态的文档重新解析）。"""
-        ks = get_knowledge_service()
+        ks = get_docs_service()
         node = ks.get_node(doc_id)
         if not node:
             return None
@@ -650,7 +650,7 @@ class ParseOrchestrator:
         parse_options: Dict[str, Any],
     ) -> None:
         """在后台执行文档解析：驱动阶段化管线并同步总体状态。"""
-        ks = get_knowledge_service()
+        ks = get_docs_service()
         meta_store = ks.meta_store
         stage_filter = parse_options.get("stages", "all")
         # 单阶段启动的输入提示：源文件路径（convert/raw_parse 的输入 = 上一步 source_prep 的内容）
@@ -776,7 +776,7 @@ class ParseOrchestrator:
         stage_message: Optional[str] = None,
     ) -> None:
         """同步更新任务和节点的解析进度。"""
-        ks = get_knowledge_service()
+        ks = get_docs_service()
         ks.update_parse_task(
             task_id,
             status=status,

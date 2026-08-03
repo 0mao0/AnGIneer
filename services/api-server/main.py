@@ -46,7 +46,7 @@ from engtools.BaseTool import ToolRegistry, register_tool
 from engtools import * 
 import geo_core.GisTool
 import engtools.KnowledgeTool
-from knowledge_routes import knowledge_router, preview_router
+from docs_routes import docs_router, preview_router
 from evals_routes import evals_router
 
 app = FastAPI(
@@ -100,7 +100,7 @@ async def global_exception_handler(request, exc):
     )
 
 # Mount sub-routers
-app.include_router(knowledge_router, prefix="/api/knowledge", tags=["Knowledge"])
+app.include_router(docs_router, prefix="/api/knowledge", tags=["Knowledge"])
 app.include_router(preview_router, prefix="/api", tags=["Preview"])
 app.include_router(evals_router, prefix="/api/evals", tags=["Evals"])
 

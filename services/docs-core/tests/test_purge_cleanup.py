@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from types import SimpleNamespace
 
-from docs_core.knowledge_service import KnowledgeService
+from docs_core.docs_service import DocsService
 from docs_core.write.graph.config import EntityLayer, RelationType
 from docs_core.write.graph.graph_store import GraphStore
 from docs_core.write.store.blocks_sql_store import KnowledgeMetaStore
@@ -91,7 +91,7 @@ def test_purge_document_artifacts_cleans_stages_steps_and_graph(tmp_path, monkey
 
     monkeypatch.setattr(afs, "file_storage", _FakeFS())
 
-    ks = KnowledgeService()
+    ks = DocsService()
     task = ks.create_parse_task("t1", "lib", "doc-x")
     ks.meta_store.insert_parse_task_step(task.id, "doc-x", "structure", 50)
     ks.meta_store.upsert_parse_stage("doc-x", "structure", status="completed")

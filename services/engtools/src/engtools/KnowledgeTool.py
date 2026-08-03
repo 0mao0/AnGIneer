@@ -48,7 +48,7 @@ def _resolve_knowledge_file(file_name: str) -> Optional[str]:
         return None
     try:
         import docs_core.paths as paths
-        from docs_core.knowledge_service import knowledge_service as ks
+        from docs_core.docs_service import docs_service as ks
         nodes = ks.list_nodes("default")
         for node in nodes:
             if node.type != "document":

@@ -64,7 +64,7 @@ def _relations_document():
     return document
 
 
-def _fake_knowledge_service(monkeypatch):
+def _fake_docs_service(monkeypatch):
     fake = SimpleNamespace(
         clear_document_segments=lambda doc_id: 0,
         save_document_segments=lambda *args, **kwargs: 0,
@@ -74,8 +74,8 @@ def _fake_knowledge_service(monkeypatch):
             update_doc_blocks_derived_rows=lambda rows: len(rows),
         ),
     )
-    ks_module = importlib.import_module("docs_core.knowledge_service")
-    monkeypatch.setattr(ks_module, "_knowledge_service", fake)
+    ks_module = importlib.import_module("docs_core.docs_service")
+    monkeypatch.setattr(ks_module, "_docs_service", fake)
     return fake
 
 
@@ -116,7 +116,7 @@ def test_base_rows_carry_table_html_math_content() -> None:
 
 
 def test_unified_write_matches_pure_builders(tmp_path, monkeypatch) -> None:
-    _fake_knowledge_service(monkeypatch)
+    _fake_docs_service(monkeypatch)
     document = _relations_document()
     md_out = tmp_path / "content.md"
     jsonl_out = tmp_path / "doc_blocks_graph.jsonl"

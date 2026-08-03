@@ -171,7 +171,7 @@ class ParseTask(BaseModel):
     updated_at: datetime = datetime.now()
 
 
-class KnowledgeService:
+class DocsService:
     """对外暴露稳定接口的知识库服务。"""
 
     def __init__(self) -> None:
@@ -889,38 +889,38 @@ class KnowledgeService:
         return ""
 
 
-_knowledge_service: Optional["KnowledgeService"] = None
+_docs_service: Optional["DocsService"] = None
 
 
-def get_knowledge_service() -> "KnowledgeService":
+def get_docs_service() -> "DocsService":
     """获取全局知识库服务实例（懒加载单例）。"""
-    global _knowledge_service
-    if _knowledge_service is None:
-        _knowledge_service = KnowledgeService()
-    return _knowledge_service
+    global _docs_service
+    if _docs_service is None:
+        _docs_service = DocsService()
+    return _docs_service
 
 
-class _KnowledgeServiceProxy:
-    """模块级懒加载代理，使 knowledge_service.xxx 自动触发 get_knowledge_service()。"""
+class _DocsServiceProxy:
+    """模块级懒加载代理，使 docs_service.xxx 自动触发 get_docs_service()。"""
 
     def __getattr__(self, name):
-        return getattr(get_knowledge_service(), name)
+        return getattr(get_docs_service(), name)
 
     def __bool__(self):
         return True
 
 
-knowledge_service = _KnowledgeServiceProxy()
+docs_service = _DocsServiceProxy()
 
 
 __all__ = [
     "KnowledgeLibrary",
     "KnowledgeNode",
-    "KnowledgeService",
+    "DocsService",
     "ParseTask",
     "SCHEMA_VERSION",
-    "knowledge_service",
-    "get_knowledge_service",
+    "docs_service",
+    "get_docs_service",
     "push_to_graph",
 ]
 

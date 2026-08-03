@@ -13,8 +13,8 @@ from fixtures.popo_fixtures import EMPTY_TREE, build_clean_fixture
 MD_HEADER_RE = re.compile(r"^<!--\s*build_id:\s*([0-9a-f]{12})\s*-->\s*$")
 
 
-def _fake_knowledge_service(monkeypatch):
-    """替换全局 knowledge_service，避免测试触碰真实 DB。"""
+def _fake_docs_service(monkeypatch):
+    """替换全局 docs_service，避免测试触碰真实 DB。"""
     import importlib
 
     fake = SimpleNamespace(
@@ -26,13 +26,13 @@ def _fake_knowledge_service(monkeypatch):
             update_doc_blocks_derived_rows=lambda rows: len(rows),
         ),
     )
-    ks_module = importlib.import_module("docs_core.knowledge_service")
-    monkeypatch.setattr(ks_module, "_knowledge_service", fake)
+    ks_module = importlib.import_module("docs_core.docs_service")
+    monkeypatch.setattr(ks_module, "_docs_service", fake)
     return fake
 
 
 def test_unified_write_stamps_consistent_build_id(tmp_path: Path, monkeypatch) -> None:
-    _fake_knowledge_service(monkeypatch)
+    _fake_docs_service(monkeypatch)
     blocks, outlines, _id_map, _pages = po_po_blocks_to_canonical("doc-1", build_clean_fixture(), EMPTY_TREE)
     document = build_canonical_document_from_popoblocks(
         library_id="lib-1",

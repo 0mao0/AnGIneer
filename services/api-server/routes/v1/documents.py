@@ -60,9 +60,9 @@ def _records_by_doc_id(doc_id: str) -> list:
 
 def _ensure_external_api_folder(library_id: str) -> str:
     """找到或创建知识树根部的『外部API』文件夹，返回其 node_id。"""
-    from docs_core.knowledge_service import get_knowledge_service, KnowledgeNode
+    from docs_core.docs_service import get_docs_service, KnowledgeNode
 
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     for node in ks.nodes:
         if (
             node.type == "folder"
@@ -111,10 +111,10 @@ async def parse_document_v1(
     api_key_id = api_key_info.id if api_key_info else None
 
     # 注册知识库节点：挂在知识树根部的『外部API』文件夹下（parse_pipeline 依赖节点存在）
-    from docs_core.knowledge_service import get_knowledge_service
+    from docs_core.docs_service import get_docs_service
 
     folder_id = _ensure_external_api_folder(library_id)
-    get_knowledge_service().register_document(
+    get_docs_service().register_document(
         library_id,
         source_path,
         doc_id,

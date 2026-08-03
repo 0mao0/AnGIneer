@@ -52,7 +52,7 @@ flowchart LR
   Front["web/admin consoles"]
   Api["api-server"]
   AI["ai-inference\nLLM/Semantic"]
-  Routes["knowledge_routes"]
+  Routes["docs_routes"]
   Parser["mineru_parser"]
   Store["result_store_json + document_storage"]
   Meta["knowledge_meta.sqlite"]
@@ -88,8 +88,8 @@ flowchart LR
 - `services/ai-inference/src/ai_inference/llm_config.py`（LLM 配置管理）
 - `services/ai-inference/src/ai_inference/llm_response_parser.py`（LLM 响应解析）
 - `services/ai-inference/src/ai_inference/llm_logger.py`（LLM 专用日志）
-- `services/api-server/knowledge_routes.py`
-- `services/docs-core/src/docs_core/knowledge_service.py`
+- `services/api-server/docs_routes.py`
+- `services/docs-core/src/docs_core/docs_service.py`
 - `services/docs-core/src/docs_core/read/mineru_parser.py`
 - `services/docs-core/src/docs_core/write/store/canonical_sql_store.py`
 - `services/docs-core/src/docs_core/query/contracts.py`
@@ -212,14 +212,14 @@ sequenceDiagram
 - **健壮性兜底**：必须处理 MinerU 云端返回异常、空文件及压缩包解压失败等情况。
 - **解析产物版本化 (SCHEMA\_VERSION)**：
   - `SCHEMA_VERSION` 贯穿整个解析流程。
-  - 在 `knowledge_service.py` 中，`knowledge_nodes`, `parse_tasks`, `structured_items` 表均包含 `schema_version` 字段。
+  - 在 `docs_service.py` 中，`knowledge_nodes`, `parse_tasks`, `structured_items` 表均包含 `schema_version` 字段。
   - 此版本号用于检测旧解析任务与当前逻辑的不兼容性，触发必要的强制重新解析。
 
 #### 索引与检索 (StructuredStrategy)
 
 - **坐标标准化**：所有 `bbox` 统一采用 `[x0, y0, x1, y1]` 格式，并与 `page_idx` 严格绑定。
 - **索引幂等性**：重新解析文档时，必须先清理该文档旧的索引数据，防止数据库冗余。
-- **并发控制**：在处理大规模并发解析请求时，利用任务队列 (TaskQueue) 进行限流，并已将接口与调度逻辑收口到 `services/api-server/knowledge_routes.py`，减少跨层薄文件带来的心智负担。
+- **并发控制**：在处理大规模并发解析请求时，利用任务队列 (TaskQueue) 进行限流，并已将接口与调度逻辑收口到 `services/api-server/docs_routes.py`，减少跨层薄文件带来的心智负担。
 
 ***
 
@@ -235,7 +235,7 @@ flowchart TB
   end
 
   subgraph DocsCore["docs-core 知识引擎层"]
-    KService["knowledge_service\n节点/任务元数据门面"]
+    KService["docs_service\n节点/任务元数据门面"]
     Parser["mineru_parser\n高保真解析"]
     Storage["document_storage\n一文档一目录与兼容路径"]
     Struct["ingest/canonical + write/store\n当前结构化主链"]
@@ -246,7 +246,7 @@ flowchart TB
     Evals["evals/*\nretrieval/answer/text2sql/report"]
   end
 
-  GatewayOrchestrator["knowledge_routes\n接口与解析调度"]
+  GatewayOrchestrator["docs_routes\n接口与解析调度"]
 
   subgraph Strategy["检索执行平面"]
     A["A: 自研结构化检索\n(当前唯一运行主链)"]
@@ -301,7 +301,7 @@ flowchart TB
 flowchart TB
   subgraph Ingest["解析入口 services/api-server/main.py"]
     ParseReq["POST /api/knowledge/parse\n提交解析任务"]
-    ParseTask["knowledge_routes.ParseOrchestrator\n执行解析主链与状态推进"]
+    ParseTask["docs_routes.ParseOrchestrator\n执行解析主链与状态推进"]
   end
 
   subgraph Parser["解析核心 services/docs-core/parser/mineru_parser.py"]
@@ -414,7 +414,7 @@ SOP 生成不在解析管线内：由 `services/sop-core` 的 `SopPathGenerator.
   - 结构化主链：统一生成 canonical structure，供后续索引与查询链路复用。
 - `services/docs-core/src/docs_core/write/store/blocks_sql_store.py`
   - 承担 `doc_blocks` 与 `document_segments` 主索引的写入、查询与统计。
-- `services/docs-core/src/docs_core/knowledge_service.py`
+- `services/docs-core/src/docs_core/docs_service.py`
   - 作为元数据门面，持有 `KnowledgeMetaStore` 与 `KnowledgeIndexStore` 双库访问。
 - `services/docs-core/src/docs_core/write/store/assets_file_store.py`
   - 实现一文档一目录读写 API，并统一 canonical raw path 解析。

@@ -123,7 +123,7 @@ class DispatcherRetrievalTests(unittest.TestCase):
             "section_path": "前言",
             "snippet": "示例",
         }
-        with patch("docs_core.knowledge_service.get_knowledge_service", return_value=fake_ks):
+        with patch("docs_core.docs_service.get_docs_service", return_value=fake_ks):
             item = RetrievedItem(
                 item_id="doc-1:b1", entity_type="title", doc_id="doc-1",
                 title="前言", text="示例", score=1.0,
@@ -143,7 +143,7 @@ class DispatcherRetrievalTests(unittest.TestCase):
 
         fake_ks = MagicMock()
         fake_ks.get_citation_target.return_value = None
-        with patch("docs_core.knowledge_service.get_knowledge_service", return_value=fake_ks):
+        with patch("docs_core.docs_service.get_docs_service", return_value=fake_ks):
             item = RetrievedItem(
                 item_id="chunk-1", entity_type="content", doc_id="doc-1",
                 title="章节", text="正文", score=1.0,

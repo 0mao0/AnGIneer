@@ -406,7 +406,7 @@ services/docs-core/
 │   │   ├── query/                   # 第 4 层：检索 + text2sql
 │   │   │   ├── retrieval/           # sparse / dense / hybrid / table / formula
 │   │   │   └── text2sql/            # schema linker / planner / generator / validator / executor
-│   │   ├── knowledge_service.py     # 门面：编排 read → ingest → write → query
+│   │   ├── docs_service.py     # 门面：编排 read → ingest → write → query
 │   │   └── __init__.py
 │   └── popo/                        # MinerU-Popo 子模块（本地定制，更新上游注意保留）
 ├── tests/
@@ -678,9 +678,9 @@ pnpm run dev
 ### 基础使用
 
 ```python
-from docs_core import get_knowledge_service
+from docs_core import get_docs_service
 
-ks = get_knowledge_service()
+ks = get_docs_service()
 
 # 文档解析由 api-server 的 parse pipeline 编排（read → ingest → write），
 # 此处为知识库/节点管理侧入口示例：

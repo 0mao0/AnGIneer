@@ -6,9 +6,9 @@ from .BaseTool import BaseTool, register_tool
 
 def _resolve_doc_nodes(library_id: str, doc_ids: Optional[List[str]] = None) -> list:
     """解析文档节点列表。"""
-    from docs_core.knowledge_service import KnowledgeNode, knowledge_service
+    from docs_core.docs_service import KnowledgeNode, docs_service
 
-    library_nodes = knowledge_service.list_nodes(library_id)
+    library_nodes = docs_service.list_nodes(library_id)
     doc_nodes = [node for node in library_nodes if node.type == "document"]
     if doc_ids:
         requested = set(doc_ids)

@@ -1,6 +1,6 @@
 """docs_core — 统一知识管理包：文档处理、知识图谱、检索、文本转SQL、定时维护"""
 
-from .knowledge_service import KnowledgeService, get_knowledge_service, knowledge_service
+from .docs_service import DocsService, get_docs_service, docs_service
 
 # read pipeline
 from .ingest.canonical.types import (
@@ -37,9 +37,9 @@ from .write.maintain import (
 )
 
 __all__ = [
-    "KnowledgeService",
-    "get_knowledge_service",
-    "knowledge_service",
+    "DocsService",
+    "get_docs_service",
+    "docs_service",
     "CanonicalBlock",
     "CanonicalDocument",
     "CanonicalTable",

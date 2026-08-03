@@ -1,6 +1,6 @@
 """query 层数据访问端口：检索器只依赖协议，不 import 服务实现。
 
-默认实现由 knowledge_service 提供（default_query_data_port 内部延迟导入，
+默认实现由 docs_service 提供（default_query_data_port 内部延迟导入，
 避免 query 模块级依赖服务层）；测试可注入伪端口。
 """
 from typing import Dict, List, Optional, Protocol, runtime_checkable
@@ -69,7 +69,7 @@ class QueryDataPort(Protocol):
 
 
 def default_query_data_port() -> QueryDataPort:
-    """默认端口：延迟绑定 knowledge_service 单例。"""
-    from docs_core.knowledge_service import get_knowledge_service
+    """默认端口：延迟绑定 docs_service 单例。"""
+    from docs_core.docs_service import get_docs_service
 
-    return get_knowledge_service()
+    return get_docs_service()

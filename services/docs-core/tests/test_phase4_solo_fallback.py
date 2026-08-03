@@ -167,8 +167,8 @@ def test_rollback_popo_products(monkeypatch, tmp_path) -> None:
             cleared.append(doc_id)
 
     fake_ks = SimpleNamespace(index_store=_IndexStore())
-    ks_module = importlib.import_module("docs_core.knowledge_service")
-    monkeypatch.setattr(ks_module, "_knowledge_service", fake_ks)
+    ks_module = importlib.import_module("docs_core.docs_service")
+    monkeypatch.setattr(ks_module, "_docs_service", fake_ks)
 
     from docs_core.parse_pipeline import _rollback_popo_products, StageContext
 

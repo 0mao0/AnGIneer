@@ -12,7 +12,7 @@ from fastapi import APIRouter, HTTPException, UploadFile, File as FastAPIFile, F
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
-from docs_core.knowledge_service import get_knowledge_service, KnowledgeNode
+from docs_core.docs_service import get_docs_service, KnowledgeNode
 from docs_core.write.store.doc_blocks_graph import (
     build_structured_index_for_doc,
     extract_build_id_from_markdown,
@@ -26,7 +26,7 @@ from models.parse_record import insert_record, ParseRecord, list_records, hard_d
 logger = logging.getLogger(__name__)
 
 
-knowledge_router = APIRouter()
+docs_router = APIRouter()
 preview_router = APIRouter()
 
 
@@ -244,42 +244,42 @@ def _normalize_parent_id(parent_id: Optional[str]) -> Optional[str]:
 # --- 知识库 CRUD 路由 ---
 
 
-@knowledge_router.get("/libraries")
+@docs_router.get("/libraries")
 def list_knowledge_libraries():
     """获取知识库列表。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     return ks.list_libraries()
 
 
-@knowledge_router.post("/libraries")
+@docs_router.post("/libraries")
 def create_knowledge_library(request: KnowledgeLibraryCreate):
     """创建知识库。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     library = ks.create_library(request.library_id, request.name, request.description)
     return library
 
 
-@knowledge_router.get("/libraries/{library_id}")
+@docs_router.get("/libraries/{library_id}")
 def get_knowledge_library(library_id: str):
     """获取知识库详情。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     library = ks.get_library(library_id)
     if not library:
         raise HTTPException(status_code=404, detail="Library not found")
     return library
 
 
-@knowledge_router.get("/nodes")
+@docs_router.get("/nodes")
 def list_knowledge_nodes(library_id: str = 'default', visible: bool = False):
     """获取知识库节点列表。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     return ks.list_nodes(library_id, visible)
 
 
-@knowledge_router.post("/nodes")
+@docs_router.post("/nodes")
 def create_knowledge_node(request: KnowledgeNodeCreate):
     """创建知识库节点。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     normalized_parent_id = _normalize_parent_id(request.parent_id)
 
     if normalized_parent_id:
@@ -301,10 +301,10 @@ def create_knowledge_node(request: KnowledgeNodeCreate):
     return ks.create_node(node)
 
 
-@knowledge_router.patch("/nodes/{node_id}")
+@docs_router.patch("/nodes/{node_id}")
 def update_knowledge_node(node_id: str, request: KnowledgeNodeUpdate):
     """更新知识库节点。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     current_node = ks.get_node(node_id)
     if not current_node:
         raise HTTPException(status_code=404, detail=f"Node {node_id} not found")
@@ -351,20 +351,20 @@ def update_knowledge_node(node_id: str, request: KnowledgeNodeUpdate):
         raise HTTPException(status_code=500, detail=f"Database update failed: {str(e)}")
 
 
-@knowledge_router.get("/nodes/{node_id}/delete-preview")
+@docs_router.get("/nodes/{node_id}/delete-preview")
 def get_knowledge_node_delete_preview(node_id: str):
     """获取删除节点前的影响范围预览。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     preview = ks.get_delete_preview(node_id)
     if not preview:
         raise HTTPException(status_code=404, detail="Node not found")
     return preview
 
 
-@knowledge_router.delete("/nodes/{node_id}")
+@docs_router.delete("/nodes/{node_id}")
 def delete_knowledge_node(node_id: str):
     """删除知识库节点。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     success = ks.delete_node(node_id)
     if not success:
         raise HTTPException(status_code=404, detail="Node not found")
@@ -372,10 +372,10 @@ def delete_knowledge_node(node_id: str):
     return {"status": "success"}
 
 
-@knowledge_router.delete("/nodes/{node_id}/soft-delete")
+@docs_router.delete("/nodes/{node_id}/soft-delete")
 def soft_delete_knowledge_node(node_id: str):
     """软删除：标记节点（含子树）为已删除并从树视图隐藏，节点与文件系统内容保持不变。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     success = ks.soft_delete_node(node_id)
     if not success:
         raise HTTPException(status_code=404, detail="Node not found")
@@ -389,10 +389,10 @@ def soft_delete_knowledge_node(node_id: str):
     }
 
 
-@knowledge_router.delete("/nodes/{node_id}/force")
+@docs_router.delete("/nodes/{node_id}/force")
 def force_delete_knowledge_node(node_id: str):
     """强制删除知识库节点（跳过预览，用于处理异常状态节点）。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     node = ks.get_node(node_id)
     if not node:
         raise HTTPException(status_code=404, detail="Node not found")
@@ -409,7 +409,7 @@ def force_delete_knowledge_node(node_id: str):
         raise HTTPException(status_code=500, detail=f"强制删除失败: {str(e)}")
 
 
-@knowledge_router.get("/records")
+@docs_router.get("/records")
 def list_parse_records(
     status: Optional[str] = None,
     uploaded_by: Optional[str] = None,
@@ -430,7 +430,7 @@ def list_parse_records(
         offset=offset,
     )
     # 补充 file_status：已入库 / 用户已删 / 冗余
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     existing_doc_ids = {n.id for n in ks.nodes}
     for r in records:
         if r.get("status") == "deleted":
@@ -442,7 +442,7 @@ def list_parse_records(
     return {"status": "success", "data": records, "total": len(records)}
 
 
-@knowledge_router.put("/records/{record_id}/soft-delete")
+@docs_router.put("/records/{record_id}/soft-delete")
 def soft_delete_record_by_id(record_id: int):
     """标记单条解析记录为已删除（按 record_id）。"""
     success = soft_delete_record_by_id(record_id)
@@ -451,10 +451,10 @@ def soft_delete_record_by_id(record_id: int):
     return {"status": "success", "message": f"记录 {record_id} 已标记为 deleted"}
 
 
-@knowledge_router.post("/records/clean-orphaned")
+@docs_router.post("/records/clean-orphaned")
 def clean_orphaned_records():
     """清理孤立记录：将 doc_id 在知识库中已不存在的记录标记为 deleted。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     records = list_records()
     cleaned = 0
     for record in records:
@@ -470,7 +470,7 @@ def clean_orphaned_records():
     return {"status": "success", "message": f"已清理 {cleaned} 条孤立记录"}
 
 
-@knowledge_router.delete("/records/{record_id}/hard-delete")
+@docs_router.delete("/records/{record_id}/hard-delete")
 def admin_hard_delete_record(record_id: int):
     """管理员永久删除（仅允许用户已标记删除的记录）。"""
     success = hard_delete_record(record_id)
@@ -479,7 +479,7 @@ def admin_hard_delete_record(record_id: int):
     return {"status": "success", "message": "已永久删除"}
 
 
-@knowledge_router.put("/records/{record_id}/restore")
+@docs_router.put("/records/{record_id}/restore")
 def restore_deleted_record(record_id: int):
     """将已删除的解析记录恢复到待解析状态，并恢复对应节点的树显示。"""
     success = restore_record(record_id)
@@ -493,7 +493,7 @@ def restore_deleted_record(record_id: int):
                 rec = r
                 break
         if rec and rec.get("doc_id"):
-            ks = get_knowledge_service()
+            ks = get_docs_service()
             if ks.get_node(rec["doc_id"]):
                 ks.restore_soft_deleted_node(rec["doc_id"])
     except Exception as e:
@@ -501,10 +501,10 @@ def restore_deleted_record(record_id: int):
     return {"status": "success", "message": "已恢复"}
 
 
-@knowledge_router.post("/parse/{task_id}/cancel")
+@docs_router.post("/parse/{task_id}/cancel")
 def cancel_parse_task(task_id: str):
     """取消正在运行的解析任务。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     task = ks.get_parse_task(task_id)
     if not task:
         raise HTTPException(status_code=404, detail="任务不存在")
@@ -516,7 +516,7 @@ def cancel_parse_task(task_id: str):
     return {"status": "success", "task_id": task_id, "message": "任务已取消"}
 
 
-@knowledge_router.post("/parse/retry")
+@docs_router.post("/parse/retry")
 async def retry_parse_task(request: Dict[str, str]):
     """重试失败或被取消的解析任务。"""
     doc_id = request.get("doc_id")
@@ -539,14 +539,14 @@ async def retry_parse_task(request: Dict[str, str]):
         raise HTTPException(status_code=500, detail=f"重试失败: {str(e)}")
 
 
-@knowledge_router.post("/upload")
+@docs_router.post("/upload")
 async def upload_document(
     library_id: str = Form(...),
     file: UploadFile = FastAPIFile(...),
     parent_id: Optional[str] = Form(None)
 ):
     """上传文档到知识库。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     allowed_extensions = {'.pdf', '.doc', '.docx', '.md'}
     ext = os.path.splitext(file.filename or '')[1].lower()
     if ext not in allowed_extensions:
@@ -602,38 +602,38 @@ async def upload_document(
     }
 
 
-@knowledge_router.get("/parse/tasks/{task_id}")
+@docs_router.get("/parse/tasks/{task_id}")
 def get_parse_task(task_id: str):
     """获取解析任务状态。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     task = ks.get_parse_task(task_id)
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
     return task
 
 
-@knowledge_router.get("/parse/tasks/{task_id}/steps")
+@docs_router.get("/parse/tasks/{task_id}/steps")
 def get_parse_task_steps(task_id: str):
     """获取解析任务步骤历史。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     steps = ks.get_parse_task_steps(task_id)
     return {"status": "success", "data": steps}
 
 
-@knowledge_router.get("/strategies/{doc_id}")
+@docs_router.get("/strategies/{doc_id}")
 def get_doc_strategy(doc_id: str):
     """获取文档策略。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     node = ks.get_node(doc_id)
     if not node:
         raise HTTPException(status_code=404, detail="Document not found")
     return {"doc_id": doc_id, "strategy": node.strategy}
 
 
-@knowledge_router.put("/strategies/{doc_id}")
+@docs_router.put("/strategies/{doc_id}")
 def set_doc_strategy(doc_id: str, request: KnowledgeStrategyUpdate):
     """设置文档策略。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     strategy = request.strategy
     allowed = {'doc_blocks_graph_v1'}
     if strategy not in allowed:
@@ -644,10 +644,10 @@ def set_doc_strategy(doc_id: str, request: KnowledgeStrategyUpdate):
     return {"doc_id": doc_id, "strategy": strategy}
 
 
-@knowledge_router.post("/structured/index")
+@docs_router.post("/structured/index")
 def build_structured_index(request: KnowledgeStructuredIndexRequest):
     """构建结构化索引。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     doc_id = request.doc_id
     library_id = request.library_id
     strategy = request.strategy or 'doc_blocks_graph_v1'
@@ -671,7 +671,7 @@ def build_structured_index(request: KnowledgeStructuredIndexRequest):
         raise HTTPException(status_code=500, detail=f"Build structured index failed: {str(error)}")
 
 
-@knowledge_router.get("/structured/{doc_id}")
+@docs_router.get("/structured/{doc_id}")
 def get_structured_index(
     doc_id: str,
     strategy: str = 'doc_blocks_graph_v1',
@@ -680,7 +680,7 @@ def get_structured_index(
     limit: int = 200
 ):
     """查询结构化索引。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     node = ks.get_node(doc_id)
     if not node:
         raise HTTPException(status_code=404, detail="Document not found")
@@ -694,20 +694,20 @@ def get_structured_index(
     return {"doc_id": doc_id, "strategy": strategy, "count": len(items), "items": items}
 
 
-@knowledge_router.get("/structured/stats/{doc_id}")
+@docs_router.get("/structured/stats/{doc_id}")
 def get_structured_stats(doc_id: str):
     """获取结构化索引统计。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     node = ks.get_node(doc_id)
     if not node:
         raise HTTPException(status_code=404, detail="Document not found")
     return ks.get_document_segment_stats(doc_id)
 
 
-@knowledge_router.post("/references/search")
+@docs_router.post("/references/search")
 def search_knowledge_references(request: KnowledgeReferenceSearchRequest):
     """搜索知识引用候选，供前端 @ 提示面板使用。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     items = ks.search_references(
         library_id=request.library_id,
         query=request.query,
@@ -723,7 +723,7 @@ def search_knowledge_references(request: KnowledgeReferenceSearchRequest):
     }
 
 
-@knowledge_router.get("/document/{library_id}/{doc_id}")
+@docs_router.get("/document/{library_id}/{doc_id}")
 def get_document(library_id: str, doc_id: str, include_graph: bool = False):
     """获取文档内容，默认不返回 graph_data 以提升大文档加载速度。"""
     content = file_storage.read_markdown(library_id, doc_id)
@@ -744,16 +744,16 @@ def get_document(library_id: str, doc_id: str, include_graph: bool = False):
     return result
 
 
-@knowledge_router.put("/document/{library_id}/{doc_id}")
+@docs_router.put("/document/{library_id}/{doc_id}")
 def update_document(library_id: str, doc_id: str, request: KnowledgeDocumentUpdate):
     """更新文档内容。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     saved_path = file_storage.save_edited_markdown(library_id, doc_id, request.content)
     ks.update_node(doc_id, updated_at=datetime.now())
     return {"status": "success", "path": saved_path, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
 
 
-@knowledge_router.patch("/document/{library_id}/{doc_id}/blocks/{block_id}")
+@docs_router.patch("/document/{library_id}/{doc_id}/blocks/{block_id}")
 def update_document_block(
     library_id: str,
     doc_id: str,
@@ -783,7 +783,7 @@ def update_document_block(
     }
 
 
-@knowledge_router.post("/document/{library_id}/{doc_id}/blocks/batch")
+@docs_router.post("/document/{library_id}/{doc_id}/blocks/batch")
 def batch_operate_document_blocks(
     library_id: str,
     doc_id: str,
@@ -815,7 +815,7 @@ def batch_operate_document_blocks(
     }
 
 
-@knowledge_router.post("/document/{library_id}/{doc_id}/blocks/undo")
+@docs_router.post("/document/{library_id}/{doc_id}/blocks/undo")
 def undo_document_block_operation(library_id: str, doc_id: str):
     """撤回当前文档最近一次可回滚的结构操作。"""
     from docs_core.write.store.doc_blocks_graph import undo_last_doc_block_operation
@@ -836,16 +836,16 @@ def undo_document_block_operation(library_id: str, doc_id: str):
     }
 
 
-@knowledge_router.post("/document/{library_id}/{doc_id}/blocks/merge/undo")
+@docs_router.post("/document/{library_id}/{doc_id}/blocks/merge/undo")
 def undo_document_block_merge(library_id: str, doc_id: str):
     """兼容旧路由，撤回当前文档最近一次结构操作。"""
     return undo_document_block_operation(library_id, doc_id)
 
 
-@knowledge_router.get("/storage/{library_id}/{doc_id}")
+@docs_router.get("/storage/{library_id}/{doc_id}")
 def get_document_storage(library_id: str, doc_id: str):
     """获取文档存储布局。"""
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     node = ks.get_node(doc_id)
     if not node:
         raise HTTPException(status_code=404, detail="Document not found")
@@ -855,7 +855,7 @@ def get_document_storage(library_id: str, doc_id: str):
 # --- 解析路由 ---
 
 
-@knowledge_router.post("/parse")
+@docs_router.post("/parse")
 async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
     """创建解析任务并交给编排层执行。"""
     if not request.file_path:
@@ -877,7 +877,7 @@ async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
     )
 
 
-@knowledge_router.post("/parse/doc-blocks-graph")
+@docs_router.post("/parse/doc-blocks-graph")
 async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str, Any]:
     """获取文档的块图谱视图。"""
     try:
@@ -901,7 +901,7 @@ async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str,
         raise HTTPException(status_code=500, detail=str(error))
 
 
-@knowledge_router.post("/parse/doc-blocks-graph-summary")
+@docs_router.post("/parse/doc-blocks-graph-summary")
 async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) -> Dict[str, Any]:
     """获取文档块图谱的轻量摘要，仅含树结构骨架。"""
     try:
@@ -989,11 +989,11 @@ def get_file_for_preview(path: str):
 # --- 阶段化解析端点 ---
 
 
-@knowledge_router.get("/documents/{doc_id}/stages")
+@docs_router.get("/documents/{doc_id}/stages")
 def get_document_stages(doc_id: str):
     from docs_core.parse_pipeline import _PIPELINE_ORDER
 
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     node = ks.get_node(doc_id)
     if not node:
         raise HTTPException(status_code=404, detail=f"文档不存在: {doc_id}")
@@ -1038,11 +1038,11 @@ def _stage_input_hint(stage_key: str, node) -> str:
     return ""
 
 
-@knowledge_router.post("/documents/{doc_id}/stages/{stage_key}/retry")
+@docs_router.post("/documents/{doc_id}/stages/{stage_key}/retry")
 def retry_document_stage(doc_id: str, stage_key: str):
     from docs_core.parse_pipeline import validate_stage_retry, resolve_stage_order
 
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     node = ks.get_node(doc_id)
     if not node:
         raise HTTPException(status_code=404, detail=f"文档不存在: {doc_id}")
@@ -1065,11 +1065,11 @@ def retry_document_stage(doc_id: str, stage_key: str):
     )
 
 
-@knowledge_router.post("/documents/{doc_id}/parse")
+@docs_router.post("/documents/{doc_id}/parse")
 def parse_document_stages(doc_id: str, stages: str = "all"):
     from docs_core.parse_pipeline import resolve_stage_order
 
-    ks = get_knowledge_service()
+    ks = get_docs_service()
     node = ks.get_node(doc_id)
     if not node:
         raise HTTPException(status_code=404, detail=f"文档不存在: {doc_id}")
@@ -1109,7 +1109,7 @@ __all__ = [
     "get_doc_blocks_graph_view",
     "get_doc_blocks_graph_summary",
     "get_file_for_preview",
-    "knowledge_router",
+    "docs_router",
     "parse_orchestrator",
     "preview_router",
 ]

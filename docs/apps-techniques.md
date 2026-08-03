@@ -26,7 +26,7 @@
 
 ### SCHEMA_VERSION (Docs 模块)
 
-`SCHEMA_VERSION` 定义在 `services/docs-core/src/docs_core/knowledge_service.py` 中，用于追踪 **文档解析产物（Parsing Artifacts）的结构版本**。
+`SCHEMA_VERSION` 定义在 `services/docs-core/src/docs_core/docs_service.py` 中，用于追踪 **文档解析产物（Parsing Artifacts）的结构版本**。
 
 - **作用范围**：
   - 影响 `KnowledgeNode` 和 `ParseTask` 数据库表。
@@ -391,7 +391,7 @@ flowchart TB
   - 已提供 `/api/knowledge/strategies/*`，但当前仅用于读取/写入单一策略配置。
   - 已提供 `/api/knowledge/structured/*`、`/api/knowledge/document/*`、结构块编辑与撤回接口。
   - `/api/knowledge/document/{library_id}/{doc_id}/revisions`、按策略查询与三策略构建分发仍未落地。
-- `services/api-server/knowledge_routes.py`
+- `services/api-server/docs_routes.py`
   - 统一承载知识库路由、文件预览路由与解析主链编排：任务创建、阶段推进、MinerU 调用、产物落盘、A 主链索引构建。
 - `services/docs-core/src/docs_core/projection/*.py`
   - 当前仓库中尚未形成 A/B/C 三类独立 projection 模块，仍以 `ingest/canonical`、`ingest/structure`、`write/store/assets_file_store.py` 为主链实现。
@@ -413,7 +413,7 @@ flowchart TB
 
 ### 3）数据表（按文件级）
 
-- `services/docs-core/src/docs_core/knowledge_service.py`
+- `services/docs-core/src/docs_core/docs_service.py`
   - 作为服务门面，内部拆分为 `KnowledgeMetaStore` 与 `KnowledgeIndexStore`。
   - 现有 `nodes` 表增加字段：
     - `parse_progress INTEGER`
@@ -876,7 +876,7 @@ const onDropRoot = async (dragNodeKey: string) => {
 
 ### 持久化与数据库
 
-- 知识树服务已使用 SQLite 持久化，见 [knowledge_service.py](file:///d:/AI/AnGIneer/services/docs-core/src/docs_core/knowledge_service.py)。
+- 知识树服务已使用 SQLite 持久化，见 [docs_service.py](file:///d:/AI/AnGIneer/services/docs-core/src/docs_core/docs_service.py)。
 - 默认数据库文件已拆分为：`data/knowledge_base/knowledge_meta.sqlite` 与 `data/knowledge_base/knowledge_index.sqlite`。
 - `nodes` 表含 `sort_order` 字段，支持同级顺序持久化与重排。
 - 建议使用“整体后端统一数据库”，不建议为 SmartTree 单独建独立数据库。
