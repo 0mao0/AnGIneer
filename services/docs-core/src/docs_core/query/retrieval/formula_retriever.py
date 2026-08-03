@@ -1,9 +1,9 @@
 """公式/计算问答专用检索器。"""
-from typing import List, Sequence
+from typing import List, Optional, Sequence
 
 from docs_core.ingest.canonical.types import CanonicalBlock, CanonicalDocument
-from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query.protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.protocols.contracts import KnowledgeNode, KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.protocols.data_port import QueryDataPort, default_query_data_port
 from docs_core.query.retrieval.dense_retriever import score_text
 from docs_core.query.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, extract_formula_identifiers, tokenize_query
 
@@ -272,18 +272,22 @@ def sort_formula_candidates(candidates: List[RetrievedItem]) -> List[RetrievedIt
 class FormulaRetriever:
     """执行公式/计算类问答的专用检索。"""
 
+    def __init__(self, port: Optional[QueryDataPort] = None) -> None:
+        self._port = port
+
     # 从 canonical document 中召回公式 block、上下文和计算依据。
     def retrieve(
         self,
         request: KnowledgeQueryRequest,
         doc_nodes: List[KnowledgeNode],
     ) -> List[RetrievedItem]:
+        port = self._port or default_query_data_port()
         query_tokens = tokenize_query(request.query)
         clause_refs = extract_clause_refs(request.query)
         query_formula_identifiers = extract_formula_identifiers(request.query)
         candidates: List[RetrievedItem] = []
         for node in doc_nodes:
-            document = knowledge_service.get_canonical_document(node.id)
+            document = port.get_canonical_document(node.id)
             if document is None:
                 continue
             ordered_blocks = sorted(document.blocks, key=lambda item: (item.page_idx, item.reading_order))

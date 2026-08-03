@@ -10,9 +10,7 @@ import docs_core.paths as paths
 from tree_core import tree_store
 
 from docs_core.ingest.structure.solo import StructuredResult
-
-
-STRUCTURED_DOC_GRAPH_STRATEGY = "doc_blocks_graph_v1"
+from docs_core.ingest.canonical.types import STRUCTURED_DOC_GRAPH_STRATEGY
 
 
 # 安全解析数据库中的时间字符串。

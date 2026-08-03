@@ -264,10 +264,10 @@ def write_canonical_products(
 ) -> Dict[str, Any]:
     """从 CanonicalDocument 统一落盘 content.md / graph jsonl+meta / segments / doc_blocks 行。"""
     import docs_core.paths as paths
-    from docs_core.write.store.assets_file_store import _new_or_reuse_build_id
+    from docs_core.write.store.assets_file_store import new_or_reuse_build_id
     from docs_core.knowledge_service import knowledge_service
 
-    resolved_build_id = build_id or _new_or_reuse_build_id(library_id, doc_id)
+    resolved_build_id = build_id or new_or_reuse_build_id(library_id, doc_id)
 
     # content.md + 行号映射（同一 build_id，孪生配对）
     md_text, block_line_ranges = render_content_md(document.blocks, resolved_build_id)

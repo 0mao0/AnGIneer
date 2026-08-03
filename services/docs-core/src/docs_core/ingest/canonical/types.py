@@ -4,6 +4,17 @@ from typing import List, Literal, Optional
 from pydantic import BaseModel, Field
 
 
+# 表格四分类：canonical 数据模型自带字段取值，ingest 阶段产出、query 阶段消费。
+TABLE_TYPE_NUMERIC_DENSE = "numeric_dense"
+TABLE_TYPE_TEXT_DENSE = "text_dense"
+TABLE_TYPE_HYBRID = "hybrid"
+TABLE_TYPE_MAPPING_ENUM = "mapping_enum"
+
+# 结构化知识库存储契约常量（KnowledgeNode/索引行共用）。
+STRUCTURED_DOC_GRAPH_STRATEGY = "doc_blocks_graph_v1"
+SCHEMA_VERSION = "1.0.0"
+
+
 BlockType = Literal[
     "title",
     "paragraph",

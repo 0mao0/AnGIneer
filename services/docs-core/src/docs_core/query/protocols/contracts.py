@@ -1,7 +1,17 @@
 """知识查询协议模型。"""
+from datetime import datetime
 from typing import Any, Dict, List, Literal, Optional
 
 from pydantic import BaseModel, Field
+
+from docs_core.ingest.canonical.types import (
+    SCHEMA_VERSION,
+    STRUCTURED_DOC_GRAPH_STRATEGY,
+    TABLE_TYPE_HYBRID,
+    TABLE_TYPE_MAPPING_ENUM,
+    TABLE_TYPE_NUMERIC_DENSE,
+    TABLE_TYPE_TEXT_DENSE,
+)
 
 
 TaskType = Literal[
@@ -14,11 +24,28 @@ TaskType = Literal[
     "mixed",
 ]
 
-# 表格四分类常量（契约加固②）：query 层只依赖契约定义，不再 import read/ingest 生产模块。
-TABLE_TYPE_NUMERIC_DENSE = "numeric_dense"
-TABLE_TYPE_TEXT_DENSE = "text_dense"
-TABLE_TYPE_HYBRID = "hybrid"
-TABLE_TYPE_MAPPING_ENUM = "mapping_enum"
+
+class KnowledgeNode(BaseModel):
+    """知识库节点（query/ingest/write 共享的树模型契约）。"""
+
+    id: str
+    title: str
+    type: str
+    parent_id: Optional[str] = None
+    visible: bool = False
+    library_id: str
+    file_path: Optional[str] = None
+    status: str = "pending"
+    parse_progress: int = 0
+    parse_stage: Optional[str] = None
+    parse_error: Optional[str] = None
+    parse_task_id: Optional[str] = None
+    strategy: str = STRUCTURED_DOC_GRAPH_STRATEGY
+    schema_version: str = SCHEMA_VERSION
+    sort_order: int = 0
+    deleted: bool = False
+    created_at: datetime = datetime.now()
+    updated_at: datetime = datetime.now()
 
 
 class KnowledgeQueryFilter(BaseModel):

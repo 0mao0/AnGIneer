@@ -1,10 +1,10 @@
 """基于向量索引的 dense 检索器。"""
 import re
-from typing import Iterable, List
+from typing import Any, Iterable, List, Optional
 
 from docs_core.write.indexing import VectorSearchHit, default_embedding_provider
-from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query.protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.protocols.contracts import KnowledgeNode, KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.protocols.data_port import QueryDataPort, default_query_data_port
 from docs_core.query.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, normalize_match_text, tokenize_query
 
 
@@ -95,8 +95,13 @@ def build_retrieved_item(hit: VectorSearchHit, fallback_title: str, score: float
 class DenseRetriever:
     """从向量索引中召回语义相关候选。"""
 
-    def __init__(self) -> None:
-        self._embedding_provider = default_embedding_provider
+    def __init__(
+        self,
+        embedding_provider: Any = None,
+        port: Optional[QueryDataPort] = None,
+    ) -> None:
+        self._embedding_provider = embedding_provider or default_embedding_provider
+        self._port = port
 
     # 执行向量化 dense 检索并输出统一候选。
     def retrieve(
@@ -105,13 +110,14 @@ class DenseRetriever:
         doc_nodes: List[KnowledgeNode],
         task_type: str,
     ) -> List[RetrievedItem]:
+        port = self._port or default_query_data_port()
         if not doc_nodes:
             return []
         query_tokens = tokenize_query(request.query)
         clause_refs = extract_clause_refs(request.query)
         query_embedding = self._embedding_provider.embed_text(request.query)
         doc_title_map = {node.id: node.title for node in doc_nodes}
-        vector_hits = knowledge_service.search_document_vectors(
+        vector_hits = port.search_document_vectors(
             query_embedding,
             doc_ids=[node.id for node in doc_nodes],
             entity_types=["chunk", "table_schema", "table_row_key", "formula"],

@@ -1,9 +1,9 @@
 """基于 canonical SQLite 的第一版 sparse 检索器。"""
 import re
-from typing import List
+from typing import List, Optional
 
-from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query.protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.protocols.contracts import KnowledgeNode, KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.protocols.data_port import QueryDataPort, default_query_data_port
 from docs_core.query.retrieval.query_normalizer import (
     contains_clause_ref,
     extract_clause_refs,
@@ -39,22 +39,26 @@ def score_sparse_match(query: str, text: str, title: str = "", task_type: str = 
 class SparseRetriever:
     """从 canonical chunks 和 blocks 中召回偏精确候选。"""
 
+    def __init__(self, port: Optional[QueryDataPort] = None) -> None:
+        self._port = port
+
     def retrieve(
         self,
         request: KnowledgeQueryRequest,
         doc_nodes: List[KnowledgeNode],
         task_type: str,
     ) -> List[RetrievedItem]:
+        port = self._port or default_query_data_port()
         candidates: List[RetrievedItem] = []
         clause_refs = extract_clause_refs(request.query)
         signals = extract_query_signals(request.query)
         for node in doc_nodes:
             page_label_map = {
                 page.page_idx: page.printed_page_label
-                for page in knowledge_service.canonical_store.list_pages(node.id)
+                for page in port.list_canonical_pages(node.id)
                 if page.printed_page_label
             }
-            target_hits = knowledge_service.canonical_store.search_citation_targets(
+            target_hits = port.search_citation_targets(
                 doc_id=node.id,
                 query=request.query,
                 limit=max(20, request.top_k * 4),
@@ -98,7 +102,7 @@ class SparseRetriever:
 
             chunk_keyword = clause_refs[0] if clause_refs else next((token for token in tokenize_query(request.query) if len(token) >= 2), None)
             if chunk_keyword:
-                fts_hits = knowledge_service.canonical_store.search_chunk_fts(
+                fts_hits = port.search_chunk_fts(
                     doc_id=node.id,
                     query=request.query,
                     limit=max(40, request.top_k * 10),
@@ -106,11 +110,11 @@ class SparseRetriever:
                 chunk_ids = [str(item.get("chunk_id") or "") for item in fts_hits if str(item.get("chunk_id") or "")]
                 chunks = [
                     chunk
-                    for chunk in knowledge_service.list_canonical_chunks(doc_id=node.id, limit=max(40, request.top_k * 10))
+                    for chunk in port.list_canonical_chunks(doc_id=node.id, limit=max(40, request.top_k * 10))
                     if chunk.chunk_id in set(chunk_ids)
                 ]
             else:
-                chunks = knowledge_service.list_canonical_chunks(
+                chunks = port.list_canonical_chunks(
                     doc_id=node.id,
                     keyword=chunk_keyword,
                     limit=max(40, request.top_k * 10),
@@ -158,7 +162,7 @@ class SparseRetriever:
                     )
                 )
 
-            blocks = knowledge_service.list_canonical_blocks(
+            blocks = port.list_canonical_blocks(
                 doc_id=node.id,
                 keyword=chunk_keyword,
                 limit=max(20, request.top_k * 6),

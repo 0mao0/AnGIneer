@@ -6,10 +6,10 @@
 - 匹配阶段走 canonical_blocks.clause_id 的双向层级精确查询，不再依赖模糊打分。
 """
 import re
-from typing import List
+from typing import List, Optional
 
-from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query.protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.protocols.contracts import KnowledgeNode, KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.protocols.data_port import QueryDataPort, default_query_data_port
 from docs_core.query.retrieval.query_normalizer import normalize_clause_ref_text
 
 # 直达候选的基础分，确保精确命中排在稀疏召回（条款加成最高 +8）之前
@@ -60,18 +60,22 @@ def extract_clause_refs_strict(query: str) -> List[str]:
 class ClauseResolver:
     """从 canonical blocks 中按 clause_id 精确召回条款候选。"""
 
+    def __init__(self, port: Optional[QueryDataPort] = None) -> None:
+        self._port = port
+
     def retrieve(
         self,
         request: KnowledgeQueryRequest,
         doc_nodes: List[KnowledgeNode],
         task_type: str,
     ) -> List[RetrievedItem]:
+        port = self._port or default_query_data_port()
         clause_refs = extract_clause_refs_strict(request.query)
         if not clause_refs:
             return []
         candidates: List[RetrievedItem] = []
         for node in doc_nodes:
-            blocks = knowledge_service.canonical_store.list_blocks_by_clause_refs(
+            blocks = port.list_blocks_by_clause_refs(
                 doc_id=node.id,
                 clause_refs=clause_refs,
                 limit=max(6, request.top_k * 2),

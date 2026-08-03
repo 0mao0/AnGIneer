@@ -44,19 +44,6 @@ class FileStorage:
             f.write(content)
         return str(source_path)
 
-    def save_markdown(self, library_id: str, doc_id: str, content: str) -> str:
-        """保存 Markdown 文件"""
-        parsed_md_path = paths.get_parsed_markdown_path(library_id, doc_id, self.base_dir)
-        parsed_md_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(parsed_md_path, "w", encoding="utf-8") as f:
-            f.write(content)
-        edited_md_path = paths.get_edited_markdown_path(library_id, doc_id, self.base_dir)
-        edited_md_path.parent.mkdir(parents=True, exist_ok=True)
-        if not edited_md_path.exists():
-            with open(edited_md_path, "w", encoding="utf-8") as f:
-                f.write(content)
-        return str(parsed_md_path)
-
     def save_edited_markdown(self, library_id: str, doc_id: str, content: str) -> str:
         """保存编辑后的 Markdown 文件"""
         edited_dir = paths.get_edited_dir(library_id, doc_id, self.base_dir)
@@ -70,73 +57,6 @@ class FileStorage:
         with open(revision_path, "w", encoding="utf-8") as f:
             f.write(content)
         return str(current_path)
-
-    def save_parse_artifacts(self, library_id: str, doc_id: str, output_dir: str) -> Dict[str, Any]:
-        """保存解析产物到文档目录"""
-        parsed_dir = paths.get_parsed_dir(library_id, doc_id, self.base_dir)
-        parsed_dir.parent.mkdir(parents=True, exist_ok=True)
-        staging_dir = parsed_dir.parent / f"{parsed_dir.name}.staging-{uuid.uuid4().hex[:8]}"
-        if staging_dir.exists():
-            shutil.rmtree(staging_dir, ignore_errors=True)
-        shutil.copytree(output_dir, staging_dir)
-
-        mineru_raw_dir = staging_dir / "mineru_raw"
-        mineru_raw_dir.mkdir(parents=True, exist_ok=True)
-
-        pdf_files = list(staging_dir.rglob("*.pdf"))
-        if pdf_files:
-            try:
-                pdf_files[0].rename(staging_dir / "mineru_render.pdf")
-            except Exception:
-                pass
-            for pdf_file in pdf_files[1:]:
-                try:
-                    pdf_file.unlink()
-                except Exception:
-                    pass
-
-        artifact_map = {
-            "origin.zip": "origin.zip",
-            "*model.json": "model.json",
-            "layout.json": "layout.json",
-            "*content_list_v2.json": "content_list_v2.json",
-            "content_list.json": "content_list.json",
-            "*_content_list.json": "content_list.json",
-            "middle.json": "middle.json",
-        }
-
-        final_files = {}
-        for pattern, target_name in artifact_map.items():
-            found_files = list(staging_dir.rglob(pattern))
-            for artifact_file in found_files:
-                if target_name == "content_list.json" and artifact_file.name == "content_list_v2.json":
-                    continue
-                target = mineru_raw_dir / target_name
-                try:
-                    if artifact_file.resolve() != target.resolve():
-                        if target.exists():
-                            target.unlink()
-                        shutil.move(str(artifact_file), str(target))
-                    final_files[target_name] = str(target)
-                except Exception:
-                    pass
-
-        assets_path = staging_dir / "assets"
-        images_path = staging_dir / "images"
-        if assets_path.exists() and images_path.exists():
-            try:
-                shutil.rmtree(assets_path)
-            except Exception:
-                pass
-
-        backup_dir = parsed_dir.parent / f"{parsed_dir.name}.backup-{uuid.uuid4().hex[:8]}"
-        if parsed_dir.exists():
-            parsed_dir.replace(backup_dir)
-        staging_dir.replace(parsed_dir)
-        if backup_dir.exists():
-            shutil.rmtree(backup_dir, ignore_errors=True)
-
-        return final_files
 
     def save_assets(self, library_id: str, doc_id: str, source_dir: str) -> str:
         """保存解析产物中的资产文件目录"""
@@ -275,20 +195,6 @@ class FileStorage:
                 return str(files[0])
         return None
 
-    def ensure_doc_source_file(self, library_id: str, doc_id: str, file_path: Optional[str] = None) -> Optional[str]:
-        """确保文档源文件存在于一文档一目录并返回规范路径"""
-        doc_source_dir = paths.get_source_dir(library_id, doc_id, self.base_dir)
-        doc_source_dir.mkdir(parents=True, exist_ok=True)
-        current_files = sorted([path for path in doc_source_dir.iterdir() if path.is_file()])
-        if current_files:
-            return str(current_files[0])
-        source_candidate = Path(file_path) if file_path else None
-        if source_candidate and source_candidate.exists() and source_candidate.is_file():
-            target_path = doc_source_dir / source_candidate.name
-            shutil.copy2(source_candidate, target_path)
-            return str(target_path)
-        return None
-
     def resolve_pdf_input(self, library_id: str, doc_id: str) -> str:
         """只读：返回 source 目录下最新 PDF（convert 产物或上传即 PDF）。
 
@@ -404,7 +310,7 @@ def _save_doc_blocks_graph(
     doc_id: str,
     result: StructuredResult,
 ) -> str:
-    build_id = _new_or_reuse_build_id(library_id, doc_id)
+    build_id = new_or_reuse_build_id(library_id, doc_id)
     jsonl_path = paths.get_graph_jsonl_path(library_id, doc_id)
     jsonl_path.parent.mkdir(parents=True, exist_ok=True)
     with open(jsonl_path, "w", encoding="utf-8") as f:
@@ -467,7 +373,7 @@ def _stamp_markdown_build_id(path: Path, build_id: str) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def _new_or_reuse_build_id(library_id: str, doc_id: str) -> str:
+def new_or_reuse_build_id(library_id: str, doc_id: str) -> str:
     """优先复用已有 build_id（用户编辑图谱不改配对），否则生成新戳并盖章 md。"""
     existing = None
     meta_path = paths.get_graph_meta_path(library_id, doc_id)
@@ -908,18 +814,23 @@ def build_structured_index_for_doc(
     )
     from docs_core.ingest.canonical.builder import rebuild_canonical_document_from_blocks
     from docs_core.ingest.structure.solo import structured_result_to_canonical_blocks
+    from docs_core.knowledge_service import knowledge_service
 
-    # 阶段四（G3）：solo rows → CanonicalBlock 适配器，builder 直接消费后端块
+    # 阶段四（G3）：solo rows → CanonicalBlock 适配器，builder 纯构建，落库由本层负责
     canonical_blocks = structured_result_to_canonical_blocks(doc_id, result)
     canonical_document = rebuild_canonical_document_from_blocks(
         library_id,
         doc_id,
         title=doc_name,
         blocks=canonical_blocks,
+        markdown=file_storage.read_markdown(library_id, doc_id) or "",
+        manifest=file_storage.get_doc_manifest(library_id, doc_id),
         use_llm=use_llm,
         llm_client=llm_client,
         llm_model=llm_model,
     )
+    knowledge_service.save_canonical_document(canonical_document)
+    file_storage.save_middle_json(library_id, doc_id, canonical_document.model_dump(mode="json"))
 
     stats = {
         "nodes_count": len(result.nodes),
@@ -993,18 +904,36 @@ def _write_doc_blocks_graph(library_id: str, doc_id: str, payload: Dict[str, Any
         "edges": payload.get("edges", []),
         "stats": payload.get("stats", {}),
         "generated_at": payload.get("generated_at", datetime.now().isoformat()),
-        "build_id": _new_or_reuse_build_id(library_id, doc_id),
+        "build_id": new_or_reuse_build_id(library_id, doc_id),
     }
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
     return str(meta_path)
 
 
-# 基于最新审核图谱重canonical，确保检索读模型与编辑结果一致
-def _rebuild_canonical_after_graph_change(library_id: str, doc_id: str) -> Dict[str, int]:
-    from docs_core.ingest.canonical.builder import rebuild_canonical_document
+# 基于最新审核图谱重canonical，确保检索读模型与编辑结果一致（builder 纯构建，落库由本层负责）
+def _rebuild_canonical_after_graph_change(
+    library_id: str,
+    doc_id: str,
+    graph_data: Optional[Dict[str, Any]] = None,
+) -> Dict[str, int]:
+    from docs_core.ingest.canonical.builder import CanonicalSourceInput, rebuild_canonical_document
+    from docs_core.knowledge_service import knowledge_service
 
-    canonical_document = rebuild_canonical_document(library_id, doc_id)
+    graph_payload = (
+        graph_data
+        if graph_data is not None
+        else (file_storage.read_doc_blocks_graph(library_id, doc_id) or {})
+    )
+    source = CanonicalSourceInput(
+        graph_data=graph_payload,
+        raw_blocks=file_storage.read_mineru_blocks(library_id, doc_id) or [],
+        markdown=file_storage.read_markdown(library_id, doc_id) or "",
+        manifest=file_storage.get_doc_manifest(library_id, doc_id),
+    )
+    canonical_document = rebuild_canonical_document(library_id, doc_id, source=source)
+    knowledge_service.save_canonical_document(canonical_document)
+    file_storage.save_middle_json(library_id, doc_id, canonical_document.model_dump(mode="json"))
     return {
         "canonical_blocks": len(canonical_document.blocks),
         "canonical_chunks": len(canonical_document.chunks),
@@ -2134,7 +2063,7 @@ def batch_operate_doc_blocks(
         correction_payload["undo_graph_snapshot"] = graph_snapshot_before
     knowledge_service.index_store.record_doc_block_correction(doc_id, record_block_uid, operation, correction_payload)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
-    canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id)
+    canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
     knowledge_service.update_node(doc_id, updated_at=datetime.now())
     result_payload["graph_path"] = graph_path
     result_payload["saved_segments"] = saved_segments
@@ -2162,7 +2091,7 @@ def undo_last_doc_block_operation(library_id: str, doc_id: str) -> Dict[str, Any
     graph_path = _write_doc_blocks_graph(library_id, doc_id, graph_data)
     _persist_graph_projection_to_index_store(doc_id, graph_data)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
-    canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id)
+    canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
     knowledge_service.index_store.delete_doc_block_correction(str(correction_record.get("id") or ""))
     knowledge_service.update_node(doc_id, updated_at=datetime.now())
     return {
@@ -2266,7 +2195,7 @@ def update_doc_block_content(
         correction_payload["undo_graph_snapshot"] = graph_snapshot_before
     knowledge_service.index_store.record_doc_block_correction(doc_id, target_block_uid, operation_type, correction_payload)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
-    canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id)
+    canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
     knowledge_service.update_node(doc_id, updated_at=datetime.now())
 
     return {

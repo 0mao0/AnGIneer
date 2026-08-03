@@ -1,4 +1,5 @@
 """Docs canonical schema 构建器"""
+from dataclasses import dataclass
 from datetime import UTC, datetime
 import re
 from typing import Any, List, Optional, Tuple
@@ -13,11 +14,20 @@ from docs_core.ingest.canonical.types import (
     CanonicalTable,
     CitationTarget,
 )
-from docs_core.write.store.assets_file_store import file_storage
 from docs_core.ingest.semantics.formula_semantics import enrich_canonical_block
 from docs_core.ingest.semantics.table_semantics import enrich_canonical_table
 from docs_core.ingest.structure.popo_table_extract import parse_table_html
 from docs_core.ingest.structure.title_level_refiner import resolve_title_level_refinement
+
+
+@dataclass
+class CanonicalSourceInput:
+    """canonical 构建所需的落盘输入（由调用方读取提供，builder 不碰文件系统）。"""
+
+    graph_data: Optional[dict] = None
+    raw_blocks: Optional[List[dict]] = None
+    markdown: str = ""
+    manifest: Optional[dict] = None
 
 
 # 基于 blocks 的 page_idx 推导页面列表（solo 路径；popo 路径由 mapper 提供 pages）
@@ -94,7 +104,7 @@ def infer_title_level(text: str, raw_level: object = None) -> int:
         return 2
     if re.match(r"^\d+[\.\s、]", normalized):
         return 1
-    if re.match(r"^[一二三四五六七八九十]+[]", normalized):
+    if re.match(r"^[一二三四五六七八九十]+", normalized):
         return 1
     return 1
 
@@ -202,21 +212,21 @@ def adapt_graph_nodes(graph_nodes: List[dict[str, Any]]) -> List[dict[str, Any]]
 
 
 # 统一加载 canonical 构建所需的最终审核块，优graph nodes，其mineru_blocks
-def load_source_blocks(library_id: str, doc_id: str) -> List[dict[str, Any]]:
-    graph_payload = file_storage.read_doc_blocks_graph(library_id, doc_id)
+def load_source_blocks(source: CanonicalSourceInput) -> List[dict[str, Any]]:
+    graph_payload = source.graph_data or {}
     graph_nodes = graph_payload.get("nodes", []) if isinstance(graph_payload, dict) else []
     if graph_nodes:
         return adapt_graph_nodes(graph_nodes)
 
-    raw_blocks = file_storage.read_mineru_blocks(library_id, doc_id)
+    raw_blocks = source.raw_blocks or []
     if raw_blocks:
         return raw_blocks
     return []
 
 
 # MinerU blocks 构建 canonical blocks
-def build_canonical_blocks(library_id: str, doc_id: str) -> List[CanonicalBlock]:
-    raw_blocks = load_source_blocks(library_id, doc_id)
+def build_canonical_blocks(doc_id: str, source: CanonicalSourceInput) -> List[CanonicalBlock]:
+    raw_blocks = load_source_blocks(source)
     return build_canonical_blocks_from_source(doc_id, raw_blocks)
 
 
@@ -475,11 +485,11 @@ def _is_list_procedure_group(blocks: List[CanonicalBlock]) -> bool:
 
 # 从原始表格块构建 canonical tables table chunks
 def build_canonical_tables(
-    library_id: str,
     doc_id: str,
     blocks: List[CanonicalBlock],
+    source: CanonicalSourceInput,
 ) -> Tuple[List[CanonicalTable], List[CanonicalChunk]]:
-    raw_blocks = load_source_blocks(library_id, doc_id)
+    raw_blocks = load_source_blocks(source)
     return build_canonical_tables_from_source(doc_id, raw_blocks, blocks)
 
 
@@ -817,11 +827,14 @@ def build_canonical_document_from_blocks(
     blocks: Optional[List[CanonicalBlock]] = None,
     pages: Optional[List[CanonicalPage]] = None,
     *,
+    markdown: str = "",
+    manifest: Optional[dict] = None,
     use_llm: bool = False,
     llm_client: Any = None,
     llm_model: Optional[str] = None,
 ) -> CanonicalDocument:
-    markdown = file_storage.read_markdown(library_id, doc_id) or ""
+    markdown = markdown or ""
+    manifest = manifest or {}
     local_blocks = list(blocks) if blocks else []
     local_blocks = refine_document_title_levels(
         local_blocks,
@@ -837,7 +850,6 @@ def build_canonical_document_from_blocks(
     inferred_title = title or next(
         (block.text for block in local_blocks if block.block_type == "title" and block.text), doc_id
     )
-    manifest = file_storage.get_doc_manifest(library_id, doc_id)
     source_file_name = ""
     if manifest.get("source_file"):
         source_file_name = str(manifest.get("source_file") or "").split("\\")[-1].split("/")[-1]
@@ -866,22 +878,26 @@ def build_canonical_document_from_blocks(
     return enrich_document_semantics(document)
 
 
-# 基于现有落盘结果构建最canonical document（load_source_blocks 仅保留为旧数据兼容回退）
+# 基于给定落盘输入构建 canonical document（source 缺省时按空输入构建）
 def build_canonical_document(
     library_id: str,
     doc_id: str,
     title: str = "",
     *,
+    source: Optional[CanonicalSourceInput] = None,
     use_llm: bool = False,
     llm_client: Any = None,
     llm_model: Optional[str] = None,
 ) -> CanonicalDocument:
-    blocks = build_canonical_blocks(library_id, doc_id)
+    src = source or CanonicalSourceInput()
+    blocks = build_canonical_blocks(doc_id, src)
     return build_canonical_document_from_blocks(
         library_id,
         doc_id,
         title=title,
         blocks=blocks,
+        markdown=src.markdown or "",
+        manifest=src.manifest or {},
         use_llm=use_llm,
         llm_client=llm_client,
         llm_model=llm_model,
@@ -935,64 +951,52 @@ def rebuild_canonical_document_from_graph(
     return enrich_document_semantics(document)
 
 
-# 基于最终审核结果重canonical 文档并持久化SQLite
+# 基于最终审核结果重建 canonical document（纯构建，落库由调用方负责）
 def rebuild_canonical_document(
     library_id: str,
     doc_id: str,
     title: str = "",
     *,
+    source: Optional[CanonicalSourceInput] = None,
     use_llm: bool = False,
     llm_client: Any = None,
     llm_model: Optional[str] = None,
 ) -> CanonicalDocument:
-    from docs_core.knowledge_service import knowledge_service
-
-    document = build_canonical_document(
+    return build_canonical_document(
         library_id,
         doc_id,
         title=title,
+        source=source,
         use_llm=use_llm,
         llm_client=llm_client,
         llm_model=llm_model,
     )
-    knowledge_service.save_canonical_document(document)
-    file_storage.save_middle_json(
-        library_id,
-        doc_id,
-        document.model_dump(mode="json"),
-    )
-    return document
 
 
-# 阶段四：从后端产出的 CanonicalBlock 重建并持久化 canonical 文档（solo 适配器路径）。
+# 阶段四：从后端产出的 CanonicalBlock 重建 canonical 文档（solo 适配器路径，纯构建）。
 def rebuild_canonical_document_from_blocks(
     library_id: str,
     doc_id: str,
     title: str = "",
     blocks: Optional[List[CanonicalBlock]] = None,
     *,
+    markdown: str = "",
+    manifest: Optional[dict] = None,
     use_llm: bool = False,
     llm_client: Any = None,
     llm_model: Optional[str] = None,
 ) -> CanonicalDocument:
-    from docs_core.knowledge_service import knowledge_service
-
-    document = build_canonical_document_from_blocks(
+    return build_canonical_document_from_blocks(
         library_id,
         doc_id,
         title=title,
         blocks=blocks,
+        markdown=markdown,
+        manifest=manifest,
         use_llm=use_llm,
         llm_client=llm_client,
         llm_model=llm_model,
     )
-    knowledge_service.save_canonical_document(document)
-    file_storage.save_middle_json(
-        library_id,
-        doc_id,
-        document.model_dump(mode="json"),
-    )
-    return document
 
 
 def build_canonical_document_from_popoblocks(
@@ -1003,10 +1007,12 @@ def build_canonical_document_from_popoblocks(
     outlines: Optional[List[CanonicalOutlineNode]] = None,
     pages: Optional[List[CanonicalPage]] = None,
     *,
+    manifest: Optional[dict] = None,
     use_llm: bool = False,
     llm_client: Any = None,
     llm_model: Optional[str] = None,
 ) -> CanonicalDocument:
+    manifest = manifest or {}
     local_blocks = list(blocks) if blocks else []
     local_blocks = refine_document_title_levels(
         local_blocks,
@@ -1025,7 +1031,6 @@ def build_canonical_document_from_popoblocks(
         (block.text for block in local_blocks if block.block_type == "title" and block.text), doc_id
     )
     page_count = max((block.page_idx for block in local_blocks), default=-1) + 1 if local_blocks else 0
-    manifest = file_storage.get_doc_manifest(library_id, doc_id)
     source_file_name = ""
     if manifest.get("source_file"):
         source_file_name = str(manifest.get("source_file") or "").split("\\")[-1].split("/")[-1]

@@ -50,11 +50,11 @@ def _kill_stale_soffice() -> None:
 def prepare_source(library_id: str, doc_id: str, file_path: str) -> str:
     """确保源文件位于规范 source 目录，返回规范路径（docx 或 pdf）。
 
-    供解析管线 source_prep/convert 阶段调用；文件复制等物理操作委托 file_storage。
+    供解析管线 source_prep/convert 阶段调用；文件复制等物理操作由 read.outputs 负责。
     """
-    from docs_core.write.store.assets_file_store import file_storage
+    from docs_core.read.outputs import ensure_doc_source_file
 
-    source_path = file_storage.ensure_doc_source_file(library_id, doc_id, file_path=file_path)
+    source_path = ensure_doc_source_file(library_id, doc_id, file_path=file_path)
     if not source_path:
         raise RuntimeError("源文件不存在或无法复制到规范目录")
     return source_path

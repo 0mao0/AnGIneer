@@ -6,7 +6,7 @@
 """
 from typing import Any, Dict, List, TYPE_CHECKING
 
-from docs_core.query.protocols.contracts import (
+from docs_core.ingest.canonical.types import (
     TABLE_TYPE_HYBRID,
     TABLE_TYPE_MAPPING_ENUM,
     TABLE_TYPE_NUMERIC_DENSE,

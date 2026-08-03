@@ -1,16 +1,16 @@
 """表格感知检索器。"""
 import re
-from typing import Iterable, List, Sequence
+from typing import Iterable, List, Optional, Sequence
 
-from docs_core.ingest.canonical.types import CanonicalTable
-from docs_core.query.protocols.contracts import (
+from docs_core.ingest.canonical.types import (
+    CanonicalTable,
     TABLE_TYPE_HYBRID,
     TABLE_TYPE_MAPPING_ENUM,
     TABLE_TYPE_NUMERIC_DENSE,
     TABLE_TYPE_TEXT_DENSE,
 )
-from docs_core.knowledge_service import KnowledgeNode, knowledge_service
-from docs_core.query.protocols.contracts import KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.protocols.contracts import KnowledgeNode, KnowledgeQueryRequest, RetrievedItem
+from docs_core.query.protocols.data_port import QueryDataPort, default_query_data_port
 from docs_core.query.retrieval.dense_retriever import score_text
 from docs_core.query.retrieval.query_normalizer import extract_clause_refs, tokenize_query
 from docs_core.query.retrieval.sparse_retriever import score_sparse_match
@@ -276,17 +276,21 @@ def sort_table_candidates(candidates: List[RetrievedItem]) -> List[RetrievedItem
 class TableRetriever:
     """按表格类型执行分流召回。"""
 
+    def __init__(self, port: Optional[QueryDataPort] = None) -> None:
+        self._port = port
+
     # 从 canonical tables 中做 table-aware retrieval。
     def retrieve(
         self,
         request: KnowledgeQueryRequest,
         doc_nodes: List[KnowledgeNode],
     ) -> List[RetrievedItem]:
+        port = self._port or default_query_data_port()
         query_tokens = tokenize_query(request.query)
         reference_hints = extract_reference_hints(request.query)
         candidates: List[RetrievedItem] = []
         for node in doc_nodes:
-            tables = knowledge_service.list_canonical_tables(
+            tables = port.list_canonical_tables(
                 doc_id=node.id,
                 keyword=None,
                 limit=max(30, request.top_k * 8),

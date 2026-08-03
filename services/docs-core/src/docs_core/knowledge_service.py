@@ -13,14 +13,17 @@ from docs_core.ingest.canonical.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
+    CanonicalPage,
     CanonicalTable,
     CitationTarget,
+    SCHEMA_VERSION,
+    STRUCTURED_DOC_GRAPH_STRATEGY,
 )
+from docs_core.query.protocols.contracts import KnowledgeNode
 from docs_core.write.store.canonical_sql_store import CanonicalSQLiteStore
 from docs_core.write.store.blocks_sql_store import (
     KnowledgeIndexStore,
     KnowledgeMetaStore,
-    STRUCTURED_DOC_GRAPH_STRATEGY,
     parse_datetime,
 )
 from docs_core.paths import (
@@ -35,8 +38,6 @@ from docs_core.write.indexing import (
     get_vectorstore_provider_name,
 )
 
-
-SCHEMA_VERSION = "1.0.0"
 logger = logging.getLogger(__name__)
 
 
@@ -142,29 +143,6 @@ def _score_reference_candidate(
     if current_doc_boost:
         score += 2.0
     return score
-
-
-class KnowledgeNode(BaseModel):
-    """知识库节点。"""
-
-    id: str
-    title: str
-    type: str
-    parent_id: Optional[str] = None
-    visible: bool = False
-    library_id: str
-    file_path: Optional[str] = None
-    status: str = "pending"
-    parse_progress: int = 0
-    parse_stage: Optional[str] = None
-    parse_error: Optional[str] = None
-    parse_task_id: Optional[str] = None
-    strategy: str = STRUCTURED_DOC_GRAPH_STRATEGY
-    schema_version: str = SCHEMA_VERSION
-    sort_order: int = 0
-    deleted: bool = False
-    created_at: datetime = datetime.now()
-    updated_at: datetime = datetime.now()
 
 
 class KnowledgeLibrary(BaseModel):
@@ -772,6 +750,23 @@ class KnowledgeService:
             keyword=keyword,
             limit=limit,
         )
+
+    # ---- query 层数据端口直通（QueryDataPort）----
+    def list_canonical_pages(self, doc_id: str) -> List[CanonicalPage]:
+        """列出 canonical pages。"""
+        return self.canonical_store.list_pages(doc_id)
+
+    def search_citation_targets(self, doc_id: str, query: str, limit: int = 20) -> List[Dict[str, object]]:
+        """按文本检索引用目标。"""
+        return self.canonical_store.search_citation_targets(doc_id, query, limit)
+
+    def search_chunk_fts(self, doc_id: str, query: str, limit: int = 20) -> List[Dict[str, object]]:
+        """按 FTS 检索 chunk。"""
+        return self.canonical_store.search_chunk_fts(doc_id, query, limit)
+
+    def list_blocks_by_clause_refs(self, doc_id: str, clause_refs: List[str], limit: int = 12) -> List[Dict[str, object]]:
+        """按条款引用精确召回块。"""
+        return self.canonical_store.list_blocks_by_clause_refs(doc_id, clause_refs, limit)
 
     # 按 block_uid 列表批量查询富媒体字段。
     def get_blocks_rich_media(self, doc_id: str, block_uids: List[str]) -> Dict[str, Dict[str, Any]]:

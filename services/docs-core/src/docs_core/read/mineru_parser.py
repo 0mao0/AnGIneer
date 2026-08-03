@@ -841,13 +841,13 @@ class MinerUParser:
     def _persist_to_doc(self, library_id: str, doc_id: str, output_dir: str) -> Dict[str, Any]:
         """解析产物落盘到文档目录：content.md + mineru_raw/images 等归位，返回产物清单。"""
         import docs_core.paths as paths
-        from docs_core.write.store.assets_file_store import file_storage
+        from docs_core.read.outputs import save_markdown, save_parse_artifacts
 
         markdown_path = os.path.join(output_dir, "content.md")
         if os.path.isfile(markdown_path):
             with open(markdown_path, "r", encoding="utf-8") as handle:
-                file_storage.save_markdown(library_id, doc_id, handle.read())
-        file_storage.save_parse_artifacts(library_id, doc_id, output_dir)
+                save_markdown(library_id, doc_id, handle.read())
+        save_parse_artifacts(library_id, doc_id, output_dir)
 
         parsed_dir = paths.get_parsed_dir(library_id, doc_id)
         output_parts = []

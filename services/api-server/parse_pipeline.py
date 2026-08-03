@@ -289,10 +289,12 @@ def _run_structure_from_popo(
     blocks, outlines, _id_map, pages = po_po_blocks_to_canonical(
         ctx.doc_id, enriched_blocks, document_tree
     )
-    doc_title = file_storage.get_doc_manifest(ctx.library_id, ctx.doc_id).get("title", ctx.doc_id)
+    manifest = file_storage.get_doc_manifest(ctx.library_id, ctx.doc_id)
+    doc_title = manifest.get("title", ctx.doc_id)
     canonical_doc = build_canonical_document_from_popoblocks(
         library_id=ctx.library_id, doc_id=ctx.doc_id, title=doc_title,
         blocks=blocks, outlines=outlines, pages=pages,
+        manifest=manifest,
         use_llm=use_llm, llm_client=llm_client, llm_model=llm_model,
     )
     ks.save_canonical_document_bare(canonical_doc)
