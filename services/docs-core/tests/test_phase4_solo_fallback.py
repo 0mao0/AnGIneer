@@ -186,7 +186,7 @@ def test_popo_failure_sets_fallback_target_in_auto_mode(monkeypatch, tmp_path) -
     monkeypatch.setattr(afs, "file_storage", _fake_file_storage(tmp_path))
     monkeypatch.setenv("DOCS_CORE_NORMALIZER_BACKEND", "auto")
 
-    import docs_core.read.popo_pipeline as popo_pkg
+    import docs_core.read.popo_enhance as popo_pkg
 
     class _BoomPipeline:
         def run_full_pipeline(self, **kwargs):
@@ -210,7 +210,7 @@ def test_runner_records_fallback_and_structure_completes(monkeypatch, tmp_path) 
     monkeypatch.setattr(afs, "file_storage", _fake_file_storage(tmp_path))
     monkeypatch.setenv("DOCS_CORE_NORMALIZER_BACKEND", "auto")
 
-    import docs_core.read.popo_pipeline as popo_pkg
+    import docs_core.read.popo_enhance as popo_pkg
     import parse_pipeline as pp
 
     class _BoomPipeline:

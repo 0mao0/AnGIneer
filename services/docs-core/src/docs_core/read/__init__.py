@@ -2,7 +2,7 @@
 
 from .convert2pdf import convert_to_pdf, prepare_source
 from .mineru_parser import MinerUParser, mineru_parser
-from .popo_pipeline import PoPoPipelineRunner, get_popo_pipeline
+from .popo_enhance import PoPoPipelineRunner, get_popo_pipeline
 
 __all__ = [
     "MinerUParser",

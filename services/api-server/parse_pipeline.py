@@ -180,7 +180,7 @@ def _run_popo(ctx: StageContext) -> str:
         return "__skipped__:未启用（DOCS_CORE_NORMALIZER_BACKEND != popo/auto）"
 
     import docs_core.paths as paths
-    from docs_core.read.popo_pipeline import get_popo_pipeline
+    from docs_core.read.popo_enhance import get_popo_pipeline
     from docs_core.write.store.assets_file_store import file_storage
 
     mineru_raw_dir = paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)

@@ -383,7 +383,7 @@ services/docs-core/
 │   │   ├── read/                    # 第 1 层：原始抽取，产出中间文件
 │   │   │   ├── convert2pdf.py       # 源文件 → PDF
 │   │   │   ├── mineru_parser.py     # PDF → MinerU 产物（md/json）
-│   │   │   └── popo_pipeline.py     # MinerU 产物 → enriched_blocks.json + document_tree.json
+│   │   │   └── popo_enhance.py      # MinerU 产物 → enriched_blocks.json + document_tree.json
 │   │   ├── ingest/                  # 第 2 层：结构 + 语义 → CanonicalDocument
 │   │   │   ├── canonical/           # Canonical 契约（types）与汇聚点（builder）
 │   │   │   │   ├── types.py

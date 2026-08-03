@@ -1,7 +1,7 @@
 # MinerU-Popo 管线图解
 
 > 来源: `services/docs-core/src/popo` (submodule, commit 97d5601)
-> 接线层: `services/docs-core/src/docs_core/read/popo_pipeline.py`
+> 接线层: `services/docs-core/src/docs_core/read/popo_enhance.py`
 
 ## 1. PoPo 整体管线
 
@@ -10,7 +10,7 @@ flowchart LR
     subgraph INPUT["输入 (MinerU 原始解析)"]
         A1["middle.json<br/>layout_dets + page_info"]
         A2["content_list.json<br/>(备选)"]
-        A3["PDF 源文件<br/>mineru_render.pdf"]
+        A3["PDF 源文件<br/>source 目录（优先）"]
     end
 
     A1 --> B["label_normalization.py<br/>Step 1: 标签归一化"]

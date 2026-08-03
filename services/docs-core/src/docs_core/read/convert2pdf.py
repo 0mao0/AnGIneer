@@ -1,6 +1,7 @@
 """通过 LibreOffice headless 将常见办公文档转换为 PDF。"""
 import os
 import shutil
+import signal
 import subprocess
 import tempfile
 import time
@@ -9,12 +10,17 @@ from typing import Callable, Optional
 
 
 def find_libreoffice() -> Optional[str]:
-    """查找 LibreOffice 可执行路径。"""
-    names = [
-        "soffice",
-        "libreoffice",
-    ]
-    for name in names:
+    """查找 LibreOffice 可执行路径。
+
+    查找顺序：LIBREOFFICE_BIN 环境变量 > PATH（soffice / libreoffice）> Windows 常见安装路径。
+    服务器场景：安装后设置 LIBREOFFICE_BIN，或确保 soffice 在 PATH 中。
+    """
+    env_path = os.environ.get("LIBREOFFICE_BIN", "").strip()
+    if env_path:
+        # 显式指定时不再回退，避免配置错误被静默掩盖
+        return env_path if os.path.isfile(env_path) else None
+
+    for name in ("soffice", "libreoffice"):
         path = shutil.which(name)
         if path:
             return path
@@ -30,31 +36,50 @@ def find_libreoffice() -> Optional[str]:
     return None
 
 
-def _kill_stale_soffice() -> None:
-    """清理残留 soffice 进程（Windows taskkill / Unix pkill），避免 profile 锁冲突。"""
+def _force_kill_process(pid: Optional[int]) -> None:
+    """强制结束单个 soffice 进程及其子进程（按 PID，不影响其他实例）。"""
+    if not pid:
+        return
     try:
         if os.name == "nt":
             subprocess.run(
-                ["taskkill", "/IM", "soffice.bin", "/F"],
+                ["taskkill", "/PID", str(pid), "/T", "/F"],
                 capture_output=True, timeout=10,
             )
         else:
-            subprocess.run(
-                ["pkill", "-f", "soffice"],
-                capture_output=True, timeout=10,
-            )
+            os.kill(pid, signal.SIGKILL)
     except Exception:
         pass
+
+
+def _ensure_source_file(
+    library_id: str,
+    doc_id: str,
+    file_path: Optional[str] = None,
+    base_dir: Optional[str] = None,
+) -> Optional[str]:
+    """确保源文件位于规范 source 目录并返回其路径（幂等：已有文件直接返回）。"""
+    from docs_core.paths import get_source_dir
+
+    doc_source_dir = get_source_dir(library_id, doc_id, base_dir)
+    doc_source_dir.mkdir(parents=True, exist_ok=True)
+    current_files = sorted([path for path in doc_source_dir.iterdir() if path.is_file()])
+    if current_files:
+        return str(current_files[0])
+    source_candidate = Path(file_path) if file_path else None
+    if source_candidate and source_candidate.exists() and source_candidate.is_file():
+        target_path = doc_source_dir / source_candidate.name
+        shutil.copy2(source_candidate, target_path)
+        return str(target_path)
+    return None
 
 
 def prepare_source(library_id: str, doc_id: str, file_path: str) -> str:
     """确保源文件位于规范 source 目录，返回规范路径（docx 或 pdf）。
 
-    供解析管线 source_prep/convert 阶段调用；文件复制等物理操作由 read.outputs 负责。
+    供解析管线 source_prep/convert 阶段调用；文件复制等物理操作由本模块负责。
     """
-    from docs_core.read.outputs import ensure_doc_source_file
-
-    source_path = ensure_doc_source_file(library_id, doc_id, file_path=file_path)
+    source_path = _ensure_source_file(library_id, doc_id, file_path=file_path)
     if not source_path:
         raise RuntimeError("源文件不存在或无法复制到规范目录")
     return source_path
@@ -64,8 +89,8 @@ def convert_to_pdf(
     input_path: str,
     output_dir: str,
     cancel_check: Optional[Callable[[], None]] = None,
-) -> Optional[str]:
-    """将常见办公文档转换为 PDF，返回生成的 PDF 路径，失败返回 None。
+) -> str:
+    """将常见办公文档转换为 PDF，返回生成的 PDF 路径；失败抛出 RuntimeError。
 
     支持格式：doc, docx, ppt, pptx, xls, xlsx, odt, odp, ods, rtf, txt 等。
     对已经是 PDF 的文件直接返回原路径。
@@ -83,12 +108,21 @@ def convert_to_pdf(
     lo_path = find_libreoffice()
     if not lo_path:
         raise RuntimeError(
-            "未找到 LibreOffice。请安装后设置环境变量或放入标准路径。"
+            "未找到 LibreOffice。请安装后设置环境变量 LIBREOFFICE_BIN，"
+            "或将 soffice 加入 PATH；"
             "Docker 部署时 apt-get install libreoffice-core libreoffice-writer"
         )
 
     output_dir = os.path.abspath(output_dir)
     os.makedirs(output_dir, exist_ok=True)
+
+    # 先清除旧产物，避免本次转换静默失败时误判为成功（返回过期 PDF）
+    basename = Path(input_path).stem
+    output_pdf = os.path.join(output_dir, f"{basename}.pdf")
+    try:
+        os.remove(output_pdf)
+    except FileNotFoundError:
+        pass
 
     env = os.environ.copy()
     env['HOME'] = env.get('HOME', '/tmp')
@@ -109,6 +143,8 @@ def convert_to_pdf(
     # stdout/stderr 重定向到文件，避免管道缓冲（64KB）填满导致死锁
     stdout_path = os.path.join(profile_dir, "lo_stdout.log")
     stderr_path = os.path.join(profile_dir, "lo_stderr.log")
+    stderr_tail = ""
+    result = None
     try:
         with open(stdout_path, "w", encoding="utf-8", errors="replace") as fout, \
              open(stderr_path, "w", encoding="utf-8", errors="replace") as ferr:
@@ -129,11 +165,10 @@ def convert_to_pdf(
                 try:
                     proc.wait(timeout=5)
                 except Exception:
-                    proc.kill()
-                _kill_stale_soffice()
+                    _force_kill_process(proc.pid)
                 raise RuntimeError(
                     f"LibreOffice 转换超时（180s）: {Path(input_path).name}，"
-                    f"已清理 soffice 进程，请重试。"
+                    "已清理 soffice 进程，请重试。"
                 )
             finally:
                 if proc.poll() is None:
@@ -141,24 +176,22 @@ def convert_to_pdf(
                     try:
                         proc.wait(timeout=5)
                     except Exception:
-                        proc.kill()
+                        _force_kill_process(proc.pid)
             result = proc
     finally:
-        shutil.rmtree(profile_dir, ignore_errors=True)
-
-    if result.returncode != 0:
-        stderr_tail = ""
+        # 先读 stderr 再清理临时目录，否则日志被删后错误信息恒为空
         try:
             with open(stderr_path, "r", encoding="utf-8", errors="replace") as ferr:
                 stderr_tail = ferr.read()[-500:]
         except Exception:
             pass
+        shutil.rmtree(profile_dir, ignore_errors=True)
+
+    if result.returncode != 0:
         raise RuntimeError(
             f"LibreOffice 转换失败 (exit={result.returncode}): {stderr_tail}"
         )
 
-    basename = Path(input_path).stem
-    output_pdf = os.path.join(output_dir, f"{basename}.pdf")
     if os.path.isfile(output_pdf):
         return output_pdf
 
