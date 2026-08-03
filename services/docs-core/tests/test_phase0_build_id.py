@@ -70,7 +70,7 @@ def test_unified_write_stamps_consistent_build_id(tmp_path: Path, monkeypatch) -
 
 
 def test_build_id_roundtrip_via_api_helper(tmp_path: Path) -> None:
-    from docs_core.write.store.assets_file_store import extract_build_id_from_markdown
+    from docs_core.write.store.doc_blocks_graph import extract_build_id_from_markdown
 
     assert extract_build_id_from_markdown("<!-- build_id: abcdef123456 -->\n正文") == "abcdef123456"
     assert extract_build_id_from_markdown("无头部注释的 md") is None

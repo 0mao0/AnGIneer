@@ -936,7 +936,8 @@ def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = N
         from docs_core.write.graph.evidence_builder import build_evidence_packets
         from docs_core.write.graph.graph_orchestrator import GraphOrchestrator
 
-        from docs_core.write.store.assets_file_store import file_storage, get_doc_blocks_graph
+        from docs_core.write.store.assets_file_store import file_storage
+        from docs_core.write.store.doc_blocks_graph import get_doc_blocks_graph
     except ImportError as e:
         logger.warning("knowledge-graph module not available: %s", e)
         return {"pushed": False, "error": str(e)}

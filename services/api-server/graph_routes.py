@@ -105,7 +105,8 @@ async def get_full_snapshot(library_id: Optional[str] = None, doc_id: Optional[s
 
 @graph_router.post("/build/from-doc")
 async def build_graph_from_doc(req: PushDocRequest):
-    from docs_core.write.store.assets_file_store import file_storage, get_doc_blocks_graph
+    from docs_core.write.store.assets_file_store import file_storage
+    from docs_core.write.store.doc_blocks_graph import get_doc_blocks_graph
     from docs_core.write.graph.graph_store import GraphStore
     from docs_core.write.graph.evidence_builder import build_evidence_packets
     from docs_core.write.graph.graph_orchestrator import GraphOrchestrator

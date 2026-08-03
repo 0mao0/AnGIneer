@@ -16,17 +16,16 @@ from .blocks_sql_store import (
     persist_doc_blocks,
     query_doc_blocks,
 )
-from .assets_file_store import (
-    FileStorage,
+from .assets_file_store import FileStorage, file_storage
+from .doc_blocks_graph import (
     batch_operate_doc_blocks,
     build_structured_index_for_doc,
-    extract_structured_items_from_markdown,
-    file_storage,
     get_doc_blocks_graph,
     undo_last_doc_block_merge,
     undo_last_doc_block_operation,
     update_doc_block_content,
 )
+from .markdown_extract import extract_structured_items_from_markdown
 
 __all__ = [
     "FileStorage",

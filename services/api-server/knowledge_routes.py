@@ -17,7 +17,7 @@ from pydantic import BaseModel
 
 from docs_core.knowledge_service import get_knowledge_service, KnowledgeNode
 from docs_core.read.mineru_parser import MinerUParser
-from docs_core.write.store.assets_file_store import (
+from docs_core.write.store.doc_blocks_graph import (
     build_structured_index_for_doc,
     extract_build_id_from_markdown,
     extract_build_id_from_meta,
@@ -1040,7 +1040,7 @@ def update_document_block(
     request: KnowledgeDocumentBlockUpdate,
 ):
     """更新文档结构节点内容。"""
-    from docs_core.write.store.assets_file_store import update_doc_block_content
+    from docs_core.write.store.doc_blocks_graph import update_doc_block_content
 
     changes = request.dict(exclude_unset=True)
     try:
@@ -1069,7 +1069,7 @@ def batch_operate_document_blocks(
     request: KnowledgeDocumentBatchBlockOperation,
 ):
     """批量执行文档结构节点操作。"""
-    from docs_core.write.store.assets_file_store import batch_operate_doc_blocks
+    from docs_core.write.store.doc_blocks_graph import batch_operate_doc_blocks
 
     payload = request.dict(exclude_unset=True)
     try:
@@ -1097,7 +1097,7 @@ def batch_operate_document_blocks(
 @knowledge_router.post("/document/{library_id}/{doc_id}/blocks/undo")
 def undo_document_block_operation(library_id: str, doc_id: str):
     """撤回当前文档最近一次可回滚的结构操作。"""
-    from docs_core.write.store.assets_file_store import undo_last_doc_block_operation
+    from docs_core.write.store.doc_blocks_graph import undo_last_doc_block_operation
 
     try:
         result = undo_last_doc_block_operation(library_id, doc_id)

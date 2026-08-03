@@ -319,7 +319,7 @@ def _run_structure_solo(
     llm_model: Optional[str],
 ) -> str:
     import docs_core.paths as paths
-    from docs_core.write.store.assets_file_store import build_structured_index_for_doc
+    from docs_core.write.store.doc_blocks_graph import build_structured_index_for_doc
 
     result = build_structured_index_for_doc(
         library_id=ctx.library_id,
