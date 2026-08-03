@@ -113,6 +113,14 @@ class SQLiteVectorStore(VectorStore):
             conn.commit()
         return len(rows)
 
+    # 获取已有向量的维度，用于 embedding provider 维度对齐。
+    def get_existing_dimension(self) -> int:
+        with self.connect() as conn:
+            row = conn.execute(
+                "SELECT dimension FROM canonical_vectors ORDER BY rowid DESC LIMIT 1"
+            ).fetchone()
+        return int(row[0]) if row and row[0] else 0
+
     # 清理指定文档的向量记录
     def clear_document(self, doc_id: str, entity_types: Optional[List[str]] = None) -> int:
         sql = "DELETE FROM canonical_vectors WHERE doc_id = ?"

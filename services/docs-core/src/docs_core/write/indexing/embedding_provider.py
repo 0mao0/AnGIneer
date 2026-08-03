@@ -122,12 +122,7 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
 
     # 检测已有向量库的维度，用于 fallback 时对齐。
     def _detect_existing_dimension(self) -> int:
-        try:
-            from docs_core.write.indexing.chroma_vector_store import ChromaVectorStore
-            store = ChromaVectorStore()
-            return store.get_existing_dimension()
-        except Exception:
-            return 0
+        return _detect_existing_vector_dimension()
 
     # 通过 DashScope 接口批量请求 embedding。
     def embed_texts(self, texts: Sequence[str]) -> List[List[float]]:
@@ -189,8 +184,14 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
 # 检测已有向量库的维度，用于创建 provider 时对齐。
 def _detect_existing_vector_dimension() -> int:
     try:
+        from docs_core.write.indexing import get_vectorstore_provider_name
         from docs_core.write.indexing.chroma_vector_store import ChromaVectorStore
-        store = ChromaVectorStore()
+        from docs_core.write.indexing.sqlite_vector_store import SQLiteVectorStore
+
+        if get_vectorstore_provider_name() == "sqlite":
+            store = SQLiteVectorStore()
+        else:
+            store = ChromaVectorStore()
         return store.get_existing_dimension()
     except Exception:
         return 0

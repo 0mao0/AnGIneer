@@ -23,15 +23,15 @@ from docs_core.write.store.blocks_sql_store import KnowledgeIndexStore, persist_
 import docs_core.write.store.assets_file_store as _afs
 
 
-_index_store: Optional[KnowledgeIndexStore] = None
+_index_stores: Dict[str, KnowledgeIndexStore] = {}
 
 
 def _get_index_store() -> KnowledgeIndexStore:
-    """??????????????? knowledge_service ????"""
-    global _index_store
-    if _index_store is None:
-        _index_store = KnowledgeIndexStore()
-    return _index_store
+    """索引库访问（按 db 路径懒加载，路径解析与 knowledge_service 一致）。"""
+    db_path = str(paths.resolve_knowledge_index_db_path())
+    if db_path not in _index_stores:
+        _index_stores[db_path] = KnowledgeIndexStore()
+    return _index_stores[db_path]
 
 
 
