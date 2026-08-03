@@ -173,6 +173,33 @@ const currentStepDocId = ref('')
 const currentStepTaskId = ref('')
 const currentStages = ref<any[]>([])
 
+// 列表轮询：存在进行中记录时持续静默刷新，全部终态后停止
+let recordsPollTimer: number | null = null
+const RUNNING_STATUSES = new Set(['queued', 'pending', 'processing'])
+
+function hasRunningRecords(): boolean {
+  return records.value.some(r => RUNNING_STATUSES.has(r.status))
+}
+
+function stopRecordsPolling() {
+  if (recordsPollTimer !== null) {
+    window.clearInterval(recordsPollTimer)
+    recordsPollTimer = null
+  }
+}
+
+function syncRecordsPolling() {
+  if (hasRunningRecords()) {
+    if (recordsPollTimer === null) {
+      recordsPollTimer = window.setInterval(async () => {
+        await loadRecords(true)
+      }, 2000)
+    }
+  } else {
+    stopRecordsPolling()
+  }
+}
+
 const viewerParseButtonText = computed(() => {
   const status = viewerNode.value?.status
   if (status === 'completed' || status === 'failed' || status === 'cancelled' || status === 'partial') return '重新解析'
@@ -247,15 +274,16 @@ function statusLabel(status: string): string {
   return map[status] || status
 }
 
-async function loadRecords() {
-  loading.value = true
+async function loadRecords(silent = false) {
+  if (!silent) loading.value = true
   try {
     const res = await knowledgeApi.listRecords({ show_deleted: showDeletedOnly.value })
     records.value = res.data
   } catch (e: any) {
-    message.error('加载记录失败: ' + (e.message || e))
+    if (!silent) message.error('加载记录失败: ' + (e.message || e))
   } finally {
     loading.value = false
+    syncRecordsPolling()
   }
 }
 
@@ -316,6 +344,7 @@ watch(stepsModalOpen, (open) => {
 
 onBeforeUnmount(() => {
   stopStagesPolling()
+  stopRecordsPolling()
 })
 
 async function loadDocStages(docId: string) {
