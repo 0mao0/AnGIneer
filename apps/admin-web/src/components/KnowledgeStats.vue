@@ -242,7 +242,7 @@ function statusLabel(status: string): string {
     partial: '部分完成',
     failed: '失败',
     cancelled: '已取消',
-    deleted: '已删除',
+    deleted: '用户已删',
   }
   return map[status] || status
 }

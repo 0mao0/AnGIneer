@@ -251,7 +251,6 @@ class KnowledgeMetaStore:
                        parse_progress, parse_stage, parse_error, parse_task_id, strategy,
                        schema_version, deleted, created_at, updated_at
                 FROM nodes
-                WHERE deleted = 0
                 ORDER BY library_id ASC, created_at ASC
                 """
             ).fetchall()
@@ -267,9 +266,9 @@ class KnowledgeMetaStore:
                 result.append(item)
             folder_rows = conn.execute(
                 """
-                SELECT node_id, title, parent_id, scope_id, sort_order, created_at, updated_at
+                SELECT node_id, title, parent_id, scope_id, sort_order, deleted, created_at, updated_at
                 FROM tree_node
-                WHERE tree_type = 'knowledge_folder' AND deleted = 0
+                WHERE tree_type = 'knowledge_folder'
                 ORDER BY scope_id ASC, sort_order ASC
                 """
             ).fetchall()
@@ -291,6 +290,7 @@ class KnowledgeMetaStore:
                     "strategy": STRUCTURED_DOC_GRAPH_STRATEGY,
                     "schema_version": "1.0.0",
                     "sort_order": item["sort_order"],
+                    "deleted": bool(item.get("deleted")),
                     "created_at": item["created_at"],
                     "updated_at": item["updated_at"],
                 })
