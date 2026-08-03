@@ -5,8 +5,8 @@ import re
 from pathlib import Path
 from types import SimpleNamespace
 
-from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
-from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
+from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
+from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
 from docs_core.write.projection import write_canonical_products
 from fixtures.popo_fixtures import EMPTY_TREE, build_clean_fixture
 

@@ -60,25 +60,6 @@ def prepare_source(library_id: str, doc_id: str, file_path: str) -> str:
     return source_path
 
 
-def resolve_pdf_input(library_id: str, doc_id: str) -> str:
-    """只读：返回 source 目录下最新 PDF（convert 产物或上传即 PDF）。
-
-    供 raw_parse 输入核查使用；找不到时抛出带指引的 RuntimeError。
-    """
-    from docs_core.write.store.assets_file_store import file_storage
-
-    source_dir = file_storage.get_source_dir(library_id, doc_id)
-    if not source_dir.exists():
-        raise RuntimeError(f"源文件目录不存在: {source_dir}")
-    pdf_files = sorted(
-        [p for p in source_dir.iterdir() if p.suffix.lower() == '.pdf' and p.is_file()],
-        key=lambda p: p.stat().st_mtime, reverse=True,
-    )
-    if not pdf_files:
-        raise RuntimeError(f"未找到 PDF 输入文件（请先运行格式转换）: {source_dir}")
-    return str(pdf_files[0])
-
-
 def convert_to_pdf(
     input_path: str,
     output_dir: str,

@@ -2,7 +2,7 @@
 import re
 from typing import Iterable, List, Sequence
 
-from docs_core.read.organize.types import CanonicalTable
+from docs_core.ingest.canonical.types import CanonicalTable
 from docs_core.query.protocols.contracts import (
     TABLE_TYPE_HYBRID,
     TABLE_TYPE_MAPPING_ENUM,

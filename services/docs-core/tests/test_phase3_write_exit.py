@@ -8,8 +8,8 @@ from types import SimpleNamespace
 
 import pytest
 
-from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
-from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
+from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
+from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
 from docs_core.write.projection import (
     build_doc_block_rows,
     build_doc_blocks_graph,
@@ -154,7 +154,7 @@ def test_segments_cover_all_blocks() -> None:
 
 def test_no_import_of_popoprojection() -> None:
     with pytest.raises(ImportError):
-        importlib.import_module("docs_core.read.normalize.popo.popo_projection")
+        importlib.import_module("docs_core.ingest.structure.popo_projection")
     root = Path(__file__).resolve().parents[1] / "src" / "docs_core"
     offenders = []
     import_pattern = re.compile(r"(?:import|from)\s+[.\w]*popo_projection")

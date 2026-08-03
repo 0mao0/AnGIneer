@@ -1,69 +1,14 @@
-"""docs_core read pipeline — 文档解析：convert / extract / normalize / organize"""
+"""docs_core read 层：原始抽取，产出中间文件（pdf / mineru md+json / popo enriched_blocks+tree）。"""
 
-from .extract import MinerUParser, mineru_parser
-from .normalize.structure.solo import (
-    RawFilesStructureBuilder,
-    StructuredResult,
-    build_graph_from_rawfiles,
-    build_structured_from_rawfiles,
-)
-from .normalize.semantics.table_semantics import (
-    build_table_representations,
-    classify_table,
-    extract_table_features,
-)
-from .organize import (
-    BoundingBox,
-    CanonicalBlock,
-    CanonicalChunk,
-    CanonicalDocument,
-    CanonicalOutlineNode,
-    CanonicalPage,
-    CanonicalTable,
-    CitationTarget,
-    build_canonical_blocks,
-    build_canonical_chunks,
-    build_canonical_document,
-    build_canonical_outlines,
-    build_canonical_tables,
-)
-from docs_core.write.store import FileStorage, build_structured_index_for_doc, file_storage, get_doc_blocks_graph
+from .convert2pdf import convert_to_pdf, prepare_source
+from .mineru_parser import MinerUParser, mineru_parser
+from .popo_pipeline import PoPoPipelineRunner, get_popo_pipeline
 
 __all__ = [
-    "BoundingBox",
-    "CanonicalBlock",
-    "CanonicalChunk",
-    "CanonicalDocument",
-    "CanonicalOutlineNode",
-    "CanonicalPage",
-    "CanonicalTable",
-    "CitationTarget",
-    "FileStorage",
     "MinerUParser",
-    "RawFilesStructureBuilder",
-    "StructuredResult",
-    "build_canonical_blocks",
-    "build_canonical_chunks",
-    "build_canonical_document",
-    "build_canonical_outlines",
-    "build_canonical_tables",
-    "build_graph_from_rawfiles",
-    "build_structured_from_rawfiles",
-    "build_structured_index_for_doc",
-    "build_table_representations",
-    "classify_table",
-    "extract_table_features",
-    "file_storage",
-    "get_doc_blocks_graph",
+    "PoPoPipelineRunner",
+    "convert_to_pdf",
+    "get_popo_pipeline",
     "mineru_parser",
+    "prepare_source",
 ]
-
-
-def __getattr__(name: str):
-    if name == "build_vector_records":
-        from docs_core.write.indexing.vector_indexer import build_vector_records
-        return build_vector_records
-    if name == "summarize_vector_records":
-        from docs_core.write.indexing.vector_indexer import summarize_vector_records
-        return summarize_vector_records
-    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

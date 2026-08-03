@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 from tree_core import tree_store
 
-from docs_core.read.organize.types import (
+from docs_core.ingest.canonical.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
@@ -324,12 +324,24 @@ class KnowledgeService:
         self.meta_store.delete_parse_tasks_by_doc_ids(doc_ids)
         self.parse_tasks = [task for task in self.parse_tasks if task.doc_id not in set(doc_ids)]
         for node in document_nodes:
+            self.meta_store.clear_parse_stages(node.id)
             self.index_store.clear_document_segments(node.id)
             self.index_store.clear_doc_blocks(node.id)
             self.index_store.clear_doc_block_corrections(node.id)
             self.canonical_store.clear_document(node.id)
             self.vector_store.clear_document(node.id)
             file_storage.delete_document(node.library_id, node.id)
+            self._delete_document_graph_data(node.id)
+
+    # 清理 knowledge_graph.sqlite 中该文档的图谱产物（entities 为全局共享，保留）。
+    def _delete_document_graph_data(self, doc_id: str) -> None:
+        try:
+            from docs_core.write.graph.graph_store import GraphStore, resolve_graph_db_path
+            graph_db = resolve_graph_db_path()
+            if graph_db.exists():
+                GraphStore(str(graph_db)).delete_document(doc_id)
+        except Exception as exc:
+            logger.warning("清理文档 %s 的图谱数据失败: %s", doc_id, exc)
 
     # 生成删除节点前的影响范围预览
     def get_delete_preview(self, node_id: str) -> Optional[Dict[str, Any]]:
@@ -641,7 +653,7 @@ class KnowledgeService:
         title: str = "",
     ) -> Dict[str, int]:
         from docs_core.write.indexing import build_vector_records
-        from docs_core.read.organize.builder import rebuild_canonical_document_from_graph
+        from docs_core.ingest.canonical.builder import rebuild_canonical_document_from_graph
 
         canonical_document = rebuild_canonical_document_from_graph(
             library_id=library_id,
@@ -920,10 +932,8 @@ def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = N
 
     This is the producer side of the docs-core → knowledge-graph pipeline.
     """
-    import os as _os
-
     try:
-        from docs_core.write.graph.graph_store import GraphStore
+        from docs_core.write.graph.graph_store import GraphStore, resolve_graph_db_path
         from docs_core.write.graph.evidence_builder import build_evidence_packets
         from docs_core.write.graph.graph_orchestrator import GraphOrchestrator
 
@@ -932,8 +942,7 @@ def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = N
         logger.warning("knowledge-graph module not available: %s", e)
         return {"pushed": False, "error": str(e)}
 
-    default_db = _os.path.join(_os.path.dirname(__file__), "..", "..", "..", "..", "data", "knowledge_graph.sqlite")
-    db_path = graph_db_path or _os.path.abspath(default_db)
+    db_path = graph_db_path or str(resolve_graph_db_path())
 
     content = file_storage.read_markdown(library_id, doc_id) or ""
     graph = get_doc_blocks_graph(library_id, doc_id)

@@ -16,7 +16,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from docs_core.knowledge_service import get_knowledge_service, KnowledgeNode
-from docs_core.read.extract.mineru_parser import MinerUParser
+from docs_core.read.mineru_parser import MinerUParser
 from docs_core.write.store.assets_file_store import (
     build_structured_index_for_doc,
     extract_build_id_from_markdown,
@@ -25,7 +25,7 @@ from docs_core.write.store.assets_file_store import (
 )
 from docs_core.write.store.assets_file_store import file_storage
 from docs_core.write.store.blocks_sql_store import resolve_repo_root
-from models.parse_record import insert_record, update_record_status, update_record_task_id, update_record_by_doc_id, ParseRecord, list_records, hard_delete_record, hard_delete_all_deleted, soft_delete_record, soft_delete_record_by_id, restore_record
+from models.parse_record import insert_record, update_record_status, update_record_task_id, update_record_by_doc_id, ParseRecord, list_records, hard_delete_record, soft_delete_record, soft_delete_record_by_id, restore_record
 
 logger = logging.getLogger(__name__)
 
@@ -778,13 +778,6 @@ def restore_deleted_record(record_id: int):
     except Exception as e:
         logger.error(f"恢复记录 {record_id} 时恢复节点失败: {e}")
     return {"status": "success", "message": "已恢复"}
-
-
-@knowledge_router.delete("/records/purge-deleted")
-def admin_purge_all_deleted():
-    """一键清除所有用户已删除的记录。"""
-    count = hard_delete_all_deleted()
-    return {"status": "success", "message": f"已清除 {count} 条记录"}
 
 
 @knowledge_router.post("/parse/{task_id}/cancel")

@@ -2,8 +2,8 @@
 
 import json
 
-from docs_core.read.organize.types import CanonicalBlock
-from docs_core.read.normalize.structure.title_level_refiner import (
+from docs_core.ingest.canonical.types import CanonicalBlock
+from docs_core.ingest.structure.title_level_refiner import (
     DEFAULT_CONFIDENCE_THRESHOLD,
     estimate_backend_level_confidence,
     resolve_title_level_refinement,
@@ -102,8 +102,8 @@ def _popo_title_fixture(title_text: str, level: int) -> list[dict]:
 
 def test_builder_corrects_popo_mixed_numbering_titles() -> None:
     """验收场景：第一节/一、/(一) 混用，popo 路径层级被 LLM 校正。"""
-    from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
-    from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
+    from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
+    from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
     from fixtures.popo_fixtures import EMPTY_TREE
 
     blocks, outlines, _, pages = po_po_blocks_to_canonical(
@@ -122,8 +122,8 @@ def test_builder_corrects_popo_mixed_numbering_titles() -> None:
 
 def test_builder_popo_numbered_title_still_calls_llm() -> None:
     """popo 编号标题置信度 0.8 < 0.85，仍发起 LLM（计划设定）。"""
-    from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
-    from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
+    from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
+    from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
     from fixtures.popo_fixtures import EMPTY_TREE
 
     blocks, outlines, _, pages = po_po_blocks_to_canonical(
@@ -142,7 +142,7 @@ def test_builder_popo_numbered_title_still_calls_llm() -> None:
 
 def test_builder_solo_numbered_title_skips_llm() -> None:
     """solo 编号标题置信度 0.95 ≥ 0.85，零 LLM 调用。"""
-    from docs_core.read.organize.builder import rebuild_canonical_document_from_graph
+    from docs_core.ingest.canonical.builder import rebuild_canonical_document_from_graph
 
     graph = {
         "nodes": [
@@ -168,7 +168,7 @@ def test_builder_solo_numbered_title_skips_llm() -> None:
 
 def test_builder_solo_plain_title_calls_llm() -> None:
     """solo 非编号标题置信度 0.6 < 0.85，发起 LLM 校正。"""
-    from docs_core.read.organize.builder import rebuild_canonical_document_from_graph
+    from docs_core.ingest.canonical.builder import rebuild_canonical_document_from_graph
 
     graph = {
         "nodes": [

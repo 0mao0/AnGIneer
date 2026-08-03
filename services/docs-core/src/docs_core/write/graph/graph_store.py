@@ -3,6 +3,7 @@ import sqlite3
 import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from docs_core.write.graph.config import Confidence, EntityLayer, RelationType
@@ -14,6 +15,11 @@ def _generate_id() -> str:
 
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def resolve_graph_db_path() -> Path:
+    """默认知识图谱库路径：仓库根 data/knowledge_graph.sqlite（与 api-server graph_routes 一致）。"""
+    return Path(__file__).resolve().parents[6] / "data" / "knowledge_graph.sqlite"
 
 
 def _serialize_aliases(aliases: List[str]) -> str:
@@ -309,6 +315,36 @@ class GraphStore:
                 CREATE INDEX IF NOT EXISTS idx_warnings_doc ON graph_warnings(library_id, doc_id);
                 CREATE INDEX IF NOT EXISTS idx_frameworks_doc ON graph_frameworks(library_id, doc_id);
             """)
+
+    def delete_document(self, doc_id: str) -> int:
+        """删除指定文档的图谱产物（doc 级行与关联表）。
+
+        graph_entities 为全局共享实体（按 name 唯一、可跨文档引用），不随单文档删除。
+        """
+        removed = 0
+        with self._connect() as conn:
+            for junction, id_col, parent in (
+                ("principle_entities", "principle_id", "graph_principles"),
+                ("example_entities", "example_id", "graph_examples"),
+                ("warning_entities", "warning_id", "graph_warnings"),
+            ):
+                cursor = conn.execute(
+                    f"DELETE FROM {junction} WHERE {id_col} IN "
+                    f"(SELECT {id_col} FROM {parent} WHERE doc_id = ?)",
+                    (doc_id,),
+                )
+                removed += int(cursor.rowcount or 0)
+            for table in (
+                "graph_relations",
+                "graph_principles",
+                "graph_examples",
+                "graph_warnings",
+                "graph_frameworks",
+            ):
+                cursor = conn.execute(f"DELETE FROM {table} WHERE doc_id = ?", (doc_id,))
+                removed += int(cursor.rowcount or 0)
+            conn.commit()
+        return removed
 
     def upsert_entity(self, entity: GraphEntity) -> GraphEntity:
         now = _now()

@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable, List, Optional
 
-from docs_core.read.organize.types import (
+from docs_core.ingest.canonical.types import (
     BoundingBox,
     CanonicalBlock,
     CanonicalChunk,

@@ -1,7 +1,7 @@
 """Phase 0 契约测试：chunk 级噪声断言 + list_procedure 判定。"""
 
-from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
-from docs_core.read.organize.builder import build_canonical_chunks, build_canonical_outlines
+from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
+from docs_core.ingest.canonical.builder import build_canonical_chunks, build_canonical_outlines
 from fixtures.popo_fixtures import EMPTY_TREE, build_noise_fixture
 
 
@@ -31,7 +31,7 @@ def test_caption_text_appears_once_via_host() -> None:
 
 
 def _build_chunks(types):
-    from docs_core.read.organize.types import CanonicalBlock
+    from docs_core.ingest.canonical.types import CanonicalBlock
 
     blocks = [
         CanonicalBlock(

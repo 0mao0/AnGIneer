@@ -1,4 +1,5 @@
-"""语义层（通用增强器，阶段四）：消费 Canonical 对象，不依赖任何后端内部格式。"""
+"""docs_core ingest/semantics：语义层（通用增强器），消费 Canonical 对象，不依赖任何后端内部格式。"""
+
 from .formula_semantics import (
     FormulaParamContract,
     FormulaSemanticsContract,

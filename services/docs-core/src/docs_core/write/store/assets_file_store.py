@@ -8,8 +8,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
-from docs_core.read.normalize.semantics.formula_semantics import build_formula_representations
-from docs_core.read.normalize.structure.solo import (
+from docs_core.ingest.semantics.formula_semantics import build_formula_representations
+from docs_core.ingest.structure.solo import (
     StructuredResult,
     build_structured_from_rawfiles,
     extract_media_bbox_list,
@@ -378,6 +378,22 @@ class FileStorage:
             shutil.copy2(source_candidate, target_path)
             return str(target_path)
         return None
+
+    def resolve_pdf_input(self, library_id: str, doc_id: str) -> str:
+        """只读：返回 source 目录下最新 PDF（convert 产物或上传即 PDF）。
+
+        供 raw_parse 输入核查使用；找不到时抛出带指引的 RuntimeError。
+        """
+        source_dir = self.get_source_dir(library_id, doc_id)
+        if not source_dir.exists():
+            raise RuntimeError(f"源文件目录不存在: {source_dir}")
+        pdf_files = sorted(
+            [p for p in source_dir.iterdir() if p.suffix.lower() == '.pdf' and p.is_file()],
+            key=lambda p: p.stat().st_mtime, reverse=True,
+        )
+        if not pdf_files:
+            raise RuntimeError(f"未找到 PDF 输入文件（请先运行格式转换）: {source_dir}")
+        return str(pdf_files[0])
 
     def delete_document(self, library_id: str, doc_id: str) -> bool:
         """删除文档"""
@@ -982,8 +998,8 @@ def build_structured_index_for_doc(
         llm_model=llm_model,
         use_llm=use_llm,
     )
-    from docs_core.read.organize.builder import rebuild_canonical_document_from_blocks
-    from docs_core.read.normalize.structure.solo import structured_result_to_canonical_blocks
+    from docs_core.ingest.canonical.builder import rebuild_canonical_document_from_blocks
+    from docs_core.ingest.structure.solo import structured_result_to_canonical_blocks
 
     # 阶段四（G3）：solo rows → CanonicalBlock 适配器，builder 直接消费后端块
     canonical_blocks = structured_result_to_canonical_blocks(doc_id, result)
@@ -1077,7 +1093,7 @@ def _write_doc_blocks_graph(library_id: str, doc_id: str, payload: Dict[str, Any
 
 # 基于最新审核图谱重canonical，确保检索读模型与编辑结果一致
 def _rebuild_canonical_after_graph_change(library_id: str, doc_id: str) -> Dict[str, int]:
-    from docs_core.read.organize.builder import rebuild_canonical_document
+    from docs_core.ingest.canonical.builder import rebuild_canonical_document
 
     canonical_document = rebuild_canonical_document(library_id, doc_id)
     return {

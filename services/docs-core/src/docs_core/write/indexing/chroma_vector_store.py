@@ -1,9 +1,15 @@
 """基于 Chroma 的向量存储实现。"""
+import logging
+import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from docs_core.write.indexing.config import resolve_chroma_persist_dir
 from docs_core.write.indexing.vector_store import VectorRecord, VectorSearchHit, VectorStore
+
+
+logger = logging.getLogger(__name__)
+_DIM_MISMATCH_RE = re.compile(r"expecting embedding with dimension of (\d+), got (\d+)")
 
 
 class ChromaVectorStore(VectorStore):
@@ -30,10 +36,17 @@ class ChromaVectorStore(VectorStore):
                 return len(embeddings_list[0])
         return 0
 
-    # 批量写入向量记录。
+    # 批量写入向量记录；集合维度不匹配时自动处理。
     def upsert_records(self, records: List[VectorRecord]) -> int:
         if not records:
             return 0
+        try:
+            self._upsert(records)
+        except Exception as exc:
+            self._handle_upsert_exception(exc, records)
+        return len(records)
+
+    def _upsert(self, records: List[VectorRecord]) -> None:
         self.collection.upsert(
             ids=[record.record_id for record in records],
             embeddings=[list(record.embedding) for record in records],
@@ -49,7 +62,30 @@ class ChromaVectorStore(VectorStore):
                 for record in records
             ],
         )
-        return len(records)
+
+    # 维度不匹配：集合为空时自动重建（向量可再生，零数据损失）；
+    # 集合非空时给出可操作的报错，避免静默清库。
+    def _handle_upsert_exception(self, exc: Exception, records: List[VectorRecord]) -> None:
+        match = _DIM_MISMATCH_RE.search(str(exc))
+        if not match:
+            raise
+        expected_dim = int(match.group(1))
+        got_dim = int(match.group(2))
+        if self.collection.count() > 0:
+            raise RuntimeError(
+                f"向量集合 {self.collection.name} 维度不匹配（集合={expected_dim}，当前={got_dim}），"
+                f"且集合中已有 {self.collection.count()} 条记录，拒绝自动重建。"
+                f"请删除向量库目录（{self.persist_dir}）后重新解析，或改用与当前 embedding 一致的模型。"
+            ) from exc
+        logger.warning(
+            "向量集合 %s 维度不匹配（集合=%d，当前=%d）且集合为空，自动重建集合",
+            self.collection.name, expected_dim, got_dim,
+        )
+        self.client.delete_collection(name=self.collection.name)
+        self.collection = self.client.get_or_create_collection(
+            name=self.collection.name, metadata={"hnsw:space": "cosine"}
+        )
+        self._upsert(records)
 
     # 清理指定文档的向量记录。
     def clear_document(self, doc_id: str, entity_types: Optional[List[str]] = None) -> int:

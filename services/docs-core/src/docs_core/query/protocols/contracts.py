@@ -14,7 +14,7 @@ TaskType = Literal[
     "mixed",
 ]
 
-# 表格四分类常量（契约加固②）：query 层只依赖契约定义，不再 import read/normalize 生产模块。
+# 表格四分类常量（契约加固②）：query 层只依赖契约定义，不再 import read/ingest 生产模块。
 TABLE_TYPE_NUMERIC_DENSE = "numeric_dense"
 TABLE_TYPE_TEXT_DENSE = "text_dense"
 TABLE_TYPE_HYBRID = "hybrid"

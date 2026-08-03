@@ -1,7 +1,7 @@
 """Phase 0 展示层契约测试：印刷页码贯穿 引用目标查询 → 检索元数据。"""
 
-from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
-from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
+from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
+from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
 from fixtures.popo_fixtures import EMPTY_TREE, build_noise_fixture
 
 

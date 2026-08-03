@@ -90,8 +90,8 @@ flowchart LR
 - `services/ai-inference/src/ai_inference/llm_logger.py`（LLM 专用日志）
 - `services/api-server/knowledge_routes.py`
 - `services/docs-core/src/docs_core/knowledge_service.py`
-- `services/docs-core/src/docs_core/ingest/extract/mineru_parser.py`
-- `services/docs-core/src/docs_core/ingest/store/canonical_sql_store.py`
+- `services/docs-core/src/docs_core/read/mineru_parser.py`
+- `services/docs-core/src/docs_core/write/store/canonical_sql_store.py`
 - `services/docs-core/src/docs_core/query/contracts.py`
 - `services/angineer-core/src/angineer_core/classifier.py`
 - `services/angineer-core/src/angineer_core/dispatcher.py`
@@ -238,7 +238,7 @@ flowchart TB
     KService["knowledge_service\n节点/任务元数据门面"]
     Parser["mineru_parser\n高保真解析"]
     Storage["document_storage\n一文档一目录与兼容路径"]
-    Struct["ingest/canonical + file_store\n当前结构化主链"]
+    Struct["ingest/canonical + write/store\n当前结构化主链"]
     CanonicalSql["canonical_sql_store\ncanonical SQLite truth source"]
     Query["query/contracts\n协议模型"]
     Retrieval["retrieval/*\nnormalizer/dense/sparse/hybrid/rerank"]
@@ -376,7 +376,7 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 
 ***
 
-## 9阶段解析管线（2026-07 重构）
+## 解析管线（8 阶段，2026-07 重构）
 
 解析任务由 `services/api-server/parse_pipeline.py` 驱动，按阶段拆分执行：
 
@@ -390,9 +390,10 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 | `fts` | 全文索引 | hard | [structure] | 重建 FTS（无外部依赖） |
 | `vectors` | 向量索引 | soft | [structure] | embedding API；strict 模式下失败只标本阶段 |
 | `graph` | 知识图谱 | soft | [structure] | `push_to_graph` |
-| `sop` | SOP 生成 | soft | [graph] | `generate_sops_from_doc` |
 
 hard 阶段失败 → 终止后续阶段；soft 阶段失败 → 仅标记自身，后续继续。
+
+SOP 生成不在解析管线内：由 `services/sop-core` 的 `SopPathGenerator.generate_sops_from_doc` 独立承担，经 `services/api-server/sop_routes.py` 接口触发（消费 knowledge graph 产物）。
 
 降级语义：popo 为 soft 阶段，失败后 `_run_popo` 会回滚半成品（删 popo 目录、清 doc_blocks、恢复 MinerU 版 markdown），再由 structure 以 solo 后端完成结构化；`derive_overall_status` 将「popo failed + structure completed」视为 completed。
 
@@ -408,16 +409,16 @@ hard 阶段失败 → 终止后续阶段；soft 阶段失败 → 仅标记自身
 - `services/api-server/main.py`
   - 解析接口改异步任务化，返回 `task_id`。
   - 增加任务进度查询、文档版本、策略切换与统一查询接口。
-  - 保持单一 `doc_blocks_graph_v1` 索引构建，调用 `docs_core.ingest.storage.file_store.build_structured_index_for_doc`。
-- `services/docs-core/src/docs_core/ingest/organize/builder.py`
+  - 保持单一 `doc_blocks_graph_v1` 索引构建，调用 `docs_core.write.store.build_structured_index_for_doc`。
+- `services/docs-core/src/docs_core/ingest/canonical/builder.py`
   - 结构化主链：统一生成 canonical structure，供后续索引与查询链路复用。
-- `services/docs-core/src/docs_core/ingest/store/blocks_sql_store.py`
+- `services/docs-core/src/docs_core/write/store/blocks_sql_store.py`
   - 承担 `doc_blocks` 与 `document_segments` 主索引的写入、查询与统计。
 - `services/docs-core/src/docs_core/knowledge_service.py`
   - 作为元数据门面，持有 `KnowledgeMetaStore` 与 `KnowledgeIndexStore` 双库访问。
-- `services/docs-core/src/docs_core/ingest/store/assets_file_store.py`
+- `services/docs-core/src/docs_core/write/store/assets_file_store.py`
   - 实现一文档一目录读写 API，并统一 canonical raw path 解析。
-- `services/docs-core/src/docs_core/ingest/extract/mineru_parser.py`
+- `services/docs-core/src/docs_core/read/mineru_parser.py`
   - 输出解析产物清单并支持阶段进度回调。
 - `services/engtools/src/engtools/config.py`
   - 统一知识目录解析，支持新旧结构双栈。

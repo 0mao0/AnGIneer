@@ -9,7 +9,7 @@ from typing import Any, Dict, List, Optional
 
 from tree_core import tree_store
 
-from docs_core.read.normalize.structure.solo import StructuredResult
+from docs_core.ingest.structure.solo import StructuredResult
 
 
 KNOWLEDGE_META_DB_NAME = "knowledge_meta.sqlite"
@@ -573,13 +573,14 @@ class KnowledgeMetaStore:
                 tree_store.delete_node(conn, nid)
             conn.commit()
 
-    # 删除指定文档集合的解析任务记录。
+    # 删除指定文档集合的解析任务记录（含 parse_task_steps 明细）。
     def delete_parse_tasks_by_doc_ids(self, doc_ids: List[str]) -> int:
         if not doc_ids:
             return 0
         placeholders = ",".join(["?"] * len(doc_ids))
         with self.connect() as conn:
             cursor = conn.execute(f"DELETE FROM parse_tasks WHERE doc_id IN ({placeholders})", doc_ids)
+            conn.execute(f"DELETE FROM parse_task_steps WHERE doc_id IN ({placeholders})", doc_ids)
             conn.commit()
             return int(cursor.rowcount or 0)
 

@@ -378,49 +378,40 @@ flowchart LR
 ```
 services/docs-core/
 ├── src/
-│   └── docs_core/
-│       ├── parser/              # 文档解析
-│       │   ├── mineru_client.py     # MinerU 封装
-│       │   └── block_parser.py      # 块解析器
-│       │
-│       ├── enhancer/            # 增强器 (核心)
-│       │   ├── base.py              # 增强器基类
-│       │   ├── registry.py          # 注册中心
-│       │   ├── table/               # 表格增强
-│       │   │   ├── simple.py            # 简单查值表
-│       │   │   ├── conditional.py       # 条件查询表
-│       │   │   ├── interpolation.py     # 插值计算表
-│       │   │   └── chart.py             # 图形式表格
-│       │   ├── formula/             # 公式增强
-│       │   │   ├── parser.py            # 公式解析
-│       │   │   └── calculator.py        # 公式计算
-│       │   └── reference/           # 引用增强
-│       │       └── indexer.py           # 引用索引
-│       │
-│       ├── ingest/store/      # 存储层
-│       │   ├── sqlite_store.py      # canonical SQLite 真相源
-│       │   ├── db_store.py          # 元数据与索引存储
-│       │   └── file_store.py        # 文件存储
-│       │
-│       ├── query/               # 查询服务
-│       │   ├── semantic.py          # 语义查询
-│       │   ├── table.py             # 表格查询
-│       │   ├── formula.py           # 公式计算
-│       │   └── reference.py         # 引用获取
-│       │
-│       ├── api/                 # API 层
-│       │   ├── routes.py            # 路由定义
-│       │   └── schemas.py           # 数据模型
-│       │
-│       └── __init__.py
-│
+│   ├── docs_core/
+│   │   ├── read/                    # 第 1 层：原始抽取，产出中间文件
+│   │   │   ├── convert2pdf.py       # 源文件 → PDF
+│   │   │   ├── mineru_parser.py     # PDF → MinerU 产物（md/json）
+│   │   │   └── popo_pipeline.py     # MinerU 产物 → enriched_blocks.json + document_tree.json
+│   │   ├── ingest/                  # 第 2 层：结构 + 语义 → CanonicalDocument
+│   │   │   ├── canonical/           # Canonical 契约（types）与汇聚点（builder）
+│   │   │   │   ├── types.py
+│   │   │   │   ├── tag_rules.py
+│   │   │   │   └── builder.py
+│   │   │   ├── structure/           # 结构层（solo 降级 / popo mapper / 表格通道 / 标题校正）
+│   │   │   │   ├── solo.py
+│   │   │   │   ├── popo_mapper.py
+│   │   │   │   ├── popo_table_extract.py
+│   │   │   │   └── title_level_refiner.py
+│   │   │   └── semantics/           # 语义层（表格 / 公式增强）
+│   │   │       ├── table_semantics.py
+│   │   │       └── formula_semantics.py
+│   │   ├── write/                   # 第 3 层：唯一出口（投影 / 存储 / 索引 / 图谱 / 维护）
+│   │   │   ├── projection.py
+│   │   │   ├── store/               # 文件 / SQLite（blocks、canonical、FTS5）
+│   │   │   ├── indexing/            # 向量索引（embedding / 向量存储）
+│   │   │   ├── graph/               # 知识图谱
+│   │   │   └── maintain/            # 周期维护
+│   │   ├── query/                   # 第 4 层：检索 + text2sql
+│   │   │   ├── retrieval/           # sparse / dense / hybrid / table / formula
+│   │   │   └── text2sql/            # schema linker / planner / generator / validator / executor
+│   │   ├── knowledge_service.py     # 门面：编排 read → ingest → write → query
+│   │   └── __init__.py
+│   └── popo/                        # MinerU-Popo 子模块（本地定制，更新上游注意保留）
 ├── tests/
-│   ├── unit/
-│   ├── integration/
-│   └── fixtures/
-│
 ├── pyproject.toml
 └── README.md
+
 ```
 
 ### 前端 (packages/docs-ui)
@@ -686,13 +677,14 @@ pnpm run dev
 ### 基础使用
 
 ```python
-from docs_core import DocsEngine
+from docs_core import get_knowledge_service
 
-engine = DocsEngine()
-result = engine.process_document("规范文档.pdf", library_id="harbor_spec")
-answer = engine.query("航道通航水深如何计算？")
-value = engine.query_table(table_id="vessel-sinkage-table", params={"dwt": 10, "speed": 8})
-ref = engine.get_reference("block-123")
+ks = get_knowledge_service()
+
+# 文档解析由 api-server 的 parse pipeline 编排（read → ingest → write），
+# 此处为知识库/节点管理侧入口示例：
+lib = ks.create_library(library_id="harbor_spec", name="港口规范")
+nodes = ks.list_nodes(library_id="harbor_spec")
 ```
 
 ---

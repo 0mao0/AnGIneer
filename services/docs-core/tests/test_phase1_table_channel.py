@@ -1,9 +1,9 @@
 """阶段一契约测试：popo 表格内容通道（G1）+ schema_version。"""
 
-from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
-from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
-from docs_core.read.organize.types import CanonicalBlock
-from docs_core.read.normalize.structure.popo.popo_table_extract import (
+from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
+from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
+from docs_core.ingest.canonical.types import CanonicalBlock
+from docs_core.ingest.structure.popo_table_extract import (
     extract_table_html,
     parse_table_html,
     textify_table_html,
@@ -88,7 +88,7 @@ def _table_block(block_id: str, table_html: str = "") -> CanonicalBlock:
 
 
 def test_solo_path_tables_built_from_raw_blocks() -> None:
-    from docs_core.read.organize.builder import build_canonical_tables_from_source
+    from docs_core.ingest.canonical.builder import build_canonical_tables_from_source
 
     html = "<table><tr><td>参数</td><td>数值</td></tr><tr><td>高度</td><td>100</td></tr></table>"
     raw = [{
@@ -106,7 +106,7 @@ def test_solo_path_tables_built_from_raw_blocks() -> None:
 
 def test_tables_fallback_to_canonical_table_html_when_graph_lacks_html() -> None:
     """popo 断链场景：graph 节点无 table_html 时回退 CanonicalBlock 旁路字段。"""
-    from docs_core.read.organize.builder import build_canonical_tables_from_source
+    from docs_core.ingest.canonical.builder import build_canonical_tables_from_source
 
     html = "<table><tr><td>参数</td><td>数值</td></tr><tr><td>高度</td><td>100</td></tr></table>"
     raw = [{

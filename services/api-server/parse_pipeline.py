@@ -68,7 +68,7 @@ def _verify_source_file(ctx: StageContext) -> str:
 
 
 def _verify_convert_input(ctx: StageContext) -> str:
-    from docs_core.read.convert.pdf_converter import prepare_source
+    from docs_core.read.convert2pdf import prepare_source
 
     if not ctx.source_path:
         ctx.source_path = prepare_source(ctx.library_id, ctx.doc_id, ctx.file_path)
@@ -80,9 +80,9 @@ def _verify_convert_input(ctx: StageContext) -> str:
 
 def _verify_raw_parse_input(ctx: StageContext) -> str:
     """MinerU 输入必须是 PDF（convert 转换后或上传即 PDF）。"""
-    from docs_core.read.convert.pdf_converter import resolve_pdf_input
+    from docs_core.write.store.assets_file_store import file_storage
 
-    ctx.source_path = resolve_pdf_input(ctx.library_id, ctx.doc_id)
+    ctx.source_path = file_storage.resolve_pdf_input(ctx.library_id, ctx.doc_id)
     if not Path(ctx.source_path).is_file():
         raise RuntimeError(f"PDF 输入文件不存在: {ctx.source_path}")
     ctx.input_summary = ctx.source_path
@@ -115,7 +115,7 @@ def _verify_doc_blocks_graph_input(ctx: StageContext) -> str:
 # ---- 阶段执行函数 ----
 
 def _run_source_prep(ctx: StageContext) -> str:
-    from docs_core.read.convert.pdf_converter import prepare_source
+    from docs_core.read.convert2pdf import prepare_source
 
     source_path = prepare_source(ctx.library_id, ctx.doc_id, ctx.file_path)
     ctx.input_summary = ctx.file_path
@@ -131,7 +131,7 @@ def _run_convert(ctx: StageContext) -> str:
     if ext == ".pdf":
         return "__skipped__:PDF 输入，无需转换"
 
-    from docs_core.read.convert.pdf_converter import convert_to_pdf
+    from docs_core.read.convert2pdf import convert_to_pdf
 
     # 转换输出直接落在源文件目录（与上传的 docx 同目录），地址稳定且与上传位置一致
     source_dir = Path(ctx.source_path).parent
@@ -178,7 +178,7 @@ def _run_popo(ctx: StageContext) -> str:
     if normalizer_backend not in ("popo", "auto"):
         return "__skipped__:未启用（DOCS_CORE_NORMALIZER_BACKEND != popo/auto）"
 
-    from docs_core.read.normalize.popo import get_popo_pipeline
+    from docs_core.read.popo_pipeline import get_popo_pipeline
     from docs_core.write.store.assets_file_store import file_storage
 
     mineru_raw_dir = file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
@@ -273,8 +273,8 @@ def _run_structure_from_popo(
     llm_client,
     llm_model: Optional[str],
 ) -> str:
-    from docs_core.read.normalize.popo import po_po_blocks_to_canonical
-    from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
+    from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
+    from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
     from docs_core.write.projection import write_canonical_products
     from docs_core.write.store.assets_file_store import file_storage
     from docs_core.knowledge_service import get_knowledge_service

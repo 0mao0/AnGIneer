@@ -1946,7 +1946,7 @@ def structured_result_to_canonical_blocks(
     result: StructuredResult,
 ) -> list[Any]:
     """把 solo 结构化结果（nodes + derived_rows）转换为 CanonicalBlock 列表。"""
-    from docs_core.read.organize.types import BoundingBox, CanonicalBlock
+    from docs_core.ingest.canonical.types import BoundingBox, CanonicalBlock
 
     derived_map = {
         str(row.get("block_uid") or ""): row

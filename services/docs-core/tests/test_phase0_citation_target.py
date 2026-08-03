@@ -1,6 +1,6 @@
 """Phase 0 契约测试：CitationTarget 展示页码。"""
 
-from docs_core.read.organize.types import CitationTarget
+from docs_core.ingest.canonical.types import CitationTarget
 
 
 def test_citation_target_display_label_fallback() -> None:
@@ -16,8 +16,8 @@ def test_citation_target_display_label_fallback() -> None:
 
 
 def test_citation_targets_built_with_page_labels() -> None:
-    from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
-    from docs_core.read.organize.builder import (
+    from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
+    from docs_core.ingest.canonical.builder import (
         build_canonical_document_from_popoblocks,
         build_citation_targets_from_graph,
     )

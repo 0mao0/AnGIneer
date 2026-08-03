@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
-from docs_core.read.organize.builder import (
+from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
+from docs_core.ingest.canonical.builder import (
     build_canonical_document_from_popoblocks,
     build_canonical_document,
 )
@@ -61,8 +61,8 @@ def test_solo_build_canonical_document_builds_pages(tmp_path: Path) -> None:
 
 
 def test_build_pages_from_blocks() -> None:
-    from docs_core.read.organize.builder import build_pages_from_blocks
-    from docs_core.read.organize.types import CanonicalBlock, CanonicalPage
+    from docs_core.ingest.canonical.builder import build_pages_from_blocks
+    from docs_core.ingest.canonical.types import CanonicalBlock, CanonicalPage
 
     blocks = [
         CanonicalBlock(block_id="b1", doc_id="d", page_idx=0),

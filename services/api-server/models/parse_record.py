@@ -265,14 +265,3 @@ def restore_record(record_id: int) -> bool:
     affected = conn.total_changes
     conn.close()
     return affected > 0
-
-
-def hard_delete_all_deleted() -> int:
-    """一键清除所有用户已删除记录。"""
-    init_db()
-    conn = _get_conn()
-    conn.execute("DELETE FROM parse_records WHERE status = 'deleted'")
-    conn.commit()
-    count = conn.total_changes
-    conn.close()
-    return count

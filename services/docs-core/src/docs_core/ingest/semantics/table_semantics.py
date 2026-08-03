@@ -14,7 +14,7 @@ from docs_core.query.protocols.contracts import (
 )
 
 if TYPE_CHECKING:
-    from docs_core.read.organize.types import CanonicalTable
+    from docs_core.ingest.canonical.types import CanonicalTable
 
 
 # 归一化单元格文本，便于后续做规则统计和表示构建。

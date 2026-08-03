@@ -6,11 +6,11 @@ from types import SimpleNamespace
 
 import pytest
 
-from docs_core.read.normalize.structure.solo import (
+from docs_core.ingest.structure.solo import (
     StructuredResult,
     structured_result_to_canonical_blocks,
 )
-from docs_core.read.organize.builder import build_canonical_document_from_blocks
+from docs_core.ingest.canonical.builder import build_canonical_document_from_blocks
 
 
 def _sample_result() -> StructuredResult:
@@ -66,23 +66,28 @@ def test_build_canonical_document_from_blocks_produces_tables_and_outlines(tmp_p
     assert document.chunks
 
 
-def test_query_layer_does_not_import_read_normalize() -> None:
+def test_query_layer_does_not_import_read_or_ingest_producers() -> None:
     root = Path(__file__).resolve().parents[1] / "src" / "docs_core" / "query"
     offenders = []
     for py in root.rglob("*.py"):
-        if "docs_core.read.normalize" in py.read_text(encoding="utf-8"):
+        text = py.read_text(encoding="utf-8")
+        if (
+            "docs_core.read." in text
+            or "docs_core.ingest.structure" in text
+            or "docs_core.ingest.semantics" in text
+        ):
             offenders.append(str(py))
-    assert not offenders, f"query 层不得 import read/normalize: {offenders}"
+    assert not offenders, f"query 层不得 import read/ingest 生产模块: {offenders}"
 
 
 def test_semantics_layer_does_not_import_backend_modules() -> None:
-    root = Path(__file__).resolve().parents[1] / "src" / "docs_core" / "read" / "normalize" / "semantics"
+    root = Path(__file__).resolve().parents[1] / "src" / "docs_core" / "ingest" / "semantics"
     offenders = []
     for py in root.rglob("*.py"):
         text = py.read_text(encoding="utf-8")
-        if any(marker in text for marker in ("normalize.structure", "normalize.popo", "normalize.solo")):
+        if any(marker in text for marker in ("docs_core.read", "ingest.structure")):
             offenders.append(str(py))
-    assert not offenders, f"semantics 层不得 import 后端模块: {offenders}"
+    assert not offenders, f"semantics 层不得 import read/结构层: {offenders}"
 
 
 def test_upsert_parse_stage_records_fallback(tmp_path) -> None:
@@ -178,7 +183,7 @@ def test_popo_failure_sets_fallback_target_in_auto_mode(monkeypatch, tmp_path) -
     monkeypatch.setattr(afs, "file_storage", _fake_file_storage(tmp_path))
     monkeypatch.setenv("DOCS_CORE_NORMALIZER_BACKEND", "auto")
 
-    import docs_core.read.normalize.popo as popo_pkg
+    import docs_core.read.popo_pipeline as popo_pkg
 
     class _BoomPipeline:
         def run_full_pipeline(self, **kwargs):
@@ -201,7 +206,7 @@ def test_runner_records_fallback_and_structure_completes(monkeypatch, tmp_path) 
     monkeypatch.setattr(afs, "file_storage", _fake_file_storage(tmp_path))
     monkeypatch.setenv("DOCS_CORE_NORMALIZER_BACKEND", "auto")
 
-    import docs_core.read.normalize.popo as popo_pkg
+    import docs_core.read.popo_pipeline as popo_pkg
     import parse_pipeline as pp
 
     class _BoomPipeline:

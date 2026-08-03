@@ -11,10 +11,10 @@ from typing import Optional
 from fastapi import APIRouter, UploadFile, File, HTTPException, Query, Request
 from fastapi.responses import FileResponse
 
-from docs_core.read.extract.mineru_parser import mineru_parser
+from docs_core.read.mineru_parser import mineru_parser
 from docs_core.write.store.assets_file_store import file_storage
-from docs_core.read.convert.pdf_converter import convert_to_pdf
-from docs_core.read import build_structured_index_for_doc
+from docs_core.read.convert2pdf import convert_to_pdf
+from docs_core.write.store import build_structured_index_for_doc
 
 from models.v1_responses import (
     ParseResponse, ParseStatusResponse, BlocksResponse, ContentResponse,

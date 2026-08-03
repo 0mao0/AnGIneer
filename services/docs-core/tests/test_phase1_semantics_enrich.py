@@ -1,13 +1,13 @@
 """阶段一契约测试：语义层 Canonical 入口（表格四分类 + 公式契约）。"""
 
-from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
-from docs_core.read.organize.builder import build_canonical_document_from_popoblocks
-from docs_core.read.organize.types import CanonicalBlock, CanonicalTable
-from docs_core.read.normalize.semantics.formula_semantics import (
+from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
+from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
+from docs_core.ingest.canonical.types import CanonicalBlock, CanonicalTable
+from docs_core.ingest.semantics.formula_semantics import (
     collect_canonical_explanation_lines,
     enrich_canonical_block,
 )
-from docs_core.read.normalize.semantics.table_semantics import (
+from docs_core.ingest.semantics.table_semantics import (
     TABLE_TYPE_HYBRID,
     TABLE_TYPE_MAPPING_ENUM,
     TABLE_TYPE_NUMERIC_DENSE,
@@ -87,7 +87,7 @@ def test_builder_wires_formula_semantics() -> None:
 
 def test_rebuild_from_graph_enriches_tables_and_formulas() -> None:
     """graph 重建路径（solo 降级后端）下表格与公式语义同时生效。"""
-    from docs_core.read.organize.builder import rebuild_canonical_document_from_graph
+    from docs_core.ingest.canonical.builder import rebuild_canonical_document_from_graph
 
     graph = {
         "nodes": [

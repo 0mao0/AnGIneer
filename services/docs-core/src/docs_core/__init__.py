@@ -3,7 +3,7 @@
 from .knowledge_service import KnowledgeService, get_knowledge_service, knowledge_service
 
 # read pipeline
-from .read.organize.types import (
+from .ingest.canonical.types import (
     CanonicalBlock,
     CanonicalDocument,
     CanonicalTable,

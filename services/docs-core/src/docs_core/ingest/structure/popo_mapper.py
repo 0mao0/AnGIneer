@@ -4,13 +4,13 @@ import re
 from typing import Any, Dict, List, Optional, Tuple
 from uuid import uuid4
 
-from docs_core.read.organize.types import (
+from docs_core.ingest.canonical.types import (
     BoundingBox,
     CanonicalBlock,
     CanonicalOutlineNode,
     CanonicalPage,
 )
-from docs_core.read.normalize.structure.popo.popo_table_extract import (
+from docs_core.ingest.structure.popo_table_extract import (
     extract_table_html,
     textify_table_html,
 )

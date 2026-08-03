@@ -1,4 +1,4 @@
-"""docs_core organize 阶段导出。"""
+"""docs_core ingest/canonical：Canonical 契约（types）与汇聚点（builder）。"""
 
 from .builder import (
     build_canonical_blocks,

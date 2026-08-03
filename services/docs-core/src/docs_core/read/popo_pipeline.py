@@ -25,12 +25,16 @@ class PoPoPipelineRunner:
             if env_path and Path(env_path).exists():
                 self.popo_repo_path = Path(env_path)
             else:
-                src_root = Path(__file__).resolve().parent.parent.parent.parent.parent
+                # 本文件位于 src/docs_core/read/ 下，向上 3 层即 src/
+                src_root = Path(__file__).resolve().parent.parent.parent
                 candidates = [
                     src_root / "popo",
                     src_root / "docs_core" / "popo",
                 ]
-                self.popo_repo_path = next((c for c in candidates if c.exists()), candidates[0])
+                self.popo_repo_path = next(
+                    (c for c in candidates if (c / "post_processing" / "label_normalization.py").exists()),
+                    candidates[0],
+                )
 
     def _popo_script(self, relative_path: str) -> Path:
         return self.popo_repo_path / relative_path

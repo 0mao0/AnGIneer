@@ -3,8 +3,8 @@ from datetime import UTC, datetime
 import re
 from typing import Any, List, Optional, Tuple
 
-from docs_core.read.organize.tag_rules import infer_conditions, infer_entity_tags
-from docs_core.read.organize.types import (
+from docs_core.ingest.canonical.tag_rules import infer_conditions, infer_entity_tags
+from docs_core.ingest.canonical.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
@@ -14,10 +14,10 @@ from docs_core.read.organize.types import (
     CitationTarget,
 )
 from docs_core.write.store.assets_file_store import file_storage
-from docs_core.read.normalize.semantics.formula_semantics import enrich_canonical_block
-from docs_core.read.normalize.semantics.table_semantics import enrich_canonical_table
-from docs_core.read.normalize.structure.popo.popo_table_extract import parse_table_html
-from docs_core.read.normalize.structure.title_level_refiner import resolve_title_level_refinement
+from docs_core.ingest.semantics.formula_semantics import enrich_canonical_block
+from docs_core.ingest.semantics.table_semantics import enrich_canonical_table
+from docs_core.ingest.structure.popo_table_extract import parse_table_html
+from docs_core.ingest.structure.title_level_refiner import resolve_title_level_refinement
 
 
 # 基于 blocks 的 page_idx 推导页面列表（solo 路径；popo 路径由 mapper 提供 pages）

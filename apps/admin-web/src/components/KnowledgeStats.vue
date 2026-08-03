@@ -517,16 +517,6 @@ async function batchHardDelete() {
   }
 }
 
-async function purgeAllDeleted() {
-  try {
-    const res = await knowledgeApi.purgeAllDeleted()
-    message.success(res.message)
-    await loadRecords()
-  } catch (e: any) {
-    message.error('清除失败: ' + (e.message || e))
-  }
-}
-
 onMounted(() => {
   loadRecords()
 })

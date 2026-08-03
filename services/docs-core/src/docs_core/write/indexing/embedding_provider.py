@@ -87,7 +87,8 @@ class HashEmbeddingProvider(EmbeddingProvider):
 
     def __init__(self, dimension: int = 256) -> None:
         self.name = "hash_embedding_v1"
-        self.dimension = max(64, int(dimension or 256))
+        # 允许显式对齐到小于 64 的既有集合维度（历史集合可能为低维）。
+        self.dimension = max(1, int(dimension or 256))
 
     # 将文本批量编码为固定维度向量。
     def embed_texts(self, texts: Sequence[str]) -> List[List[float]]:

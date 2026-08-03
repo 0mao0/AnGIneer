@@ -1,7 +1,7 @@
 # MinerU-Popo 管线图解
 
 > 来源: `services/docs-core/src/popo` (submodule, commit 97d5601)
-> 接线层: `services/docs-core/src/docs_core/read/normalize/popo/`
+> 接线层: `services/docs-core/src/docs_core/read/popo_pipeline.py`
 
 ## 1. PoPo 整体管线
 

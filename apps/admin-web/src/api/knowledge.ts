@@ -202,9 +202,6 @@ export const knowledgeApi = {
 
   retryDocStage: (docId: string, stageKey: string) =>
     api.post(`/knowledge/documents/${docId}/stages/${stageKey}/retry`) as Promise<{ status: string; task_id: string }>,
-
-  purgeAllDeleted: () =>
-    api.delete('/knowledge/records/purge-deleted') as Promise<{ status: string; message: string }>,
 }
 
 export interface ParseRecordItem {

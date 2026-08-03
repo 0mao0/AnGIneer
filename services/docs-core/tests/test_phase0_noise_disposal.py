@@ -1,6 +1,6 @@
 """Phase 0 契约测试：popo mapper 噪声处置表 + raw_type + printed_page_label。"""
 
-from docs_core.read.normalize.popo.popo_mapper import po_po_blocks_to_canonical
+from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
 
 from fixtures.popo_fixtures import EMPTY_TREE, build_noise_fixture
 
@@ -72,7 +72,7 @@ def test_clean_fixture_unchanged() -> None:
 
 
 def test_mapper_signature_returns_pages() -> None:
-    from docs_core.read.organize.types import CanonicalPage
+    from docs_core.ingest.canonical.types import CanonicalPage
 
     _, _, _, pages = _map()
     assert all(isinstance(p, CanonicalPage) for p in pages)

@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from docs_core.read.organize.types import CanonicalBlock, CanonicalDocument
+from docs_core.ingest.canonical.types import CanonicalBlock, CanonicalDocument
 
 
 def render_content_md(
