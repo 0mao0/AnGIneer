@@ -378,7 +378,7 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 
 ## 解析管线（8 阶段，2026-07 重构）
 
-解析任务由 `services/api-server/parse_pipeline.py` 驱动，按阶段拆分执行：
+解析任务由 `services/docs-core/src/docs_core/parse_pipeline.py` 驱动，按阶段拆分执行：
 
 | stage_key | 标题 | 类型 | 依赖 | 说明 |
 |---|---|---|---|---|

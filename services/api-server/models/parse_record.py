@@ -265,3 +265,26 @@ def restore_record(record_id: int) -> bool:
     affected = conn.total_changes
     conn.close()
     return affected > 0
+
+
+def sync_record_for_task(task_id: str, doc_id: str, status: str, error: Optional[str] = None) -> None:
+    """解析编排器的记录同步回调：把任务状态同步到 parse_records 表。
+
+    参数顺序与 ParseOrchestrator 的钩子契约一致：record_updater(task_id, doc_id, status, error)。
+    供 ParseOrchestrator 注入使用（docs_core 不依赖本模块，由 API 层注入）。
+    """
+    if status == "processing":
+        # 将 pending 记录的 task_id 改为真实 task_id；无 pending 则更新同 doc 其他记录，再不行插入新记录
+        if update_record_task_id(f"pending-{doc_id}", task_id):
+            update_record_status(task_id, "processing")
+        elif update_record_by_doc_id(doc_id, task_id, "processing"):
+            pass
+        else:
+            insert_record(ParseRecord(
+                doc_id=doc_id,
+                task_id=task_id,
+                uploaded_by="管理员",
+                status="processing",
+            ))
+    else:
+        update_record_status(task_id, status, error)

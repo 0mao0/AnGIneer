@@ -72,6 +72,18 @@ class ContentResponse(BaseModel):
     markdown: str
 
 
+class ArtifactListItem(BaseModel):
+    name: str
+    kind: str = Field(..., description="structure / index / graph")
+    size: Optional[int] = None
+    url: str
+
+
+class ArtifactsResponse(BaseModel):
+    doc_id: str
+    items: List[ArtifactListItem] = Field(default_factory=list)
+
+
 class MeResponse(BaseModel):
     key_prefix: str = Field(..., example="ag_****a1b2")
     user_name: str
