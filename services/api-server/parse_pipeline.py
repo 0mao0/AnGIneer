@@ -188,11 +188,12 @@ def _run_popo(ctx: StageContext) -> str:
         raise FileNotFoundError(f"mineru_raw_dir not found at {mineru_raw_dir}")
 
     popo_output_dir = str(paths.get_popo_dir(ctx.library_id, ctx.doc_id))
+    parsed_dir = paths.get_parsed_dir(ctx.library_id, ctx.doc_id)
+    source_dir = paths.get_source_dir(ctx.library_id, ctx.doc_id)
     pipeline = get_popo_pipeline()
     # PDF 源在 source 目录（转换后的 PDF 或上传的 PDF），重试/resume 时 ctx.source_path 可能为空，兜底解析
     source_pdf = str(ctx.source_path or "")
     if not source_pdf:
-        source_dir = paths.get_source_dir(ctx.library_id, ctx.doc_id)
         pdfs = sorted(source_dir.glob("*.pdf"))
         if pdfs:
             source_pdf = str(pdfs[-1])
@@ -202,6 +203,8 @@ def _run_popo(ctx: StageContext) -> str:
             output_dir=popo_output_dir,
             doc_id=ctx.doc_id,
             source_pdf_path=source_pdf,
+            parsed_dir=str(parsed_dir),
+            source_dir=str(source_dir),
         )
     except Exception as exc:
         # 阶段四（G7）：auto 模式回滚半成品并记录 fallback=solo，由 structure 转 solo

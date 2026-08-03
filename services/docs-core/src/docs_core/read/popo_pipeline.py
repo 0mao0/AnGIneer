@@ -84,20 +84,34 @@ class PoPoPipelineRunner:
     def run_full_pipeline(
         self, mineru_raw_dir: str, output_dir: str, doc_id: str = DOC_ID,
         source_pdf_path: str = "",
+        parsed_dir: Optional[str] = None,
+        source_dir: Optional[str] = None,
     ) -> Dict[str, Any]:
         """Run PoPo: label normalization -> inference (cloud 4B) -> build tree.
+
+        Args:
+            mineru_raw_dir: MinerU 原始产物目录（middle.json / content_list.json）。
+            output_dir: PoPo 产物输出目录（enriched_blocks.json + document_tree.json）。
+            source_pdf_path: 可直接使用的 PDF 源路径（优先）。
+            parsed_dir: 文档 parsed 目录（PDF 候选：parsed/mineru_render.pdf）。
+            source_dir: 文档 source 目录（PDF 候选，兜底扫描）。
 
         Returns: {"enriched_blocks_path": str, "document_tree_path": str}
         """
         tmp_dir = tempfile.mkdtemp(prefix="popo-")
         try:
-            return self._run_stages(mineru_raw_dir, output_dir, tmp_dir, doc_id, source_pdf_path)
+            return self._run_stages(
+                mineru_raw_dir, output_dir, tmp_dir, doc_id,
+                source_pdf_path, parsed_dir, source_dir,
+            )
         finally:
             shutil.rmtree(tmp_dir, ignore_errors=True)
 
     def _run_stages(
         self, mineru_raw_dir: str, output_dir: str, tmp_dir: str, doc_id: str,
         source_pdf_path: str = "",
+        parsed_dir: Optional[str] = None,
+        source_dir: Optional[str] = None,
     ) -> Dict[str, Any]:
         mineru_raw = Path(mineru_raw_dir)
         tmp = Path(tmp_dir)
@@ -142,12 +156,15 @@ class PoPoPipelineRunner:
             norm_files = list(normalized_out.rglob("*.json"))
         if norm_files:
             # Find a usable PDF for page image extraction
+            # 候选目录由调用方显式传入，不再从 mineru_raw.parent 推导目录布局
             pdf_candidates = []
             if source_pdf_path:
                 pdf_candidates.append(Path(source_pdf_path))
-            parsed_parent = mineru_raw.parent  # parsed_dir
-            pdf_candidates.append(parsed_parent / "mineru_render.pdf")
-            for base_dir in [parsed_parent, mineru_raw, parsed_parent.parent / "source"]:
+            parsed_parent = Path(parsed_dir) if parsed_dir else None
+            source_parent = Path(source_dir) if source_dir else None
+            if parsed_parent is not None:
+                pdf_candidates.append(parsed_parent / "mineru_render.pdf")
+            for base_dir in [d for d in (parsed_parent, mineru_raw, source_parent) if d is not None]:
                 try:
                     pdf_candidates.extend(sorted(base_dir.rglob("*.pdf")))
                 except OSError:
