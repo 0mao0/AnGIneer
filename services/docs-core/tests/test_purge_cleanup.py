@@ -74,13 +74,13 @@ def test_purge_document_artifacts_cleans_stages_steps_and_graph(tmp_path, monkey
     monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path))
     monkeypatch.setenv("DOCS_VECTORSTORE_PROVIDER", "sqlite")
 
-    from docs_core.write.graph import graph_store as gs_module
+    import docs_core.paths as paths_module
     import docs_core.write.store.assets_file_store as afs
 
     graph_db = tmp_path / "knowledge_graph.sqlite"
     gs = GraphStore(str(graph_db))
     _seed_graph(gs)
-    monkeypatch.setattr(gs_module, "resolve_graph_db_path", lambda: graph_db)
+    monkeypatch.setattr(paths_module, "resolve_graph_db_path", lambda: graph_db)
 
     deleted: list = []
 

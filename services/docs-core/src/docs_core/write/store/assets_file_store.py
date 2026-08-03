@@ -8,104 +8,25 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
+import docs_core.paths as paths
 from docs_core.ingest.semantics.formula_semantics import build_formula_representations
 from docs_core.ingest.structure.solo import (
     StructuredResult,
     build_structured_from_rawfiles,
     extract_media_bbox_list,
 )
-from docs_core.write.store.blocks_sql_store import persist_doc_blocks, resolve_knowledge_base_dir
-
-
-def resolve_structured_input_dir(raw_dir: Path) -> Path:
-    """解析结构化主链应优先读取的原始目录。"""
-    if (raw_dir / "content_list_v2.json").exists():
-        return raw_dir
-    if (raw_dir / "content_list.json").exists():
-        return raw_dir
-    if (raw_dir / "layout.json").exists() and (raw_dir / "model.json").exists():
-        return raw_dir
-    raise ValueError(f"文档尚无可用解析输入: {raw_dir}")
+from docs_core.write.store.blocks_sql_store import persist_doc_blocks
 
 
 class FileStorage:
-    """文件存储管理器"""
+    """文件存储管理器（目录布局见 docs_core.paths，本类只负责读写）。"""
 
     def __init__(self, base_dir: str = None):
         if base_dir is None:
-            base_dir = str(resolve_knowledge_base_dir())
+            base_dir = str(paths.resolve_knowledge_base_dir())
 
         self.base_dir = Path(base_dir)
         self.libraries_dir = self.base_dir / "libraries"
-
-        self._ensure_dirs()
-
-    def _ensure_dirs(self):
-        """确保目录存在"""
-        self.libraries_dir.mkdir(parents=True, exist_ok=True)
-
-    def _library_root(self, library_id: str) -> Path:
-        library_root = self.libraries_dir / library_id
-        library_root.mkdir(parents=True, exist_ok=True)
-        return library_root
-
-    def get_doc_root(self, library_id: str, doc_id: str) -> Path:
-        """获取一文档一目录根路径"""
-        doc_root = self._library_root(library_id) / "documents" / doc_id
-        doc_root.mkdir(parents=True, exist_ok=True)
-        return doc_root
-
-    def get_source_dir(self, library_id: str, doc_id: str) -> Path:
-        """获取源文件目录"""
-        source_dir = self.get_doc_root(library_id, doc_id) / "source"
-        source_dir.mkdir(parents=True, exist_ok=True)
-        return source_dir
-
-    def get_parsed_dir(self, library_id: str, doc_id: str) -> Path:
-        """获取解析结果目录"""
-        parsed_dir = self.get_doc_root(library_id, doc_id) / "parsed"
-        parsed_dir.mkdir(parents=True, exist_ok=True)
-        return parsed_dir
-
-    def get_graph_path(self, library_id: str, doc_id: str) -> Path:
-        """获取结构图谱文件路径"""
-        return self.get_parsed_dir(library_id, doc_id) / "doc_blocks_graph.json"
-
-    def get_graph_jsonl_path(self, library_id: str, doc_id: str) -> Path:
-        return self.get_parsed_dir(library_id, doc_id) / "doc_blocks_graph.jsonl"
-
-    def get_graph_meta_path(self, library_id: str, doc_id: str) -> Path:
-        return self.get_parsed_dir(library_id, doc_id) / "doc_blocks_graph_meta.json"
-
-    def get_edited_dir(self, library_id: str, doc_id: str) -> Path:
-        """获取编辑目录"""
-        edited_dir = self.get_doc_root(library_id, doc_id) / "edited"
-        edited_dir.mkdir(parents=True, exist_ok=True)
-        return edited_dir
-
-    def get_raw_dir(self, library_id: str, doc_id: str) -> Path:
-        """获取解析原始返回目录"""
-        raw_dir = self.get_parsed_dir(library_id, doc_id) / "raw"
-        raw_dir.mkdir(parents=True, exist_ok=True)
-        return raw_dir
-
-    def get_mineru_raw_dir(self, library_id: str, doc_id: str) -> Path:
-        """获取 MinerU 原始结构目录"""
-        raw_dir = self.get_parsed_dir(library_id, doc_id) / "mineru_raw"
-        raw_dir.mkdir(parents=True, exist_ok=True)
-        return raw_dir
-
-    def get_parsed_markdown_path(self, library_id: str, doc_id: str) -> Path:
-        """获取解析 Markdown 路径"""
-        return self.get_parsed_dir(library_id, doc_id) / "content.md"
-
-    def get_middle_json_path(self, library_id: str, doc_id: str) -> Path:
-        """获取中间语义数据文件路径"""
-        return self.get_parsed_dir(library_id, doc_id) / "middle.json"
-
-    def get_edited_markdown_path(self, library_id: str, doc_id: str) -> Path:
-        """获取新版编辑 Markdown 路径"""
-        return self.get_edited_dir(library_id, doc_id) / "current.md"
 
     def save_source_file(
         self,
@@ -116,17 +37,21 @@ class FileStorage:
     ) -> str:
         """保存源文件"""
         safe_name = Path(original_filename or f"{doc_id}.pdf").name
-        source_path = self.get_source_dir(library_id, doc_id) / safe_name
+        source_dir = paths.get_source_dir(library_id, doc_id, self.base_dir)
+        source_dir.mkdir(parents=True, exist_ok=True)
+        source_path = source_dir / safe_name
         with open(source_path, "wb") as f:
             f.write(content)
         return str(source_path)
 
     def save_markdown(self, library_id: str, doc_id: str, content: str) -> str:
         """保存 Markdown 文件"""
-        parsed_md_path = self.get_parsed_markdown_path(library_id, doc_id)
+        parsed_md_path = paths.get_parsed_markdown_path(library_id, doc_id, self.base_dir)
+        parsed_md_path.parent.mkdir(parents=True, exist_ok=True)
         with open(parsed_md_path, "w", encoding="utf-8") as f:
             f.write(content)
-        edited_md_path = self.get_edited_markdown_path(library_id, doc_id)
+        edited_md_path = paths.get_edited_markdown_path(library_id, doc_id, self.base_dir)
+        edited_md_path.parent.mkdir(parents=True, exist_ok=True)
         if not edited_md_path.exists():
             with open(edited_md_path, "w", encoding="utf-8") as f:
                 f.write(content)
@@ -134,7 +59,8 @@ class FileStorage:
 
     def save_edited_markdown(self, library_id: str, doc_id: str, content: str) -> str:
         """保存编辑后的 Markdown 文件"""
-        edited_dir = self.get_edited_dir(library_id, doc_id)
+        edited_dir = paths.get_edited_dir(library_id, doc_id, self.base_dir)
+        edited_dir.mkdir(parents=True, exist_ok=True)
         current_path = edited_dir / "current.md"
         with open(current_path, "w", encoding="utf-8") as f:
             f.write(content)
@@ -147,7 +73,8 @@ class FileStorage:
 
     def save_parse_artifacts(self, library_id: str, doc_id: str, output_dir: str) -> Dict[str, Any]:
         """保存解析产物到文档目录"""
-        parsed_dir = self.get_parsed_dir(library_id, doc_id)
+        parsed_dir = paths.get_parsed_dir(library_id, doc_id, self.base_dir)
+        parsed_dir.parent.mkdir(parents=True, exist_ok=True)
         staging_dir = parsed_dir.parent / f"{parsed_dir.name}.staging-{uuid.uuid4().hex[:8]}"
         if staging_dir.exists():
             shutil.rmtree(staging_dir, ignore_errors=True)
@@ -213,7 +140,8 @@ class FileStorage:
 
     def save_assets(self, library_id: str, doc_id: str, source_dir: str) -> str:
         """保存解析产物中的资产文件目录"""
-        assets_path = self.get_parsed_dir(library_id, doc_id) / "assets"
+        assets_path = paths.get_parsed_dir(library_id, doc_id, self.base_dir) / "assets"
+        assets_path.parent.mkdir(parents=True, exist_ok=True)
         if assets_path.exists():
             shutil.rmtree(assets_path)
         if os.path.isdir(source_dir):
@@ -224,7 +152,8 @@ class FileStorage:
 
     def save_raw_artifacts(self, library_id: str, doc_id: str, source_dir: str) -> str:
         """保存解析流程中的原始返回文件目录"""
-        raw_path = self.get_raw_dir(library_id, doc_id)
+        raw_path = paths.get_raw_dir(library_id, doc_id, self.base_dir)
+        raw_path.parent.mkdir(parents=True, exist_ok=True)
         if raw_path.exists():
             shutil.rmtree(raw_path)
         if os.path.isdir(source_dir):
@@ -233,40 +162,19 @@ class FileStorage:
             raw_path.mkdir(parents=True, exist_ok=True)
         return str(raw_path)
 
-    def resolve_canonical_raw_dir(self, library_id: str, doc_id: str) -> Path:
-        """解析结构主链应优先读取的原始目录"""
-        mineru_raw_dir = self.get_parsed_dir(library_id, doc_id) / "mineru_raw"
-        if mineru_raw_dir.exists():
-            return resolve_structured_input_dir(mineru_raw_dir)
-        return resolve_structured_input_dir(self.get_parsed_dir(library_id, doc_id))
-
-    def get_mineru_blocks_path(self, library_id: str, doc_id: str) -> Path:
-        """获取 MinerU 块级结果路径"""
-        return self.get_parsed_dir(library_id, doc_id) / "mineru_blocks.json"
-
     def save_mineru_blocks(self, library_id: str, doc_id: str, blocks: List[Dict[str, Any]]) -> str:
         """保存 MinerU 块级结果"""
-        blocks_path = self.get_mineru_blocks_path(library_id, doc_id)
+        blocks_path = paths.get_mineru_blocks_path(library_id, doc_id, self.base_dir)
+        blocks_path.parent.mkdir(parents=True, exist_ok=True)
         with open(blocks_path, "w", encoding="utf-8") as f:
             json_blocks = blocks if isinstance(blocks, list) else []
             json.dump(json_blocks, f, ensure_ascii=False, indent=2)
         return str(blocks_path)
 
-    def get_popo_dir(self, library_id: str, doc_id: str) -> Path:
-        popo_dir = self.get_parsed_dir(library_id, doc_id) / "popo"
-        popo_dir.mkdir(parents=True, exist_ok=True)
-        return popo_dir
-
-    def get_popo_enriched_blocks_path(self, library_id: str, doc_id: str) -> Path:
-        return self.get_popo_dir(library_id, doc_id) / "enriched_blocks.json"
-
-    def get_popo_document_tree_path(self, library_id: str, doc_id: str) -> Path:
-        return self.get_popo_dir(library_id, doc_id) / "document_tree.json"
-
     def save_popo_results(self, library_id: str, doc_id: str, enriched_blocks: list, document_tree: dict) -> None:
         import json as _json
-        eb_path = self.get_popo_enriched_blocks_path(library_id, doc_id)
-        dt_path = self.get_popo_document_tree_path(library_id, doc_id)
+        eb_path = paths.get_popo_enriched_blocks_path(library_id, doc_id, self.base_dir)
+        dt_path = paths.get_popo_document_tree_path(library_id, doc_id, self.base_dir)
         eb_path.parent.mkdir(parents=True, exist_ok=True)
         with open(eb_path, "w", encoding="utf-8") as f:
             _json.dump(enriched_blocks, f, ensure_ascii=False, indent=2)
@@ -275,7 +183,7 @@ class FileStorage:
 
     def read_popo_enriched_blocks(self, library_id: str, doc_id: str) -> list:
         import json as _json
-        path = self.get_popo_enriched_blocks_path(library_id, doc_id)
+        path = paths.get_popo_enriched_blocks_path(library_id, doc_id, self.base_dir)
         if not path.exists():
             raise FileNotFoundError(f"PoPo enriched blocks not found: {path}")
         with open(path, "r", encoding="utf-8") as f:
@@ -283,7 +191,7 @@ class FileStorage:
 
     def read_popo_document_tree(self, library_id: str, doc_id: str) -> dict:
         import json as _json
-        path = self.get_popo_document_tree_path(library_id, doc_id)
+        path = paths.get_popo_document_tree_path(library_id, doc_id, self.base_dir)
         if not path.exists():
             raise FileNotFoundError(f"PoPo document tree not found: {path}")
         with open(path, "r", encoding="utf-8") as f:
@@ -291,7 +199,8 @@ class FileStorage:
 
     def save_middle_json(self, library_id: str, doc_id: str, payload: Dict[str, Any]) -> str:
         """保存 middle.json 结构化中间数据"""
-        middle_path = self.get_middle_json_path(library_id, doc_id)
+        middle_path = paths.get_middle_json_path(library_id, doc_id, self.base_dir)
+        middle_path.parent.mkdir(parents=True, exist_ok=True)
         data = payload if isinstance(payload, dict) else {}
         with open(middle_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
@@ -299,7 +208,7 @@ class FileStorage:
 
     def read_middle_json(self, library_id: str, doc_id: str) -> Dict[str, Any]:
         """读取 middle.json 结构化中间数据"""
-        middle_path = self.get_middle_json_path(library_id, doc_id)
+        middle_path = paths.get_middle_json_path(library_id, doc_id, self.base_dir)
         if not middle_path.exists():
             return {}
         try:
@@ -313,7 +222,7 @@ class FileStorage:
 
     def read_mineru_blocks(self, library_id: str, doc_id: str) -> List[Dict[str, Any]]:
         """读取 MinerU 块级结果"""
-        blocks_path = self.get_mineru_blocks_path(library_id, doc_id)
+        blocks_path = paths.get_mineru_blocks_path(library_id, doc_id, self.base_dir)
         if not blocks_path.exists():
             return []
         try:
@@ -327,11 +236,11 @@ class FileStorage:
 
     def read_doc_blocks_graph(self, library_id: str, doc_id: str) -> Dict[str, Any]:
         """读取 doc_blocks_graph (jsonl + meta 新格式，回退 json 旧格式)"""
-        jsonl_path = self.get_graph_jsonl_path(library_id, doc_id)
-        meta_path = self.get_graph_meta_path(library_id, doc_id)
+        jsonl_path = paths.get_graph_jsonl_path(library_id, doc_id, self.base_dir)
+        meta_path = paths.get_graph_meta_path(library_id, doc_id, self.base_dir)
         if jsonl_path.exists():
             return _read_doc_blocks_graph_split(jsonl_path, meta_path)
-        legacy_path = self.get_graph_path(library_id, doc_id)
+        legacy_path = paths.get_graph_path(library_id, doc_id, self.base_dir)
         if not legacy_path.exists():
             return {}
         try:
@@ -345,8 +254,8 @@ class FileStorage:
 
     def read_markdown(self, library_id: str, doc_id: str) -> Optional[str]:
         """读取 Markdown 文件"""
-        edited_path = self.get_edited_markdown_path(library_id, doc_id)
-        parsed_path = self.get_parsed_markdown_path(library_id, doc_id)
+        edited_path = paths.get_edited_markdown_path(library_id, doc_id, self.base_dir)
+        parsed_path = paths.get_parsed_markdown_path(library_id, doc_id, self.base_dir)
         target_path = edited_path if edited_path.exists() else parsed_path
         if target_path.exists():
             with open(target_path, "r", encoding="utf-8") as f:
@@ -355,7 +264,7 @@ class FileStorage:
 
     def get_latest_source_file(self, library_id: str, doc_id: str) -> Optional[str]:
         """获取源文件路径"""
-        source_dir = self.get_doc_root(library_id, doc_id) / "source"
+        source_dir = paths.get_source_dir(library_id, doc_id, self.base_dir)
         if source_dir.exists():
             files = sorted(
                 [path for path in source_dir.iterdir() if path.is_file()],
@@ -368,7 +277,8 @@ class FileStorage:
 
     def ensure_doc_source_file(self, library_id: str, doc_id: str, file_path: Optional[str] = None) -> Optional[str]:
         """确保文档源文件存在于一文档一目录并返回规范路径"""
-        doc_source_dir = self.get_source_dir(library_id, doc_id)
+        doc_source_dir = paths.get_source_dir(library_id, doc_id, self.base_dir)
+        doc_source_dir.mkdir(parents=True, exist_ok=True)
         current_files = sorted([path for path in doc_source_dir.iterdir() if path.is_file()])
         if current_files:
             return str(current_files[0])
@@ -384,7 +294,7 @@ class FileStorage:
 
         供 raw_parse 输入核查使用；找不到时抛出带指引的 RuntimeError。
         """
-        source_dir = self.get_source_dir(library_id, doc_id)
+        source_dir = paths.get_source_dir(library_id, doc_id, self.base_dir)
         if not source_dir.exists():
             raise RuntimeError(f"源文件目录不存在: {source_dir}")
         pdf_files = sorted(
@@ -397,7 +307,7 @@ class FileStorage:
 
     def delete_document(self, library_id: str, doc_id: str) -> bool:
         """删除文档"""
-        doc_root = self._library_root(library_id) / "documents" / doc_id
+        doc_root = paths.get_doc_root(library_id, doc_id, self.base_dir)
         deleted = False
         if doc_root.exists():
             shutil.rmtree(doc_root)
@@ -407,7 +317,7 @@ class FileStorage:
     def list_documents(self, library_id: str) -> List[dict]:
         """列出知识库中的文档"""
         documents = []
-        documents_dir = self._library_root(library_id) / "documents"
+        documents_dir = paths.library_root(library_id, self.base_dir) / "documents"
         if documents_dir.exists():
             for doc_root in documents_dir.iterdir():
                 if not doc_root.is_dir():
@@ -429,24 +339,21 @@ class FileStorage:
 
         return documents
 
-    def get_doc_root_path(self, library_id: str, doc_id: str) -> str:
-        """获取文档根目录字符串路径"""
-        return str(self.get_doc_root(library_id, doc_id))
-
     def get_doc_manifest(self, library_id: str, doc_id: str) -> Dict[str, Any]:
         """获取文档清单"""
-        doc_root = self.get_doc_root(library_id, doc_id)
+        parsed_dir = paths.get_parsed_dir(library_id, doc_id, self.base_dir)
+        doc_root = parsed_dir.parent
         source_file = self.get_latest_source_file(library_id, doc_id)
-        parsed_path = self.get_parsed_markdown_path(library_id, doc_id)
-        edited_path = self.get_edited_markdown_path(library_id, doc_id)
-        assets_path = self.get_parsed_dir(library_id, doc_id) / "assets"
-        raw_dir = self.get_parsed_dir(library_id, doc_id) / "raw"
-        middle_json_path = self.get_middle_json_path(library_id, doc_id)
-        mineru_blocks_path = self.get_mineru_blocks_path(library_id, doc_id)
-        history_dir = self.get_edited_dir(library_id, doc_id) / "history"
+        parsed_path = paths.get_parsed_markdown_path(library_id, doc_id, self.base_dir)
+        edited_path = paths.get_edited_markdown_path(library_id, doc_id, self.base_dir)
+        assets_path = parsed_dir / "assets"
+        raw_dir = parsed_dir / "raw"
+        middle_json_path = paths.get_middle_json_path(library_id, doc_id, self.base_dir)
+        mineru_blocks_path = paths.get_mineru_blocks_path(library_id, doc_id, self.base_dir)
+        history_dir = paths.get_edited_dir(library_id, doc_id, self.base_dir) / "history"
         # 渲染底图 PDF：优先 source 目录（转换后 PDF 与上传文件同目录），兼容旧数据回退 parsed/mineru_render.pdf
         source_pdf = Path(source_file).with_suffix(".pdf") if source_file else None
-        render_pdf_path = source_pdf if (source_pdf and source_pdf.exists()) else (self.get_parsed_dir(library_id, doc_id) / "mineru_render.pdf")
+        render_pdf_path = source_pdf if (source_pdf and source_pdf.exists()) else (parsed_dir / "mineru_render.pdf")
         return {
             "doc_root": str(doc_root),
             "source_file": source_file,
@@ -498,12 +405,13 @@ def _save_doc_blocks_graph(
     result: StructuredResult,
 ) -> str:
     build_id = _new_or_reuse_build_id(library_id, doc_id)
-    jsonl_path = file_storage.get_graph_jsonl_path(library_id, doc_id)
+    jsonl_path = paths.get_graph_jsonl_path(library_id, doc_id)
+    jsonl_path.parent.mkdir(parents=True, exist_ok=True)
     with open(jsonl_path, "w", encoding="utf-8") as f:
         for node in result.nodes:
             f.write(json.dumps(node, ensure_ascii=False) + "\n")
 
-    meta_path = file_storage.get_graph_meta_path(library_id, doc_id)
+    meta_path = paths.get_graph_meta_path(library_id, doc_id)
     meta = {
         "edges": result.edges,
         "stats": result.stats,
@@ -513,7 +421,7 @@ def _save_doc_blocks_graph(
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
 
-    _stamp_markdown_build_id(file_storage.get_parsed_dir(library_id, doc_id) / "content.md", build_id)
+    _stamp_markdown_build_id(paths.get_parsed_markdown_path(library_id, doc_id), build_id)
 
     return str(meta_path)
 
@@ -562,7 +470,7 @@ def _stamp_markdown_build_id(path: Path, build_id: str) -> None:
 def _new_or_reuse_build_id(library_id: str, doc_id: str) -> str:
     """优先复用已有 build_id（用户编辑图谱不改配对），否则生成新戳并盖章 md。"""
     existing = None
-    meta_path = file_storage.get_graph_meta_path(library_id, doc_id)
+    meta_path = paths.get_graph_meta_path(library_id, doc_id)
     if meta_path.exists():
         try:
             existing = extract_build_id_from_meta(json.loads(meta_path.read_text(encoding="utf-8")))
@@ -570,7 +478,7 @@ def _new_or_reuse_build_id(library_id: str, doc_id: str) -> str:
             existing = None
     if existing:
         return existing
-    md_path = file_storage.get_parsed_dir(library_id, doc_id) / "content.md"
+    md_path = paths.get_parsed_markdown_path(library_id, doc_id)
     if md_path.exists():
         try:
             existing = extract_build_id_from_markdown(md_path.read_text(encoding="utf-8"))
@@ -959,9 +867,9 @@ def build_structured_index_for_doc(
     llm_model = str(opts.get("llm_model") or "").strip() or None
     derive_version = opts.get("derive_version", "v1")
 
-    parsed_dir = file_storage.get_parsed_dir(library_id, doc_id)
-    raw_dir = file_storage.resolve_canonical_raw_dir(library_id, doc_id)
-    resolve_structured_input_dir(raw_dir)
+    parsed_dir = paths.get_parsed_dir(library_id, doc_id)
+    raw_dir = paths.resolve_canonical_raw_dir(library_id, doc_id)
+    paths.resolve_structured_input_dir(raw_dir)
 
     llm_client = None
     if use_llm:
@@ -1037,8 +945,8 @@ def build_structured_index_for_doc(
 
 # 获取文档的块图谱
 def get_doc_blocks_graph(library_id: str, doc_id: str) -> Optional[Dict[str, Any]]:
-    jsonl_path = file_storage.get_graph_jsonl_path(library_id, doc_id)
-    meta_path = file_storage.get_graph_meta_path(library_id, doc_id)
+    jsonl_path = paths.get_graph_jsonl_path(library_id, doc_id)
+    meta_path = paths.get_graph_meta_path(library_id, doc_id)
     if jsonl_path.exists():
         return _read_doc_blocks_graph_split(jsonl_path, meta_path)
     return _read_legacy_doc_blocks_graph(library_id, doc_id)
@@ -1064,7 +972,7 @@ def _read_doc_blocks_graph_split(jsonl_path: Path, meta_path: Path) -> Dict[str,
 
 
 def _read_legacy_doc_blocks_graph(library_id: str, doc_id: str) -> Optional[Dict[str, Any]]:
-    graph_path = file_storage.get_graph_path(library_id, doc_id)
+    graph_path = paths.get_graph_path(library_id, doc_id)
     if not graph_path.exists():
         return None
     with open(graph_path, "r", encoding="utf-8") as f:
@@ -1075,11 +983,12 @@ def _read_legacy_doc_blocks_graph(library_id: str, doc_id: str) -> Optional[Dict
 def _write_doc_blocks_graph(library_id: str, doc_id: str, payload: Dict[str, Any]) -> str:
     nodes = payload.get("nodes")
     if isinstance(nodes, list) and nodes:
-        jsonl_path = file_storage.get_graph_jsonl_path(library_id, doc_id)
+        jsonl_path = paths.get_graph_jsonl_path(library_id, doc_id)
+        jsonl_path.parent.mkdir(parents=True, exist_ok=True)
         with open(jsonl_path, "w", encoding="utf-8") as f:
             for node in nodes:
                 f.write(json.dumps(node, ensure_ascii=False) + "\n")
-    meta_path = file_storage.get_graph_meta_path(library_id, doc_id)
+    meta_path = paths.get_graph_meta_path(library_id, doc_id)
     meta = {
         "edges": payload.get("edges", []),
         "stats": payload.get("stats", {}),

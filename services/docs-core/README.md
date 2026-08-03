@@ -379,6 +379,7 @@ flowchart LR
 services/docs-core/
 ├── src/
 │   ├── docs_core/
+│   │   ├── paths.py                 # 布局：仓库/知识库根 + 文档目录（纯路径，四层共用）
 │   │   ├── read/                    # 第 1 层：原始抽取，产出中间文件
 │   │   │   ├── convert2pdf.py       # 源文件 → PDF
 │   │   │   ├── mineru_parser.py     # PDF → MinerU 产物（md/json）

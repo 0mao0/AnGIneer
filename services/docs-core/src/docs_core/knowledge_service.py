@@ -22,6 +22,8 @@ from docs_core.write.store.blocks_sql_store import (
     KnowledgeMetaStore,
     STRUCTURED_DOC_GRAPH_STRATEGY,
     parse_datetime,
+)
+from docs_core.paths import (
     resolve_knowledge_index_db_path,
     resolve_knowledge_meta_db_path,
 )
@@ -336,7 +338,8 @@ class KnowledgeService:
     # 清理 knowledge_graph.sqlite 中该文档的图谱产物（entities 为全局共享，保留）。
     def _delete_document_graph_data(self, doc_id: str) -> None:
         try:
-            from docs_core.write.graph.graph_store import GraphStore, resolve_graph_db_path
+            from docs_core.paths import resolve_graph_db_path
+            from docs_core.write.graph.graph_store import GraphStore
             graph_db = resolve_graph_db_path()
             if graph_db.exists():
                 GraphStore(str(graph_db)).delete_document(doc_id)
@@ -933,7 +936,8 @@ def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = N
     This is the producer side of the docs-core → knowledge-graph pipeline.
     """
     try:
-        from docs_core.write.graph.graph_store import GraphStore, resolve_graph_db_path
+        from docs_core.paths import resolve_graph_db_path
+        from docs_core.write.graph.graph_store import GraphStore
         from docs_core.write.graph.evidence_builder import build_evidence_packets
         from docs_core.write.graph.graph_orchestrator import GraphOrchestrator
 

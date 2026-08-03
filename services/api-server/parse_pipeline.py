@@ -90,9 +90,10 @@ def _verify_raw_parse_input(ctx: StageContext) -> str:
 
 
 def _verify_mineru_raw_input(ctx: StageContext) -> str:
+    import docs_core.paths as paths
     from docs_core.write.store.assets_file_store import file_storage, _get_llm_client
 
-    mineru_raw_dir = file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
+    mineru_raw_dir = paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
     if not mineru_raw_dir.exists():
         raise RuntimeError(f"输入目录不存在: {mineru_raw_dir}")
     ctx.input_summary = str(mineru_raw_dir)
@@ -100,12 +101,12 @@ def _verify_mineru_raw_input(ctx: StageContext) -> str:
 
 
 def _verify_doc_blocks_graph_input(ctx: StageContext) -> str:
-    from docs_core.write.store.assets_file_store import file_storage
+    import docs_core.paths as paths
 
     # 结构产物以 jsonl+meta 为主（Solo/PoPo 均产出），legacy 单文件兜底
-    graph_path = file_storage.get_graph_jsonl_path(ctx.library_id, ctx.doc_id)
+    graph_path = paths.get_graph_jsonl_path(ctx.library_id, ctx.doc_id)
     if not graph_path.exists():
-        graph_path = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "doc_blocks_graph.json"
+        graph_path = paths.get_parsed_dir(ctx.library_id, ctx.doc_id) / "doc_blocks_graph.json"
     if not graph_path.exists():
         raise RuntimeError(f"输入文件不存在: {graph_path}")
     ctx.input_summary = str(graph_path)
@@ -178,19 +179,20 @@ def _run_popo(ctx: StageContext) -> str:
     if normalizer_backend not in ("popo", "auto"):
         return "__skipped__:未启用（DOCS_CORE_NORMALIZER_BACKEND != popo/auto）"
 
+    import docs_core.paths as paths
     from docs_core.read.popo_pipeline import get_popo_pipeline
     from docs_core.write.store.assets_file_store import file_storage
 
-    mineru_raw_dir = file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
+    mineru_raw_dir = paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
     if not mineru_raw_dir.exists():
         raise FileNotFoundError(f"mineru_raw_dir not found at {mineru_raw_dir}")
 
-    popo_output_dir = str(file_storage.get_popo_dir(ctx.library_id, ctx.doc_id))
+    popo_output_dir = str(paths.get_popo_dir(ctx.library_id, ctx.doc_id))
     pipeline = get_popo_pipeline()
     # PDF 源在 source 目录（转换后的 PDF 或上传的 PDF），重试/resume 时 ctx.source_path 可能为空，兜底解析
     source_pdf = str(ctx.source_path or "")
     if not source_pdf:
-        source_dir = file_storage.get_source_dir(ctx.library_id, ctx.doc_id)
+        source_dir = paths.get_source_dir(ctx.library_id, ctx.doc_id)
         pdfs = sorted(source_dir.glob("*.pdf"))
         if pdfs:
             source_pdf = str(pdfs[-1])
@@ -221,18 +223,18 @@ def _run_popo(ctx: StageContext) -> str:
 
 def _rollback_popo_products(ctx: StageContext) -> None:
     """G7：popo 失败时回滚已写产物，避免 structure 读到 popo 风格残缺数据。"""
-    from docs_core.write.store.assets_file_store import file_storage
+    import docs_core.paths as paths
     from docs_core.knowledge_service import get_knowledge_service
 
-    popo_dir = file_storage.get_popo_dir(ctx.library_id, ctx.doc_id)
+    popo_dir = paths.get_popo_dir(ctx.library_id, ctx.doc_id)
     if popo_dir.exists():
         shutil.rmtree(popo_dir, ignore_errors=True)
     try:
         get_knowledge_service().index_store.clear_doc_blocks(ctx.doc_id)
     except Exception:
         logger.warning("popo rollback: clear doc_blocks failed", exc_info=True)
-    mineru_md = file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id) / "content.md"
-    parsed_md = file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "content.md"
+    mineru_md = paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id) / "content.md"
+    parsed_md = paths.get_parsed_dir(ctx.library_id, ctx.doc_id) / "content.md"
     if mineru_md.exists():
         try:
             parsed_md.parent.mkdir(parents=True, exist_ok=True)
@@ -297,7 +299,7 @@ def _run_structure_from_popo(
         doc_id=ctx.doc_id,
         document=canonical_doc,
     )
-    ctx.input_summary = str(file_storage.get_popo_dir(ctx.library_id, ctx.doc_id))
+    ctx.input_summary = str(paths.get_popo_dir(ctx.library_id, ctx.doc_id))
     ctx.output_summary = f"{products['content_md_path']} + {products['graph_path']}"
     return (
         f"结构化完成（popo 后端），{len(blocks)} blocks，"
@@ -311,7 +313,8 @@ def _run_structure_solo(
     use_llm: bool,
     llm_model: Optional[str],
 ) -> str:
-    from docs_core.write.store.assets_file_store import build_structured_index_for_doc, file_storage
+    import docs_core.paths as paths
+    from docs_core.write.store.assets_file_store import build_structured_index_for_doc
 
     result = build_structured_index_for_doc(
         library_id=ctx.library_id,
@@ -323,8 +326,8 @@ def _run_structure_solo(
         },
     )
     stats = result.get("stats", {})
-    ctx.input_summary = str(file_storage.get_mineru_raw_dir(ctx.library_id, ctx.doc_id))
-    ctx.output_summary = str(file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id))
+    ctx.input_summary = str(paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id))
+    ctx.output_summary = str(paths.get_parsed_dir(ctx.library_id, ctx.doc_id))
     return f"结构化完成（solo 降级），{stats.get('canonical_blocks_count', 0)} blocks"
 
 
@@ -362,8 +365,8 @@ def _run_graph(ctx: StageContext) -> str:
         error = result.get("error", "未知错误")
         raise RuntimeError(f"图谱构建失败: {error}")
 
-    from docs_core.write.store.assets_file_store import file_storage
-    ctx.input_summary = str(file_storage.get_parsed_dir(ctx.library_id, ctx.doc_id) / "doc_blocks_graph.json")
+    import docs_core.paths as paths
+    ctx.input_summary = str(paths.get_parsed_dir(ctx.library_id, ctx.doc_id) / "doc_blocks_graph.json")
     ctx.output_summary = "knowledge_graph.sqlite (entities + relations)"
 
     entities = result.get("entities_count", 0)

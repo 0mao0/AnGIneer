@@ -263,7 +263,8 @@ def write_canonical_products(
     graph_meta_path: Optional[Path] = None,
 ) -> Dict[str, Any]:
     """从 CanonicalDocument 统一落盘 content.md / graph jsonl+meta / segments / doc_blocks 行。"""
-    from docs_core.write.store.assets_file_store import _new_or_reuse_build_id, file_storage
+    import docs_core.paths as paths
+    from docs_core.write.store.assets_file_store import _new_or_reuse_build_id
     from docs_core.knowledge_service import knowledge_service
 
     resolved_build_id = build_id or _new_or_reuse_build_id(library_id, doc_id)
@@ -271,19 +272,19 @@ def write_canonical_products(
     # content.md + 行号映射（同一 build_id，孪生配对）
     md_text, block_line_ranges = render_content_md(document.blocks, resolved_build_id)
     md_path = Path(content_md_path) if content_md_path else (
-        file_storage.get_parsed_dir(library_id, doc_id) / "content.md"
+        paths.get_parsed_markdown_path(library_id, doc_id)
     )
     md_path.parent.mkdir(parents=True, exist_ok=True)
     md_path.write_text(md_text, encoding="utf-8")
 
     # doc_blocks_graph.jsonl + meta
     graph_data = build_doc_blocks_graph(document, block_line_ranges, generated_by=generated_by)
-    jsonl_path = Path(graph_jsonl_path) if graph_jsonl_path else file_storage.get_graph_jsonl_path(library_id, doc_id)
+    jsonl_path = Path(graph_jsonl_path) if graph_jsonl_path else paths.get_graph_jsonl_path(library_id, doc_id)
     jsonl_path.parent.mkdir(parents=True, exist_ok=True)
     with open(jsonl_path, "w", encoding="utf-8") as f:
         for node in graph_data["nodes"]:
             f.write(json.dumps(node, ensure_ascii=False) + "\n")
-    meta_path = Path(graph_meta_path) if graph_meta_path else file_storage.get_graph_meta_path(library_id, doc_id)
+    meta_path = Path(graph_meta_path) if graph_meta_path else paths.get_graph_meta_path(library_id, doc_id)
     meta_path.parent.mkdir(parents=True, exist_ok=True)
     meta = {
         "edges": graph_data["edges"],

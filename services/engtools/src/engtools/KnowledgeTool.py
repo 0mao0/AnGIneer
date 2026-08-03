@@ -47,7 +47,7 @@ def _resolve_knowledge_file(file_name: str) -> Optional[str]:
     if not normalized:
         return None
     try:
-        from docs_core.write.store.assets_file_store import file_storage
+        import docs_core.paths as paths
         from docs_core.knowledge_service import knowledge_service as ks
         nodes = ks.list_nodes("default")
         for node in nodes:
@@ -55,10 +55,10 @@ def _resolve_knowledge_file(file_name: str) -> Optional[str]:
                 continue
             node_norm = _normalize_doc_title(node.title)
             if _title_matches(normalized, node_norm):
-                content_path = file_storage.get_parsed_markdown_path("default", node.id)
+                content_path = paths.get_parsed_markdown_path("default", node.id)
                 if content_path.exists():
                     return str(content_path)
-                edited_path = file_storage.get_edited_markdown_path("default", node.id)
+                edited_path = paths.get_edited_markdown_path("default", node.id)
                 if edited_path.exists():
                     return str(edited_path)
     except Exception:

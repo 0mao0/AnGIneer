@@ -1,10 +1,7 @@
 """索引层配置解析"""
 import os
-from pathlib import Path
 
 from dotenv import load_dotenv
-
-from docs_core.write.store.blocks_sql_store import resolve_knowledge_base_dir
 
 
 load_dotenv()
@@ -55,15 +52,6 @@ def get_embedding_hash_penalty() -> float:
         return _DEFAULT_HASH_PENALTY
 
 
-# 解析 Chroma 持久化目录
-def resolve_chroma_persist_dir(base_path: Path | None = None) -> Path:
-    if base_path is not None:
-        return Path(base_path).resolve().parent / "chroma"
-    root = resolve_knowledge_base_dir() / "vectorstore" / "chroma"
-    root.mkdir(parents=True, exist_ok=True)
-    return root
-
-
 __all__ = [
     "get_embedding_api_key",
     "get_embedding_api_url",
@@ -72,5 +60,4 @@ __all__ = [
     "get_embedding_provider_name",
     "get_embedding_strict_fallback",
     "get_vectorstore_provider_name",
-    "resolve_chroma_persist_dir",
 ]

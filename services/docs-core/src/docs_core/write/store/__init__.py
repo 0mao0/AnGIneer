@@ -1,17 +1,20 @@
 """docs_core store 阶段导出"""
 
-from .canonical_sql_store import CanonicalSQLiteStore
-from .blocks_sql_store import (
+from docs_core.paths import (
     KNOWLEDGE_INDEX_DB_NAME,
     KNOWLEDGE_META_DB_NAME,
+    resolve_knowledge_index_db_path,
+    resolve_knowledge_meta_db_path,
+)
+
+from .canonical_sql_store import CanonicalSQLiteStore
+from .blocks_sql_store import (
     KnowledgeIndexStore,
     KnowledgeMetaStore,
     get_doc_blocks_stats,
     parse_datetime,
     persist_doc_blocks,
     query_doc_blocks,
-    resolve_knowledge_index_db_path,
-    resolve_knowledge_meta_db_path,
 )
 from .assets_file_store import (
     FileStorage,

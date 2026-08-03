@@ -3,7 +3,6 @@ import sqlite3
 import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from docs_core.write.graph.config import Confidence, EntityLayer, RelationType
@@ -15,11 +14,6 @@ def _generate_id() -> str:
 
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
-
-
-def resolve_graph_db_path() -> Path:
-    """默认知识图谱库路径：仓库根 data/knowledge_graph.sqlite（与 api-server graph_routes 一致）。"""
-    return Path(__file__).resolve().parents[6] / "data" / "knowledge_graph.sqlite"
 
 
 def _serialize_aliases(aliases: List[str]) -> str:

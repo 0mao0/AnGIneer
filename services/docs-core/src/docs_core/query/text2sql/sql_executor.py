@@ -2,7 +2,8 @@
 from pathlib import Path
 from typing import Any, Dict, Optional
 
-from docs_core.write.store.blocks_sql_store import create_connection, resolve_knowledge_index_db_path
+from docs_core.paths import resolve_knowledge_index_db_path
+from docs_core.write.store.blocks_sql_store import create_connection
 
 
 # 执行通过校验的只SQL，并返回最小结果预览

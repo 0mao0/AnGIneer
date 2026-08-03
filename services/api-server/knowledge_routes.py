@@ -24,7 +24,7 @@ from docs_core.write.store.assets_file_store import (
     get_doc_blocks_graph,
 )
 from docs_core.write.store.assets_file_store import file_storage
-from docs_core.write.store.blocks_sql_store import resolve_repo_root
+from docs_core.paths import resolve_repo_root
 from models.parse_record import insert_record, update_record_status, update_record_task_id, update_record_by_doc_id, ParseRecord, list_records, hard_delete_record, soft_delete_record, soft_delete_record_by_id, restore_record
 
 logger = logging.getLogger(__name__)
@@ -1163,7 +1163,8 @@ async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str,
         graph = get_doc_blocks_graph(request.library_id, request.doc_id)
         if not graph:
             raise HTTPException(status_code=404, detail="Graph data not found. Please run structured-index first.")
-        meta_path = file_storage.get_graph_meta_path(request.library_id, request.doc_id)
+        import docs_core.paths as paths
+        meta_path = paths.get_graph_meta_path(request.library_id, request.doc_id)
         meta_build_id = None
         if meta_path.exists():
             import json
@@ -1207,7 +1208,8 @@ async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) ->
                     for row in stats.get("base_rows", [])
                 ],
             }
-        meta_path = file_storage.get_graph_meta_path(request.library_id, request.doc_id)
+        import docs_core.paths as paths
+        meta_path = paths.get_graph_meta_path(request.library_id, request.doc_id)
         meta_build_id = None
         if meta_path.exists():
             import json
@@ -1291,11 +1293,11 @@ def get_document_stages(doc_id: str):
 
 
 def _stage_input_hint(stage_key: str, node) -> str:
-    from docs_core.write.store.assets_file_store import file_storage
+    import docs_core.paths as paths
 
     if stage_key == "raw_parse":
         # MinerU 输入是 PDF（convert 产出或上传即 PDF），优先取 source_dir 内最新的 pdf
-        source_dir = file_storage.get_source_dir(node.library_id, node.id)
+        source_dir = paths.get_source_dir(node.library_id, node.id)
         if source_dir.exists():
             pdf_files = sorted(
                 [p for p in source_dir.iterdir() if p.suffix.lower() == '.pdf' and p.is_file()],
@@ -1307,11 +1309,11 @@ def _stage_input_hint(stage_key: str, node) -> str:
     if stage_key in ("source_prep", "convert"):
         return node.file_path or ""
     if stage_key in ("popo", "structure"):
-        return str(file_storage.get_mineru_raw_dir(node.library_id, node.id))
+        return str(paths.get_mineru_raw_dir(node.library_id, node.id))
     if stage_key in ("fts", "vectors"):
         return node.id
     if stage_key == "graph":
-        return str(file_storage.get_parsed_dir(node.library_id, node.id) / "doc_blocks_graph.json")
+        return str(paths.get_parsed_dir(node.library_id, node.id) / "doc_blocks_graph.json")
     return ""
 
 

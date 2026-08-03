@@ -125,10 +125,11 @@ def test_upsert_parse_stage_records_fallback(tmp_path) -> None:
 
 
 def _fake_file_storage(tmp_path):
-    popo_dir = tmp_path / "popo"
-    mineru_raw = tmp_path / "mineru_raw"
-    parsed = tmp_path / "parsed"
-    source = tmp_path / "source"
+    """构造 KNOWLEDGE_BASE_DIR 布局下的文档目录（与 docs_core.paths 一致）。"""
+    parsed = tmp_path / "libraries" / "lib" / "documents" / "doc" / "parsed"
+    popo_dir = parsed / "popo"
+    mineru_raw = parsed / "mineru_raw"
+    source = tmp_path / "libraries" / "lib" / "documents" / "doc" / "source"
     popo_dir.mkdir(parents=True, exist_ok=True)
     mineru_raw.mkdir(parents=True, exist_ok=True)
     parsed.mkdir(parents=True, exist_ok=True)
@@ -156,6 +157,7 @@ def _fake_file_storage(tmp_path):
 def test_rollback_popo_products(monkeypatch, tmp_path) -> None:
     import docs_core.write.store.assets_file_store as afs
 
+    monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path))
     fake_fs = _fake_file_storage(tmp_path)
     monkeypatch.setattr(afs, "file_storage", fake_fs)
     cleared = []
@@ -172,14 +174,15 @@ def test_rollback_popo_products(monkeypatch, tmp_path) -> None:
 
     ctx = StageContext(task_id="t", library_id="lib", doc_id="doc", file_path="x.pdf")
     _rollback_popo_products(ctx)
-    assert not (tmp_path / "popo").exists(), "popo 半成品目录必须删除"
+    assert not (tmp_path / "libraries" / "lib" / "documents" / "doc" / "parsed" / "popo").exists(), "popo 半成品目录必须删除"
     assert cleared == ["doc"]
-    assert (tmp_path / "parsed" / "content.md").read_text(encoding="utf-8") == "MinerU 原文"
+    assert (tmp_path / "libraries" / "lib" / "documents" / "doc" / "parsed" / "content.md").read_text(encoding="utf-8") == "MinerU 原文"
 
 
 def test_popo_failure_sets_fallback_target_in_auto_mode(monkeypatch, tmp_path) -> None:
     import docs_core.write.store.assets_file_store as afs
 
+    monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path))
     monkeypatch.setattr(afs, "file_storage", _fake_file_storage(tmp_path))
     monkeypatch.setenv("DOCS_CORE_NORMALIZER_BACKEND", "auto")
 
@@ -197,12 +200,13 @@ def test_popo_failure_sets_fallback_target_in_auto_mode(monkeypatch, tmp_path) -
     with pytest.raises(RuntimeError, match="4B API down"):
         pp._run_popo(ctx)
     assert ctx.fallback_target == "solo"
-    assert not (tmp_path / "popo").exists()
+    assert not (tmp_path / "libraries" / "lib" / "documents" / "doc" / "parsed" / "popo").exists()
 
 
 def test_runner_records_fallback_and_structure_completes(monkeypatch, tmp_path) -> None:
     import docs_core.write.store.assets_file_store as afs
 
+    monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path))
     monkeypatch.setattr(afs, "file_storage", _fake_file_storage(tmp_path))
     monkeypatch.setenv("DOCS_CORE_NORMALIZER_BACKEND", "auto")
 

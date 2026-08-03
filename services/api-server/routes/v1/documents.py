@@ -92,7 +92,8 @@ async def parse_document_v1(
                 lo_pdf = convert_to_pdf(source_path, lo_dir)
 
                 # LO 转换 PDF 落 source 目录（与上传文件同目录），前端渲染底图直接引用，无需 parsed 副本
-                source_dir = file_storage.get_source_dir(library_id, doc_id)
+                import docs_core.paths as paths
+                source_dir = paths.get_source_dir(library_id, doc_id)
                 source_dir.mkdir(parents=True, exist_ok=True)
                 lo_pdf_in_source = source_dir / Path(lo_pdf).name
                 shutil.copy2(lo_pdf, str(lo_pdf_in_source))

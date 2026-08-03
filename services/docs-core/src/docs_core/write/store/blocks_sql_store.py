@@ -1,52 +1,18 @@
 """结构化结果数据库存储。"""
 import json
-import os
 import sqlite3
 import uuid
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+import docs_core.paths as paths
 from tree_core import tree_store
 
 from docs_core.ingest.structure.solo import StructuredResult
 
 
-KNOWLEDGE_META_DB_NAME = "knowledge_meta.sqlite"
-KNOWLEDGE_INDEX_DB_NAME = "knowledge_index.sqlite"
 STRUCTURED_DOC_GRAPH_STRATEGY = "doc_blocks_graph_v1"
-
-
-# 解析仓库根目录，统一定位到 monorepo 根。
-def resolve_repo_root() -> Path:
-    current_file = Path(__file__).resolve()
-    for candidate in current_file.parents:
-        if (candidate / "apps").exists() and (candidate / "services").exists() and (candidate / "package.json").exists():
-            return candidate
-    return current_file.parents[6]
-
-
-# 解析仓库根目录并返回 docs-core 统一数据根目录。
-def resolve_knowledge_base_dir() -> Path:
-    env_override = os.getenv("KNOWLEDGE_BASE_DIR", "").strip()
-    if env_override:
-        data_dir = Path(env_override).expanduser()
-        data_dir.mkdir(parents=True, exist_ok=True)
-        return data_dir
-    root_dir = resolve_repo_root()
-    data_dir = root_dir / "data" / "knowledge_base"
-    data_dir.mkdir(parents=True, exist_ok=True)
-    return data_dir
-
-
-# 解析元数据库路径。
-def resolve_knowledge_meta_db_path() -> Path:
-    return resolve_knowledge_base_dir() / KNOWLEDGE_META_DB_NAME
-
-
-# 解析索引数据库路径。
-def resolve_knowledge_index_db_path() -> Path:
-    return resolve_knowledge_base_dir() / KNOWLEDGE_INDEX_DB_NAME
 
 
 # 安全解析数据库中的时间字符串。
@@ -81,7 +47,7 @@ class KnowledgeMetaStore:
         db_path: Optional[Path] = None,
         schema_version: str = "1.0.0",
     ) -> None:
-        self.db_path = db_path or resolve_knowledge_meta_db_path()
+        self.db_path = db_path or paths.resolve_knowledge_meta_db_path()
         self.schema_version = schema_version
         self.init_schema()
 
@@ -593,7 +559,7 @@ class KnowledgeIndexStore:
         db_path: Optional[Path] = None,
         schema_version: str = "1.0.0",
     ) -> None:
-        self.db_path = db_path or resolve_knowledge_index_db_path()
+        self.db_path = db_path or paths.resolve_knowledge_index_db_path()
         self.schema_version = schema_version
         self.init_schema()
 
@@ -1269,8 +1235,6 @@ def get_doc_blocks_stats(doc_id: str) -> Dict[str, Any]:
 
 
 __all__ = [
-    "KNOWLEDGE_INDEX_DB_NAME",
-    "KNOWLEDGE_META_DB_NAME",
     "KnowledgeIndexStore",
     "KnowledgeMetaStore",
     "create_connection",
@@ -1278,7 +1242,4 @@ __all__ = [
     "parse_datetime",
     "persist_doc_blocks",
     "query_doc_blocks",
-    "resolve_knowledge_base_dir",
-    "resolve_knowledge_index_db_path",
-    "resolve_knowledge_meta_db_path",
 ]

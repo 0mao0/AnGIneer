@@ -1,5 +1,7 @@
 """Docs 索引层统一导出。"""
 
+from docs_core.paths import resolve_chroma_persist_dir
+
 from .chroma_vector_store import ChromaVectorStore
 from .config import (
     get_embedding_api_key,
@@ -7,7 +9,6 @@ from .config import (
     get_embedding_model_name,
     get_embedding_provider_name,
     get_vectorstore_provider_name,
-    resolve_chroma_persist_dir,
 )
 from .embedding_provider import (
     DashScopeEmbeddingProvider,

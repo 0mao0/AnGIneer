@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from docs_core.write.indexing.config import resolve_chroma_persist_dir
+from docs_core.paths import resolve_chroma_persist_dir
 from docs_core.write.indexing.vector_store import VectorRecord, VectorSearchHit, VectorStore
 
 
