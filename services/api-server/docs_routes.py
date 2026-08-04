@@ -13,7 +13,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from docs_core.docs_service import get_docs_service, KnowledgeNode
-from docs_core.step04_structure.shared.jsonl_store import (
+from docs_core.step04_structure.shared.jsonl_io import (
     extract_build_id_from_markdown,
     extract_build_id_from_meta,
     get_doc_blocks_graph,

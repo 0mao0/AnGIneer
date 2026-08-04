@@ -2,7 +2,7 @@
 
 归属说明：CanonicalDocument 的唯一组装点收敛在 05（本包）；04 只出 jsonl。
 对 step04 的 import（formula_semantics / title_level_refiner / table_html_utils /
-jsonl_store）属合法 05→04 单向依赖。
+jsonl_io）属合法 05→04 单向依赖。
 """
 from dataclasses import dataclass
 from datetime import UTC, datetime

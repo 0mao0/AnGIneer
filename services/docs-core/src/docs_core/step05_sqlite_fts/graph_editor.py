@@ -9,7 +9,7 @@ from typing import Any, Dict, List, Optional, Set
 import docs_core.paths as paths
 from docs_core.step04_structure.shared.formula_semantics import build_formula_representations
 from docs_core.step04_structure.solo_engine import extract_media_bbox_list
-from docs_core.step04_structure.shared.jsonl_store import (
+from docs_core.step04_structure.shared.jsonl_io import (
     _write_doc_blocks_graph,
     get_doc_blocks_graph,
 )
@@ -62,7 +62,7 @@ def _rewrite_markdown_after_graph_change(
     doc_id: str,
     graph_data: Dict[str, Any],
 ) -> str:
-    from docs_core.step04_structure.shared.jsonl_store import (
+    from docs_core.step04_structure.shared.jsonl_io import (
         extract_build_id_from_meta,
         new_or_reuse_build_id,
     )

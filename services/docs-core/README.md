@@ -396,7 +396,7 @@ services/docs-core/
 │   │   │   ├── solo2json_pipeline.py # 主控流程：建块 → PoPo 信号 → LLM 复核 → 落 jsonl
 │   │   │   ├── popo/                # 信号读取：aligner / 续接表格合并注入 / 层级融合（Solo 单管线）
 │   │   │   └── shared/              # 跨步共享工具（04 写、05 读/调用）
-│   │   │       ├── jsonl_store.py         # jsonl/meta 读写（04 写、05 读）
+│   │   │       ├── jsonl_io.py            # jsonl/meta 读写（04 写、05 读）
 │   │   │       ├── formula_semantics.py   # 公式语义契约（04 生产/05 兜底）
 │   │   │       ├── title_level_refiner.py # 标题层级 LLM 复核
 │   │   │       └── table_html_utils.py    # 表格 HTML 解析（injector + builder 双消费）

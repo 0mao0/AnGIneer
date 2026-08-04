@@ -7,7 +7,7 @@ from typing import Any, Dict, Optional
 
 import docs_core.paths as paths
 from docs_core.step04_structure.solo_engine import StructuredResult, build_structured_from_rawfiles
-from docs_core.step04_structure.shared.jsonl_store import (
+from docs_core.step04_structure.shared.jsonl_io import (
     _stamp_markdown_build_id,
     new_or_reuse_build_id,
 )
