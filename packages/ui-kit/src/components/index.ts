@@ -13,6 +13,5 @@ export { default as CitationPopover } from './common/CitationPopover.vue'
 export { default as CitationRichContent } from './common/CitationRichContent.vue'
 export { default as CitationMentionPanel } from './common/CitationMentionPanel.vue'
 export { default as InlineCitationEditor } from './common/InlineCitationEditor.vue'
-export { default as SmartTree } from './common/SmartTree.vue'
 
 export type { NavItem } from './layout/AppHeader.vue'

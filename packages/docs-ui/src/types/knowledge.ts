@@ -1,4 +1,4 @@
-import type { CitationReference } from '@angineer/ui-kit'
+import type { CitationReference } from './citation'
 
 import type { KnowledgeTreeNode } from './tree'
 
@@ -302,4 +302,44 @@ export interface KnowledgeStructuredApi {
   updateDocumentBlock: (libraryId: string, docId: string, payload: StructuredNodeUpdatePayload) => Promise<any>
   batchOperateDocumentBlocks: (libraryId: string, docId: string, payload: StructuredBatchOperationPayload) => Promise<any>
   undoLastDocumentBlockOperation: (libraryId: string, docId: string) => Promise<any>
+}
+
+/**
+ * 知识库三栏工作台所需的完整 API 契约。
+ * 任何 Vue3 项目实现该接口即可接入 KnowledgeParseWorkspace，
+ * 组件内部不再 import 具体 API client。
+ */
+export interface KnowledgeApiPort extends KnowledgeParseApi, KnowledgeStructuredApi {
+  getNodes: (libraryId?: string, visible?: boolean) => Promise<any>
+  createNode: (data: {
+    title: string
+    node_type: string
+    library_id?: string
+    parent_id?: string
+    visible?: boolean
+    sort_order?: number
+  }) => Promise<any>
+  updateNode: (nodeId: string, data: Record<string, any>) => Promise<any>
+  softDeleteNode: (nodeId: string) => Promise<any>
+  cancelParseTask: (taskId: string) => Promise<any>
+  retryParseTask: (docId: string) => Promise<any>
+  parseDocumentAsync: (
+    libraryId: string,
+    docId: string,
+    filePath?: string,
+    parseOptions?: KnowledgeParseOptions
+  ) => Promise<any>
+  uploadDocument: (libraryId: string, file: File, parentId?: string) => Promise<any>
+  getDocument: (libraryId: string, docId: string) => Promise<any>
+  getDocBlocksGraph: (libraryId: string, docId: string) => Promise<any>
+  getGraphSnapshot: (params: {
+    libraryId?: string
+    docId?: string
+    viewMode?: 'doc' | 'global'
+  }) => Promise<any>
+  buildGraphFromDoc: (
+    libraryId: string,
+    docId: string,
+    enableLlmExtraction: boolean
+  ) => Promise<any>
 }

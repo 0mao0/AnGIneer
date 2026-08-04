@@ -14,7 +14,6 @@ import type {
   AIChatContextConfig,
 } from '../types/chat'
 import { generateMessageId, estimateTokens } from '../utils/tree'
-import { queryApi } from '../api/client'
 
 /** 根据 scene 和 id 构建会话池 key */
 export function buildSessionKey(scene: string, id: string): SessionKey {
@@ -170,6 +169,11 @@ export function useAIChat(options?: {
   scene?: string
   sessionId?: string | Ref<string>
   getContextItems?: () => Array<{ id: string; title: string }>
+  /** 问答请求实现注入；不注入时发送会得到明确错误提示 */
+  query?: (
+    payload: QueryRequest,
+    options?: { signal?: AbortSignal }
+  ) => Promise<QueryResponse>
 }): {
   messages: Ref<AIChatMessage[]>
   loading: Ref<boolean>
@@ -303,7 +307,10 @@ export function useAIChat(options?: {
     abortController.value = new AbortController()
 
     try {
-      const queryData: QueryResponse = await queryApi.query(queryRequest, {
+      if (!options?.query) {
+        throw new Error('未配置 AI 数据源（transport.query）')
+      }
+      const queryData: QueryResponse = await options.query(queryRequest, {
         signal: abortController.value.signal,
       })
       const payload = mapQueryResponseToChatResponse(queryData)

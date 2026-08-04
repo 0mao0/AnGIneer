@@ -37,7 +37,7 @@ import { onMounted, ref, computed } from 'vue'
 import BaseChat from './BaseChat.vue'
 import { useAIChat } from '../../composables/useAIChat'
 import { renderMarkdownToHtml } from '../../utils/markdown'
-import { llmApi, referenceApi } from '../../api/client'
+import type { AIChatTransport } from '../../api/types'
 import type {
   AIChatMessage,
   AIChatCitation,
@@ -60,6 +60,8 @@ interface Props {
   scene?: string
   sessionId?: string
   libraryId?: string
+  /** 数据传输层注入；不传时组件退化为纯 UI（模型列表为空、无法发送） */
+  transport?: AIChatTransport
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -73,7 +75,8 @@ const props = withDefaults(defineProps<Props>(), {
   showSystemMessages: false,
   scene: 'docs',
   sessionId: 'default',
-  libraryId: 'default'
+  libraryId: 'default',
+  transport: undefined
 })
 
 interface ModelOption { value: string; label: string }
@@ -104,7 +107,8 @@ const {
   libraryId: props.libraryId,
   scene: props.scene,
   sessionId: sessionIdRef,
-  getContextItems: () => props.contextItems
+  getContextItems: () => props.contextItems,
+  query: props.transport?.query
 })
 
 const loadingModels = ref(false)
@@ -118,7 +122,12 @@ const renderAIChatMessage = (content: string) => renderMarkdownToHtml(content, '
 const fetchModels = async () => {
   loadingModels.value = true
   try {
-    const data = await llmApi.getConfigs()
+    if (!props.transport?.fetchModels) {
+      console.warn('[AIChat] 未配置 transport.fetchModels，模型列表为空')
+      models.value = []
+      return
+    }
+    const data = await props.transport.fetchModels()
     models.value = data
       .filter((model: any) => model.configured)
       .map((model: any) => ({ value: model.name, label: model.name }))
@@ -151,13 +160,17 @@ const handleSend = async (payload: string | BaseChatSendPayload, model: string) 
 }
 
 const searchInlineCitations = async (query: string): Promise<InlineCitationCandidate[]> => {
+  if (!props.transport?.searchReferences) {
+    console.warn('[AIChat] 未配置 transport.searchReferences，内联引用检索不可用')
+    return []
+  }
   const payload: InlineCitationSearchPayload = {
     library_id: props.libraryId,
     query,
     limit: 10,
     types: ['content', 'table', 'formula', 'figure']
   }
-  const response = await referenceApi.search(payload)
+  const response = await props.transport.searchReferences(payload)
   const items = Array.isArray(response?.items) ? response.items : []
   return items.map((item: Record<string, any>) => mapReferenceSearchCandidate(item, payload))
 }

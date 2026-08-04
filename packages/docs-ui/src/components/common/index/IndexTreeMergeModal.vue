@@ -2,6 +2,7 @@
   <IndexTreeModalShell
     :open="open"
     :confirm-loading="loading"
+    :dark="dark"
     :ok-button-props="{ disabled: submitDisabled }"
     ok-text="合并选中节点"
     cancel-text="取消"
@@ -58,10 +59,12 @@ interface Props {
   selectedBlockIds: string[]
   nodeMap: Map<string, DocBlockNode>
   loading?: boolean
+  dark?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  loading: false
+  loading: false,
+  dark: false
 })
 
 const emit = defineEmits<{

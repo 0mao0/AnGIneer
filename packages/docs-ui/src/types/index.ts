@@ -28,5 +28,6 @@ export type {
   KnowledgeEvalRunResponse,
   KnowledgeEvalQuestionsResponse,
   KnowledgeParseApi,
-  KnowledgeStructuredApi
+  KnowledgeStructuredApi,
+  KnowledgeApiPort,
 } from './knowledge'

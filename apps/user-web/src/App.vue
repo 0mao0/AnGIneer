@@ -56,6 +56,7 @@
               :show-context-info="true"
               :scene="activeSection === 'sop' ? 'sops' : 'docs'"
               :session-id="chatSessionId"
+              :transport="defaultAIChatTransport"
             />
           </div>
         </a-drawer>
@@ -72,6 +73,7 @@ import { AppHeader, SplitPanes, AIChat, useTheme } from '@angineer/ui-kit'
 import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
 import { ADMIN_CONSOLE_ORIGIN, ADMIN_CONSOLE_PORT, LOCAL_HOST } from '../../shared/ports'
+import { defaultAIChatTransport } from '../../shared/chatTransport'
 import { useWorkbenchStore } from '@/stores/workbench'
 import { useTabRouterSync } from '@/composables/useTabRouterSync'
 

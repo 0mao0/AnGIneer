@@ -1,7 +1,7 @@
 <template>
   <div
     class="smart-tree"
-    :class="{ 'dark-mode': isDark }"
+    :class="{ 'dark-mode': dark }"
     @dragover="onFileDragOver"
     @dragleave="onFileDragLeave"
     @drop="onFileDrop"
@@ -173,8 +173,7 @@ import {
   FolderOutlined,
   SearchOutlined
 } from '@ant-design/icons-vue'
-import { useTheme } from '../../composables/useTheme'
-import type { SmartTreeNode, DropEvent } from '../../types/tree'
+import type { SmartTreeNode, DropEvent } from '../../../types/tree'
 
 export type { SmartTreeNode, DropEvent }
 
@@ -186,7 +185,7 @@ import {
   getStatusText,
   filterTree,
   getExpandedKeysForSearch
-} from '../../utils/tree'
+} from '../../../utils/common'
 
 interface Props {
   treeData: SmartTreeNode[]
@@ -207,6 +206,7 @@ interface Props {
   emptyText?: string
   defaultExpandedKeys?: string[]
   defaultSelectedKeys?: string[]
+  dark?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -226,7 +226,8 @@ const props = withDefaults(defineProps<Props>(), {
   loading: false,
   emptyText: '暂无数据',
   defaultExpandedKeys: () => [],
-  defaultSelectedKeys: () => []
+  defaultSelectedKeys: () => [],
+  dark: false
 })
 
 const emit = defineEmits<{
@@ -243,7 +244,6 @@ const emit = defineEmits<{
   'drop-root': [dragNodeKeys: string[]]
 }>()
 
-const { isDark } = useTheme()
 const searchText = ref('')
 const expandedKeys = ref<string[]>(props.defaultExpandedKeys)
 const selectedKeys = ref<string[]>(props.defaultSelectedKeys)

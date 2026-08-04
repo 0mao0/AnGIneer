@@ -168,6 +168,27 @@ export const knowledgeApi = {
     api.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }),
   getDocBlocksGraphSummary: (libraryId: string, docId: string) =>
     api.post('/knowledge/parse/doc-blocks-graph-summary', { library_id: libraryId, doc_id: docId }),
+  getGraphSnapshot: (params: { libraryId?: string; docId?: string; viewMode?: 'doc' | 'global' }) => {
+    const query = params.viewMode === 'doc' && params.libraryId && params.docId
+      ? { library_id: params.libraryId, doc_id: params.docId }
+      : {}
+    return api.get('/graph/snapshot', { params: query }) as Promise<{
+      stats: any
+      entities: any[]
+      relations: any[]
+    }>
+  },
+  buildGraphFromDoc: (libraryId: string, docId: string, enableLlmExtraction: boolean) =>
+    api.post('/graph/build/from-doc', {
+      library_id: libraryId,
+      doc_id: docId,
+      enable_llm_extraction: enableLlmExtraction,
+    }) as Promise<{
+      packets_processed: number
+      total_entities_found: number
+      total_relations_added: number
+      snapshot: { stats: any; entities: any[]; relations: any[] }
+    }>,
 
   listRecords: (params?: {
     status?: string

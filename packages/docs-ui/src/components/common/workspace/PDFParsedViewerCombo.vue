@@ -166,6 +166,8 @@
     ref="knowledgeGraphRef"
     :library-id="props.libraryId"
     :doc-id="props.docId"
+    :load-snapshot="props.onLoadGraphSnapshot"
+    :build-graph="props.onBuildGraph"
   />
         </div>
       </div>
@@ -183,6 +185,7 @@
       :node="editingNode"
       :node-map="nodeMap"
       :saving="savingNodeEdit"
+      :dark="props.dark"
       @cancel="closeNodeEdit"
       @submit="submitNodeEdit"
     />
@@ -191,6 +194,7 @@
       :selected-block-ids="selectedBlockIds"
       :node-map="nodeMap"
       :loading="submittingBatchOperation"
+      :dark="props.dark"
       @cancel="closeMergeModal"
       @submit="submitMergeOperation"
     />
@@ -198,6 +202,7 @@
       v-model:open="splitModalVisible"
       :node="splitTargetNode"
       :loading="submittingBatchOperation"
+      :dark="props.dark"
       @cancel="closeSplitModal"
       @submit="submitSplitOperation"
     />
@@ -265,6 +270,21 @@ const props = defineProps<{
   onUpdateStructuredNode?: (payload: StructuredNodeUpdatePayload) => Promise<void>
   onBatchStructuredOperation?: (payload: StructuredBatchOperationPayload) => Promise<void>
   onUndoLastOperation?: () => Promise<void>
+  onLoadGraphSnapshot?: (params: {
+    libraryId?: string
+    docId?: string
+    viewMode?: 'doc' | 'global'
+  }) => Promise<{ stats: any; entities: any[]; relations: any[] }>
+  onBuildGraph?: (
+    params: { libraryId?: string; docId?: string },
+    enableLlm: boolean
+  ) => Promise<{
+    packets_processed: number
+    total_entities_found: number
+    total_relations_added: number
+    snapshot: { stats: any; entities: any[]; relations: any[] }
+  }>
+  dark?: boolean
 }>()
 
 type ParsedPdfViewerComponentEventMap = ParsedPdfViewerBridgeEventMap & {

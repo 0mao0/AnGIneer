@@ -1,10 +1,10 @@
 <template>
-  <div class="doc-preview" :class="appClass">
+  <div class="doc-preview" :class="{ 'dark-mode': dark, 'light-mode': !dark }">
     <div class="preview-content">
       <div class="split-preview">
         <PDF_Viewer
           ref="pdfViewerRef"
-          :theme="isDark ? 'dark' : 'light'"
+          :theme="dark ? 'dark' : 'light'"
           :node="node"
           :isPdf="isPdf"
           :isOffice="isOffice"
@@ -45,6 +45,9 @@
           :onUpdateStructuredNode="props.onUpdateStructuredNode"
           :onBatchStructuredOperation="props.onBatchStructuredOperation"
           :onUndoLastOperation="props.onUndoLastOperation"
+          :onLoadGraphSnapshot="props.onLoadGraphSnapshot"
+          :onBuildGraph="props.onBuildGraph"
+          :dark="dark"
           @content-scroll="onRightPaneScrollPercent"
           @hover-item="onHoverLinkedItem"
           @select-item="onSelectItemFromRight"
@@ -59,7 +62,6 @@
 import { computed, ref, watch } from 'vue'
 import PDF_Viewer from '../viewers/PDF_Viewer.vue'
 import PDFParsedViewerCombo from './PDFParsedViewerCombo.vue'
-import { useTheme } from '@angineer/ui-kit'
 import { useWorkspaceLinkage } from '../../../composables/useWorkspaceLinkage'
 import { useWorkspacePreview } from '../../../composables/useWorkspacePreview'
 import type { PreviewMode } from '../../../composables/useParsedPdfViewer'
@@ -85,15 +87,29 @@ interface Props {
   onBatchStructuredOperation?: (payload: StructuredBatchOperationPayload) => Promise<void>
   onUndoLastOperation?: () => Promise<void>
   onLoadFullGraphData?: () => Promise<void>
+  onLoadGraphSnapshot?: (params: {
+    libraryId?: string
+    docId?: string
+    viewMode?: 'doc' | 'global'
+  }) => Promise<{ stats: any; entities: any[]; relations: any[] }>
+  onBuildGraph?: (
+    params: { libraryId?: string; docId?: string },
+    enableLlm: boolean
+  ) => Promise<{
+    packets_processed: number
+    total_entities_found: number
+    total_relations_added: number
+    snapshot: { stats: any; entities: any[]; relations: any[] }
+  }>
+  dark?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  graphDataFullLoaded: false
+  graphDataFullLoaded: false,
+  dark: false
 })
 
 defineEmits<PDFParsedWorkspaceEventMap>()
-
-const { appClass, isDark } = useTheme()
 
 /* 计算解析面板的默认展示 tab。 */
 const getDefaultParsedTab = (): PreviewMode => (

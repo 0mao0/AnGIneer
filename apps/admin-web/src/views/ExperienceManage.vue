@@ -195,6 +195,7 @@
                   :show-context-info="false"
                   scene="sop"
                   :session-id="sopTree.selectedNode.value?.key || 'default'"
+                  :transport="defaultAIChatTransport"
                 />
               </div>
             </div>
@@ -300,6 +301,7 @@ import {
   UploadOutlined,
 } from '@ant-design/icons-vue'
 import { SplitPanes, Panel, AIChat, useTheme, type CitationBinding, type DropEvent } from '@angineer/ui-kit'
+import { defaultAIChatTransport } from '../../../shared/chatTransport'
 import { SOPTree, SOPFlowCanvas, SOPPropertyPanel, SopMetaPanel, ForkEditModal, useSopTree, useSopFlow, sopApi } from '@angineer/sop-ui'
 import type { SOPTreeNode, SopStep } from '@angineer/sop-ui'
 import type { Connection } from '@vue-flow/core'

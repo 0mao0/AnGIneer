@@ -8,8 +8,8 @@ import {
   renderMarkdown,
   renderMarkdownInlineToHtml,
   renderMarkdownToHtml
-} from '@angineer/ui-kit/utils/markdown'
-import { getFileIconType, getStatusText } from '@angineer/ui-kit/utils/tree'
+} from './markdown'
+import { getFileIconType, getStatusText } from './common'
 import {
   truncateText,
   formatPositionTag
