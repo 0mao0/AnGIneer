@@ -562,6 +562,84 @@ def _rebuild_graph_projection(graph_data: Dict[str, Any]) -> None:
         stats[row_key] = synced_rows
 
 
+# 追加公式摘要和参数投影项，保持图谱编辑后与解析侧展示一致
+def _append_formula_projection_items(
+    items: List[Dict[str, Any]],
+    *,
+    block_uid: str,
+    page_idx: int,
+    page_seq: int,
+    block_seq: int,
+    meta: Dict[str, Any],
+) -> None:
+    formula_params = (meta.get("formula_params") or []) if isinstance(meta, dict) else []
+    formula_summary = str(meta.get("formula_summary") or "").strip() if isinstance(meta, dict) else ""
+    formula_number = str(meta.get("formula_number") or "").strip() if isinstance(meta, dict) else ""
+
+    if formula_summary:
+        items.append(
+            {
+                "id": f"{block_uid}#summary",
+                "item_type": "formula_summary",
+                "title": f"公式摘要{f' ({formula_number})' if formula_number else ''}",
+                "content": formula_summary,
+                "meta": {
+                    "block_uid": block_uid,
+                    "block_id": block_uid,
+                    "source_block_id": block_uid,
+                    "formula_block_uid": block_uid,
+                    "formula_number": formula_number or None,
+                    "page_idx": page_idx,
+                    "page_seq": page_seq,
+                    "page": page_seq,
+                    "block_seq": block_seq,
+                    "item_type": "formula_summary",
+                },
+                "order_index": len(items),
+            }
+        )
+
+    for param_index, param in enumerate(formula_params):
+        symbol = str(param.get("symbol") or "").strip()
+        description = str(param.get("description") or "").strip()
+        if not symbol or not description:
+            continue
+        content_parts = [f"{symbol}: {description}"]
+        unit = str(param.get("unit") or "").strip()
+        reference_hint = str(param.get("reference_hint") or "").strip()
+        if unit:
+            content_parts.append(f"单位 {unit}")
+        if reference_hint:
+            content_parts.append(f"来源 {reference_hint}")
+        items.append(
+            {
+                "id": f"{block_uid}#param:{param_index + 1}",
+                "item_type": "formula_param",
+                "title": symbol,
+                "content": " | ".join(content_parts),
+                "meta": {
+                    "block_uid": block_uid,
+                    "block_id": block_uid,
+                    "source_block_id": block_uid,
+                    "formula_block_uid": block_uid,
+                    "formula_number": formula_number or None,
+                    "page_idx": page_idx,
+                    "page_seq": page_seq,
+                    "page": page_seq,
+                    "block_seq": block_seq,
+                    "parameter_index": param_index + 1,
+                    "symbol": symbol,
+                    "unit": unit or None,
+                    "reference_hint": reference_hint or None,
+                    "extracted_by": param.get("extracted_by"),
+                    "confidence": param.get("confidence"),
+                    "item_type": "formula_param",
+                },
+                "order_index": len(items),
+            }
+        )
+
+
 # 从图谱节点重建结构化片段，确保合并和层级调整能实时投影
 def _build_structured_segment_items_from_graph(graph_data: Dict[str, Any]) -> List[Dict[str, Any]]:
     excluded_types = {"page_header", "page_footer", "page_number", "header", "footer"}

@@ -370,7 +370,7 @@ def build_canonical_tables_from_source(
     }
 
     # 候选表格块：graph 原始块优先（solo）；popo 路径 graph 节点无 table_html 或
-    # graph 为空时，回退 CanonicalBlock.table_html 旁路字段（阶段一 G1）。
+    # graph 为空时，回退 CanonicalBlock.table_html 旁路字段。
     candidates: List[tuple[str, dict[str, Any], Optional[CanonicalBlock]]] = []
     seen_ids: set[str] = set()
     for index, raw_block in enumerate(raw_blocks):
@@ -520,7 +520,7 @@ def build_canonical_tables_from_source(
     return tables, table_chunks
 
 
-# 阶段一：解析表格展示标题。popo 路径（raw_type=="table"）优先取并入宿主文本中的
+# 解析表格展示标题。popo 路径（raw_type=="table"）优先取并入宿主文本中的
 # “表 N xxx” caption 行，否则回退表头行；solo 路径保持原行为（text_clean 回退）。
 def _resolve_table_title(
     caption: str,
@@ -644,9 +644,9 @@ def build_citation_targets(
     return targets
 
 
-# 阶段一：语义层挂在 Canonical 之后——公式语义增强（表格已在 build_canonical_tables_*
-# 内经 enrich_canonical_table 填充），两条后端统一受益。产物挂在 CanonicalBlock 的
-# formula_semantics 旁路字段（构建期，不落库；挂载点由阶段三统一投影时定）。
+# 语义层挂在 Canonical 之后——公式语义增强（表格已在 build_canonical_tables_*
+# 内经 enrich_canonical_table 填充），两条后端统一受益。产物挂在 CanonicalBlock
+# 的 formula_semantics 旁路字段（随 graph jsonl 节点与 doc_blocks 行保留）。
 def enrich_document_semantics(
     document: CanonicalDocument,
     *,
@@ -681,8 +681,8 @@ def enrich_document_semantics(
     return document.model_copy(update={"blocks": new_blocks})
 
 
-# 阶段四（G3/P1b）：直接消费后端产出的 CanonicalBlock 构建 canonical document，
-# 不再经 graph jsonl 中转（表格/引用目标均从 Canonical 对象生成）。
+# 直接消费 CanonicalBlock（经 graph jsonl 适配）构建 canonical document，
+# 表格/引用目标均从 Canonical 对象生成。
 def build_canonical_document_from_blocks(
     library_id: str,
     doc_id: str,

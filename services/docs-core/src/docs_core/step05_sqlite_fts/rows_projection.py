@@ -44,7 +44,7 @@ def build_doc_block_rows(
     derive_version: str = "v1",
     parser_version: str = "popo-4b",
 ) -> tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
-    """G4/P11：统一 base_rows + derived_rows；popo 行携带 table_html / math_content。"""
+    """统一 base_rows + derived_rows；popo 行携带 table_html / math_content。"""
     from datetime import datetime
 
     now = datetime.now().isoformat()

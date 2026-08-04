@@ -1,4 +1,4 @@
-"""表格内容表示与分类工具（阶段四：迁入 semantics/ 顶层包）。
+"""表格内容表示与分类工具（归位 step05/rebuild：仅重建消费）。
 
 语义层契约：输入 ``CanonicalTable``（header_rows/body_rows），输出沿用现有专用
 字段 ``table_type`` / ``summary`` / ``row_keys`` / ``text_chunks``（canonical_tables
@@ -153,7 +153,7 @@ def build_table_representations(
     return payload
 
 
-# 阶段一：语义层后端无关入口——消费 CanonicalTable，产物沿用现有专用字段，
+# 语义层后端无关入口：消费 CanonicalTable，产物沿用现有专用字段，
 # 不新增列。返回 dict 与 build_table_representations 的专用字段对齐。
 def enrich_canonical_table(table: "CanonicalTable") -> Dict[str, Any]:
     if table is None:

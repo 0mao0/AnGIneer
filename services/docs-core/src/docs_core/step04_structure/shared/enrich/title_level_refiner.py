@@ -1,8 +1,7 @@
-"""标题层级 LLM 校正器（阶段二：输入解耦为 CanonicalBlock，两条后端统一生效）。
+"""标题层级 LLM 校正器（step04 用：输入 CanonicalBlock，两条后端统一生效）。
 
-原 ``solo/LLM_refiner_titles.py`` 迁移重命名而来。输入从 solo row dict 改为
-CanonicalBlock 列表：``backend_level`` 取 ``block.title_level``（solo=规则层级、
-popo=4B level），置信度策略见 ``estimate_backend_level_confidence``（G6）。
+``backend_level`` 取 ``block.title_level``（solo=规则层级、popo=4B level），
+置信度策略见 ``estimate_backend_level_confidence``。
 """
 import json
 import re
@@ -81,7 +80,7 @@ def estimate_backend_level_confidence(
     backend: str = "auto",
     source: str = "",
 ) -> float:
-    """后端层级置信度（G6）：
+    """后端层级置信度：
 
     - solo：编号正则命中 0.95 / 原始 level 0.6 / 无 0.0（与 infer_title_level 一致）
     - popo：4B 无 confidence 字段，按编号正则回退 0.8 / 纯文本 0.3
@@ -163,7 +162,7 @@ def resolve_title_level_refinement(
     return title_candidates, llm_levels, llm_status
 
 
-# 阶段二：标题层级 LLM 校正（04 建块后、05 组装 outlines/chunks 前复用），
+# 标题层级 LLM 校正（04 建块后、05 组装 outlines/chunks 前复用），
 # 对两条后端统一生效。置信度 ≥ 阈值的标题不发起 LLM 调用。
 def refine_document_title_levels(
     blocks: List["CanonicalBlock"],

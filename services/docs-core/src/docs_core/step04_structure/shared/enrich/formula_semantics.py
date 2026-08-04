@@ -1,4 +1,4 @@
-"""公式结构化提取工具（阶段四：迁入 semantics/ 顶层包）。
+"""公式结构化提取工具（step04 enrich：04 生产落 jsonl，05 对 popo 块透传、对 solo 块规则兜底）。
 
 语义层契约：输入 ``CanonicalBlock``（block_type=="formula"）及其下文解释段
 （section_path + reading_order 邻近定位），输出 ``FormulaSemanticsContract``。
@@ -302,8 +302,8 @@ def build_formula_representations(
     }
 
 
-# 阶段一：从公式块下文定位解释段（section_path + reading_order 邻近，替代 solo 的
-# explain_for 下挂逻辑）。公式后紧跟的同节段落优先，可跨一页取邻近段。
+# 从公式块下文定位解释段（section_path + reading_order 邻近）。公式后紧跟的
+# 同节段落优先，可跨一页取邻近段。
 def collect_canonical_explanation_lines(
     block: "CanonicalBlock",
     following_blocks: Optional[List["CanonicalBlock"]] = None,
@@ -329,8 +329,8 @@ def collect_canonical_explanation_lines(
     return lines
 
 
-# 阶段一：语义层后端无关入口——输入公式块（type=="formula"）及其下文解释段，
-# 产出 FormulaSemanticsContract，不依赖任何后端内部格式。
+# 语义层后端无关入口：输入公式块（type=="formula"）及其下文解释段，产出
+# FormulaSemanticsContract，不依赖任何后端内部格式。
 def enrich_formula_block(
     block: "CanonicalBlock",
     blocks: Optional[List["CanonicalBlock"]] = None,

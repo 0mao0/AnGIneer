@@ -163,7 +163,7 @@ def build_blocks_from_popo(
             # 无宿主可并入时降级保留为段落，raw_type 仍记原始标签
             block_type = "paragraph"
 
-        # 阶段一（G1）：表格原始 HTML 只进 table_html，text 保留 textified 内容避免污染 FTS
+        # 构建期旁路：表格原始 HTML 只进 table_html，text 保留 textified 内容避免污染 FTS
         table_html: Optional[str] = None
         if popo_type == "table":
             table_html = extract_table_html(pb)

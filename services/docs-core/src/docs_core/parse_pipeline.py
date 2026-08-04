@@ -218,7 +218,7 @@ def _run_popo(ctx: StageContext) -> str:
             source_dir=str(source_dir),
         )
     except Exception as exc:
-        # 阶段四（G7）：auto 模式回滚半成品并记录 fallback=solo，由 structure 转 solo
+        # auto 模式回滚半成品并记录 fallback=solo，由 structure 转 solo
         if normalizer_backend == "auto":
             _rollback_popo_products(ctx)
             ctx.fallback_target = "solo"
@@ -243,7 +243,7 @@ def _run_popo(ctx: StageContext) -> str:
 
 
 def _rollback_popo_products(ctx: StageContext) -> None:
-    """G7：popo 失败时回滚已写产物，避免 structure 读到 popo 风格残缺数据。"""
+    """popo 失败时回滚已写产物，避免 structure 读到 popo 风格残缺数据。"""
     import docs_core.paths as paths
     from docs_core.docs_service import get_docs_service
 

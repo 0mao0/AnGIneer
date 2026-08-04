@@ -169,7 +169,7 @@ def write_graph_products_from_blocks(
 ) -> Dict[str, Any]:
     """从 blocks + outlines 只落盘文件产物（content.md + graph jsonl+meta，含 outlines）。
 
-    SQLite 侧（canonical 表 / doc_blocks 行 / segments / FTS）由阶段六从 jsonl 重建。
+    SQLite 侧（canonical 表 / doc_blocks 行 / segments / FTS）由 step05 从 jsonl 重建。
     """
     import docs_core.paths as paths
     from docs_core.step04_structure.shared.jsonl_store import new_or_reuse_build_id

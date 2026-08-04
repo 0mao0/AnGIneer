@@ -1429,8 +1429,8 @@ def build_structured_from_rawfiles(
         "nodes_count": len(nodes),
         "edges_count": len(edges),
         "index_rows_count": len(index_rows),
-        # 阶段二：标题 LLM 校正已上移到 builder 层（Canonical 之后、入库之前），
-        # 结构阶段不再执行；llm_status 固定为 disabled 表示该阶段无标题 LLM。
+        # 标题 LLM 校正由 step04 title_level_refiner 承担（建块后、落 jsonl 前），
+        # solo 引擎内不再执行；llm_status 固定为 disabled。
         "llm_status": "disabled",
         "derive_version": derive_version,
         "parser_version": parser_version,
@@ -1911,9 +1911,7 @@ class RawFilesStructureBuilder:
         }
 
 
-# 阶段四（G3）：solo rows → CanonicalBlock 适配器——builder 直接消费后端产出的
-# CanonicalBlock，不再经 graph jsonl 中转。携带 table_html / math_content /
-# 标题细化结果（derived_level）与 explain_for 邻近上下文所需的顺序信息。
+# solo 内部块类型归一化（04 落 jsonl 用；05 重建另有 canonical normalize_block_type）。
 def _normalize_solo_block_type(raw: Any) -> str:
     block_type = str(raw or "").strip().lower()
     mapping = {

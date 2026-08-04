@@ -95,10 +95,10 @@ class CanonicalBlock(BaseModel):
     image_assoc_id: Optional[str] = None
     table_merge_id: Optional[str] = None
     raw_type: Optional[str] = None
-    # 构建期旁路字段（阶段一）：原始表格 HTML 只进 table_html，text 保持 textified，避免污染 FTS。
+    # 构建期旁路字段：原始表格 HTML 只进 table_html，text 保持 textified，避免污染 FTS。
     # 不落库 canonical_blocks 列式表；随 graph jsonl 节点与 doc_blocks 行保留。
     table_html: Optional[str] = None
-    # 构建期旁路字段（阶段一）：公式语义契约（FormulaSemanticsContract），挂载点由阶段三统一投影时定。
+    # 构建期旁路字段：公式语义契约（FormulaSemanticsContract），随 graph jsonl 节点与 doc_blocks 行保留。
     formula_semantics: Optional[dict] = None
 
 
