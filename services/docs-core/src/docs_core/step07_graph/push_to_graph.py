@@ -14,7 +14,7 @@ def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = N
     try:
         from docs_core.paths import resolve_graph_db_path
         from docs_core.step04_structure.shared.jsonl_store import get_doc_blocks_graph
-        from docs_core.doc_file_io import file_storage
+        from docs_core.docs_file_io import file_storage
         from docs_core.step07_graph.evidence_builder import build_evidence_packets
         from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
         from docs_core.step07_graph.graph_store import GraphStore

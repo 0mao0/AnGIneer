@@ -417,7 +417,7 @@ SOP 生成不在解析管线内：由 `services/sop-core` 的 `SopPathGenerator.
   - 承担 `doc_blocks` 与 `document_segments` 主索引的写入、查询与统计。
 - `services/docs-core/src/docs_core/docs_service.py`
   - 作为元数据门面，持有 `KnowledgeMetaStore` 与 `KnowledgeIndexStore` 双库访问。
-- `services/docs-core/src/docs_core/doc_file_io.py`
+- `services/docs-core/src/docs_core/docs_file_io.py`
   - 实现一文档一目录读写 API，并统一 canonical raw path 解析。
 - `services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py`
   - 输出解析产物清单并支持阶段进度回调。

@@ -96,7 +96,7 @@ def _verify_convert_input(ctx: StageContext) -> str:
 
 def _verify_raw_parse_input(ctx: StageContext) -> str:
     """MinerU 输入必须是 PDF（convert 转换后或上传即 PDF）。"""
-    from docs_core.doc_file_io import file_storage
+    from docs_core.docs_file_io import file_storage
 
     ctx.source_path = file_storage.resolve_pdf_input(ctx.library_id, ctx.doc_id)
     if not Path(ctx.source_path).is_file():
@@ -194,7 +194,7 @@ def _run_popo(ctx: StageContext) -> str:
 
     import docs_core.paths as paths
     from docs_core.step03_mineru_parse.popo_enhance import get_popo_pipeline
-    from docs_core.doc_file_io import file_storage
+    from docs_core.docs_file_io import file_storage
 
     mineru_raw_dir = paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
     if not mineru_raw_dir.exists():

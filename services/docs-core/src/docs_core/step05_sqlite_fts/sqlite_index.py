@@ -4,7 +4,7 @@ from typing import Any, Dict
 
 import docs_core.paths as paths
 from docs_core.step04_structure.shared.jsonl_store import get_doc_blocks_graph
-from docs_core.doc_file_io import file_storage as _file_storage
+from docs_core.docs_file_io import file_storage as _file_storage
 from docs_core.step05_sqlite_fts.store.blocks_sql_store import get_index_store
 from docs_core.step05_sqlite_fts.rows_projection import build_doc_block_rows, build_document_segments
 

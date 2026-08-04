@@ -22,7 +22,7 @@ from docs_core.step04_structure.solo.solo2json import (
     build_structured_index_for_doc,
 )
 from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph
-from docs_core.doc_file_io import file_storage
+from docs_core.docs_file_io import file_storage
 from docs_core.paths import resolve_repo_root
 from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, soft_delete_record, soft_delete_record_by_id, restore_record
 

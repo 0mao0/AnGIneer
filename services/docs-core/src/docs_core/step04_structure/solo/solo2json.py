@@ -11,7 +11,7 @@ from docs_core.step04_structure.shared.jsonl_store import (
     _stamp_markdown_build_id,
     new_or_reuse_build_id,
 )
-import docs_core.doc_file_io as _afs
+import docs_core.docs_file_io as _afs
 
 logger = logging.getLogger(__name__)
 

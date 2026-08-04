@@ -214,7 +214,7 @@ flows:
     anchors:
       - services/api-server/docs_routes.py
       - services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py
-      - services/docs-core/src/docs_core/doc_file_io.py
+      - services/docs-core/src/docs_core/docs_file_io.py
       - services/docs-core/src/docs_core/docs_service.py
 
   - id: docs-query-runtime
