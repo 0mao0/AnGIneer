@@ -18,7 +18,7 @@ from docs_core.step04_structure.shared.jsonl_store import (
     extract_build_id_from_meta,
     get_doc_blocks_graph,
 )
-from docs_core.step04_structure.solo2json import (
+from docs_core.step04_structure.solo2json_pipeline import (
     build_structured_index_for_doc,
 )
 from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph

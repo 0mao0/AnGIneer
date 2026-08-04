@@ -9,7 +9,7 @@ from typing import Any, Dict, List, Optional
 import docs_core.paths as paths
 from tree_core import tree_store
 
-from docs_core.step04_structure.solo import StructuredResult
+from docs_core.step04_structure.solo_engine import StructuredResult
 from docs_core.models.types import STRUCTURED_DOC_GRAPH_STRATEGY
 from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection
 
