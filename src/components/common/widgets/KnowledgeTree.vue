@@ -18,6 +18,7 @@
     :empty-text="emptyText"
     :default-expanded-keys="defaultExpandedKeys"
     :default-selected-keys="defaultSelectedKeys"
+    :dark="dark"
     @select="(keys, nodes) => emit('select', keys, nodes as KnowledgeTreeNode[])"
     @rename="(node) => emit('rename', node as KnowledgeTreeNode)"
     @add-folder="(node) => emit('add-folder', node as KnowledgeTreeNode | null)"
@@ -86,6 +87,7 @@ export interface KnowledgeTreeProps {
   emptyText?: string
   defaultExpandedKeys?: string[]
   defaultSelectedKeys?: string[]
+  dark?: boolean
 }
 </script>
 
@@ -95,8 +97,8 @@ export interface KnowledgeTreeProps {
  * 在 docs-ui 中承接知识节点类型与基础树组件之间的边界，便于后续扩展知识域默认行为。
  */
 import { ref } from 'vue'
-import { SmartTree } from '@angineer/ui-kit'
-import type { DropEvent } from '@angineer/ui-kit'
+import SmartTree from './SmartTree.vue'
+import type { DropEvent } from '../../../types/tree'
 import {
   FolderOutlined,
   FilePdfOutlined,

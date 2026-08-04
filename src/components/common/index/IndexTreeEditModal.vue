@@ -2,6 +2,7 @@
   <IndexTreeModalShell
     :open="open"
     :confirm-loading="saving"
+    :dark="dark"
     :ok-button-props="{ disabled: !nodeEditHasChanges }"
     ok-text="保存修改"
     cancel-text="取消"
@@ -165,10 +166,12 @@ interface Props {
   node: DocBlockNode | null
   nodeMap: Map<string, DocBlockNode>
   saving?: boolean
+  dark?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  saving: false
+  saving: false,
+  dark: false
 })
 
 const emit = defineEmits<{

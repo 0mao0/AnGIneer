@@ -1,4 +1,4 @@
-import type { CitationReference } from '@angineer/ui-kit'
+import type { CitationReference } from '../types/citation'
 import { nextTick, type Ref } from 'vue'
 
 type CitationRichMedia = {

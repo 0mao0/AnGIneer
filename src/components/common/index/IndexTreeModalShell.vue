@@ -22,7 +22,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useTheme } from '@angineer/ui-kit'
 
 interface Props {
   open: boolean
@@ -32,15 +31,17 @@ interface Props {
   okText?: string
   cancelText?: string
   okButtonProps?: Record<string, unknown>
+  dark?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   title: '',
   width: 840,
   confirmLoading: false,
   okText: '确认',
   cancelText: '取消',
-  okButtonProps: () => ({})
+  okButtonProps: () => ({}),
+  dark: false
 })
 
 const emit = defineEmits<{
@@ -49,11 +50,9 @@ const emit = defineEmits<{
   cancel: []
 }>()
 
-const { isDark } = useTheme()
-
 const wrapClassName = computed(() => {
   const base = 'index-tree-modal'
-  return isDark.value ? `${base} ${base}-dark` : base
+  return props.dark ? `${base} ${base}-dark` : base
 })
 
 /* 同步关闭行为给外层弹窗状态。 */

@@ -18,6 +18,9 @@
       <a-spin size="small" />
       <span>加载知识图谱...</span>
     </div>
+    <div v-else-if="error" class="graph-empty">
+      <div class="graph-empty-text">{{ error }}</div>
+    </div>
     <div v-else-if="!entities.length && viewMode === 'doc' && !extractLoading && !deepExtractLoading" class="graph-empty">
       <div class="graph-empty-text">本文档尚未提取图谱</div>
       <div class="graph-empty-desc">点击下方按钮快速扫描文档中的工程术语，建立基础实体关系</div>
@@ -100,14 +103,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
 
-const props = withDefaults(defineProps<{
-  libraryId?: string
-  docId?: string
-}>(), {
-  libraryId: '',
-  docId: '',
-})
-
 interface GraphEntity {
   id: string
   name: string
@@ -138,6 +133,28 @@ interface BuildResponse {
   total_relations_added: number
   snapshot: GraphSnapshot
 }
+
+/**
+ * 图谱数据源全部通过 props 注入，组件自身不发起任何请求，便于整体移植。
+ */
+const props = withDefaults(defineProps<{
+  libraryId?: string
+  docId?: string
+  /** 加载图谱快照（doc/global 两种视图共用） */
+  loadSnapshot?: (params: {
+    libraryId?: string
+    docId?: string
+    viewMode?: 'doc' | 'global'
+  }) => Promise<GraphSnapshot>
+  /** 构建图谱（enableLlm 区分快速提取 / AI 深度提取） */
+  buildGraph?: (
+    params: { libraryId?: string; docId?: string },
+    enableLlm: boolean
+  ) => Promise<BuildResponse>
+}>(), {
+  libraryId: '',
+  docId: '',
+})
 
 const loading = ref(true)
 const error = ref('')
@@ -200,13 +217,6 @@ const layerCounts = computed(() => {
   for (const e of entities.value) c[e.layer] = (c[e.layer] || 0) + 1
   return c
 })
-
-function buildSnapshotUrl() {
-  if (viewMode.value === 'doc' && props.libraryId && props.docId) {
-    return `/api/graph/snapshot?library_id=${props.libraryId}&doc_id=${props.docId}`
-  }
-  return '/api/graph/snapshot'
-}
 
 function buildVisNodes() {
   return entities.value.map((e, i) => {
@@ -294,10 +304,17 @@ async function fetchGraph() {
   loading.value = true
   error.value = ''
   try {
-    const url = buildSnapshotUrl()
-    const resp = await fetch(url)
-    if (!resp.ok) throw new Error(`API error: ${resp.status}`)
-    const data: GraphSnapshot = await resp.json()
+    if (!props.loadSnapshot) {
+      error.value = '未配置图谱数据源（loadSnapshot）'
+      entities.value = []
+      relations.value = []
+      return
+    }
+    const data = await props.loadSnapshot({
+      libraryId: props.libraryId,
+      docId: props.docId,
+      viewMode: viewMode.value,
+    })
     entities.value = data.entities || []
     relations.value = data.relations || []
   } catch (e: any) {
@@ -349,19 +366,16 @@ function initNetwork() {
 
 async function handleExtract() {
   if (!props.libraryId || !props.docId) return
+  if (!props.buildGraph) {
+    error.value = '未配置图谱构建函数（buildGraph）'
+    return
+  }
   extractLoading.value = true
   try {
-    const resp = await fetch('/api/graph/build/from-doc', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        library_id: props.libraryId,
-        doc_id: props.docId,
-        enable_llm_extraction: false,
-      }),
-    })
-    if (!resp.ok) throw new Error(`Extract error: ${resp.status}`)
-    const data: BuildResponse = await resp.json()
+    const data = await props.buildGraph(
+      { libraryId: props.libraryId, docId: props.docId },
+      false
+    )
     hasExtracted.value = true
     entities.value = data.snapshot.entities || []
     relations.value = data.snapshot.relations || []
@@ -375,19 +389,16 @@ async function handleExtract() {
 
 async function handleDeepExtract() {
   if (!props.libraryId || !props.docId) return
+  if (!props.buildGraph) {
+    error.value = '未配置图谱构建函数（buildGraph）'
+    return
+  }
   deepExtractLoading.value = true
   try {
-    const resp = await fetch('/api/graph/build/from-doc', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        library_id: props.libraryId,
-        doc_id: props.docId,
-        enable_llm_extraction: true,
-      }),
-    })
-    if (!resp.ok) throw new Error(`Deep extract error: ${resp.status}`)
-    const data: BuildResponse = await resp.json()
+    const data = await props.buildGraph(
+      { libraryId: props.libraryId, docId: props.docId },
+      true
+    )
     hasDeepExtracted.value = true
     entities.value = data.snapshot.entities || []
     relations.value = data.snapshot.relations || []
