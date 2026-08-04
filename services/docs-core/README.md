@@ -392,7 +392,8 @@ services/docs-core/
 │   │   │   ├── mineru_parser.py
 │   │   │   └── popo_enhance.py
 │   │   ├── step04_structure/        # 第 4 步：结构化 → jsonl
-│   │   │   ├── solo/                # solo.py + solo2json.py（唯一构建引擎 + 落盘）
+│   │   │   ├── solo.py              # 唯一构建引擎（规则 → 块/层级/语义）
+│   │   │   ├── solo2json.py         # 主控流程：建块 → PoPo 信号 → LLM 复核 → 落 jsonl
 │   │   │   ├── popo/                # 信号读取：aligner / 续接表格合并注入 / 层级融合（Solo 单管线）
 │   │   │   └── shared/              # enrich/（formula_semantics/title_level_refiner）
 │   │   │       ├── jsonl_store.py   # jsonl/meta 读写（04 写、05 读）

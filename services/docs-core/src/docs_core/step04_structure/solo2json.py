@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 
 import docs_core.paths as paths
-from docs_core.step04_structure.solo.solo import StructuredResult, build_structured_from_rawfiles
+from docs_core.step04_structure.solo import StructuredResult, build_structured_from_rawfiles
 from docs_core.step04_structure.shared.jsonl_store import (
     _stamp_markdown_build_id,
     new_or_reuse_build_id,

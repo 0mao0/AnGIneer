@@ -278,7 +278,7 @@ def _run_structure_solo(
     llm_model: Optional[str],
 ) -> str:
     import docs_core.paths as paths
-    from docs_core.step04_structure.solo.solo2json import build_structured_index_for_doc
+    from docs_core.step04_structure.solo2json import build_structured_index_for_doc
 
     result = build_structured_index_for_doc(
         library_id=ctx.library_id,
