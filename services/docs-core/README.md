@@ -382,7 +382,7 @@ services/docs-core/
 │   │   ├── paths.py                 # 布局：仓库/知识库根 + 文档目录（纯路径，全局共用）
 │   │   ├── docs_service.py          # 门面：SQLite 落库 + 查询的统一入口
 │   │   ├── parse_pipeline.py        # 10 步流水线调度（阶段注册 / 顺序 / 状态机）
-│   │   ├── assets_file_store.py     # 文件 IO（全局共用，不属于任何步骤）
+│   │   ├── doc_file_io.py           # 文件 IO（全局共用，不属于任何步骤）
 │   │   ├── models/                  # 全流水线共享契约 types.py（04/05/06/09 + 根）
 │   │   ├── step01_source_prep/      # 第 1 步：源文件准备
 │   │   │   └── source_prep.py

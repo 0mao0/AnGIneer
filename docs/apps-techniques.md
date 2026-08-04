@@ -394,7 +394,7 @@ flowchart TB
 - `services/api-server/docs_routes.py`
   - 统一承载知识库路由、文件预览路由与解析主链编排：任务创建、阶段推进、MinerU 调用、产物落盘、A 主链索引构建。
 - `services/docs-core/src/docs_core/projection/*.py`
-  - 当前仓库中尚未形成 A/B/C 三类独立 projection 模块，仍以 `step04_structure`、`step05_sqlite_fts/assets_file_store.py` 为主链实现。
+  - 当前仓库中尚未形成 A/B/C 三类独立 projection 模块，仍以 `step04_structure`、`docs_core/doc_file_io.py` 为主链实现。
 - `services/docs-core/src/docs_core/index/doc_block_store.py`
   - 抽离 `doc_blocks` 索引写入、查询、统计，避免与文件存储职责混放。
 - `services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py`

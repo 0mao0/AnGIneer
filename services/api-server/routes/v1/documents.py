@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse
 from starlette.background import BackgroundTask
 
 import docs_core.paths as paths
-from docs_core.assets_file_store import file_storage
+from docs_core.doc_file_io import file_storage
 from docs_core.step10_export.export_artifacts import (
     list_doc_artifacts,
     export_index_db,

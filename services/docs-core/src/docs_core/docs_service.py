@@ -298,7 +298,7 @@ class DocsService:
     def _purge_document_artifacts(self, document_nodes: List[KnowledgeNode]) -> None:
         if not document_nodes:
             return
-        from docs_core.assets_file_store import file_storage
+        from docs_core.doc_file_io import file_storage
 
         doc_ids = [node.id for node in document_nodes]
         self.meta_store.delete_parse_tasks_by_doc_ids(doc_ids)

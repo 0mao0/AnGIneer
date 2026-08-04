@@ -105,7 +105,7 @@ async def get_full_snapshot(library_id: Optional[str] = None, doc_id: Optional[s
 
 @graph_router.post("/build/from-doc")
 async def build_graph_from_doc(req: PushDocRequest):
-    from docs_core.assets_file_store import file_storage
+    from docs_core.doc_file_io import file_storage
     from docs_core.step04_structure.shared.jsonl_store import get_doc_blocks_graph
     from docs_core.step07_graph.graph_store import GraphStore
     from docs_core.step07_graph.evidence_builder import build_evidence_packets
@@ -191,7 +191,7 @@ async def human_review(req: HumanReviewRequest):
 
 @graph_router.post("/extractors/run")
 async def run_extractors(req: ExtractorsRunRequest):
-    from docs_core.assets_file_store import file_storage
+    from docs_core.doc_file_io import file_storage
     from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
 
     store = _get_store()
@@ -230,7 +230,7 @@ async def get_docs_with_graph(library_id: str = "default"):
     store = _get_store()
     docs = store.get_docs_with_graph(library_id)
     try:
-        from docs_core.assets_file_store import file_storage
+        from docs_core.doc_file_io import file_storage
         name_map = {d["id"]: d.get("filename", "") for d in file_storage.list_documents(library_id)}
         for doc in docs:
             doc["name"] = name_map.get(doc["doc_id"], "")

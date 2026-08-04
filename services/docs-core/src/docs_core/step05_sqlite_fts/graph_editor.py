@@ -14,7 +14,7 @@ from docs_core.step04_structure.shared.jsonl_store import (
     get_doc_blocks_graph,
 )
 from docs_core.step05_sqlite_fts.store.blocks_sql_store import get_index_store
-import docs_core.assets_file_store as _afs
+import docs_core.doc_file_io as _afs
 
 __all__ = [
     "batch_operate_doc_blocks",
