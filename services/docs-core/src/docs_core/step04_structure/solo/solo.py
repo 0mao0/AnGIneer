@@ -1429,8 +1429,8 @@ def build_structured_from_rawfiles(
         "nodes_count": len(nodes),
         "edges_count": len(edges),
         "index_rows_count": len(index_rows),
-        # 标题 LLM 校正由 step04 title_level_refiner 承担（建块后、落 jsonl 前），
-        # solo 引擎内不再执行；llm_status 固定为 disabled。
+        # 标题 LLM 复核由 solo2json 在建块后、落 jsonl 前调用 title_level_refiner 承担
+        # （见 solo2json._review_title_levels_with_llm）；本引擎只产规则层级。
         "llm_status": "disabled",
         "derive_version": derive_version,
         "parser_version": parser_version,

@@ -114,6 +114,80 @@ def _apply_popo_signals(
         return nodes, {"injection": skipped, "level_fusion": skipped}
 
 
+# 标题层级 LLM 复核（无论有无 PoPo 信号都执行）：
+# solo 规则层级（derived_level）与 PoPo 融合结果（title_level）落 jsonl 前，
+# 交给 title_level_refiner 复核——编号命中的高置信度标题跳过，其余交 LLM。
+def _review_title_levels_with_llm(
+    nodes: list,
+    *,
+    doc_id: str,
+    llm_client=None,
+    llm_model: Optional[str] = None,
+    use_llm: bool = False,
+) -> tuple[list, Dict[str, Any]]:
+    from docs_core.models.types import CanonicalBlock
+    from docs_core.step04_structure.shared.enrich.title_level_refiner import (
+        resolve_title_level_refinement,
+    )
+
+    title_nodes = [
+        node for node in nodes
+        if str(node.get("block_type") or "").strip() == "title"
+        and str(node.get("plain_text") or "").strip()
+    ]
+    stats: Dict[str, Any] = {"total_titles": len(title_nodes), "llm_status": "disabled", "updated": 0}
+    if not title_nodes or not (use_llm and llm_client):
+        return nodes, stats
+
+    blocks = [
+        CanonicalBlock(
+            block_id=str(node.get("block_uid") or node.get("id")),
+            doc_id=doc_id,
+            page_idx=int(node.get("page_idx") or 0),
+            block_type="title",
+            text=str(node.get("plain_text") or ""),
+            text_clean=str(node.get("plain_text") or ""),
+            reading_order=int(node.get("block_seq") or 0),
+            title_level=(
+                node.get("title_level")
+                if node.get("title_level") is not None
+                else node.get("derived_level")
+            ),
+            source="mineru",
+        )
+        for node in title_nodes
+    ]
+    candidates, llm_levels, status = resolve_title_level_refinement(
+        blocks,
+        llm_client,
+        use_llm=True,
+        llm_model=llm_model,
+    )
+    stats["llm_status"] = status
+    if not llm_levels:
+        return nodes, stats
+
+    candidate_map = {candidate["block_id"]: candidate for candidate in candidates}
+    by_uid = {str(node.get("block_uid") or node.get("id")): node for node in nodes}
+    for block_id, (level, confidence) in llm_levels.items():
+        node = by_uid.get(block_id)
+        if node is None:
+            continue
+        candidate = candidate_map.get(block_id)
+        current_confidence = float(candidate.get("confidence") or 0.0) if candidate else 0.0
+        current_level = (
+            node.get("title_level")
+            if node.get("title_level") is not None
+            else node.get("derived_level")
+        )
+        if current_level is None or confidence >= current_confidence:
+            node["title_level"] = level
+            node["derived_level"] = level
+            node["derived_by"] = "rule+llm"
+            stats["updated"] += 1
+    return nodes, stats
+
+
 # 为文档构建结构化索引（step04：只落 jsonl + meta；SQLite 由 step05 从 jsonl 重建）
 def build_structured_index_for_doc(
     library_id: str,
@@ -155,11 +229,19 @@ def build_structured_index_for_doc(
         raise ValueError(f"构建结构失败: {result.stats.get('error')}")
 
     signal_stats: Dict[str, Any] = {"applied": 0, "rejected": 0, "skipped_reason": "skipped"}
+    title_review_stats: Dict[str, Any] = {"total_titles": 0, "llm_status": "disabled", "updated": 0}
     if result.nodes:
         result.nodes, signal_stats = _apply_popo_signals(
             library_id,
             doc_id,
             result.nodes,
+            llm_client=llm_client,
+            llm_model=llm_model,
+            use_llm=use_llm,
+        )
+        result.nodes, title_review_stats = _review_title_levels_with_llm(
+            result.nodes,
+            doc_id=doc_id,
             llm_client=llm_client,
             llm_model=llm_model,
             use_llm=use_llm,
@@ -171,10 +253,11 @@ def build_structured_index_for_doc(
         "nodes_count": len(result.nodes),
         "edges_count": len(result.edges),
         "index_rows_count": len(result.index_rows),
-        "llm_status": result.stats.get("llm_status", "disabled"),
+        "llm_status": title_review_stats["llm_status"],
         "llm_model": llm_model,
         "derive_version": derive_version,
         "popo_signal": signal_stats,
+        "title_level_review": title_review_stats,
         "graph_path": graph_path,
     }
 
