@@ -1,10 +1,10 @@
-"""步骤五：结构化——solo/popo 引擎 + canonical 构建 + jsonl 落盘。
+"""步骤四：结构化——MinerU raw → jsonl（块整理 + 层级化 + 语义落盘）。
 
-本包模块较多且互相引用（含 step05 依赖），__init__ 只重导出轻量的 canonical 类型，
-其余一律用完整模块路径导入，避免包初始化时形成循环导入。
+canonical 类型契约已上移 ``docs_core.models``，本包 __init__ 仅按兼容面
+重导出轻量类型，其余一律用完整模块路径导入，避免包初始化形成循环导入。
 """
 
-from .shared.models.types import (
+from docs_core.models.types import (
     BoundingBox,
     CanonicalBlock,
     CanonicalChunk,

@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from docs_core.step04_structure.shared.models.types import (
+from docs_core.models.types import (
     CanonicalBlock,
     CanonicalOutlineNode,
     CanonicalPage,

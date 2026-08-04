@@ -8,7 +8,7 @@
 - 文档目录：``library_root`` / ``get_doc_root`` / ``get_source_dir`` /
   ``get_parsed_dir`` / ``get_edited_dir`` / ``get_raw_dir`` /
   ``get_mineru_raw_dir`` / ``get_popo_dir`` 及具体文件路径
-- 输入探测：``resolve_structured_input_dir`` / ``resolve_canonical_raw_dir``
+- 输入探测：``resolve_structured_input_dir`` / ``resolve_structure_input_dir``
   （只读 exists 判断，不写盘）
 
 约定：本模块所有函数只返回 :class:`pathlib.Path`，**不创建目录、不写文件**。
@@ -151,8 +151,8 @@ def resolve_structured_input_dir(raw_dir: Path) -> Path:
     raise ValueError(f"文档尚无可用解析输入: {raw_dir}")
 
 
-def resolve_canonical_raw_dir(library_id: str, doc_id: str, base_dir: Path | str | None = None) -> Path:
-    """解析结构化主链的 canonical 原始输入目录（优先 mineru_raw，其次 parsed）。"""
+def resolve_structure_input_dir(library_id: str, doc_id: str, base_dir: Path | str | None = None) -> Path:
+    """解析 structure 阶段输入目录（优先 mineru_raw，其次 parsed）。"""
     mineru_raw_dir = get_mineru_raw_dir(library_id, doc_id, base_dir=base_dir)
     if mineru_raw_dir.exists():
         return resolve_structured_input_dir(mineru_raw_dir)
@@ -178,7 +178,7 @@ __all__ = [
     "get_raw_dir",
     "get_source_dir",
     "library_root",
-    "resolve_canonical_raw_dir",
+    "resolve_structure_input_dir",
     "resolve_chroma_persist_dir",
     "resolve_graph_db_path",
     "resolve_knowledge_base_dir",

@@ -1,22 +1,21 @@
-"""步骤六：从 doc_blocks_graph jsonl 重建 canonical document（graph 适配 + 重建入口）。
+"""步骤五（rebuild）：从 doc_blocks_graph jsonl 重建 canonical document（graph 适配 + 重建入口）。
 
-与 step04 的分工：
-- step04/shared/canonical_builder.py 提供领域构建器（blocks → canonical 的核心管道 + popo 入口）；
-- 本文件把 jsonl 语义图适配回 builder 可消费的 blocks，并暴露两个"重建"入口：
+与 step04 的分工：step04 只出 jsonl（含 outlines/pages 投影）；本文件把 jsonl
+语义图适配回同包 canonical_builder 可消费的 blocks，并暴露两个"重建"入口：
   ``rebuild_canonical_document_from_graph``（sqlite_index / docs_service 用）与
   ``rebuild_canonical_document``（graph_editor 用）。
 """
 import re
 from typing import Any, Dict, List, Optional
 
-from docs_core.step04_structure.shared.canonical_builder import (
+from docs_core.step05_sqlite_fts.rebuild.canonical_builder import (
     CanonicalSourceInput,
     build_canonical_blocks_from_source,
     build_canonical_document_from_blocks,
     clean_text,
     normalize_block_type,
 )
-from docs_core.step04_structure.shared.models.types import (
+from docs_core.models.types import (
     CanonicalDocument,
     CanonicalOutlineNode,
     CanonicalPage,

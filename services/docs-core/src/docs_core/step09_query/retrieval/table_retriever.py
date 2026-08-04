@@ -2,7 +2,7 @@
 import re
 from typing import Iterable, List, Optional, Sequence
 
-from docs_core.step04_structure.shared.models.types import (
+from docs_core.models.types import (
     CanonicalTable,
     TABLE_TYPE_HYBRID,
     TABLE_TYPE_MAPPING_ENUM,

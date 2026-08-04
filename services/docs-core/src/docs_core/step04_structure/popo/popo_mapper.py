@@ -4,7 +4,7 @@ import re
 from typing import Any, Dict, List, Optional, Tuple
 from uuid import uuid4
 
-from docs_core.step04_structure.shared.models.types import (
+from docs_core.models.types import (
     BoundingBox,
     CanonicalBlock,
     CanonicalOutlineNode,

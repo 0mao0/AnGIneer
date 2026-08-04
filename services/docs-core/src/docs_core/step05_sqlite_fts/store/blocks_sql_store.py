@@ -10,8 +10,8 @@ import docs_core.paths as paths
 from tree_core import tree_store
 
 from docs_core.step04_structure.solo.solo import StructuredResult
-from docs_core.step04_structure.shared.models.types import STRUCTURED_DOC_GRAPH_STRATEGY
-from docs_core.step05_sqlite_fts.sqlite_utils import create_connection
+from docs_core.models.types import STRUCTURED_DOC_GRAPH_STRATEGY
+from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection
 
 
 # 安全解析数据库中的时间字符串。

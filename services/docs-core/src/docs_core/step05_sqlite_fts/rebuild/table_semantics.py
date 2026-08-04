@@ -6,7 +6,7 @@
 """
 from typing import Any, Dict, List, TYPE_CHECKING
 
-from docs_core.step04_structure.shared.models.types import (
+from docs_core.models.types import (
     TABLE_TYPE_HYBRID,
     TABLE_TYPE_MAPPING_ENUM,
     TABLE_TYPE_NUMERIC_DENSE,
@@ -14,7 +14,7 @@ from docs_core.step04_structure.shared.models.types import (
 )
 
 if TYPE_CHECKING:
-    from docs_core.step04_structure.shared.models.types import CanonicalTable
+    from docs_core.models.types import CanonicalTable
 
 
 # 归一化单元格文本，便于后续做规则统计和表示构建。

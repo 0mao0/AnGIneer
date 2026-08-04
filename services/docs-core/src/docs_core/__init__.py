@@ -2,8 +2,8 @@
 
 from .docs_service import DocsService, get_docs_service, docs_service
 
-# 步骤五：结构化（canonical 契约）
-from .step04_structure.shared.models.types import (
+# 全流水线共享契约（04/05/06/09 + docs_service 根）
+from .models.types import (
     CanonicalBlock,
     CanonicalDocument,
     CanonicalTable,

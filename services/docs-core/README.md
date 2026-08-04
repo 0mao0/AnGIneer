@@ -383,6 +383,7 @@ services/docs-core/
 │   │   ├── docs_service.py          # 门面：SQLite 落库 + 查询的统一入口
 │   │   ├── parse_pipeline.py        # 10 步流水线调度（阶段注册 / 顺序 / 状态机）
 │   │   ├── assets_file_store.py     # 文件 IO（全局共用，不属于任何步骤）
+│   │   ├── models/                  # 全流水线共享契约 types.py（04/05/06/09 + 根）
 │   │   ├── step01_source_prep/      # 第 1 步：源文件准备
 │   │   │   └── source_prep.py
 │   │   ├── step02_convert2pdf/      # 第 2 步：转换 PDF（LibreOffice）
@@ -393,12 +394,14 @@ services/docs-core/
 │   │   ├── step04_structure/        # 第 4 步：结构化 → jsonl
 │   │   │   ├── solo/                # solo.py + solo2json.py（solo 引擎 + 落盘）
 │   │   │   ├── popo/                # popo_mapper.py + popo2json.py（popo 引擎 + 落盘）
-│   │   │   └── shared/              # models/ enrich/ utils/ + canonical_builder.py + jsonl_store.py
+│   │   │   └── shared/              # enrich/（formula_semantics/title_level_refiner）
+│   │   │       ├── jsonl_store.py   # jsonl/meta 读写（04 写、05 读）
+│   │   │       └── utils/           # table_html_utils.py（popo_mapper + builder 双消费）
 │   │   ├── step05_sqlite_fts/       # 第 5 步：SQLite 建库 + FTS（含 graph_editor 编辑同步）
-│   │   │   ├── canonical_sql_store.py / blocks_sql_store.py / sqlite_utils.py
+│   │   │   ├── rebuild/             # jsonl → canonical（graph_rebuilder + canonical_builder + table_semantics + tag_rules）
+│   │   │   ├── store/               # canonical_sql_store / blocks_sql_store / sqlite_utils
 │   │   │   ├── rows_projection.py   # doc_blocks 行 / segments
 │   │   │   ├── sqlite_index.py      # jsonl → canonical SQLite + FTS
-│   │   │   ├── graph_rebuilder.py   # jsonl 语义图 → canonical 重建（sqlite_index/graph_editor/API 共用）
 │   │   │   └── graph_editor.py      # 图谱编辑（改 jsonl + 同步 SQLite）
 │   │   ├── step06_vectors/          # 第 6 步：向量索引
 │   │   │   ├── embedding_provider.py / vector_store.py / vector_indexer.py

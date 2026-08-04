@@ -5,7 +5,7 @@ from typing import Any, Dict
 import docs_core.paths as paths
 from docs_core.step04_structure.shared.jsonl_store import get_doc_blocks_graph
 from docs_core.assets_file_store import file_storage as _file_storage
-from docs_core.step05_sqlite_fts.blocks_sql_store import get_index_store
+from docs_core.step05_sqlite_fts.store.blocks_sql_store import get_index_store
 from docs_core.step05_sqlite_fts.rows_projection import build_doc_block_rows, build_document_segments
 
 
@@ -22,7 +22,7 @@ def build_sqlite_index_from_graph(
     - 规则类派生字段（entity_tags / conditions / clause_id）由 builder 统一重新推导
     """
     from docs_core.docs_service import docs_service
-    from docs_core.step05_sqlite_fts.graph_rebuilder import rebuild_canonical_document_from_graph
+    from docs_core.step05_sqlite_fts.rebuild.graph_rebuilder import rebuild_canonical_document_from_graph
 
     graph_data = get_doc_blocks_graph(library_id, doc_id)
     if not graph_data:

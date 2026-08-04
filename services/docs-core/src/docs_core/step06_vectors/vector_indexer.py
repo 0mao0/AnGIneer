@@ -4,7 +4,7 @@ from typing import Any, Dict, List
 from docs_core.step06_vectors.embedding_provider import EmbeddingProvider, default_embedding_provider
 from docs_core.step06_vectors.sqlite_vector_store import build_content_hash
 from docs_core.step06_vectors.vector_store import VectorRecord
-from docs_core.step04_structure.shared.models.types import CanonicalDocument, CanonicalTable
+from docs_core.models.types import CanonicalDocument, CanonicalTable
 
 
 # 拼装表格 schema 文本，兼容 dense 检索与后续调试。

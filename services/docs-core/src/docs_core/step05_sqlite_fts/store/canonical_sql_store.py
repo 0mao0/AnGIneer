@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable, List, Optional
 
-from docs_core.step04_structure.shared.models.types import (
+from docs_core.models.types import (
     BoundingBox,
     CanonicalBlock,
     CanonicalChunk,
@@ -17,7 +17,7 @@ from docs_core.step04_structure.shared.models.types import (
     CitationTarget,
 )
 from docs_core.paths import resolve_knowledge_index_db_path
-from docs_core.step05_sqlite_fts.sqlite_utils import create_connection
+from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection
 
 
 # 统一序列化任JSON 字段

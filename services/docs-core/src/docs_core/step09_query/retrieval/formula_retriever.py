@@ -1,7 +1,7 @@
 """公式/计算问答专用检索器。"""
 from typing import List, Optional, Sequence
 
-from docs_core.step04_structure.shared.models.types import CanonicalBlock, CanonicalDocument
+from docs_core.models.types import CanonicalBlock, CanonicalDocument
 from docs_core.step09_query.protocols.contracts import KnowledgeNode, KnowledgeQueryRequest, RetrievedItem
 from docs_core.step09_query.protocols.data_port import QueryDataPort, default_query_data_port
 from docs_core.step09_query.retrieval.dense_retriever import score_text

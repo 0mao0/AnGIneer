@@ -6,7 +6,7 @@ from typing import Any, Dict, List, Optional
 
 from docs_core.step06_vectors.vector_store import VectorRecord, VectorSearchHit, VectorStore
 from docs_core.paths import resolve_knowledge_index_db_path
-from docs_core.step05_sqlite_fts.sqlite_utils import create_connection
+from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection
 
 
 # 统一序列JSON 字段，保SQLite 可持久化

@@ -11,7 +11,7 @@ from typing import Any, Dict, List, Optional, TYPE_CHECKING, TypedDict
 
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
-    from docs_core.step04_structure.shared.models.types import CanonicalBlock
+    from docs_core.models.types import CanonicalBlock
 
 
 FORMULA_NUMBER_RE = re.compile(r"[（(](\d+(?:\.\d+)*(?:-\d+)?)[）)]")

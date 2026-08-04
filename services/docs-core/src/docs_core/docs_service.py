@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 from tree_core import tree_store
 
-from docs_core.step04_structure.shared.models.types import (
+from docs_core.models.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
@@ -20,8 +20,8 @@ from docs_core.step04_structure.shared.models.types import (
     STRUCTURED_DOC_GRAPH_STRATEGY,
 )
 from docs_core.step09_query.protocols.contracts import KnowledgeNode
-from docs_core.step05_sqlite_fts.canonical_sql_store import CanonicalSQLiteStore
-from docs_core.step05_sqlite_fts.blocks_sql_store import (
+from docs_core.step05_sqlite_fts.store.canonical_sql_store import CanonicalSQLiteStore
+from docs_core.step05_sqlite_fts.store.blocks_sql_store import (
     KnowledgeIndexStore,
     KnowledgeMetaStore,
     parse_datetime,
@@ -634,7 +634,7 @@ class DocsService:
         title: str = "",
     ) -> Dict[str, int]:
         from docs_core.step06_vectors import build_vector_records
-        from docs_core.step05_sqlite_fts.graph_rebuilder import rebuild_canonical_document_from_graph
+        from docs_core.step05_sqlite_fts.rebuild.graph_rebuilder import rebuild_canonical_document_from_graph
 
         canonical_document = rebuild_canonical_document_from_graph(
             library_id=library_id,

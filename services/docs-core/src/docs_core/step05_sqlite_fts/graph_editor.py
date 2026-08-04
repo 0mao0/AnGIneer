@@ -13,7 +13,7 @@ from docs_core.step04_structure.shared.jsonl_store import (
     _write_doc_blocks_graph,
     get_doc_blocks_graph,
 )
-from docs_core.step05_sqlite_fts.blocks_sql_store import get_index_store
+from docs_core.step05_sqlite_fts.store.blocks_sql_store import get_index_store
 import docs_core.assets_file_store as _afs
 
 __all__ = [
@@ -31,8 +31,8 @@ def _rebuild_canonical_after_graph_change(
     doc_id: str,
     graph_data: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, int]:
-    from docs_core.step04_structure.shared.canonical_builder import CanonicalSourceInput
-    from docs_core.step05_sqlite_fts.graph_rebuilder import rebuild_canonical_document
+    from docs_core.step05_sqlite_fts.rebuild.canonical_builder import CanonicalSourceInput
+    from docs_core.step05_sqlite_fts.rebuild.graph_rebuilder import rebuild_canonical_document
     from docs_core.docs_service import docs_service
 
     graph_payload = (

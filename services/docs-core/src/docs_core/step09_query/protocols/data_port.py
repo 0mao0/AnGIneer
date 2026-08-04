@@ -5,7 +5,7 @@
 """
 from typing import Dict, List, Optional, Protocol, runtime_checkable
 
-from docs_core.step04_structure.shared.models.types import (
+from docs_core.models.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,

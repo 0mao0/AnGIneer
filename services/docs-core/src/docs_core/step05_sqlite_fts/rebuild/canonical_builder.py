@@ -1,16 +1,16 @@
-"""canonical 领域构建器：blocks/outlines/chunks/tables/语义 组装核心 + popo 入口。
+"""canonical 领域构建器：blocks/outlines/chunks/tables/语义 组装核心（归位 step05）。
 
-与 step05 的分工：本文件只负责"从 blocks 构建 canonical 文档"（04 的领域逻辑）；
-从 jsonl 语义图重建的入口（rebuild_* 与 graph 适配）已迁至
-step05_sqlite_fts/graph_rebuilder.py。
+归属说明：CanonicalDocument 的唯一组装点收敛在 05（本包）；04 只出 jsonl。
+对 step04 的 import（formula_semantics / title_level_refiner / table_html_utils /
+jsonl_store）属合法 05→04 单向依赖。
 """
 from dataclasses import dataclass
 from datetime import UTC, datetime
 import re
 from typing import Any, List, Optional, Tuple
 
-from docs_core.step04_structure.shared.models.tag_rules import infer_conditions, infer_entity_tags
-from docs_core.step04_structure.shared.models.types import (
+from docs_core.step05_sqlite_fts.rebuild.tag_rules import infer_conditions, infer_entity_tags
+from docs_core.models.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
@@ -20,7 +20,7 @@ from docs_core.step04_structure.shared.models.types import (
     CitationTarget,
 )
 from docs_core.step04_structure.shared.enrich.formula_semantics import enrich_formula_block
-from docs_core.step04_structure.shared.enrich.table_semantics import enrich_canonical_table
+from docs_core.step05_sqlite_fts.rebuild.table_semantics import enrich_canonical_table
 from docs_core.step04_structure.shared.utils.table_html_utils import parse_table_html
 from docs_core.step04_structure.shared.enrich.title_level_refiner import refine_document_title_levels
 
@@ -775,4 +775,3 @@ def build_canonical_document(
         llm_client=llm_client,
         llm_model=llm_model,
     )
-

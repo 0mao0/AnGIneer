@@ -10,7 +10,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
-    from docs_core.step04_structure.shared.models.types import CanonicalBlock
+    from docs_core.models.types import CanonicalBlock
 
 
 DEFAULT_CONFIDENCE_THRESHOLD = 0.85

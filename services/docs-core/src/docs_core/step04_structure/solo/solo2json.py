@@ -414,7 +414,7 @@ def build_structured_index_for_doc(
     derive_version = opts.get("derive_version", "v1")
 
     parsed_dir = paths.get_parsed_dir(library_id, doc_id)
-    raw_dir = paths.resolve_canonical_raw_dir(library_id, doc_id)
+    raw_dir = paths.resolve_structure_input_dir(library_id, doc_id)
     paths.resolve_structured_input_dir(raw_dir)
 
     llm_client = None

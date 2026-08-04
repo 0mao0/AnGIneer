@@ -3,7 +3,7 @@
 from typing import Any, Dict, List, Optional
 
 from docs_core.step04_structure.popo.popo2json import _bbox_array, _build_content_json
-from docs_core.step04_structure.shared.models.types import CanonicalBlock, CanonicalDocument
+from docs_core.models.types import CanonicalBlock, CanonicalDocument
 
 
 def build_document_segments(

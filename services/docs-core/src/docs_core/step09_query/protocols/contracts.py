@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Literal, Optional
 
 from pydantic import BaseModel, Field
 
-from docs_core.step04_structure.shared.models.types import (
+from docs_core.models.types import (
     SCHEMA_VERSION,
     STRUCTURED_DOC_GRAPH_STRATEGY,
     TABLE_TYPE_HYBRID,
