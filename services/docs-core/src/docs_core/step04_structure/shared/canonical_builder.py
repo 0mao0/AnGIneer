@@ -19,10 +19,10 @@ from docs_core.step04_structure.shared.models.types import (
     CanonicalTable,
     CitationTarget,
 )
-from docs_core.step04_structure.shared.enrich.formula_semantics import enrich_canonical_block
+from docs_core.step04_structure.shared.enrich.formula_semantics import enrich_formula_block
 from docs_core.step04_structure.shared.enrich.table_semantics import enrich_canonical_table
 from docs_core.step04_structure.shared.utils.table_html_utils import parse_table_html
-from docs_core.step04_structure.shared.enrich.title_level_refiner import resolve_title_level_refinement
+from docs_core.step04_structure.shared.enrich.title_level_refiner import refine_document_title_levels
 
 
 @dataclass
@@ -224,42 +224,6 @@ def build_canonical_outlines(blocks: List[CanonicalBlock]) -> Tuple[List[Canonic
             })
         normalized_blocks.append(next_block)
     return normalized_blocks, outlines
-
-
-# 阶段二：标题层级 LLM 校正（Canonical 生成之后、outlines/chunks 之前），
-# 对两条后端统一生效。置信度 ≥ 阈值的标题不发起 LLM 调用。
-def refine_document_title_levels(
-    blocks: List[CanonicalBlock],
-    *,
-    use_llm: bool = False,
-    llm_client: Any = None,
-    llm_model: Optional[str] = None,
-) -> List[CanonicalBlock]:
-    title_blocks = [
-        block for block in blocks
-        if block.block_type == "title" and (block.text_clean or block.text)
-    ]
-    if not title_blocks:
-        return blocks
-    candidates, llm_levels, _status = resolve_title_level_refinement(
-        title_blocks,
-        llm_client,
-        use_llm=use_llm,
-        llm_model=llm_model,
-    )
-    if not llm_levels:
-        return blocks
-    candidate_map = {candidate["block_id"]: candidate for candidate in candidates}
-    by_id = {block.block_id: block for block in blocks}
-    for block_id, (level, confidence) in llm_levels.items():
-        block = by_id.get(block_id)
-        if block is None:
-            continue
-        candidate = candidate_map.get(block_id)
-        current_confidence = float(candidate.get("confidence") or 0.0) if candidate else 0.0
-        if block.title_level is None or confidence >= current_confidence:
-            by_id[block_id] = block.model_copy(update={"title_level": level})
-    return [by_id[block.block_id] for block in blocks]
 
 
 # 将一blocks 合并为结构感chunk
@@ -700,7 +664,7 @@ def enrich_document_semantics(
                 # jsonl 已落盘的公式语义（04 生产）：05 重建时原样透传，不重算
                 contract = dict(block.formula_semantics)
             else:
-                contract = enrich_canonical_block(
+                contract = enrich_formula_block(
                     block,
                     ordered,
                     llm_client=llm_client,
@@ -726,6 +690,7 @@ def build_canonical_document_from_blocks(
     blocks: Optional[List[CanonicalBlock]] = None,
     pages: Optional[List[CanonicalPage]] = None,
     *,
+    outlines: Optional[List[CanonicalOutlineNode]] = None,
     raw_blocks: Optional[List[dict[str, Any]]] = None,
     raw_node_map: Optional[dict[str, dict[str, Any]]] = None,
     markdown: str = "",
@@ -743,7 +708,9 @@ def build_canonical_document_from_blocks(
         llm_client=llm_client,
         llm_model=llm_model,
     )
-    local_blocks, outlines = build_canonical_outlines(local_blocks)
+    # 块 section_path 回填始终执行；outline 列表仅在调用方未提供时由标题块重推
+    local_blocks, generated_outlines = build_canonical_outlines(local_blocks)
+    final_outlines = outlines if outlines is not None else generated_outlines
     local_pages = list(pages) if pages else build_pages_from_blocks(local_blocks)
     label_map = build_page_label_map(local_pages)
     chunks = build_canonical_chunks(local_blocks, label_map)
@@ -771,7 +738,7 @@ def build_canonical_document_from_blocks(
         updated_at=timestamp,
         pages=local_pages,
         blocks=local_blocks,
-        outlines=outlines,
+        outlines=final_outlines,
         chunks=chunks + table_chunks,
         tables=tables,
         citation_targets=build_citation_targets(doc_id, local_blocks, tables, local_pages, raw_node_map=raw_node_map),
@@ -809,64 +776,3 @@ def build_canonical_document(
         llm_model=llm_model,
     )
 
-
-def build_canonical_document_from_popoblocks(
-    library_id: str,
-    doc_id: str,
-    title: str = "",
-    blocks: Optional[List[CanonicalBlock]] = None,
-    outlines: Optional[List[CanonicalOutlineNode]] = None,
-    pages: Optional[List[CanonicalPage]] = None,
-    *,
-    manifest: Optional[dict] = None,
-    use_llm: bool = False,
-    llm_client: Any = None,
-    llm_model: Optional[str] = None,
-) -> CanonicalDocument:
-    manifest = manifest or {}
-    local_blocks = list(blocks) if blocks else []
-    local_blocks = refine_document_title_levels(
-        local_blocks,
-        use_llm=use_llm,
-        llm_client=llm_client,
-        llm_model=llm_model,
-    )
-    local_pages = list(pages) if pages else build_pages_from_blocks(local_blocks)
-    label_map = build_page_label_map(local_pages)
-    chunks = build_canonical_chunks(local_blocks, label_map)
-    # 阶段三（P1b）：popo 路径直接消费 CanonicalBlock，不再经 graph jsonl 中转
-    tables, table_chunks = build_canonical_tables_from_source(doc_id, [], local_blocks)
-    citation_targets = build_citation_targets(doc_id, local_blocks, tables, local_pages)
-    local_outlines = list(outlines) if outlines else []
-    inferred_title = title or next(
-        (block.text for block in local_blocks if block.block_type == "title" and block.text), doc_id
-    )
-    page_count = max((block.page_idx for block in local_blocks), default=-1) + 1 if local_blocks else 0
-    source_file_name = ""
-    if manifest.get("source_file"):
-        source_file_name = str(manifest.get("source_file") or "").split("\\")[-1].split("/")[-1]
-    timestamp = datetime.now(UTC).isoformat()
-
-    document = CanonicalDocument(
-        doc_id=doc_id,
-        library_id=library_id,
-        title=inferred_title,
-        source_file_name=source_file_name or doc_id,
-        source_file_type="pdf",
-        page_count=page_count,
-        status="completed" if local_blocks else "pending",
-        created_at=timestamp,
-        updated_at=timestamp,
-        pages=local_pages,
-        blocks=local_blocks,
-        outlines=local_outlines,
-        chunks=chunks + table_chunks,
-        tables=tables,
-        citation_targets=citation_targets,
-    )
-    return enrich_document_semantics(
-        document,
-        use_llm=use_llm,
-        llm_client=llm_client,
-        llm_model=llm_model,
-    )

@@ -297,27 +297,35 @@ def _run_structure_from_popo(
     llm_model: Optional[str],
 ) -> str:
     import docs_core.paths as paths
-    from docs_core.step04_structure.popo.popo_mapper import po_po_blocks_to_canonical
-    from docs_core.step04_structure.shared.canonical_builder import build_canonical_document_from_popoblocks
-    from docs_core.step04_structure.popo.popo2json import write_canonical_graph_products
+    from docs_core.step04_structure.popo.popo_mapper import build_blocks_from_popo
+    from docs_core.step04_structure.popo.popo2json import write_graph_products_from_blocks
+    from docs_core.step04_structure.shared.enrich.formula_semantics import enrich_blocks_formula_semantics
+    from docs_core.step04_structure.shared.enrich.title_level_refiner import refine_document_title_levels
     from docs_core.assets_file_store import file_storage
 
     document_tree = file_storage.read_popo_document_tree(ctx.library_id, ctx.doc_id)
-    blocks, outlines, _id_map, pages = po_po_blocks_to_canonical(
+    blocks, outlines, _id_map, pages = build_blocks_from_popo(
         ctx.doc_id, enriched_blocks, document_tree
     )
-    manifest = file_storage.get_doc_manifest(ctx.library_id, ctx.doc_id)
-    doc_title = manifest.get("title", ctx.doc_id)
-    canonical_doc = build_canonical_document_from_popoblocks(
-        library_id=ctx.library_id, doc_id=ctx.doc_id, title=doc_title,
-        blocks=blocks, outlines=outlines, pages=pages,
-        manifest=manifest,
-        use_llm=use_llm, llm_client=llm_client, llm_model=llm_model,
+    blocks = refine_document_title_levels(
+        blocks,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
     )
-    products = write_canonical_graph_products(
+    blocks = enrich_blocks_formula_semantics(
+        blocks,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
+    )
+    products = write_graph_products_from_blocks(
         library_id=ctx.library_id,
         doc_id=ctx.doc_id,
-        document=canonical_doc,
+        blocks=blocks,
+        outlines=outlines,
+        pages=pages,
+        generated_by="mineru-popo",
     )
     ctx.input_summary = str(paths.get_popo_dir(ctx.library_id, ctx.doc_id))
     ctx.output_summary = (

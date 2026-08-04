@@ -7,11 +7,7 @@
 - parent/title_path/explain_for 推断
 
 输出：结构化结果对象（nodes, edges, index_rows, stats）。
-
-阶段四（G3）契约：结构层输出到下游的真相是 CanonicalBlock——
-``structured_result_to_canonical_blocks`` 把本结果转换为 CanonicalBlock 列表，
-builder 直接消费后端块，不再经 graph jsonl 中转；graph/segments/doc_blocks
-等展示投影由 write 侧保留。
+04 的落盘真相是 doc_blocks_graph.jsonl + meta（由 solo2json 投影）。
 """
 import datetime as dt
 import json
@@ -1941,57 +1937,10 @@ def _normalize_solo_block_type(raw: Any) -> str:
     return mapping.get(block_type, "unknown")
 
 
-def structured_result_to_canonical_blocks(
-    doc_id: str,
-    result: StructuredResult,
-) -> list[Any]:
-    """把 solo 结构化结果（nodes + derived_rows）转换为 CanonicalBlock 列表。"""
-    from docs_core.step04_structure.shared.models.types import BoundingBox, CanonicalBlock
-
-    derived_map = {
-        str(row.get("block_uid") or ""): row
-        for row in (result.stats.get("derived_rows") or [])
-        if str(row.get("block_uid") or "")
-    }
-    blocks: list[CanonicalBlock] = []
-    for node in result.nodes:
-        uid = str(node.get("block_uid") or node.get("id") or "").strip()
-        if not uid:
-            continue
-        derived = derived_map.get(uid, {})
-        text = str(node.get("plain_text") or "")
-        bbox = node.get("bbox")
-        bbox_obj = None
-        if isinstance(bbox, (list, tuple)) and len(bbox) >= 4:
-            bbox_obj = BoundingBox(
-                x0=float(bbox[0]), y0=float(bbox[1]),
-                x1=float(bbox[2]), y1=float(bbox[3]),
-            )
-        blocks.append(CanonicalBlock(
-            block_id=uid,
-            doc_id=doc_id,
-            page_idx=int(node.get("page_idx") or 0),
-            block_type=_normalize_solo_block_type(node.get("block_type")),
-            text=text,
-            text_clean=re.sub(r"\s+", " ", text).strip(),
-            bbox=bbox_obj,
-            reading_order=int(node.get("block_seq") or 0),
-            title_level=node.get("derived_level"),
-            section_path=str(node.get("title_path") or derived.get("title_path") or ""),
-            source="mineru",
-            source_ref=str(node.get("id") or uid),
-            parent_block_id=node.get("parent_uid") or derived.get("parent_block_uid"),
-            table_html=node.get("table_html"),
-            raw_type=node.get("raw_type"),
-        ))
-    return blocks
-
-
 __all__ = [
     "StructuredResult",
     "RawFilesStructureBuilder",
     "build_structured_from_rawfiles",
     "build_graph_from_rawfiles",
     "collect_media_related_block_refs",
-    "structured_result_to_canonical_blocks",
 ]

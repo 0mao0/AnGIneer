@@ -1,21 +1,20 @@
-"""统一写入投影（阶段三：写入唯一出口）。
+"""popo 04 统一写入投影：blocks/outlines → content.md + doc_blocks_graph.jsonl + meta。
 
-下游产物（content.md / doc_blocks_graph / segments / base_rows+derived_rows）统一从
-CanonicalDocument 生成——popo 路径不再经过 popo_projection（阶段三已删除）；
-solo 路径的展示投影（graph/segments/富字段）暂由其 write 侧保留，canonical 已通过
-G3 适配器直接消费后端块（阶段四）。
+04 只负责出 jsonl（块 + 层级 + 表格/公式原始材料与语义），canonical 组装归 05。
 
-- ``build_doc_blocks_graph``：与 popo_projection 的 graph 字段逐项对齐（含
-  contd/image/table_merge 三边与 markdown 行号），保证改造前后 popo graph 一致；
-- ``build_doc_block_rows``：G4/P11——popo 的 doc_blocks 行补齐 table_html /
-  math_content / derived_rows，与 solo 投影对齐。
+- ``build_doc_blocks_graph``：blocks + outlines → 节点/边/meta（含 outlines 投影）；
+- ``write_graph_products_from_blocks``：落盘 content.md + graph jsonl + meta。
 """
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from docs_core.step04_structure.shared.models.types import CanonicalBlock, CanonicalDocument
+from docs_core.step04_structure.shared.models.types import (
+    CanonicalBlock,
+    CanonicalOutlineNode,
+    CanonicalPage,
+)
 
 
 def render_content_md(
@@ -51,15 +50,16 @@ def _bbox_array(block: CanonicalBlock) -> Optional[List[float]]:
 
 
 def build_doc_blocks_graph(
-    document: CanonicalDocument,
+    blocks: List[CanonicalBlock],
+    outlines: List[CanonicalOutlineNode],
     block_line_ranges: List[Dict[str, Any]],
     *,
     generated_by: str = "mineru-popo",
 ) -> Dict[str, Any]:
-    """从 CanonicalDocument 构建 doc_blocks_graph（与 popo_projection 字段对齐）。"""
+    """从 blocks + outlines 构建 doc_blocks_graph（jsonl 节点 + 四种边 + stats）。"""
     line_map = {item["block_id"]: item for item in block_line_ranges}
     nodes: List[Dict[str, Any]] = []
-    for block in document.blocks:
+    for block in blocks:
         bbox_array = _bbox_array(block)
         nodes.append({
             "id": block.block_id,
@@ -86,7 +86,7 @@ def build_doc_blocks_graph(
         })
 
     edges: List[Dict[str, Any]] = []
-    for block in document.blocks:
+    for block in blocks:
         if block.parent_block_id:
             edges.append({
                 "id": f"parent-{block.block_id}",
@@ -113,7 +113,7 @@ def build_doc_blocks_graph(
             })
 
     prev_block: Optional[CanonicalBlock] = None
-    for block in sorted(document.blocks, key=lambda item: (item.page_idx, item.reading_order)):
+    for block in sorted(blocks, key=lambda item: (item.page_idx, item.reading_order)):
         if prev_block is not None:
             edges.append({
                 "id": f"seq-{prev_block.block_id}-{block.block_id}",
@@ -130,7 +130,7 @@ def build_doc_blocks_graph(
         "stats": {
             "nodes_count": len(nodes),
             "edges_count": len(edges),
-            "outline_count": len(document.outlines),
+            "outline_count": len(outlines),
             "generated_by": generated_by,
         },
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -154,18 +154,20 @@ def _build_content_json(block: CanonicalBlock) -> Dict[str, Any]:
     return payload
 
 
-def write_canonical_graph_products(
+def write_graph_products_from_blocks(
     library_id: str,
     doc_id: str,
-    document: CanonicalDocument,
     *,
+    blocks: List[CanonicalBlock],
+    outlines: List[CanonicalOutlineNode],
+    pages: Optional[List[CanonicalPage]] = None,
     generated_by: str = "mineru-popo",
     build_id: Optional[str] = None,
     content_md_path: Optional[Path] = None,
     graph_jsonl_path: Optional[Path] = None,
     graph_meta_path: Optional[Path] = None,
 ) -> Dict[str, Any]:
-    """阶段五：从 CanonicalDocument 只落盘文件产物（content.md + graph jsonl+meta）。
+    """从 blocks + outlines 只落盘文件产物（content.md + graph jsonl+meta，含 outlines）。
 
     SQLite 侧（canonical 表 / doc_blocks 行 / segments / FTS）由阶段六从 jsonl 重建。
     """
@@ -175,7 +177,7 @@ def write_canonical_graph_products(
     resolved_build_id = build_id or new_or_reuse_build_id(library_id, doc_id)
 
     # content.md + 行号映射（同一 build_id，孪生配对）
-    md_text, block_line_ranges = render_content_md(document.blocks, resolved_build_id)
+    md_text, block_line_ranges = render_content_md(blocks, resolved_build_id)
     md_path = Path(content_md_path) if content_md_path else (
         paths.get_parsed_markdown_path(library_id, doc_id)
     )
@@ -183,7 +185,7 @@ def write_canonical_graph_products(
     md_path.write_text(md_text, encoding="utf-8")
 
     # doc_blocks_graph.jsonl + meta
-    graph_data = build_doc_blocks_graph(document, block_line_ranges, generated_by=generated_by)
+    graph_data = build_doc_blocks_graph(blocks, outlines, block_line_ranges, generated_by=generated_by)
     jsonl_path = Path(graph_jsonl_path) if graph_jsonl_path else paths.get_graph_jsonl_path(library_id, doc_id)
     jsonl_path.parent.mkdir(parents=True, exist_ok=True)
     with open(jsonl_path, "w", encoding="utf-8") as f:
@@ -196,6 +198,8 @@ def write_canonical_graph_products(
         "stats": graph_data["stats"],
         "generated_at": graph_data["generated_at"],
         "build_id": resolved_build_id,
+        "outlines": [outline.model_dump() for outline in outlines],
+        "pages": [page.model_dump() for page in pages] if pages else [],
     }
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
@@ -212,5 +216,5 @@ def write_canonical_graph_products(
 __all__ = [
     "build_doc_blocks_graph",
     "render_content_md",
-    "write_canonical_graph_products",
+    "write_graph_products_from_blocks",
 ]

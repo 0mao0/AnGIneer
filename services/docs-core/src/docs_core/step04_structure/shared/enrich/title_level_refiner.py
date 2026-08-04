@@ -163,9 +163,46 @@ def resolve_title_level_refinement(
     return title_candidates, llm_levels, llm_status
 
 
+# 阶段二：标题层级 LLM 校正（04 建块后、05 组装 outlines/chunks 前复用），
+# 对两条后端统一生效。置信度 ≥ 阈值的标题不发起 LLM 调用。
+def refine_document_title_levels(
+    blocks: List["CanonicalBlock"],
+    *,
+    use_llm: bool = False,
+    llm_client: Optional["LLMClient"] = None,
+    llm_model: Optional[str] = None,
+) -> List["CanonicalBlock"]:
+    title_blocks = [
+        block for block in blocks
+        if block.block_type == "title" and (block.text_clean or block.text)
+    ]
+    if not title_blocks:
+        return blocks
+    candidates, llm_levels, _status = resolve_title_level_refinement(
+        title_blocks,
+        llm_client,
+        use_llm=use_llm,
+        llm_model=llm_model,
+    )
+    if not llm_levels:
+        return blocks
+    candidate_map = {candidate["block_id"]: candidate for candidate in candidates}
+    by_id = {block.block_id: block for block in blocks}
+    for block_id, (level, confidence) in llm_levels.items():
+        block = by_id.get(block_id)
+        if block is None:
+            continue
+        candidate = candidate_map.get(block_id)
+        current_confidence = float(candidate.get("confidence") or 0.0) if candidate else 0.0
+        if block.title_level is None or confidence >= current_confidence:
+            by_id[block_id] = block.model_copy(update={"title_level": level})
+    return [by_id[block.block_id] for block in blocks]
+
+
 __all__ = [
     "DEFAULT_CONFIDENCE_THRESHOLD",
     "estimate_backend_level_confidence",
     "llm_refine_title_levels",
+    "refine_document_title_levels",
     "resolve_title_level_refinement",
 ]

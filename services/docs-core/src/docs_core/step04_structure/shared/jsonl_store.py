@@ -105,6 +105,8 @@ def _read_doc_blocks_graph_split(jsonl_path: Path, meta_path: Path) -> Dict[str,
         "edges": meta.get("edges", []),
         "stats": meta.get("stats", {}),
         "generated_at": meta.get("generated_at", ""),
+        "outlines": meta.get("outlines", []),
+        "pages": meta.get("pages", []),
     }
 
 
@@ -123,6 +125,8 @@ def _write_doc_blocks_graph(library_id: str, doc_id: str, payload: Dict[str, Any
         "stats": payload.get("stats", {}),
         "generated_at": payload.get("generated_at", datetime.now().isoformat()),
         "build_id": new_or_reuse_build_id(library_id, doc_id),
+        "outlines": payload.get("outlines", []),
+        "pages": payload.get("pages", []),
     }
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)

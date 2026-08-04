@@ -16,7 +16,11 @@ from docs_core.step04_structure.shared.canonical_builder import (
     clean_text,
     normalize_block_type,
 )
-from docs_core.step04_structure.shared.models.types import CanonicalDocument
+from docs_core.step04_structure.shared.models.types import (
+    CanonicalDocument,
+    CanonicalOutlineNode,
+    CanonicalPage,
+)
 
 
 def _coerce_bbox(raw_bbox: object) -> object:
@@ -91,7 +95,9 @@ def adapt_graph_node(raw_node: dict[str, Any], index: int, section_path: str) ->
         "image_assoc_id": raw_node.get("image_assoc_id"),
         "table_merge_id": raw_node.get("table_merge_id"),
         "content_json": content_json,
-        "caption": raw_node.get("caption") or (raw_node.get("plain_text") if block_type == "table" else ""),
+        # 表格标题由 _resolve_table_title 从块文本提取 "表 N..." 行；
+        # 不用 plain_text 兜底，否则 popo 合并后的整段文本会整体成为标题。
+        "caption": raw_node.get("caption") or "",
         "footnote": raw_node.get("footnote") or "",
     }
 
@@ -148,11 +154,29 @@ def rebuild_canonical_document_from_graph(
         for item in raw_blocks
         if isinstance(item, dict)
     }
+    outlines = None
+    raw_outlines = graph_data.get("outlines") if isinstance(graph_data, dict) else None
+    if isinstance(raw_outlines, list):
+        outlines = [
+            CanonicalOutlineNode(**item)
+            for item in raw_outlines
+            if isinstance(item, dict)
+        ]
+    pages = None
+    raw_pages = graph_data.get("pages") if isinstance(graph_data, dict) else None
+    if isinstance(raw_pages, list):
+        pages = [
+            CanonicalPage(**item)
+            for item in raw_pages
+            if isinstance(item, dict)
+        ]
     return build_canonical_document_from_blocks(
         library_id,
         doc_id,
         title=title,
         blocks=build_canonical_blocks_from_source(doc_id, raw_blocks),
+        outlines=outlines or None,
+        pages=pages or None,
         raw_blocks=raw_blocks,
         raw_node_map=raw_node_map,
         use_llm=use_llm,

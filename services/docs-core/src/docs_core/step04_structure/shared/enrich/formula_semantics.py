@@ -329,9 +329,9 @@ def collect_canonical_explanation_lines(
     return lines
 
 
-# 阶段一：语义层后端无关入口——输入 CanonicalBlock（type=="formula"）及其下文
-# 解释段，产出 FormulaSemanticsContract，不依赖任何后端内部格式。
-def enrich_canonical_block(
+# 阶段一：语义层后端无关入口——输入公式块（type=="formula"）及其下文解释段，
+# 产出 FormulaSemanticsContract，不依赖任何后端内部格式。
+def enrich_formula_block(
     block: "CanonicalBlock",
     blocks: Optional[List["CanonicalBlock"]] = None,
     *,
@@ -368,13 +368,41 @@ def enrich_canonical_block(
     )
 
 
+def enrich_blocks_formula_semantics(
+    blocks: List["CanonicalBlock"],
+    *,
+    use_llm: bool = False,
+    llm_client: Optional["LLMClient"] = None,
+    llm_model: Optional[str] = None,
+) -> List["CanonicalBlock"]:
+    """blocks 级公式语义增强：按 (page_idx, reading_order) 排序，仅 formula 块计算契约。"""
+    ordered = sorted(blocks, key=lambda item: (item.page_idx, item.reading_order))
+    contracts: dict[str, dict] = {}
+    for block in ordered:
+        if block.block_type == "formula":
+            contracts[block.block_id] = enrich_formula_block(
+                block,
+                ordered,
+                llm_client=llm_client,
+                llm_model=llm_model,
+                use_llm=use_llm,
+            )
+    return [
+        block.model_copy(update={"formula_semantics": contracts[block.block_id]})
+        if block.block_id in contracts
+        else block
+        for block in blocks
+    ]
+
+
 __all__ = [
     "FormulaParamContract",
     "FormulaSemanticsContract",
     "build_formula_representations",
     "clean_formula_text",
     "collect_canonical_explanation_lines",
-    "enrich_canonical_block",
+    "enrich_blocks_formula_semantics",
+    "enrich_formula_block",
     "extract_formula_number",
     "extract_formula_reference_hint",
     "extract_formula_unit",

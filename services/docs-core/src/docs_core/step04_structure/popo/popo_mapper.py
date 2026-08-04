@@ -92,12 +92,12 @@ def build_pages_from_popo(
     ]
 
 
-def po_po_blocks_to_canonical(
+def build_blocks_from_popo(
     doc_id: str,
     po_po_blocks: List[Dict[str, Any]],
     document_tree: Dict[str, Any],
 ) -> Tuple[List[CanonicalBlock], List[CanonicalOutlineNode], Dict[str, str], List[CanonicalPage]]:
-    """将 PoPo enriched blocks + 文档树转换为 CanonicalBlock + CanonicalOutlineNode。
+    """将 PoPo enriched blocks + 文档树转换为 blocks/outlines（04 只出 jsonl，不组装 canonical）。
 
     Returns: (blocks, outlines, id_map, pages)
     - id_map 是 {popo_id_str: canonical_block_id}
@@ -157,7 +157,7 @@ def po_po_blocks_to_canonical(
                 continue
             logger.warning("PoPo caption/footnote without host, kept as paragraph: id=%s type=%s", pb.get("id"), popo_type)
 
-        canonical_id = id_map[popo_id]
+        block_id = id_map[popo_id]
         block_type = _map_popo_type(popo_type)
         if popo_type in _MERGE_INTO_HOST_TYPES:
             # 无宿主可并入时降级保留为段落，raw_type 仍记原始标签
@@ -170,7 +170,7 @@ def po_po_blocks_to_canonical(
         text = textify_table_html(table_html) if table_html else str(pb.get("content", "") or "")
 
         blocks.append(CanonicalBlock(
-            block_id=canonical_id,
+            block_id=block_id,
             doc_id=doc_id,
             page_idx=int(pb.get("page", 1)) - 1,
             block_type=block_type,
@@ -215,7 +215,7 @@ def _extract_section_paths(tree: dict, prefix: str, result: Dict[str, str]) -> N
 
 
 def _extract_parents(
-    tree: dict, parent_canonical_id: Optional[str],
+    tree: dict, parent_block_id: Optional[str],
     result: Dict[str, Optional[str]], id_map: Dict[str, str],
 ) -> None:
     for child in tree.get("children", []):
@@ -225,7 +225,7 @@ def _extract_parents(
         else:
             anchor_id = None
         for bid in child.get("block_ids", []):
-            result[str(bid)] = parent_canonical_id
+            result[str(bid)] = parent_block_id
         _extract_parents(child, anchor_id, result, id_map)
 
 
