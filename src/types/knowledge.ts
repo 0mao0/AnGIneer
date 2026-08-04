@@ -64,7 +64,6 @@ export interface DocumentStorageManifest {
   edited_markdown: string | null
   assets_dir: string | null
   raw_dir: string | null
-  middle_json: string | null
   mineru_blocks: string | null
   history_files: string[]
 }

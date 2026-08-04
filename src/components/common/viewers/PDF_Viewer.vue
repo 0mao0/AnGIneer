@@ -1417,8 +1417,8 @@ const showNonPdfLoading = computed(() => {
 
 const PARSE_STAGE_LABELS: Record<string, string> = {
   source_prep: '源文件准备', convert: '格式转换', raw_parse: 'MinerU 解析',
-  popo: 'PoPo 强化', structure: 'Solo 强化',
-  fts: '全文索引', vectors: '向量索引', graph: '知识图谱',
+  popo: 'PoPo 强化', structure: '结构化',
+  fts: '全文索引（FTS5）', vectors: '向量索引', graph: '知识图谱',
   preparing: '准备文件', converting: '格式转换', popo_normalize: 'PoPo 强化',
   indexing: '构建索引', completed: '解析完成',
   queued: '排队中', processing: '解析中', pending: '等待中',
@@ -1858,9 +1858,8 @@ onBeforeUnmount(() => {
   margin-top: 4px;
   font-size: 12px;
   color: var(--dp-error, #ff4d4f);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 .progress-text-info {
