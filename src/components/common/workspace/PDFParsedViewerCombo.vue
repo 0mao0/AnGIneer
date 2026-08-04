@@ -18,7 +18,7 @@
               <FileTextOutlined />
             </a-radio-button>
             <a-radio-button value="Preview_Markdown" title="Markdown">
-              <EditOutlined />
+              <FileMarkdownOutlined />
             </a-radio-button>
             <a-radio-button value="Preview_IndexList" title="列表">
               <UnorderedListOutlined />
@@ -211,7 +211,7 @@
  */
 import {
   FileTextOutlined,
-  EditOutlined,
+  FileMarkdownOutlined,
   UnorderedListOutlined,
   BranchesOutlined,
   DotChartOutlined,
