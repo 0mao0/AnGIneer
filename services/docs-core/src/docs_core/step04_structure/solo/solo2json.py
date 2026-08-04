@@ -1,5 +1,6 @@
 """solo ??? 5 ????StructuredResult ? doc_blocks_graph.jsonl + meta?"""
 import json
+import logging
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -11,6 +12,8 @@ from docs_core.step04_structure.shared.jsonl_store import (
     new_or_reuse_build_id,
 )
 import docs_core.assets_file_store as _afs
+
+logger = logging.getLogger(__name__)
 
 
 # 延迟获取 AnGIneer LLM 客户端，避免循环导入
@@ -54,6 +57,38 @@ def _save_doc_blocks_graph(
     return str(meta_path)
 
 
+# Phase 7：PoPo 续接/表格合并信号注入（有则增强、无则跳过；任何异常都不阻断 solo 管线）
+def _inject_popo_signals(
+    library_id: str,
+    doc_id: str,
+    nodes: list,
+) -> tuple[list, Dict[str, Any]]:
+    from docs_core.step04_structure.popo.popo_signal_aligner import align_popo_blocks
+    from docs_core.step04_structure.popo.popo_signal_injector import inject_popo_signals
+
+    try:
+        enriched = _afs.file_storage.read_popo_enriched_blocks(library_id, doc_id)
+    except FileNotFoundError:
+        return nodes, {"applied": 0, "rejected": 0, "skipped_reason": "no_popo"}
+    middle_path = paths.get_mineru_raw_dir(library_id, doc_id) / "middle.json"
+    if not middle_path.exists():
+        return nodes, {"applied": 0, "rejected": 0, "skipped_reason": "no_middle"}
+    try:
+        middle = json.loads(middle_path.read_text(encoding="utf-8"))
+        alignment = align_popo_blocks(doc_id, middle, enriched)
+        if alignment.degraded:
+            logger.warning(
+                "PoPo 信号对齐降级，跳过注入: doc=%s reasons=%s",
+                doc_id,
+                alignment.reasons[:3],
+            )
+            return nodes, {"applied": 0, "rejected": 0, "skipped_reason": "alignment_degraded"}
+        return inject_popo_signals(doc_id, nodes, enriched, alignment)
+    except Exception as exc:
+        logger.warning("PoPo 信号注入异常，跳过: doc=%s error=%s", doc_id, exc)
+        return nodes, {"applied": 0, "rejected": 0, "skipped_reason": f"error:{type(exc).__name__}"}
+
+
 # 为文档构建结构化索引（step04：只落 jsonl + meta；SQLite 由 step05 从 jsonl 重建）
 def build_structured_index_for_doc(
     library_id: str,
@@ -94,6 +129,10 @@ def build_structured_index_for_doc(
     if result.stats.get("error"):
         raise ValueError(f"构建结构失败: {result.stats.get('error')}")
 
+    signal_stats: Dict[str, Any] = {"applied": 0, "rejected": 0, "skipped_reason": "skipped"}
+    if result.nodes:
+        result.nodes, signal_stats = _inject_popo_signals(library_id, doc_id, result.nodes)
+
     graph_path = _save_doc_blocks_graph(library_id, doc_id, result)
 
     stats = {
@@ -103,6 +142,7 @@ def build_structured_index_for_doc(
         "llm_status": result.stats.get("llm_status", "disabled"),
         "llm_model": llm_model,
         "derive_version": derive_version,
+        "popo_signal": signal_stats,
         "graph_path": graph_path,
     }
 
