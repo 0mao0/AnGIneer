@@ -395,9 +395,11 @@ services/docs-core/
 │   │   │   ├── solo_engine.py       # 唯一构建引擎（规则 → 块/层级/语义，自包含）
 │   │   │   ├── solo2json_pipeline.py # 主控流程：建块 → PoPo 信号 → LLM 复核 → 落 jsonl
 │   │   │   ├── popo/                # 信号读取：aligner / 续接表格合并注入 / 层级融合（Solo 单管线）
-│   │   │   └── shared/              # enrich/（formula_semantics/title_level_refiner）
-│   │   │       ├── jsonl_store.py   # jsonl/meta 读写（04 写、05 读）
-│   │   │       └── utils/           # table_html_utils.py（popo_mapper + builder 双消费）
+│   │   │   └── shared/              # 跨步共享工具（04 写、05 读/调用）
+│   │   │       ├── jsonl_store.py         # jsonl/meta 读写（04 写、05 读）
+│   │   │       ├── formula_semantics.py   # 公式语义契约（04 生产/05 兜底）
+│   │   │       ├── title_level_refiner.py # 标题层级 LLM 复核
+│   │   │       └── table_html_utils.py    # 表格 HTML 解析（injector + builder 双消费）
 │   │   ├── step05_sqlite_fts/       # 第 5 步：SQLite 建库 + FTS（含 graph_editor 编辑同步）
 │   │   │   ├── rebuild/             # jsonl → canonical（graph_rebuilder + canonical_builder + table_semantics + tag_rules）
 │   │   │   ├── store/               # canonical_sql_store / blocks_sql_store / sqlite_utils

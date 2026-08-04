@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
 import docs_core.paths as paths
-from docs_core.step04_structure.shared.enrich.formula_semantics import build_formula_representations
+from docs_core.step04_structure.shared.formula_semantics import build_formula_representations
 from docs_core.step04_structure.solo_engine import extract_media_bbox_list
 from docs_core.step04_structure.shared.jsonl_store import (
     _write_doc_blocks_graph,

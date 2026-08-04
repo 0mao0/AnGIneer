@@ -19,10 +19,10 @@ from docs_core.models.types import (
     CanonicalTable,
     CitationTarget,
 )
-from docs_core.step04_structure.shared.enrich.formula_semantics import enrich_formula_block
+from docs_core.step04_structure.shared.formula_semantics import enrich_formula_block
 from docs_core.step05_sqlite_fts.rebuild.table_semantics import enrich_canonical_table
-from docs_core.step04_structure.shared.utils.table_html_utils import parse_table_html
-from docs_core.step04_structure.shared.enrich.title_level_refiner import refine_document_title_levels
+from docs_core.step04_structure.shared.table_html_utils import parse_table_html
+from docs_core.step04_structure.shared.title_level_refiner import refine_document_title_levels
 
 
 @dataclass

@@ -126,7 +126,7 @@ def _review_title_levels_with_llm(
     use_llm: bool = False,
 ) -> tuple[list, Dict[str, Any]]:
     from docs_core.models.types import CanonicalBlock
-    from docs_core.step04_structure.shared.enrich.title_level_refiner import (
+    from docs_core.step04_structure.shared.title_level_refiner import (
         resolve_title_level_refinement,
     )
 

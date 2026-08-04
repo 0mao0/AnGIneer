@@ -17,7 +17,7 @@ from docs_core.step04_structure.popo.popo_signal_aligner import (
     AlignmentResult,
     align_popo_blocks,
 )
-from docs_core.step04_structure.shared.utils.table_html_utils import parse_table_html
+from docs_core.step04_structure.shared.table_html_utils import parse_table_html
 
 logger = logging.getLogger(__name__)
 
