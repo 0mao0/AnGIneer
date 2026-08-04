@@ -168,6 +168,9 @@ class SparseRetriever:
                 limit=max(20, request.top_k * 6),
             )
             for block in blocks:
+                # 页眉页脚/目录不参与正文检索（目录锚点走 outline_anchor chunk）
+                if block.block_type in {"header_footer", "toc"}:
+                    continue
                 score = score_sparse_match(request.query, block.text, block.section_path, task_type)
                 if score <= 0:
                     continue

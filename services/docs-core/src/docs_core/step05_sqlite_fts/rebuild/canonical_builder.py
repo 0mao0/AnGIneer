@@ -115,12 +115,17 @@ def normalize_block_type(raw_block_type: object) -> str:
         "image": "figure",
         "figure_caption": "figure_caption",
         "header_footer": "header_footer",
+        "page_header": "header_footer",
+        "page_number": "header_footer",
+        "page_footer": "header_footer",
         "footnote": "footnote",
         "equation": "formula",
         "equation_interline": "formula",
         "inline_formula": "formula",
         "formula": "formula",
         "title": "title",
+        "index": "toc",
+        "toc": "toc",
     }
     return mapping.get(block_type, "unknown")
 
@@ -226,6 +231,39 @@ def build_canonical_outlines(blocks: List[CanonicalBlock]) -> Tuple[List[Canonic
     return normalized_blocks, outlines
 
 
+# 标题/目录块 → outline_anchor chunk（锚点参与 locate_qa，不混入正文检索）
+def _build_anchor_chunk(block: CanonicalBlock, label_map: dict[int, str], prefix: str) -> CanonicalChunk:
+    return CanonicalChunk(
+        chunk_id=f"chunk-{prefix}-{block.block_id}",
+        doc_id=block.doc_id,
+        chunk_type="outline_anchor",
+        text=block.text_clean,
+        text_clean=block.text_clean,
+        token_count=estimate_token_count(block.text_clean),
+        section_path=block.section_path,
+        page_start=block.page_idx,
+        page_end=block.page_idx,
+        source_block_ids=[block.block_id],
+        citation_targets=[
+            CitationTarget(
+                target_id=block.block_id,
+                target_type="title",
+                doc_id=block.doc_id,
+                page_idx=block.page_idx,
+                section_path=block.section_path,
+                display_title=block.text_clean,
+                snippet=block.text_clean,
+                printed_page_label=label_map.get(block.page_idx),
+            )
+        ],
+        inherited_chapter=block.inherited_chapter,
+        entity_tags=block.entity_tags,
+        conditions=block.conditions,
+        exam_tags=block.exam_tags,
+        clause_id=block.clause_id,
+    )
+
+
 # 将一blocks 合并为结构感chunk
 def build_canonical_chunks(
     blocks: List[CanonicalBlock],
@@ -282,40 +320,19 @@ def build_canonical_chunks(
     for block in ordered_blocks:
         if not block.text_clean:
             continue
+        # 页眉页脚不参与正文 chunk（展示层保留在 blocks/segments）
+        if block.block_type == "header_footer":
+            continue
 
         if block.block_type == "title":
             flush_current()
-            chunks.append(
-                CanonicalChunk(
-                    chunk_id=f"chunk-title-{block.block_id}",
-                    doc_id=block.doc_id,
-                    chunk_type="outline_anchor",
-                    text=block.text_clean,
-                    text_clean=block.text_clean,
-                    token_count=estimate_token_count(block.text_clean),
-                    section_path=block.section_path,
-                    page_start=block.page_idx,
-                    page_end=block.page_idx,
-                    source_block_ids=[block.block_id],
-                    citation_targets=[
-                        CitationTarget(
-                            target_id=block.block_id,
-                            target_type="title",
-                            doc_id=block.doc_id,
-                            page_idx=block.page_idx,
-                            section_path=block.section_path,
-                            display_title=block.text_clean,
-                            snippet=block.text_clean,
-                            printed_page_label=label_map.get(block.page_idx),
-                        )
-                    ],
-                    inherited_chapter=block.inherited_chapter,
-                    entity_tags=block.entity_tags,
-                    conditions=block.conditions,
-                    exam_tags=block.exam_tags,
-                    clause_id=block.clause_id,
-                )
-            )
+            chunks.append(_build_anchor_chunk(block, label_map, "title"))
+            continue
+
+        # 目录保留为章节锚点，但不混入正文 chunk
+        if block.block_type == "toc":
+            flush_current()
+            chunks.append(_build_anchor_chunk(block, label_map, "toc"))
             continue
 
         is_in_formula_group = current_blocks and any(b.block_type == "formula" for b in current_blocks)

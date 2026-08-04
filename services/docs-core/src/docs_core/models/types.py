@@ -26,6 +26,7 @@ BlockType = Literal[
     "header_footer",
     "footnote",
     "formula",
+    "toc",
     "unknown",
 ]
 

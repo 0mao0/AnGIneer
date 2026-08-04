@@ -1,4 +1,17 @@
-"""solo ??? 5 ????StructuredResult ? doc_blocks_graph.jsonl + meta?"""
+"""step04 总控：把 03 解析产物构建成结构化图（nodes + edges），落盘 jsonl + meta。
+
+编排流程：
+    03 解析产物 ──► solo_engine（构建 nodes/edges，失败即中断）
+                        │
+                        ▼
+                  PoPo 信号增强（可选，软失败，失败回滚）
+                        │
+                        ▼
+                  LLM 标题层级复核（无信号也执行）
+                        │
+                        ▼
+                  落盘 jsonl + meta（含 build_id 关联）
+"""
 import json
 import logging
 from datetime import datetime

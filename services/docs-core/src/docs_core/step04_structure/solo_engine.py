@@ -75,9 +75,11 @@ def extract_plain_text(block_type: str, content: dict[str, Any]) -> str:
         return collect_from_spans(content.get("paragraph_content"))
     if block_type == "page_header":
         return collect_from_spans(content.get("page_header_content"))
+    if block_type == "page_footer":
+        return collect_from_spans(content.get("page_footer_content"))
     if block_type == "page_number":
         return collect_from_spans(content.get("page_number_content"))
-    if block_type == "list":
+    if block_type in ("list", "index"):
         items = content.get("list_items")
         if isinstance(items, (list, dict)):
             txt = collect_from_any(items)
@@ -602,22 +604,24 @@ def build_layout_candidates(layout_payload: Any) -> dict[int, list[dict[str, Any
     return page_map
 
 
-def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple[float, float]], str, dict[str, Any], Any]:
-    """读取解析结果并返回内容、页面尺寸、解析器版本与原始 model 数据。"""
+def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple[float, float]], str, dict[str, Any], Any, dict[str, Any]]:
+    """读取解析结果并返回内容、页面尺寸、解析器版本、model 数据与 middle 数据。"""
     content_list_path = raw_dir / "content_list_v2.json"
     if not content_list_path.exists():
         content_list_path = raw_dir / "content_list.json"
     layout_path = raw_dir / "layout.json"
     model_path = raw_dir / "model.json"
+    middle_path = raw_dir / "middle.json"
     
     if not content_list_path.exists():
-        return [], {}, "", {}, []
+        return [], {}, "", {}, [], {}
     
     parsed_blocks = read_json(content_list_path)
     parser_version = ""
     page_size_map: dict[int, tuple[float, float]] = {}
     layout_payload: dict[str, Any] = {}
     model_payload: Any = []
+    middle_payload: dict[str, Any] = {}
     
     if layout_path.exists():
         layout = read_json(layout_path)
@@ -633,6 +637,9 @@ def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple
 
     if model_path.exists():
         model_payload = read_json(model_path)
+
+    if middle_path.exists():
+        middle_payload = read_json(middle_path)
 
     if not page_size_map and model_payload:
         pages = model_payload if isinstance(model_payload, list) else [model_payload]
@@ -651,27 +658,165 @@ def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple
     # 需要用 bbox 自身的最大值反推实际页面尺寸。
     # 注意：仅当 layout.json 缺失（page_size_map 来自 model.json）时才校准。
     if not layout_payload and page_size_map and parsed_blocks:
-        max_x, max_y = 0.0, 0.0
-        for page_items in parsed_blocks:
+        for idx, page_items in enumerate(parsed_blocks):
+            if idx not in page_size_map:
+                continue
+            page_max_x, page_max_y = 0.0, 0.0
             for item in page_items:
                 bbox = item.get("bbox")
                 if isinstance(bbox, list) and len(bbox) == 4:
-                    max_x = max(max_x, float(bbox[2]))
-                    max_y = max(max_y, float(bbox[3]))
-        if max_x > 0 and max_y > 0:
-            for idx, (w, h) in page_size_map.items():
-                if max_y < h * 0.5:
-                    if max_x <= 1100 and max_y <= 1100:
-                        # bbox 值域在 0~1100 内：判定为 1000 归一化坐标系
-                        # （MinerU 3.4 自部署版 content_list_v2 的输出格式）
-                        page_size_map[idx] = (1000.0, 1000.0)
-                    else:
-                        # 兜底：用 bbox 最大值 + 5% 边距估算
-                        margin_x = max_x * 0.05
-                        margin_y = max_y * 0.05
-                        page_size_map[idx] = (max_x + margin_x, max_y + margin_y)
+                    page_max_x = max(page_max_x, float(bbox[2]))
+                    page_max_y = max(page_max_y, float(bbox[3]))
+            if page_max_x <= 0 or page_max_y <= 0:
+                continue
+            w, h = page_size_map[idx]
+            # bbox 值域在 0~1100 内且页面尺寸明显更大：判定为 1000 归一化坐标系
+            # （MinerU 3.4 自部署版 content_list_v2 的输出格式；逐页判断以兼容横排页）
+            if page_max_x <= 1100 and page_max_y <= 1100 and (w > 1100 or h > 1100):
+                page_size_map[idx] = (1000.0, 1000.0)
+            elif page_max_y < h * 0.5:
+                # 兜底：用 bbox 最大值 + 5% 边距估算
+                margin_x = page_max_x * 0.05
+                margin_y = page_max_y * 0.05
+                page_size_map[idx] = (page_max_x + margin_x, page_max_y + margin_y)
 
-    return parsed_blocks, page_size_map, parser_version, layout_payload, model_payload
+    return parsed_blocks, page_size_map, parser_version, layout_payload, model_payload, middle_payload
+
+
+# middle.json 图表子块 bbox：para_blocks 与 content_list 逐位对齐（content_list 仅页尾
+# 多出 page_header/page_number/page_footer），子块 bbox 用 middle page_size 归一化到 0..1。
+def _middle_media_region_map(middle_payload: Any) -> dict[int, dict[int, dict[str, Any]]]:
+    """提取 middle.json 图表 caption/footnote/table_body 子块 bbox。
+
+    返回 {page_idx: {para_index: {"caption_bboxes"/"footnote_bboxes"/"body_bbox"/"row_count"}}}，
+    para_index 与 content_list 非页眉/页码块的顺序一一对应。
+    """
+    result: dict[int, dict[int, dict[str, Any]]] = {}
+    if not isinstance(middle_payload, dict):
+        return result
+    for page in middle_payload.get("pdf_info") or []:
+        if not isinstance(page, dict):
+            continue
+        try:
+            page_idx = int(page.get("page_idx", 0))
+        except (TypeError, ValueError):
+            continue
+        size = page.get("page_size") or [0, 0]
+        if not isinstance(size, (list, tuple)) or len(size) < 2:
+            continue
+        try:
+            pw, ph = float(size[0] or 0), float(size[1] or 0)
+        except (TypeError, ValueError):
+            continue
+        if pw <= 0 or ph <= 0:
+            continue
+        page_map: dict[int, dict[str, Any]] = {}
+        for para_index, block in enumerate(page.get("para_blocks") or []):
+            if not isinstance(block, dict):
+                continue
+            btype = str(block.get("type") or "").strip().lower()
+            if btype not in {"image", "table", "chart"}:
+                continue
+            caption: list[list[float]] = []
+            footnote: list[list[float]] = []
+            body_bbox: list[float] | None = None
+            row_count: int | None = None
+            for sub in block.get("blocks") or []:
+                if not isinstance(sub, dict):
+                    continue
+                sub_type = str(sub.get("type") or "").strip().lower()
+                raw_bbox = sub.get("bbox")
+                if not isinstance(raw_bbox, (list, tuple)) or len(raw_bbox) < 4:
+                    continue
+                try:
+                    unit = [
+                        min(1.0, max(0.0, float(raw_bbox[0]) / pw)),
+                        min(1.0, max(0.0, float(raw_bbox[1]) / ph)),
+                        min(1.0, max(0.0, float(raw_bbox[2]) / pw)),
+                        min(1.0, max(0.0, float(raw_bbox[3]) / ph)),
+                    ]
+                except (TypeError, ValueError):
+                    continue
+                if sub_type in ("image_caption", "table_caption", "chart_caption"):
+                    caption.append(unit)
+                elif sub_type in ("image_footnote", "table_footnote", "chart_footnote"):
+                    footnote.append(unit)
+                elif sub_type == "table_body":
+                    body_bbox = unit
+                    row_count = None
+                    for line in sub.get("lines") or []:
+                        if not isinstance(line, dict):
+                            continue
+                        for span in line.get("spans") or []:
+                            if isinstance(span, dict) and str(span.get("type") or "").strip().lower() == "table":
+                                html = str(span.get("html") or "")
+                                row_count = len(re.findall(r"<tr[ >]", html, re.IGNORECASE))
+                                break
+                        if row_count is not None:
+                            break
+            entry: dict[str, Any] = {}
+            if caption:
+                entry["caption_bboxes"] = caption
+            if footnote:
+                entry["footnote_bboxes"] = footnote
+            if body_bbox is not None:
+                entry["body_bbox"] = body_bbox
+            if row_count:
+                entry["row_count"] = row_count
+            if entry:
+                page_map[para_index] = entry
+        if page_map:
+            result[page_idx] = page_map
+    return result
+
+
+# model.json 公式编号：display_formula 与紧随其后的 formula_number 相邻配对，
+# bbox 用 page_info 尺寸归一化到 0..1，按页、按公式顺序返回。
+def _model_formula_number_map(model_payload: Any) -> dict[int, list[list[float]]]:
+    """提取 model.json layout_dets 中的公式编号 bbox。"""
+    result: dict[int, list[list[float]]] = {}
+    if not isinstance(model_payload, list):
+        return result
+    for page_idx, page in enumerate(model_payload):
+        if not isinstance(page, dict):
+            continue
+        info = page.get("page_info") or {}
+        try:
+            pw, ph = float(info.get("width") or 0), float(info.get("height") or 0)
+        except (TypeError, ValueError):
+            continue
+        if pw <= 0 or ph <= 0:
+            continue
+        dets = page.get("layout_dets") or []
+        if not isinstance(dets, list):
+            continue
+        ordered = sorted(
+            (det for det in dets if isinstance(det, dict)),
+            key=lambda det: int(det.get("index") or 0),
+        )
+        numbers: list[list[float]] = []
+        pending_formula = False
+        for det in ordered:
+            label = str(det.get("label") or "").strip().lower()
+            if label == "display_formula":
+                pending_formula = True
+                continue
+            if label == "formula_number" and pending_formula:
+                raw_bbox = det.get("bbox")
+                if isinstance(raw_bbox, (list, tuple)) and len(raw_bbox) >= 4:
+                    try:
+                        numbers.append([
+                            min(1.0, max(0.0, float(raw_bbox[0]) / pw)),
+                            min(1.0, max(0.0, float(raw_bbox[1]) / ph)),
+                            min(1.0, max(0.0, float(raw_bbox[2]) / pw)),
+                            min(1.0, max(0.0, float(raw_bbox[3]) / ph)),
+                        ])
+                    except (TypeError, ValueError):
+                        pass
+                pending_formula = False
+        if numbers:
+            result[page_idx] = numbers
+    return result
 
 
 def infer_title_level(text: str, raw_level: Any) -> tuple[int | None, float, str]:
@@ -851,61 +996,6 @@ def detect_toc_row_ids(rows: list[Any]) -> set[int]:
 
 
 @dataclass
-class BlockNode:
-    """块节点数据结构。"""
-    id: str
-    block_uid: str
-    block_type: str
-    page_idx: int
-    block_seq: int
-    plain_text: str = ""
-    content_json: dict = field(default_factory=dict)
-    bbox: tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0)
-    page_width: float = 0.0
-    page_height: float = 0.0
-    derived_level: int | None = None
-    title_path: str | None = None
-    parent_uid: str | None = None
-    prev_uid: str | None = None
-    next_uid: str | None = None
-    explain_for_uid: str | None = None
-    explain_type: str | None = None
-    derived_by: str = "none"
-    confidence: float = 0.0
-    image_path: str | None = None
-    table_html: str | None = None
-    math_content: str | None = None
-    caption_block_uids: List[str] = field(default_factory=list)
-    footnote_block_uids: List[str] = field(default_factory=list)
-
-
-@dataclass
-class GraphEdge:
-    """图边数据结构。"""
-    id: str
-    from_uid: str
-    to_uid: str
-    kind: str
-    label: str
-    color: str = "#6b7280"
-
-
-@dataclass
-class IndexRow:
-    """索引行数据结构。"""
-    block_uid: str
-    block_type: str
-    page_idx: int
-    block_seq: int
-    plain_text: str
-    derived_level: int | None
-    title_path: str | None
-    parent_uid: str | None
-    caption_block_uids: List[str] = field(default_factory=list)
-    footnote_block_uids: List[str] = field(default_factory=list)
-
-
-@dataclass
 class StructuredResult:
     """结构化结果对象。"""
     nodes: List[Dict[str, Any]] = field(default_factory=list)
@@ -946,9 +1036,11 @@ def build_structured_from_rawfiles(
     if not raw_dir.exists():
         raw_dir = parsed_dir
     
-    parsed_blocks, page_size_map, parser_version, layout_payload, model_payload = load_raw(raw_dir)
+    parsed_blocks, page_size_map, parser_version, layout_payload, model_payload, middle_payload = load_raw(raw_dir)
     layout_candidates = build_layout_candidates(layout_payload)
     model_media_candidates = build_model_media_candidate_map(model_payload)
+    middle_region_map = _middle_media_region_map(middle_payload)
+    formula_number_map = _model_formula_number_map(model_payload)
     
     if not parsed_blocks:
         return StructuredResult(stats={"error": "no_parsed_blocks", "raw_dir": str(raw_dir)})
@@ -962,6 +1054,8 @@ def build_structured_from_rawfiles(
             continue
         page_width, page_height = page_size_map.get(page_idx, (0.0, 0.0))
         page_layout_candidates = layout_candidates.get(page_idx, [])
+        middle_pos = 0
+        eq_pos = 0
         page_aligned_media_bboxes = build_order_aligned_media_bbox_map(
             page_blocks,
             model_media_candidates.get(page_idx, [])
@@ -973,6 +1067,10 @@ def build_structured_from_rawfiles(
             if not isinstance(content, dict):
                 content = {}
             x1, y1, x2, y2 = parse_bbox(block.get("bbox"))
+            is_aux_block = block_type in ("page_header", "page_number", "page_footer")
+            middle_idx = None if is_aux_block else middle_pos
+            if not is_aux_block:
+                middle_pos += 1
             
             list_items = content.get("list_items")
             if block_type == "list" and isinstance(list_items, list) and len(list_items) > 1:
@@ -1016,18 +1114,46 @@ def build_structured_from_rawfiles(
                         "updated_at": ts,
                         "caption_bboxes": media_bbox_info.get("caption_bboxes"),
                         "footnote_bboxes": media_bbox_info.get("footnote_bboxes"),
+                        "table_header_bbox": None,
+                        "equation_number_bbox": None,
                     })
                 continue
             
             block_seq_global += 1
             block_uid = f"{doc_id}:{page_idx}:{i}"
             plain_text = extract_plain_text(block_type, content)
+            aligned_media_bboxes = page_aligned_media_bboxes.get(i)
+            if middle_idx is not None:
+                middle_entry = middle_region_map.get(page_idx, {}).get(middle_idx)
+                if middle_entry:
+                    aligned_media_bboxes = dict(aligned_media_bboxes or {})
+                    for _mkey in ("caption_bboxes", "footnote_bboxes"):
+                        if middle_entry.get(_mkey) and not aligned_media_bboxes.get(_mkey):
+                            aligned_media_bboxes[_mkey] = middle_entry[_mkey]
             media_bbox_info = enrich_media_content_bboxes(
                 block_type,
                 content,
                 model_media_candidates.get(page_idx, []),
-                page_aligned_media_bboxes.get(i)
+                aligned_media_bboxes
             )
+            equation_number_bbox: list[float] | None = None
+            if block_type == "equation_interline":
+                _page_numbers = formula_number_map.get(page_idx) or []
+                if eq_pos < len(_page_numbers):
+                    equation_number_bbox = _page_numbers[eq_pos]
+                eq_pos += 1
+            table_header_bbox: list[float] | None = None
+            if block_type == "table" and middle_idx is not None:
+                _middle_entry = middle_region_map.get(page_idx, {}).get(middle_idx)
+                if _middle_entry:
+                    _body = _middle_entry.get("body_bbox")
+                    _rc = _middle_entry.get("row_count")
+                    if _body and not _rc:
+                        _html = content.get("html") if isinstance(content.get("html"), str) else None
+                        if _html:
+                            _rc = len(re.findall(r"<tr[ >]", _html, re.IGNORECASE))
+                    if _body and _rc and _rc >= 1:
+                        table_header_bbox = [_body[0], _body[1], _body[2], _body[1] + (_body[3] - _body[1]) / _rc]
             preferred_layout_types: dict[str, tuple[str, ...]] = {
                 "title": ("title",),
                 "paragraph": ("text", "paragraph"),
@@ -1062,6 +1188,8 @@ def build_structured_from_rawfiles(
                 "updated_at": ts,
                 "caption_bboxes": media_bbox_info.get("caption_bboxes"),
                 "footnote_bboxes": media_bbox_info.get("footnote_bboxes"),
+                "table_header_bbox": table_header_bbox,
+                "equation_number_bbox": equation_number_bbox,
             })
     
     toc_row_ids = detect_toc_row_ids(rows)
@@ -1081,7 +1209,7 @@ def build_structured_from_rawfiles(
     index_rows: list[dict[str, Any]] = []
     derived_rows: list[dict[str, Any]] = []
     
-    excluded_types = {"page_header", "page_number"}
+    excluded_types: set[str] = set()  # 展示层全量可见；05 语义层自行收敛页眉/页脚
     
     for i, row in enumerate(rows):
         content = row["content_json"]
@@ -1354,6 +1482,8 @@ def build_structured_from_rawfiles(
                     "footnote_block_uid": footnote_block_uids[0] if len(footnote_block_uids) == 1 else None,
                     "footnote_block_uids": footnote_block_uids or None,
                     "footnote_bboxes": footnote_bboxes or None,
+                    "table_header_bbox": row.get("table_header_bbox"),
+                    "equation_number_bbox": row.get("equation_number_bbox"),
                     "content_json": row.get("content_json"),
                     "page_width": row.get("page_width"),
                     "page_height": row.get("page_height"),
@@ -1445,500 +1575,8 @@ def build_structured_from_rawfiles(
         stats=stats
     )
 
-
-def build_graph_from_rawfiles(
-    parsed_dir: Path,
-    doc_id: str,
-    doc_name: str = "",
-    llm_client: Optional["LLMClient"] = None,
-    options: Optional[Dict[str, Any]] = None
-) -> StructuredResult:
-    """从原始解析结果构建结构化图结果。"""
-    return build_structured_from_rawfiles(
-        parsed_dir=parsed_dir,
-        doc_id=doc_id,
-        doc_name=doc_name,
-        llm_client=llm_client,
-        options=options,
-    )
-
-
-class RawFilesStructureBuilder:
-    """
-    负责将原始输出 (model.json, layout.json, content_list.json)
-    转换为标准化的 mineru_blocks.json 结构。
-    
-    算法核心 (A/B/C 融合):
-    - Source A (model.json): 提供核心文本、段落结构、基础 bbox。
-    - Source B (layout.json): 提供页面尺寸、精细 bbox (图片/表格)。
-    - Source C (content_list.json): 提供逻辑目录树 (Level Hierarchy)。
-    """
-
-    def __init__(self):
-        self.highlight_excluded_types = {'page_header', 'header', 'page_number'}
-
-    def build(
-        self,
-        model_data: Optional[Dict[str, Any]] = None,
-        layout_data: Optional[Dict[str, Any]] = None,
-        content_list_data: Optional[Dict[str, Any]] = None,
-        other_json_data: Optional[List[Dict[str, Any]]] = None
-    ) -> List[Dict[str, Any]]:
-        """
-        主入口：构建标准化 blocks。
-        如果提供了 model/layout/content_list，则使用 A/B/C 融合算法。
-        否则 (兼容旧逻辑)，从 other_json_data 中提取并合并。
-        """
-        if model_data or layout_data:
-            return self._build_from_abc(model_data, layout_data, content_list_data)
-        
-        if other_json_data:
-            raw_blocks = []
-            for payload in other_json_data:
-                source = payload.get('__source_file__', 'unknown.json')
-                raw_blocks.extend(self._extract_blocks_from_payload(payload, source))
-            return self._finalize_blocks(raw_blocks)
-            
-        return []
-
-    def _build_from_abc(
-        self,
-        model_data: Optional[Dict[str, Any]],
-        layout_data: Optional[Dict[str, Any]],
-        content_list_data: Optional[Dict[str, Any]]
-    ) -> List[Dict[str, Any]]:
-        """A/B/C 融合算法实现"""
-        
-        page_dimensions: Dict[int, Dict[str, float]] = {}
-        
-        if layout_data:
-            pages = []
-            if isinstance(layout_data, dict):
-                if 'pdf_info' in layout_data:
-                    pages = layout_data['pdf_info']
-                elif 'page_info' in layout_data:
-                    pages = layout_data['page_info']
-            elif isinstance(layout_data, list):
-                pages = layout_data
-
-            for idx, page in enumerate(pages):
-                w = self._read_first_numeric(page, ['width', 'w', 'page_width'])
-                h = self._read_first_numeric(page, ['height', 'h', 'page_height'])
-                
-                if w is None or h is None:
-                    blocks = page.get('para_blocks') or page.get('blocks') or []
-                    max_x, max_y = 0.0, 0.0
-                    for b in blocks:
-                        bbox = self._normalize_bbox(b)
-                        if bbox:
-                            max_x = max(max_x, bbox[2])
-                            max_y = max(max_y, bbox[3])
-                    if max_x > 0 and max_y > 0:
-                        w, h = max_x + 50, max_y + 50
-                
-                if w and h:
-                    page_dimensions[idx] = {'width': w, 'height': h}
-
-        raw_blocks = []
-        if model_data:
-            pages_data = []
-            if isinstance(model_data, list):
-                pages_data = model_data
-            elif isinstance(model_data, dict) and 'model' in model_data:
-                pages_data = model_data['model']
-            
-            for page_idx, page_content in enumerate(pages_data):
-                if isinstance(page_content, list):
-                    for block in page_content:
-                        extracted = self._process_model_block(block, page_idx)
-                        raw_blocks.extend(extracted)
-                elif isinstance(page_content, dict):
-                    blocks = page_content.get('blocks', [])
-                    for block in blocks:
-                        extracted = self._process_model_block(block, page_idx)
-                        raw_blocks.extend(extracted)
-
-        toc_map: Dict[str, int] = {}
-        if content_list_data:
-            toc_items = []
-            if isinstance(content_list_data, list):
-                toc_items = content_list_data
-            elif isinstance(content_list_data, dict):
-                toc_items = content_list_data.get('content_list', [])
-            
-            flat_toc = []
-            if toc_items and isinstance(toc_items[0], list):
-                 for page_items in toc_items:
-                     flat_toc.extend(page_items)
-            else:
-                flat_toc = toc_items
-
-            for item in flat_toc:
-                level = item.get('level') or item.get('text_level')
-                if level is None and isinstance(item.get('content'), dict):
-                    level = item['content'].get('level')
-                
-                text = self._resolve_block_text(item)
-                if level is not None and text:
-                     toc_map[text.strip()] = int(level)
-
-        for block in raw_blocks:
-            text = block.get('text', '').strip()
-            if text in toc_map:
-                block['level'] = toc_map[text]
-                block['type'] = 'title'
-            
-            p_idx = block.get('page_idx', 0)
-            if p_idx in page_dimensions:
-                if 'page_width' not in block:
-                    block['page_width'] = page_dimensions[p_idx]['width']
-                if 'page_height' not in block:
-                    block['page_height'] = page_dimensions[p_idx]['height']
-
-        self._build_hierarchy(raw_blocks)
-
-        return self._finalize_blocks(raw_blocks)
-
-    def _assign_category_code(self, block: Dict[str, Any]) -> None:
-        """根据 type 分配 0/X/T/F/E 类别标记"""
-        btype = block.get('type', 'paragraph')
-        
-        if btype in ('title', 'header', 'page_header', 'section_header') or block.get('level') is not None:
-            block['category_code'] = 'T'
-            return
-            
-        if btype in ('table', 'figure', 'image', 'equation', 'formula', 'chart'):
-            block['category_code'] = 'F'
-            return
-            
-        block['category_code'] = 'E'
-
-    def _process_model_block(self, block_data: Dict[str, Any], page_idx: int) -> List[Dict[str, Any]]:
-        """处理 model.json 中的单个 block，可能展开为多个 (如 list_items)"""
-        results = []
-        
-        base_block = {
-            'id': self._generate_id(),
-            'page_idx': page_idx,
-            'type': self._normalize_block_type(block_data.get('type')),
-            'bbox': self._normalize_bbox(block_data),
-            'text': '',
-            'content': block_data.get('content')
-        }
-        
-        content = block_data.get('content')
-        
-        if isinstance(content, str):
-            base_block['text'] = content
-            results.append(base_block)
-            return results
-
-        if isinstance(content, dict):
-            if 'title_content' in content:
-                fragments = []
-                for item in content['title_content']:
-                     if isinstance(item, dict) and 'content' in item:
-                         fragments.append(item['content'])
-                base_block['text'] = ' '.join(fragments)
-                if 'level' in content:
-                    base_block['level'] = content['level']
-                results.append(base_block)
-                return results
-
-            if 'paragraph_content' in content:
-                fragments = []
-                for item in content['paragraph_content']:
-                     if isinstance(item, dict) and 'content' in item:
-                         fragments.append(item['content'])
-                base_block['text'] = ' '.join(fragments)
-                results.append(base_block)
-                return results
-
-            if 'list_items' in content:
-                list_block = base_block.copy()
-                list_block['type'] = 'list'
-                list_block['text'] = ''
-                results.append(list_block)
-                
-                for item in content['list_items']:
-                    item_text = ''
-                    if isinstance(item, str):
-                        item_text = item
-                    elif isinstance(item, dict):
-                        ic = item.get('item_content')
-                        if isinstance(ic, list):
-                            frags = [f.get('content', '') for f in ic if isinstance(f, dict)]
-                            item_text = ' '.join(frags)
-                        elif isinstance(ic, str):
-                            item_text = ic
-                    
-                    if item_text:
-                        item_block = {
-                            'id': self._generate_id(),
-                            'page_idx': page_idx,
-                            'type': 'list_item',
-                            'bbox': list_block['bbox'],
-                            'text': item_text,
-                            'parent_id': list_block['id']
-                        }
-                        results.append(item_block)
-                return results
-
-            if 'html' in content:
-                base_block['type'] = 'table'
-                base_block['html'] = content['html']
-                base_block['text'] = content.get('text', '')
-                results.append(base_block)
-                return results
-
-        base_block['text'] = self._resolve_block_text(block_data)
-        results.append(base_block)
-        return results
-
-    def _generate_id(self) -> str:
-        import uuid
-        return str(uuid.uuid4())
-
-    def _build_hierarchy(self, blocks: List[Dict[str, Any]]) -> None:
-        if not blocks:
-            return
-
-        pages: Dict[int, List[Dict[str, Any]]] = {}
-        for block in blocks:
-            page = block.get('page_idx', 0)
-            if page not in pages:
-                pages[page] = []
-            pages[page].append(block)
-            block['children'] = []
-
-        for page_idx, page_blocks in pages.items():
-            def get_area(b):
-                bbox = b.get('bbox')
-                if not bbox or len(bbox) < 4:
-                    return 0
-                return (bbox[2] - bbox[0]) * (bbox[3] - bbox[1])
-
-            sorted_blocks = sorted(page_blocks, key=get_area)
-
-            for i, child in enumerate(sorted_blocks):
-                child_bbox = child.get('bbox')
-                if not child_bbox or len(child_bbox) < 4:
-                    continue
-                
-                child_area = get_area(child)
-                if child_area <= 0:
-                    continue
-
-                for parent in sorted_blocks[i+1:]:
-                    parent_bbox = parent.get('bbox')
-                    if not parent_bbox or len(parent_bbox) < 4:
-                        continue
-                    
-                    is_contained = (
-                        parent_bbox[0] <= child_bbox[0] + 0.01 and
-                        parent_bbox[1] <= child_bbox[1] + 0.01 and
-                        parent_bbox[2] >= child_bbox[2] - 0.01 and
-                        parent_bbox[3] >= child_bbox[3] - 0.01
-                    )
-                    
-                    if is_contained:
-                        child['parent_id'] = parent['id']
-                        if 'children' not in parent:
-                            parent['children'] = []
-                        parent['children'].append(child['id'])
-                        break
-
-    def _read_first_numeric(self, payload: Dict[str, Any], keys: List[str]) -> Optional[float]:
-        for key in keys:
-            value = payload.get(key)
-            if isinstance(value, (int, float)):
-                return float(value)
-            if isinstance(value, str):
-                stripped = value.strip()
-                if not stripped:
-                    continue
-                try:
-                    return float(stripped)
-                except Exception:
-                    continue
-        return None
-
-    def _resolve_block_text(self, payload: Dict[str, Any]) -> str:
-        text_candidates: List[str] = []
-        direct_text = payload.get('text')
-        if isinstance(direct_text, str) and direct_text.strip():
-            text_candidates.append(direct_text.strip())
-        content = payload.get('content')
-        if isinstance(content, str) and content.strip():
-            text_candidates.append(content.strip())
-        if isinstance(content, dict):
-            for key in ('text', 'content', 'value'):
-                value = content.get(key)
-                if isinstance(value, str) and value.strip():
-                    text_candidates.append(value.strip())
-            for list_key in ('title_content', 'paragraph_content', 'list_content'):
-                value = content.get(list_key)
-                if isinstance(value, list):
-                    fragments = []
-                    for item in value:
-                        if isinstance(item, dict):
-                            piece = item.get('content')
-                            if isinstance(piece, str) and piece.strip():
-                                fragments.append(piece.strip())
-                    if fragments:
-                        text_candidates.append(' '.join(fragments))
-            
-            list_items = content.get('list_items')
-            if isinstance(list_items, list):
-                list_fragments = []
-                for item in list_items:
-                    if not isinstance(item, dict):
-                        continue
-                    item_content = item.get('item_content')
-                    if isinstance(item_content, str) and item_content.strip():
-                        list_fragments.append(item_content.strip())
-                    elif isinstance(item_content, list):
-                        for sub in item_content:
-                            if isinstance(sub, dict):
-                                piece = sub.get('content')
-                                if isinstance(piece, str) and piece.strip():
-                                    list_fragments.append(piece.strip())
-                if list_fragments:
-                    text_candidates.append(' '.join(list_fragments))
-        for key in ('text_content', 'title', 'heading'):
-            value = payload.get(key)
-            if isinstance(value, str) and value.strip():
-                text_candidates.append(value.strip())
-        return text_candidates[0] if text_candidates else ''
-
-    def _normalize_block_type(self, raw_type: str) -> str:
-        if not raw_type:
-            return 'paragraph'
-        normalized = raw_type.strip().lower()
-        mapping = {
-            'text': 'paragraph',
-            'header': 'page_header',
-            'interline_equation': 'equation_interline'
-        }
-        return mapping.get(normalized, normalized)
-
-    def _source_priority(self, source_file: str) -> int:
-        normalized = (source_file or '').lower()
-        if normalized.endswith('_model.json') or '_model.json' in normalized:
-            return 0
-        if normalized.endswith('layout.json'):
-            return 1
-        if 'content_list_v2.json' in normalized:
-            return 2
-        if normalized.endswith('_content_list.json') or '_content_list.json' in normalized:
-            return 3
-        return 4
-
-    def _normalize_bbox(self, payload: Dict[str, Any]) -> Optional[List[float]]:
-        for key in ('bbox', 'rect', 'box', 'pdf_bbox', 'pdf_rect'):
-            value = payload.get(key)
-            if isinstance(value, (list, tuple)) and len(value) >= 4:
-                coords: List[float] = []
-                valid = True
-                for item in value[:4]:
-                    if isinstance(item, (int, float)):
-                        coords.append(float(item))
-                    elif isinstance(item, str):
-                        stripped = item.strip()
-                        if not stripped:
-                            valid = False
-                            break
-                        try:
-                            coords.append(float(stripped))
-                        except Exception:
-                            valid = False
-                            break
-                    else:
-                        valid = False
-                        break
-                if valid:
-                    return coords
-        return None
-
-    def _extract_blocks_from_payload(self, payload: Dict[str, Any], source_file: str) -> List[Dict[str, Any]]:
-        return []
-
-    def _finalize_blocks(self, raw_blocks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        finalized = []
-        for idx, block in enumerate(raw_blocks):
-            normalized = self._normalize_block_for_output(block, idx)
-            if normalized:
-                self._assign_category_code(normalized)
-                finalized.append(normalized)
-        return finalized
-
-    def _normalize_block_for_output(self, payload: Dict[str, Any], index: int) -> Optional[Dict[str, Any]]:
-        raw_type = str(payload.get('type') or '').strip()
-        normalized_type = self._normalize_block_type(raw_type)
-        if not normalized_type or normalized_type in self.highlight_excluded_types:
-            return None
-        bbox = self._normalize_bbox(payload)
-        if not bbox:
-            return None
-        page = self._read_first_numeric(payload, ['page', 'page_no', 'pageNo'])
-        page_idx = self._read_first_numeric(payload, ['page_idx', 'page_index'])
-        if page is None and page_idx is None:
-            return None
-        if page is None and page_idx is not None:
-            page_idx_int = max(0, int(round(page_idx)))
-            page_int = page_idx_int + 1
-        elif page is not None and page_idx is None:
-            page_int = max(1, int(round(page)))
-            page_idx_int = page_int - 1
-        else:
-            page_int = max(1, int(round(page or 1)))
-            page_idx_int = max(0, int(round(page_idx or 0)))
-        block_id = payload.get('id')
-        if not isinstance(block_id, str) or not block_id.strip():
-            block_id = f'mineru-block-{index}'
-        
-        return {
-            'id': block_id,
-            'type': normalized_type,
-            'page': page_int,
-            'page_idx': page_idx_int,
-            'bbox': bbox,
-            'text': self._resolve_block_text(payload),
-            'level': payload.get('level'),
-            'content': payload.get('content'),
-            'parent_id': payload.get('parent_id'),
-            'children': payload.get('children', [])
-        }
-
-
-# solo 内部块类型归一化（04 落 jsonl 用；05 重建另有 canonical normalize_block_type）。
-def _normalize_solo_block_type(raw: Any) -> str:
-    block_type = str(raw or "").strip().lower()
-    mapping = {
-        "text": "paragraph",
-        "paragraph": "paragraph",
-        "list": "list_item",
-        "table": "table",
-        "image": "figure",
-        "chart": "figure",
-        "equation_interline": "formula",
-        "equation": "formula",
-        "formula": "formula",
-        "title": "title",
-        "caption": "figure_caption",
-        "image_caption": "figure_caption",
-        "figure_caption": "figure_caption",
-        "table_caption": "table_caption",
-        "footnote": "footnote",
-        "header_footer": "header_footer",
-    }
-    return mapping.get(block_type, "unknown")
-
-
 __all__ = [
     "StructuredResult",
-    "RawFilesStructureBuilder",
     "build_structured_from_rawfiles",
-    "build_graph_from_rawfiles",
     "collect_media_related_block_refs",
 ]

@@ -12,6 +12,7 @@ from docs_core.step05_sqlite_fts.rebuild.canonical_builder import (
     CanonicalSourceInput,
     build_canonical_blocks_from_source,
     build_canonical_document_from_blocks,
+    build_pages_from_blocks,
     clean_text,
     normalize_block_type,
 )
@@ -40,6 +41,43 @@ def _coerce_bbox(raw_bbox: object) -> object:
 def normalize_graph_section_title(text: str) -> str:
     normalized = clean_text(text)
     return re.sub(r"\s*\(\d+\)\s*$", "", normalized)
+
+
+# 纸面页码解析：优先"第 N 页"，其次纯数字/带装饰数字，最后罗马数字（前言页）。
+def _extract_printed_page_label(text: Any) -> str:
+    value = str(text or "").strip()
+    if not value:
+        return ""
+    m = re.search(r"第\s*(\d+)\s*页", value)
+    if m:
+        return m.group(1)
+    m = re.match(r"^\s*[-—–]?\s*(\d+)\s*[-—–]?\s*$", value)
+    if m:
+        return m.group(1)
+    if re.match(r"^[IVXLCDM]{1,10}$", value):
+        return value
+    return ""
+
+
+# 从 graph 节点的 page_number/page_footer 文本提取纸面页码（页眉不参与）。
+def _extract_page_label_map(graph_nodes: List[dict[str, Any]]) -> dict[int, str]:
+    label_map: dict[int, str] = {}
+    for node in graph_nodes:
+        if not isinstance(node, dict):
+            continue
+        block_type = str(node.get("block_type") or "").strip().lower()
+        if block_type not in ("page_number", "page_footer"):
+            continue
+        try:
+            page_idx = int(node.get("page_idx") or 0)
+        except (TypeError, ValueError):
+            continue
+        if page_idx in label_map:
+            continue
+        label = _extract_printed_page_label(node.get("plain_text"))
+        if label:
+            label_map[page_idx] = label
+    return label_map
 
 
 # 基于图谱父子关系推导当前节点的可读 section_path
@@ -165,12 +203,20 @@ def rebuild_canonical_document_from_graph(
         ]
     pages = None
     raw_pages = graph_data.get("pages") if isinstance(graph_data, dict) else None
+    page_label_map = _extract_page_label_map(graph_data.get("nodes", []))
     if isinstance(raw_pages, list):
         pages = [
             CanonicalPage(**item)
             for item in raw_pages
             if isinstance(item, dict)
         ]
+    elif page_label_map:
+        pages = build_pages_from_blocks(build_canonical_blocks_from_source(doc_id, raw_blocks))
+    if pages:
+        for page in pages:
+            label = page_label_map.get(page.page_idx)
+            if label and not page.printed_page_label:
+                page.printed_page_label = label
     return build_canonical_document_from_blocks(
         library_id,
         doc_id,
@@ -199,6 +245,15 @@ def rebuild_canonical_document(
 ) -> CanonicalDocument:
     src = source or CanonicalSourceInput()
     raw_blocks, raw_node_map = _adapt_source(src)
+    graph_nodes = src.graph_data.get("nodes", []) if isinstance(src.graph_data, dict) else []
+    page_label_map = _extract_page_label_map(graph_nodes)
+    pages = None
+    if page_label_map:
+        pages = build_pages_from_blocks(build_canonical_blocks_from_source(doc_id, raw_blocks))
+        for page in pages:
+            label = page_label_map.get(page.page_idx)
+            if label and not page.printed_page_label:
+                page.printed_page_label = label
     return build_canonical_document_from_blocks(
         library_id,
         doc_id,
@@ -206,6 +261,7 @@ def rebuild_canonical_document(
         blocks=build_canonical_blocks_from_source(doc_id, raw_blocks),
         raw_blocks=raw_blocks,
         raw_node_map=raw_node_map,
+        pages=pages or None,
         markdown=src.markdown or "",
         manifest=src.manifest or {},
         use_llm=use_llm,
