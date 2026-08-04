@@ -57,22 +57,31 @@ def _save_doc_blocks_graph(
     return str(meta_path)
 
 
-# Phase 7：PoPo 续接/表格合并信号注入（有则增强、无则跳过；任何异常都不阻断 solo 管线）
-def _inject_popo_signals(
+# Phase 7/8：PoPo 信号应用（续接/表格合并注入 + 层级信号融合；有则增强、无则跳过，
+# 任何异常都不阻断 solo 管线）
+def _apply_popo_signals(
     library_id: str,
     doc_id: str,
     nodes: list,
+    *,
+    llm_client=None,
+    llm_model: Optional[str] = None,
+    use_llm: bool = False,
 ) -> tuple[list, Dict[str, Any]]:
     from docs_core.step04_structure.popo.popo_signal_aligner import align_popo_blocks
     from docs_core.step04_structure.popo.popo_signal_injector import inject_popo_signals
+    from docs_core.step04_structure.popo.popo_signal_level_fusion import (
+        build_popo_level_map,
+        fuse_level_signals,
+    )
 
     try:
         enriched = _afs.file_storage.read_popo_enriched_blocks(library_id, doc_id)
     except FileNotFoundError:
-        return nodes, {"applied": 0, "rejected": 0, "skipped_reason": "no_popo"}
+        return nodes, {"injection": {"skipped_reason": "no_popo"}, "level_fusion": {"skipped_reason": "no_popo"}}
     middle_path = paths.get_mineru_raw_dir(library_id, doc_id) / "middle.json"
     if not middle_path.exists():
-        return nodes, {"applied": 0, "rejected": 0, "skipped_reason": "no_middle"}
+        return nodes, {"injection": {"skipped_reason": "no_middle"}, "level_fusion": {"skipped_reason": "no_middle"}}
     try:
         middle = json.loads(middle_path.read_text(encoding="utf-8"))
         alignment = align_popo_blocks(doc_id, middle, enriched)
@@ -82,11 +91,27 @@ def _inject_popo_signals(
                 doc_id,
                 alignment.reasons[:3],
             )
-            return nodes, {"applied": 0, "rejected": 0, "skipped_reason": "alignment_degraded"}
-        return inject_popo_signals(doc_id, nodes, enriched, alignment)
+            skipped = {"applied": 0, "rejected": 0, "skipped_reason": "alignment_degraded"}
+            return nodes, {"injection": skipped, "level_fusion": skipped}
+        nodes, inject_stats = inject_popo_signals(doc_id, nodes, enriched, alignment)
+        level_map = build_popo_level_map(enriched, alignment)
+        popo_level_by_uid = {
+            alignment.solo_block_uid_map[source_id]: level
+            for source_id, level in level_map.items()
+            if source_id in alignment.solo_block_uid_map
+        }
+        nodes, fuse_stats = fuse_level_signals(
+            nodes,
+            popo_level_by_uid,
+            llm_client=llm_client,
+            llm_model=llm_model,
+            use_llm=use_llm,
+        )
+        return nodes, {"injection": inject_stats, "level_fusion": fuse_stats}
     except Exception as exc:
         logger.warning("PoPo 信号注入异常，跳过: doc=%s error=%s", doc_id, exc)
-        return nodes, {"applied": 0, "rejected": 0, "skipped_reason": f"error:{type(exc).__name__}"}
+        skipped = {"applied": 0, "rejected": 0, "skipped_reason": f"error:{type(exc).__name__}"}
+        return nodes, {"injection": skipped, "level_fusion": skipped}
 
 
 # 为文档构建结构化索引（step04：只落 jsonl + meta；SQLite 由 step05 从 jsonl 重建）
@@ -131,7 +156,14 @@ def build_structured_index_for_doc(
 
     signal_stats: Dict[str, Any] = {"applied": 0, "rejected": 0, "skipped_reason": "skipped"}
     if result.nodes:
-        result.nodes, signal_stats = _inject_popo_signals(library_id, doc_id, result.nodes)
+        result.nodes, signal_stats = _apply_popo_signals(
+            library_id,
+            doc_id,
+            result.nodes,
+            llm_client=llm_client,
+            llm_model=llm_model,
+            use_llm=use_llm,
+        )
 
     graph_path = _save_doc_blocks_graph(library_id, doc_id, result)
 
