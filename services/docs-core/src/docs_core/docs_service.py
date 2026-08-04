@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 from tree_core import tree_store
 
-from docs_core.ingest.canonical.types import (
+from docs_core.step04_structure.shared.models.types import (
     CanonicalBlock,
     CanonicalChunk,
     CanonicalDocument,
@@ -19,9 +19,9 @@ from docs_core.ingest.canonical.types import (
     SCHEMA_VERSION,
     STRUCTURED_DOC_GRAPH_STRATEGY,
 )
-from docs_core.query.protocols.contracts import KnowledgeNode
-from docs_core.write.store.canonical_sql_store import CanonicalSQLiteStore
-from docs_core.write.store.blocks_sql_store import (
+from docs_core.step09_query.protocols.contracts import KnowledgeNode
+from docs_core.step05_sqlite_fts.canonical_sql_store import CanonicalSQLiteStore
+from docs_core.step05_sqlite_fts.blocks_sql_store import (
     KnowledgeIndexStore,
     KnowledgeMetaStore,
     parse_datetime,
@@ -30,7 +30,7 @@ from docs_core.paths import (
     resolve_knowledge_index_db_path,
     resolve_knowledge_meta_db_path,
 )
-from docs_core.write.indexing import (
+from docs_core.step06_vectors import (
     ChromaVectorStore,
     SQLiteVectorStore,
     VectorRecord,
@@ -298,7 +298,7 @@ class DocsService:
     def _purge_document_artifacts(self, document_nodes: List[KnowledgeNode]) -> None:
         if not document_nodes:
             return
-        from docs_core.write.store.assets_file_store import file_storage
+        from docs_core.assets_file_store import file_storage
 
         doc_ids = [node.id for node in document_nodes]
         self.meta_store.delete_parse_tasks_by_doc_ids(doc_ids)
@@ -317,7 +317,7 @@ class DocsService:
     def _delete_document_graph_data(self, doc_id: str) -> None:
         try:
             from docs_core.paths import resolve_graph_db_path
-            from docs_core.write.graph.graph_store import GraphStore
+            from docs_core.step07_graph.graph_store import GraphStore
             graph_db = resolve_graph_db_path()
             if graph_db.exists():
                 GraphStore(str(graph_db)).delete_document(doc_id)
@@ -614,7 +614,7 @@ class DocsService:
 
     # 仅重建向量索引
     def rebuild_document_vectors(self, doc_id: str, canonical_document: Optional[CanonicalDocument] = None) -> None:
-        from docs_core.write.indexing import build_vector_records
+        from docs_core.step06_vectors import build_vector_records
 
         document = canonical_document or self.canonical_store.get_document(doc_id)
         if document is None:
@@ -633,8 +633,8 @@ class DocsService:
         *,
         title: str = "",
     ) -> Dict[str, int]:
-        from docs_core.write.indexing import build_vector_records
-        from docs_core.ingest.canonical.builder import rebuild_canonical_document_from_graph
+        from docs_core.step06_vectors import build_vector_records
+        from docs_core.step05_sqlite_fts.graph_rebuilder import rebuild_canonical_document_from_graph
 
         canonical_document = rebuild_canonical_document_from_graph(
             library_id=library_id,
@@ -654,7 +654,7 @@ class DocsService:
         *,
         changed_chunk_ids: Optional[List[str]] = None,
     ) -> None:
-        from docs_core.write.indexing import build_vector_records
+        from docs_core.step06_vectors import build_vector_records
 
         self.canonical_store.rebuild_chunk_fts(doc_id)
         vector_records = build_vector_records(canonical_document, only_chunk_ids=changed_chunk_ids)
@@ -921,45 +921,4 @@ __all__ = [
     "SCHEMA_VERSION",
     "docs_service",
     "get_docs_service",
-    "push_to_graph",
 ]
-
-
-def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = None) -> Dict[str, Any]:
-    """Push a parsed document's blocks to the knowledge graph for entity extraction.
-
-    This is the producer side of the docs-core → knowledge-graph pipeline.
-    """
-    try:
-        from docs_core.paths import resolve_graph_db_path
-        from docs_core.write.graph.graph_store import GraphStore
-        from docs_core.write.graph.evidence_builder import build_evidence_packets
-        from docs_core.write.graph.graph_orchestrator import GraphOrchestrator
-
-        from docs_core.write.store.assets_file_store import file_storage
-        from docs_core.write.store.doc_blocks_graph import get_doc_blocks_graph
-    except ImportError as e:
-        logger.warning("knowledge-graph module not available: %s", e)
-        return {"pushed": False, "error": str(e)}
-
-    db_path = graph_db_path or str(resolve_graph_db_path())
-
-    content = file_storage.read_markdown(library_id, doc_id) or ""
-    graph = get_doc_blocks_graph(library_id, doc_id)
-    structured_items = graph.get("nodes", []) if graph else []
-
-    packets = build_evidence_packets(
-        library_id=library_id,
-        doc_id=doc_id,
-        doc_title=doc_id,
-        document_content=content,
-        structured_items=structured_items,
-        doc_blocks_graph=graph,
-    )
-
-    store = GraphStore(db_path)
-    orchestrator = GraphOrchestrator(store)
-    orchestrator.load_seed_entities()
-    result = orchestrator.expand_all_packets(packets)
-
-    return {"pushed": True, **result}

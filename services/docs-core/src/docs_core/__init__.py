@@ -2,8 +2,8 @@
 
 from .docs_service import DocsService, get_docs_service, docs_service
 
-# read pipeline
-from .ingest.canonical.types import (
+# 步骤五：结构化（canonical 契约）
+from .step04_structure.shared.models.types import (
     CanonicalBlock,
     CanonicalDocument,
     CanonicalTable,
@@ -12,8 +12,8 @@ from .ingest.canonical.types import (
     CitationTarget,
     BoundingBox,
 )
-# write pipeline
-from .write.graph import (
+# 步骤七：知识图谱
+from .step07_graph import (
     EntityLayer,
     RelationType,
     EntitySeed,
@@ -29,7 +29,8 @@ from .write.graph import (
     RelationInferrer,
     EntityExtractor,
 )
-from .write.maintain import (
+# 步骤八：维护
+from .step08_maintain import (
     DreamCycleRunner,
     DreamCycleReport,
     DreamCycleConfig,

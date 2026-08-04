@@ -394,15 +394,15 @@ flowchart TB
 - `services/api-server/docs_routes.py`
   - 统一承载知识库路由、文件预览路由与解析主链编排：任务创建、阶段推进、MinerU 调用、产物落盘、A 主链索引构建。
 - `services/docs-core/src/docs_core/projection/*.py`
-  - 当前仓库中尚未形成 A/B/C 三类独立 projection 模块，仍以 `ingest/canonical`、`ingest/structure`、`write/store/assets_file_store.py` 为主链实现。
+  - 当前仓库中尚未形成 A/B/C 三类独立 projection 模块，仍以 `step04_structure`、`step05_sqlite_fts/assets_file_store.py` 为主链实现。
 - `services/docs-core/src/docs_core/index/doc_block_store.py`
   - 抽离 `doc_blocks` 索引写入、查询、统计，避免与文件存储职责混放。
-- `services/docs-core/src/docs_core/read/mineru_parser.py`
+- `services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py`
   - 保留 MinerU 解析能力，补充任务阶段回调（若 SDK 无实时进度则用阶段进度）。
   - 增加解析产物清单返回（md、assets、metadata）。
 - `services/docs-core/src/docs_core/storage/document_storage.py`
   - 改造为“一文档一目录”结构。
-  - 新增路径方法：`get_doc_root`、`get_graph_path`、`get_mineru_raw_dir`、`resolve_canonical_raw_dir`、`save_revision`。
+  - 新增路径方法：`get_doc_root`、`get_mineru_raw_dir`、`resolve_canonical_raw_dir`、`save_revision`。
   - 提供旧路径兼容读取逻辑（迁移期间双读）。
 - `services/engtools/src/engtools/config.py`
   - 增加目录解析策略：优先新目录结构，回退旧 `knowledge_base/markdown`。

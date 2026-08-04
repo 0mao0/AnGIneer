@@ -146,9 +146,9 @@ modules:
     key_symbols:
       - docs_service.py
       - mineru_parser.py
-      - query/contracts.py
-      - retrieval/dense_retriever.py
-      - retrieval/hybrid_retriever.py
+      - step09_query/protocols/contracts.py
+      - step09_query/retrieval/dense_retriever.py
+      - step09_query/retrieval/hybrid_retriever.py
 
   - id: angineer-core
     path: services/angineer-core
@@ -213,8 +213,8 @@ flows:
       - GET /api/knowledge/document/{library_id}/{doc_id}/structured
     anchors:
       - services/api-server/docs_routes.py
-      - services/docs-core/src/docs_core/read/mineru_parser.py
-      - services/docs-core/src/docs_core/write/store/assets_file_store.py
+      - services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py
+      - services/docs-core/src/docs_core/step05_sqlite_fts/assets_file_store.py
       - services/docs-core/src/docs_core/docs_service.py
 
   - id: docs-query-runtime

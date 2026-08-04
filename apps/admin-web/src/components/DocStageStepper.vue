@@ -1,16 +1,16 @@
 ﻿<template>
   <div class="doc-stage-stepper">
     <a-collapse>
-      <!-- 前段：源文件准备 / 格式转换 / MinerU 解析 -->
+      <!-- 八个解析阶段按顺序展示 -->
       <a-collapse-panel
-        v-for="stage in headStages"
+        v-for="stage in orderedStages"
         :key="stage.key"
         :size="'small'"
       >
         <template #header>
           <div class="stage-header">
             <component :is="statusIcon(stage.status)" :class="['stage-icon', `icon-${stage.status}`]" />
-            <span class="stage-number">{{ stage.displayNum }}.</span>
+            <span class="stage-number">{{ stage.displayNum }}</span>
             <span class="stage-title">{{ stage.title }}</span>
             <span class="stage-time">{{ formatTime(stage) }}</span>
             <span class="stage-duration">{{ formatDuration(stage) }}</span>
@@ -75,6 +75,12 @@
               </div>
             </div>
           </div>
+          <div v-if="stage.status === 'failed' && stage.error" class="stage-error-block">
+            <pre>{{ stage.error }}</pre>
+            <a-button type="link" size="small" @click.stop="copyStageError(stage)">
+              <CopyOutlined /> 复制错误
+            </a-button>
+          </div>
         </template>
         <template v-else-if="stage.key === 'raw_parse'">
           <div class="convert-flow">
@@ -120,146 +126,73 @@
                   <div v-if="mineruRawDir(stage)" class="checklist-row checklist-raw-child checklist-dir-line">
                     <span class="checklist-dir-path">{{ mineruRawDir(stage) }}</span>
                   </div>
-                </div>
-                <span v-else>—</span>
               </div>
+              <span v-else>—</span>
+            </div>
+          </div>
+          <div v-if="stage.status === 'failed' && stage.error" class="stage-error-block">
+            <pre>{{ stage.error }}</pre>
+            <a-button type="link" size="small" @click.stop="copyStageError(stage)">
+              <CopyOutlined /> 复制错误
+            </a-button>
           </div>
         </template>
-        <a-descriptions v-else :column="1" bordered size="small">
-          <a-descriptions-item label="输入">
-            <div class="file-summary" v-if="stageInput(stage)">
-              <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
-                <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                  <component :is="fileIcon(file)" class="tag-file-icon" :style="fileIconStyle(file)" />
-                  {{ file.name }}
-                </a-tag>
-                <span class="file-path">{{ file.path }}</span>
-              </div>
-            </div>
-            <span v-else>—</span>
-          </a-descriptions-item>
-          <a-descriptions-item label="产出">
-            <div class="file-summary" v-if="stageOutput(stage)">
-              <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
-                <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                  <component :is="fileIcon(file)" class="tag-file-icon" :style="fileIconStyle(file)" />
-                  {{ file.name }}
-                </a-tag>
-                <span class="file-path">{{ file.path }}</span>
-              </div>
-            </div>
-            <span v-else>—</span>
-          </a-descriptions-item>
-          <a-descriptions-item label="过程">
-            <div v-if="stage.status === 'failed'" class="stage-error-block">
-              <pre>{{ stage.error }}</pre>
-              <a-button type="link" size="small" @click.stop="copyStageError(stage)">
-                <CopyOutlined /> 复制错误
-              </a-button>
-            </div>
-            <div v-else>{{ stage.message || '—' }}</div>
-          </a-descriptions-item>
-        </a-descriptions>
-      </a-collapse-panel>
-
-      <!-- 4. 结构强化（4.1 PoPo / 4.2 Solo 二级） -->
-      <a-collapse-panel key="structure-group" :size="'small'" class="structure-group">
-        <template #header>
-          <div class="stage-header">
-            <ApartmentOutlined class="stage-icon icon-group" />
-            <span class="stage-number">4.</span>
-            <span class="stage-title">结构强化</span>
-            <span class="stage-time">PoPo 优先，失败回退 Solo</span>
-          </div>
-        </template>
-        <a-collapse class="sub-collapse">
-          <a-collapse-panel
-            v-for="stage in structureStages"
-            :key="stage.key"
-            :size="'small'"
-                      >
-            <template #header>
-              <div class="stage-header">
-                <component :is="statusIcon(stage.status)" :class="['stage-icon', `icon-${stage.status}`]" />
-                <span class="stage-number">{{ stage.displayNum }}</span>
-                <span class="stage-title">{{ stage.title }}</span>
-                <span class="stage-time">{{ formatTime(stage) }}</span>
-                <span class="stage-duration">{{ formatDuration(stage) }}</span>
-                <span class="stage-actions">
-                  <a-button v-if="anyRunning && stage.status === 'running'" type="link" size="small" danger class="stage-action-btn" @click.stop="emit('cancel')">
-                    <StopOutlined /> 取消
-                  </a-button>
-                  <a-button v-else-if="!anyRunning" type="link" size="small" class="stage-action-btn" @click.stop="emit('launch', stage.key)">
-                    <PlayCircleOutlined /> 启动
-                  </a-button>
-                </span>
-              </div>
-            </template>
-            <a-descriptions :column="1" bordered size="small">
-          <a-descriptions-item label="输入">
-            <div class="file-summary" v-if="stageInput(stage)">
-              <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
-                <CheckCircleFilled v-if="stageInputVerified(stage)" class="check-ok verify-file" title="核查通过" />
-                <CloseCircleFilled v-if="stage.status === 'failed'" class="check-no verify-file" title="核查失败" />
-                <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
-                  <component :is="fileIcon(file)" class="tag-file-icon" :style="fileIconStyle(file)" />
-                  {{ file.name }}
-                </a-tag>
-                <span class="file-path">{{ file.path }}</span>
-              </div>
-            </div>
-            <span v-else>—</span>
-          </a-descriptions-item>
-              <a-descriptions-item label="产出">
-                <div class="file-summary" v-if="stageOutput(stage)">
-                  <div v-for="(file, fi) in parseFiles(stageOutput(stage))" :key="fi" class="file-row">
+        <template v-else-if="stage.key === 'popo' || stage.key === 'structure'">
+          <div class="convert-flow">
+            <div class="convert-side convert-side-narrow">
+              <div class="convert-side-title">输入</div>
+              <div class="file-summary" v-if="stageInput(stage)">
+                <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
+                  <div class="file-name-line">
+                    <CheckCircleFilled v-if="stageInputVerified(stage)" class="check-ok verify-file" title="核查通过" />
+                    <CloseCircleFilled v-if="stage.status === 'failed'" class="check-no verify-file" title="核查失败" />
                     <a-tag :color="'default'" style="margin: 1px 4px 1px 0;">
                       <component :is="fileIcon(file)" class="tag-file-icon" :style="fileIconStyle(file)" />
                       {{ file.name }}
                     </a-tag>
-                    <span class="file-path">{{ file.path }}</span>
                   </div>
+                  <span class="file-path">{{ dirOf(file.path) }}</span>
                 </div>
-                <span v-else>—</span>
-              </a-descriptions-item>
-              <a-descriptions-item label="过程">
-                <div v-if="stage.status === 'failed'" class="stage-error-block">
-                  <pre>{{ stage.error }}</pre>
-                  <a-button type="link" size="small" @click.stop="copyStageError(stage)">
-                    <CopyOutlined /> 复制错误
-                  </a-button>
+              </div>
+              <span v-else>—</span>
+            </div>
+            <div class="convert-arrow">
+              <RightOutlined class="convert-arrow-icon" />
+              <div class="convert-arrow-label">
+                <div class="convert-arrow-name">{{ flowStageName(stage) }}</div>
+                <div v-if="flowBlocks(stage)" class="convert-arrow-mode">{{ flowBlocks(stage) }}</div>
+                <div v-if="stage.status === 'running'" class="convert-arrow-duration">{{ liveDuration(stage) }}</div>
+                <div v-else-if="splitStageMessage(stage.message).duration" class="convert-arrow-duration">{{ splitStageMessage(stage.message).duration }}</div>
+              </div>
+            </div>
+            <div class="convert-side">
+              <div class="convert-side-title">输出</div>
+              <div class="checklist" v-if="flowOutputChecklist(stage).length">
+                <div v-for="item in flowOutputChecklist(stage)" :key="item.name" class="checklist-row">
+                  <component :is="item.exists ? CheckCircleFilled : CloseCircleFilled" :class="item.exists ? 'check-ok' : 'check-no'" />
+                  <a-tag :color="'default'" style="margin: 0 4px 0 2px;">
+                    <template v-if="item.isDir">📁</template>
+                    <template v-else>📄</template>
+                    {{ item.name }}
+                  </a-tag>
+                  <a-tag v-if="item.isNew" color="blue" size="small" style="margin: 0 4px 0 0;">新增</a-tag>
+                  <span class="file-path" v-if="item.path">{{ item.path }}</span>
                 </div>
-                <div v-else>{{ stage.message || '—' }}</div>
-              </a-descriptions-item>
-            </a-descriptions>
-          </a-collapse-panel>
-        </a-collapse>
-      </a-collapse-panel>
-
-      <!-- 后段：全文索引 / 向量索引 / 知识图谱 -->
-      <a-collapse-panel
-        v-for="stage in tailStages"
-        :key="stage.key"
-        :size="'small'"
-      >
-        <template #header>
-          <div class="stage-header">
-            <component :is="statusIcon(stage.status)" :class="['stage-icon', `icon-${stage.status}`]" />
-            <span class="stage-number">{{ stage.displayNum }}.</span>
-            <span class="stage-title">{{ stage.title }}</span>
-            <span class="stage-time">{{ formatTime(stage) }}</span>
-            <span class="stage-duration">{{ formatDuration(stage) }}</span>
-            <span class="stage-actions">
-              <a-button v-if="anyRunning && stage.status === 'running'" type="link" size="small" danger class="stage-action-btn" @click.stop="emit('cancel')">
-                <StopOutlined /> 取消
-              </a-button>
-              <a-button v-else-if="!anyRunning" type="link" size="small" class="stage-action-btn" @click.stop="emit('launch', stage.key)">
-                <PlayCircleOutlined /> 启动
-              </a-button>
-            </span>
+                <div v-if="flowOutputDir(stage)" class="checklist-row checklist-dir-line">
+                  <span class="checklist-dir-path">{{ flowOutputDir(stage) }}</span>
+                </div>
+              </div>
+              <span v-else>—</span>
+            </div>
+          </div>
+          <div v-if="stage.status === 'failed' && stage.error" class="stage-error-block">
+            <pre>{{ stage.error }}</pre>
+            <a-button type="link" size="small" @click.stop="copyStageError(stage)">
+              <CopyOutlined /> 复制错误
+            </a-button>
           </div>
         </template>
-        <a-descriptions :column="1" bordered size="small">
+        <a-descriptions v-else :column="1" bordered size="small">
           <a-descriptions-item label="输入">
             <div class="file-summary" v-if="stageInput(stage)">
               <div v-for="(file, fi) in parseFiles(stageInput(stage))" :key="fi" class="file-row">
@@ -310,7 +243,6 @@ import {
   MinusCircleFilled,
   SyncOutlined,
   RightOutlined,
-  ApartmentOutlined,
   FileOutlined,
   FilePdfOutlined,
   FileWordOutlined,
@@ -320,7 +252,18 @@ import {
 } from '@ant-design/icons-vue'
 
 const props = defineProps<{
-  stages: { stage: string; status: string; error?: string; message?: string; started_at?: string; finished_at?: string; input_summary?: string; output_summary?: string }[]
+  stages: {
+    stage: string
+    status: string
+    error?: string
+    message?: string
+    started_at?: string
+    finished_at?: string
+    input_summary?: string
+    output_summary?: string
+    backend?: string
+    outputs?: { dir?: string; raw_dir?: string; items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] }
+  }[]
 }>()
 
 const emit = defineEmits<{
@@ -331,18 +274,18 @@ const emit = defineEmits<{
 
 const STAGE_TITLES: Record<string, string> = {
   source_prep: '源文件准备', convert: '格式转换', raw_parse: 'MinerU 解析',
-  popo: 'PoPo 强化', structure: 'Solo 强化',
-  fts: '全文索引', vectors: '向量索引', graph: '知识图谱',
+  popo: 'PoPo 强化', structure: '结构化',
+  fts: 'SQLite+FTS', vectors: '向量索引', graph: '知识图谱',
 }
 const PIPELINE_ORDER = Object.keys(STAGE_TITLES)
 
-// 显示序号：PoPo 与 Solo 为并行分支（4.1 / 4.2）
+// 显示序号：后端 STAGE_REGISTRY.step 为准（3.1 MinerU + 3.2 PoPo 同属第 3 步），前端兜底
 const STAGE_DISPLAY_NUM: Record<string, string> = {
   source_prep: '1',
   convert: '2',
-  raw_parse: '3',
-  popo: '4.1',
-  structure: '4.2',
+  raw_parse: '3.1',
+  popo: '3.2',
+  structure: '4',
   fts: '5',
   vectors: '6',
   graph: '7',
@@ -353,8 +296,8 @@ const orderedStages = computed(() =>
     const found: Partial<NonNullable<typeof props.stages>[number]> = props.stages.find(s => s.stage === key) || {}
     return {
       key,
-      title: STAGE_TITLES[key],
-      displayNum: STAGE_DISPLAY_NUM[key] || '',
+      title: stageTitle(key, found),
+      displayNum: (found as any)?.step || STAGE_DISPLAY_NUM[key] || '',
       status: found.status || 'pending',
       error: found.error || '',
       message: found.message || '',
@@ -362,18 +305,22 @@ const orderedStages = computed(() =>
       finished_at: found.finished_at || '',
       input_summary: found.input_summary || '',
       output_summary: found.output_summary || '',
+      backend: (found as any)?.backend || '',
+      outputs: (found as any)?.outputs || null,
     }
   })
 )
 
-// 分段：前段（1-3）｜结构强化组（4.1/4.2）｜后段（5-7）
-const HEAD_KEYS = ['source_prep', 'convert', 'raw_parse']
-const STRUCTURE_KEYS = ['popo', 'structure']
-const TAIL_KEYS = ['fts', 'vectors', 'graph']
-
-const headStages = computed(() => orderedStages.value.filter(s => HEAD_KEYS.includes(s.key)))
-const structureStages = computed(() => orderedStages.value.filter(s => STRUCTURE_KEYS.includes(s.key)))
-const tailStages = computed(() => orderedStages.value.filter(s => TAIL_KEYS.includes(s.key)))
+// 结构化阶段标题按实际使用的后端动态显示；未完成或未知时保持中性「结构化」
+function stageTitle(key: string, found: { backend?: string }): string {
+  if (key === 'structure') {
+    const backend = String(found.backend || '')
+    if (backend === 'popo') return '结构化（基于 PoPo）'
+    if (backend === 'solo') return '结构化（基于 Solo）'
+    return STAGE_TITLES.structure
+  }
+  return STAGE_TITLES[key]
+}
 
 // 是否有阶段正在运行（决定显示启动还是取消）
 const anyRunning = computed(() => orderedStages.value.some(s => s.status === 'running'))
@@ -489,7 +436,11 @@ function stageRunName(stage: { status: string; message?: string }, fallback: str
   return name.replace(/\|\|.+\|\|/, '')
 }
 
-function mineruOutputChecklist(stage: { output_summary: string }): { name: string; path: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] {
+function mineruOutputChecklist(stage: { output_summary: string; outputs?: { items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] } }): { name: string; path: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] {
+  // 后端真实文件系统核查结果优先；仅在旧接口/未返回时回退到 output_summary 字符串比对
+  if (stage.outputs?.items?.length) {
+    return stage.outputs.items.map(item => ({ ...item, path: '' }))
+  }
   const files = parseFiles(stage.output_summary || '')
   const presentNames = new Set(files.map(f => f.name))
 
@@ -532,7 +483,8 @@ function mineruOutputChecklist(stage: { output_summary: string }): { name: strin
 }
 
 // 五个文件所在目录（mineru_raw 父目录 = parsed），在检查表下方写一次
-function mineruRawDir(stage: { output_summary: string }): string {
+function mineruRawDir(stage: { output_summary: string; outputs?: { dir?: string } }): string {
+  if (stage.outputs?.dir) return stage.outputs.dir
   const files = parseFiles(stage.output_summary || '')
   const raw = files.find(f => f.name === 'mineru_raw')
   if (raw) return dirOf(raw.path)
@@ -547,6 +499,58 @@ function mineruBackend(stage: { message?: string }): string {
   const name = splitStageMessage(stage.message).name || ''
   const m = name.match(/\|\|(.+)\|\|/)
   return m ? m[1] : ''
+}
+
+// 结构强化输出检查：PoPo / Solo 各自固定的产物清单，存在打勾缺失打叉
+const POPO_OUTPUTS = ['enriched_blocks.json', 'document_tree.json']
+// 结构化阶段两条后端共用同一组输出文件名，与 PoPo 阶段产物分开判断
+const STRUCTURE_OUTPUTS = ['content.md', 'doc_blocks_graph.jsonl', 'doc_blocks_graph_meta.json']
+
+function flowOutputChecklist(stage: { key: string; output_summary: string; outputs?: { items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] } }): { name: string; path: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] {
+  // 后端真实文件系统核查结果优先；仅在旧接口/未返回时回退到 output_summary 字符串比对
+  if (stage.outputs?.items?.length) {
+    return stage.outputs.items.map(item => ({ ...item, path: '' }))
+  }
+  const expected = stage.key === 'structure' ? STRUCTURE_OUTPUTS : POPO_OUTPUTS
+  const files = parseFiles(stage.output_summary || '')
+  const presentNames = new Set(files.map(f => f.name))
+  const fixed = expected.map(name => ({
+    name,
+    exists: presentNames.has(name),
+    isNew: false,
+    isDir: false,
+    path: '', // 所有产物都在同一目录，路径统一在列表下方写一次
+  }))
+  const extras = files
+    .filter(f => !expected.includes(f.name))
+    .map(f => ({ name: f.name, path: '', exists: true, isNew: true, isDir: f.isDir }))
+  return [...fixed, ...extras]
+}
+
+// 产物所在目录（PoPo → popo 目录，Solo → parsed 目录），在检查表下方写一次
+function flowOutputDir(stage: { key: string; output_summary: string; outputs?: { dir?: string } }): string {
+  if (stage.outputs?.dir) return stage.outputs.dir
+  const files = parseFiles(stage.output_summary || '')
+  const sample = files.find(f => f.path) || files[0]
+  if (!sample) return ''
+  return dirOf(sample.path)
+}
+
+// 箭头阶段名：消息形如 "PoPo 强化完成，N blocks（…），耗时X.Xs"，箭头只显示动作名
+function flowStageName(stage: { key: string; status: string; message?: string }): string {
+  const isStructure = stage.key === 'structure'
+  const runningLabel = isStructure ? '结构化进行中' : 'PoPo 强化中'
+  const doneLabel = isStructure ? '结构化完成' : 'PoPo 强化完成'
+  const raw = splitStageMessage(stage.message).name || ''
+  if (stage.status === 'running' && (!raw || raw === '核查通过')) return runningLabel
+  const clean = raw.replace(/\|\|.+\|\|/, '').split('，')[0] || ''
+  return clean || (stage.status === 'running' ? runningLabel : doneLabel)
+}
+
+// 箭头模式行：blocks 数量，如 "12 blocks"
+function flowBlocks(stage: { message?: string }): string {
+  const m = (stage.message || '').match(/(\d+)\s*blocks?/)
+  return m ? `${m[1]} blocks` : ''
 }
 
 function parseFiles(text: string): { name: string; path: string; isDir: boolean }[] {
@@ -647,40 +651,12 @@ function fileIconStyle(file: { name: string; isDir: boolean }): Record<string, s
   padding-inline: 0;
 }
 
-/* 结构强化分组 */
-.structure-group {
-  :deep(.ant-collapse-header) {
-    background: var(--bg-tertiary, #fafafa);
-    border-bottom: 1px solid var(--border-color, #f0f0f0);
-  }
-}
-.icon-group {
-  color: var(--primary-color, #1890ff);
-}
-.sub-collapse {
-  :deep(.ant-collapse) {
-    border: none !important;
-    background: transparent !important;
-  }
-  :deep(.ant-collapse-content) {
-    background: transparent !important;
-  }
-  :deep(.ant-collapse-item) {
-    border-bottom: none !important;
-  }
-  :deep(.ant-collapse-header) {
-    padding-left: 24px !important;
-  }
-}
-
 .stage-error-block {
   pre {
     white-space: pre-wrap;
     word-break: break-all;
     font-size: 12px;
     margin-bottom: 4px;
-    max-height: 200px;
-    overflow-y: auto;
   }
 }
 

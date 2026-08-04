@@ -3,8 +3,8 @@ import os
 import uuid
 from typing import Any, Dict, List, Optional
 
-from docs_core.write.graph.config import EntityLayer, DEFAULT_LLM_CONFIG
-from docs_core.write.graph.graph_store import GraphStore
+from docs_core.step07_graph.config import EntityLayer, DEFAULT_LLM_CONFIG
+from docs_core.step07_graph.graph_store import GraphStore
 
 SOP_GENERATION_SYSTEM_PROMPT = """你是工程标准 SOP 生成器。你的任务是根据知识图谱提取出的框架步骤、设计原则、注意事项和计算案例，生成一份完整的、可直接执行的 SOP。
 

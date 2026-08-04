@@ -20,9 +20,19 @@ from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
 from docs_core.docs_service import get_docs_service
-from docs_core.read.mineru_parser import MinerUParser
+from docs_core.step03_mineru_parse.mineru_parser import MinerUParser
 
 logger = logging.getLogger(__name__)
+
+
+# 延迟获取 AnGIneer LLM 客户端，避免循环导入
+def _get_llm_client():
+    try:
+        from ai_inference.llm_client import llm_client
+        return llm_client
+    except ImportError:
+        return None
+
 
 STAGE_KIND_HARD = "hard"
 STAGE_KIND_SOFT = "soft"
@@ -61,6 +71,7 @@ class StageDef:
     depends_on: List[str]
     run: Callable[["StageContext"], str]
     verify: Optional[Callable[["StageContext"], str]] = None
+    step: str = ""
 
 
 # ---- 阶段输入核查（启动前先核查输入，通过后通知前端「核查通过」再运行） ----
@@ -73,7 +84,7 @@ def _verify_source_file(ctx: StageContext) -> str:
 
 
 def _verify_convert_input(ctx: StageContext) -> str:
-    from docs_core.read.convert2pdf import prepare_source
+    from docs_core.step01_source_prep.source_prep import prepare_source
 
     if not ctx.source_path:
         ctx.source_path = prepare_source(ctx.library_id, ctx.doc_id, ctx.file_path)
@@ -85,7 +96,7 @@ def _verify_convert_input(ctx: StageContext) -> str:
 
 def _verify_raw_parse_input(ctx: StageContext) -> str:
     """MinerU 输入必须是 PDF（convert 转换后或上传即 PDF）。"""
-    from docs_core.write.store.assets_file_store import file_storage
+    from docs_core.assets_file_store import file_storage
 
     ctx.source_path = file_storage.resolve_pdf_input(ctx.library_id, ctx.doc_id)
     if not Path(ctx.source_path).is_file():
@@ -96,7 +107,6 @@ def _verify_raw_parse_input(ctx: StageContext) -> str:
 
 def _verify_mineru_raw_input(ctx: StageContext) -> str:
     import docs_core.paths as paths
-    from docs_core.write.store.assets_file_store import file_storage, _get_llm_client
 
     mineru_raw_dir = paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
     if not mineru_raw_dir.exists():
@@ -108,10 +118,8 @@ def _verify_mineru_raw_input(ctx: StageContext) -> str:
 def _verify_doc_blocks_graph_input(ctx: StageContext) -> str:
     import docs_core.paths as paths
 
-    # 结构产物以 jsonl+meta 为主（Solo/PoPo 均产出），legacy 单文件兜底
+    # 结构产物：jsonl + meta（Solo/PoPo 均产出）
     graph_path = paths.get_graph_jsonl_path(ctx.library_id, ctx.doc_id)
-    if not graph_path.exists():
-        graph_path = paths.get_parsed_dir(ctx.library_id, ctx.doc_id) / "doc_blocks_graph.json"
     if not graph_path.exists():
         raise RuntimeError(f"输入文件不存在: {graph_path}")
     ctx.input_summary = str(graph_path)
@@ -121,7 +129,7 @@ def _verify_doc_blocks_graph_input(ctx: StageContext) -> str:
 # ---- 阶段执行函数 ----
 
 def _run_source_prep(ctx: StageContext) -> str:
-    from docs_core.read.convert2pdf import prepare_source
+    from docs_core.step01_source_prep.source_prep import prepare_source
 
     source_path = prepare_source(ctx.library_id, ctx.doc_id, ctx.file_path)
     ctx.input_summary = ctx.file_path
@@ -137,7 +145,7 @@ def _run_convert(ctx: StageContext) -> str:
     if ext == ".pdf":
         return "__skipped__:PDF 输入，无需转换"
 
-    from docs_core.read.convert2pdf import convert_to_pdf
+    from docs_core.step02_convert2pdf.convert2pdf import convert_to_pdf
 
     # 转换输出直接落在源文件目录（与上传的 docx 同目录），地址稳定且与上传位置一致
     source_dir = Path(ctx.source_path).parent
@@ -185,15 +193,14 @@ def _run_popo(ctx: StageContext) -> str:
         return "__skipped__:未启用（DOCS_CORE_NORMALIZER_BACKEND != popo/auto）"
 
     import docs_core.paths as paths
-    from docs_core.read.popo_enhance import get_popo_pipeline
-    from docs_core.write.store.assets_file_store import file_storage
+    from docs_core.step03_mineru_parse.popo_enhance import get_popo_pipeline
+    from docs_core.assets_file_store import file_storage
 
     mineru_raw_dir = paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
     if not mineru_raw_dir.exists():
         raise FileNotFoundError(f"mineru_raw_dir not found at {mineru_raw_dir}")
 
     popo_output_dir = str(paths.get_popo_dir(ctx.library_id, ctx.doc_id))
-    parsed_dir = paths.get_parsed_dir(ctx.library_id, ctx.doc_id)
     source_dir = paths.get_source_dir(ctx.library_id, ctx.doc_id)
     pipeline = get_popo_pipeline()
     # PDF 源在 source 目录（转换后的 PDF 或上传的 PDF），重试/resume 时 ctx.source_path 可能为空，兜底解析
@@ -208,7 +215,6 @@ def _run_popo(ctx: StageContext) -> str:
             output_dir=popo_output_dir,
             doc_id=ctx.doc_id,
             source_pdf_path=source_pdf,
-            parsed_dir=str(parsed_dir),
             source_dir=str(source_dir),
         )
     except Exception as exc:
@@ -224,8 +230,15 @@ def _run_popo(ctx: StageContext) -> str:
         raise
 
     enriched_blocks = file_storage.read_popo_enriched_blocks(ctx.library_id, ctx.doc_id)
+    # output_summary 与 MinerU 一致：列出实际存在的产物文件（+ 连接），前端按固定清单打勾/打叉
+    popo_dir = Path(popo_output_dir)
+    output_parts = []
+    for name in ("enriched_blocks.json", "document_tree.json"):
+        path = popo_dir / name
+        if path.exists():
+            output_parts.append(str(path))
     ctx.input_summary = str(mineru_raw_dir)
-    ctx.output_summary = popo_output_dir
+    ctx.output_summary = " + ".join(output_parts) if output_parts else popo_output_dir
     return f"PoPo 强化完成，{len(enriched_blocks)} blocks（结构由 structure 阶段统一构建）"
 
 
@@ -253,7 +266,7 @@ def _rollback_popo_products(ctx: StageContext) -> None:
 
 def _run_structure(ctx: StageContext) -> str:
     """统一结构化者：popo enriched 产物存在 → 从 popo 块构建；否则 solo 降级。"""
-    from docs_core.write.store.assets_file_store import file_storage, _get_llm_client
+    from docs_core.assets_file_store import file_storage
 
     use_llm = bool(ctx.parse_options.get("use_llm", True))
     llm_model = str(ctx.parse_options.get("llm_model") or "").strip() or None
@@ -284,13 +297,11 @@ def _run_structure_from_popo(
     llm_model: Optional[str],
 ) -> str:
     import docs_core.paths as paths
-    from docs_core.ingest.structure.popo_mapper import po_po_blocks_to_canonical
-    from docs_core.ingest.canonical.builder import build_canonical_document_from_popoblocks
-    from docs_core.write.projection import write_canonical_products
-    from docs_core.write.store.assets_file_store import file_storage
-    from docs_core.docs_service import get_docs_service
+    from docs_core.step04_structure.popo.popo_mapper import po_po_blocks_to_canonical
+    from docs_core.step04_structure.shared.canonical_builder import build_canonical_document_from_popoblocks
+    from docs_core.step04_structure.popo.popo2json import write_canonical_graph_products
+    from docs_core.assets_file_store import file_storage
 
-    ks = get_docs_service()
     document_tree = file_storage.read_popo_document_tree(ctx.library_id, ctx.doc_id)
     blocks, outlines, _id_map, pages = po_po_blocks_to_canonical(
         ctx.doc_id, enriched_blocks, document_tree
@@ -303,15 +314,16 @@ def _run_structure_from_popo(
         manifest=manifest,
         use_llm=use_llm, llm_client=llm_client, llm_model=llm_model,
     )
-    ks.save_canonical_document_bare(canonical_doc)
-    file_storage.save_middle_json(ctx.library_id, ctx.doc_id, canonical_doc.model_dump(mode="json"))
-    products = write_canonical_products(
+    products = write_canonical_graph_products(
         library_id=ctx.library_id,
         doc_id=ctx.doc_id,
         document=canonical_doc,
     )
     ctx.input_summary = str(paths.get_popo_dir(ctx.library_id, ctx.doc_id))
-    ctx.output_summary = f"{products['content_md_path']} + {products['graph_path']}"
+    ctx.output_summary = (
+        f"{products['content_md_path']} + {products['graph_path']} + "
+        f"{paths.get_graph_meta_path(ctx.library_id, ctx.doc_id)}"
+    )
     return (
         f"结构化完成（popo 后端），{len(blocks)} blocks，"
         f"graph {products['stats'].get('nodes_count', 0)} 节点"
@@ -325,7 +337,7 @@ def _run_structure_solo(
     llm_model: Optional[str],
 ) -> str:
     import docs_core.paths as paths
-    from docs_core.write.store.doc_blocks_graph import build_structured_index_for_doc
+    from docs_core.step04_structure.solo.solo2json import build_structured_index_for_doc
 
     result = build_structured_index_for_doc(
         library_id=ctx.library_id,
@@ -337,24 +349,35 @@ def _run_structure_solo(
         },
     )
     stats = result.get("stats", {})
+    # output_summary 与 PoPo/MinerU 一致：列出实际存在的产物文件（+ 连接），前端按固定清单打勾/打叉
+    parsed_dir = paths.get_parsed_dir(ctx.library_id, ctx.doc_id)
+    output_names = (
+        "content.md",
+        "doc_blocks_graph.jsonl",
+        "doc_blocks_graph_meta.json",
+    )
+    output_parts = [str(parsed_dir / n) for n in output_names if (parsed_dir / n).exists()]
     ctx.input_summary = str(paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id))
-    ctx.output_summary = str(paths.get_parsed_dir(ctx.library_id, ctx.doc_id))
-    return f"结构化完成（solo 降级），{stats.get('canonical_blocks_count', 0)} blocks"
+    ctx.output_summary = " + ".join(output_parts) if output_parts else str(parsed_dir)
+    return f"结构化完成（solo 降级），{stats.get('nodes_count', 0)} blocks"
 
 
 def _run_fts(ctx: StageContext) -> str:
-    from docs_core.docs_service import get_docs_service
+    import docs_core.paths as paths
+    from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph
 
-    ks = get_docs_service()
-    ks.canonical_store.rebuild_chunk_fts(ctx.doc_id)
-    ctx.input_summary = ctx.doc_id
-    ctx.output_summary = "canonical_chunk_fts (FTS5 table)"
-    return "FTS 重建完成"
+    result = build_sqlite_index_from_graph(ctx.library_id, ctx.doc_id)
+    ctx.input_summary = str(paths.get_graph_jsonl_path(ctx.library_id, ctx.doc_id))
+    ctx.output_summary = (
+        f"canonical SQLite + doc_blocks + segments + canonical_chunk_fts "
+        f"({result.get('canonical_blocks_count', 0)} blocks)"
+    )
+    return f"SQLite 建库完成，FTS 重建完成（{result.get('canonical_blocks_count', 0)} blocks）"
 
 
 def _run_vectors(ctx: StageContext) -> str:
     from docs_core.docs_service import get_docs_service
-    from docs_core.write.indexing.embedding_provider import default_embedding_provider
+    from docs_core.step06_vectors.embedding_provider import default_embedding_provider
 
     ks = get_docs_service()
     ks.rebuild_document_vectors(ctx.doc_id)
@@ -369,7 +392,7 @@ def _run_vectors(ctx: StageContext) -> str:
 
 
 def _run_graph(ctx: StageContext) -> str:
-    from docs_core.docs_service import push_to_graph
+    from docs_core.step07_graph.push_to_graph import push_to_graph
 
     result = push_to_graph(ctx.library_id, ctx.doc_id)
     if not result.get("pushed"):
@@ -377,7 +400,7 @@ def _run_graph(ctx: StageContext) -> str:
         raise RuntimeError(f"图谱构建失败: {error}")
 
     import docs_core.paths as paths
-    ctx.input_summary = str(paths.get_parsed_dir(ctx.library_id, ctx.doc_id) / "doc_blocks_graph.json")
+    ctx.input_summary = str(paths.get_graph_jsonl_path(ctx.library_id, ctx.doc_id))
     ctx.output_summary = "knowledge_graph.sqlite (entities + relations)"
 
     entities = result.get("entities_count", 0)
@@ -386,14 +409,14 @@ def _run_graph(ctx: StageContext) -> str:
 
 
 STAGE_REGISTRY: Dict[str, StageDef] = {s.key: s for s in [
-    StageDef("source_prep", "源文件准备", STAGE_KIND_HARD, [], _run_source_prep, _verify_source_file),
-    StageDef("convert", "格式转换", STAGE_KIND_HARD, ["source_prep"], _run_convert, _verify_convert_input),
-    StageDef("raw_parse", "MinerU解析", STAGE_KIND_HARD, ["convert"], _run_raw_parse, _verify_raw_parse_input),
-    StageDef("popo", "PoPo 强化", STAGE_KIND_SOFT, ["raw_parse"], _run_popo, _verify_mineru_raw_input),
-    StageDef("structure", "Solo 强化", STAGE_KIND_HARD, ["raw_parse"], _run_structure, _verify_mineru_raw_input),
-    StageDef("fts", "全文索引", STAGE_KIND_HARD, ["structure"], _run_fts, _verify_doc_blocks_graph_input),
-    StageDef("vectors", "向量索引", STAGE_KIND_SOFT, ["structure"], _run_vectors, _verify_doc_blocks_graph_input),
-    StageDef("graph", "知识图谱", STAGE_KIND_SOFT, ["structure"], _run_graph, _verify_doc_blocks_graph_input),
+    StageDef("source_prep", "1 源文件准备", STAGE_KIND_HARD, [], _run_source_prep, _verify_source_file, step="1"),
+    StageDef("convert", "2 格式转换", STAGE_KIND_HARD, ["source_prep"], _run_convert, _verify_convert_input, step="2"),
+    StageDef("raw_parse", "3.1 MinerU解析", STAGE_KIND_HARD, ["convert"], _run_raw_parse, _verify_raw_parse_input, step="3.1"),
+    StageDef("popo", "3.2 PoPo强化", STAGE_KIND_SOFT, ["raw_parse"], _run_popo, _verify_mineru_raw_input, step="3.2"),
+    StageDef("structure", "4 结构化（基于 PoPo / Solo）", STAGE_KIND_HARD, ["raw_parse"], _run_structure, _verify_mineru_raw_input, step="4"),
+    StageDef("fts", "5 SQLite+FTS", STAGE_KIND_HARD, ["structure"], _run_fts, _verify_doc_blocks_graph_input, step="5"),
+    StageDef("vectors", "6 向量索引", STAGE_KIND_SOFT, ["fts"], _run_vectors, _verify_doc_blocks_graph_input, step="6"),
+    StageDef("graph", "7 知识图谱", STAGE_KIND_SOFT, ["structure"], _run_graph, _verify_doc_blocks_graph_input, step="7"),
 ]}
 
 _PIPELINE_ORDER = [

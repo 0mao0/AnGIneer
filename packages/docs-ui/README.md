@@ -289,7 +289,7 @@ src/
 - 存储实现：`services/docs-core/src/docs_core/storage/document_storage.py`
   - 根目录：`data/knowledge_base`
   - 文档目录：`libraries/{library_id}/documents/{doc_id}/`
-  - 关键文件：`parsed/content.md` `parsed/middle.json` `parsed/mineru_blocks.json` `parsed/raw/*` `edited/current.md`
+  - 关键文件：`parsed/content.md` `parsed/doc_blocks_graph.jsonl` `parsed/doc_blocks_graph_meta.json` `parsed/mineru_blocks.json` `parsed/raw/*` `edited/current.md`
 
 ---
 

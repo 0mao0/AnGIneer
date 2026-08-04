@@ -198,7 +198,20 @@ export const knowledgeApi = {
     api.get(`/knowledge/parse/tasks/${taskId}/steps`) as Promise<{ status: string; data: any[] }>,
 
   getDocStages: (docId: string) =>
-    api.get(`/knowledge/documents/${docId}/stages`) as Promise<{ doc_id: string; stages: { stage: string; status: string; error: string; message: string; started_at: string; finished_at: string; updated_at: string }[] }>,
+    api.get(`/knowledge/documents/${docId}/stages`) as Promise<{
+      doc_id: string
+      stages: {
+        stage: string
+        status: string
+        error: string
+        message: string
+        started_at: string
+        finished_at: string
+        updated_at: string
+        backend?: string
+        outputs?: { dir?: string; raw_dir?: string; items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] }
+      }[]
+    }>,
 
   retryDocStage: (docId: string, stageKey: string) =>
     api.post(`/knowledge/documents/${docId}/stages/${stageKey}/retry`) as Promise<{ status: string; task_id: string }>,

@@ -586,6 +586,20 @@ const loadNodes = async (focusNodeKey?: string) => {
   try {
     const response = await knowledgeApi.getNodes('default', false) as unknown as any[]
     treeData.value = buildTree(response)
+    // 校验当前选中节点是否仍存在（列表页可能已删除该文档），不存在则清空选中态与视图缓存
+    const currentSelectedKey = selectedKeys.value[0]
+    if (currentSelectedKey && !findNode(treeData.value as unknown as SmartTreeNode[], currentSelectedKey)) {
+      selectedKeys.value = []
+      defaultSelectedKeys.value = []
+      selectedNode.value = null
+      docContent.value = ''
+      docContentDocId.value = ''
+      graphData.value = null
+      structuredStats.value = {}
+      structuredItems.value = []
+      docRenderPdfPath.value = ''
+      stopParsePolling()
+    }
     if (!focusNodeKey && !selectedKeys.value.length) {
       const firstFile = findFirstFileNode(treeData.value as unknown as SmartTreeNode[])
       if (firstFile) {
@@ -1131,6 +1145,13 @@ watch(() => selectedNode.value?.key, () => {
   }
   if (selectedNode.value.status === 'processing' && selectedNode.value.parseTaskId) {
     _startParsePollingWrapper(selectedNode.value.parseTaskId, selectedNode.value.key)
+  }
+})
+
+// 列表页删除/新增节点后，切回解析页时重新拉取左侧树，避免展示已删除的文件
+watch(activeView, (view) => {
+  if (view === 'parse') {
+    void loadNodes()
   }
 })
 

@@ -670,7 +670,7 @@ def delete_folder(folder_id: str):
 
 # 获取知识图谱存储实例（只读，不触发 KG 内部方法）
 def _get_kg_store():
-    from docs_core.write.graph.graph_store import GraphStore
+    from docs_core.step07_graph.graph_store import GraphStore
     db_path = os.environ.get(
         "KG_DB_PATH",
         os.path.join(ROOT_DIR, "data", "knowledge_graph.sqlite"),
@@ -720,7 +720,7 @@ async def generate_sop_from_path(req: SopExportRequest):
 # 从文档图谱批量生成 SOP（彻底解耦：只读图谱，不触发 KG 内部方法；未就绪返回 412）
 @sop_router.post("/generate-from-doc")
 async def generate_sops_from_doc(req: SopGenerateFromDocRequest):
-    from docs_core.write.graph.config import EntityLayer
+    from docs_core.step07_graph.config import EntityLayer
     from sop_core.sop_path_generator import SopPathGenerator
 
     store = _get_kg_store()

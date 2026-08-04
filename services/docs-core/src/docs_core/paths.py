@@ -109,10 +109,6 @@ def get_popo_dir(library_id: str, doc_id: str, base_dir: Path | str | None = Non
     return get_parsed_dir(library_id, doc_id, base_dir=base_dir) / "popo"
 
 
-def get_graph_path(library_id: str, doc_id: str, base_dir: Path | str | None = None) -> Path:
-    return get_parsed_dir(library_id, doc_id, base_dir=base_dir) / "doc_blocks_graph.json"
-
-
 def get_graph_jsonl_path(library_id: str, doc_id: str, base_dir: Path | str | None = None) -> Path:
     return get_parsed_dir(library_id, doc_id, base_dir=base_dir) / "doc_blocks_graph.jsonl"
 
@@ -123,10 +119,6 @@ def get_graph_meta_path(library_id: str, doc_id: str, base_dir: Path | str | Non
 
 def get_parsed_markdown_path(library_id: str, doc_id: str, base_dir: Path | str | None = None) -> Path:
     return get_parsed_dir(library_id, doc_id, base_dir=base_dir) / "content.md"
-
-
-def get_middle_json_path(library_id: str, doc_id: str, base_dir: Path | str | None = None) -> Path:
-    return get_parsed_dir(library_id, doc_id, base_dir=base_dir) / "middle.json"
 
 
 def get_edited_markdown_path(library_id: str, doc_id: str, base_dir: Path | str | None = None) -> Path:
@@ -176,8 +168,6 @@ __all__ = [
     "get_edited_markdown_path",
     "get_graph_jsonl_path",
     "get_graph_meta_path",
-    "get_graph_path",
-    "get_middle_json_path",
     "get_mineru_blocks_path",
     "get_mineru_raw_dir",
     "get_parsed_dir",

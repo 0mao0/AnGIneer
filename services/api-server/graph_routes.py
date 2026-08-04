@@ -15,7 +15,7 @@ ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 
 def _get_store():
-    from docs_core.write.graph.graph_store import GraphStore
+    from docs_core.step07_graph.graph_store import GraphStore
     db_path = os.environ.get(
         "KG_DB_PATH",
         os.path.join(ROOT_DIR, "data", "knowledge_graph.sqlite"),
@@ -56,7 +56,7 @@ async def get_graph_stats():
 async def list_entities(layer: Optional[str] = None):
     store = _get_store()
     if layer:
-        from docs_core.write.graph.config import EntityLayer
+        from docs_core.step07_graph.config import EntityLayer
         entities = store.list_entities_by_layer(EntityLayer(layer))
     else:
         entities = store.list_all_entities()
@@ -98,18 +98,18 @@ async def get_entity_relations(entity_id: str, direction: str = "both"):
 @graph_router.get("/snapshot")
 async def get_full_snapshot(library_id: Optional[str] = None, doc_id: Optional[str] = None):
     store = _get_store()
-    from docs_core.write.graph.graph_orchestrator import GraphOrchestrator
+    from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
     orchestrator = GraphOrchestrator(store)
     return orchestrator.get_graph_snapshot(library_id=library_id, doc_id=doc_id)
 
 
 @graph_router.post("/build/from-doc")
 async def build_graph_from_doc(req: PushDocRequest):
-    from docs_core.write.store.assets_file_store import file_storage
-    from docs_core.write.store.doc_blocks_graph import get_doc_blocks_graph
-    from docs_core.write.graph.graph_store import GraphStore
-    from docs_core.write.graph.evidence_builder import build_evidence_packets
-    from docs_core.write.graph.graph_orchestrator import GraphOrchestrator
+    from docs_core.assets_file_store import file_storage
+    from docs_core.step04_structure.shared.jsonl_store import get_doc_blocks_graph
+    from docs_core.step07_graph.graph_store import GraphStore
+    from docs_core.step07_graph.evidence_builder import build_evidence_packets
+    from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
 
     content = file_storage.read_markdown(req.library_id, req.doc_id) or ""
     graph = get_doc_blocks_graph(req.library_id, req.doc_id)
@@ -139,7 +139,7 @@ async def validate_with_questions(req: QuestionBatchRequest):
     all_entities = store.list_all_entities()
     entity_names = [e.name for e in all_entities]
 
-    from docs_core.write.graph.question_mapper import QuestionMapper, StructuredQuestion
+    from docs_core.step07_graph.question_mapper import QuestionMapper, StructuredQuestion
     mapper = QuestionMapper()
 
     questions = []
@@ -191,8 +191,8 @@ async def human_review(req: HumanReviewRequest):
 
 @graph_router.post("/extractors/run")
 async def run_extractors(req: ExtractorsRunRequest):
-    from docs_core.write.store.assets_file_store import file_storage
-    from docs_core.write.graph.graph_orchestrator import GraphOrchestrator
+    from docs_core.assets_file_store import file_storage
+    from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
 
     store = _get_store()
     content = file_storage.read_markdown(req.library_id, req.doc_id) or ""
@@ -230,7 +230,7 @@ async def get_docs_with_graph(library_id: str = "default"):
     store = _get_store()
     docs = store.get_docs_with_graph(library_id)
     try:
-        from docs_core.write.store.assets_file_store import file_storage
+        from docs_core.assets_file_store import file_storage
         name_map = {d["id"]: d.get("filename", "") for d in file_storage.list_documents(library_id)}
         for doc in docs:
             doc["name"] = name_map.get(doc["doc_id"], "")

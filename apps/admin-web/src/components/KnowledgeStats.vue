@@ -60,9 +60,16 @@
             <a-tag :color="statusColor(record.status)">
               {{ statusLabel(record.status) }}
             </a-tag>
-            <a-tooltip v-if="record.status === 'failed' && record.error" :title="record.error">
-              <ExclamationCircleOutlined style="color: #ff4d4f; cursor: help; font-size: 14px;" />
-            </a-tooltip>
+            <a-button
+              v-if="record.status === 'failed' && record.error"
+              type="text"
+              size="small"
+              class="error-detail-trigger"
+              title="查看错误详情"
+              @click="openErrorDetail(record)"
+            >
+              <template #icon><ExclamationCircleOutlined /></template>
+            </a-button>
           </span>
         </template>
         <template v-if="column.key === 'action'">
@@ -70,10 +77,12 @@
             <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
             <a-divider type="vertical" />
             <a-button type="link" size="small" @click="viewDetail(record)">结果</a-button>
-            <template v-if="record.file_status === '用户已删'">
+            <template v-if="!RUNNING_STATUSES.has(record.status) && record.status !== 'deleted'">
               <a-divider type="vertical" />
-              <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
+              <a-button type="link" size="small" @click="restartTask(record)">重新解析</a-button>
             </template>
+            <a-divider type="vertical" />
+            <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
           </span>
         </template>
       </template>
@@ -132,6 +141,43 @@
         :render-pdf-path="viewerRenderPdfPath"
       />
     </a-drawer>
+
+    <a-modal
+      v-model:open="errorDetailOpen"
+      :title="errorDetailTitle"
+      :width="720"
+      :footer="null"
+      destroy-on-close
+    >
+      <div class="error-detail-body">
+        <pre>{{ errorDetailText }}</pre>
+        <a-button type="link" size="small" @click="copyErrorDetail">
+          <CopyOutlined /> 复制错误
+        </a-button>
+      </div>
+    </a-modal>
+
+    <a-modal
+      v-model:open="adminDeleteModalOpen"
+      :title="`再次确认删除「${adminDeleteFileName}」`"
+      :width="520"
+      ok-text="永久删除"
+      ok-danger
+      :ok-button-props="{ disabled: adminDeleteInput.trim() !== adminDeleteFileName.trim() }"
+      @ok="confirmAdminDelete"
+      @cancel="adminDeleteInput = ''"
+    >
+      <p class="admin-delete-warning">
+        该文件用户尚未删除，本次为管理员强制删除，将同时移除知识库节点、文件内容与解析记录，此操作不可恢复。
+      </p>
+      <p>请输入完整文件名以确认：</p>
+      <p class="admin-delete-filename">{{ adminDeleteFileName }}</p>
+      <a-input
+        v-model:value="adminDeleteInput"
+        :placeholder="adminDeleteFileName"
+        @pressEnter="confirmAdminDelete"
+      />
+    </a-modal>
   </div>
 </template>
 
@@ -139,7 +185,7 @@
 import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import dayjs from 'dayjs'
 import { message, Modal } from 'ant-design-vue'
-import { ExclamationCircleOutlined } from '@ant-design/icons-vue'
+import { CopyOutlined, ExclamationCircleOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
 import { PDFParsedWorkspace } from '@angineer/docs-ui'
@@ -172,6 +218,14 @@ const stepsModalOpen = ref(false)
 const currentStepDocId = ref('')
 const currentStepTaskId = ref('')
 const currentStages = ref<any[]>([])
+const errorDetailOpen = ref(false)
+const errorDetailTitle = ref('')
+const errorDetailText = ref('')
+const adminDeleteModalOpen = ref(false)
+const adminDeleteDocId = ref('')
+const adminDeleteRecordId = ref(0)
+const adminDeleteFileName = ref('')
+const adminDeleteInput = ref('')
 
 // 列表轮询：存在进行中记录时持续静默刷新，全部终态后停止
 let recordsPollTimer: number | null = null
@@ -215,7 +269,7 @@ const columns = [
   { title: '大小', key: 'file_size', width: 80 },
   { title: '解析状态', key: 'status', width: 80 },
   { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
-  { title: '操作', key: 'action', width: 130, fixed: 'right' as const },
+  { title: '操作', key: 'action', width: 220, fixed: 'right' as const },
 ]
 
 const rowSelection = computed(() => ({
@@ -235,6 +289,21 @@ const selectedDeletedIds = computed(() =>
 function formatTime(iso: string): string {
   if (!iso) return '-'
   return dayjs(iso).format('YYYY-MM-DD HH:mm')
+}
+
+function openErrorDetail(record: ParseRecordItem) {
+  errorDetailTitle.value = record.file_name || `解析错误 (${record.id})`
+  errorDetailText.value = record.error || ''
+  errorDetailOpen.value = true
+}
+
+async function copyErrorDetail() {
+  try {
+    await navigator.clipboard.writeText(errorDetailText.value)
+    message.success('已复制')
+  } catch {
+    message.error('复制失败')
+  }
 }
 
 function formatFileSize(bytes: number): string {
@@ -483,24 +552,55 @@ async function hardDelete(recordId: number) {
 }
 
 async function deleteRecord(record: ParseRecordItem) {
+  if (record.file_status === '用户已删') {
+    Modal.confirm({
+      title: '确认删除',
+      content: `确定要彻底删除「${record.file_name}」的解析记录吗？此操作不可恢复。`,
+      okText: '删除',
+      okType: 'danger',
+      cancelText: '取消',
+      async onOk() {
+        try {
+          await knowledgeApi.deleteNode(record.doc_id)
+          await knowledgeApi.hardDeleteRecord(record.id)
+          message.success('已删除')
+          await loadRecords()
+        } catch (e: any) {
+          message.error('删除失败: ' + (e?.response?.data?.detail || e?.message || e))
+        }
+      }
+    })
+    return
+  }
+  // 用户尚未删除：两次弹框，第二次需输入完整文件名才能永久删除
   Modal.confirm({
-    title: '确认删除',
-    content: `确定要删除「${record.file_name}」吗？将删除节点、文件内容与解析记录，此操作不可恢复。`,
-    okText: '删除',
+    title: '确认删除（危险操作）',
+    content: `「${record.file_name}」是用户尚未删除的文件。删除将同时移除知识库节点、文件内容与解析记录（可能包含隐私数据），此操作不可恢复。`,
+    okText: '继续',
     okType: 'danger',
     cancelText: '取消',
-    async onOk() {
-      try {
-        // 真删除：先删节点（含文件系统内容），再永久删除记录
-        await knowledgeApi.deleteNode(record.doc_id)
-        await knowledgeApi.hardDeleteRecord(record.id)
-        message.success('已删除')
-        await loadRecords()
-      } catch (e: any) {
-        message.error('删除失败: ' + (e?.response?.data?.detail || e?.message || e))
-      }
+    onOk() {
+      adminDeleteDocId.value = record.doc_id
+      adminDeleteRecordId.value = record.id
+      adminDeleteFileName.value = record.file_name
+      adminDeleteInput.value = ''
+      adminDeleteModalOpen.value = true
     }
   })
+}
+
+async function confirmAdminDelete() {
+  if (adminDeleteInput.value.trim() !== adminDeleteFileName.value.trim()) return
+  try {
+    await knowledgeApi.deleteNode(adminDeleteDocId.value)
+    await knowledgeApi.hardDeleteRecord(adminDeleteRecordId.value)
+    message.success('已删除')
+    adminDeleteModalOpen.value = false
+    adminDeleteInput.value = ''
+    await loadRecords()
+  } catch (e: any) {
+    message.error('删除失败: ' + (e?.response?.data?.detail || e?.message || e))
+  }
 }
 
 async function cleanOrphaned() {
@@ -593,5 +693,33 @@ onMounted(() => {
   :deep(.ant-divider-vertical) {
     margin-inline: 2px;
   }
+}
+.error-detail-trigger {
+  padding: 0 4px;
+  height: auto;
+}
+.error-detail-body {
+  pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 12px;
+    line-height: 1.5;
+    max-height: 60vh;
+    overflow-y: auto;
+    margin-bottom: 8px;
+    padding: 8px 10px;
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+  }
+}
+.admin-delete-warning {
+  color: var(--error-color, #ff4d4f);
+  margin-bottom: 12px;
+}
+.admin-delete-filename {
+  font-weight: 600;
+  word-break: break-all;
+  margin-bottom: 8px;
 }
 </style>

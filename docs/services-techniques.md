@@ -80,7 +80,7 @@ flowchart LR
 - `knowledge_index.sqlite` 同时承载：
   - `doc_blocks` / `document_segments`
   - `canonical_documents/pages/blocks/outlines/chunks/tables/citation_targets`
-- `/api/knowledge/query` 的运行时查询主链优先读取 canonical SQLite，不再默认依赖 `middle.json`
+- `/api/knowledge/query` 的运行时查询主链只读 canonical SQLite（`parsed/middle.json` 已移除）
 
 ### 后端代码锚点
 
@@ -90,9 +90,9 @@ flowchart LR
 - `services/ai-inference/src/ai_inference/llm_logger.py`（LLM 专用日志）
 - `services/api-server/docs_routes.py`
 - `services/docs-core/src/docs_core/docs_service.py`
-- `services/docs-core/src/docs_core/read/mineru_parser.py`
-- `services/docs-core/src/docs_core/write/store/canonical_sql_store.py`
-- `services/docs-core/src/docs_core/query/contracts.py`
+- `services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py`
+- `services/docs-core/src/docs_core/step05_sqlite_fts/canonical_sql_store.py`
+- `services/docs-core/src/docs_core/step09_query/protocols/contracts.py`
 - `services/angineer-core/src/angineer_core/classifier.py`
 - `services/angineer-core/src/angineer_core/dispatcher.py`
 - `services/tree-core/src/tree_core/tree_store.py`（通用树节点 CRUD/移动/排序归一化）
@@ -238,9 +238,9 @@ flowchart TB
     KService["docs_service\n节点/任务元数据门面"]
     Parser["mineru_parser\n高保真解析"]
     Storage["document_storage\n一文档一目录与兼容路径"]
-    Struct["ingest/canonical + write/store\n当前结构化主链"]
+    Struct["step04_structure + step05_sqlite_fts\n当前结构化主链"]
     CanonicalSql["canonical_sql_store\ncanonical SQLite truth source"]
-    Query["query/contracts\n协议模型"]
+    Query["step09_query/protocols\n协议模型"]
     Retrieval["retrieval/*\nnormalizer/dense/sparse/hybrid/rerank"]
     Text2Sql["text2sql/*\nschema/planner/generator/validator/executor"]
     Evals["evals/*\nretrieval/answer/text2sql/report"]
@@ -362,7 +362,8 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 │  ├─ content.md
 │  ├─ mineru_raw/
 │  ├─ assets/
-│  └─ doc_blocks_graph.json
+│  ├─ doc_blocks_graph.jsonl
+│  └─ doc_blocks_graph_meta.json
 ├─ edited/
 │  ├─ current.md
 │  └─ revisions/{timestamp}.md
@@ -409,16 +410,16 @@ SOP 生成不在解析管线内：由 `services/sop-core` 的 `SopPathGenerator.
 - `services/api-server/main.py`
   - 解析接口改异步任务化，返回 `task_id`。
   - 增加任务进度查询、文档版本、策略切换与统一查询接口。
-  - 保持单一 `doc_blocks_graph_v1` 索引构建，调用 `docs_core.write.store.build_structured_index_for_doc`。
-- `services/docs-core/src/docs_core/ingest/canonical/builder.py`
+  - 保持单一 `doc_blocks_graph_v1` 索引构建，调用 `docs_core.step04_structure.doc_blocks_graph.build_structured_index_for_doc`。
+- `services/docs-core/src/docs_core/step04_structure/shared/builder.py`
   - 结构化主链：统一生成 canonical structure，供后续索引与查询链路复用。
-- `services/docs-core/src/docs_core/write/store/blocks_sql_store.py`
+- `services/docs-core/src/docs_core/step05_sqlite_fts/blocks_sql_store.py`
   - 承担 `doc_blocks` 与 `document_segments` 主索引的写入、查询与统计。
 - `services/docs-core/src/docs_core/docs_service.py`
   - 作为元数据门面，持有 `KnowledgeMetaStore` 与 `KnowledgeIndexStore` 双库访问。
-- `services/docs-core/src/docs_core/write/store/assets_file_store.py`
+- `services/docs-core/src/docs_core/step05_sqlite_fts/assets_file_store.py`
   - 实现一文档一目录读写 API，并统一 canonical raw path 解析。
-- `services/docs-core/src/docs_core/read/mineru_parser.py`
+- `services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py`
   - 输出解析产物清单并支持阶段进度回调。
 - `services/engtools/src/engtools/config.py`
   - 统一知识目录解析，支持新旧结构双栈。

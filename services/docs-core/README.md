@@ -379,34 +379,42 @@ flowchart LR
 services/docs-core/
 ├── src/
 │   ├── docs_core/
-│   │   ├── paths.py                 # 布局：仓库/知识库根 + 文档目录（纯路径，四层共用）
-│   │   ├── read/                    # 第 1 层：原始抽取，产出中间文件
-│   │   │   ├── convert2pdf.py       # 源文件 → PDF
-│   │   │   ├── mineru_parser.py     # PDF → MinerU 产物（md/json）
-│   │   │   └── popo_enhance.py      # MinerU 产物 → enriched_blocks.json + document_tree.json
-│   │   ├── ingest/                  # 第 2 层：结构 + 语义 → CanonicalDocument
-│   │   │   ├── canonical/           # Canonical 契约（types）与汇聚点（builder）
-│   │   │   │   ├── types.py
-│   │   │   │   ├── tag_rules.py
-│   │   │   │   └── builder.py
-│   │   │   ├── structure/           # 结构层（solo 降级 / popo mapper / 表格通道 / 标题校正）
-│   │   │   │   ├── solo.py
-│   │   │   │   ├── popo_mapper.py
-│   │   │   │   ├── popo_table_extract.py
-│   │   │   │   └── title_level_refiner.py
-│   │   │   └── semantics/           # 语义层（表格 / 公式增强）
-│   │   │       ├── table_semantics.py
-│   │   │       └── formula_semantics.py
-│   │   ├── write/                   # 第 3 层：唯一出口（投影 / 存储 / 索引 / 图谱 / 维护）
-│   │   │   ├── projection.py
-│   │   │   ├── store/               # 文件 / SQLite（blocks、canonical、FTS5）
-│   │   │   ├── indexing/            # 向量索引（embedding / 向量存储）
-│   │   │   ├── graph/               # 知识图谱
-│   │   │   └── maintain/            # 周期维护
-│   │   ├── query/                   # 第 4 层：检索 + text2sql
+│   │   ├── paths.py                 # 布局：仓库/知识库根 + 文档目录（纯路径，全局共用）
+│   │   ├── docs_service.py          # 门面：SQLite 落库 + 查询的统一入口
+│   │   ├── parse_pipeline.py        # 10 步流水线调度（阶段注册 / 顺序 / 状态机）
+│   │   ├── assets_file_store.py     # 文件 IO（全局共用，不属于任何步骤）
+│   │   ├── step01_source_prep/      # 第 1 步：源文件准备
+│   │   │   └── source_prep.py
+│   │   ├── step02_convert2pdf/      # 第 2 步：转换 PDF（LibreOffice）
+│   │   │   └── convert2pdf.py
+│   │   ├── step03_mineru_parse/     # 第 3 步：MinerU 解析（3.1）+ PoPo 强化（3.2）
+│   │   │   ├── mineru_parser.py
+│   │   │   └── popo_enhance.py
+│   │   ├── step04_structure/        # 第 4 步：结构化 → jsonl
+│   │   │   ├── solo/                # solo.py + solo2json.py（solo 引擎 + 落盘）
+│   │   │   ├── popo/                # popo_mapper.py + popo2json.py（popo 引擎 + 落盘）
+│   │   │   └── shared/              # models/ enrich/ utils/ + canonical_builder.py + jsonl_store.py
+│   │   ├── step05_sqlite_fts/       # 第 5 步：SQLite 建库 + FTS（含 graph_editor 编辑同步）
+│   │   │   ├── canonical_sql_store.py / blocks_sql_store.py / sqlite_utils.py
+│   │   │   ├── rows_projection.py   # doc_blocks 行 / segments
+│   │   │   ├── sqlite_index.py      # jsonl → canonical SQLite + FTS
+│   │   │   ├── graph_rebuilder.py   # jsonl 语义图 → canonical 重建（sqlite_index/graph_editor/API 共用）
+│   │   │   └── graph_editor.py      # 图谱编辑（改 jsonl + 同步 SQLite）
+│   │   ├── step06_vectors/          # 第 6 步：向量索引
+│   │   │   ├── embedding_provider.py / vector_store.py / vector_indexer.py
+│   │   │   ├── sqlite_vector_store.py / chroma_vector_store.py / config.py
+│   │   ├── step07_graph/            # 第 7 步：知识图谱
+│   │   │   ├── graph_orchestrator.py / graph_store.py / entity_extractor.py
+│   │   │   ├── relation_infer.py / question_mapper.py / evidence_builder.py
+│   │   │   ├── extractor_prompts.py / config.py / push_to_graph.py
+│   │   ├── step08_maintain/         # 维护（巡检 / 周期任务）
+│   │   │   ├── runner.py / report.py / config.py
+│   │   ├── step09_query/            # 检索：retrieval + text2sql + protocols
 │   │   │   ├── retrieval/           # sparse / dense / hybrid / table / formula
-│   │   │   └── text2sql/            # schema linker / planner / generator / validator / executor
-│   │   ├── docs_service.py     # 门面：编排 read → ingest → write → query
+│   │   │   ├── text2sql/            # schema linker / planner / generator / validator / executor
+│   │   │   └── protocols/           # contracts / data_port
+│   │   ├── step10_export/           # 第 10 步：对外产物导出
+│   │   │   └── export_artifacts.py
 │   │   └── __init__.py
 │   └── popo/                        # MinerU-Popo 子模块（本地定制，更新上游注意保留）
 ├── tests/

@@ -13,13 +13,16 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from docs_core.docs_service import get_docs_service, KnowledgeNode
-from docs_core.write.store.doc_blocks_graph import (
-    build_structured_index_for_doc,
+from docs_core.step04_structure.shared.jsonl_store import (
     extract_build_id_from_markdown,
     extract_build_id_from_meta,
     get_doc_blocks_graph,
 )
-from docs_core.write.store.assets_file_store import file_storage
+from docs_core.step04_structure.solo.solo2json import (
+    build_structured_index_for_doc,
+)
+from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph
+from docs_core.assets_file_store import file_storage
 from docs_core.paths import resolve_repo_root
 from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, soft_delete_record, soft_delete_record_by_id, restore_record
 
@@ -659,6 +662,8 @@ def build_structured_index(request: KnowledgeStructuredIndexRequest):
         raise HTTPException(status_code=400, detail="Unsupported strategy")
     try:
         result = build_projection_for_doc(library_id, doc_id, strategy)
+        sqlite_result = build_sqlite_index_from_graph(library_id, doc_id)
+        result = {**result, "sqlite": sqlite_result}
         ks.update_node(
             doc_id,
             strategy=strategy,
@@ -761,7 +766,7 @@ def update_document_block(
     request: KnowledgeDocumentBlockUpdate,
 ):
     """更新文档结构节点内容。"""
-    from docs_core.write.store.doc_blocks_graph import update_doc_block_content
+    from docs_core.step05_sqlite_fts.graph_editor import update_doc_block_content
 
     changes = request.dict(exclude_unset=True)
     try:
@@ -790,7 +795,7 @@ def batch_operate_document_blocks(
     request: KnowledgeDocumentBatchBlockOperation,
 ):
     """批量执行文档结构节点操作。"""
-    from docs_core.write.store.doc_blocks_graph import batch_operate_doc_blocks
+    from docs_core.step05_sqlite_fts.graph_editor import batch_operate_doc_blocks
 
     payload = request.dict(exclude_unset=True)
     try:
@@ -818,7 +823,7 @@ def batch_operate_document_blocks(
 @docs_router.post("/document/{library_id}/{doc_id}/blocks/undo")
 def undo_document_block_operation(library_id: str, doc_id: str):
     """撤回当前文档最近一次可回滚的结构操作。"""
-    from docs_core.write.store.doc_blocks_graph import undo_last_doc_block_operation
+    from docs_core.step05_sqlite_fts.graph_editor import undo_last_doc_block_operation
 
     try:
         result = undo_last_doc_block_operation(library_id, doc_id)
@@ -989,9 +994,94 @@ def get_file_for_preview(path: str):
 # --- 阶段化解析端点 ---
 
 
+_MINERU_TOP_OUTPUTS = ["content.md", "images", "mineru_raw"]
+_MINERU_RAW_FILES = ["content_list.json", "content_list_v2.json", "model.json", "middle.json", "origin.zip"]
+_POPO_OUTPUTS = ["enriched_blocks.json", "document_tree.json"]
+_STRUCTURE_OUTPUTS = ["content.md", "doc_blocks_graph.jsonl", "doc_blocks_graph_meta.json"]
+
+
+# 从结构化阶段消息识别实际后端："结构化完成（popo 后端）" / "结构化完成（solo 降级）"
+def _structure_backend(message: str) -> str:
+    if "popo" in (message or ""):
+        return "popo"
+    if "solo" in (message or ""):
+        return "solo"
+    return ""
+
+
+# 固定清单 + 目录内「新增」文件（仅文件，目录不进新增清单，避免 images/mineru_raw/popo 噪音）
+def _dir_file_items(directory: Path, expected: List[str]) -> List[Dict[str, Any]]:
+    items: List[Dict[str, Any]] = []
+    for name in expected:
+        items.append({
+            "name": name,
+            "exists": (directory / name).exists(),
+            "isDir": "." not in name,
+            "isNew": False,
+        })
+    if directory.is_dir():
+        seen = set(expected)
+        for child in sorted(directory.iterdir(), key=lambda p: p.name.lower()):
+            if child.name in seen or child.is_dir():
+                continue
+            items.append({"name": child.name, "exists": True, "isDir": False, "isNew": True})
+    return items
+
+
+# 真实文件系统核查：raw_parse / popo / structure 三个清单式阶段才有固定产物
+def _stage_output_files(stage_key: str, node) -> Optional[Dict[str, Any]]:
+    import docs_core.paths as paths
+
+    library_id = node.library_id
+    doc_id = node.id
+
+    if stage_key == "raw_parse":
+        parsed_dir = paths.get_parsed_dir(library_id, doc_id)
+        raw_dir = parsed_dir / "mineru_raw"
+        items: List[Dict[str, Any]] = []
+        for name in _MINERU_TOP_OUTPUTS:
+            items.append({
+                "name": name,
+                "exists": (parsed_dir / name).exists(),
+                "isDir": "." not in name,
+                "isNew": False,
+                "childOfRaw": False,
+            })
+        for name in _MINERU_RAW_FILES:
+            items.append({
+                "name": name,
+                "exists": (raw_dir / name).exists(),
+                "isDir": False,
+                "isNew": False,
+                "childOfRaw": True,
+            })
+        if raw_dir.is_dir():
+            raw_seen = set(_MINERU_RAW_FILES)
+            for child in sorted(raw_dir.iterdir(), key=lambda p: p.name.lower()):
+                if child.name not in raw_seen and not child.is_dir():
+                    items.append({"name": child.name, "exists": True, "isDir": False, "isNew": True, "childOfRaw": True})
+        if parsed_dir.is_dir():
+            top_seen = set(_MINERU_TOP_OUTPUTS)
+            for child in sorted(parsed_dir.iterdir(), key=lambda p: p.name.lower()):
+                if child.name in top_seen or child.is_dir():
+                    continue
+                items.append({"name": child.name, "exists": True, "isDir": False, "isNew": True, "childOfRaw": False})
+        return {"dir": str(parsed_dir), "raw_dir": str(raw_dir), "items": items}
+
+    if stage_key == "popo":
+        directory = paths.get_popo_dir(library_id, doc_id)
+        return {"dir": str(directory), "items": _dir_file_items(directory, _POPO_OUTPUTS)}
+
+    if stage_key == "structure":
+        directory = paths.get_parsed_dir(library_id, doc_id)
+        return {"dir": str(directory), "items": _dir_file_items(directory, _STRUCTURE_OUTPUTS)}
+
+    return None
+
+
 @docs_router.get("/documents/{doc_id}/stages")
 def get_document_stages(doc_id: str):
-    from docs_core.parse_pipeline import _PIPELINE_ORDER
+    from docs_core.parse_pipeline import STAGE_REGISTRY, _PIPELINE_ORDER
 
     ks = get_docs_service()
     node = ks.get_node(doc_id)
@@ -1001,15 +1091,22 @@ def get_document_stages(doc_id: str):
     rows = []
     for key in _PIPELINE_ORDER:
         stage = existing.get(key)
+        step_num = STAGE_REGISTRY[key].step
         if stage is None:
             # 从未启动的阶段：补 pending 记录，输入提示按各阶段输入规则生成
             rows.append({
                 "doc_id": doc_id, "stage": key, "status": "pending", "message": "",
                 "error": "", "started_at": "", "finished_at": "", "updated_at": "",
                 "input_summary": _stage_input_hint(key, node), "output_summary": "",
+                "step": step_num,
             })
         else:
-            rows.append(stage)
+            row = {**stage, "step": step_num}
+            if key == "structure":
+                row["backend"] = _structure_backend(str(stage.get("message") or ""))
+            if stage.get("status") in ("completed", "running", "failed"):
+                row["outputs"] = _stage_output_files(key, node)
+            rows.append(row)
     return {"doc_id": doc_id, "stages": rows}
 
 
@@ -1034,7 +1131,7 @@ def _stage_input_hint(stage_key: str, node) -> str:
     if stage_key in ("fts", "vectors"):
         return node.id
     if stage_key == "graph":
-        return str(paths.get_parsed_dir(node.library_id, node.id) / "doc_blocks_graph.json")
+        return str(paths.get_graph_jsonl_path(node.library_id, node.id))
     return ""
 
 
