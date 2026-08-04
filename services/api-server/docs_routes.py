@@ -73,11 +73,6 @@ class KnowledgeStructuredIndexRequest(BaseModel):
     strategy: Optional[str] = "doc_blocks_graph_v1"
 
 
-class KnowledgeDocumentUpdate(BaseModel):
-    """更新文档内容请求。"""
-    content: str
-
-
 class KnowledgeReferenceSearchRequest(BaseModel):
     """知识引用搜索请求。"""
     library_id: str
@@ -749,15 +744,6 @@ def get_document(library_id: str, doc_id: str, include_graph: bool = False):
     return result
 
 
-@docs_router.put("/document/{library_id}/{doc_id}")
-def update_document(library_id: str, doc_id: str, request: KnowledgeDocumentUpdate):
-    """更新文档内容。"""
-    ks = get_docs_service()
-    saved_path = file_storage.save_edited_markdown(library_id, doc_id, request.content)
-    ks.update_node(doc_id, updated_at=datetime.now())
-    return {"status": "success", "path": saved_path, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
-
-
 @docs_router.patch("/document/{library_id}/{doc_id}/blocks/{block_id}")
 def update_document_block(
     library_id: str,
@@ -1194,7 +1180,6 @@ __all__ = [
     "KnowledgeNodeUpdate",
     "KnowledgeStrategyUpdate",
     "KnowledgeStructuredIndexRequest",
-    "KnowledgeDocumentUpdate",
     "KnowledgeDocumentBlockUpdate",
     "KnowledgeDocumentBatchBlockOperation",
     "KnowledgeParseRequest",

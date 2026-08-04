@@ -55,6 +55,69 @@ def _rebuild_canonical_after_graph_change(
     }
 
 
+# 编辑后重渲染 Markdown 投影：以 jsonl 节点为唯一真相，重写 parsed/content.md 与
+# edited/current.md（同一 build_id），并回填节点 markdown 行号映射（须在写 jsonl 前调用）
+def _rewrite_markdown_after_graph_change(
+    library_id: str,
+    doc_id: str,
+    graph_data: Dict[str, Any],
+) -> str:
+    from docs_core.step04_structure.shared.jsonl_store import (
+        extract_build_id_from_meta,
+        new_or_reuse_build_id,
+    )
+
+    meta_path = paths.get_graph_meta_path(library_id, doc_id)
+    build_id = ""
+    if meta_path.exists():
+        try:
+            build_id = extract_build_id_from_meta(json.loads(meta_path.read_text(encoding="utf-8"))) or ""
+        except (OSError, json.JSONDecodeError):
+            build_id = ""
+    if not build_id:
+        build_id = new_or_reuse_build_id(library_id, doc_id)
+
+    active_nodes = _sort_graph_nodes(_get_active_graph_nodes(graph_data))
+    lines: List[str] = [f"<!-- build_id: {build_id} -->"]
+    line_ranges: Dict[str, Dict[str, int]] = {}
+    for node in active_nodes:
+        uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
+        text = str(node.get("plain_text") or "").strip()
+        if not uid or not text:
+            continue
+        start = len(lines) + 1
+        lines.extend(text.splitlines())
+        line_ranges[uid] = {"start": start, "end": len(lines)}
+    md_text = "\n".join(lines) + ("\n" if lines else "")
+
+    for node in active_nodes:
+        uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
+        span = line_ranges.get(uid)
+        node["markdown_line_start"] = span["start"] if span else None
+        node["markdown_line_end"] = span["end"] if span else None
+
+    parsed_md = paths.get_parsed_markdown_path(library_id, doc_id)
+    parsed_md.parent.mkdir(parents=True, exist_ok=True)
+    parsed_md.write_text(md_text, encoding="utf-8")
+    edited_md = paths.get_edited_markdown_path(library_id, doc_id)
+    edited_md.parent.mkdir(parents=True, exist_ok=True)
+    edited_md.write_text(md_text, encoding="utf-8")
+    return build_id
+
+
+# 编辑后同步知识图谱（步骤七）：LLM 提取较慢，失败不阻断编辑，仅记录状态
+def _push_graph_after_edit(library_id: str, doc_id: str) -> str:
+    try:
+        from docs_core.step07_graph.push_to_graph import push_to_graph
+
+        result = push_to_graph(library_id, doc_id)
+        if not result.get("pushed"):
+            return str(result.get("error") or "图谱未更新")
+        return f"{result.get('entities_count', 0)}实体/{result.get('relations_count', 0)}关系"
+    except Exception as exc:  # noqa: BLE001
+        return f"图谱更新失败: {exc}"
+
+
 # 判断节点引用是否命中指定 block_uid
 def _matches_block_ref(value: Any, block_uid: str) -> bool:
     if isinstance(value, list):
@@ -1161,6 +1224,7 @@ def batch_operate_doc_blocks(
         raise ValueError(f"不支持的批量操作: {operation}")
 
     _rebuild_graph_projection(graph_data)
+    _rewrite_markdown_after_graph_change(library_id, doc_id, graph_data)
     graph_data["updated_at"] = datetime.now().isoformat()
     graph_path = _write_doc_blocks_graph(library_id, doc_id, graph_data)
 
@@ -1174,10 +1238,12 @@ def batch_operate_doc_blocks(
     get_index_store().record_doc_block_correction(doc_id, record_block_uid, operation, correction_payload)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
     canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
+    graph_status = _push_graph_after_edit(library_id, doc_id)
     docs_service.update_node(doc_id, updated_at=datetime.now())
     result_payload["graph_path"] = graph_path
     result_payload["saved_segments"] = saved_segments
     result_payload["canonical_stats"] = canonical_stats
+    result_payload["graph_status"] = graph_status
     return result_payload
 
 
@@ -1197,17 +1263,20 @@ def undo_last_doc_block_operation(library_id: str, doc_id: str) -> Dict[str, Any
     graph_data = _clone_json_compatible(snapshot)
     _rebuild_graph_projection(graph_data)
     _sort_graph_data_nodes(graph_data)
+    _rewrite_markdown_after_graph_change(library_id, doc_id, graph_data)
     graph_data["updated_at"] = datetime.now().isoformat()
     graph_path = _write_doc_blocks_graph(library_id, doc_id, graph_data)
     _persist_graph_projection_to_index_store(doc_id, graph_data)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
     canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
+    graph_status = _push_graph_after_edit(library_id, doc_id)
     get_index_store().delete_doc_block_correction(str(correction_record.get("id") or ""))
     docs_service.update_node(doc_id, updated_at=datetime.now())
     return {
         "graph_path": graph_path,
         "saved_segments": saved_segments,
         "canonical_stats": canonical_stats,
+        "graph_status": graph_status,
         "restored_block_ids": [
             _normalize_block_uid(node.get("block_uid") or node.get("id"))
             for node in _sort_graph_nodes(_get_active_graph_nodes(graph_data))
@@ -1293,6 +1362,7 @@ def update_doc_block_content(
 
     _rebuild_graph_projection(graph_data)
     _sync_related_graph_fields(graph_data.get("nodes") or [], target_block_uid, target_node)
+    _rewrite_markdown_after_graph_change(library_id, doc_id, graph_data)
     graph_data["updated_at"] = datetime.now().isoformat()
     graph_path = _write_doc_blocks_graph(library_id, doc_id, graph_data)
 
@@ -1306,6 +1376,7 @@ def update_doc_block_content(
     get_index_store().record_doc_block_correction(doc_id, target_block_uid, operation_type, correction_payload)
     saved_segments = _sync_structured_segments_after_node_update(library_id, doc_id, graph_data)
     canonical_stats = _rebuild_canonical_after_graph_change(library_id, doc_id, graph_data)
+    graph_status = _push_graph_after_edit(library_id, doc_id)
     docs_service.update_node(doc_id, updated_at=datetime.now())
 
     return {
@@ -1314,5 +1385,6 @@ def update_doc_block_content(
         "updated_fields": list(normalized_changes.keys()),
         "saved_segments": saved_segments,
         "canonical_stats": canonical_stats,
+        "graph_status": graph_status,
         "node": target_node,
     }

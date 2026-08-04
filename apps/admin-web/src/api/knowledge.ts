@@ -151,8 +151,6 @@ export const knowledgeApi = {
   },
   getDocument: (libraryId: string, docId: string) =>
     api.get(`/knowledge/document/${libraryId}/${docId}`) as Promise<DocumentResponse>,
-  updateDocument: (libraryId: string, docId: string, content: string) =>
-    api.put(`/knowledge/document/${libraryId}/${docId}`, { content }),
   updateDocumentBlock: (libraryId: string, docId: string, payload: StructuredNodeUpdatePayload) =>
     api.patch(`/knowledge/document/${libraryId}/${docId}/blocks/${encodeURIComponent(payload.blockId)}`, payload) as Promise<StructuredNodeUpdateResponse>,
   batchOperateDocumentBlocks: (libraryId: string, docId: string, payload: StructuredBatchOperationPayload) =>
