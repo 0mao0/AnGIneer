@@ -188,10 +188,6 @@ def _run_raw_parse(ctx: StageContext) -> str:
 
 
 def _run_popo(ctx: StageContext) -> str:
-    normalizer_backend = os.environ.get("DOCS_CORE_NORMALIZER_BACKEND", "auto")
-    if normalizer_backend not in ("popo", "auto"):
-        return "__skipped__:未启用（DOCS_CORE_NORMALIZER_BACKEND != popo/auto）"
-
     import docs_core.paths as paths
     from docs_core.step03_mineru_parse.popo_enhance import get_popo_pipeline
     from docs_core.docs_file_io import file_storage
@@ -218,10 +214,10 @@ def _run_popo(ctx: StageContext) -> str:
             source_dir=str(source_dir),
         )
     except Exception as exc:
-        # auto 模式回滚半成品并记录 fallback=solo，由 structure 转 solo
-        if normalizer_backend == "auto":
-            _rollback_popo_products(ctx)
-            ctx.fallback_target = "solo"
+        # popo 为可选信号源：失败回滚半成品并记录 fallback=solo，
+        # structure 始终由 Solo 构建，有无 popo 信号都不受影响。
+        _rollback_popo_products(ctx)
+        ctx.fallback_target = "solo"
         if isinstance(exc, subprocess.CalledProcessError):
             stderr = (exc.stderr or "").strip()
             stdout = (exc.stdout or "").strip()

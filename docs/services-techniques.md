@@ -386,7 +386,7 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 | `source_prep` | 源文件准备 | hard | [] | 复制源文件到规范目录 |
 | `convert` | 格式转换 | hard | [source_prep] | 非 PDF 经 LibreOffice 转 PDF；PDF 输入自动 skipped |
 | `raw_parse` | MinerU 解析 | hard | [convert] | 调 MinerU 产出 md+images+JSON |
-| `popo` | PoPo 信号增强 | soft | [raw_parse] | 可选信号源（`DOCS_CORE_NORMALIZER_BACKEND=auto/popo` 默认 auto）；产出 enriched_blocks/document_tree，失败自动回滚并记 `fallback=solo` |
+| `popo` | PoPo 信号增强 | soft | [raw_parse] | 始终运行的可选信号源；产出 enriched_blocks/document_tree，失败自动回滚并记 `fallback=solo`，不影响 structure（Solo） |
 | `structure` | 结构化入库 | hard | [raw_parse] | 唯一结构化者：Solo 构建（PoPo 仅作信号注入）；产出 doc_blocks_graph.jsonl + meta |
 | `fts` | 全文索引 | hard | [structure] | 重建 FTS（无外部依赖） |
 | `vectors` | 向量索引 | soft | [structure] | embedding API；strict 模式下失败只标本阶段 |
