@@ -765,12 +765,45 @@ function usePdfVirtualScroll(
   function goNextPage() { scrollToPdfPage(activePdfPage.value + 1, 'smooth') }
   function onPageInputChange(v: any) { const p = Number(v); if (Number.isFinite(p)) scrollToPdfPage(p, 'smooth') }
 
+  // 聚焦到指定高亮块：按 bbox 位置计算滚动目标，而不是整页对齐顶部。
+  // 只提供"滚动能力"，何时调用由调用方决定，便于组件跨项目复用。
+  function scrollToHighlight(highlight: LinkedHighlight) {
+    if (!props.isPdf || !pdfScrollRef.value) return
+    const page = clampPage(highlight?.page ?? 0)
+    if (!highlight || !highlight.hasRect) {
+      scrollToPdfPage(page)
+      return
+    }
+    const layout = pageLayout.value
+    const pageTop = layout.topByPage[page] || 0
+    const pageHeight = pageHeightOf(page)
+    const topRatio = Math.max(0, Math.min(1, Number(highlight.top) || 0))
+    const heightRatio = Math.max(0, Math.min(1, Number(highlight.height) || 0))
+    const bboxTop = pageTop + topRatio * pageHeight
+    const bboxBottom = pageTop + Math.min(1, topRatio + heightRatio) * pageHeight
+
+    const container = pdfScrollRef.value
+    const viewportTop = container.scrollTop
+    const viewportBottom = viewportTop + container.clientHeight
+    // 能被点击说明 bbox 已在视口内（哪怕部分可见），保持原位不滚动
+    if (bboxBottom >= viewportTop && bboxTop <= viewportBottom) return
+
+    const viewportHeight = Math.max(1, container.clientHeight)
+    // bbox 不在视口内：滚动到让 bbox 落在视口上部约 1/4 处，既有上下文又不贴顶
+    const targetTop = Math.max(0, bboxTop - viewportHeight * 0.25)
+    applyingExternalPdfScroll.value = true
+    activePdfPage.value = page
+    scheduleRenderedPageRangeUpdate()
+    container.scrollTo({ top: targetTop, behavior: 'auto' })
+    requestAnimationFrame(() => { applyingExternalPdfScroll.value = false })
+  }
+
   return {
     pageHeights, estimatedPageHeight, renderedPageRange, activePdfPage,
     virtualContentHeight, applyingExternalPdfScroll, isPdfUserScrolling,
     lastEmittedPdfPercent, displayPdfPageCount, pageHeightOf,
     pageLayout, updateRenderedPageRange, scheduleRenderedPageRangeUpdate,
-    scrollToPdfPage, onPdfScroll, goPrevPage, goNextPage, onPageInputChange,
+    scrollToPdfPage, scrollToHighlight, onPdfScroll, goPrevPage, goNextPage, onPageInputChange,
     invalidateLayout,
   }
 }
@@ -1475,6 +1508,7 @@ const getHighlightTypeLabel = (type?: string) => {
   const labelMap: Record<string, string> = {
     image: '图片', 'image-caption': '图片题注', 'image-footnote': '图片脚注',
     table: '表格', 'table-caption': '表题', 'table-footnote': '表注',
+    'table-header': '表头', 'equation-number': '公式编号',
     title: '标题', paragraph: '正文', list: '列表',
     equation_interline: '公式', text: '文本'
   }
@@ -1557,6 +1591,8 @@ watch(() => props.textScrollPercent, (percent) => {
 const goPrevPage = () => scroll.goPrevPage()
 const goNextPage = () => scroll.goNextPage()
 const onPageInputChange = (v: any) => scroll.onPageInputChange(v)
+const scrollToHighlight = (highlight: LinkedHighlight) => scroll.scrollToHighlight(highlight)
+defineExpose({ scrollToHighlight })
 const zoomIn = () => zoom.zoomIn()
 const zoomOut = () => zoom.zoomOut()
 const resetZoom = () => zoom.resetZoom()

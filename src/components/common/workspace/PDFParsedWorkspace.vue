@@ -3,6 +3,7 @@
     <div class="preview-content">
       <div class="split-preview">
         <PDF_Viewer
+          ref="pdfViewerRef"
           :theme="isDark ? 'dark' : 'light'"
           :node="node"
           :isPdf="isPdf"
@@ -23,7 +24,7 @@
           @text-scroll="onLeftTextScrollPercent"
           @pdf-active-page="onPdfPageChanged"
           @hover-highlight="onHoverLinkedItem"
-          @select-highlight="onSelectHighlightFromLeft"
+          @select-highlight="onSelectPdfHighlight"
           @search-jump="onSearchJump"
         />
 
@@ -171,6 +172,11 @@ const {
   pdfPage,
   rightScrollPercent
 })
+
+const pdfViewerRef = ref<InstanceType<typeof PDF_Viewer> | null>(null)
+const onSelectPdfHighlight = (item: Parameters<typeof onSelectHighlightFromLeft>[0]) => {
+  onSelectHighlightFromLeft(item, (highlight) => pdfViewerRef.value?.scrollToHighlight(highlight))
+}
 
 watch(() => props.content, (value) => {
   void value

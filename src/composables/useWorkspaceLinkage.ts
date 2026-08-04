@@ -526,14 +526,8 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
       }
     })
 
+    // 展示层全量高亮：页眉/页脚/页码也参与（05 语义层另行收敛）
     const highlightPool = nodes
-      .filter(node => {
-        const type = node.block_type || 'text'
-        if (['header', 'footer', 'page_header', 'page_number'].includes(type)) {
-          return false
-        }
-        return true
-      })
       .flatMap((node, index) => {
         const page = (node.page_idx ?? 0) + 1
         const type = node.block_type || 'text'
@@ -542,7 +536,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
           ? [node.bbox, ...node.merged_bboxes]
           : [node.bbox]
 
-        return bboxPool.map((bbox, bboxIndex) => {
+        const baseHighlights = bboxPool.map((bbox, bboxIndex) => {
           const normalizedRect = normalizeRect(bbox)
           return {
             id: bboxIndex === 0
@@ -562,6 +556,44 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
             tableMergeId: node.table_merge_id ?? null,
           }
         })
+        const regionHighlights: LinkedHighlight[] = []
+        const headerBBox = normalizeRect(node.table_header_bbox)
+        if (type === 'table' && headerBBox) {
+          regionHighlights.push({
+            id: `highlight-${itemId}-table-header`,
+            itemId,
+            page,
+            hasRect: true,
+            left: headerBBox.left,
+            top: headerBBox.top,
+            width: headerBBox.width,
+            height: headerBBox.height,
+            lineStart: null,
+            lineEnd: null,
+            type: 'table-header',
+            contdTargetId: null,
+            tableMergeId: null,
+          })
+        }
+        const numberBBox = normalizeRect(node.equation_number_bbox)
+        if (type === 'equation_interline' && numberBBox) {
+          regionHighlights.push({
+            id: `highlight-${itemId}-equation-number`,
+            itemId,
+            page,
+            hasRect: true,
+            left: numberBBox.left,
+            top: numberBBox.top,
+            width: numberBBox.width,
+            height: numberBBox.height,
+            lineStart: null,
+            lineEnd: null,
+            type: 'equation-number',
+            contdTargetId: null,
+            tableMergeId: null,
+          })
+        }
+        return [...baseHighlights, ...regionHighlights]
       })
 
     const supplementalHighlights = nodes.flatMap((node, index) => {
@@ -855,7 +887,10 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     activeLinkedHighlightOverrideId.value = target?.id || null
   }
 
-  const onSelectHighlightFromLeft = (payload: string | LinkedHighlight) => {
+  const onSelectHighlightFromLeft = (
+    payload: string | LinkedHighlight,
+    scrollPdfToHighlight?: (highlight: LinkedHighlight) => void,
+  ) => {
     const target = typeof payload === 'string'
       ? resolveLinkedHighlight(payload, payload, options.isPdf.value ? options.pdfPage.value : null)
       : payload
@@ -867,8 +902,13 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     if (isDocumentPreviewActive.value && target.lineStart !== null && target.lineEnd !== null) {
       scrollRightByLine(target.lineStart)
     }
-    if (options.isPdf.value && target.page !== options.pdfPage.value) {
-      options.pdfPage.value = target.page
+    if (options.isPdf.value) {
+      // PDF 内点击 bbox：交给调用方精确聚焦到该块，不再整页对齐顶部
+      if (scrollPdfToHighlight && typeof payload !== 'string') {
+        scrollPdfToHighlight(target)
+      } else if (target.page !== options.pdfPage.value) {
+        options.pdfPage.value = target.page
+      }
     }
   }
 
