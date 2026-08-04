@@ -1,9 +1,32 @@
-"""步骤六（SQLite 侧）：CanonicalDocument → doc_blocks 行 / document_segments。"""
+"""步骤五（SQLite 侧）：CanonicalDocument → doc_blocks 行 / document_segments。"""
 
 from typing import Any, Dict, List, Optional
 
-from docs_core.step04_structure.popo.popo2json import _bbox_array, _build_content_json
 from docs_core.models.types import CanonicalBlock, CanonicalDocument
+
+
+def _bbox_array(block: CanonicalBlock) -> Optional[List[float]]:
+    """CanonicalBlock.bbox → [x0, y0, x1, y1] 数组。"""
+    if not block.bbox:
+        return None
+    return [block.bbox.x0, block.bbox.y0, block.bbox.x1, block.bbox.y1]
+
+
+def _build_content_json(block: CanonicalBlock) -> Dict[str, Any]:
+    """节点/行 content_json：表格 HTML / 公式文本与语义 / raw_type 直接可达。"""
+    payload: Dict[str, Any] = {}
+    if block.block_type == "table" and block.table_html:
+        payload["table_html"] = block.table_html
+    if block.block_type == "formula":
+        formula_text = ""
+        if block.formula_semantics:
+            formula_text = str(block.formula_semantics.get("formula_text") or "")
+        payload["math_content"] = formula_text or block.text
+        if block.formula_semantics:
+            payload["formula_semantics"] = dict(block.formula_semantics)
+    if block.raw_type:
+        payload["raw_type"] = block.raw_type
+    return payload
 
 
 def build_document_segments(

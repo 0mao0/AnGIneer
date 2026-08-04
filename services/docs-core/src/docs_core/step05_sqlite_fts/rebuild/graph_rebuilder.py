@@ -59,7 +59,9 @@ def resolve_graph_section_path(
     node_text = normalize_graph_section_title(str(node.get("plain_text") or node.get("text") or "").strip())
     node_block_type = normalize_block_type(node.get("block_type"))
     current_title = ""
-    if node_text and (node.get("derived_level") is not None or node_block_type == "title"):
+    # 仅 title 块参与 section_path 拼装：solo 引擎会给所有块写 derived_level（继承层级），
+    # 若按 derived_level 判标题会把每块自身文本追加进路径，破坏同级块同节判定
+    if node_text and node_block_type == "title":
         current_title = node_text
     if current_title and parent_path:
         cache[block_uid] = f"{parent_path} / {current_title}"

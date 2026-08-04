@@ -265,77 +265,10 @@ def _rollback_popo_products(ctx: StageContext) -> None:
 
 
 def _run_structure(ctx: StageContext) -> str:
-    """统一结构化者：popo enriched 产物存在 → 从 popo 块构建；否则 solo 降级。"""
-    from docs_core.assets_file_store import file_storage
-
+    """统一结构化者（单管线）：永远走 Solo 构建，PoPo 只作信号注入源。"""
     use_llm = bool(ctx.parse_options.get("use_llm", True))
     llm_model = str(ctx.parse_options.get("llm_model") or "").strip() or None
-    llm_client = _get_llm_client()
-
-    try:
-        enriched_blocks = file_storage.read_popo_enriched_blocks(ctx.library_id, ctx.doc_id)
-    except FileNotFoundError:
-        enriched_blocks = []
-
-    if enriched_blocks:
-        return _run_structure_from_popo(
-            ctx,
-            enriched_blocks,
-            use_llm=use_llm,
-            llm_client=llm_client,
-            llm_model=llm_model,
-        )
     return _run_structure_solo(ctx, use_llm=use_llm, llm_model=llm_model)
-
-
-def _run_structure_from_popo(
-    ctx: StageContext,
-    enriched_blocks,
-    *,
-    use_llm: bool,
-    llm_client,
-    llm_model: Optional[str],
-) -> str:
-    import docs_core.paths as paths
-    from docs_core.step04_structure.popo.popo_mapper import build_blocks_from_popo
-    from docs_core.step04_structure.popo.popo2json import write_graph_products_from_blocks
-    from docs_core.step04_structure.shared.enrich.formula_semantics import enrich_blocks_formula_semantics
-    from docs_core.step04_structure.shared.enrich.title_level_refiner import refine_document_title_levels
-    from docs_core.assets_file_store import file_storage
-
-    document_tree = file_storage.read_popo_document_tree(ctx.library_id, ctx.doc_id)
-    blocks, outlines, _id_map, pages = build_blocks_from_popo(
-        ctx.doc_id, enriched_blocks, document_tree
-    )
-    blocks = refine_document_title_levels(
-        blocks,
-        use_llm=use_llm,
-        llm_client=llm_client,
-        llm_model=llm_model,
-    )
-    blocks = enrich_blocks_formula_semantics(
-        blocks,
-        use_llm=use_llm,
-        llm_client=llm_client,
-        llm_model=llm_model,
-    )
-    products = write_graph_products_from_blocks(
-        library_id=ctx.library_id,
-        doc_id=ctx.doc_id,
-        blocks=blocks,
-        outlines=outlines,
-        pages=pages,
-        generated_by="mineru-popo",
-    )
-    ctx.input_summary = str(paths.get_popo_dir(ctx.library_id, ctx.doc_id))
-    ctx.output_summary = (
-        f"{products['content_md_path']} + {products['graph_path']} + "
-        f"{paths.get_graph_meta_path(ctx.library_id, ctx.doc_id)}"
-    )
-    return (
-        f"结构化完成（popo 后端），{len(blocks)} blocks，"
-        f"graph {products['stats'].get('nodes_count', 0)} 节点"
-    )
 
 
 def _run_structure_solo(
