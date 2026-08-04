@@ -147,6 +147,8 @@ def _build_content_json(block: CanonicalBlock) -> Dict[str, Any]:
         if block.formula_semantics:
             formula_text = str(block.formula_semantics.get("formula_text") or "")
         payload["math_content"] = formula_text or block.text
+        if block.formula_semantics:
+            payload["formula_semantics"] = dict(block.formula_semantics)
     if block.raw_type:
         payload["raw_type"] = block.raw_type
     return payload

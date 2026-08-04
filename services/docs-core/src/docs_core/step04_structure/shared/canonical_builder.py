@@ -137,6 +137,7 @@ def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, A
     for index, raw_block in enumerate(raw_blocks):
         text = str(raw_block.get("text") or raw_block.get("content") or "").strip()
         section_path = str(raw_block.get("section_path") or "")
+        formula_semantics = raw_block.get("formula_semantics")
         canonical_blocks.append(
             CanonicalBlock(
                 block_id=str(raw_block.get("block_uid") or raw_block.get("id") or f"block-{index}"),
@@ -165,6 +166,11 @@ def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, A
                 table_merge_id=raw_block.get("table_merge_id"),
                 raw_type=raw_block.get("raw_type"),
                 table_html=raw_block.get("table_html"),
+                formula_semantics=(
+                    dict(formula_semantics)
+                    if isinstance(formula_semantics, dict) and formula_semantics
+                    else None
+                ),
                 clause_id=extract_clause_id(text),
                 inherited_chapter=extract_inherited_chapter(section_path),
                 entity_tags=infer_entity_tags(text, section_path),
@@ -690,13 +696,17 @@ def enrich_document_semantics(
     formula_contracts: dict[str, dict] = {}
     for block in ordered:
         if block.block_type == "formula":
-            contract = enrich_canonical_block(
-                block,
-                ordered,
-                llm_client=llm_client,
-                llm_model=llm_model,
-                use_llm=use_llm,
-            )
+            if block.formula_semantics and not use_llm:
+                # jsonl 已落盘的公式语义（04 生产）：05 重建时原样透传，不重算
+                contract = dict(block.formula_semantics)
+            else:
+                contract = enrich_canonical_block(
+                    block,
+                    ordered,
+                    llm_client=llm_client,
+                    llm_model=llm_model,
+                    use_llm=use_llm,
+                )
             formula_contracts[block.block_id] = contract
     new_blocks: List[CanonicalBlock] = [
         block.model_copy(update={"formula_semantics": formula_contracts[block.block_id]})
@@ -766,7 +776,12 @@ def build_canonical_document_from_blocks(
         tables=tables,
         citation_targets=build_citation_targets(doc_id, local_blocks, tables, local_pages, raw_node_map=raw_node_map),
     )
-    return enrich_document_semantics(document)
+    return enrich_document_semantics(
+        document,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
+    )
 
 
 # 基于给定落盘输入构建 canonical document（source 缺省时按空输入构建）
@@ -849,4 +864,9 @@ def build_canonical_document_from_popoblocks(
         tables=tables,
         citation_targets=citation_targets,
     )
-    return enrich_document_semantics(document)
+    return enrich_document_semantics(
+        document,
+        use_llm=use_llm,
+        llm_client=llm_client,
+        llm_model=llm_model,
+    )
