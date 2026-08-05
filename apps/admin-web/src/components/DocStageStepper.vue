@@ -15,10 +15,10 @@
             <span class="stage-time">{{ formatTime(stage) }}</span>
             <span class="stage-duration">{{ formatDuration(stage) }}</span>
             <span v-if="stage.key !== 'source_prep'" class="stage-actions">
-              <a-button v-if="anyRunning && stage.status === 'running'" type="link" size="small" danger class="stage-action-btn" @click.stop="emit('cancel')">
+              <a-button v-if="(anyRunning || anyQueued) && (stage.status === 'running' || stage.status === 'queued')" type="link" size="small" danger class="stage-action-btn" @click.stop="emit('cancel')">
                 <StopOutlined /> 取消
               </a-button>
-              <a-button v-else-if="!anyRunning" type="link" size="small" class="stage-action-btn" @click.stop="emit('launch', stage.key)">
+              <a-button v-else-if="!anyRunning && !anyQueued" type="link" size="small" class="stage-action-btn" @click.stop="emit('launch', stage.key)">
                 <PlayCircleOutlined /> 启动
               </a-button>
             </span>
@@ -342,6 +342,8 @@ function stageTitle(key: string, found: { backend?: string }): string {
 
 // 是否有阶段正在运行（决定显示启动还是取消）
 const anyRunning = computed(() => orderedStages.value.some(s => s.status === 'running'))
+// 是否有阶段排队等待 GPU（同样视为任务进行中，不显示启动）
+const anyQueued = computed(() => orderedStages.value.some(s => s.status === 'queued'))
 
 // 每秒 tick，驱动执行中阶段的实时耗时
 const nowTick = ref(Date.now())
@@ -357,6 +359,7 @@ function statusIcon(status: string) {
   const map: Record<string, any> = {
     completed: CheckCircleFilled,
     running: SyncOutlined,
+    queued: ClockCircleFilled,
     failed: CloseCircleFilled,
     skipped: MinusCircleFilled,
     pending: ClockCircleFilled,
@@ -392,6 +395,7 @@ function formatTime(stage: { started_at?: string }): string {
 function formatDuration(stage: { started_at?: string; finished_at?: string; status: string }): string {
   if (stage.status === 'pending') return '等待中'
   if (stage.status === 'skipped') return '已跳过'
+  if (stage.status === 'queued') return '排队中'
   // 执行中：实时计时（整数秒每秒刷新）
   if (stage.status === 'running' && stage.started_at) {
     return formatMs(nowTick.value - new Date(stage.started_at).getTime())
@@ -649,6 +653,7 @@ function fileIconStyle(file: { name: string; isDir: boolean }): Record<string, s
   flex-shrink: 0;
   &.icon-completed { color: var(--success-color, #52c41a); }
   &.icon-running { color: var(--primary-color, #1890ff); }
+  &.icon-queued { color: #fa8c16; }
   &.icon-failed { color: var(--error-color, #ff4d4f); }
   &.icon-skipped { color: var(--text-tertiary, #999); }
   &.icon-pending { color: var(--text-tertiary, #bbb); }

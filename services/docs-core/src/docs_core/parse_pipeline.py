@@ -65,6 +65,7 @@ class StageContext:
     fallback_target: Optional[str] = None
     stage_key: Optional[str] = None
     steps: List[Dict[str, Any]] = field(default_factory=list)
+    sync_record: Optional[Callable[[str, str, str], None]] = None
 
     def log_step(self, step: str, status: str = "done", detail: str = "") -> None:
         """记录阶段内分析步骤（如产物落盘 / 对齐检查 / 信号注入），立即持久化供前端展示。"""
@@ -189,9 +190,45 @@ def _run_raw_parse(ctx: StageContext) -> str:
     def _on_step(step: str, status: str = "done", detail: str = "") -> None:
         ctx.log_step(step, status, detail)
 
-    if _MINERU_GPU_GATE.available == 0:
+    def _mark_queued() -> None:
+        """排队等待 GPU：阶段/任务/解析记录状态同步为排队中，避免误显示解析耗时。"""
         ctx.log_step("MinerU GPU 排队", "running", "等待 MinerU GPU 资源（前序任务完成后自动开始）")
+        if ctx.meta_store is not None and ctx.stage_key:
+            ctx.meta_store.upsert_parse_stage(
+                ctx.doc_id, ctx.stage_key, status="queued",
+                message="等待 MinerU GPU 资源",
+                started_at=ctx.stage_started_at or datetime.now().isoformat(),
+            )
+        try:
+            get_docs_service().update_parse_task(
+                ctx.task_id, stage="queued", stage_message="等待 MinerU GPU 资源"
+            )
+            if ctx.sync_record is not None:
+                ctx.sync_record(ctx.task_id, ctx.doc_id, "queued")
+        except Exception as exc:
+            logger.warning("排队状态同步失败 task=%s: %s", ctx.task_id, exc)
+
+    def _mark_parsing() -> None:
+        """拿到 GPU 槽位：阶段计时从此刻重新开始，排队等待不计入解析耗时。"""
+        if ctx.meta_store is not None and ctx.stage_key:
+            ctx.meta_store.upsert_parse_stage(
+                ctx.doc_id, ctx.stage_key, status="running",
+                message="核查通过",
+                started_at=datetime.now().isoformat(),
+            )
+        try:
+            get_docs_service().update_parse_task(
+                ctx.task_id, stage="raw_parse", stage_message="MinerU 解析中"
+            )
+            if ctx.sync_record is not None:
+                ctx.sync_record(ctx.task_id, ctx.doc_id, "processing")
+        except Exception as exc:
+            logger.warning("解析状态同步失败 task=%s: %s", ctx.task_id, exc)
+
+    if _MINERU_GPU_GATE.available == 0:
+        _mark_queued()
     with mineru_gpu_slot(ctx.cancel_check):
+        _mark_parsing()
         try:
             # 解析器自建临时目录并负责落盘（save_markdown + save_parse_artifacts）
             parse_result = task_parser.parse_to_raw_artifacts(
@@ -740,6 +777,7 @@ class ParseOrchestrator:
             file_path=file_path, parse_options=parse_options,
             task_parser=self._parsers.get(task_id),
         )
+        ctx.sync_record = self._sync_record
 
         def _on_stage_update(stage_key, results):
             overall = derive_overall_status(dict(results))
