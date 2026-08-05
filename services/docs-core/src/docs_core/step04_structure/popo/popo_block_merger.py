@@ -9,7 +9,11 @@ import logging
 import re
 from typing import Any, Dict, List, Optional, Tuple
 
+from docs_core.step04_structure.popo.popo_signal_injector import validate_instruction
+
 logger = logging.getLogger(__name__)
+
+MAX_MERGE_CHAIN = 5
 
 
 def _uid(node: Dict[str, Any]) -> str:
@@ -156,6 +160,69 @@ def _absorb_table(source: Dict[str, Any], target: Dict[str, Any]) -> None:
     target.pop("table_merge_id", None)
 
 
+def _resolve_chain(
+    by_uid: Dict[str, Dict[str, Any]],
+    source_uid: str,
+    kind: str,
+    stats: Dict[str, Any],
+) -> List[str]:
+    chain: List[str] = []
+    seen: set[str] = set()
+    current = source_uid
+    while current:
+        if current in seen:
+            stats["rejected_reasons"].append(f"{kind} 链成环: {current}")
+            stats["rejected"] += 1
+            return chain[:1]
+        seen.add(current)
+        chain.append(current)
+        if len(chain) > MAX_MERGE_CHAIN:
+            stats["rejected_reasons"].append(f"{kind} 链超过上限: {source_uid}")
+            stats["rejected"] += 1
+            return chain[:MAX_MERGE_CHAIN]
+        node = by_uid.get(current)
+        if node is None:
+            return chain[:1]
+        target_field = "contd_target_id" if kind == "contd" else "table_merge_id"
+        target_uid = node.get(target_field)
+        if not target_uid:
+            return chain
+        target = by_uid.get(str(target_uid))
+        if target is None:
+            stats["rejected_reasons"].append(f"{kind} 目标缺失: {current} -> {target_uid}")
+            stats["rejected"] += 1
+            return chain[:1]
+        instruction = {"kind": kind, "source_uid": current, "target_uid": str(target_uid)}
+        ok, reason = validate_instruction(by_uid, instruction)
+        if not ok:
+            stats["rejected_reasons"].append(f"{kind} {current} -> {target_uid}: {reason}")
+            stats["rejected"] += 1
+            return chain[:1]
+        current = str(target_uid)
+    return chain
+
+
+def _remap_edges(edges: List[Dict[str, Any]], old_uid: str, new_uid: str) -> None:
+    for edge in edges or []:
+        if edge.get("from") == old_uid:
+            edge["from"] = new_uid
+        if edge.get("to") == old_uid:
+            edge["to"] = new_uid
+
+
+def _remap_node_refs(nodes: List[Dict[str, Any]], absorb_map: Dict[str, str]) -> None:
+    for node in nodes:
+        for field in ("parent_uid", "parent_block_uid", "caption_block_uid", "footnote_block_uid", "explain_for_uid"):
+            value = str(node.get(field) or "").strip()
+            if value in absorb_map:
+                node[field] = absorb_map[value]
+        for field in ("caption_block_uids", "footnote_block_uids"):
+            values = node.get(field)
+            if isinstance(values, list):
+                remapped = [absorb_map.get(str(item), str(item)) for item in values]
+                node[field] = [item for item in remapped if item] or None
+
+
 def _resequence_block_seq(nodes: List[Dict[str, Any]]) -> None:
     buckets: Dict[int, List[Dict[str, Any]]] = {}
     for node in nodes:
@@ -185,6 +252,7 @@ def merge_blocks(
     ]
     pending.sort(key=lambda uid: _sort_key(by_uid[uid]))
     removed: set[str] = set()
+    absorb_map: Dict[str, str] = {}
 
     for source_uid in pending:
         if source_uid in removed:
@@ -193,23 +261,26 @@ def merge_blocks(
         if source is None:
             continue
         kind = "contd" if source.get("contd_target_id") else "table_merge"
-        target_field = "contd_target_id" if kind == "contd" else "table_merge_id"
-        target_uid = source.get(target_field)
-        if not target_uid:
+        chain = _resolve_chain(by_uid, source_uid, kind, stats)
+        if len(chain) < 2:
             continue
-        target = by_uid.get(str(target_uid))
-        if target is None or str(target_uid) in removed:
-            stats["rejected_reasons"].append(f"{kind} 目标缺失: {source_uid} -> {target_uid}")
-            stats["rejected"] += 1
-            source.pop(target_field, None)
-            continue
-        if kind == "contd":
-            _absorb_contd(source, target)
-        else:
-            _absorb_table(source, target)
-        removed.add(str(target_uid))
-        stats["applied"] += 1
+        for target_uid in chain[1:]:
+            target = by_uid.get(target_uid)
+            if target is None or target_uid in removed:
+                stats["rejected_reasons"].append(f"{kind} 目标已被合并: {target_uid}")
+                stats["rejected"] += 1
+                break
+            if kind == "contd":
+                _absorb_contd(source, target)
+            else:
+                _absorb_table(source, target)
+            removed.add(target_uid)
+            absorb_map[target_uid] = source_uid
+            stats["applied"] += 1
+            if edges is not None:
+                _remap_edges(edges, target_uid, source_uid)
 
+    _remap_node_refs(updated, absorb_map)
     survivors = [node for node in updated if _uid(node) not in removed]
     _resequence_block_seq(survivors)
     return survivors, stats
