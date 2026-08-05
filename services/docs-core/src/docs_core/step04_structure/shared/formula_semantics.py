@@ -15,7 +15,9 @@ if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
 
 
-FORMULA_NUMBER_RE = re.compile(r"[（(](\d+(?:\.\d+)*(?:-\d+)?)[）)]")
+FORMULA_NUMBER_RE = re.compile(
+    r"[（(](\d+(?:\.\d+)*(?:-\d+)?)[）)]|\\tag\{(\d+(?:\.\d+)*(?:-\d+)?)\}"
+)
 FORMULA_PARAM_SYMBOL_RE = r"[A-Za-zΑ-Ωα-ω\\][A-Za-z0-9_{}^()\\/.\-']{0,20}"
 FORMULA_PARAM_RE = re.compile(
     rf"^\s*({FORMULA_PARAM_SYMBOL_RE})\s*(?:[—–\-一]{{1,3}}|:=|=|：|:)\s*(.+?)\s*$"
@@ -63,7 +65,7 @@ def extract_formula_number(formula_text: str, explanation_lines: List[str]) -> O
             continue
         match = FORMULA_NUMBER_RE.search(candidate)
         if match:
-            return match.group(1)
+            return match.group(1) or match.group(2)
     return None
 
 
