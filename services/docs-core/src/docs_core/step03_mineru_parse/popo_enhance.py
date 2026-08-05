@@ -7,7 +7,7 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -35,6 +35,19 @@ def _decode_output(data: Optional[bytes]) -> str:
         except (UnicodeDecodeError, LookupError):
             continue
     return data.decode("utf-8", errors="replace")
+
+
+def _emit_on_step(
+    on_step: Optional[Callable[[str, str, str], None]],
+    step: str,
+    status: str = "done",
+    detail: str = "",
+) -> None:
+    if on_step is not None:
+        try:
+            on_step(step, status, detail)
+        except Exception:
+            logger.warning("PoPo 步骤回调失败 step=%s", step, exc_info=True)
 
 
 class PoPoPipelineRunner:
@@ -92,6 +105,7 @@ class PoPoPipelineRunner:
         self, mineru_raw_dir: str, output_dir: str, doc_id: str = DOC_ID,
         source_pdf_path: str = "",
         source_dir: Optional[str] = None,
+        on_step: Optional[Callable[[str, str, str], None]] = None,
     ) -> Dict[str, Any]:
         """Run PoPo: label normalization -> inference (cloud 4B) -> build tree.
 
@@ -107,7 +121,7 @@ class PoPoPipelineRunner:
         try:
             return self._run_stages(
                 mineru_raw_dir, output_dir, tmp_dir, doc_id,
-                source_pdf_path, source_dir,
+                source_pdf_path, source_dir, on_step,
             )
         finally:
             shutil.rmtree(tmp_dir, ignore_errors=True)
@@ -116,6 +130,7 @@ class PoPoPipelineRunner:
         self, mineru_raw_dir: str, output_dir: str, tmp_dir: str, doc_id: str,
         source_pdf_path: str = "",
         source_dir: Optional[str] = None,
+        on_step: Optional[Callable[[str, str, str], None]] = None,
     ) -> Dict[str, Any]:
         mineru_raw = Path(mineru_raw_dir)
         tmp = Path(tmp_dir)
@@ -133,6 +148,7 @@ class PoPoPipelineRunner:
         middle_src = mineru_raw / "middle.json"
         content_list_src = mineru_raw / "content_list.json"
         if not middle_src.exists() and not content_list_src.exists():
+            _emit_on_step(on_step, "PoPo 输入准备", "failed", "缺少 middle.json / content_list.json")
             raise FileNotFoundError(
                 f"PoPo: 输入目录缺少 middle.json / content_list.json: {mineru_raw}"
             )
@@ -143,19 +159,25 @@ class PoPoPipelineRunner:
             shutil.copy2(str(middle_src), str(vlm_dir / f"{doc_id}_middle.json"))
         else:
             shutil.copy2(str(content_list_src), str(vlm_dir / f"{doc_id}_content_list.json"))
+        _emit_on_step(on_step, "PoPo 输入准备", "done", str(mineru_raw))
 
         normalized_out = tmp / "normalized"
-        self._run_script(
-            [sys.executable, str(self._popo_script("post_processing/label_normalization.py")),
-             "--model", "mineru",
-             "--input-dir", str(tmp / "input"),
-             "--output-dir", str(normalized_out),
-             "--doc-id", doc_id,
-             ],
-            env=env,
-            timeout=_env_int("POPO_LABEL_NORM_TIMEOUT", 60),
-            stage="label normalization",
-        )
+        try:
+            self._run_script(
+                [sys.executable, str(self._popo_script("post_processing/label_normalization.py")),
+                 "--model", "mineru",
+                 "--input-dir", str(tmp / "input"),
+                 "--output-dir", str(normalized_out),
+                 "--doc-id", doc_id,
+                 ],
+                env=env,
+                timeout=_env_int("POPO_LABEL_NORM_TIMEOUT", 60),
+                stage="label normalization",
+            )
+        except Exception as exc:
+            _emit_on_step(on_step, "label 归一化", "failed", f"{type(exc).__name__}: {str(exc)[:160]}")
+            raise
+        _emit_on_step(on_step, "label 归一化", "done", "")
 
         # Patch input_label in normalized output so inference can find the PDF
         norm_files = list(normalized_out.rglob(f"{doc_id}.json"))
@@ -199,31 +221,41 @@ class PoPoPipelineRunner:
 
         # ---- Step 2: Inference (cloud 4B API via vLLM) ----
         enriched_out = tmp / "enriched"
-        self._run_script(
-            [sys.executable, str(self._popo_script("post_processing/run_inference.py")),
-             "--model", "mineru",
-             "--input-dir", str(normalized_out),
-             "--output-dir", str(enriched_out),
-             "--limit", "0",
-             ],
-            env=env,
-            timeout=_env_int("POPO_INFERENCE_TIMEOUT", 1800),
-            stage="inference",
-        )
+        try:
+            self._run_script(
+                [sys.executable, str(self._popo_script("post_processing/run_inference.py")),
+                 "--model", "mineru",
+                 "--input-dir", str(normalized_out),
+                 "--output-dir", str(enriched_out),
+                 "--limit", "0",
+                 ],
+                env=env,
+                timeout=_env_int("POPO_INFERENCE_TIMEOUT", 1800),
+                stage="inference",
+            )
+        except Exception as exc:
+            _emit_on_step(on_step, "PoPo 4B 推理", "failed", f"{type(exc).__name__}: {str(exc)[:160]}")
+            raise
+        _emit_on_step(on_step, "PoPo 4B 推理", "done", "")
 
         # ---- Step 3: Build document tree ----
         tree_out = tmp / "tree"
         txt_out = tmp / "tree_txt"
-        self._run_script(
-            [sys.executable, str(self._popo_script("post_processing/get_json_tree.py")),
-             "--input-dir", str(enriched_out),
-             "--output-dir", str(tree_out),
-             "--txt-dir", str(txt_out),
-             ],
-            env=env,
-            timeout=_env_int("POPO_TREE_TIMEOUT", 60),
-            stage="tree build",
-        )
+        try:
+            self._run_script(
+                [sys.executable, str(self._popo_script("post_processing/get_json_tree.py")),
+                 "--input-dir", str(enriched_out),
+                 "--output-dir", str(tree_out),
+                 "--txt-dir", str(txt_out),
+                 ],
+                env=env,
+                timeout=_env_int("POPO_TREE_TIMEOUT", 60),
+                stage="tree build",
+            )
+        except Exception as exc:
+            _emit_on_step(on_step, "document tree 构建", "failed", f"{type(exc).__name__}: {str(exc)[:160]}")
+            raise
+        _emit_on_step(on_step, "document tree 构建", "done", "")
 
         final_enriched = str(out / "enriched_blocks.json")
         final_tree = str(out / "document_tree.json")
@@ -244,6 +276,18 @@ class PoPoPipelineRunner:
             if tree_files:
                 shutil.copy2(str(tree_files[0]), final_tree)
 
+        _emit_on_step(
+            on_step,
+            "enriched_blocks.json 落盘",
+            "done" if Path(final_enriched).exists() else "failed",
+            final_enriched,
+        )
+        _emit_on_step(
+            on_step,
+            "document_tree.json 落盘",
+            "done" if Path(final_tree).exists() else "failed",
+            final_tree,
+        )
         return {
             "enriched_blocks_path": final_enriched if Path(final_enriched).exists() else "",
             "document_tree_path": final_tree if Path(final_tree).exists() else "",

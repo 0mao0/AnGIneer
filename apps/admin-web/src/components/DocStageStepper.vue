@@ -130,6 +130,14 @@
               <span v-else>—</span>
             </div>
           </div>
+          <div v-if="stage.steps.length" class="steps-block">
+            <div class="steps-title">分析步骤</div>
+            <div v-for="(s, si) in stage.steps" :key="si" class="checklist-row">
+              <component :is="stepIcon(s.status)" :class="stepIconClass(s.status)" />
+              <span class="step-name">{{ s.step }}</span>
+              <span v-if="s.detail" class="step-detail">{{ s.detail }}</span>
+            </div>
+          </div>
           <div v-if="stage.status === 'failed' && stage.error" class="stage-error-block">
             <pre>{{ stage.error }}</pre>
             <a-button type="link" size="small" @click.stop="copyStageError(stage)">
@@ -183,6 +191,14 @@
                 </div>
               </div>
               <span v-else>—</span>
+            </div>
+          </div>
+          <div v-if="stage.steps.length" class="steps-block">
+            <div class="steps-title">分析步骤</div>
+            <div v-for="(s, si) in stage.steps" :key="si" class="checklist-row">
+              <component :is="stepIcon(s.status)" :class="stepIconClass(s.status)" />
+              <span class="step-name">{{ s.step }}</span>
+              <span v-if="s.detail" class="step-detail">{{ s.detail }}</span>
             </div>
           </div>
           <div v-if="stage.status === 'failed' && stage.error" class="stage-error-block">
@@ -263,6 +279,7 @@ const props = defineProps<{
     output_summary?: string
     backend?: string
     outputs?: { dir?: string; raw_dir?: string; items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] }
+    steps?: { step: string; status: string; detail?: string }[]
   }[]
 }>()
 
@@ -307,6 +324,7 @@ const orderedStages = computed(() =>
       output_summary: found.output_summary || '',
       backend: (found as any)?.backend || '',
       outputs: (found as any)?.outputs || null,
+      steps: (found as any)?.steps || [],
     }
   })
 )
@@ -344,6 +362,26 @@ function statusIcon(status: string) {
     pending: ClockCircleFilled,
   }
   return map[status] || ClockCircleFilled
+}
+
+// 分析步骤状态图标：done/failed/running/skipped 对应勾/叉/旋转/减号
+function stepIcon(status: string) {
+  const map: Record<string, any> = {
+    done: CheckCircleFilled,
+    completed: CheckCircleFilled,
+    failed: CloseCircleFilled,
+    running: SyncOutlined,
+    skipped: MinusCircleFilled,
+    pending: ClockCircleFilled,
+  }
+  return map[status] || ClockCircleFilled
+}
+
+function stepIconClass(status: string): string {
+  if (status === 'failed') return 'check-no'
+  if (status === 'done' || status === 'completed') return 'check-ok'
+  if (status === 'skipped') return 'check-skip'
+  return 'check-run'
 }
 
 function formatTime(stage: { started_at?: string }): string {
@@ -717,6 +755,42 @@ function fileIconStyle(file: { name: string; isDir: boolean }): Record<string, s
   color: var(--error-color, #ff4d4f);
   font-size: 13px;
   flex-shrink: 0;
+}
+.check-run {
+  color: var(--primary-color, #1677ff);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.check-skip {
+  color: var(--text-tertiary, #999);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.steps-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px dashed var(--border-color, #e8e8e8);
+  border-radius: 6px;
+  background: var(--bg-tertiary, #fafafa);
+}
+.steps-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary, #666);
+}
+.step-name {
+  font-size: 12px;
+  color: var(--text-primary, #222);
+}
+.step-detail {
+  font-size: 11px;
+  color: var(--text-tertiary, #999);
+  word-break: break-all;
+  flex: 1;
+  min-width: 0;
 }
 .checklist-raw-child {
   padding-left: 20px;

@@ -42,6 +42,7 @@ export interface KnowledgeTreeNode extends SmartTreeNode {
   file_path?: string
   parseProgress?: number
   parseStage?: string
+  parseStep?: string
   parseError?: string
   parseTaskId?: string
   strategy?: KnowledgeStrategy

@@ -1074,6 +1074,13 @@ def get_document_stages(doc_id: str):
     if not node:
         raise HTTPException(status_code=404, detail=f"文档不存在: {doc_id}")
     existing = {s["stage"]: s for s in ks.meta_store.list_parse_stages(doc_id)}
+    steps_by_stage: Dict[str, list] = {}
+    for step_row in ks.meta_store.list_parse_stage_steps(doc_id):
+        steps_by_stage.setdefault(str(step_row.get("stage") or ""), []).append({
+            "step": step_row.get("step") or "",
+            "status": step_row.get("status") or "done",
+            "detail": step_row.get("detail") or "",
+        })
     rows = []
     for key in _PIPELINE_ORDER:
         stage = existing.get(key)
@@ -1085,6 +1092,7 @@ def get_document_stages(doc_id: str):
                 "error": "", "started_at": "", "finished_at": "", "updated_at": "",
                 "input_summary": _stage_input_hint(key, node), "output_summary": "",
                 "step": step_num,
+                "steps": steps_by_stage.get(key, []),
             })
         else:
             row = {**stage, "step": step_num}
@@ -1092,6 +1100,7 @@ def get_document_stages(doc_id: str):
                 row["backend"] = _structure_backend(str(stage.get("message") or ""))
             if stage.get("status") in ("completed", "running", "failed"):
                 row["outputs"] = _stage_output_files(key, node)
+            row["steps"] = steps_by_stage.get(key, [])
             rows.append(row)
     return {"doc_id": doc_id, "stages": rows}
 

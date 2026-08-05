@@ -229,6 +229,7 @@ export const knowledgeApi = {
         updated_at: string
         backend?: string
         outputs?: { dir?: string; raw_dir?: string; items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] }
+        steps?: { step: string; status: string; detail?: string }[]
       }[]
     }>,
 

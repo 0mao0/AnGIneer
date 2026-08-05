@@ -127,6 +127,25 @@ class KnowledgeMetaStore:
             )
             conn.execute(
                 """
+                CREATE TABLE IF NOT EXISTS parse_stage_steps (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    doc_id TEXT NOT NULL,
+                    stage TEXT NOT NULL,
+                    step TEXT NOT NULL,
+                    status TEXT NOT NULL DEFAULT 'done',
+                    detail TEXT DEFAULT '',
+                    created_at TEXT NOT NULL
+                )
+                """
+            )
+            conn.execute(
+                """
+                CREATE INDEX IF NOT EXISTS idx_parse_stage_steps_doc_stage
+                ON parse_stage_steps (doc_id, stage, created_at ASC)
+                """
+            )
+            conn.execute(
+                """
                 CREATE INDEX IF NOT EXISTS idx_nodes_library_type
                 ON nodes (library_id, type, created_at)
                 """
@@ -503,6 +522,46 @@ class KnowledgeMetaStore:
             conn.execute("DELETE FROM doc_parse_stages WHERE doc_id = ?", (doc_id,))
             conn.commit()
 
+    # 记录阶段内分析步骤（如 MinerU 产物落盘 / PoPo 对齐检查 / 信号注入等），供前端展示条逐项展示
+    def insert_parse_stage_step(
+        self,
+        doc_id: str,
+        stage: str,
+        step: str,
+        status: str = "done",
+        detail: str = "",
+    ) -> None:
+        with self.connect() as conn:
+            conn.execute(
+                """
+                INSERT INTO parse_stage_steps (doc_id, stage, step, status, detail, created_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (doc_id, stage, step, status, detail, datetime.now().isoformat()),
+            )
+            conn.commit()
+
+    def list_parse_stage_steps(self, doc_id: str) -> List[dict]:
+        with self.connect() as conn:
+            conn.row_factory = sqlite3.Row
+            rows = conn.execute(
+                "SELECT doc_id, stage, step, status, detail, created_at "
+                "FROM parse_stage_steps WHERE doc_id = ? ORDER BY created_at ASC, id ASC",
+                (doc_id,),
+            ).fetchall()
+            return [dict(r) for r in rows]
+
+    def clear_parse_stage_steps(self, doc_id: str, stage: Optional[str] = None) -> None:
+        with self.connect() as conn:
+            if stage:
+                conn.execute(
+                    "DELETE FROM parse_stage_steps WHERE doc_id = ? AND stage = ?",
+                    (doc_id, stage),
+                )
+            else:
+                conn.execute("DELETE FROM parse_stage_steps WHERE doc_id = ?", (doc_id,))
+            conn.commit()
+
     # 标记/取消标记节点软删除状态（nodes 表 + tree_node 表）。
     def mark_nodes_deleted(self, node_ids: List[str], deleted: bool) -> None:
         if not node_ids:
@@ -537,6 +596,7 @@ class KnowledgeMetaStore:
         with self.connect() as conn:
             cursor = conn.execute(f"DELETE FROM parse_tasks WHERE doc_id IN ({placeholders})", doc_ids)
             conn.execute(f"DELETE FROM parse_task_steps WHERE doc_id IN ({placeholders})", doc_ids)
+            conn.execute(f"DELETE FROM parse_stage_steps WHERE doc_id IN ({placeholders})", doc_ids)
             conn.commit()
             return int(cursor.rowcount or 0)
 

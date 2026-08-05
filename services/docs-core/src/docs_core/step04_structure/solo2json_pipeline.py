@@ -16,7 +16,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Callable, Dict, Optional
 
 import docs_core.paths as paths
 from docs_core.step04_structure.solo_engine import StructuredResult, build_structured_from_rawfiles
@@ -40,6 +40,19 @@ def _get_llm_client():
 
 __all__ = ["build_structured_index_for_doc"]
 
+
+# 分析步骤回调：无回调时静默跳过（API 直调等场景不受影响）
+def _emit_step(
+    on_step: Optional[Callable[[str, str, str], None]],
+    step: str,
+    status: str = "done",
+    detail: str = "",
+) -> None:
+    if on_step is not None:
+        try:
+            on_step(step, status, detail)
+        except Exception:
+            logger.warning("分析步骤回调失败 step=%s", step, exc_info=True)
 
 
 # 保存 doc_blocks_graph.jsonl + doc_blocks_graph_meta.json
@@ -80,6 +93,7 @@ def _apply_popo_signals(
     llm_client=None,
     llm_model: Optional[str] = None,
     use_llm: bool = False,
+    on_step: Optional[Callable[[str, str, str], None]] = None,
 ) -> tuple[list, Dict[str, Any]]:
     from docs_core.step04_structure.popo.popo_signal_aligner import align_popo_blocks
     from docs_core.step04_structure.popo.popo_signal_injector import inject_popo_signals
@@ -91,14 +105,22 @@ def _apply_popo_signals(
     try:
         enriched = _afs.file_storage.read_popo_enriched_blocks(library_id, doc_id)
     except FileNotFoundError:
+        _emit_step(on_step, "PoPo 结果读取", "skipped", "无 enriched_blocks.json")
         return nodes, {"injection": {"skipped_reason": "no_popo"}, "level_fusion": {"skipped_reason": "no_popo"}}
     middle_path = paths.get_mineru_raw_dir(library_id, doc_id) / "middle.json"
     if not middle_path.exists():
+        _emit_step(on_step, "PoPo 结果读取", "failed", "缺少 middle.json")
         return nodes, {"injection": {"skipped_reason": "no_middle"}, "level_fusion": {"skipped_reason": "no_middle"}}
     try:
         middle = json.loads(middle_path.read_text(encoding="utf-8"))
         alignment = align_popo_blocks(doc_id, middle, enriched)
         if alignment.degraded:
+            _emit_step(
+                on_step,
+                "popo 结果对齐检查",
+                "failed",
+                "; ".join(alignment.reasons[:3]) or "对齐校验失败",
+            )
             logger.warning(
                 "PoPo 信号对齐降级，跳过注入: doc=%s reasons=%s",
                 doc_id,
@@ -106,7 +128,21 @@ def _apply_popo_signals(
             )
             skipped = {"applied": 0, "rejected": 0, "skipped_reason": "alignment_degraded"}
             return nodes, {"injection": skipped, "level_fusion": skipped}
+        _emit_step(
+            on_step,
+            "popo 结果对齐检查",
+            "done",
+            f"aligned {len(alignment.solo_block_uid_map)} blocks",
+        )
         nodes, inject_stats = inject_popo_signals(doc_id, nodes, enriched, alignment)
+        injected = int(inject_stats.get("applied") or 0)
+        rejected = int(inject_stats.get("rejected") or 0)
+        _emit_step(
+            on_step,
+            "PoPo 信号注入",
+            "done" if injected > 0 or rejected == 0 else "failed",
+            f"applied {injected}, rejected {rejected}",
+        )
         level_map = build_popo_level_map(enriched, alignment)
         popo_level_by_uid = {
             alignment.solo_block_uid_map[source_id]: level
@@ -120,8 +156,16 @@ def _apply_popo_signals(
             llm_model=llm_model,
             use_llm=use_llm,
         )
+        _emit_step(
+            on_step,
+            "层级信号融合",
+            "done",
+            f"{fuse_stats.get('total_titles', 0)} titles, "
+            f"consistent {fuse_stats.get('consistent', 0)}, disputed {fuse_stats.get('disputed', 0)}",
+        )
         return nodes, {"injection": inject_stats, "level_fusion": fuse_stats}
     except Exception as exc:
+        _emit_step(on_step, "PoPo 信号处理", "failed", f"{type(exc).__name__}: {str(exc)[:120]}")
         logger.warning("PoPo 信号注入异常，跳过: doc=%s error=%s", doc_id, exc)
         skipped = {"applied": 0, "rejected": 0, "skipped_reason": f"error:{type(exc).__name__}"}
         return nodes, {"injection": skipped, "level_fusion": skipped}
@@ -137,6 +181,7 @@ def _review_title_levels_with_llm(
     llm_client=None,
     llm_model: Optional[str] = None,
     use_llm: bool = False,
+    on_step: Optional[Callable[[str, str, str], None]] = None,
 ) -> tuple[list, Dict[str, Any]]:
     from docs_core.models.types import CanonicalBlock
     from docs_core.step04_structure.shared.title_level_refiner import (
@@ -150,6 +195,12 @@ def _review_title_levels_with_llm(
     ]
     stats: Dict[str, Any] = {"total_titles": len(title_nodes), "llm_status": "disabled", "updated": 0}
     if not title_nodes or not (use_llm and llm_client):
+        _emit_step(
+            on_step,
+            "LLM 标题层级复核",
+            "skipped",
+            "无标题或未启用 LLM" if not title_nodes else "llm 未配置",
+        )
         return nodes, stats
 
     blocks = [
@@ -178,6 +229,12 @@ def _review_title_levels_with_llm(
     )
     stats["llm_status"] = status
     if not llm_levels:
+        _emit_step(
+            on_step,
+            "LLM 标题层级复核",
+            "done" if status in ("skipped_by_confidence", "ok") else "failed",
+            f"{status}, updated 0",
+        )
         return nodes, stats
 
     candidate_map = {candidate["block_id"]: candidate for candidate in candidates}
@@ -198,6 +255,12 @@ def _review_title_levels_with_llm(
             node["derived_level"] = level
             node["derived_by"] = "rule+llm"
             stats["updated"] += 1
+    _emit_step(
+        on_step,
+        "LLM 标题层级复核",
+        "done",
+        f"{status}, updated {stats['updated']}",
+    )
     return nodes, stats
 
 
@@ -207,6 +270,7 @@ def build_structured_index_for_doc(
     doc_id: str,
     strategy: str = "doc_blocks_graph_v1",
     options: Optional[Dict[str, Any]] = None,
+    on_step: Optional[Callable[[str, str, str], None]] = None,
 ) -> Dict[str, Any]:
     opts = options or {}
     use_llm = opts.get("use_llm", True)
@@ -241,6 +305,7 @@ def build_structured_index_for_doc(
     if result.stats.get("error"):
         raise ValueError(f"构建结构失败: {result.stats.get('error')}")
 
+    _emit_step(on_step, "solo 规则构建", "done", f"{len(result.nodes)} blocks")
     signal_stats: Dict[str, Any] = {"applied": 0, "rejected": 0, "skipped_reason": "skipped"}
     title_review_stats: Dict[str, Any] = {"total_titles": 0, "llm_status": "disabled", "updated": 0}
     if result.nodes:
@@ -251,6 +316,7 @@ def build_structured_index_for_doc(
             llm_client=llm_client,
             llm_model=llm_model,
             use_llm=use_llm,
+            on_step=on_step,
         )
         result.nodes, title_review_stats = _review_title_levels_with_llm(
             result.nodes,
@@ -258,9 +324,11 @@ def build_structured_index_for_doc(
             llm_client=llm_client,
             llm_model=llm_model,
             use_llm=use_llm,
+            on_step=on_step,
         )
 
     graph_path = _save_doc_blocks_graph(library_id, doc_id, result)
+    _emit_step(on_step, "jsonl + meta 落盘", "done", graph_path)
 
     stats = {
         "nodes_count": len(result.nodes),

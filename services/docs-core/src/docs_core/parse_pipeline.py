@@ -61,6 +61,26 @@ class StageContext:
     stage_started_at: Optional[str] = None
     cancel_check: Optional[Callable[[], None]] = None
     fallback_target: Optional[str] = None
+    stage_key: Optional[str] = None
+    steps: List[Dict[str, Any]] = field(default_factory=list)
+
+    def log_step(self, step: str, status: str = "done", detail: str = "") -> None:
+        """记录阶段内分析步骤（如产物落盘 / 对齐检查 / 信号注入），立即持久化供前端展示。"""
+        self.steps.append({"step": step, "status": status, "detail": detail})
+        if self.meta_store is None:
+            return
+        try:
+            self.meta_store.insert_parse_stage_step(
+                self.doc_id, self.stage_key or "", step, status, detail
+            )
+        except Exception:
+            logger.warning("记录分析步骤失败 doc=%s step=%s", self.doc_id, step, exc_info=True)
+        # 同步最新步骤标题到任务 stage_message（只推标题，不含 detail/路径），
+        # 供 PDF_Viewer 解析过程栏轮询展示
+        try:
+            get_docs_service().update_parse_task(self.task_id, stage_message=step)
+        except Exception:
+            logger.warning("同步解析步骤标题失败 task=%s step=%s", self.task_id, step, exc_info=True)
 
 
 @dataclass
@@ -164,19 +184,25 @@ def _run_raw_parse(ctx: StageContext) -> str:
     if task_parser is None:
         raise RuntimeError("解析器不可用（任务已取消）")
 
+    def _on_step(step: str, status: str = "done", detail: str = "") -> None:
+        ctx.log_step(step, status, detail)
+
     try:
         # 解析器自建临时目录并负责落盘（save_markdown + save_parse_artifacts）
         parse_result = task_parser.parse_to_raw_artifacts(
             input_path=ctx.source_path,
             library_id=ctx.library_id,
             doc_id=ctx.doc_id,
+            on_step=_on_step,
         )
     except Exception as exc:
         # MinerU 解析被取消（_abort_event 已设置）：转成取消异常，向上传播为 cancelled
         if getattr(task_parser, "_abort_event", None) is not None and task_parser._abort_event.is_set():
             raise ParseTaskCancelledError("用户手动取消任务") from exc
+        ctx.log_step("MinerU 引擎解析", "failed", f"{type(exc).__name__}: {str(exc)[:200]}")
         raise
     if not parse_result.get("success"):
+        ctx.log_step("MinerU 引擎解析", "failed", str(parse_result.get("error") or "MinerU解析失败")[:200])
         raise RuntimeError(parse_result.get("error") or "MinerU解析失败")
 
     persisted = parse_result.get("persisted") or {}
@@ -194,11 +220,16 @@ def _run_popo(ctx: StageContext) -> str:
 
     mineru_raw_dir = paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id)
     if not mineru_raw_dir.exists():
+        ctx.log_step("PoPo 输入准备", "failed", str(mineru_raw_dir))
         raise FileNotFoundError(f"mineru_raw_dir not found at {mineru_raw_dir}")
 
     popo_output_dir = str(paths.get_popo_dir(ctx.library_id, ctx.doc_id))
     source_dir = paths.get_source_dir(ctx.library_id, ctx.doc_id)
     pipeline = get_popo_pipeline()
+
+    def _on_step(step: str, status: str = "done", detail: str = "") -> None:
+        ctx.log_step(step, status, detail)
+
     # PDF 源在 source 目录（转换后的 PDF 或上传的 PDF），重试/resume 时 ctx.source_path 可能为空，兜底解析
     source_pdf = str(ctx.source_path or "")
     if not source_pdf:
@@ -212,6 +243,7 @@ def _run_popo(ctx: StageContext) -> str:
             doc_id=ctx.doc_id,
             source_pdf_path=source_pdf,
             source_dir=str(source_dir),
+            on_step=_on_step,
         )
     except Exception as exc:
         # popo 为可选信号源：失败回滚半成品并记录 fallback=solo，
@@ -276,6 +308,9 @@ def _run_structure_solo(
     import docs_core.paths as paths
     from docs_core.step04_structure.solo2json_pipeline import build_structured_index_for_doc
 
+    def _on_step(step: str, status: str = "done", detail: str = "") -> None:
+        ctx.log_step(step, status, detail)
+
     result = build_structured_index_for_doc(
         library_id=ctx.library_id,
         doc_id=ctx.doc_id,
@@ -284,6 +319,7 @@ def _run_structure_solo(
             "use_llm": use_llm,
             "llm_model": llm_model,
         },
+        on_step=_on_step,
     )
     stats = result.get("stats", {})
     # output_summary 与 PoPo/MinerU 一致：列出实际存在的产物文件（+ 连接），前端按固定清单打勾/打叉
@@ -418,11 +454,17 @@ def run_pipeline(
             continue
         if raise_if_cancelled:
             raise_if_cancelled()
+        # reset per-stage analysis steps on rerun
+        clear_steps = getattr(meta_store, "clear_parse_stage_steps", None)
+        if callable(clear_steps):
+            clear_steps(ctx.doc_id, key)
         started = datetime.now().isoformat()
         meta_store.upsert_parse_stage(ctx.doc_id, key, status="running", started_at=started)
         t0 = time.time()
         ctx.input_summary = ""
         ctx.output_summary = ""
+        ctx.stage_key = key
+        ctx.steps = []
         ctx.meta_store = meta_store
         ctx.stage_started_at = started
         ctx.cancel_check = raise_if_cancelled

@@ -4,7 +4,7 @@ import logging
 import os
 import tempfile
 import threading
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any, List, Callable
 from pathlib import Path
 from dotenv import load_dotenv
 import requests
@@ -18,6 +18,19 @@ import docs_core.paths as paths
 load_dotenv()
 
 logger = logging.getLogger(__name__)
+
+
+def _emit_on_step(
+    on_step: Optional[Callable[[str, str, str], None]],
+    step: str,
+    status: str = "done",
+    detail: str = "",
+) -> None:
+    if on_step is not None:
+        try:
+            on_step(step, status, detail)
+        except Exception:
+            logger.warning("MinerU 步骤回调失败 step=%s", step, exc_info=True)
 
 
 def save_markdown(
@@ -44,6 +57,7 @@ def save_parse_artifacts(
     doc_id: str,
     output_dir: str,
     base_dir: Optional[str] = None,
+    on_step: Optional[Callable[[str, str, str], None]] = None,
 ) -> Dict[str, Any]:
     """保存解析产物到文档目录（staging + mineru_raw 归一化 + 原子替换）。"""
     parsed_dir = paths.get_parsed_dir(library_id, doc_id, base_dir)
@@ -104,6 +118,19 @@ def save_parse_artifacts(
     if backup_dir.exists():
         shutil.rmtree(backup_dir, ignore_errors=True)
 
+    _emit_on_step(
+        on_step,
+        "content_list.json 落盘",
+        "done" if "content_list.json" in final_files
+        else ("skipped" if "content_list_v2.json" in final_files else "failed"),
+        str(final_files.get("content_list.json") or final_files.get("content_list_v2.json") or ""),
+    )
+    _emit_on_step(
+        on_step,
+        "middle.json / model.json 落盘",
+        "done" if ("middle.json" in final_files or "model.json" in final_files) else "failed",
+        str(final_files.get("middle.json") or final_files.get("model.json") or ""),
+    )
     return final_files
 
 
@@ -726,6 +753,7 @@ class MinerUParser:
         *,
         library_id: Optional[str] = None,
         doc_id: Optional[str] = None,
+        on_step: Optional[Callable[[str, str, str], None]] = None,
         **kwargs,
     ) -> Dict[str, Any]:
         """MinerU 原始产物解析；提供 library_id/doc_id 时解析完成后自动落盘到文档目录。
@@ -739,7 +767,10 @@ class MinerUParser:
         try:
             result = self.parse_document(input_path=input_path, output_dir=output_dir, **kwargs)
             if result.get("success") and library_id and doc_id:
-                result["persisted"] = self._persist_to_doc(library_id, doc_id, output_dir)
+                _emit_on_step(on_step, "MinerU 引擎解析", "done", "")
+                result["persisted"] = self._persist_to_doc(
+                    library_id, doc_id, output_dir, on_step=on_step
+                )
             else:
                 result.setdefault("persisted", {})
             return result
@@ -747,14 +778,26 @@ class MinerUParser:
             if own_temp:
                 shutil.rmtree(output_dir, ignore_errors=True)
 
-    def _persist_to_doc(self, library_id: str, doc_id: str, output_dir: str) -> Dict[str, Any]:
+    def _persist_to_doc(
+        self,
+        library_id: str,
+        doc_id: str,
+        output_dir: str,
+        on_step: Optional[Callable[[str, str, str], None]] = None,
+    ) -> Dict[str, Any]:
         """解析产物落盘到文档目录：content.md + mineru_raw/images 等归位，返回产物清单。"""
 
         markdown_path = os.path.join(output_dir, "content.md")
         if os.path.isfile(markdown_path):
             with open(markdown_path, "r", encoding="utf-8") as handle:
                 save_markdown(library_id, doc_id, handle.read())
-        save_parse_artifacts(library_id, doc_id, output_dir)
+        _emit_on_step(
+            on_step,
+            "content.md 落盘",
+            "done" if os.path.isfile(markdown_path) else "failed",
+            str(paths.get_parsed_markdown_path(library_id, doc_id)),
+        )
+        save_parse_artifacts(library_id, doc_id, output_dir, on_step=on_step)
 
         parsed_dir = paths.get_parsed_dir(library_id, doc_id)
         output_parts = []
@@ -770,6 +813,12 @@ class MinerUParser:
             pass
         images_dir = parsed_dir / "images"
         has_images = images_dir.exists() and any(images_dir.iterdir())
+        _emit_on_step(
+            on_step,
+            "图片资源提取",
+            "done" if has_images else "skipped",
+            "has_images" if has_images else "无图片资源",
+        )
         return {
             "parsed_dir": str(parsed_dir),
             "output_summary": " + ".join(output_parts) if output_parts else str(parsed_dir),

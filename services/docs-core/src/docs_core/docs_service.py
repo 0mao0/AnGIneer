@@ -524,6 +524,14 @@ class DocsService:
     def get_parse_task_steps(self, task_id: str) -> list[dict]:
         return self.meta_store.get_parse_task_steps(task_id)
 
+    # 记录阶段内分析步骤（MinerU 产物 / PoPo 对齐 / 信号注入等）
+    def log_stage_step(self, doc_id: str, stage: str, step: str, status: str = "done", detail: str = "") -> None:
+        self.meta_store.insert_parse_stage_step(doc_id, stage, step, status, detail)
+
+    # 获取文档各阶段的分析步骤明细
+    def list_stage_steps(self, doc_id: str) -> list[dict]:
+        return self.meta_store.list_parse_stage_steps(doc_id)
+
     # 获取解析任务
     def get_parse_task(self, task_id: str) -> Optional[ParseTask]:
         for task in self.parse_tasks:
