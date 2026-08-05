@@ -376,8 +376,9 @@ def _build_symbol_corrections(
     """检测公式内符号与参数符号不一致，产出 corrected 修正项。
 
     参数符号在公式中出现（基础符号一致）但完整规范形不一致时，视为 OCR/排版
-    差异（如下标误识），生成 ``math_content_corrected`` 修正项。同一基础符号只
-    修正第一次出现，避免重复替换。
+    差异（如下标误识），生成 ``math_content_corrected`` 修正项。仅当某个基础
+    符号只有一个参数时允许修正（可消歧）；同基础符号多个参数（如 D 与 D_0）
+    时跳过，避免把正确符号误改。
     """
     tokens = list(_iter_formula_symbol_tokens(formula_text))
     if not tokens:
@@ -388,7 +389,7 @@ def _build_symbol_corrections(
     for raw, base, canonical in tokens:
         canonicals_by_base.setdefault(base, set()).add(canonical)
         raw_by_base.setdefault(base, raw)
-    corrections: List[Dict[str, Any]] = []
+    params_by_base: Dict[str, List[Dict[str, Any]]] = {}
     for param in params or []:
         symbol = clean_formula_text(str(param.get("symbol") or ""))
         if not symbol:
@@ -400,9 +401,15 @@ def _build_symbol_corrections(
         base = base_match.group(0)
         if base not in token_bases:
             continue
-        if normalized in canonicals_by_base.get(base, set()):
+        params_by_base.setdefault(base, []).append(
+            {"symbol": symbol, "normalized": normalized}
+        )
+    corrections: List[Dict[str, Any]] = []
+    for base, base_params in params_by_base.items():
+        if len(base_params) != 1:
             continue
-        if any(item.get("symbol") == base for item in corrections):
+        item = base_params[0]
+        if item["normalized"] in canonicals_by_base.get(base, set()):
             continue
         raw_token = raw_by_base.get(base) or ""
         corrections.append(
@@ -410,8 +417,8 @@ def _build_symbol_corrections(
                 "field": "math_content_corrected",
                 "symbol": base,
                 "original": raw_token,
-                "corrected": _rebuild_token_from_param(raw_token, symbol),
-                "reason": f"公式符号 {raw_token} 与参数符号 {symbol} 不一致",
+                "corrected": _rebuild_token_from_param(raw_token, item["symbol"]),
+                "reason": f"公式符号 {raw_token} 与参数符号 {item['symbol']} 不一致",
             }
         )
     return corrections
