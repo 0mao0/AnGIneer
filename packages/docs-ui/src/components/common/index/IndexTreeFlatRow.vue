@@ -87,6 +87,7 @@ import {
   renderMarkdownToHtml,
   shouldSuppressNodePlainText
 } from '../../../utils/knowledge'
+import { effectiveField } from '../../../utils/common'
 import type { DocBlockNode } from '../../../types/knowledge'
 
 interface FlatRow {
@@ -122,7 +123,7 @@ const suppressPlainText = computed(() => shouldSuppressNodePlainText(node.value)
 
 const displayTextHtml = computed(() => {
   if (suppressPlainText.value) return ''
-  const rawText = String(node.value?.plain_text || '').trim() || props.row.id
+  const rawText = String(effectiveField(node.value, 'plain_text') || '').trim() || props.row.id
   return renderMarkdownInlineToHtml(rawText, props.sourceFilePath || '')
 })
 
@@ -132,7 +133,7 @@ const positionTag = computed(() => getNodePositionTag(node.value))
 
 const tooltipText = computed(() => {
   if (suppressPlainText.value) return ''
-  const text = String(node.value?.plain_text || '').trim()
+  const text = String(effectiveField(node.value, 'plain_text') || '').trim()
   return text || props.row.id
 })
 
@@ -144,7 +145,7 @@ const onTooltipOpenChange = (open: boolean) => {
 const tooltipTextHtml = computed(() => {
   if (!tooltipHovered.value) return ''
   if (suppressPlainText.value) return ''
-  const text = String(node.value?.plain_text || '').trim()
+  const text = String(effectiveField(node.value, 'plain_text') || '').trim()
   if (!text) return ''
   return renderMarkdownToHtml(text, props.sourceFilePath || '')
 })

@@ -12,6 +12,17 @@ export const highlightText = (text: string, keyword: string): string => {
   return text.replace(regex, '<mark>$1</mark>')
 }
 
+/** 读取节点字段：<field>_corrected 并列字段优先，原始字段兜底 */
+export const effectiveField = <T = unknown>(
+  node: object | null | undefined,
+  field: string,
+): T | undefined => {
+  if (!node) return undefined
+  const record = node as Record<string, unknown>
+  const corrected = record[`${field}_corrected`]
+  return (corrected ?? record[field]) as T | undefined
+}
+
 /** 根据文件名推断图标类型 */
 export const getFileIconType = (fileName: string): string => {
   const lowerFileName = fileName.toLowerCase()

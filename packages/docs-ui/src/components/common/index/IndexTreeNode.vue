@@ -107,6 +107,7 @@ import {
   renderMarkdownToHtml,
   shouldSuppressNodePlainText
 } from '../../../utils/knowledge'
+import { effectiveField } from '../../../utils/common'
 import type { DocBlockNode } from '../../../types/knowledge'
 
 interface Props {
@@ -139,7 +140,7 @@ const suppressPlainText = computed(() => shouldSuppressNodePlainText(node.value)
 
 const displayTextHtml = computed(() => {
   if (suppressPlainText.value) return ''
-  const rawText = String(node.value?.plain_text || '').trim() || props.nodeId
+  const rawText = String(effectiveField(node.value, 'plain_text') || '').trim() || props.nodeId
   return renderMarkdownInlineToHtml(rawText, props.sourceFilePath || '')
 })
 
@@ -149,14 +150,14 @@ const positionTag = computed(() => getNodePositionTag(node.value))
 
 const tooltipText = computed(() => {
   if (suppressPlainText.value) return ''
-  const text = String(node.value?.plain_text || '').trim()
+  const text = String(effectiveField(node.value, 'plain_text') || '').trim()
   return text || props.nodeId
 })
 
 const tooltipTextHtml = computed(() => {
   if (!tooltipHovered.value) return ''
   if (suppressPlainText.value) return ''
-  const text = String(node.value?.plain_text || '').trim()
+  const text = String(effectiveField(node.value, 'plain_text') || '').trim()
   if (!text) return ''
   return renderMarkdownToHtml(text, props.sourceFilePath || '')
 })

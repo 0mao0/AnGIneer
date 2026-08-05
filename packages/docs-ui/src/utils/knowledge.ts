@@ -139,7 +139,7 @@ export const mapNodeStatusText = (status?: string): string => {
  * 获取节点的显示文本
  */
 export const getNodeText = (node: DocBlockNode): string => {
-  const plainText = String(node.plain_text || '').trim()
+  const plainText = String(node.plain_text_corrected ?? node.plain_text ?? '').trim()
   if (shouldSuppressNodePlainText(node)) {
     return getNodeFallbackText(node, node.id)
   }
@@ -179,7 +179,7 @@ const normalizeComparableMathText = (content: string): string => content
   .replace(/\s+/g, '')
 
 const getNodeFallbackText = (node: DocBlockNode, fallbackId: string): string => {
-  const plainText = String(node.plain_text || '').trim()
+  const plainText = String(node.plain_text_corrected ?? node.plain_text ?? '').trim()
   const candidates = [node.title, node.caption, node.footnote]
     .map(value => String(value || '').trim())
     .filter(value => value && value !== plainText)
@@ -193,8 +193,8 @@ const getNodeFallbackText = (node: DocBlockNode, fallbackId: string): string => 
 
 export const isNodeMathRichMediaRedundant = (node: DocBlockNode | undefined | null): boolean => {
   if (!node?.math_content) return false
-  const plainText = String(node.plain_text || '').trim()
-  const mathContent = String(node.math_content || '').trim()
+  const plainText = String(node.plain_text_corrected ?? node.plain_text ?? '').trim()
+  const mathContent = String(node.math_content_corrected ?? node.math_content ?? '').trim()
   if (!plainText || !mathContent) return false
   const normalizedPlainText = normalizeComparableMathText(plainText)
   const normalizedMathContent = normalizeComparableMathText(mathContent)
@@ -206,7 +206,7 @@ export const isNodeMathRichMediaRedundant = (node: DocBlockNode | undefined | nu
 
 export const shouldSuppressNodePlainText = (node: DocBlockNode | undefined | null): boolean => {
   if (!node) return false
-  const plainText = String(node.plain_text || '').trim()
+  const plainText = String(node.plain_text_corrected ?? node.plain_text ?? '').trim()
   if (!plainText) return false
   if (node.block_type === 'equation_interline' && (node.math_content || node.image_path)) {
     return true

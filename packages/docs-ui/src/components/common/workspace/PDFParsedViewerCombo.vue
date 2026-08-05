@@ -226,6 +226,7 @@ import {
 } from '@ant-design/icons-vue'
 import { computed, ref, watch } from 'vue'
 import { message } from 'ant-design-vue'
+import { effectiveField } from '../../../utils/common'
 import type {
   StructuredIndexItem,
   StructuredNodeUpdatePayload,
@@ -319,11 +320,11 @@ const searchMatchedIds = computed<string[]>(() => {
       item.title || '',
       item.content || '',
       item.item_type || '',
-      node?.plain_text || '',
+      effectiveField(node, 'plain_text') || '',
       node?.title_path || '',
-      node?.math_content || '',
-      node?.caption || '',
-      node?.footnote || '',
+      effectiveField(node, 'math_content') || '',
+      effectiveField(node, 'caption') || '',
+      effectiveField(node, 'footnote') || '',
     ]
     const haystack = texts.join(' ').toLowerCase()
     if (lowerTokens.every(token => haystack.includes(token))) {

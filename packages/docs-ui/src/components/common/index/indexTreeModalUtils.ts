@@ -2,6 +2,7 @@ import type {
   DocBlockNode,
   StructuredNodeUpdatePayload
 } from '../../../types/knowledge'
+import { effectiveField } from '../../../utils/common'
 
 export const ROOT_PARENT_VALUE = '__root__'
 
@@ -35,18 +36,18 @@ export function buildOrderedNodeOptions(nodeMap: Map<string, DocBlockNode>): Ind
     })
     .map(node => ({
       value: node.block_uid || node.id,
-      label: `P${Number(node.page_idx || 0) + 1} · B${node.block_seq || 0} · ${(node.plain_text || node.title_path || node.block_type || '未命名').slice(0, 80)}`
+      label: `P${Number(node.page_idx || 0) + 1} · B${node.block_seq || 0} · ${(effectiveField<string>(node, 'plain_text') || node.title_path || node.block_type || '未命名').slice(0, 80)}`
     }))
 }
 
 /* 基于节点内容初始化编辑表单。 */
 export function createEditFormFromNode(node: DocBlockNode): IndexTreeEditForm {
   return {
-    plain_text: String(node.plain_text || ''),
-    math_content: String(node.math_content || ''),
-    table_html: String(node.table_html || ''),
-    caption: String(node.caption || ''),
-    footnote: String(node.footnote || ''),
+    plain_text: String(effectiveField(node, 'plain_text') || ''),
+    math_content: String(effectiveField(node, 'math_content') || ''),
+    table_html: String(effectiveField(node, 'table_html') || ''),
+    caption: String(effectiveField(node, 'caption') || ''),
+    footnote: String(effectiveField(node, 'footnote') || ''),
     parent_block_uid: node.parent_uid || ROOT_PARENT_VALUE,
     derived_title_level: typeof node.derived_level === 'number' ? node.derived_level : null,
     merge_into_block_uid: undefined
@@ -58,19 +59,19 @@ export function buildNodeEditPayload(node: DocBlockNode, form: IndexTreeEditForm
   const payload: StructuredNodeUpdatePayload = {
     blockId: node.block_uid || node.id
   }
-  if (form.plain_text !== String(node.plain_text || '')) {
+  if (form.plain_text !== String(effectiveField(node, 'plain_text') || '')) {
     payload.plain_text = form.plain_text
   }
-  if (form.math_content !== String(node.math_content || '')) {
+  if (form.math_content !== String(effectiveField(node, 'math_content') || '')) {
     payload.math_content = form.math_content
   }
-  if (form.table_html !== String(node.table_html || '')) {
+  if (form.table_html !== String(effectiveField(node, 'table_html') || '')) {
     payload.table_html = form.table_html
   }
-  if (form.caption !== String(node.caption || '')) {
+  if (form.caption !== String(effectiveField(node, 'caption') || '')) {
     payload.caption = form.caption
   }
-  if (form.footnote !== String(node.footnote || '')) {
+  if (form.footnote !== String(effectiveField(node, 'footnote') || '')) {
     payload.footnote = form.footnote
   }
   const currentParentId = node.parent_uid || null
