@@ -383,10 +383,10 @@ def _build_symbol_corrections(
     if not tokens:
         return []
     token_bases = {base for _raw, base, _canonical in tokens}
-    canonical_by_base: Dict[str, str] = {}
+    canonicals_by_base: Dict[str, set] = {}
     raw_by_base: Dict[str, str] = {}
     for raw, base, canonical in tokens:
-        canonical_by_base.setdefault(base, canonical)
+        canonicals_by_base.setdefault(base, set()).add(canonical)
         raw_by_base.setdefault(base, raw)
     corrections: List[Dict[str, Any]] = []
     for param in params or []:
@@ -400,7 +400,7 @@ def _build_symbol_corrections(
         base = base_match.group(0)
         if base not in token_bases:
             continue
-        if canonical_by_base.get(base) == normalized:
+        if normalized in canonicals_by_base.get(base, set()):
             continue
         if any(item.get("symbol") == base for item in corrections):
             continue
