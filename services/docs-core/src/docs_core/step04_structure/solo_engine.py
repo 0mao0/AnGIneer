@@ -1147,6 +1147,8 @@ def build_structured_from_rawfiles(
         raw_dir = parsed_dir
     
     parsed_blocks, page_size_map, parser_version, layout_payload, model_payload, middle_payload = load_raw(raw_dir)
+    type_score_map = _model_type_recognition_map(model_payload)
+    text_score_map = _middle_text_recognition_scores(middle_payload)
     layout_candidates = build_layout_candidates(layout_payload)
     model_media_candidates = build_model_media_candidate_map(model_payload)
     middle_region_map = _middle_media_region_map(middle_payload)
@@ -1226,6 +1228,7 @@ def build_structured_from_rawfiles(
                         "footnote_bboxes": media_bbox_info.get("footnote_bboxes"),
                         "table_header_bbox": None,
                         "equation_number_bbox": None,
+                        "middle_idx": middle_idx,
                     })
                 continue
             
@@ -1300,6 +1303,7 @@ def build_structured_from_rawfiles(
                 "footnote_bboxes": media_bbox_info.get("footnote_bboxes"),
                 "table_header_bbox": table_header_bbox,
                 "equation_number_bbox": equation_number_bbox,
+                "middle_idx": middle_idx,
             })
     
     toc_row_ids = detect_toc_row_ids(rows)
@@ -1515,6 +1519,17 @@ def build_structured_from_rawfiles(
             nx2 = (ax2 / page_width) if page_width else None
             ny2 = (ay2 / page_height) if page_height else None
             bbox_source = "mixed_page"
+
+        row_page_idx = int(row["page_idx"])
+        type_recognition_score = _nearest_type_score(
+            type_score_map.get(row_page_idx, []), nx1, ny1, nx2, ny2
+        )
+        text_recognition_score = None
+        _row_middle_idx = row.get("middle_idx")
+        if _row_middle_idx is not None:
+            page_text_scores = text_score_map.get(row_page_idx, [])
+            if _row_middle_idx < len(page_text_scores):
+                text_recognition_score = page_text_scores[_row_middle_idx]
         
         if derived_level is not None:
             derived_level_by_uid[row["block_uid"]] = int(derived_level)
@@ -1600,6 +1615,8 @@ def build_structured_from_rawfiles(
                     "parent_uid": parent_uid,
                     "derived_by": derived_by,
                     "confidence": confidence,
+                    "type_recognition_score": type_recognition_score,
+                    "text_recognition_score": text_recognition_score,
                     "image_path": image_path,
                     "table_html": table_html,
                     "math_content": math_content,
