@@ -976,19 +976,25 @@ def should_treat_as_struct_heading(block_type: str, text: str, is_toc_row: bool,
 
 
 def is_equation_explain_continuation(text: str) -> bool:
-    """判断是否为公式说明连续段。"""
+    """?????????????"""
     txt = (text or "").strip()
     if not txt:
         return False
     if re.match(r"^\d+(?:\.\d+)*", txt):
         return False
-    if txt.startswith(("式中", "其中", "注")):
+    # ?? MinerU LaTeX ???\pmb { \ t } _ { 1 } -> t_1?K _ { t } -> K_t?
+    # ?????????????????6.2.8 ? K_t/t_1/t_2/t_3 ????
+    compact = re.sub(r"\\[A-Za-z]+\s*\{\s*\\?\s*([^{}]*?)\s*\}", r"\1", txt)
+    compact = re.sub(r"\s*\{\s*([^{}]*?)\s*\}", r"\1", compact)
+    compact = re.sub(r"\s+", "", compact)
+    if compact.startswith(("\u5f0f\u4e2d", "\u5176\u4e2d", "\u6ce8")):
         return True
-    if re.match(r"^[•·]\s*[A-Za-zΑ-Ωα-ω][A-Za-z0-9_{}()\\\-^/.']*\s*(?:[—\-–一=:：])", txt):
+    if re.match(r"^[\u2022\u00b7][A-Za-z\u0391-\u03a9\u03b1-\u03c9][A-Za-z0-9_{}()\\\-^/.']*(?:[\u2014\uff0d\u2013\u4e00=:\uff1a])", compact):
         return True
-    if re.match(r"^[A-Za-zΑ-Ωα-ω][A-Za-z0-9_{}()\\\-^/.']*\s*(?:[—\-–一=:：])", txt):
+    if re.match(r"^[A-Za-z\u0391-\u03a9\u03b1-\u03c9][A-Za-z0-9_{}()\\\-^/.']*(?:[\u2014\uff0d\u2013\u4e00=:\uff1a])", compact):
         return True
-    return re.match(r"^[A-Za-zΑ-Ωα-ω][A-Za-z0-9_{}()\\\-^/.']*\s+[\u4e00-\u9fff(（]", txt) is not None
+    return re.match(r"^[A-Za-z\u0391-\u03a9\u03b1-\u03c9][A-Za-z0-9_{}()\\\-^/.']*[\u4e00-\u9fff(\uff08]", compact) is not None
+
 
 
 def find_recent_equation_uid(rows: list[Any], idx: int, max_back: int = 8) -> str | None:

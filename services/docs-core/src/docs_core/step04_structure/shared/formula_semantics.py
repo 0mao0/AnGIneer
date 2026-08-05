@@ -309,16 +309,17 @@ def build_formula_representations(
 
 # 从公式块下文定位解释段（section_path + reading_order 邻近）。公式后紧跟的
 # 同节段落优先，可跨一页取邻近段。
-def collect_canonical_explanation_lines(
+def _iter_canonical_explanation_blocks(
     block: "CanonicalBlock",
     following_blocks: Optional[List["CanonicalBlock"]] = None,
     max_lines: int = 8,
-) -> List[str]:
+):
+    """?????????? (block, text) ??????? uid ?????"""
     if block is None:
-        return []
-    lines: List[str] = []
+        return
+    count = 0
     for nb in following_blocks or []:
-        if len(lines) >= max_lines:
+        if count >= max_lines:
             break
         if nb.block_type == "formula":
             continue
@@ -329,9 +330,30 @@ def collect_canonical_explanation_lines(
         if not (same_section and nearby):
             continue
         text = clean_formula_text(nb.text or nb.text_clean or "")
-        if text:
-            lines.append(text)
-    return lines
+        if not text:
+            continue
+        count += 1
+        yield nb, text
+
+
+def collect_canonical_explanation_lines(
+    block: "CanonicalBlock",
+    following_blocks: Optional[List["CanonicalBlock"]] = None,
+    max_lines: int = 8,
+) -> List[str]:
+    if block is None:
+        return []
+    return [text for _nb, text in _iter_canonical_explanation_blocks(block, following_blocks, max_lines)]
+
+
+def _collect_explanation_block_uids(
+    block: "CanonicalBlock",
+    following_blocks: Optional[List["CanonicalBlock"]] = None,
+    max_lines: int = 8,
+) -> List[str]:
+    """??????????? uid????? explanation_uids ? explanation_lines ???"""
+    return [nb.block_id for nb, _text in _iter_canonical_explanation_blocks(block, following_blocks, max_lines)]
+
 
 
 # 语义层后端无关入口：输入公式块（type=="formula"）及其下文解释段，产出
@@ -497,6 +519,15 @@ def enrich_graph_nodes_formula_semantics(
             use_llm=use_llm,
         )
         updated_by_uid[block.block_id]["formula_semantics"] = contract
+        # 回写 explanation_uids：04 现场关联 + 重定位并集，保证前端联动与语义内容一致
+        idx = ordered.index(block)
+        linked_uids = [str(u) for u in (node.get("explanation_uids") or []) if str(u)]
+        rederived_uids = _collect_explanation_block_uids(block, ordered[idx + 1:])
+        merged_uids: List[str] = []
+        for uid in linked_uids + rederived_uids:
+            if uid not in merged_uids:
+                merged_uids.append(uid)
+        updated_by_uid[block.block_id]["explanation_uids"] = merged_uids or None
         statuses.append(str(contract.get("llm_status") or "disabled"))
         stats["enriched"] += 1
 
