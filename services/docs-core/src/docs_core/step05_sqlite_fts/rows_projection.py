@@ -12,6 +12,18 @@ def _bbox_array(block: CanonicalBlock) -> Optional[List[float]]:
     return [block.bbox.x0, block.bbox.y0, block.bbox.x1, block.bbox.y1]
 
 
+def _page_bboxes_array(block: CanonicalBlock) -> Optional[List[Dict[str, Any]]]:
+    if not block.page_bboxes:
+        return None
+    return [
+        {
+            "page_idx": item.page_idx,
+            "bbox": [item.bbox.x0, item.bbox.y0, item.bbox.x1, item.bbox.y1],
+        }
+        for item in block.page_bboxes
+    ]
+
+
 def _build_content_json(block: CanonicalBlock) -> Dict[str, Any]:
     """节点/行 content_json：表格 HTML / 公式文本与语义 / raw_type 直接可达。"""
     payload: Dict[str, Any] = {}
@@ -56,6 +68,8 @@ def build_document_segments(
                 "contd_target_id": block.contd_target_id,
                 "image_assoc_id": block.image_assoc_id,
                 "table_merge_id": block.table_merge_id,
+                "page_bboxes": _page_bboxes_array(block),
+                "merged_from": block.merged_from,
             },
         })
     return segments
@@ -98,6 +112,8 @@ def build_doc_block_rows(
             "bbox_abs_y1": bbox[1],
             "bbox_abs_x2": bbox[2],
             "bbox_abs_y2": bbox[3],
+            "page_bboxes": _page_bboxes_array(block),
+            "merged_from": block.merged_from,
             "created_at": now,
             "updated_at": now,
         })

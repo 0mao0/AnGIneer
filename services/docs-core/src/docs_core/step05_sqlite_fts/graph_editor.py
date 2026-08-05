@@ -556,6 +556,8 @@ def _rebuild_graph_projection(graph_data: Dict[str, Any]) -> None:
             row["caption_bboxes"] = node.get("caption_bboxes")
             row["footnote_bboxes"] = node.get("footnote_bboxes")
             row["merged_bboxes"] = node.get("merged_bboxes")
+            row["page_bboxes"] = node.get("page_bboxes")
+            row["merged_from"] = node.get("merged_from")
             if row_key != "base_rows":
                 row["parent_uid"] = node.get("parent_uid")
                 row["parent_block_uid"] = node.get("parent_uid")
@@ -917,6 +919,8 @@ def _build_doc_block_projection_rows(doc_id: str, graph_data: Dict[str, Any]) ->
             "bbox_abs_y1": bbox_values[1],
             "bbox_abs_x2": bbox_values[2],
             "bbox_abs_y2": bbox_values[3],
+            "page_bboxes": node.get("page_bboxes"),
+            "merged_from": node.get("merged_from"),
             "created_at": base_row.get("created_at") or now,
             "updated_at": now,
         })
