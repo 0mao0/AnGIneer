@@ -1111,6 +1111,237 @@ def detect_toc_row_ids(rows: list[Any]) -> set[int]:
     return result
 
 
+_AUX_BLOCK_TYPES = {"page_header", "page_footer", "page_number", "header", "footer"}
+_CONT_TEXT_BLOCK_TYPES = {"paragraph", "text", "list_item"}
+_TERMINAL_PUNCT = set("。！？；;!?：:，,、）】」』》\"”’)].,")
+_HEADING_NUMBER_RE = re.compile(r"^\d+(?:\.\d+)*\s*")
+_HEADING_MARKER_PREFIXES = ("第", "附录", "附", "目", "表", "图")
+_MAX_FRAGMENT_LEN = 10
+
+
+def _middle_block_text(block: dict[str, Any]) -> str:
+    """提取 middle.json preproc 块的纯文本（lines -> spans -> content）。"""
+    parts: list[str] = []
+    for line in block.get("lines") or []:
+        if not isinstance(line, dict):
+            continue
+        for span in line.get("spans") or []:
+            if isinstance(span, dict):
+                parts.append(str(span.get("content") or ""))
+    return "".join(parts)
+
+
+def _page_last_text_ends_cut(middle_payload: Any, page_idx: int) -> bool | None:
+    """判断 middle.json 中某页最后一个正文块是否断在句中（无句末标点）。
+
+    MinerU 段落装配跨页合并文本时，会把续页行并入首页块，导致 content_list
+    里首页块文本完整、续页留下空块。middle.json 的 preproc_blocks 仍保留逐页
+    行级文本，因此“页末文本未以句末标点结束”是续文存在的强证据。
+    """
+    if not isinstance(middle_payload, dict):
+        return None
+    pages = middle_payload.get("pdf_info")
+    if not isinstance(pages, list) or not (0 <= page_idx < len(pages)):
+        return None
+    page = pages[page_idx]
+    if not isinstance(page, dict):
+        return None
+    text_blocks: list[str] = []
+    for block in page.get("preproc_blocks") or []:
+        if not isinstance(block, dict):
+            continue
+        block_type = str(block.get("type") or "").strip().lower()
+        if block_type in _AUX_BLOCK_TYPES:
+            continue
+        text = _middle_block_text(block).strip()
+        if text:
+            text_blocks.append(text)
+    if not text_blocks:
+        return None
+    last_text = text_blocks[-1]
+    return bool(last_text) and last_text[-1] not in _TERMINAL_PUNCT
+
+
+def _row_norm_bbox(row: dict[str, Any]) -> tuple[float, float, float, float] | None:
+    """按行内 page_width/page_height 归一化 bbox（与节点 bbox 逻辑一致）。"""
+    page_width = float(row.get("page_width") or 0.0)
+    page_height = float(row.get("page_height") or 0.0)
+    ax1 = float(row.get("bbox_abs_x1") or 0.0)
+    ay1 = float(row.get("bbox_abs_y1") or 0.0)
+    ax2 = float(row.get("bbox_abs_x2") or 0.0)
+    ay2 = float(row.get("bbox_abs_y2") or 0.0)
+    if page_width > 0 and page_height > 0 and (ax2 > page_width * 1.2 or ay2 > page_height * 1.2):
+        return (ax1 / 1000.0, ay1 / 1000.0, ax2 / 1000.0, ay2 / 1000.0)
+    if page_width > 0 and page_height > 0:
+        return (ax1 / page_width, ay1 / page_height, ax2 / page_width, ay2 / page_height)
+    return None
+
+
+def _is_empty_continuation_pair(
+    source: dict[str, Any],
+    target: dict[str, Any],
+    middle_payload: Any,
+    source_page: int,
+) -> bool:
+    """上一页末段 + 下一页首空块是否构成 MinerU 跨页段落续文对。"""
+    if str(source.get("block_type") or "") not in _CONT_TEXT_BLOCK_TYPES:
+        return False
+    if str(target.get("block_type") or "") not in _CONT_TEXT_BLOCK_TYPES:
+        return False
+    if not (source.get("plain_text") or "").strip():
+        return False
+    if (target.get("plain_text") or "").strip():
+        return False
+    if source.get("page_bboxes") or source.get("merged_from") or source.get("contd_target_id") or source.get("table_merge_id"):
+        return False
+    src_bbox = _row_norm_bbox(source)
+    tgt_bbox = _row_norm_bbox(target)
+    if not src_bbox or not tgt_bbox:
+        return False
+    _, _, _, src_y2 = src_bbox
+    _, tgt_y1, _, _ = tgt_bbox
+    # 上一页末段应位于页底，下一页续块应位于页首
+    if src_y2 < 0.80 or tgt_y1 > 0.35:
+        return False
+    cut_evidence = _page_last_text_ends_cut(middle_payload, source_page)
+    # 必须有 middle.json 的断句证据才合并，避免误并正常的页底段落 + 页首空块
+    return cut_evidence is True
+
+
+def _looks_like_heading(text: str) -> bool:
+    """判断短文本是否更像真实标题而非续文碎片。"""
+    compact = re.sub(r"\s+", "", text)
+    if not compact:
+        return True
+    if _HEADING_NUMBER_RE.match(compact):
+        return True
+    return compact.startswith(_HEADING_MARKER_PREFIXES)
+
+
+def _is_fragment_continuation_pair(
+    source: dict[str, Any],
+    target: dict[str, Any],
+    middle_payload: Any,
+    source_page: int,
+) -> bool:
+    """上一页末段 + 下一页页首短碎片（如被误判为 title 的“料；”）是否构成续文对。"""
+    if str(source.get("block_type") or "") not in _CONT_TEXT_BLOCK_TYPES:
+        return False
+    target_type = str(target.get("block_type") or "").strip().lower()
+    if target_type not in {"paragraph", "text", "list_item", "title"}:
+        return False
+    source_text = (source.get("plain_text") or "").strip()
+    target_text = (target.get("plain_text") or "").strip()
+    if not source_text or not target_text:
+        return False
+    if source_text[-1] in _TERMINAL_PUNCT:
+        return False
+    if len(target_text) > _MAX_FRAGMENT_LEN:
+        return False
+    if _looks_like_heading(target_text):
+        return False
+    if target_text[-1] not in _TERMINAL_PUNCT and (source_text + target_text)[-1] not in _TERMINAL_PUNCT:
+        return False
+    if source.get("page_bboxes") or source.get("merged_from") or source.get("contd_target_id") or source.get("table_merge_id"):
+        return False
+    src_bbox = _row_norm_bbox(source)
+    tgt_bbox = _row_norm_bbox(target)
+    if not src_bbox or not tgt_bbox:
+        return False
+    _, _, _, src_y2 = src_bbox
+    _, tgt_y1, _, tgt_y2 = tgt_bbox
+    # 上一页末段位于页底、下一页碎片位于页首且高度很小
+    if src_y2 < 0.80 or tgt_y1 > 0.35 or tgt_y2 - tgt_y1 > 0.20:
+        return False
+    cut_evidence = _page_last_text_ends_cut(middle_payload, source_page)
+    return cut_evidence is True
+
+
+def _merge_mineru_continuation_rows(
+    rows: list[dict[str, Any]],
+    middle_payload: Any,
+) -> int:
+    """把 MinerU 跨页段落装配遗留的续页残块并入上一页末段。
+
+    两类现象：
+    1. 文本被并入首页块，续页只剩空块（无 page_bboxes，前端高亮只覆盖首页）；
+    2. 续页残留短碎片（如被误判为 title 的“料；”），文本与首页块分离。
+    此处为首页段补充 page_bboxes、合并碎片文本并移除续页残块。
+    """
+    rows_by_page: dict[int, list[dict[str, Any]]] = {}
+    for row in rows:
+        rows_by_page.setdefault(int(row.get("page_idx") or 0), []).append(row)
+
+    source_by_uid: dict[str, dict[str, Any]] = {}
+    removed_uids: set[str] = set()
+
+    for page_idx in sorted(rows_by_page):
+        page_rows = rows_by_page[page_idx]
+        content_rows = [row for row in page_rows if str(row.get("block_type") or "") not in _AUX_BLOCK_TYPES]
+        if not content_rows:
+            continue
+        source = content_rows[-1]
+        next_rows = rows_by_page.get(page_idx + 1)
+        if not next_rows:
+            continue
+        next_content = [row for row in next_rows if str(row.get("block_type") or "") not in _AUX_BLOCK_TYPES]
+        if not next_content:
+            continue
+        target = next_content[0]
+        is_empty_pair = _is_empty_continuation_pair(source, target, middle_payload, page_idx)
+        is_fragment_pair = _is_fragment_continuation_pair(source, target, middle_payload, page_idx)
+        if not is_empty_pair and not is_fragment_pair:
+            continue
+        src_bbox = _row_norm_bbox(source)
+        tgt_bbox = _row_norm_bbox(target)
+        if not src_bbox or not tgt_bbox:
+            continue
+        source["page_bboxes"] = [
+            {
+                "page_idx": page_idx,
+                "bbox": [float(v) for v in src_bbox],
+            },
+            {
+                "page_idx": page_idx + 1,
+                "bbox": [float(v) for v in tgt_bbox],
+            },
+        ]
+        if is_fragment_pair:
+            fragment_text = (target.get("plain_text") or "").strip()
+            if fragment_text:
+                source["plain_text"] = (source.get("plain_text") or "") + fragment_text
+                source_cj = source.get("content_json")
+                if isinstance(source_cj, dict):
+                    paragraph_content = source_cj.get("paragraph_content")
+                    if isinstance(paragraph_content, list) and paragraph_content:
+                        first = paragraph_content[0]
+                        if isinstance(first, dict) and "content" in first:
+                            first["content"] = str(first.get("content") or "") + fragment_text
+                    elif not paragraph_content:
+                        source_cj["paragraph_content"] = [
+                            {"type": "text", "content": fragment_text},
+                        ]
+        source["merged_from"] = [str(target.get("block_uid") or target.get("id") or "").strip()]
+        source_by_uid[str(source.get("block_uid") or source.get("id") or "").strip()] = source
+        removed_uids.add(str(target.get("block_uid") or target.get("id") or "").strip())
+
+    if not removed_uids:
+        return 0
+
+    merged_count = len(source_by_uid)
+    kept: list[dict[str, Any]] = []
+    for row in rows:
+        uid = str(row.get("block_uid") or row.get("id") or "").strip()
+        if uid in removed_uids:
+            continue
+        kept.append(row)
+    rows[:] = kept
+    # 全局重排 block_seq，保持阅读序连续
+    for index, row in enumerate(rows, start=1):
+        row["block_seq"] = index
+    return merged_count
+
+
 @dataclass
 class StructuredResult:
     """结构化结果对象。"""
@@ -1311,6 +1542,8 @@ def build_structured_from_rawfiles(
                 "equation_number_bbox": equation_number_bbox,
                 "middle_idx": middle_idx,
             })
+    
+    continuation_merges = _merge_mineru_continuation_rows(rows, middle_payload)
     
     toc_row_ids = detect_toc_row_ids(rows)
     toc_pages = {int(r["page_idx"]) for r in rows if int(r["id"]) in toc_row_ids}
@@ -1637,6 +1870,8 @@ def build_structured_from_rawfiles(
                     "content_json": row.get("content_json"),
                     "page_width": row.get("page_width"),
                     "page_height": row.get("page_height"),
+                    "page_bboxes": row.get("page_bboxes"),
+                    "merged_from": row.get("merged_from"),
                 }
                 nodes.append(node)
                 node_by_uid[row["block_uid"]] = node
@@ -1717,6 +1952,7 @@ def build_structured_from_rawfiles(
         "parser_version": parser_version,
         "toc_pages": list(toc_pages),
         "title_candidates": len([row for row in rows if row.get("block_type") == "title"]),
+        "continuation_merges": continuation_merges,
     }
     
     return StructuredResult(
