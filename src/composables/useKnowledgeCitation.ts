@@ -1,5 +1,6 @@
 import type { CitationReference } from '../types/citation'
 import { nextTick, type Ref } from 'vue'
+import { effectiveField } from '../utils/common'
 
 type CitationRichMedia = {
   table_html?: string
@@ -146,10 +147,10 @@ export function useKnowledgeCitation() {
         }
       }
       const nodeText = normalizeCitationText([
-        node?.plain_text,
+        effectiveField(node, 'plain_text'),
         node?.title,
-        node?.caption,
-        node?.footnote
+        effectiveField(node, 'caption'),
+        effectiveField(node, 'footnote')
       ].filter(Boolean).join(' '))
       if (normalizedSnippet && nodeText) {
         const shortNodeText = nodeText.slice(0, 48)

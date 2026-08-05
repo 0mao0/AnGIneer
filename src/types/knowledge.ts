@@ -75,6 +75,7 @@ export interface DocBlockNode {
   page_idx: number
   block_seq: number
   plain_text: string
+  plain_text_corrected?: string | null
   bbox: [number, number, number, number] | null
   bbox_source: string
   derived_level: number | null
@@ -85,10 +86,17 @@ export interface DocBlockNode {
   image_path: string | null
   image_paths?: string[] | null
   table_html: string | null
+  table_html_corrected?: string | null
   math_content: string | null
+  math_content_corrected?: string | null
   title?: string | null
   caption?: string | null
+  caption_corrected?: string | null
   footnote?: string | null
+  footnote_corrected?: string | null
+  corrected_by?: 'user' | 'llm' | string | null
+  corrected_at?: string | null
+  symbol_mismatch?: boolean | null
   merged_block_uids?: string[] | null
   merged_bboxes?: number[][] | null
   caption_block_uid?: string | null

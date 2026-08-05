@@ -151,6 +151,7 @@ import type {
   DocBlockNode,
   StructuredNodeUpdatePayload
 } from '../../../types/knowledge'
+import { effectiveField } from '../../../utils/common'
 import IndexTreeModalShell from './IndexTreeModalShell.vue'
 import {
   ROOT_PARENT_VALUE,
@@ -241,7 +242,7 @@ const editPlainTextLength = computed(() => String(editForm.value.plain_text || '
 const nodeDisplayTitle = computed(() => {
   const previewText = String(
     editForm.value.plain_text
-    || props.node?.plain_text
+    || effectiveField(props.node, 'plain_text')
     || props.node?.title_path
     || ''
   ).trim()
