@@ -865,6 +865,70 @@ def _model_type_recognition_map(model_payload: Any) -> dict[int, list[tuple[str,
     return result
 
 
+def _middle_text_recognition_scores(middle_payload: Any) -> dict[int, list[float | None]]:
+    """从 middle.json 按页提取 para_blocks 的文本识别置信度。
+
+    para_blocks 与 content_list 非页眉/页码块逐位对齐（solo_engine 既有假设，
+    见 _middle_media_region_map 的 para_index 用法）。每个块取 lines/spans 中
+    score 的最小值；无 span 的块（公式/图片/表格）记 None。
+    """
+    result: dict[int, list[float | None]] = {}
+    if not isinstance(middle_payload, dict):
+        return result
+    for page in middle_payload.get("pdf_info") or []:
+        if not isinstance(page, dict):
+            continue
+        page_idx = int(page.get("page_idx") or 0)
+        scores: list[float | None] = []
+        for block in page.get("para_blocks") or []:
+            if not isinstance(block, dict):
+                scores.append(None)
+                continue
+            span_scores = [
+                s.get("score")
+                for line in block.get("lines") or []
+                if isinstance(line, dict)
+                for s in line.get("spans") or []
+                if isinstance(s, dict) and isinstance(s.get("score"), (int, float))
+            ]
+            scores.append(min(span_scores) if span_scores else None)
+        result[page_idx] = scores
+    return result
+
+
+def _nearest_type_score(
+    page_items: list[tuple[str, float | None, list[float]]],
+    nx1: float | None,
+    ny1: float | None,
+    nx2: float | None,
+    ny2: float | None,
+    tol: float = 0.05,
+) -> float | None:
+    """在页内 layout_dets 候选中找与节点 bbox 中心最近的 score（归一化坐标）。
+
+    中心距离超过 tol 视为未匹配；score 为 None 的候选跳过。实测公式节点
+    还原后中心距离 < 0.005，tol=0.05 足够宽松且能挡住串到相邻块。
+    """
+    if not page_items or nx1 is None or ny1 is None or nx2 is None or ny2 is None:
+        return None
+    cx = (nx1 + nx2) / 2.0
+    cy = (ny1 + ny2) / 2.0
+    best: float | None = None
+    best_d: float | None = None
+    for _label, score, bbox in page_items:
+        if score is None:
+            continue
+        bcx = (bbox[0] + bbox[2]) / 2.0
+        bcy = (bbox[1] + bbox[3]) / 2.0
+        d = (cx - bcx) ** 2 + (cy - bcy) ** 2
+        if best_d is None or d < best_d:
+            best_d = d
+            best = score
+    if best_d is not None and best_d <= tol * tol:
+        return best
+    return None
+
+
 def infer_title_level(text: str, raw_level: Any) -> tuple[int | None, float, str]:
     """用规则与原始level推断标题级别。"""
     txt = (text or "").strip()
