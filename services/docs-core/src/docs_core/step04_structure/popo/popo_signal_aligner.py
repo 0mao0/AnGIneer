@@ -147,7 +147,12 @@ def align_popo_blocks(
         if survivor is not None:
             checks["page_ok"] = (int(enriched.get("page", 1)) - 1) == survivor["page_idx"]
             checks["bbox_iou"] = round(_iou(enriched.get("bbox"), survivor["bbox_unit"]), 4)
-            checks["text_ok"] = normalize_compare_text(enriched.get("content") or "") == survivor["content_norm"]
+            if survivor["type"] == "table":
+                # 表格内容为 HTML，两侧序列化可能不同（旧数据可能为空串）；
+                # 对齐只依赖 page + bbox，不做文本比对。
+                checks["text_ok"] = True
+            else:
+                checks["text_ok"] = normalize_compare_text(enriched.get("content") or "") == survivor["content_norm"]
         passed = (
             survivor is not None
             and checks["source_id_ok"]
