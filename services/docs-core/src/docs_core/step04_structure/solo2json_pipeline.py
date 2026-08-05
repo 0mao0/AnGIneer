@@ -90,12 +90,14 @@ def _apply_popo_signals(
     doc_id: str,
     nodes: list,
     *,
+    edges: Optional[list] = None,
     llm_client=None,
     llm_model: Optional[str] = None,
     use_llm: bool = False,
     on_step: Optional[Callable[[str, str, str], None]] = None,
 ) -> tuple[list, Dict[str, Any]]:
     from docs_core.step04_structure.popo.popo_signal_aligner import align_popo_blocks
+    from docs_core.step04_structure.popo.popo_block_merger import merge_blocks
     from docs_core.step04_structure.popo.popo_signal_injector import inject_popo_signals
     from docs_core.step04_structure.popo.popo_signal_level_fusion import (
         build_popo_level_map,
@@ -106,11 +108,19 @@ def _apply_popo_signals(
         enriched = _afs.file_storage.read_popo_enriched_blocks(library_id, doc_id)
     except FileNotFoundError:
         _emit_step(on_step, "PoPo 结果读取", "skipped", "无 enriched_blocks.json")
-        return nodes, {"injection": {"skipped_reason": "no_popo"}, "level_fusion": {"skipped_reason": "no_popo"}}
+        return nodes, {
+            "injection": {"skipped_reason": "no_popo"},
+            "merge": {"applied": 0, "rejected": 0, "skipped_reason": "no_popo"},
+            "level_fusion": {"skipped_reason": "no_popo"},
+        }
     middle_path = paths.get_mineru_raw_dir(library_id, doc_id) / "middle.json"
     if not middle_path.exists():
         _emit_step(on_step, "PoPo 结果读取", "failed", "缺少 middle.json")
-        return nodes, {"injection": {"skipped_reason": "no_middle"}, "level_fusion": {"skipped_reason": "no_middle"}}
+        return nodes, {
+            "injection": {"skipped_reason": "no_middle"},
+            "merge": {"applied": 0, "rejected": 0, "skipped_reason": "no_middle"},
+            "level_fusion": {"skipped_reason": "no_middle"},
+        }
     try:
         middle = json.loads(middle_path.read_text(encoding="utf-8"))
         alignment = align_popo_blocks(doc_id, middle, enriched)
@@ -127,7 +137,7 @@ def _apply_popo_signals(
                 alignment.reasons[:3],
             )
             skipped = {"applied": 0, "rejected": 0, "skipped_reason": "alignment_degraded"}
-            return nodes, {"injection": skipped, "level_fusion": skipped}
+            return nodes, {"injection": skipped, "merge": skipped, "level_fusion": skipped}
         _emit_step(
             on_step,
             "popo 结果对齐检查",
@@ -142,6 +152,15 @@ def _apply_popo_signals(
             "PoPo 信号注入",
             "done" if injected > 0 or rejected == 0 else "failed",
             f"applied {injected}, rejected {rejected}",
+        )
+        nodes, merge_stats = merge_blocks(doc_id, nodes, edges=edges)
+        merged = int(merge_stats.get("applied") or 0)
+        rejected = int(merge_stats.get("rejected") or 0)
+        _emit_step(
+            on_step,
+            "PoPo 块合并",
+            "done" if merged > 0 or rejected == 0 else "failed",
+            f"merged {merged}, rejected {rejected}",
         )
         level_map = build_popo_level_map(enriched, alignment)
         popo_level_by_uid = {
@@ -163,12 +182,12 @@ def _apply_popo_signals(
             f"{fuse_stats.get('total_titles', 0)} titles, "
             f"consistent {fuse_stats.get('consistent', 0)}, disputed {fuse_stats.get('disputed', 0)}",
         )
-        return nodes, {"injection": inject_stats, "level_fusion": fuse_stats}
+        return nodes, {"injection": inject_stats, "merge": merge_stats, "level_fusion": fuse_stats}
     except Exception as exc:
         _emit_step(on_step, "PoPo 信号处理", "failed", f"{type(exc).__name__}: {str(exc)[:120]}")
         logger.warning("PoPo 信号注入异常，跳过: doc=%s error=%s", doc_id, exc)
         skipped = {"applied": 0, "rejected": 0, "skipped_reason": f"error:{type(exc).__name__}"}
-        return nodes, {"injection": skipped, "level_fusion": skipped}
+        return nodes, {"injection": skipped, "merge": skipped, "level_fusion": skipped}
 
 
 # 标题层级 LLM 复核（无论有无 PoPo 信号都执行）：
@@ -314,6 +333,7 @@ def build_structured_index_for_doc(
             library_id,
             doc_id,
             result.nodes,
+            edges=result.edges,
             llm_client=llm_client,
             llm_model=llm_model,
             use_llm=use_llm,
