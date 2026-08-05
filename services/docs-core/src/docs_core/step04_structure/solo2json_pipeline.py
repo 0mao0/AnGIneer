@@ -338,9 +338,6 @@ def build_structured_index_for_doc(
         )
         _emit_step(on_step, "公式语义 enrich", "done", f"{formula_stats['enriched']} formulas")
 
-    graph_path = _save_doc_blocks_graph(library_id, doc_id, result)
-    _emit_step(on_step, "jsonl + meta 落盘", "done", graph_path)
-
     stats = {
         "nodes_count": len(result.nodes),
         "edges_count": len(result.edges),
@@ -351,10 +348,13 @@ def build_structured_index_for_doc(
         "popo_signal": signal_stats,
         "title_level_review": title_review_stats,
         "formula_semantics": formula_stats,
-        "graph_path": graph_path,
     }
+    # 让落盘的 meta.stats 携带管线级 stats（含 popo/标题复核/公式语义），而非 solo_engine 原始 stats
+    result.stats = stats
+    graph_path = _save_doc_blocks_graph(library_id, doc_id, result)
+    _emit_step(on_step, "jsonl + meta 落盘", "done", graph_path)
 
     return {
         "saved_count": len(result.nodes),
-        "stats": stats,
+        "stats": {**stats, "graph_path": graph_path},
     }
