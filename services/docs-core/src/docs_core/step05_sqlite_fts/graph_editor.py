@@ -455,8 +455,20 @@ def _collect_node_merge_block_uids(node: Dict[str, Any]) -> List[str]:
 
 # 同步引用当前节点的题注与脚注显示字段
 def _sync_related_graph_fields(nodes: List[Dict[str, Any]], target_block_uid: str, target_node: Dict[str, Any]) -> None:
-    caption_text = str(target_node.get("plain_text") or target_node.get("caption") or "").strip()
-    footnote_text = str(target_node.get("plain_text") or target_node.get("footnote") or "").strip()
+    caption_text = str(
+        target_node.get("plain_text_corrected")
+        or target_node.get("plain_text")
+        or target_node.get("caption_corrected")
+        or target_node.get("caption")
+        or ""
+    ).strip()
+    footnote_text = str(
+        target_node.get("plain_text_corrected")
+        or target_node.get("plain_text")
+        or target_node.get("footnote_corrected")
+        or target_node.get("footnote")
+        or ""
+    ).strip()
     for node in nodes:
         if _matches_block_ref(node.get("caption_block_uid"), target_block_uid) or _matches_block_ref(node.get("caption_block_uids"), target_block_uid):
             node["caption"] = caption_text
