@@ -8,12 +8,14 @@
 """
 import logging
 import os
+import queue
 import shutil
 import subprocess
 import threading
 import time
 import traceback
 import uuid
+from contextlib import contextmanager
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
@@ -187,20 +189,23 @@ def _run_raw_parse(ctx: StageContext) -> str:
     def _on_step(step: str, status: str = "done", detail: str = "") -> None:
         ctx.log_step(step, status, detail)
 
-    try:
-        # 解析器自建临时目录并负责落盘（save_markdown + save_parse_artifacts）
-        parse_result = task_parser.parse_to_raw_artifacts(
-            input_path=ctx.source_path,
-            library_id=ctx.library_id,
-            doc_id=ctx.doc_id,
-            on_step=_on_step,
-        )
-    except Exception as exc:
-        # MinerU 解析被取消（_abort_event 已设置）：转成取消异常，向上传播为 cancelled
-        if getattr(task_parser, "_abort_event", None) is not None and task_parser._abort_event.is_set():
-            raise ParseTaskCancelledError("用户手动取消任务") from exc
-        ctx.log_step("MinerU 引擎解析", "failed", f"{type(exc).__name__}: {str(exc)[:200]}")
-        raise
+    if _MINERU_GPU_GATE.available == 0:
+        ctx.log_step("MinerU GPU 排队", "running", "等待 MinerU GPU 资源（前序任务完成后自动开始）")
+    with mineru_gpu_slot(ctx.cancel_check):
+        try:
+            # 解析器自建临时目录并负责落盘（save_markdown + save_parse_artifacts）
+            parse_result = task_parser.parse_to_raw_artifacts(
+                input_path=ctx.source_path,
+                library_id=ctx.library_id,
+                doc_id=ctx.doc_id,
+                on_step=_on_step,
+            )
+        except Exception as exc:
+            # MinerU 解析被取消（_abort_event 已设置）：转成取消异常，向上传播为 cancelled
+            if getattr(task_parser, "_abort_event", None) is not None and task_parser._abort_event.is_set():
+                raise ParseTaskCancelledError("用户手动取消任务") from exc
+            ctx.log_step("MinerU 引擎解析", "failed", f"{type(exc).__name__}: {str(exc)[:200]}")
+            raise
     if not parse_result.get("success"):
         ctx.log_step("MinerU 引擎解析", "failed", str(parse_result.get("error") or "MinerU解析失败")[:200])
         raise RuntimeError(parse_result.get("error") or "MinerU解析失败")
@@ -346,6 +351,61 @@ def _run_fts(ctx: StageContext) -> str:
         f"({result.get('canonical_blocks_count', 0)} blocks)"
     )
     return f"SQLite 建库完成，FTS 重建完成（{result.get('canonical_blocks_count', 0)} blocks）"
+
+
+# ---- MinerU/GPU 并发闸门：同一时刻最多一个 MinerU 任务占用 GPU ----
+class _FifoGpuGate:
+    """进程级 FIFO GPU 闸门：基于 queue.Queue 令牌，先来先服务。"""
+
+    def __init__(self, max_concurrency: int = 1) -> None:
+        self._max_concurrency = max(1, int(max_concurrency))
+        self._tokens: "queue.Queue[None]" = queue.Queue(maxsize=self._max_concurrency)
+        for _ in range(self._max_concurrency):
+            self._tokens.put(None)
+
+    @property
+    def available(self) -> int:
+        """当前空闲令牌数（仅用于排队提示，qsize 为近似值）。"""
+        return self._tokens.qsize()
+
+    def acquire(
+        self,
+        cancel_check: Optional[Callable[[], None]] = None,
+        poll_interval: float = 0.5,
+    ) -> None:
+        """阻塞直到拿到令牌；等待期间按 poll_interval 轮询取消标志。"""
+        while True:
+            if cancel_check is not None:
+                cancel_check()  # 取消时抛 ParseTaskCancelledError，不消费令牌
+            try:
+                self._tokens.get(timeout=poll_interval)
+                return
+            except queue.Empty:
+                continue
+
+    def release(self) -> None:
+        self._tokens.put(None)
+
+
+_MINERU_MAX_CONCURRENCY = 1
+try:
+    _MINERU_MAX_CONCURRENCY = max(
+        1, int(os.getenv("MINERU_MAX_CONCURRENCY", "1").strip() or "1")
+    )
+except (TypeError, ValueError):
+    _MINERU_MAX_CONCURRENCY = 1
+
+_MINERU_GPU_GATE = _FifoGpuGate(_MINERU_MAX_CONCURRENCY)
+
+
+@contextmanager
+def mineru_gpu_slot(cancel_check: Optional[Callable[[], None]] = None):
+    """MinerU 任务占用的 GPU 槽位：进入 raw_parse 前获取，解析结束后释放。"""
+    _MINERU_GPU_GATE.acquire(cancel_check)
+    try:
+        yield
+    finally:
+        _MINERU_GPU_GATE.release()
 
 
 def _run_vectors(ctx: StageContext) -> str:
