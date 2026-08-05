@@ -15,6 +15,7 @@ from docs_core.models.types import (
     CanonicalPage,
     CanonicalTable,
     CitationTarget,
+    PageBBox,
 )
 from docs_core.paths import resolve_knowledge_index_db_path
 from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection
@@ -48,6 +49,19 @@ def _load_bbox(payload: Optional[str]) -> Optional[BoundingBox]:
     if not isinstance(data, dict):
         return None
     return BoundingBox(**data)
+
+
+def _dump_page_bboxes(page_bboxes: Optional[List[PageBBox]]) -> Optional[str]:
+    if not page_bboxes:
+        return None
+    return _dump_json([item.model_dump(mode="json") for item in page_bboxes])
+
+
+def _load_page_bboxes(payload: Optional[str]) -> Optional[List[PageBBox]]:
+    data = _load_json(payload, None)
+    if not isinstance(data, list):
+        return None
+    return [PageBBox(**item) for item in data if isinstance(item, dict)]
 
 
 _CJK_RUN_PATTERN = re.compile(r"[一-鿿]+")
@@ -155,7 +169,9 @@ class CanonicalSQLiteStore:
                     contd_target_id TEXT,
                     image_assoc_id TEXT,
                     table_merge_id TEXT,
-                    raw_type TEXT
+                    raw_type TEXT,
+                    page_bboxes_json TEXT,
+                    merged_from_json TEXT
                 )
                 """
             )
@@ -206,6 +222,7 @@ class CanonicalSQLiteStore:
                     title TEXT,
                     caption TEXT,
                     bbox_json TEXT,
+                    page_bboxes_json TEXT,
                     table_type TEXT,
                     header_rows_json TEXT,
                     body_rows_json TEXT,
@@ -278,6 +295,7 @@ class CanonicalSQLiteStore:
     def _migrate_add_business_columns(self, conn) -> None:
         blocks_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_blocks)").fetchall()]
         chunks_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_chunks)").fetchall()]
+        tables_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_tables)").fetchall()]
         pages_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_pages)").fetchall()]
         targets_cols = [row[1] for row in conn.execute("PRAGMA table_info(canonical_citation_targets)").fetchall()]
         blocks_new_cols = [
@@ -290,14 +308,23 @@ class CanonicalSQLiteStore:
             ("image_assoc_id", "TEXT"),
             ("table_merge_id", "TEXT"),
             ("raw_type", "TEXT"),
+            ("page_bboxes_json", "TEXT"),
+            ("merged_from_json", "TEXT"),
         ]
-        chunks_new_cols = blocks_new_cols
+        chunks_new_cols = [
+            item for item in blocks_new_cols
+            if item[0] not in ("page_bboxes_json", "merged_from_json")
+        ]
         for col_name, col_type in blocks_new_cols:
             if col_name not in blocks_cols:
                 conn.execute(f"ALTER TABLE canonical_blocks ADD COLUMN {col_name} {col_type}")
         for col_name, col_type in chunks_new_cols:
             if col_name not in chunks_cols:
                 conn.execute(f"ALTER TABLE canonical_chunks ADD COLUMN {col_name} {col_type}")
+        tables_new_cols = [("page_bboxes_json", "TEXT")]
+        for col_name, col_type in tables_new_cols:
+            if col_name not in tables_cols:
+                conn.execute(f"ALTER TABLE canonical_tables ADD COLUMN {col_name} {col_type}")
         if "printed_page_label" not in pages_cols:
             conn.execute("ALTER TABLE canonical_pages ADD COLUMN printed_page_label TEXT")
         if "printed_page_label" not in targets_cols:
@@ -413,8 +440,9 @@ class CanonicalSQLiteStore:
                     block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
                     reading_order, title_level, section_path, source, source_ref, parent_block_id,
                     inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id,
-                    contd_target_id, image_assoc_id, table_merge_id, raw_type
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    contd_target_id, image_assoc_id, table_merge_id, raw_type,
+                    page_bboxes_json, merged_from_json
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     (
@@ -440,6 +468,8 @@ class CanonicalSQLiteStore:
                         block.image_assoc_id,
                         block.table_merge_id,
                         block.raw_type,
+                        _dump_page_bboxes(block.page_bboxes),
+                        _dump_json(block.merged_from),
                     )
                     for block in document.blocks
                 ],
@@ -500,9 +530,10 @@ class CanonicalSQLiteStore:
                 """
                 INSERT INTO canonical_tables (
                     table_id, doc_id, page_start, page_end, title, caption, bbox_json,
+                    page_bboxes_json,
                     table_type, header_rows_json, body_rows_json, units_json, row_count,
                     col_count, source_block_ids_json, summary, row_keys_json, text_chunks_json, version
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     (
@@ -513,6 +544,7 @@ class CanonicalSQLiteStore:
                         table.title,
                         table.caption,
                         _dump_bbox(table.bbox),
+                        _dump_page_bboxes(table.page_bboxes),
                         table.table_type,
                         _dump_json(table.header_rows),
                         _dump_json(table.body_rows),
@@ -615,7 +647,8 @@ class CanonicalSQLiteStore:
                 SELECT block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
                        reading_order, title_level, section_path, source, source_ref, parent_block_id,
                        inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id,
-                       contd_target_id, image_assoc_id, table_merge_id, raw_type
+                       contd_target_id, image_assoc_id, table_merge_id, raw_type,
+                       page_bboxes_json, merged_from_json
                 FROM canonical_blocks
                 WHERE doc_id = ?
                 ORDER BY page_idx ASC, reading_order ASC
@@ -646,6 +679,7 @@ class CanonicalSQLiteStore:
             table_rows = conn.execute(
                 """
                 SELECT table_id, doc_id, page_start, page_end, title, caption, bbox_json,
+                       page_bboxes_json,
                        table_type, header_rows_json, body_rows_json, units_json, row_count,
                        col_count, source_block_ids_json, summary, row_keys_json, text_chunks_json, version
                 FROM canonical_tables
@@ -712,6 +746,8 @@ class CanonicalSQLiteStore:
                     image_assoc_id=row["image_assoc_id"],
                     table_merge_id=row["table_merge_id"],
                     raw_type=row["raw_type"],
+                    page_bboxes=_load_page_bboxes(row["page_bboxes_json"]),
+                    merged_from=list(_load_json(row["merged_from_json"], [])),
                 )
                 for row in block_rows
             ],
@@ -763,6 +799,7 @@ class CanonicalSQLiteStore:
                     title=row["title"] or "",
                     caption=row["caption"] or "",
                     bbox=_load_bbox(row["bbox_json"]),
+                    page_bboxes=_load_page_bboxes(row["page_bboxes_json"]),
                     table_type=row["table_type"] or "hybrid",
                     header_rows=list(_load_json(row["header_rows_json"], [])),
                     body_rows=list(_load_json(row["body_rows_json"], [])),
@@ -862,7 +899,8 @@ class CanonicalSQLiteStore:
             SELECT block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
                    reading_order, title_level, section_path, source, source_ref, parent_block_id,
                    inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id,
-                   contd_target_id, image_assoc_id, table_merge_id
+                   contd_target_id, image_assoc_id, table_merge_id,
+                   page_bboxes_json, merged_from_json
             FROM canonical_blocks
             WHERE doc_id = ?
         """
@@ -903,6 +941,8 @@ class CanonicalSQLiteStore:
                 contd_target_id=row["contd_target_id"],
                 image_assoc_id=row["image_assoc_id"],
                 table_merge_id=row["table_merge_id"],
+                page_bboxes=_load_page_bboxes(row["page_bboxes_json"]),
+                merged_from=list(_load_json(row["merged_from_json"], [])),
             )
             for row in rows
         ]
@@ -1121,6 +1161,7 @@ class CanonicalSQLiteStore:
     ) -> List[CanonicalTable]:
         sql = """
             SELECT table_id, doc_id, page_start, page_end, title, caption, bbox_json,
+                   page_bboxes_json,
                    table_type, header_rows_json, body_rows_json, units_json, row_count,
                    col_count, source_block_ids_json, summary, row_keys_json, text_chunks_json, version
             FROM canonical_tables
@@ -1149,6 +1190,7 @@ class CanonicalSQLiteStore:
                 title=row["title"] or "",
                 caption=row["caption"] or "",
                 bbox=_load_bbox(row["bbox_json"]),
+                page_bboxes=_load_page_bboxes(row["page_bboxes_json"]),
                 table_type=row["table_type"] or "hybrid",
                 header_rows=list(_load_json(row["header_rows_json"], [])),
                 body_rows=list(_load_json(row["body_rows_json"], [])),
