@@ -37,6 +37,16 @@ def _coerce_bbox(raw_bbox: object) -> object:
     return None
 
 
+def build_node_text(node: dict[str, Any]) -> str:
+    """取节点展示文本：corrected 优先，原始兜底。"""
+    return str(
+        node.get("plain_text_corrected")
+        or node.get("plain_text")
+        or node.get("text")
+        or ""
+    ).strip()
+
+
 # 归一化语义图中的章节标题，尽量去掉目录页里尾部页码噪声
 def normalize_graph_section_title(text: str) -> str:
     normalized = clean_text(text)
@@ -74,7 +84,7 @@ def _extract_page_label_map(graph_nodes: List[dict[str, Any]]) -> dict[int, str]
             continue
         if page_idx in label_map:
             continue
-        label = _extract_printed_page_label(node.get("plain_text"))
+        label = _extract_printed_page_label(build_node_text(node))
         if label:
             label_map[page_idx] = label
     return label_map
@@ -94,7 +104,7 @@ def resolve_graph_section_path(
     node = node_map.get(block_uid) or {}
     parent_uid = str(node.get("parent_uid") or "").strip()
     parent_path = resolve_graph_section_path(parent_uid, node_map, cache) if parent_uid else ""
-    node_text = normalize_graph_section_title(str(node.get("plain_text") or node.get("text") or "").strip())
+    node_text = normalize_graph_section_title(build_node_text(node))
     node_block_type = normalize_block_type(node.get("block_type"))
     current_title = ""
     # 仅 title 块参与 section_path 拼装：solo 引擎会给所有块写 derived_level（继承层级），
@@ -119,8 +129,8 @@ def adapt_graph_node(raw_node: dict[str, Any], index: int, section_path: str) ->
         "block_type": block_type,
         "page_idx": raw_node.get("page_idx") or 0,
         "block_seq": raw_node.get("block_seq") or index,
-        "text": raw_node.get("plain_text") or "",
-        "content": raw_node.get("plain_text") or "",
+        "text": build_node_text(raw_node),
+        "content": build_node_text(raw_node),
         "derived_title_level": raw_node.get("derived_level"),
         "title_level": raw_node.get("derived_level"),
         "section_path": section_path,

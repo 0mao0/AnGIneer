@@ -80,12 +80,14 @@ def _rewrite_markdown_after_graph_change(
     if not build_id:
         build_id = new_or_reuse_build_id(library_id, doc_id)
 
+    from docs_core.step05_sqlite_fts.rebuild.graph_rebuilder import build_node_text
+
     active_nodes = _sort_graph_nodes(_get_active_graph_nodes(graph_data))
     lines: List[str] = [f"<!-- build_id: {build_id} -->"]
     line_ranges: Dict[str, Dict[str, int]] = {}
     for node in active_nodes:
         uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
-        text = str(node.get("plain_text") or "").strip()
+        text = build_node_text(node)
         if not uid or not text:
             continue
         start = len(lines) + 1
@@ -647,6 +649,8 @@ def _append_formula_projection_items(
 
 # 从图谱节点重建结构化片段，确保合并和层级调整能实时投影
 def _build_structured_segment_items_from_graph(graph_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    from docs_core.step05_sqlite_fts.rebuild.graph_rebuilder import build_node_text
+
     excluded_types = {"page_header", "page_footer", "page_number", "header", "footer"}
     child_nodes_by_parent: Dict[str, List[Dict[str, Any]]] = {}
     active_nodes = _sort_graph_nodes(_get_active_graph_nodes(graph_data))
@@ -661,7 +665,7 @@ def _build_structured_segment_items_from_graph(graph_data: Dict[str, Any]) -> Li
         block_type = str(node.get("block_type") or "segment").strip() or "segment"
         if block_type in excluded_types:
             continue
-        plain_text = str(node.get("plain_text") or "").strip()
+        plain_text = build_node_text(node)
         title_path = str(node.get("title_path") or "").strip()
         title = plain_text or title_path or block_uid
         page_idx = int(node.get("page_idx") or 0)
@@ -694,13 +698,18 @@ def _build_structured_segment_items_from_graph(graph_data: Dict[str, Any]) -> Li
             contract = node.get("formula_semantics")
             if not isinstance(contract, dict) or not contract:
                 explanation_lines = [
-                    str(child.get("plain_text") or "").strip()
+                    build_node_text(child)
                     for child in child_nodes_by_parent.get(block_uid, [])
                     if str(child.get("block_type") or "").strip() in {"paragraph", "list"}
-                    and str(child.get("plain_text") or "").strip()
+                    and build_node_text(child)
                 ]
                 contract = build_formula_representations(
-                    formula_text=str(node.get("math_content") or plain_text or ""),
+                    formula_text=str(
+                        node.get("math_content_corrected")
+                        or node.get("math_content")
+                        or plain_text
+                        or ""
+                    ),
                     explanation_lines=explanation_lines,
                     use_llm=False,
                 )
