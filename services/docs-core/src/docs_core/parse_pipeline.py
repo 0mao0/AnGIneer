@@ -434,6 +434,16 @@ def derive_overall_status(stage_status: Dict[str, str]) -> str:
     return "processing"
 
 
+def reset_parse_stage_records(meta_store, doc_id: str) -> None:
+    """全量重跑前清空阶段记录与子阶段步骤，避免解析阶段抽屉展示上一次解析的残留。"""
+    clear_stages = getattr(meta_store, "clear_parse_stages", None)
+    if callable(clear_stages):
+        clear_stages(doc_id)
+    clear_steps = getattr(meta_store, "clear_parse_stage_steps", None)
+    if callable(clear_steps):
+        clear_steps(doc_id)
+
+
 def run_pipeline(
     ctx: StageContext,
     stages,
@@ -660,7 +670,7 @@ class ParseOrchestrator:
         input_hint = node.file_path if node else None
         # 全量解析清空全部阶段；单阶段启动只重置目标阶段，保留其他阶段状态
         if stage_filter == "all":
-            meta_store.clear_parse_stages(doc_id)
+            reset_parse_stage_records(meta_store, doc_id)
         else:
             for s in (stage_filter if isinstance(stage_filter, list) else [stage_filter]):
                 meta_store.upsert_parse_stage(doc_id, s, status="pending", message="", error="",
