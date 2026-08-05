@@ -308,6 +308,7 @@ def build_structured_index_for_doc(
     _emit_step(on_step, "solo 规则构建", "done", f"{len(result.nodes)} blocks")
     signal_stats: Dict[str, Any] = {"applied": 0, "rejected": 0, "skipped_reason": "skipped"}
     title_review_stats: Dict[str, Any] = {"total_titles": 0, "llm_status": "disabled", "updated": 0}
+    formula_stats: Dict[str, Any] = {"total_formulas": 0, "enriched": 0, "llm_status": "disabled"}
     if result.nodes:
         result.nodes, signal_stats = _apply_popo_signals(
             library_id,
@@ -326,6 +327,16 @@ def build_structured_index_for_doc(
             use_llm=use_llm,
             on_step=on_step,
         )
+        from docs_core.step04_structure.shared.formula_semantics import (
+            enrich_graph_nodes_formula_semantics,
+        )
+        result.nodes, formula_stats = enrich_graph_nodes_formula_semantics(
+            result.nodes,
+            use_llm=use_llm,
+            llm_client=llm_client,
+            llm_model=llm_model,
+        )
+        _emit_step(on_step, "公式语义 enrich", "done", f"{formula_stats['enriched']} formulas")
 
     graph_path = _save_doc_blocks_graph(library_id, doc_id, result)
     _emit_step(on_step, "jsonl + meta 落盘", "done", graph_path)
@@ -339,6 +350,7 @@ def build_structured_index_for_doc(
         "derive_version": derive_version,
         "popo_signal": signal_stats,
         "title_level_review": title_review_stats,
+        "formula_semantics": formula_stats,
         "graph_path": graph_path,
     }
 
