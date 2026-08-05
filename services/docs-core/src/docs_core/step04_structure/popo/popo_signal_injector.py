@@ -67,7 +67,33 @@ def build_contd_instructions(
             "source_source_id": str(block.get("source_id") or ""),
             "target_source_id": str(target_block.get("source_id") or "") if target_block else "",
         })
-    return instructions, reasons
+
+    # PoPo 对跨页表格对会双向打标（A→B 且 B→A）；若原样注入会形成 2 节点环，
+    # 合并 pass 会把整条链判为成环而拒绝。这里对互指对只保留阅读序在前的一方为 source。
+    page_by_source_id = {
+        str(block.get("source_id") or ""): int(block.get("page") or 0)
+        for block in enriched_blocks
+    }
+
+    def _instruction_source_page(instruction: Dict[str, Any]) -> int:
+        return page_by_source_id.get(str(instruction.get("source_source_id") or ""), 0)
+
+    table_pair_by_key: Dict[Tuple[str, str], Dict[str, Any]] = {}
+    deduped: List[Dict[str, Any]] = []
+    for instruction in instructions:
+        if instruction["kind"] != "table_merge":
+            deduped.append(instruction)
+            continue
+        key = tuple(sorted([instruction["source_uid"], instruction["target_uid"]]))
+        existing = table_pair_by_key.get(key)
+        if existing is None:
+            table_pair_by_key[key] = instruction
+            deduped.append(instruction)
+        elif _instruction_source_page(instruction) < _instruction_source_page(existing):
+            index = deduped.index(existing)
+            deduped[index] = instruction
+            table_pair_by_key[key] = instruction
+    return deduped, reasons
 
 
 def validate_instruction(
