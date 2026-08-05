@@ -789,11 +789,34 @@ def _invalidate_edited_formula_semantics(
         if "formula_semantics" not in node:
             continue
         before = before_by_uid.get(uid)
-        before_text = str((before or {}).get("math_content") or (before or {}).get("plain_text") or "")
-        now_text = str(node.get("math_content") or node.get("plain_text") or "")
+        before_math = str(
+            (before or {}).get("math_content_corrected")
+            or (before or {}).get("math_content")
+            or ""
+        )
+        now_math = str(
+            node.get("math_content_corrected")
+            or node.get("math_content")
+            or ""
+        )
+        before_plain = str(
+            (before or {}).get("plain_text_corrected")
+            or (before or {}).get("plain_text")
+            or ""
+        )
+        now_plain = str(
+            node.get("plain_text_corrected")
+            or node.get("plain_text")
+            or ""
+        )
         before_explain = set(_collect_block_ref_uids((before or {}).get("explanation_uids")))
         now_explain = set(_collect_block_ref_uids(node.get("explanation_uids")))
-        if before is None or before_text != now_text or before_explain != now_explain:
+        if (
+            before is None
+            or before_math != now_math
+            or before_plain != now_plain
+            or before_explain != now_explain
+        ):
             node.pop("formula_semantics", None)
             invalidated.append(uid)
     return invalidated
