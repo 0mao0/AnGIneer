@@ -689,24 +689,26 @@ def _build_structured_segment_items_from_graph(graph_data: Dict[str, Any]) -> Li
             "order_index": order_index,
         }
         if block_type == "equation_interline":
-            explanation_lines = [
-                str(child.get("plain_text") or "").strip()
-                for child in child_nodes_by_parent.get(block_uid, [])
-                if str(child.get("block_type") or "").strip() in {"paragraph", "list"}
-                and str(child.get("plain_text") or "").strip()
-            ]
-            formula_semantics = build_formula_representations(
-                formula_text=str(node.get("math_content") or plain_text or ""),
-                explanation_lines=explanation_lines,
-                use_llm=False,
-            )
+            contract = node.get("formula_semantics")
+            if not isinstance(contract, dict) or not contract:
+                explanation_lines = [
+                    str(child.get("plain_text") or "").strip()
+                    for child in child_nodes_by_parent.get(block_uid, [])
+                    if str(child.get("block_type") or "").strip() in {"paragraph", "list"}
+                    and str(child.get("plain_text") or "").strip()
+                ]
+                contract = build_formula_representations(
+                    formula_text=str(node.get("math_content") or plain_text or ""),
+                    explanation_lines=explanation_lines,
+                    use_llm=False,
+                )
             meta.update(
                 {
-                    "formula_number": formula_semantics.get("formula_number"),
-                    "formula_param_count": len(formula_semantics.get("formula_params") or []),
-                    "formula_params": formula_semantics.get("formula_params") or None,
-                    "formula_summary": formula_semantics.get("formula_summary"),
-                    "formula_llm_status": formula_semantics.get("llm_status"),
+                    "formula_number": contract.get("formula_number"),
+                    "formula_param_count": len(contract.get("formula_params") or []),
+                    "formula_params": contract.get("formula_params") or None,
+                    "formula_summary": contract.get("formula_summary"),
+                    "formula_llm_status": contract.get("llm_status"),
                 }
             )
         items.append({
