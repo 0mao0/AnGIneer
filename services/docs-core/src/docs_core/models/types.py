@@ -58,6 +58,13 @@ class BoundingBox(BaseModel):
     y1: float = 0.0
 
 
+class PageBBox(BaseModel):
+    """跨页块的单页几何：page_idx（0 基物理页序）+ bbox。"""
+
+    page_idx: int = 0
+    bbox: BoundingBox = Field(default_factory=BoundingBox)
+
+
 class CanonicalPage(BaseModel):
     """文档页面。"""
 
@@ -101,6 +108,10 @@ class CanonicalBlock(BaseModel):
     table_html: Optional[str] = None
     # 构建期旁路字段：公式语义契约（FormulaSemanticsContract），随 graph jsonl 节点与 doc_blocks 行保留。
     formula_semantics: Optional[dict] = None
+    # 跨页合并块：每页几何（合并后块跨页时使用；单页块为 None）
+    page_bboxes: Optional[List[PageBBox]] = None
+    # 溯源：被本块吸收的 block_uid（阅读顺序）
+    merged_from: Optional[List[str]] = None
 
 
 class CanonicalOutlineNode(BaseModel):
@@ -167,6 +178,7 @@ class CanonicalTable(BaseModel):
     title: str = ""
     caption: str = ""
     bbox: Optional[BoundingBox] = None
+    page_bboxes: Optional[List[PageBBox]] = None
     table_type: TableType = "hybrid"
     header_rows: List[List[str]] = Field(default_factory=list)
     body_rows: List[List[str]] = Field(default_factory=list)
