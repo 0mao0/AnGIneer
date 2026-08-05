@@ -7,6 +7,7 @@ graph node meta / derived_rows 的最终挂载点由后续统一投影确定。
 """
 import json
 import re
+from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple, TYPE_CHECKING, TypedDict
 
 from docs_core.models.types import CanonicalBlock
@@ -26,6 +27,18 @@ FORMULA_PARAM_SOFT_RE = re.compile(rf"^\s*({FORMULA_PARAM_SYMBOL_RE})\s+(.+?)\s*
 REFERENCE_HINT_RE = re.compile(r"(采用[^；。]*|按[^；。]*|取[^；。]*|见[^；。]*|按表[^；。]*)")
 UNIT_RE = re.compile(r"[（(]([^()（）]{1,20})[）)]")
 JSON_BLOCK_RE = re.compile(r"```(?:json)?\s*(.*?)```", re.DOTALL | re.IGNORECASE)
+_SUBSCRIPT_RE = re.compile(r"_\s*(\{[^{}]*\}|[A-Za-z0-9]+)")
+_SYMBOL_ARG_COMMANDS = {
+    "mathrm",
+    "text",
+    "mathit",
+    "mathbf",
+    "pmb",
+    "boldsymbol",
+    "bm",
+    "mbox",
+    "operatorname",
+}
 
 
 class FormulaParamContract(TypedDict):
@@ -252,6 +265,174 @@ def merge_formula_params(
         if existing.get("extracted_by") == "llm" and item.get("extracted_by") == "rule":
             merged[symbol]["extracted_by"] = "rule"
     return list(merged.values())
+
+
+# 规范化 LaTeX 符号：去掉命令名与花括号/空白，得到可比较的规范形。
+def _normalize_symbol_tex(text: str) -> str:
+    value = str(text or "")
+    value = re.sub(r"\\[A-Za-z]+\s*(\{[^{}]*\})", r"\1", value)
+    value = re.sub(r"\\[A-Za-z]+", "", value)
+    return re.sub(r"[\s{}_]", "", value)
+
+
+def _is_symbol_letter(ch: str) -> bool:
+    return (
+        (ch.isascii() and ch.isalpha())
+        or "\u0391" <= ch <= "\u03a9"
+        or "\u03b1" <= ch <= "\u03c9"
+    )
+
+
+def _iter_formula_symbol_tokens(formula_text: str):
+    """从公式原文提取符号 token（原文片段, 基础符号, 规范形）。
+
+    跳过 LaTeX 命令名与普通命令的花括号参数；\\mathrm/pmb 等“符号承载”命令的
+    花括号参数保留参与扫描，避免漏掉加粗/正体的真实符号。
+    """
+    text = str(formula_text or "")
+    i, n = 0, len(text)
+    while i < n:
+        ch = text[i]
+        if ch == "\\":
+            i += 1
+            name_start = i
+            while i < n and text[i].isalpha():
+                i += 1
+            cmd = text[name_start:i]
+            j = i
+            while j < n and text[j].isspace():
+                j += 1
+            if j < n and text[j] == "{" and cmd not in _SYMBOL_ARG_COMMANDS:
+                depth = 0
+                i = j
+                while i < n:
+                    if text[i] == "{":
+                        depth += 1
+                    elif text[i] == "}":
+                        depth -= 1
+                        if depth == 0:
+                            i += 1
+                            break
+                    i += 1
+                continue
+            i = j
+            continue
+        if _is_symbol_letter(ch):
+            start = i
+            base = ch
+            i += 1
+            j = i
+            while j < n and text[j].isspace():
+                j += 1
+            sub_raw = ""
+            if j < n and text[j] == "_":
+                j += 1
+                while j < n and text[j].isspace():
+                    j += 1
+                if j < n and text[j] == "{":
+                    depth = 1
+                    sub_start = j
+                    j += 1
+                    while j < n and depth > 0:
+                        if text[j] == "{":
+                            depth += 1
+                        elif text[j] == "}":
+                            depth -= 1
+                        j += 1
+                    sub_raw = text[sub_start:j]
+                else:
+                    sub_match = re.match(r"[A-Za-z0-9]+", text[j:])
+                    if sub_match:
+                        j += len(sub_match.group(0))
+                        sub_raw = sub_match.group(0)
+                i = j
+            else:
+                i = j
+            raw = text[start:i].strip()
+            canonical = base + _normalize_symbol_tex(sub_raw)
+            yield raw, base, canonical
+            continue
+        i += 1
+
+
+def _extract_subscript_tex(symbol: str) -> Optional[str]:
+    match = _SUBSCRIPT_RE.search(str(symbol or ""))
+    return match.group(1) if match else None
+
+
+def _rebuild_token_from_param(token_raw: str, param_symbol: str) -> str:
+    """用参数符号重建公式 token：基础符号 + 参数下标（原始下标以参数为准）。"""
+    param_sub = _extract_subscript_tex(param_symbol)
+    base = str(token_raw or "").strip()[:1]
+    if param_sub is None:
+        return base
+    return f"{base}_{param_sub}"
+
+
+def _build_symbol_corrections(
+    formula_text: str,
+    params: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """检测公式内符号与参数符号不一致，产出 corrected 修正项。
+
+    参数符号在公式中出现（基础符号一致）但完整规范形不一致时，视为 OCR/排版
+    差异（如下标误识），生成 ``math_content_corrected`` 修正项。同一基础符号只
+    修正第一次出现，避免重复替换。
+    """
+    tokens = list(_iter_formula_symbol_tokens(formula_text))
+    if not tokens:
+        return []
+    token_bases = {base for _raw, base, _canonical in tokens}
+    canonical_by_base: Dict[str, str] = {}
+    raw_by_base: Dict[str, str] = {}
+    for raw, base, canonical in tokens:
+        canonical_by_base.setdefault(base, canonical)
+        raw_by_base.setdefault(base, raw)
+    corrections: List[Dict[str, Any]] = []
+    for param in params or []:
+        symbol = clean_formula_text(str(param.get("symbol") or ""))
+        if not symbol:
+            continue
+        normalized = _normalize_symbol_tex(symbol)
+        base_match = re.search(r"[A-Za-zΑ-Ωα-ω]", normalized)
+        if not base_match:
+            continue
+        base = base_match.group(0)
+        if base not in token_bases:
+            continue
+        if canonical_by_base.get(base) == normalized:
+            continue
+        if any(item.get("symbol") == base for item in corrections):
+            continue
+        raw_token = raw_by_base.get(base) or ""
+        corrections.append(
+            {
+                "field": "math_content_corrected",
+                "symbol": base,
+                "original": raw_token,
+                "corrected": _rebuild_token_from_param(raw_token, symbol),
+                "reason": f"公式符号 {raw_token} 与参数符号 {symbol} 不一致",
+            }
+        )
+    return corrections
+
+
+def _should_write_llm_correction(node: Dict[str, Any]) -> bool:
+    """用户已修正（corrected_by == "user"）时，semantic 不再覆盖。"""
+    return str(node.get("corrected_by") or "").strip().lower() != "user"
+
+
+def _apply_symbol_replacements(
+    text: str,
+    corrections: List[Dict[str, Any]],
+) -> str:
+    result = str(text or "")
+    for corr in corrections:
+        original = corr.get("original")
+        corrected = corr.get("corrected")
+        if original and corrected and original in result:
+            result = result.replace(original, corrected, 1)
+    return result
 
 
 # 生成公式结构化表示，供结构化索引层消费。
@@ -491,7 +672,12 @@ def enrich_graph_nodes_formula_semantics(
     解释段优先读节点 ``explanation_uids``（solo_engine 公式组关联产出），
     缺失时回退到 section_path+邻近重定位。
     """
-    stats: Dict[str, Any] = {"total_formulas": 0, "enriched": 0, "llm_status": "disabled"}
+    stats: Dict[str, Any] = {
+        "total_formulas": 0,
+        "enriched": 0,
+        "llm_status": "disabled",
+        "symbol_corrections": 0,
+    }
     if not nodes:
         return nodes, stats
 
@@ -518,6 +704,22 @@ def enrich_graph_nodes_formula_semantics(
             llm_model=llm_model,
             use_llm=use_llm,
         )
+        corrections = _build_symbol_corrections(
+            block.text,
+            contract.get("formula_params") or [],
+        )
+        if corrections and _should_write_llm_correction(node):
+            corrected_math = _apply_symbol_replacements(block.text, corrections)
+            updated_by_uid[block.block_id]["math_content_corrected"] = corrected_math
+            raw_plain = str(node.get("plain_text") or "")
+            if raw_plain.strip():
+                corrected_plain = _apply_symbol_replacements(raw_plain, corrections)
+                if corrected_plain != raw_plain:
+                    updated_by_uid[block.block_id]["plain_text_corrected"] = corrected_plain
+            updated_by_uid[block.block_id]["symbol_mismatch"] = True
+            updated_by_uid[block.block_id]["corrected_by"] = "llm"
+            updated_by_uid[block.block_id]["corrected_at"] = datetime.now().isoformat()
+            stats["symbol_corrections"] += 1
         updated_by_uid[block.block_id]["formula_semantics"] = contract
         # 回写 explanation_uids：04 现场关联 + 重定位并集，保证前端联动与语义内容一致
         idx = ordered.index(block)
