@@ -27,7 +27,6 @@ FORMULA_PARAM_SOFT_RE = re.compile(rf"^\s*({FORMULA_PARAM_SYMBOL_RE})\s+(.+?)\s*
 REFERENCE_HINT_RE = re.compile(r"(采用[^；。]*|按[^；。]*|取[^；。]*|见[^；。]*|按表[^；。]*)")
 UNIT_RE = re.compile(r"[（(]([^()（）]{1,20})[）)]")
 JSON_BLOCK_RE = re.compile(r"```(?:json)?\s*(.*?)```", re.DOTALL | re.IGNORECASE)
-_SUBSCRIPT_RE = re.compile(r"_\s*(\{[^{}]*\}|[A-Za-z0-9]+)")
 _SYMBOL_ARG_COMMANDS = {
     "mathrm",
     "text",
@@ -356,8 +355,28 @@ def _iter_formula_symbol_tokens(formula_text: str):
 
 
 def _extract_subscript_tex(symbol: str) -> Optional[str]:
-    match = _SUBSCRIPT_RE.search(str(symbol or ""))
-    return match.group(1) if match else None
+    """提取参数符号的下标 LaTeX 原文（支持嵌套花括号，如 {\\mathrm{aa v}}）。"""
+    text = str(symbol or "")
+    idx = text.find("_")
+    if idx < 0:
+        return None
+    j = idx + 1
+    n = len(text)
+    while j < n and text[j].isspace():
+        j += 1
+    if j < n and text[j] == "{":
+        depth = 1
+        start = j
+        j += 1
+        while j < n and depth > 0:
+            if text[j] == "{":
+                depth += 1
+            elif text[j] == "}":
+                depth -= 1
+            j += 1
+        return text[start:j]
+    sub_match = re.match(r"[A-Za-z0-9]+", text[j:])
+    return sub_match.group(0) if sub_match else None
 
 
 def _rebuild_token_from_param(token_raw: str, param_symbol: str) -> str:
