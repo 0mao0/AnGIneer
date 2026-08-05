@@ -554,12 +554,12 @@ def _rebuild_graph_projection(graph_data: Dict[str, Any]) -> None:
             node = row_source_map.get(block_uid)
             if not node:
                 continue
-            row["plain_text"] = node.get("plain_text")
-            row["table_html"] = node.get("table_html")
-            row["math_content"] = node.get("math_content")
+            row["plain_text"] = node.get("plain_text_corrected") or node.get("plain_text")
+            row["table_html"] = node.get("table_html_corrected") or node.get("table_html")
+            row["math_content"] = node.get("math_content_corrected") or node.get("math_content")
             row["title_path"] = node.get("title_path")
-            row["caption"] = node.get("caption")
-            row["footnote"] = node.get("footnote")
+            row["caption"] = node.get("caption_corrected") or node.get("caption")
+            row["footnote"] = node.get("footnote_corrected") or node.get("footnote")
             row["content_json"] = node.get("content_json") if node.get("content_json") is not None else row.get("content_json")
             row["image_path"] = node.get("image_path")
             row["image_paths"] = node.get("image_paths")
@@ -987,7 +987,7 @@ def _build_doc_block_projection_rows(doc_id: str, graph_data: Dict[str, Any]) ->
             "block_uid": block_uid,
             "block_type": node.get("block_type"),
             "content_json": node.get("content_json") if node.get("content_json") is not None else (base_row.get("content_json") or {}),
-            "plain_text": node.get("plain_text", ""),
+            "plain_text": node.get("plain_text_corrected") or node.get("plain_text", ""),
             "bbox_abs_x1": bbox_values[0],
             "bbox_abs_y1": bbox_values[1],
             "bbox_abs_x2": bbox_values[2],
@@ -1009,8 +1009,8 @@ def _build_doc_block_projection_rows(doc_id: str, graph_data: Dict[str, Any]) ->
             "prev_block_uid": node.get("prev_uid"),
             "next_block_uid": node.get("next_uid"),
             "explain_for_block_uid": node.get("explain_for_uid"),
-            "table_html": node.get("table_html"),
-            "math_content": node.get("math_content"),
+            "table_html": node.get("table_html_corrected") or node.get("table_html"),
+            "math_content": node.get("math_content_corrected") or node.get("math_content"),
             "image_path": node.get("image_path"),
             "derived_confidence": node.get("confidence"),
             "derived_by": node.get("derived_by"),
