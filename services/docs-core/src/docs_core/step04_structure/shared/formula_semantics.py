@@ -278,15 +278,15 @@ def build_formula_representations(
     llm_params: List[Dict[str, Any]] = []
     llm_status = "disabled"
     if use_llm:
-        if normalized_lines and (unmatched_lines or not rule_params):
+        if not normalized_lines:
+            llm_status = "not_needed"
+        else:
             llm_params, llm_status = llm_extract_formula_params(
                 formula_text=cleaned_formula,
                 explanation_lines=normalized_lines,
                 llm_client=llm_client,
                 llm_model=llm_model,
             )
-        else:
-            llm_status = "not_needed"
 
     formula_params = merge_formula_params(rule_params, llm_params)
     summary = cleaned_formula or "未命名公式"
