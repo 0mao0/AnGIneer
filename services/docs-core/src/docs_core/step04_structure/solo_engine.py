@@ -819,6 +819,52 @@ def _model_formula_number_map(model_payload: Any) -> dict[int, list[list[float]]
     return result
 
 
+def _model_type_recognition_map(model_payload: Any) -> dict[int, list[tuple[str, float | None, list[float]]]]:
+    """从 model.json 提取每页 layout_dets 的 (label, score, 归一化 bbox)。
+
+    bbox 按 page_info 的 width/height 归一化到 0..1，与节点 bbox 坐标系一致。
+    score 非数值时保留 None（仅该候选不可用于匹配），label/bbox 缺失的候选跳过。
+    """
+    result: dict[int, list[tuple[str, float | None, list[float]]]] = {}
+    pages = model_payload if isinstance(model_payload, list) else [model_payload]
+    for page in pages:
+        if not isinstance(page, dict):
+            continue
+        info = page.get("page_info") or {}
+        try:
+            page_idx = int(info.get("page_no", 0))
+            pw = float(info.get("width") or 0)
+            ph = float(info.get("height") or 0)
+        except (TypeError, ValueError):
+            continue
+        if pw <= 0 or ph <= 0:
+            continue
+        items: list[tuple[str, float | None, list[float]]] = []
+        for det in page.get("layout_dets") or []:
+            if not isinstance(det, dict):
+                continue
+            label = str(det.get("label") or "").strip()
+            raw_bbox = det.get("bbox")
+            if not label or not isinstance(raw_bbox, (list, tuple)) or len(raw_bbox) < 4:
+                continue
+            try:
+                bbox_norm = [
+                    min(1.0, max(0.0, float(raw_bbox[0]) / pw)),
+                    min(1.0, max(0.0, float(raw_bbox[1]) / ph)),
+                    min(1.0, max(0.0, float(raw_bbox[2]) / pw)),
+                    min(1.0, max(0.0, float(raw_bbox[3]) / ph)),
+                ]
+            except (TypeError, ValueError):
+                continue
+            score = det.get("score")
+            if score is None:
+                continue
+            items.append((label, float(score) if isinstance(score, (int, float)) else None, bbox_norm))
+        if items:
+            result[page_idx] = items
+    return result
+
+
 def infer_title_level(text: str, raw_level: Any) -> tuple[int | None, float, str]:
     """用规则与原始level推断标题级别。"""
     txt = (text or "").strip()
