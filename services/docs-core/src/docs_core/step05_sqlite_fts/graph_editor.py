@@ -1,5 +1,6 @@
 """???????/??/??/??/??/???? + ????? canonical??????????"""
 import json
+import logging
 import re
 import uuid
 from datetime import datetime
@@ -13,6 +14,8 @@ from docs_core.step04_structure.shared.jsonl_io import (
     _write_doc_blocks_graph,
     get_doc_blocks_graph,
 )
+
+logger = logging.getLogger(__name__)
 from docs_core.step05_sqlite_fts.store.blocks_sql_store import get_index_store
 import docs_core.docs_file_io as _afs
 
@@ -736,6 +739,33 @@ def _sync_structured_segments_after_node_update(
     return get_index_store().save_document_segments(doc_id, library_id, "doc_blocks_graph_v1", updated_items)
 
 
+def _invalidate_edited_formula_semantics(
+    graph_data: Dict[str, Any],
+    snapshot_before: Dict[str, Any],
+) -> List[str]:
+    """结构编辑后，对内容或解释上下文发生变化的公式节点清空 formula_semantics。"""
+    before_by_uid = {
+        _normalize_block_uid(n.get("block_uid") or n.get("id")): n
+        for n in (snapshot_before.get("nodes") or [])
+    }
+    invalidated: List[str] = []
+    for node in graph_data.get("nodes") or []:
+        uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
+        if str(node.get("block_type") or "").strip() not in ("formula", "equation_interline"):
+            continue
+        if "formula_semantics" not in node:
+            continue
+        before = before_by_uid.get(uid)
+        before_text = str((before or {}).get("math_content") or (before or {}).get("plain_text") or "")
+        now_text = str(node.get("math_content") or node.get("plain_text") or "")
+        before_explain = set(_collect_block_ref_uids((before or {}).get("explanation_uids")))
+        now_explain = set(_collect_block_ref_uids(node.get("explanation_uids")))
+        if before is None or before_text != now_text or before_explain != now_explain:
+            node.pop("formula_semantics", None)
+            invalidated.append(uid)
+    return invalidated
+
+
 # 将源节点内容并入目标节点，并移除源节点
 def _merge_graph_nodes(graph_data: Dict[str, Any], source_uid: str, target_uid: str) -> Dict[str, Any]:
     if source_uid == target_uid:
@@ -1300,6 +1330,10 @@ def batch_operate_doc_blocks(
             result_payload["updated_block_ids"] = _relevel_graph_nodes(graph_data, block_uids, normalized_level_delta)
     else:
         raise ValueError(f"不支持的批量操作: {operation}")
+
+    invalidated_formulas = _invalidate_edited_formula_semantics(graph_data, graph_snapshot_before)
+    if invalidated_formulas:
+        logger.info("公式语义失效待重建: %s", invalidated_formulas)
 
     _rebuild_graph_projection(graph_data)
     _rewrite_markdown_after_graph_change(library_id, doc_id, graph_data)
