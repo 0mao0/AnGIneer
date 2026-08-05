@@ -126,6 +126,8 @@ def parse_formula_param_rule(line: str) -> Optional[Dict[str, Any]]:
                 and description_candidate
                 and re.search(r"[\u4e00-\u9fff(（]", description_candidate)
                 and not description_candidate.startswith(("+", "-", "*", "/", "="))
+                and not description_candidate.startswith(("_", "{", "\\", "^", "~"))
+                and not symbol_candidate.startswith("\\")
             ):
                 match = soft_match
     if not match:
