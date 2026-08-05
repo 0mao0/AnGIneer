@@ -99,6 +99,7 @@ export interface DocBlockNode {
   symbol_mismatch?: boolean | null
   merged_block_uids?: string[] | null
   merged_bboxes?: number[][] | null
+  page_bboxes?: Array<{ page_idx: number; bbox: [number, number, number, number] }> | null
   caption_block_uid?: string | null
   caption_block_uids?: string[] | null
   caption_bboxes?: number[][] | null

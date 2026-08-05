@@ -110,6 +110,38 @@ const normalizeRect = (bbox: unknown): RectBounds | null => {
   }
 }
 
+interface PageRect {
+  page: number
+  rect: RectBounds | null
+}
+
+/**
+ * 收集节点跨页 bbox：优先使用 page_bboxes（每个条目带 page_idx + bbox），
+ * 否则回退到 bbox + merged_bboxes（沿用节点所在页）。
+ */
+const collectPageRects = (node: Record<string, any>, defaultPage: number): PageRect[] => {
+  const pageBBoxes = node.page_bboxes
+  if (Array.isArray(pageBBoxes) && pageBBoxes.length) {
+    const pairs: PageRect[] = []
+    const seen = new Set<string>()
+    for (const entry of pageBBoxes) {
+      const rect = normalizeRect(entry?.bbox)
+      if (!rect) continue
+      const page = Number(entry?.page_idx ?? -1) + 1
+      if (!Number.isFinite(page) || page <= 0) continue
+      const key = `${page}:${rect.left.toFixed(4)}:${rect.top.toFixed(4)}:${rect.width.toFixed(4)}:${rect.height.toFixed(4)}`
+      if (seen.has(key)) continue
+      seen.add(key)
+      pairs.push({ page, rect })
+    }
+    if (pairs.length) return pairs
+  }
+  const bboxPool = Array.isArray(node.merged_bboxes) && node.merged_bboxes.length
+    ? [node.bbox, ...node.merged_bboxes]
+    : [node.bbox]
+  return bboxPool.map(bbox => ({ page: defaultPage, rect: normalizeRect(bbox) }))
+}
+
 const normalizeRectFromBaseRow = (row: Record<string, any>) => {
   const directBox = normalizeRect(row.bbox || row.bbox_norm || row.normalized_bbox)
   if (directBox) return directBox
@@ -516,7 +548,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
       || options.activeTab.value === 'Preview_IndexGraph'
       || options.activeTab.value === 'Preview_KnowledgeGraph'
     const nodes = options.graphData.value?.nodes || []
-    const hasBboxData = nodes.length > 0 && nodes.some(node => node.bbox || node.merged_bboxes)
+    const hasBboxData = nodes.length > 0 && nodes.some(node => node.bbox || node.merged_bboxes || node.page_bboxes)
     if (!hasBboxData) return []
     const nodeSeqKeyMap = new Map<string, string>()
     nodes.forEach(node => {
@@ -554,18 +586,14 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
         const page = (node.page_idx ?? 0) + 1
         const type = node.block_type || 'text'
         const itemId = node.id || `node-${index}`
-        const bboxPool = Array.isArray(node.merged_bboxes) && node.merged_bboxes.length
-          ? [node.bbox, ...node.merged_bboxes]
-          : [node.bbox]
 
-        const baseHighlights = bboxPool.map((bbox, bboxIndex) => {
-          const normalizedRect = normalizeRect(bbox)
+        const baseHighlights = collectPageRects(node, page).map(({ page: rectPage, rect: normalizedRect }, bboxIndex) => {
           return {
             id: bboxIndex === 0
               ? `highlight-${itemId}`
               : `highlight-${itemId}-merged-${bboxIndex}`,
             itemId,
-            page,
+            page: rectPage,
             hasRect: Boolean(normalizedRect),
             left: normalizedRect?.left ?? 0,
             top: normalizedRect?.top ?? 0,
