@@ -375,6 +375,8 @@ async function restartTask(record: ParseRecordItem) {
   try {
     await knowledgeApi.retryParseTask(record.doc_id)
     message.success('已重启')
+    // 清空阶段抽屉的旧状态（含子阶段/文件核查），避免展示上一次解析的残留
+    currentStages.value = []
     await loadRecords()
   } catch (e: any) {
     message.error('重启失败: ' + (e.message || e))
