@@ -31,9 +31,12 @@ def _load_json(payload: Optional[str], default: object) -> object:
     if not payload:
         return default
     try:
-        return json.loads(payload)
+        parsed = json.loads(payload)
     except Exception:
         return default
+    # JSON 字面量 null（如 merged_from=None 序列化结果）视为“无值”，回退默认值，
+    # 避免调用方 list(None) 抛 "'NoneType' object is not iterable"。
+    return default if parsed is None else parsed
 
 
 # 统一序列bbox 对象
@@ -469,7 +472,7 @@ class CanonicalSQLiteStore:
                         block.table_merge_id,
                         block.raw_type,
                         _dump_page_bboxes(block.page_bboxes),
-                        _dump_json(block.merged_from),
+                        _dump_json(block.merged_from) if block.merged_from is not None else None,
                     )
                     for block in document.blocks
                 ],
