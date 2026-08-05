@@ -38,6 +38,13 @@ _SYMBOL_ARG_COMMANDS = {
     "mbox",
     "operatorname",
 }
+_GREEK_COMMAND_LOWER = {
+    "alpha", "beta", "gamma", "delta", "epsilon", "varepsilon", "zeta",
+    "eta", "theta", "vartheta", "iota", "kappa", "lambda", "mu", "nu",
+    "xi", "pi", "rho", "varrho", "sigma", "varsigma", "tau", "upsilon",
+    "phi", "varphi", "chi", "psi", "omega", "digamma", "beth", "aleph",
+    "ell", "hbar", "imath", "jmath",
+}
 
 
 class FormulaParamContract(TypedDict):
@@ -266,11 +273,23 @@ def merge_formula_params(
     return list(merged.values())
 
 
-# 规范化 LaTeX 符号：去掉命令名与花括号/空白，得到可比较的规范形。
+# 规范化 LaTeX 符号：去掉格式化命令与花括号/空白，得到可比较的规范形；
+# 希腊命令（\\sigma 等）作为基础符号整体保留。
 def _normalize_symbol_tex(text: str) -> str:
     value = str(text or "")
-    value = re.sub(r"\\[A-Za-z]+\s*(\{[^{}]*\})", r"\1", value)
-    value = re.sub(r"\\[A-Za-z]+", "", value)
+
+    def _replace_cmd_arg(match: re.Match) -> str:
+        cmd = match.group(1)
+        if cmd.lower() in _GREEK_COMMAND_LOWER:
+            return "\\" + cmd + match.group(2)
+        return match.group(2)
+
+    value = re.sub(r"\\([A-Za-z]+)(\s*\{[^{}]*\})", _replace_cmd_arg, value)
+    value = re.sub(
+        r"\\[A-Za-z]+",
+        lambda m: m.group(0) if m.group(0)[1:].lower() in _GREEK_COMMAND_LOWER else "",
+        value,
+    )
     return re.sub(r"[\s{}_]", "", value)
 
 
@@ -282,11 +301,39 @@ def _is_symbol_letter(ch: str) -> bool:
     )
 
 
+def _parse_subscript_at(text: str, pos: int) -> Tuple[str, int]:
+    """从 pos 解析可选下标，返回（下标原文, 解析后位置）。"""
+    j = pos
+    n = len(text)
+    while j < n and text[j].isspace():
+        j += 1
+    if j >= n or text[j] != "_":
+        return "", j
+    j += 1
+    while j < n and text[j].isspace():
+        j += 1
+    if j < n and text[j] == "{":
+        depth = 1
+        start = j
+        j += 1
+        while j < n and depth > 0:
+            if text[j] == "{":
+                depth += 1
+            elif text[j] == "}":
+                depth -= 1
+            j += 1
+        return text[start:j], j
+    sub_match = re.match(r"[A-Za-z0-9]+", text[j:])
+    if sub_match:
+        return sub_match.group(0), j + len(sub_match.group(0))
+    return "", j
+
+
 def _iter_formula_symbol_tokens(formula_text: str):
     """从公式原文提取符号 token（原文片段, 基础符号, 规范形）。
 
     跳过 LaTeX 命令名与普通命令的花括号参数；\\mathrm/pmb 等“符号承载”命令的
-    花括号参数保留参与扫描，避免漏掉加粗/正体的真实符号。
+    花括号参数保留参与扫描，希腊命令（\\sigma 等）整体作为基础符号。
     """
     text = str(formula_text or "")
     i, n = 0, len(text)
@@ -301,6 +348,14 @@ def _iter_formula_symbol_tokens(formula_text: str):
             j = i
             while j < n and text[j].isspace():
                 j += 1
+            if cmd.lower() in _GREEK_COMMAND_LOWER:
+                sub_raw, j = _parse_subscript_at(text, j)
+                base = "\\" + cmd
+                raw = text[name_start - 1:j]
+                canonical = base + _normalize_symbol_tex(sub_raw)
+                yield raw, base, canonical
+                i = j
+                continue
             if j < n and text[j] == "{" and cmd not in _SYMBOL_ARG_COMMANDS:
                 depth = 0
                 i = j
@@ -320,38 +375,22 @@ def _iter_formula_symbol_tokens(formula_text: str):
             start = i
             base = ch
             i += 1
-            j = i
-            while j < n and text[j].isspace():
-                j += 1
-            sub_raw = ""
-            if j < n and text[j] == "_":
-                j += 1
-                while j < n and text[j].isspace():
-                    j += 1
-                if j < n and text[j] == "{":
-                    depth = 1
-                    sub_start = j
-                    j += 1
-                    while j < n and depth > 0:
-                        if text[j] == "{":
-                            depth += 1
-                        elif text[j] == "}":
-                            depth -= 1
-                        j += 1
-                    sub_raw = text[sub_start:j]
-                else:
-                    sub_match = re.match(r"[A-Za-z0-9]+", text[j:])
-                    if sub_match:
-                        j += len(sub_match.group(0))
-                        sub_raw = sub_match.group(0)
-                i = j
-            else:
-                i = j
+            sub_raw, i = _parse_subscript_at(text, i)
             raw = text[start:i].strip()
             canonical = base + _normalize_symbol_tex(sub_raw)
             yield raw, base, canonical
             continue
         i += 1
+
+
+def _symbol_base(raw_symbol: str) -> str:
+    """提取符号基础：\\sigma 等希腊命令或单字母。"""
+    text = str(raw_symbol or "").strip()
+    cmd_match = re.match(r"\\([A-Za-z]+)", text)
+    if cmd_match and cmd_match.group(1).lower() in _GREEK_COMMAND_LOWER:
+        return cmd_match.group(0)
+    letter_match = re.match(r"[A-Za-zΑ-Ωα-ω]", text)
+    return letter_match.group(0) if letter_match else ""
 
 
 def _extract_subscript_tex(symbol: str) -> Optional[str]:
@@ -382,7 +421,7 @@ def _extract_subscript_tex(symbol: str) -> Optional[str]:
 def _rebuild_token_from_param(token_raw: str, param_symbol: str) -> str:
     """用参数符号重建公式 token：基础符号 + 参数下标（原始下标以参数为准）。"""
     param_sub = _extract_subscript_tex(param_symbol)
-    base = str(token_raw or "").strip()[:1]
+    base = _symbol_base(token_raw)
     if param_sub is None:
         return base
     return f"{base}_{param_sub}"
@@ -414,10 +453,9 @@ def _build_symbol_corrections(
         if not symbol:
             continue
         normalized = _normalize_symbol_tex(symbol)
-        base_match = re.search(r"[A-Za-zΑ-Ωα-ω]", normalized)
-        if not base_match:
+        base = _symbol_base(symbol)
+        if not base:
             continue
-        base = base_match.group(0)
         if base not in token_bases:
             continue
         params_by_base.setdefault(base, []).append(
@@ -431,12 +469,15 @@ def _build_symbol_corrections(
         if item["normalized"] in canonicals_by_base.get(base, set()):
             continue
         raw_token = raw_by_base.get(base) or ""
+        corrected_token = _rebuild_token_from_param(raw_token, item["symbol"])
+        if raw_token == corrected_token:
+            continue
         corrections.append(
             {
                 "field": "math_content_corrected",
                 "symbol": base,
                 "original": raw_token,
-                "corrected": _rebuild_token_from_param(raw_token, item["symbol"]),
+                "corrected": corrected_token,
                 "reason": f"公式符号 {raw_token} 与参数符号 {item['symbol']} 不一致",
             }
         )
