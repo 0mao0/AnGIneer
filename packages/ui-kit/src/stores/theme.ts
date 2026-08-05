@@ -155,6 +155,8 @@ export const useThemeStore = defineStore('theme', () => {
       root.style.setProperty('--panel-bg', '#ffffff')
       root.style.setProperty('--panel-header-bg', '#fafafa')
       root.style.setProperty('--panel-header-divider', '#e0e0e0')
+      root.style.setProperty('--chat-root-bg', '#f0f2f5')
+      root.style.setProperty('--tree-bg', '#ffffff')
       root.style.setProperty('--docs-bg', '#f0f2f5')
       root.style.setProperty('--docs-pane-bg', '#ffffff')
       root.style.setProperty('--docs-pane-border', '#e8edf4')
