@@ -149,6 +149,7 @@ export function useKnowledgeParse(api: KnowledgeParseApi) {
         if (selectedNode && selectedNode.key === docId) {
           selectedNode.parseProgress = task.progress || 0
           selectedNode.parseStage = task.stage || ''
+          selectedNode.parseStep = task.stage_message || ''
           selectedNode.parseError = task.error || ''
           selectedNode.status = task.status === 'completed'
             ? 'completed'

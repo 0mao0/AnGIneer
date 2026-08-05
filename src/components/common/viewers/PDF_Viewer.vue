@@ -100,12 +100,11 @@
       </div>
     </div>
     <div v-if="node.status === 'processing' || node.status === 'failed' || node.status === 'cancelled'" class="parse-progress-row">
-      <div class="parse-progress-content">
-        <span class="parse-progress-label">{{ parseProgressLabel }}</span>
-        <Progress :percent="parseProgressPercent" :show-info="false" size="small" class="parse-progress-bar" />
-        <span class="parse-progress-count">{{ parseProgressCount }}</span>
+      <div v-if="node.status !== 'cancelled'" class="parse-progress-content">
+        <span class="parse-progress-label">{{ parseProgressHeader }}</span>
+        <span v-if="node.status === 'processing' && node.parseStep" class="parse-progress-step" :title="node.parseStep">：{{ node.parseStep }}</span>
       </div>
-      <div v-if="node.parseError" class="parse-error-text" :title="node.parseError">{{ node.parseError }}</div>
+      <div v-if="node.parseError || node.status === 'cancelled'" class="parse-error-text" :title="node.parseError">{{ node.parseError || '已取消' }}</div>
     </div>
     <!-- 搜索面板 -->
     <div v-if="showSearchPanel && isPdf && !useNativePdfPreview" ref="searchPanelRef" class="search-panel">
@@ -307,6 +306,7 @@ import OfficePreview from './OfficePreview.vue'
 export interface PDFViewerNode {
   status?: string
   parseStage?: string
+  parseStep?: string
   parseError?: string
   key?: string
   filePath?: string
@@ -1470,22 +1470,20 @@ const parseProgressIndex = computed(() => {
   return idx >= 0 ? idx : -1
 })
 
-const parseProgressPercent = computed(() => {
-  const idx = parseProgressIndex.value
-  if (idx < 0) {
-    const status = props.node.status
-    if (status === 'failed' || status === 'cancelled') return 100
-    return 0
-  }
-  return Math.round(((idx + 1) / PARSE_STAGE_KEYS.length) * 100)
-})
-
 const parseProgressCount = computed(() => {
   const idx = parseProgressIndex.value
   return idx >= 0 ? `${idx + 1}/${PARSE_STAGE_KEYS.length}` : '—'
 })
 
-void [pdfToolbarRef, headerTitleRef, headerMainRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseProgressLabel, parseProgressPercent, parseProgressCount, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview, pageInputWidth]
+// 解析过程栏标题：始终左对齐的「(序号/总数)阶段标题」，如 （3/8)MinerU 解析
+const parseProgressHeader = computed(() => {
+  const count = parseProgressCount.value
+  const label = parseProgressLabel.value
+  if (!count || count === '—') return label
+  return `（${count})${label}`
+})
+
+void [pdfToolbarRef, headerTitleRef, headerMainRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseProgressLabel, parseProgressCount, parseProgressHeader, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview, pageInputWidth]
 
 const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   const pages: VirtualPageMeta[] = []
@@ -1867,27 +1865,18 @@ onBeforeUnmount(() => {
   font-size: 12px;
   color: var(--dp-title-text);
   white-space: nowrap;
-  min-width: 70px;
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.parse-progress-bar {
-  flex: 1;
-  min-width: 0;
-  margin: 0 !important;
-  :deep(.ant-progress) {
-    width: 100% !important;
-  }
-}
-
-.parse-progress-count {
-  font-size: 12px;
-  color: var(--dp-sub-text);
-  white-space: nowrap;
-  min-width: 30px;
   text-align: left;
   flex-shrink: 0;
+}
+
+.parse-progress-step {
+  font-size: 12px;
+  color: var(--dp-sub-text, #666);
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .parse-error-text {
