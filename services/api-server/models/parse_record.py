@@ -192,12 +192,11 @@ def update_record_by_doc_id(doc_id: str, new_task_id: str, new_status: str) -> b
     """更新指定文档的最新非已删除记录（用于重启时复用原记录），并清理旧重复。"""
     init_db()
     conn = _get_conn()
-    now = datetime.now(timezone.utc).isoformat()
-    # 只更新最新那条
+    # 只更新最新那条；不动 created_at，避免重新解析后条目被顶到列表最前
     conn.execute(
-        "UPDATE parse_records SET task_id = ?, status = ?, error = NULL, created_at = ? "
+        "UPDATE parse_records SET task_id = ?, status = ?, error = NULL "
         "WHERE id = (SELECT id FROM parse_records WHERE doc_id = ? AND status != 'deleted' ORDER BY created_at DESC LIMIT 1)",
-        (new_task_id, new_status, now, doc_id),
+        (new_task_id, new_status, doc_id),
     )
     affected = conn.total_changes
     # 清理同 doc_id 的旧重复记录（保留最新那条）
