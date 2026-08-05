@@ -18,6 +18,7 @@ from docs_core.models.types import (
     CanonicalPage,
     CanonicalTable,
     CitationTarget,
+    PageBBox,
 )
 from docs_core.step04_structure.shared.formula_semantics import enrich_formula_block
 from docs_core.step05_sqlite_fts.rebuild.table_semantics import enrich_canonical_table
@@ -48,6 +49,26 @@ def build_pages_from_blocks(blocks: List[CanonicalBlock]) -> List[CanonicalPage]
 
 def build_page_label_map(pages: List[CanonicalPage]) -> dict[int, str]:
     return {page.page_idx: page.printed_page_label for page in pages if page.printed_page_label}
+
+
+def _parse_page_bboxes(raw_page_bboxes: Any) -> Optional[List[PageBBox]]:
+    """把 jsonl 原始 page_bboxes（bbox 为 [x0, y0, x1, y1] 数组）解析为 PageBBox 模型。"""
+    if not isinstance(raw_page_bboxes, list) or not raw_page_bboxes:
+        return None
+    parsed: List[PageBBox] = []
+    for item in raw_page_bboxes:
+        if not isinstance(item, dict):
+            continue
+        bbox = item.get("bbox")
+        if isinstance(bbox, (list, tuple)) and len(bbox) >= 4:
+            bbox = {
+                "x0": float(bbox[0]),
+                "y0": float(bbox[1]),
+                "x1": float(bbox[2]),
+                "y1": float(bbox[3]),
+            }
+        parsed.append(PageBBox(page_idx=int(item.get("page_idx") or 0), bbox=bbox))
+    return parsed or None
 
 
 # 从标题文本中提取规范条号，如 "5.2.3"
@@ -170,6 +191,8 @@ def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, A
                 image_assoc_id=raw_block.get("image_assoc_id"),
                 table_merge_id=raw_block.get("table_merge_id"),
                 raw_type=raw_block.get("raw_type"),
+                page_bboxes=_parse_page_bboxes(raw_block.get("page_bboxes")),
+                merged_from=raw_block.get("merged_from"),
                 table_html=raw_block.get("table_html"),
                 formula_semantics=(
                     dict(formula_semantics)
@@ -283,7 +306,14 @@ def build_canonical_chunks(
             current_blocks = []
             return
         first_block = current_blocks[0]
-        last_block = current_blocks[-1]
+
+        def _block_page_end(block: CanonicalBlock) -> int:
+            page_bboxes = block.page_bboxes or []
+            if page_bboxes:
+                return max(int(item.page_idx) for item in page_bboxes)
+            return block.page_idx
+
+        page_end = max(_block_page_end(block) for block in current_blocks)
         chunks.append(
             CanonicalChunk(
                 chunk_id=f"chunk-{first_block.block_id}",
@@ -294,7 +324,7 @@ def build_canonical_chunks(
                 token_count=estimate_token_count(text),
                 section_path=first_block.section_path,
                 page_start=first_block.page_idx,
-                page_end=last_block.page_idx,
+                page_end=page_end,
                 source_block_ids=[block.block_id for block in current_blocks],
                 citation_targets=[
                     CitationTarget(
@@ -445,8 +475,11 @@ def build_canonical_tables_from_source(
         table = CanonicalTable(
             table_id=f"table-{block_id}",
             doc_id=doc_id,
+            page_bboxes=canonical_block.page_bboxes if canonical_block else None,
             page_start=page_idx,
-            page_end=page_idx,
+            page_end=max(
+                [int(item.page_idx) for item in (canonical_block.page_bboxes or [])] or [page_idx]
+            ),
             title=title,
             caption=caption,
             header_rows=[[str(cell) for cell in row] for row in header_rows],
