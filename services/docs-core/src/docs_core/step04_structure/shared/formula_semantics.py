@@ -434,16 +434,23 @@ def _resolve_explanation_lines(
     nodes_by_uid: Dict[str, Dict[str, Any]],
 ) -> List[str]:
     linked = node.get("explanation_uids")
-    if isinstance(linked, list) and linked:
-        lines: List[str] = []
-        for uid in linked:
-            text = str(nodes_by_uid.get(str(uid), {}).get("plain_text") or "").strip()
-            if text:
-                lines.append(text)
-        if lines:
-            return lines
     idx = ordered.index(block)
-    return collect_canonical_explanation_lines(block, ordered[idx + 1:])
+    rederived = collect_canonical_explanation_lines(block, ordered[idx + 1:])
+    if not isinstance(linked, list) or not linked:
+        return rederived
+    linked_lines: List[str] = []
+    for uid in linked:
+        text = str(nodes_by_uid.get(str(uid), {}).get("plain_text") or "").strip()
+        if text:
+            linked_lines.append(text)
+    # 并集：04 现场关联优先，重定位补充（避免关联不完整反而减少上下文）
+    seen = set(linked_lines)
+    merged = list(linked_lines)
+    for line in rederived:
+        if line not in seen:
+            merged.append(line)
+            seen.add(line)
+    return merged
 
 
 def enrich_graph_nodes_formula_semantics(
