@@ -395,6 +395,7 @@ services/docs-core/
 │   │   │   ├── solo_engine.py       # 唯一构建引擎（规则 → 块/层级/语义，自包含）
 │   │   │   ├── solo2json_pipeline.py # 主控流程：建块 → PoPo 信号 → LLM 复核 → 落 jsonl
 │   │   │   ├── popo/                # 信号读取：aligner / 续接表格合并注入 / 层级融合（Solo 单管线）
+│   │   │   │   └── popo_block_merger.py # PoPo contd/table_merge 物理合并（jsonl 落盘前）
 │   │   │   └── shared/              # 跨步共享工具（04 写、05 读/调用）
 │   │   │       ├── jsonl_io.py            # jsonl/meta 读写（04 写、05 读）
 │   │   │       ├── formula_semantics.py   # 公式语义契约（04 生产/05 兜底）
