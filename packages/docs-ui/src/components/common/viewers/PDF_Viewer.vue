@@ -196,15 +196,22 @@
               <div
                 v-for="item in getPageHighlights(pageMeta.page)"
                 :key="item.id"
-                :class="['pdf-highlight-box', { active: item.id === activeHighlightId || item.itemId === activeHighlightId }]"
+                :class="['pdf-highlight-box', {
+                  'hover-primary': item.id === hoveredHighlightId,
+                  'hover-linked': hoveredHighlightId && item.id !== hoveredHighlightId && (
+                    item.itemId === hoveredItemId
+                    || (item.linkedFormulaItemIds || []).includes(hoveredItemId || '')
+                  ),
+                  active: !hoveredHighlightId && (item.itemId === activeClickItemId || item.id === activeHighlightId || item.itemId === activeHighlightId)
+                }]"
                 :style="{
                   left: `${item.left * 100}%`,
                   top: `${item.top * 100}%`,
                   width: `${item.width * 100}%`,
                   height: `${item.height * 100}%`
                 }"
-                @mouseenter="emit('hover-highlight', item.itemId)"
-                @mouseleave="emit('hover-highlight', null)"
+                @mouseenter="onHighlightMouseEnter(item)"
+                @mouseleave="onHighlightMouseLeave"
                 @click="emit('select-highlight', item)"
               >
                 <span v-if="getHighlightTypeLabel(item.type)" class="highlight-type-tag">{{ getHighlightTypeLabel(item.type) }}</span>
@@ -358,8 +365,27 @@ const props = defineProps<{
   pdfPageCount?: number
   highlights: LinkedHighlight[]
   activeHighlightId: string | null
+  activeClickItemId?: string | null
   textScrollPercent: number
 }>()
+
+// --- hover 联动：hover 的框加深（hover-primary），同节点其它 bbox 浅橙（hover-linked） ---
+const hoveredHighlightId = ref<string | null>(null)
+const hoveredItemId = computed(() => {
+  if (!hoveredHighlightId.value) return null
+  const item = props.highlights.find(h => h.id === hoveredHighlightId.value)
+  return item ? item.itemId : null
+})
+
+function onHighlightMouseEnter(item: LinkedHighlight) {
+  hoveredHighlightId.value = item.id
+  emit('hover-highlight', item.itemId)
+}
+
+function onHighlightMouseLeave() {
+  hoveredHighlightId.value = null
+  emit('hover-highlight', null)
+}
 
 const emit = defineEmits<{
   download: []
@@ -1475,12 +1501,12 @@ const parseProgressCount = computed(() => {
   return idx >= 0 ? `${idx + 1}/${PARSE_STAGE_KEYS.length}` : '—'
 })
 
-// 解析过程栏标题：始终左对齐的「(序号/总数)阶段标题」，如 （3/8)MinerU 解析
+// 解析过程栏标题：始终左对齐的「(序号/总数)阶段标题」，如 （3/8）MinerU 解析
 const parseProgressHeader = computed(() => {
   const count = parseProgressCount.value
   const label = parseProgressLabel.value
   if (!count || count === '—') return label
-  return `（${count})${label}`
+  return `（${count}）${label}`
 })
 
 void [pdfToolbarRef, headerTitleRef, headerMainRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseProgressLabel, parseProgressCount, parseProgressHeader, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview, pageInputWidth]
@@ -1647,7 +1673,7 @@ onBeforeUnmount(() => {
   --dp-title-text: var(--dp-title-text-override, var(--dp-title-text, #595959));
   --dp-title-strong: var(--dp-title-strong-override, var(--dp-title-strong, #4f5d7a));
   --dp-sub-text: var(--dp-sub-text-override, var(--dp-sub-text, #8c8c8c));
-  --dp-progress-bg: var(--dp-progress-bg-override, var(--dp-progress-bg, #f7f9fc));
+  --dp-progress-bg: var(--dp-progress-bg-override, var(--dp-progress-bg, #fcfdff));
   --dp-content-bg: var(--dp-content-bg-override, var(--dp-content-bg, #fff));
   --dp-scroll-thumb: var(--dp-scroll-thumb-override, var(--dp-scroll-thumb, rgba(15,23,42,0.22)));
   --dp-empty-overlay: var(--dp-empty-overlay-override, var(--dp-empty-overlay, rgba(255,255,255,0.92)));
@@ -2050,9 +2076,23 @@ onBeforeUnmount(() => {
 }
 
 .pdf-highlight-box.active {
-  border-color: rgba(22, 119, 255, 0.95);
-  background: rgba(22, 119, 255, 0.24);
+  border-color: rgba(250, 173, 20, 0.95);
+  background: rgba(250, 173, 20, 0.30);
   z-index: 10;
+}
+
+/* hover 当前框：加深橙色 */
+.pdf-highlight-box.hover-primary {
+  border-color: rgba(212, 107, 8, 0.98);
+  background: rgba(212, 107, 8, 0.55);
+  z-index: 10;
+}
+
+/* hover 同节点其它 bbox：浅橙色联动 */
+.pdf-highlight-box.hover-linked {
+  border-color: rgba(250, 173, 20, 0.70);
+  background: rgba(250, 173, 20, 0.22);
+  z-index: 9;
 }
 
 /* 搜索结果黄色高亮 */
@@ -2085,7 +2125,7 @@ onBeforeUnmount(() => {
   line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: rgba(22, 119, 255, 0.92);
+  background: rgba(212, 107, 8, 0.96);
   border-bottom-right-radius: 4px;
   opacity: 0;
   pointer-events: none;
@@ -2205,7 +2245,7 @@ onBeforeUnmount(() => {
   --dp-title-text: var(--dp-title-text-override, #595959);
   --dp-title-strong: var(--dp-title-strong-override, #4f5d7a);
   --dp-sub-text: var(--dp-sub-text-override, #8c8c8c);
-  --dp-progress-bg: var(--dp-progress-bg-override, #f7f9fc);
+  --dp-progress-bg: var(--dp-progress-bg-override, #fcfdff);
   --dp-content-bg: var(--dp-content-bg-override, #fff);
   --dp-scroll-thumb: var(--dp-scroll-thumb-override, rgba(15,23,42,0.22));
   --dp-empty-overlay: var(--dp-empty-overlay-override, rgba(255,255,255,0.92));

@@ -18,6 +18,7 @@
           :pdfPageCount="inferredPdfPageCount"
           :highlights="linkedHighlights"
           :activeHighlightId="activeLeftHighlightId"
+          :activeClickItemId="pdfClickActiveItemId"
           :searchText="markdownContent"
           :textScrollPercent="leftScrollPercent"
           @download="downloadFile"
@@ -172,6 +173,7 @@ const {
   linkedHighlights,
   activeLinkedItemId,
   activeLeftHighlightId,
+  pdfClickActiveItemId,
   activeLinkedLineRange,
   onHoverLinkedItem,
   onSelectHighlightFromLeft,
@@ -266,7 +268,7 @@ defineExpose({
   --dp-title-text: var(--docs-text, #595959);
   --dp-title-strong: var(--docs-text-strong, #4f5d7a);
   --dp-sub-text: var(--docs-text-subtle, #8c8c8c);
-  --dp-progress-bg: var(--docs-progress-bg, #f7f9fc);
+  --dp-progress-bg: var(--docs-progress-bg, #fcfdff);
   --dp-content-bg: var(--docs-content-bg, #fff);
   --dp-code-bg: var(--docs-code-bg, #f6f8fa);
   --dp-inline-code-bg: var(--docs-inline-code-bg, rgba(0, 0, 0, 0.04));

@@ -18,6 +18,7 @@ export interface LinkedHighlight {
   type?: string
   contdTargetId?: string | null
   tableMergeId?: string | null
+  linkedFormulaItemIds?: string[]
 }
 
 interface RectBounds {
@@ -460,6 +461,8 @@ const findNearestHighlight = (
 export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   const activeLinkedItemId = ref<string | null>(null)
   const activeLinkedHighlightOverrideId = ref<string | null>(null)
+  // PDF 内点击高亮框后锁定的节点 id：同一节点的所有 bbox（如公式框+编号框）一起高亮
+  const pdfClickActiveItemId = ref<string | null>(null)
   let cachedMarkdownContent = ''
   let cachedMarkdownLines: string[] = []
   const isDocumentPreviewActive = computed(() => isDocumentPreviewTab(options.activeTab.value))
@@ -526,6 +529,25 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
       }
     })
 
+    // 公式节点 explanation_uids -> 引用它的公式 id，用于 hover 公式时联动解释段落
+    const explanationLinkedMap = new Map<string, string[]>()
+    nodes.forEach(node => {
+      const formulaId = String(node.id || '').trim()
+      const uids = node.explanation_uids
+      if (!formulaId || !Array.isArray(uids)) return
+      uids.forEach((rawUid) => {
+        const uid = String(rawUid || '').trim()
+        if (!uid) return
+        if (!explanationLinkedMap.has(uid)) {
+          explanationLinkedMap.set(uid, [])
+        }
+        const list = explanationLinkedMap.get(uid)!
+        if (!list.includes(formulaId)) {
+          list.push(formulaId)
+        }
+      })
+    })
+
     // 展示层全量高亮：页眉/页脚/页码也参与（05 语义层另行收敛）
     const highlightPool = nodes
       .flatMap((node, index) => {
@@ -554,6 +576,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
             type,
             contdTargetId: node.contd_target_id ?? null,
             tableMergeId: node.table_merge_id ?? null,
+            linkedFormulaItemIds: explanationLinkedMap.get(itemId) || undefined,
           }
         })
         const regionHighlights: LinkedHighlight[] = []
@@ -816,7 +839,9 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     return resolveLinkedHighlight(activeLinkedItemId.value)
   })
 
-  const activeLeftHighlightId = computed(() => activeLinkedHighlight.value?.id || activeLinkedItemId.value)
+  const activeLeftHighlightId = computed(
+    () => pdfClickActiveItemId.value || activeLinkedHighlight.value?.id || activeLinkedItemId.value
+  )
 
   const activeLinkedLineRange = computed(() => {
     const current = activeLinkedHighlight.value
@@ -877,6 +902,10 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   }
 
   const onHoverLinkedItem = (itemId: string | null) => {
+    if (itemId) {
+      // 鼠标进入新框时解除"点击整节点锁定"，恢复精确 hover
+      pdfClickActiveItemId.value = null
+    }
     if (!itemId) {
       activeLinkedItemId.value = null
       activeLinkedHighlightOverrideId.value = null
@@ -891,13 +920,17 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     payload: string | LinkedHighlight,
     scrollPdfToHighlight?: (highlight: LinkedHighlight) => void,
   ) => {
-    const target = typeof payload === 'string'
-      ? resolveLinkedHighlight(payload, payload, options.isPdf.value ? options.pdfPage.value : null)
-      : payload
-    const fallbackId = typeof payload === 'string'
-      ? payload
-      : payload.itemId || payload.structuredItemId || null
-    applyResolvedHighlight(target, fallbackId)
+    let target: LinkedHighlight | null = null
+    if (typeof payload !== 'string') {
+      pdfClickActiveItemId.value = payload.itemId || null
+      // PDF 内点击：锁定到节点 id（不锁具体框），公式框+编号框等同一节点 bbox 一起高亮
+      activeLinkedItemId.value = payload.itemId || payload.structuredItemId || null
+      activeLinkedHighlightOverrideId.value = null
+      target = payload
+    } else {
+      target = resolveLinkedHighlight(payload, payload, options.isPdf.value ? options.pdfPage.value : null)
+      applyResolvedHighlight(target, payload)
+    }
     if (!target) return
     if (isDocumentPreviewActive.value && target.lineStart !== null && target.lineEnd !== null) {
       scrollRightByLine(target.lineStart)
@@ -913,8 +946,11 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   }
 
   const onSelectItemFromRight = (itemId: string) => {
+    pdfClickActiveItemId.value = itemId
     const target = resolveLinkedHighlight(itemId, itemId, null)
-    applyResolvedHighlight(target, itemId)
+    // 右侧树点击：同样锁定到节点 id，PDF 里整节点（公式框+编号框）一起高亮
+    activeLinkedItemId.value = itemId
+    activeLinkedHighlightOverrideId.value = null
     if (!target) return
     if (isDocumentPreviewActive.value && target.lineStart !== null && target.lineEnd !== null) {
       scrollRightByLine(target.lineStart)
@@ -941,6 +977,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   const resetLinkageState = () => {
     activeLinkedItemId.value = null
     activeLinkedHighlightOverrideId.value = null
+    pdfClickActiveItemId.value = null
   }
 
   watch(linkedHighlights, () => {
@@ -959,6 +996,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     linkedHighlights,
     activeLinkedItemId,
     activeLeftHighlightId,
+    pdfClickActiveItemId,
     activeLinkedLineRange,
     onHoverLinkedItem,
     onSelectHighlightFromLeft,
