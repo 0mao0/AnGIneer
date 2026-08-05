@@ -1,5 +1,6 @@
 """jsonl IO ???doc_blocks_graph.jsonl + meta ????? build_id?step04/05/07/API ????"""
 import json
+import os
 import re
 import uuid
 from datetime import datetime
@@ -46,16 +47,18 @@ def _stamp_markdown_build_id(path: Path, build_id: str) -> None:
     if not build_id or not path.exists():
         return
     header = f"<!-- build_id: {build_id} -->"
-    try:
-        content = path.read_text(encoding="utf-8")
-    except OSError:
-        return
+    # 读写失败直接抛出：静默失败会让 meta.json 与 content.md 的 build_id 永久分叉，
+    # 前端将一直显示“内容与图谱版本不一致”。由 _save_doc_blocks_graph 校验兜底。
+    content = path.read_text(encoding="utf-8")
     lines = content.splitlines()
     if lines and re.match(r"^<!--\s*build_id:", lines[0].strip()):
         lines[0] = header
     else:
         lines.insert(0, header)
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # 临时文件 + 原子替换：避免写一半时被读取到残缺 md，也减少 Windows 下占用冲突。
+    tmp_path = path.with_name(path.name + ".build_id.tmp")
+    tmp_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    os.replace(str(tmp_path), str(path))
 
 
 def new_or_reuse_build_id(library_id: str, doc_id: str) -> str:

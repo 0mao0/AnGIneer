@@ -22,6 +22,7 @@ import docs_core.paths as paths
 from docs_core.step04_structure.solo_engine import StructuredResult, build_structured_from_rawfiles
 from docs_core.step04_structure.shared.jsonl_io import (
     _stamp_markdown_build_id,
+    extract_build_id_from_markdown,
     new_or_reuse_build_id,
 )
 import docs_core.docs_file_io as _afs
@@ -68,6 +69,23 @@ def _save_doc_blocks_graph(
         for node in result.nodes:
             f.write(json.dumps(node, ensure_ascii=False) + "\n")
 
+    # 孪生产物一致性校验：盖章后 content.md 与 meta.json 的 build_id 必须一致，
+    # 否则前端会误报“内容与图谱版本不一致（build_id 不匹配）”并禁用高亮联动。
+    # 先盖章 md、再写 meta：盖章失败时不留下“meta 新、md 旧”的不一致配对。
+    md_path = paths.get_parsed_markdown_path(library_id, doc_id)
+    _stamp_markdown_build_id(md_path, build_id)
+    md_build_id = None
+    if md_path.exists():
+        try:
+            md_build_id = extract_build_id_from_markdown(md_path.read_text(encoding="utf-8"))
+        except OSError:
+            md_build_id = None
+    if md_build_id != build_id:
+        raise RuntimeError(
+            f"build_id 盖章失败：content.md 缺失或与 meta 不一致"
+            f"（meta={build_id}, md={md_build_id}），请检查 parsed/content.md 是否可写"
+        )
+
     meta_path = paths.get_graph_meta_path(library_id, doc_id)
     meta = {
         "edges": result.edges,
@@ -77,8 +95,6 @@ def _save_doc_blocks_graph(
     }
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
-
-    _stamp_markdown_build_id(paths.get_parsed_markdown_path(library_id, doc_id), build_id)
 
     return str(meta_path)
 
