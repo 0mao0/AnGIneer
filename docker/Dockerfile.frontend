@@ -3,6 +3,9 @@ FROM node:20-alpine AS builder
 
 RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
 
+# 国内服务器直连 npm 官方源不稳定，改用 npmmirror
+ENV npm_config_registry=https://registry.npmmirror.com
+
 WORKDIR /app
 
 ENV NODE_OPTIONS=--max-old-space-size=2048
