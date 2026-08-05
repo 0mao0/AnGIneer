@@ -1203,6 +1203,16 @@ def build_structured_from_rawfiles(
     derived_level_by_uid: dict[str, int] = {}
     active_equation_explain_uid: str | None = None
     active_equation_explain_page_idx: int | None = None
+    node_by_uid: dict[str, dict[str, Any]] = {}
+    formula_group: list[str] = []
+
+    def attach_explanation_to_group(paragraph_uid: str) -> None:
+        for group_uid in formula_group:
+            group_node = node_by_uid.get(group_uid)
+            if group_node is not None:
+                group_node.setdefault("explanation_uids", [])
+                if paragraph_uid not in group_node["explanation_uids"]:
+                    group_node["explanation_uids"].append(paragraph_uid)
     
     nodes: list[dict[str, Any]] = []
     edges: list[dict[str, Any]] = []
@@ -1328,6 +1338,7 @@ def build_structured_from_rawfiles(
                 active_equation_explain_uid = explain_uid
                 active_equation_explain_page_idx = row_page_idx
                 parent_uid = explain_uid
+                attach_explanation_to_group(row["block_uid"])
             elif (
                 active_equation_explain_uid
                 and active_equation_explain_page_idx == row_page_idx
@@ -1338,6 +1349,7 @@ def build_structured_from_rawfiles(
                 exp_conf = max(exp_conf, 0.72)
                 exp_by = "rule"
                 parent_uid = active_equation_explain_uid
+                attach_explanation_to_group(row["block_uid"])
             elif is_equation_explain_continuation(text):
                 recent_equation_uid = find_recent_equation_uid(rows, i)
                 if recent_equation_uid:
@@ -1348,6 +1360,7 @@ def build_structured_from_rawfiles(
                     exp_conf = max(exp_conf, 0.76)
                     exp_by = "rule"
                     parent_uid = recent_equation_uid
+                    attach_explanation_to_group(row["block_uid"])
                 else:
                     active_equation_explain_uid = None
                     active_equation_explain_page_idx = None
@@ -1357,6 +1370,10 @@ def build_structured_from_rawfiles(
         elif block_type in ("equation_interline", "title", "table", "image", "page_header", "page_number"):
             active_equation_explain_uid = None
             active_equation_explain_page_idx = None
+            if block_type == "equation_interline":
+                formula_group.append(row["block_uid"])
+            else:
+                formula_group = []
         
         if exp_conf > confidence:
             confidence = exp_conf
@@ -1489,6 +1506,7 @@ def build_structured_from_rawfiles(
                     "page_height": row.get("page_height"),
                 }
                 nodes.append(node)
+                node_by_uid[row["block_uid"]] = node
                 
                 index_row = {
                     "block_uid": row["block_uid"],
