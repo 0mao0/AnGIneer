@@ -6,6 +6,7 @@
 """
 
 import logging
+import re
 from typing import Any, Dict, List, Optional, Tuple
 
 logger = logging.getLogger(__name__)
@@ -91,6 +92,70 @@ def _absorb_contd(source: Dict[str, Any], target: Dict[str, Any]) -> None:
     target.pop("contd_target_id", None)
 
 
+def _split_table_rows(table_html: str) -> List[str]:
+    return re.findall(r"<tr\b.*?</tr>", table_html or "", flags=re.IGNORECASE | re.DOTALL)
+
+
+def _row_cell_texts(row_html: str) -> List[str]:
+    cells = re.findall(r"<t[dh]\b.*?</t[dh]>", row_html or "", flags=re.IGNORECASE | re.DOTALL)
+    texts: List[str] = []
+    for cell in cells:
+        text = re.sub(r"<[^>]+>", "", cell)
+        texts.append(re.sub(r"\s+", "", text))
+    return texts
+
+
+def _merge_table_html(source_html: str, target_html: str) -> str:
+    src_rows = _split_table_rows(source_html)
+    tgt_rows = _split_table_rows(target_html)
+    if not src_rows or not tgt_rows:
+        return source_html or target_html
+    header_texts = [_row_cell_texts(row) for row in src_rows]
+    drop = 0
+    while drop < len(tgt_rows) and drop < len(header_texts):
+        if _row_cell_texts(tgt_rows[drop]) != header_texts[drop]:
+            break
+        drop += 1
+    body = "".join(tgt_rows[drop:])
+    close_index = (source_html or "").lower().rfind("</table>")
+    if close_index >= 0:
+        return source_html[:close_index] + body + source_html[close_index:]
+    return source_html + body
+
+
+def _merge_table_content_json(
+    source_cj: Dict[str, Any], target_cj: Dict[str, Any], merged_html: str
+) -> Dict[str, Any]:
+    merged = dict(source_cj)
+    merged["html"] = merged_html
+    footnote_items = [
+        *(dict(item) for item in source_cj.get("table_footnote") or []),
+        *(dict(item) for item in target_cj.get("table_footnote") or []),
+    ]
+    if footnote_items:
+        merged["table_footnote"] = footnote_items
+        merged["table_footnote_bboxes"] = [
+            *(list(b) for b in source_cj.get("table_footnote_bboxes") or []),
+            *(list(b) for b in target_cj.get("table_footnote_bboxes") or []),
+        ]
+    return merged
+
+
+def _absorb_table(source: Dict[str, Any], target: Dict[str, Any]) -> None:
+    source_html = str(source.get("table_html") or "")
+    target_html = str(target.get("table_html") or "")
+    merged_html = _merge_table_html(source_html, target_html)
+    source["table_html"] = merged_html
+    source_cj = source.get("content_json") if isinstance(source.get("content_json"), dict) else {}
+    target_cj = target.get("content_json") if isinstance(target.get("content_json"), dict) else {}
+    source["content_json"] = _merge_table_content_json(source_cj, target_cj, merged_html)
+    source["footnote"] = _merge_contd_text(source.get("footnote"), target.get("footnote"))
+    source["page_bboxes"] = _merge_page_bboxes(source, target)
+    source["merged_from"] = _merge_merged_from(source, target)
+    source.pop("table_merge_id", None)
+    target.pop("table_merge_id", None)
+
+
 def _resequence_block_seq(nodes: List[Dict[str, Any]]) -> None:
     buckets: Dict[int, List[Dict[str, Any]]] = {}
     for node in nodes:
@@ -127,16 +192,21 @@ def merge_blocks(
         source = by_uid.get(source_uid)
         if source is None:
             continue
-        target_uid = source.get("contd_target_id")
+        kind = "contd" if source.get("contd_target_id") else "table_merge"
+        target_field = "contd_target_id" if kind == "contd" else "table_merge_id"
+        target_uid = source.get(target_field)
         if not target_uid:
             continue
         target = by_uid.get(str(target_uid))
         if target is None or str(target_uid) in removed:
-            stats["rejected_reasons"].append(f"contd 目标缺失: {source_uid} -> {target_uid}")
+            stats["rejected_reasons"].append(f"{kind} 目标缺失: {source_uid} -> {target_uid}")
             stats["rejected"] += 1
-            source.pop("contd_target_id", None)
+            source.pop(target_field, None)
             continue
-        _absorb_contd(source, target)
+        if kind == "contd":
+            _absorb_contd(source, target)
+        else:
+            _absorb_table(source, target)
         removed.add(str(target_uid))
         stats["applied"] += 1
 
