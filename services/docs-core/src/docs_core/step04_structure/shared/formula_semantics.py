@@ -7,11 +7,12 @@ graph node meta / derived_rows 的最终挂载点由后续统一投影确定。
 """
 import json
 import re
-from typing import Any, Dict, List, Optional, TYPE_CHECKING, TypedDict
+from typing import Any, Dict, List, Optional, Tuple, TYPE_CHECKING, TypedDict
+
+from docs_core.models.types import CanonicalBlock
 
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
-    from docs_core.models.types import CanonicalBlock
 
 
 FORMULA_NUMBER_RE = re.compile(r"[（(](\d+(?:\.\d+)*(?:-\d+)?)[）)]")
@@ -395,6 +396,107 @@ def enrich_blocks_formula_semantics(
     ]
 
 
+_NODE_TYPE_ALIASES = {
+    "equation": "formula",
+    "equation_interline": "formula",
+    "inline_formula": "formula",
+    "index": "toc",
+    "list": "list_item",
+}
+_CANONICAL_BLOCK_TYPES = {
+    "title", "paragraph", "list_item", "table", "table_caption", "figure",
+    "figure_caption", "header_footer", "footnote", "formula", "toc", "unknown",
+}
+
+
+def _node_to_canonical_block(node: Dict[str, Any]) -> CanonicalBlock:
+    block_type = _NODE_TYPE_ALIASES.get(
+        str(node.get("block_type") or ""), str(node.get("block_type") or "unknown")
+    )
+    if block_type not in _CANONICAL_BLOCK_TYPES:
+        block_type = "unknown"
+    return CanonicalBlock(
+        block_id=str(node.get("block_uid") or node.get("id") or ""),
+        doc_id="",
+        page_idx=int(node.get("page_idx") or 0),
+        block_type=block_type,
+        text=str(node.get("math_content") or node.get("plain_text") or ""),
+        text_clean=str(node.get("plain_text") or ""),
+        reading_order=int(node.get("block_seq") or 0),
+        section_path=str(node.get("title_path") or ""),
+    )
+
+
+def _resolve_explanation_lines(
+    node: Dict[str, Any],
+    block: CanonicalBlock,
+    ordered: List[CanonicalBlock],
+    nodes_by_uid: Dict[str, Dict[str, Any]],
+) -> List[str]:
+    linked = node.get("explanation_uids")
+    if isinstance(linked, list) and linked:
+        lines: List[str] = []
+        for uid in linked:
+            text = str(nodes_by_uid.get(str(uid), {}).get("plain_text") or "").strip()
+            if text:
+                lines.append(text)
+        if lines:
+            return lines
+    idx = ordered.index(block)
+    return collect_canonical_explanation_lines(block, ordered[idx + 1:])
+
+
+def enrich_graph_nodes_formula_semantics(
+    nodes: List[Dict[str, Any]],
+    *,
+    use_llm: bool = False,
+    llm_client: Optional["LLMClient"] = None,
+    llm_model: Optional[str] = None,
+) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    """04 建块后、落 jsonl 前调用：给公式节点计算并写入 formula_semantics。
+
+    解释段优先读节点 ``explanation_uids``（solo_engine 公式组关联产出），
+    缺失时回退到 section_path+邻近重定位。
+    """
+    stats: Dict[str, Any] = {"total_formulas": 0, "enriched": 0, "llm_status": "disabled"}
+    if not nodes:
+        return nodes, stats
+
+    nodes_by_uid = {str(n.get("block_uid") or n.get("id") or ""): n for n in nodes}
+    blocks = [_node_to_canonical_block(n) for n in nodes]
+    ordered = sorted(blocks, key=lambda b: (b.page_idx, b.reading_order))
+    formula_blocks = [b for b in ordered if b.block_type == "formula"]
+    stats["total_formulas"] = len(formula_blocks)
+    if not formula_blocks:
+        return nodes, stats
+
+    updated = [dict(n) for n in nodes]
+    updated_by_uid = {str(n.get("block_uid") or n.get("id") or ""): n for n in updated}
+    block_by_uid = {b.block_id: b for b in ordered}
+    statuses: List[str] = []
+
+    for block in formula_blocks:
+        node = nodes_by_uid.get(block.block_id) or {}
+        explanation_lines = _resolve_explanation_lines(node, block, ordered, nodes_by_uid)
+        contract = build_formula_representations(
+            formula_text=block.text,
+            explanation_lines=explanation_lines,
+            llm_client=llm_client,
+            llm_model=llm_model,
+            use_llm=use_llm,
+        )
+        updated_by_uid[block.block_id]["formula_semantics"] = contract
+        statuses.append(str(contract.get("llm_status") or "disabled"))
+        stats["enriched"] += 1
+
+    if statuses:
+        if any(s == "ok" for s in statuses):
+            stats["llm_status"] = "ok"
+        elif all(s == "not_needed" for s in statuses):
+            stats["llm_status"] = "not_needed"
+    return updated, stats
+
+
 __all__ = [
     "FormulaParamContract",
     "FormulaSemanticsContract",
@@ -403,6 +505,7 @@ __all__ = [
     "collect_canonical_explanation_lines",
     "enrich_blocks_formula_semantics",
     "enrich_formula_block",
+    "enrich_graph_nodes_formula_semantics",
     "extract_formula_number",
     "extract_formula_reference_hint",
     "extract_formula_unit",
