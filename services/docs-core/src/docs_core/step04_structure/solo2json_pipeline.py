@@ -110,6 +110,7 @@ def _apply_popo_signals(
         _emit_step(on_step, "PoPo 结果读取", "skipped", "无 enriched_blocks.json")
         return nodes, {
             "injection": {"skipped_reason": "no_popo"},
+            "heuristic": {"applied": 0, "skipped": 0, "skipped_reason": "no_popo"},
             "merge": {"applied": 0, "rejected": 0, "skipped_reason": "no_popo"},
             "level_fusion": {"skipped_reason": "no_popo"},
         }
@@ -118,6 +119,7 @@ def _apply_popo_signals(
         _emit_step(on_step, "PoPo 结果读取", "failed", "缺少 middle.json")
         return nodes, {
             "injection": {"skipped_reason": "no_middle"},
+            "heuristic": {"applied": 0, "skipped": 0, "skipped_reason": "no_middle"},
             "merge": {"applied": 0, "rejected": 0, "skipped_reason": "no_middle"},
             "level_fusion": {"skipped_reason": "no_middle"},
         }
@@ -137,7 +139,12 @@ def _apply_popo_signals(
                 alignment.reasons[:3],
             )
             skipped = {"applied": 0, "rejected": 0, "skipped_reason": "alignment_degraded"}
-            return nodes, {"injection": skipped, "merge": skipped, "level_fusion": skipped}
+            return nodes, {
+                "injection": skipped,
+                "heuristic": {"applied": 0, "skipped": 0, "skipped_reason": "alignment_degraded"},
+                "merge": skipped,
+                "level_fusion": skipped,
+            }
         _emit_step(
             on_step,
             "popo 结果对齐检查",
@@ -152,6 +159,27 @@ def _apply_popo_signals(
             "PoPo 信号注入",
             "done" if injected > 0 or rejected == 0 else "failed",
             f"applied {injected}, rejected {rejected}",
+        )
+        from docs_core.step04_structure.popo.popo_table_continuation import detect_table_continuations
+
+        nodes_by_uid = {
+            str(node.get("block_uid") or node.get("id") or ""): node
+            for node in nodes
+        }
+        heuristic_applied = 0
+        heuristic_skipped = 0
+        for instruction in detect_table_continuations(nodes, doc_id=doc_id):
+            source = nodes_by_uid.get(instruction["source_uid"])
+            if source is None or source.get("table_merge_id"):
+                heuristic_skipped += 1
+                continue
+            source["table_merge_id"] = instruction["target_uid"]
+            heuristic_applied += 1
+        _emit_step(
+            on_step,
+            "续表启发式检测",
+            "done",
+            f"applied {heuristic_applied}, skipped {heuristic_skipped}",
         )
         nodes, merge_stats = merge_blocks(doc_id, nodes, edges=edges)
         merged = int(merge_stats.get("applied") or 0)
@@ -182,12 +210,22 @@ def _apply_popo_signals(
             f"{fuse_stats.get('total_titles', 0)} titles, "
             f"consistent {fuse_stats.get('consistent', 0)}, disputed {fuse_stats.get('disputed', 0)}",
         )
-        return nodes, {"injection": inject_stats, "merge": merge_stats, "level_fusion": fuse_stats}
+        return nodes, {
+            "injection": inject_stats,
+            "heuristic": {"applied": heuristic_applied, "skipped": heuristic_skipped},
+            "merge": merge_stats,
+            "level_fusion": fuse_stats,
+        }
     except Exception as exc:
         _emit_step(on_step, "PoPo 信号处理", "failed", f"{type(exc).__name__}: {str(exc)[:120]}")
         logger.warning("PoPo 信号注入异常，跳过: doc=%s error=%s", doc_id, exc)
         skipped = {"applied": 0, "rejected": 0, "skipped_reason": f"error:{type(exc).__name__}"}
-        return nodes, {"injection": skipped, "merge": skipped, "level_fusion": skipped}
+        return nodes, {
+            "injection": skipped,
+            "heuristic": {"applied": 0, "skipped": 0, "skipped_reason": f"error:{type(exc).__name__}"},
+            "merge": skipped,
+            "level_fusion": skipped,
+        }
 
 
 # 标题层级 LLM 复核（无论有无 PoPo 信号都执行）：
