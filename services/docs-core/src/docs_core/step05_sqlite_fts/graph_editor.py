@@ -743,6 +743,35 @@ def _sync_structured_segments_after_node_update(
     return get_index_store().save_document_segments(doc_id, library_id, "doc_blocks_graph_v1", updated_items)
 
 
+# 内容类字段 → corrected 并列字段映射：编辑/修正只写 corrected，原始字段永不修改
+_CONTENT_CORRECTED_FIELDS = {
+    "plain_text": "plain_text_corrected",
+    "math_content": "math_content_corrected",
+    "table_html": "table_html_corrected",
+    "caption": "caption_corrected",
+    "footnote": "footnote_corrected",
+}
+
+
+def _apply_content_corrected_edits(
+    node: Dict[str, Any],
+    changes: Dict[str, Any],
+    *,
+    corrected_by: str = "user",
+    now: Optional[str] = None,
+) -> List[str]:
+    """内容类编辑一律写入 <field>_corrected 并列字段，原始字段永不修改。"""
+    applied: List[str] = []
+    for source_key, corrected_key in _CONTENT_CORRECTED_FIELDS.items():
+        if source_key in changes:
+            node[corrected_key] = changes.get(source_key)
+            applied.append(corrected_key)
+    if applied:
+        node["corrected_by"] = corrected_by
+        node["corrected_at"] = now or datetime.now().isoformat()
+    return applied
+
+
 def _invalidate_edited_formula_semantics(
     graph_data: Dict[str, Any],
     snapshot_before: Dict[str, Any],
@@ -1465,13 +1494,11 @@ def update_doc_block_content(
         parent_level = parent_node.get("derived_level") if parent_node else None
         target_node["derived_level"] = int(parent_level) + 1 if parent_level is not None else 1
 
-    for key in ("plain_text", "math_content", "table_html", "caption", "footnote"):
-        if key in normalized_changes:
-            target_node[key] = normalized_changes.get(key)
+    _apply_content_corrected_edits(target_node, normalized_changes)
     if "title" in normalized_changes:
         target_node["title_path"] = normalized_changes.get("title")
         if not str(target_node.get("plain_text") or "").strip():
-            target_node["plain_text"] = normalized_changes.get("title")
+            target_node["plain_text_corrected"] = normalized_changes.get("title")
 
     merge_target_uid = _normalize_block_uid(normalized_changes.get("merge_into_block_uid"))
     if merge_target_uid:
