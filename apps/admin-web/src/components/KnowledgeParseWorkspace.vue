@@ -774,22 +774,37 @@ const loadDocContent = async (docId: string) => {
 }
 
 const loadGraphSummary = async (docId: string) => {
+  // 解析进行中，structure 阶段存在“先写 meta、后盖章 md”的短暂窗口，
+  // 期间 md 与 meta 的 build_id 会瞬时不一致。先短重试再判定，避免误禁高亮联动。
+  const MISMATCH_MAX_RETRIES = 3
+  const MISMATCH_RETRY_DELAY_MS = 800
   try {
     graphDataLoading.value = true
-    // 高亮依赖节点 bbox，必须加载完整图（summary 会剥离 bbox）
-    const result = await props.api.getDocBlocksGraph('default', docId) as any
-    graphBuildId.value = result?.build_id || null
-    // 孪生产物一致性校验：md 与 graph 的 build_id 都存在且不一致时禁用高亮
-    if (
-      docContentBuildId.value &&
-      graphBuildId.value &&
-      docContentBuildId.value !== graphBuildId.value
-    ) {
-      buildIdMismatch.value = true
-      graphData.value = null
+    for (let attempt = 0; attempt < MISMATCH_MAX_RETRIES; attempt++) {
+      // 高亮依赖节点 bbox，必须加载完整图（summary 会剥离 bbox）
+      const result = await props.api.getDocBlocksGraph('default', docId) as any
+      if (selectedNode.value?.key !== docId) {
+        // 重试间隙用户已切换文档，丢弃本次结果
+        return
+      }
+      graphBuildId.value = result?.build_id || null
+      // 孪生产物一致性校验：md 与 graph 的 build_id 都存在且不一致时禁用高亮
+      if (
+        docContentBuildId.value &&
+        graphBuildId.value &&
+        docContentBuildId.value !== graphBuildId.value
+      ) {
+        if (attempt < MISMATCH_MAX_RETRIES - 1) {
+          await new Promise((resolve) => setTimeout(resolve, MISMATCH_RETRY_DELAY_MS))
+          continue
+        }
+        buildIdMismatch.value = true
+        graphData.value = null
+        return
+      }
+      graphData.value = result?.data || null
       return
     }
-    graphData.value = result?.data || null
   } catch {
     graphData.value = null
     buildIdMismatch.value = false
