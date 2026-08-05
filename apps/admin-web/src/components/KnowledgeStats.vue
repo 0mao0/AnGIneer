@@ -65,9 +65,16 @@
             <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
             <a-divider type="vertical" />
             <a-button type="link" size="small" @click="viewDetail(record)">结果</a-button>
-            <template v-if="!RUNNING_STATUSES.has(record.status) && record.status !== 'deleted'">
+            <template v-if="record.status !== 'deleted'">
               <a-divider type="vertical" />
-              <a-button type="link" size="small" @click="restartTask(record)">重新解析</a-button>
+              <a-button
+                v-if="RUNNING_STATUSES.has(record.status)"
+                type="link"
+                size="small"
+                danger
+                @click="stopTask(record)"
+              >取消</a-button>
+              <a-button v-else type="link" size="small" @click="restartTask(record)">解析</a-button>
             </template>
             <a-divider type="vertical" />
             <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
@@ -344,22 +351,22 @@ function toggleDeletedFilter(checked: boolean) {
 async function stopTask(record: ParseRecordItem) {
   try {
     const res = await knowledgeApi.cancelParseTask(record.task_id) as any
-    message.success(res?.message || '已停止')
+    message.success(res?.message || '已取消')
     await loadRecords()
   } catch (e: any) {
-    message.error('停止失败: ' + (e.message || e))
+    message.error('取消失败: ' + (e.message || e))
   }
 }
 
 async function restartTask(record: ParseRecordItem) {
   try {
     await knowledgeApi.retryParseTask(record.doc_id)
-    message.success('已重启')
+    message.success('已开始解析')
     // 清空阶段抽屉的旧状态（含子阶段/文件核查），避免展示上一次解析的残留
     currentStages.value = []
     await loadRecords()
   } catch (e: any) {
-    message.error('重启失败: ' + (e.message || e))
+    message.error('解析失败: ' + (e.message || e))
   }
 }
 
