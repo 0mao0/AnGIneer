@@ -817,7 +817,7 @@ defineExpose({
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--bg-primary);
+  background: var(--chat-root-bg, var(--bg-primary));
 }
 
 .chat-header {
@@ -825,7 +825,7 @@ defineExpose({
   align-items: center;
   padding: 12px 16px;
   border-bottom: 1px solid var(--border-color);
-  background: var(--panel-header-bg);
+  background: var(--chat-root-bg, var(--panel-header-bg));
   font-weight: 500;
   font-size: 14px;
   color: var(--text-primary);
@@ -861,7 +861,7 @@ defineExpose({
   flex: 1;
   overflow-y: auto;
   padding: 16px;
-  background: var(--bg-primary);
+  background: var(--chat-root-bg, var(--bg-primary));
 
   .message {
     margin-bottom: 16px;

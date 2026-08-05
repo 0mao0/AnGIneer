@@ -3,8 +3,6 @@
     <!-- ???? -->
     <div v-if="activeView === 'list'" class="knowledge-list-view">
       <KnowledgeStats
-        :active-view="activeView"
-        @update:active-view="activeView = $event"
       />
     </div>
 
@@ -12,9 +10,7 @@
     <KnowledgeParseWorkspace
       v-else
       :api="knowledgeApi"
-      :active-view="activeView"
       :dark="isDark"
-      @update:active-view="activeView = $event"
     />
   </div>
 </template>
@@ -25,7 +21,7 @@
  * ???? + ??????????????????? KnowledgeParseWorkspace ??
  * ?? Vue3 ???? KnowledgeApiPort ?????????
  */
-import { ref } from 'vue'
+import { inject, ref, type Ref } from 'vue'
 import { useTheme } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
 import KnowledgeStats from '@/components/KnowledgeStats.vue'
@@ -33,7 +29,8 @@ import KnowledgeParseWorkspace from '@/components/KnowledgeParseWorkspace.vue'
 
 const { appClass, isDark } = useTheme()
 
-const activeView = ref<'list' | 'parse'>('list')
+/** 视图状态由 App.vue 头部统一持有（provide/inject） */
+const activeView = inject<Ref<'list' | 'parse'>>('knowledgeView') ?? ref<'list' | 'parse'>('list')
 </script>
 
 <style lang="less" scoped>

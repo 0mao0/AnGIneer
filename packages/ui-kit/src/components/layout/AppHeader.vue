@@ -1,8 +1,8 @@
 <template>
   <div class="app-header" :class="appClass">
     <div class="header-left">
-      <div class="app-logo" @click="handleLogoClick" :class="{ clickable: logoClickable }">
-        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="app-logo" @click="handleLogoClick" :class="{ clickable: logoClickable, 'is-admin': layout === 'admin' }">
+        <svg v-if="layout !== 'admin'" class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"
             fill="url(#gradient)"
@@ -14,9 +14,44 @@
             </linearGradient>
           </defs>
         </svg>
-        <span class="app-name">AnGIneer</span>
-        <span v-if="version" class="app-version">v{{ version }}</span>
+        <div class="app-identity">
+          <span class="app-name">AnGIneer</span>
+          <span v-if="version" class="app-version">v{{ version }}</span>
+        </div>
       </div>
+
+      <template v-if="layout === 'admin' && moduleItems.length">
+        <a-dropdown :trigger="['click']">
+          <a-button type="text" class="module-switcher">
+            {{ activeModuleLabel }}
+            <DownOutlined />
+          </a-button>
+          <template #overlay>
+            <a-menu @click="(e: any) => $emit('module-click', e.key)">
+              <a-menu-item
+                v-for="item in moduleItems"
+                :key="item.key"
+                :class="{ 'ant-dropdown-menu-item-selected': activeModule === item.key }"
+              >
+                {{ item.label }}
+              </a-menu-item>
+            </a-menu>
+          </template>
+        </a-dropdown>
+
+        <a-radio-group
+          v-if="viewItems.length"
+          :value="activeView"
+          button-style="solid"
+          size="small"
+          class="view-switch"
+          @change="(e: any) => $emit('view-change', e.target.value)"
+        >
+          <a-radio-button v-for="item in viewItems" :key="item.key" :value="item.key">
+            {{ item.label }}
+          </a-radio-button>
+        </a-radio-group>
+      </template>
 
       <a-button v-if="showHome && !showHomeInRight" type="text" class="home-btn" @click="$emit('home-click')" title="返回前台">
         <HomeOutlined />
@@ -54,7 +89,7 @@
 
     <div class="header-right">
       <a-space :size="4">
-        <div v-if="navItems.length" class="nav-tabs">
+        <div v-if="layout !== 'admin' && navItems.length" class="nav-tabs">
           <template v-for="item in navItems" :key="item.key">
             <a-dropdown v-if="item.children?.length" :trigger="['hover']">
               <a-button
@@ -109,7 +144,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, watch } from 'vue'
+import { ref, nextTick, watch, computed } from 'vue'
 import {
   SettingOutlined,
   UserOutlined,
@@ -127,11 +162,21 @@ export interface NavItem {
   children?: NavItem[]
 }
 
+export interface ViewItem {
+  key: string
+  label: string
+}
+
 interface Props {
   projectName?: string
   version?: string
   navItems?: NavItem[]
   activeNav?: string
+  layout?: 'default' | 'admin'
+  moduleItems?: NavItem[]
+  activeModule?: string
+  viewItems?: ViewItem[]
+  activeView?: string
   centerTitle?: string
   showAdmin?: boolean
   showHome?: boolean
@@ -147,6 +192,11 @@ const props = withDefaults(defineProps<Props>(), {
   version: '',
   navItems: () => [],
   activeNav: '',
+  layout: 'default',
+  moduleItems: () => [],
+  activeModule: '',
+  viewItems: () => [],
+  activeView: '',
   centerTitle: '',
   showAdmin: false,
   showHome: false,
@@ -159,12 +209,20 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   'nav-click': [key: string]
+  'module-click': [key: string]
+  'view-change': [key: string]
   'admin-click': []
   'home-click': []
   'settings-click': []
   'logo-click': []
   'update:projectName': [value: string]
 }>()
+
+/** admin 布局：模块下拉 trigger 显示当前模块名 */
+const activeModuleLabel = computed(() => {
+  const item = props.moduleItems.find(i => i.key === props.activeModule)
+  return item?.label || props.activeModule || ''
+})
 
 const { isDark, appClass, toggleTheme: doToggleTheme } = useTheme()
 
@@ -249,6 +307,12 @@ const cancelEdit = () => {
     height: 28px;
   }
 
+  .app-identity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .app-name {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--brand-gradient-end, #764ba2) 100%);
     -webkit-background-clip: text;
@@ -263,6 +327,38 @@ const cancelEdit = () => {
     letter-spacing: 0;
     transform: translateY(1px);
   }
+
+  &.is-admin {
+    .app-identity {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      line-height: 1.15;
+    }
+
+    .app-name {
+      font-size: 16px;
+    }
+
+    .app-version {
+      font-size: 10px;
+      transform: none;
+    }
+  }
+}
+
+.module-switcher {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+
+  &:hover {
+    color: var(--primary-color) !important;
+  }
+}
+
+.view-switch {
+  margin-left: 4px;
 }
 
 .project-name {

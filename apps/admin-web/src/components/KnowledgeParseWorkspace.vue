@@ -1,14 +1,5 @@
 <template>
     <div ref="workspaceRef" class="knowledge-parse-view">
-      <div class="parse-toolbar">
-        <div class="parse-toolbar-left">
-          <h2>知识库</h2>
-          <a-radio-group :value="activeView" button-style="solid" size="small" @change="onActiveViewChange">
-            <a-radio-button value="list">列表</a-radio-button>
-            <a-radio-button value="parse">解析</a-radio-button>
-          </a-radio-group>
-        </div>
-      </div>
       <!-- 使用 SplitPanes 三栏布局组件 - 比例 1.5:6:2.5 -->
     <SplitPanes
       ref="splitPanesRef"
@@ -395,22 +386,12 @@ import DocDetailModal from '../views/components/DocDetailModal.vue'
 
 interface Props {
   api: KnowledgeApiPort
-  activeView?: 'list' | 'parse'
   dark?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  activeView: 'parse',
   dark: false
 })
-
-const emit = defineEmits<{
-  'update:activeView': [view: 'list' | 'parse']
-}>()
-
-const onActiveViewChange = (e: any) => {
-  emit('update:activeView', e.target.value)
-}
 
 const isDark = computed(() => props.dark)
 const route = useRoute()
@@ -1253,29 +1234,22 @@ onBeforeUnmount(() => {
   overflow: hidden;
 }
 
-.parse-toolbar {
-  flex: 0 0 auto;
-  padding: 16px 16px 8px;
-  border-bottom: 1px solid var(--border-color, #f0f0f0);
-  display: flex;
-  align-items: center;
-  h2 {
-    margin: 0;
-    font-size: 18px;
-    color: var(--text-primary);
-  }
-}
-.parse-toolbar-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .knowledge-parse-view {
   flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
+
+  // 三栏 Panel header：背景与内容区统一，下边线用灰色分隔
+  :deep(.panel-header) {
+    background: var(--panel-bg);
+    border-bottom: 1px solid var(--panel-header-divider, var(--border-color));
+  }
+
+  // 左侧知识树区域：暗色下用纯黑（SmartTree 本身透明，背景由容器承载）
+  :deep(.tree-panel-content) {
+    background: var(--tree-bg, var(--panel-bg));
+  }
 }
 
 .workspace-container {

@@ -3,15 +3,22 @@
     <a-app>
       <div class="app-container" :class="appClass">
         <AppHeader
+          layout="admin"
           :version="appVersion"
           :nav-items="navItems"
           :active-nav="activeNav"
+          :module-items="navItems"
+          :active-module="activeNav"
+          :view-items="viewItems"
+          :active-view="knowledgeView"
           :show-home="true"
           :show-home-in-right="true"
           :show-settings="true"
           logo-clickable
           @home-click="confirmGoToFrontend"
           @logo-click="confirmGoToFrontend"
+          @module-click="handleNavClick"
+          @view-change="handleViewChange"
           @nav-click="handleNavClick"
           @settings-click="openSettings"
         />
@@ -28,7 +35,7 @@
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { Modal } from 'ant-design-vue'
 import { useRouter, useRoute } from 'vue-router'
-import { computed } from 'vue'
+import { computed, provide, ref } from 'vue'
 import { AppHeader, useTheme, type NavItem } from '@angineer/ui-kit'
 import { WEB_CONSOLE_ORIGIN } from '../../shared/ports'
 
@@ -36,6 +43,20 @@ const router = useRouter()
 const route = useRoute()
 const { themeConfig, appClass } = useTheme()
 const appVersion = import.meta.env.VITE_APP_VERSION || ''
+
+/** 知识库视图状态（列表|解析）：由头部统一控制 */
+const knowledgeView = ref<'list' | 'parse'>('list')
+provide('knowledgeView', knowledgeView)
+
+/** 当前模块为知识库时才显示视图切换（列表|解析） */
+const viewItems = computed(() =>
+  activeNav.value === 'knowledge'
+    ? [
+        { key: 'list', label: '列表' },
+        { key: 'parse', label: '解析' }
+      ]
+    : []
+)
 
 /** 获取前台首页地址（开发环境用独立端口，生产环境同源） */
 const webConsoleHref = import.meta.env.DEV ? WEB_CONSOLE_ORIGIN : '/'
@@ -72,6 +93,13 @@ const handleNavClick = (key: string) => {
   const path = routeMap[key]
   if (path) {
     router.push(path)
+  }
+}
+
+/** 知识库视图切换 */
+const handleViewChange = (key: string) => {
+  if (key === 'list' || key === 'parse') {
+    knowledgeView.value = key
   }
 }
 
