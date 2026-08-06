@@ -7,8 +7,8 @@
 - ParseOrchestrator：创建/取消/重试解析任务，在后台线程驱动本管线并同步状态。
 """
 import logging
+import itertools
 import os
-import queue
 import shutil
 import subprocess
 import threading
@@ -66,6 +66,7 @@ class StageContext:
     stage_key: Optional[str] = None
     steps: List[Dict[str, Any]] = field(default_factory=list)
     sync_record: Optional[Callable[[str, str, str], None]] = None
+    arrival_seq: int = 1
 
     def log_step(self, step: str, status: str = "done", detail: str = "") -> None:
         """记录阶段内分析步骤（如产物落盘 / 对齐检查 / 信号注入），立即持久化供前端展示。"""
@@ -225,9 +226,9 @@ def _run_raw_parse(ctx: StageContext) -> str:
         except Exception as exc:
             logger.warning("解析状态同步失败 task=%s: %s", ctx.task_id, exc)
 
-    if _MINERU_GPU_GATE.available == 0:
+    if _MINERU_GPU_GATE.should_wait(ctx.arrival_seq):
         _mark_queued()
-    with mineru_gpu_slot(ctx.cancel_check):
+    with mineru_gpu_slot(ctx.cancel_check, arrival_seq=ctx.arrival_seq):
         _mark_parsing()
         try:
             # 解析器自建临时目录并负责落盘（save_markdown + save_parse_artifacts）
@@ -392,36 +393,70 @@ def _run_fts(ctx: StageContext) -> str:
 
 # ---- MinerU/GPU 并发闸门：同一时刻最多一个 MinerU 任务占用 GPU ----
 class _FifoGpuGate:
-    """进程级 FIFO GPU 闸门：基于 queue.Queue 令牌，先来先服务。"""
+    """进程级 FIFO GPU 闸门：按提交序号（arrival_seq）严格先来先服务。
+
+    即使 GPU 空闲，序号靠后的任务也必须等序号靠前的任务先获得（或排队期间
+    被取消并让位），确保“谁先提交谁先用资源”，不受前序阶段（source_prep /
+    convert）完成速度影响。排队期间被取消的序号会被跳过，避免后续任务永久等待。
+    """
 
     def __init__(self, max_concurrency: int = 1) -> None:
         self._max_concurrency = max(1, int(max_concurrency))
-        self._tokens: "queue.Queue[None]" = queue.Queue(maxsize=self._max_concurrency)
-        for _ in range(self._max_concurrency):
-            self._tokens.put(None)
+        self._cond = threading.Condition()
+        self._tokens = self._max_concurrency
+        self._next_seq = 1
+        self._cancelled_seqs: set[int] = set()
 
     @property
     def available(self) -> int:
-        """当前空闲令牌数（仅用于排队提示，qsize 为近似值）。"""
-        return self._tokens.qsize()
+        """当前空闲令牌数（仅用于排队提示）。"""
+        with self._cond:
+            return self._tokens
+
+    def _skip_cancelled_locked(self) -> None:
+        """跳过排队期间被取消的序号，避免后续任务永久等待。"""
+        while self._next_seq in self._cancelled_seqs:
+            self._cancelled_seqs.discard(self._next_seq)
+            self._next_seq += 1
+
+    def should_wait(self, seq: int) -> bool:
+        """该序号是否还需要排队（用于 queued 状态提示）。"""
+        with self._cond:
+            return seq != self._next_seq or self._tokens <= 0
 
     def acquire(
         self,
+        seq: int,
         cancel_check: Optional[Callable[[], None]] = None,
         poll_interval: float = 0.5,
     ) -> None:
-        """阻塞直到拿到令牌；等待期间按 poll_interval 轮询取消标志。"""
-        while True:
-            if cancel_check is not None:
-                cancel_check()  # 取消时抛 ParseTaskCancelledError，不消费令牌
-            try:
-                self._tokens.get(timeout=poll_interval)
-                return
-            except queue.Empty:
-                continue
+        """按提交序号阻塞等待令牌；等待期间按 poll_interval 轮询取消标志。"""
+        with self._cond:
+            while True:
+                if seq < self._next_seq:
+                    # 序号已被跳过（排队期间被取消/让位）
+                    raise ParseTaskCancelledError("任务在 GPU 排队期间被取消")
+                if seq == self._next_seq and self._tokens > 0:
+                    self._tokens -= 1
+                    self._next_seq += 1
+                    self._skip_cancelled_locked()
+                    self._cond.notify_all()
+                    return
+                if cancel_check is not None:
+                    try:
+                        cancel_check()  # 取消时抛 ParseTaskCancelledError，不消费令牌
+                    except BaseException:
+                        # 排队期间被取消：登记序号并让位给后续任务
+                        self._cancelled_seqs.add(seq)
+                        self._skip_cancelled_locked()
+                        self._cond.notify_all()
+                        raise
+                self._cond.wait(poll_interval)
 
     def release(self) -> None:
-        self._tokens.put(None)
+        with self._cond:
+            self._tokens += 1
+            self._cond.notify_all()
 
 
 _MINERU_MAX_CONCURRENCY = 1
@@ -436,9 +471,12 @@ _MINERU_GPU_GATE = _FifoGpuGate(_MINERU_MAX_CONCURRENCY)
 
 
 @contextmanager
-def mineru_gpu_slot(cancel_check: Optional[Callable[[], None]] = None):
-    """MinerU 任务占用的 GPU 槽位：进入 raw_parse 前获取，解析结束后释放。"""
-    _MINERU_GPU_GATE.acquire(cancel_check)
+def mineru_gpu_slot(
+    cancel_check: Optional[Callable[[], None]] = None,
+    arrival_seq: int = 1,
+):
+    """MinerU 任务占用的 GPU 槽位：按提交序号先来先服务，进入 raw_parse 前获取。"""
+    _MINERU_GPU_GATE.acquire(arrival_seq, cancel_check)
     try:
         yield
     finally:
@@ -644,6 +682,7 @@ class ParseOrchestrator:
         self._parsers: Dict[str, MinerUParser] = {}
         self._cancelled: set = set()
         self._record_updater = record_updater
+        self._arrival_counter = itertools.count(1)
 
     def _sync_record(self, task_id: str, doc_id: str, status: str, error: Optional[str] = None) -> None:
         """把任务状态同步到解析记录表（由 API 层注入的实现负责）。"""
@@ -671,6 +710,7 @@ class ParseOrchestrator:
         ks = get_docs_service()
         task_id = f"parse-{uuid.uuid4().hex[:12]}"
         task = ks.create_parse_task(task_id, library_id, doc_id)
+        arrival_seq = next(self._arrival_counter)
         ks.update_node(
             doc_id,
             status="processing",
@@ -684,7 +724,7 @@ class ParseOrchestrator:
 
         worker = threading.Thread(
             target=self._run_parse_task,
-            args=(task_id, library_id, doc_id, file_path, parse_options or {}),
+            args=(task_id, library_id, doc_id, file_path, parse_options or {}, arrival_seq),
             daemon=True,
             name=f"parse-task-{task_id}",
         )
@@ -757,6 +797,7 @@ class ParseOrchestrator:
         doc_id: str,
         file_path: str,
         parse_options: Dict[str, Any],
+        arrival_seq: int = 1,
     ) -> None:
         """在后台执行文档解析：驱动阶段化管线并同步总体状态。"""
         ks = get_docs_service()
@@ -776,6 +817,7 @@ class ParseOrchestrator:
             task_id=task_id, library_id=library_id, doc_id=doc_id,
             file_path=file_path, parse_options=parse_options,
             task_parser=self._parsers.get(task_id),
+            arrival_seq=arrival_seq,
         )
         ctx.sync_record = self._sync_record
 
