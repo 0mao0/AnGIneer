@@ -40,6 +40,8 @@ def _build_content_json(block: CanonicalBlock) -> Dict[str, Any]:
             payload["formula_body"] = block.formula_semantics.get("formula_body")
     if block.raw_type:
         payload["raw_type"] = block.raw_type
+    payload["document_part"] = block.document_part
+    payload["page_role"] = block.page_role
     return payload
 
 

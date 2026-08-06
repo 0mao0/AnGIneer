@@ -139,6 +139,8 @@ def adapt_graph_node(raw_node: dict[str, Any], index: int, section_path: str) ->
         "bbox": _coerce_bbox(raw_node.get("bbox")),
         "table_html": raw_node.get("table_html"),
         "raw_type": raw_node.get("raw_type"),
+        "document_part": raw_node.get("document_part"),
+        "page_role": raw_node.get("page_role"),
         "formula_semantics": raw_node.get("formula_semantics"),
         "table_semantics": raw_node.get("table_semantics"),
         "page_bboxes": raw_node.get("page_bboxes"),
