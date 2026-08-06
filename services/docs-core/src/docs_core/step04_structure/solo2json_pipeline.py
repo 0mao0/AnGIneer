@@ -74,6 +74,10 @@ def _save_doc_blocks_graph(
     # 先盖章 md、再写 meta：盖章失败时不留下“meta 新、md 旧”的不一致配对。
     md_path = paths.get_parsed_markdown_path(library_id, doc_id)
     _stamp_markdown_build_id(md_path, build_id)
+    # edited/current.md 存在时（read_markdown 优先读它）同样盖章，否则前端会一直
+    # 读到旧 build_id，误报“内容与图谱版本不一致”并禁用高亮联动。
+    edited_md_path = paths.get_edited_markdown_path(library_id, doc_id)
+    _stamp_markdown_build_id(edited_md_path, build_id)
     md_build_id = None
     if md_path.exists():
         try:
