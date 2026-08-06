@@ -42,7 +42,6 @@ src/
 │  │  ├─ Preview_IndexList.vue
 │  │  ├─ Preview_IndexTree.vue
 │  │  ├─ Preview_IndexGraph.vue
-│  │  ├─ DocBlocksTreeNode.vue
 │  │  ├─ SmartTree.vue
 │  │  ├─ SOPTree.vue
 │  └─ index.ts
@@ -142,9 +141,8 @@ src/
 | `Preview_HTML.vue` | HTML 预览（可行选中） | `select-line` | 被 `PDFParsedViewerCombo` 使用 |
 | `Preview_Markdown.vue` | Markdown 编辑/预览 | `update:editableContent` `select-line` | 被 `PDFParsedViewerCombo` 使用 |
 | `Preview_IndexList.vue` | 索引列表视图 | `hover-item` `select-item` `page-change` | 被 `PDFParsedViewerCombo` 使用 |
-| `Preview_IndexTree.vue` | 索引树视图 | `toggle` `select` | 内聚树容器逻辑（使用 `DocBlocksTreeNode` 递归） |
+| `Preview_IndexTree.vue` | 索引树视图 | `toggle` `select` `edit` `toggle-check` `context-action` | 虚拟滚动树容器（原 `IndexTreeFlatRow` 行渲染已并入） |
 | `Preview_IndexGraph.vue` | 索引图视图 | `toggle` `select` `update-viewport` | 内聚图算法+交互（已合并原 `DocBlocksGraph`） |
-| `DocBlocksTreeNode.vue` | 树节点渲染 | `toggle` `select` | 被 `Preview_IndexTree` 递归调用 |
 | `SmartTree.vue` | 通用资源树组件 | `select` `rename` `add-folder` `add-file` `delete` `view` `drop` `search` `file-drop` `drop-invalid` `drop-root` | `types/tree` |
 | `SOPTree.vue` | 经验库语义树组件 | `select` `view` `search` | `useSopTree` |
 
@@ -297,7 +295,7 @@ src/
 
 ### 10.1 出口文件
 - `src/index.ts`：聚合导出 components/composables/types/utils
-- `src/components/index.ts`：导出 `SmartTree` `KnowledgeTree` `SOPTree` `PDFParsedWorkspace` `DocBlocksTreeNode`
+- `src/components/index.ts`：导出 `SmartTree` `KnowledgeTree` `PDFParsedWorkspace` `PDFParsedViewerCombo` `PDF_Viewer` `Preview_Markdown` `Preview_HTML`
 - `src/composables/index.ts`：导出全部 composables 及关键类型
 - `src/types/index.ts`：导出所有契约类型
 - `src/utils/index.ts`：导出工具函数
@@ -336,9 +334,8 @@ src/
 | `Preview_HTML.vue` | 无项目外部 TS（仅 Vue） | `select-line` | A 层纯展示 |
 | `Preview_Markdown.vue` | 无项目外部 TS（仅 Vue） | `update:editableContent` `select-line` | A 层纯展示 |
 | `Preview_IndexList.vue` | `StructuredIndexItem` `DocBlockNode`（C） | `hover-item` `select-item` `page-change` | A 层列表展示 |
-| `Preview_IndexTree.vue` | `DocBlockNode`（C）+ `DocBlocksTreeNode.vue` | `toggle` `select` | A 层树组件（内聚交互） |
+| `Preview_IndexTree.vue` | `DocBlockNode`（C） | `toggle` `select` `edit` `toggle-check` `context-action` | A 层虚拟滚动树组件（内聚交互） |
 | `Preview_IndexGraph.vue` | `DocBlockNode`（C） | `toggle` `select` `update-viewport` | A 层图组件（内聚交互） |
-| `DocBlocksTreeNode.vue` | `DocBlockNode`（C） | `toggle` `select` | A 层节点 |
 | `SmartTree.vue` | `SmartTreeNode`（C） `TreeProps` `useTheme` | `select` `rename` `add-folder` `add-file` `delete` `view` `drop` `search` `file-drop` `drop-invalid` `drop-root` | A 层通用组件，不直接做 D 层写入 |
 | `SOPTree.vue` | `SOPTreeNode`（C） + `SmartTree` | `select` `view` `search` | A 层经验库树语义包装 |
 
