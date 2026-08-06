@@ -51,8 +51,8 @@
               <div class="dc-tch">
                 <span class="dc-dot" :class="'d'+t.status" />
                 <span class="dc-tcn">{{ t.task_name }}</span>
-                <a-tag size="small" :color="{success:'green',warning:'orange',error:'red',skipped:'default'}[t.status]||'default'">
-                  {{ {success:'成功',warning:'警告',error:'失败',skipped:'跳过'}[t.status]||t.status }}
+                <a-tag size="small" :color="TASK_STATUS_COLOR[t.status] || 'default'">
+                  {{ TASK_STATUS_LABEL[t.status] || t.status }}
                 </a-tag>
               </div>
               <div class="dc-tcm">{{ t.message }}</div>
@@ -84,7 +84,7 @@
               <div class="dd-top">
                 <div class="dd-meta">
                   <span class="dd-tag" :class="dedupTagColor(d)">{{ dedupTagText(d) }}</span>
-                  <span class="dd-method">{{ {edit_distance:'编辑相似',alias_overlap:'别名重合',llm_semantic:'语义匹配'}[d.match_method]||d.match_method }}</span>
+                  <span class="dd-method">{{ DEDUP_METHOD_LABEL[d.match_method] || d.match_method }}</span>
                 </div>
                 <div class="dd-sim">
                   <div class="dd-simtrack">
@@ -200,6 +200,24 @@ const selectedDate = ref('')
 const reportDetail = ref<any>(null)
 const systemStatus = ref<any>(null)
 const focusTask = ref('')
+
+const TASK_STATUS_COLOR: Record<string, string> = {
+  success: 'green',
+  warning: 'orange',
+  error: 'red',
+  skipped: 'default',
+}
+const TASK_STATUS_LABEL: Record<string, string> = {
+  success: '成功',
+  warning: '警告',
+  error: '失败',
+  skipped: '跳过',
+}
+const DEDUP_METHOD_LABEL: Record<string, string> = {
+  edit_distance: '编辑相似',
+  alias_overlap: '别名重合',
+  llm_semantic: '语义匹配',
+}
 
 const dedupState = reactive<Record<string,string>>({})
 const dkey = (d:DuplicateCandidate)=>`${d.entity_a_id}::${d.entity_b_id}`

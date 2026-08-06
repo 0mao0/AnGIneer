@@ -384,16 +384,12 @@ const {
   childrenMap,
   roots,
   expandedNodeIds,
-  expandedGraphNodeIds,
-  graphViewportState,
   activeNodeIdForGraphTree,
   onRightPaneScroll,
   onTabChange,
   onIndexPageChange,
   onTreeToggle,
-  onGraphToggle,
   onNodeSelect: handleViewerNodeSelect,
-  onViewportUpdate,
   expandAncestors,
   setViewMode
 } = useParsedPdfViewer(props, emit)

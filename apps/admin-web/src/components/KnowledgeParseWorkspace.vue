@@ -95,15 +95,6 @@
           <template #extra>
             <a-space v-if="selectedNode && !selectedNode.isFolder">
               <a-button
-                v-if="docParsedWorkspaceRef?.showHighlightToggle"
-                size="small"
-                class="header-action-btn"
-                :type="docParsedWorkspaceRef?.highlightLinkEnabled ? 'primary' : 'default'"
-                @click="docParsedWorkspaceRef?.toggleHighlightLink"
-              >
-                高亮联动
-              </a-button>
-              <a-button
                 v-if="selectedNode.status === 'processing'"
                 danger
                 size="small"
@@ -234,7 +225,6 @@
 
     <!-- 文档详情弹窗 -->
 
-    <DocDetailModal
     <DocDetailModal
 
       v-model:visible="docDetailVisible"

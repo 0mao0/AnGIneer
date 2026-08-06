@@ -74,7 +74,7 @@ import type {
   StructuredStats,
   PDFParsedWorkspaceEventMap
 } from '../../../types/knowledge'
-import { mapParseStageText, renderMarkdownToHtml } from '../../../utils/knowledge'
+import { renderMarkdownToHtml } from '../../../utils/knowledge'
 
 interface Props {
   node: KnowledgeTreeNode
@@ -119,7 +119,6 @@ const getDefaultParsedTab = (): PreviewMode => (
 
 const filePath = computed(() => props.node.filePath || props.node.file_path || '')
 const activeTab = ref<PreviewMode>(getDefaultParsedTab())
-const stageText = computed(() => mapParseStageText(props.node.parseStage, props.node.parseError))
 const parseButtonText = computed(() => {
   if (props.node.status === 'completed') return '重新解析'
   if (props.node.status === 'failed') return '重新解析'
@@ -142,7 +141,6 @@ const indexSummaryStats = computed(() => {
 })
 
 const {
-  progressPercent,
   isPdf,
   isOffice,
   isImage,
@@ -233,7 +231,7 @@ const renderedMarkdown = computed(() => renderMarkdownToHtml(
 ))
 
 // 搜索跳转后，右侧面板同步滚动到命中行
-const onSearchJump = (page: number, lineNumber: number) => {
+const onSearchJump = (_page: number, lineNumber: number) => {
   const totalLines = Math.max(1, markdownContent.value.split('\n').length)
   const ratio = Math.max(0, Math.min(1, (lineNumber - 1) / totalLines))
   rightScrollPercent.value = ratio

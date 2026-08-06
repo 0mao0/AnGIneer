@@ -1,6 +1,7 @@
 <template>
   <div class="knowledge-stats" :class="appClass">
     <div class="stats-header">
+      <div class="stats-title">历史记录<span class="stats-title-count">（{{ records.length }}条）</span></div>
       <div class="stats-actions">
         <a-popconfirm
           title="确定永久删除选中的记录？此操作不可恢复"
@@ -414,12 +415,6 @@ async function loadDocStages(docId: string) {
   }
 }
 
-async function refreshStages() {
-  if (currentStepDocId.value) {
-    await loadDocStages(currentStepDocId.value)
-  }
-}
-
 async function onRetryStage(stageKey: string) {
   if (!currentStepDocId.value) return
   try {
@@ -507,7 +502,7 @@ async function loadViewerData(docId: string) {
 async function onViewerParse() {
   if (!viewerNode.value) return
   try {
-    const result = await knowledgeApi.retryParseTask(viewerNode.value.key) as any
+    await knowledgeApi.retryParseTask(viewerNode.value.key)
     viewerNode.value.status = 'processing'
     viewerNode.value.parseError = ''
     viewerNode.value.parseStage = 'queued'
@@ -527,16 +522,6 @@ async function onViewerStop() {
     await loadRecords()
   } catch (e: any) {
     message.error('停止失败: ' + (e.message || e))
-  }
-}
-
-async function hardDelete(recordId: number) {
-  try {
-    await knowledgeApi.hardDeleteRecord(recordId)
-    message.success('已永久删除')
-    await loadRecords()
-  } catch (e: any) {
-    message.error('删除失败: ' + (e.message || e))
   }
 }
 
@@ -592,36 +577,6 @@ async function confirmAdminDelete() {
   }
 }
 
-async function cleanOrphaned() {
-  try {
-    const res = await knowledgeApi.cleanOrphanedRecords()
-    message.success(res.message)
-    await loadRecords()
-  } catch (e: any) {
-    message.error('清理失败: ' + (e.message || e))
-  }
-}
-
-async function parseTask(record: ParseRecordItem) {
-  try {
-    const result = await knowledgeApi.retryParseTask(record.doc_id) as any
-    message.success('已开始解析')
-    await loadRecords()
-  } catch (e: any) {
-    message.error('解析失败: ' + (e.message || e))
-  }
-}
-
-async function restoreRecord(recordId: number) {
-  try {
-    const res = await knowledgeApi.restoreRecord(recordId)
-    message.success(res.message)
-    await loadRecords()
-  } catch (e: any) {
-    message.error('退回失败: ' + (e.message || e))
-  }
-}
-
 async function batchHardDelete() {
   try {
     for (const id of selectedDeletedIds.value) {
@@ -649,11 +604,22 @@ onMounted(() => {
 }
 .stats-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
   flex-wrap: wrap;
   gap: 8px;
+}
+.stats-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+.stats-title-count {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
 }
 .stats-actions {
   display: flex;

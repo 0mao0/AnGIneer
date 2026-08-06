@@ -1,7 +1,11 @@
 <template>
   <div class="app-header" :class="appClass">
     <div class="header-left">
-      <div class="app-logo" @click="handleLogoClick" :class="{ clickable: logoClickable, 'is-admin': layout === 'admin' }">
+      <div
+        class="app-logo"
+        @click="handleLogoClick"
+        :class="{ clickable: logoClickable, 'is-admin': layout === 'admin' }"
+      >
         <svg v-if="layout !== 'admin'" class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"
@@ -14,43 +18,52 @@
             </linearGradient>
           </defs>
         </svg>
+        <div v-else class="logo-mark" aria-hidden="true">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4 4.5 20h3.1l1.4-3.4h5.9l1.4 3.4h3.1L12 4Zm0 5.3 2 4.9h-4l2-4.9Z" fill="#fff" />
+          </svg>
+        </div>
         <div class="app-identity">
           <span class="app-name">AnGIneer</span>
-          <span v-if="version" class="app-version">v{{ version }}</span>
+          <span v-if="version" class="app-version">{{ versionLabel }}</span>
         </div>
       </div>
 
       <template v-if="layout === 'admin' && moduleItems.length">
-        <a-dropdown :trigger="['click']">
-          <a-button type="text" class="module-switcher">
-            {{ activeModuleLabel }}
-            <DownOutlined />
-          </a-button>
-          <template #overlay>
-            <a-menu @click="(e: any) => $emit('module-click', e.key)">
-              <a-menu-item
-                v-for="item in moduleItems"
-                :key="item.key"
-                :class="{ 'ant-dropdown-menu-item-selected': activeModule === item.key }"
-              >
-                {{ item.label }}
-              </a-menu-item>
-            </a-menu>
-          </template>
-        </a-dropdown>
+        <div class="context-switcher">
+          <a-dropdown :trigger="['click']">
+            <a-button type="text" class="module-switcher">
+              {{ activeModuleLabel }}
+              <DownOutlined class="module-chevron" />
+            </a-button>
+            <template #overlay>
+              <a-menu @click="(e: any) => $emit('module-click', e.key)">
+                <a-menu-item
+                  v-for="item in moduleItems"
+                  :key="item.key"
+                  :class="{ 'ant-dropdown-menu-item-selected': activeModule === item.key }"
+                >
+                  {{ item.label }}
+                </a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
 
-        <a-radio-group
-          v-if="viewItems.length"
-          :value="activeView"
-          button-style="solid"
-          size="small"
-          class="view-switch"
-          @change="(e: any) => $emit('view-change', e.target.value)"
-        >
-          <a-radio-button v-for="item in viewItems" :key="item.key" :value="item.key">
-            {{ item.label }}
-          </a-radio-button>
-        </a-radio-group>
+          <span v-if="viewItems.length" class="context-divider" />
+
+          <a-radio-group
+            v-if="viewItems.length"
+            :value="activeView"
+            button-style="solid"
+            size="small"
+            class="view-switch"
+            @change="(e: any) => $emit('view-change', e.target.value)"
+          >
+            <a-radio-button v-for="item in viewItems" :key="item.key" :value="item.key">
+              {{ item.label }}
+            </a-radio-button>
+          </a-radio-group>
+        </div>
       </template>
 
       <a-button v-if="showHome && !showHomeInRight" type="text" class="home-btn" @click="$emit('home-click')" title="返回前台">
@@ -224,6 +237,11 @@ const activeModuleLabel = computed(() => {
   return item?.label || props.activeModule || ''
 })
 
+/** 管理端版本号直接显示（不带 v 前缀）；默认布局保留 v 前缀 */
+const versionLabel = computed(() =>
+  props.layout === 'admin' ? props.version : `v${props.version}`
+)
+
 const { isDark, appClass, toggleTheme: doToggleTheme } = useTheme()
 
 const isEditing = ref(false)
@@ -307,6 +325,23 @@ const cancelEdit = () => {
     height: 28px;
   }
 
+  .logo-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #5b7cfa 0%, #7a5cf0 100%);
+    box-shadow: 0 2px 8px rgba(91, 124, 250, 0.32);
+
+    .logo-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
   .app-identity {
     display: flex;
     align-items: center;
@@ -332,8 +367,8 @@ const cancelEdit = () => {
     .app-identity {
       flex-direction: column;
       align-items: flex-start;
-      gap: 0;
-      line-height: 1.15;
+      gap: 1px;
+      line-height: 1.1;
     }
 
     .app-name {
@@ -343,22 +378,90 @@ const cancelEdit = () => {
     .app-version {
       font-size: 10px;
       transform: none;
+      letter-spacing: 0.02em;
     }
   }
 }
 
+.context-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--bg-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
 .module-switcher {
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 7px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
 
   &:hover {
+    background: var(--bg-tertiary) !important;
     color: var(--primary-color) !important;
+  }
+
+  .module-chevron {
+    font-size: 10px;
+    color: var(--text-secondary);
+    transition: transform 0.2s ease;
   }
 }
 
+.context-divider {
+  width: 1px;
+  height: 16px;
+  margin: 0 2px;
+  flex-shrink: 0;
+  background: var(--border-color);
+}
+
 .view-switch {
-  margin-left: 4px;
+  display: flex;
+  align-items: center;
+
+  :deep(.ant-radio-button-wrapper) {
+    height: 28px;
+    line-height: 26px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      color: var(--primary-color);
+      background: var(--bg-tertiary);
+    }
+
+    &.ant-radio-button-wrapper-checked {
+      background: rgba(102, 126, 234, 0.12);
+      color: var(--primary-color);
+      font-weight: 600;
+      box-shadow: none;
+    }
+
+    &.ant-radio-button-wrapper-checked:hover {
+      background: rgba(102, 126, 234, 0.18);
+    }
+  }
 }
 
 .project-name {
@@ -452,6 +555,24 @@ const cancelEdit = () => {
 
   :deep(.ant-btn) {
     padding: 0 4px;
+  }
+}
+
+.app-header.dark-mode {
+  .view-switch {
+    :deep(.ant-radio-button-wrapper) {
+      &.ant-radio-button-wrapper-checked {
+        background: rgba(102, 126, 234, 0.28);
+      }
+
+      &.ant-radio-button-wrapper-checked:hover {
+        background: rgba(102, 126, 234, 0.36);
+      }
+    }
+  }
+
+  .logo-mark {
+    box-shadow: 0 2px 10px rgba(91, 124, 250, 0.38);
   }
 }
 </style>
