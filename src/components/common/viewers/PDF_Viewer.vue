@@ -333,6 +333,7 @@ interface LinkedHighlight {
   lineStart: number | null
   lineEnd: number | null
   type?: string
+  linkedFormulaItemIds?: string[]
 }
 
 interface VirtualPageMeta {

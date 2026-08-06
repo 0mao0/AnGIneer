@@ -4,13 +4,23 @@
  * SOPTreeNode 已迁移至 @angineer/sop-ui，不在本地定义。
  */
 
+export type SmartTreeNodeStatus =
+  | 'pending'
+  | 'uploading'
+  | 'processing'
+  | 'queued'
+  | 'completed'
+  | 'failed'
+  | 'cancelled'
+  | 'partial'
+
 export interface SmartTreeNode {
   key: string
   title: string
   isFolder?: boolean
   isLeaf?: boolean
   level?: number
-  status?: 'pending' | 'uploading' | 'processing' | 'completed' | 'failed'
+  status?: SmartTreeNodeStatus
   visible?: boolean
   parentId?: string
   filePath?: string
@@ -32,7 +42,7 @@ export interface DropEvent {
   siblings: SmartTreeNode[]
 }
 
-export type KnowledgeNodeStatus = 'pending' | 'uploading' | 'processing' | 'completed' | 'failed'
+export type KnowledgeNodeStatus = SmartTreeNodeStatus
 export type KnowledgeStrategy = 'doc_blocks_graph_v1'
 
 export interface KnowledgeTreeNode extends SmartTreeNode {
