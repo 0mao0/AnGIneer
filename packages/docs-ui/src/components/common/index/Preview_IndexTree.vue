@@ -423,4 +423,158 @@ watch(() => props.activeNodeId, () => {
   border-radius: 8px;
   background: var(--dp-surface-bg);
 }
+
+/* ---- 行渲染样式（原 IndexTreeFlatRow，缺失 CSS 变量补默认值） ---- */
+.tree-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--dp-pane-border, #e8edf4);
+  background: var(--dp-index-card-bg, #fafcff);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: all 0.16s ease;
+
+  &:hover {
+    border-color: var(--dp-hover-border, #a5b4fc);
+    background: var(--dp-hover-bg, #f0f3ff);
+  }
+
+  &.active {
+    border-color: var(--dp-active-border, #7c9cf5);
+    box-shadow: 0 0 0 2px var(--dp-active-shadow, rgba(124, 156, 245, 0.25));
+    background: var(--dp-active-bg, #eef2ff);
+  }
+}
+
+.tree-select-checkbox {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.tree-edit-btn {
+  flex: 0 0 auto;
+  margin-left: 4px;
+}
+
+.tree-toggle {
+  width: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dp-sub-text, #8c8c8c);
+  font-size: 10px;
+}
+
+.toggle-placeholder {
+  width: 16px;
+  height: 16px;
+}
+
+.tree-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tree-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.tree-text {
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--dp-title-text, #4f5d7a);
+}
+
+.tree-text :deep(.katex) {
+  font-size: 1em;
+}
+
+.tree-text :deep(.katex-display) {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.tree-inline-media {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--dp-pane-border, #e8edf4);
+  background: var(--dp-inline-media-bg, #f8fafc);
+}
+
+.tree-inline-media :deep(.media-table) {
+  overflow: auto;
+  max-width: 100%;
+}
+
+.tree-inline-media :deep(table) {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 240px;
+  table-layout: auto;
+}
+
+.tree-inline-media :deep(th),
+.tree-inline-media :deep(td) {
+  border: 1px solid rgba(148, 163, 184, 0.7) !important;
+  padding: 6px 8px;
+  background: transparent !important;
+}
+
+.tree-inline-media :deep(.media-formula) {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.tree-inline-media :deep(.katex-display) {
+  margin: 0;
+  padding: 4px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.tree-inline-media :deep(.media-image) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--dp-surface-bg, #ffffff);
+}
+
+.chip {
+  font-size: 10px;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--chip-default-border, #e2e8f0);
+  background: var(--chip-default-bg, #f1f5f9);
+  color: var(--chip-default-text, #64748b);
+  flex-shrink: 0;
+
+  &.lv {
+    border-color: var(--chip-lv-border, #c7d2fe);
+    background: var(--chip-lv-bg, #eef2ff);
+    color: var(--chip-lv-text, #4f46e5);
+  }
+
+  &.pos {
+    border-color: var(--chip-pos-border, #cffafe);
+    background: var(--chip-pos-bg, #ecfeff);
+    color: var(--chip-pos-text, #0e7490);
+  }
+}
 </style>
