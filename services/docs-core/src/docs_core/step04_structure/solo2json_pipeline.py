@@ -7,7 +7,7 @@
                   PoPo 信号增强（可选，软失败，失败回滚）
                         │
                         ▼
-                  LLM 标题层级复核（无信号也执行）
+                  统一标题仲裁（无信号也执行）
                         │
                         ▼
                   落盘 jsonl + meta（含 build_id 关联）
@@ -115,15 +115,17 @@ def _apply_popo_signals(
     llm_model: Optional[str] = None,
     use_llm: bool = False,
     on_step: Optional[Callable[[str, str, str], None]] = None,
-) -> tuple[list, Dict[str, Any]]:
+) -> tuple[list, Dict[str, Any], Dict[str, Any]]:
+    """返回 (nodes, injection_stats, popo_candidates)。"""
     from docs_core.step04_structure.popo.popo_signal_aligner import align_popo_blocks
     from docs_core.step04_structure.popo.popo_block_merger import merge_blocks
     from docs_core.step04_structure.popo.popo_signal_injector import inject_popo_signals
     from docs_core.step04_structure.popo.popo_signal_level_fusion import (
         build_popo_level_map,
-        fuse_level_signals,
+        build_popo_tree_level_map,
     )
 
+    popo_candidates: Dict[str, Any] = {}
     try:
         enriched = _afs.file_storage.read_popo_enriched_blocks(library_id, doc_id)
     except FileNotFoundError:
@@ -132,8 +134,7 @@ def _apply_popo_signals(
             "injection": {"skipped_reason": "no_popo"},
             "heuristic": {"applied": 0, "skipped": 0, "skipped_reason": "no_popo"},
             "merge": {"applied": 0, "rejected": 0, "skipped_reason": "no_popo"},
-            "level_fusion": {"skipped_reason": "no_popo"},
-        }
+        }, popo_candidates
     middle_path = paths.get_mineru_raw_dir(library_id, doc_id) / "middle.json"
     if not middle_path.exists():
         _emit_step(on_step, "PoPo 结果读取", "failed", "缺少 middle.json")
@@ -141,8 +142,7 @@ def _apply_popo_signals(
             "injection": {"skipped_reason": "no_middle"},
             "heuristic": {"applied": 0, "skipped": 0, "skipped_reason": "no_middle"},
             "merge": {"applied": 0, "rejected": 0, "skipped_reason": "no_middle"},
-            "level_fusion": {"skipped_reason": "no_middle"},
-        }
+        }, popo_candidates
     try:
         middle = json.loads(middle_path.read_text(encoding="utf-8"))
         alignment = align_popo_blocks(doc_id, middle, enriched)
@@ -163,8 +163,7 @@ def _apply_popo_signals(
                 "injection": skipped,
                 "heuristic": {"applied": 0, "skipped": 0, "skipped_reason": "alignment_degraded"},
                 "merge": skipped,
-                "level_fusion": skipped,
-            }
+            }, popo_candidates
         _emit_step(
             on_step,
             "popo 结果对齐检查",
@@ -211,31 +210,22 @@ def _apply_popo_signals(
             f"merged {merged}, rejected {rejected}",
         )
         level_map = build_popo_level_map(enriched, alignment)
-        popo_level_by_uid = {
+        popo_levels = {
             alignment.solo_block_uid_map[source_id]: level
             for source_id, level in level_map.items()
             if source_id in alignment.solo_block_uid_map
         }
-        nodes, fuse_stats = fuse_level_signals(
-            nodes,
-            popo_level_by_uid,
-            llm_client=llm_client,
-            llm_model=llm_model,
-            use_llm=use_llm,
-        )
-        _emit_step(
-            on_step,
-            "层级信号融合",
-            "done",
-            f"{fuse_stats.get('total_titles', 0)} titles, "
-            f"consistent {fuse_stats.get('consistent', 0)}, disputed {fuse_stats.get('disputed', 0)}",
-        )
+        tree_path = paths.get_popo_document_tree_path(library_id, doc_id)
+        tree_levels: Dict[str, int] = {}
+        if tree_path.exists():
+            tree = json.loads(tree_path.read_text(encoding="utf-8"))
+            tree_levels = build_popo_tree_level_map(tree, enriched, alignment)
+        popo_candidates = {"popo_levels": popo_levels, "tree_levels": tree_levels}
         return nodes, {
             "injection": inject_stats,
             "heuristic": {"applied": heuristic_applied, "skipped": heuristic_skipped},
             "merge": merge_stats,
-            "level_fusion": fuse_stats,
-        }
+        }, popo_candidates
     except Exception as exc:
         _emit_step(on_step, "PoPo 信号处理", "failed", f"{type(exc).__name__}: {str(exc)[:120]}")
         logger.warning("PoPo 信号注入异常，跳过: doc=%s error=%s", doc_id, exc)
@@ -244,101 +234,51 @@ def _apply_popo_signals(
             "injection": skipped,
             "heuristic": {"applied": 0, "skipped": 0, "skipped_reason": f"error:{type(exc).__name__}"},
             "merge": skipped,
-            "level_fusion": skipped,
-        }
+        }, popo_candidates
 
 
-# 标题层级 LLM 复核（无论有无 PoPo 信号都执行）：
-# solo 规则层级（derived_level）与 PoPo 融合结果（title_level）落 jsonl 前，
-# 交给 title_level_refiner 复核——编号命中的高置信度标题跳过，其余交 LLM。
-def _review_title_levels_with_llm(
+# 统一标题仲裁（无论有无 PoPo 信号都执行）：
+# solo 规则层级（derived_level）落 jsonl 前，交给 resolve_title_levels
+# 分类（adopt/consistent/disputed/review）并一次写回。
+def _resolve_title_levels(
     nodes: list,
     *,
     doc_id: str,
+    popo_candidates: Optional[Dict[str, Any]] = None,
     llm_client=None,
     llm_model: Optional[str] = None,
     use_llm: bool = False,
     on_step: Optional[Callable[[str, str, str], None]] = None,
 ) -> tuple[list, Dict[str, Any]]:
-    from docs_core.models.types import CanonicalBlock
-    from docs_core.step04_structure.shared.title_level_refiner import (
-        resolve_title_level_refinement,
+    from docs_core.step04_structure.shared.title_level_resolver import (
+        resolve_title_levels,
     )
 
-    title_nodes = [
-        node for node in nodes
-        if str(node.get("block_type") or "").strip() == "title"
-        and str(node.get("plain_text") or "").strip()
-    ]
-    stats: Dict[str, Any] = {"total_titles": len(title_nodes), "llm_status": "disabled", "updated": 0}
-    if not title_nodes or not (use_llm and llm_client):
-        _emit_step(
-            on_step,
-            "LLM 标题层级复核",
-            "skipped",
-            "无标题或未启用 LLM" if not title_nodes else "llm 未配置",
-        )
-        return nodes, stats
-
-    blocks = [
-        CanonicalBlock(
-            block_id=str(node.get("block_uid") or node.get("id")),
-            doc_id=doc_id,
-            page_idx=int(node.get("page_idx") or 0),
-            block_type="title",
-            text=str(node.get("plain_text") or ""),
-            text_clean=str(node.get("plain_text") or ""),
-            reading_order=int(node.get("block_seq") or 0),
-            title_level=(
-                node.get("title_level")
-                if node.get("title_level") is not None
-                else node.get("derived_level")
-            ),
-            source="mineru",
-        )
-        for node in title_nodes
-    ]
-    candidates, llm_levels, status = resolve_title_level_refinement(
-        blocks,
-        llm_client,
-        use_llm=True,
+    candidates = popo_candidates or {}
+    updated, stats = resolve_title_levels(
+        nodes,
+        popo_levels=candidates.get("popo_levels"),
+        tree_levels=candidates.get("tree_levels"),
+        llm_client=llm_client,
         llm_model=llm_model,
+        use_llm=use_llm,
     )
-    stats["llm_status"] = status
-    if not llm_levels:
+    if not stats.get("total_titles") or not use_llm:
         _emit_step(
             on_step,
-            "LLM 标题层级复核",
-            "done" if status in ("skipped_by_confidence", "ok") else "failed",
-            f"{status}, updated 0",
+            "统一标题仲裁",
+            "skipped",
+            "无标题或未启用 LLM" if not stats.get("total_titles") else "llm 未配置",
         )
-        return nodes, stats
-
-    candidate_map = {candidate["block_id"]: candidate for candidate in candidates}
-    by_uid = {str(node.get("block_uid") or node.get("id")): node for node in nodes}
-    for block_id, (level, confidence) in llm_levels.items():
-        node = by_uid.get(block_id)
-        if node is None:
-            continue
-        candidate = candidate_map.get(block_id)
-        current_confidence = float(candidate.get("confidence") or 0.0) if candidate else 0.0
-        current_level = (
-            node.get("title_level")
-            if node.get("title_level") is not None
-            else node.get("derived_level")
+    else:
+        _emit_step(
+            on_step,
+            "统一标题仲裁",
+            "done",
+            f"{stats.get('total_titles', 0)} titles, "
+            f"consistent {stats.get('consistent', 0)}, disputed {stats.get('disputed', 0)}",
         )
-        if current_level is None or confidence >= current_confidence:
-            node["title_level"] = level
-            node["derived_level"] = level
-            node["derived_by"] = "rule+llm"
-            stats["updated"] += 1
-    _emit_step(
-        on_step,
-        "LLM 标题层级复核",
-        "done",
-        f"{status}, updated {stats['updated']}",
-    )
-    return nodes, stats
+    return updated, stats
 
 
 # 为文档构建结构化索引（step04：只落 jsonl + meta；SQLite 由 step05 从 jsonl 重建）
@@ -388,7 +328,7 @@ def build_structured_index_for_doc(
     formula_stats: Dict[str, Any] = {"total_formulas": 0, "enriched": 0, "llm_status": "disabled"}
     table_stats: Dict[str, Any] = {"total_tables": 0, "enriched": 0, "skipped": 0}
     if result.nodes:
-        result.nodes, signal_stats = _apply_popo_signals(
+        result.nodes, signal_stats, popo_candidates = _apply_popo_signals(
             library_id,
             doc_id,
             result.nodes,
@@ -398,9 +338,10 @@ def build_structured_index_for_doc(
             use_llm=use_llm,
             on_step=on_step,
         )
-        result.nodes, title_review_stats = _review_title_levels_with_llm(
+        result.nodes, title_review_stats = _resolve_title_levels(
             result.nodes,
             doc_id=doc_id,
+            popo_candidates=popo_candidates,
             llm_client=llm_client,
             llm_model=llm_model,
             use_llm=use_llm,
