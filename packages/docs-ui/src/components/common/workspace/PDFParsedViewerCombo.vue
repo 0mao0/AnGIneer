@@ -4,8 +4,32 @@
       <div ref="headerTitleRowRef" class="b2-title-row">
         <div class="b2-title-main">
           <span class="pane-title-prefix pane-title-prefix-right">解析</span>
+          <a-tooltip placement="bottom">
+            <template #title>
+              <div class="summary-tooltip">
+                <div>总数：{{ indexSummaryStats.total }}</div>
+                <div>图：{{ indexSummaryStats.figure }}</div>
+                <div>表：{{ indexSummaryStats.table }}</div>
+                <div>公式：{{ indexSummaryStats.formula }}</div>
+              </div>
+            </template>
+            <span class="summary-icon-btn" title="解析统计">
+              <BarChartOutlined />
+            </span>
+          </a-tooltip>
         </div>
         <div class="pane-actions-right">
+          <a-button
+            size="small"
+            class="pane-search-toggle-btn"
+            :class="{ 'pane-search-toggle-btn-active': showIndexSearch }"
+            title="搜索"
+            @click="toggleIndexSearch"
+          >
+            <template #icon>
+              <SearchOutlined />
+            </template>
+          </a-button>
           <a-radio-group
             :value="activeTab"
             size="small"
@@ -34,6 +58,40 @@
       </div>
     </div>
 
+    <div
+      v-if="showIndexSearch && (activeTab === 'Preview_IndexList' || activeTab === 'Preview_IndexTree')"
+      class="index-search-panel"
+    >
+      <div class="index-search-panel-input-row">
+        <a-input
+          v-model:value="indexSearchKeyword"
+          placeholder="搜索解析结果..."
+          size="small"
+          allow-clear
+          class="index-search-input"
+          @press-enter="onSearchNavigate('next')"
+        >
+          <template #prefix>
+            <SearchOutlined class="index-search-icon" />
+          </template>
+        </a-input>
+        <a-button size="small" class="search-close-btn" title="关闭" @click="toggleIndexSearch">
+          <template #icon>
+            <CloseOutlined />
+          </template>
+        </a-button>
+      </div>
+      <div v-if="indexSearchKeyword.trim()" class="index-search-panel-footer">
+        <span v-if="searchMatchInfo" class="search-match-info">{{ searchMatchInfo }}</span>
+        <a-button size="small" class="search-nav-btn" @click="onSearchNavigate('prev')">
+          <UpOutlined />
+        </a-button>
+        <a-button size="small" class="search-nav-btn" @click="onSearchNavigate('next')">
+          <DownOutlined />
+        </a-button>
+      </div>
+    </div>
+
     <div ref="rightPaneRef" class="b2-content" @scroll.passive="onRightPaneScroll">
       <Preview_HTML
         v-if="activeTab === 'Preview_HTML'"
@@ -49,42 +107,8 @@
       />
       <div v-else class="index-layout">
         <div class="index-toolbar">
-          <div v-if="activeTab !== 'Preview_KnowledgeGraph'" class="index-summary-row">
-            <div class="summary-left">
-              <span class="summary-tag">
-                <span class="summary-item total">总{{ indexSummaryStats.total }}</span>
-                <span class="summary-divider">|</span>
-                <span class="summary-item figure">图{{ indexSummaryStats.figure }}</span>
-                <span class="summary-divider">|</span>
-                <span class="summary-item table">表{{ indexSummaryStats.table }}</span>
-                <span class="summary-divider">|</span>
-                <span class="summary-item formula">公式{{ indexSummaryStats.formula }}</span>
-              </span>
-              <div class="index-search-wrap">
-                <a-input
-                  v-model:value="indexSearchKeyword"
-                  placeholder="搜索解析结果..."
-                  size="small"
-                  allow-clear
-                  class="index-search-input"
-                  @press-enter="onSearchNavigate('next')"
-                >
-                  <template #prefix>
-                    <SearchOutlined class="index-search-icon" />
-                  </template>
-                </a-input>
-                <span v-if="searchMatchInfo" class="search-match-info">{{ searchMatchInfo }}</span>
-                <template v-if="indexSearchKeyword.trim()">
-                  <a-button size="small" class="search-nav-btn" @click="onSearchNavigate('prev')">
-                    <UpOutlined />
-                  </a-button>
-                  <a-button size="small" class="search-nav-btn" @click="onSearchNavigate('next')">
-                    <DownOutlined />
-                  </a-button>
-                </template>
-              </div>
-            </div>
-            <div v-if="activeTab === 'Preview_IndexTree'" class="summary-actions">
+          <div v-if="activeTab === 'Preview_IndexTree'" class="index-toolbar-row">
+            <div class="summary-actions">
               <span v-if="selectedBlockIds.length" class="selected-count">已选 {{ selectedBlockIds.length }} 个</span>
               <a-dropdown
                 :disabled="!selectedBlockIds.length || !canBatchRelevel || submittingBatchOperation"
@@ -148,6 +172,7 @@
           <Preview_IndexTree
             v-else-if="activeTab === 'Preview_IndexTree'"
             :loading="!hasGraphData"
+            :dark="props.dark"
             :node-map="nodeMap"
             :children-map="childrenMap"
             :roots="roots"
@@ -219,8 +244,10 @@ import {
   FileMarkdownOutlined,
   UnorderedListOutlined,
   BranchesOutlined,
+  BarChartOutlined,
   DotChartOutlined,
   SearchOutlined,
+  CloseOutlined,
   UpOutlined,
   DownOutlined
 } from '@ant-design/icons-vue'
@@ -305,6 +332,11 @@ const selectedBlockIds = ref<string[]>([])
 
 const indexSearchKeyword = ref('')
 const searchCurrentIndex = ref(0)
+const showIndexSearch = ref(false)
+
+const toggleIndexSearch = () => {
+  showIndexSearch.value = !showIndexSearch.value
+}
 
 /** 对搜索关键词做模糊匹配：支持空格分隔的多关键词 */
 const searchMatchedIds = computed<string[]>(() => {
@@ -676,6 +708,7 @@ defineExpose({
 
 <style lang="less" scoped>
 .split-pane {
+  position: relative;
   flex: 1;
   min-width: 0;
   display: flex;
@@ -821,26 +854,78 @@ defineExpose({
   height: 100%;
 }
 
-.index-summary-row {
+.index-toolbar-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 8px;
   margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
-.summary-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+.pane-search-toggle-btn {
+  height: 24px;
+  min-width: 24px;
+  width: 24px;
+  padding: 0;
+  font-size: 12px;
+
+  :deep(.anticon) {
+    font-size: 13px;
+  }
 }
 
-.index-search-wrap {
+.pane-search-toggle-btn-active {
+  color: #1677ff;
+  border-color: #1677ff;
+}
+
+/* 搜索面板（对齐 PDF_Viewer 的展开方式：标题栏下方浮动卡片） */
+.index-search-panel {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  z-index: 100;
+  width: 320px;
+  max-height: 320px;
+  background: var(--dp-pane-bg, #ffffff);
+  border: 1px solid var(--dp-pane-border, #e8edf4);
+  border-radius: 6px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18), 0 2px 10px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.index-search-panel-input-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--dp-pane-border, #e8edf4);
+}
+
+.index-search-panel-input-row .index-search-input {
+  flex: 1;
+  width: auto;
+}
+
+.index-search-panel-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+}
+
+.search-close-btn {
+  height: 22px;
+  min-width: 22px;
+  width: 22px;
+  padding: 0;
+  font-size: 10px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
 }
 
 .index-search-input {
@@ -885,16 +970,26 @@ defineExpose({
   justify-content: center;
 }
 
-.summary-tag {
+.summary-icon-btn {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
-  font-size: 12px;
-  color: var(--dp-sub-text);
-  background: var(--dp-pane-bg);
-  padding: 4px 10px;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   border-radius: 6px;
-  border: 1px solid var(--dp-pane-border);
+  font-size: 14px;
+  color: var(--dp-sub-text);
+  cursor: pointer;
+  transition: all 0.16s ease;
+
+  &:hover {
+    color: var(--dp-active-border, #7c9cf5);
+    background: var(--dp-hover-bg, #f0f3ff);
+  }
+}
+
+.summary-tooltip {
+  line-height: 1.6;
 }
 
 .summary-actions {
@@ -907,31 +1002,6 @@ defineExpose({
 .selected-count {
   font-size: 12px;
   color: var(--dp-sub-text);
-}
-
-.summary-item {
-  font-weight: 500;
-
-  &.total {
-    color: var(--dp-title-strong);
-  }
-
-  &.figure {
-    color: var(--dp-type-figure-color, #7c3aed);
-  }
-
-  &.table {
-    color: var(--dp-type-table-color, #0891b2);
-  }
-
-  &.formula {
-    color: var(--dp-type-formula-color, #2563eb);
-  }
-}
-
-.summary-divider {
-  color: var(--dp-pane-border);
-  margin: 0 2px;
 }
 
 .b2-empty {

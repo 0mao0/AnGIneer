@@ -309,10 +309,16 @@ const collectNodeImageSources = (node: DocBlockNode): string[] => {
 export const renderNodeRichMedia = (
   node: DocBlockNode | undefined | null,
   sourceFilePath?: string,
-  options: { includeMath?: boolean } = {}
+  options: {
+    includeMath?: boolean
+    includeImages?: boolean
+    includeTable?: boolean
+  } = {}
 ): string => {
   if (!node) return ''
   const includeMath = options.includeMath !== false
+  const includeImages = options.includeImages !== false
+  const includeTable = options.includeTable !== false
   const sections: string[] = []
   const imageSources = collectNodeImageSources(node)
   
@@ -322,7 +328,7 @@ export const renderNodeRichMedia = (
     let mathRendered = false
     
     node.rich_media_order.forEach((item) => {
-      if (item.type === 'image' && item.path) {
+      if (includeImages && item.type === 'image' && item.path) {
         const src = resolveAssetUrl(item.path, sourceFilePath)
         if (src && !renderedImages.has(src)) {
           renderedImages.add(src)
@@ -331,43 +337,47 @@ export const renderNodeRichMedia = (
             : (node.plain_text || 'image')
           sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(imageAlt)}" />`)
         }
-      } else if (item.type === 'table' && !tableRendered && node.table_html) {
+      } else if (includeTable && item.type === 'table' && !tableRendered && node.table_html) {
         tableRendered = true
         sections.push(`<div class="media-table">${node.table_html}</div>`)
-      } else if (item.type === 'math' && !mathRendered && includeMath && node.math_content) {
+      } else if (includeMath && item.type === 'math' && !mathRendered && node.math_content) {
         mathRendered = true
         sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
       }
     })
     
-    imageSources.forEach((imagePath) => {
-      const src = resolveAssetUrl(imagePath, sourceFilePath)
-      if (src && !renderedImages.has(src)) {
-        renderedImages.add(src)
-        const imageAlt = imageSources.length > 1
-          ? `${node.plain_text || 'image'}-${renderedImages.size}`
-          : (node.plain_text || 'image')
-        sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(imageAlt)}" />`)
-      }
-    })
+    if (includeImages) {
+      imageSources.forEach((imagePath) => {
+        const src = resolveAssetUrl(imagePath, sourceFilePath)
+        if (src && !renderedImages.has(src)) {
+          renderedImages.add(src)
+          const imageAlt = imageSources.length > 1
+            ? `${node.plain_text || 'image'}-${renderedImages.size}`
+            : (node.plain_text || 'image')
+          sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(imageAlt)}" />`)
+        }
+      })
+    }
     
-    if (!tableRendered && node.table_html) {
+    if (includeTable && !tableRendered && node.table_html) {
       sections.push(`<div class="media-table">${node.table_html}</div>`)
     }
-    if (!mathRendered && includeMath && node.math_content) {
+    if (includeMath && !mathRendered && node.math_content) {
       sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
     }
   } else {
-    imageSources.forEach((imagePath, index) => {
-      const src = resolveAssetUrl(imagePath, sourceFilePath)
-      if (src) {
-        const imageAlt = imageSources.length > 1
-          ? `${node.plain_text || 'image'}-${index + 1}`
-          : (node.plain_text || 'image')
-        sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(imageAlt)}" />`)
-      }
-    })
-    if (node.table_html) {
+    if (includeImages) {
+      imageSources.forEach((imagePath, index) => {
+        const src = resolveAssetUrl(imagePath, sourceFilePath)
+        if (src) {
+          const imageAlt = imageSources.length > 1
+            ? `${node.plain_text || 'image'}-${index + 1}`
+            : (node.plain_text || 'image')
+          sections.push(`<img class="media-image" src="${escapeHtmlAttribute(src)}" alt="${escapeHtmlAttribute(imageAlt)}" />`)
+        }
+      })
+    }
+    if (includeTable && node.table_html) {
       sections.push(`<div class="media-table">${node.table_html}</div>`)
     }
     if (includeMath && node.math_content) {

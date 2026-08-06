@@ -60,7 +60,7 @@
 
 - **common.ts**：存放通用文本处理（Markdown 过滤、Token 估算、行号校验等）和 UI 辅助函数。
 - **knowledge.ts**：存放业务强相关的节点解析、渲染逻辑、图标映射及富媒体处理函数。
-- **受益组件**：`Preview_IndexList`, `Preview_IndexTree`, `Preview_IndexGraph`, `DocBlocksTreeNode` 等 11 个核心组件已完成重构，实现了 100% 的逻辑复用。
+- **受益组件**：`Preview_IndexList`, `Preview_IndexTree`, `Preview_IndexGraph` 等 11 个核心组件已完成重构，实现了 100% 的逻辑复用。
 
 ---
 

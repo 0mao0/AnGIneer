@@ -1,5 +1,9 @@
 <template>
-  <div ref="treeContainerRef" class="doc-blocks-tree" @scroll.passive="onTreeScroll">
+  <div
+    ref="treeContainerRef"
+    :class="['doc-blocks-tree', { dark }]"
+    @scroll.passive="onTreeScroll"
+  >
     <div v-if="loading" class="tree-loading">
       <a-spin size="small" />
       <span>加载中...</span>
@@ -9,7 +13,7 @@
       <div class="tree-virtual-spacer" :style="{ height: `${totalHeight}px` }">
         <div class="tree-virtual-content" :style="{ transform: `translateY(${offsetY}px)` }">
           <div
-            v-for="row in visibleRows"
+            v-for="row in rowViews"
             :key="row.id"
             ref="flatRowRefs"
             :data-row-id="row.id"
@@ -19,17 +23,22 @@
             <a-dropdown :trigger="['contextmenu']">
               <div
                 :data-tree-node-id="row.id"
-                :class="['tree-row', { active: row.id === activeNodeId }]"
+                :class="['tree-row', { active: row.id === activeNodeId, previewable: row.hasPreviewImage }]"
                 @click="onRowClick(row.id)"
                 @contextmenu.prevent
               >
                 <a-checkbox
                   class="tree-select-checkbox"
-                  :checked="isRowChecked(row.id)"
+                  :checked="row.checked"
                   @click.stop
                   @change="onToggleCheck(row.id)"
                 />
-                <span class="tree-toggle" @click.stop="onToggle(row.id)">
+                <span
+                  class="tree-toggle"
+                  role="button"
+                  :aria-label="row.isExpanded ? '折叠' : '展开'"
+                  @click.stop="onToggle(row.id)"
+                >
                   <template v-if="row.hasChildren">
                     <RightOutlined v-if="!row.isExpanded" />
                     <DownOutlined v-else />
@@ -38,19 +47,24 @@
                 </span>
                 <div class="tree-main">
                   <div class="tree-meta">
-                    <span v-if="rowLevelTag(row.id)" :class="['chip', 'lv']">{{ rowLevelTag(row.id) }}</span>
-                    <span v-if="rowDisplayTextHtml(row.id)" class="tree-text" v-html="rowDisplayTextHtml(row.id)" />
-                    <span v-else-if="!rowSuppressPlainText(row.id)" class="tree-text">{{ rowDisplayText(row.id) }}</span>
-                    <span v-if="rowTypeTag(row.id)" class="chip">{{ rowTypeTag(row.id) }}</span>
-                    <span v-if="rowPositionTag(row.id)" class="chip pos">{{ rowPositionTag(row.id) }}</span>
+                    <span v-if="row.levelTag" :class="['chip', 'lv']">{{ row.levelTag }}</span>
+                    <span v-if="row.displayTextHtml" class="tree-text" v-html="row.displayTextHtml" />
+                    <span v-else-if="!row.suppressPlainText" class="tree-text">{{ row.displayText }}</span>
+                    <span v-if="row.typeTag" class="chip">{{ row.typeTag }}</span>
+                    <span v-if="row.positionTag" class="chip pos">{{ row.positionTag }}</span>
+                    <span v-if="row.hasPreviewImage" class="chip preview-hint">
+                      <EyeOutlined />
+                      查看图片
+                    </span>
                   </div>
-                  <div v-if="rowInlineMediaHtml(row.id)" class="tree-inline-media" v-html="rowInlineMediaHtml(row.id)" />
+                  <div v-if="row.inlineMediaHtml" class="tree-inline-media" v-html="row.inlineMediaHtml" />
                 </div>
                 <a-button
-                  v-if="nodeMap.get(row.id)"
+                  v-if="row.hasNode"
                   type="text"
                   size="small"
                   class="tree-edit-btn"
+                  aria-label="编辑"
                   @click.stop="onEdit(row.id)"
                 >
                   <template #icon>
@@ -81,18 +95,75 @@
   </div>
   <a-modal
     v-model:open="previewVisible"
-    :title="previewTitle"
     :footer="null"
     width="min(960px, 92vw)"
     centered
   >
-    <div class="tree-image-preview" v-html="previewImageHtml" />
+    <template #title>
+      <div class="tree-image-preview-header">
+        <span class="tree-image-preview-title">{{ previewTitle }}</span>
+        <span class="tree-image-preview-toolbar">
+          <a-button size="small" title="缩小" :disabled="previewZoom <= 0.25" @click="previewZoomOut">
+            <template #icon>
+              <ZoomOutOutlined />
+            </template>
+          </a-button>
+          <span class="tree-image-preview-zoom">{{ Math.round(previewZoom * 100) }}%</span>
+          <a-button size="small" title="放大" :disabled="previewZoom >= 4" @click="previewZoomIn">
+            <template #icon>
+              <ZoomInOutlined />
+            </template>
+          </a-button>
+          <a-button size="small" title="旋转" @click="previewRotate">
+            <template #icon>
+              <RotateRightOutlined />
+            </template>
+          </a-button>
+          <a-button size="small" title="重置" @click="previewReset">
+            <template #icon>
+              <RedoOutlined />
+            </template>
+          </a-button>
+        </span>
+      </div>
+    </template>
+    <div class="tree-image-preview">
+      <div
+        :class="['tree-image-preview-stage', { dragging: previewDragging }]"
+        @wheel.prevent="onPreviewWheel"
+        @pointerdown="onPreviewPointerDown"
+        @pointermove="onPreviewPointerMove"
+        @pointerup="onPreviewPointerUp"
+        @pointerleave="onPreviewPointerUp"
+      >
+        <img
+          v-for="(src, index) in previewImages"
+          :key="`${src}-${index}`"
+          :src="src"
+          :alt="previewTitle"
+          class="preview-image"
+          draggable="false"
+          :style="{
+            transform: `translate(${previewTranslate.x}px, ${previewTranslate.y}px) scale(${previewZoom}) rotate(${previewRotateDeg}deg)`
+          }"
+        />
+      </div>
+    </div>
   </a-modal>
 </template>
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
-import { RightOutlined, DownOutlined, EditOutlined } from '@ant-design/icons-vue'
+import {
+  RightOutlined,
+  DownOutlined,
+  EditOutlined,
+  EyeOutlined,
+  ZoomInOutlined,
+  ZoomOutOutlined,
+  RotateRightOutlined,
+  RedoOutlined
+} from '@ant-design/icons-vue'
 import type { DocBlockNode, PreviewIndexInteractionEventMap } from '../../../types/knowledge'
 import {
   getNodeDisplayText,
@@ -101,6 +172,7 @@ import {
   getNodeTypeTag,
   renderMarkdownInlineToHtml,
   renderNodeRichMedia,
+  resolveAssetUrl,
   shouldSuppressNodePlainText
 } from '../../../utils/knowledge'
 import { effectiveField } from '../../../utils/common'
@@ -114,6 +186,7 @@ interface FlatRow {
 
 interface Props {
   loading?: boolean
+  dark?: boolean
   nodeMap: Map<string, DocBlockNode>
   childrenMap: Map<string, string[]>
   roots: string[]
@@ -139,18 +212,17 @@ const BUFFER_COUNT = 10
 
 /* 图/表/公式节点点击后弹出图片预览 */
 const previewNode = ref<DocBlockNode | null>(null)
+const previewImages = ref<string[]>([])
 const previewVisible = ref(false)
+const previewZoom = ref(1)
+const previewRotateDeg = ref(0)
+const previewTranslate = ref({ x: 0, y: 0 })
+const previewDragging = ref(false)
+const previewDragStart = ref({ x: 0, y: 0 })
+
 const previewTitle = computed(() => {
   const n = previewNode.value
   return n ? `${getNodeTypeTag(n) || '节点'}预览` : ''
-})
-const previewImageHtml = computed(() => {
-  const n = previewNode.value
-  if (!n) return ''
-  return renderNodeRichMedia(n, props.sourceFilePath, {
-    includeMath: false,
-    includeTable: false
-  })
 })
 
 const isImagePreviewNode = (node: DocBlockNode): boolean => {
@@ -162,43 +234,81 @@ const isImagePreviewNode = (node: DocBlockNode): boolean => {
   )
 }
 
+const collectNodePreviewImages = (node: DocBlockNode): string[] => {
+  const rawSources = [
+    ...(Array.isArray(node.image_paths) ? node.image_paths : []),
+    node.image_path,
+    ...(node.rich_media_order || [])
+      .filter(item => item.type === 'image' && item.path)
+      .map(item => String(item.path || '').trim())
+  ]
+  return Array.from(new Set(
+    rawSources
+      .map(source => String(source || '').trim())
+      .filter(Boolean)
+      .map(source => resolveAssetUrl(source, props.sourceFilePath || ''))
+      .filter(Boolean)
+  ))
+}
+
+const openImagePreview = (node: DocBlockNode) => {
+  previewNode.value = node
+  previewImages.value = collectNodePreviewImages(node)
+  previewZoom.value = 1
+  previewRotateDeg.value = 0
+  previewTranslate.value = { x: 0, y: 0 }
+  previewDragging.value = false
+  previewVisible.value = true
+}
+
+const clampZoom = (value: number) => Math.min(4, Math.max(0.25, Math.round(value * 100) / 100))
+
+const previewZoomIn = () => {
+  previewZoom.value = clampZoom(previewZoom.value + 0.25)
+}
+
+const previewZoomOut = () => {
+  previewZoom.value = clampZoom(previewZoom.value - 0.25)
+}
+
+const previewRotate = () => {
+  previewRotateDeg.value = (previewRotateDeg.value + 90) % 360
+}
+
+const previewReset = () => {
+  previewZoom.value = 1
+  previewRotateDeg.value = 0
+  previewTranslate.value = { x: 0, y: 0 }
+}
+
+const onPreviewWheel = (event: WheelEvent) => {
+  const delta = event.deltaY > 0 ? -0.1 : 0.1
+  previewZoom.value = clampZoom(previewZoom.value + delta)
+}
+
+const onPreviewPointerDown = (event: PointerEvent) => {
+  if (previewZoom.value <= 1) return
+  previewDragging.value = true
+  previewDragStart.value = {
+    x: event.clientX - previewTranslate.value.x,
+    y: event.clientY - previewTranslate.value.y
+  }
+}
+
+const onPreviewPointerMove = (event: PointerEvent) => {
+  if (!previewDragging.value) return
+  previewTranslate.value = {
+    x: event.clientX - previewDragStart.value.x,
+    y: event.clientY - previewDragStart.value.y
+  }
+}
+
+const onPreviewPointerUp = () => {
+  previewDragging.value = false
+}
+
 /* ---- 行渲染（原 IndexTreeFlatRow 逻辑，按 rowId 取节点） ---- */
 const rowNode = (rowId: string) => props.nodeMap.get(rowId)
-const rowLevelTag = (rowId: string) => getNodeLevelTag(rowNode(rowId), props.nodeMap)
-const rowTypeTag = (rowId: string) => getNodeTypeTag(rowNode(rowId))
-const rowPositionTag = (rowId: string) => getNodePositionTag(rowNode(rowId))
-const rowSuppressPlainText = (rowId: string) => shouldSuppressNodePlainText(rowNode(rowId))
-const rowDisplayText = (rowId: string) => getNodeDisplayText(rowNode(rowId), rowId)
-const rowDisplayTextHtml = (rowId: string) => {
-  const node = rowNode(rowId)
-  if (rowSuppressPlainText(rowId)) return ''
-  const rawText = String(effectiveField(node, 'plain_text') || '').trim() || rowId
-  return renderMarkdownInlineToHtml(rawText, props.sourceFilePath || '')
-}
-const rowIsFormulaOrTable = (rowId: string) => {
-  const node = rowNode(rowId)
-  if (!node) return false
-  return node.block_type === 'equation_interline'
-    || node.block_type === 'formula'
-    || node.block_type === 'table'
-}
-const rowHasRichMedia = (rowId: string) => {
-  const n = rowNode(rowId)
-  if (!n) return false
-  return Boolean(
-    (Array.isArray(n.rich_media_order) && n.rich_media_order.length > 0)
-    || n.table_html
-    || n.math_content
-    || (Array.isArray(n.image_paths) && n.image_paths.length > 0)
-  )
-}
-const rowInlineMediaHtml = (rowId: string) => {
-  if (!rowHasRichMedia(rowId)) return ''
-  return renderNodeRichMedia(rowNode(rowId), props.sourceFilePath, {
-    includeImages: !rowIsFormulaOrTable(rowId)
-  })
-}
-const isRowChecked = (rowId: string) => Boolean(props.selectedNodeIds?.has(rowId))
 
 /* 每个节点的已测量高度缓存（未测量时为 0 表示用估算值）。 */
 const rowHeights = ref<Map<string, number>>(new Map())
@@ -245,21 +355,24 @@ const rowOffsets = computed(() => {
   return offsets
 })
 
-/* 根据当前 scrollTop 找到应该显示的行范围。 */
+/* 根据当前 scrollTop 找到应该显示的行范围（二分定位起始行，线性扫尾部）。 */
 const visibleRange = computed(() => {
   const total = flatRows.value.length
   if (total === 0) return { startIdx: 0, endIdx: 0 }
   const containerHeight = treeContainerRef.value?.clientHeight || 600
   const scrollPos = scrollTop.value
 
-  let startIdx = 0
-  for (let i = 0; i < total; i++) {
-    if (rowOffsets.value[i] + getRowHeight(flatRows.value[i].id) > scrollPos) {
-      startIdx = Math.max(0, i - BUFFER_COUNT)
-      break
+  let low = 0
+  let high = total
+  while (low < high) {
+    const mid = (low + high) >> 1
+    if (rowOffsets.value[mid] + getRowHeight(flatRows.value[mid].id) > scrollPos) {
+      high = mid
+    } else {
+      low = mid + 1
     }
-    startIdx = i
   }
+  const startIdx = Math.max(0, low - BUFFER_COUNT)
 
   let endIdx = total
   for (let i = startIdx; i < total; i++) {
@@ -269,9 +382,7 @@ const visibleRange = computed(() => {
     }
   }
 
-  const safeStart = Math.max(0, Math.min(startIdx, total - 1))
-  const safeEnd = Math.max(safeStart, Math.min(total, endIdx))
-  return { startIdx: safeStart, endIdx: safeEnd }
+  return { startIdx, endIdx }
 })
 
 /* 可见区域第一个元素的 Y 偏移量（用于 translateY 定位）。 */
@@ -280,6 +391,65 @@ const offsetY = computed(() => {
 })
 
 const visibleRows = computed(() => flatRows.value.slice(visibleRange.value.startIdx, visibleRange.value.endIdx))
+
+interface RowView {
+  id: string
+  depth: number
+  hasChildren: boolean
+  isExpanded: boolean
+  levelTag: string | null
+  typeTag: string | null
+  positionTag: string | null
+  suppressPlainText: boolean
+  displayText: string
+  displayTextHtml: string
+  inlineMediaHtml: string
+  checked: boolean
+  hasNode: boolean
+  hasPreviewImage: boolean
+}
+
+/* 可见行渲染数据：一次计算，模板直接取值，避免重复查询。 */
+const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
+  const id = row.id
+  const node = rowNode(id)
+  const suppressPlainText = shouldSuppressNodePlainText(node)
+  let displayTextHtml = ''
+  if (!suppressPlainText) {
+    const rawText = String(effectiveField(node, 'plain_text') || '').trim() || id
+    displayTextHtml = renderMarkdownInlineToHtml(rawText, props.sourceFilePath || '')
+  }
+  const isFormulaOrTable = node
+    ? (node.block_type === 'equation_interline' || node.block_type === 'formula' || node.block_type === 'table')
+    : false
+  const hasRichMedia = Boolean(
+    node && (
+      (Array.isArray(node.rich_media_order) && node.rich_media_order.length > 0)
+      || node.table_html
+      || node.math_content
+      || node.image_path
+      || (Array.isArray(node.image_paths) && node.image_paths.length > 0)
+    )
+  )
+  return {
+    id,
+    depth: row.depth,
+    hasChildren: row.hasChildren,
+    isExpanded: row.isExpanded,
+    levelTag: getNodeLevelTag(node, props.nodeMap),
+    typeTag: getNodeTypeTag(node),
+    positionTag: getNodePositionTag(node),
+    suppressPlainText,
+    displayText: getNodeDisplayText(node, id),
+    displayTextHtml,
+    inlineMediaHtml: hasRichMedia
+      ? renderNodeRichMedia(node, props.sourceFilePath, { includeImages: !isFormulaOrTable })
+      : '',
+    checked: Boolean(props.selectedNodeIds?.has(id)),
+    hasNode: Boolean(node),
+    hasPreviewImage: Boolean(node && isImagePreviewNode(node))
+  }
+}))
 
 /* 测量当前可见 DOM 行的实际高度并写入缓存。 */
 function measureVisibleRows() {
@@ -306,14 +476,22 @@ watch(() => props.roots, () => {
   nextTick(() => measureVisibleRows())
 })
 
-/* expand/collapse changed: re-measure visible rows */
-watch(() => props.expandedNodeIds, () => {
+/* expand/collapse changed (Set mutated in place): re-measure visible rows */
+watch(() => props.expandedNodeIds.size, () => {
   nextTick(() => measureVisibleRows())
 })
 
 /* 组件挂载后进行首次测量。 */
 onMounted(() => {
   nextTick(() => measureVisibleRows())
+})
+
+/* modal closed: clear cached preview node */
+watch(previewVisible, (open) => {
+  if (!open) {
+    previewNode.value = null
+    previewImages.value = []
+  }
 })
 
 const onTreeScroll = () => {
@@ -330,8 +508,7 @@ const onToggle = (id: string) => {
 const onRowClick = (rowId: string) => {
   const node = props.nodeMap.get(rowId)
   if (node && isImagePreviewNode(node)) {
-    previewNode.value = node
-    previewVisible.value = true
+    openImagePreview(node)
   }
   emit('select', rowId)
 }
@@ -387,6 +564,43 @@ watch(() => props.activeNodeId, () => {
   font-size: 13px;
 }
 
+.doc-blocks-tree.dark {
+  .tree-row:hover {
+    border-color: var(--dp-hover-border, #3b4a63);
+    background: var(--dp-hover-bg, #1f2532);
+  }
+
+  .tree-row.active {
+    border-color: var(--dp-active-border, #7c9cf5);
+    box-shadow: 0 0 0 2px var(--dp-active-shadow, rgba(124, 156, 245, 0.28));
+    background: var(--dp-active-bg, #232b3d);
+  }
+
+  .chip {
+    border-color: var(--chip-default-border, #38445b);
+    background: var(--chip-default-bg, #2a3345);
+    color: var(--chip-default-text, rgba(255, 255, 255, 0.62));
+
+    &.lv {
+      border-color: var(--chip-lv-border, #4f46e5);
+      background: var(--chip-lv-bg, #2e3150);
+      color: var(--chip-lv-text, #c7d2fe);
+    }
+
+    &.pos {
+      border-color: var(--chip-pos-border, #0e7490);
+      background: var(--chip-pos-bg, #12303a);
+      color: var(--chip-pos-text, #a5f3fc);
+    }
+
+    &.preview-hint {
+      border-color: var(--dp-hover-border, #3b4a63);
+      background: var(--dp-hover-bg, #1f2532);
+      color: var(--dp-active-border, #7c9cf5);
+    }
+  }
+}
+
 .tree-loading {
   display: flex;
   align-items: center;
@@ -416,21 +630,80 @@ watch(() => props.activeNodeId, () => {
 .tree-image-preview {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  max-height: 72vh;
-  overflow: auto;
 }
 
-.tree-image-preview :deep(.media-image) {
+.tree-image-preview-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 44px;
+  box-sizing: border-box;
+  min-height: 32px;
+}
+
+.tree-image-preview-title {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-weight: 600;
+  max-width: 35%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tree-image-preview-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.tree-image-preview-zoom {
+  min-width: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--dp-sub-text, #8c8c8c);
+}
+
+.tree-image-preview-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-height: 68vh;
+  overflow: auto;
+  padding: 8px;
+  border: 1px solid var(--dp-pane-border, #e8edf4);
+  border-radius: 8px;
+  background: var(--dp-surface-bg, #ffffff);
+  user-select: none;
+  cursor: grab;
+}
+
+.tree-image-preview-stage.dragging {
+  cursor: grabbing;
+}
+
+.tree-image-preview-stage.dragging .preview-image {
+  transition: none;
+}
+
+.tree-image-preview-stage .preview-image {
   display: block;
   max-width: 100%;
-  max-height: 68vh;
+  max-height: 62vh;
   width: auto;
   height: auto;
   object-fit: contain;
   border-radius: 8px;
-  background: var(--dp-surface-bg);
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform 0.12s ease;
 }
 
 /* ---- 行渲染样式（原 IndexTreeFlatRow，缺失 CSS 变量补默认值） ---- */
@@ -456,6 +729,10 @@ watch(() => props.activeNodeId, () => {
     box-shadow: 0 0 0 2px var(--dp-active-shadow, rgba(124, 156, 245, 0.25));
     background: var(--dp-active-bg, #eef2ff);
   }
+}
+
+.tree-row.previewable {
+  cursor: zoom-in;
 }
 
 .tree-select-checkbox {
@@ -585,5 +862,16 @@ watch(() => props.activeNodeId, () => {
     background: var(--chip-pos-bg, #ecfeff);
     color: var(--chip-pos-text, #0e7490);
   }
+
+  &.preview-hint {
+    opacity: 0;
+    border-color: var(--dp-hover-border, #a5b4fc);
+    background: var(--dp-hover-bg, #f0f3ff);
+    color: var(--dp-active-border, #7c9cf5);
+  }
+}
+
+.tree-row:hover .chip.preview-hint {
+  opacity: 1;
 }
 </style>
