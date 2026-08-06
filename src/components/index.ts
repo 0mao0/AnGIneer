@@ -5,5 +5,3 @@ export { default as PDFParsedViewerCombo } from './common/workspace/PDFParsedVie
 export { default as PDF_Viewer } from './common/viewers/PDF_Viewer.vue'
 export { default as Preview_Markdown } from './common/viewers/Preview_Markdown.vue'
 export { default as Preview_HTML } from './common/viewers/Preview_HTML.vue'
-export { default as IndexTreeNode } from './common/index/IndexTreeNode.vue'
-export { default as DocBlocksTreeNode } from './common/index/IndexTreeNode.vue'
