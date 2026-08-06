@@ -19,6 +19,10 @@ from typing import Any, Dict, List, Optional, Set, Tuple, TYPE_CHECKING
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
 
+from docs_core.step04_structure.shared.page_role_classifier import (
+    PageRole, classify_page_roles, part_for_role,
+)
+
 
 def now_iso() -> str:
     """返回UTC时区的ISO时间字符串。"""
@@ -1828,6 +1832,11 @@ def build_structured_from_rawfiles(
     derived_rows: list[dict[str, Any]] = []
     
     excluded_types: set[str] = set()  # 展示层全量可见；05 语义层自行收敛页眉/页脚
+    page_roles = classify_page_roles(rows, toc_pages=set(toc_pages))
+    front_matter_roles = {
+        PageRole.COVER, PageRole.PUBLICATION_PAGE, PageRole.NOTICE,
+        PageRole.REVISION_NOTES, PageRole.TOC, PageRole.PREFACE,
+    }
     
     for i, row in enumerate(rows):
         content = row["content_json"]
@@ -1842,9 +1851,14 @@ def build_structured_from_rawfiles(
         is_toc_row = int(row["id"]) in toc_row_ids
         is_toc_page = int(row["page_idx"]) in toc_pages
         compact_text = re.sub(r"\s+", "", text)
+        page_role = page_roles.get(int(row["page_idx"]), PageRole.UNKNOWN)
+        document_part = part_for_role(page_role).value
         
         if block_type == "title":
-            derived_level, confidence, by = infer_title_level(row["plain_text"] or "", raw_level)
+            if page_role in front_matter_roles:
+                derived_level, confidence, by = 1, 0.7, "part"
+            else:
+                derived_level, confidence, by = infer_title_level(row["plain_text"] or "", raw_level)
             derived_by = by
             
             if is_toc_row:
@@ -2124,6 +2138,8 @@ def build_structured_from_rawfiles(
                     "parent_uid": parent_uid,
                     "derived_by": derived_by,
                     "confidence": confidence,
+                    "document_part": document_part,
+                    "page_role": page_role.value if isinstance(page_role, PageRole) else str(page_role),
                     "type_recognition_score": type_recognition_score,
                     "text_recognition_score": text_recognition_score,
                     "image_path": image_path,
