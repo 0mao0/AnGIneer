@@ -321,6 +321,24 @@ export const renderNodeRichMedia = (
   const includeTable = options.includeTable !== false
   const sections: string[] = []
   const imageSources = collectNodeImageSources(node)
+  const formulaBody = String(node.formula_body || '').trim()
+    || String(node.math_content || '').trim().replace(/\\tag(?:\*)?\s*\{[^{}]*\}/g, '').trim()
+  const formulaNumber = String(node.formula_number || '').trim()
+  const pushFormula = (): void => {
+    if (!formulaBody) return
+    const numberHtml = formulaNumber
+      ? `<span class="media-formula-number">(${escapeHtml(formulaNumber)})</span>`
+      : ''
+    sections.push(
+      `<div class="media-formula-row">`
+      + `<div class="media-formula">${renderFormula(formulaBody, true)}</div>`
+      + numberHtml
+      + `</div>`
+    )
+  }
+  const pushTable = (html: string): void => {
+    sections.push(`<div class="media-table">${html}</div>`)
+  }
   
   if (Array.isArray(node.rich_media_order) && node.rich_media_order.length > 0) {
     const renderedImages = new Set<string>()
@@ -339,10 +357,10 @@ export const renderNodeRichMedia = (
         }
       } else if (includeTable && item.type === 'table' && !tableRendered && node.table_html) {
         tableRendered = true
-        sections.push(`<div class="media-table">${node.table_html}</div>`)
-      } else if (includeMath && item.type === 'math' && !mathRendered && node.math_content) {
+        pushTable(node.table_html)
+      } else if (includeMath && item.type === 'math' && !mathRendered && (node.math_content || node.formula_body)) {
         mathRendered = true
-        sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
+        pushFormula()
       }
     })
     
@@ -360,10 +378,10 @@ export const renderNodeRichMedia = (
     }
     
     if (includeTable && !tableRendered && node.table_html) {
-      sections.push(`<div class="media-table">${node.table_html}</div>`)
+      pushTable(node.table_html)
     }
-    if (includeMath && !mathRendered && node.math_content) {
-      sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
+    if (includeMath && !mathRendered && (node.math_content || node.formula_body)) {
+      pushFormula()
     }
   } else {
     if (includeImages) {
@@ -378,10 +396,10 @@ export const renderNodeRichMedia = (
       })
     }
     if (includeTable && node.table_html) {
-      sections.push(`<div class="media-table">${node.table_html}</div>`)
+      pushTable(node.table_html)
     }
-    if (includeMath && node.math_content) {
-      sections.push(`<div class="media-formula">${renderFormula(node.math_content, true)}</div>`)
+    if (includeMath && (node.math_content || node.formula_body)) {
+      pushFormula()
     }
   }
   

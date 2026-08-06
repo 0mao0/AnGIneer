@@ -263,6 +263,20 @@ const getPrimaryContentHtml = (item: StructuredIndexItem): string => renderInlin
   max-width: 100%;
 }
 
+:deep(.index-media .media-formula-row) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+:deep(.index-media .media-formula-number) {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--dp-sub-text);
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
 :deep(.index-media .katex-display) {
   margin: 0;
   overflow-x: auto;
