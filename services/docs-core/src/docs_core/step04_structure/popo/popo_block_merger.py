@@ -16,6 +16,9 @@ logger = logging.getLogger(__name__)
 MAX_MERGE_CHAIN = 5
 
 
+_CAPTION_LIKE_RE = re.compile(r"^\s*(?:续?\s*表|表格|Table|Exhibit)", re.IGNORECASE)
+
+
 def _uid(node: Dict[str, Any]) -> str:
     return str(node.get("block_uid") or node.get("id") or "").strip()
 
@@ -145,6 +148,63 @@ def _merge_table_content_json(
     return merged
 
 
+def _collect_fragment_texts(payload: Any) -> List[str]:
+    """提取 caption/footnote 片段数组中的纯文本。"""
+    texts: List[str] = []
+    if isinstance(payload, list):
+        for item in payload:
+            if isinstance(item, dict):
+                value = item.get("content")
+                if isinstance(value, str) and value.strip():
+                    texts.append(value.strip())
+            elif isinstance(item, str) and item.strip():
+                texts.append(item.strip())
+    elif isinstance(payload, str) and payload.strip():
+        texts.append(payload.strip())
+    return texts
+
+
+def _table_caption_text(content_json: Dict[str, Any]) -> str:
+    return "".join(_collect_fragment_texts(content_json.get("table_caption"))).strip()
+
+
+def _table_footnote_text(content_json: Dict[str, Any]) -> str:
+    return " ".join(_collect_fragment_texts(content_json.get("table_footnote"))).strip()
+
+
+def _table_plain_text(content_json: Dict[str, Any]) -> str:
+    parts = [
+        _table_caption_text(content_json),
+        _table_footnote_text(content_json),
+    ]
+    return " ".join(part for part in parts if part).strip()
+
+
+def _merge_missing_table_caption(
+    source_cj: Dict[str, Any], target_cj: Dict[str, Any]
+) -> Dict[str, Any]:
+    """source 缺 caption 时，仅当 target caption 像正式表题（表/续表/Table）才继承。"""
+    if _table_caption_text(source_cj):
+        return source_cj
+    target_items = [
+        dict(item)
+        for item in target_cj.get("table_caption") or []
+        if isinstance(item, dict)
+    ]
+    if not target_items:
+        return source_cj
+    candidate = "".join(str(item.get("content") or "") for item in target_items).strip()
+    if not _CAPTION_LIKE_RE.match(candidate):
+        return source_cj
+    merged = dict(source_cj)
+    merged["table_caption"] = target_items
+    if target_cj.get("table_caption_bboxes"):
+        merged["table_caption_bboxes"] = [
+            list(bbox) for bbox in target_cj.get("table_caption_bboxes") or []
+        ]
+    return merged
+
+
 def _absorb_table(source: Dict[str, Any], target: Dict[str, Any]) -> None:
     source_html = str(source.get("table_html") or "")
     target_html = str(target.get("table_html") or "")
@@ -152,8 +212,19 @@ def _absorb_table(source: Dict[str, Any], target: Dict[str, Any]) -> None:
     source["table_html"] = merged_html
     source_cj = source.get("content_json") if isinstance(source.get("content_json"), dict) else {}
     target_cj = target.get("content_json") if isinstance(target.get("content_json"), dict) else {}
-    source["content_json"] = _merge_table_content_json(source_cj, target_cj, merged_html)
-    source["footnote"] = _merge_contd_text(source.get("footnote"), target.get("footnote"))
+    merged_cj = _merge_table_content_json(source_cj, target_cj, merged_html)
+    merged_cj = _merge_missing_table_caption(merged_cj, target_cj)
+    source["content_json"] = merged_cj
+    source["plain_text"] = (
+        _table_plain_text(merged_cj) or str(source.get("plain_text") or "").strip()
+    )
+    caption_text = _table_caption_text(merged_cj)
+    footnote_text = _table_footnote_text(merged_cj)
+    source["caption"] = caption_text or str(source.get("caption") or "").strip()
+    source["footnote"] = (
+        footnote_text
+        or _merge_contd_text(source.get("footnote"), target.get("footnote"))
+    )
     source["page_bboxes"] = _merge_page_bboxes(source, target)
     source["merged_from"] = _merge_merged_from(source, target)
     source.pop("table_merge_id", None)

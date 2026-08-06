@@ -175,6 +175,23 @@ def collect_text_fragments(payload: Any) -> list[str]:
     return list(dict.fromkeys(fragments))
 
 
+def extract_media_fragment_text(payload: Any) -> str:
+    """把 caption/footnote 片段数组拼成纯文本（与 plain_text 中的表题/表注一致）。"""
+    if isinstance(payload, str):
+        return payload.strip()
+    if not isinstance(payload, list):
+        return ""
+    parts: list[str] = []
+    for item in payload:
+        if isinstance(item, dict):
+            value = item.get("content")
+            if isinstance(value, str) and value.strip():
+                parts.append(value.strip())
+        elif isinstance(item, str) and item.strip():
+            parts.append(item.strip())
+    return "".join(parts).strip() if parts else ""
+
+
 def build_related_text_needles(values: list[str]) -> list[str]:
     """把文本片段转换为可用于跨块匹配的归一化候选。"""
     needles = [normalize_match_text(value) for value in values if normalize_match_text(value)]
@@ -653,6 +670,26 @@ def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple
             if w > 0 and h > 0:
                 page_size_map[idx] = (w, h)
 
+    # hybrid-engine 的 model.json 没有 page_info；页面尺寸在 middle.json 的
+    # pdf_info[page].page_size（原始坐标系，如 612x825）。
+    if not page_size_map and isinstance(middle_payload, dict):
+        for page in middle_payload.get("pdf_info") or []:
+            if not isinstance(page, dict):
+                continue
+            try:
+                idx = int(page.get("page_idx", 0))
+            except (TypeError, ValueError):
+                continue
+            size = page.get("page_size") or []
+            if not isinstance(size, (list, tuple)) or len(size) < 2:
+                continue
+            try:
+                w, h = float(size[0] or 0), float(size[1] or 0)
+            except (TypeError, ValueError):
+                continue
+            if w > 0 and h > 0:
+                page_size_map[idx] = (w, h)
+
     # 校准：content_list_v2 的 bbox 可能与 model.json 的 page_info 使用不同坐标系。
     # 当 bbox 最大值远小于 page_info 报告的页面尺寸时，说明 scale 不匹配，
     # 需要用 bbox 自身的最大值反推实际页面尺寸。
@@ -672,7 +709,16 @@ def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple
             w, h = page_size_map[idx]
             # bbox 值域在 0~1100 内且页面尺寸明显更大：判定为 1000 归一化坐标系
             # （MinerU 3.4 自部署版 content_list_v2 的输出格式；逐页判断以兼容横排页）
-            if page_max_x <= 1100 and page_max_y <= 1100 and (w > 1100 or h > 1100):
+            # hybrid-engine 的 page_size 来自 middle.json（如 612x825），此时
+            # content_list_v2 的 bbox 最大值反而超过 page_size，同样判定为 1000 坐标系。
+            if (
+                page_max_x <= 1100 and page_max_y <= 1100
+                and (
+                    w > 1100 or h > 1100
+                    or page_max_x > w * 1.05
+                    or page_max_y > h * 1.05
+                )
+            ):
                 page_size_map[idx] = (1000.0, 1000.0)
             elif page_max_y < h * 0.5:
                 # 兜底：用 bbox 最大值 + 5% 边距估算
@@ -778,6 +824,31 @@ def _model_formula_number_map(model_payload: Any) -> dict[int, list[list[float]]
     if not isinstance(model_payload, list):
         return result
     for page_idx, page in enumerate(model_payload):
+        if isinstance(page, list):
+            # hybrid-engine：每页为裸列表，条目 bbox 已归一化
+            numbers: list[list[float]] = []
+            pending_formula = False
+            for det in page:
+                if not isinstance(det, dict):
+                    continue
+                det_type = str(det.get("type") or det.get("label") or "").strip().lower()
+                if det_type in ("display_formula", "formula", "interline_equation"):
+                    pending_formula = True
+                    continue
+                if det_type in ("formula_number", "equation_number") and pending_formula:
+                    raw_bbox = det.get("bbox")
+                    if isinstance(raw_bbox, (list, tuple)) and len(raw_bbox) >= 4:
+                        try:
+                            numbers.append([
+                                min(1.0, max(0.0, float(v)))
+                                for v in raw_bbox[:4]
+                            ])
+                        except (TypeError, ValueError):
+                            pass
+                    pending_formula = False
+            if numbers:
+                result[page_idx] = numbers
+            continue
         if not isinstance(page, dict):
             continue
         info = page.get("page_info") or {}
@@ -824,10 +895,35 @@ def _model_type_recognition_map(model_payload: Any) -> dict[int, list[tuple[str,
 
     bbox 按 page_info 的 width/height 归一化到 0..1，与节点 bbox 坐标系一致。
     score 非数值时保留 None（仅该候选不可用于匹配），label/bbox 缺失的候选跳过。
+    hybrid-engine 的 model.json 是裸列表，条目自带 0..1 bbox，直接透传。
     """
     result: dict[int, list[tuple[str, float | None, list[float]]]] = {}
     pages = model_payload if isinstance(model_payload, list) else [model_payload]
-    for page in pages:
+    for page_idx, page in enumerate(pages):
+        if isinstance(page, list):
+            # hybrid-engine：每页为裸列表，条目 bbox 已归一化，score 通常缺失
+            items: list[tuple[str, float | None, list[float]]] = []
+            for det in page:
+                if not isinstance(det, dict):
+                    continue
+                label = str(det.get("type") or det.get("label") or "").strip()
+                raw_bbox = det.get("bbox")
+                if not label or not isinstance(raw_bbox, (list, tuple)) or len(raw_bbox) < 4:
+                    continue
+                try:
+                    bbox_norm = [
+                        min(1.0, max(0.0, float(raw_bbox[0]))),
+                        min(1.0, max(0.0, float(raw_bbox[1]))),
+                        min(1.0, max(0.0, float(raw_bbox[2]))),
+                        min(1.0, max(0.0, float(raw_bbox[3]))),
+                    ]
+                except (TypeError, ValueError):
+                    continue
+                score = det.get("score")
+                items.append((label, float(score) if isinstance(score, (int, float)) else None, bbox_norm))
+            if items:
+                result[page_idx] = items
+            continue
         if not isinstance(page, dict):
             continue
         info = page.get("page_info") or {}
@@ -1113,7 +1209,7 @@ def detect_toc_row_ids(rows: list[Any]) -> set[int]:
 
 _AUX_BLOCK_TYPES = {"page_header", "page_footer", "page_number", "header", "footer"}
 _CONT_TEXT_BLOCK_TYPES = {"paragraph", "text", "list_item"}
-_TERMINAL_PUNCT = set("。！？；;!?：:，,、）】」』》\"”’)].,")
+_TERMINAL_PUNCT = set("。！？；;!?）】」』》\"”’)].")
 _HEADING_NUMBER_RE = re.compile(r"^\d+(?:\.\d+)*\s*")
 _HEADING_MARKER_PREFIXES = ("第", "附录", "附", "目", "表", "图")
 _MAX_FRAGMENT_LEN = 10
@@ -1792,6 +1888,14 @@ def build_structured_from_rawfiles(
             math_content = content.get("math_content") if isinstance(content.get("math_content"), str) else None
             math_type = content.get("math_type") if isinstance(content.get("math_type"), str) else None
 
+        caption_text = None
+        footnote_text = None
+        if block_type in ("table", "image") and isinstance(content, dict):
+            caption_key = "table_caption" if block_type == "table" else "image_caption"
+            footnote_key = "table_footnote" if block_type == "table" else "image_footnote"
+            caption_text = extract_media_fragment_text(content.get(caption_key)) or None
+            footnote_text = extract_media_fragment_text(content.get(footnote_key)) or None
+
         related_refs = collect_media_related_block_refs(row, rows)
         caption_block_uids = related_refs.get("caption_block_uids", [])
         footnote_block_uids = related_refs.get("footnote_block_uids", [])
@@ -1862,9 +1966,11 @@ def build_structured_from_rawfiles(
                     "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
                     "caption_block_uids": caption_block_uids or None,
                     "caption_bboxes": caption_bboxes or None,
+                    "caption": caption_text,
                     "footnote_block_uid": footnote_block_uids[0] if len(footnote_block_uids) == 1 else None,
                     "footnote_block_uids": footnote_block_uids or None,
                     "footnote_bboxes": footnote_bboxes or None,
+                    "footnote": footnote_text,
                     "table_header_bbox": row.get("table_header_bbox"),
                     "equation_number_bbox": row.get("equation_number_bbox"),
                     "content_json": row.get("content_json"),
