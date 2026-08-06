@@ -36,6 +36,8 @@ def _build_content_json(block: CanonicalBlock) -> Dict[str, Any]:
         payload["math_content"] = formula_text or block.text
         if block.formula_semantics:
             payload["formula_semantics"] = dict(block.formula_semantics)
+            payload["formula_number"] = block.formula_semantics.get("formula_number")
+            payload["formula_body"] = block.formula_semantics.get("formula_body")
     if block.raw_type:
         payload["raw_type"] = block.raw_type
     return payload

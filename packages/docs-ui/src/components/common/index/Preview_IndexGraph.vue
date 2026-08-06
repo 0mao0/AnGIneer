@@ -705,6 +705,20 @@ defineExpose({
   overflow-y: hidden;
 }
 
+:deep(.graph-media-panel-body .media-formula-row) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+:deep(.graph-media-panel-body .media-formula-number) {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--dp-sub-text);
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
 .graph-loading {
   position: absolute;
   inset: 0;

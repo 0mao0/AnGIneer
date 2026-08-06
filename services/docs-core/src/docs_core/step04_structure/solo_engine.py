@@ -890,6 +890,157 @@ def _model_formula_number_map(model_payload: Any) -> dict[int, list[list[float]]
     return result
 
 
+_FORMULA_TAG_RE = re.compile(r"\\tag(?:\*)?\s*\{([^{}]*)\}")
+
+
+def _extract_formula_tag(text: Any) -> str | None:
+    """从 LaTeX 内容中提取 \\tag{...} 的编号文本。"""
+    if not isinstance(text, str):
+        return None
+    match = _FORMULA_TAG_RE.search(text)
+    if not match:
+        return None
+    tag = match.group(1).strip()
+    return tag or None
+
+
+def _strip_formula_tag(text: Any) -> str | None:
+    """去掉公式末尾的 \\tag{...}，保留纯公式体。"""
+    if not isinstance(text, str):
+        return None
+    body = _FORMULA_TAG_RE.sub("", text).strip()
+    return body or None
+
+
+def _middle_page_text_right_norm(
+    middle_payload: Any,
+    page_idx: int,
+    page_width: float,
+) -> float | None:
+    """取 middle.json 某页正文块的最大右边距（归一化 0..1）。"""
+    if not isinstance(middle_payload, dict) or page_width <= 0:
+        return None
+    for page in middle_payload.get("pdf_info") or []:
+        if not isinstance(page, dict):
+            continue
+        try:
+            idx = int(page.get("page_idx", page_idx))
+        except (TypeError, ValueError):
+            continue
+        if idx != page_idx:
+            continue
+        right = 0.0
+        for block in page.get("para_blocks") or []:
+            if not isinstance(block, dict):
+                continue
+            block_type = str(block.get("type") or "").strip()
+            if block_type not in ("text", "paragraph"):
+                continue
+            bbox = block.get("bbox")
+            if not isinstance(bbox, (list, tuple)) or len(bbox) < 4:
+                continue
+            try:
+                right = max(right, float(bbox[2]))
+            except (TypeError, ValueError):
+                continue
+        if right > 0:
+            return min(1.0, right / page_width)
+    return None
+
+
+def _derive_formula_number_bbox_map(
+    parsed_blocks: Any,
+    middle_payload: Any,
+    page_size_map: dict[int, tuple[float, float]],
+) -> dict[int, list[list[float]]]:
+    """hybrid-engine 没有独立的 formula_number 检测框时，按编号字符宽度推算。
+
+    MinerU hybrid 会把编号写进公式内容的 \\tag{...}，但 bbox 只覆盖公式本体；
+    编号实际右对齐到该页正文右边距，因此用“正文右边距 - 3.5pt 内缩”作为右缘，
+    再按 (编号字符数 + 2 个括号) × 6.2pt 估算宽度，垂直方向居中于公式块。
+    """
+    result: dict[int, list[list[float]]] = {}
+    if not isinstance(parsed_blocks, list):
+        return result
+
+    orig_sizes: dict[int, tuple[float, float]] = {}
+    if isinstance(middle_payload, dict):
+        for page in middle_payload.get("pdf_info") or []:
+            if not isinstance(page, dict):
+                continue
+            try:
+                idx = int(page.get("page_idx", 0))
+            except (TypeError, ValueError):
+                continue
+            size = page.get("page_size") or []
+            if not isinstance(size, (list, tuple)) or len(size) < 2:
+                continue
+            try:
+                w, h = float(size[0] or 0), float(size[1] or 0)
+            except (TypeError, ValueError):
+                continue
+            if w > 0 and h > 0:
+                orig_sizes[idx] = (w, h)
+
+    for page_idx, page_blocks in enumerate(parsed_blocks):
+        if not isinstance(page_blocks, list):
+            continue
+        pw, ph = page_size_map.get(page_idx, (0.0, 0.0))
+        ow, oh = orig_sizes.get(page_idx, (0.0, 0.0))
+        if pw <= 0 or ph <= 0 or ow <= 0 or oh <= 0:
+            continue
+        text_right = _middle_page_text_right_norm(middle_payload, page_idx, ow)
+        if text_right is None:
+            text_right = min(1.0, max(0.86, (pw - 60.0) / pw))
+        else:
+            text_right = max(0.0, text_right - 3.5 / ow)
+
+        numbers: list[list[float]] = []
+        for block in page_blocks:
+            if not isinstance(block, dict):
+                continue
+            block_type = str(block.get("type") or "").strip()
+            if block_type not in ("equation_interline", "equation"):
+                continue
+            content = block.get("content")
+            math_text: Any = None
+            if isinstance(content, dict):
+                math_text = content.get("math_content") or content.get("text")
+            if math_text is None:
+                math_text = block.get("text") or block.get("math_content")
+            tag = _extract_formula_tag(math_text)
+            if not tag:
+                continue
+            bbox = block.get("bbox")
+            if not isinstance(bbox, (list, tuple)) or len(bbox) < 4:
+                continue
+            try:
+                ey0, ey1 = (
+                    float(bbox[1]),
+                    float(bbox[3]),
+                )
+            except (TypeError, ValueError):
+                continue
+            ey0_n = min(1.0, max(0.0, ey0 / ph))
+            ey1_n = min(1.0, max(0.0, ey1 / ph))
+
+            # 显示为 (6.4.2-1)：编号两侧还有一对括号
+            width_n = ((len(tag) + 2) * 6.2) / ow
+            right_n = text_right
+            left_n = max(0.0, right_n - width_n)
+            center_y_n = (ey0_n + ey1_n) / 2.0
+            height_n = min(13.0 / oh, ey1_n - ey0_n)
+            numbers.append([
+                min(1.0, left_n),
+                min(1.0, max(0.0, center_y_n - height_n / 2.0)),
+                min(1.0, right_n),
+                min(1.0, max(0.0, center_y_n + height_n / 2.0)),
+            ])
+        if numbers:
+            result[page_idx] = numbers
+    return result
+
+
 def _model_type_recognition_map(model_payload: Any) -> dict[int, list[tuple[str, float | None, list[float]]]]:
     """从 model.json 提取每页 layout_dets 的 (label, score, 归一化 bbox)。
 
@@ -1486,6 +1637,14 @@ def build_structured_from_rawfiles(
     model_media_candidates = build_model_media_candidate_map(model_payload)
     middle_region_map = _middle_media_region_map(middle_payload)
     formula_number_map = _model_formula_number_map(model_payload)
+    derived_formula_number_map = _derive_formula_number_bbox_map(
+        parsed_blocks,
+        middle_payload,
+        page_size_map,
+    )
+    for _page_idx, _numbers in derived_formula_number_map.items():
+        if not formula_number_map.get(_page_idx):
+            formula_number_map[_page_idx] = _numbers
     
     if not parsed_blocks:
         return StructuredResult(stats={"error": "no_parsed_blocks", "raw_dir": str(raw_dir)})
@@ -1887,6 +2046,11 @@ def build_structured_from_rawfiles(
             table_type = content.get("table_type") if isinstance(content.get("table_type"), str) else None
             math_content = content.get("math_content") if isinstance(content.get("math_content"), str) else None
             math_type = content.get("math_type") if isinstance(content.get("math_type"), str) else None
+        formula_number = None
+        formula_body = None
+        if block_type == "equation_interline":
+            formula_number = _extract_formula_tag(math_content)
+            formula_body = _strip_formula_tag(math_content)
 
         caption_text = None
         footnote_text = None
@@ -1924,6 +2088,8 @@ def build_structured_from_rawfiles(
             "table_html": table_html,
             "math_type": math_type,
             "math_content": math_content,
+            "formula_number": formula_number,
+            "formula_body": formula_body,
             "image_path": image_path,
             "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
             "caption_block_uids": caption_block_uids or None,
@@ -1963,6 +2129,8 @@ def build_structured_from_rawfiles(
                     "image_path": image_path,
                     "table_html": table_html,
                     "math_content": math_content,
+                    "formula_number": formula_number,
+                    "formula_body": formula_body,
                     "caption_block_uid": caption_block_uids[0] if len(caption_block_uids) == 1 else None,
                     "caption_block_uids": caption_block_uids or None,
                     "caption_bboxes": caption_bboxes or None,

@@ -89,6 +89,8 @@ export interface DocBlockNode {
   table_html_corrected?: string | null
   math_content: string | null
   math_content_corrected?: string | null
+  formula_number?: string | null
+  formula_body?: string | null
   title?: string | null
   caption?: string | null
   caption_corrected?: string | null

@@ -27,6 +27,7 @@ FORMULA_PARAM_SOFT_RE = re.compile(rf"^\s*({FORMULA_PARAM_SYMBOL_RE})\s+(.+?)\s*
 REFERENCE_HINT_RE = re.compile(r"(采用[^；。]*|按[^；。]*|取[^；。]*|见[^；。]*|按表[^；。]*)")
 UNIT_RE = re.compile(r"[（(]([^()（）]{1,20})[）)]")
 JSON_BLOCK_RE = re.compile(r"```(?:json)?\s*(.*?)```", re.DOTALL | re.IGNORECASE)
+_FORMULA_TAG_STRIP_RE = re.compile(r"\\tag(?:\*)?\s*\{[^{}]*\}")
 _SYMBOL_ARG_COMMANDS = {
     "mathrm",
     "text",
@@ -62,6 +63,7 @@ class FormulaSemanticsContract(TypedDict):
     """公式语义图契约。"""
 
     formula_text: str
+    formula_body: str
     formula_number: Optional[str]
     formula_params: List[FormulaParamContract]
     formula_param_count: int
@@ -86,6 +88,12 @@ def extract_formula_number(formula_text: str, explanation_lines: List[str]) -> O
         if match:
             return match.group(1) or match.group(2)
     return None
+
+
+def strip_formula_tag(text: str) -> str:
+    """去掉公式末尾的 \\tag{...}，保留纯公式体。"""
+    cleaned = clean_formula_text(text)
+    return _FORMULA_TAG_STRIP_RE.sub("", cleaned).strip()
 
 
 # 将说明段拆成便于逐条解析的候选行。
@@ -513,6 +521,7 @@ def build_formula_representations(
     cleaned_formula = clean_formula_text(formula_text)
     normalized_lines = split_formula_explanation_lines(explanation_lines)
     formula_number = extract_formula_number(cleaned_formula, normalized_lines)
+    formula_body = strip_formula_tag(cleaned_formula)
 
     rule_params: List[Dict[str, Any]] = []
     unmatched_lines: List[str] = []
@@ -546,6 +555,7 @@ def build_formula_representations(
 
     return {
         "formula_text": cleaned_formula,
+        "formula_body": formula_body,
         "formula_number": formula_number,
         "formula_params": formula_params,
         "formula_param_count": len(formula_params),
@@ -617,6 +627,7 @@ def enrich_formula_block(
     if block is None or block.block_type != "formula":
         return {
             "formula_text": "",
+            "formula_body": "",
             "formula_number": None,
             "formula_params": [],
             "formula_param_count": 0,
@@ -825,4 +836,5 @@ __all__ = [
     "parse_formula_llm_json",
     "parse_formula_param_rule",
     "split_formula_explanation_lines",
+    "strip_formula_tag",
 ]

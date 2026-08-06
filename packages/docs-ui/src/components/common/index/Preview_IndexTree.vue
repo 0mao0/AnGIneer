@@ -414,10 +414,18 @@ const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
   const id = row.id
   const node = rowNode(id)
   const suppressPlainText = shouldSuppressNodePlainText(node)
+  const isMediaWithCaption = node?.block_type === 'table'
+    || node?.block_type === 'image'
+    || node?.block_type === 'figure'
+  const mediaCaption = isMediaWithCaption ? String(effectiveField(node, 'caption') || '').trim() : ''
   let displayTextHtml = ''
   if (!suppressPlainText) {
-    const rawText = String(effectiveField(node, 'plain_text') || '').trim() || id
-    displayTextHtml = renderMarkdownInlineToHtml(rawText, props.sourceFilePath || '')
+    const rawText = String(
+      mediaCaption || (isMediaWithCaption ? '' : effectiveField(node, 'plain_text'))
+    ).trim() || (isMediaWithCaption ? '' : id)
+    displayTextHtml = rawText
+      ? renderMarkdownInlineToHtml(rawText, props.sourceFilePath || '')
+      : ''
   }
   const isFormulaOrTable = node
     ? (node.block_type === 'equation_interline' || node.block_type === 'formula' || node.block_type === 'table')
@@ -431,6 +439,13 @@ const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
       || (Array.isArray(node.image_paths) && node.image_paths.length > 0)
     )
   )
+  const mediaFootnote = isMediaWithCaption ? String(effectiveField(node, 'footnote') || '').trim() : ''
+  const baseInlineMediaHtml = hasRichMedia
+    ? renderNodeRichMedia(node, props.sourceFilePath, { includeImages: !isFormulaOrTable })
+    : ''
+  const inlineMediaHtml = baseInlineMediaHtml + (mediaFootnote
+    ? `<div class="media-footnote">${renderMarkdownInlineToHtml(mediaFootnote, props.sourceFilePath || '')}</div>`
+    : '')
   return {
     id,
     depth: row.depth,
@@ -440,11 +455,9 @@ const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
     typeTag: getNodeTypeTag(node),
     positionTag: getNodePositionTag(node),
     suppressPlainText,
-    displayText: getNodeDisplayText(node, id),
+    displayText: mediaCaption ? mediaCaption.slice(0, 24) : getNodeDisplayText(node, id),
     displayTextHtml,
-    inlineMediaHtml: hasRichMedia
-      ? renderNodeRichMedia(node, props.sourceFilePath, { includeImages: !isFormulaOrTable })
-      : '',
+    inlineMediaHtml,
     checked: Boolean(props.selectedNodeIds?.has(id)),
     hasNode: Boolean(node),
     hasPreviewImage: Boolean(node && isImagePreviewNode(node))
@@ -822,6 +835,26 @@ watch(() => props.activeNodeId, () => {
 .tree-inline-media :deep(.media-formula) {
   overflow-x: auto;
   max-width: 100%;
+}
+
+.tree-inline-media :deep(.media-formula-row) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tree-inline-media :deep(.media-formula-number) {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--dp-sub-text, #64748b);
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.tree-inline-media :deep(.media-footnote) {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--dp-sub-text, #64748b);
 }
 
 .tree-inline-media :deep(.katex-display) {
