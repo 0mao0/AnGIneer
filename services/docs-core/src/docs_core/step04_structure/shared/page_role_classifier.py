@@ -44,7 +44,6 @@ _NOTICE_KEYWORDS = ("关于发布",)
 _REVISION_KEYWORDS = ("修订说明",)
 _PUBLICATION_KEYWORDS = ("主编单位", "批准部门", "施行日期")
 _PREFACE_KEYWORDS = ("前言", "编制说明")
-_APPENDIX_KEYWORDS = ("附录",)
 _BACK_MATTER_KEYWORDS = ("用词说明", "条文说明")
 
 
@@ -90,6 +89,29 @@ def _classify_front_page(page_idx: int, text: str, is_first: bool) -> PageRole:
     return PageRole.UNKNOWN
 
 
+def _page_title_compacts(rows: List[Dict[str, Any]], page_idx: int) -> List[str]:
+    """该页 title 块文本（去空白）。"""
+    return [
+        re.sub(r"\s+", "", str(r.get("plain_text") or ""))
+        for r in rows
+        if int(r.get("page_idx") or 0) == page_idx
+        and str(r.get("block_type") or "") == "title"
+    ]
+
+
+def _page_has_appendix_title(rows: List[Dict[str, Any]], page_idx: int) -> bool:
+    """附录页判定：仅当页面标题行以“附录”开头，避免正文交叉引用误判。"""
+    return any(text.startswith("附录") for text in _page_title_compacts(rows, page_idx))
+
+
+def _page_has_back_matter_title(rows: List[Dict[str, Any]], page_idx: int) -> bool:
+    """后记页判定：仅当标题行包含用词说明/条文说明等关键词。"""
+    return any(
+        any(k in text for k in _BACK_MATTER_KEYWORDS)
+        for text in _page_title_compacts(rows, page_idx)
+    )
+
+
 def classify_page_roles(rows: List[Dict[str, Any]], toc_pages=None) -> Dict[int, PageRole]:
     """返回 {page_idx: PageRole}。规则基线：正文起始页之前为 front_matter。"""
     toc_pages = set(toc_pages or [])
@@ -101,9 +123,9 @@ def classify_page_roles(rows: List[Dict[str, Any]], toc_pages=None) -> Dict[int,
         if page_idx in toc_pages or any(k in text for k in _TOC_KEYWORDS):
             roles[page_idx] = PageRole.TOC
         elif page_idx >= body_start:
-            if any(k in text for k in _APPENDIX_KEYWORDS):
+            if _page_has_appendix_title(rows, page_idx):
                 roles[page_idx] = PageRole.APPENDIX
-            elif any(k in text for k in _BACK_MATTER_KEYWORDS):
+            elif _page_has_back_matter_title(rows, page_idx):
                 roles[page_idx] = PageRole.BACK_MATTER
             else:
                 roles[page_idx] = PageRole.BODY
