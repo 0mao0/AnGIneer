@@ -491,15 +491,27 @@ def build_canonical_tables_from_source(
             row_keys=[],
             text_chunks=[],
         )
-        enriched = enrich_canonical_table(table)
-        table = table.model_copy(
-            update={
-                "table_type": enriched["table_type"],
-                "summary": enriched["summary"],
-                "row_keys": enriched["row_keys"],
-                "text_chunks": enriched["text_chunks"],
-            }
-        )
+        sidecar = raw_block.get("table_semantics")
+        if isinstance(sidecar, dict) and sidecar:
+            # 04 已生成 table_semantics 旁路：05 透传，不再重算
+            table = table.model_copy(
+                update={
+                    "table_type": str(sidecar.get("table_type") or "hybrid"),
+                    "summary": str(sidecar.get("table_summary") or ""),
+                    "row_keys": [str(item) for item in sidecar.get("table_row_keys") or []],
+                    "text_chunks": [str(item) for item in sidecar.get("table_text_chunks") or []],
+                }
+            )
+        else:
+            enriched = enrich_canonical_table(table)
+            table = table.model_copy(
+                update={
+                    "table_type": enriched["table_type"],
+                    "summary": enriched["summary"],
+                    "row_keys": enriched["row_keys"],
+                    "text_chunks": enriched["text_chunks"],
+                }
+            )
         tables.append(table)
 
         summary_text = table.summary or f"{table.title} 表格摘要"

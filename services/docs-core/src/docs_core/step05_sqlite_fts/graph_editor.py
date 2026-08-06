@@ -843,6 +843,47 @@ def _invalidate_edited_formula_semantics(
     return invalidated
 
 
+def _node_table_semantics_content(node: Dict[str, Any]) -> str:
+    """表格语义依赖的表内容指纹：HTML + 表题 + 脚注。"""
+    content = node.get("content_json") if isinstance(node.get("content_json"), dict) else {}
+    return "|".join([
+        str(
+            node.get("table_html_corrected")
+            or node.get("table_html")
+            or content.get("html")
+            or ""
+        ),
+        str(node.get("caption_corrected") or node.get("caption") or ""),
+        str(node.get("footnote_corrected") or node.get("footnote") or ""),
+    ])
+
+
+def _invalidate_edited_table_semantics(
+    graph_data: Dict[str, Any],
+    snapshot_before: Dict[str, Any],
+) -> List[str]:
+    """结构/内容编辑后，表格 HTML、表题或脚注变化时清空 table_semantics。"""
+    before_by_uid = {
+        _normalize_block_uid(n.get("block_uid") or n.get("id")): n
+        for n in (snapshot_before.get("nodes") or [])
+    }
+    invalidated: List[str] = []
+    for node in graph_data.get("nodes") or []:
+        uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
+        if str(node.get("block_type") or "").strip() != "table":
+            continue
+        if "table_semantics" not in node:
+            continue
+        before = before_by_uid.get(uid)
+        if (
+            before is None
+            or _node_table_semantics_content(before) != _node_table_semantics_content(node)
+        ):
+            node.pop("table_semantics", None)
+            invalidated.append(uid)
+    return invalidated
+
+
 # 将源节点内容并入目标节点，并移除源节点
 def _merge_graph_nodes(graph_data: Dict[str, Any], source_uid: str, target_uid: str) -> Dict[str, Any]:
     if source_uid == target_uid:
@@ -1413,6 +1454,10 @@ def batch_operate_doc_blocks(
     invalidated_formulas = _invalidate_edited_formula_semantics(graph_data, graph_snapshot_before)
     if invalidated_formulas:
         logger.info("公式语义失效待重建: %s", invalidated_formulas)
+
+    invalidated_tables = _invalidate_edited_table_semantics(graph_data, graph_snapshot_before)
+    if invalidated_tables:
+        logger.info("表格语义失效待重建: %s", invalidated_tables)
 
     _rebuild_graph_projection(graph_data)
     _rewrite_markdown_after_graph_change(library_id, doc_id, graph_data)
