@@ -344,10 +344,6 @@ const onToggleCheck = (id: string) => {
   emit('toggle-check', id)
 }
 
-const onContextAction = (payload: { nodeId: string; action: 'promote' | 'demote' | 'set-level'; targetLevel?: number }) => {
-  emit('context-action', payload)
-}
-
 const onContextMenuClick = (payload: { key: string }, rowId: string) => {
   if (payload.key === 'promote' || payload.key === 'demote') {
     emit('context-action', { nodeId: rowId, action: payload.key })
