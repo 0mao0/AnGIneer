@@ -254,22 +254,24 @@ const visibleRange = computed(() => {
 
   let startIdx = 0
   for (let i = 0; i < total; i++) {
-    if (rowOffsets.value[i] + getRowHeight(flatRows.value[i].id) > scrollPos - containerHeight * 2) {
+    if (rowOffsets.value[i] + getRowHeight(flatRows.value[i].id) > scrollPos) {
       startIdx = Math.max(0, i - BUFFER_COUNT)
       break
     }
-    if (i === total - 1) startIdx = Math.max(0, total - BUFFER_COUNT * 3)
+    startIdx = i
   }
 
   let endIdx = total
   for (let i = startIdx; i < total; i++) {
-    if (rowOffsets.value[i] > scrollPos + containerHeight + containerHeight) {
+    if (rowOffsets.value[i] > scrollPos + containerHeight) {
       endIdx = Math.min(total, i + BUFFER_COUNT)
       break
     }
   }
 
-  return { startIdx: Math.max(0, startIdx), endIdx: Math.min(total, endIdx) }
+  const safeStart = Math.max(0, Math.min(startIdx, total - 1))
+  const safeEnd = Math.max(safeStart, Math.min(total, endIdx))
+  return { startIdx: safeStart, endIdx: safeEnd }
 })
 
 /* 可见区域第一个元素的 Y 偏移量（用于 translateY 定位）。 */
@@ -294,9 +296,20 @@ function measureVisibleRows() {
 }
 
 /* 监听数据变化后重新测量行高。 */
-watch([() => props.roots, () => props.expandedNodeIds], () => {
+/* roots changed: reset row-height cache and scroll to top */
+watch(() => props.roots, () => {
+  rowHeights.value = new Map()
+  scrollTop.value = 0
+  if (treeContainerRef.value) {
+    treeContainerRef.value.scrollTop = 0
+  }
   nextTick(() => measureVisibleRows())
-}, { deep: true })
+})
+
+/* expand/collapse changed: re-measure visible rows */
+watch(() => props.expandedNodeIds, () => {
+  nextTick(() => measureVisibleRows())
+})
 
 /* 组件挂载后进行首次测量。 */
 onMounted(() => {
