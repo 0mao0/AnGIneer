@@ -16,30 +16,94 @@
             class="tree-flat-row"
             :style="{ paddingLeft: `${row.depth * 20 + 10}px` }"
           >
-            <IndexTreeFlatRow
-              :row="row"
-              :node-map="nodeMap"
-              :expanded-ids="expandedNodeIds"
-              :active-node-id="activeNodeId"
-              :selected-node-ids="selectedNodeIds"
-              :source-file-path="sourceFilePath"
-              @toggle="onToggle"
-              @select="onSelect"
-              @edit="onEdit"
-              @toggle-check="onToggleCheck"
-              @context-action="onContextAction"
-            />
+            <a-dropdown :trigger="['contextmenu']">
+              <div
+                :data-tree-node-id="row.id"
+                :class="['tree-row', { active: row.id === activeNodeId }]"
+                @click="onRowClick(row.id)"
+                @contextmenu.prevent
+              >
+                <a-checkbox
+                  class="tree-select-checkbox"
+                  :checked="isRowChecked(row.id)"
+                  @click.stop
+                  @change="onToggleCheck(row.id)"
+                />
+                <span class="tree-toggle" @click.stop="onToggle(row.id)">
+                  <template v-if="row.hasChildren">
+                    <RightOutlined v-if="!row.isExpanded" />
+                    <DownOutlined v-else />
+                  </template>
+                  <span v-else class="toggle-placeholder" />
+                </span>
+                <div class="tree-main">
+                  <div class="tree-meta">
+                    <span v-if="rowLevelTag(row.id)" :class="['chip', 'lv']">{{ rowLevelTag(row.id) }}</span>
+                    <span v-if="rowDisplayTextHtml(row.id)" class="tree-text" v-html="rowDisplayTextHtml(row.id)" />
+                    <span v-else-if="!rowSuppressPlainText(row.id)" class="tree-text">{{ rowDisplayText(row.id) }}</span>
+                    <span v-if="rowTypeTag(row.id)" class="chip">{{ rowTypeTag(row.id) }}</span>
+                    <span v-if="rowPositionTag(row.id)" class="chip pos">{{ rowPositionTag(row.id) }}</span>
+                  </div>
+                  <div v-if="rowInlineMediaHtml(row.id)" class="tree-inline-media" v-html="rowInlineMediaHtml(row.id)" />
+                </div>
+                <a-button
+                  v-if="nodeMap.get(row.id)"
+                  type="text"
+                  size="small"
+                  class="tree-edit-btn"
+                  @click.stop="onEdit(row.id)"
+                >
+                  <template #icon>
+                    <EditOutlined />
+                  </template>
+                </a-button>
+              </div>
+              <template #overlay>
+                <a-menu @click="(payload) => onContextMenuClick(payload, row.id)">
+                  <a-sub-menu key="relevel-actions" title="调整层级">
+                    <a-menu-item key="promote">升一级</a-menu-item>
+                    <a-menu-item key="demote">降一级</a-menu-item>
+                    <a-menu-divider />
+                    <a-menu-item
+                      v-for="level in [1, 2, 3, 4, 5, 6]"
+                      :key="`set-level-${level}`"
+                    >
+                      设为 L{{ level }}
+                    </a-menu-item>
+                  </a-sub-menu>
+                </a-menu>
+              </template>
+            </a-dropdown>
           </div>
         </div>
       </div>
     </template>
   </div>
+  <a-modal
+    v-model:open="previewVisible"
+    :title="previewTitle"
+    :footer="null"
+    width="min(960px, 92vw)"
+    centered
+  >
+    <div class="tree-image-preview" v-html="previewImageHtml" />
+  </a-modal>
 </template>
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { RightOutlined, DownOutlined, EditOutlined } from '@ant-design/icons-vue'
 import type { DocBlockNode, PreviewIndexInteractionEventMap } from '../../../types/knowledge'
-import IndexTreeFlatRow from './IndexTreeFlatRow.vue'
+import {
+  getNodeDisplayText,
+  getNodeLevelTag,
+  getNodePositionTag,
+  getNodeTypeTag,
+  renderMarkdownInlineToHtml,
+  renderNodeRichMedia,
+  shouldSuppressNodePlainText
+} from '../../../utils/knowledge'
+import { effectiveField } from '../../../utils/common'
 
 interface FlatRow {
   id: string
@@ -72,6 +136,69 @@ const flatRowRefs = ref<HTMLDivElement[]>([])
 const scrollTop = ref(0)
 const ESTIMATED_ROW_HEIGHT = 50
 const BUFFER_COUNT = 10
+
+/* 图/表/公式节点点击后弹出图片预览 */
+const previewNode = ref<DocBlockNode | null>(null)
+const previewVisible = ref(false)
+const previewTitle = computed(() => {
+  const n = previewNode.value
+  return n ? `${getNodeTypeTag(n) || '节点'}预览` : ''
+})
+const previewImageHtml = computed(() => {
+  const n = previewNode.value
+  if (!n) return ''
+  return renderNodeRichMedia(n, props.sourceFilePath, {
+    includeMath: false,
+    includeTable: false
+  })
+})
+
+const isImagePreviewNode = (node: DocBlockNode): boolean => {
+  if (!['image', 'table', 'equation_interline', 'formula'].includes(node.block_type)) return false
+  return Boolean(
+    (Array.isArray(node.image_paths) && node.image_paths.length > 0)
+    || node.image_path
+    || (Array.isArray(node.rich_media_order) && node.rich_media_order.some(item => item.type === 'image' && item.path))
+  )
+}
+
+/* ---- 行渲染（原 IndexTreeFlatRow 逻辑，按 rowId 取节点） ---- */
+const rowNode = (rowId: string) => props.nodeMap.get(rowId)
+const rowLevelTag = (rowId: string) => getNodeLevelTag(rowNode(rowId), props.nodeMap)
+const rowTypeTag = (rowId: string) => getNodeTypeTag(rowNode(rowId))
+const rowPositionTag = (rowId: string) => getNodePositionTag(rowNode(rowId))
+const rowSuppressPlainText = (rowId: string) => shouldSuppressNodePlainText(rowNode(rowId))
+const rowDisplayText = (rowId: string) => getNodeDisplayText(rowNode(rowId), rowId)
+const rowDisplayTextHtml = (rowId: string) => {
+  const node = rowNode(rowId)
+  if (rowSuppressPlainText(rowId)) return ''
+  const rawText = String(effectiveField(node, 'plain_text') || '').trim() || rowId
+  return renderMarkdownInlineToHtml(rawText, props.sourceFilePath || '')
+}
+const rowIsFormulaOrTable = (rowId: string) => {
+  const node = rowNode(rowId)
+  if (!node) return false
+  return node.block_type === 'equation_interline'
+    || node.block_type === 'formula'
+    || node.block_type === 'table'
+}
+const rowHasRichMedia = (rowId: string) => {
+  const n = rowNode(rowId)
+  if (!n) return false
+  return Boolean(
+    (Array.isArray(n.rich_media_order) && n.rich_media_order.length > 0)
+    || n.table_html
+    || n.math_content
+    || (Array.isArray(n.image_paths) && n.image_paths.length > 0)
+  )
+}
+const rowInlineMediaHtml = (rowId: string) => {
+  if (!rowHasRichMedia(rowId)) return ''
+  return renderNodeRichMedia(rowNode(rowId), props.sourceFilePath, {
+    includeImages: !rowIsFormulaOrTable(rowId)
+  })
+}
+const isRowChecked = (rowId: string) => Boolean(props.selectedNodeIds?.has(rowId))
 
 /* 每个节点的已测量高度缓存（未测量时为 0 表示用估算值）。 */
 const rowHeights = ref<Map<string, number>>(new Map())
@@ -187,8 +314,13 @@ const onToggle = (id: string) => {
   emit('toggle', id)
 }
 
-const onSelect = (id: string) => {
-  emit('select', id)
+const onRowClick = (rowId: string) => {
+  const node = props.nodeMap.get(rowId)
+  if (node && isImagePreviewNode(node)) {
+    previewNode.value = node
+    previewVisible.value = true
+  }
+  emit('select', rowId)
 }
 
 const onEdit = (id: string) => {
@@ -201,6 +333,19 @@ const onToggleCheck = (id: string) => {
 
 const onContextAction = (payload: { nodeId: string; action: 'promote' | 'demote' | 'set-level'; targetLevel?: number }) => {
   emit('context-action', payload)
+}
+
+const onContextMenuClick = (payload: { key: string }, rowId: string) => {
+  if (payload.key === 'promote' || payload.key === 'demote') {
+    emit('context-action', { nodeId: rowId, action: payload.key })
+    return
+  }
+  if (payload.key.startsWith('set-level-')) {
+    const targetLevel = Number(payload.key.replace('set-level-', ''))
+    if (Number.isFinite(targetLevel) && targetLevel > 0) {
+      emit('context-action', { nodeId: rowId, action: 'set-level', targetLevel })
+    }
+  }
 }
 
 /* 将活跃节点滚动到可视区域中心。 */
@@ -257,5 +402,25 @@ watch(() => props.activeNodeId, () => {
   display: flex;
   align-items: flex-start;
   box-sizing: border-box;
+}
+
+.tree-image-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-height: 72vh;
+  overflow: auto;
+}
+
+.tree-image-preview :deep(.media-image) {
+  display: block;
+  max-width: 100%;
+  max-height: 68vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--dp-surface-bg);
 }
 </style>
