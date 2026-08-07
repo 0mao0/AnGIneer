@@ -15,6 +15,21 @@ import {
   formatPositionTag
 } from './common'
 
+/** 页饰块类型：不参与内容层级，前端默认隐藏。 */
+export const FURNITURE_BLOCK_TYPES: ReadonlySet<string> = new Set([
+  'header',
+  'footer',
+  'page_header',
+  'page_footer',
+  'page_number',
+])
+
+export const isFurnitureNode = (node: DocBlockNode | null | undefined): boolean => {
+  if (!node) return false
+  if (node.layout_category === 'furniture') return true
+  return FURNITURE_BLOCK_TYPES.has(String(node.block_type || '').toLowerCase())
+}
+
 /**
  * 获取节点的显示文本 (带截断)
  */
