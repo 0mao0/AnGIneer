@@ -30,6 +30,11 @@ export const isFurnitureNode = (node: DocBlockNode | null | undefined): boolean 
   return FURNITURE_BLOCK_TYPES.has(String(node.block_type || '').toLowerCase())
 }
 
+/** 附件块（如表续表头）：保留 bbox 供定位，但不展示、不进语义。 */
+export const isAttachmentNode = (node: DocBlockNode | null | undefined): boolean => {
+  return Boolean(node && String(node.layout_category || '').toLowerCase() === 'attachment')
+}
+
 /** 前置页角色分组标签（展示层虚拟分组壳）。 */
 export const FRONT_MATTER_GROUP_LABELS: Record<string, string> = {
   cover: '封面',
@@ -88,7 +93,7 @@ export const buildDisplayRoots = (
       if (seen.has(id)) continue
       seen.add(id)
       const node = nodeMap.get(id)
-      if (!node || isFurnitureNode(node)) continue
+      if (!node || isFurnitureNode(node) || isAttachmentNode(node)) continue
       if (node.page_role === role) count += 1
       for (const childId of childrenMap.get(id) || []) queue.push(childId)
     }
@@ -98,6 +103,7 @@ export const buildDisplayRoots = (
   const pageRoleByPage = new Map<number, string>()
   for (const node of nodeMap.values()) {
     if (node.document_part !== 'front_matter') continue
+    if (isAttachmentNode(node)) continue
     const role = node.page_role
     if (!role || !FRONT_MATTER_GROUP_LABELS[role]) continue
     if (isFurnitureNode(node)) continue
@@ -109,6 +115,7 @@ export const buildDisplayRoots = (
   const groups = new Map<string, FrontMatterDisplayGroup>()
   for (const node of nodeMap.values()) {
     if (node.document_part !== 'front_matter') continue
+    if (isAttachmentNode(node)) continue
     const role = isFurnitureNode(node)
       ? pageRoleByPage.get(node.page_idx)
       : node.page_role

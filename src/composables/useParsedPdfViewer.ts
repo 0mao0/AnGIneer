@@ -1,6 +1,11 @@
 import { computed, nextTick, ref, watch } from 'vue'
 import type { DocBlocksGraph, StructuredIndexItem } from '../types/knowledge'
-import { formatStructuredItemType, isFurnitureNode, isItemActive } from '../utils/knowledge'
+import {
+  formatStructuredItemType,
+  isAttachmentNode,
+  isFurnitureNode,
+  isItemActive
+} from '../utils/knowledge'
 import { useParsedPdfIndexTree, type GraphViewportState } from './useParsedPdfIndexTree'
 
 export type PreviewMode =
@@ -63,7 +68,7 @@ export function useParsedPdfViewer(
       return []
     }
     const sortedNodes = [...props.graphData.nodes]
-      .filter(node => !isFurnitureNode(node))
+      .filter(node => !isFurnitureNode(node) && !isAttachmentNode(node))
       .sort((a, b) => {
         if (a.page_idx !== b.page_idx) return a.page_idx - b.page_idx
         return (a.block_seq || 0) - (b.block_seq || 0)

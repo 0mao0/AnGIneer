@@ -210,6 +210,7 @@ import {
   getNodePositionTag,
   getNodeTypeTag,
   isFrontMatterGroupId,
+  isAttachmentNode,
   isFurnitureNode,
   renderMarkdownInlineToHtml,
   renderNodeRichMedia,
@@ -383,6 +384,7 @@ const flatRows = computed<FlatRow[]>(() => {
   const traverseChildren = (ids: string[], depth: number) => {
     for (const id of ids) {
       const node = rowNode(id)
+      if (isAttachmentNode(node)) continue
       if (!props.showFurniture && isFurnitureNode(node)) continue
       const children = props.childrenMap.get(id) || []
       const hasChildren = children.length > 0
@@ -401,7 +403,8 @@ const flatRows = computed<FlatRow[]>(() => {
       }
       const visibleChildren = root.children.filter(childId => {
         const child = rowNode(childId)
-        return props.showFurniture || !isFurnitureNode(child)
+        return !isAttachmentNode(child)
+          && (props.showFurniture || !isFurnitureNode(child))
       })
       const hasChildren = visibleChildren.length > 0
       const isExpanded = props.expandedNodeIds.has(root.id)
