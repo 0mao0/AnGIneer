@@ -1036,3 +1036,12 @@ interface ChatMessage {
    def create_node(self, node: KnowledgeNode) -> KnowledgeNode:
        ...
    ```
+
+## content.md 数据流（jsonl 投影）
+
+- 解析期：MinerU 产物先落 `mineru_raw/content.md`（原始存档）；step04 结构化完成后，
+  `parsed/content.md` 由 `doc_blocks_graph.jsonl` 保真投影生成（标题/表格/公式/图片，
+  页饰不进入），搜索与右侧预览与树/图谱/FTS 共用同一份内容。
+- 编辑期：合并/拆分/改块后，`graph_editor` 用同一投影器重写
+  `parsed/content.md` 与 `edited/current.md`。
+- 存量文档：`python services/docs-core/scripts/backfill_markdown_projection.py` 可回填。
