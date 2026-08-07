@@ -21,12 +21,14 @@
           :activeClickItemId="pdfClickActiveItemId"
           :searchText="markdownContent"
           :textScrollPercent="leftScrollPercent"
+          :show-furniture="showFurniture"
           @download="downloadFile"
           @text-scroll="onLeftTextScrollPercent"
           @pdf-active-page="onPdfPageChanged"
           @hover-highlight="onHoverLinkedItem"
           @select-highlight="onSelectPdfHighlight"
           @search-jump="onSearchJump"
+          @update:show-furniture="showFurniture = $event"
         />
 
         <PDFParsedViewerCombo
@@ -49,6 +51,7 @@
           :onLoadGraphSnapshot="props.onLoadGraphSnapshot"
           :onBuildGraph="props.onBuildGraph"
           :dark="dark"
+          :show-furniture="showFurniture"
           @content-scroll="onRightPaneScrollPercent"
           @hover-item="onHoverLinkedItem"
           @select-item="onSelectItemFromRight"
@@ -119,6 +122,7 @@ const getDefaultParsedTab = (): PreviewMode => (
 
 const filePath = computed(() => props.node.filePath || props.node.file_path || '')
 const activeTab = ref<PreviewMode>(getDefaultParsedTab())
+const showFurniture = ref(localStorage.getItem('docs-ui.show-furniture') === '1')
 const parseButtonText = computed(() => {
   if (props.node.status === 'completed') return '重新解析'
   if (props.node.status === 'failed') return '重新解析'
