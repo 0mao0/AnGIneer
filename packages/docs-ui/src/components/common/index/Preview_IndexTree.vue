@@ -846,6 +846,26 @@ watch(() => props.activeNodeId, () => {
   transition: width 0.12s ease, transform 0.12s ease;
 }
 
+.tree-image-preview-stage::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.tree-image-preview-stage::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tree-image-preview-stage::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.55);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.tree-image-preview-stage::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 116, 139, 0.8);
+}
+
 /* ---- 行渲染样式（原 IndexTreeFlatRow，缺失 CSS 变量补默认值） ---- */
 .tree-row {
   display: flex;
@@ -1007,6 +1027,21 @@ watch(() => props.activeNodeId, () => {
   border-radius: 8px;
   border: 1px solid var(--dp-pane-border, #e8edf4);
   background: var(--dp-inline-media-bg, #f8fafc);
+}
+
+.tree-inline-media::-webkit-scrollbar {
+  width: 10px;
+}
+
+.tree-inline-media::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tree-inline-media::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.55);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
 
 .tree-inline-media :deep(.media-table) {
