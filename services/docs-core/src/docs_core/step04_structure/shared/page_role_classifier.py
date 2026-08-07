@@ -23,6 +23,11 @@ class PageRole(str, Enum):
     APPENDIX = "appendix"
     BACK_MATTER = "back_matter"
     UNKNOWN = "unknown"
+    PAGE_HEADER = "page_header"
+    PAGE_FOOTER = "page_footer"
+    PAGE_NUMBER = "page_number"
+    HEADER = "header"
+    FOOTER = "footer"
 
 
 PART_BY_ROLE = {
@@ -46,15 +51,42 @@ _PUBLICATION_KEYWORDS = ("主编单位", "批准部门", "施行日期")
 _PREFACE_KEYWORDS = ("前言", "编制说明")
 _BACK_MATTER_KEYWORDS = ("用词说明", "条文说明")
 
+FURNITURE_BLOCK_TYPES = frozenset({
+    "page_header", "page_footer", "page_number", "header", "footer",
+})
+
+FURNITURE_ROLE_BY_TYPE = {
+    "page_header": PageRole.PAGE_HEADER,
+    "page_footer": PageRole.PAGE_FOOTER,
+    "page_number": PageRole.PAGE_NUMBER,
+    "header": PageRole.HEADER,
+    "footer": PageRole.FOOTER,
+}
+
 
 def part_for_role(role: PageRole) -> DocumentPart:
     return PART_BY_ROLE.get(role, DocumentPart.UNKNOWN)
 
 
+def is_furniture_block_type(block_type: Any) -> bool:
+    return str(block_type or "").strip().lower() in FURNITURE_BLOCK_TYPES
+
+
+def page_role_for_block(block_type: Any, page_role: PageRole) -> PageRole:
+    """内容块返回页面角色；页饰块返回自身小角色。"""
+    if is_furniture_block_type(block_type):
+        return FURNITURE_ROLE_BY_TYPE.get(
+            str(block_type or "").strip().lower(), PageRole.UNKNOWN
+        )
+    return page_role
+
+
 def _page_text(rows: List[Dict[str, Any]], page_idx: int) -> str:
     return " ".join(
         str(r.get("plain_text") or "")
-        for r in rows if int(r.get("page_idx") or 0) == page_idx
+        for r in rows
+        if int(r.get("page_idx") or 0) == page_idx
+        and not is_furniture_block_type(r.get("block_type"))
     )
 
 
@@ -112,6 +144,19 @@ def _page_has_back_matter_title(rows: List[Dict[str, Any]], page_idx: int) -> bo
     )
 
 
+def detect_body_start_page(rows: List[Dict[str, Any]], toc_pages=None) -> int:
+    return _detect_body_start(rows, set(toc_pages or []))
+
+
+def resolve_document_part(
+    page_idx: int, role: PageRole, body_start: int
+) -> DocumentPart:
+    """未知角色页按位置兜底：body_start 前为 front_matter，之后为 body。"""
+    if role != PageRole.UNKNOWN:
+        return part_for_role(role)
+    return DocumentPart.FRONT_MATTER if page_idx < body_start else DocumentPart.BODY
+
+
 def classify_page_roles(rows: List[Dict[str, Any]], toc_pages=None) -> Dict[int, PageRole]:
     """返回 {page_idx: PageRole}。规则基线：正文起始页之前为 front_matter。"""
     toc_pages = set(toc_pages or [])
@@ -138,5 +183,7 @@ def classify_page_roles(rows: List[Dict[str, Any]], toc_pages=None) -> Dict[int,
 
 __all__ = [
     "DocumentPart", "PageRole", "PART_BY_ROLE", "part_for_role",
+    "FURNITURE_BLOCK_TYPES", "is_furniture_block_type", "page_role_for_block",
+    "detect_body_start_page", "resolve_document_part",
     "classify_page_roles",
 ]
