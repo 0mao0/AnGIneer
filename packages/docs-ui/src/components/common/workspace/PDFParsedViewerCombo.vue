@@ -154,14 +154,6 @@
               </a-button>
             </div>
           </div>
-          <div
-            v-if="activeTab === 'Preview_IndexList' || activeTab === 'Preview_IndexTree'"
-            class="index-toolbar-row"
-          >
-            <a-checkbox :checked="showFurniture" @change="toggleShowFurniture">
-              显示页眉页脚
-            </a-checkbox>
-          </div>
         </div>
         <div class="index-body">
           <Preview_IndexList
@@ -323,6 +315,7 @@ const props = defineProps<{
     snapshot: { stats: any; entities: any[]; relations: any[] }
   }>
   dark?: boolean
+  showFurniture?: boolean
 }>()
 
 type ParsedPdfViewerComponentEventMap = ParsedPdfViewerBridgeEventMap & {
@@ -343,12 +336,6 @@ const selectedBlockIds = ref<string[]>([])
 const indexSearchKeyword = ref('')
 const searchCurrentIndex = ref(0)
 const showIndexSearch = ref(false)
-const showFurniture = ref(localStorage.getItem('docs-ui.show-furniture') === '1')
-
-const toggleShowFurniture = () => {
-  showFurniture.value = !showFurniture.value
-  localStorage.setItem('docs-ui.show-furniture', showFurniture.value ? '1' : '0')
-}
 
 const toggleIndexSearch = () => {
   showIndexSearch.value = !showIndexSearch.value
