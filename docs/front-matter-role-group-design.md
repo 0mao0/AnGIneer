@@ -1,7 +1,7 @@
 # 前置部分角色分组与层级清理设计（Front-Matter Role Group & Hierarchy Cleanup）
 
 > 日期：2026-08-07
-> 状态：设计定稿（待实施）
+> 状态：已实施（2026-08-07 追加部位状态机兜底）
 > 关联设计：[block-role-hierarchy-design.md](./block-role-hierarchy-design.md)
 
 ## 1. 背景与问题
@@ -70,6 +70,16 @@ PoPo/MinerU 已给出块类型（`title`/`paragraph`/`header`/`page_number` 等�
 
 不新增字段，canonical builder / graph_rebuilder / rows_projection 的现有透传不变。
 
+### 3.5 部位状态机（纯附录 / 跨页表格兜底）
+
+`page_role` 不再依赖“先找到正文起始页”：
+
+- 独立检测部位强标记：数字编号 `title` → `body`；`title` 以“附录”开头 → `appendix`；
+  `title` 含“用词说明 / 条文说明” → `back_matter`；
+- 按页序维护 `active_part`：命中标记即切换；无标记的续页（续表、空页、只有页眉页码的页）继承当前部位；
+- 首个部位之前的页仍走 front_matter 分类（cover / unknown 等）；
+- 纯附录文档（如“跨页表格.pdf”）因此整体归入 `appendix`，不再落到“封面 / 其他前置页”。
+
 ## 4. 展示层设计（前端）
 
 ### 4.1 共享工具
@@ -114,6 +124,7 @@ PoPo/MinerU 已给出块类型（`title`/`paragraph`/`header`/`page_number` 等�
 ## 5. 边界与兜底
 
 - 同一角色跨多页（如目录占 3 页）：合并为一个组，成员按 `page_idx / block_seq` 排序；
+- 纯附录 / 无数字正文的文档：不要求存在 `body_start`，由部位状态机直接落 `appendix` / `back_matter`；
 - 某角色组内无内容块（全部为页饰）：组不显示；
 - `page_role` 缺失：不分组，按现状显示（开发期兜底，不为旧数据做迁移）；
 - 分组壳 id 使用 `fm-group:` 前缀，避免与真实 block_uid 冲突。

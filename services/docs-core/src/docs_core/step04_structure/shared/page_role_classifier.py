@@ -1,7 +1,7 @@
 """页面角色规则分类：page_idx -> PageRole，并映射 document_part。"""
 import re
 from enum import Enum
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 
 class DocumentPart(str, Enum):
@@ -165,6 +165,29 @@ def _page_has_back_matter_title(rows: List[Dict[str, Any]], page_idx: int) -> bo
     )
 
 
+def _page_has_body_title(rows: List[Dict[str, Any]], page_idx: int) -> bool:
+    """正文页判定：该页 title 块以数字编号开头（如“1 总则”）。"""
+    return any(
+        str(r.get("block_type") or "") == "title"
+        and _NUMBERED_TITLE_RE.match(str(r.get("plain_text") or ""))
+        for r in rows
+        if int(r.get("page_idx") or 0) == page_idx
+    )
+
+
+def _page_part_marker(
+    rows: List[Dict[str, Any]], page_idx: int
+) -> Optional[PageRole]:
+    """返回该页命中的部位强标记（附录/后记/正文），无标记返回 None。"""
+    if _page_has_appendix_title(rows, page_idx):
+        return PageRole.APPENDIX
+    if _page_has_back_matter_title(rows, page_idx):
+        return PageRole.BACK_MATTER
+    if _page_has_body_title(rows, page_idx):
+        return PageRole.BODY
+    return None
+
+
 def detect_body_start_page(rows: List[Dict[str, Any]], toc_pages=None) -> int:
     return _detect_body_start(rows, set(toc_pages or []))
 
@@ -179,22 +202,26 @@ def resolve_document_part(
 
 
 def classify_page_roles(rows: List[Dict[str, Any]], toc_pages=None) -> Dict[int, PageRole]:
-    """返回 {page_idx: PageRole}。规则基线：正文起始页之前为 front_matter。"""
+    """返回 {page_idx: PageRole}。
+
+    部位按页序状态机推进：遇到正文/附录/后记标题即切换部位，
+    无标题的续页（续表、空页等）继承当前部位；首个部位之前的页归 front_matter。
+    """
     toc_pages = set(toc_pages or [])
-    body_start = _detect_body_start(rows, toc_pages)
     pages = sorted({int(r.get("page_idx") or 0) for r in rows})
     roles: Dict[int, PageRole] = {}
+    active_part: Optional[PageRole] = None
     for page_idx in pages:
         text = _page_text(rows, page_idx)
         if page_idx in toc_pages or any(k in text for k in _TOC_KEYWORDS):
             roles[page_idx] = PageRole.TOC
-        elif page_idx >= body_start:
-            if _page_has_appendix_title(rows, page_idx):
-                roles[page_idx] = PageRole.APPENDIX
-            elif _page_has_back_matter_title(rows, page_idx):
-                roles[page_idx] = PageRole.BACK_MATTER
-            else:
-                roles[page_idx] = PageRole.BODY
+            continue
+        marker = _page_part_marker(rows, page_idx)
+        if marker is not None:
+            active_part = marker
+            roles[page_idx] = marker
+        elif active_part is not None:
+            roles[page_idx] = active_part
         else:
             roles[page_idx] = _classify_front_page(
                 page_idx, text, is_first=(page_idx == pages[0])
