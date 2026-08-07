@@ -340,6 +340,7 @@ interface VirtualPageMeta {
   page: number
   top: number
   height: number
+  width: number
 }
 
 interface RenderedPageMetrics {
@@ -621,6 +622,7 @@ function usePdfHeader() {
 function usePdfVirtualScroll(
   emit: (event: 'text-scroll', percent: number) => void,
   getLocalPdfPageCount: () => number,
+  renderedPageMetrics: Record<number, RenderedPageMetrics>,
 ) {
   const pageHeights = reactive<Record<number, number>>({})
   const estimatedPageHeight = ref(1100)
@@ -771,6 +773,11 @@ function usePdfVirtualScroll(
     const target = e.target as HTMLElement
     if (!target) return
     activePdfPage.value = resolveViewportPage(target.scrollTop, target.clientHeight)
+    // 纵向页面窄于视口时，复位横向滚动，保持与视口中轴线一致
+    const pageMetrics = renderedPageMetrics[activePdfPage.value]
+    if (target.scrollLeft > 0 && pageMetrics?.width && target.clientWidth > 0 && pageMetrics.width <= target.clientWidth) {
+      target.scrollLeft = 0
+    }
     if (!applyingExternalPdfScroll.value) markPdfUserScrolling()
     scheduleRenderedPageRangeUpdate()
     const { scrollTop, scrollHeight, clientHeight } = target
@@ -785,7 +792,7 @@ function usePdfVirtualScroll(
     const targetTop = Math.max(0, (pageLayout.value.topByPage[page] || 0) - 8)
     activePdfPage.value = page
     scheduleRenderedPageRangeUpdate()
-    pdfScrollRef.value.scrollTo({ top: targetTop, behavior })
+    pdfScrollRef.value.scrollTo({ top: targetTop, left: 0, behavior })
   }
 
   function goPrevPage() { scrollToPdfPage(activePdfPage.value - 1, 'smooth') }
@@ -810,6 +817,11 @@ function usePdfVirtualScroll(
     const bboxBottom = pageTop + Math.min(1, topRatio + heightRatio) * pageHeight
 
     const container = pdfScrollRef.value
+    // 纵向页面窄于视口时，先复位横向滚动，保证以视口中轴线为准
+    const pageMetrics = renderedPageMetrics[page]
+    if (pageMetrics?.width && container.clientWidth > 0 && pageMetrics.width <= container.clientWidth) {
+      container.scrollLeft = 0
+    }
     const viewportTop = container.scrollTop
     const viewportBottom = viewportTop + container.clientHeight
     // 能被点击说明 bbox 已在视口内（哪怕部分可见），保持原位不滚动
@@ -1419,7 +1431,7 @@ const _pdfDocumentRef = shallowRef<any>(null)
 const _renderedPageMetrics = reactive<Record<number, RenderedPageMetrics>>({})
 
 const header = usePdfHeader()
-const scroll = usePdfVirtualScroll(emit, () => _localPdfPageCount.value)
+const scroll = usePdfVirtualScroll(emit, () => _localPdfPageCount.value, _renderedPageMetrics)
 const zoom = usePdfZoom(scroll, _renderedPageMetrics)
 const measurement = usePdfMeasurement(scroll, zoom, _pageLastRenderedScale, _renderedPageMetrics)
 const render = usePdfRendering(_pdfDocumentRef, zoom, scroll, measurement, _pageLastRenderedScale)
@@ -1517,12 +1529,28 @@ const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   const { start, end } = scroll.renderedPageRange
   const layout = scroll.pageLayout.value
   for (let page = start; page <= end; page += 1) {
-    pages.push({ page, top: layout.topByPage[page] || 24, height: scroll.pageHeightOf(page) })
+    pages.push({
+      page,
+      top: layout.topByPage[page] || 24,
+      height: scroll.pageHeightOf(page),
+      width: _renderedPageMetrics[page]?.width || 0,
+    })
   }
   return pages
 })
 
-const getPdfPageStyle = (pageMeta: VirtualPageMeta) => ({ top: `${pageMeta.top}px` })
+const getPdfPageStyle = (pageMeta: VirtualPageMeta) => {
+  const containerWidth = pdfScrollRef.value?.clientWidth || 0
+  const pageWidth = pageMeta.width || 0
+  if (containerWidth > 0 && pageWidth > 0) {
+    return {
+      top: `${pageMeta.top}px`,
+      left: `${Math.max(0, (containerWidth - pageWidth) / 2)}px`,
+      transform: 'none',
+    }
+  }
+  return { top: `${pageMeta.top}px` }
+}
 const getHighlightLayerStyle = (page: number) => {
   const m = _renderedPageMetrics[page]
   return m ? { top: `${m.top}px`, left: `${m.left}px`, width: `${m.width}px`, height: `${m.height}px` } : { inset: '0' }
