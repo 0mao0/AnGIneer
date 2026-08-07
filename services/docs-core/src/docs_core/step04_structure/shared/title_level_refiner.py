@@ -128,6 +128,8 @@ def resolve_title_level_refinement(
     for block in blocks:
         if getattr(block, "block_type", None) != "title":
             continue
+        if getattr(block, "document_part", None) == "front_matter":
+            continue
         text = block.text_clean or block.text or ""
         if not text:
             continue
@@ -189,7 +191,7 @@ def refine_document_title_levels(
     by_id = {block.block_id: block for block in blocks}
     for block_id, (level, confidence) in llm_levels.items():
         block = by_id.get(block_id)
-        if block is None:
+        if block is None or block_id not in candidate_map:
             continue
         candidate = candidate_map.get(block_id)
         current_confidence = float(candidate.get("confidence") or 0.0) if candidate else 0.0

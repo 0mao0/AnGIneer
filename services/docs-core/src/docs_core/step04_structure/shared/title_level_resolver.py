@@ -60,7 +60,7 @@ def _llm_arbitrate_title_levels(
     ]
     system_prompt = (
         "你是文档结构分析器。根据标题文本、页面角色(document_part/page_role)与候选级别判断标题级别(>=1)。"
-        "rule_level 与 popo_level 仅作候选参考，页面角色优先：front_matter 页面标题通常为 1 级。"
+        "rule_level 与 popo_level 仅作候选参考。front_matter 标题已由规则层扁平化，不参与仲裁。"
         '仅返回JSON对象：{"items":[{"block_id":"...","level":1,"confidence":0.95}]}'
     )
     try:
@@ -104,10 +104,14 @@ def resolve_title_levels(
     """
     popo_levels = popo_levels or {}
     tree_levels = tree_levels or {}
+    def _is_front_matter_flat_title(node: Dict[str, Any]) -> bool:
+        return str(node.get("document_part") or "") == "front_matter"
+
     title_nodes = [
         node for node in nodes
         if str(node.get("block_type") or "").strip() == "title"
         and str(node.get("plain_text") or "").strip()
+        and not _is_front_matter_flat_title(node)
     ]
     stats: Dict[str, Any] = {
         "total_titles": len(title_nodes),
