@@ -14,6 +14,7 @@
 """
 import json
 import logging
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
@@ -56,14 +57,55 @@ def _emit_step(
             logger.warning("分析步骤回调失败 step=%s", step, exc_info=True)
 
 
-def _build_graph_outlines(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """从 title 节点构建扁平 outline：outline_id/title/level/page_idx/anchor_block_id/parent_outline_id。"""
+def _extract_printed_page_label(text: Any) -> str:
+    """纸面页码解析：优先“第 N 页”，其次纯数字/带装饰数字，最后罗马数字（前言页）。"""
+    value = str(text or "").strip()
+    if not value:
+        return ""
+    m = re.search(r"第\s*(\d+)\s*页", value)
+    if m:
+        return m.group(1)
+    m = re.match(r"^\s*[-—–]?\s*(\d+)\s*[-—–]?\s*$", value)
+    if m:
+        return m.group(1)
+    if re.match(r"^[IVXLCDM]{1,10}$", value):
+        return value
+    return ""
+
+
+def _build_graph_page_label_map(nodes: List[Dict[str, Any]]) -> Dict[int, str]:
+    """从 page_number/page_footer 块文本提取 page_idx -> 纸面页码。"""
+    label_map: Dict[int, str] = {}
+    for node in nodes:
+        if not isinstance(node, dict):
+            continue
+        block_type = str(node.get("block_type") or "").strip().lower()
+        if block_type not in ("page_number", "page_footer"):
+            continue
+        try:
+            page_idx = int(node.get("page_idx") or 0)
+        except (TypeError, ValueError):
+            continue
+        if page_idx in label_map:
+            continue
+        label = _extract_printed_page_label(node.get("plain_text"))
+        if label:
+            label_map[page_idx] = label
+    return label_map
+
+
+def _build_graph_outlines(
+    nodes: List[Dict[str, Any]],
+    page_label_map: Optional[Dict[int, str]] = None,
+) -> List[Dict[str, Any]]:
+    """从 title 节点构建扁平 outline：outline_id/title/level/page_idx/anchor_block_id/parent_outline_id/printed_page_label。"""
     title_nodes = [
         node for node in nodes
         if str(node.get("block_type") or "").strip() == "title"
         and str(node.get("plain_text") or "").strip()
         and node.get("derived_level") is not None
     ]
+    label_map = page_label_map or {}
     title_nodes.sort(key=lambda node: (
         int(node.get("page_idx") or 0),
         int(node.get("block_seq") or 0),
@@ -83,6 +125,7 @@ def _build_graph_outlines(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             "page_idx": int(node.get("page_idx") or 0),
             "anchor_block_id": uid,
             "parent_outline_id": None,
+            "printed_page_label": label_map.get(int(node.get("page_idx") or 0)) or None,
         })
     for node in title_nodes:
         uid = str(node.get("block_uid") or node.get("id") or "").strip()
@@ -239,13 +282,14 @@ def _save_doc_blocks_graph(
     meta_path = paths.get_graph_meta_path(library_id, doc_id)
     page_count, pages = _build_graph_pages(library_id, doc_id, result.nodes)
     doc_meta = _build_doc_meta(library_id, doc_id, page_count)
+    page_label_map = _build_graph_page_label_map(result.nodes)
     meta = {
         "edges": result.edges,
         "stats": result.stats,
         "generated_at": datetime.now().isoformat(),
         "build_id": build_id,
         "docMeta": doc_meta,
-        "outlines": _build_graph_outlines(result.nodes),
+        "outlines": _build_graph_outlines(result.nodes, page_label_map),
         "pages": pages,
     }
     with open(meta_path, "w", encoding="utf-8") as f:
