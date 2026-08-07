@@ -38,12 +38,10 @@
                 <span v-else class="toggle-placeholder" />
               </span>
               <div class="tree-main">
-                <div class="tree-meta">
-                  <span v-if="row.groupCount" class="chip group-count">{{ row.groupCount }} 项</span>
-                </div>
                 <div class="tree-group-title">
                   <FolderOutlined />
                   <span>{{ row.groupLabel }}</span>
+                  <span v-if="row.groupCount" class="chip group-count">（{{ row.groupCount }}项）</span>
                 </div>
               </div>
             </div>
@@ -745,6 +743,15 @@ watch(() => props.activeNodeId, () => {
   display: flex;
   align-items: flex-start;
   box-sizing: border-box;
+}
+
+.tree-flat-row > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.tree-row {
+  width: 100%;
 }
 
 .tree-image-preview {
