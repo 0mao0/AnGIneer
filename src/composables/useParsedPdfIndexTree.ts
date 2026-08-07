@@ -82,7 +82,7 @@ export function useParsedPdfIndexTree(
       expandedNodeIds.value.add(ancestorId)
       expandedGraphNodeIds.value.add(ancestorId)
     }
-    const groupId = frontMatterGroupIdForNode(nodeMap.value.get(id))
+    const groupId = frontMatterGroupIdForNode(nodeMap.value.get(id), nodeMap.value)
     if (groupId) {
       expandedNodeIds.value.add(groupId)
     }
