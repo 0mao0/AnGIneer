@@ -1,5 +1,5 @@
 import type { SmartTreeNode } from '../types/tree'
-import type { StructuredIndexItem, DocBlockNode } from '../types/knowledge'
+import type { StructuredIndexItem, DocBlockNode, DisplayRoot, FrontMatterDisplayGroup } from '../types/knowledge'
 import {
   escapeHtml,
   escapeHtmlAttribute,
@@ -28,6 +28,122 @@ export const isFurnitureNode = (node: DocBlockNode | null | undefined): boolean 
   if (!node) return false
   if (node.layout_category === 'furniture') return true
   return FURNITURE_BLOCK_TYPES.has(String(node.block_type || '').toLowerCase())
+}
+
+/** 前置页角色分组标签（展示层虚拟分组壳）。 */
+export const FRONT_MATTER_GROUP_LABELS: Record<string, string> = {
+  cover: '封面',
+  publication_page: '出版信息',
+  notice: '发布通知',
+  revision_notes: '修订说明',
+  toc: '目录',
+  preface: '前言',
+  unknown: '其他前置页',
+}
+
+export const frontMatterGroupId = (pageRole: string): string => `fm-group:${pageRole}`
+
+export const isFrontMatterGroupId = (id: string): boolean => id.startsWith('fm-group:')
+
+export const frontMatterGroupIdForNode = (node: DocBlockNode | null | undefined): string | null => {
+  if (!node || node.document_part !== 'front_matter') return null
+  const role = node.page_role
+  if (!role || !FRONT_MATTER_GROUP_LABELS[role]) return null
+  return frontMatterGroupId(role)
+}
+
+export const buildDisplayRoots = (
+  roots: string[],
+  nodeMap: Map<string, DocBlockNode>,
+  childrenMap: Map<string, string[]>
+): DisplayRoot[] => {
+  const isTopLevelInGroup = (nodeId: string, role: string): boolean => {
+    const node = nodeMap.get(nodeId)
+    if (!node) return false
+    const parentId = node.parent_uid
+    if (!parentId || !nodeMap.has(parentId)) return true
+    const parent = nodeMap.get(parentId)!
+    return parent.document_part !== 'front_matter' || parent.page_role !== role
+  }
+
+  const countRoleMembers = (seedIds: string[], role: string): number => {
+    let count = 0
+    const queue = [...seedIds]
+    const seen = new Set<string>()
+    while (queue.length) {
+      const id = queue.shift() as string
+      if (seen.has(id)) continue
+      seen.add(id)
+      const node = nodeMap.get(id)
+      if (!node || isFurnitureNode(node)) continue
+      if (node.page_role === role) count += 1
+      for (const childId of childrenMap.get(id) || []) queue.push(childId)
+    }
+    return count
+  }
+
+  const groups = new Map<string, FrontMatterDisplayGroup>()
+  for (const node of nodeMap.values()) {
+    if (node.document_part !== 'front_matter') continue
+    const role = node.page_role
+    if (!role || !FRONT_MATTER_GROUP_LABELS[role]) continue
+    if (isFurnitureNode(node)) continue
+    let group = groups.get(role)
+    if (!group) {
+      group = {
+        id: frontMatterGroupId(role),
+        pageRole: role,
+        label: FRONT_MATTER_GROUP_LABELS[role],
+        children: [],
+        count: 0,
+      }
+      groups.set(role, group)
+    }
+    if (isTopLevelInGroup(node.id, role)) {
+      group.children.push(node.id)
+    }
+  }
+
+  for (const group of groups.values()) {
+    group.children.sort((leftId, rightId) => {
+      const left = nodeMap.get(leftId)!
+      const right = nodeMap.get(rightId)!
+      return (left.page_idx - right.page_idx) || (left.block_seq - right.block_seq)
+    })
+    group.count = countRoleMembers(group.children, group.pageRole)
+  }
+
+  const groupMinPage = (group: FrontMatterDisplayGroup): number => {
+    let min = Infinity
+    for (const id of group.children) {
+      min = Math.min(min, Number(nodeMap.get(id)?.page_idx ?? Infinity))
+    }
+    return min
+  }
+  const sortedGroups = [...groups.values()]
+    .filter(group => group.count > 0)
+    .sort((left, right) => groupMinPage(left) - groupMinPage(right))
+
+  const displayRoots: DisplayRoot[] = []
+  const emitted = new Set<string>()
+  for (const rootId of roots) {
+    const node = nodeMap.get(rootId)
+    if (node?.document_part === 'front_matter' && node.page_role && FRONT_MATTER_GROUP_LABELS[node.page_role]) {
+      const group = groups.get(node.page_role)
+      if (group && group.count > 0 && !emitted.has(group.id)) {
+        emitted.add(group.id)
+        displayRoots.push(group)
+      }
+      continue
+    }
+    displayRoots.push(rootId)
+  }
+  for (const group of sortedGroups) {
+    if (!emitted.has(group.id)) {
+      displayRoots.push(group)
+    }
+  }
+  return displayRoots
 }
 
 /** 从 page_number/page_footer 文本提取纸面页码（与后端 _extract_printed_page_label 同规则）。 */
