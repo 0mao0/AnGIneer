@@ -1334,14 +1334,24 @@ def detect_toc_row_ids(rows: list[Any]) -> set[int]:
         rows_in_page = pages.get(page_idx, [])
         text_rows = [r for r in rows_in_page if r["block_type"] in candidate_types]
         toc_like = 0
+        toc_entry_count = 0
         for r in text_rows:
             text = (r["plain_text"] or "").strip()
             if text and is_toc_item(text):
                 toc_like += 1
+            # MinerU 可能把整页目录合并成单个多行段落，按行再计一次条目数
+            for line in text.splitlines():
+                line = line.strip()
+                if line and is_toc_item(line):
+                    toc_entry_count += 1
         page_is_toc_like = False
         if text_rows:
             ratio = toc_like / float(len(text_rows))
-            page_is_toc_like = toc_like >= 2 or (len(text_rows) >= 2 and ratio >= 0.45)
+            page_is_toc_like = (
+                toc_like >= 2
+                or (len(text_rows) >= 2 and ratio >= 0.45)
+                or toc_entry_count >= 2
+            )
         if page_idx in marker_pages:
             collecting = True
             toc_pages.add(page_idx)
