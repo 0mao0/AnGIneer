@@ -115,6 +115,16 @@ export interface DocBlockNode {
   rich_media_order?: Array<{ type: 'image' | 'table' | 'math'; path?: string }> | null
 }
 
+export interface FrontMatterDisplayGroup {
+  id: string
+  pageRole: string
+  label: string
+  children: string[]
+  count: number
+}
+
+export type DisplayRoot = FrontMatterDisplayGroup | string
+
 export interface DocBlockEdge {
   id: string
   from: string
