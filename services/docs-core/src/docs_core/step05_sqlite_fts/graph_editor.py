@@ -80,33 +80,21 @@ def _rewrite_markdown_after_graph_change(
     if not build_id:
         build_id = new_or_reuse_build_id(library_id, doc_id)
 
-    from docs_core.step05_sqlite_fts.rebuild.graph_rebuilder import build_node_text
+    from docs_core.step04_structure.shared.jsonl_io import atomic_write_text
+    from docs_core.step04_structure.shared.markdown_projection import build_faithful_markdown
 
-    active_nodes = _sort_graph_nodes(_get_active_graph_nodes(graph_data))
-    lines: List[str] = [f"<!-- build_id: {build_id} -->"]
-    line_ranges: Dict[str, Dict[str, int]] = {}
-    for node in active_nodes:
-        uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
-        text = build_node_text(node)
-        if not uid or not text:
-            continue
-        start = len(lines) + 1
-        lines.extend(text.splitlines())
-        line_ranges[uid] = {"start": start, "end": len(lines)}
-    md_text = "\n".join(lines) + ("\n" if lines else "")
-
-    for node in active_nodes:
+    nodes = graph_data.get("nodes") or []
+    md_text, line_ranges = build_faithful_markdown(nodes, build_id)
+    for node in nodes:
         uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
         span = line_ranges.get(uid)
         node["markdown_line_start"] = span["start"] if span else None
         node["markdown_line_end"] = span["end"] if span else None
 
     parsed_md = paths.get_parsed_markdown_path(library_id, doc_id)
-    parsed_md.parent.mkdir(parents=True, exist_ok=True)
-    parsed_md.write_text(md_text, encoding="utf-8")
     edited_md = paths.get_edited_markdown_path(library_id, doc_id)
-    edited_md.parent.mkdir(parents=True, exist_ok=True)
-    edited_md.write_text(md_text, encoding="utf-8")
+    atomic_write_text(parsed_md, md_text)
+    atomic_write_text(edited_md, md_text)
     return build_id
 
 
