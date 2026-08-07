@@ -4,13 +4,6 @@
       <div ref="headerTitleRowRef" class="b2-title-row">
         <div class="b2-title-main">
           <span class="pane-title-prefix pane-title-prefix-right">解析</span>
-          <Checkbox
-            :checked="showFurniture"
-            class="pane-show-furniture-toggle"
-            @change="onToggleShowFurniture"
-          >
-            显示页饰
-          </Checkbox>
           <a-tooltip placement="bottom">
             <template #title>
               <div class="summary-tooltip">
@@ -24,6 +17,13 @@
               <BarChartOutlined />
             </span>
           </a-tooltip>
+          <Checkbox
+            :checked="showFurniture"
+            class="pane-show-furniture-toggle"
+            @change="onToggleShowFurniture"
+          >
+            显示页饰
+          </Checkbox>
         </div>
         <div class="pane-actions-right">
           <a-button
@@ -755,6 +755,7 @@ defineExpose({
 }
 
 .pane-show-furniture-toggle {
+  margin-left: 10px;
   font-size: 12px;
   white-space: nowrap;
 }
