@@ -80,6 +80,17 @@ PoPo/MinerU 已给出块类型（`title`/`paragraph`/`header`/`page_number` 等�
 - 首个部位之前的页仍走 front_matter 分类（cover / unknown 等）；
 - 纯附录文档（如“跨页表格.pdf”）因此整体归入 `appendix`，不再落到“封面 / 其他前置页”。
 
+### 3.6 续表附件化（不展示、不进语义、但保留）
+
+跨页表格被合并（`merged_from`）后，续页顶部引用同一表号的短文本块（如“续表 A.0.2-2”）
+标记为 `layout_category = "attachment"`：
+
+- 节点仍保留在 `doc_blocks_graph.jsonl`（含文本与 bbox），供精确定位；
+- 通过首表 `caption_block_uids` 挂到所属逻辑表；
+- 展示层隐藏 attachment 行；语义层（canonical / FTS / segments / 知识图谱）统一排除；
+- 判定不依赖“续表”字样：续页顶部、短文本、且包含该表组表号的块均视为附件；
+- 表合并被校验拒绝时，仍按 `head_fragment_pages` 指令做附件挂接（如船闸 D.6.2-4）。
+
 ## 4. 展示层设计（前端）
 
 ### 4.1 共享工具

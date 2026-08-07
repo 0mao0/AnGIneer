@@ -26,7 +26,15 @@ def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = N
 
     content = file_storage.read_markdown(library_id, doc_id) or ""
     graph = get_doc_blocks_graph(library_id, doc_id)
-    structured_items = graph.get("nodes", []) if graph else []
+    structured_items = (
+        [
+            node
+            for node in graph.get("nodes", [])
+            if str(node.get("layout_category") or "") != "attachment"
+        ]
+        if graph
+        else []
+    )
 
     packets = build_evidence_packets(
         library_id=library_id,

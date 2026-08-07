@@ -16,7 +16,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable, Dict, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 import docs_core.paths as paths
 from docs_core.step04_structure.solo_engine import StructuredResult, build_structured_from_rawfiles
@@ -179,7 +179,10 @@ def _apply_popo_signals(
             "done" if injected > 0 or rejected == 0 else "failed",
             f"applied {injected}, rejected {rejected}",
         )
-        from docs_core.step04_structure.popo.popo_table_continuation import detect_table_continuations
+        from docs_core.step04_structure.popo.popo_table_continuation import (
+            attach_table_continuation_headers,
+            detect_table_continuations,
+        )
 
         nodes_by_uid = {
             str(node.get("block_uid") or node.get("id") or ""): node
@@ -200,7 +203,44 @@ def _apply_popo_signals(
             "done",
             f"applied {heuristic_applied}, skipped {heuristic_skipped}",
         )
+        fragment_page_by_uid: Dict[str, int] = {}
+        for node in nodes:
+            target_uid = node.get("table_merge_id")
+            if not target_uid:
+                continue
+            target = nodes_by_uid.get(str(target_uid))
+            if target is not None:
+                fragment_page_by_uid[str(target_uid)] = int(target.get("page_idx") or 0)
+        head_fragment_pages: Dict[str, List[int]] = {}
+        for node in nodes:
+            if node.get("block_type") != "table" or not node.get("table_merge_id"):
+                continue
+            head_uid = str(node.get("block_uid") or node.get("id") or "").strip()
+            pages: List[int] = []
+            seen: set[str] = set()
+            current = node
+            while current and current.get("table_merge_id"):
+                target_uid = str(current["table_merge_id"])
+                target = nodes_by_uid.get(target_uid)
+                if target is None or target_uid in seen:
+                    break
+                seen.add(target_uid)
+                pages.append(int(target.get("page_idx") or 0))
+                current = target
+            if pages:
+                head_fragment_pages[head_uid] = pages
         nodes, merge_stats = merge_blocks(doc_id, nodes, edges=edges)
+        for node in nodes:
+            node.pop("table_merge_id", None)
+        attachment_count = attach_table_continuation_headers(
+            nodes, fragment_page_by_uid, head_fragment_pages
+        )
+        _emit_step(
+            on_step,
+            "续表附件化",
+            "done",
+            f"attached {attachment_count}",
+        )
         merged = int(merge_stats.get("applied") or 0)
         rejected = int(merge_stats.get("rejected") or 0)
         _emit_step(

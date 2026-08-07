@@ -677,6 +677,8 @@ def _build_structured_segment_items_from_graph(graph_data: Dict[str, Any]) -> Li
         block_type = str(node.get("block_type") or "segment").strip() or "segment"
         if block_type in excluded_types:
             continue
+        if str(node.get("layout_category") or "") == "attachment":
+            continue
         plain_text = build_node_text(node)
         title_path = str(node.get("title_path") or "").strip()
         title = plain_text or title_path or block_uid

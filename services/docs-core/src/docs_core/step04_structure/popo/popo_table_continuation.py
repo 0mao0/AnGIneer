@@ -108,18 +108,140 @@ def _width_ok(src: Dict[str, Any], tgt: Dict[str, Any]) -> bool:
 
 
 def _continuation_marker_before(
-    ordered: List[Dict[str, Any]], page: int, block_seq: int
+    ordered: List[Dict[str, Any]],
+    page: int,
+    block_seq: int,
+    table_bbox=None,
 ) -> bool:
-    """目标表之前、同页内最近的 text/标题块是否含续表标记。"""
+    """目标页上是否存在续表标记（目标表之前，或位于目标表上方的表头块）。"""
+    table_y0 = 1.0
+    if isinstance(table_bbox, (list, tuple)) and len(table_bbox) >= 4:
+        table_y0 = float(table_bbox[1])
     for node in ordered:
         if int(node.get("page_idx") or 0) != page:
             continue
-        if int(node.get("block_seq") or 0) >= block_seq:
-            break
-        if node.get("block_type") in ("title", "paragraph", "text", "list_item"):
-            if CONTINUATION_MARKER_RE.search(str(node.get("plain_text") or "")):
+        if node.get("block_type") not in (
+            "title", "paragraph", "text", "list_item", "page_header", "header"
+        ):
+            continue
+        if not CONTINUATION_MARKER_RE.search(str(node.get("plain_text") or "")):
+            continue
+        if int(node.get("block_seq") or 0) < block_seq:
+            return True
+        bbox = node.get("bbox")
+        if isinstance(bbox, (list, tuple)) and len(bbox) >= 4:
+            if float(bbox[1]) < table_y0:
                 return True
     return False
+
+
+_ATTACHMENT_CANDIDATE_TYPES = frozenset({
+    "paragraph", "text", "list", "list_item", "title", "page_header", "header",
+})
+_MAX_ATTACHMENT_TEXT_LEN = 40
+_TOP_BAND_Y = 0.25
+
+
+def _compact_text(text: Any) -> str:
+    return re.sub(r"\s+", "", str(text or "")).strip()
+
+
+def _page_table_number(
+    nodes: List[Dict[str, Any]], page: int, *, exclude_uid: Optional[str] = None
+) -> Optional[str]:
+    """在该页短文本块中找表号（如页眉“表 D.6.2-4”），用于 caption 缺失时定表组。"""
+    for node in nodes:
+        if exclude_uid and _uid(node) == exclude_uid:
+            continue
+        if int(node.get("page_idx") or 0) != page:
+            continue
+        if node.get("block_type") == "table":
+            continue
+        text = _compact_text(node.get("plain_text"))
+        if not (2 <= len(text) <= _MAX_ATTACHMENT_TEXT_LEN):
+            continue
+        number = _extract_table_number(text)
+        if number:
+            return number
+    return None
+
+
+def attach_table_continuation_headers(
+    nodes: List[Dict[str, Any]],
+    fragment_page_by_uid: Dict[str, int],
+    head_fragment_pages: Optional[Dict[str, List[int]]] = None,
+) -> int:
+    """把跨页合并表的续页表头块标记为 attachment，并挂到首表 caption 附件。
+
+    判定不依赖“续表”字样：续页顶部、短文本、且包含该表组表号的块都算附件；
+    附件仍保留在 jsonl（含 bbox），但展示层隐藏、语义层排除。
+    """
+    changed = 0
+    for head in nodes:
+        if head.get("block_type") != "table":
+            continue
+        merged_from = head.get("merged_from") or []
+        head_uid = _uid(head)
+        pages = (
+            list(head_fragment_pages.get(head_uid, []))
+            if head_fragment_pages
+            else []
+        )
+        if not pages and merged_from:
+            pages = [
+                int(fragment_page_by_uid.get(str(uid), -1))
+                for uid in merged_from
+            ]
+        if not pages:
+            continue
+        number = _extract_table_number(_caption_text(head))
+        if not number:
+            number = _page_table_number(
+                nodes, int(head.get("page_idx") or 0), exclude_uid=head_uid
+            )
+        if not number:
+            for page in pages:
+                if page < 0:
+                    continue
+                number = _page_table_number(nodes, page)
+                if number:
+                    break
+        if not number:
+            continue
+        for page in pages:
+            if page < 0:
+                continue
+            for cand in nodes:
+                if _uid(cand) == head_uid:
+                    continue
+                if int(cand.get("page_idx") or 0) != page:
+                    continue
+                if cand.get("block_type") == "table":
+                    continue
+                if str(cand.get("block_type") or "").lower() not in _ATTACHMENT_CANDIDATE_TYPES:
+                    continue
+                if str(cand.get("layout_category") or "").lower() == "furniture":
+                    continue
+                text = _compact_text(cand.get("plain_text"))
+                if not (2 <= len(text) <= _MAX_ATTACHMENT_TEXT_LEN):
+                    continue
+                if number not in text:
+                    continue
+                bbox = cand.get("bbox")
+                y0 = float(bbox[1]) if isinstance(bbox, (list, tuple)) and len(bbox) >= 4 else 1.0
+                if y0 > _TOP_BAND_Y:
+                    continue
+                if cand.get("layout_category") == "attachment":
+                    continue
+                cand["layout_category"] = "attachment"
+                uids = head.get("caption_block_uids")
+                if not isinstance(uids, list):
+                    uids = []
+                    head["caption_block_uids"] = uids
+                if _uid(cand) not in uids:
+                    uids.append(_uid(cand))
+                changed += 1
+    return changed
 
 
 def detect_table_continuations(
@@ -165,6 +287,7 @@ def detect_table_continuations(
             ordered,
             int(tgt.get("page_idx") or 0),
             int(tgt.get("block_seq") or 0),
+            tgt.get("bbox"),
         )
         header = _header_match(src, tgt)
 
@@ -180,4 +303,8 @@ def detect_table_continuations(
     return instructions
 
 
-__all__ = ["detect_table_continuations", "CONTINUATION_MARKER_RE"]
+__all__ = [
+    "detect_table_continuations",
+    "attach_table_continuation_headers",
+    "CONTINUATION_MARKER_RE",
+]

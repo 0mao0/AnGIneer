@@ -161,6 +161,8 @@ def build_canonical_blocks(doc_id: str, source: CanonicalSourceInput) -> List[Ca
 def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, Any]]) -> List[CanonicalBlock]:
     canonical_blocks: List[CanonicalBlock] = []
     for index, raw_block in enumerate(raw_blocks):
+        if str(raw_block.get("layout_category") or "") == "attachment":
+            continue
         text = str(raw_block.get("text") or raw_block.get("content") or "").strip()
         section_path = str(raw_block.get("section_path") or "")
         formula_semantics = raw_block.get("formula_semantics")
