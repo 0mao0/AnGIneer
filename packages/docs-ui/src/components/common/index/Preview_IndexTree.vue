@@ -830,11 +830,10 @@ watch(() => props.activeNodeId, () => {
 
 .tree-image-preview-stage .preview-image {
   display: block;
+  width: 100%;
   max-width: 100%;
-  max-height: 62vh;
-  width: auto;
   height: auto;
-  object-fit: contain;
+  flex-shrink: 0;
   border-radius: 8px;
   transform-origin: center center;
   will-change: transform;
