@@ -7,7 +7,8 @@ import {
   renderFormula,
   renderMarkdown,
   renderMarkdownInlineToHtml,
-  renderMarkdownToHtml
+  renderMarkdownToHtml,
+  renderTableHtmlToInlineHtml
 } from './markdown'
 import { getFileIconType, getStatusText } from './common'
 import {
@@ -511,7 +512,7 @@ export const renderNodeRichMedia = (
     )
   }
   const pushTable = (html: string): void => {
-    const renderedHtml = renderMarkdownInlineToHtml(html, sourceFilePath || '')
+    const renderedHtml = renderTableHtmlToInlineHtml(html, sourceFilePath || '')
     sections.push(`<div class="media-table">${renderedHtml}</div>`)
   }
   
