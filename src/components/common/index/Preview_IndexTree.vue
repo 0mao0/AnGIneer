@@ -73,7 +73,7 @@
                 </a-button>
               </div>
               <template #overlay>
-                <a-menu @click="(payload) => onContextMenuClick(payload, row.id)">
+                <a-menu @click="makeContextMenuClick(row.id)">
                   <a-sub-menu key="relevel-actions" title="调整层级">
                     <a-menu-item key="promote">升一级</a-menu-item>
                     <a-menu-item key="demote">降一级</a-menu-item>
@@ -545,6 +545,10 @@ const onContextMenuClick = (payload: { key: string }, rowId: string) => {
       emit('context-action', { nodeId: rowId, action: 'set-level', targetLevel })
     }
   }
+}
+
+const makeContextMenuClick = (rowId: string) => (payload: { key: string }) => {
+  onContextMenuClick(payload, rowId)
 }
 
 /* 将活跃节点滚动到可视区域中心。 */
