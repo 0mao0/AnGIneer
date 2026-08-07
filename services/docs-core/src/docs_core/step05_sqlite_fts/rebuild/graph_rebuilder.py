@@ -222,7 +222,11 @@ def rebuild_canonical_document_from_graph(
     page_label_map = _extract_page_label_map(graph_data.get("nodes", []))
     if isinstance(raw_pages, list):
         pages = [
-            CanonicalPage(**{**item, "doc_id": doc_id})
+            CanonicalPage(**{
+                **item,
+                "page_idx": item.get("page_idx") if item.get("page_idx") is not None else item.get("pageIdx"),
+                "doc_id": doc_id,
+            })
             for item in raw_pages
             if isinstance(item, dict)
         ]

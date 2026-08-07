@@ -678,6 +678,8 @@ def _build_structured_segment_items_from_graph(graph_data: Dict[str, Any]) -> Li
             "block_type": block_type,
             "page_idx": page_idx,
             "block_seq": block_seq,
+            "markdown_line_start": node.get("markdown_line_start"),
+            "markdown_line_end": node.get("markdown_line_end"),
             "title_path": node.get("title_path"),
             "caption": node.get("caption"),
             "footnote": node.get("footnote"),
