@@ -30,6 +30,17 @@ export const isFurnitureNode = (node: DocBlockNode | null | undefined): boolean 
   return FURNITURE_BLOCK_TYPES.has(String(node.block_type || '').toLowerCase())
 }
 
+/** 从 page_number/page_footer 文本提取纸面页码（与后端 _extract_printed_page_label 同规则）。 */
+export const extractPrintedPageLabel = (text: string): string | null => {
+  const value = (text || '').trim()
+  if (!value) return null
+  const m = value.match(/第\s*(\d+)\s*页/)
+  if (m) return m[1]
+  const m2 = value.match(/^\s*[-—–]?\s*(\d+)\s*[-—–]?\s*$/)
+  if (m2) return m2[1]
+  return /^[IVXLCDM]{1,10}$/.test(value) ? value : null
+}
+
 /**
  * 获取节点的显示文本 (带截断)
  */
