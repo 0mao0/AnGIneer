@@ -511,7 +511,8 @@ export const renderNodeRichMedia = (
     )
   }
   const pushTable = (html: string): void => {
-    sections.push(`<div class="media-table">${html}</div>`)
+    const renderedHtml = renderMarkdownInlineToHtml(html, sourceFilePath || '')
+    sections.push(`<div class="media-table">${renderedHtml}</div>`)
   }
   
   if (Array.isArray(node.rich_media_order) && node.rich_media_order.length > 0) {
