@@ -997,6 +997,9 @@ watch(() => props.activeNodeId, () => {
 
 .tree-inline-media {
   width: 100%;
+  max-height: 60vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 8px;
   border-radius: 8px;
   border: 1px solid var(--dp-pane-border, #e8edf4);
