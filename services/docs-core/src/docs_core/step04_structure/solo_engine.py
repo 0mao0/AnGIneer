@@ -1861,6 +1861,10 @@ def build_structured_from_rawfiles(
         furniture = is_page_furniture(block_type, text)
         layout_category = "furniture" if furniture else "content"
         node_page_role = page_role_for_block(block_type, page_role, text)
+        front_matter_flat = (
+            document_part == "front_matter"
+            and page_role != PageRole.TOC
+        )
 
         # 部位变化时重置标题栈/锚点，保证 parent 不跨部位
         if document_part != active_document_part:
@@ -1871,21 +1875,25 @@ def build_structured_from_rawfiles(
             active_document_part = document_part
         
         if block_type == "title":
-            if page_role in front_matter_roles:
+            if front_matter_flat:
+                derived_level, confidence, by = None, 0.0, "part"
+            elif page_role in front_matter_roles:
                 derived_level, confidence, by = 1, 0.7, "part"
             else:
                 derived_level, confidence, by = infer_title_level(row["plain_text"] or "", raw_level)
             derived_by = by
-            
+
             if is_toc_row:
                 title_path = None
                 parent_uid = None
                 derived_by = "toc" if derived_by == "none" else f"toc+{derived_by}"
                 if compact_text in ("目录", "目次"):
                     toc_root_uid = row["block_uid"]
+                    derived_level = None
                 else:
                     struct_no = extract_struct_number(text)
                     if struct_no:
+                        derived_level = infer_struct_level(text)
                         parent_candidate = None
                         if "." in struct_no:
                             parts = struct_no.split(".")
@@ -1898,6 +1906,7 @@ def build_structured_from_rawfiles(
                         toc_number_anchor_uid[struct_no] = row["block_uid"]
                     elif toc_root_uid:
                         parent_uid = toc_root_uid
+                        derived_level = None
             elif derived_level is not None:
                 for lv in list(heading_stack.keys()):
                     if lv >= derived_level:
@@ -1911,9 +1920,14 @@ def build_structured_from_rawfiles(
                 recent_struct_anchor_uid = row["block_uid"]
         else:
             if block_type not in excluded_types and not furniture:
-                if is_toc_row or is_toc_page:
+                if front_matter_flat:
+                    derived_level = None
+                    parent_uid = None
+                    title_path = None
+                elif is_toc_row or is_toc_page:
                     struct_no = extract_struct_number(text)
                     if struct_no:
+                        derived_level = infer_struct_level(text)
                         parent_candidate = None
                         if "." in struct_no:
                             parts = struct_no.split(".")
@@ -1928,41 +1942,41 @@ def build_structured_from_rawfiles(
                         parent_uid = toc_root_uid
                     derived_by = "toc" if derived_by == "none" else f"toc+{derived_by}"
                     title_path = None
-                
-                treat_as_heading = should_treat_as_struct_heading(block_type, text, is_toc_row, is_toc_page)
-                if treat_as_heading:
-                    derived_level = infer_struct_level(text)
-                    if derived_level is not None:
-                        confidence = max(confidence, 0.93)
-                        derived_by = "rule"
-                        for lv in list(heading_stack.keys()):
-                            if lv >= derived_level:
-                                del heading_stack[lv]
-                        parent_uid = heading_stack.get(derived_level - 1)
-                        heading_stack[derived_level] = row["block_uid"]
-                        title_path = ">".join(heading_stack[k] for k in sorted(heading_stack.keys()))
+                else:
+                    treat_as_heading = should_treat_as_struct_heading(block_type, text, is_toc_row, is_toc_page)
+                    if treat_as_heading:
+                        derived_level = infer_struct_level(text)
+                        if derived_level is not None:
+                            confidence = max(confidence, 0.93)
+                            derived_by = "rule"
+                            for lv in list(heading_stack.keys()):
+                                if lv >= derived_level:
+                                    del heading_stack[lv]
+                            parent_uid = heading_stack.get(derived_level - 1)
+                            heading_stack[derived_level] = row["block_uid"]
+                            title_path = ">".join(heading_stack[k] for k in sorted(heading_stack.keys()))
+                            struct_no = extract_struct_number(text)
+                            if struct_no:
+                                number_anchor_uid[struct_no] = row["block_uid"]
+                            recent_struct_anchor_uid = row["block_uid"]
+                    else:
+                        if heading_stack:
+                            title_path = ">".join(heading_stack[k] for k in sorted(heading_stack.keys()))
+                            parent_uid = heading_stack[max(heading_stack.keys())]
                         struct_no = extract_struct_number(text)
                         if struct_no:
-                            number_anchor_uid[struct_no] = row["block_uid"]
-                        recent_struct_anchor_uid = row["block_uid"]
-                else:
-                    if heading_stack:
-                        title_path = ">".join(heading_stack[k] for k in sorted(heading_stack.keys()))
-                        parent_uid = heading_stack[max(heading_stack.keys())]
-                    struct_no = extract_struct_number(text)
-                    if struct_no:
-                        parts = struct_no.split(".")
-                        for end in range(len(parts) - 1, 0, -1):
-                            candidate = ".".join(parts[:end])
-                            cand_uid = number_anchor_uid.get(candidate)
-                            if cand_uid:
-                                parent_uid = cand_uid
-                                break
-                        if struct_no not in number_anchor_uid:
-                            number_anchor_uid[struct_no] = row["block_uid"]
-                        recent_struct_anchor_uid = row["block_uid"]
-                    elif not (is_toc_row or is_toc_page) and recent_struct_anchor_uid:
-                        parent_uid = recent_struct_anchor_uid
+                            parts = struct_no.split(".")
+                            for end in range(len(parts) - 1, 0, -1):
+                                candidate = ".".join(parts[:end])
+                                cand_uid = number_anchor_uid.get(candidate)
+                                if cand_uid:
+                                    parent_uid = cand_uid
+                                    break
+                            if struct_no not in number_anchor_uid:
+                                number_anchor_uid[struct_no] = row["block_uid"]
+                            recent_struct_anchor_uid = row["block_uid"]
+                        elif not (is_toc_row or is_toc_page) and recent_struct_anchor_uid:
+                            parent_uid = recent_struct_anchor_uid
             else:
                 derived_by = "meta"
         
@@ -2012,13 +2026,22 @@ def build_structured_from_rawfiles(
                 formula_group.append(row["block_uid"])
             else:
                 formula_group = []
+
+        if front_matter_flat:
+            derived_level = None
+            parent_uid = None
+            title_path = None
         
         if exp_conf > confidence:
             confidence = exp_conf
         if exp_by != "none":
             derived_by = "rule"
         
-        if derived_level is None and parent_uid:
+        if (
+            derived_level is None and parent_uid
+            and not front_matter_flat
+            and not (is_toc_row or is_toc_page)
+        ):
             parent_level = derived_level_by_uid.get(parent_uid)
             if parent_level is not None:
                 derived_level = parent_level + 1
