@@ -251,32 +251,42 @@ def _save_doc_blocks_graph(
     doc_id: str,
     result: StructuredResult,
 ) -> str:
+    from docs_core.step04_structure.shared.jsonl_io import atomic_write_text
+    from docs_core.step04_structure.shared.markdown_projection import build_faithful_markdown
+
+    md_path = paths.get_parsed_markdown_path(library_id, doc_id)
+    if not md_path.exists():
+        # 保留既有契约：structure 输入缺失时显式失败，而不是静默生成半成品
+        raise RuntimeError(
+            f"build_id 盖章失败：content.md 缺失或与 meta 不一致"
+            f"（请检查 parsed/content.md 是否可写）"
+        )
     build_id = new_or_reuse_build_id(library_id, doc_id)
+
+    # 以 jsonl 节点为唯一真相，生成保真 Markdown 投影，并在写 jsonl 前回填行号
+    md_text, line_ranges = build_faithful_markdown(result.nodes, build_id)
+    for node in result.nodes:
+        uid = str(node.get("block_uid") or node.get("id") or "").strip()
+        span = line_ranges.get(uid)
+        node["markdown_line_start"] = span["start"] if span else None
+        node["markdown_line_end"] = span["end"] if span else None
+
     jsonl_path = paths.get_graph_jsonl_path(library_id, doc_id)
     jsonl_path.parent.mkdir(parents=True, exist_ok=True)
     with open(jsonl_path, "w", encoding="utf-8") as f:
         for node in result.nodes:
             f.write(json.dumps(node, ensure_ascii=False) + "\n")
 
-    # 孪生产物一致性校验：盖章后 content.md 与 meta.json 的 build_id 必须一致，
-    # 否则前端会误报“内容与图谱版本不一致（build_id 不匹配）”并禁用高亮联动。
-    # 先盖章 md、再写 meta：盖章失败时不留下“meta 新、md 旧”的不一致配对。
-    md_path = paths.get_parsed_markdown_path(library_id, doc_id)
-    _stamp_markdown_build_id(md_path, build_id)
-    # edited/current.md 存在时（read_markdown 优先读它）同样盖章，否则前端会一直
-    # 读到旧 build_id，误报“内容与图谱版本不一致”并禁用高亮联动。
+    atomic_write_text(md_path, md_text)
+    # edited/current.md 若已存在（用户改过），仅盖章保持版本一致，不重写内容
     edited_md_path = paths.get_edited_markdown_path(library_id, doc_id)
     _stamp_markdown_build_id(edited_md_path, build_id)
-    md_build_id = None
-    if md_path.exists():
-        try:
-            md_build_id = extract_build_id_from_markdown(md_path.read_text(encoding="utf-8"))
-        except OSError:
-            md_build_id = None
+
+    md_build_id = extract_build_id_from_markdown(md_path.read_text(encoding="utf-8"))
     if md_build_id != build_id:
         raise RuntimeError(
             f"build_id 盖章失败：content.md 缺失或与 meta 不一致"
-            f"（meta={build_id}, md={md_build_id}），请检查 parsed/content.md 是否可写"
+            f"（meta={build_id}, md={md_build_id}）"
         )
 
     meta_path = paths.get_graph_meta_path(library_id, doc_id)

@@ -10,6 +10,7 @@ from typing import Any, Dict, List, Optional
 import docs_core.paths as paths
 
 __all__ = [
+    "atomic_write_text",
     "extract_build_id_from_markdown",
     "extract_build_id_from_meta",
     "get_doc_blocks_graph",
@@ -58,6 +59,14 @@ def _stamp_markdown_build_id(path: Path, build_id: str) -> None:
     # 临时文件 + 原子替换：避免写一半时被读取到残缺 md，也减少 Windows 下占用冲突。
     tmp_path = path.with_name(path.name + ".build_id.tmp")
     tmp_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    os.replace(str(tmp_path), str(path))
+
+
+def atomic_write_text(path: Path, text: str) -> None:
+    """临时文件 + 原子替换写文本，避免写一半被读到。"""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = path.with_name(path.name + ".tmp")
+    tmp_path.write_text(text, encoding="utf-8")
     os.replace(str(tmp_path), str(path))
 
 
