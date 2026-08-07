@@ -1055,7 +1055,7 @@ def _build_doc_block_projection_rows(doc_id: str, graph_data: Dict[str, Any]) ->
             "table_html": node.get("table_html_corrected") or node.get("table_html"),
             "math_content": node.get("math_content_corrected") or node.get("math_content"),
             "image_path": node.get("image_path"),
-            "derived_confidence": node.get("confidence"),
+            "derived_confidence": node.get("derived_confidence"),
             "derived_by": node.get("derived_by"),
             "updated_at": now,
         })

@@ -132,7 +132,11 @@ def resolve_title_levels(
     for node in title_nodes:
         uid = node.get("block_uid") or node.get("id")
         rule_level = node.get("derived_level") or node.get("title_level")
-        rule_conf = float(node.get("confidence") or 0.0)
+        rule_conf = float(
+            node.get("derived_confidence")
+            if node.get("derived_confidence") is not None
+            else (node.get("confidence") or 0.0)
+        )
         cand_level, cand_conf = _structural_candidate(
             popo_levels.get(uid), tree_levels.get(uid)
         )
@@ -202,7 +206,7 @@ def resolve_title_levels(
             node["derived_level"] = level
             node["title_level"] = level
             node["derived_by"] = f"{node.get('derived_by') or 'rule'}+llm"
-            node["confidence"] = 0.95
+            node["derived_confidence"] = 0.95
             stats["llm_adopted"] += 1
         updated.append(node)
     return updated, stats

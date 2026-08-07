@@ -213,7 +213,7 @@ def rebuild_canonical_document_from_graph(
     raw_outlines = graph_data.get("outlines") if isinstance(graph_data, dict) else None
     if isinstance(raw_outlines, list):
         outlines = [
-            CanonicalOutlineNode(**item)
+            CanonicalOutlineNode(**{**item, "doc_id": doc_id})
             for item in raw_outlines
             if isinstance(item, dict)
         ]
@@ -222,7 +222,7 @@ def rebuild_canonical_document_from_graph(
     page_label_map = _extract_page_label_map(graph_data.get("nodes", []))
     if isinstance(raw_pages, list):
         pages = [
-            CanonicalPage(**item)
+            CanonicalPage(**{**item, "doc_id": doc_id})
             for item in raw_pages
             if isinstance(item, dict)
         ]

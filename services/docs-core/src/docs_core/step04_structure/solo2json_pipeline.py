@@ -56,6 +56,152 @@ def _emit_step(
             logger.warning("分析步骤回调失败 step=%s", step, exc_info=True)
 
 
+def _build_graph_outlines(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """从 title 节点构建扁平 outline：outline_id/title/level/page_idx/anchor_block_id/parent_outline_id。"""
+    title_nodes = [
+        node for node in nodes
+        if str(node.get("block_type") or "").strip() == "title"
+        and str(node.get("plain_text") or "").strip()
+        and node.get("derived_level") is not None
+    ]
+    title_nodes.sort(key=lambda node: (
+        int(node.get("page_idx") or 0),
+        int(node.get("block_seq") or 0),
+    ))
+    outline_id_by_uid: Dict[str, str] = {}
+    outlines: List[Dict[str, Any]] = []
+    for node in title_nodes:
+        uid = str(node.get("block_uid") or node.get("id") or "").strip()
+        if not uid:
+            continue
+        outline_id = f"outline:{uid}"
+        outline_id_by_uid[uid] = outline_id
+        outlines.append({
+            "outline_id": outline_id,
+            "title": str(node.get("plain_text") or "").strip(),
+            "level": int(node.get("derived_level")),
+            "page_idx": int(node.get("page_idx") or 0),
+            "anchor_block_id": uid,
+            "parent_outline_id": None,
+        })
+    for node in title_nodes:
+        uid = str(node.get("block_uid") or node.get("id") or "").strip()
+        parent_uid = str(node.get("parent_uid") or "").strip()
+        if not uid or not parent_uid:
+            continue
+        outline = next(
+            (item for item in outlines if item["anchor_block_id"] == uid),
+            None,
+        )
+        if outline is not None and parent_uid in outline_id_by_uid:
+            outline["parent_outline_id"] = outline_id_by_uid[parent_uid]
+    return outlines
+
+
+def _build_graph_pages_from_middle(middle_payload: Any) -> tuple[Optional[int], List[Dict[str, Any]]]:
+    """从 middle.json pdf_info 提取 (pageCount, pages)。"""
+    if not isinstance(middle_payload, dict):
+        return None, []
+    pdf_info = middle_payload.get("pdf_info")
+    if not isinstance(pdf_info, list):
+        return None, []
+    pages: List[Dict[str, Any]] = []
+    for idx, page in enumerate(pdf_info):
+        if not isinstance(page, dict):
+            continue
+        size = page.get("page_size") or []
+        if not isinstance(size, (list, tuple)) or len(size) < 2:
+            continue
+        try:
+            pages.append({
+                "pageIdx": int(page.get("page_idx", idx)),
+                "width": float(size[0]),
+                "height": float(size[1]),
+            })
+        except (TypeError, ValueError):
+            continue
+    return (len(pdf_info), pages) if pdf_info else (None, [])
+
+
+def _build_graph_pages(
+    library_id: str,
+    doc_id: str,
+    nodes: List[Dict[str, Any]],
+) -> tuple[Optional[int], List[Dict[str, Any]]]:
+    """构建 graph meta 的 pages；优先 middle.json，缺失时用节点 page_width/height 兜底。"""
+    middle_path = paths.get_mineru_raw_dir(library_id, doc_id) / "middle.json"
+    if not middle_path.exists():
+        middle_path = paths.get_parsed_dir(library_id, doc_id) / "middle.json"
+    if middle_path.exists():
+        try:
+            middle_payload = json.loads(middle_path.read_text(encoding="utf-8"))
+            page_count, pages = _build_graph_pages_from_middle(middle_payload)
+            if pages:
+                return page_count, pages
+        except (OSError, json.JSONDecodeError):
+            pass
+    by_page: Dict[int, tuple[float, float]] = {}
+    for node in nodes:
+        page_idx = int(node.get("page_idx") or 0)
+        width = node.get("page_width")
+        height = node.get("page_height")
+        if isinstance(width, (int, float)) and isinstance(height, (int, float)) and width > 0 and height > 0:
+            by_page.setdefault(page_idx, (float(width), float(height)))
+    if by_page:
+        pages = [
+            {"pageIdx": page_idx, "width": width, "height": height}
+            for page_idx, (width, height) in sorted(by_page.items())
+        ]
+        return max(by_page) + 1, pages
+    return None, []
+
+
+def _extract_pdf_metadata(pdf_path: Optional[str]) -> Dict[str, Optional[str]]:
+    """从 PDF 元数据提取 author/creatorTool/createdAt/modifiedAt；失败或缺字段给 null。"""
+    result: Dict[str, Optional[str]] = {
+        "author": None,
+        "creatorTool": None,
+        "createdAt": None,
+        "modifiedAt": None,
+    }
+    if not pdf_path or not Path(pdf_path).exists():
+        return result
+    try:
+        import fitz
+    except ImportError:
+        return result
+    try:
+        with fitz.open(str(pdf_path)) as pdf:
+            metadata = pdf.metadata or {}
+            result["author"] = metadata.get("author") or None
+            result["creatorTool"] = metadata.get("creator") or metadata.get("producer") or None
+            result["createdAt"] = metadata.get("creationDate") or None
+            result["modifiedAt"] = metadata.get("modificationDate") or None
+    except Exception:
+        return result
+    return result
+
+
+def _build_doc_meta(
+    library_id: str,
+    doc_id: str,
+    page_count: Optional[int] = None,
+) -> Dict[str, Any]:
+    """构建 graph meta 的 docMeta：fileName/pageCount/author/creatorTool/createdAt/modifiedAt。"""
+    doc_info = _afs.file_storage.get_doc_manifest(library_id, doc_id)
+    source_file = doc_info.get("source_file")
+    file_name = str(Path(source_file).name) if source_file else None
+    pdf_metadata = _extract_pdf_metadata(doc_info.get("render_pdf") or source_file)
+    return {
+        "fileName": file_name,
+        "pageCount": page_count,
+        "author": pdf_metadata["author"],
+        "creatorTool": pdf_metadata["creatorTool"],
+        "createdAt": pdf_metadata["createdAt"],
+        "modifiedAt": pdf_metadata["modifiedAt"],
+    }
+
+
 # 保存 doc_blocks_graph.jsonl + doc_blocks_graph_meta.json
 def _save_doc_blocks_graph(
     library_id: str,
@@ -91,11 +237,16 @@ def _save_doc_blocks_graph(
         )
 
     meta_path = paths.get_graph_meta_path(library_id, doc_id)
+    page_count, pages = _build_graph_pages(library_id, doc_id, result.nodes)
+    doc_meta = _build_doc_meta(library_id, doc_id, page_count)
     meta = {
         "edges": result.edges,
         "stats": result.stats,
         "generated_at": datetime.now().isoformat(),
         "build_id": build_id,
+        "docMeta": doc_meta,
+        "outlines": _build_graph_outlines(result.nodes),
+        "pages": pages,
     }
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)

@@ -85,7 +85,9 @@ export interface DocBlockNode {
   layout_category?: 'content' | 'furniture' | 'attachment' | null
   document_part?: string | null
   page_role?: string | null
-  confidence: number
+  derived_confidence?: number | null
+  source?: 'text' | 'ocr' | 'formula' | 'table' | null
+  confidence?: number | null
   image_path: string | null
   image_paths?: string[] | null
   table_html: string | null

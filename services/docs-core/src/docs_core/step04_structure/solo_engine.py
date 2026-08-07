@@ -1181,6 +1181,82 @@ def _nearest_type_score(
     return None
 
 
+_NATIVE_TEXT_DET_LABELS = frozenset({
+    "text", "title", "doc_title", "paragraph", "paragraph_title", "list",
+    "index", "reference", "header", "footer", "page_number",
+    "image_caption", "image_footnote", "table_caption", "table_footnote",
+})
+_OCR_DET_LABELS = frozenset({"ocr_text", "ocr", "ocr_title", "ocr_paragraph"})
+
+
+def _nearest_type_det(
+    page_items: list[tuple[str, float | None, list[float]]],
+    nx1: float | None,
+    ny1: float | None,
+    nx2: float | None,
+    ny2: float | None,
+    tol: float = 0.05,
+) -> tuple[str, float | None] | None:
+    """返回最近 layout_dets 的 (label, score)；不跳过 score=None 的候选。
+
+    label 用于 IR 语义的 source 判定（native/ocr/formula/table/image），
+    score 用于 confidence；中心距离超过 tol 视为未匹配。
+    """
+    if not page_items or nx1 is None or ny1 is None or nx2 is None or ny2 is None:
+        return None
+    cx = (nx1 + nx2) / 2.0
+    cy = (ny1 + ny2) / 2.0
+    best_label: str | None = None
+    best_score: float | None = None
+    best_d: float | None = None
+    for label, score, bbox in page_items:
+        bcx = (bbox[0] + bbox[2]) / 2.0
+        bcy = (bbox[1] + bbox[3]) / 2.0
+        d = (cx - bcx) ** 2 + (cy - bcy) ** 2
+        if best_d is None or d < best_d:
+            best_d = d
+            best_label = label
+            best_score = score
+    if best_d is not None and best_d <= tol * tol and best_label is not None:
+        return best_label, best_score
+    return None
+
+
+def resolve_node_source_confidence(
+    block_type: str,
+    det_label: str | None,
+    det_score: float | None,
+) -> tuple[str | None, float | None]:
+    """按 model.json 最近 det 标签与块类型解析 IR 语义的 (source, confidence)。
+
+    - text 类标签 → source=native（以 'text' 表达），confidence=1.0
+    - ocr_text 类标签 → source=ocr，confidence=对应识别分数
+    - inline_formula/equation → source=formula，confidence=对应分数或 1.0
+    - table → source=table，confidence=1.0；image/figure → confidence=1.0
+    - 无 det 匹配时按块类型兜底；普通文本兜底为 native/1.0
+    """
+    label = (det_label or "").strip().lower()
+    if label:
+        if label in _NATIVE_TEXT_DET_LABELS:
+            return "text", 1.0
+        if label in _OCR_DET_LABELS or "ocr" in label:
+            return "ocr", det_score if isinstance(det_score, (int, float)) else None
+        if "formula" in label or "equation" in label:
+            return "formula", det_score if isinstance(det_score, (int, float)) else 1.0
+        if "table" in label:
+            return "table", 1.0
+        if label in ("image", "figure", "chart"):
+            return None, 1.0
+    bt = (block_type or "").strip().lower()
+    if bt == "table":
+        return "table", 1.0
+    if bt in ("equation_interline", "formula"):
+        return "formula", 1.0
+    if bt in ("image", "figure"):
+        return None, 1.0
+    return "text", 1.0
+
+
 def infer_title_level(text: str, raw_level: Any) -> tuple[int | None, float, str]:
     """用规则与原始level推断标题级别。"""
     txt = (text or "").strip()
@@ -2087,6 +2163,14 @@ def build_structured_from_rawfiles(
             page_text_scores = text_score_map.get(row_page_idx, [])
             if _row_middle_idx < len(page_text_scores):
                 text_recognition_score = page_text_scores[_row_middle_idx]
+        nearest_det = _nearest_type_det(
+            type_score_map.get(row_page_idx, []), nx1, ny1, nx2, ny2
+        )
+        node_source, node_confidence = resolve_node_source_confidence(
+            block_type,
+            nearest_det[0] if nearest_det else None,
+            nearest_det[1] if nearest_det else None,
+        )
         
         if derived_level is not None:
             derived_level_by_uid[row["block_uid"]] = int(derived_level)
@@ -2186,7 +2270,9 @@ def build_structured_from_rawfiles(
                     "title_path": title_path,
                     "parent_uid": parent_uid,
                     "derived_by": derived_by,
-                    "confidence": confidence,
+                    "derived_confidence": confidence,
+                    "source": node_source,
+                    "confidence": node_confidence,
                     "layout_category": layout_category,
                     "document_part": document_part,
                     "page_role": node_page_role.value if isinstance(node_page_role, PageRole) else str(node_page_role),
