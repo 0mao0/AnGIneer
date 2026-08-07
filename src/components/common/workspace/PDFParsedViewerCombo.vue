@@ -4,6 +4,13 @@
       <div ref="headerTitleRowRef" class="b2-title-row">
         <div class="b2-title-main">
           <span class="pane-title-prefix pane-title-prefix-right">解析</span>
+          <Checkbox
+            :checked="showFurniture"
+            class="pane-show-furniture-toggle"
+            @change="onToggleShowFurniture"
+          >
+            显示页饰
+          </Checkbox>
           <a-tooltip placement="bottom">
             <template #title>
               <div class="summary-tooltip">
@@ -254,7 +261,7 @@ import {
   DownOutlined
 } from '@ant-design/icons-vue'
 import { computed, ref, watch } from 'vue'
-import { message } from 'ant-design-vue'
+import { Checkbox, message } from 'ant-design-vue'
 import { effectiveField } from '../../../utils/common'
 import type {
   StructuredIndexItem,
@@ -321,6 +328,7 @@ const props = defineProps<{
 type ParsedPdfViewerComponentEventMap = ParsedPdfViewerBridgeEventMap & {
   'hover-item': [id: string | null]
   'select-line': [line: number]
+  'update:show-furniture': [value: boolean]
 }
 
 const emit = defineEmits<ParsedPdfViewerComponentEventMap>()
@@ -336,6 +344,10 @@ const selectedBlockIds = ref<string[]>([])
 const indexSearchKeyword = ref('')
 const searchCurrentIndex = ref(0)
 const showIndexSearch = ref(false)
+
+const onToggleShowFurniture = (e: { target: { checked: boolean } }) => {
+  emit('update:show-furniture', Boolean(e.target?.checked))
+}
 
 const toggleIndexSearch = () => {
   showIndexSearch.value = !showIndexSearch.value
@@ -740,6 +752,11 @@ defineExpose({
   font-size: 13px;
   font-weight: 500;
   color: var(--dp-title-strong);
+}
+
+.pane-show-furniture-toggle {
+  font-size: 12px;
+  white-space: nowrap;
 }
 
 .b2-pane-title {

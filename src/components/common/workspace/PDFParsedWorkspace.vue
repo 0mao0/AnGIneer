@@ -21,14 +21,12 @@
           :activeClickItemId="pdfClickActiveItemId"
           :searchText="markdownContent"
           :textScrollPercent="leftScrollPercent"
-          :show-furniture="showFurniture"
           @download="downloadFile"
           @text-scroll="onLeftTextScrollPercent"
           @pdf-active-page="onPdfPageChanged"
           @hover-highlight="onHoverLinkedItem"
           @select-highlight="onSelectPdfHighlight"
           @search-jump="onSearchJump"
-          @update:show-furniture="showFurniture = $event"
         />
 
         <PDFParsedViewerCombo
@@ -52,6 +50,7 @@
           :onBuildGraph="props.onBuildGraph"
           :dark="dark"
           :show-furniture="showFurniture"
+          @update:show-furniture="showFurniture = $event"
           @content-scroll="onRightPaneScrollPercent"
           @hover-item="onHoverLinkedItem"
           @select-item="onSelectItemFromRight"
