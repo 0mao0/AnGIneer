@@ -45,11 +45,24 @@ export const frontMatterGroupId = (pageRole: string): string => `fm-group:${page
 
 export const isFrontMatterGroupId = (id: string): boolean => id.startsWith('fm-group:')
 
-export const frontMatterGroupIdForNode = (node: DocBlockNode | null | undefined): string | null => {
+export const frontMatterGroupIdForNode = (
+  node: DocBlockNode | null | undefined,
+  nodeMap?: Map<string, DocBlockNode>
+): string | null => {
   if (!node || node.document_part !== 'front_matter') return null
   const role = node.page_role
-  if (!role || !FRONT_MATTER_GROUP_LABELS[role]) return null
-  return frontMatterGroupId(role)
+  if (role && FRONT_MATTER_GROUP_LABELS[role]) return frontMatterGroupId(role)
+  if (!nodeMap) return null
+  for (const candidate of nodeMap.values()) {
+    if (candidate.page_idx !== node.page_idx) continue
+    if (candidate.document_part !== 'front_matter') continue
+    if (isFurnitureNode(candidate)) continue
+    const pageRole = candidate.page_role
+    if (pageRole && FRONT_MATTER_GROUP_LABELS[pageRole]) {
+      return frontMatterGroupId(pageRole)
+    }
+  }
+  return null
 }
 
 export const buildDisplayRoots = (
@@ -82,12 +95,24 @@ export const buildDisplayRoots = (
     return count
   }
 
-  const groups = new Map<string, FrontMatterDisplayGroup>()
+  const pageRoleByPage = new Map<number, string>()
   for (const node of nodeMap.values()) {
     if (node.document_part !== 'front_matter') continue
     const role = node.page_role
     if (!role || !FRONT_MATTER_GROUP_LABELS[role]) continue
     if (isFurnitureNode(node)) continue
+    if (!pageRoleByPage.has(node.page_idx)) {
+      pageRoleByPage.set(node.page_idx, role)
+    }
+  }
+
+  const groups = new Map<string, FrontMatterDisplayGroup>()
+  for (const node of nodeMap.values()) {
+    if (node.document_part !== 'front_matter') continue
+    const role = isFurnitureNode(node)
+      ? pageRoleByPage.get(node.page_idx)
+      : node.page_role
+    if (!role || !FRONT_MATTER_GROUP_LABELS[role]) continue
     let group = groups.get(role)
     if (!group) {
       group = {

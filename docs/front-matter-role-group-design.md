@@ -87,7 +87,8 @@ PoPo/MinerU 已给出块类型（`title`/`paragraph`/`header`/`page_number` 等�
   - 组按成员最小 `page_idx` 排序（文档顺序）；
   - 非 `front_matter` 根节点原样透传；
   - 缺 `page_role` 的节点不分组；
-  - 页饰不参与分组（`isFurnitureNode` 排除）。
+  - 页饰按所在页的页面角色归入对应组（先由内容块建立“页码 → 页面角色”映射），
+    不计入组内“N 项”，`showFurniture` 关闭时不显示。
 
 ### 4.2 Preview_IndexTree 组行
 
@@ -107,7 +108,8 @@ PoPo/MinerU 已给出块类型（`title`/`paragraph`/`header`/`page_number` 等�
 ### 4.4 列表视图与页饰开关
 
 - `Preview_IndexList` 保持现状，不做分组；
-- “显示页饰”打开时，页饰仍以现有弱化行渲染在组外，不进入任何组。
+- “显示页饰”打开时，页饰以现有弱化行渲染在**所在页对应的分组内**（如封面页的页眉显示在“封面”组里）；
+  正文页没有分组壳，页饰仍以普通弱化行显示。
 
 ## 5. 边界与兜底
 
