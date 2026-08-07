@@ -181,7 +181,8 @@
           class="preview-image"
           draggable="false"
           :style="{
-            transform: `translate(${previewTranslate.x}px, ${previewTranslate.y}px) scale(${previewZoom}) rotate(${previewRotateDeg}deg)`
+            width: `calc(100% * ${previewZoom})`,
+            transform: `translate(${previewTranslate.x}px, ${previewTranslate.y}px) rotate(${previewRotateDeg}deg)`
           }"
         />
       </div>
@@ -809,7 +810,7 @@ watch(() => props.activeNodeId, () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 0;
   max-height: 68vh;
   overflow: auto;
   padding: 8px;
@@ -831,13 +832,15 @@ watch(() => props.activeNodeId, () => {
 .tree-image-preview-stage .preview-image {
   display: block;
   width: 100%;
-  max-width: 100%;
+  max-width: none;
   height: auto;
   flex-shrink: 0;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 8px;
   transform-origin: center center;
-  will-change: transform;
-  transition: transform 0.12s ease;
+  will-change: transform, width;
+  transition: width 0.12s ease, transform 0.12s ease;
 }
 
 /* ---- 行渲染样式（原 IndexTreeFlatRow，缺失 CSS 变量补默认值） ---- */
