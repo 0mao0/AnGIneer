@@ -20,7 +20,8 @@ if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
 
 from docs_core.step04_structure.shared.page_role_classifier import (
-    PageRole, classify_page_roles, part_for_role,
+    PageRole, classify_page_roles, detect_body_start_page, is_furniture_block_type,
+    page_role_for_block, part_for_role, resolve_document_part,
 )
 
 
@@ -1833,6 +1834,8 @@ def build_structured_from_rawfiles(
     
     excluded_types: set[str] = set()  # 展示层全量可见；05 语义层自行收敛页眉/页脚
     page_roles = classify_page_roles(rows, toc_pages=set(toc_pages))
+    body_start_page = detect_body_start_page(rows, set(toc_pages))
+    active_document_part: str | None = None
     front_matter_roles = {
         PageRole.COVER, PageRole.PUBLICATION_PAGE, PageRole.NOTICE,
         PageRole.REVISION_NOTES, PageRole.TOC, PageRole.PREFACE,
@@ -1852,7 +1855,20 @@ def build_structured_from_rawfiles(
         is_toc_page = int(row["page_idx"]) in toc_pages
         compact_text = re.sub(r"\s+", "", text)
         page_role = page_roles.get(int(row["page_idx"]), PageRole.UNKNOWN)
-        document_part = part_for_role(page_role).value
+        document_part = resolve_document_part(
+            int(row["page_idx"]), page_role, body_start_page
+        ).value
+        furniture = is_furniture_block_type(block_type)
+        layout_category = "furniture" if furniture else "content"
+        node_page_role = page_role_for_block(block_type, page_role)
+
+        # 部位变化时重置标题栈/锚点，保证 parent 不跨部位
+        if document_part != active_document_part:
+            heading_stack.clear()
+            number_anchor_uid.clear()
+            toc_number_anchor_uid.clear()
+            recent_struct_anchor_uid = None
+            active_document_part = document_part
         
         if block_type == "title":
             if page_role in front_matter_roles:
@@ -1894,7 +1910,7 @@ def build_structured_from_rawfiles(
                     number_anchor_uid[struct_no] = row["block_uid"]
                 recent_struct_anchor_uid = row["block_uid"]
         else:
-            if block_type not in excluded_types:
+            if block_type not in excluded_types and not furniture:
                 if is_toc_row or is_toc_page:
                     struct_no = extract_struct_number(text)
                     if struct_no:
@@ -2138,8 +2154,9 @@ def build_structured_from_rawfiles(
                     "parent_uid": parent_uid,
                     "derived_by": derived_by,
                     "confidence": confidence,
+                    "layout_category": layout_category,
                     "document_part": document_part,
-                    "page_role": page_role.value if isinstance(page_role, PageRole) else str(page_role),
+                    "page_role": node_page_role.value if isinstance(node_page_role, PageRole) else str(node_page_role),
                     "type_recognition_score": type_recognition_score,
                     "text_recognition_score": text_recognition_score,
                     "image_path": image_path,
