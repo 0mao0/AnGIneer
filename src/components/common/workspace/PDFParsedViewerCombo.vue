@@ -176,7 +176,7 @@
             :dark="props.dark"
             :node-map="nodeMap"
             :children-map="childrenMap"
-            :roots="roots"
+            :roots="displayRoots"
             :expanded-node-ids="expandedNodeIds"
             :active-node-id="activeNodeIdForGraphTree"
             :selected-node-ids="selectedNodeIdSet"
@@ -417,7 +417,7 @@ const {
   indexPageSize,
   nodeMap,
   childrenMap,
-  roots,
+  displayRoots,
   expandedNodeIds,
   activeNodeIdForGraphTree,
   onRightPaneScroll,
