@@ -23,7 +23,7 @@
             <a-dropdown :trigger="['contextmenu']">
               <div
                 :data-tree-node-id="row.id"
-                :class="['tree-row', { active: row.id === activeNodeId, previewable: row.hasPreviewImage }]"
+                :class="['tree-row', { active: row.id === activeNodeId, previewable: row.hasPreviewImage, furniture: row.furniture }]"
                 @click="onRowClick(row.id)"
                 @contextmenu.prevent
               >
@@ -170,6 +170,7 @@ import {
   getNodeLevelTag,
   getNodePositionTag,
   getNodeTypeTag,
+  isFurnitureNode,
   renderMarkdownInlineToHtml,
   renderNodeRichMedia,
   resolveAssetUrl,
@@ -194,6 +195,7 @@ interface Props {
   activeNodeId: string | null
   selectedNodeIds?: Set<string>
   sourceFilePath?: string
+  showFurniture?: boolean
 }
 
 const props = defineProps<Props>()
@@ -317,6 +319,8 @@ const flatRows = computed<FlatRow[]>(() => {
   const rows: FlatRow[] = []
   const traverse = (ids: string[], depth: number) => {
     for (const id of ids) {
+      const node = rowNode(id)
+      if (!props.showFurniture && isFurnitureNode(node)) continue
       const children = props.childrenMap.get(id) || []
       const hasChildren = children.length > 0
       const isExpanded = props.expandedNodeIds.has(id)
@@ -406,6 +410,7 @@ interface RowView {
   inlineMediaHtml: string
   checked: boolean
   hasNode: boolean
+  furniture: boolean
   hasPreviewImage: boolean
 }
 
@@ -460,6 +465,7 @@ const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
     inlineMediaHtml,
     checked: Boolean(props.selectedNodeIds?.has(id)),
     hasNode: Boolean(node),
+    furniture: isFurnitureNode(node),
     hasPreviewImage: Boolean(node && isImagePreviewNode(node))
   }
 }))
@@ -750,6 +756,10 @@ watch(() => props.activeNodeId, () => {
 
 .tree-row.previewable {
   cursor: zoom-in;
+}
+
+.tree-row.furniture {
+  opacity: 0.65;
 }
 
 .tree-select-checkbox {

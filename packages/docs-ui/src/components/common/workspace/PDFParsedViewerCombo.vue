@@ -154,6 +154,14 @@
               </a-button>
             </div>
           </div>
+          <div
+            v-if="activeTab === 'Preview_IndexList' || activeTab === 'Preview_IndexTree'"
+            class="index-toolbar-row"
+          >
+            <a-checkbox :checked="showFurniture" @change="toggleShowFurniture">
+              显示页眉页脚
+            </a-checkbox>
+          </div>
         </div>
         <div class="index-body">
           <Preview_IndexList
@@ -165,6 +173,7 @@
             :active-linked-item-id="activeLinkedItemId"
             :node-map="graphNodeLookup"
             :source-file-path="sourceFilePath"
+            :show-furniture="showFurniture"
             @hover-item="emit('hover-item', $event)"
             @select-item="emit('select-item', $event)"
             @page-change="onIndexPageChange"
@@ -180,6 +189,7 @@
             :active-node-id="activeNodeIdForGraphTree"
             :selected-node-ids="selectedNodeIdSet"
             :source-file-path="sourceFilePath"
+            :show-furniture="showFurniture"
             @toggle="onTreeToggle"
             @select="onNodeSelect"
             @edit="openNodeEdit"
@@ -333,6 +343,12 @@ const selectedBlockIds = ref<string[]>([])
 const indexSearchKeyword = ref('')
 const searchCurrentIndex = ref(0)
 const showIndexSearch = ref(false)
+const showFurniture = ref(localStorage.getItem('docs-ui.show-furniture') === '1')
+
+const toggleShowFurniture = () => {
+  showFurniture.value = !showFurniture.value
+  localStorage.setItem('docs-ui.show-furniture', showFurniture.value ? '1' : '0')
+}
 
 const toggleIndexSearch = () => {
   showIndexSearch.value = !showIndexSearch.value

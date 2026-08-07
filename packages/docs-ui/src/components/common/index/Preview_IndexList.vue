@@ -10,7 +10,7 @@
         <div
           v-for="item in pagedItems"
           :key="item.id"
-          :class="['index-item', { active: isItemActive(item, activeLinkedItemId) }]"
+          :class="['index-item', { active: isItemActive(item, activeLinkedItemId), furniture: isFurnitureItem(item) }]"
           :data-item-id="item.id"
           @mouseenter="emit('hover-item', item.id)"
           @mouseleave="emit('hover-item', null)"
@@ -66,6 +66,7 @@ import {
   findNodeForItem,
   getItemTags,
   hasRichMedia,
+  isFurnitureNode,
   renderMarkdownInlineToHtml,
   renderItemRichMedia,
   resolveSelectId,
@@ -85,6 +86,7 @@ const props = defineProps<{
   activeLinkedItemId: string | null
   nodeMap: Map<string, DocBlockNode>
   sourceFilePath?: string
+  showFurniture?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -93,9 +95,17 @@ const emit = defineEmits<{
   'page-change': [page: number]
 }>()
 
+const isFurnitureItem = (item: StructuredIndexItem): boolean =>
+  isFurnitureNode(findNodeForItem(item, props.nodeMap))
+
+const filteredItems = computed(() => {
+  if (props.showFurniture) return props.items
+  return props.items.filter(item => !isFurnitureItem(item))
+})
+
 const pagedItems = computed(() => {
   const start = (props.currentPage - 1) * props.pageSize
-  return props.items.slice(start, start + props.pageSize)
+  return filteredItems.value.slice(start, start + props.pageSize)
 })
 
 const renderInlineHtml = (content: string): string => renderMarkdownInlineToHtml(content, props.sourceFilePath || '')
@@ -172,6 +182,10 @@ const getPrimaryContentHtml = (item: StructuredIndexItem): string => renderInlin
   border-color: var(--dp-active-border);
   box-shadow: 0 0 0 2px var(--dp-active-shadow);
   background: var(--dp-active-bg);
+}
+
+.index-item.furniture {
+  opacity: 0.65;
 }
 
 .index-item-header {
