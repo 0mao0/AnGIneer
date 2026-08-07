@@ -128,6 +128,39 @@ export const renderMarkdownInlineToHtml = (
   return renderInline(content, sourceFilePath, resolveUrl)
 }
 
+/**
+ * 渲染后端产出的表格 HTML：仅处理 td/th 内的文本（支持 KaTeX / inline markdown），
+ * 表格结构标签与已有 HTML 实体（如 &lt;、&gt;）保持原样，避免二次转义。
+ */
+export const renderTableHtmlToInlineHtml = (html: string, sourceFilePath: string): string => {
+  if (typeof DOMParser === 'undefined' || !html || !html.trim()) return html
+  try {
+    const doc = new DOMParser().parseFromString(html, 'text/html')
+    const table = doc.body.firstElementChild as HTMLElement | null
+    if (!table || table.tagName !== 'TABLE') return html
+    const walk = (node: Node): void => {
+      for (const child of Array.from(node.childNodes)) {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const text = child.textContent || ''
+          if (!text.trim()) continue
+          const parent = child.parentElement
+          if (parent?.closest?.('td, th')) {
+            const span = doc.createElement('span')
+            span.innerHTML = renderMarkdownInlineToHtml(text, sourceFilePath)
+            parent.replaceChild(span, child)
+          }
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          walk(child)
+        }
+      }
+    }
+    walk(table)
+    return table.outerHTML
+  } catch {
+    return html
+  }
+}
+
 const buildMarkdownTable = (
   tableLines: string[],
   sourceFilePath: string,
