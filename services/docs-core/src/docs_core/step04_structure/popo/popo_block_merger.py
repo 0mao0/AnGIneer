@@ -90,6 +90,37 @@ def _merge_merged_from(source: Dict[str, Any], target: Dict[str, Any]) -> List[s
     return merged
 
 
+def _collect_image_paths(node: Dict[str, Any]) -> List[str]:
+    """收集节点及其 content_json.image_source 中的图片路径。"""
+    paths: List[str] = []
+    for value in (node.get("image_paths"), node.get("image_path")):
+        if isinstance(value, list):
+            for item in value:
+                text = str(item or "").strip()
+                if text and text not in paths:
+                    paths.append(text)
+        else:
+            text = str(value or "").strip()
+            if text and text not in paths:
+                paths.append(text)
+    content_json = node.get("content_json") if isinstance(node.get("content_json"), dict) else {}
+    image_source = content_json.get("image_source")
+    if isinstance(image_source, dict):
+        text = str(image_source.get("path") or "").strip()
+        if text and text not in paths:
+            paths.append(text)
+    return paths
+
+
+def _merge_image_paths(source: Dict[str, Any], target: Dict[str, Any]) -> List[str]:
+    merged: List[str] = []
+    for node in (source, target):
+        for path in _collect_image_paths(node):
+            if path not in merged:
+                merged.append(path)
+    return merged
+
+
 def _absorb_contd(source: Dict[str, Any], target: Dict[str, Any]) -> None:
     source["plain_text"] = _merge_contd_text(source.get("plain_text"), target.get("plain_text"))
     source["content_json"] = _merge_text_fragments(source, target)
@@ -227,6 +258,11 @@ def _absorb_table(source: Dict[str, Any], target: Dict[str, Any]) -> None:
     )
     source["page_bboxes"] = _merge_page_bboxes(source, target)
     source["merged_from"] = _merge_merged_from(source, target)
+    image_paths = _merge_image_paths(source, target)
+    if image_paths:
+        source["image_paths"] = image_paths
+        if not source.get("image_path"):
+            source["image_path"] = image_paths[0]
     source.pop("table_merge_id", None)
     target.pop("table_merge_id", None)
 
