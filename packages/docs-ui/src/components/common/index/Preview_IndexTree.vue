@@ -48,15 +48,16 @@
                 <div class="tree-main">
                   <div class="tree-meta">
                     <span v-if="row.levelTag" :class="['chip', 'lv']">{{ row.levelTag }}</span>
-                    <span v-if="row.displayTextHtml" class="tree-text" v-html="row.displayTextHtml" />
-                    <span v-else-if="!row.suppressPlainText" class="tree-text">{{ row.displayText }}</span>
                     <span v-if="row.typeTag" class="chip">{{ row.typeTag }}</span>
                     <span v-if="row.positionTag" class="chip pos">{{ row.positionTag }}</span>
+                    <span v-if="row.pageLabelTag" class="chip page">{{ row.pageLabelTag }}</span>
                     <span v-if="row.hasPreviewImage" class="chip preview-hint">
                       <EyeOutlined />
                       查看图片
                     </span>
                   </div>
+                  <div v-if="row.displayTextHtml" class="tree-text" v-html="row.displayTextHtml" />
+                  <div v-else-if="!row.suppressPlainText" class="tree-text">{{ row.displayText }}</div>
                   <div v-if="row.inlineMediaHtml" class="tree-inline-media" v-html="row.inlineMediaHtml" />
                 </div>
                 <a-button
@@ -166,6 +167,7 @@ import {
 } from '@ant-design/icons-vue'
 import type { DocBlockNode, PreviewIndexInteractionEventMap } from '../../../types/knowledge'
 import {
+  extractPrintedPageLabel,
   getNodeDisplayText,
   getNodeLevelTag,
   getNodePositionTag,
@@ -315,6 +317,20 @@ const rowNode = (rowId: string) => props.nodeMap.get(rowId)
 /* 每个节点的已测量高度缓存（未测量时为 0 表示用估算值）。 */
 const rowHeights = ref<Map<string, number>>(new Map())
 
+/* page_idx -> 纸面页码（取自 page_number/page_footer 块文本）。 */
+const printedPageByPageIdx = computed(() => {
+  const map = new Map<number, string>()
+  for (const node of props.nodeMap.values()) {
+    const type = String(node.block_type || '').toLowerCase()
+    if (type !== 'page_number' && type !== 'page_footer') continue
+    const label = extractPrintedPageLabel(node.plain_text || '')
+    if (label && !map.has(node.page_idx)) {
+      map.set(node.page_idx, label)
+    }
+  }
+  return map
+})
+
 const flatRows = computed<FlatRow[]>(() => {
   const rows: FlatRow[] = []
   const traverse = (ids: string[], depth: number) => {
@@ -404,6 +420,7 @@ interface RowView {
   levelTag: string | null
   typeTag: string | null
   positionTag: string | null
+  pageLabelTag: string | null
   suppressPlainText: boolean
   displayText: string
   displayTextHtml: string
@@ -451,6 +468,7 @@ const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
   const inlineMediaHtml = baseInlineMediaHtml + (mediaFootnote
     ? `<div class="media-footnote">${renderMarkdownInlineToHtml(mediaFootnote, props.sourceFilePath || '')}</div>`
     : '')
+  const printedPageLabel = node ? printedPageByPageIdx.value.get(node.page_idx) : undefined
   return {
     id,
     depth: row.depth,
@@ -459,6 +477,7 @@ const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
     levelTag: getNodeLevelTag(node, props.nodeMap),
     typeTag: getNodeTypeTag(node),
     positionTag: getNodePositionTag(node),
+    pageLabelTag: printedPageLabel ? `${printedPageLabel}页` : null,
     suppressPlainText,
     displayText: mediaCaption ? mediaCaption.slice(0, 24) : getNodeDisplayText(node, id),
     displayTextHtml,
@@ -528,6 +547,10 @@ const onRowClick = (rowId: string) => {
   const node = props.nodeMap.get(rowId)
   if (node && isImagePreviewNode(node)) {
     openImagePreview(node)
+  }
+  const children = props.childrenMap.get(rowId) || []
+  if (children.length > 0) {
+    onToggle(rowId)
   }
   emit('select', rowId)
 }
@@ -777,6 +800,7 @@ watch(() => props.activeNodeId, () => {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  align-self: center;
   color: var(--dp-sub-text, #8c8c8c);
   font-size: 10px;
 }
@@ -908,6 +932,12 @@ watch(() => props.activeNodeId, () => {
     border-color: var(--chip-pos-border, #cffafe);
     background: var(--chip-pos-bg, #ecfeff);
     color: var(--chip-pos-text, #0e7490);
+  }
+
+  &.page {
+    border-color: var(--chip-page-border, #fde68a);
+    background: var(--chip-page-bg, #fffbeb);
+    color: var(--chip-page-text, #92400e);
   }
 
   &.preview-hint {
