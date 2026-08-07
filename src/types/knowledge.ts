@@ -82,6 +82,9 @@ export interface DocBlockNode {
   title_path: string | null
   parent_uid: string | null
   derived_by: string
+  layout_category?: 'content' | 'furniture' | null
+  document_part?: string | null
+  page_role?: string | null
   confidence: number
   image_path: string | null
   image_paths?: string[] | null

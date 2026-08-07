@@ -1,7 +1,7 @@
 import { computed, ref, watch, type ComputedRef, type Ref } from 'vue'
 import type { StructuredIndexItem } from '../types/knowledge'
 import type { PreviewMode } from './useParsedPdfViewer'
-import { collectItemRefs, hasExactItemRef } from '../utils/knowledge'
+import { collectItemRefs, hasExactItemRef, isFurnitureNode } from '../utils/knowledge'
 
 export interface LinkedHighlight {
   id: string
@@ -773,7 +773,10 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
         const rowPage = (Number(row.page_idx ?? 0) + 1) || 0
         if (!spannedPages.has(rowPage)) return []
         const rowType = String(row.block_type || '').toLowerCase()
-        if (['image', 'table', 'header', 'footer', 'page_header', 'page_number'].includes(rowType)) {
+        if (['image', 'table'].includes(rowType)) {
+          return []
+        }
+        if (isFurnitureNode(row)) {
           return []
         }
         const rowTextRaw = String(row.plain_text || '').trim()
