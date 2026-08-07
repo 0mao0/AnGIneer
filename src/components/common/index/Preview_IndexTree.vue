@@ -20,7 +20,34 @@
             class="tree-flat-row"
             :style="{ paddingLeft: `${row.depth * 20 + 10}px` }"
           >
-            <a-dropdown :trigger="['contextmenu']">
+            <div
+              v-if="row.isGroup"
+              :class="['tree-row', 'tree-group-row']"
+              @click="onRowClick(row.id)"
+            >
+              <span
+                class="tree-toggle"
+                role="button"
+                :aria-label="row.isExpanded ? '折叠' : '展开'"
+                @click.stop="onToggle(row.id)"
+              >
+                <template v-if="row.hasChildren">
+                  <RightOutlined v-if="!row.isExpanded" />
+                  <DownOutlined v-else />
+                </template>
+                <span v-else class="toggle-placeholder" />
+              </span>
+              <div class="tree-main">
+                <div class="tree-meta">
+                  <span v-if="row.groupCount" class="chip group-count">{{ row.groupCount }} 项</span>
+                </div>
+                <div class="tree-group-title">
+                  <FolderOutlined />
+                  <span>{{ row.groupLabel }}</span>
+                </div>
+              </div>
+            </div>
+            <a-dropdown v-else :trigger="['contextmenu']">
               <div
                 :data-tree-node-id="row.id"
                 :class="['tree-row', { active: row.id === activeNodeId, previewable: row.hasPreviewImage, furniture: row.furniture }]"
@@ -160,18 +187,20 @@ import {
   DownOutlined,
   EditOutlined,
   EyeOutlined,
+  FolderOutlined,
   ZoomInOutlined,
   ZoomOutOutlined,
   RotateRightOutlined,
   RedoOutlined
 } from '@ant-design/icons-vue'
-import type { DocBlockNode, PreviewIndexInteractionEventMap } from '../../../types/knowledge'
+import type { DocBlockNode, DisplayRoot, PreviewIndexInteractionEventMap } from '../../../types/knowledge'
 import {
   extractPrintedPageLabel,
   getNodeDisplayText,
   getNodeLevelTag,
   getNodePositionTag,
   getNodeTypeTag,
+  isFrontMatterGroupId,
   isFurnitureNode,
   renderMarkdownInlineToHtml,
   renderNodeRichMedia,
@@ -185,6 +214,9 @@ interface FlatRow {
   depth: number
   hasChildren: boolean
   isExpanded: boolean
+  isGroup?: boolean
+  groupLabel?: string
+  groupCount?: number
 }
 
 interface Props {
@@ -192,7 +224,7 @@ interface Props {
   dark?: boolean
   nodeMap: Map<string, DocBlockNode>
   childrenMap: Map<string, string[]>
-  roots: string[]
+  roots: DisplayRoot[]
   expandedNodeIds: Set<string>
   activeNodeId: string | null
   selectedNodeIds?: Set<string>
@@ -333,7 +365,7 @@ const printedPageByPageIdx = computed(() => {
 
 const flatRows = computed<FlatRow[]>(() => {
   const rows: FlatRow[] = []
-  const traverse = (ids: string[], depth: number) => {
+  const traverseChildren = (ids: string[], depth: number) => {
     for (const id of ids) {
       const node = rowNode(id)
       if (!props.showFurniture && isFurnitureNode(node)) continue
@@ -342,11 +374,37 @@ const flatRows = computed<FlatRow[]>(() => {
       const isExpanded = props.expandedNodeIds.has(id)
       rows.push({ id, depth, hasChildren, isExpanded })
       if (hasChildren && isExpanded) {
-        traverse(children, depth + 1)
+        traverseChildren(children, depth + 1)
       }
     }
   }
-  traverse(props.roots, 0)
+  const traverseRoots = (displayRoots: DisplayRoot[], depth: number) => {
+    for (const root of displayRoots) {
+      if (typeof root === 'string') {
+        traverseChildren([root], depth)
+        continue
+      }
+      const visibleChildren = root.children.filter(childId => {
+        const child = rowNode(childId)
+        return props.showFurniture || !isFurnitureNode(child)
+      })
+      const hasChildren = visibleChildren.length > 0
+      const isExpanded = props.expandedNodeIds.has(root.id)
+      rows.push({
+        id: root.id,
+        depth,
+        hasChildren,
+        isExpanded,
+        isGroup: true,
+        groupLabel: root.label,
+        groupCount: root.count,
+      })
+      if (hasChildren && isExpanded) {
+        traverseChildren(visibleChildren, depth + 1)
+      }
+    }
+  }
+  traverseRoots(props.roots, 0)
   return rows
 })
 
@@ -417,6 +475,9 @@ interface RowView {
   depth: number
   hasChildren: boolean
   isExpanded: boolean
+  isGroup: boolean
+  groupLabel: string
+  groupCount: number
   levelTag: string | null
   typeTag: string | null
   positionTag: string | null
@@ -434,7 +495,7 @@ interface RowView {
 /* 可见行渲染数据：一次计算，模板直接取值，避免重复查询。 */
 const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
   const id = row.id
-  const node = rowNode(id)
+  const node = row.isGroup ? undefined : rowNode(id)
   const suppressPlainText = shouldSuppressNodePlainText(node)
   const isMediaWithCaption = node?.block_type === 'table'
     || node?.block_type === 'image'
@@ -474,6 +535,9 @@ const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
     depth: row.depth,
     hasChildren: row.hasChildren,
     isExpanded: row.isExpanded,
+    isGroup: Boolean(row.isGroup),
+    groupLabel: row.groupLabel || '',
+    groupCount: row.groupCount || 0,
     levelTag: getNodeLevelTag(node, props.nodeMap),
     typeTag: getNodeTypeTag(node),
     positionTag: getNodePositionTag(node),
@@ -544,6 +608,10 @@ const onToggle = (id: string) => {
 }
 
 const onRowClick = (rowId: string) => {
+  if (isFrontMatterGroupId(rowId)) {
+    onToggle(rowId)
+    return
+  }
   const node = props.nodeMap.get(rowId)
   if (node && isImagePreviewNode(node)) {
     openImagePreview(node)
@@ -644,6 +712,12 @@ watch(() => props.activeNodeId, () => {
       background: var(--dp-hover-bg, #1f2532);
       color: var(--dp-active-border, #7c9cf5);
     }
+  }
+
+  .chip.group-count {
+    border-color: var(--chip-group-border, #7c3aed);
+    background: var(--chip-group-bg, #2e1b4d);
+    color: var(--chip-group-text, #d8b4fe);
   }
 }
 
@@ -783,6 +857,31 @@ watch(() => props.activeNodeId, () => {
 
 .tree-row.furniture {
   opacity: 0.65;
+}
+
+.tree-group-row {
+  background: var(--dp-index-card-bg, #f1f5f9);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tree-group-row:hover {
+  border-color: var(--dp-hover-border, #a5b4fc);
+  background: var(--dp-hover-bg, #eef2ff);
+}
+
+.tree-group-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--dp-title-strong, #4f5d7a);
+}
+
+.chip.group-count {
+  border-color: var(--chip-group-border, #d8b4fe);
+  background: var(--chip-group-bg, #faf5ff);
+  color: var(--chip-group-text, #7e22ce);
 }
 
 .tree-select-checkbox {
