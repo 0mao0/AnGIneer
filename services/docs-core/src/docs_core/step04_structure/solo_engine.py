@@ -20,8 +20,8 @@ if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
 
 from docs_core.step04_structure.shared.page_role_classifier import (
-    PageRole, classify_page_roles, detect_body_start_page, is_furniture_block_type,
-    page_role_for_block, part_for_role, resolve_document_part,
+    PageRole, classify_page_roles, detect_body_start_page, is_page_furniture,
+    page_role_for_block, resolve_document_part,
 )
 
 
@@ -1858,9 +1858,9 @@ def build_structured_from_rawfiles(
         document_part = resolve_document_part(
             int(row["page_idx"]), page_role, body_start_page
         ).value
-        furniture = is_furniture_block_type(block_type)
+        furniture = is_page_furniture(block_type, text)
         layout_category = "furniture" if furniture else "content"
-        node_page_role = page_role_for_block(block_type, page_role)
+        node_page_role = page_role_for_block(block_type, page_role, text)
 
         # 部位变化时重置标题栈/锚点，保证 parent 不跨部位
         if document_part != active_document_part:

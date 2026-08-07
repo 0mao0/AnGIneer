@@ -28,6 +28,7 @@ class PageRole(str, Enum):
     PAGE_NUMBER = "page_number"
     HEADER = "header"
     FOOTER = "footer"
+    TABLE_CONTINUATION = "table_continuation"
 
 
 PART_BY_ROLE = {
@@ -72,8 +73,28 @@ def is_furniture_block_type(block_type: Any) -> bool:
     return str(block_type or "").strip().lower() in FURNITURE_BLOCK_TYPES
 
 
-def page_role_for_block(block_type: Any, page_role: PageRole) -> PageRole:
-    """内容块返回页面角色；页饰块返回自身小角色。"""
+def _compact_text(text: Any) -> str:
+    return re.sub(r"\s+", "", str(text or "")).strip()
+
+
+def is_table_continuation_header(block_type: Any, text: Any) -> bool:
+    """续表标题（如“续表 A.0.2-3”）是表格内容的一部分，不是页饰。"""
+    if str(block_type or "").strip().lower() != "page_header":
+        return False
+    return _compact_text(text).startswith("续表")
+
+
+def is_page_furniture(block_type: Any, text: Any = "") -> bool:
+    """页饰判定：页饰类型中排除续表标题。"""
+    if not is_furniture_block_type(block_type):
+        return False
+    return not is_table_continuation_header(block_type, text)
+
+
+def page_role_for_block(block_type: Any, page_role: PageRole, text: Any = "") -> PageRole:
+    """内容块返回页面角色；续表标题返回 table_continuation；其余页饰返回自身小角色。"""
+    if is_table_continuation_header(block_type, text):
+        return PageRole.TABLE_CONTINUATION
     if is_furniture_block_type(block_type):
         return FURNITURE_ROLE_BY_TYPE.get(
             str(block_type or "").strip().lower(), PageRole.UNKNOWN
@@ -86,7 +107,7 @@ def _page_text(rows: List[Dict[str, Any]], page_idx: int) -> str:
         str(r.get("plain_text") or "")
         for r in rows
         if int(r.get("page_idx") or 0) == page_idx
-        and not is_furniture_block_type(r.get("block_type"))
+        and not is_page_furniture(r.get("block_type"), r.get("plain_text"))
     )
 
 
@@ -183,7 +204,8 @@ def classify_page_roles(rows: List[Dict[str, Any]], toc_pages=None) -> Dict[int,
 
 __all__ = [
     "DocumentPart", "PageRole", "PART_BY_ROLE", "part_for_role",
-    "FURNITURE_BLOCK_TYPES", "is_furniture_block_type", "page_role_for_block",
+    "FURNITURE_BLOCK_TYPES", "is_furniture_block_type", "is_table_continuation_header",
+    "is_page_furniture", "page_role_for_block",
     "detect_body_start_page", "resolve_document_part",
     "classify_page_roles",
 ]
