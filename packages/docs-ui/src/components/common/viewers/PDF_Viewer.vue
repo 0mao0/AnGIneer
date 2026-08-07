@@ -4,14 +4,6 @@
       <div ref="headerMainRef" class="pane-title-main">
         <div class="pane-title-prefix-wrap">
           <span class="pane-title-prefix">原文</span>
-          <Checkbox
-            v-if="isPdf"
-            :checked="showFurniture"
-            class="pane-show-furniture-toggle"
-            @change="onToggleShowFurniture"
-          >
-            显示页饰
-          </Checkbox>
         </div>
         <Tag v-if="node.status === 'failed'" color="error" class="parse-state-tag">
           解析失败
@@ -312,7 +304,7 @@
 import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
 import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons-vue'
-import { Button, Checkbox, Tag, Spin, Progress, InputNumber, Input, Empty } from 'ant-design-vue'
+import { Button, Tag, Spin, Progress, InputNumber, Input, Empty } from 'ant-design-vue'
 import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
@@ -376,7 +368,6 @@ const props = defineProps<{
   activeHighlightId: string | null
   activeClickItemId?: string | null
   textScrollPercent: number
-  showFurniture?: boolean
 }>()
 
 // --- hover 联动：hover 的框加深（hover-primary），同节点其它 bbox 浅橙（hover-linked） ---
@@ -404,7 +395,6 @@ const emit = defineEmits<{
   'select-highlight': [highlight: LinkedHighlight]
   'pdf-active-page': [page: number]
   'search-jump': [page: number, lineNumber: number]
-  'update:show-furniture': [value: boolean]
 }>()
 
 // --- 常量配置 ---
@@ -432,10 +422,6 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
 // --- 灯泡（bbox 显示切换）---
 const showBbox = ref(true)
 const toggleBbox = () => { showBbox.value = !showBbox.value }
-
-const onToggleShowFurniture = (e: { target: { checked: boolean } }) => {
-  emit('update:show-furniture', Boolean(e.target?.checked))
-}
 
 // --- 搜索 ---
 interface SearchResult {
@@ -1765,11 +1751,6 @@ onBeforeUnmount(() => {
   font-size: 13px;
   font-weight: 500;
   color: var(--dp-title-strong);
-  white-space: nowrap;
-}
-
-.pane-show-furniture-toggle {
-  font-size: 12px;
   white-space: nowrap;
 }
 
