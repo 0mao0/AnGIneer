@@ -41,14 +41,14 @@
                 <div class="tree-group-title">
                   <FolderOutlined />
                   <span>{{ row.groupLabel }}</span>
-                  <span v-if="row.groupCount" class="chip group-count">{{ row.groupCount }} 项</span>
+                  <span v-if="row.groupCount" class="group-count-text">{{ row.groupCount }} 项</span>
                 </div>
               </div>
             </div>
             <a-dropdown v-else :trigger="['contextmenu']">
               <div
                 :data-tree-node-id="row.id"
-                :class="['tree-row', { active: row.id === activeNodeId, previewable: row.hasPreviewImage, furniture: row.furniture }]"
+                :class="['tree-row', { active: row.id === activeNodeId, previewable: row.hasPreviewImage, furniture: row.furniture, flat: !row.isGroup && !row.levelTag }]"
                 @click="onRowClick(row.id)"
                 @contextmenu.prevent
               >
@@ -356,6 +356,12 @@ const printedPageByPageIdx = computed(() => {
     const label = extractPrintedPageLabel(node.plain_text || '')
     if (label && !map.has(node.page_idx)) {
       map.set(node.page_idx, label)
+    }
+  }
+  for (const node of props.nodeMap.values()) {
+    const page = Number(node.page_idx ?? 0)
+    if (!map.has(page)) {
+      map.set(page, String(page + 1))
     }
   }
   return map
@@ -688,21 +694,26 @@ watch(() => props.activeNodeId, () => {
     background: var(--dp-active-bg, #232b3d);
   }
 
+  .tree-row.flat {
+    background: var(--dp-flat-bg, #141821);
+    border-color: var(--dp-flat-border, #2a3140);
+  }
+
   .chip {
     border-color: var(--chip-default-border, #38445b);
     background: var(--chip-default-bg, #2a3345);
     color: var(--chip-default-text, rgba(255, 255, 255, 0.62));
 
     &.lv {
-      border-color: var(--chip-lv-border, #4f46e5);
-      background: var(--chip-lv-bg, #2e3150);
-      color: var(--chip-lv-text, #c7d2fe);
+      border-color: var(--chip-lv-border, #3f4756);
+      background: var(--chip-lv-bg, #262d3b);
+      color: var(--chip-lv-text, #9aa4b2);
     }
 
     &.pos {
-      border-color: var(--chip-pos-border, #0e7490);
-      background: var(--chip-pos-bg, #12303a);
-      color: var(--chip-pos-text, #a5f3fc);
+      border-color: var(--chip-pos-border, #3f4756);
+      background: var(--chip-pos-bg, #262d3b);
+      color: var(--chip-pos-text, #9aa4b2);
     }
 
     &.preview-hint {
@@ -712,11 +723,6 @@ watch(() => props.activeNodeId, () => {
     }
   }
 
-  .chip.group-count {
-    border-color: var(--chip-group-border, #7c3aed);
-    background: var(--chip-group-bg, #2e1b4d);
-    color: var(--chip-group-text, #d8b4fe);
-  }
 }
 
 .tree-loading {
@@ -866,6 +872,17 @@ watch(() => props.activeNodeId, () => {
   opacity: 0.65;
 }
 
+.tree-row.flat {
+  background: var(--dp-flat-bg, #ffffff);
+  border-style: dashed;
+  border-color: var(--dp-flat-border, #d8dee9);
+  box-shadow: none;
+}
+
+.tree-row.flat:hover {
+  border-style: dashed;
+}
+
 .tree-group-row {
   background: var(--dp-index-card-bg, #f1f5f9);
   font-weight: 600;
@@ -886,15 +903,11 @@ watch(() => props.activeNodeId, () => {
   color: var(--dp-title-strong, #4f5d7a);
 }
 
-.tree-group-title .group-count {
+.tree-group-title .group-count-text {
   margin-left: auto;
   flex-shrink: 0;
-}
-
-.chip.group-count {
-  border-color: var(--chip-group-border, #d8b4fe);
-  background: var(--chip-group-bg, #faf5ff);
-  color: var(--chip-group-text, #7e22ce);
+  font-size: 12px;
+  color: var(--dp-sub-text, #8c8c8c);
 }
 
 .tree-select-checkbox {
@@ -1029,21 +1042,21 @@ watch(() => props.activeNodeId, () => {
   line-height: 1;
   padding: 3px 6px;
   border-radius: 999px;
-  border: 1px solid var(--chip-default-border, #e2e8f0);
-  background: var(--chip-default-bg, #f1f5f9);
-  color: var(--chip-default-text, #64748b);
+  border: 1px solid var(--chip-default-border, #e5e7eb);
+  background: var(--chip-default-bg, #f9fafb);
+  color: var(--chip-default-text, #6b7280);
   flex-shrink: 0;
 
   &.lv {
-    border-color: var(--chip-lv-border, #c7d2fe);
-    background: var(--chip-lv-bg, #eef2ff);
-    color: var(--chip-lv-text, #4f46e5);
+    border-color: var(--chip-lv-border, #e5e7eb);
+    background: var(--chip-lv-bg, #f3f4f6);
+    color: var(--chip-lv-text, #6b7280);
   }
 
   &.pos {
-    border-color: var(--chip-pos-border, #cffafe);
-    background: var(--chip-pos-bg, #ecfeff);
-    color: var(--chip-pos-text, #0e7490);
+    border-color: var(--chip-pos-border, #e5e7eb);
+    background: var(--chip-pos-bg, #f3f4f6);
+    color: var(--chip-pos-text, #6b7280);
   }
 
   &.page {
