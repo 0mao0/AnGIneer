@@ -42,6 +42,7 @@ def _build_content_json(block: CanonicalBlock) -> Dict[str, Any]:
         payload["raw_type"] = block.raw_type
     payload["document_part"] = block.document_part
     payload["page_role"] = block.page_role
+    payload["layout_category"] = block.layout_category
     return payload
 
 

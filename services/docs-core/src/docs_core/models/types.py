@@ -105,6 +105,7 @@ class CanonicalBlock(BaseModel):
     raw_type: Optional[str] = None
     document_part: Optional[str] = None
     page_role: Optional[str] = None
+    layout_category: Optional[str] = None
     # 构建期旁路字段：原始表格 HTML 只进 table_html，text 保持 textified，避免污染 FTS。
     # 不落库 canonical_blocks 列式表；随 graph jsonl 节点与 doc_blocks 行保留。
     table_html: Optional[str] = None

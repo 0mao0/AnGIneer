@@ -193,6 +193,7 @@ def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, A
                 raw_type=raw_block.get("raw_type"),
                 document_part=raw_block.get("document_part"),
                 page_role=raw_block.get("page_role"),
+                layout_category=raw_block.get("layout_category"),
                 page_bboxes=_parse_page_bboxes(raw_block.get("page_bboxes")),
                 merged_from=raw_block.get("merged_from"),
                 table_html=raw_block.get("table_html"),

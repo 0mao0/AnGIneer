@@ -141,6 +141,7 @@ def adapt_graph_node(raw_node: dict[str, Any], index: int, section_path: str) ->
         "raw_type": raw_node.get("raw_type"),
         "document_part": raw_node.get("document_part"),
         "page_role": raw_node.get("page_role"),
+        "layout_category": raw_node.get("layout_category"),
         "formula_semantics": raw_node.get("formula_semantics"),
         "table_semantics": raw_node.get("table_semantics"),
         "page_bboxes": raw_node.get("page_bboxes"),
