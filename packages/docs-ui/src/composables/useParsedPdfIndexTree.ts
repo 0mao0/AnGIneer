@@ -1,7 +1,8 @@
 import { computed, ref, watch, type ComputedRef } from 'vue'
-import type { DocBlockNode, DocBlocksGraph, StructuredIndexItem } from '../types/knowledge'
+import type { DocBlockNode, DocBlocksGraph, DisplayRoot, StructuredIndexItem } from '../types/knowledge'
 import { buildDocBlocksGraphIndex } from './useDocBlocksGraph'
 import { findNodeForItem, findNodeForItemExact, isItemActive } from '../utils/knowledge'
+import { buildDisplayRoots, frontMatterGroupIdForNode, isFrontMatterGroupId } from '../utils/knowledge'
 
 export interface GraphViewportState {
   x: number
@@ -54,6 +55,9 @@ export function useParsedPdfIndexTree(
   const nodeMap = computed(() => graphIndex.value.nodeMap)
   const childrenMap = computed(() => graphIndex.value.childrenMap)
   const roots = computed(() => graphIndex.value.roots)
+  const displayRoots = computed<DisplayRoot[]>(() => (
+    buildDisplayRoots(roots.value, nodeMap.value, childrenMap.value)
+  ))
 
   /* 计算节点向上的祖先路径，用于自动展开树链路。 */
   const getAncestors = (id: string): string[] => {
@@ -77,6 +81,10 @@ export function useParsedPdfIndexTree(
     for (const ancestorId of ancestors) {
       expandedNodeIds.value.add(ancestorId)
       expandedGraphNodeIds.value.add(ancestorId)
+    }
+    const groupId = frontMatterGroupIdForNode(nodeMap.value.get(id))
+    if (groupId) {
+      expandedNodeIds.value.add(groupId)
     }
   }
 
@@ -109,7 +117,9 @@ export function useParsedPdfIndexTree(
     } else {
       expandedNodeIds.value.add(id)
     }
-    options.emitToggleTreeExpand?.(id)
+    if (!isFrontMatterGroupId(id)) {
+      options.emitToggleTreeExpand?.(id)
+    }
   }
 
   /* 切换图形视图展开状态，并同步处理其全部后代。 */
@@ -175,6 +185,7 @@ export function useParsedPdfIndexTree(
     nodeMap,
     childrenMap,
     roots,
+    displayRoots,
     expandedNodeIds,
     expandedGraphNodeIds,
     graphViewportState,
