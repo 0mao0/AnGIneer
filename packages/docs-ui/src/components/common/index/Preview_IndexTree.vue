@@ -71,18 +71,29 @@
                   <span v-else class="toggle-placeholder" />
                 </span>
                 <div class="tree-main">
-                  <div class="tree-meta">
-                    <span v-if="row.levelTag" :class="['chip', 'lv']">{{ row.levelTag }}</span>
-                    <span v-if="row.typeTag" class="chip">{{ row.typeTag }}</span>
-                    <span v-if="row.positionTag" class="chip pos">{{ row.positionTag }}</span>
-                    <span v-if="row.pageLabelTag" class="chip page">{{ row.pageLabelTag }}</span>
-                    <span v-if="row.hasPreviewImage" class="chip preview-hint">
-                      <EyeOutlined />
-                      查看图片
+                  <div class="tree-main-row">
+                    <div class="tree-text-wrap">
+                      <div
+                        v-if="row.displayTextHtml"
+                        :class="['tree-text', { 'tree-text-title': row.isTitle }]"
+                        v-html="row.displayTextHtml"
+                      />
+                      <div
+                        v-else-if="!row.suppressPlainText"
+                        :class="['tree-text', { 'tree-text-title': row.isTitle }]"
+                      >
+                        {{ row.displayText }}
+                      </div>
+                    </div>
+                    <span
+                      v-if="row.summaryText || row.hasPreviewImage"
+                      class="tree-summary"
+                      :title="row.fullMetaText"
+                    >
+                      <EyeOutlined v-if="row.hasPreviewImage" class="tree-summary-eye" />
+                      {{ row.summaryText }}
                     </span>
                   </div>
-                  <div v-if="row.displayTextHtml" class="tree-text" v-html="row.displayTextHtml" />
-                  <div v-else-if="!row.suppressPlainText" class="tree-text">{{ row.displayText }}</div>
                   <div v-if="row.inlineMediaHtml" class="tree-inline-media" v-html="row.inlineMediaHtml" />
                 </div>
                 <a-button
@@ -486,6 +497,9 @@ interface RowView {
   typeTag: string | null
   positionTag: string | null
   pageLabelTag: string | null
+  summaryText: string
+  fullMetaText: string
+  isTitle: boolean
   suppressPlainText: boolean
   displayText: string
   displayTextHtml: string
@@ -534,6 +548,13 @@ const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
     ? `<div class="media-footnote">${renderMarkdownInlineToHtml(mediaFootnote, props.sourceFilePath || '')}</div>`
     : '')
   const printedPageLabel = node ? printedPageByPageIdx.value.get(node.page_idx) : undefined
+  const levelTag = getNodeLevelTag(node, props.nodeMap)
+  const typeTag = getNodeTypeTag(node)
+  const positionTag = getNodePositionTag(node)
+  const pageLabelTag = printedPageLabel ? `${printedPageLabel}页` : null
+  const hasPreviewImage = Boolean(node && isImagePreviewNode(node))
+  const metaParts = [levelTag, typeTag, positionTag, pageLabelTag].filter(Boolean)
+  const summaryParts = [levelTag, pageLabelTag].filter(Boolean)
   return {
     id,
     depth: row.depth,
@@ -542,10 +563,13 @@ const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
     isGroup: Boolean(row.isGroup),
     groupLabel: row.groupLabel || '',
     groupCount: row.groupCount || 0,
-    levelTag: getNodeLevelTag(node, props.nodeMap),
-    typeTag: getNodeTypeTag(node),
-    positionTag: getNodePositionTag(node),
-    pageLabelTag: printedPageLabel ? `${printedPageLabel}页` : null,
+    levelTag,
+    typeTag,
+    positionTag,
+    pageLabelTag,
+    summaryText: summaryParts.join(' · '),
+    fullMetaText: [...metaParts, hasPreviewImage ? '查看图片' : null].filter(Boolean).join(' · '),
+    isTitle: node?.block_type === 'title',
     suppressPlainText,
     displayText: mediaCaption ? mediaCaption.slice(0, 24) : getNodeDisplayText(node, id),
     displayTextHtml,
@@ -553,7 +577,7 @@ const rowViews = computed<RowView[]>(() => visibleRows.value.map((row) => {
     checked: Boolean(props.selectedNodeIds?.has(id)),
     hasNode: Boolean(node),
     furniture: isFurnitureNode(node),
-    hasPreviewImage: Boolean(node && isImagePreviewNode(node))
+    hasPreviewImage
   }
 }))
 
@@ -698,31 +722,6 @@ watch(() => props.activeNodeId, () => {
     background: var(--dp-flat-bg, #141821);
     border-color: var(--dp-flat-border, #2a3140);
   }
-
-  .chip {
-    border-color: var(--chip-default-border, #38445b);
-    background: var(--chip-default-bg, #2a3345);
-    color: var(--chip-default-text, rgba(255, 255, 255, 0.62));
-
-    &.lv {
-      border-color: var(--chip-lv-border, #3f4756);
-      background: var(--chip-lv-bg, #262d3b);
-      color: var(--chip-lv-text, #9aa4b2);
-    }
-
-    &.pos {
-      border-color: var(--chip-pos-border, #3f4756);
-      background: var(--chip-pos-bg, #262d3b);
-      color: var(--chip-pos-text, #9aa4b2);
-    }
-
-    &.preview-hint {
-      border-color: var(--dp-hover-border, #3b4a63);
-      background: var(--dp-hover-bg, #1f2532);
-      color: var(--dp-active-border, #7c9cf5);
-    }
-  }
-
 }
 
 .tree-loading {
@@ -943,12 +942,35 @@ watch(() => props.activeNodeId, () => {
   min-width: 0;
 }
 
-.tree-meta {
+.tree-main-row {
   display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
   min-width: 0;
+}
+
+.tree-text-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.tree-text-title {
+  font-weight: 600;
+}
+
+.tree-summary {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 1px;
+  font-size: 11px;
+  color: var(--dp-sub-text, #8c8c8c);
+  white-space: nowrap;
+}
+
+.tree-summary-eye {
+  font-size: 11px;
 }
 
 .tree-text {
@@ -1037,43 +1059,4 @@ watch(() => props.activeNodeId, () => {
   background: var(--dp-surface-bg, #ffffff);
 }
 
-.chip {
-  font-size: 10px;
-  line-height: 1;
-  padding: 3px 6px;
-  border-radius: 999px;
-  border: 1px solid var(--chip-default-border, #e5e7eb);
-  background: var(--chip-default-bg, #f9fafb);
-  color: var(--chip-default-text, #6b7280);
-  flex-shrink: 0;
-
-  &.lv {
-    border-color: var(--chip-lv-border, #e5e7eb);
-    background: var(--chip-lv-bg, #f3f4f6);
-    color: var(--chip-lv-text, #6b7280);
-  }
-
-  &.pos {
-    border-color: var(--chip-pos-border, #e5e7eb);
-    background: var(--chip-pos-bg, #f3f4f6);
-    color: var(--chip-pos-text, #6b7280);
-  }
-
-  &.page {
-    border-color: var(--chip-page-border, #fde68a);
-    background: var(--chip-page-bg, #fffbeb);
-    color: var(--chip-page-text, #92400e);
-  }
-
-  &.preview-hint {
-    opacity: 0;
-    border-color: var(--dp-hover-border, #a5b4fc);
-    background: var(--dp-hover-bg, #f0f3ff);
-    color: var(--dp-active-border, #7c9cf5);
-  }
-}
-
-.tree-row:hover .chip.preview-hint {
-  opacity: 1;
-}
 </style>
