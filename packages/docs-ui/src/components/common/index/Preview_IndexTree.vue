@@ -167,7 +167,7 @@
     <div class="tree-image-preview">
       <div
         :class="['tree-image-preview-stage', { dragging: previewDragging }]"
-        @wheel.prevent="onPreviewWheel"
+        @wheel="onPreviewWheel"
         @pointerdown="onPreviewPointerDown"
         @pointermove="onPreviewPointerMove"
         @pointerup="onPreviewPointerUp"
@@ -329,6 +329,8 @@ const previewReset = () => {
 }
 
 const onPreviewWheel = (event: WheelEvent) => {
+  if (!event.ctrlKey) return
+  event.preventDefault()
   const delta = event.deltaY > 0 ? -0.1 : 0.1
   previewZoom.value = clampZoom(previewZoom.value + delta)
 }
@@ -812,7 +814,8 @@ watch(() => props.activeNodeId, () => {
   align-items: center;
   gap: 0;
   max-height: 68vh;
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: auto;
   padding: 8px;
   border: 1px solid var(--dp-pane-border, #e8edf4);
   border-radius: 8px;
