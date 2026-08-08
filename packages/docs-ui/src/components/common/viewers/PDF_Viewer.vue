@@ -132,12 +132,7 @@
           @click="jumpToSearchResult(result, idx)"
         >
           <span class="search-result-page">{{ result.page > 0 ? `第 ${displayPageLabel(result.page)} 页` : '-' }}</span>
-          <span class="search-result-text">
-            <template v-for="(seg, segIdx) in buildHighlightSegments(result.text, searchQuery)" :key="segIdx">
-              <mark v-if="seg.hit" class="search-hit">{{ seg.text }}</mark>
-              <template v-else>{{ seg.text }}</template>
-            </template>
-          </span>
+          <span class="search-result-text" v-html="renderSearchSnippetHtml(result.text, searchQuery)" />
         </div>
       </div>
       <div v-else-if="isSearching" class="search-searching">
@@ -332,7 +327,8 @@ import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 import OfficePreview from './OfficePreview.vue'
-import { buildHighlightSegments, insetWordRects, matchTextItemRects, type PageTextItem, type SearchWordRect } from '../../../utils/pdfSearch'
+import { insetWordRects, matchTextItemRects, type PageTextItem, type SearchWordRect } from '../../../utils/pdfSearch'
+import { renderSearchSnippetHtml } from '../../../utils/searchSnippet'
 
 export interface PDFViewerNode {
   status?: string
