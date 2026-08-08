@@ -32,7 +32,6 @@
 
         <PDFParsedViewerCombo
           v-model:activeTab="activeTab"
-          :renderedMarkdown="renderedMarkdown"
           :markdownContent="markdownContent"
           :structuredItems="structuredItemsValue"
           :indexSummaryStats="indexSummaryStats"
@@ -53,7 +52,6 @@
           :show-furniture="showFurniture"
           @update:show-furniture="showFurniture = $event"
           @content-scroll="onRightPaneScrollPercent"
-          @hover-item="onHoverLinkedItem"
           @select-item="onSelectItemFromRight"
           @select-line="onSelectLineFromRight"
         />
@@ -77,7 +75,7 @@ import type {
   StructuredStats,
   PDFParsedWorkspaceEventMap
 } from '../../../types/knowledge'
-import { extractPrintedPageLabel, renderMarkdownToHtml } from '../../../utils/knowledge'
+import { extractPrintedPageLabel } from '../../../utils/knowledge'
 import { buildPrintedPageLabels } from '../../../utils/pdfSearch'
 
 interface Props {
@@ -118,7 +116,7 @@ defineEmits<PDFParsedWorkspaceEventMap>()
 
 /* 计算解析面板的默认展示 tab。 */
 const getDefaultParsedTab = (): PreviewMode => (
-  props.graphData?.nodes?.length ? 'Preview_IndexTree' : 'Preview_IndexList'
+  props.graphData?.nodes?.length ? 'Preview_IndexTree' : 'Preview_Markdown'
 )
 
 const filePath = computed(() => props.node.filePath || props.node.file_path || '')
@@ -137,11 +135,31 @@ const hasParsedContent = computed(() => Boolean((props.content || '').trim()))
 const indexSummaryStats = computed(() => {
   const strategyStats = props.structuredStats?.strategies?.doc_blocks_graph_v1 || {}
   const toCount = (value: unknown) => Number(value || 0)
+  const paragraph = toCount(strategyStats.paragraph)
+  const title = toCount(strategyStats.title)
+  const table = toCount(strategyStats.table)
+  const formula = toCount(strategyStats.formula)
+  const figure = toCount(strategyStats.figure) + toCount(strategyStats.image)
+  const headerFooter = toCount(strategyStats.header_footer)
+  const total = Object.values(strategyStats).reduce((sum, count) => sum + Number(count || 0), 0)
+  const other = Math.max(0, total - paragraph - title - table - formula - figure - headerFooter)
+  let maxLevel = 0
+  for (const node of props.graphData?.nodes || []) {
+    const level = Number(node.derived_level)
+    if (Number.isFinite(level) && level > maxLevel) {
+      maxLevel = level
+    }
+  }
   return {
-    total: Object.values(strategyStats).reduce((sum, count) => sum + Number(count || 0), 0),
-    formula: toCount(strategyStats.formula),
-    table: toCount(strategyStats.table),
-    figure: toCount(strategyStats.image) + toCount(strategyStats.figure)
+    total,
+    paragraph,
+    title,
+    table,
+    formula,
+    figure,
+    headerFooter,
+    other,
+    maxLevel,
   }
 })
 
@@ -200,7 +218,7 @@ const {
 })
 
 const pdfViewerRef = ref<InstanceType<typeof PDF_Viewer> | null>(null)
-/* 右侧树/列表点击：跳页并把命中 bbox 纵向居中（含同页页饰） */
+/* 右侧树点击：跳页并把命中 bbox 纵向居中（含同页页饰） */
 const onSelectItemFromRight = (itemId: string) => {
   onSelectItemFromRightLinked(itemId, (target) => {
     pdfPage.value = target.page
@@ -226,7 +244,7 @@ watch(() => props.node.key, () => {
 })
 
 watch(() => props.graphData?.nodes?.length || 0, (count, previousCount) => {
-  if (count > 0 && previousCount === 0 && activeTab.value === 'Preview_IndexList') {
+  if (count > 0 && previousCount === 0 && activeTab.value === 'Preview_Markdown') {
     activeTab.value = 'Preview_IndexTree'
   }
 })
@@ -245,11 +263,6 @@ watch(activeTab, (tab) => {
     props.onLoadFullGraphData()
   }
 })
-
-const renderedMarkdown = computed(() => renderMarkdownToHtml(
-  markdownContent.value,
-  filePath.value
-))
 
 // 搜索跳转后，右侧面板同步滚动到命中行
 const onSearchJump = (_page: number, lineNumber: number) => {

@@ -1,17 +1,14 @@
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { DocBlocksGraph, StructuredIndexItem } from '../types/knowledge'
 import {
   formatStructuredItemType,
   isAttachmentNode,
-  isFurnitureNode,
-  isItemActive
+  isFurnitureNode
 } from '../utils/knowledge'
 import { useParsedPdfIndexTree, type GraphViewportState } from './useParsedPdfIndexTree'
 
 export type PreviewMode =
-  | 'Preview_HTML'
   | 'Preview_Markdown'
-  | 'Preview_IndexList'
   | 'Preview_IndexTree'
   | 'Preview_IndexGraph'
   | 'Preview_KnowledgeGraph'
@@ -43,25 +40,14 @@ export function useParsedPdfViewer(
   emit: ParsedPdfViewerStateEmit
 ) {
   const rightPaneRef = ref<HTMLElement | null>(null)
-  const indexContentScrollRef = ref<{ $el?: HTMLElement } | HTMLElement | null>(null)
   const headerTitleRowRef = ref<HTMLElement | null>(null)
   const applyingExternalScroll = ref(false)
-  const indexCurrentPage = ref(1)
-  const indexPageSize = 30
 
   const isIndexMode = computed(() => (
-    props.activeTab === 'Preview_IndexList'
-    || props.activeTab === 'Preview_IndexTree'
+    props.activeTab === 'Preview_IndexTree'
     || props.activeTab === 'Preview_IndexGraph'
     || props.activeTab === 'Preview_KnowledgeGraph'
   ))
-
-  const indexContentScrollElement = computed<HTMLElement | null>(() => {
-    const current = indexContentScrollRef.value
-    if (current instanceof HTMLElement) return current
-    if (current?.$el instanceof HTMLElement) return current.$el
-    return null
-  })
 
   const graphDerivedIndexItems = computed<StructuredIndexItem[]>(() => {
     if (!props.graphData?.nodes?.length) {
@@ -101,11 +87,6 @@ export function useParsedPdfViewer(
     }
     return props.structuredItems
   })
-
-  const findActiveItemIndex = (activeId: string | null): number => {
-    if (!activeId) return -1
-    return flatIndexItems.value.findIndex(item => isItemActive(item, activeId))
-  }
 
   const {
     hasGraphData,
@@ -153,40 +134,17 @@ export function useParsedPdfViewer(
   const onTabChange = (event: { target?: { value?: string } } | string) => {
     const value = typeof event === 'string' ? event : event?.target?.value
     if (
-      value === 'Preview_HTML'
-      || value === 'Preview_Markdown'
-      || value === 'Preview_IndexList'
+      value === 'Preview_Markdown'
       || value === 'Preview_IndexTree'
       || value === 'Preview_IndexGraph'
       || value === 'Preview_KnowledgeGraph'
     ) {
       if ((value === 'Preview_IndexTree' || value === 'Preview_IndexGraph') && !hasGraphData.value) {
-        emit('update:activeTab', 'Preview_IndexList')
+        emit('update:activeTab', 'Preview_Markdown')
         return
       }
       emit('update:activeTab', value)
     }
-  }
-
-  const maxIndexPage = computed(() => Math.max(1, Math.ceil(flatIndexItems.value.length / indexPageSize)))
-
-  const onIndexPageChange = (page: number) => {
-    indexCurrentPage.value = Math.max(1, Math.min(maxIndexPage.value, page))
-    const container = indexContentScrollElement.value
-    if (container instanceof HTMLElement) {
-      container.scrollTop = 0
-    }
-  }
-
-  const scrollActiveIndexItemIntoView = () => {
-    if (props.activeTab !== 'Preview_IndexList') return
-    const container = indexContentScrollElement.value
-    if (!(container instanceof HTMLElement)) return
-    nextTick(() => {
-      const activeElement = container.querySelector('.index-item.active') as HTMLElement | null
-      if (!activeElement) return
-      activeElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    })
   }
 
   const setViewMode = (mode: PreviewMode) => {
@@ -203,41 +161,19 @@ export function useParsedPdfViewer(
     })
   })
 
-  watch(() => props.activeLinkedItemId, (newId) => {
-    const activeIndex = findActiveItemIndex(newId)
-    if (activeIndex >= 0) {
-      const targetPage = Math.floor(activeIndex / indexPageSize) + 1
-      if (targetPage !== indexCurrentPage.value) {
-        indexCurrentPage.value = targetPage
-      }
-    }
-    scrollActiveIndexItemIntoView()
-  }, { immediate: true })
-
-  watch(flatIndexItems, () => {
-    indexCurrentPage.value = Math.max(1, Math.min(indexCurrentPage.value, maxIndexPage.value))
-  })
-
-  watch([() => props.activeTab, indexCurrentPage], () => {
-    scrollActiveIndexItemIntoView()
-  })
-
   watch(() => props.graphData, (data) => {
     if (!data?.nodes?.length && (props.activeTab === 'Preview_IndexTree' || props.activeTab === 'Preview_IndexGraph')) {
-      emit('update:activeTab', 'Preview_IndexList')
+      emit('update:activeTab', 'Preview_Markdown')
     }
   }, { immediate: true })
 
   return {
     rightPaneRef,
-    indexContentScrollRef,
     headerTitleRowRef,
     isIndexMode,
     hasGraphData,
     graphNodeLookup,
     flatIndexItems,
-    indexCurrentPage,
-    indexPageSize,
     nodeMap,
     childrenMap,
     roots,
@@ -248,7 +184,6 @@ export function useParsedPdfViewer(
     activeNodeIdForGraphTree,
     onRightPaneScroll,
     onTabChange,
-    onIndexPageChange,
     onTreeToggle,
     onGraphToggle,
     onNodeSelect,

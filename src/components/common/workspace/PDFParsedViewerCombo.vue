@@ -7,23 +7,20 @@
           <a-tooltip placement="bottom">
             <template #title>
               <div class="summary-tooltip">
-                <div>总数：{{ indexSummaryStats.total }}</div>
-                <div>图：{{ indexSummaryStats.figure }}</div>
-                <div>表：{{ indexSummaryStats.table }}</div>
+                <div>段落：{{ indexSummaryStats.paragraph }}</div>
+                <div>标题：{{ indexSummaryStats.title }}</div>
+                <div>表格：{{ indexSummaryStats.table }}</div>
                 <div>公式：{{ indexSummaryStats.formula }}</div>
+                <div>图形：{{ indexSummaryStats.figure }}</div>
+                <div>页眉/页脚：{{ indexSummaryStats.headerFooter }}</div>
+                <div v-if="indexSummaryStats.other">其他：{{ indexSummaryStats.other }}</div>
+                <div v-if="indexSummaryStats.maxLevel">层级：{{ indexSummaryStats.maxLevel }}级</div>
               </div>
             </template>
             <span class="summary-icon-btn" title="解析统计">
               <BarChartOutlined />
             </span>
           </a-tooltip>
-          <Checkbox
-            :checked="showFurniture"
-            class="pane-show-furniture-toggle"
-            @change="onToggleShowFurniture"
-          >
-            显示页饰
-          </Checkbox>
         </div>
         <div class="pane-actions-right">
           <a-button
@@ -45,14 +42,8 @@
             button-style="solid"
             @change="onTabChange"
           >
-            <a-radio-button value="Preview_HTML" title="HTML">
-              <FileTextOutlined />
-            </a-radio-button>
             <a-radio-button value="Preview_Markdown" title="Markdown">
               <FileMarkdownOutlined />
-            </a-radio-button>
-            <a-radio-button value="Preview_IndexList" title="列表">
-              <UnorderedListOutlined />
             </a-radio-button>
             <a-radio-button value="Preview_IndexTree" :disabled="!hasGraphData" title="树形">
               <BranchesOutlined />
@@ -66,7 +57,7 @@
     </div>
 
     <div
-      v-if="showIndexSearch && (activeTab === 'Preview_IndexList' || activeTab === 'Preview_IndexTree')"
+      v-if="showIndexSearch && activeTab === 'Preview_IndexTree'"
       class="index-search-panel"
     >
       <div class="index-search-panel-input-row">
@@ -100,14 +91,8 @@
     </div>
 
     <div ref="rightPaneRef" class="b2-content" @scroll.passive="onRightPaneScroll">
-      <Preview_HTML
-        v-if="activeTab === 'Preview_HTML'"
-        :rendered-markdown="renderedMarkdown"
-        :active-line-range="activeLineRange"
-        @select-line="emit('select-line', $event)"
-      />
       <Preview_Markdown
-        v-else-if="activeTab === 'Preview_Markdown'"
+        v-if="activeTab === 'Preview_Markdown'"
         :content="markdownContent"
         :active-line-range="activeLineRange"
         @select-line="emit('select-line', $event)"
@@ -115,6 +100,15 @@
       <div v-else class="index-layout">
         <div class="index-toolbar">
           <div v-if="activeTab === 'Preview_IndexTree'" class="index-toolbar-row">
+            <div class="index-toolbar-left">
+              <Checkbox
+                :checked="showFurniture"
+                class="pane-show-furniture-toggle"
+                @change="onToggleShowFurniture"
+              >
+                显示页饰
+              </Checkbox>
+            </div>
             <div class="summary-actions">
               <span v-if="selectedBlockIds.length" class="selected-count">已选 {{ selectedBlockIds.length }} 个</span>
               <a-dropdown
@@ -163,22 +157,8 @@
           </div>
         </div>
         <div class="index-body">
-          <Preview_IndexList
-            v-if="activeTab === 'Preview_IndexList'"
-            ref="indexContentScrollRef"
-            :items="filteredIndexItems"
-            :current-page="indexCurrentPage"
-            :page-size="indexPageSize"
-            :active-linked-item-id="activeLinkedItemId"
-            :node-map="graphNodeLookup"
-            :source-file-path="sourceFilePath"
-            :show-furniture="showFurniture"
-            @hover-item="emit('hover-item', $event)"
-            @select-item="emit('select-item', $event)"
-            @page-change="onIndexPageChange"
-          />
           <Preview_IndexTree
-            v-else-if="activeTab === 'Preview_IndexTree'"
+            v-if="activeTab === 'Preview_IndexTree'"
             :loading="!hasGraphData"
             :dark="props.dark"
             :node-map="nodeMap"
@@ -246,12 +226,10 @@
 <script setup lang="ts">
 /**
  * 文档解析视图空间组件
- * 提供 HTML、Markdown、列表、树形、图形多种视图切换
+ * 提供 Markdown、树形、知识图谱多种视图切换
  */
 import {
-  FileTextOutlined,
   FileMarkdownOutlined,
-  UnorderedListOutlined,
   BranchesOutlined,
   BarChartOutlined,
   DotChartOutlined,
@@ -276,9 +254,7 @@ import {
   type PreviewMode,
   type ParsedPdfViewerBridgeEventMap
 } from '../../../composables/useParsedPdfViewer'
-import Preview_HTML from '../viewers/Preview_HTML.vue'
 import Preview_Markdown from '../viewers/Preview_Markdown.vue'
-import Preview_IndexList from '../index/Preview_IndexList.vue'
 import Preview_IndexTree from '../index/Preview_IndexTree.vue'
 import Preview_KnowledgeGraph from '../index/Preview_KnowledgeGraph.vue'
 import IndexTreeEditModal from '../index/IndexTreeEditModal.vue'
@@ -287,14 +263,18 @@ import IndexTreeSplitModal from '../index/IndexTreeSplitModal.vue'
 
 const props = defineProps<{
   activeTab: PreviewMode
-  renderedMarkdown: string
   markdownContent: string
   structuredItems: StructuredIndexItem[]
   indexSummaryStats: {
     total: number
+    paragraph: number
+    title: number
     formula: number
     table: number
     figure: number
+    headerFooter: number
+    other: number
+    maxLevel: number
   }
   hasParsedContent: boolean
   contentScrollPercent: number
@@ -326,7 +306,6 @@ const props = defineProps<{
 }>()
 
 type ParsedPdfViewerComponentEventMap = ParsedPdfViewerBridgeEventMap & {
-  'hover-item': [id: string | null]
   'select-line': [line: number]
   'update:show-furniture': [value: boolean]
 }
@@ -390,14 +369,6 @@ const searchMatchInfo = computed<string | null>(() => {
   return `${current}/${total}`
 })
 
-/** 搜索过滤后的列表项 */
-const filteredIndexItems = computed<StructuredIndexItem[]>(() => {
-  const keyword = indexSearchKeyword.value.trim()
-  if (!keyword) return flatIndexItems.value
-  const matchedSet = new Set(searchMatchedIds.value)
-  return flatIndexItems.value.filter(item => matchedSet.has(item.id))
-})
-
 /** 搜索导航：上/下一条匹配结果 */
 const onSearchNavigate = (direction: 'prev' | 'next') => {
   const total = searchMatchedIds.value.length
@@ -419,14 +390,11 @@ watch(indexSearchKeyword, () => {
 
 const {
   rightPaneRef,
-  indexContentScrollRef,
   headerTitleRowRef,
   isIndexMode,
   hasGraphData,
   graphNodeLookup,
   flatIndexItems,
-  indexCurrentPage,
-  indexPageSize,
   nodeMap,
   childrenMap,
   displayRoots,
@@ -434,7 +402,6 @@ const {
   activeNodeIdForGraphTree,
   onRightPaneScroll,
   onTabChange,
-  onIndexPageChange,
   onTreeToggle,
   onNodeSelect: handleViewerNodeSelect,
   expandAncestors,
@@ -711,7 +678,7 @@ const submitSplitOperation = async (splitSegments: StructuredSplitSegmentPayload
 }
 
 // 模板引用占位，防止 Linter 报错
-void [rightPaneRef, indexContentScrollRef, headerTitleRowRef]
+void [rightPaneRef, headerTitleRowRef]
 
 defineExpose({
   expandAncestors,
@@ -755,7 +722,6 @@ defineExpose({
 }
 
 .pane-show-furniture-toggle {
-  margin-left: 10px;
   font-size: 12px;
   white-space: nowrap;
 }
@@ -878,10 +844,16 @@ defineExpose({
 .index-toolbar-row {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 8px;
   margin-bottom: 10px;
   flex-wrap: wrap;
+}
+
+.index-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .pane-search-toggle-btn {

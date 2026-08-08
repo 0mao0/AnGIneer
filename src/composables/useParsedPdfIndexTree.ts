@@ -11,7 +11,7 @@ export interface GraphViewportState {
 }
 
 export interface ParsedPdfIndexTreeProps {
-  activeTab: 'Preview_HTML' | 'Preview_Markdown' | 'Preview_IndexList' | 'Preview_IndexTree' | 'Preview_IndexGraph' | 'Preview_KnowledgeGraph'
+  activeTab: 'Preview_Markdown' | 'Preview_IndexTree' | 'Preview_IndexGraph' | 'Preview_KnowledgeGraph'
   activeLinkedItemId: string | null
   graphData?: DocBlocksGraph | null
 }
@@ -93,7 +93,7 @@ export function useParsedPdfIndexTree(
     return options.flatIndexItems.value.findIndex(item => isItemActive(item, activeId))
   }
 
-  /* 将列表侧激活项解析为树/图中的 block 节点 ID。 */
+  /* 将索引侧激活项解析为树/图中的 block 节点 ID。 */
   const resolveActiveNodeId = (activeId: string | null): string | null => {
     if (!activeId) return null
     if (nodeMap.value.has(activeId)) return activeId

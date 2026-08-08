@@ -37,9 +37,7 @@ src/
 │  │  ├─ PDFParsedWorkspace.vue
 │  │  ├─ PDFParsedViewerCombo.vue
 │  │  ├─ PDF_Viewer.vue
-│  │  ├─ Preview_HTML.vue
 │  │  ├─ Preview_Markdown.vue
-│  │  ├─ Preview_IndexList.vue
 │  │  ├─ Preview_IndexTree.vue
 │  │  ├─ Preview_IndexGraph.vue
 │  │  ├─ SmartTree.vue
@@ -119,7 +117,7 @@ src/
 3. B 层解析 `graphData + structuredItems + markdownContent` 映射关系，得到：
    - `activeLeftHighlightId`
    - `activeLinkedLineRange`
-4. 右侧 `Preview_HTML/Preview_Markdown` 根据行号滚动定位，必要时更新 `pdfPage`。
+4. 右侧 `Preview_Markdown` 根据行号滚动定位，必要时更新 `pdfPage`。
 
 ## 4.4 SmartTree 交互链路
 
@@ -138,9 +136,7 @@ src/
 | `PDFParsedWorkspace.vue` | 文档解析工作区编排器 | `parse` `save-content` `change-strategy` `query-structured` `rebuild-structured` | `useWorkspacePreview` `useWorkspaceIngest` `useWorkspaceLinkage` |
 | `PDFParsedViewerCombo.vue` | 右侧 pane 编排器 | `update:activeTab` `update:editableContent` `save-markdown` `cancel-markdown` `strategy-change` `trigger-ingest` `content-scroll` `hover-item` `select-item` `toggle-tree-expand` `toggle-graph-expand` `update-graph-viewport` `select-line` | `useParsedPdfViewer` + `Preview_*` |
 | `PDF_Viewer.vue` | 左侧文件预览/高亮层 | `download` `text-scroll` `hover-highlight` `select-highlight` | 由 Workspace 注入数据 |
-| `Preview_HTML.vue` | HTML 预览（可行选中） | `select-line` | 被 `PDFParsedViewerCombo` 使用 |
 | `Preview_Markdown.vue` | Markdown 编辑/预览 | `update:editableContent` `select-line` | 被 `PDFParsedViewerCombo` 使用 |
-| `Preview_IndexList.vue` | 索引列表视图 | `hover-item` `select-item` `page-change` | 被 `PDFParsedViewerCombo` 使用 |
 | `Preview_IndexTree.vue` | 索引树视图 | `toggle` `select` `edit` `toggle-check` `context-action` | 虚拟滚动树容器（原 `IndexTreeFlatRow` 行渲染已并入） |
 | `Preview_IndexGraph.vue` | 索引图视图 | `toggle` `select` `update-viewport` | 内聚图算法+交互（已合并原 `DocBlocksGraph`） |
 | `SmartTree.vue` | 通用资源树组件 | `select` `rename` `add-folder` `add-file` `delete` `view` `drop` `search` `file-drop` `drop-invalid` `drop-root` | `types/tree` |
@@ -295,7 +291,7 @@ src/
 
 ### 10.1 出口文件
 - `src/index.ts`：聚合导出 components/composables/types/utils
-- `src/components/index.ts`：导出 `SmartTree` `KnowledgeTree` `PDFParsedWorkspace` `PDFParsedViewerCombo` `PDF_Viewer` `Preview_Markdown` `Preview_HTML`
+- `src/components/index.ts`：导出 `SmartTree` `KnowledgeTree` `PDFParsedWorkspace` `PDFParsedViewerCombo` `PDF_Viewer` `Preview_Markdown`
 - `src/composables/index.ts`：导出全部 composables 及关键类型
 - `src/types/index.ts`：导出所有契约类型
 - `src/utils/index.ts`：导出工具函数
@@ -331,9 +327,7 @@ src/
 | `DocumentParsedWorkspace.vue` | `useWorkspacePreview` `useWorkspaceIngest` `useWorkspaceLinkage` `mapParseStageText` `renderMarkdownToHtml` `KnowledgeTreeNode` `KnowledgeStrategy/IngestStatus/Structured*` | `parse` `save-content` `change-strategy` `query-structured` `rebuild-structured` | A 层编排器，强依赖 B/C/U，合理 |
 | `ParsedPDF_Viewer.vue` | `useParsedPdfViewer` `PreviewMode` `KnowledgeStrategy` `StructuredIndexItem` `DocBlocksGraph` | `update:activeTab` `update:editableContent` `save-markdown` `cancel-markdown` `strategy-change` `trigger-ingest` `content-scroll` `hover-item` `select-item` `toggle-tree-expand` `toggle-graph-expand` `update-graph-viewport` `select-line` | A 层二级编排器，依赖 B/C |
 | `PDF_Viewer.vue` | `KnowledgeTreeNode`（来自 `types/tree`） | `download` `text-scroll` `hover-highlight` `select-highlight` | A 层渲染组件，轻依赖 C |
-| `Preview_HTML.vue` | 无项目外部 TS（仅 Vue） | `select-line` | A 层纯展示 |
 | `Preview_Markdown.vue` | 无项目外部 TS（仅 Vue） | `update:editableContent` `select-line` | A 层纯展示 |
-| `Preview_IndexList.vue` | `StructuredIndexItem` `DocBlockNode`（C） | `hover-item` `select-item` `page-change` | A 层列表展示 |
 | `Preview_IndexTree.vue` | `DocBlockNode`（C） | `toggle` `select` `edit` `toggle-check` `context-action` | A 层虚拟滚动树组件（内聚交互） |
 | `Preview_IndexGraph.vue` | `DocBlockNode`（C） | `toggle` `select` `update-viewport` | A 层图组件（内聚交互） |
 | `SmartTree.vue` | `SmartTreeNode`（C） `TreeProps` `useTheme` | `select` `rename` `add-folder` `add-file` `delete` `view` `drop` `search` `file-drop` `drop-invalid` `drop-root` | A 层通用组件，不直接做 D 层写入 |
@@ -458,11 +452,9 @@ graph LR
   W[DocumentParsedWorkspace.vue]
   R[DocumentParsedViewerSpace.vue]
   V[PDF_Viewer.vue]
-  IL[Preview_IndexList.vue]
   IT[Preview_IndexTree.vue]
   IG[Preview_IndexGraph.vue]
   PM[Preview_Markdown.vue]
-  PH[Preview_HTML.vue]
   ST[SmartTree.vue]
 
   WP[useWorkspacePreview.ts]
@@ -485,11 +477,9 @@ graph LR
   W --> UT
 
   R --> PV
-  R --> IL
   R --> IT
   R --> IG
   R --> PM
-  R --> PH
   R --> TY
 
   ST --> TY
@@ -509,7 +499,7 @@ graph LR
 ### 15.1 已落地（低风险去冗余）
 
 1. `useWorkspacePreview.ts`：删除本地扩展名/预览类型重复判断，统一复用 `utils/knowledge.ts` 的 `getFileExtension` 与 `getPreviewFileType`。
-2. `Preview_IndexList.vue`：删除组件内重复实现，改为复用 `utils/knowledge.ts` 的 `stripMarkdownSyntax` 与 `formatStructuredItemType`。
+2. `Preview_IndexList.vue`：列表模式已下线，组件已删除；结构导航统一由树形视图承担。
 3. `useParsedPdfViewer.ts` + `useDocBlocksGraph.ts`：抽出 `buildDocBlocksGraphIndex`，统一构建 `nodeMap/childrenMap/parentMap/roots`，删除重复图索引逻辑。
 4. `useKnowledgeTree.ts` + `types/tree.ts`：把知识树契约集中到 `types/tree.ts`，统一为 `KnowledgeTreeNode`（不再保留 `TreeNode` 别名），移除 composable 内重复类型声明。
 5. `DocumentParsedWorkspace.vue` + `ParsedPDF_Viewer.vue` + `useParsedPdfViewer.ts`：统一 `PreviewMode` 与图视口事件载荷类型，收敛 `update-graph-viewport` 的重复对象定义。

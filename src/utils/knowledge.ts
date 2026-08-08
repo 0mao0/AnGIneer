@@ -159,6 +159,13 @@ export const buildDisplayRoots = (
 
   const displayRoots: DisplayRoot[] = []
   const emitted = new Set<string>()
+  const groupedNodeIds = new Set<string>()
+  for (const group of groups.values()) {
+    if (group.count <= 0) continue
+    for (const childId of group.children) {
+      groupedNodeIds.add(childId)
+    }
+  }
   for (const rootId of roots) {
     const node = nodeMap.get(rootId)
     if (node?.document_part === 'front_matter' && node.page_role && FRONT_MATTER_GROUP_LABELS[node.page_role]) {
@@ -167,6 +174,9 @@ export const buildDisplayRoots = (
         emitted.add(group.id)
         displayRoots.push(group)
       }
+      continue
+    }
+    if (node?.document_part === 'front_matter' && groupedNodeIds.has(rootId)) {
       continue
     }
     displayRoots.push(rootId)
