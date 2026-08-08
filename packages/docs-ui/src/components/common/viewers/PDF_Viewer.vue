@@ -228,15 +228,33 @@
               class="pdf-highlight-layer pdf-search-active-layer"
               :style="getHighlightLayerStyle(pageMeta.page)"
             >
+            <div
+              v-for="item in searchActiveHighlights"
+              :key="`search-${item.id}`"
+              class="pdf-highlight-box search-active"
+              :style="{
+                left: `${item.left * 100}%`,
+                top: `${item.top * 100}%`,
+                width: `${item.width * 100}%`,
+                height: `${item.height * 100}%`
+              }"
+            />
+            </div>
+            <!-- 搜索结果词级高亮（命中词细框，A 精确 / B 插值兜底） -->
+            <div
+              v-if="pageMeta.page === searchActivePage && searchWordRects.length"
+              class="pdf-highlight-layer pdf-search-word-layer"
+              :style="getHighlightLayerStyle(pageMeta.page)"
+            >
               <div
-                v-for="item in searchActiveHighlights"
-                :key="`search-${item.id}`"
-                class="pdf-highlight-box search-active"
+                v-for="(rect, rectIdx) in searchWordRects"
+                :key="`search-word-${rectIdx}`"
+                class="pdf-highlight-box search-word"
                 :style="{
-                  left: `${item.left * 100}%`,
-                  top: `${item.top * 100}%`,
-                  width: `${item.width * 100}%`,
-                  height: `${item.height * 100}%`
+                  left: `${rect.left * 100}%`,
+                  top: `${rect.top * 100}%`,
+                  width: `${rect.width * 100}%`,
+                  height: `${rect.height * 100}%`
                 }"
               />
             </div>
@@ -314,7 +332,7 @@ import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 import OfficePreview from './OfficePreview.vue'
-import { buildHighlightSegments } from '../../../utils/pdfSearch'
+import { buildHighlightSegments, estimateMatchRects, matchTextItemRects, type PageTextItem, type SearchWordRect } from '../../../utils/pdfSearch'
 
 export interface PDFViewerNode {
   status?: string
@@ -472,6 +490,8 @@ const toggleSearchPanel = () => {
     searchActiveIndex.value = 0
     searchActivePage.value = 0
     searchActiveLine.value = 0
+    searchWordRects.value = []
+    searchWordLoadToken += 1
   }
 }
 
@@ -481,6 +501,8 @@ const closeSearchPanel = () => {
   searchActiveIndex.value = 0
   searchActivePage.value = 0
   searchActiveLine.value = 0
+  searchWordRects.value = []
+  searchWordLoadToken += 1
 }
 
 const performTextSearch = () => {
@@ -492,6 +514,8 @@ const performTextSearch = () => {
   searchActiveIndex.value = 0
   searchActivePage.value = 0
   searchActiveLine.value = 0
+  searchWordRects.value = []
+  searchWordLoadToken += 1
 
   const lowerQ = q.toLowerCase()
   const sourceText = props.searchText || props.textContent || ''
@@ -530,6 +554,7 @@ const jumpToSearchResult = (result: SearchResult, idx: number) => {
   if (result.page > 0) {
     scroll.scrollToPdfPage(result.page, 'auto')
   }
+  void updateSearchWordHighlights(result)
   emit('search-jump', result.page, result.lineNumber)
 }
 
@@ -545,6 +570,74 @@ const searchActiveHighlights = computed<LinkedHighlight[]>(() => {
     h.lineStart <= line && line <= h.lineEnd
   )
 })
+
+// --- bbox 内词级高亮（A 文本层精确 / B 行内插值兜底） ---
+const pageTextItemsCache = new Map<number, PageTextItem[]>()
+const searchWordRects = ref<SearchWordRect[]>([])
+let searchWordLoadToken = 0
+
+async function loadPageTextItems(page: number): Promise<PageTextItem[]> {
+  const cached = pageTextItemsCache.get(page)
+  if (cached) return cached
+  const doc = _pdfDocumentRef.value
+  if (!doc || page <= 0) return []
+  const pdfPage = await doc.getPage(page)
+  const textContent = await pdfPage.getTextContent()
+  const viewport = pdfPage.getViewport({ scale: 1 })
+  const vw = viewport.width || 1
+  const vh = viewport.height || 1
+  const items: PageTextItem[] = []
+  const rawItems = (textContent?.items || []) as Array<{ str?: string; transform?: number[]; width?: number }>
+  for (const item of rawItems) {
+    const str = item.str || ''
+    if (!str) continue
+    const transform = item.transform || [1, 0, 0, 1, 0, 0]
+    const x0 = transform[4] || 0
+    const y0 = transform[5] || 0
+    const width = Number(item.width) || 0
+    const height = Math.abs(transform[0]) || 1
+    items.push({
+      text: str,
+      left: Math.max(0, Math.min(1, x0 / vw)),
+      top: Math.max(0, Math.min(1, y0 / vh)),
+      width: Math.max(0, Math.min(1, width / vw)),
+      height: Math.max(0, Math.min(1, height / vh)),
+    })
+  }
+  pageTextItemsCache.set(page, items)
+  return items
+}
+
+async function updateSearchWordHighlights(result: SearchResult) {
+  const token = ++searchWordLoadToken
+  searchWordRects.value = []
+  if (!result.page || !result.lineNumber) return
+  const q = searchQuery.value.trim()
+  if (!q) return
+  const sourceText = props.searchText || props.textContent || ''
+  const line = sourceText.split('\n')[result.lineNumber - 1] || ''
+  const lineBbox = searchActiveHighlights.value[0]
+  try {
+    const items = await loadPageTextItems(result.page)
+    if (token !== searchWordLoadToken) return
+    const rects = matchTextItemRects(items, q)
+    if (rects.length) {
+      searchWordRects.value = rects
+      return
+    }
+  } catch (error) {
+    console.warn('[PDFViewer] Failed to load page text items:', error)
+  }
+  if (token !== searchWordLoadToken) return
+  if (lineBbox) {
+    searchWordRects.value = estimateMatchRects(line, q, {
+      left: lineBbox.left,
+      top: lineBbox.top,
+      width: lineBbox.width,
+      height: lineBbox.height,
+    })
+  }
+}
 
 // 点击外部关闭搜索面板
 const onSearchPanelClickOutside = (e: MouseEvent) => {
@@ -2152,6 +2245,19 @@ onBeforeUnmount(() => {
 @keyframes searchActivePulse {
   0%, 100% { box-shadow: 0 0 0 1px rgba(250, 173, 20, 0.35); }
   50% { box-shadow: 0 0 0 4px rgba(250, 173, 20, 0.12); }
+}
+
+/* 搜索结果词级细高亮 */
+.pdf-search-word-layer {
+  pointer-events: none;
+  z-index: 13;
+}
+
+.pdf-highlight-box.search-word {
+  border: none;
+  background: rgba(250, 173, 20, 0.75);
+  border-radius: 2px;
+  box-shadow: none;
 }
 
 .highlight-type-tag {
