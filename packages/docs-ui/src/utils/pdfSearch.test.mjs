@@ -4,7 +4,6 @@ import test from 'node:test'
 import {
   buildHighlightSegments,
   buildPrintedPageLabels,
-  estimateMatchRects,
   insetWordRects,
   matchTextItemRects,
 } from './pdfSearch.ts'
@@ -29,25 +28,6 @@ test('buildHighlightSegments 无命中与空查询', () => {
   assert.deepEqual(buildHighlightSegments('正文', '不存在'), [{ text: '正文', hit: false }])
   assert.deepEqual(buildHighlightSegments('正文', '  '), [{ text: '正文', hit: false }])
   assert.deepEqual(buildHighlightSegments('', '词'), [])
-})
-
-test('estimateMatchRects CJK 等宽估算', () => {
-  const rects = estimateMatchRects('正文标题内容', '标题', { left: 0.1, top: 0.2, width: 0.5, height: 0.05 })
-  assert.equal(rects.length, 1)
-  const r = rects[0]
-  assert.ok(Math.abs(r.left - (0.1 + (2 / 6) * 0.5)) < 1e-9)
-  assert.ok(Math.abs(r.width - ((2 / 6) * 0.5)) < 1e-9)
-  assert.equal(r.top, 0.2)
-  assert.equal(r.height, 0.05)
-})
-
-test('estimateMatchRects ASCII 与 CJK 混排', () => {
-  // A=0.55, 1=0.55, 中=1, 文=1 → total=3.1
-  const rects = estimateMatchRects('A1中文', '中文', { left: 0.1, top: 0.2, width: 0.5, height: 0.05 })
-  assert.equal(rects.length, 1)
-  const r = rects[0]
-  assert.ok(Math.abs(r.left - (0.1 + (1.1 / 3.1) * 0.5)) < 1e-9)
-  assert.ok(Math.abs(r.width - ((2 / 3.1) * 0.5)) < 1e-9)
 })
 
 test('matchTextItemRects 单条目命中', () => {
@@ -90,12 +70,18 @@ test('matchTextItemRects 多词查询按条目间空格合并', () => {
   assert.ok(Math.abs(r.height - 0.05) < 1e-9)
 })
 
-test('matchTextItemRects 跨条目不产生无空格假命中', () => {
+test('matchTextItemRects 空格化字形跨条目紧凑匹配', () => {
   const rects = matchTextItemRects([
-    { text: 'foo', left: 0.1, top: 0.2, width: 0.1, height: 0.05 },
-    { text: 'bar', left: 0.2, top: 0.2, width: 0.1, height: 0.05 },
-  ], 'oob')
-  assert.deepEqual(rects, [])
+    { text: 'J', left: 0.1, top: 0.2, width: 0.02, height: 0.05 },
+    { text: ' ', left: 0.12, top: 0.2, width: 0.01, height: 0.05 },
+    { text: 'T', left: 0.13, top: 0.2, width: 0.02, height: 0.05 },
+    { text: ' ', left: 0.15, top: 0.2, width: 0.01, height: 0.05 },
+    { text: 'J', left: 0.16, top: 0.2, width: 0.02, height: 0.05 },
+  ], 'JTJ')
+  assert.equal(rects.length, 1)
+  const r = rects[0]
+  assert.ok(Math.abs(r.left - 0.1) < 1e-9)
+  assert.ok(Math.abs(r.width - 0.08) < 1e-9)
 })
 
 test('insetWordRects 纵向内缩并上下居中', () => {

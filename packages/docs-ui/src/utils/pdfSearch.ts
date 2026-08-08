@@ -55,17 +55,41 @@ export function insetWordRects(rects: SearchWordRect[], verticalRatio = 0.76): S
 }
 
 export function matchTextItemRects(items: PageTextItem[], query: string): SearchWordRect[] {
-  const lowerQ = (query || '').trim().toLowerCase()
+  const lowerQ = (query || '').replace(/\s+/g, ' ').trim().toLowerCase()
   if (!lowerQ || !Array.isArray(items)) return []
-  const runs: Array<{ item: PageTextItem; start: number; end: number }> = []
+  const runs: Array<{ item: PageTextItem; text: string; start: number; end: number }> = []
   let cursor = 0
   for (const item of items) {
-    if (!item || !item.text) continue
-    runs.push({ item, start: cursor, end: cursor + item.text.length })
-    cursor += item.text.length + 1 // +1 为条目间空格分隔
+    if (!item) continue
+    const text = (item.text || '').replace(/\s+/g, ' ').trim()
+    if (!text) continue
+    runs.push({ item, text, start: cursor, end: cursor + text.length })
+    cursor += text.length + 1 // +1 为条目间空格分隔
   }
   if (!runs.length) return []
-  const full = runs.map(r => r.item.text).join(' ').toLowerCase()
+  const spaced = runs.map(r => r.text).join(' ').toLowerCase()
+  const spacedQ = lowerQ
+  const spacedRects = collectMatchRects(spaced, spacedQ, runs)
+  if (spacedRects.length) return spacedRects
+  // 空格化字形（封面标题常把每个字/字母拆成独立条目）：去掉条目间空格再试一次
+  const compactRuns: Array<{ item: PageTextItem; text: string; start: number; end: number }> = []
+  let compactCursor = 0
+  for (const run of runs) {
+    const text = run.text.replace(/\s+/g, '')
+    if (!text) continue
+    compactRuns.push({ item: run.item, text, start: compactCursor, end: compactCursor + text.length })
+    compactCursor += text.length
+  }
+  const compact = compactRuns.map(r => r.text).join('').toLowerCase()
+  const compactQ = lowerQ.replace(/\s+/g, '')
+  return collectMatchRects(compact, compactQ, compactRuns)
+}
+
+function collectMatchRects(
+  full: string,
+  lowerQ: string,
+  runs: Array<{ item: PageTextItem; text: string; start: number; end: number }>,
+): SearchWordRect[] {
   const rects: SearchWordRect[] = []
   let pos = full.indexOf(lowerQ)
   while (pos >= 0) {
@@ -79,45 +103,6 @@ export function matchTextItemRects(items: PageTextItem[], query: string): Search
       rects.push({ left, top, width: Math.max(0, right - left), height: Math.max(0, bottom - top) })
     }
     pos = full.indexOf(lowerQ, pos + 1)
-  }
-  return rects
-}
-
-function charWidth(ch: string): number {
-  if (/\s/.test(ch)) return 0.3
-  if (/[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef]/.test(ch)) return 1
-  if (/[a-zA-Z0-9]/.test(ch)) return 0.55
-  return 0.8
-}
-
-export interface NormalizedRect {
-  left: number
-  top: number
-  width: number
-  height: number
-}
-
-export function estimateMatchRects(lineText: string, query: string, bbox: NormalizedRect): SearchWordRect[] {
-  const source = lineText || ''
-  const q = (query || '').trim()
-  if (!q || !source) return []
-  const widths = Array.from(source).map(charWidth)
-  const total = widths.reduce((sum, w) => sum + w, 0)
-  if (total <= 0) return []
-  const lowerSource = source.toLowerCase()
-  const lowerQ = q.toLowerCase()
-  const rects: SearchWordRect[] = []
-  let pos = lowerSource.indexOf(lowerQ)
-  while (pos >= 0) {
-    const startWidth = widths.slice(0, pos).reduce((sum, w) => sum + w, 0)
-    const matchWidth = widths.slice(pos, pos + lowerQ.length).reduce((sum, w) => sum + w, 0)
-    rects.push({
-      left: bbox.left + (startWidth / total) * bbox.width,
-      top: bbox.top,
-      width: (matchWidth / total) * bbox.width,
-      height: bbox.height,
-    })
-    pos = lowerSource.indexOf(lowerQ, pos + 1)
   }
   return rects
 }

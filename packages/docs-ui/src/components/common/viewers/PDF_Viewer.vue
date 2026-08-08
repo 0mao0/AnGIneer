@@ -240,7 +240,7 @@
               }"
             />
             </div>
-            <!-- 搜索结果词级高亮（命中词细框，A 精确 / B 插值兜底） -->
+            <!-- 搜索结果词级高亮（命中词细框，仅原生文本 PDF 提供） -->
             <div
               v-if="pageMeta.page === searchActivePage && searchWordRects.length"
               class="pdf-highlight-layer pdf-search-word-layer"
@@ -249,7 +249,7 @@
               <div
                 v-for="(rect, rectIdx) in searchWordRects"
                 :key="`search-word-${rectIdx}`"
-                :class="['pdf-highlight-box', 'search-word', { approx: searchWordApprox }]"
+                class="pdf-highlight-box search-word"
                 :style="{
                   left: `${rect.left * 100}%`,
                   top: `${rect.top * 100}%`,
@@ -332,7 +332,7 @@ import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 import OfficePreview from './OfficePreview.vue'
-import { buildHighlightSegments, estimateMatchRects, insetWordRects, matchTextItemRects, type PageTextItem, type SearchWordRect } from '../../../utils/pdfSearch'
+import { buildHighlightSegments, insetWordRects, matchTextItemRects, type PageTextItem, type SearchWordRect } from '../../../utils/pdfSearch'
 
 export interface PDFViewerNode {
   status?: string
@@ -492,7 +492,6 @@ const toggleSearchPanel = () => {
     searchActivePage.value = 0
     searchActiveLine.value = 0
     searchWordRects.value = []
-    searchWordApprox.value = false
     searchWordLoadToken += 1
   }
 }
@@ -504,7 +503,6 @@ const closeSearchPanel = () => {
   searchActivePage.value = 0
   searchActiveLine.value = 0
   searchWordRects.value = []
-  searchWordApprox.value = false
   searchWordLoadToken += 1
 }
 
@@ -518,7 +516,6 @@ const performTextSearch = () => {
   searchActivePage.value = 0
   searchActiveLine.value = 0
   searchWordRects.value = []
-  searchWordApprox.value = false
   searchWordLoadToken += 1
 
   const lowerQ = q.toLowerCase()
@@ -578,12 +575,9 @@ const searchActiveHighlights = computed<LinkedHighlight[]>(() => {
   )
 })
 
-// --- bbox 内词级高亮（A 文本层精确 / B 行内插值兜底） ---
+// --- bbox 内词级高亮（仅文本层精确匹配；扫描件无文本层时不提供词级框） ---
 const pageTextItemsCache = new Map<number, PageTextItem[]>()
 const searchWordRects = ref<SearchWordRect[]>([])
-// 扫描件无文本层时是否用插值占位；效果不可接受时置 false（宁可不提供词级框）
-const ENABLE_INTERPOLATED_WORD_HIGHLIGHT = true
-const searchWordApprox = ref(false)
 let searchWordLoadToken = 0
 
 async function loadPageTextItems(page: number): Promise<PageTextItem[]> {
@@ -600,18 +594,35 @@ async function loadPageTextItems(page: number): Promise<PageTextItem[]> {
   const rawItems = (textContent?.items || []) as Array<{ str?: string; transform?: number[]; width?: number }>
   for (const item of rawItems) {
     const str = item.str || ''
-    if (!str) continue
-    const transform = item.transform || [1, 0, 0, 1, 0, 0]
-    const x0 = transform[4] || 0
-    const y0 = transform[5] || 0
-    const width = Number(item.width) || 0
-    const height = Math.abs(transform[0]) || 1
+    if (!str || !item.transform) continue
+    // 与 pdf.js 文本层一致：合成 viewport 变换得到渲染坐标（y 已翻转为顶部基准）
+    const tx = pdfjsLib.Util.transform(viewport.transform, item.transform)
+    const fontHeight = Math.hypot(tx[2], tx[3]) || 1
+    const angle = Math.atan2(tx[1], tx[0])
+    const cosA = Math.cos(angle)
+    const sinA = Math.sin(angle)
+    const width = Math.max(0, Number(item.width) || 0) * viewport.scale
+    const bx = tx[4]
+    const by = tx[5]
+    const ex = bx + width * cosA
+    const ey = by + width * sinA
+    // 上缘取 ascent 方向一个字号，下缘取 0.15 字号的下伸
+    const ax = bx + fontHeight * sinA
+    const ay = by - fontHeight * cosA
+    const dx = ex - fontHeight * 0.15 * sinA
+    const dy = ey + fontHeight * 0.15 * cosA
+    const xs = [bx, ex, ax, dx]
+    const ys = [by, ey, ay, dy]
+    const left = Math.min(...xs)
+    const top = Math.min(...ys)
+    const right = Math.max(...xs)
+    const bottom = Math.max(...ys)
     items.push({
       text: str,
-      left: Math.max(0, Math.min(1, x0 / vw)),
-      top: Math.max(0, Math.min(1, y0 / vh)),
-      width: Math.max(0, Math.min(1, width / vw)),
-      height: Math.max(0, Math.min(1, height / vh)),
+      left: Math.max(0, Math.min(1, left / vw)),
+      top: Math.max(0, Math.min(1, top / vh)),
+      width: Math.max(0, Math.min(1, (right - left) / vw)),
+      height: Math.max(0, Math.min(1, (bottom - top) / vh)),
     })
   }
   pageTextItemsCache.set(page, items)
@@ -621,13 +632,9 @@ async function loadPageTextItems(page: number): Promise<PageTextItem[]> {
 async function updateSearchWordHighlights(result: SearchResult) {
   const token = ++searchWordLoadToken
   searchWordRects.value = []
-  searchWordApprox.value = false
   if (!result.page || !result.lineNumber) return
   const q = searchQuery.value.trim()
   if (!q) return
-  const sourceText = props.searchText || props.textContent || ''
-  const line = sourceText.split('\n')[result.lineNumber - 1] || ''
-  const lineBbox = searchActiveHighlights.value[0]
   try {
     const items = await loadPageTextItems(result.page)
     if (token !== searchWordLoadToken) return
@@ -638,16 +645,6 @@ async function updateSearchWordHighlights(result: SearchResult) {
     }
   } catch (error) {
     console.warn('[PDFViewer] Failed to load page text items:', error)
-  }
-  if (token !== searchWordLoadToken) return
-  if (lineBbox && ENABLE_INTERPOLATED_WORD_HIGHLIGHT) {
-    searchWordApprox.value = true
-    searchWordRects.value = insetWordRects(estimateMatchRects(line, q, {
-      left: lineBbox.left,
-      top: lineBbox.top,
-      width: lineBbox.width,
-      height: lineBbox.height,
-    }))
   }
 }
 
@@ -2277,12 +2274,6 @@ onBeforeUnmount(() => {
   background: rgba(250, 173, 20, 0.75);
   border-radius: 2px;
   box-shadow: none;
-}
-
-/* 扫描件无文本层时的插值占位：虚线 + 半透明，与精确词框区分 */
-.pdf-highlight-box.search-word.approx {
-  border: 1px dashed rgba(250, 173, 20, 0.85);
-  background: rgba(250, 173, 20, 0.32);
 }
 
 .highlight-type-tag {
