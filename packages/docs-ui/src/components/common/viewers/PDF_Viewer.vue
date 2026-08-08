@@ -452,7 +452,8 @@ const toggleBbox = () => { showBbox.value = !showBbox.value }
 // --- 搜索 ---
 const displayPageLabel = (page: number) => {
   if (page <= 0) return '-'
-  return props.pageLabels?.[page] || String(page)
+  // 搜索结果的 page 为 1 基 PDF 页码，pageLabels 以 graphData 的 page_idx（0 基）为键
+  return props.pageLabels?.[page - 1] || String(page)
 }
 
 interface SearchResult {
