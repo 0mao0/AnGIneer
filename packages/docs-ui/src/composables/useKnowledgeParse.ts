@@ -143,9 +143,11 @@ export function useKnowledgeParse(api: KnowledgeParseApi) {
     onLoadStructuredStats: (docId: string) => Promise<void>
   ) => {
     stopParsePolling()
+    let pollFailCount = 0
     parsePollTimer.value = window.setInterval(async () => {
       try {
         const task = await api.getParseTask(taskId) as any
+        pollFailCount = 0
         if (selectedNode && selectedNode.key === docId) {
           selectedNode.parseProgress = task.progress || 0
           selectedNode.parseStage = task.stage || ''
@@ -171,7 +173,11 @@ export function useKnowledgeParse(api: KnowledgeParseApi) {
           }
         }
       } catch {
-        stopParsePolling()
+        // 瞬时失败不中断轮询，连续失败多次才停止，避免界面卡在 processing
+        pollFailCount += 1
+        if (pollFailCount >= 5) {
+          stopParsePolling()
+        }
       }
     }, 1500)
   }
