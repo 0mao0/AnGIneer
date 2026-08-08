@@ -249,7 +249,7 @@
               <div
                 v-for="(rect, rectIdx) in searchWordRects"
                 :key="`search-word-${rectIdx}`"
-                class="pdf-highlight-box search-word"
+                :class="['pdf-highlight-box', 'search-word', { approx: searchWordApprox }]"
                 :style="{
                   left: `${rect.left * 100}%`,
                   top: `${rect.top * 100}%`,
@@ -492,6 +492,7 @@ const toggleSearchPanel = () => {
     searchActivePage.value = 0
     searchActiveLine.value = 0
     searchWordRects.value = []
+    searchWordApprox.value = false
     searchWordLoadToken += 1
   }
 }
@@ -503,6 +504,7 @@ const closeSearchPanel = () => {
   searchActivePage.value = 0
   searchActiveLine.value = 0
   searchWordRects.value = []
+  searchWordApprox.value = false
   searchWordLoadToken += 1
 }
 
@@ -516,6 +518,7 @@ const performTextSearch = () => {
   searchActivePage.value = 0
   searchActiveLine.value = 0
   searchWordRects.value = []
+  searchWordApprox.value = false
   searchWordLoadToken += 1
 
   const lowerQ = q.toLowerCase()
@@ -578,6 +581,9 @@ const searchActiveHighlights = computed<LinkedHighlight[]>(() => {
 // --- bbox 内词级高亮（A 文本层精确 / B 行内插值兜底） ---
 const pageTextItemsCache = new Map<number, PageTextItem[]>()
 const searchWordRects = ref<SearchWordRect[]>([])
+// 扫描件无文本层时是否用插值占位；效果不可接受时置 false（宁可不提供词级框）
+const ENABLE_INTERPOLATED_WORD_HIGHLIGHT = true
+const searchWordApprox = ref(false)
 let searchWordLoadToken = 0
 
 async function loadPageTextItems(page: number): Promise<PageTextItem[]> {
@@ -615,6 +621,7 @@ async function loadPageTextItems(page: number): Promise<PageTextItem[]> {
 async function updateSearchWordHighlights(result: SearchResult) {
   const token = ++searchWordLoadToken
   searchWordRects.value = []
+  searchWordApprox.value = false
   if (!result.page || !result.lineNumber) return
   const q = searchQuery.value.trim()
   if (!q) return
@@ -633,7 +640,8 @@ async function updateSearchWordHighlights(result: SearchResult) {
     console.warn('[PDFViewer] Failed to load page text items:', error)
   }
   if (token !== searchWordLoadToken) return
-  if (lineBbox) {
+  if (lineBbox && ENABLE_INTERPOLATED_WORD_HIGHLIGHT) {
+    searchWordApprox.value = true
     searchWordRects.value = insetWordRects(estimateMatchRects(line, q, {
       left: lineBbox.left,
       top: lineBbox.top,
@@ -2269,6 +2277,12 @@ onBeforeUnmount(() => {
   background: rgba(250, 173, 20, 0.75);
   border-radius: 2px;
   box-shadow: none;
+}
+
+/* 扫描件无文本层时的插值占位：虚线 + 半透明，与精确词框区分 */
+.pdf-highlight-box.search-word.approx {
+  border: 1px dashed rgba(250, 173, 20, 0.85);
+  background: rgba(250, 173, 20, 0.32);
 }
 
 .highlight-type-tag {

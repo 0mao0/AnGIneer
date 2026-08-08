@@ -55,17 +55,17 @@ export function insetWordRects(rects: SearchWordRect[], verticalRatio = 0.76): S
 }
 
 export function matchTextItemRects(items: PageTextItem[], query: string): SearchWordRect[] {
-  const lowerQ = (query || '').toLowerCase()
+  const lowerQ = (query || '').trim().toLowerCase()
   if (!lowerQ || !Array.isArray(items)) return []
   const runs: Array<{ item: PageTextItem; start: number; end: number }> = []
   let cursor = 0
   for (const item of items) {
     if (!item || !item.text) continue
     runs.push({ item, start: cursor, end: cursor + item.text.length })
-    cursor += item.text.length
+    cursor += item.text.length + 1 // +1 为条目间空格分隔
   }
   if (!runs.length) return []
-  const full = runs.map(r => r.item.text).join('').toLowerCase()
+  const full = runs.map(r => r.item.text).join(' ').toLowerCase()
   const rects: SearchWordRect[] = []
   let pos = full.indexOf(lowerQ)
   while (pos >= 0) {
