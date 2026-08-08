@@ -1599,7 +1599,8 @@ const shouldShowPdfHighlights = computed(() => {
 })
 
 const showNonPdfLoading = computed(() => {
-  if (props.isPdf) return false
+  // docx/xls/xlsx 有本地预览组件，无需等解析完成即可直接渲染
+  if (props.isPdf || isLocalOffice.value) return false
   const status = props.node.status
   return status === 'processing' || status === 'pending' || status === 'queued'
 })
