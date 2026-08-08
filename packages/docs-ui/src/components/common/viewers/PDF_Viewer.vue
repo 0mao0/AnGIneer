@@ -551,7 +551,10 @@ const jumpToSearchResult = (result: SearchResult, idx: number) => {
   searchActiveIndex.value = idx
   searchActivePage.value = result.page
   searchActiveLine.value = result.lineNumber
-  if (result.page > 0) {
+  const targetBbox = searchActiveHighlights.value[0]
+  if (targetBbox) {
+    scroll.scrollToHighlight(targetBbox, 'center')
+  } else if (result.page > 0) {
     scroll.scrollToPdfPage(result.page, 'auto')
   }
   void updateSearchWordHighlights(result)
@@ -905,8 +908,10 @@ function usePdfVirtualScroll(
   function onPageInputChange(v: any) { const p = Number(v); if (Number.isFinite(p)) scrollToPdfPage(p, 'smooth') }
 
   // 聚焦到指定高亮块：按 bbox 位置计算滚动目标，而不是整页对齐顶部。
+  // align='quarter' 保持既有行为（仅视口外滚动、落在视口上部 1/4）；
+  // align='center' 用于搜索跳转：bbox 纵向居中于视口，且已在视口内也会重新居中。
   // 只提供"滚动能力"，何时调用由调用方决定，便于组件跨项目复用。
-  function scrollToHighlight(highlight: LinkedHighlight) {
+  function scrollToHighlight(highlight: LinkedHighlight, align: 'quarter' | 'center' = 'quarter') {
     if (!props.isPdf || !pdfScrollRef.value) return
     const page = clampPage(highlight?.page ?? 0)
     if (!highlight || !highlight.hasRect) {
@@ -920,6 +925,7 @@ function usePdfVirtualScroll(
     const heightRatio = Math.max(0, Math.min(1, Number(highlight.height) || 0))
     const bboxTop = pageTop + topRatio * pageHeight
     const bboxBottom = pageTop + Math.min(1, topRatio + heightRatio) * pageHeight
+    const bboxHeight = Math.max(0, bboxBottom - bboxTop)
 
     const container = pdfScrollRef.value
     // 纵向页面窄于视口时，先复位横向滚动，保证以视口中轴线为准
@@ -930,15 +936,19 @@ function usePdfVirtualScroll(
     const viewportTop = container.scrollTop
     const viewportBottom = viewportTop + container.clientHeight
     // 能被点击说明 bbox 已在视口内（哪怕部分可见），保持原位不滚动
-    if (bboxBottom >= viewportTop && bboxTop <= viewportBottom) return
+    if (align !== 'center' && bboxBottom >= viewportTop && bboxTop <= viewportBottom) return
 
     const viewportHeight = Math.max(1, container.clientHeight)
-    // bbox 不在视口内：滚动到让 bbox 落在视口上部约 1/4 处，既有上下文又不贴顶
-    const targetTop = Math.max(0, bboxTop - viewportHeight * 0.25)
+    // bbox 不在视口内：滚动到让 bbox 落在视口上部约 1/4 处，既有上下文又不贴顶；
+    // 搜索跳转：bbox 纵向居中于视口
+    const targetTop = align === 'center'
+      ? bboxTop - Math.max(0, (viewportHeight - bboxHeight) / 2)
+      : Math.max(0, bboxTop - viewportHeight * 0.25)
+    const maxTop = Math.max(0, container.scrollHeight - container.clientHeight)
     applyingExternalPdfScroll.value = true
     activePdfPage.value = page
     scheduleRenderedPageRangeUpdate()
-    container.scrollTo({ top: targetTop, behavior: 'auto' })
+    container.scrollTo({ top: Math.max(0, Math.min(targetTop, maxTop)), behavior: 'auto' })
     requestAnimationFrame(() => { applyingExternalPdfScroll.value = false })
   }
 
