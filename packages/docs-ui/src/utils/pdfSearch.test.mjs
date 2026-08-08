@@ -68,13 +68,34 @@ test('matchTextItemRects 跨条目命中合并外接矩形', () => {
     { text: 'foo', left: 0.1, top: 0.2, width: 0.1, height: 0.05 },
     { text: 'bar', left: 0.2, top: 0.2, width: 0.1, height: 0.05 },
     { text: 'x', left: 0.5, top: 0.2, width: 0.05, height: 0.05 },
-  ], 'foobar')
+  ], 'foo bar')
   assert.equal(rects.length, 1)
   const r = rects[0]
   assert.ok(Math.abs(r.left - 0.1) < 1e-9)
   assert.ok(Math.abs(r.top - 0.2) < 1e-9)
   assert.ok(Math.abs(r.width - 0.2) < 1e-9)
   assert.ok(Math.abs(r.height - 0.05) < 1e-9)
+})
+
+test('matchTextItemRects 多词查询按条目间空格合并', () => {
+  const rects = matchTextItemRects([
+    { text: 'Code', left: 0.1, top: 0.2, width: 0.1, height: 0.05 },
+    { text: 'for', left: 0.2, top: 0.2, width: 0.1, height: 0.05 },
+  ], 'code for')
+  assert.equal(rects.length, 1)
+  const r = rects[0]
+  assert.ok(Math.abs(r.left - 0.1) < 1e-9)
+  assert.ok(Math.abs(r.top - 0.2) < 1e-9)
+  assert.ok(Math.abs(r.width - 0.2) < 1e-9)
+  assert.ok(Math.abs(r.height - 0.05) < 1e-9)
+})
+
+test('matchTextItemRects 跨条目不产生无空格假命中', () => {
+  const rects = matchTextItemRects([
+    { text: 'foo', left: 0.1, top: 0.2, width: 0.1, height: 0.05 },
+    { text: 'bar', left: 0.2, top: 0.2, width: 0.1, height: 0.05 },
+  ], 'oob')
+  assert.deepEqual(rects, [])
 })
 
 test('insetWordRects 纵向内缩并上下居中', () => {
