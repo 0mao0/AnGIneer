@@ -2093,6 +2093,16 @@ onBeforeUnmount(() => {
   position: relative;
 }
 
+/* Office 预览与 PDF 预览同布局：占满面板、内部滚动，不浮在面板上方 */
+.office-preview {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
 .pdf-loading-overlay {
   position: absolute;
   inset: 0;
