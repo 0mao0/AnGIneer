@@ -97,7 +97,7 @@ const normalizeForMatch = (value: string) => value
   .toLowerCase()
 
 const isDocumentPreviewTab = (tab: PreviewMode) => (
-  tab === 'Preview_HTML' || tab === 'Preview_Markdown'
+  tab === 'Preview_Markdown'
 )
 
 const normalizeRect = (bbox: unknown): RectBounds | null => {

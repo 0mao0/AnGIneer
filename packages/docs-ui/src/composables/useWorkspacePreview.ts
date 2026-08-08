@@ -47,8 +47,7 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
   const isImage = computed(() => previewFileType.value === 'image')
   const isText = computed(() => previewFileType.value === 'text' || previewFileType.value === 'markdown')
   const isDocumentScrollSyncEnabled = computed(() => (
-    options.activeTab.value === 'Preview_HTML'
-    || options.activeTab.value === 'Preview_Markdown'
+    options.activeTab.value === 'Preview_Markdown'
   ))
 
   const fileUrl = computed(() => {

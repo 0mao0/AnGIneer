@@ -4,4 +4,3 @@ export { default as PDFParsedWorkspace } from './common/workspace/PDFParsedWorks
 export { default as PDFParsedViewerCombo } from './common/workspace/PDFParsedViewerCombo.vue'
 export { default as PDF_Viewer } from './common/viewers/PDF_Viewer.vue'
 export { default as Preview_Markdown } from './common/viewers/Preview_Markdown.vue'
-export { default as Preview_HTML } from './common/viewers/Preview_HTML.vue'

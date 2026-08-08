@@ -60,7 +60,7 @@
 
 - **common.ts**：存放通用文本处理（Markdown 过滤、Token 估算、行号校验等）和 UI 辅助函数。
 - **knowledge.ts**：存放业务强相关的节点解析、渲染逻辑、图标映射及富媒体处理函数。
-- **受益组件**：`Preview_IndexList`, `Preview_IndexTree`, `Preview_IndexGraph` 等 11 个核心组件已完成重构，实现了 100% 的逻辑复用。
+- **受益组件**：`Preview_IndexTree`, `Preview_IndexGraph` 等核心组件已完成重构，实现了 100% 的逻辑复用。
 
 ---
 
@@ -1044,4 +1044,7 @@ interface ChatMessage {
   页饰不进入），搜索与右侧预览与树/图谱/FTS 共用同一份内容。
 - 编辑期：合并/拆分/改块后，`graph_editor` 用同一投影器重写
   `parsed/content.md` 与 `edited/current.md`。
+- 读取期：`FileStorage.read_markdown` 优先返回 `edited/current.md`；
+  不存在时返回 `parsed/content.md`，因此前端 Markdown 视图展示的是
+  `current.md`（若已生成）。
 - 存量文档：`python services/docs-core/scripts/backfill_markdown_projection.py` 可回填。

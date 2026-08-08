@@ -107,7 +107,7 @@ solo_engine 建块（写 layout_category / document_part / page_role）
 
 ### 树/列表显示
 
-- `Preview_IndexTree`、`Preview_IndexList` 的可见行默认过滤 `layout_category == "furniture"` 的节点；
+- `Preview_IndexTree` 的可见行默认过滤 `layout_category == "furniture"` 的节点；
 - 工具栏新增“显示页眉页脚”开关，默认关闭，状态存 localStorage（key：`docs-ui.show-furniture`）；
 - 开关打开时页饰行以弱化样式显示（次要文字、不进入 outline/层级缩进），便于排查。
 
