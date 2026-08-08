@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { renderAsync } from 'docx-preview'
 import * as XLSX from 'xlsx'
 
@@ -35,6 +35,36 @@ const extLabel = computed(() => {
 const isDocx = computed(() => ext.value === 'docx')
 const isSheet = computed(() => ['xls', 'xlsx'].includes(ext.value))
 
+let fitObserver: ResizeObserver | null = null
+let fitRafId = 0
+
+function applyDocxFitScale() {
+  const container = containerRef.value
+  if (!container || !isDocx.value) return
+  const pages = Array.from(container.querySelectorAll('.docx')) as HTMLElement[]
+  if (!pages.length) return
+  const naturalWidth = pages[0].offsetWidth
+  if (naturalWidth <= 0) return
+  // 与 PDF viewer 的 fit-to-window 一致：页面宽度跟随容器宽度缩放
+  const availableWidth = Math.max(1, container.clientWidth - 32)
+  const scale = availableWidth / naturalWidth
+  for (const page of pages) {
+    const naturalHeight = page.offsetHeight
+    page.style.transformOrigin = 'center center'
+    page.style.transform = `scale(${scale})`
+    // transform 不占布局高度，用 margin-bottom 补偿缩放后的高度差 + 页间距
+    page.style.marginBottom = `${Math.max(0, naturalHeight * (scale - 1)) + 16}px`
+  }
+}
+
+function scheduleApplyDocxFitScale() {
+  if (fitRafId) cancelAnimationFrame(fitRafId)
+  fitRafId = requestAnimationFrame(() => {
+    fitRafId = 0
+    applyDocxFitScale()
+  })
+}
+
 async function load() {
   if (!props.fileUrl || (!isDocx.value && !isSheet.value)) return
   loading.value = true
@@ -52,6 +82,8 @@ async function load() {
         ignoreLastRenderedPageBreak: true,
         useBase64URL: true,
       })
+      await nextTick()
+      applyDocxFitScale()
     } else {
       const buf = await res.arrayBuffer()
       const wb = XLSX.read(buf, { type: 'array' })
@@ -67,7 +99,17 @@ async function load() {
 }
 
 watch(() => props.fileUrl, load, { immediate: true })
+onMounted(() => {
+  if (typeof ResizeObserver !== 'undefined' && containerRef.value) {
+    fitObserver = new ResizeObserver(() => scheduleApplyDocxFitScale())
+    fitObserver.observe(containerRef.value)
+  }
+})
 onBeforeUnmount(() => {
+  fitObserver?.disconnect()
+  fitObserver = null
+  if (fitRafId) cancelAnimationFrame(fitRafId)
+  fitRafId = 0
   if (containerRef.value) containerRef.value.innerHTML = ''
 })
 </script>
