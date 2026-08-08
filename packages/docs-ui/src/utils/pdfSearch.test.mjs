@@ -5,6 +5,7 @@ import {
   buildHighlightSegments,
   buildPrintedPageLabels,
   estimateMatchRects,
+  insetWordRects,
   matchTextItemRects,
 } from './pdfSearch.ts'
 
@@ -74,6 +75,19 @@ test('matchTextItemRects 跨条目命中合并外接矩形', () => {
   assert.ok(Math.abs(r.top - 0.2) < 1e-9)
   assert.ok(Math.abs(r.width - 0.2) < 1e-9)
   assert.ok(Math.abs(r.height - 0.05) < 1e-9)
+})
+
+test('insetWordRects 纵向内缩并上下居中', () => {
+  const rects = insetWordRects([
+    { left: 0.1, top: 0.2, width: 0.2, height: 0.05 },
+  ])
+  assert.equal(rects.length, 1)
+  const r = rects[0]
+  const inset = (0.05 * (1 - 0.76)) / 2
+  assert.ok(Math.abs(r.left - 0.1) < 1e-9)
+  assert.ok(Math.abs(r.top - (0.2 + inset)) < 1e-9)
+  assert.ok(Math.abs(r.width - 0.2) < 1e-9)
+  assert.ok(Math.abs(r.height - (0.05 - inset * 2)) < 1e-9)
 })
 
 test('buildPrintedPageLabels page_number 优先并回退页次', () => {

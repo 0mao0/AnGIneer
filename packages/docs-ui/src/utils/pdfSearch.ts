@@ -42,6 +42,18 @@ export interface SearchWordRect {
   height: number
 }
 
+export function insetWordRects(rects: SearchWordRect[], verticalRatio = 0.76): SearchWordRect[] {
+  return rects.map((rect) => {
+    const inset = Math.min((rect.height * (1 - verticalRatio)) / 2, rect.height / 2)
+    return {
+      left: rect.left,
+      top: rect.top + inset,
+      width: rect.width,
+      height: Math.max(0, rect.height - inset * 2),
+    }
+  })
+}
+
 export function matchTextItemRects(items: PageTextItem[], query: string): SearchWordRect[] {
   const lowerQ = (query || '').toLowerCase()
   if (!lowerQ || !Array.isArray(items)) return []
