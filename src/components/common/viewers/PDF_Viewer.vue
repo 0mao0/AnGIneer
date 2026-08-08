@@ -332,7 +332,7 @@ import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 import OfficePreview from './OfficePreview.vue'
-import { buildHighlightSegments, estimateMatchRects, matchTextItemRects, type PageTextItem, type SearchWordRect } from '../../../utils/pdfSearch'
+import { buildHighlightSegments, estimateMatchRects, insetWordRects, matchTextItemRects, type PageTextItem, type SearchWordRect } from '../../../utils/pdfSearch'
 
 export interface PDFViewerNode {
   status?: string
@@ -626,7 +626,7 @@ async function updateSearchWordHighlights(result: SearchResult) {
     if (token !== searchWordLoadToken) return
     const rects = matchTextItemRects(items, q)
     if (rects.length) {
-      searchWordRects.value = rects
+      searchWordRects.value = insetWordRects(rects)
       return
     }
   } catch (error) {
@@ -634,12 +634,12 @@ async function updateSearchWordHighlights(result: SearchResult) {
   }
   if (token !== searchWordLoadToken) return
   if (lineBbox) {
-    searchWordRects.value = estimateMatchRects(line, q, {
+    searchWordRects.value = insetWordRects(estimateMatchRects(line, q, {
       left: lineBbox.left,
       top: lineBbox.top,
       width: lineBbox.width,
       height: lineBbox.height,
-    })
+    }))
   }
 }
 
