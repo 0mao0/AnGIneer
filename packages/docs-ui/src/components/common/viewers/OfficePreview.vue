@@ -97,6 +97,14 @@ onBeforeUnmount(() => {
   padding: 12px 16px;
   min-height: 100%;
 }
+.office-doc-container :deep(.docx-wrapper) {
+  padding: 8px 0 24px;
+}
+.office-doc-container :deep(.docx) {
+  margin: 0 auto 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
 .office-doc-container :deep(table) {
   border-collapse: collapse;
   width: 100%;
