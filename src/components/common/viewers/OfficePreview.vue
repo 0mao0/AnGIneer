@@ -41,19 +41,20 @@ let fitRafId = 0
 function applyDocxFitScale() {
   const container = containerRef.value
   if (!container || !isDocx.value) return
+  const wrapper = container.querySelector('.docx-wrapper') as HTMLElement | null
   const pages = Array.from(container.querySelectorAll('.docx')) as HTMLElement[]
   if (!pages.length) return
   const naturalWidth = pages[0].offsetWidth
   if (naturalWidth <= 0) return
   // 与 PDF viewer 的 fit-to-window 一致：页面宽度跟随容器宽度缩放
-  const availableWidth = Math.max(1, container.clientWidth - 32)
+  const availableWidth = Math.max(1, (wrapper?.clientWidth || container.clientWidth - 32) - 24)
   const scale = availableWidth / naturalWidth
   for (const page of pages) {
     const naturalHeight = page.offsetHeight
     page.style.transformOrigin = 'center center'
     page.style.transform = `scale(${scale})`
-    // transform 不占布局高度，用 margin-bottom 补偿缩放后的高度差 + 页间距
-    page.style.marginBottom = `${Math.max(0, naturalHeight * (scale - 1)) + 16}px`
+    // transform 不占布局高度，用 margin-bottom 补偿缩放后的高度差（可为负）+ 页间距
+    page.style.marginBottom = `${naturalHeight * (scale - 1) + 16}px`
   }
 }
 
@@ -84,6 +85,7 @@ async function load() {
       })
       await nextTick()
       applyDocxFitScale()
+      scheduleApplyDocxFitScale()
     } else {
       const buf = await res.arrayBuffer()
       const wb = XLSX.read(buf, { type: 'array' })
@@ -141,9 +143,15 @@ onBeforeUnmount(() => {
 }
 .office-doc-container :deep(.docx-wrapper) {
   padding: 8px 0 24px;
+  background: transparent;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
 }
 .office-doc-container :deep(.docx) {
-  margin: 0 auto 16px;
+  margin: 0 0 16px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
   background: #fff;
 }
