@@ -144,6 +144,8 @@ export function useKnowledgeParse(api: KnowledgeParseApi) {
   ) => {
     stopParsePolling()
     let pollFailCount = 0
+    let renderPdfRefreshed = false
+    const RENDER_PDF_READY_STAGES = new Set(['raw_parse', 'popo', 'structure', 'fts', 'vectors', 'graph'])
     parsePollTimer.value = window.setInterval(async () => {
       try {
         const task = await api.getParseTask(taskId) as any
@@ -162,6 +164,12 @@ export function useKnowledgeParse(api: KnowledgeParseApi) {
                 : task.status === 'cancelled'
                   ? 'cancelled'
                   : 'processing'
+        }
+        // 转换完成（进入 raw_parse 及之后）立即刷新 render_pdf，
+        // 让 Office 预览尽快从 docx-preview 切到分页正确的 PDF viewer
+        if (!renderPdfRefreshed && RENDER_PDF_READY_STAGES.has(String(task.stage || ''))) {
+          renderPdfRefreshed = true
+          await onLoadDocContent(docId)
         }
         if (task.status === 'completed' || task.status === 'failed'
           || task.status === 'partial' || task.status === 'cancelled') {

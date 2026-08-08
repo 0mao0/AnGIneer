@@ -743,7 +743,10 @@ const loadDocContent = async (docId: string) => {
       graph_data?: { nodes: any[]; edges: any[] } | null
       build_id?: string | null
     }
-    docContent.value = result.content || '暂无内容'
+    // 解析中 content 可能尚未生成，不覆盖已有内容，只更新 render_pdf
+    if (result.content) {
+      docContent.value = result.content
+    }
     docContentDocId.value = docId
     docContentBuildId.value = result.build_id || null
     graphData.value = null
