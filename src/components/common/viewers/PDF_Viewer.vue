@@ -1599,8 +1599,9 @@ const shouldShowPdfHighlights = computed(() => {
 })
 
 const showNonPdfLoading = computed(() => {
-  // Office 文档转换出 PDF 后走 PDF viewer（分页正确）；转换完成前显示等待态
-  if (props.isPdf) return false
+  // docx/xls/xlsx 有本地预览组件，转换期间直接渲染 OfficePreview；
+  // 转换完成出 render_pdf 后由 isPdf 切到 PDF viewer（分页正确）
+  if (props.isPdf || isLocalOffice.value) return false
   const status = props.node.status
   return status === 'processing' || status === 'pending' || status === 'queued'
 })
@@ -2112,13 +2113,13 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--dp-pane-bg, rgba(255, 255, 255, 0.92));
   backdrop-filter: blur(2px);
 }
 
 .pdf-loading-text {
   font-size: 14px;
-  color: var(--text-secondary, #666);
+  color: var(--dp-title-text, #595959);
 }
 
 .pdf-loading-progress {
