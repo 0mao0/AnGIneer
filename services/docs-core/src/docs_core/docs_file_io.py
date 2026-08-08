@@ -101,6 +101,20 @@ class FileStorage:
                 return str(files[0])
         return None
 
+    def _pick_original_source_file(self, source_dir: Path) -> Optional[str]:
+        """优先返回上传的原始文件（非 PDF），避免转换产物把 source_file 顶成 PDF。"""
+        if not source_dir.exists():
+            return None
+        files = sorted(
+            [path for path in source_dir.iterdir() if path.is_file()],
+            key=lambda path: path.stat().st_mtime,
+            reverse=True,
+        )
+        if not files:
+            return None
+        non_pdf = [path for path in files if path.suffix.lower() != ".pdf"]
+        return str(non_pdf[0] if non_pdf else files[0])
+
     def resolve_pdf_input(self, library_id: str, doc_id: str) -> str:
         """只读：返回 source 目录下最新 PDF（convert 产物或上传即 PDF）。
 
@@ -155,16 +169,27 @@ class FileStorage:
         """获取文档清单"""
         parsed_dir = paths.get_parsed_dir(library_id, doc_id, self.base_dir)
         doc_root = parsed_dir.parent
-        source_file = self.get_latest_source_file(library_id, doc_id)
+        source_dir = paths.get_source_dir(library_id, doc_id, self.base_dir)
+        source_file = self._pick_original_source_file(source_dir)
         parsed_path = paths.get_parsed_markdown_path(library_id, doc_id, self.base_dir)
         edited_path = paths.get_edited_markdown_path(library_id, doc_id, self.base_dir)
         assets_path = parsed_dir / "assets"
         raw_dir = parsed_dir / "raw"
         mineru_blocks_path = paths.get_mineru_blocks_path(library_id, doc_id, self.base_dir)
         history_dir = paths.get_edited_dir(library_id, doc_id, self.base_dir) / "history"
-        # 渲染底图 PDF：原始 PDF 在 source 目录（转换后 PDF 与上传文件同目录），不再回退 parsed/mineru_render.pdf
-        source_pdf = Path(source_file).with_suffix(".pdf") if source_file else None
-        render_pdf_path = source_pdf if (source_pdf and source_pdf.exists()) else None
+        # 渲染底图 PDF：转换产物或上传即 PDF（优先与原始文件名同名的 PDF）
+        render_pdf_path = None
+        if source_file:
+            same_stem_pdf = Path(source_file).with_suffix(".pdf")
+            if same_stem_pdf.exists():
+                render_pdf_path = same_stem_pdf
+            else:
+                pdf_files = sorted(
+                    [p for p in source_dir.iterdir() if p.suffix.lower() == ".pdf" and p.is_file()],
+                    key=lambda p: p.stat().st_mtime,
+                    reverse=True,
+                )
+                render_pdf_path = pdf_files[0] if pdf_files else None
         return {
             "doc_root": str(doc_root),
             "source_file": source_file,
