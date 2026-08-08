@@ -131,8 +131,13 @@
           :class="{ active: idx === searchActiveIndex }"
           @click="jumpToSearchResult(result, idx)"
         >
-          <span class="search-result-page">p{{ result.page || '-' }}</span>
-          <span class="search-result-text">{{ result.text }}</span>
+          <span class="search-result-page">{{ result.page > 0 ? `第 ${displayPageLabel(result.page)} 页` : '-' }}</span>
+          <span class="search-result-text">
+            <template v-for="(seg, segIdx) in buildHighlightSegments(result.text, searchQuery)" :key="segIdx">
+              <mark v-if="seg.hit" class="search-hit">{{ seg.text }}</mark>
+              <template v-else>{{ seg.text }}</template>
+            </template>
+          </span>
         </div>
       </div>
       <div v-else-if="isSearching" class="search-searching">
@@ -309,6 +314,7 @@ import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 import OfficePreview from './OfficePreview.vue'
+import { buildHighlightSegments } from '../../../utils/pdfSearch'
 
 export interface PDFViewerNode {
   status?: string
@@ -368,6 +374,7 @@ const props = defineProps<{
   highlights: LinkedHighlight[]
   activeHighlightId: string | null
   activeClickItemId?: string | null
+  pageLabels?: Record<number, string>
   textScrollPercent: number
 }>()
 
@@ -425,6 +432,11 @@ const showBbox = ref(true)
 const toggleBbox = () => { showBbox.value = !showBbox.value }
 
 // --- 搜索 ---
+const displayPageLabel = (page: number) => {
+  if (page <= 0) return '-'
+  return props.pageLabels?.[page] || String(page)
+}
+
 interface SearchResult {
   page: number
   text: string
