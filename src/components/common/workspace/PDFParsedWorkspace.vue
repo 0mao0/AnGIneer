@@ -184,7 +184,7 @@ const {
   activeLinkedLineRange,
   onHoverLinkedItem,
   onSelectHighlightFromLeft,
-  onSelectItemFromRight,
+  onSelectItemFromRight: onSelectItemFromRightLinked,
   onSelectLineFromRight,
     setActiveLinkedItem: setWorkspaceLinkedItem,
   resetLinkageState
@@ -199,6 +199,13 @@ const {
 })
 
 const pdfViewerRef = ref<InstanceType<typeof PDF_Viewer> | null>(null)
+/* 右侧树/列表点击：跳页并把命中 bbox 纵向居中（含同页页饰） */
+const onSelectItemFromRight = (itemId: string) => {
+  onSelectItemFromRightLinked(itemId, (target) => {
+    pdfPage.value = target.page
+    pdfViewerRef.value?.scrollToHighlight(target, 'center')
+  })
+}
 const onSelectPdfHighlight = (item: Parameters<typeof onSelectHighlightFromLeft>[0]) => {
   onSelectHighlightFromLeft(item, (highlight) => pdfViewerRef.value?.scrollToHighlight(highlight))
 }

@@ -1026,7 +1026,10 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     }
   }
 
-  const onSelectItemFromRight = (itemId: string) => {
+  const onSelectItemFromRight = (
+    itemId: string,
+    scrollPdfToHighlight?: (highlight: LinkedHighlight) => void,
+  ) => {
     pdfClickActiveItemId.value = itemId
     const target = resolveLinkedHighlight(itemId, itemId, null)
     // 右侧树点击：同样锁定到节点 id，PDF 里整节点（公式框+编号框）一起高亮
@@ -1036,8 +1039,12 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     if (isDocumentPreviewActive.value && target.lineStart !== null && target.lineEnd !== null) {
       scrollRightByLine(target.lineStart)
     }
-    if (options.isPdf.value && target.page !== options.pdfPage.value) {
-      options.pdfPage.value = target.page
+    if (options.isPdf.value) {
+      if (scrollPdfToHighlight) {
+        scrollPdfToHighlight(target)
+      } else if (target.page !== options.pdfPage.value) {
+        options.pdfPage.value = target.page
+      }
     }
   }
 

@@ -1763,7 +1763,9 @@ watch(() => props.textScrollPercent, (percent) => {
 const goPrevPage = () => scroll.goPrevPage()
 const goNextPage = () => scroll.goNextPage()
 const onPageInputChange = (v: any) => scroll.onPageInputChange(v)
-const scrollToHighlight = (highlight: LinkedHighlight) => scroll.scrollToHighlight(highlight)
+const scrollToHighlight = (highlight: LinkedHighlight, align?: 'quarter' | 'center') => (
+  scroll.scrollToHighlight(highlight, align)
+)
 defineExpose({ scrollToHighlight })
 const zoomIn = () => zoom.zoomIn()
 const zoomOut = () => zoom.zoomOut()
