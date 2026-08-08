@@ -44,6 +44,7 @@ interface UseWorkspaceLinkageOptions {
   isPdf: ComputedRef<boolean>
   pdfPage: Ref<number>
   rightScrollPercent: Ref<number>
+  showFurniture?: ComputedRef<boolean>
 }
 
 interface ResolveLinkedHighlightOptions {
@@ -594,6 +595,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     const isStrictRightPaneLinkage = options.activeTab.value === 'Preview_IndexTree'
       || options.activeTab.value === 'Preview_IndexGraph'
       || options.activeTab.value === 'Preview_KnowledgeGraph'
+    const showFurniture = options.showFurniture?.value ?? true
     const nodes = options.graphData.value?.nodes || []
     const hasBboxData = nodes.length > 0 && nodes.some(node => node.bbox || node.merged_bboxes || node.page_bboxes)
     if (!hasBboxData) return []
@@ -630,6 +632,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     // 展示层全量高亮：页眉/页脚/页码也参与（05 语义层另行收敛）
     const highlightPool = nodes
       .flatMap((node, index) => {
+        if (!showFurniture && isFurnitureNode(node)) return []
         const page = (node.page_idx ?? 0) + 1
         const type = node.block_type || 'text'
         const itemId = node.id || `node-${index}`

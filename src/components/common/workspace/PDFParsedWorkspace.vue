@@ -195,7 +195,8 @@ const {
   activeTab: computed(() => activeTab.value),
   isPdf,
   pdfPage,
-  rightScrollPercent
+  rightScrollPercent,
+  showFurniture: computed(() => showFurniture.value),
 })
 
 const pdfViewerRef = ref<InstanceType<typeof PDF_Viewer> | null>(null)
@@ -213,6 +214,10 @@ const onSelectPdfHighlight = (item: Parameters<typeof onSelectHighlightFromLeft>
 watch(() => props.content, (value) => {
   void value
 }, { immediate: true })
+
+watch(showFurniture, (value) => {
+  localStorage.setItem('docs-ui.show-furniture', value ? '1' : '0')
+})
 
 watch(() => props.node.key, () => {
   activeTab.value = getDefaultParsedTab()
