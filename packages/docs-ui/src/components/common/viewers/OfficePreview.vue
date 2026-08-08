@@ -51,7 +51,8 @@ function applyDocxFitScale() {
   const scale = availableWidth / naturalWidth
   for (const page of pages) {
     const naturalHeight = page.offsetHeight
-    page.style.transformOrigin = 'center center'
+    // 顶部对齐缩放，避免页面缩小后顶部留出大段空白
+    page.style.transformOrigin = 'top center'
     page.style.transform = `scale(${scale})`
     // transform 不占布局高度，用 margin-bottom 补偿缩放后的高度差（可为负）+ 页间距
     page.style.marginBottom = `${naturalHeight * (scale - 1) + 16}px`
