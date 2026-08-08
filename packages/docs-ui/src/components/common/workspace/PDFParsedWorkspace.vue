@@ -20,6 +20,7 @@
           :activeHighlightId="activeLeftHighlightId"
           :activeClickItemId="pdfClickActiveItemId"
           :searchText="markdownContent"
+          :pageLabels="printedPageLabels"
           :textScrollPercent="leftScrollPercent"
           @download="downloadFile"
           @text-scroll="onLeftTextScrollPercent"
@@ -76,7 +77,8 @@ import type {
   StructuredStats,
   PDFParsedWorkspaceEventMap
 } from '../../../types/knowledge'
-import { renderMarkdownToHtml } from '../../../utils/knowledge'
+import { extractPrintedPageLabel, renderMarkdownToHtml } from '../../../utils/knowledge'
+import { buildPrintedPageLabels } from '../../../utils/pdfSearch'
 
 interface Props {
   node: KnowledgeTreeNode
@@ -170,6 +172,10 @@ const {
 })
 
 const markdownContent = computed(() => props.content || '')
+const printedPageLabels = computed(() => buildPrintedPageLabels(
+  props.graphData?.nodes || [],
+  extractPrintedPageLabel,
+))
 const {
   linkedHighlights,
   activeLinkedItemId,
