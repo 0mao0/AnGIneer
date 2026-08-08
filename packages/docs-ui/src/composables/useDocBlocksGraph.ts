@@ -1,6 +1,8 @@
 import { ref, computed, shallowRef, type Ref, type ShallowRef, type ComputedRef } from 'vue'
 import type { DocBlockNode, DocBlocksGraph } from '../types/knowledge'
 import {
+  isAttachmentNode,
+  isFurnitureNode,
   getNodeLevel,
   getNodeText,
   getChildren
@@ -63,6 +65,54 @@ export const buildDocBlocksGraphIndex = (graph: DocBlocksGraph | null | undefine
     nodeMap.get(leftId)!,
     nodeMap.get(rightId)!
   ))
+
+  // 页饰不单独成根：非前置页饰挂到物理位置最近的前驱根节点下（L1，按物理顺序插队）。
+  // 前置页饰已由 buildDisplayRoots 归入前置分组，这里不重复挂载。
+  const furnitureRootIds = roots.filter(id => isFurnitureNode(nodeMap.get(id)))
+  if (furnitureRootIds.length) {
+    const anchorRootIds = roots.filter(id => {
+      const node = nodeMap.get(id)!
+      return !isFurnitureNode(node) && !isAttachmentNode(node)
+    })
+    for (const furnitureId of furnitureRootIds) {
+      const furniture = nodeMap.get(furnitureId)!
+      if (String(furniture.document_part || '') === 'front_matter') continue
+      const furniturePart = String(furniture.document_part || '')
+      let anchorId: string | null = null
+      for (const candidateId of anchorRootIds) {
+        const candidate = nodeMap.get(candidateId)!
+        if (compareDocBlockNodeOrder(candidate, furniture) > 0) break
+        if (!furniturePart || String(candidate.document_part || '') === furniturePart) {
+          anchorId = candidateId
+        }
+      }
+      if (!anchorId && anchorRootIds.length) {
+        // 同 part 无前驱根时，兜底挂最近的前驱根，避免页饰继续顶在顶层
+        let fallbackId: string | null = null
+        for (const candidateId of anchorRootIds) {
+          if (compareDocBlockNodeOrder(nodeMap.get(candidateId)!, furniture) <= 0) {
+            fallbackId = candidateId
+          }
+        }
+        anchorId = fallbackId
+      }
+      if (!anchorId) continue
+      roots.splice(roots.indexOf(furnitureId), 1)
+      if (!childrenMap.has(anchorId)) childrenMap.set(anchorId, [])
+      childrenMap.get(anchorId)!.push(furnitureId)
+      parentMap.set(furnitureId, anchorId)
+    }
+    for (const childIds of childrenMap.values()) {
+      childIds.sort((leftId, rightId) => compareDocBlockNodeOrder(
+        nodeMap.get(leftId)!,
+        nodeMap.get(rightId)!
+      ))
+    }
+    roots.sort((leftId, rightId) => compareDocBlockNodeOrder(
+      nodeMap.get(leftId)!,
+      nodeMap.get(rightId)!
+    ))
+  }
   return { nodeMap, childrenMap, parentMap, roots }
 }
 
