@@ -530,9 +530,9 @@ if path == "semantic_retrieval" and os.environ.get("ANGINEER_AGENT_L1", "false")
 
 ### 当前进度与执行待办（2026-08-09）
 
-- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）均已提交；P5（Prompt 资产化）代码与测试完成，**尚未提交**。
-- **P5 待提交文件**：`angineer_core/prompts/`（新包：loader + dispatcher/classifier/agent_configs/sop_routes/evals_routes/answer_eval 常量）、`dispatcher.py`/`classifier.py`/`agent_configs.py`（改，prompt 迁出 + prompt_versions）、`sop_routes.py`/`evals_routes.py`/`answer_eval.py`（改）、`scripts/audit_prompts.py`（新，CI 审计）、`docs/agent-loop-improvement-plan.md`（改）。
-- **下一步（用户已确认）**：① 提交 P5；② 继续 P6（dispatcher 拆分，最后做）；③ 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare（多跳 +20%、单跳不降 ±2%、平均 turns ≤1.5、L4 综合大题集分数 ≥ 旧路径）。
+- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）、P5（Prompt 资产化，48faa80）均已提交；P6a（sop_runner.py 下沉 + llm_generate 统一超时）代码与测试完成，**尚未提交**。
+- **P6a 待提交文件**：`sop_runner.py`（新，SOP 执行引擎）、`dispatcher.py`（改：继承 SopRunner，-1065 行）、`prompts/dispatcher.py`（补 SOP 答案组装 prompt）、`docs/agent-loop-improvement-plan.md`（改）。
+- **下一步（用户已确认）**：① 提交 P6a；② 继续 P6b（retrieval_pipeline.py 下沉）→ P6c（qa_pipeline 答题段）→ P6d（dispatcher 瘦身 <800 行 + 清理）；③ 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare。
 - **约束**：`ANGINEER_AGENT_L1/L4` 默认关闭，不影响现有链路；`tests/` 目录仍被 `.gitignore` 忽略，测试不提交。
 - **外部依赖**：DashScope embedding 与 reranker 服务当前不可用（回退 hash 检索，evals 分数不可比），P3.3/P3.4/P4.5 验收挂起中。
 
@@ -625,6 +625,15 @@ L4 分支（L350-412）在 `ANGINEER_AGENT_L4=true` 时改走 `_dispatch_complex
 | 5 | dispatcher 本体只剩 `dispatch()` 分级路由 + 回调编排，目标 < 800 行；修正 L4 分支使 flag 关时也走语义明确的 legacy 路径 |
 | 6 | 清理：函数内局部 import（L154、L724-727、L988-989、L1164-1170、L1554、L1923）移顶部或注入；`_TOOL_EXEC_TIMEOUT_SECONDS` 进 config |
 | 7 | 全程 evals 全绿即合并；纯重构不改行为 |
+
+### P6a 实施记录（2026-08-09）：sop_runner.py 下沉
+
+- 新建 `angineer_core/sop_runner.py`：`SopRunner` 类承载 `run_sop` / `log_pre_execution` / `_execute_step` / `_execute_analyzed_step` / `_should_skip_step` / `_execute_meta_sop_tool` / `_execute_tool_safe` / `_handle_action_*` / `_smart_step_execution` / `_write_markdown_log` / `_process_outputs` / `_extract_tool_error` / `_adapt_result_for_step` / `_select_output_value` / `_collect_result_candidates` / `_record_step` / `_smart_select_tool` / `_build_smart_execution_prompt` / `_generate_step_summary` / `_extract_json_from_response` / `_build_sop_trace` / `_build_citations_from_sop_trace`。
+- `Dispatcher(SopRunner)` 继承接入：`__init__` 委托 `super().__init__`（memory/config_name/mode/result_md_path/llm_client 状态统一在 SopRunner 初始化），`run_sop` 入口保留一个版本周期；`_build_sop_trace` / `_build_citations_from_sop_trace` 静态方法随继承保留（SopRunnerAdapter 与 `_dispatch_sop` 无需改动）。
+- P6.2 修 Q4 剩余部分：`llm_generate` 元工具纳入统一超时（`SopRunner(tool_timeout_s=...)`，默认 120s）；`_execute_tool_safe` 与 `_execute_meta_sop_tool` 超时后 `executor.shutdown(wait=False, cancel_futures=True)` 立即放弃等待，并记录"线程泄漏"warning。
+- dispatcher.py 由 2902 行减至 1837 行（-1065 行）；移除 `_TOOL_EXEC_TIMEOUT_SECONDS` / ToolRegistry / chat_result_guarded / ThreadPoolExecutor 等不再使用的模块级符号。
+- 补充 P5 遗漏：`_compose_sop_answer` 的"你是工程规范领域"两处 prompt 迁入 `prompts/dispatcher.py`（`SOP_ANSWER_COMPOSE_PROMPT` / `SOP_ANSWER_SYSTEM_PROMPT`，逐字验证 byte-identical）。
+- 测试：新增 `test_sop_runner.py` 6 个（blackboard/history、step_callback、Dispatcher 继承、trace 构建、llm_generate 超时、默认超时），`tests/angineer-core` 80 个全绿；`tests/unit` + `tests/ai-inference` 266 passed + 4 skip 回归不变（dispatcher 既有单测直接复用继承方法，未改动）。
 
 ## P7 · API 层统一（2~3 天，P3 之后任意时点）
 

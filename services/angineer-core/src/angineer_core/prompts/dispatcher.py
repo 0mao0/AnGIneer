@@ -234,6 +234,25 @@ STEP_SUMMARY_PROMPT = """
    - 用户输入变量 d，值为 4。
 """
 
+SOP_ANSWER_COMPOSE_PROMPT = (
+    "你是工程规范领域的专业助手。请根据以下计算结果回答用户问题。\n\n"
+    "重要约束 - **必须严格遵守**:\n"
+    "- 你的回答必须逐字逐句基于以下计算结果\n"
+    "- 如果计算结果中没有包含问题的完整答案，必须明确说明"
+    "\"当前步骤计算结果不足以完整回答此问题，以下仅基于已有结果:\"\n"
+    "- **绝对禁止**添加任何你自己知道但计算结果中未出现的规范编号、数值或公式\n"
+    "- 只能引用计算结果中**已经出现**的变量名和数值\n"
+    "- 将计算结果中的数值代入问题所问的语境中组织语言，但不要改变数值\n"
+    "- 如果问题是选择题，请根据计算结果明确给出选项字母，并简要说明计算依据\n\n"
+    "问题: {query}\n\n"
+    "计算结果: {calc_vars}\n"
+)
+
+SOP_ANSWER_SYSTEM_PROMPT = (
+    "你是工程规范领域的专业助手。"
+    "请严格基于提供的计算结果回答问题，不要添加未经验证的信息。"
+)
+
 
 register("dispatcher.system_prompt_base", "v1", SYSTEM_PROMPT_BASE)
 register("dispatcher.system_prompt_rules_definition", "v1", SYSTEM_PROMPT_RULES_DEFINITION_QA)
@@ -254,3 +273,5 @@ register("dispatcher.smart_select_tool_prompt", "v1", SMART_SELECT_TOOL_PROMPT)
 register("dispatcher.smart_execution_calculator_hint", "v1", SMART_EXECUTION_CALCULATOR_HINT)
 register("dispatcher.smart_execution_prompt", "v1", SMART_EXECUTION_PROMPT)
 register("dispatcher.step_summary_prompt", "v1", STEP_SUMMARY_PROMPT)
+register("dispatcher.sop_answer_compose_prompt", "v1", SOP_ANSWER_COMPOSE_PROMPT)
+register("dispatcher.sop_answer_system_prompt", "v1", SOP_ANSWER_SYSTEM_PROMPT)
