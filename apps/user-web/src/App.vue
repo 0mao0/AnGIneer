@@ -41,6 +41,7 @@
         />
 
         <a-drawer
+          class="ai-chat-drawer"
           v-model:open="aiChatVisible"
           title="AI 对话"
           placement="right"
@@ -203,5 +204,9 @@ html, body, #app {
   .base-chat-component {
     height: 100%;
   }
+}
+
+.ai-chat-drawer .ant-drawer-body {
+  overflow: hidden;
 }
 </style>

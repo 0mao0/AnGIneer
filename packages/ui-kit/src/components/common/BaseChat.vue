@@ -922,6 +922,7 @@ defineExpose({
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
   background: var(--chat-root-bg, var(--bg-primary));
 }
 
@@ -964,6 +965,7 @@ defineExpose({
 
 .chat-messages {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding: 16px;
   background: var(--chat-root-bg, var(--bg-primary));
@@ -1542,6 +1544,7 @@ defineExpose({
 
 .resize-handle {
   height: 8px;
+  flex-shrink: 0;
   background: transparent;
   cursor: row-resize;
   display: flex;
@@ -1567,6 +1570,7 @@ defineExpose({
 }
 
 .chat-input {
+  flex-shrink: 0;
   padding: 12px 16px;
   border-top: 1px solid var(--border-color);
   background: var(--bg-secondary);
