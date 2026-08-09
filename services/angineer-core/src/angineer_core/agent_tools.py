@@ -113,6 +113,72 @@ def _serialize_value(value: Any) -> Any:
     return str(value)
 
 
+def _run_knowledge_search(
+    *,
+    query: str,
+    library_id: str = "default",
+    doc_ids: Optional[List[str]] = None,
+    doc_nodes: Optional[List[Any]] = None,
+    top_k: int = 20,
+    task_type: str = "content_qa",
+    filters: Any = None,
+    dense: Any = None,
+    sparse: Any = None,
+    clause: Any = None,
+    rerank: bool = False,
+) -> Dict[str, Any]:
+    """执行知识库正文检索（dense/sparse/clause 融合），供 knowledge_search 与 entity_search 回退共用。"""
+    from docs_core.step09_query.protocols.contracts import KnowledgeQueryRequest
+    from docs_core.step09_query.retrieval import fuse_candidates
+
+    request = KnowledgeQueryRequest(
+        query=query,
+        library_id=library_id,
+        doc_ids=list(doc_ids or []),
+        top_k=top_k,
+        filters=filters,
+    )
+    nodes = list(doc_nodes or [])
+    dense_r = dense
+    sparse_r = sparse
+    clause_r = clause
+    if dense_r is None or sparse_r is None or clause_r is None:
+        from docs_core.step09_query.retrieval.clause_resolver import ClauseResolver
+        from docs_core.step09_query.retrieval.dense_retriever import DenseRetriever
+        from docs_core.step09_query.retrieval.sparse_retriever import SparseRetriever
+
+        dense_r = dense_r or DenseRetriever()
+        sparse_r = sparse_r or SparseRetriever()
+        clause_r = clause_r or ClauseResolver()
+
+    sources: Dict[str, List[Any]] = {}
+    try:
+        sources["dense"] = list(dense_r.retrieve(request, nodes, task_type) or [])
+    except Exception as exc:  # noqa: BLE001
+        sources["dense"] = []
+        sources["dense_error"] = str(exc)
+    try:
+        sources["sparse"] = list(sparse_r.retrieve(request, nodes, task_type) or [])
+    except Exception as exc:  # noqa: BLE001
+        sources["sparse"] = []
+        sources["sparse_error"] = str(exc)
+    try:
+        sources["clause"] = list(clause_r.retrieve(request, nodes, task_type) or [])
+    except Exception as exc:  # noqa: BLE001
+        sources["clause"] = []
+        sources["clause_error"] = str(exc)
+
+    candidate_sources = {k: v for k, v in sources.items() if isinstance(v, list)}
+    if not candidate_sources:
+        return {"error": "检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
+    items, _debug = fuse_candidates(candidate_sources, task_type=task_type, top_k=top_k)
+    if rerank:
+        from angineer_core.retrieval_pipeline import rerank_candidates
+
+        items = rerank_candidates(query, items, task_type=task_type)
+    return {"items": [_serialize_model(item) for item in items], "total": len(items)}
+
+
 class RetrieverAdapter:
     """包装 step09_query 五路检索器与图谱检索。"""
 
@@ -133,62 +199,23 @@ class RetrieverAdapter:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
                 return {"error": "缺少 query 参数"}
-            from docs_core.step09_query.protocols.contracts import KnowledgeQueryRequest
-            from docs_core.step09_query.retrieval import fuse_candidates
-
-            request = KnowledgeQueryRequest(
+            return _run_knowledge_search(
                 query=query,
                 library_id=library_id,
-                doc_ids=list(doc_ids or []),
+                doc_ids=doc_ids,
+                doc_nodes=doc_nodes,
                 top_k=top_k,
+                task_type=task_type,
                 filters=filters,
+                dense=dense,
+                sparse=sparse,
+                clause=clause,
+                rerank=rerank,
             )
-            nodes = list(doc_nodes or [])
-            dense_r = dense
-            sparse_r = sparse
-            clause_r = clause
-            if dense_r is None or sparse_r is None or clause_r is None:
-                from docs_core.step09_query.retrieval.clause_resolver import ClauseResolver
-                from docs_core.step09_query.retrieval.dense_retriever import DenseRetriever
-                from docs_core.step09_query.retrieval.sparse_retriever import SparseRetriever
-
-                dense_r = dense_r or DenseRetriever()
-                sparse_r = sparse_r or SparseRetriever()
-                clause_r = clause_r or ClauseResolver()
-
-            sources: Dict[str, List[Any]] = {}
-            try:
-                sources["dense"] = list(dense_r.retrieve(request, nodes, task_type) or [])
-            except Exception as exc:  # noqa: BLE001
-                sources["dense"] = []
-                sources["dense_error"] = str(exc)
-            try:
-                sources["sparse"] = list(sparse_r.retrieve(request, nodes, task_type) or [])
-            except Exception as exc:  # noqa: BLE001
-                sources["sparse"] = []
-                sources["sparse_error"] = str(exc)
-            try:
-                sources["clause"] = list(clause_r.retrieve(request, nodes, task_type) or [])
-            except Exception as exc:  # noqa: BLE001
-                sources["clause"] = []
-                sources["clause_error"] = str(exc)
-
-            candidate_sources = {k: v for k, v in sources.items() if isinstance(v, list)}
-            if not candidate_sources:
-                return {"error": "检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
-            items, _debug = fuse_candidates(candidate_sources, task_type=task_type, top_k=top_k)
-            if rerank:
-                from angineer_core.retrieval_pipeline import rerank_candidates
-
-                items = rerank_candidates(query, items, task_type=task_type)
-            return {
-                "items": [_serialize_model(item) for item in items],
-                "total": len(items),
-            }
 
         return AgentTool(
             name="knowledge_search",
-            description="在知识库中检索规范条文、概念与条款，返回候选段落。",
+            description="在知识库正文中检索规范条文、概念、定义与条款，返回候选段落。概念/定义/“XX 是什么”类问题应优先使用本工具。",
             parameters_schema={
                 "type": "object",
                 "properties": {"query": {"type": "string", "description": "检索问句"}},
@@ -271,7 +298,18 @@ class RetrieverAdapter:
         )
 
     @staticmethod
-    def entity_search(*, db_path: Optional[str] = None, limit: int = 20) -> AgentTool:
+    def entity_search(
+        *,
+        db_path: Optional[str] = None,
+        limit: int = 20,
+        library_id: str = "default",
+        doc_ids: Optional[List[str]] = None,
+        doc_nodes: Optional[List[Any]] = None,
+        top_k: int = 20,
+        task_type: str = "content_qa",
+        filters: Any = None,
+        rerank: bool = False,
+    ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
                 return {"error": "缺少 query 参数"}
@@ -281,11 +319,32 @@ class RetrieverAdapter:
                 db_path or os.environ.get("KG_DB_PATH", os.path.join("data", "knowledge_graph.sqlite"))
             )
             entities = store.search_entities(query, limit=limit)
-            return {"entities": [_serialize_model(entity) for entity in entities], "total": len(entities)}
+            result: Dict[str, Any] = {
+                "entities": [_serialize_model(entity) for entity in entities],
+                "total": len(entities),
+            }
+            if not entities:
+                # 图谱无实体时自动回退正文检索，避免“是什么/定义”类问题被误判为无证据
+                fallback = _run_knowledge_search(
+                    query=query,
+                    library_id=library_id,
+                    doc_ids=doc_ids,
+                    doc_nodes=doc_nodes,
+                    top_k=top_k,
+                    task_type=task_type,
+                    filters=filters,
+                    rerank=rerank,
+                )
+                if fallback.get("error"):
+                    result["fallback_error"] = fallback["error"]
+                else:
+                    result["items"] = fallback.get("items") or []
+                    result["note"] = "知识图谱未找到匹配实体，已自动检索知识库正文，请基于 items 字段中的证据回答。"
+            return result
 
         return AgentTool(
             name="entity_search",
-            description="在知识图谱中检索实体及其关系，返回实体条目。",
+            description="在知识图谱中检索实体及其关系，返回实体条目；仅适用于图谱实体关系类问题。若图谱无匹配，会自动回退检索知识库正文（items 字段）。",
             parameters_schema={
                 "type": "object",
                 "properties": {"query": {"type": "string", "description": "实体关键词"}},
