@@ -170,6 +170,8 @@ export const renderMarkdownToHtml = (
   let tableStartLine = -1
 
   const listStack: Array<{ kind: 'ul' | 'ol'; indent: number }> = []
+  /** 有序列表按缩进层级记录已用编号，跨空行/段落续接，避免每条都从 1 开始 */
+  const orderedCounters = new Map<number, number>()
 
   let inCodeBlock = false
   let codeBlockBuffer: string[] = []
@@ -217,7 +219,12 @@ export const renderMarkdownToHtml = (
     const top = listStack[listStack.length - 1]
     if (!top || top.kind !== kind || top.indent !== indent) {
       listStack.push({ kind, indent })
-      htmlBlocks.push(`<${kind}>`)
+      if (kind === 'ol') {
+        const start = (orderedCounters.get(indent) || 0) + 1
+        htmlBlocks.push(`<ol start="${start}">`)
+      } else {
+        htmlBlocks.push('<ul>')
+      }
     }
   }
 
@@ -314,6 +321,10 @@ export const renderMarkdownToHtml = (
     const orderedMatch = line.match(/^(\s*)\d+\.\s+(.+)$/)
     if (orderedMatch) {
       openList('ol', orderedMatch[1].length)
+      orderedCounters.set(
+        orderedMatch[1].length,
+        (orderedCounters.get(orderedMatch[1].length) || 0) + 1
+      )
       htmlBlocks.push(`<li data-line-start="${currentLineNumber}">${renderInline(orderedMatch[2], sourceFilePath, resolveUrl)}</li>`)
       continue
     }
