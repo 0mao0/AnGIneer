@@ -169,8 +169,7 @@ export const renderMarkdownToHtml = (
   let tableBuffer: string[] = []
   let tableStartLine = -1
 
-  let inUnorderedList = false
-  let inOrderedList = false
+  const listStack: Array<{ kind: 'ul' | 'ol'; indent: number }> = []
 
   let inCodeBlock = false
   let codeBlockBuffer: string[] = []
@@ -196,13 +195,29 @@ export const renderMarkdownToHtml = (
   }
 
   const closeLists = () => {
-    if (inUnorderedList) {
-      htmlBlocks.push('</ul>')
-      inUnorderedList = false
+    while (listStack.length) {
+      const top = listStack.pop()!
+      htmlBlocks.push(`</${top.kind}>`)
     }
-    if (inOrderedList) {
-      htmlBlocks.push('</ol>')
-      inOrderedList = false
+  }
+
+  /** 按缩进层级开列表：缩进变浅或同级换类型时先关闭旧列表 */
+  const openList = (kind: 'ul' | 'ol', indent: number) => {
+    while (listStack.length) {
+      const top = listStack[listStack.length - 1]
+      if (top.indent > indent || (top.indent === indent && top.kind !== kind)) {
+        listStack.pop()
+        htmlBlocks.push(`</${top.kind}>`)
+      } else {
+        break
+      }
+    }
+    flushParagraph()
+    flushTable()
+    const top = listStack[listStack.length - 1]
+    if (!top || top.kind !== kind || top.indent !== indent) {
+      listStack.push({ kind, indent })
+      htmlBlocks.push(`<${kind}>`)
     }
   }
 
@@ -219,9 +234,9 @@ export const renderMarkdownToHtml = (
         codeBlockBuffer = []
         codeBlockStartLine = -1
       } else {
+        closeLists()
         flushParagraph()
         flushTable()
-        closeLists()
         inCodeBlock = true
         codeBlockStartLine = currentLineNumber
       }
@@ -240,9 +255,9 @@ export const renderMarkdownToHtml = (
         mathBlockBuffer = []
         mathBlockStartLine = -1
       } else {
+        closeLists()
         flushParagraph()
         flushTable()
-        closeLists()
         inMathBlock = true
         mathBlockStartLine = currentLineNumber
       }
@@ -254,9 +269,9 @@ export const renderMarkdownToHtml = (
     }
 
     if (!trimmed) {
+      closeLists()
       flushParagraph()
       flushTable()
-      closeLists()
       continue
     }
 
@@ -265,8 +280,8 @@ export const renderMarkdownToHtml = (
     const looksLikeTableHeader = isTableCandidate && /^\|?[:\-\s|]+\|?$/g.test(nextLine)
 
     if (looksLikeTableHeader) {
-      flushParagraph()
       closeLists()
+      flushParagraph()
       tableStartLine = currentLineNumber
       tableBuffer.push(trimmed)
       tableBuffer.push(nextLine)
@@ -280,45 +295,33 @@ export const renderMarkdownToHtml = (
     }
 
     if (/^#{1,6}\s+/.test(trimmed)) {
+      closeLists()
       flushParagraph()
       flushTable()
-      closeLists()
       const level = Math.min(6, trimmed.match(/^#+/)?.[0].length || 1)
       const title = trimmed.replace(/^#{1,6}\s+/, '')
       htmlBlocks.push(`<h${level} data-line-start="${currentLineNumber}">${renderInline(title, sourceFilePath, resolveUrl)}</h${level}>`)
       continue
     }
 
-    const unorderedMatch = trimmed.match(/^[-*+]\s+(.+)$/)
+    const unorderedMatch = line.match(/^(\s*)[-*+]\s+(.+)$/)
     if (unorderedMatch) {
-      flushParagraph()
-      flushTable()
-      if (!inUnorderedList) {
-        closeLists()
-        htmlBlocks.push('<ul>')
-        inUnorderedList = true
-      }
-      htmlBlocks.push(`<li data-line-start="${currentLineNumber}">${renderInline(unorderedMatch[1], sourceFilePath, resolveUrl)}</li>`)
+      openList('ul', unorderedMatch[1].length)
+      htmlBlocks.push(`<li data-line-start="${currentLineNumber}">${renderInline(unorderedMatch[2], sourceFilePath, resolveUrl)}</li>`)
       continue
     }
 
-    const orderedMatch = trimmed.match(/^\d+\.\s+(.+)$/)
+    const orderedMatch = line.match(/^(\s*)\d+\.\s+(.+)$/)
     if (orderedMatch) {
-      flushParagraph()
-      flushTable()
-      if (!inOrderedList) {
-        closeLists()
-        htmlBlocks.push('<ol>')
-        inOrderedList = true
-      }
-      htmlBlocks.push(`<li data-line-start="${currentLineNumber}">${renderInline(orderedMatch[1], sourceFilePath, resolveUrl)}</li>`)
+      openList('ol', orderedMatch[1].length)
+      htmlBlocks.push(`<li data-line-start="${currentLineNumber}">${renderInline(orderedMatch[2], sourceFilePath, resolveUrl)}</li>`)
       continue
     }
 
     if (/^<[^>]+>/.test(trimmed)) {
+      closeLists()
       flushParagraph()
       flushTable()
-      closeLists()
       htmlBlocks.push(trimmed)
       continue
     }
@@ -329,9 +332,9 @@ export const renderMarkdownToHtml = (
     paragraphBuffer.push(trimmed)
   }
 
+  closeLists()
   flushParagraph()
   flushTable()
-  closeLists()
 
   if (inCodeBlock) {
     const code = codeBlockBuffer.join('\n')

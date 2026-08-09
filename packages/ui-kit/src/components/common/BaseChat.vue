@@ -1020,6 +1020,30 @@ defineExpose({
             margin: 0.6em 0;
           }
 
+          :deep(ul) {
+            list-style: disc;
+            padding-left: 1.5em;
+          }
+
+          :deep(ol) {
+            list-style: decimal;
+            padding-left: 1.5em;
+          }
+
+          :deep(li) {
+            margin: 0.25em 0;
+          }
+
+          :deep(ul ul),
+          :deep(ol ul) {
+            list-style: circle;
+          }
+
+          :deep(ul ul ul),
+          :deep(ol ul ul) {
+            list-style: square;
+          }
+
           :deep(code) {
             background: var(--chat-code-bg);
             padding: 2px 6px;
