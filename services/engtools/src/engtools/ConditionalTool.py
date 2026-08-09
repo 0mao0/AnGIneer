@@ -313,8 +313,8 @@ class ConditionalTool(BaseTool):
         """
         执行查表操作。
         """
-        from .TableTool import TableTool
-        tool = TableTool()
+        from .TableTool import TableLookupTool
+        tool = TableLookupTool()
 
         resolved_conditions = {}
         for key, value in query_conditions.items():

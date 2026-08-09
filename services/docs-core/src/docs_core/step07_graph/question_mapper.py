@@ -5,7 +5,7 @@ import logging
 from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-from ai_inference.llm_client import LLMClient
+from ai_inference.llm_client import LLMClient, chat_result_guarded
 
 from docs_core.step07_graph.config import DEFAULT_LLM_CONFIG
 
@@ -112,14 +112,16 @@ Map this question to the graph. Does a path exist? Is it consistent?"""
 
         try:
             client = LLMClient()
-            response = client.chat(
-                messages=[
+            result = chat_result_guarded(
+                client,
+                [
                     {"role": "system", "content": QUESTION_MAP_SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
                 ],
                 config_name=self.config_name,
                 mode=self.mode,
             )
+            response = result.text
         except Exception as e:
             logger.warning("LLM call failed for question mapping: %s", e)
             return {"relevant_entities": [], "graph_path": [], "consistency": "error", "new_sop_needed": False, "explanation": str(e)}

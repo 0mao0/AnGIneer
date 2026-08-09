@@ -18,7 +18,7 @@ from docs_core.step07_graph.extractor_prompts import (
 )
 from docs_core.step07_graph.relation_infer import RelationInferrer
 from docs_core.step07_graph.evidence_builder import EvidencePacket
-from ai_inference.llm_client import LLMClient
+from ai_inference.llm_client import LLMClient, chat_result_guarded
 
 logger = logging.getLogger(__name__)
 
@@ -485,14 +485,16 @@ class GraphOrchestrator:
         )
         try:
             client = LLMClient()
-            response = client.chat(
-                messages=[
+            result = chat_result_guarded(
+                client,
+                [
                     {"role": "system", "content": VERIFY_SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
                 ],
                 config_name=self.extractor.config_name,
                 mode=self.extractor.mode,
             )
+            response = result.text
         except Exception as e:
             logger.warning("Triple verification LLM call failed: %s", e)
             return {"verified": []}
@@ -512,14 +514,16 @@ class GraphOrchestrator:
         )
         try:
             client = LLMClient()
-            response = client.chat(
-                messages=[
+            result = chat_result_guarded(
+                client,
+                [
                     {"role": "system", "content": ZETTELKASTEN_SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
                 ],
                 config_name=self.extractor.config_name,
                 mode=self.extractor.mode,
             )
+            response = result.text
         except Exception as e:
             logger.warning("Zettelkasten LLM call failed: %s", e)
             return {"relations_added": 0}
@@ -598,14 +602,16 @@ class GraphOrchestrator:
                 prompt = USER_PROMPT_TEMPLATE_NO_SECTION.format(entity_names=entity_names_str, text_segment=chunk)
                 try:
                     client = LLMClient()
-                    response = client.chat(
-                        messages=[
+                    result = chat_result_guarded(
+                        client,
+                        [
                             {"role": "system", "content": system_prompt},
                             {"role": "user", "content": prompt},
                         ],
                         config_name=self.extractor.config_name,
                         mode=self.extractor.mode,
                     )
+                    response = result.text
                     parsed = self._parse_extractor_response(response, key)
                 except Exception as e:
                     logger.warning("Extractor %s chunk %d failed: %s", key, chunk_idx, e)

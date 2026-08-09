@@ -4,6 +4,7 @@ import logging
 import os
 import re
 import uuid
+from datetime import datetime
 from typing import Any, Dict, List, Optional, Set
 
 from fastapi import APIRouter, HTTPException, UploadFile, File as FastAPIFile, Form
@@ -12,6 +13,7 @@ from pydantic import BaseModel, Field
 from angineer_core.base_contracts import SOP as SopModel, Step as StepModel
 from sop_core.sop_parser import SopParser
 from sop_core.sop_loader import SopLoader
+from sop_core.sop_validator import validate_sop_data
 
 sop_router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -21,6 +23,7 @@ SOP_BASE_DIR = os.environ.get("SOP_DATA_DIR", os.path.join(ROOT_DIR, "data", "so
 SOP_JSON_DIR = os.path.join(SOP_BASE_DIR, "json")
 SOP_RAW_DIR = os.path.join(SOP_BASE_DIR, "raw")
 SOP_FOLDERS_FILE = os.path.join(SOP_BASE_DIR, "folders.json")
+SOP_AUDIT_DIR = os.path.join(SOP_BASE_DIR, "audit")
 
 _sop_loader = SopLoader(SOP_BASE_DIR)
 _sop_parser = SopParser()
@@ -67,6 +70,58 @@ class FolderUpdateRequest(BaseModel):
 class SopStepParseRequest(BaseModel):
     """步骤描述解析请求体。"""
     description: str = Field(..., min_length=1)
+
+
+class SopReviewRequest(BaseModel):
+    """SOP 审核请求体。"""
+    action: str = Field(..., pattern="^(approve|reject|disable)$")
+    note: str = ""
+    reviewer: str = ""
+
+
+def _write_audit(sop_id: str, action: str, note: str, reviewer: str) -> None:
+    """追加一条审核审计记录（jsonl）。"""
+    os.makedirs(SOP_AUDIT_DIR, exist_ok=True)
+    audit_path = os.path.join(SOP_AUDIT_DIR, f"{sop_id}.jsonl")
+    entry = {
+        "at": datetime.now().astimezone().isoformat(timespec="seconds"),
+        "action": action,
+        "reviewer": reviewer,
+        "note": note,
+    }
+    with open(audit_path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+
+def _read_audit(sop_id: str) -> List[Dict[str, Any]]:
+    """读取某 SOP 的审计流。"""
+    audit_path = os.path.join(SOP_AUDIT_DIR, f"{sop_id}.jsonl")
+    if not os.path.exists(audit_path):
+        return []
+    entries: List[Dict[str, Any]] = []
+    with open(audit_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                entries.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+    return entries
+
+
+def _validate_sop_data_or_422(sop_id: str, data: Dict[str, Any]) -> None:
+    """结构校验 SOP 数据，不通过时抛出 422（允许空步骤的草稿继续编辑）。"""
+    steps = data.get("steps") or []
+    if not steps:
+        return
+    problems = validate_sop_data(data)
+    if problems:
+        raise HTTPException(
+            status_code=422,
+            detail={"message": "SOP 校验未通过", "problems": problems, "id": sop_id},
+        )
 
 
 def _ensure_json_dir() -> None:
@@ -144,6 +199,8 @@ def _scan_json_sops() -> List[Dict[str, Any]]:
                 "folder_id": data.get("folder_id"),
                 "sort_order": data.get("sort_order", 10**9),
                 "step_count": len(data.get("steps", [])),
+                "status": data.get("status", "published"),
+                "stats": data.get("stats") or {},
             })
         except Exception:
             continue
@@ -388,9 +445,11 @@ def _parse_step_description(description: str) -> Dict[str, Any]:
 
 
 @sop_router.get("")
-def list_sops():
-    """列出所有 SOP。"""
+def list_sops(status: Optional[str] = None):
+    """列出所有 SOP，支持按状态过滤。"""
     result = _scan_json_sops()
+    if status:
+        result = [item for item in result if item.get("status") == status]
     return {"sops": result}
 
 
@@ -518,7 +577,10 @@ async def import_sop(file: UploadFile = FastAPIFile(...), folder_id: Optional[st
         "sort_order": _get_next_sop_sort_order(target_folder_id),
         "steps": _normalize_steps_payload(serialized_steps, allow_string=True),
         "blackboard": sop.blackboard,
+        "status": "draft",
+        "source": {"kind": "import", "filename": file.filename},
     }
+    _validate_sop_data_or_422(sop_id, data)
     _write_sop_json(sop_id, data)
     _sop_loader.refresh_index()
 
@@ -543,6 +605,43 @@ def get_sop(sop_id: str):
     return data
 
 
+@sop_router.post("/{sop_id}/review")
+def review_sop(sop_id: str, request: SopReviewRequest):
+    """SOP 审核：approve（需通过结构校验）→ published；reject → draft；disable → disabled。"""
+    data = _read_sop_json(sop_id)
+    if data is None:
+        raise HTTPException(status_code=404, detail=f"SOP {sop_id} not found")
+
+    if request.action == "approve":
+        problems = validate_sop_data(data)
+        if problems:
+            raise HTTPException(
+                status_code=422,
+                detail={"message": "SOP 校验未通过，无法发布", "problems": problems, "id": sop_id},
+            )
+        new_status = "published"
+    elif request.action == "reject":
+        new_status = "draft"
+    else:
+        new_status = "disabled"
+
+    review = {
+        "reviewer": request.reviewer,
+        "note": request.note,
+        "at": datetime.now().astimezone().isoformat(timespec="seconds"),
+    }
+    if not _sop_loader.update_status(sop_id, new_status, review=review):
+        raise HTTPException(status_code=404, detail=f"SOP {sop_id} not found")
+    _write_audit(sop_id, request.action, request.note, request.reviewer)
+    return {"status": "success", "id": sop_id, "sop_status": new_status}
+
+
+@sop_router.get("/{sop_id}/audit")
+def get_sop_audit(sop_id: str):
+    """返回某 SOP 的审核审计流。"""
+    return {"audit": _read_audit(sop_id)}
+
+
 @sop_router.put("/{sop_id}")
 def update_sop(sop_id: str, request: SopUpdateRequest):
     """更新 SOP 内容。"""
@@ -563,6 +662,7 @@ def update_sop(sop_id: str, request: SopUpdateRequest):
         existing["steps"] = _normalize_steps_payload(request.steps, allow_string=False)
     if "blackboard" in field_set:
         existing["blackboard"] = request.blackboard
+    _validate_sop_data_or_422(sop_id, existing)
     _write_sop_json(sop_id, existing)
     _sop_loader.refresh_index()
     return {"status": "success", "id": sop_id}
@@ -585,7 +685,10 @@ def create_sop(request: SopCreateRequest):
         "sort_order": request.sort_order if request.sort_order is not None else _get_next_sop_sort_order(request.folder_id),
         "steps": _normalize_steps_payload(request.steps or [], allow_string=False),
         "blackboard": request.blackboard,
+        "status": "draft",
+        "source": {"kind": "manual"},
     }
+    _validate_sop_data_or_422(sop_id, data)
     _write_sop_json(sop_id, data)
     _sop_loader.refresh_index()
     return {"status": "success", "id": sop_id}

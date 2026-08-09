@@ -2,7 +2,7 @@ import os
 import glob
 import json
 import sys
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 
 # Ensure src can be imported
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
@@ -22,6 +22,8 @@ _FALLBACK_KNOWN_TOOLS = {
     "email_sender", "file_reader", "code_linter", "report_generator",
     "summarizer", "docs_retrieval",
 }
+
+ALL_SOP_STATUSES: Tuple[str, ...] = ("draft", "reviewed", "published", "disabled")
 
 
 def _is_known_tool(tool_name: str) -> bool:
@@ -101,8 +103,13 @@ class SopLoader:
         self.parser = SopParser()
         self.load_errors: Dict[str, str] = {}
 
-    def load_all(self) -> List[SOP]:
-        """从索引文件加载 SOP 列表。如果索引不存在则自动生成。"""
+    def load_all(self, include_status: Tuple[str, ...] = ("published",)) -> List[SOP]:
+        """从索引文件加载 SOP 列表。如果索引不存在则自动生成。
+
+        Args:
+            include_status: 仅返回指定状态（默认 published）。
+                未审核（draft/reviewed/disabled）SOP 默认对分类器/路由/执行不可见。
+        """
         if not os.path.exists(self.index_file):
             print(f"SOP Index not found at {self.index_file}, generating...")
             self.refresh_index()
@@ -111,7 +118,10 @@ class SopLoader:
         if any(s.blackboard is None for s in self.sops):
             self.refresh_index()
             self.sops = self._load_from_index()
-        return self.sops
+        if not include_status:
+            return list(self.sops)
+        statuses = set(include_status)
+        return [s for s in self.sops if s.status in statuses]
 
     def refresh_index(self):
         """生成或更新 index.json，优先扫描 json/ 目录，兼容 raw/ 目录。"""
@@ -260,7 +270,12 @@ class SopLoader:
                 name_en=sop_data.get("name_en", ""),
                 description=sop_data.get("description", ""),
                 steps=loaded_steps or [Step(id="execute_md", tool="auto")],
-                blackboard=sop_data.get("blackboard")
+                blackboard=sop_data.get("blackboard"),
+                status=sop_data.get("status", "published"),
+                confidence=float(sop_data.get("confidence", 0.0) or 0.0),
+                source=sop_data.get("source") or {},
+                review=sop_data.get("review") or {},
+                stats=sop_data.get("stats") or {},
             )
             return sop
         except Exception as e:
@@ -283,6 +298,7 @@ class SopLoader:
 
         data = dict(payload)
         data["id"] = sop_id
+        data.setdefault("status", "draft")
 
         steps = data.get("steps", [])
         if isinstance(steps, list):
@@ -292,6 +308,13 @@ class SopLoader:
                 s["description"] = _normalize_inline_description(s.get("description"))
                 normalized_steps.append(s)
             data["steps"] = normalized_steps
+
+        # P1.2：落盘前结构校验，不通过直接拒收
+        from sop_core.sop_validator import validate_sop_data
+
+        problems = validate_sop_data(data)
+        if problems:
+            raise ValueError("SOP 校验未通过: " + "; ".join(problems))
 
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
@@ -320,7 +343,9 @@ class SopLoader:
             name_en=entry.get("name_en", sop_id),
             description=entry.get("description", ""),
             steps=[step],
-            blackboard=entry.get("blackboard")
+            blackboard=entry.get("blackboard"),
+            status="published",
+            source={"kind": "raw"},
         )
 
         # 尝试从 json/ 缓存加载详细步骤
@@ -446,7 +471,7 @@ class SopLoader:
 
     def preparse_all(self, config_name: str = None, mode: str = "instruct", force: bool = False) -> Dict[str, object]:
         """批量预解析所有 SOP 并输出到 json/。"""
-        sops = self.load_all()
+        sops = self.load_all(include_status=ALL_SOP_STATUSES)
         results = {"total": len(sops), "success": 0, "failed": 0, "items": []}
         for sop in sops:
             try:
@@ -464,6 +489,73 @@ class SopLoader:
                 results["failed"] += 1
                 results["items"].append({"id": sop.id, "error": str(e)})
         return results
+
+    def record_run(self, sop_id: str, status: str) -> None:
+        """记录一次 SOP 执行统计（原子更新 JSON 与内存）。"""
+        json_path = os.path.join(self.json_dir, f"{sop_id}.json")
+        if not os.path.exists(json_path):
+            return
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            return
+
+        stats = data.get("stats") or {}
+        runs = int(stats.get("runs", 0) or 0) + 1
+        success = int(stats.get("success", 0) or 0) + (1 if status == "success" else 0)
+        new_stats = {"runs": runs, "success": success, "last_status": status}
+        data["stats"] = new_stats
+        self._atomic_write_json(json_path, data)
+
+        for sop in self.sops:
+            if sop.id == sop_id:
+                sop.stats = new_stats
+
+    def update_status(
+        self,
+        sop_id: str,
+        status: str,
+        review: Optional[Dict[str, Any]] = None,
+    ) -> bool:
+        """更新 SOP 状态（原子写盘并同步内存），文件不存在返回 False。"""
+        json_path = os.path.join(self.json_dir, f"{sop_id}.json")
+        if not os.path.exists(json_path):
+            return False
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            return False
+
+        data["status"] = status
+        if review is not None:
+            data["review"] = review
+        self._atomic_write_json(json_path, data)
+        self.refresh_index()
+
+        for sop in self.sops:
+            if sop.id == sop_id:
+                sop.status = status
+                if review is not None:
+                    sop.review = review
+        return True
+
+    @staticmethod
+    def _atomic_write_json(json_path: str, data: Dict[str, Any]) -> None:
+        """原子写 JSON：先写临时文件再 os.replace，避免半写状态。"""
+        import tempfile
+
+        directory = os.path.dirname(json_path)
+        os.makedirs(directory, exist_ok=True)
+        fd, tmp_path = tempfile.mkstemp(dir=directory, suffix=".tmp")
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+            os.replace(tmp_path, json_path)
+        finally:
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
 
 
 def _run_preparse_from_cli():

@@ -255,8 +255,9 @@ Guidelines for calculator:
             {"role": "user", "content": f"SOP Content:\n{content}"}
         ]
         try:
-            from ai_inference.llm_client import llm_client
-            resp = llm_client.chat(messages, mode=mode, config_name=config_name)
+            from ai_inference.llm_client import chat_result_guarded, llm_client
+            result = chat_result_guarded(llm_client, messages, mode=mode, config_name=config_name)
+            resp = result.text
             data = _extract_json_from_text(resp)
             llm_steps = []
             for s in data.get("steps", []):

@@ -408,9 +408,12 @@ class SopPathGenerator:
         )
 
         try:
+            from ai_inference.llm_client import chat_result_guarded
+
             client = LLMClient()
-            response = client.chat(
-                messages=[
+            result = chat_result_guarded(
+                client,
+                [
                     {"role": "system", "content": SOP_GENERATION_SYSTEM_PROMPT},
                     {"role": "user", "content": user_prompt},
                 ],
@@ -418,6 +421,7 @@ class SopPathGenerator:
                 mode="instruct",
                 max_tokens=4096,
             )
+            response = result.text
             parsed = self._parse_sop_response(response)
             if parsed and parsed.get("steps"):
                 return parsed
@@ -539,21 +543,46 @@ class SopPathGenerator:
                     )
                     generated.append(sop)
 
-        self._write_sops_to_disk(generated, library_id)
-        return {"generated": [s["id"] for s in generated], "total": len(generated)}
+        written, rejected = self._write_sops_to_disk(generated, library_id)
+        return {
+            "generated": [s["id"] for s in written],
+            "total": len(written),
+            "rejected": rejected,
+        }
 
-    def _write_sops_to_disk(self, sops: List[Dict[str, Any]], library_id: str) -> None:
+    def _write_sops_to_disk(
+        self, sops: List[Dict[str, Any]], library_id: str
+    ) -> tuple:
+        """校验并落盘生成 SOP。
+
+        - 未通过结构校验的 SOP 拒收（返回 rejected 问题列表，不写盘）；
+        - 通过校验的 SOP 显式标记为 draft（待审核），记录生成来源。
+        """
+        from sop_core.sop_validator import validate_sop_data
+
         sop_base = os.path.join(os.environ.get("DATA_DIR", "data"), "sops")
         sop_dir = os.path.join(sop_base, "json")
         os.makedirs(sop_dir, exist_ok=True)
+        written: List[Dict[str, Any]] = []
+        rejected: List[Dict[str, Any]] = []
         for sop in sops:
-            sop_path = os.path.join(sop_dir, f"{sop['id']}.json")
+            problems = validate_sop_data(sop)
+            if problems:
+                rejected.append({"id": sop.get("id"), "problems": problems})
+                continue
+            data = dict(sop)
+            data["id"] = sop.get("id") or uuid.uuid4().hex[:8]
+            data.setdefault("status", "draft")
+            data.setdefault("source", {"kind": "graph", "library_id": library_id, "doc_id": data.get("doc_id", "")})
+            sop_path = os.path.join(sop_dir, f"{data['id']}.json")
             with open(sop_path, "w", encoding="utf-8") as f:
-                json.dump(sop, f, ensure_ascii=False, indent=2)
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            written.append(data)
         # 索引统一由 SopLoader 从 json/ 目录重建（json/ 为唯一真相源），
         # 避免与 refresh_index 双写格式分叉导致运行时加载失败
         from sop_core.sop_loader import SopLoader
         SopLoader(sop_base).refresh_index()
+        return written, rejected
 
     def _node_to_step(self, node: Dict[str, Any], index: int, clause: str) -> Dict[str, Any]:
         step_type = self.LAYER_TO_STEP_TYPE.get(node.get("layer", EntityLayer.CONCEPT), "inspection")

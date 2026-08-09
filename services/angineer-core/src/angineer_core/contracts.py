@@ -43,3 +43,11 @@ class LLMProvider(Protocol):
     def chat_stream(self, messages: List[Dict[str, Any]], **kwargs: Any) -> Any:
         """发送对话请求并以流式方式获取响应。"""
         ...
+
+    def chat_result(self, messages: List[Dict[str, Any]], **kwargs: Any) -> Any:
+        """发送对话请求并返回完整结果（含 finish_reason/usage/tool_calls）。"""
+        ...
+
+    def chat_stream_events(self, messages: List[Dict[str, Any]], **kwargs: Any) -> Any:
+        """发送对话请求并以流式方式获取响应（yield delta/done 事件）。"""
+        ...

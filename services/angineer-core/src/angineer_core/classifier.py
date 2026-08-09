@@ -8,7 +8,8 @@ from collections import Counter
 from typing import List, Optional, Tuple, Dict, Any
 
 from angineer_core.base_contracts import SOP, AgentResponse, IntentResult, IntentLevel, ServiceMode, RouteResult
-from ai_inference.llm_client import get_llm_client
+from angineer_core.base_config import SOP_ROUTE_CONFIDENCE_THRESHOLD as ROUTE_CONFIDENCE_THRESHOLD
+from ai_inference.llm_client import chat_result_guarded, get_llm_client
 from ai_inference.llm_response_parser import (
     extract_json_from_text,
 )
@@ -43,7 +44,6 @@ STANDARD_CODE_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
-ROUTE_CONFIDENCE_THRESHOLD = 0.45
 ROUTE_RECALL_TOP_K = 5
 ROUTE_RECALL_MIN_SCORE = 0.02
 
@@ -900,7 +900,8 @@ A: {"intent_level": "L4", "intent_type": "复杂方案设计", "confidence": 0.8
 }"""
         try:
             logger.debug("[DEBUG-SOP-ROUTE] 调用 LLM 进行意图分类...")
-            response_text = self._llm_client.chat(
+            result = chat_result_guarded(
+                self._llm_client,
                 [
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": f"用户问题: {user_query}"},
@@ -908,12 +909,13 @@ A: {"intent_level": "L4", "intent_type": "复杂方案设计", "confidence": 0.8
                 mode=mode,
                 config_name=config_name,
             )
+            response_text = result.text
             logger.debug(f"[DEBUG-SOP-ROUTE] LLM 意图分类原始响应: {response_text[:200]}{'...' if len(response_text) > 200 else ''}")
 
             if not response_text:
                 logger.warning("[DEBUG-SOP-ROUTE] LLM 意图分类响应为空")
                 return None
-            parsed = extract_json_from_text(response_text)
+            parsed = extract_json_from_text(response_text, strict=True)
             if not parsed:
                 logger.warning(f"[DEBUG-SOP-ROUTE] LLM 意图分类解析失败, 原始文本: {response_text[:100]}")
                 return None
@@ -1034,7 +1036,8 @@ A: {"intent_level": "L4", "intent_type": "复杂方案设计", "confidence": 0.8
 
         try:
             logger.debug("[DEBUG-SOP-ROUTE] 调用 LLM 进行精排...")
-            response_text = self._llm_client.chat(
+            result = chat_result_guarded(
+                self._llm_client,
                 [
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": f"用户问题: {user_query}"},
@@ -1042,6 +1045,7 @@ A: {"intent_level": "L4", "intent_type": "复杂方案设计", "confidence": 0.8
                 mode=mode,
                 config_name=config_name,
             )
+            response_text = result.text
             logger.info(f"[DEBUG-SOP-ROUTE] LLM 精排原始响应: {response_text}")
         except Exception as e:
             logger.error(f"[DEBUG-SOP-ROUTE] LLM 精排调用失败: {e}", exc_info=True)
@@ -1052,7 +1056,7 @@ A: {"intent_level": "L4", "intent_type": "复杂方案设计", "confidence": 0.8
             return RouteResult(sop=None, args={}, reason="LLM精排响应为空", confidence=0.0, candidates=candidates)
 
         try:
-            parsed = extract_json_from_text(response_text)
+            parsed = extract_json_from_text(response_text, strict=True)
             if not parsed:
                 logger.warning(f"[DEBUG-SOP-ROUTE] LLM 精排响应无法解析: {response_text[:200]}")
                 return RouteResult(sop=None, args={}, reason="LLM精排响应解析失败", confidence=0.0, candidates=candidates)

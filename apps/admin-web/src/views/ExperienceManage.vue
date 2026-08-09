@@ -9,6 +9,17 @@
         <Panel title="经验库" :icon="ApartmentOutlined" contentClass="tree-panel-content">
           <template #extra>
             <a-space :size="4">
+              <a-select
+                v-model:value="statusFilter"
+                size="small"
+                style="width: 96px"
+                @change="onStatusFilterChange"
+              >
+                <a-select-option value="">全部</a-select-option>
+                <a-select-option value="draft">待审核</a-select-option>
+                <a-select-option value="published">已发布</a-select-option>
+                <a-select-option value="disabled">已禁用</a-select-option>
+              </a-select>
               <a-button type="text" size="small" title="从文档生成" @click="openSopGenerateFromDoc">
                 <template #icon><FileTextOutlined /></template>
               </a-button>
@@ -31,7 +42,7 @@
               :show-add-root-folder="true"
               add-root-folder-title="新建文件夹"
               :show-icon="true"
-              :show-status="false"
+              :show-status="true"
               :draggable="true"
               :multiple="true"
               :allow-add-file="false"
@@ -62,6 +73,15 @@
                   <EyeOutlined class="action-icon" title="查看" @click.stop="onTreeView(node as SOPTreeNode)" />
                   <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onTreeDelete(node as SOPTreeNode)" />
                 </template>
+              </template>
+              <template #status="{ node }">
+                <a-tag
+                  v-if="(node as SOPTreeNode).sopStatus"
+                  :color="sopStatusColor((node as SOPTreeNode).sopStatus)"
+                  size="small"
+                >
+                  {{ sopStatusText((node as SOPTreeNode).sopStatus) }}
+                </a-tag>
               </template>
               <template #empty>
                 <div class="empty-state">
@@ -170,6 +190,7 @@
                   @save="onSopMetaSave"
                   @cancel="onSopMetaCancel"
                   @dirty-change="onSopMetaDirtyChange"
+                  @reviewed="onSopReviewed"
                 />
                 <div v-else-if="!sopFlow.selectedStep.value" class="panel-empty">
                   选择流程图节点查看属性
@@ -303,7 +324,7 @@ import {
 import { SplitPanes, Panel, AIChat, useTheme, type CitationBinding, type DropEvent } from '@angineer/ui-kit'
 import { defaultAIChatTransport } from '../../../shared/chatTransport'
 import { SOPTree, SOPFlowCanvas, SOPPropertyPanel, SopMetaPanel, ForkEditModal, useSopTree, useSopFlow, sopApi } from '@angineer/sop-ui'
-import type { SOPTreeNode, SopStep } from '@angineer/sop-ui'
+import type { SOPTreeNode, SopStep, SopStatus } from '@angineer/sop-ui'
 import type { Connection } from '@vue-flow/core'
 import FolderModal from './components/FolderModal.vue'
 
@@ -321,6 +342,7 @@ const rightTabKey = ref<'property' | 'ai'>('property')
 const currentMode = ref<'edit' | 'view'>('edit')
 const metaPanelDirty = ref(false)
 const persistDirty = ref(false)
+const statusFilter = ref<SopStatus | ''>('')
 const forkModalVisible = ref(false)
 const forkModalStepId = ref('')
 const forkModalConditionVar = ref('')
@@ -398,6 +420,30 @@ const collectSopNames = (nodes: SOPTreeNode[]): string[] => {
 }
 
 const allSopNames = computed(() => collectSopNames(sopTree.treeData.value))
+
+const SOP_STATUS_TEXT_MAP: Record<SopStatus, string> = {
+  draft: '待审核',
+  reviewed: '已复核',
+  published: '已发布',
+  disabled: '已禁用',
+}
+
+const SOP_STATUS_COLOR_MAP: Record<SopStatus, string> = {
+  draft: 'warning',
+  reviewed: 'processing',
+  published: 'success',
+  disabled: 'default',
+}
+
+const sopStatusText = (status?: string) => {
+  if (!status) return ''
+  return SOP_STATUS_TEXT_MAP[status as SopStatus] || status
+}
+
+const sopStatusColor = (status?: string) => {
+  if (!status) return 'default'
+  return SOP_STATUS_COLOR_MAP[status as SopStatus] || 'default'
+}
 
 /**
  * 检查当前是否有未保存的修改。
@@ -605,7 +651,7 @@ const guardAndNavigate = async (): Promise<boolean> => {
  * 刷新树并将目标节点展开、选中。
  */
 const refreshTreeAndFocus = async (focusKey?: string) => {
-  const tree = await sopTree.fetchTreeFromApi()
+  const tree = await sopTree.fetchTreeFromApi(statusFilter.value || undefined)
   if (!focusKey || !sopTreeRef.value) {
     return
   }
@@ -616,6 +662,20 @@ const refreshTreeAndFocus = async (focusKey?: string) => {
   if (focusNode) {
     await loadNode(focusNode)
   }
+}
+
+/**
+ * 切换状态过滤后刷新经验库树。
+ */
+const onStatusFilterChange = async () => {
+  await sopTree.fetchTreeFromApi(statusFilter.value || undefined)
+}
+
+/**
+ * 审核操作完成后刷新树与详情，保持状态徽标同步。
+ */
+const onSopReviewed = async (sopId: string) => {
+  await refreshTreeAndFocus(sopId)
 }
 
 /**
@@ -747,12 +807,20 @@ const confirmSopGenerateFromDoc = async () => {
   try {
     const result = await sopApi.generateSopsFromDoc(libraryId, docId)
     const count = result?.total ?? result?.generated?.length ?? 0
-    message.success(`成功生成 ${count} 个 SOP`)
+    const rejected = result?.rejected || []
+    if (rejected.length) {
+      const sample = rejected.slice(0, 3).map((item) => item.id).join('、')
+      message.warning(
+        `生成 ${count} 个 SOP（已进入待审核，审核通过后进入问答链路）；${rejected.length} 个未通过结构校验：${sample}`,
+      )
+    } else {
+      message.success(`成功生成 ${count} 个 SOP，均已进入待审核，审核通过后才会进入问答链路`)
+    }
     sopGenerateFromDocVisible.value = false
     selectedGenerateDocKey.value = ''
-    await sopTree.fetchTreeFromApi()
+    await sopTree.fetchTreeFromApi(statusFilter.value || undefined)
     setTimeout(async () => {
-      await sopTree.fetchTreeFromApi()
+      await sopTree.fetchTreeFromApi(statusFilter.value || undefined)
     }, 500)
   } catch (e: any) {
     message.error(e?.message || '生成失败')

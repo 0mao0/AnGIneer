@@ -214,11 +214,6 @@ def _evict_expired_sessions() -> None:
             for k in sorted_keys[: len(sorted_keys) // 4]:
                 del _SESSION_POOL[k]
 
-class SOPUpdate(BaseModel):
-    id: str
-    description: str
-    steps: List[Dict[str, Any]]
-
 # AI Chat 对话相关模型
 class ChatMessage(BaseModel):
     """聊天消息"""

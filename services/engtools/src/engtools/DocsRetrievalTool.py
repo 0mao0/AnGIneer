@@ -42,7 +42,11 @@ class DocsRetrievalTool(BaseTool):
         )
         dense_hits = dense_retriever.retrieve(kq_request, doc_nodes, "content_qa")
         sparse_hits = sparse_retriever.retrieve(kq_request, doc_nodes, "content_qa")
-        fused = fuse_candidates(dense_hits, sparse_hits, top_k=top_k)
+        fused, _fuse_debug = fuse_candidates(
+            {"dense": dense_hits, "sparse": sparse_hits},
+            task_type="content_qa",
+            top_k=top_k,
+        )
 
         return {
             "items": [item.model_dump(mode="json") for item in fused],

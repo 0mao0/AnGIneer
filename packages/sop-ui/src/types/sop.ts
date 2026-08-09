@@ -10,7 +10,27 @@ export interface SOPTreeNode extends SmartTreeNode {
   description?: string
   category?: string
   sortOrder?: number
+  sopStatus?: SopStatus
+  stats?: SopStats
   children?: SOPTreeNode[]
+}
+
+/** SOP 审核状态。 */
+export type SopStatus = 'draft' | 'reviewed' | 'published' | 'disabled'
+
+/** SOP 运行统计（执行反馈回流）。 */
+export interface SopStats {
+  runs?: number
+  success?: number
+  last_status?: string
+}
+
+/** SOP 审核审计条目。 */
+export interface SopAuditEntry {
+  at: string
+  action: 'approve' | 'reject' | 'disable'
+  reviewer?: string
+  note?: string
 }
 
 /** 条件分支目标。 */
@@ -128,6 +148,11 @@ export interface RawSopData {
   sort_order?: number
   steps: RawSopStep[]
   blackboard?: Record<string, any> | null
+  status?: SopStatus
+  confidence?: number
+  source?: Record<string, any>
+  review?: Record<string, any>
+  stats?: SopStats
 }
 
 /** SOP 完整数据。 */
@@ -140,6 +165,11 @@ export interface SopData {
   sort_order?: number
   steps: SopStep[]
   blackboard?: Record<string, any> | null
+  status?: SopStatus
+  confidence?: number
+  source?: Record<string, any>
+  review?: Record<string, any>
+  stats?: SopStats
 }
 
 /** SOP 文件夹。 */
@@ -160,6 +190,8 @@ export interface SopListItem {
   sort_order?: number
   step_count: number
   source?: 'raw' | 'json'
+  status?: SopStatus
+  stats?: SopStats
 }
 
 const normalizeInlineDescription = (value: unknown): SopStepDescription => {
@@ -231,6 +263,11 @@ export const normalizeSopData = (data: RawSopData): SopData => ({
   sort_order: typeof data.sort_order === 'number' ? data.sort_order : undefined,
   steps: Array.isArray(data.steps) ? data.steps.map(normalizeSopStep) : [],
   blackboard: data.blackboard || null,
+  status: data.status || 'draft',
+  confidence: data.confidence,
+  source: data.source,
+  review: data.review,
+  stats: data.stats,
 })
 
 /**
@@ -283,6 +320,11 @@ export const serializeSopData = (data: SopData): RawSopData => ({
   sort_order: data.sort_order,
   steps: data.steps.map(serializeSopStep),
   blackboard: data.blackboard || null,
+  status: data.status,
+  confidence: data.confidence,
+  source: data.source,
+  review: data.review,
+  stats: data.stats,
 })
 
 /** Vue Flow 节点类型别名。 */

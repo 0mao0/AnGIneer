@@ -3,7 +3,7 @@
 
 Dispatcher 是 angineer-core 的大脑入口：
 - dispatch(): 顶层分级调度入口，根据意图分类结果选择 L1/L2/L3/L4 路径
-- run(): SOP 步骤执行引擎，被 dispatch() 在 L3 路径中调用
+- run_sop(): SOP 步骤执行引擎，被 dispatch() 在 L3 路径中调用
 
 依赖关系：
 - angineer-core → docs-core（检索/SQL）
@@ -35,7 +35,8 @@ try:
 except ImportError:
     ToolRegistry = None
 
-from ai_inference.llm_client import get_llm_client
+from ai_inference.llm_client import chat_result_guarded, get_llm_client
+from angineer_core.base_config import SOP_ROUTE_CONFIDENCE_THRESHOLD
 
 
 class Dispatcher:
@@ -466,6 +467,19 @@ class Dispatcher:
             "final_path": final_path,
             "fallback_reason": fallback_reason,
         })
+
+        # P1.4 执行反馈回流：记录本次 SOP 运行统计（含成功率，供审核界面标黄）
+        matched_sop_id = route_debug.get("matched_sop_id")
+        if sop_loader is not None and matched_sop_id:
+            sop_attempt_status = "failed"
+            for item in attempted_paths:
+                if item.get("path") == "standard_sop":
+                    sop_attempt_status = str(item.get("status") or "failed")
+                    break
+            try:
+                sop_loader.record_run(str(matched_sop_id), sop_attempt_status)
+            except Exception as e:
+                logger.warning(f"SOP 运行统计写入失败 ({matched_sop_id}): {e}")
 
         # 解析知识盲区分析（从 LLM 合成回答中提取）
         gap_analysis = None
@@ -1069,7 +1083,7 @@ class Dispatcher:
                     "reason": route_result.reason or "",
                 })
 
-                if route_result.sop and route_result.confidence >= 0.6:
+                if route_result.sop and route_result.confidence >= SOP_ROUTE_CONFIDENCE_THRESHOLD:
                     sop_full = sop_loader.analyze_sop(
                         route_result.sop.id, prefer_llm=False
                     )
@@ -1156,7 +1170,7 @@ class Dispatcher:
         inline_citations: Optional[List[Dict[str, Any]]] = None,
         filters=None,
         enforce_evidence: bool = False,
-    ) -> Tuple[str, list, list, str, str, Dict, Dict[str, float]]:
+    ) -> Tuple[str, list, list, str, str, Dict, Dict[str, float], Dict[str, Any]]:
         """L1/L2回退/L3回退：语义检索路径。
 
         enforce_evidence=True 时，若检索无结果则直接返回空，不调用 LLM 自由生成。
@@ -2542,12 +2556,14 @@ class Dispatcher:
         ]
         
         try:
-            response = self.llm_client.chat(
+            result = chat_result_guarded(
+                self.llm_client,
                 messages,
                 mode=self.mode,
                 config_name=self.config_name,
                 max_tokens=512
             )
+            response = result.text
             action_data = self._extract_json_from_response(response)
             action = action_data.get("action")
 

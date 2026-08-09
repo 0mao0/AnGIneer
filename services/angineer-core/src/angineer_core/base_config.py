@@ -13,6 +13,11 @@ from ai_inference.llm_config import LLMClientConfig, load_llm_config_from_env
 
 load_dotenv()
 
+# SOP 路由置信度单一阈值（B3：收敛 classifier 拒绝阈值 0.45 与 dispatcher 执行门槛 0.6，
+# 消除 0.45~0.6 区间的未定义语义）
+# TODO(evals)：跑 evals 对比 0.45/0.5/0.6 三档后定值，当前先取 0.5
+SOP_ROUTE_CONFIDENCE_THRESHOLD = 0.5
+
 
 class MemoryConfig(BaseModel):
     """Memory 模块配置。"""

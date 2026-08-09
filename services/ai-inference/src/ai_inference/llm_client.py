@@ -7,6 +7,7 @@ import os
 import time
 import json
 import threading
+from dataclasses import dataclass
 from typing import Dict, List, Optional, Any, Generator
 from datetime import datetime
 from enum import Enum
@@ -27,6 +28,21 @@ from .llm_config import (
 
 load_dotenv()
 logger = get_logger(__name__)
+
+
+def _as_dict(value: Any) -> Any:
+    """把 pydantic 对象 / 命名空间 / dict / list 递归转成普通结构（用于 usage/tool_calls）。"""
+    if value is None:
+        return None
+    if isinstance(value, dict):
+        return {k: _as_dict(v) for k, v in value.items()}
+    if hasattr(value, "model_dump"):
+        return _as_dict(value.model_dump(mode="json"))
+    if isinstance(value, (list, tuple)):
+        return [_as_dict(v) for v in value]
+    if hasattr(value, "__dict__"):
+        return {k: _as_dict(v) for k, v in vars(value).items()}
+    return value
 
 
 def _format_missing_config_error(target_config_name: str, model_configs: List[LLMModelConfig]) -> ValueError:
@@ -169,6 +185,23 @@ class CircuitBreaker:
             }
 
 
+@dataclass
+class ChatResult:
+    """LLM 对话完整结果（含 finish_reason/usage/tool_calls）。"""
+    text: str = ""
+    finish_reason: Optional[str] = None
+    usage: Optional[Dict[str, Any]] = None
+    tool_calls: Optional[List[Dict[str, Any]]] = None
+
+
+class LLMTruncatedError(Exception):
+    """LLM 输出被 max_tokens 截断（finish_reason == "length"）。"""
+
+    def __init__(self, message: str, partial_text: str = ""):
+        super().__init__(message)
+        self.partial_text = partial_text
+
+
 class LLMClient:
     """
     LLM 客户端类，负责管理多个 LLM 配置并处理对话请求。
@@ -204,7 +237,7 @@ class LLMClient:
             {
                 "name": mc.name,
                 "model": mc.model,
-                "api_key": mc.api_key,
+                "api_key": "***" if mc.api_key else "",
                 "base_url": mc.base_url,
                 "enabled": mc.enabled,
                 "priority": mc.priority
@@ -296,8 +329,9 @@ class LLMClient:
         messages: List[Dict],
         temperature: float,
         timeout_config: TimeoutConfig,
-        max_tokens: Optional[int] = None
-    ) -> str:
+        max_tokens: Optional[int] = None,
+        tools: Optional[List[Dict]] = None
+    ) -> ChatResult:
         """调用 OpenAI 兼容的 API。"""
         base_url = self._normalize_base_url(config.base_url)
 
@@ -317,19 +351,36 @@ class LLMClient:
             messages=messages,
             temperature=temperature,
             max_tokens=effective_max_tokens,
+            tools=tools,
             extra_body=extra_body if extra_body else None
         )
 
-        return response.choices[0].message.content
+        choice = response.choices[0]
+        message = choice.message
+        tool_calls = None
+        raw_tool_calls = getattr(message, "tool_calls", None)
+        if raw_tool_calls:
+            tool_calls = [_as_dict(tc) for tc in raw_tool_calls]
+        usage = None
+        if getattr(response, "usage", None) is not None:
+            usage = _as_dict(response.usage)
+        return ChatResult(
+            text=message.content or "",
+            finish_reason=getattr(choice, "finish_reason", None),
+            usage=usage,
+            tool_calls=tool_calls,
+        )
 
-    def _call_openai_stream(
+    def _call_openai_stream_events(
         self,
         config: LLMModelConfig,
         messages: List[Dict],
         temperature: float,
-        timeout_config: TimeoutConfig
-    ) -> Generator[str, None, None]:
-        """调用 OpenAI 兼容的 API（流式输出）。"""
+        timeout_config: TimeoutConfig,
+        max_tokens: Optional[int] = None,
+        tools: Optional[List[Dict]] = None
+    ) -> Generator[Dict[str, Any], None, None]:
+        """调用 OpenAI 兼容的 API（流式输出），产出 delta/done 事件。"""
         base_url = self._normalize_base_url(config.base_url)
 
         client = OpenAI(
@@ -342,18 +393,32 @@ class LLMClient:
         if "dashscope" in config.base_url or "aliyun" in config.base_url:
             extra_body["enable_thinking"] = False
 
+        effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
         response = client.chat.completions.create(
             model=config.model,
             messages=messages,
             temperature=temperature,
-            max_tokens=self._config.max_tokens,
+            max_tokens=effective_max_tokens,
+            tools=tools,
+            stream_options={"include_usage": True},
             extra_body=extra_body if extra_body else None,
             stream=True
         )
 
+        finish_reason = None
+        usage = None
         for chunk in response:
-            if chunk.choices and chunk.choices[0].delta.content:
-                yield chunk.choices[0].delta.content
+            if chunk.choices:
+                choice = chunk.choices[0]
+                content = getattr(getattr(choice, "delta", None), "content", None)
+                if content:
+                    yield {"type": "delta", "text": content}
+                if getattr(choice, "finish_reason", None):
+                    finish_reason = choice.finish_reason
+            chunk_usage = getattr(chunk, "usage", None)
+            if chunk_usage is not None:
+                usage = _as_dict(chunk_usage)
+        yield {"type": "done", "finish_reason": finish_reason, "usage": usage}
 
     def chat(
         self,
@@ -362,9 +427,31 @@ class LLMClient:
         model: Optional[str] = None,
         mode: str = "instruct",
         config_name: Optional[str] = None,
-        max_tokens: Optional[int] = None
+        max_tokens: Optional[int] = None,
+        tools: Optional[List[Dict]] = None
     ) -> str:
-        """发送对话请求并获取响应。"""
+        """发送对话请求并获取响应（薄包装，返回纯文本；None 内容退化为空串）。"""
+        return self.chat_result(
+            messages,
+            temperature=temperature,
+            model=model,
+            mode=mode,
+            config_name=config_name,
+            max_tokens=max_tokens,
+            tools=tools,
+        ).text or ""
+
+    def chat_result(
+        self,
+        messages: List[Dict],
+        temperature: Optional[float] = None,
+        model: Optional[str] = None,
+        mode: str = "instruct",
+        config_name: Optional[str] = None,
+        max_tokens: Optional[int] = None,
+        tools: Optional[List[Dict]] = None
+    ) -> ChatResult:
+        """发送对话请求并返回完整结果（含 finish_reason/usage/tool_calls）。"""
         env_mode = os.getenv("FORCE_LLM_MODE")
         if env_mode:
             mode = env_mode
@@ -398,17 +485,17 @@ class LLMClient:
             start_time = time.time()
 
             try:
-                content = self._call_with_retry(
-                    config, processed_messages, temp, self._config.timeout, effective_max_tokens
+                result = self._call_with_retry(
+                    config, processed_messages, temp, self._config.timeout, effective_max_tokens, tools
                 )
 
                 duration = time.time() - start_time
-                self._log_response(content, duration)
+                self._log_response(result.text, duration)
 
                 if circuit_breaker:
                     circuit_breaker.record_success()
 
-                return content
+                return result
 
             except Exception as e:
                 duration = time.time() - start_time
@@ -428,14 +515,40 @@ class LLMClient:
         temperature: Optional[float] = None,
         model: Optional[str] = None,
         mode: str = "instruct",
-        config_name: Optional[str] = None
+        config_name: Optional[str] = None,
+        max_tokens: Optional[int] = None,
+        tools: Optional[List[Dict]] = None
     ) -> Generator[str, None, None]:
-        """发送对话请求并以流式方式获取响应。"""
+        """发送对话请求并以流式方式获取响应（保持纯文本 yield，兼容现有调用方）。"""
+        for event in self.chat_stream_events(
+            messages,
+            temperature=temperature,
+            model=model,
+            mode=mode,
+            config_name=config_name,
+            max_tokens=max_tokens,
+            tools=tools,
+        ):
+            if event["type"] == "delta":
+                yield event["text"]
+
+    def chat_stream_events(
+        self,
+        messages: List[Dict],
+        temperature: Optional[float] = None,
+        model: Optional[str] = None,
+        mode: str = "instruct",
+        config_name: Optional[str] = None,
+        max_tokens: Optional[int] = None,
+        tools: Optional[List[Dict]] = None
+    ) -> Generator[Dict[str, Any], None, None]:
+        """发送对话请求并以流式方式获取响应（yield delta/done 事件）。"""
         env_mode = os.getenv("FORCE_LLM_MODE")
         if env_mode:
             mode = env_mode
 
         temp = temperature if temperature is not None else self._config.temperature
+        effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
         processed_messages = self._prepare_messages(messages, mode)
 
         target_config_name, explicit_config = _resolve_target_config_name(
@@ -463,10 +576,11 @@ class LLMClient:
             start_time = time.time()
 
             try:
-                for token in self._call_openai_stream(
-                    config, processed_messages, temp, self._config.timeout
+                for event in self._call_openai_stream_events(
+                    config, processed_messages, temp, self._config.timeout,
+                    effective_max_tokens, tools,
                 ):
-                    yield token
+                    yield event
 
                 duration = time.time() - start_time
                 logger.info(f"[流式输出完成] 耗时: {duration:.2f}秒")
@@ -494,15 +608,16 @@ class LLMClient:
         messages: List[Dict],
         temperature: float,
         timeout_config: TimeoutConfig,
-        max_tokens: Optional[int] = None
-    ) -> str:
+        max_tokens: Optional[int] = None,
+        tools: Optional[List[Dict]] = None
+    ) -> ChatResult:
         """带重试机制的 API 调用。"""
         retry_config = self._config.retry
         last_error = None
 
         for attempt in range(retry_config.max_retries + 1):
             try:
-                return self._call_openai(config, messages, temperature, timeout_config, max_tokens)
+                return self._call_openai(config, messages, temperature, timeout_config, max_tokens, tools)
 
             except (APITimeoutError, APIConnectionError, RateLimitError) as e:
                 last_error = e
@@ -546,6 +661,69 @@ class LLMClient:
                 self._config.circuit_breaker
             )
             logger.info(f"已重置熔断器: {config_name}")
+
+
+def _shorten_messages_for_retry(messages: List[Dict]) -> List[Dict]:
+    """把最长的一条消息内容截半，用于截断重试（P0.2 通用策略）。"""
+    if not messages:
+        return messages
+    longest_idx = max(
+        range(len(messages)),
+        key=lambda i: len(str(messages[i].get("content", ""))),
+    )
+    content = str(messages[longest_idx].get("content", ""))
+    if not content:
+        return messages
+    half = max(len(content) // 2, 1)
+    shortened = list(messages)
+    shortened[longest_idx] = {**messages[longest_idx], "content": content[:half]}
+    return shortened
+
+
+def chat_result_guarded(
+    client: "LLMClient",
+    messages: List[Dict],
+    *,
+    temperature: Optional[float] = None,
+    model: Optional[str] = None,
+    mode: str = "instruct",
+    config_name: Optional[str] = None,
+    max_tokens: Optional[int] = None,
+    tools: Optional[List[Dict]] = None,
+) -> ChatResult:
+    """调用 chat_result 并应用截断守卫（P5/P0.2）。
+
+    finish_reason == "length" 时：把最长消息内容截半后重试一次；
+    重试仍截断（或输入无法再缩短）则抛 LLMTruncatedError——截断绝不静默当成功。
+    """
+    result = client.chat_result(
+        messages,
+        temperature=temperature,
+        model=model,
+        mode=mode,
+        config_name=config_name,
+        max_tokens=max_tokens,
+        tools=tools,
+    )
+    if result.finish_reason != "length":
+        return result
+
+    shortened = _shorten_messages_for_retry(messages)
+    if shortened == messages:
+        raise LLMTruncatedError("LLM 输出被截断（输入无法继续缩短）", partial_text=result.text)
+
+    result = client.chat_result(
+        shortened,
+        temperature=temperature,
+        model=model,
+        mode=mode,
+        config_name=config_name,
+        max_tokens=max_tokens,
+        tools=tools,
+    )
+    if result.finish_reason != "length":
+        return result
+    raise LLMTruncatedError("LLM 输出被截断（重试后仍截断）", partial_text=result.text)
 
 
 class _LLMClientProxy:

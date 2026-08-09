@@ -102,7 +102,7 @@ def _llm_semantic_evaluate(
 ) -> Dict[str, Any]:
     """调用 LLM 对系统答案做语义评判，返回评分与理由。"""
     import time as _time
-    from ai_inference.llm_client import get_llm_client
+    from ai_inference.llm_client import chat_result_guarded, get_llm_client
     from ai_inference.llm_response_parser import extract_json_from_text, ParseError
 
     built_gold = _build_gold_answer(gold_answer, checks)
@@ -119,9 +119,10 @@ def _llm_semantic_evaluate(
     try:
         _t_start = _time.time()
         client = get_llm_client()
-        raw_response = client.chat(messages, mode="instruct", config_name=None)
+        result = chat_result_guarded(client, messages, mode="instruct", config_name=None)
+        raw_response = result.text
         eval_duration = round(_time.time() - _t_start, 2)
-        parsed = extract_json_from_text(raw_response)
+        parsed = extract_json_from_text(raw_response, strict=True)
         score = float(parsed.get("score", 0.0))
         score = max(0.0, min(1.0, score))
         reason = str(parsed.get("reason", "")).strip()

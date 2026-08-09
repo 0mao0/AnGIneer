@@ -1,5 +1,5 @@
 import type { InlineCitationSearchPayload } from '@angineer/ui-kit'
-import type { RawSopData, SopData, SopFolder, SopListItem } from '../types/sop'
+import type { RawSopData, SopAuditEntry, SopData, SopFolder, SopListItem } from '../types/sop'
 import { normalizeSopData, serializeSopData } from '../types/sop'
 import { sharedApiClient } from '../../../../apps/shared/apiClient'
 import { FORM_DATA_CONFIG } from '../../../../apps/shared/createApiClient'
@@ -52,7 +52,10 @@ interface SopDeletePreview {
 }
 
 export const sopApi = {
-  listSops: (): Promise<{ sops: SopListItem[] }> => sopGet(SOP_PREFIX),
+  listSops: (status?: string): Promise<{ sops: SopListItem[] }> => {
+    const query = status ? `?status=${encodeURIComponent(status)}` : ''
+    return sopGet(`${SOP_PREFIX}${query}`)
+  },
 
   getSop: async (id: string): Promise<SopData> => {
     const data = await sopGet<RawSopData>(`${SOP_PREFIX}/${id}`)
@@ -107,6 +110,21 @@ export const sopApi = {
     outputs: Record<string, string>
   }> => sopRequest(`${SOP_PREFIX}/steps/parse`, 'POST', { description }),
 
+  reviewSop: (
+    id: string,
+    action: 'approve' | 'reject' | 'disable',
+    note?: string,
+    reviewer?: string,
+  ): Promise<{ status: string; id: string; sop_status: string }> =>
+    sopRequest(`${SOP_PREFIX}/${id}/review`, 'POST', {
+      action,
+      note: note || '',
+      reviewer: reviewer || '',
+    }),
+
+  getSopAudit: (id: string): Promise<{ audit: SopAuditEntry[] }> =>
+    sopGet(`${SOP_PREFIX}/${id}/audit`),
+
   listKnowledgeNodes: (libraryId: string = 'default'): Promise<KnowledgeNodeItem[]> =>
     sopGet(`${KNOWLEDGE_PREFIX}/nodes?library_id=${libraryId}`),
 
@@ -123,7 +141,14 @@ export const sopApi = {
   searchKnowledgeReferences: (payload: InlineCitationSearchPayload): Promise<any> =>
     sopRequest(`${KNOWLEDGE_PREFIX}/references/search`, 'POST', payload),
 
-  generateSopsFromDoc: async (libraryId: string, docId: string): Promise<{ generated: string[]; total: number }> => {
+  generateSopsFromDoc: async (
+    libraryId: string,
+    docId: string,
+  ): Promise<{
+    generated: string[]
+    total: number
+    rejected?: Array<{ id: string; problems: string[] }>
+  }> => {
     try {
       return await sopRequest(`${SOP_PREFIX}/generate-from-doc`, 'POST', { library_id: libraryId, doc_id: docId })
     } catch (err: any) {

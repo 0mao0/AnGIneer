@@ -8,6 +8,9 @@ export type {
   RawSopStep,
   SopFolder,
   SopListItem,
+  SopStatus,
+  SopStats,
+  SopAuditEntry,
   SopFlowNode,
   SopFlowEdge,
 } from './sop'

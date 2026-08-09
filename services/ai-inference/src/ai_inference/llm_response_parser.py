@@ -32,8 +32,11 @@ class ParseError(Exception):
         return " | ".join(parts)
 
 
-def extract_json_from_text(text: str) -> Dict[str, Any]:
-    """从文本中提取 JSON 对象，支持 Markdown 代码块和裸 JSON。"""
+def extract_json_from_text(text: str, strict: bool = False) -> Dict[str, Any]:
+    """从文本中提取 JSON 对象，支持 Markdown 代码块和裸 JSON。
+
+    strict=True 时不做 salvage：截断/畸形 JSON 直接抛 ParseError（P0.2 截断守卫）。
+    """
     if not text:
         raise ParseError("响应内容为空", raw_response=text)
 
@@ -60,6 +63,12 @@ def extract_json_from_text(text: str) -> Dict[str, Any]:
     try:
         return json.loads(content)
     except json.JSONDecodeError as e:
+        if strict:
+            raise ParseError(
+                "无法解析 JSON（strict 模式不做修复）",
+                raw_response=text,
+                details=f"JSON 解析错误: {e}",
+            )
         logger.debug(f"JSON 解析失败，尝试修复: {e}")
         fixed_content = _try_fix_json(content)
         if fixed_content:
@@ -83,7 +92,9 @@ def _try_fix_json(content: str) -> Optional[str]:
     content = re.sub(r',\s*}', '}', content)
     content = re.sub(r',\s*]', ']', content)
     content = re.sub(r'"\s*:\s*"', '": "', content)
-    content = content.replace("'", '"')
+    # 只替换键名位置与裸字符串值位置的单引号，避免破坏字符串内容中的撇号（Q1）
+    content = re.sub(r"'([^']+)'\s*:", r'"\1":', content)
+    content = re.sub(r":\s*'([^']+)'([,}\]])", r': "\1"\2', content)
 
     return content
 

@@ -4,7 +4,7 @@
  */
 import { ref } from 'vue'
 import type { DropEvent } from '@angineer/ui-kit'
-import type { SOPTreeNode, SopListItem, SopFolder, SopData } from '../types/sop'
+import type { SOPTreeNode, SopListItem, SopFolder, SopData, SopStatus } from '../types/sop'
 import { sopApi } from './useSopApi'
 
 export type { SOPTreeNode } from '../types/sop'
@@ -59,6 +59,9 @@ function buildTreeFromApi(sops: SopListItem[], folders: SopFolder[]): SOPTreeNod
     isLeaf: true,
     parentId: sop.folder_id || undefined,
     sortOrder: sop.sort_order,
+    sopStatus: sop.status,
+    stats: sop.stats,
+    status: (sop.status || '') as any,
   }))
 
   sopNodes.forEach((node) => {
@@ -94,11 +97,11 @@ export function useSopTree() {
   const loading = ref(false)
 
   /** 从后端 API 加载树数据 */
-  const fetchTreeFromApi = async (): Promise<SOPTreeNode[]> => {
+  const fetchTreeFromApi = async (status?: SopStatus): Promise<SOPTreeNode[]> => {
     loading.value = true
     try {
       const [sopsResult, foldersResult] = await Promise.all([
-        sopApi.listSops(),
+        sopApi.listSops(status),
         sopApi.getFolders(),
       ])
       treeData.value = buildTreeFromApi(sopsResult.sops || [], foldersResult.folders || [])

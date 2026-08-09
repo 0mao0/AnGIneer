@@ -4,7 +4,7 @@ import json
 import logging
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-from ai_inference.llm_client import LLMClient
+from ai_inference.llm_client import LLMClient, chat_result_guarded
 
 from docs_core.step07_graph.config import (
     EntityLayer,
@@ -129,14 +129,16 @@ Extract all entities and relationships related to seed entities: "{seeds_str}"."
 
         try:
             client = LLMClient()
-            response = client.chat(
-                messages=[
+            result = chat_result_guarded(
+                client,
+                [
                     {"role": "system", "content": EXTRACT_SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
                 ],
                 config_name=self.config_name,
                 mode=self.mode,
             )
+            response = result.text
         except Exception as e:
             logger.warning("LLM call failed for entity extraction: %s", e)
             return {"entities": [], "relationships": []}

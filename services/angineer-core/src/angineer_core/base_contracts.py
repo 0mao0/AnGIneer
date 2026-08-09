@@ -45,6 +45,11 @@ class SOP(BaseModel):
     description_en: Optional[str] = None
     steps: List[Step]
     blackboard: Optional[Dict[str, Any]] = None
+    status: Literal["draft", "reviewed", "published", "disabled"] = "draft"
+    confidence: float = 0.0
+    source: Dict[str, Any] = Field(default_factory=dict)
+    review: Dict[str, Any] = Field(default_factory=dict)
+    stats: Dict[str, Any] = Field(default_factory=dict)
 
     def get_step(self, step_id: str) -> Optional[Step]:
         """根据 ID 查找步骤。"""
