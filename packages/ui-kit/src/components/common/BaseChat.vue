@@ -1719,7 +1719,7 @@ defineExpose({
         max-width: 180px;
 
         :deep(.ant-select-selector) {
-          font-size: 11px;
+          font-size: 12px;
           border-radius: 6px;
           background: var(--bg-secondary);
           color: var(--text-primary);
@@ -1731,7 +1731,7 @@ defineExpose({
           text-overflow: ellipsis;
           white-space: nowrap;
           color: var(--text-primary);
-          font-size: 11px;
+          font-size: 12px;
         }
 
         :deep(.ant-select-arrow) {
@@ -1739,13 +1739,13 @@ defineExpose({
         }
 
         :deep(.ant-select-item-option-content) {
-          font-size: 11px;
+          font-size: 12px;
         }
       }
     }
 
     :global(.ant-select-dropdown .ant-select-item-option-content) {
-      font-size: 11px;
+      font-size: 12px;
       display: flex;
       align-items: center;
       gap: 4px;
