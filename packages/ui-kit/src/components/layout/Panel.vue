@@ -107,7 +107,7 @@ withDefaults(defineProps<Props>(), {
 }
 
 /* 面板变窄时：icon 先隐藏，标题自然截断（知/知识…），极窄才全部消失 */
-@container (max-width: 220px) {
+@container (max-width: 150px) {
   .header-title .anticon {
     display: none;
   }
