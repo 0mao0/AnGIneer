@@ -7,22 +7,12 @@ from evals_core.runner._prediction_trace import enrich_prediction_trace
 from evals_core.runner._query_helper import run_eval_query
 from evals_core.runner.retrieval_eval import normalize_section_path
 from angineer_core.base_utils import is_fatal_exception
+from angineer_core.prompts.answer_eval import (
+    SEMANTIC_EVAL_PROMPT,
+    SEMANTIC_EVAL_SYSTEM_PROMPT,
+)
 
 DEFAULT_SEMANTIC_THRESHOLD = 0.65
-
-_SEMANTIC_EVAL_PROMPT = """\
-你是评测助手。判断"系统答案"是否在语义上等价于或包含了"标准答案"的核心信息。
-
-标准答案：{gold_answer}
-{keyword_hint}系统答案：{system_answer}
-
-评分标准：
-- 1.0：系统答案完整包含标准答案的核心信息，语义等价
-- 0.7-0.9：系统答案包含大部分核心信息，但有少量遗漏或不精确
-- 0.4-0.6：系统答案包含部分核心信息，但有明显遗漏或偏差
-- 0.0-0.3：系统答案与标准答案核心信息不符或缺失严重
-
-返回 JSON：{{"score": 0.0~1.0, "reason": "简短说明"}}"""
 
 
 def normalize_eval_text(value: str) -> str:
@@ -107,13 +97,13 @@ def _llm_semantic_evaluate(
 
     built_gold = _build_gold_answer(gold_answer, checks)
     keyword_hint = _build_keyword_hint(checks)
-    prompt = _SEMANTIC_EVAL_PROMPT.format(
+    prompt = SEMANTIC_EVAL_PROMPT.format(
         gold_answer=built_gold,
         keyword_hint=keyword_hint,
         system_answer=answer,
     )
     messages = [
-        {"role": "system", "content": "你是一个严格的评测助手，只返回 JSON 格式的评分结果。"},
+        {"role": "system", "content": SEMANTIC_EVAL_SYSTEM_PROMPT},
         {"role": "user", "content": prompt},
     ]
     try:
@@ -185,6 +175,7 @@ class AnswerEvaluator(BaseEvaluator):
             "task_type": partial.get("task_type", ""),
             "strategy": partial.get("strategy", ""),
             "system_prompt": partial.get("system_prompt", ""),
+            "prompt_versions": partial.get("prompt_versions", {}),
             "retrieval_debug": partial.get("retrieval_debug", {}),
             "stage_timings": partial.get("stage_timings", {}),
             "intent": partial.get("intent", {}),
@@ -228,6 +219,7 @@ class AnswerEvaluator(BaseEvaluator):
             "debug": data.get("debug", {}),
             "thinking": data.get("queryChain", ""),
             "system_prompt": data.get("system_prompt", ""),
+            "prompt_versions": data.get("prompt_versions", {}),
             "retrieval_debug": data.get("retrieval_debug", {}),
             "stage_timings": data.get("stage_timings", {}),
             "intent": data.get("intent", {}),

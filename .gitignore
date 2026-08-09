@@ -16,7 +16,9 @@ ENV/
 build/
 tests/
 tools/
-scripts/
+scripts/*
+**/scripts/*
+!scripts/audit_prompts.py
 
 # Node.js
 node_modules/

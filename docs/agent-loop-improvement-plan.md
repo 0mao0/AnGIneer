@@ -530,9 +530,9 @@ if path == "semantic_retrieval" and os.environ.get("ANGINEER_AGENT_L1", "false")
 
 ### 当前进度与执行待办（2026-08-09）
 
-- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）均已提交；P4（L4 大题档 agentic 接入）代码与测试完成，**尚未提交**。
-- **P4 待提交文件**：`agent_tools.py`（SopRunnerAdapter.sop_execute 实装）、`agent_configs.py`（build_complex_config + 预算闸门）、`dispatcher_agentic.py`（dispatch_complex_agentic）、`dispatcher.py`（ANGINEER_AGENT_L4 flag）、`docs/agent-loop-improvement-plan.md`（改）。
-- **下一步（用户已确认）**：① 提交 P4；② 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare（多跳 +20%、单跳不降 ±2%、平均 turns ≤1.5、L4 综合大题集分数 ≥ 旧路径）。
+- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）均已提交；P5（Prompt 资产化）代码与测试完成，**尚未提交**。
+- **P5 待提交文件**：`angineer_core/prompts/`（新包：loader + dispatcher/classifier/agent_configs/sop_routes/evals_routes/answer_eval 常量）、`dispatcher.py`/`classifier.py`/`agent_configs.py`（改，prompt 迁出 + prompt_versions）、`sop_routes.py`/`evals_routes.py`/`answer_eval.py`（改）、`scripts/audit_prompts.py`（新，CI 审计）、`docs/agent-loop-improvement-plan.md`（改）。
+- **下一步（用户已确认）**：① 提交 P5；② 继续 P6（dispatcher 拆分，最后做）；③ 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare（多跳 +20%、单跳不降 ±2%、平均 turns ≤1.5、L4 综合大题集分数 ≥ 旧路径）。
 - **约束**：`ANGINEER_AGENT_L1/L4` 默认关闭，不影响现有链路；`tests/` 目录仍被 `.gitignore` 忽略，测试不提交。
 - **外部依赖**：DashScope embedding 与 reranker 服务当前不可用（回退 hash 检索，evals 分数不可比），P3.3/P3.4/P4.5 验收挂起中。
 
@@ -599,6 +599,18 @@ L4 分支（L350-412）在 `ANGINEER_AGENT_L4=true` 时改走 `_dispatch_complex
 | 3 | 版本约定：改动 prompt 必须递增版本号；evals 的 prediction 已存 `system_prompt`（`answer_eval.py:229`），追加存 `prompt_versions: {name: version}` |
 | 4 | 中英策略成文：结构化提取/评测判分沿用英文（图谱 E1-E5 与 VERIFY 已验证），面向用户生成用中文 |
 | 5 | grep 审计脚本进 CI：`services/**.py` 中检测 `你是一个|You are a` 字面量，prompts/ 目录外出现即报警（白名单豁免） |
+
+### P5 实施记录（2026-08-09）
+
+- 新建 `angineer_core/prompts/` 包：`load(name, version="latest")` 薄加载器 + `versions()` 注册表；每个 prompt 常量带头部注释（用途/语言/版本/最后变更），模块底部 `register()` 登记，同名同版本内容不一致拒绝覆盖。
+- 迁移 `dispatcher.py`：system prompt（base + definition/locate/content 规则 + 选择题 + 盲区）、两阶段抽取/判定（choice/general × 普通/显式证据）、SQL 问答两处、`_smart_select_tool`、`_build_smart_execution_prompt`（calculator hint + 主模板）、`_generate_step_summary`。
+- 迁移 `classifier.py`：意图分类 prompt、SOP 路由精排 prompt（模板化：candidates_detail/param_hints/threshold）。
+- 迁移 `agent_configs.py`：`QA_AGENT_SYSTEM_PROMPT` / `COMPLEX_AGENT_SYSTEM_PROMPT` 迁入 prompts 包并 re-export，旧导入路径兼容。
+- 迁移 `sop_routes.py`（步骤解析）、`evals_routes.py`（对比分析，顺手修 Q9：模块 import + 模板化 body）、`answer_eval.py`（语义评测 prompt + system prompt）。
+- 版本可审计：dispatcher 结果新增 `prompt_versions`（`prompts.versions()` 快照），evals prediction（`run_prediction` 与 `_emit_enriched_stage`）透传该字段。
+- 中英策略成文：`prompts/README.md`——面向用户生成用中文；结构化提取/评测判分沿用英文（图谱 E1-E5 与 VERIFY 已验证）。
+- CI 审计：`scripts/audit_prompts.py` 检测 `services/**.py` 中 `你是一个|You are a` 字面量，prompts/ 目录外出现即退出码 1；白名单仅放行既有未迁移资产（sop_parser、engtools 工具侧、docs-core 图谱）。
+- 行为零变化验证：迁移前后逐字对比（dispatcher system/smart、classifier 两 prompt、sop_routes/evals_routes/answer_eval）全部 byte-identical；`tests/angineer-core` 74 个全绿（新增 `test_prompts.py` 15 个），`tests/unit` 259 passed + 4 skip、`tests/ai-inference` 7 个回归不变。
 
 ## P6 · dispatcher 拆分（1~2 周，最后做）
 

@@ -11,6 +11,7 @@ from fastapi import APIRouter, HTTPException, UploadFile, File as FastAPIFile, F
 from pydantic import BaseModel, Field
 
 from angineer_core.base_contracts import SOP as SopModel, Step as StepModel
+from angineer_core.prompts.sop_routes import STEP_PARSE_SYSTEM_PROMPT
 from sop_core.sop_parser import SopParser
 from sop_core.sop_loader import SopLoader
 from sop_core.sop_validator import validate_sop_data
@@ -413,13 +414,7 @@ def _parse_step_description(description: str) -> Dict[str, Any]:
     if not normalized:
         raise HTTPException(status_code=400, detail="描述不能为空")
 
-    system_prompt = (
-        "你是一个 SOP 步骤结构化助手。"
-        "请根据用户提供的步骤描述，输出一个 JSON 对象，且只能输出 JSON。"
-        "格式为: {\"tool\":\"manual|calculator|table_lookup|auto|sop_run|llm_call\","
-        "\"inputs\":{\"参数名\":\"参数说明或引用\"},\"outputs\":{\"输出名\":\"输出说明或结果键\"}}。"
-        "如果无法判断，就尽量保守，tool 返回 manual，inputs/outputs 返回空对象。"
-    )
+    system_prompt = STEP_PARSE_SYSTEM_PROMPT
     user_prompt = f"步骤描述：\n{normalized}"
     try:
         from ai_inference.llm_client import llm_client

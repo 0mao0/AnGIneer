@@ -17,6 +17,10 @@ from evals_core.contracts import (
     UpdateQuestionRequest,
 )
 from evals_core.dataset import manager
+from angineer_core.prompts.evals_routes import (
+    COMPARE_ANALYSIS_SYSTEM_PROMPT,
+    COMPARE_ANALYSIS_USER_TEMPLATE,
+)
 from evals_core.runner import suite_runner
 from evals_core.storage import result_store
 
@@ -279,22 +283,16 @@ async def analyze_compare(body: Dict[str, Any] = None):
     prediction_a = detail_a.get("prediction") or {}
     prediction_b = detail_b.get("prediction") or {}
 
-    prompt = (
-        f"你是评测结果分析专家。请分析以下两次评测中同一道题目的差异。\n\n"
-        f"题目ID: {question_id}\n\n"
-        f"评测1 (运行 {run_id_a[:12]}):\n"
-        f"- 结果: {quality_a}\n"
-        f"- 评分: {scores_a}\n"
-        f"- 系统输出: {prediction_a}\n\n"
-        f"评测2 (运行 {run_id_b[:12]}):\n"
-        f"- 结果: {quality_b}\n"
-        f"- 评分: {scores_b}\n"
-        f"- 系统输出: {prediction_b}\n\n"
-        f"请分析:\n"
-        f"1. 两次评测的计算过程是否一致？\n"
-        f"2. 如果不一致，差异在哪里？\n"
-        f"3. 可能的原因是什么？\n\n"
-        f"请用简洁的中文回答，不超过200字。"
+    prompt = COMPARE_ANALYSIS_USER_TEMPLATE.format(
+        question_id=question_id,
+        run_id_a=run_id_a[:12],
+        quality_a=quality_a,
+        scores_a=scores_a,
+        prediction_a=prediction_a,
+        run_id_b=run_id_b[:12],
+        quality_b=quality_b,
+        scores_b=scores_b,
+        prediction_b=prediction_b,
     )
 
     try:
@@ -304,7 +302,7 @@ async def analyze_compare(body: Dict[str, Any] = None):
             None,
             lambda: client.chat(
                 messages=[
-                    {"role": "system", "content": "你是评测结果分析专家，请用简洁的中文回答。"},
+                    {"role": "system", "content": COMPARE_ANALYSIS_SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
                 ],
                 mode="instruct",
