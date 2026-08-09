@@ -10,7 +10,7 @@ import tempfile
 import threading
 import logging
 from typing import List, Dict, Any, Optional
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -39,7 +39,15 @@ sys.path.append(os.path.join(SERVICES_DIR, "evals-core", "src"))
 # Import logic from packages
 from ai_inference.llm_client import LLMClient
 from angineer_core.base_contracts import Step, SOP
+from angineer_core.agent_messages import AgentMessage
 from angineer_core import IntentClassifier, Dispatcher
+from chat_agent import (
+    create_standalone_session,
+    find_session_by_run_id,
+    get_agent_session,
+    map_event_to_agent_frame,
+    map_event_to_chat_sse,
+)
 from sop_core.sop_loader import SopLoader
 from engtools.BaseTool import ToolRegistry, register_tool
 # Import tools to ensure registration
@@ -242,6 +250,11 @@ class ChatStreamEvent(BaseModel):
     content: Optional[str] = None
     usage: Optional[Dict[str, int]] = None
     error: Optional[str] = None
+
+
+class SteerRequest(BaseModel):
+    """run 中途 steer 注入请求体。"""
+    text: str
 
 
 # --- Global State for UI Tracking ---
@@ -447,74 +460,60 @@ def list_llm_configs():
 
 
 @app.post("/api/chat")
-async def chat_stream(request: ChatRequest):
+async def chat_stream(request: ChatRequest, raw_request: Request):
     """
-    AI 对话流式接口
+    AI ??????
 
-    支持流式输出，前端通过 SSE 接收增量内容
+    P7????? AgentSession + qa config?agent ???????? SSE ?
+    ?message_delta?chunk?run_end?end????????????????
+
+    ??????????? SSE ??????
     """
     async def event_stream():
         try:
-            client = LLMClient()
             message_id = f"msg-{int(time.time() * 1000)}"
 
-            # 发送开始事
+            # ??????
             yield f"data: {json.dumps({'type': 'start', 'messageId': message_id}, ensure_ascii=False)}\n\n"
 
-            # 构建消息列表
-            messages = []
+            # ?????????history ??????????????????
+            session = create_standalone_session(scene="qa")
+            session.history = [
+                AgentMessage(role=msg.role, content=msg.content)
+                for msg in request.history
+                if msg.role in ("user", "assistant", "system")
+            ]
 
-            # 添加历史消息
-            for msg in request.history:
-                if msg.role in ['user', 'assistant', 'system']:
-                    messages.append({
-                        "role": msg.role,
-                        "content": msg.content
-                    })
+            queue: asyncio.Queue = asyncio.Queue()
 
-            # 添加当前用户消息
-            messages.append({
-                "role": "user",
-                "content": request.message
-            })
+            def emit(event):
+                queue.put_nowait(event)
 
-            # 调用流式对话
-            full_content = ""
-            prompt_tokens = 0
-            completion_tokens = 0
+            loop = asyncio.get_event_loop()
+            run_future = loop.run_in_executor(None, session.run, request.message, emit)
 
-            # 估算 prompt tokens
-            for msg in messages:
-                prompt_tokens += len(msg["content"]) // 2  # 简化估
-
-            for token in client.chat_stream(
-                messages=messages,
-                model=request.model,
-                mode=request.mode or "instruct"
-            ):
-                full_content += token
-                completion_tokens += 1
-
-                # 发送增量内
-                yield f"data: {json.dumps({'type': 'chunk', 'content': token}, ensure_ascii=False)}\n\n"
-
-            # 发送结束事件
-            end_payload = json.dumps(
-                {
-                    "type": "end",
-                    "usage": {
-                        "promptTokens": prompt_tokens,
-                        "completionTokens": completion_tokens,
-                    },
-                },
-                ensure_ascii=False,
-            )
-            yield f"data: {end_payload}\n\n"
+            while True:
+                # P7 ? Q10?????? run?LLM HTTP ???? chunk ??
+                if await raw_request.is_disconnected():
+                    session.cancel()
+                    break
+                try:
+                    event = await asyncio.wait_for(queue.get(), timeout=0.2)
+                except asyncio.TimeoutError:
+                    if run_future.done():
+                        break
+                    continue
+                frame = map_event_to_chat_sse(event)
+                if frame:
+                    yield f"data: {frame}\n\n"
+                if event.type in ("run_end", "error"):
+                    break
+            await run_future
 
             yield "data: [DONE]\n\n"
 
         except Exception as e:
-            logger.error(f"对话流错 {e}")
+            logger.error(f"????? {e}")
             yield f"data: {json.dumps({'type': 'error', 'error': str(e)}, ensure_ascii=False)}\n\n"
 
     return StreamingResponse(
@@ -523,10 +522,73 @@ async def chat_stream(request: ChatRequest):
         headers={
             "Cache-Control": "no-cache",
             "Connection": "keep-alive",
-            "X-Accel-Buffering": "no"  # 禁用 Nginx 缓冲
+            "X-Accel-Buffering": "no"  # ?? Nginx ??
         }
     )
 
+
+@app.post("/api/chat/agent")
+async def chat_agent_stream(request: QueryRequest, raw_request: Request):
+    """Agent ????SSE??run/turn/tool ?? AgentEvent ?????
+
+    ``scene`` ??? qa/complex ??``session_id`` ??????history/steer??
+    """
+    async def event_stream():
+        try:
+            session = get_agent_session(
+                request.scene or "qa",
+                request.session_id,
+                library_id=request.library_id,
+                doc_ids=request.doc_ids,
+            )
+
+            queue: asyncio.Queue = asyncio.Queue()
+
+            def emit(event):
+                queue.put_nowait(event)
+
+            loop = asyncio.get_event_loop()
+            run_future = loop.run_in_executor(None, session.run, request.query, emit)
+
+            while True:
+                if await raw_request.is_disconnected():
+                    session.cancel()
+                    break
+                try:
+                    event = await asyncio.wait_for(queue.get(), timeout=0.2)
+                except asyncio.TimeoutError:
+                    if run_future.done():
+                        break
+                    continue
+                yield f"data: {map_event_to_agent_frame(event)}\n\n"
+                if event.type in ("run_end", "error"):
+                    break
+            await run_future
+
+            yield "data: [DONE]\n\n"
+        except Exception as e:
+            logger.error(f"Agent ????? {e}")
+            yield f"data: {json.dumps({'type': 'error', 'error': str(e)}, ensure_ascii=False)}\n\n"
+
+    return StreamingResponse(
+        event_stream(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
+
+
+@app.post("/api/chat/agent/{run_id}/steer")
+def steer_agent(run_id: str, request: SteerRequest):
+    """run ???????steer ????? turn ?????"""
+    session = find_session_by_run_id(run_id)
+    if session is None:
+        raise HTTPException(status_code=404, detail="run not found or already finished")
+    session.steer(request.text)
+    return {"status": "ok", "run_id": run_id}
 @app.get("/test_content/{test_id}")
 def get_test_content(test_id: str):
     test_files = {

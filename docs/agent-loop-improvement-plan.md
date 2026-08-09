@@ -530,9 +530,9 @@ if path == "semantic_retrieval" and os.environ.get("ANGINEER_AGENT_L1", "false")
 
 ### 当前进度与执行待办（2026-08-09）
 
-- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）、P5（Prompt 资产化，48faa80）、P6a（SopRunner 下沉，0c2ac2a）、P6b（retrieval_pipeline 下沉，15adfd5）、P6c（qa_pipeline 答题段，e4840c4）均已提交；P6d（dispatcher 拆分收尾）代码与测试完成，**尚未提交**。
-- **P6d 待提交文件**：`dispatch_utils.py` / `sql_pipeline.py` / `sop_dispatch.py` / `semantic_dispatch.py`（新）、`qa_pipeline.py`（扩：chat/gap/SOP 答案组装）、`prompts/dispatcher.py`（补 CHAT_SYSTEM_PROMPT）、`dispatcher.py`（改：783 行薄壳 + 路由）、`docs/agent-loop-improvement-plan.md`（改）。
-- **下一步（用户已确认）**：① 提交 P6d（P6 全部完成）；② 可开始 P7（API 层统一）或先做外部 embedding/reranker 服务恢复后的 P3+P4 evals 统一验收；③ 外部服务恢复前 evals 基线/实验/compare 继续挂起。
+- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）、P5（Prompt 资产化，48faa80）、P6a-d（dispatcher 拆分，0c2ac2a/15adfd5/e4840c4/f47b62b）均已提交；P7（API 层统一）代码与测试完成，**尚未提交**。
+- **P7 待提交文件**：`api-server/chat_agent.py`（新，会话池 + SSE 帧映射）、`api-server/main.py`（改：/api/chat 内部接 AgentSession + 取消；新增 /api/chat/agent 与 steer）、`docs/agent-loop-improvement-plan.md`（改）。
+- **下一步（用户已确认）**：① 提交 P7（计划 P0-P7 全部完成）；② 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare（最终验收）；③ 前端逐步切换到 /api/chat/agent 事件流。
 - **约束**：`ANGINEER_AGENT_L1/L4` 默认关闭，不影响现有链路；`tests/` 目录仍被 `.gitignore` 忽略，测试不提交。
 - **外部依赖**：DashScope embedding 与 reranker 服务当前不可用（回退 hash 检索，evals 分数不可比），P3.3/P3.4/P4.5 验收挂起中。
 
@@ -669,6 +669,16 @@ L4 分支（L350-412）在 `ANGINEER_AGENT_L4=true` 时改走 `_dispatch_complex
 | 3 | 取消：FastAPI 的 `Request.is_disconnected()` 轮询任务 → `session.cancel()`（修 Q10）；断连后 LLM HTTP 流在下一 chunk 处终止（如实记录此粒度） |
 | 4 | `/chat/stream`（NDJSON SOP 执行流）保留不动——它是 SOP 调试工具，与答题链路解耦 |
 | 5 | steer 接口：`POST /api/chat/agent/{run_id}/steer`（body: text）→ `session.steer()`；会话池按 `scene+session_id` 复用 `QueryRequest` 现有约定 |
+
+### P7 实施记录（2026-08-09）
+
+- 新建 `api-server/chat_agent.py`：`_AGENT_SESSION_POOL`（按 `scene:session_id` 复用 AgentSession，TTL/容量驱逐与现有会话池同款）+ `get_agent_session` / `create_standalone_session` / `find_session_by_run_id`；`map_event_to_chat_sse`（message_delta→chunk、run_end→end 带 usage、error→error，其余忽略，对外帧格式不变）；`map_event_to_agent_frame`（AgentEvent 原样 JSON）；config factory 按 scene 选 qa（max_turns=3）/complex（max_turns=8），doc_nodes 从知识库加载。
+- `main.py`：`/api/chat` 内部改为 AgentSession + qa config（history 从请求注入，保持旧接口上下文语义），事件流经 executor 桥接并映射为既有 SSE 帧；**修 Q10**：`Request.is_disconnected()` 轮询 → `session.cancel()`，断连时下一 chunk 终止。
+- 新增 `/api/chat/agent`（SSE）：完整 AgentEvent 四级流直转，`scene=qa|complex`、`session_id` 复用池；新增 `POST /api/chat/agent/{run_id}/steer`（404 处理 + `session.steer()`）。
+- `/chat/stream`（NDJSON SOP 调试）保留不动。
+- 测试：新增 `tests/unit/test_unit_api_chat_agent.py` 9 个（帧映射、池复用、run_id 查找、AgentSession 事件流端到端）+ `test_unit_api_main.py` 扩展 3 个源码级冒烟（路由注册、取消语义、帧格式保持）；全量 386 passed + 4 skip、集成工具注册 1 passed、prompt 审计通过。
+
+> 计划 P0-P7 全部落地；最终 evals 统一验收待外部 embedding/reranker 服务恢复。
 
 ---
 
