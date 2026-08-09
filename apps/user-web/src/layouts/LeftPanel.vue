@@ -1,5 +1,9 @@
 <template>
-  <div class="left-panel-container" :class="appClass">
+  <div
+    ref="panelRef"
+    class="left-panel-container"
+    :class="[appClass, { 'hide-tab-labels': hideTabLabels }]"
+  >
     <a-tabs v-model:activeKey="activeTab" class="resource-tabs">
       <a-tab-pane key="project" tab="项目">
         <keep-alive>
@@ -37,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { KnowledgeTree, useKnowledgeTree, createResourceNodeFromKnowledge } from '@angineer/docs-ui'
 import SOPSidebar from './sidebar/SOPSidebar.vue'
 import ProjectSidebar from './sidebar/ProjectSidebar.vue'
@@ -54,6 +58,10 @@ const props = withDefaults(defineProps<{
 }>(), {
   activeSection: 'knowledge'
 })
+
+const panelRef = ref<HTMLElement | null>(null)
+const hideTabLabels = ref(false)
+let resizeObserver: ResizeObserver | null = null
 
 const emit = defineEmits<{
   'update:activeSection': [value: ResourcePanelSection]
@@ -101,6 +109,22 @@ const onSelectDoc = (node: SmartTreeNode) => {
 
 onMounted(() => {
   loadNodes()
+  if (panelRef.value && typeof ResizeObserver !== 'undefined') {
+    resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        // 面板过窄时隐藏页签文字，避免竖排（直接不显示）
+        hideTabLabels.value = entry.contentRect.width > 0 && entry.contentRect.width < 150
+      }
+    })
+    resizeObserver.observe(panelRef.value)
+  }
+})
+
+onUnmounted(() => {
+  if (resizeObserver) {
+    resizeObserver.disconnect()
+    resizeObserver = null
+  }
 })
 </script>
 
@@ -118,6 +142,10 @@ onMounted(() => {
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  :deep(.ant-tabs-tab) {
+    white-space: nowrap;
+  }
 
   :deep(.ant-tabs-nav) {
     margin: 0;
@@ -139,6 +167,16 @@ onMounted(() => {
   :deep(.ant-tabs-tabpane) {
     height: 100%;
     overflow-y: auto;
+  }
+}
+
+.left-panel-container.hide-tab-labels {
+  :deep(.ant-tabs-nav) {
+    padding: 0 6px;
+  }
+
+  :deep(.ant-tabs-tab-btn) {
+    font-size: 0;
   }
 }
 

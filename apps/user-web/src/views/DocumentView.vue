@@ -18,7 +18,7 @@
       <Preview_Markdown
         v-else-if="document"
         :content="document.content"
-        :active-line-range="null"
+        :active-line-range="activeLineRange"
       />
       <EmptyState
         v-else
@@ -42,12 +42,35 @@ const props = defineProps<{
   libraryId?: string
   docId?: string
   title?: string
+  sectionPath?: string
+  targetId?: string
+  pageIdx?: number
+  snippet?: string
 }>()
 
 const route = useRoute()
 const loading = ref(true)
 const loadError = ref<string>('')
 const document = ref<{ id: string; title: string; content: string } | null>(null)
+const activeLineRange = ref<{ start: number; end: number } | null>(null)
+
+/** 按引用定位参数在 markdown 中找原文位置（sectionPath 优先，snippet 兜底） */
+const locateInContent = (content: string): { start: number; end: number } | null => {
+  const lines = content.split('\n')
+  const path = String(props.sectionPath || '').trim()
+  const segments = path
+    .split(/[\/>]/)
+    .map(segment => segment.trim())
+    .filter(Boolean)
+  const needle = segments[segments.length - 1] || String(props.snippet || '').slice(0, 20)
+  if (!needle) return null
+  for (let index = 0; index < lines.length; index += 1) {
+    if (lines[index].includes(needle)) {
+      return { start: index + 1, end: index + 1 }
+    }
+  }
+  return null
+}
 
 const loadDocument = async () => {
   const docId = (props.docId || route.params.id || '') as string
@@ -66,17 +89,24 @@ const loadDocument = async () => {
       title: props.title || result?.title || `文档 ${docId}`,
       content: result?.content || ''
     }
+    activeLineRange.value = locateInContent(document.value.content)
   } catch (err) {
     const e = err as Error
     loadError.value = e.message || '文档加载失败'
     message.error(loadError.value)
     document.value = null
+    activeLineRange.value = null
   } finally {
     loading.value = false
   }
 }
 
-watch(() => [props.docId, props.libraryId], loadDocument)
+watch(
+  () => [props.docId, props.libraryId, props.sectionPath, props.snippet],
+  () => {
+    loadDocument()
+  }
+)
 onMounted(loadDocument)
 </script>
 

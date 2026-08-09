@@ -13,7 +13,11 @@ export interface AIChatTransport {
   /** 发送问答请求（流式/非流式均可，返回完整响应） */
   query: (
     payload: QueryRequest,
-    options?: { signal?: AbortSignal }
+    options?: {
+      signal?: AbortSignal
+      /** 流式增量回调：transport 内部逐块收到回答时调用 */
+      onDelta?: (delta: string) => void
+    }
   ) => Promise<QueryResponse>
   /** 获取可用模型列表（可选） */
   fetchModels?: () => Promise<Array<{ name: string; configured: boolean }>>

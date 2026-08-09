@@ -57,6 +57,7 @@
               :scene="activeSection === 'sop' ? 'sops' : 'docs'"
               :session-id="chatSessionId"
               :transport="defaultAIChatTransport"
+              @select-citation="handleCitationSelect"
             />
           </div>
         </a-drawer>
@@ -76,10 +77,12 @@ import { ADMIN_CONSOLE_ORIGIN, ADMIN_CONSOLE_PORT, LOCAL_HOST } from '../../shar
 import { defaultAIChatTransport } from '../../shared/chatTransport'
 import { useWorkbenchStore } from '@/stores/workbench'
 import { useTabRouterSync } from '@/composables/useTabRouterSync'
+import { useResourceOpen } from '@/composables/useResourceOpen'
 
 type ResourcePanelSection = 'project' | 'knowledge' | 'sop'
 
 const { themeConfig, appClass } = useTheme()
+const { openResource } = useResourceOpen()
 
 useTabRouterSync()
 const activeSection = ref<ResourcePanelSection>('knowledge')
@@ -122,6 +125,25 @@ const onNavigateSection = (section: 'project' | 'knowledge' | 'sop' | 'gis') => 
     return
   }
   activeSection.value = section
+}
+
+/** 参考依据点击：打开文档标签并携带定位参数（PDF/章节定位由 DocumentView 消费） */
+const handleCitationSelect = (citation: any) => {
+  if (!citation || !citation.doc_id) return
+  openResource({
+    id: citation.doc_id,
+    title: citation.doc_title || citation.doc_id,
+    resourceType: 'knowledge',
+    isFolder: false,
+    libraryId: 'default',
+    docId: citation.doc_id,
+    metadata: {
+      sectionPath: citation.section_path,
+      targetId: citation.target_id,
+      pageIdx: citation.page_idx,
+      snippet: citation.snippet,
+    },
+  })
 }
 </script>
 

@@ -172,7 +172,7 @@ export function useAIChat(options?: {
   /** 问答请求实现注入；不注入时发送会得到明确错误提示 */
   query?: (
     payload: QueryRequest,
-    options?: { signal?: AbortSignal }
+    options?: { signal?: AbortSignal; onDelta?: (delta: string) => void }
   ) => Promise<QueryResponse>
 }): {
   messages: Ref<AIChatMessage[]>
@@ -310,8 +310,14 @@ export function useAIChat(options?: {
       if (!options?.query) {
         throw new Error('未配置 AI 数据源（transport.query）')
       }
+      let streamed = false
       const queryData: QueryResponse = await options.query(queryRequest, {
         signal: abortController.value.signal,
+        onDelta: (delta) => {
+          streamed = true
+          currentStreamContent.value += delta
+          onChunk?.(delta)
+        },
       })
       const payload = mapQueryResponseToChatResponse(queryData)
       const citations = dedupeCitations(payload.citations || [])
@@ -324,8 +330,10 @@ export function useAIChat(options?: {
         }
       }
 
-      currentStreamContent.value = assistantContent
-      onChunk?.(assistantContent)
+      if (!streamed) {
+        currentStreamContent.value = assistantContent
+        onChunk?.(assistantContent)
+      }
       messages.value.push({
         id: payload.query_id || generateMessageId(),
         role: 'assistant',

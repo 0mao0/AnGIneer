@@ -45,7 +45,11 @@ export const createOpenResourcePayload = (resource: ResourceNode): OpenResourceP
       props: {
         libraryId: resource.libraryId || 'default',
         docId: resource.docId || resource.id,
-        title: resource.title
+        title: resource.title,
+        sectionPath: resource.metadata?.sectionPath || '',
+        targetId: resource.metadata?.targetId || '',
+        pageIdx: resource.metadata?.pageIdx || 0,
+        snippet: resource.metadata?.snippet || ''
       }
     }
   }

@@ -72,22 +72,18 @@
                   @click="handleCitationClick(citation)"
                 >
                   <div class="citation-header">
-                    <span class="citation-toggle">
-                      <DownOutlined v-if="isCitationExpanded(getCitationKey(citation))" />
-                      <RightOutlined v-else />
-                    </span>
                     <div class="citation-meta">
                       <span class="citation-doc">{{ citation.doc_title }}</span>
                       <span v-if="citation.page_idx || citation.page_label" class="citation-page">P{{ citation.page_label || citation.page_idx }}</span>
                       <span v-if="getCitationLastSegment(citation.section_path)" class="citation-location">
                         {{ getCitationLastSegment(citation.section_path) }}
                       </span>
+                      <span v-if="citation.score" class="citation-score">
+                        置信度 {{ (citation.score * 100).toFixed(0) }}%
+                      </span>
                     </div>
                   </div>
-                  <div
-                    v-if="isCitationExpanded(getCitationKey(citation))"
-                    class="citation-detail"
-                  >
+                  <div class="citation-detail">
                     <CitationRichContent
                       v-if="citation.rich_media && (citation.rich_media.table_html || citation.rich_media.math_content || citation.rich_media.image_path || (citation.rich_media.image_paths && citation.rich_media.image_paths.length) || (citation.rich_media.rich_media_order && citation.rich_media.rich_media_order.length))"
                       class="citation-rich-media"
@@ -554,9 +550,9 @@ const getConfidenceKeys = (msg: BaseChatMessage): string[] => {
 
 const getConfidenceLabel = (level: string): string => {
   const labels: Record<string, string> = {
-    high: '高置信度',
-    medium: '中置信度',
-    low: '低置信度 / 推测'
+    high: '高置信度（证据充分）',
+    medium: '中置信度（部分证据）',
+    low: '推测（模型常识，非知识库）'
   }
   return labels[level] || level
 }
@@ -1098,6 +1094,14 @@ defineExpose({
         .citation-location {
           font-size: 12px;
           color: var(--text-secondary);
+        }
+
+        .citation-score {
+          font-size: 11px;
+          color: var(--success-color, #52c41a);
+          background: rgba(82, 196, 26, 0.1);
+          border-radius: 999px;
+          padding: 1px 6px;
         }
 
         .citation-snippet {
