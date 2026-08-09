@@ -253,6 +253,13 @@ SOP_ANSWER_SYSTEM_PROMPT = (
     "请严格基于提供的计算结果回答问题，不要添加未经验证的信息。"
 )
 
+CHAT_SYSTEM_PROMPT = (
+    "你是 AnGIneer，一个工程规范领域的智能助手。"
+    "当前用户在和你闲聊，请友好、简洁地回应。"
+    "如果用户问你能做什么，简要介绍你是工程规范领域的专业助手，"
+    "可以回答工程规范问题、做标准计算、查询条款等。"
+)
+
 
 register("dispatcher.system_prompt_base", "v1", SYSTEM_PROMPT_BASE)
 register("dispatcher.system_prompt_rules_definition", "v1", SYSTEM_PROMPT_RULES_DEFINITION_QA)
@@ -275,3 +282,4 @@ register("dispatcher.smart_execution_prompt", "v1", SMART_EXECUTION_PROMPT)
 register("dispatcher.step_summary_prompt", "v1", STEP_SUMMARY_PROMPT)
 register("dispatcher.sop_answer_compose_prompt", "v1", SOP_ANSWER_COMPOSE_PROMPT)
 register("dispatcher.sop_answer_system_prompt", "v1", SOP_ANSWER_SYSTEM_PROMPT)
+register("dispatcher.chat_system_prompt", "v1", CHAT_SYSTEM_PROMPT)

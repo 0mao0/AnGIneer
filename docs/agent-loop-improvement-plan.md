@@ -530,9 +530,9 @@ if path == "semantic_retrieval" and os.environ.get("ANGINEER_AGENT_L1", "false")
 
 ### 当前进度与执行待办（2026-08-09）
 
-- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）、P5（Prompt 资产化，48faa80）、P6a（SopRunner 下沉，0c2ac2a）、P6b（retrieval_pipeline 下沉，15adfd5）均已提交；P6c（qa_pipeline 答题段）代码与测试完成，**尚未提交**。
-- **P6c 待提交文件**：`qa_pipeline.py`（新，证据组织/两阶段判定/拒答校验/系统提示）、`dispatcher.py`（改：答题段替换为纯函数调用，-80 行）、`dispatcher_agentic.py`（改：共用 REFUSAL_ANSWER_TEXT）、`docs/agent-loop-improvement-plan.md`（改）。
-- **下一步（用户已确认）**：① 提交 P6c；② 继续 P6d（dispatcher 瘦身 <800 行 + 清理）；③ 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare。
+- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）、P5（Prompt 资产化，48faa80）、P6a（SopRunner 下沉，0c2ac2a）、P6b（retrieval_pipeline 下沉，15adfd5）、P6c（qa_pipeline 答题段，e4840c4）均已提交；P6d（dispatcher 拆分收尾）代码与测试完成，**尚未提交**。
+- **P6d 待提交文件**：`dispatch_utils.py` / `sql_pipeline.py` / `sop_dispatch.py` / `semantic_dispatch.py`（新）、`qa_pipeline.py`（扩：chat/gap/SOP 答案组装）、`prompts/dispatcher.py`（补 CHAT_SYSTEM_PROMPT）、`dispatcher.py`（改：783 行薄壳 + 路由）、`docs/agent-loop-improvement-plan.md`（改）。
+- **下一步（用户已确认）**：① 提交 P6d（P6 全部完成）；② 可开始 P7（API 层统一）或先做外部 embedding/reranker 服务恢复后的 P3+P4 evals 统一验收；③ 外部服务恢复前 evals 基线/实验/compare 继续挂起。
 - **约束**：`ANGINEER_AGENT_L1/L4` 默认关闭，不影响现有链路；`tests/` 目录仍被 `.gitignore` 忽略，测试不提交。
 - **外部依赖**：DashScope embedding 与 reranker 服务当前不可用（回退 hash 检索，evals 分数不可比），P3.3/P3.4/P4.5 验收挂起中。
 
@@ -648,6 +648,17 @@ L4 分支（L350-412）在 `ANGINEER_AGENT_L4=true` 时改走 `_dispatch_complex
 - `dispatcher.py`：`_dispatch_semantic` 答题段（约 80 行）替换为 qa_pipeline 纯函数调用；`_build_system_prompt` 改为委托（测试兼容）；删除 `_MULTI_CHOICE_PATTERN` / `_rerank_candidates` / `_has_unsupported_reference` / `_KNOWN_STD_PREFIXES` 及不再使用的 prompts import。
 - `dispatcher_agentic.py`：L1 agentic 拒答话术与 legacy 统一为 `qa_pipeline.REFUSAL_ANSWER_TEXT`（原两处文本本就一致），legacy 与 agentic 共用证据后处理。
 - 测试：新增 `test_qa_pipeline.py` 12 个（上下文组织、user/evidence 构建、两阶段成功/回退/空上下文、拒答替换/保留、system prompt 与 Dispatcher 逐字等价、is_choice）；`tests/angineer-core` 100 个全绿；`tests/unit` + `tests/ai-inference` 266 passed + 4 skip、集成工具注册 1 passed 回归不变。
+
+### P6d 实施记录（2026-08-09）：dispatcher 拆分收尾
+
+- 新建 `dispatch_utils.py`：`normalize_doc_alias` / `resolve_requested_doc_ids` / `append_attempted_path` / `summarize_sql_attempt` / `summarize_sop_attempt` / `finalize_attempts`。
+- 新建 `sql_pipeline.py`：`dispatch_sql`（schema 链接 → 指标分支 → SQL 校验执行 → LLM 组织回答）+ `bridge_l2_evidence`（空命中桥接条文/公式证据）。
+- 新建 `sop_dispatch.py`：`dispatch_sop`（SOP 路由 → SopRunner 执行 → 答题组装 + trace/citations）。
+- 新建 `semantic_dispatch.py`：`dispatch_semantic`（检索任务映射 → 多路检索融合重排 → 两阶段判定 → 拒答校验）。
+- `qa_pipeline.py` 扩展：`dispatch_chat`（L0 闲聊，prompt 迁入 `CHAT_SYSTEM_PROMPT`）、`parse_gap_analysis`、`extract_answer_from_sop_context`、`compose_sop_answer`。
+- `dispatcher.py`：由 1565 行瘦身至 **783 行**（目标 <800），仅剩 `dispatch()` 分级路由 + `_emit_stage_callback` 回调编排 + 各分发薄壳（`_dispatch_chat/_dispatch_sql/_dispatch_sop/_dispatch_semantic/_parse_gap_analysis` 等委托到新模块，保持外部/测试调用兼容）；`SOP_ROUTE_CONFIDENCE_THRESHOLD` 模块属性保留（B3 单阈值测试断言）；dispatch 内直接复用 `append_attempted_path`。
+- 测试：新增 `test_dispatch_modules.py` 11 个（路由工具、SQL 成功/unsupported、bridge、SOP 8 元组、语义 8 元组、薄壳委托、**行数 <800 断言**）；`tests/angineer-core` 111 个全绿；`tests/unit` + `tests/ai-inference` 266 passed + 4 skip、集成工具注册 1 passed 回归不变。
+- P6 完结：sop_runner / retrieval_pipeline / qa_pipeline / dispatch_utils / sql_pipeline / sop_dispatch / semantic_dispatch 全部就位，dispatcher 达成 <800 行；L4 flag 关时走语义明确的 legacy 路径（route_kind=semantic_fallback）。evals 全绿验收待外部服务恢复后统一执行。
 
 ## P7 · API 层统一（2~3 天，P3 之后任意时点）
 
