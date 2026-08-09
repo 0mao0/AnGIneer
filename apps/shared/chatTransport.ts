@@ -121,6 +121,21 @@ function collectCitationsFromToolMessages(
     } catch {
       continue
     }
+    if (Array.isArray(raw?.citations) && raw.citations.length > 0) {
+      for (const citation of raw.citations) {
+        citations.push({
+          target_id: String(citation.target_id || citation.step_id || ''),
+          target_type: 'content',
+          doc_id: String(citation.doc_id || ''),
+          doc_title: String(citation.doc_title || citation.source || ''),
+          page_idx: Number(citation.page_idx || 0),
+          section_path: String(citation.section_path || ''),
+          snippet: String(citation.snippet || ''),
+          score: Number(citation.score || 0),
+        })
+      }
+      continue
+    }
     if (Array.isArray(raw?.items)) {
       for (const item of raw.items) {
         if (!item?.item_id) continue
@@ -133,20 +148,6 @@ function collectCitationsFromToolMessages(
           section_path: String(item.metadata?.section_path || ''),
           snippet: String(item.text || ''),
           score: Number(item.score || 0),
-        })
-      }
-    }
-    if (Array.isArray(raw?.citations)) {
-      for (const citation of raw.citations) {
-        citations.push({
-          target_id: String(citation.target_id || citation.step_id || ''),
-          target_type: 'content',
-          doc_id: String(citation.doc_id || ''),
-          doc_title: String(citation.doc_title || citation.source || ''),
-          page_idx: Number(citation.page_idx || 0),
-          section_path: String(citation.section_path || ''),
-          snippet: String(citation.snippet || ''),
-          score: Number(citation.score || 0),
         })
       }
     }

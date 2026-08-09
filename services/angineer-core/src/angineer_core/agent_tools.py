@@ -176,7 +176,46 @@ def _run_knowledge_search(
         from angineer_core.retrieval_pipeline import rerank_candidates
 
         items = rerank_candidates(query, items, task_type=task_type)
-    return {"items": [_serialize_model(item) for item in items], "total": len(items)}
+    result = {"items": [_serialize_model(item) for item in items], "total": len(items)}
+    citations = _build_relevant_citations(query, items)
+    if citations:
+        result["citations"] = citations
+    return result
+
+
+def _build_relevant_citations(query: str, items: list, limit: int = 5) -> List[Dict[str, Any]]:
+    """从融合候选中挑选“真正有用”的引用：查询短语精确命中优先，无命中时按重排分取前 limit 条。"""
+    if not items:
+        return []
+    from docs_core.step09_query.retrieval.query_normalizer import build_query_phrases, normalize_match_text
+
+    query_phrases = build_query_phrases(query)
+    selected: List[Any] = []
+    if query_phrases:
+        phrase_hits: List[Any] = []
+        for item in items:
+            compact = normalize_match_text(f"{item.title}\n{item.text}")
+            if any(phrase in compact for phrase in query_phrases):
+                phrase_hits.append(item)
+        if phrase_hits:
+            selected = phrase_hits[:limit]
+    if not selected:
+        selected = items[:limit]
+
+    citations: List[Dict[str, Any]] = []
+    for item in selected:
+        citations.append({
+            "target_id": str(getattr(item, "citation_target_id", None) or item.item_id or ""),
+            "doc_id": str(item.doc_id or ""),
+            "doc_title": str(item.title or ""),
+            "page_idx": int(item.metadata.get("page_idx", 0) or 0),
+            "page_label": item.metadata.get("page_label"),
+            "section_path": str(item.metadata.get("section_path") or ""),
+            "snippet": str(item.text or "")[:200],
+            "score": float(item.rerank_score or item.score or 0.0),
+            "fusion_sources": item.metadata.get("fusion_sources") or [],
+        })
+    return citations
 
 
 class RetrieverAdapter:
@@ -280,10 +319,14 @@ class RetrieverAdapter:
                 from angineer_core.retrieval_pipeline import rerank_candidates
 
                 items = rerank_candidates(query, items, task_type="table_qa")
-            return {
+            result = {
                 "items": [_serialize_model(item) for item in items],
                 "total": len(items),
             }
+            citations = _build_relevant_citations(query, items)
+            if citations:
+                result["citations"] = citations
+            return result
 
         return AgentTool(
             name="table_search",
@@ -339,6 +382,7 @@ class RetrieverAdapter:
                     result["fallback_error"] = fallback["error"]
                 else:
                     result["items"] = fallback.get("items") or []
+                    result["citations"] = fallback.get("citations") or []
                     result["note"] = "知识图谱未找到匹配实体，已自动检索知识库正文，请基于 items 字段中的证据回答。"
             return result
 
