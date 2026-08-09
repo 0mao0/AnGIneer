@@ -38,6 +38,7 @@ export const defaultAIChatTransport = {
     const reader = response.body.getReader()
     const decoder = new TextDecoder('utf-8')
     let buffer = ''
+    let rawAnswer = ''
     let answer = ''
     let runId = ''
     let runReason = ''
@@ -63,9 +64,16 @@ export const defaultAIChatTransport = {
         if (event.type === 'run_start') {
           runId = String(event.run_id || '')
         } else if (event.type === 'message_delta') {
-          const delta = stripToolCallBlocks(String(event.payload?.delta || ''))
+          rawAnswer += String(event.payload?.delta || '')
+          // 工具调用围栏是跨多个流式分片拼出来的，必须对累积文本过滤，再计算增量
+          const cleaned = stripToolCallBlocks(rawAnswer)
+          if (cleaned.length < answer.length) {
+            // 围栏闭合被移除时直接收敛，避免残留工具调用文本
+            answer = cleaned
+          }
+          const delta = cleaned.slice(answer.length)
           if (delta) {
-            answer += delta
+            answer = cleaned
             options?.onDelta?.(delta)
           }
         } else if (event.type === 'run_end') {

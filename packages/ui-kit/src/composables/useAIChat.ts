@@ -23,6 +23,48 @@ export function buildSessionKey(scene: string, id: string): SessionKey {
 /** 全局会话池，按 sessionKey 隔离各场景对话状态 */
 const sessionPool = new Map<SessionKey, SessionSnapshot>()
 
+const SESSION_POOL_STORAGE_KEY = 'angineer:ai-chat-pool:v1'
+const MAX_STORED_SESSIONS = 20
+const MAX_STORED_MESSAGES = 60
+
+/** 从 localStorage 恢复会话池，避免页面刷新/组件重挂后对话丢失 */
+function loadSessionPool(): void {
+  try {
+    if (typeof localStorage === 'undefined') return
+    const raw = localStorage.getItem(SESSION_POOL_STORAGE_KEY)
+    if (!raw) return
+    const parsed: unknown = JSON.parse(raw)
+    if (!parsed || typeof parsed !== 'object') return
+    for (const [key, snapshot] of Object.entries(parsed as Record<string, SessionSnapshot>)) {
+      if (!Array.isArray(snapshot?.messages)) continue
+      sessionPool.set(key as SessionKey, {
+        messages: snapshot.messages.slice(-MAX_STORED_MESSAGES),
+      })
+    }
+  } catch {
+    // 存储不可用或数据损坏时静默降级为内存会话池
+  }
+}
+
+/** 将会话池持久化到 localStorage（限长防膨胀） */
+function persistSessionPool(): void {
+  try {
+    if (typeof localStorage === 'undefined') return
+    const entries = Array.from(sessionPool.entries()).slice(-MAX_STORED_SESSIONS)
+    const payload: Record<string, SessionSnapshot> = {}
+    for (const [key, snapshot] of entries) {
+      payload[key] = {
+        messages: snapshot.messages.slice(-MAX_STORED_MESSAGES),
+      }
+    }
+    localStorage.setItem(SESSION_POOL_STORAGE_KEY, JSON.stringify(payload))
+  } catch {
+    // 容量超限或隐私模式等场景静默失败，不影响内存会话池
+  }
+}
+
+loadSessionPool()
+
 /** 获取会话池中指定 key 的快照 */
 export function getSessionSnapshot(key: SessionKey): SessionSnapshot | undefined {
   return sessionPool.get(key)
@@ -35,12 +77,23 @@ export function getActiveSessionKeys(): SessionKey[] {
 
 /** 删除会话池中指定 key 的快照 */
 export function removeSession(key: SessionKey): boolean {
-  return sessionPool.delete(key)
+  const removed = sessionPool.delete(key)
+  if (removed) {
+    persistSessionPool()
+  }
+  return removed
 }
 
 /** 清空整个会话池 */
 export function clearSessionPool(): void {
   sessionPool.clear()
+  try {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.removeItem(SESSION_POOL_STORAGE_KEY)
+    }
+  } catch {
+    // 忽略存储清理失败
+  }
 }
 
 /** 对引用做轻量去重，避免同一页同一区段重复刷屏 */
@@ -211,6 +264,8 @@ export function useAIChat(options?: {
     })
   }
 
+  restoreFromPool(currentSessionKey.value)
+
   watch(sessionIdRef, (newId) => {
     if (newId && buildSessionKey(scene, newId) !== currentSessionKey.value) {
       switchSession(scene, newId)
@@ -222,6 +277,7 @@ export function useAIChat(options?: {
     sessionPool.set(currentSessionKey.value, {
       messages: [...messages.value],
     })
+    persistSessionPool()
   }
 
   /** 从会话池恢复指定 key 的状态 */
@@ -252,6 +308,7 @@ export function useAIChat(options?: {
   /** 删除当前会话并清空本地状态 */
   function removeCurrentSession(): void {
     sessionPool.delete(currentSessionKey.value)
+    persistSessionPool()
     messages.value = []
     if (options?.systemPrompt) {
       messages.value.push({
