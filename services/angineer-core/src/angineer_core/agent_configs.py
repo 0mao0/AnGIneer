@@ -1,8 +1,15 @@
-"""P3.1 知识问答档 agent 循环配置装配。"""
+"""P3.1 知识问答 + P4.1 大题型 agent 循环配置装配。"""
+import json
 from typing import Any, Dict, List, Optional
 
-from angineer_core.agent_loop import AgentLoopConfig
-from angineer_core.agent_tools import AgentTool, RetrieverAdapter
+from angineer_core.agent_loop import AgentLoopConfig, TurnContext
+from angineer_core.agent_messages import AgentMessage
+from angineer_core.agent_tools import (
+    AgentTool,
+    EngtoolAdapter,
+    RetrieverAdapter,
+    SopRunnerAdapter,
+)
 from angineer_core.tool_codec import TextToolCallCodec
 
 
@@ -102,4 +109,205 @@ def build_qa_config(
         system_prompt=system_prompt,
         max_turns=max_turns,
         codec=TextToolCallCodec(),
+    )
+
+
+COMPLEX_AGENT_SYSTEM_PROMPT = (
+    "你是一个工程规范领域的复杂问题求解助手，负责多步骤综合大题"
+    "（含 SOP 执行、计算、查表与条件分支）。\n\n"
+    "规则：\n"
+    "1. 先判断是否存在可执行的 SOP：若问题命中标准作业程序，调用 sop_execute"
+    "（提供 sop_query 与必要 args），优先复用 SOP 的 final_context。\n"
+    "2. 计算使用 calculator，查表使用 table_lookup，条件判断使用 conditional，"
+    "规范条文/表格/实体检索使用 knowledge_search/table_search/entity_search。\n"
+    "3. 分步执行：每步基于上一步工具返回的结果继续，不要跳步，"
+    "也不要编造工具结果中没有的数值、公式或规范编号。\n"
+    "4. 最终答案必须基于工具返回的 final_context、检索证据与计算/查表结果，"
+    "并为关键结论标注依据（规范编号、章节号或 SOP 步骤）。\n"
+    "5. 若工具返回错误或证据不足，明确说明缺失项，不要自行补全。\n"
+)
+
+
+def _estimate_tokens(messages: List[AgentMessage]) -> int:
+    """粗估 token：与 main.py 现有口径一致，字符数 // 2。"""
+    return sum(len(message.content or "") for message in messages) // 2
+
+
+def _summarize_tool_raw(raw: Dict[str, Any]) -> str:
+    """把工具 raw 结果压缩为一行要点（仅用于预算压缩后的摘要）。"""
+    if not isinstance(raw, dict):
+        return str(raw)[:120]
+    sop_trace = raw.get("sop_trace")
+    if isinstance(sop_trace, list):
+        success = sum(1 for s in sop_trace if s.get("status") == "success")
+        return f"SOP {raw.get('sop_id', '')} 执行 {len(sop_trace)} 步，成功 {success} 步"
+    if "items" in raw:
+        items = raw.get("items") or []
+        return f"检索到 {raw.get('total', len(items))} 条候选"
+    if "entities" in raw:
+        entities = raw.get("entities") or []
+        return f"图谱检索到 {raw.get('total', len(entities))} 个实体"
+    if raw.get("error"):
+        return f"工具出错: {raw['error']}"
+    return json.dumps(raw, ensure_ascii=False, default=str)[:120]
+
+
+def make_budget_transformer(max_tokens_est: int = 100_000):
+    """P4.3 闸门一：超预算时按 oldest-first 压缩工具结果。
+
+    压缩摘要 lazily 生成一次并缓存进消息 meta（``_budget_summary``），
+    后续轮次直接复用，不重复计算。
+    """
+
+    def transform(messages: List[AgentMessage]) -> List[AgentMessage]:
+        if _estimate_tokens(messages) <= max_tokens_est:
+            return messages
+        for message in messages:
+            if _estimate_tokens(messages) <= max_tokens_est:
+                break
+            if message.role != "tool":
+                continue
+            summary = message.meta.get("_budget_summary")
+            if not summary:
+                summary = _summarize_tool_raw(message.meta)
+                message.meta["_budget_summary"] = summary
+            message.content = (
+                f"[已压缩: 工具 {message.name or 'unknown'} 的结果，要点: {summary}]"
+            )
+        return messages
+
+    return transform
+
+
+def make_budget_stopper(threshold: int = 120_000):
+    """P4.3 闸门二：turn 结束估算超阈值 → 循环优雅停止（reason=should_stop）。"""
+
+    def should_stop(context: TurnContext) -> bool:
+        return _estimate_tokens(context.messages) > threshold
+
+    return should_stop
+
+
+def build_complex_config(
+    *,
+    llm: Any,
+    doc_nodes: Optional[List[Any]] = None,
+    library_id: str = "default",
+    doc_ids: Optional[List[str]] = None,
+    filters: Any = None,
+    inline_citations: Optional[List[Dict[str, Any]]] = None,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+    tools: Optional[List[AgentTool]] = None,
+    rerank: bool = True,
+    sops: Optional[List[Any]] = None,
+    sop_loader: Any = None,
+    memory: Any = None,
+    step_callback: Optional[Any] = None,
+    max_turns: int = 8,
+    max_tokens_est: int = 100_000,
+    budget_threshold: int = 120_000,
+) -> AgentLoopConfig:
+    """P4.1 大题型 agent 循环：QA 三件套 + SOP 执行 + 计算/查表/条件分支。"""
+    if tools is None:
+        qa_tools = [
+            RetrieverAdapter.knowledge_search(
+                library_id=library_id,
+                doc_ids=doc_ids,
+                doc_nodes=doc_nodes,
+                top_k=20,
+                task_type="content_qa",
+                filters=filters,
+                rerank=rerank,
+            ),
+            RetrieverAdapter.table_search(
+                library_id=library_id,
+                doc_ids=doc_ids,
+                doc_nodes=doc_nodes,
+                top_k=20,
+                filters=filters,
+                rerank=rerank,
+            ),
+            RetrieverAdapter.entity_search(),
+        ]
+        effective_tools = [
+            *qa_tools,
+            SopRunnerAdapter.sop_execute(
+                sops=sops,
+                sop_loader=sop_loader,
+                llm_client=llm,
+                config_name=config_name,
+                mode=mode,
+                memory=memory,
+                step_callback=step_callback,
+            ),
+            EngtoolAdapter.from_registry(
+                "calculator",
+                description="工程计算器，支持变量替换与方程求解。输入 expression（表达式）、variables（变量字典）、solve_for（可选求解变量）。",
+                parameters_schema={
+                    "type": "object",
+                    "properties": {
+                        "expression": {"type": "string", "description": "数学表达式，如 T+Z0+Z1"},
+                        "variables": {"type": "object", "description": "变量字典，如 {\"T\": 12.8}"},
+                        "solve_for": {"type": "string", "description": "可选：要求解的变量名"},
+                    },
+                    "required": ["expression"],
+                },
+                read_only=False,
+            ),
+            EngtoolAdapter.from_registry(
+                "table_lookup",
+                description="从规范表格中查询取值。输入 table_name（表名）、query_conditions（查询条件）、target_column（目标列，可选）、file_name（规范文件名，可选）。",
+                parameters_schema={
+                    "type": "object",
+                    "properties": {
+                        "table_name": {"type": "string", "description": "表名"},
+                        "query_conditions": {
+                            "type": ["string", "object"],
+                            "description": "查询条件，如 {\"船型\": \"杂货船\"}",
+                        },
+                        "target_column": {"type": "string", "description": "目标列"},
+                        "file_name": {"type": "string", "description": "规范文件名"},
+                    },
+                    "required": ["table_name", "query_conditions"],
+                },
+                read_only=False,
+            ),
+            EngtoolAdapter.from_registry(
+                "conditional",
+                description="条件分支工具：根据条件变量值选择不同执行路径。输入 condition_var、branches（分支列表）、default（默认值，可选）。",
+                parameters_schema={
+                    "type": "object",
+                    "properties": {
+                        "condition_var": {"type": ["string", "number"], "description": "条件变量值"},
+                        "branches": {
+                            "type": "array",
+                            "items": {"type": "object"},
+                            "description": "分支列表，每项含 match/value 或 table_lookup",
+                        },
+                        "default": {"description": "默认返回值"},
+                    },
+                    "required": ["condition_var"],
+                },
+                read_only=False,
+            ),
+        ]
+    else:
+        effective_tools = tools
+
+    system_prompt = COMPLEX_AGENT_SYSTEM_PROMPT
+    explicit = _build_inline_citation_context(inline_citations or [])
+    if explicit:
+        system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
+
+    return AgentLoopConfig(
+        llm=llm,
+        config_name=config_name,
+        mode=mode,
+        tools=effective_tools,
+        system_prompt=system_prompt,
+        max_turns=max_turns,
+        codec=TextToolCallCodec(),
+        transform_context=make_budget_transformer(max_tokens_est=max_tokens_est),
+        should_stop_after_turn=make_budget_stopper(threshold=budget_threshold),
     )

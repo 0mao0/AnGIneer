@@ -352,6 +352,28 @@ class Dispatcher:
                     _t_path = time.time()
                     _enforce = (path == "semantic_retrieval")
                     _agentic_tried = False
+                    if path == "dynamic_orchestration" and os.environ.get("ANGINEER_AGENT_L4", "false").lower() == "true":
+                        try:
+                            from angineer_core.dispatcher_agentic import dispatch_complex_agentic
+
+                            answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings, runtime_flags = (
+                                dispatch_complex_agentic(
+                                    query=query,
+                                    doc_nodes=doc_nodes,
+                                    library_id=library_id,
+                                    doc_ids=doc_ids,
+                                    inline_citations=inline_citations,
+                                    filters=filters,
+                                    max_turns=8,
+                                    config_name=self.config_name,
+                                    mode=self.mode,
+                                    sop_loader=sop_loader,
+                                    memory=self.memory,
+                                )
+                            )
+                            _agentic_tried = True
+                        except Exception:
+                            logger.exception("agentic L4 failed, falling back to legacy")
                     if path == "semantic_retrieval" and os.environ.get("ANGINEER_AGENT_L1", "false").lower() == "true":
                         try:
                             from angineer_core.dispatcher_agentic import dispatch_semantic_agentic
@@ -382,11 +404,18 @@ class Dispatcher:
                     stage_timings[path] = round(time.time() - _t_path, 2)
                     route_kind = "retrieval"
                     if path == "dynamic_orchestration":
-                        route_kind = "semantic_fallback"
-                        flow_debug.update({
-                            "flow_type": "semantic_fallback",
-                            "summary": "当前路径进入证据受约束的语义兜底回答。",
-                        })
+                        if _agentic_tried:
+                            route_kind = "agentic_complex"
+                            flow_debug.update({
+                                "flow_type": "agentic_complex",
+                                "summary": "L4 agentic 编排路径完成。",
+                            })
+                        else:
+                            route_kind = "semantic_fallback"
+                            flow_debug.update({
+                                "flow_type": "semantic_fallback",
+                                "summary": "当前路径进入证据受约束的语义兜底回答。",
+                            })
                     if not route_debug.get("route_kind") or path == "dynamic_orchestration":
                         route_debug.update({
                             "route_kind": route_kind,

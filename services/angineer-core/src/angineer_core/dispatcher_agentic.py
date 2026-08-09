@@ -140,3 +140,127 @@ def dispatch_semantic_agentic(
         timings,
         runtime_flags,
     )
+
+
+def dispatch_complex_agentic(
+    *,
+    query: str,
+    doc_nodes: list,
+    library_id: str,
+    doc_ids: List[str],
+    inline_citations: Optional[List[Dict[str, Any]]] = None,
+    filters: Any = None,
+    max_turns: int = 8,
+    llm: Any = None,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+    tools: Optional[List[AgentTool]] = None,
+    sops: Optional[List[Any]] = None,
+    sop_loader: Any = None,
+    memory: Any = None,
+) -> Tuple[str, list, list, str, str, Dict, Dict[str, float], List[str]]:
+    """L4 agentic 编排：SOP 执行 + 计算/查表/条件分支的多工具循环。
+
+    返回与 `Dispatcher._dispatch_semantic` 一致的 8 元组；
+    `retrieval_debug` 携带 turns/sop_runs 摘要与完整 `sop_trace`/`agent_events`，
+    供 evals detail 与前端渲染复用。
+    """
+    from ai_inference.llm_client import get_llm_client
+    from angineer_core.agent_configs import build_complex_config
+    from angineer_core.retrieval_utils import build_citations_from_retrieved
+    from docs_core.step09_query.protocols.contracts import RetrievedItem
+
+    llm = llm or get_llm_client()
+    config = build_complex_config(
+        llm=llm,
+        doc_nodes=doc_nodes,
+        library_id=library_id,
+        doc_ids=doc_ids,
+        filters=filters,
+        inline_citations=inline_citations,
+        config_name=config_name,
+        mode=mode,
+        tools=tools,
+        sops=sops,
+        sop_loader=sop_loader,
+        memory=memory,
+        max_turns=max_turns,
+    )
+
+    events: list = []
+    messages: List[AgentMessage] = [AgentMessage(role="user", content=query)]
+    started = time.time()
+    added = run_agent_loop(messages, config, emit=events.append)
+    loop_duration = round(time.time() - started, 2)
+
+    run_end = next((event for event in reversed(events) if event.type == "run_end"), None)
+    run_end_payload = run_end.payload if run_end else {}
+    reason = str(run_end_payload.get("reason") or "error")
+    turns = int(run_end_payload.get("turns") or 0)
+
+    tool_messages = [message for message in added if message.role == "tool"]
+    all_items: List[RetrievedItem] = []
+    sop_trace: List[Dict[str, Any]] = []
+    for message in tool_messages:
+        raw = message.meta or {}
+        for entry in raw.get("items") or []:
+            if not isinstance(entry, dict):
+                continue
+            try:
+                all_items.append(RetrievedItem(**entry))
+            except Exception:  # noqa: BLE001
+                continue
+        if message.name == "sop_execute" and isinstance(raw.get("sop_trace"), list):
+            sop_trace.extend(raw["sop_trace"])
+
+    unique_items: List[RetrievedItem] = []
+    seen_ids = set()
+    for item in all_items:
+        key = str(item.item_id or "")
+        if key and key in seen_ids:
+            continue
+        if key:
+            seen_ids.add(key)
+        unique_items.append(item)
+
+    retrieved_items = [item.model_dump(mode="json") for item in unique_items]
+    try:
+        citations = build_citations_from_retrieved(unique_items, doc_nodes or [])
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("agentic complex 引用构建失败: %s", exc)
+        citations = []
+    for message in tool_messages:
+        raw = message.meta or {}
+        citations.extend(raw.get("citations") or [])
+
+    final_assistant = next(
+        (message for message in reversed(added) if message.role == "assistant"),
+        None,
+    )
+    answer = final_assistant.content if final_assistant else ""
+    sop_runs = sum(1 for message in tool_messages if message.name == "sop_execute")
+
+    strategy_desc = f"agentic_complex (turns={turns}, reason={reason})"
+    retrieval_debug: Dict[str, Any] = {
+        "agent": {
+            "turns": turns,
+            "tool_calls": len(tool_messages),
+            "reason": reason,
+            "strategy": "agentic_complex",
+            "sop_runs": sop_runs,
+        },
+        "agent_events": [event.model_dump(mode="json") for event in events],
+        "sop_trace": sop_trace,
+    }
+    timings: Dict[str, float] = {"agent_loop": loop_duration}
+
+    return (
+        answer,
+        citations,
+        retrieved_items,
+        strategy_desc,
+        config.system_prompt,
+        retrieval_debug,
+        timings,
+        [],
+    )

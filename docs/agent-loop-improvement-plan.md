@@ -530,11 +530,11 @@ if path == "semantic_retrieval" and os.environ.get("ANGINEER_AGENT_L1", "false")
 
 ### 当前进度与执行待办（2026-08-09）
 
-- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）均已提交；P3（L1 agentic RAG）代码与测试完成，**尚未提交**。
-- **P3 待提交文件**：`agent_configs.py`、`dispatcher_agentic.py`、`retrieval_utils.py`（新）、`dispatcher.py`、`agent_tools.py`（改）、`docs/agent-loop-improvement-plan.md`（改）。
-- **下一步顺序（用户已确认）**：① 提交 P3；② 继续 P4（L4 大题档 agentic 接入：`SopRunnerAdapter.sop_execute` 实装、`build_complex_config`、`ANGINEER_AGENT_L4` flag、预算闸门 `make_budget_transformer/make_budget_stopper`）；③ 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare。
+- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）均已提交；P4（L4 大题档 agentic 接入）代码与测试完成，**尚未提交**。
+- **P4 待提交文件**：`agent_tools.py`（SopRunnerAdapter.sop_execute 实装）、`agent_configs.py`（build_complex_config + 预算闸门）、`dispatcher_agentic.py`（dispatch_complex_agentic）、`dispatcher.py`（ANGINEER_AGENT_L4 flag）、`docs/agent-loop-improvement-plan.md`（改）。
+- **下一步（用户已确认）**：① 提交 P4；② 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare（多跳 +20%、单跳不降 ±2%、平均 turns ≤1.5、L4 综合大题集分数 ≥ 旧路径）。
 - **约束**：`ANGINEER_AGENT_L1/L4` 默认关闭，不影响现有链路；`tests/` 目录仍被 `.gitignore` 忽略，测试不提交。
-- **外部依赖**：DashScope embedding 与 reranker 服务当前不可用（回退 hash 检索，evals 分数不可比），P3.3/P3.4 验收挂起中。
+- **外部依赖**：DashScope embedding 与 reranker 服务当前不可用（回退 hash 检索，evals 分数不可比），P3.3/P3.4/P4.5 验收挂起中。
 
 ## P4 · 大题档接入（1 周）
 
@@ -578,6 +578,17 @@ L4 分支（L350-412）在 `ANGINEER_AGENT_L4=true` 时改走 `_dispatch_complex
 - evals 综合大题集（无则新建 `complex-cases-v1`，≥15 题含 SOP+计算+查表混合）分数 ≥ 旧路径；
 - 每题 `sop_trace` 记录进 eval detail，SOP 选择准确率可审计（与 P1.4 回流合流）；
 - steer 场景人工验证：run 中途注入约束，下一 turn 生效。
+
+### P4 实施记录（2026-08-09）
+
+- `SopRunnerAdapter.sop_execute`：`IntentClassifier(published_sops).route()`（支持注入 classifier/sops/sop_loader/llm_client 便于测试）→ 命中且 confidence ≥ `SOP_ROUTE_CONFIDENCE_THRESHOLD` → 薄调 `Dispatcher.run_sop`（注入 memory/step_callback；dispatcher 未注入时按 config_name/mode 新建）→ 返回 final_context 摘要 + 各步 status，`raw` 带完整 `sop_trace` 与 citations；未命中/缺参返回 `is_error` 结果；`read_only=False`、`execution_mode="sequential"`、timeout 300s。
+- `agent_configs.py`：`COMPLEX_AGENT_SYSTEM_PROMPT`（分步执行/禁止编造规则）+ `build_complex_config`（QA 三件套 + sop_execute + calculator/table_lookup/conditional，`max_turns=8`，接上两道闸门）。
+- `make_budget_transformer`：`sum(len(m.content)) // 2` 粗估，超限 oldest-first 压缩 tool 结果为 `"[已压缩: 工具 {name} 的结果，要点: {raw.summary}]"`，摘要 lazily 生成并缓存 `meta["_budget_summary"]`。
+- `make_budget_stopper`：turn 结束估算超阈值 → True，循环以 `reason=="should_stop"` 优雅停。
+- `dispatcher_agentic.py`：`dispatch_complex_agentic` 返回与 `_dispatch_semantic` 一致的 8 元组；`retrieval_debug["agent"]` 含 turns/tool_calls/reason/sop_runs，另带完整 `sop_trace` 与 `agent_events`（evals detail 可审计 SOP 选择）。
+- dispatcher L4 分支：`ANGINEER_AGENT_L4=true` 时走 agentic，异常自动落回 legacy；默认 flag 关；route_kind 标记 `agentic_complex`。
+- 测试：新增 `test_sop_runner_adapter.py`、`test_budget_gates.py`、`test_agent_configs_p4.py`、`test_dispatcher_l4.py` 共 21 个（路由/执行/缺参/未命中/published 过滤、预算压缩与停止、配置装配、L4 flag 开/关/fallback、agentic 快乐路径），`tests/angineer-core` 共 59 个全绿；`tests/unit` 263 个回归不变（259 passed + 4 skip）。
+- evals 验收待跑：外部 embedding/reranker 服务恢复后，flag 关跑基线 → flag 开跑实验（P3 L1 + P4 L4）→ `/api/evals/compare`：多跳 +20%、单跳不降 ±2%、平均 turns ≤1.5；L4 综合大题集（`complex-cases-v1`）分数 ≥ 旧路径，`sop_trace` 进 eval detail。
 
 ## P5 · Prompt 资产化（1 周，可与 P3/P4 并行）
 

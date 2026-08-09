@@ -297,12 +297,104 @@ class RetrieverAdapter:
 
 
 class SopRunnerAdapter:
-    """SOP 执行工具（P4 接入，P2 先留壳）。"""
+    """SOP 执行工具（P4 接入）：IntentClassifier 路由 → Dispatcher.run_sop → 步骤 trace。"""
 
     @staticmethod
-    def sop_execute(*, timeout_s: int = 300) -> AgentTool:
-        def handler(sop_query: Optional[str] = None, args: Optional[Dict[str, Any]] = None, **_kwargs: Any) -> Dict[str, Any]:
-            raise NotImplementedError("SopRunnerAdapter 将在 P4 接入（路由 + Dispatcher.run_sop）")
+    def sop_execute(
+        *,
+        timeout_s: int = 300,
+        sops: Optional[List[Any]] = None,
+        sop_loader: Any = None,
+        classifier: Any = None,
+        llm_client: Any = None,
+        config_name: Optional[str] = None,
+        mode: str = "instruct",
+        dispatcher: Any = None,
+        memory: Any = None,
+        step_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
+    ) -> AgentTool:
+        def handler(
+            sop_query: Optional[str] = None,
+            args: Optional[Dict[str, Any]] = None,
+            **_kwargs: Any,
+        ) -> Dict[str, Any]:
+            from angineer_core.base_config import SOP_ROUTE_CONFIDENCE_THRESHOLD
+
+            query = str(sop_query or "").strip()
+            if not query:
+                return {"error": "缺少 sop_query 参数"}
+
+            if classifier is None:
+                from angineer_core.classifier import IntentClassifier
+
+                available = list(sops or [])
+                if not available and sop_loader is not None:
+                    available = list(sop_loader.load_all() or [])
+                published = [
+                    sop for sop in available if getattr(sop, "status", "published") == "published"
+                ]
+                if not published:
+                    return {"error": "无可执行的已发布 SOP"}
+                effective_classifier = IntentClassifier(published, llm_client=llm_client)
+            else:
+                effective_classifier = classifier
+
+            route_result = effective_classifier.route(
+                query, config_name=config_name, mode=mode
+            )
+            selected_sop = route_result.sop
+            if selected_sop is None or route_result.confidence < SOP_ROUTE_CONFIDENCE_THRESHOLD:
+                return {
+                    "error": "未匹配到合适的 SOP",
+                    "reason": route_result.reason or "SOP 路由未命中",
+                    "confidence": route_result.confidence,
+                }
+
+            from angineer_core.dispatcher import Dispatcher
+
+            executor = dispatcher
+            if executor is None:
+                executor = Dispatcher(
+                    config_name=config_name,
+                    mode=mode,
+                    memory=memory,
+                    llm_client=llm_client,
+                )
+
+            initial_context = {"user_query": query}
+            initial_context.update(route_result.args or {})
+            if isinstance(args, dict):
+                initial_context.update(args)
+
+            final_context = executor.run_sop(
+                selected_sop, initial_context, step_callback=step_callback
+            )
+            sop_trace = Dispatcher._build_sop_trace(executor, selected_sop)
+            citations = Dispatcher._build_citations_from_sop_trace(executor)
+            success_steps = sum(1 for s in sop_trace if s.get("status") == "success")
+            failed_steps = sum(1 for s in sop_trace if s.get("status") not in ("success", "pending"))
+            return {
+                "sop_id": selected_sop.id,
+                "sop_name": selected_sop.name_zh or selected_sop.name_en or selected_sop.id,
+                "confidence": route_result.confidence,
+                "summary": (
+                    f"命中 SOP {selected_sop.id}，执行 {len(sop_trace)} 步，"
+                    f"成功 {success_steps} 步，失败 {failed_steps} 步"
+                ),
+                "steps": [
+                    {
+                        "step_id": s.get("step_id"),
+                        "step_name": s.get("step_name"),
+                        "status": s.get("status"),
+                        "outputs": s.get("outputs"),
+                    }
+                    for s in sop_trace
+                ],
+                "final_context": final_context or {},
+                "sop_trace": sop_trace,
+                "citations": citations,
+                "route_reason": route_result.reason or "",
+            }
 
         return AgentTool(
             name="sop_execute",
