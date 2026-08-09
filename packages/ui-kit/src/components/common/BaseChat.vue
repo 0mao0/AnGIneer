@@ -58,46 +58,61 @@
 
           <template v-else-if="msg.role === 'assistant'">
             <div class="assistant-content">
-              <div v-if="msg.queryChain" class="message-chain">
-                {{ msg.queryChain }}
-              </div>
               <div class="answer-text" v-html="renderAssistantContent(msg)" />
-              <div v-if="getVisibleCitations(msg).length" class="citation-panel">
-                <div class="citation-title">参考依据</div>
+              <template v-if="msg.queryChain || getVisibleCitations(msg).length">
                 <button
-                  v-for="citation in getVisibleCitations(msg)"
-                  :key="`${citation.target_id}-${citation.page_idx}-${citation.section_path}`"
-                  class="citation-item"
+                  class="message-meta-toggle"
                   type="button"
-                  @click="handleCitationClick(citation)"
+                  @click="toggleMetaExpanded(msg)"
                 >
-                  <div class="citation-header">
-                    <div class="citation-meta">
-                      <span class="citation-doc">{{ citation.doc_title }}</span>
-                      <span v-if="citation.page_idx || citation.page_label" class="citation-page">P{{ citation.page_label || citation.page_idx }}</span>
-                      <span v-if="getCitationLastSegment(citation.section_path)" class="citation-location">
-                        {{ getCitationLastSegment(citation.section_path) }}
-                      </span>
-                      <span v-if="citation.score" class="citation-score">
-                        置信度 {{ (citation.score * 100).toFixed(0) }}%
-                      </span>
-                    </div>
-                  </div>
-                  <div class="citation-detail">
-                    <CitationRichContent
-                      v-if="citation.rich_media && (citation.rich_media.table_html || citation.rich_media.math_content || citation.rich_media.image_path || (citation.rich_media.image_paths && citation.rich_media.image_paths.length) || (citation.rich_media.rich_media_order && citation.rich_media.rich_media_order.length))"
-                      class="citation-rich-media"
-                      :reference="mapBaseChatCitationToReference(citation)"
-                    />
-                    <div
-                      v-if="citation.content || citation.snippet"
-                      class="citation-snippet"
-                    >
-                      {{ citation.content || citation.snippet }}
-                    </div>
-                  </div>
+                  <span class="meta-toggle-arrow">
+                    <DownOutlined v-if="isMetaExpanded(msg)" />
+                    <RightOutlined v-else />
+                  </span>
+                  <span class="meta-toggle-label">{{ getMetaToggleLabel(msg) }}</span>
                 </button>
-              </div>
+                <template v-if="isMetaExpanded(msg)">
+                  <div v-if="msg.queryChain" class="message-chain">
+                    {{ msg.queryChain }}
+                  </div>
+                  <div v-if="getVisibleCitations(msg).length" class="citation-panel">
+                    <div class="citation-title">参考依据</div>
+                    <button
+                      v-for="citation in getVisibleCitations(msg)"
+                      :key="`${citation.target_id}-${citation.page_idx}-${citation.section_path}`"
+                      class="citation-item"
+                      type="button"
+                      @click="handleCitationClick(citation)"
+                    >
+                      <div class="citation-header">
+                        <div class="citation-meta">
+                          <span class="citation-doc">{{ citation.doc_title }}</span>
+                          <span v-if="citation.page_idx || citation.page_label" class="citation-page">P{{ citation.page_label || citation.page_idx }}</span>
+                          <span v-if="getCitationLastSegment(citation.section_path)" class="citation-location">
+                            {{ getCitationLastSegment(citation.section_path) }}
+                          </span>
+                          <span v-if="citation.score" class="citation-score">
+                            置信度 {{ (citation.score * 100).toFixed(0) }}%
+                          </span>
+                        </div>
+                      </div>
+                      <div class="citation-detail">
+                        <CitationRichContent
+                          v-if="citation.rich_media && (citation.rich_media.table_html || citation.rich_media.math_content || citation.rich_media.image_path || (citation.rich_media.image_paths && citation.rich_media.image_paths.length) || (citation.rich_media.rich_media_order && citation.rich_media.rich_media_order.length))"
+                          class="citation-rich-media"
+                          :reference="mapBaseChatCitationToReference(citation)"
+                        />
+                        <div
+                          v-if="citation.content || citation.snippet"
+                          class="citation-snippet"
+                        >
+                          {{ citation.content || citation.snippet }}
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </template>
+              </template>
 
               <!-- 知识盲区分析 -->
               <div
@@ -492,6 +507,33 @@ const toggleCitationExpanded = (key: string) => {
     return
   }
   expandedCitationKeys.value = [...expandedCitationKeys.value, key]
+}
+
+/** 查询链路 + 参考依据区域的展开状态（按消息 ID 跟踪） */
+const expandedMetaKeys = ref<string[]>([])
+
+const isMetaExpanded = (message: BaseChatMessage) => expandedMetaKeys.value.includes(message.id || '')
+
+const toggleMetaExpanded = (message: BaseChatMessage) => {
+  const key = message.id || ''
+  if (isMetaExpanded(message)) {
+    expandedMetaKeys.value = expandedMetaKeys.value.filter(item => item !== key)
+  } else {
+    expandedMetaKeys.value = [...expandedMetaKeys.value, key]
+  }
+}
+
+/** 折叠条文案：查询链路 + 参考依据数量 */
+const getMetaToggleLabel = (message: BaseChatMessage): string => {
+  const citationCount = getVisibleCitations(message).length
+  const hasChain = Boolean(message.queryChain)
+  if (hasChain && citationCount > 0) {
+    return `查询链路 · 参考依据（${citationCount}）`
+  }
+  if (hasChain) {
+    return '查询链路'
+  }
+  return `参考依据（${citationCount}）`
 }
 
 /**
@@ -1003,6 +1045,40 @@ defineExpose({
           line-height: 1.5;
           color: var(--text-secondary);
           margin-bottom: 10px;
+        }
+
+        .message-meta-toggle {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          width: 100%;
+          margin: 4px 0 8px;
+          padding: 5px 8px;
+          border: none;
+          border-radius: 6px;
+          background: transparent;
+          color: var(--text-secondary);
+          font-size: 12px;
+          line-height: 1.4;
+          text-align: left;
+          cursor: pointer;
+
+          &:hover {
+            background: rgba(128, 128, 128, 0.08);
+          }
+
+          .meta-toggle-arrow {
+            display: inline-flex;
+            align-items: center;
+            font-size: 10px;
+            flex-shrink: 0;
+          }
+
+          .meta-toggle-label {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
         }
 
         .answer-text {
