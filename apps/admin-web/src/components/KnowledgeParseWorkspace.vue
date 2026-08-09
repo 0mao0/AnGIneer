@@ -20,7 +20,6 @@
           title="知识树"
           :icon="FolderOutlined"
           contentClass="tree-panel-content"
-          :class="{ 'hide-title': hideLeftTitle }"
         >
           <template #extra>
             <a-tooltip title="收起侧边栏">
@@ -455,13 +454,10 @@ const panelRatios = ref({
 // 面板收起状态，从 localStorage 恢复
 const leftPanelCollapsed = ref(localStorage.getItem('angineer-knowledge-left-collapsed') === 'true')
 const rightPanelCollapsed = ref(localStorage.getItem('angineer-knowledge-right-collapsed') === 'true')
-const leftWidth = ref(0)
-const hideLeftTitle = computed(() => leftWidth.value > 0 && leftWidth.value < 150)
 
 /** 持久化左侧收起状态 */
 const onLeftCollapsedChange = (val: boolean) => {
   leftPanelCollapsed.value = val
-  leftWidth.value = val ? 0 : leftWidth.value
   localStorage.setItem('angineer-knowledge-left-collapsed', String(val))
 }
 
@@ -520,7 +516,6 @@ const defaultSelectedKeys = ref<string[]>([])
 
 // 面板调整大小回调
 const onPanelResize = (leftSize: number, rightSize: number) => {
-  leftWidth.value = leftSize
   const containerWidth = workspaceRef.value?.clientWidth || window.innerWidth
   if (containerWidth <= 0) return
   const left = clampRatio(leftSize / containerWidth, 0.1, 0.45)
@@ -1183,13 +1178,6 @@ const onTreeDropRoot = async (dragNodeKeys: string[]) => {
 // 组件挂载时加载数据
 onMounted(async () => {
   loadStoredParseSettings()
-  // 初始/恢复窄布局时读取左栏实际宽度，决定是否隐藏标题文字
-  nextTick(() => {
-    const leftPane = workspaceRef.value?.querySelector('.pane-left') as HTMLElement | null
-    if (leftPane) {
-      leftWidth.value = leftPane.offsetWidth
-    }
-  })
   try {
     const saved = localStorage.getItem(PANEL_LAYOUT_STORAGE_KEY)
     if (saved) {
@@ -1263,11 +1251,6 @@ onBeforeUnmount(() => {
   min-height: 0;
   display: flex;
   flex-direction: column;
-
-  // 左栏过窄时隐藏 Panel 标题文字（如"知识树"），避免竖排
-  :deep(.panel.hide-title .header-title span) {
-    display: none;
-  }
 
   // 三栏 Panel header：背景与内容区统一，下边线用灰色分隔
   :deep(.panel-header) {

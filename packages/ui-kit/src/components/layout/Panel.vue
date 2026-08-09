@@ -52,6 +52,7 @@ withDefaults(defineProps<Props>(), {
   flex-direction: column;
   height: 100%;
   background: var(--panel-bg);
+  container-type: inline-size;
 
   &-bordered {
     border: 1px solid var(--border-color);
@@ -75,15 +76,18 @@ withDefaults(defineProps<Props>(), {
       font-weight: 500;
       color: var(--text-primary);
       min-width: 0;
+      flex: 1;
 
       .anticon {
         color: var(--primary-color);
+        flex-shrink: 0;
       }
 
       span {
         overflow: hidden;
-        text-overflow: ellipsis;
+        text-overflow: clip;
         white-space: nowrap;
+        min-width: 0;
       }
     }
 
@@ -99,6 +103,19 @@ withDefaults(defineProps<Props>(), {
     min-height: 0;
     overflow: auto;
     position: relative;
+  }
+}
+
+/* 面板变窄时：icon 先隐藏，标题自然截断（知/知识…），极窄才全部消失 */
+@container (max-width: 220px) {
+  .header-title .anticon {
+    display: none;
+  }
+}
+
+@container (max-width: 96px) {
+  .header-title span {
+    display: none;
   }
 }
 </style>
