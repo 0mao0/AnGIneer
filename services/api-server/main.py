@@ -262,6 +262,25 @@ class SteerRequest(BaseModel):
 execution_trace = []
 
 
+def _trace_json_safe(value):
+    """把 trace 中的值转换为 JSON 可序列化形式（pydantic 模型 → dict/字符串）。"""
+    if hasattr(value, "model_dump"):
+        try:
+            return value.model_dump(mode="json")
+        except Exception:  # noqa: BLE001
+            return str(value)
+    if hasattr(value, "model_dump_json"):
+        try:
+            return json.loads(value.model_dump_json())
+        except Exception:  # noqa: BLE001
+            return str(value)
+    if isinstance(value, dict):
+        return {str(key): _trace_json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_trace_json_safe(item) for item in value]
+    return value
+
+
 class TraceDispatcher(Dispatcher):
     """
     A specialized Dispatcher that records execution steps for the UI
@@ -272,13 +291,14 @@ class TraceDispatcher(Dispatcher):
         self.trace_list = trace_list
 
     def _execute_step(self, step: Step):
+        step_description = step.description_zh or (step.description.content if step.description else "")
         step_trace = {
             "step_id": step.id,
             "step_name": step.name_zh or step.name, # Default to zh or legacy name
             "step_name_zh": step.name_zh or step.name,
             "step_name_en": step.name_en or step.name,
-            "step_description_zh": step.description_zh or step.description,
-            "step_description_en": step.description_en or step.description,
+            "step_description_zh": step_description,
+            "step_description_en": step_description,
             "tool": step.tool,
             "status": "running",
             "inputs": {},
@@ -294,7 +314,7 @@ class TraceDispatcher(Dispatcher):
             resolved_value = self.memory.resolve_value(value)
             tool_inputs[key] = resolved_value
         
-        step_trace["inputs"] = tool_inputs
+        step_trace["inputs"] = _trace_json_safe(tool_inputs)
         
         try:
             # Determine Tool (Static or Auto)
@@ -305,7 +325,7 @@ class TraceDispatcher(Dispatcher):
                     target_tool_name = detected_tool
                     tool_inputs.update(detected_inputs)
                     step_trace["tool"] = f"auto -> {target_tool_name}" # Update trace
-                    step_trace["inputs"] = tool_inputs # Update trace
+                    step_trace["inputs"] = _trace_json_safe(tool_inputs) # Update trace
                 else:
                     raise ValueError("Auto-selection failed")
 
@@ -322,7 +342,7 @@ class TraceDispatcher(Dispatcher):
             if self.mode:
                 run_kwargs["mode"] = self.mode
             result = tool.run(**run_kwargs)
-            step_trace["output"] = result
+            step_trace["output"] = _trace_json_safe(result)
             step_trace["status"] = "completed"
             
             # Record in original memory
