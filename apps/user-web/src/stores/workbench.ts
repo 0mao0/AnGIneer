@@ -17,8 +17,14 @@ export const useWorkbenchStore = defineStore('workbench', () => {
 
   const openTab = (tab: Tab) => {
     const existing = tabs.value.find(t => t.key === tab.key)
-    if (!existing) {
-      tabs.value.push(tab)
+    if (existing) {
+      // 同一文档再次被引用时合并 props（sectionPath/pageIdx/targetId 等跳转参数）
+      existing.props = { ...existing.props, ...(tab.props || {}) }
+    } else {
+      tabs.value.push({
+        ...tab,
+        props: { ...(tab.props || {}) },
+      })
     }
     activeTab.value = tab.key
   }

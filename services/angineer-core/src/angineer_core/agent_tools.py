@@ -139,6 +139,10 @@ def _run_knowledge_search(
         filters=filters,
     )
     nodes = list(doc_nodes or [])
+    doc_title_map = {
+        str(getattr(node, "id", "") or ""): str(getattr(node, "title", "") or "")
+        for node in nodes
+    }
     dense_r = dense
     sparse_r = sparse
     clause_r = clause
@@ -176,6 +180,15 @@ def _run_knowledge_search(
         from angineer_core.retrieval_pipeline import rerank_candidates
 
         items = rerank_candidates(query, items, task_type=task_type)
+    for item in items:
+        doc_title = doc_title_map.get(str(item.doc_id or ""), "")
+        if not doc_title:
+            continue
+        item.metadata["doc_title"] = doc_title
+        prefix = f"《{doc_title}》"
+        text = str(item.text or "")
+        if text and prefix not in text:
+            item.text = f"{prefix} {text}"
     result = {"items": [_serialize_model(item) for item in items], "total": len(items)}
     citations = _build_relevant_citations(query, items)
     if citations:
@@ -204,10 +217,11 @@ def _build_relevant_citations(query: str, items: list, limit: int = 5) -> List[D
 
     citations: List[Dict[str, Any]] = []
     for item in selected:
+        doc_title = str(item.metadata.get("doc_title") or item.title or "")
         citations.append({
             "target_id": str(getattr(item, "citation_target_id", None) or item.item_id or ""),
             "doc_id": str(item.doc_id or ""),
-            "doc_title": str(item.title or ""),
+            "doc_title": doc_title,
             "page_idx": int(item.metadata.get("page_idx", 0) or 0),
             "page_label": item.metadata.get("page_label"),
             "section_path": str(item.metadata.get("section_path") or ""),

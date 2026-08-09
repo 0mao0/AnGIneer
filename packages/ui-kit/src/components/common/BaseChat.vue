@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div ref="messagesRef" class="chat-messages">
+    <div ref="messagesRef" class="chat-messages" @click="handleMessageClick">
       <div
         v-for="(msg, index) in displayMessages"
         :key="msg.id || index"
@@ -61,7 +61,7 @@
               <div v-if="msg.queryChain" class="message-chain">
                 {{ msg.queryChain }}
               </div>
-              <div class="answer-text" v-html="renderContent(msg.content)" />
+              <div class="answer-text" v-html="renderAssistantContent(msg)" />
               <div v-if="getVisibleCitations(msg).length" class="citation-panel">
                 <div class="citation-title">参考依据</div>
                 <button
@@ -602,6 +602,73 @@ const renderContent = (content: string): string => {
   return escapeHtml(content).replace(/\n/g, '<br />')
 }
 
+/**
+ * 渲染助手消息：把正文里出现的文档标题/章节名替换为可点击的引用链接，
+ * 点击后与参考依据面板走同一条定位跳转链路。
+ */
+const renderAssistantContent = (message: BaseChatMessage): string => {
+  const citations = getVisibleCitations(message)
+  let content = message.content || ''
+  const links: Array<{ index: number; label: string }> = []
+
+  if (citations.length) {
+    citations.forEach((citation, index) => {
+      const needles = [
+        citation.doc_title,
+        getCitationLastSegment(citation.section_path),
+      ].filter(Boolean)
+      for (const needle of needles) {
+        const position = content.indexOf(needle)
+        if (position < 0) continue
+        const token = `__INLINE_CIT_${index}__`
+        content = content.slice(0, position) + token + content.slice(position + needle.length)
+        links.push({ index, label: needle })
+        break
+      }
+    })
+  }
+
+  const html = props.renderMessage
+    ? props.renderMessage(content)
+    : escapeHtml(content).replace(/\n/g, '<br />')
+
+  return html.replace(/__INLINE_CIT_(\d+)__/g, (_, rawIndex) => {
+    const link = links.find(item => item.index === Number(rawIndex))
+    if (!link) return ''
+    const citation = citations[link.index]
+    if (!citation) return ''
+    return [
+      '<a class="inline-citation-link"',
+      ` data-citation-index="${link.index}"`,
+      ` data-doc-id="${escapeHtml(citation.doc_id || '')}"`,
+      ` data-target-id="${escapeHtml(citation.target_id || '')}"`,
+      ` data-doc-title="${escapeHtml(citation.doc_title || '')}"`,
+      ` data-page-idx="${Number(citation.page_idx || 0)}"`,
+      ` data-section-path="${escapeHtml(citation.section_path || '')}"`,
+      ` data-snippet="${escapeHtml(citation.snippet || '')}"`,
+      `>${escapeHtml(link.label)}</a>`,
+    ].join('')
+  })
+}
+
+/** 点击正文内联引用链接：与参考依据面板共用 selectCitation 跳转 */
+const handleMessageClick = (event: MouseEvent) => {
+  const target = (event.target as HTMLElement | null)?.closest?.('.inline-citation-link') as HTMLElement | null
+  if (!target) return
+  const docId = String(target.dataset.docId || '')
+  if (!docId) return
+  emit('selectCitation', {
+    target_id: String(target.dataset.targetId || ''),
+    target_type: 'content',
+    doc_id: docId,
+    doc_title: String(target.dataset.docTitle || ''),
+    page_idx: Number(target.dataset.pageIdx || 0),
+    section_path: String(target.dataset.sectionPath || ''),
+    snippet: String(target.dataset.snippet || ''),
+    score: 0,
+  })
+}
+
 const getInlineSegments = (message: BaseChatMessage) => buildCitationSegments({
   content: message.content,
   citations: Array.isArray(message.inlineCitations) ? message.inlineCitations : []
@@ -998,6 +1065,16 @@ defineExpose({
           :deep(.media-table) {
             overflow: auto;
             max-width: 100%;
+          }
+
+          :deep(.inline-citation-link) {
+            color: var(--primary-color, #1677ff);
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:hover {
+              opacity: 0.85;
+            }
           }
 
           :deep(table) {

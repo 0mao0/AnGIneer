@@ -15,6 +15,23 @@
         cta-text="重试"
         @cta-click="loadDocument"
       />
+      <PDF_Viewer
+        v-else-if="isPdfView && pdfUrl"
+        :node="{ status: 'completed', filePath: pdfFilePath }"
+        :is-pdf="true"
+        :is-office="false"
+        :is-image="false"
+        :is-text="false"
+        :pdf-viewer-url="pdfUrl"
+        :office-preview-url="''"
+        :file-url="pdfUrl"
+        :text-content="''"
+        :current-pdf-page="pdfPage"
+        :highlights="[]"
+        :active-highlight-id="null"
+        :text-scroll-percent="0"
+        theme="auto"
+      />
       <Preview_Markdown
         v-else-if="document"
         :content="document.content"
@@ -34,7 +51,7 @@
 import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { message } from 'ant-design-vue'
-import { Preview_Markdown } from '@angineer/docs-ui'
+import { PDF_Viewer, Preview_Markdown } from '@angineer/docs-ui'
 import { EmptyState } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
 
@@ -53,6 +70,10 @@ const loading = ref(true)
 const loadError = ref<string>('')
 const document = ref<{ id: string; title: string; content: string } | null>(null)
 const activeLineRange = ref<{ start: number; end: number } | null>(null)
+const isPdfView = ref(false)
+const pdfUrl = ref('')
+const pdfFilePath = ref('')
+const pdfPage = ref(1)
 
 /** 按引用定位参数在 markdown 中找原文位置（sectionPath 优先，snippet 兜底） */
 const locateInContent = (content: string): { start: number; end: number } | null => {
@@ -83,23 +104,47 @@ const loadDocument = async () => {
   loading.value = true
   loadError.value = ''
   try {
-    const result = await knowledgeApi.getDocument(libraryId, docId) as { content?: string; title?: string }
+    const result = await knowledgeApi.getDocument(libraryId, docId) as {
+      content?: string
+      title?: string
+      storage?: { render_pdf?: string }
+    }
     document.value = {
       id: docId,
       title: props.title || result?.title || `文档 ${docId}`,
       content: result?.content || ''
     }
-    activeLineRange.value = locateInContent(document.value.content)
+    const renderPdf = String(result?.storage?.render_pdf || '').trim()
+    if (renderPdf) {
+      isPdfView.value = true
+      pdfFilePath.value = renderPdf
+      pdfUrl.value = `/api/files?path=${encodeURIComponent(renderPdf)}`
+      pdfPage.value = Math.max(1, Number(props.pageIdx || 0) + 1)
+    } else {
+      isPdfView.value = false
+      pdfUrl.value = ''
+      pdfFilePath.value = ''
+      activeLineRange.value = locateInContent(document.value.content)
+    }
   } catch (err) {
     const e = err as Error
     loadError.value = e.message || '文档加载失败'
     message.error(loadError.value)
     document.value = null
     activeLineRange.value = null
+    isPdfView.value = false
+    pdfUrl.value = ''
+    pdfFilePath.value = ''
   } finally {
     loading.value = false
   }
 }
+
+watch(() => [props.pageIdx, props.targetId, props.sectionPath], () => {
+  if (isPdfView.value && pdfUrl.value) {
+    pdfPage.value = Math.max(1, Number(props.pageIdx || 0) + 1)
+  }
+})
 
 watch(
   () => [props.docId, props.libraryId, props.sectionPath, props.snippet],
