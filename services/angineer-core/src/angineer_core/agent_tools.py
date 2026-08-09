@@ -178,7 +178,7 @@ class RetrieverAdapter:
                 return {"error": "检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
             items, _debug = fuse_candidates(candidate_sources, task_type=task_type, top_k=top_k)
             if rerank:
-                from angineer_core.retrieval_utils import rerank_candidates
+                from angineer_core.retrieval_pipeline import rerank_candidates
 
                 items = rerank_candidates(query, items, task_type=task_type)
             return {
@@ -250,7 +250,7 @@ class RetrieverAdapter:
                 return {"error": "表格检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
             items, _debug = fuse_candidates(candidate_sources, task_type="table_qa", top_k=top_k)
             if rerank:
-                from angineer_core.retrieval_utils import rerank_candidates
+                from angineer_core.retrieval_pipeline import rerank_candidates
 
                 items = rerank_candidates(query, items, task_type="table_qa")
             return {

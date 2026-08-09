@@ -383,7 +383,9 @@ class Dispatcher(SopRunner):
                         try:
                             from angineer_core.dispatcher_agentic import dispatch_semantic_agentic
 
-                            _retriever_task = self._resolve_semantic_retriever_task(query, intent_result)
+                            from angineer_core.retrieval_pipeline import resolve_semantic_retriever_task
+
+                            _retriever_task = resolve_semantic_retriever_task(query, intent_result)
                             answer, citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, ret_timings, runtime_flags = (
                                 dispatch_semantic_agentic(
                                     query=query,
@@ -1221,14 +1223,11 @@ class Dispatcher(SopRunner):
 
         enforce_evidence=True 时，若检索无结果则直接返回空，不调用 LLM 自由生成。
         """
-        from docs_core.step09_query.protocols.contracts import KnowledgeQueryRequest
-        from docs_core.step09_query.retrieval.clause_resolver import clause_resolver
-        from docs_core.step09_query.retrieval.dense_retriever import dense_retriever
-        from docs_core.step09_query.retrieval.formula_retriever import formula_retriever, is_formula_query
-        from docs_core.step09_query.retrieval.sparse_retriever import sparse_retriever
-        from docs_core.step09_query.retrieval.table_retriever import table_retriever
-        from docs_core.step09_query.retrieval.hybrid_retriever import fuse_candidates
         from ai_inference.llm_client import get_llm_client
+        from angineer_core.retrieval_pipeline import (
+            resolve_semantic_retriever_task,
+            run_semantic_retrieval,
+        )
 
         answer = ""
         citations = []
@@ -1241,61 +1240,20 @@ class Dispatcher(SopRunner):
         fused = []
 
         try:
-            _t1 = time.time()
-            retriever_task_type = self._resolve_semantic_retriever_task(query, intent_result)
+            retriever_task_type = resolve_semantic_retriever_task(query, intent_result)
             strategy_desc = (
                 "Dense(正文+公式) + Sparse(全文+图表+公式) + Table(表格) → Hybrid融合（证据受约束）"
             )
 
-            kq_request = KnowledgeQueryRequest(
+            fused, retrieval_debug, runtime_flags, ret_timings = run_semantic_retrieval(
                 query=query,
+                doc_nodes=doc_nodes,
                 library_id=library_id,
                 doc_ids=doc_ids,
-                top_k=10,
-                filters=filters,
-            )
-            dense_hits = dense_retriever.retrieve(
-                kq_request, doc_nodes, retriever_task_type
-            )
-            runtime_flags = list(
-                getattr(getattr(dense_retriever, "_embedding_provider", None), "runtime_flags", []) or []
-            )
-            if runtime_flags:
-                retrieval_debug["runtime_flags"] = list(dict.fromkeys(runtime_flags))
-            sparse_hits = sparse_retriever.retrieve(
-                kq_request, doc_nodes, retriever_task_type
-            )
-            table_hits = table_retriever.retrieve(kq_request, doc_nodes)
-            formula_hits = []
-            if retriever_task_type in {"locate_formula", "formula_qa"} or is_formula_query(query, retriever_task_type):
-                formula_hits = formula_retriever.retrieve(kq_request, doc_nodes)
-            source_candidates = {
-                "canonical_dense": dense_hits,
-                "canonical_sparse": sparse_hits,
-            }
-            clause_hits = clause_resolver.retrieve(kq_request, doc_nodes, retriever_task_type)
-            if clause_hits:
-                source_candidates["clause_direct"] = clause_hits
-            for item in formula_hits:
-                source_kind = str(item.metadata.get("source_kind") or "formula_block")
-                source_candidates.setdefault(source_kind, []).append(item)
-            for item in table_hits:
-                source_kind = str(
-                    item.metadata.get("source_kind") or "table_aware"
-                )
-                source_candidates.setdefault(source_kind, []).append(item)
-            fused, retrieval_debug = fuse_candidates(
-                source_candidates,
                 task_type=retriever_task_type,
-                top_k=20,
                 filters=filters,
             )
-            timings["retrieval"] = round(time.time() - _t1, 2)
-
-            if len(fused) > 1 and (retriever_task_type.startswith("locate_") or len(fused) > 5):
-                _t_rerank = time.time()
-                fused = self._rerank_candidates(query, fused, task_type=retriever_task_type)
-                timings["rerank"] = round(time.time() - _t_rerank, 2)
+            timings.update(ret_timings)
             retrieved_items = [
                 item.model_dump(mode="json") for item in fused
             ]
@@ -1420,78 +1378,10 @@ class Dispatcher(SopRunner):
 
     @staticmethod
     def _build_inline_citation_context(inline_citations: List[Dict[str, Any]]) -> str:
-        """把前端显式确认的引用对象转成高优先级证据文本。"""
-        evidence_blocks: List[str] = []
-        for item in inline_citations[:5]:
-            reference = item.get("reference") if isinstance(item, dict) else {}
-            if not isinstance(reference, dict):
-                reference = {}
-            label = str(item.get("label") or reference.get("label") or "").strip()
-            doc_title = str(reference.get("docTitle") or reference.get("doc_title") or "").strip()
-            section_path = str(reference.get("sectionPath") or reference.get("section_path") or "").strip()
-            page_idx = reference.get("pageIdx", reference.get("page_idx", ""))
-            content = str(reference.get("content") or reference.get("snippet") or "").strip()
-            rich_media = reference.get("richMedia") or reference.get("rich_media") or {}
-            rich_media_summary: List[str] = []
-            if isinstance(rich_media, dict):
-                if rich_media.get("tableHtml") or rich_media.get("table_html"):
-                    rich_media_summary.append("包含表格")
-                if rich_media.get("mathContent") or rich_media.get("math_content"):
-                    rich_media_summary.append("包含公式")
-                image_paths = rich_media.get("imagePaths") or rich_media.get("image_paths") or []
-                if rich_media.get("imagePath") or rich_media.get("image_path") or image_paths:
-                    rich_media_summary.append("包含图片")
-            meta_parts = [part for part in [
-                f"标签: {label}" if label else "",
-                f"文档: {doc_title}" if doc_title else "",
-                f"页码: {page_idx}" if page_idx else "",
-                f"位置: {section_path}" if section_path else "",
-                f"富媒体: {'/'.join(rich_media_summary)}" if rich_media_summary else "",
-            ] if part]
-            block_parts = []
-            if meta_parts:
-                block_parts.append("\n".join(meta_parts))
-            if content:
-                block_parts.append(f"证据内容:\n{content}")
-            if block_parts:
-                evidence_blocks.append("\n".join(block_parts))
-        return "\n---\n".join(evidence_blocks)
+        """把前端显式确认的引用对象转成高优先级证据文本（P6b 归位 retrieval_pipeline）。"""
+        from angineer_core.retrieval_pipeline import build_inline_citation_context
 
-    @staticmethod
-    def _map_intent_to_retriever_task(intent_result: IntentResult) -> str:
-        """根据意图结果映射到检索任务类型。"""
-        intent_level = str(getattr(intent_result, "intent_level", "") or "")
-        intent_type = str(getattr(intent_result, "intent_type", "") or "")
-
-        if intent_level == "L1":
-            if "locate" in intent_type.lower():
-                return "locate_qa"
-            return "definition_qa"
-
-        if intent_level == "L2":
-            if "table" in intent_type.lower():
-                return "table_qa"
-            return "content_qa"
-
-        return "content_qa"
-
-    @classmethod
-    def _resolve_semantic_retriever_task(cls, query: str, intent_result: IntentResult) -> str:
-        """根据问句和意图结果选择更贴合的语义检索任务类型。"""
-        normalized_query = str(query or "").strip()
-        base_task_type = cls._map_intent_to_retriever_task(intent_result)
-        has_location_hint = any(
-            token in normalized_query for token in ("哪一节", "哪一章", "哪一条", "在哪里", "在哪", "位于")
-        )
-        if has_location_hint and "公式" in normalized_query:
-            return "locate_formula"
-        if has_location_hint and "图" in normalized_query:
-            return "locate_figure"
-        if has_location_hint and "表" in normalized_query:
-            return "locate_table"
-        if base_task_type == "content_qa" and "公式" in normalized_query:
-            return "formula_qa"
-        return base_task_type
+        return build_inline_citation_context(inline_citations)
 
     _MULTI_CHOICE_PATTERN = re.compile(r"[(（][A-E][)）]")
 
@@ -1525,7 +1415,7 @@ class Dispatcher(SopRunner):
     @staticmethod
     def _rerank_candidates(query: str, candidates: list, task_type: str = "") -> list:
         """用在线 reranker 服务重排序候选；未配置或失败时回退本地 phrase rerank 算法。"""
-        from angineer_core.retrieval_utils import rerank_candidates
+        from angineer_core.retrieval_pipeline import rerank_candidates
 
         return rerank_candidates(query, candidates, task_type)
 
@@ -1538,7 +1428,7 @@ class Dispatcher(SopRunner):
     @staticmethod
     def _has_unsupported_reference(answer: str, evidence_text: str) -> bool:
         """检测答案中是否出现未在证据中出现的规范编号或题库背景引用。"""
-        from angineer_core.retrieval_utils import has_unsupported_reference
+        from angineer_core.retrieval_pipeline import has_unsupported_reference
 
         return has_unsupported_reference(answer, evidence_text)
 
@@ -1804,7 +1694,7 @@ class Dispatcher(SopRunner):
     @staticmethod
     def _build_citations_from_retrieved(fused, doc_nodes) -> list:
         """从检索结果构建 citations 数组。"""
-        from angineer_core.retrieval_utils import build_citations_from_retrieved
+        from angineer_core.retrieval_pipeline import build_citations_from_retrieved
 
         return build_citations_from_retrieved(fused, doc_nodes)
 

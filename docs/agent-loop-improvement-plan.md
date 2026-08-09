@@ -530,9 +530,9 @@ if path == "semantic_retrieval" and os.environ.get("ANGINEER_AGENT_L1", "false")
 
 ### 当前进度与执行待办（2026-08-09）
 
-- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）、P5（Prompt 资产化，48faa80）均已提交；P6a（sop_runner.py 下沉 + llm_generate 统一超时）代码与测试完成，**尚未提交**。
-- **P6a 待提交文件**：`sop_runner.py`（新，SOP 执行引擎）、`dispatcher.py`（改：继承 SopRunner，-1065 行）、`prompts/dispatcher.py`（补 SOP 答案组装 prompt）、`docs/agent-loop-improvement-plan.md`（改）。
-- **下一步（用户已确认）**：① 提交 P6a；② 继续 P6b（retrieval_pipeline.py 下沉）→ P6c（qa_pipeline 答题段）→ P6d（dispatcher 瘦身 <800 行 + 清理）；③ 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare。
+- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）、P5（Prompt 资产化，48faa80）、P6a（SopRunner 下沉，0c2ac2a）均已提交；P6b（retrieval_pipeline.py 下沉）代码与测试完成，**尚未提交**。
+- **P6b 待提交文件**：`retrieval_pipeline.py`（新，多路召回/融合/重排 + 共享函数）、`dispatcher.py`（改：检索段替换为 run_semantic_retrieval，-37 行）、`agent_tools.py`/`dispatcher_agentic.py`（改：引用 retrieval_pipeline）、`retrieval_utils.py`（删，P3 临时文件）、`docs/agent-loop-improvement-plan.md`（改）。
+- **下一步（用户已确认）**：① 提交 P6b；② 继续 P6c（qa_pipeline 答题段）→ P6d（dispatcher 瘦身 <800 行 + 清理）；③ 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare。
 - **约束**：`ANGINEER_AGENT_L1/L4` 默认关闭，不影响现有链路；`tests/` 目录仍被 `.gitignore` 忽略，测试不提交。
 - **外部依赖**：DashScope embedding 与 reranker 服务当前不可用（回退 hash 检索，evals 分数不可比），P3.3/P3.4/P4.5 验收挂起中。
 
@@ -634,6 +634,13 @@ L4 分支（L350-412）在 `ANGINEER_AGENT_L4=true` 时改走 `_dispatch_complex
 - dispatcher.py 由 2902 行减至 1837 行（-1065 行）；移除 `_TOOL_EXEC_TIMEOUT_SECONDS` / ToolRegistry / chat_result_guarded / ThreadPoolExecutor 等不再使用的模块级符号。
 - 补充 P5 遗漏：`_compose_sop_answer` 的"你是工程规范领域"两处 prompt 迁入 `prompts/dispatcher.py`（`SOP_ANSWER_COMPOSE_PROMPT` / `SOP_ANSWER_SYSTEM_PROMPT`，逐字验证 byte-identical）。
 - 测试：新增 `test_sop_runner.py` 6 个（blackboard/history、step_callback、Dispatcher 继承、trace 构建、llm_generate 超时、默认超时），`tests/angineer-core` 80 个全绿；`tests/unit` + `tests/ai-inference` 266 passed + 4 skip 回归不变（dispatcher 既有单测直接复用继承方法，未改动）。
+
+### P6b 实施记录（2026-08-09）：retrieval_pipeline.py 下沉
+
+- 新建 `angineer_core/retrieval_pipeline.py`：`run_semantic_retrieval`（多路召回 dense/sparse/table/formula/clause → Hybrid 融合 → 条件重排，返回 fused/retrieval_debug/runtime_flags/timings，与 dispatcher 原行为一致）；`rerank_candidates` / `build_citations_from_retrieved` / `has_unsupported_reference` / `build_inline_citation_context`（含富媒体摘要）；`map_intent_to_retriever_task` / `resolve_semantic_retriever_task`。
+- `dispatcher.py`：`_dispatch_semantic` 检索段替换为 `run_semantic_retrieval` 调用（答题段保留待 P6c）；`_build_inline_citation_context` 改为委托；`_map_intent_to_retriever_task` / `_resolve_semantic_retriever_task` 删除并改用模块函数（dispatch L4 分支同步）；`_rerank_candidates` / `_has_unsupported_reference` / `_build_citations_from_retrieved` 委托改指向新模块。
+- `agent_tools.py`（RetrieverAdapter）与 `dispatcher_agentic.py`（L1/L4 agentic）改为复用 `retrieval_pipeline` 共享函数；**删除 P3 临时文件 `retrieval_utils.py`**（函数全部归位）。
+- 测试：新增 `test_retrieval_pipeline.py` 8 个（融合源结构、runtime_flags、rerank 触发/跳过条件、任务映射、显式引用上下文、拒答校验、citations、rerank 可调用）；`tests/angineer-core` 88 个全绿；`tests/unit` + `tests/ai-inference` 266 passed + 4 skip、集成工具注册 1 passed 回归不变。
 
 ## P7 · API 层统一（2~3 天，P3 之后任意时点）
 

@@ -38,7 +38,7 @@ def dispatch_semantic_agentic(
     """
     from ai_inference.llm_client import get_llm_client
     from angineer_core.agent_configs import build_qa_config
-    from angineer_core.retrieval_utils import (
+    from angineer_core.retrieval_pipeline import (
         build_citations_from_retrieved,
         has_unsupported_reference,
     )
@@ -167,7 +167,7 @@ def dispatch_complex_agentic(
     """
     from ai_inference.llm_client import get_llm_client
     from angineer_core.agent_configs import build_complex_config
-    from angineer_core.retrieval_utils import build_citations_from_retrieved
+    from angineer_core.retrieval_pipeline import build_citations_from_retrieved
     from docs_core.step09_query.protocols.contracts import RetrievedItem
 
     llm = llm or get_llm_client()
