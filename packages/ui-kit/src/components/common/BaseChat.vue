@@ -655,11 +655,8 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
 
   if (citations.length) {
     citations.forEach((citation, index) => {
-      const needles = [
-        citation.doc_title,
-        getCitationLastSegment(citation.section_path),
-      ].filter(Boolean)
-      for (const needle of needles) {
+      const spanCandidates = buildCitationSpanCandidates(citation)
+      for (const needle of spanCandidates) {
         const position = content.indexOf(needle)
         if (position < 0) continue
         const token = `__INLINE_CIT_${index}__`
@@ -691,6 +688,29 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
       `>${escapeHtml(link.label)}</a>`,
     ].join('')
   })
+}
+
+/** 生成引用链接的候选短语：优先“《文档》第“章节””，最后兜底到文档标题 */
+const buildCitationSpanCandidates = (citation: BaseChatCitation): string[] => {
+  const docTitle = String(citation.doc_title || '').trim()
+  if (!docTitle) return []
+  const section = String(citation.section_path || '').trim()
+  const lastSegment = getCitationLastSegment(citation.section_path)
+  const sections = [section, lastSegment].filter((value, index, arr) => value && arr.indexOf(value) === index)
+  const docForms = [`《${docTitle}》`, docTitle]
+  const candidates: string[] = []
+  for (const doc of docForms) {
+    for (const sec of sections) {
+      candidates.push(`${doc}第“${sec}”章节`)
+      candidates.push(`${doc}第“${sec}”`)
+      candidates.push(`${doc}第"${sec}"章节`)
+      candidates.push(`${doc}第"${sec}"`)
+      candidates.push(`${doc}第${sec}章节`)
+      candidates.push(`${doc}第${sec}`)
+    }
+  }
+  candidates.push(docForms[0])
+  return candidates
 }
 
 /** 点击正文内联引用链接：与参考依据面板共用 selectCitation 跳转 */
