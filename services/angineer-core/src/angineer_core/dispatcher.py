@@ -30,21 +30,8 @@ if TYPE_CHECKING:
 from ai_inference.llm_client import get_llm_client
 from angineer_core.base_config import SOP_ROUTE_CONFIDENCE_THRESHOLD
 from angineer_core.prompts.dispatcher import (
-    EXTRACT_SYSTEM_PROMPT,
-    EXTRACT_USER_CHOICE,
-    EXTRACT_USER_GENERAL,
-    JUDGE_USER_CHOICE,
-    JUDGE_USER_CHOICE_EXPLICIT,
-    JUDGE_USER_GENERAL,
-    JUDGE_USER_GENERAL_EXPLICIT,
     SQL_DOC_QA_SYSTEM_PROMPT,
     SQL_STRUCTURED_QA_SYSTEM_PROMPT,
-    SYSTEM_PROMPT_BASE,
-    SYSTEM_PROMPT_CHOICE_RULES,
-    SYSTEM_PROMPT_GAP_ANALYSIS,
-    SYSTEM_PROMPT_RULES_CONTENT_QA,
-    SYSTEM_PROMPT_RULES_DEFINITION_QA,
-    SYSTEM_PROMPT_RULES_LOCATE_QA,
     SOP_ANSWER_COMPOSE_PROMPT,
     SOP_ANSWER_SYSTEM_PROMPT,
 )
@@ -1228,6 +1215,12 @@ class Dispatcher(SopRunner):
             resolve_semantic_retriever_task,
             run_semantic_retrieval,
         )
+        from angineer_core.qa_pipeline import (
+            build_answer_context,
+            build_evidence_text,
+            refusal_check,
+            run_two_stage_answer,
+        )
 
         answer = ""
         citations = []
@@ -1260,115 +1253,29 @@ class Dispatcher(SopRunner):
             citations = self._build_citations_from_retrieved(fused, doc_nodes)
 
             if not answer and fused:
-                context_parts = []
-                for item in fused[:10]:
-                    if not item.text:
-                        continue
-                    section = str(item.metadata.get("section_path") or "")
-                    title = str(item.title or "")
-                    prefix = (
-                        f"[{section}]"
-                        if section
-                        else (f"[{title}]" if title else "")
-                    )
-                    context_parts.append(
-                        f"{prefix}\n{item.text}" if prefix else item.text
-                    )
-                context_text = "\n---\n".join(context_parts)
+                context_text = build_answer_context(fused)
                 # enforce_evidence 模式下，若无有效上下文则拒绝生成
                 if enforce_evidence and not context_text.strip():
                     logger.info("语义检索：enforce_evidence=True，未检索到有效证据，拒绝 LLM 自由生成")
                     return "", citations, retrieved_items, strategy_desc, system_prompt, retrieval_debug, timings, runtime_flags
                 explicit_evidence_text = self._build_inline_citation_context(inline_citations or [])
-                user_prompt_content = (
-                    f"问题: {query}\n\n显式引用证据:\n{explicit_evidence_text}\n\n检索结果:\n{context_text}"
-                    if explicit_evidence_text
-                    else f"问题: {query}\n\n检索结果:\n{context_text}"
-                )
-                evidence_text = f"{explicit_evidence_text}\n{context_text}".strip()
+                evidence_text = build_evidence_text(explicit_evidence_text, context_text)
 
                 _t_prompt = time.time()
                 system_prompt = self._build_system_prompt(retriever_task_type, query)
                 timings["prompt"] = round(time.time() - _t_prompt, 2)
 
-                _t2 = time.time()
                 llm = get_llm_client()
-                is_choice = bool(
-                    Dispatcher._MULTI_CHOICE_PATTERN.search(query)
+                answer, llm_timings = run_two_stage_answer(
+                    llm,
+                    query=query,
+                    system_prompt=system_prompt,
+                    context_text=context_text,
+                    explicit_evidence_text=explicit_evidence_text,
                 )
-                if context_text.strip():
-                    # 通用两阶段流程：LLM 先预过滤证据，再基于过滤结果回答
-                    extract_system = EXTRACT_SYSTEM_PROMPT
-                    if is_choice:
-                        extract_user = EXTRACT_USER_CHOICE.format(context_text=context_text)
-                    else:
-                        extract_user = EXTRACT_USER_GENERAL.format(
-                            query=query, context_text=context_text
-                        )
-                    try:
-                        filtered_evidence = llm.chat(
-                            [
-                                {"role": "system", "content": extract_system},
-                                {"role": "user", "content": extract_user},
-                            ],
-                            mode="instruct",
-                        )
-                        timings["llm_extract"] = round(time.time() - _t2, 2)
-
-                        _t3 = time.time()
-                        if is_choice:
-                            judge_user = JUDGE_USER_CHOICE.format(
-                                query=query, filtered_evidence=filtered_evidence
-                            )
-                            if explicit_evidence_text:
-                                judge_user = JUDGE_USER_CHOICE_EXPLICIT.format(
-                                    query=query,
-                                    explicit_evidence_text=explicit_evidence_text,
-                                    filtered_evidence=filtered_evidence,
-                                )
-                        else:
-                            judge_user = JUDGE_USER_GENERAL.format(
-                                query=query, filtered_evidence=filtered_evidence
-                            )
-                            if explicit_evidence_text:
-                                judge_user = JUDGE_USER_GENERAL_EXPLICIT.format(
-                                    query=query,
-                                    explicit_evidence_text=explicit_evidence_text,
-                                    filtered_evidence=filtered_evidence,
-                                )
-                        answer = llm.chat(
-                            [
-                                {"role": "system", "content": system_prompt},
-                                {"role": "user", "content": judge_user},
-                            ],
-                            mode="instruct",
-                        )
-                        timings["llm_judge"] = round(time.time() - _t3, 2)
-                        timings["llm"] = timings.get("llm_extract", 0) + timings.get("llm_judge", 0)
-                    except Exception:
-                        # 两阶段失败时回退单次调用
-                        answer = llm.chat(
-                            [
-                                {"role": "system", "content": system_prompt},
-                                {"role": "user", "content": user_prompt_content},
-                            ],
-                            mode="instruct",
-                        )
-                        timings["llm"] = round(time.time() - _t2, 2)
-                else:
-                    answer = llm.chat(
-                        [
-                            {"role": "system", "content": system_prompt},
-                            {"role": "user", "content": user_prompt_content},
-                        ],
-                        mode="instruct",
-                    )
-                    timings["llm"] = round(time.time() - _t2, 2)
-                if self._has_unsupported_reference(answer, evidence_text):
-                    answer = (
-                        "没有检索到足够证据支持最终结论。"
-                        "当前仅能确认已有片段与问题相关，但不足以安全地给出完整答案，请继续补充可核对的规范依据。"
-                    )
+                timings.update(llm_timings)
+                if answer:
+                    answer = refusal_check(answer, evidence_text)
         except Exception as e:
             logger.error(f"语义检索失败: {e}")
             if not answer:
@@ -1383,54 +1290,12 @@ class Dispatcher(SopRunner):
 
         return build_inline_citation_context(inline_citations)
 
-    _MULTI_CHOICE_PATTERN = re.compile(r"[(（][A-E][)）]")
-
     @staticmethod
     def _build_system_prompt(retriever_task_type: str, query: str = "") -> str:
-        """根据检索任务类型构建对应的 system prompt。"""
-        gap_analysis_enabled = os.environ.get("ANGINEER_GAP_ANALYSIS_ENABLED", "true").lower() == "true"
+        """根据检索任务类型构建对应的 system prompt（P6c 归位 qa_pipeline）。"""
+        from angineer_core.qa_pipeline import build_system_prompt
 
-        base_prompt = SYSTEM_PROMPT_BASE
-
-        is_choice = bool(query) and bool(
-            Dispatcher._MULTI_CHOICE_PATTERN.search(query)
-        )
-
-        if retriever_task_type == "definition_qa":
-            prompt = base_prompt + SYSTEM_PROMPT_RULES_DEFINITION_QA
-        elif retriever_task_type == "locate_qa":
-            prompt = base_prompt + SYSTEM_PROMPT_RULES_LOCATE_QA
-        else:
-            prompt = base_prompt + SYSTEM_PROMPT_RULES_CONTENT_QA
-
-        if is_choice:
-            prompt += SYSTEM_PROMPT_CHOICE_RULES
-
-        # 知识盲区分析指令（可通过环境变量关闭）
-        if gap_analysis_enabled and not is_choice:
-            prompt += SYSTEM_PROMPT_GAP_ANALYSIS
-
-        return prompt
-
-    @staticmethod
-    def _rerank_candidates(query: str, candidates: list, task_type: str = "") -> list:
-        """用在线 reranker 服务重排序候选；未配置或失败时回退本地 phrase rerank 算法。"""
-        from angineer_core.retrieval_pipeline import rerank_candidates
-
-        return rerank_candidates(query, candidates, task_type)
-
-    # 常见中国工程规范代号前缀
-    _KNOWN_STD_PREFIXES = frozenset({
-        "JTS", "JTJ", "JT", "GB", "GBJ", "GB/T", "SL", "DL", "SY", "SH",
-        "HG", "NB", "CJJ", "CJ", "TB", "YB", "JGJ", "JG", "DB",
-    })
-
-    @staticmethod
-    def _has_unsupported_reference(answer: str, evidence_text: str) -> bool:
-        """检测答案中是否出现未在证据中出现的规范编号或题库背景引用。"""
-        from angineer_core.retrieval_pipeline import has_unsupported_reference
-
-        return has_unsupported_reference(answer, evidence_text)
+        return build_system_prompt(retriever_task_type, query)
 
     @staticmethod
     def _parse_gap_analysis(answer: str) -> Tuple[str, Optional[List[Dict[str, Any]]], Optional[Dict[str, List[str]]]]:

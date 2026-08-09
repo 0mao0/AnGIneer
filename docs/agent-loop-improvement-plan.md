@@ -530,9 +530,9 @@ if path == "semantic_retrieval" and os.environ.get("ANGINEER_AGENT_L1", "false")
 
 ### 当前进度与执行待办（2026-08-09）
 
-- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）、P5（Prompt 资产化，48faa80）、P6a（SopRunner 下沉，0c2ac2a）均已提交；P6b（retrieval_pipeline.py 下沉）代码与测试完成，**尚未提交**。
-- **P6b 待提交文件**：`retrieval_pipeline.py`（新，多路召回/融合/重排 + 共享函数）、`dispatcher.py`（改：检索段替换为 run_semantic_retrieval，-37 行）、`agent_tools.py`/`dispatcher_agentic.py`（改：引用 retrieval_pipeline）、`retrieval_utils.py`（删，P3 临时文件）、`docs/agent-loop-improvement-plan.md`（改）。
-- **下一步（用户已确认）**：① 提交 P6b；② 继续 P6c（qa_pipeline 答题段）→ P6d（dispatcher 瘦身 <800 行 + 清理）；③ 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare。
+- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）、P3（L1 agentic RAG，fd4a19a）、P4（L4 大题档 agentic 接入，1f2b6fb）、P5（Prompt 资产化，48faa80）、P6a（SopRunner 下沉，0c2ac2a）、P6b（retrieval_pipeline 下沉，15adfd5）均已提交；P6c（qa_pipeline 答题段）代码与测试完成，**尚未提交**。
+- **P6c 待提交文件**：`qa_pipeline.py`（新，证据组织/两阶段判定/拒答校验/系统提示）、`dispatcher.py`（改：答题段替换为纯函数调用，-80 行）、`dispatcher_agentic.py`（改：共用 REFUSAL_ANSWER_TEXT）、`docs/agent-loop-improvement-plan.md`（改）。
+- **下一步（用户已确认）**：① 提交 P6c；② 继续 P6d（dispatcher 瘦身 <800 行 + 清理）；③ 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare。
 - **约束**：`ANGINEER_AGENT_L1/L4` 默认关闭，不影响现有链路；`tests/` 目录仍被 `.gitignore` 忽略，测试不提交。
 - **外部依赖**：DashScope embedding 与 reranker 服务当前不可用（回退 hash 检索，evals 分数不可比），P3.3/P3.4/P4.5 验收挂起中。
 
@@ -641,6 +641,13 @@ L4 分支（L350-412）在 `ANGINEER_AGENT_L4=true` 时改走 `_dispatch_complex
 - `dispatcher.py`：`_dispatch_semantic` 检索段替换为 `run_semantic_retrieval` 调用（答题段保留待 P6c）；`_build_inline_citation_context` 改为委托；`_map_intent_to_retriever_task` / `_resolve_semantic_retriever_task` 删除并改用模块函数（dispatch L4 分支同步）；`_rerank_candidates` / `_has_unsupported_reference` / `_build_citations_from_retrieved` 委托改指向新模块。
 - `agent_tools.py`（RetrieverAdapter）与 `dispatcher_agentic.py`（L1/L4 agentic）改为复用 `retrieval_pipeline` 共享函数；**删除 P3 临时文件 `retrieval_utils.py`**（函数全部归位）。
 - 测试：新增 `test_retrieval_pipeline.py` 8 个（融合源结构、runtime_flags、rerank 触发/跳过条件、任务映射、显式引用上下文、拒答校验、citations、rerank 可调用）；`tests/angineer-core` 88 个全绿；`tests/unit` + `tests/ai-inference` 266 passed + 4 skip、集成工具注册 1 passed 回归不变。
+
+### P6c 实施记录（2026-08-09）：qa_pipeline.py 答题段
+
+- 新建 `angineer_core/qa_pipeline.py`：`build_system_prompt`（system prompt 三档 + 选择题 + 盲区）、`build_answer_context`（检索结果 → 上下文文本）、`build_user_prompt` / `build_evidence_text`、`run_two_stage_answer`（两阶段抽取/判定，含 choice/explicit 变体，失败回退单次调用，返回 (answer, timings) 保持 llm_extract/llm_judge/llm 计时口径）、`refusal_check` + `REFUSAL_ANSWER_TEXT`、`is_choice_query`。
+- `dispatcher.py`：`_dispatch_semantic` 答题段（约 80 行）替换为 qa_pipeline 纯函数调用；`_build_system_prompt` 改为委托（测试兼容）；删除 `_MULTI_CHOICE_PATTERN` / `_rerank_candidates` / `_has_unsupported_reference` / `_KNOWN_STD_PREFIXES` 及不再使用的 prompts import。
+- `dispatcher_agentic.py`：L1 agentic 拒答话术与 legacy 统一为 `qa_pipeline.REFUSAL_ANSWER_TEXT`（原两处文本本就一致），legacy 与 agentic 共用证据后处理。
+- 测试：新增 `test_qa_pipeline.py` 12 个（上下文组织、user/evidence 构建、两阶段成功/回退/空上下文、拒答替换/保留、system prompt 与 Dispatcher 逐字等价、is_choice）；`tests/angineer-core` 100 个全绿；`tests/unit` + `tests/ai-inference` 266 passed + 4 skip、集成工具注册 1 passed 回归不变。
 
 ## P7 · API 层统一（2~3 天，P3 之后任意时点）
 

@@ -6,13 +6,9 @@ from typing import Any, Dict, List, Optional, Tuple
 from angineer_core.agent_loop import run_agent_loop
 from angineer_core.agent_messages import AgentMessage
 from angineer_core.agent_tools import AgentTool
+from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT  # noqa: F401  # P6c 共用拒答话术
 
 logger = logging.getLogger(__name__)
-
-_REFUSAL_TEXT = (
-    "没有检索到足够证据支持最终结论。"
-    "当前仅能确认已有片段与问题相关，但不足以安全地给出完整答案，请继续补充可核对的规范依据。"
-)
 
 
 def dispatch_semantic_agentic(
@@ -113,7 +109,7 @@ def dispatch_semantic_agentic(
         # 对齐 legacy：enforce_evidence 且无有效证据 → 返回空，让调度链继续尝试后续路径
         answer = ""
     elif answer and has_unsupported_reference(answer, evidence_text):
-        answer = _REFUSAL_TEXT
+        answer = REFUSAL_ANSWER_TEXT
 
     strategy_desc = f"agentic_rag (turns={turns}, reason={reason})"
     retrieval_debug: Dict[str, Any] = {
