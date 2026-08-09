@@ -74,9 +74,16 @@ withDefaults(defineProps<Props>(), {
       gap: 8px;
       font-weight: 500;
       color: var(--text-primary);
+      min-width: 0;
 
       .anticon {
         color: var(--primary-color);
+      }
+
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
 
