@@ -109,6 +109,40 @@ sequenceDiagram
 
 一句话：Core 把“用户目标”翻译成可执行流程，并按需编排 Docs/SOP/Evals/Tools 等能力，最终输出可追溯结果。
 
+#### (5) Agent 化问答链路架构（v0.2.1）
+
+> 自 v0.2.1 起，问答链路以 `AgentSession + run_agent_loop` 为核心；前端统一走 `/api/chat/agent`（SSE），旧 `/api/query` 仅作兼容保留。
+
+```mermaid
+flowchart TD
+    U["用户输入"] --> F["user-web / admin-web 聊天面板"]
+    F -->|"POST /api/chat/agent (SSE)"| S["AgentSession 会话池<br/>多轮记忆 / steer / cancel"]
+    S --> L["run_agent_loop<br/>LLM 流式生成 + 工具编解码 + 截断/预算闸门"]
+    L --> C{"意图分级 L0-L4"}
+    C -->|"L1 概念/正文"| A1["L1 Agentic RAG"]
+    C -->|"L2 规范查询"| A2["SQL 优先链路"]
+    C -->|"L3 标准作业"| A3["SOP 执行链路"]
+    C -->|"L4 综合大题"| A4["L4 Agentic 编排"]
+    A2 -->|"失败回退"| A1
+    A3 -->|"失败回退"| A1
+    A4 --> T2["工具集：sop_execute / calculator / conditional"]
+    A1 --> T["工具集：knowledge_search / table_search / entity_search"]
+    T --> R["五路检索：dense + sparse + clause + table + formula"]
+    R --> F2["Hybrid 融合（RRF/归一化）+ 重排（在线或本地 phrase）"]
+    F2 --> E["证据构建 + 引用定位"]
+    E --> G{"证据是否足够"}
+    G -->|"是"| Ans["带引用答案 + 置信度"]
+    G -->|"否"| Ref["证据不足，或沿执行计划回退下一条链路"]
+```
+
+核心环节：
+
+1. **会话层**：`AgentSession` 按 `scene:session_id` 复用会话池，注入多轮历史，支持中途 `steer` 与 `cancel`。
+2. **循环层**：`run_agent_loop` 负责 LLM 流式生成、工具调用编解码（TextToolCallCodec）、最大轮次/预算闸门与截断守卫。
+3. **调度层**：意图分类（规则快速匹配 + LLM 语义理解，失败降级 L1）→ 选择 L1 语义检索 / L2 SQL / L3 标准 SOP / L4 复杂编排，失败沿执行计划逐级回退；L1/L4 已 Agent 化，legacy 路径作兜底。
+4. **检索层**：dense（向量，服务不可用自动降级 hash/phrase）、sparse（FTS/引用目标）、clause（条款）、table、formula 五路召回 → Hybrid 融合 → 在线 reranker 或本地 phrase 重排。
+5. **作答层**：基于证据生成答案并附带引用定位；证据不足时明确拒绝或回退链路；`entity_search` 图谱无命中时自动回退正文检索，避免“是什么/定义”类问题被误判为无证据。
+
 ***
 
 ### 2.3 AnGIneer-Dcos知识库模块
