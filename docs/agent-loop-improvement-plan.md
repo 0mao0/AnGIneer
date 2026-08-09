@@ -450,6 +450,16 @@ class AgentSession:
 
 **验收**：以上全绿 + 循环模块 import 检查（`agent_loop.py` 不 import dispatcher/classifier/memory，用 import-linter 或 grep 断言，P2 边界）。
 
+### P2 实施记录（2026-08-09）
+
+- 新增六个模块（均在 `services/angineer-core/src/angineer_core/`）：`agent_events.py`、`agent_messages.py`、`tool_codec.py`、`agent_tools.py`、`agent_loop.py`、`agent_session.py`，未改 dispatcher。
+- `run_agent_loop` 逐段规格全部落地：steer 注入（`pending_messages_provider`，session 层实现）、两道闸门（transform_context / to_llm_messages）、截断守卫（finish_reason=="length" 时 tool_calls 全部作废并喂回 is_error 结果）、三阶段工具管线（prepare 查找/schema 校验/before 钩子 → execute 并行或顺序 → finalize after 钩子）、超时后 `shutdown(wait=False, cancel_futures=True)` 立即放弃等待、max_turns 追加预算提示后的无工具收尾 turn、取消时当前 turn 完整收尾、emit/回调异常 fail-open。
+- `should_stop_after_turn` 触发时 `run_end.reason` 取 `"should_stop"`（§6.2 的五种 reason 之外新增，供 P4 预算停用）。
+- 工具执行约定：handler 返回 dict 中 `terminate: true` 会从内容中剥离并置 `ToolResult.terminate`，整批全票才终止 run；返回 dict 含 `error` 视为执行错误。
+- 适配器：`EngtoolAdapter`（包 ToolRegistry，注入 config_name/mode）、`RetrieverAdapter.knowledge_search/table_search/entity_search`（懒加载 step09_query 与图谱，返回 `RetrievedItem`/实体的 JSON 结构）、`SopRunnerAdapter.sop_execute` 留壳（P4 接入，抛 NotImplementedError 由循环转 is_error）。
+- `NativeToolCallCodec` 按计划预留：`parse_assistant` 抛 NotImplementedError，循环 catch 后 fail-open 为纯文本答案。
+- 测试：`tests/angineer-core/` 新增 28 个（loop 10 场景、codec、session、适配器、import 边界 grep），全绿；`tests/unit` 263 个回归不变。
+
 ## P3 · 知识问答档接入（3~5 天）
 
 > 目标：L1 路径在 feature flag 下切换到 agent 循环；evals 证明多跳提升、单跳不退化。
