@@ -657,10 +657,19 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
     citations.forEach((citation, index) => {
       const spanCandidates = buildCitationSpanCandidates(citation)
       for (const needle of spanCandidates) {
-        const position = content.indexOf(needle)
-        if (position < 0) continue
+        const positions: number[] = []
+        let position = content.indexOf(needle)
+        while (position >= 0) {
+          positions.push(position)
+          position = content.indexOf(needle, position + needle.length)
+        }
+        if (!positions.length) continue
         const token = `__INLINE_CIT_${index}__`
-        content = content.slice(0, position) + token + content.slice(position + needle.length)
+        // 从后往前替换，保证前面的位置索引仍然有效
+        for (let i = positions.length - 1; i >= 0; i -= 1) {
+          const pos = positions[i]
+          content = content.slice(0, pos) + token + content.slice(pos + needle.length)
+        }
         links.push({ index, label: needle })
         break
       }
