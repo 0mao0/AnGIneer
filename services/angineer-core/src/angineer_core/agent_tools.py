@@ -128,6 +128,7 @@ class RetrieverAdapter:
         dense: Any = None,
         sparse: Any = None,
         clause: Any = None,
+        rerank: bool = False,
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
@@ -176,6 +177,10 @@ class RetrieverAdapter:
             if not candidate_sources:
                 return {"error": "检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
             items, _debug = fuse_candidates(candidate_sources, task_type=task_type, top_k=top_k)
+            if rerank:
+                from angineer_core.retrieval_utils import rerank_candidates
+
+                items = rerank_candidates(query, items, task_type=task_type)
             return {
                 "items": [_serialize_model(item) for item in items],
                 "total": len(items),
@@ -203,6 +208,7 @@ class RetrieverAdapter:
         filters: Any = None,
         table: Any = None,
         formula: Any = None,
+        rerank: bool = False,
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
@@ -243,6 +249,10 @@ class RetrieverAdapter:
             if not candidate_sources:
                 return {"error": "表格检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
             items, _debug = fuse_candidates(candidate_sources, task_type="table_qa", top_k=top_k)
+            if rerank:
+                from angineer_core.retrieval_utils import rerank_candidates
+
+                items = rerank_candidates(query, items, task_type="table_qa")
             return {
                 "items": [_serialize_model(item) for item in items],
                 "total": len(items),

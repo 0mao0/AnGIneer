@@ -517,6 +517,25 @@ if path == "semantic_retrieval" and os.environ.get("ANGINEER_AGENT_L1", "false")
 - 单跳题平均分不降（±2% 内）且平均 `turns` ≤1.5（多数题直接作答 turns==1，允许一轮检索+一轮作答 turns==2；与 P3.3 第 4 步、§8 口径一致，token 成本可控）；
 - 全程无异常落 legacy fallback（日志审计）。
 
+### P3 实施记录（2026-08-09）
+
+- `agent_configs.py`：`build_qa_config` 装配三个只读工具（knowledge_search/table_search/entity_search）+ 内联 QA prompt（P5 前）+ 显式引用证据（inline_citations）并入 system prompt。
+- `retrieval_utils.py`：从 dispatcher 抽出 `rerank_candidates` / `has_unsupported_reference` / `build_citations_from_retrieved` 三个共享函数；dispatcher 对应 staticmethod 改为委托（行为不变，P6 归位）。
+- `RetrieverAdapter.knowledge_search/table_search` 增加 `rerank` 开关（P3 config 默认开），复用共享 rerank 函数。
+- `dispatcher_agentic.py`：`dispatch_semantic_agentic` 返回与 `_dispatch_semantic` 一致的 8 元组；`retrieval_debug["agent"]` 含 turns/tool_calls/reason/refusal 摘要 + 完整 `agent_events` 流。
+- 拒答语义对齐 legacy：`enforce_evidence` 且工具无有效证据 → 返回空答案（调度链继续）+ `refusal=True`；答案出现未在证据中的规范编号/真题背景 → 替换为固定拒答话术（evals `is_refusal` 可识别）。
+- dispatcher L1 分支：`ANGINEER_AGENT_L1=true` 时走 agentic，异常自动落回 legacy；默认 flag 关。
+- 测试：`test_agent_configs.py` + `test_dispatcher_agentic.py` 新增 10 个（装配、双轮检索、拒答、引用校验、flag 开/关/fallback），`tests/angineer-core` 共 38 个全绿；`tests/unit` 263 个回归不变。
+- evals 基线/对比待跑：数据集 ID 已确认（`reviewed-exam-2020-2019` 50 题、`docs-retrieval-precision-v2`）；等待外部 embedding/reranker 服务恢复后：flag 关跑基线 → flag 开跑实验 → `/api/evals/compare` 对比多跳 +20%、单跳不降、平均 turns ≤1.5。
+
+### 当前进度与执行待办（2026-08-09）
+
+- **已完成**：P0（止血）、P1（SOP 审核闸门）、P2（agent 循环原语）均已提交；P3（L1 agentic RAG）代码与测试完成，**尚未提交**。
+- **P3 待提交文件**：`agent_configs.py`、`dispatcher_agentic.py`、`retrieval_utils.py`（新）、`dispatcher.py`、`agent_tools.py`（改）、`docs/agent-loop-improvement-plan.md`（改）。
+- **下一步顺序（用户已确认）**：① 提交 P3；② 继续 P4（L4 大题档 agentic 接入：`SopRunnerAdapter.sop_execute` 实装、`build_complex_config`、`ANGINEER_AGENT_L4` flag、预算闸门 `make_budget_transformer/make_budget_stopper`）；③ 外部 embedding/reranker 服务恢复后统一跑 P3+P4 evals 基线/实验/compare。
+- **约束**：`ANGINEER_AGENT_L1/L4` 默认关闭，不影响现有链路；`tests/` 目录仍被 `.gitignore` 忽略，测试不提交。
+- **外部依赖**：DashScope embedding 与 reranker 服务当前不可用（回退 hash 检索，evals 分数不可比），P3.3/P3.4 验收挂起中。
+
 ## P4 · 大题档接入（1 周）
 
 > 依赖：P2、P3 验证后的循环 + P1 的 SOP 审核（模型只能选到 published SOP）。
