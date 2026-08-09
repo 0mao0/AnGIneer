@@ -46,7 +46,7 @@
           title="AI 对话"
           placement="right"
           :width="440"
-          :body-style="{ padding: 0, height: '100%', display: 'flex', flexDirection: 'column' }"
+          :body-style="{ padding: 0, display: 'flex', flexDirection: 'column' }"
           :mask="false"
           :z-index="1001"
         >
@@ -206,6 +206,8 @@ html, body, #app {
   }
 }
 
+.ai-chat-drawer .ant-drawer-content,
+.ai-chat-drawer .ant-drawer-wrapper-body,
 .ai-chat-drawer .ant-drawer-body {
   overflow: hidden;
 }
