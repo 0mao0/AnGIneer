@@ -162,6 +162,7 @@ export interface PDFParsedWorkspaceEventMap {
   'query-structured': [itemType?: string, keyword?: string]
   'update-structured-node': [payload: StructuredNodeUpdatePayload]
   'toggle-visible': [node: KnowledgeTreeNode]
+  'update:sidePanelOpen': [value: boolean]
 }
 
 export interface DocumentResponse {
