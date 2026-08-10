@@ -48,7 +48,7 @@
             <a-radio-button value="Preview_IndexTree" :disabled="!hasGraphData" title="树形">
               <BranchesOutlined />
             </a-radio-button>
-<a-radio-button value="Preview_KnowledgeGraph" title="知识图谱">
+<a-radio-button v-if="canShowKnowledgeGraph" value="Preview_KnowledgeGraph" title="知识图谱">
   <DotChartOutlined />
 </a-radio-button>
           </a-radio-group>
@@ -109,7 +109,7 @@
                 显示页饰
               </Checkbox>
             </div>
-            <div class="summary-actions">
+            <div v-if="!readonly" class="summary-actions">
               <span v-if="selectedBlockIds.length" class="selected-count">已选 {{ selectedBlockIds.length }} 个</span>
               <a-dropdown
                 :disabled="!selectedBlockIds.length || !canBatchRelevel || submittingBatchOperation"
@@ -169,6 +169,7 @@
             :selected-node-ids="selectedNodeIdSet"
             :source-file-path="sourceFilePath"
             :show-furniture="showFurniture"
+            :readonly="readonly"
             @toggle="onTreeToggle"
             @select="onNodeSelect"
             @edit="openNodeEdit"
@@ -311,6 +312,12 @@ type ParsedPdfViewerComponentEventMap = ParsedPdfViewerBridgeEventMap & {
 }
 
 const emit = defineEmits<ParsedPdfViewerComponentEventMap>()
+const readonly = computed(() =>
+  !props.onUpdateStructuredNode
+  && !props.onBatchStructuredOperation
+  && !props.onUndoLastOperation
+)
+const canShowKnowledgeGraph = computed(() => Boolean(props.onLoadGraphSnapshot && props.onBuildGraph))
 const editModalVisible = ref(false)
 const savingNodeEdit = ref(false)
 const editingNodeId = ref<string | null>(null)
@@ -386,6 +393,12 @@ const onSearchNavigate = (direction: 'prev' | 'next') => {
 
 watch(indexSearchKeyword, () => {
   searchCurrentIndex.value = 0
+})
+
+watch(canShowKnowledgeGraph, (enabled) => {
+  if (!enabled && (props.activeTab === 'Preview_KnowledgeGraph' || props.activeTab === 'Preview_IndexGraph')) {
+    emit('update:activeTab', props.graphData?.nodes?.length ? 'Preview_IndexTree' : 'Preview_Markdown')
+  }
 })
 
 const {
