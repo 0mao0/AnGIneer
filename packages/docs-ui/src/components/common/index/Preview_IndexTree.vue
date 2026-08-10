@@ -45,7 +45,7 @@
                 </div>
               </div>
             </div>
-            <a-dropdown v-else :trigger="['contextmenu']">
+            <a-dropdown v-else :trigger="['contextmenu']" :disabled="readonly">
               <div
                 :data-tree-node-id="row.id"
                 :class="['tree-row', { active: row.id === activeNodeId, previewable: row.hasPreviewImage, furniture: row.furniture, flat: !row.isGroup && !row.levelTag }]"
@@ -53,6 +53,7 @@
                 @contextmenu.prevent
               >
                 <a-checkbox
+                  v-if="!readonly"
                   class="tree-select-checkbox"
                   :checked="row.checked"
                   @click.stop
@@ -97,7 +98,7 @@
                   <div v-if="row.inlineMediaHtml" class="tree-inline-media" v-html="row.inlineMediaHtml" />
                 </div>
                 <a-button
-                  v-if="row.hasNode"
+                  v-if="row.hasNode && !readonly"
                   type="text"
                   size="small"
                   class="tree-edit-btn"
@@ -241,6 +242,7 @@ interface Props {
   selectedNodeIds?: Set<string>
   sourceFilePath?: string
   showFurniture?: boolean
+  readonly?: boolean
 }
 
 const props = defineProps<Props>()
