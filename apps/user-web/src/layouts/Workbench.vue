@@ -13,25 +13,30 @@
       </a-tabs>
     </div>
     <div class="content-area">
-      <EmptyState
-        v-if="tabs.length === 0"
-        title="开始工作"
-        description="从左侧选择文档或 SOP，或点击下方按钮快速导航"
-      >
-        <template #action>
-          <a-space>
-            <a-button type="primary" @click="$emit('navigate-section', 'knowledge')">打开知识库</a-button>
-            <a-button @click="$emit('navigate-section', 'sop')">查看 SOP</a-button>
-          </a-space>
-        </template>
-      </EmptyState>
-      <TabErrorBoundary
-        v-else
-        :tab-key="currentTab?.key"
-        @close="closeTabFromError"
-      >
-        <component :is="currentViewer" v-bind="currentTab?.props" />
-      </TabErrorBoundary>
+      <div class="content-main">
+        <EmptyState
+          v-if="tabs.length === 0"
+          title="开始工作"
+          description="从左侧选择文档或 SOP，或点击下方按钮快速导航"
+        >
+          <template #action>
+            <a-space>
+              <a-button type="primary" @click="$emit('navigate-section', 'knowledge')">打开知识库</a-button>
+              <a-button @click="$emit('navigate-section', 'sop')">查看 SOP</a-button>
+            </a-space>
+          </template>
+        </EmptyState>
+        <TabErrorBoundary
+          v-else
+          :tab-key="currentTab?.key"
+          @close="closeTabFromError"
+        >
+          <component :is="currentViewer" v-bind="currentTab?.props" />
+        </TabErrorBoundary>
+      </div>
+      <div v-show="showRightPanel && $slots.right" class="content-right">
+        <slot name="right" />
+      </div>
     </div>
   </div>
 </template>
@@ -46,6 +51,12 @@ import DocumentView from '@/views/DocumentView.vue'
 import SOPView from '@/views/SOPView.vue'
 import GISView from '@/views/GISView.vue'
 import ProjectView from '@/views/ProjectView.vue'
+
+withDefaults(defineProps<{
+  showRightPanel?: boolean
+}>(), {
+  showRightPanel: false
+})
 
 const workbenchStore = useWorkbenchStore()
 const { appClass } = useTheme()
@@ -124,7 +135,26 @@ const closeTabFromError = (tabKey: string) => {
 .content-area {
   flex: 1;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   background: var(--bg-primary);
   transition: background-color 0.3s;
+}
+
+.content-main {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.content-right {
+  flex: 0 0 auto;
+  width: 440px;
+  border-left: 1px solid var(--border-color);
+  background: var(--panel-bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 </style>
