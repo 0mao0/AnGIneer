@@ -133,9 +133,9 @@ src/
 
 | 文件 | 角色 | 对外事件（核心） | 主要下游依赖 |
 |---|---|---|---|
-| `PDFParsedWorkspace.vue` | 文档解析工作区编排器 | `parse` `save-content` `change-strategy` `query-structured` `rebuild-structured` | `useWorkspacePreview` `useWorkspaceIngest` `useWorkspaceLinkage` |
+| `PDFParsedWorkspace.vue` | 文档解析工作区编排器（左侧 PDF + 可折叠解析面板） | `parse` `save-content` `change-strategy` `query-structured` `rebuild-structured` `update:sidePanelOpen` | `useWorkspacePreview` `useWorkspaceIngest` `useWorkspaceLinkage` |
 | `PDFParsedViewerCombo.vue` | 右侧 pane 编排器 | `update:activeTab` `update:editableContent` `save-markdown` `cancel-markdown` `strategy-change` `trigger-ingest` `content-scroll` `hover-item` `select-item` `toggle-tree-expand` `toggle-graph-expand` `update-graph-viewport` `select-line` | `useParsedPdfViewer` + `Preview_*` |
-| `PDF_Viewer.vue` | 左侧文件预览/高亮层 | `download` `text-scroll` `hover-highlight` `select-highlight` | 由 Workspace 注入数据 |
+| `PDF_Viewer.vue` | 左侧文件预览/高亮层，支持通用可折叠侧栏插槽 | `download` `text-scroll` `hover-highlight` `select-highlight` `update:sidePanelOpen` | 由 Workspace 注入数据 |
 | `Preview_Markdown.vue` | Markdown 编辑/预览 | `update:editableContent` `select-line` | 被 `PDFParsedViewerCombo` 使用 |
 | `Preview_IndexTree.vue` | 索引树视图 | `toggle` `select` `edit` `toggle-check` `context-action` | 虚拟滚动树容器（原 `IndexTreeFlatRow` 行渲染已并入） |
 | `Preview_IndexGraph.vue` | 索引图视图 | `toggle` `select` `update-viewport` | 内聚图算法+交互（已合并原 `DocBlocksGraph`） |
@@ -292,6 +292,7 @@ src/
 ### 10.1 出口文件
 - `src/index.ts`：聚合导出 components/composables/types/utils
 - `src/components/index.ts`：导出 `SmartTree` `KnowledgeTree` `PDFParsedWorkspace` `PDFParsedViewerCombo` `PDF_Viewer` `Preview_Markdown`
+- `PDF_Viewer` 支持 `side-panel` 插槽与 `sidePanelOpen` / `showSidePanelToggle` / `sidePanelWidth` props；`PDFParsedWorkspace` 支持 `sidePanelOpen` / `sidePanelDefaultOpen` / `sidePanelWidth` / `defaultParsedTab` props，可控制解析面板展开/收起、宽度与默认 Tab。
 - `src/composables/index.ts`：导出全部 composables 及关键类型
 - `src/types/index.ts`：导出所有契约类型
 - `src/utils/index.ts`：导出工具函数
