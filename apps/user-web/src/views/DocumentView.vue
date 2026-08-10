@@ -1,8 +1,5 @@
 <template>
   <div class="document-view">
-    <div class="doc-header">
-      <h2>{{ document?.title || (loading ? '文档加载中...' : '未打开文档') }}</h2>
-    </div>
     <div class="doc-content">
       <div v-if="loading" class="loading">
         <a-spin size="large" />
@@ -23,7 +20,7 @@
         :graph-data="graphData"
         :graph-data-full-loaded="graphDataFullLoaded"
         :on-load-full-graph-data="loadGraphData"
-        :side-panel-default-open="false"
+        :side-panel-default-open="true"
         :default-parsed-tab="'Preview_IndexTree'"
       />
       <Preview_Markdown
@@ -183,16 +180,6 @@ onMounted(loadDocument)
   display: flex;
   flex-direction: column;
   background: var(--bg-secondary);
-}
-
-.doc-header {
-  padding: 16px 24px;
-  border-bottom: 1px solid var(--border-color);
-
-  h2 {
-    margin: 0;
-    font-size: 18px;
-  }
 }
 
 .doc-content {
