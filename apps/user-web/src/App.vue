@@ -25,11 +25,53 @@
             <LeftPanel v-model:active-section="activeSection" />
           </template>
           <template #center>
-            <Workbench @navigate-section="onNavigateSection" />
+            <Workbench
+              :show-right-panel="aiChatVisible"
+              @navigate-section="onNavigateSection"
+            >
+              <template #right>
+                <div class="ai-chat-dock">
+                  <div class="ai-chat-dock-header">
+                    <span class="ai-chat-dock-title">AI 对话</span>
+                    <a-button
+                      type="text"
+                      size="small"
+                      title="新建对话"
+                      aria-label="新建对话"
+                      @click="onNewChat"
+                    >
+                      <template #icon><PlusOutlined /></template>
+                    </a-button>
+                    <a-button
+                      type="text"
+                      size="small"
+                      title="关闭"
+                      aria-label="关闭"
+                      @click="aiChatVisible = false"
+                    >
+                      <template #icon><CloseOutlined /></template>
+                    </a-button>
+                  </div>
+                  <div class="ai-chat-panel-body">
+                    <AIChat
+                      ref="aiChatRef"
+                      title=""
+                      :placeholder="chatPanelPlaceholder"
+                      :show-context-info="true"
+                      :scene="activeSection === 'sop' ? 'sops' : 'docs'"
+                      :session-id="chatSessionId"
+                      :transport="defaultAIChatTransport"
+                      @select-citation="handleCitationSelect"
+                    />
+                  </div>
+                </div>
+              </template>
+            </Workbench>
           </template>
         </SplitPanes>
 
         <a-button
+          v-if="!aiChatVisible"
           class="ai-chat-fab"
           type="primary"
           shape="circle"
@@ -39,29 +81,6 @@
           :title="aiChatVisible ? '关闭AI对话' : '打开AI对话'"
           @click="aiChatVisible = !aiChatVisible"
         />
-
-        <a-drawer
-          class="ai-chat-drawer"
-          v-model:open="aiChatVisible"
-          title="AI 对话"
-          placement="right"
-          :width="440"
-          :body-style="{ padding: 0, display: 'flex', flexDirection: 'column' }"
-          :mask="false"
-          :z-index="1001"
-        >
-          <div class="ai-chat-panel-body">
-            <AIChat
-              title=""
-              :placeholder="chatPanelPlaceholder"
-              :show-context-info="true"
-              :scene="activeSection === 'sop' ? 'sops' : 'docs'"
-              :session-id="chatSessionId"
-              :transport="defaultAIChatTransport"
-              @select-citation="handleCitationSelect"
-            />
-          </div>
-        </a-drawer>
       </div>
     </a-app>
   </a-config-provider>
@@ -70,13 +89,12 @@
 <script setup lang="ts">
 import { computed, ref, h } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import { MessageOutlined } from '@ant-design/icons-vue'
+import { MessageOutlined, PlusOutlined, CloseOutlined } from '@ant-design/icons-vue'
 import { AppHeader, SplitPanes, AIChat, useTheme } from '@angineer/ui-kit'
 import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
 import { ADMIN_CONSOLE_ORIGIN, ADMIN_CONSOLE_PORT, LOCAL_HOST } from '../../shared/ports'
 import { defaultAIChatTransport } from '../../shared/chatTransport'
-import { useWorkbenchStore } from '@/stores/workbench'
 import { useTabRouterSync } from '@/composables/useTabRouterSync'
 import { useResourceOpen } from '@/composables/useResourceOpen'
 
@@ -87,15 +105,21 @@ const { openResource } = useResourceOpen()
 
 useTabRouterSync()
 const activeSection = ref<ResourcePanelSection>('knowledge')
-const workbenchStore = useWorkbenchStore()
 const appVersion = import.meta.env.VITE_APP_VERSION || ''
 
 const projectName = ref('示例项目')
 
 const aiChatVisible = ref(false)
 const leftCollapsed = ref(false)
+const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
 
-const chatSessionId = computed(() => workbenchStore.activeTab || 'default')
+/** 全局会话：不随文档/页签变化，只有刷新或新建对话才换 key */
+const chatNonce = ref(Date.now() + Math.floor(Math.random() * 1_000_000))
+const chatSessionId = computed(() => `global::${chatNonce.value}`)
+const onNewChat = () => {
+  chatNonce.value += 1
+  aiChatRef.value?.startNewChat?.()
+}
 
 const chatPanelPlaceholder = computed(() => (
   activeSection.value === 'sop' ? '输入 SOP 问题，Enter 发送...' : '输入消息，Enter 发送...'
@@ -206,9 +230,31 @@ html, body, #app {
   }
 }
 
-.ai-chat-drawer .ant-drawer-content,
-.ai-chat-drawer .ant-drawer-wrapper-body,
-.ai-chat-drawer .ant-drawer-body {
+.ai-chat-dock {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.ai-chat-dock-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ai-chat-dock-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
