@@ -22,39 +22,45 @@
           :searchText="markdownContent"
           :pageLabels="printedPageLabels"
           :textScrollPercent="leftScrollPercent"
+          :show-side-panel-toggle="showSidePanelToggle"
+          :side-panel-open="sidePanelOpen"
+          :side-panel-width="sidePanelWidth"
           @download="downloadFile"
           @text-scroll="onLeftTextScrollPercent"
           @pdf-active-page="onPdfPageChanged"
           @hover-highlight="onHoverLinkedItem"
           @select-highlight="onSelectPdfHighlight"
           @search-jump="onSearchJump"
-        />
-
-        <PDFParsedViewerCombo
-          v-model:activeTab="activeTab"
-          :markdownContent="markdownContent"
-          :structuredItems="structuredItemsValue"
-          :indexSummaryStats="indexSummaryStats"
-          :hasParsedContent="hasParsedContent"
-          :contentScrollPercent="rightScrollPercent"
-          :activeLinkedItemId="activeLinkedItemId"
-          :activeLineRange="activeLinkedLineRange"
-          :sourceFilePath="filePath"
-          :graphData="props.graphData"
-          :libraryId="'default'"
-          :docId="props.node.key"
-          :onUpdateStructuredNode="props.onUpdateStructuredNode"
-          :onBatchStructuredOperation="props.onBatchStructuredOperation"
-          :onUndoLastOperation="props.onUndoLastOperation"
-          :onLoadGraphSnapshot="props.onLoadGraphSnapshot"
-          :onBuildGraph="props.onBuildGraph"
-          :dark="dark"
-          :show-furniture="showFurniture"
-          @update:show-furniture="showFurniture = $event"
-          @content-scroll="onRightPaneScrollPercent"
-          @select-item="onSelectItemFromRight"
-          @select-line="onSelectLineFromRight"
-        />
+          @update:side-panel-open="sidePanelOpen = $event"
+        >
+          <template #side-panel>
+            <PDFParsedViewerCombo
+              v-model:activeTab="activeTab"
+              :markdownContent="markdownContent"
+              :structuredItems="structuredItemsValue"
+              :indexSummaryStats="indexSummaryStats"
+              :hasParsedContent="hasParsedContent"
+              :contentScrollPercent="rightScrollPercent"
+              :activeLinkedItemId="activeLinkedItemId"
+              :activeLineRange="activeLinkedLineRange"
+              :sourceFilePath="filePath"
+              :graphData="props.graphData"
+              :libraryId="'default'"
+              :docId="props.node.key"
+              :onUpdateStructuredNode="props.onUpdateStructuredNode"
+              :onBatchStructuredOperation="props.onBatchStructuredOperation"
+              :onUndoLastOperation="props.onUndoLastOperation"
+              :onLoadGraphSnapshot="props.onLoadGraphSnapshot"
+              :onBuildGraph="props.onBuildGraph"
+              :dark="dark"
+              :show-furniture="showFurniture"
+              @update:show-furniture="showFurniture = $event"
+              @content-scroll="onRightPaneScrollPercent"
+              @select-item="onSelectItemFromRight"
+              @select-line="onSelectLineFromRight"
+            />
+          </template>
+        </PDF_Viewer>
       </div>
     </div>
   </div>
@@ -105,19 +111,35 @@ interface Props {
     snapshot: { stats: any; entities: any[]; relations: any[] }
   }>
   dark?: boolean
+  sidePanelOpen?: boolean
+  sidePanelDefaultOpen?: boolean
+  sidePanelWidth?: number
+  defaultParsedTab?: PreviewMode
 }
 
 const props = withDefaults(defineProps<Props>(), {
   graphDataFullLoaded: false,
-  dark: false
+  dark: false,
+  sidePanelDefaultOpen: true,
+  sidePanelWidth: 400
 })
 
-defineEmits<PDFParsedWorkspaceEventMap>()
+const emit = defineEmits<PDFParsedWorkspaceEventMap>()
+
+const internalSidePanelOpen = ref(props.sidePanelDefaultOpen)
+const sidePanelOpen = computed({
+  get: () => props.sidePanelOpen ?? internalSidePanelOpen.value,
+  set: (value: boolean) => {
+    internalSidePanelOpen.value = value
+    emit('update:sidePanelOpen', value)
+  }
+})
 
 /* 计算解析面板的默认展示 tab。 */
-const getDefaultParsedTab = (): PreviewMode => (
-  props.graphData?.nodes?.length ? 'Preview_IndexTree' : 'Preview_Markdown'
-)
+const getDefaultParsedTab = (): PreviewMode => {
+  if (props.defaultParsedTab) return props.defaultParsedTab
+  return props.graphData?.nodes?.length ? 'Preview_IndexTree' : 'Preview_Markdown'
+}
 
 const filePath = computed(() => props.node.filePath || props.node.file_path || '')
 const activeTab = ref<PreviewMode>(getDefaultParsedTab())
@@ -132,6 +154,9 @@ const parseButtonText = computed(() => {
 })
 const structuredItemsValue = computed(() => props.structuredItems || [])
 const hasParsedContent = computed(() => Boolean((props.content || '').trim()))
+const showSidePanelToggle = computed(() => (
+  hasParsedContent.value || Boolean(props.graphData?.nodes?.length)
+))
 const indexSummaryStats = computed(() => {
   const strategyStats = props.structuredStats?.strategies?.doc_blocks_graph_v1 || {}
   const toCount = (value: unknown) => Number(value || 0)
@@ -238,6 +263,7 @@ watch(showFurniture, (value) => {
 })
 
 watch(() => props.node.key, () => {
+  internalSidePanelOpen.value = props.sidePanelDefaultOpen
   activeTab.value = getDefaultParsedTab()
   resetPreviewState()
   resetLinkageState()
@@ -339,6 +365,11 @@ defineExpose({
     min-height: 0;
     gap: 8px;
     margin-top: 8px;
+  }
+
+  .split-preview :deep(.pdf-viewer-side-panel .split-pane) {
+    border: none;
+    border-radius: 0;
   }
 
   .ingest-modal-content {
