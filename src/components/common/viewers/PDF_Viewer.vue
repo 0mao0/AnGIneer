@@ -1,5 +1,6 @@
 <template>
-  <div :class="['split-pane', themeClass]">
+  <div class="pdf-viewer-shell" :class="[themeClass, { 'has-side-panel': sidePanelVisible }]">
+    <div ref="splitPaneRef" class="split-pane">
     <div ref="headerTitleRef" class="pane-title pane-title-with-actions">
       <div ref="headerMainRef" class="pane-title-main">
         <div class="pane-title-prefix-wrap">
@@ -62,8 +63,21 @@
           </Button>
         </template>
       </div>
-      <div v-if="isPdf" class="pane-title-right">
-        <template v-if="!useNativePdfPreview">
+      <div class="pane-title-right">
+        <Button
+          v-if="showSidePanelToggle && $slots['side-panel']"
+          size="small"
+          class="pdf-tool-btn"
+          :class="{ 'pdf-tool-btn-active': sidePanelVisible }"
+          :title="sidePanelVisible ? '收起解析对比' : '展开解析对比'"
+          @click="toggleSidePanel"
+        >
+          <template #icon>
+            <MenuFoldOutlined v-if="sidePanelVisible" />
+            <MenuUnfoldOutlined v-else />
+          </template>
+        </Button>
+        <template v-if="isPdf && !useNativePdfPreview">
           <Button
             size="small"
             class="pdf-tool-btn"
@@ -290,6 +304,15 @@
         </template>
       </Empty>
     </div>
+    </div>
+    <div
+      :class="['pdf-viewer-side-panel', { 'pdf-viewer-side-panel-open': sidePanelVisible }]"
+      :style="{ width: sidePanelVisible ? `${sidePanelWidth}px` : '0px' }"
+      role="complementary"
+      aria-label="解析对比面板"
+    >
+      <slot name="side-panel" />
+    </div>
   </div>
 </template>
 
@@ -319,9 +342,9 @@
  * ## 事件：搜索跳转（新增）
  *   @search-jump (page, textIndex) — 外部可附加二次定位逻辑
  */
-import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive } from 'vue'
+import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive, useSlots } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
-import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons-vue'
+import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined, SearchOutlined, CloseOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue'
 import { Button, Tag, Spin, Progress, InputNumber, Input, Empty } from 'ant-design-vue'
 import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
@@ -371,7 +394,7 @@ interface RenderedPageMetrics {
   scale: number
 }
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   node: PDFViewerNode
   theme?: 'light' | 'dark' | 'auto'
   isPdf: boolean
@@ -390,7 +413,13 @@ const props = defineProps<{
   activeClickItemId?: string | null
   pageLabels?: Record<number, string>
   textScrollPercent: number
-}>()
+  sidePanelOpen?: boolean
+  showSidePanelToggle?: boolean
+  sidePanelWidth?: number
+}>(), {
+  showSidePanelToggle: false,
+  sidePanelWidth: 400
+})
 
 // --- hover 联动：hover 的框加深（hover-primary），同节点其它 bbox 浅橙（hover-linked） ---
 const hoveredHighlightId = ref<string | null>(null)
@@ -417,7 +446,22 @@ const emit = defineEmits<{
   'select-highlight': [highlight: LinkedHighlight]
   'pdf-active-page': [page: number]
   'search-jump': [page: number, lineNumber: number]
+  'update:sidePanelOpen': [value: boolean]
 }>()
+
+const slots = useSlots()
+const internalSidePanelOpen = ref(false)
+const sidePanelOpenValue = computed({
+  get: () => props.sidePanelOpen ?? internalSidePanelOpen.value,
+  set: (value: boolean) => {
+    internalSidePanelOpen.value = value
+    emit('update:sidePanelOpen', value)
+  }
+})
+const sidePanelVisible = computed(() => sidePanelOpenValue.value && Boolean(slots['side-panel']))
+const toggleSidePanel = () => {
+  sidePanelOpenValue.value = !sidePanelOpenValue.value
+}
 
 // --- 常量配置 ---
 const MIN_SCALE = 0.1
@@ -437,6 +481,8 @@ const headerTitleRef = ref<HTMLElement | null>(null)
 const headerMainRef = ref<HTMLElement | null>(null)
 const pdfToolbarRef = ref<HTMLElement | null>(null)
 const toolbarMeasureRef = ref<HTMLElement | null>(null)
+const splitPaneRef = ref<HTMLElement | null>(null)
+const splitPaneResizeObserver = shallowRef<ResizeObserver | null>(null)
 
 // --- PDF Worker 初始�?---
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
@@ -1786,10 +1832,20 @@ const onLeftTextScroll = () => {
   }
 }
 
+function setupSplitPaneResizeObserver() {
+  if (typeof ResizeObserver === 'undefined' || !splitPaneRef.value) return
+  splitPaneResizeObserver.value?.disconnect()
+  splitPaneResizeObserver.value = new ResizeObserver(() => {
+    if (zoom.isFitToWindowMode.value) zoom.scheduleFitToWindowScale()
+  })
+  splitPaneResizeObserver.value.observe(splitPaneRef.value)
+}
+
 onMounted(() => {
   header.setup()
   zoom.watchIntrinsicWidth()
   zoom.watchFitMode()
+  setupSplitPaneResizeObserver()
   nextTick(() => {
     scroll.scheduleRenderedPageRangeUpdate()
     if (zoom.isFitToWindowMode.value) zoom.scheduleFitToWindowScale()
@@ -1799,10 +1855,75 @@ onMounted(() => {
 onBeforeUnmount(() => {
   doc.onBeforeUnmount()
   header.teardown()
+  splitPaneResizeObserver.value?.disconnect()
 })
 </script>
 
 <style lang="less" scoped>
+.pdf-viewer-shell {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border-radius: 8px;
+  overflow: hidden;
+  --dp-bg: var(--dp-bg-override, var(--dp-bg, #f3f5f8));
+  --dp-pane-bg: var(--dp-pane-bg-override, var(--dp-pane-bg, #fff));
+  --dp-pane-border: var(--dp-pane-border-override, var(--dp-pane-border, #e8edf4));
+  --dp-title-bg: var(--dp-title-bg-override, var(--dp-title-bg, #fff));
+  --dp-title-border: var(--dp-title-border-override, var(--dp-title-border, #edf1f7));
+  --dp-title-text: var(--dp-title-text-override, var(--dp-title-text, #595959));
+  --dp-title-strong: var(--dp-title-strong-override, var(--dp-title-strong, #4f5d7a));
+  --dp-sub-text: var(--dp-sub-text-override, var(--dp-sub-text, #8c8c8c));
+  --dp-progress-bg: var(--dp-progress-bg-override, var(--dp-progress-bg, #fcfdff));
+  --dp-content-bg: var(--dp-content-bg-override, var(--dp-content-bg, #fff));
+  --dp-scroll-thumb: var(--dp-scroll-thumb-override, var(--dp-scroll-thumb, rgba(15,23,42,0.22)));
+  --dp-empty-overlay: var(--dp-empty-overlay-override, var(--dp-empty-overlay, rgba(255,255,255,0.92)));
+  --dp-empty-text: var(--dp-empty-text-override, var(--dp-empty-text, rgba(0,0,0,0.45)));
+  --dp-segment-bg: var(--dp-segment-bg-override, var(--dp-segment-bg, #dfe5f2));
+  --dp-segment-border: var(--dp-segment-border-override, var(--dp-segment-border, #cdd6e7));
+  --dp-segment-selected-bg: var(--dp-segment-selected-bg-override, var(--dp-segment-selected-bg, #fff));
+  --dp-segment-selected-text: var(--dp-segment-selected-text-override, var(--dp-segment-selected-text, #1f2937));
+  --dp-segment-shared-bg: var(--dp-segment-shared-bg-override, var(--dp-segment-shared-bg, linear-gradient(90deg, #52c41a 0%, #389e0d 100%)));
+  --dp-segment-shared-border: var(--dp-segment-shared-border-override, var(--dp-segment-shared-border, #389e0d));
+  --dp-math-bg: var(--dp-math-bg-override, var(--dp-math-bg, #eef3ff));
+  --dp-math-color: var(--dp-math-color-override, var(--dp-math-color, #1d3a8a));
+  --dp-bg-tertiary: var(--dp-bg-tertiary-override, var(--dp-bg-tertiary, #eef1f5));
+}
+
+.pdf-viewer-shell.has-side-panel {
+  border: 1px solid var(--dp-pane-border);
+}
+
+.pdf-viewer-shell.has-side-panel .split-pane {
+  border: none;
+  border-radius: 0;
+}
+
+.pdf-viewer-side-panel {
+  flex: 0 0 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--dp-pane-bg);
+  border-left: 1px solid var(--dp-pane-border);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: width 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.pdf-viewer-side-panel-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 .split-pane {
   position: relative;
   flex: 1;
@@ -2353,6 +2474,28 @@ onBeforeUnmount(() => {
 
 /* Dark mode �?跟随系统 */
 @media (prefers-color-scheme: dark) {
+  .pdf-viewer-shell {
+    --dp-bg: var(--dp-bg-override, #101319);
+    --dp-pane-bg: var(--dp-pane-bg-override, #171b24);
+    --dp-pane-border: var(--dp-pane-border-override, #2a3140);
+    --dp-title-bg: var(--dp-title-bg-override, #171b24);
+    --dp-title-border: var(--dp-title-border-override, #2a3140);
+    --dp-title-text: var(--dp-title-text-override, rgba(255,255,255,0.78));
+    --dp-title-strong: var(--dp-title-strong-override, rgba(255,255,255,0.92));
+    --dp-sub-text: var(--dp-sub-text-override, rgba(255,255,255,0.62));
+    --dp-progress-bg: var(--dp-progress-bg-override, #171b24);
+    --dp-content-bg: var(--dp-content-bg-override, #171b24);
+    --dp-scroll-thumb: var(--dp-scroll-thumb-override, rgba(148,163,184,0.42));
+    --dp-empty-overlay: var(--dp-empty-overlay-override, rgba(16,19,25,0.92));
+    --dp-empty-text: var(--dp-empty-text-override, rgba(255,255,255,0.6));
+    --dp-segment-bg: var(--dp-segment-bg-override, #2a3345);
+    --dp-segment-border: var(--dp-segment-border-override, #38445b);
+    --dp-segment-selected-bg: var(--dp-segment-selected-bg-override, #3a4660);
+    --dp-segment-selected-text: var(--dp-segment-selected-text-override, rgba(255,255,255,0.9));
+    --dp-math-bg: var(--dp-math-bg-override, rgba(59,130,246,0.18));
+    --dp-math-color: var(--dp-math-color-override, rgba(219,234,254,0.95));
+    --dp-bg-tertiary: var(--dp-bg-tertiary-override, #1a1f2e);
+  }
   .split-pane {
     --dp-bg: var(--dp-bg-override, #101319);
     --dp-pane-bg: var(--dp-pane-bg-override, #171b24);
@@ -2408,8 +2551,58 @@ onBeforeUnmount(() => {
   border-color: rgba(255, 255, 255, 0.28);
 }
 
+.pdf-viewer-shell.dark-mode {
+  --dp-bg: var(--dp-bg-override, #101319);
+  --dp-pane-bg: var(--dp-pane-bg-override, #171b24);
+  --dp-pane-border: var(--dp-pane-border-override, #2a3140);
+  --dp-title-bg: var(--dp-title-bg-override, #171b24);
+  --dp-title-border: var(--dp-title-border-override, #2a3140);
+  --dp-title-text: var(--dp-title-text-override, rgba(255,255,255,0.78));
+  --dp-title-strong: var(--dp-title-strong-override, rgba(255,255,255,0.92));
+  --dp-sub-text: var(--dp-sub-text-override, rgba(255,255,255,0.62));
+  --dp-progress-bg: var(--dp-progress-bg-override, #171b24);
+  --dp-content-bg: var(--dp-content-bg-override, #171b24);
+  --dp-scroll-thumb: var(--dp-scroll-thumb-override, rgba(148,163,184,0.42));
+  --dp-empty-overlay: var(--dp-empty-overlay-override, rgba(16,19,25,0.92));
+  --dp-empty-text: var(--dp-empty-text-override, rgba(255,255,255,0.6));
+  --dp-segment-bg: var(--dp-segment-bg-override, #2a3345);
+  --dp-segment-border: var(--dp-segment-border-override, #38445b);
+  --dp-segment-selected-bg: var(--dp-segment-selected-bg-override, #3a4660);
+  --dp-segment-selected-text: var(--dp-segment-selected-text-override, rgba(255,255,255,0.9));
+  --dp-math-bg: var(--dp-math-bg-override, rgba(59,130,246,0.18));
+  --dp-math-color: var(--dp-math-color-override, rgba(219,234,254,0.95));
+  --dp-bg-tertiary: var(--dp-bg-tertiary-override, #1a1f2e);
+}
+
+.pdf-viewer-shell.dark-mode .search-panel {
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
 /* Light mode �?props.theme='light' 显式指定 */
 .split-pane.light-mode {
+  --dp-bg: var(--dp-bg-override, #f3f5f8);
+  --dp-pane-bg: var(--dp-pane-bg-override, #fff);
+  --dp-pane-border: var(--dp-pane-border-override, #e8edf4);
+  --dp-title-bg: var(--dp-title-bg-override, #fff);
+  --dp-title-border: var(--dp-title-border-override, #edf1f7);
+  --dp-title-text: var(--dp-title-text-override, #595959);
+  --dp-title-strong: var(--dp-title-strong-override, #4f5d7a);
+  --dp-sub-text: var(--dp-sub-text-override, #8c8c8c);
+  --dp-progress-bg: var(--dp-progress-bg-override, #fcfdff);
+  --dp-content-bg: var(--dp-content-bg-override, #fff);
+  --dp-scroll-thumb: var(--dp-scroll-thumb-override, rgba(15,23,42,0.22));
+  --dp-empty-overlay: var(--dp-empty-overlay-override, rgba(255,255,255,0.92));
+  --dp-empty-text: var(--dp-empty-text-override, rgba(0,0,0,0.45));
+  --dp-segment-bg: var(--dp-segment-bg-override, #dfe5f2);
+  --dp-segment-border: var(--dp-segment-border-override, #cdd6e7);
+  --dp-segment-selected-bg: var(--dp-segment-selected-bg-override, #fff);
+  --dp-segment-selected-text: var(--dp-segment-selected-text-override, #1f2937);
+  --dp-math-bg: var(--dp-math-bg-override, #eef3ff);
+  --dp-math-color: var(--dp-math-color-override, #1d3a8a);
+  --dp-bg-tertiary: var(--dp-bg-tertiary-override, #eef1f5);
+}
+
+.pdf-viewer-shell.light-mode {
   --dp-bg: var(--dp-bg-override, #f3f5f8);
   --dp-pane-bg: var(--dp-pane-bg-override, #fff);
   --dp-pane-border: var(--dp-pane-border-override, #e8edf4);
