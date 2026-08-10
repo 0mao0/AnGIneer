@@ -118,6 +118,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  sidePanelOpen: undefined,
   graphDataFullLoaded: false,
   dark: false,
   sidePanelDefaultOpen: true,

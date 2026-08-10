@@ -64,19 +64,6 @@
         </template>
       </div>
       <div class="pane-title-right">
-        <Button
-          v-if="showSidePanelToggle && $slots['side-panel']"
-          size="small"
-          class="pdf-tool-btn"
-          :class="{ 'pdf-tool-btn-active': sidePanelVisible }"
-          :title="sidePanelVisible ? '收起解析对比' : '展开解析对比'"
-          @click="toggleSidePanel"
-        >
-          <template #icon>
-            <MenuFoldOutlined v-if="sidePanelVisible" />
-            <MenuUnfoldOutlined v-else />
-          </template>
-        </Button>
         <template v-if="isPdf && !useNativePdfPreview">
           <Button
             size="small"
@@ -97,6 +84,19 @@
             <template #icon><BulbOutlined /></template>
           </Button>
         </template>
+        <Button
+          v-if="showSidePanelToggle && $slots['side-panel']"
+          size="small"
+          class="pdf-tool-btn"
+          :class="{ 'pdf-tool-btn-active': sidePanelVisible }"
+          :title="sidePanelVisible ? '收起解析对比' : '展开解析对比'"
+          @click="toggleSidePanel"
+        >
+          <template #icon>
+            <LeftOutlined v-if="sidePanelVisible" />
+            <RightOutlined v-else />
+          </template>
+        </Button>
       </div>
       <!-- 隐形测量镜像：包含全部控件，用于精确测量自然宽度 -->
       <div v-if="isPdf && !useNativePdfPreview" ref="toolbarMeasureRef" class="toolbar-measure" aria-hidden="true">
@@ -344,7 +344,7 @@
  */
 import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive, useSlots } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
-import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined, SearchOutlined, CloseOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue'
+import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons-vue'
 import { Button, Tag, Spin, Progress, InputNumber, Input, Empty } from 'ant-design-vue'
 import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
@@ -417,6 +417,7 @@ const props = withDefaults(defineProps<{
   showSidePanelToggle?: boolean
   sidePanelWidth?: number
 }>(), {
+  sidePanelOpen: undefined,
   showSidePanelToggle: false,
   sidePanelWidth: 400
 })
