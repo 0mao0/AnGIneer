@@ -23,7 +23,7 @@
 | 实现方案 | 方案一：PDF_Viewer 增加通用侧栏插槽，升级 PDFParsedWorkspace 作为合并组件入口 |
 | 展开布局 | 并排挤占：面板展开时与 PDF 共用下方内容区，PDF 区域自适应剩余空间 |
 | 收起行为 | 面板不占布局空间，PDF 独占内容区；内部组件保持挂载以保留状态 |
-| 默认状态 | 可配置 prop；管理后台默认展开，用户端默认收起 |
+| 默认状态 | 可配置 prop；管理后台与用户端均默认展开 |
 | 用户端默认 Tab | 树形索引；无图数据时自动退回 Markdown，图数据就绪后自动切回树形 |
 | 面板宽度 | 固定默认 400px，通过 prop 可调；不做拖拽调宽 |
 | 组件命名 | 复用并升级现有 `PDFParsedWorkspace`，不另建重复组件 |
@@ -117,7 +117,8 @@ const readonly = computed(() =>
 
 - 把单独的 `PDF_Viewer` 换成 `PDFParsedWorkspace`；
 - 传入已有的 `node`、`content`、`renderPdfPath`；
-- 传 `:side-panel-default-open="false"`、`:default-parsed-tab="'Preview_IndexTree'"`；
+- 传 `:side-panel-default-open="true"`、`:default-parsed-tab="'Preview_IndexTree'"`；
+- 移除 DocumentView 自带的文档标题栏（标题已显示在顶部页签中），让 PDF 预览从内容区顶部开始；
 - 图数据优先取 `DocumentResponse.graph_data`（现有接口已返回该字段），缺失时通过用户端已有的 `getDocBlocksGraph` 懒加载，经由组件已有的 `on-load-full-graph-data` / `graph-data-full-loaded` 契约传入；
 - 不传编辑类回调与图谱数据源回调，面板自动进入只读模式，且不显示“知识图谱”Tab；
 - 树形节点点击、左右联动、搜索跳转复用 `PDFParsedWorkspace` 现有的 `useWorkspaceLinkage` 逻辑。

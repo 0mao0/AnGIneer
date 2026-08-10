@@ -950,12 +950,12 @@ import { PDFParsedWorkspace, Preview_Markdown } from '@angineer/docs-ui'
   :graph-data="graphData"
   :graph-data-full-loaded="graphDataFullLoaded"
   :on-load-full-graph-data="loadGraphData"
-  :side-panel-default-open="false"
+  :side-panel-default-open="true"
   :default-parsed-tab="'Preview_IndexTree'"
 />
 ```
 
-非 PDF 文档仍走原来的 `Preview_Markdown` 分支。
+非 PDF 文档仍走原来的 `Preview_Markdown` 分支。同时移除模板顶部的 `.doc-header` 标题栏及其样式（文档标题已显示在顶部页签中），让 PDF 预览从内容区顶部开始。
 
 - [ ] **Step 3: 新增图数据状态**
 
