@@ -15,22 +15,16 @@
         cta-text="重试"
         @cta-click="loadDocument"
       />
-      <PDF_Viewer
-        v-else-if="isPdfView && pdfUrl"
-        :node="{ status: 'completed', filePath: pdfFilePath }"
-        :is-pdf="true"
-        :is-office="false"
-        :is-image="false"
-        :is-text="false"
-        :pdf-viewer-url="pdfUrl"
-        :office-preview-url="''"
-        :file-url="pdfUrl"
-        :text-content="''"
-        :current-pdf-page="pdfPage"
-        :highlights="[]"
-        :active-highlight-id="null"
-        :text-scroll-percent="0"
-        theme="auto"
+      <PDFParsedWorkspace
+        v-else-if="document && isPdfView && pdfUrl"
+        :node="{ key: currentDocId, title: document.title, status: 'completed', isFolder: false, visible: true, filePath: pdfFilePath }"
+        :content="document.content"
+        :render-pdf-path="pdfFilePath"
+        :graph-data="graphData"
+        :graph-data-full-loaded="graphDataFullLoaded"
+        :on-load-full-graph-data="loadGraphData"
+        :side-panel-default-open="false"
+        :default-parsed-tab="'Preview_IndexTree'"
       />
       <Preview_Markdown
         v-else-if="document"
@@ -51,7 +45,7 @@
 import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { message } from 'ant-design-vue'
-import { PDF_Viewer, Preview_Markdown } from '@angineer/docs-ui'
+import { PDFParsedWorkspace, Preview_Markdown } from '@angineer/docs-ui'
 import { EmptyState } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
 
@@ -74,6 +68,10 @@ const isPdfView = ref(false)
 const pdfUrl = ref('')
 const pdfFilePath = ref('')
 const pdfPage = ref(1)
+const graphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
+const graphDataFullLoaded = ref(false)
+const graphDataLoading = ref(false)
+const currentDocId = ref('')
 
 /** 按引用定位参数在 markdown 中找原文位置（sectionPath 优先，snippet 兜底） */
 const locateInContent = (content: string): { start: number; end: number } | null => {
@@ -102,18 +100,25 @@ const loadDocument = async () => {
     return
   }
   loading.value = true
+  currentDocId.value = docId
+  graphData.value = null
+  graphDataFullLoaded.value = false
+  graphDataLoading.value = false
   loadError.value = ''
   try {
     const result = await knowledgeApi.getDocument(libraryId, docId) as {
       content?: string
       title?: string
       storage?: { render_pdf?: string }
+      graph_data?: { nodes: any[]; edges: any[] } | null
     }
     document.value = {
       id: docId,
       title: props.title || result?.title || `文档 ${docId}`,
       content: result?.content || ''
     }
+    graphData.value = result?.graph_data || null
+    graphDataFullLoaded.value = Boolean(graphData.value?.nodes?.length)
     const renderPdf = String(result?.storage?.render_pdf || '').trim()
     if (renderPdf) {
       isPdfView.value = true
@@ -137,6 +142,23 @@ const loadDocument = async () => {
     pdfFilePath.value = ''
   } finally {
     loading.value = false
+  }
+}
+
+const loadGraphData = async () => {
+  const docId = currentDocId.value
+  if (!docId || graphDataLoading.value || graphDataFullLoaded.value) return
+  graphDataLoading.value = true
+  try {
+    const result = await knowledgeApi.getDocBlocksGraph('default', docId) as any
+    const payload = result?.data || result || null
+    graphData.value = payload?.nodes?.length ? payload : null
+    graphDataFullLoaded.value = true
+  } catch (error) {
+    console.warn('[DocumentView] 加载文档图谱数据失败:', error)
+    graphDataFullLoaded.value = true
+  } finally {
+    graphDataLoading.value = false
   }
 }
 
