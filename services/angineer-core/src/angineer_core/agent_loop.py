@@ -3,13 +3,15 @@
 边界：本模块只允许依赖 agent_messages / agent_events / agent_tools /
 tool_codec / contracts，禁止反向依赖 dispatcher / classifier / memory。
 """
+from __future__ import annotations
+
 import json
 import logging
 import threading
 import time
 import uuid
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
 from angineer_core.agent_events import AgentEvent
@@ -35,6 +37,16 @@ class TurnContext:
 
 
 @dataclass
+class AttemptConfig:
+    """引擎内的一段执行：工具集/提示词/轮数由 config_factory 提供。"""
+
+    name: str
+    config_factory: Callable[[], AgentLoopConfig]
+    success_check: Optional[Callable[[List[AgentMessage]], bool]] = None
+    fallback_note: str = ""
+
+
+@dataclass
 class AgentLoopConfig:
     # —— 模型出口（循环只认 LLMProvider Protocol，不认厂商）——
     llm: Any  # 满足 contracts.LLMProvider
@@ -47,11 +59,17 @@ class AgentLoopConfig:
     system_prompt: str = ""
     codec: Any = None  # ToolCallCodec，默认 TextToolCallCodec
     max_turns: int = 3
+    # —— 分段（attempt）执行 ——
+    attempts: List[AttemptConfig] = field(default_factory=list)
     # —— 闸门与决策点（全部可选回调）——
     transform_context: Optional[Callable[[List[AgentMessage]], List[AgentMessage]]] = None
     should_stop_after_turn: Optional[Callable[[TurnContext], bool]] = None
     before_tool_call: Optional[Callable[[AgentTool, Dict], Optional[str]]] = None
     after_tool_call: Optional[Callable[[ToolResult], ToolResult]] = None
+    final_answer_guard: Optional[
+        Callable[[List[AgentMessage]], Optional[Tuple[Optional[str], Optional[str]]]]
+    ] = None
+    route_note: Optional[str] = None
     tool_timeout_s: int = 120
     pending_messages_provider: Optional[Callable[[], List[AgentMessage]]] = None
 
@@ -166,7 +184,13 @@ def _execute_tools_batch(
             continue
         pending.append((call, tool))
 
-    if not pending or cancel.is_set():
+    if cancel.is_set():
+        # 取消发生在执行前：仍然补发 tool_start/tool_end 和错误结果，
+        # 保证思考过程能看到"已取消（未执行）"这一步。
+        for call, _tool in pending:
+            results.append(fail(call, "工具调用已取消（未执行）"))
+        return [_run_callback(config.after_tool_call, result, result) for result in results]
+    if not pending:
         return [_run_callback(config.after_tool_call, result, result) for result in results]
 
     timeout = max(1, config.tool_timeout_s or 120)
@@ -329,17 +353,84 @@ def run_agent_loop(
     cancel_event = cancel if cancel is not None else threading.Event()
     provider = pending_messages_provider if pending_messages_provider is not None else config.pending_messages_provider
     codec = config.codec or TextToolCallCodec()
-    tools_by_name = {tool.name: tool for tool in config.tools}
     start_idx = len(messages)
     turn = 0
     total_usage: Dict[str, Any] = {}
     reason = "completed"
+    trace_notes: List[Dict[str, Any]] = []
+
+    def _add_note(detail: str) -> None:
+        """记录一条可见的边界/过程说明，实时事件与 run_end 都会带上。"""
+        trace_notes.append({"detail": detail})
+        _safe_emit(
+            emit,
+            AgentEvent(type="note", run_id=run_id, turn=turn, payload={"detail": detail}),
+        )
 
     _safe_emit(emit, AgentEvent(type="run_start", run_id=run_id, turn=0, payload={}))
+    if config.route_note:
+        _add_note(config.route_note)
+
+    # —— 分段（attempt）初始化 ——
+    attempts = list(config.attempts or [])
+    active_config = config
+    active_attempt_idx = -1
+    attempt_turn = 0
+
+    def _apply_attempt(index: int) -> AgentLoopConfig:
+        """应用第 index 段的完整可覆盖字段；codec 随段刷新。"""
+        nonlocal active_attempt_idx, codec
+        active_attempt_idx = index
+        nested = attempts[index].config_factory()
+        active = replace(
+            config,
+            llm=nested.llm,
+            model=nested.model,
+            config_name=nested.config_name,
+            mode=nested.mode,
+            max_tokens=nested.max_tokens,
+            tools=nested.tools,
+            system_prompt=nested.system_prompt,
+            max_turns=nested.max_turns,
+            codec=nested.codec or config.codec,
+            final_answer_guard=nested.final_answer_guard,
+            transform_context=nested.transform_context,
+            should_stop_after_turn=nested.should_stop_after_turn,
+            tool_timeout_s=nested.tool_timeout_s,
+            pending_messages_provider=nested.pending_messages_provider or config.pending_messages_provider,
+        )
+        codec = active.codec or TextToolCallCodec()
+        return active
+
+    def _advance_attempt() -> str:
+        """当前段成功→"completed"；失败且有下一段→切换并返回 "next"；否则 "exhausted"。"""
+        nonlocal active_config, tools_by_name, attempt_turn, reason
+        added = messages[start_idx:]
+        check = attempts[active_attempt_idx].success_check
+        ok = check is None or bool(_run_callback(check, True, added))
+        if ok:
+            return "completed"
+        if active_attempt_idx + 1 < len(attempts):
+            nxt = attempts[active_attempt_idx + 1]
+            current = attempts[active_attempt_idx]
+            _add_note(current.fallback_note or f"本段未命中，进入下一段：{nxt.name}")
+            messages.append(AgentMessage(role="user", content=f"上一段未命中，进入下一段：{nxt.name}"))
+            active_config = _apply_attempt(active_attempt_idx + 1)
+            tools_by_name = {tool.name: tool for tool in active_config.tools}
+            attempt_turn = 0
+            return "next"
+        reason = "attempts_exhausted"
+        return "exhausted"
+
+    if attempts:
+        active_config = _apply_attempt(0)
+        _add_note("执行计划：" + " → ".join(a.name for a in attempts))
+    tools_by_name = {tool.name: tool for tool in active_config.tools}
 
     try:
         if cancel_event.is_set():
             reason = "cancelled"
+            _add_note("用户取消，停止生成")
         else:
             prev_len = start_idx
             while True:
@@ -351,23 +442,30 @@ def run_agent_loop(
 
                 if turn > 0:
                     turn_context = TurnContext(turn=turn, messages=messages, tool_results=[], usage=total_usage)
-                    if _run_callback(config.should_stop_after_turn, False, turn_context):
+                    if _run_callback(active_config.should_stop_after_turn, False, turn_context):
                         reason = "should_stop"
+                        _add_note("上下文预算超阈值，停止继续调用工具（should_stop）")
                         break
                     if cancel_event.is_set():
                         reason = "cancelled"
+                        _add_note("用户取消，停止生成")
                         break
-                    if turn >= config.max_turns:
-                        # max_turns：不硬断，追加预算提示后给最后一次无工具收尾 turn
+                    budget = active_config.max_turns if attempts else config.max_turns
+                    if attempt_turn >= budget:
+                        # 段预算耗尽：不硬断，追加预算提示后给最后一次无工具收尾 turn
+                        _add_note(
+                            f"轮次预算已用完（max_turns={budget}），进入无工具收尾回答"
+                        )
                         messages.append(
                             AgentMessage(role="user", content="轮次预算已用完，请基于已有证据直接给出最终答案")
                         )
                         new_prompt = messages[prev_len:]
                         prev_len = len(messages)
                         turn += 1
+                        attempt_turn += 1
                         _safe_emit(emit, AgentEvent(type="turn_start", run_id=run_id, turn=turn, payload={"turn": turn}))
                         assistant, _, direct_results, usage = _run_llm_turn(
-                            messages, new_prompt, config, codec, tools_by_name,
+                            messages, new_prompt, active_config, codec, tools_by_name,
                             emit, run_id, cancel_event, turn, allow_tools=False,
                         )
                         messages.append(assistant)
@@ -378,16 +476,22 @@ def run_agent_loop(
                                 AgentMessage(role="tool", content=result.content, tool_call_id=result.call_id, name=result.name, is_error=result.is_error)
                             )
                         _safe_emit(emit, AgentEvent(type="turn_end", run_id=run_id, turn=turn, payload={"turn": turn, "tool_results": []}))
+                        if attempts:
+                            status = _advance_attempt()
+                            if status == "next":
+                                continue
+                            break  # completed / attempts_exhausted，reason 由 _advance_attempt 维护
                         reason = "max_turns"
                         break
 
                 turn += 1
+                attempt_turn += 1
                 _safe_emit(emit, AgentEvent(type="turn_start", run_id=run_id, turn=turn, payload={"turn": turn}))
                 new_prompt = messages[prev_len:]
                 prev_len = len(messages)
 
                 assistant, calls, direct_results, usage = _run_llm_turn(
-                    messages, new_prompt, config, codec, tools_by_name,
+                    messages, new_prompt, active_config, codec, tools_by_name,
                     emit, run_id, cancel_event, turn, allow_tools=True,
                 )
                 messages.append(assistant)
@@ -396,6 +500,7 @@ def run_agent_loop(
 
                 if direct_results:
                     # 截断守卫产物：直接作为工具结果喂回，不执行任何工具
+                    _add_note("输出被长度截断（finish_reason=length），本轮工具调用已作废")
                     for result in direct_results:
                         messages.append(
                             AgentMessage(role="tool", content=result.content, tool_call_id=result.call_id, name=result.name, is_error=result.is_error)
@@ -408,7 +513,7 @@ def run_agent_loop(
 
                 if calls:
                     tool_results = _execute_tools_batch(
-                        calls, tools_by_name, config, cancel_event, emit, run_id, turn,
+                        calls, tools_by_name, active_config, cancel_event, emit, run_id, turn,
                     )
                     for result in tool_results:
                         messages.append(
@@ -420,11 +525,18 @@ def run_agent_loop(
                     )
                     if tool_results and all(result.terminate for result in tool_results):
                         reason = "terminated"
+                        _add_note("工具返回终止信号，提前结束（terminate）")
                         break
                     continue
 
                 # 无工具调用：模型主动给出最终答案，正常停
                 _safe_emit(emit, AgentEvent(type="turn_end", run_id=run_id, turn=turn, payload={"turn": turn, "tool_results": []}))
+                if attempts:
+                    status = _advance_attempt()
+                    if status == "next":
+                        continue
+                    if status == "exhausted":
+                        break
                 reason = "completed"
                 break
     except Exception as exc:  # noqa: BLE001
@@ -434,6 +546,33 @@ def run_agent_loop(
             emit,
             AgentEvent(type="error", run_id=run_id, turn=turn, payload={"message": str(exc), "stage": "run_agent_loop"}),
         )
+
+    # 最终答案边界（P6c）：仅对"确实检索过工具"的收尾回答生效，
+    # 避免闲聊类直接回答被误判成无证据拒答。
+    if active_config.final_answer_guard is not None and reason not in ("error", "cancelled"):
+        added_messages = messages[start_idx:]
+        final_assistant = next(
+            (m for m in reversed(added_messages) if m.role == "assistant" and not m.tool_calls),
+            None,
+        )
+        has_tool_results = any(m.role == "tool" for m in added_messages)
+        if final_assistant is not None and has_tool_results:
+            guard_result = _run_callback(active_config.final_answer_guard, None, added_messages)
+            if guard_result:
+                new_content, guard_note = guard_result
+                if guard_note:
+                    _add_note(guard_note)
+                if new_content is not None and new_content != final_assistant.content:
+                    final_assistant.content = new_content
+                    _safe_emit(
+                        emit,
+                        AgentEvent(
+                            type="answer",
+                            run_id=run_id,
+                            turn=turn,
+                            payload={"content": new_content},
+                        ),
+                    )
 
     _safe_emit(
         emit,
@@ -446,6 +585,7 @@ def run_agent_loop(
                 "turns": turn,
                 "messages": [agent_message_to_dict(m) for m in messages[start_idx:]],
                 "usage": total_usage,
+                "notes": trace_notes,
             },
         ),
     )
