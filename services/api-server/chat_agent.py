@@ -1,7 +1,7 @@
-"""P7 API 层统一：agent 会话池与 SSE 帧映射。
+"""P7 API 层统一：agent 会话池与 AgentEvent SSE 帧序列化。
 
-按 ``scene:session_id`` 复用 AgentSession（qa/complex 档）；
-``/api/chat`` 兼容帧映射与 ``/api/chat/agent`` 完整 AgentEvent 帧。
+按 ``scene:session_id`` 复用 AgentSession；``/api/chat/agent`` 直接输出
+完整 AgentEvent 帧（旧 ``/api/chat`` 兼容帧映射已随旧端点删除）。
 """
 import logging
 import threading
