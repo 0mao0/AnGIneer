@@ -106,37 +106,6 @@ function mapQueryResponseToChatResponse(qr: QueryResponse) {
   }
 }
 
-/** 将任务类型转换为更易读的中文标签 */
-function formatTaskType(taskType: string | undefined): string {
-  const normalized = String(taskType || '').trim()
-  const taskTypeMap: Record<string, string> = {
-    content_qa: '正文问答',
-    definition_qa: '定义问答',
-    locate_qa: '定位问答',
-    table_qa: '表格问答',
-    schema_qa: '结构问答',
-    analytic_sql: 'SQL 分析',
-    mixed: '混合问答'
-  }
-  return taskTypeMap[normalized] || normalized || '未知任务'
-}
-
-/** 将查询响应格式化为回答气泡顶部的查询链路文案 */
-function buildQueryChain(payload: ReturnType<typeof mapQueryResponseToChatResponse>): string {
-  const debug = (payload.debug || {}) as Record<string, any>
-  const segments = [
-    `意图 ${formatTaskType(payload.task_type || String(debug.route || ''))}`,
-    debug.executor ? `执行器 ${String(debug.executor)}` : '',
-    debug.retrieval_route ? `检索 ${String(debug.retrieval_route)}` : '',
-    payload.strategy ? `策略 ${payload.strategy}` : '',
-    debug.fallback_used ? '已回退' : ''
-  ].filter(Boolean)
-  if (!segments.length) {
-    return ''
-  }
-  return `查询链路：${segments.join(' -> ')}`
-}
-
 const DEFAULT_CONTEXT_CONFIG: AIChatContextConfig = {
   maxRounds: 10,
   enableCompression: true,
@@ -388,16 +357,11 @@ export function useAIChat(options?: {
         // 流式结束后以 transport 的权威答案为基准（兼容替换/清理）
         currentStreamContent.value = assistantContent
       }
-      const queryChain = buildQueryChain(payload)
-      const hasRouteNote = (payload.thinking_trace || []).some(
-        step => step.kind === 'note' && /意图判断|查询链路/.test(step.detail)
-      )
       messages.value.push({
         id: payload.query_id || generateMessageId(),
         role: 'assistant',
         content: assistantContent,
         timestamp: Date.now(),
-        queryChain,
         citations: citations.map(citation => ({
           target_id: citation.target_id,
           target_type: citation.target_type,
@@ -419,10 +383,7 @@ export function useAIChat(options?: {
         retrieved_items: payload.retrieved_items,
         gap_analysis: payload.gap_analysis,
         confidence_breakdown: payload.confidence_breakdown,
-        thinking_trace: [
-          ...(queryChain && !hasRouteNote ? [{ kind: 'note' as const, detail: queryChain }] : []),
-          ...(payload.thinking_trace || []),
-        ],
+        thinking_trace: payload.thinking_trace || [],
         debug: payload.debug
       })
       currentStreamContent.value = ''

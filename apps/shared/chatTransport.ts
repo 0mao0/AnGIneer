@@ -243,7 +243,7 @@ function collectCitationsFromToolMessages(
 
 /**
  * 只保留最终回答里真实引用的标记（[K1]/[T1]/[E1]）。
- * 替代按文档名猜测的 filterCitationsByAnswer。
+ * 替代按文档名猜测的旧引用过滤。
  */
 export function filterCitationsByMarkers(
   citations: AIChatCitation[],
@@ -254,39 +254,6 @@ export function filterCitationsByMarkers(
   let match: RegExpExecArray | null
   while ((match = re.exec(answer || '')) !== null) used.add(match[1])
   return (citations || []).filter(c => c.marker && used.has(c.marker))
-}
-
-/**
- * 只保留最终回答里真正提到的文档引用。
- * 检索候选里的 top-N 引用可能包含无关文档（如其他规范），
- * 但“用于最终回答”的引用必须能在回答正文里对上出处。
- */
-export function filterCitationsByAnswer(
-  citations: AIChatCitation[],
-  answer: string
-): AIChatCitation[] {
-  const normalizedAnswer = String(answer || '')
-  if (!normalizedAnswer) return []
-  const docTitleForms = (title: string): string[] => {
-    const base = String(title || '').replace(/\.(docx?|pdf|xlsx?|pptx?|md|markdown|txt)$/i, '')
-    if (!base) return []
-    const extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'md', 'txt']
-    const forms = new Set<string>([
-      `《${base}》`,
-      base,
-      `《${title}》`,
-      title,
-    ])
-    for (const ext of extensions) {
-      forms.add(`《${base}.${ext}》`)
-      forms.add(`${base}.${ext}`)
-    }
-    return [...forms].filter(Boolean)
-  }
-  return (citations || []).filter(citation => {
-    const forms = docTitleForms(citation.doc_title)
-    return forms.some(form => normalizedAnswer.includes(form))
-  })
 }
 
 /**

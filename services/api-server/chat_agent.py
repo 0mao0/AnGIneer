@@ -22,18 +22,6 @@ _AGENT_SESSION_POOL: Dict[str, AgentSession] = {}
 _AGENT_SESSION_LAST_ACTIVE: Dict[str, float] = {}
 _POOL_LOCK = threading.RLock()
 
-_INTENT_TYPE_LABELS = {
-    "casual_chat": "闲聊",
-    "concept_resolution": "概念/定义问答",
-    "locate_navigation": "定位问答",
-    "clause_application": "条款应用",
-    "standard_lookup": "规范查表",
-    "clause_then_calculation": "条款+计算",
-    "standard_calculation": "规范计算",
-    "complex_task": "复杂综合任务",
-}
-
-
 def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
     """加载知识库 document 节点；失败时返回空列表（检索工具降级）。"""
     try:
@@ -48,76 +36,6 @@ def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
     except Exception as exc:  # noqa: BLE001
         logger.warning("加载知识库节点失败，agent 检索工具将无节点: %s", exc)
         return []
-
-
-def _format_route_note(intent_result) -> Optional[str]:
-    """把意图分级结果转成思考过程第一条说明。"""
-    if intent_result is None:
-        return None
-    level = str(getattr(intent_result, "intent_level", "") or "")
-    intent_type = str(getattr(intent_result, "intent_type", "") or "")
-    service_mode = str(getattr(intent_result, "service_mode", "") or "")
-    reason = str(getattr(intent_result, "reason", "") or "").strip()
-    type_label = _INTENT_TYPE_LABELS.get(intent_type, intent_type or "未知类型")
-    level_label = {
-        "L0": "闲聊直答",
-        "L1": "正文问答",
-        "L2": "条款/表格定位",
-        "L3": "规范计算",
-        "L4": "复杂综合任务",
-    }.get(level, level or "")
-    note = f"意图判断：{level_label}（{level}）→ 策略 {service_mode}"
-    if reason:
-        note += f"（{reason}）"
-    return note
-
-
-def make_config_factory(
-    scene: str,
-    library_id: str,
-    doc_ids: Optional[List[str]],
-    sop_loader: Any = None,
-    intent_result: Any = None,
-):
-    """按 scene + 意图分级返回 qa/complex 档的 AgentLoopConfig 工厂。
-
-    L3/L4（规范计算/复杂综合）与 sop 类 scene 走 complex 档（带 SOP/计算工具），
-    其余走 qa 档（检索三件套）。
-    """
-    use_complex = bool(
-        scene in ("complex", "sop", "sops")
-        or (intent_result is not None and str(getattr(intent_result, "intent_level", "")) in ("L3", "L4"))
-        or (intent_result is not None and str(getattr(intent_result, "service_mode", "")) in ("standard_sop", "dynamic_orchestration"))
-    )
-    route_note = _format_route_note(intent_result)
-
-    def factory():
-        from ai_inference.llm_client import get_llm_client
-        from angineer_core.agent_configs import build_complex_config, build_qa_config
-
-        nodes = _load_doc_nodes(library_id, doc_ids)
-        llm = get_llm_client()
-        if use_complex:
-            return build_complex_config(
-                llm=llm,
-                doc_nodes=nodes,
-                library_id=library_id,
-                doc_ids=list(doc_ids or []),
-                max_turns=8,
-                sops=list(sop_loader.load_all() or []) if sop_loader is not None else None,
-                sop_loader=sop_loader,
-                route_note=route_note,
-            )
-        return build_qa_config(
-            llm=llm,
-            doc_nodes=nodes,
-            library_id=library_id,
-            doc_ids=list(doc_ids or []),
-            max_turns=3,
-            route_note=route_note,
-        )
-
-    return factory
 
 
 def make_policy_config_factory(
@@ -161,8 +79,8 @@ def make_policy_config_factory(
 
 
 def _make_config_factory(scene: str, library_id: str, doc_ids: Optional[List[str]]):
-    """兼容别名：池化会话默认工厂（不携带单次意图）。"""
-    return make_config_factory(scene, library_id, doc_ids)
+    """兼容别名：池化会话默认工厂（policy 版，无单次意图时按 scene 路由）。"""
+    return make_policy_config_factory(scene, library_id, doc_ids, intent_result=None)
 
 
 def _evict_expired() -> None:

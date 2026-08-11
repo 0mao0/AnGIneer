@@ -6,7 +6,6 @@ import {
   buildThinkingTrace,
   cleanStreamText,
   defaultAIChatTransport,
-  filterCitationsByAnswer,
   extractToolResultItems,
   filterCitationsByMarkers,
   mergeThinkingTrace,
@@ -80,23 +79,6 @@ test('预算截断和最终回答也会出现在轨迹里', () => {
     { kind: 'note', detail: '汇总证据并生成最终回答', turn: 1 },
     { kind: 'note', detail: '轮次预算已用完（max_turns=2），进入无工具收尾回答' },
   ])
-})
-
-test('最终回答引用过滤：只保留正文真正提到的文档', () => {
-  const citations = [
-    { target_id: 'a', doc_id: 'd1', doc_title: '船闸规范.pdf', page_idx: 0, section_path: '2.2 级别划分', snippet: 'x', score: 1 },
-    { target_id: 'b', doc_id: 'd2', doc_title: '海港2', page_idx: 0, section_path: '6.4 航道尺度', snippet: 'x', score: 1 },
-    { target_id: 'c', doc_id: 'd3', doc_title: '跨页表格', page_idx: 0, section_path: '表 A.0.2-3', snippet: 'x', score: 1 },
-  ]
-  const filtered = filterCitationsByAnswer(
-    citations,
-    '根据检索到的《船闸规范.pdf》内容，闸门有 4 个等级。'
-  )
-  assert.equal(filtered.length, 1)
-  assert.equal(filtered[0].doc_title, '船闸规范.pdf')
-
-  const noMention = filterCitationsByAnswer(citations, '答案是 4 个等级。')
-  assert.equal(noMention.length, 0)
 })
 
 test('filterCitationsByMarkers 只保留答案中出现的标记', () => {

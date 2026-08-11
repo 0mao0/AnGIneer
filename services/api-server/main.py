@@ -38,19 +38,14 @@ sys.path.append(os.path.join(SERVICES_DIR, "evals-core", "src"))
 
 # Import logic from packages
 from ai_inference.llm_client import LLMClient
-from angineer_core.base_contracts import Step, SOP
-from angineer_core.agent_messages import AgentMessage
-from angineer_core import IntentClassifier, Dispatcher
+from angineer_core import IntentClassifier
 from chat_agent import (
-    create_standalone_session,
     find_session_by_run_id,
     get_agent_session,
     make_policy_config_factory,
     map_event_to_agent_frame,
-    map_event_to_chat_sse,
 )
 from sop_core.sop_loader import SopLoader
-from engtools.BaseTool import ToolRegistry, register_tool
 # Import tools to ensure registration
 from engtools import * 
 import geo_core.GisTool
@@ -224,136 +219,10 @@ def _evict_expired_sessions() -> None:
                 del _SESSION_POOL[k]
 
 # AI Chat 对话相关模型
-class ChatMessage(BaseModel):
-    """聊天消息"""
-    id: Optional[str] = None
-    role: str  # 'user', 'assistant', 'system'
-    content: str
-    timestamp: Optional[int] = None
-    images: Optional[List[str]] = None  # 多模态预留：base64 图片列表
-
-class ChatContext(BaseModel):
-    """扩展上下"""
-    references: Optional[List[str]] = None  # 引用的规文档 ID
-
-class ChatRequest(BaseModel):
-    """AI 对话请求"""
-    message: str  # 当前用户输入
-    history: List[ChatMessage]  # 历史消息上下
-    model: Optional[str] = None  # 使用的模
-    mode: Optional[str] = 'chat'  # 对话模式: chat, reasoning, vision
-    context: Optional[ChatContext] = None  # 扩展上下
-
-class ChatStreamEvent(BaseModel):
-    """流式响应事件"""
-    type: str  # 'start', 'chunk', 'end', 'error'
-    messageId: Optional[str] = None
-    content: Optional[str] = None
-    usage: Optional[Dict[str, int]] = None
-    error: Optional[str] = None
-
-
 class SteerRequest(BaseModel):
     """run 中途 steer 注入请求体。"""
     text: str
 
-
-# --- Global State for UI Tracking ---
-# We'll use a simple global list to store execution logs for the frontend to poll
-execution_trace = []
-
-
-def _trace_json_safe(value):
-    """把 trace 中的值转换为 JSON 可序列化形式（pydantic 模型 → dict/字符串）。"""
-    if hasattr(value, "model_dump"):
-        try:
-            return value.model_dump(mode="json")
-        except Exception:  # noqa: BLE001
-            return str(value)
-    if hasattr(value, "model_dump_json"):
-        try:
-            return json.loads(value.model_dump_json())
-        except Exception:  # noqa: BLE001
-            return str(value)
-    if isinstance(value, dict):
-        return {str(key): _trace_json_safe(item) for key, item in value.items()}
-    if isinstance(value, (list, tuple)):
-        return [_trace_json_safe(item) for item in value]
-    return value
-
-
-class TraceDispatcher(Dispatcher):
-    """
-    A specialized Dispatcher that records execution steps for the UI
-    without modifying the original Dispatcher code.
-    """
-    def __init__(self, trace_list: list, config_name: str = None, mode: str = "instruct"):
-        super().__init__(config_name=config_name, mode=mode)
-        self.trace_list = trace_list
-
-    def _execute_step(self, step: Step):
-        step_description = step.description_zh or (step.description.content if step.description else "")
-        step_trace = {
-            "step_id": step.id,
-            "step_name": step.name_zh or step.name, # Default to zh or legacy name
-            "step_name_zh": step.name_zh or step.name,
-            "step_name_en": step.name_en or step.name,
-            "step_description_zh": step_description,
-            "step_description_en": step_description,
-            "tool": step.tool,
-            "status": "running",
-            "inputs": {},
-            "output": None,
-            "error": None,
-            "memory_snapshot": {}
-        }
-        self.trace_list.append(step_trace)
-        
-        # Resolve inputs (duplicated from original for trace capture)
-        tool_inputs = {}
-        for key, value in step.inputs.items():
-            resolved_value = self.memory.resolve_value(value)
-            tool_inputs[key] = resolved_value
-        
-        step_trace["inputs"] = _trace_json_safe(tool_inputs)
-        
-        try:
-            # Determine Tool (Static or Auto)
-            target_tool_name = step.tool
-            if target_tool_name == "auto":
-                detected_tool, detected_inputs = self._smart_select_tool(step, tool_inputs)
-                if detected_tool:
-                    target_tool_name = detected_tool
-                    tool_inputs.update(detected_inputs)
-                    step_trace["tool"] = f"auto -> {target_tool_name}" # Update trace
-                    step_trace["inputs"] = _trace_json_safe(tool_inputs) # Update trace
-                else:
-                    raise ValueError("Auto-selection failed")
-
-            # Call original logic but capture results
-            # Note: We are re-implementing the execution part to capture trace
-            # since the original doesn't have hooks.
-            tool = ToolRegistry.get_tool(target_tool_name)
-            if not tool:
-                raise ValueError(f"Tool {target_tool_name} not found")
-            
-            run_kwargs = dict(tool_inputs)
-            if self.config_name:
-                run_kwargs["config_name"] = self.config_name
-            if self.mode:
-                run_kwargs["mode"] = self.mode
-            result = tool.run(**run_kwargs)
-            step_trace["output"] = _trace_json_safe(result)
-            step_trace["status"] = "completed"
-            
-            # Record in original memory
-            self._record_step(step, tool_inputs, result)
-            step_trace["memory_snapshot"] = json.loads(json.dumps(self.memory.global_context, default=str))
-            
-        except Exception as e:
-            step_trace["error"] = str(e)
-            step_trace["status"] = "failed"
-            self._record_step(step, tool_inputs, None, error=str(e))
 
 # --- API Endpoints ---
 
@@ -377,90 +246,6 @@ def save_knowledge(file_name: str, data: Dict[str, Any]):
     # knowledge_manager._load_knowledge()
     return {"status": "success"}
 
-@app.post("/chat")
-def chat(request: QueryRequest):
-    global execution_trace
-    execution_trace = [] # Reset trace
-    
-    # 1. Load SOPs for Router (Dynamic from MD)
-    sops = sop_loader.load_all()
-    
-    classifier = IntentClassifier(sops)
-    route_result = classifier.route(request.query, config_name=request.config, mode=request.mode or "instruct")
-    sop = route_result.sop
-    args = route_result.args
-    reason = route_result.reason
-    
-    if not sop:
-        return {
-            "sop_id": None,
-            "response": None,
-            "trace": [],
-            "reason": reason
-        }
-    
-    # 2. Execute with TraceDispatcher
-    dispatcher = TraceDispatcher(execution_trace, config_name=request.config, mode=request.mode or "instruct")
-    dispatcher.memory.add_chat_message("user", request.query)
-    initial_context = {"user_query": request.query}
-    initial_context.update(args)
-    final_context = dispatcher.run_sop(sop, initial_context)
-    
-    return {
-        "sop_id": sop.id,
-        "sop_name_zh": sop.name_zh or sop.id,
-        "sop_name_en": sop.name_en or sop.id,
-        "args": args,
-        "trace": execution_trace,
-        "reason": reason,
-        "final_context": final_context
-    }
-
-@app.post("/chat/stream")
-def chat_stream(request: QueryRequest):
-    def event_stream():
-        try:
-            yield json.dumps({"type": "routing"}) + "\n"
-
-            # Load SOPs (Dynamic from MD)
-            sops = sop_loader.load_all()
-
-            classifier = IntentClassifier(sops)
-            route_result = classifier.route(request.query, config_name=request.config, mode=request.mode or "instruct")
-            sop = route_result.sop
-            args = route_result.args
-            reason = route_result.reason
-
-            if not sop:
-                yield json.dumps({"type": "nomatch"}) + "\n"
-                return
-
-            yield json.dumps({
-                "type": "start",
-                "sop_id": sop.id,
-                "sop_name_zh": sop.name_zh or sop.id,
-                "sop_name_en": sop.name_en or sop.id,
-                "args": args,
-                "reason": reason
-            }) + "\n"
-
-            trace_list: list = []
-            dispatcher = TraceDispatcher(trace_list, config_name=request.config, mode=request.mode or "instruct")
-            dispatcher.memory.add_chat_message("user", request.query)
-            initial_context = {"user_query": request.query}
-            initial_context.update(args)
-            dispatcher.memory.update_context(initial_context)
-
-            for step in sop.steps:
-                dispatcher._execute_step(step)
-                yield json.dumps({"type": "step", "step": trace_list[-1]}) + "\n"
-
-            yield json.dumps({"type": "done", "final_context": dispatcher.memory.blackboard}) + "\n"
-        except Exception as e:
-            yield json.dumps({"type": "error", "error": str(e)}) + "\n"
-
-    return StreamingResponse(event_stream(), media_type="application/x-ndjson")
-
 @app.get("/api/llm_configs")
 def list_llm_configs():
     """获取可用 LLM 模型配置列表"""
@@ -478,74 +263,6 @@ def list_llm_configs():
     except Exception as e:
         logger.error(f"获取 LLM 配置失败: {e}")
         raise HTTPException(status_code=500, detail=f"获取模型配置失败: {str(e)}")
-
-
-@app.post("/api/chat")
-async def chat_stream(request: ChatRequest, raw_request: Request):
-    """
-    AI ??????
-
-    P7????? AgentSession + qa config?agent ???????? SSE ?
-    ?message_delta?chunk?run_end?end????????????????
-
-    ??????????? SSE ??????
-    """
-    async def event_stream():
-        try:
-            message_id = f"msg-{int(time.time() * 1000)}"
-
-            # ??????
-            yield f"data: {json.dumps({'type': 'start', 'messageId': message_id}, ensure_ascii=False)}\n\n"
-
-            # ?????????history ??????????????????
-            session = create_standalone_session(scene="qa")
-            session.history = [
-                AgentMessage(role=msg.role, content=msg.content)
-                for msg in request.history
-                if msg.role in ("user", "assistant", "system")
-            ]
-
-            queue: asyncio.Queue = asyncio.Queue()
-
-            def emit(event):
-                queue.put_nowait(event)
-
-            loop = asyncio.get_event_loop()
-            run_future = loop.run_in_executor(None, session.run, request.message, emit)
-
-            while True:
-                # P7 ? Q10?????? run?LLM HTTP ???? chunk ??
-                if await raw_request.is_disconnected():
-                    session.cancel()
-                    break
-                try:
-                    event = await asyncio.wait_for(queue.get(), timeout=0.2)
-                except asyncio.TimeoutError:
-                    if run_future.done():
-                        break
-                    continue
-                frame = map_event_to_chat_sse(event)
-                if frame:
-                    yield f"data: {frame}\n\n"
-                if event.type in ("run_end", "error"):
-                    break
-            await run_future
-
-            yield "data: [DONE]\n\n"
-
-        except Exception as e:
-            logger.error(f"????? {e}")
-            yield f"data: {json.dumps({'type': 'error', 'error': str(e)}, ensure_ascii=False)}\n\n"
-
-    return StreamingResponse(
-        event_stream(),
-        media_type="text/event-stream",
-        headers={
-            "Cache-Control": "no-cache",
-            "Connection": "keep-alive",
-            "X-Accel-Buffering": "no"  # ?? Nginx ??
-        }
-    )
 
 
 @app.post("/api/chat/agent")
