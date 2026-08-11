@@ -152,7 +152,7 @@ const closeTabFromError = (tabKey: string) => {
   flex: 0 0 auto;
   width: 440px;
   border-left: 1px solid var(--border-color);
-  background: var(--panel-bg);
+  background: var(--bg-primary);
   overflow: hidden;
   display: flex;
   flex-direction: column;
