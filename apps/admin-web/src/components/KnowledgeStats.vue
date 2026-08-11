@@ -34,6 +34,17 @@
       size="middle"
       :pagination="{ pageSize: 20, showSizeChanger: true, showTotal: (total: number) => `共 ${total} 条` }"
     >
+      <template #headerCell="{ column, title }">
+        <div class="resizable-th">
+          <span class="resizable-th-title">{{ title }}</span>
+          <span
+            v-if="column.title"
+            class="resizable-th-handle"
+            title="拖动调整列宽"
+            @mousedown.prevent="onResizeStart($event, column)"
+          />
+        </div>
+      </template>
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'api_key_name'">
           {{ record.api_key_name || '内部' }}
@@ -181,6 +192,7 @@
 import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import dayjs from 'dayjs'
 import { message, Modal } from 'ant-design-vue'
+import type { TableColumnType } from 'ant-design-vue'
 import { CopyOutlined, ExclamationCircleOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
@@ -249,16 +261,70 @@ const viewerParseButtonText = computed(() => {
   return '开始解析'
 })
 
-const columns = [
-  { title: '上传人员', dataIndex: 'uploaded_by', key: 'uploaded_by', width: 80 },
-  { title: 'API', dataIndex: 'api_key_name', key: 'api_key_name', width: 65, ellipsis: true },
+const COLUMN_WIDTH_STORAGE_KEY = 'angineer-admin-knowledge-column-widths-v2'
+const MIN_COLUMN_WIDTH = 48
+
+const columns = ref<TableColumnType[]>([
+  { title: '上传人员', dataIndex: 'uploaded_by', key: 'uploaded_by', width: 96 },
+  { title: 'API', dataIndex: 'api_key_name', key: 'api_key_name', width: 120, ellipsis: true },
   { title: '文件名称', dataIndex: 'file_name', key: 'file_name', ellipsis: true },
   { title: '格式', dataIndex: 'file_format', key: 'file_format', width: 60 },
   { title: '大小', key: 'file_size', width: 80 },
   { title: '解析状态', key: 'status', width: 80 },
   { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
   { title: '操作', key: 'action', width: 220, fixed: 'right' as const },
-]
+])
+
+let resizingColumn: TableColumnType | null = null
+let resizeStartX = 0
+let resizeStartWidth = 0
+
+function onResizeStart(event: MouseEvent, column: TableColumnType) {
+  resizingColumn = column
+  resizeStartX = event.clientX
+  resizeStartWidth = Number(column.width) || MIN_COLUMN_WIDTH
+  document.addEventListener('mousemove', onResizeMove)
+  document.addEventListener('mouseup', onResizeEnd)
+}
+
+function onResizeMove(event: MouseEvent) {
+  if (!resizingColumn) return
+  const nextWidth = Math.max(MIN_COLUMN_WIDTH, Math.round(resizeStartWidth + event.clientX - resizeStartX))
+  resizingColumn.width = nextWidth
+}
+
+function onResizeEnd() {
+  if (resizingColumn) {
+    persistColumnWidths()
+  }
+  resizingColumn = null
+  document.removeEventListener('mousemove', onResizeMove)
+  document.removeEventListener('mouseup', onResizeEnd)
+}
+
+function persistColumnWidths() {
+  const widths: Record<string, number> = {}
+  for (const column of columns.value) {
+    if (typeof column.width === 'number') {
+      widths[String(column.key)] = column.width
+    }
+  }
+  localStorage.setItem(COLUMN_WIDTH_STORAGE_KEY, JSON.stringify(widths))
+}
+
+function restoreColumnWidths() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(COLUMN_WIDTH_STORAGE_KEY) || '{}') as Record<string, number>
+    for (const column of columns.value) {
+      const width = saved[String(column.key)]
+      if (typeof width === 'number' && width >= MIN_COLUMN_WIDTH) {
+        column.width = width
+      }
+    }
+  } catch {
+    // 本地存储内容损坏时忽略，使用默认列宽
+  }
+}
 
 const rowSelection = computed(() => ({
   selectedRowKeys: selectedRowKeys.value,
@@ -404,6 +470,8 @@ watch(stepsModalOpen, (open) => {
 onBeforeUnmount(() => {
   stopStagesPolling()
   stopRecordsPolling()
+  document.removeEventListener('mousemove', onResizeMove)
+  document.removeEventListener('mouseup', onResizeEnd)
 })
 
 async function loadDocStages(docId: string) {
@@ -591,6 +659,7 @@ async function batchHardDelete() {
 }
 
 onMounted(() => {
+  restoreColumnWidths()
   loadRecords()
 })
 </script>
@@ -628,6 +697,47 @@ onMounted(() => {
 }
 :deep(.ant-table) {
   th, td { text-align: center !important; }
+}
+:deep(.ant-table-thead > tr > th) {
+  position: relative;
+}
+.resizable-th {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.resizable-th-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resizable-th-handle {
+  position: absolute;
+  top: 0;
+  right: -5px;
+  bottom: 0;
+  width: 10px;
+  cursor: col-resize;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    right: 4px;
+    width: 2px;
+    border-radius: 1px;
+    background: transparent;
+    transition: background 0.2s;
+  }
+
+  &:hover::after {
+    background: var(--primary-color);
+  }
 }
 .action-btns {
   white-space: nowrap;
