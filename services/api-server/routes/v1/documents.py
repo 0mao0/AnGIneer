@@ -17,6 +17,8 @@ import docs_core.paths as paths
 from docs_core.docs_file_io import file_storage
 from docs_core.step10_export.export_artifacts import (
     list_doc_artifacts,
+    export_markdown,
+    export_images_zip,
     export_index_db,
     export_graph_db,
     remove_export_dir,
@@ -42,6 +44,8 @@ logger = logging.getLogger(__name__)
 
 # 允许下载的产物名白名单
 _ARTIFACT_NAMES = {
+    "content.md": "markdown",
+    "images.zip": "images",
     "doc_blocks_graph.jsonl": "structure",
     "doc_blocks_graph_meta.json": "structure",
     "index.sqlite": "index",
@@ -205,7 +209,7 @@ async def get_parse_status(doc_id: str):
 
 @router.get("/{doc_id}/artifacts", response_model=ArtifactsResponse)
 async def get_doc_artifacts(doc_id: str):
-    """列出该文档可下载的产物（jsonl/meta/index.sqlite/graph.sqlite）。"""
+    """列出该文档可下载的产物（content.md/images.zip/jsonl/meta/index/graph）。"""
     library_id = "default"
     items = [
         ArtifactListItem(
@@ -227,6 +231,25 @@ async def download_doc_artifact(doc_id: str, name: str):
     library_id = "default"
     if name not in _ARTIFACT_NAMES:
         raise HTTPException(400, f"不支持的产物: {name}")
+
+    if name == "content.md":
+        try:
+            path = export_markdown(library_id, doc_id)
+        except FileNotFoundError as exc:
+            raise HTTPException(404, str(exc))
+        return FileResponse(path, media_type="text/markdown; charset=utf-8", filename=name)
+
+    if name == "images.zip":
+        try:
+            path = export_images_zip(library_id, doc_id)
+        except FileNotFoundError as exc:
+            raise HTTPException(404, str(exc))
+        return FileResponse(
+            path,
+            media_type="application/zip",
+            filename=name,
+            background=BackgroundTask(remove_export_dir, path.parent),
+        )
 
     if name == "doc_blocks_graph.jsonl":
         path = paths.get_graph_jsonl_path(library_id, doc_id)

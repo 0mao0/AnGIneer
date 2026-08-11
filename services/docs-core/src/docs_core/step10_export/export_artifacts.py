@@ -7,6 +7,7 @@ import logging
 import shutil
 import sqlite3
 import tempfile
+import zipfile
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -127,6 +128,22 @@ def list_doc_artifacts(library_id: str, doc_id: str) -> List[Dict[str, object]]:
     """返回该文档当前可下载的产物清单。"""
     items: List[Dict[str, object]] = []
 
+    parsed_md = paths.get_parsed_markdown_path(library_id, doc_id)
+    if parsed_md.exists():
+        items.append({
+            "name": "content.md",
+            "kind": "markdown",
+            "size": parsed_md.stat().st_size,
+        })
+
+    images_dir = paths.get_parsed_dir(library_id, doc_id) / "images"
+    if images_dir.is_dir() and any(p.is_file() for p in images_dir.rglob("*")):
+        items.append({
+            "name": "images.zip",
+            "kind": "images",
+            "size": None,
+        })
+
     jsonl_path = paths.get_graph_jsonl_path(library_id, doc_id)
     if jsonl_path.exists():
         items.append({
@@ -153,6 +170,34 @@ def list_doc_artifacts(library_id: str, doc_id: str) -> List[Dict[str, object]]:
         items.append({"name": "graph.sqlite", "kind": "graph", "size": None})
 
     return items
+
+
+def export_markdown(library_id: str, doc_id: str) -> Path:
+    """返回该文档解析出的 content.md 路径（前端预览与人工阅读的主产物）。"""
+    path = paths.get_parsed_markdown_path(library_id, doc_id)
+    if not path.exists():
+        raise FileNotFoundError(f"文档 Markdown 产物不存在: {path}")
+    return path
+
+
+def export_images_zip(library_id: str, doc_id: str) -> Path:
+    """把该文档 content.md 引用的 images/ 目录打包为 images.zip（保留 images/ 前缀）。"""
+    images_dir = paths.get_parsed_dir(library_id, doc_id) / "images"
+    if not images_dir.is_dir() or not any(p.is_file() for p in images_dir.rglob("*")):
+        raise FileNotFoundError(f"文档图片目录不存在或为空: {images_dir}")
+
+    dst_dir = Path(tempfile.mkdtemp(prefix=f"images-{doc_id}-"))
+    zip_path = dst_dir / "images.zip"
+    try:
+        with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+            for file_path in sorted(images_dir.rglob("*")):
+                if file_path.is_file():
+                    arcname = f"images/{file_path.relative_to(images_dir).as_posix()}"
+                    zf.write(file_path, arcname=arcname)
+        return zip_path
+    except Exception:
+        shutil.rmtree(dst_dir, ignore_errors=True)
+        raise
 
 
 def export_index_db(library_id: str, doc_id: str) -> Path:

@@ -74,7 +74,7 @@ class ContentResponse(BaseModel):
 
 class ArtifactListItem(BaseModel):
     name: str
-    kind: str = Field(..., description="structure / index / graph")
+    kind: str = Field(..., description="markdown / images / structure / index / graph")
     size: Optional[int] = None
     url: str
 
