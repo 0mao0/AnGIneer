@@ -113,6 +113,25 @@ def _serialize_value(value: Any) -> Any:
     return str(value)
 
 
+class MarkerAllocator:
+    """run 级引用标记分配器：每个工具前缀全局递增。"""
+
+    def __init__(self) -> None:
+        self._counters: Dict[str, int] = {}
+
+    def next(self, prefix: str) -> str:
+        n = self._counters.get(prefix, 0) + 1
+        self._counters[prefix] = n
+        return f"{prefix}{n}"
+
+
+def _assign_cites(items: list, allocator: MarkerAllocator, prefix: str) -> None:
+    for item in items:
+        metadata = getattr(item, "metadata", None)
+        if metadata is not None:
+            metadata["cite"] = allocator.next(prefix)
+
+
 def _run_knowledge_search(
     *,
     query: str,
@@ -125,6 +144,8 @@ def _run_knowledge_search(
     dense: Any = None,
     sparse: Any = None,
     clause: Any = None,
+    prefix: str = "K",
+    marker_allocator: Optional[MarkerAllocator] = None,
     rerank: bool = False,
 ) -> Dict[str, Any]:
     """执行知识库正文检索（dense/sparse/clause 融合），供 knowledge_search 与 entity_search 回退共用。"""
@@ -180,6 +201,7 @@ def _run_knowledge_search(
         from angineer_core.retrieval_pipeline import rerank_candidates
 
         items = rerank_candidates(query, items, task_type=task_type)
+    _assign_cites(items, marker_allocator or MarkerAllocator(), prefix)
     for item in items:
         doc_title = doc_title_map.get(str(item.doc_id or ""), "")
         if not doc_title:
@@ -222,6 +244,7 @@ def _build_relevant_citations(query: str, items: list, limit: int = 5) -> List[D
             "target_id": str(getattr(item, "citation_target_id", None) or item.item_id or ""),
             "doc_id": str(item.doc_id or ""),
             "doc_title": doc_title,
+            "marker": str(item.metadata.get("cite") or ""),
             "page_idx": int(item.metadata.get("page_idx", 0) or 0),
             "page_label": item.metadata.get("page_label"),
             "section_path": str(item.metadata.get("section_path") or ""),
@@ -247,6 +270,7 @@ class RetrieverAdapter:
         dense: Any = None,
         sparse: Any = None,
         clause: Any = None,
+        marker_allocator: Optional[MarkerAllocator] = None,
         rerank: bool = False,
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
@@ -263,6 +287,8 @@ class RetrieverAdapter:
                 dense=dense,
                 sparse=sparse,
                 clause=clause,
+                prefix="K",
+                marker_allocator=marker_allocator,
                 rerank=rerank,
             )
 
@@ -288,6 +314,7 @@ class RetrieverAdapter:
         filters: Any = None,
         table: Any = None,
         formula: Any = None,
+        marker_allocator: Optional[MarkerAllocator] = None,
         rerank: bool = False,
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
@@ -333,6 +360,7 @@ class RetrieverAdapter:
                 from angineer_core.retrieval_pipeline import rerank_candidates
 
                 items = rerank_candidates(query, items, task_type="table_qa")
+            _assign_cites(items, marker_allocator or MarkerAllocator(), "T")
             result = {
                 "items": [_serialize_model(item) for item in items],
                 "total": len(items),
@@ -365,6 +393,7 @@ class RetrieverAdapter:
         top_k: int = 20,
         task_type: str = "content_qa",
         filters: Any = None,
+        marker_allocator: Optional[MarkerAllocator] = None,
         rerank: bool = False,
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
@@ -390,6 +419,8 @@ class RetrieverAdapter:
                     top_k=top_k,
                     task_type=task_type,
                     filters=filters,
+                    prefix="E",
+                    marker_allocator=marker_allocator,
                     rerank=rerank,
                 )
                 if fallback.get("error"):

@@ -1,5 +1,6 @@
 """P3.1 知识问答 + P4.1 大题型 agent 循环配置装配。"""
 import json
+import re
 from typing import Any, Dict, List, Optional
 
 from angineer_core.agent_loop import AgentLoopConfig, TurnContext
@@ -15,6 +16,26 @@ from angineer_core.prompts.agent_configs import (  # noqa: F401  # P5 资产化�
     QA_AGENT_SYSTEM_PROMPT,
 )
 from angineer_core.tool_codec import TextToolCallCodec
+
+
+_MARKER_RE = re.compile(r"\[([KTE]\d+)\]")
+
+
+def _valid_markers(added_messages: List[AgentMessage]) -> set:
+    valid = set()
+    for message in added_messages:
+        if message.role != "tool":
+            continue
+        try:
+            raw = json.loads(message.content or "{}")
+        except Exception:  # noqa: BLE001
+            continue
+        for item in (raw.get("items") or []) if isinstance(raw, dict) else []:
+            if isinstance(item, dict):
+                cite = (item.get("metadata") or {}).get("cite")
+                if cite:
+                    valid.add(str(cite))
+    return valid
 
 
 def _build_inline_citation_context(inline_citations: List[Dict[str, Any]]) -> str:
@@ -49,6 +70,87 @@ def _build_inline_citation_context(inline_citations: List[Dict[str, Any]]) -> st
     return "\n---\n".join(evidence_blocks)
 
 
+def make_final_answer_guard(enforce_evidence: bool = True):
+    """P6c 边界：检索过工具后，对最终回答做两层兜底。
+
+    - enforce_evidence：工具全部无有效证据时，拒绝给出结论；
+    - 未检索引用校验：答案中出现证据里没有的规范编号/题库背景时，替换为拒答话术。
+
+    返回 (新答案, 说明文案)；无需处理时返回 None。
+    """
+    from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT
+    from angineer_core.retrieval_pipeline import has_unsupported_reference
+
+    def guard(added_messages: List[AgentMessage]):
+        tool_messages = [m for m in added_messages if m.role == "tool"]
+        if not tool_messages:
+            return None
+
+        evidence_parts: List[str] = []
+        for message in tool_messages:
+            try:
+                raw = json.loads(message.content or "{}")
+            except Exception:  # noqa: BLE001
+                continue
+            if isinstance(raw, dict) and isinstance(raw.get("items"), list):
+                for item in raw["items"]:
+                    if not isinstance(item, dict):
+                        continue
+                    text = str(item.get("text") or "")
+                    if text.strip():
+                        evidence_parts.append(text.strip())
+
+        evidence_text = "\n".join(evidence_parts)
+        final_assistant = next(
+            (m for m in reversed(added_messages) if m.role == "assistant" and not m.tool_calls),
+            None,
+        )
+        if final_assistant is None:
+            return None
+
+        answer = final_assistant.content or ""
+        no_evidence = not evidence_text.strip()
+        if enforce_evidence and no_evidence:
+            return (
+                REFUSAL_ANSWER_TEXT,
+                "边界规则：未检索到有效证据，拒绝给出最终结论（enforce_evidence）",
+            )
+        if answer and has_unsupported_reference(answer, evidence_text):
+            return (
+                REFUSAL_ANSWER_TEXT,
+                "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
+            )
+        markers = _MARKER_RE.findall(answer)
+        valid = _valid_markers(added_messages)
+        bad = [m for m in markers if m not in valid]
+        if bad:
+            cleaned = _MARKER_RE.sub(lambda m: m.group(0) if m.group(1) in valid else "", answer)
+            return (cleaned, f"边界规则：检测到 {len(bad)} 个无效引用标记，已移除")
+        return None
+
+    return guard
+
+
+def build_chat_config(
+    *,
+    llm: Any,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+) -> AgentLoopConfig:
+    """L0 闲聊直答档：无工具、单轮。"""
+    from angineer_core.prompts.dispatcher import CHAT_SYSTEM_PROMPT
+
+    return AgentLoopConfig(
+        llm=llm,
+        tools=[],
+        system_prompt=CHAT_SYSTEM_PROMPT,
+        max_turns=1,
+        config_name=config_name,
+        mode=mode,
+        codec=TextToolCallCodec(),
+    )
+
+
 def build_qa_config(
     *,
     llm: Any,
@@ -63,6 +165,10 @@ def build_qa_config(
     mode: str = "instruct",
     tools: Optional[List[AgentTool]] = None,
     rerank: bool = True,
+    enforce_evidence: bool = True,
+    final_answer_guard: Optional[Any] = None,
+    route_note: Optional[str] = None,
+    marker_allocator: Optional[Any] = None,
 ) -> AgentLoopConfig:
     """装配 QA 档 agent 循环：三个只读检索工具 + 内联 QA prompt（P5 前）。"""
     effective_tools = tools
@@ -76,6 +182,7 @@ def build_qa_config(
                 task_type=task_type,
                 filters=filters,
                 rerank=rerank,
+                marker_allocator=marker_allocator,
             ),
             RetrieverAdapter.table_search(
                 library_id=library_id,
@@ -84,14 +191,21 @@ def build_qa_config(
                 top_k=20,
                 filters=filters,
                 rerank=rerank,
+                marker_allocator=marker_allocator,
             ),
-            RetrieverAdapter.entity_search(),
+            RetrieverAdapter.entity_search(
+                marker_allocator=marker_allocator,
+            ),
         ]
 
     system_prompt = QA_AGENT_SYSTEM_PROMPT
     explicit = _build_inline_citation_context(inline_citations or [])
     if explicit:
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
+
+    guard = final_answer_guard
+    if guard is None:
+        guard = make_final_answer_guard(enforce_evidence=enforce_evidence)
 
     return AgentLoopConfig(
         llm=llm,
@@ -101,6 +215,8 @@ def build_qa_config(
         system_prompt=system_prompt,
         max_turns=max_turns,
         codec=TextToolCallCodec(),
+        final_answer_guard=guard,
+        route_note=route_note,
     )
 
 
@@ -183,6 +299,8 @@ def build_complex_config(
     max_turns: int = 8,
     max_tokens_est: int = 100_000,
     budget_threshold: int = 120_000,
+    route_note: Optional[str] = None,
+    marker_allocator: Optional[Any] = None,
 ) -> AgentLoopConfig:
     """P4.1 大题型 agent 循环：QA 三件套 + SOP 执行 + 计算/查表/条件分支。"""
     if tools is None:
@@ -195,6 +313,7 @@ def build_complex_config(
                 task_type="content_qa",
                 filters=filters,
                 rerank=rerank,
+                marker_allocator=marker_allocator,
             ),
             RetrieverAdapter.table_search(
                 library_id=library_id,
@@ -203,8 +322,11 @@ def build_complex_config(
                 top_k=20,
                 filters=filters,
                 rerank=rerank,
+                marker_allocator=marker_allocator,
             ),
-            RetrieverAdapter.entity_search(),
+            RetrieverAdapter.entity_search(
+                marker_allocator=marker_allocator,
+            ),
         ]
         effective_tools = [
             *qa_tools,
@@ -286,4 +408,5 @@ def build_complex_config(
         codec=TextToolCallCodec(),
         transform_context=make_budget_transformer(max_tokens_est=max_tokens_est),
         should_stop_after_turn=make_budget_stopper(threshold=budget_threshold),
+        route_note=route_note,
     )
