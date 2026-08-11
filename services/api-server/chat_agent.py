@@ -10,6 +10,7 @@ import time
 from typing import Any, Dict, List, Optional
 
 from angineer_core.agent_events import AgentEvent
+from angineer_core.agent_loop import AgentLoopConfig
 from angineer_core.agent_session import AgentSession
 
 logger = logging.getLogger(__name__)
@@ -20,6 +21,17 @@ _TTL_SECONDS = 3600 * 2
 _AGENT_SESSION_POOL: Dict[str, AgentSession] = {}
 _AGENT_SESSION_LAST_ACTIVE: Dict[str, float] = {}
 _POOL_LOCK = threading.RLock()
+
+_INTENT_TYPE_LABELS = {
+    "casual_chat": "闲聊",
+    "concept_resolution": "概念/定义问答",
+    "locate_navigation": "定位问答",
+    "clause_application": "条款应用",
+    "standard_lookup": "规范查表",
+    "clause_then_calculation": "条款+计算",
+    "standard_calculation": "规范计算",
+    "complex_task": "复杂综合任务",
+}
 
 
 def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
@@ -38,8 +50,46 @@ def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
         return []
 
 
-def _make_config_factory(scene: str, library_id: str, doc_ids: Optional[List[str]]):
-    """按 scene 返回 qa/complex 档的 AgentLoopConfig 工厂。"""
+def _format_route_note(intent_result) -> Optional[str]:
+    """把意图分级结果转成思考过程第一条说明。"""
+    if intent_result is None:
+        return None
+    level = str(getattr(intent_result, "intent_level", "") or "")
+    intent_type = str(getattr(intent_result, "intent_type", "") or "")
+    service_mode = str(getattr(intent_result, "service_mode", "") or "")
+    reason = str(getattr(intent_result, "reason", "") or "").strip()
+    type_label = _INTENT_TYPE_LABELS.get(intent_type, intent_type or "未知类型")
+    level_label = {
+        "L0": "闲聊直答",
+        "L1": "正文问答",
+        "L2": "条款/表格定位",
+        "L3": "规范计算",
+        "L4": "复杂综合任务",
+    }.get(level, level or "")
+    note = f"意图判断：{level_label}（{level}）→ 策略 {service_mode}"
+    if reason:
+        note += f"（{reason}）"
+    return note
+
+
+def make_config_factory(
+    scene: str,
+    library_id: str,
+    doc_ids: Optional[List[str]],
+    sop_loader: Any = None,
+    intent_result: Any = None,
+):
+    """按 scene + 意图分级返回 qa/complex 档的 AgentLoopConfig 工厂。
+
+    L3/L4（规范计算/复杂综合）与 sop 类 scene 走 complex 档（带 SOP/计算工具），
+    其余走 qa 档（检索三件套）。
+    """
+    use_complex = bool(
+        scene in ("complex", "sop", "sops")
+        or (intent_result is not None and str(getattr(intent_result, "intent_level", "")) in ("L3", "L4"))
+        or (intent_result is not None and str(getattr(intent_result, "service_mode", "")) in ("standard_sop", "dynamic_orchestration"))
+    )
+    route_note = _format_route_note(intent_result)
 
     def factory():
         from ai_inference.llm_client import get_llm_client
@@ -47,13 +97,16 @@ def _make_config_factory(scene: str, library_id: str, doc_ids: Optional[List[str
 
         nodes = _load_doc_nodes(library_id, doc_ids)
         llm = get_llm_client()
-        if scene == "complex":
+        if use_complex:
             return build_complex_config(
                 llm=llm,
                 doc_nodes=nodes,
                 library_id=library_id,
                 doc_ids=list(doc_ids or []),
                 max_turns=8,
+                sops=list(sop_loader.load_all() or []) if sop_loader is not None else None,
+                sop_loader=sop_loader,
+                route_note=route_note,
             )
         return build_qa_config(
             llm=llm,
@@ -61,9 +114,55 @@ def _make_config_factory(scene: str, library_id: str, doc_ids: Optional[List[str
             library_id=library_id,
             doc_ids=list(doc_ids or []),
             max_turns=3,
+            route_note=route_note,
         )
 
     return factory
+
+
+def make_policy_config_factory(
+    scene: str,
+    library_id: str,
+    doc_ids: Optional[List[str]],
+    intent_result: Any,
+    sop_loader: Any = None,
+):
+    """按意图分级返回策略化 AgentLoopConfig 工厂（attempts 由 agent_policy 展开）。"""
+
+    def factory() -> AgentLoopConfig:
+        from ai_inference.llm_client import get_llm_client
+        from angineer_core.agent_loop import AgentLoopConfig
+        from angineer_core.agent_policy import build_attempts, format_route_note
+        from angineer_core.agent_tools import MarkerAllocator
+
+        allocator = MarkerAllocator()
+        attempts = build_attempts(
+            intent_result=intent_result,
+            scene=scene,
+            library_id=library_id,
+            doc_ids=list(doc_ids or []),
+            load_nodes=lambda: _load_doc_nodes(library_id, doc_ids),
+            llm_factory=get_llm_client,
+            config_name=None,
+            mode="instruct",
+            sop_loader=sop_loader,
+            marker_allocator=allocator,
+        )
+        return AgentLoopConfig(
+            llm=get_llm_client(),
+            tools=[],
+            system_prompt="",
+            max_turns=1,  # 仅无 attempts 时兜底；有 attempts 时预算由各段 config 决定
+            attempts=attempts,
+            route_note=format_route_note(intent_result),
+        )
+
+    return factory
+
+
+def _make_config_factory(scene: str, library_id: str, doc_ids: Optional[List[str]]):
+    """兼容别名：池化会话默认工厂（不携带单次意图）。"""
+    return make_config_factory(scene, library_id, doc_ids)
 
 
 def _evict_expired() -> None:

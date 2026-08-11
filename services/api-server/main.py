@@ -45,6 +45,7 @@ from chat_agent import (
     create_standalone_session,
     find_session_by_run_id,
     get_agent_session,
+    make_policy_config_factory,
     map_event_to_agent_frame,
     map_event_to_chat_sse,
 )
@@ -568,7 +569,30 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 queue.put_nowait(event)
 
             loop = asyncio.get_event_loop()
-            run_future = loop.run_in_executor(None, session.run, request.query, emit)
+            intent_result = None
+            try:
+                sops = sop_loader.load_all() if sop_loader is not None else []
+                intent_result = IntentClassifier(sops).classify_intent(
+                    request.query,
+                    config_name=request.config,
+                    mode=request.mode or "instruct",
+                )
+            except Exception as exc:
+                logger.warning("Agent 意图分级失败，按 scene 默认路由: %s", exc)
+            config_factory = make_policy_config_factory(
+                request.scene or "qa",
+                request.library_id,
+                request.doc_ids,
+                intent_result=intent_result,
+                sop_loader=sop_loader,
+            )
+            run_future = loop.run_in_executor(
+                None,
+                session.run,
+                request.query,
+                emit,
+                config_factory,
+            )
 
             while True:
                 if await raw_request.is_disconnected():
