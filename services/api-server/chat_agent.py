@@ -3,7 +3,6 @@
 按 ``scene:session_id`` 复用 AgentSession（qa/complex 档）；
 ``/api/chat`` 兼容帧映射与 ``/api/chat/agent`` 完整 AgentEvent 帧。
 """
-import json
 import logging
 import threading
 import time
@@ -115,51 +114,12 @@ def get_agent_session(
         return session
 
 
-def create_standalone_session(
-    scene: str = "qa",
-    library_id: str = "default",
-    doc_ids: Optional[List[str]] = None,
-) -> AgentSession:
-    """创建独立 AgentSession（不进入池），供 /api/chat 每次请求使用。"""
-    return AgentSession(_make_config_factory(scene, library_id, doc_ids or []))
-
-
 def find_session_by_run_id(run_id: str) -> Optional[AgentSession]:
     """按 active run_id 查找会话，供 steer 接口使用。"""
     with _POOL_LOCK:
         for session in _AGENT_SESSION_POOL.values():
             if session.active_run_id == run_id:
                 return session
-    return None
-
-
-def map_event_to_chat_sse(event: AgentEvent) -> Optional[str]:
-    """/api/chat 兼容帧映射：对外帧格式不变；返回 None 表示忽略该事件。"""
-    if event.type == "message_delta":
-        delta = str((event.payload or {}).get("delta") or "")
-        if delta:
-            return json.dumps({"type": "chunk", "content": delta}, ensure_ascii=False)
-        return None
-    if event.type == "run_end":
-        usage = (event.payload or {}).get("usage") or {}
-        return json.dumps(
-            {
-                "type": "end",
-                "usage": {
-                    "promptTokens": int(usage.get("prompt_tokens") or 0),
-                    "completionTokens": int(usage.get("completion_tokens") or 0),
-                },
-            },
-            ensure_ascii=False,
-        )
-    if event.type == "error":
-        return json.dumps(
-            {
-                "type": "error",
-                "error": str((event.payload or {}).get("message") or "未知错误"),
-            },
-            ensure_ascii=False,
-        )
     return None
 
 
