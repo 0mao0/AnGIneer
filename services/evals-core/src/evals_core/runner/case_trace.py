@@ -266,6 +266,7 @@ def run_eval_case_trace(
     from sop_core.sop_loader import SopLoader
     from angineer_core.classifier import IntentClassifier
     from angineer_core.dispatcher import Dispatcher
+    from angineer_core.policy_query import run_policy_query
 
     result_store.init_db()
     question = result_store.get_question(dataset_id, question_id)
@@ -337,10 +338,12 @@ def run_eval_case_trace(
             "step_findings": _collect_step_findings(isolated_trace),
         }
 
-    dispatch_result = Dispatcher(config_name=config_name, mode=mode).dispatch(
+    dispatch_result = run_policy_query(
         query=question["question"],
         library_id=question.get("library_id", "default"),
         doc_ids=question.get("doc_ids") or [],
+        config_name=config_name,
+        mode=mode,
         sop_loader=sop_loader,
     )
     dispatch_payload = {

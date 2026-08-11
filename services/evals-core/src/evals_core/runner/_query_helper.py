@@ -1,10 +1,10 @@
 """评测器共用查询桥接模块。
 
-封装 Dispatcher.dispatch() 的调用，注入 SOP Loader 等依赖，
+封装 angineer-core.policy_query.run_policy_query() 的调用，注入 SOP Loader 等依赖，
 供所有评测器统一使用。
 
 评测器只依赖 angineer-core（大脑），不直接依赖 docs-core / sop-core。
-所有后续调度、分析、编排，均由 angineer-core.Dispatcher 完成。
+所有后续调度、分析、编排，均由 angineer-core 的策略化路径完成。
 """
 import os
 import logging
@@ -41,7 +41,7 @@ def run_eval_query(
     step_callback=None,
 ) -> Dict[str, Any]:
     """
-    评测器专用查询入口，通过 angineer-core.Dispatcher.dispatch() 执行。
+    评测器专用查询入口，通过 angineer-core.policy_query.run_policy_query() 执行。
 
     不走 HTTP，不依赖 FastAPI，不依赖 asyncio。
     在评测器的 daemon 线程中直接调用即可。
@@ -60,15 +60,15 @@ def run_eval_query(
         与 /api/query 相同结构的字典
     """
     try:
-        from angineer_core.dispatcher import Dispatcher
+        from angineer_core.policy_query import run_policy_query
 
         sop_loader = _ensure_sop_loader()
 
-        dispatcher = Dispatcher(config_name=None)
-        result = dispatcher.dispatch(
+        result = run_policy_query(
             query=query,
             library_id=library_id,
             doc_ids=doc_ids or [],
+            config_name=None,
             sop_loader=sop_loader,
             stage_callback=stage_callback,
             step_callback=step_callback,

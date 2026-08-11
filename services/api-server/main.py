@@ -3,11 +3,9 @@ import json
 import glob
 import subprocess
 import asyncio
-import time
 import sys
 import uuid
 import tempfile
-import threading
 import logging
 from typing import List, Dict, Any, Optional
 from fastapi import FastAPI, HTTPException, Request
@@ -176,47 +174,6 @@ class QueryRequest(BaseModel):
     mode: Optional[str] = None
     history: List[Dict[str, Any]] = Field(default_factory=list)
 
-
-class SessionEntry(BaseModel):
-    """服务端会话池条目，按 session_key 隔离对话上下文。"""
-    session_key: str
-    scene: str
-    history: List[Dict[str, Any]] = Field(default_factory=list)
-    last_active_at: float = 0.0
-
-
-_SESSION_POOL: Dict[str, SessionEntry] = {}
-
-_SESSION_POOL_MAX_SIZE = 200
-_SESSION_POOL_TTL_SECONDS = 3600 * 2
-
-_SESSION_LOCK = threading.RLock()
-
-
-def _get_or_create_session(scene: str, session_id: Optional[str]) -> SessionEntry:
-    with _SESSION_LOCK:
-        key = f"{scene}:{session_id or 'default'}"
-        entry = _SESSION_POOL.get(key)
-        if entry:
-            entry.last_active_at = time.time()
-            return entry
-        if len(_SESSION_POOL) >= _SESSION_POOL_MAX_SIZE:
-            _evict_expired_sessions()
-        entry = SessionEntry(session_key=key, scene=scene, last_active_at=time.time())
-        _SESSION_POOL[key] = entry
-        return entry
-
-
-def _evict_expired_sessions() -> None:
-    with _SESSION_LOCK:
-        now = time.time()
-        expired = [k for k, v in _SESSION_POOL.items() if now - v.last_active_at > _SESSION_POOL_TTL_SECONDS]
-        for k in expired:
-            del _SESSION_POOL[k]
-        if len(_SESSION_POOL) >= _SESSION_POOL_MAX_SIZE:
-            sorted_keys = sorted(_SESSION_POOL, key=lambda k: _SESSION_POOL[k].last_active_at)
-            for k in sorted_keys[: len(sorted_keys) // 4]:
-                del _SESSION_POOL[k]
 
 # AI Chat 对话相关模型
 class SteerRequest(BaseModel):
@@ -569,45 +526,6 @@ def run_test(test_id: str, config: str = None, query: str = None, mode: str = "i
         return {"error": str(e)}
 
 
-
-
-# 将意图分类结果映射为检索器可识别的任务类型
-@app.post("/api/query")
-async def query(request: QueryRequest):
-    """统一查询入口：委托 Dispatcher.dispatch() 执行完整链路。"""
-    from angineer_core.dispatcher import Dispatcher
-
-    started_at = time.time()
-    query_id = f"q-{uuid.uuid4().hex[:12]}"
-
-    try:
-        session = _get_or_create_session(request.scene, request.session_id)
-        session.history.append({"role": "user", "content": request.query})
-    except Exception as e:
-        logger.error(f"会话创建失败: {e}")
-        session = None
-
-    dispatcher = Dispatcher(
-        config_name=request.config,
-        mode=request.mode or "instruct",
-    )
-    result = dispatcher.dispatch(
-        query=request.query,
-        library_id=request.library_id,
-        doc_ids=request.doc_ids or [],
-        inline_citations=request.inline_citations or [],
-        sop_loader=sop_loader,
-    )
-
-    result["query_id"] = query_id
-    result["session_key"] = session.session_key if session else ""
-
-    if session:
-        session.history.append({"role": "assistant", "content": result.get("answer", "")})
-
-    result["latency_ms"] = int((time.time() - started_at) * 1000)
-
-    return result
 
 
 if __name__ == "__main__":
