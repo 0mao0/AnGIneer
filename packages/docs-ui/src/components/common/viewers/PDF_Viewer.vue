@@ -1,6 +1,6 @@
 <template>
   <div class="pdf-viewer-shell" :class="[themeClass, { 'has-side-panel': sidePanelVisible }]">
-    <div ref="splitPaneRef" class="split-pane">
+    <div ref="splitPaneRef" :class="['split-pane', themeClass]">
     <div ref="headerTitleRef" class="pane-title pane-title-with-actions">
       <div ref="headerMainRef" class="pane-title-main">
         <div class="pane-title-prefix-wrap">

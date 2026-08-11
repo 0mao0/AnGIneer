@@ -15,6 +15,7 @@
       <PDFParsedWorkspace
         v-else-if="document && isPdfView && pdfUrl"
         :node="{ key: currentDocId, title: document.title, status: 'completed', isFolder: false, visible: true, filePath: pdfFilePath }"
+        :dark="isDark"
         :content="document.content"
         :render-pdf-path="pdfFilePath"
         :graph-data="graphData"
@@ -43,7 +44,7 @@ import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { message } from 'ant-design-vue'
 import { PDFParsedWorkspace, Preview_Markdown } from '@angineer/docs-ui'
-import { EmptyState } from '@angineer/ui-kit'
+import { EmptyState, useTheme } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
 
 const props = defineProps<{
@@ -57,6 +58,7 @@ const props = defineProps<{
 }>()
 
 const route = useRoute()
+const { isDark } = useTheme()
 const loading = ref(true)
 const loadError = ref<string>('')
 const document = ref<{ id: string; title: string; content: string } | null>(null)
