@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'path'
 import portContract from '../shared/ports.json'
+import pdfWasmPlugin from '../../packages/docs-ui/vite-pdf-wasm.mjs'
 
 const WEB_CONSOLE_PORT = portContract.webConsolePort
 const API_PROXY_TARGET = `http://${portContract.localHost}:${portContract.apiServerPort}`
@@ -10,7 +11,7 @@ const rootPackage = JSON.parse(readFileSync(resolve(__dirname, '../../package.js
 const APP_VERSION = rootPackage.version || '0.1.0'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(), pdfWasmPlugin()],
   define: {
     'import.meta.env.VITE_APP_VERSION': JSON.stringify(APP_VERSION)
   },
