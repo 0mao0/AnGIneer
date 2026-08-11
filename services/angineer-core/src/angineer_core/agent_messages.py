@@ -8,6 +8,12 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 
+REFUSAL_ANSWER_TEXT = (
+    "没有检索到足够证据支持最终结论。"
+    "当前仅能确认已有片段与问题相关，但不足以安全地给出完整答案，请继续补充可核对的规范依据。"
+)
+
+
 @dataclass
 class ToolCall:
     """循环侧生成的工具调用。id 形如 call_{turn}_{seq}。"""

@@ -17,6 +17,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 from angineer_core.agent_events import AgentEvent
 from angineer_core.agent_messages import (
     AgentMessage,
+    REFUSAL_ANSWER_TEXT,
     agent_message_to_dict,
     to_llm_messages,
 )
@@ -419,8 +420,26 @@ def run_agent_loop(
             tools_by_name = {tool.name: tool for tool in active_config.tools}
             attempt_turn = 0
             return "next"
+        # 终段：只要产出了非空最终答案（含拒答）就算完成；
+        # 只有完全没有答案才由调用方补拒答收尾。
+        final_answer = next(
+            (
+                m for m in reversed(added)
+                if m.role == "assistant" and not m.tool_calls and (m.content or "").strip()
+            ),
+            None,
+        )
+        if final_answer is not None:
+            return "completed"
         reason = "attempts_exhausted"
         return "exhausted"
+
+    def _finalize_refusal() -> None:
+        """终段没有产出任何答案时，补一条拒答并以 completed 收尾，避免前端无结果。"""
+        nonlocal reason
+        messages.append(AgentMessage(role="assistant", content=REFUSAL_ANSWER_TEXT))
+        _add_note("未产生可用答案，已按拒答收尾")
+        reason = "completed"
 
     if attempts:
         active_config = _apply_attempt(0)
@@ -480,7 +499,9 @@ def run_agent_loop(
                             status = _advance_attempt()
                             if status == "next":
                                 continue
-                            break  # completed / attempts_exhausted，reason 由 _advance_attempt 维护
+                            if status == "exhausted":
+                                _finalize_refusal()
+                            break  # completed / exhausted 均已收尾，reason 已维护
                         reason = "max_turns"
                         break
 
@@ -536,6 +557,7 @@ def run_agent_loop(
                     if status == "next":
                         continue
                     if status == "exhausted":
+                        _finalize_refusal()
                         break
                 reason = "completed"
                 break

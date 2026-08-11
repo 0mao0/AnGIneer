@@ -136,7 +136,7 @@ export const defaultAIChatTransport = {
           // 覆盖流式过程里可能出现的工具调用围栏，也兼容后端边界规则替换后的答案。
           const finalAssistant = [...traceMessages]
             .reverse()
-            .find((m: any) => m.role === 'assistant')
+            .find((m: any) => m.role === 'assistant' && !m.tool_calls)
           if (finalAssistant) {
             const finalRaw = String(finalAssistant.content || '')
             const cleanedFinal = cleanStreamText(finalRaw)

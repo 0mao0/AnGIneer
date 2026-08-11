@@ -34,10 +34,8 @@ from angineer_core.prompts.dispatcher import (
 
 MULTI_CHOICE_PATTERN = re.compile(r"[(（][A-E][)）]")
 
-REFUSAL_ANSWER_TEXT = (
-    "没有检索到足够证据支持最终结论。"
-    "当前仅能确认已有片段与问题相关，但不足以安全地给出完整答案，请继续补充可核对的规范依据。"
-)
+# 拒答话术下沉到 agent_messages（引擎边界允许依赖），此处 re-export 保持旧导入兼容
+from angineer_core.agent_messages import REFUSAL_ANSWER_TEXT  # noqa: E402
 
 
 def is_choice_query(query: str) -> bool:
