@@ -1,4 +1,3 @@
-export { useQuery } from './useQuery'
 export { useRefAnchor } from './useRefAnchor'
 export {
   createResourceNodeFromKnowledge,
