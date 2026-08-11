@@ -569,16 +569,16 @@ def run_agent_loop(
             AgentEvent(type="error", run_id=run_id, turn=turn, payload={"message": str(exc), "stage": "run_agent_loop"}),
         )
 
-    # 最终答案边界（P6c）：仅对"确实检索过工具"的收尾回答生效，
-    # 避免闲聊类直接回答被误判成无证据拒答。
+    # 最终答案边界（P6c）：guard 自行区分检索过/未检索。
+    # 有工具结果时做证据拒答 + 标记校验；没有工具结果时仍执行标记清理
+    # （模型未调工具却输出 [Kx] 视为编造）。L0 闲聊档不装 guard，不受影响。
     if active_config.final_answer_guard is not None and reason not in ("error", "cancelled"):
         added_messages = messages[start_idx:]
         final_assistant = next(
             (m for m in reversed(added_messages) if m.role == "assistant" and not m.tool_calls),
             None,
         )
-        has_tool_results = any(m.role == "tool" for m in added_messages)
-        if final_assistant is not None and has_tool_results:
+        if final_assistant is not None:
             guard_result = _run_callback(active_config.final_answer_guard, None, added_messages)
             if guard_result:
                 new_content, guard_note = guard_result

@@ -75,6 +75,8 @@ def make_final_answer_guard(enforce_evidence: bool = True):
 
     - enforce_evidence：工具全部无有效证据时，拒绝给出结论；
     - 未检索引用校验：答案中出现证据里没有的规范编号/题库背景时，替换为拒答话术。
+    - 标记清理：无论是否调过工具，答案中的 [KTE] 标记必须真实存在于工具返回；
+      没调工具时所有标记视为编造，一律移除（不因此拒答，避免误伤模型直接回答）。
 
     返回 (新答案, 说明文案)；无需处理时返回 None。
     """
@@ -83,24 +85,6 @@ def make_final_answer_guard(enforce_evidence: bool = True):
 
     def guard(added_messages: List[AgentMessage]):
         tool_messages = [m for m in added_messages if m.role == "tool"]
-        if not tool_messages:
-            return None
-
-        evidence_parts: List[str] = []
-        for message in tool_messages:
-            try:
-                raw = json.loads(message.content or "{}")
-            except Exception:  # noqa: BLE001
-                continue
-            if isinstance(raw, dict) and isinstance(raw.get("items"), list):
-                for item in raw["items"]:
-                    if not isinstance(item, dict):
-                        continue
-                    text = str(item.get("text") or "")
-                    if text.strip():
-                        evidence_parts.append(text.strip())
-
-        evidence_text = "\n".join(evidence_parts)
         final_assistant = next(
             (m for m in reversed(added_messages) if m.role == "assistant" and not m.tool_calls),
             None,
@@ -109,17 +93,33 @@ def make_final_answer_guard(enforce_evidence: bool = True):
             return None
 
         answer = final_assistant.content or ""
-        no_evidence = not evidence_text.strip()
-        if enforce_evidence and no_evidence:
-            return (
-                REFUSAL_ANSWER_TEXT,
-                "边界规则：未检索到有效证据，拒绝给出最终结论（enforce_evidence）",
-            )
-        if answer and has_unsupported_reference(answer, evidence_text):
-            return (
-                REFUSAL_ANSWER_TEXT,
-                "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
-            )
+        if tool_messages:
+            evidence_parts: List[str] = []
+            for message in tool_messages:
+                try:
+                    raw = json.loads(message.content or "{}")
+                except Exception:  # noqa: BLE001
+                    continue
+                if isinstance(raw, dict) and isinstance(raw.get("items"), list):
+                    for item in raw["items"]:
+                        if not isinstance(item, dict):
+                            continue
+                        text = str(item.get("text") or "")
+                        if text.strip():
+                            evidence_parts.append(text.strip())
+
+            evidence_text = "\n".join(evidence_parts)
+            no_evidence = not evidence_text.strip()
+            if enforce_evidence and no_evidence:
+                return (
+                    REFUSAL_ANSWER_TEXT,
+                    "边界规则：未检索到有效证据，拒绝给出最终结论（enforce_evidence）",
+                )
+            if answer and has_unsupported_reference(answer, evidence_text):
+                return (
+                    REFUSAL_ANSWER_TEXT,
+                    "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
+                )
         markers = _MARKER_RE.findall(answer)
         valid = _valid_markers(added_messages)
         bad = [m for m in markers if m not in valid]
