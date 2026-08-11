@@ -321,7 +321,7 @@
  * PDF_Viewer — 可直接移植到任何 Vue 3 项目的 PDF 预览组件。
  *
  * ## 依赖
- *   vue ^3.3     ant-design-vue ^4     pdfjs-dist ^4     @ant-design/icons-vue ^7
+ *   vue ^3.3     ant-design-vue ^4     pdfjs-dist ^6     @ant-design/icons-vue ^7
  *
  * ## 最少 prop（开箱即用）
  *   :node="{ status: 'completed', filePath: '/path/doc.pdf' }"
@@ -416,10 +416,12 @@ const props = withDefaults(defineProps<{
   sidePanelOpen?: boolean
   showSidePanelToggle?: boolean
   sidePanelWidth?: number
+  pdfAssetBaseUrl?: string
 }>(), {
   sidePanelOpen: undefined,
   showSidePanelToggle: false,
-  sidePanelWidth: 400
+  sidePanelWidth: 400,
+  pdfAssetBaseUrl: `${import.meta.env.BASE_URL}`
 })
 
 // --- hover 联动：hover 的框加深（hover-primary），同节点其它 bbox 浅橙（hover-linked） ---
@@ -463,6 +465,12 @@ const sidePanelVisible = computed(() => sidePanelOpenValue.value && Boolean(slot
 const toggleSidePanel = () => {
   sidePanelOpenValue.value = !sidePanelOpenValue.value
 }
+
+// pdf.js 6.x 需要 cMap / 标准字体 / wasm 三个目录齐备才会启用 worker fetch + wasm 解码
+const pdfAssetBaseUrl = computed(() => {
+  const base = props.pdfAssetBaseUrl || `${import.meta.env.BASE_URL}`
+  return base.endsWith('/') ? base : `${base}/`
+})
 
 // --- 常量配置 ---
 const MIN_SCALE = 0.1
@@ -1394,12 +1402,7 @@ function usePdfRendering(
       if (isSizeChanged) { canvas.width = targetWidth; canvas.height = targetHeight }
       canvas.style.width = `${cssWidth}px`
       canvas.style.height = `${cssHeight}px`
-      const canvasContext = canvas.getContext('2d', { alpha: false })
-      if (!canvasContext) return
-      canvasContext.setTransform(1, 0, 0, 1, 0, 0)
-      canvasContext.fillStyle = '#ffffff'
-      canvasContext.fillRect(0, 0, targetWidth, targetHeight)
-      const renderTask = pdfPage.render({ canvasContext, viewport: viewport, intent: 'print' })
+      const renderTask = pdfPage.render({ canvas, viewport, intent: 'print' })
       pageRenderTasks.set(page, renderTask)
       await renderTask.promise
       if (pageRenderTasks.get(page) === renderTask) {
@@ -1471,13 +1474,9 @@ function usePdfDocument(
   const pdfLoadingTask = shallowRef<any>(null)
   let pdfLoadToken = 0
 
-  function destroyPdfLoadingTask() {
+  function destroyPdf() {
     pdfLoadingTask.value?.destroy?.()
     pdfLoadingTask.value = null
-  }
-
-  function destroyPdfDocument() {
-    pdfDocument.value?.destroy?.()
     pdfDocument.value = null
   }
 
@@ -1523,20 +1522,18 @@ function usePdfDocument(
     pdfLoadingProgress.value = 0
     const nextToken = pdfLoadToken + 1
     pdfLoadToken = nextToken
-    destroyPdfLoadingTask()
-    destroyPdfDocument()
+    destroyPdf()
     render.clearPdfRenderState()
 
     try {
       const loadingTask = pdfjsLib.getDocument({
-        url: source, credentials: 'same-origin',
+        url: source,
         disableRange: false, disableStream: false, disableAutoFetch: false,
         rangeChunkSize: 65536 * 8,
-      } as unknown as Parameters<typeof pdfjsLib.getDocument>[0]) as unknown as {
-        promise: Promise<any>
-        destroy?: () => void
-        onProgress?: (progress: { loaded: number; total: number }) => void
-      }
+        cMapUrl: `${pdfAssetBaseUrl.value}cmaps/`,
+        standardFontDataUrl: `${pdfAssetBaseUrl.value}standard_fonts/`,
+        wasmUrl: `${pdfAssetBaseUrl.value}wasm/`,
+      })
 
       loadingTask.onProgress = ({ loaded, total }: { loaded: number; total: number }) => {
         if (total > 0) pdfLoadingProgress.value = Math.min(99, Math.round((loaded / total) * 100))
@@ -1544,27 +1541,29 @@ function usePdfDocument(
 
       pdfLoadingTask.value = loadingTask
       const nextDocument = await loadingTask.promise
-      if (pdfLoadToken !== nextToken) { nextDocument?.destroy?.(); return }
+      if (pdfLoadToken !== nextToken) { void loadingTask.destroy(); return }
       await onPdfDocumentLoaded(nextDocument)
       return
     } catch (error) {
       console.warn('[PDFViewer] Stream load failed, trying full array buffer load:', error)
       if (pdfLoadToken !== nextToken) return
-      destroyPdfLoadingTask()
-      destroyPdfDocument()
+      destroyPdf()
     }
 
     try {
-      const response = await fetch(source, { credentials: 'same-origin' })
+      const response = await fetch(source)
       if (!response.ok) throw new Error(`Failed to fetch PDF (${response.status})`)
       const pdfBinary = new Uint8Array(await response.arrayBuffer())
       if (pdfLoadToken !== nextToken) return
       const loadingTask = pdfjsLib.getDocument({
-        data: pdfBinary, disableRange: true, disableStream: true, disableAutoFetch: true
+        data: pdfBinary, disableRange: true, disableStream: true, disableAutoFetch: true,
+        cMapUrl: `${pdfAssetBaseUrl.value}cmaps/`,
+        standardFontDataUrl: `${pdfAssetBaseUrl.value}standard_fonts/`,
+        wasmUrl: `${pdfAssetBaseUrl.value}wasm/`,
       })
       pdfLoadingTask.value = loadingTask
       const nextDocument = await loadingTask.promise
-      if (pdfLoadToken !== nextToken) { nextDocument?.destroy?.(); return }
+      if (pdfLoadToken !== nextToken) { void loadingTask.destroy(); return }
       await onPdfDocumentLoaded(nextDocument)
       return
     } catch (error) {
@@ -1580,11 +1579,10 @@ function usePdfDocument(
 
   function onBeforeUnmount() {
     pdfLoadToken += 1
-    destroyPdfLoadingTask()
-    destroyPdfDocument()
+    destroyPdf()
   }
 
-  return { useNativePdfPreview, isPdfLoading, pdfLoadingProgress, localPdfPageCount, pdfDocument, loadPdfDocument, destroyPdfLoadingTask, destroyPdfDocument, onBeforeUnmount }
+  return { useNativePdfPreview, isPdfLoading, pdfLoadingProgress, localPdfPageCount, pdfDocument, loadPdfDocument, destroyPdf, onBeforeUnmount }
 }
 
 // --- 组合 Composable 函数 ---

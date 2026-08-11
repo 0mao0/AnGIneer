@@ -25,6 +25,7 @@
           :show-side-panel-toggle="showSidePanelToggle"
           :side-panel-open="sidePanelOpen"
           :side-panel-width="sidePanelWidth"
+          :pdf-asset-base-url="pdfAssetBaseUrl"
           @download="downloadFile"
           @text-scroll="onLeftTextScrollPercent"
           @pdf-active-page="onPdfPageChanged"
@@ -115,6 +116,7 @@ interface Props {
   sidePanelOpen?: boolean
   sidePanelDefaultOpen?: boolean
   sidePanelWidth?: number
+  pdfAssetBaseUrl?: string
   defaultParsedTab?: PreviewMode
 }
 
