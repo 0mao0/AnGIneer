@@ -7,7 +7,7 @@
       <span class="header-title">{{ title }}</span>
       <div class="header-actions">
         <a-tag v-if="showContextInfo" class="context-info" size="small">
-          {{ contextRounds }}轮 / {{ contextTokens }}tokens
+          {{ contextRounds }}轮 / {{ formatTokenCount(contextTokens) }}tokens
         </a-tag>
         <a-button type="text" size="small" @click="handleClear">
           <template #icon><ClearOutlined /></template>
@@ -16,7 +16,8 @@
       </div>
     </div>
 
-    <div ref="messagesRef" class="chat-messages" @click="handleMessageClick">
+    <div class="chat-messages-wrap">
+      <div ref="messagesRef" class="chat-messages" @click="handleMessageClick">
       <div
         v-for="(msg, index) in displayMessages"
         :key="msg.id || index"
@@ -58,140 +59,93 @@
 
           <template v-else-if="msg.role === 'assistant'">
             <div class="assistant-content">
-              <div class="answer-text" v-html="renderAssistantContent(msg)" />
-              <template v-if="msg.queryChain || getVisibleCitations(msg).length">
+              <div
+                v-if="getThinkingGroups(msg).length || ((msg as any).gap_analysis && (msg as any).gap_analysis.length > 0) || getConfidenceKeys(msg).length > 0"
+                class="thinking-card"
+              >
                 <button
-                  class="message-meta-toggle"
                   type="button"
-                  @click="toggleMetaExpanded(msg)"
+                  class="thinking-card-header"
+                  @click="toggleThinkingExpanded(msg)"
                 >
-                  <span class="meta-toggle-arrow">
-                    <DownOutlined v-if="isMetaExpanded(msg)" />
+                  <BulbOutlined class="thinking-card-icon" />
+                  <span class="thinking-card-label">
+                    思考过程
+                    <template v-if="getThinkingStepCount(msg)">（{{ getThinkingStepCount(msg) }} 步<template v-if="getThinkingDuration(msg)"> · 工具耗时合计 {{ formatDuration(getThinkingDuration(msg)) }}</template>）</template>
+                  </span>
+                  <span class="thinking-card-arrow">
+                    <DownOutlined v-if="isThinkingExpanded(msg)" />
                     <RightOutlined v-else />
                   </span>
-                  <span class="meta-toggle-label">{{ getMetaToggleLabel(msg) }}</span>
                 </button>
-                <template v-if="isMetaExpanded(msg)">
-                  <div v-if="msg.queryChain" class="message-chain">
-                    {{ msg.queryChain }}
+                <div v-if="isThinkingExpanded(msg)" class="thinking-card-body">
+                  <div v-if="getThinkingGroups(msg).length" class="analysis-section">
+                    <div class="analysis-title">执行步骤</div>
+                    <ThinkingSteps
+                      :groups="getThinkingGroups(msg)"
+                      @select-citation="handleCitationClick"
+                    />
                   </div>
-                  <div v-if="getVisibleCitations(msg).length" class="citation-panel">
-                    <div class="citation-title">参考依据</div>
-                    <button
-                      v-for="citation in getVisibleCitations(msg)"
-                      :key="`${citation.target_id}-${citation.page_idx}-${citation.section_path}`"
-                      class="citation-item"
-                      type="button"
-                      @click="handleCitationClick(citation)"
-                    >
-                      <div class="citation-header">
-                        <div class="citation-meta">
-                          <span class="citation-doc">{{ citation.doc_title }}</span>
-                          <span v-if="citation.page_idx || citation.page_label" class="citation-page">P{{ citation.page_label || citation.page_idx }}</span>
-                          <span v-if="getCitationLastSegment(citation.section_path)" class="citation-location">
-                            {{ getCitationLastSegment(citation.section_path) }}
-                          </span>
-                          <span v-if="citation.score" class="citation-score">
-                            置信度 {{ (citation.score * 100).toFixed(0) }}%
-                          </span>
-                        </div>
-                      </div>
-                      <div class="citation-detail">
-                        <CitationRichContent
-                          v-if="citation.rich_media && (citation.rich_media.table_html || citation.rich_media.math_content || citation.rich_media.image_path || (citation.rich_media.image_paths && citation.rich_media.image_paths.length) || (citation.rich_media.rich_media_order && citation.rich_media.rich_media_order.length))"
-                          class="citation-rich-media"
-                          :reference="mapBaseChatCitationToReference(citation)"
-                        />
-                        <div
-                          v-if="citation.content || citation.snippet"
-                          class="citation-snippet"
-                        >
-                          {{ citation.content || citation.snippet }}
-                        </div>
-                      </div>
-                    </button>
-                  </div>
-                </template>
-              </template>
 
-              <!-- 知识盲区分析 -->
-              <div
-                v-if="(msg as any).gap_analysis && (msg as any).gap_analysis.length > 0"
-                class="gap-analysis-panel"
-              >
-                <div class="gap-analysis-header" @click="toggleGapAnalysis(msg)">
-                  <span class="gap-analysis-toggle">
-                    <DownOutlined v-if="isGapAnalysisExpanded(msg)" />
-                    <RightOutlined v-else />
-                  </span>
-                  <WarningOutlined class="gap-analysis-icon" />
-                  <span class="gap-analysis-title">
-                    知识盲区（{{ (msg as any).gap_analysis.length }}项）
-                  </span>
-                </div>
-                <div v-if="isGapAnalysisExpanded(msg)" class="gap-analysis-body">
                   <div
-                    v-for="(gap, idx) in (msg as any).gap_analysis"
-                    :key="idx"
-                    class="gap-item"
+                    v-if="(msg as any).gap_analysis && (msg as any).gap_analysis.length > 0"
+                    class="analysis-section"
                   >
-                    <div class="gap-description">
-                      <span class="gap-index">{{ idx + 1 }}.</span>
-                      {{ gap.gap_description }}
-                    </div>
+                    <div class="analysis-title">知识盲区</div>
                     <div
-                      v-if="gap.suggested_sources && gap.suggested_sources.length > 0"
-                      class="gap-suggestions"
+                      v-for="(gap, idx) in (msg as any).gap_analysis"
+                      :key="idx"
+                      class="gap-item"
                     >
-                      <span class="gap-suggestion-label">建议补充：</span>
-                      <a-tag
-                        v-for="(src, sIdx) in gap.suggested_sources"
-                        :key="sIdx"
-                        color="orange"
-                        class="gap-tag"
+                      <div class="gap-description">
+                        <span class="gap-index">{{ idx + 1 }}.</span>
+                        {{ gap.gap_description }}
+                      </div>
+                      <div
+                        v-if="gap.suggested_sources && gap.suggested_sources.length > 0"
+                        class="gap-suggestions"
                       >
-                        {{ src }}
-                      </a-tag>
+                        <span class="gap-suggestion-label">建议补充：</span>
+                        <a-tag
+                          v-for="(src, sIdx) in gap.suggested_sources"
+                          :key="sIdx"
+                          color="orange"
+                          class="gap-tag"
+                        >
+                          {{ src }}
+                        </a-tag>
+                      </div>
                     </div>
                   </div>
+
+                  <div v-if="getConfidenceKeys(msg).length > 0" class="analysis-section">
+                    <div class="analysis-title">置信度说明</div>
+                    <div
+                      v-for="level in getConfidenceKeys(msg)"
+                      :key="level"
+                      class="confidence-level"
+                    >
+                      <div class="confidence-label">
+                        <span
+                          class="confidence-dot"
+                          :class="`confidence-dot-${level}`"
+                        />
+                        {{ getConfidenceLabel(level) }}
+                      </div>
+                      <div
+                        v-for="(item, cIdx) in (msg as any).confidence_breakdown[level]"
+                        :key="cIdx"
+                        class="confidence-item"
+                      >
+                        {{ item }}
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 
-              <!-- 置信度说明 -->
-              <div
-                v-if="(msg as any).confidence_breakdown && getConfidenceKeys(msg).length > 0"
-                class="confidence-panel"
-              >
-                <div class="confidence-header" @click="toggleConfidence(msg)">
-                  <span class="confidence-toggle">
-                    <DownOutlined v-if="isConfidenceExpanded(msg)" />
-                    <RightOutlined v-else />
-                  </span>
-                  <span class="confidence-title">置信度说明</span>
-                </div>
-                <div v-if="isConfidenceExpanded(msg)" class="confidence-body">
-                  <div
-                    v-for="level in getConfidenceKeys(msg)"
-                    :key="level"
-                    class="confidence-level"
-                  >
-                    <div class="confidence-label">
-                      <span
-                        class="confidence-dot"
-                        :class="`confidence-dot-${level}`"
-                      />
-                      {{ getConfidenceLabel(level) }}
-                    </div>
-                    <div
-                      v-for="(item, cIdx) in (msg as any).confidence_breakdown[level]"
-                      :key="cIdx"
-                      class="confidence-item"
-                    >
-                      {{ item }}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="answer-text" v-html="renderAssistantContent(msg)" />
             </div>
           </template>
 
@@ -204,22 +158,41 @@
         </div>
       </div>
 
-      <div v-if="loading && currentStreamContent" class="message assistant streaming">
+      <div v-if="loading" class="message assistant streaming">
         <div class="message-content">
           <div class="assistant-content">
-            <div class="answer-text" v-html="renderContent(currentStreamContent)" />
-            <span class="streaming-cursor">|</span>
+            <div v-if="streamingThinkingGroups.length" class="thinking-card">
+              <div class="thinking-card-header static">
+                <BulbOutlined class="thinking-card-icon" />
+                <span class="thinking-card-label">
+                  思考过程（{{ getStreamingStepCount }} 步<template v-if="getStreamingDuration"> · 工具耗时合计 {{ formatDuration(getStreamingDuration) }}</template>）
+                </span>
+              </div>
+              <div class="thinking-card-body">
+                <div class="analysis-section">
+                  <div class="analysis-title">执行步骤</div>
+                  <ThinkingSteps
+                    :groups="streamingThinkingGroups"
+                    @select-citation="handleCitationClick"
+                  />
+                </div>
+              </div>
+            </div>
+            <template v-if="currentStreamContent">
+              <div class="answer-text" v-html="renderContent(currentStreamContent)" />
+              <span class="streaming-cursor">|</span>
+            </template>
+            <div v-else class="streaming-loading">
+              <a-spin size="small" />
+              <span class="loading-text">思考中...</span>
+            </div>
           </div>
         </div>
       </div>
+      </div>
 
-      <div v-if="loading && !currentStreamContent" class="message assistant loading">
-        <div class="message-content">
-          <div class="assistant-content">
-            <a-spin size="small" />
-            <span class="loading-text">思考中...</span>
-          </div>
-        </div>
+      <div v-if="showContextInfo && !title" class="context-info-float">
+        {{ contextRounds }}轮 / {{ formatTokenCount(contextTokens) }}tokens
       </div>
     </div>
 
@@ -362,13 +335,13 @@ import {
   PictureOutlined,
   CloseCircleOutlined,
   InfoCircleOutlined,
+  BulbOutlined,
   DownOutlined,
-  RightOutlined,
-  WarningOutlined
+  RightOutlined
 } from '@ant-design/icons-vue'
 import CitationInline from './CitationInline.vue'
-import CitationRichContent from './CitationRichContent.vue'
 import InlineCitationEditor from './InlineCitationEditor.vue'
+import ThinkingSteps from './ThinkingSteps.vue'
 import type {
   BaseChatCitation,
   BaseChatContextItem,
@@ -376,13 +349,22 @@ import type {
   BaseChatModelOption,
   BaseChatSendPayload,
   CitationBinding,
-  InlineCitationCandidate
+  InlineCitationCandidate,
+  ThinkingTraceStep
 } from '../../types'
 import {
+  buildInlineCitationTagHtml,
   buildCitationSegments,
-  mapBaseChatCitationToReference,
+  getCitationLastSegment,
   mapReferenceToBaseChatCitation
 } from '../../utils/citation'
+import {
+  countThinkingSteps,
+  formatDuration,
+  groupThinkingSteps,
+  sumThinkingDuration,
+} from '../../utils/thinking'
+import { formatTokenCount } from '../../utils/token'
 
 interface Props {
   messages: BaseChatMessage[]
@@ -399,6 +381,7 @@ interface Props {
   showSystemMessages?: boolean
   contextTokens?: number
   contextRounds?: number
+  streamingThinkingSteps?: ThinkingTraceStep[]
   renderMessage?: (content: string) => string
   allowImageUpload?: boolean
   searchCitations?: (query: string) => Promise<InlineCitationCandidate[]>
@@ -417,6 +400,7 @@ const props = withDefaults(defineProps<Props>(), {
   showSystemMessages: false,
   contextTokens: 0,
   contextRounds: 0,
+  streamingThinkingSteps: () => [],
   renderMessage: undefined,
   allowImageUpload: true,
   searchCitations: undefined
@@ -454,6 +438,13 @@ const displayMessages = computed(() => {
 
   return props.messages.filter(message => message.role !== 'system')
 })
+
+const streamingThinkingGroups = computed(() => (
+  groupThinkingSteps(props.streamingThinkingSteps || [])
+))
+
+const getStreamingStepCount = computed(() => countThinkingSteps(streamingThinkingGroups.value))
+const getStreamingDuration = computed(() => sumThinkingDuration(streamingThinkingGroups.value))
 
 /**
  * 去重引用，避免同页同段重复展示。
@@ -509,44 +500,32 @@ const toggleCitationExpanded = (key: string) => {
   expandedCitationKeys.value = [...expandedCitationKeys.value, key]
 }
 
-/** 查询链路 + 参考依据区域的展开状态（按消息 ID 跟踪） */
-const expandedMetaKeys = ref<string[]>([])
+/** 思考过程区域的展开状态（按消息 ID 跟踪，默认折叠） */
+const expandedThinkingKeys = ref<string[]>([])
 
-const isMetaExpanded = (message: BaseChatMessage) => expandedMetaKeys.value.includes(message.id || '')
+const getThinkingGroups = (message: BaseChatMessage) => (
+  groupThinkingSteps(message.thinking_trace || [])
+)
 
-const toggleMetaExpanded = (message: BaseChatMessage) => {
+const getThinkingStepCount = (message: BaseChatMessage) => (
+  countThinkingSteps(getThinkingGroups(message))
+)
+
+const getThinkingDuration = (message: BaseChatMessage) => (
+  sumThinkingDuration(getThinkingGroups(message))
+)
+
+const isThinkingExpanded = (message: BaseChatMessage) => (
+  expandedThinkingKeys.value.includes(message.id || '')
+)
+
+const toggleThinkingExpanded = (message: BaseChatMessage) => {
   const key = message.id || ''
-  if (isMetaExpanded(message)) {
-    expandedMetaKeys.value = expandedMetaKeys.value.filter(item => item !== key)
+  if (isThinkingExpanded(message)) {
+    expandedThinkingKeys.value = expandedThinkingKeys.value.filter(item => item !== key)
   } else {
-    expandedMetaKeys.value = [...expandedMetaKeys.value, key]
+    expandedThinkingKeys.value = [...expandedThinkingKeys.value, key]
   }
-}
-
-/** 折叠条文案：查询链路 + 参考依据数量 */
-const getMetaToggleLabel = (message: BaseChatMessage): string => {
-  const citationCount = getVisibleCitations(message).length
-  const hasChain = Boolean(message.queryChain)
-  if (hasChain && citationCount > 0) {
-    return `查询链路 · 参考依据（${citationCount}）`
-  }
-  if (hasChain) {
-    return '查询链路'
-  }
-  return `参考依据（${citationCount}）`
-}
-
-/**
- * 提取层级路径的最后一级，避免引用标题过长。
- */
-const getCitationLastSegment = (sectionPath: string | undefined): string => {
-  const normalized = String(sectionPath || '').trim()
-  if (!normalized) return ''
-  const segments = normalized
-    .split(/\s*\/\s*|\s*>\s*/g)
-    .map(item => item.trim())
-    .filter(Boolean)
-  return segments[segments.length - 1] || normalized
 }
 
 /**
@@ -555,33 +534,6 @@ const getCitationLastSegment = (sectionPath: string | undefined): string => {
 const handleCitationClick = (citation: BaseChatCitation) => {
   toggleCitationExpanded(getCitationKey(citation))
   emit('selectCitation', citation)
-}
-
-/**
- * 知识盲区分析展开/折叠状态（按消息 ID 追踪）
- */
-const expandedGapAnalysisKeys = ref<string[]>([])
-const expandedConfidenceKeys = ref<string[]>([])
-
-const getGapMsgKey = (msg: BaseChatMessage) => msg.id || ''
-const isGapAnalysisExpanded = (msg: BaseChatMessage) => expandedGapAnalysisKeys.value.includes(getGapMsgKey(msg))
-const toggleGapAnalysis = (msg: BaseChatMessage) => {
-  const key = getGapMsgKey(msg)
-  if (isGapAnalysisExpanded(msg)) {
-    expandedGapAnalysisKeys.value = expandedGapAnalysisKeys.value.filter(k => k !== key)
-  } else {
-    expandedGapAnalysisKeys.value = [...expandedGapAnalysisKeys.value, key]
-  }
-}
-
-const isConfidenceExpanded = (msg: BaseChatMessage) => expandedConfidenceKeys.value.includes(getGapMsgKey(msg))
-const toggleConfidence = (msg: BaseChatMessage) => {
-  const key = getGapMsgKey(msg)
-  if (isConfidenceExpanded(msg)) {
-    expandedConfidenceKeys.value = expandedConfidenceKeys.value.filter(k => k !== key)
-  } else {
-    expandedConfidenceKeys.value = [...expandedConfidenceKeys.value, key]
-  }
 }
 
 const getConfidenceKeys = (msg: BaseChatMessage): string[] => {
@@ -637,11 +589,11 @@ const escapeHtml = (content: string): string => {
  * 如果上层提供了领域渲染器，则优先使用；否则退回纯文本换行渲染。
  */
 const renderContent = (content: string): string => {
-  if (props.renderMessage) {
-    return props.renderMessage(content)
-  }
-
-  return escapeHtml(content).replace(/\n/g, '<br />')
+  const html = props.renderMessage
+    ? props.renderMessage(content)
+    : escapeHtml(content).replace(/\n/g, '<br />')
+  // 流式占位：只替换已完整出现的 [K1]/[T1]/[E1]，未闭合的 [K 保持原样
+  return html.replace(/\[([KTE]\d+)\]/g, '<span class="stream-citation-marker">[$1]</span>')
 }
 
 /**
@@ -654,8 +606,10 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
   const links: Array<{ index: number; label: string }> = []
 
   if (citations.length) {
+    // 第一轮：优先匹配“文档 + 章节”的完整短语，避免同名文档挂错引用
+    const matchedIndexes = new Set<number>()
     citations.forEach((citation, index) => {
-      const spanCandidates = buildCitationSpanCandidates(citation)
+      const spanCandidates = buildSectionCitationCandidates(citation)
       for (const needle of spanCandidates) {
         const positions: number[] = []
         let position = content.indexOf(needle)
@@ -671,6 +625,28 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
           content = content.slice(0, pos) + token + content.slice(pos + needle.length)
         }
         links.push({ index, label: needle })
+        matchedIndexes.add(index)
+        break
+      }
+    })
+    // 第二轮：正文只写了文档名时，兜底把文档名变成链接
+    citations.forEach((citation, index) => {
+      if (matchedIndexes.has(index)) return
+      const spanCandidates = buildDocOnlyCitationCandidates(citation)
+      for (const needle of spanCandidates) {
+        const positions: number[] = []
+        let position = content.indexOf(needle)
+        while (position >= 0) {
+          positions.push(position)
+          position = content.indexOf(needle, position + needle.length)
+        }
+        if (!positions.length) continue
+        const token = `__INLINE_CIT_${index}__`
+        for (let i = positions.length - 1; i >= 0; i -= 1) {
+          const pos = positions[i]
+          content = content.slice(0, pos) + token + content.slice(pos + needle.length)
+        }
+        links.push({ index, label: needle })
         break
       }
     })
@@ -680,7 +656,14 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
     ? props.renderMessage(content)
     : escapeHtml(content).replace(/\n/g, '<br />')
 
-  return html.replace(/__INLINE_CIT_(\d+)__/g, (_, rawIndex) => {
+  // 标记 → tag 放在最后：tag 内包含“《文档》· 章节”文本，若先替换会被旧匹配二次命中
+  const markerHtml = html.replace(/\[([KTE]\d+)\]/g, (raw, marker: string) => {
+    const index = citations.findIndex(citation => citation.marker === marker)
+    if (index < 0) return raw
+    return buildInlineCitationTagHtml(citations[index], index)
+  })
+
+  return markerHtml.replace(/__INLINE_CIT_(\d+)__/g, (_, rawIndex) => {
     const link = links.find(item => item.index === Number(rawIndex))
     if (!link) return ''
     const citation = citations[link.index]
@@ -699,32 +682,67 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
   })
 }
 
-/** 生成引用链接的候选短语：优先“《文档》第“章节””，最后兜底到文档标题 */
-const buildCitationSpanCandidates = (citation: BaseChatCitation): string[] => {
+/** 文档标题的常见写法：带/不带书名号、带/不带扩展名 */
+const buildDocTitleForms = (docTitle: string): string[] => {
+  const base = String(docTitle || '').replace(/\.(docx?|pdf|xlsx?|pptx?|md|markdown|txt)$/i, '')
+  if (!base) return []
+  const extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'md', 'txt']
+  const forms = new Set<string>([
+    `《${docTitle}》`,
+    `《${base}》`,
+    docTitle,
+    base,
+  ])
+  for (const ext of extensions) {
+    forms.add(`《${base}.${ext}》`)
+    forms.add(`${base}.${ext}`)
+  }
+  return [...forms].filter(Boolean)
+}
+
+/** 只含文档名的候选短语（兜底链接） */
+const buildDocOnlyCitationCandidates = (citation: BaseChatCitation): string[] => {
+  return buildDocTitleForms(citation.doc_title)
+}
+
+/** 含“文档 + 章节”的候选短语，优先匹配 */
+const buildSectionCitationCandidates = (citation: BaseChatCitation): string[] => {
   const docTitle = String(citation.doc_title || '').trim()
   if (!docTitle) return []
   const section = String(citation.section_path || '').trim()
   const lastSegment = getCitationLastSegment(citation.section_path)
   const sections = [section, lastSegment].filter((value, index, arr) => value && arr.indexOf(value) === index)
-  const docForms = [`《${docTitle}》`, docTitle]
+  if (!sections.length) return []
   const candidates: string[] = []
-  for (const doc of docForms) {
+  for (const doc of buildDocTitleForms(docTitle)) {
     for (const sec of sections) {
+      candidates.push(`${doc}中“${sec}”章节`)
+      candidates.push(`${doc}中“${sec}”`)
+      candidates.push(`${doc}中"${sec}"章节`)
+      candidates.push(`${doc}中"${sec}"`)
       candidates.push(`${doc}第“${sec}”章节`)
       candidates.push(`${doc}第“${sec}”`)
       candidates.push(`${doc}第"${sec}"章节`)
       candidates.push(`${doc}第"${sec}"`)
       candidates.push(`${doc}第${sec}章节`)
       candidates.push(`${doc}第${sec}`)
+      candidates.push(`${doc}“${sec}”章节`)
+      candidates.push(`${doc}“${sec}”`)
+      candidates.push(`${doc}"${sec}"章节`)
+      candidates.push(`${doc}"${sec}"`)
+      candidates.push(`${doc}${sec}章节`)
+      candidates.push(`${doc}${sec}`)
     }
   }
-  candidates.push(docForms[0])
-  return candidates
+  // 去重，更具体的短语排前面
+  return Array.from(new Set(candidates))
 }
 
 /** 点击正文内联引用链接：与参考依据面板共用 selectCitation 跳转 */
 const handleMessageClick = (event: MouseEvent) => {
-  const target = (event.target as HTMLElement | null)?.closest?.('.inline-citation-link') as HTMLElement | null
+  const target = (event.target as HTMLElement | null)?.closest?.(
+    '.inline-citation-link, .citation-tag-inline'
+  ) as HTMLElement | null
   if (!target) return
   const docId = String(target.dataset.docId || '')
   if (!docId) return
@@ -992,6 +1010,30 @@ defineExpose({
   }
 }
 
+.chat-messages-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.context-info-float {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 11px;
+  line-height: 18px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
 .chat-messages {
   flex: 1;
   min-height: 0;
@@ -1078,37 +1120,85 @@ defineExpose({
           margin-bottom: 10px;
         }
 
-        .message-meta-toggle {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          width: 100%;
-          margin: 4px 0 8px;
-          padding: 5px 8px;
-          border: none;
-          border-radius: 6px;
-          background: transparent;
-          color: var(--text-secondary);
-          font-size: 12px;
-          line-height: 1.4;
-          text-align: left;
-          cursor: pointer;
+        .thinking-card {
+          margin: 0 0 10px;
+          border: 1px solid var(--border-color);
+          border-radius: 10px;
+          background: rgba(128, 128, 128, 0.05);
+          overflow: hidden;
 
-          &:hover {
-            background: rgba(128, 128, 128, 0.08);
-          }
-
-          .meta-toggle-arrow {
-            display: inline-flex;
+          .thinking-card-header {
+            display: flex;
             align-items: center;
-            font-size: 10px;
-            flex-shrink: 0;
+            gap: 6px;
+            width: 100%;
+            padding: 6px 10px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 12px;
+            line-height: 1.4;
+            text-align: left;
+            cursor: pointer;
+
+            &:hover {
+              background: rgba(128, 128, 128, 0.08);
+            }
+
+            .thinking-card-icon {
+              display: inline-flex;
+              align-items: center;
+              font-size: 13px;
+              color: var(--text-tertiary, #999);
+            }
+
+            .thinking-card-label {
+              flex: 1;
+              font-weight: 500;
+            }
+
+            .thinking-card-arrow {
+              display: inline-flex;
+              align-items: center;
+              font-size: 10px;
+              flex-shrink: 0;
+            }
           }
 
-          .meta-toggle-label {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+          .thinking-card-header.static {
+            cursor: default;
+
+            &:hover {
+              background: transparent;
+            }
+          }
+
+          .thinking-card-body {
+            padding: 4px 10px 10px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+
+            .analysis-section {
+              display: flex;
+              flex-direction: column;
+              gap: 6px;
+
+              .analysis-title {
+                font-size: 12px;
+                font-weight: 600;
+                color: var(--text-secondary);
+                letter-spacing: 0.02em;
+              }
+            }
+
+            .message-chain {
+              margin-bottom: 0;
+            }
           }
         }
 
@@ -1125,6 +1215,41 @@ defineExpose({
           :deep(.media-table),
           :deep(.media-formula) {
             margin: 0.6em 0;
+          }
+
+          :deep(.citation-tag-inline) {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            max-width: 120px;
+            vertical-align: middle;
+            margin-left: 6px;
+            padding: 1px 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            background: rgba(128, 128, 128, 0.08);
+            color: var(--text-secondary);
+            font-size: 12px;
+            line-height: 18px;
+            cursor: pointer;
+            transition: color 0.16s ease, border-color 0.16s ease;
+
+            &:hover {
+              color: var(--primary-color);
+              border-color: var(--primary-color);
+            }
+
+            .citation-tag-inline-badge {
+              flex: 0 0 auto;
+              display: block;
+            }
+
+            .citation-tag-inline-text {
+              max-width: 84px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
           }
 
           :deep(ul) {
@@ -1356,49 +1481,6 @@ defineExpose({
           border-radius: 4px;
         }
 
-        /* 知识盲区分析面板 */
-        .gap-analysis-panel {
-          margin-top: 10px;
-          padding-top: 10px;
-          border-top: 1px solid var(--border-color);
-        }
-
-        .gap-analysis-header {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          cursor: pointer;
-          padding: 4px 0;
-          user-select: none;
-        }
-
-        .gap-analysis-toggle {
-          color: var(--warning-color, #fa8c16);
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          flex: 0 0 auto;
-        }
-
-        .gap-analysis-icon {
-          color: var(--warning-color, #fa8c16);
-          font-size: 14px;
-        }
-
-        .gap-analysis-title {
-          font-size: 12px;
-          font-weight: 600;
-          color: var(--warning-color, #fa8c16);
-          letter-spacing: 0.02em;
-        }
-
-        .gap-analysis-body {
-          margin-top: 8px;
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
         .gap-item {
           padding: 8px 10px;
           border-radius: 8px;
@@ -1434,44 +1516,6 @@ defineExpose({
         .gap-tag {
           font-size: 11px;
           line-height: 1;
-        }
-
-        /* 置信度说明面板 */
-        .confidence-panel {
-          margin-top: 10px;
-          padding-top: 10px;
-          border-top: 1px solid var(--border-color);
-        }
-
-        .confidence-header {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          cursor: pointer;
-          padding: 4px 0;
-          user-select: none;
-        }
-
-        .confidence-toggle {
-          color: var(--text-secondary);
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          flex: 0 0 auto;
-        }
-
-        .confidence-title {
-          font-size: 12px;
-          font-weight: 600;
-          color: var(--text-secondary);
-          letter-spacing: 0.02em;
-        }
-
-        .confidence-body {
-          margin-top: 8px;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
         }
 
         .confidence-level {
@@ -1519,6 +1563,18 @@ defineExpose({
         .streaming-cursor {
           animation: blink 1s infinite;
           color: var(--chat-streaming-cursor);
+        }
+
+        .streaming-loading {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: var(--text-secondary);
+          font-size: 12px;
+
+          .loading-text {
+            margin-left: 0;
+          }
         }
 
         .loading-text {

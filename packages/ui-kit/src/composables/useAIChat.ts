@@ -12,6 +12,7 @@ import type {
   SessionKey,
   SessionSnapshot,
   AIChatContextConfig,
+  ThinkingTraceStep,
 } from '../types/chat'
 import { generateMessageId, estimateTokens } from '../utils/tree'
 
@@ -23,47 +24,18 @@ export function buildSessionKey(scene: string, id: string): SessionKey {
 /** 全局会话池，按 sessionKey 隔离各场景对话状态 */
 const sessionPool = new Map<SessionKey, SessionSnapshot>()
 
-const SESSION_POOL_STORAGE_KEY = 'angineer:ai-chat-pool:v1'
-const MAX_STORED_SESSIONS = 20
-const MAX_STORED_MESSAGES = 60
-
-/** 从 localStorage 恢复会话池，避免页面刷新/组件重挂后对话丢失 */
-function loadSessionPool(): void {
-  try {
-    if (typeof localStorage === 'undefined') return
-    const raw = localStorage.getItem(SESSION_POOL_STORAGE_KEY)
-    if (!raw) return
-    const parsed: unknown = JSON.parse(raw)
-    if (!parsed || typeof parsed !== 'object') return
-    for (const [key, snapshot] of Object.entries(parsed as Record<string, SessionSnapshot>)) {
-      if (!Array.isArray(snapshot?.messages)) continue
-      sessionPool.set(key as SessionKey, {
-        messages: snapshot.messages.slice(-MAX_STORED_MESSAGES),
-      })
-    }
-  } catch {
-    // 存储不可用或数据损坏时静默降级为内存会话池
+/**
+ * 旧版本会把会话池写入 localStorage；当前产品不做历史对话记录，
+ * 加载时清理一次旧数据，避免残留。
+ */
+const LEGACY_SESSION_POOL_STORAGE_KEY = 'angineer:ai-chat-pool:v1'
+try {
+  if (typeof localStorage !== 'undefined') {
+    localStorage.removeItem(LEGACY_SESSION_POOL_STORAGE_KEY)
   }
+} catch {
+  // 存储不可用或隐私模式下静默忽略
 }
-
-/** 将会话池持久化到 localStorage（限长防膨胀） */
-function persistSessionPool(): void {
-  try {
-    if (typeof localStorage === 'undefined') return
-    const entries = Array.from(sessionPool.entries()).slice(-MAX_STORED_SESSIONS)
-    const payload: Record<string, SessionSnapshot> = {}
-    for (const [key, snapshot] of entries) {
-      payload[key] = {
-        messages: snapshot.messages.slice(-MAX_STORED_MESSAGES),
-      }
-    }
-    localStorage.setItem(SESSION_POOL_STORAGE_KEY, JSON.stringify(payload))
-  } catch {
-    // 容量超限或隐私模式等场景静默失败，不影响内存会话池
-  }
-}
-
-loadSessionPool()
 
 /** 获取会话池中指定 key 的快照 */
 export function getSessionSnapshot(key: SessionKey): SessionSnapshot | undefined {
@@ -77,23 +49,12 @@ export function getActiveSessionKeys(): SessionKey[] {
 
 /** 删除会话池中指定 key 的快照 */
 export function removeSession(key: SessionKey): boolean {
-  const removed = sessionPool.delete(key)
-  if (removed) {
-    persistSessionPool()
-  }
-  return removed
+  return sessionPool.delete(key)
 }
 
 /** 清空整个会话池 */
 export function clearSessionPool(): void {
   sessionPool.clear()
-  try {
-    if (typeof localStorage !== 'undefined') {
-      localStorage.removeItem(SESSION_POOL_STORAGE_KEY)
-    }
-  } catch {
-    // 忽略存储清理失败
-  }
 }
 
 /** 对引用做轻量去重，避免同一页同一区段重复刷屏 */
@@ -106,7 +67,8 @@ function dedupeCitations(
       citation.target_id,
       citation.doc_id,
       citation.page_idx,
-      citation.section_path
+      citation.section_path,
+      citation.marker || ''
     ].join('::')
     if (seen.has(key)) {
       return false
@@ -136,6 +98,7 @@ function mapQueryResponseToChatResponse(qr: QueryResponse) {
     confidence: (qr.intent as any)?.confidence as number | undefined,
     gap_analysis: qr.gap_analysis,
     confidence_breakdown: qr.confidence_breakdown,
+    thinking_trace: qr.thinking_trace,
     debug: {
       intent: qr.intent,
       fallback_used: qr.fallback_used,
@@ -225,12 +188,18 @@ export function useAIChat(options?: {
   /** 问答请求实现注入；不注入时发送会得到明确错误提示 */
   query?: (
     payload: QueryRequest,
-    options?: { signal?: AbortSignal; onDelta?: (delta: string) => void }
+    options?: {
+      signal?: AbortSignal
+      onDelta?: (delta: string) => void
+      onThinking?: (steps: ThinkingTraceStep[]) => void
+      onAnswerReplace?: (full: string) => void
+    }
   ) => Promise<QueryResponse>
 }): {
   messages: Ref<AIChatMessage[]>
   loading: Ref<boolean>
   currentStreamContent: Ref<string>
+  liveThinkingSteps: Ref<ThinkingTraceStep[]>
   currentSessionKey: Ref<SessionKey>
   contextTokens: ComputedRef<number>
   contextRounds: ComputedRef<number>
@@ -239,6 +208,7 @@ export function useAIChat(options?: {
   clearMessages: () => void
   switchSession: (newScene: string, newId: string) => void
   removeCurrentSession: () => void
+  startNewChat: () => void
 } {
   const contextConfig: AIChatContextConfig = {
     ...DEFAULT_CONTEXT_CONFIG,
@@ -254,6 +224,7 @@ export function useAIChat(options?: {
   const messages = ref<AIChatMessage[]>([])
   const loading = ref(false)
   const currentStreamContent = ref('')
+  const liveThinkingSteps = ref<ThinkingTraceStep[]>([])
   const abortController = ref<AbortController | null>(null)
 
   if (options?.systemPrompt) {
@@ -277,7 +248,6 @@ export function useAIChat(options?: {
     sessionPool.set(currentSessionKey.value, {
       messages: [...messages.value],
     })
-    persistSessionPool()
   }
 
   /** 从会话池恢复指定 key 的状态 */
@@ -308,13 +278,28 @@ export function useAIChat(options?: {
   /** 删除当前会话并清空本地状态 */
   function removeCurrentSession(): void {
     sessionPool.delete(currentSessionKey.value)
-    persistSessionPool()
     messages.value = []
     if (options?.systemPrompt) {
       messages.value.push({
         role: 'system',
         content: options.systemPrompt,
         timestamp: Date.now()
+      })
+    }
+  }
+
+  /** 新建对话：清空当前消息、中止生成，并切换到全新会话 key（后端按 key 开新会话） */
+  function startNewChat(): void {
+    stopGeneration()
+    sessionPool.delete(currentSessionKey.value)
+    const newId = `chat-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
+    currentSessionKey.value = buildSessionKey(scene, newId)
+    messages.value = []
+    if (options?.systemPrompt) {
+      messages.value.push({
+        role: 'system',
+        content: options.systemPrompt,
+        timestamp: Date.now(),
       })
     }
   }
@@ -348,6 +333,7 @@ export function useAIChat(options?: {
     messages.value.push(userMessage)
     loading.value = true
     currentStreamContent.value = ''
+    liveThinkingSteps.value = []
 
     manageContext([...messages.value], contextConfig)
 
@@ -375,6 +361,14 @@ export function useAIChat(options?: {
           currentStreamContent.value += delta
           onChunk?.(delta)
         },
+        onThinking: (steps) => {
+          liveThinkingSteps.value = steps
+        },
+        onAnswerReplace: (full) => {
+          // 边界规则替换最终答案时整体覆盖，避免旧答案残留在界面上
+          streamed = true
+          currentStreamContent.value = full
+        },
       })
       const payload = mapQueryResponseToChatResponse(queryData)
       const citations = dedupeCitations(payload.citations || [])
@@ -390,18 +384,26 @@ export function useAIChat(options?: {
       if (!streamed) {
         currentStreamContent.value = assistantContent
         onChunk?.(assistantContent)
+      } else if (assistantContent && assistantContent !== currentStreamContent.value) {
+        // 流式结束后以 transport 的权威答案为基准（兼容替换/清理）
+        currentStreamContent.value = assistantContent
       }
+      const queryChain = buildQueryChain(payload)
+      const hasRouteNote = (payload.thinking_trace || []).some(
+        step => step.kind === 'note' && /意图判断|查询链路/.test(step.detail)
+      )
       messages.value.push({
         id: payload.query_id || generateMessageId(),
         role: 'assistant',
         content: assistantContent,
         timestamp: Date.now(),
-        queryChain: buildQueryChain(payload),
+        queryChain,
         citations: citations.map(citation => ({
           target_id: citation.target_id,
           target_type: citation.target_type,
           doc_id: citation.doc_id,
           doc_title: citation.doc_title,
+          marker: citation.marker,
           page_idx: citation.page_idx,
           page_label: citation.page_label,
           section_path: citation.section_path,
@@ -417,6 +419,10 @@ export function useAIChat(options?: {
         retrieved_items: payload.retrieved_items,
         gap_analysis: payload.gap_analysis,
         confidence_breakdown: payload.confidence_breakdown,
+        thinking_trace: [
+          ...(queryChain && !hasRouteNote ? [{ kind: 'note' as const, detail: queryChain }] : []),
+          ...(payload.thinking_trace || []),
+        ],
         debug: payload.debug
       })
       currentStreamContent.value = ''
@@ -481,6 +487,7 @@ export function useAIChat(options?: {
     messages,
     loading,
     currentStreamContent,
+    liveThinkingSteps,
     currentSessionKey,
     contextTokens,
     contextRounds,
@@ -489,5 +496,6 @@ export function useAIChat(options?: {
     clearMessages,
     switchSession,
     removeCurrentSession,
+    startNewChat,
   }
 }

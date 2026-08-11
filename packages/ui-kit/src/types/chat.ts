@@ -46,6 +46,7 @@ export interface BaseChatMessage {
   images?: string[]
   citations?: BaseChatCitation[]
   inlineCitations?: CitationBinding[]
+  thinking_trace?: ThinkingTraceStep[]
 }
 
 /**
@@ -61,6 +62,8 @@ export interface AIChatCitation {
   target_type?: string
   doc_id: string
   doc_title: string
+  /** 结构化引用标记，如 K1/T1/E1，由后端 MarkerAllocator 分配 */
+  marker?: string
   page_idx: number
   page_label?: string
   section_path: string
@@ -102,6 +105,35 @@ export interface AIChatMessage {
     medium?: string[]
     low?: string[]
   }
+  thinking_trace?: ThinkingTraceStep[]
+}
+
+export interface ThinkingTraceStep {
+  kind: 'call' | 'result' | 'note' | 'turn'
+  tool?: string
+  detail: string
+  turn?: number
+  isError?: boolean
+  durationMs?: number
+  citations?: AIChatCitation[]
+  /** 工具返回的完整候选条目（knowledge_search/table_search/entity_search） */
+  resultItems?: ThinkingTraceItem[]
+  /** 工具返回中需要单独说明的信息，如 entity_search 的自动回退说明 */
+  resultNote?: string
+}
+
+/** 思考过程中某个工具返回的单条候选 */
+export interface ThinkingTraceItem {
+  item_id: string
+  entity_type?: string
+  doc_id: string
+  doc_title?: string
+  /** 工具返回的 cite 标记（对应 AIChatCitation.marker） */
+  cite?: string
+  title?: string
+  text: string
+  score: number
+  metadata?: Record<string, any>
 }
 
 export interface QueryRequest {
@@ -155,6 +187,7 @@ export interface QueryResponse {
     medium?: string[]
     low?: string[]
   }
+  thinking_trace?: ThinkingTraceStep[]
 }
 
 export type SessionKey = `${string}:${string}`
