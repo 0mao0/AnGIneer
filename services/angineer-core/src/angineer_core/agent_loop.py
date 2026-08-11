@@ -45,6 +45,7 @@ class AttemptConfig:
     config_factory: Callable[[], AgentLoopConfig]
     success_check: Optional[Callable[[List[AgentMessage]], bool]] = None
     fallback_note: str = ""
+    requires_tools: bool = False  # True 时禁止“不调工具直接作答”，强制至少一轮工具调用
 
 
 @dataclass
@@ -377,6 +378,7 @@ def run_agent_loop(
     active_config = config
     active_attempt_idx = -1
     attempt_turn = 0
+    retry_used = False
 
     def _apply_attempt(index: int) -> AgentLoopConfig:
         """应用第 index 段的完整可覆盖字段；codec 随段刷新。"""
@@ -404,22 +406,34 @@ def run_agent_loop(
         return active
 
     def _advance_attempt() -> str:
-        """当前段成功→"completed"；失败且有下一段→切换并返回 "next"；否则 "exhausted"。"""
-        nonlocal active_config, tools_by_name, attempt_turn, reason
+        """当前段成功→"completed"；失败且有下一段→切换并返回 "next"；
+        需要工具但未调用→返回 "retry"（最多一次）；否则 "exhausted"。"""
+        nonlocal active_config, tools_by_name, attempt_turn, retry_used, reason
         added = messages[start_idx:]
         check = attempts[active_attempt_idx].success_check
+        attempt = attempts[active_attempt_idx]
+        used_tools = any(m.role == "tool" for m in added)
         ok = check is None or bool(_run_callback(check, True, added))
         if ok:
-            return "completed"
+            if not (attempt.requires_tools and not used_tools):
+                return "completed"
         if active_attempt_idx + 1 < len(attempts):
             nxt = attempts[active_attempt_idx + 1]
-            current = attempts[active_attempt_idx]
-            _add_note(current.fallback_note or f"本段未命中，进入下一段：{nxt.name}")
+            _add_note(attempt.fallback_note or f"本段未命中，进入下一段：{nxt.name}")
             messages.append(AgentMessage(role="user", content=f"上一段未命中，进入下一段：{nxt.name}"))
             active_config = _apply_attempt(active_attempt_idx + 1)
             tools_by_name = {tool.name: tool for tool in active_config.tools}
             attempt_turn = 0
             return "next"
+        if attempt.requires_tools and not used_tools:
+            if not retry_used:
+                retry_used = True
+                # 腾出一轮带工具的预算：这次“直接作答”不计入轮次预算
+                attempt_turn = max(0, attempt_turn - 1)
+                messages.append(AgentMessage(role="user", content="请先调用检索工具获取证据后再回答"))
+                _add_note("未调用检索工具，已要求重新检索后回答")
+                return "retry"
+            return "exhausted"
         # 终段：只要产出了非空最终答案（含拒答）就算完成；
         # 只有完全没有答案才由调用方补拒答收尾。
         final_answer = next(
@@ -499,7 +513,7 @@ def run_agent_loop(
                             status = _advance_attempt()
                             if status == "next":
                                 continue
-                            if status == "exhausted":
+                            if status in ("exhausted", "retry"):
                                 _finalize_refusal()
                             break  # completed / exhausted 均已收尾，reason 已维护
                         reason = "max_turns"
@@ -556,6 +570,8 @@ def run_agent_loop(
                     status = _advance_attempt()
                     if status == "next":
                         continue
+                    if status == "retry":
+                        continue  # 已追加“请先调用检索工具”的用户消息，下一轮带工具重试
                     if status == "exhausted":
                         _finalize_refusal()
                         break

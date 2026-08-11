@@ -74,6 +74,7 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
         config_factory=factory,
         success_check=_answer_usable,
         fallback_note="L1 未检索到足够证据，进入拒答收尾",
+        requires_tools=True,
     )
 
 
@@ -102,6 +103,7 @@ def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
         config_factory=factory,
         success_check=success,
         fallback_note="L2 表格/条款定位未命中，回退 L1 语义检索",
+        requires_tools=True,
     )
 
 
@@ -143,7 +145,12 @@ def build_attempts(
                 marker_allocator=marker_allocator,
             )
 
-        return [AttemptConfig(name="L3/L4 复杂任务", config_factory=complex_factory, success_check=_answer_usable)]
+        return [AttemptConfig(
+            name="L3/L4 复杂任务",
+            config_factory=complex_factory,
+            success_check=_answer_usable,
+            requires_tools=True,
+        )]
     if level == "L2" or service_mode == "sql_first":
         return [
             _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator),
