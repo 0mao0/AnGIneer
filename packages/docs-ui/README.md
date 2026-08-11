@@ -293,6 +293,7 @@ src/
 - `src/index.ts`：聚合导出 components/composables/types/utils
 - `src/components/index.ts`：导出 `SmartTree` `KnowledgeTree` `PDFParsedWorkspace` `PDFParsedViewerCombo` `PDF_Viewer` `Preview_Markdown`
 - `PDF_Viewer` 支持 `side-panel` 插槽与 `sidePanelOpen` / `showSidePanelToggle` / `sidePanelWidth` props；`PDFParsedWorkspace` 支持 `sidePanelOpen` / `sidePanelDefaultOpen` / `sidePanelWidth` / `defaultParsedTab` props，可控制解析面板展开/收起、宽度与默认 Tab。
+- `PDFParsedWorkspace` 支持 `fileUrlResolver` prop，可自定义文件地址拼接规则；不传时默认使用 `/api/files?path=...`。
 - `src/composables/index.ts`：导出全部 composables 及关键类型
 - `src/types/index.ts`：导出所有契约类型
 - `src/utils/index.ts`：导出工具函数

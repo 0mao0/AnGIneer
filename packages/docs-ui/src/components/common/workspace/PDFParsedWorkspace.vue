@@ -92,6 +92,7 @@ interface Props {
   graphData?: { nodes: any[]; edges: any[] } | null
   graphDataFullLoaded?: boolean
   renderPdfPath?: string  // LO 生成的 PDF 底图路径（对非 PDF 输入）
+  fileUrlResolver?: (path: string) => string
   onUpdateStructuredNode?: (payload: StructuredNodeUpdatePayload) => Promise<void>
   onBatchStructuredOperation?: (payload: StructuredBatchOperationPayload) => Promise<void>
   onUndoLastOperation?: () => Promise<void>
@@ -212,7 +213,8 @@ const {
   filePath,
   graphData: computed(() => props.graphData || null),
   activeTab: computed(() => activeTab.value),
-  renderPdfPath: computed(() => props.renderPdfPath)
+  renderPdfPath: computed(() => props.renderPdfPath),
+  fileUrlResolver: props.fileUrlResolver
 })
 
 const markdownContent = computed(() => props.content || '')
