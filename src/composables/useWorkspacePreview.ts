@@ -14,6 +14,7 @@ interface UseWorkspacePreviewOptions {
   graphData: ComputedRef<GraphDataLike | null | undefined>
   activeTab: ComputedRef<PreviewMode>
   renderPdfPath?: ComputedRef<string | undefined>
+  fileUrlResolver?: (path: string) => string
 }
 
 export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
@@ -54,6 +55,7 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
     // 有 PDF 底图时用它替代原始文件
     const effectivePath = options.renderPdfPath?.value || options.filePath.value
     if (!effectivePath) return ''
+    if (options.fileUrlResolver) return options.fileUrlResolver(effectivePath)
     if (effectivePath.startsWith('http')) return effectivePath
     return `/api/files?path=${encodeURIComponent(effectivePath)}`
   })
