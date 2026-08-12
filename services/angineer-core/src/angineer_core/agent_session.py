@@ -39,6 +39,7 @@ class AgentSession:
         self,
         user_text: str,
         emit: Optional[Callable[[AgentEvent], None]] = None,
+        config_factory: Optional[Callable[[], AgentLoopConfig]] = None,
     ) -> List[AgentMessage]:
         """执行一次 run；进行中再次调用直接抛错（单飞）。"""
         with self._lock:
@@ -57,7 +58,7 @@ class AgentSession:
         start_idx = len(self.history)
 
         try:
-            config = self.config_factory()
+            config = (config_factory or self.config_factory)()
             run_agent_loop(
                 self.history,
                 config,

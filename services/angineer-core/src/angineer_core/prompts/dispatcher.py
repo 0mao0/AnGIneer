@@ -1,8 +1,8 @@
 """dispatcher 相关 prompts（P5 迁移自 dispatcher.py）。
 
 用途：语义检索 system prompt、两阶段抽取/判定、SQL 问答、智能选工具、
-智能执行与步骤小结；语言：中文为主，智能执行/选工具沿用英文；版本 v1。
-最后变更：2026-08-09。
+智能执行与步骤小结；语言：中文为主，智能执行/选工具沿用英文；版本 v2。
+最后变更：2026-08-10。
 """
 from . import register
 
@@ -17,14 +17,14 @@ SYSTEM_PROMPT_RULES_DEFINITION_QA = (
     '\n\n规则：\n'
     '1. 直接、完整地回答用户问题，给出定义或组成\n'
     '2. 基于检索结果中与问题相关的内容给出准确回答\n'
-    '3. 引用具体来源（章节号），格式如【根据第X章...】\n'
+    '3. 不要在回答正文中写“根据…”等引用文字，出处由系统以标签展示\n'
     '4. 检索结果即使不完整，也应基于已有内容尽力回答，避免轻易放弃'
 )
 
 SYSTEM_PROMPT_RULES_LOCATE_QA = (
     '\n\n规则：\n'
     '1. 直接回答位置/设置要求，明确指出具体地点或条件\n'
-    '2. 引用具体来源（章节号），格式如【根据第X章...】\n'
+    '2. 不要在回答正文中写“根据…”等引用文字，出处由系统以标签展示\n'
     '3. 基于检索结果中与问题相关的内容给出准确回答\n'
     '4. 检索结果即使不完整，也应基于已有内容尽力回答，避免轻易放弃'
 )
@@ -33,7 +33,7 @@ SYSTEM_PROMPT_RULES_CONTENT_QA = (
     '\n\n规则：\n'
     '1. 优先直接回答用户问题\n'
     '2. 只能复述或推导证据中明确出现的信息，禁止引用证据里未出现的规范编号、年份或考试背景\n'
-    '3. 每个关键结论后都要指出对应证据来源（文档名、章节号等）\n'
+    '3. 不要在回答正文中写“根据…”等引用文字，出处由系统以标签展示\n'
     '4. 如果证据不足以支撑最终结论，明确说明【没有检索到足够证据】，不要自行补全'
 )
 
@@ -135,7 +135,7 @@ SQL_STRUCTURED_QA_SYSTEM_PROMPT = (
     "你是一个工程规范领域的专业助手。"
     "请根据以下结构化检索结果回答用户问题。\n\n规则：\n"
     "1. 优先直接回答用户问题\n"
-    "2. 引用具体来源（章节号、条款号等）\n"
+    "2. 不要在回答正文中写“根据…”等引用文字，出处由系统以标签展示\n"
     "3. 如果检索结果中包含与问题相关的内容，请基于相关内容给出回答\n"
     "4. 如果检索结果完全不相关，才说明无法回答"
 )
@@ -262,9 +262,9 @@ CHAT_SYSTEM_PROMPT = (
 
 
 register("dispatcher.system_prompt_base", "v1", SYSTEM_PROMPT_BASE)
-register("dispatcher.system_prompt_rules_definition", "v1", SYSTEM_PROMPT_RULES_DEFINITION_QA)
-register("dispatcher.system_prompt_rules_locate", "v1", SYSTEM_PROMPT_RULES_LOCATE_QA)
-register("dispatcher.system_prompt_rules_content", "v1", SYSTEM_PROMPT_RULES_CONTENT_QA)
+register("dispatcher.system_prompt_rules_definition", "v2", SYSTEM_PROMPT_RULES_DEFINITION_QA)
+register("dispatcher.system_prompt_rules_locate", "v2", SYSTEM_PROMPT_RULES_LOCATE_QA)
+register("dispatcher.system_prompt_rules_content", "v2", SYSTEM_PROMPT_RULES_CONTENT_QA)
 register("dispatcher.system_prompt_choice_rules", "v1", SYSTEM_PROMPT_CHOICE_RULES)
 register("dispatcher.system_prompt_gap_analysis", "v1", SYSTEM_PROMPT_GAP_ANALYSIS)
 register("dispatcher.extract_system_prompt", "v1", EXTRACT_SYSTEM_PROMPT)
@@ -275,7 +275,7 @@ register("dispatcher.judge_user_choice_explicit", "v1", JUDGE_USER_CHOICE_EXPLIC
 register("dispatcher.judge_user_general", "v1", JUDGE_USER_GENERAL)
 register("dispatcher.judge_user_general_explicit", "v1", JUDGE_USER_GENERAL_EXPLICIT)
 register("dispatcher.sql_doc_qa_system_prompt", "v1", SQL_DOC_QA_SYSTEM_PROMPT)
-register("dispatcher.sql_structured_qa_system_prompt", "v1", SQL_STRUCTURED_QA_SYSTEM_PROMPT)
+register("dispatcher.sql_structured_qa_system_prompt", "v2", SQL_STRUCTURED_QA_SYSTEM_PROMPT)
 register("dispatcher.smart_select_tool_prompt", "v1", SMART_SELECT_TOOL_PROMPT)
 register("dispatcher.smart_execution_calculator_hint", "v1", SMART_EXECUTION_CALCULATOR_HINT)
 register("dispatcher.smart_execution_prompt", "v1", SMART_EXECUTION_PROMPT)

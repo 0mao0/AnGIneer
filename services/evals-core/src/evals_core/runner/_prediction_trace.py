@@ -18,8 +18,8 @@ def _title_for_level(intent_level: str, service_mode: str) -> str:
     """根据意图层级和服务模式返回链路标题。"""
     if intent_level == "L0":
         return "闲聊直答"
-    if intent_level == "L2" or service_mode == "sql_first":
-        return "SQL/条款定位"
+    if intent_level == "L2" or service_mode in ("structured_lookup", "sql_first"):
+        return "条款/查表定位"
     if intent_level == "L3":
         return "标准 SOP 执行"
     if intent_level == "L4" or service_mode == "dynamic_orchestration":
@@ -32,6 +32,7 @@ def _route_kind_from_service_mode(service_mode: str) -> str:
     mapping = {
         "casual_chat": "none",
         "semantic_retrieval": "retrieval",
+        "structured_lookup": "structured",
         "sql_first": "sql",
         "standard_sop": "standard_sop",
         "dynamic_orchestration": "semantic_fallback",
@@ -224,14 +225,15 @@ def _build_trace_summary(
         return "当前题目走闲聊直答链路。"
     if level == "L2":
         final_path = str(route_debug.get("final_path") or "")
-        if final_path and final_path != "sql_first":
+        if final_path and final_path not in ("structured_lookup", "sql_first"):
             final_path_label = {
                 "semantic_retrieval": "L1 语义检索",
+                "structured_lookup": "L2 条款/查表",
                 "standard_sop": "L3 标准 SOP",
                 "dynamic_orchestration": "L4 语义兜底",
             }.get(final_path, final_path)
             return f"当前题目从 L2 起步，最终由 `{final_path_label}` 完成收敛。"
-        return "当前题目走 SQL/条款定位链路。"
+        return "当前题目走条款/查表定位链路。"
     matched_sop_id = str(route_debug.get("matched_sop_id") or "")
     if matched_sop_id:
         return f"当前题目已命中 `{matched_sop_id}`，链路结构完整。"

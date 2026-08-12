@@ -151,7 +151,7 @@ def build_attempts(
             success_check=_answer_usable,
             requires_tools=True,
         )]
-    if level == "L2" or service_mode == "sql_first":
+    if level == "L2" or service_mode in ("structured_lookup", "sql_first"):
         return [
             _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator),
             _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=False, marker_allocator=marker_allocator),

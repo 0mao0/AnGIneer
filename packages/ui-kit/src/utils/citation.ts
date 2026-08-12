@@ -7,8 +7,35 @@ import type {
   InlineCitationSearchPayload
 } from '../types/citation'
 import type { BaseChatCitation } from '../types/chat'
+import { getFileIconType } from './tree'
 
 const randomPart = () => Math.random().toString(36).slice(2, 8)
+
+const escapeHtmlAttribute = (value: string): string => String(value || '')
+  .replace(/&/g, '&amp;')
+  .replace(/"/g, '&quot;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+
+const FILE_BADGES: Record<string, { label: string; color: string }> = {
+  pdf: { label: 'PDF', color: '#e74c3c' },
+  word: { label: 'DOC', color: '#2b7cd3' },
+  excel: { label: 'XLS', color: '#1e8e3e' },
+  ppt: { label: 'PPT', color: '#d24726' },
+  image: { label: 'IMG', color: '#8e44ad' },
+  markdown: { label: 'MD', color: '#16a085' },
+}
+
+const buildFileBadge = (fileName: string): string => {
+  const type = getFileIconType(fileName || '')
+  const badge = FILE_BADGES[type] || { label: 'FILE', color: '#8c8c8c' }
+  return [
+    '<svg class="citation-tag-inline-badge" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">',
+    `<rect x="1" y="1" width="12" height="12" rx="2" fill="${badge.color}" opacity="0.16"/>`,
+    `<text x="7" y="9.4" text-anchor="middle" font-size="5.5" font-weight="700" fill="${badge.color}">${badge.label}</text>`,
+    '</svg>',
+  ].join('')
+}
 
 export const createCitationId = () => `cit_${Date.now().toString(36)}_${randomPart()}`
 
@@ -22,6 +49,74 @@ export const formatCitationDocTitle = (title?: string | null): string => {
     return normalized
   }
   return `《${normalized}》`
+}
+
+/**
+ * 去掉常见文件扩展名（不区分大小写），用于标签里展示文档名。
+ */
+export const stripCitationDocExtension = (title?: string | null): string => {
+  return String(title || '').trim().replace(
+    /\.(docx?|pdf|xlsx?|pptx?|md|markdown|txt|json|zip|png|jpe?g|gif|webp|svg)$/i,
+    ''
+  )
+}
+
+/**
+ * 标签里的文档名：去掉扩展名后加书名号。
+ */
+export const formatCitationTagTitle = (title?: string | null): string => {
+  return formatCitationDocTitle(stripCitationDocExtension(title))
+}
+
+/**
+ * 提取层级路径的最后一级，避免出处标签过长。
+ */
+export const getCitationLastSegment = (sectionPath?: string | null): string => {
+  const normalized = String(sectionPath || '').trim()
+  if (!normalized) return ''
+  const segments = normalized
+    .split(/\s*\/\s*|\s*>\s*/g)
+    .map(item => item.trim())
+    .filter(Boolean)
+  return segments[segments.length - 1] || normalized
+}
+
+/**
+ * 出处标签：文档名 + 最后一级章节，过长由 CSS 省略号截断。
+ */
+export const getCitationTagLabel = (citation: BaseChatCitation): string => {
+  const docTitle = formatCitationTagTitle(citation.doc_title)
+  const section = getCitationLastSegment(citation.section_path)
+  return section ? `${docTitle} · ${section}` : docTitle
+}
+
+/**
+ * 出处标签悬浮提示：展示完整章节路径。
+ */
+export const getCitationTagTooltip = (citation: BaseChatCitation): string => {
+  const docTitle = formatCitationTagTitle(citation.doc_title)
+  const section = String(citation.section_path || '').trim()
+  return section ? `${docTitle} · ${section}` : docTitle
+}
+
+/**
+ * 生成紧跟回答正文的内联出处标签 HTML（点击由事件委托跳 PDF）。
+ */
+export const buildInlineCitationTagHtml = (citation: BaseChatCitation, index: number): string => {
+  const label = getCitationTagLabel(citation)
+  const tooltip = getCitationTagTooltip(citation)
+  return [
+    '<span class="citation-tag-inline"',
+    ` data-citation-index="${index}"`,
+    ` data-doc-id="${escapeHtmlAttribute(citation.doc_id || '')}"`,
+    ` data-target-id="${escapeHtmlAttribute(citation.target_id || '')}"`,
+    ` data-doc-title="${escapeHtmlAttribute(citation.doc_title || '')}"`,
+    ` data-page-idx="${Number(citation.page_idx || 0)}"`,
+    ` data-section-path="${escapeHtmlAttribute(citation.section_path || '')}"`,
+    ` data-snippet="${escapeHtmlAttribute(citation.snippet || '')}"`,
+    ` title="${escapeHtmlAttribute(tooltip)}"`,
+    `>${buildFileBadge(citation.doc_title)}<span class="citation-tag-inline-text">${escapeHtmlAttribute(label)}</span></span>`,
+  ].join('')
 }
 
 export const normalizeCitationRichMedia = (

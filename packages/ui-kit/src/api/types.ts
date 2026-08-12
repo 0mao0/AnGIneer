@@ -2,6 +2,7 @@ import type {
   InlineCitationSearchPayload,
   QueryRequest,
   QueryResponse,
+  ThinkingTraceStep,
 } from '../types'
 
 /**
@@ -17,6 +18,10 @@ export interface AIChatTransport {
       signal?: AbortSignal
       /** 流式增量回调：transport 内部逐块收到回答时调用 */
       onDelta?: (delta: string) => void
+      /** 思考过程实时回调：工具开始/结束时推送最新步骤 */
+      onThinking?: (steps: ThinkingTraceStep[]) => void
+      /** 后端边界规则替换最终回答时，用完整答案整体替换流式正文 */
+      onAnswerReplace?: (full: string) => void
     }
   ) => Promise<QueryResponse>
   /** 获取可用模型列表（可选） */

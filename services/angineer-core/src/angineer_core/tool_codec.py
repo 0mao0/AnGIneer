@@ -6,7 +6,7 @@
 import json
 import logging
 import re
-from typing import Dict, List, Protocol, Tuple
+from typing import Any, Dict, List, Optional, Protocol, Tuple
 
 from angineer_core.agent_messages import ToolCall
 from angineer_core.agent_tools import AgentTool
@@ -64,19 +64,36 @@ class TextToolCallCodec:
         return base + protocol
 
     def parse_assistant(self, text: str) -> Tuple[str, List[ToolCall]]:
-        """解析 tool_calls 块；解析失败不 salvage，整轮按纯文本答案处理（fail-open）。"""
-        match = re.search(r"```tool_calls\s*(.*?)```", text or "", re.DOTALL | re.IGNORECASE)
-        if not match:
-            return text or "", []
-        raw = match.group(1).strip()
+        """解析 tool_calls 块；无围栏时尝试 salvage 纯 JSON 数组，避免漏进正文。"""
+        text = text or ""
+        match = re.search(r"```tool_calls\s*(.*?)```", text, re.DOTALL | re.IGNORECASE)
+        if match:
+            calls = self._parse_calls_from_raw(match.group(1))
+            if calls is not None:
+                cleaned = re.sub(
+                    r"```tool_calls\s*.*?```",
+                    "",
+                    text,
+                    flags=re.DOTALL | re.IGNORECASE,
+                ).strip()
+                return cleaned, calls
+            return text, []
+        calls, span = self._salvage_plain_tool_calls(text)
+        if calls:
+            return text.replace(span, " ").strip(), calls
+        return text, []
+
+    def _parse_calls_from_raw(self, raw: str) -> Optional[List[ToolCall]]:
+        """解析 JSON 字符串为工具调用列表；非 JSON 返回 None。"""
         try:
             parsed = json.loads(raw)
         except json.JSONDecodeError:
-            logger.debug("tool_calls 块解析失败，按纯文本答案处理（fail-open）")
-            return text or "", []
+            return None
+        return self._parse_calls_from_value(parsed)
 
+    def _parse_calls_from_value(self, parsed: Any) -> Optional[List[ToolCall]]:
         if not isinstance(parsed, list):
-            return text or "", []
+            return None
 
         calls: List[ToolCall] = []
         for item in parsed:
@@ -90,7 +107,24 @@ class TextToolCallCodec:
                     arguments=item.get("arguments") if isinstance(item.get("arguments"), dict) else {},
                 )
             )
-        return text or "", calls
+        return calls
+
+    def _salvage_plain_tool_calls(self, text: str) -> Tuple[Optional[List[ToolCall]], str]:
+        """无围栏时扫描 JSON 数组，识别工具调用并返回其原文片段。"""
+        decoder = json.JSONDecoder()
+        for idx, ch in enumerate(text):
+            if ch != "[":
+                continue
+            try:
+                value, end = decoder.raw_decode(text[idx:])
+            except json.JSONDecodeError:
+                continue
+            if not isinstance(value, list):
+                continue
+            calls = self._parse_calls_from_value(value)
+            if calls:
+                return calls, text[idx : idx + end]
+        return None, ""
 
 
 class NativeToolCallCodec:

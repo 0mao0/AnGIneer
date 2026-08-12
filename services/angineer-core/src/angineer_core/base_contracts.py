@@ -64,7 +64,8 @@ IntentLevel = Literal["L0", "L1", "L2", "L3", "L4"]
 ServiceMode = Literal[
     "casual_chat",
     "semantic_retrieval",
-    "sql_first",
+    "structured_lookup",
+    "sql_first",  # legacy：历史评测/轨迹兼容
     "standard_sop",
     "dynamic_orchestration",
 ]

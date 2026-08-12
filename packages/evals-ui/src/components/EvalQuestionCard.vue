@@ -600,7 +600,7 @@
             </template>
 
             <!-- 证据检索详情 -->
-            <template v-if="step.label === '证据检索' || step.label === 'SQL/条款定位'">
+            <template v-if="step.label === '证据检索' || step.label === '条款/查表定位'">
               <div
                 v-for="(c, ci) in citations"
                 :key="`citation-${ci}`"
@@ -633,7 +633,7 @@
                 />
               </div>
               <div v-if="!citations.length" class="eval-detail-empty">无检索结果</div>
-              <div v-if="step.label === 'SQL/条款定位'" class="eval-detail-row">
+              <div v-if="step.label === '条款/查表定位'" class="eval-detail-row">
                 <span class="eval-detail-label">查询策略:</span>
                 <span>{{ String(prediction?.strategy || routeDebug.route_kind || '—') }}</span>
               </div>
@@ -1239,7 +1239,8 @@ const hasTieredRouting = computed(() => {
 const executionPathLabels: Record<string, string> = {
   casual_chat: 'L0 闲聊直答',
   semantic_retrieval: 'L1 语义检索',
-  sql_first: 'L2 条文/SQL',
+  structured_lookup: 'L2 条文/查表',
+  sql_first: 'L2 条文/查表（旧）',
   standard_sop: 'L3 标准 SOP',
   dynamic_orchestration: 'L4 语义兜底',
 }
@@ -1306,7 +1307,7 @@ const flowTraceTitle = computed(() => {
 
 const knowledgeTraceTitle = computed(() => {
   if (hasTieredRouting.value) return '分层尝试链路'
-  return String(traceMeta.value.title || (currentIntentLevel.value === 'L2' ? '分析链路（SQL/条款定位）' : '分析链路'))
+  return String(traceMeta.value.title || (currentIntentLevel.value === 'L2' ? '分析链路（条款/查表定位）' : '分析链路'))
 })
 
 const casualTraceTitle = computed(() => {
@@ -1563,7 +1564,7 @@ const knowledgeTraceSteps = computed<ThinkingStep[]>(() => {
     const deduped = (rd.deduped_hits as number) || citations.value.length
     steps.push({
       key: 'knowledge-evidence',
-      label: currentIntentLevel.value === 'L2' ? 'SQL/条款定位' : '证据检索',
+      label: currentIntentLevel.value === 'L2' ? '条款/查表定位' : '证据检索',
       value: `模糊语义 ${denseCount} 条 | 精确匹配 ${sparseCount} 条 | 表格 ${tableCount} 条 = 去重后 ${deduped} 条`,
       hasDetail: true,
       detailType: 'route',
@@ -1710,7 +1711,7 @@ const flowTraceStages = computed<ThinkingStep[]>(() => {
       ),
       hasDetail: true,
       detailType: 'route',
-      timing: getStageTiming('route', 'sop_route', 'sql_first', 'standard_sop', 'dynamic_orchestration', 'semantic_retrieval'),
+      timing: getStageTiming('route', 'sop_route', 'structured_lookup', 'sql_first', 'standard_sop', 'dynamic_orchestration', 'semantic_retrieval'),
     },
     {
       key: 'flow-steps',

@@ -13,7 +13,7 @@ CLASSIFY_INTENT_SYSTEM_PROMPT = """你是工程规范领域的意图分类器。
 | 层级 | 名称 | 判定特征 | service_mode（必须严格对应） |
 |------|------|----------|------------------------------|
 | L1 | 概念解析 | 问"什么是XX"、"XX的定义/原理"、"简述XX"、"XX的分类"、"XX的作用"，无计算参数 | semantic_retrieval |
-| L2 | 条款应用 | 问条款取值、规范参数、查表取值（如"依据XX规范确定XX"、"查表得XX值"），不涉及多步计算 | sql_first |
+| L2 | 条款应用 | 问条款取值、规范参数、查表取值（如"依据XX规范确定XX"、"查表得XX值"），不涉及多步计算 | structured_lookup |
 | L3 | 标准计算 | 有具体数值参数需要计算（吨级、水位、波高、尺寸等工程参数），且存在预定义SOP可承接 | standard_sop |
 | L4 | 复杂任务 | 无预定义SOP可承接的复合任务、多方案比较、系统设计分析 | dynamic_orchestration |
 
@@ -31,7 +31,7 @@ Q: "什么是港口吞吐量？"
 A: {"intent_level": "L1", "intent_type": "概念解析", "confidence": 0.95, "service_mode": "semantic_retrieval", "reason": "纯概念定义查询，无计算参数"}
 
 Q: "依据《海港总体设计规范》确定5万吨级散货船的设计船型尺度"
-A: {"intent_level": "L2", "intent_type": "条款查表", "confidence": 0.90, "service_mode": "sql_first", "reason": "规范条款查表取值，不涉及计算"}
+A: {"intent_level": "L2", "intent_type": "条款查表", "confidence": 0.90, "service_mode": "structured_lookup", "reason": "规范条款查表取值，不涉及计算"}
 
 Q: "某5万吨级散货船，设计船型总长L=230m，型宽B=32m，满载吃水T=12.8m，试计算码头前沿水深。"
 A: {"intent_level": "L3", "intent_type": "标准计算", "confidence": 0.92, "service_mode": "standard_sop", "reason": "含具体参数需要码头水深SOP计算"}

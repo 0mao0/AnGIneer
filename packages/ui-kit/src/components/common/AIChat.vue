@@ -15,6 +15,7 @@
     :show-system-messages="showSystemMessages"
     :context-tokens="contextTokens"
     :context-rounds="contextRounds"
+    :streaming-thinking-steps="liveThinkingSteps"
     :search-citations="searchInlineCitations"
     :render-message="renderAIChatMessage"
     :allow-image-upload="false"
@@ -96,11 +97,13 @@ const {
   messages,
   loading,
   currentStreamContent,
+  liveThinkingSteps,
   contextTokens,
   contextRounds,
   sendMessage,
   stopGeneration,
   clearMessages,
+  startNewChat,
 } = useAIChat({
   defaultModel: props.defaultModel,
   systemPrompt: props.systemPrompt,
@@ -191,6 +194,7 @@ defineExpose({
   clearMessages,
   sendMessage,
   handleSend,
+  startNewChat,
   clearComposer: () => baseChatRef.value?.clearComposer?.()
 })
 </script>

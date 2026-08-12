@@ -55,7 +55,7 @@ ROUTE_RECALL_MIN_SCORE = 0.02
 DEFAULT_EXECUTION_PLANS: Dict[str, List[str]] = {
     "L0": ["casual_chat"],
     "L1": ["semantic_retrieval"],
-    "L2": ["sql_first", "semantic_retrieval"],
+    "L2": ["structured_lookup", "semantic_retrieval"],
     "L3": ["standard_sop", "semantic_retrieval"],
     "L4": ["dynamic_orchestration"],
 }
@@ -646,8 +646,8 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             intent_type="clause_then_calculation",
             parameters={"num_values_count": len(num_values)},
             required_capabilities=["retrieval", "sql", "calculation", "sop", "orchestration"],
-            service_mode="sql_first",
-            execution_plan=["sql_first", "standard_sop", "dynamic_orchestration"],
+            service_mode="structured_lookup",
+            execution_plan=["structured_lookup", "standard_sop", "dynamic_orchestration"],
             reason="检测到条文/规范定位信号与计算特征，先走 L2 定位依据，必要时回退到 L3/L4",
         )
 
@@ -658,8 +658,8 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             intent_type="standard_lookup",
             parameters={"standard_code": standard_code_match.group(0)},
             required_capabilities=["retrieval", "sql"],
-            service_mode="sql_first",
-            reason=f"检测到规范编号({standard_code_match.group(0)})，走SQL精确检索",
+            service_mode="structured_lookup",
+            reason=f"检测到规范编号({standard_code_match.group(0)})，走条款/表格精确查证",
         )
 
     if is_multiple_choice and has_l3_keyword and len(num_values) >= 1:
@@ -696,7 +696,7 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             intent_type="clause_application",
             parameters={"clause_id": clause_id_value},
             required_capabilities=["retrieval", "sql"],
-            service_mode="sql_first",
+            service_mode="structured_lookup",
             reason=f"检测到条款编号({clause_id_value})和条款关键词",
         )
 
@@ -778,7 +778,7 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
             intent_type="clause_application",
             parameters={"clause_id": clause_id_value} if clause_id_value else {},
             required_capabilities=["retrieval", "sql"],
-            service_mode="sql_first",
+            service_mode="structured_lookup",
             reason="检测到条款应用关键词",
         )
 

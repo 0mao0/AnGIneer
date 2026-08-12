@@ -416,9 +416,9 @@ services/docs-core/
 │   │   │   ├── extractor_prompts.py / config.py / push_to_graph.py
 │   │   ├── step08_maintain/         # 维护（巡检 / 周期任务）
 │   │   │   ├── runner.py / report.py / config.py
-│   │   ├── step09_query/            # 检索：retrieval + text2sql + protocols
+│   │   ├── step09_query/            # 检索：retrieval + protocols（text2sql 休眠）
 │   │   │   ├── retrieval/           # sparse / dense / hybrid / table / formula
-│   │   │   ├── text2sql/            # schema linker / planner / generator / validator / executor
+│   │   │   ├── text2sql/            # schema linker / planner / generator / validator / executor（保留，未接入）
 │   │   │   └── protocols/           # contracts / data_port
 │   │   ├── step10_export/           # 第 10 步：对外产物导出
 │   │   │   └── export_artifacts.py

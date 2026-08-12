@@ -183,6 +183,11 @@
       <template #right>
         <Panel title="AI 对话" :icon="MessageOutlined">
           <template #extra>
+            <a-tooltip title="新建对话">
+              <a-button size="small" class="header-icon-btn" @click="onNewChat">
+                <template #icon><PlusOutlined /></template>
+              </a-button>
+            </a-tooltip>
             <a-tooltip title="收起侧边栏">
               <a-button size="small" class="header-icon-btn" @click="splitPanesRef?.toggleRight()">
                 <template #icon><MenuUnfoldOutlined /></template>
@@ -195,7 +200,7 @@
             placeholder="输入消息，Ctrl+Enter 发送..."
             :show-context-info="true"
             scene="knowledge"
-            :session-id="selectedNode && !selectedNode.isFolder ? selectedNode.key : 'default'"
+            :session-id="chatSessionId"
             :transport="defaultAIChatTransport"
             @answer-complete="_handleKnowledgeAnswerCompleteWrapper"
             @select-citation="_handleKnowledgeCitationSelectWrapper"
@@ -353,6 +358,7 @@ import {
   FileAddOutlined,
   DeleteOutlined,
   EyeOutlined,
+  PlusOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined
 } from '@ant-design/icons-vue'
@@ -405,6 +411,14 @@ const {
   getChildCount,
   getFolderName
 } = useKnowledgeTree()
+
+/** 全局会话：不随文档变化，只有刷新或新建对话才换 key */
+const chatNonce = ref(Date.now() + Math.floor(Math.random() * 1_000_000))
+const chatSessionId = computed(() => `global::${chatNonce.value}`)
+const onNewChat = () => {
+  chatNonce.value += 1
+  knowledgeChatRef.value?.startNewChat?.()
+}
 
 const {
   parseSettingsVisible,

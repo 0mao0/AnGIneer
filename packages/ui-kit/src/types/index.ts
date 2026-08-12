@@ -40,6 +40,8 @@ export type {
   BaseChatModelOption,
   AIChatCitation,
   AIChatMessage,
+  ThinkingTraceItem,
+  ThinkingTraceStep,
   QueryRequest,
   QueryResponse,
   SessionKey,

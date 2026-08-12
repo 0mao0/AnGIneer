@@ -1,16 +1,25 @@
-# 🏗️ AnGIneer: 工程领域的AI工程师
+# 🏗️ AnGIneer：工程领域的 AI 工程师
 
-**AnGIneer** (AGI + Engineer) 是专为严谨工程领域打造的Agent系统。
+**AnGIneer**（AGI + Engineer）是面向严谨工程领域的 Agent 系统：仅使用不微调的小型语言模型（SLM），融合结构化规范库（Docs）、标准作业程序（SOPs）、工程工具链（EngTools）、地理信息世界（GeoWorld）与专业软件驱动（CAD / 报告），覆盖从"规范问答"到"注册考试题解答"、"地理信息查询"、"设计报告编制"、"CAD 出图算量"的完整工程智能体链路。
 
-仅使用不微调的小型语言模型 (SLM)的能力，融合结构化规范库 (Docs)、标准作业程序 (SOPs)、工程工具链 (EngTools) 与地理信息世界 (GeoWorld) ，成为工程师的最佳助手。
+> **当前代码基线：v0.2.1** —— v0.1 / v0.2 能力已落地；v0.3–v0.5 按路线推进，目标 **v0.5 正式版**，此后通过大量迭代演进到 **v1.0**。
 
-> <br />
+> 核心理念：*"Human Defines SOP, AnGIneer Executes with Precision."*
 
 ***
 
-## 1. 核心理念
+## 1. 版本路线与现状
 
-*"Human Defines SOP, AnGIneer Executes with Precision."*
+| 版本 | 里程碑 | 核心能力 | 代码现状 |
+| :--- | :--- | :--- | :--- |
+| **v0.1** | 规范问答基础版 | 文档解析入库、知识图谱、SOP 引擎、L0-L4 意图分级、AI 对话、评测框架 | ✅ 基本完成（git tag `v0.1-frontend-*`） |
+| **v0.2** | Docs-SOP 问答系统化改进 | Agent 化问答链路、五路检索 + 融合重排、SOP 审核/审计、Prompt 资产化、10 阶段解析管线 + PoPo 强化、注册考试题集评测、Dream Cycle 知识巡检 | ✅ 已完成，当前迭代基线 v0.2.1 |
+| **v0.3** | 世界模型 | 基于 Cesium 的三维地理世界模型，自主查询地理信息（GIS / 水文气象 / 地形），支撑更高级题目 | 🚧 骨架已存在（geo-core GIS 断面算量工具 + GIS 视图），Cesium 集成规划中 |
+| **v0.4** | 设计报告 | 基于规范检索、SOP 执行轨迹与地理/计算数据，自动编制工可、初设等正式设计报告 | 🚧 规划中 |
+| **v0.5** | CAD 出图算量 | 连接并驱动 CAD 引擎，自动出图、工程量计算，形成"设计 → 出图 → 算量"闭环 | 🚧 规划中，**v0.5 定位为正式版** |
+| **v1.0** | 正式版迭代 | 在 v0.5 基础上大量迭代：多专业覆盖、精度与稳定性、工程化与 SaaS 化（多租户） | 🚧 目标 |
+
+> 说明：v0.3–v0.5 描述的是路线目标；仓库当前实际代码基线为 v0.2.1，相关模块已在对应小节中标注"骨架 / 规划中"，避免与已落地能力混淆。
 
 ***
 
@@ -18,100 +27,36 @@
 
 ### 2.1 系统矩阵
 
-| 子系统                | 核心职责      | 主要任务                   | 输入                          | 输出                          |
-| :----------------- | :-------- | :--------------------- | :-------------------------- | :-------------------------- |
-| **AnGIneer-Core**  | **核心大脑**  | Agent意图识别、工具调度、记忆黑板等   | 用户问题、对话上下文、历史会话              | 调度决策（L0-L4）、最终答案、执行轨迹        |
-| **AnGIneer-Docs**           | **结构化规范**  | 基于MinerU的规范自动解析与知识库管理       | PDF / DOCX / 图片（规范文档）       | 结构化 JSON、Markdown、知识库索引、引用证据 |
-| **AnGIneer-KnowledgeGraph** | **知识图谱**   | 基于文档A，LLM提取实体关系动态生成图谱B + cangjie-skill提取器附加语义标注 | 结构化文档 A（来自 Docs）            | 知识图谱 B（实体/关系/路径）            |
-| **AnGIneer-SOP**            | **经验流程**   | 基于图谱B自动生成SOP + SOP CRUD + 运行时契约 | 知识图谱 B（实体路径）、用户手动修改         | SOP JSON、运行时执行结果、黑板变量       |
-| **AnGIneer-Evals** | **评测引擎**  | 测试集                    | 题集（问/答/期望）、被测模块调用结果         | 评分报告、对比看板、误差分析              |
-| **AnGIneer-Tools** | **专业工具**  | 工程计算器、脚本库等             | 工程参数（数值/表格）                 | 计算结果、中间过程、单位/校验结论           |
-| **AnGIneer-Geo**   | **世界底座**  | 集成GIS、水文气象等，供AI使用。     | 地理位置、查询条件（行政区/坐标/流域）        | GIS 数据、水文气象数据、底图要素          |
-| **AnGIneer-AI**    | **AI 模型** | LLM 客户端 + 本地 Embedding/Reranker 模型服务 | prompt、对话历史、文档片段            | LLM 文本回复、嵌入向量、重排得分          |
+| 子系统 | 核心职责 | 主要任务 | 输入 | 输出 |
+| :--- | :--- | :--- | :--- | :--- |
+| **AnGIneer-Core** | 核心大脑 | Agent 意图识别、工具调度、Agent 循环、记忆黑板、SOP 执行引擎 | 用户问题、对话上下文、历史会话 | 调度决策（L0-L4）、最终答案、执行轨迹 |
+| **AnGIneer-Docs** | 结构化规范 + 知识图谱 + 健康巡检 | MinerU + PoPo 解析、Solo 结构化、SQLite/FTS/向量索引、五路检索、块级溯源；内含 KnowledgeGraph（`step07_graph`）与 Dream Cycle（`step08_maintain`）子模块 | PDF / DOCX / PPTX / XLSX / 图片 | 结构化 JSONL、canonical SQLite、知识图谱、引用证据、巡检报告、按文档导出的产物 |
+| **AnGIneer-SOPs** | 经验流程 | 基于图谱生成 SOP、SOP CRUD + 审核/审计、运行时契约、黑板变量依赖 | 知识图谱、人工维护 | SOP JSON、运行时执行结果、审核记录 |
+| **AnGIneer-Evals** | 评测引擎 | 注册考试题集、检索/回答/SOP 评测、运行对比与看板 | 题集（问/答/期望）、被测链路结果 | 评分报告、对比分析、题目级差异 |
+| **AnGIneer-Tools** | 专业工具 | 工程计算器、表格查值、条件分支、知识检索、GIS 断面算量等 | 工程参数（数值/表格） | 计算结果、中间过程、校验结论 |
+| **AnGIneer-Geo** | 世界底座 | GIS 工具与地理视图（当前骨架）；规划 Cesium 三维世界模型、水文气象与空间查询 | 地理位置、查询条件（行政区/坐标/流域） | GIS 数据、断面/土方计算、空间要素 |
+| **AnGIneer-AI** | AI 模型 | LLM 客户端（多模型/重试/熔断/流式）+ 在线 Embedding / Reranker | prompt、对话历史、文档片段 | LLM 文本回复、嵌入向量、重排得分 |
+| **AnGIneer-TreeCore** | 树操作基础设施 | 树节点 CRUD、移动、排序归一化（零外部依赖） | 树操作请求 | 规范化树数据 |
 
 ***
 
-### 2.2 AnGIneer-Core主调度模块
+### 2.2 AnGIneer-Core 主调度模块
 
-#### (1) 定位
-
-```
-AnGIneer的大脑，负责与用户交互并调度自身资源以完成任务。
-```
-
-#### (2) 主要功能
-
-1. **Agent 主调度** — 以 `L0~L4` 分级策略为总开关，统一决定问题应走闲聊、语义检索、SQL、SOP 还是复杂编排链路
-2. **双引擎意图分类** — 规则快速匹配（关键词+正则，毫秒级响应）+ LLM 语义理解，失败自动降级为 `L1` 语义检索
-3. **SOP 路由与执行** — 先做 SOP 粗召回，再做 LLM 精排与参数抽取，命中后进入黑板式步骤执行
-4. **工具调度与运行时** — 统一工具契约与注册表，支持按场景组织能力（Docs/SOP/Evals/EngTools/Geo）并可组合调用
-5. **上下文构建与记忆管理** — 从知识库、SOP、历史对话等来源抽取上下文，维护对话状态与 blackboard 数据
-6. **运行时治理** — 错误分级、兜底回退、日志、阶段耗时、步骤追踪与可观测性基础设施
-
-#### (3) L0-L4 分级策略
+#### (1) L0-L4 分级策略
 
 | 层级 | 问题类型 | 典型特征 | service_mode | 主处理链路 |
 | :--- | :--- | :--- | :--- | :--- |
-| **L0** | 闲聊寒暄 | 问候、自我介绍、情绪表达，与工程规范无关 | `casual_chat` | 直接走 LLM 对话，不检索、不查库 |
-| **L1** | 概念解析/定位问答 | “什么是…”、“在哪里…”、“如何定义…” | `semantic_retrieval` | Docs 多路召回 → Hybrid 融合 → LLM 基于证据作答 |
-| **L2** | 条款应用/规范查询 | 规范编号、条款号、条件取值、查表类问题 | `sql_first` | Text2SQL / 结构化 SQL → 失败再回退语义检索 |
+| **L0** | 闲聊寒暄 | 问候、自我介绍、情绪表达，与工程规范无关 | `casual_chat` | 直接 LLM 对话，不检索、不查库 |
+| **L1** | 概念解析/定位问答 | "什么是…"、"在哪里…"、"如何定义…" | `semantic_retrieval` | Docs 多路召回 → Hybrid 融合 → LLM 基于证据作答 |
+| **L2** | 条款应用/规范查询 | 规范编号、条款号、条件取值、查表类问题 | `structured_lookup` | 条款/表格结构化查证 → 失败回退语义检索 |
 | **L3** | 标准工程计算 | 含明确参数、存在预定义 SOP 的标准计算题 | `standard_sop` | SOP 粗召回 → LLM 精排 → 参数抽取 → SOP 执行 |
-| **L4** | 复杂复合任务 | 综合分析、方案比选、无单一 SOP 可承接 | `dynamic_orchestration` | 由 Core 动态组合 Docs/SOP/Tools/LLM 多能力链路 |
+| **L4** | 复杂复合任务 | 综合分析、方案比选、无单一 SOP 可承接 | `dynamic_orchestration` | Agent 循环动态组合 Docs/SOP/Tools/LLM 多能力链路 |
 
-一句话：Core 不是“直接回答问题”，而是先判定问题层级，再选择最稳的执行链路。
+一句话：Core 不是"直接回答问题"，而是先判定问题层级，再选择最稳的执行链路，失败沿执行计划逐级回退。
 
-#### (4) 主调度时序
+#### (2) Agent 化问答链路（v0.2.1 起）
 
-```mermaid
-sequenceDiagram
-    participant User as 用户
-    participant UI as 控制台/工作台
-    participant API as API 服务层
-    participant Core as AnGIneer-Core
-    participant Docs as Docs/SQL
-    participant SOP as SOP/Tools
-    participant LLM as AI 模型
-
-    User->>UI: 输入问题
-    UI->>API: /api/query
-    API->>Core: dispatch(query, library_id, doc_ids, sop_loader)
-    Core->>Core: classify_intent()
-
-    alt L0 casual_chat
-        Core->>LLM: 直接闲聊响应
-        LLM-->>Core: answer
-    else L1 semantic_retrieval
-        Core->>Docs: dense/sparse/table retrieval
-        Docs-->>Core: fused context
-        Core->>LLM: 基于证据生成回答
-        LLM-->>Core: answer + citations
-    else L2 sql_first
-        Core->>Docs: schema_link + validate_sql + execute_sql
-        Docs-->>Core: structured rows
-        Core->>LLM: 结构化结果总结
-        LLM-->>Core: answer
-    else L3 standard_sop
-        Core->>Core: route() 粗召回/精排/参数抽取
-        Core->>SOP: analyze_sop() + run_sop()
-        SOP-->>Core: sop_trace + blackboard
-        Core->>LLM: 必要时生成总结答案
-        LLM-->>Core: answer
-    else L4 dynamic_orchestration
-        Core->>Docs: 检索/查询
-        Core->>SOP: 选择或组合流程
-        Core->>LLM: 分解任务/生成中间决策
-        LLM-->>Core: multi-step answer
-    end
-
-    Core-->>API: answer / citations / strategy / stage_timings / sop_trace
-    API-->>UI: 可追溯结果
-```
-
-一句话：Core 把“用户目标”翻译成可执行流程，并按需编排 Docs/SOP/Evals/Tools 等能力，最终输出可追溯结果。
-
-#### (5) Agent 化问答链路架构（v0.2.1）
-
-> 自 v0.2.1 起，问答链路以 `AgentSession + run_agent_loop` 为核心；前端统一走 `/api/chat/agent`（SSE），旧 `/api/query` 仅作兼容保留。
+自 v0.2.1 起，问答链路以 `AgentSession + run_agent_loop` 为核心；前端统一走 `/api/chat/agent`（SSE），旧 `/api/query` 已退役，评测与内部调用统一走 `policy_query`。
 
 ```mermaid
 flowchart TD
@@ -120,7 +65,7 @@ flowchart TD
     S --> L["run_agent_loop<br/>LLM 流式生成 + 工具编解码 + 截断/预算闸门"]
     L --> C{"意图分级 L0-L4"}
     C -->|"L1 概念/正文"| A1["L1 Agentic RAG"]
-    C -->|"L2 规范查询"| A2["SQL 优先链路"]
+    C -->|"L2 规范查询"| A2["L2 条款/查表链路"]
     C -->|"L3 标准作业"| A3["SOP 执行链路"]
     C -->|"L4 综合大题"| A4["L4 Agentic 编排"]
     A2 -->|"失败回退"| A1
@@ -139,156 +84,135 @@ flowchart TD
 
 1. **会话层**：`AgentSession` 按 `scene:session_id` 复用会话池，注入多轮历史，支持中途 `steer` 与 `cancel`。
 2. **循环层**：`run_agent_loop` 负责 LLM 流式生成、工具调用编解码（TextToolCallCodec）、最大轮次/预算闸门与截断守卫。
-3. **调度层**：意图分类（规则快速匹配 + LLM 语义理解，失败降级 L1）→ 选择 L1 语义检索 / L2 SQL / L3 标准 SOP / L4 复杂编排，失败沿执行计划逐级回退；L1/L4 已 Agent 化，legacy 路径作兜底。
+3. **调度层**：意图分类（规则快速匹配 + LLM 语义理解，失败降级 L1）→ 选择 L1 语义检索 / L2 条款/查表 / L3 标准 SOP / L4 复杂编排，失败沿执行计划逐级回退；L1/L4 已 Agent 化，legacy 路径作兜底。
 4. **检索层**：dense（向量，服务不可用自动降级 hash/phrase）、sparse（FTS/引用目标）、clause（条款）、table、formula 五路召回 → Hybrid 融合 → 在线 reranker 或本地 phrase 重排。
-5. **作答层**：基于证据生成答案并附带引用定位；证据不足时明确拒绝或回退链路；`entity_search` 图谱无命中时自动回退正文检索，避免“是什么/定义”类问题被误判为无证据。
+5. **作答层**：基于证据生成答案并附带引用定位（文档标题 + 章节 + PDF 跳转）；证据不足时明确拒绝或回退链路；`entity_search` 图谱无命中时自动回退正文检索。
 
 ***
 
-### 2.3 AnGIneer-Dcos知识库模块
+### 2.3 AnGIneer-Docs 知识库模块（含 KnowledgeGraph、Dream Cycle 子模块）
 
 ![文档解析模块架构](./docs/Angineer-DocParseModule.png)
 
 #### (1) 定位
 
 ```
-规范结构化，尤其是图、表、公式三大样。
+规范结构化，尤其是图、表、公式三大样；让规范"可读、可查、可算、可引用"。
 ```
 
 #### (2) 主要功能
 
-1. **规范解析** — 基于 MinerU 云服务的 PDF 解析，保留版式、标题层级、图表与公式信息
-2. **表格结构化** — 基于规则对表格做分类（数值型/文本型/混合型/映射型），支持行键检索
-3. **块级溯源引用** — 从回答中回溯到条文/表格/图片等证据块，满足工程审阅要求
-4. **结构化入库** — 将解析结果组织为可检索的 blocks/sections，并持久化到数据库与资产存储
-5. **阶段化解析** — 解析管线拆分为 9 个独立状态阶段（MinerU 解析/结构化/全文索引/向量索引/图谱/SOP 等），支持单阶段重试，任一软阶段失败不影响已完成阶段。前端解析记录统计页提供阶段流水线可视化与错误信息一键复制。
-6. **9+来源融合检索** — 稠密/稀疏/表格/目录等多来源候选融合，动态权重分配，任务类型自适应，概率去重合并
-7. **领域 Text-to-SQL** — 内置 80+ 工程关键词（工程对象/工况条件/验算目标），支持 YAML 配置动态加载，SQL 安全白名单校验
-8. **查询协议** — 为上层提供统一的查询接口与返回结构（答案 + 引用 + 调试信息）
-9. **知识库管理** — 文档节点、解析任务、状态流转、可视化预览（前端）
+1. **10 阶段解析管线** — 从源文件到图谱的分阶段流水线，hard 阶段失败终止后续，soft 阶段失败仅标记自身；支持单阶段重试、任务取消、GPU 排队与阶段级可视化。
+2. **MinerU 高保真解析** — 云端 PDF 解析，保留版式、标题层级、图表与公式信息；非 PDF 经 LibreOffice 自动转换。
+3. **PoPo 信号增强** — MinerU-Popo 子模块提供文档树/续接表格等信号；soft 阶段，失败自动回滚并降级为 Solo 结构化，不影响主链。
+4. **Solo 结构化（唯一构建者）** — 规则引擎产出块/层级/语义，PoPo 仅作信号注入；支持 LLM 标题层级复核与表格 HTML 语义。
+5. **SQLite + FTS 建库** — canonical 表 + 全文索引，支撑稠密/稀疏/条款/表格/公式五路检索与块级溯源。
+6. **向量索引** — 在线 Embedding API（失败自动 hash/phrase 降级），Chroma / SQLite 向量存储可选。
+7. **知识图谱落库** — 结构化产物推入 `knowledge_graph.sqlite`（实体/关系/原则/案例/反例/框架）。
+8. **结构化查询（text2sql 休眠）** — 引擎模块保留（schema linker / planner / validator / executor），当前未接入 agent 链路。
+9. **按文档产物导出** — 按 doc_id 导出独立 `index.sqlite` / `graph.sqlite` / 结构化 JSONL，避免整库交付泄露。
+10. **知识库管理** — 文档节点、解析任务、状态流转、编辑同步、可视化预览（前端）。
 
-#### (3) 逻辑架构
+#### (3) 解析管线阶段
 
-```text
-┌──────────────┐   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-│  规范文档输入  │ → │  高保真解析   │ → │  结构化增强   │ → │  索引/入库    │
-│ PDF/图片/MD   │   │ (版式/图表/公式)│  │ (图-表-公式语义)│  │ (可检索可引用) │
-└──────────────┘   └──────────────┘   └──────────────┘   └──────────────┘
-                                                              │
-                                                              ▼
-                                                      ┌──────────────┐
-                                                      │  统一查询入口  │
-                                                      └──────────────┘
-                                                              │
-                                                              ▼
-                                                      ┌──────────────┐
-                                                      │  答案 + 证据引用 │
-                                                      └──────────────┘
+| stage_key | 阶段 | 类型 | 说明 |
+| :--- | :--- | :--- | :--- |
+| `source_prep` | 1 源文件准备 | hard | 复制源文件到规范目录 |
+| `convert` | 2 格式转换 | hard | 非 PDF 经 LibreOffice 转 PDF；PDF 自动 skipped |
+| `raw_parse` | 3.1 MinerU 解析 | hard | 调 MinerU 产出 md + images + JSON |
+| `popo` | 3.2 PoPo 强化 | soft | 可选信号源，失败回滚并记 `fallback=solo` |
+| `structure` | 4 结构化（Solo 唯一构建者） | hard | 产出 `doc_blocks_graph.jsonl` + meta |
+| `fts` | 5 SQLite + FTS | hard | 重建 canonical 库与全文索引 |
+| `vectors` | 6 向量索引 | soft | Embedding API；失败仅标本阶段 |
+| `graph` | 7 知识图谱 | soft | `push_to_graph` 落图谱库 |
+
+另有 `step08_maintain`（Dream Cycle 巡检）与 `step10_export`（按文档产物导出）作为管线外的扩展模块。
+
+> **PoPo 子模块注意事项（更新上游时务必保留本地定制）**
+>
+> `services/docs-core/src/popo` 是 git submodule（MinerU-Popo，MIT 协议）。本地已将 `post_processing/model_utils.py` 中的硬编码 `url=""` / `key=""` 改为读取环境变量 `POPO_VLLM_URL` / `POPO_VLLM_API_KEY` / `POPO_MODEL_NAME`，并支持 `POPO_API_TIMEOUT`（默认 300s）与 `POPO_MAX_TOKENS`（默认 4096）。**若不保留此修改，PoPo 推理会请求打到 api.openai.com（国内 DNS 污染导致挂死）或空 url 报错。** 更新上游前先 `git -C services/docs-core/src/popo commit` 本地修改，冲突时仅针对该文件手动合并。
+
+#### (4) KnowledgeGraph 子模块（docs-core step07_graph）
+
+##### (1) 定位
+
+```
+基于文档 A，LLM 顺藤摸瓜动态生成知识图谱 B。
 ```
 
-一句话：Docs 把规范"解析成结构化知识"，让查询结果自带证据引用，适合工程审阅与复核。
+##### (2) 主要功能
+
+1. **种子共现兜底** — 70 个工程标准术语文本扫描，秒级完成基础实体关系。
+2. **LLM 实体 + 关系抽取** — 每 packet 一次调用，发现文档专属实体与关系。
+3. **三重验证（V1 跨域 / V2 预测力 / V3 独特性）** — 关系置信度后处理，通过 3/3 升级为 QUESTION_VALIDATED。
+4. **Zettelkasten 跨段语义连接** — 整篇文档一次调用，发现跨章节隐含关系。
+5. **cangjie-skill E1-E5 提取器** — 为图谱附加原则/案例/反例/术语/框架标注。
+6. **按文档强隔离** — `library_id + doc_id` 维度隔离与过滤，实体跨文档共享、关系归属文档。
+7. **图谱人工审核** — `/api/graph/review` 提供关系验证入口。
+
+一句话：KnowledgeGraph 把"文档 A"变成"图谱 B + 语义标注"，为 SOP 生成与复杂推理提供结构化基础。
+
+#### (5) Dream Cycle 子模块（docs-core step08_maintain）
+
+每日凌晨（默认 `0 2 * * *`）对知识图谱/索引库执行 5 项健康检查并生成 JSON 报告：
+
+| # | 任务 | 实现逻辑 | 自动化边界 |
+| :--- | :--- | :--- | :--- |
+| 1 | 实体去重检查 | 编辑距离 + aliases 交叉检测 | ≥0.95 自动合并，0.7–0.95 人工确认 |
+| 2 | 矛盾关系检测 | 同一对实体在不同文档中关系类型冲突 | 全部人工审核 |
+| 3 | 孤立实体清理 | 无入边无出边 + 非种子实体 | ≥14 天自动标记 inactive，≥7 天人工确认 |
+| 4 | 过期知识标记 | 文档标题年份检测（简化版） | 全部人工审核 |
+| 5 | SOP 健康统计 | 读取 `data/sops/index.json` 统计 | 纯报告 |
+
+API：`GET /api/dream-cycle/reports`、`GET /reports/{date}`、`POST /run`、去重确认/驳回、孤立实体保留/删除、`GET /health`。所有自动操作写审计日志（`data/dream_cycle/audit/`），仅标记不物理删除。
 
 ***
 
-### 2.4 AnGIneer-KnowledgeGraph知识图谱模块
+### 2.4 AnGIneer-SOPs 经验库模块
+
+![SOP 模块架构](./docs/Angineer-SOPModule.png)
 
 #### (1) 定位
 
 ```
-基于文档A，LLM 顺藤摸瓜动态生成知识图谱B。
+基于知识图谱语义标注自动生成 SOP，并提供 SOP 的 CRUD、审核与运行时执行支持。
 ```
 
 #### (2) 主要功能
 
-1. **种子共现兜底** — 70 个工程标准术语的文本扫描，秒级完成基础实体关系
-2. **LLM 实体+关系抽取** — 每 packet 一次调用，发现文档专属实体与关系
-3. **三重验证（V1 跨域/V2 预测力/V3 独特性）** — 关系置信度后处理，通过 3/3 升级为 QUESTION_VALIDATED
-4. **Zettelkasten 跨段语义连接** — 整篇文档一次调用，发现跨章节隐含关系
-5. **cangjie-skill E1-E5 提取器** — 为图谱附加原则/案例/反例/术语/框架标注
-6. **按文档强隔离** — library_id + doc_id 维度隔离与过滤，实体跨文档共享、关系归属文档
-
-一句话：KnowledgeGraph 把"文档A"变成"图谱B + 语义标注"，为 SOP 生成与复杂推理提供结构化基础。
+1. **基于图谱的 SOP 自动生成** — 从文档图谱识别 framework 路径或 ACTION 实体链，自动生成含原则/案例/反例/术语标注的 SOP JSON。
+2. **LLM 驱动的 SOP 解析引擎** — Markdown SOP 自动转 JSON 结构化执行计划，支持 calculator / knowledge_search / table_lookup / user_input / conditional 等工具类型。
+3. **黑板变量依赖提取** — 自动分析 `${variable}` 引用关系，构建 required/outputs 依赖图，失败自动降级到规则提取。
+4. **智能条件分支工具** — 精确匹配、排除法匹配、LLM 语义匹配三级降级，可嵌套查表/计算，自动识别"其他"等兜底关键词。
+5. **SOP 审核与审计** — 新增 `POST /{sop_id}/review` 审核闸门与 `GET /{sop_id}/audit` 审计记录，LLM 生成的 SOP 需审核后才进入可执行库。
+6. **SOP 分层管理** — SOP 与文件夹树结构管理、排序、检索、导入、删除预览。
+7. **与 Core 联动** — 作为调度输入的一部分，为复杂任务提供"可执行的经验流程"。
 
 ***
 
-### 2.5 AnGIneer-SOPs经验库模块
+### 2.5 AnGIneer-Evals 评测引擎模块
 
-![文档解析模块架构](./docs/Angineer-SOPModule.png)
+![评测模块架构](./docs/Angineer-EvalModule.png)
 
 #### (1) 定位
 
 ```
-基于知识图谱B，通过 cangjie-skill 提取器产出的语义标注自动生成 SOP list，
-并提供 SOP 的 CRUD 与运行时执行支持。
+基准测试中心，含 RAG 检索评测、注册考试题评测等。
 ```
 
 #### (2) 主要功能
 
-1. **基于图谱的 SOP 自动生成** — 从文档图谱中识别 framework 路径或 ACTION 实体链，自动生成包含原则/案例/反例/术语标注的 SOP JSON
-2. **LLM 驱动的 SOP 解析引擎** — Markdown SOP 自动转 JSON 结构化执行计划，支持 5 种工具类型识别（calculator/knowledge_search/table_lookup/user_input/conditional）
-3. **黑板变量依赖提取** — 自动分析步骤间 `${variable}` 引用关系，构建 required/outputs 依赖图，失败自动降级到规则提取
-4. **智能条件分支工具** — 支持精确匹配、排除法匹配、LLM 语义匹配三级降级，可嵌套查表/计算，自动识别"其他"等兜底关键词
-5. **SOP 结构化** — 将"经验"沉淀为 JSON 格式的可复用流程资产
-6. **步骤级引用与结构化** — 步骤描述支持结构化内容与引用，便于与规范证据联动与审阅
-7. **SOP 分层管理** — SOP 与文件夹树结构管理、排序、检索
-8. **SOP CRUD** — 创建/编辑/删除 SOP，支持 steps 与 blackboard 等运行字段
-9. **与 Core 联动** — 作为调度输入的一部分，为复杂任务提供"可执行的经验流程"
-
-#### (3) 逻辑架构
-
-```text
-┌──────────────┐   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-│  经验沉淀/维护  │ → │  SOP 结构化   │ → │  运行时加载   │ → │  被 Core 调度  │
-│ (人/组织资产)   │   │ (步骤/引用/字段)│  │ (随用随取)    │  │ (按需执行/参考) │
-└──────────────┘   └──────────────┘   └──────────────┘   └──────────────┘
-```
-
-一句话：SOP 把"老师傅经验"做成可复用流程资产，能被 Core 在复杂任务中直接引用或按步骤执行。
+1. **同构评测架构** — 评测器通过 Core 调度入口直接调用检索/回答链路（不走 HTTP），确保"离线评测与线上效果一致"。
+2. **注册考试题集** — 内置《港口与航道工程》2019 / 2020 注册考试题集（`data/evals/datasets/exam-harbor-2019-2020.json`、`reviewed-exam-2020-2019.json`），含正确答案、解析、判分关键字、必引条文与思考过程，支持按年份/专业/难度/题型筛选。
+3. **多维度评测指标** — 检索评测（Hit@1/Hit@3/Hit@5/MRR/citation_hit）、SOP 执行评测、回答语义评测。
+4. **检索精度分桶** — 失败分桶（`missed_exact_target`、`wrong_section_bias`、`caption_body_confusion`、`formula_symbol_confusion`），按 question_type / doc_id / failure_bucket 聚合，驱动检索迭代回归。
+5. **题集与题目管理** — 题集创建/导入/导出/删除/重命名，题目增删改查、排序、标签与难度元数据。
+6. **评测运行与对比** — 异步启动评测、轮询进度、运行记录；支持两次运行分数差异与题目级变化对比。
+7. **数据落库** — 运行记录与题目存储（SQLite），便于回放与追踪。
 
 ***
 
-### 2.5 AnGIneer-Evals测试集模块
-
-![文档解析模块架构](./docs/Angineer-EvalModule.png)
-
-#### (1) 定位
-
-```
-基准测试中心，含RAG测试、注册考题测试等。
-```
-
-#### (2) 主要功能
-
-1. **同构评测架构** — 评测器通过 Core 调度入口直接调用检索/回答链路（不走 HTTP，不依赖 asyncio），确保"离线评测与线上效果一致"
-2. **多维度评测指标** — 检索评测（Hit@3/Hit@5/MRR）、Text-to-SQL 评测（执行成功率/SQL 精确匹配）、SOP 执行评测
-3. **可扩展评测套件** — 检索、回答、Text2SQL、SOP 等评测器可插拔组合，支持分阶段记录与对比
-4. **题集管理** — 题集创建/导入/导出/删除/重命名
-5. **题目管理** — 单题增删改查、排序、标签与难度等元数据维护
-6. **评测运行** — 异步启动评测、轮询进度、保存运行记录与明细
-7. **结果对比** — 支持两次运行的分数差异与题目级变化对比
-8. **数据落库** — 运行记录与题目存储（SQLite），便于回放与追踪
-
-#### (3) 逻辑架构
-
-```text
-┌──────────────┐   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-│  题集/题目库   │ → │  发起评测运行  │ → │  评测器执行   │ → │  结果汇总/存档 │
-│ (RAG/考题等)   │   │ (异步/可追踪)  │   │ (检索/回答/…) │  │ (可回放/对比)  │
-└──────────────┘   └──────────────┘   └──────────────┘   └──────────────┘
-                                                              │
-                                                              ▼
-                                                      ┌──────────────┐
-                                                      │  对比/看板展示  │
-                                                      └──────────────┘
-```
-
-一句话：Evals 用标准题集把能力"跑一遍并留证据"，用对比与看板把改动的收益/回退一眼看清。
-
-***
-
-### 2.7 AnGIneer-GeoWorld世界模型模块
-
-暂未开发，计划v0.2完成
+### 2.6 AnGIneer-GeoWorld 世界模型模块
 
 #### (1) 定位
 
@@ -296,227 +220,318 @@ flowchart TD
 工程"世界底座"：承载 GIS、水文气象、地形与工程对象等可计算信息，为检索/推理/工具调用提供统一空间语义。
 ```
 
-#### (2) 主要功能
+#### (2) 当前代码现状（v0.2.1 基线）
 
-1. **面向工程的空间语义与可计算** — 不仅展示地理信息，更强调"可作为推理输入/工具参数/约束条件"的结构化世界模型
-2. **基础 GIS 能力接入** — 图层加载、空间查询、坐标/投影处理、常用工程指标计算
-3. **与工具链联动** — 将空间结果以工具输出形式喂给 Core 调度与下游推理
+- `services/geo-core` 提供 `gis_section_volume_calc` 工具：输入设计水深/宽度/长度与地形数据 ID，输出断面土方/疏浚工程量（当前为 PicoGIS-v1.0 模拟引擎，代码注明后续对接 ArcGIS / QGIS / CAD 引擎）。
+- `apps/user-web` 含 GIS 视图入口（`GISView.vue`），当前为地图占位框架；`packages/geo-ui` 为视图包骨架。
+- 工具已注册进 `ToolRegistry`，可被 Agent 循环的 L3/L4 链路调用，为"空间数据参与计算"打通了通道。
 
-#### (3) 逻辑架构
-```text
-┌──────────────┐   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-│  空间数据源    │ → │  世界模型封装  │ → │  空间计算/查询 │ → │  可视化/联动  │
-│ GIS/气象等    │   │ (统一语义)    │   │ (指标/约束/取数)│  │ (给Core/Tools)│
-└──────────────┘   └──────────────┘   └──────────────┘   └──────────────┘
-```
+#### (3) v0.3 规划（Cesium 世界模型）
 
-一句话：GeoWorld 让"地理世界"变成可计算输入，未来会和工具链与推理能力深度联动（v0.2 规划）。
+1. **Cesium 三维场景集成** — 在 `packages/geo-ui` 中接入 Cesium，提供三维地球、影像/地形图层、坐标与飞行定位。
+2. **地理信息自主查询** — 行政区、坐标、流域、水文气象等查询能力封装为 Agent 工具，供 Core 在 L3/L4 链路中自主调用。
+3. **空间计算与联动** — 断面、土方、淹没/影响范围等计算接入真实数据源，并与 SOP 执行、报告生成、出图算量联动。
 
-***
+一句话：GeoWorld 让"地理世界"变成可计算输入；当前为骨架，v0.3 目标为 Cesium 三维世界模型。
 
-### 2.7 技术架构图
+### 2.7 技术架构与仓库布局
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                         用户界面层                           │
-│  ┌──────────────────────────────────────────────────────┐  │
-│  │  apps/user-web/ (Vue 3 + Ant Design Vue)   端口3005 │  │
-│  │  apps/admin-web/ (Vue 3 + Ant Design Vue)  端口3002│  │
-│  └──────────────────────────────────────────────────────┘  │
-└────────────────────────────┬────────────────────────────────┘
-                             │ HTTP API
-┌────────────────────────────▼────────────────────────────────┐
-│                      API 服务层 (FastAPI)                    │
-│                 services/api-server/main.py  端口8789        │
-└────────────────────────────┬────────────────────────────────┘
-                             │
-┌────────────────────────────▼────────────────────────────────┐
-│                    AI 推理层 (ai-inference)                  │
-│         LLM 客户端 │ 语义嵌入 │ 语义重排 │ 响应解析            │
-└────────────────────────────┬────────────────────────────────┘
-                             │
-┌────────────────────────────▼────────────────────────────────┐
-│                      后端核心服务层                           │
-│                      angineer-core                          │
-│ sop-core | knowledge-graph | docs-core | evals-core | geo-core | engtools │
+│  apps/user-web/  (Vue 3 + Ant Design Vue)  端口 3005        │
+│  apps/admin-web/ (Vue 3 + Ant Design Vue)  端口 3002        │
+└──────────────────────────────┬──────────────────────────────┘
+                               │ HTTP API
+┌──────────────────────────────▼──────────────────────────────┐
+│                   API 服务层 services/api-server             │
+│                   FastAPI 网关，端口 8789                    │
+│                   /api/knowledge /api/chat/agent            │
+│                   /api/sops /api/graph /api/evals           │
+│                   /api/dream-cycle /api/v1/*                │
+└──────────────────────────────┬──────────────────────────────┘
+                               │
+┌──────────────────────────────▼──────────────────────────────┐
+│   ai-inference（LLM/Embedding/Reranker 唯一底座，零依赖）      │
+│   tree-core（树操作唯一底座，零依赖）                         │
+│   angineer-core（意图/调度/Agent 循环/SOP 执行）              │
+│   docs-core（解析/检索/图谱/维护/导出） sop-core evals-core   │
+│   geo-core engtools                                          │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-- 前端入口：`apps/user-web`（工作台）、`apps/admin-web`（管理后台）
-- 外部 API：`/api/v1/*`（文档解析、实体提取、图谱等，需 `X-API-Key` 认证）
-- API 服务入口：`services/api-server`
-- 前端共享层：`packages/docs-ui`、`packages/ui-kit`
-  - **智能树组件体系**：SmartTree 通用组件 + 领域语义封装（SOPTree/KnowledgeTree/EvalDatasetTree）
-  - **AIChat 对话组件**：通用 AI 对话交互组件
-- AI 推理层：`services/ai-inference`（LLM 客户端、语义嵌入、语义重排）
-- 核心服务层：`services/angineer-core`、`services/sop-core`、`services/knowledge-graph`、`services/docs-core`、`services/evals-core`、`services/geo-core`、`services/engtools`
-- 运行时知识存储：`data/knowledge_base`
+仓库布局：
 
-```mermaid
-flowchart LR
-  User["User"]
-  Web["apps/user-web"]
-  Admin["apps/admin-web"]
-  Api["services/api-server"]
-  DocsUI["packages/docs-ui"]
-  UIKit["packages/ui-kit"]
-  AI["services/ai-inference"]
-  Agent["services/angineer-core"]
-  SOP["services/sop-core"]
-  KG["services/knowledge-graph"]
-  Docs["services/docs-core"]
-  Geo["services/geo-core"]
-  Tools["services/engtools"]
-  Data["data/knowledge_base"]
+```text
+apps/
+  user-web/           用户工作台（知识库 / SOP / GIS / 对话）
+  admin-web/          管理后台（知识库 / 评测 / SOP / API Key / Dream Cycle）
+  shared/             端口契约 ports.json + API 客户端
+packages/
+  docs-ui/            文档树/查看器/PDF 高亮/引用跳转
+  evals-ui/           评测题集与运行看板
+  sop-ui/             SOP 树/编辑器/属性面板
+  geo-ui/             GIS 视图包（骨架）
+  engtools-ui/        工程工具 UI（骨架）
+  ui-kit/             布局/主题/智能树/AIChat 公共组件
+services/
+  ai-inference/       LLM 客户端（多模型/重试/熔断/流式）+ 响应解析
+  tree-core/          通用树节点 CRUD/移动/排序归一化
+  angineer-core/      意图分类、L0-L4 调度、Agent 循环、SOP 执行引擎、Prompt 资产
+  docs-core/          10 阶段解析管线、五路检索、图谱、维护、导出（含 PoPo 子模块）
+  sop-core/           SOP 解析/校验/加载/自动生成
+  evals-core/         题集管理、评测运行、结果对比
+  geo-core/           GIS 工程计算工具
+  engtools/           计算器/查表/条件/知识检索/文档检索工具注册表
+  api-server/         FastAPI 网关与所有路由
+data/
+  knowledge_base/     canonical SQLite、Chroma 向量库、文档产物
+  sops/               SOP raw/json/index
+  evals/              评测 SQLite 与题集 JSON
+  dream_cycle/        巡检报告与审计日志
+  api_keys.sqlite     API Key
+tests/                unittest 集成/单元/回归
+docs/                 架构与技术文档
+scripts/              Prompt 审计等工具
+docker/               Dockerfile + compose + nginx + 部署脚本
+```
 
-  User --> Web
-  User --> Admin
-  Web --> DocsUI
-  Admin --> DocsUI
-  Web --> UIKit
-  Admin --> UIKit
-  Web --> Api
-  Admin --> Api
-  Api --> AI
-  Api --> Agent
-  Api --> SOP
-  Api --> KG
-  Api --> Docs
-  Api --> Geo
-  Api --> Tools
-  Agent --> AI
-  SOP --> KG
-  Docs --> AI
-  Tools --> AI
-  Docs --> Data
-  KG --> Data
+依赖方向（强约束）：
+
+```text
+ai-inference / tree-core（底层，零外部依赖）
+    ↑
+angineer-core / docs-core / evals-core / sop-core / engtools / geo-core
+    ↑
+api-server（网关层）
 ```
 
 ***
 
-## 3. 开发路线图
+## 3. 快速开始
 
-| 阶段          | 版本   | 目标                           |
-| :---------- | :--- | :--------------------------- |
-| **注册考题版**   | v0.1 | 文档解析、规范入库、经验构建、意图分级、测试集、AI对话 |
-| **世界模型增强版** | v0.2 | 三维模型（GIS、水文气象）、AI交互          |
-| **迭代优化**    | v0.3 | 迭代优化                         |
-
-***
-
-## 4. 快速开始
-
-### 4.1 环境准备
+### 3.1 环境准备
 
 ```bash
 git clone https://github.com/0mao0/AnGIneer.git
 cd AnGIneer
 ```
 
-### 4.2 安装依赖
+要求：Python 3.10+、Node.js 20+、pnpm 9。
+
+### 3.2 安装依赖
 
 ```bash
-# 安装前端依赖
+# 前端依赖
 pnpm install
 
-# 安装后端依赖
-pip install -e services/ai-inference -e services/angineer-core -e services/sop-core -e services/knowledge-graph -e services/docs-core -e services/geo-core -e services/engtools
+# 后端依赖（含 evals-core）
+pnpm services:install
 ```
 
-### 4.3 启动服务（开发模式）
+### 3.3 配置环境变量
 
 ```bash
-pnpm dev
-pnpm dev:frontend
-pnpm dev:admin
-pnpm dev:backend
+cp .env.example .env   # Windows PowerShell: Copy-Item .env.example .env
 ```
 
-### 4.4 外部 API 服务
+至少需要配置：
 
-AnGIneer 提供 `HTTP API` 接口，支持文档解析、实体提取、知识图谱查询等能力。
+- `LLM_CONFIGS`（JSON 数组：显示名 / model / api_key / base_url / priority）
+- `MINERU_API_URL` / `MINERU_API_KEY`（文档解析）
+- `DOCS_EMBEDDING_API_URL` / `DOCS_EMBEDDING_API_KEY`（向量）
+- `ANGINEER_RERANKER_URL` / `DOCS_RERANKER_API_KEY`（重排）
+- 若使用 PoPo 强化，还需配置 `POPO_VLLM_URL` / `POPO_VLLM_API_KEY` / `POPO_MODEL_NAME`
 
-**获取 API Key：**
-
-管理后台首次使用需先初始化 Key：
+### 3.4 启动服务（开发模式）
 
 ```bash
-python scripts/init_api_keys.py
+pnpm dev:backend    # API:  http://localhost:8789  (文档 /docs)
+pnpm dev:frontend   # 用户: http://localhost:3005
+pnpm dev:admin      # 管理: http://localhost:3002
 ```
 
-管理后台 → API 密钥页面，也可直接创建和管理 Key。
+Windows 也可一键启动：
 
-**调用示例：**
+```powershell
+.\start.ps1          # 启动后端 + 管理后台 + 前端
+.\start.ps1 -TailLogs
+```
+
+### 3.5 初始化 API Key
+
+管理后台 →「API 密钥」页面创建 Key（完整 Key 仅创建时显示一次），用于所有 `/api/v1/*` 接口的 `X-API-Key` 认证。
+
+### 3.6 外部 API 调用示例
 
 ```bash
+# 提交文档解析
 curl -X POST http://localhost:8789/api/v1/documents/parse \
   -H "X-API-Key: ag_your_key_here" \
   -F "file=@document.pdf"
 
 # 轮询解析状态
-curl -H "X-API-Key: ag_your_key_here" http://localhost:8789/api/v1/documents/{doc_id}/status
+curl -H "X-API-Key: ag_your_key_here" \
+  http://localhost:8789/api/v1/documents/{doc_id}/status
 
 # 获取结构化 blocks
-curl -H "X-API-Key: ag_your_key_here" http://localhost:8789/api/v1/documents/{doc_id}/blocks
+curl -H "X-API-Key: ag_your_key_here" \
+  http://localhost:8789/api/v1/documents/{doc_id}/blocks
+
+# 获取正文 / PDF / 产物清单
+curl -H "X-API-Key: ag_your_key_here" \
+  http://localhost:8789/api/v1/documents/{doc_id}/content
+curl -H "X-API-Key: ag_your_key_here" \
+  http://localhost:8789/api/v1/documents/{doc_id}/artifacts
 ```
 
-支持格式：PDF（直接解析）、DOCX/PPTX/XLSX（自动经 LibreOffice 转 PDF 后解析）。
+支持格式：PDF 直接解析；DOCX / PPTX / XLSX 自动经 LibreOffice 转 PDF 后解析。
 
-### 4.5 Docker 部署
+主要内部 API 分组：
+
+| 前缀 | 能力 |
+| :--- | :--- |
+| `/api/knowledge/*` | 知识库/文档/解析任务/阶段重试/检索/结构化/编辑同步 |
+| `/api/chat/agent` | Agent 化问答 SSE（`steer` / `cancel` 子端点） |
+| `/api/sops/*` | SOP CRUD、导入、步骤解析、审核、审计、从文档生成 |
+| `/api/graph/*` | 图谱统计/实体/关系/验证/审核/提取器 |
+| `/api/evals/*` | 题集/题目/运行/对比 |
+| `/api/dream-cycle/*` | 巡检报告/触发/审核确认 |
+| `/api/v1/*` | 外部 API（文档解析/产物/内容，需 `X-API-Key`） |
+
+***
+
+## 4. 评测与测试
+
+```bash
+# 全量 unittest
+pnpm harness
+
+# 端到端工作流（Q1 报告回归）
+pnpm harness:workflow
+
+# 工具注册测试
+pnpm harness:tooling
+
+# 列出评测题集
+pnpm eval:list
+
+# 架构/文档一致性检查
+pnpm docs:arch-check
+pnpm docs:check
+
+# Prompt 资产审计（禁止源码内散落 prompt 字面量）
+python scripts/audit_prompts.py
+```
+
+检索精度评测：导入 `data/evals/datasets/docs-retrieval-precision-v*.json` 基准集（《海港1》《海港2》《混凝土结构设计规范》），按 `hit@1/3/5`、MRR、citation_hit 与失败分桶回归。
+
+***
+
+## 5. Docker 部署
 
 ```bash
 cd docker
-
-# 首次构建并启动
-docker compose build
-docker compose up -d
-
-# 验证
-curl http://localhost/
-curl http://localhost/admin/
-curl http://localhost/docs
+docker compose up -d --build
 ```
 
-**自动部署（GitHub Actions + 自托管 Runner）：**
+- 前端（nginx）: `http://localhost/`，管理后台 `/admin/`
+- API: `http://localhost:8789`（`/docs` 为 OpenAPI 文档）
+- 数据卷：`../data`、`../logs`；API 密钥等配置来自 `../.env`
 
-仓库已配置自托管 GitHub Actions Runner 部署到服务器：
+**自动部署（GitHub Actions + 自托管 Runner）**：仓库已配置 `.github/workflows/deploy.yml`，每次 push `main` 自动执行 `git pull → docker compose build → docker compose up -d`，并做前端/管理端/API 健康检查与企微通知。
 
-1. 服务器上安装 runner（`https://github.com/0mao0/AnGIneer/settings/actions/runners/new`）
-2. 配置完成后，每次 `git push main` 自动触发：
-   - `git pull` → `docker compose build` → `docker compose up -d`
-3. 工作流文件：`.github/workflows/deploy.yml`
+***
 
-### 4.6 运行测试
+## 6. 开发约定
 
-```bash
-pnpm harness
-pnpm harness:workflow
-pnpm harness:tooling
-pnpm docs:arch-check
-```
+### 6.1 多租户预留（tenant_id 规约）
 
-## 5. 开发约定
+当前为单租户形态，但所有持久化层**必须预留 `tenant_id` 字段**，为未来 SaaS 化（v2.0）避免 schema 迁移：
 
-### 5.1 多租户预留（tenant_id 规约）
+- 所有新建表必须包含 `tenant_id TEXT NOT NULL DEFAULT 'default'`，并建立联合索引 `(tenant_id, ...)`。
+- 现有表暂不强行迁移；如有 schema 变更时顺带补上。
+- 查询路径所有 list/get 接口预留 `tenant_id` 形参（默认 `'default'`），暂不启用过滤。
+- 配置项：`ALLOWED_ORIGINS`、`DEFAULT_TENANT_ID`；上线时再启用 API Key → tenant_id 映射。
 
-当前为单租户形态，但所有持久化层**必须预留 `tenant_id` 字段**，为未来 SaaS 化（v2.0）避免痛苦的 schema 迁移。
+### 6.2 CORS 配置
 
-- **所有新建表**必须包含 `tenant_id TEXT NOT NULL DEFAULT 'default'` 字段，并建立联合索引 `(tenant_id, ...)`。
-- **现有表**暂不强行迁移；如本就有 schema 变更时，顺带补上该字段。
-- **查询路径**所有 list/get 接口预留 `tenant_id` 形参（默认 `'default'`），暂不启用过滤；启用时机为 v2.0 多租户改造。
-- **配置项**：通过环境变量 `ALLOWED_ORIGINS`、`DEFAULT_TENANT_ID` 控制；上线时再启用 API Key 中间件按 `api_key → tenant_id` 映射。
-
-### 5.2 CORS 配置
-
-生产/对外部署时，必须通过环境变量显式配置允许的前端来源，禁止使用 `*`：
+生产/对外部署必须通过环境变量显式配置允许的前端来源，禁止使用 `*`：
 
 ```
 ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,http://124.221.238.70
 ```
 
-### 5.3 API Key 认证
+### 6.3 API Key 认证
 
-所有 `/api/v1/*` 端点需在 Header 携带 `X-API-Key`。Key 通过管理后台或 `scripts/init_api_keys.py` 生成，存储于 `data/api_keys.sqlite`。
+所有 `/api/v1/*` 端点需在 Header 携带 `X-API-Key`；Key 通过管理后台 `/api/api-keys` 生成，存储于 `data/api_keys.sqlite`。
+
+### 6.4 PoPo 子模块本地定制
+
+见 [2.3 PoPo 子模块注意事项](#23-angineer-docs-知识库模块)。更新上游时必须保留环境变量版本，否则国内环境 PoPo 推理会挂死。
+
+### 6.5 Prompt 资产化
+
+全部 prompt 的唯一资产区为 `services/angineer-core/src/angineer_core/prompts/`：源码中不允许出现 `你是一个` / `You are a` 等 prompt 字面量；每个 prompt 带版本号并在模块底部 `register(name, version, text)` 登记；**改动 prompt 必须递增版本号**；`scripts/audit_prompts.py` 在 CI 中强制审计。
+
+### 6.6 依赖方向
+
+- `ai-inference` 是 AI 推理的唯一真相源，零外部依赖；上层服务直接 `from ai_inference import ...`，不经过 angineer-core 中转。
+- `tree-core` 是树操作唯一真相源，零外部依赖；各服务在自己的 SQLite 中创建 `tree_node` 表并调用 tree_core 操作。
+
+***
+
+## 7. 环境变量参考
+
+| 变量 | 说明 | 默认 |
+| :--- | :--- | :--- |
+| `LLM_CONFIGS` | LLM 模型配置 JSON 数组（唯一配置入口） | 见 `.env.example` |
+| `ANGINEER_DEFAULT_MODEL` | 默认模型名 | `Qwen3.6-Plus` |
+| `AI_PROVIDER` | AI 服务商（aliyun 等） | `aliyun` |
+| `MINERU_API_URL` / `MINERU_API_KEY` | MinerU 解析服务 | `https://mineru.net/api/v4` |
+| `MINERU_MAX_CONCURRENCY` | MinerU GPU 并发上限 | `1` |
+| `MINERU_BACKEND` | MinerU 后端标识 | `hybrid-engine` |
+| `DOCS_EMBEDDING_PROVIDER` / `DOCS_EMBEDDING_API_URL` / `DOCS_EMBEDDING_API_KEY` | 在线 Embedding | `bge_m3` |
+| `DOCS_EMBEDDING_MODEL` / `DOCS_EMBEDDING_DIMENSION` | Embedding 模型与维度 | `bge-m3` / `1024` |
+| `DOCS_VECTORSTORE_PROVIDER` | 向量库类型 | `chroma` |
+| `ANGINEER_RERANKER_URL` / `DOCS_RERANKER_API_KEY` | 在线 Reranker | — |
+| `POPO_VLLM_URL` / `POPO_VLLM_API_KEY` / `POPO_MODEL_NAME` | PoPo 强化 LLM 端点（本地定制） | — |
+| `POPO_API_TIMEOUT` / `POPO_MAX_TOKENS` | PoPo 超时与最大 token | `300` / `4096` |
+| `ANGINEER_GAP_ANALYSIS_ENABLED` | 回答知识盲区分析开关 | `true` |
+| `DREAM_CYCLE_ENABLED` / `DREAM_CYCLE_SCHEDULE` | 巡检开关与 cron | `true` / `0 2 * * *` |
+| `DREAM_CYCLE_DEDUP_*` / `DREAM_CYCLE_ORPHAN_*` 等 | 巡检阈值 | 见 `step08_maintain/config.py` |
+| `ALLOWED_ORIGINS` | CORS 白名单（逗号分隔） | 本地开发地址 |
+| `DEFAULT_TENANT_ID` | 默认租户 | `default` |
+| `API_KEYS_DB_PATH` | API Key 数据库路径 | `data/api_keys.sqlite` |
+| `LOG_LEVEL` | 日志级别 | `INFO` |
+
+***
+
+## 8. 路线图细节（v0.3 → v1.0）
+
+### v0.3 世界模型
+
+- `geo-core` 扩展：接入真实空间数据源（影像、地形、行政区、水文气象），替换 PicoGIS 模拟引擎。
+- `packages/geo-ui` 集成 Cesium 三维场景，GIS 视图从占位升级为可交互地图工作台。
+- 地理信息查询工具（坐标 / 行政区 / 流域 / 断面）注册进 Agent 工具集，供 L3/L4 链路自主调用。
+- 断面、土方、淹没/影响范围计算与 SOP 执行、报告生成联动。
+
+### v0.4 设计报告
+
+- 报告模板体系：工可、初设、专题报告等正式设计文件结构。
+- 自动抽取计算书与图表：引用 SOP 执行轨迹、规范条文、GIS 与工具计算结果。
+- 报告生成与导出（Markdown / Word / PDF），支持人工复核与修订。
+
+### v0.5 CAD 出图算量（正式版）
+
+- CAD 引擎适配层：DWG/DXF 读写，AutoCAD / 国产 CAD 驱动。
+- 根据设计参数自动出图：平面图、断面图、大样图。
+- 工程量自动计算与图纸标注联动，形成"设计 → 出图 → 算量"闭环。
+
+### v1.0 迭代
+
+- 在 v0.5 正式版基础上大量迭代：多专业覆盖、计算精度、稳定性、评测回归与工程化。
+- 面向 SaaS 的多租户改造（v2.0 规划）。
 
 ***
 

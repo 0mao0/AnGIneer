@@ -8,7 +8,6 @@ from typing import Any, Callable, Dict, List, Optional
 from evals_core.runner import base as evaluator_base
 from evals_core.runner.retrieval_eval import RetrievalEvaluator
 from evals_core.runner.answer_eval import AnswerEvaluator
-from evals_core.runner.text2sql_eval import Text2SqlEvaluator
 from evals_core.runner.sop_eval import SopEvaluator
 from angineer_core.base_utils import is_fatal_exception
 from evals_core.storage import result_store
@@ -50,21 +49,15 @@ def _build_evaluators() -> Dict[str, Any]:
 
 def _determine_evaluator_names(question: Dict[str, Any]) -> List[str]:
     """根据题目类型确定使用的评测器列表（可同时跑多个）。"""
-    task_type = str(question.get("task_type") or "").strip()
     retrieval_gold = question.get("retrieval_gold")
     answer_gold = question.get("answer_gold")
     sop_gold = question.get("sop_gold")
-    sql_gold = question.get("sql_gold")
     intent_level = str(question.get("intent_level") or "")
     names = []
     if retrieval_gold:
         names.append("retrieval")
-    if task_type == "analytic_sql" and sql_gold:
-        names.append("text2sql")
     if answer_gold:
         names.append("answer")
-    if task_type == "analytic_sql" and not answer_gold and not sql_gold:
-        names.append("text2sql")
     if sop_gold or intent_level == "L3":
         names.append("sop")
     if not names:
@@ -109,8 +102,6 @@ def _run_single_question(
             gold_data = question.get("retrieval_gold") or {}
         elif ev_name == "answer":
             gold_data = question.get("answer_gold") or {}
-        elif ev_name == "text2sql":
-            gold_data = question.get("sql_gold") or {}
         elif ev_name == "sop":
             gold_data = question.get("sop_gold") or {}
         prediction = last_prediction
@@ -231,8 +222,6 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
                     )
             elif ev_name == "answer" and s.get("correctness_checked"):
                 answer_scores.append(s.get("correctness_score", s.get("score", 0)))
-            elif ev_name == "text2sql" and s.get("execution_success") is not None:
-                sql_scores.append(s.get("score", 0))
     retrieval_avg = round(sum(retrieval_scores) / len(retrieval_scores), 4) if retrieval_scores else None
     answer_avg = round(sum(answer_scores) / len(answer_scores), 4) if answer_scores else None
     sql_avg = round(sum(sql_scores) / len(sql_scores), 4) if sql_scores else None

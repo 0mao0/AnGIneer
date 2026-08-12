@@ -177,6 +177,17 @@
               >
                 AI 对话
               </button>
+              <span class="tab-spacer" />
+              <button
+                v-if="rightTabKey === 'ai'"
+                type="button"
+                class="tab-btn tab-icon-btn"
+                title="新建对话"
+                aria-label="新建对话"
+                @click="onNewChat"
+              >
+                <PlusOutlined />
+              </button>
             </div>
 
             <div class="tab-body">
@@ -211,11 +222,12 @@
 
               <div v-else class="chat-pane">
                 <AIChat
+                  ref="chatRef"
                   title=""
                   placeholder="输入消息，Enter 发送..."
                   :show-context-info="false"
                   scene="sop"
-                  :session-id="sopTree.selectedNode.value?.key || 'default'"
+                  :session-id="chatSessionId"
                   :transport="defaultAIChatTransport"
                 />
               </div>
@@ -319,6 +331,7 @@ import {
   FileTextOutlined,
   FolderAddOutlined,
   InboxOutlined,
+  PlusOutlined,
   UploadOutlined,
 } from '@ant-design/icons-vue'
 import { SplitPanes, Panel, AIChat, useTheme, type CitationBinding, type DropEvent } from '@angineer/ui-kit'
@@ -334,6 +347,15 @@ const router = useRouter()
 
 const sopTree = useSopTree()
 const sopFlow = useSopFlow()
+
+/** 全局会话：不随 SOP 变化，只有刷新或新建对话才换 key */
+const chatNonce = ref(Date.now() + Math.floor(Math.random() * 1_000_000))
+const chatSessionId = computed(() => `global::${chatNonce.value}`)
+const chatRef = ref<InstanceType<typeof AIChat> | null>(null)
+const onNewChat = () => {
+  chatNonce.value += 1
+  chatRef.value?.startNewChat?.()
+}
 
 const sopTreeRef = ref<InstanceType<typeof SOPTree> | null>(null)
 const metaPanelRef = ref<InstanceType<typeof SopMetaPanel> | null>(null)
@@ -1484,6 +1506,16 @@ onMounted(() => {
   border-bottom: 1px solid var(--border-color);
   background: var(--panel-header-bg);
   flex-shrink: 0;
+}
+
+.tab-spacer {
+  flex: 1;
+}
+
+.tab-icon-btn {
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
 }
 
 .tab-btn {
