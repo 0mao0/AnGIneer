@@ -17,6 +17,7 @@ class KeyItem(BaseModel):
     is_active: bool
     created_at: str
     last_used_at: str | None = None
+    scope: str = "both"
     doc_count: int = 0
 
 
@@ -24,6 +25,7 @@ class CreateKeyResponse(BaseModel):
     api_key: str = Field(..., description="完整 key，仅此时可见")
     key_prefix: str
     user_name: str
+    scope: str
     created_at: str
     message: str = "请妥善保管此 Key，离开此页面后将无法再次查看完整 Key。"
 
@@ -53,11 +55,12 @@ async def list_api_keys():
 
 @router.post("/api-keys", response_model=CreateKeyResponse, tags=["Admin"])
 async def create_api_key(req: CreateKeyRequest):
-    raw_key, api_key = generate_key(req.user_name)
+    raw_key, api_key = generate_key(req.user_name, scope=req.scope)
     return CreateKeyResponse(
         api_key=raw_key,
         key_prefix=api_key.key_prefix,
         user_name=api_key.user_name,
+        scope=api_key.scope,
         created_at=api_key.created_at,
     )
 

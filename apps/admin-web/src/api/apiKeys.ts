@@ -13,6 +13,7 @@ export interface KeyItem {
   is_active: boolean
   created_at: string
   last_used_at: string | null
+  scope: string
   doc_count?: number
 }
 
@@ -24,7 +25,7 @@ export interface StatisticsItem {
 
 export const apiKeysApi = {
   list: (): Promise<KeyItem[]> => api.get('/api-keys'),
-  create: (data: { user_name: string }): Promise<{ api_key: string }> =>
+  create: (data: { user_name: string; scope?: 'doc' | 'chat' | 'both' }): Promise<{ api_key: string; scope: string }> =>
     api.post('/api-keys', data),
   rename: (keyId: number, name: string): Promise<{ status: string; message: string }> =>
     api.put(`/api-keys/${keyId}/rename`, { name }),

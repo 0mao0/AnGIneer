@@ -94,6 +94,7 @@ class MeResponse(BaseModel):
 
 class CreateKeyRequest(BaseModel):
     user_name: str = Field(..., min_length=1, max_length=100)
+    scope: str = Field(default="both", pattern="^(doc|chat|both)$")
 
 
 class CreateKeyResponse(BaseModel):

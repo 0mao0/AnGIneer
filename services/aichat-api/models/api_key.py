@@ -26,6 +26,7 @@ class APIKey:
     rate_limit_per_minute: int = 60
     created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     last_used_at: Optional[str] = None
+    scope: str = "both"
 
 
 def _get_conn() -> sqlite3.Connection:
@@ -48,9 +49,13 @@ def init_db() -> None:
             is_active INTEGER NOT NULL DEFAULT 1,
             rate_limit_per_minute INTEGER NOT NULL DEFAULT 60,
             created_at TEXT NOT NULL,
-            last_used_at TEXT
+            last_used_at TEXT,
+            scope TEXT NOT NULL DEFAULT 'both'
         )
     """)
+    cols = [row[1] for row in conn.execute("PRAGMA table_info(api_keys)").fetchall()]
+    if "scope" not in cols:
+        conn.execute("ALTER TABLE api_keys ADD COLUMN scope TEXT NOT NULL DEFAULT 'both'")
     conn.commit()
     conn.close()
 
@@ -59,7 +64,7 @@ def _hash_key(raw_key: str) -> str:
     return hashlib.sha256(raw_key.encode()).hexdigest()
 
 
-def generate_key(user_name: str, email: str = "", rate_limit_per_minute: int = 60) -> tuple[str, APIKey]:
+def generate_key(user_name: str, email: str = "", rate_limit_per_minute: int = 60, scope: str = "both") -> tuple[str, APIKey]:
     """生成新的 API Key，返回 (原始key, APIKey对象)。"""
     init_db()
 
@@ -72,9 +77,9 @@ def generate_key(user_name: str, email: str = "", rate_limit_per_minute: int = 6
 
     conn = _get_conn()
     conn.execute(
-        "INSERT INTO api_keys (key_hash, key_prefix, user_name, email, rate_limit_per_minute, created_at) "
-        "VALUES (?, ?, ?, ?, ?, ?)",
-        (key_hash, key_prefix, user_name, email, rate_limit_per_minute, now),
+        "INSERT INTO api_keys (key_hash, key_prefix, user_name, email, rate_limit_per_minute, created_at, scope) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?)",
+        (key_hash, key_prefix, user_name, email, rate_limit_per_minute, now, scope),
     )
     conn.commit()
     row_id = conn.execute("SELECT last_insert_rowid()").fetchone()[0]
@@ -88,6 +93,7 @@ def generate_key(user_name: str, email: str = "", rate_limit_per_minute: int = 6
         email=email,
         rate_limit_per_minute=rate_limit_per_minute,
         created_at=now,
+        scope=scope,
     )
     return raw_key, api_key
 
@@ -119,7 +125,7 @@ def list_keys() -> list[dict]:
     init_db()
     conn = _get_conn()
     rows = conn.execute(
-        "SELECT id, key_prefix, user_name, is_active, created_at, last_used_at "
+        "SELECT id, key_prefix, user_name, is_active, created_at, last_used_at, scope "
         "FROM api_keys ORDER BY id DESC"
     ).fetchall()
     conn.close()
