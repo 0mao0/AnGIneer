@@ -1,11 +1,11 @@
-# AI 模块解耦实施计划（aichat-ui / docs-api / aichat-api）
+﻿# AI 模块解耦实施计划（aichat-ui / docs-api / aichat-api）
 
 > **v2 修订（2026-08-12）**：angineer-core 内核改造已完成并提交（agent_loop / agent_session / tool_codec / prompts），
 > 旧 `/chat`、`/chat/stream`、`/api/chat`、`/api/query`、`/test*` 端点已删除，`services/api-server/main.py` 已从 803 行瘦身到 284 行。
 > 本版按当前仓库基线重写：任务 0.1 由"处理 WIP"改为"确认干净基线"；任务 2.3 改为直接编写小规模 aichat-api main.py；
 > 补全阶段 1 消费方与依赖声明；API Key scope 按"最小行为变化"决策实施；任务 2.7/3.1 补全引用清理清单。
 
-> **For agentic workers:** 本计划按任务逐项执行，每项完成即提交到 `main`（用户工作方式）。步骤使用 `- [ ]` 语法跟踪。
+> **For agentic workers:** 本计划按任务逐项执行，每项完成即提交到 `main`（用户工作方式）。步骤使用 `- [x]` 语法跟踪。
 
 **Goal:** 把 AI 对话前端从 `ui-kit` 抽成独立的 `aichat-ui` 包，把单一 `api-server` 拆成 `docs-api` / `aichat-api` 两个独立服务目录，前端 API 客户端按服务拆分，API Key 统一申请 + scope 落库，并让 AnGIneer 以 docker-compose 双容器 + nginx 的方式保持独立一键部署。
 
@@ -111,7 +111,7 @@ AnGIneer/
 
 **Files:** 不修改文件；只做 git 状态确认。
 
-- [ ] **Step 1: 确认工作区干净**
+- [x] **Step 1: 确认工作区干净**
 
 运行：
 
@@ -122,7 +122,7 @@ git -C D:\AI\AnGIneer log -1 --oneline
 
 预期：无输出（或仅用户明确告知的计划外改动）；HEAD 为内核改造后的提交（当前应为 `1254d66` 或其后继提交）。
 
-- [ ] **Step 2: 若出现计划外 WIP，停下与用户确认**，不要带着混合改动开始阶段 1。
+- [x] **Step 2: 若出现计划外 WIP，停下与用户确认**，不要带着混合改动开始阶段 1。
 
 **本任务完成后才能进入阶段 1。**
 
@@ -130,7 +130,7 @@ git -C D:\AI\AnGIneer log -1 --oneline
 
 **Files:** 无。
 
-- [ ] **Step 1: 确认依赖与构建基线**
+- [x] **Step 1: 确认依赖与构建基线**
 
 ```powershell
 pnpm install
@@ -140,7 +140,7 @@ pnpm --filter @angineer/user-web build
 
 预期：两个 build 均成功。
 
-- [ ] **Step 2: 确认后端可导入**
+- [x] **Step 2: 确认后端可导入**
 
 ```powershell
 cd D:\AI\AnGIneer\services\api-server; python -c "import main; print('ok')"
@@ -162,7 +162,7 @@ cd D:\AI\AnGIneer\services\api-server; python -c "import main; print('ok')"
 - Create: `packages/aichat-ui/src/utils/index.ts`
 - Create: `packages/aichat-ui/src/styles/index.less`
 
-- [ ] **Step 1: 创建 `package.json`**
+- [x] **Step 1: 创建 `package.json`**
 
 ```json
 {
@@ -206,11 +206,11 @@ cd D:\AI\AnGIneer\services\api-server; python -c "import main; print('ok')"
 }
 ```
 
-- [ ] **Step 2: 创建 `tsconfig.json`**
+- [x] **Step 2: 创建 `tsconfig.json`**
 
 复制 `packages/docs-ui/tsconfig.json` 内容，include 不变。
 
-- [ ] **Step 3: 创建入口文件**
+- [x] **Step 3: 创建入口文件**
 
 `src/index.ts`：
 
@@ -280,7 +280,7 @@ export * from './thinking'
 export * from './token'
 ```
 
-- [ ] **Step 4: 创建 `src/styles/index.less`（chat 变量默认值，宿主可覆盖）**
+- [x] **Step 4: 创建 `src/styles/index.less`（chat 变量默认值，宿主可覆盖）**
 
 ```less
 // aichat-ui 主题变量默认值（宿主可通过覆盖同名变量定制）
@@ -305,7 +305,7 @@ export * from './token'
 }
 ```
 
-- [ ] **Step 5: 提交**
+- [x] **Step 5: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add packages/aichat-ui
@@ -316,7 +316,7 @@ git -C D:\AI\AnGIneer commit -m "feat(aichat-ui): scaffold standalone aichat-ui 
 
 **Files:**（git mv，全部保留文件历史）
 
-- [ ] **Step 1: 移动组件**
+- [x] **Step 1: 移动组件**
 
 ```powershell
 $src = "D:\AI\AnGIneer\packages\ui-kit\src"
@@ -331,7 +331,7 @@ git -C D:\AI\AnGIneer mv "$src\components\common\InlineCitationEditor.vue" "$dst
 git -C D:\AI\AnGIneer mv "$src\components\common\ThinkingSteps.vue" "$dst\components\ThinkingSteps.vue"
 ```
 
-- [ ] **Step 2: 移动 composable / 契约 / 类型 / 工具**
+- [x] **Step 2: 移动 composable / 契约 / 类型 / 工具**
 
 ```powershell
 git -C D:\AI\AnGIneer mv "$src\composables\useAIChat.ts" "$dst\composables\useAIChat.ts"
@@ -346,7 +346,7 @@ git -C D:\AI\AnGIneer mv "$src\utils\token.ts" "$dst\utils\token.ts"
 
 组件内部相对 import（`./BaseChat.vue`、`../utils/citation`、`../../utils/thinking` 等）因目录层级一致而无需改动；`composables/useAIChat.ts` 的 `../utils/tree` 与 `api/types.ts` 的 `../types` 引用在任务 1.3 处理。
 
-- [ ] **Step 3: 确认 ui-kit 内不再有 chat 源码引用（除待清理的导出文件）**
+- [x] **Step 3: 确认 ui-kit 内不再有 chat 源码引用（除待清理的导出文件）**
 
 ```powershell
 rg -n "BaseChat|AIChat|Citation|ThinkingSteps|useAIChat" D:\AI\AnGIneer\packages\ui-kit\src
@@ -354,7 +354,7 @@ rg -n "BaseChat|AIChat|Citation|ThinkingSteps|useAIChat" D:\AI\AnGIneer\packages
 
 预期：除 `components/index.ts`、`composables/index.ts`、`types/index.ts`、`package.json` 中的导出声明外无其他引用。
 
-- [ ] **Step 4: 提交**
+- [x] **Step 4: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add -A packages/ui-kit packages/aichat-ui
@@ -367,7 +367,7 @@ git -C D:\AI\AnGIneer commit -m "refactor(aichat-ui): move AI chat module from u
 - Create: `packages/aichat-ui/src/utils/tree.ts`
 - Modify: `packages/aichat-ui/src/composables/useAIChat.ts`（import 不动，随文件移动自动解析到本地）
 
-- [ ] **Step 1: 创建 `src/utils/tree.ts`**
+- [x] **Step 1: 创建 `src/utils/tree.ts`**
 
 内容取自 `packages/ui-kit/src/utils/tree.ts` 的 `generateMessageId` 与 `estimateTokens` 两个函数（原样复制，ui-kit 的 tree.ts 保留不动）。执行时以 ui-kit 现有实现为准：
 
@@ -384,9 +384,9 @@ export function estimateTokens(content: string): number {
 }
 ```
 
-- [ ] **Step 2: 确认 `useAIChat.ts` 的 `../utils/tree` import 解析到本地文件**（移动后目录结构不变，无需改代码）。
+- [x] **Step 2: 确认 `useAIChat.ts` 的 `../utils/tree` import 解析到本地文件**（移动后目录结构不变，无需改代码）。
 
-- [ ] **Step 3: 提交**
+- [x] **Step 3: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add packages/aichat-ui/src/utils/tree.ts
@@ -401,23 +401,23 @@ git -C D:\AI\AnGIneer commit -m "refactor(aichat-ui): localize message id and to
 - Modify: `packages/ui-kit/src/types/index.ts`
 - Modify: `packages/ui-kit/package.json`
 
-- [ ] **Step 1: 移除组件导出**
+- [x] **Step 1: 移除组件导出**
 
 `packages/ui-kit/src/components/index.ts` 删除以下 7 行（BaseChat/AIChat/CitationInline/CitationPopover/CitationRichContent/CitationMentionPanel/InlineCitationEditor）。
 
-- [ ] **Step 2: 移除 composable 导出**
+- [x] **Step 2: 移除 composable 导出**
 
 `packages/ui-kit/src/composables/index.ts` 删除 `useAIChat` 一行（保留 useTheme/useLayout/useThemeStore）。
 
-- [ ] **Step 3: 移除类型导出**
+- [x] **Step 3: 移除类型导出**
 
 `packages/ui-kit/src/types/index.ts` 删除 `from './citation'` 与 `from './chat'` 两个 export type 块（保留 `ThemeConfig`、`LayoutConfig`、`PanelProps`、`SmartTreeNode` 等其余导出）。
 
-- [ ] **Step 4: 移除 package.json 子路径**
+- [x] **Step 4: 移除 package.json 子路径**
 
 `packages/ui-kit/package.json` 删除 `./utils/citation`、`./utils/markdown` 两个 exports 条目（`./utils/tree` 保留，admin 的 `KnowledgeParseWorkspace.vue` 仍使用）。
 
-- [ ] **Step 5: 验证 ui-kit 内部无残留**
+- [x] **Step 5: 验证 ui-kit 内部无残留**
 
 ```powershell
 rg -n "BaseChat|AIChat|Citation|ThinkingSteps|useAIChat" D:\AI\AnGIneer\packages\ui-kit\src
@@ -425,7 +425,7 @@ rg -n "BaseChat|AIChat|Citation|ThinkingSteps|useAIChat" D:\AI\AnGIneer\packages
 
 预期：无输出。
 
-- [ ] **Step 6: 提交**
+- [x] **Step 6: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add packages/ui-kit
@@ -451,7 +451,7 @@ git -C D:\AI\AnGIneer commit -m "refactor(ui-kit): remove AI chat exports after 
 - Modify: `packages/sop-ui/src/components/SOPPropertyPanel.vue`
 - Modify: `packages/evals-ui/src/components/EvalQuestionCard.vue`
 
-- [ ] **Step 1: 声明依赖（pnpm 严格链接必需，否则 vue-tsc 无法解析）**
+- [x] **Step 1: 声明依赖（pnpm 严格链接必需，否则 vue-tsc 无法解析）**
 
 在 `apps/user-web/package.json`、`apps/admin-web/package.json`、`packages/sop-ui/package.json`、`packages/evals-ui/package.json` 的 `dependencies` 中新增：
 
@@ -459,7 +459,7 @@ git -C D:\AI\AnGIneer commit -m "refactor(ui-kit): remove AI chat exports after 
 "@angineer/aichat-ui": "workspace:*"
 ```
 
-- [ ] **Step 2: 两个 app 的 tsconfig paths**
+- [x] **Step 2: 两个 app 的 tsconfig paths**
 
 `apps/user-web/tsconfig.json` 与 `apps/admin-web/tsconfig.json` 的 `paths` 中，紧挨 `@angineer/ui-kit` 行后加：
 
@@ -467,7 +467,7 @@ git -C D:\AI\AnGIneer commit -m "refactor(ui-kit): remove AI chat exports after 
 "@angineer/aichat-ui": ["../../packages/aichat-ui/src"]
 ```
 
-- [ ] **Step 3: 两个 app 的 vite alias**
+- [x] **Step 3: 两个 app 的 vite alias**
 
 `apps/user-web/vite.config.ts` 与 `apps/admin-web/vite.config.ts` 的 `resolve.alias` 中，紧挨 `@angineer/ui-kit` 行后加：
 
@@ -475,7 +475,7 @@ git -C D:\AI\AnGIneer commit -m "refactor(ui-kit): remove AI chat exports after 
 '@angineer/aichat-ui': resolve(__dirname, '../../packages/aichat-ui/src'),
 ```
 
-- [ ] **Step 4: user-web App.vue 拆分 import**
+- [x] **Step 4: user-web App.vue 拆分 import**
 
 `apps/user-web/src/App.vue` 第 93 行改为：
 
@@ -484,7 +484,7 @@ import { AppHeader, SplitPanes, useTheme } from '@angineer/ui-kit'
 import { AIChat } from '@angineer/aichat-ui'
 ```
 
-- [ ] **Step 5: admin-web 两个页面迁移**
+- [x] **Step 5: admin-web 两个页面迁移**
 
 `apps/admin-web/src/views/ExperienceManage.vue`：
 
@@ -501,13 +501,13 @@ import { SplitPanes, Panel, type DropEvent } from '@angineer/ui-kit'
 import { AIChat } from '@angineer/aichat-ui'
 ```
 
-- [ ] **Step 6: chatTransport 及其测试迁移类型来源**
+- [x] **Step 6: chatTransport 及其测试迁移类型来源**
 
 `apps/shared/chatTransport.ts` 顶部两处 `from '@angineer/ui-kit'` 的类型导入改为 `from '@angineer/aichat-ui'`。
 
 `apps/shared/chatTransport.test.ts` 的 `import type { ThinkingTraceItem, ThinkingTraceStep } from '@angineer/ui-kit'` 同样改为 `from '@angineer/aichat-ui'`。
 
-- [ ] **Step 7: sop-ui 引用迁移**
+- [x] **Step 7: sop-ui 引用迁移**
 
 `packages/sop-ui/src/types/sop.ts`：
 
@@ -544,7 +544,7 @@ import type { CitationBinding, InlineCitationCandidate, InlineCitationSearchPayl
 import { mapReferenceSearchCandidate } from '@angineer/aichat-ui/utils/citation'
 ```
 
-- [ ] **Step 8: evals-ui markdown 依赖迁移**
+- [x] **Step 8: evals-ui markdown 依赖迁移**
 
 `packages/evals-ui/src/components/EvalQuestionCard.vue` 第 831 行：
 
@@ -552,7 +552,7 @@ import { mapReferenceSearchCandidate } from '@angineer/aichat-ui/utils/citation'
 import { renderMarkdownToHtml } from '@angineer/aichat-ui/utils/markdown'
 ```
 
-- [ ] **Step 9: 安装链接并构建验证**
+- [x] **Step 9: 安装链接并构建验证**
 
 ```powershell
 pnpm install
@@ -562,7 +562,7 @@ pnpm --filter @angineer/user-web build
 
 预期：两个 build 通过（admin 构建会连带编译 sop-ui/evals-ui，覆盖全部消费方；本任务已把消费方清单补全）。
 
-- [ ] **Step 10: 提交**
+- [x] **Step 10: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add apps packages pnpm-lock.yaml
@@ -577,7 +577,7 @@ git -C D:\AI\AnGIneer commit -m "refactor(aichat-ui): switch consumers to @angin
 - Move: `packages/ui-kit/test/thinking.test.ts` → `packages/aichat-ui/test/thinking.test.ts`
 - Move: `packages/ui-kit/test/token.test.ts` → `packages/aichat-ui/test/token.test.ts`
 
-- [ ] **Step 1: git mv 测试文件**
+- [x] **Step 1: git mv 测试文件**
 
 ```powershell
 git -C D:\AI\AnGIneer mv packages/ui-kit/test/citation.test.ts packages/aichat-ui/test/citation.test.ts
@@ -588,7 +588,7 @@ git -C D:\AI\AnGIneer mv packages/ui-kit/test/token.test.ts packages/aichat-ui/t
 
 测试文件中的相对 import（`../src/composables/useAIChat.ts`、`../src/types/chat`、`../src/utils/thinking` 等）在新目录结构下不变（`test/` 与 `src/` 平级），无需修改。
 
-- [ ] **Step 2: 运行测试**
+- [x] **Step 2: 运行测试**
 
 ```powershell
 node --test D:\AI\AnGIneer\packages\aichat-ui\test\useAIChat.test.ts
@@ -599,7 +599,7 @@ node --test D:\AI\AnGIneer\packages\aichat-ui\test\token.test.ts
 
 预期：全部通过（与迁移前一致）。
 
-- [ ] **Step 3: 提交**
+- [x] **Step 3: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add packages/aichat-ui/test packages/ui-kit/test
@@ -618,7 +618,7 @@ git -C D:\AI\AnGIneer commit -m "test(aichat-ui): move chat tests into aichat-ui
 - Modify: `start.ps1`
 - Modify: `package.json`（root scripts）
 
-- [ ] **Step 1: ports.json 增加两个端口**
+- [x] **Step 1: ports.json 增加两个端口**
 
 ```json
 {
@@ -633,14 +633,14 @@ git -C D:\AI\AnGIneer commit -m "test(aichat-ui): move chat tests into aichat-ui
 
 （`apiServerPort` 在任务 2.7 删除前暂时保留，避免中间态脚本失效。）
 
-- [ ] **Step 2: ports.ts 增加导出**
+- [x] **Step 2: ports.ts 增加导出**
 
 ```ts
 export const DOCS_API_PORT = portContract.docsApiPort
 export const AICHAT_API_PORT = portContract.aichatApiPort
 ```
 
-- [ ] **Step 3: 两个 vite.config.ts 拆 proxy**
+- [x] **Step 3: 两个 vite.config.ts 拆 proxy**
 
 `apps/user-web/vite.config.ts`（admin-web 同构）在文件头增加：
 
@@ -668,7 +668,7 @@ proxy: {
 
 （Vite 按 key 长度优先匹配，长前缀先命中；`/api/chat` 等会正确分流。）
 
-- [ ] **Step 4: root package.json scripts 与 start.ps1**
+- [x] **Step 4: root package.json scripts 与 start.ps1**
 
 root `package.json` scripts 更新：
 
@@ -705,7 +705,7 @@ $aichatHealthy = Test-BackendHealth -Url $aichatUrl -TimeoutSeconds 30
 
 4. 启动输出增加两个后端 URL（`Backend: $docsUrl / $aichatUrl`），`$backendProcess` 仍通过 `pnpm dev:backend` 启动（内部并行两个服务）。
 
-- [ ] **Step 5: 提交**
+- [x] **Step 5: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add apps/shared/ports.json apps/shared/ports.ts apps/user-web/vite.config.ts apps/admin-web/vite.config.ts start.ps1 package.json
@@ -725,7 +725,7 @@ git -C D:\AI\AnGIneer commit -m "chore(ports): split docs-api and aichat-api por
 - Move: `services/api-server/models/` → `services/docs-api/models/`
 - Move: `services/api-server/routes/` → `services/docs-api/routes/`
 
-- [ ] **Step 1: git mv 文件**
+- [x] **Step 1: git mv 文件**
 
 ```powershell
 $api = "D:\AI\AnGIneer\services\api-server"
@@ -739,7 +739,7 @@ git -C D:\AI\AnGIneer mv "$api\models" "$dst\models"
 git -C D:\AI\AnGIneer mv "$api\routes" "$dst\routes"
 ```
 
-- [ ] **Step 2: 创建 `main.py`（完整内容）**
+- [x] **Step 2: 创建 `main.py`（完整内容）**
 
 ```python
 """docs-api — 文档解析、知识库、图谱、产物下载与 API Key 管理。"""
@@ -819,7 +819,7 @@ if __name__ == "__main__":
 
 > 说明：原全局异常处理器不迁入（见决策 7）；`/`、`/frontend`、`/knowledge` legacy 路由不迁入。
 
-- [ ] **Step 3: 提交**
+- [x] **Step 3: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add services/docs-api services/api-server
@@ -837,7 +837,7 @@ git -C D:\AI\AnGIneer commit -m "feat(docs-api): create standalone docs API serv
 - Copy: `services/api-server/middleware/api_key_auth.py` → `services/aichat-api/middleware/api_key_auth.py`（2.4 再改）
 - Copy: `services/api-server/models/api_key.py` → `services/aichat-api/models/api_key.py`（2.4 再改）
 
-- [ ] **Step 1: git mv / 复制文件**
+- [x] **Step 1: git mv / 复制文件**
 
 ```powershell
 $api = "D:\AI\AnGIneer\services\api-server"
@@ -851,7 +851,7 @@ Copy-Item "$api\middleware\api_key_auth.py" "$dst\middleware\api_key_auth.py"
 Copy-Item "$api\models\api_key.py" "$dst\models\api_key.py"
 ```
 
-- [ ] **Step 2: 创建 `main.py`（完整内容，基于当前 284 行 main.py 的 chat 部分）**
+- [x] **Step 2: 创建 `main.py`（完整内容，基于当前 284 行 main.py 的 chat 部分）**
 
 ```python
 """aichat-api — AI 问答（AgentSession SSE）、模型配置、SOP、Evals 与 DreamCycle。"""
@@ -1103,7 +1103,7 @@ if __name__ == "__main__":
 
 > 执行说明：以上代码从当前 `services/api-server/main.py`（284 行版）的 chat 部分原样迁移，不改逻辑；若内核后续再调整 AgentSession 接口，以当前 `chat_agent.py` 与 `angineer_core` 实际签名为准。legacy `/`、`/frontend`、`/knowledge` 路由不迁移。
 
-- [ ] **Step 3: 提交**
+- [x] **Step 3: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add services/aichat-api services/api-server
@@ -1121,7 +1121,7 @@ git -C D:\AI\AnGIneer commit -m "feat(aichat-api): create standalone aichat API 
 - Modify: `services/aichat-api/middleware/api_key_auth.py`
 - Modify: `apps/admin-web/src/api/apiKeys.ts`（KeyItem 增加 scope，可选）
 
-- [ ] **Step 1: api_key.py 增加 scope（两个服务各改一份，内容一致）**
+- [x] **Step 1: api_key.py 增加 scope（两个服务各改一份，内容一致）**
 
 `models/api_key.py` 修改四处：
 
@@ -1137,7 +1137,7 @@ if "scope" not in cols:
 3. `generate_key(..., scope: str = "both")` 的 INSERT 增加 scope 列与参数，`APIKey(...)` 回填 scope；
 4. `list_keys()` 的 SELECT 增加 `scope` 列。
 
-- [ ] **Step 2: middleware 参数化 scope，但保持只校验 `/api/v1/*`（最小行为变化）**
+- [x] **Step 2: middleware 参数化 scope，但保持只校验 `/api/v1/*`（最小行为变化）**
 
 `middleware/api_key_auth.py` 两个服务各改一份，整体替换为：
 
@@ -1174,7 +1174,7 @@ class APIKeyAuthMiddleware(BaseHTTPMiddleware):
 
 > 说明：与现状完全一致地只校验 `/api/v1/*`，因此 `/api/api-keys`、`/api/knowledge` 等内部接口仍免认证，前端无需注入 X-API-Key。scope 在 v1 接口上生效：docs-api 要求 `doc/both`，aichat-api 要求 `chat/both`（aichat-api 当前无 `/api/v1` 路由，中间件暂不拦截，为后续收紧预留）。
 
-- [ ] **Step 3: 创建 key 时支持 scope**
+- [x] **Step 3: 创建 key 时支持 scope**
 
 `services/docs-api/models/v1_responses.py` 的 `CreateKeyRequest` 增加：
 
@@ -1190,7 +1190,7 @@ scope: str = Field(default="both", pattern="^(doc|chat|both)$")
 
 `apps/admin-web/src/api/apiKeys.ts` 的 `KeyItem` 与 create 载荷增加 `scope`（可选，建议同步，管理界面才能显示/选择权限）。
 
-- [ ] **Step 4: 迁移现有 key 并验证**
+- [x] **Step 4: 迁移现有 key 并验证**
 
 ```powershell
 cd D:\AI\AnGIneer\services\docs-api
@@ -1199,7 +1199,7 @@ python -c "from models.api_key import init_db; init_db(); print('migrated')"
 
 预期：输出 `migrated`，`data/api_keys.sqlite` 的 `api_keys` 表新增 `scope` 列且旧行默认 `both`。
 
-- [ ] **Step 5: 提交**
+- [x] **Step 5: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add services/docs-api services/aichat-api apps/admin-web/src/api/apiKeys.ts
@@ -1218,7 +1218,7 @@ git -C D:\AI\AnGIneer commit -m "feat(auth): add scope to API keys and scope-awa
 - Modify: `apps/admin-web/src/api/sopResearch.ts`
 - Modify: `apps/shared/chatTransport.ts`
 
-- [ ] **Step 1: apiClient.ts 增加两个共享 client**
+- [x] **Step 1: apiClient.ts 增加两个共享 client**
 
 ```ts
 /** 文档处理服务客户端（/api/knowledge、/api/v1、/api/graph、/api/api-keys） */
@@ -1228,7 +1228,7 @@ export const docsApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: 
 export const aichatApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api', timeout: 60000 }) as UnwrappedAxiosInstance
 ```
 
-- [ ] **Step 2: 各 api 文件切换 import 与 URL**
+- [x] **Step 2: 各 api 文件切换 import 与 URL**
 
 规则：docs 用途改用 `docsApiClient`，chat 用途改用 `aichatApiClient`；原来把服务前缀放进 `baseURL` 的文件改为共享 client + 显式路径。
 
@@ -1272,7 +1272,7 @@ const api = aichatApiClient
 
 `apps/shared/chatTransport.ts`：`fetchModels` 改用 `aichatApiClient.get('/llm_configs')`，`searchReferences` 改用 `docsApiClient.post('/knowledge/references/search', payload)`。
 
-- [ ] **Step 3: 构建验证**
+- [x] **Step 3: 构建验证**
 
 ```powershell
 pnpm --filter @angineer/admin-web build
@@ -1281,7 +1281,7 @@ pnpm --filter @angineer/user-web build
 
 预期：通过。
 
-- [ ] **Step 4: 提交**
+- [x] **Step 4: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add apps/shared apps/user-web/src/api apps/admin-web/src/api
@@ -1292,7 +1292,7 @@ git -C D:\AI\AnGIneer commit -m "refactor(frontend): split api clients by backen
 
 **Files:** 无（仅验证）。
 
-- [ ] **Step 1: 启动 docs-api**
+- [x] **Step 1: 启动 docs-api**
 
 ```powershell
 Start-Job -ScriptBlock { Set-Location D:\AI\AnGIneer\services\docs-api; python -m uvicorn main:app --host 127.0.0.1 --port 8790 }
@@ -1306,11 +1306,11 @@ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8790/health
 
 预期：`{"service":"docs-api","status":"ok"}`。
 
-- [ ] **Step 2: 启动 aichat-api 并验证**
+- [x] **Step 2: 启动 aichat-api 并验证**
 
 同上启动 `services/aichat-api`（端口 8791），验证 `/health` 返回 `{"service":"aichat-api","status":"ok"}`。
 
-- [ ] **Step 3: 关键接口冒烟**
+- [x] **Step 3: 关键接口冒烟**
 
 ```powershell
 $headers = @{ 'X-API-Key' = '<key>' }
@@ -1323,11 +1323,11 @@ Invoke-WebRequest -UseBasicParsing "http://127.0.0.1:8791/api/llm_configs"
 
 另验证 docs-api 错误响应变化：不带 key 访问 `/api/v1/documents/.../artifacts` 应返回 401（FastAPI 默认形态），前端解析面板能正常显示错误。
 
-- [ ] **Step 4: 前端联调**
+- [x] **Step 4: 前端联调**
 
 启动两个 app dev server，验证：用户端文档页 PDF 渲染与解析面板（docs proxy）；AI 对话 SSE 流（aichat proxy）；admin 的 Evals / DreamCycle / SOP 管理页（aichat proxy）。
 
-- [ ] **Step 5: 停止冒烟进程**
+- [x] **Step 5: 停止冒烟进程**
 
 ```powershell
 Get-Job | Stop-Job; Get-Job | Remove-Job -Force
@@ -1343,7 +1343,7 @@ Get-Job | Stop-Job; Get-Job | Remove-Job -Force
 - Modify: `README.md`、`services/docs-core/README.md`、`packages/docs-ui/README.md`（docs 引用同步更新）
 - Modify: `docker/webhook-server.py` 的 `'api-server'` 镜像 key（或标记由任务 3.1 处理）
 
-- [ ] **Step 1: 确认 api-server 已无代码引用**
+- [x] **Step 1: 确认 api-server 已无代码引用**
 
 ```powershell
 rg -n "api-server|apiServerPort" D:\AI\AnGIneer -g "!node_modules" -g "!**/dist/**" -g "!services/api-server/**"
@@ -1351,7 +1351,7 @@ rg -n "api-server|apiServerPort" D:\AI\AnGIneer -g "!node_modules" -g "!**/dist/
 
 剩余引用仅允许出现在本任务或任务 3.1 要改的文件中（README/docs/webhook/docker 除外，允许同步更新）。
 
-- [ ] **Step 2: 删除目录与字段**
+- [x] **Step 2: 删除目录与字段**
 
 ```powershell
 git -C D:\AI\AnGIneer rm -r services/api-server
@@ -1359,11 +1359,11 @@ git -C D:\AI\AnGIneer rm -r services/api-server
 
 `ports.json` 删除 `apiServerPort`；`ports.ts` 删除 `API_SERVER_PORT`；`start.ps1` 删除相关行；root `package.json` 删除 `api:dev`（`dev:backend` 已在 2.1 改为并行双服务）。
 
-- [ ] **Step 3: 重新跑任务 2.6 冒烟（回归）**
+- [x] **Step 3: 重新跑任务 2.6 冒烟（回归）**
 
 预期：docs-api / aichat-api 仍正常。
 
-- [ ] **Step 4: 提交**
+- [x] **Step 4: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add services apps/shared start.ps1 package.json README.md
@@ -1381,7 +1381,7 @@ git -C D:\AI\AnGIneer commit -m "refactor(api): remove monolithic api-server aft
 - Modify: `docker/deploy-local.ps1`、`docker/deploy-local.sh`、`docker/deploy.sh`（若引用 api-server）
 - Modify: `docker/webhook-server.py`（`'api-server'` 镜像 key 更新为两个服务）
 
-- [ ] **Step 1: Dockerfile.backend 尾部改为双服务入口**
+- [x] **Step 1: Dockerfile.backend 尾部改为双服务入口**
 
 将原尾部：
 
@@ -1406,7 +1406,7 @@ CMD ["python", "-c", "print('backend image: start via docker-compose command')"]
 
 （`COPY services/ services/` 已覆盖新目录，无需新增 COPY。）
 
-- [ ] **Step 2: docker-compose.yml 双服务**
+- [x] **Step 2: docker-compose.yml 双服务**
 
 将 `api-server` 服务整体替换为 `docs-api` 与 `aichat-api` 两个服务（均使用同一 `Dockerfile.backend` 镜像，通过 `command` 与 `working_dir` 区分）：
 
@@ -1464,7 +1464,7 @@ CMD ["python", "-c", "print('backend image: start via docker-compose command')"]
 
 `frontend` 服务的 `depends_on` 改为 `docs-api` 与 `aichat-api`。
 
-- [ ] **Step 3: nginx.conf 双 upstream**
+- [x] **Step 3: nginx.conf 双 upstream**
 
 ```nginx
     upstream api_server {
@@ -1514,13 +1514,13 @@ CMD ["python", "-c", "print('backend image: start via docker-compose command')"]
 
 > nginx 的 `location /api/chat` 最长前缀优先于正则与 `location /api/`，SSE 不会被 buffering 干扰；`/docs`、`/redoc`、`/openapi.json` 保持指向 `api_server`（即 docs-api）。`/chat*`、`/test*` 等旧路由已不存在，无需配置。
 
-- [ ] **Step 4: 更新部署脚本与 webhook**
+- [x] **Step 4: 更新部署脚本与 webhook**
 
 `docker/deploy-local.ps1`、`docker/deploy-local.sh`、`docker/deploy.sh` 中若硬编码 `8789` 或 `api-server`，同步替换为两个新服务（8790/8791）。
 
 `docker/webhook-server.py` 中 `'api-server': ...` 的镜像 key 改为 docs-api / aichat-api 两个镜像（或改为列表），确保自动部署能构建/拉取正确镜像。
 
-- [ ] **Step 5: 提交**
+- [x] **Step 5: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add docker
@@ -1531,7 +1531,7 @@ git -C D:\AI\AnGIneer commit -m "feat(deploy): run docs-api and aichat-api as se
 
 **Files:** 无。
 
-- [ ] **Step 1: compose 语法校验**
+- [x] **Step 1: compose 语法校验**
 
 ```powershell
 docker compose -f D:\AI\AnGIneer\docker\docker-compose.yml config --quiet
@@ -1539,7 +1539,7 @@ docker compose -f D:\AI\AnGIneer\docker\docker-compose.yml config --quiet
 
 预期：退出码 0，无错误输出。
 
-- [ ] **Step 2: 本地镜像构建冒烟（可选，耗时）**
+- [x] **Step 2: 本地镜像构建冒烟（可选，耗时）**
 
 ```powershell
 docker compose -f D:\AI\AnGIneer\docker\docker-compose.yml build docs-api aichat-api
@@ -1547,7 +1547,7 @@ docker compose -f D:\AI\AnGIneer\docker\docker-compose.yml build docs-api aichat
 
 若服务器资源有限，跳过 build，仅保留 config 校验 + 任务 2.6 的本地双服务验证。
 
-- [ ] **Step 3: 提交（如无文件改动则跳过）**
+- [x] **Step 3: 提交（如无文件改动则跳过）**
 
 ### 阶段 4：回归与文档
 
@@ -1559,7 +1559,7 @@ docker compose -f D:\AI\AnGIneer\docker\docker-compose.yml build docs-api aichat
 - Modify: `README.md`（根，服务说明区段）
 - Modify: `docs/2026-08-11-ai-module-split-plan.md`（完成标记）
 
-- [ ] **Step 1: 写 docs-api README**
+- [x] **Step 1: 写 docs-api README**
 
 内容必须包含：
 
@@ -1570,7 +1570,7 @@ docker compose -f D:\AI\AnGIneer\docker\docker-compose.yml build docs-api aichat
 5. 迁移说明（`api_keys` 表 scope 列由 `init_db()` 自动补齐）；
 6. 错误响应说明（无全局异常处理器，返回 FastAPI 默认 4xx/5xx）。
 
-- [ ] **Step 2: 写 aichat-api README**
+- [x] **Step 2: 写 aichat-api README**
 
 内容必须包含：
 
@@ -1580,11 +1580,11 @@ docker compose -f D:\AI\AnGIneer\docker\docker-compose.yml build docs-api aichat
 4. SSE 事件契约（run_start / tool_start / note / answer / message_delta / run_end，AgentEvent 帧）；
 5. 会话说明（AgentSession 当前为内存态，单实例，重启丢失）。
 
-- [ ] **Step 3: 更新根 README 服务说明**
+- [x] **Step 3: 更新根 README 服务说明**
 
 把原来的 api-server 说明替换为 docs-api / aichat-api 双服务说明与端口表，并同步 `services/docs-core/README.md`、`packages/docs-ui/README.md` 中过时的 api-server 引用。
 
-- [ ] **Step 4: 提交**
+- [x] **Step 4: 提交**
 
 ```powershell
 git -C D:\AI\AnGIneer add services/docs-api/README.md services/aichat-api/README.md README.md docs
@@ -1595,25 +1595,25 @@ git -C D:\AI\AnGIneer commit -m "docs: document docs-api and aichat-api services
 
 **Files:** 无。
 
-- [ ] **Step 1: 前端全量构建**
+- [x] **Step 1: 前端全量构建**
 
 ```powershell
 pnpm --filter @angineer/admin-web build
 pnpm --filter @angineer/user-web build
 ```
 
-- [ ] **Step 2: 后端双服务回归**
+- [x] **Step 2: 后端双服务回归**
 
 重复任务 2.6 冒烟四步（health ×2、artifacts 200、chat/agent SSE、llm_configs 200）。
 
-- [ ] **Step 3: 功能回归（关键用户路径）**
+- [x] **Step 3: 功能回归（关键用户路径）**
 
 1. 上传一份 PDF → 解析完成 → 下载 content.md / images.zip / jsonl / sqlite（docs-api）；
 2. 在用户端对解析后的文档发起 AI 问答，验证 SSE 回答与引用（aichat-api）；
 3. 明暗主题切换下检查 AI 对话面板样式（CSS 变量由宿主提供）；
 4. admin 的 API Key 管理页创建 key 时能选择 scope，v1 请求按 scope 生效。
 
-- [ ] **Step 4: 检查工作区**
+- [x] **Step 4: 检查工作区**
 
 ```powershell
 git -C D:\AI\AnGIneer status --short

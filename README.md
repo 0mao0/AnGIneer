@@ -244,11 +244,11 @@ API：`GET /api/dream-cycle/reports`、`GET /reports/{date}`、`POST /run`、去
 └──────────────────────────────┬──────────────────────────────┘
                                │ HTTP API
 ┌──────────────────────────────▼──────────────────────────────┐
-│                   API 服务层 services/api-server             │
-│                   FastAPI 网关，端口 8789                    │
-│                   /api/knowledge /api/chat/agent            │
-│                   /api/sops /api/graph /api/evals           │
-│                   /api/dream-cycle /api/v1/*                │
+│  services/docs-api（FastAPI，端口 8790）                     │
+│  /api/knowledge /api/graph /api/v1/* /api/api-keys          │
+│  services/aichat-api（FastAPI，端口 8791）                   │
+│  /api/chat/agent /api/llm_configs /api/sops /api/evals      │
+│  /api/dream-cycle                                           │
 └──────────────────────────────┬──────────────────────────────┘
                                │
 ┌──────────────────────────────▼──────────────────────────────┐
@@ -283,7 +283,8 @@ services/
   evals-core/         题集管理、评测运行、结果对比
   geo-core/           GIS 工程计算工具
   engtools/           计算器/查表/条件/知识检索/文档检索工具注册表
-  api-server/         FastAPI 网关与所有路由
+  docs-api/           文档解析/知识库/图谱/v1/Key 管理（8790）
+  aichat-api/         对话/模型配置/SOP/Evals/DreamCycle（8791）
 data/
   knowledge_base/     canonical SQLite、Chroma 向量库、文档产物
   sops/               SOP raw/json/index
@@ -303,7 +304,7 @@ ai-inference / tree-core（底层，零外部依赖）
     ↑
 angineer-core / docs-core / evals-core / sop-core / engtools / geo-core
     ↑
-api-server（网关层）
+docs-api / aichat-api（服务层）
 ```
 
 ***

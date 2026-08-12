@@ -697,7 +697,7 @@ from docs_core import get_docs_service
 
 ks = get_docs_service()
 
-# 文档解析由 api-server 的 parse pipeline 编排（read → ingest → write），
+# 文档解析由 docs-api 的 parse pipeline 编排（read → ingest → write），
 # 此处为知识库/节点管理侧入口示例：
 lib = ks.create_library(library_id="harbor_spec", name="港口规范")
 nodes = ks.list_nodes(library_id="harbor_spec")
