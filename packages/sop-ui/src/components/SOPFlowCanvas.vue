@@ -155,7 +155,7 @@ import { computed, markRaw, nextTick, provide, ref, watch } from 'vue'
 import { ConnectionMode, VueFlow, useVueFlow, type Connection } from '@vue-flow/core'
 import '@vue-flow/core/dist/style.css'
 import '@vue-flow/core/dist/theme-default.css'
-import type { CitationBinding } from '@angineer/ui-kit'
+import type { CitationBinding } from '@angineer/aichat-ui'
 import {
   CompressOutlined,
   ZoomInOutlined,

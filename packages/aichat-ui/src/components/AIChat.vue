@@ -36,9 +36,9 @@
  */
 import { onMounted, ref, computed } from 'vue'
 import BaseChat from './BaseChat.vue'
-import { useAIChat } from '../../composables/useAIChat'
-import { renderMarkdownToHtml } from '../../utils/markdown'
-import type { AIChatTransport } from '../../api/types'
+import { useAIChat } from '../composables/useAIChat'
+import { renderMarkdownToHtml } from '../utils/markdown'
+import type { AIChatTransport } from '../api/types'
 import type {
   AIChatMessage,
   AIChatCitation,
@@ -46,8 +46,8 @@ import type {
   BaseChatSendPayload,
   InlineCitationCandidate,
   InlineCitationSearchPayload
-} from '../../types'
-import { mapReferenceSearchCandidate } from '../../utils/citation'
+} from '../types'
+import { mapReferenceSearchCandidate } from '../utils/citation'
 
 interface Props {
   defaultModel?: string

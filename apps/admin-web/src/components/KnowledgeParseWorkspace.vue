@@ -364,7 +364,8 @@ import {
 } from '@ant-design/icons-vue'
 
 // 导入 packages 中的组件和 composables
-import { SplitPanes, Panel, AIChat, type DropEvent } from '@angineer/ui-kit'
+import { SplitPanes, Panel, type DropEvent } from '@angineer/ui-kit'
+import { AIChat } from '@angineer/aichat-ui'
 import {
   KnowledgeTree,
   PDFParsedWorkspace,

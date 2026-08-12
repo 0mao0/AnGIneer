@@ -5,8 +5,8 @@ import type {
   QueryResponse,
   ThinkingTraceItem,
   ThinkingTraceStep,
-} from '@angineer/ui-kit'
-import type { AIChatCitation } from '@angineer/ui-kit'
+} from '@angineer/aichat-ui'
+import type { AIChatCitation } from '@angineer/aichat-ui'
 
 /**
  * AIChat 的默认数据传输层实现（AnGIneer 后端契约）。

@@ -334,7 +334,9 @@ import {
   PlusOutlined,
   UploadOutlined,
 } from '@ant-design/icons-vue'
-import { SplitPanes, Panel, AIChat, useTheme, type CitationBinding, type DropEvent } from '@angineer/ui-kit'
+import { SplitPanes, Panel, useTheme, type DropEvent } from '@angineer/ui-kit'
+import { AIChat } from '@angineer/aichat-ui'
+import type { CitationBinding } from '@angineer/aichat-ui'
 import { defaultAIChatTransport } from '../../../shared/chatTransport'
 import { SOPTree, SOPFlowCanvas, SOPPropertyPanel, SopMetaPanel, ForkEditModal, useSopTree, useSopFlow, sopApi } from '@angineer/sop-ui'
 import type { SOPTreeNode, SopStep, SopStatus } from '@angineer/sop-ui'

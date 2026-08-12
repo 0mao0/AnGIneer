@@ -87,13 +87,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { DownOutlined, RightOutlined } from '@ant-design/icons-vue'
-import { getCitationTagLabel, getCitationTagTooltip } from '../../utils/citation'
+import { getCitationTagLabel, getCitationTagTooltip } from '../utils/citation'
 import {
   formatDuration,
   formatThinkingArgDetail,
   type ThinkingGroupStep,
-} from '../../utils/thinking'
-import type { BaseChatCitation, ThinkingTraceItem } from '../../types'
+} from '../utils/thinking'
+import type { BaseChatCitation, ThinkingTraceItem } from '../types'
 
 defineProps<{ groups: ThinkingGroupStep[] }>()
 

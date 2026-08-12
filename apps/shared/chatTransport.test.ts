@@ -11,7 +11,7 @@ import {
   mergeThinkingTrace,
   stripToolCallArtifacts,
 } from './chatTransport'
-import type { ThinkingTraceItem, ThinkingTraceStep } from '@angineer/ui-kit'
+import type { ThinkingTraceItem, ThinkingTraceStep } from '@angineer/aichat-ui'
 
 function sseResponse(events: Array<Record<string, any>>): Response {
   const body = new ReadableStream({

@@ -54,9 +54,9 @@ import {
   ThunderboltOutlined,
   ToolOutlined,
 } from '@ant-design/icons-vue'
-import { CitationInline } from '@angineer/ui-kit'
-import type { CitationBinding } from '@angineer/ui-kit'
-import { buildCitationSegments } from '@angineer/ui-kit/utils/citation'
+import { CitationInline } from '@angineer/aichat-ui'
+import type { CitationBinding } from '@angineer/aichat-ui'
+import { buildCitationSegments } from '@angineer/aichat-ui/utils/citation'
 import type { SopStep } from '../types/sop'
 
 const props = defineProps<{

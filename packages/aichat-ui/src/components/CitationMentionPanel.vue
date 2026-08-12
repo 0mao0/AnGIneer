@@ -32,15 +32,15 @@
 </template>
 
 <script setup lang="ts">
-import type { InlineCitationCandidate } from '../../types'
-import { formatCitationDocTitle } from '../../utils/citation'
+import type { InlineCitationCandidate } from '../types'
+import { formatCitationDocTitle } from '../utils/citation'
 import {
   renderFormula,
   renderMarkdownInlineToHtml,
   escapeHtml,
   escapeHtmlAttribute,
   resolveAssetUrl
-} from '../../utils/markdown'
+} from '../utils/markdown'
 
 interface Props {
   visible: boolean

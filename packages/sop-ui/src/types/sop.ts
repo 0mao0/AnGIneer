@@ -2,7 +2,8 @@
  * sop-ui 领域类型定义。
  * SmartTreeNode 从 @angineer/ui-kit 统一导出，不在本地重复定义。
  */
-import type { InlineCitationDraftValue, SmartTreeNode } from '@angineer/ui-kit'
+import type { InlineCitationDraftValue } from '@angineer/aichat-ui'
+import type { SmartTreeNode } from '@angineer/ui-kit'
 import type { Node, Edge } from '@vue-flow/core'
 
 export interface SOPTreeNode extends SmartTreeNode {

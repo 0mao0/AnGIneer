@@ -828,7 +828,7 @@
 import { computed, ref, watch } from 'vue'
 import { message } from 'ant-design-vue'
 import { RightOutlined } from '@ant-design/icons-vue'
-import { renderMarkdownToHtml } from '@angineer/ui-kit/utils/markdown'
+import { renderMarkdownToHtml } from '@angineer/aichat-ui/utils/markdown'
 import { useTheme } from '@angineer/ui-kit'
 import {
   getCitationDocTitle,

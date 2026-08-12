@@ -34,8 +34,8 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { CitationReference } from '../../types'
-import { renderFormula, renderMarkdownToHtml, resolveAssetUrl } from '../../utils/markdown'
+import type { CitationReference } from '../types'
+import { renderFormula, renderMarkdownToHtml, resolveAssetUrl } from '../utils/markdown'
 
 interface Props {
   reference: CitationReference

@@ -340,9 +340,9 @@
 import { computed, ref, watch } from 'vue'
 import { CaretRightOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons-vue'
 import { message } from 'ant-design-vue'
-import { InlineCitationEditor } from '@angineer/ui-kit'
-import type { CitationBinding, InlineCitationCandidate, InlineCitationSearchPayload } from '@angineer/ui-kit'
-import { mapReferenceSearchCandidate } from '@angineer/ui-kit/utils/citation'
+import { InlineCitationEditor } from '@angineer/aichat-ui'
+import type { CitationBinding, InlineCitationCandidate, InlineCitationSearchPayload } from '@angineer/aichat-ui'
+import { mapReferenceSearchCandidate } from '@angineer/aichat-ui/utils/citation'
 import { sopApi } from '../composables/useSopApi'
 import type { SopStep } from '../types/sop'
 

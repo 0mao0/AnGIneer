@@ -1,4 +1,4 @@
-import type { InlineCitationSearchPayload } from '@angineer/ui-kit'
+import type { InlineCitationSearchPayload } from '@angineer/aichat-ui'
 import type { RawSopData, SopAuditEntry, SopData, SopFolder, SopListItem } from '../types/sop'
 import { normalizeSopData, serializeSopData } from '../types/sop'
 import { sharedApiClient } from '../../../../apps/shared/apiClient'
