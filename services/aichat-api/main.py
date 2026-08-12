@@ -242,4 +242,7 @@ if __name__ == "__main__":
             str(SERVICES_DIR / "evals-core" / "src"),
             str(SERVICES_DIR / "engtools" / "src"),
         ],
+        # DredgeAI 以 5s 间隔轮询 /status，默认 keep-alive 超时（5s）会导致复用
+        # 已被服务端关闭的连接而收到 RST（SocketException 10053），调大以规避。
+        timeout_keep_alive=int(os.getenv("UVICORN_KEEP_ALIVE_TIMEOUT", "30")),
     )
