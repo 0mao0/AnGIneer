@@ -1,5 +1,6 @@
 # 知识图谱：按文档隔离 + 启用 LLM 抽取 实施计划
 
+> **历史记录（2026-08-13 归档）**：文中 `services/api-server/graph_routes.py` 已迁移至 `services/docs-api/graph_routes.py`。
 > 状态：计划阶段（未开始编码）
 > 目标：让知识图谱 (a) 支持按文档维度查看与强隔离，(b) 真正从文档文本中发现文档专属的实体与关系，而不再只是 70 个固定种子的共现骨架。
 
@@ -74,7 +75,7 @@ SQLite `ALTER TABLE` 不支持修改约束，但因为确认了**重建旧库**�
   - `entities` 用 `list_entities_by_doc`，`relations` 用 `get_relations_by_doc`。
 
 ### A4. 接口层
-`services/api-server/graph_routes.py`：
+`services/docs-api/graph_routes.py`：
 - `GET /api/graph/snapshot?library_id=&doc_id=` 透传过滤。
 - `POST /api/graph/build/from-doc` 构建完成后**直接返回该文档作用域 snapshot**（`get_graph_snapshot(library_id, doc_id)`），方便前端构建完即获本篇图谱。
 - 新增 `enable_llm_extraction: bool` 请求字段（默认 `False`），透传给 orchestrator。

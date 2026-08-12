@@ -1,8 +1,8 @@
-# AnGIneer 技术实现细节
+﻿# AnGIneer 技术实现细节
 
 本文档包含项目的详细技术实现、API 规范、组件使用示例。
 
-- 运行端口契约：`apps/web-console` 使用 `3005`，`apps/admin-console` 使用 `3002`，`services/api-server` 使用 `8789`，前端开发代理 `/api` 必须指向 `http://localhost:8789`。
+- 运行端口契约：`apps/user-web` 使用 `3005`，`apps/admin-web` 使用 `3002`，`services/docs-api` 使用 `8790`、`services/aichat-api` 使用 `8791`；前端开发代理按路径分流（docs → 8790，chat/sops/evals/dream-cycle → 8791）。
 
 ---
 
@@ -88,37 +88,43 @@ pnpm lint
 
 ```mermaid
 flowchart LR
-  Web["web-console"]
-  Admin["admin-console"]
+  Web["user-web"]
+  Admin["admin-web"]
   DocsUI["docs-ui"]
+  AIChatUI["aichat-ui"]
   UIKit["ui-kit"]
   Adapter["ResourceAdapter"]
   Open["useResourceOpen"]
   Workbench["workbenchStore + Workbench"]
-  Api["api-server"]
+  DocsApi["docs-api (8790)"]
+  AichatApi["aichat-api (8791)"]
 
   Web --> DocsUI
   Admin --> DocsUI
   Web --> UIKit
   Admin --> UIKit
+  Web --> AIChatUI
+  Admin --> AIChatUI
   DocsUI --> Adapter
   Adapter --> Open
   Open --> Workbench
-  Web --> Api
-  Admin --> Api
+  Web --> DocsApi
+  Web --> AichatApi
+  Admin --> DocsApi
+  Admin --> AichatApi
 ```
 
 ### 前端不变量
 
 - `web-console` 与 `admin-console` 默认共享 `docs-ui` 协议层
 - 资源打开主链固定为 `ResourceNode -> OpenResourcePayload -> openResource -> workbenchStore.openResource`
-- 前端不直接绕过 `api-server` 访问知识后端
+- 前端不直接绕过 `docs-api` / `aichat-api` 访问后端服务
 
 ### 前端代码锚点
 
 - `packages/docs-ui/src/composables/useResourceAdapter.ts`
-- `apps/web-console/src/composables/useResourceOpen.ts`
-- `apps/web-console/src/stores/workbench.ts`
+- `apps/user-web/src/composables/useResourceOpen.ts`
+- `apps/user-web/src/stores/workbench.ts`
 - `packages/ui-kit/src/components/common/SmartTree.vue`
 - `packages/docs-ui/src/components/common/widgets/KnowledgeTree.vue`
 
@@ -131,8 +137,8 @@ flowchart LR
 ```mermaid
 flowchart TB
   subgraph Apps["前端应用层"]
-    Web["apps/web-console\n工作台壳：三栏 + Tab 工作区"]
-    Admin["apps/admin-console\n管理壳：路由页 + 三栏管理页(B区核心)"]
+    Web["apps/user-web\n工作台壳：三栏 + Tab 工作区"]
+    Admin["apps/admin-web\n管理壳：路由页 + 三栏管理页(B区核心)"]
   end
 
   subgraph SharedUI["共享 UI / 交互层"]
@@ -230,14 +236,14 @@ Docs 模块（文档解析与知识管理）当前采用 **“异步任务化解
 
 ```mermaid
 flowchart TD
-    subgraph Frontend["前端 (apps/admin-console)"]
+    subgraph Frontend["前端 (apps/admin-web)"]
         KM["KnowledgeManage.vue\n状态机驱动 B 区渲染"]
         DPW["PDFParsedWorkspace.vue\nB1/B2 联动工作区"]
         PV["PDF_Viewer.vue\n高保真 PDF 渲染器"]
     end
 
-    subgraph Backend["后端 (services/api-server & docs-core)"]
-        API["FastAPI 异步接口\n/parse, /tasks, /document"]
+    subgraph Backend["后端 (services/docs-api & services/aichat-api & docs-core)"]
+        API["docs-api FastAPI\n/parse, /tasks, /document"]
         Task["ParseOrchestrator\n后台线程异步处理"]
         Parser["MinerU Parser\n云端解析 + 本地后处理"]
         Storage["FileStorage\n一文档一目录规范"]
@@ -363,18 +369,18 @@ flowchart TB
 
 ### 1）前端页面（按文件级）
 
-- `apps/admin-console/src/views/KnowledgeManage.vue`
+- `apps/admin-web/src/views/KnowledgeManage.vue`
   - 拆分 B 区状态机渲染：未解析、解析中、已解析。
   - 保持单一结构化策略：`doc_blocks_graph_v1`。
   - 新增解析进度轮询（按 `task_id` 获取进度）。
   - 已解析态改为 B1/B2 双区：左原文，右 Markdown 预览/编辑。
-- `apps/admin-console/src/views/components/DocumentPreview.vue`
+- `apps/admin-web/src/views/components/DocumentPreview.vue`
   - 下沉为“未解析 + 解析中”视图组件。
   - 增加进度条、阶段文案、错误态重试按钮。
 - `packages/docs-ui/src/components/common/workspace/PDFParsedWorkspace.vue` (已下沉至 docs-ui)
   - 负责 B1/B2 布局、同步滚动、编辑开关、保存/放弃修改。
   - 预留“差异对比模式”入口（首版可只做按钮占位与接口联动）。
-- `apps/admin-console/src/api/knowledge.ts`
+- `apps/admin-web/src/api/knowledge.ts`
   - 已接入任务接口：`parseDocumentAsync`、`getParseTask`。
   - 已接入策略接口：`setDocStrategy`、`getDocStrategy`，但当前仅支持 `doc_blocks_graph_v1`。
   - 已接入文档与结构操作接口：`getDocument`、`updateDocumentBlock`、`batchOperateDocumentBlocks`、`undoLastDocumentBlockOperation`。
@@ -385,13 +391,13 @@ flowchart TB
 
 ### 2）后端接口（按文件级）
 
-- `services/api-server/main.py`
+- `services/docs-api/docs_routes.py`
   - 已将 `/api/knowledge/parse` 改为异步任务提交（返回 `task_id`）。
   - 已提供 `/api/knowledge/parse/tasks/{task_id}` 查询进度。
   - 已提供 `/api/knowledge/strategies/*`，但当前仅用于读取/写入单一策略配置。
   - 已提供 `/api/knowledge/structured/*`、`/api/knowledge/document/*`、结构块编辑与撤回接口。
   - `/api/knowledge/document/{library_id}/{doc_id}/revisions`、按策略查询与三策略构建分发仍未落地。
-- `services/api-server/docs_routes.py`
+  - 统一承载知识库路由、文件预览路由与解析主链编排：任务创建、阶段推进、MinerU 调用、产物落盘、A 主链索引构建。
   - 统一承载知识库路由、文件预览路由与解析主链编排：任务创建、阶段推进、MinerU 调用、产物落盘、A 主链索引构建。
 - `services/docs-core/src/docs_core/projection/*.py`
   - 当前仓库中尚未形成 A/B/C 三类独立 projection 模块，仍以 `step04_structure`、`docs_core/docs_file_io.py` 为主链实现。
@@ -439,7 +445,7 @@ flowchart TB
 - `services/docs-core/src/docs_core/migrations/migrate_engtools_refs.py`（新增）
   - 扫描 engtools 配置与引用，建立旧文件名到 `doc_id` 的映射表。
   - 输出校验报告：可解析/缺失/冲突条目。
-- `services/api-server/main.py`
+- `services/docs-api/main.py`
   - 新增管理端迁移触发接口（仅开发环境启用）。
 - `tests/`（补充）
   - 新增迁移脚本单元测试与回归测试：确保旧路径仍可读、新路径优先。
@@ -458,7 +464,7 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  subgraph Web["apps/web-console"]
+  subgraph Web["apps/user-web"]
     LP["LeftPanel.vue"]
     PS["sidebar/ProjectSidebar.vue"]
     SS["sidebar/SOPSidebar.vue"]
@@ -476,7 +482,7 @@ flowchart LR
     KT["components/common/widgets/KnowledgeTree.vue"]
   end
 
-  subgraph Admin["apps/admin-console"]
+  subgraph Admin["apps/admin-web"]
     KM["views/KnowledgeManage.vue"]
   end
 
@@ -510,16 +516,16 @@ flowchart LR
 - `packages/docs-ui/src/composables/useResourceAdapter.ts`：实现 project/knowledge/sop 到 payload 的统一转换
 - `packages/docs-ui/src/types/index.ts`：导出 resource 类型
 - `packages/docs-ui/src/composables/index.ts`：导出 resource adapter 能力
-- `apps/web-console/src/stores/workbench.ts`：提供 `openResource(payload)` 并统一 Tab 生命周期
-- `apps/web-console/src/composables/useResourceOpen.ts`：封装资源打开入口
-- `apps/web-console/src/layouts/LeftPanel.vue`：知识节点点击接入统一资源链路
-- `apps/web-console/src/layouts/sidebar/ProjectSidebar.vue`：项目入口接入统一资源链路
-- `apps/web-console/src/layouts/sidebar/SOPSidebar.vue`：SOPTree 入口接入统一资源链路
-- `apps/web-console/src/layouts/Workbench.vue`：按 `WorkbenchTabType` 统一视图映射
-- `apps/web-console/src/views/ProjectView.vue`：project Tab 视图
-- `apps/web-console/src/views/DocumentView.vue`：document Tab 视图（props/route 双入口）
-- `apps/web-console/src/views/SOPView.vue`：sop Tab 视图（props/route 双入口）
-- `apps/admin-console/src/views/KnowledgeManage.vue`：后台复用 adapter 并支持打开前台文档页
+- `apps/user-web/src/stores/workbench.ts`：提供 `openResource(payload)` 并统一 Tab 生命周期
+- `apps/user-web/src/composables/useResourceOpen.ts`：封装资源打开入口
+- `apps/user-web/src/layouts/LeftPanel.vue`：知识节点点击接入统一资源链路
+- `apps/user-web/src/layouts/sidebar/ProjectSidebar.vue`：项目入口接入统一资源链路
+- `apps/user-web/src/layouts/sidebar/SOPSidebar.vue`：SOPTree 入口接入统一资源链路
+- `apps/user-web/src/layouts/Workbench.vue`：按 `WorkbenchTabType` 统一视图映射
+- `apps/user-web/src/views/ProjectView.vue`：project Tab 视图
+- `apps/user-web/src/views/DocumentView.vue`：document Tab 视图（props/route 双入口）
+- `apps/user-web/src/views/SOPView.vue`：sop Tab 视图（props/route 双入口）
+- `apps/admin-web/src/views/KnowledgeManage.vue`：后台复用 adapter 并支持打开前台文档页
 
 ---
 
@@ -567,15 +573,15 @@ flowchart LR
 
 ### 前台拼装方式
 
-- 前台左侧经验库入口由 [SOPSidebar.vue](file:///d:/AI/AnGIneer/apps/web-console/src/layouts/sidebar/SOPSidebar.vue) 承接，内部挂载 [SOPTree.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPTree.vue)。
+- 前台左侧经验库入口由 [SOPSidebar.vue](file:///d:/AI/AnGIneer/apps/user-web/src/layouts/sidebar/SOPSidebar.vue) 承接，内部挂载 [SOPTree.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPTree.vue)。
 - 经验库树状态由 [useSopTree.ts](file:///d:/AI/AnGIneer/packages/sop-ui/src/composables/useSopTree.ts) 提供，从后端 API 加载并构建树结构。
-- 右侧聊天区在 [App.vue](file:///d:/AI/AnGIneer/apps/web-console/src/App.vue) 中使用 [AIChat.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/AIChat.vue)，通过 `scene` prop 在知识域（`docs`）和经验域（`sops`）间切换。
+- 右侧聊天区在 [App.vue](file:///d:/AI/AnGIneer/apps/user-web/src/App.vue) 中使用 [AIChat.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/AIChat.vue)，通过 `scene` prop 在知识域（`docs`）和经验域（`sops`）间切换。
 - `AIChat` 封装 `BaseChat` + `useAIChat`，领域逻辑通过 `scene` + `sessionId` 收口，后端 `/api/query` 自动路由意图分类与服务模式。
 
 ### 前后台拼装方式
 
-- 前台入口 [App.vue](file:///d:/AI/AnGIneer/apps/web-console/src/App.vue) 通过 [LeftPanel.vue](file:///d:/AI/AnGIneer/apps/web-console/src/layouts/LeftPanel.vue) 在「知识」Tab 挂载 `KnowledgeTree`，使用只读参数集。
-- 后台入口 [ExperienceManage.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/views/ExperienceManage.vue) 使用 TriplePane 三栏编排，左侧 `SOPTree`、中心 `SOPFlowCanvas`（Vue Flow 流程图）、右侧属性/对话切换。
+- 前台入口 [App.vue](file:///d:/AI/AnGIneer/apps/user-web/src/App.vue) 通过 [LeftPanel.vue](file:///d:/AI/AnGIneer/apps/user-web/src/layouts/LeftPanel.vue) 在「知识」Tab 挂载 `KnowledgeTree`，使用只读参数集。
+- 后台入口 [ExperienceManage.vue](file:///d:/AI/AnGIneer/apps/admin-web/src/views/ExperienceManage.vue) 使用 TriplePane 三栏编排，左侧 `SOPTree`、中心 `SOPFlowCanvas`（Vue Flow 流程图）、右侧属性/对话切换。
 - 基础树能力由 [SmartTree.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/SmartTree.vue) 提供，SOP 域树封装由 [SOPTree.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPTree.vue) 承接。流程图由 [SOPFlowCanvas.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPFlowCanvas.vue) 提供，基于 Vue Flow。
 - 统一 AI 对话能力由 [AIChat.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/AIChat.vue) 提供，封装 BaseChat + useAIChat + Markdown 渲染，通过 scene 和 sessionId 区分场景与会话。
 - 后台外层“包一层”是业务编排容器，负责树操作、流程图编辑、保存等流程聚合。
@@ -621,12 +627,12 @@ saveCurrentChanges()
 
 | 文件 | 职责 |
 |------|------|
-| [ExperienceManage.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/views/ExperienceManage.vue) | 父视图：编排树、画布、面板、保存逻辑 |
+| [ExperienceManage.vue](file:///d:/AI/AnGIneer/apps/admin-web/src/views/ExperienceManage.vue) | 父视图：编排树、画布、面板、保存逻辑 |
 | [useSopFlow.ts](file:///d:/AI/AnGIneer/packages/sop-ui/src/composables/useSopFlow.ts) | 流程图状态管理（nodes, edges, dirtyStepIds, isDirty, 序列化） |
 | [SOPPropertyPanel.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPPropertyPanel.vue) | 步骤属性编辑面板 |
 | [SopMetaPanel.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SopMetaPanel.vue) | SOP 元数据（名称/描述）编辑面板 |
 | [SOPFlowCanvas.vue](file:///d:/AI/AnGIneer/packages/sop-ui/src/components/SOPFlowCanvas.vue) | Vue Flow 流程图画布 |
-| [sop_routes.py](file:///d:/AI/AnGIneer/services/api-server/sop_routes.py) | 后端保存端点 PUT /api/sops/{id} |
+| [sop_routes.py](file:///d:/AI/AnGIneer/services/aichat-api/sop_routes.py) | 后端保存端点 PUT /api/sops/{id} |
 
 ### AIChat Props
 
@@ -725,8 +731,8 @@ const handleAnswerComplete = (message: any) => {
 
 ### 前后台拼装方式
 
-- 前台入口 [App.vue](file:///d:/AI/AnGIneer/apps/web-console/src/App.vue) 通过 [LeftPanel.vue](file:///d:/AI/AnGIneer/apps/web-console/src/layouts/LeftPanel.vue) 在「知识」Tab 挂载 `KnowledgeTree`，使用只读参数集。
-- 后台入口 [KnowledgeManage.vue](file:///d:/AI/AnGIneer/apps/admin-console/src/views/KnowledgeManage.vue) 使用 TriplePane 三栏编排，左侧 `KnowledgeTree`、中心预览、右侧 `AIChat`（scene="knowledge"）。
+- 前台入口 [App.vue](file:///d:/AI/AnGIneer/apps/user-web/src/App.vue) 通过 [LeftPanel.vue](file:///d:/AI/AnGIneer/apps/user-web/src/layouts/LeftPanel.vue) 在「知识」Tab 挂载 `KnowledgeTree`，使用只读参数集。
+- 后台入口 [KnowledgeManage.vue](file:///d:/AI/AnGIneer/apps/admin-web/src/views/KnowledgeManage.vue) 使用 TriplePane 三栏编排，左侧 `KnowledgeTree`、中心预览、右侧 `AIChat`（scene="knowledge"）。
 - 基础树能力由 [SmartTree.vue](file:///d:/AI/AnGIneer/packages/ui-kit/src/components/common/SmartTree.vue) 提供，知识域封装由 [KnowledgeTree.vue](file:///d:/AI/AnGIneer/packages/docs-ui/src/components/common/widgets/KnowledgeTree.vue) 承接。
 - 后台外层“包一层”是业务编排容器，负责文件上传、解析链路、树操作、拖拽重排等流程聚合，属于合理分层。
 
@@ -889,39 +895,46 @@ const onDropRoot = async (dragNodeKey: string) => {
 
 | 端点 | 方法 | 功能 | 位置 |
 |------|------|------|------|
-| `/api/chat` | POST | AI 流式对话（SSE） | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L325) |
-| `/api/llm_configs` | GET | 获取模型列表 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L310) |
+| `/api/chat/agent` | POST | Agent 多轮对话（SSE，AgentEvent 帧） | [main.py](file:///d:/AI/AnGIneer/services/aichat-api/main.py) |
+| `/api/llm_configs` | GET | 获取模型列表 | [main.py](file:///d:/AI/AnGIneer/services/aichat-api/main.py) |
 
-**KnowledgeChatRequest:**
+**QueryRequest:**
 ```typescript
 {
-  message: string                 // 当前用户输入
-  history: KnowledgeChatMessage[] // 历史消息
-  model?: string                  // 模型名称
-  mode?: 'chat' | 'reasoning' | 'vision'
-  context?: { references?: string[] }
+  query: string                   // 当前用户输入
+  scene: 'qa' | 'complex' | ...   // 场景标识，默认 'docs'
+  session_id?: string             // 会话 ID，用于会话池隔离
+  library_id?: string             // 知识库 ID，默认 'default'
+  doc_ids?: string[]              // 限定文档列表
+  inline_citations?: Array<...>   // 内联引用
+  config?: string
+  mode?: string
+  history?: Array<...>
 }
 ```
 
 **SSE 事件类型:**
-- `start`: 开始事件，含 messageId
-- `chunk`: 增量内容
-- `end`: 结束事件，含 usage 统计
+- `run_start`: 运行开始，含 run_id
+- `tool_start` / `tool_end`: 工具调用开始/结束
+- `note`: 过程说明
+- `answer`: 完整最终答案
+- `message_delta`: 流式增量
+- `run_end`: 运行结束，含消息轨迹
 - `error`: 错误事件
 
 ### 知识树管理
 
 | 端点 | 方法 | 功能 | 位置 |
 |------|------|------|------|
-| `/api/knowledge/libraries` | GET | 获取知识库列表 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1010) |
-| `/api/knowledge/libraries` | POST | 创建知识库 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1016) |
-| `/api/knowledge/nodes` | GET | 获取节点列表 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1032) |
-| `/api/knowledge/nodes` | POST | 创建节点 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1038) |
-| `/api/knowledge/nodes/{id}` | PATCH | 更新节点 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1058) |
-| `/api/knowledge/nodes/{id}` | DELETE | 删除节点 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1067) |
-| `/api/knowledge/upload` | POST | 上传文档 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1077) |
-| `/api/knowledge/parse` | POST | 解析文档 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1113) |
-| `/api/knowledge/document/{library_id}/{doc_id}` | GET | 获取文档内容 | [main.py](file:///d:/AI/AnGIneer/services/api-server/main.py#L1169) |
+| `/api/knowledge/libraries` | GET | 获取知识库列表 | [docs_routes.py](file:///d:/AI/AnGIneer/services/docs-api/docs_routes.py) |
+| `/api/knowledge/libraries` | POST | 创建知识库 | [docs_routes.py](file:///d:/AI/AnGIneer/services/docs-api/docs_routes.py) |
+| `/api/knowledge/nodes` | GET | 获取节点列表 | [docs_routes.py](file:///d:/AI/AnGIneer/services/docs-api/docs_routes.py) |
+| `/api/knowledge/nodes` | POST | 创建节点 | [docs_routes.py](file:///d:/AI/AnGIneer/services/docs-api/docs_routes.py) |
+| `/api/knowledge/nodes/{id}` | PATCH | 更新节点 | [docs_routes.py](file:///d:/AI/AnGIneer/services/docs-api/docs_routes.py) |
+| `/api/knowledge/nodes/{id}` | DELETE | 删除节点 | [docs_routes.py](file:///d:/AI/AnGIneer/services/docs-api/docs_routes.py) |
+| `/api/knowledge/upload` | POST | 上传文档 | [docs_routes.py](file:///d:/AI/AnGIneer/services/docs-api/docs_routes.py) |
+| `/api/knowledge/parse` | POST | 解析文档 | [docs_routes.py](file:///d:/AI/AnGIneer/services/docs-api/docs_routes.py) |
+| `/api/knowledge/document/{library_id}/{doc_id}` | GET | 获取文档内容 | [docs_routes.py](file:///d:/AI/AnGIneer/services/docs-api/docs_routes.py) |
 
 ---
 

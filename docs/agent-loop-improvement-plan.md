@@ -1,5 +1,6 @@
 # AnGIneer Agent 化实施计划（详细版）
 
+> **历史记录（2026-08-13 归档）**：本计划已落地；文中 `api-server` 已拆分为 `services/docs-api`（8790）与 `services/aichat-api`（8791），Agent 相关代码位于 `services/aichat-api/chat_agent.py` 与 `services/angineer-core`。
 > 状态：待评审
 > 理论依据：[pi-agent book](https://books.antinomie.org/pi/)（`@earendil-works/pi-agent-core` 架构解读，基线 commit `cd20a8d2e`）
 > 前置文档：本文是实施级版本，替代原 224 行纲要

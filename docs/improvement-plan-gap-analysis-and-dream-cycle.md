@@ -1,5 +1,6 @@
 # 改进计划：Gap Analysis + Dream Cycle
 
+> **历史记录（2026-08-13 归档）**：文中 `services/api-server` 已拆分为 `services/docs-api`（8790）与 `services/aichat-api`（8791）；Dream Cycle 路由现位于 aichat-api。
 > 基于 GBrain 设计思想，在 AnGIneer 现有架构上增量实现。
 > 实施日期：2026-07-23
 
@@ -93,7 +94,7 @@ data/dream_cycle/
 0 2 * * * cd /path/to/AnGIneer && python -m dream_cycle.runner >> logs/dream_cycle.log 2>&1
 
 # 或手动触发
-curl -X POST http://localhost:8789/api/dream-cycle/run
+curl -X POST http://localhost:8791/api/dream-cycle/run
 ```
 
 ### 配置

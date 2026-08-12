@@ -1,8 +1,8 @@
-# AnGIneer 后端技术实现细节
+﻿# AnGIneer 后端技术实现细节
 
 本文档描述文档解析与对比查改能力的后端改造方案，聚焦 API 网关、ai-inference、docs-core、engtools 多层联动。
 
-- 运行端口契约：`services/api-server` 对外监听 `8789`，前端开发代理 `/api` 必须统一转发到 `http://localhost:8789`。
+- 运行端口契约：`services/docs-api` 对外监听 `8790`，`services/aichat-api` 对外监听 `8791`；前端开发代理按路径分流（docs → 8790，chat/sops/evals/dream-cycle → 8791）。
 
 ***
 
@@ -37,7 +37,7 @@ tree-core（树操作基础设施，零外部依赖）
     ↑
 angineer-core / docs-core / evals-core / sop-core（服务层，直接依赖 ai-inference）
     ↑
-api-server（网关层）
+docs-api / aichat-api（服务层）
 ```
 
 **关键原则：**
@@ -49,8 +49,9 @@ api-server（网关层）
 
 ```mermaid
 flowchart LR
-  Front["web/admin consoles"]
-  Api["api-server"]
+  Front["user/admin consoles"]
+  DocsApi["docs-api (8790)"]
+  AichatApi["aichat-api (8791)"]
   AI["ai-inference\nLLM/Semantic"]
   Routes["docs_routes"]
   Parser["mineru_parser"]
@@ -59,9 +60,11 @@ flowchart LR
   Index["knowledge_index.sqlite"]
   Read["document APIs"]
 
-  Front --> Api
-  Api --> AI
-  Api --> Routes
+  Front --> DocsApi
+  Front --> AichatApi
+  DocsApi --> AI
+  DocsApi --> Routes
+  AichatApi --> AI
   Routes --> Parser
   Parser --> Store
   Store --> Meta
@@ -73,7 +76,7 @@ flowchart LR
 
 ### 后端不变量
 
-- 前端知识访问入口固定经过 `services/api-server`
+- 前端知识访问入口固定经过 `services/docs-api` / `services/aichat-api`
 - 解析长链路保持异步任务化，不直接在请求中同步阻塞完成
 - 文档存储遵循 `data/knowledge_base/libraries/{library_id}/documents/{doc_id}`
 - 运行时双库固定为 `knowledge_meta.sqlite` 与 `knowledge_index.sqlite`
@@ -88,7 +91,7 @@ flowchart LR
 - `services/ai-inference/src/ai_inference/llm_config.py`（LLM 配置管理）
 - `services/ai-inference/src/ai_inference/llm_response_parser.py`（LLM 响应解析）
 - `services/ai-inference/src/ai_inference/llm_logger.py`（LLM 专用日志）
-- `services/api-server/docs_routes.py`
+- `services/docs-api/docs_routes.py`
 - `services/docs-core/src/docs_core/docs_service.py`
 - `services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py`
 - `services/docs-core/src/docs_core/step05_sqlite_fts/canonical_sql_store.py`
@@ -140,7 +143,7 @@ ai-inference（底层，零外部依赖）
     ↑
 angineer-core / docs-core / engtools / sop-core（直接依赖 ai-inference）
     ↑
-api-server（网关层）
+docs-api / aichat-api（服务层）
 ```
 
 - `ai-inference` 不依赖任何其他服务模块（零反向依赖）
@@ -180,7 +183,7 @@ from ai_inference.llm_config import LLMClientConfig, load_llm_config_from_env
 
 ```mermaid
 sequenceDiagram
-    participant API as api-server
+    participant API as docs-api
     participant Task as TaskManager
     participant Parser as MinerUParser
     participant Storage as FileStorage
@@ -219,7 +222,7 @@ sequenceDiagram
 
 - **坐标标准化**：所有 `bbox` 统一采用 `[x0, y0, x1, y1]` 格式，并与 `page_idx` 严格绑定。
 - **索引幂等性**：重新解析文档时，必须先清理该文档旧的索引数据，防止数据库冗余。
-- **并发控制**：在处理大规模并发解析请求时，利用任务队列 (TaskQueue) 进行限流，并已将接口与调度逻辑收口到 `services/api-server/docs_routes.py`，减少跨层薄文件带来的心智负担。
+- **并发控制**：在处理大规模并发解析请求时，利用任务队列 (TaskQueue) 进行限流，并已将接口与调度逻辑收口到 `services/docs-api/docs_routes.py`，减少跨层薄文件带来的心智负担。
 
 ***
 
@@ -227,7 +230,7 @@ sequenceDiagram
 
 ```mermaid
 flowchart TB
-  subgraph Gateway["API 网关层 services/api-server"]
+  subgraph Gateway["API 网关层 services/docs-api"]
     ParseAPI["/api/knowledge/parse\n异步任务提交"]
     TaskAPI["/api/knowledge/parse/tasks/{task_id}\n进度查询"]
     DocAPI["/api/knowledge/document/*\n原文/编辑版/版本"]
@@ -299,7 +302,7 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  subgraph Ingest["解析入口 services/api-server/main.py"]
+  subgraph Ingest["解析入口 services/docs-api/docs_routes.py"]
     ParseReq["POST /api/knowledge/parse\n提交解析任务"]
     ParseTask["docs_routes.ParseOrchestrator\n执行解析主链与状态推进"]
   end
@@ -317,7 +320,7 @@ flowchart TB
     KeepAssets["保留解析原始工件\n用于前端图片展示与重建"]
   end
 
-  subgraph ReadApi["读取入口 services/api-server/main.py"]
+  subgraph ReadApi["读取入口 services/docs-api/docs_routes.py"]
     GetDoc["GET /api/knowledge/document/{library_id}/{doc_id}\n返回 content + storage + graph_data"]
     GetStructured["GET /api/knowledge/structured/{doc_id}\n返回 structured_index.items"]
   end
@@ -394,7 +397,7 @@ data/knowledge_base/libraries/{library_id}/documents/{doc_id}/
 
 hard 阶段失败 → 终止后续阶段；soft 阶段失败 → 仅标记自身，后续继续。
 
-SOP 生成不在解析管线内：由 `services/sop-core` 的 `SopPathGenerator.generate_sops_from_doc` 独立承担，经 `services/api-server/sop_routes.py` 接口触发（消费 knowledge graph 产物）。
+SOP 生成不在解析管线内：由 `services/sop-core` 的 `SopPathGenerator.generate_sops_from_doc` 独立承担，经 `services/aichat-api/sop_routes.py` 接口触发（消费 knowledge graph 产物）。
 
 降级语义：popo 为 soft 阶段，失败后 `_run_popo` 会回滚半成品（删 popo 目录、清 doc_blocks、恢复 MinerU 版 markdown），structure 始终由 Solo 构建（无 popo 信号照常产出）；`derive_overall_status` 将「popo failed + structure completed」视为 completed。
 
@@ -407,7 +410,7 @@ SOP 生成不在解析管线内：由 `services/sop-core` 的 `SopPathGenerator.
 
 ## 可直接开工清单（后端文件级）
 
-- `services/api-server/main.py`
+- `services/docs-api/docs_routes.py`
   - 解析接口改异步任务化，返回 `task_id`。
   - 增加任务进度查询、文档版本、策略切换与统一查询接口。
   - 保持单一 `doc_blocks_graph_v1` 索引构建，调用 `docs_core.step04_structure.doc_blocks_graph.build_structured_index_for_doc`。

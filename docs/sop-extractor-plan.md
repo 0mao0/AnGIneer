@@ -1,5 +1,6 @@
 # SOP 提取器：基于 cangjie-skill 框架丰富 SOP 生成内容
 
+> **历史记录（2026-08-13 归档）**：文中 `services/api-server/graph_routes.py` 已迁移至 `services/docs-api/graph_routes.py`。
 > 状态：编码中（Step 1-5.5 已完成）
 > 依赖：知识图谱按文档隔离方案（`knowledge-graph-per-doc-plan.md`）已完成
 
@@ -270,7 +271,7 @@ Schema 初始化在 `_init_schema` 中追加新表。
 
 ### Step 7 — API 路由
 
-**文件**: `services/api-server/graph_routes.py`
+**文件**: `services/docs-api/graph_routes.py`
 
 新增端点：
 - `POST /api/graph/extractors/run` — 触发 5 提取器，传入 `library_id`, `doc_id`
@@ -329,7 +330,7 @@ Schema 初始化在 `_init_schema` 中追加新表。
 | `services/knowledge-graph/src/knowledge_graph/graph_store.py` | **修改** | 新表 schema + 8 个存储方法 + `get_docs_with_graph()` 查询 |
 | `services/knowledge-graph/src/knowledge_graph/graph_orchestrator.py` | **修改** | `_run_extractors()` 方法 + `expand_all_packets` 调用 |
 | `services/knowledge-graph/src/knowledge_graph/sop_path_generator.py` | **修改** | 增强 path_to_sop_template + 新增 `generate_sops_from_doc()` 方法 |
-| `services/api-server/graph_routes.py` | **修改** | 新增 /extractors/run, /entities/{id}/enrichment, /sop/generate-from-doc; 更新 /sop/generate |
+| `services/docs-api/graph_routes.py` | **修改** | 新增 /extractors/run, /entities/{id}/enrichment, /sop/generate-from-doc; 更新 /sop/generate |
 | `packages/sop-ui/src/types/sop.ts` | **修改** | SopStep 类型扩展 + DocForSopGen 类型 |
 | `packages/sop-ui/src/components/SOPPropertyPanel.vue` | **修改** | 三大标注展示区 |
 | `packages/sop-ui/src/components/SOPStepNode.vue` | **修改** | warning 图标 |
