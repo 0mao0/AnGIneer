@@ -1,10 +1,7 @@
 /** API Key 管理客户端 */
-import axios from 'axios'
-import { getApiClientConfig, registerDataUnwrapInterceptor } from '../../../shared/apiClient'
+import { docsApiClient } from '../../../shared/apiClient'
 
-const api = registerDataUnwrapInterceptor(
-  axios.create(getApiClientConfig({ baseURL: '/api' }))
-)
+const api = docsApiClient
 
 export interface KeyItem {
   id: number

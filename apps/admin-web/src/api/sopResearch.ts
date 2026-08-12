@@ -5,23 +5,21 @@ import type {
   SopResearchDraft,
   EvalResearchDraft,
 } from '@angineer/sop-ui'
+import { aichatApiClient } from '../../../shared/apiClient'
 
-const RESEARCH_BASE = '/api/sops/research'
+const RESEARCH_BASE = '/sops/research'
 
 async function researchGet<T>(path: string): Promise<T> {
-  const res = await fetch(`${RESEARCH_BASE}${path}`)
-  if (!res.ok) throw new Error(`GET ${path} failed: ${res.status}`)
-  return res.json()
+  return aichatApiClient.get<T>(`${RESEARCH_BASE}${path}`)
 }
 
 async function researchRequest<T>(path: string, method: string, body?: unknown): Promise<T> {
-  const res = await fetch(`${RESEARCH_BASE}${path}`, {
-    method,
-    headers: { 'Content-Type': 'application/json' },
-    body: body ? JSON.stringify(body) : undefined,
-  })
-  if (!res.ok) throw new Error(`${method} ${path} failed: ${res.status}`)
-  return res.json()
+  const url = `${RESEARCH_BASE}${path}`
+  if (method === 'GET') return aichatApiClient.get<T>(url)
+  if (method === 'POST') return aichatApiClient.post<T>(url, body ?? null)
+  if (method === 'PUT') return aichatApiClient.put<T>(url, body ?? null)
+  if (method === 'DELETE') return aichatApiClient.delete<T>(url)
+  throw new Error(`Unsupported method ${method}`)
 }
 
 export const sopResearchApi = {

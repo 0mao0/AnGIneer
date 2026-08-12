@@ -1,78 +1,77 @@
-/** 评测系统 API 客户端。 */
-import axios from 'axios'
-import { getApiClientConfig, registerDataUnwrapInterceptor } from '../../../shared/apiClient'
+/** 评测系统 API 客户端（aichat-api）。 */
+import { aichatApiClient } from '../../../shared/apiClient'
 
-const api = registerDataUnwrapInterceptor(axios.create(getApiClientConfig({ baseURL: '/api/evals' })))
+const api = aichatApiClient
 
 /** 将路径参数编码为 URL 安全的 segment，避免中文/空格/斜杠等导致请求路径解析异常。 */
 const encodePathSegment = (value: string): string => encodeURIComponent(value)
 
 export const evalsApi = {
-  getDatasets: () => api.get('/datasets'),
+  getDatasets: () => api.get('/evals/datasets'),
 
-  getDataset: (datasetId: string) => api.get(`/datasets/${encodePathSegment(datasetId)}`),
+  getDataset: (datasetId: string) => api.get(`/evals/datasets/${encodePathSegment(datasetId)}`),
 
   createDataset: (payload: { title: string; category: string; description?: string }) =>
-    api.post('/datasets', payload),
+    api.post('/evals/datasets', payload),
 
   deleteDataset: (datasetId: string) =>
-    api.delete(`/datasets/${encodePathSegment(datasetId)}`),
+    api.delete(`/evals/datasets/${encodePathSegment(datasetId)}`),
 
   getQuestions: (datasetId: string) =>
-    api.get(`/datasets/${encodePathSegment(datasetId)}/questions`),
+    api.get(`/evals/datasets/${encodePathSegment(datasetId)}/questions`),
 
   addQuestion: (datasetId: string, payload: any) =>
-    api.post(`/datasets/${encodePathSegment(datasetId)}/questions`, payload),
+    api.post(`/evals/datasets/${encodePathSegment(datasetId)}/questions`, payload),
 
   updateQuestion: (datasetId: string, questionId: string, payload: any) =>
-    api.put(`/datasets/${encodePathSegment(datasetId)}/questions/${encodePathSegment(questionId)}`, payload),
+    api.put(`/evals/datasets/${encodePathSegment(datasetId)}/questions/${encodePathSegment(questionId)}`, payload),
 
   deleteQuestion: (datasetId: string, questionId: string) =>
-    api.delete(`/datasets/${encodePathSegment(datasetId)}/questions/${encodePathSegment(questionId)}`),
+    api.delete(`/evals/datasets/${encodePathSegment(datasetId)}/questions/${encodePathSegment(questionId)}`),
 
   exportDataset: (datasetId: string) =>
-    api.get(`/datasets/${encodePathSegment(datasetId)}/export`),
+    api.get(`/evals/datasets/${encodePathSegment(datasetId)}/export`),
 
   importDataset: (file: File) => {
     const formData = new FormData()
     formData.append('file', file)
-    return api.post('/datasets/import', formData, {
+    return api.post('/evals/datasets/import', formData, {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
   },
 
   startRun: (datasetId: string) =>
-    api.post('/runs', { dataset_id: datasetId }),
+    api.post('/evals/runs', { dataset_id: datasetId }),
 
   deleteRun: (runId: string) =>
-    api.delete(`/runs/${encodePathSegment(runId)}`),
+    api.delete(`/evals/runs/${encodePathSegment(runId)}`),
 
-  getRun: (runId: string) => api.get(`/runs/${encodePathSegment(runId)}`),
+  getRun: (runId: string) => api.get(`/evals/runs/${encodePathSegment(runId)}`),
 
   listRuns: (datasetId?: string) => {
     const params = datasetId ? { dataset_id: datasetId } : {}
-    return api.get('/runs', { params })
+    return api.get('/evals/runs', { params })
   },
 
   compare: (runIdA: string, runIdB: string) =>
-    api.get('/compare', { params: { run_id_a: runIdA, run_id_b: runIdB } }),
+    api.get('/evals/compare', { params: { run_id_a: runIdA, run_id_b: runIdB } }),
 
   analyzeCompare: (runIdA: string, runIdB: string, questionId: string) =>
-    api.post('/compare/analyze', { run_id_a: runIdA, run_id_b: runIdB, question_id: questionId }),
+    api.post('/evals/compare/analyze', { run_id_a: runIdA, run_id_b: runIdB, question_id: questionId }),
 
-  getFolders: () => api.get('/folders'),
+  getFolders: () => api.get('/evals/folders'),
 
   createFolder: (payload: { folder_id: string; title: string; category: string; parent_folder_id?: string }) =>
-    api.post('/folders', payload),
+    api.post('/evals/folders', payload),
 
   updateFolder: (folderId: string, payload: { title?: string; parent_folder_id?: string; sort_order?: number }) =>
-    api.patch(`/folders/${encodePathSegment(folderId)}`, payload),
+    api.patch(`/evals/folders/${encodePathSegment(folderId)}`, payload),
 
   deleteFolder: (folderId: string) =>
-    api.delete(`/folders/${encodePathSegment(folderId)}`),
+    api.delete(`/evals/folders/${encodePathSegment(folderId)}`),
 
   moveDataset: (datasetId: string, payload: { folder_id: string; sort_order: number }) =>
-    api.patch(`/datasets/${encodePathSegment(datasetId)}/move`, payload),
+    api.patch(`/evals/datasets/${encodePathSegment(datasetId)}/move`, payload),
 }
 
 export default evalsApi

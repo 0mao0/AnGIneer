@@ -1,10 +1,7 @@
-/** Dream Cycle API client */
-import axios from 'axios'
-import { getApiClientConfig, registerDataUnwrapInterceptor } from '../../../shared/apiClient'
+/** Dream Cycle API client（aichat-api）。 */
+import { aichatApiClient } from '../../../shared/apiClient'
 
-const api = registerDataUnwrapInterceptor(
-  axios.create(getApiClientConfig({ baseURL: '/api/dream-cycle' }))
-)
+const api = aichatApiClient
 
 export interface DreamCycleReportSummary {
   date: string
@@ -87,17 +84,17 @@ export interface HealthStatus {
 export const dreamCycleApi = {
   /** 获取历史报告列表 */
   async listReports(limit = 30): Promise<{ reports: DreamCycleReportSummary[]; total: number }> {
-    return api.get('/reports', { params: { limit } })
+    return api.get('/dream-cycle/reports', { params: { limit } })
   },
 
   /** 获取指定日期的完整报告 */
   async getReport(date: string): Promise<DreamCycleReport> {
-    return api.get(`/reports/${date}`)
+    return api.get(`/dream-cycle/reports/${date}`)
   },
 
   /** 手动触发一次运行 */
   async triggerRun(): Promise<{ status: string; message: string; timestamp: string }> {
-    return api.post('/run')
+    return api.post('/dream-cycle/run')
   },
 
   /** 确认合并两个实体 */
@@ -107,7 +104,7 @@ export const dreamCycleApi = {
     canonicalName?: string,
   ): Promise<{ status: string; message: string }> {
     const params = canonicalName ? { canonical_name: canonicalName } : {}
-    return api.post(`/tasks/dedup/confirm/${entityAId}/${entityBId}`, null, { params })
+    return api.post(`/dream-cycle/tasks/dedup/confirm/${entityAId}/${entityBId}`, null, { params })
   },
 
   /** 驳回去重建议 */
@@ -115,21 +112,21 @@ export const dreamCycleApi = {
     entityAId: string,
     entityBId: string,
   ): Promise<{ status: string; message: string }> {
-    return api.post(`/tasks/dedup/dismiss/${entityAId}/${entityBId}`)
+    return api.post(`/dream-cycle/tasks/dedup/dismiss/${entityAId}/${entityBId}`)
   },
 
   /** 健康检查 */
   async health(): Promise<HealthStatus> {
-    return api.get('/health')
+    return api.get('/dream-cycle/health')
   },
 
   /** 保留孤立实体（标记为非孤立） */
   async orphanKeep(entityId: string): Promise<{ status: string; message: string }> {
-    return api.post(`/tasks/orphan/keep/${entityId}`)
+    return api.post(`/dream-cycle/tasks/orphan/keep/${entityId}`)
   },
 
   /** 确认清理孤立实体（标记为 inactive） */
   async orphanConfirmDelete(entityId: string): Promise<{ status: string; message: string }> {
-    return api.post(`/tasks/orphan/delete/${entityId}`)
+    return api.post(`/dream-cycle/tasks/orphan/delete/${entityId}`)
   },
 }

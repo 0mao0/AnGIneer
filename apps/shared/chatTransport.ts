@@ -1,4 +1,4 @@
-import { sharedApiClient } from './apiClient'
+import { docsApiClient, aichatApiClient } from './apiClient'
 import type {
   InlineCitationSearchPayload,
   QueryRequest,
@@ -176,11 +176,11 @@ export const defaultAIChatTransport = {
     }
   },
   fetchModels: () =>
-    sharedApiClient.get<Array<{ name: string; configured: boolean }>>(
+    aichatApiClient.get<Array<{ name: string; configured: boolean }>>(
       '/llm_configs'
     ),
   searchReferences: (payload: InlineCitationSearchPayload) =>
-    sharedApiClient.post<{ items?: Record<string, any>[] }>(
+    docsApiClient.post<{ items?: Record<string, any>[] }>(
       '/knowledge/references/search',
       payload
     ),

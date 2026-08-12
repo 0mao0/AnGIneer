@@ -21,6 +21,12 @@ export interface UnwrappedAxiosInstance {
 
 export const sharedApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api' }) as UnwrappedAxiosInstance
 
+/** 文档处理服务客户端（/api/knowledge、/api/v1、/api/graph、/api/api-keys） */
+export const docsApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api' }) as UnwrappedAxiosInstance
+
+/** AI 问答服务客户端（/api/chat、/api/sops、/api/evals、/api/dream-cycle、/api/llm_configs） */
+export const aichatApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api', timeout: 60000 }) as UnwrappedAxiosInstance
+
 export const registerDataUnwrapInterceptor = (instance: AxiosInstance) => {
   instance.interceptors.response.use(
     (response) => response.data,

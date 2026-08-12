@@ -13,8 +13,7 @@ import type {
   KnowledgeEvalQuestionsResponse,
   KnowledgeEvalRunResponse
 } from '@angineer/docs-ui'
-import axios from 'axios'
-import { getApiClientConfig, registerDataUnwrapInterceptor } from '../../../shared/apiClient'
+import { docsApiClient, aichatApiClient } from '../../../shared/apiClient'
 
 export type {
   KnowledgeParseOptions,
@@ -70,12 +69,7 @@ interface DeleteNodePreviewResponse {
   sample_doc_titles: string[]
 }
 
-const api = registerDataUnwrapInterceptor(axios.create(getApiClientConfig({ baseURL: '/api' })))
-
-api.interceptors.request.use((config: any) => {
-  console.log('[API Request]:', config.method?.toUpperCase(), config.url, config.params || config.data)
-  return config
-})
+const api = docsApiClient
 
 export const knowledgeApi = {
   getLibraries: () => api.get('/knowledge/libraries'),
@@ -114,7 +108,7 @@ export const knowledgeApi = {
   getParseTask: (taskId: string) =>
     api.get(`/knowledge/parse/tasks/${taskId}`) as Promise<ParseTaskInfo>,
   getLlmConfigs: () =>
-    api.get('/llm_configs') as Promise<LlmConfigOption[]>,
+    aichatApiClient.get('/llm_configs') as Promise<LlmConfigOption[]>,
   getEvalDatasets: () =>
     api.get('/knowledge/evals/datasets') as Promise<{ datasets: KnowledgeEvalDataset[] }>,
   getEvalQuestions: (datasetId?: string) =>
