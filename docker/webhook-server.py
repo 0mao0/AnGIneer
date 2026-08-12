@@ -80,7 +80,8 @@ IMAGE_PREFIX = os.getenv('IMAGE_PREFIX', '0mao0/angineer')
 
 SERVICE_IMAGE_MAP = {
     'frontend': f'{REGISTRY}/{IMAGE_PREFIX}-frontend',
-    'api-server': f'{REGISTRY}/{IMAGE_PREFIX}-api',
+    'docs-api': f'{REGISTRY}/{IMAGE_PREFIX}-docs-api',
+    'aichat-api': f'{REGISTRY}/{IMAGE_PREFIX}-aichat-api',
 }
 
 
