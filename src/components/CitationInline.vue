@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import CitationPopover from './CitationPopover.vue'
-import type { CitationReference } from '../../types'
+import type { CitationReference } from '../types'
 
 interface Props {
   label: string

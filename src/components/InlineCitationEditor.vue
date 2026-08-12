@@ -52,7 +52,7 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import CitationMentionPanel from './CitationMentionPanel.vue'
 import CitationRichContent from './CitationRichContent.vue'
-import type { CitationBinding, InlineCitationCandidate, InlineCitationDraftValue } from '../../types'
+import type { CitationBinding, InlineCitationCandidate, InlineCitationDraftValue } from '../types'
 import {
   buildCitationSegments,
   cloneInlineCitationDraft,
@@ -61,8 +61,8 @@ import {
   insertCitationBinding,
   shiftCitationRanges,
   normalizeInlineCitationDraft
-} from '../../utils/citation'
-import { escapeHtml, escapeHtmlAttribute } from '../../utils/markdown'
+} from '../utils/citation'
+import { escapeHtml, escapeHtmlAttribute } from '../utils/markdown'
 
 interface Props {
   modelValue?: InlineCitationDraftValue

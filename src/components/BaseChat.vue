@@ -351,20 +351,20 @@ import type {
   CitationBinding,
   InlineCitationCandidate,
   ThinkingTraceStep
-} from '../../types'
+} from '../types'
 import {
   buildInlineCitationTagHtml,
   buildCitationSegments,
   getCitationLastSegment,
   mapReferenceToBaseChatCitation
-} from '../../utils/citation'
+} from '../utils/citation'
 import {
   countThinkingSteps,
   formatDuration,
   groupThinkingSteps,
   sumThinkingDuration,
-} from '../../utils/thinking'
-import { formatTokenCount } from '../../utils/token'
+} from '../utils/thinking'
+import { formatTokenCount } from '../utils/token'
 
 interface Props {
   messages: BaseChatMessage[]

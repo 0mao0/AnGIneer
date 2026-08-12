@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import CitationRichContent from './CitationRichContent.vue'
-import type { CitationReference } from '../../types'
+import type { CitationReference } from '../types'
 
 interface Props {
   reference: CitationReference
