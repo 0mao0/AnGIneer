@@ -6,7 +6,8 @@ import portContract from '../shared/ports.json'
 import pdfWasmPlugin from '../../packages/docs-ui/vite-pdf-wasm.mjs'
 
 const WEB_CONSOLE_PORT = portContract.webConsolePort
-const API_PROXY_TARGET = `http://${portContract.localHost}:${portContract.apiServerPort}`
+const DOCS_API_PROXY_TARGET = `http://${portContract.localHost}:${portContract.docsApiPort}`
+const AICHAT_API_PROXY_TARGET = `http://${portContract.localHost}:${portContract.aichatApiPort}`
 const rootPackage = JSON.parse(readFileSync(resolve(__dirname, '../../package.json'), 'utf-8')) as { version?: string }
 const APP_VERSION = rootPackage.version || '0.1.0'
 
@@ -37,10 +38,16 @@ export default defineConfig({
   server: {
     port: WEB_CONSOLE_PORT,
     proxy: {
-      '/api': {
-        target: API_PROXY_TARGET,
-        changeOrigin: true
-      }
+      '/api/knowledge': { target: DOCS_API_PROXY_TARGET, changeOrigin: true },
+      '/api/graph': { target: DOCS_API_PROXY_TARGET, changeOrigin: true },
+      '/api/v1': { target: DOCS_API_PROXY_TARGET, changeOrigin: true },
+      '/api/api-keys': { target: DOCS_API_PROXY_TARGET, changeOrigin: true },
+      '/api/chat': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
+      '/api/sops': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
+      '/api/evals': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
+      '/api/dream-cycle': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
+      '/api/llm_configs': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
+      '/api': { target: DOCS_API_PROXY_TARGET, changeOrigin: true }
     }
   }
 })

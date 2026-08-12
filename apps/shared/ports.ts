@@ -3,6 +3,8 @@ import portContract from './ports.json'
 export const LOCAL_HOST = portContract.localHost
 
 export const API_SERVER_PORT = portContract.apiServerPort
+export const DOCS_API_PORT = portContract.docsApiPort
+export const AICHAT_API_PORT = portContract.aichatApiPort
 export const ADMIN_CONSOLE_PORT = portContract.adminConsolePort
 export const WEB_CONSOLE_PORT = portContract.webConsolePort
 
