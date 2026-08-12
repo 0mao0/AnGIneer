@@ -15,10 +15,8 @@ $backendPidPath = Join-Path $logsDir "backend.pid"
 $adminPidPath = Join-Path $logsDir "admin.pid"
 
 $hostName = $portContract.localHost
-$backendPort = $portContract.apiServerPort
 $adminPort = $portContract.adminConsolePort
 $frontendPort = $portContract.webConsolePort
-$backendUrl = "http://${hostName}:${backendPort}"
 $adminUrl = "http://${hostName}:${adminPort}"
 $frontendUrl = "http://${hostName}:${frontendPort}"
 $docsPort = $portContract.docsApiPort
@@ -207,7 +205,6 @@ if ($TailLogs) {
 
 # 3. Clean up stale processes on ALL service ports before starting
 Write-Host "[3/4] Cleaning up stale processes..." -ForegroundColor Yellow
-Stop-PortProcess -Label "Backend" -Port $backendPort
 Stop-PortProcess -Label "DocsApi" -Port $docsPort
 Stop-PortProcess -Label "AichatApi" -Port $aichatPort
 Stop-PortProcess -Label "Admin" -Port $adminPort

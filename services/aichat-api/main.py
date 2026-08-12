@@ -53,7 +53,7 @@ app = FastAPI(
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request, exc):
-    """保留原 api-server 的全局异常处理，保持 chat 响应形状。"""
+    """保留原单体服务的全局异常处理，保持 chat 响应形状。"""
     from angineer_core.base_utils import is_fatal_exception
     if is_fatal_exception(exc):
         raise
