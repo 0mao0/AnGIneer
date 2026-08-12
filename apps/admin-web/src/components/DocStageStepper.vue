@@ -478,7 +478,11 @@ function stageRunName(stage: { status: string; message?: string }, fallback: str
   return name.replace(/\|\|.+\|\|/, '')
 }
 
-function mineruOutputChecklist(stage: { output_summary: string; outputs?: { items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] } }): { name: string; path: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] {
+function mineruOutputChecklist(stage: { status: string; output_summary: string; outputs?: { items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] } }): { name: string; path: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] {
+  // 未启动/排队/已跳过的阶段不渲染产物核查，避免把“尚未运行”显示成红叉
+  if (['pending', 'queued', 'skipped'].includes(stage.status)) {
+    return []
+  }
   // 后端真实文件系统核查结果优先；仅在旧接口/未返回时回退到 output_summary 字符串比对
   if (stage.outputs?.items?.length) {
     return stage.outputs.items.map(item => ({ ...item, path: '' }))
@@ -548,7 +552,11 @@ const POPO_OUTPUTS = ['enriched_blocks.json', 'document_tree.json']
 // 结构化阶段两条后端共用同一组输出文件名，与 PoPo 阶段产物分开判断
 const STRUCTURE_OUTPUTS = ['content.md', 'doc_blocks_graph.jsonl', 'doc_blocks_graph_meta.json']
 
-function flowOutputChecklist(stage: { key: string; output_summary: string; outputs?: { items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] } }): { name: string; path: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] {
+function flowOutputChecklist(stage: { key: string; status: string; output_summary: string; outputs?: { items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] } }): { name: string; path: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] {
+  // 未启动/排队/已跳过的阶段不渲染产物核查，避免把“尚未运行”显示成红叉
+  if (['pending', 'queued', 'skipped'].includes(stage.status)) {
+    return []
+  }
   // 后端真实文件系统核查结果优先；仅在旧接口/未返回时回退到 output_summary 字符串比对
   if (stage.outputs?.items?.length) {
     return stage.outputs.items.map(item => ({ ...item, path: '' }))
