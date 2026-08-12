@@ -24,6 +24,8 @@ export interface BaseChatCitation {
   target_type?: string
   doc_id: string
   doc_title: string
+  /** 结构化引用标记，如 K1/T1/E1，由后端 MarkerAllocator 分配 */
+  marker?: string
   page_idx: number
   page_label?: string
   section_path: string
