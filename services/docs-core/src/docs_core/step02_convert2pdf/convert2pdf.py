@@ -53,6 +53,31 @@ def _force_kill_process(pid: Optional[int]) -> None:
         pass
 
 
+class _ConvertDeadline:
+    """LibreOffice 转换超时计时。
+
+    使用单调时钟计算超时，避免系统休眠（Modern Standby）期间墙钟前进导致
+    唤醒瞬间误判超时；检测到墙钟跳变超过阈值（系统休眠/唤醒）时重置截止
+    时间，给转换重新一次完整的超时预算。
+    """
+
+    _SLEEP_DETECT_THRESHOLD_SECONDS = 60
+
+    def __init__(self, timeout: float, clock=time.monotonic, wall=time.time):
+        self.timeout = timeout
+        self._clock = clock
+        self._wall = wall
+        self._deadline = self._clock() + timeout
+        self._last_wall = self._wall()
+
+    def poll_expired(self) -> bool:
+        now_wall = self._wall()
+        if now_wall - self._last_wall > self._SLEEP_DETECT_THRESHOLD_SECONDS:
+            self._deadline = self._clock() + self.timeout
+        self._last_wall = now_wall
+        return self._clock() > self._deadline
+
+
 def convert_to_pdf(
     input_path: str,
     output_dir: str,
@@ -118,14 +143,14 @@ def convert_to_pdf(
              open(stderr_path, "w", encoding="utf-8", errors="replace") as ferr:
             # Popen + 轮询：转换期间每 0.3s 检查一次取消回调，可随时终止子进程
             proc = subprocess.Popen(cmd, stdout=fout, stderr=ferr, env=env)
-            deadline = time.time() + 180
+            deadline = _ConvertDeadline(timeout=180)
             try:
                 while True:
                     if cancel_check is not None:
                         cancel_check()
                     if proc.poll() is not None:
                         break
-                    if time.time() > deadline:
+                    if deadline.poll_expired():
                         raise TimeoutError()
                     time.sleep(0.3)
             except TimeoutError:

@@ -424,6 +424,18 @@ class _FifoGpuGate:
         with self._cond:
             return seq != self._next_seq or self._tokens <= 0
 
+    def skip(self, seq: int) -> None:
+        """跳过在到达闸门前就失败/退出的序号，避免后续任务永久等待。
+
+        已经获得槽位的任务（seq < next_seq）调用此方法为无操作，
+        避免重复推进队列。
+        """
+        with self._cond:
+            if seq >= self._next_seq:
+                self._cancelled_seqs.add(seq)
+                self._skip_cancelled_locked()
+                self._cond.notify_all()
+
     def acquire(
         self,
         seq: int,
@@ -912,6 +924,8 @@ class ParseOrchestrator:
             except Exception as update_exc:
                 logger.error(f"更新任务状态失败: {update_exc}")
         finally:
+            # 任务在到达 MinerU 闸门前就失败/退出时，跳过其序号，防止后续任务永久排队
+            _MINERU_GPU_GATE.skip(arrival_seq)
             self._threads.pop(task_id, None)
             self._cancelled.discard(task_id)
             parser = self._parsers.pop(task_id, None)

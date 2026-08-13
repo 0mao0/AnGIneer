@@ -24,6 +24,8 @@ from docs_core.step10_export.export_artifacts import (
     remove_export_dir,
 )
 from docs_core.parse_pipeline import ParseOrchestrator
+from docs_core.docs_service import get_docs_service
+from routes.v1.parse_task_cleanup import cancel_parse_task_for_node
 
 from models.v1_responses import (
     ParseResponse,
@@ -362,6 +364,9 @@ async def delete_document_v1(request: Request, doc_id: str):
     api_key_info = getattr(request.state, "api_key_info", None)
     if not api_key_info:
         raise HTTPException(status_code=401, detail="需要认证")
+    node = get_docs_service().get_node(doc_id)
+    if node is not None:
+        cancel_parse_task_for_node(node, parse_orchestrator)
     success = soft_delete_record(doc_id)
     if not success:
         raise HTTPException(status_code=404, detail="文档不存在或已删除")

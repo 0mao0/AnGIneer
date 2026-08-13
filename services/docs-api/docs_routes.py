@@ -25,6 +25,7 @@ from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_gra
 from docs_core.docs_file_io import file_storage
 from docs_core.paths import resolve_repo_root
 from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, soft_delete_record, soft_delete_record_by_id, restore_record
+from routes.v1.parse_task_cleanup import cancel_parse_task_for_node
 
 logger = logging.getLogger(__name__)
 
@@ -363,6 +364,10 @@ def get_knowledge_node_delete_preview(node_id: str):
 def delete_knowledge_node(node_id: str):
     """删除知识库节点。"""
     ks = get_docs_service()
+    node = ks.get_node(node_id)
+    if not node:
+        raise HTTPException(status_code=404, detail="Node not found")
+    cancel_parse_task_for_node(node, parse_orchestrator)
     success = ks.delete_node(node_id)
     if not success:
         raise HTTPException(status_code=404, detail="Node not found")
@@ -374,6 +379,10 @@ def delete_knowledge_node(node_id: str):
 def soft_delete_knowledge_node(node_id: str):
     """软删除：标记节点（含子树）为已删除并从树视图隐藏，节点与文件系统内容保持不变。"""
     ks = get_docs_service()
+    node = ks.get_node(node_id)
+    if not node:
+        raise HTTPException(status_code=404, detail="Node not found")
+    cancel_parse_task_for_node(node, parse_orchestrator)
     success = ks.soft_delete_node(node_id)
     if not success:
         raise HTTPException(status_code=404, detail="Node not found")
