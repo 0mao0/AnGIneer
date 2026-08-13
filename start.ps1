@@ -92,6 +92,33 @@ function Stop-PortProcess {
     }
 }
 
+# Stop backend processes that may be missed by port-based cleanup:
+# uvicorn --reload keeps the listening socket owned by the (possibly dead)
+# parent PID, so Get-NetTCPConnection cannot reliably identify live workers.
+function Stop-BackendProcesses {
+    $procs = Get-CimInstance Win32_Process | Where-Object { $_.Name -eq "python.exe" }
+    $parents = @($procs | Where-Object {
+        $_.CommandLine -match 'services[\\/](docs-api|aichat-api)[\\/]main\.py'
+    } | Select-Object -ExpandProperty ProcessId)
+
+    $kill = @($parents)
+    foreach ($child in $procs | Where-Object { $_.CommandLine -match 'spawn_main\(parent_pid=' }) {
+        foreach ($parent in $parents) {
+            if ($child.CommandLine -match "parent_pid=$parent,") {
+                $kill += $child.ProcessId
+            }
+        }
+    }
+
+    foreach ($procId in ($kill | Sort-Object -Unique)) {
+        $existingProcess = Get-Process -Id $procId -ErrorAction SilentlyContinue
+        if ($existingProcess) {
+            Write-Host "Stopping stale backend process tree: PID $procId" -ForegroundColor DarkYellow
+            Stop-ProcessTree -ProcessId $existingProcess.Id
+        }
+    }
+}
+
 # Start a hidden background service process and store PID/logs under logs.
 function Start-ServiceProcess {
     param(
@@ -141,7 +168,7 @@ function Test-BackendHealth {
     while ((Get-Date) -lt $deadline) {
         $attempts++
         try {
-            $response = Invoke-WebRequest -Uri $Url -Method GET -TimeoutSec 3 -UseBasicParsing -ErrorAction Stop
+            $response = Invoke-WebRequest -Uri "$Url/health" -Method GET -TimeoutSec 3 -UseBasicParsing -ErrorAction Stop
             if ($response.StatusCode -eq 200) {
                 Write-Host "  Backend health check passed (attempt $attempts)" -ForegroundColor Green
                 return $true
@@ -209,6 +236,7 @@ Stop-PortProcess -Label "DocsApi" -Port $docsPort
 Stop-PortProcess -Label "AichatApi" -Port $aichatPort
 Stop-PortProcess -Label "Admin" -Port $adminPort
 Stop-PortProcess -Label "Frontend" -Port $frontendPort
+Stop-BackendProcesses
 
 # 4. Start services
 Write-Host "[4/4] Starting services..." -ForegroundColor Yellow
