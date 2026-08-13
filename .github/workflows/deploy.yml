@@ -30,6 +30,7 @@ jobs:
       - name: Restart services
         run: |
           cd /home/runner/AnGIneer/docker
+          bash deploy.sh --prepare
           docker compose down
           docker compose up -d
 
@@ -44,6 +45,7 @@ jobs:
           FRONTEND=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/ || echo "000")
           ADMIN=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/admin/ || echo "000")
           API=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/docs || echo "000")
+          if [ "$ADMIN" = "401" ]; then ADMIN="200(auth)"; fi
           echo "Frontend: $FRONTEND"
           echo "Admin: $ADMIN"
           echo "API docs: $API"

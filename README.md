@@ -443,6 +443,8 @@ docker compose up -d --build
 **公网部署安全**：
 
 - 管理端白名单在 `docker/nginx/nginx.conf` 的 `geo $admin_allowed` 中配置，上线前把管理出口 IP 加入白名单；`/admin/`、`/api/api-keys*`、`/docs`、`/redoc`、`/openapi.json` 仅白名单内可访问，公网访问返回 403
+- `/admin/` 与 `/api/api-keys*` 另有 HTTP Basic Auth 第二道锁：密码文件 `docker/nginx/.htpasswd`（不入库，`deploy.sh --prepare` 自动生成，可在 `.env` 设 `ADMIN_PASSWORD` 固定密码；手动 `docker compose up` 前也需先执行 `cd docker && bash deploy.sh --prepare`）
+- 当前无 HTTPS，管理端**不要直接暴露到公网**，建议 SSH 隧道访问：`ssh -L 8080:127.0.0.1:80 user@server` 后打开 `http://localhost:8080/admin/`
 - 公网只需暴露 80 端口；8790/8791 已绑定 `127.0.0.1`，外部无法直连后端
 - 注意：用户台及其调用的 `/api/knowledge`、`/api/chat` 等接口当前无登录，公网开放即所有人可用，上线前需规划登录/风控
 - 对外 API（`/api/v1/*`）需在 Header 携带 `X-API-Key`

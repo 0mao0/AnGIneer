@@ -20,6 +20,7 @@ ACTION="deploy"
 for arg in "$@"; do
     case $arg in
         --build-only) BUILD_ONLY=true ;;
+        --prepare)    ACTION="prepare" ;;
         --stop)       ACTION="stop" ;;
         --restart)    ACTION="restart" ;;
         --logs)       ACTION="logs" ;;
@@ -54,6 +55,38 @@ check_prerequisites() {
     echo "前置条件检查通过"
 }
 
+# 生成/校验管理端 Basic Auth 密码文件（.htpasswd 不入库，首次自动生成随机密码）
+ensure_htpasswd() {
+    HTPASSWD_FILE="$SCRIPT_DIR/nginx/.htpasswd"
+    if [ -f "$HTPASSWD_FILE" ]; then
+        echo ">>> 管理端密码文件已存在: $HTPASSWD_FILE"
+        return
+    fi
+
+    ADMIN_USER="${ADMIN_USER:-admin}"
+    ADMIN_PASSWORD="${ADMIN_PASSWORD:-}"
+
+    if [ -z "$ADMIN_PASSWORD" ] && [ -f "$PROJECT_DIR/.env" ]; then
+        ADMIN_PASSWORD=$(grep -E '^ADMIN_PASSWORD=' "$PROJECT_DIR/.env" | head -n1 | cut -d= -f2-)
+    fi
+
+    if [ -z "$ADMIN_PASSWORD" ]; then
+        ADMIN_PASSWORD=$(openssl rand -hex 8)
+        echo "!!! 未设置 ADMIN_PASSWORD，已生成随机密码: $ADMIN_PASSWORD"
+        echo "!!! 请保存该密码，并建议写入 $PROJECT_DIR/.env 的 ADMIN_PASSWORD 以便重启后保持"
+    fi
+
+    mkdir -p "$SCRIPT_DIR/nginx"
+    if command -v htpasswd >/dev/null 2>&1; then
+        htpasswd -nb "$ADMIN_USER" "$ADMIN_PASSWORD" > "$HTPASSWD_FILE"
+    else
+        HASH=$(openssl passwd -apr1 "$ADMIN_PASSWORD")
+        printf '%s:%s\n' "$ADMIN_USER" "$HASH" > "$HTPASSWD_FILE"
+    fi
+    chmod 600 "$HTPASSWD_FILE"
+    echo ">>> 已生成管理端密码文件: $HTPASSWD_FILE (用户: $ADMIN_USER)"
+}
+
 deploy() {
     echo "=========================================="
     echo "   AnGIneer 部署 (服务器端)"
@@ -62,6 +95,7 @@ deploy() {
     echo "=========================================="
 
     check_prerequisites
+    ensure_htpasswd
 
     echo ">>> 构建 Docker 镜像..."
     docker compose -f "$COMPOSE_FILE" build
@@ -85,9 +119,15 @@ deploy() {
     echo "   部署完成！"
     echo "=========================================="
     echo "前端访问:  http://localhost/"
-    echo "管理后台:  http://localhost/admin/"
+    echo "管理后台:  http://localhost/admin/ (Basic Auth；建议 SSH 隧道访问)"
     echo "API 文档:  http://localhost/api/docs"
     echo "=========================================="
+}
+
+prepare_services() {
+    check_prerequisites
+    ensure_htpasswd
+    echo ">>> 部署前置准备完成"
 }
 
 stop_services() {
@@ -111,6 +151,7 @@ show_status() {
 }
 
 case $ACTION in
+    prepare)  prepare_services ;;
     stop)     stop_services ;;
     restart)  restart_services ;;
     logs)     show_logs ;;
