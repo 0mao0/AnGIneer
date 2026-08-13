@@ -436,9 +436,16 @@ cd docker
 docker compose up -d --build
 ```
 
-- 前端（nginx）: `http://localhost/`，管理后台 `/admin/`
-- API: `http://localhost:8789`（`/docs` 为 OpenAPI 文档）
+- 前端（nginx）: `http://localhost/`（用户台），管理后台 `/admin/`
+- API: docs-api `http://127.0.0.1:8790`、aichat-api `http://127.0.0.1:8791`（均只绑定本机回环）
 - 数据卷：`../data`、`../logs`；API 密钥等配置来自 `../.env`
+
+**公网部署安全**：
+
+- 管理端白名单在 `docker/nginx/nginx.conf` 的 `geo $admin_allowed` 中配置，上线前把管理出口 IP 加入白名单；`/admin/`、`/api/api-keys*`、`/docs`、`/redoc`、`/openapi.json` 仅白名单内可访问，公网访问返回 403
+- 公网只需暴露 80 端口；8790/8791 已绑定 `127.0.0.1`，外部无法直连后端
+- 注意：用户台及其调用的 `/api/knowledge`、`/api/chat` 等接口当前无登录，公网开放即所有人可用，上线前需规划登录/风控
+- 对外 API（`/api/v1/*`）需在 Header 携带 `X-API-Key`
 
 **自动部署（GitHub Actions + 自托管 Runner）**：仓库已配置 `.github/workflows/deploy.yml`，每次 push `main` 自动执行 `git pull → docker compose build → docker compose up -d`，并做前端/管理端/API 健康检查与企微通知。
 

@@ -23,7 +23,8 @@ services:
     image: angineer-docs-api:latest
     container_name: angineer-docs-api
     ports:
-      - "8790:8790"
+      # 只绑定本机回环，禁止从宿主机外部直接访问后端；nginx 容器仍可通过内网访问
+      - "127.0.0.1:8790:8790"
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8790"]
     working_dir: /app/services/docs-api
     env_file:
@@ -48,7 +49,8 @@ services:
     image: angineer-aichat-api:latest
     container_name: angineer-aichat-api
     ports:
-      - "8791:8791"
+      # 只绑定本机回环，禁止从宿主机外部直接访问后端
+      - "127.0.0.1:8791:8791"
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8791"]
     working_dir: /app/services/aichat-api
     env_file:
