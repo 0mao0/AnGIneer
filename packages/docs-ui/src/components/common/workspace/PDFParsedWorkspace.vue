@@ -11,7 +11,6 @@
           :isImage="isImage"
           :isText="isText"
           :pdfViewerUrl="pdfViewerUrl"
-          :officePreviewUrl="officePreviewUrl"
           :fileUrl="fileUrl"
           :textContent="textContent"
           :currentPdfPage="pdfPage"
@@ -199,7 +198,6 @@ const {
   isText,
   fileUrl,
   pdfViewerUrl,
-  officePreviewUrl,
   textContent,
   inferredPdfPageCount,
   pdfPage,
