@@ -69,10 +69,6 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
     }
     return `${activeUrl}#${hashParams}`
   })
-  const officePreviewUrl = computed(() => {
-    if (!fileUrl.value) return ''
-    return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(window.location.origin + fileUrl.value)}`
-  })
 
   const inferredPdfPageCount = computed(() => {
     const node = options.node.value
@@ -175,7 +171,6 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
     isText,
     fileUrl,
     pdfViewerUrl,
-    officePreviewUrl,
     textContent,
     inferredPdfPageCount,
     pdfPage,

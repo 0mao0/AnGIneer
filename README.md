@@ -194,7 +194,7 @@ src/
 
 #### `useWorkspacePreview.ts`
 - 状态：`textContent` `leftScrollPercent` `rightScrollPercent` `pdfPage`
-- 计算：`isPdf` `isOffice` `isImage` `isText` `fileUrl` `pdfViewerUrl` `officePreviewUrl` `inferredPdfPageCount`
+- 计算：`isPdf` `isOffice` `isImage` `isText` `fileUrl` `pdfViewerUrl` `inferredPdfPageCount`
 - 方法：`onRightPaneScrollPercent` `onLeftTextScrollPercent` `downloadFile` `resetPreviewState`
 
 #### `useWorkspaceIngest.ts`

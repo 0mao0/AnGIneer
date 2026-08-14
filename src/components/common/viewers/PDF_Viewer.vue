@@ -278,12 +278,11 @@
         </div>
         <div v-else class="office-frame-wrap">
           <OfficePreview v-if="isLocalOffice" :file-url="fileUrl" class="office-viewer" />
-          <iframe
-            v-else
-            :src="officePreviewUrl"
-            class="office-viewer"
-            frameborder="0"
-          />
+          <Empty v-else description="暂不支持该格式在线预览，请下载后查看">
+            <template #extra>
+              <Button type="primary" @click="emit('download')">下载文件</Button>
+            </template>
+          </Empty>
         </div>
       </div>
       <img
@@ -326,7 +325,7 @@
  * ## 最少 prop（开箱即用）
  *   :node="{ status: 'completed', filePath: '/path/doc.pdf' }"
  *   :isPdf="true"  :isOffice="false"  :isImage="false"  :isText="false"
- *   :pdfViewerUrl="url"  :officePreviewUrl=""  :fileUrl="url"  :textContent=""
+ *   :pdfViewerUrl="url"  :fileUrl="url"  :textContent=""
  *   :currentPdfPage="1"  :highlights="[]"  :activeHighlightId="null"
  *   :textScrollPercent="0"
  *
@@ -402,7 +401,6 @@ const props = withDefaults(defineProps<{
   isImage: boolean
   isText: boolean
   pdfViewerUrl: string
-  officePreviewUrl: string
   fileUrl: string
   textContent: string
   searchText?: string
@@ -1616,7 +1614,7 @@ const displayPdfPageCount = scroll.displayPdfPageCount
 const isFitToWindowMode = zoom.isFitToWindowMode
 const useNativePdfPreview = doc.useNativePdfPreview
 const virtualContentHeight = scroll.virtualContentHeight
-// docx/xlsx/xls 用本地轻量组件渲染；ppt/pptx 等保留微软在线预览兜底
+// docx/xlsx/xls 用本地轻量组件渲染；doc/ppt/pptx 不支持本地预览，转换完成后切到 PDF
 const isLocalOffice = computed(() => {
   const m = props.fileUrl.match(/path=([^&#]*)/)
   const decoded = m ? decodeURIComponent(m[1]) : props.fileUrl
