@@ -868,8 +868,16 @@ class ParseOrchestrator:
                     overall = "completed"
                 else:
                     overall = "processing"
+            degraded_note = ""
+            try:
+                from docs_core.step06_vectors.embedding_provider import default_embedding_provider
+
+                if "embedding_hash_fallback" in list(getattr(default_embedding_provider, "runtime_flags", []) or []):
+                    degraded_note = "embedding 已降级为 hash（向量检索质量下降，请检查 embedding 服务）"
+            except Exception:  # noqa: BLE001
+                pass
             ks.update_parse_task(task_id, status=overall, progress=100, stage=overall,
-                                 stage_message=f"解析结束: {overall}")
+                                 stage_message=f"解析结束: {overall}" + (f"；⚠ {degraded_note}" if degraded_note else ""))
             parse_error = ""
             if overall in ("failed", "partial"):
                 failed_stages = [
@@ -882,7 +890,7 @@ class ParseOrchestrator:
                 ) or overall
             ks.update_node(doc_id, status=overall, parse_progress=100, parse_stage=overall,
                            parse_error=parse_error or None, parse_task_id=task_id)
-            self._sync_record(task_id, doc_id, overall)
+            self._sync_record(task_id, doc_id, overall, degraded_note or None)
         except ParseTaskCancelledError as exc:
             error_message = str(exc) or "用户手动取消任务"
             ks.update_parse_task(
