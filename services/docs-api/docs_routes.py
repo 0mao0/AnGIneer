@@ -24,7 +24,7 @@ from docs_core.step04_structure.solo2json_pipeline import (
 from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph
 from docs_core.docs_file_io import file_storage
 from docs_core.paths import resolve_repo_root
-from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, soft_delete_record, soft_delete_record_by_id, restore_record
+from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, hard_delete_records_by_doc_id, soft_delete_record, soft_delete_record_by_id, restore_record
 from routes.v1.parse_task_cleanup import cancel_parse_task_for_node
 
 logger = logging.getLogger(__name__)
@@ -135,10 +135,8 @@ class DocBlocksGraphSummaryRequest(BaseModel):
 # --- 解析编排器 ---
 
 
-from docs_core.parse_pipeline import ParseOrchestrator
-from models.parse_record import sync_record_for_task
-
-parse_orchestrator = ParseOrchestrator(record_updater=sync_record_for_task)
+from docs_core.parse_pipeline import ParseOrchestrator  # noqa: F401 兼容旧导出
+from orchestrator import parse_orchestrator
 
 
 # --- 辅助函数 ---
@@ -372,6 +370,7 @@ def delete_knowledge_node(node_id: str):
     if not success:
         raise HTTPException(status_code=404, detail="Node not found")
     soft_delete_record(node_id)
+    _clean_orphaned_records(ks)
     return {"status": "success"}
 
 
@@ -409,7 +408,9 @@ def force_delete_knowledge_node(node_id: str):
         success = ks.delete_node(node_id)
         if not success:
             raise HTTPException(status_code=500, detail="删除失败")
-        soft_delete_record(node_id)
+        # force 语义为彻底清除：级联硬删统计记录，不留软删孤儿
+        hard_delete_records_by_doc_id(node_id)
+        _clean_orphaned_records(ks)
         return {"status": "success", "message": f"已强制删除节点 {node.title}"}
     except Exception as e:
         logger.error(f"强制删除节点 {node_id} 失败: {e}")
@@ -458,22 +459,25 @@ def soft_delete_record_by_id(record_id: int):
     return {"status": "success", "message": f"记录 {record_id} 已标记为 deleted"}
 
 
-@docs_router.post("/records/clean-orphaned")
-def clean_orphaned_records():
+def _clean_orphaned_records(ks) -> int:
     """清理孤立记录：将 doc_id 在知识库中已不存在的记录标记为 deleted。"""
-    ks = get_docs_service()
-    records = list_records()
     cleaned = 0
-    for record in records:
+    for record in list_records():
         doc_id = record.get("doc_id", "")
         if not doc_id:
             continue
         if record.get("status") == "deleted":
             continue
-        node = ks.get_node(doc_id)
-        if node is None:
+        if ks.get_node(doc_id) is None:
             soft_delete_record(doc_id)
             cleaned += 1
+    return cleaned
+
+
+@docs_router.post("/records/clean-orphaned")
+def clean_orphaned_records():
+    """清理孤立记录（手动触发）；删除节点路径会自动调用同逻辑兜底。"""
+    cleaned = _clean_orphaned_records(get_docs_service())
     return {"status": "success", "message": f"已清理 {cleaned} 条孤立记录"}
 
 

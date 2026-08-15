@@ -23,7 +23,6 @@ from docs_core.step10_export.export_artifacts import (
     export_graph_db,
     remove_export_dir,
 )
-from docs_core.parse_pipeline import ParseOrchestrator
 from docs_core.docs_service import get_docs_service
 from routes.v1.parse_task_cleanup import cancel_parse_task_for_node
 
@@ -37,7 +36,7 @@ from models.v1_responses import (
     Block,
     OutlineItem,
 )
-from models.parse_record import insert_record, ParseRecord, list_records, sync_record_for_task
+from models.parse_record import insert_record, ParseRecord, list_records
 
 router = APIRouter()
 
@@ -56,8 +55,8 @@ _ARTIFACT_NAMES = {
 
 EXTERNAL_API_FOLDER_TITLE = "外部API"
 
-# 编排器实例：创建解析任务并驱动 docs_core 阶段化管线（记录同步由 API 层钩子负责）
-parse_orchestrator = ParseOrchestrator(record_updater=sync_record_for_task)
+# 编排器进程级单例（与 docs_routes 共享，避免取消串台与 GPU 闸门序号冲突）
+from orchestrator import parse_orchestrator
 
 
 def _records_by_doc_id(doc_id: str) -> list:

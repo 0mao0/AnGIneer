@@ -241,6 +241,17 @@ def hard_delete_record(record_id: int) -> bool:
     return affected > 0
 
 
+def hard_delete_records_by_doc_id(doc_id: str) -> int:
+    """按 doc_id 永久删除全部记录（force 删除节点时级联调用）。"""
+    init_db()
+    conn = _get_conn()
+    conn.execute("DELETE FROM parse_records WHERE doc_id = ?", (doc_id,))
+    conn.commit()
+    affected = conn.total_changes
+    conn.close()
+    return affected
+
+
 def soft_delete_record_by_id(record_id: int) -> bool:
     """按 record_id 标记记录为用户已删除。"""
     init_db()
