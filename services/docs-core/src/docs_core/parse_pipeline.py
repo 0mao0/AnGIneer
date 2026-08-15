@@ -445,14 +445,20 @@ class _FifoGpuGate:
         """按提交序号阻塞等待令牌；等待期间按 poll_interval 轮询取消标志。"""
         with self._cond:
             while True:
-                if seq < self._next_seq:
-                    # 序号已被跳过（排队期间被取消/让位）
-                    raise ParseTaskCancelledError("任务在 GPU 排队期间被取消")
                 if seq == self._next_seq and self._tokens > 0:
                     self._tokens -= 1
                     self._next_seq += 1
                     self._skip_cancelled_locked()
                     self._cond.notify_all()
+                    return
+                if seq < self._next_seq and self._tokens > 0:
+                    # 晚到/重复序号兜底：不取消任务，等待到空闲令牌后直接放行。
+                    # 正常情况下不应发生；发生时不阻塞队列推进，也不误伤任务。
+                    logger.warning(
+                        "GPU 闸门兜底放行（晚到序号）: seq=%s next_seq=%s tokens=%s pid=%s",
+                        seq, self._next_seq, self._tokens, os.getpid(),
+                    )
+                    self._tokens -= 1
                     return
                 if cancel_check is not None:
                     try:
@@ -460,7 +466,8 @@ class _FifoGpuGate:
                     except BaseException:
                         # 排队期间被取消：登记序号并让位给后续任务
                         self._cancelled_seqs.add(seq)
-                        self._skip_cancelled_locked()
+                        if seq >= self._next_seq:
+                            self._skip_cancelled_locked()
                         self._cond.notify_all()
                         raise
                 self._cond.wait(poll_interval)
@@ -682,6 +689,10 @@ def validate_stage_retry(node_status: str, stage_key: str) -> None:
         raise ValueError("文档正在解析中，请先取消当前任务")
 
 
+# 全局 FIFO 序号：所有 ParseOrchestrator 实例共享同一个计数器，
+# 避免管理后台和外部 API 各自从 1 开始编号，导致 MinerU GPU 闸门误判旧序号并取消任务。
+_GLOBAL_ARRIVAL_COUNTER = itertools.count(1)
+
 class ParseOrchestrator:
     """负责 API 层与解析主链之间的编排。"""
 
@@ -694,7 +705,7 @@ class ParseOrchestrator:
         self._parsers: Dict[str, MinerUParser] = {}
         self._cancelled: set = set()
         self._record_updater = record_updater
-        self._arrival_counter = itertools.count(1)
+        self._arrival_counter = _GLOBAL_ARRIVAL_COUNTER
 
     def _sync_record(self, task_id: str, doc_id: str, status: str, error: Optional[str] = None) -> None:
         """把任务状态同步到解析记录表（由 API 层注入的实现负责）。"""
