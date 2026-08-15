@@ -1,10 +1,13 @@
 """docs-api — 文档解析、知识库、图谱、产物下载与 API Key 管理。"""
 import os
 import sys
+from datetime import datetime
 from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+_PROCESS_STARTED_AT = datetime.now().isoformat()
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 SERVICES_DIR = ROOT_DIR / "services"
@@ -52,7 +55,13 @@ app.include_router(v1_router)
 
 @app.get("/health")
 def health():
-    return {"service": "docs-api", "status": "ok"}
+    # started_at/pid 供启动脚本识别"端口被旧进程占用"（孤儿 worker 代答健康检查）
+    return {
+        "service": "docs-api",
+        "status": "ok",
+        "started_at": _PROCESS_STARTED_AT,
+        "pid": os.getpid(),
+    }
 
 
 if __name__ == "__main__":

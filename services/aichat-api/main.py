@@ -5,6 +5,7 @@ import json
 import asyncio
 import uuid
 import logging
+from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
@@ -14,6 +15,8 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)
+
+_PROCESS_STARTED_AT = datetime.now().isoformat()
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 SERVICES_DIR = ROOT_DIR / "services"
@@ -255,7 +258,13 @@ def steer_agent(run_id: str, request: SteerRequest):
 
 @app.get("/health")
 def health():
-    return {"service": "aichat-api", "status": "ok"}
+    # started_at/pid 供启动脚本识别"端口被旧进程占用"（孤儿 worker 代答健康检查）
+    return {
+        "service": "aichat-api",
+        "status": "ok",
+        "started_at": _PROCESS_STARTED_AT,
+        "pid": os.getpid(),
+    }
 
 
 if __name__ == "__main__":

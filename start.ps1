@@ -170,6 +170,18 @@ function Test-BackendHealth {
         try {
             $response = Invoke-WebRequest -Uri "$Url/health" -Method GET -TimeoutSec 3 -UseBasicParsing -ErrorAction Stop
             if ($response.StatusCode -eq 200) {
+                # 校验应答者是本次新启动的进程：孤儿 worker 会代答 /health（旧 started_at），
+                # 造成"服务已重启"的假象（曾导致 8/13 孤儿进程占用 8790 三天未被发现）
+                $payload = $response.Content | ConvertFrom-Json
+                if ($payload.started_at) {
+                    $startedAt = [datetime]::Parse($payload.started_at)
+                    $ageMinutes = ((Get-Date) - $startedAt).TotalMinutes
+                    if ($ageMinutes -gt 10) {
+                        Write-Host "  STALE PROCESS on ${Url}: /health answered by a process started at $($payload.started_at) (PID $($payload.pid))" -ForegroundColor Red
+                        Write-Host "  Kill it first: Stop-Process -Id $($payload.pid) -Force" -ForegroundColor Red
+                        return $false
+                    }
+                }
                 Write-Host "  Backend health check passed (attempt $attempts)" -ForegroundColor Green
                 return $true
             }
