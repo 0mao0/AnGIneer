@@ -58,6 +58,11 @@ check_prerequisites() {
 # 生成/校验管理端 Basic Auth 密码文件（.htpasswd 不入库，首次自动生成随机密码）
 ensure_htpasswd() {
     HTPASSWD_FILE="$SCRIPT_DIR/nginx/.htpasswd"
+    if [ -d "$HTPASSWD_FILE" ]; then
+        STALE_HTPASSWD="$HTPASSWD_FILE.stale.$(date +%s)"
+        echo "!!! $HTPASSWD_FILE 是目录（可能是 Docker 为缺失的挂载源自动创建），正在移开并重新生成: $STALE_HTPASSWD"
+        mv "$HTPASSWD_FILE" "$STALE_HTPASSWD"
+    fi
     if [ -f "$HTPASSWD_FILE" ]; then
         echo ">>> 管理端密码文件已存在: $HTPASSWD_FILE"
         return
