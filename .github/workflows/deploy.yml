@@ -5,9 +5,14 @@ on:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: [self-hosted]
+    timeout-minutes: 60
 
     steps:
       - name: Pull latest code
