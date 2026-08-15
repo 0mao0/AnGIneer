@@ -10,12 +10,12 @@ LLM 相关功能请直接使用 ai_inference：
 """
 
 from angineer_core.classifier import IntentClassifier
-from angineer_core.dispatcher import Dispatcher
 from angineer_core.memory import Memory, StepRecord, UndefinedVariableError
 from angineer_core.base_contracts import (
     SOP, Step, AgentResponse,
     IntentResult, IntentLevel, ServiceMode,
     IntentResponse, ActionResponse, StepParseResponse, ArgsExtractResponse,
+    ScopeContext, RouteDebug, RouteDecision, Evidence, EvidenceKind,
 )
 from angineer_core.base_logger import (
     get_logger,
@@ -37,7 +37,6 @@ __version__ = "0.1.0"
 
 __all__ = [
     "IntentClassifier",
-    "Dispatcher",
     "Memory",
     "StepRecord",
     "UndefinedVariableError",
@@ -51,6 +50,11 @@ __all__ = [
     "ActionResponse",
     "StepParseResponse",
     "ArgsExtractResponse",
+    "ScopeContext",
+    "RouteDebug",
+    "RouteDecision",
+    "Evidence",
+    "EvidenceKind",
     "get_logger",
     "get_default_logger",
     "set_default_logger",

@@ -375,7 +375,12 @@ def start_eval_run(
 
     is_full_run = question_id is None
     run_name = _generate_run_name() if is_full_run else ""
-    run_data = result_store.create_run(dataset_id, len(questions), run_name=run_name, is_full_run=is_full_run)
+    from angineer_core.run_manifest import build_run_manifest
+
+    run_data = result_store.create_run(
+        dataset_id, len(questions), run_name=run_name, is_full_run=is_full_run,
+        config_snapshot=build_run_manifest(),
+    )
     run_id = run_data["run_id"]
     thread = threading.Thread(
         target=_run_suite_thread,

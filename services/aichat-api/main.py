@@ -27,6 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from ai_inference.llm_client import LLMClient
 from angineer_core import IntentClassifier
+from angineer_core.base_contracts import ScopeContext
 from chat_agent import (
     find_session_by_run_id,
     get_agent_session,
@@ -41,6 +42,13 @@ from sop_routes import sop_router
 from evals_routes import evals_router
 from dream_cycle_routes import dream_cycle_router
 from middleware.api_key_auth import APIKeyAuthMiddleware
+from route_pre import (
+    decision_intent_result,
+    fallback_note_event,
+    route_debug_event,
+    route_pre_enabled,
+    route_request,
+)
 
 app = FastAPI(
     title="AnGIneer AIChat API",
@@ -134,6 +142,22 @@ def list_llm_configs():
         raise HTTPException(status_code=500, detail=f"获取模型配置失败: {str(e)}")
 
 
+def _classify_intent_blocking(query: str, config_name: Optional[str], mode: str):
+    """同步意图分类（含 SOP 加载与 LLM 调用），必须在 worker 线程执行。"""
+    sops = sop_loader.load_all() if sop_loader is not None else []
+    return IntentClassifier(sops).classify_intent(query, config_name=config_name, mode=mode)
+
+
+async def classify_intent_offloaded(query: str, config_name: Optional[str] = None, mode: str = "instruct"):
+    """分类卸载到默认 executor，避免阻塞 SSE 事件循环；失败保持降级为 None。"""
+    loop = asyncio.get_running_loop()
+    try:
+        return await loop.run_in_executor(None, _classify_intent_blocking, query, config_name, mode)
+    except Exception as exc:
+        logger.warning("Agent 意图分级失败，按 scene 默认路由: %s", exc)
+        return None
+
+
 @app.post("/api/chat/agent")
 async def chat_agent_stream(request: QueryRequest, raw_request: Request):
     """Agent SSE：run/turn/tool 事件按 AgentEvent 帧输出。"""
@@ -151,21 +175,32 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             def emit(event):
                 queue.put_nowait(event)
 
-            loop = asyncio.get_event_loop()
-            intent_result = None
-            try:
-                sops = sop_loader.load_all() if sop_loader is not None else []
-                intent_result = IntentClassifier(sops).classify_intent(
+            loop = asyncio.get_running_loop()
+            if route_pre_enabled():
+                decision = await route_request(
+                    query=request.query,
+                    scene=request.scene or "qa",
+                    library_id=request.library_id,
+                    doc_ids=request.doc_ids,
+                    config_name=request.config,
+                    mode=request.mode or "instruct",
+                    classify=classify_intent_offloaded,
+                )
+                queue.put_nowait(route_debug_event(decision))
+                if decision.fallback:
+                    queue.put_nowait(fallback_note_event())
+                intent_result = decision_intent_result(decision)
+                scope = decision.scope
+            else:
+                intent_result = await classify_intent_offloaded(
                     request.query,
                     config_name=request.config,
                     mode=request.mode or "instruct",
                 )
-            except Exception as exc:
-                logger.warning("Agent 意图分级失败，按 scene 默认路由: %s", exc)
+                scope = ScopeContext(library_id=request.library_id or "default", doc_ids=list(request.doc_ids or []))
             config_factory = make_policy_config_factory(
                 request.scene or "qa",
-                request.library_id,
-                request.doc_ids,
+                scope=scope,
                 intent_result=intent_result,
                 sop_loader=sop_loader,
             )

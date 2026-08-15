@@ -194,6 +194,8 @@ def build_qa_config(
                 marker_allocator=marker_allocator,
             ),
             RetrieverAdapter.entity_search(
+                library_id=library_id,
+                doc_ids=doc_ids,
                 marker_allocator=marker_allocator,
             ),
         ]
@@ -325,6 +327,8 @@ def build_complex_config(
                 marker_allocator=marker_allocator,
             ),
             RetrieverAdapter.entity_search(
+                library_id=library_id,
+                doc_ids=doc_ids,
                 marker_allocator=marker_allocator,
             ),
         ]

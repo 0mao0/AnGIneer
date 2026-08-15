@@ -16,7 +16,7 @@ class UserInputTool(BaseTool):
         2. 如果没有，返回 default。
         3. 如果没有 default，返回模拟值。
         """
-        # 尝试从 kwargs 中直接获取变量值（如果 Dispatcher 已经注入）
+        # 尝试从 kwargs 中直接获取变量值（如果 SopRunner 已经注入）
         if variable and variable in kwargs:
              return kwargs[variable]
         

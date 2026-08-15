@@ -151,3 +151,51 @@ class RouteResult(BaseModel):
     reason: Optional[str] = None
     confidence: float = 0.0
     candidates: List[Dict[str, Any]] = Field(default_factory=list)
+
+
+class ScopeContext(BaseModel):
+    """检索/会话范围上下文（门牌号）。默认 default 库，但链路上传递必须显式。"""
+    library_id: str = "default"
+    doc_ids: List[str] = Field(default_factory=list)
+    filters: Dict[str, Any] = Field(default_factory=dict)
+    source: str = "request"
+    request_id: Optional[str] = None
+
+
+class RouteDebug(BaseModel):
+    """路由决策的可观测投影（SSE 首帧与 evals 落盘共用词汇）。"""
+    level: Optional[IntentLevel] = None
+    service_mode: Optional[ServiceMode] = None
+    confidence: float = 0.0
+    reason: Optional[str] = None
+    fallback: bool = False
+
+
+class RouteDecision(BaseModel):
+    """Router 派工单：请求进入执行前的路由决策。意图可以错，scope 不能漏。"""
+    intent_result: IntentResult = Field(default_factory=IntentResult)
+    scene: str = "qa"
+    scope: ScopeContext = Field(default_factory=ScopeContext)
+    attempts: List[str] = Field(default_factory=list)
+    confidence: float = 0.0
+    route_debug: RouteDebug = Field(default_factory=RouteDebug)
+    fallback: bool = False
+
+
+EvidenceKind = Literal["text", "table", "formula", "clause", "graph_entity", "sop_step"]
+
+
+class Evidence(BaseModel):
+    """统一证据模型：正文/表格/公式/条款/图谱实体/SOP 步骤统一结构；citations 仅作展示投影。"""
+    evidence_id: str
+    kind: EvidenceKind = "text"
+    doc_id: str = ""
+    doc_title: str = ""
+    content: str = ""
+    page_idx: Optional[int] = None
+    page_label: Optional[str] = None
+    section_path: str = ""
+    score: float = 0.0
+    source: str = ""
+    library_id: str = "default"
+    metadata: Dict[str, Any] = Field(default_factory=dict)

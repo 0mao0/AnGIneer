@@ -1,8 +1,9 @@
 """P7 API 层统一：agent 会话池与 AgentEvent SSE 帧序列化。
 
-按 ``scene:session_id`` 复用 AgentSession；``/api/chat/agent`` 直接输出
-完整 AgentEvent 帧（旧 ``/api/chat`` 兼容帧映射已随旧端点删除）。
+按 ``scene:session_id:scope_hash`` 复用 AgentSession（阶段 2a：scope 变化开新会话，
+不复用旧 history）；``/api/chat/agent`` 直接输出完整 AgentEvent 帧。
 """
+import hashlib
 import logging
 import threading
 import time
@@ -11,6 +12,7 @@ from typing import Any, Dict, List, Optional
 from angineer_core.agent_events import AgentEvent
 from angineer_core.agent_loop import AgentLoopConfig
 from angineer_core.agent_session import AgentSession
+from angineer_core.base_contracts import ScopeContext
 
 logger = logging.getLogger(__name__)
 
@@ -39,12 +41,14 @@ def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
 
 def make_policy_config_factory(
     scene: str,
-    library_id: str,
-    doc_ids: Optional[List[str]],
+    scope: ScopeContext,
     intent_result: Any,
     sop_loader: Any = None,
 ):
-    """按意图分级返回策略化 AgentLoopConfig 工厂（attempts 由 agent_policy 展开）。"""
+    """按意图分级返回策略化 AgentLoopConfig 工厂（attempts 由 agent_policy 展开）。
+
+    scope 为唯一门牌号来源：library_id/doc_ids 一律取自 ScopeContext。
+    """
 
     def factory() -> AgentLoopConfig:
         from ai_inference.llm_client import get_llm_client
@@ -56,9 +60,9 @@ def make_policy_config_factory(
         attempts = build_attempts(
             intent_result=intent_result,
             scene=scene,
-            library_id=library_id,
-            doc_ids=list(doc_ids or []),
-            load_nodes=lambda: _load_doc_nodes(library_id, doc_ids),
+            library_id=scope.library_id,
+            doc_ids=list(scope.doc_ids),
+            load_nodes=lambda: _load_doc_nodes(scope.library_id, scope.doc_ids),
             llm_factory=get_llm_client,
             config_name=None,
             mode="instruct",
@@ -78,8 +82,9 @@ def make_policy_config_factory(
 
 
 def _make_config_factory(scene: str, library_id: str, doc_ids: Optional[List[str]]):
-    """兼容别名：池化会话默认工厂（policy 版，无单次意图时按 scene 路由）。"""
-    return make_policy_config_factory(scene, library_id, doc_ids, intent_result=None)
+    """池化会话默认工厂（policy 版，无单次意图时按 scene 路由）。"""
+    scope = ScopeContext(library_id=library_id or "default", doc_ids=list(doc_ids or []))
+    return make_policy_config_factory(scene, scope=scope, intent_result=None)
 
 
 def _evict_expired() -> None:
@@ -95,14 +100,21 @@ def _evict_expired() -> None:
             _AGENT_SESSION_LAST_ACTIVE.pop(k, None)
 
 
+def _session_pool_key(scene: str, session_id: Optional[str], library_id: str, doc_ids: Optional[List[str]]) -> str:
+    """池化 key：scene:session_id:scope_hash；scope 变化开新会话，不复用旧 history。"""
+    scope_material = "|".join([library_id or "default", *sorted(str(d) for d in (doc_ids or []))])
+    scope_hash = hashlib.sha1(scope_material.encode("utf-8")).hexdigest()[:8]
+    return f"{scene}:{session_id or 'default'}:{scope_hash}"
+
+
 def get_agent_session(
     scene: str,
     session_id: Optional[str],
     library_id: str = "default",
     doc_ids: Optional[List[str]] = None,
 ) -> AgentSession:
-    """按 ``scene:session_id`` 获取或创建 AgentSession（复用 history/steer）。"""
-    key = f"{scene}:{session_id or 'default'}"
+    """按 ``scene:session_id:scope_hash`` 获取或创建 AgentSession（复用 history/steer）。"""
+    key = _session_pool_key(scene, session_id, library_id, doc_ids)
     with _POOL_LOCK:
         now = time.time()
         _evict_expired()

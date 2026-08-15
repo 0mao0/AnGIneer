@@ -532,15 +532,16 @@ def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) 
     return existing
 
 
-def create_run(dataset_id: str, total_questions: int, run_name: str = "", is_full_run: bool = True) -> Dict[str, Any]:
+def create_run(dataset_id: str, total_questions: int, run_name: str = "", is_full_run: bool = True, config_snapshot: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     """创建一条评测运行记录。"""
     run_id = f"run-{uuid.uuid4().hex[:12]}"
     now = datetime.now().isoformat()
     conn = _get_conn()
     conn.execute(
-        """INSERT INTO eval_run (run_id, dataset_id, status, total_questions, completed_questions, started_at, run_name, is_full_run)
-           VALUES (?, ?, 'running', ?, 0, ?, ?, ?)""",
-        (run_id, dataset_id, total_questions, now, run_name, 1 if is_full_run else 0),
+        """INSERT INTO eval_run (run_id, dataset_id, status, total_questions, completed_questions, started_at, run_name, is_full_run, config_snapshot)
+           VALUES (?, ?, 'running', ?, 0, ?, ?, ?, ?)""",
+        (run_id, dataset_id, total_questions, now, run_name, 1 if is_full_run else 0,
+         json.dumps(config_snapshot, ensure_ascii=False) if config_snapshot else None),
     )
     conn.commit()
     return {"run_id": run_id, "dataset_id": dataset_id, "status": "running",

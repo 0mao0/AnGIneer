@@ -3,9 +3,14 @@
 循环层不直接修改 engtools；通过 `AgentTool` 适配现有 BaseTool / 检索器 / 图谱。
 """
 import json
+import logging
 import os
 from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, List, Optional
+
+from angineer_core.base_contracts import Evidence
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -132,6 +137,50 @@ def _assign_cites(items: list, allocator: MarkerAllocator, prefix: str) -> None:
             metadata["cite"] = allocator.next(prefix)
 
 
+def _items_to_evidences(items: list, *, kind: str, source: str, library_id: str) -> List[Dict[str, Any]]:
+    """RetrievedItem 列表 → Evidence 序列化 dict（统一证据模型；items 字段保留做展示兼容）。"""
+    evidences: List[Dict[str, Any]] = []
+    for item in items:
+        metadata = getattr(item, "metadata", None) or {}
+        evidence = Evidence(
+            evidence_id=str(getattr(item, "item_id", "") or ""),
+            kind=kind,
+            doc_id=str(getattr(item, "doc_id", "") or ""),
+            doc_title=str(metadata.get("doc_title") or getattr(item, "title", "") or ""),
+            content=str(getattr(item, "text", "") or ""),
+            page_idx=metadata.get("page_idx"),
+            page_label=metadata.get("page_label"),
+            section_path=str(metadata.get("section_path") or ""),
+            score=float(getattr(item, "rerank_score", None) or getattr(item, "score", 0.0) or 0.0),
+            source=source,
+            library_id=library_id,
+            metadata={
+                "cite": metadata.get("cite"),
+                "citation_target_id": getattr(item, "citation_target_id", None),
+                "fusion_sources": metadata.get("fusion_sources") or [],
+            },
+        )
+        evidences.append(evidence.model_dump(mode="json"))
+    return evidences
+
+
+def _entities_to_evidences(entities: list, *, library_id: str) -> List[Dict[str, Any]]:
+    """图谱实体 → Evidence 序列化 dict（kind=graph_entity）。"""
+    evidences: List[Dict[str, Any]] = []
+    for entity in entities:
+        data = _serialize_model(entity)
+        evidence = Evidence(
+            evidence_id=str(data.get("entity_id") or data.get("id") or data.get("name") or ""),
+            kind="graph_entity",
+            content=str(data.get("description") or data.get("name") or ""),
+            source="graph",
+            library_id=library_id,
+            metadata=data,
+        )
+        evidences.append(evidence.model_dump(mode="json"))
+    return evidences
+
+
 def _run_knowledge_search(
     *,
     query: str,
@@ -147,8 +196,42 @@ def _run_knowledge_search(
     prefix: str = "K",
     marker_allocator: Optional[MarkerAllocator] = None,
     rerank: bool = False,
+    retrieval_client: Any = None,
 ) -> Dict[str, Any]:
-    """执行知识库正文检索（dense/sparse/clause 融合），供 knowledge_search 与 entity_search 回退共用。"""
+    """执行知识库正文检索（dense/sparse/clause 融合），供 knowledge_search 与 entity_search 回退共用。
+
+    3b：配置 ANGINEER_DOCS_API_URL（或显式注入 retrieval_client）时走 docs-api HTTP 检索，
+    失败回退本地进程内检索；未配置时保持本地路径不变。
+    """
+    nodes = list(doc_nodes or [])
+    doc_title_map = {
+        str(getattr(node, "id", "") or ""): str(getattr(node, "title", "") or "")
+        for node in nodes
+    }
+    if retrieval_client is None:
+        from angineer_core.docs_retrieval_client import client_from_env
+
+        retrieval_client = client_from_env()
+    if retrieval_client is not None:
+        try:
+            items = retrieval_client.retrieve(
+                mode="text",
+                query=query,
+                library_id=library_id,
+                doc_ids=doc_ids,
+                top_k=top_k,
+                task_type=task_type,
+                filters=filters,
+            )
+            return _assemble_search_result(
+                query=query, items=items, library_id=library_id,
+                doc_title_map=doc_title_map, prefix=prefix,
+                marker_allocator=marker_allocator, rerank=rerank, task_type=task_type,
+                kind="text", source="knowledge_search",
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("docs-api 检索失败，回退本地进程内检索: %s", exc)
+
     from docs_core.step09_query.protocols.contracts import KnowledgeQueryRequest
     from docs_core.step09_query.retrieval import fuse_candidates
 
@@ -159,11 +242,6 @@ def _run_knowledge_search(
         top_k=top_k,
         filters=filters,
     )
-    nodes = list(doc_nodes or [])
-    doc_title_map = {
-        str(getattr(node, "id", "") or ""): str(getattr(node, "title", "") or "")
-        for node in nodes
-    }
     dense_r = dense
     sparse_r = sparse
     clause_r = clause
@@ -197,21 +275,44 @@ def _run_knowledge_search(
     if not candidate_sources:
         return {"error": "检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
     items, _debug = fuse_candidates(candidate_sources, task_type=task_type, top_k=top_k)
+    return _assemble_search_result(
+        query=query, items=items, library_id=library_id,
+        doc_title_map=doc_title_map, prefix=prefix,
+        marker_allocator=marker_allocator, rerank=rerank, task_type=task_type,
+        kind="text", source="knowledge_search",
+    )
+
+
+def _assemble_search_result(
+    *,
+    query: str,
+    items: list,
+    library_id: str,
+    doc_title_map: Dict[str, str],
+    prefix: str,
+    marker_allocator: Optional[MarkerAllocator],
+    rerank: bool,
+    task_type: str,
+    kind: str,
+    source: str,
+) -> Dict[str, Any]:
+    """检索后装配：rerank → 引用标记 → doc_title 前缀 → items/evidences/citations。"""
     if rerank:
         from angineer_core.retrieval_pipeline import rerank_candidates
 
         items = rerank_candidates(query, items, task_type=task_type)
     _assign_cites(items, marker_allocator or MarkerAllocator(), prefix)
     for item in items:
-        doc_title = doc_title_map.get(str(item.doc_id or ""), "")
+        doc_title = doc_title_map.get(str(item.doc_id or ""), "") or str(item.metadata.get("doc_title") or "")
         if not doc_title:
             continue
         item.metadata["doc_title"] = doc_title
-        prefix = f"《{doc_title}》"
+        text_prefix = f"《{doc_title}》"
         text = str(item.text or "")
-        if text and prefix not in text:
-            item.text = f"{prefix} {text}"
+        if text and text_prefix not in text:
+            item.text = f"{text_prefix} {text}"
     result = {"items": [_serialize_model(item) for item in items], "total": len(items)}
+    result["evidences"] = _items_to_evidences(items, kind=kind, source=source, library_id=library_id)
     citations = _build_relevant_citations(query, items)
     if citations:
         result["citations"] = citations
@@ -272,6 +373,7 @@ class RetrieverAdapter:
         clause: Any = None,
         marker_allocator: Optional[MarkerAllocator] = None,
         rerank: bool = False,
+        retrieval_client: Any = None,
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
@@ -290,6 +392,7 @@ class RetrieverAdapter:
                 prefix="K",
                 marker_allocator=marker_allocator,
                 rerank=rerank,
+                retrieval_client=retrieval_client,
             )
 
         return AgentTool(
@@ -316,10 +419,35 @@ class RetrieverAdapter:
         formula: Any = None,
         marker_allocator: Optional[MarkerAllocator] = None,
         rerank: bool = False,
+        retrieval_client: Any = None,
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
                 return {"error": "缺少 query 参数"}
+            client = retrieval_client
+            if client is None:
+                from angineer_core.docs_retrieval_client import client_from_env
+
+                client = client_from_env()
+            if client is not None:
+                try:
+                    items = client.retrieve(
+                        mode="table",
+                        query=query,
+                        library_id=library_id,
+                        doc_ids=doc_ids,
+                        top_k=top_k,
+                        filters=filters,
+                    )
+                    return _assemble_search_result(
+                        query=query, items=items, library_id=library_id,
+                        doc_title_map={}, prefix="T",
+                        marker_allocator=marker_allocator, rerank=rerank, task_type="table_qa",
+                        kind="table", source="table_search",
+                    )
+                except Exception as exc:  # noqa: BLE001
+                    logger.warning("docs-api 表格检索失败，回退本地进程内检索: %s", exc)
+
             from docs_core.step09_query.protocols.contracts import KnowledgeQueryRequest
             from docs_core.step09_query.retrieval import fuse_candidates
 
@@ -356,19 +484,12 @@ class RetrieverAdapter:
             if not candidate_sources:
                 return {"error": "表格检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
             items, _debug = fuse_candidates(candidate_sources, task_type="table_qa", top_k=top_k)
-            if rerank:
-                from angineer_core.retrieval_pipeline import rerank_candidates
-
-                items = rerank_candidates(query, items, task_type="table_qa")
-            _assign_cites(items, marker_allocator or MarkerAllocator(), "T")
-            result = {
-                "items": [_serialize_model(item) for item in items],
-                "total": len(items),
-            }
-            citations = _build_relevant_citations(query, items)
-            if citations:
-                result["citations"] = citations
-            return result
+            return _assemble_search_result(
+                query=query, items=items, library_id=library_id,
+                doc_title_map={}, prefix="T",
+                marker_allocator=marker_allocator, rerank=rerank, task_type="table_qa",
+                kind="table", source="table_search",
+            )
 
         return AgentTool(
             name="table_search",
@@ -385,9 +506,9 @@ class RetrieverAdapter:
     @staticmethod
     def entity_search(
         *,
+        library_id: str,
         db_path: Optional[str] = None,
         limit: int = 20,
-        library_id: str = "default",
         doc_ids: Optional[List[str]] = None,
         doc_nodes: Optional[List[Any]] = None,
         top_k: int = 20,
@@ -395,6 +516,7 @@ class RetrieverAdapter:
         filters: Any = None,
         marker_allocator: Optional[MarkerAllocator] = None,
         rerank: bool = False,
+        retrieval_client: Any = None,
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
@@ -404,11 +526,15 @@ class RetrieverAdapter:
             store = GraphStore(
                 db_path or os.environ.get("KG_DB_PATH", os.path.join("data", "knowledge_graph.sqlite"))
             )
+            # 图谱实体当前无 library_id 维度（graph_entities 表无 scope 列），检索为全库；
+            # scope 随行返回供前端/evals 追踪，多库隔离待图谱 schema 演进。
             entities = store.search_entities(query, limit=limit)
             result: Dict[str, Any] = {
                 "entities": [_serialize_model(entity) for entity in entities],
                 "total": len(entities),
+                "scope": {"library_id": library_id, "doc_ids": list(doc_ids or [])},
             }
+            result["evidences"] = _entities_to_evidences(entities, library_id=library_id)
             if not entities:
                 # 图谱无实体时自动回退正文检索，避免“是什么/定义”类问题被误判为无证据
                 fallback = _run_knowledge_search(
@@ -422,12 +548,14 @@ class RetrieverAdapter:
                     prefix="E",
                     marker_allocator=marker_allocator,
                     rerank=rerank,
+                    retrieval_client=retrieval_client,
                 )
                 if fallback.get("error"):
                     result["fallback_error"] = fallback["error"]
                 else:
                     result["items"] = fallback.get("items") or []
                     result["citations"] = fallback.get("citations") or []
+                    result["evidences"] = result["evidences"] + (fallback.get("evidences") or [])
                     result["note"] = "知识图谱未找到匹配实体，已自动检索知识库正文，请基于 items 字段中的证据回答。"
             return result
 
@@ -445,7 +573,7 @@ class RetrieverAdapter:
 
 
 class SopRunnerAdapter:
-    """SOP 执行工具（P4 接入）：IntentClassifier 路由 → Dispatcher.run_sop → 步骤 trace。"""
+    """SOP 执行工具（P4 接入）：IntentClassifier 路由 → SopRunner.run_sop → 步骤 trace。"""
 
     @staticmethod
     def sop_execute(
@@ -457,7 +585,7 @@ class SopRunnerAdapter:
         llm_client: Any = None,
         config_name: Optional[str] = None,
         mode: str = "instruct",
-        dispatcher: Any = None,
+        runner: Any = None,
         memory: Any = None,
         step_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
     ) -> AgentTool:
@@ -498,11 +626,11 @@ class SopRunnerAdapter:
                     "confidence": route_result.confidence,
                 }
 
-            from angineer_core.dispatcher import Dispatcher
+            from angineer_core.sop_runner import SopRunner
 
-            executor = dispatcher
+            executor = runner
             if executor is None:
-                executor = Dispatcher(
+                executor = SopRunner(
                     config_name=config_name,
                     mode=mode,
                     memory=memory,
@@ -517,8 +645,8 @@ class SopRunnerAdapter:
             final_context = executor.run_sop(
                 selected_sop, initial_context, step_callback=step_callback
             )
-            sop_trace = Dispatcher._build_sop_trace(executor, selected_sop)
-            citations = Dispatcher._build_citations_from_sop_trace(executor)
+            sop_trace = SopRunner._build_sop_trace(executor, selected_sop)
+            citations = SopRunner._build_citations_from_sop_trace(executor)
             success_steps = sum(1 for s in sop_trace if s.get("status") == "success")
             failed_steps = sum(1 for s in sop_trace if s.get("status") not in ("success", "pending"))
             return {

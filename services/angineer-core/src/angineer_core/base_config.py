@@ -26,8 +26,8 @@ class MemoryConfig(BaseModel):
     max_context_length: int = Field(default=10000, ge=1000)
 
 
-class DispatcherConfig(BaseModel):
-    """Dispatcher 模块配置。"""
+class RunnerConfig(BaseModel):
+    """SOP 执行器（SopRunner）相关运行配置；reranker 配置历史挂载于此。"""
     result_md_path: Optional[str] = None
     mode: str = "instruct"
     config_name: Optional[str] = None
@@ -49,7 +49,7 @@ class AnGIneerConfig(BaseModel):
     """AnGIneer 全局配置。"""
     llm: LLMClientConfig = Field(default_factory=LLMClientConfig)
     memory: MemoryConfig = Field(default_factory=MemoryConfig)
-    dispatcher: DispatcherConfig = Field(default_factory=DispatcherConfig)
+    runner: RunnerConfig = Field(default_factory=RunnerConfig)
     logging: LoggingConfig = Field(default_factory=LoggingConfig)
 
 
@@ -101,7 +101,7 @@ def load_config_from_env() -> AnGIneerConfig:
         log_file=_get_env_str("ANGINEER_LOG_FILE") or None
     )
 
-    dispatcher_config = DispatcherConfig(
+    runner_config = RunnerConfig(
         reranker_url=_get_env_str("ANGINEER_RERANKER_URL") or _get_env_str("DOCS_RERANKER_API_URL") or None,
         reranker_timeout_sec=_get_env_float("ANGINEER_RERANKER_TIMEOUT_SEC", 10.0),
     )
@@ -109,7 +109,7 @@ def load_config_from_env() -> AnGIneerConfig:
     return AnGIneerConfig(
         llm=llm_config,
         memory=memory_config,
-        dispatcher=dispatcher_config,
+        runner=runner_config,
         logging=logging_config
     )
 

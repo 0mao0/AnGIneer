@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from docs_routes import docs_router, preview_router
 from graph_routes import graph_router
+from retrieve_routes import retrieve_router
 from api_key_routes import router as api_key_router
 from routes.v1 import router as v1_router
 from middleware.api_key_auth import APIKeyAuthMiddleware
@@ -42,6 +43,7 @@ app.add_middleware(
 app.add_middleware(APIKeyAuthMiddleware, scope="doc")
 
 app.include_router(docs_router, prefix="/api/knowledge", tags=["Knowledge"])
+app.include_router(retrieve_router, prefix="/api/knowledge", tags=["Knowledge Internal"])
 app.include_router(preview_router, prefix="/api", tags=["Preview"])
 app.include_router(graph_router, prefix="/api/graph", tags=["Knowledge Graph"])
 app.include_router(api_key_router)

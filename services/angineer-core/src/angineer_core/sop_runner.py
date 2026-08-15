@@ -1,8 +1,7 @@
-"""SOP 执行引擎（P6.1 从 dispatcher.py 下沉）。
+"""SOP 执行引擎（P6.1 从旧 dispatcher.py 下沉；P7+ 清退 Dispatcher 壳后为本类）。
 
 承载 `run_sop` 及配套步骤执行、工具安全调用、智能执行、Markdown 日志、
-输出映射与执行记录。`Dispatcher` 继承本类，保留 `Dispatcher.run_sop`
-入口一个版本周期（P6 后由接入层直接使用 `SopRunner`）。
+输出映射与执行记录。接入层直接使用 `SopRunner`。
 """
 import json
 import math

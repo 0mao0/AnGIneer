@@ -1,4 +1,4 @@
-"""dispatcher 相关 prompts（P5 迁移自 dispatcher.py）。
+"""SOP 执行链路相关 prompts（P5 迁移自旧 dispatcher.py；文件名为历史沿用，资产注册名不变）。
 
 用途：语义检索 system prompt、两阶段抽取/判定、SQL 问答、智能选工具、
 智能执行与步骤小结；语言：中文为主，智能执行/选工具沿用英文；版本 v2。

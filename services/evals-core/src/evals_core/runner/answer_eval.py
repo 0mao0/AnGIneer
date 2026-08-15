@@ -223,6 +223,8 @@ class AnswerEvaluator(BaseEvaluator):
             "retrieval_debug": data.get("retrieval_debug", {}),
             "stage_timings": data.get("stage_timings", {}),
             "intent": data.get("intent", {}),
+            "scope": data.get("scope", {}),
+            "evidences": list(data.get("evidences") or []),
         }
         result = enrich_prediction_trace(question, data, prediction)
 

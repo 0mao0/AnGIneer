@@ -342,6 +342,144 @@ def _run_llm_turn(
     return assistant, calls, [], usage
 
 
+class _AttemptMachine:
+    """attempt 分段状态机：应用段配置、判定段结果、fallback/retry/拒答收尾。
+
+    状态全部显式持有（替代原先的 nonlocal 共享），事件出口通过注入的 add_note。
+    """
+
+    def __init__(
+        self,
+        config: AgentLoopConfig,
+        messages: List[AgentMessage],
+        start_idx: int,
+        add_note: Callable[[str], None],
+    ) -> None:
+        self.base_config = config
+        self.attempts = list(config.attempts or [])
+        self.messages = messages
+        self.start_idx = start_idx
+        self.add_note = add_note
+        self.active_config = config
+        self.active_attempt_idx = -1
+        self.attempt_turn = 0
+        self.retry_used = False
+        self.codec = config.codec or TextToolCallCodec()
+        self.tools_by_name = {tool.name: tool for tool in config.tools}
+
+    def start(self) -> None:
+        if self.attempts:
+            self.apply(0)
+            self.add_note("执行计划：" + " → ".join(a.name for a in self.attempts))
+
+    def apply(self, index: int) -> None:
+        """应用第 index 段的完整可覆盖字段；codec 随段刷新。"""
+        self.active_attempt_idx = index
+        nested = self.attempts[index].config_factory()
+        active = replace(
+            self.base_config,
+            llm=nested.llm,
+            model=nested.model,
+            config_name=nested.config_name,
+            mode=nested.mode,
+            max_tokens=nested.max_tokens,
+            tools=nested.tools,
+            system_prompt=nested.system_prompt,
+            max_turns=nested.max_turns,
+            codec=nested.codec or self.base_config.codec,
+            final_answer_guard=nested.final_answer_guard,
+            transform_context=nested.transform_context,
+            should_stop_after_turn=nested.should_stop_after_turn,
+            tool_timeout_s=nested.tool_timeout_s,
+            pending_messages_provider=nested.pending_messages_provider or self.base_config.pending_messages_provider,
+        )
+        self.codec = active.codec or TextToolCallCodec()
+        self.active_config = active
+        self.tools_by_name = {tool.name: tool for tool in active.tools}
+
+    def advance(self) -> str:
+        """当前段成功→"completed"；失败且有下一段→切换并返回 "next"；
+        需要工具但未调用→返回 "retry"（最多一次）；否则 "exhausted"。"""
+        added = self.messages[self.start_idx:]
+        attempt = self.attempts[self.active_attempt_idx]
+        check = attempt.success_check
+        used_tools = any(m.role == "tool" for m in added)
+        ok = check is None or bool(_run_callback(check, True, added))
+        if ok:
+            if not (attempt.requires_tools and not used_tools):
+                return "completed"
+        if self.active_attempt_idx + 1 < len(self.attempts):
+            nxt = self.attempts[self.active_attempt_idx + 1]
+            self.add_note(attempt.fallback_note or f"本段未命中，进入下一段：{nxt.name}")
+            self.messages.append(AgentMessage(role="user", content=f"上一段未命中，进入下一段：{nxt.name}"))
+            self.apply(self.active_attempt_idx + 1)
+            self.attempt_turn = 0
+            return "next"
+        if attempt.requires_tools and not used_tools:
+            if not self.retry_used:
+                self.retry_used = True
+                # 腾出一轮带工具的预算：这次“直接作答”不计入轮次预算
+                self.attempt_turn = max(0, self.attempt_turn - 1)
+                self.messages.append(AgentMessage(role="user", content="请先调用检索工具获取证据后再回答"))
+                self.add_note("未调用检索工具，已要求重新检索后回答")
+                return "retry"
+            return "exhausted"
+        # 终段：只要产出了非空最终答案（含拒答）就算完成；
+        # 只有完全没有答案才由调用方补拒答收尾。
+        final_answer = next(
+            (
+                m for m in reversed(added)
+                if m.role == "assistant" and not m.tool_calls and (m.content or "").strip()
+            ),
+            None,
+        )
+        if final_answer is not None:
+            return "completed"
+        return "exhausted"
+
+    def finalize_refusal(self) -> str:
+        """终段没有产出任何答案时，补一条拒答并以 completed 收尾，避免前端无结果。"""
+        self.messages.append(AgentMessage(role="assistant", content=REFUSAL_ANSWER_TEXT))
+        self.add_note("未产生可用答案，已按拒答收尾")
+        return "completed"
+
+
+def _apply_final_guard(
+    config: AgentLoopConfig,
+    messages: List[AgentMessage],
+    start_idx: int,
+    emit: Optional[Callable[[AgentEvent], None]],
+    run_id: str,
+    turn: int,
+    add_note: Callable[[str], None],
+) -> None:
+    """最终答案边界（P6c）：guard 自行区分检索过/未检索。"""
+    added_messages = messages[start_idx:]
+    final_assistant = next(
+        (m for m in reversed(added_messages) if m.role == "assistant" and not m.tool_calls),
+        None,
+    )
+    if final_assistant is None:
+        return
+    guard_result = _run_callback(config.final_answer_guard, None, added_messages)
+    if not guard_result:
+        return
+    new_content, guard_note = guard_result
+    if guard_note:
+        add_note(guard_note)
+    if new_content is not None and new_content != final_assistant.content:
+        final_assistant.content = new_content
+        _safe_emit(
+            emit,
+            AgentEvent(
+                type="answer",
+                run_id=run_id,
+                turn=turn,
+                payload={"content": new_content},
+            ),
+        )
+
+
 def run_agent_loop(
     messages: List[AgentMessage],
     config: AgentLoopConfig,
@@ -354,7 +492,6 @@ def run_agent_loop(
     run_id = run_id or uuid.uuid4().hex[:12]
     cancel_event = cancel if cancel is not None else threading.Event()
     provider = pending_messages_provider if pending_messages_provider is not None else config.pending_messages_provider
-    codec = config.codec or TextToolCallCodec()
     start_idx = len(messages)
     turn = 0
     total_usage: Dict[str, Any] = {}
@@ -374,91 +511,8 @@ def run_agent_loop(
         _add_note(config.route_note)
 
     # —— 分段（attempt）初始化 ——
-    attempts = list(config.attempts or [])
-    active_config = config
-    active_attempt_idx = -1
-    attempt_turn = 0
-    retry_used = False
-
-    def _apply_attempt(index: int) -> AgentLoopConfig:
-        """应用第 index 段的完整可覆盖字段；codec 随段刷新。"""
-        nonlocal active_attempt_idx, codec
-        active_attempt_idx = index
-        nested = attempts[index].config_factory()
-        active = replace(
-            config,
-            llm=nested.llm,
-            model=nested.model,
-            config_name=nested.config_name,
-            mode=nested.mode,
-            max_tokens=nested.max_tokens,
-            tools=nested.tools,
-            system_prompt=nested.system_prompt,
-            max_turns=nested.max_turns,
-            codec=nested.codec or config.codec,
-            final_answer_guard=nested.final_answer_guard,
-            transform_context=nested.transform_context,
-            should_stop_after_turn=nested.should_stop_after_turn,
-            tool_timeout_s=nested.tool_timeout_s,
-            pending_messages_provider=nested.pending_messages_provider or config.pending_messages_provider,
-        )
-        codec = active.codec or TextToolCallCodec()
-        return active
-
-    def _advance_attempt() -> str:
-        """当前段成功→"completed"；失败且有下一段→切换并返回 "next"；
-        需要工具但未调用→返回 "retry"（最多一次）；否则 "exhausted"。"""
-        nonlocal active_config, tools_by_name, attempt_turn, retry_used, reason
-        added = messages[start_idx:]
-        check = attempts[active_attempt_idx].success_check
-        attempt = attempts[active_attempt_idx]
-        used_tools = any(m.role == "tool" for m in added)
-        ok = check is None or bool(_run_callback(check, True, added))
-        if ok:
-            if not (attempt.requires_tools and not used_tools):
-                return "completed"
-        if active_attempt_idx + 1 < len(attempts):
-            nxt = attempts[active_attempt_idx + 1]
-            _add_note(attempt.fallback_note or f"本段未命中，进入下一段：{nxt.name}")
-            messages.append(AgentMessage(role="user", content=f"上一段未命中，进入下一段：{nxt.name}"))
-            active_config = _apply_attempt(active_attempt_idx + 1)
-            tools_by_name = {tool.name: tool for tool in active_config.tools}
-            attempt_turn = 0
-            return "next"
-        if attempt.requires_tools and not used_tools:
-            if not retry_used:
-                retry_used = True
-                # 腾出一轮带工具的预算：这次“直接作答”不计入轮次预算
-                attempt_turn = max(0, attempt_turn - 1)
-                messages.append(AgentMessage(role="user", content="请先调用检索工具获取证据后再回答"))
-                _add_note("未调用检索工具，已要求重新检索后回答")
-                return "retry"
-            return "exhausted"
-        # 终段：只要产出了非空最终答案（含拒答）就算完成；
-        # 只有完全没有答案才由调用方补拒答收尾。
-        final_answer = next(
-            (
-                m for m in reversed(added)
-                if m.role == "assistant" and not m.tool_calls and (m.content or "").strip()
-            ),
-            None,
-        )
-        if final_answer is not None:
-            return "completed"
-        reason = "attempts_exhausted"
-        return "exhausted"
-
-    def _finalize_refusal() -> None:
-        """终段没有产出任何答案时，补一条拒答并以 completed 收尾，避免前端无结果。"""
-        nonlocal reason
-        messages.append(AgentMessage(role="assistant", content=REFUSAL_ANSWER_TEXT))
-        _add_note("未产生可用答案，已按拒答收尾")
-        reason = "completed"
-
-    if attempts:
-        active_config = _apply_attempt(0)
-        _add_note("执行计划：" + " → ".join(a.name for a in attempts))
-    tools_by_name = {tool.name: tool for tool in active_config.tools}
+    machine = _AttemptMachine(config, messages, start_idx, _add_note)
+    machine.start()
 
     try:
         if cancel_event.is_set():
@@ -475,7 +529,7 @@ def run_agent_loop(
 
                 if turn > 0:
                     turn_context = TurnContext(turn=turn, messages=messages, tool_results=[], usage=total_usage)
-                    if _run_callback(active_config.should_stop_after_turn, False, turn_context):
+                    if _run_callback(machine.active_config.should_stop_after_turn, False, turn_context):
                         reason = "should_stop"
                         _add_note("上下文预算超阈值，停止继续调用工具（should_stop）")
                         break
@@ -483,8 +537,8 @@ def run_agent_loop(
                         reason = "cancelled"
                         _add_note("用户取消，停止生成")
                         break
-                    budget = active_config.max_turns if attempts else config.max_turns
-                    if attempt_turn >= budget:
+                    budget = machine.active_config.max_turns if machine.attempts else config.max_turns
+                    if machine.attempt_turn >= budget:
                         # 段预算耗尽：不硬断，追加预算提示后给最后一次无工具收尾 turn
                         _add_note(
                             f"轮次预算已用完（max_turns={budget}），进入无工具收尾回答"
@@ -495,10 +549,10 @@ def run_agent_loop(
                         new_prompt = messages[prev_len:]
                         prev_len = len(messages)
                         turn += 1
-                        attempt_turn += 1
+                        machine.attempt_turn += 1
                         _safe_emit(emit, AgentEvent(type="turn_start", run_id=run_id, turn=turn, payload={"turn": turn}))
                         assistant, _, direct_results, usage = _run_llm_turn(
-                            messages, new_prompt, active_config, codec, tools_by_name,
+                            messages, new_prompt, machine.active_config, machine.codec, machine.tools_by_name,
                             emit, run_id, cancel_event, turn, allow_tools=False,
                         )
                         messages.append(assistant)
@@ -509,24 +563,24 @@ def run_agent_loop(
                                 AgentMessage(role="tool", content=result.content, tool_call_id=result.call_id, name=result.name, is_error=result.is_error)
                             )
                         _safe_emit(emit, AgentEvent(type="turn_end", run_id=run_id, turn=turn, payload={"turn": turn, "tool_results": []}))
-                        if attempts:
-                            status = _advance_attempt()
+                        if machine.attempts:
+                            status = machine.advance()
                             if status == "next":
                                 continue
                             if status in ("exhausted", "retry"):
-                                _finalize_refusal()
+                                reason = machine.finalize_refusal()
                             break  # completed / exhausted 均已收尾，reason 已维护
                         reason = "max_turns"
                         break
 
                 turn += 1
-                attempt_turn += 1
+                machine.attempt_turn += 1
                 _safe_emit(emit, AgentEvent(type="turn_start", run_id=run_id, turn=turn, payload={"turn": turn}))
                 new_prompt = messages[prev_len:]
                 prev_len = len(messages)
 
                 assistant, calls, direct_results, usage = _run_llm_turn(
-                    messages, new_prompt, active_config, codec, tools_by_name,
+                    messages, new_prompt, machine.active_config, machine.codec, machine.tools_by_name,
                     emit, run_id, cancel_event, turn, allow_tools=True,
                 )
                 messages.append(assistant)
@@ -548,7 +602,7 @@ def run_agent_loop(
 
                 if calls:
                     tool_results = _execute_tools_batch(
-                        calls, tools_by_name, active_config, cancel_event, emit, run_id, turn,
+                        calls, machine.tools_by_name, machine.active_config, cancel_event, emit, run_id, turn,
                     )
                     for result in tool_results:
                         messages.append(
@@ -566,14 +620,14 @@ def run_agent_loop(
 
                 # 无工具调用：模型主动给出最终答案，正常停
                 _safe_emit(emit, AgentEvent(type="turn_end", run_id=run_id, turn=turn, payload={"turn": turn, "tool_results": []}))
-                if attempts:
-                    status = _advance_attempt()
+                if machine.attempts:
+                    status = machine.advance()
                     if status == "next":
                         continue
                     if status == "retry":
                         continue  # 已追加“请先调用检索工具”的用户消息，下一轮带工具重试
                     if status == "exhausted":
-                        _finalize_refusal()
+                        reason = machine.finalize_refusal()
                         break
                 reason = "completed"
                 break
@@ -588,29 +642,8 @@ def run_agent_loop(
     # 最终答案边界（P6c）：guard 自行区分检索过/未检索。
     # 有工具结果时做证据拒答 + 标记校验；没有工具结果时仍执行标记清理
     # （模型未调工具却输出 [Kx] 视为编造）。L0 闲聊档不装 guard，不受影响。
-    if active_config.final_answer_guard is not None and reason not in ("error", "cancelled"):
-        added_messages = messages[start_idx:]
-        final_assistant = next(
-            (m for m in reversed(added_messages) if m.role == "assistant" and not m.tool_calls),
-            None,
-        )
-        if final_assistant is not None:
-            guard_result = _run_callback(active_config.final_answer_guard, None, added_messages)
-            if guard_result:
-                new_content, guard_note = guard_result
-                if guard_note:
-                    _add_note(guard_note)
-                if new_content is not None and new_content != final_assistant.content:
-                    final_assistant.content = new_content
-                    _safe_emit(
-                        emit,
-                        AgentEvent(
-                            type="answer",
-                            run_id=run_id,
-                            turn=turn,
-                            payload={"content": new_content},
-                        ),
-                    )
+    if reason not in ("error", "cancelled"):
+        _apply_final_guard(machine.active_config, messages, start_idx, emit, run_id, turn, _add_note)
 
     _safe_emit(
         emit,

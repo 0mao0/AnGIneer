@@ -41,24 +41,27 @@ def _title_matches(query_title: str, node_title: str) -> bool:
     return False
 
 
-def _resolve_knowledge_file(file_name: str) -> Optional[str]:
-    """解析知识库文件路径，仅基于数据库中的文档存储查找。"""
+def _resolve_knowledge_file(file_name: str, library_id: str = "default") -> Optional[str]:
+    """解析知识库文件路径，仅基于数据库中的文档存储查找。
+
+    legacy 工具协议无 scope 入参，library_id 显式默认 default（阶段 2c：不再各自猜）。
+    """
     normalized = _normalize_doc_title(file_name)
     if not normalized:
         return None
     try:
         import docs_core.paths as paths
         from docs_core.docs_service import docs_service as ks
-        nodes = ks.list_nodes("default")
+        nodes = ks.list_nodes(library_id)
         for node in nodes:
             if node.type != "document":
                 continue
             node_norm = _normalize_doc_title(node.title)
             if _title_matches(normalized, node_norm):
-                content_path = paths.get_parsed_markdown_path("default", node.id)
+                content_path = paths.get_parsed_markdown_path(library_id, node.id)
                 if content_path.exists():
                     return str(content_path)
-                edited_path = paths.get_edited_markdown_path("default", node.id)
+                edited_path = paths.get_edited_markdown_path(library_id, node.id)
                 if edited_path.exists():
                     return str(edited_path)
     except Exception:

@@ -64,6 +64,14 @@ def _records_by_doc_id(doc_id: str) -> list:
     return [r for r in list_records() if r.get("doc_id") == doc_id]
 
 
+def _library_id_for_doc(doc_id: str) -> str:
+    """只读端点门牌号：从 parse record 反查；无记录回退 default（兼容历史数据）。"""
+    records = _records_by_doc_id(doc_id)
+    if records and records[0].get("library_id"):
+        return records[0]["library_id"]
+    return "default"
+
+
 def _ensure_external_api_folder(library_id: str) -> str:
     """找到或创建知识树根部的『外部API』文件夹，返回其 node_id。"""
     from docs_core.docs_service import get_docs_service, KnowledgeNode
@@ -99,13 +107,17 @@ async def parse_document_v1(
         description="解析阶段，逗号分隔。默认 structure（jsonl+meta）；"
                     "需要索引/向量/图谱请传 structure,fts,vectors,graph 或 all",
     ),
+    library_id: str = Query(
+        "default",
+        description="目标知识库 ID。默认 default；显式传入后记录到 parse task/record。",
+    ),
 ):
     if not file.filename:
         raise HTTPException(400, "文件名不能为空")
 
     ext = Path(file.filename).suffix.lower()
     is_pdf = ext == ".pdf"
-    library_id = "default"
+    library_id = library_id.strip() or "default"
     doc_id = f"v1-{uuid.uuid4().hex[:12]}"
 
     content = await file.read()
@@ -138,6 +150,7 @@ async def parse_document_v1(
         file_format=ext,
         file_size=len(content),
         status="pending",
+        library_id=library_id,
     ))
 
     # 解析阶段校验
@@ -168,7 +181,7 @@ async def parse_document_v1(
 
 @router.get("/{doc_id}/status", response_model=ParseStatusResponse)
 async def get_parse_status(doc_id: str):
-    library_id = "default"
+    library_id = _library_id_for_doc(doc_id)
     records = _records_by_doc_id(doc_id)
     record = records[0] if records else None
     task_id = record.get("task_id") if record else None
@@ -212,7 +225,7 @@ async def get_parse_status(doc_id: str):
 @router.get("/{doc_id}/artifacts", response_model=ArtifactsResponse)
 async def get_doc_artifacts(doc_id: str):
     """列出该文档可下载的产物（content.md/images.zip/jsonl/meta/index/graph）。"""
-    library_id = "default"
+    library_id = _library_id_for_doc(doc_id)
     items = [
         ArtifactListItem(
             name=item["name"],
@@ -230,7 +243,7 @@ async def get_doc_artifacts(doc_id: str):
 @router.get("/{doc_id}/artifacts/{name}")
 async def download_doc_artifact(doc_id: str, name: str):
     """按文件下载产物；index/graph 按本文档导出独立 sqlite，不泄漏其他文档数据。"""
-    library_id = "default"
+    library_id = _library_id_for_doc(doc_id)
     if name not in _ARTIFACT_NAMES:
         raise HTTPException(400, f"不支持的产物: {name}")
 
@@ -286,7 +299,7 @@ async def get_blocks(
     page: Optional[int] = Query(None),
     block_type: Optional[str] = Query(None),
 ):
-    library_id = "default"
+    library_id = _library_id_for_doc(doc_id)
     manifest = file_storage.get_doc_manifest(library_id, doc_id)
     if not manifest.get("doc_root"):
         raise HTTPException(404, f"文档 {doc_id} 不存在")
@@ -349,7 +362,7 @@ async def get_pdf(doc_id: str):
     if records and records[0].get("file_format") == ".pdf":
         raise HTTPException(404, "原始文件为 PDF，用户已有源文件，无需下载")
 
-    library_id = "default"
+    library_id = _library_id_for_doc(doc_id)
     manifest = file_storage.get_doc_manifest(library_id, doc_id)
     pdf_path = manifest.get("render_pdf")
     if not pdf_path or not os.path.isfile(str(pdf_path)):
@@ -375,7 +388,7 @@ async def delete_document_v1(request: Request, doc_id: str):
 
 @router.get("/{doc_id}/content", response_model=ContentResponse)
 async def get_content(doc_id: str):
-    library_id = "default"
+    library_id = _library_id_for_doc(doc_id)
     manifest = file_storage.get_doc_manifest(library_id, doc_id)
     if not manifest.get("doc_root"):
         raise HTTPException(404, f"文档 {doc_id} 不存在")

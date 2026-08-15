@@ -1,6 +1,6 @@
 """P7 终态查询入口：classifier → agent_policy → run_agent_loop。
 
-供 evals 与内部调用使用，返回与旧 /api/query（Dispatcher.dispatch）兼容的字段结构；
+供 evals 与内部调用使用，返回与旧 /api/query（旧 Dispatcher.dispatch，已清退）兼容的字段结构；
 不依赖 HTTP / FastAPI / asyncio，可在 daemon 线程中直接调用。
 """
 import logging
@@ -111,13 +111,14 @@ def run_policy_query(
             attempts=attempts,
             route_note=format_route_note(intent_result),
         )
-        events: list = []
+        from angineer_core.trace_collector import TraceCollector
+
+        collector = TraceCollector()
         messages: List[AgentMessage] = [AgentMessage(role="user", content=query)]
-        added = run_agent_loop(messages, config, emit=events.append)
+        added = run_agent_loop(messages, config, emit=collector.emit)
         loop_seconds = round(time.time() - t1, 3)
 
-        run_end = next((e for e in reversed(events) if e.type == "run_end"), None)
-        run_payload = run_end.payload if run_end else {}
+        run_payload = collector.run_end_payload()
         reason = str(run_payload.get("reason") or "completed")
         turns = int(run_payload.get("turns") or 0)
         notes = [str(n.get("detail") or "") for n in run_payload.get("notes") or []]
@@ -132,6 +133,8 @@ def run_policy_query(
         tool_messages = [m for m in added if m.role == "tool"]
         retrieved_items: List[Dict[str, Any]] = []
         seen_ids = set()
+        evidences: List[Dict[str, Any]] = []
+        seen_evidence_ids = set()
         citations: List[Dict[str, Any]] = []
         seen_cites = set()
         sop_trace: List[Dict[str, Any]] = []
@@ -146,6 +149,15 @@ def run_policy_query(
                 if item_id:
                     seen_ids.add(item_id)
                 retrieved_items.append(item)
+            for evidence in raw.get("evidences") or []:
+                if not isinstance(evidence, dict):
+                    continue
+                evidence_id = str(evidence.get("evidence_id") or "")
+                if evidence_id and evidence_id in seen_evidence_ids:
+                    continue
+                if evidence_id:
+                    seen_evidence_ids.add(evidence_id)
+                evidences.append(evidence)
             for citation in raw.get("citations") or []:
                 if not isinstance(citation, dict):
                     continue
@@ -168,7 +180,7 @@ def run_policy_query(
                 "reason": reason,
                 "strategy": "policy_agent",
             },
-            "agent_events": [event.model_dump(mode="json") for event in events],
+            "agent_events": collector.agent_events_dump(),
         }
         route_debug = {
             "route_kind": "policy",
@@ -193,6 +205,7 @@ def run_policy_query(
                     "answer": answer,
                     "citations": citations,
                     "retrieved_items": retrieved_items,
+                    "evidences": evidences,
                 })
             except Exception as exc:  # noqa: BLE001
                 logger.warning("stage_callback 异常（已忽略）: %s", exc)
@@ -206,6 +219,7 @@ def run_policy_query(
             "answer": answer or "",
             "citations": citations,
             "retrieved_items": retrieved_items,
+            "evidences": evidences,
             "sql": None,
             "fallback_used": fallback_used,
             "latency_ms": int((time.time() - started_at) * 1000),
@@ -221,6 +235,7 @@ def run_policy_query(
             "sop_trace": sop_trace,
             "gap_analysis": None,
             "confidence_breakdown": None,
+            "scope": {"library_id": library_id, "doc_ids": list(doc_ids)},
         }
     except Exception as exc:  # noqa: BLE001
         logger.error("策略化查询失败: %s", exc, exc_info=True)

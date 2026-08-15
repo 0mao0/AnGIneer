@@ -183,7 +183,7 @@ def _build_issue_list(
     if dispatch_payload.get("fallback_used"):
         issues.append({
             "code": "dispatch_fallback_used",
-            "message": "Dispatcher 在执行中发生回退，没有稳定停留在 SOP 主链。",
+            "message": "SOP 执行中发生回退，没有稳定停留在 SOP 主链。",
         })
 
     step_findings = isolated_payload.get("step_findings") or {}
@@ -265,7 +265,7 @@ def run_eval_case_trace(
     from evals_core.storage import result_store
     from sop_core.sop_loader import SopLoader
     from angineer_core.classifier import IntentClassifier
-    from angineer_core.dispatcher import Dispatcher
+    from angineer_core.sop_runner import SopRunner
     from angineer_core.policy_query import run_policy_query
 
     result_store.init_db()
@@ -318,9 +318,9 @@ def run_eval_case_trace(
         required_args = list(((analyzed_sop.blackboard or {}).get("required") or []))
         initial_context = {"user_query": question["question"]}
         initial_context.update(route_result.args or {})
-        isolated_dispatcher = Dispatcher(config_name=config_name, mode=mode)
-        final_context = isolated_dispatcher.run_sop(analyzed_sop, initial_context)
-        isolated_trace = Dispatcher._build_sop_trace(isolated_dispatcher, analyzed_sop)
+        isolated_runner = SopRunner(config_name=config_name, mode=mode)
+        final_context = isolated_runner.run_sop(analyzed_sop, initial_context)
+        isolated_trace = SopRunner._build_sop_trace(isolated_runner, analyzed_sop)
 
         isolated_payload = {
             "matched_sop_id": matched_sop.id,
