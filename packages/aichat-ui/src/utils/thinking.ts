@@ -98,13 +98,14 @@ export function formatThinkingArgDetail(detail: string): string {
  * 方便用户按顺序看懂完整思考链路。
  */
 export function formatThinkingStepLabel(group: ThinkingGroupStep): string {
-  const title =
-    group.kind === 'note'
-      ? (group.label || group.detail || '')
-      : group.callDetail
-        ? `调用工具：${group.tool}`
-        : `工具返回：${group.tool}`
+  const title = formatThinkingStepTitle(group)
   return group.index ? `${group.index}. ${title}` : title
+}
+
+/** 步骤标题（不含序号），供"序号+标题加粗、其余常规"的拆分渲染。 */
+export function formatThinkingStepTitle(group: ThinkingGroupStep): string {
+  if (group.kind === 'note') return group.label || group.detail || ''
+  return group.callDetail ? `调用工具：${group.tool}` : `工具返回：${group.tool}`
 }
 
 /** 结果步骤是否带候选条目、可以展开查看。 */
@@ -141,5 +142,5 @@ export function sumThinkingDuration(groups: ThinkingGroupStep[]): number {
 /** 耗时统一展示为秒，最多一位小数。 */
 export function formatDuration(ms?: number): string {
   if (!ms || ms <= 0) return ''
-  return `${(ms / 1000).toFixed(1)} 秒`
+  return `${(ms / 1000).toFixed(1)}秒`
 }

@@ -7,7 +7,6 @@ import type {
   InlineCitationSearchPayload
 } from '../types/citation'
 import type { BaseChatCitation } from '../types/chat'
-import { getFileIconType } from './tree'
 
 const randomPart = () => Math.random().toString(36).slice(2, 8)
 
@@ -16,26 +15,6 @@ const escapeHtmlAttribute = (value: string): string => String(value || '')
   .replace(/"/g, '&quot;')
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;')
-
-const FILE_BADGES: Record<string, { label: string; color: string }> = {
-  pdf: { label: 'PDF', color: '#e74c3c' },
-  word: { label: 'DOC', color: '#2b7cd3' },
-  excel: { label: 'XLS', color: '#1e8e3e' },
-  ppt: { label: 'PPT', color: '#d24726' },
-  image: { label: 'IMG', color: '#8e44ad' },
-  markdown: { label: 'MD', color: '#16a085' },
-}
-
-const buildFileBadge = (fileName: string): string => {
-  const type = getFileIconType(fileName || '')
-  const badge = FILE_BADGES[type] || { label: 'FILE', color: '#8c8c8c' }
-  return [
-    '<svg class="citation-tag-inline-badge" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">',
-    `<rect x="1" y="1" width="12" height="12" rx="2" fill="${badge.color}" opacity="0.16"/>`,
-    `<text x="7" y="9.4" text-anchor="middle" font-size="5.5" font-weight="700" fill="${badge.color}">${badge.label}</text>`,
-    '</svg>',
-  ].join('')
-}
 
 export const createCitationId = () => `cit_${Date.now().toString(36)}_${randomPart()}`
 
@@ -121,11 +100,20 @@ export const getCitationHoverText = (citation: BaseChatCitation): string => {
 /**
  * 生成紧跟回答正文的内联出处标签 HTML（点击由事件委托跳 PDF）。
  */
-export const buildInlineCitationTagHtml = (citation: BaseChatCitation, index: number): string => {
-  const label = getCitationTagLabel(citation)
-  const tooltip = getCitationTagTooltip(citation)
+export const parseMarkerNumber = (marker?: string | null): number | undefined => {
+  const match = String(marker || '').match(/(\d+)/)
+  return match ? Number(match[1]) : undefined
+}
+
+export const buildInlineCitationTagHtml = (
+  citation: BaseChatCitation,
+  index: number,
+  markerNumber?: number,
+): string => {
+  const number = markerNumber ?? index + 1
+  const hover = getCitationHoverText(citation)
   return [
-    '<span class="citation-tag-inline"',
+    '<span class="citation-circle"',
     ` data-citation-index="${index}"`,
     ` data-doc-id="${escapeHtmlAttribute(citation.doc_id || '')}"`,
     ` data-target-id="${escapeHtmlAttribute(citation.target_id || '')}"`,
@@ -133,8 +121,8 @@ export const buildInlineCitationTagHtml = (citation: BaseChatCitation, index: nu
     ` data-page-idx="${Number(citation.page_idx || 0)}"`,
     ` data-section-path="${escapeHtmlAttribute(citation.section_path || '')}"`,
     ` data-snippet="${escapeHtmlAttribute(citation.snippet || '')}"`,
-    ` title="${escapeHtmlAttribute(tooltip)}"`,
-    `>${buildFileBadge(citation.doc_title)}<span class="citation-tag-inline-text">${escapeHtmlAttribute(label)}</span></span>`,
+    ` title="${escapeHtmlAttribute(hover)}"`,
+    `>${number}</span>`,
   ].join('')
 }
 

@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import {
   formatThinkingArgDetail,
   formatThinkingStepLabel,
+  formatThinkingStepTitle,
   formatResultScore,
   getResultMaxScore,
   groupThinkingSteps,
@@ -37,6 +38,17 @@ test('多轮工具调用各自成步', () => {
   assert.equal(groups[0].index, 1)
   assert.equal(groups[1].index, 2)
   assert.equal(groups[1].tool, 'table_search')
+})
+
+test('步骤标题不含序号，供"序号+标题加粗"拆分渲染', () => {
+  const group: ThinkingGroupStep = {
+    index: 3,
+    kind: 'pair',
+    tool: 'knowledge_search',
+    callDetail: '{"query":"A"}',
+  }
+  assert.equal(formatThinkingStepLabel(group), '3. 调用工具：knowledge_search')
+  assert.equal(formatThinkingStepTitle(group), '调用工具：knowledge_search')
 })
 
 test('没有调用记录的返回也单独成步', () => {

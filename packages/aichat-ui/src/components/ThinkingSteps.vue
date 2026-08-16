@@ -6,11 +6,16 @@
     :class="group.kind === 'note' ? 'thinking-step-note' : ''"
   >
     <template v-if="group.kind === 'note'">
-      <span class="thinking-step-note-label">{{ formatThinkingStepLabel(group) }}</span>
+      <span class="thinking-step-note-label">
+        <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
+        <span class="thinking-step-title">{{ noteTitle(group) }}</span>
+        <span v-if="noteReason(group)" class="thinking-step-detail">（{{ noteReason(group) }}）</span>
+      </span>
     </template>
     <template v-else>
       <span class="thinking-step-label">
-        {{ formatThinkingStepLabel(group) }}
+        <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
+        <span class="thinking-step-title">{{ formatThinkingStepTitle(group) }}</span>
         <span v-if="group.callDetail" class="thinking-step-detail">
           （{{ formatThinkingArgDetail(group.callDetail) }}）
         </span>
@@ -34,24 +39,9 @@
           <RightOutlined v-else class="thinking-step-result-toggle-icon" />
         </template>
         调用结果：→ {{ group.resultDetail }}
-        <template v-if="group.resultItems?.length">
-          （全部 {{ group.resultItems.length }} 条作为候选，点击展开）
-        </template>
         <template v-if="group.resultNote">；{{ group.resultNote }}</template>
-        <template v-if="group.durationMs"> · 耗时 {{ formatDuration(group.durationMs) }}</template>
+        <template v-if="group.durationMs">，耗时{{ formatDuration(group.durationMs) }}</template>
       </span>
-
-      <div v-if="group.resultItems?.length" class="thinking-step-result-toggle">
-        <button
-          type="button"
-          class="thinking-step-result-toggle-btn"
-          @click="toggleResultExpand(group.index)"
-        >
-          <DownOutlined v-if="isResultExpanded(group.index)" />
-          <RightOutlined v-else />
-          {{ isResultExpanded(group.index) ? '收起' : '查看' }} {{ group.resultItems.length }} 条结果
-        </button>
-      </div>
 
       <div
         v-if="isResultExpanded(group.index) && group.resultItems?.length"
@@ -82,16 +72,18 @@
 
       <div v-if="group.citations && group.citations.length" class="thinking-step-citations">
         <span class="thinking-step-citations-label">命中引用（用于最终回答）：</span>
-        <button
-          v-for="citation in group.citations"
-          :key="`${citation.target_id}-${citation.page_idx}-${citation.section_path}`"
-          type="button"
-          class="thinking-step-citation"
-          :title="getCitationHoverText(citation)"
-          @click="emit('selectCitation', citation)"
-        >
-          {{ formatCitationShortLabel(citation, getCitationItemIndex(group, citation)) }}
-        </button>
+        <div class="thinking-step-citations-tags">
+          <button
+            v-for="citation in group.citations"
+            :key="`${citation.target_id}-${citation.page_idx}-${citation.section_path}`"
+            type="button"
+            class="thinking-step-citation"
+            :title="getCitationHoverText(citation)"
+            @click="emit('selectCitation', citation)"
+          >
+            {{ formatCitationShortLabel(citation, getCitationItemIndex(group, citation)) }}
+          </button>
+        </div>
       </div>
     </template>
   </div>
@@ -108,7 +100,7 @@ import {
 import {
   formatDuration,
   formatThinkingArgDetail,
-  formatThinkingStepLabel,
+  formatThinkingStepTitle,
   formatResultScore,
   getResultMaxScore,
   isResultExpandable,
@@ -123,6 +115,19 @@ const emit = defineEmits<{ selectCitation: [citation: BaseChatCitation] }>()
 const expandedResults = ref<number[]>([])
 
 const isResultExpanded = (index: number) => expandedResults.value.includes(index)
+
+/** 说明类步骤：末尾括号内的理由与标题拆开，标题加粗、理由常规。 */
+const splitNoteLabel = (group: ThinkingGroupStep): { title: string; reason?: string } => {
+  const detail = String(group.detail || '')
+  const match = detail.match(/^(.*)（([^（）]*)）$/)
+  if (match && match[1]) {
+    return { title: match[1], reason: match[2] || undefined }
+  }
+  return { title: detail }
+}
+
+const noteTitle = (group: ThinkingGroupStep): string => splitNoteLabel(group).title
+const noteReason = (group: ThinkingGroupStep): string | undefined => splitNoteLabel(group).reason
 
 const toggleResultExpand = (index: number) => {
   expandedResults.value = isResultExpanded(index)
@@ -187,12 +192,21 @@ const truncate = (text: string, max: number) => {
   }
 
   .thinking-step-label {
-    font-weight: 600;
     color: var(--text-secondary);
+  }
+
+  .thinking-step-index,
+  .thinking-step-title {
+    font-weight: 600;
+  }
+
+  .thinking-step-index {
+    margin-right: 3px;
   }
 
   .thinking-step-detail {
     color: var(--text-secondary);
+    font-weight: 400;
     word-break: break-all;
     opacity: 0.9;
   }
@@ -217,30 +231,6 @@ const truncate = (text: string, max: number) => {
 
     .thinking-step-result-toggle-icon {
       margin-right: 2px;
-    }
-  }
-
-  .thinking-step-result-toggle {
-    flex-basis: 100%;
-  }
-
-  .thinking-step-result-toggle-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 1px 8px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: transparent;
-    color: var(--text-secondary);
-    font-size: 12px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: color 0.16s ease, border-color 0.16s ease;
-
-    &:hover {
-      color: var(--primary-color);
-      border-color: var(--primary-color);
     }
   }
 
@@ -334,23 +324,30 @@ const truncate = (text: string, max: number) => {
 
   .thinking-step-citations {
     flex-basis: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
     gap: 4px;
     margin-top: 2px;
     min-width: 0;
   }
 
   .thinking-step-citations-label {
-    color: var(--text-tertiary, #999);
+    white-space: nowrap;
+    color: var(--text-secondary);
     font-size: 12px;
   }
 
-  .thinking-step-citation {
-    flex-shrink: 1;
+  .thinking-step-citations-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
     min-width: 0;
-    max-width: 84px;
+  }
+
+  .thinking-step-citation {
+    flex: 0 0 auto;
+    max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -375,8 +372,7 @@ const truncate = (text: string, max: number) => {
     background: rgba(128, 128, 128, 0.06);
 
     .thinking-step-note-label {
-      font-weight: 600;
-      color: var(--text-tertiary, #999);
+      color: var(--text-secondary);
       letter-spacing: 0.02em;
     }
   }

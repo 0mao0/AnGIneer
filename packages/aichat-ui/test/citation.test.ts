@@ -7,6 +7,7 @@ import {
   getCitationTagLabel,
   getCitationTagTooltip,
   getCitationHoverText,
+  parseMarkerNumber,
 } from '../src/utils/citation.ts'
 import type { BaseChatCitation } from '../src/types/chat'
 
@@ -56,16 +57,39 @@ test('最终引用悬浮提示展示引用的文字', () => {
   )
 })
 
-test('内联出处标签 HTML 携带跳转数据并转义属性', () => {
+test('内联证据圆圈 HTML：数字圆圈 + hover 原文 + 跳转数据', () => {
   const html = buildInlineCitationTagHtml(
-    { ...citation, doc_title: '推广产品.docx', section_path: '产品一："上航数联"' },
-    0
+    {
+      ...citation,
+      doc_title: '推广产品.docx',
+      section_path: '产品一："上航数联"',
+      snippet: '表 A.0.2-1 杂货船设计船型尺度',
+    },
+    0,
+    10,
   )
-  assert.ok(html.includes('class="citation-tag-inline"'))
+  assert.ok(html.includes('class="citation-circle"'))
+  assert.ok(html.includes('>10<'))
   assert.ok(html.includes('data-citation-index="0"'))
   assert.ok(html.includes('data-doc-id="doc-1"'))
   assert.ok(html.includes('data-page-idx="0"'))
   assert.ok(html.includes('&quot;'))
-  assert.ok(html.includes('《推广产品》'))
-  assert.ok(!html.includes('推广产品.docx ·'))
+  assert.ok(html.includes('title="表 A.0.2-1 杂货船设计船型尺度"'))
+  assert.ok(!html.includes('citation-tag-inline'))
+})
+
+test('marker 序号解析：[K10] → 10', () => {
+  assert.equal(parseMarkerNumber('K10'), 10)
+  assert.equal(parseMarkerNumber('T3'), 3)
+  assert.equal(parseMarkerNumber(undefined), undefined)
+})
+
+test('所有序号统一为 CSS 实心圆，不再叠加 Unicode 圆圈字形', () => {
+  const html = buildInlineCitationTagHtml({ ...citation, snippet: 'x' }, 0, 21)
+  assert.ok(html.includes('class="citation-circle"'))
+  assert.ok(html.includes('>21<'))
+  const glyphHtml = buildInlineCitationTagHtml({ ...citation, snippet: 'x' }, 0, 10)
+  assert.ok(glyphHtml.includes('class="citation-circle"'))
+  assert.ok(glyphHtml.includes('>10<'))
+  assert.ok(!glyphHtml.includes('➓'))
 })

@@ -80,7 +80,6 @@
                 </button>
                 <div v-if="isThinkingExpanded(msg)" class="thinking-card-body">
                   <div v-if="getThinkingGroups(msg).length" class="analysis-section">
-                    <div class="analysis-title">执行步骤</div>
                     <ThinkingSteps
                       :groups="getThinkingGroups(msg)"
                       @select-citation="handleCitationClick"
@@ -170,7 +169,6 @@
               </div>
               <div class="thinking-card-body">
                 <div class="analysis-section">
-                  <div class="analysis-title">执行步骤</div>
                   <ThinkingSteps
                     :groups="streamingThinkingGroups"
                     @select-citation="handleCitationClick"
@@ -356,7 +354,8 @@ import {
   buildInlineCitationTagHtml,
   buildCitationSegments,
   getCitationLastSegment,
-  mapReferenceToBaseChatCitation
+  mapReferenceToBaseChatCitation,
+  parseMarkerNumber,
 } from '../utils/citation'
 import {
   countThinkingSteps,
@@ -594,7 +593,8 @@ const renderContent = (content: string): string => {
     ? props.renderMessage(content)
     : escapeHtml(content).replace(/\n/g, '<br />')
   // 流式占位：只替换已完整出现的 [K1]/[T1]/[E1]，未闭合的 [K 保持原样
-  return html.replace(/\[([KTE]\d+)\]/g, '<span class="stream-citation-marker">[$1]</span>')
+  return html.replace(/\[([KTE]\d+)\]/g, (_raw, marker: string) =>
+    `<span class="stream-citation-marker">${parseMarkerNumber(marker) ?? 0}</span>`)
 }
 
 /**
@@ -665,7 +665,7 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
   const markerHtml = html.replace(/\[([KTE]\d+)\]/g, (raw, marker: string) => {
     const index = citations.findIndex(citation => citation.marker === marker)
     if (index < 0) return raw
-    return buildInlineCitationTagHtml(citations[index], index)
+    return buildInlineCitationTagHtml(citations[index], index, parseMarkerNumber(marker))
   })
 
   return markerHtml.replace(/__INLINE_CIT_(\d+)__/g, (_, rawIndex) => {
@@ -746,7 +746,7 @@ const buildSectionCitationCandidates = (citation: BaseChatCitation): string[] =>
 /** 点击正文内联引用链接：与参考依据面板共用 selectCitation 跳转 */
 const handleMessageClick = (event: MouseEvent) => {
   const target = (event.target as HTMLElement | null)?.closest?.(
-    '.inline-citation-link, .citation-tag-inline'
+    '.inline-citation-link, .citation-circle'
   ) as HTMLElement | null
   if (!target) return
   const docId = String(target.dataset.docId || '')
@@ -1222,39 +1222,44 @@ defineExpose({
             margin: 0.6em 0;
           }
 
-          :deep(.citation-tag-inline) {
+          :deep(.citation-circle) {
             display: inline-flex;
             align-items: center;
-            gap: 3px;
-            max-width: 120px;
-            vertical-align: middle;
-            margin-left: 6px;
-            padding: 1px 8px;
-            border: 1px solid var(--border-color);
-            border-radius: 999px;
-            background: rgba(128, 128, 128, 0.08);
-            color: var(--text-secondary);
-            font-size: 12px;
-            line-height: 18px;
+            justify-content: center;
+            min-width: 18px;
+            height: 18px;
+            margin: 0 2px;
+            padding: 0 3px;
+            border-radius: 50%;
+            background: #3f3f46;
+            color: #d4d4d8;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 1;
+            vertical-align: 0.15em;
             cursor: pointer;
-            transition: color 0.16s ease, border-color 0.16s ease;
+            transition: background-color 0.16s ease;
 
             &:hover {
-              color: var(--primary-color);
-              border-color: var(--primary-color);
+              background-color: var(--primary-color);
             }
+          }
 
-            .citation-tag-inline-badge {
-              flex: 0 0 auto;
-              display: block;
-            }
-
-            .citation-tag-inline-text {
-              max-width: 84px;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-            }
+          :deep(.stream-citation-marker) {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 18px;
+            height: 18px;
+            margin: 0 2px;
+            padding: 0 3px;
+            border-radius: 50%;
+            background: #3f3f46;
+            color: #d4d4d8;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 1;
+            vertical-align: 0.15em;
           }
 
           :deep(ul) {
