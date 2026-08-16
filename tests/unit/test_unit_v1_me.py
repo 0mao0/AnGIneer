@@ -50,12 +50,15 @@ class MeEndpointTests(unittest.TestCase):
         self.assertTrue(resp.library_exists)
         mock_ks.return_value.create_library.assert_not_called()
 
-    def test_unbound_key_reports_no_library(self):
+    def test_unbound_key_rejected(self):
+        """开发期收紧：未绑定库的旧 key 调 /me 直接 403。"""
+        from fastapi import HTTPException
+
         key = APIKey(id=2, user_name="legacy", scope="both", library_id="",
                      key_prefix="ag_****", email="", created_at="now")
-        resp = self._me(key)
-        self.assertEqual(resp.library_id, "")
-        self.assertFalse(resp.library_exists)
+        with self.assertRaises(HTTPException) as ctx:
+            self._me(key)
+        self.assertEqual(ctx.exception.status_code, 403)
 
 
 class AutoBindKeyTests(unittest.TestCase):

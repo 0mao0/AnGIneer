@@ -106,7 +106,8 @@ class MiddlewareEnforcementTests(unittest.TestCase):
             )
         self.assertEqual(resp.status_code, 200)
 
-    def test_unbound_key_passes_through_unchanged(self):
+    def test_unbound_key_rejected(self):
+        """开发期收紧：未绑定库的旧 key 直接拒绝，不再兼容放行。"""
         client = self._make_client()
         with patch(
             "middleware.api_key_auth.lookup_key",
@@ -115,8 +116,7 @@ class MiddlewareEnforcementTests(unittest.TestCase):
             resp = client.get(
                 "/api/v1/ping?library_id=lib-anything", headers={"X-API-Key": "k"}
             )
-        self.assertEqual(resp.status_code, 200)
-        self.assertEqual(resp.json()["library_id"], "lib-anything")
+        self.assertEqual(resp.status_code, 403)
 
 
 if __name__ == "__main__":

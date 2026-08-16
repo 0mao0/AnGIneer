@@ -98,6 +98,16 @@ class ChatMiddlewareTests(unittest.TestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(resp.json()["bound"], "lib-alice")
 
+    def test_unbound_key_rejected(self):
+        """开发期收紧：未绑定库的旧 key 调 chat 直接 403。"""
+        mw = _load_aichat_module("middleware.api_key_auth")
+        models = _load_aichat_module("models.api_key")
+        key = models.APIKey(id=2, user_name="legacy", scope="chat", library_id="")
+        client = _make_client(mw)
+        with patch.object(mw, "lookup_key", return_value=key):
+            resp = client.post("/api/chat/agent", json={"query": "q"}, headers={"X-API-Key": "k"})
+        self.assertEqual(resp.status_code, 403)
+
     def test_lookup_key_survives_migrated_db(self):
         """DB 已有 library_id 列时，aichat 旧 dataclass 不得 TypeError。"""
         import tempfile

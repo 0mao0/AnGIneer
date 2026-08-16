@@ -1,8 +1,8 @@
 """API Key 验证 FastAPI 中间件。
 
 - /api/v1/*：必须带 key（按服务 scope 校验）。
-- /api/chat/*：带 key 则校验并注入 request.state（绑定 library_id 的 key 置
-  bound_library_id，端点层强制）；不带 key 默认放行（兼容存量单租户部署），
+- /api/chat/*：带 key 则校验并注入 request.state（未绑定 key 拒绝；
+  bound_library_id 供端点层强制）；不带 key 默认放行（管理端场景），
   ANGINEER_CHAT_AUTH_REQUIRED=true 时改为 401。
 """
 import os
@@ -31,6 +31,11 @@ class APIKeyAuthMiddleware(BaseHTTPMiddleware):
                 return JSONResponse(status_code=403, content={"detail": "Invalid or inactive API key"})
             if key_info.scope not in (self.scope, "both"):
                 return JSONResponse(status_code=403, content={"detail": f"API key has no {self.scope} scope"})
+            if not str(getattr(key_info, "library_id", "") or "").strip():
+                return JSONResponse(
+                    status_code=403,
+                    content={"detail": "API key 未绑定知识库，请联系管理员重新生成"},
+                )
 
             request.state.api_key_info = key_info
 
@@ -45,10 +50,14 @@ class APIKeyAuthMiddleware(BaseHTTPMiddleware):
                     return JSONResponse(status_code=403, content={"detail": "Invalid or inactive API key"})
                 if key_info.scope not in (self.scope, "both"):
                     return JSONResponse(status_code=403, content={"detail": f"API key has no {self.scope} scope"})
-                request.state.api_key_info = key_info
                 bound_library = str(getattr(key_info, "library_id", "") or "").strip()
-                if bound_library:
-                    request.state.bound_library_id = bound_library
+                if not bound_library:
+                    return JSONResponse(
+                        status_code=403,
+                        content={"detail": "API key 未绑定知识库，请联系管理员重新生成"},
+                    )
+                request.state.api_key_info = key_info
+                request.state.bound_library_id = bound_library
 
         response = await call_next(request)
         return response
