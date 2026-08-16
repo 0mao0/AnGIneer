@@ -25,9 +25,15 @@ export const defaultAIChatTransport = {
     }
   ): Promise<QueryResponse> => {
     // P7 链路：走 /api/chat/agent（AgentSession 多轮 + SSE 事件流）
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+    // 租户身份：user-web 登录的 API key 随 SSE 请求注入（aichat 中间件据此强制库隔离）
+    if (typeof localStorage !== 'undefined') {
+      const apiKey = localStorage.getItem('ag_api_key')
+      if (apiKey) headers['X-API-Key'] = apiKey
+    }
     const response = await fetch('/api/chat/agent', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({
         query: payload.query,
         scene: payload.scene || 'qa',
@@ -403,7 +409,14 @@ export function extractToolResultItems(content: string): ThinkingTraceItem[] | u
       title,
       text,
       cite: String(metadata.cite || ''),
-      score: Number(entry.score ?? entry.rerank_score ?? 0),
+      // 优先展示融合/重排后的相关度（0~1 量级），原始 dense/sparse 分可能超过 1
+      score: Number(
+        entry.rerank_score
+        ?? metadata.fusion_score
+        ?? metadata.normalized_score
+        ?? entry.score
+        ?? 0
+      ),
       metadata,
     }
   }

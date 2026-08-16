@@ -63,6 +63,7 @@
           class="thinking-result-item"
         >
           <div class="thinking-result-item-head">
+            <span class="thinking-result-item-index">{{ idx + 1 }}</span>
             <button
               type="button"
               class="thinking-result-item-title"
@@ -71,8 +72,8 @@
             >
               {{ getCitationTagLabel(toCitation(item)) }}
             </button>
-            <span v-if="item.score" class="thinking-result-item-score">
-              {{ item.score.toFixed(2) }}
+            <span class="thinking-result-item-score">
+              相关度 {{ formatResultScore(item.score, getResultMaxScore(group)) }}
             </span>
           </div>
           <div class="thinking-result-item-snippet">{{ truncate(item.text, 140) }}</div>
@@ -86,10 +87,10 @@
           :key="`${citation.target_id}-${citation.page_idx}-${citation.section_path}`"
           type="button"
           class="thinking-step-citation"
-          :title="getCitationTagTooltip(citation)"
+          :title="getCitationHoverText(citation)"
           @click="emit('selectCitation', citation)"
         >
-          {{ getCitationTagLabel(citation) }}
+          {{ formatCitationShortLabel(citation, getCitationItemIndex(group, citation)) }}
         </button>
       </div>
     </template>
@@ -99,15 +100,21 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { DownOutlined, RightOutlined } from '@ant-design/icons-vue'
-import { getCitationTagLabel, getCitationTagTooltip } from '../utils/citation'
+import {
+  formatCitationShortLabel,
+  getCitationHoverText,
+  getCitationTagLabel,
+} from '../utils/citation'
 import {
   formatDuration,
   formatThinkingArgDetail,
   formatThinkingStepLabel,
+  formatResultScore,
+  getResultMaxScore,
   isResultExpandable,
   type ThinkingGroupStep,
 } from '../utils/thinking'
-import type { BaseChatCitation, ThinkingTraceItem } from '../types'
+import type { AIChatCitation, BaseChatCitation, ThinkingTraceItem } from '../types'
 
 defineProps<{ groups: ThinkingGroupStep[] }>()
 
@@ -143,6 +150,17 @@ const toCitation = (item: ThinkingTraceItem): BaseChatCitation => ({
   content_type: 'text',
   score: item.score || 0,
 })
+
+/** 命中引用对应的候选序号（1 起），找不到时返回 undefined。 */
+const getCitationItemIndex = (group: ThinkingGroupStep, citation: AIChatCitation): number | undefined => {
+  const items = group.resultItems || []
+  const found = items.findIndex(
+    item =>
+      (citation?.marker && item.cite === citation.marker) ||
+      (citation?.target_id && item.item_id === citation.target_id)
+  )
+  return found >= 0 ? found + 1 : undefined
+}
 
 const truncate = (text: string, max: number) => {
   const normalized = String(text || '')
@@ -242,7 +260,16 @@ const truncate = (text: string, max: number) => {
   .thinking-result-item {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
+    padding: 6px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: rgba(128, 128, 128, 0.05);
+    transition: border-color 0.16s ease;
+
+    &:hover {
+      border-color: var(--primary-color, #1677ff);
+    }
   }
 
   .thinking-result-item-head {
@@ -252,9 +279,24 @@ const truncate = (text: string, max: number) => {
     gap: 8px;
   }
 
+  .thinking-result-item-index {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(128, 128, 128, 0.16);
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1;
+  }
+
   .thinking-result-item-title {
     min-width: 0;
     max-width: 100%;
+    flex: 1 1 auto;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -273,7 +315,10 @@ const truncate = (text: string, max: number) => {
 
   .thinking-result-item-score {
     flex-shrink: 0;
-    color: var(--text-tertiary, #999);
+    color: var(--success-color, #52c41a);
+    background: rgba(82, 196, 26, 0.1);
+    border-radius: 999px;
+    padding: 1px 6px;
     font-size: 12px;
   }
 
@@ -290,10 +335,11 @@ const truncate = (text: string, max: number) => {
   .thinking-step-citations {
     flex-basis: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 4px;
     margin-top: 2px;
+    min-width: 0;
   }
 
   .thinking-step-citations-label {
@@ -302,7 +348,9 @@ const truncate = (text: string, max: number) => {
   }
 
   .thinking-step-citation {
-    max-width: 180px;
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: 84px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

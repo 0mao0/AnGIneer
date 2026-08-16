@@ -100,6 +100,25 @@ export const getCitationTagTooltip = (citation: BaseChatCitation): string => {
 }
 
 /**
+ * 最终引用标签：序号 + 规范名，整体不超过 5 个字，超出部分用省略号截断。
+ */
+export const formatCitationShortLabel = (citation: BaseChatCitation, index?: number): string => {
+  const docName = stripCitationDocExtension(citation.doc_title) || '未命名'
+  const prefix = index != null ? `${index}` : ''
+  const full = `${prefix}${docName}`
+  const max = 5
+  if (full.length <= max) return full
+  return `${full.slice(0, max - 1)}…`
+}
+
+/** 最终引用悬浮提示：优先展示引用的原文，缺省时回退到《文档名》· 章节。 */
+export const getCitationHoverText = (citation: BaseChatCitation): string => {
+  const snippet = String(citation.snippet || citation.content || '').trim()
+  if (snippet) return snippet
+  return getCitationTagTooltip(citation)
+}
+
+/**
  * 生成紧跟回答正文的内联出处标签 HTML（点击由事件委托跳 PDF）。
  */
 export const buildInlineCitationTagHtml = (citation: BaseChatCitation, index: number): string => {

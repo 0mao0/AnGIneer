@@ -209,6 +209,35 @@ test('note 事件实时进入思考轨迹', () => {
   assert.equal(steps[0].detail, '输出被长度截断（finish_reason=length）')
 })
 
+test('extractToolResultItems 优先使用融合重排分而非原始分', () => {
+  const items = extractToolResultItems(JSON.stringify({
+    total: 2,
+    items: [
+      {
+        item_id: 'a',
+        entity_type: 'content',
+        doc_id: 'd1',
+        title: 'A',
+        text: '内容 A',
+        score: 6.2,
+        rerank_score: 0.18,
+        metadata: { doc_title: 'a.pdf' },
+      },
+      {
+        item_id: 'b',
+        entity_type: 'content',
+        doc_id: 'd2',
+        title: 'B',
+        text: '内容 B',
+        score: 5.1,
+        metadata: { doc_title: 'b.pdf', normalized_score: 0.42 },
+      },
+    ],
+  }))
+  assert.equal(items?.[0].score, 0.18)
+  assert.equal(items?.[1].score, 0.42)
+})
+
 test('mergeThinkingTrace 保留实时说明并用完整结果替换', () => {
   const item: ThinkingTraceItem = {
     item_id: 'a',

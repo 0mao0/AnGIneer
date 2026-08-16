@@ -4,6 +4,8 @@ import assert from 'node:assert/strict'
 import {
   formatThinkingArgDetail,
   formatThinkingStepLabel,
+  formatResultScore,
+  getResultMaxScore,
   groupThinkingSteps,
   isResultExpandable,
 } from '../src/utils/thinking.ts'
@@ -150,4 +152,93 @@ test('工具返回的证据挂在对应步骤上', () => {
   assert.equal(groups.length, 1)
   assert.equal(groups[0].citations?.length, 1)
   assert.equal(groups[0].citations?.[0].doc_title, '推广产品.docx')
+})
+
+test('候选条目随配对步骤保留，结果行可展开', () => {
+  const groups = groupThinkingSteps([
+    { kind: 'call', tool: 'knowledge_search', detail: '{}' },
+    {
+      kind: 'result',
+      tool: 'knowledge_search',
+      detail: '检索到 2 条结果',
+      resultItems: [
+        {
+          item_id: 'item-1',
+          entity_type: 'content',
+          doc_id: 'doc-1',
+          doc_title: '推广产品.docx',
+          title: '候选 1',
+          text: '第 1 条内容',
+          score: 0.9,
+          metadata: { cite: 'K1' },
+        },
+      ],
+      resultNote: '知识图谱未找到匹配实体，已自动检索知识库正文',
+    },
+  ])
+  assert.equal(groups.length, 1)
+  assert.equal(groups[0].resultItems?.length, 1)
+  assert.equal(groups[0].resultItems?.[0].doc_title, '推广产品.docx')
+  assert.equal(groups[0].resultNote, '知识图谱未找到匹配实体，已自动检索知识库正文')
+  assert.equal(isResultExpandable(groups[0]), true)
+})
+
+test('独立返回步骤也携带候选条目', () => {
+  const groups = groupThinkingSteps([
+    {
+      kind: 'result',
+      tool: 'table_search',
+      detail: '检索到 1 条结果',
+      resultItems: [
+        {
+          item_id: 't1',
+          entity_type: 'table',
+          doc_id: 'doc-2',
+          doc_title: '跨页表格.pdf',
+          title: '表 A.0.2-1',
+          text: '杂货船设计船型尺度',
+          score: 0.8,
+          metadata: {},
+        },
+      ],
+    },
+  ])
+  assert.equal(groups[0].resultItems?.length, 1)
+  assert.equal(isResultExpandable(groups[0]), true)
+})
+
+test('相关度按组内最高分归一化展示', () => {
+  const group: ThinkingGroupStep = {
+    index: 1,
+    kind: 'pair',
+    tool: 'knowledge_search',
+    callDetail: '{}',
+    resultDetail: '检索到 2 条结果',
+    resultItems: [
+      {
+        item_id: 'a',
+        entity_type: 'content',
+        doc_id: 'd1',
+        doc_title: 'a.pdf',
+        title: 'A',
+        text: 'A',
+        score: 0.2,
+        metadata: {},
+      },
+      {
+        item_id: 'b',
+        entity_type: 'content',
+        doc_id: 'd2',
+        doc_title: 'b.pdf',
+        title: 'B',
+        text: 'B',
+        score: 0.1,
+        metadata: {},
+      },
+    ],
+  }
+  assert.equal(getResultMaxScore(group), 0.2)
+  assert.equal(formatResultScore(0.2, getResultMaxScore(group)), '100%')
+  assert.equal(formatResultScore(0.1, getResultMaxScore(group)), '50%')
+  assert.equal(formatResultScore(0, 0), '—')
 })
