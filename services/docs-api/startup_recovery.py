@@ -16,7 +16,8 @@ def reconcile_stale_parse_tasks(orchestrator: Any, docs_service: Optional[Any] =
     ks = docs_service or get_docs_service()
     count = 0
     for task in list(ks.parse_tasks):
-        if str(getattr(task, "status", "") or "").strip() != "processing":
+        # processing 与 queued 都可能因进程重启遗留：queued 是卡在 GPU 闸门前被杀的线程
+        if str(getattr(task, "status", "") or "").strip() not in ("processing", "queued"):
             continue
         task_id = str(getattr(task, "id", "") or "")
         doc_id = str(getattr(task, "doc_id", "") or "")

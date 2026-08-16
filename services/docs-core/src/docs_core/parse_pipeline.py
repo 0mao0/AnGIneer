@@ -588,6 +588,20 @@ def derive_overall_status(stage_status: Dict[str, str]) -> str:
     return "processing"
 
 
+def derive_merged_overall_status(
+    existing_stage_status: Dict[str, str],
+    launched_results: Dict[str, str],
+) -> str:
+    """单阶段重跑后的整体状态：已完成的阶段 + 本次运行结果合并推导。
+
+    避免只按本次启动的阶段判定，导致软阶段（vectors/graph/popo）失败时
+    把内容已完成的记录整体覆盖成 failed。
+    """
+    merged = dict(existing_stage_status or {})
+    merged.update(launched_results or {})
+    return derive_overall_status(merged)
+
+
 def reset_parse_stage_records(meta_store, doc_id: str) -> None:
     """全量重跑前清空阶段记录与子阶段步骤，避免解析阶段抽屉展示上一次解析的残留。"""
     clear_stages = getattr(meta_store, "clear_parse_stages", None)
@@ -803,7 +817,25 @@ class ParseOrchestrator:
         if not node:
             return None
         if node.status == "processing":
-            raise ValueError(f"节点 {doc_id} 正在解析中，请先取消当前任务")
+            stale_task_id = str(getattr(node, "parse_task_id", None) or "").strip()
+            thread = self._threads.get(stale_task_id) if stale_task_id else None
+            if thread is not None and thread.is_alive():
+                raise ValueError(f"节点 {doc_id} 正在解析中，请先取消当前任务")
+            # 旧任务线程已死（进程重启/异常退出）：标记失败后允许重新解析，避免永久僵尸
+            if stale_task_id:
+                try:
+                    ks.update_parse_task(
+                        stale_task_id,
+                        status="failed",
+                        progress=100,
+                        stage="failed",
+                        stage_message="旧任务已中断，允许重新解析",
+                        error="旧任务已中断",
+                    )
+                except Exception as exc:  # noqa: BLE001
+                    logger.warning("标记旧解析任务失败 task=%s: %s", stale_task_id, exc)
+                self._threads.pop(stale_task_id, None)
+                self._parsers.pop(stale_task_id, None)
         file_path = node.file_path
         if not file_path:
             raise ValueError(f"节点 {doc_id} 缺少文件路径信息")
@@ -860,14 +892,11 @@ class ParseOrchestrator:
             if stage_filter == "all":
                 overall = derive_overall_status(results)
             else:
-                keys = stage_filter if isinstance(stage_filter, list) else [stage_filter]
-                statuses = [results.get(k) for k in keys]
-                if any(s == "failed" for s in statuses):
-                    overall = "failed"
-                elif all(s in ("completed", "skipped") for s in statuses):
-                    overall = "completed"
-                else:
-                    overall = "processing"
+                existing = {
+                    str(s.get("stage") or ""): str(s.get("status") or "")
+                    for s in meta_store.list_parse_stages(doc_id)
+                }
+                overall = derive_merged_overall_status(existing, results)
             degraded_note = ""
             try:
                 from docs_core.step06_vectors.embedding_provider import default_embedding_provider
