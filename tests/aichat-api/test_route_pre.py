@@ -4,7 +4,7 @@ import sys
 import unittest
 from unittest.mock import patch
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/aichat-api")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/aichat-api")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
 from angineer_core.agent_events import AgentEvent  # noqa: E402
@@ -18,9 +18,10 @@ _AICHAT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../ser
 
 
 def _load_main():
-    """按归属加载 aichat-api 的 main：sys.path 可能被其他服务测试顶占，需校验 __file__。"""
-    if _AICHAT_DIR not in sys.path:
-        sys.path.insert(0, _AICHAT_DIR)
+    """按归属加载 aichat-api 的 main：强制目录置顶 + 校验 __file__（同名包冲突防御）。"""
+    while _AICHAT_DIR in sys.path:
+        sys.path.remove(_AICHAT_DIR)
+    sys.path.insert(0, _AICHAT_DIR)
     loaded = sys.modules.get("main")
     if loaded is not None:
         owner = os.path.abspath(getattr(loaded, "__file__", "") or "")
@@ -28,7 +29,6 @@ def _load_main():
             sys.modules.pop("main", None)
             loaded = None
     if loaded is None:
-        sys.path.insert(0, _AICHAT_DIR)
         loaded = importlib.import_module("main")
     return loaded
 

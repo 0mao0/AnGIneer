@@ -67,12 +67,13 @@ class DocsRoutesCancelWiringTest(unittest.TestCase):
 
 class V1DeleteCancelWiringTest(unittest.TestCase):
     def test_delete_document_v1_cancels_parse_task(self):
-        import models.parse_record
+        import importlib
+        parse_record_mod = importlib.import_module("models.parse_record")
         from routes.v1 import documents
 
         with patch.object(documents, "cancel_parse_task_for_node") as helper, \
                 patch.object(documents, "get_docs_service") as get_ks, \
-                patch.object(models.parse_record, "soft_delete_record", return_value=True):
+                patch.object(parse_record_mod, "soft_delete_record", return_value=True):
             get_ks.return_value = MagicMock()
             request = MagicMock()
             request.state.api_key_info = {"id": 1}
