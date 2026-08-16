@@ -179,6 +179,66 @@ async def parse_document_v1(
     )
 
 
+@router.post("/{doc_id}/resume")
+async def resume_document_v1(doc_id: str, request: Request):
+    """从断点恢复解析：同一 doc_id，已完成阶段保留，未完成阶段续跑。"""
+    from resume_stages import compute_resume_stages
+
+    ks = get_docs_service()
+    node = ks.get_node(doc_id)
+    if not node or getattr(node, "deleted", False):
+        raise HTTPException(status_code=404, detail=f"未找到文档 {doc_id}")
+
+    records = _records_by_doc_id(doc_id)
+    if not records:
+        raise HTTPException(status_code=404, detail=f"未找到文档 {doc_id}")
+    record = records[0]
+
+    api_key_info = getattr(request.state, "api_key_info", None)
+    if api_key_info is None or record.get("api_key_id") != getattr(api_key_info, "id", None):
+        raise HTTPException(status_code=403, detail="该 API key 无权恢复此文档")
+    bound_library = str(getattr(api_key_info, "library_id", "") or "").strip()
+    if bound_library and record.get("library_id") != bound_library:
+        raise HTTPException(status_code=403, detail="该 API key 无权恢复此文档")
+
+    old_task_id = str(record.get("task_id") or "").strip()
+    if old_task_id and not old_task_id.startswith("pending-"):
+        thread = parse_orchestrator._threads.get(old_task_id)
+        if thread is not None and thread.is_alive():
+            raise HTTPException(status_code=409, detail="任务正在解析中")
+        try:
+            parse_orchestrator.cancel_parse_task(old_task_id)
+        except Exception:
+            logger.warning("resume: 取消旧任务失败 task=%s", old_task_id, exc_info=True)
+
+    stage_rows = ks.meta_store.list_parse_stages(doc_id)
+    remaining = compute_resume_stages(str(record.get("stages") or ""), stage_rows)
+    is_pdf = bool(record.get("file_format") == ".pdf")
+    if not remaining:
+        return ParseResponse(
+            doc_id=doc_id,
+            task_id=old_task_id if old_task_id and not old_task_id.startswith("pending-") else "",
+            status="completed",
+            is_pdf_input=is_pdf,
+        )
+
+    source_path = node.file_path
+    if not source_path:
+        raise HTTPException(status_code=400, detail="文档缺少源文件路径，无法恢复")
+    result = parse_orchestrator.create_parse_task(
+        library_id=record.get("library_id") or "default",
+        doc_id=doc_id,
+        file_path=source_path,
+        parse_options={"stages": remaining, "use_llm": False},
+    )
+    return ParseResponse(
+        doc_id=doc_id,
+        task_id=result["task_id"],
+        status=result.get("status", "queued"),
+        is_pdf_input=is_pdf,
+    )
+
+
 @router.get("/{doc_id}/status", response_model=ParseStatusResponse)
 async def get_parse_status(doc_id: str):
     library_id = _library_id_for_doc(doc_id)
