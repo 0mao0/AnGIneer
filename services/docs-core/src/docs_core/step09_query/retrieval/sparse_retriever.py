@@ -36,6 +36,20 @@ def score_sparse_match(query: str, text: str, title: str = "", task_type: str = 
     return score
 
 
+def pick_chunk_keyword(query: str, clause_refs: Optional[List[str]] = None) -> Optional[str]:
+    """选择块级 LIKE 过滤关键词：条款号优先，否则取短 n-gram（2 字词），
+    避免把整句问法当作 LIKE 关键词导致部分命中的条款块漏召回。"""
+    if clause_refs:
+        return clause_refs[0]
+    tokens = [token for token in tokenize_query(query) if len(token) >= 2]
+    if not tokens:
+        return None
+    for token in tokens:
+        if len(token) == 2:
+            return token
+    return tokens[0]
+
+
 class SparseRetriever:
     """从 canonical chunks 和 blocks 中召回偏精确候选。"""
 
@@ -100,7 +114,7 @@ class SparseRetriever:
                     )
                 )
 
-            chunk_keyword = clause_refs[0] if clause_refs else next((token for token in tokenize_query(request.query) if len(token) >= 2), None)
+            chunk_keyword = pick_chunk_keyword(request.query, clause_refs)
             if chunk_keyword:
                 fts_hits = port.search_chunk_fts(
                     doc_id=node.id,

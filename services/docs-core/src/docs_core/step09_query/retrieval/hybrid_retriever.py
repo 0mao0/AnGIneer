@@ -59,6 +59,7 @@ def get_source_weight(source_kind: str, task_type: str, policy: Dict[str, Dict[s
     source_weights = {
         "canonical_dense": 1.30,
         "canonical_sparse": 1.30,
+        "clause": 1.60,
         "clause_direct": 1.60,
         "toc_dense": 1.05 if task_type == "locate_qa" else 0.18,
         "toc_sparse": 1.10 if task_type == "locate_qa" else 0.12,
@@ -76,6 +77,9 @@ def get_source_weight(source_kind: str, task_type: str, policy: Dict[str, Dict[s
 
 # 按任务类型给候选加轻量业务权重。
 def get_task_type_bonus(task_type: str, item: RetrievedItem) -> float:
+    # 条款号直达：精确命中必须压过表格/公式权重，避免在 table_qa 下被淹没
+    if str(item.retrieval_policy or "") == "clause_direct" or str(item.metadata.get("source_kind") or "") == "clause_direct":
+        return 1.0
     chunk_type = str(item.metadata.get("chunk_type") or "")
     target_type = str(item.metadata.get("target_type") or item.entity_type or "")
     if is_toc_candidate(item):
@@ -162,6 +166,9 @@ def prefer_non_toc_candidates(
 # Reciprocal Rank Fusion 常数。
 RRF_K = 60
 
+# hash embedding 降级时 dense 来源的融合权重：近似噪声，只能作轻微参考
+_HASH_DENSE_FUSION_WEIGHT = 0.05
+
 def compute_rrf_score(rank: int, k: int = RRF_K) -> float:
     return 1.0 / (k + rank)
 
@@ -179,9 +186,36 @@ def fuse_candidates(
 
     for source_kind, candidates in source_candidates.items():
         normalized = normalize_candidate_scores(candidates)
+        # 同源内先按去重键收敛：同一表格的多行/摘要只保留最相关一条，
+        # 避免融合阶段对同一 key 重复累加导致表格分数虚高、挤掉条款/正文候选。
+        best_per_key: Dict[str, RetrievedItem] = {}
+        for item in normalized:
+            key = build_candidate_key(item)
+            current = best_per_key.get(key)
+            current_score = float(
+                current.rerank_score
+                or current.metadata.get("normalized_score")
+                or current.score
+                or 0.0
+            ) if current is not None else None
+            item_score = float(
+                item.rerank_score
+                or item.metadata.get("normalized_score")
+                or item.score
+                or 0.0
+            )
+            if current is None or item_score > current_score:
+                best_per_key[key] = item
+        normalized = list(best_per_key.values())
         source_weight = get_source_weight(source_kind, task_type, policy)
+        if source_kind == "dense" and any(
+            bool(item.metadata.get("embedding_fallback"))
+            for item in normalized
+        ):
+            source_weight = _HASH_DENSE_FUSION_WEIGHT
         source_debug[source_kind] = {
             "input_hits": len(candidates),
+            "deduped_hits": len(normalized),
             "weight": source_weight,
             "task_type": task_type,
         }
