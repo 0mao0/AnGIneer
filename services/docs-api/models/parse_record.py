@@ -26,6 +26,7 @@ class ParseRecord:
     error: Optional[str] = None
     created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     library_id: str = "default"
+    stages: str = ""
 
 
 def _get_conn() -> sqlite3.Connection:
@@ -56,6 +57,8 @@ def init_db() -> None:
     columns = {row[1] for row in conn.execute("PRAGMA table_info(parse_records)")}
     if "library_id" not in columns:
         conn.execute("ALTER TABLE parse_records ADD COLUMN library_id TEXT NOT NULL DEFAULT 'default'")
+    if "stages" not in columns:
+        conn.execute("ALTER TABLE parse_records ADD COLUMN stages TEXT NOT NULL DEFAULT ''")
     conn.execute("CREATE INDEX IF NOT EXISTS idx_pr_created ON parse_records(created_at DESC)")
     conn.execute("CREATE INDEX IF NOT EXISTS idx_pr_uploaded ON parse_records(uploaded_by)")
     conn.execute("CREATE INDEX IF NOT EXISTS idx_pr_status ON parse_records(status)")
@@ -68,11 +71,11 @@ def insert_record(record: ParseRecord) -> int:
     conn = _get_conn()
     conn.execute(
         """INSERT INTO parse_records (doc_id, task_id, uploaded_by, api_key_id,
-           file_name, file_format, file_size, status, error, created_at, library_id)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+           file_name, file_format, file_size, status, error, created_at, library_id, stages)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (record.doc_id, record.task_id, record.uploaded_by, record.api_key_id,
          record.file_name, record.file_format, record.file_size,
-         record.status, record.error, record.created_at, record.library_id),
+         record.status, record.error, record.created_at, record.library_id, record.stages),
     )
     conn.commit()
     row_id = conn.execute("SELECT last_insert_rowid()").fetchone()[0]

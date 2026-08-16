@@ -67,6 +67,40 @@ class ParseRecordLibraryIdTests(unittest.TestCase):
             rows = parse_record.list_records()
         self.assertEqual(rows[0]["library_id"], "default")
 
+    def test_record_defaults_to_empty_stages(self):
+        record = ParseRecord(doc_id="d1", task_id="t1")
+        self.assertEqual(record.stages, "")
+
+    def test_insert_and_list_roundtrip_keeps_stages(self):
+        with self._use_tmp_db():
+            parse_record.insert_record(ParseRecord(doc_id="d1", task_id="t1", stages="structure,fts"))
+            rows = {r["doc_id"]: r for r in parse_record.list_records()}
+        self.assertEqual(rows["d1"]["stages"], "structure,fts")
+
+    def test_init_db_migrates_legacy_table_without_stages(self):
+        import sqlite3
+
+        with self._use_tmp_db():
+            conn = sqlite3.connect(parse_record.DB_PATH)
+            conn.execute(
+                """CREATE TABLE parse_records (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    doc_id TEXT NOT NULL, task_id TEXT NOT NULL,
+                    uploaded_by TEXT NOT NULL DEFAULT '', api_key_id INTEGER,
+                    file_name TEXT NOT NULL DEFAULT '', file_format TEXT NOT NULL DEFAULT '',
+                    file_size INTEGER NOT NULL DEFAULT 0, status TEXT NOT NULL DEFAULT 'queued',
+                    error TEXT, created_at TEXT NOT NULL,
+                    library_id TEXT NOT NULL DEFAULT 'default'
+                )"""
+            )
+            conn.execute("INSERT INTO parse_records (doc_id, task_id, created_at) VALUES ('old', 't0', '2024-01-01')")
+            conn.commit()
+            conn.close()
+
+            parse_record.init_db()
+            rows = parse_record.list_records()
+        self.assertEqual(rows[0]["stages"], "")
+
 
 class V1DocumentsScopeTests(unittest.TestCase):
     """/parse 显式传入并记录；只读端点从 record 反查 library_id。"""
@@ -124,6 +158,7 @@ class V1DocumentsScopeTests(unittest.TestCase):
         self.assertEqual(save_file.call_args.args[0], "default")
         self.assertEqual(create_task.call_args.kwargs["library_id"], "default")
         self.assertEqual(inserted[0].library_id, "default")
+        self.assertEqual(inserted[0].stages, "structure")
 
     def test_status_resolves_library_from_record(self):
         documents, client = self._make_client()

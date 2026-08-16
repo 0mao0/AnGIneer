@@ -150,6 +150,7 @@ async def parse_document_v1(
         file_size=len(content),
         status="pending",
         library_id=library_id,
+        stages=stages,
     ))
 
     # 解析阶段校验
