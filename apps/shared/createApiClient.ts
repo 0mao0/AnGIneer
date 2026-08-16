@@ -4,7 +4,11 @@ import { type ApiErrorDetail } from './types'
 export interface CreateApiClientOptions {
   baseURL?: string
   timeout?: number
-  getAuthToken?: () => string | null
+  /**
+   * 请求身份钩子：返回需要附加的请求头（如 X-API-Key / Authorization）。
+   * 返回 null/undefined 时不附加。
+   */
+  getAuthToken?: () => Record<string, string> | null
 }
 
 export function normalizeApiError(err: unknown): ApiErrorDetail {
@@ -34,10 +38,14 @@ export function createApiClient(options: CreateApiClientOptions = {}): AxiosInst
 
   instance.interceptors.request.use((config) => {
     if (options.getAuthToken) {
-      const token = options.getAuthToken()
-      if (token) {
+      const headers = options.getAuthToken()
+      if (headers) {
         config.headers = config.headers ?? {}
-        config.headers.Authorization = `Bearer ${token}`
+        for (const [key, value] of Object.entries(headers)) {
+          if (value) {
+            config.headers[key] = value
+          }
+        }
       }
     }
     return config

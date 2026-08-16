@@ -46,6 +46,7 @@ import { message } from 'ant-design-vue'
 import { PDFParsedWorkspace, Preview_Markdown } from '@angineer/docs-ui'
 import { EmptyState, useTheme } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
+import { useAuthStore } from '@/stores/auth'
 
 const props = defineProps<{
   libraryId?: string
@@ -92,7 +93,8 @@ const locateInContent = (content: string): { start: number; end: number } | null
 
 const loadDocument = async () => {
   const docId = (props.docId || route.params.id || '') as string
-  const libraryId = props.libraryId || 'default'
+  const authStore = useAuthStore()
+  const libraryId = props.libraryId || authStore.libraryId || 'default'
   if (!docId) {
     loading.value = false
     document.value = null

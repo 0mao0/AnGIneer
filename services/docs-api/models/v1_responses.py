@@ -90,6 +90,9 @@ class MeResponse(BaseModel):
     email: str
     rate_limit_per_minute: int
     created_at: str
+    # 租户绑定库（P2）：'' = 未绑定（旧 key，需管理员绑定后才有隔离）
+    library_id: str = ""
+    library_exists: bool = False
 
 
 class CreateKeyRequest(BaseModel):

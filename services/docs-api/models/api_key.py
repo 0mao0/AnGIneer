@@ -70,8 +70,14 @@ def _hash_key(raw_key: str) -> str:
 
 
 def generate_key(user_name: str, email: str = "", rate_limit_per_minute: int = 60, scope: str = "both", library_id: str = "") -> tuple[str, APIKey]:
-    """生成新的 API Key，返回 (原始key, APIKey对象)。"""
+    """生成新的 API Key，返回 (原始key, APIKey对象)。
+
+    library_id 为空时自动生成租户库 `lib-{8位随机}`（P2：每租户一库）。
+    """
     init_db()
+
+    if not (library_id or "").strip():
+        library_id = f"lib-{secrets.token_hex(4)}"
 
     prefix = "ag_"
     raw_key = prefix + secrets.token_urlsafe(32)

@@ -35,11 +35,12 @@ class ApiKeyLibraryBindingTests(unittest.TestCase):
         loaded = api_key_model.lookup_key(raw)
         self.assertEqual(loaded.library_id, "lib-alice")
 
-    def test_generate_key_default_unbound(self):
+    def test_generate_key_auto_binds_library_when_empty(self):
+        """P2 起：新 key 空 library_id = 自动生成租户库（lib-xxx），不再产生未绑定 key。"""
         raw, key = api_key_model.generate_key("legacy")
-        self.assertEqual(key.library_id, "")
+        self.assertTrue(key.library_id.startswith("lib-"))
         loaded = api_key_model.lookup_key(raw)
-        self.assertEqual(loaded.library_id, "")
+        self.assertEqual(loaded.library_id, key.library_id)
 
     def test_legacy_table_migrates_with_empty_library_id(self):
         import sqlite3
@@ -59,7 +60,8 @@ class ApiKeyLibraryBindingTests(unittest.TestCase):
 
         api_key_model.init_db()
         raw, key = api_key_model.generate_key("bob")
-        self.assertEqual(key.library_id, "")
+        # 旧表迁移后新 key 同样自动绑定租户库
+        self.assertTrue(key.library_id.startswith("lib-"))
 
 
 class MiddlewareEnforcementTests(unittest.TestCase):

@@ -1,6 +1,7 @@
 <template>
   <a-config-provider :locale="zhCN" :theme="themeConfig">
     <a-app>
+      <AuthGate />
       <div class="app-container" :class="appClass">
         <AppHeader
           :version="appVersion"
@@ -94,8 +95,10 @@ import { AppHeader, SplitPanes, useTheme } from '@angineer/ui-kit'
 import { AIChat } from '@angineer/aichat-ui'
 import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
+import AuthGate from './components/AuthGate.vue'
 import { ADMIN_CONSOLE_ORIGIN, ADMIN_CONSOLE_PORT, LOCAL_HOST } from '../../shared/ports'
 import { defaultAIChatTransport } from '../../shared/chatTransport'
+import { useAuthStore } from '@/stores/auth'
 import { useTabRouterSync } from '@/composables/useTabRouterSync'
 import { useResourceOpen } from '@/composables/useResourceOpen'
 
@@ -156,12 +159,13 @@ const onNavigateSection = (section: 'project' | 'knowledge' | 'sop' | 'gis') => 
 /** 参考依据点击：打开文档标签并携带定位参数（PDF/章节定位由 DocumentView 消费） */
 const handleCitationSelect = (citation: any) => {
   if (!citation || !citation.doc_id) return
+  const authStore = useAuthStore()
   openResource({
     id: citation.doc_id,
     title: citation.doc_title || citation.doc_id,
     resourceType: 'knowledge',
     isFolder: false,
-    libraryId: 'default',
+    libraryId: authStore.libraryId || 'default',
     docId: citation.doc_id,
     metadata: {
       sectionPath: citation.section_path,

@@ -19,13 +19,23 @@ export interface UnwrappedAxiosInstance {
   interceptors: AxiosInstance['interceptors']
 }
 
-export const sharedApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api' }) as UnwrappedAxiosInstance
+/**
+ * 租户身份钩子：user-web 登录后把 API key 存入 localStorage('ag_api_key')，
+ * 所有 /api 请求自动带 X-API-Key；后端中间件（P1）据此强制库隔离与注入。
+ */
+function tenantAuthHeaders(): Record<string, string> | null {
+  if (typeof localStorage === 'undefined') return null
+  const key = localStorage.getItem('ag_api_key')
+  return key ? { 'X-API-Key': key } : null
+}
+
+export const sharedApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api', getAuthToken: tenantAuthHeaders }) as UnwrappedAxiosInstance
 
 /** 文档处理服务客户端（/api/knowledge、/api/v1、/api/graph、/api/api-keys） */
-export const docsApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api' }) as UnwrappedAxiosInstance
+export const docsApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api', getAuthToken: tenantAuthHeaders }) as UnwrappedAxiosInstance
 
 /** AI 问答服务客户端（/api/chat、/api/sops、/api/evals、/api/dream-cycle、/api/llm_configs） */
-export const aichatApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api', timeout: 60000 }) as UnwrappedAxiosInstance
+export const aichatApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api', timeout: 60000, getAuthToken: tenantAuthHeaders }) as UnwrappedAxiosInstance
 
 export const registerDataUnwrapInterceptor = (instance: AxiosInstance) => {
   instance.interceptors.response.use(

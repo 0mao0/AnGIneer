@@ -47,6 +47,7 @@ import SOPSidebar from './sidebar/SOPSidebar.vue'
 import ProjectSidebar from './sidebar/ProjectSidebar.vue'
 import { useTheme, EmptyState } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
+import { useAuthStore } from '@/stores/auth'
 import type { SmartTreeNode } from '@angineer/docs-ui'
 import { useResourceOpen } from '@/composables/useResourceOpen'
 import { useRetryableLoad } from '@/composables/useRetryableLoad'
@@ -74,9 +75,11 @@ const activeTab = computed({
 })
 
 const { treeData, buildTree } = useKnowledgeTree()
+const authStore = useAuthStore()
+const activeLibraryId = computed(() => authStore.libraryId || 'default')
 const { loading, error, reload: loadNodes } = useRetryableLoad(
   async () => {
-    const response = await knowledgeApi.getNodes('default', true) as unknown as any[]
+    const response = await knowledgeApi.getNodes(activeLibraryId.value, true) as unknown as any[]
     treeData.value = buildTree(response)
     return response
   },
@@ -103,7 +106,7 @@ const onTreeSelect = async (_keys: string[], nodes: SmartTreeNode[]) => {
 }
 
 const onSelectDoc = (node: SmartTreeNode) => {
-  const resource = createResourceNodeFromKnowledge(node, 'default')
+  const resource = createResourceNodeFromKnowledge(node, activeLibraryId.value)
   openResource(resource)
 }
 

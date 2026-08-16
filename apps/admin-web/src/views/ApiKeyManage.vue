@@ -49,6 +49,16 @@
           <a-form-item label="名称" required>
             <a-input v-model:value="newKeyForm.user_name" placeholder="如：张三" />
           </a-form-item>
+          <a-form-item label="访问范围">
+            <a-select v-model:value="newKeyForm.scope">
+              <a-select-option value="both">文档 + 对话</a-select-option>
+              <a-select-option value="doc">仅文档 API</a-select-option>
+              <a-select-option value="chat">仅对话 API</a-select-option>
+            </a-select>
+          </a-form-item>
+          <a-form-item label="知识库 ID" extra="留空自动生成租户库（lib-xxx），该 Key 将只能访问此库">
+            <a-input v-model:value="newKeyForm.library_id" placeholder="如：lib-alice（留空自动生成）" />
+          </a-form-item>
         </a-form>
       </a-modal>
 
@@ -106,6 +116,8 @@ const createdKey = ref('')
 
 const newKeyForm = ref({
   user_name: '',
+  scope: 'both' as 'doc' | 'chat' | 'both',
+  library_id: '',
 })
 
 const showEditModal = ref(false)
@@ -121,6 +133,7 @@ function formatTime(iso: string): string {
 const columns = [
   { title: 'Key', dataIndex: 'key_prefix', key: 'key_prefix', width: 130 },
   { title: '名称', dataIndex: 'user_name', key: 'user_name', width: 150 },
+  { title: '知识库', dataIndex: 'library_id', key: 'library_id', width: 120 },
   { title: '解析文档数', dataIndex: 'doc_count', key: 'doc_count', width: 100 },
   { title: '创建时间', dataIndex: 'created_at', key: 'created_at', width: 150 },
   { title: '最后使用', dataIndex: 'last_used_at', key: 'last_used_at', width: 150 },
@@ -150,7 +163,7 @@ async function handleCreate() {
     createdKey.value = res.api_key
     showCreateModal.value = false
     showKeyModal.value = true
-    newKeyForm.value = { user_name: '' }
+    newKeyForm.value = { user_name: '', scope: 'both', library_id: '' }
     await loadKeys()
     message.success('Key 创建成功')
   } catch (e: any) {
