@@ -123,7 +123,7 @@ const props = withDefaults(defineProps<Props>(), {
   sidePanelOpen: undefined,
   graphDataFullLoaded: false,
   dark: false,
-  sidePanelDefaultOpen: true,
+  sidePanelDefaultOpen: false,
   sidePanelWidth: 400
 })
 
