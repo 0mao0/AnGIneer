@@ -3,6 +3,7 @@
     <div class="stats-header">
       <div class="stats-title">历史记录<span class="stats-title-count">（{{ records.length }}条）</span></div>
       <div class="stats-actions">
+        <LibrarySelect style="margin-right: 12px" />
         <a-popconfirm
           title="确定永久删除选中的记录？此操作不可恢复"
           @confirm="batchHardDelete"
@@ -199,6 +200,8 @@ import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
 import { PDFParsedWorkspace } from '@angineer/docs-ui'
 import type { KnowledgeTreeNode } from '@angineer/docs-ui'
 import DocStageStepper from '@/components/DocStageStepper.vue'
+import LibrarySelect from '@/components/LibrarySelect.vue'
+import { useLibraryStore } from '@/stores/library'
 
 const { appClass } = useTheme()
 
@@ -546,8 +549,9 @@ function onViewerClose() {
 }
 
 async function loadViewerData(docId: string) {
+  const lib = useLibraryStore().libraryId
   try {
-    const res = await knowledgeApi.getDocument('default', docId) as any
+    const res = await knowledgeApi.getDocument(lib, docId) as any
     viewerContent.value = res?.content || ''
     viewerRenderPdfPath.value = res?.storage?.render_pdf || ''
   } catch {
@@ -560,7 +564,7 @@ async function loadViewerData(docId: string) {
     viewerStructuredItems.value = []
   }
   try {
-    const graph = await knowledgeApi.getDocBlocksGraph('default', docId) as any
+    const graph = await knowledgeApi.getDocBlocksGraph(lib, docId) as any
     viewerGraphData.value = graph?.data || null
   } catch {
     viewerGraphData.value = null

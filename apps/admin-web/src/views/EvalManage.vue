@@ -220,6 +220,7 @@ import type { EvalDataset, EvalQuestion } from '@angineer/evals-ui'
 import FolderModal from './components/FolderModal.vue'
 import EvalCompareModal from './components/EvalCompareModal.vue'
 import { knowledgeApi } from '../api/knowledge'
+import { useLibraryStore } from '../stores/library'
 import { evalsApi } from '../api/evals'
 
 const { appClass } = useTheme()
@@ -262,7 +263,7 @@ const buildDocTree = (nodes: any[]): { tree: DocTreeNode[]; flat: DocTreeNode[] 
 /** 加载知识库节点树 */
 const fetchDocOptions = async () => {
   try {
-    const resp = await knowledgeApi.getNodes('default', true)
+    const resp = await knowledgeApi.getNodes(useLibraryStore().libraryId || 'default', true)
     const nodes = (resp as any)?.data || resp || []
     const list = Array.isArray(nodes) ? nodes : []
     const { tree, flat } = buildDocTree(list)

@@ -379,6 +379,7 @@ import {
 } from '@angineer/docs-ui'
 import { useKnowledgeTree, useKnowledgeParse, useKnowledgeStructuredIndex, useKnowledgeCitation, type KnowledgeChatCitation, type KnowledgeAnswerMessage } from '@angineer/docs-ui'
 import { getStatusColor, getStatusText } from '@angineer/ui-kit/utils/tree'
+import { useLibraryStore } from '@/stores/library'
 import { getWebDocumentUrl } from '../../../shared/ports'
 import { defaultAIChatTransport } from '../../../shared/chatTransport'
 import FolderPreview from '../views/components/FolderPreview.vue'
@@ -548,7 +549,7 @@ const loadGraphSnapshot = (params: { libraryId?: string; docId?: string; viewMod
 
 /** 图谱构建（快速提取 / AI 深度提取，enableLlm 区分） */
 const buildGraphFromDoc = (params: { libraryId?: string; docId?: string }, enableLlm: boolean) =>
-  props.api.buildGraphFromDoc(params.libraryId || 'default', params.docId || '', enableLlm)
+  props.api.buildGraphFromDoc(params.libraryId || useLibraryStore().libraryId || 'default', params.docId || '', enableLlm)
 
 const _loadStructuredIndexWrapper = () => loadStructuredIndex(selectedNode.value, docContent.value)
 
@@ -653,7 +654,7 @@ const findFirstFileNode = (nodes: SmartTreeNode[]): SmartTreeNode | null => {
 // 加载节点
 const loadNodes = async (focusNodeKey?: string) => {
   try {
-    const response = await props.api.getNodes('default', false) as unknown as any[]
+    const response = await props.api.getNodes(useLibraryStore().libraryId || 'default', false) as unknown as any[]
     treeData.value = buildTree(response)
     // 校验当前选中节点是否仍存在（列表页可能已删除该文档），不存在则清空选中态与视图缓存
     const currentSelectedKey = selectedKeys.value[0]
@@ -891,7 +892,7 @@ const handleFolderModalOk = async () => {
   try {
     if (folderForm.value.isNew) {
       await props.api.createNode({
-        library_id: 'default',
+        library_id: useLibraryStore().libraryId || 'default',
         title: folderForm.value.name,
         node_type: 'folder',
         parent_id: folderForm.value.parentId
