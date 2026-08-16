@@ -193,6 +193,7 @@ def _run_knowledge_search(
     dense: Any = None,
     sparse: Any = None,
     clause: Any = None,
+    formula: Any = None,
     prefix: str = "K",
     marker_allocator: Optional[MarkerAllocator] = None,
     rerank: bool = False,
@@ -270,6 +271,17 @@ def _run_knowledge_search(
     except Exception as exc:  # noqa: BLE001
         sources["clause"] = []
         sources["clause_error"] = str(exc)
+    from docs_core.step09_query.retrieval.formula_retriever import FormulaRetriever, is_formula_query
+
+    if is_formula_query(request.query, task_type):
+        try:
+            formula_r = formula
+            if formula_r is None:
+                formula_r = FormulaRetriever()
+            sources["formula"] = list(formula_r.retrieve(request, nodes) or [])
+        except Exception as exc:  # noqa: BLE001
+            sources["formula"] = []
+            sources["formula_error"] = str(exc)
 
     candidate_sources = {k: v for k, v in sources.items() if isinstance(v, list)}
     if not candidate_sources:

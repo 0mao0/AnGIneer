@@ -159,6 +159,8 @@ def build_qa_config(
     doc_ids: Optional[List[str]] = None,
     filters: Any = None,
     task_type: str = "content_qa",
+    knowledge_task_type: Optional[str] = None,
+    table_task_type: Optional[str] = None,
     max_turns: int = 3,
     inline_citations: Optional[List[Dict[str, Any]]] = None,
     config_name: Optional[str] = None,
@@ -173,13 +175,15 @@ def build_qa_config(
     """装配 QA 档 agent 循环：三个只读检索工具 + 内联 QA prompt（P5 前）。"""
     effective_tools = tools
     if effective_tools is None:
+        effective_knowledge_task_type = knowledge_task_type or task_type
+        effective_table_task_type = table_task_type or task_type
         effective_tools = [
             RetrieverAdapter.knowledge_search(
                 library_id=library_id,
                 doc_ids=doc_ids,
                 doc_nodes=doc_nodes,
                 top_k=20,
-                task_type=task_type,
+                task_type=effective_knowledge_task_type,
                 filters=filters,
                 rerank=rerank,
                 marker_allocator=marker_allocator,

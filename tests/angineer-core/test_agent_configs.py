@@ -2,7 +2,7 @@
 import os
 import sys
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
@@ -43,6 +43,33 @@ class QaConfigTests(unittest.TestCase):
         config = build_qa_config(llm=Mock(), tools=[tool], max_turns=5)
         self.assertEqual(config.tools, [tool])
         self.assertEqual(config.max_turns, 5)
+
+    def test_knowledge_search_and_table_search_use_separate_task_types(self):
+        captured = {}
+
+        def fake_knowledge(**kwargs):
+            captured["knowledge"] = kwargs
+            return Mock(name="knowledge_tool")
+
+        def fake_table(**kwargs):
+            captured["table"] = kwargs
+            return Mock(name="table_tool")
+
+        with patch(
+            "angineer_core.agent_configs.RetrieverAdapter.knowledge_search",
+            side_effect=fake_knowledge,
+        ), patch(
+            "angineer_core.agent_configs.RetrieverAdapter.table_search",
+            side_effect=fake_table,
+        ):
+            build_qa_config(
+                llm=Mock(),
+                task_type="table_qa",
+                knowledge_task_type="content_qa",
+            )
+        self.assertEqual(captured["knowledge"]["task_type"], "content_qa")
+        # table_search 内部固定走 table_qa，不需要外部传入 task_type
+        self.assertNotIn("task_type", captured["table"])
 
     def test_inline_citations_appended_to_prompt(self):
         config = build_qa_config(

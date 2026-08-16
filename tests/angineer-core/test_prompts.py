@@ -86,7 +86,8 @@ class PromptMigrationContractTests(unittest.TestCase):
         from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT as QA
 
         self.assertIn("调用检索工具后仍无有效证据时，直接回答：没有检索到足够证据支持最终结论", QA)
-        self.assertIn("表格/条款定位类问题必须优先调用 table_search", QA)
+        self.assertIn("表格/公式定位类问题必须优先调用 table_search", QA)
+        self.assertIn("条款/条文定位类问题必须优先调用 knowledge_search", QA)
 
     def test_sop_routes_prompt_registered(self):
         from angineer_core.prompts.sop_routes import STEP_PARSE_SYSTEM_PROMPT

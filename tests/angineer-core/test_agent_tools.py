@@ -81,5 +81,53 @@ class AgentToolContractTests(unittest.TestCase):
         self.assertEqual(citations[0]["target_id"], "a")
 
 
+class KnowledgeSearchFormulaTests(unittest.TestCase):
+    def test_formula_query_includes_formula_context(self):
+        from unittest.mock import patch
+
+        from docs_core.step09_query.protocols.contracts import RetrievedItem
+
+        from angineer_core.agent_tools import _run_knowledge_search
+
+        fake_item = RetrievedItem(
+            item_id="ctx-1",
+            entity_type="formula_context",
+            doc_id="d1",
+            title="6.2 航道建设规模及航行标准",
+            text="式中 t_{1} ——每潮次船舶通过航道的持续时间(h)",
+            score=10.0,
+            retrieval_policy="formula_context",
+            metadata={"source_kind": "formula_context", "chunk_type": "formula_context"},
+        )
+        with patch("docs_core.step09_query.retrieval.formula_retriever.FormulaRetriever") as cls:
+            cls.return_value.retrieve.return_value = [fake_item]
+            result = _run_knowledge_search(
+                query="乘潮进港时间怎么算",
+                library_id="default",
+                doc_ids=[],
+                doc_nodes=[],
+                top_k=20,
+                task_type="content_qa",
+            )
+        items = result.get("items") or []
+        self.assertTrue(any(item.get("item_id") == "ctx-1" for item in items))
+
+    def test_non_formula_query_skips_formula_retriever(self):
+        from unittest.mock import patch
+
+        from angineer_core.agent_tools import _run_knowledge_search
+
+        with patch("docs_core.step09_query.retrieval.formula_retriever.FormulaRetriever") as cls:
+            _run_knowledge_search(
+                query="上航数联是什么",
+                library_id="default",
+                doc_ids=[],
+                doc_nodes=[],
+                top_k=20,
+                task_type="content_qa",
+            )
+        cls.assert_not_called()
+
+
 if __name__ == "__main__":
     unittest.main()
