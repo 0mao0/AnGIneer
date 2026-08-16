@@ -144,6 +144,38 @@ test('工具消息 items 带 cite 时进入思考轨迹 citations.marker', () =>
   assert.equal(result?.citations?.[0]?.marker, 'K1')
 })
 
+test('工具返回同时带 citations 与 items 时保留全部 cite 标记', () => {
+  const steps = buildThinkingTrace([
+    { role: 'user', content: 'x' },
+    {
+      role: 'assistant',
+      content: '```tool_calls\n[]\n```',
+      tool_calls: [{ name: 'knowledge_search', arguments: { query: 'x' } }],
+    },
+    {
+      role: 'tool',
+      name: 'knowledge_search',
+      content: JSON.stringify({
+        total: 5,
+        citations: [
+          { target_id: 'a', doc_id: 'd1', doc_title: '船闸规范.pdf', marker: 'K1', page_idx: 0, section_path: '2.2', snippet: 'a', score: 0.9 },
+          { target_id: 'b', doc_id: 'd1', doc_title: '船闸规范.pdf', marker: 'K2', page_idx: 0, section_path: '2.2', snippet: 'b', score: 0.8 },
+        ],
+        items: [
+          { item_id: 'a', entity_type: 'content', doc_id: 'd1', title: 't', text: 'a', score: 0.9, metadata: { doc_title: '船闸规范.pdf', cite: 'K1' } },
+          { item_id: 'b', entity_type: 'content', doc_id: 'd1', title: 't', text: 'b', score: 0.8, metadata: { doc_title: '船闸规范.pdf', cite: 'K2' } },
+          { item_id: 'c', entity_type: 'content', doc_id: 'd1', title: 't', text: 'c', score: 0.7, metadata: { doc_title: '船闸规范.pdf', cite: 'K3' } },
+          { item_id: 'd', entity_type: 'content', doc_id: 'd1', title: 't', text: 'd', score: 0.6, metadata: { doc_title: '船闸规范.pdf', cite: 'K4' } },
+          { item_id: 'e', entity_type: 'content', doc_id: 'd1', title: 't', text: 'e', score: 0.5, metadata: { doc_title: '船闸规范.pdf', cite: 'K5' } },
+        ],
+      }),
+    },
+  ])
+  const result = steps.find(step => step.kind === 'result')
+  const markers = (result?.citations || []).map(citation => citation.marker).sort()
+  assert.deepEqual(markers, ['K1', 'K2', 'K3', 'K4', 'K5'])
+})
+
 test('extractToolResultItems 带出 cite 标记', () => {
   const items = extractToolResultItems(JSON.stringify({
     items: [{

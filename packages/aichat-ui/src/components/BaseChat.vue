@@ -457,7 +457,8 @@ const getUniqueCitations = (message: BaseChatMessage) => {
       citation.target_id,
       citation.doc_id,
       citation.page_idx,
-      citation.section_path
+      citation.section_path,
+      citation.marker || ''
     ].join('::')
     if (seen.has(key)) {
       return false
@@ -609,6 +610,9 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
     // 第一轮：优先匹配“文档 + 章节”的完整短语，避免同名文档挂错引用
     const matchedIndexes = new Set<number>()
     citations.forEach((citation, index) => {
+      // 正文已经写了 [Kx] 标记时，交给“标记 → 内联 tag”替换，
+      // 不再把文档名/章节名单独做成链接，避免同一处出现两个可点元素
+      if (citation.marker && content.includes(`[${citation.marker}]`)) return
       const spanCandidates = buildSectionCitationCandidates(citation)
       for (const needle of spanCandidates) {
         const positions: number[] = []
@@ -632,6 +636,7 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
     // 第二轮：正文只写了文档名时，兜底把文档名变成链接
     citations.forEach((citation, index) => {
       if (matchedIndexes.has(index)) return
+      if (citation.marker && content.includes(`[${citation.marker}]`)) return
       const spanCandidates = buildDocOnlyCitationCandidates(citation)
       for (const needle of spanCandidates) {
         const positions: number[] = []

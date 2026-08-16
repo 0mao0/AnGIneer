@@ -218,7 +218,6 @@ function collectCitationsFromToolMessages(
           score: Number(citation.score || 0),
         })
       }
-      continue
     }
     if (Array.isArray(raw?.items)) {
       for (const item of raw.items) {
@@ -240,7 +239,11 @@ function collectCitationsFromToolMessages(
   // 去重
   const seen = new Set<string>()
   return citations.filter((citation) => {
-    const key = [citation.target_id, citation.doc_id, citation.page_idx, citation.section_path, citation.marker || ''].join('::')
+    // 标记在本轮内全局唯一（K/T/E 各自递增），按标记去重最稳；
+    // 无标记的条目退回按目标位置去重。
+    const key = citation.marker
+      ? `marker:${citation.marker}`
+      : [citation.target_id, citation.doc_id, citation.page_idx, citation.section_path].join('::')
     if (seen.has(key)) return false
     seen.add(key)
     return true
