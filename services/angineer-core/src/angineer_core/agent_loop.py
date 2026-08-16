@@ -359,6 +359,7 @@ class _AttemptMachine:
         self.attempts = list(config.attempts or [])
         self.messages = messages
         self.start_idx = start_idx
+        self.attempt_start_idx = start_idx
         self.add_note = add_note
         self.active_config = config
         self.active_attempt_idx = -1
@@ -375,6 +376,8 @@ class _AttemptMachine:
     def apply(self, index: int) -> None:
         """应用第 index 段的完整可覆盖字段；codec 随段刷新。"""
         self.active_attempt_idx = index
+        self.attempt_start_idx = len(self.messages)
+        self.retry_used = False
         nested = self.attempts[index].config_factory()
         active = replace(
             self.base_config,
@@ -403,18 +406,11 @@ class _AttemptMachine:
         added = self.messages[self.start_idx:]
         attempt = self.attempts[self.active_attempt_idx]
         check = attempt.success_check
-        used_tools = any(m.role == "tool" for m in added)
+        used_tools = any(m.role == "tool" for m in self.messages[self.attempt_start_idx:])
         ok = check is None or bool(_run_callback(check, True, added))
         if ok:
             if not (attempt.requires_tools and not used_tools):
                 return "completed"
-        if self.active_attempt_idx + 1 < len(self.attempts):
-            nxt = self.attempts[self.active_attempt_idx + 1]
-            self.add_note(attempt.fallback_note or f"本段未命中，进入下一段：{nxt.name}")
-            self.messages.append(AgentMessage(role="user", content=f"上一段未命中，进入下一段：{nxt.name}"))
-            self.apply(self.active_attempt_idx + 1)
-            self.attempt_turn = 0
-            return "next"
         if attempt.requires_tools and not used_tools:
             if not self.retry_used:
                 self.retry_used = True
@@ -423,9 +419,18 @@ class _AttemptMachine:
                 self.messages.append(AgentMessage(role="user", content="请先调用检索工具获取证据后再回答"))
                 self.add_note("未调用检索工具，已要求重新检索后回答")
                 return "retry"
-            return "exhausted"
-        # 终段：只要产出了非空最终答案（含拒答）就算完成；
-        # 只有完全没有答案才由调用方补拒答收尾。
+            return self._finalize_no_tool_answer(added)
+        if self.active_attempt_idx + 1 < len(self.attempts):
+            nxt = self.attempts[self.active_attempt_idx + 1]
+            self.add_note(attempt.fallback_note or f"本段未命中，进入下一段：{nxt.name}")
+            self.messages.append(AgentMessage(role="user", content=f"上一段未命中，进入下一段：{nxt.name}"))
+            self.apply(self.active_attempt_idx + 1)
+            self.attempt_turn = 0
+            return "next"
+        return self._finalize_no_tool_answer(added)
+
+    def _finalize_no_tool_answer(self, added: List[AgentMessage]) -> str:
+        """requires_tools 重试后仍不调工具：保留非空最终答案，空答案才补拒答。"""
         final_answer = next(
             (
                 m for m in reversed(added)

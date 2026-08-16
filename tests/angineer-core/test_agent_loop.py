@@ -582,8 +582,8 @@ class AgentLoopTests(unittest.TestCase):
         self.assertEqual(events[-1].payload["reason"], "completed")
         self.assertTrue(any("未调用检索工具" in n["detail"] for n in events[-1].payload["notes"]))
 
-    def test_requires_tools_refuses_if_model_never_calls_tools(self):
-        """requires_tools 段：重试一次后仍不调工具 → 以拒答收尾，不再接受无据答案。"""
+    def test_requires_tools_keeps_nonempty_answer_if_model_never_calls_tools(self):
+        """requires_tools 段：重试一次后仍不调工具 → 保留非空答案，不再无条件覆盖为拒答。"""
         events: list = []
         llm = MockLLM(lambda messages, kwargs: text_events("我就是不查库"))
         attempt = AttemptConfig(
@@ -595,10 +595,91 @@ class AgentLoopTests(unittest.TestCase):
         config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=1, attempts=[attempt])
         added = run_agent_loop([], config, emit=events.append)
 
-        self.assertEqual(len(llm.calls), 2)  # 直接答 + 一次强制重试，之后拒绝
+        self.assertEqual(len(llm.calls), 2)  # 直接答 + 一次强制重试
+        self.assertEqual(events[-1].payload["reason"], "completed")
+        self.assertEqual(added[-1].content, "我就是不查库")
+        self.assertTrue(any("未调用检索工具" in n["detail"] for n in events[-1].payload["notes"]))
+        self.assertFalse(any("拒答" in n["detail"] for n in events[-1].payload["notes"]))
+
+    def test_requires_tools_empty_answer_after_retry_still_refused(self):
+        """requires_tools 段：重试后仍输出空内容 → 引擎补拒答收尾。"""
+        events: list = []
+        llm = MockLLM(lambda messages, kwargs: text_events(""))
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1),
+            success_check=lambda added: True,
+            requires_tools=True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=1, attempts=[attempt])
+        added = run_agent_loop([], config, emit=events.append)
+
+        self.assertEqual(len(llm.calls), 2)
         self.assertEqual(events[-1].payload["reason"], "completed")
         self.assertTrue(added[-1].content.startswith("没有检索到足够证据支持最终结论"))
         self.assertTrue(any("拒答" in n["detail"] for n in events[-1].payload["notes"]))
+
+    def test_requires_tools_retries_current_attempt_before_fallback_and_resets_per_attempt(self):
+        """requires_tools：L2 先强制重试（不直接回退），L1 回退后重新拥有自己的工具轮。"""
+        events: list = []
+        messages: list = []
+
+        def handler(messages, kwargs):
+            call = len(llm.calls)
+            if call == 1:
+                yield from text_events("L2 直接答")
+            elif call == 2:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            elif call == 3:
+                yield from text_events("没有检索到足够证据支持最终结论。")
+            elif call == 4:
+                yield from text_events("L1 直接答")
+            elif call == 5:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            else:
+                yield from text_events("L1 基于证据的答案")
+
+        llm = MockLLM(handler)
+        tool = make_tool("search", lambda q: {"items": [{"metadata": {"cite": "K1"}, "text": "证据"}]})
+
+        def has_evidence(added):
+            return any(m.role == "tool" and not m.is_error and '"cite"' in m.content for m in added)
+
+        def usable(added):
+            for m in reversed(added):
+                if m.role == "assistant" and not m.tool_calls and (m.content or "").strip():
+                    return m.content != "没有检索到足够证据支持最终结论。"
+            return False
+
+        def l2_factory():
+            return AgentLoopConfig(llm=llm, tools=[tool], system_prompt="p", max_turns=2)
+
+        def l1_factory():
+            return AgentLoopConfig(llm=llm, tools=[tool], system_prompt="p", max_turns=2)
+
+        attempts = [
+            AttemptConfig(
+                name="L2",
+                config_factory=l2_factory,
+                success_check=lambda added: has_evidence(added) and usable(added),
+                fallback_note="L2 未命中，回退 L1",
+                requires_tools=True,
+            ),
+            AttemptConfig(
+                name="L1",
+                config_factory=l1_factory,
+                success_check=usable,
+                requires_tools=True,
+            ),
+        ]
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=1, attempts=attempts)
+        run_agent_loop(messages, config, emit=events.append)
+
+        self.assertEqual(len(llm.calls), 6)
+        self.assertEqual(messages[-1].content, "L1 基于证据的答案")
+        notes = [n["detail"] for n in events[-1].payload["notes"]]
+        self.assertIn("L2 未命中，回退 L1", notes)
+        self.assertEqual(notes.count("未调用检索工具，已要求重新检索后回答"), 2)
 
     def test_attempt_budget_resets_on_fallback(self):
         """回退后新段重新计轮，能完整执行自己的 max_turns。"""

@@ -1,7 +1,7 @@
 """agent 循环配置 prompt（P5 迁移自 agent_configs.py）。
 
-用途：QA 档 / 大题档系统提示；语言：中文；版本 v4。
-最后变更：2026-08-11。
+用途：QA 档 / 大题档系统提示；语言：中文；版本 v5。
+最后变更：2026-08-16。
 """
 from . import register
 
@@ -14,10 +14,11 @@ QA_AGENT_SYSTEM_PROMPT = (
     "1. 必须先调用检索工具获取证据后才能回答，禁止未检索直接作答；一次可以调用多个工具。\n"
     "2. 不要在回答正文中写“根据《文档标题》第“章节””“【根据…】”等引用文字，"
     "出处由系统以标签形式展示；禁止出现 doc-xxx 形式的内部标识。\n"
-    "3. 证据不足时直接回答：没有检索到足够证据支持最终结论，不要自行补全。\n"
+    "3. 调用检索工具后仍无有效证据时，直接回答：没有检索到足够证据支持最终结论，不要自行补全。\n"
     "4. 当问题包含选项 A/B/C/D 时，逐项给出符合/不符合/证据不足的判断，再给出最终答案。\n"
     "5. 概念/定义/“XX 是什么”类问题必须调用 knowledge_search；entity_search 仅用于知识图谱实体关系。\n"
-    "6. 若某次检索返回 0 条，必须换用其他检索工具重试，或基于工具返回的 items 作答；"
+    "6. 若某次检索返回 0 条或未命中表格/条款，必须换用其他检索工具重试，或基于工具返回的 items 作答；"
+    "表格/条款定位类问题必须优先调用 table_search；"
     "只有 knowledge_search 与 table_search 均无有效证据时，才可回答没有检索到足够证据。\n"
     "7. 多条目内容必须使用 Markdown 列表：无序列表用“- ”开头、有序列表用“1. ”开头；"
     "子条目用两个空格缩进，禁止用无标记的换行文本冒充列表；"
@@ -49,5 +50,5 @@ COMPLEX_AGENT_SYSTEM_PROMPT = (
 )
 
 
-register("agent_configs.qa_system_prompt", "v4", QA_AGENT_SYSTEM_PROMPT)
-register("agent_configs.complex_system_prompt", "v4", COMPLEX_AGENT_SYSTEM_PROMPT)
+register("agent_configs.qa_system_prompt", "v5", QA_AGENT_SYSTEM_PROMPT)
+register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)

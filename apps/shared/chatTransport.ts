@@ -485,7 +485,19 @@ export function buildThinkingTrace(
 ): ThinkingTraceStep[] {
   const steps: ThinkingTraceStep[] = []
   let turn = 0
-  for (const message of messages || []) {
+  const list = messages || []
+  let lastAnswerIdx = -1
+  for (let i = 0; i < list.length; i++) {
+    const message = list[i]
+    if (
+      message?.role === 'assistant' &&
+      !(Array.isArray(message.tool_calls) && message.tool_calls.length) &&
+      String(message.content || '').trim()
+    ) {
+      lastAnswerIdx = i
+    }
+  }
+  for (const [index, message] of list.entries()) {
     if (message?.role === 'assistant') {
       turn += 1
       const toolCalls = Array.isArray(message.tool_calls) ? message.tool_calls : []
@@ -498,7 +510,7 @@ export function buildThinkingTrace(
             turn,
           })
         }
-      } else if (String(message.content || '').trim()) {
+      } else if (index === lastAnswerIdx && String(message.content || '').trim()) {
         steps.push({
           kind: 'note',
           detail: '汇总证据并生成最终回答',

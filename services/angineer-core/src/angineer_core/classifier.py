@@ -824,6 +824,12 @@ class IntentClassifier:
             logger.info(f"[DEBUG-SOP-ROUTE] L0 规则命中: reason={l0_result.reason}")
             return l0_result
 
+        # 步骤 1.5: 强 L1 定位信号优先于 LLM（避免“XX在哪里”被 LLM 判为 L2 后表格问答链路不稳定）
+        location_result = _rule_based_classify(user_query)
+        if location_result is not None and location_result.intent_level == "L1" and location_result.intent_type == "locate_navigation":
+            logger.info(f"[DEBUG-SOP-ROUTE] L1 定位信号规则优先命中: reason={location_result.reason}")
+            return location_result
+
         # 步骤 2: LLM 直接分类 L1/L2/L3/L4（主力分类器）
         logger.debug("[DEBUG-SOP-ROUTE] 非L0查询，进入 LLM 主力分类...")
         llm_result = self._llm_classify_intent(user_query, config_name=config_name, mode=mode)
