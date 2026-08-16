@@ -12,6 +12,17 @@ from angineer_core.base_contracts import Evidence
 
 logger = logging.getLogger(__name__)
 
+_TABLE_QUERY_HINTS = (
+    "查表", "取值", "参数表", "数据表", "尺度", "吨级", "载重吨",
+    "设计船型", "总长", "型宽", "型深", "满载吃水", "DWT", "dwt",
+)
+
+
+def _looks_like_table_query(query: str) -> bool:
+    """判断问题是否偏向查表取值（需要表格行数值）。"""
+    text = str(query or "")
+    return any(hint in text for hint in _TABLE_QUERY_HINTS)
+
 
 @dataclass
 class AgentTool:
@@ -283,10 +294,39 @@ def _run_knowledge_search(
             sources["formula"] = []
             sources["formula_error"] = str(exc)
 
+    # 查表/数值/尺度类问题：把表格行数据一并并入正文检索，避免“搜到表标题却拿不到行数值”。
+    table_items: List[Any] = []
+    if (
+        str(task_type).startswith("table_")
+        or str(task_type) in {"locate_table", "locate_qa"}
+        or _looks_like_table_query(request.query)
+    ):
+        try:
+            from docs_core.step09_query.retrieval.table_retriever import TableRetriever
+
+            table_r = TableRetriever()
+            table_items = list(table_r.retrieve(request, nodes) or [])
+            sources["table"] = table_items
+        except Exception as exc:  # noqa: BLE001
+            sources["table"] = []
+            sources["table_error"] = str(exc)
+
     candidate_sources = {k: v for k, v in sources.items() if isinstance(v, list)}
     if not candidate_sources:
         return {"error": "检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
     items, _debug = fuse_candidates(candidate_sources, task_type=task_type, top_k=top_k)
+    # 表格兜底：同一 table_id 的候选若只带了摘要（无行数值），用完整表格文本补全
+    if table_items:
+        table_text_by_id: Dict[str, str] = {}
+        for item in table_items:
+            tid = str((item.metadata or {}).get("table_id") or "")
+            if tid:
+                table_text_by_id.setdefault(tid, str(item.text or ""))
+        for item in items:
+            tid = str((item.metadata or {}).get("table_id") or "")
+            full = table_text_by_id.get(tid) or ""
+            if full and len(full) > len(str(item.text or "")):
+                item.text = full
     return _assemble_search_result(
         query=query, items=items, library_id=library_id,
         doc_title_map=doc_title_map, prefix=prefix,
@@ -505,10 +545,11 @@ class RetrieverAdapter:
 
         return AgentTool(
             name="table_search",
-            description="在知识库中检索表格、公式与计算依据，返回候选条目。",
+            description="在知识库中检索表格、公式与计算依据，返回包含完整行数值的候选条目。"
+                       "查表/取值/数值/尺度/吨级类问题必须优先使用本工具，且 query 必须使用用户原始问题原文，不要改写或添加词汇。",
             parameters_schema={
                 "type": "object",
-                "properties": {"query": {"type": "string", "description": "检索问句"}},
+                "properties": {"query": {"type": "string", "description": "检索问句（使用用户原始问题原文）"}},
                 "required": ["query"],
             },
             handler=handler,

@@ -177,32 +177,40 @@ def build_qa_config(
     if effective_tools is None:
         effective_knowledge_task_type = knowledge_task_type or task_type
         effective_table_task_type = table_task_type or task_type
-        effective_tools = [
-            RetrieverAdapter.knowledge_search(
-                library_id=library_id,
-                doc_ids=doc_ids,
-                doc_nodes=doc_nodes,
-                top_k=20,
-                task_type=effective_knowledge_task_type,
-                filters=filters,
-                rerank=rerank,
-                marker_allocator=marker_allocator,
-            ),
-            RetrieverAdapter.table_search(
-                library_id=library_id,
-                doc_ids=doc_ids,
-                doc_nodes=doc_nodes,
-                top_k=20,
-                filters=filters,
-                rerank=rerank,
-                marker_allocator=marker_allocator,
-            ),
-            RetrieverAdapter.entity_search(
-                library_id=library_id,
-                doc_ids=doc_ids,
-                marker_allocator=marker_allocator,
-            ),
-        ]
+        knowledge_tool = RetrieverAdapter.knowledge_search(
+            library_id=library_id,
+            doc_ids=doc_ids,
+            doc_nodes=doc_nodes,
+            top_k=20,
+            task_type=effective_knowledge_task_type,
+            filters=filters,
+            rerank=rerank,
+            marker_allocator=marker_allocator,
+        )
+        table_tool = RetrieverAdapter.table_search(
+            library_id=library_id,
+            doc_ids=doc_ids,
+            doc_nodes=doc_nodes,
+            top_k=20,
+            filters=filters,
+            rerank=rerank,
+            marker_allocator=marker_allocator,
+        )
+        entity_tool = RetrieverAdapter.entity_search(
+            library_id=library_id,
+            doc_ids=doc_ids,
+            marker_allocator=marker_allocator,
+        )
+        # 查表/数值类任务把 table_search 排在首位，引导模型优先用它
+        table_first = (
+            str(effective_table_task_type).startswith("table_")
+            or str(effective_table_task_type) in {"locate_table", "locate_qa"}
+        )
+        effective_tools = (
+            [table_tool, knowledge_tool, entity_tool]
+            if table_first
+            else [knowledge_tool, table_tool, entity_tool]
+        )
 
     system_prompt = QA_AGENT_SYSTEM_PROMPT
     explicit = _build_inline_citation_context(inline_citations or [])
