@@ -188,6 +188,7 @@ export const knowledgeApi = {
     status?: string
     uploaded_by?: string
     show_deleted?: boolean
+    library_id?: string
     start_date?: string
     end_date?: string
     limit?: number

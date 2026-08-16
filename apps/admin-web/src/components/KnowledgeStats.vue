@@ -147,6 +147,8 @@
         :structured-items="viewerStructuredItems"
         :graph-data="viewerGraphData"
         :render-pdf-path="viewerRenderPdfPath"
+        :dark="isDark"
+        :side-panel-default-open="false"
       />
     </a-drawer>
 
@@ -203,8 +205,9 @@ import DocStageStepper from '@/components/DocStageStepper.vue'
 import LibrarySelect from '@/components/LibrarySelect.vue'
 import { useLibraryStore } from '@/stores/library'
 
-const { appClass } = useTheme()
+const { appClass, isDark } = useTheme()
 
+const libraryStore = useLibraryStore()
 const records = ref<ParseRecordItem[]>([])
 const loading = ref(false)
 const showDeletedOnly = ref(false)
@@ -403,7 +406,10 @@ function statusLabel(status: string): string {
 async function loadRecords(silent = false) {
   if (!silent) loading.value = true
   try {
-    const res = await knowledgeApi.listRecords({ show_deleted: showDeletedOnly.value })
+    const res = await knowledgeApi.listRecords({
+      show_deleted: showDeletedOnly.value,
+      library_id: libraryStore.libraryId || 'default',
+    })
     records.value = res.data
   } catch (e: any) {
     if (!silent) message.error('加载记录失败: ' + (e.message || e))
@@ -412,6 +418,10 @@ async function loadRecords(silent = false) {
     syncRecordsPolling()
   }
 }
+
+watch(() => libraryStore.libraryId, () => {
+  loadRecords()
+})
 
 function toggleDeletedFilter(checked: boolean) {
   showDeletedOnly.value = checked
@@ -767,8 +777,9 @@ onMounted(() => {
     overflow-y: auto;
     margin-bottom: 8px;
     padding: 8px 10px;
-    background: #fafafa;
-    border: 1px solid #f0f0f0;
+    background: var(--bg-secondary, #fafafa);
+    border: 1px solid var(--border-color, #f0f0f0);
+    color: var(--text-primary, rgba(0, 0, 0, 0.88));
     border-radius: 4px;
   }
 }

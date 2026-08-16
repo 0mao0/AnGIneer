@@ -102,6 +102,7 @@ def list_records(
     status_filter: Optional[str] = None,
     uploaded_by_filter: Optional[str] = None,
     deleted_filter: bool = False,
+    library_id: Optional[str] = None,
     start_date: Optional[str] = None,
     end_date: Optional[str] = None,
     limit: int = 500,
@@ -119,6 +120,9 @@ def list_records(
         params.append(uploaded_by_filter)
     if deleted_filter:
         query += " AND status = 'deleted'"
+    if library_id:
+        query += " AND library_id = ?"
+        params.append(library_id)
     if start_date:
         query += " AND created_at >= ?"
         params.append(start_date)
