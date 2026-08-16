@@ -182,6 +182,62 @@ class V1DocumentsScopeTests(unittest.TestCase):
 
         self.assertEqual(resp.status_code, 404)
 
+    def test_parse_creates_folder_named_after_api_key_in_bound_library(self):
+        from types import SimpleNamespace
+        from fastapi import FastAPI
+        from fastapi.testclient import TestClient
+        import routes.v1.documents as documents
+
+        app = FastAPI()
+
+        @app.middleware("http")
+        async def _fake_key(request, call_next):
+            request.state.api_key_info = SimpleNamespace(
+                user_name="bidcompare", id=5, library_id="lib-bidcompare"
+            )
+            return await call_next(request)
+
+        app.include_router(documents.router, prefix="/api/v1/documents")
+        client = TestClient(app)
+        save_mock, svc_mock, task_mock = self._parse_mocks(documents)
+        inserted = []
+
+        with self._tmp_db(), save_mock as save_file, svc_mock, task_mock, \
+             patch.object(documents, "insert_record", side_effect=inserted.append):
+            docs_service = documents.get_docs_service.return_value
+            resp = client.post(
+                "/api/v1/documents/parse?library_id=default",
+                files={"file": ("a.md", b"# hello", "text/markdown")},
+            )
+
+        self.assertEqual(resp.status_code, 200, resp.text)
+        # 目标库优先取 API key 绑定的库，而不是请求参数
+        self.assertEqual(save_file.call_args.args[0], "lib-bidcompare")
+        # 根文件夹以 API 名称命名，文档挂在它下面
+        created = docs_service.create_node.call_args.args[0]
+        self.assertEqual(created.title, "bidcompare")
+        self.assertEqual(created.library_id, "lib-bidcompare")
+        self.assertIsNone(created.parent_id)
+        docs_service.register_document.assert_called_once()
+        self.assertEqual(docs_service.register_document.call_args.kwargs["parent_id"], "folder-1")
+
+    def test_parse_without_api_key_uses_fallback_folder_name(self):
+        documents, client = self._make_client()
+        save_mock, svc_mock, task_mock = self._parse_mocks(documents)
+        inserted = []
+
+        with self._tmp_db(), save_mock, svc_mock, task_mock, \
+             patch.object(documents, "insert_record", side_effect=inserted.append):
+            docs_service = documents.get_docs_service.return_value
+            resp = client.post(
+                "/api/v1/documents/parse",
+                files={"file": ("a.md", b"# hello", "text/markdown")},
+            )
+
+        self.assertEqual(resp.status_code, 200, resp.text)
+        created = docs_service.create_node.call_args.args[0]
+        self.assertEqual(created.title, "未知API")
+
     def _tmp_db(self):
         import tempfile
 

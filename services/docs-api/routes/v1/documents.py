@@ -53,7 +53,10 @@ _ARTIFACT_NAMES = {
     "graph.sqlite": "graph",
 }
 
-EXTERNAL_API_FOLDER_TITLE = "外部API"
+def _api_folder_title(api_key_info) -> str:
+    """外部 API 上传的文档按 API 名称建根文件夹，不再使用通用『外部API』。"""
+    name = str(getattr(api_key_info, "user_name", "") or "").strip()
+    return name or "未知API"
 
 # 编排器进程级单例（与 docs_routes 共享，避免取消串台与 GPU 闸门序号冲突）
 from orchestrator import parse_orchestrator
@@ -71,8 +74,8 @@ def _library_id_for_doc(doc_id: str) -> str:
     return "default"
 
 
-def _ensure_external_api_folder(library_id: str) -> str:
-    """找到或创建知识树根部的『外部API』文件夹，返回其 node_id。"""
+def _ensure_api_folder(library_id: str, title: str) -> str:
+    """找到或创建知识树根部的 API 名称文件夹，返回其 node_id。"""
     from docs_core.docs_service import KnowledgeNode
 
     ks = get_docs_service()
@@ -81,13 +84,13 @@ def _ensure_external_api_folder(library_id: str) -> str:
             node.type == "folder"
             and node.library_id == library_id
             and not node.deleted
-            and node.title == EXTERNAL_API_FOLDER_TITLE
+            and node.title == title
         ):
             return node.id
 
     node = KnowledgeNode(
         id=f"node-{uuid.uuid4().hex[:8]}",
-        title=EXTERNAL_API_FOLDER_TITLE,
+        title=title,
         type="folder",
         library_id=library_id,
         parent_id=None,
@@ -119,16 +122,19 @@ async def parse_document_v1(
     library_id = library_id.strip() or "default"
     doc_id = f"v1-{uuid.uuid4().hex[:12]}"
 
-    content = await file.read()
-    source_path = file_storage.save_source_file(library_id, doc_id, content, file.filename)
-
-    # 提取 API key 信息用于统计
+    # 提取 API key 信息用于统计；目标库优先取 API key 绑定的库（P2 防串库），未绑定回退请求参数
     api_key_info = getattr(request.state, "api_key_info", None)
     uploaded_by = api_key_info.user_name if api_key_info else "未知"
     api_key_id = api_key_info.id if api_key_info else None
+    bound_library = str(getattr(api_key_info, "library_id", "") or "").strip()
+    if bound_library:
+        library_id = bound_library
+
+    content = await file.read()
+    source_path = file_storage.save_source_file(library_id, doc_id, content, file.filename)
 
     # 注册知识库节点：挂在知识树根部的『外部API』文件夹下（parse_pipeline 依赖节点存在）
-    folder_id = _ensure_external_api_folder(library_id)
+    folder_id = _ensure_api_folder(library_id, _api_folder_title(api_key_info))
     get_docs_service().register_document(
         library_id,
         source_path,
