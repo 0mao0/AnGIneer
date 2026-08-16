@@ -89,6 +89,25 @@ export function formatThinkingArgDetail(detail: string): string {
   return detail
 }
 
+/**
+ * 给每个可见步骤生成带序号的标题，说明类与工具调用/返回统一展示，
+ * 方便用户按顺序看懂完整思考链路。
+ */
+export function formatThinkingStepLabel(group: ThinkingGroupStep): string {
+  const title =
+    group.kind === 'note'
+      ? (group.label || group.detail || '')
+      : group.callDetail
+        ? `调用工具：${group.tool}`
+        : `工具返回：${group.tool}`
+  return group.index ? `${group.index}. ${title}` : title
+}
+
+/** 结果步骤是否带候选条目、可以展开查看。 */
+export function isResultExpandable(group: ThinkingGroupStep): boolean {
+  return Boolean(group.resultItems && group.resultItems.length > 0)
+}
+
 /** 统计思考过程里的可见步骤总数。 */
 export function countThinkingSteps(groups: ThinkingGroupStep[]): number {
   return (groups || []).length

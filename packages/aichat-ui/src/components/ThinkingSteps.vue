@@ -6,12 +6,11 @@
     :class="group.kind === 'note' ? 'thinking-step-note' : ''"
   >
     <template v-if="group.kind === 'note'">
-      <span class="thinking-step-note-label">{{ group.label || group.detail }}</span>
+      <span class="thinking-step-note-label">{{ formatThinkingStepLabel(group) }}</span>
     </template>
     <template v-else>
-      <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
       <span class="thinking-step-label">
-        {{ group.callDetail ? '调用工具：' : '工具返回：' }}{{ group.tool }}
+        {{ formatThinkingStepLabel(group) }}
         <span v-if="group.callDetail" class="thinking-step-detail">
           （{{ formatThinkingArgDetail(group.callDetail) }}）
         </span>
@@ -19,11 +18,24 @@
       <span
         v-if="group.resultDetail"
         class="thinking-step-result"
-        :class="{ 'is-error': group.isError }"
+        :class="{ 'is-error': group.isError, 'has-items': isResultExpandable(group) }"
+        :role="isResultExpandable(group) ? 'button' : undefined"
+        :tabindex="isResultExpandable(group) ? 0 : undefined"
+        :aria-expanded="isResultExpandable(group) ? isResultExpanded(group.index) : undefined"
+        @click="toggleResultExpandIfAny(group.index, group)"
+        @keydown.enter.prevent="toggleResultExpandIfAny(group.index, group)"
+        @keydown.space.prevent="toggleResultExpandIfAny(group.index, group)"
       >
+        <template v-if="isResultExpandable(group)">
+          <DownOutlined
+            v-if="isResultExpanded(group.index)"
+            class="thinking-step-result-toggle-icon"
+          />
+          <RightOutlined v-else class="thinking-step-result-toggle-icon" />
+        </template>
         调用结果：→ {{ group.resultDetail }}
         <template v-if="group.resultItems?.length">
-          （全部 {{ group.resultItems.length }} 条作为候选交给模型）
+          （全部 {{ group.resultItems.length }} 条作为候选，点击展开）
         </template>
         <template v-if="group.resultNote">；{{ group.resultNote }}</template>
         <template v-if="group.durationMs"> · 耗时 {{ formatDuration(group.durationMs) }}</template>
@@ -91,6 +103,8 @@ import { getCitationTagLabel, getCitationTagTooltip } from '../utils/citation'
 import {
   formatDuration,
   formatThinkingArgDetail,
+  formatThinkingStepLabel,
+  isResultExpandable,
   type ThinkingGroupStep,
 } from '../utils/thinking'
 import type { BaseChatCitation, ThinkingTraceItem } from '../types'
@@ -107,6 +121,12 @@ const toggleResultExpand = (index: number) => {
   expandedResults.value = isResultExpanded(index)
     ? expandedResults.value.filter(item => item !== index)
     : [...expandedResults.value, index]
+}
+
+const toggleResultExpandIfAny = (index: number, group: ThinkingGroupStep) => {
+  if (isResultExpandable(group)) {
+    toggleResultExpand(index)
+  }
 }
 
 /** 把工具返回条目转成可点击跳 PDF 的引用对象 */
@@ -137,6 +157,8 @@ const truncate = (text: string, max: number) => {
   gap: 2px;
   font-size: 12px;
   line-height: 1.6;
+  padding: 2px 8px;
+  border-radius: 6px;
 
   &:not(.thinking-step-note) {
     display: flex;
@@ -144,11 +166,6 @@ const truncate = (text: string, max: number) => {
     flex-wrap: wrap;
     align-items: baseline;
     gap: 2px 6px;
-  }
-
-  .thinking-step-index {
-    font-weight: 700;
-    color: var(--text-tertiary, #999);
   }
 
   .thinking-step-label {
@@ -171,6 +188,18 @@ const truncate = (text: string, max: number) => {
     &.is-error {
       color: var(--error-color, #ff4d4f);
     }
+
+    &.has-items {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+
+    .thinking-step-result-toggle-icon {
+      margin-right: 2px;
+    }
   }
 
   .thinking-step-result-toggle {
@@ -186,7 +215,7 @@ const truncate = (text: string, max: number) => {
     border-radius: 6px;
     background: transparent;
     color: var(--text-secondary);
-    font-size: 11px;
+    font-size: 12px;
     line-height: 20px;
     cursor: pointer;
     transition: color 0.16s ease, border-color 0.16s ease;
@@ -245,7 +274,7 @@ const truncate = (text: string, max: number) => {
   .thinking-result-item-score {
     flex-shrink: 0;
     color: var(--text-tertiary, #999);
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .thinking-result-item-snippet {
@@ -254,7 +283,7 @@ const truncate = (text: string, max: number) => {
     -webkit-box-orient: vertical;
     overflow: hidden;
     color: var(--text-secondary);
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.5;
   }
 
@@ -269,7 +298,7 @@ const truncate = (text: string, max: number) => {
 
   .thinking-step-citations-label {
     color: var(--text-tertiary, #999);
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .thinking-step-citation {
@@ -282,7 +311,7 @@ const truncate = (text: string, max: number) => {
     border-radius: 999px;
     background: rgba(128, 128, 128, 0.08);
     color: var(--text-secondary);
-    font-size: 11px;
+    font-size: 12px;
     line-height: 18px;
     cursor: pointer;
     transition: color 0.16s ease, border-color 0.16s ease;
@@ -295,14 +324,11 @@ const truncate = (text: string, max: number) => {
 
   &.thinking-step-note {
     margin: 2px 0;
-    padding: 4px 8px;
-    border-radius: 6px;
     background: rgba(128, 128, 128, 0.06);
 
     .thinking-step-note-label {
       font-weight: 600;
       color: var(--text-tertiary, #999);
-      font-size: 11px;
       letter-spacing: 0.02em;
     }
   }
