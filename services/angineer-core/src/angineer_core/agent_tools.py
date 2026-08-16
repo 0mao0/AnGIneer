@@ -526,9 +526,8 @@ class RetrieverAdapter:
             store = GraphStore(
                 db_path or os.environ.get("KG_DB_PATH", os.path.join("data", "knowledge_graph.sqlite"))
             )
-            # 图谱实体当前无 library_id 维度（graph_entities 表无 scope 列），检索为全库；
-            # scope 随行返回供前端/evals 追踪，多库隔离待图谱 schema 演进。
-            entities = store.search_entities(query, limit=limit)
+            # 图谱实体按 library_id 隔离（P3 起 graph_entities 有 scope 列）；scope 随行返回供前端/evals 追踪。
+            entities = store.search_entities(query, limit=limit, library_id=library_id)
             result: Dict[str, Any] = {
                 "entities": [_serialize_model(entity) for entity in entities],
                 "total": len(entities),

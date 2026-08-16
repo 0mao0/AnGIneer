@@ -18,6 +18,7 @@ class KeyItem(BaseModel):
     created_at: str
     last_used_at: str | None = None
     scope: str = "both"
+    library_id: str = ""
     doc_count: int = 0
 
 
@@ -55,7 +56,7 @@ async def list_api_keys():
 
 @router.post("/api-keys", response_model=CreateKeyResponse, tags=["Admin"])
 async def create_api_key(req: CreateKeyRequest):
-    raw_key, api_key = generate_key(req.user_name, scope=req.scope)
+    raw_key, api_key = generate_key(req.user_name, scope=req.scope, library_id=req.library_id)
     return CreateKeyResponse(
         api_key=raw_key,
         key_prefix=api_key.key_prefix,

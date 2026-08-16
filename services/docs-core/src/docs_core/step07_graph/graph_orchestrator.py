@@ -243,6 +243,7 @@ class GraphOrchestrator:
                     layer=layer,
                     source_doc=doc_title,
                     source_clause=packet.section_path,
+                    library_id=getattr(packet, 'library_id', '') or 'default',
                 ))
                 entity_count += 1
 
@@ -376,6 +377,7 @@ class GraphOrchestrator:
                 layer=layer,
                 source_doc=doc_title,
                 source_clause=packet.section_path,
+                library_id=getattr(packet, 'library_id', '') or 'default',
             ))
             entity_count += 1
 

@@ -128,6 +128,16 @@ class SteerRequest(BaseModel):
     text: str
 
 
+def enforce_bound_library(bound: str, requested: str) -> str:
+    """绑定 key 的 library_id 服务端强制：空/default → 绑定值；一致放行；冲突 403。"""
+    if not bound:
+        return (requested or "").strip() or "default"
+    req = (requested or "").strip()
+    if req and req != "default" and req != bound:
+        raise HTTPException(status_code=403, detail=f"API key 仅授权访问知识库 '{bound}'")
+    return bound
+
+
 @app.get("/api/llm_configs")
 def list_llm_configs():
     """获取可用 LLM 模型配置列表。"""
@@ -164,6 +174,11 @@ async def classify_intent_offloaded(query: str, config_name: Optional[str] = Non
 @app.post("/api/chat/agent")
 async def chat_agent_stream(request: QueryRequest, raw_request: Request):
     """Agent SSE：run/turn/tool 事件按 AgentEvent 帧输出。"""
+    request.library_id = enforce_bound_library(
+        str(getattr(raw_request.state, "bound_library_id", "") or ""),
+        request.library_id,
+    )
+
     async def event_stream():
         try:
             session = get_agent_session(

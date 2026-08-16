@@ -26,6 +26,24 @@ def _deserialize_aliases(raw: Optional[str]) -> List[str]:
     return json.loads(raw)
 
 
+# graph_entities 建表语句（含 library_id 多库隔离；UNIQUE(name) 已演进为 UNIQUE(name, library_id)）
+_ENTITIES_TABLE_SQL = """
+                CREATE TABLE IF NOT EXISTS graph_entities (
+                    entity_id TEXT PRIMARY KEY,
+                    name TEXT NOT NULL,
+                    layer TEXT NOT NULL CHECK(layer IN ('concept','condition','action')),
+                    aliases_json TEXT DEFAULT '[]',
+                    description TEXT DEFAULT '',
+                    source_doc TEXT DEFAULT '',
+                    source_clause TEXT DEFAULT '',
+                    library_id TEXT NOT NULL DEFAULT 'default',
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL,
+                    UNIQUE(name, library_id)
+                );
+"""
+
+
 @dataclass
 class PrincipleData:
     principle_id: str = field(default_factory=_generate_id)
@@ -137,6 +155,7 @@ class GraphEntity:
     description: str = ""
     source_doc: str = ""
     source_clause: str = ""
+    library_id: str = "default"
     created_at: str = field(default_factory=_now)
     updated_at: str = field(default_factory=_now)
 
@@ -150,6 +169,7 @@ class GraphEntity:
             description=row["description"],
             source_doc=row["source_doc"],
             source_clause=row["source_clause"],
+            library_id=row["library_id"],
             created_at=row["created_at"],
             updated_at=row["updated_at"],
         )
@@ -205,19 +225,37 @@ class GraphStore:
 
     def _init_schema(self):
         with self._connect() as conn:
-            conn.executescript("""
-                CREATE TABLE IF NOT EXISTS graph_entities (
-                    entity_id TEXT PRIMARY KEY,
-                    name TEXT NOT NULL UNIQUE,
-                    layer TEXT NOT NULL CHECK(layer IN ('concept','condition','action')),
-                    aliases_json TEXT DEFAULT '[]',
-                    description TEXT DEFAULT '',
-                    source_doc TEXT DEFAULT '',
-                    source_clause TEXT DEFAULT '',
-                    created_at TEXT NOT NULL,
-                    updated_at TEXT NOT NULL
-                );
-
+            # 旧表迁移：graph_entities 无 library_id → 按 new-table 策略重建
+            # （CREATE new → INSERT → DROP 旧 → RENAME new）。不 rename 主表，
+            # 避免引用表（relations/联结表）的 REFERENCES 文本被 SQLite 改写绑到旧表。
+            existing = conn.execute(
+                "SELECT name FROM sqlite_master WHERE type='table' AND name='graph_entities'"
+            ).fetchone()
+            new_exists = conn.execute(
+                "SELECT name FROM sqlite_master WHERE type='table' AND name='graph_entities_new'"
+            ).fetchone()
+            needs_migration = False
+            if existing is not None:
+                cols = [r[1] for r in conn.execute("PRAGMA table_info(graph_entities)")]
+                needs_migration = "library_id" not in cols
+            if needs_migration or new_exists is not None:
+                conn.execute("PRAGMA foreign_keys=OFF")
+                conn.execute("PRAGMA legacy_alter_table=ON")
+                try:
+                    conn.execute(_ENTITIES_TABLE_SQL.replace("graph_entities", "graph_entities_new", 1))
+                    if existing is not None and needs_migration:
+                        conn.execute("""
+                            INSERT OR IGNORE INTO graph_entities_new
+                                (entity_id, name, layer, aliases_json, description, source_doc, source_clause, library_id, created_at, updated_at)
+                            SELECT entity_id, name, layer, aliases_json, description, source_doc, source_clause, 'default', created_at, updated_at
+                            FROM graph_entities
+                        """)
+                        conn.execute("DROP TABLE graph_entities")
+                    conn.execute("ALTER TABLE graph_entities_new RENAME TO graph_entities")
+                finally:
+                    conn.execute("PRAGMA legacy_alter_table=OFF")
+                    conn.execute("PRAGMA foreign_keys=ON")
+            conn.executescript(_ENTITIES_TABLE_SQL + """
                 CREATE TABLE IF NOT EXISTS graph_relations (
                     relation_id TEXT PRIMARY KEY,
                     source_id TEXT NOT NULL REFERENCES graph_entities(entity_id),
@@ -344,7 +382,8 @@ class GraphStore:
         now = _now()
         with self._connect() as conn:
             row = conn.execute(
-                "SELECT * FROM graph_entities WHERE name = ?", (entity.name,)
+                "SELECT * FROM graph_entities WHERE name = ? AND library_id = ?",
+                (entity.name, entity.library_id),
             ).fetchone()
             if row:
                 existing = GraphEntity.from_row(row)
@@ -374,8 +413,8 @@ class GraphStore:
                 entity.updated_at = now
                 conn.execute(
                     """INSERT INTO graph_entities
-                        (entity_id, name, layer, aliases_json, description, source_doc, source_clause, created_at, updated_at)
-                    VALUES (?,?,?,?,?,?,?,?,?)""",
+                        (entity_id, name, layer, aliases_json, description, source_doc, source_clause, library_id, created_at, updated_at)
+                    VALUES (?,?,?,?,?,?,?,?,?,?)""",
                     (
                         entity.entity_id,
                         entity.name,
@@ -384,17 +423,24 @@ class GraphStore:
                         entity.description,
                         entity.source_doc,
                         entity.source_clause,
+                        entity.library_id,
                         now,
                         now,
                     ),
                 )
         return entity
 
-    def get_entity_by_name(self, name: str) -> Optional[GraphEntity]:
+    def get_entity_by_name(self, name: str, library_id: Optional[str] = None) -> Optional[GraphEntity]:
         with self._connect() as conn:
-            row = conn.execute(
-                "SELECT * FROM graph_entities WHERE name = ?", (name,)
-            ).fetchone()
+            if library_id is not None:
+                row = conn.execute(
+                    "SELECT * FROM graph_entities WHERE name = ? AND library_id = ?",
+                    (name, library_id),
+                ).fetchone()
+            else:
+                row = conn.execute(
+                    "SELECT * FROM graph_entities WHERE name = ?", (name,)
+                ).fetchone()
             if row is None:
                 return None
             return GraphEntity.from_row(row)
@@ -408,12 +454,18 @@ class GraphStore:
                 return None
             return GraphEntity.from_row(row)
 
-    def search_entities(self, query: str, limit: int = 20) -> List[GraphEntity]:
+    def search_entities(self, query: str, limit: int = 20, library_id: Optional[str] = None) -> List[GraphEntity]:
         with self._connect() as conn:
-            rows = conn.execute(
-                "SELECT * FROM graph_entities WHERE name LIKE ? OR aliases_json LIKE ? LIMIT ?",
-                (f"%{query}%", f"%{query}%", limit),
-            ).fetchall()
+            if library_id is not None:
+                rows = conn.execute(
+                    "SELECT * FROM graph_entities WHERE library_id = ? AND (name LIKE ? OR aliases_json LIKE ?) LIMIT ?",
+                    (library_id, f"%{query}%", f"%{query}%", limit),
+                ).fetchall()
+            else:
+                rows = conn.execute(
+                    "SELECT * FROM graph_entities WHERE name LIKE ? OR aliases_json LIKE ? LIMIT ?",
+                    (f"%{query}%", f"%{query}%", limit),
+                ).fetchall()
             return [GraphEntity.from_row(r) for r in rows]
 
     def list_entities_by_layer(self, layer: EntityLayer) -> List[GraphEntity]:
@@ -559,7 +611,7 @@ class GraphStore:
 
     def upsert_entity_by_name(
         self, name: str, layer: str, source_doc: str = "", source_clause: str = "",
-        description: str = "", aliases: Optional[List[str]] = None,
+        description: str = "", aliases: Optional[List[str]] = None, library_id: str = "default",
     ) -> GraphEntity:
         entity = GraphEntity(
             name=name,
@@ -568,6 +620,7 @@ class GraphStore:
             source_clause=source_clause,
             description=description,
             aliases=aliases or [],
+            library_id=library_id,
         )
         return self.upsert_entity(entity)
 
