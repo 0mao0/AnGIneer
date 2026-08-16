@@ -132,6 +132,7 @@ class V1DocumentsScopeTests(unittest.TestCase):
 
         with self._tmp_db(), save_mock as save_file, svc_mock, task_mock as create_task, \
              patch.object(documents, "insert_record", side_effect=inserted.append):
+            docs_service = documents.get_docs_service.return_value
             resp = client.post(
                 "/api/v1/documents/parse?library_id=lib-x",
                 files={"file": ("a.md", b"# hello", "text/markdown")},
@@ -141,6 +142,7 @@ class V1DocumentsScopeTests(unittest.TestCase):
         self.assertEqual(save_file.call_args.args[0], "lib-x")
         self.assertEqual(create_task.call_args.kwargs["library_id"], "lib-x")
         self.assertEqual(inserted[0].library_id, "lib-x")
+        docs_service.register_document.assert_called_once()
 
     def test_parse_defaults_to_default_library(self):
         documents, client = self._make_client()
