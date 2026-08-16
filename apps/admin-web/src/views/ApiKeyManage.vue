@@ -138,7 +138,7 @@ const columns = [
   { title: '创建时间', dataIndex: 'created_at', key: 'created_at', width: 150 },
   { title: '最后使用', dataIndex: 'last_used_at', key: 'last_used_at', width: 150 },
   { title: '启用', key: 'is_active', width: 80 },
-  { title: '操作', key: 'action', width: 100 },
+  { title: '操作', key: 'action', width: 140 },
 ]
 
 async function loadKeys() {
@@ -226,6 +226,7 @@ onMounted(() => {
 <style lang="less" scoped>
 .apikey-workspace {
   height: 100%;
+  overflow-y: auto;
   background: var(--bg-primary);
   padding: 24px;
 }
