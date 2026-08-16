@@ -1,6 +1,7 @@
 """docs-api — 文档解析、知识库、图谱、产物下载与 API Key 管理。"""
 import os
 import sys
+import logging
 from datetime import datetime
 from pathlib import Path
 
@@ -22,6 +23,8 @@ from retrieve_routes import retrieve_router
 from api_key_routes import router as api_key_router
 from routes.v1 import router as v1_router
 from middleware.api_key_auth import APIKeyAuthMiddleware
+from orchestrator import parse_orchestrator
+from startup_recovery import reconcile_stale_parse_tasks
 
 app = FastAPI(
     title="AnGIneer Docs API",
@@ -30,6 +33,19 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
 )
+
+logger = logging.getLogger(__name__)
+
+
+@app.on_event("startup")
+def _reconcile_stale_parse_tasks_on_startup() -> None:
+    try:
+        count = reconcile_stale_parse_tasks(parse_orchestrator)
+        if count:
+            logger.warning("启动自愈: 标记 %d 个中断解析任务为 failed", count)
+    except Exception:
+        logger.exception("启动自愈执行失败")
+
 
 _default_origins = "http://localhost:3005,http://localhost:3002,http://127.0.0.1:3005,http://127.0.0.1:3002,http://localhost,http://127.0.0.1"
 _allowed_origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", _default_origins).split(",") if o.strip()]
