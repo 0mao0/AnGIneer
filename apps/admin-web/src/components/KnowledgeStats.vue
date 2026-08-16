@@ -182,11 +182,21 @@
       </p>
       <p>请输入完整文件名以确认：</p>
       <p class="admin-delete-filename">{{ adminDeleteFileName }}</p>
-      <a-input
-        v-model:value="adminDeleteInput"
-        :placeholder="adminDeleteFileName"
-        @pressEnter="confirmAdminDelete"
-      />
+      <a-input-group compact class="admin-delete-fill-group">
+        <a-input
+          v-model:value="adminDeleteInput"
+          :placeholder="adminDeleteFileName"
+          class="admin-delete-fill-input"
+          @pressEnter="confirmAdminDelete"
+        />
+        <a-button
+          class="admin-delete-fill-btn"
+          title="点击自动填入完整文件名，再次确认后即可删除"
+          @click="adminDeleteInput = adminDeleteFileName"
+        >
+          一键填入
+        </a-button>
+      </a-input-group>
     </a-modal>
   </div>
 </template>
@@ -617,7 +627,7 @@ async function deleteRecord(record: ParseRecordItem) {
       cancelText: '取消',
       async onOk() {
         try {
-          await knowledgeApi.deleteNode(record.doc_id)
+          await purgeNodeIfExists(record.doc_id)
           await knowledgeApi.hardDeleteRecord(record.id)
           message.success('已删除')
           await loadRecords()
@@ -648,7 +658,7 @@ async function deleteRecord(record: ParseRecordItem) {
 async function confirmAdminDelete() {
   if (adminDeleteInput.value.trim() !== adminDeleteFileName.value.trim()) return
   try {
-    await knowledgeApi.deleteNode(adminDeleteDocId.value)
+    await purgeNodeIfExists(adminDeleteDocId.value)
     await knowledgeApi.hardDeleteRecord(adminDeleteRecordId.value)
     message.success('已删除')
     adminDeleteModalOpen.value = false
@@ -662,6 +672,10 @@ async function confirmAdminDelete() {
 async function batchHardDelete() {
   try {
     for (const id of selectedDeletedIds.value) {
+      const record = records.value.find(r => r.id === id)
+      if (record) {
+        await purgeNodeIfExists(record.doc_id)
+      }
       await knowledgeApi.hardDeleteRecord(id)
     }
     message.success(`已删除 ${selectedDeletedIds.value.length} 条记录`)
@@ -669,6 +683,15 @@ async function batchHardDelete() {
     await loadRecords()
   } catch (e: any) {
     message.error('批量删除失败: ' + (e.message || e))
+  }
+}
+
+// 彻底删除前清理知识库节点；节点已彻底不存在（孤儿记录）时忽略 404，仅清理记录本身。
+async function purgeNodeIfExists(docId: string) {
+  try {
+    await knowledgeApi.deleteNode(docId)
+  } catch (e: any) {
+    if (e?.response?.status !== 404) throw e
   }
 }
 
@@ -791,5 +814,23 @@ onMounted(() => {
   font-weight: 600;
   word-break: break-all;
   margin-bottom: 8px;
+}
+.admin-delete-fill-group {
+  display: flex;
+  width: 100%;
+}
+.admin-delete-fill-input {
+  flex: 1;
+  min-width: 0;
+}
+.admin-delete-fill-btn {
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  background: var(--bg-secondary, #fafafa);
+  border-color: var(--border-color, #d9d9d9);
+  &:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background: var(--bg-secondary, #fafafa);
+  }
 }
 </style>

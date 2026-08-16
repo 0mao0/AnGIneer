@@ -64,6 +64,28 @@ class DeleteCascadeTests(unittest.TestCase):
 
         mock_clean.assert_called_once()
 
+    def test_soft_delete_folder_cascades_records(self):
+        """软删除文件夹时，子树内全部文档的解析记录级联标记为 deleted（列表显示“用户已删”）。"""
+        node = type("N", (), {"parse_task_id": None, "title": "folder"})()
+        with self._use_tmp_db():
+            parse_record.insert_record(parse_record.ParseRecord(doc_id="doc-a", task_id="t1"))
+            parse_record.insert_record(parse_record.ParseRecord(doc_id="doc-b", task_id="t2"))
+            with patch.object(docs_routes, "get_docs_service") as mock_ks, \
+                 patch.object(docs_routes, "cancel_parse_task_for_node"), \
+                 patch.object(docs_routes, "soft_delete_record", wraps=parse_record.soft_delete_record) as soft_mock:
+                ks = mock_ks.return_value
+                ks.get_node.return_value = node
+                ks.soft_delete_node.return_value = True
+                ks.get_subtree_document_ids.return_value = ["doc-a", "doc-b"]
+                docs_routes.soft_delete_knowledge_node("folder-1")
+
+            rows = [r for r in parse_record.list_records() if r.get("doc_id") in ("doc-a", "doc-b")]
+
+        self.assertEqual(sorted(r["status"] for r in rows), ["deleted", "deleted"])
+        soft_mock.assert_any_call("folder-1")
+        soft_mock.assert_any_call("doc-a")
+        soft_mock.assert_any_call("doc-b")
+
 
 if __name__ == "__main__":
     unittest.main()

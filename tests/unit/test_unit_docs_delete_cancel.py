@@ -53,11 +53,13 @@ class DocsRoutesCancelWiringTest(unittest.TestCase):
     def test_soft_delete_knowledge_node_cancels(self):
         import docs_routes
 
+        service_mock = MagicMock(soft_delete_node=MagicMock(return_value=True))
+        service_mock.get_subtree_document_ids.return_value = []
         with patch.object(docs_routes, "cancel_parse_task_for_node") as helper, \
                 patch.object(
                     docs_routes,
                     "get_docs_service",
-                    return_value=MagicMock(soft_delete_node=MagicMock(return_value=True)),
+                    return_value=service_mock,
                 ), \
                 patch.object(docs_routes, "soft_delete_record", return_value=True):
             result = docs_routes.soft_delete_knowledge_node("n1")
