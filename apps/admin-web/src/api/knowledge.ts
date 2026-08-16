@@ -77,8 +77,8 @@ export const knowledgeApi = {
     api.post('/knowledge/libraries', { library_id: 'default', name, description }),
   getLibrary: (libraryId: string) => api.get(`/knowledge/libraries/${libraryId}`),
 
-  getNodes: (libraryId: string = 'default', visible: boolean = false) =>
-    api.get('/knowledge/nodes', { params: { library_id: libraryId, visible } }),
+  getNodes: (libraryId?: string, visible: boolean = false) =>
+    api.get('/knowledge/nodes', { params: { visible, ...(libraryId ? { library_id: libraryId } : {}) } }),
   createNode: (data: {
     title: string
     node_type: string

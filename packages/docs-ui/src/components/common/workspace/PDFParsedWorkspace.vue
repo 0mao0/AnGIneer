@@ -46,7 +46,7 @@
               :activeLineRange="activeLinkedLineRange"
               :sourceFilePath="filePath"
               :graphData="props.graphData"
-              :libraryId="'default'"
+              :libraryId="props.libraryId || 'default'"
               :docId="props.node.key"
               :onUpdateStructuredNode="props.onUpdateStructuredNode"
               :onBatchStructuredOperation="props.onBatchStructuredOperation"
@@ -94,6 +94,7 @@ interface Props {
   graphDataFullLoaded?: boolean
   renderPdfPath?: string  // LO 生成的 PDF 底图路径（对非 PDF 输入）
   fileUrlResolver?: (path: string) => string
+  libraryId?: string
   onUpdateStructuredNode?: (payload: StructuredNodeUpdatePayload) => Promise<void>
   onBatchStructuredOperation?: (payload: StructuredBatchOperationPayload) => Promise<void>
   onUndoLastOperation?: () => Promise<void>

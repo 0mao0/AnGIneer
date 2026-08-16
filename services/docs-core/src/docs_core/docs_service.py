@@ -375,8 +375,11 @@ class DocsService:
         return None
 
     # 获取知识库节点列表
-    def list_nodes(self, library_id: str, visible: bool = False) -> List[KnowledgeNode]:
-        nodes = [node for node in self.nodes if node.library_id == library_id and not node.deleted]
+    def list_nodes(self, library_id: Optional[str] = None, visible: bool = False) -> List[KnowledgeNode]:
+        nodes = [
+            node for node in self.nodes
+            if not node.deleted and (library_id is None or node.library_id == library_id)
+        ]
         if visible:
             nodes = [node for node in nodes if node.visible]
         return sorted(nodes, key=lambda node: (node.sort_order, node.created_at))
@@ -491,6 +494,13 @@ class DocsService:
             if node.id in id_set:
                 node.deleted = False
         return True
+
+    # 获取节点子树内全部文档节点 ID（供 API 层级联标记解析记录等使用）。
+    def get_subtree_document_ids(self, node_id: str) -> List[str]:
+        if node_id not in {node.id for node in self.nodes}:
+            return []
+        subtree_node_ids = self._collect_subtree_node_ids(node_id)
+        return [node.id for node in self._collect_document_nodes(subtree_node_ids)]
 
     # 获取节点
     def get_node(self, node_id: str) -> Optional[KnowledgeNode]:

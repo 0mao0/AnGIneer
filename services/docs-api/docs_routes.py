@@ -267,7 +267,7 @@ def get_knowledge_library(library_id: str):
 
 
 @docs_router.get("/nodes")
-def list_knowledge_nodes(library_id: str = 'default', visible: bool = False):
+def list_knowledge_nodes(library_id: Optional[str] = None, visible: bool = False):
     """获取知识库节点列表。"""
     ks = get_docs_service()
     return ks.list_nodes(library_id, visible)
@@ -386,6 +386,10 @@ def soft_delete_knowledge_node(node_id: str):
     if not success:
         raise HTTPException(status_code=404, detail="Node not found")
     try:
+        # 级联：文件夹软删除时，其内部文档的解析记录同步标记为“用户已删”，
+        # 保证列表模式能看到并允许彻底清除。
+        for doc_id in ks.get_subtree_document_ids(node_id):
+            soft_delete_record(doc_id)
         soft_delete_record(node_id)
     except Exception as e:
         logger.error(f"软删除节点 {node_id} 记录失败: {e}")

@@ -157,6 +157,7 @@
               <PDFParsedWorkspace
                 ref="docParsedWorkspaceRef"
                 :node="selectedNode"
+                :library-id="selectedNode?.libraryId || 'default'"
                 :content="docContent"
                 :structured-stats="structuredStats"
                 :structured-items="structuredItems"
@@ -544,12 +545,15 @@ const onPanelResize = (leftSize: number, rightSize: number) => {
 const keepCurrentPreview = (docId: string) => docContentDocId.value === docId && Boolean(docContent.value)
 
 /** 图谱快照加载（注入给 Preview_KnowledgeGraph，替代组件内硬编码 fetch） */
+const nodeLibrary = (node?: SmartTreeNode | null): string =>
+  String((node as any)?.libraryId || useLibraryStore().libraryId || 'default')
+
 const loadGraphSnapshot = (params: { libraryId?: string; docId?: string; viewMode?: 'doc' | 'global' }) =>
-  props.api.getGraphSnapshot(params)
+  props.api.getGraphSnapshot({ ...params, libraryId: params.libraryId || nodeLibrary(selectedNode.value) })
 
 /** 图谱构建（快速提取 / AI 深度提取，enableLlm 区分） */
 const buildGraphFromDoc = (params: { libraryId?: string; docId?: string }, enableLlm: boolean) =>
-  props.api.buildGraphFromDoc(params.libraryId || useLibraryStore().libraryId || 'default', params.docId || '', enableLlm)
+  props.api.buildGraphFromDoc(params.libraryId || nodeLibrary(selectedNode.value), params.docId || '', enableLlm)
 
 const _loadStructuredIndexWrapper = () => loadStructuredIndex(selectedNode.value, docContent.value)
 
@@ -654,7 +658,7 @@ const findFirstFileNode = (nodes: SmartTreeNode[]): SmartTreeNode | null => {
 // 加载节点
 const loadNodes = async (focusNodeKey?: string) => {
   try {
-    const response = await props.api.getNodes(useLibraryStore().libraryId || 'default', false) as unknown as any[]
+    const response = await props.api.getNodes(undefined, false) as unknown as any[]
     treeData.value = buildTree(response)
     // 校验当前选中节点是否仍存在（列表页可能已删除该文档），不存在则清空选中态与视图缓存
     const currentSelectedKey = selectedKeys.value[0]
@@ -757,7 +761,7 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
 const docRenderPdfPath = ref<string>('')
 const loadDocContent = async (docId: string) => {
   try {
-    const result = await props.api.getDocument('default', docId) as unknown as {
+    const result = await props.api.getDocument(nodeLibrary(selectedNode.value), docId) as unknown as {
       content: string
       storage?: { source_file?: string | null; render_pdf?: string | null }
       graph_data?: { nodes: any[]; edges: any[] } | null
@@ -795,7 +799,7 @@ const loadGraphSummary = async (docId: string) => {
     graphDataLoading.value = true
     for (let attempt = 0; attempt < MISMATCH_MAX_RETRIES; attempt++) {
       // 高亮依赖节点 bbox，必须加载完整图（summary 会剥离 bbox）
-      const result = await props.api.getDocBlocksGraph('default', docId) as any
+      const result = await props.api.getDocBlocksGraph(nodeLibrary(selectedNode.value), docId) as any
       if (selectedNode.value?.key !== docId) {
         // 重试间隙用户已切换文档，丢弃本次结果
         return
@@ -830,7 +834,7 @@ const loadFullGraphData = async () => {
   if (!selectedNode.value || graphDataFullLoaded.value || graphDataLoading.value) return
   try {
     graphDataLoading.value = true
-    const result = await props.api.getDocBlocksGraph('default', selectedNode.value.key) as any
+    const result = await props.api.getDocBlocksGraph(nodeLibrary(selectedNode.value), selectedNode.value.key) as any
     graphData.value = result?.data || null
     graphDataFullLoaded.value = true
   } catch {
@@ -891,8 +895,11 @@ const handleFolderModalOk = async () => {
   modalLoading.value = true
   try {
     if (folderForm.value.isNew) {
+      const parentNode = folderForm.value.parentId
+        ? findNode(treeData.value as unknown as SmartTreeNode[], folderForm.value.parentId)
+        : null
       await props.api.createNode({
-        library_id: useLibraryStore().libraryId || 'default',
+        library_id: (parentNode as any)?.libraryId || useLibraryStore().libraryId || 'default',
         title: folderForm.value.name,
         node_type: 'folder',
         parent_id: folderForm.value.parentId
@@ -1015,7 +1022,7 @@ const parseDocument = async (node: SmartTreeNode) => {
       selectedNode.value.parseProgress = 0
       selectedNode.value.parseStage = 'queued'
     }
-    const result = await props.api.parseDocumentAsync('default', node.key, node.filePath, parseOptions) as any
+    const result = await props.api.parseDocumentAsync(nodeLibrary(node), node.key, node.filePath, parseOptions) as any
     const taskId = result?.task_id
     message.success('开始解析文档')
     await loadNodes(node.key)
@@ -1030,7 +1037,7 @@ const parseDocument = async (node: SmartTreeNode) => {
 
 // 查看文档
 const viewDocument = (node: SmartTreeNode) => {
-  const resource = createResourceNodeFromKnowledge(node, 'default')
+  const resource = createResourceNodeFromKnowledge(node, (node as any).libraryId || 'default')
   const payload = createOpenResourcePayload(resource)
   if (!payload) {
     message.warning('当前节点不可查看')
@@ -1073,6 +1080,9 @@ const handleFileDrop = async (files: File[], targetFolder: SmartTreeNode | null)
 
 // 上传文件
 const uploadFile = async (file: File, parentId?: string) => {
+  const targetLibrary = parentId
+    ? String((findNode(treeData.value as unknown as SmartTreeNode[], parentId) as any)?.libraryId || useLibraryStore().libraryId || 'default')
+    : String(useLibraryStore().libraryId || 'default')
   const tempKey = `__uploading_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
   const tempNode: KnowledgeTreeNode = {
     key: tempKey,
@@ -1081,6 +1091,7 @@ const uploadFile = async (file: File, parentId?: string) => {
     visible: false,
     status: 'uploading',
     parentId,
+    libraryId: targetLibrary,
     filePath: file.name
   }
 
@@ -1107,7 +1118,7 @@ const uploadFile = async (file: File, parentId?: string) => {
   selectedNode.value = tempNode
 
   try {
-    const result = await props.api.uploadDocument('default', file, parentId) as any
+    const result = await props.api.uploadDocument(targetLibrary, file, parentId) as any
     message.success(`上传成功: ${file.name}`)
     const docId = result?.doc_id || result?.node?.id
     await loadNodes(docId)

@@ -60,7 +60,7 @@ export function useKnowledgeStructuredIndex(api: KnowledgeStructuredApi) {
   ) => {
     if (!selectedNode || selectedNode.isFolder) return
     try {
-      await api.updateDocumentBlock('default', selectedNode.key, payload)
+      await api.updateDocumentBlock(String(selectedNode.libraryId || 'default'), selectedNode.key, payload)
       await onLoadDocContent(selectedNode.key)
       await onLoadStructuredStats(selectedNode.key)
       await onLoadStructuredIndex()
@@ -83,7 +83,7 @@ export function useKnowledgeStructuredIndex(api: KnowledgeStructuredApi) {
   ) => {
     if (!selectedNode || selectedNode.isFolder) return
     try {
-      const result = await api.batchOperateDocumentBlocks('default', selectedNode.key, payload) as any
+      const result = await api.batchOperateDocumentBlocks(String(selectedNode.libraryId || 'default'), selectedNode.key, payload) as any
       await onLoadDocContent(selectedNode.key)
       await onLoadStructuredStats(selectedNode.key)
       await onLoadStructuredIndex()
@@ -137,7 +137,7 @@ export function useKnowledgeStructuredIndex(api: KnowledgeStructuredApi) {
   ) => {
     if (!selectedNode || selectedNode.isFolder) return
     try {
-      const result = await api.undoLastDocumentBlockOperation('default', selectedNode.key) as any
+      const result = await api.undoLastDocumentBlockOperation(String(selectedNode.libraryId || 'default'), selectedNode.key) as any
       await onLoadDocContent(selectedNode.key)
       await onLoadStructuredStats(selectedNode.key)
       await onLoadStructuredIndex()
