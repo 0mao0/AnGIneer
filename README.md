@@ -8,12 +8,35 @@
 
 ***
 
+## 0. 技术亮点（Why AnGIneer）
+
+- **五路召回 + 加权融合**：dense / sparse / clause / table / formula，RRF 融合带条款直达加成与表格去重；embedding / reranker 故障自动降级，检索不断链。
+- **Agent Harness**：L0~L4 意图分级 + Attempt 状态机 + 可观测事件流（SSE），前端实时渲染思考过程；工具文本协议兼容一切 OpenAI 兼容端点。
+- **8 阶段解析管线**：MinerU + PoPo 强化 + Solo 结构化 + 索引/图谱，断点恢复、GPU 槽位、产物校验，把"规范 PDF"变成可溯源的结构化知识。
+- **查表问答能答出数**：表格行并入正文检索 + 查表类强制 table_search，避免"搜到表标题却拿不到数值"。
+- **Prompt 资产化 + 拒答守卫**：prompt 统一版本管理；最终回答强制证据校验，防编造规范号/背景。
+- **多租户预留 + API Key 闭环**：库级隔离、自动建库、外部 API 按真实 API 建文件夹收纳。
+
+## 0.1 文档导航
+
+| 文档 | 内容 |
+| :--- | :--- |
+| [docs/retrieval-chain.md](docs/retrieval-chain.md) | 检索链路：多路召回、融合、重排、引用装配、拒答守卫与踩坑记录 |
+| [docs/agent-harness.md](docs/agent-harness.md) | Agent Harness：L0~L4 策略、Attempt 状态机、事件协议、工具协议、守卫 |
+| [docs/parse-pipeline.md](docs/parse-pipeline.md) | 解析管线：8 阶段、产物、断点恢复、GPU 槽位、踩坑记录 |
+| [docs/knowledge-data-model.md](docs/knowledge-data-model.md) | 知识库数据模型：元数据库、树、索引库、文件布局、多租户 |
+| [docs/llm-gateway.md](docs/llm-gateway.md) | LLM 网关：配置、重试、熔断、降级、Prompt 资产化 |
+| [docs/popo-pipeline.md](docs/popo-pipeline.md) | MinerU-Popo 管线图解 |
+| docs/superpowers/plans、specs | 迭代计划与设计规格（历史归档） |
+
+***
+
 ## 1. 版本路线与现状
 
 | 版本 | 里程碑 | 核心能力 | 代码现状 |
 | :--- | :--- | :--- | :--- |
 | **v0.1** | 规范问答基础版 | 文档解析入库、知识图谱、SOP 引擎、L0-L4 意图分级、AI 对话、评测框架 | ✅ 基本完成（git tag `v0.1-frontend-*`） |
-| **v0.2** | Docs-SOP 问答系统化改进 | Agent 化问答链路、五路检索 + 融合重排、SOP 审核/审计、Prompt 资产化、10 阶段解析管线 + PoPo 强化、注册考试题集评测、Dream Cycle 知识巡检 | ✅ 已完成，当前迭代基线 v0.2.1 |
+| **v0.2** | Docs-SOP 问答系统化改进 | Agent 化问答链路、五路检索 + 融合重排、SOP 审核/审计、Prompt 资产化、8 阶段解析管线 + PoPo 强化、注册考试题集评测、Dream Cycle 知识巡检 | ✅ 已完成，当前迭代基线 v0.2.1 |
 | **v0.3** | 世界模型 | 基于 Cesium 的三维地理世界模型，自主查询地理信息（GIS / 水文气象 / 地形），支撑更高级题目 | 🚧 骨架已存在（geo-core GIS 断面算量工具 + GIS 视图），Cesium 集成规划中 |
 | **v0.4** | 设计报告 | 基于规范检索、SOP 执行轨迹与地理/计算数据，自动编制工可、初设等正式设计报告 | 🚧 规划中 |
 | **v0.5** | CAD 出图算量 | 连接并驱动 CAD 引擎，自动出图、工程量计算，形成"设计 → 出图 → 算量"闭环 | 🚧 规划中，**v0.5 定位为正式版** |

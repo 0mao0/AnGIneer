@@ -3,8 +3,11 @@ last_updated: 2026-08-13
 
 truth_sources:
   - README.md
-  - docs/apps-techniques.md
-  - docs/services-techniques.md
+  - docs/retrieval-chain.md
+  - docs/agent-harness.md
+  - docs/parse-pipeline.md
+  - docs/knowledge-data-model.md
+  - docs/llm-gateway.md
   - AGENTS.md
   - package.json
 
@@ -298,6 +301,6 @@ change_checklist:
   - If ports change, update every reference in docs and frontend proxy config in the same change.
   - If resource protocol changes, update adapter, open flow, workbench mapping, and both consoles.
   - If docs storage layout changes, update docs-core, engtools compatibility, docs, and migration path.
-  - If knowledge routes change, update README and both techniques documents.
+  - If knowledge routes change, update README and docs/ 模块文档。
   - If ai-inference API changes, update all direct consumers (angineer-core, docs-core, engtools, sop-core, docs-api, aichat-api).
   - If tree-core API changes, update all direct consumers (evals-core, docs-core).
