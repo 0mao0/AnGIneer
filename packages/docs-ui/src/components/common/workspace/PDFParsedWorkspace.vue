@@ -17,6 +17,7 @@
           :pdfPageCount="inferredPdfPageCount"
           :highlights="linkedHighlights"
           :activeHighlightId="activeLeftHighlightId"
+          :active-highlight-ids="activeLinkedHighlightIds"
           :activeClickItemId="pdfClickActiveItemId"
           :searchText="markdownContent"
           :pageLabels="printedPageLabels"
@@ -225,6 +226,7 @@ const printedPageLabels = computed(() => buildPrintedPageLabels(
 const {
   linkedHighlights,
   activeLinkedItemId,
+  activeLinkedHighlightIds,
   activeLeftHighlightId,
   pdfClickActiveItemId,
   activeLinkedLineRange,

@@ -1,6 +1,7 @@
 import type { CitationReference } from '../types/citation'
 import { nextTick, type Ref } from 'vue'
 import { effectiveField } from '../utils/common'
+import { normalizeCitationTargetId } from '../utils/citationTarget'
 
 type CitationRichMedia = {
   table_html?: string
@@ -115,6 +116,7 @@ export function useKnowledgeCitation() {
   ) => {
     if (!graphNodes.length || !citation) return null
     const targetId = getCitationTargetId(citation)
+    const normalizedTargetId = normalizeCitationTargetId(targetId)
     const normalizedLastSegment = normalizeCitationText(getCitationLastSegment(getCitationSectionPath(citation)))
     const normalizedSnippet = normalizeCitationText(getCitationSnippet(citation))
     let bestNode: any = null
@@ -123,7 +125,14 @@ export function useKnowledgeCitation() {
       let score = 0
       const nodeId = String(node?.id || '').trim()
       const blockUid = String(node?.block_uid || '').trim()
-      if (targetId && (nodeId === targetId || blockUid === targetId)) {
+      if (
+        targetId && (
+          nodeId === targetId
+          || blockUid === targetId
+          || nodeId === normalizedTargetId
+          || blockUid === normalizedTargetId
+        )
+      ) {
         score += 5000
       }
       const nodePage = Number(node?.page_idx ?? -1) + 1
@@ -193,7 +202,7 @@ export function useKnowledgeCitation() {
       await onLoadStructuredIndex()
     }
     const resolvedNode = resolveCitationTargetNode(citation, graphData.value?.nodes || [])
-    const resolvedTargetId = String(resolvedNode?.id || targetId).trim()
+    const resolvedTargetId = String(resolvedNode?.id || normalizeCitationTargetId(targetId)).trim()
     const resolvedPreferredPage = Number(resolvedNode?.page_idx ?? -1) >= 0
       ? Number(resolvedNode.page_idx) + 1
       : (getCitationPage(citation) > 0 ? getCitationPage(citation) : null)
