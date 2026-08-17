@@ -73,6 +73,7 @@ class AgentLoopConfig:
     ] = None
     route_note: Optional[str] = None
     tool_timeout_s: int = 120
+    followup_question: Optional[bool] = None
     pending_messages_provider: Optional[Callable[[], List[AgentMessage]]] = None
 
 

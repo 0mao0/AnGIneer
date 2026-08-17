@@ -1,5 +1,6 @@
 """P3.1 知识问答 + P4.1 大题型 agent 循环配置装配。"""
 import json
+import os
 import re
 from typing import Any, Dict, List, Optional
 
@@ -13,6 +14,7 @@ from angineer_core.agent_tools import (
 )
 from angineer_core.prompts.agent_configs import (  # noqa: F401  # P5 资产化后 re-export，保持旧导入兼容
     COMPLEX_AGENT_SYSTEM_PROMPT,
+    FOLLOWUP_QUESTION_RULE,
     QA_AGENT_SYSTEM_PROMPT,
 )
 from angineer_core.tool_codec import TextToolCallCodec
@@ -70,7 +72,7 @@ def _build_inline_citation_context(inline_citations: List[Dict[str, Any]]) -> st
     return "\n---\n".join(evidence_blocks)
 
 
-def make_final_answer_guard(enforce_evidence: bool = True):
+def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bool = False):
     """P6c 边界：检索过工具后，对最终回答做两层兜底。
 
     - enforce_evidence：工具全部无有效证据时，拒绝给出结论；
@@ -82,6 +84,12 @@ def make_final_answer_guard(enforce_evidence: bool = True):
     """
     from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT
     from angineer_core.retrieval_pipeline import has_unsupported_reference
+    from angineer_core.agent_messages import REFUSAL_FOLLOWUP_QUESTION
+
+    def _refusal_text() -> str:
+        if followup_question:
+            return REFUSAL_ANSWER_TEXT + REFUSAL_FOLLOWUP_QUESTION
+        return REFUSAL_ANSWER_TEXT
 
     def guard(added_messages: List[AgentMessage]):
         tool_messages = [m for m in added_messages if m.role == "tool"]
@@ -112,12 +120,12 @@ def make_final_answer_guard(enforce_evidence: bool = True):
             no_evidence = not evidence_text.strip()
             if enforce_evidence and no_evidence:
                 return (
-                    REFUSAL_ANSWER_TEXT,
+                    _refusal_text(),
                     "边界规则：未检索到有效证据，拒绝给出最终结论（enforce_evidence）",
                 )
             if answer and has_unsupported_reference(answer, evidence_text):
                 return (
-                    REFUSAL_ANSWER_TEXT,
+                    _refusal_text(),
                     "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
                 )
         markers = _MARKER_RE.findall(answer)
@@ -151,6 +159,11 @@ def build_chat_config(
     )
 
 
+def _followup_question_enabled() -> bool:
+    """ANGINEER_FOLLOWUP_QUESTION 开关解析：true/1/yes/on 视为开，其余视为关（默认开）。"""
+    return os.getenv("ANGINEER_FOLLOWUP_QUESTION", "true").strip().lower() in ("true", "1", "yes", "on")
+
+
 def build_qa_config(
     *,
     llm: Any,
@@ -171,6 +184,7 @@ def build_qa_config(
     final_answer_guard: Optional[Any] = None,
     route_note: Optional[str] = None,
     marker_allocator: Optional[Any] = None,
+    followup_question: Optional[bool] = None,
 ) -> AgentLoopConfig:
     """装配 QA 档 agent 循环：三个只读检索工具 + 内联 QA prompt（P5 前）。"""
     effective_tools = tools
@@ -217,9 +231,16 @@ def build_qa_config(
     if explicit:
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
 
+    followup_enabled = _followup_question_enabled() if followup_question is None else bool(followup_question)
+    if followup_enabled:
+        system_prompt += FOLLOWUP_QUESTION_RULE
+
     guard = final_answer_guard
     if guard is None:
-        guard = make_final_answer_guard(enforce_evidence=enforce_evidence)
+        guard = make_final_answer_guard(
+            enforce_evidence=enforce_evidence,
+            followup_question=followup_enabled,
+        )
 
     return AgentLoopConfig(
         llm=llm,
@@ -231,6 +252,7 @@ def build_qa_config(
         codec=TextToolCallCodec(),
         final_answer_guard=guard,
         route_note=route_note,
+        followup_question=followup_enabled,
     )
 
 

@@ -13,6 +13,8 @@ REFUSAL_ANSWER_TEXT = (
     "当前仅能确认已有片段与问题相关，但不足以安全地给出完整答案，请继续补充可核对的规范依据。"
 )
 
+REFUSAL_FOLLOWUP_QUESTION = "你可以补充更多规范依据或换个角度提问，需要我继续帮你分析吗？"
+
 
 @dataclass
 class ToolCall:

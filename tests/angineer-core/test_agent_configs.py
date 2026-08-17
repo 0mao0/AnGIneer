@@ -44,6 +44,52 @@ class QaConfigTests(unittest.TestCase):
         self.assertEqual(config.tools, [tool])
         self.assertEqual(config.max_turns, 5)
 
+    def test_followup_rule_appended_when_env_true(self):
+        with patch.dict(os.environ, {"ANGINEER_FOLLOWUP_QUESTION": "true"}, clear=False):
+            config = build_qa_config(llm=Mock())
+        self.assertIn("末尾追问规则", config.system_prompt)
+        self.assertIs(config.followup_question, True)
+
+    def test_followup_rule_absent_when_env_false(self):
+        with patch.dict(os.environ, {"ANGINEER_FOLLOWUP_QUESTION": "false"}, clear=False):
+            config = build_qa_config(llm=Mock())
+        self.assertEqual(config.system_prompt, QA_AGENT_SYSTEM_PROMPT)
+        self.assertIs(config.followup_question, False)
+
+    def test_followup_defaults_on_and_explicit_param_wins(self):
+        with patch.dict(os.environ, {}, clear=False):
+            config_default = build_qa_config(llm=Mock())
+        self.assertTrue(config_default.followup_question)
+        config_off = build_qa_config(llm=Mock(), followup_question=False)
+        self.assertFalse(config_off.followup_question)
+        self.assertEqual(config_off.system_prompt, QA_AGENT_SYSTEM_PROMPT)
+
+    def test_guard_appends_followup_question_on_refusal_when_enabled(self):
+        from angineer_core.agent_messages import REFUSAL_FOLLOWUP_QUESTION
+
+        guard = make_final_answer_guard(enforce_evidence=True, followup_question=True)
+        added = [
+            AgentMessage(role="tool", content='{"items": []}', is_error=False),
+            AgentMessage(role="assistant", content="测试答案"),
+        ]
+        result = guard(added)
+        self.assertIsNotNone(result)
+        answer, _note = result
+        self.assertIn(REFUSAL_FOLLOWUP_QUESTION, answer)
+
+    def test_guard_refusal_plain_when_disabled(self):
+        from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT
+
+        guard = make_final_answer_guard(enforce_evidence=True, followup_question=False)
+        added = [
+            AgentMessage(role="tool", content='{"items": []}', is_error=False),
+            AgentMessage(role="assistant", content="测试答案"),
+        ]
+        result = guard(added)
+        self.assertIsNotNone(result)
+        answer, _note = result
+        self.assertEqual(answer, REFUSAL_ANSWER_TEXT)
+
     def test_knowledge_search_and_table_search_use_separate_task_types(self):
         captured = {}
 
