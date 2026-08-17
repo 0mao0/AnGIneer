@@ -17,15 +17,15 @@ from angineer_core.prompts import load, versions  # noqa: E402
 
 class PromptsLoaderTests(unittest.TestCase):
     def test_load_returns_registered_prompt(self):
-        text = load("dispatcher.system_prompt_base")
-        self.assertIn("你是一个工程规范领域的专业助手。", text)
+        text = load("dispatcher.chat_system_prompt")
+        self.assertIn("你是 AnGIneer", text)
 
     def test_load_unknown_prompt_raises_keyerror(self):
         with self.assertRaises(KeyError):
             load("no_such_prompt")
 
     def test_load_specific_version(self):
-        text = load("dispatcher.system_prompt_base", version="v1")
+        text = load("dispatcher.chat_system_prompt", version="v1")
         self.assertIn("工程规范领域", text)
 
     def test_versions_registry_non_empty(self):
@@ -38,16 +38,39 @@ class PromptsLoaderTests(unittest.TestCase):
 
 
 class PromptMigrationContractTests(unittest.TestCase):
-    def test_dispatcher_extract_judge_and_sql_prompts_registered(self):
-        from angineer_core.prompts.dispatcher import (
-            EXTRACT_SYSTEM_PROMPT,
-            SQL_DOC_QA_SYSTEM_PROMPT,
-            SQL_STRUCTURED_QA_SYSTEM_PROMPT,
-        )
+    def test_dispatcher_dead_prompts_removed(self):
+        """旧 Dispatcher 遗留 prompt 已清退：注册表不可加载，模块属性不存在。"""
+        import angineer_core.prompts.dispatcher as dispatcher_module
 
-        self.assertIn("只做信息提取", EXTRACT_SYSTEM_PROMPT)
-        self.assertIn("查找某条规范", SQL_DOC_QA_SYSTEM_PROMPT)
-        self.assertIn("结构化检索结果回答", SQL_STRUCTURED_QA_SYSTEM_PROMPT)
+        dead_registry_names = (
+            "dispatcher.system_prompt_base",
+            "dispatcher.system_prompt_rules_definition",
+            "dispatcher.system_prompt_rules_locate",
+            "dispatcher.system_prompt_rules_content",
+            "dispatcher.system_prompt_choice_rules",
+            "dispatcher.system_prompt_gap_analysis",
+            "dispatcher.extract_system_prompt",
+            "dispatcher.extract_user_choice",
+            "dispatcher.extract_user_general",
+            "dispatcher.judge_user_choice",
+            "dispatcher.judge_user_choice_explicit",
+            "dispatcher.judge_user_general",
+            "dispatcher.judge_user_general_explicit",
+            "dispatcher.sql_doc_qa_system_prompt",
+            "dispatcher.sql_structured_qa_system_prompt",
+            "dispatcher.sop_answer_compose_prompt",
+            "dispatcher.sop_answer_system_prompt",
+        )
+        for name in dead_registry_names:
+            with self.assertRaises(KeyError, msg=name):
+                load(name)
+        for attr in (
+            "SYSTEM_PROMPT_BASE",
+            "EXTRACT_SYSTEM_PROMPT",
+            "SQL_DOC_QA_SYSTEM_PROMPT",
+            "SOP_ANSWER_COMPOSE_PROMPT",
+        ):
+            self.assertFalse(hasattr(dispatcher_module, attr), attr)
 
     def test_dispatcher_smart_prompts_registered(self):
         from angineer_core.prompts.dispatcher import (
@@ -151,7 +174,7 @@ class PromptVersionInPredictionTests(unittest.TestCase):
             "citations": [],
             "retrieved_items": [],
             "system_prompt": "sys",
-            "prompt_versions": {"dispatcher.system_prompt_base": "v1"},
+            "prompt_versions": {"dispatcher.chat_system_prompt": "v1"},
         }
         with patch("evals_core.runner.answer_eval.run_eval_query", return_value=data):
             prediction = AnswerEvaluator().run_prediction(
@@ -159,7 +182,7 @@ class PromptVersionInPredictionTests(unittest.TestCase):
             )
         self.assertEqual(
             prediction["prompt_versions"],
-            {"dispatcher.system_prompt_base": "v1"},
+            {"dispatcher.chat_system_prompt": "v1"},
         )
 
 
