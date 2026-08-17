@@ -135,6 +135,14 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("评测助手", SEMANTIC_EVAL_PROMPT)
         self.assertIn("严格的评测助手", SEMANTIC_EVAL_SYSTEM_PROMPT)
 
+    def test_followup_question_rule_registered(self):
+        from angineer_core.prompts.agent_configs import FOLLOWUP_QUESTION_RULE
+
+        text = load("agent_configs.followup_question_rule")
+        self.assertEqual(text, FOLLOWUP_QUESTION_RULE)
+        self.assertIn("末尾追加", text)
+        self.assertIn("不加导语", text)
+
 
 class PromptVersionInPredictionTests(unittest.TestCase):
     def test_policy_query_result_carries_prompt_versions(self):

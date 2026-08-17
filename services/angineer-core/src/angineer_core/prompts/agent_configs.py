@@ -55,5 +55,15 @@ COMPLEX_AGENT_SYSTEM_PROMPT = (
 )
 
 
+FOLLOWUP_QUESTION_RULE = (
+    "\n\n## 末尾追问规则\n"
+    "1. 给出最终回答时，在回答末尾追加一个与答案相关的后续问题"
+    "（仅一句话，不加导语，不要写\"您可以追问\"\"如有疑问\"等引导文字，直接以问句结尾，"
+    "不要在追问中使用引用标记）。\n"
+    "2. 若因证据不足无法给出结论（拒答），在拒答说明后同样追加一句引导继续对话的问题。"
+)
+
+
 register("agent_configs.qa_system_prompt", "v5", QA_AGENT_SYSTEM_PROMPT)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
+register("agent_configs.followup_question_rule", "v1", FOLLOWUP_QUESTION_RULE)
