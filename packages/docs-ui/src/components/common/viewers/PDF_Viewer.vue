@@ -376,6 +376,9 @@ interface LinkedHighlight {
   lineEnd: number | null
   type?: string
   linkedFormulaItemIds?: string[]
+  text?: string      // bbox 原文全文，优先展示
+  matchText?: string // 雷同段，用于加粗定位
+  excerpt?: string   // 兼容别名：matchText 未提供时当 matchText 用
 }
 
 interface VirtualPageMeta {
@@ -416,12 +419,20 @@ const props = withDefaults(defineProps<{
   showSidePanelToggle?: boolean
   sidePanelWidth?: number
   pdfAssetBaseUrl?: string
+  highlightHoverText?: boolean
+  highlightHoverFontSize?: number
+  highlightHoverMaxWidth?: number
+  highlightHoverMaxHeight?: number
 }>(), {
   activeHighlightIds: () => [],
   sidePanelOpen: undefined,
   showSidePanelToggle: false,
   sidePanelWidth: 400,
-  pdfAssetBaseUrl: `${import.meta.env.BASE_URL}`
+  pdfAssetBaseUrl: `${import.meta.env.BASE_URL}`,
+  highlightHoverText: true,
+  highlightHoverFontSize: 13,
+  highlightHoverMaxWidth: 340,
+  highlightHoverMaxHeight: 180,
 })
 
 // --- hover 联动：hover 的框加深（hover-primary），同节点其它 bbox 浅橙（hover-linked） ---
