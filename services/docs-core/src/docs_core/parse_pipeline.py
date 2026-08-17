@@ -67,6 +67,8 @@ class StageContext:
     steps: List[Dict[str, Any]] = field(default_factory=list)
     sync_record: Optional[Callable[[str, str, str], None]] = None
     arrival_seq: int = 1
+    page_count: int = 0
+    is_scanned: bool = False
 
     def log_step(self, step: str, status: str = "done", detail: str = "") -> None:
         """记录阶段内分析步骤（如产物落盘 / 对齐检查 / 信号注入），立即持久化供前端展示。"""
@@ -251,6 +253,8 @@ def _run_raw_parse(ctx: StageContext) -> str:
     persisted = parse_result.get("persisted") or {}
     ctx.input_summary = ctx.source_path
     ctx.output_summary = persisted.get("output_summary") or ""
+    ctx.page_count = int(persisted.get("page_count") or 0)
+    ctx.is_scanned = bool(persisted.get("ocr_retried"))
     has_images = bool(persisted.get("has_images"))
     backend = getattr(ctx.task_parser, "backend", None) or os.environ.get("MINERU_BACKEND", "hybrid-engine")
     return f"MinerU解析完成||{backend}||{'' if has_images else '（无图片资源）'}"
@@ -670,6 +674,8 @@ def run_pipeline(
                 message=f"{message}，耗时{round(time.time() - t0, 1)}s",
                 started_at=started, finished_at=datetime.now().isoformat(),
                 input_summary=ctx.input_summary, output_summary=ctx.output_summary,
+                page_count=getattr(ctx, "page_count", 0) or 0,
+                is_scanned=bool(getattr(ctx, "is_scanned", False)),
             )
         except ParseTaskCancelledError:
             # 用户取消：不做 failed 标记，直接向上传播至任务线程

@@ -27,3 +27,31 @@ def test_upsert_defaults_page_meta_zero(tmp_path) -> None:
     row = store.list_parse_stages("doc-x")[0]
     assert row["page_count"] == 0
     assert row["is_scanned"] == 0
+
+
+def test_run_raw_parse_sets_page_meta_on_context(tmp_path) -> None:
+    from docs_core.parse_pipeline import StageContext, _run_raw_parse
+
+    class FakeParser:
+        backend = "hybrid-engine"
+
+        def parse_to_raw_artifacts(self, input_path, output_dir=None, *, library_id=None, doc_id=None, on_step=None, **kwargs):
+            return {
+                "success": True,
+                "persisted": {
+                    "output_summary": "content.md",
+                    "has_images": True,
+                    "page_count": 36,
+                    "ocr_retried": True,
+                },
+            }
+
+    ctx = StageContext(
+        task_id="task-1",
+        library_id="lib1", doc_id="doc1", file_path="/tmp/x.pdf",
+        source_path="/tmp/x.pdf", task_parser=FakeParser(),
+    )
+    message = _run_raw_parse(ctx)
+    assert "MinerU解析完成" in message
+    assert ctx.page_count == 36
+    assert ctx.is_scanned is True
