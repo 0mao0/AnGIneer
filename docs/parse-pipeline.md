@@ -1,6 +1,6 @@
-# AnGIneer 文档解析管线（Parse Pipeline）技术说明
+# AnGIneer 一体化文档解析管线（Parse Pipeline）技术说明
 
-> 从源文件（PDF/DOCX/PPTX/XLSX）到结构化知识库的 8 阶段管线，以及断点恢复、
+> 从源文件（PDF/DOCX/PPTX/XLSX）到结构化知识库的一体化解析管线（核心 8 阶段），以及断点恢复、
 > GPU 槽位、产物校验与踩坑记录。核心代码在 `services/docs-core/src/docs_core/`。
 
 ## 1. 8 阶段注册表
