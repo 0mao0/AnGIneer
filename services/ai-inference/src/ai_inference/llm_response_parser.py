@@ -7,6 +7,7 @@ import re
 from typing import Any, Dict, Optional, Type, TypeVar
 from pydantic import ValidationError
 
+from .errors import LLMError
 from .llm_logger import get_logger
 
 logger = get_logger(__name__)
@@ -14,7 +15,7 @@ logger = get_logger(__name__)
 T = TypeVar('T')
 
 
-class ParseError(Exception):
+class ParseError(LLMError):
     """LLM 响应解析错误。"""
 
     def __init__(self, message: str, raw_response: Optional[str] = None, details: Optional[str] = None):

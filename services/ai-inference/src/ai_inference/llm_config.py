@@ -38,6 +38,8 @@ class CircuitBreakerConfig(BaseModel):
 class TimeoutConfig(BaseModel):
     connect: float = Field(default=10.0, ge=1.0)
     read: float = Field(default=60.0, ge=1.0)
+    write: float = Field(default=60.0, ge=1.0)
+    pool: float = Field(default=10.0, ge=1.0)
     total: float = Field(default=120.0, ge=1.0)
 
 
@@ -109,6 +111,8 @@ def load_llm_config_from_env() -> LLMClientConfig:
         timeout=TimeoutConfig(
             connect=_get_env_float("ANGINEER_TIMEOUT_CONNECT", 10.0),
             read=_get_env_float("ANGINEER_TIMEOUT_READ", 60.0),
+            write=_get_env_float("ANGINEER_TIMEOUT_WRITE", 60.0),
+            pool=_get_env_float("ANGINEER_TIMEOUT_POOL", 10.0),
             total=_get_env_float("ANGINEER_TIMEOUT_TOTAL", 120.0)
         ),
         retry=RetryConfig(

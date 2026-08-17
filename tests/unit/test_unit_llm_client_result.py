@@ -112,7 +112,12 @@ class TestChatStreamEvents(unittest.TestCase):
                     config_name="test",
                 )
             )
-        self.assertEqual(got, events)
+        self.assertEqual(got[0], events[0])
+        self.assertEqual(got[1]["type"], "done")
+        self.assertEqual(got[1]["finish_reason"], "stop")
+        self.assertEqual(got[1]["usage"], {"total_tokens": 5})
+        for key in ("used_config", "used_model", "attempts", "latency_seconds", "circuit_breaker_state"):
+            self.assertIn(key, got[1])
 
     def test_chat_stream_keeps_text_only(self):
         """兼容：chat_stream 仍只产出纯文本 delta。"""

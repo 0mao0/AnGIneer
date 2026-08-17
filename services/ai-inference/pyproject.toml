@@ -5,15 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "angineer-ai-inference"
 version = "0.1.0"
-description = "AnGIneer AI inference services (LLM client + cloud embedding/reranker API)"
+description = "AnGIneer AI inference client library (LLM multi-model routing, retry, circuit breaker, streaming)"
+readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "fastapi>=0.100.0",
-    "uvicorn>=0.23.0",
     "openai>=1.0.0,<2.0.0",
     "pydantic>=2.0.0,<3.0.0",
     "python-dotenv>=1.0.0",
-    "python-multipart>=0.0.6",
+    "httpx>=0.24.0",
 ]
 
 [tool.setuptools]
@@ -21,3 +20,6 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.urls]
+Repository = "https://github.com/0mao0/angineer-ai-inference"
