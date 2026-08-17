@@ -714,5 +714,34 @@ class AgentLoopTests(unittest.TestCase):
         self.assertEqual(events[-1].payload["reason"], "completed")
 
 
+class FollowupRefusalTests(unittest.TestCase):
+    def _run_exhausted(self, followup_question: bool):
+        llm = MockLLM(lambda messages, kwargs: text_events(""))
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(
+                llm=llm, tools=[], system_prompt="p", max_turns=1,
+                followup_question=followup_question,
+            ),
+            success_check=lambda added: False,
+        )
+        messages = [AgentMessage(role="user", content="测试问题")]
+        run_agent_loop(messages, AgentLoopConfig(llm=llm, attempts=[attempt]))
+        return messages
+
+    def test_exhausted_refusal_appends_followup_question_when_enabled(self):
+        from angineer_core.agent_messages import REFUSAL_FOLLOWUP_QUESTION
+
+        messages = self._run_exhausted(followup_question=True)
+        self.assertEqual(messages[-1].role, "assistant")
+        self.assertTrue(messages[-1].content.endswith(REFUSAL_FOLLOWUP_QUESTION))
+
+    def test_exhausted_refusal_plain_when_disabled(self):
+        from angineer_core.agent_messages import REFUSAL_ANSWER_TEXT
+
+        messages = self._run_exhausted(followup_question=False)
+        self.assertEqual(messages[-1].content, REFUSAL_ANSWER_TEXT)
+
+
 if __name__ == "__main__":
     unittest.main()

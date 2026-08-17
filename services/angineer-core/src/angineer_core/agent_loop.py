@@ -18,6 +18,7 @@ from angineer_core.agent_events import AgentEvent
 from angineer_core.agent_messages import (
     AgentMessage,
     REFUSAL_ANSWER_TEXT,
+    REFUSAL_FOLLOWUP_QUESTION,
     agent_message_to_dict,
     to_llm_messages,
 )
@@ -395,11 +396,17 @@ class _AttemptMachine:
             transform_context=nested.transform_context,
             should_stop_after_turn=nested.should_stop_after_turn,
             tool_timeout_s=nested.tool_timeout_s,
+            followup_question=nested.followup_question,
             pending_messages_provider=nested.pending_messages_provider or self.base_config.pending_messages_provider,
         )
         self.codec = active.codec or TextToolCallCodec()
         self.active_config = active
         self.tools_by_name = {tool.name: tool for tool in active.tools}
+
+    def _refusal_text(self) -> str:
+        if getattr(self.active_config, "followup_question", False):
+            return REFUSAL_ANSWER_TEXT + REFUSAL_FOLLOWUP_QUESTION
+        return REFUSAL_ANSWER_TEXT
 
     def advance(self) -> str:
         """当前段成功→"completed"；失败且有下一段→切换并返回 "next"；
@@ -445,7 +452,7 @@ class _AttemptMachine:
 
     def finalize_refusal(self) -> str:
         """终段没有产出任何答案时，补一条拒答并以 completed 收尾，避免前端无结果。"""
-        self.messages.append(AgentMessage(role="assistant", content=REFUSAL_ANSWER_TEXT))
+        self.messages.append(AgentMessage(role="assistant", content=self._refusal_text()))
         self.add_note("未产生可用答案，已按拒答收尾")
         return "completed"
 
