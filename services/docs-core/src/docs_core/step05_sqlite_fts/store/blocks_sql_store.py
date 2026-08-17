@@ -184,6 +184,14 @@ class KnowledgeMetaStore:
             except sqlite3.OperationalError:
                 pass
             try:
+                conn.execute("ALTER TABLE doc_parse_stages ADD COLUMN page_count INTEGER DEFAULT 0")
+            except sqlite3.OperationalError:
+                pass
+            try:
+                conn.execute("ALTER TABLE doc_parse_stages ADD COLUMN is_scanned INTEGER DEFAULT 0")
+            except sqlite3.OperationalError:
+                pass
+            try:
                 conn.execute("ALTER TABLE nodes ADD COLUMN deleted INTEGER NOT NULL DEFAULT 0")
             except sqlite3.OperationalError:
                 pass
@@ -486,13 +494,15 @@ class KnowledgeMetaStore:
         input_summary: str = "",
         output_summary: str = "",
         fallback: str = "",
+        page_count: int = 0,
+        is_scanned: bool = False,
     ) -> None:
         now = datetime.now().isoformat()
         with self.connect() as conn:
             conn.execute(
                 """
-                INSERT INTO doc_parse_stages (doc_id, stage, status, message, error, started_at, finished_at, updated_at, input_summary, output_summary, fallback)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO doc_parse_stages (doc_id, stage, status, message, error, started_at, finished_at, updated_at, input_summary, output_summary, fallback, page_count, is_scanned)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT (doc_id, stage) DO UPDATE SET
                     status = excluded.status,
                     message = excluded.message,
@@ -502,16 +512,18 @@ class KnowledgeMetaStore:
                     updated_at = excluded.updated_at,
                     input_summary = COALESCE(excluded.input_summary, doc_parse_stages.input_summary),
                     output_summary = COALESCE(excluded.output_summary, doc_parse_stages.output_summary),
-                    fallback = COALESCE(excluded.fallback, doc_parse_stages.fallback)
+                    fallback = COALESCE(excluded.fallback, doc_parse_stages.fallback),
+                    page_count = COALESCE(excluded.page_count, doc_parse_stages.page_count),
+                    is_scanned = COALESCE(excluded.is_scanned, doc_parse_stages.is_scanned)
                 """,
-                (doc_id, stage, status, message, error, started_at, finished_at, now, input_summary, output_summary, fallback),
+                (doc_id, stage, status, message, error, started_at, finished_at, now, input_summary, output_summary, fallback, int(page_count or 0), 1 if is_scanned else 0),
             )
             conn.commit()
 
     def list_parse_stages(self, doc_id: str) -> List[dict]:
         with self.connect() as conn:
             rows = conn.execute(
-                "SELECT doc_id, stage, status, message, error, started_at, finished_at, updated_at, input_summary, output_summary, fallback "
+                "SELECT doc_id, stage, status, message, error, started_at, finished_at, updated_at, input_summary, output_summary, fallback, page_count, is_scanned "
                 "FROM doc_parse_stages WHERE doc_id = ? ORDER BY updated_at ASC",
                 (doc_id,),
             ).fetchall()
