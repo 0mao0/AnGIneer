@@ -90,6 +90,23 @@ class QaConfigTests(unittest.TestCase):
         answer, _note = result
         self.assertEqual(answer, REFUSAL_ANSWER_TEXT)
 
+    def test_guard_notes_refusal_kept_even_with_evidence(self):
+        """有有效证据时模型仍拒答：守卫不替换内容，但留 trace 注记暴露异常。"""
+        guard = make_final_answer_guard(enforce_evidence=True)
+        added = [
+            AgentMessage(
+                role="tool",
+                content='{"items": [{"item_id": "a", "text": "集成 17 类算法、12 个模型", "metadata": {"cite": "K1"}}]}',
+                is_error=False,
+            ),
+            AgentMessage(role="assistant", content="没有检索到足够证据支持最终结论。"),
+        ]
+        result = guard(added)
+        self.assertIsNotNone(result)
+        answer, note = result
+        self.assertEqual(answer, "没有检索到足够证据支持最终结论。")
+        self.assertIn("拒答", note)
+
     def test_knowledge_search_and_table_search_use_separate_task_types(self):
         captured = {}
 

@@ -5,7 +5,7 @@ import re
 from typing import Any, Dict, List, Optional
 
 from angineer_core.agent_loop import AgentLoopConfig, TurnContext
-from angineer_core.agent_messages import AgentMessage
+from angineer_core.agent_messages import AgentMessage, is_refusal_text
 from angineer_core.agent_tools import (
     AgentTool,
     EngtoolAdapter,
@@ -127,6 +127,16 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                 return (
                     _refusal_text(),
                     "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
+                )
+            if answer and is_refusal_text(answer):
+                refusal_note = (
+                    "边界规则：已有有效证据但最终回答仍为拒答，保留原回答"
+                    if evidence_text.strip()
+                    else "边界规则：最终回答为拒答，保留原回答"
+                )
+                return (
+                    answer,
+                    refusal_note,
                 )
         markers = _MARKER_RE.findall(answer)
         valid = _valid_markers(added_messages)

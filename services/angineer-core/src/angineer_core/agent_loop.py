@@ -20,6 +20,7 @@ from angineer_core.agent_messages import (
     REFUSAL_ANSWER_TEXT,
     REFUSAL_FOLLOWUP_QUESTION,
     agent_message_to_dict,
+    is_refusal_text,
     to_llm_messages,
 )
 from angineer_core.agent_tools import AgentTool, ToolResult
@@ -97,6 +98,31 @@ def _run_callback(callback, default, *args):
     except Exception as exc:  # noqa: BLE001
         logger.warning("agent 回调异常，按未设置处理: %s", exc)
         return default
+
+
+def _tool_evidence_present(messages: List[AgentMessage]) -> bool:
+    """工具返回中是否存在非空证据文本（items[].text）。"""
+    for message in messages:
+        if message.role != "tool" or message.is_error:
+            continue
+        try:
+            raw = json.loads(message.content or "{}")
+        except Exception:  # noqa: BLE001
+            continue
+        if not isinstance(raw, dict):
+            continue
+        for item in raw.get("items") or []:
+            if isinstance(item, dict) and str(item.get("text") or "").strip():
+                return True
+    return False
+
+
+def _last_answer_is_refusal(messages: List[AgentMessage]) -> bool:
+    """最近一条无工具调用的 assistant 消息是否为拒答话术。"""
+    for message in reversed(messages):
+        if message.role == "assistant" and not message.tool_calls:
+            return is_refusal_text(message.content or "")
+    return False
 
 
 def _validate_arguments(schema: Dict[str, Any], arguments: Dict[str, Any]) -> Optional[str]:
@@ -367,6 +393,7 @@ class _AttemptMachine:
         self.active_attempt_idx = -1
         self.attempt_turn = 0
         self.retry_used = False
+        self.refusal_retry_used = False
         self.codec = config.codec or TextToolCallCodec()
         self.tools_by_name = {tool.name: tool for tool in config.tools}
 
@@ -380,6 +407,7 @@ class _AttemptMachine:
         self.active_attempt_idx = index
         self.attempt_start_idx = len(self.messages)
         self.retry_used = False
+        self.refusal_retry_used = False
         nested = self.attempts[index].config_factory()
         active = replace(
             self.base_config,
@@ -410,7 +438,8 @@ class _AttemptMachine:
 
     def advance(self) -> str:
         """当前段成功→"completed"；失败且有下一段→切换并返回 "next"；
-        需要工具但未调用→返回 "retry"（最多一次）；否则 "exhausted"。"""
+        需要工具但未调用→返回 "retry"（最多一次）；有证据却拒答→终段定向重试（最多一次）；
+        否则 "exhausted"。"""
         added = self.messages[self.start_idx:]
         attempt = self.attempts[self.active_attempt_idx]
         check = attempt.success_check
@@ -428,6 +457,23 @@ class _AttemptMachine:
                 self.add_note("未调用检索工具，已要求重新检索后回答")
                 return "retry"
             return self._finalize_no_tool_answer(added)
+        if (
+            not ok
+            and used_tools
+            and self.active_attempt_idx + 1 >= len(self.attempts)
+            and not self.refusal_retry_used
+            and _tool_evidence_present(self.messages[self.attempt_start_idx:])
+            and _last_answer_is_refusal(self.messages[self.attempt_start_idx:])
+        ):
+            self.refusal_retry_used = True
+            # 定向重试不占本轮预算
+            self.attempt_turn = max(0, self.attempt_turn - 1)
+            self.messages.append(AgentMessage(
+                role="user",
+                content="已检索到有效证据，请基于证据作答；若证据只覆盖部分内容，请回答已支持的部分并明确说明缺失项，不要整体拒答。",
+            ))
+            self.add_note("有有效证据但回答为拒答，已要求基于证据重答")
+            return "retry"
         if self.active_attempt_idx + 1 < len(self.attempts):
             nxt = self.attempts[self.active_attempt_idx + 1]
             self.add_note(attempt.fallback_note or f"本段未命中，进入下一段：{nxt.name}")

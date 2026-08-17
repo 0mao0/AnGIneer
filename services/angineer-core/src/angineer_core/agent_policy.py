@@ -5,8 +5,7 @@
 from typing import Any, Callable, List, Optional
 
 from angineer_core.agent_loop import AgentLoopConfig, AttemptConfig
-from angineer_core.agent_messages import AgentMessage
-from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT
+from angineer_core.agent_messages import AgentMessage, is_refusal_text
 
 
 def _last_answer(messages: List[AgentMessage]) -> Optional[str]:
@@ -36,7 +35,7 @@ def _has_evidence(messages: List[AgentMessage]) -> bool:
 
 def _answer_usable(messages: List[AgentMessage]) -> bool:
     answer = _last_answer(messages) or ""
-    return bool(answer.strip()) and answer.strip() != REFUSAL_ANSWER_TEXT
+    return bool(answer.strip()) and not is_refusal_text(answer)
 
 
 def _l0_attempt(load_nodes: Callable[[], list], llm_factory: Callable, config_name, mode) -> AttemptConfig:

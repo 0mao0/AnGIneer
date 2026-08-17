@@ -714,6 +714,113 @@ class AgentLoopTests(unittest.TestCase):
         self.assertEqual(events[-1].payload["reason"], "completed")
 
 
+class RefusalRetryTests(unittest.TestCase):
+    """有有效证据但模型整体拒答：终段给一次定向重试，避免把“部分覆盖”误当“无证据”。"""
+
+    def _usable(self):
+        from angineer_core.agent_messages import is_refusal_text
+
+        def usable(added):
+            for m in reversed(added):
+                if m.role == "assistant" and not m.tool_calls and (m.content or "").strip():
+                    return not is_refusal_text(m.content)
+            return False
+
+        return usable
+
+    def test_refusal_with_evidence_gets_one_retry_then_accepts_partial_answer(self):
+        events: list = []
+        messages: list = []
+
+        def handler(messages, kwargs):
+            call = len(llm.calls)
+            if call == 1:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            elif call == 2:
+                yield from text_events("没有检索到足够证据支持最终结论，不要自行补全。")
+            else:
+                yield from text_events("原文提到集成 17 类算法、12 个模型，但未列出具体名称。")
+
+        llm = MockLLM(handler)
+        tool = make_tool(
+            "search",
+            lambda q: {"items": [{"text": "集成 17 类算法、12 个模型", "metadata": {"cite": "K1"}}]},
+        )
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(llm=llm, tools=[tool], system_prompt="p", max_turns=3),
+            success_check=self._usable(),
+            requires_tools=True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=3, attempts=[attempt])
+        added = run_agent_loop(messages, config, emit=events.append)
+
+        self.assertEqual(len(llm.calls), 3)  # 工具轮 → 拒答 → 定向重试后的部分作答
+        self.assertEqual(added[-1].content, "原文提到集成 17 类算法、12 个模型，但未列出具体名称。")
+        run_end = events[-1]
+        self.assertEqual(run_end.payload["reason"], "completed")
+        self.assertTrue(any("已要求基于证据重答" in n["detail"] for n in run_end.payload["notes"]))
+
+    def test_refusal_with_evidence_retries_once_then_keeps_second_refusal(self):
+        events: list = []
+
+        def handler(messages, kwargs):
+            call = len(llm.calls)
+            if call == 1:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            elif call == 2:
+                yield from text_events("没有检索到足够证据支持最终结论，不要自行补全。")
+            else:
+                yield from text_events("没有检索到足够证据支持最终结论。")
+
+        llm = MockLLM(handler)
+        tool = make_tool(
+            "search",
+            lambda q: {"items": [{"text": "集成 17 类算法、12 个模型", "metadata": {"cite": "K1"}}]},
+        )
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(llm=llm, tools=[tool], system_prompt="p", max_turns=3),
+            success_check=self._usable(),
+            requires_tools=True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=3, attempts=[attempt])
+        added = run_agent_loop([], config, emit=events.append)
+
+        self.assertEqual(len(llm.calls), 3)  # 只重试一次，不无限循环
+        self.assertEqual(added[-1].content, "没有检索到足够证据支持最终结论。")
+        run_end = events[-1]
+        self.assertEqual(run_end.payload["reason"], "completed")
+        self.assertTrue(any("已要求基于证据重答" in n["detail"] for n in run_end.payload["notes"]))
+
+    def test_refusal_without_evidence_not_retried(self):
+        events: list = []
+
+        def handler(messages, kwargs):
+            call = len(llm.calls)
+            if call == 1:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            else:
+                yield from text_events("没有检索到足够证据支持最终结论。")
+
+        llm = MockLLM(handler)
+        tool = make_tool("search", lambda q: {"items": [], "total": 0})
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(llm=llm, tools=[tool], system_prompt="p", max_turns=3),
+            success_check=self._usable(),
+            requires_tools=True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=3, attempts=[attempt])
+        added = run_agent_loop([], config, emit=events.append)
+
+        self.assertEqual(len(llm.calls), 2)  # 确实无证据：拒答合理，不重试
+        self.assertTrue(added[-1].content.startswith("没有检索到足够证据"))
+        run_end = events[-1]
+        self.assertEqual(run_end.payload["reason"], "completed")
+        self.assertFalse(any("已要求基于证据重答" in n["detail"] for n in run_end.payload["notes"]))
+
+
 class FollowupRefusalTests(unittest.TestCase):
     def _run_exhausted(self, followup_question: bool):
         llm = MockLLM(lambda messages, kwargs: text_events(""))

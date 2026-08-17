@@ -41,6 +41,21 @@ class PolicyTests(unittest.TestCase):
         self.assertEqual(attempts[0].name, "L1 语义检索")
         self.assertTrue(attempts[0].requires_tools)
 
+    def test_answer_usable_rejects_paraphrased_refusal(self):
+        """模型自拟拒答（非标准话术）也必须被成功检查识别，不能当作成功答案放行。"""
+        from angineer_core.agent_messages import AgentMessage
+        from angineer_core.agent_policy import _answer_usable
+
+        self.assertFalse(_answer_usable([
+            AgentMessage(role="assistant", content="没有检索到足够证据支持最终结论，不要自行补全。"),
+        ]))
+        self.assertFalse(_answer_usable([
+            AgentMessage(role="assistant", content="没有检索到足够证据支持最终结论。"),
+        ]))
+        self.assertTrue(_answer_usable([
+            AgentMessage(role="assistant", content="原文提到集成 17 类算法、12 个模型，但未列出具体名称。"),
+        ]))
+
     def test_l0_single_chat_attempt(self):
         attempts = build_attempts(
             intent_result=self._intent("L0", "casual_chat"),

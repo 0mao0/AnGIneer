@@ -1,7 +1,7 @@
 """agent 循环配置 prompt（P5 迁移自 agent_configs.py）。
 
-用途：QA 档 / 大题档系统提示；语言：中文；版本 v5。
-最后变更：2026-08-16。
+用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v6 / COMPLEX v5 / followup v3。
+最后变更：2026-08-18。
 """
 from . import register
 
@@ -30,7 +30,10 @@ QA_AGENT_SYSTEM_PROMPT = (
     "有序列表条目之间不要插入空行，条目内容尽量写在条目行内。\n"
     "8. 引用标注：每个基于检索证据的论据句末标注工具返回中的 cite 标记，如 [K3]；"
     "多个来源写 [K3][K5]；只能使用工具返回里真实存在的标记，禁止编造；"
-    "计算、常识或纯推导句不需要标注。同一轮对话内标记全局唯一，直接按标记引用。"
+    "计算、常识或纯推导句不需要标注。同一轮对话内标记全局唯一，直接按标记引用。\n"
+    "9. 当检索证据只覆盖问题的部分内容时，先回答证据已支持的部分，并明确说明证据中缺失/未列出的内容"
+    "（例如：原文提到…，但未列出具体…），禁止因答案不完整而整体拒答；"
+    "只有 knowledge_search 与 table_search 均无有效证据或证据与问题无关时，才使用拒答话术。"
 )
 
 
@@ -57,13 +60,16 @@ COMPLEX_AGENT_SYSTEM_PROMPT = (
 
 FOLLOWUP_QUESTION_RULE = (
     "\n\n## 末尾追问规则\n"
-    "1. 给出最终回答时，在回答末尾追加一个与答案相关的后续问题"
-    "（仅一句话，不加导语，不要写\"您可以追问\"\"如有疑问\"等引导文字，直接以问句结尾，"
-    "不要在追问中使用引用标记）。\n"
-    "2. 若因证据不足无法给出结论（拒答），在拒答说明后同样追加一句引导继续对话的问题。"
+    "1. 给出最终回答时，在回答末尾追加一个与答案相关的邀请式问句"
+    "（仅一句话，不加导语，直接以问句结尾），询问用户是否想了解某个后续方向，"
+    "例如\"您是否想知道…？\"\"需要我展开讲讲…吗？\"；"
+    "禁止写成向用户索取答案的内容问句（如\"XX 具体是什么？\"\"XX 是怎么实现的？\"），"
+    "也不要在追问中使用引用标记。\n"
+    "2. 若因证据不足无法给出结论（拒答），在拒答说明后同样追加一句邀请式问句（按第 1 条句式），"
+    "引导用户补充资料或换角度；不要追问证据中已确认不存在的内容。"
 )
 
 
-register("agent_configs.qa_system_prompt", "v5", QA_AGENT_SYSTEM_PROMPT)
+register("agent_configs.qa_system_prompt", "v6", QA_AGENT_SYSTEM_PROMPT)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
-register("agent_configs.followup_question_rule", "v1", FOLLOWUP_QUESTION_RULE)
+register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)

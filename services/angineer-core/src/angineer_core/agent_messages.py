@@ -16,6 +16,14 @@ REFUSAL_ANSWER_TEXT = (
 REFUSAL_FOLLOWUP_QUESTION = "你可以补充更多规范依据或换个角度提问，需要我继续帮你分析吗？"
 
 
+REFUSAL_MARKERS = ("没有检索到足够证据",)
+
+
+def is_refusal_text(text: str) -> bool:
+    """判断文本是否命中拒答话术（标准话术或模型自拟变体）。"""
+    return any(marker in (text or "") for marker in REFUSAL_MARKERS)
+
+
 @dataclass
 class ToolCall:
     """循环侧生成的工具调用。id 形如 call_{turn}_{seq}。"""

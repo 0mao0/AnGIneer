@@ -112,6 +112,29 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("表格/公式定位类问题必须优先调用 table_search", QA)
         self.assertIn("条款/条文定位类问题必须优先调用 knowledge_search", QA)
 
+    def test_qa_prompt_has_partial_evidence_rule(self):
+        """证据只覆盖部分问题时，必须先答已支持部分并说明缺失项，禁止整体拒答。"""
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT as QA
+
+        self.assertIn("只覆盖问题的部分内容", QA)
+        self.assertIn("先回答证据已支持的部分", QA)
+        self.assertIn("明确说明", QA)
+        self.assertIn("禁止因答案不完整而整体拒答", QA)
+
+    def test_followup_rule_avoids_leading_to_missing_content(self):
+        from angineer_core.prompts.agent_configs import FOLLOWUP_QUESTION_RULE
+
+        self.assertIn("已确认不存在", FOLLOWUP_QUESTION_RULE)
+        self.assertIn("补充资料", FOLLOWUP_QUESTION_RULE)
+
+    def test_followup_rule_requires_invitation_phrasing(self):
+        """末尾追问必须是邀请式问句，不能写成向用户索取答案的内容问句。"""
+        from angineer_core.prompts.agent_configs import FOLLOWUP_QUESTION_RULE
+
+        self.assertIn("邀请式问句", FOLLOWUP_QUESTION_RULE)
+        self.assertIn("您是否想知道", FOLLOWUP_QUESTION_RULE)
+        self.assertIn("禁止写成向用户索取答案的内容问句", FOLLOWUP_QUESTION_RULE)
+
     def test_sop_routes_prompt_registered(self):
         from angineer_core.prompts.sop_routes import STEP_PARSE_SYSTEM_PROMPT
 

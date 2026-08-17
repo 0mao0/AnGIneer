@@ -280,6 +280,25 @@ class AnswerEvaluator(BaseEvaluator):
                     "semantic_evaluated": False,
                 }
 
+        if actual_refusal and (gold_answer or checks):
+            return {
+                "score": 0.0,
+                "evaluated": True,
+                "has_answer": True,
+                "citation_ok": citation_ok,
+                "refusal_correct": False,
+                "correctness_checked": True,
+                "correctness_score": 0.0,
+                "failed_checks": [],
+                "check_details": [],
+                "semantic_score": None,
+                "semantic_reason": "有标准答案/要点时整体拒答按失败计（refusal_expected=False）",
+                "semantic_evaluated": False,
+                "semantic_fallback": False,
+                "semantic_passed": False,
+                "semantic_threshold": semantic_threshold,
+            }
+
         if not gold_answer and not checks:
             if not citation_ok:
                 score = 0.0
