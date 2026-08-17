@@ -51,6 +51,8 @@ export function groupThinkingSteps(steps: ThinkingTraceStep[]): ThinkingGroupSte
         open.isError = step.isError
         open.durationMs = step.durationMs
         open.citations = step.citations
+        open.resultItems = step.resultItems
+        open.resultNote = step.resultNote
       } else {
         open = {
           index: groups.length + 1,
@@ -61,6 +63,8 @@ export function groupThinkingSteps(steps: ThinkingTraceStep[]): ThinkingGroupSte
           isError: step.isError,
           durationMs: step.durationMs,
           citations: step.citations,
+          resultItems: step.resultItems,
+          resultNote: step.resultNote,
           turn: step.turn,
         }
         groups.push(open)
@@ -89,6 +93,42 @@ export function formatThinkingArgDetail(detail: string): string {
   return detail
 }
 
+/**
+ * 给每个可见步骤生成带序号的标题，说明类与工具调用/返回统一展示，
+ * 方便用户按顺序看懂完整思考链路。
+ */
+export function formatThinkingStepLabel(group: ThinkingGroupStep): string {
+  const title = formatThinkingStepTitle(group)
+  return group.index ? `${group.index}. ${title}` : title
+}
+
+/** 步骤标题（不含序号），供"序号+标题加粗、其余常规"的拆分渲染。 */
+export function formatThinkingStepTitle(group: ThinkingGroupStep): string {
+  if (group.kind === 'note') return group.label || group.detail || ''
+  return group.callDetail ? `调用工具：${group.tool}` : `工具返回：${group.tool}`
+}
+
+/** 结果步骤是否带候选条目、可以展开查看。 */
+export function isResultExpandable(group: ThinkingGroupStep): boolean {
+  return Boolean(group.resultItems && group.resultItems.length > 0)
+}
+
+/** 组内候选的最高相关度，用于把分数归一化成直观百分比。 */
+export function getResultMaxScore(group: ThinkingGroupStep): number {
+  return (group.resultItems || []).reduce(
+    (max, item) => Math.max(max, Number(item.score) || 0),
+    0
+  )
+}
+
+/** 相关度按组内最高分归一化展示为百分比；没有有效分数时显示占位符。 */
+export function formatResultScore(score?: number, maxScore?: number): string {
+  const max = Number(maxScore) || 0
+  const value = Number(score) || 0
+  if (max <= 0) return '—'
+  return `${Math.round((value / max) * 100)}%`
+}
+
 /** 统计思考过程里的可见步骤总数。 */
 export function countThinkingSteps(groups: ThinkingGroupStep[]): number {
   return (groups || []).length
@@ -102,5 +142,5 @@ export function sumThinkingDuration(groups: ThinkingGroupStep[]): number {
 /** 耗时统一展示为秒，最多一位小数。 */
 export function formatDuration(ms?: number): string {
   if (!ms || ms <= 0) return ''
-  return `${(ms / 1000).toFixed(1)} 秒`
+  return `${(ms / 1000).toFixed(1)}秒`
 }

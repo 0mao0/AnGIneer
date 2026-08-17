@@ -3,8 +3,14 @@ import assert from 'node:assert/strict'
 
 import {
   formatThinkingArgDetail,
+  formatThinkingStepLabel,
+  formatThinkingStepTitle,
+  formatResultScore,
+  getResultMaxScore,
   groupThinkingSteps,
+  isResultExpandable,
 } from '../src/utils/thinking.ts'
+import type { ThinkingGroupStep } from '../src/utils/thinking'
 import type { ThinkingTraceStep } from '../src/types/chat'
 
 test('调用和返回配对成一步', () => {
@@ -32,6 +38,17 @@ test('多轮工具调用各自成步', () => {
   assert.equal(groups[0].index, 1)
   assert.equal(groups[1].index, 2)
   assert.equal(groups[1].tool, 'table_search')
+})
+
+test('步骤标题不含序号，供"序号+标题加粗"拆分渲染', () => {
+  const group: ThinkingGroupStep = {
+    index: 3,
+    kind: 'pair',
+    tool: 'knowledge_search',
+    callDetail: '{"query":"A"}',
+  }
+  assert.equal(formatThinkingStepLabel(group), '3. 调用工具：knowledge_search')
+  assert.equal(formatThinkingStepTitle(group), '调用工具：knowledge_search')
 })
 
 test('没有调用记录的返回也单独成步', () => {
@@ -67,6 +84,65 @@ test('轮次和说明以独立步骤展示', () => {
   assert.equal(groups[2].detail, '轮次预算已用完，进入收尾回答')
 })
 
+test('每个步骤都有序号前缀，说明类步骤也一样', () => {
+  const note: ThinkingGroupStep = {
+    index: 3,
+    kind: 'note',
+    detail: '未调用检索工具，已要求重新检索后回答',
+  }
+  assert.equal(
+    formatThinkingStepLabel(note),
+    '3. 未调用检索工具，已要求重新检索后回答'
+  )
+
+  const pair: ThinkingGroupStep = {
+    index: 1,
+    kind: 'pair',
+    tool: 'knowledge_search',
+    callDetail: '{"query":"上航数联"}',
+  }
+  assert.equal(formatThinkingStepLabel(pair), '1. 调用工具：knowledge_search')
+
+  const resultOnly: ThinkingGroupStep = {
+    index: 2,
+    kind: 'pair',
+    tool: 'calculator',
+    callDetail: '',
+    resultDetail: '结果 = 42',
+  }
+  assert.equal(formatThinkingStepLabel(resultOnly), '2. 工具返回：calculator')
+})
+
+test('只有带候选条目的结果步骤可以展开', () => {
+  const expandable: ThinkingGroupStep = {
+    index: 1,
+    kind: 'pair',
+    tool: 'knowledge_search',
+    callDetail: '{}',
+    resultDetail: '检索到 20 条结果',
+    resultItems: Array.from({ length: 20 }, (_, i) => ({
+      item_id: `item-${i + 1}`,
+      entity_type: 'content',
+      doc_id: 'doc-1',
+      doc_title: '推广产品.docx',
+      title: `候选 ${i + 1}`,
+      text: `第 ${i + 1} 条内容`,
+      score: 0.9 - i * 0.01,
+      metadata: { cite: `K${i + 1}` },
+    })),
+  }
+  assert.equal(isResultExpandable(expandable), true)
+
+  const plain: ThinkingGroupStep = {
+    index: 2,
+    kind: 'pair',
+    tool: 'knowledge_search',
+    callDetail: '{}',
+    resultDetail: '检索到 0 条结果',
+  }
+  assert.equal(isResultExpandable(plain), false)
+})
+
 test('工具返回的证据挂在对应步骤上', () => {
   const groups = groupThinkingSteps([
     { kind: 'call', tool: 'knowledge_search', detail: '{}' },
@@ -88,4 +164,93 @@ test('工具返回的证据挂在对应步骤上', () => {
   assert.equal(groups.length, 1)
   assert.equal(groups[0].citations?.length, 1)
   assert.equal(groups[0].citations?.[0].doc_title, '推广产品.docx')
+})
+
+test('候选条目随配对步骤保留，结果行可展开', () => {
+  const groups = groupThinkingSteps([
+    { kind: 'call', tool: 'knowledge_search', detail: '{}' },
+    {
+      kind: 'result',
+      tool: 'knowledge_search',
+      detail: '检索到 2 条结果',
+      resultItems: [
+        {
+          item_id: 'item-1',
+          entity_type: 'content',
+          doc_id: 'doc-1',
+          doc_title: '推广产品.docx',
+          title: '候选 1',
+          text: '第 1 条内容',
+          score: 0.9,
+          metadata: { cite: 'K1' },
+        },
+      ],
+      resultNote: '知识图谱未找到匹配实体，已自动检索知识库正文',
+    },
+  ])
+  assert.equal(groups.length, 1)
+  assert.equal(groups[0].resultItems?.length, 1)
+  assert.equal(groups[0].resultItems?.[0].doc_title, '推广产品.docx')
+  assert.equal(groups[0].resultNote, '知识图谱未找到匹配实体，已自动检索知识库正文')
+  assert.equal(isResultExpandable(groups[0]), true)
+})
+
+test('独立返回步骤也携带候选条目', () => {
+  const groups = groupThinkingSteps([
+    {
+      kind: 'result',
+      tool: 'table_search',
+      detail: '检索到 1 条结果',
+      resultItems: [
+        {
+          item_id: 't1',
+          entity_type: 'table',
+          doc_id: 'doc-2',
+          doc_title: '跨页表格.pdf',
+          title: '表 A.0.2-1',
+          text: '杂货船设计船型尺度',
+          score: 0.8,
+          metadata: {},
+        },
+      ],
+    },
+  ])
+  assert.equal(groups[0].resultItems?.length, 1)
+  assert.equal(isResultExpandable(groups[0]), true)
+})
+
+test('相关度按组内最高分归一化展示', () => {
+  const group: ThinkingGroupStep = {
+    index: 1,
+    kind: 'pair',
+    tool: 'knowledge_search',
+    callDetail: '{}',
+    resultDetail: '检索到 2 条结果',
+    resultItems: [
+      {
+        item_id: 'a',
+        entity_type: 'content',
+        doc_id: 'd1',
+        doc_title: 'a.pdf',
+        title: 'A',
+        text: 'A',
+        score: 0.2,
+        metadata: {},
+      },
+      {
+        item_id: 'b',
+        entity_type: 'content',
+        doc_id: 'd2',
+        doc_title: 'b.pdf',
+        title: 'B',
+        text: 'B',
+        score: 0.1,
+        metadata: {},
+      },
+    ],
+  }
+  assert.equal(getResultMaxScore(group), 0.2)
+  assert.equal(formatResultScore(0.2, getResultMaxScore(group)), '100%')
+  assert.equal(formatResultScore(0.1, getResultMaxScore(group)), '50%')
+  assert.equal(formatResultScore(0, 0), '—')
 })
