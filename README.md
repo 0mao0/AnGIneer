@@ -9,7 +9,7 @@
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
 | [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.5` | 主仓库（产品迭代基线） |
-| [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.1.1` | 知识库前端组件库 |
+| [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.1.2` | 知识库前端组件库 |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.1` | 对话前端组件库 |
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.1.0` | Python AI 推理客户端库 |
 
