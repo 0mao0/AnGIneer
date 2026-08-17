@@ -1,6 +1,7 @@
 import { computed, ref, watch, type ComputedRef, type Ref } from 'vue'
 import type { StructuredIndexItem } from '../types/knowledge'
 import type { PreviewMode } from './useParsedPdfViewer'
+import { collectGroupHighlightIds } from '../utils/highlightGroup'
 import { collectItemRefs, hasExactItemRef, isFurnitureNode } from '../utils/knowledge'
 
 export interface LinkedHighlight {
@@ -907,13 +908,27 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     for (let index = 1; index < candidates.length; index += 1) {
       const current = candidates[index]
       const score = scoreHighlightCandidate(current, id, exactItemId, preferredPage)
-      if (score > targetScore || score === targetScore) {
+      if (score > targetScore) {
         target = current
         targetScore = score
       }
     }
     return target
   }
+
+  /**
+   * 当前激活目标应同时点亮的高亮组：
+   * 目标自身（公式主体/编号/合并框）+ 通过 linkedFormulaItemIds 关联的解释段。
+   */
+  const activeLinkedHighlightIds = computed<string[]>(() => {
+    const primary = activeLinkedHighlight.value
+    return collectGroupHighlightIds(
+      linkedHighlights.value,
+      options.graphData.value?.nodes || [],
+      primary?.itemId || activeLinkedItemId.value,
+      primary?.id || null
+    )
+  })
 
   const activeLinkedHighlight = computed(() => {
     if (activeLinkedHighlightOverrideId.value) {
@@ -1086,6 +1101,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   return {
     linkedHighlights,
     activeLinkedItemId,
+    activeLinkedHighlightIds,
     activeLeftHighlightId,
     pdfClickActiveItemId,
     activeLinkedLineRange,

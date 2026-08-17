@@ -51,6 +51,7 @@ export function useKnowledgeTree() {
         title: n.title,
         isFolder: n.type === 'folder',
         visible: n.visible,
+        libraryId: n.library_id,
         status: n.status || 'pending',
         parentId: n.parent_id,
         filePath: n.file_path,

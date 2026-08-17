@@ -216,7 +216,7 @@
                     item.itemId === hoveredItemId
                     || (item.linkedFormulaItemIds || []).includes(hoveredItemId || '')
                   ),
-                  active: !hoveredHighlightId && (item.itemId === activeClickItemId || item.id === activeHighlightId || item.itemId === activeHighlightId)
+                  active: !hoveredHighlightId && (item.itemId === activeClickItemId || activeHighlightIds.includes(item.id) || activeHighlightIds.includes(item.itemId) || item.id === activeHighlightId || item.itemId === activeHighlightId)
                 }]"
                 :style="{
                   left: `${item.left * 100}%`,
@@ -408,6 +408,7 @@ const props = withDefaults(defineProps<{
   pdfPageCount?: number
   highlights: LinkedHighlight[]
   activeHighlightId: string | null
+  activeHighlightIds?: string[]
   activeClickItemId?: string | null
   pageLabels?: Record<number, string>
   textScrollPercent: number
@@ -416,6 +417,7 @@ const props = withDefaults(defineProps<{
   sidePanelWidth?: number
   pdfAssetBaseUrl?: string
 }>(), {
+  activeHighlightIds: () => [],
   sidePanelOpen: undefined,
   showSidePanelToggle: false,
   sidePanelWidth: 400,

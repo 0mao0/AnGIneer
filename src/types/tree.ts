@@ -49,6 +49,7 @@ export interface KnowledgeTreeNode extends SmartTreeNode {
   isFolder: boolean
   visible: boolean
   status: KnowledgeNodeStatus
+  libraryId?: string
   file_path?: string
   parseProgress?: number
   parseStage?: string

@@ -17,6 +17,7 @@
           :pdfPageCount="inferredPdfPageCount"
           :highlights="linkedHighlights"
           :activeHighlightId="activeLeftHighlightId"
+          :active-highlight-ids="activeLinkedHighlightIds"
           :activeClickItemId="pdfClickActiveItemId"
           :searchText="markdownContent"
           :pageLabels="printedPageLabels"
@@ -45,7 +46,7 @@
               :activeLineRange="activeLinkedLineRange"
               :sourceFilePath="filePath"
               :graphData="props.graphData"
-              :libraryId="'default'"
+              :libraryId="props.libraryId || 'default'"
               :docId="props.node.key"
               :onUpdateStructuredNode="props.onUpdateStructuredNode"
               :onBatchStructuredOperation="props.onBatchStructuredOperation"
@@ -93,6 +94,7 @@ interface Props {
   graphDataFullLoaded?: boolean
   renderPdfPath?: string  // LO 生成的 PDF 底图路径（对非 PDF 输入）
   fileUrlResolver?: (path: string) => string
+  libraryId?: string
   onUpdateStructuredNode?: (payload: StructuredNodeUpdatePayload) => Promise<void>
   onBatchStructuredOperation?: (payload: StructuredBatchOperationPayload) => Promise<void>
   onUndoLastOperation?: () => Promise<void>
@@ -123,7 +125,7 @@ const props = withDefaults(defineProps<Props>(), {
   sidePanelOpen: undefined,
   graphDataFullLoaded: false,
   dark: false,
-  sidePanelDefaultOpen: true,
+  sidePanelDefaultOpen: false,
   sidePanelWidth: 400
 })
 
@@ -225,6 +227,7 @@ const printedPageLabels = computed(() => buildPrintedPageLabels(
 const {
   linkedHighlights,
   activeLinkedItemId,
+  activeLinkedHighlightIds,
   activeLeftHighlightId,
   pdfClickActiveItemId,
   activeLinkedLineRange,
