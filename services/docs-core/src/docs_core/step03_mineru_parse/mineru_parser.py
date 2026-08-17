@@ -472,9 +472,11 @@ class MinerUParser:
 
         if page_count > max_pages:
             logger.info("PDF has %d pages (limit %d), auto-splitting...", page_count, max_pages)
-            return self._parse_large_pdf_in_chunks(input_path, output_dir, page_count, max_pages)
-
-        return self._parse_single_file(input_path, output_dir)
+            result = self._parse_large_pdf_in_chunks(input_path, output_dir, page_count, max_pages)
+        else:
+            result = self._parse_single_file(input_path, output_dir)
+        result["page_count"] = page_count
+        return result
 
     def _parse_large_pdf_in_chunks(
         self, input_path: str, output_dir: str, page_count: int, chunk_size: int
@@ -593,7 +595,9 @@ class MinerUParser:
                     if not use_ocr:
                         logger.info("Task %s failed, retrying with OCR enabled...", task_id)
                         _time.sleep(3)
-                        return self._parse_single_file(input_path, output_dir, _retry_count + 1, _force_ocr=True)
+                        result = self._parse_single_file(input_path, output_dir, _retry_count + 1, _force_ocr=True)
+                        result["ocr_retried"] = True
+                        return result
                     if _retry_count < 2:
                         logger.info("Task %s failed, retry %d/2...", task_id, _retry_count + 1)
                         _time.sleep(3)
@@ -771,6 +775,8 @@ class MinerUParser:
                 result["persisted"] = self._persist_to_doc(
                     library_id, doc_id, output_dir, on_step=on_step
                 )
+                result["persisted"]["page_count"] = int(result.get("page_count") or 0)
+                result["persisted"]["ocr_retried"] = bool(result.get("ocr_retried"))
             else:
                 result.setdefault("persisted", {})
             return result
