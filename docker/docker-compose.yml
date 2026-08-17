@@ -69,6 +69,31 @@ services:
       retries: 3
       start_period: 30s
 
+  documentserver:
+    image: onlyoffice/documentserver:latest
+    container_name: angineer-onlyoffice
+    ports:
+      # ONLYOFFICE 文档服务器（浏览器直接访问，JWT 保护）
+      - "8089:80"
+    env_file:
+      - ../.env
+    environment:
+      - EXAMPLE_ENABLED=true
+      - JWT_ENABLED=true
+      - JWT_HEADER=Authorization
+      - JWT_IN_BODY=true
+      - SECURE_LINK_SECRET=kFyvDX4cprs52hu49xJj
+    volumes:
+      - ../data/onlyoffice/logs:/var/log/onlyoffice
+      - ../data/onlyoffice/data:/var/www/onlyoffice/Data
+      - ../data/onlyoffice/cache:/var/lib/onlyoffice/documentserver/App_Data/cache
+      - ../data/onlyoffice/local.json:/etc/onlyoffice/documentserver/local.json
+      - ../data/onlyoffice/example-production-linux.json:/etc/onlyoffice/documentserver-example/production-linux.json
+      - ../data/onlyoffice/example-local.json:/etc/onlyoffice/documentserver-example/local.json
+    restart: unless-stopped
+    networks:
+      - angineer-net
+
 networks:
   angineer-net:
     driver: bridge
