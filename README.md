@@ -540,3 +540,27 @@ graph LR
 3. 同类能力只保留一个实现位置（函数/映射/类型）。
 4. A 层不新增对 D 层的直接依赖。
 
+## 16. PDF 高亮悬停显示原文（v0.1.2）
+
+`PDF_Viewer` 内置"证据高亮框悬停显示原文"浮框：悬停 `.pdf-highlight-box` 时展示该
+bbox 区域原文，命中段加粗。取字复用组件内部按页缓存的 pdfjs `getTextContent()`，
+不二次加载 PDF；仅高亮锚点触发，普通文本区域 hover 无浮框。
+
+新增 props（均向后兼容，默认开启）：
+
+| prop | 类型 | 默认 | 说明 |
+| :--- | :--- | :--- | :--- |
+| `highlightHoverText` | `boolean` | `true` | 是否启用高亮悬停原文 |
+| `highlightHoverFontSize` | `number` | `13` | 浮框字号 |
+| `highlightHoverMaxWidth` | `number` | `340` | 浮框最大宽度（超出滚动） |
+| `highlightHoverMaxHeight` | `number` | `180` | 浮框最大高度（超出滚动） |
+
+`highlights` 条目新增可选字段：
+
+- `text?`: bbox 原文全文，优先展示（未提供时按 bbox 内部提取）；
+- `matchText?`: 雷同段，浮框内加粗高亮（未提供时尝试全文定位，或不做加粗）；
+- `excerpt?`: 兼容别名，`matchText` 未提供时当 `matchText` 用。
+
+浮框行为：`pointer-events: none` 不拦截交互；靠近边缘自动翻转防溢出；翻页、缩放、
+搜索、定位时自动隐藏；亮色/暗色主题均适配。
+

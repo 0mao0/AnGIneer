@@ -42,6 +42,76 @@ export interface SearchWordRect {
   height: number
 }
 
+/** 取与归一化矩形相交的文本项，按行分组、行内按 left 排序拼接；行间 \n。 */
+export function textItemsInRect(
+  items: PageTextItem[],
+  rect: { left: number; top: number; width: number; height: number },
+): string {
+  const list = items || []
+  if (!list.length) return ''
+  const hit = list.filter((it) => {
+    return it.left < rect.left + rect.width
+      && it.left + it.width > rect.left
+      && it.top < rect.top + rect.height
+      && it.top + it.height > rect.top
+  })
+  if (!hit.length) return ''
+  const sorted = [...hit].sort((a, b) => a.top - b.top || a.left - b.left)
+  const lines: string[] = []
+  let cur: PageTextItem[] = []
+  for (const it of sorted) {
+    const last = cur[cur.length - 1]
+    if (cur.length && last && Math.abs(it.top - last.top) > Math.max(it.height, last.height) * 0.7) {
+      lines.push(cur.sort((a, b) => a.left - b.left).map((i) => i.text).join(''))
+      cur = [it]
+    } else {
+      cur.push(it)
+    }
+  }
+  if (cur.length) lines.push(cur.sort((a, b) => a.left - b.left).map((i) => i.text).join(''))
+  return lines.join('\n').trim()
+}
+
+/** 把 matchText 在全文中的命中段标记出来；精确匹配失败时忽略空白差异再匹配。 */
+export function buildMatchSegments(text: string, matchText: string): HighlightSegment[] {
+  const source = text || ''
+  const needle = (matchText || '').trim()
+  if (!needle) return source ? [{ text: source, hit: false }] : []
+  const plain: HighlightSegment[] = [{ text: source, hit: false }]
+  const exact = source.indexOf(needle)
+  if (exact >= 0) return splitMatchAt(source, exact, exact + needle.length)
+  const compactText = source.replace(/\s+/g, '')
+  const compactNeedle = needle.replace(/\s+/g, '')
+  const ci = compactText.indexOf(compactNeedle)
+  if (ci < 0) return plain
+  const start = mapCompactMatchIndex(source, ci)
+  const end = mapCompactMatchIndex(source, ci + compactNeedle.length)
+  if (start < 0 || end <= start) return plain
+  return splitMatchAt(source, start, end)
+}
+
+function splitMatchAt(text: string, start: number, end: number): HighlightSegment[] {
+  const parts: HighlightSegment[] = []
+  if (start > 0) parts.push({ text: text.slice(0, start), hit: false })
+  parts.push({ text: text.slice(start, end), hit: true })
+  if (end < text.length) parts.push({ text: text.slice(end), hit: false })
+  return parts.filter((p) => p.text.length > 0)
+}
+
+/** 压缩空白文本的下标 → 原始文本下标（忽略空白计数）。 */
+function mapCompactMatchIndex(text: string, compactIndex: number): number {
+  let seen = 0
+  for (let i = 0; i < text.length; i++) {
+    if (!/\s/.test(text[i])) {
+      if (seen === compactIndex) return i
+      seen++
+    }
+  }
+  // 命中段正好延伸到文本末尾：返回 length 让 slice 取到结尾
+  if (seen === compactIndex) return text.length
+  return -1
+}
+
 export function insetWordRects(rects: SearchWordRect[], verticalRatio = 0.76): SearchWordRect[] {
   return rects.map((rect) => {
     const inset = Math.min((rect.height * (1 - verticalRatio)) / 2, rect.height / 2)
