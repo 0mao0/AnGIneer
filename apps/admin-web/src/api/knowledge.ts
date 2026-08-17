@@ -223,6 +223,8 @@ export const knowledgeApi = {
         finished_at: string
         updated_at: string
         backend?: string
+        page_count?: number
+        is_scanned?: boolean
         outputs?: { dir?: string; raw_dir?: string; items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] }
         steps?: { step: string; status: string; detail?: string }[]
       }[]

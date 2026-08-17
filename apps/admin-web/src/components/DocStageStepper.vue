@@ -12,6 +12,8 @@
             <component :is="statusIcon(stage.status)" :class="['stage-icon', `icon-${stage.status}`]" />
             <span class="stage-number">{{ stage.displayNum }}</span>
             <span class="stage-title">{{ stage.title }}</span>
+            <a-tag v-if="stage.page_count > 0" size="small" class="stage-page-tag">{{ stage.page_count }}页</a-tag>
+            <a-tag v-if="stage.is_scanned" size="small" color="orange" class="stage-page-tag">扫描件</a-tag>
             <span class="stage-time">{{ formatTime(stage) }}</span>
             <span class="stage-duration">{{ formatDuration(stage) }}</span>
             <span v-if="stage.key !== 'source_prep'" class="stage-actions">
@@ -245,6 +247,10 @@
         </a-descriptions>
       </a-collapse-panel>
     </a-collapse>
+    <div class="stage-total">
+      <span class="stage-total-label">总耗时</span>
+      <span class="stage-total-value">{{ totalDurationMs > 0 ? formatMs(totalDurationMs) : '—' }}</span>
+    </div>
   </div>
 </template>
 
@@ -278,6 +284,8 @@ const props = defineProps<{
     input_summary?: string
     output_summary?: string
     backend?: string
+    page_count?: number
+    is_scanned?: boolean
     outputs?: { dir?: string; raw_dir?: string; items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] }
     steps?: { step: string; status: string; detail?: string }[]
   }[]
@@ -323,11 +331,30 @@ const orderedStages = computed(() =>
       input_summary: found.input_summary || '',
       output_summary: found.output_summary || '',
       backend: (found as any)?.backend || '',
+      page_count: (found as any)?.page_count || 0,
+      is_scanned: Boolean((found as any)?.is_scanned),
       outputs: (found as any)?.outputs || null,
       steps: (found as any)?.steps || [],
     }
   })
 )
+
+const totalDurationMs = computed(() => {
+  let total = 0
+  let anyStarted = false
+  for (const s of orderedStages.value) {
+    if (s.status === 'running' && s.started_at) {
+      anyStarted = true
+      total += nowTick.value - new Date(s.started_at).getTime()
+      continue
+    }
+    if ((s.status === 'completed' || s.status === 'failed') && s.started_at && s.finished_at) {
+      anyStarted = true
+      total += Math.max(0, new Date(s.finished_at).getTime() - new Date(s.started_at).getTime())
+    }
+  }
+  return anyStarted ? total : 0
+})
 
 // 结构化阶段标题按实际使用的后端动态显示；未完成或未知时保持中性「结构化」
 function stageTitle(key: string, found: { backend?: string }): string {
@@ -697,6 +724,9 @@ function fileIconStyle(file: { name: string; isDir: boolean }): Record<string, s
   flex-shrink: 0;
   margin-left: 4px;
 }
+.stage-page-tag {
+  margin-inline-end: 0;
+}
 .stage-action-btn {
   font-size: 12px;
   padding-inline: 0;
@@ -897,5 +927,24 @@ function fileIconStyle(file: { name: string; isDir: boolean }): Record<string, s
   font-size: 11px;
   color: var(--text-tertiary, #999);
   white-space: nowrap;
+}
+
+.stage-total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border-color, #e8e8e8);
+}
+.stage-total-label {
+  font-size: 12px;
+  color: var(--text-secondary, #666);
+}
+.stage-total-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary, #222);
 }
 </style>
