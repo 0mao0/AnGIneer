@@ -224,7 +224,7 @@
                   width: `${item.width * 100}%`,
                   height: `${item.height * 100}%`
                 }"
-                @mouseenter="onHighlightMouseEnter(item)"
+                @mouseenter="onHighlightMouseEnter(item, $event.currentTarget as HTMLElement)"
                 @mouseleave="onHighlightMouseLeave"
                 @click="emit('select-highlight', item)"
               >
@@ -266,6 +266,18 @@
                   height: `${rect.height * 100}%`
                 }"
               />
+            </div>
+            <div
+              v-if="hoverTip.visible && hoverTip.segments.length"
+              ref="hoverTipEl"
+              class="pdf-hover-tip"
+              :class="{ 'pdf-hover-tip-flip': hoverTip.flipY }"
+              :style="hoverTipStyle"
+            >
+              <template v-for="(seg, i) in hoverTip.segments" :key="i">
+                <strong v-if="seg.hit" class="pdf-hover-tip__match">{{ seg.text }}</strong>
+                <template v-else>{{ seg.text }}</template>
+              </template>
             </div>
           </div>
         </div>
@@ -349,7 +361,15 @@ import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 import OfficePreview from './OfficePreview.vue'
-import { insetWordRects, matchTextItemRects, type PageTextItem, type SearchWordRect } from '../../../utils/pdfSearch'
+import {
+  buildMatchSegments,
+  insetWordRects,
+  matchTextItemRects,
+  textItemsInRect,
+  type HighlightSegment,
+  type PageTextItem,
+  type SearchWordRect,
+} from '../../../utils/pdfSearch'
 import { renderSearchSnippetHtml } from '../../../utils/searchSnippet'
 
 export interface PDFViewerNode {
@@ -443,15 +463,85 @@ const hoveredItemId = computed(() => {
   return item ? item.itemId : null
 })
 
-function onHighlightMouseEnter(item: LinkedHighlight) {
+interface HoverTipState {
+  visible: boolean
+  left: number
+  top: number
+  width: number
+  flipY: boolean
+  segments: HighlightSegment[]
+}
+const hoverTip = ref<HoverTipState>({
+  visible: false, left: 0, top: 0, width: 0, flipY: false, segments: [],
+})
+const hoverTipEl = ref<HTMLElement | null>(null)
+let hoverTipToken = 0
+
+const hideHighlightTip = () => { hoverTip.value.visible = false }
+
+async function extractTextInRect(page: number, hl: LinkedHighlight): Promise<string> {
+  const items = await loadPageTextItems(page)
+  return textItemsInRect(items, { left: hl.left, top: hl.top, width: hl.width, height: hl.height })
+}
+
+async function resolveHoverSegments(item: LinkedHighlight): Promise<HighlightSegment[]> {
+  const matchText = (item.matchText ?? item.excerpt ?? '').trim()
+  if (item.text && item.text.trim()) {
+    return buildMatchSegments(item.text, matchText)
+  }
+  if (!item.hasRect || item.width <= 0 || item.height <= 0) return []
+  const extracted = await extractTextInRect(item.page, item)
+  if (extracted) return buildMatchSegments(extracted, matchText)
+  return matchText ? [{ text: matchText, hit: true }] : []
+}
+
+async function onHighlightMouseEnter(item: LinkedHighlight, box: HTMLElement) {
   hoveredHighlightId.value = item.id
   emit('hover-highlight', item.itemId)
+  hoverTip.value.visible = false
+  if (!props.highlightHoverText) return
+  const token = ++hoverTipToken
+  const segments = await resolveHoverSegments(item)
+  if (token !== hoverTipToken || !segments.length) return
+  const container = pdfScrollRef.value
+  const spacer = container?.querySelector('.pdf-virtual-spacer') as HTMLElement | null
+  if (!container || !spacer) return
+  const containerRect = container.getBoundingClientRect()
+  const boxRect = box.getBoundingClientRect()
+  const vw = containerRect.width
+  const maxWidth = Math.min(props.highlightHoverMaxWidth, Math.max(180, vw - 16))
+  const width = Math.max(120, Math.min(boxRect.width, maxWidth))
+  const visibleLeft = Math.max(8, Math.min(boxRect.left - containerRect.left, vw - width - 8))
+  const spacerRect = spacer.getBoundingClientRect()
+  const flipY = boxRect.top - containerRect.top < props.highlightHoverMaxHeight + 8
+  const tipHeight = Math.min(props.highlightHoverMaxHeight, 180)
+  const top = flipY
+    ? boxRect.bottom - spacerRect.top + 4
+    : boxRect.top - spacerRect.top - tipHeight - 4
+  hoverTip.value = {
+    visible: true,
+    left: visibleLeft + (containerRect.left - spacerRect.left),
+    top,
+    width,
+    flipY,
+    segments,
+  }
 }
 
 function onHighlightMouseLeave() {
   hoveredHighlightId.value = null
+  hoverTip.value.visible = false
   emit('hover-highlight', null)
 }
+
+const hoverTipStyle = computed(() => ({
+  left: `${hoverTip.value.left}px`,
+  top: `${hoverTip.value.top}px`,
+  width: `${hoverTip.value.width}px`,
+  maxWidth: `${props.highlightHoverMaxWidth}px`,
+  maxHeight: `${props.highlightHoverMaxHeight}px`,
+  fontSize: `${props.highlightHoverFontSize}px`,
+}))
 
 const emit = defineEmits<{
   download: []
@@ -611,6 +701,7 @@ const performTextSearch = () => {
 }
 
 const jumpToSearchResult = (result: SearchResult, idx: number) => {
+  hideHighlightTip()
   searchActiveIndex.value = idx
   searchActivePage.value = result.page
   searchActiveLine.value = result.lineNumber
@@ -1637,6 +1728,7 @@ const isLocalOffice = computed(() => {
 const minPdfScale = MIN_SCALE
 const maxPdfScale = MAX_SCALE
 const pdfScale = zoom.pdfScale
+watch(pdfScale, hideHighlightTip)
 const pageInputWidth = computed(() => {
   const w = Math.max(32, String(activePdfPage.value).length * 10 + 12)
   return w
@@ -1819,9 +1911,10 @@ watch(() => props.textScrollPercent, (percent) => {
 const goPrevPage = () => scroll.goPrevPage()
 const goNextPage = () => scroll.goNextPage()
 const onPageInputChange = (v: any) => scroll.onPageInputChange(v)
-const scrollToHighlight = (highlight: LinkedHighlight, align?: 'quarter' | 'center') => (
-  scroll.scrollToHighlight(highlight, align)
-)
+const scrollToHighlight = (highlight: LinkedHighlight, align?: 'quarter' | 'center') => {
+  hideHighlightTip()
+  return scroll.scrollToHighlight(highlight, align)
+}
 defineExpose({ scrollToHighlight })
 const zoomIn = () => zoom.zoomIn()
 const zoomOut = () => zoom.zoomOut()
@@ -2442,6 +2535,28 @@ onBeforeUnmount(() => {
   opacity: 1;
 }
 
+.pdf-hover-tip {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  overflow: auto;
+  padding: 6px 8px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--dp-title-strong, #4f5d7a);
+  background: #fff;
+  border: 1px solid var(--dp-pane-border, #e8edf4);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  &__match {
+    color: #d4380d;
+    font-weight: 700;
+    background: rgba(255, 77, 79, 0.12);
+    border-radius: 2px;
+  }
+}
+
 .pdf-scroll-container {
   flex: 1;
   overflow: auto;
@@ -2484,6 +2599,12 @@ onBeforeUnmount(() => {
 
 /* Dark mode �?跟随系统 */
 @media (prefers-color-scheme: dark) {
+  .pdf-viewer-shell .pdf-hover-tip {
+    color: #d9d9d9;
+    background: #1f1f1f;
+    border-color: #434343;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
   .pdf-viewer-shell {
     --dp-bg: var(--dp-bg-override, #101319);
     --dp-pane-bg: var(--dp-pane-bg-override, #171b24);
@@ -2562,6 +2683,12 @@ onBeforeUnmount(() => {
 }
 
 .pdf-viewer-shell.dark-mode {
+  .pdf-hover-tip {
+    color: #d9d9d9;
+    background: #1f1f1f;
+    border-color: #434343;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
   --dp-bg: var(--dp-bg-override, #101319);
   --dp-pane-bg: var(--dp-pane-bg-override, #171b24);
   --dp-pane-border: var(--dp-pane-border-override, #2a3140);
