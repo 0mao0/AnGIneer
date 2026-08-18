@@ -13,9 +13,9 @@
             <span class="stage-number">{{ stage.displayNum }}</span>
             <span class="stage-title-group">
               <span class="stage-title">{{ stage.title }}</span>
-              <template v-if="stage.key === 'raw_parse'">
-                <a-tag v-if="stage.page_count > 0" size="small" class="stage-page-tag">{{ stage.page_count }}页</a-tag>
-                <a-tag v-if="stage.is_scanned" size="small" color="orange" class="stage-page-tag">扫描件</a-tag>
+              <template v-if="stage.key === 'raw_parse' || stage.key === 'convert'">
+                <a-tag v-if="stagePageCount(stage) > 0" size="small" class="stage-page-tag">{{ stagePageCount(stage) }}页</a-tag>
+                <a-tag v-if="stageIsScanned(stage)" size="small" color="orange" class="stage-page-tag">扫描件</a-tag>
               </template>
             </span>
             <span class="stage-time">{{ formatTime(stage) }}</span>
@@ -371,6 +371,23 @@ function stageTitle(key: string, found: { backend?: string }): string {
   return STAGE_TITLES[key]
 }
 
+// 页数/扫描件元数据由 raw_parse 阶段落库；convert 等阶段展示时回退引用同一文档的 raw_parse
+function stagePageCount(stage: { key: string; status: string; page_count?: number }): number {
+  if (stage.page_count > 0) return stage.page_count
+  if (stage.key === 'convert' && stage.status !== 'pending' && stage.status !== 'skipped') {
+    return orderedStages.value.find(s => s.key === 'raw_parse')?.page_count || 0
+  }
+  return 0
+}
+
+function stageIsScanned(stage: { key: string; status: string; is_scanned?: boolean }): boolean {
+  if (stage.is_scanned) return true
+  if (stage.key === 'convert' && stage.status !== 'pending' && stage.status !== 'skipped') {
+    return Boolean(orderedStages.value.find(s => s.key === 'raw_parse')?.is_scanned)
+  }
+  return false
+}
+
 // 是否有阶段正在运行（决定显示启动还是取消）
 const anyRunning = computed(() => orderedStages.value.some(s => s.status === 'running'))
 // 是否有阶段排队等待 GPU（同样视为任务进行中，不显示启动）
@@ -635,7 +652,8 @@ function flowBlocks(stage: { message?: string }): string {
 }
 
 function parseFiles(text: string): { name: string; path: string; isDir: boolean }[] {
-  return text.split(/\s*\+\s*/).filter(Boolean).map(part => {
+  // 产物清单用 " + "（空格+加号+空格）连接多个文件；文件名里的 + 不能作为分隔符
+  return text.split(/\s+\+\s+/).filter(Boolean).map(part => {
     part = part.trim()
     if (/[/\\]/.test(part) || part.includes(':')) {
       const name = part.split(/[/\\]/).filter(Boolean).pop() || part
@@ -904,10 +922,30 @@ function fileIconStyle(file: { name: string; isDir: boolean }): Record<string, s
   flex-direction: column;
   gap: 2px;
 }
-.convert-side .file-path {
-  font-size: 10px;
+/* 输入/输出框内文件行：宽度锚定到所在框，避免长文件名/路径把框撑破 */
+.convert-side .file-summary,
+.convert-side .file-row,
+.convert-side .file-name-line {
+  width: 100%;
   max-width: 100%;
+  min-width: 0;
+}
+/* 文件名（图标+文件名）保持一行，超长省略号截断；不溢出所在框 */
+.convert-side .file-name-line .ant-tag,
+.convert-side .file-row > .ant-tag {
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.convert-side .file-path {
+  width: 100%;
+  max-width: 100%;
+  font-size: 10px;
   text-align: center;
+  overflow-wrap: anywhere;
 }
 .convert-arrow {
   display: flex;

@@ -53,6 +53,9 @@
         <template v-if="column.key === 'file_size'">
           {{ formatFileSize(record.file_size) }}
         </template>
+        <template v-if="column.key === 'page_count'">
+          {{ record.page_count ? `${record.page_count} 页` : '-' }}
+        </template>
         <template v-if="column.key === 'created_at'">
           {{ formatTime(record.created_at) }}
         </template>
@@ -286,6 +289,7 @@ const columns = ref<TableColumnType[]>([
   { title: '文件名称', dataIndex: 'file_name', key: 'file_name', ellipsis: true },
   { title: '格式', dataIndex: 'file_format', key: 'file_format', width: 60 },
   { title: '大小', key: 'file_size', width: 80 },
+  { title: '页数', dataIndex: 'page_count', key: 'page_count', width: 60 },
   { title: '解析状态', key: 'status', width: 80 },
   { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
   { title: '操作', key: 'action', width: 220, fixed: 'right' as const },

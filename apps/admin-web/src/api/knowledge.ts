@@ -244,6 +244,7 @@ export interface ParseRecordItem {
   file_name: string
   file_format: string
   file_size: number
+  page_count?: number | null
   status: string
   error: string | null
   created_at: string
