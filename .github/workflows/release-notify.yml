@@ -1,0 +1,27 @@
+name: Release Notify
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "要通知的版本标签，如 v0.1.5"
+        required: false
+        default: ""
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Notify WeCom group
+        env:
+          WEBHOOK: ${{ secrets.WECOM_WEBHOOK_URL }}
+          PACKAGE: ${{ github.repository }}
+          TAG: ${{ inputs.tag || github.ref_name }}
+          SHA: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 .github/scripts/release_notify.py
