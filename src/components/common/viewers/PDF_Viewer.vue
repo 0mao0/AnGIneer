@@ -1321,7 +1321,6 @@ function usePdfMeasurement(
   }
 
   function clearAllPageData() {
-    console.log('[PDFViewer] Clearing all page data for document switch/unmount')
     pageResizeObservers.forEach(o => o.disconnect())
     pageResizeObservers.clear()
     pageElements.clear()
@@ -1584,6 +1583,8 @@ function usePdfDocument(
   const pdfDocument = shared.pdfDocumentRef
   const pdfLoadingTask = shallowRef<any>(null)
   let pdfLoadToken = 0
+  /** 流式加载被 abort 的源：本会话内直接走全量加载，避免每次重复失败尝试。 */
+  const failedStreamSources = new Set<string>()
 
   function destroyPdf() {
     pdfLoadingTask.value?.destroy?.()
@@ -1637,29 +1638,36 @@ function usePdfDocument(
     destroyPdf()
     render.clearPdfRenderState()
 
-    try {
-      const loadingTask = pdfjsLib.getDocument({
-        url: source,
-        disableRange: false, disableStream: false, disableAutoFetch: false,
-        rangeChunkSize: 65536 * 8,
-        cMapUrl: `${pdfAssetBaseUrl.value}cmaps/`,
-        standardFontDataUrl: `${pdfAssetBaseUrl.value}standard_fonts/`,
-        wasmUrl: `${pdfAssetBaseUrl.value}wasm/`,
-      })
+    if (!failedStreamSources.has(source)) {
+      try {
+        const loadingTask = pdfjsLib.getDocument({
+          url: source,
+          disableRange: false, disableStream: false, disableAutoFetch: false,
+          rangeChunkSize: 65536 * 8,
+          cMapUrl: `${pdfAssetBaseUrl.value}cmaps/`,
+          standardFontDataUrl: `${pdfAssetBaseUrl.value}standard_fonts/`,
+          wasmUrl: `${pdfAssetBaseUrl.value}wasm/`,
+        })
 
-      loadingTask.onProgress = ({ loaded, total }: { loaded: number; total: number }) => {
-        if (total > 0) pdfLoadingProgress.value = Math.min(99, Math.round((loaded / total) * 100))
+        loadingTask.onProgress = ({ loaded, total }: { loaded: number; total: number }) => {
+          if (total > 0) pdfLoadingProgress.value = Math.min(99, Math.round((loaded / total) * 100))
+        }
+
+        pdfLoadingTask.value = loadingTask
+        const nextDocument = await loadingTask.promise
+        if (pdfLoadToken !== nextToken) { void loadingTask.destroy(); return }
+        await onPdfDocumentLoaded(nextDocument)
+        return
+      } catch (error) {
+        // 加载被中断属预期竞态（文档切换/环境断流），静默降级并缓存，下次直接全量加载
+        if (error instanceof Error && error.message === 'Loading aborted') {
+          failedStreamSources.add(source)
+        } else {
+          console.warn('[PDFViewer] Stream load failed, trying full array buffer load:', error)
+        }
+        if (pdfLoadToken !== nextToken) return
+        destroyPdf()
       }
-
-      pdfLoadingTask.value = loadingTask
-      const nextDocument = await loadingTask.promise
-      if (pdfLoadToken !== nextToken) { void loadingTask.destroy(); return }
-      await onPdfDocumentLoaded(nextDocument)
-      return
-    } catch (error) {
-      console.warn('[PDFViewer] Stream load failed, trying full array buffer load:', error)
-      if (pdfLoadToken !== nextToken) return
-      destroyPdf()
     }
 
     try {

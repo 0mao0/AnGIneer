@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4
+
+- feat: 流式加载 Loading aborted 静默降级为全量加载，并缓存失败源避免重复尝试
+- chore: 移除文档切换/卸载调试日志
+
 ## 0.1.3
 
 - feat: PDF_Viewer 支持 pdfPageRange 子集渲染（绝对页码、越界吸附）
