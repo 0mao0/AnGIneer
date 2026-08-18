@@ -98,6 +98,17 @@ test('普通段落激活时整节一起高亮', () => {
   assert.deepEqual(ids.sort(), ['h-p3', 'h-table', 'h-title', 'h-p1'].sort())
 })
 
+test('citation jump with expandSection=false only highlights the target block', () => {
+  const highlights = [
+    highlight('h-title', 'title-2.2'),
+    highlight('h-p1', 'p-2.2.1'),
+    highlight('h-p3', 'p-2.2.3'),
+    highlight('h-table', 'table-2.2'),
+  ]
+  const ids = collectGroupHighlightIds(highlights, sectionNodes, 'p-2.2.3', null, false)
+  assert.deepEqual(ids, ['h-p3'])
+})
+
 test('公式激活不展开整节，只带公式自身与解释段', () => {
   const formulaNodes: GraphNodeLike[] = [
     node('title-2.2', 'title'),
@@ -111,5 +122,21 @@ test('公式激活不展开整节，只带公式自身与解释段', () => {
     highlight('h-title', 'title-2.2'),
   ]
   const ids = collectGroupHighlightIds(highlights, formulaNodes, 'f-6.2.8')
+  assert.deepEqual(ids.sort(), ['h-e1', 'h-formula', 'h-number'].sort())
+})
+
+test('expandSection=false keeps formula plus its explanation highlights', () => {
+  const formulaNodes: GraphNodeLike[] = [
+    node('title-2.2', 'title'),
+    node('f-6.2.8', 'equation_interline', 'title-2.2'),
+    node('e1', 'paragraph', 'title-2.2'),
+  ]
+  const highlights = [
+    highlight('h-formula', 'f-6.2.8'),
+    highlight('h-number', 'f-6.2.8'),
+    highlight('h-e1', 'e1', ['f-6.2.8']),
+    highlight('h-title', 'title-2.2'),
+  ]
+  const ids = collectGroupHighlightIds(highlights, formulaNodes, 'f-6.2.8', null, false)
   assert.deepEqual(ids.sort(), ['h-e1', 'h-formula', 'h-number'].sort())
 })

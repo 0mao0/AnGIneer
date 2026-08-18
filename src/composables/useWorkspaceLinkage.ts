@@ -55,6 +55,7 @@ interface ResolveLinkedHighlightOptions {
 interface SetActiveLinkedItemOptions {
   preferredPage?: number | null
   preferLastHighlight?: boolean
+  groupHighlight?: boolean
 }
 
 const readNumeric = (value: unknown): number | null => {
@@ -542,6 +543,7 @@ const findNearestHighlight = (
 export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   const activeLinkedItemId = ref<string | null>(null)
   const activeLinkedHighlightOverrideId = ref<string | null>(null)
+  const sectionGroupExpandEnabled = ref(true)
   // PDF 内点击高亮框后锁定的节点 id：同一节点的所有 bbox（如公式框+编号框）一起高亮
   const pdfClickActiveItemId = ref<string | null>(null)
   let cachedMarkdownContent = ''
@@ -652,6 +654,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
             height: normalizedRect?.height ?? 0,
             lineStart: node.markdown_line_start ?? null,
             lineEnd: node.markdown_line_end ?? null,
+            text: node.plain_text || '',
             type,
             contdTargetId: node.contd_target_id ?? null,
             tableMergeId: node.table_merge_id ?? null,
@@ -926,7 +929,8 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
       linkedHighlights.value,
       options.graphData.value?.nodes || [],
       primary?.itemId || activeLinkedItemId.value,
-      primary?.id || null
+      primary?.id || null,
+      sectionGroupExpandEnabled.value
     )
   })
 
@@ -979,6 +983,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
    * 供外部主动设置联动目标，可按需偏向最后一个高亮框。
    */
   const setActiveLinkedItem = (itemId: string | null, setOptions: SetActiveLinkedItemOptions = {}) => {
+    sectionGroupExpandEnabled.value = setOptions.groupHighlight !== false
     if (!itemId) {
       activeLinkedItemId.value = null
       activeLinkedHighlightOverrideId.value = null
@@ -1001,6 +1006,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   }
 
   const onHoverLinkedItem = (itemId: string | null) => {
+    sectionGroupExpandEnabled.value = true
     if (itemId) {
       // 鼠标进入新框时解除"点击整节点锁定"，恢复精确 hover
       pdfClickActiveItemId.value = null
@@ -1019,6 +1025,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     payload: string | LinkedHighlight,
     scrollPdfToHighlight?: (highlight: LinkedHighlight) => void,
   ) => {
+    sectionGroupExpandEnabled.value = true
     let target: LinkedHighlight | null = null
     if (typeof payload !== 'string') {
       pdfClickActiveItemId.value = payload.itemId || null
@@ -1048,6 +1055,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     itemId: string,
     scrollPdfToHighlight?: (highlight: LinkedHighlight) => void,
   ) => {
+    sectionGroupExpandEnabled.value = true
     pdfClickActiveItemId.value = itemId
     const target = resolveLinkedHighlight(itemId, itemId, null)
     // 右侧树点击：同样锁定到节点 id，PDF 里整节点（公式框+编号框）一起高亮
@@ -1067,6 +1075,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   }
 
   const onSelectLineFromRight = (line: number) => {
+    sectionGroupExpandEnabled.value = true
     const target = findNearestHighlight(
       Math.max(1, Math.round(line)),
       options.isPdf.value ? options.pdfPage.value : null,
@@ -1081,6 +1090,7 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
   }
 
   const resetLinkageState = () => {
+    sectionGroupExpandEnabled.value = true
     activeLinkedItemId.value = null
     activeLinkedHighlightOverrideId.value = null
     pdfClickActiveItemId.value = null

@@ -10,7 +10,7 @@
           解析失败
         </Tag>
         <Tag v-else-if="node.status === 'cancelled'" class="parse-state-tag">
-          已取�?
+          已取消
         </Tag>
       </div>
       <div
@@ -158,11 +158,11 @@
     </div>
     <div class="file-preview">
       <div v-if="isPdf" class="pdf-preview-wrap">
-        <!-- PDF加载进度指示�?-->
+        <!-- PDF加载进度指示器 -->
         <div v-if="isPdfLoading" class="pdf-loading-overlay">
           <Spin size="large" />
           <div class="pdf-loading-text">
-            <span v-if="pdfLoadingProgress > 0">加载�?{{ pdfLoadingProgress }}%</span>
+            <span v-if="pdfLoadingProgress > 0">加载中 {{ pdfLoadingProgress }}%</span>
             <span v-else>正在加载PDF文档...</span>
           </div>
           <Progress
@@ -365,13 +365,14 @@ import {
   buildMatchSegments,
   insetWordRects,
   matchTextItemRects,
+  pickSearchTargetHighlight,
   textItemsInRect,
   type HighlightSegment,
   type PageTextItem,
   type SearchWordRect,
 } from '../../../utils/pdfSearch'
 import { renderSearchSnippetHtml } from '../../../utils/searchSnippet'
-import { clampPageToRange, normalizePageRange } from '../../../utils/pageRange'
+import { clampPageToRange, computeSeededPageHeights, normalizePageRange } from '../../../utils/pageRange'
 
 export interface PDFViewerNode {
   status?: string
@@ -597,7 +598,7 @@ const toolbarMeasureRef = ref<HTMLElement | null>(null)
 const splitPaneRef = ref<HTMLElement | null>(null)
 const splitPaneResizeObserver = shallowRef<ResizeObserver | null>(null)
 
-// --- PDF Worker 初始�?---
+// --- PDF Worker 初始化 ---
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
 // --- 灯泡（bbox 显示切换）---
@@ -615,6 +616,7 @@ interface SearchResult {
   page: number
   text: string
   lineNumber: number
+  highlight?: LinkedHighlight
 }
 const showSearchPanel = ref(false)
 const searchQuery = ref('')
@@ -673,27 +675,31 @@ const performTextSearch = () => {
   searchWordRects.value = []
   searchWordLoadToken += 1
 
-  const lowerQ = q.toLowerCase()
-  const sourceText = props.searchText || props.textContent || ''
-  const lines = sourceText.split('\n')
-  const pageMap = highlightPageMap.value
-  const results: SearchResult[] = []
+    const lowerQ = q.toLowerCase()
+    const sourceText = props.searchText || props.textContent || ''
+    const lines = sourceText.split('\n')
+    const pageMap = highlightPageMap.value
+    const results: SearchResult[] = []
+    const highlights = props.highlights || []
 
-  for (let i = 0; i < lines.length && results.length < 200; i++) {
-    const line = lines[i]
-    const lineLower = line.toLowerCase()
-    let pos = lineLower.indexOf(lowerQ)
-    while (pos >= 0 && results.length < 200) {
-      const start = Math.max(0, pos - 30)
-      const end = Math.min(line.length, pos + lowerQ.length + 50)
-      const page = pageMap.get(i + 1) ?? 0
-      results.push({
-        page,
-        text: line.slice(start, end),
-        lineNumber: i + 1,
-      })
-      pos = lineLower.indexOf(lowerQ, pos + 1)
-    }
+    for (let i = 0; i < lines.length && results.length < 200; i++) {
+      const line = lines[i]
+      const lineLower = line.toLowerCase()
+      let pos = lineLower.indexOf(lowerQ)
+      while (pos >= 0 && results.length < 200) {
+        const start = Math.max(0, pos - 30)
+        const end = Math.min(line.length, pos + lowerQ.length + 50)
+        // 优先按文本命中 + 行距最近的高亮块定位；无匹配时回退到行号映射
+        const target = pickSearchTargetHighlight(q, line, i + 1, highlights)
+        const page = target?.page ?? (pageMap.get(i + 1) ?? 0)
+        results.push({
+          page,
+          text: line.slice(start, end),
+          lineNumber: i + 1,
+          highlight: target ?? undefined,
+        })
+        pos = lineLower.indexOf(lowerQ, pos + 1)
+      }
   }
 
   searchResults.value = results
@@ -707,8 +713,9 @@ const jumpToSearchResult = (result: SearchResult, idx: number) => {
   hideHighlightTip()
   searchActiveIndex.value = idx
   searchActivePage.value = result.page
-  searchActiveLine.value = result.lineNumber
-  const targetBbox = searchActiveHighlights.value[0]
+  // 黄色高亮框按高亮块自身的解析版行号渲染；右栏滚动仍用显示版行号
+  searchActiveLine.value = result.highlight?.lineStart ?? result.lineNumber
+  const targetBbox = result.highlight || searchActiveHighlights.value[0]
   if (targetBbox) {
     scroll.scrollToHighlight(targetBbox, 'center')
   } else if (result.page > 0) {
@@ -955,6 +962,19 @@ function usePdfVirtualScroll(
 
   function invalidateLayout() { _layoutDirty = true }
 
+  /** 用 pdf.js 预取的真实页高种入布局：topByPage 从头精确，跳页/bbox 定位不依赖估算收敛。 */
+  function seedRealPageHeights(rawHeights: number[], scale: number) {
+    const seeded = computeSeededPageHeights(rawHeights, scale)
+    if (!Object.keys(seeded.pageHeights).length) return
+    for (const key of Object.keys(pageHeights)) delete pageHeights[Number(key)]
+    for (const [page, height] of Object.entries(seeded.pageHeights)) {
+      pageHeights[Number(page)] = height
+    }
+    if (seeded.estimated > 0) estimatedPageHeight.value = seeded.estimated
+    invalidateLayout()
+    scheduleRenderedPageRangeUpdate()
+  }
+
   function updateRenderedPageRange() {
     const container = pdfScrollRef.value
     const layout = pageLayout.value
@@ -1085,6 +1105,12 @@ function usePdfVirtualScroll(
       scrollToPdfPage(page)
       return
     }
+    // 目标页尚未渲染/测量：先跳到该页，渲染后按真实几何再次精确定位（一次点击完成两步）
+    if (!(pageHeights[page] > 0)) {
+      scrollToPdfPage(page)
+      waitForPageMeasured(page, () => scrollToHighlight(highlight, align))
+      return
+    }
     const layout = pageLayout.value
     const pageTop = layout.topByPage[page] || 0
     const pageHeight = pageHeightOf(page)
@@ -1119,13 +1145,25 @@ function usePdfVirtualScroll(
     requestAnimationFrame(() => { applyingExternalPdfScroll.value = false })
   }
 
+  /** 目标页渲染并测量完成后再回调（最多约 3s 兜底）。 */
+  function waitForPageMeasured(page: number, done: () => void) {
+    let tries = 0
+    const timer = window.setInterval(() => {
+      tries += 1
+      if (pageHeights[page] > 0 || tries > 60) {
+        window.clearInterval(timer)
+        done()
+      }
+    }, 50)
+  }
+
   return {
     pageHeights, estimatedPageHeight, renderedPageRange, activePdfPage,
     virtualContentHeight, applyingExternalPdfScroll, isPdfUserScrolling,
     lastEmittedPdfPercent, displayPdfPageCount, activePageRange, pageHeightOf,
     pageLayout, updateRenderedPageRange, scheduleRenderedPageRangeUpdate,
     scrollToPdfPage, scrollToHighlight, onPdfScroll, goPrevPage, goNextPage, onPageInputChange,
-    invalidateLayout,
+    invalidateLayout, seedRealPageHeights,
   }
 }
 
@@ -1562,6 +1600,7 @@ function usePdfDocument(
     scheduleRenderedPageRangeUpdate: () => void
     displayPdfPageCount: ComputedRef<number>
     estimatedPageHeight: Ref<number>
+    seedRealPageHeights: (rawHeights: number[], scale: number) => void
   },
   zoom: {
     clampScale: (v: number) => number
@@ -1618,6 +1657,22 @@ function usePdfDocument(
       }
     }
     scroll.scheduleRenderedPageRangeUpdate()
+    // 用 pdf.js 预取全部页真实高度种入布局，保证跳页/bbox 定位一次到位（不阻塞首屏渲染）
+    void (async () => {
+      try {
+        const heights: number[] = []
+        const count = localPdfPageCount.value
+        for (let p = 1; p <= count; p++) {
+          const page = await nextDocument.getPage(p)
+          heights.push(page.getViewport({ scale: 1 }).height)
+        }
+        if (heights.length) {
+          scroll.seedRealPageHeights(heights, zoom.pdfScale.value || 1)
+        }
+      } catch (e) {
+        console.warn('[PDFViewer] Failed to pre-fetch page dimensions:', e)
+      }
+    })()
     await nextTick()
     render.renderVisiblePages()
     requestAnimationFrame(() => {
@@ -1945,7 +2000,7 @@ watch(() => props.textScrollPercent, (percent) => {
   }
 })
 
-// --- 暴露方法给模�?---
+// --- 暴露方法给模板 ---
 const goPrevPage = () => scroll.goPrevPage()
 const goNextPage = () => scroll.goNextPage()
 const onPageInputChange = (v: any) => scroll.onPageInputChange(v)
@@ -2076,7 +2131,7 @@ onBeforeUnmount(() => {
   border-radius: 8px;
   background: var(--dp-pane-bg);
   overflow: hidden;
-  /* Light mode defaults �?宿主可通过 --dp-*-override 覆盖 */
+  /* Light mode defaults：宿主可通过 --dp-*-override 覆盖 */
   --dp-bg: var(--dp-bg-override, var(--dp-bg, #f3f5f8));
   --dp-pane-bg: var(--dp-pane-bg-override, var(--dp-pane-bg, #fff));
   --dp-pane-border: var(--dp-pane-border-override, var(--dp-pane-border, #e8edf4));
@@ -2611,7 +2666,8 @@ onBeforeUnmount(() => {
 .pdf-virtual-spacer {
   position: relative;
   width: 100%;
-  min-width: min-content; /* 确保虚拟占位符能够撑开容器，支持横向滚�?*/
+  flex-shrink: 0; /* 容器是 flex 列，防止占位高度被压缩，保证整篇可滚动 */
+  min-width: min-content; /* 确保虚拟占位符能够撑开容器，支持横向滚动 */
 }
 
 .pdf-page-wrapper {
@@ -2635,7 +2691,7 @@ onBeforeUnmount(() => {
   display: block;
 }
 
-/* Dark mode �?跟随系统 */
+/* Dark mode：跟随系统 */
 @media (prefers-color-scheme: dark) {
   .pdf-viewer-shell .pdf-hover-tip {
     color: #d9d9d9;
@@ -2693,7 +2749,7 @@ onBeforeUnmount(() => {
   }
 }
 
-/* Dark mode �?props.theme='dark' 显式指定 */
+/* Dark mode：props.theme='dark' 显式指定 */
 .split-pane.dark-mode {
   --dp-bg: var(--dp-bg-override, #101319);
   --dp-pane-bg: var(--dp-pane-bg-override, #171b24);
@@ -2753,7 +2809,7 @@ onBeforeUnmount(() => {
   border-color: rgba(255, 255, 255, 0.28);
 }
 
-/* Light mode �?props.theme='light' 显式指定 */
+/* Light mode：props.theme='light' 显式指定 */
 .split-pane.light-mode {
   --dp-bg: var(--dp-bg-override, #f3f5f8);
   --dp-pane-bg: var(--dp-pane-bg-override, #fff);

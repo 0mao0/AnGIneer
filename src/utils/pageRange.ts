@@ -35,3 +35,33 @@ export function clampPageToRange(page: number, range: number[]): number {
   }
   return best
 }
+
+const MIN_PAGE_HEIGHT = 400
+const MAX_PAGE_HEIGHT = 6000
+const PAGE_WRAPPER_PADDING = 12
+
+/**
+ * 用 pdf.js 预取的真实页高（scale=1 的 viewport 高度）生成虚拟滚动布局的种子高度：
+ * 每页高度 = 真实高度 * scale + 页面容器上下留白（与运行时测量口径一致），
+ * 估算高度取平均值。这样 topByPage 从头就是精确值，跳页/bbox 定位不再依赖估算收敛。
+ */
+export function computeSeededPageHeights(
+  rawHeights: number[],
+  scale: number,
+): { pageHeights: Record<number, number>; estimated: number } {
+  const pageHeights: Record<number, number> = {}
+  const s = Number(scale) || 1
+  const values = (rawHeights || [])
+    .map((h) => Number(h) || 0)
+    .filter((h) => h > 0)
+  if (!values.length) return { pageHeights, estimated: 0 }
+  values.forEach((h, idx) => {
+    pageHeights[idx + 1] = Math.max(MIN_PAGE_HEIGHT, Math.round(h * s + PAGE_WRAPPER_PADDING))
+  })
+  const avgRaw = values.reduce((sum, h) => sum + h, 0) / values.length
+  const estimated = Math.max(
+    MIN_PAGE_HEIGHT,
+    Math.min(MAX_PAGE_HEIGHT, Math.round(avgRaw * s + PAGE_WRAPPER_PADDING)),
+  )
+  return { pageHeights, estimated }
+}

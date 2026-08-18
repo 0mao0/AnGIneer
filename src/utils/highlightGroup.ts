@@ -79,7 +79,8 @@ export const collectGroupHighlightIds = (
   highlights: LinkedHighlightLike[],
   nodes: GraphNodeLike[],
   activeItemId: string | null,
-  primaryHighlightId: string | null = null
+  primaryHighlightId: string | null = null,
+  expandSection: boolean = true
 ): string[] => {
   if (!activeItemId) return []
   const nodeList = nodes || []
@@ -87,7 +88,7 @@ export const collectGroupHighlightIds = (
     node => String(node.id || '') === activeItemId || String(node.block_uid || '') === activeItemId
   )
   let groupNodeIds: string[] = [activeItemId]
-  if (activeNode && !isFormulaLikeNode(activeNode)) {
+  if (expandSection && activeNode && !isFormulaLikeNode(activeNode)) {
     const sectionRootId = findSectionRootId(nodeList, activeItemId)
     if (sectionRootId) {
       groupNodeIds = [sectionRootId, ...collectDescendantNodeIds(nodeList, sectionRootId)]

@@ -27,6 +27,53 @@ export function buildHighlightSegments(text: string, query: string): HighlightSe
   return segments
 }
 
+export interface SearchTargetHighlightLike {
+  id: string
+  page: number
+  lineStart: number | null
+  lineEnd: number | null
+  hasRect: boolean
+  text?: string
+}
+
+const normalizeSearchText = (value: string): string => (value || '').replace(/\s+/g, ' ').trim()
+
+/**
+ * 从高亮块中挑选搜索命中对应的定位目标：
+ * 取「包含查询词」的块，按 markdown 行号与命中行距离最近者优先，
+ * 行距相同时命中行文本与块文本完全匹配者优先；
+ * 无文本命中返回 null，由调用方回退到行号映射。
+ * 解决编辑版 markdown（current.md）与解析版（content.md）行号不一致导致的定位错位。
+ */
+export function pickSearchTargetHighlight<T extends SearchTargetHighlightLike>(
+  query: string,
+  hitLineText: string,
+  hitLineNumber: number,
+  highlights: T[],
+): T | null {
+  const q = normalizeSearchText(query)
+  if (!q) return null
+  const candidates = (highlights || []).filter(
+    (h) => h.hasRect !== false && typeof h.text === 'string' && normalizeSearchText(h.text).includes(q),
+  )
+  if (!candidates.length) return null
+  const hit = normalizeSearchText(hitLineText)
+  let best: T | null = null
+  let bestDistance = Number.POSITIVE_INFINITY
+  let bestExact = false
+  for (const candidate of candidates) {
+    const line = Number(candidate.lineStart ?? candidate.lineEnd ?? 0) || 0
+    const distance = Math.abs(line - hitLineNumber)
+    const exact = Boolean(hit && normalizeSearchText(candidate.text || '').includes(hit))
+    if (best === null || distance < bestDistance || (distance === bestDistance && exact && !bestExact)) {
+      best = candidate
+      bestDistance = distance
+      bestExact = exact
+    }
+  }
+  return best
+}
+
 export interface PageTextItem {
   text: string
   left: number
