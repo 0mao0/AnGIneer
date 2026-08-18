@@ -3,16 +3,16 @@
 dense 语义通道降级（embedding 不可用）时，rerank 降级链为：
 在线 reranker -> LLM 语义重排（本模块）-> 本地 phrase rerank。
 """
-import logging
 import os
 import re
 from typing import Any, List, Optional
 
 from ai_inference.llm_client import chat_result_guarded, get_llm_client
 from ai_inference.llm_response_parser import extract_json_from_text
+from angineer_core.base_logger import get_logger
 from angineer_core.prompts.retrieval import LLM_RERANK_SYSTEM_PROMPT
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def llm_rerank_candidates(
