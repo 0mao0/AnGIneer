@@ -22,7 +22,7 @@
           <Button
             size="small"
             class="pdf-tool-btn"
-            :disabled="activePdfPage <= 1"
+            :disabled="!hasPrevPdfPage"
             @click="goPrevPage"
             v-if="compactLevel <= 4"
           >
@@ -45,7 +45,7 @@
           <Button
             size="small"
             class="pdf-tool-btn"
-            :disabled="activePdfPage >= displayPdfPageCount"
+            :disabled="!hasNextPdfPage"
             @click="goNextPage"
             v-if="compactLevel <= 4"
           >
@@ -371,6 +371,7 @@ import {
   type SearchWordRect,
 } from '../../../utils/pdfSearch'
 import { renderSearchSnippetHtml } from '../../../utils/searchSnippet'
+import { clampPageToRange, normalizePageRange } from '../../../utils/pageRange'
 
 export interface PDFViewerNode {
   status?: string
@@ -429,6 +430,7 @@ const props = withDefaults(defineProps<{
   searchText?: string
   currentPdfPage: number
   pdfPageCount?: number
+  pdfPageRange?: number[]
   highlights: LinkedHighlight[]
   activeHighlightId: string | null
   activeHighlightIds?: string[]
@@ -551,6 +553,7 @@ const emit = defineEmits<{
   'pdf-active-page': [page: number]
   'search-jump': [page: number, lineNumber: number]
   'update:sidePanelOpen': [value: boolean]
+  'pdf-loaded': [source: string]
 }>()
 
 const slots = useSlots()
@@ -909,6 +912,7 @@ function usePdfVirtualScroll(
   let _cachedLayout: { topByPage: number[]; totalHeight: number } | null = null
   let _cachedPageCount = 0
   let _cachedEstHeight = 0
+  let _cachedRangeKey = ''
 
   const displayPdfPageCount = computed(() => {
     if (props.pdfPageCount && props.pdfPageCount > 1) return props.pdfPageCount
@@ -916,10 +920,10 @@ function usePdfVirtualScroll(
     return 1
   })
 
+  const activePageRange = computed<number[]>(() => normalizePageRange(props.pdfPageRange, displayPdfPageCount.value))
+
   function clampPage(value: number) {
-    const total = Math.max(1, displayPdfPageCount.value)
-    if (!Number.isFinite(value)) return 1
-    return Math.max(1, Math.min(total, Math.round(value)))
+    return clampPageToRange(value, activePageRange.value)
   }
 
   function pageHeightOf(page: number) {
@@ -928,20 +932,23 @@ function usePdfVirtualScroll(
 
   const pageLayout = computed(() => {
     const count = displayPdfPageCount.value
-    if (!_layoutDirty && _cachedLayout && count === _cachedPageCount && estimatedPageHeight.value === _cachedEstHeight) {
+    const rangeKey = activePageRange.value.join(',')
+    if (!_layoutDirty && _cachedLayout && count === _cachedPageCount && estimatedPageHeight.value === _cachedEstHeight && rangeKey === _cachedRangeKey) {
       return _cachedLayout
     }
     const topByPage: number[] = []
     let cursor = VERTICAL_PADDING
-    for (let page = 1; page <= count; page += 1) {
+    const pages = activePageRange.value
+    for (const page of pages) {
       topByPage[page] = cursor
       const ph = pageHeights[page]
       cursor += (ph > 0) ? ph : estimatedPageHeight.value
-      if (page < count) cursor += PAGE_GAP
+      if (page !== pages[pages.length - 1]) cursor += PAGE_GAP
     }
     _cachedLayout = { topByPage, totalHeight: Math.max(1, cursor + VERTICAL_PADDING) }
     _cachedPageCount = count
     _cachedEstHeight = estimatedPageHeight.value
+    _cachedRangeKey = rangeKey
     _layoutDirty = false
     return _cachedLayout
   })
@@ -952,18 +959,20 @@ function usePdfVirtualScroll(
     const container = pdfScrollRef.value
     const layout = pageLayout.value
     virtualContentHeight.value = layout.totalHeight
+    const pages = activePageRange.value
+    const firstPage = pages[0]
+    const lastPage = pages[pages.length - 1]
     if (!container || !props.isPdf) {
-      renderedPageRange.start = 1
-      renderedPageRange.end = Math.max(1, displayPdfPageCount.value)
+      renderedPageRange.start = firstPage
+      renderedPageRange.end = lastPage
       return
     }
-    const pageCount = Math.max(1, displayPdfPageCount.value)
-    if (pageCount <= 1) { renderedPageRange.start = 1; renderedPageRange.end = 1; return }
+    if (pages.length <= 1) { renderedPageRange.start = firstPage; renderedPageRange.end = firstPage; return }
     const viewportTop = container.scrollTop
     const viewportBottom = viewportTop + container.clientHeight
     let firstVisibleIndex = -1
     let lastVisibleIndex = -1
-    for (let page = 1; page <= pageCount; page += 1) {
+    for (const page of pages) {
       const pageTop = layout.topByPage[page] || 0
       const pageBottom = pageTop + pageHeightOf(page) + PAGE_GAP
       const intersectsViewport = pageBottom >= viewportTop && pageTop <= viewportBottom
@@ -973,18 +982,18 @@ function usePdfVirtualScroll(
       }
     }
     if (firstVisibleIndex === -1 || lastVisibleIndex === -1) {
-      let closestPage = 1
+      let closestPage = firstPage
       let minDiff = Number.POSITIVE_INFINITY
-      for (let page = 1; page <= pageCount; page += 1) {
+      for (const page of pages) {
         const diff = Math.abs((layout.topByPage[page] || 0) - viewportTop)
         if (diff < minDiff) { minDiff = diff; closestPage = page }
       }
-      renderedPageRange.start = Math.max(1, closestPage - RENDER_BUFFER)
-      renderedPageRange.end = Math.min(pageCount, closestPage + RENDER_BUFFER)
+      renderedPageRange.start = Math.max(firstPage, closestPage - RENDER_BUFFER)
+      renderedPageRange.end = Math.min(lastPage, closestPage + RENDER_BUFFER)
       return
     }
-    renderedPageRange.start = Math.max(1, firstVisibleIndex - RENDER_BUFFER)
-    renderedPageRange.end = Math.min(pageCount, lastVisibleIndex + RENDER_BUFFER)
+    renderedPageRange.start = Math.max(firstPage, firstVisibleIndex - RENDER_BUFFER)
+    renderedPageRange.end = Math.min(lastPage, lastVisibleIndex + RENDER_BUFFER)
   }
 
   function scheduleRenderedPageRangeUpdate() {
@@ -997,12 +1006,11 @@ function usePdfVirtualScroll(
   }
 
   function resolveViewportPage(scrollTop: number, clientHeight: number) {
-    const pageCount = Math.max(1, displayPdfPageCount.value)
     const viewportCenter = scrollTop + (clientHeight / 2)
-    let bestPage = 1
+    let bestPage = activePageRange.value[0]
     let minDistance = Number.POSITIVE_INFINITY
     const layout = pageLayout.value
-    for (let page = 1; page <= pageCount; page += 1) {
+    for (const page of activePageRange.value) {
       const top = layout.topByPage[page] || 0
       const center = top + (pageHeightOf(page) / 2)
       const distance = Math.abs(center - viewportCenter)
@@ -1114,7 +1122,7 @@ function usePdfVirtualScroll(
   return {
     pageHeights, estimatedPageHeight, renderedPageRange, activePdfPage,
     virtualContentHeight, applyingExternalPdfScroll, isPdfUserScrolling,
-    lastEmittedPdfPercent, displayPdfPageCount, pageHeightOf,
+    lastEmittedPdfPercent, displayPdfPageCount, activePageRange, pageHeightOf,
     pageLayout, updateRenderedPageRange, scheduleRenderedPageRangeUpdate,
     scrollToPdfPage, scrollToHighlight, onPdfScroll, goPrevPage, goNextPage, onPageInputChange,
     invalidateLayout,
@@ -1549,6 +1557,7 @@ function usePdfDocument(
     useNativePdfPreview: Ref<boolean>
     isPdfLoading: Ref<boolean>
     pdfLoadingProgress: Ref<number>
+    onDocumentLoaded?: () => void
   },
   scroll: {
     scheduleRenderedPageRangeUpdate: () => void
@@ -1615,6 +1624,7 @@ function usePdfDocument(
       zoom.isScaleTransitioning.value = false
       zoom.hasAppliedInitialFit.value = true
     })
+    shared.onDocumentLoaded?.()
   }
 
   async function loadPdfDocument(source: string) {
@@ -1700,7 +1710,14 @@ const zoom = usePdfZoom(scroll, _renderedPageMetrics)
 const measurement = usePdfMeasurement(scroll, zoom, _pageLastRenderedScale, _renderedPageMetrics)
 const render = usePdfRendering(_pdfDocumentRef, zoom, scroll, measurement, _pageLastRenderedScale)
 const doc = usePdfDocument(
-  { pdfDocumentRef: _pdfDocumentRef, localPdfPageCount: _localPdfPageCount, useNativePdfPreview: _useNativePdfPreview, isPdfLoading: ref(false), pdfLoadingProgress: ref(0) },
+  {
+    pdfDocumentRef: _pdfDocumentRef,
+    localPdfPageCount: _localPdfPageCount,
+    useNativePdfPreview: _useNativePdfPreview,
+    isPdfLoading: ref(false),
+    pdfLoadingProgress: ref(0),
+    onDocumentLoaded: () => emit('pdf-loaded', props.fileUrl || props.pdfViewerUrl.split('#')[0] || props.pdfViewerUrl),
+  },
   scroll, zoom, render,
 )
 
@@ -1715,6 +1732,19 @@ const isScaleTransitioning = zoom.isScaleTransitioning
 const activePdfPage = scroll.activePdfPage
 const compactLevel = header.compactLevel
 const displayPdfPageCount = scroll.displayPdfPageCount
+const hasPrevPdfPage = computed(() => {
+  const pages = scroll.activePageRange.value
+  return pages.length > 1 && activePdfPage.value > pages[0]
+})
+const hasNextPdfPage = computed(() => {
+  const pages = scroll.activePageRange.value
+  return pages.length > 1 && activePdfPage.value < pages[pages.length - 1]
+})
+watch(() => props.pdfPageRange, () => {
+  scroll.invalidateLayout()
+  scroll.scheduleRenderedPageRangeUpdate()
+  scroll.scrollToPdfPage(activePdfPage.value, 'auto')
+})
 const isFitToWindowMode = zoom.isFitToWindowMode
 const useNativePdfPreview = doc.useNativePdfPreview
 const virtualContentHeight = scroll.virtualContentHeight
@@ -1865,7 +1895,7 @@ watch([normalizedPdfSource, () => props.isPdf], async ([source, isPdf]) => {
   zoom.isFitToWindowMode.value = true
   zoom.isScaleTransitioning.value = true
   zoom.hasAppliedInitialFit.value = false
-  scroll.activePdfPage.value = 1
+  scroll.activePdfPage.value = scroll.activePageRange.value[0] || 1
   lastReportedPdfPage = 0
   scroll.estimatedPageHeight.value = 1100
   scroll.renderedPageRange.start = 1

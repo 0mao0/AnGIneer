@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+- feat: PDF_Viewer 支持 pdfPageRange 子集渲染（绝对页码、越界吸附）
+- feat: 新增 pdf-loaded 加载完成事件
+
 ## 0.1.1
 
 - 同步 AnGIneer monorepo 最新代码：
