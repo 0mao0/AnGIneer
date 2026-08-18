@@ -11,9 +11,13 @@
           <div class="stage-header">
             <component :is="statusIcon(stage.status)" :class="['stage-icon', `icon-${stage.status}`]" />
             <span class="stage-number">{{ stage.displayNum }}</span>
-            <span class="stage-title">{{ stage.title }}</span>
-            <a-tag v-if="stage.page_count > 0" size="small" class="stage-page-tag">{{ stage.page_count }}页</a-tag>
-            <a-tag v-if="stage.is_scanned" size="small" color="orange" class="stage-page-tag">扫描件</a-tag>
+            <span class="stage-title-group">
+              <span class="stage-title">{{ stage.title }}</span>
+              <template v-if="stage.key === 'raw_parse'">
+                <a-tag v-if="stage.page_count > 0" size="small" class="stage-page-tag">{{ stage.page_count }}页</a-tag>
+                <a-tag v-if="stage.is_scanned" size="small" color="orange" class="stage-page-tag">扫描件</a-tag>
+              </template>
+            </span>
             <span class="stage-time">{{ formatTime(stage) }}</span>
             <span class="stage-duration">{{ formatDuration(stage) }}</span>
             <span v-if="stage.key !== 'source_prep'" class="stage-actions">
@@ -700,10 +704,20 @@ function fileIconStyle(file: { name: string; isDir: boolean }): Record<string, s
   min-width: 20px;
 }
 
+.stage-title-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
 .stage-title {
   font-size: 13px;
   font-weight: 500;
-  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .stage-time {

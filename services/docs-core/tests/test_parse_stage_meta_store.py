@@ -55,3 +55,41 @@ def test_run_raw_parse_sets_page_meta_on_context(tmp_path) -> None:
     assert "MinerU解析完成" in message
     assert ctx.page_count == 36
     assert ctx.is_scanned is True
+
+
+def test_run_pipeline_resets_page_meta_between_stages(monkeypatch) -> None:
+    """页数/扫描件元数据只由产生它的阶段落库，不泄漏到后续阶段记录。"""
+    from docs_core import parse_pipeline as pp
+
+    def raw_run(ctx):
+        ctx.page_count = 36
+        ctx.is_scanned = True
+        return "ok"
+
+    def structure_run(ctx):
+        # 后续阶段看到的应是重置后的默认值
+        assert ctx.page_count == 0
+        assert ctx.is_scanned is False
+        return "ok"
+
+    monkeypatch.setattr(pp.STAGE_REGISTRY["raw_parse"], "verify", None)
+    monkeypatch.setattr(pp.STAGE_REGISTRY["raw_parse"], "run", raw_run)
+    monkeypatch.setattr(pp.STAGE_REGISTRY["structure"], "verify", None)
+    monkeypatch.setattr(pp.STAGE_REGISTRY["structure"], "run", structure_run)
+
+    class _MetaStore:
+        def __init__(self):
+            self.updates = []
+
+        def upsert_parse_stage(self, doc_id, key, **kwargs):
+            self.updates.append((key, kwargs))
+
+    meta = _MetaStore()
+    ctx = pp.StageContext(task_id="t", library_id="lib", doc_id="doc", file_path="x.pdf")
+    results = pp.run_pipeline(ctx, ["raw_parse", "structure"], meta_store=meta)
+    assert results == {"raw_parse": "completed", "structure": "completed"}
+    by_key = {key: kwargs for key, kwargs in meta.updates}
+    assert by_key["raw_parse"]["page_count"] == 36
+    assert by_key["raw_parse"]["is_scanned"] is True
+    assert by_key["structure"]["page_count"] == 0
+    assert by_key["structure"]["is_scanned"] is False

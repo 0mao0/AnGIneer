@@ -645,6 +645,10 @@ def run_pipeline(
         t0 = time.time()
         ctx.input_summary = ""
         ctx.output_summary = ""
+        # 页数/扫描件元数据仅由产生它的阶段（MinerU raw_parse）落库，
+        # 每阶段重置，避免从上一个阶段泄漏到后续阶段记录。
+        ctx.page_count = 0
+        ctx.is_scanned = False
         ctx.stage_key = key
         ctx.steps = []
         ctx.meta_store = meta_store
