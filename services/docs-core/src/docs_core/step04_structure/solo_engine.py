@@ -699,16 +699,21 @@ def load_raw(raw_dir: Path) -> tuple[list[list[dict[str, Any]]], dict[int, tuple
     # 当 bbox 最大值远小于 page_info 报告的页面尺寸时，说明 scale 不匹配，
     # 需要用 bbox 自身的最大值反推实际页面尺寸。
     # 注意：仅当 layout.json 缺失（page_size_map 来自 model.json）时才校准。
-    if not layout_payload and page_size_map and parsed_blocks:
+    if not layout_payload and parsed_blocks:
         for idx, page_items in enumerate(parsed_blocks):
-            if idx not in page_size_map:
-                continue
             page_max_x, page_max_y = 0.0, 0.0
             for item in page_items:
                 bbox = item.get("bbox")
                 if isinstance(bbox, list) and len(bbox) == 4:
                     page_max_x = max(page_max_x, float(bbox[2]))
                     page_max_y = max(page_max_y, float(bbox[3]))
+            if idx not in page_size_map:
+                # 分块合并缺失 middle.json 页面尺寸时的兜底：
+                # content_list_v2 为 MinerU 3.4 1000 归一化坐标系（bbox 最大不超过 1100，
+                # 且明显大于 1 以避免误判 0..1 归一化的旧格式），据此反推页面尺寸。
+                if page_max_x > 1.0 and page_max_y > 1.0 and page_max_x <= 1100.0 and page_max_y <= 1100.0:
+                    page_size_map[idx] = (1000.0, 1000.0)
+                continue
             if page_max_x <= 0 or page_max_y <= 0:
                 continue
             w, h = page_size_map[idx]

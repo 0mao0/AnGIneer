@@ -19,7 +19,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Callable, Collection, Dict, List, Optional
 
 from docs_core.docs_service import get_docs_service
 from docs_core.step03_mineru_parse.mineru_parser import MinerUParser
@@ -567,7 +567,32 @@ def resolve_stage_order(stages) -> List[str]:
     return [key for key in _PIPELINE_ORDER if key in selected]
 
 
-def derive_overall_status(stage_status: Dict[str, str]) -> str:
+_DEPENDENCY_SKIP_MARKERS = ("前置硬阶段", "依赖阶段失败")
+
+
+def is_dependency_skip_message(message: Any) -> bool:
+    """判断 skipped 是否为前置依赖失败导致的连带跳过（此类跳过不应视为已完成）。"""
+    text = str(message or "")
+    return any(marker in text for marker in _DEPENDENCY_SKIP_MARKERS)
+
+
+def _missing_core_artifacts(library_id: str, doc_id: str) -> List[str]:
+    """completed 状态应保证的核心结构产物；缺失时返回文件名列表。"""
+    import docs_core.paths as paths
+
+    parsed_dir = paths.get_parsed_dir(library_id, doc_id)
+    missing = []
+    for name in ("doc_blocks_graph.jsonl", "doc_blocks_graph_meta.json"):
+        if not (parsed_dir / name).exists():
+            missing.append(name)
+    return missing
+
+
+def derive_overall_status(
+    stage_status: Dict[str, str],
+    *,
+    dependency_skipped: Optional[Collection[str]] = None,
+) -> str:
     values = list(stage_status.values())
     if any(v == "running" for v in values):
         return "processing"
@@ -587,6 +612,10 @@ def derive_overall_status(stage_status: Dict[str, str]) -> str:
     values = list(effective.values())
     if any(v == "failed" for v in values):
         return "partial"
+    if dependency_skipped:
+        for key in dependency_skipped:
+            if effective.get(key) == "skipped":
+                return "partial"
     if all(effective.get(key) in ("completed", "skipped") for key in STAGE_REGISTRY):
         return "completed"
     return "processing"
@@ -595,6 +624,8 @@ def derive_overall_status(stage_status: Dict[str, str]) -> str:
 def derive_merged_overall_status(
     existing_stage_status: Dict[str, str],
     launched_results: Dict[str, str],
+    *,
+    dependency_skipped: Optional[Collection[str]] = None,
 ) -> str:
     """单阶段重跑后的整体状态：已完成的阶段 + 本次运行结果合并推导。
 
@@ -603,7 +634,7 @@ def derive_merged_overall_status(
     """
     merged = dict(existing_stage_status or {})
     merged.update(launched_results or {})
-    return derive_overall_status(merged)
+    return derive_overall_status(merged, dependency_skipped=dependency_skipped)
 
 
 def reset_parse_stage_records(meta_store, doc_id: str) -> None:
@@ -902,11 +933,26 @@ class ParseOrchestrator:
             if stage_filter == "all":
                 overall = derive_overall_status(results)
             else:
+                existing_rows = list(meta_store.list_parse_stages(doc_id))
                 existing = {
                     str(s.get("stage") or ""): str(s.get("status") or "")
-                    for s in meta_store.list_parse_stages(doc_id)
+                    for s in existing_rows
                 }
-                overall = derive_merged_overall_status(existing, results)
+                overall = derive_merged_overall_status(
+                    existing,
+                    results,
+                    dependency_skipped={
+                        str(s.get("stage") or "")
+                        for s in existing_rows
+                        if str(s.get("status") or "") == "skipped"
+                        and is_dependency_skip_message(s.get("message"))
+                    },
+                )
+            missing_artifacts: List[str] = []
+            if overall == "completed":
+                missing_artifacts = _missing_core_artifacts(library_id, doc_id)
+                if missing_artifacts:
+                    overall = "partial"
             degraded_note = ""
             try:
                 from docs_core.step06_vectors.embedding_provider import default_embedding_provider
@@ -927,6 +973,8 @@ class ParseOrchestrator:
                     f"{s.get('stage')}: {str(s.get('error')).splitlines()[0]}"
                     for s in failed_stages[:3]
                 ) or overall
+                if missing_artifacts:
+                    parse_error += "；缺少核心结构产物: " + ", ".join(missing_artifacts)
             ks.update_node(doc_id, status=overall, parse_progress=100, parse_stage=overall,
                            parse_error=parse_error or None, parse_task_id=task_id)
             self._sync_record(task_id, doc_id, overall, degraded_note or None)

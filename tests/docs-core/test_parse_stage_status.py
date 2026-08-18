@@ -40,6 +40,34 @@ class ParseStageStatusTests(unittest.TestCase):
         status = derive_merged_overall_status(existing, {"vectors": "completed"})
         self.assertEqual(status, "completed")
 
+    def test_dependency_skipped_stages_make_merged_status_partial(self):
+        existing = {key: "skipped" for key in (
+            "popo", "structure", "fts", "vectors", "graph",
+        )}
+        existing.update({
+            "source_prep": "completed",
+            "convert": "completed",
+            "raw_parse": "completed",
+        })
+        status = derive_merged_overall_status(
+            existing,
+            {"raw_parse": "completed"},
+            dependency_skipped={"popo", "structure", "fts", "vectors", "graph"},
+        )
+        self.assertEqual(status, "partial")
+
+    def test_legit_skipped_without_dependency_marker_keeps_completed(self):
+        existing = {key: "completed" for key in (
+            "source_prep", "convert", "raw_parse", "popo", "structure", "fts", "vectors", "graph",
+        )}
+        existing["popo"] = "skipped"
+        status = derive_merged_overall_status(
+            existing,
+            {"structure": "completed"},
+            dependency_skipped={"structure", "fts"},
+        )
+        self.assertEqual(status, "completed")
+
 
 if __name__ == "__main__":
     unittest.main()

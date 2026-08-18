@@ -450,6 +450,28 @@ class MinerUParser:
                 merged = base_data + src_data
                 base_path.write_text(_json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8")
                 logger.info("Merged %s: %d+%d=%d items (page_offset=%d)", dj_name, len(base_data), len(src_data), len(merged), page_offset)
+            elif isinstance(src_data, dict) and isinstance(base_data, dict):
+                # hybrid 后端产出的 middle.json 为 dict，页面尺寸在 pdf_info 数组里；
+                # 与 list 分支一致，对 pdf_info 逐条做 page_idx 偏移后拼接，否则
+                # 第 2+ 块 chunk 的页面尺寸会丢失（page_width/page_height 归 0，bbox 全空）。
+                src_pages = src_data.get("pdf_info")
+                base_pages = base_data.get("pdf_info")
+                if not isinstance(src_pages, list) or not isinstance(base_pages, list) or not src_pages:
+                    logger.warning(
+                        "Skip merging %s chunk %d: pdf_info 缺失或类型不符",
+                        dj_name, chunk_idx + 1,
+                    )
+                    continue
+                for item in src_pages:
+                    if isinstance(item, dict) and "page_idx" in item and isinstance(item["page_idx"], (int, float)):
+                        item["page_idx"] = int(item["page_idx"]) + page_offset
+                merged = dict(base_data)
+                merged["pdf_info"] = base_pages + src_pages
+                base_path.write_text(_json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8")
+                logger.info(
+                    "Merged %s.pdf_info: %d+%d=%d items (page_offset=%d)",
+                    dj_name, len(base_pages), len(src_pages), len(merged["pdf_info"]), page_offset,
+                )
 
     def _merge_dir_contents(self, src_dir: Path, dest_dir: Path, chunk_idx: int) -> None:
         """将源目录内容合并到目标目录，处理文件名冲突。"""

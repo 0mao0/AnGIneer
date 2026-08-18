@@ -171,7 +171,24 @@ def _build_graph_pages(
     doc_id: str,
     nodes: List[Dict[str, Any]],
 ) -> tuple[Optional[int], List[Dict[str, Any]]]:
-    """构建 graph meta 的 pages；优先 middle.json，缺失时用节点 page_width/height 兜底。"""
+    """构建 graph meta 的 pages；优先 middle.json，不完整或缺失时用节点 page_width/height 兜底。"""
+    by_page: Dict[int, tuple[float, float]] = {}
+    for node in nodes:
+        page_idx = int(node.get("page_idx") or 0)
+        width = node.get("page_width")
+        height = node.get("page_height")
+        if isinstance(width, (int, float)) and isinstance(height, (int, float)) and width > 0 and height > 0:
+            by_page.setdefault(page_idx, (float(width), float(height)))
+
+    def _node_pages() -> tuple[Optional[int], List[Dict[str, Any]]]:
+        if by_page:
+            pages = [
+                {"pageIdx": page_idx, "width": width, "height": height}
+                for page_idx, (width, height) in sorted(by_page.items())
+            ]
+            return max(by_page) + 1, pages
+        return None, []
+
     middle_path = paths.get_mineru_raw_dir(library_id, doc_id) / "middle.json"
     if not middle_path.exists():
         middle_path = paths.get_parsed_dir(library_id, doc_id) / "middle.json"
@@ -180,23 +197,14 @@ def _build_graph_pages(
             middle_payload = json.loads(middle_path.read_text(encoding="utf-8"))
             page_count, pages = _build_graph_pages_from_middle(middle_payload)
             if pages:
+                node_page_count, node_pages = _node_pages()
+                if node_pages and (page_count is None or page_count < max(p["pageIdx"] for p in node_pages) + 1):
+                    # middle.json 页数不完整（如分块合并丢失后半段），改用节点尺寸兜底
+                    return node_page_count, node_pages
                 return page_count, pages
         except (OSError, json.JSONDecodeError):
             pass
-    by_page: Dict[int, tuple[float, float]] = {}
-    for node in nodes:
-        page_idx = int(node.get("page_idx") or 0)
-        width = node.get("page_width")
-        height = node.get("page_height")
-        if isinstance(width, (int, float)) and isinstance(height, (int, float)) and width > 0 and height > 0:
-            by_page.setdefault(page_idx, (float(width), float(height)))
-    if by_page:
-        pages = [
-            {"pageIdx": page_idx, "width": width, "height": height}
-            for page_idx, (width, height) in sorted(by_page.items())
-        ]
-        return max(by_page) + 1, pages
-    return None, []
+    return _node_pages()
 
 
 def _extract_pdf_metadata(pdf_path: Optional[str]) -> Dict[str, Optional[str]]:
