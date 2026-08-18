@@ -352,7 +352,11 @@ def _assemble_search_result(
     if rerank:
         from angineer_core.retrieval_pipeline import rerank_candidates
 
-        items = rerank_candidates(query, items, task_type=task_type)
+        dense_degraded = any(
+            bool((getattr(item, "metadata", None) or {}).get("embedding_fallback"))
+            for item in items
+        )
+        items = rerank_candidates(query, items, task_type=task_type, dense_degraded=dense_degraded)
     _assign_cites(items, marker_allocator or MarkerAllocator(), prefix)
     for item in items:
         doc_title = doc_title_map.get(str(item.doc_id or ""), "") or str(item.metadata.get("doc_title") or "")

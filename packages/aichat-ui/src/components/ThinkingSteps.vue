@@ -62,8 +62,11 @@
             >
               {{ getCitationTagLabel(toCitation(item)) }}
             </button>
-            <span class="thinking-result-item-score">
-              相关度 {{ formatResultScore(item.score, getResultMaxScore(group)) }}
+            <span
+              class="thinking-result-item-score"
+              title="本组最高分显示为 100%，为组内相对值"
+            >
+              组内相关度 {{ formatResultScore(item.score, getResultMaxScore(group)) }}
             </span>
           </div>
           <div class="thinking-result-item-snippet">{{ truncate(item.text, 140) }}</div>

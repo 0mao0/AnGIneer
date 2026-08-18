@@ -39,4 +39,4 @@ def versions() -> Dict[str, str]:
     return {name: max(entry.keys()) for name, entry in _REGISTRY.items()}
 
 
-from . import agent_configs, answer_eval, classifier, dispatcher, evals_routes, sop_routes  # noqa: E402,F401
+from . import agent_configs, answer_eval, classifier, dispatcher, evals_routes, retrieval, sop_routes  # noqa: E402,F401

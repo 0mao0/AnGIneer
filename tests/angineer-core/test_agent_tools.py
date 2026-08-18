@@ -80,6 +80,39 @@ class AgentToolContractTests(unittest.TestCase):
         self.assertEqual(citations[0]["marker"], "K1")
         self.assertEqual(citations[0]["target_id"], "a")
 
+    def test_assemble_search_result_passes_dense_degraded(self):
+        from unittest.mock import patch
+
+        from docs_core.step09_query.protocols.contracts import RetrievedItem
+
+        from angineer_core.agent_tools import _assemble_search_result
+
+        items = [
+            RetrievedItem(
+                item_id="a",
+                entity_type="content",
+                doc_id="d1",
+                title="t",
+                text="正文",
+                score=1.0,
+                metadata={"embedding_fallback": True},
+            )
+        ]
+        with patch("angineer_core.retrieval_pipeline.rerank_candidates", return_value=items) as rr:
+            _assemble_search_result(
+                query="q",
+                items=items,
+                library_id="default",
+                doc_title_map={},
+                prefix="K",
+                marker_allocator=None,
+                rerank=True,
+                task_type="content_qa",
+                kind="text",
+                source="knowledge_search",
+            )
+        self.assertTrue(rr.call_args.kwargs["dense_degraded"])
+
 
 class KnowledgeSearchFormulaTests(unittest.TestCase):
     def test_formula_query_includes_formula_context(self):

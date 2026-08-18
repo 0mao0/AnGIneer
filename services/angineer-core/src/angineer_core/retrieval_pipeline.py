@@ -1,13 +1,87 @@
-"""检索支撑：在线/本地 rerank 与答案拒答校验（P6b 从旧 dispatcher.py / retrieval_utils.py 下沉）。"""
+"""检索支撑：在线/本地 rerank 与答案拒绝校验（P6b 从旧 dispatcher.py / retrieval_utils.py 下沉）。
+
+dense 语义通道降级（embedding 不可用）时，rerank 降级链为：
+在线 reranker -> LLM 语义重排（本模块）-> 本地 phrase rerank。
+"""
 import logging
 import os
 import re
+from typing import Any, List, Optional
+
+from ai_inference.llm_client import chat_result_guarded, get_llm_client
+from ai_inference.llm_response_parser import extract_json_from_text
+from angineer_core.prompts.retrieval import LLM_RERANK_SYSTEM_PROMPT
 
 logger = logging.getLogger(__name__)
 
 
-def rerank_candidates(query: str, candidates: list, task_type: str = "") -> list:
-    """用在线 reranker 服务重排序候选；未配置或失败时回退本地 phrase rerank。"""
+def llm_rerank_candidates(
+    query: str,
+    candidates: list,
+    task_type: str = "",
+    llm_client: Any = None,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+    top_n: int = 12,
+    max_chars: int = 180,
+) -> Optional[list]:
+    """用 LLM 对候选做语义重排（dense 语义通道降级时的兜底）。
+
+    只把前 top_n 条交给模型（控制成本），其余保持原序追加在末尾；
+    返回重排后的列表；解析失败或结果无效返回 None，由调用方回退本地短语重排。
+    """
+    if not candidates:
+        return []
+    if len(candidates) <= 1:
+        return candidates
+    pool = list(candidates[:top_n])
+    rest = list(candidates[top_n:])
+    lines: List[str] = []
+    for index, item in enumerate(pool):
+        title = " ".join(str(getattr(item, "title", "") or "").split())[:60]
+        text = " ".join(str(getattr(item, "text", "") or "").split())[:max_chars]
+        lines.append(f"[{index}] {title}\n{text}")
+    messages = [
+        {"role": "system", "content": LLM_RERANK_SYSTEM_PROMPT},
+        {"role": "user", "content": f"查询：{query}\n\n候选：\n" + "\n\n".join(lines)},
+    ]
+    client = llm_client if llm_client is not None else get_llm_client()
+    try:
+        result = chat_result_guarded(client, messages, mode=mode, config_name=config_name)
+        parsed = extract_json_from_text(result.text, strict=True)
+        raw_order = parsed.get("ranking") or []
+        order: List[int] = []
+        seen: set = set()
+        for raw in raw_order:
+            try:
+                index = int(raw)
+            except (TypeError, ValueError):
+                continue
+            if 0 <= index < len(pool) and index not in seen:
+                seen.add(index)
+                order.append(index)
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("LLM 语义重排失败，回退本地短语重排: %s", exc)
+        return None
+    if not order:
+        logger.warning("LLM 语义重排未返回有效排序，回退本地短语重排")
+        return None
+    reranked = [pool[index] for index in order] + [
+        pool[index] for index in range(len(pool)) if index not in seen
+    ]
+    total = len(reranked)
+    for position, item in enumerate(reranked):
+        item.rerank_score = round((total - position) / total, 6)
+    reranked.extend(rest)
+    return reranked
+
+
+def rerank_candidates(query: str, candidates: list, task_type: str = "", dense_degraded: bool = False) -> list:
+    """用在线 reranker 重排候选；未配置或失败时按降级链兜底。
+
+    - dense 语义通道降级（dense_degraded=True）时优先尝试 LLM 语义重排；
+    - 其余回退本地 phrase rerank。
+    """
     if len(candidates) <= 1:
         return candidates
     if not task_type.startswith("locate_") and len(candidates) <= 5:
@@ -19,41 +93,47 @@ def rerank_candidates(query: str, candidates: list, task_type: str = "") -> list
     remote_url = str(cfg.reranker_url or "").strip().rstrip("/")
     if remote_url and not remote_url.endswith("/rerank"):
         remote_url = f"{remote_url}/v1/rerank"
-    if not remote_url:
-        from docs_core.step09_query.retrieval.reranker import rerank_candidates as local_rerank
+    if remote_url:
+        timeout = cfg.reranker_timeout_sec
+        try:
+            import requests
 
-        logger.debug("未配置在线 reranker（ANGINEER_RERANKER_URL），使用本地 phrase rerank")
-        return local_rerank(normalized_query, task_type, candidates)
-    timeout = cfg.reranker_timeout_sec
-    try:
-        import requests
+            docs = [item.text or "" for item in candidates]
+            headers = {}
+            api_key = str(os.getenv("DOCS_RERANKER_API_KEY") or "").strip()
+            if api_key:
+                headers["Authorization"] = f"Bearer {api_key}"
+            resp = requests.post(
+                remote_url,
+                json={"query": query, "documents": docs, "top_n": len(candidates)},
+                headers=headers or None,
+                timeout=timeout,
+            )
+            if resp.status_code != 200:
+                raise RuntimeError(f"reranker status {resp.status_code}")
+            results = resp.json().get("results", [])
+            if not results:
+                raise RuntimeError("reranker empty results")
+            score_map = {r["index"]: r["relevance_score"] for r in results}
+            for i, item in enumerate(candidates):
+                item.rerank_score = score_map.get(i, 0.0)
+            candidates.sort(key=lambda item: item.rerank_score or 0.0, reverse=True)
+            return candidates
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("远程 reranker 调用失败，进入降级链: %s", exc)
+    else:
+        logger.debug("未配置在线 reranker（ANGINEER_RERANKER_URL），使用降级链")
 
-        docs = [item.text or "" for item in candidates]
-        headers = {}
-        api_key = str(os.getenv("DOCS_RERANKER_API_KEY") or "").strip()
-        if api_key:
-            headers["Authorization"] = f"Bearer {api_key}"
-        resp = requests.post(
-            remote_url,
-            json={"query": query, "documents": docs, "top_n": len(candidates)},
-            headers=headers or None,
-            timeout=timeout,
-        )
-        if resp.status_code != 200:
-            raise RuntimeError(f"reranker status {resp.status_code}")
-        results = resp.json().get("results", [])
-        if not results:
-            raise RuntimeError("reranker empty results")
-        score_map = {r["index"]: r["relevance_score"] for r in results}
-        for i, item in enumerate(candidates):
-            item.rerank_score = score_map.get(i, 0.0)
-        candidates.sort(key=lambda item: item.rerank_score or 0.0, reverse=True)
-        return candidates
-    except Exception as exc:  # noqa: BLE001
-        from docs_core.step09_query.retrieval.reranker import rerank_candidates as local_rerank
+    if dense_degraded:
+        llm_reranked = llm_rerank_candidates(normalized_query, candidates, task_type=task_type)
+        if llm_reranked is not None:
+            logger.info("dense 语义通道降级，LLM 语义重排生效（%d 条候选）", len(candidates))
+            return llm_reranked
 
-        logger.warning("远端 reranker 调用失败，回退到本地 phrase rerank: %s", exc)
-        return local_rerank(normalized_query, task_type, candidates)
+    from docs_core.step09_query.retrieval.reranker import rerank_candidates as local_rerank
+
+    logger.debug("回退本地 phrase rerank")
+    return local_rerank(normalized_query, task_type, candidates)
 
 
 _KNOWN_STD_PREFIXES = frozenset({
@@ -68,8 +148,8 @@ def has_unsupported_reference(answer: str, evidence_text: str) -> bool:
     corpus = str(evidence_text or "")
     if not answer_text.strip():
         return False
-    answer_std_names = set(re.findall(r"《([^》]+)》", answer_text))
-    corpus_std_names = set(re.findall(r"《([^》]+)》", corpus))
+    answer_std_names = set(re.findall(r"《[^》]+》", answer_text))
+    corpus_std_names = set(re.findall(r"《[^》]+》", corpus))
     any_std_name_in_corpus = bool(answer_std_names & corpus_std_names)
     corpus_has_section_nums = bool(re.search(r"(?:第\s*)?\d+\.\d+", corpus))
     patterns = [
