@@ -69,7 +69,10 @@
               组内相关度 {{ formatResultScore(item.score, getResultMaxScore(group)) }}
             </span>
           </div>
-          <div class="thinking-result-item-snippet">{{ truncate(item.text, 140) }}</div>
+          <div
+            class="thinking-result-item-snippet"
+            v-html="renderSearchSnippetHtml(item.text, resultQuery(group))"
+          ></div>
         </div>
       </div>
 
@@ -109,6 +112,7 @@ import {
   isResultExpandable,
   type ThinkingGroupStep,
 } from '../utils/thinking'
+import { renderSearchSnippetHtml } from '../utils/searchSnippet'
 import type { AIChatCitation, BaseChatCitation, ThinkingTraceItem } from '../types'
 
 defineProps<{ groups: ThinkingGroupStep[] }>()
@@ -170,9 +174,20 @@ const getCitationItemIndex = (group: ThinkingGroupStep, citation: AIChatCitation
   return found >= 0 ? found + 1 : undefined
 }
 
-const truncate = (text: string, max: number) => {
-  const normalized = String(text || '')
-  return normalized.length > max ? `${normalized.slice(0, max)}…` : normalized
+/** 从工具调用参数里取检索查询词（knowledge_search/table_search 的 {"query": ...}）。 */
+const resultQuery = (group: ThinkingGroupStep): string => {
+  const detail = String(group.callDetail || '')
+  if (!detail) return ''
+  try {
+    const parsed = JSON.parse(detail)
+    const q = parsed?.query ?? parsed?.keywords ?? parsed?.q
+    if (typeof q === 'string') return q
+    if (Array.isArray(q)) return q.filter(Boolean).join(' ')
+  } catch {
+    // 非 JSON 参数（如 "query = 上航数联"）走正则兜底
+  }
+  const match = detail.match(/["']?query["']?\s*[:=]\s*["']?([^"',}]+)/i)
+  return match ? match[1].trim() : ''
 }
 </script>
 
@@ -323,6 +338,16 @@ const truncate = (text: string, max: number) => {
     color: var(--text-secondary);
     font-size: 12px;
     line-height: 1.5;
+
+    :deep(.search-hit) {
+      background: rgba(250, 219, 91, 0.4);
+      border-radius: 2px;
+      padding: 0 1px;
+    }
+
+    :deep(.math-inline-fallback) {
+      color: var(--error-color, #ff4d4f);
+    }
   }
 
   .thinking-step-citations {
