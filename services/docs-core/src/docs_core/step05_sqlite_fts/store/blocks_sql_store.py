@@ -529,6 +529,23 @@ class KnowledgeMetaStore:
             ).fetchall()
         return [dict(row) for row in rows]
 
+    def page_counts_by_doc_ids(self, doc_ids: List[str]) -> Dict[str, int]:
+        """批量查询各文档 raw_parse 阶段落库的页数（列表页展示用，缺省返回 0）。"""
+        if not doc_ids:
+            return {}
+        placeholders = ",".join("?" * len(doc_ids))
+        with self.connect() as conn:
+            rows = conn.execute(
+                "SELECT doc_id, MAX(page_count) AS page_count FROM doc_parse_stages "
+                f"WHERE doc_id IN ({placeholders}) AND stage = 'raw_parse' GROUP BY doc_id",
+                tuple(doc_ids),
+            ).fetchall()
+        result: Dict[str, int] = {}
+        for row in rows:
+            item = dict(row)
+            result[str(item.get("doc_id") or "")] = int(item.get("page_count") or 0)
+        return result
+
     def clear_parse_stages(self, doc_id: str) -> None:
         with self.connect() as conn:
             conn.execute("DELETE FROM doc_parse_stages WHERE doc_id = ?", (doc_id,))

@@ -446,7 +446,11 @@ def list_parse_records(
     # 补充 file_status：已入库 / 用户已删 / 冗余
     ks = get_docs_service()
     existing_doc_ids = {n.id for n in ks.nodes}
+    # 补充页数：raw_parse 阶段落库的 page_count（一次性批量查询，避免逐条请求）
+    doc_ids = [str(r.get("doc_id") or "") for r in records if r.get("doc_id")]
+    page_counts = ks.meta_store.page_counts_by_doc_ids(doc_ids)
     for r in records:
+        r["page_count"] = page_counts.get(str(r.get("doc_id") or "")) or None
         if r.get("status") == "deleted":
             r["file_status"] = "用户已删"
         elif r.get("doc_id") in existing_doc_ids:

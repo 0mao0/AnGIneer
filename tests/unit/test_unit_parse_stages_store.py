@@ -36,6 +36,18 @@ class TestParseStagesStore(unittest.TestCase):
         self.store.clear_parse_stages("doc1")
         self.assertEqual(self.store.list_parse_stages("doc1"), [])
 
+    def test_page_counts_by_doc_ids(self):
+        self.store.upsert_parse_stage("doc1", "raw_parse", status="completed", message="ok", page_count=465)
+        self.store.upsert_parse_stage("doc1", "vectors", status="completed")
+        self.store.upsert_parse_stage("doc2", "raw_parse", status="completed", page_count=12)
+        # structure 阶段的 page_count 不应被统计（仅 raw_parse 落库页数）
+        self.store.upsert_parse_stage("doc3", "structure", status="completed", page_count=99)
+        counts = self.store.page_counts_by_doc_ids(["doc1", "doc2", "doc3", "missing"])
+        self.assertEqual(counts, {"doc1": 465, "doc2": 12})
+
+    def test_page_counts_by_doc_ids_empty(self):
+        self.assertEqual(self.store.page_counts_by_doc_ids([]), {})
+
 
 if __name__ == "__main__":
     unittest.main()
