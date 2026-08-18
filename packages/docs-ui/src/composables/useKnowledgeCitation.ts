@@ -209,7 +209,8 @@ export function useKnowledgeCitation() {
     await nextTick()
     workspaceRef?.setActiveLinkedItem(resolvedTargetId, {
       preferredPage: resolvedPreferredPage,
-      preferLastHighlight: true
+      preferLastHighlight: true,
+      groupHighlight: false
     })
   }
 

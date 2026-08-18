@@ -615,7 +615,8 @@ const focusFromRouteQuery = async () => {
   await nextTick()
   docParsedWorkspaceRef.value?.setActiveLinkedItem(targetId, {
     preferredPage,
-    preferLastHighlight: true
+    preferLastHighlight: true,
+    groupHighlight: false
   })
 }
 

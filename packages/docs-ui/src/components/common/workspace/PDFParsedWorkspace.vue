@@ -308,7 +308,7 @@ const onSearchJump = (_page: number, lineNumber: number) => {
  */
 const setActiveLinkedItem = (
   itemId: string | null,
-  options: { preferredPage?: number | null; preferLastHighlight?: boolean } = {}
+  options: { preferredPage?: number | null; preferLastHighlight?: boolean; groupHighlight?: boolean } = {}
 ) => {
   setWorkspaceLinkedItem(itemId, options)
   if (itemId && props.graphData?.nodes?.length) {
