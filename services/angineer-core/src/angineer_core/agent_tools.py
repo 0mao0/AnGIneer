@@ -209,6 +209,8 @@ def _run_knowledge_search(
     marker_allocator: Optional[MarkerAllocator] = None,
     rerank: bool = False,
     retrieval_client: Any = None,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
 ) -> Dict[str, Any]:
     """执行知识库正文检索（dense/sparse/clause 融合），供 knowledge_search 与 entity_search 回退共用。
 
@@ -240,6 +242,7 @@ def _run_knowledge_search(
                 doc_title_map=doc_title_map, prefix=prefix,
                 marker_allocator=marker_allocator, rerank=rerank, task_type=task_type,
                 kind="text", source="knowledge_search",
+                config_name=config_name, mode=mode,
             )
         except Exception as exc:  # noqa: BLE001
             logger.warning("docs-api 检索失败，回退本地进程内检索: %s", exc)
@@ -332,6 +335,7 @@ def _run_knowledge_search(
         doc_title_map=doc_title_map, prefix=prefix,
         marker_allocator=marker_allocator, rerank=rerank, task_type=task_type,
         kind="text", source="knowledge_search",
+        config_name=config_name, mode=mode,
     )
 
 
@@ -347,6 +351,8 @@ def _assemble_search_result(
     task_type: str,
     kind: str,
     source: str,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
 ) -> Dict[str, Any]:
     """检索后装配：rerank → 引用标记 → doc_title 前缀 → items/evidences/citations。"""
     if rerank:
@@ -356,7 +362,14 @@ def _assemble_search_result(
             bool((getattr(item, "metadata", None) or {}).get("embedding_fallback"))
             for item in items
         )
-        items = rerank_candidates(query, items, task_type=task_type, dense_degraded=dense_degraded)
+        items = rerank_candidates(
+            query,
+            items,
+            task_type=task_type,
+            dense_degraded=dense_degraded,
+            config_name=config_name,
+            mode=mode,
+        )
     _assign_cites(items, marker_allocator or MarkerAllocator(), prefix)
     for item in items:
         doc_title = doc_title_map.get(str(item.doc_id or ""), "") or str(item.metadata.get("doc_title") or "")
@@ -430,6 +443,8 @@ class RetrieverAdapter:
         marker_allocator: Optional[MarkerAllocator] = None,
         rerank: bool = False,
         retrieval_client: Any = None,
+        config_name: Optional[str] = None,
+        mode: str = "instruct",
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
@@ -449,6 +464,8 @@ class RetrieverAdapter:
                 marker_allocator=marker_allocator,
                 rerank=rerank,
                 retrieval_client=retrieval_client,
+                config_name=config_name,
+                mode=mode,
             )
 
         return AgentTool(
@@ -476,6 +493,8 @@ class RetrieverAdapter:
         marker_allocator: Optional[MarkerAllocator] = None,
         rerank: bool = False,
         retrieval_client: Any = None,
+        config_name: Optional[str] = None,
+        mode: str = "instruct",
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
@@ -500,6 +519,7 @@ class RetrieverAdapter:
                         doc_title_map={}, prefix="T",
                         marker_allocator=marker_allocator, rerank=rerank, task_type="table_qa",
                         kind="table", source="table_search",
+                        config_name=config_name, mode=mode,
                     )
                 except Exception as exc:  # noqa: BLE001
                     logger.warning("docs-api 表格检索失败，回退本地进程内检索: %s", exc)
@@ -545,6 +565,7 @@ class RetrieverAdapter:
                 doc_title_map={}, prefix="T",
                 marker_allocator=marker_allocator, rerank=rerank, task_type="table_qa",
                 kind="table", source="table_search",
+                config_name=config_name, mode=mode,
             )
 
         return AgentTool(
@@ -574,6 +595,8 @@ class RetrieverAdapter:
         marker_allocator: Optional[MarkerAllocator] = None,
         rerank: bool = False,
         retrieval_client: Any = None,
+        config_name: Optional[str] = None,
+        mode: str = "instruct",
     ) -> AgentTool:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
@@ -605,6 +628,8 @@ class RetrieverAdapter:
                     marker_allocator=marker_allocator,
                     rerank=rerank,
                     retrieval_client=retrieval_client,
+                    config_name=config_name,
+                    mode=mode,
                 )
                 if fallback.get("error"):
                     result["fallback_error"] = fallback["error"]

@@ -1,9 +1,16 @@
-"""Embedding provider 抽象与实现。"""
+"""Embedding provider 抽象与实现。
+
+降级链（dense 语义通道）：
+  在线（bge-m3 等） -> 在线备用（如 dashscope） -> 本地小模型 -> hash embedding
+默认配置只有"在线 -> hash"两级；配置了 DOCS_EMBEDDING_FALLBACK_* /
+DOCS_EMBEDDING_LOCAL_* 时自动插入中间档。
+"""
 import hashlib
 import logging
 import math
+import os
 import re
-from typing import List, Sequence
+from typing import List, Optional, Sequence
 
 import requests
 
@@ -44,7 +51,7 @@ def extract_tokens(text: str) -> List[str]:
     return TOKEN_PATTERN.findall(normalize_embedding_text(text))
 
 
-# 为 CJK 文本补充字符 n-gram，提升短问句与规范术语的相似度稳定性。
+# 为 CJK 文本补充字符 n-gram，提升短句与规范术语的相似度稳定性。
 def build_cjk_ngrams(text: str, min_n: int = 2, max_n: int = 3) -> List[str]:
     compact = "".join(char for char in normalize_embedding_text(text) if "\u4e00" <= char <= "\u9fff")
     if not compact:
@@ -66,7 +73,7 @@ def build_embedding_terms(text: str) -> List[str]:
     return [*extract_tokens(normalized), *build_cjk_ngrams(normalized)]
 
 
-# 把任意特征项稳定映射到固定维度的向量槽位。
+# 把任意特征项稳定映射到固定维度的向量桶位。
 def hash_term(term: str, dimension: int) -> tuple[int, float]:
     digest = hashlib.md5(term.encode("utf-8")).digest()
     bucket = int.from_bytes(digest[:4], "big") % max(1, dimension)
@@ -83,15 +90,17 @@ def normalize_vector(values: List[float]) -> List[float]:
 
 
 class HashEmbeddingProvider(EmbeddingProvider):
-    """基于哈希特征的本地 embedding provider。"""
+    """基于哈希特征的本地 embedding provider（最后兜底，无语义）。"""
 
     def __init__(self, dimension: int = 256) -> None:
         self.name = "hash_embedding_v1"
         # 允许显式对齐到小于 64 的既有集合维度（历史集合可能为低维）。
         self.dimension = max(1, int(dimension or 256))
+        self.runtime_flags: List[str] = []
 
     # 将文本批量编码为固定维度向量。
     def embed_texts(self, texts: Sequence[str]) -> List[List[float]]:
+        self.runtime_flags = ["embedding_hash_fallback"]
         vectors: List[List[float]] = []
         for text in texts:
             vector = [0.0] * self.dimension
@@ -102,16 +111,33 @@ class HashEmbeddingProvider(EmbeddingProvider):
         return vectors
 
 
-class DashScopeEmbeddingProvider(EmbeddingProvider):
-    """基于 DashScope OpenAI 兼容接口的 embedding provider。"""
+def _build_openai_compat_provider(
+    *,
+    model: str,
+    api_key: str,
+    api_url: str,
+) -> Optional["DashScopeEmbeddingProvider"]:
+    """按配置构造 OpenAI 兼容 embedding provider；配置不完整时返回 None（跳过该档）。"""
+    if not (model and api_key and api_url):
+        return None
+    return DashScopeEmbeddingProvider(
+        model=model,
+        api_key=api_key,
+        api_url=api_url,
+        fallback_provider=None,
+    )
 
-    def __init__(self, model: str, api_key: str, api_url: str, fallback_provider: EmbeddingProvider | None = None, strict_fallback: bool | None = None) -> None:
+
+class DashScopeEmbeddingProvider(EmbeddingProvider):
+    """基于 OpenAI 兼容接口的 embedding provider（dashscope / bge-m3 等均走它）。"""
+
+    def __init__(self, model: str, api_key: str, api_url: str, fallback_provider: Optional[EmbeddingProvider] = None, strict_fallback: Optional[bool] = None) -> None:
         self.name = "dashscope_embedding_v1"
         self.dimension = 0
         self.model = model
         self.api_key = api_key
         self.api_url = api_url.rstrip("/")
-        self.fallback_provider = fallback_provider or HashEmbeddingProvider()
+        self.fallback_provider = fallback_provider
         self.runtime_flags: List[str] = []
         from docs_core.step06_vectors.config import get_embedding_strict_fallback
         self._strict_fallback = get_embedding_strict_fallback() if strict_fallback is None else strict_fallback
@@ -120,25 +146,14 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
     def is_configured(self) -> bool:
         return bool(self.model and self.api_key and self.api_url)
 
-    # 检测已有向量库的维度，用于 fallback 时对齐。
-    def _detect_existing_dimension(self) -> int:
-        return _detect_existing_vector_dimension()
-
-    # 通过 DashScope 接口批量请求 embedding。
+    # 通过 OpenAI 兼容接口批量请求 embedding。
     def embed_texts(self, texts: Sequence[str]) -> List[List[float]]:
         normalized_texts = [str(text or "").strip() for text in texts]
         self.runtime_flags = []
         if not normalized_texts:
             return []
         if not self.is_configured():
-            if self._strict_fallback:
-                raise RuntimeError(
-                    "DOCS_EMBEDDING_PROVIDER=dashscope 未配置且启用严格模式，"
-                    "禁止回退到 hash embedding。请检查 DOCS_EMBEDDING_API_KEY 等环境变量。"
-                )
-            self.runtime_flags.append("embedding_hash_fallback")
-            logger.warning("DOCS_EMBEDDING_PROVIDER=dashscope 但缺少配置，回退到 hash embedding。")
-            return self._fallback_with_dimension_alignment(normalized_texts)
+            return self._degrade(normalized_texts, "DOCS_EMBEDDING_* 配置缺失")
         try:
             response = requests.post(
                 f"{self.api_url}/embeddings",
@@ -158,30 +173,68 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
             data = list(payload.get("data") or [])
             embeddings = [list(item.get("embedding") or []) for item in data]
             if len(embeddings) != len(normalized_texts) or not all(embedding for embedding in embeddings):
-                raise ValueError("DashScope embedding 返回结果为空或数量不一致")
+                raise ValueError("embedding 返回结果为空或数量不一致")
             self.dimension = len(embeddings[0])
             return embeddings
         except Exception as exc:
-            if self._strict_fallback:
-                raise RuntimeError(f"DashScope embedding 调用失败且启用严格模式: {exc}") from exc
-            self.runtime_flags.append("embedding_hash_fallback")
-            logger.warning("DashScope embedding 调用失败，回退到 hash embedding: %s", exc)
-            return self._fallback_with_dimension_alignment(normalized_texts)
+            return self._degrade(normalized_texts, str(exc))
 
-    # fallback 时自动对齐已有向量库的维度，避免维度不匹配。
-    def _fallback_with_dimension_alignment(self, texts: Sequence[str]) -> List[List[float]]:
-        existing_dim = self._detect_existing_dimension()
-        if existing_dim > 0 and existing_dim != self.fallback_provider.dimension:
-            logger.warning(
-                "已有向量库维度=%d，hash embedding 维度=%d，自动对齐到 %d 维。",
-                existing_dim, self.fallback_provider.dimension, existing_dim,
-            )
-            aligned_provider = HashEmbeddingProvider(dimension=existing_dim)
-            return aligned_provider.embed_texts(texts)
-        return self.fallback_provider.embed_texts(texts)
+    # 本档失败：严格模式直接抛错；否则交给下一档（fallback_provider）并传播其降级标记。
+    def _degrade(self, texts: List[str], reason: str) -> List[List[float]]:
+        if self._strict_fallback:
+            raise RuntimeError(f"embedding 调用失败且启用严格模式，禁止降级: {reason}")
+        if self.fallback_provider is None:
+            raise RuntimeError(f"embedding 调用失败且无兜底档: {reason}")
+        logger.warning("embedding 调用失败，降级到下一档: %s", reason)
+        embeddings = self.fallback_provider.embed_texts(texts)
+        self.runtime_flags = list(getattr(self.fallback_provider, "runtime_flags", []) or [])
+        if embeddings:
+            self.dimension = len(embeddings[0])
+        return embeddings
 
 
-# 检测已有向量库的维度，用于创建 provider 时对齐。
+class ChainedEmbeddingProvider(EmbeddingProvider):
+    """多 provider 自动降级链：按顺序尝试，全部失败抛错；name 沿用首档保持兼容。"""
+
+    def __init__(self, providers: Sequence[Optional[EmbeddingProvider]], expected_dimension: int = 0, strict_fallback: bool = False) -> None:
+        self.providers = [provider for provider in providers if provider is not None]
+        self.name = self.providers[0].name if self.providers else "empty_embedding_v1"
+        self.dimension = 0
+        self.expected_dimension = max(0, int(expected_dimension or 0))
+        self._strict_fallback = strict_fallback
+        self.runtime_flags: List[str] = []
+
+    def embed_texts(self, texts: Sequence[str]) -> List[List[float]]:
+        normalized = [str(text or "").strip() for text in texts]
+        self.runtime_flags = []
+        if not normalized:
+            return []
+        last_error: Optional[Exception] = None
+        for index, provider in enumerate(self.providers):
+            if self._strict_fallback and index > 0:
+                raise RuntimeError(f"启用严格模式，仅允许首档 embedding provider: {last_error}")
+            try:
+                embeddings = provider.embed_texts(normalized)
+            except Exception as exc:  # noqa: BLE001
+                last_error = exc
+                logger.warning("embedding 第 %d 档失败，继续降级: %s", index + 1, exc)
+                continue
+            if not embeddings:
+                last_error = RuntimeError("embedding 返回空")
+                logger.warning("embedding 第 %d 档返回空，继续降级", index + 1)
+                continue
+            dimension = len(embeddings[0])
+            if self.expected_dimension and dimension != self.expected_dimension:
+                last_error = RuntimeError(f"embedding 维度 {dimension} 与向量库 {self.expected_dimension} 不一致")
+                logger.warning("embedding 第 %d 档维度不匹配，继续降级: %s", index + 1, last_error)
+                continue
+            self.dimension = dimension
+            self.runtime_flags = list(getattr(provider, "runtime_flags", []) or [])
+            return embeddings
+        raise RuntimeError(f"所有 embedding provider 均失败: {last_error}") from last_error
+
+
+# 检测已有向量库的维度，用于 fallback 时对齐。
 def _detect_existing_vector_dimension() -> int:
     try:
         from docs_core.step06_vectors import get_vectorstore_provider_name
@@ -201,30 +254,52 @@ def _detect_existing_vector_dimension() -> int:
 _OPENAI_COMPAT_PROVIDERS = {"dashscope", "bge_m3", "siliconflow", "zhipu", "openai"}
 
 
-# 按环境变量解析默认 embedding provider。
+# 按环境变量解析默认 embedding provider（含多档降级链）。
 def create_default_embedding_provider() -> EmbeddingProvider:
     provider_name = get_embedding_provider_name()
     existing_dim = _detect_existing_vector_dimension()
+    hash_provider = HashEmbeddingProvider(dimension=existing_dim if existing_dim > 0 else 256)
     if provider_name == "hash":
-        dimension = existing_dim if existing_dim > 0 else 256
-        return HashEmbeddingProvider(dimension=dimension)
+        return hash_provider
     if provider_name in _OPENAI_COMPAT_PROVIDERS:
-        fallback_dimension = existing_dim if existing_dim > 0 else 256
-        return DashScopeEmbeddingProvider(
-            model=get_embedding_model_name(),
-            api_key=get_embedding_api_key(),
-            api_url=get_embedding_api_url(),
-            fallback_provider=HashEmbeddingProvider(dimension=fallback_dimension),
+        tiers: List[Optional[EmbeddingProvider]] = [
+            _build_openai_compat_provider(
+                model=get_embedding_model_name(),
+                api_key=get_embedding_api_key(),
+                api_url=get_embedding_api_url(),
+            )
+        ]
+        # 第二在线档（如 dashscope 备用，与主档不同服务商）
+        tiers.append(
+            _build_openai_compat_provider(
+                model=os.getenv("DOCS_EMBEDDING_FALLBACK_MODEL", "").strip(),
+                api_key=os.getenv("DOCS_EMBEDDING_FALLBACK_API_KEY", "").strip(),
+                api_url=os.getenv("DOCS_EMBEDDING_FALLBACK_API_URL", "").strip(),
+            )
+        )
+        # 本地小模型档（无网络依赖，需本机服务）
+        tiers.append(
+            _build_openai_compat_provider(
+                model=os.getenv("DOCS_EMBEDDING_LOCAL_MODEL", "").strip() or "local-embedding",
+                api_key=os.getenv("DOCS_EMBEDDING_LOCAL_API_KEY", "").strip(),
+                api_url=os.getenv("DOCS_EMBEDDING_LOCAL_API_URL", "").strip(),
+            )
+        )
+        tiers.append(hash_provider)
+        return ChainedEmbeddingProvider(
+            tiers,
+            expected_dimension=existing_dim,
+            strict_fallback=bool(os.getenv("DOCS_EMBEDDING_STRICT_FALLBACK", "false").lower() in ("true", "1", "yes", "on")),
         )
     logger.warning("未知 DOCS_EMBEDDING_PROVIDER=%s，回退到 hash embedding。", provider_name)
-    dimension = existing_dim if existing_dim > 0 else 256
-    return HashEmbeddingProvider(dimension=dimension)
+    return hash_provider
 
 
 default_embedding_provider = create_default_embedding_provider()
 
 
 __all__ = [
+    "ChainedEmbeddingProvider",
     "DashScopeEmbeddingProvider",
     "EmbeddingProvider",
     "HashEmbeddingProvider",

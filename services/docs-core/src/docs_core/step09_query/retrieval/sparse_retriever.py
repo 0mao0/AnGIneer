@@ -9,6 +9,7 @@ from docs_core.step09_query.retrieval.query_normalizer import (
     extract_clause_refs,
     extract_query_signals,
     normalize_match_text,
+    token_scoring_weight,
     tokenize_query,
 )
 
@@ -27,7 +28,7 @@ def score_sparse_match(query: str, text: str, title: str = "", task_type: str = 
                 score += 1.0
             continue
         if token and token in normalized_text:
-            score += 1.0
+            score += token_scoring_weight(token)
     for clause_ref in extract_clause_refs(query):
         if contains_clause_ref(f"{title}\n{text}", clause_ref):
             score += 6.0

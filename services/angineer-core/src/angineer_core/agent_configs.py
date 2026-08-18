@@ -210,6 +210,8 @@ def build_qa_config(
             filters=filters,
             rerank=rerank,
             marker_allocator=marker_allocator,
+            config_name=config_name,
+            mode=mode,
         )
         table_tool = RetrieverAdapter.table_search(
             library_id=library_id,
@@ -219,11 +221,15 @@ def build_qa_config(
             filters=filters,
             rerank=rerank,
             marker_allocator=marker_allocator,
+            config_name=config_name,
+            mode=mode,
         )
         entity_tool = RetrieverAdapter.entity_search(
             library_id=library_id,
             doc_ids=doc_ids,
             marker_allocator=marker_allocator,
+            config_name=config_name,
+            mode=mode,
         )
         # 查表/数值类任务把 table_search 排在首位，引导模型优先用它
         table_first = (
@@ -360,6 +366,8 @@ def build_complex_config(
                 filters=filters,
                 rerank=rerank,
                 marker_allocator=marker_allocator,
+                config_name=config_name,
+                mode=mode,
             ),
             RetrieverAdapter.table_search(
                 library_id=library_id,
@@ -369,11 +377,15 @@ def build_complex_config(
                 filters=filters,
                 rerank=rerank,
                 marker_allocator=marker_allocator,
+                config_name=config_name,
+                mode=mode,
             ),
             RetrieverAdapter.entity_search(
                 library_id=library_id,
                 doc_ids=doc_ids,
                 marker_allocator=marker_allocator,
+                config_name=config_name,
+                mode=mode,
             ),
         ]
         effective_tools = [

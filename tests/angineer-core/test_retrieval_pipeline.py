@@ -62,8 +62,16 @@ class RetrievalPipelineSharedTests(unittest.TestCase):
             "angineer_core.retrieval_pipeline.llm_rerank_candidates",
             return_value=items,
         ) as llm:
-            out = rerank_candidates("查询", items, dense_degraded=True)
+            out = rerank_candidates(
+                "查询",
+                items,
+                dense_degraded=True,
+                config_name="cfg-x",
+                mode="thinking",
+            )
         llm.assert_called_once()
+        self.assertEqual(llm.call_args.kwargs["config_name"], "cfg-x")
+        self.assertEqual(llm.call_args.kwargs["mode"], "thinking")
         self.assertIs(out, items)
 
     def test_rerank_candidates_not_degraded_uses_local(self):

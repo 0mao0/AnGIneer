@@ -5,7 +5,13 @@ from typing import Any, Iterable, List, Optional
 from docs_core.step06_vectors import VectorSearchHit, default_embedding_provider
 from docs_core.step09_query.protocols.contracts import KnowledgeNode, KnowledgeQueryRequest, RetrievedItem
 from docs_core.step09_query.protocols.data_port import QueryDataPort, default_query_data_port
-from docs_core.step09_query.retrieval.query_normalizer import contains_clause_ref, extract_clause_refs, normalize_match_text, tokenize_query
+from docs_core.step09_query.retrieval.query_normalizer import (
+    contains_clause_ref,
+    extract_clause_refs,
+    normalize_match_text,
+    token_scoring_weight,
+    tokenize_query,
+)
 
 
 # 基于关键词重叠计算轻量业务加权，不再作为 dense 主召回逻辑。
@@ -18,7 +24,7 @@ def score_text(query_tokens: Iterable[str], title: str, content: str) -> float:
         if re.fullmatch(r"\d+", normalized_token or ""):
             continue
         if normalized_token and normalized_token in haystack:
-            score += 1.0
+            score += token_scoring_weight(normalized_token)
     return score
 
 

@@ -76,7 +76,14 @@ def llm_rerank_candidates(
     return reranked
 
 
-def rerank_candidates(query: str, candidates: list, task_type: str = "", dense_degraded: bool = False) -> list:
+def rerank_candidates(
+    query: str,
+    candidates: list,
+    task_type: str = "",
+    dense_degraded: bool = False,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+) -> list:
     """用在线 reranker 重排候选；未配置或失败时按降级链兜底。
 
     - dense 语义通道降级（dense_degraded=True）时优先尝试 LLM 语义重排；
@@ -125,7 +132,13 @@ def rerank_candidates(query: str, candidates: list, task_type: str = "", dense_d
         logger.debug("未配置在线 reranker（ANGINEER_RERANKER_URL），使用降级链")
 
     if dense_degraded:
-        llm_reranked = llm_rerank_candidates(normalized_query, candidates, task_type=task_type)
+        llm_reranked = llm_rerank_candidates(
+            normalized_query,
+            candidates,
+            task_type=task_type,
+            config_name=config_name,
+            mode=mode,
+        )
         if llm_reranked is not None:
             logger.info("dense 语义通道降级，LLM 语义重排生效（%d 条候选）", len(candidates))
             return llm_reranked

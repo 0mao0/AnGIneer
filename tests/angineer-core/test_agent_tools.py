@@ -110,8 +110,12 @@ class AgentToolContractTests(unittest.TestCase):
                 task_type="content_qa",
                 kind="text",
                 source="knowledge_search",
+                config_name="cfg-y",
+                mode="thinking",
             )
         self.assertTrue(rr.call_args.kwargs["dense_degraded"])
+        self.assertEqual(rr.call_args.kwargs["config_name"], "cfg-y")
+        self.assertEqual(rr.call_args.kwargs["mode"], "thinking")
 
 
 class KnowledgeSearchFormulaTests(unittest.TestCase):
