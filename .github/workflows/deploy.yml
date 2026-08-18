@@ -21,6 +21,7 @@ jobs:
           # 部署目录只跟随 origin/main：先 fetch 再硬对齐。
           # 服务器上若有残留的本地改动（如手动编辑 docker-compose.yml），
           # 直接丢弃（.env / data / .htpasswd 均为 untracked，不受影响）。
+          echo "PREV_SHA=$(git rev-parse HEAD 2>/dev/null || echo '')" >> $GITHUB_ENV
           git fetch origin main
           git reset --hard origin/main
 
@@ -66,6 +67,7 @@ jobs:
       - name: Notify WeCom group
         env:
           WEBHOOK: ${{ secrets.WECOM_WEBHOOK_URL }}
+          PREV_SHA: ${{ env.PREV_SHA }}
           FE: ${{ steps.health.outputs.frontend }}
           ADM: ${{ steps.health.outputs.admin }}
           API: ${{ steps.health.outputs.api }}
