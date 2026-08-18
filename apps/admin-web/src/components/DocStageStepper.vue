@@ -365,7 +365,7 @@ function stageTitle(key: string, found: { backend?: string }): string {
   if (key === 'structure') {
     const backend = String(found.backend || '')
     if (backend === 'popo') return '结构化（基于 PoPo）'
-    if (backend === 'solo') return '结构化（基于 Solo）'
+    if (backend === 'solo') return 'Solo结构化'
     return STAGE_TITLES.structure
   }
   return STAGE_TITLES[key]
