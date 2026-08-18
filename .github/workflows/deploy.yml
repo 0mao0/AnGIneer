@@ -18,7 +18,11 @@ jobs:
       - name: Pull latest code
         run: |
           cd /home/runner/AnGIneer
-          git pull origin main
+          # 部署目录只跟随 origin/main：先 fetch 再硬对齐。
+          # 服务器上若有残留的本地改动（如手动编辑 docker-compose.yml），
+          # 直接丢弃（.env / data / .htpasswd 均为 untracked，不受影响）。
+          git fetch origin main
+          git reset --hard origin/main
 
       - name: Check .env exists
         run: |
