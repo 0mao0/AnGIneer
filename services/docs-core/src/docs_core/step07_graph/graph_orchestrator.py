@@ -5,7 +5,8 @@ import logging
 import time
 from typing import Any, Dict, List, Optional
 
-from docs_core.step07_graph.config import Confidence, EntityLayer, EntitySeed, RelationType, load_seed_entities
+from docs_core.step07_graph.config import Confidence, EntityLayer, EntityStatus, EntitySeed, RelationType, load_seed_entities
+from docs_core.step07_graph.entity_dedup import find_existing_entity
 from docs_core.step07_graph.graph_store import GraphEntity, GraphRelation, GraphStore
 from docs_core.step07_graph.entity_extractor import EntityExtractor, MAX_TEXT_CHARS
 from docs_core.step07_graph.extractor_prompts import (
@@ -211,11 +212,13 @@ class GraphOrchestrator:
         packet: EvidencePacket,
         seed_entity_name: Optional[str] = None,
         enable_llm: bool = False,
+        ignored_entity_names: Optional[set] = None,
     ) -> Dict[str, Any]:
         """Operation 1 Step 3: AI scans a packet for seed entities,
         extracts new entities and relationships."""
         text = packet.raw_text
         doc_title = packet.doc_title or packet.doc_id
+        ignored = ignored_entity_names or set()
 
         if seed_entity_name:
             seed_entities = [s for s in load_seed_entities() if s.name == seed_entity_name]
@@ -235,6 +238,7 @@ class GraphOrchestrator:
                 continue
 
             related = self.extractor.find_related_entities(text, seed.name, seed_entities)
+            related = [n for n in related if n not in ignored]
 
             for entity_name in related:
                 layer = self.extractor.classify_entity(entity_name)
@@ -244,6 +248,7 @@ class GraphOrchestrator:
                     source_doc=doc_title,
                     source_clause=packet.section_path,
                     library_id=getattr(packet, 'library_id', '') or 'default',
+                    status=EntityStatus.APPROVED,
                 ))
                 entity_count += 1
 
@@ -270,7 +275,8 @@ class GraphOrchestrator:
                             relation_count += 1
 
         if enable_llm:
-            llm_result = self._llm_extract(packet, [s[0] for s in occurrences])
+            llm_result = self._llm_extract(packet, [s[0] for s in occurrences],
+                                           ignored_entity_names=ignored)
             entity_count += llm_result.get("entities_found", 0)
             relation_count += llm_result.get("relations_added", 0)
 
@@ -284,12 +290,15 @@ class GraphOrchestrator:
         self,
         packets: List[EvidencePacket],
         enable_llm: bool = False,
+        ignored_entity_names: Optional[List[str]] = None,
     ) -> Dict[str, Any]:
         """Run entity expansion across all evidence packets."""
         total_entities = 0
         total_relations = 0
+        ignored_set = set(ignored_entity_names or [])
         for packet in packets:
-            result = self.expand_from_packet(packet, enable_llm=enable_llm)
+            result = self.expand_from_packet(packet, enable_llm=enable_llm,
+                                             ignored_entity_names=ignored_set)
             total_entities += result.get("entities_found", 0)
             total_relations += result.get("relations_added", 0)
 
@@ -297,7 +306,7 @@ class GraphOrchestrator:
             doc_id = packets[0].doc_id
             library_id = packets[0].library_id
             all_entities = self.store.list_all_entities()
-            entity_names = [e.name for e in all_entities]
+            entity_names = [e.name for e in all_entities if e.name not in ignored_set]
             doc_summary = packets[0].doc_title or doc_id
             zk_result = self._link_zettelkasten(doc_id, library_id, entity_names, doc_summary)
             total_relations += zk_result.get("relations_added", 0)
@@ -354,18 +363,23 @@ class GraphOrchestrator:
             "relations": rel_list,
         }
 
-    def _llm_extract(self, packet: EvidencePacket, seed_names: List[str]) -> Dict[str, Any]:
+    def _llm_extract(self, packet: EvidencePacket, seed_names: List[str],
+                     ignored_entity_names: Optional[set] = None) -> Dict[str, Any]:
         entity_count = 0
         relation_count = 0
         text = packet.raw_text
         doc_title = packet.doc_title or packet.doc_id
+        ignored = ignored_entity_names or set()
         llm_result = self.extractor.extract_from_packet(text, packet.section_path, seed_names)
         llm_entities = llm_result.get("entities", [])
         llm_relations = llm_result.get("relationships", [])
 
         for ent in llm_entities:
             name = ent.get("name", "").strip()
-            if not name:
+            if not name or name in ignored:
+                continue
+            existing = find_existing_entity(self.store, name, getattr(packet, 'library_id', '') or 'default')
+            if existing is not None:
                 continue
             layer_str = ent.get("layer", "")
             try:
@@ -378,13 +392,16 @@ class GraphOrchestrator:
                 source_doc=doc_title,
                 source_clause=packet.section_path,
                 library_id=getattr(packet, 'library_id', '') or 'default',
+                status=EntityStatus.PENDING,
+                proposed_doc_id=packet.doc_id,
+                proposed_by="llm_extraction",
             ))
             entity_count += 1
 
         for rel in llm_relations:
             src_name = rel.get("from", "").strip()
             tgt_name = rel.get("to", "").strip()
-            if not src_name or not tgt_name:
+            if not src_name or not tgt_name or src_name in ignored or tgt_name in ignored:
                 continue
             rtype_str = rel.get("type", "")
             try:
@@ -413,7 +430,11 @@ class GraphOrchestrator:
                 relation_count += 1
 
         if llm_relations:
-            verify_result = self._verify_relations(llm_relations, text, [s[0] if isinstance(s, tuple) else s for s in seed_names])
+            verify_result = self._verify_relations(
+                llm_relations, text,
+                [s[0] if isinstance(s, tuple) else s for s in seed_names],
+                ignored_entity_names=ignored,
+            )
             for vr in verify_result.get("verified", []):
                 src_name = vr.get("from", "").strip()
                 tgt_name = vr.get("to", "").strip()
@@ -470,8 +491,14 @@ class GraphOrchestrator:
         return {"entities_found": entity_count, "relations_added": relation_count}
 
     def _verify_relations(
-        self, relations: List[Dict[str, Any]], packet_text: str, seed_names: List[str]
+        self, relations: List[Dict[str, Any]], packet_text: str, seed_names: List[str],
+        ignored_entity_names: Optional[set] = None,
     ) -> Dict[str, Any]:
+        if not relations:
+            return {"verified": []}
+        ignored = ignored_entity_names or set()
+        relations = [r for r in relations
+                     if r.get("from", "") not in ignored and r.get("to", "") not in ignored]
         if not relations:
             return {"verified": []}
         seeds_str = ", ".join(seed_names[:10])

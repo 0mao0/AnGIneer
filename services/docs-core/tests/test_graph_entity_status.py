@@ -43,3 +43,62 @@ def test_list_entities_by_status(tmp_path) -> None:
 
     pending = store.list_entities_by_status("lib", EntityStatus.PENDING)
     assert [e.name for e in pending] == ["待审实体"]
+
+
+def test_expand_all_packets_ignores_rejected_names(tmp_path, monkeypatch) -> None:
+    from docs_core.step07_graph.evidence_builder import EvidencePacket
+    from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
+
+    store = GraphStore(str(tmp_path / "graph.sqlite"))
+    orch = GraphOrchestrator(store)
+    orch.load_seed_entities()
+
+    class _FakeExtractor:
+        def find_seed_occurrences(self, text, seeds):
+            return [("设计高水位", 0)]
+        def find_related_entities(self, text, seed_name, seeds):
+            return ["新型防波堤材料"]
+        def classify_entity(self, name):
+            return EntityLayer.CONCEPT
+
+    orch.extractor = _FakeExtractor()
+    packet = EvidencePacket(
+        packet_id="p1", library_id="lib", doc_id="doc-x", doc_title="测试文档",
+        section_path="1.1", raw_text="设计高水位 影响 新型防波堤材料",
+    )
+    orch.expand_all_packets([packet], enable_llm=False, ignored_entity_names=["新型防波堤材料"])
+
+    assert store.get_entity_by_name("新型防波堤材料") is None
+
+
+def test_expand_all_packets_llm_new_entity_is_pending(tmp_path) -> None:
+    from docs_core.step07_graph.evidence_builder import EvidencePacket
+    from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
+
+    store = GraphStore(str(tmp_path / "graph.sqlite"))
+    orch = GraphOrchestrator(store)
+    orch.load_seed_entities()
+    orch._link_zettelkasten = lambda *a, **k: {"relations_added": 0}
+    orch._run_extractors = lambda *a, **k: {"entities_updated": 0}
+
+    class _FakeExtractor:
+        def find_seed_occurrences(self, text, seeds):
+            return [("设计高水位", 0)]
+        def find_related_entities(self, text, seed_name, seeds):
+            return []
+        def classify_entity(self, name):
+            return EntityLayer.CONCEPT
+        def extract_from_packet(self, text, section, seed_names):
+            return {"entities": [{"name": "新型防波堤材料", "layer": "concept", "evidence": "x"}], "relationships": []}
+
+    orch.extractor = _FakeExtractor()
+    packet = EvidencePacket(
+        packet_id="p1", library_id="lib", doc_id="doc-x", doc_title="测试文档",
+        section_path="1.1", raw_text="设计高水位 影响 新型防波堤材料",
+    )
+    orch.expand_all_packets([packet], enable_llm=True)
+
+    entity = store.get_entity_by_name("新型防波堤材料")
+    assert entity is not None
+    assert entity.status == EntityStatus.PENDING
+    assert entity.proposed_doc_id == "doc-x"
