@@ -102,3 +102,23 @@ def test_expand_all_packets_llm_new_entity_is_pending(tmp_path) -> None:
     assert entity is not None
     assert entity.status == EntityStatus.PENDING
     assert entity.proposed_doc_id == "doc-x"
+
+
+def test_push_to_graph_accepts_enable_llm(tmp_path, monkeypatch) -> None:
+    from docs_core.step07_graph.push_to_graph import push_to_graph
+
+    monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path))
+    calls = {}
+
+    def fake_push(library_id, doc_id, graph_db_path=None, enable_llm=False, ignored_entity_names=None):
+        calls["enable_llm"] = enable_llm
+        calls["ignored"] = ignored_entity_names
+        return {"pushed": True, "total_entities_found": 1, "total_relations_added": 2}
+
+    monkeypatch.setattr("docs_core.step07_graph.push_to_graph._run_push", fake_push)
+
+    result = push_to_graph("lib", "doc-x", enable_llm=True, ignored_entity_names=["被拒实体"])
+    assert calls["enable_llm"] is True
+    assert calls["ignored"] == ["被拒实体"]
+    assert result["entities_count"] == 1
+    assert result["relations_count"] == 2

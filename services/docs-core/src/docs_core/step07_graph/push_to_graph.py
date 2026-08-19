@@ -1,29 +1,26 @@
-"""步骤八：把解析产物的 blocks 推入知识图谱（实体提取 + 关系推断）。"""
+"""把解析产物的 blocks 推入知识图谱（实体提取 + 关系推断）。"""
 
 import logging
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
 
-def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = None) -> Dict[str, Any]:
-    """Push a parsed document's blocks to the knowledge graph for entity extraction.
-
-    This is the producer side of the docs-core → knowledge-graph pipeline.
-    """
-    try:
-        from docs_core.paths import resolve_graph_db_path
-        from docs_core.step04_structure.shared.jsonl_io import get_doc_blocks_graph
-        from docs_core.docs_file_io import file_storage
-        from docs_core.step07_graph.evidence_builder import build_evidence_packets
-        from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
-        from docs_core.step07_graph.graph_store import GraphStore
-    except ImportError as e:
-        logger.warning("knowledge-graph module not available: %s", e)
-        return {"pushed": False, "error": str(e)}
+def _run_push(
+    library_id: str,
+    doc_id: str,
+    graph_db_path: Optional[str] = None,
+    enable_llm: bool = False,
+    ignored_entity_names: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    from docs_core.paths import resolve_graph_db_path
+    from docs_core.step04_structure.shared.jsonl_io import get_doc_blocks_graph
+    from docs_core.docs_file_io import file_storage
+    from docs_core.step07_graph.evidence_builder import build_evidence_packets
+    from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
+    from docs_core.step07_graph.graph_store import GraphStore
 
     db_path = graph_db_path or str(resolve_graph_db_path())
-
     content = file_storage.read_markdown(library_id, doc_id) or ""
     graph = get_doc_blocks_graph(library_id, doc_id)
     structured_items = (
@@ -48,9 +45,38 @@ def push_to_graph(library_id: str, doc_id: str, graph_db_path: Optional[str] = N
     store = GraphStore(db_path)
     orchestrator = GraphOrchestrator(store)
     orchestrator.load_seed_entities()
-    result = orchestrator.expand_all_packets(packets)
-
+    result = orchestrator.expand_all_packets(
+        packets, enable_llm=enable_llm, ignored_entity_names=ignored_entity_names or []
+    )
     return {"pushed": True, **result}
+
+
+def push_to_graph(
+    library_id: str,
+    doc_id: str,
+    graph_db_path: Optional[str] = None,
+    enable_llm: bool = False,
+    ignored_entity_names: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    """Push a parsed document's blocks to the knowledge graph for entity extraction."""
+    try:
+        result = _run_push(
+            library_id=library_id,
+            doc_id=doc_id,
+            graph_db_path=graph_db_path,
+            enable_llm=enable_llm,
+            ignored_entity_names=ignored_entity_names,
+        )
+    except ImportError as e:
+        logger.warning("knowledge-graph module not available: %s", e)
+        return {"pushed": False, "error": str(e)}
+    except Exception as e:
+        logger.exception("push_to_graph failed for %s/%s: %s", library_id, doc_id, e)
+        return {"pushed": False, "error": str(e)}
+
+    result["entities_count"] = result.get("total_entities_found", 0)
+    result["relations_count"] = result.get("total_relations_added", 0)
+    return result
 
 
 __all__ = ["push_to_graph"]

@@ -524,6 +524,7 @@ def _run_vectors(ctx: StageContext) -> str:
 
 def _run_graph(ctx: StageContext) -> str:
     from docs_core.step07_graph.push_to_graph import push_to_graph
+    from docs_core.step07_graph.auto_extract import auto_llm_enabled, spawn_llm_graph_extraction
 
     result = push_to_graph(ctx.library_id, ctx.doc_id)
     if not result.get("pushed"):
@@ -536,6 +537,10 @@ def _run_graph(ctx: StageContext) -> str:
 
     entities = result.get("entities_count", 0)
     relations = result.get("relations_count", 0)
+
+    if auto_llm_enabled():
+        spawn_llm_graph_extraction(ctx.library_id, ctx.doc_id)
+
     return f"图谱完成，{entities} 实体，{relations} 关系"
 
 
