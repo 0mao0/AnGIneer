@@ -838,6 +838,43 @@ class GraphStore:
                     (new_desc, _serialize_aliases(merged_aliases), _now(), existing.entity_id),
                 )
 
+    def approve_entity(self, entity_id: str, reviewer: str = "") -> bool:
+        now = _now()
+        with self._connect() as conn:
+            cur = conn.execute(
+                """UPDATE graph_entities SET status='approved', reviewed_at=?, reviewed_by=?, reject_reason=''
+                   WHERE entity_id=?""",
+                (now, reviewer, entity_id),
+            )
+            return int(cur.rowcount or 0) > 0
+
+    def reject_entity(self, entity_id: str, reason: str, reviewer: str = "") -> bool:
+        now = _now()
+        with self._connect() as conn:
+            cur = conn.execute(
+                """UPDATE graph_entities SET status='rejected', reviewed_at=?, reviewed_by=?, reject_reason=?
+                   WHERE entity_id=?""",
+                (now, reviewer, reason, entity_id),
+            )
+            return int(cur.rowcount or 0) > 0
+
+    def get_docs_referencing_entity(self, entity_id: str) -> List[tuple]:
+        with self._connect() as conn:
+            rows = conn.execute(
+                """SELECT DISTINCT library_id, doc_id FROM graph_relations
+                   WHERE (source_id=? OR target_id=?) AND library_id != '' AND doc_id != ''""",
+                (entity_id, entity_id),
+            ).fetchall()
+            return [(r["library_id"], r["doc_id"]) for r in rows]
+
+    def delete_relations_for_entity(self, entity_id: str) -> int:
+        with self._connect() as conn:
+            cur = conn.execute(
+                "DELETE FROM graph_relations WHERE source_id=? OR target_id=?",
+                (entity_id, entity_id),
+            )
+            return int(cur.rowcount or 0)
+
     def get_stats(self, library_id: Optional[str] = None, doc_id: Optional[str] = None) -> Dict[str, Any]:
         with self._connect() as conn:
             if library_id and doc_id:
