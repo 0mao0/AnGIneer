@@ -4,6 +4,7 @@
       <div class="stats-title">历史记录<span class="stats-title-count">（{{ records.length }}条）</span></div>
       <div class="stats-actions">
         <LibrarySelect style="margin-right: 12px" />
+        <a-button size="small" @click="entityReviewOpen = true">实体审核</a-button>
         <a-popconfirm
           title="确定永久删除选中的记录？此操作不可恢复"
           @confirm="batchHardDelete"
@@ -201,6 +202,12 @@
         </a-button>
       </a-input-group>
     </a-modal>
+
+    <EntityReviewDrawer
+      v-model:open="entityReviewOpen"
+      :library-id="libraryStore.libraryId || 'default'"
+      @changed="loadRecords"
+    />
   </div>
 </template>
 
@@ -215,12 +222,14 @@ import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
 import { PDFParsedWorkspace } from '@angineer/docs-ui'
 import type { KnowledgeTreeNode } from '@angineer/docs-ui'
 import DocStageStepper from '@/components/DocStageStepper.vue'
+import EntityReviewDrawer from '@/components/EntityReviewDrawer.vue'
 import LibrarySelect from '@/components/LibrarySelect.vue'
 import { useLibraryStore } from '@/stores/library'
 
 const { appClass, isDark } = useTheme()
 
 const libraryStore = useLibraryStore()
+const entityReviewOpen = ref(false)
 const records = ref<ParseRecordItem[]>([])
 const loading = ref(false)
 const showDeletedOnly = ref(false)
