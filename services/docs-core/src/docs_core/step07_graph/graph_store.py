@@ -494,24 +494,36 @@ class GraphStore:
                 return None
             return GraphEntity.from_row(row)
 
-    def search_entities(self, query: str, limit: int = 20, library_id: Optional[str] = None) -> List[GraphEntity]:
+    def search_entities(self, query: str, limit: int = 20, library_id: Optional[str] = None,
+                        status: Optional[EntityStatus] = None) -> List[GraphEntity]:
+        clauses = ["(name LIKE ? OR aliases_json LIKE ?)"]
+        args: List[Any] = [f"%{query}%", f"%{query}%"]
+        if library_id is not None:
+            clauses.append("library_id = ?")
+            args.append(library_id)
+        if status is not None:
+            clauses.append("status = ?")
+            args.append(status.value)
+        where = " AND ".join(clauses)
         with self._connect() as conn:
-            if library_id is not None:
-                rows = conn.execute(
-                    "SELECT * FROM graph_entities WHERE library_id = ? AND (name LIKE ? OR aliases_json LIKE ?) LIMIT ?",
-                    (library_id, f"%{query}%", f"%{query}%", limit),
-                ).fetchall()
-            else:
-                rows = conn.execute(
-                    "SELECT * FROM graph_entities WHERE name LIKE ? OR aliases_json LIKE ? LIMIT ?",
-                    (f"%{query}%", f"%{query}%", limit),
-                ).fetchall()
+            rows = conn.execute(
+                f"SELECT * FROM graph_entities WHERE {where} LIMIT ?",
+                (*args, limit),
+            ).fetchall()
             return [GraphEntity.from_row(r) for r in rows]
 
     def list_entities_by_layer(self, layer: EntityLayer) -> List[GraphEntity]:
         with self._connect() as conn:
             rows = conn.execute(
                 "SELECT * FROM graph_entities WHERE layer = ?", (layer.value,)
+            ).fetchall()
+            return [GraphEntity.from_row(r) for r in rows]
+
+    def list_entities_by_status(self, library_id: str, status: EntityStatus) -> List[GraphEntity]:
+        with self._connect() as conn:
+            rows = conn.execute(
+                "SELECT * FROM graph_entities WHERE library_id=? AND status=? ORDER BY created_at DESC",
+                (library_id, status.value),
             ).fetchall()
             return [GraphEntity.from_row(r) for r in rows]
 
@@ -644,7 +656,7 @@ class GraphStore:
             rows = conn.execute(
                 """SELECT DISTINCT e.* FROM graph_entities e
                    JOIN graph_relations r ON (e.entity_id = r.source_id OR e.entity_id = r.target_id)
-                   WHERE r.library_id=? AND r.doc_id=?""",
+                   WHERE r.library_id=? AND r.doc_id=? AND e.status != 'rejected'""",
                 (library_id, doc_id),
             ).fetchall()
             return [GraphEntity.from_row(r) for r in rows]
@@ -832,7 +844,7 @@ class GraphStore:
                 entity_count = conn.execute(
                     """SELECT COUNT(DISTINCT e.entity_id) FROM graph_entities e
                        JOIN graph_relations r ON (e.entity_id = r.source_id OR e.entity_id = r.target_id)
-                       WHERE r.library_id=? AND r.doc_id=?""",
+                       WHERE r.library_id=? AND r.doc_id=? AND e.status != 'rejected'""",
                     (library_id, doc_id),
                 ).fetchone()[0]
                 relation_count = conn.execute(
@@ -844,7 +856,7 @@ class GraphStore:
                     for r in conn.execute(
                         """SELECT e.layer, COUNT(DISTINCT e.entity_id) as cnt FROM graph_entities e
                            JOIN graph_relations r ON (e.entity_id = r.source_id OR e.entity_id = r.target_id)
-                           WHERE r.library_id=? AND r.doc_id=?
+                           WHERE r.library_id=? AND r.doc_id=? AND e.status != 'rejected'
                            GROUP BY e.layer""",
                         (library_id, doc_id),
                     ).fetchall()
@@ -858,7 +870,7 @@ class GraphStore:
                 }
             else:
                 entity_count = conn.execute(
-                    "SELECT COUNT(*) FROM graph_entities"
+                    "SELECT COUNT(*) FROM graph_entities WHERE status='approved'"
                 ).fetchone()[0]
                 relation_count = conn.execute(
                     "SELECT COUNT(*) FROM graph_relations"
@@ -866,7 +878,7 @@ class GraphStore:
                 entities_by_layer = {
                     r["layer"]: r["cnt"]
                     for r in conn.execute(
-                        "SELECT layer, COUNT(*) as cnt FROM graph_entities GROUP BY layer"
+                        "SELECT layer, COUNT(*) as cnt FROM graph_entities WHERE status='approved' GROUP BY layer"
                     ).fetchall()
                 }
                 relations_by_type = {
