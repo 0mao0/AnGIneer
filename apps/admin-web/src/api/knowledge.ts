@@ -183,6 +183,23 @@ export const knowledgeApi = {
       total_relations_added: number
       snapshot: { stats: any; entities: any[]; relations: any[] }
     }>,
+  getPendingGraphEntities: (libraryId: string) =>
+    api.get('/graph/entities/pending', { params: { library_id: libraryId } }) as Promise<{
+      entity_id: string
+      name: string
+      layer: string
+      aliases: string[]
+      source_clause: string
+      proposed_doc_id: string
+      created_at: string
+    }[]>,
+  approveGraphEntity: (entityId: string, reviewer?: string) =>
+    api.post(`/graph/entities/${entityId}/approve`, { reviewer: reviewer || 'admin' }) as Promise<{ status: string }>,
+  rejectGraphEntity: (entityId: string, reason: string, reviewer?: string) =>
+    api.post(`/graph/entities/${entityId}/reject`, { reason, reviewer: reviewer || 'admin' }) as Promise<{
+      status: string
+      rescheduled_docs: Array<[string, string]>
+    }>,
 
   listRecords: (params?: {
     status?: string
