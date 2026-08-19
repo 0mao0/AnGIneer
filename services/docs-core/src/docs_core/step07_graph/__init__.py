@@ -1,6 +1,6 @@
 """知识图谱构建：实体提取、关系推断、图存储"""
 
-from .config import EntityLayer, RelationType, EntitySeed, Confidence, load_seed_entities, DEFAULT_SEED_ENTITIES, DEFAULT_LLM_CONFIG
+from .config import EntityLayer, EntityStatus, RelationType, EntitySeed, Confidence, load_seed_entities, DEFAULT_SEED_ENTITIES, DEFAULT_LLM_CONFIG
 from .entity_extractor import EntityExtractor
 from .evidence_builder import EvidencePacket, build_evidence_packets
 from .extractor_prompts import (

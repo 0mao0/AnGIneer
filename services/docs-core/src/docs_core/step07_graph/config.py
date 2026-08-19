@@ -20,6 +20,12 @@ class RelationType(str, Enum):
     VERIFIES = "verifies"
 
 
+class EntityStatus(str, Enum):
+    APPROVED = "approved"
+    PENDING = "pending"
+    REJECTED = "rejected"
+
+
 RELATION_DIRECTIONS: Dict[RelationType, Tuple[str, str]] = {
     RelationType.DEFINES: ("defines", "defined_by"),
     RelationType.REQUIRES: ("requires", "required_by"),

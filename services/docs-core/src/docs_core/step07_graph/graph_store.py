@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
-from docs_core.step07_graph.config import Confidence, EntityLayer, RelationType
+from docs_core.step07_graph.config import Confidence, EntityLayer, EntityStatus, RelationType
 
 
 def _generate_id() -> str:
@@ -37,6 +37,12 @@ _ENTITIES_TABLE_SQL = """
                     source_doc TEXT DEFAULT '',
                     source_clause TEXT DEFAULT '',
                     library_id TEXT NOT NULL DEFAULT 'default',
+                    status TEXT NOT NULL DEFAULT 'approved',
+                    proposed_doc_id TEXT DEFAULT '',
+                    proposed_by TEXT DEFAULT '',
+                    reject_reason TEXT DEFAULT '',
+                    reviewed_at TEXT DEFAULT '',
+                    reviewed_by TEXT DEFAULT '',
                     created_at TEXT NOT NULL,
                     updated_at TEXT NOT NULL,
                     UNIQUE(name, library_id)
@@ -156,6 +162,12 @@ class GraphEntity:
     source_doc: str = ""
     source_clause: str = ""
     library_id: str = "default"
+    status: EntityStatus = EntityStatus.APPROVED
+    proposed_doc_id: str = ""
+    proposed_by: str = ""
+    reject_reason: str = ""
+    reviewed_at: str = ""
+    reviewed_by: str = ""
     created_at: str = field(default_factory=_now)
     updated_at: str = field(default_factory=_now)
 
@@ -170,6 +182,12 @@ class GraphEntity:
             source_doc=row["source_doc"],
             source_clause=row["source_clause"],
             library_id=row["library_id"],
+            status=EntityStatus(row["status"]),
+            proposed_doc_id=row["proposed_doc_id"],
+            proposed_by=row["proposed_by"],
+            reject_reason=row["reject_reason"],
+            reviewed_at=row["reviewed_at"],
+            reviewed_by=row["reviewed_by"],
             created_at=row["created_at"],
             updated_at=row["updated_at"],
         )
@@ -246,8 +264,10 @@ class GraphStore:
                     if existing is not None and needs_migration:
                         conn.execute("""
                             INSERT OR IGNORE INTO graph_entities_new
-                                (entity_id, name, layer, aliases_json, description, source_doc, source_clause, library_id, created_at, updated_at)
-                            SELECT entity_id, name, layer, aliases_json, description, source_doc, source_clause, 'default', created_at, updated_at
+                                (entity_id, name, layer, aliases_json, description, source_doc, source_clause, library_id,
+                                 status, proposed_doc_id, proposed_by, reject_reason, reviewed_at, reviewed_by, created_at, updated_at)
+                            SELECT entity_id, name, layer, aliases_json, description, source_doc, source_clause, 'default',
+                                 'approved', '', '', '', '', '', created_at, updated_at
                             FROM graph_entities
                         """)
                         conn.execute("DROP TABLE graph_entities")
@@ -274,6 +294,8 @@ class GraphStore:
 
                 CREATE INDEX IF NOT EXISTS idx_entities_name ON graph_entities(name);
                 CREATE INDEX IF NOT EXISTS idx_entities_layer ON graph_entities(layer);
+                CREATE INDEX IF NOT EXISTS idx_entities_status ON graph_entities(library_id, status);
+                CREATE INDEX IF NOT EXISTS idx_entities_proposed_doc ON graph_entities(library_id, proposed_doc_id);
                 CREATE INDEX IF NOT EXISTS idx_relations_source ON graph_relations(source_id);
                 CREATE INDEX IF NOT EXISTS idx_relations_target ON graph_relations(target_id);
                 CREATE INDEX IF NOT EXISTS idx_relations_type ON graph_relations(relation_type);
@@ -347,6 +369,17 @@ class GraphStore:
                 CREATE INDEX IF NOT EXISTS idx_warnings_doc ON graph_warnings(library_id, doc_id);
                 CREATE INDEX IF NOT EXISTS idx_frameworks_doc ON graph_frameworks(library_id, doc_id);
             """)
+            entity_cols = [r[1] for r in conn.execute("PRAGMA table_info(graph_entities)")]
+            for col_name, ddl in (
+                ("status", "status TEXT NOT NULL DEFAULT 'approved'"),
+                ("proposed_doc_id", "proposed_doc_id TEXT DEFAULT ''"),
+                ("proposed_by", "proposed_by TEXT DEFAULT ''"),
+                ("reject_reason", "reject_reason TEXT DEFAULT ''"),
+                ("reviewed_at", "reviewed_at TEXT DEFAULT ''"),
+                ("reviewed_by", "reviewed_by TEXT DEFAULT ''"),
+            ):
+                if col_name not in entity_cols:
+                    conn.execute(f"ALTER TABLE graph_entities ADD COLUMN {ddl}")
 
     def delete_document(self, doc_id: str) -> int:
         """删除指定文档的图谱产物（doc 级行与关联表）。
@@ -413,8 +446,9 @@ class GraphStore:
                 entity.updated_at = now
                 conn.execute(
                     """INSERT INTO graph_entities
-                        (entity_id, name, layer, aliases_json, description, source_doc, source_clause, library_id, created_at, updated_at)
-                    VALUES (?,?,?,?,?,?,?,?,?,?)""",
+                        (entity_id, name, layer, aliases_json, description, source_doc, source_clause, library_id,
+                         status, proposed_doc_id, proposed_by, reject_reason, reviewed_at, reviewed_by, created_at, updated_at)
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                     (
                         entity.entity_id,
                         entity.name,
@@ -424,6 +458,12 @@ class GraphStore:
                         entity.source_doc,
                         entity.source_clause,
                         entity.library_id,
+                        entity.status.value,
+                        entity.proposed_doc_id,
+                        entity.proposed_by,
+                        entity.reject_reason,
+                        entity.reviewed_at,
+                        entity.reviewed_by,
                         now,
                         now,
                     ),
