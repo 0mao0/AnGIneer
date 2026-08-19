@@ -4,6 +4,56 @@ AnGIneer 的 AI 推理客户端库（纯 Python 库，非服务）：负责 **LL
 
 > 定位：**本库不包含 HTTP 服务**，不依赖 fastapi / uvicorn。对外 API Key、权限、限额、调用记录与用量持久化、管理后台均属于消费方（如 DredgeAI AI Gateway）的职责。
 
+## 功能架构
+
+一次调用完整走通「校验 → 路由 → 可靠性 → 流式 → 解析」管线，配置与观测横切整个调用过程：
+
+```mermaid
+flowchart TB
+    subgraph consumer["消费方"]
+        app["业务代码 / DredgeAI AI Gateway"]
+    end
+
+    subgraph api["对外 API"]
+        sync["同步：chat · chat_result · chat_stream · chat_stream_events · chat_result_guarded"]
+        async["异步：achat · achat_result · achat_stream · achat_stream_events · achat_result_guarded"]
+    end
+
+    subgraph pipeline["调用管线"]
+        validate["输入校验（Pydantic：messages / tools）"]
+        route["多模型路由（LLM_CONFIGS priority 降序 + fallback）"]
+        subgraph reliability["可靠性"]
+            retry["重试（指数退避）"]
+            cb["熔断（closed → open → half-open）"]
+            timeout["超时四段（connect / read / write / pool）"]
+            guard["截断守卫（finish_reason=length 缩短重试）"]
+        end
+        stream["流式语义（delta / stream_failed / done）"]
+        parse["输出解析与错误映射（LLMError 层级）"]
+    end
+
+    subgraph channel["调用通道"]
+        sdk["OpenAI SDK（同步 + 异步）"]
+        endpoint["OpenAI 兼容端点（vLLM / 自建网关 / 云 API）"]
+    end
+
+    subgraph cross["横切能力"]
+        cfg["配置：环境变量 / LLM_CONFIGS"]
+        obs["观测：usage_callback / 熔断状态 / 日志"]
+    end
+
+    app --> sync & async
+    sync & async --> validate
+    validate --> route
+    route --> reliability
+    reliability --> stream
+    stream --> parse
+    parse --> sdk
+    sdk --> endpoint
+    cfg -.-> api
+    obs -.-> api
+```
+
 ## 安装
 
 ```bash
@@ -179,8 +229,7 @@ async for text in client.achat_stream([{"role": "user", "content": "hi"}]):
 ## 开发与测试
 
 ```bash
-python -m unittest discover -s services/ai-inference/tests
+python -m unittest discover -s tests
 ```
 
 测试覆盖：配置解析、超时四段、重试退避、熔断状态机、流式语义、截断守卫、JSON 解析、错误分类、异步与并发、线程安全、输入校验。
-
