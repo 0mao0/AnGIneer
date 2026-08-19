@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="doc-stage-stepper">
     <a-collapse>
       <!-- 八个解析阶段按顺序展示 -->
@@ -373,7 +373,7 @@ function stageTitle(key: string, found: { backend?: string }): string {
 
 // 页数/扫描件元数据由 raw_parse 阶段落库；convert 等阶段展示时回退引用同一文档的 raw_parse
 function stagePageCount(stage: { key: string; status: string; page_count?: number }): number {
-  if (stage.page_count > 0) return stage.page_count
+  if ((stage.page_count ?? 0) > 0) return stage.page_count ?? 0
   if (stage.key === 'convert' && stage.status !== 'pending' && stage.status !== 'skipped') {
     return orderedStages.value.find(s => s.key === 'raw_parse')?.page_count || 0
   }
