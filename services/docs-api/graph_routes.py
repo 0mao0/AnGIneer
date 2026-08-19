@@ -7,6 +7,9 @@ from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
+from docs_core.step07_graph.auto_extract import spawn_llm_graph_extraction
+from docs_core.step07_graph.config import EntityStatus
+
 logger = logging.getLogger(__name__)
 
 graph_router = APIRouter()
@@ -40,6 +43,10 @@ class HumanReviewRequest(BaseModel):
     note: str = ""
 
 
+class EntityReviewRequest(BaseModel):
+    reason: str = ""
+    reviewer: str = "admin"
+
 
 class ExtractorsRunRequest(BaseModel):
     library_id: str
@@ -61,19 +68,64 @@ async def list_entities(layer: Optional[str] = None):
     else:
         entities = store.list_all_entities()
     return [
-        {"entity_id": e.entity_id, "name": e.name, "layer": e.layer.value, "aliases": e.aliases}
+        {"entity_id": e.entity_id, "name": e.name, "layer": e.layer.value, "aliases": e.aliases,
+         "status": e.status.value}
         for e in entities
+        if e.status == EntityStatus.APPROVED
     ]
 
 
 @graph_router.get("/entities/search")
 async def search_entities(q: str):
     store = _get_store()
-    results = store.search_entities(q)
+    results = store.search_entities(q, status=EntityStatus.APPROVED)
     return [
-        {"entity_id": e.entity_id, "name": e.name, "layer": e.layer.value}
+        {"entity_id": e.entity_id, "name": e.name, "layer": e.layer.value, "status": e.status.value}
         for e in results
     ]
+
+
+@graph_router.get("/entities/pending")
+async def list_pending_entities(library_id: str = "default"):
+    store = _get_store()
+    entities = store.list_entities_by_status(library_id, EntityStatus.PENDING)
+    return [
+        {
+            "entity_id": e.entity_id,
+            "name": e.name,
+            "layer": e.layer.value,
+            "aliases": e.aliases,
+            "source_clause": e.source_clause,
+            "proposed_doc_id": e.proposed_doc_id,
+            "created_at": e.created_at,
+        }
+        for e in entities
+    ]
+
+
+@graph_router.post("/entities/{entity_id}/approve")
+async def approve_entity(entity_id: str, req: EntityReviewRequest):
+    store = _get_store()
+    entity = store.get_entity(entity_id)
+    if entity is None:
+        raise HTTPException(status_code=404, detail="Entity not found")
+    store.approve_entity(entity_id, reviewer=req.reviewer)
+    return {"status": "ok"}
+
+
+@graph_router.post("/entities/{entity_id}/reject")
+async def reject_entity(entity_id: str, req: EntityReviewRequest):
+    store = _get_store()
+    entity = store.get_entity(entity_id)
+    if entity is None:
+        raise HTTPException(status_code=404, detail="Entity not found")
+    docs = store.get_docs_referencing_entity(entity_id)
+    store.reject_entity(entity_id, reason=req.reason or "管理员拒绝", reviewer=req.reviewer)
+    store.delete_relations_for_entity(entity_id)
+    for library_id, doc_id in docs:
+        if library_id == entity.library_id:
+            spawn_llm_graph_extraction(library_id, doc_id, ignored_entity_names=[entity.name])
+    return {"status": "ok", "rescheduled_docs": docs}
 
 
 @graph_router.get("/relations/{entity_id}")

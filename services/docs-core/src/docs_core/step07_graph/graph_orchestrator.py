@@ -327,7 +327,7 @@ class GraphOrchestrator:
             relations = self.store.get_relations_by_doc(library_id, doc_id)
             stats = self.store.get_stats(library_id=library_id, doc_id=doc_id)
         else:
-            entities = self.store.list_all_entities()
+            entities = [e for e in store.list_all_entities() if e.status == EntityStatus.APPROVED]
             relations = []
             for e in entities:
                 for rel in self.store.get_relations_by_entity(e.entity_id, direction="outgoing"):
@@ -336,13 +336,16 @@ class GraphOrchestrator:
 
         entity_map = {
             e.entity_id: {"id": e.entity_id, "name": e.name, "layer": e.layer.value,
-                          "aliases": e.aliases, "source_clause": e.source_clause}
+                          "aliases": e.aliases, "source_clause": e.source_clause,
+                          "status": e.status.value}
             for e in entities
         }
 
         rel_list = []
         for rel in relations:
             if rel.relation_type == "constrains":
+                continue
+            if rel.source_id not in entity_map or rel.target_id not in entity_map:
                 continue
             source = entity_map.get(rel.source_id, {}).get("name", rel.source_id)
             target = entity_map.get(rel.target_id, {}).get("name", rel.target_id)
