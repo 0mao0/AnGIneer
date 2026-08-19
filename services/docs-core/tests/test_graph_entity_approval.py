@@ -37,3 +37,14 @@ def test_reject_entity_and_delete_relations(tmp_path) -> None:
     removed = store.delete_relations_for_entity(a.entity_id)
     assert removed == 1
     assert store.get_relations_by_doc("lib", "doc-a") == []
+
+
+def test_find_existing_entity_alias_and_normalized(tmp_path) -> None:
+    from docs_core.step07_graph.entity_dedup import find_existing_entity
+    store = GraphStore(str(tmp_path / "graph.sqlite"))
+    store.upsert_entity(GraphEntity(name="承载力验算", layer=EntityLayer.ACTION, library_id="lib",
+                                    aliases=["承载力"], status=EntityStatus.APPROVED))
+
+    assert find_existing_entity(store, "承载力", "lib").name == "承载力验算"
+    assert find_existing_entity(store, "承载力 验算", "lib").name == "承载力验算"
+    assert find_existing_entity(store, "完全不同的实体", "lib") is None

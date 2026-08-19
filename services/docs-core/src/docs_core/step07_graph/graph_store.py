@@ -527,6 +527,14 @@ class GraphStore:
             ).fetchall()
             return [GraphEntity.from_row(r) for r in rows]
 
+    def list_library_entities(self, library_id: str) -> List[GraphEntity]:
+        with self._connect() as conn:
+            rows = conn.execute(
+                "SELECT * FROM graph_entities WHERE library_id=? ORDER BY created_at DESC",
+                (library_id,),
+            ).fetchall()
+            return [GraphEntity.from_row(r) for r in rows]
+
     def list_all_entities(self) -> List[GraphEntity]:
         with self._connect() as conn:
             rows = conn.execute("SELECT * FROM graph_entities").fetchall()
