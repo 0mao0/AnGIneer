@@ -275,6 +275,17 @@ class GraphStore:
                 finally:
                     conn.execute("PRAGMA legacy_alter_table=OFF")
                     conn.execute("PRAGMA foreign_keys=ON")
+            entity_cols = [r[1] for r in conn.execute("PRAGMA table_info(graph_entities)")]
+            for col_name, ddl in (
+                ("status", "status TEXT NOT NULL DEFAULT 'approved'"),
+                ("proposed_doc_id", "proposed_doc_id TEXT DEFAULT ''"),
+                ("proposed_by", "proposed_by TEXT DEFAULT ''"),
+                ("reject_reason", "reject_reason TEXT DEFAULT ''"),
+                ("reviewed_at", "reviewed_at TEXT DEFAULT ''"),
+                ("reviewed_by", "reviewed_by TEXT DEFAULT ''"),
+            ):
+                if entity_cols and col_name not in entity_cols:
+                    conn.execute(f"ALTER TABLE graph_entities ADD COLUMN {ddl}")
             conn.executescript(_ENTITIES_TABLE_SQL + """
                 CREATE TABLE IF NOT EXISTS graph_relations (
                     relation_id TEXT PRIMARY KEY,
@@ -369,17 +380,6 @@ class GraphStore:
                 CREATE INDEX IF NOT EXISTS idx_warnings_doc ON graph_warnings(library_id, doc_id);
                 CREATE INDEX IF NOT EXISTS idx_frameworks_doc ON graph_frameworks(library_id, doc_id);
             """)
-            entity_cols = [r[1] for r in conn.execute("PRAGMA table_info(graph_entities)")]
-            for col_name, ddl in (
-                ("status", "status TEXT NOT NULL DEFAULT 'approved'"),
-                ("proposed_doc_id", "proposed_doc_id TEXT DEFAULT ''"),
-                ("proposed_by", "proposed_by TEXT DEFAULT ''"),
-                ("reject_reason", "reject_reason TEXT DEFAULT ''"),
-                ("reviewed_at", "reviewed_at TEXT DEFAULT ''"),
-                ("reviewed_by", "reviewed_by TEXT DEFAULT ''"),
-            ):
-                if col_name not in entity_cols:
-                    conn.execute(f"ALTER TABLE graph_entities ADD COLUMN {ddl}")
 
     def delete_document(self, doc_id: str) -> int:
         """删除指定文档的图谱产物（doc 级行与关联表）。

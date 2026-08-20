@@ -1,5 +1,7 @@
 """graph_entities 状态字段与迁移覆盖。"""
 
+import sqlite3
+
 from docs_core.step07_graph.config import EntityLayer, EntityStatus, RelationType
 from docs_core.step07_graph.graph_store import GraphEntity, GraphStore
 
@@ -122,3 +124,32 @@ def test_push_to_graph_accepts_enable_llm(tmp_path, monkeypatch) -> None:
     assert calls["ignored"] == ["被拒实体"]
     assert result["entities_count"] == 1
     assert result["relations_count"] == 2
+
+
+def test_old_graph_entities_schema_migrates_status(tmp_path) -> None:
+    db_path = str(tmp_path / "graph.sqlite")
+    conn = sqlite3.connect(db_path)
+    conn.executescript("""
+        CREATE TABLE graph_entities (
+            entity_id TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            layer TEXT NOT NULL,
+            aliases_json TEXT DEFAULT '[]',
+            description TEXT DEFAULT '',
+            source_doc TEXT DEFAULT '',
+            source_clause TEXT DEFAULT '',
+            library_id TEXT NOT NULL DEFAULT 'default',
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(name, library_id)
+        );
+    """)
+    conn.commit()
+    conn.close()
+
+    store = GraphStore(db_path)
+    cols = [r[1] for r in store._connect().execute("PRAGMA table_info(graph_entities)")]
+    assert "status" in cols
+    assert "proposed_doc_id" in cols
+    entity = store.upsert_entity(GraphEntity(name="迁移实体", layer=EntityLayer.CONCEPT, library_id="lib"))
+    assert entity.status == EntityStatus.APPROVED
