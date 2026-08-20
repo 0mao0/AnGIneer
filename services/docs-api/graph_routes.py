@@ -53,6 +53,16 @@ class EntityRestoreRequest(BaseModel):
     name: str
 
 
+class EntityCreateRequest(BaseModel):
+    library_id: str
+    name: str
+    layer: str
+    aliases: List[str] = []
+    description: str = ""
+    source_doc: str = ""
+    source_clause: str = ""
+
+
 class ExtractorsRunRequest(BaseModel):
     library_id: str
     doc_id: str
@@ -98,6 +108,43 @@ async def list_all_library_entities(library_id: str = "default"):
         }
         for e in entities
     ]
+
+
+@graph_router.post("/entities")
+async def create_entity(req: EntityCreateRequest):
+    from docs_core.step07_graph.config import EntityLayer
+    from docs_core.step07_graph.graph_store import GraphEntity
+
+    store = _get_store()
+    try:
+        layer = EntityLayer(req.layer)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="layer 必须是 concept/condition/action")
+
+    name = req.name.strip()
+    if not name:
+        raise HTTPException(status_code=400, detail="实体名不能为空")
+
+    entity = store.upsert_entity(GraphEntity(
+        name=name,
+        layer=layer,
+        aliases=req.aliases or [],
+        description=req.description,
+        source_doc=req.source_doc,
+        source_clause=req.source_clause,
+        library_id=req.library_id,
+        status=EntityStatus.APPROVED,
+        proposed_doc_id=req.source_doc,
+        proposed_by="manual",
+    ))
+    store.approve_entity(entity.entity_id, reviewer="manual")
+    return {
+        "entity_id": entity.entity_id,
+        "name": entity.name,
+        "layer": entity.layer.value,
+        "aliases": entity.aliases,
+        "status": entity.status.value,
+    }
 
 
 @graph_router.get("/entities/search")

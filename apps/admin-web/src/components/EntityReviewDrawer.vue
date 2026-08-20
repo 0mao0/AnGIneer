@@ -16,7 +16,19 @@
           <a-radio-button value="approved">已入库（{{ approvedCount }}）</a-radio-button>
           <a-radio-button value="deleted">已删除（{{ deletedCount }}）</a-radio-button>
         </a-radio-group>
-        <a-button size="small" :loading="loading" @click="loadAllData">刷新</a-button>
+        <div class="entity-review-actions">
+          <a-tooltip title="刷新">
+            <a-button
+              type="text"
+              size="small"
+              :loading="loading"
+              @click="loadAllData"
+            >
+              <template #icon><ReloadOutlined /></template>
+            </a-button>
+          </a-tooltip>
+          <a-button type="primary" size="small" @click="openCreateModal">新增实体</a-button>
+        </div>
       </div>
 
       <div class="entity-review-filters">
@@ -87,6 +99,41 @@
       </a-table>
 
       <a-modal
+        v-model:open="createModalOpen"
+        title="新增实体"
+        :width="520"
+        ok-text="新增"
+        :ok-button-props="{ disabled: !createForm.name.trim() || !createForm.layer }"
+        @ok="confirmCreate"
+        @cancel="resetCreateForm"
+      >
+        <a-form :label-col="{ span: 5 }" :wrapper-col="{ span: 18 }">
+          <a-form-item label="名称" required>
+            <a-input v-model:value="createForm.name" placeholder="请输入实体名称" />
+          </a-form-item>
+          <a-form-item label="层级" required>
+            <a-select v-model:value="createForm.layer" placeholder="请选择层级">
+              <a-select-option value="concept">概念</a-select-option>
+              <a-select-option value="condition">条件</a-select-option>
+              <a-select-option value="action">动作</a-select-option>
+            </a-select>
+          </a-form-item>
+          <a-form-item label="别名">
+            <a-input v-model:value="createForm.aliasesText" placeholder="多个别名用逗号分隔" />
+          </a-form-item>
+          <a-form-item label="描述">
+            <a-textarea v-model:value="createForm.description" :rows="2" placeholder="可选" />
+          </a-form-item>
+          <a-form-item label="来源文档">
+            <a-input v-model:value="createForm.sourceDoc" placeholder="可选，如 doc-xxx" />
+          </a-form-item>
+          <a-form-item label="来源章节">
+            <a-input v-model:value="createForm.sourceClause" placeholder="可选，如 3.2 / 4.1" />
+          </a-form-item>
+        </a-form>
+      </a-modal>
+
+      <a-modal
         v-model:open="rejectModalOpen"
         title="拒绝实体"
         :width="480"
@@ -110,6 +157,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { message } from 'ant-design-vue'
+import { ReloadOutlined } from '@ant-design/icons-vue'
 import { knowledgeApi } from '@/api/knowledge'
 
 interface EntityItem {
@@ -155,6 +203,15 @@ const deletedList = ref<DeletedEntity[]>([])
 const rejectModalOpen = ref(false)
 const rejectTarget = ref<EntityItem | null>(null)
 const rejectReason = ref('')
+const createModalOpen = ref(false)
+const createForm = ref({
+  name: '',
+  layer: '',
+  aliasesText: '',
+  description: '',
+  sourceDoc: '',
+  sourceClause: '',
+})
 
 const columns = [
   { title: '实体名', dataIndex: 'name', key: 'name', width: 180 },
@@ -247,6 +304,48 @@ function emitViewSource(record: EntityRow, sectionPath: string) {
     sectionPath,
     libraryId: props.libraryId,
   })
+}
+
+function openCreateModal() {
+  resetCreateForm()
+  createModalOpen.value = true
+}
+
+function resetCreateForm() {
+  createForm.value = {
+    name: '',
+    layer: '',
+    aliasesText: '',
+    description: '',
+    sourceDoc: '',
+    sourceClause: '',
+  }
+}
+
+async function confirmCreate() {
+  if (!createForm.value.name.trim() || !createForm.value.layer) return
+  try {
+    await knowledgeApi.createGraphEntity({
+      library_id: props.libraryId,
+      name: createForm.value.name.trim(),
+      layer: createForm.value.layer,
+      aliases: createForm.value.aliasesText
+        .split(/[,，]/)
+        .map(s => s.trim())
+        .filter(Boolean),
+      description: createForm.value.description.trim(),
+      source_doc: createForm.value.sourceDoc.trim(),
+      source_clause: createForm.value.sourceClause.trim(),
+    })
+    message.success(`已新增实体「${createForm.value.name.trim()}」`)
+    createModalOpen.value = false
+    resetCreateForm()
+    activeTab.value = 'approved'
+    emit('changed')
+    await loadAllData()
+  } catch (e: any) {
+    message.error(e?.message || '新增实体失败')
+  }
 }
 
 async function loadAllData() {
@@ -348,6 +447,12 @@ watch(() => props.libraryId, () => {
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.entity-review-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .entity-review-filters {
