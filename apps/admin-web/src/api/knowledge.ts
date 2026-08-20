@@ -193,6 +193,17 @@ export const knowledgeApi = {
       proposed_doc_id: string
       created_at: string
     }[]>,
+  getAllGraphEntities: (libraryId: string) =>
+    api.get('/graph/entities/all', { params: { library_id: libraryId } }) as Promise<{
+      entity_id: string
+      name: string
+      layer: string
+      aliases: string[]
+      status: 'approved' | 'pending' | 'rejected'
+      source_clause: string
+      proposed_doc_id: string
+      created_at: string
+    }[]>,
   approveGraphEntity: (entityId: string, reviewer?: string) =>
     api.post(`/graph/entities/${entityId}/approve`, { reviewer: reviewer || 'admin' }) as Promise<{ status: string }>,
   rejectGraphEntity: (entityId: string, reason: string, reviewer?: string) =>

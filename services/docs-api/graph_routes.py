@@ -75,6 +75,25 @@ async def list_entities(layer: Optional[str] = None):
     ]
 
 
+@graph_router.get("/entities/all")
+async def list_all_library_entities(library_id: str = "default"):
+    store = _get_store()
+    entities = store.list_library_entities(library_id)
+    return [
+        {
+            "entity_id": e.entity_id,
+            "name": e.name,
+            "layer": e.layer.value,
+            "aliases": e.aliases,
+            "status": e.status.value,
+            "source_clause": e.source_clause,
+            "proposed_doc_id": e.proposed_doc_id,
+            "created_at": e.created_at,
+        }
+        for e in entities
+    ]
+
+
 @graph_router.get("/entities/search")
 async def search_entities(q: str):
     store = _get_store()
