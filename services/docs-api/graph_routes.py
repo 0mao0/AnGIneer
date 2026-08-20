@@ -92,6 +92,7 @@ async def list_all_library_entities(library_id: str = "default"):
             "aliases": e.aliases,
             "status": e.status.value,
             "source_clause": e.source_clause,
+            "source_doc": e.source_doc,
             "proposed_doc_id": e.proposed_doc_id,
             "created_at": e.created_at,
         }
@@ -120,6 +121,7 @@ async def list_pending_entities(library_id: str = "default"):
             "layer": e.layer.value,
             "aliases": e.aliases,
             "source_clause": e.source_clause,
+            "source_doc": e.source_doc,
             "proposed_doc_id": e.proposed_doc_id,
             "created_at": e.created_at,
         }

@@ -7,9 +7,12 @@
     @close="emit('update:open', false)"
   >
     <div class="entity-review-drawer">
+      <div class="entity-review-description">
+        待审实体仅 LLM 抽取出的新实体；通过后进入通用实体库，拒绝后将从相关文档图谱移除并重抽。
+      </div>
       <div class="entity-review-toolbar">
         <a-radio-group v-model:value="activeTab" size="small" @change="loadAllData">
-          <a-radio-button value="pending">待审（{{ pendingCount }}）</a-radio-button>
+          <a-radio-button value="pending">待审核（{{ pendingCount }}）</a-radio-button>
           <a-radio-button value="approved">已入库（{{ approvedCount }}）</a-radio-button>
           <a-radio-button value="deleted">已删除（{{ deletedCount }}）</a-radio-button>
         </a-radio-group>
@@ -18,17 +21,13 @@
 
       <div class="entity-review-filters">
         <span class="entity-review-filter-label">层级：</span>
-        <a-radio-group v-model:value="layerFilter" size="small">
-          <a-radio-button value="">全部</a-radio-button>
-          <a-radio-button value="concept">概念</a-radio-button>
-          <a-radio-button value="condition">条件</a-radio-button>
-          <a-radio-button value="action">动作</a-radio-button>
-        </a-radio-group>
+        <a-select v-model:value="layerFilter" size="small" style="width: 120px">
+          <a-select-option value="">全部</a-select-option>
+          <a-select-option value="concept">概念</a-select-option>
+          <a-select-option value="condition">条件</a-select-option>
+          <a-select-option value="action">动作</a-select-option>
+        </a-select>
       </div>
-
-      <a-typography-text type="secondary">
-        待审实体仅 LLM 抽取出的新实体；通过后进入通用实体库，拒绝后将从相关文档图谱移除并重抽。
-      </a-typography-text>
 
       <a-table
         :columns="columns"
@@ -47,17 +46,20 @@
           </template>
           <template v-if="column.key === 'source'">
             <div class="entity-review-sources">
-              <template v-if="record.proposed_doc_id">
+              <template v-if="sourceDocId(record)">
                 <a-tooltip
-                  v-for="(line, idx) in sourceLines(record)"
+                  v-for="(line, idx) in displaySourceLines(record)"
                   :key="idx"
                   :title="line"
                   placement="top"
                 >
                   <a-tag class="entity-review-source-tag" @click="emitViewSource(record, line)">
-                    {{ record.proposed_doc_id }} / {{ truncateSource(line, 16) }}
+                    {{ sourceDocId(record) }} / {{ truncateSource(line, 16) }}
                   </a-tag>
                 </a-tooltip>
+                <a-tag v-if="sourceLines(record).length > 3" class="entity-review-source-tag">
+                  +{{ sourceLines(record).length - 3 }}
+                </a-tag>
               </template>
               <span v-else class="entity-review-sub">-</span>
             </div>
@@ -117,6 +119,7 @@ interface EntityItem {
   aliases: string[]
   status?: 'approved' | 'pending' | 'rejected'
   source_clause: string
+  source_doc: string
   proposed_doc_id: string
   created_at: string
 }
@@ -174,6 +177,7 @@ const deletedRows = computed<EntityRow[]>(() =>
     aliases: [],
     status: 'rejected' as const,
     source_clause: '',
+    source_doc: '',
     proposed_doc_id: '',
     created_at: item.deleted_at,
     deleted_at: item.deleted_at,
@@ -216,6 +220,10 @@ function layerLabel(layer: string) {
   return '-'
 }
 
+function sourceDocId(record: EntityRow) {
+  return record.source_doc || record.proposed_doc_id || ''
+}
+
 function sourceLines(record: EntityRow): string[] {
   return (record.source_clause || '')
     .split('/')
@@ -223,14 +231,19 @@ function sourceLines(record: EntityRow): string[] {
     .filter(Boolean)
 }
 
+function displaySourceLines(record: EntityRow): string[] {
+  return sourceLines(record).slice(0, 3)
+}
+
 function truncateSource(line: string, max = 16) {
   return line.length > max ? `${line.slice(0, max)}...` : line
 }
 
 function emitViewSource(record: EntityRow, sectionPath: string) {
-  if (!record.proposed_doc_id) return
+  const docId = sourceDocId(record)
+  if (!docId) return
   emit('view-source', {
-    docId: record.proposed_doc_id,
+    docId,
     sectionPath,
     libraryId: props.libraryId,
   })
@@ -322,6 +335,11 @@ watch(() => props.libraryId, () => {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.entity-review-description {
+  font-size: 12px;
+  color: var(--text-secondary);
 }
 
 .entity-review-toolbar {

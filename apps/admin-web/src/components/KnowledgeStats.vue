@@ -1,7 +1,15 @@
 <template>
   <div class="knowledge-stats" :class="appClass">
     <div class="stats-header">
-      <div class="stats-title">历史记录<span class="stats-title-count">（{{ records.length }}条）</span></div>
+      <div class="stats-title-wrap">
+        <div class="stats-title">历史记录<span class="stats-title-count">（{{ records.length }}条）</span></div>
+        <a-switch
+          :checked="showDeletedOnly"
+          size="small"
+          @change="toggleDeletedFilter"
+        />
+        <span class="stats-deleted-label">用户已删</span>
+      </div>
       <div class="stats-actions">
         <LibrarySelect style="margin-right: 12px" />
         <a-button size="small" @click="entityReviewOpen = true">实体审核</a-button>
@@ -18,12 +26,6 @@
             批量删除 ({{ selectedDeletedIds.length }})
           </a-button>
         </a-popconfirm>
-        <a-switch
-          :checked="showDeletedOnly"
-          size="small"
-          @change="toggleDeletedFilter"
-        />
-        <span style="margin-left: 4px; font-size: 13px; color: var(--text-secondary);">仅显示已删除</span>
       </div>
     </div>
 
@@ -769,6 +771,16 @@ onMounted(() => {
   font-size: 12px;
   font-weight: 400;
   color: var(--text-secondary);
+}
+.stats-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.stats-deleted-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
 }
 .stats-actions {
   display: flex;

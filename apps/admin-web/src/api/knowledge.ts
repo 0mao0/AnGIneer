@@ -190,6 +190,7 @@ export const knowledgeApi = {
       layer: string
       aliases: string[]
       source_clause: string
+      source_doc: string
       proposed_doc_id: string
       created_at: string
     }[]>,
@@ -201,6 +202,7 @@ export const knowledgeApi = {
       aliases: string[]
       status: 'approved' | 'pending' | 'rejected'
       source_clause: string
+      source_doc: string
       proposed_doc_id: string
       created_at: string
     }[]>,
