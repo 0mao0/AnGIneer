@@ -154,6 +154,45 @@ def _verify_doc_blocks_graph_input(ctx: StageContext) -> str:
 
 # ---- 阶段执行函数 ----
 
+def _mark_stage_queued(
+    ctx: StageContext, step: str, detail_message: str, stage_message: str
+) -> None:
+    """排队等待资源：阶段/任务/解析记录状态同步为排队中，避免误显示解析耗时。"""
+    ctx.log_step(step, "running", detail_message)
+    if ctx.meta_store is not None and ctx.stage_key:
+        ctx.meta_store.upsert_parse_stage(
+            ctx.doc_id, ctx.stage_key, status="queued",
+            message=stage_message,
+            started_at=ctx.stage_started_at or datetime.now().isoformat(),
+        )
+    try:
+        get_docs_service().update_parse_task(
+            ctx.task_id, stage="queued", stage_message=stage_message
+        )
+        if ctx.sync_record is not None:
+            ctx.sync_record(ctx.task_id, ctx.doc_id, "queued")
+    except Exception as exc:
+        logger.warning("排队状态同步失败 task=%s: %s", ctx.task_id, exc)
+
+
+def _mark_stage_running(ctx: StageContext, stage: str, message: str) -> None:
+    """拿到资源槽位：阶段计时从此刻重新开始，排队等待不计入解析耗时。"""
+    if ctx.meta_store is not None and ctx.stage_key:
+        ctx.meta_store.upsert_parse_stage(
+            ctx.doc_id, ctx.stage_key, status="running",
+            message="核查通过",
+            started_at=datetime.now().isoformat(),
+        )
+    try:
+        get_docs_service().update_parse_task(
+            ctx.task_id, stage=stage, stage_message=message
+        )
+        if ctx.sync_record is not None:
+            ctx.sync_record(ctx.task_id, ctx.doc_id, "processing")
+    except Exception as exc:
+        logger.warning("解析状态同步失败 task=%s: %s", ctx.task_id, exc)
+
+
 def _run_source_prep(ctx: StageContext) -> str:
     from docs_core.step01_source_prep.source_prep import prepare_source
 
@@ -193,45 +232,14 @@ def _run_raw_parse(ctx: StageContext) -> str:
     def _on_step(step: str, status: str = "done", detail: str = "") -> None:
         ctx.log_step(step, status, detail)
 
-    def _mark_queued() -> None:
-        """排队等待 GPU：阶段/任务/解析记录状态同步为排队中，避免误显示解析耗时。"""
-        ctx.log_step("MinerU GPU 排队", "running", "等待 MinerU GPU 资源（前序任务完成后自动开始）")
-        if ctx.meta_store is not None and ctx.stage_key:
-            ctx.meta_store.upsert_parse_stage(
-                ctx.doc_id, ctx.stage_key, status="queued",
-                message="等待 MinerU GPU 资源",
-                started_at=ctx.stage_started_at or datetime.now().isoformat(),
-            )
-        try:
-            get_docs_service().update_parse_task(
-                ctx.task_id, stage="queued", stage_message="等待 MinerU GPU 资源"
-            )
-            if ctx.sync_record is not None:
-                ctx.sync_record(ctx.task_id, ctx.doc_id, "queued")
-        except Exception as exc:
-            logger.warning("排队状态同步失败 task=%s: %s", ctx.task_id, exc)
-
-    def _mark_parsing() -> None:
-        """拿到 GPU 槽位：阶段计时从此刻重新开始，排队等待不计入解析耗时。"""
-        if ctx.meta_store is not None and ctx.stage_key:
-            ctx.meta_store.upsert_parse_stage(
-                ctx.doc_id, ctx.stage_key, status="running",
-                message="核查通过",
-                started_at=datetime.now().isoformat(),
-            )
-        try:
-            get_docs_service().update_parse_task(
-                ctx.task_id, stage="raw_parse", stage_message="MinerU 解析中"
-            )
-            if ctx.sync_record is not None:
-                ctx.sync_record(ctx.task_id, ctx.doc_id, "processing")
-        except Exception as exc:
-            logger.warning("解析状态同步失败 task=%s: %s", ctx.task_id, exc)
-
     if _MINERU_GPU_GATE.should_wait(ctx.arrival_seq):
-        _mark_queued()
+        _mark_stage_queued(
+            ctx, "MinerU GPU 排队",
+            "等待 MinerU GPU 资源（前序任务完成后自动开始）",
+            "等待 MinerU GPU 资源",
+        )
     with mineru_gpu_slot(ctx.cancel_check, arrival_seq=ctx.arrival_seq):
-        _mark_parsing()
+        _mark_stage_running(ctx, "raw_parse", "MinerU 解析中")
         try:
             # 解析器自建临时目录并负责落盘（save_markdown + save_parse_artifacts）
             parse_result = task_parser.parse_to_raw_artifacts(
@@ -283,26 +291,47 @@ def _run_popo(ctx: StageContext) -> str:
         pdfs = sorted(source_dir.glob("*.pdf"))
         if pdfs:
             source_pdf = str(pdfs[-1])
-    try:
-        pipeline.run_full_pipeline(
-            mineru_raw_dir=str(mineru_raw_dir),
-            output_dir=popo_output_dir,
-            doc_id=ctx.doc_id,
-            source_pdf_path=source_pdf,
-            source_dir=str(source_dir),
-            on_step=_on_step,
+    if _POPO_GATE.should_wait(ctx.arrival_seq):
+        _mark_stage_queued(
+            ctx, "PoPo 4B 推理排队",
+            "等待 PoPo 4B 推理资源（前序任务完成后自动开始）",
+            "等待 PoPo 4B 推理资源",
         )
-    except Exception as exc:
-        # popo 为可选信号源：失败回滚半成品并记录 fallback=solo，
-        # structure 始终由 Solo 构建，有无 popo 信号都不受影响。
-        _rollback_popo_products(ctx)
-        ctx.fallback_target = "solo"
-        if isinstance(exc, subprocess.CalledProcessError):
-            stderr = (exc.stderr or "").strip()
-            stdout = (exc.stdout or "").strip()
-            detail = stderr or stdout or str(exc)
-            raise RuntimeError(f"PoPo 子进程失败:\n{detail}") from exc
-        raise
+    attempt = 0
+    while True:
+        try:
+            with popo_inference_slot(ctx.cancel_check, arrival_seq=ctx.arrival_seq):
+                _mark_stage_running(ctx, "popo", "PoPo 4B 推理中")
+                pipeline.run_full_pipeline(
+                    mineru_raw_dir=str(mineru_raw_dir),
+                    output_dir=popo_output_dir,
+                    doc_id=ctx.doc_id,
+                    source_pdf_path=source_pdf,
+                    source_dir=str(source_dir),
+                    on_step=_on_step,
+                )
+            break
+        except Exception as exc:
+            if attempt < _POPO_INFERENCE_RETRIES and _is_transient_popo_failure(exc):
+                attempt += 1
+                backoff = _POPO_RETRY_BACKOFF_SECONDS * attempt
+                logger.warning(
+                    "PoPo 4B 推理瞬时失败（第 %d/%d 次），%.1fs 后重试 doc=%s: %s",
+                    attempt, _POPO_INFERENCE_RETRIES, backoff, ctx.doc_id,
+                    f"{type(exc).__name__}: {str(exc)[:160]}",
+                )
+                time.sleep(backoff)
+                continue
+            # popo 为可选信号源：失败回滚半成品并记录 fallback=solo，
+            # structure 始终由 Solo 构建，有无 popo 信号都不受影响。
+            _rollback_popo_products(ctx)
+            ctx.fallback_target = "solo"
+            if isinstance(exc, subprocess.CalledProcessError):
+                stderr = (exc.stderr or "").strip()
+                stdout = (exc.stdout or "").strip()
+                detail = stderr or stdout or str(exc)
+                raise RuntimeError(f"PoPo 子进程失败:\n{detail}") from exc
+            raise
 
     enriched_blocks = file_storage.read_popo_enriched_blocks(ctx.library_id, ctx.doc_id)
     # output_summary 与 MinerU 一致：列出实际存在的产物文件（+ 连接），前端按固定清单打勾/打叉
@@ -504,6 +533,50 @@ def mineru_gpu_slot(
         yield
     finally:
         _MINERU_GPU_GATE.release()
+
+
+def _env_int(name: str, default: int) -> int:
+    """读取环境变量整数，非法/缺省回退默认值。"""
+    try:
+        raw = os.getenv(name, "").strip()
+        return int(raw) if raw else default
+    except (TypeError, ValueError):
+        return default
+
+
+_POPO_MAX_CONCURRENCY = max(1, _env_int("POPO_MAX_CONCURRENCY", 1))
+_POPO_GATE = _FifoGpuGate(_POPO_MAX_CONCURRENCY)
+_POPO_INFERENCE_RETRIES = max(0, _env_int("POPO_INFERENCE_RETRIES", 1))
+_POPO_RETRY_BACKOFF_SECONDS = 5.0
+
+
+@contextmanager
+def popo_inference_slot(
+    cancel_check: Optional[Callable[[], None]] = None,
+    arrival_seq: int = 1,
+):
+    """PoPo 4B 推理（远端 vLLM）槽位：按提交序号先来先服务，防止并发打满远端。"""
+    _POPO_GATE.acquire(arrival_seq, cancel_check)
+    try:
+        yield
+    finally:
+        _POPO_GATE.release()
+
+
+_POPO_TRANSIENT_MARKERS = (
+    "timeout", "timed out", "connection", "retries", "429",
+    "overloaded", "unavailable", "500", "503",
+)
+
+
+def _is_transient_popo_failure(exc: Exception) -> bool:
+    """PoPo 子进程失败是否为瞬时错误（远端抖动/超时），决定是否重试。"""
+    if isinstance(exc, subprocess.TimeoutExpired):
+        return True
+    if isinstance(exc, subprocess.CalledProcessError):
+        text = f"{exc.stderr or ''} {exc.stdout or ''}".lower()
+        return any(marker in text for marker in _POPO_TRANSIENT_MARKERS)
+    return False
 
 
 def _run_vectors(ctx: StageContext) -> str:
@@ -1035,8 +1108,9 @@ class ParseOrchestrator:
             except Exception as update_exc:
                 logger.error(f"更新任务状态失败: {update_exc}")
         finally:
-            # 任务在到达 MinerU 闸门前就失败/退出时，跳过其序号，防止后续任务永久排队
+            # 任务在到达 MinerU/PoPo 闸门前就失败/退出时，跳过其序号，防止后续任务永久排队
             _MINERU_GPU_GATE.skip(arrival_seq)
+            _POPO_GATE.skip(arrival_seq)
             self._threads.pop(task_id, None)
             self._cancelled.discard(task_id)
             parser = self._parsers.pop(task_id, None)

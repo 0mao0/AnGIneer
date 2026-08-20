@@ -54,6 +54,9 @@ source/           原始文件
 
 - `MinerU 任务占用的 GPU 槽位`按提交序号先来先服务，进入 raw_parse 前获取；
 - 取消任务会让位给下一个排队任务，避免 GPU 空转；
+- `PoPo 4B 推理（远端 vLLM）槽位`同样按提交序号先来先服务（`POPO_MAX_CONCURRENCY`，默认 1），
+  防止多个文档并发把远端 vLLM 打满；推理瞬时失败（超时/连接类）按
+  `POPO_INFERENCE_RETRIES`（默认 1）退避重试，仍失败才回滚并走 solo 兜底；
 - 批量解析（`ParseDocumentsJob`）并发提交，写库串行（EF Core DbContext 非线程安全，DredgeAI 侧同样约束）。
 
 ## 4. 断点恢复与重试
