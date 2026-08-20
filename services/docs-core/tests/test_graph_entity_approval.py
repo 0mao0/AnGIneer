@@ -48,3 +48,16 @@ def test_find_existing_entity_alias_and_normalized(tmp_path) -> None:
     assert find_existing_entity(store, "承载力", "lib").name == "承载力验算"
     assert find_existing_entity(store, "承载力 验算", "lib").name == "承载力验算"
     assert find_existing_entity(store, "完全不同的实体", "lib") is None
+
+
+def test_delete_entity_removes_and_blacklists(tmp_path) -> None:
+    store = GraphStore(str(tmp_path / "graph.sqlite"))
+    a, _ = _seed(store)
+
+    assert store.delete_entity(a.entity_id) is True
+    assert store.get_entity(a.entity_id) is None
+    assert store.get_relations_by_doc("lib", "doc-a") == []
+    assert store.is_entity_deleted("lib", "待审实体") is True
+
+    # 再次删除不存在实体返回 False
+    assert store.delete_entity(a.entity_id) is False

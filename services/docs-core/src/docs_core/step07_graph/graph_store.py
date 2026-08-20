@@ -375,6 +375,13 @@ class GraphStore:
                     created_at TEXT NOT NULL
                 );
 
+                CREATE TABLE IF NOT EXISTS graph_entity_deletions (
+                    library_id TEXT NOT NULL,
+                    name TEXT NOT NULL,
+                    deleted_at TEXT NOT NULL,
+                    PRIMARY KEY(library_id, name)
+                );
+
                 CREATE INDEX IF NOT EXISTS idx_principles_doc ON graph_principles(library_id, doc_id);
                 CREATE INDEX IF NOT EXISTS idx_examples_doc ON graph_examples(library_id, doc_id);
                 CREATE INDEX IF NOT EXISTS idx_warnings_doc ON graph_warnings(library_id, doc_id);
@@ -882,6 +889,36 @@ class GraphStore:
                 (entity_id, entity_id),
             )
             return int(cur.rowcount or 0)
+
+    def is_entity_deleted(self, library_id: str, name: str) -> bool:
+        with self._connect() as conn:
+            row = conn.execute(
+                "SELECT 1 FROM graph_entity_deletions WHERE library_id=? AND name=?",
+                (library_id, name),
+            ).fetchone()
+            return row is not None
+
+    def delete_entity(self, entity_id: str) -> bool:
+        with self._connect() as conn:
+            row = conn.execute(
+                "SELECT * FROM graph_entities WHERE entity_id=?", (entity_id,)
+            ).fetchone()
+            if row is None:
+                return False
+            entity = GraphEntity.from_row(row)
+            conn.execute(
+                "INSERT OR IGNORE INTO graph_entity_deletions (library_id, name, deleted_at) VALUES (?,?,?)",
+                (entity.library_id, entity.name, _now()),
+            )
+            for table, id_col in (
+                ("principle_entities", "entity_id"),
+                ("example_entities", "entity_id"),
+                ("warning_entities", "entity_id"),
+            ):
+                conn.execute(f"DELETE FROM {table} WHERE {id_col}=?", (entity_id,))
+            conn.execute("DELETE FROM graph_relations WHERE source_id=? OR target_id=?", (entity_id, entity_id))
+            conn.execute("DELETE FROM graph_entities WHERE entity_id=?", (entity_id,))
+            return True
 
     def get_stats(self, library_id: Optional[str] = None, doc_id: Optional[str] = None) -> Dict[str, Any]:
         with self._connect() as conn:

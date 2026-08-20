@@ -211,6 +211,11 @@ export const knowledgeApi = {
       status: string
       rescheduled_docs: Array<[string, string]>
     }>,
+  deleteGraphEntity: (entityId: string) =>
+    api.delete(`/graph/entities/${entityId}`) as Promise<{
+      status: string
+      rescheduled_docs: Array<[string, string]>
+    }>,
 
   listRecords: (params?: {
     status?: string

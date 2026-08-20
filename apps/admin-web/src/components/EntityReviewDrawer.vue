@@ -34,19 +34,48 @@
             <a-tag>{{ record.layer }}</a-tag>
           </template>
           <template v-if="column.key === 'source'">
-            <div>{{ record.source_clause || '-' }}</div>
-            <div class="entity-review-sub">{{ record.proposed_doc_id || '' }}</div>
+            <div class="entity-review-sources">
+              <div v-for="(line, idx) in sourceLines(record)" :key="idx" class="entity-review-source-line">
+                <a-tooltip :title="line" placement="top">
+                  <a class="entity-review-source-link" @click.prevent="showSourceDetail(record)">{{ truncateSource(line) }}</a>
+                </a-tooltip>
+              </div>
+              <div v-if="!sourceLines(record).length" class="entity-review-sub">-</div>
+              <div class="entity-review-sub">{{ record.proposed_doc_id || '' }}</div>
+            </div>
           </template>
           <template v-if="column.key === 'action'">
             <template v-if="record.status === 'pending'">
               <a-button type="link" size="small" @click="approve(record)">通过</a-button>
               <a-divider type="vertical" />
               <a-button type="link" size="small" danger @click="openReject(record)">拒绝</a-button>
+              <a-divider type="vertical" />
             </template>
-            <span v-else class="entity-review-sub">—</span>
+            <a-popconfirm
+              title="确定删除该实体？删除后将触发相关文档重建。"
+              @confirm="removeEntity(record)"
+            >
+              <a-button type="link" size="small" danger>删除</a-button>
+            </a-popconfirm>
           </template>
         </template>
       </a-table>
+
+      <a-modal
+        v-model:open="sourceDetailOpen"
+        title="来源详情"
+        :width="520"
+        :footer="null"
+        @cancel="sourceDetailRecord = null"
+      >
+        <div v-if="sourceDetailRecord" class="entity-review-source-detail">
+          <p><strong>实体：</strong>{{ sourceDetailRecord.name }}</p>
+          <p><strong>文档：</strong>{{ sourceDetailRecord.proposed_doc_id || '-' }}</p>
+          <div v-for="(line, idx) in sourceLines(sourceDetailRecord)" :key="idx" class="entity-review-source-full">
+            {{ line }}
+          </div>
+        </div>
+      </a-modal>
 
       <a-modal
         v-model:open="rejectModalOpen"
@@ -101,6 +130,8 @@ const entities = ref<EntityItem[]>([])
 const rejectModalOpen = ref(false)
 const rejectTarget = ref<EntityItem | null>(null)
 const rejectReason = ref('')
+const sourceDetailOpen = ref(false)
+const sourceDetailRecord = ref<EntityItem | null>(null)
 
 const columns = [
   { title: '实体名', dataIndex: 'name', key: 'name', width: 180 },
@@ -120,6 +151,33 @@ function statusLabel(status?: string) {
   if (status === 'pending') return '待审核'
   if (status === 'rejected') return '已拒绝'
   return '已通过'
+}
+
+function sourceLines(record: EntityItem): string[] {
+  return (record.source_clause || '')
+    .split('/')
+    .map(s => s.trim())
+    .filter(Boolean)
+}
+
+function truncateSource(line: string, max = 30) {
+  return line.length > max ? `${line.slice(0, max)}...` : line
+}
+
+function showSourceDetail(record: EntityItem) {
+  sourceDetailRecord.value = record
+  sourceDetailOpen.value = true
+}
+
+async function removeEntity(record: EntityItem) {
+  try {
+    await knowledgeApi.deleteGraphEntity(record.entity_id)
+    message.success(`已删除「${record.name}」`)
+    emit('changed')
+    await loadCurrent()
+  } catch (e: any) {
+    message.error(e?.message || '删除失败')
+  }
 }
 
 async function loadCurrent() {
@@ -195,5 +253,33 @@ watch(() => props.libraryId, () => {
 .entity-review-sub {
   font-size: 12px;
   color: var(--text-secondary);
+}
+
+.entity-review-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.entity-review-source-line {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.entity-review-source-link {
+  color: var(--text-secondary);
+}
+
+.entity-review-source-full {
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--border-color, #e5e7eb);
+}
+
+.entity-review-source-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 </style>

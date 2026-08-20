@@ -153,3 +153,32 @@ def test_old_graph_entities_schema_migrates_status(tmp_path) -> None:
     assert "proposed_doc_id" in cols
     entity = store.upsert_entity(GraphEntity(name="迁移实体", layer=EntityLayer.CONCEPT, library_id="lib"))
     assert entity.status == EntityStatus.APPROVED
+
+
+def test_expand_all_packets_skips_deleted_entity(tmp_path) -> None:
+    from docs_core.step07_graph.evidence_builder import EvidencePacket
+    from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
+
+    store = GraphStore(str(tmp_path / "graph.sqlite"))
+    deleted = store.upsert_entity(GraphEntity(name="已删除实体", layer=EntityLayer.CONCEPT, library_id="lib"))
+    store.delete_entity(deleted.entity_id)
+
+    orch = GraphOrchestrator(store)
+    orch.load_seed_entities()
+
+    class _FakeExtractor:
+        def find_seed_occurrences(self, text, seeds):
+            return [("设计高水位", 0)]
+        def find_related_entities(self, text, seed_name, seeds):
+            return ["已删除实体"]
+        def classify_entity(self, name):
+            return EntityLayer.CONCEPT
+
+    orch.extractor = _FakeExtractor()
+    packet = EvidencePacket(
+        packet_id="p1", library_id="lib", doc_id="doc-x", doc_title="测试文档",
+        section_path="1.1", raw_text="设计高水位 影响 已删除实体",
+    )
+    orch.expand_all_packets([packet], enable_llm=False)
+
+    assert store.get_entity_by_name("已删除实体", "lib") is None

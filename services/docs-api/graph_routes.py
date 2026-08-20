@@ -147,6 +147,21 @@ async def reject_entity(entity_id: str, req: EntityReviewRequest):
     return {"status": "ok", "rescheduled_docs": docs}
 
 
+@graph_router.delete("/entities/{entity_id}")
+async def delete_entity(entity_id: str):
+    store = _get_store()
+    entity = store.get_entity(entity_id)
+    if entity is None:
+        raise HTTPException(status_code=404, detail="Entity not found")
+    docs = store.get_docs_referencing_entity(entity_id)
+    if not store.delete_entity(entity_id):
+        raise HTTPException(status_code=404, detail="Entity not found")
+    for library_id, doc_id in docs:
+        if library_id == entity.library_id:
+            spawn_llm_graph_extraction(library_id, doc_id, ignored_entity_names=[entity.name])
+    return {"status": "ok", "rescheduled_docs": docs}
+
+
 @graph_router.get("/relations/{entity_id}")
 async def get_entity_relations(entity_id: str, direction: str = "both"):
     store = _get_store()

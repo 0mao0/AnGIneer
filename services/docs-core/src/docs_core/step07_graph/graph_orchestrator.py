@@ -238,7 +238,8 @@ class GraphOrchestrator:
                 continue
 
             related = self.extractor.find_related_entities(text, seed.name, seed_entities)
-            related = [n for n in related if n not in ignored]
+            packet_library = getattr(packet, 'library_id', '') or 'default'
+            related = [n for n in related if n not in ignored and not self.store.is_entity_deleted(packet_library, n)]
 
             for entity_name in related:
                 layer = self.extractor.classify_entity(entity_name)
@@ -379,9 +380,10 @@ class GraphOrchestrator:
 
         for ent in llm_entities:
             name = ent.get("name", "").strip()
-            if not name or name in ignored:
+            packet_library = getattr(packet, 'library_id', '') or 'default'
+            if not name or name in ignored or self.store.is_entity_deleted(packet_library, name):
                 continue
-            existing = find_existing_entity(self.store, name, getattr(packet, 'library_id', '') or 'default')
+            existing = find_existing_entity(self.store, name, packet_library)
             if existing is not None:
                 continue
             layer_str = ent.get("layer", "")
