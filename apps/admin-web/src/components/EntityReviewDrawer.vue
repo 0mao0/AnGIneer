@@ -58,7 +58,7 @@
           </template>
           <template v-if="column.key === 'source'">
             <div class="entity-review-sources">
-              <template v-if="sourceDocId(record)">
+              <template v-if="sourceDocName(record)">
                 <a-tooltip
                   v-for="(line, idx) in displaySourceLines(record)"
                   :key="idx"
@@ -66,7 +66,7 @@
                   placement="top"
                 >
                   <a-tag class="entity-review-source-tag" @click="emitViewSource(record, line)">
-                    {{ sourceDocId(record) }} / {{ truncateSource(line, 16) }}
+                    {{ sourceDocName(record) }} / {{ truncateSource(line, 16) }}
                   </a-tag>
                 </a-tooltip>
                 <a-tag v-if="sourceLines(record).length > 3" class="entity-review-source-tag">
@@ -168,7 +168,9 @@ interface EntityItem {
   status?: 'approved' | 'pending' | 'rejected'
   source_clause: string
   source_doc: string
+  source_doc_name: string
   proposed_doc_id: string
+  proposed_doc_name: string
   created_at: string
 }
 
@@ -235,7 +237,9 @@ const deletedRows = computed<EntityRow[]>(() =>
     status: 'rejected' as const,
     source_clause: '',
     source_doc: '',
+    source_doc_name: '',
     proposed_doc_id: '',
+    proposed_doc_name: '',
     created_at: item.deleted_at,
     deleted_at: item.deleted_at,
   }))
@@ -279,6 +283,10 @@ function layerLabel(layer: string) {
 
 function sourceDocId(record: EntityRow) {
   return record.source_doc || record.proposed_doc_id || ''
+}
+
+function sourceDocName(record: EntityRow) {
+  return record.source_doc_name || record.proposed_doc_name || ''
 }
 
 function sourceLines(record: EntityRow): string[] {

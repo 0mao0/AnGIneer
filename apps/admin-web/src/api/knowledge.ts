@@ -191,7 +191,9 @@ export const knowledgeApi = {
       aliases: string[]
       source_clause: string
       source_doc: string
+      source_doc_name: string
       proposed_doc_id: string
+      proposed_doc_name: string
       created_at: string
     }[]>,
   getAllGraphEntities: (libraryId: string) =>
@@ -203,7 +205,9 @@ export const knowledgeApi = {
       status: 'approved' | 'pending' | 'rejected'
       source_clause: string
       source_doc: string
+      source_doc_name: string
       proposed_doc_id: string
+      proposed_doc_name: string
       created_at: string
     }[]>,
   createGraphEntity: (data: {

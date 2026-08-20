@@ -26,6 +26,14 @@ def _get_store():
     return GraphStore(db_path)
 
 
+def _doc_name_map(library_id: str) -> dict:
+    try:
+        from docs_core.docs_file_io import file_storage
+        return {d["id"]: d.get("filename", "") for d in file_storage.list_documents(library_id)}
+    except Exception:
+        return {}
+
+
 class PushDocRequest(BaseModel):
     library_id: str
     doc_id: str
@@ -94,6 +102,7 @@ async def list_entities(layer: Optional[str] = None):
 async def list_all_library_entities(library_id: str = "default"):
     store = _get_store()
     entities = store.list_library_entities(library_id)
+    name_map = _doc_name_map(library_id)
     return [
         {
             "entity_id": e.entity_id,
@@ -103,7 +112,9 @@ async def list_all_library_entities(library_id: str = "default"):
             "status": e.status.value,
             "source_clause": e.source_clause,
             "source_doc": e.source_doc,
+            "source_doc_name": name_map.get(e.source_doc, ""),
             "proposed_doc_id": e.proposed_doc_id,
+            "proposed_doc_name": name_map.get(e.proposed_doc_id, ""),
             "created_at": e.created_at,
         }
         for e in entities
@@ -161,6 +172,7 @@ async def search_entities(q: str):
 async def list_pending_entities(library_id: str = "default"):
     store = _get_store()
     entities = store.list_entities_by_status(library_id, EntityStatus.PENDING)
+    name_map = _doc_name_map(library_id)
     return [
         {
             "entity_id": e.entity_id,
@@ -169,7 +181,9 @@ async def list_pending_entities(library_id: str = "default"):
             "aliases": e.aliases,
             "source_clause": e.source_clause,
             "source_doc": e.source_doc,
+            "source_doc_name": name_map.get(e.source_doc, ""),
             "proposed_doc_id": e.proposed_doc_id,
+            "proposed_doc_name": name_map.get(e.proposed_doc_id, ""),
             "created_at": e.created_at,
         }
         for e in entities
