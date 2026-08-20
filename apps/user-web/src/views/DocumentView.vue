@@ -13,6 +13,7 @@
         @cta-click="loadDocument"
       />
       <PDFParsedWorkspace
+        ref="pdfWorkspaceRef"
         v-else-if="document && isPdfView && pdfUrl"
         :node="{ key: currentDocId, title: document.title, status: 'completed', isFolder: false, visible: true, filePath: pdfFilePath }"
         :dark="isDark"
@@ -40,10 +41,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { message } from 'ant-design-vue'
-import { PDFParsedWorkspace, Preview_Markdown } from '@angineer/docs-ui'
+import {
+  PDFParsedWorkspace,
+  Preview_Markdown,
+  normalizeCitationTargetId,
+  useKnowledgeCitation,
+} from '@angineer/docs-ui'
 import { EmptyState, useTheme } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
 import { useAuthStore } from '@/stores/auth'
@@ -72,6 +78,8 @@ const graphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
 const graphDataFullLoaded = ref(false)
 const graphDataLoading = ref(false)
 const currentDocId = ref('')
+const pdfWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
+const { resolveCitationTargetNode } = useKnowledgeCitation()
 
 /** 按引用定位参数在 markdown 中找原文位置（sectionPath 优先，snippet 兜底） */
 const locateInContent = (content: string): { start: number; end: number } | null => {
@@ -126,6 +134,9 @@ const loadDocument = async () => {
       pdfFilePath.value = renderPdf
       pdfUrl.value = `/api/files?path=${encodeURIComponent(renderPdf)}`
       pdfPage.value = Math.max(1, Number(props.pageIdx || 0) + 1)
+      if (props.targetId) {
+        void applyCitationFocus()
+      }
     } else {
       isPdfView.value = false
       pdfUrl.value = ''
@@ -163,9 +174,47 @@ const loadGraphData = async () => {
   }
 }
 
+/** 引用点击：把 PDF 定位到目标块并只高亮该块（不展开整节）。 */
+const applyCitationFocus = async () => {
+  const workspace = pdfWorkspaceRef.value
+  const targetId = String(props.targetId || '').trim()
+  if (!workspace || !targetId) return
+  const citation = {
+    target_id: targetId,
+    section_path: props.sectionPath,
+    page_idx: props.pageIdx,
+    snippet: props.snippet,
+    score: 0,
+    reference: {
+      targetId,
+      sectionPath: props.sectionPath,
+      pageIdx: props.pageIdx,
+      snippet: props.snippet,
+    },
+  }
+  const resolvedNode = resolveCitationTargetNode(citation, graphData.value?.nodes || [])
+  const resolvedTargetId = String(resolvedNode?.id || normalizeCitationTargetId(targetId)).trim()
+  const resolvedPreferredPage = resolvedNode && Number(resolvedNode?.page_idx ?? -1) >= 0
+    ? Number(resolvedNode.page_idx) + 1
+    : (Number(props.pageIdx) >= 0 ? Number(props.pageIdx) + 1 : null)
+  await nextTick()
+  workspace.setActiveLinkedItem(resolvedTargetId, {
+    preferredPage: resolvedPreferredPage,
+    preferLastHighlight: true,
+    groupHighlight: false,
+  })
+}
+
 watch(() => [props.pageIdx, props.targetId, props.sectionPath], () => {
-  if (isPdfView.value && pdfUrl.value) {
-    pdfPage.value = Math.max(1, Number(props.pageIdx || 0) + 1)
+  if (props.targetId && isPdfView.value && pdfUrl.value) {
+    void applyCitationFocus()
+  }
+})
+
+// 完整图谱就绪后再定位，保证目标块在 linkedHighlights 中可解析
+watch(() => graphDataFullLoaded.value, (loaded) => {
+  if (loaded && props.targetId) {
+    void applyCitationFocus()
   }
 })
 
