@@ -61,6 +61,7 @@ class StageContext:
     output_summary: str = ""
     meta_store: Any = None
     stage_started_at: Optional[str] = None
+    stage_work_started_at: Optional[str] = None
     cancel_check: Optional[Callable[[], None]] = None
     fallback_target: Optional[str] = None
     stage_key: Optional[str] = None
@@ -177,11 +178,13 @@ def _mark_stage_queued(
 
 def _mark_stage_running(ctx: StageContext, stage: str, message: str) -> None:
     """拿到资源槽位：阶段计时从此刻重新开始，排队等待不计入解析耗时。"""
+    work_started = datetime.now().isoformat()
+    ctx.stage_work_started_at = work_started
     if ctx.meta_store is not None and ctx.stage_key:
         ctx.meta_store.upsert_parse_stage(
             ctx.doc_id, ctx.stage_key, status="running",
             message="核查通过",
-            started_at=datetime.now().isoformat(),
+            started_at=work_started,
         )
     try:
         get_docs_service().update_parse_task(
@@ -751,7 +754,6 @@ def run_pipeline(
             clear_steps(ctx.doc_id, key)
         started = datetime.now().isoformat()
         meta_store.upsert_parse_stage(ctx.doc_id, key, status="running", started_at=started)
-        t0 = time.time()
         ctx.input_summary = ""
         ctx.output_summary = ""
         # 页数/扫描件元数据仅由产生它的阶段（MinerU raw_parse）落库，
@@ -762,6 +764,7 @@ def run_pipeline(
         ctx.steps = []
         ctx.meta_store = meta_store
         ctx.stage_started_at = started
+        ctx.stage_work_started_at = None
         ctx.cancel_check = raise_if_cancelled
         try:
             # 启动前先核查输入：通过则先通知前端「核查通过」，再驱动本阶段运行
@@ -782,10 +785,18 @@ def run_pipeline(
                 )
                 continue
             results[key] = "completed"
+            work_started = ctx.stage_work_started_at or started
+            elapsed = 0.0
+            try:
+                elapsed = max(
+                    0.0, time.time() - datetime.fromisoformat(work_started).timestamp()
+                )
+            except ValueError:
+                elapsed = 0.0
             meta_store.upsert_parse_stage(
                 ctx.doc_id, key, status="completed",
-                message=f"{message}，耗时{round(time.time() - t0, 1)}s",
-                started_at=started, finished_at=datetime.now().isoformat(),
+                message=f"{message}，耗时{round(elapsed, 1)}s",
+                started_at=None, finished_at=datetime.now().isoformat(),
                 input_summary=ctx.input_summary, output_summary=ctx.output_summary,
                 page_count=getattr(ctx, "page_count", 0) or 0,
                 is_scanned=bool(getattr(ctx, "is_scanned", False)),
@@ -800,7 +811,7 @@ def run_pipeline(
             meta_store.upsert_parse_stage(
                 ctx.doc_id, key, status="failed",
                 error=error_message + "\n" + traceback.format_exc(limit=3),
-                started_at=started, finished_at=datetime.now().isoformat(),
+                started_at=None, finished_at=datetime.now().isoformat(),
                 fallback=fallback,
             )
             ctx.fallback_target = None

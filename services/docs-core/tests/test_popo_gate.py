@@ -195,3 +195,60 @@ def test_popo_permanent_failure_not_retried(monkeypatch, tmp_path) -> None:
     assert pipeline.calls == 1
     assert rollback_calls == ["doc"]
     assert ctx.fallback_target == "solo"
+
+
+def test_run_pipeline_completed_stage_preserves_work_started_at(monkeypatch, tmp_path) -> None:
+    """排队阶段完成后 started_at 保留拿到槽位后的时间（总耗时=各阶段累加，不含排队）。"""
+    import re
+    from datetime import datetime
+
+    from docs_core.parse_pipeline import STAGE_KIND_HARD, StageDef, run_pipeline
+    from docs_core.step05_sqlite_fts.store.blocks_sql_store import KnowledgeMetaStore
+
+    class _NoopKS:
+        def update_parse_task(self, *args, **kwargs) -> None:
+            pass
+
+    monkeypatch.setattr(pp, "get_docs_service", lambda: _NoopKS())
+
+    def _fake_run(ctx):
+        pp._mark_stage_queued(
+            ctx, "MinerU GPU 排队",
+            "等待 MinerU GPU 资源（前序任务完成后自动开始）",
+            "等待 MinerU GPU 资源",
+        )
+        time.sleep(0.4)  # 模拟排队等待
+        pp._mark_stage_running(ctx, "raw_parse", "MinerU 解析中")
+        return "MinerU解析完成"
+
+    monkeypatch.setitem(
+        pp.STAGE_REGISTRY, "raw_parse",
+        StageDef("raw_parse", "MinerU解析", STAGE_KIND_HARD, [], _fake_run, None, step="3.1"),
+    )
+
+    store = KnowledgeMetaStore(db_path=tmp_path / "meta.sqlite", schema_version="1.0.0")
+    ctx = StageContext(
+        task_id="t1", library_id="lib", doc_id="doc",
+        file_path="x.pdf", meta_store=store,
+    )
+    run_pipeline(ctx, ["raw_parse"], meta_store=store)
+
+    rows = store.list_parse_stages("doc")
+    assert len(rows) == 1
+    row = rows[0]
+    assert row["status"] == "completed"
+    # 完成记录保留拿到槽位后的开工时间，而不是阶段进入（含排队）的时间
+    assert row["started_at"] == ctx.stage_work_started_at
+    assert row["started_at"] is not None
+    assert row["started_at"] > ctx.stage_started_at
+
+    work = datetime.fromisoformat(row["started_at"])
+    finished = datetime.fromisoformat(row["finished_at"])
+    entered = datetime.fromisoformat(ctx.stage_started_at)
+    # 实际执行耗时 ≈ 0（开工即完成）；阶段进入到结束明显更大（含 0.4s 排队）
+    assert 0 <= (finished - work).total_seconds() < 0.2
+    assert (finished - entered).total_seconds() >= 0.3
+
+    match = re.search(r"耗时([\d.]+)s", row["message"])
+    assert match is not None
+    assert float(match.group(1)) < 0.2
