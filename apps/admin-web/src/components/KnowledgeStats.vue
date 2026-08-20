@@ -146,6 +146,7 @@
       </template>
       <PDFParsedWorkspace
         v-if="viewerNode"
+        ref="docParsedWorkspaceRef"
         :node="viewerNode"
         :content="viewerContent"
         :structured-items="viewerStructuredItems"
@@ -207,12 +208,13 @@
       v-model:open="entityReviewOpen"
       :library-id="libraryStore.libraryId || 'default'"
       @changed="loadRecords"
+      @view-source="handleViewSource"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
+import { ref, nextTick, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import dayjs from 'dayjs'
 import { message, Modal } from 'ant-design-vue'
 import type { TableColumnType } from 'ant-design-vue'
@@ -235,6 +237,7 @@ const loading = ref(false)
 const showDeletedOnly = ref(false)
 const selectedRowKeys = ref<number[]>([])
 
+const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
 const viewerOpen = ref(false)
 const viewerTitle = ref('')
 const viewerNode = ref<KnowledgeTreeNode | null>(null)
@@ -573,6 +576,33 @@ function viewDetail(record: ParseRecordItem) {
   loadViewerData(record.doc_id)
 }
 
+async function handleViewSource(payload: { docId: string; sectionPath: string; libraryId: string }) {
+  const { docId, sectionPath, libraryId } = payload
+  viewerTitle.value = docId
+  viewerNode.value = {
+    key: docId,
+    title: docId,
+    status: 'completed',
+    filePath: '',
+    isFolder: false,
+    parseProgress: 100,
+    parseStage: 'completed',
+    parseError: '',
+    parseTaskId: '',
+    visible: true,
+  } as unknown as KnowledgeTreeNode
+  viewerOpen.value = true
+  await loadViewerData(docId, libraryId)
+  await nextTick()
+  const item = (viewerStructuredItems.value as any[]).find((s: any) => {
+    const path = s?.meta?.section_path || s?.title || ''
+    return path === sectionPath || path.includes(sectionPath) || sectionPath.includes(path)
+  })
+  if (item?.id) {
+    docParsedWorkspaceRef.value?.setActiveLinkedItem(item.id)
+  }
+}
+
 function onViewerClose() {
   viewerNode.value = null
   viewerContent.value = ''
@@ -581,8 +611,8 @@ function onViewerClose() {
   viewerRenderPdfPath.value = ''
 }
 
-async function loadViewerData(docId: string) {
-  const lib = useLibraryStore().libraryId
+async function loadViewerData(docId: string, libraryId?: string) {
+  const lib = libraryId || useLibraryStore().libraryId
   try {
     const res = await knowledgeApi.getDocument(lib, docId) as any
     viewerContent.value = res?.content || ''

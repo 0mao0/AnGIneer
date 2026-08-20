@@ -61,3 +61,16 @@ def test_delete_entity_removes_and_blacklists(tmp_path) -> None:
 
     # 再次删除不存在实体返回 False
     assert store.delete_entity(a.entity_id) is False
+
+
+def test_list_and_restore_deleted_entities(tmp_path) -> None:
+    store = GraphStore(str(tmp_path / "graph.sqlite"))
+    a, _ = _seed(store)
+
+    store.delete_entity(a.entity_id)
+    deleted = store.list_deleted_entities("lib")
+    assert any(item["name"] == "待审实体" for item in deleted)
+
+    assert store.restore_deleted_entity("lib", "待审实体") is True
+    assert store.is_entity_deleted("lib", "待审实体") is False
+    assert store.restore_deleted_entity("lib", "待审实体") is False

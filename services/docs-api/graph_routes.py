@@ -48,6 +48,11 @@ class EntityReviewRequest(BaseModel):
     reviewer: str = "admin"
 
 
+class EntityRestoreRequest(BaseModel):
+    library_id: str
+    name: str
+
+
 class ExtractorsRunRequest(BaseModel):
     library_id: str
     doc_id: str
@@ -160,6 +165,21 @@ async def delete_entity(entity_id: str):
         if library_id == entity.library_id:
             spawn_llm_graph_extraction(library_id, doc_id, ignored_entity_names=[entity.name])
     return {"status": "ok", "rescheduled_docs": docs}
+
+
+@graph_router.get("/entities/deleted")
+async def list_deleted_entities(library_id: str = "default"):
+    store = _get_store()
+    return store.list_deleted_entities(library_id)
+
+
+@graph_router.post("/entities/deleted/restore")
+async def restore_deleted_entity(req: EntityRestoreRequest):
+    store = _get_store()
+    restored = store.restore_deleted_entity(req.library_id, req.name)
+    if not restored:
+        raise HTTPException(status_code=404, detail="Deleted entity not found")
+    return {"status": "ok"}
 
 
 @graph_router.get("/relations/{entity_id}")

@@ -216,6 +216,14 @@ export const knowledgeApi = {
       status: string
       rescheduled_docs: Array<[string, string]>
     }>,
+  getDeletedGraphEntities: (libraryId: string) =>
+    api.get('/graph/entities/deleted', { params: { library_id: libraryId } }) as Promise<{
+      library_id: string
+      name: string
+      deleted_at: string
+    }[]>,
+  restoreDeletedGraphEntity: (libraryId: string, name: string) =>
+    api.post('/graph/entities/deleted/restore', { library_id: libraryId, name }) as Promise<{ status: string }>,
 
   listRecords: (params?: {
     status?: string

@@ -920,6 +920,22 @@ class GraphStore:
             conn.execute("DELETE FROM graph_entities WHERE entity_id=?", (entity_id,))
             return True
 
+    def list_deleted_entities(self, library_id: str) -> List[Dict[str, str]]:
+        with self._connect() as conn:
+            rows = conn.execute(
+                "SELECT library_id, name, deleted_at FROM graph_entity_deletions WHERE library_id=? ORDER BY deleted_at DESC",
+                (library_id,),
+            ).fetchall()
+            return [{"library_id": r["library_id"], "name": r["name"], "deleted_at": r["deleted_at"]} for r in rows]
+
+    def restore_deleted_entity(self, library_id: str, name: str) -> bool:
+        with self._connect() as conn:
+            cur = conn.execute(
+                "DELETE FROM graph_entity_deletions WHERE library_id=? AND name=?",
+                (library_id, name),
+            )
+            return int(cur.rowcount or 0) > 0
+
     def get_stats(self, library_id: Optional[str] = None, doc_id: Optional[str] = None) -> Dict[str, Any]:
         with self._connect() as conn:
             if library_id and doc_id:
