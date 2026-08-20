@@ -374,7 +374,7 @@ function stageTitle(key: string, found: { backend?: string }): string {
 // 页数/扫描件元数据由 raw_parse 阶段落库；convert 等阶段展示时回退引用同一文档的 raw_parse
 function stagePageCount(stage: { key: string; status: string; page_count?: number }): number {
   if ((stage.page_count ?? 0) > 0) return stage.page_count ?? 0
-  if (stage.key === 'convert' && stage.status !== 'pending' && stage.status !== 'skipped') {
+  if (stage.key === 'convert' && stage.status !== 'pending') {
     return orderedStages.value.find(s => s.key === 'raw_parse')?.page_count || 0
   }
   return 0
@@ -382,7 +382,7 @@ function stagePageCount(stage: { key: string; status: string; page_count?: numbe
 
 function stageIsScanned(stage: { key: string; status: string; is_scanned?: boolean }): boolean {
   if (stage.is_scanned) return true
-  if (stage.key === 'convert' && stage.status !== 'pending' && stage.status !== 'skipped') {
+  if (stage.key === 'convert' && stage.status !== 'pending') {
     return Boolean(orderedStages.value.find(s => s.key === 'raw_parse')?.is_scanned)
   }
   return false
