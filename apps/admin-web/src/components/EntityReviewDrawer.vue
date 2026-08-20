@@ -1,15 +1,19 @@
 <template>
   <a-drawer
     :open="open"
-    title="实体审核"
     placement="right"
     :width="760"
     @close="emit('update:open', false)"
   >
-    <div class="entity-review-drawer">
-      <div class="entity-review-description">
-        待审实体仅 LLM 抽取出的新实体；通过后进入通用实体库，拒绝后将从相关文档图谱移除并重抽。
+    <template #title>
+      <div class="entity-review-drawer-title">
+        <div>实体审核</div>
+        <div class="entity-review-description">
+          待审实体仅 LLM 抽取出的新实体；通过后进入通用实体库，拒绝后将从相关文档图谱移除并重抽。
+        </div>
       </div>
+    </template>
+    <div class="entity-review-drawer">
       <div class="entity-review-toolbar">
         <a-radio-group v-model:value="activeTab" size="small" @change="loadAllData">
           <a-radio-button value="pending">待审核（{{ pendingCount }}）</a-radio-button>
@@ -444,8 +448,15 @@ watch(() => props.libraryId, () => {
   gap: 12px;
 }
 
+.entity-review-drawer-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .entity-review-description {
   font-size: 12px;
+  font-weight: 400;
   color: var(--text-secondary);
 }
 
