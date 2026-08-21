@@ -65,6 +65,7 @@
                   <EditOutlined class="action-icon" title="重命名" @click.stop="showRenameModal(node)" />
                   <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="showCreateSubFolderModal(node)" />
                   <FileAddOutlined class="action-icon" title="添加文件" @click.stop="showCreateFileModal(node)" />
+                  <CheckSquareOutlined class="action-icon delete" title="批量删除文件" @click.stop="showBatchDeleteModal(node)" />
                   <DeleteOutlined class="action-icon delete" title="删除" @click.stop="handleDeleteNode(node)" />
                 </template>
                 <template v-else>
@@ -257,6 +258,17 @@
 
 
 
+    <!-- 文件夹批量删除弹窗 -->
+
+    <BatchDeleteModal
+      v-model:visible="batchDeleteVisible"
+      :folder-node="batchDeleteFolder"
+      :api="api"
+      @deleted="loadNodes()"
+    />
+
+
+
     <a-modal
       :open="parseSettingsVisible"
 
@@ -361,7 +373,8 @@ import {
   EyeOutlined,
   PlusOutlined,
   MenuFoldOutlined,
-  MenuUnfoldOutlined
+  MenuUnfoldOutlined,
+  CheckSquareOutlined
 } from '@ant-design/icons-vue'
 
 // 导入 packages 中的组件和 composables
@@ -386,6 +399,7 @@ import { defaultAIChatTransport } from '../../../shared/chatTransport'
 import FolderPreview from '../views/components/FolderPreview.vue'
 import FolderModal from '../views/components/FolderModal.vue'
 import DocDetailModal from '../views/components/DocDetailModal.vue'
+import BatchDeleteModal from '../views/components/BatchDeleteModal.vue'
 
 interface Props {
   api: KnowledgeApiPort
@@ -500,6 +514,14 @@ const folderForm = ref({
 
 const docDetailVisible = ref(false)
 const detailDoc = ref<KnowledgeTreeNode | null>(null)
+
+// 文件夹批量删除
+const batchDeleteVisible = ref(false)
+const batchDeleteFolder = ref<KnowledgeTreeNode | null>(null)
+const showBatchDeleteModal = (node: SmartTreeNode) => {
+  batchDeleteFolder.value = node as KnowledgeTreeNode
+  batchDeleteVisible.value = true
+}
 
 // 文档内容
 const docContent = ref('')
@@ -1080,10 +1102,33 @@ const handleFileDrop = async (files: File[], targetFolder: SmartTreeNode | null)
 }
 
 // 上传文件
+// 确保当前库存在『管理员上传』文件夹，返回其 node id（找到或创建）
+const ensureAdminFolder = async (libraryId: string): Promise<string | undefined> => {
+  const existing = (treeData.value as unknown as SmartTreeNode[]).find(
+    (n) => (n as any).libraryId === libraryId && (n as any).isFolder && n.title === '管理员上传'
+  )
+  if (existing) return existing.key
+  try {
+    const created = await props.api.createNode({
+      library_id: libraryId,
+      title: '管理员上传',
+      node_type: 'folder'
+    }) as any
+    return created?.id || created?.key
+  } catch (e) {
+    message.error('自动创建管理员文件夹失败，文档将上传到根目录')
+    return undefined
+  }
+}
+
 const uploadFile = async (file: File, parentId?: string) => {
   const targetLibrary = parentId
     ? String((findNode(treeData.value as unknown as SmartTreeNode[], parentId) as any)?.libraryId || useLibraryStore().libraryId || 'default')
     : String(useLibraryStore().libraryId || 'default')
+  // 未指定文件夹时，自动归入当前库的『管理员上传』文件夹（找到或创建）
+  if (!parentId) {
+    parentId = await ensureAdminFolder(targetLibrary)
+  }
   const tempKey = `__uploading_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
   const tempNode: KnowledgeTreeNode = {
     key: tempKey,
@@ -1307,6 +1352,16 @@ onBeforeUnmount(() => {
 
   :deep(.smart-tree) {
     background: transparent;
+  }
+
+  // 删除类图标（单个删除 / 批量删除）常驻大红色（SmartTree 基础色特异性高，需 !important 覆盖）
+  :deep(.action-icon.delete) {
+    color: #ff4d4f !important;
+
+    &:hover {
+      color: #ff4d4f !important;
+      background: rgba(255, 77, 79, 0.15);
+    }
   }
 }
 

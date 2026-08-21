@@ -164,27 +164,53 @@ def get_statistics(
     end_date: str,
     group_by: str = "day",
 ) -> list[dict]:
-    """获取时间范围内的解析统计，按天和上传者分组。"""
+    """获取时间范围内的解析统计，按天和上传者分组。
+
+    口径：completed + deleted。deleted 也是真实发生过的解析（后被用户删除），
+    统计 API key 使用轨迹时应计入。
+    名称：有 api_key_id 的记录实时 join 当前 key 名（改名后历史跟随），
+    无 key 的记录（管理后台上传）保留 uploaded_by 快照。
+    """
     init_db()
     conn = _get_conn()
-    if group_by == "day":
-        rows = conn.execute("""
-            SELECT DATE(created_at) as date, uploaded_by, COUNT(*) as count
-            FROM parse_records
-            WHERE created_at >= ? AND created_at <= ? AND status = 'completed'
-            GROUP BY DATE(created_at), uploaded_by
-            ORDER BY date
-        """, (start_date, end_date)).fetchall()
-    else:
-        rows = conn.execute("""
-            SELECT uploaded_by, COUNT(*) as count
-            FROM parse_records
-            WHERE created_at >= ? AND created_at <= ? AND status = 'completed'
-            GROUP BY uploaded_by
-            ORDER BY count DESC
-        """, (start_date, end_date)).fetchall()
+    rows = conn.execute("""
+        SELECT DATE(created_at) as date, api_key_id, uploaded_by, COUNT(*) as count
+        FROM parse_records
+        WHERE DATE(created_at) >= ? AND DATE(created_at) <= ? AND status IN ('completed', 'deleted')
+        GROUP BY DATE(created_at), api_key_id, uploaded_by
+        ORDER BY date
+    """, (start_date, end_date)).fetchall()
     conn.close()
-    return [dict(r) for r in rows]
+
+    # api_key_id → 当前 key 名
+    key_name_map: dict = {}
+    api_keys_db = os.path.join(os.path.dirname(DB_PATH), "api_keys.sqlite")
+    if os.path.exists(api_keys_db):
+        try:
+            aconn = sqlite3.connect(api_keys_db)
+            aconn.row_factory = sqlite3.Row
+            for r in aconn.execute("SELECT id, user_name FROM api_keys"):
+                key_name_map[r["id"]] = r["user_name"]
+            aconn.close()
+        except Exception:
+            pass
+
+    merged: dict = {}
+    for row in rows:
+        item = dict(row)
+        name = key_name_map.get(item.get("api_key_id")) or item.get("uploaded_by") or "未知"
+        k = (item["date"], name) if group_by == "day" else (None, name)
+        merged[k] = merged.get(k, 0) + item["count"]
+
+    if group_by == "day":
+        return [
+            {"date": d, "uploaded_by": n, "count": c}
+            for (d, n), c in sorted(merged.items(), key=lambda x: (x[0][0] or "", x[0][1]))
+        ]
+    return [
+        {"uploaded_by": n, "count": c}
+        for (_, n), c in sorted(merged.items(), key=lambda x: -x[1])
+    ]
 
 
 def update_record_task_id(old_task_id: str, new_task_id: str) -> bool:

@@ -72,12 +72,13 @@ def _hash_key(raw_key: str) -> str:
 def generate_key(user_name: str, email: str = "", rate_limit_per_minute: int = 60, scope: str = "both", library_id: str = "") -> tuple[str, APIKey]:
     """生成新的 API Key，返回 (原始key, APIKey对象)。
 
-    library_id 为空时自动生成租户库 `lib-{8位随机}`（P2：每租户一库）。
+    library_id 为空时自动生成租户库 `lib-{user_name}-{4位随机}`。
     """
     init_db()
 
+    user_name = user_name.strip() or f"user-{secrets.token_hex(2)}"
     if not (library_id or "").strip():
-        library_id = f"lib-{secrets.token_hex(4)}"
+        library_id = f"lib-{user_name}-{secrets.token_hex(2)}"
 
     prefix = "ag_"
     raw_key = prefix + secrets.token_urlsafe(32)
@@ -144,6 +145,19 @@ def list_keys() -> list[dict]:
     return [dict(r) for r in rows]
 
 
+def get_key(key_id: int) -> Optional[dict]:
+    """按 id 获取单个 Key（不含 hash）。"""
+    init_db()
+    conn = _get_conn()
+    row = conn.execute(
+        "SELECT id, key_prefix, user_name, is_active, created_at, last_used_at, scope, library_id "
+        "FROM api_keys WHERE id = ?",
+        (key_id,),
+    ).fetchone()
+    conn.close()
+    return dict(row) if row else None
+
+
 def deactivate_key(key_id: int) -> bool:
     init_db()
     conn = _get_conn()
@@ -176,6 +190,45 @@ def reactivate_key(key_id: int) -> bool:
 
 def delete_key(key_id: int) -> bool:
     """永久删除 API Key。"""
+    init_db()
+    conn = _get_conn()
+    conn.execute("DELETE FROM api_keys WHERE id = ?", (key_id,))
+    conn.commit()
+    affected = conn.total_changes
+    conn.close()
+    return affected > 0
+
+
+def update_key(key_id: int, user_name: str = None, scope: str = None, library_id: str = None) -> bool:
+    """更新 API Key 的 user_name, scope, library_id。"""
+    init_db()
+    conn = _get_conn()
+    
+    # 构建动态更新语句
+    updates = []
+    params = []
+    
+    if user_name is not None:
+        updates.append("user_name = ?")
+        params.append(user_name)
+    if scope is not None:
+        updates.append("scope = ?")
+        params.append(scope)
+    if library_id is not None:
+        updates.append("library_id = ?")
+        params.append(library_id)
+    
+    if not updates:
+        conn.close()
+        return False
+    
+    params.append(key_id)
+    sql = f"UPDATE api_keys SET {', '.join(updates)} WHERE id = ?"
+    conn.execute(sql, params)
+    conn.commit()
+    affected = conn.total_changes
+    conn.close()
+    return affected > 0
     init_db()
     conn = _get_conn()
     conn.execute("DELETE FROM api_keys WHERE id = ?", (key_id,))

@@ -3,7 +3,7 @@ from datetime import datetime
 import logging
 import re
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 from pydantic import BaseModel
 
@@ -374,6 +374,19 @@ class DocsService:
                 return library
         return None
 
+    # 更新知识库名称/描述
+    def update_library(self, library_id: str, name: Optional[str] = None, description: Optional[str] = None) -> Optional[KnowledgeLibrary]:
+        library = self.get_library(library_id)
+        if library is None:
+            return None
+        if name is not None:
+            library.name = name
+        if description is not None:
+            library.description = description
+        library.updated_at = datetime.now()
+        self.meta_store.upsert_library(library)
+        return library
+
     # 获取知识库节点列表
     def list_nodes(self, library_id: Optional[str] = None, visible: bool = False) -> List[KnowledgeNode]:
         nodes = [
@@ -631,16 +644,27 @@ class DocsService:
         self.canonical_store.rebuild_chunk_fts(doc_id)
 
     # 仅重建向量索引
-    def rebuild_document_vectors(self, doc_id: str, canonical_document: Optional[CanonicalDocument] = None) -> None:
+    def rebuild_document_vectors(
+        self,
+        doc_id: str,
+        canonical_document: Optional[CanonicalDocument] = None,
+        on_step: Optional[Callable[[str, str, str], None]] = None,
+    ) -> None:
         from docs_core.step06_vectors import build_vector_records
 
         document = canonical_document or self.canonical_store.get_document(doc_id)
         if document is None:
             raise ValueError(f"canonical document 不存在: {doc_id}")
+        if on_step is not None:
+            on_step("canonical 读取", "done", f"{len(document.blocks)} blocks / {len(document.chunks)} chunks")
         vector_records = build_vector_records(document)
+        if on_step is not None:
+            on_step("向量记录构建", "done", f"{len(vector_records)} 条")
         self.vector_store.clear_document(doc_id)
         if vector_records:
             self.vector_store.upsert_records(vector_records)
+        if on_step is not None:
+            on_step("向量索引落库", "done", "knowledge_index.sqlite")
 
     # 以语义图为唯一真相源重建 canonical 与向量索引
     def save_semantic_graph_projection(

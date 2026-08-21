@@ -58,6 +58,116 @@ def _api_folder_title(api_key_info) -> str:
     name = str(getattr(api_key_info, "user_name", "") or "").strip()
     return name or "未知API"
 
+
+def _folder_extra(ks, node_id: str) -> dict:
+    """读取文件夹 extra（api_key_id 绑定信息）；无真实连接时返回 {}（测试 mock 环境）。"""
+    try:
+        with ks.meta_store.connect() as conn:
+            row = conn.execute(
+                "SELECT extra_json FROM tree_node WHERE node_id = ?", (node_id,)
+            ).fetchone()
+            if row and row[0]:
+                return json.loads(row[0])
+    except Exception:
+        pass
+    return {}
+
+
+def _write_folder_extra(ks, node_id: str, extra: dict) -> None:
+    """写入文件夹 extra；失败静默（测试 mock 环境无真实连接）。"""
+    try:
+        with ks.meta_store.connect() as conn:
+            conn.execute(
+                "UPDATE tree_node SET extra_json = ? WHERE node_id = ?",
+                (json.dumps(extra, ensure_ascii=False), node_id),
+            )
+            conn.commit()
+    except Exception:
+        pass
+
+
+def _ensure_api_folder(library_id: str, api_key_info) -> str:
+    """找到或创建该 API key 的专属文件夹（extra.api_key_id 为绑定依据），返回 node_id。"""
+    from docs_core.docs_service import KnowledgeNode
+
+    ks = get_docs_service()
+    title = _api_folder_title(api_key_info)
+    api_key_id = getattr(api_key_info, "id", None)
+
+    folders = [
+        n for n in ks.nodes
+        if n.type == "folder" and n.library_id == library_id and not n.deleted
+    ]
+    # 1) 绑定匹配：extra.api_key_id（改名后仍能命中，不会另建文件夹）
+    if api_key_id is not None:
+        for n in folders:
+            if _folder_extra(ks, n.id).get("api_key_id") == api_key_id:
+                return n.id
+    # 2) 标题回退匹配（旧数据），命中则回填绑定
+    for n in folders:
+        if n.title == title:
+            if api_key_id is not None:
+                extra = _folder_extra(ks, n.id)
+                if extra.get("api_key_id") != api_key_id:
+                    extra["api_key_id"] = api_key_id
+                    _write_folder_extra(ks, n.id, extra)
+            return n.id
+
+    node = KnowledgeNode(
+        id=f"node-{uuid.uuid4().hex[:8]}",
+        title=title,
+        type="folder",
+        library_id=library_id,
+        parent_id=None,
+        visible=True,
+        sort_order=0,
+    )
+    created = ks.create_node(node)
+    if api_key_id is not None:
+        _write_folder_extra(ks, created.id, {"api_key_id": api_key_id})
+    return created.id
+
+
+def sync_api_folder_titles(api_key_id: int, new_title: str, legacy_old_title: str = "", legacy_library_id: str = "") -> int:
+    """API key 改名后同步其专属文件夹名（含内存缓存）。
+
+    extra.api_key_id 匹配在所有库生效；旧数据按 标题+原绑定库 回退匹配并回填绑定。
+    """
+    ks = get_docs_service()
+    updated = 0
+    try:
+        with ks.meta_store.connect() as conn:
+            rows = conn.execute(
+                "SELECT node_id, title, scope_id, extra_json FROM tree_node "
+                "WHERE tree_type = 'knowledge_folder' AND deleted = 0"
+            ).fetchall()
+            for node_id, title, scope_id, extra_json in rows:
+                extra = json.loads(extra_json) if extra_json else {}
+                bound = extra.get("api_key_id") == api_key_id
+                legacy = (
+                    not bound
+                    and legacy_old_title
+                    and title == legacy_old_title
+                    and scope_id == legacy_library_id
+                )
+                if not (bound or legacy):
+                    continue
+                extra["api_key_id"] = api_key_id
+                conn.execute(
+                    "UPDATE tree_node SET title = ?, extra_json = ? WHERE node_id = ?",
+                    (new_title, json.dumps(extra, ensure_ascii=False), node_id),
+                )
+                for n in ks.nodes:
+                    if n.id == node_id:
+                        n.title = new_title
+                updated += 1
+            if updated:
+                conn.commit()
+    except Exception:
+        logger.exception("同步 API 文件夹名称失败 key_id=%s", api_key_id)
+    return updated
+
+
 # 编排器进程级单例（与 docs_routes 共享，避免取消串台与 GPU 闸门序号冲突）
 from orchestrator import parse_orchestrator
 
@@ -72,32 +182,6 @@ def _library_id_for_doc(doc_id: str) -> str:
     if records and records[0].get("library_id"):
         return records[0]["library_id"]
     return "default"
-
-
-def _ensure_api_folder(library_id: str, title: str) -> str:
-    """找到或创建知识树根部的 API 名称文件夹，返回其 node_id。"""
-    from docs_core.docs_service import KnowledgeNode
-
-    ks = get_docs_service()
-    for node in ks.nodes:
-        if (
-            node.type == "folder"
-            and node.library_id == library_id
-            and not node.deleted
-            and node.title == title
-        ):
-            return node.id
-
-    node = KnowledgeNode(
-        id=f"node-{uuid.uuid4().hex[:8]}",
-        title=title,
-        type="folder",
-        library_id=library_id,
-        parent_id=None,
-        visible=True,
-        sort_order=0,
-    )
-    return ks.create_node(node).id
 
 
 @router.post("/parse")
@@ -133,8 +217,8 @@ async def parse_document_v1(
     content = await file.read()
     source_path = file_storage.save_source_file(library_id, doc_id, content, file.filename)
 
-    # 注册知识库节点：挂在知识树根部的『外部API』文件夹下（parse_pipeline 依赖节点存在）
-    folder_id = _ensure_api_folder(library_id, _api_folder_title(api_key_info))
+    # 注册知识库节点：挂在知识树根部的 API 专属文件夹下（parse_pipeline 依赖节点存在）
+    folder_id = _ensure_api_folder(library_id, api_key_info)
     get_docs_service().register_document(
         library_id,
         source_path,

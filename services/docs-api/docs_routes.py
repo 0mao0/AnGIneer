@@ -39,7 +39,7 @@ preview_router = APIRouter()
 
 class KnowledgeLibraryCreate(BaseModel):
     """创建知识库请求。"""
-    library_id: str
+    library_id: Optional[str] = ''
     name: str
     description: Optional[str] = ''
 
@@ -250,9 +250,15 @@ def list_knowledge_libraries():
 
 @docs_router.post("/libraries")
 def create_knowledge_library(request: KnowledgeLibraryCreate):
-    """创建知识库。"""
+    """创建知识库。library_id 留空时自动生成（lib-{8位随机}）。"""
     ks = get_docs_service()
-    library = ks.create_library(request.library_id, request.name, request.description)
+    library_id = (request.library_id or "").strip()
+    if not library_id:
+        import secrets
+        library_id = f"lib-{secrets.token_hex(4)}"
+    if ks.get_library(library_id) is not None:
+        raise HTTPException(status_code=409, detail=f"知识库 {library_id} 已存在")
+    library = ks.create_library(library_id, request.name, request.description)
     return library
 
 
@@ -261,6 +267,27 @@ def get_knowledge_library(library_id: str):
     """获取知识库详情。"""
     ks = get_docs_service()
     library = ks.get_library(library_id)
+    if not library:
+        raise HTTPException(status_code=404, detail="Library not found")
+    return library
+
+
+class KnowledgeLibraryUpdate(BaseModel):
+    """更新知识库请求。"""
+    name: Optional[str] = None
+    description: Optional[str] = None
+
+
+@docs_router.patch("/libraries/{library_id}")
+def update_knowledge_library(library_id: str, request: KnowledgeLibraryUpdate):
+    """更新知识库名称/描述。default 库不允许改名。"""
+    if library_id == "default":
+        raise HTTPException(status_code=400, detail="默认知识库不允许修改")
+    ks = get_docs_service()
+    name = (request.name or "").strip() if request.name is not None else None
+    if name is not None and not name:
+        raise HTTPException(status_code=400, detail="名称不能为空")
+    library = ks.update_library(library_id, name=name, description=request.description)
     if not library:
         raise HTTPException(status_code=404, detail="Library not found")
     return library
@@ -866,6 +893,28 @@ def get_document_storage(library_id: str, doc_id: str):
     return {"library_id": library_id, "doc_id": doc_id, "storage": file_storage.get_doc_manifest(library_id, doc_id)}
 
 
+@docs_router.get("/documents/{doc_id}/download")
+def download_document_file(doc_id: str, kind: str = "source"):
+    """按附件下载文档文件：kind=source 源文件，kind=pdf PDF 转换文件。"""
+    ks = get_docs_service()
+    node = ks.get_node(doc_id)
+    if not node:
+        raise HTTPException(status_code=404, detail=f"文档不存在: {doc_id}")
+    manifest = file_storage.get_doc_manifest(node.library_id, doc_id)
+    path = manifest.get("render_pdf") if kind == "pdf" else manifest.get("source_file")
+    if not path or not os.path.isfile(str(path)):
+        raise HTTPException(status_code=404, detail="文件不存在或尚未生成")
+    file_path = str(path)
+    filename = os.path.basename(file_path)
+    mime_type, _ = mimetypes.guess_type(file_path)
+    # FileResponse 带 filename 时默认 Content-Disposition: attachment，落到浏览器默认下载路径
+    return FileResponse(
+        file_path,
+        filename=filename,
+        media_type=mime_type or "application/octet-stream",
+    )
+
+
 # --- 解析路由 ---
 
 
@@ -1009,7 +1058,9 @@ _POPO_OUTPUTS = ["enriched_blocks.json", "document_tree.json"]
 _STRUCTURE_OUTPUTS = ["content.md", "doc_blocks_graph.jsonl", "doc_blocks_graph_meta.json"]
 
 
-# 从结构化阶段消息识别实际后端："结构化完成（popo 后端）" / "结构化完成（solo 降级）"
+# 从结构化阶段消息识别实际后端（历史消息 "结构化完成（popo 后端）" / "结构化完成（solo 降级）"）。
+# 新文案 "结构化完成（Solo 构建 + PoPo 信号 N 处）" 中 PoPo 仅作信号源、且大小写不命中，
+# 因此 backend 返回 ""，前端统一显示「Solo结构化」。
 def _structure_backend(message: str) -> str:
     if "popo" in (message or ""):
         return "popo"
@@ -1085,6 +1136,28 @@ def _stage_output_files(stage_key: str, node) -> Optional[Dict[str, Any]]:
         directory = paths.get_parsed_dir(library_id, doc_id)
         return {"dir": str(directory), "items": _dir_file_items(directory, _STRUCTURE_OUTPUTS)}
 
+    if stage_key == "fts":
+        index_db = paths.resolve_knowledge_index_db_path()
+        directory = index_db.parent
+        return {"dir": str(directory), "items": [{
+            "name": index_db.name, "exists": index_db.exists(), "isDir": False, "isNew": False,
+        }]}
+
+    if stage_key == "vectors":
+        index_db = paths.resolve_knowledge_index_db_path()
+        chroma_dir = paths.resolve_chroma_persist_dir()
+        directory = index_db.parent
+        return {"dir": str(directory), "items": [
+            {"name": index_db.name, "exists": index_db.exists(), "isDir": False, "isNew": False},
+            {"name": f"{chroma_dir.parent.name}/{chroma_dir.name}", "exists": chroma_dir.is_dir(), "isDir": True, "isNew": False},
+        ]}
+
+    if stage_key == "graph":
+        graph_db = paths.resolve_graph_db_path()
+        return {"dir": str(graph_db.parent), "items": [{
+            "name": graph_db.name, "exists": graph_db.exists(), "isDir": False, "isNew": False,
+        }]}
+
     return None
 
 
@@ -1146,16 +1219,14 @@ def _stage_input_hint(stage_key: str, node) -> str:
         return node.file_path or ""
     if stage_key in ("popo", "structure"):
         return str(paths.get_mineru_raw_dir(node.library_id, node.id))
-    if stage_key in ("fts", "vectors"):
-        return node.id
-    if stage_key == "graph":
+    if stage_key in ("fts", "vectors", "graph"):
         return str(paths.get_graph_jsonl_path(node.library_id, node.id))
     return ""
 
 
 @docs_router.post("/documents/{doc_id}/stages/{stage_key}/retry")
 def retry_document_stage(doc_id: str, stage_key: str):
-    from docs_core.parse_pipeline import validate_stage_retry, resolve_stage_order
+    from docs_core.parse_pipeline import validate_stage_retry, resolve_stage_order, _PIPELINE_ORDER
 
     ks = get_docs_service()
     node = ks.get_node(doc_id)
@@ -1168,15 +1239,17 @@ def retry_document_stage(doc_id: str, stage_key: str):
     file_path = node.file_path
     if not file_path:
         raise HTTPException(status_code=400, detail="文档缺少文件路径信息")
+    # 点击第 N 步 = 从 N 起连同后续阶段一起重跑（前置阶段产物复用，不重复执行）
     try:
-        resolve_stage_order([stage_key])
+        stage_list = _PIPELINE_ORDER[_PIPELINE_ORDER.index(stage_key):]
+        resolve_stage_order(stage_list)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     return parse_orchestrator.create_parse_task(
         library_id=node.library_id,
         doc_id=doc_id,
         file_path=file_path,
-        parse_options={"stages": [stage_key], "use_llm": True},
+        parse_options={"stages": stage_list, "use_llm": True},
     )
 
 

@@ -73,9 +73,11 @@ const api = docsApiClient
 
 export const knowledgeApi = {
   getLibraries: () => api.get('/knowledge/libraries'),
-  createLibrary: (name: string, description: string) =>
-    api.post('/knowledge/libraries', { library_id: 'default', name, description }),
+  createLibrary: (name: string, description: string = '') =>
+    api.post('/knowledge/libraries', { name, description }) as Promise<{ id: string; name: string }>,
   getLibrary: (libraryId: string) => api.get(`/knowledge/libraries/${libraryId}`),
+  updateLibrary: (libraryId: string, data: { name?: string; description?: string }) =>
+    api.patch(`/knowledge/libraries/${libraryId}`, data) as Promise<{ id: string; name: string }>,
 
   getNodes: (libraryId?: string, visible: boolean = false) =>
     api.get('/knowledge/nodes', { params: { visible, ...(libraryId ? { library_id: libraryId } : {}) } }),
@@ -157,6 +159,12 @@ export const knowledgeApi = {
       doc_id: string
       storage: DocumentStorageManifest
     }>,
+
+  downloadDocFile: (docId: string, kind: 'source' | 'pdf') =>
+    api.get(`/knowledge/documents/${docId}/download`, {
+      params: { kind },
+      responseType: 'blob',
+    }) as Promise<Blob>,
 
   getDocBlocksGraph: (libraryId: string, docId: string) =>
     api.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }),

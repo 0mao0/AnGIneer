@@ -18,7 +18,8 @@ async def auth_me(request: Request):
     # 租户首次登录自动建库（ensure）：库不存在则创建
     ks = get_docs_service()
     if ks.get_library(library_id) is None:
-        ks.create_library(library_id, key_info.user_name or library_id)
+        user_name = key_info.user_name or library_id
+        ks.create_library(library_id, f"{user_name}知识库")
     return MeResponse(
         key_prefix=key_info.key_prefix,
         user_name=key_info.user_name,

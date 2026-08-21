@@ -3,7 +3,7 @@ import sqlite3
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from models.api_key import generate_key, list_keys, deactivate_key, reactivate_key, delete_key, rename_key
+from models.api_key import generate_key, list_keys, get_key, deactivate_key, reactivate_key, delete_key, rename_key, update_key
 from models.parse_record import get_statistics
 from models.v1_responses import CreateKeyRequest
 
@@ -19,6 +19,7 @@ class KeyItem(BaseModel):
     last_used_at: str | None = None
     scope: str = "both"
     library_id: str = ""
+    library_name: str = ""
     doc_count: int = 0
 
 
@@ -34,6 +35,11 @@ class CreateKeyResponse(BaseModel):
 @router.get("/api-keys", response_model=list[KeyItem], tags=["Admin"])
 async def list_api_keys():
     keys = list_keys()
+    # join 库名：管理页显示人可读名称，不暴露裸 library_id
+    from docs_core.docs_service import get_docs_service
+    lib_name_map = {lib.id: lib.name for lib in get_docs_service().list_libraries()}
+    for k in keys:
+        k["library_name"] = lib_name_map.get(k.get("library_id") or "", "")
     try:
         from pathlib import Path
         pr_db = str(
@@ -56,6 +62,9 @@ async def list_api_keys():
 
 @router.post("/api-keys", response_model=CreateKeyResponse, tags=["Admin"])
 async def create_api_key(req: CreateKeyRequest):
+    from docs_core.docs_service import get_docs_service
+    if get_docs_service().get_library(req.library_id) is None:
+        raise HTTPException(400, f"知识库 {req.library_id} 不存在，请先创建")
     raw_key, api_key = generate_key(req.user_name, scope=req.scope, library_id=req.library_id)
     return CreateKeyResponse(
         api_key=raw_key,
@@ -87,9 +96,15 @@ async def rename_api_key(key_id: int, body: dict):
     new_name = (body.get("name") or "").strip()
     if not new_name:
         raise HTTPException(400, "名称不能为空")
+    old = get_key(key_id)
+    if not old:
+        raise HTTPException(404, "Key not found")
     ok = rename_key(key_id, new_name)
     if not ok:
         raise HTTPException(404, "Key not found")
+    if new_name != old.get("user_name"):
+        from routes.v1.documents import sync_api_folder_titles
+        sync_api_folder_titles(key_id, new_name, old.get("user_name", ""), old.get("library_id", ""))
     return {"status": "success", "message": "名称已更新"}
 
 
@@ -100,6 +115,39 @@ async def delete_api_key(key_id: int):
     if not ok:
         raise HTTPException(404, "Key not found")
     return {"status": "success", "message": "Key 已删除"}
+
+
+@router.put("/api-keys/{key_id}", tags=["Admin"])
+async def update_api_key(key_id: int, body: dict):
+    """更新 API Key 的 user_name, scope, library_id。改名时联动同步专属文件夹名。"""
+    user_name = (body.get("user_name") or "").strip()
+    scope = body.get("scope")
+    library_id = body.get("library_id")
+
+    if not user_name:
+        raise HTTPException(400, "名称不能为空")
+
+    if scope and scope not in ("doc", "chat", "both"):
+        raise HTTPException(400, "scope 必须是 doc, chat 或 both")
+
+    old = get_key(key_id)
+    if not old:
+        raise HTTPException(404, "Key not found")
+
+    if library_id:
+        from docs_core.docs_service import get_docs_service
+        if get_docs_service().get_library(library_id) is None:
+            raise HTTPException(400, f"知识库 {library_id} 不存在")
+
+    ok = update_key(key_id, user_name=user_name, scope=scope, library_id=library_id)
+    if not ok:
+        raise HTTPException(404, "Key not found")
+
+    if user_name != old.get("user_name"):
+        from routes.v1.documents import sync_api_folder_titles
+        sync_api_folder_titles(key_id, user_name, old.get("user_name", ""), old.get("library_id", ""))
+
+    return {"status": "success", "message": "Key 已更新"}
 
 
 @router.get("/api-keys/statistics", tags=["Admin"])

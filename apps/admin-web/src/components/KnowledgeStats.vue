@@ -11,29 +11,36 @@
         <span class="stats-deleted-label">用户已删</span>
       </div>
       <div class="stats-actions">
-        <LibrarySelect style="margin-right: 12px" />
-        <a-button size="small" @click="entityReviewOpen = true">实体审核</a-button>
-        <a-popconfirm
-          title="确定永久删除选中的记录？此操作不可恢复"
-          @confirm="batchHardDelete"
-        >
+        <a-input-group compact class="library-review-group">
+          <LibrarySelect hide-actions style="min-width: 160px" />
           <a-button
-            v-show="selectedDeletedIds.length > 0"
-            type="primary"
-            danger
+            class="library-review-btn"
             size="small"
+            title="审核当前知识库的实体抽取结果"
+            @click="entityReviewOpen = true"
           >
-            批量删除 ({{ selectedDeletedIds.length }})
+            实体审核
           </a-button>
-        </a-popconfirm>
+        </a-input-group>
+        <a-button
+          v-show="selectedRowKeys.length > 0"
+          type="primary"
+          danger
+          size="small"
+          @click="onBatchDeleteClick"
+        >
+          批量删除 ({{ selectedRowKeys.length }})
+        </a-button>
       </div>
     </div>
 
+    <div ref="tableWrapRef" class="stats-table-wrap">
     <a-table
       :columns="columns"
       :data-source="records"
       :loading="loading"
       :row-selection="rowSelection"
+      :scroll="{ x: scrollX }"
       row-key="id"
       size="middle"
       :pagination="{ pageSize: 20, showSizeChanger: true, showTotal: (total: number) => `共 ${total} 条` }"
@@ -50,9 +57,6 @@
         </div>
       </template>
       <template #bodyCell="{ column, record }">
-        <template v-if="column.key === 'api_key_name'">
-          {{ record.api_key_name || '内部' }}
-        </template>
         <template v-if="column.key === 'file_size'">
           {{ formatFileSize(record.file_size) }}
         </template>
@@ -82,10 +86,8 @@
         <template v-if="column.key === 'action'">
           <span class="action-btns">
             <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
-            <a-divider type="vertical" />
             <a-button type="link" size="small" @click="viewDetail(record)">结果</a-button>
             <template v-if="record.status !== 'deleted'">
-              <a-divider type="vertical" />
               <a-button
                 v-if="RUNNING_STATUSES.has(record.status)"
                 type="link"
@@ -95,12 +97,13 @@
               >取消</a-button>
               <a-button v-else type="link" size="small" @click="restartTask(record)">解析</a-button>
             </template>
-            <a-divider type="vertical" />
             <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
+            <a-button type="link" size="small" :loading="downloadingId === record.id" @click="downloadRecordFiles(record)">下载</a-button>
           </span>
         </template>
       </template>
     </a-table>
+    </div>
 
     <a-drawer
       v-model:open="stepsModalOpen"
@@ -206,6 +209,38 @@
       </a-input-group>
     </a-modal>
 
+    <a-modal
+      v-model:open="batchAdminModalOpen"
+      :title="`再次确认批量删除（${selectedRowKeys.length} 条）`"
+      :width="560"
+      ok-text="永久删除"
+      ok-danger
+      :ok-button-props="{ disabled: batchAdminInput.trim() !== BATCH_DELETE_CONFIRM_SENTENCE }"
+      @ok="batchHardDelete"
+      @cancel="batchAdminInput = ''"
+    >
+      <p class="admin-delete-warning">
+        选中记录中包含用户尚未删除的文件。删除将同时移除知识库节点、文件内容与解析记录（可能包含隐私数据），此操作不可恢复。
+      </p>
+      <p>请输入以下确认句以继续：</p>
+      <p class="admin-delete-filename">{{ BATCH_DELETE_CONFIRM_SENTENCE }}</p>
+      <a-input-group compact class="admin-delete-fill-group">
+        <a-input
+          v-model:value="batchAdminInput"
+          :placeholder="BATCH_DELETE_CONFIRM_SENTENCE"
+          class="admin-delete-fill-input"
+          @pressEnter="batchAdminInput.trim() === BATCH_DELETE_CONFIRM_SENTENCE && batchHardDelete()"
+        />
+        <a-button
+          class="admin-delete-fill-btn"
+          title="点击自动填入确认句，再次确认后即可删除"
+          @click="batchAdminInput = BATCH_DELETE_CONFIRM_SENTENCE"
+        >
+          一键填入
+        </a-button>
+      </a-input-group>
+    </a-modal>
+
     <EntityReviewDrawer
       v-model:open="entityReviewOpen"
       :library-id="libraryStore.libraryId || 'default'"
@@ -294,20 +329,44 @@ const viewerParseButtonText = computed(() => {
   return '开始解析'
 })
 
-const COLUMN_WIDTH_STORAGE_KEY = 'angineer-admin-knowledge-column-widths-v2'
+const COLUMN_WIDTH_STORAGE_KEY = 'angineer-admin-knowledge-column-widths-v3'
 const MIN_COLUMN_WIDTH = 48
+const FILE_NAME_FALLBACK_WIDTH = 240
 
 const columns = ref<TableColumnType[]>([
   { title: '上传人员', dataIndex: 'uploaded_by', key: 'uploaded_by', width: 96 },
-  { title: 'API', dataIndex: 'api_key_name', key: 'api_key_name', width: 120, ellipsis: true },
   { title: '文件名称', dataIndex: 'file_name', key: 'file_name', ellipsis: true },
   { title: '格式', dataIndex: 'file_format', key: 'file_format', width: 60 },
   { title: '大小', key: 'file_size', width: 80 },
   { title: '页数', dataIndex: 'page_count', key: 'page_count', width: 60 },
   { title: '解析状态', key: 'status', width: 80 },
   { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
-  { title: '操作', key: 'action', width: 220, fixed: 'right' as const },
+  { title: '操作', key: 'action', width: 260, fixed: 'right' as const },
 ])
+
+// 表格容器宽度：内容总宽超出容器时横向滚动（操作列 fixed:right 保持可见），否则自适应铺满
+const tableWrapRef = ref<HTMLElement | null>(null)
+const containerWidth = ref(0)
+let tableResizeObserver: ResizeObserver | undefined
+
+const contentWidth = computed(() => {
+  let sum = 0
+  for (const col of columns.value) {
+    const w = (col as { width?: number | string }).width
+    sum += typeof w === 'number' ? w : FILE_NAME_FALLBACK_WIDTH
+  }
+  return sum
+})
+const scrollX = computed(() => Math.max(containerWidth.value, contentWidth.value))
+
+function observeTableWidth() {
+  if (!tableWrapRef.value) return
+  tableResizeObserver = new ResizeObserver((entries) => {
+    const width = entries[0]?.contentRect.width
+    if (width) containerWidth.value = Math.round(width)
+  })
+  tableResizeObserver.observe(tableWrapRef.value)
+}
 
 let resizingColumn: TableColumnType | null = null
 let resizeStartX = 0
@@ -316,7 +375,9 @@ let resizeStartWidth = 0
 function onResizeStart(event: MouseEvent, column: TableColumnType) {
   resizingColumn = column
   resizeStartX = event.clientX
-  resizeStartWidth = Number(column.width) || MIN_COLUMN_WIDTH
+  // 未设宽度的自适应列（文件名称）从 DOM 读取当前实际宽度作为起点
+  const th = (event.target as HTMLElement).closest('th')
+  resizeStartWidth = Number(column.width) || th?.offsetWidth || MIN_COLUMN_WIDTH
   document.addEventListener('mousemove', onResizeMove)
   document.addEventListener('mouseup', onResizeEnd)
 }
@@ -363,14 +424,12 @@ function restoreColumnWidths() {
 const rowSelection = computed(() => ({
   selectedRowKeys: selectedRowKeys.value,
   onChange: (keys: number[]) => { selectedRowKeys.value = keys },
-  getCheckboxProps: (record: ParseRecordItem) => ({
-    disabled: record.file_status === '已入库',
-  }),
 }))
 
-const selectedDeletedIds = computed(() =>
-  selectedRowKeys.value.filter(id =>
-    records.value.find(r => r.id === id)?.file_status !== '已入库'
+// 选中记录中是否包含用户尚未删除的文件（此类批量删除需额外强确认）
+const selectedHasActiveFiles = computed(() =>
+  selectedRowKeys.value.some(id =>
+    records.value.find(r => r.id === id)?.file_status !== '用户已删'
   )
 )
 
@@ -511,6 +570,7 @@ watch(stepsModalOpen, (open) => {
 onBeforeUnmount(() => {
   stopStagesPolling()
   stopRecordsPolling()
+  tableResizeObserver?.disconnect()
   document.removeEventListener('mousemove', onResizeMove)
   document.removeEventListener('mouseup', onResizeEnd)
 })
@@ -662,6 +722,52 @@ async function onViewerStop() {
   }
 }
 
+// 下载源文件与 PDF 转换文件到浏览器默认下载路径；源文件即 PDF 时只下一个
+const downloadingId = ref<number | null>(null)
+
+function saveBlob(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  a.remove()
+  URL.revokeObjectURL(url)
+}
+
+function baseName(p: string): string {
+  return p.split(/[/\\]/).filter(Boolean).pop() || p
+}
+
+async function downloadRecordFiles(record: ParseRecordItem) {
+  downloadingId.value = record.id
+  try {
+    const res = await knowledgeApi.getDocumentStorage(libraryStore.libraryId || 'default', record.doc_id)
+    const storage = (res as any)?.storage || {}
+    const sourcePath = String(storage.source_file || '')
+    const pdfPath = String(storage.render_pdf || '')
+    const targets: { kind: 'source' | 'pdf'; name: string }[] = []
+    if (sourcePath) targets.push({ kind: 'source', name: record.file_name || baseName(sourcePath) })
+    if (pdfPath && pdfPath !== sourcePath) targets.push({ kind: 'pdf', name: baseName(pdfPath) })
+    if (!targets.length) {
+      message.warning('没有可下载的文件')
+      return
+    }
+    for (const t of targets) {
+      const blob = await knowledgeApi.downloadDocFile(record.doc_id, t.kind)
+      saveBlob(blob, t.name)
+      // 浏览器对连续多文件下载有限流，间隔触发
+      await new Promise(r => setTimeout(r, 400))
+    }
+    message.success('已开始下载')
+  } catch (e: any) {
+    message.error('下载失败: ' + (e?.response?.data?.detail || e?.message || e))
+  } finally {
+    downloadingId.value = null
+  }
+}
+
 async function deleteRecord(record: ParseRecordItem) {
   if (record.file_status === '用户已删') {
     Modal.confirm({
@@ -714,17 +820,42 @@ async function confirmAdminDelete() {
   }
 }
 
+// 批量删除入口：含用户未删除文件时走强确认（输入确认句），否则普通确认
+const batchAdminModalOpen = ref(false)
+const batchAdminInput = ref('')
+const BATCH_DELETE_CONFIRM_SENTENCE = '我再次确认将要删除这些用户未删除的文件！'
+
+function onBatchDeleteClick() {
+  if (!selectedRowKeys.value.length) return
+  if (selectedHasActiveFiles.value) {
+    batchAdminInput.value = ''
+    batchAdminModalOpen.value = true
+    return
+  }
+  Modal.confirm({
+    title: '确认批量删除',
+    content: `确定永久删除选中的 ${selectedRowKeys.value.length} 条解析记录吗？此操作不可恢复。`,
+    okText: '删除',
+    okType: 'danger',
+    cancelText: '取消',
+    onOk: batchHardDelete,
+  })
+}
+
 async function batchHardDelete() {
   try {
-    for (const id of selectedDeletedIds.value) {
+    const ids = [...selectedRowKeys.value]
+    for (const id of ids) {
       const record = records.value.find(r => r.id === id)
       if (record) {
         await purgeNodeIfExists(record.doc_id)
       }
       await knowledgeApi.hardDeleteRecord(id)
     }
-    message.success(`已删除 ${selectedDeletedIds.value.length} 条记录`)
+    message.success(`已删除 ${ids.length} 条记录`)
     selectedRowKeys.value = []
+    batchAdminModalOpen.value = false
+    batchAdminInput.value = ''
     await loadRecords()
   } catch (e: any) {
     message.error('批量删除失败: ' + (e.message || e))
@@ -742,6 +873,7 @@ async function purgeNodeIfExists(docId: string) {
 
 onMounted(() => {
   restoreColumnWidths()
+  observeTableWidth()
   loadRecords()
 })
 </script>
@@ -786,6 +918,9 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+.stats-table-wrap {
+  min-width: 0;
 }
 :deep(.ant-table) {
   th, td { text-align: center !important; }
@@ -832,13 +967,17 @@ onMounted(() => {
   }
 }
 .action-btns {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
   white-space: nowrap;
+  // 五个文字按钮统一字号，高度贴合文字，保证视觉对齐
   :deep(.ant-btn) {
-    padding-inline: 0;
-    margin-inline: 2px;
-  }
-  :deep(.ant-divider-vertical) {
-    margin-inline: 2px;
+    padding-inline: 4px;
+    margin-inline: 0;
+    height: auto;
+    font-size: 13px;
+    line-height: 1.5;
   }
 }
 .error-detail-trigger {
@@ -882,6 +1021,28 @@ onMounted(() => {
   color: var(--text-secondary, rgba(0, 0, 0, 0.45));
   background: var(--bg-secondary, #fafafa);
   border-color: var(--border-color, #d9d9d9);
+  &:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background: var(--bg-secondary, #fafafa);
+  }
+}
+.library-review-group {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  :deep(.ant-select .ant-select-selector) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+.library-review-btn {
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  background: var(--bg-secondary, #fafafa);
+  border-color: var(--border-color, #d9d9d9);
+  height: 32px;
+  border-radius: 0 6px 6px 0;
+  border-left: none;
   &:hover {
     color: var(--primary-color);
     border-color: var(--primary-color);

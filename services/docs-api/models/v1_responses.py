@@ -98,7 +98,7 @@ class MeResponse(BaseModel):
 class CreateKeyRequest(BaseModel):
     user_name: str = Field(..., min_length=1, max_length=100)
     scope: str = Field(default="both", pattern="^(doc|chat|both)$")
-    library_id: str = Field(default="", description="绑定的知识库 ID；空为不绑定（兼容旧行为），绑定后该 key 只能访问此库")
+    library_id: str = Field(..., min_length=1, description="绑定的知识库 ID（必选，key 只能访问此库）")
 
 
 class CreateKeyResponse(BaseModel):
