@@ -53,7 +53,10 @@ def _emit_step(
     if on_step is not None:
         try:
             on_step(step, status, detail)
-        except Exception:
+        except Exception as exc:
+            # 取消异常必须向上传播（on_step 兼作取消点），其余回调失败仅告警
+            if type(exc).__name__ == "ParseTaskCancelledError":
+                raise
             logger.warning("分析步骤回调失败 step=%s", step, exc_info=True)
 
 

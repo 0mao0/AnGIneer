@@ -249,6 +249,6 @@ def test_run_pipeline_completed_stage_preserves_work_started_at(monkeypatch, tmp
     assert 0 <= (finished - work).total_seconds() < 0.2
     assert (finished - entered).total_seconds() >= 0.3
 
-    match = re.search(r"耗时([\d.]+)s", row["message"])
+    match = re.search(r"耗时([\d.]+)秒", row["message"])
     assert match is not None
     assert float(match.group(1)) < 0.2

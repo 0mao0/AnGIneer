@@ -112,7 +112,7 @@ def test_push_to_graph_accepts_enable_llm(tmp_path, monkeypatch) -> None:
     monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path))
     calls = {}
 
-    def fake_push(library_id, doc_id, graph_db_path=None, enable_llm=False, ignored_entity_names=None):
+    def fake_push(library_id, doc_id, graph_db_path=None, enable_llm=False, ignored_entity_names=None, on_step=None):
         calls["enable_llm"] = enable_llm
         calls["ignored"] = ignored_entity_names
         return {"pushed": True, "total_entities_found": 1, "total_relations_added": 2}

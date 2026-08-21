@@ -1,6 +1,6 @@
 """步骤六：从 graph jsonl+meta 重建 canonical 并落 SQLite（canonical 表 + doc_blocks 行 + segments + FTS）。"""
 
-from typing import Any, Dict
+from typing import Any, Callable, Dict, Optional
 
 import docs_core.paths as paths
 from docs_core.step04_structure.shared.jsonl_io import get_doc_blocks_graph
@@ -9,12 +9,28 @@ from docs_core.step05_sqlite_fts.store.blocks_sql_store import get_index_store
 from docs_core.step05_sqlite_fts.rows_projection import build_doc_block_rows, build_document_segments
 
 
+def _emit_on_step(
+    on_step: Optional[Callable[[str, str, str], None]],
+    step: str,
+    status: str = "done",
+    detail: str = "",
+) -> None:
+    if on_step is not None:
+        try:
+            on_step(step, status, detail)
+        except Exception as exc:
+            # 取消异常必须向上传播（on_step 兼作取消点），其余回调失败仅告警
+            if type(exc).__name__ == "ParseTaskCancelledError":
+                raise
+
+
 def build_sqlite_index_from_graph(
     library_id: str,
     doc_id: str,
     *,
     derive_version: str = "v1",
     parser_version: str = "popo-4b",
+    on_step: Optional[Callable[[str, str, str], None]] = None,
 ) -> Dict[str, Any]:
     """从 doc_blocks_graph.jsonl + meta 重建 canonical SQLite 索引。
 
@@ -27,6 +43,7 @@ def build_sqlite_index_from_graph(
     graph_data = get_doc_blocks_graph(library_id, doc_id)
     if not graph_data:
         raise FileNotFoundError(f"doc_blocks_graph 不存在: {doc_id}（请先运行 structure 阶段）")
+    _emit_on_step(on_step, "图数据读取", "done", f"{len(graph_data.get('nodes', []))} nodes")
 
     manifest = _file_storage.get_doc_manifest(library_id, doc_id)
     doc_title = str(manifest.get("title") or "") or doc_id
@@ -39,6 +56,10 @@ def build_sqlite_index_from_graph(
         use_llm=False,
     )
     docs_service.save_canonical_document_bare(canonical_document)
+    _emit_on_step(
+        on_step, "canonical 重建落库", "done",
+        f"{len(canonical_document.blocks)} blocks / {len(canonical_document.chunks)} chunks",
+    )
 
     index_store = get_index_store()
     base_rows, derived_rows = build_doc_block_rows(
@@ -49,6 +70,7 @@ def build_sqlite_index_from_graph(
     index_store.clear_doc_blocks(doc_id)
     inserted = index_store.insert_doc_blocks_base_rows(base_rows) if base_rows else 0
     updated = index_store.update_doc_blocks_derived_rows(derived_rows) if derived_rows else 0
+    _emit_on_step(on_step, "doc_blocks 行写入", "done", f"base {inserted} / derived {updated}")
 
     node_line_map = {
         str(node.get("block_uid") or node.get("id") or ""): node
@@ -65,8 +87,10 @@ def build_sqlite_index_from_graph(
     segments = build_document_segments(canonical_document, block_line_ranges)
     index_store.clear_document_segments(doc_id)
     saved_segments = index_store.save_document_segments(doc_id, library_id, "doc_blocks_graph_v1", segments)
+    _emit_on_step(on_step, "segments 生成", "done", f"{saved_segments} 段")
 
     docs_service.rebuild_document_fts(doc_id)
+    _emit_on_step(on_step, "FTS 重建", "done", "canonical_chunk_fts")
 
     return {
         "canonical_blocks_count": len(canonical_document.blocks),

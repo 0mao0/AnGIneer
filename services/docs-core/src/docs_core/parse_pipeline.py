@@ -286,6 +286,9 @@ def _run_popo(ctx: StageContext) -> str:
     pipeline = get_popo_pipeline()
 
     def _on_step(step: str, status: str = "done", detail: str = "") -> None:
+        # 子阶段步骤回调同时作为取消点：PoPo 各子进程之间可响应取消
+        if ctx.cancel_check is not None:
+            ctx.cancel_check()
         ctx.log_step(step, status, detail)
 
     # PDF 源在 source 目录（转换后的 PDF 或上传的 PDF），重试/resume 时 ctx.source_path 可能为空，兜底解析
@@ -312,6 +315,7 @@ def _run_popo(ctx: StageContext) -> str:
                     source_pdf_path=source_pdf,
                     source_dir=str(source_dir),
                     on_step=_on_step,
+                    cancel_check=ctx.cancel_check,
                 )
             break
         except Exception as exc:
@@ -388,6 +392,9 @@ def _run_structure_solo(
     from docs_core.step04_structure.solo2json_pipeline import build_structured_index_for_doc
 
     def _on_step(step: str, status: str = "done", detail: str = "") -> None:
+        # 结构化子步骤回调同时作为取消点：规则构建/enrich/落盘之间可响应取消
+        if ctx.cancel_check is not None:
+            ctx.cancel_check()
         ctx.log_step(step, status, detail)
 
     result = build_structured_index_for_doc(
@@ -411,14 +418,33 @@ def _run_structure_solo(
     output_parts = [str(parsed_dir / n) for n in output_names if (parsed_dir / n).exists()]
     ctx.input_summary = str(paths.get_mineru_raw_dir(ctx.library_id, ctx.doc_id))
     ctx.output_summary = " + ".join(output_parts) if output_parts else str(parsed_dir)
-    return f"结构化完成（solo 降级），{stats.get('nodes_count', 0)} blocks"
+    # 按实际信号注入结果生成文案：Solo 永远是构建者，PoPo 只是信号源，不存在“降级”说法
+    signal = (stats.get("popo_signal") or {}).get("injection") or {}
+    applied = int(signal.get("applied") or 0)
+    nodes_count = stats.get("nodes_count", 0)
+    if applied > 0:
+        return f"结构化完成（Solo 构建 + PoPo 信号 {applied} 处），{nodes_count} blocks"
+    reason = str(signal.get("skipped_reason") or "")
+    reason_text = {
+        "no_popo": "PoPo 未产出",
+        "no_middle": "缺少 middle.json",
+        "alignment_degraded": "PoPo 对齐校验未过",
+    }.get(reason, "PoPo 信号处理异常" if reason.startswith("error:") else "")
+    suffix = f"，未注入 PoPo 信号（{reason_text}）" if reason_text else ""
+    return f"结构化完成（Solo 构建{suffix}），{nodes_count} blocks"
 
 
 def _run_fts(ctx: StageContext) -> str:
     import docs_core.paths as paths
     from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph
 
-    result = build_sqlite_index_from_graph(ctx.library_id, ctx.doc_id)
+    def _on_step(step: str, status: str = "done", detail: str = "") -> None:
+        # 子步骤回调兼作取消点
+        if ctx.cancel_check is not None:
+            ctx.cancel_check()
+        ctx.log_step(step, status, detail)
+
+    result = build_sqlite_index_from_graph(ctx.library_id, ctx.doc_id, on_step=_on_step)
     ctx.input_summary = str(paths.get_graph_jsonl_path(ctx.library_id, ctx.doc_id))
     ctx.output_summary = (
         f"canonical SQLite + doc_blocks + segments + canonical_chunk_fts "
@@ -586,9 +612,16 @@ def _run_vectors(ctx: StageContext) -> str:
     from docs_core.docs_service import get_docs_service
     from docs_core.step06_vectors.embedding_provider import default_embedding_provider
 
+    def _on_step(step: str, status: str = "done", detail: str = "") -> None:
+        # 子步骤回调兼作取消点
+        if ctx.cancel_check is not None:
+            ctx.cancel_check()
+        ctx.log_step(step, status, detail)
+
     ks = get_docs_service()
-    ks.rebuild_document_vectors(ctx.doc_id)
-    ctx.input_summary = ctx.doc_id
+    ks.rebuild_document_vectors(ctx.doc_id, on_step=_on_step)
+    import docs_core.paths as paths
+    ctx.input_summary = str(paths.get_graph_jsonl_path(ctx.library_id, ctx.doc_id))
     ctx.output_summary = "vector store (entity_id + embedding)"
 
     flags = getattr(default_embedding_provider, "runtime_flags", [])
@@ -602,7 +635,13 @@ def _run_graph(ctx: StageContext) -> str:
     from docs_core.step07_graph.push_to_graph import push_to_graph
     from docs_core.step07_graph.auto_extract import auto_llm_enabled, spawn_llm_graph_extraction
 
-    result = push_to_graph(ctx.library_id, ctx.doc_id)
+    def _on_step(step: str, status: str = "done", detail: str = "") -> None:
+        # 子步骤回调兼作取消点
+        if ctx.cancel_check is not None:
+            ctx.cancel_check()
+        ctx.log_step(step, status, detail)
+
+    result = push_to_graph(ctx.library_id, ctx.doc_id, on_step=_on_step)
     if not result.get("pushed"):
         error = result.get("error", "未知错误")
         raise RuntimeError(f"图谱构建失败: {error}")
@@ -655,6 +694,18 @@ def is_dependency_skip_message(message: Any) -> bool:
     """判断 skipped 是否为前置依赖失败导致的连带跳过（此类跳过不应视为已完成）。"""
     text = str(message or "")
     return any(marker in text for marker in _DEPENDENCY_SKIP_MARKERS)
+
+
+def _format_elapsed_hms(seconds: float) -> str:
+    """耗时文案：<60s 保留 1 位小数（如 5.3秒），≥60s 取整为 xx小时xx分xx秒（均为整数）。"""
+    if seconds < 60:
+        return f"{round(seconds, 1)}秒"
+    total = int(round(seconds))
+    hours, rem = divmod(total, 3600)
+    minutes, secs = divmod(rem, 60)
+    if hours:
+        return f"{hours}小时{minutes}分{secs}秒"
+    return f"{minutes}分{secs}秒"
 
 
 def _missing_core_artifacts(library_id: str, doc_id: str) -> List[str]:
@@ -795,7 +846,7 @@ def run_pipeline(
                 elapsed = 0.0
             meta_store.upsert_parse_stage(
                 ctx.doc_id, key, status="completed",
-                message=f"{message}，耗时{round(elapsed, 1)}s",
+                message=f"{message}，耗时{_format_elapsed_hms(elapsed)}",
                 started_at=None, finished_at=datetime.now().isoformat(),
                 input_summary=ctx.input_summary, output_summary=ctx.output_summary,
                 page_count=getattr(ctx, "page_count", 0) or 0,

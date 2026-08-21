@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
@@ -46,7 +47,10 @@ def _emit_on_step(
     if on_step is not None:
         try:
             on_step(step, status, detail)
-        except Exception:
+        except Exception as exc:
+            # 取消异常必须向上传播（on_step 兼作取消点），其余回调失败仅告警
+            if type(exc).__name__ == "ParseTaskCancelledError":
+                raise
             logger.warning("PoPo 步骤回调失败 step=%s", step, exc_info=True)
 
 
@@ -76,9 +80,44 @@ class PoPoPipelineRunner:
         return self.popo_repo_path / relative_path
 
     def _run_script(
-        self, args: List[str], *, env: Dict[str, str], timeout: int, stage: str
+        self, args: List[str], *, env: Dict[str, str], timeout: int, stage: str,
+        cancel_check: Optional[Callable[[], None]] = None,
     ) -> None:
-        """统一执行 PoPo 子脚本：按字节捕获输出并宽松解码，统一错误日志。"""
+        """统一执行 PoPo 子脚本：按字节捕获输出并宽松解码，统一错误日志。
+
+        cancel_check：可选取消检查回调（自身抛取消异常），运行期间每 0.5s 轮询一次；
+        触发取消时先 kill 子进程再向上传播。
+        """
+        if cancel_check is not None:
+            proc = subprocess.Popen(args, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            try:
+                deadline = time.monotonic() + timeout if timeout else None
+                while proc.poll() is None:
+                    cancel_check()  # 抛取消异常时进入 except 分支 kill 子进程
+                    if deadline is not None and time.monotonic() > deadline:
+                        proc.kill()
+                        stdout, stderr = proc.communicate()
+                        raise subprocess.TimeoutExpired(args, timeout, output=stdout, stderr=stderr)
+                    try:
+                        proc.wait(timeout=0.5)
+                    except subprocess.TimeoutExpired:
+                        continue
+                stdout, stderr = proc.communicate()
+                if proc.returncode != 0:
+                    err = subprocess.CalledProcessError(
+                        proc.returncode, args, output=stdout, stderr=stderr
+                    )
+                    logger.error(
+                        "PoPo %s failed.\nSTDERR:\n%s\nSTDOUT:\n%s",
+                        stage, _decode_output(stderr), _decode_output(stdout),
+                    )
+                    raise err
+                return
+            except BaseException:
+                if proc.poll() is None:
+                    proc.kill()
+                    proc.wait()
+                raise
         try:
             subprocess.run(
                 args, env=env, check=True, timeout=timeout, capture_output=True
@@ -106,6 +145,7 @@ class PoPoPipelineRunner:
         source_pdf_path: str = "",
         source_dir: Optional[str] = None,
         on_step: Optional[Callable[[str, str, str], None]] = None,
+        cancel_check: Optional[Callable[[], None]] = None,
     ) -> Dict[str, Any]:
         """Run PoPo: label normalization -> inference (cloud 4B) -> build tree.
 
@@ -114,6 +154,7 @@ class PoPoPipelineRunner:
             output_dir: PoPo 产物输出目录（enriched_blocks.json + document_tree.json）。
             source_pdf_path: 可直接使用的 PDF 源路径（优先）。
             source_dir: 文档 source 目录（PDF 候选，兜底扫描）。
+            cancel_check: 可选取消检查回调（自身抛取消异常），子进程运行期间轮询。
 
         Returns: {"enriched_blocks_path": str, "document_tree_path": str}
         """
@@ -121,7 +162,7 @@ class PoPoPipelineRunner:
         try:
             return self._run_stages(
                 mineru_raw_dir, output_dir, tmp_dir, doc_id,
-                source_pdf_path, source_dir, on_step,
+                source_pdf_path, source_dir, on_step, cancel_check,
             )
         finally:
             shutil.rmtree(tmp_dir, ignore_errors=True)
@@ -131,6 +172,7 @@ class PoPoPipelineRunner:
         source_pdf_path: str = "",
         source_dir: Optional[str] = None,
         on_step: Optional[Callable[[str, str, str], None]] = None,
+        cancel_check: Optional[Callable[[], None]] = None,
     ) -> Dict[str, Any]:
         mineru_raw = Path(mineru_raw_dir)
         tmp = Path(tmp_dir)
@@ -173,6 +215,7 @@ class PoPoPipelineRunner:
                 env=env,
                 timeout=_env_int("POPO_LABEL_NORM_TIMEOUT", 60),
                 stage="label normalization",
+                cancel_check=cancel_check,
             )
         except Exception as exc:
             _emit_on_step(on_step, "label 归一化", "failed", f"{type(exc).__name__}: {str(exc)[:160]}")
@@ -232,6 +275,7 @@ class PoPoPipelineRunner:
                 env=env,
                 timeout=_env_int("POPO_INFERENCE_TIMEOUT", 1800),
                 stage="inference",
+                cancel_check=cancel_check,
             )
         except Exception as exc:
             _emit_on_step(on_step, "PoPo 4B 推理", "failed", f"{type(exc).__name__}: {str(exc)[:160]}")
@@ -251,6 +295,7 @@ class PoPoPipelineRunner:
                 env=env,
                 timeout=_env_int("POPO_TREE_TIMEOUT", 60),
                 stage="tree build",
+                cancel_check=cancel_check,
             )
         except Exception as exc:
             _emit_on_step(on_step, "document tree 构建", "failed", f"{type(exc).__name__}: {str(exc)[:160]}")

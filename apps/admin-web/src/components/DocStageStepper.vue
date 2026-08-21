@@ -151,7 +151,7 @@
             </a-button>
           </div>
         </template>
-        <template v-else-if="stage.key === 'popo' || stage.key === 'structure'">
+        <template v-else-if="FLOW_STAGES.has(stage.key)">
           <div class="convert-flow">
             <div class="convert-side convert-side-narrow">
               <div class="convert-side-title">输入</div>
@@ -253,7 +253,7 @@
     </a-collapse>
     <div class="stage-total">
       <span class="stage-total-label">总耗时</span>
-      <span class="stage-total-value">{{ totalDurationMs > 0 ? formatMs(totalDurationMs) : '—' }}</span>
+      <span class="stage-total-value">{{ totalDurationMs > 0 ? formatHms(totalDurationMs) : '—' }}</span>
     </div>
   </div>
 </template>
@@ -360,13 +360,12 @@ const totalDurationMs = computed(() => {
   return anyStarted ? total : 0
 })
 
-// 结构化阶段标题按实际使用的后端动态显示；未完成或未知时保持中性「结构化」
+// 结构化阶段标题按实际使用的后端动态显示；统一 Solo 构建，从一开始就显示「Solo结构化」
 function stageTitle(key: string, found: { backend?: string }): string {
   if (key === 'structure') {
     const backend = String(found.backend || '')
     if (backend === 'popo') return '结构化（基于 PoPo）'
-    if (backend === 'solo') return 'Solo结构化'
-    return STAGE_TITLES.structure
+    return 'Solo结构化'
   }
   return STAGE_TITLES[key]
 }
@@ -440,39 +439,42 @@ function formatTime(stage: { started_at?: string }): string {
   return stage.started_at.slice(11, 19)
 }
 
+// 耗时统一格式：<60s 一位小数（如 5.3秒）；≥60s 整数 xx小时xx分xx秒
+function formatHms(ms: number): string {
+  const sec = ms / 1000
+  if (sec < 60) return `${(Math.round(sec * 10) / 10).toFixed(1)}秒`
+  const total = Math.round(sec)
+  const h = Math.floor(total / 3600)
+  const m = Math.floor((total % 3600) / 60)
+  const s = total % 60
+  if (h > 0) return `${h}小时${m}分${s}秒`
+  return `${m}分${s}秒`
+}
+
 function formatDuration(stage: { started_at?: string; finished_at?: string; status: string }): string {
   if (stage.status === 'pending') return '等待中'
   if (stage.status === 'skipped') return '已跳过'
   if (stage.status === 'queued') return '排队中'
-  // 执行中：实时计时（整数秒每秒刷新）
+  // 执行中：实时计时（每秒刷新）
   if (stage.status === 'running' && stage.started_at) {
-    return formatMs(nowTick.value - new Date(stage.started_at).getTime())
+    return formatHms(nowTick.value - new Date(stage.started_at).getTime())
   }
   if (stage.status === 'running') return '执行中'
-  // 完成/失败：总时长 1 位小数
+  // 完成/失败：总时长
   if (!stage.started_at || !stage.finished_at) return '—'
   try {
     const start = new Date(stage.started_at).getTime()
     const end = new Date(stage.finished_at).getTime()
-    const ms = Math.max(0, end - start)
-    if (ms < 100) return `${ms}ms`
-    return `${(ms / 1000).toFixed(1)}s`
+    return formatHms(Math.max(0, end - start))
   } catch {
     return '—'
   }
 }
 
-function formatMs(ms: number): string {
-  const secs = Math.max(0, Math.floor(ms / 1000))
-  if (secs < 1) return `${ms}ms`
-  if (secs < 60) return `${secs}s`
-  return `${Math.floor(secs / 60)}m${secs % 60}s`
-}
-
-// 执行中的实时耗时文案，如 "耗时 12.3s"
+// 执行中的实时耗时文案，如 "耗时 5.3秒"
 function liveDuration(stage: { started_at?: string; status: string }): string {
   if (stage.status !== 'running' || !stage.started_at) return ''
-  return `耗时 ${formatMs(nowTick.value - new Date(stage.started_at).getTime())}`
+  return `耗时 ${formatHms(nowTick.value - new Date(stage.started_at).getTime())}`
 }
 
 function stageInput(stage: { key: string; input_summary: string }): string {
@@ -600,6 +602,34 @@ const POPO_OUTPUTS = ['enriched_blocks.json', 'document_tree.json']
 // 结构化阶段两条后端共用同一组输出文件名，与 PoPo 阶段产物分开判断
 const STRUCTURE_OUTPUTS = ['content.md', 'doc_blocks_graph.jsonl', 'doc_blocks_graph_meta.json']
 
+// 横向「输入 → 处理 → 输出」布局的阶段集合（3.2 PoPo / 4 结构化 / 5 FTS / 6 向量 / 7 图谱）
+const FLOW_STAGES = new Set(['popo', 'structure', 'fts', 'vectors', 'graph'])
+
+// 各横向布局阶段的固定产物清单（后端 outputs 优先，此处为旧数据兜底）
+const FLOW_EXPECTED_OUTPUTS: Record<string, string[]> = {
+  popo: POPO_OUTPUTS,
+  structure: STRUCTURE_OUTPUTS,
+  fts: ['knowledge_index.sqlite'],
+  vectors: ['knowledge_index.sqlite', 'vectorstore/chroma'],
+  graph: ['knowledge_graph.sqlite'],
+}
+
+const FLOW_RUNNING_LABELS: Record<string, string> = {
+  popo: 'PoPo 强化中',
+  structure: '结构化进行中',
+  fts: 'SQLite 建库中',
+  vectors: '向量索引构建中',
+  graph: '图谱构建中',
+}
+
+const FLOW_DONE_LABELS: Record<string, string> = {
+  popo: 'PoPo 强化完成',
+  structure: '结构化完成',
+  fts: 'SQLite+FTS 完成',
+  vectors: '向量索引完成',
+  graph: '图谱完成',
+}
+
 function flowOutputChecklist(stage: { key: string; status: string; output_summary: string; outputs?: { items: { name: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] } }): { name: string; path: string; exists: boolean; isNew: boolean; isDir: boolean; childOfRaw?: boolean }[] {
   // 未启动/排队/已跳过的阶段不渲染产物核查，避免把“尚未运行”显示成红叉
   if (['pending', 'queued', 'skipped'].includes(stage.status)) {
@@ -609,7 +639,7 @@ function flowOutputChecklist(stage: { key: string; status: string; output_summar
   if (stage.outputs?.items?.length) {
     return stage.outputs.items.map(item => ({ ...item, path: '' }))
   }
-  const expected = stage.key === 'structure' ? STRUCTURE_OUTPUTS : POPO_OUTPUTS
+  const expected = FLOW_EXPECTED_OUTPUTS[stage.key] || POPO_OUTPUTS
   const files = parseFiles(stage.output_summary || '')
   const presentNames = new Set(files.map(f => f.name))
   const fixed = expected.map(name => ({
@@ -634,21 +664,24 @@ function flowOutputDir(stage: { key: string; output_summary: string; outputs?: {
   return dirOf(sample.path)
 }
 
-// 箭头阶段名：消息形如 "PoPo 强化完成，N blocks（…），耗时X.Xs"，箭头只显示动作名
+// 箭头阶段名：消息形如 "PoPo 强化完成，N blocks（…），耗时X.X秒"，箭头只显示动作名
 function flowStageName(stage: { key: string; status: string; message?: string }): string {
-  const isStructure = stage.key === 'structure'
-  const runningLabel = isStructure ? '结构化进行中' : 'PoPo 强化中'
-  const doneLabel = isStructure ? '结构化完成' : 'PoPo 强化完成'
+  const runningLabel = FLOW_RUNNING_LABELS[stage.key] || '处理中'
+  const doneLabel = FLOW_DONE_LABELS[stage.key] || '完成'
   const raw = splitStageMessage(stage.message).name || ''
   if (stage.status === 'running' && (!raw || raw === '核查通过')) return runningLabel
   const clean = raw.replace(/\|\|.+\|\|/, '').split('，')[0] || ''
   return clean || (stage.status === 'running' ? runningLabel : doneLabel)
 }
 
-// 箭头模式行：blocks 数量，如 "12 blocks"
+// 箭头模式行：blocks 数量（如 "12 blocks"）或图谱统计（如 "12 实体 / 34 关系"）
 function flowBlocks(stage: { message?: string }): string {
-  const m = (stage.message || '').match(/(\d+)\s*blocks?/)
-  return m ? `${m[1]} blocks` : ''
+  const msg = stage.message || ''
+  const blocks = msg.match(/(\d+)\s*blocks?/)
+  if (blocks) return `${blocks[1]} blocks`
+  const graph = msg.match(/(\d+)\s*实体[，,]\s*(\d+)\s*关系/)
+  if (graph) return `${graph[1]} 实体 / ${graph[2]} 关系`
+  return ''
 }
 
 function parseFiles(text: string): { name: string; path: string; isDir: boolean }[] {
