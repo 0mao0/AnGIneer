@@ -40,7 +40,8 @@ if prev_sha:
     check = subprocess.run(
         ["git", "cat-file", "-e", prev_sha + "^{commit}"],
         cwd=repo,
-        capture_output=True,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
     )
     prev_exists = check.returncode == 0
 if prev_exists:
