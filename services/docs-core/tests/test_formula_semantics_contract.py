@@ -474,10 +474,10 @@ def test_use_llm_always_calls_llm_when_enabled() -> None:
     class _StubLLM:
         def chat(self, messages, temperature=0.0, model=None):
             return json.dumps(
-                {"params": [
+                {"formulas": [{"index": 0, "params": [
                     {"symbol": "F", "description": "合力", "unit": "N", "confidence": 0.95},
                     {"symbol": "m", "description": "质量", "unit": "kg", "confidence": 0.95},
-                ]},
+                ]}]},
                 ensure_ascii=False,
             )
 

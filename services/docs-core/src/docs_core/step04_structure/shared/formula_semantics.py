@@ -6,6 +6,7 @@
 graph node meta / derived_rows 的最终挂载点由后续统一投影确定。
 """
 import json
+import logging
 import re
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple, TYPE_CHECKING, TypedDict
@@ -14,6 +15,8 @@ from docs_core.models.types import CanonicalBlock
 
 if TYPE_CHECKING:
     from ai_inference.llm_client import LLMClient
+
+logger = logging.getLogger(__name__)
 
 
 FORMULA_NUMBER_RE = re.compile(
@@ -190,6 +193,33 @@ def parse_formula_llm_json(payload_text: str) -> Optional[Dict[str, Any]]:
         return None
 
 
+def _clean_llm_params(raw_params: Any) -> List[Dict[str, Any]]:
+    """过滤并规范化 LLM 返回的参数项：symbol/description 任一为空即丢弃。"""
+    out: List[Dict[str, Any]] = []
+    if not isinstance(raw_params, list):
+        return out
+    for item in raw_params:
+        if not isinstance(item, dict):
+            continue
+        symbol = clean_formula_text(str(item.get("symbol") or ""))
+        description = clean_formula_text(str(item.get("description") or ""))
+        if not symbol or not description:
+            continue
+        confidence_raw = item.get("confidence", 0.8)
+        confidence = float(confidence_raw) if isinstance(confidence_raw, (int, float)) else 0.8
+        out.append(
+            {
+                "symbol": symbol,
+                "description": description,
+                "unit": clean_formula_text(str(item.get("unit") or "")) or extract_formula_unit(description),
+                "reference_hint": clean_formula_text(str(item.get("reference_hint") or "")) or extract_formula_reference_hint(description),
+                "confidence": max(0.0, min(1.0, confidence)),
+                "extracted_by": "llm",
+            }
+        )
+    return out
+
+
 # 使用 LLM 兜底解析复杂公式说明。
 def llm_extract_formula_params(
     formula_text: str,
@@ -232,29 +262,128 @@ def llm_extract_formula_params(
         if not isinstance(raw_params, list):
             return [], "empty_result"
 
-        params: List[Dict[str, Any]] = []
-        for item in raw_params:
-            if not isinstance(item, dict):
-                continue
-            symbol = clean_formula_text(str(item.get("symbol") or ""))
-            description = clean_formula_text(str(item.get("description") or ""))
-            if not symbol or not description:
-                continue
-            confidence_raw = item.get("confidence", 0.8)
-            confidence = float(confidence_raw) if isinstance(confidence_raw, (int, float)) else 0.8
-            params.append(
-                {
-                    "symbol": symbol,
-                    "description": description,
-                    "unit": clean_formula_text(str(item.get("unit") or "")) or extract_formula_unit(description),
-                    "reference_hint": clean_formula_text(str(item.get("reference_hint") or "")) or extract_formula_reference_hint(description),
-                    "confidence": max(0.0, min(1.0, confidence)),
-                    "extracted_by": "llm",
-                }
-            )
+        params = _clean_llm_params(raw_params)
         return params, "ok" if params else "empty_result"
     except Exception as error:
         return [], f"error:{str(error)[:60]}"
+
+
+_FORMULA_LLM_BATCH_SIZE = 3
+_BATCH_SYSTEM_PROMPT = (
+    "你是工程规范中的公式说明结构化提取器。"
+    "请从公式及其“式中/其中”说明中提取参数项，仅返回 JSON 对象。"
+    "输出格式: {\"formulas\":[{\"index\":0,\"params\":[{\"symbol\":\"γ\",\"description\":\"风、流压缩角\",\"unit\":\"^circ\",\"reference_hint\":\"采用表6.4.2-2中的数值\",\"confidence\":0.85}]}]}\n"
+    "index 必须对应输入列表中的顺序；每条公式都要输出 params，没有参数就返回空数组。"
+    "如果某字段缺失可返回 null；不要输出额外解释。"
+)
+
+
+def _parse_batch_llm_response(result_text: str) -> Optional[Dict[int, List[Dict[str, Any]]]]:
+    """解析批量响应为 {index: 参数列表}；整批无法解析时返回 None。"""
+    parsed = parse_formula_llm_json(result_text)
+    if not parsed:
+        return None
+    raw_list = parsed.get("formulas") or parsed.get("results") or parsed.get("items")
+    by_index: Dict[int, List[Dict[str, Any]]] = {}
+    if isinstance(raw_list, list):
+        for pos, item in enumerate(raw_list):
+            if not isinstance(item, dict):
+                continue
+            idx = item.get("index")
+            if idx is None:
+                idx = pos
+            try:
+                idx = int(idx)
+            except (TypeError, ValueError):
+                continue
+            by_index[idx] = _clean_llm_params(item.get("params"))
+    return by_index
+
+
+def _request_formula_batch(
+    group: List[Dict[str, Any]],
+    llm_client: Optional["LLMClient"],
+    llm_model: Optional[str],
+) -> Optional[Dict[int, List[Dict[str, Any]]]]:
+    """发起一个批组的 LLM 请求；整批解析失败或调用异常返回 None。"""
+    user_prompt = json.dumps(
+        {
+            "formulas": [
+                {
+                    "index": idx,
+                    "formula_text": clean_formula_text(item["formula_text"]),
+                    "explanation_lines": split_formula_explanation_lines(item["explanation_lines"]),
+                }
+                for idx, item in enumerate(group)
+            ]
+        },
+        ensure_ascii=False,
+    )
+    try:
+        result_text = llm_client.chat(
+            messages=[
+                {"role": "system", "content": _BATCH_SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt},
+            ],
+            temperature=0.0,
+            model=llm_model,
+        )
+    except Exception as error:
+        logger.warning("公式批量提取调用失败: %s", str(error)[:160])
+        return None
+    return _parse_batch_llm_response(result_text)
+
+
+def _process_formula_batch_group(
+    group: List[Dict[str, Any]],
+    llm_client: Optional["LLMClient"],
+    llm_model: Optional[str],
+) -> Dict[str, Tuple[List[Dict[str, Any]], str]]:
+    """单个批组：整批解析失败重试一次，仍失败按二分拆组兜底。"""
+    parsed = None
+    for attempt in range(2):
+        parsed = _request_formula_batch(group, llm_client, llm_model)
+        if parsed is not None:
+            if attempt == 1:
+                logger.warning("公式批量提取整批解析失败，重试成功: %d 条", len(group))
+            break
+    if parsed is not None:
+        out: Dict[str, Tuple[List[Dict[str, Any]], str]] = {}
+        for idx, item in enumerate(group):
+            params = parsed.get(idx)
+            if params is None:
+                params = []
+            out[item["key"]] = (params, "ok" if params else "empty_result")
+        return out
+    if len(group) <= 1:
+        logger.warning("公式批量提取重试仍失败，回退规则: %s", group[0]["key"])
+        return {group[0]["key"]: ([], "invalid_json")}
+    logger.warning("公式批量提取重试仍失败，拆半重试: %d 条", len(group))
+    mid = len(group) // 2
+    out = {}
+    out.update(_process_formula_batch_group(group[:mid], llm_client, llm_model))
+    out.update(_process_formula_batch_group(group[mid:], llm_client, llm_model))
+    return out
+
+
+def llm_extract_formula_params_batch(
+    items: List[Dict[str, Any]],
+    llm_client: Optional["LLMClient"] = None,
+    llm_model: Optional[str] = None,
+    batch_size: int = _FORMULA_LLM_BATCH_SIZE,
+) -> Dict[str, Tuple[List[Dict[str, Any]], str]]:
+    """批量 LLM 提取公式参数（默认 3 个/批，含整批失败重试一次 + 拆半兜底）。
+
+    items: [{"key": 块标识, "formula_text": 公式文本, "explanation_lines": 说明行}]
+    返回 {key: (params, status)}；单项失败由调用方回退规则提取。
+    """
+    if not items or not llm_client:
+        return {}
+    result: Dict[str, Tuple[List[Dict[str, Any]], str]] = {}
+    for i in range(0, len(items), max(1, batch_size)):
+        group = items[i:i + max(1, batch_size)]
+        result.update(_process_formula_batch_group(group, llm_client, llm_model))
+    return result
 
 
 # 合并规则结果与 LLM 结果，优先保留规则字段。
@@ -517,6 +646,7 @@ def build_formula_representations(
     llm_client: Optional["LLMClient"] = None,
     llm_model: Optional[str] = None,
     use_llm: bool = True,
+    llm_result: Optional[Tuple[List[Dict[str, Any]], str]] = None,
 ) -> FormulaSemanticsContract:
     cleaned_formula = clean_formula_text(formula_text)
     normalized_lines = split_formula_explanation_lines(explanation_lines)
@@ -537,6 +667,8 @@ def build_formula_representations(
     if use_llm:
         if not normalized_lines:
             llm_status = "not_needed"
+        elif llm_result is not None:
+            llm_params, llm_status = llm_result
         else:
             llm_params, llm_status = llm_extract_formula_params(
                 formula_text=cleaned_formula,
@@ -772,15 +904,36 @@ def enrich_graph_nodes_formula_semantics(
     block_by_uid = {b.block_id: b for b in ordered}
     statuses: List[str] = []
 
+    # 批量 LLM 提取：默认 3 个/批 + 整批失败重试一次 + 拆半兜底，减少串行调用
+    formula_lines: Dict[str, List[str]] = {}
+    llm_results: Dict[str, Tuple[List[Dict[str, Any]], str]] = {}
+    if use_llm and llm_client:
+        batch_items: List[Dict[str, Any]] = []
+        for block in formula_blocks:
+            node = nodes_by_uid.get(block.block_id) or {}
+            lines = _resolve_explanation_lines(node, block, ordered, nodes_by_uid)
+            formula_lines[block.block_id] = lines
+            batch_items.append(
+                {
+                    "key": block.block_id,
+                    "formula_text": block.text or "",
+                    "explanation_lines": lines,
+                }
+            )
+        llm_results = llm_extract_formula_params_batch(batch_items, llm_client, llm_model)
+
     for block in formula_blocks:
         node = nodes_by_uid.get(block.block_id) or {}
-        explanation_lines = _resolve_explanation_lines(node, block, ordered, nodes_by_uid)
+        explanation_lines = formula_lines.get(block.block_id)
+        if explanation_lines is None:
+            explanation_lines = _resolve_explanation_lines(node, block, ordered, nodes_by_uid)
         contract = build_formula_representations(
             formula_text=block.text,
             explanation_lines=explanation_lines,
             llm_client=llm_client,
             llm_model=llm_model,
             use_llm=use_llm,
+            llm_result=llm_results.get(block.block_id),
         )
         corrections = _build_symbol_corrections(
             block.text,
@@ -832,6 +985,7 @@ __all__ = [
     "extract_formula_reference_hint",
     "extract_formula_unit",
     "llm_extract_formula_params",
+    "llm_extract_formula_params_batch",
     "merge_formula_params",
     "parse_formula_llm_json",
     "parse_formula_param_rule",
