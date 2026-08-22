@@ -62,11 +62,17 @@
               <!-- 自定义操作按钮：根据节点状态显示不同按钮 -->
               <template #actions="{ node }">
                 <template v-if="node.isFolder">
-                  <EditOutlined class="action-icon" title="重命名" @click.stop="showRenameModal(node)" />
-                  <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="showCreateSubFolderModal(node)" />
-                  <FileAddOutlined class="action-icon" title="添加文件" @click.stop="showCreateFileModal(node)" />
-                  <CheckSquareOutlined class="action-icon delete" title="批量删除文件" @click.stop="showBatchDeleteModal(node)" />
-                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="handleDeleteNode(node)" />
+                  <template v-if="isLibRootNode(node)">
+                    <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="showCreateSubFolderModal(node)" />
+                    <FileAddOutlined class="action-icon" title="添加文件" @click.stop="showCreateFileModal(node)" />
+                  </template>
+                  <template v-else>
+                    <EditOutlined class="action-icon" title="重命名" @click.stop="showRenameModal(node)" />
+                    <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="showCreateSubFolderModal(node)" />
+                    <FileAddOutlined class="action-icon" title="添加文件" @click.stop="showCreateFileModal(node)" />
+                    <CheckSquareOutlined class="action-icon delete" title="批量删除文件" @click.stop="showBatchDeleteModal(node)" />
+                    <DeleteOutlined class="action-icon delete" title="删除" @click.stop="handleDeleteNode(node)" />
+                  </template>
                 </template>
                 <template v-else>
                   <EditOutlined class="action-icon" title="重命名" @click.stop="showRenameModal(node)" />
@@ -227,6 +233,8 @@
       v-model:parent-id="folderForm.parentId"
 
       :is-new="folderForm.isNew"
+
+      :library-name="folderModalLibraryName"
 
       @confirm="handleFolderModalOk"
 
@@ -429,6 +437,9 @@ const {
   getFolderName
 } = useKnowledgeTree()
 
+// 当前知识库（供上传默认归属）
+const libraryStore = useLibraryStore()
+
 /** 全局会话：不随文档变化，只有刷新或新建对话才换 key */
 const chatNonce = ref(Date.now() + Math.floor(Math.random() * 1_000_000))
 const chatSessionId = computed(() => `global::${chatNonce.value}`)
@@ -509,7 +520,8 @@ const folderForm = ref({
   name: '',
   parentId: undefined as string | undefined,
   isNew: true,
-  nodeId: ''
+  nodeId: '',
+  libraryId: '' as string
 })
 
 const docDetailVisible = ref(false)
@@ -519,6 +531,10 @@ const detailDoc = ref<KnowledgeTreeNode | null>(null)
 const batchDeleteVisible = ref(false)
 const batchDeleteFolder = ref<KnowledgeTreeNode | null>(null)
 const showBatchDeleteModal = (node: SmartTreeNode) => {
+  if (isDefaultRootFolder(node)) {
+    message.warning('知识库根目录不可删除；如需删除整个知识库，请在「列表」模式下操作（有二次确认）')
+    return
+  }
   batchDeleteFolder.value = node as KnowledgeTreeNode
   batchDeleteVisible.value = true
 }
@@ -532,6 +548,13 @@ const buildIdMismatch = ref(false)
 
 // 计算属性
 const folderModalTitle = computed(() => folderForm.value.isNew ? '新建文件夹' : '重命名')
+// 弹窗展示的所属知识库名（只读）
+const folderModalLibraryName = computed(() => {
+  if (!folderForm.value.libraryId) return ''
+  return libraryStore.libraries.find(l => l.id === folderForm.value.libraryId)?.name
+    || libraryStore.libraries.find(l => l.id === folderForm.value.libraryId)?.id
+    || folderForm.value.libraryId
+})
 const folderSelectTreeData = computed(() => [
   { value: '__root__', title: '根目录' },
   ...folderTreeData.value
@@ -678,11 +701,27 @@ const findFirstFileNode = (nodes: SmartTreeNode[]): SmartTreeNode | null => {
   return null
 }
 
-// 加载节点
+// 加载节点：所有知识库可视（库根虚拟节点），各库内容挂在库下
 const loadNodes = async (focusNodeKey?: string) => {
   try {
-    const response = await props.api.getNodes(undefined, false) as unknown as any[]
-    treeData.value = buildTree(response)
+    const [response, libraries] = await Promise.all([
+      props.api.getNodes(undefined, false) as unknown as any[],
+      libraryStore.loadLibraries(),
+    ])
+    treeData.value = buildTree(response, libraries)
+    // 默认展开所有库根虚拟节点，保证库内容可见
+    const libRootKeys = (treeData.value as unknown as SmartTreeNode[])
+      .filter(n => String(n.key).startsWith('lib:'))
+      .map(n => n.key)
+    if (libRootKeys.length) {
+      defaultExpandedKeys.value = Array.from(new Set([...defaultExpandedKeys.value, ...libRootKeys]))
+      if (smartTreeRef.value) {
+        smartTreeRef.value.expandedKeys = Array.from(new Set([
+          ...(smartTreeRef.value.expandedKeys || []),
+          ...libRootKeys
+        ]))
+      }
+    }
     // 校验当前选中节点是否仍存在（列表页可能已删除该文档），不存在则清空选中态与视图缓存
     const currentSelectedKey = selectedKeys.value[0]
     if (currentSelectedKey && !findNode(treeData.value as unknown as SmartTreeNode[], currentSelectedKey)) {
@@ -868,17 +907,28 @@ const loadFullGraphData = async () => {
 
 // 显示新建文件夹弹窗
 const showCreateFolderModal = () => {
-  folderForm.value = { name: '', parentId: undefined, isNew: true, nodeId: '' }
+  folderForm.value = {
+    name: '',
+    parentId: undefined,
+    isNew: true,
+    nodeId: '',
+    libraryId: useLibraryStore().libraryId || 'default'
+  }
   folderModalVisible.value = true
 }
 
 // 显示重命名弹窗
 const showRenameModal = (node: SmartTreeNode) => {
+  if (isLibRootNode(node)) {
+    message.warning('知识库根目录不可重命名（库名请在列表模式修改）')
+    return
+  }
   folderForm.value = {
     name: node.title,
     parentId: node.parentId,
     isNew: false,
-    nodeId: node.key
+    nodeId: node.key,
+    libraryId: String((node as any).libraryId || useLibraryStore().libraryId || 'default')
   }
   folderModalVisible.value = true
 }
@@ -889,7 +939,8 @@ const showCreateSubFolderModal = (parentNode: SmartTreeNode | null) => {
     name: '',
     parentId: parentNode?.key || undefined,
     isNew: true,
-    nodeId: ''
+    nodeId: '',
+    libraryId: String((parentNode as any)?.libraryId || useLibraryStore().libraryId || 'default')
   }
   folderModalVisible.value = true
 }
@@ -921,11 +972,14 @@ const handleFolderModalOk = async () => {
       const parentNode = folderForm.value.parentId
         ? findNode(treeData.value as unknown as SmartTreeNode[], folderForm.value.parentId)
         : null
+      // 库根虚拟节点下新建 → 该库根级（parent_id 置空）
+      const isLibRootParent = parentNode ? isLibRootNode(parentNode as SmartTreeNode) : false
+      const targetLibrary = (parentNode as any)?.libraryId || useLibraryStore().libraryId || 'default'
       await props.api.createNode({
-        library_id: (parentNode as any)?.libraryId || useLibraryStore().libraryId || 'default',
+        library_id: targetLibrary,
         title: folderForm.value.name,
         node_type: 'folder',
-        parent_id: folderForm.value.parentId
+        parent_id: isLibRootParent ? undefined : folderForm.value.parentId
       })
       message.success('创建成功')
     } else {
@@ -943,8 +997,19 @@ const handleFolderModalOk = async () => {
   }
 }
 
+// 是否库根虚拟节点（key 约定 lib:{id}）：知识树展示所有库的可视化，库根不可删除
+const isLibRootNode = (node: SmartTreeNode): boolean =>
+  String(node?.key || '').startsWith('lib:')
+
+// 库根节点禁止删除（删库需走列表模式的二次确认）
+const isDefaultRootFolder = (node: SmartTreeNode): boolean => isLibRootNode(node)
+
 // 删除节点
 const handleDeleteNode = async (node: SmartTreeNode) => {
+  if (isDefaultRootFolder(node)) {
+    message.warning('知识库根目录不可删除；如需删除整个知识库，请在「列表」模式下操作（有二次确认）')
+    return
+  }
   const nodeType = node.isFolder ? '文件夹' : '文件'
   const previewText = node.isFolder
     ? `确定要删除「${node.title}」文件夹吗？其中所有文件将被标记删除并从树中隐藏，数据保留。`
@@ -1101,33 +1166,16 @@ const handleFileDrop = async (files: File[], targetFolder: SmartTreeNode | null)
   }
 }
 
-// 上传文件
-// 确保当前库存在『管理员上传』文件夹，返回其 node id（找到或创建）
-const ensureAdminFolder = async (libraryId: string): Promise<string | undefined> => {
-  const existing = (treeData.value as unknown as SmartTreeNode[]).find(
-    (n) => (n as any).libraryId === libraryId && (n as any).isFolder && n.title === '管理员上传'
-  )
-  if (existing) return existing.key
-  try {
-    const created = await props.api.createNode({
-      library_id: libraryId,
-      title: '管理员上传',
-      node_type: 'folder'
-    }) as any
-    return created?.id || created?.key
-  } catch (e) {
-    message.error('自动创建管理员文件夹失败，文档将上传到根目录')
-    return undefined
-  }
-}
-
+// 上传文件：未指定文件夹（含库根虚拟节点）时上传到该库根级
 const uploadFile = async (file: File, parentId?: string) => {
-  const targetLibrary = parentId
-    ? String((findNode(treeData.value as unknown as SmartTreeNode[], parentId) as any)?.libraryId || useLibraryStore().libraryId || 'default')
-    : String(useLibraryStore().libraryId || 'default')
-  // 未指定文件夹时，自动归入当前库的『管理员上传』文件夹（找到或创建）
-  if (!parentId) {
-    parentId = await ensureAdminFolder(targetLibrary)
+  let targetLibrary = ''
+  if (parentId && parentId.startsWith('lib:')) {
+    targetLibrary = parentId.slice(4)
+    parentId = undefined
+  } else if (parentId) {
+    targetLibrary = String((findNode(treeData.value as unknown as SmartTreeNode[], parentId) as any)?.libraryId || useLibraryStore().libraryId || 'default')
+  } else {
+    targetLibrary = String(useLibraryStore().libraryId || 'default')
   }
   const tempKey = `__uploading_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
   const tempNode: KnowledgeTreeNode = {
@@ -1199,11 +1247,18 @@ const handleFolderUpload = (file: File, folderId: string) => {
 // 树拖拽
 const onTreeDrop = async (event: DropEvent) => {
   const { dragKey, targetParentKey, siblings } = event
-
+  if (dragKey.startsWith('lib:')) {
+    message.warning('知识库根目录不可移动')
+    await loadNodes()
+    return
+  }
+  // 拖到虚拟库根 → 该库根级
+  const realParentKey = targetParentKey?.startsWith('lib:') ? undefined : targetParentKey
+  const realSiblings = siblings.filter(s => !s.key.startsWith('lib:'))
   try {
-    for (let index = 0; index < siblings.length; index++) {
-      await props.api.updateNode(siblings[index].key, {
-        parent_id: targetParentKey,
+    for (let index = 0; index < realSiblings.length; index++) {
+      await props.api.updateNode(realSiblings[index].key, {
+        parent_id: realParentKey,
         sort_order: index,
       })
     }
@@ -1227,8 +1282,14 @@ const onInvalidDrop = async (reason: string) => {
 const onTreeDropRoot = async (dragNodeKeys: string[]) => {
   const dragNodeKey = dragNodeKeys[0]
   if (!dragNodeKey) return
+  if (dragNodeKey.startsWith('lib:')) {
+    message.warning('知识库根目录不可移动')
+    await loadNodes()
+    return
+  }
   try {
-    const rootNodes = (treeData.value as unknown as SmartTreeNode[]).filter(node => node.key !== dragNodeKey)
+    const rootNodes = (treeData.value as unknown as SmartTreeNode[])
+      .filter(node => node.key !== dragNodeKey && !node.key.startsWith('lib:'))
     for (let index = 0; index < rootNodes.length; index++) {
       const node = rootNodes[index]
       await props.api.updateNode(node.key, {
