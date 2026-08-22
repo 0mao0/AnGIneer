@@ -20,6 +20,7 @@ export interface StatisticsItem {
   date?: string
   uploaded_by: string
   count: number
+  page_count?: number
 }
 
 export const apiKeysApi = {

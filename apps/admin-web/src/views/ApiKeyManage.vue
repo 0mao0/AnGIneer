@@ -67,9 +67,6 @@
                 style="flex: 1"
                 :options="libraryOptions"
               />
-              <a-button size="small" title="新建知识库" @click="showCreateLib = true">
-                <template #icon><plus-outlined /></template>
-              </a-button>
             </div>
           </a-form-item>
         </a-form>
@@ -117,24 +114,7 @@
                 style="flex: 1"
                 :options="libraryOptions"
               />
-              <a-button size="small" title="新建知识库" @click="showCreateLib = true">
-                <template #icon><plus-outlined /></template>
-              </a-button>
             </div>
-          </a-form-item>
-        </a-form>
-      </a-modal>
-
-      <a-modal
-        v-model:open="showCreateLib"
-        title="新建知识库"
-        @ok="handleCreateLibrary"
-        @cancel="showCreateLib = false"
-        :confirm-loading="creatingLib"
-      >
-        <a-form layout="vertical">
-          <a-form-item label="名称" required>
-            <a-input v-model:value="createLibName" placeholder="如：DredgeAI投标知识库" />
           </a-form-item>
         </a-form>
       </a-modal>
@@ -148,7 +128,6 @@
 import { ref, computed, onMounted } from 'vue'
 import dayjs from 'dayjs'
 import { message } from 'ant-design-vue'
-import { PlusOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { apiKeysApi, type KeyItem } from '@/api/apiKeys'
 import { knowledgeApi } from '@/api/knowledge'
@@ -168,10 +147,6 @@ const libraries = ref<LibraryOptionItem[]>([])
 const libraryOptions = computed(() =>
   libraries.value.map((l) => ({ value: l.id, label: l.name || l.id }))
 )
-
-const showCreateLib = ref(false)
-const creatingLib = ref(false)
-const createLibName = ref('')
 
 const newKeyForm = ref({
   user_name: '',
@@ -216,29 +191,6 @@ async function loadLibraries() {
     libraries.value = (await knowledgeApi.getLibraries()) as unknown as LibraryOptionItem[]
   } catch (e: any) {
     message.error('加载知识库失败: ' + (e.message || e))
-  }
-}
-
-async function handleCreateLibrary() {
-  const name = createLibName.value.trim()
-  if (!name) {
-    message.warning('请输入名称')
-    return
-  }
-  creatingLib.value = true
-  try {
-    const lib = await knowledgeApi.createLibrary(name, '')
-    await loadLibraries()
-    // 优先填到当前打开的表单
-    if (showCreateModal.value) newKeyForm.value.library_id = lib.id
-    if (showEditModal.value) editForm.value.library_id = lib.id
-    showCreateLib.value = false
-    createLibName.value = ''
-    message.success('知识库已创建')
-  } catch (e: any) {
-    message.error('创建失败: ' + (e.message || e))
-  } finally {
-    creatingLib.value = false
   }
 }
 
