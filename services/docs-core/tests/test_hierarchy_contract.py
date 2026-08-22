@@ -3,6 +3,7 @@
 import json
 from pathlib import Path
 
+import pytest
 from docs_core.step04_structure.shared.title_level_refiner import (
     refine_document_title_levels,
 )
@@ -11,6 +12,10 @@ from docs_core.step05_sqlite_fts.rebuild.graph_rebuilder import (
 )
 from docs_core.step04_structure.solo_engine import build_structured_from_rawfiles
 from fixtures.popo_fixtures import content_list_block
+
+KB = Path(__file__).resolve().parents[3] / "data" / "knowledge_base" / "libraries" / "default" / "documents"
+REAL_FIXTURE_MISSING = not (KB / "doc-406e43e8" / "parsed").exists()
+REAL_FIXTURE_REASON = "真实数据目录缺失（doc-406e43e8 解析产物不存在）"
 
 
 class _CountingLLM:
@@ -188,10 +193,11 @@ def test_old_format_without_outlines_falls_back_to_title_blocks(tmp_path) -> Non
     assert document.outlines[0].title == "5.1 一般规定"
 
 
+@pytest.mark.skipif(REAL_FIXTURE_MISSING, reason=REAL_FIXTURE_REASON)
 def test_front_matter_title_is_flat_and_part_marker():
     from docs_core.step04_structure.solo_engine import build_structured_from_rawfiles
     from docs_core.step04_structure.shared.page_role_classifier import DocumentPart
-    parsed = Path(__file__).resolve().parents[3] / "data" / "knowledge_base" / "libraries" / "default" / "documents" / "doc-406e43e8" / "parsed"
+    parsed = KB / "doc-406e43e8" / "parsed"
     result = build_structured_from_rawfiles(
         parsed, "doc-406e43e8", "doc-406e43e8", llm_client=None, options={"use_llm": False}
     )
@@ -205,9 +211,10 @@ def test_front_matter_title_is_flat_and_part_marker():
     assert body["document_part"] == DocumentPart.BODY.value
 
 
+@pytest.mark.skipif(REAL_FIXTURE_MISSING, reason=REAL_FIXTURE_REASON)
 def test_real_doc_front_matter_non_toc_content_is_flat():
     from docs_core.step04_structure.solo_engine import build_structured_from_rawfiles
-    parsed = Path(__file__).resolve().parents[3] / "data" / "knowledge_base" / "libraries" / "default" / "documents" / "doc-406e43e8" / "parsed"
+    parsed = KB / "doc-406e43e8" / "parsed"
     result = build_structured_from_rawfiles(
         parsed, "doc-406e43e8", "doc-406e43e8", llm_client=None, options={"use_llm": False}
     )
@@ -224,8 +231,9 @@ def test_real_doc_front_matter_non_toc_content_is_flat():
         assert n.get("title_path") is None
 
 
+@pytest.mark.skipif(REAL_FIXTURE_MISSING, reason=REAL_FIXTURE_REASON)
 def test_furniture_blocks_have_no_hierarchy():
-    parsed = Path(__file__).resolve().parents[3] / "data" / "knowledge_base" / "libraries" / "default" / "documents" / "doc-406e43e8" / "parsed"
+    parsed = KB / "doc-406e43e8" / "parsed"
     result = build_structured_from_rawfiles(
         parsed, "doc-406e43e8", "doc-406e43e8", llm_client=None, options={"use_llm": False}
     )

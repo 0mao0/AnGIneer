@@ -293,6 +293,15 @@ def update_knowledge_library(library_id: str, request: KnowledgeLibraryUpdate):
     return library
 
 
+@docs_router.delete("/libraries/{library_id}")
+def delete_knowledge_library(library_id: str):
+    """删除知识库：级联清理该库全部节点、文档产物与图谱数据。default 库禁止删除。"""
+    ks = get_docs_service()
+    if not ks.delete_library(library_id):
+        raise HTTPException(status_code=404, detail="Library not found")
+    return {"status": "deleted", "library_id": library_id}
+
+
 @docs_router.get("/nodes")
 def list_knowledge_nodes(library_id: Optional[str] = None, visible: bool = False):
     """获取知识库节点列表。"""
@@ -639,6 +648,7 @@ async def upload_document(
         file_format=ext,
         file_size=len(content),
         status="pending",
+        library_id=library_id,
     ))
 
     return {

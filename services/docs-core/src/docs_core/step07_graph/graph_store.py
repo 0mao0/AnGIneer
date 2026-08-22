@@ -418,6 +418,40 @@ class GraphStore:
             conn.commit()
         return removed
 
+    def delete_library(self, library_id: str) -> int:
+        """删除指定知识库的全部图谱产物（relations + 库级附属表 + 实体）。
+
+        实体在库删除场景下属于该库的提取工作成果，一并清除；要求调用方确认范围内无跨库共享需求。
+        """
+        removed = 0
+        with self._connect() as conn:
+            for junction, id_col, parent in (
+                ("principle_entities", "principle_id", "graph_principles"),
+                ("example_entities", "example_id", "graph_examples"),
+                ("warning_entities", "warning_id", "graph_warnings"),
+            ):
+                cursor = conn.execute(
+                    f"DELETE FROM {junction} WHERE {id_col} IN "
+                    f"(SELECT {id_col} FROM {parent} WHERE library_id = ?)",
+                    (library_id,),
+                )
+                removed += int(cursor.rowcount or 0)
+            for table in (
+                "graph_relations",
+                "graph_principles",
+                "graph_examples",
+                "graph_warnings",
+                "graph_frameworks",
+            ):
+                cursor = conn.execute(f"DELETE FROM {table} WHERE library_id = ?", (library_id,))
+                removed += int(cursor.rowcount or 0)
+            cursor = conn.execute(
+                "DELETE FROM graph_entities WHERE library_id = ?", (library_id,)
+            )
+            removed += int(cursor.rowcount or 0)
+            conn.commit()
+        return removed
+
     def upsert_entity(self, entity: GraphEntity) -> GraphEntity:
         now = _now()
         with self._connect() as conn:

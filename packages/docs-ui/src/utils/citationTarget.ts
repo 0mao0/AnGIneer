@@ -11,8 +11,9 @@
  */
 export const normalizeCitationTargetId = (targetId: string): string => {
   let id = String(targetId || '').trim()
-  id = id.replace(/-(?:row|summary)(?:-\d+)?$/, '')
+  id = id.replace(/-(?:row|summary|schema|text-row)(?:-\d+)?$/, '')
   id = id.replace(/^(?:chunk-)?(?:table|title)-/, '')
+  id = id.replace(/^(?:target|table|formula|figure|chunk):/, '')
   id = id.replace(/^chunk-/, '')
   return id
 }

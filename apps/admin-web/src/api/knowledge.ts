@@ -78,6 +78,8 @@ export const knowledgeApi = {
   getLibrary: (libraryId: string) => api.get(`/knowledge/libraries/${libraryId}`),
   updateLibrary: (libraryId: string, data: { name?: string; description?: string }) =>
     api.patch(`/knowledge/libraries/${libraryId}`, data) as Promise<{ id: string; name: string }>,
+  deleteLibrary: (libraryId: string) =>
+    api.delete(`/knowledge/libraries/${libraryId}`) as Promise<{ status: string; library_id: string }>,
 
   getNodes: (libraryId?: string, visible: boolean = false) =>
     api.get('/knowledge/nodes', { params: { visible, ...(libraryId ? { library_id: libraryId } : {}) } }),

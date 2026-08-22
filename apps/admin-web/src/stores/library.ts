@@ -29,6 +29,7 @@ export const useLibraryStore = defineStore('library', {
         if (!this.libraries.some((l) => l.id === this.libraryId)) {
           this.libraryId = 'default'
         }
+        return this.libraries
       } finally {
         this.loading = false
       }

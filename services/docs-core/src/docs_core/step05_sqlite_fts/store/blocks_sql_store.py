@@ -356,6 +356,13 @@ class KnowledgeMetaStore:
             )
             conn.commit()
 
+    # 删除知识库记录（default 禁止删除）。
+    def delete_library(self, library_id: str) -> bool:
+        with self.connect() as conn:
+            cursor = conn.execute("DELETE FROM libraries WHERE id = ?", (library_id,))
+            conn.commit()
+            return int(cursor.rowcount or 0) > 0
+
     # 持久化节点记录：folder 只写 tree_node，document 写 nodes + tree_node。
     def upsert_node(self, node: Any) -> None:
         with self.connect() as conn:

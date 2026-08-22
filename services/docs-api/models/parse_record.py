@@ -170,14 +170,15 @@ def get_statistics(
     统计 API key 使用轨迹时应计入。
     名称：有 api_key_id 的记录实时 join 当前 key 名（改名后历史跟随），
     无 key 的记录（管理后台上传）保留 uploaded_by 快照。
+    页数：实时 join 知识索引库 doc_parse_stages 的 raw_parse page_count。
     """
     init_db()
     conn = _get_conn()
     rows = conn.execute("""
-        SELECT DATE(created_at) as date, api_key_id, uploaded_by, COUNT(*) as count
+        SELECT DATE(created_at) as date, api_key_id, uploaded_by, doc_id, COUNT(*) as count
         FROM parse_records
         WHERE DATE(created_at) >= ? AND DATE(created_at) <= ? AND status IN ('completed', 'deleted')
-        GROUP BY DATE(created_at), api_key_id, uploaded_by
+        GROUP BY DATE(created_at), api_key_id, uploaded_by, doc_id
         ORDER BY date
     """, (start_date, end_date)).fetchall()
     conn.close()
@@ -195,21 +196,33 @@ def get_statistics(
         except Exception:
             pass
 
+    # doc_id → 页数（raw_parse 阶段落库），跨库实时 join
+    doc_ids = [str(r["doc_id"] or "") for r in rows if r["doc_id"]]
+    page_map: dict = {}
+    if doc_ids:
+        try:
+            from docs_core.docs_service import get_docs_service
+            page_map = get_docs_service().meta_store.page_counts_by_doc_ids(doc_ids) or {}
+        except Exception:
+            page_map = {}
+
     merged: dict = {}
     for row in rows:
         item = dict(row)
         name = key_name_map.get(item.get("api_key_id")) or item.get("uploaded_by") or "未知"
         k = (item["date"], name) if group_by == "day" else (None, name)
-        merged[k] = merged.get(k, 0) + item["count"]
+        entry = merged.setdefault(k, {"count": 0, "pages": 0})
+        entry["count"] += item["count"]
+        entry["pages"] += int(page_map.get(str(item.get("doc_id") or "")) or 0)
 
     if group_by == "day":
         return [
-            {"date": d, "uploaded_by": n, "count": c}
-            for (d, n), c in sorted(merged.items(), key=lambda x: (x[0][0] or "", x[0][1]))
+            {"date": d, "uploaded_by": n, "count": e["count"], "page_count": e["pages"]}
+            for (d, n), e in sorted(merged.items(), key=lambda x: (x[0][0] or "", x[0][1]))
         ]
     return [
-        {"uploaded_by": n, "count": c}
-        for (_, n), c in sorted(merged.items(), key=lambda x: -x[1])
+        {"uploaded_by": n, "count": e["count"], "page_count": e["pages"]}
+        for (_, n), e in sorted(merged.items(), key=lambda x: -x[1]["count"])
     ]
 
 
@@ -327,11 +340,20 @@ def sync_record_for_task(task_id: str, doc_id: str, status: str, error: Optional
         elif update_record_by_doc_id(doc_id, task_id, "processing"):
             pass
         else:
+            library_id = "default"
+            try:
+                from docs_core.docs_service import get_docs_service
+                node = get_docs_service().get_node(doc_id)
+                if node:
+                    library_id = node.library_id or "default"
+            except Exception:
+                pass
             insert_record(ParseRecord(
                 doc_id=doc_id,
                 task_id=task_id,
                 uploaded_by="管理员",
                 status="processing",
+                library_id=library_id,
             ))
     else:
         update_record_status(task_id, status, error)

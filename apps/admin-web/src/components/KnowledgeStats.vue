@@ -11,22 +11,15 @@
         <span class="stats-deleted-label">用户已删</span>
       </div>
       <div class="stats-actions">
-        <a-input-group compact class="library-review-group">
-          <LibrarySelect hide-actions style="min-width: 160px" />
-          <a-button
-            class="library-review-btn"
-            size="small"
-            title="审核当前知识库的实体抽取结果"
-            @click="entityReviewOpen = true"
-          >
-            实体审核
-          </a-button>
-        </a-input-group>
+        <LibrarySelect class="library-select-inline" style="min-width: 160px" @review="onEntityReview" />
+        <a-button type="primary" @click="openUploadModal">
+          <template #icon><upload-outlined /></template>
+          上传
+        </a-button>
         <a-button
           v-show="selectedRowKeys.length > 0"
           type="primary"
           danger
-          size="small"
           @click="onBatchDeleteClick"
         >
           批量删除 ({{ selectedRowKeys.length }})
@@ -247,6 +240,12 @@
       @changed="loadRecords"
       @view-source="handleViewSource"
     />
+
+    <BatchUploadModal
+      v-model:visible="uploadModalOpen"
+      :parse-options="parseOptions"
+      @uploaded="loadRecords"
+    />
   </div>
 </template>
 
@@ -255,20 +254,35 @@ import { ref, nextTick, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import dayjs from 'dayjs'
 import { message, Modal } from 'ant-design-vue'
 import type { TableColumnType } from 'ant-design-vue'
-import { CopyOutlined, ExclamationCircleOutlined } from '@ant-design/icons-vue'
+import { CopyOutlined, ExclamationCircleOutlined, UploadOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
-import { PDFParsedWorkspace } from '@angineer/docs-ui'
-import type { KnowledgeTreeNode } from '@angineer/docs-ui'
+import { PDFParsedWorkspace, useKnowledgeParse } from '@angineer/docs-ui'
+import type { KnowledgeTreeNode, KnowledgeParseOptions } from '@angineer/docs-ui'
 import DocStageStepper from '@/components/DocStageStepper.vue'
 import EntityReviewDrawer from '@/components/EntityReviewDrawer.vue'
 import LibrarySelect from '@/components/LibrarySelect.vue'
+import BatchUploadModal from '@/components/BatchUploadModal.vue'
 import { useLibraryStore } from '@/stores/library'
+import type { KnowledgeLibraryItem } from '@/stores/library'
 
 const { appClass, isDark } = useTheme()
+const { fetchLlmConfigs, buildParseOptionsPayload } = useKnowledgeParse(knowledgeApi)
 
 const libraryStore = useLibraryStore()
 const entityReviewOpen = ref(false)
+const uploadModalOpen = ref(false)
+const parseOptions = ref<KnowledgeParseOptions>({})
+
+async function openUploadModal() {
+  uploadModalOpen.value = true
+  try {
+    await fetchLlmConfigs()
+    parseOptions.value = buildParseOptionsPayload()
+  } catch {
+    parseOptions.value = {}
+  }
+}
 const records = ref<ParseRecordItem[]>([])
 const loading = ref(false)
 const showDeletedOnly = ref(false)
@@ -513,6 +527,12 @@ watch(() => libraryStore.libraryId, () => {
 function toggleDeletedFilter(checked: boolean) {
   showDeletedOnly.value = checked
   loadRecords()
+}
+
+// 下拉 item 内的实体审核入口：切换库并打开审核抽屉
+function onEntityReview(lib: KnowledgeLibraryItem) {
+  libraryStore.setLibrary(lib.id)
+  entityReviewOpen.value = true
 }
 
 async function stopTask(record: ParseRecordItem) {
@@ -1027,26 +1047,10 @@ onMounted(() => {
     background: var(--bg-secondary, #fafafa);
   }
 }
-.library-review-group {
-  display: flex;
-  align-items: center;
-  margin-right: 12px;
+.library-select-inline {
   :deep(.ant-select .ant-select-selector) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-}
-.library-review-btn {
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
-  background: var(--bg-secondary, #fafafa);
-  border-color: var(--border-color, #d9d9d9);
-  height: 32px;
-  border-radius: 0 6px 6px 0;
-  border-left: none;
-  &:hover {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-    background: var(--bg-secondary, #fafafa);
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
   }
 }
 </style>

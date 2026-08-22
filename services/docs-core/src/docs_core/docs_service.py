@@ -387,6 +387,28 @@ class DocsService:
         self.meta_store.upsert_library(library)
         return library
 
+    # 删除知识库：级联清理该库全部节点、文档产物、图谱数据与库记录。default 禁止删除。
+    def delete_library(self, library_id: str) -> bool:
+        if library_id == "default" or self.get_library(library_id) is None:
+            return False
+        library_nodes = [node for node in self.nodes if node.library_id == library_id]
+        library_node_ids = [node.id for node in library_nodes]
+        document_nodes = [node for node in library_nodes if node.type == "document"]
+        self._purge_document_artifacts(document_nodes)
+        self.nodes = [node for node in self.nodes if node.library_id != library_id]
+        self.meta_store.delete_nodes(library_node_ids)
+        self.libraries = [library for library in self.libraries if library.id != library_id]
+        self.meta_store.delete_library(library_id)
+        try:
+            from docs_core.paths import resolve_graph_db_path
+            from docs_core.step07_graph.graph_store import GraphStore
+            graph_db = resolve_graph_db_path()
+            if graph_db.exists():
+                GraphStore(str(graph_db)).delete_library(library_id)
+        except Exception as exc:
+            logger.warning("清理知识库 %s 的图谱数据失败: %s", library_id, exc)
+        return True
+
     # 获取知识库节点列表
     def list_nodes(self, library_id: Optional[str] = None, visible: bool = False) -> List[KnowledgeNode]:
         nodes = [
