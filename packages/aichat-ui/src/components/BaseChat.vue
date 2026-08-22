@@ -177,7 +177,7 @@
               </div>
             </div>
             <template v-if="currentStreamContent">
-              <div class="answer-text" v-html="renderContent(currentStreamContent)" />
+              <div class="answer-text" v-html="renderContent(currentStreamContent, streamingCitations)" />
               <span class="streaming-cursor">|</span>
             </template>
             <div v-else class="streaming-loading">
@@ -441,6 +441,8 @@ const displayMessages = computed(() => {
 const streamingThinkingGroups = computed(() => (
   groupThinkingSteps(props.streamingThinkingSteps || [])
 ))
+// 流式期间实时提取的引用（随 thinking steps 增量更新，供正文标记实时渲染成引用 tag）
+const streamingCitations = computed(() => buildStreamingCitations())
 
 const getStreamingStepCount = computed(() => countThinkingSteps(streamingThinkingGroups.value))
 const getStreamingDuration = computed(() => sumThinkingDuration(streamingThinkingGroups.value))
@@ -472,6 +474,41 @@ const getUniqueCitations = (message: BaseChatMessage) => {
  */
 const getVisibleCitations = (message: BaseChatMessage) => {
   return getUniqueCitations(message)
+}
+
+/**
+ * 流式期间从 thinking steps 的 resultItems 提取带 cite 标记的引用，
+ * 让正文里的 [K1]/[T1] 标记在流式输出时就能渲染成引用 tag（与完成态样式一致）。
+ */
+const buildStreamingCitations = (): BaseChatCitation[] => {
+  const steps = props.streamingThinkingSteps || []
+  const result: BaseChatCitation[] = []
+  const seen = new Set<string>()
+  for (const step of steps) {
+    for (const item of step.resultItems || []) {
+      const marker = String((item as any).cite || '')
+      if (!marker) continue
+      const key = `${marker}::${item.item_id}`
+      if (seen.has(key)) continue
+      seen.add(key)
+      const meta = item.metadata || {}
+      result.push({
+        target_id: String((item as any).citation_target_id || item.item_id || ''),
+        target_type: item.entity_type || 'content',
+        doc_id: item.doc_id || '',
+        doc_title: item.doc_title || item.title || '未命名文档',
+        page_idx: Number(meta.page_idx || 0),
+        page_label: meta.page_label,
+        section_path: String(meta.section_path || ''),
+        snippet: item.text,
+        content: item.text,
+        content_type: 'text',
+        score: item.score || 0,
+        marker,
+      } as BaseChatCitation)
+    }
+  }
+  return result
 }
 
 /**
@@ -587,11 +624,21 @@ const escapeHtml = (content: string): string => {
 /**
  * 渲染消息内容。
  * 如果上层提供了领域渲染器，则优先使用；否则退回纯文本换行渲染。
+ * 流式时传入 streamingCitations 可将 [K1]/[T1] 标记实时渲染成引用 tag。
  */
-const renderContent = (content: string): string => {
+const renderContent = (content: string, streamingCitations?: BaseChatCitation[]): string => {
   const html = props.renderMessage
     ? props.renderMessage(content)
     : escapeHtml(content).replace(/\n/g, '<br />')
+  if (streamingCitations?.length) {
+    // 标记 → tag：流式期间即可显示引用框（与完成态一致，避免结束后跳变）
+    const markerHtml = html.replace(/\[([KTE]\d+)\]/g, (raw, marker: string) => {
+      const index = streamingCitations.findIndex(citation => citation.marker === marker)
+      if (index < 0) return raw
+      return buildInlineCitationTagHtml(streamingCitations[index], index, parseMarkerNumber(marker))
+    })
+    return markerHtml
+  }
   // 流式占位：只替换已完整出现的 [K1]/[T1]/[E1]，未闭合的 [K 保持原样
   return html.replace(/\[([KTE]\d+)\]/g, (_raw, marker: string) =>
     `<span class="stream-citation-marker">${parseMarkerNumber(marker) ?? 0}</span>`)

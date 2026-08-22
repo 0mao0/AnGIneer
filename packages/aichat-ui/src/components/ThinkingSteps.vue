@@ -51,17 +51,16 @@
           v-for="(item, idx) in group.resultItems"
           :key="item.item_id || idx"
           class="thinking-result-item"
+          role="button"
+          tabindex="0"
+          @click="emit('selectCitation', toCitation(item))"
+          @keydown.enter.prevent="emit('selectCitation', toCitation(item))"
         >
           <div class="thinking-result-item-head">
             <span class="thinking-result-item-index">{{ idx + 1 }}</span>
-            <button
-              type="button"
-              class="thinking-result-item-title"
-              :title="item.text"
-              @click="emit('selectCitation', toCitation(item))"
-            >
+            <span class="thinking-result-item-title">
               {{ getCitationTagLabel(toCitation(item)) }}
-            </button>
+            </span>
             <span
               class="thinking-result-item-score"
               title="本组最高分显示为 100%，为组内相对值"
@@ -148,9 +147,19 @@ const toggleResultExpandIfAny = (index: number, group: ThinkingGroupStep) => {
   }
 }
 
+/** 归一化检索条目 id：优先 citation_target_id，其次 item_id 剥掉 target:/table:/formula:/figure: 等前缀 */
+const normalizeItemTargetId = (item: ThinkingTraceItem): string => {
+  const preferred = String((item as any).citation_target_id || '').trim()
+  if (preferred) return preferred
+  let id = String(item.item_id || '').trim()
+  id = id.replace(/^(?:target|table|formula|figure|chunk):/, '')
+  id = id.replace(/-(?:row|summary|schema|text-row)(?:-\d+)?$/, '')
+  return id
+}
+
 /** 把工具返回条目转成可点击跳 PDF 的引用对象 */
 const toCitation = (item: ThinkingTraceItem): BaseChatCitation => ({
-  target_id: item.item_id,
+  target_id: normalizeItemTargetId(item),
   target_type: item.entity_type || 'content',
   doc_id: item.doc_id || '',
   doc_title: item.doc_title || item.title || '未命名文档',
@@ -274,9 +283,15 @@ const resultQuery = (group: ThinkingGroupStep): string => {
     border-radius: 8px;
     background: rgba(128, 128, 128, 0.05);
     transition: border-color 0.16s ease;
+    cursor: pointer;
 
     &:hover {
       border-color: var(--primary-color, #1677ff);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--primary-color, #1677ff);
+      outline-offset: 1px;
     }
   }
 
@@ -309,16 +324,8 @@ const resultQuery = (group: ThinkingGroupStep): string => {
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: 0;
-    border: none;
-    background: transparent;
     color: var(--primary-color, #1677ff);
     font-size: 12px;
-    text-align: left;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.85;
-    }
   }
 
   .thinking-result-item-score {
@@ -347,6 +354,23 @@ const resultQuery = (group: ThinkingGroupStep): string => {
 
     :deep(.math-inline-fallback) {
       color: var(--error-color, #ff4d4f);
+    }
+
+    :deep(.bare-latex-inline) {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 2px;
+      max-width: 100%;
+      overflow-x: auto;
+
+      .katex-display {
+        display: inline-block;
+        margin: 0;
+      }
+
+      .katex {
+        font-size: 1.05em;
+      }
     }
   }
 
