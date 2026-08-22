@@ -4,7 +4,8 @@
     <div ref="headerTitleRef" class="pane-title pane-title-with-actions">
       <div ref="headerMainRef" class="pane-title-main">
         <div class="pane-title-prefix-wrap">
-          <span class="pane-title-prefix">原文</span>
+          <span v-if="title" class="pane-title-doc-name" :title="title">{{ title }}</span>
+          <span v-else class="pane-title-prefix">原文</span>
         </div>
         <Tag v-if="node.status === 'failed'" color="error" class="parse-state-tag">
           解析失败
@@ -153,7 +154,7 @@
         搜索中...
       </div>
       <div v-else-if="searchQuery" class="search-no-results">
-        未找到匹配结果
+        {{ nativeSearchNoTextLayer ? '该 PDF 无文本层（扫描件），无法搜索' : '未找到匹配结果' }}
       </div>
     </div>
     <div class="file-preview">
@@ -429,6 +430,7 @@ const props = withDefaults(defineProps<{
   fileUrl: string
   textContent: string
   searchText?: string
+  title?: string
   currentPdfPage: number
   pdfPageCount?: number
   pdfPageRange?: number[]
@@ -626,6 +628,8 @@ const isSearching = ref(false)
 const searchActivePage = ref(0)
 const searchActiveLine = ref(0)
 const searchPanelRef = ref<HTMLElement | null>(null)
+// 原生搜索（未传 searchText 时走 pdf.js 全文）标记扫描件无文本层
+const nativeSearchNoTextLayer = ref(false)
 
 // 把 highlights 的 lineStart/lineEnd 映射成 行号→页码
 const highlightPageMap = computed(() => {
@@ -650,6 +654,7 @@ const toggleSearchPanel = () => {
     searchActiveLine.value = 0
     searchWordRects.value = []
     searchWordLoadToken += 1
+    nativeSearchNoTextLayer.value = false
   }
 }
 
@@ -661,6 +666,7 @@ const closeSearchPanel = () => {
   searchActiveLine.value = 0
   searchWordRects.value = []
   searchWordLoadToken += 1
+  nativeSearchNoTextLayer.value = false
 }
 
 const performTextSearch = () => {
@@ -674,34 +680,98 @@ const performTextSearch = () => {
   searchActiveLine.value = 0
   searchWordRects.value = []
   searchWordLoadToken += 1
+  nativeSearchNoTextLayer.value = false
 
-    const lowerQ = q.toLowerCase()
-    const sourceText = props.searchText || props.textContent || ''
-    const lines = sourceText.split('\n')
-    const pageMap = highlightPageMap.value
-    const results: SearchResult[] = []
-    const highlights = props.highlights || []
-
-    for (let i = 0; i < lines.length && results.length < 200; i++) {
-      const line = lines[i]
-      const lineLower = line.toLowerCase()
-      let pos = lineLower.indexOf(lowerQ)
-      while (pos >= 0 && results.length < 200) {
-        const start = Math.max(0, pos - 30)
-        const end = Math.min(line.length, pos + lowerQ.length + 50)
-        // 优先按文本命中 + 行距最近的高亮块定位；无匹配时回退到行号映射
-        const target = pickSearchTargetHighlight(q, line, i + 1, highlights)
-        const page = target?.page ?? (pageMap.get(i + 1) ?? 0)
-        results.push({
-          page,
-          text: line.slice(start, end),
-          lineNumber: i + 1,
-          highlight: target ?? undefined,
-        })
-        pos = lineLower.indexOf(lowerQ, pos + 1)
-      }
+  // 调用方未提供全文时，回退到 pdf.js 页面文本内容做全文搜索（DredgeAI 等仅传 URL/bbox 的集成）
+  if (!props.searchText && !props.textContent) {
+    void performNativeTextSearch()
+    return
   }
 
+  const lowerQ = q.toLowerCase()
+  const sourceText = props.searchText || props.textContent || ''
+  const lines = sourceText.split('\n')
+  const pageMap = highlightPageMap.value
+  const results: SearchResult[] = []
+  const highlights = props.highlights || []
+
+  for (let i = 0; i < lines.length && results.length < 200; i++) {
+    const line = lines[i]
+    const lineLower = line.toLowerCase()
+    let pos = lineLower.indexOf(lowerQ)
+    while (pos >= 0 && results.length < 200) {
+      const start = Math.max(0, pos - 30)
+      const end = Math.min(line.length, pos + lowerQ.length + 50)
+      // 优先按文本命中 + 行距最近的高亮块定位；无匹配时回退到行号映射
+      const target = pickSearchTargetHighlight(q, line, i + 1, highlights)
+      const page = target?.page ?? (pageMap.get(i + 1) ?? 0)
+      results.push({
+        page,
+        text: line.slice(start, end),
+        lineNumber: i + 1,
+        highlight: target ?? undefined,
+      })
+      pos = lineLower.indexOf(lowerQ, pos + 1)
+    }
+  }
+
+  searchResults.value = results
+  isSearching.value = false
+  if (results.length > 0) {
+    jumpToSearchResult(results[0], 0)
+  }
+}
+
+/**
+ * 原生全文搜索：未提供 searchText/textContent 时，逐页用 pdf.js 文本内容搜索。
+ * 复用 loadPageTextItems（带缓存）与词级高亮链路，扫描件（无文本层）给出提示。
+ */
+const performNativeTextSearch = async () => {
+  const q = searchQuery.value.trim()
+  const doc = _pdfDocumentRef.value
+  if (!q || !doc) return
+  const total = Number(doc.numPages || 0)
+  if (!total) {
+    isSearching.value = false
+    return
+  }
+
+  const lowerQ = q.toLowerCase()
+  const results: SearchResult[] = []
+  let pageItemCount = 0
+  let lineCounter = 0
+
+  for (let page = 1; page <= total; page++) {
+    let items: PageTextItem[] = []
+    try {
+      items = await loadPageTextItems(page)
+    } catch (error) {
+      console.warn('[PDFViewer] Failed to load page text items:', error)
+      continue
+    }
+    pageItemCount += items.length
+    for (let i = 0; i < items.length && results.length < 200; i++) {
+      const item = items[i]
+      if (item.text.toLowerCase().indexOf(lowerQ) < 0) continue
+      lineCounter += 1
+      // snippet：命中项前后各取相邻文本项拼接上下文（pdf.js 常把文本拆成词/短句项）
+      const before = items.slice(Math.max(0, i - 3), i).map(it => it.text).join('')
+      const after = items.slice(i + 1, i + 4).map(it => it.text).join('')
+      results.push({
+        page,
+        text: `${before ? `…${before}` : ''}${item.text}${after ? `${after}…` : ''}`,
+        lineNumber: lineCounter,
+      })
+    }
+    if (results.length >= 200) break
+    // 每 10 页刷新一次列表，边搜边出结果
+    if (page % 10 === 0) {
+      searchResults.value = [...results]
+      await nextTick()
+    }
+  }
+
+  if (pageItemCount === 0) nativeSearchNoTextLayer.value = true
   searchResults.value = results
   isSearching.value = false
   if (results.length > 0) {
@@ -2218,6 +2288,16 @@ onBeforeUnmount(() => {
   font-weight: 500;
   color: var(--dp-title-strong);
   white-space: nowrap;
+}
+
+.pane-title-doc-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--dp-title-strong);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 320px;
 }
 
 /* --- 搜索面板 --- */
