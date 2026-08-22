@@ -57,6 +57,7 @@
       >
         <div class="entity-detail">
           <h3>{{ selectedEntity.name }}</h3>
+          <a-tag v-if="selectedEntity.status === 'pending'" color="orange">待审核</a-tag>
           <p><strong>层级：</strong>{{ selectedEntity.layer }}</p>
           <p v-if="selectedEntity.aliases?.length"><strong>别名：</strong>{{ selectedEntity.aliases.join('、') }}</p>
           <p v-if="selectedEntity.source_clause"><strong>来源：</strong>{{ selectedEntity.source_clause }}</p>
@@ -109,6 +110,7 @@ interface GraphEntity {
   layer: string
   aliases: string[]
   source_clause?: string
+  status?: 'approved' | 'pending' | 'rejected'
 }
 
 interface GraphRelation {
@@ -226,7 +228,7 @@ function buildVisNodes() {
     return {
       id: e.name,
       label: e.name.length > 12 ? e.name.slice(0, 12) + '...' : e.name,
-      title: `${e.name} [${e.layer}]${e.aliases?.length ? '\n别名: ' + e.aliases.join(', ') : ''}`,
+      title: `${e.name} [${e.layer}]${e.status === 'pending' ? '\n状态: 待审核' : ''}${e.aliases?.length ? '\n别名: ' + e.aliases.join(', ') : ''}`,
       shape: 'ellipse',
       size: e.layer === 'concept' ? 24 : e.layer === 'condition' ? 22 : 20,
       x: Math.cos(angle) * radius + (i % 7) * 20,

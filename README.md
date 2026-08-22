@@ -1,23 +1,4 @@
-# angineer-docs-ui
-
-Vue 3 文档解析/知识库展示组件库（基于 ant-design-vue + pdfjs-dist + KaTeX），提供解析工作区、PDF/Office/Markdown 预览、知识树、图谱等组件与 Composable。
-
-## 安装
-
-```bash
-pnpm add github:0mao0/angineer-docs-ui
-```
-
-宿主项目需提供 peer 依赖：`vue@3.5`、`ant-design-vue@4`、`@ant-design/icons-vue@7`。
-
-## 使用
-
-```ts
-import { PDFParsedWorkspace } from '@angineer/docs-ui'
-import '@angineer/docs-ui/style'
-```
-
-## 架构说明（A/B/C/D/U 分层）
+# docs-ui 优化架构说明（A/B/C/D/U 分层）
 
 本文档用于 `packages/docs-ui` 的后续改造与日常阅读，目标是统一分层认知、调用边界和文件职责。
 
