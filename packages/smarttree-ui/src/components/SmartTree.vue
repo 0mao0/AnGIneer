@@ -173,9 +173,7 @@ import {
   FolderOutlined,
   SearchOutlined
 } from '@ant-design/icons-vue'
-import type { SmartTreeNode, DropEvent } from '../../../types/tree'
-
-export type { SmartTreeNode, DropEvent }
+import type { SmartTreeNode, DropEvent } from '../types/tree'
 
 import {
   highlightText,
@@ -184,8 +182,9 @@ import {
   getStatusColor,
   getStatusText,
   filterTree,
-  getExpandedKeysForSearch
-} from '../../../utils/common'
+  getExpandedKeysForSearch,
+  cloneTree
+} from '../utils/tree'
 
 interface Props {
   treeData: SmartTreeNode[]
