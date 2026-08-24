@@ -437,4 +437,9 @@ function emitQuery(): void {
   display: none;
 }
 
+// 表头居中
+.data-table__table :deep(th) {
+  text-align: center;
+}
+
 </style>
