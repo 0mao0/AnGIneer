@@ -438,6 +438,8 @@ const props = withDefaults(defineProps<{
   activeHighlightId: string | null
   activeHighlightIds?: string[]
   activeClickItemId?: string | null
+  /** 外部切换 activeHighlightId 时，将对应高亮 bbox 纵向居中到视口（溯源定位体验）。 */
+  centerActiveHighlight?: boolean
   pageLabels?: Record<number, string>
   textScrollPercent: number
   sidePanelOpen?: boolean
@@ -450,6 +452,7 @@ const props = withDefaults(defineProps<{
   highlightHoverMaxHeight?: number
 }>(), {
   activeHighlightIds: () => [],
+  centerActiveHighlight: false,
   sidePanelOpen: undefined,
   showSidePanelToggle: false,
   sidePanelWidth: 400,
@@ -2055,6 +2058,21 @@ watch(() => props.currentPdfPage, (newPage) => {
   scroll.applyingExternalPdfScroll.value = true
   scroll.scrollToPdfPage(newPage, 'auto')
   requestAnimationFrame(() => { scroll.applyingExternalPdfScroll.value = false })
+})
+
+// 溯源定位：外部切换 activeHighlightId 时把对应高亮 bbox 纵向居中（默认关闭，避免影响既有联动行为）；
+// 与搜索跳转共用 scrollToHighlight('center')，同一高亮去重避免重复跳动。
+let lastCenteredHighlightKey = ''
+watch([() => props.centerActiveHighlight, () => props.activeHighlightId, () => props.highlights], () => {
+  if (!props.centerActiveHighlight || !props.activeHighlightId) return
+  const active = props.highlights.find(
+    (h) => h.itemId === props.activeHighlightId || h.id === props.activeHighlightId,
+  )
+  if (!active) return
+  const key = `${active.itemId}|${active.page}|${active.top}`
+  if (key === lastCenteredHighlightKey) return
+  lastCenteredHighlightKey = key
+  scroll.scrollToHighlight(active, 'center')
 })
 
 watch(() => props.textScrollPercent, (percent) => {
