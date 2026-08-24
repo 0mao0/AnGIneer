@@ -40,6 +40,10 @@ const routes: RouteRecordRaw[] = [
     path: '/users',
     name: 'users',
     component: () => import('../views/UserManage.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/knowledge'
   }
 ]
 
