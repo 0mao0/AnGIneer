@@ -37,6 +37,17 @@
         </keep-alive>
       </a-tab-pane>
     </a-tabs>
+    <div class="left-panel-footer">
+      <a-select
+        v-if="authStore.libraries.length > 1"
+        v-model:value="authStore.activeLibraryId"
+        size="small"
+        class="library-switcher"
+        :options="libraryOptions"
+        @change="onLibraryChange"
+      />
+      <a-button size="small" class="logout-btn" @click="handleLogout">退出登录</a-button>
+    </div>
   </div>
 </template>
 
@@ -77,6 +88,10 @@ const activeTab = computed({
 const { treeData, buildTree } = useKnowledgeTree()
 const authStore = useAuthStore()
 const activeLibraryId = computed(() => authStore.libraryId || 'default')
+const libraryNames = ref<Record<string, string>>({})
+const libraryOptions = computed(() =>
+  authStore.libraries.map((lid) => ({ value: lid, label: libraryNames.value[lid] || lid }))
+)
 const { loading, error, reload: loadNodes } = useRetryableLoad(
   async () => {
     const response = await knowledgeApi.getNodes(activeLibraryId.value, true) as unknown as any[]
@@ -110,8 +125,26 @@ const onSelectDoc = (node: SmartTreeNode) => {
   openResource(resource)
 }
 
+async function loadLibraryNames() {
+  try {
+    const list = await knowledgeApi.getLibraries() as unknown as { id: string; name: string }[]
+    libraryNames.value = Object.fromEntries(list.map((l) => [l.id, l.name]))
+  } catch {
+    // 名称加载失败时回退显示原始 id
+  }
+}
+
+function onLibraryChange() {
+  loadNodes()
+}
+
+async function handleLogout() {
+  await authStore.logout()
+}
+
 onMounted(() => {
   loadNodes()
+  loadLibraryNames()
   if (panelRef.value && typeof ResizeObserver !== 'undefined') {
     resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
@@ -181,6 +214,19 @@ onUnmounted(() => {
   :deep(.ant-tabs-tab-btn) {
     font-size: 0;
   }
+}
+
+.left-panel-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.library-switcher {
+  flex: 1;
 }
 
 .knowledge-panel {

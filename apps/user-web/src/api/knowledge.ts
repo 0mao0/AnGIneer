@@ -5,6 +5,8 @@ export const knowledgeApi = {
   getNodes: (libraryId: string = 'default', visible: boolean = false) =>
     docsApiClient.get('/knowledge/nodes', { params: { library_id: libraryId, visible } }),
 
+  getLibraries: () => docsApiClient.get<{ id: string; name: string }[]>('/knowledge/libraries'),
+
   getDocument: (libraryId: string, docId: string) =>
     docsApiClient.get<DocumentResponse>(`/knowledge/document/${libraryId}/${docId}`),
 
