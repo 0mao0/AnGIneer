@@ -37,10 +37,13 @@
 param(
     [string]$Message = '',
     [switch]$DryRun,
-    [string[]]$Packages = @('docs-ui', 'aichat-ui')
+    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smarttree-ui')
 )
 
 $ErrorActionPreference = 'Stop'
+
+# npm 包名必须小写，GitHub 仓库名可能含大写；目录名 -> 仓库名
+$RepoNameOverrides = @{ 'smarttree-ui' = 'angineer-smartTree-ui' }
 
 function Invoke-Git {
     param(
@@ -151,7 +154,8 @@ try {
     foreach ($pkg in $changedPackages) {
         $wt = Join-Path $RepoRoot ".worktrees/angineer-$pkg"
         $remoteName = "angineer-$pkg"
-        $remoteUrl = "git@github.com:0mao0/angineer-$pkg.git"
+        $repoName = if ($RepoNameOverrides.ContainsKey($pkg)) { $RepoNameOverrides[$pkg] } else { "angineer-$pkg" }
+        $remoteUrl = "git@github.com:0mao0/$repoName.git"
 
         $existing = & git -C $wt remote get-url $remoteName 2>$null
         if ($LASTEXITCODE -ne 0) {
