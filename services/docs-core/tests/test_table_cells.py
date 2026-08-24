@@ -8,6 +8,7 @@ from docs_core.step04_structure.shared.table_cells import (
     _horizontal_overlap,
     _normalize_regions,
 )
+from docs_core.step04_structure.shared.table_cells import build_table_cells
 
 
 def test_parse_basic_grid() -> None:
@@ -87,3 +88,37 @@ def test_assign_rows_by_region_height() -> None:
 def test_horizontal_overlap() -> None:
     assert _horizontal_overlap([0.1, 0.0, 0.9, 1.0], [0.2, 0.0, 0.8, 1.0]) is True
     assert _horizontal_overlap([0.1, 0.0, 0.3, 1.0], [0.5, 0.0, 0.9, 1.0]) is False
+
+
+def test_build_cells_single_region_merged() -> None:
+    html = "<table><tr><td colspan=\"2\">xy</td></tr>"
+    html += "<tr><td>y</td><td>z</td></tr></table>"
+    cells = build_table_cells(html, [0.0, 0.0, 1.0, 1.0], page_idx=0)
+    assert cells == [
+        {"row": 0, "col": 0, "rowspan": 1, "colspan": 2,
+         "page_idx": 0, "bbox": [0.0, 0.0, 1.0, 0.5], "text": "xy"},
+        {"row": 1, "col": 0, "rowspan": 1, "colspan": 1,
+         "page_idx": 0, "bbox": [0.0, 0.5, 0.5, 1.0], "text": "y"},
+        {"row": 1, "col": 1, "rowspan": 1, "colspan": 1,
+         "page_idx": 0, "bbox": [0.5, 0.5, 1.0, 1.0], "text": "z"},
+    ]
+
+
+def test_build_cells_rowspan_visual_column() -> None:
+    html = "<table><tr><td rowspan=\"2\">xx</td><td>a</td></tr>"
+    html += "<tr><td>b</td></tr></table>"
+    cells = build_table_cells(html, [0.0, 0.0, 1.0, 1.0], page_idx=0)
+    by_text = {c["text"]: c for c in cells}
+    assert by_text["b"]["col"] == 1  # col0 被 rowspan 占用
+    assert by_text["xx"]["bbox"] == [0.0, 0.0, 0.5, 1.0]
+
+
+def test_build_cells_cross_page_by_regions() -> None:
+    html = "<table><tr><td>a</td></tr><tr><td>b</td></tr></table>"
+    regions = [
+        {"page_idx": 0, "bbox": [0.0, 0.0, 1.0, 1.0]},
+        {"page_idx": 1, "bbox": [0.0, 0.0, 1.0, 1.0]},
+    ]
+    cells = build_table_cells(html, [0.0, 0.0, 1.0, 1.0], page_idx=0, regions=regions)
+    assert cells[0]["page_idx"] == 0
+    assert cells[1]["page_idx"] == 1

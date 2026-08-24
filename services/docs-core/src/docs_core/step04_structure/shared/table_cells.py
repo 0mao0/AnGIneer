@@ -166,3 +166,51 @@ def _assign_rows_to_regions(rows_count, regions):
 
 def _horizontal_overlap(a, b):
     return max(a[0], b[0]) < min(a[2], b[2])
+
+
+def build_table_cells(table_html, bbox, *, page_idx=0, regions=None):
+    grid = parse_table_grid(table_html)
+    cells = grid["cells"]
+    rows_count = grid["rows_count"]
+    cols_count = grid["cols_count"]
+    if not cells or rows_count <= 0 or cols_count <= 0:
+        return []
+    normalized = _normalize_regions(regions) if regions else [
+        {"page_idx": int(page_idx), "bbox": [float(v) for v in bbox[:4]]},
+    ]
+    if not normalized:
+        normalized = [{"page_idx": int(page_idx), "bbox": [float(v) for v in bbox[:4]]}]
+    row_region = _assign_rows_to_regions(rows_count, normalized)
+    region_rows: Dict[int, List[int]] = {}
+    for row, region_idx in enumerate(row_region):
+        region_rows.setdefault(region_idx, []).append(row)
+    out: List[Dict[str, Any]] = []
+    for region_idx, region in enumerate(normalized):
+        rows = region_rows.get(region_idx, [])
+        if not rows:
+            continue
+        region_cells = [c for c in cells if c["row"] in rows]
+        rbands = estimate_row_bands(region["bbox"], region_cells, len(rows))
+        cbands = estimate_col_bands(region["bbox"], region_cells, cols_count)
+        local_row = {row: i for i, row in enumerate(rows)}
+        for cell in region_cells:
+            r0 = local_row[cell["row"]]
+            r1 = min(r0 + cell["rowspan"] - 1, len(rows) - 1)
+            c0 = cell["col"]
+            c1 = c0 + cell["colspan"] - 1
+            out.append({
+                "row": cell["row"],
+                "col": cell["col"],
+                "rowspan": cell["rowspan"],
+                "colspan": cell["colspan"],
+                "page_idx": region["page_idx"],
+                "bbox": [
+                    cbands[c0][0],
+                    rbands[r0][0],
+                    cbands[c1][1],
+                    rbands[r1][1],
+                ],
+                "text": cell["text"],
+            })
+    out.sort(key=lambda item: (item["row"], item["col"]))
+    return out
