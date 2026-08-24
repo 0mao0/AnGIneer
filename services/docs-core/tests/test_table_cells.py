@@ -9,6 +9,9 @@ from docs_core.step04_structure.shared.table_cells import (
     _normalize_regions,
 )
 from docs_core.step04_structure.shared.table_cells import build_table_cells
+from docs_core.step04_structure.shared.table_cells import (
+    enrich_graph_nodes_table_cells,
+)
 
 
 def test_parse_basic_grid() -> None:
@@ -122,3 +125,47 @@ def test_build_cells_cross_page_by_regions() -> None:
     cells = build_table_cells(html, [0.0, 0.0, 1.0, 1.0], page_idx=0, regions=regions)
     assert cells[0]["page_idx"] == 0
     assert cells[1]["page_idx"] == 1
+
+
+def _table_node(uid, html="", page_idx=0, bbox=None):
+    return {
+        "block_uid": uid,
+        "id": uid,
+        "block_type": "table",
+        "page_idx": page_idx,
+        "block_seq": 1,
+        "table_html": html,
+        "bbox": bbox or [0.0, 0.0, 1.0, 1.0],
+    }
+
+
+def test_enrich_writes_table_cells() -> None:
+    nodes = [
+        _table_node("d:0:1", "<table><tr><td>a</td></tr></table>"),
+        {"block_uid": "d:0:2", "id": "d:0:2", "block_type": "paragraph",
+         "page_idx": 0, "block_seq": 2, "plain_text": "text"},
+    ]
+    updated, stats = enrich_graph_nodes_table_cells(nodes)
+    assert stats == {"total_tables": 1, "enriched": 1, "skipped": 0}
+    assert updated[0]["table_cells_source"] == "estimated"
+    assert updated[0]["table_cells"][0]["text"] == "a"
+    assert "table_cells" not in updated[1]
+
+
+def test_enrich_skips_empty_table() -> None:
+    nodes = [_table_node("d:0:1", "", page_idx=0)]
+    updated, stats = enrich_graph_nodes_table_cells(nodes)
+    assert stats == {"total_tables": 1, "enriched": 0, "skipped": 1}
+    assert "table_cells" not in updated[0]
+
+
+def test_enrich_cross_page_shell_matching() -> None:
+    html = "<table><tr><td>a</td></tr><tr><td>b</td></tr></table>"
+    nodes = [
+        _table_node("d:0:1", html, page_idx=0, bbox=[0.0, 0.0, 1.0, 1.0]),
+        _table_node("d:1:1", "", page_idx=1, bbox=[0.0, 0.0, 1.0, 1.0]),
+    ]
+    updated, stats = enrich_graph_nodes_table_cells(nodes)
+    assert stats == {"total_tables": 2, "enriched": 1, "skipped": 1}
+    page_idxes = {c["text"]: c["page_idx"] for c in updated[0]["table_cells"]}
+    assert page_idxes == {"a": 0, "b": 1}

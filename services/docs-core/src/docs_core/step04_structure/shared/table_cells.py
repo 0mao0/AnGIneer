@@ -214,3 +214,70 @@ def build_table_cells(table_html, bbox, *, page_idx=0, regions=None):
             })
     out.sort(key=lambda item: (item["row"], item["col"]))
     return out
+
+
+def _resolve_regions_for_node(node, bbox, by_page):
+    page_bboxes = node.get("page_bboxes")
+    if page_bboxes and isinstance(page_bboxes, list):
+        regions = _normalize_regions(page_bboxes)
+        if regions:
+            return regions
+    regions = [{"page_idx": int(node.get("page_idx") or 0), "bbox": [float(v) for v in bbox[:4]]}]
+    page_idx = int(node.get("page_idx") or 0)
+    while True:
+        for candidate in by_page.get(page_idx + 1, []):
+            if str(candidate.get("block_type") or "").strip() != "table":
+                continue
+            if parse_table_grid(candidate.get("table_html") or "").get("cells"):
+                continue
+            candidate_bbox = candidate.get("bbox")
+            if not isinstance(candidate_bbox, (list, tuple)) or len(candidate_bbox) < 4:
+                continue
+            if not _horizontal_overlap(bbox, candidate_bbox):
+                continue
+            regions.append({
+                "page_idx": page_idx + 1,
+                "bbox": [float(v) for v in candidate_bbox[:4]],
+            })
+            page_idx += 1
+            break
+        else:
+            break
+    return regions
+
+
+def enrich_graph_nodes_table_cells(nodes):
+    stats = {"total_tables": 0, "enriched": 0, "skipped": 0}
+    if not nodes:
+        return nodes, stats
+    updated = [dict(node) for node in nodes]
+    by_page: Dict[int, List[Dict[str, Any]]] = {}
+    for node in updated:
+        by_page.setdefault(int(node.get("page_idx") or 0), []).append(node)
+    for node in updated:
+        if str(node.get("block_type") or "").strip() != "table":
+            continue
+        stats["total_tables"] += 1
+        html = node.get("table_html") or ""
+        grid = parse_table_grid(html)
+        if not grid["cells"]:
+            stats["skipped"] += 1
+            continue
+        bbox = node.get("bbox")
+        if not isinstance(bbox, (list, tuple)) or len(bbox) < 4:
+            stats["skipped"] += 1
+            continue
+        regions = _resolve_regions_for_node(node, bbox, by_page)
+        cells = build_table_cells(
+            html,
+            bbox,
+            page_idx=int(node.get("page_idx") or 0),
+            regions=regions,
+        )
+        if not cells:
+            stats["skipped"] += 1
+            continue
+        node["table_cells"] = cells
+        node["table_cells_source"] = TABLE_CELLS_SOURCE
+        stats["enriched"] += 1
+    return updated, stats
