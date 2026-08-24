@@ -2,7 +2,7 @@
   <a-config-provider :locale="zhCN" :theme="themeConfig">
     <a-app>
       <AuthGate />
-      <div class="app-container" :class="appClass">
+      <div v-if="authStore.isAuthed" class="app-container" :class="appClass">
         <AppHeader
           :version="appVersion"
           :project-name="projectName"
@@ -113,6 +113,8 @@ const appVersion = import.meta.env.VITE_APP_VERSION || ''
 
 const projectName = ref('示例项目')
 
+const authStore = useAuthStore()
+
 const aiChatVisible = ref(false)
 const leftCollapsed = ref(false)
 const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
@@ -159,7 +161,6 @@ const onNavigateSection = (section: 'project' | 'knowledge' | 'sop' | 'gis') => 
 /** 参考依据点击：打开文档标签并携带定位参数（PDF/章节定位由 DocumentView 消费） */
 const handleCitationSelect = (citation: any) => {
   if (!citation || !citation.doc_id) return
-  const authStore = useAuthStore()
   openResource({
     id: citation.doc_id,
     title: citation.doc_title || citation.doc_id,

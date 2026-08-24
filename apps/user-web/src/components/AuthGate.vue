@@ -68,22 +68,25 @@ async function handleLogin() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(15, 23, 42, 0.92);
+  background: var(--bg-primary);
 }
 .auth-card {
   width: 360px;
   padding: 32px 28px;
   border-radius: 12px;
-  background: #fff;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  color: var(--text-primary);
 }
 .auth-card h2 {
   margin: 0 0 8px;
   text-align: center;
+  color: var(--text-primary);
 }
 .auth-hint {
   margin: 0 0 16px;
-  color: #666;
+  color: var(--text-secondary);
   text-align: center;
   font-size: 13px;
 }
@@ -92,7 +95,7 @@ async function handleLogin() {
 }
 .auth-error {
   margin-bottom: 12px;
-  color: #cf1322;
+  color: var(--danger, #cf1322);
   font-size: 13px;
 }
 </style>
