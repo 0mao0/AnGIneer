@@ -288,6 +288,15 @@
       <template #right>
         <Panel title="AI 对话" :icon="MessageOutlined">
           <template #extra>
+            <a-select
+              v-if="libraryStore.libraries.length > 1"
+              :value="libraryStore.libraryId"
+              :options="chatLibraryOptions"
+              size="small"
+              class="chat-library-switcher"
+              style="min-width: 140px"
+              @change="onChatLibraryChange"
+            />
             <a-tooltip title="新建对话">
               <a-button size="small" class="header-icon-btn" @click="onNewChat">
                 <template #icon><PlusOutlined /></template>
@@ -306,6 +315,7 @@
             :show-context-info="true"
             scene="knowledge"
             :session-id="chatSessionId"
+            :library-id="libraryStore.libraryId"
             :transport="defaultAIChatTransport"
             @answer-complete="_handleKnowledgeAnswerCompleteWrapper"
             @select-citation="_handleKnowledgeCitationSelectWrapper"
@@ -543,6 +553,16 @@ const chatSessionId = computed(() => `global::${chatNonce.value}`)
 const onNewChat = () => {
   chatNonce.value += 1
   knowledgeChatRef.value?.startNewChat?.()
+}
+
+const chatLibraryOptions = computed(() =>
+  libraryStore.libraries.map((lib) => ({ value: lib.id, label: lib.name || lib.id }))
+)
+
+const onChatLibraryChange = (value: string) => {
+  libraryStore.setLibrary(value)
+  // 切换知识库后重置会话，避免上一库上下文串场
+  onNewChat()
 }
 
 const {
@@ -1572,6 +1592,10 @@ onBeforeUnmount(() => {
 
 .header-icon-btn {
   padding-inline: 8px;
+}
+
+.chat-library-switcher {
+  margin-right: 8px;
 }
 
 .drop-hint {
