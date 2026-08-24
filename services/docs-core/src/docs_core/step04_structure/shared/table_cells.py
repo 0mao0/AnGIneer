@@ -258,6 +258,8 @@ def enrich_graph_nodes_table_cells(nodes):
         if str(node.get("block_type") or "").strip() != "table":
             continue
         stats["total_tables"] += 1
+        if "table_cells" in node:
+            continue
         html = node.get("table_html") or ""
         grid = parse_table_grid(html)
         if not grid["cells"]:

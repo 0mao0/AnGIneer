@@ -171,6 +171,15 @@ def test_enrich_cross_page_shell_matching() -> None:
     assert page_idxes == {"a": 0, "b": 1}
 
 
+def test_enrich_is_idempotent() -> None:
+    node = _table_node("d:0:1", "<table><tr><td>a</td></tr></table>")
+    first, _ = enrich_graph_nodes_table_cells([dict(node)])
+    assert "table_cells" in first[0]
+    second, stats = enrich_graph_nodes_table_cells(first)
+    assert stats == {"total_tables": 1, "enriched": 0, "skipped": 0}
+    assert second[0]["table_cells"] == first[0]["table_cells"]
+
+
 def test_adapt_graph_node_carries_table_cells() -> None:
     from docs_core.step05_sqlite_fts.rebuild.graph_rebuilder import adapt_graph_node
 
