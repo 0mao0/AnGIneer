@@ -859,7 +859,7 @@ defineExpose({
         color: rgba(255, 255, 255, 0.65);
 
         &:hover {
-          color: var(--primary-color);
+          color: var(--primary-color, #1890ff);
         }
       }
     }
@@ -869,7 +869,7 @@ defineExpose({
         color: rgba(255, 255, 255, 0.55);
 
         .anticon-folder {
-          color: var(--tree-folder-color);
+          color: var(--tree-folder-color, #f0b90b);
         }
 
         .anticon-file {
@@ -878,18 +878,30 @@ defineExpose({
       }
 
       .node-actions {
-        background: linear-gradient(to right, transparent, var(--panel-bg) 10px);
+        background: linear-gradient(to right, transparent, var(--panel-bg, #ffffff) 10px);
 
-        :deep(.action-icon) {
+        :deep(.action-btn) {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          line-height: 1;
           color: rgba(255, 255, 255, 0.55);
+          cursor: pointer;
+          padding: 2px;
+          border: none;
+          background: transparent;
+          border-radius: 3px;
+          transition: all 0.2s;
+          pointer-events: auto;
 
           &:hover {
-            color: var(--primary-color);
+            color: var(--primary-color, #177ddc);
             background: rgba(24, 144, 255, 0.15);
           }
 
           &.delete:hover {
-            color: var(--tree-danger-color);
+            color: var(--tree-danger-color, #e05353);
             background: rgba(255, 77, 79, 0.15);
           }
         }
@@ -899,8 +911,8 @@ defineExpose({
     .tree-content {
       .root-drop-zone {
         border-color: rgba(24, 144, 255, 0.4);
-        color: var(--primary-color);
-        background: var(--tree-drop-zone-bg);
+        color: var(--primary-color, #1890ff);
+        background: var(--tree-drop-zone-bg, rgba(24, 144, 255, 0.06));
       }
     }
   }
@@ -947,7 +959,7 @@ defineExpose({
       transition: color 0.3s;
 
       &:hover {
-        color: var(--primary-color);
+        color: var(--primary-color, #1890ff);
       }
 
       .anticon {
@@ -963,10 +975,10 @@ defineExpose({
 
     .root-drop-zone {
       margin: 8px 8px 4px;
-      border: 1px dashed var(--tree-drop-border);
+      border: 1px dashed var(--tree-drop-border, rgba(24, 144, 255, 0.5));
       border-radius: 6px;
-      color: var(--primary-color);
-      background: var(--tree-drop-zone-bg);
+      color: var(--primary-color, #1890ff);
+      background: var(--tree-drop-zone-bg, rgba(24, 144, 255, 0.06));
       text-align: center;
       line-height: 32px;
       font-size: 12px;
@@ -1081,7 +1093,7 @@ defineExpose({
       width: 16px;
       height: 16px;
       font-size: 14px;
-      color: var(--text-secondary);
+      color: var(--text-secondary, rgba(0, 0, 0, 0.65));
       line-height: 1;
       overflow: visible;
       margin-left: 0;
@@ -1093,11 +1105,11 @@ defineExpose({
       }
 
       .anticon-folder {
-        color: var(--tree-folder-color);
+        color: var(--tree-folder-color, #f0b90b);
       }
 
       .anticon-file {
-        color: var(--text-secondary);
+        color: var(--text-secondary, rgba(0, 0, 0, 0.65));
       }
     }
 
@@ -1156,27 +1168,33 @@ defineExpose({
       right: 0;
       top: 0;
       bottom: 0;
-      background: linear-gradient(to right, transparent, var(--panel-bg) 10px);
+      background: linear-gradient(to right, transparent, var(--panel-bg, #ffffff) 10px);
       padding-left: 16px;
       z-index: 10;
       pointer-events: none;
 
-      :deep(.action-icon) {
+      :deep(.action-btn) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         font-size: 12px;
-        color: var(--text-secondary);
+        line-height: 1;
+        color: var(--text-secondary, rgba(0, 0, 0, 0.65));
         cursor: pointer;
         padding: 2px;
+        border: none;
+        background: transparent;
         border-radius: 3px;
         transition: all 0.2s;
         pointer-events: auto;
 
         &:hover {
-          color: var(--primary-color);
+          color: var(--primary-color, #1890ff);
           background: rgba(24, 144, 255, 0.1);
         }
 
         &.delete:hover {
-          color: var(--tree-danger-hover);
+          color: var(--tree-danger-hover, #cf1322);
           background: rgba(255, 77, 79, 0.1);
         }
       }
