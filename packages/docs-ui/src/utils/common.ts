@@ -1,7 +1,7 @@
 /**
  * 通用工具函数
  * 包含文本处理、树操作、状态映射等跨组件逻辑
- * 树相关工具函数统一由 @angineer/smarttree-ui 提供。
+ * 树相关工具函数统一由 @angineer/smartree 提供。
  */
 
 export {
@@ -12,7 +12,7 @@ export {
   getStatusText,
   filterTree,
   getExpandedKeysForSearch
-} from '@angineer/smarttree-ui'
+} from '@angineer/smartree'
 
 /** 读取节点字段：<field>_corrected 并列字段优先，原始字段兜底 */
 export const effectiveField = <T = unknown>(

@@ -1,4 +1,4 @@
-import type { SmartTreeNode, SmartTreeNodeStatus, TreeNodeAction, DropEvent } from '@angineer/smarttree-ui'
+import type { SmartTreeNode, SmartTreeNodeStatus, TreeNodeAction, DropEvent } from '@angineer/smartree'
 
 export type { SmartTreeNode, SmartTreeNodeStatus, TreeNodeAction, DropEvent }
 

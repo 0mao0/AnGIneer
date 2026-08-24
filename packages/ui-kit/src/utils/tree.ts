@@ -8,4 +8,4 @@ export {
   filterTree,
   getExpandedKeysForSearch,
   cloneTree
-} from '@angineer/smarttree-ui'
+} from '@angineer/smartree'

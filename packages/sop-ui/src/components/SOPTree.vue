@@ -59,8 +59,8 @@
  */
 import { ref } from 'vue'
 import { ApiOutlined, FolderOutlined } from '@ant-design/icons-vue'
-import { SmartTree } from '@angineer/smarttree-ui'
-import type { SmartTreeExposed } from '@angineer/smarttree-ui'
+import { SmartTree } from '@angineer/smartree'
+import type { SmartTreeExposed } from '@angineer/smartree'
 import type { SOPTreeNode } from '../types/sop'
 
 export type { SOPTreeNode }

@@ -37,13 +37,13 @@
 param(
     [string]$Message = '',
     [switch]$DryRun,
-    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smarttree-ui')
+    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smartree')
 )
 
 $ErrorActionPreference = 'Stop'
 
 # npm 包名必须小写，GitHub 仓库名可能含大写；目录名 -> 仓库名
-$RepoNameOverrides = @{ 'smarttree-ui' = 'angineer-smartTree-ui' }
+$RepoNameOverrides = @{ 'smartree' = 'angineer-smartree' }
 
 function Invoke-Git {
     param(
