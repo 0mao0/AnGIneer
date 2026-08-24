@@ -78,3 +78,42 @@ def parse_table_grid(table_html: str) -> Dict[str, Any]:
         "rows_count": parser.rows_count,
         "cols_count": parser.cols_count,
     }
+
+
+def estimate_row_bands(bbox, cells, rows_count):
+    return _estimate_bands(bbox, cells, rows_count, axis="row")
+
+
+def estimate_col_bands(bbox, cells, cols_count):
+    return _estimate_bands(bbox, cells, cols_count, axis="col")
+
+
+def _estimate_bands(bbox, cells, count, *, axis):
+    x1, y1, x2, y2 = [float(v) for v in bbox[:4]]
+    if count <= 0:
+        return []
+    weights = [0.0] * count
+    for cell in cells:
+        if axis == "row":
+            start = cell["row"]
+            span = cell["rowspan"]
+        else:
+            start = cell["col"]
+            span = cell["colspan"]
+        share = len(cell["text"]) / max(1, span)
+        for index in range(start, min(start + span, count)):
+            weights[index] += share
+    total = sum(weights)
+    start = y1 if axis == "row" else x1
+    end = y2 if axis == "row" else x2
+    if total <= 0:
+        unit = (end - start) / count
+        return [(start + unit * i, start + unit * (i + 1)) for i in range(count)]
+    bands = []
+    cursor = start
+    for weight in weights:
+        size = (end - start) * (weight / total)
+        bands.append((cursor, cursor + size))
+        cursor += size
+    bands[-1] = (bands[-1][0], end)
+    return bands

@@ -1,4 +1,8 @@
 from docs_core.step04_structure.shared.table_cells import parse_table_grid
+from docs_core.step04_structure.shared.table_cells import (
+    estimate_col_bands,
+    estimate_row_bands,
+)
 
 
 def test_parse_basic_grid() -> None:
@@ -32,3 +36,24 @@ def test_parse_colspan_and_rowspan() -> None:
 def test_parse_empty_html() -> None:
     grid = parse_table_grid("")
     assert grid == {"cells": [], "rows_count": 0, "cols_count": 0}
+
+
+def test_row_bands_uniform_when_no_text() -> None:
+    cells = [{"row": 0, "col": 0, "rowspan": 1, "colspan": 1, "text": ""},
+             {"row": 1, "col": 0, "rowspan": 1, "colspan": 1, "text": ""}]
+    bands = estimate_row_bands([0.0, 0.0, 1.0, 1.0], cells, 2)
+    assert bands == [(0.0, 0.5), (0.5, 1.0)]
+
+
+def test_row_bands_weighted_by_text_length() -> None:
+    cells = [{"row": 0, "col": 0, "rowspan": 1, "colspan": 1, "text": "x"},
+             {"row": 1, "col": 0, "rowspan": 1, "colspan": 1, "text": "yyyy"}]
+    bands = estimate_row_bands([0.0, 0.0, 1.0, 1.0], cells, 2)
+    assert bands == [(0.0, 0.2), (0.2, 1.0)]
+
+
+def test_col_bands_weighted_by_text_length() -> None:
+    cells = [{"row": 0, "col": 0, "rowspan": 1, "colspan": 1, "text": "xx"},
+             {"row": 0, "col": 1, "rowspan": 1, "colspan": 1, "text": "yyy"}]
+    bands = estimate_col_bands([0.0, 0.0, 1.0, 1.0], cells, 2)
+    assert bands == [(0.0, 0.4), (0.4, 1.0)]
