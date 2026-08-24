@@ -14,6 +14,16 @@
           @update:project-name="onProjectNameChange"
           @settings-click="openSettings"
         >
+          <template #extra-actions>
+            <a-select
+              v-if="authStore.libraries.length > 1"
+              v-model:value="authStore.activeLibraryId"
+              size="small"
+              class="header-library-switcher"
+              :options="libraryOptions"
+              style="min-width: 160px"
+            />
+          </template>
           <template #user-menu>
             <a-dropdown placement="bottomRight">
               <a-button type="text" class="user-menu-btn" aria-label="个人菜单">
@@ -88,7 +98,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { MessageOutlined, PlusOutlined, UserOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue'
 import { AppHeader, Panel, SplitPanes, useTheme } from '@angineer/ui-kit'
@@ -99,6 +109,7 @@ import AuthGate from './components/AuthGate.vue'
 import { ADMIN_CONSOLE_ORIGIN, ADMIN_CONSOLE_PORT, LOCAL_HOST } from '../../shared/ports'
 import { defaultAIChatTransport } from '../../shared/chatTransport'
 import { useAuthStore } from '@/stores/auth'
+import { knowledgeApi } from '@/api/knowledge'
 import { useTabRouterSync } from '@/composables/useTabRouterSync'
 import { useResourceOpen } from '@/composables/useResourceOpen'
 
@@ -114,6 +125,24 @@ const appVersion = import.meta.env.VITE_APP_VERSION || ''
 const projectName = ref('示例项目')
 
 const authStore = useAuthStore()
+
+const libraryNames = ref<Record<string, string>>({})
+const libraryOptions = computed(() =>
+  authStore.libraries.map((lid) => ({ value: lid, label: libraryNames.value[lid] || lid }))
+)
+
+const loadLibraryNames = async () => {
+  try {
+    const list = await knowledgeApi.getLibraries() as unknown as { id: string; name: string }[]
+    libraryNames.value = Object.fromEntries(list.map((l) => [l.id, l.name]))
+  } catch {
+    // 名称加载失败时回退显示原始 id
+  }
+}
+
+onMounted(() => {
+  void loadLibraryNames()
+})
 
 const leftCollapsed = ref(false)
 const rightCollapsed = ref(false)
@@ -223,5 +252,9 @@ html, body, #app {
   .base-chat-component {
     height: 100%;
   }
+}
+
+.header-library-switcher {
+  margin-right: 4px;
 }
 </style>

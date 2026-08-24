@@ -37,21 +37,11 @@
         </keep-alive>
       </a-tab-pane>
     </a-tabs>
-    <div class="left-panel-footer">
-      <a-select
-        v-if="authStore.libraries.length > 1"
-        v-model:value="authStore.activeLibraryId"
-        size="small"
-        class="library-switcher"
-        :options="libraryOptions"
-        @change="onLibraryChange"
-      />
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { KnowledgeTree, useKnowledgeTree, createResourceNodeFromKnowledge } from '@angineer/docs-ui'
 import SOPSidebar from './sidebar/SOPSidebar.vue'
 import ProjectSidebar from './sidebar/ProjectSidebar.vue'
@@ -88,9 +78,6 @@ const { treeData, buildTree } = useKnowledgeTree()
 const authStore = useAuthStore()
 const activeLibraryId = computed(() => authStore.libraryId || 'default')
 const libraryNames = ref<Record<string, string>>({})
-const libraryOptions = computed(() =>
-  authStore.libraries.map((lid) => ({ value: lid, label: libraryNames.value[lid] || lid }))
-)
 const treeLibraries = computed(() =>
   authStore.libraries.map((lid) => ({ id: lid, name: libraryNames.value[lid] || lid }))
 )
@@ -136,9 +123,9 @@ async function loadLibraryNames() {
   }
 }
 
-function onLibraryChange() {
+watch(() => authStore.libraryId, () => {
   loadNodes()
-}
+})
 
 onMounted(async () => {
   await loadLibraryNames()
