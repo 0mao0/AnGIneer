@@ -92,10 +92,13 @@ const libraryNames = ref<Record<string, string>>({})
 const libraryOptions = computed(() =>
   authStore.libraries.map((lid) => ({ value: lid, label: libraryNames.value[lid] || lid }))
 )
+const treeLibraries = computed(() =>
+  authStore.libraries.map((lid) => ({ id: lid, name: libraryNames.value[lid] || lid }))
+)
 const { loading, error, reload: loadNodes } = useRetryableLoad(
   async () => {
     const response = await knowledgeApi.getNodes(activeLibraryId.value, true) as unknown as any[]
-    treeData.value = buildTree(response)
+    treeData.value = buildTree(response, treeLibraries.value)
     return response
   },
   { errorMessage: '加载知识库节点失败，请检查网络或后端服务' }
@@ -142,9 +145,9 @@ async function handleLogout() {
   await authStore.logout()
 }
 
-onMounted(() => {
+onMounted(async () => {
+  await loadLibraryNames()
   loadNodes()
-  loadLibraryNames()
   if (panelRef.value && typeof ResizeObserver !== 'undefined') {
     resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
