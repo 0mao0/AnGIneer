@@ -44,6 +44,7 @@ import engtools.KnowledgeTool
 from sop_routes import sop_router
 from evals_routes import evals_router
 from dream_cycle_routes import dream_cycle_router
+from chat_auth import enforce_bound_library
 from middleware.api_key_auth import APIKeyAuthMiddleware
 from route_pre import (
     decision_intent_result,
@@ -126,25 +127,6 @@ class QueryRequest(BaseModel):
 class SteerRequest(BaseModel):
     """run 中途 steer 注入请求体。"""
     text: str
-
-
-def enforce_bound_library(state, requested: str) -> str:
-    """会话用户按库集合校验；Key 保持原单库逻辑。空/default → 默认库。"""
-    ids = getattr(state, "bound_library_ids", None)
-    if ids is not None:
-        req = (requested or "").strip()
-        if not req or req == "default":
-            return getattr(state, "bound_library_id", "") or "default"
-        if req not in ids:
-            raise HTTPException(status_code=403, detail=f"用户无权访问知识库 '{req}'")
-        return req
-    bound = getattr(state, "bound_library_id", "") or ""
-    if not bound:
-        return (requested or "").strip() or "default"
-    req = (requested or "").strip()
-    if req and req != "default" and req != bound:
-        raise HTTPException(status_code=403, detail=f"API key 仅授权访问知识库 '{bound}'")
-    return bound
 
 
 @app.get("/api/llm_configs")

@@ -9,23 +9,8 @@ from fastapi import Request
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 
+from chat_auth import resolve_session_principal
 from models.api_key import lookup_key
-from models.user import get_session_user
-
-
-def resolve_session_principal(request: Request) -> bool:
-    auth_header = (request.headers.get("Authorization", "") or "").strip()
-    if not auth_header.lower().startswith("bearer "):
-        return False
-    raw_token = auth_header[7:].strip()
-    user = get_session_user(raw_token)
-    if user is None or not user.is_active:
-        return False
-    request.state.session_user = user
-    request.state.session_token_raw = raw_token
-    request.state.bound_library_id = user.library_ids[0] if user.library_ids else ""
-    request.state.bound_library_ids = set(user.library_ids)
-    return True
 
 
 class APIKeyAuthMiddleware(BaseHTTPMiddleware):

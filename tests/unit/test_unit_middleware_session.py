@@ -1,4 +1,5 @@
 """docs-api 中间件会话通道测试。"""
+import importlib.util
 import os
 import sys
 import tempfile
@@ -11,7 +12,19 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/tree-core/src")))
 
 import models.user as user_model  # noqa: E402
-from middleware.api_key_auth import resolve_session_principal  # noqa: E402
+
+
+def _load_docs_middleware():
+    path = os.path.abspath(os.path.join(
+        os.path.dirname(__file__), "../../services/docs-api/middleware/api_key_auth.py"
+    ))
+    spec = importlib.util.spec_from_file_location("docs_api_middleware", path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+middleware_mod = _load_docs_middleware()
 
 
 class SessionMiddlewareTests(unittest.TestCase):
@@ -33,22 +46,21 @@ class SessionMiddlewareTests(unittest.TestCase):
 
     def test_resolve_session_sets_user_and_token(self):
         req = self._req(self.token)
-        result = resolve_session_principal(req)
+        result = middleware_mod.resolve_session_principal(req)
         self.assertTrue(result)
         self.assertEqual(req.state.session_user.id, self.user.id)
         self.assertEqual(req.state.session_token_raw, self.token)
 
     def test_resolve_session_invalid_token_fails(self):
         req = self._req("bad-token")
-        self.assertFalse(resolve_session_principal(req))
+        self.assertFalse(middleware_mod.resolve_session_principal(req))
 
     def test_library_membership_checked(self):
-        from middleware.api_key_auth import authorize_library
         req = self._req(self.token)
-        resolve_session_principal(req)
-        self.assertEqual(authorize_library(req, "lib-b"), "lib-b")
-        self.assertEqual(authorize_library(req, ""), "lib-a")
-        self.assertIsNone(authorize_library(req, "lib-other"))
+        middleware_mod.resolve_session_principal(req)
+        self.assertEqual(middleware_mod.authorize_library(req, "lib-b"), "lib-b")
+        self.assertEqual(middleware_mod.authorize_library(req, ""), "lib-a")
+        self.assertIsNone(middleware_mod.authorize_library(req, "lib-other"))
 
 
 if __name__ == "__main__":

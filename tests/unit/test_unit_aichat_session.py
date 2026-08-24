@@ -12,6 +12,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/docs-core/src")))
 
 import models.user as user_model  # noqa: E402
+from chat_auth import enforce_bound_library, resolve_session_principal  # noqa: E402
 from fastapi import HTTPException  # noqa: E402
 
 
@@ -33,7 +34,6 @@ class AichatSessionTests(unittest.TestCase):
         return state
 
     def test_enforce_session_library_set(self):
-        from main import enforce_bound_library
         state = self._state()
         self.assertEqual(enforce_bound_library(state, "lib-b"), "lib-b")
         self.assertEqual(enforce_bound_library(state, "default"), "lib-a")
@@ -43,7 +43,6 @@ class AichatSessionTests(unittest.TestCase):
         self.assertEqual(ctx.exception.status_code, 403)
 
     def test_enforce_key_library_still_works(self):
-        from main import enforce_bound_library
         state = MagicMock()
         state.bound_library_ids = None
         state.bound_library_id = "lib-x"
@@ -53,7 +52,6 @@ class AichatSessionTests(unittest.TestCase):
             enforce_bound_library(state, "lib-y")
 
     def test_resolve_session_in_middleware(self):
-        from middleware.api_key_auth import resolve_session_principal
         req = MagicMock()
         req.headers.get.return_value = f"Bearer {self.token}"
         self.assertTrue(resolve_session_principal(req))
