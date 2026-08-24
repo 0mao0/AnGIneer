@@ -75,7 +75,7 @@ export const getStatusText = (status: string): string => {
 }
 
 /** 根据关键词过滤树节点，保留命中节点的祖先链 */
-export function filterTree<T extends { title: string; children?: T[] }>(nodes: T[], keyword: string): T[] {
+export function filterTree<T extends { title: string; children?: any }>(nodes: T[], keyword: string): T[] {
   return nodes.reduce<T[]>((result, node) => {
     const title = String(node.title || '').toLowerCase()
     const filteredChildren = node.children ? filterTree(node.children, keyword) : []
@@ -90,7 +90,7 @@ export function filterTree<T extends { title: string; children?: T[] }>(nodes: T
 }
 
 /** 收集搜索命中路径上的父节点 key */
-export function getExpandedKeysForSearch<T extends { key: string; title: string; children?: T[] }>(
+export function getExpandedKeysForSearch<T extends { key: string; title: string; children?: any }>(
   nodes: T[],
   keyword: string,
   parentKeys: string[] = [],
@@ -108,7 +108,7 @@ export function getExpandedKeysForSearch<T extends { key: string; title: string;
 }
 
 /** 轻量克隆树：保留 Date/Map/函数等非序列化字段（替代 JSON.parse(JSON.stringify())） */
-export function cloneTree<T extends { key: string; title: string; children?: T[] }>(nodes: T[]): T[] {
+export function cloneTree<T extends { key: string; title: string; children?: any }>(nodes: T[]): T[] {
   return nodes.map((node) => ({
     ...node,
     children: node.children ? cloneTree(node.children) : node.children,

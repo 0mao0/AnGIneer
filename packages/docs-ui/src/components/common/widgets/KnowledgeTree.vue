@@ -1,6 +1,6 @@
 <template>
   <SmartTree
-    ref="smartTreeRef"
+    :ref="setSmartTreeRef"
     :tree-data="treeData"
     :show-search="showSearch"
     :search-placeholder="searchPlaceholder"
@@ -98,6 +98,7 @@ export interface KnowledgeTreeProps {
  */
 import { ref } from 'vue'
 import { SmartTree } from '@angineer/smarttree-ui'
+import type { SmartTreeExposed } from '@angineer/smarttree-ui'
 import type { DropEvent } from '../../../types/tree'
 import {
   FolderOutlined,
@@ -124,7 +125,10 @@ const emit = defineEmits<{
   'drop-root': [dragNodeKeys: string[]]
 }>()
 
-const smartTreeRef = ref<InstanceType<typeof SmartTree> | null>(null)
+const smartTreeRef = ref<SmartTreeExposed | null>(null)
+const setSmartTreeRef = (instance: unknown) => {
+  smartTreeRef.value = (instance ?? null) as SmartTreeExposed | null
+}
 
 /**
  * 展开所有知识节点。

@@ -208,12 +208,12 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends SmartTreeNode">
 /**
  * 通用智能树组件。
  * 支持搜索、拖拽、自定义渲染，适用于知识树、经验树等多种场景。
  */
-import { computed, ref, watch, type Component } from 'vue'
+import { computed, ref, shallowRef, watch, type Component } from 'vue'
 import type { TreeProps } from 'ant-design-vue'
 import {
   CloudUploadOutlined,
@@ -249,7 +249,7 @@ import {
 
 interface AntTreeDropInfo {
   dragNode: { key: string | number }
-  node: { key: string | number; pos?: string; dataRef?: SmartTreeNode }
+  node: { key: string | number; pos?: string; dataRef?: T }
   dragNodesKeys?: (string | number)[]
   dropToGap?: boolean
   dropPosition?: number
@@ -260,8 +260,8 @@ interface AntTreeDragInfo {
   node?: { key?: string | number }
 }
 
-interface Props {
-  treeData: SmartTreeNode[]
+interface Props<T extends SmartTreeNode> {
+  treeData: T[]
   showSearch?: boolean
   searchPlaceholder?: string
   highlightSearch?: boolean
@@ -289,7 +289,7 @@ interface Props {
   defaultExpandAll?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props<T>>(), {
   showSearch: true,
   searchPlaceholder: '搜索...',
   highlightSearch: true,
@@ -318,15 +318,15 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  select: [keys: string[], nodes: SmartTreeNode[]]
-  rename: [node: SmartTreeNode]
-  'add-folder': [node: SmartTreeNode | null]
-  'add-file': [node: SmartTreeNode]
-  delete: [node: SmartTreeNode]
-  view: [node: SmartTreeNode]
+  select: [keys: string[], nodes: T[]]
+  rename: [node: T]
+  'add-folder': [node: T | null]
+  'add-file': [node: T]
+  delete: [node: T]
+  view: [node: T]
   drop: [event: DropEvent]
   search: [text: string]
-  'file-drop': [files: File[], targetFolder: SmartTreeNode | null]
+  'file-drop': [files: File[], targetFolder: T | null]
   'drop-invalid': [reason: string]
   'drop-root': [dragNodeKeys: string[]]
 }>()
@@ -345,13 +345,13 @@ const actionLabel = (action: keyof typeof DEFAULT_ACTION_LABELS): string =>
 const searchText = ref('')
 const initialExpandedApplied = ref(false)
 
-const collectFolderKeys = (nodes: SmartTreeNode[]): string[] => {
+const collectFolderKeys = (nodes: T[]): string[] => {
   const keys: string[] = []
-  const walk = (items: SmartTreeNode[]) => {
+  const walk = (items: T[]) => {
     for (const node of items) {
       if (node.children && node.children.length > 0) {
         keys.push(node.key)
-        walk(node.children)
+        walk(node.children as T[])
       }
     }
   }
@@ -360,7 +360,7 @@ const collectFolderKeys = (nodes: SmartTreeNode[]): string[] => {
 }
 const expandedKeys = ref<string[]>(props.defaultExpandedKeys)
 const selectedKeys = ref<string[]>(props.defaultSelectedKeys)
-const internalTreeData = ref<SmartTreeNode[]>([])
+const internalTreeData = shallowRef<T[]>([])
 const isDraggingFile = ref(false)
 const dragOverKey = ref<string | null>(null)
 const draggingNodeKeys = ref<string[]>([])
@@ -373,12 +373,12 @@ const sourceTreeData = computed(() => {
 })
 
 const originalNodeMap = computed(() => {
-  const map = new Map<string, SmartTreeNode>()
-  const walk = (nodes: SmartTreeNode[]) => {
+  const map = new Map<string, T>()
+  const walk = (nodes: T[]) => {
     for (const node of nodes) {
       map.set(node.key, node)
       if (node.children?.length) {
-        walk(node.children)
+        walk(node.children as T[])
       }
     }
   }
@@ -419,7 +419,7 @@ watch(searchText, (value) => {
 /**
  * 从原始树中读取节点。
  */
-const getOriginalNode = (key: string): SmartTreeNode | undefined => {
+const getOriginalNode = (key: string): T | undefined => {
   return originalNodeMap.value.get(key)
 }
 
@@ -448,7 +448,7 @@ const onDelete = (key: string) => {
   if (node) emit('delete', node)
 }
 
-const onNodeDblClick = (node: SmartTreeNode) => {
+const onNodeDblClick = (node: T) => {
   if (!node.isFolder) return
   if (expandedKeys.value.includes(node.key)) {
     expandedKeys.value = expandedKeys.value.filter((key) => key !== node.key)
@@ -484,21 +484,21 @@ const onSelect: TreeProps['onSelect'] = (keys) => {
   const selectedKeysArr = keys as string[]
   const nodes = selectedKeysArr
     .map((key) => getOriginalNode(key))
-    .filter((node): node is SmartTreeNode => Boolean(node))
+    .filter((node): node is T => Boolean(node))
   emit('select', selectedKeysArr, nodes)
 }
 
 /**
  * 处理节点拖拽，先本地更新避免回弹。
  */
-const findParentKeyInTree = (nodes: SmartTreeNode[], targetKey: string, isInsertInto: boolean): string | null => {
+const findParentKeyInTree = (nodes: T[], targetKey: string, isInsertInto: boolean): string | null => {
   if (isInsertInto) return targetKey
 
-  const findParent = (items: SmartTreeNode[], key: string, parentKey: string | null): string | null | undefined => {
+  const findParent = (items: T[], key: string, parentKey: string | null): string | null | undefined => {
     for (const item of items) {
       if (item.key === key) return parentKey
       if (item.children?.length) {
-        const found = findParent(item.children, key, item.key)
+        const found = findParent(item.children as T[], key, item.key)
         if (found !== undefined) return found
       }
     }
@@ -509,14 +509,14 @@ const findParentKeyInTree = (nodes: SmartTreeNode[], targetKey: string, isInsert
   return result === undefined ? null : result
 }
 
-const getSiblingsAtLevel = (nodes: SmartTreeNode[], parentKey: string | null): SmartTreeNode[] => {
+const getSiblingsAtLevel = (nodes: T[], parentKey: string | null): T[] => {
   if (!parentKey) return nodes
 
-  const findChildren = (items: SmartTreeNode[], key: string): SmartTreeNode[] | null => {
+  const findChildren = (items: T[], key: string): T[] | null => {
     for (const item of items) {
-      if (item.key === key) return item.children || []
+      if (item.key === key) return (item.children as T[]) || []
       if (item.children?.length) {
-        const found = findChildren(item.children, key)
+        const found = findChildren(item.children as T[], key)
         if (found) return found
       }
     }
@@ -526,7 +526,7 @@ const getSiblingsAtLevel = (nodes: SmartTreeNode[], parentKey: string | null): S
   return findChildren(nodes, parentKey) || []
 }
 
-const removeNodeFromTree = (nodes: SmartTreeNode[], key: string): SmartTreeNode | undefined => {
+const removeNodeFromTree = (nodes: T[], key: string): T | undefined => {
   for (let index = 0; index < nodes.length; index += 1) {
     if (nodes[index].key === key) {
       const removed = nodes[index]
@@ -535,17 +535,17 @@ const removeNodeFromTree = (nodes: SmartTreeNode[], key: string): SmartTreeNode 
     }
     const childNodes = nodes[index].children
     if (childNodes) {
-      const found = removeNodeFromTree(childNodes, key)
+      const found = removeNodeFromTree(childNodes as T[], key)
       if (found) return found
     }
   }
   return undefined
 }
 
-const hasDescendant = (root: SmartTreeNode | undefined, targetKey: string): boolean => {
+const hasDescendant = (root: T | undefined, targetKey: string): boolean => {
   if (!root?.children?.length) return false
   for (const child of root.children) {
-    if (child.key === targetKey || hasDescendant(child, targetKey)) return true
+    if (child.key === targetKey || hasDescendant(child as T, targetKey)) return true
   }
   return false
 }
@@ -573,7 +573,7 @@ const onDrop: TreeProps['onDrop'] = (info) => {
   }
 
   const data = cloneTree(internalTreeData.value)
-  const dragObjs: SmartTreeNode[] = []
+  const dragObjs: T[] = []
 
   for (const key of dragKeys) {
     const obj = removeNodeFromTree(data, key)
@@ -596,7 +596,7 @@ const onDrop: TreeProps['onDrop'] = (info) => {
   }
 
   if (shouldInsertInto) {
-    const insertInto = (nodes: SmartTreeNode[]): boolean => {
+    const insertInto = (nodes: T[]): boolean => {
       for (let index = 0; index < nodes.length; index += 1) {
         if (nodes[index].key === dropNode.key) {
           if (!nodes[index].children) {
@@ -610,7 +610,7 @@ const onDrop: TreeProps['onDrop'] = (info) => {
           return true
         }
         const childNodes = nodes[index].children
-        if (childNodes && insertInto(childNodes)) {
+        if (childNodes && insertInto(childNodes as T[])) {
           return true
         }
       }
@@ -619,7 +619,7 @@ const onDrop: TreeProps['onDrop'] = (info) => {
     insertInto(data)
   } else {
     let offset = 0
-    const insertAtGap = (nodes: SmartTreeNode[]): boolean => {
+    const insertAtGap = (nodes: T[]): boolean => {
       for (let index = 0; index < nodes.length; index += 1) {
         if (nodes[index].key === dropNode.key) {
           const insertIndex = relativeDropPosition < 0 ? index : index + 1
@@ -629,7 +629,7 @@ const onDrop: TreeProps['onDrop'] = (info) => {
           return true
         }
         const childNodes = nodes[index].children
-        if (childNodes && insertAtGap(childNodes)) {
+        if (childNodes && insertAtGap(childNodes as T[])) {
           return true
         }
       }
@@ -649,7 +649,7 @@ const onDrop: TreeProps['onDrop'] = (info) => {
     dragNode: dragObjs[0],
     dragNodes: dragObjs,
     dropKey: String(dropNode.key),
-    dropNode: getOriginalNode(String(dropNode.key)) || (dropNode.dataRef as SmartTreeNode),
+    dropNode: getOriginalNode(String(dropNode.key)) || (dropNode.dataRef as T),
     dropToGap,
     targetParentKey,
     siblings,
@@ -741,7 +741,7 @@ const onFileDrop = (event: DragEvent) => {
     event.preventDefault()
     const fileArray = Array.from(files)
     const targetFolder = dragOverKey.value ? getOriginalNode(dragOverKey.value) : null
-    emit('file-drop', fileArray, targetFolder as SmartTreeNode | null)
+    emit('file-drop', fileArray, targetFolder as T | null)
   }
   dragOverKey.value = null
 }
@@ -760,12 +760,12 @@ const getAllowedFileTypesDesc = (): string => {
  * 展开所有节点。
  */
 const expandAll = () => {
-  const getAllKeys = (nodes: SmartTreeNode[]): string[] => {
+  const getAllKeys = (nodes: T[]): string[] => {
     const keys: string[] = []
     for (const node of nodes) {
       if (node.children && node.children.length > 0) {
         keys.push(node.key)
-        keys.push(...getAllKeys(node.children))
+        keys.push(...getAllKeys(node.children as T[]))
       }
     }
     return keys
@@ -783,15 +783,15 @@ const collapseAll = () => {
 /**
  * 获取当前选中的节点。
  */
-const getSelectedNodes = (): SmartTreeNode[] => {
-  const findNodes = (nodes: SmartTreeNode[], keys: string[]): SmartTreeNode[] => {
-    const result: SmartTreeNode[] = []
+const getSelectedNodes = (): T[] => {
+  const findNodes = (nodes: T[], keys: string[]): T[] => {
+    const result: T[] = []
     for (const node of nodes) {
       if (keys.includes(node.key)) {
         result.push(node)
       }
       if (node.children) {
-        result.push(...findNodes(node.children, keys))
+        result.push(...findNodes(node.children as T[], keys))
       }
     }
     return result
