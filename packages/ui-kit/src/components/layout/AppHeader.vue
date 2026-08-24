@@ -135,8 +135,6 @@
           <ControlOutlined />
         </a-button>
 
-        <slot name="extra-actions" />
-
         <a-button v-if="showHome && showHomeInRight" type="text" class="home-btn" @click="$emit('home-click')" title="返回前台">
           <HomeOutlined />
         </a-button>

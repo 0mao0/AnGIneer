@@ -14,16 +14,6 @@
           @update:project-name="onProjectNameChange"
           @settings-click="openSettings"
         >
-          <template #extra-actions>
-            <a-select
-              v-if="authStore.libraries.length > 1"
-              v-model:value="authStore.activeLibraryId"
-              size="small"
-              class="header-library-switcher"
-              :options="libraryOptions"
-              style="min-width: 160px"
-            />
-          </template>
           <template #user-menu>
             <a-dropdown placement="bottomRight">
               <a-button type="text" class="user-menu-btn" aria-label="个人菜单">
@@ -59,6 +49,14 @@
           <template #right>
             <Panel title="AI 对话" :icon="MessageOutlined" contentClass="chat-panel-content">
               <template #extra>
+                <a-select
+                  v-if="authStore.libraries.length > 1"
+                  v-model:value="authStore.activeLibraryId"
+                  size="small"
+                  class="chat-library-switcher"
+                  :options="libraryOptions"
+                  style="min-width: 140px"
+                />
                 <a-button
                   type="text"
                   size="small"
@@ -254,7 +252,7 @@ html, body, #app {
   }
 }
 
-.header-library-switcher {
-  margin-right: 4px;
+.chat-library-switcher {
+  margin-right: 8px;
 }
 </style>
