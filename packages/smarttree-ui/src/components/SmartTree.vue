@@ -116,12 +116,12 @@
         @dragleave="onRootDragLeave"
         @drop.prevent="onRootDrop"
       >
-        拖到此处移动到根目录
+        {{ rootDropText }}
       </div>
 
       <div v-if="!filteredTreeData.length && !loading" class="tree-empty">
         <slot name="empty">
-          <a-empty :description="searchText ? '无匹配结果' : emptyText" />
+          <a-empty :description="searchText ? noSearchResultText : emptyText" />
           <a-button
             v-if="showAddRootFolder && !searchText"
             type="primary"
@@ -141,7 +141,7 @@
 
       <div v-if="isDraggingFile" class="file-drop-hint">
         <CloudUploadOutlined />
-        <span>释放上传至 {{ dragOverKey && getOriginalNode(dragOverKey) ? getOriginalNode(dragOverKey)?.title : '根目录' }}</span>
+        <span>{{ fileDropHintPrefix }} {{ dragOverKey && getOriginalNode(dragOverKey) ? getOriginalNode(dragOverKey)?.title : '根目录' }}</span>
       </div>
     </div>
   </div>
@@ -206,6 +206,13 @@ interface Props {
   defaultExpandedKeys?: string[]
   defaultSelectedKeys?: string[]
   dark?: boolean
+  virtual?: boolean
+  height?: number
+  rootDropText?: string
+  noSearchResultText?: string
+  fileDropHintPrefix?: string
+  actionLabels?: Partial<Record<'rename' | 'addSubFolder' | 'addFile' | 'view' | 'delete', string>>
+  defaultExpandAll?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -226,7 +233,14 @@ const props = withDefaults(defineProps<Props>(), {
   emptyText: '暂无数据',
   defaultExpandedKeys: () => [],
   defaultSelectedKeys: () => [],
-  dark: false
+  dark: false,
+  virtual: false,
+  height: undefined,
+  rootDropText: '拖动到此移动到根目录',
+  noSearchResultText: '无匹配结果',
+  fileDropHintPrefix: '释放上传至',
+  actionLabels: () => ({}),
+  defaultExpandAll: false
 })
 
 const emit = defineEmits<{
@@ -243,7 +257,33 @@ const emit = defineEmits<{
   'drop-root': [dragNodeKeys: string[]]
 }>()
 
+const DEFAULT_ACTION_LABELS: Record<'rename' | 'addSubFolder' | 'addFile' | 'view' | 'delete', string> = {
+  rename: '重命名',
+  addSubFolder: '添加子文件夹',
+  addFile: '添加文件',
+  view: '查看',
+  delete: '删除'
+}
+
+const actionLabel = (action: keyof typeof DEFAULT_ACTION_LABELS): string =>
+  props.actionLabels?.[action] || DEFAULT_ACTION_LABELS[action]
+
 const searchText = ref('')
+const initialExpandedApplied = ref(false)
+
+const collectFolderKeys = (nodes: SmartTreeNode[]): string[] => {
+  const keys: string[] = []
+  const walk = (items: SmartTreeNode[]) => {
+    for (const node of items) {
+      if (node.children && node.children.length > 0) {
+        keys.push(node.key)
+        walk(node.children)
+      }
+    }
+  }
+  walk(nodes)
+  return keys
+}
 const expandedKeys = ref<string[]>(props.defaultExpandedKeys)
 const selectedKeys = ref<string[]>(props.defaultSelectedKeys)
 const internalTreeData = ref<SmartTreeNode[]>([])
@@ -274,6 +314,10 @@ const originalNodeMap = computed(() => {
 
 watch(() => props.treeData, (value) => {
   internalTreeData.value = JSON.parse(JSON.stringify(value))
+  if (props.defaultExpandAll && !initialExpandedApplied.value && value.length > 0) {
+    expandedKeys.value = collectFolderKeys(value)
+    initialExpandedApplied.value = true
+  }
 }, { immediate: true, deep: true })
 
 watch(() => props.defaultExpandedKeys, (value) => {
