@@ -12,7 +12,7 @@
       row-key="id"
       :loading="loading"
       :pagination="{ pageSize: 15 }"
-      storage-key="angineer-users"
+      storage-key="angineer-users-v2"
     >
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'libraries'">
@@ -30,13 +30,13 @@
           />
         </template>
         <template v-else-if="column.key === 'action'">
-          <AppButton variant="link" size="sm" @click="openEdit(record)">编辑</AppButton>
-          <a-divider type="vertical" />
-          <AppButton variant="link" size="sm" @click="openResetPassword(record)">重置密码</AppButton>
-          <a-divider type="vertical" />
-          <a-popconfirm title="确定删除该用户？此操作不可恢复" placement="left" @confirm="handleDelete(record)">
-            <AppButton variant="link" size="sm" danger>删除</AppButton>
-          </a-popconfirm>
+          <div class="action-cell">
+            <AppButton variant="link" size="sm" @click="openEdit(record)">编辑</AppButton>
+            <AppButton variant="link" size="sm" @click="openResetPassword(record)">重置密码</AppButton>
+            <a-popconfirm title="确定删除该用户？此操作不可恢复" placement="left" @confirm="handleDelete(record)">
+              <AppButton variant="link" size="sm" danger>删除</AppButton>
+            </a-popconfirm>
+          </div>
         </template>
       </template>
     </DataTable>
@@ -103,7 +103,7 @@ const columns: DataTableColumn[] = [
   { title: '可访问知识库', key: 'libraries', width: 240, minWidth: 180, resizable: true },
   { title: '最近登录', dataIndex: 'last_login_at', key: 'last_login_at', width: 150, minWidth: 120, resizable: true },
   { title: '启用', key: 'is_active', width: 70, minWidth: 60 },
-  { title: '操作', key: 'action', width: 180, minWidth: 160, fixed: 'right' },
+  { title: '操作', key: 'action', width: 240, minWidth: 210, fixed: 'right' },
 ]
 
 const createVisible = ref(false)
@@ -259,5 +259,12 @@ onMounted(() => {
 .no-lib {
   color: @text-tertiary;
   font-size: @font-size-sm;
+}
+
+.action-cell {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
 }
 </style>
