@@ -28,11 +28,14 @@
           </template>
         </AppHeader>
         <SplitPanes
+          ref="splitPanesRef"
           class="main-content"
           :initial-left-ratio="0.2"
+          :initial-right-ratio="0.25"
           :left-collapsible="true"
           v-model:leftCollapsed="leftCollapsed"
-          :show-right-pane="false"
+          :right-collapsible="true"
+          v-model:rightCollapsed="rightCollapsed"
           @resize="handleResize"
         >
           <template #left>
@@ -40,72 +43,55 @@
           </template>
           <template #center>
             <Workbench
-              :show-right-panel="aiChatVisible"
               @navigate-section="onNavigateSection"
-            >
-              <template #right>
-                <div class="ai-chat-dock">
-                  <div class="ai-chat-dock-header">
-                    <span class="ai-chat-dock-title">AI 对话</span>
-                    <a-button
-                      type="text"
-                      size="small"
-                      title="新建对话"
-                      aria-label="新建对话"
-                      @click="onNewChat"
-                    >
-                      <template #icon><PlusOutlined /></template>
-                    </a-button>
-                    <a-button
-                      type="text"
-                      size="small"
-                      title="关闭"
-                      aria-label="关闭"
-                      @click="aiChatVisible = false"
-                    >
-                      <template #icon><CloseOutlined /></template>
-                    </a-button>
-                  </div>
-                  <div class="ai-chat-panel-body">
-                    <AIChat
-                      ref="aiChatRef"
-                      title=""
-                      :placeholder="chatPanelPlaceholder"
-                      :show-context-info="true"
-                      :scene="activeSection === 'sop' ? 'sops' : 'docs'"
-                      :session-id="chatSessionId"
-                      :library-id="authStore.libraryId || 'default'"
-                      :transport="defaultAIChatTransport"
-                      @select-citation="handleCitationSelect"
-                    />
-                  </div>
-                </div>
+            />
+          </template>
+          <template #right>
+            <Panel title="AI 对话" :icon="MessageOutlined" contentClass="chat-panel-content">
+              <template #extra>
+                <a-button
+                  type="text"
+                  size="small"
+                  title="新建对话"
+                  aria-label="新建对话"
+                  @click="onNewChat"
+                >
+                  <template #icon><PlusOutlined /></template>
+                </a-button>
+                <a-button
+                  type="text"
+                  size="small"
+                  title="收起侧边栏"
+                  aria-label="收起侧边栏"
+                  @click="splitPanesRef?.toggleRight()"
+                >
+                  <template #icon><MenuUnfoldOutlined /></template>
+                </a-button>
               </template>
-            </Workbench>
+              <AIChat
+                ref="aiChatRef"
+                title=""
+                :placeholder="chatPanelPlaceholder"
+                :show-context-info="true"
+                :scene="activeSection === 'sop' ? 'sops' : 'docs'"
+                :session-id="chatSessionId"
+                :library-id="authStore.libraryId || 'default'"
+                :transport="defaultAIChatTransport"
+                @select-citation="handleCitationSelect"
+              />
+            </Panel>
           </template>
         </SplitPanes>
-
-        <a-button
-          v-if="!aiChatVisible"
-          class="ai-chat-fab"
-          type="primary"
-          shape="circle"
-          size="large"
-          :icon="h(MessageOutlined)"
-          :aria-label="aiChatVisible ? '关闭AI对话' : '打开AI对话'"
-          :title="aiChatVisible ? '关闭AI对话' : '打开AI对话'"
-          @click="aiChatVisible = !aiChatVisible"
-        />
       </div>
     </a-app>
   </a-config-provider>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, h } from 'vue'
+import { computed, ref } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import { MessageOutlined, PlusOutlined, CloseOutlined, UserOutlined } from '@ant-design/icons-vue'
-import { AppHeader, SplitPanes, useTheme } from '@angineer/ui-kit'
+import { MessageOutlined, PlusOutlined, UserOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue'
+import { AppHeader, Panel, SplitPanes, useTheme } from '@angineer/ui-kit'
 import { AIChat } from '@angineer/aichat-ui'
 import LeftPanel from './layouts/LeftPanel.vue'
 import Workbench from './layouts/Workbench.vue'
@@ -129,8 +115,9 @@ const projectName = ref('示例项目')
 
 const authStore = useAuthStore()
 
-const aiChatVisible = ref(false)
 const leftCollapsed = ref(false)
+const rightCollapsed = ref(false)
+const splitPanesRef = ref<InstanceType<typeof SplitPanes> | null>(null)
 const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
 
 /** 全局会话：不随文档/页签变化，只有刷新或新建对话才换 key */
@@ -229,58 +216,12 @@ html, body, #app {
   min-height: 0;
 }
 
-.ai-chat-fab {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 1000;
-  width: 48px;
-  height: 48px;
-  font-size: 20px;
-  box-shadow: 0 4px 16px rgba(24, 144, 255, 0.35);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 24px rgba(24, 144, 255, 0.45);
-  }
-}
-
-.ai-chat-panel-body {
-  flex: 1;
+.chat-panel-content {
+  height: 100%;
   min-height: 0;
-  overflow: hidden;
 
   .base-chat-component {
     height: 100%;
   }
-}
-
-.ai-chat-dock {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 0;
-}
-
-.ai-chat-dock-header {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  height: 40px;
-  min-height: 40px;
-  padding: 0 8px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.ai-chat-dock-title {
-  flex: 1;
-  min-width: 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-primary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 </style>

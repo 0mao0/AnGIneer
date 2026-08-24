@@ -16,6 +16,7 @@
         ref="pdfWorkspaceRef"
         v-else-if="document && isPdfView && pdfUrl"
         :node="{ key: currentDocId, title: document.title, status: 'completed', isFolder: false, visible: true, filePath: pdfFilePath }"
+        :library-id="props.libraryId || authStore.libraryId || 'default'"
         :dark="isDark"
         :content="document.content"
         :render-pdf-path="pdfFilePath"
@@ -66,6 +67,7 @@ const props = defineProps<{
 
 const route = useRoute()
 const { isDark } = useTheme()
+const authStore = useAuthStore()
 const loading = ref(true)
 const loadError = ref<string>('')
 const document = ref<{ id: string; title: string; content: string } | null>(null)
@@ -101,7 +103,6 @@ const locateInContent = (content: string): { start: number; end: number } | null
 
 const loadDocument = async () => {
   const docId = (props.docId || route.params.id || '') as string
-  const authStore = useAuthStore()
   const libraryId = props.libraryId || authStore.libraryId || 'default'
   if (!docId) {
     loading.value = false
@@ -162,7 +163,8 @@ const loadGraphData = async () => {
   if (!docId || graphDataLoading.value || graphDataFullLoaded.value) return
   graphDataLoading.value = true
   try {
-    const result = await knowledgeApi.getDocBlocksGraph('default', docId) as any
+    const libraryId = props.libraryId || authStore.libraryId || 'default'
+    const result = await knowledgeApi.getDocBlocksGraph(libraryId, docId) as any
     const payload = result?.data || result || null
     graphData.value = payload?.nodes?.length ? payload : null
     graphDataFullLoaded.value = true
