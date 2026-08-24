@@ -618,6 +618,11 @@ def build_structured_index_for_doc(
         )
         result.nodes, table_stats = enrich_graph_nodes_table_semantics(result.nodes)
         _emit_step(on_step, "表格语义 enrich", "done", f"{table_stats['enriched']} tables")
+        from docs_core.step04_structure.shared.table_cells import (
+            enrich_graph_nodes_table_cells,
+        )
+        result.nodes, table_cells_stats = enrich_graph_nodes_table_cells(result.nodes)
+        _emit_step(on_step, "表格单元格坐标 enrich", "done", f"{table_cells_stats['enriched']} tables")
 
     stats = {
         "nodes_count": len(result.nodes),
@@ -630,6 +635,7 @@ def build_structured_index_for_doc(
         "title_level_review": title_review_stats,
         "formula_semantics": formula_stats,
         "table_semantics": table_stats,
+        "table_cells": table_cells_stats,
     }
     # 让落盘的 meta.stats 携带管线级 stats（含 popo/标题复核/公式语义），而非 solo_engine 原始 stats
     result.stats = stats
