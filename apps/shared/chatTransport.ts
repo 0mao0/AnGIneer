@@ -28,8 +28,8 @@ export const defaultAIChatTransport = {
     const headers: Record<string, string> = { 'Content-Type': 'application/json' }
     // 租户身份：user-web 登录的 API key 随 SSE 请求注入（aichat 中间件据此强制库隔离）
     if (typeof localStorage !== 'undefined') {
-      const apiKey = localStorage.getItem('ag_api_key')
-      if (apiKey) headers['X-API-Key'] = apiKey
+      const sessionToken = localStorage.getItem('ag_session_token')
+      if (sessionToken) headers['Authorization'] = `Bearer ${sessionToken}`
     }
     const response = await fetch('/api/chat/agent', {
       method: 'POST',

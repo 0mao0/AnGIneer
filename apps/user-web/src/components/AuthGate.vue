@@ -2,11 +2,19 @@
   <div v-if="!auth.isAuthed || authFailed" class="auth-gate">
     <div class="auth-card">
       <h2>登录工作台</h2>
-      <p class="auth-hint">请输入管理员发放的 API Key（已绑定您的知识库）</p>
-      <a-input-password
-        v-model:value="keyInput"
-        placeholder="ag_xxxxxxxxxxxxxxxx"
+      <p class="auth-hint">请输入管理员为您创建的账号</p>
+      <a-input
+        v-model:value="username"
+        placeholder="用户名"
         :disabled="auth.checking"
+        class="auth-field"
+        @press-enter="handleLogin"
+      />
+      <a-input-password
+        v-model:value="password"
+        placeholder="密码"
+        :disabled="auth.checking"
+        class="auth-field"
         @press-enter="handleLogin"
       />
       <div v-if="errorText" class="auth-error">{{ errorText }}</div>
@@ -22,7 +30,8 @@ import { onMounted, ref } from 'vue'
 import { useAuthStore } from '../stores/auth'
 
 const auth = useAuthStore()
-const keyInput = ref('')
+const username = ref('')
+const password = ref('')
 const errorText = ref('')
 const authFailed = ref(false)
 
@@ -38,11 +47,15 @@ onMounted(async () => {
 
 async function handleLogin() {
   errorText.value = ''
+  if (!username.value.trim() || !password.value) {
+    errorText.value = '请输入用户名和密码'
+    return
+  }
   try {
-    await auth.login(keyInput.value)
+    await auth.login(username.value.trim(), password.value)
     authFailed.value = false
   } catch (e: any) {
-    errorText.value = e?.message || '登录失败，请检查 API Key'
+    errorText.value = e?.message || '登录失败，请检查账号密码'
   }
 }
 </script>
@@ -74,7 +87,7 @@ async function handleLogin() {
   text-align: center;
   font-size: 13px;
 }
-.auth-card .ant-input-affix-wrapper {
+.auth-field {
   margin-bottom: 12px;
 }
 .auth-error {

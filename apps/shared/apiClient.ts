@@ -25,8 +25,8 @@ export interface UnwrappedAxiosInstance {
  */
 function tenantAuthHeaders(): Record<string, string> | null {
   if (typeof localStorage === 'undefined') return null
-  const key = localStorage.getItem('ag_api_key')
-  return key ? { 'X-API-Key': key } : null
+  const token = localStorage.getItem('ag_session_token')
+  return token ? { Authorization: `Bearer ${token}` } : null
 }
 
 export const sharedApiClient: UnwrappedAxiosInstance = createApiClient({ baseURL: '/api', getAuthToken: tenantAuthHeaders }) as UnwrappedAxiosInstance
