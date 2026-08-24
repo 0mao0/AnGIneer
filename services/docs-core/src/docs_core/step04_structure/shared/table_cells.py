@@ -117,3 +117,52 @@ def _estimate_bands(bbox, cells, count, *, axis):
         cursor += size
     bands[-1] = (bands[-1][0], end)
     return bands
+
+
+def _normalize_regions(regions):
+    out: List[Dict[str, Any]] = []
+    for item in regions or []:
+        if isinstance(item, dict):
+            bbox = item.get("bbox")
+            page_idx = item.get("page_idx", 0)
+        elif isinstance(item, (list, tuple)) and len(item) >= 4:
+            bbox = item
+            page_idx = 0
+        else:
+            continue
+        if not (isinstance(bbox, (list, tuple)) and len(bbox) >= 4):
+            continue
+        try:
+            out.append({
+                "page_idx": int(page_idx),
+                "bbox": [float(v) for v in bbox[:4]],
+            })
+        except (TypeError, ValueError):
+            continue
+    return out
+
+
+def _assign_rows_to_regions(rows_count, regions):
+    if rows_count <= 0:
+        return []
+    if not regions:
+        return [0] * rows_count
+    heights = [max(0.0, r["bbox"][3] - r["bbox"][1]) for r in regions]
+    total = sum(heights) or 1.0
+    boundaries = []
+    acc = 0.0
+    for height in heights:
+        acc += height / total
+        boundaries.append(acc)
+    assignment = []
+    for row in range(rows_count):
+        frac = (row + 0.5) / rows_count
+        idx = 0
+        while idx < len(boundaries) - 1 and frac >= boundaries[idx]:
+            idx += 1
+        assignment.append(idx)
+    return assignment
+
+
+def _horizontal_overlap(a, b):
+    return max(a[0], b[0]) < min(a[2], b[2])

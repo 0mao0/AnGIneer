@@ -3,6 +3,11 @@ from docs_core.step04_structure.shared.table_cells import (
     estimate_col_bands,
     estimate_row_bands,
 )
+from docs_core.step04_structure.shared.table_cells import (
+    _assign_rows_to_regions,
+    _horizontal_overlap,
+    _normalize_regions,
+)
 
 
 def test_parse_basic_grid() -> None:
@@ -57,3 +62,28 @@ def test_col_bands_weighted_by_text_length() -> None:
              {"row": 0, "col": 1, "rowspan": 1, "colspan": 1, "text": "yyy"}]
     bands = estimate_col_bands([0.0, 0.0, 1.0, 1.0], cells, 2)
     assert bands == [(0.0, 0.4), (0.4, 1.0)]
+
+
+def test_normalize_regions_from_page_bboxes() -> None:
+    regions = _normalize_regions([
+        {"page_idx": 2, "bbox": [0.0, 0.1, 1.0, 0.5]},
+        {"page_idx": 3, "bbox": [0.0, 0.0, 1.0, 0.6]},
+    ])
+    assert regions == [
+        {"page_idx": 2, "bbox": [0.0, 0.1, 1.0, 0.5]},
+        {"page_idx": 3, "bbox": [0.0, 0.0, 1.0, 0.6]},
+    ]
+
+
+def test_assign_rows_by_region_height() -> None:
+    regions = [
+        {"page_idx": 0, "bbox": [0.0, 0.0, 1.0, 0.5]},
+        {"page_idx": 1, "bbox": [0.0, 0.0, 1.0, 1.0]},
+    ]
+    assignment = _assign_rows_to_regions(3, regions)
+    assert assignment == [0, 1, 1]
+
+
+def test_horizontal_overlap() -> None:
+    assert _horizontal_overlap([0.1, 0.0, 0.9, 1.0], [0.2, 0.0, 0.8, 1.0]) is True
+    assert _horizontal_overlap([0.1, 0.0, 0.3, 1.0], [0.5, 0.0, 0.9, 1.0]) is False
