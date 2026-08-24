@@ -197,6 +197,9 @@ importers:
 
   packages/docs-ui:
     dependencies:
+      '@angineer/smarttree-ui':
+        specifier: workspace:*
+        version: link:../smarttree-ui
       docx-preview:
         specifier: ^0.4.0
         version: 0.4.0
@@ -236,6 +239,9 @@ importers:
       '@angineer/aichat-ui':
         specifier: workspace:*
         version: link:../aichat-ui
+      '@angineer/smarttree-ui':
+        specifier: workspace:*
+        version: link:../smarttree-ui
       '@angineer/ui-kit':
         specifier: workspace:*
         version: link:../ui-kit
@@ -290,6 +296,9 @@ importers:
       '@angineer/docs-ui':
         specifier: workspace:*
         version: link:../docs-ui
+      '@angineer/smarttree-ui':
+        specifier: workspace:*
+        version: link:../smarttree-ui
       '@angineer/ui-kit':
         specifier: workspace:*
         version: link:../ui-kit
@@ -327,6 +336,9 @@ importers:
 
   packages/ui-kit:
     dependencies:
+      '@angineer/smarttree-ui':
+        specifier: workspace:*
+        version: link:../smarttree-ui
       katex:
         specifier: 0.18.4
         version: 0.18.4

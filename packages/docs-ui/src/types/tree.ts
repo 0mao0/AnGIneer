@@ -1,4 +1,6 @@
-export type { SmartTreeNode, SmartTreeNodeStatus, TreeNodeAction, DropEvent } from '@angineer/smarttree-ui'
+import type { SmartTreeNode, SmartTreeNodeStatus, TreeNodeAction, DropEvent } from '@angineer/smarttree-ui'
+
+export type { SmartTreeNode, SmartTreeNodeStatus, TreeNodeAction, DropEvent }
 
 export type KnowledgeNodeStatus = SmartTreeNodeStatus
 export type KnowledgeStrategy = 'doc_blocks_graph_v1'
