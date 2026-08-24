@@ -20,14 +20,16 @@
           <SearchOutlined class="search-icon" />
         </template>
       </a-input>
-      <div
+      <button
         v-if="showAddRootFolder"
+        type="button"
         class="search-add-btn"
         :title="addRootFolderTitle"
+        :aria-label="addRootFolderTitle"
         @click="$emit('add-folder', null)"
       >
         <FolderAddOutlined />
-      </div>
+      </button>
     </div>
 
     <div class="tree-content">
@@ -41,6 +43,8 @@
         :draggable="draggable"
         :show-line="showLine"
         :multiple="multiple"
+        :virtual="virtual"
+        :height="height"
         @select="onSelect"
         @drop="onDrop"
         @dragstart="onNodeDragStart"
@@ -87,15 +91,72 @@
                 <span class="node-actions" @click.stop>
                   <slot name="actions" :node="node">
                     <template v-if="node.isFolder">
-                      <EditOutlined class="action-icon" title="重命名" @click.stop="onRename(key)" />
-                      <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="onAddFolder(key)" />
-                      <FileAddOutlined v-if="allowAddFile" class="action-icon" title="添加文件" @click.stop="onAddFile(key)" />
-                      <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDelete(key)" />
+                      <button
+                        type="button"
+                        class="action-btn"
+                        :aria-label="actionLabel('rename')"
+                        :title="actionLabel('rename')"
+                        @click.stop="onRename(key)"
+                      >
+                        <EditOutlined />
+                      </button>
+                      <button
+                        type="button"
+                        class="action-btn"
+                        :aria-label="actionLabel('addSubFolder')"
+                        :title="actionLabel('addSubFolder')"
+                        @click.stop="onAddFolder(key)"
+                      >
+                        <FolderAddOutlined />
+                      </button>
+                      <button
+                        v-if="allowAddFile"
+                        type="button"
+                        class="action-btn"
+                        :aria-label="actionLabel('addFile')"
+                        :title="actionLabel('addFile')"
+                        @click.stop="onAddFile(key)"
+                      >
+                        <FileAddOutlined />
+                      </button>
+                      <button
+                        type="button"
+                        class="action-btn delete"
+                        :aria-label="actionLabel('delete')"
+                        :title="actionLabel('delete')"
+                        @click.stop="onDelete(key)"
+                      >
+                        <DeleteOutlined />
+                      </button>
                     </template>
                     <template v-else>
-                      <EditOutlined class="action-icon" title="重命名" @click.stop="onRename(key)" />
-                      <EyeOutlined class="action-icon" title="查看" @click.stop="onView(key)" />
-                      <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDelete(key)" />
+                      <button
+                        type="button"
+                        class="action-btn"
+                        :aria-label="actionLabel('rename')"
+                        :title="actionLabel('rename')"
+                        @click.stop="onRename(key)"
+                      >
+                        <EditOutlined />
+                      </button>
+                      <button
+                        type="button"
+                        class="action-btn"
+                        :aria-label="actionLabel('view')"
+                        :title="actionLabel('view')"
+                        @click.stop="onView(key)"
+                      >
+                        <EyeOutlined />
+                      </button>
+                      <button
+                        type="button"
+                        class="action-btn delete"
+                        :aria-label="actionLabel('delete')"
+                        :title="actionLabel('delete')"
+                        @click.stop="onDelete(key)"
+                      >
+                        <DeleteOutlined />
+                      </button>
                     </template>
                   </slot>
                 </span>
