@@ -11,11 +11,8 @@
           :active-module="activeNav"
           :view-items="viewItems"
           :active-view="knowledgeView"
-          :show-home="true"
-          :show-home-in-right="true"
           :show-settings="true"
           logo-clickable
-          @home-click="confirmGoToFrontend"
           @logo-click="confirmGoToFrontend"
           @module-click="handleNavClick"
           @view-change="handleViewChange"
@@ -62,6 +59,7 @@ const viewItems = computed(() =>
 const webConsoleHref = import.meta.env.DEV ? WEB_CONSOLE_ORIGIN : '/'
 
 const navItems: NavItem[] = [
+  { key: 'chat', label: 'AI 对话' },
   { key: 'project', label: '项目库' },
   { key: 'knowledge', label: '知识库' },
   { key: 'experience', label: '经验库' },
@@ -73,6 +71,7 @@ const navItems: NavItem[] = [
 
 const activeNav = computed(() => {
   const path = route.path
+  if (path.startsWith('/chat')) return 'chat'
   if (path.startsWith('/evals')) return 'evals'
   if (path.startsWith('/project')) return 'project'
   if (path.startsWith('/experience')) return 'experience'
@@ -85,6 +84,7 @@ const activeNav = computed(() => {
 /** 导航项点击 */
 const handleNavClick = (key: string) => {
   const routeMap: Record<string, string> = {
+    chat: '/chat',
     project: '/project',
     knowledge: '/knowledge',
     experience: '/experience',

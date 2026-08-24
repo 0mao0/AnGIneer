@@ -13,7 +13,20 @@
           @admin-click="goToAdmin"
           @update:project-name="onProjectNameChange"
           @settings-click="openSettings"
-        />
+        >
+          <template #user-menu>
+            <a-dropdown placement="bottomRight">
+              <a-button type="text" class="user-menu-btn" aria-label="个人菜单">
+                <UserOutlined />
+              </a-button>
+              <template #overlay>
+                <a-menu @click="onUserMenuClick">
+                  <a-menu-item key="logout">退出登录</a-menu-item>
+                </a-menu>
+              </template>
+            </a-dropdown>
+          </template>
+        </AppHeader>
         <SplitPanes
           class="main-content"
           :initial-left-ratio="0.2"
@@ -90,7 +103,7 @@
 <script setup lang="ts">
 import { computed, ref, h } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import { MessageOutlined, PlusOutlined, CloseOutlined } from '@ant-design/icons-vue'
+import { MessageOutlined, PlusOutlined, CloseOutlined, UserOutlined } from '@ant-design/icons-vue'
 import { AppHeader, SplitPanes, useTheme } from '@angineer/ui-kit'
 import { AIChat } from '@angineer/aichat-ui'
 import LeftPanel from './layouts/LeftPanel.vue'
@@ -145,6 +158,12 @@ const onProjectNameChange = (name: string) => {
 
 const openSettings = () => {
   console.log('Open settings')
+}
+
+const onUserMenuClick = async ({ key }: { key: string }) => {
+  if (key === 'logout') {
+    await authStore.logout()
+  }
 }
 
 const handleResize = (leftSize: number, rightSize: number) => {

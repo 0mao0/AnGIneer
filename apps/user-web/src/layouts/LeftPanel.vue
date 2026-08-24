@@ -46,7 +46,6 @@
         :options="libraryOptions"
         @change="onLibraryChange"
       />
-      <a-button size="small" class="logout-btn" @click="handleLogout">退出登录</a-button>
     </div>
   </div>
 </template>
@@ -139,10 +138,6 @@ async function loadLibraryNames() {
 
 function onLibraryChange() {
   loadNodes()
-}
-
-async function handleLogout() {
-  await authStore.logout()
 }
 
 onMounted(async () => {

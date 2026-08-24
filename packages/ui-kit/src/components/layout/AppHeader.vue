@@ -148,9 +148,11 @@
           <SettingOutlined />
         </a-button>
 
-        <a-button type="text">
-          <UserOutlined />
-        </a-button>
+        <slot name="user-menu">
+          <a-button type="text">
+            <UserOutlined />
+          </a-button>
+        </slot>
       </a-space>
     </div>
   </div>
