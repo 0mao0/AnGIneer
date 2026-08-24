@@ -63,35 +63,132 @@
               <template #actions="{ node }">
                 <template v-if="node.isFolder">
                   <template v-if="isLibRootNode(node)">
-                    <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="showCreateSubFolderModal(node)" />
-                    <FileAddOutlined class="action-icon" title="添加文件" @click.stop="showCreateFileModal(node)" />
+                    <button
+                      type="button"
+                      class="action-btn"
+                      aria-label="添加子文件夹"
+                      title="添加子文件夹"
+                      @click.stop="showCreateSubFolderModal(node)"
+                    >
+                      <FolderAddOutlined />
+                    </button>
+                    <button
+                      type="button"
+                      class="action-btn"
+                      aria-label="添加文件"
+                      title="添加文件"
+                      @click.stop="showCreateFileModal(node)"
+                    >
+                      <FileAddOutlined />
+                    </button>
+                    <button
+                      type="button"
+                      class="action-btn delete"
+                      aria-label="批量删除文件"
+                      title="批量删除文件"
+                      @click.stop="showBatchDeleteModal(node)"
+                    >
+                      <CheckSquareOutlined />
+                    </button>
                   </template>
                   <template v-else>
-                    <EditOutlined class="action-icon" title="重命名" @click.stop="showRenameModal(node)" />
-                    <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="showCreateSubFolderModal(node)" />
-                    <FileAddOutlined class="action-icon" title="添加文件" @click.stop="showCreateFileModal(node)" />
-                    <CheckSquareOutlined class="action-icon delete" title="批量删除文件" @click.stop="showBatchDeleteModal(node)" />
-                    <DeleteOutlined class="action-icon delete" title="删除" @click.stop="handleDeleteNode(node)" />
+                    <button
+                      type="button"
+                      class="action-btn"
+                      aria-label="重命名"
+                      title="重命名"
+                      @click.stop="showRenameModal(node)"
+                    >
+                      <EditOutlined />
+                    </button>
+                    <button
+                      type="button"
+                      class="action-btn"
+                      aria-label="添加子文件夹"
+                      title="添加子文件夹"
+                      @click.stop="showCreateSubFolderModal(node)"
+                    >
+                      <FolderAddOutlined />
+                    </button>
+                    <button
+                      type="button"
+                      class="action-btn"
+                      aria-label="添加文件"
+                      title="添加文件"
+                      @click.stop="showCreateFileModal(node)"
+                    >
+                      <FileAddOutlined />
+                    </button>
+                    <button
+                      type="button"
+                      class="action-btn delete"
+                      aria-label="批量删除文件"
+                      title="批量删除文件"
+                      @click.stop="showBatchDeleteModal(node)"
+                    >
+                      <CheckSquareOutlined />
+                    </button>
+                    <button
+                      type="button"
+                      class="action-btn delete"
+                      aria-label="删除"
+                      title="删除"
+                      @click.stop="handleDeleteNode(node)"
+                    >
+                      <DeleteOutlined />
+                    </button>
                   </template>
                 </template>
                 <template v-else>
-                  <EditOutlined class="action-icon" title="重命名" @click.stop="showRenameModal(node)" />
-                  <EyeOutlined class="action-icon" title="查看" @click.stop="showDocDetail(node)" />
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="重命名"
+                    title="重命名"
+                    @click.stop="showRenameModal(node)"
+                  >
+                    <EditOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="查看"
+                    title="查看"
+                    @click.stop="showDocDetail(node)"
+                  >
+                    <EyeOutlined />
+                  </button>
                   <!-- processing状态：显示取消按钮 -->
-                  <StopOutlined
+                  <button
                     v-if="node.status === 'processing' && node.parseTaskId"
-                    class="action-icon warning"
+                    type="button"
+                    class="action-btn warning"
+                    aria-label="取消解析"
                     title="取消解析"
                     @click.stop="handleCancelParseTask(node)"
-                  />
+                  >
+                    <StopOutlined />
+                  </button>
                   <!-- 非processing状态：显示重试按钮（支持已完成/失败/取消/待处理状态的文档重新解析） -->
-                  <ReloadOutlined
+                  <button
                     v-if="node.status !== 'processing' && !node.isFolder"
-                    class="action-icon success"
+                    type="button"
+                    class="action-btn success"
+                    aria-label="重新解析"
                     title="重新解析"
                     @click.stop="handleRetryParseTask(node)"
-                  />
-                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="handleDeleteNode(node)" />
+                  >
+                    <ReloadOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn delete"
+                    aria-label="删除"
+                    title="删除"
+                    @click.stop="handleDeleteNode(node)"
+                  >
+                    <DeleteOutlined />
+                  </button>
                 </template>
               </template>
             </KnowledgeTree>
@@ -531,10 +628,6 @@ const detailDoc = ref<KnowledgeTreeNode | null>(null)
 const batchDeleteVisible = ref(false)
 const batchDeleteFolder = ref<KnowledgeTreeNode | null>(null)
 const showBatchDeleteModal = (node: SmartTreeNode) => {
-  if (isDefaultRootFolder(node)) {
-    message.warning('知识库根目录不可删除；如需删除整个知识库，请在「列表」模式下操作（有二次确认）')
-    return
-  }
   batchDeleteFolder.value = node as KnowledgeTreeNode
   batchDeleteVisible.value = true
 }
@@ -1415,8 +1508,8 @@ onBeforeUnmount(() => {
     background: transparent;
   }
 
-  // 删除类图标（单个删除 / 批量删除）常驻大红色（SmartTree 基础色特异性高，需 !important 覆盖）
-  :deep(.action-icon.delete) {
+  // 删除类按钮（单个删除 / 批量删除）常驻大红色（SmartTree 基础色特异性高，需 !important 覆盖）
+  :deep(.action-btn.delete) {
     color: #ff4d4f !important;
 
     &:hover {

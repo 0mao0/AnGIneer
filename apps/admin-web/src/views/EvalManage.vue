@@ -38,16 +38,80 @@
             >
               <template #actions="{ node }">
                 <template v-if="node.isFolder">
-                  <EditOutlined class="action-icon" title="重命名" @click.stop="onDatasetRename(node as EvalTreeNode)" />
-                  <UploadOutlined class="action-icon" title="导入测试集" @click.stop="onAddFile(node as EvalTreeNode)" />
-                  <FolderAddOutlined class="action-icon" title="添加子文件夹" @click.stop="onAddFolder(node as EvalTreeNode)" />
-                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDatasetDelete(node as EvalTreeNode)" />
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="重命名"
+                    title="重命名"
+                    @click.stop="onDatasetRename(node as EvalTreeNode)"
+                  >
+                    <EditOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="导入测试集"
+                    title="导入测试集"
+                    @click.stop="onAddFile(node as EvalTreeNode)"
+                  >
+                    <UploadOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="添加子文件夹"
+                    title="添加子文件夹"
+                    @click.stop="onAddFolder(node as EvalTreeNode)"
+                  >
+                    <FolderAddOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn delete"
+                    aria-label="删除"
+                    title="删除"
+                    @click.stop="onDatasetDelete(node as EvalTreeNode)"
+                  >
+                    <DeleteOutlined />
+                  </button>
                 </template>
                 <template v-else>
-                  <EditOutlined class="action-icon" title="重命名" @click.stop="onDatasetRename(node as EvalTreeNode)" />
-                  <EyeOutlined class="action-icon" title="查看详情" @click.stop="onDatasetView(node as EvalTreeNode)" />
-                  <ExportOutlined class="action-icon" title="导出" @click.stop="onDatasetExport(node as EvalTreeNode)" />
-                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onDatasetDelete(node as EvalTreeNode)" />
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="重命名"
+                    title="重命名"
+                    @click.stop="onDatasetRename(node as EvalTreeNode)"
+                  >
+                    <EditOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="查看详情"
+                    title="查看详情"
+                    @click.stop="onDatasetView(node as EvalTreeNode)"
+                  >
+                    <EyeOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="导出"
+                    title="导出"
+                    @click.stop="onDatasetExport(node as EvalTreeNode)"
+                  >
+                    <ExportOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn delete"
+                    aria-label="删除"
+                    title="删除"
+                    @click.stop="onDatasetDelete(node as EvalTreeNode)"
+                  >
+                    <DeleteOutlined />
+                  </button>
                 </template>
               </template>
             </EvalDatasetTree>

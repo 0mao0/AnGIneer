@@ -62,16 +62,80 @@
             >
               <template #actions="{ node }">
                 <template v-if="node.isFolder">
-                  <EditOutlined class="action-icon" title="重命名" @click.stop="onTreeRename(node as SOPTreeNode)" />
-                  <FileAddOutlined class="action-icon" title="新增 SOP" @click.stop="openCreateSopModal(node as SOPTreeNode)" />
-                  <UploadOutlined class="action-icon" title="导入 MD" @click.stop="openImportModal(node as SOPTreeNode)" />
-                  <FolderAddOutlined class="action-icon" title="新增子文件夹" @click.stop="onAddFolder(node as SOPTreeNode)" />
-                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onTreeDelete(node as SOPTreeNode)" />
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="重命名"
+                    title="重命名"
+                    @click.stop="onTreeRename(node as SOPTreeNode)"
+                  >
+                    <EditOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="新增 SOP"
+                    title="新增 SOP"
+                    @click.stop="openCreateSopModal(node as SOPTreeNode)"
+                  >
+                    <FileAddOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="导入 MD"
+                    title="导入 MD"
+                    @click.stop="openImportModal(node as SOPTreeNode)"
+                  >
+                    <UploadOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="新增子文件夹"
+                    title="新增子文件夹"
+                    @click.stop="onAddFolder(node as SOPTreeNode)"
+                  >
+                    <FolderAddOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn delete"
+                    aria-label="删除"
+                    title="删除"
+                    @click.stop="onTreeDelete(node as SOPTreeNode)"
+                  >
+                    <DeleteOutlined />
+                  </button>
                 </template>
                 <template v-else>
-                  <EditOutlined class="action-icon" title="重命名" @click.stop="onTreeRename(node as SOPTreeNode)" />
-                  <EyeOutlined class="action-icon" title="查看" @click.stop="onTreeView(node as SOPTreeNode)" />
-                  <DeleteOutlined class="action-icon delete" title="删除" @click.stop="onTreeDelete(node as SOPTreeNode)" />
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="重命名"
+                    title="重命名"
+                    @click.stop="onTreeRename(node as SOPTreeNode)"
+                  >
+                    <EditOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn"
+                    aria-label="查看"
+                    title="查看"
+                    @click.stop="onTreeView(node as SOPTreeNode)"
+                  >
+                    <EyeOutlined />
+                  </button>
+                  <button
+                    type="button"
+                    class="action-btn delete"
+                    aria-label="删除"
+                    title="删除"
+                    @click.stop="onTreeDelete(node as SOPTreeNode)"
+                  >
+                    <DeleteOutlined />
+                  </button>
                 </template>
               </template>
               <template #status="{ node }">
@@ -1580,7 +1644,7 @@ onMounted(() => {
   line-height: 1.5;
 }
 
-.action-icon {
+.action-btn {
   font-size: 12px;
   color: var(--text-secondary, rgba(0, 0, 0, 0.45));
   cursor: pointer;

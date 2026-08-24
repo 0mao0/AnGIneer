@@ -24,6 +24,7 @@
     @add-folder="(node) => emit('add-folder', node as KnowledgeTreeNode | null)"
     @add-file="(node) => emit('add-file', node as KnowledgeTreeNode)"
     @delete="(node) => emit('delete', node as KnowledgeTreeNode)"
+    @batch-delete="(node) => emit('batch-delete', node as KnowledgeTreeNode)"
     @view="(node) => emit('view', node as KnowledgeTreeNode)"
     @drop="(info) => emit('drop', info)"
     @search="(text) => emit('search', text)"
@@ -117,6 +118,7 @@ const emit = defineEmits<{
   'add-folder': [node: KnowledgeTreeNode | null]
   'add-file': [node: KnowledgeTreeNode]
   delete: [node: KnowledgeTreeNode]
+  'batch-delete': [node: KnowledgeTreeNode]
   view: [node: KnowledgeTreeNode]
   drop: [event: DropEvent]
   search: [text: string]
