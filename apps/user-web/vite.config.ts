@@ -22,6 +22,7 @@ export default defineConfig({
       '@angineer/ui-kit': resolve(__dirname, '../../packages/ui-kit/src'),
       '@angineer/aichat-ui': resolve(__dirname, '../../packages/aichat-ui/src'),
       '@angineer/docs-ui': resolve(__dirname, '../../packages/docs-ui/src'),
+      '@angineer/smarttree-ui': resolve(__dirname, '../../packages/smarttree-ui/src'),
       '@angineer/sop-ui': resolve(__dirname, '../../packages/sop-ui/src'),
       '@angineer/geo-ui': resolve(__dirname, '../../packages/geo-ui/src'),
       '@angineer/evals-ui': resolve(__dirname, '../../packages/evals-ui/src')
