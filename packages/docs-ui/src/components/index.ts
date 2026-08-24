@@ -1,4 +1,4 @@
-export { default as SmartTree } from './common/widgets/SmartTree.vue'
+export { SmartTree } from '@angineer/smarttree-ui'
 export { default as KnowledgeTree } from './common/widgets/KnowledgeTree.vue'
 export { default as PDFParsedWorkspace } from './common/workspace/PDFParsedWorkspace.vue'
 export { default as PDFParsedViewerCombo } from './common/workspace/PDFParsedViewerCombo.vue'
