@@ -193,7 +193,7 @@ class V1DocumentsScopeTests(unittest.TestCase):
         @app.middleware("http")
         async def _fake_key(request, call_next):
             request.state.api_key_info = SimpleNamespace(
-                user_name="bidcompare", id=5, library_id="lib-bidcompare"
+                user_name="bidcompare", id=5, library_id="lib-bidcompare", key_prefix="ag_ab****wX7q"
             )
             return await call_next(request)
 
@@ -215,7 +215,7 @@ class V1DocumentsScopeTests(unittest.TestCase):
         self.assertEqual(save_file.call_args.args[0], "lib-bidcompare")
         # 根文件夹以 API 名称命名，文档挂在它下面
         created = docs_service.create_node.call_args.args[0]
-        self.assertEqual(created.title, "bidcompare")
+        self.assertEqual(created.title, "bidcompare（wX7q）")
         self.assertEqual(created.library_id, "lib-bidcompare")
         self.assertIsNone(created.parent_id)
         docs_service.register_document.assert_called_once()
@@ -244,6 +244,103 @@ class V1DocumentsScopeTests(unittest.TestCase):
         tmp_dir = tempfile.mkdtemp()
         self.addCleanup(lambda: __import__("shutil").rmtree(tmp_dir, ignore_errors=True))
         return patch.object(parse_record, "DB_PATH", os.path.join(tmp_dir, "parse_records.sqlite"))
+
+
+class ApiFolderTitleTests(unittest.TestCase):
+    def test_title_appends_key_tail(self):
+        from types import SimpleNamespace
+        from routes.v1.documents import _api_folder_title
+
+        key = SimpleNamespace(user_name="张三", key_prefix="ag_ab****wX7q")
+        self.assertEqual(_api_folder_title(key), "张三（wX7q）")
+
+    def test_title_without_key_prefix_keeps_name(self):
+        from types import SimpleNamespace
+        from routes.v1.documents import _api_folder_title
+
+        key = SimpleNamespace(user_name="张三", key_prefix="")
+        self.assertEqual(_api_folder_title(key), "张三")
+
+    def test_same_name_different_tail_creates_separate_folders(self):
+        from types import SimpleNamespace
+        from routes.v1 import documents
+
+        docs_service = Mock()
+        docs_service.nodes = []
+        docs_service.create_node.side_effect = lambda n: (docs_service.nodes.append(n), n)[1]
+        with patch.object(documents, "get_docs_service", return_value=docs_service):
+            f1 = documents._ensure_api_folder(
+                "D", SimpleNamespace(user_name="张三", key_prefix="ag_ab****wX7q", id=1)
+            )
+            f2 = documents._ensure_api_folder(
+                "D", SimpleNamespace(user_name="张三", key_prefix="ag_cd****pQ2r", id=2)
+            )
+        self.assertNotEqual(f1, f2)
+        self.assertEqual([n.title for n in docs_service.nodes], ["张三（wX7q）", "张三（pQ2r）"])
+
+    def test_same_key_reuses_folder_by_binding(self):
+        from types import SimpleNamespace
+        from routes.v1 import documents
+
+        docs_service = Mock()
+        docs_service.nodes = []
+        extras = {}
+
+        def fake_extra(ks, node_id):
+            return extras.get(node_id, {})
+
+        def fake_write(ks, node_id, extra):
+            extras[node_id] = extra
+
+        with patch.object(documents, "get_docs_service", return_value=docs_service), \
+             patch.object(documents, "_folder_extra", side_effect=fake_extra), \
+             patch.object(documents, "_write_folder_extra", side_effect=fake_write):
+            docs_service.create_node.side_effect = lambda n: (docs_service.nodes.append(n), n)[1]
+            f1 = documents._ensure_api_folder(
+                "D", SimpleNamespace(user_name="张三", key_prefix="ag_ab****wX7q", id=1)
+            )
+            f2 = documents._ensure_api_folder(
+                "D", SimpleNamespace(user_name="张三", key_prefix="ag_ab****wX7q", id=1)
+            )
+        self.assertEqual(f1, f2)
+        self.assertEqual(len(docs_service.nodes), 1)
+
+    def test_legacy_unbound_folder_reused_by_title(self):
+        from types import SimpleNamespace
+        from routes.v1 import documents
+
+        folder = Mock(id="legacy-1", title="张三（wX7q）", type="folder", library_id="D", deleted=False)
+        docs_service = Mock()
+        docs_service.nodes = [folder]
+        extras = {"legacy-1": {}}
+
+        with patch.object(documents, "get_docs_service", return_value=docs_service), \
+             patch.object(documents, "_folder_extra", side_effect=lambda ks, nid: extras.get(nid, {})), \
+             patch.object(documents, "_write_folder_extra", side_effect=lambda ks, nid, extra: extras.update({nid: extra})):
+            fid = documents._ensure_api_folder(
+                "D", SimpleNamespace(user_name="张三", key_prefix="ag_ab****wX7q", id=9)
+            )
+        self.assertEqual(fid, "legacy-1")
+        self.assertEqual(extras["legacy-1"].get("api_key_id"), 9)
+
+    def test_folder_bound_to_other_key_not_reused(self):
+        from types import SimpleNamespace
+        from routes.v1 import documents
+
+        folder = Mock(id="other-1", title="张三（wX7q）", type="folder", library_id="D", deleted=False)
+        docs_service = Mock()
+        docs_service.nodes = [folder]
+        extras = {"other-1": {"api_key_id": 2}}
+        docs_service.create_node.side_effect = lambda n: (docs_service.nodes.append(n), n)[1]
+
+        with patch.object(documents, "get_docs_service", return_value=docs_service), \
+             patch.object(documents, "_folder_extra", side_effect=lambda ks, nid: extras.get(nid, {})), \
+             patch.object(documents, "_write_folder_extra", side_effect=lambda ks, nid, extra: extras.update({nid: extra})):
+            fid = documents._ensure_api_folder(
+                "D", SimpleNamespace(user_name="张三", key_prefix="ag_ab****wX7q", id=1)
+            )
+        self.assertNotEqual(fid, "other-1")
+        self.assertEqual(len(docs_service.nodes), 2)
 
 
 if __name__ == "__main__":

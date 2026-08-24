@@ -54,9 +54,11 @@ _ARTIFACT_NAMES = {
 }
 
 def _api_folder_title(api_key_info) -> str:
-    """外部 API 上传的文档按 API 名称建根文件夹，不再使用通用『外部API』。"""
-    name = str(getattr(api_key_info, "user_name", "") or "").strip()
-    return name or "未知API"
+    """外部 API 上传的文档按 API 名称建根文件夹，名称后追加 Key 后四位保证唯一。"""
+    name = str(getattr(api_key_info, "user_name", "") or "").strip() or "未知API"
+    key_prefix = str(getattr(api_key_info, "key_prefix", "") or "")
+    tail = key_prefix[-4:] if len(key_prefix) >= 4 else ""
+    return f"{name}（{tail}）" if tail else name
 
 
 def _folder_extra(ks, node_id: str) -> dict:
@@ -103,12 +105,14 @@ def _ensure_api_folder(library_id: str, api_key_info) -> str:
         for n in folders:
             if _folder_extra(ks, n.id).get("api_key_id") == api_key_id:
                 return n.id
-    # 2) 标题回退匹配（旧数据），命中则回填绑定
+    # 2) 标题回退匹配（旧数据）：仅复用无绑定或绑定同一 key 的文件夹，避免不同 key 抢同一文件夹
     for n in folders:
         if n.title == title:
+            extra = _folder_extra(ks, n.id)
+            if extra.get("api_key_id") not in (None, api_key_id):
+                continue
             if api_key_id is not None:
-                extra = _folder_extra(ks, n.id)
-                if extra.get("api_key_id") != api_key_id:
+                if not extra.get("api_key_id"):
                     extra["api_key_id"] = api_key_id
                     _write_folder_extra(ks, n.id, extra)
             return n.id
@@ -134,6 +138,11 @@ def sync_api_folder_titles(api_key_id: int, new_title: str, legacy_old_title: st
     extra.api_key_id 匹配在所有库生效；旧数据按 标题+原绑定库 回退匹配并回填绑定。
     """
     ks = get_docs_service()
+    from models.api_key import get_key
+    key = get_key(api_key_id) or {}
+    key_prefix = str(key.get("key_prefix", "") or "")
+    tail = key_prefix[-4:] if len(key_prefix) >= 4 else ""
+    folder_title = f"{new_title}（{tail}）" if tail else new_title
     updated = 0
     try:
         with ks.meta_store.connect() as conn:
@@ -155,11 +164,11 @@ def sync_api_folder_titles(api_key_id: int, new_title: str, legacy_old_title: st
                 extra["api_key_id"] = api_key_id
                 conn.execute(
                     "UPDATE tree_node SET title = ?, extra_json = ? WHERE node_id = ?",
-                    (new_title, json.dumps(extra, ensure_ascii=False), node_id),
+                    (folder_title, json.dumps(extra, ensure_ascii=False), node_id),
                 )
                 for n in ks.nodes:
                     if n.id == node_id:
-                        n.title = new_title
+                        n.title = folder_title
                 updated += 1
             if updated:
                 conn.commit()
