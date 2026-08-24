@@ -95,7 +95,7 @@ export { isCategoryFolder, isPersistedFolder }
  * 在 evals-ui 中承接评测节点类型与基础树组件之间的边界，便于后续扩展评测域默认行为。
  */
 import { ref } from 'vue'
-import { SmartTree } from '@angineer/docs-ui'
+import { SmartTree } from '@angineer/smarttree-ui'
 import type { DropEvent } from '@angineer/ui-kit'
 import { FolderOutlined, FileTextOutlined } from '@ant-design/icons-vue'
 
