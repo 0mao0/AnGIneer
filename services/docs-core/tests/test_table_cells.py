@@ -169,3 +169,46 @@ def test_enrich_cross_page_shell_matching() -> None:
     assert stats == {"total_tables": 2, "enriched": 1, "skipped": 1}
     page_idxes = {c["text"]: c["page_idx"] for c in updated[0]["table_cells"]}
     assert page_idxes == {"a": 0, "b": 1}
+
+
+def test_adapt_graph_node_carries_table_cells() -> None:
+    from docs_core.step05_sqlite_fts.rebuild.graph_rebuilder import adapt_graph_node
+
+    raw = {
+        "block_uid": "d:0:1",
+        "id": "d:0:1",
+        "block_type": "table",
+        "page_idx": 0,
+        "block_seq": 1,
+        "table_html": "<table><tr><td>a</td></tr></table>",
+        "table_cells": [{"row": 0, "col": 0, "rowspan": 1, "colspan": 1,
+                        "page_idx": 0, "bbox": [0.0, 0.0, 1.0, 1.0], "text": "a"}],
+        "table_cells_source": "estimated",
+    }
+    adapted = adapt_graph_node(raw, 0, "")
+    assert adapted["table_cells"] == raw["table_cells"]
+    assert adapted["table_cells_source"] == "estimated"
+
+
+def test_graph_editor_invalidates_table_cells_on_html_change() -> None:
+    from docs_core.step05_sqlite_fts.graph_editor import _invalidate_edited_table_semantics
+
+    node = {
+        "block_uid": "d:0:1",
+        "id": "d:0:1",
+        "block_type": "table",
+        "page_idx": 0,
+        "block_seq": 1,
+        "table_html": "<table><tr><td>a</td></tr></table>",
+        "table_cells": [{"row": 0, "col": 0, "rowspan": 1, "colspan": 1,
+                        "page_idx": 0, "bbox": [0.0, 0.0, 1.0, 1.0], "text": "a"}],
+        "table_cells_source": "estimated",
+    }
+    before = {"nodes": [dict(node)]}
+    after = {"nodes": [dict(node)]}
+    after["nodes"][0]["table_html_corrected"] = "<table><tr><td>b</td></tr></table>"
+
+    invalidated = _invalidate_edited_table_semantics(after, before)
+    assert invalidated == ["d:0:1"]
+    assert "table_cells" not in after["nodes"][0]
+    assert "table_cells_source" not in after["nodes"][0]

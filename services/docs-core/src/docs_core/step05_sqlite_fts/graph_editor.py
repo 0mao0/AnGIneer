@@ -864,7 +864,7 @@ def _invalidate_edited_table_semantics(
         uid = _normalize_block_uid(node.get("block_uid") or node.get("id"))
         if str(node.get("block_type") or "").strip() != "table":
             continue
-        if "table_semantics" not in node:
+        if "table_semantics" not in node and "table_cells" not in node:
             continue
         before = before_by_uid.get(uid)
         if (
@@ -872,6 +872,8 @@ def _invalidate_edited_table_semantics(
             or _node_table_semantics_content(before) != _node_table_semantics_content(node)
         ):
             node.pop("table_semantics", None)
+            node.pop("table_cells", None)
+            node.pop("table_cells_source", None)
             invalidated.append(uid)
     return invalidated
 
