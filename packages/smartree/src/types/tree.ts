@@ -26,7 +26,7 @@ export interface SmartTreeNode {
   [key: string]: any
 }
 
-export type TreeNodeAction = 'rename' | 'add-folder' | 'add-file' | 'delete' | 'view'
+export type TreeNodeAction = 'rename' | 'add-folder' | 'add-file' | 'delete' | 'batch-delete' | 'view'
 
 export interface DropEvent {
   dragKey: string

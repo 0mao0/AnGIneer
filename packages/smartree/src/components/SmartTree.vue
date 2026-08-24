@@ -120,6 +120,16 @@
                         <FileAddOutlined />
                       </button>
                       <button
+                        v-if="allowBatchDelete"
+                        type="button"
+                        class="action-btn delete"
+                        :aria-label="actionLabel('batchDelete')"
+                        :title="actionLabel('batchDelete')"
+                        @click.stop="onBatchDelete(key)"
+                      >
+                        <CheckSquareOutlined />
+                      </button>
+                      <button
                         type="button"
                         class="action-btn delete"
                         :aria-label="actionLabel('delete')"
@@ -230,6 +240,7 @@ import {
   FileTextOutlined,
   FileWordOutlined,
   FileZipOutlined,
+  CheckSquareOutlined,
   FolderAddOutlined,
   FolderOutlined,
   SearchOutlined
@@ -274,6 +285,7 @@ interface Props<T extends SmartTreeNode> {
   draggable?: boolean
   multiple?: boolean
   allowAddFile?: boolean
+  allowBatchDelete?: boolean
   allowedFileTypes?: string[]
   loading?: boolean
   emptyText?: string
@@ -285,7 +297,7 @@ interface Props<T extends SmartTreeNode> {
   rootDropText?: string
   noSearchResultText?: string
   fileDropHintPrefix?: string
-  actionLabels?: Partial<Record<'rename' | 'addSubFolder' | 'addFile' | 'view' | 'delete', string>>
+  actionLabels?: Partial<Record<'rename' | 'addSubFolder' | 'addFile' | 'view' | 'delete' | 'batchDelete', string>>
   defaultExpandAll?: boolean
 }
 
@@ -302,6 +314,7 @@ const props = withDefaults(defineProps<Props<T>>(), {
   draggable: false,
   multiple: false,
   allowAddFile: true,
+  allowBatchDelete: true,
   allowedFileTypes: () => ['.pdf'],
   loading: false,
   emptyText: '暂无数据',
@@ -323,6 +336,7 @@ const emit = defineEmits<{
   'add-folder': [node: T | null]
   'add-file': [node: T]
   delete: [node: T]
+  'batch-delete': [node: T]
   view: [node: T]
   drop: [event: DropEvent]
   search: [text: string]
@@ -331,12 +345,13 @@ const emit = defineEmits<{
   'drop-root': [dragNodeKeys: string[]]
 }>()
 
-const DEFAULT_ACTION_LABELS: Record<'rename' | 'addSubFolder' | 'addFile' | 'view' | 'delete', string> = {
+const DEFAULT_ACTION_LABELS: Record<'rename' | 'addSubFolder' | 'addFile' | 'view' | 'delete' | 'batchDelete', string> = {
   rename: '重命名',
   addSubFolder: '添加子文件夹',
   addFile: '添加文件',
   view: '查看',
-  delete: '删除'
+  delete: '删除',
+  batchDelete: '批量删除'
 }
 
 const actionLabel = (action: keyof typeof DEFAULT_ACTION_LABELS): string =>
@@ -448,6 +463,11 @@ const onView = (key: string) => {
 const onDelete = (key: string) => {
   const node = getOriginalNode(key)
   if (node) emit('delete', node)
+}
+
+const onBatchDelete = (key: string) => {
+  const node = getOriginalNode(key)
+  if (node) emit('batch-delete', node)
 }
 
 const onNodeDblClick = (node: T) => {
@@ -841,7 +861,26 @@ defineExpose({
         }
 
         &.ant-tree-node-selected {
-          background: rgba(24, 144, 255, 0.15);
+          background: rgba(23, 125, 220, 0.4);
+          position: relative;
+          overflow: visible;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 50%;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--primary-color, #177ddc);
+            transform: translateY(-50%);
+            z-index: 1;
+          }
+
+          &:has(.tree-node-default.is-folder)::before {
+            display: none;
+          }
         }
       }
     }
@@ -1052,7 +1091,26 @@ defineExpose({
         }
 
         &.ant-tree-node-selected {
-          background: rgba(24, 144, 255, 0.1);
+          background: rgba(24, 144, 255, 0.28);
+          position: relative;
+          overflow: visible;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 50%;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--primary-color, #1890ff);
+            transform: translateY(-50%);
+            z-index: 1;
+          }
+
+          &:has(.tree-node-default.is-folder)::before {
+            display: none;
+          }
         }
       }
 
