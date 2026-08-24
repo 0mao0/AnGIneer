@@ -67,6 +67,7 @@ const navItems: NavItem[] = [
   { key: 'experience', label: '经验库' },
   { key: 'evals', label: '评测集' },
   { key: 'dream-cycle', label: '健康检查' },
+  { key: 'users', label: '用户管理' },
   { key: 'api-keys', label: 'API 密钥' }
 ]
 
@@ -76,6 +77,7 @@ const activeNav = computed(() => {
   if (path.startsWith('/project')) return 'project'
   if (path.startsWith('/experience')) return 'experience'
   if (path.startsWith('/dream-cycle')) return 'dream-cycle'
+  if (path.startsWith('/users')) return 'users'
   if (path.startsWith('/api-keys')) return 'api-keys'
   return 'knowledge'
 })
@@ -88,6 +90,7 @@ const handleNavClick = (key: string) => {
     experience: '/experience',
     evals: '/evals',
     'dream-cycle': '/dream-cycle',
+    users: '/users',
     'api-keys': '/api-keys'
   }
   const path = routeMap[key]
