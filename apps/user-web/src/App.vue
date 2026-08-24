@@ -74,6 +74,7 @@
                       :show-context-info="true"
                       :scene="activeSection === 'sop' ? 'sops' : 'docs'"
                       :session-id="chatSessionId"
+                      :library-id="authStore.libraryId || 'default'"
                       :transport="defaultAIChatTransport"
                       @select-citation="handleCitationSelect"
                     />
