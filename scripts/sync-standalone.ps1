@@ -43,7 +43,7 @@ param(
 $ErrorActionPreference = 'Stop'
 
 # npm 包名必须小写，GitHub 仓库名可能含大写；目录名 -> 仓库名
-$RepoNameOverrides = @{ 'smartree' = 'angineer-smartree' }
+$RepoNameOverrides = @{ 'smartree' = 'angineer-smartree-ui' }
 
 function Invoke-Git {
     param(
