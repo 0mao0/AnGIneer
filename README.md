@@ -2,13 +2,13 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：v0.2.11** —— 已落地规范问答与 Agent 化问答链路（五路检索、一体化文档解析管线、SOP 审核/审计、注册考试题集评测、Dream Cycle 巡检）。
+> **当前版本：v0.2.12** —— 已落地规范问答与 Agent 化问答链路（五路检索、一体化文档解析管线、SOP 审核/审计、注册考试题集评测、Dream Cycle 巡检）。
 
 **仓库版本**（五个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.11` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.12` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.1.8` | 知识库前端组件库 |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.1` | 对话前端组件库 |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.1` | 通用树组件库（SmartTree） |
