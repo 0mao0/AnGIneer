@@ -37,16 +37,6 @@
         </keep-alive>
       </a-tab-pane>
     </a-tabs>
-    <div class="left-panel-footer">
-      <a-select
-        v-if="authStore.libraries.length > 1"
-        v-model:value="authStore.activeLibraryId"
-        size="small"
-        class="library-switcher"
-        :options="libraryOptions"
-        @change="onLibraryChange"
-      />
-    </div>
   </div>
 </template>
 
@@ -87,12 +77,8 @@ const activeTab = computed({
 const { treeData, buildTree } = useKnowledgeTree()
 const authStore = useAuthStore()
 const activeLibraryId = computed(() => authStore.libraryId || 'default')
-const libraryNames = ref<Record<string, string>>({})
-const libraryOptions = computed(() =>
-  authStore.libraries.map((lid) => ({ value: lid, label: libraryNames.value[lid] || lid }))
-)
 const treeLibraries = computed(() =>
-  authStore.libraries.map((lid) => ({ id: lid, name: libraryNames.value[lid] || lid }))
+  authStore.libraries.map((lid) => ({ id: lid, name: lid }))
 )
 const { loading, error, reload: loadNodes } = useRetryableLoad(
   async () => {
@@ -127,21 +113,7 @@ const onSelectDoc = (node: SmartTreeNode) => {
   openResource(resource)
 }
 
-async function loadLibraryNames() {
-  try {
-    const list = await knowledgeApi.getLibraries() as unknown as { id: string; name: string }[]
-    libraryNames.value = Object.fromEntries(list.map((l) => [l.id, l.name]))
-  } catch {
-    // 名称加载失败时回退显示原始 id
-  }
-}
-
-function onLibraryChange() {
-  loadNodes()
-}
-
 onMounted(async () => {
-  await loadLibraryNames()
   loadNodes()
   if (panelRef.value && typeof ResizeObserver !== 'undefined') {
     resizeObserver = new ResizeObserver((entries) => {

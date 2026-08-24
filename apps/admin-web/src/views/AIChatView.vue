@@ -2,6 +2,15 @@
   <div class="ai-chat-view">
     <div class="ai-chat-toolbar">
       <span class="ai-chat-title">AI 对话</span>
+      <a-select
+        :value="store.libraryId"
+        :options="libraryOptions"
+        :loading="store.loading"
+        size="small"
+        class="library-switcher"
+        style="min-width: 180px"
+        @change="handleLibraryChange"
+      />
       <a-button
         type="text"
         size="small"
@@ -20,6 +29,7 @@
         :show-context-info="true"
         :scene="'docs'"
         :session-id="chatSessionId"
+        :library-id="store.libraryId"
         :transport="defaultAIChatTransport"
       />
     </div>
@@ -27,14 +37,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { PlusOutlined } from '@ant-design/icons-vue'
 import { AIChat } from '@angineer/aichat-ui'
 import { defaultAIChatTransport } from '../../../shared/chatTransport'
+import { useLibraryStore } from '@/stores/library'
+
+const store = useLibraryStore()
+const libraryOptions = computed(() =>
+  store.libraries.map((lib) => ({ value: lib.id, label: lib.name || lib.id }))
+)
 
 const chatNonce = ref(Date.now() + Math.floor(Math.random() * 1_000_000))
 const chatSessionId = computed(() => `global::${chatNonce.value}`)
 const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
+
+onMounted(() => {
+  store.loadLibraries()
+})
+
+function handleLibraryChange(value: string): void {
+  store.setLibrary(value)
+  // 切换知识库后重置会话，避免上一库上下文串场
+  startNewChat()
+}
 
 function startNewChat(): void {
   chatNonce.value += 1
@@ -63,6 +89,10 @@ function startNewChat(): void {
 .ai-chat-title {
   font-size: 15px;
   font-weight: 600;
+}
+
+.library-switcher {
+  margin-left: 8px;
 }
 
 .ai-chat-body {
