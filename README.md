@@ -2,15 +2,16 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：v0.2.7** —— 已落地规范问答与 Agent 化问答链路（五路检索、一体化文档解析管线、SOP 审核/审计、注册考试题集评测、Dream Cycle 巡检）。
+> **当前版本：v0.2.9** —— 已落地规范问答与 Agent 化问答链路（五路检索、一体化文档解析管线、SOP 审核/审计、注册考试题集评测、Dream Cycle 巡检）。
 
-**仓库版本**（四个独立仓库各自用 git tag 发布，发版时同步更新本表）：
+**仓库版本**（五个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.7` | 主仓库（产品迭代基线） |
-| [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.1.2` | 知识库前端组件库 |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.9` | 主仓库（产品迭代基线） |
+| [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.1.8` | 知识库前端组件库 |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.1` | 对话前端组件库 |
+| [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.0` | 通用树组件库（SmartTree） |
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.1.0` | Python AI 推理客户端库 |
 
 > 核心理念：*"Human Defines SOP, AnGIneer Executes with Precision."*
@@ -29,13 +30,13 @@
 | 版本 | 里程碑 | 核心能力 | 代码现状 |
 | :--- | :--- | :--- | :--- |
 | **v0.1** | 规范问答基础版 | 文档解析入库、知识图谱、SOP 引擎、L0-L4 意图分级、AI 对话、评测框架 | ✅ 基本完成（git tag `v0.1-frontend-*`） |
-| **v0.2** | Docs-SOP 问答系统化改进 | Agent 化问答链路、五路检索 + 融合重排、SOP 审核/审计、Prompt 资产化、一体化文档解析管线 + PoPo 强化、注册考试题集评测、Dream Cycle 知识巡检 | ✅ 已完成，当前迭代基线 v0.2.7 |
+| **v0.2** | Docs-SOP 问答系统化改进 | Agent 化问答链路、五路检索 + 融合重排、SOP 审核/审计、Prompt 资产化、一体化文档解析管线 + PoPo 强化、注册考试题集评测、Dream Cycle 知识巡检 | ✅ 已完成，当前迭代基线 v0.2.9 |
 | **v0.3** | 世界模型 | 基于 Cesium 的三维地理世界模型，自主查询地理信息（GIS / 水文气象 / 地形），支撑更高级题目 | 🚧 骨架已存在（geo-core GIS 断面算量工具 + GIS 视图），Cesium 集成规划中 |
 | **v0.4** | 设计报告 | 基于规范检索、SOP 执行轨迹与地理/计算数据，自动编制工可、初设等正式设计报告 | 🚧 规划中 |
 | **v0.5** | CAD 出图算量 | 连接并驱动 CAD 引擎，自动出图、工程量计算，形成"设计 → 出图 → 算量"闭环 | 🚧 规划中，**v0.5 定位为正式版** |
 | **v1.0** | 正式版迭代 | 在 v0.5 基础上大量迭代：多专业覆盖、精度与稳定性、工程化与 SaaS 化（多租户） | 🚧 目标 |
 
-> 说明：v0.3–v0.5 描述的是路线目标；仓库当前实际代码基线为 v0.2.7，相关模块已在对应小节中标注"骨架 / 规划中"，避免与已落地能力混淆。
+> 说明：v0.3–v0.5 描述的是路线目标；仓库当前实际代码基线为 v0.2.9，相关模块已在对应小节中标注"骨架 / 规划中"，避免与已落地能力混淆。
 
 ***
 
@@ -73,7 +74,7 @@ flowchart TB
     DOCS --> AI
 ```
 
-> 说明：AnGIneer-TreeCore 是树操作的通用基础设施（零外部依赖），不参与业务模块关系，故未列入上图。
+> 说明：AnGIneer-TreeCore 是树操作的通用基础设施（零外部依赖），不参与业务模块关系，故未列入上图；树 UI 组件已独立为 `@angineer/smartree`（`packages/smartree`，独立仓库 angineer-smartree-ui），供 docs-ui / sop-ui / evals-ui / ui-kit 复用。
 
 ### 2.2 对外服务边界
 
@@ -255,7 +256,8 @@ apps/
   admin-web/          管理后台（知识库 / 评测 / SOP / API Key / Dream Cycle）· 3002
   shared/             端口契约 ports.json + API 客户端
 packages/
-  docs-ui/  evals-ui/  sop-ui/  geo-ui/  engtools-ui/  ui-kit/  共享 UI 与组件
+  docs-ui/  aichat-ui/  evals-ui/  sop-ui/  geo-ui/  engtools-ui/  ui-kit/  共享 UI 与组件
+  smartree/            通用树组件 SmartTree（独立仓库 angineer-smartree-ui）
 services/
   ai-inference/       LLM 客户端（多模型/重试/熔断/流式）+ 响应解析（唯一底座）
   tree-core/          通用树节点 CRUD/移动/排序归一化（唯一底座）
@@ -421,6 +423,11 @@ docker compose up -d --build
 - 对外 API（`/api/v1/*`）需在 Header 携带 `X-API-Key`
 
 **自动部署（GitHub Actions + 自托管 Runner）**：仓库已配置 `.github/workflows/deploy.yml`，每次 push `main` 自动执行 `git pull → docker compose build → docker compose up -d`，并做前端/管理端/API 健康检查与企微通知。
+
+**镜像构建维护注意**：
+
+- 新增 / 重命名 workspace 包时，必须把新包的 `package.json` 加进 `docker/Dockerfile.frontend` 中 `pnpm install --frozen-lockfile` 之前的 `COPY` 清单；否则 pnpm 不会为该包链接 peer 依赖，`vite build` 打包该包源码时会以 `Rollup failed to resolve import ...` 失败（`@angineer/smartree` 拆分时曾实际踩到）。
+- `.dockerignore` 的目录模式相对构建上下文根目录匹配，排除嵌套目录必须写成 `**/node_modules`、`**/dist` 等递归形式；只写 `node_modules` 会把各包内嵌依赖目录送进上下文（体积暴涨），且在 Windows 上 pnpm 的 junction 会触发 `archive/tar: unknown file mode` 导致构建失败。
 
 ***
 
