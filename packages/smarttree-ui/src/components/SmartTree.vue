@@ -247,6 +247,19 @@ import {
   cloneTree
 } from '../utils/tree'
 
+interface AntTreeDropInfo {
+  dragNode: { key: string | number }
+  node: { key: string | number; pos?: string; dataRef?: SmartTreeNode }
+  dragNodesKeys?: (string | number)[]
+  dropToGap?: boolean
+  dropPosition?: number
+}
+
+interface AntTreeDragInfo {
+  selectedKeys?: (string | number)[]
+  node?: { key?: string | number }
+}
+
 interface Props {
   treeData: SmartTreeNode[]
   showSearch?: boolean
@@ -374,7 +387,7 @@ const originalNodeMap = computed(() => {
 })
 
 watch(() => props.treeData, (value) => {
-  internalTreeData.value = JSON.parse(JSON.stringify(value))
+  internalTreeData.value = cloneTree(value)
   if (props.defaultExpandAll && !initialExpandedApplied.value && value.length > 0) {
     expandedKeys.value = collectFolderKeys(value)
     initialExpandedApplied.value = true
@@ -467,8 +480,12 @@ const getFileIconComponent = (fileName: string): Component => {
 /**
  * 处理节点选择。
  */
-const onSelect: TreeProps['onSelect'] = (keys, info) => {
-  emit('select', keys as string[], info.selectedNodes as SmartTreeNode[])
+const onSelect: TreeProps['onSelect'] = (keys) => {
+  const selectedKeysArr = keys as string[]
+  const nodes = selectedKeysArr
+    .map((key) => getOriginalNode(key))
+    .filter((node): node is SmartTreeNode => Boolean(node))
+  emit('select', selectedKeysArr, nodes)
 }
 
 /**
@@ -534,11 +551,12 @@ const hasDescendant = (root: SmartTreeNode | undefined, targetKey: string): bool
 }
 
 const onDrop: TreeProps['onDrop'] = (info) => {
-  const { dragNode, node: dropNode } = info
+  const dropInfo = info as unknown as AntTreeDropInfo
+  const { dragNode, node: dropNode } = dropInfo
   if (!dragNode || !dropNode) return
 
-  const dragKeys: string[] = (info as any).dragNodesKeys
-    ? (info as any).dragNodesKeys.map(String)
+  const dragKeys: string[] = dropInfo.dragNodesKeys
+    ? dropInfo.dragNodesKeys.map(String)
     : [String(dragNode.key)]
 
   if (dragKeys.includes(String(dropNode.key))) {
@@ -554,7 +572,7 @@ const onDrop: TreeProps['onDrop'] = (info) => {
     }
   }
 
-  const data = JSON.parse(JSON.stringify(internalTreeData.value))
+  const data = cloneTree(internalTreeData.value)
   const dragObjs: SmartTreeNode[] = []
 
   for (const key of dragKeys) {
@@ -564,12 +582,12 @@ const onDrop: TreeProps['onDrop'] = (info) => {
 
   if (!dragObjs.length) return
 
-  const dropToGap = (info as any).dropToGap
-  const pos = String((dropNode as any).pos || '')
+  const dropToGap = Boolean(dropInfo.dropToGap)
+  const pos = String(dropNode.pos || '')
   const posParts = pos.split('-')
   const nodeIndex = Number(posParts[posParts.length - 1] || 0)
-  const relativeDropPosition = ((info as any).dropPosition as number) - nodeIndex
-  const isDropNodeFolder = (dropNode as any).dataRef?.isFolder === true
+  const relativeDropPosition = (dropInfo.dropPosition || 0) - nodeIndex
+  const isDropNodeFolder = dropNode.dataRef?.isFolder === true
   const shouldInsertInto = !dropToGap && isDropNodeFolder
 
   if (!dropToGap && !isDropNodeFolder) {
@@ -631,17 +649,19 @@ const onDrop: TreeProps['onDrop'] = (info) => {
     dragNode: dragObjs[0],
     dragNodes: dragObjs,
     dropKey: String(dropNode.key),
-    dropNode: getOriginalNode(String(dropNode.key)) || (dropNode as unknown as SmartTreeNode),
+    dropNode: getOriginalNode(String(dropNode.key)) || (dropNode.dataRef as SmartTreeNode),
     dropToGap,
     targetParentKey,
     siblings,
+    resultTree: data,
   }
 
   emit('drop', dropEvent)
 }
 
 const onNodeDragStart: TreeProps['onDragstart'] = (info) => {
-  const keys = ((info as any).selectedKeys as string[])?.map(String) || [String(info.node?.key || '')]
+  const dragInfo = info as unknown as AntTreeDragInfo
+  const keys = dragInfo.selectedKeys?.map(String) || [String(dragInfo.node?.key ?? '')]
   draggingNodeKeys.value = keys
 }
 
