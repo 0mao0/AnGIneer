@@ -69,6 +69,16 @@
 - 区域内行条带在该区域 bbox 内计算；`cell.page_idx` = 区域页码；`cell.bbox` 为所在页归一化坐标。
 - 空壳匹配仅限连续后续页 + 横向重叠，避免误并。
 
+### 6. 语义约定与已知限制
+
+- `col` 采用视觉网格列号（占位矩阵语义，正确处理 rowspan/colspan）。
+  注意：`table_semantics` 用的 `parse_table_html` 是「colspan 展开 + 忽略 rowspan」的既有简化，
+  含 rowspan 的表里两者 `col` 编号会不同；`row` 序号与单元格 `text` 仍一致。这是有意选择——几何溯源需要正确网格。
+- `text` 使用与 `table_html_utils.clean_table_text` 一致的空白归一化（strip + 内部连续空白折叠），
+  与 `table_html` 单元格文本一致。
+- 嵌套表格（`table_nest_level > 1`）不特殊处理，沿用现有 HTML 解析同构的限制（与 `table_semantics` 相同）。
+- `bbox` 已是 0~1 归一化坐标，估算直接在整表 bbox 内进行；节点 `page_width` / `page_height` 仅透传，不参与计算、不改写。
+
 ## 数据模型
 
 table 节点新增：
