@@ -128,8 +128,17 @@ class SteerRequest(BaseModel):
     text: str
 
 
-def enforce_bound_library(bound: str, requested: str) -> str:
-    """绑定 key 的 library_id 服务端强制：空/default → 绑定值；一致放行；冲突 403。"""
+def enforce_bound_library(state, requested: str) -> str:
+    """会话用户按库集合校验；Key 保持原单库逻辑。空/default → 默认库。"""
+    ids = getattr(state, "bound_library_ids", None)
+    if ids is not None:
+        req = (requested or "").strip()
+        if not req or req == "default":
+            return getattr(state, "bound_library_id", "") or "default"
+        if req not in ids:
+            raise HTTPException(status_code=403, detail=f"用户无权访问知识库 '{req}'")
+        return req
+    bound = getattr(state, "bound_library_id", "") or ""
     if not bound:
         return (requested or "").strip() or "default"
     req = (requested or "").strip()
@@ -174,10 +183,7 @@ async def classify_intent_offloaded(query: str, config_name: Optional[str] = Non
 @app.post("/api/chat/agent")
 async def chat_agent_stream(request: QueryRequest, raw_request: Request):
     """Agent SSE：run/turn/tool 事件按 AgentEvent 帧输出。"""
-    request.library_id = enforce_bound_library(
-        str(getattr(raw_request.state, "bound_library_id", "") or ""),
-        request.library_id,
-    )
+    request.library_id = enforce_bound_library(raw_request.state, request.library_id)
 
     async def event_stream():
         try:
