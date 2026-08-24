@@ -395,7 +395,9 @@ watch(() => props.treeData, (value) => {
 }, { immediate: true, deep: true })
 
 watch(() => props.defaultExpandedKeys, (value) => {
-  expandedKeys.value = value
+  if (!initialExpandedApplied.value) {
+    expandedKeys.value = value
+  }
 }, { immediate: true })
 
 watch(() => props.defaultSelectedKeys, (value) => {
