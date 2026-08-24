@@ -28,6 +28,64 @@
   --tree-bg: #000000;
 }
 
+:root {
+  --text-tertiary: rgba(0, 0, 0, 0.45);
+  --divider-color: rgba(0, 0, 0, 0.08);
+  --card-bg: #ffffff;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --success: #52c41a;
+  --warning: #faad14;
+  --danger: #ff4d4f;
+  --brand-hover: #40a9ff;
+}
+
+[data-theme="dark"] {
+  --text-tertiary: rgba(255, 255, 255, 0.45);
+  --divider-color: rgba(255, 255, 255, 0.12);
+  --card-bg: #1f1f1f;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --success: #49aa19;
+  --warning: #d89614;
+  --danger: #dc4446;
+  --brand-hover: #177ddc;
+}
+
 @primary-color: var(--primary-color);
 @text-color: var(--text-primary);
 @border-color: var(--border-color);
+
+@brand-primary: var(--primary-color);
+@brand-primary-hover: var(--brand-hover);
+@success: var(--success);
+@warning: var(--warning);
+@danger: var(--danger);
+@card-bg: var(--card-bg);
+@text-primary: var(--text-primary);
+@text-secondary: var(--text-secondary);
+@text-tertiary: var(--text-tertiary);
+@divider-color: var(--divider-color);
+
+@font-size-xs: 12px;
+@font-size-sm: 13px;
+@font-size-base: 14px;
+@font-size-lg: 16px;
+@font-size-xl: 18px;
+@font-size-2xl: 22px;
+@font-weight-regular: 400;
+@font-weight-medium: 500;
+@font-weight-semibold: 600;
+@radius-sm: 6px;
+@radius-base: 8px;
+@radius-lg: 12px;
+@spacing-xs: 4px;
+@spacing-sm: 8px;
+@spacing-md: 12px;
+@spacing-base: 16px;
+@spacing-lg: 20px;
+@spacing-xl: 24px;
+@shadow-sm: var(--shadow-sm);
+@shadow-md: var(--shadow-md);
+@transition-fast: 150ms ease;
+@transition-base: 200ms ease;
