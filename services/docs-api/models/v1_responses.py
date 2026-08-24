@@ -1,5 +1,5 @@
 """v1 API 统一响应模型。"""
-from typing import Optional, Any, List
+from typing import Optional, Any, Dict, List
 from pydantic import BaseModel, Field
 
 
@@ -49,6 +49,8 @@ class Block(BaseModel):
     image_url: Optional[str] = Field(None)
     table_html: Optional[str] = Field(None)
     math_latex: Optional[str] = Field(None)
+    table_cells: Optional[List[Dict[str, Any]]] = Field(None)
+    table_cells_source: Optional[str] = Field(None)
 
 
 class OutlineItem(BaseModel):

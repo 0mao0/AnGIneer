@@ -491,6 +491,8 @@ async def get_blocks(
             image_url=n.get("image_path"),
             table_html=n.get("table_html"),
             math_latex=n.get("math_content"),
+            table_cells=n.get("table_cells"),
+            table_cells_source=n.get("table_cells_source"),
         ))
 
     outline_raw = []

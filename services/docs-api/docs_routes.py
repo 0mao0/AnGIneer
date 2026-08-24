@@ -986,6 +986,7 @@ async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) ->
             "bbox", "merged_bboxes", "caption_bboxes", "footnote_bboxes",
             "content_json", "rich_media_order", "image_paths",
             "table_html", "math_content",
+            "table_cells", "table_cells_source",
         }
         for node in graph.get("nodes", []):
             light_node = {k: v for k, v in node.items() if k not in heavy_keys}
