@@ -118,3 +118,26 @@ class KeyListItem(BaseModel):
     rate_limit_per_minute: int
     created_at: str
     last_used_at: Optional[str] = None
+
+
+class LoginRequest(BaseModel):
+    username: str = Field(..., min_length=1, max_length=100)
+    password: str = Field(..., min_length=1, max_length=200)
+
+
+class SessionUserInfo(BaseModel):
+    username: str
+    display_name: str
+    libraries: List[str] = Field(default_factory=list)
+
+
+class LoginResponse(BaseModel):
+    token: str
+    user: SessionUserInfo
+
+
+class SessionMeResponse(BaseModel):
+    username: str
+    display_name: str
+    libraries: List[str] = Field(default_factory=list)
+    default_library: str = ""

@@ -1,14 +1,59 @@
-"""API Key 验证与状态查询。"""
+"""API Key / 账号会话认证与状态查询。"""
+import asyncio
 from fastapi import APIRouter, Request, HTTPException
 
 from docs_core.docs_service import get_docs_service
-from models.v1_responses import MeResponse
+from models.user import (
+    create_session,
+    delete_session,
+    get_user_by_username,
+    update_last_login,
+    verify_password,
+)
+from models.v1_responses import LoginRequest, LoginResponse, MeResponse, SessionMeResponse
 
 router = APIRouter()
 
 
-@router.get("/me", response_model=MeResponse)
+@router.post("/login", response_model=LoginResponse)
+async def auth_login(req: LoginRequest):
+    user = get_user_by_username(req.username)
+    if user is None or not user.is_active or not verify_password(req.password, user.password_hash):
+        await asyncio.sleep(0.3)
+        raise HTTPException(401, "用户名或密码错误")
+    token = create_session(user.id)
+    update_last_login(user.id)
+    return LoginResponse(
+        token=token,
+        user={
+            "username": user.username,
+            "display_name": user.display_name,
+            "libraries": user.library_ids,
+        },
+    )
+
+
+@router.post("/logout")
+async def auth_logout(request: Request):
+    raw = getattr(request.state, "session_token_raw", "") or ""
+    if raw:
+        delete_session(raw)
+    return {"status": "success"}
+
+
+@router.get("/me")
 async def auth_me(request: Request):
+    session_user = getattr(request.state, "session_user", None)
+    if session_user is not None and isinstance(getattr(session_user, "username", None), str):
+        ks = get_docs_service()
+        existing = [lid for lid in session_user.library_ids if ks.get_library(lid) is not None]
+        return SessionMeResponse(
+            username=session_user.username,
+            display_name=session_user.display_name,
+            libraries=existing,
+            default_library=existing[0] if existing else "",
+        )
+
     key_info = getattr(request.state, "api_key_info", None)
     if not key_info:
         raise HTTPException(401, "Not authenticated")
