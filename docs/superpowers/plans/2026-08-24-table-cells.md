@@ -770,7 +770,44 @@ cd services/docs-core && python -m pytest tests/test_table_cells.py -v
 ```
 Expected: FAIL，`adapted["table_cells"]` 不存在（KeyError）
 
-- [ ] **Step 3: 实现透传**
+- [ ] **Step 3: 追加编辑失效失败测试**
+
+在 `test_table_cells.py` 末尾追加：
+
+```python
+from docs_core.step05_sqlite_fts.graph_editor import _invalidate_edited_table_semantics
+
+
+def test_graph_editor_invalidates_table_cells_on_html_change() -> None:
+    node = {
+        "block_uid": "d:0:1",
+        "id": "d:0:1",
+        "block_type": "table",
+        "page_idx": 0,
+        "block_seq": 1,
+        "table_html": "<table><tr><td>a</td></tr></table>",
+        "table_cells": [{"row": 0, "col": 0, "rowspan": 1, "colspan": 1,
+                        "page_idx": 0, "bbox": [0.0, 0.0, 1.0, 1.0], "text": "a"}],
+        "table_cells_source": "estimated",
+    }
+    before = {"nodes": [dict(node)]}
+    after = {"nodes": [dict(node)]}
+    after["nodes"][0]["table_html_corrected"] = "<table><tr><td>b</td></tr></table>"
+
+    invalidated = _invalidate_edited_table_semantics(after, before)
+    assert invalidated == ["d:0:1"]
+    assert "table_cells" not in after["nodes"][0]
+    assert "table_cells_source" not in after["nodes"][0]
+```
+
+- [ ] **Step 4: 运行测试确认新增测试失败**
+
+```bash
+cd services/docs-core && python -m pytest tests/test_table_cells.py::test_graph_editor_invalidates_table_cells_on_html_change -v
+```
+Expected: FAIL，`"table_cells"` 仍存在（当前实现只清 `table_semantics`）
+
+- [ ] **Step 5: 实现透传**
 
 在 `graph_rebuilder.py` 的 `adapt_graph_node` 返回字典中，`"table_semantics": raw_node.get("table_semantics"),` 之后插入两行：
 
@@ -779,23 +816,31 @@ Expected: FAIL，`adapted["table_cells"]` 不存在（KeyError）
         "table_cells_source": raw_node.get("table_cells_source"),
 ```
 
-- [ ] **Step 4: 实现编辑失效**
+- [ ] **Step 6: 实现编辑失效**
 
-在 `graph_editor.py` 的 `_invalidate_edited_table_semantics` 中，`node.pop("table_semantics", None)` 之后插入：
+在 `graph_editor.py` 的 `_invalidate_edited_table_semantics` 中做两处修改：
+1. 把 `if "table_semantics" not in node: continue` 改为：
+
+```python
+        if "table_semantics" not in node and "table_cells" not in node:
+            continue
+```
+
+2. 在 `node.pop("table_semantics", None)` 之后插入：
 
 ```python
             node.pop("table_cells", None)
             node.pop("table_cells_source", None)
 ```
 
-- [ ] **Step 5: 运行测试确认通过**
+- [ ] **Step 7: 运行测试确认通过**
 
 ```bash
 cd services/docs-core && python -m pytest tests/test_table_cells.py -v
 ```
-Expected: PASS（16 个测试）
+Expected: PASS（17 个测试）
 
-- [ ] **Step 6: 提交**
+- [ ] **Step 8: 提交**
 
 ```bash
 git add services/docs-core/src/docs_core/step05_sqlite_fts/rebuild/graph_rebuilder.py services/docs-core/src/docs_core/step05_sqlite_fts/graph_editor.py services/docs-core/tests/test_table_cells.py
@@ -896,6 +941,11 @@ def backfill_document(library_id: str, doc_id: str) -> bool:
             if line:
                 nodes.append(json.loads(line))
     if not nodes:
+        return False
+    if not any(
+        str(n.get("block_type") or "").strip() == "table" and "table_cells" not in n
+        for n in nodes
+    ):
         return False
     updated, stats = enrich_graph_nodes_table_cells(nodes)
     if not stats["enriched"]:
