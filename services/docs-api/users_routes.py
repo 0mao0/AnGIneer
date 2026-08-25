@@ -1,8 +1,9 @@
 """管理端用户管理接口（受 nginx 白名单 + Basic Auth 保护）。"""
 from typing import List, Optional
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
+from admin_auth import resolve_admin_session
 from docs_core.docs_service import get_docs_service
 from models.user import (
     create_user,
@@ -14,7 +15,7 @@ from models.user import (
     User,
 )
 
-router = APIRouter(prefix="/api/users", tags=["Admin Users"])
+router = APIRouter(prefix="/api/users", tags=["Admin Users"], dependencies=[Depends(resolve_admin_session)])
 
 
 class UserItem(BaseModel):

@@ -1,13 +1,14 @@
 """内部 API Key 管理端点。"""
 import sqlite3
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
+from admin_auth import resolve_admin_session
 from models.api_key import generate_key, list_keys, get_key, deactivate_key, reactivate_key, delete_key, rename_key, update_key
 from models.parse_record import get_statistics
 from models.v1_responses import CreateKeyRequest
 
-router = APIRouter(prefix="/api")
+router = APIRouter(prefix="/api", dependencies=[Depends(resolve_admin_session)])
 
 
 class KeyItem(BaseModel):
