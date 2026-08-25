@@ -45,9 +45,14 @@ def login_admin(ep: common.Endpoints, username: str, password: str) -> str:
 
 
 def create_library(ep: common.Endpoints, name: str) -> str:
+    resp = requests.get(ep.libraries, timeout=30)
+    resp.raise_for_status()
+    for lib in resp.json():
+        if lib.get("name") == name:
+            return lib["id"]
     resp = requests.post(ep.libraries, json={"name": name, "description": "Open RAG Benchmark 子集"}, timeout=30)
     resp.raise_for_status()
-    return resp.json()["library_id"]
+    return resp.json()["id"]
 
 
 def create_key(ep: common.Endpoints, token: str, library_id: str) -> str:
@@ -103,12 +108,15 @@ def run_import(
     poll_interval: int = 5,
     poll_timeout: int = 1800,
     api_key: str = "",
+    create_only: bool = False,
 ):
     state = json.loads(json.dumps(state))
     token = login_admin(ep, admin_user, admin_password)
     library_id = state.get("library_id") or create_library(ep, common.LIBRARY_NAME)
     state["library_id"] = library_id
     api_key = api_key or create_key(ep, token, library_id)
+    if create_only:
+        return state, api_key
 
     for paper in manifest.get("papers", []):
         paper_id = paper["paper_id"]
@@ -144,6 +152,7 @@ def main() -> int:
     parser.add_argument("--docs-api", default="http://localhost:8790")
     parser.add_argument("--admin-user", default=os.getenv("ADMIN_USER", ""))
     parser.add_argument("--admin-password", default=os.getenv("ADMIN_PASSWORD", ""))
+    parser.add_argument("--create-only", action="store_true", help="只建库与 API Key，不上传解析")
     args = parser.parse_args()
     _load_env()
     args.admin_user = args.admin_user or os.getenv("ADMIN_USER", "")
@@ -167,10 +176,13 @@ def main() -> int:
         manifest,
         state,
         api_key=existing_key,
+        create_only=args.create_only,
     )
     common.save_json(common.IMPORT_STATE, state)
     common.save_json(common.KEYS_FILE, {"library_id": state["library_id"], "api_key": api_key})
     print("导入进度:", common.load_json(common.IMPORT_STATE))
+    if args.create_only:
+        print("已创建知识库与 API Key（未上传解析）；keys.json 已保存完整 Key")
     return 0
 
 

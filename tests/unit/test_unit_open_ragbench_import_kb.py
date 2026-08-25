@@ -41,6 +41,24 @@ class ImportKbTests(unittest.TestCase):
             self.assertEqual(state["papers"]["p1"]["status"], "failed")
             self.assertEqual(api_key, "key-1")
 
+    def test_run_import_create_only_skips_upload(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            pdf_dir = Path(tmp)
+            (pdf_dir / "p1.pdf").write_bytes(b"%PDF-1.4 fake")
+            manifest = {"papers": [{"paper_id": "p1", "url": "u", "is_hard_negative": False}]}
+            with patch.object(import_kb, "login_admin", return_value="tok"), \
+                 patch.object(import_kb, "create_library", return_value="lib-1"), \
+                 patch.object(import_kb, "create_key", return_value="key-1"), \
+                 patch.object(import_kb, "upload_pdf", return_value="d1") as mock_upload, \
+                 patch.object(import_kb, "poll_status", return_value="succeeded"):
+                state, api_key = import_kb.run_import(
+                    common.Endpoints(), "admin", "pw", manifest, {"library_id": "", "papers": {}},
+                    pdf_dir=pdf_dir, create_only=True,
+                )
+            mock_upload.assert_not_called()
+            self.assertEqual(state["library_id"], "lib-1")
+            self.assertEqual(api_key, "key-1")
+
 
 if __name__ == "__main__":
     unittest.main()
