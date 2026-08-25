@@ -46,6 +46,8 @@ interface UseWorkspaceLinkageOptions {
   pdfPage: Ref<number>
   rightScrollPercent: Ref<number>
   showFurniture?: ComputedRef<boolean>
+  /** 定位目标解析完成后回调（PDF 场景用于把命中 bbox 滚动居中）。 */
+  onPdfHighlightResolved?: (target: LinkedHighlight) => void
 }
 
 interface ResolveLinkedHighlightOptions {
@@ -1002,6 +1004,9 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
     }
     if (options.isPdf.value && target.page !== options.pdfPage.value) {
       options.pdfPage.value = target.page
+    }
+    if (options.isPdf.value) {
+      options.onPdfHighlightResolved?.(target)
     }
   }
 

@@ -246,6 +246,7 @@ const {
   pdfPage,
   rightScrollPercent,
   showFurniture: computed(() => showFurniture.value),
+  onPdfHighlightResolved: (target) => pdfViewerRef.value?.scrollToHighlight(target, 'center'),
 })
 
 const pdfViewerRef = ref<InstanceType<typeof PDF_Viewer> | null>(null)
@@ -257,7 +258,7 @@ const onSelectItemFromRight = (itemId: string) => {
   })
 }
 const onSelectPdfHighlight = (item: Parameters<typeof onSelectHighlightFromLeft>[0]) => {
-  onSelectHighlightFromLeft(item, (highlight) => pdfViewerRef.value?.scrollToHighlight(highlight))
+  onSelectHighlightFromLeft(item, (highlight) => pdfViewerRef.value?.scrollToHighlight(highlight, 'center'))
 }
 
 watch(() => props.content, (value) => {
