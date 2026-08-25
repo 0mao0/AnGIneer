@@ -59,6 +59,23 @@ class ImportKbTests(unittest.TestCase):
             self.assertEqual(state["library_id"], "lib-1")
             self.assertEqual(api_key, "key-1")
 
+    def test_run_import_accepts_partial_as_terminal(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            pdf_dir = Path(tmp)
+            (pdf_dir / "p1.pdf").write_bytes(b"%PDF-1.4 fake")
+            manifest = {"papers": [{"paper_id": "p1", "url": "u", "is_hard_negative": False}]}
+            with patch.object(import_kb, "login_admin", return_value="tok"), \
+                 patch.object(import_kb, "create_library", return_value="lib-1"), \
+                 patch.object(import_kb, "create_key", return_value="key-1"), \
+                 patch.object(import_kb, "upload_pdf", return_value="d1") as mock_upload, \
+                 patch.object(import_kb, "poll_status", return_value="partial"):
+                state, _ = import_kb.run_import(
+                    common.Endpoints(), "admin", "pw", manifest, {"library_id": "", "papers": {}},
+                    pdf_dir=pdf_dir, poll_interval=0,
+                )
+            self.assertEqual(mock_upload.call_count, 1)
+            self.assertEqual(state["papers"]["p1"]["status"], "partial")
+
 
 if __name__ == "__main__":
     unittest.main()

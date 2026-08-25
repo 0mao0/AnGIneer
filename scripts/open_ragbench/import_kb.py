@@ -91,6 +91,8 @@ def poll_status(ep: common.Endpoints, api_key: str, doc_id: str, timeout: int, i
         status = (resp.json().get("status") or "").lower()
         if status == "completed":
             return "succeeded"
+        if status == "partial":
+            return "partial"
         if status in ("failed", "cancelled"):
             return "failed"
         time.sleep(interval)
@@ -123,7 +125,7 @@ def run_import(
         if paper.get("is_hard_negative"):
             continue
         existing = state.get("papers", {}).get(paper_id)
-        if existing and existing.get("status") == "succeeded":
+        if existing and existing.get("status") in ("succeeded", "partial"):
             continue
         pdf_path = pdf_dir / f"{paper_id}.pdf"
         if not pdf_path.exists():
@@ -137,12 +139,12 @@ def run_import(
                 state = advance_state(state, paper_id, doc_id, "pending", "")
                 status = poll_status(ep, api_key, doc_id, poll_timeout, poll_interval)
                 state = advance_state(state, paper_id, doc_id, status, "")
-                if status == "succeeded":
+                if status in ("succeeded", "partial"):
                     break
                 last_error = f"解析终态: {status}"
             except Exception as exc:
                 last_error = str(exc)
-        if state["papers"][paper_id]["status"] != "succeeded":
+        if state["papers"][paper_id]["status"] not in ("succeeded", "partial"):
             state = advance_state(state, paper_id, state["papers"][paper_id].get("doc_id", ""), "failed", last_error)
     return state, api_key
 
