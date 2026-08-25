@@ -349,12 +349,12 @@ const totalDurationMs = computed(() => {
   for (const s of orderedStages.value) {
     if (s.status === 'running' && s.started_at) {
       anyStarted = true
-      total += nowTick.value - new Date(s.started_at).getTime()
+      total += nowTick.value - parseBackendTime(s.started_at)
       continue
     }
     if ((s.status === 'completed' || s.status === 'failed') && s.started_at && s.finished_at) {
       anyStarted = true
-      total += Math.max(0, new Date(s.finished_at).getTime() - new Date(s.started_at).getTime())
+      total += Math.max(0, parseBackendTime(s.finished_at) - parseBackendTime(s.started_at))
     }
   }
   return anyStarted ? total : 0
@@ -436,7 +436,20 @@ function stepIconClass(status: string): string {
 
 function formatTime(stage: { started_at?: string }): string {
   if (!stage.started_at) return '—'
-  return stage.started_at.slice(11, 19)
+  const ms = parseBackendTime(stage.started_at)
+  if (!ms) return '—'
+  const d = new Date(ms)
+  const pad = (n: number) => String(n).padStart(2, '0')
+  return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`
+}
+
+// 后端时间戳为无时区的 UTC（容器 TZ=UTC），解析时显式补 Z 按 UTC 处理，
+// 避免 new Date() 按浏览器本地时区解析导致执行中耗时多算 8 小时。
+function parseBackendTime(value?: string): number {
+  if (!value) return 0
+  const normalized = /(Z|[+-]\d{2}:?\d{2})$/.test(value) ? value : `${value}Z`
+  const ms = new Date(normalized).getTime()
+  return Number.isFinite(ms) ? ms : 0
 }
 
 // 耗时统一格式：<60s 一位小数（如 5.3秒）；≥60s 整数 xx小时xx分xx秒
@@ -457,14 +470,14 @@ function formatDuration(stage: { started_at?: string; finished_at?: string; stat
   if (stage.status === 'queued') return '排队中'
   // 执行中：实时计时（每秒刷新）
   if (stage.status === 'running' && stage.started_at) {
-    return formatHms(nowTick.value - new Date(stage.started_at).getTime())
+    return formatHms(nowTick.value - parseBackendTime(stage.started_at))
   }
   if (stage.status === 'running') return '执行中'
   // 完成/失败：总时长
   if (!stage.started_at || !stage.finished_at) return '—'
   try {
-    const start = new Date(stage.started_at).getTime()
-    const end = new Date(stage.finished_at).getTime()
+    const start = parseBackendTime(stage.started_at)
+    const end = parseBackendTime(stage.finished_at)
     return formatHms(Math.max(0, end - start))
   } catch {
     return '—'
@@ -474,7 +487,7 @@ function formatDuration(stage: { started_at?: string; finished_at?: string; stat
 // 执行中的实时耗时文案，如 "耗时 5.3秒"
 function liveDuration(stage: { started_at?: string; status: string }): string {
   if (stage.status !== 'running' || !stage.started_at) return ''
-  return `耗时 ${formatHms(nowTick.value - new Date(stage.started_at).getTime())}`
+  return `耗时 ${formatHms(nowTick.value - parseBackendTime(stage.started_at))}`
 }
 
 function stageInput(stage: { key: string; input_summary: string }): string {
