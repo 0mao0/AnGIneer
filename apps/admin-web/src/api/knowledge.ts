@@ -138,7 +138,12 @@ export const knowledgeApi = {
   ) => api.get(`/knowledge/structured/${docId}`, { params: { strategy, item_type: itemType, keyword } }) as Promise<StructuredIndexResponse>,
   getStructuredStats: (docId: string) => api.get(`/knowledge/structured/stats/${docId}`) as Promise<StructuredStats>,
 
-  uploadDocument: (libraryId: string, file: File, parentId?: string) => {
+  uploadDocument: (
+    libraryId: string,
+    file: File,
+    parentId?: string,
+    onProgress?: (percent: number) => void
+  ) => {
     const formData = new FormData()
     formData.append('file', file)
     formData.append('library_id', libraryId)
@@ -146,7 +151,15 @@ export const knowledgeApi = {
     return api.post('/knowledge/upload', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
       // 大文件上传：至少 2 分钟，每 MB 再加 5s，避免 30s 默认超时掐断
-      timeout: Math.max(120000, Math.ceil(file.size / 1024 / 1024) * 5000)
+      timeout: Math.max(120000, Math.ceil(file.size / 1024 / 1024) * 5000),
+      ...(onProgress
+        ? {
+            onUploadProgress: (e: { loaded: number; total?: number }) => {
+              const percent = e.total ? Math.min(99, Math.round((e.loaded / e.total) * 100)) : 0
+              onProgress(percent)
+            },
+          }
+        : {}),
     })
   },
   getDocument: (libraryId: string, docId: string) =>
