@@ -19,6 +19,8 @@ scripts/*
 **/scripts/*
 !scripts/audit_prompts.py
 !scripts/sync-standalone.ps1
+!scripts/open_ragbench/
+!scripts/open_ragbench/**
 
 # Node.js
 node_modules/
