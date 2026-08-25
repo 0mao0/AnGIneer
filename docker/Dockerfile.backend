@@ -51,6 +51,15 @@ RUN pip install --no-cache-dir -e services/ai-inference \
     -e services/aichat-api \
     -e services/docs-api
 
+# PoPo 子模块运行依赖（label_normalization/inference/get_json_tree 链路的导入依赖；
+# torch/transformers 仅本机推理用，服务器走云端 API 不需要，故不安装）
+RUN pip install --no-cache-dir \
+    PyMuPDF \
+    Pillow \
+    tqdm \
+    beautifulsoup4 \
+    openai
+
 COPY services/ services/
 COPY apps/shared/ports.json apps/shared/ports.json
 
