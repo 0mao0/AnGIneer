@@ -48,6 +48,15 @@ class DownloadDatasetTests(unittest.TestCase):
             "https://hf-mirror.com/datasets/vectara/open_ragbench/resolve/main/pdf/arxiv/queries.json",
         )
 
+    def test_looks_like_pdf_checks_header(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            good = Path(tmp) / "good.pdf"
+            good.write_bytes(b"%PDF-1.4 content")
+            bad = Path(tmp) / "bad.pdf"
+            bad.write_bytes(b"not a pdf")
+            self.assertTrue(download_dataset._looks_like_pdf(good))
+            self.assertFalse(download_dataset._looks_like_pdf(bad))
+
 
 if __name__ == "__main__":
     unittest.main()
