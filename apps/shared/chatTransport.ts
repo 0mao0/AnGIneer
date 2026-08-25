@@ -275,8 +275,63 @@ export function cleanStreamText(raw: string): string {
   if (fenceStart >= 0) {
     cleaned = cleaned.slice(0, fenceStart)
   }
+  cleaned = stripFencedToolCallBlocks(cleaned)
   cleaned = stripPlainToolCallArtifacts(cleaned).trim()
   return stripOuterMarkdownFence(cleaned)
+}
+
+/** 兼容 ```json / 普通 ``` / ~~~ 围栏包裹的工具调用块：完整块移除，未闭合时截断到围栏起点。 */
+function stripFencedToolCallBlocks(text: string): string {
+  const openerRe = /^(```+|~{3,})\s*([a-zA-Z0-9_-]*)\s*$/gm
+  let result = ''
+  let cursor = 0
+  let match: RegExpExecArray | null
+  while ((match = openerRe.exec(text)) !== null) {
+    const fenceMark = match[1]
+    const bodyStart = openerRe.lastIndex
+    const closingRe = new RegExp(`^${escapeRegExp(fenceMark)}\\s*$`, 'gm')
+    closingRe.lastIndex = bodyStart
+    const close = closingRe.exec(text)
+    const body = close ? text.slice(bodyStart, close.index) : text.slice(bodyStart)
+    if (fenceBodyIsToolCall(body)) {
+      result += text.slice(cursor, match.index)
+      if (!close) return result
+      cursor = close.index + close[0].length
+      openerRe.lastIndex = cursor
+    }
+  }
+  return result + text.slice(cursor)
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+/** 围栏内容是否是（或即将是）工具调用 JSON 数组。 */
+function fenceBodyIsToolCall(body: string): boolean {
+  const firstBracket = body.indexOf('[')
+  if (firstBracket < 0) return false
+  const scan = scanJsonArray(body, firstBracket)
+  if (!scan) return false
+  const candidate = body.slice(firstBracket, scan.end)
+  if (scan.complete) {
+    try {
+      const parsed = JSON.parse(candidate)
+      return Array.isArray(parsed) && parsed.some(
+        (item) => item
+          && typeof item === 'object'
+          && typeof (item as any).name === 'string'
+          && (item as any).arguments
+          && typeof (item as any).arguments === 'object'
+      )
+    } catch {
+      return false
+    }
+  }
+  const normalized = candidate.replace(/\s/g, '')
+  return normalized.startsWith('[{"') && (
+    normalized.includes('"name"') || normalized.includes('"arguments"')
+  )
 }
 
 /**

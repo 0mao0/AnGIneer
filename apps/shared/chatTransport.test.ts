@@ -43,6 +43,27 @@ test('去掉没有围栏的纯 JSON 工具调用数组', () => {
   assert.equal(text, '思考过程后')
 })
 
+test('去掉 ```json 围栏包裹的工具调用块', () => {
+  const text = stripToolCallArtifacts(
+    '先检索\n```json\n[{"name": "knowledge_search", "arguments": {"query": "洪家场浦"}}]\n```'
+  )
+  assert.equal(text, '先检索')
+})
+
+test('去掉普通 ``` 围栏包裹的工具调用块', () => {
+  const text = stripToolCallArtifacts(
+    '先检索\n```\n[{"name": "knowledge_search", "arguments": {"query": "洪家场浦"}}]\n```'
+  )
+  assert.equal(text, '先检索')
+})
+
+test('流式中未闭合的 ```json 工具调用围栏被截断', () => {
+  const text = stripToolCallArtifacts(
+    '您是否想知道具体技术参数？\n```json\n[{"name": "knowledge_search", "arguments": {"query": "洪家场浦"}}'
+  )
+  assert.equal(text, '您是否想知道具体技术参数？')
+})
+
 test('把 run_end 消息构建为思考过程轨迹', () => {
   const steps = buildThinkingTrace([
     { role: 'user', content: '上航数联是什么' },
