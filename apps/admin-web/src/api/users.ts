@@ -5,6 +5,7 @@ export interface AdminUserItem {
   id: number
   username: string
   display_name: string
+  is_admin: boolean
   library_ids: string[]
   is_active: boolean
   created_at: string
@@ -18,9 +19,9 @@ export interface LibraryOptionItem {
 
 export const usersApi = {
   list: (): Promise<AdminUserItem[]> => docsApiClient.get('/users'),
-  create: (data: { username: string; display_name: string; password: string; library_ids: string[] }): Promise<AdminUserItem> =>
+  create: (data: { username: string; display_name: string; password: string; is_admin: boolean; library_ids: string[] }): Promise<AdminUserItem> =>
     docsApiClient.post('/users', data),
-  update: (id: number, data: { display_name: string; library_ids: string[] }): Promise<{ status: string }> =>
+  update: (id: number, data: { display_name: string; is_admin: boolean; library_ids: string[] }): Promise<{ status: string }> =>
     docsApiClient.put(`/users/${id}`, data),
   resetPassword: (id: number, password: string): Promise<{ status: string }> =>
     docsApiClient.post(`/users/${id}/password`, { password }),

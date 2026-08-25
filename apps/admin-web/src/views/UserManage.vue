@@ -23,6 +23,13 @@
           <template v-else-if="column.key === 'created_at' || column.key === 'last_login_at'">
             {{ formatTime(record[column.key as keyof AdminUserItem] as string) }}
           </template>
+          <template v-else-if="column.key === 'is_admin'">
+            <a-switch
+              :checked="record.is_admin"
+              size="small"
+              @change="(checked: boolean) => handleAdminToggle(record, checked)"
+            />
+          </template>
           <template v-else-if="column.key === 'is_active'">
             <a-switch
               :checked="record.is_active"
@@ -54,6 +61,9 @@
         <a-form-item label="初始密码" required>
           <a-input-password v-model:value="form.password" placeholder="至少 6 位" />
         </a-form-item>
+        <a-form-item label="设为管理员">
+          <a-switch v-model:checked="form.is_admin" />
+        </a-form-item>
         <a-form-item label="可访问知识库" required>
           <a-select v-model:value="form.library_ids" mode="multiple" placeholder="选择知识库" :options="libraryOptions" />
         </a-form-item>
@@ -64,6 +74,9 @@
       <a-form :model="form" layout="vertical">
         <a-form-item label="备注" required>
           <a-input v-model:value="form.display_name" />
+        </a-form-item>
+        <a-form-item label="设为管理员">
+          <a-switch v-model:checked="form.is_admin" />
         </a-form-item>
         <a-form-item label="可访问知识库" required>
           <a-select v-model:value="form.library_ids" mode="multiple" placeholder="选择知识库" :options="libraryOptions" />
@@ -102,6 +115,7 @@ const libraryOptions = computed(() => libraries.value.map((l) => ({ value: l.id,
 const columns: DataTableColumn[] = [
   { title: '用户名', dataIndex: 'username', key: 'username', width: 140, minWidth: 120, resizable: true },
   { title: '备注', dataIndex: 'display_name', key: 'display_name', width: 140, minWidth: 100, resizable: true },
+  { title: '管理员', key: 'is_admin', width: 80, minWidth: 70 },
   { title: '可访问知识库', key: 'libraries', width: 240, minWidth: 180, resizable: true },
   { title: '最近登录', dataIndex: 'last_login_at', key: 'last_login_at', width: 150, minWidth: 120, resizable: true },
   { title: '启用', key: 'is_active', width: 70, minWidth: 60 },
@@ -113,7 +127,7 @@ const editVisible = ref(false)
 const passwordVisible = ref(false)
 const newPassword = ref('')
 const editingUser = ref<AdminUserItem | null>(null)
-const form = reactive({ username: '', display_name: '', password: '', library_ids: [] as string[] })
+const form = reactive({ username: '', display_name: '', password: '', is_admin: false, library_ids: [] as string[] })
 
 function libraryLabel(lid: string): string {
   return libraries.value.find((l) => l.id === lid)?.name || lid
@@ -146,6 +160,7 @@ function resetForm(): void {
   form.username = ''
   form.display_name = ''
   form.password = ''
+  form.is_admin = false
   form.library_ids = []
   newPassword.value = ''
   editingUser.value = null
@@ -159,6 +174,7 @@ function openCreate(): void {
 function openEdit(record: AdminUserItem): void {
   editingUser.value = record
   form.display_name = record.display_name
+  form.is_admin = record.is_admin
   form.library_ids = [...record.library_ids]
   editVisible.value = true
 }
@@ -180,6 +196,7 @@ async function handleCreate(): Promise<void> {
       username: form.username.trim(),
       display_name: form.display_name.trim(),
       password: form.password,
+      is_admin: form.is_admin,
       library_ids: form.library_ids,
     })
     message.success('用户已创建')
@@ -200,7 +217,11 @@ async function handleUpdate(): Promise<void> {
   }
   saving.value = true
   try {
-    await usersApi.update(editingUser.value.id, { display_name: form.display_name.trim(), library_ids: form.library_ids })
+    await usersApi.update(editingUser.value.id, {
+      display_name: form.display_name.trim(),
+      is_admin: form.is_admin,
+      library_ids: form.library_ids,
+    })
     message.success('已保存')
     editVisible.value = false
     resetForm()
@@ -231,6 +252,20 @@ async function handleToggle(record: AdminUserItem, checked: boolean): Promise<vo
     await usersApi.setActive(record.id, checked)
     record.is_active = checked
     message.success(checked ? '已启用' : '已禁用')
+  } catch (e: any) {
+    message.error('操作失败: ' + (e.message || e))
+  }
+}
+
+async function handleAdminToggle(record: AdminUserItem, checked: boolean): Promise<void> {
+  try {
+    await usersApi.update(record.id, {
+      display_name: record.display_name,
+      is_admin: checked,
+      library_ids: record.library_ids,
+    })
+    record.is_admin = checked
+    message.success(checked ? '已设为管理员' : '已取消管理员')
   } catch (e: any) {
     message.error('操作失败: ' + (e.message || e))
   }
