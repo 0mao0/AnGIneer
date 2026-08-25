@@ -1,7 +1,10 @@
 """按题型汇总评测 run 结果并生成 Markdown 报告。"""
 import argparse
+import os
 import sys
 from pathlib import Path
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from open_ragbench import common
 

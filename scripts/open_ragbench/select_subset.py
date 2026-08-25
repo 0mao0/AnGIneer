@@ -1,8 +1,11 @@
 """分层抽样子集：论文 + 题目 + 硬负例。"""
 import argparse
+import os
 import random
 import sys
 from pathlib import Path
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from open_ragbench import common
 
