@@ -97,8 +97,14 @@ class PoPoPipelineRunner:
         cancel_check：可选取消检查回调（自身抛取消异常），运行期间每 0.5s 轮询一次；
         触发取消时先 kill 子进程再向上传播。
         """
+        # Windows 下把子进程放进独立进程组，避免控制台 Ctrl+C / 热重载终止
+        # 父进程时连带杀死 PoPo 子进程（表现为 0xC000013A）。
+        creationflags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) if os.name == "nt" else 0
         if cancel_check is not None:
-            proc = subprocess.Popen(args, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            proc = subprocess.Popen(
+                args, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                creationflags=creationflags,
+            )
             try:
                 deadline = time.monotonic() + timeout if timeout else None
                 while proc.poll() is None:
@@ -129,7 +135,8 @@ class PoPoPipelineRunner:
                 raise
         try:
             subprocess.run(
-                args, env=env, check=True, timeout=timeout, capture_output=True
+                args, env=env, check=True, timeout=timeout, capture_output=True,
+                creationflags=creationflags,
             )
         except subprocess.CalledProcessError as exc:
             stderr = _decode_output(exc.stderr)
