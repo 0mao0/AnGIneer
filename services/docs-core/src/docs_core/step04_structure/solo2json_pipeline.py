@@ -333,13 +333,22 @@ def _apply_popo_signals(
     on_step: Optional[Callable[[str, str, str], None]] = None,
 ) -> tuple[list, Dict[str, Any], Dict[str, Any]]:
     """返回 (nodes, injection_stats, popo_candidates)。"""
-    from docs_core.step04_structure.popo.popo_signal_aligner import align_popo_blocks
-    from docs_core.step04_structure.popo.popo_block_merger import merge_blocks
-    from docs_core.step04_structure.popo.popo_signal_injector import inject_popo_signals
-    from docs_core.step04_structure.popo.popo_signal_level_fusion import (
-        build_popo_level_map,
-        build_popo_tree_level_map,
-    )
+    try:
+        from docs_core.step04_structure.popo.popo_signal_aligner import align_popo_blocks
+        from docs_core.step04_structure.popo.popo_block_merger import merge_blocks
+        from docs_core.step04_structure.popo.popo_signal_injector import inject_popo_signals
+        from docs_core.step04_structure.popo.popo_signal_level_fusion import (
+            build_popo_level_map,
+            build_popo_tree_level_map,
+        )
+    except ImportError:
+        # popo 子模块未安装：跳过 PoPo 信号，Solo 照常构建
+        _emit_step(on_step, "PoPo 信号应用", "skipped", "PoPo 子模块未安装")
+        return nodes, {
+            "injection": {"applied": 0, "rejected": 0, "skipped_reason": "no_popo_module"},
+            "heuristic": {"applied": 0, "skipped": 0, "skipped_reason": "no_popo_module"},
+            "merge": {"applied": 0, "rejected": 0, "skipped_reason": "no_popo_module"},
+        }, {}
 
     popo_candidates: Dict[str, Any] = {}
     try:

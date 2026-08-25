@@ -284,7 +284,7 @@ def _run_popo(ctx: StageContext) -> str:
     popo_output_dir = str(paths.get_popo_dir(ctx.library_id, ctx.doc_id))
     source_dir = paths.get_source_dir(ctx.library_id, ctx.doc_id)
     pipeline = get_popo_pipeline()
-    if not pipeline.is_available():
+    if not getattr(pipeline, "is_available", lambda: True)():
         ctx.log_step("PoPo 强化", "skipped", "PoPo 子模块未安装，回退 Solo 构建")
         return "__skipped__: PoPo 子模块未安装，回退 Solo 构建"
 
