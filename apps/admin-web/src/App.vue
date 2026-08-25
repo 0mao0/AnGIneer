@@ -1,7 +1,8 @@
 <template>
   <a-config-provider :locale="zhCN" :theme="themeConfig">
     <a-app>
-      <div class="app-container" :class="appClass">
+      <AuthGate />
+      <div v-if="authStore.isAuthed && authStore.user?.is_admin" class="app-container" :class="appClass">
         <AppHeader
           layout="admin"
           :version="appVersion"
@@ -51,9 +52,12 @@ import { useRouter, useRoute } from 'vue-router'
 import { computed, provide, ref } from 'vue'
 import { AppHeader, useTheme, type NavItem } from '@angineer/ui-kit'
 import { WEB_CONSOLE_ORIGIN } from '../../shared/ports'
+import AuthGate from './components/AuthGate.vue'
+import { useAdminAuthStore } from './stores/auth'
 
 const router = useRouter()
 const route = useRoute()
+const authStore = useAdminAuthStore()
 const { themeConfig, appClass, isDark, toggleTheme } = useTheme()
 const appVersion = import.meta.env.VITE_APP_VERSION || ''
 
