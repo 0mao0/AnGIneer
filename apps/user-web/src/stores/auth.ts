@@ -6,6 +6,7 @@ export interface SessionUserInfo {
   display_name: string
   libraries: string[]
   default_library?: string
+  is_admin?: boolean
 }
 
 /** 用户会话：登录 = 账号密码 → 后端签发会话 token；库集合由服务端裁定。 */

@@ -76,6 +76,22 @@ class LoginTests(unittest.TestCase):
         self.assertEqual(resp.libraries, ["lib-a"])
         self.assertEqual(resp.default_library, "lib-a")
 
+    def test_login_response_includes_is_admin(self):
+        resp = self._login()
+        self.assertFalse(resp.user.is_admin)
+        user_model.create_user("boss", "Boss", "secret123", ["lib-a"], is_admin=True)
+        resp2 = self._login(username="boss", password="secret123")
+        self.assertTrue(resp2.user.is_admin)
+
+    def test_me_includes_is_admin(self):
+        from routes.v1 import auth
+        req = MagicMock()
+        req.state.session_user = self.user
+        with patch.object(auth, "get_docs_service") as mock_ks:
+            mock_ks.return_value.get_library.return_value = MagicMock()
+            resp = asyncio.run(auth.auth_me(req))
+        self.assertEqual(resp.is_admin, self.user.is_admin)
+
 
 if __name__ == "__main__":
     unittest.main()

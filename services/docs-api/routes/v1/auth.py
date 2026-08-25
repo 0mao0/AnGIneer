@@ -29,6 +29,7 @@ async def auth_login(req: LoginRequest):
             "username": user.username,
             "display_name": user.display_name,
             "libraries": user.library_ids,
+            "is_admin": user.is_admin,
         },
     )
 
@@ -52,6 +53,7 @@ async def auth_me(request: Request):
             display_name=session_user.display_name,
             libraries=existing,
             default_library=existing[0] if existing else "",
+            is_admin=session_user.is_admin,
         )
 
     key_info = getattr(request.state, "api_key_info", None)

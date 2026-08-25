@@ -131,6 +131,7 @@ class SessionUserInfo(BaseModel):
     username: str
     display_name: str
     libraries: List[str] = Field(default_factory=list)
+    is_admin: bool = False
 
 
 class LoginResponse(BaseModel):
@@ -143,3 +144,4 @@ class SessionMeResponse(BaseModel):
     display_name: str
     libraries: List[str] = Field(default_factory=list)
     default_library: str = ""
+    is_admin: bool = False
