@@ -13,6 +13,14 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from open_ragbench import common
 
 
+def _load_env() -> None:
+    try:
+        from dotenv import load_dotenv
+    except ImportError:
+        return
+    load_dotenv(common.REPO_ROOT / ".env")
+
+
 def load_or_init_state():
     if common.IMPORT_STATE.exists():
         return common.load_json(common.IMPORT_STATE)
@@ -137,6 +145,9 @@ def main() -> int:
     parser.add_argument("--admin-user", default=os.getenv("ADMIN_USER", ""))
     parser.add_argument("--admin-password", default=os.getenv("ADMIN_PASSWORD", ""))
     args = parser.parse_args()
+    _load_env()
+    args.admin_user = args.admin_user or os.getenv("ADMIN_USER", "")
+    args.admin_password = args.admin_password or os.getenv("ADMIN_PASSWORD", "")
     if not args.admin_user or not args.admin_password:
         print("缺少管理员凭据：请设置 ADMIN_USER / ADMIN_PASSWORD 或传 --admin-user/--admin-password")
         return 2
