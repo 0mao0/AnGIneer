@@ -454,7 +454,8 @@ function parseBackendTime(value?: string): number {
 
 // 耗时统一格式：<60s 一位小数（如 5.3秒）；≥60s 整数 xx小时xx分xx秒
 function formatHms(ms: number): string {
-  const sec = ms / 1000
+  const safeMs = Number.isFinite(ms) ? Math.max(0, ms) : 0
+  const sec = safeMs / 1000
   if (sec < 60) return `${(Math.round(sec * 10) / 10).toFixed(1)}秒`
   const total = Math.round(sec)
   const h = Math.floor(total / 3600)
