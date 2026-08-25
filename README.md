@@ -10,7 +10,7 @@
 | :--- | :--- | :--- |
 | [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.14` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.1.8` | 知识库前端组件库 |
-| [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.1` | 对话前端组件库 |
+| [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.3` | 对话前端组件库 |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.1` | 通用树组件库（SmartTree） |
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.1.0` | Python AI 推理客户端库 |
 
