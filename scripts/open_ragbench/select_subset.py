@@ -37,9 +37,9 @@ def build_manifest(
 
     for idx, source in enumerate(common.SOURCES):
         eligible = [d for d in doc_queries if d in pdf_urls]
-        count = 0
+        source_count = 0
         for doc_id in _stable_shuffle(eligible, seed + idx):
-            if count >= min_per_source:
+            if source_count >= min_per_source:
                 break
             if doc_id in selected_papers:
                 continue
@@ -51,7 +51,7 @@ def build_manifest(
                 continue
             selected_papers[doc_id] = uids
             question_ids.extend(uids)
-            count += 1
+            source_count += len(uids)
 
     remaining = [d for d in doc_queries if d in pdf_urls and d not in selected_papers]
     for doc_id in _stable_shuffle(remaining, seed + 99):
