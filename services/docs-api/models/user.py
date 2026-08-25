@@ -45,6 +45,7 @@ class User:
     display_name: str = ""
     password_hash: str = ""
     is_active: bool = True
+    is_admin: bool = False
     created_at: str = ""
     last_login_at: Optional[str] = None
     library_ids: List[str] = field(default_factory=list)
@@ -67,6 +68,7 @@ def init_db() -> None:
             display_name TEXT NOT NULL DEFAULT '',
             password_hash TEXT NOT NULL,
             is_active INTEGER NOT NULL DEFAULT 1,
+            is_admin INTEGER NOT NULL DEFAULT 0,
             created_at TEXT NOT NULL,
             last_login_at TEXT
         )
@@ -89,6 +91,10 @@ def init_db() -> None:
             FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
         )
     """)
+    try:
+        conn.execute("ALTER TABLE users ADD COLUMN is_admin INTEGER NOT NULL DEFAULT 0")
+    except sqlite3.OperationalError:
+        pass  # 已存在该列
     conn.commit()
     conn.close()
 
@@ -108,6 +114,7 @@ def _row_to_user(row: sqlite3.Row, library_ids: List[str]) -> User:
         display_name=row["display_name"],
         password_hash=row["password_hash"],
         is_active=bool(row["is_active"]),
+        is_admin=bool(row["is_admin"]),
         created_at=row["created_at"],
         last_login_at=row["last_login_at"],
         library_ids=library_ids,
@@ -154,6 +161,7 @@ def create_user(
     display_name: str = "",
     password: str = "",
     library_ids: Optional[List[str]] = None,
+    is_admin: bool = False,
 ) -> User:
     init_db()
     username = username.strip()
@@ -167,8 +175,8 @@ def create_user(
         if dup:
             raise ValueError("用户名已存在")
         cur = conn.execute(
-            "INSERT INTO users (username, display_name, password_hash, is_active, created_at) VALUES (?, ?, ?, 1, ?)",
-            (username, display_name.strip(), hash_password(password), _now()),
+            "INSERT INTO users (username, display_name, password_hash, is_active, is_admin, created_at) VALUES (?, ?, ?, 1, ?, ?)",
+            (username, display_name.strip(), hash_password(password), 1 if is_admin else 0, _now()),
         )
         user_id = cur.lastrowid
         for lid in (library_ids or []):

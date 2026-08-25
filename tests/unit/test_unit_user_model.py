@@ -88,6 +88,41 @@ class UserModelTests(unittest.TestCase):
         user_model.delete_session(token2)
         self.assertIsNone(user_model.get_session_user(token2))
 
+    def test_is_admin_default_false(self):
+        user = user_model.create_user("ivan2", "Ivan", "secret123", ["lib-a"])
+        self.assertFalse(user.is_admin)
+        self.assertFalse(user_model.get_user_by_username("ivan2").is_admin)
+
+    def test_create_user_with_is_admin(self):
+        user = user_model.create_user("judy", "Judy", "secret123", ["lib-a"], is_admin=True)
+        self.assertTrue(user.is_admin)
+        self.assertTrue(user_model.get_user_by_username("judy").is_admin)
+
+    def test_init_db_adds_is_admin_column_to_legacy_table(self):
+        conn = user_model._get_conn()
+        conn.execute("DROP TABLE sessions")
+        conn.execute("DROP TABLE user_libraries")
+        conn.execute("DROP TABLE users")
+        conn.execute(
+            """
+            CREATE TABLE users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT NOT NULL UNIQUE,
+                display_name TEXT NOT NULL DEFAULT '',
+                password_hash TEXT NOT NULL,
+                is_active INTEGER NOT NULL DEFAULT 1,
+                created_at TEXT NOT NULL,
+                last_login_at TEXT
+            )
+            """
+        )
+        conn.commit()
+        conn.close()
+        user_model.init_db()
+        user = user_model.create_user("kate", "Kate", "secret123")
+        self.assertFalse(user.is_admin)
+        user_model.init_db()  # 幂等：重复迁移不报错
+
 
 if __name__ == "__main__":
     unittest.main()
