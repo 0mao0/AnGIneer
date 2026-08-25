@@ -21,6 +21,10 @@ def resolve_session_principal(request: Request) -> bool:
 
 def enforce_bound_library(state, requested: str) -> str:
     """会话用户按库集合校验；Key 保持原单库逻辑。空/default → 默认库。"""
+    user = getattr(state, "session_user", None)
+    if user is not None and getattr(user, "is_admin", False) is True:
+        # 管理员跨库视野：允许访问任意知识库（与 admin-web 全局库选择一致）
+        return (requested or "").strip() or "default"
     ids = getattr(state, "bound_library_ids", None)
     if ids is not None:
         req = (requested or "").strip()

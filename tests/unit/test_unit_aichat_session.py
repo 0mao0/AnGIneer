@@ -64,6 +64,14 @@ class AichatSessionTests(unittest.TestCase):
         admin = user_model.create_user("boss", "Boss", "secret123", ["lib-a"], is_admin=True)
         self.assertTrue(admin.is_admin)
 
+    def test_admin_session_bypasses_bound_library(self):
+        admin = user_model.create_user("boss2", "Boss2", "secret123", ["lib-a"], is_admin=True)
+        token = user_model.create_session(admin.id)
+        req = MagicMock()
+        req.headers.get.return_value = f"Bearer {token}"
+        self.assertTrue(resolve_session_principal(req))
+        self.assertEqual(enforce_bound_library(req.state, "lib-7582b086"), "lib-7582b086")
+
 
 if __name__ == "__main__":
     unittest.main()
