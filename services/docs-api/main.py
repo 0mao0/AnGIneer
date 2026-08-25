@@ -26,6 +26,7 @@ from routes.v1 import router as v1_router
 from middleware.api_key_auth import APIKeyAuthMiddleware
 from orchestrator import parse_orchestrator
 from startup_recovery import reconcile_stale_parse_tasks
+from models.user import ensure_admin_user
 
 app = FastAPI(
     title="AnGIneer Docs API",
@@ -46,6 +47,16 @@ def _reconcile_stale_parse_tasks_on_startup() -> None:
             logger.warning("启动自愈: 标记 %d 个中断解析任务为 failed", count)
     except Exception:
         logger.exception("启动自愈执行失败")
+
+
+@app.on_event("startup")
+def _bootstrap_admin_on_startup() -> None:
+    try:
+        user = ensure_admin_user()
+        if user is not None:
+            logger.info("管理员引导完成: %s (is_admin=%s)", user.username, user.is_admin)
+    except Exception:
+        logger.exception("管理员引导执行失败")
 
 
 _default_origins = "http://localhost:3005,http://localhost:3002,http://127.0.0.1:3005,http://127.0.0.1:3002,http://localhost,http://127.0.0.1"
