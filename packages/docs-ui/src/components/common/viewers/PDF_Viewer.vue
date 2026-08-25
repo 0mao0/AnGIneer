@@ -438,7 +438,11 @@ const props = withDefaults(defineProps<{
   activeHighlightId: string | null
   activeHighlightIds?: string[]
   activeClickItemId?: string | null
-  /** 外部切换 activeHighlightId 时，将对应高亮 bbox 纵向居中到视口（溯源定位体验）。 */
+  /**
+   * 外部切换 activeHighlightId 时，将对应高亮 bbox 纵向居中到视口（溯源定位体验）。
+   * 注意：启用后任何 activeHighlightId 变化都会居中；避免把 hover 事件映射到
+   * activeHighlightId，否则扫过高亮框时视口会跟随滚动。
+   */
   centerActiveHighlight?: boolean
   pageLabels?: Record<number, string>
   textScrollPercent: number
