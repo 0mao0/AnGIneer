@@ -22,9 +22,11 @@ export function normalizeApiError(err: unknown): ApiErrorDetail {
   const status = err.response?.status ?? 0
   const detail = err.response?.data?.detail
   const message =
-    (typeof detail === 'object' && detail !== null && 'message' in detail
-      ? String((detail as { message: unknown }).message)
-      : undefined) ||
+    (typeof detail === 'string' && detail
+      ? detail
+      : typeof detail === 'object' && detail !== null && 'message' in detail
+        ? String((detail as { message: unknown }).message)
+        : undefined) ||
     err.response?.statusText ||
     err.message ||
     `API 请求失败（${status}）`
