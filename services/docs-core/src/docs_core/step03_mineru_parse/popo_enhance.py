@@ -73,10 +73,19 @@ class PoPoPipelineRunner:
                 ]
                 self.popo_repo_path = next(
                     (c for c in candidates if (c / "post_processing" / "label_normalization.py").exists()),
-                    candidates[0],
+                    None,
                 )
 
+    def is_available(self) -> bool:
+        """PoPo 子模块是否可用（子进程脚本齐全）。缺失时上层应优雅跳过而非报错。"""
+        return bool(
+            self.popo_repo_path
+            and (self.popo_repo_path / "post_processing" / "label_normalization.py").is_file()
+        )
+
     def _popo_script(self, relative_path: str) -> Path:
+        if self.popo_repo_path is None:
+            raise FileNotFoundError("PoPo 子模块未安装（缺少 post_processing/label_normalization.py）")
         return self.popo_repo_path / relative_path
 
     def _run_script(
