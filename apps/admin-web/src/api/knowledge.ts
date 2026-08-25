@@ -144,7 +144,9 @@ export const knowledgeApi = {
     formData.append('library_id', libraryId)
     if (parentId) formData.append('parent_id', parentId)
     return api.post('/knowledge/upload', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' }
+      headers: { 'Content-Type': 'multipart/form-data' },
+      // 大文件上传：至少 2 分钟，每 MB 再加 5s，避免 30s 默认超时掐断
+      timeout: Math.max(120000, Math.ceil(file.size / 1024 / 1024) * 5000)
     })
   },
   getDocument: (libraryId: string, docId: string) =>
