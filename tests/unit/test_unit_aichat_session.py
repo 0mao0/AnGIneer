@@ -58,6 +58,12 @@ class AichatSessionTests(unittest.TestCase):
         self.assertEqual(req.state.bound_library_id, "lib-a")
         self.assertEqual(req.state.bound_library_ids, {"lib-a", "lib-b"})
 
+    def test_user_model_has_is_admin(self):
+        loaded = user_model.get_user_by_id(self.user.id)
+        self.assertFalse(loaded.is_admin)
+        admin = user_model.create_user("boss", "Boss", "secret123", ["lib-a"], is_admin=True)
+        self.assertTrue(admin.is_admin)
+
 
 if __name__ == "__main__":
     unittest.main()

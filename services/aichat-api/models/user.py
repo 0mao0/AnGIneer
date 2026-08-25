@@ -8,6 +8,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import List, Optional
 
+import logging
+
 DB_PATH = os.environ.get("USERS_DB_PATH", str(
     Path(__file__).resolve().parent.parent.parent.parent
     / "data" / "users.sqlite"
@@ -16,6 +18,8 @@ DB_PATH = os.environ.get("USERS_DB_PATH", str(
 SESSION_TTL_DAYS = 7
 PBKDF2_ITERATIONS = 200_000
 MIN_PASSWORD_LEN = 6
+
+logger = logging.getLogger(__name__)
 
 
 def _now() -> str:
@@ -45,6 +49,7 @@ class User:
     display_name: str = ""
     password_hash: str = ""
     is_active: bool = True
+    is_admin: bool = False
     created_at: str = ""
     last_login_at: Optional[str] = None
     library_ids: List[str] = field(default_factory=list)
@@ -67,6 +72,7 @@ def init_db() -> None:
             display_name TEXT NOT NULL DEFAULT '',
             password_hash TEXT NOT NULL,
             is_active INTEGER NOT NULL DEFAULT 1,
+            is_admin INTEGER NOT NULL DEFAULT 0,
             created_at TEXT NOT NULL,
             last_login_at TEXT
         )
@@ -89,6 +95,10 @@ def init_db() -> None:
             FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
         )
     """)
+    try:
+        conn.execute("ALTER TABLE users ADD COLUMN is_admin INTEGER NOT NULL DEFAULT 0")
+    except sqlite3.OperationalError:
+        pass  # 已存在该列
     conn.commit()
     conn.close()
 
@@ -108,6 +118,7 @@ def _row_to_user(row: sqlite3.Row, library_ids: List[str]) -> User:
         display_name=row["display_name"],
         password_hash=row["password_hash"],
         is_active=bool(row["is_active"]),
+        is_admin=bool(row["is_admin"]),
         created_at=row["created_at"],
         last_login_at=row["last_login_at"],
         library_ids=library_ids,
@@ -154,6 +165,7 @@ def create_user(
     display_name: str = "",
     password: str = "",
     library_ids: Optional[List[str]] = None,
+    is_admin: bool = False,
 ) -> User:
     init_db()
     username = username.strip()
@@ -167,8 +179,8 @@ def create_user(
         if dup:
             raise ValueError("用户名已存在")
         cur = conn.execute(
-            "INSERT INTO users (username, display_name, password_hash, is_active, created_at) VALUES (?, ?, ?, 1, ?)",
-            (username, display_name.strip(), hash_password(password), _now()),
+            "INSERT INTO users (username, display_name, password_hash, is_active, is_admin, created_at) VALUES (?, ?, ?, 1, ?, ?)",
+            (username, display_name.strip(), hash_password(password), 1 if is_admin else 0, _now()),
         )
         user_id = cur.lastrowid
         for lid in (library_ids or []):
@@ -226,6 +238,17 @@ def set_user_active(user_id: int, active: bool) -> bool:
     finally:
         conn.close()
     return True
+
+
+def _set_user_admin(user_id: int, is_admin: bool) -> bool:
+    init_db()
+    conn = _get_conn()
+    try:
+        cur = conn.execute("UPDATE users SET is_admin = ? WHERE id = ?", (1 if is_admin else 0, user_id))
+        conn.commit()
+    finally:
+        conn.close()
+    return cur.rowcount > 0
 
 
 def delete_user(user_id: int) -> bool:
@@ -307,3 +330,27 @@ def update_last_login(user_id: int) -> None:
         conn.commit()
     finally:
         conn.close()
+
+
+def ensure_admin_user() -> Optional[User]:
+    """启动引导：.env 的 ADMIN_USER / ADMIN_PASSWORD 创建或提升首个管理员。"""
+    username = (os.getenv("ADMIN_USER", "") or "").strip()
+    password = os.getenv("ADMIN_PASSWORD", "") or ""
+    if not username:
+        return None
+    existing = get_user_by_username(username)
+    if existing is not None:
+        if not existing.is_admin:
+            _set_user_admin(existing.id, True)
+            logger.info("管理员已就绪：%s（已提升 is_admin）", username)
+            return get_user_by_id(existing.id)
+        return existing
+    if not password:
+        logger.warning("ADMIN_USER=%s 已配置但 ADMIN_PASSWORD 未设置，跳过管理员创建", username)
+        return None
+    if len(password) < MIN_PASSWORD_LEN:
+        logger.warning("ADMIN_PASSWORD 长度不能少于 %d 位，跳过管理员创建", MIN_PASSWORD_LEN)
+        return None
+    user = create_user(username, username, password, ["default"], is_admin=True)
+    logger.info("已创建首个管理员：%s", username)
+    return user
