@@ -69,7 +69,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { message } from 'ant-design-vue'
 import type { UploadFile } from 'ant-design-vue'
 import {
@@ -123,13 +123,13 @@ const canConfirm = computed(() =>
 
 function beforeUpload(file: File) {
   // 选择即上传：不等待确认，行内显示进度
-  const item: UploadItem = {
+  const item = reactive<UploadItem>({
     uid: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     name: file.name,
     size: file.size,
     status: 'uploading',
     progress: 0,
-  }
+  })
   items.value.push(item)
   void uploadFile(file, item)
   return false
