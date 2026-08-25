@@ -8,6 +8,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import List, Optional
 
+import logging
+
 DB_PATH = os.environ.get("USERS_DB_PATH", str(
     Path(__file__).resolve().parent.parent.parent.parent
     / "data" / "users.sqlite"
@@ -16,6 +18,8 @@ DB_PATH = os.environ.get("USERS_DB_PATH", str(
 SESSION_TTL_DAYS = 7
 PBKDF2_ITERATIONS = 200_000
 MIN_PASSWORD_LEN = 6
+
+logger = logging.getLogger(__name__)
 
 
 def _now() -> str:
@@ -236,6 +240,17 @@ def set_user_active(user_id: int, active: bool) -> bool:
     return True
 
 
+def _set_user_admin(user_id: int, is_admin: bool) -> bool:
+    init_db()
+    conn = _get_conn()
+    try:
+        cur = conn.execute("UPDATE users SET is_admin = ? WHERE id = ?", (1 if is_admin else 0, user_id))
+        conn.commit()
+    finally:
+        conn.close()
+    return cur.rowcount > 0
+
+
 def delete_user(user_id: int) -> bool:
     init_db()
     conn = _get_conn()
@@ -315,3 +330,27 @@ def update_last_login(user_id: int) -> None:
         conn.commit()
     finally:
         conn.close()
+
+
+def ensure_admin_user() -> Optional[User]:
+    """启动引导：.env 的 ADMIN_USER / ADMIN_PASSWORD 创建或提升首个管理员。"""
+    username = (os.getenv("ADMIN_USER", "") or "").strip()
+    password = os.getenv("ADMIN_PASSWORD", "") or ""
+    if not username:
+        return None
+    existing = get_user_by_username(username)
+    if existing is not None:
+        if not existing.is_admin:
+            _set_user_admin(existing.id, True)
+            logger.info("管理员已就绪：%s（已提升 is_admin）", username)
+            return get_user_by_id(existing.id)
+        return existing
+    if not password:
+        logger.warning("ADMIN_USER=%s 已配置但 ADMIN_PASSWORD 未设置，跳过管理员创建", username)
+        return None
+    if len(password) < MIN_PASSWORD_LEN:
+        logger.warning("ADMIN_PASSWORD 长度不能少于 %d 位，跳过管理员创建", MIN_PASSWORD_LEN)
+        return None
+    user = create_user(username, username, password, ["default"], is_admin=True)
+    logger.info("已创建首个管理员：%s", username)
+    return user

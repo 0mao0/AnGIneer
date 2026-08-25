@@ -123,6 +123,29 @@ class UserModelTests(unittest.TestCase):
         self.assertFalse(user.is_admin)
         user_model.init_db()  # 幂等：重复迁移不报错
 
+    def test_ensure_admin_creates_from_env(self):
+        with patch.dict(os.environ, {"ADMIN_USER": "boss", "ADMIN_PASSWORD": "boss123456"}, clear=False):
+            user = user_model.ensure_admin_user()
+        self.assertIsNotNone(user)
+        self.assertEqual(user.username, "boss")
+        self.assertTrue(user.is_admin)
+        self.assertEqual(user.library_ids, ["default"])
+
+    def test_ensure_admin_promotes_existing(self):
+        user = user_model.create_user("boss", "Boss", "secret123")
+        self.assertFalse(user.is_admin)
+        with patch.dict(os.environ, {"ADMIN_USER": "boss", "ADMIN_PASSWORD": "boss123456"}, clear=False):
+            promoted = user_model.ensure_admin_user()
+        self.assertTrue(promoted.is_admin)
+
+    def test_ensure_admin_missing_password_no_crash(self):
+        with patch.dict(os.environ, {"ADMIN_USER": "boss", "ADMIN_PASSWORD": ""}, clear=False):
+            self.assertIsNone(user_model.ensure_admin_user())
+
+    def test_ensure_admin_no_env_noop(self):
+        with patch.dict(os.environ, {"ADMIN_USER": "", "ADMIN_PASSWORD": ""}, clear=False):
+            self.assertIsNone(user_model.ensure_admin_user())
+
 
 if __name__ == "__main__":
     unittest.main()
