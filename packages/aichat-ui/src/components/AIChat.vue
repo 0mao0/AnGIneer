@@ -92,6 +92,7 @@ const emit = defineEmits<{
 }>()
 
 const sessionIdRef = computed(() => props.sessionId)
+const libraryIdRef = computed(() => props.libraryId)
 
 const {
   messages,
@@ -107,7 +108,7 @@ const {
 } = useAIChat({
   defaultModel: props.defaultModel,
   systemPrompt: props.systemPrompt,
-  libraryId: props.libraryId,
+  libraryId: libraryIdRef,
   scene: props.scene,
   sessionId: sessionIdRef,
   getContextItems: () => props.contextItems,

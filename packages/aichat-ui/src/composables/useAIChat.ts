@@ -3,7 +3,7 @@
  * 提供流式对话的状态管理、消息发送与会话池隔离功能
  * 通过 scene + sessionId 实现多场景对话隔离，后端自动路由 service mode
  */
-import { ref, computed, watch, type Ref, type ComputedRef } from 'vue'
+import { ref, computed, watch, unref, type Ref, type ComputedRef } from 'vue'
 import type {
   AIChatMessage,
   BaseChatSendPayload,
@@ -150,7 +150,7 @@ export function useAIChat(options?: {
   defaultModel?: string
   contextConfig?: Partial<AIChatContextConfig>
   systemPrompt?: string
-  libraryId?: string
+  libraryId?: string | Ref<string>
   scene?: string
   sessionId?: string | Ref<string>
   getContextItems?: () => Array<{ id: string; title: string }>
@@ -311,7 +311,7 @@ export function useAIChat(options?: {
       query: userMessage.content,
       scene,
       session_id: currentSessionKey.value,
-      library_id: options?.libraryId || 'default',
+      library_id: String(unref(options?.libraryId) || 'default'),
       doc_ids: contextItems.map(item => item.id),
       inline_citations: inlineCitations,
     }

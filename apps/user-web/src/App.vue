@@ -43,6 +43,7 @@
           </template>
           <template #center>
             <Workbench
+              ref="workbenchRef"
               @navigate-section="onNavigateSection"
             />
           </template>
@@ -96,7 +97,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, nextTick } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { MessageOutlined, PlusOutlined, UserOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue'
 import { AppHeader, Panel, SplitPanes, useTheme } from '@angineer/ui-kit'
@@ -145,6 +146,7 @@ onMounted(() => {
 const leftCollapsed = ref(false)
 const rightCollapsed = ref(false)
 const splitPanesRef = ref<InstanceType<typeof SplitPanes> | null>(null)
+const workbenchRef = ref<InstanceType<typeof Workbench> | null>(null)
 const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
 
 /** 全局会话：不随文档/页签变化，只有刷新或新建对话才换 key */
@@ -192,8 +194,8 @@ const onNavigateSection = (section: 'project' | 'knowledge' | 'sop' | 'gis') => 
   activeSection.value = section
 }
 
-/** 参考依据点击：打开文档标签并携带定位参数（PDF/章节定位由 DocumentView 消费） */
-const handleCitationSelect = (citation: any) => {
+/** 参考依据点击：打开/激活文档标签，并把引用直接交给当前文档视图联动（复用知识库工作区定位逻辑） */
+const handleCitationSelect = async (citation: any) => {
   if (!citation || !citation.doc_id) return
   openResource({
     id: citation.doc_id,
@@ -202,13 +204,9 @@ const handleCitationSelect = (citation: any) => {
     isFolder: false,
     libraryId: authStore.libraryId || 'default',
     docId: citation.doc_id,
-    metadata: {
-      sectionPath: citation.section_path,
-      targetId: citation.target_id,
-      pageIdx: citation.page_idx,
-      snippet: citation.snippet,
-    },
   })
+  await nextTick()
+  workbenchRef.value?.focusCitation?.(citation)
 }
 </script>
 

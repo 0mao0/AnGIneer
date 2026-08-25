@@ -177,6 +177,29 @@ export function useKnowledgeCitation() {
     return bestScore > 0 ? bestNode : null
   }
 
+  /** 轻量定位：引用 → 解析目标块 → 工作区定位（供已加载文档的工作区复用，user-web/admin 同一份逻辑） */
+  const applyCitationToWorkspace = async (
+    citation: KnowledgeChatCitation | null | undefined,
+    graphNodes: any[],
+    workspaceRef: any,
+    options: { preferLastHighlight?: boolean; groupHighlight?: boolean } = {},
+  ): Promise<string | null> => {
+    const targetId = getCitationTargetId(citation)
+    if (!targetId) return null
+    const resolvedNode = resolveCitationTargetNode(citation, graphNodes)
+    const resolvedTargetId = String(resolvedNode?.id || normalizeCitationTargetId(targetId)).trim()
+    const resolvedPreferredPage = resolvedNode && Number(resolvedNode?.page_idx ?? -1) >= 0
+      ? Number(resolvedNode.page_idx) + 1
+      : (getCitationPage(citation) > 0 ? getCitationPage(citation) : null)
+    await nextTick()
+    workspaceRef?.setActiveLinkedItem?.(resolvedTargetId, {
+      preferredPage: resolvedPreferredPage,
+      preferLastHighlight: options.preferLastHighlight ?? true,
+      groupHighlight: options.groupHighlight ?? false,
+    })
+    return resolvedTargetId
+  }
+
   /** 根据回答引用切换文档并把解析区定位到对应块 */
   const focusCitationInWorkspace = async (
     citation: KnowledgeChatCitation | null | undefined,
@@ -201,17 +224,7 @@ export function useKnowledgeCitation() {
     if (selectedNode.value?.strategy) {
       await onLoadStructuredIndex()
     }
-    const resolvedNode = resolveCitationTargetNode(citation, graphData.value?.nodes || [])
-    const resolvedTargetId = String(resolvedNode?.id || normalizeCitationTargetId(targetId)).trim()
-    const resolvedPreferredPage = Number(resolvedNode?.page_idx ?? -1) >= 0
-      ? Number(resolvedNode.page_idx) + 1
-      : (getCitationPage(citation) > 0 ? getCitationPage(citation) : null)
-    await nextTick()
-    workspaceRef?.setActiveLinkedItem(resolvedTargetId, {
-      preferredPage: resolvedPreferredPage,
-      preferLastHighlight: true,
-      groupHighlight: false
-    })
+    await applyCitationToWorkspace(citation, graphData.value?.nodes || [], workspaceRef)
   }
 
   /** 回答完成后自动聚焦到最后一条引用 */
@@ -257,6 +270,7 @@ export function useKnowledgeCitation() {
 
   return {
     resolveCitationTargetNode,
+    applyCitationToWorkspace,
     focusCitationInWorkspace,
     handleKnowledgeAnswerComplete,
     handleKnowledgeCitationSelect,

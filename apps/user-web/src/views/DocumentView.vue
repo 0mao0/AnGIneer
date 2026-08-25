@@ -23,8 +23,10 @@
         :graph-data="graphData"
         :graph-data-full-loaded="graphDataFullLoaded"
         :on-load-full-graph-data="loadGraphData"
+        :side-panel-open="sidePanelOpen"
         :side-panel-default-open="true"
         :default-parsed-tab="'Preview_IndexTree'"
+        @update:side-panel-open="onSidePanelOpenChange"
       />
       <Preview_Markdown
         v-else-if="document"
@@ -42,18 +44,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch, nextTick } from 'vue'
+import { ref, onMounted, watch, nextTick, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { message } from 'ant-design-vue'
 import {
   PDFParsedWorkspace,
   Preview_Markdown,
-  normalizeCitationTargetId,
   useKnowledgeCitation,
+  type KnowledgeChatCitation,
 } from '@angineer/docs-ui'
 import { EmptyState, useTheme } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
 import { useAuthStore } from '@/stores/auth'
+import { useWorkbenchStore } from '@/stores/workbench'
 
 const props = defineProps<{
   libraryId?: string
@@ -63,11 +66,13 @@ const props = defineProps<{
   targetId?: string
   pageIdx?: number
   snippet?: string
+  sidePanelOpen?: boolean
 }>()
 
 const route = useRoute()
 const { isDark } = useTheme()
 const authStore = useAuthStore()
+const workbenchStore = useWorkbenchStore()
 const loading = ref(true)
 const loadError = ref<string>('')
 const document = ref<{ id: string; title: string; content: string } | null>(null)
@@ -81,7 +86,51 @@ const graphDataFullLoaded = ref(false)
 const graphDataLoading = ref(false)
 const currentDocId = ref('')
 const pdfWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
-const { resolveCitationTargetNode } = useKnowledgeCitation()
+const { resolveCitationTargetNode, applyCitationToWorkspace } = useKnowledgeCitation()
+
+/** 右侧解析对比面板：用户收起后保持收起（写入当前文档 tab，跨重挂载生效） */
+const sidePanelOpen = computed({
+  get: () => props.sidePanelOpen ?? true,
+  set: (value: boolean) => {
+    const docId = props.docId || currentDocId.value
+    if (!docId) return
+    const tabKey = `knowledge:${props.libraryId || authStore.libraryId || 'default'}:${docId}`
+    const tab = workbenchStore.tabs.find(t => t.key === tabKey)
+    if (tab) {
+      tab.props = { ...tab.props, sidePanelOpen: value }
+    }
+  }
+})
+const onSidePanelOpenChange = (value: boolean) => {
+  sidePanelOpen.value = value
+}
+
+const pendingFocusCitation = ref<{ docId: string; citation: KnowledgeChatCitation } | null>(null)
+
+/** 直接联动入口：App 层点参考依据后直接调用，复用知识库工作区的定位逻辑 */
+const focusCitation = (citation: KnowledgeChatCitation) => {
+  const docId = String(citation.reference?.docId || citation.doc_id || currentDocId.value || '').trim()
+  pendingFocusCitation.value = { docId, citation }
+  void flushPendingCitation()
+}
+
+const flushPendingCitation = async () => {
+  const pending = pendingFocusCitation.value
+  const workspace = pdfWorkspaceRef.value
+  if (!pending || !workspace) return
+  if (pending.docId && currentDocId.value && pending.docId !== currentDocId.value) return
+  const citation = pending.citation
+  if (!String(citation.reference?.targetId || citation.target_id || '').trim()) {
+    pendingFocusCitation.value = null
+    return
+  }
+  const resolvedNode = resolveCitationTargetNode(citation, graphData.value?.nodes || [])
+  await applyCitationToWorkspace(citation, graphData.value?.nodes || [], workspace)
+  // 图谱还没就绪时保留 pending，等 graphDataFullLoaded 后再精确定位一次
+  if (resolvedNode || graphDataFullLoaded.value) {
+    pendingFocusCitation.value = null
+  }
+}
 
 /** 按引用定位参数在 markdown 中找原文位置（sectionPath 优先，snippet 兜底） */
 const locateInContent = (content: string): { start: number; end: number } | null => {
@@ -155,6 +204,8 @@ const loadDocument = async () => {
     pdfFilePath.value = ''
   } finally {
     loading.value = false
+    await nextTick()
+    void flushPendingCitation()
   }
 }
 
@@ -176,12 +227,11 @@ const loadGraphData = async () => {
   }
 }
 
-/** 引用点击：把 PDF 定位到目标块并只高亮该块（不展开整节）。 */
-const applyCitationFocus = async () => {
-  const workspace = pdfWorkspaceRef.value
+/** 兼容历史 tab 携带的定位参数：与直接引用走同一条定位队列 */
+const applyCitationFocus = () => {
   const targetId = String(props.targetId || '').trim()
-  if (!workspace || !targetId) return
-  const citation = {
+  if (!targetId) return
+  focusCitation({
     target_id: targetId,
     section_path: props.sectionPath,
     page_idx: props.pageIdx,
@@ -193,40 +243,36 @@ const applyCitationFocus = async () => {
       pageIdx: props.pageIdx,
       snippet: props.snippet,
     },
-  }
-  const resolvedNode = resolveCitationTargetNode(citation, graphData.value?.nodes || [])
-  const resolvedTargetId = String(resolvedNode?.id || normalizeCitationTargetId(targetId)).trim()
-  const resolvedPreferredPage = resolvedNode && Number(resolvedNode?.page_idx ?? -1) >= 0
-    ? Number(resolvedNode.page_idx) + 1
-    : (Number(props.pageIdx) >= 0 ? Number(props.pageIdx) + 1 : null)
-  await nextTick()
-  workspace.setActiveLinkedItem(resolvedTargetId, {
-    preferredPage: resolvedPreferredPage,
-    preferLastHighlight: true,
-    groupHighlight: false,
   })
 }
 
-watch(() => [props.pageIdx, props.targetId, props.sectionPath], () => {
-  if (props.targetId && isPdfView.value && pdfUrl.value) {
-    void applyCitationFocus()
+watch(() => [props.pageIdx, props.targetId, props.sectionPath, props.snippet], () => {
+  if (!document.value) return
+  if (isPdfView.value && pdfUrl.value) {
+    if (props.targetId) {
+      void applyCitationFocus()
+    }
+  } else {
+    activeLineRange.value = locateInContent(document.value.content)
   }
 })
 
 // 完整图谱就绪后再定位，保证目标块在 linkedHighlights 中可解析
-watch(() => graphDataFullLoaded.value, (loaded) => {
-  if (loaded && props.targetId) {
-    void applyCitationFocus()
-  }
+watch(() => graphDataFullLoaded.value, () => {
+  void flushPendingCitation()
 })
 
 watch(
-  () => [props.docId, props.libraryId, props.sectionPath, props.snippet],
+  () => [props.docId, props.libraryId],
   () => {
     loadDocument()
   }
 )
 onMounted(loadDocument)
+
+defineExpose({
+  focusCitation,
+})
 </script>
 
 <style lang="less" scoped>

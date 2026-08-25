@@ -283,8 +283,8 @@ watch(() => props.graphData?.nodes?.length || 0, (count, previousCount) => {
 
 watch(
   [isPdf, () => props.graphData?.nodes?.length || 0, () => props.graphDataFullLoaded],
-  ([pdfMode, graphNodeCount, fullLoaded]) => {
-    if (!pdfMode || graphNodeCount <= 0 || fullLoaded || !props.onLoadFullGraphData) return
+  ([pdfMode, _graphNodeCount, fullLoaded]) => {
+    if (!pdfMode || fullLoaded || !props.onLoadFullGraphData) return
     props.onLoadFullGraphData()
   },
   { immediate: true }

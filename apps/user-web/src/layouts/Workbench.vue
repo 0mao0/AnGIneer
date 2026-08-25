@@ -31,7 +31,7 @@
           :tab-key="currentTab?.key"
           @close="closeTabFromError"
         >
-          <component :is="currentViewer" v-bind="currentTab?.props" />
+          <component ref="currentViewRef" :is="currentViewer" v-bind="currentTab?.props" />
         </TabErrorBoundary>
       </div>
       <div v-show="showRightPanel && $slots.right" class="content-right">
@@ -42,7 +42,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import type { ComponentPublicInstance } from 'vue'
 import { FileTextOutlined, ApiOutlined, EnvironmentOutlined } from '@ant-design/icons-vue'
 import type { WorkbenchTabType } from '@angineer/docs-ui'
 import { TabErrorBoundary, EmptyState, useTheme } from '@angineer/ui-kit'
@@ -85,6 +86,18 @@ const currentViewer = computed(() => {
   return viewerMap[currentTab.value.type] || null
 })
 
+const currentViewRef = ref<ComponentPublicInstance | null>(null)
+
+interface DocumentViewLike {
+  focusCitation?: (citation: any) => void
+}
+
+/** 直接联动入口：把聊天引用交给当前文档视图（DocumentView 复用知识库工作区的定位逻辑） */
+const focusCitation = (citation: any) => {
+  const view = currentViewRef.value as DocumentViewLike | null
+  view?.focusCitation?.(citation)
+}
+
 const getIcon = (type: string) => {
   switch (type) {
     case 'document':
@@ -108,6 +121,8 @@ const handleTabEdit = (targetKey: string | MouseEvent | KeyboardEvent, action: '
 const closeTabFromError = (tabKey: string) => {
   workbenchStore.closeTab(tabKey)
 }
+
+defineExpose({ focusCitation })
 </script>
 
 <style lang="less" scoped>

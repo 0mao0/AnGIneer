@@ -275,7 +275,27 @@ export function cleanStreamText(raw: string): string {
   if (fenceStart >= 0) {
     cleaned = cleaned.slice(0, fenceStart)
   }
-  return stripPlainToolCallArtifacts(cleaned).trim()
+  cleaned = stripPlainToolCallArtifacts(cleaned).trim()
+  return stripOuterMarkdownFence(cleaned)
+}
+
+/**
+ * 剥掉模型把整段回答包裹的代码围栏（``` / ```markdown / ```` 等），
+ * 避免流式阶段把整段回答渲染成原始代码块、结束后才“二次渲染”。
+ * 仅在围栏完整包裹首尾且中间无其他围栏时剥离，避免误删正文里的代码块。
+ */
+function stripOuterMarkdownFence(text: string): string {
+  const trimmed = String(text || '').trim()
+  if (!trimmed) return trimmed
+  const fence = /^(```+|~{3,})\s*([a-zA-Z0-9_-]*)\s*$/.exec(trimmed.split('\n')[0])
+  if (!fence) return trimmed
+  const fenceMark = fence[1]
+  const lines = trimmed.split('\n')
+  const last = lines[lines.length - 1].trim()
+  if (last !== fenceMark) return trimmed
+  const body = lines.slice(1, -1).join('\n')
+  if (/```|~{3,}/.test(body)) return trimmed
+  return body.trim()
 }
 
 /** 兼容别名：最终回答清理 */
