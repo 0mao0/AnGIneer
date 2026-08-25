@@ -18,7 +18,7 @@ EVAL_DATASET_FILE = REPO_ROOT / "data" / "evals" / "datasets" / "open-ragbench-s
 DATASET_ID = "open-ragbench-subset-v1"
 LIBRARY_NAME = "OpenRAGBenchmark-Subset"
 KEY_USER_NAME = "openragbench-subset"
-STAGES = "structure,fts,vectors,graph"
+STAGES = "all"
 SOURCES = ["text", "text-image", "text-table", "text-table-image"]
 
 HF_FILES = {
