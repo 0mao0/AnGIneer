@@ -6,40 +6,42 @@
       </template>
     </PageHeader>
 
-    <DataTable
-      :columns="columns"
-      :data-source="users"
-      row-key="id"
-      :loading="loading"
-      :pagination="{ pageSize: 15 }"
-      storage-key="angineer-users-v2"
-    >
-      <template #bodyCell="{ column, record }">
-        <template v-if="column.key === 'libraries'">
-          <a-tag v-for="lid in record.library_ids" :key="lid" color="blue">{{ libraryLabel(lid) }}</a-tag>
-          <span v-if="!record.library_ids.length" class="no-lib">未绑定</span>
+    <div class="user-table-wrap">
+      <DataTable
+        :columns="columns"
+        :data-source="users"
+        row-key="id"
+        :loading="loading"
+        :pagination="{ pageSize: 15 }"
+        storage-key="angineer-users-v2"
+      >
+        <template #bodyCell="{ column, record }">
+          <template v-if="column.key === 'libraries'">
+            <a-tag v-for="lid in record.library_ids" :key="lid" color="blue">{{ libraryLabel(lid) }}</a-tag>
+            <span v-if="!record.library_ids.length" class="no-lib">未绑定</span>
+          </template>
+          <template v-else-if="column.key === 'created_at' || column.key === 'last_login_at'">
+            {{ formatTime(record[column.key as keyof AdminUserItem] as string) }}
+          </template>
+          <template v-else-if="column.key === 'is_active'">
+            <a-switch
+              :checked="record.is_active"
+              size="small"
+              @change="(checked: boolean) => handleToggle(record, checked)"
+            />
+          </template>
+          <template v-else-if="column.key === 'action'">
+            <div class="action-cell">
+              <AppButton variant="link" size="sm" @click="openEdit(record)">编辑</AppButton>
+              <AppButton variant="link" size="sm" @click="openResetPassword(record)">重置密码</AppButton>
+              <a-popconfirm title="确定删除该用户？此操作不可恢复" placement="left" @confirm="handleDelete(record)">
+                <AppButton variant="link" size="sm" danger>删除</AppButton>
+              </a-popconfirm>
+            </div>
+          </template>
         </template>
-        <template v-else-if="column.key === 'created_at' || column.key === 'last_login_at'">
-          {{ formatTime(record[column.key as keyof AdminUserItem] as string) }}
-        </template>
-        <template v-else-if="column.key === 'is_active'">
-          <a-switch
-            :checked="record.is_active"
-            size="small"
-            @change="(checked: boolean) => handleToggle(record, checked)"
-          />
-        </template>
-        <template v-else-if="column.key === 'action'">
-          <div class="action-cell">
-            <AppButton variant="link" size="sm" @click="openEdit(record)">编辑</AppButton>
-            <AppButton variant="link" size="sm" @click="openResetPassword(record)">重置密码</AppButton>
-            <a-popconfirm title="确定删除该用户？此操作不可恢复" placement="left" @confirm="handleDelete(record)">
-              <AppButton variant="link" size="sm" danger>删除</AppButton>
-            </a-popconfirm>
-          </div>
-        </template>
-      </template>
-    </DataTable>
+      </DataTable>
+    </div>
 
     <a-modal v-model:open="createVisible" title="新建用户" @ok="handleCreate" :confirm-loading="saving" @cancel="resetForm">
       <a-form :model="form" layout="vertical">
@@ -255,6 +257,10 @@ onMounted(() => {
 
 .user-manage {
   padding: 24px;
+}
+.user-table-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 .no-lib {
   color: @text-tertiary;

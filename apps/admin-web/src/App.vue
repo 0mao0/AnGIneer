@@ -8,17 +8,32 @@
           :nav-items="navItems"
           :active-nav="activeNav"
           :module-items="navItems"
-          :active-module="activeNav"
+          :active-module="activeModule"
           :view-items="viewItems"
           :active-view="knowledgeView"
-          :show-settings="true"
+          :show-theme-toggle="false"
           logo-clickable
           @logo-click="confirmGoToFrontend"
           @module-click="handleNavClick"
           @view-change="handleViewChange"
           @nav-click="handleNavClick"
-          @settings-click="openSettings"
-        />
+        >
+          <template #user-menu>
+            <a-button type="text" title="AI 对话" @click="router.push('/chat')">
+              <WechatFilled />
+            </a-button>
+            <a-button type="text" title="用户管理" @click="router.push('/users')">
+              <TeamOutlined />
+            </a-button>
+            <a-button type="text" title="API 管理" class="api-text-btn" @click="router.push('/api-keys')">
+              API
+            </a-button>
+            <a-button type="text" title="切换主题" @click="toggleTheme">
+              <BulbFilled v-if="isDark" />
+              <BulbOutlined v-else />
+            </a-button>
+          </template>
+        </AppHeader>
 
         <div class="main-content">
           <router-view />
@@ -31,6 +46,7 @@
 <script setup lang="ts">
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { Modal } from 'ant-design-vue'
+import { BulbFilled, BulbOutlined, TeamOutlined, WechatFilled } from '@ant-design/icons-vue'
 import { useRouter, useRoute } from 'vue-router'
 import { computed, provide, ref } from 'vue'
 import { AppHeader, useTheme, type NavItem } from '@angineer/ui-kit'
@@ -38,7 +54,7 @@ import { WEB_CONSOLE_ORIGIN } from '../../shared/ports'
 
 const router = useRouter()
 const route = useRoute()
-const { themeConfig, appClass } = useTheme()
+const { themeConfig, appClass, isDark, toggleTheme } = useTheme()
 const appVersion = import.meta.env.VITE_APP_VERSION || ''
 
 /** 知识库视图状态（列表|解析）：由头部统一控制 */
@@ -58,16 +74,22 @@ const viewItems = computed(() =>
 /** 获取前台首页地址（开发环境用独立端口，生产环境同源） */
 const webConsoleHref = import.meta.env.DEV ? WEB_CONSOLE_ORIGIN : '/'
 
+/** 模块导航：AI 对话/用户管理/API 管理改为右上角图标入口，不再出现在模块下拉里 */
 const navItems: NavItem[] = [
-  { key: 'chat', label: 'AI 对话' },
   { key: 'project', label: '项目库' },
   { key: 'knowledge', label: '知识库' },
   { key: 'experience', label: '经验库' },
   { key: 'evals', label: '评测集' },
-  { key: 'dream-cycle', label: '健康检查' },
-  { key: 'users', label: '用户管理' },
-  { key: 'api-keys', label: 'API 密钥' }
+  { key: 'dream-cycle', label: '健康检查' }
 ]
+
+/** 模块下拉常驻：AI 对话/用户管理/API 管理由图标进入，但下拉保持显示，方便随时切回各模块 */
+const activeModule = computed(() => {
+  if (activeNav.value === 'chat') return 'AI 对话'
+  if (activeNav.value === 'users') return '用户管理'
+  if (activeNav.value === 'api-keys') return 'API 管理'
+  return activeNav.value
+})
 
 const activeNav = computed(() => {
   const path = route.path
@@ -104,11 +126,6 @@ const handleViewChange = (key: string) => {
   if (key === 'list' || key === 'parse') {
     knowledgeView.value = key
   }
-}
-
-/** 打开设置 */
-const openSettings = () => {
-  console.log('Open settings')
 }
 
 /** 确认返回前台 */
@@ -156,4 +173,11 @@ html, body, #app {
   min-height: 0;
   overflow: hidden;
 }
+
+.api-text-btn {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 </style>

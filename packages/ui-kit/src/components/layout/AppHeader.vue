@@ -139,7 +139,7 @@
           <HomeOutlined />
         </a-button>
 
-        <a-button type="text" @click="doToggleTheme" class="theme-btn" title="切换主题">
+        <a-button v-if="showThemeToggle" type="text" @click="doToggleTheme" class="theme-btn" title="切换主题">
           <BulbFilled v-if="isDark" />
           <BulbOutlined v-else />
         </a-button>
@@ -196,6 +196,7 @@ interface Props {
   showAdmin?: boolean
   showHome?: boolean
   showSettings?: boolean
+  showThemeToggle?: boolean
   logoClickable?: boolean
   editableProjectName?: boolean
   showHomeInRight?: boolean
@@ -216,6 +217,7 @@ const props = withDefaults(defineProps<Props>(), {
   showAdmin: false,
   showHome: false,
   showSettings: false,
+  showThemeToggle: true,
   logoClickable: false,
   editableProjectName: false,
   showHomeInRight: false,
