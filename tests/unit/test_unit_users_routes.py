@@ -24,13 +24,14 @@ class UsersRoutesTests(unittest.TestCase):
         self.addCleanup(patcher.stop)
         user_model.init_db()
 
-    def _create(self, library_ids=("lib-a",)):
+    def _create(self, library_ids=("lib-a",), is_admin=False):
         from users_routes import create_user_route
         req = MagicMock()
         req.username = "alice"
         req.display_name = "Alice"
         req.password = "secret123"
         req.library_ids = list(library_ids)
+        req.is_admin = is_admin
         with patch("users_routes.get_docs_service") as mock_ks:
             mock_ks.return_value.get_library.return_value = MagicMock()
             return asyncio.run(create_user_route(req))
@@ -64,6 +65,23 @@ class UsersRoutesTests(unittest.TestCase):
         req.password = "newsecret456"
         asyncio.run(reset_password_route(user.id, req))
         self.assertIsNone(user_model.get_session_user(token))
+
+    def test_create_with_is_admin_flag(self):
+        created = self._create(is_admin=True)
+        self.assertTrue(created.is_admin)
+
+    def test_update_is_admin_flag(self):
+        from users_routes import update_user_route
+        created = self._create()
+        req = MagicMock()
+        req.display_name = "Alice2"
+        req.library_ids = ["lib-a"]
+        req.is_admin = True
+        with patch("users_routes.get_docs_service") as mock_ks:
+            mock_ks.return_value.get_library.return_value = MagicMock()
+            asyncio.run(update_user_route(created.id, req))
+        loaded = user_model.get_user_by_id(created.id)
+        self.assertTrue(loaded.is_admin)
 
 
 if __name__ == "__main__":

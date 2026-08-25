@@ -191,7 +191,12 @@ def create_user(
     return get_user_by_id(user_id)
 
 
-def update_user(user_id: int, display_name: Optional[str] = None, library_ids: Optional[List[str]] = None) -> bool:
+def update_user(
+    user_id: int,
+    display_name: Optional[str] = None,
+    library_ids: Optional[List[str]] = None,
+    is_admin: Optional[bool] = None,
+) -> bool:
     init_db()
     conn = _get_conn()
     try:
@@ -204,6 +209,8 @@ def update_user(user_id: int, display_name: Optional[str] = None, library_ids: O
             conn.execute("DELETE FROM user_libraries WHERE user_id = ?", (user_id,))
             for lid in library_ids:
                 conn.execute("INSERT INTO user_libraries (user_id, library_id) VALUES (?, ?)", (user_id, str(lid).strip()))
+        if is_admin is not None:
+            conn.execute("UPDATE users SET is_admin = ? WHERE id = ?", (1 if is_admin else 0, user_id))
         conn.commit()
     finally:
         conn.close()

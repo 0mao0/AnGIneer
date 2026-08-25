@@ -22,6 +22,7 @@ class UserItem(BaseModel):
     id: int
     username: str
     display_name: str
+    is_admin: bool = False
     library_ids: List[str] = Field(default_factory=list)
     is_active: bool
     created_at: str
@@ -32,11 +33,13 @@ class CreateUserRequest(BaseModel):
     username: str = Field(..., min_length=1, max_length=100)
     display_name: str = Field(default="", max_length=100)
     password: str = Field(..., min_length=6, max_length=200)
+    is_admin: bool = False
     library_ids: List[str] = Field(default_factory=list)
 
 
 class UpdateUserRequest(BaseModel):
     display_name: str = Field(default="", max_length=100)
+    is_admin: bool = False
     library_ids: List[str] = Field(default_factory=list)
 
 
@@ -49,6 +52,7 @@ def _to_item(user: User) -> UserItem:
         id=user.id,
         username=user.username,
         display_name=user.display_name,
+        is_admin=user.is_admin,
         library_ids=user.library_ids,
         is_active=user.is_active,
         created_at=user.created_at,
@@ -72,7 +76,7 @@ async def list_users_route():
 async def create_user_route(req: CreateUserRequest):
     _ensure_libraries_exist(req.library_ids)
     try:
-        user = create_user(req.username, req.display_name, req.password, req.library_ids)
+        user = create_user(req.username, req.display_name, req.password, req.library_ids, is_admin=req.is_admin)
     except ValueError as e:
         raise HTTPException(400, str(e))
     return _to_item(user)
@@ -81,7 +85,7 @@ async def create_user_route(req: CreateUserRequest):
 @router.put("/{user_id}", response_model=dict)
 async def update_user_route(user_id: int, req: UpdateUserRequest):
     _ensure_libraries_exist(req.library_ids)
-    ok = update_user(user_id, display_name=req.display_name, library_ids=req.library_ids)
+    ok = update_user(user_id, display_name=req.display_name, library_ids=req.library_ids, is_admin=req.is_admin)
     if not ok:
         raise HTTPException(404, "用户不存在")
     return {"status": "success"}
