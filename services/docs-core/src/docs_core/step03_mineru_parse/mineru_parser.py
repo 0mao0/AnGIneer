@@ -488,13 +488,26 @@ class MinerUParser:
             shutil.copy2(str(item), str(dest))
 
     def _parse_document(self, input_path: str, output_dir: str) -> Optional[Dict[str, Any]]:
-        """文档解析流程：超页数自动拆分合并，单文件走公司自部署 API。"""
+        """文档解析流程：超页数/超大文件自动拆分合并，单文件走公司自部署 API。"""
         page_count = self._get_pdf_page_count(input_path)
         max_pages = 200
+        max_sync_bytes = max(1, int(os.getenv('MINERU_SYNC_MAX_BYTES', str(30 << 20))))
+        try:
+            file_size = os.path.getsize(input_path)
+        except OSError:
+            file_size = 0
 
         if page_count > max_pages:
             logger.info("PDF has %d pages (limit %d), auto-splitting...", page_count, max_pages)
             result = self._parse_large_pdf_in_chunks(input_path, output_dir, page_count, max_pages)
+        elif file_size > max_sync_bytes:
+            # 大体积文件按页分块，避免公司网关同步请求超时（504）
+            chunk_pages = max(1, int(os.getenv('MINERU_CHUNK_PAGES', '60')))
+            logger.info(
+                "PDF size %.1fMB > %dMB, splitting into %d-page chunks...",
+                file_size / (1 << 20), max_sync_bytes >> 20, chunk_pages,
+            )
+            result = self._parse_large_pdf_in_chunks(input_path, output_dir, page_count, chunk_pages)
         else:
             result = self._parse_single_file(input_path, output_dir)
         result["page_count"] = page_count
@@ -636,6 +649,15 @@ class MinerUParser:
                     False,
                     error=f'Company API returned 409 (conflict): {resp.text[:300]}'
                 )
+
+            # 502/503/504 → 网关瞬时抖动/同步超时：退避重试（大文件另有分块兜底）
+            if resp.status_code in (502, 503, 504) and _retry_count < 2:
+                logger.warning(
+                    "Company API returned %d (transient), retry %d/2 in %.1fs...",
+                    resp.status_code, _retry_count + 1, 3.0 * (_retry_count + 1),
+                )
+                _time.sleep(3.0 * (_retry_count + 1))
+                return self._parse_single_file(input_path, output_dir, _retry_count + 1, _force_ocr=use_ocr)
 
             return self._build_parse_result(
                 False,
