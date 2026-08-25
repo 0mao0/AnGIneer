@@ -40,6 +40,11 @@ STAGE_KIND_HARD = "hard"
 STAGE_KIND_SOFT = "soft"
 
 
+def _now_iso() -> str:
+    """带本地时区偏移的当前时间 ISO（如 +08:00 / +00:00），前端可精确解析。"""
+    return datetime.now().astimezone().isoformat()
+
+
 class ParseTaskCancelledError(RuntimeError):
     """任务被用户取消（阶段内部取消点抛出，向上传播至任务线程）。"""
 
@@ -164,7 +169,7 @@ def _mark_stage_queued(
         ctx.meta_store.upsert_parse_stage(
             ctx.doc_id, ctx.stage_key, status="queued",
             message=stage_message,
-            started_at=ctx.stage_started_at or datetime.now().isoformat(),
+            started_at=ctx.stage_started_at or _now_iso(),
         )
     try:
         get_docs_service().update_parse_task(
@@ -178,7 +183,7 @@ def _mark_stage_queued(
 
 def _mark_stage_running(ctx: StageContext, stage: str, message: str) -> None:
     """拿到资源槽位：阶段计时从此刻重新开始，排队等待不计入解析耗时。"""
-    work_started = datetime.now().isoformat()
+    work_started = _now_iso()
     ctx.stage_work_started_at = work_started
     if ctx.meta_store is not None and ctx.stage_key:
         ctx.meta_store.upsert_parse_stage(
@@ -806,7 +811,7 @@ def run_pipeline(
         clear_steps = getattr(meta_store, "clear_parse_stage_steps", None)
         if callable(clear_steps):
             clear_steps(ctx.doc_id, key)
-        started = datetime.now().isoformat()
+        started = _now_iso()
         meta_store.upsert_parse_stage(ctx.doc_id, key, status="running", started_at=started)
         ctx.input_summary = ""
         ctx.output_summary = ""
@@ -835,7 +840,7 @@ def run_pipeline(
                     ctx.doc_id, key, status="skipped",
                     message=str(message)[len("__skipped__"):],
                     started_at=started,
-                    finished_at=datetime.now().isoformat(),
+                    finished_at=_now_iso(),
                 )
                 continue
             results[key] = "completed"
@@ -850,7 +855,7 @@ def run_pipeline(
             meta_store.upsert_parse_stage(
                 ctx.doc_id, key, status="completed",
                 message=f"{message}，耗时{_format_elapsed_hms(elapsed)}",
-                started_at=None, finished_at=datetime.now().isoformat(),
+                started_at=None, finished_at=_now_iso(),
                 input_summary=ctx.input_summary, output_summary=ctx.output_summary,
                 page_count=getattr(ctx, "page_count", 0) or 0,
                 is_scanned=bool(getattr(ctx, "is_scanned", False)),
@@ -865,7 +870,7 @@ def run_pipeline(
             meta_store.upsert_parse_stage(
                 ctx.doc_id, key, status="failed",
                 error=error_message + "\n" + traceback.format_exc(limit=3),
-                started_at=None, finished_at=datetime.now().isoformat(),
+                started_at=None, finished_at=_now_iso(),
                 fallback=fallback,
             )
             ctx.fallback_target = None
