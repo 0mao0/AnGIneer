@@ -391,26 +391,60 @@ def start_eval_run(
     return run_data
 
 
-def get_eval_run(run_id: str) -> Optional[Dict[str, Any]]:
-    """查询运行进度/结果，运行中时实时计算汇总指标。"""
+def _enrich_run_details(details: List[Dict[str, Any]], dataset_id: str) -> List[Dict[str, Any]]:
+    """为运行详情补充题目字段。"""
+    if not details:
+        return []
+    questions = result_store.list_questions(dataset_id)
+    detail_questions = {
+        str(question.get("question_id") or ""): question for question in questions
+    }
+    return [
+        _enrich_detail_with_question(detail, detail_questions.get(str(detail.get("question_id") or ""), {}))
+        for detail in details
+    ]
+
+
+def _strip_heavy_detail_fields(details: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """裁剪轮询场景用不到的大字段，避免每次请求全量下发几十 MB 的调试数据。"""
+    heavy_keys = ("prediction", "all_scores", "all_predictions")
+    return [
+        {k: v for k, v in detail.items() if k not in heavy_keys}
+        for detail in details
+    ]
+
+
+def get_eval_run(run_id: str, light: bool = False) -> Optional[Dict[str, Any]]:
+    """查询运行进度/结果，运行中时实时计算汇总指标。
+
+    light=True 时裁剪 prediction/all_scores/all_predictions 等大字段，
+    供列表/轮询场景使用；完整详情通过 get_eval_run_detail 按需获取。
+    """
     run = result_store.get_run(run_id)
     if not run:
         return None
     details = result_store.list_run_details(run_id)
     result = {**run, "details": details}
-    questions = result_store.list_questions(run["dataset_id"])
-    detail_questions = {
-        str(question.get("question_id") or ""): question for question in questions
-    }
-    result["details"] = [
-        _enrich_detail_with_question(detail, detail_questions.get(str(detail.get("question_id") or ""), {}))
-        for detail in details
-    ]
+    if result.get("details"):
+        result["details"] = _enrich_run_details(result["details"], run.get("dataset_id") or "")
+        if light:
+            result["details"] = _strip_heavy_detail_fields(result["details"])
     if run.get("status") == "running" and not run.get("summary_scores"):
         completed_details = [d for d in result["details"] if d.get("status") not in ("pending", "running")]
         if completed_details:
             result["summary_scores"] = _compute_summary(completed_details)
     return result
+
+
+def get_eval_run_detail(run_id: str, question_id: str) -> Optional[Dict[str, Any]]:
+    """获取单道题目的完整运行详情（含 prediction/all_scores/all_predictions）。"""
+    run = result_store.get_run(run_id)
+    if not run:
+        return None
+    detail = result_store.get_run_detail(run_id, question_id)
+    if not detail:
+        return None
+    return _enrich_run_details([detail], run.get("dataset_id") or "")[0]
 
 
 def list_eval_runs(dataset_id: Optional[str] = None) -> List[Dict[str, Any]]:

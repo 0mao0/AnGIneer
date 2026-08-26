@@ -135,6 +135,7 @@
             :evaluating-question-ids="evaluatingQuestionIds"
             :doc-tree-data="docTreeData"
             :doc-flat-list="docFlatList"
+            :on-expand-detail="onQuestionExpandDetail"
             @evaluate="onEvaluateQuestion"
             @update:selected-doc-ids="onSelectedDocIdsChange"
             @question-updated="onQuestionUpdated"
@@ -377,6 +378,7 @@ const {
   startRun,
   fetchLastRun,
   evaluateQuestion,
+  fetchQuestionDetail,
   selectHistoricalRun,
   stopPolling,
   stopRun,
@@ -490,6 +492,13 @@ const onQuestionUpdated = async () => {
   if (selectedDatasetId.value) {
     await fetchQuestions(selectedDatasetId.value)
   }
+}
+
+/** 展开单题时按需拉取该题的完整运行详情（含 trace 与分项分数） */
+const onQuestionExpandDetail = async (questionId: string) => {
+  const run = currentRun.value || lastRun.value
+  if (!run?.run_id) return
+  await fetchQuestionDetail(run.run_id, questionId)
 }
 
 const onStartRun = async () => {

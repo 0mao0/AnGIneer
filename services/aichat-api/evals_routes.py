@@ -3,7 +3,7 @@ import asyncio
 import json
 from typing import Any, Dict, Optional
 
-from fastapi import APIRouter, HTTPException, UploadFile, File as FastAPIFile
+from fastapi import APIRouter, HTTPException, Query, UploadFile, File as FastAPIFile
 
 from evals_core.contracts import (
     AddQuestionRequest,
@@ -228,12 +228,25 @@ async def stop_run(run_id: str):
 
 
 @evals_router.get("/runs/{run_id}")
-async def get_run(run_id: str):
-    """查询运行进度/结果。"""
-    run = suite_runner.get_eval_run(run_id)
+async def get_run(run_id: str, light: bool = Query(False)):
+    """查询运行进度/结果。
+
+    light=true 时裁剪 prediction/all_scores/all_predictions 等大字段，
+    用于列表与轮询场景；展开单题时走 /runs/{run_id}/questions/{question_id} 获取完整详情。
+    """
+    run = suite_runner.get_eval_run(run_id, light=light)
     if not run:
         raise HTTPException(status_code=404, detail="运行记录不存在")
     return run
+
+
+@evals_router.get("/runs/{run_id}/questions/{question_id}")
+async def get_run_question_detail(run_id: str, question_id: str):
+    """获取单道题目的完整运行详情（含过程 trace、分项分数等）。"""
+    detail = suite_runner.get_eval_run_detail(run_id, question_id)
+    if not detail:
+        raise HTTPException(status_code=404, detail="题目运行详情不存在")
+    return detail
 
 
 @evals_router.get("/runs")

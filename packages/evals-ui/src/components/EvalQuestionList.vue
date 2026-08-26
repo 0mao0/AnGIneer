@@ -67,9 +67,10 @@
     <div class="eval-question-list__body">
       <a-spin :spinning="loading">
         <EvalQuestionCard
-          v-for="q in filteredQuestions"
+          v-for="(q, idx) in pagedQuestions"
           :key="q.question_id"
           :question="q"
+          :index="pageStartIndex + idx + 1"
           :detail="runDetails.get(q.question_id) || null"
           :expanded="expandedId === q.question_id"
           :evaluating="evaluatingQuestionIds.has(q.question_id)"
@@ -79,6 +80,16 @@
         />
         <a-empty v-if="!filteredQuestions.length" description="暂无题目" />
       </a-spin>
+    </div>
+    <div v-if="filteredQuestions.length > pageSize" class="eval-question-list__pagination">
+      <a-pagination
+        v-model:current="currentPage"
+        :page-size="pageSize"
+        :total="filteredQuestions.length"
+        show-size-changer
+        :page-size-options="[10, 20, 50]"
+        @show-size-change="onPageSizeChange"
+      />
     </div>
   </div>
 </template>
@@ -104,6 +115,7 @@ const props = defineProps<{
   evaluatingQuestionIds: Set<string>
   docTreeData?: DocTreeNode[]
   docFlatList?: DocTreeNode[]
+  onExpandDetail?: (questionId: string) => void
 }>()
 
 const emit = defineEmits<{
@@ -117,6 +129,8 @@ const filterLevel = ref<EvalIntentLevel | undefined>(undefined)
 const filterStatus = ref<EvalQuestionStatus | undefined>(undefined)
 const filterQuality = ref<EvalQuality | undefined>(undefined)
 const expandedId = ref<string | null>(null)
+const currentPage = ref(1)
+const pageSize = ref(20)
 const docTreeVisible = ref(false)
 const checkedDocKeys = ref<string[]>([])
 
@@ -190,8 +204,37 @@ const filteredQuestions = computed(() => {
   })
 })
 
+/** 分页后的题目列表 */
+const pageStartIndex = computed(() => (currentPage.value - 1) * pageSize.value)
+const pagedQuestions = computed(() => {
+  const filtered = filteredQuestions.value
+  const start = pageStartIndex.value
+  return filtered.slice(start, start + pageSize.value)
+})
+
+/** 筛选条件变化后回到第一页 */
+watch([filterLevel, filterStatus, filterQuality], () => {
+  currentPage.value = 1
+})
+
+/** 题目列表刷新后回到第一页 */
+watch(
+  () => props.questions,
+  () => {
+    currentPage.value = 1
+  }
+)
+
+const onPageSizeChange = (_current: number, size: number) => {
+  pageSize.value = size
+  currentPage.value = 1
+}
+
 const onToggle = (questionId: string) => {
   expandedId.value = expandedId.value === questionId ? null : questionId
+  if (expandedId.value === questionId) {
+    props.onExpandDetail?.(questionId)
+  }
 }
 </script>
 
@@ -214,6 +257,13 @@ const onToggle = (questionId: string) => {
     flex: 1;
     overflow-y: auto;
     padding: 12px;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 12px;
+    border-top: 1px solid var(--border-color);
   }
 }
 

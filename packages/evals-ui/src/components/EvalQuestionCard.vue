@@ -5,7 +5,7 @@
   >
     <div class="eval-question-card__header">
       <EvalLevelBadge :level="localIntentLevel" />
-      <span class="eval-question-card__id">{{ question.question_id }}</span>
+      <span v-if="index !== undefined" class="eval-question-card__index">{{ index }}.</span>
       <span class="eval-question-card__text">{{ localQuestionText }}</span>
       <a-tag v-if="displayStatusTag" :color="displayStatusTag.color" class="eval-question-card__status">
         {{ displayStatusTag.label }}
@@ -918,6 +918,7 @@ const props = defineProps<{
   detail: EvalRunDetail | null
   expanded: boolean
   evaluating: boolean
+  index?: number
 }>()
 
 const emit = defineEmits<{
@@ -1835,10 +1836,12 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     padding: 10px 12px;
   }
 
-  &__id {
+  &__index {
     font-size: 12px;
     color: var(--text-secondary);
     flex-shrink: 0;
+    min-width: 24px;
+    text-align: right;
   }
 
   &__text {

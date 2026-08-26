@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import type { EvalRun, EvalRunDetail } from '../types/eval'
 
-const EVAL_POLL_INTERVAL_MS = 200
+const EVAL_POLL_INTERVAL_MS = 2000
 
 /** 将路径参数编码为 URL 安全的 segment，避免中文/空格/斜杠等导致请求路径解析异常。 */
 function encodePathSegment(value: string): string {
@@ -84,7 +84,9 @@ export function useEvalRun() {
 
   /** 整体评测轮询时整体替换 runDetails；单题评测时仅合并对应题目 */
   const fetchRun = async (runId: string) => {
-    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}`)
+    // light 模式不返回 prediction/all_scores/all_predictions 等大字段，
+    // 轮询只关心进度/分数；展开单题时再按需拉完整详情。
+    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?light=1`)
     if (resp.ok) {
       currentRun.value = await resp.json()
       if (currentRun.value?.details) {
@@ -154,7 +156,7 @@ export function useEvalRun() {
     // 优先检测运行中的任务，恢复轮询
     const runningRun = runs.value.find(r => r.status === 'running')
     if (runningRun) {
-      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runningRun.run_id)}`)
+      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runningRun.run_id)}?light=1`)
       if (resp.ok) {
         currentRun.value = await resp.json()
         isFullRun.value = runningRun.is_full_run ?? true
@@ -178,7 +180,7 @@ export function useEvalRun() {
       const latest = finishedRuns.reduce((a, b) =>
         new Date(a.completed_at || a.started_at) > new Date(b.completed_at || b.started_at) ? a : b
       )
-      const resp = await fetch(`/api/evals/runs/${encodePathSegment(latest.run_id)}`)
+      const resp = await fetch(`/api/evals/runs/${encodePathSegment(latest.run_id)}?light=1`)
       if (resp.ok) {
         lastRun.value = await resp.json()
         // 如果没有运行中的任务，才从 lastRun 加载 runDetails
@@ -203,7 +205,7 @@ export function useEvalRun() {
   /** 加载指定历史运行的完整详情用于展示 */
   const selectHistoricalRun = async (runId: string) => {
     stopPolling()
-    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}`)
+    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?light=1`)
     if (resp.ok) {
       const run: EvalRun = await resp.json()
       lastRun.value = run
@@ -219,6 +221,21 @@ export function useEvalRun() {
         runDetails.value = new Map()
       }
     }
+  }
+
+  /** 按需拉取单道题目的完整运行详情（含 trace 与分项分数），合并进 runDetails */
+  const fetchQuestionDetail = async (runId: string, questionId: string) => {
+    const resp = await fetch(
+      `/api/evals/runs/${encodePathSegment(runId)}/questions/${encodePathSegment(questionId)}`
+    )
+    if (resp.ok) {
+      const detail: EvalRunDetail = await resp.json()
+      const map = new Map(runDetails.value)
+      map.set(detail.question_id, detail)
+      runDetails.value = map
+      return detail
+    }
+    return null
   }
 
   /** 对单道题目发起评测，异步执行，通过轮询获取结果 */
@@ -300,6 +317,7 @@ export function useEvalRun() {
     fetchRuns,
     fetchLastRun,
     evaluateQuestion,
+    fetchQuestionDetail,
     selectHistoricalRun,
     startPolling,
     stopPolling,

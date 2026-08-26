@@ -723,3 +723,20 @@ def list_run_details(run_id: str) -> List[Dict[str, Any]]:
         item["all_predictions"] = json.loads(item["all_predictions"]) if item.get("all_predictions") else None
         result.append(item)
     return result
+
+
+def get_run_detail(run_id: str, question_id: str) -> Optional[Dict[str, Any]]:
+    """获取某次运行中单道题目的详情。"""
+    conn = _get_conn()
+    row = conn.execute(
+        "SELECT * FROM eval_run_detail WHERE run_id = ? AND question_id = ?",
+        (run_id, question_id),
+    ).fetchone()
+    if not row:
+        return None
+    item = dict(row)
+    item["prediction"] = json.loads(item["prediction"]) if item.get("prediction") else None
+    item["scores"] = json.loads(item["scores"]) if item.get("scores") else None
+    item["all_scores"] = json.loads(item["all_scores"]) if item.get("all_scores") else None
+    item["all_predictions"] = json.loads(item["all_predictions"]) if item.get("all_predictions") else None
+    return item
