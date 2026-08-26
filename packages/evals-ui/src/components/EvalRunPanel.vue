@@ -2,28 +2,44 @@
   <div class="eval-run-panel">
     <div class="eval-run-panel__actions">
       <a-button
+        v-if="isRunning"
         type="primary"
-        :danger="isRunning"
-        :loading="loading && !isRunning"
-        :disabled="!datasetId || (loading && !isRunning)"
+        danger
+        :loading="stopping"
+        :disabled="stopping"
         block
         @click="handleClick"
       >
-        <template v-if="isRunning">
-          {{ stopping ? '正在停止...' : '停止评测' }}
-        </template>
-        <template v-else>
-          整体评测
-        </template>
+        {{ stopping ? '正在停止...' : '停止评测' }}
       </a-button>
+      <div v-else-if="canResume" class="eval-run-panel__action-row">
+        <a-button
+          type="primary"
+          :loading="loading"
+          :disabled="!datasetId || loading"
+          @click="handleClick"
+        >
+          整体评测
+        </a-button>
+        <a-button
+          class="eval-run-panel__resume-btn"
+          :loading="loading"
+          :disabled="!datasetId || loading"
+          @click="onResumeClick"
+        >
+          <template #icon><PlayCircleOutlined /></template>
+          继续评测
+        </a-button>
+      </div>
       <a-button
-        v-if="canResume"
-        class="eval-run-panel__resume-btn"
+        v-else
+        type="primary"
+        :loading="loading"
+        :disabled="!datasetId || loading"
         block
-        :disabled="loading"
-        @click="onResumeClick"
+        @click="handleClick"
       >
-        断点续跑（已测 {{ resumableRun?.completed_questions }}/{{ resumableRun?.total_questions }}）
+        整体评测
       </a-button>
     </div>
 
@@ -228,6 +244,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watchEffect, watch } from 'vue'
+import { PlayCircleOutlined } from '@ant-design/icons-vue'
 import EvalScoreBar from './EvalScoreBar.vue'
 import type { EvalRun, EvalRunDetail, EvalSummaryScores } from '../types/eval'
 
@@ -563,6 +580,16 @@ const compareRows = computed(() => {
     flex-direction: column;
     gap: 8px;
     flex-shrink: 0;
+  }
+
+  &__action-row {
+    display: flex;
+    gap: 8px;
+
+    > :deep(.ant-btn) {
+      flex: 1;
+      min-width: 0;
+    }
   }
 
   &__resume-btn {
