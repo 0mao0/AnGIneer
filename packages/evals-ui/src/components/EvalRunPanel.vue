@@ -44,18 +44,6 @@
     </div>
 
     <div class="eval-run-panel__body">
-      <!-- A：运行进度（不含实时准确率） -->
-      <div v-if="isRunning && currentRun" class="eval-run-panel__progress">
-        <a-progress
-          :percent="runPercent"
-          status="active"
-          :stroke-color="{ from: '#108ee9', to: '#52c41a' }"
-        />
-        <div class="eval-run-panel__progress-meta">
-          已完成 {{ currentRun.completed_questions }}/{{ currentRun.total_questions }}
-        </div>
-      </div>
-
       <!-- B：准确率（运行中显示实时值） -->
       <div v-if="summary" class="eval-run-panel__accuracy">
         <div class="eval-run-panel__accuracy-head">
@@ -306,12 +294,6 @@ const accuracyColor = computed(() => {
   if (n >= 80) return '#52c41a'
   if (n >= 50) return '#faad14'
   return '#f5222d'
-})
-
-/** 运行中的进度百分比 */
-const runPercent = computed(() => {
-  if (!props.currentRun?.total_questions) return 0
-  return Math.round((props.currentRun.completed_questions / props.currentRun.total_questions) * 100)
 })
 
 const statusLabelMap: Record<string, { label: string; color: string }> = {
@@ -584,20 +566,6 @@ const compareRows = computed(() => {
     display: flex;
     flex-direction: column;
     gap: 16px;
-  }
-
-  &__progress {
-    padding: 12px;
-    border-radius: 8px;
-    background: fade(@evals-primary, 6%);
-    border: 1px solid fade(@evals-primary, 18%);
-
-    &-meta {
-      margin-top: 6px;
-      font-size: 12px;
-      color: var(--text-secondary);
-      text-align: right;
-    }
   }
 
   &__accuracy {
