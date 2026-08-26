@@ -571,7 +571,7 @@ const compareRows = computed(() => {
 .eval-run-panel {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
   padding: 12px;
   gap: 12px;
 
@@ -599,7 +599,6 @@ const compareRows = computed(() => {
 
   &__body {
     flex: 1;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -902,8 +901,6 @@ const compareRows = computed(() => {
   }
 
   &__compare-wrap {
-    max-height: 320px;
-    overflow: auto;
     border: 1px solid var(--border-color);
     border-radius: 6px;
   }

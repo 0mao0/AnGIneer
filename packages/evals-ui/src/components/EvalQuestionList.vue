@@ -242,7 +242,7 @@ const onToggle = (questionId: string) => {
 .eval-question-list {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
 
   &__toolbar {
     display: flex;
@@ -255,7 +255,6 @@ const onToggle = (questionId: string) => {
 
   &__body {
     flex: 1;
-    overflow-y: auto;
     padding: 12px;
   }
 
