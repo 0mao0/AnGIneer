@@ -54,26 +54,38 @@
             {{ scoreStatusLabel }}
           </a-tag>
         </div>
-        <a-progress
-          type="dashboard"
-          :percent="accuracyPercent"
-          :stroke-color="accuracyColor"
-          :width="116"
-          :format="() => `${scoreNumber}%`"
-          class="eval-run-panel__accuracy-ring"
-        />
-        <div class="eval-run-panel__accuracy-meta">
-          <span class="eval-run-panel__accuracy-item eval-run-panel__accuracy-item--ok">
-            正确 {{ summary.correct ?? 0 }}
-          </span>
-          <span class="eval-run-panel__accuracy-item eval-run-panel__accuracy-item--bad">
-            错误 {{ summary.wrong ?? 0 }}
-          </span>
-          <span class="eval-run-panel__accuracy-item">
-            跳过 {{ summary.skipped ?? 0 }}
-          </span>
+        <div class="eval-run-panel__accuracy-body">
+          <div class="eval-run-panel__accuracy-left">
+            <a-progress
+              type="dashboard"
+              :percent="accuracyPercent"
+              :stroke-color="accuracyColor"
+              :width="104"
+              :format="() => `${scoreNumber}%`"
+            />
+            <div v-if="lastRunTime" class="eval-run-panel__accuracy-time">{{ lastRunTime }}</div>
+          </div>
+          <div class="eval-run-panel__accuracy-right">
+            <div class="eval-run-panel__stat">
+              <span class="eval-run-panel__stat-label">正确</span>
+              <span class="eval-run-panel__stat-value eval-run-panel__stat-value--ok">
+                {{ summary.correct ?? 0 }}
+              </span>
+            </div>
+            <div class="eval-run-panel__stat">
+              <span class="eval-run-panel__stat-label">错误</span>
+              <span class="eval-run-panel__stat-value eval-run-panel__stat-value--bad">
+                {{ summary.wrong ?? 0 }}
+              </span>
+            </div>
+            <div class="eval-run-panel__stat">
+              <span class="eval-run-panel__stat-label">跳过</span>
+              <span class="eval-run-panel__stat-value">
+                {{ summary.skipped ?? 0 }}
+              </span>
+            </div>
+          </div>
         </div>
-        <div v-if="lastRunTime" class="eval-run-panel__accuracy-time">{{ lastRunTime }}</div>
       </div>
 
       <!-- C：历史记录（列表 + 勾选对比） -->
@@ -573,7 +585,6 @@ const compareRows = computed(() => {
     border-radius: 8px;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    text-align: center;
 
     &-head {
       display: flex;
@@ -594,33 +605,55 @@ const compareRows = computed(() => {
       line-height: 1.4;
     }
 
-    &-ring {
-      margin: 2px auto;
-    }
-
-    &-meta {
+    &-body {
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 6px;
-      font-size: 12px;
-      color: var(--text-secondary);
+      gap: 18px;
+      margin-top: 8px;
     }
 
-    &-item--ok {
-      color: #52c41a;
+    &-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
     }
 
-    &-item--bad {
-      color: #f5222d;
+    &-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     &-time {
-      margin-top: 4px;
       font-size: 11px;
       color: var(--text-secondary);
+    }
+  }
+
+  &__stat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 88px;
+    font-size: 13px;
+
+    &-label {
+      color: var(--text-secondary);
+    }
+
+    &-value {
+      font-weight: 600;
+      color: var(--text-primary);
+
+      &--ok {
+        color: #52c41a;
+      }
+
+      &--bad {
+        color: #f5222d;
+      }
     }
   }
 
