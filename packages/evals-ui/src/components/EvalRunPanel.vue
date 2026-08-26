@@ -124,7 +124,7 @@ const isRunning = computed(() => props.currentRun?.status === 'running')
 const summary = computed((): EvalSummaryScores | null => {
   if (props.isFullRun) {
     if (props.currentRun?.status === 'running') {
-      return props.lastRun?.summary_scores || null
+      return props.currentRun?.summary_scores || props.lastRun?.summary_scores || null
     }
     return props.currentRun?.summary_scores || props.lastRun?.summary_scores || null
   }
