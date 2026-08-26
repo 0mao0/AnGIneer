@@ -1,5 +1,6 @@
 <template>
   <div class="knowledge-stats" :class="appClass">
+    <div class="stats-content">
     <div class="stats-header">
       <div class="stats-title-wrap">
         <div class="stats-title">历史记录<span class="stats-title-count">（{{ filteredRecords.length }}条）</span></div>
@@ -129,6 +130,7 @@
         </template>
       </template>
     </a-table>
+    </div>
     </div>
 
     <a-drawer
@@ -965,9 +967,13 @@ onMounted(() => {
 <style lang="less" scoped>
 .knowledge-stats {
   height: 100%;
-  padding: 16px 16px 24px;
+  padding: 24px;
   background: var(--bg-primary);
   overflow-y: auto;
+}
+.stats-content {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 .stats-header {
   display: flex;
