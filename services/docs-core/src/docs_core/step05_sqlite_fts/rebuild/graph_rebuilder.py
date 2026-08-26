@@ -148,6 +148,8 @@ def adapt_graph_node(raw_node: dict[str, Any], index: int, section_path: str) ->
         "table_cells_source": raw_node.get("table_cells_source"),
         "page_bboxes": raw_node.get("page_bboxes"),
         "merged_from": raw_node.get("merged_from"),
+        "image_path": raw_node.get("image_path"),
+        "figure_description": raw_node.get("figure_description"),
         "contd_target_id": raw_node.get("contd_target_id"),
         "image_assoc_id": raw_node.get("image_assoc_id"),
         "table_merge_id": raw_node.get("table_merge_id"),

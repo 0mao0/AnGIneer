@@ -139,6 +139,7 @@ def normalize_block_type(raw_block_type: object) -> str:
         "table": "table",
         "table_caption": "table_caption",
         "figure": "figure",
+        "chart": "figure",
         "image": "figure",
         "figure_caption": "figure_caption",
         "header_footer": "header_footer",
@@ -170,6 +171,9 @@ def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, A
         if str(raw_block.get("layout_category") or "") == "attachment":
             continue
         text = str(raw_block.get("text") or raw_block.get("content") or "").strip()
+        # 图表块通常没有正文文本；用 VLM 生成的图描述作为可检索文本
+        if not text and raw_block.get("image_path") and raw_block.get("figure_description"):
+            text = str(raw_block.get("figure_description") or "").strip()
         section_path = str(raw_block.get("section_path") or "")
         formula_semantics = raw_block.get("formula_semantics")
         canonical_blocks.append(
@@ -204,6 +208,7 @@ def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, A
                 layout_category=raw_block.get("layout_category"),
                 page_bboxes=_parse_page_bboxes(raw_block.get("page_bboxes")),
                 merged_from=raw_block.get("merged_from"),
+                image_path=raw_block.get("image_path"),
                 table_html=raw_block.get("table_html"),
                 formula_semantics=(
                     dict(formula_semantics)

@@ -140,6 +140,7 @@ def build_doc_block_rows(
             "next_block_uid": next_uid.get(block.block_id),
             "table_html": block.table_html,
             "math_content": math_content,
+            "image_path": block.image_path,
             "derived_confidence": None,
             "derived_by": "mineru-popo",
             "derive_version": derive_version,

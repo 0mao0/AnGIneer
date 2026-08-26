@@ -116,6 +116,8 @@ class CanonicalBlock(BaseModel):
     page_bboxes: Optional[List[PageBBox]] = None
     # 溯源：被本块吸收的 block_uid（阅读顺序）
     merged_from: Optional[List[str]] = None
+    # 图表/图片路径（相对 parsed/images 目录），随 graph jsonl 节点与 doc_blocks 行保留
+    image_path: Optional[str] = None
 
 
 class CanonicalOutlineNode(BaseModel):
