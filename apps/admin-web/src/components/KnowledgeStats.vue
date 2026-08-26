@@ -12,14 +12,6 @@
       </div>
       <div class="stats-actions">
         <LibrarySelect class="library-select-inline" style="min-width: 160px" @review="onEntityReview" />
-        <a-button
-          v-show="selectedRowKeys.length > 0"
-          type="primary"
-          danger
-          @click="onBatchDeleteClick"
-        >
-          批量删除 ({{ selectedRowKeys.length }})
-        </a-button>
       </div>
     </div>
 
@@ -56,6 +48,15 @@
       <a-button type="primary" class="stats-filter-upload" @click="openUploadModal">
         <template #icon><upload-outlined /></template>
         上传
+      </a-button>
+      <a-button
+        v-show="selectedRowKeys.length > 0"
+        type="primary"
+        danger
+        class="stats-filter-batch-delete"
+        @click="onBatchDeleteClick"
+      >
+        批量删除 ({{ selectedRowKeys.length }})
       </a-button>
     </div>
 
