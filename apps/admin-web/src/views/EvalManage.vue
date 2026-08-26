@@ -535,9 +535,10 @@ const onResumeRun = async (resumeRunId: string) => {
 
 /** 停止当前评测任务 */
 const onStopRun = async () => {
-  if (!currentRun.value?.run_id) return
+  const runId = currentRun.value?.run_id || runs.value.find(r => r.status === 'running')?.run_id
+  if (!runId) return
   try {
-    await stopRun(currentRun.value.run_id)
+    await stopRun(runId)
     message.info('评测已停止')
   } catch (e: any) {
     message.error(e.message || '停止评测失败')

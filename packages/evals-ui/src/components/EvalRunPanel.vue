@@ -278,7 +278,11 @@ const compareIds = ref<string[]>([])
 const detailsByRun = ref<Record<string, EvalRunDetail[]>>({})
 const showDiffOnly = ref(true)
 
-const isRunning = computed(() => props.currentRun?.status === 'running')
+const isRunning = computed(() => {
+  if (props.currentRun?.status === 'running') return true
+  // 兜底：即使 currentRun 未同步，只要运行列表里存在 running 记录也按评测中处理
+  return !!props.runs?.some(r => r.status === 'running')
+})
 
 /** 当前展示的汇总得分 */
 const summary = computed((): EvalSummaryScores | null => {
@@ -342,18 +346,17 @@ const scoreTagColor = computed(() => {
   return statusLabelMap[run.status]?.color || 'default'
 })
 
-/** 可断点续跑的最近一次运行（已中断/失败且完成了一部分） */
+/** 可断点续跑的最近一次运行：仅当最新一条整体运行是中断/失败且未跑完 */
 const resumableRun = computed(() => {
   if (!props.runs) return null
-  const candidates = props.runs.filter(r =>
-    (r.status === 'cancelled' || r.status === 'failed') &&
-    r.completed_questions > 0 &&
-    r.completed_questions < r.total_questions
-  )
-  if (!candidates.length) return null
-  return candidates.sort((a, b) =>
-    new Date(b.completed_at || b.started_at).getTime() - new Date(a.completed_at || a.started_at).getTime()
-  )[0]
+  const fullRuns = props.runs.filter(r => r.is_full_run !== false)
+  if (!fullRuns.length) return null
+  const latest = fullRuns[0]
+  const resumable =
+    (latest.status === 'cancelled' || latest.status === 'failed') &&
+    latest.completed_questions > 0 &&
+    latest.completed_questions < latest.total_questions
+  return resumable ? latest : null
 })
 
 const canResume = computed(() => !isRunning.value && !!resumableRun.value && !!props.datasetId)
