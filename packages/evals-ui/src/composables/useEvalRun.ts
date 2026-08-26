@@ -210,22 +210,27 @@ export function useEvalRun() {
   /** 加载指定历史运行的完整详情用于展示 */
   const selectHistoricalRun = async (runId: string) => {
     stopPolling()
-    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?light=1`)
-    if (resp.ok) {
-      const run: EvalRun = await resp.json()
-      lastRun.value = run
-      currentRun.value = null
-      isFullRun.value = true
-      if (run.details) {
-        const map = new Map<string, EvalRunDetail>()
-        for (const d of run.details) {
-          map.set(d.question_id, d)
-        }
-        runDetails.value = map
-      } else {
-        runDetails.value = new Map()
+    // 复用 runs 列表里的汇总 + fetchRunDetails 的去重/缓存，切换历史记录不再重复请求
+    const summary = runs.value.find(r => r.run_id === runId)
+    const details = await fetchRunDetails(runId)
+    let run: EvalRun
+    if (summary) {
+      run = { ...summary, details }
+    } else {
+      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?light=1`)
+      run = resp.ok ? await resp.json() : {
+        run_id: runId,
+        dataset_id: '',
+        status: 'completed',
+        total_questions: details.length,
+        completed_questions: details.length,
+        started_at: '',
       }
     }
+    lastRun.value = run
+    currentRun.value = null
+    isFullRun.value = true
+    runDetails.value = new Map(details.map(d => [d.question_id, d]))
   }
 
   /** 按需拉取单道题目的完整运行详情（含 trace 与分项分数），合并进 runDetails */
