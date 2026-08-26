@@ -21,6 +21,10 @@ scripts/*
 !scripts/sync-standalone.ps1
 !scripts/open_ragbench/
 !scripts/open_ragbench/**
+scripts/open_ragbench/__pycache__/
+
+# 运行时日志
+apps/admin-web/vite-dev.log
 
 # Node.js
 node_modules/
