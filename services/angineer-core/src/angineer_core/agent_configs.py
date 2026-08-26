@@ -72,6 +72,20 @@ def _build_inline_citation_context(inline_citations: List[Dict[str, Any]]) -> st
     return "\n---\n".join(evidence_blocks)
 
 
+def _looks_like_tool_error_answer(answer: str) -> bool:
+    """检测模型把工具/API 错误 JSON 当成最终答案输出的情况（如 {"error": "No such tool: ...", "error_code": 404}）。"""
+    text = (answer or "").strip()
+    if not text.startswith("{"):
+        return False
+    try:
+        raw = json.loads(text)
+    except Exception:  # noqa: BLE001
+        return False
+    if not isinstance(raw, dict):
+        return False
+    return isinstance(raw.get("error"), str) or "error_code" in raw
+
+
 def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bool = False):
     """P6c 边界：检索过工具后，对最终回答做两层兜底。
 
@@ -101,6 +115,11 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
             return None
 
         answer = final_assistant.content or ""
+        if _looks_like_tool_error_answer(answer):
+            return (
+                _refusal_text(),
+                "边界规则：最终回答为工具/API 错误 JSON，已替换为拒答话术",
+            )
         if tool_messages:
             evidence_parts: List[str] = []
             for message in tool_messages:
