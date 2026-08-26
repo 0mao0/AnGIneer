@@ -90,8 +90,25 @@ class TextToolCallCodec:
         try:
             parsed = json.loads(raw)
         except json.JSONDecodeError:
-            return None
+            parsed = self._salvage_malformed_json(raw)
+            if parsed is None:
+                return None
         return self._parse_calls_from_value(parsed)
+
+    def _salvage_malformed_json(self, raw: str) -> Optional[Any]:
+        """宽谷修复常见畸形：模型偶发少打闭合大括号（如 arguments 闭合后直接 ]）。"""
+        stripped = raw.rstrip()
+        candidates = [raw + "}" * extra for extra in (1, 2, 3)]
+        if stripped.endswith("]"):
+            # 缺失的 } 在 ] 之前（外层对象未闭合）
+            candidates.append(stripped[:-1] + "}" + stripped[-1])
+            candidates.append(stripped[:-1] + "}}" + stripped[-1])
+        for cand in candidates:
+            try:
+                return json.loads(cand)
+            except json.JSONDecodeError:
+                continue
+        return None
 
     def _parse_calls_from_value(self, parsed: Any) -> Optional[List[ToolCall]]:
         if not isinstance(parsed, list):

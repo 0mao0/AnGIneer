@@ -1,4 +1,5 @@
 """P2 tool_codec 与消息翻译单测。"""
+import json
 import os
 import sys
 import unittest
@@ -65,6 +66,21 @@ class TextToolCallCodecTests(unittest.TestCase):
         text, calls = codec.parse_assistant("```tool_calls\n[broken json\n```")
         self.assertEqual(calls, [])
         self.assertIn("broken json", text)
+
+    def test_parse_assistant_salvages_missing_closing_brace(self):
+        """模型偶发少打一个 }（如 q_030：arguments 闭合后直接 ]），应宽容修复并执行。"""
+        valid_body = '[{"name": "search", "arguments": {"q": "x"}}]'
+        malformed_body = valid_body[: valid_body.rindex("}")] + "]"
+        with self.assertRaises(json.JSONDecodeError):
+            json.loads(malformed_body)
+        codec = TextToolCallCodec()
+        text, calls = codec.parse_assistant(
+            "先检索\n```tool_calls\n" + malformed_body + "\n```"
+        )
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(calls[0].name, "search")
+        self.assertEqual(calls[0].arguments, {"q": "x"})
+        self.assertIn("先检索", text)
 
     def test_parse_plain_json_array_without_fence(self):
         codec = TextToolCallCodec()
