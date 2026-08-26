@@ -22,6 +22,7 @@ from docs_core.step04_structure.shared.table_semantics import (
     extract_table_features,
     is_numeric_like,
     normalize_table_cell,
+    normalize_table_title,
     parse_table_rows,
     split_header_body,
 )
@@ -44,6 +45,7 @@ __all__ = [
     "extract_table_features",
     "is_numeric_like",
     "normalize_table_cell",
+    "normalize_table_title",
     "parse_table_rows",
     "split_header_body",
 ]

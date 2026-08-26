@@ -34,6 +34,15 @@ def normalize_table_cell(value: object) -> str:
     return str(value).strip()
 
 
+# 展开表格标题中的常见学术缩写，提升表格级检索的语义召回。
+def normalize_table_title(title: str) -> str:
+    text = str(title or "").strip()
+    if not text:
+        return text
+    text = re.sub(r"\bHPs\b", "Hyperparameters", text)
+    return text
+
+
 # 判断单元格是否以数值为主。
 def is_numeric_like(cell: str) -> bool:
     if not cell:
@@ -278,7 +287,7 @@ def _node_table_html(node: Dict[str, Any]) -> str:
 def _node_table_title(node: Dict[str, Any]) -> str:
     caption = str(node.get("caption") or "").strip()
     if caption:
-        return caption
+        return normalize_table_title(caption)
     content = node.get("content_json") if isinstance(node.get("content_json"), dict) else {}
     fragments: List[str] = []
     for item in content.get("table_caption") or []:
@@ -364,6 +373,7 @@ __all__ = [
     "extract_table_features",
     "is_numeric_like",
     "normalize_table_cell",
+    "normalize_table_title",
     "parse_table_rows",
     "split_header_body",
 ]

@@ -25,6 +25,7 @@ from docs_core.step05_sqlite_fts.rebuild.table_semantics import (
     TABLE_SEMANTICS_VERSION,
     build_table_full_text,
     enrich_canonical_table,
+    normalize_table_title,
     parse_table_rows,
     split_header_body,
 )
@@ -638,7 +639,7 @@ def _resolve_table_title(
     index: int,
 ) -> str:
     if caption:
-        return caption
+        return normalize_table_title(caption)
     if canonical_block is not None and canonical_block.raw_type == "table":
         caption_line = next(
             (
