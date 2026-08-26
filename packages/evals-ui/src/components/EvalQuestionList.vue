@@ -156,8 +156,10 @@ const docFilterLabel = computed(() => {
 watch(
   () => props.docFlatList,
   (flat) => {
-    if (flat && flat.length && checkedDocKeys.value.length === 0) {
+    if (flat && flat.length) {
       checkedDocKeys.value = collectAllDocKeys(props.docTreeData || [])
+    } else {
+      checkedDocKeys.value = []
     }
   },
   { immediate: true }

@@ -325,9 +325,10 @@ const buildDocTree = (nodes: any[]): { tree: DocTreeNode[]; flat: DocTreeNode[] 
 }
 
 /** 加载知识库节点树 */
-const fetchDocOptions = async () => {
+const fetchDocOptions = async (libraryId?: string) => {
   try {
-    const resp = await knowledgeApi.getNodes(useLibraryStore().libraryId || 'default', true)
+    const lib = libraryId || useLibraryStore().libraryId || 'default'
+    const resp = await knowledgeApi.getNodes(lib, true)
     const nodes = (resp as any)?.data || resp || []
     const list = Array.isArray(nodes) ? nodes : []
     const { tree, flat } = buildDocTree(list)
@@ -461,6 +462,10 @@ const onDatasetSelect = async (keys: string[], _nodes: EvalTreeNode[]) => {
   const key = keys[0]
   if (key.startsWith('folder-')) return
   selectedDatasetId.value = key
+  const ds = datasets.value.find(d => d.dataset_id === key)
+  if (ds?.library_id) {
+    await fetchDocOptions(ds.library_id)
+  }
   stopPolling()
   isFullRun.value = false
   questionsLoading.value = true
