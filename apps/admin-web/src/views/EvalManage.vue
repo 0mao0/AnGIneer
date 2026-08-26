@@ -166,6 +166,7 @@
             :loading="evalLoading"
             :runs="runs"
             @run="onStartRun"
+            @resume="onResumeRun"
             @stop="onStopRun"
             @select-run="onSelectHistoricalRun"
             @delete-run="onDeleteRun"
@@ -509,6 +510,20 @@ const onStartRun = async () => {
     message.success('评测已启动')
   } catch (e: any) {
     message.error(e.message || '启动评测失败')
+  } finally {
+    evalLoading.value = false
+  }
+}
+
+/** 断点续跑：复用已中断 run 的已完成结果，只执行剩余题目 */
+const onResumeRun = async (resumeRunId: string) => {
+  if (!selectedDatasetId.value) return
+  evalLoading.value = true
+  try {
+    await startRun(selectedDatasetId.value, selectedDocIds.value, resumeRunId)
+    message.success('断点续跑已启动')
+  } catch (e: any) {
+    message.error(e.message || '断点续跑失败')
   } finally {
     evalLoading.value = false
   }

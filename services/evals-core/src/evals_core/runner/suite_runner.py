@@ -273,9 +273,17 @@ def _enrich_detail_with_question(detail: Dict[str, Any], question: Dict[str, Any
 def _run_suite_thread(
     run_id: str, dataset_id: str, questions: List[Dict[str, Any]],
     override_doc_ids: Optional[List[str]] = None,
+    pre_done: Optional[Dict[str, Dict[str, Any]]] = None,
 ) -> None:
-    """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。"""
+    """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。
+
+    pre_done: 断点续跑时，question_id -> 已完成详情 的映射。
+    这些题目直接复用旧结果，只执行剩余题目。
+    """
     global _current_run_id, _stop_event
+    pre_done = pre_done or {}
+    pre_done_count = len(pre_done)
+    executed = 0
     
     # 获取并发控制锁（阻塞等待，直到其他评测任务完成）
     acquired = _eval_lock.acquire(timeout=0.1)
@@ -304,6 +312,24 @@ def _run_suite_thread(
                 return
             
             question_id = str(question.get("question_id") or "")
+            # 断点续跑：已完成的题目直接复用旧结果
+            if question_id in pre_done:
+                detail = pre_done[question_id]
+                result_store.insert_run_detail({
+                    "run_id": run_id,
+                    "question_id": question_id,
+                    "status": detail.get("status", "completed"),
+                    "quality": detail.get("quality"),
+                    "prediction": detail.get("prediction"),
+                    "scores": detail.get("scores"),
+                    "all_scores": detail.get("all_scores"),
+                    "all_predictions": detail.get("all_predictions"),
+                    "error": detail.get("error"),
+                    "latency_ms": detail.get("latency_ms"),
+                })
+                result_store.update_run_progress(run_id, pre_done_count + executed)
+                continue
+
             evaluator_names = _determine_evaluator_names(question)
             if override_doc_ids is not None:
                 question = {**question, "doc_ids": override_doc_ids}
@@ -330,8 +356,8 @@ def _run_suite_thread(
                 "error": result.get("error"),
                 "latency_ms": result.get("latency_ms"),
             })
-            completed = idx + 1
-            result_store.update_run_progress(run_id, completed)
+            executed += 1
+            result_store.update_run_progress(run_id, pre_done_count + executed)
         details = result_store.list_run_details(run_id)
         enriched_details = []
         for d in details:
@@ -357,9 +383,13 @@ def _run_suite_thread(
 
 def start_eval_run(
     dataset_id: str, question_id: Optional[str] = None, save: bool = True,
-    override_doc_ids: Optional[List[str]] = None,
+    override_doc_ids: Optional[List[str]] = None, resume_run_id: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """启动评测运行（异步线程），立即返回 run_id，前端轮询获取进度。"""
+    """启动评测运行（异步线程），立即返回 run_id，前端轮询获取进度。
+
+    resume_run_id 非空时进行断点续跑：复用该 run 中已完成的题目结果，
+    只执行剩余题目，最后合并为一份完整 run。
+    """
     if _current_run_id is not None:
         raise ValueError(f"已有评测任务正在运行 (run_id: {_current_run_id})，请等待完成后再试")
     
@@ -374,7 +404,23 @@ def start_eval_run(
         questions = all_questions
 
     is_full_run = question_id is None
+    pre_done: Dict[str, Dict[str, Any]] = {}
+    if resume_run_id:
+        source_run = result_store.get_run(resume_run_id)
+        if not source_run:
+            raise ValueError(f"续跑源 run 不存在: {resume_run_id}")
+        if source_run.get("dataset_id") != dataset_id:
+            raise ValueError("续跑源 run 与目标测试集不一致")
+        pre_done = {
+            str(d.get("question_id") or ""): d
+            for d in result_store.list_run_details(resume_run_id)
+            if d.get("status") == "completed" and d.get("scores")
+        }
+        if not pre_done:
+            raise ValueError("续跑源 run 没有可复用的已完成题目")
     run_name = _generate_run_name() if is_full_run else ""
+    if resume_run_id:
+        run_name = f"{run_name}（续跑）"
     from angineer_core.run_manifest import build_run_manifest
 
     run_data = result_store.create_run(
@@ -384,7 +430,7 @@ def start_eval_run(
     run_id = run_data["run_id"]
     thread = threading.Thread(
         target=_run_suite_thread,
-        args=(run_id, dataset_id, questions, override_doc_ids),
+        args=(run_id, dataset_id, questions, override_doc_ids, pre_done),
         daemon=True,
     )
     thread.start()

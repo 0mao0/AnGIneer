@@ -202,7 +202,7 @@ async def start_run(req: StartEvalRunRequest):
         run_data = await loop.run_in_executor(
             None,
             suite_runner.start_eval_run,
-            req.dataset_id, req.question_id, req.save, req.doc_ids,
+            req.dataset_id, req.question_id, req.save, req.doc_ids, req.resume_run_id,
         )
         return run_data
     except ValueError as exc:

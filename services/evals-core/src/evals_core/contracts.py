@@ -49,6 +49,7 @@ class StartEvalRunRequest(BaseModel):
     question_id: Optional[str] = None
     save: bool = True
     doc_ids: Optional[List[str]] = None
+    resume_run_id: Optional[str] = None
 
 
 class EvalRunProgress(BaseModel):
