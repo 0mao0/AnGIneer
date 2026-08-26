@@ -37,6 +37,7 @@ export default defineConfig({
     }
   },
   server: {
+    host: true,
     port: WEB_CONSOLE_PORT,
     proxy: {
       '/api/knowledge': { target: DOCS_API_PROXY_TARGET, changeOrigin: true },
