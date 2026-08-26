@@ -636,8 +636,7 @@ const compareRows = computed(() => {
   &__stat {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    min-width: 88px;
+    gap: 10px;
     font-size: 13px;
 
     &-label {
