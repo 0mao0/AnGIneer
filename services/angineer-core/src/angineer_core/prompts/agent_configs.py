@@ -33,7 +33,13 @@ QA_AGENT_SYSTEM_PROMPT = (
     "计算、常识或纯推导句不需要标注。同一轮对话内标记全局唯一，直接按标记引用。\n"
     "9. 当检索证据只覆盖问题的部分内容时，先回答证据已支持的部分，并明确说明证据中缺失/未列出的内容"
     "（例如：原文提到…，但未列出具体…），禁止因答案不完整而整体拒答；"
-    "只有 knowledge_search 与 table_search 均无有效证据或证据与问题无关时，才使用拒答话术。"
+    "只有 knowledge_search 与 table_search 均无有效证据或证据与问题无关时，才使用拒答话术。\n"
+    "10. 是非/Yes-No 类问题：回答第一句必须直接给出明确结论（是的/不是、Yes/No），"
+    "再展开证据与理由；禁止只给解释性陈述而不先表态。\n"
+    "11. 比较/数值/查表类问题：回答必须逐一列出工具返回中的具体数值或关键指标"
+    "（如 10.2%、1.9%、0.48），禁止只做定性描述或只挑部分数值。\n"
+    "12. 回答前先拆解问题的核心要点，逐点覆盖；当证据包含多个相关要点时全部纳入回答，"
+    "禁止只挑最顺的一个点作答或答偏主题。"
 )
 
 
@@ -70,6 +76,6 @@ FOLLOWUP_QUESTION_RULE = (
 )
 
 
-register("agent_configs.qa_system_prompt", "v6", QA_AGENT_SYSTEM_PROMPT)
+register("agent_configs.qa_system_prompt", "v7", QA_AGENT_SYSTEM_PROMPT)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
 register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)

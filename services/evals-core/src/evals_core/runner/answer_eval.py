@@ -109,7 +109,8 @@ def _llm_semantic_evaluate(
     try:
         _t_start = _time.time()
         client = get_llm_client()
-        result = chat_result_guarded(client, messages, mode="instruct", config_name=None)
+        # 判分必须可复现：显式 temperature=0，避免同一答案两次打分不同
+        result = chat_result_guarded(client, messages, mode="instruct", config_name=None, temperature=0.0)
         raw_response = result.text
         eval_duration = round(_time.time() - _t_start, 2)
         parsed = extract_json_from_text(raw_response, strict=True)
