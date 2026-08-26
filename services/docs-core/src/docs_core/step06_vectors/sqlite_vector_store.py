@@ -179,6 +179,10 @@ class SQLiteVectorStore(VectorStore):
             embedding = list(_load_json(row["embedding_json"], []))
             if not embedding:
                 continue
+            # 维度防护：跳过与查询向量维度不一致的行（如历史 hash 兜底的低维向量），
+            # 避免混维点积产生无意义分数。
+            if len(embedding) != len(query_embedding):
+                continue
             score = dot_similarity(query_embedding, embedding)
             hits.append(
                 VectorSearchHit(
