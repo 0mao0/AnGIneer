@@ -707,20 +707,27 @@ def cleanup_individual_runs(dataset_id: str) -> int:
     return cursor.rowcount
 
 
-def list_run_details(run_id: str) -> List[Dict[str, Any]]:
-    """列出某次运行的所有详情。"""
+def list_run_details(run_id: str, light: bool = False) -> List[Dict[str, Any]]:
+    """列出某次运行的所有详情。
+
+    light=True 时只查轻量列（status/quality/scores 等），跳过
+    prediction/all_scores/all_predictions 重字段，避免列表/轮询场景
+    白白解析几十 MB JSON。
+    """
     conn = _get_conn()
+    columns = "id, run_id, question_id, status, quality, scores, error, latency_ms" if light else "*"
     rows = conn.execute(
-        "SELECT * FROM eval_run_detail WHERE run_id = ? ORDER BY id",
+        f"SELECT {columns} FROM eval_run_detail WHERE run_id = ? ORDER BY id",
         (run_id,),
     ).fetchall()
     result = []
     for row in rows:
         item = dict(row)
-        item["prediction"] = json.loads(item["prediction"]) if item.get("prediction") else None
         item["scores"] = json.loads(item["scores"]) if item.get("scores") else None
-        item["all_scores"] = json.loads(item["all_scores"]) if item.get("all_scores") else None
-        item["all_predictions"] = json.loads(item["all_predictions"]) if item.get("all_predictions") else None
+        if not light:
+            item["prediction"] = json.loads(item["prediction"]) if item.get("prediction") else None
+            item["all_scores"] = json.loads(item["all_scores"]) if item.get("all_scores") else None
+            item["all_predictions"] = json.loads(item["all_predictions"]) if item.get("all_predictions") else None
         result.append(item)
     return result
 

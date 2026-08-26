@@ -451,15 +451,6 @@ def _enrich_run_details(details: List[Dict[str, Any]], dataset_id: str) -> List[
     ]
 
 
-def _strip_heavy_detail_fields(details: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """裁剪轮询场景用不到的大字段，避免每次请求全量下发几十 MB 的调试数据。"""
-    heavy_keys = ("prediction", "all_scores", "all_predictions")
-    return [
-        {k: v for k, v in detail.items() if k not in heavy_keys}
-        for detail in details
-    ]
-
-
 def get_eval_run(run_id: str, light: bool = False) -> Optional[Dict[str, Any]]:
     """查询运行进度/结果，运行中时实时计算汇总指标。
 
@@ -469,12 +460,10 @@ def get_eval_run(run_id: str, light: bool = False) -> Optional[Dict[str, Any]]:
     run = result_store.get_run(run_id)
     if not run:
         return None
-    details = result_store.list_run_details(run_id)
+    details = result_store.list_run_details(run_id, light=light)
     result = {**run, "details": details}
     if result.get("details"):
         result["details"] = _enrich_run_details(result["details"], run.get("dataset_id") or "")
-        if light:
-            result["details"] = _strip_heavy_detail_fields(result["details"])
     if run.get("status") == "running" and not run.get("summary_scores"):
         completed_details = [d for d in result["details"] if d.get("status") not in ("pending", "running")]
         if completed_details:
