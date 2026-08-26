@@ -152,7 +152,15 @@ def build_vector_records(
         payloads.extend(build_formula_vector_entities(document))
     if not payloads:
         return []
-    embeddings = resolved_provider.embed_texts([payload["content"] for payload in payloads])
+    # 分批嵌入：一次性提交整篇文档的文本会让 TEI 等本地服务返回 413（payload 过大），
+    # 进而触发降级链走到 hash 兜底，产出无语义向量。分批 + 截断控制在单次请求限额内。
+    embeddings: List[List[float]] = []
+    texts = [str(payload["content"]) for payload in payloads]
+    batch_size = 16
+    max_chars = 4000
+    for start in range(0, len(texts), batch_size):
+        batch = [text[:max_chars] for text in texts[start:start + batch_size]]
+        embeddings.extend(resolved_provider.embed_texts(batch))
     records: List[VectorRecord] = []
     for payload, embedding in zip(payloads, embeddings):
         records.append(
