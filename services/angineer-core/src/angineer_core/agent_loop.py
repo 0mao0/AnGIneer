@@ -126,14 +126,6 @@ def _last_answer_is_refusal(messages: List[AgentMessage]) -> bool:
     return False
 
 
-def _final_answer_is_refusal(added: List[AgentMessage]) -> bool:
-    """本段新增消息中，最近一条无工具调用且非空的 assistant 消息是否为拒答。"""
-    for message in reversed(added):
-        if message.role == "assistant" and not message.tool_calls and (message.content or "").strip():
-            return is_refusal_text(message.content or "")
-    return False
-
-
 def _force_retrieve_tool(
     messages: List[AgentMessage],
     machine: "_AttemptMachine",
@@ -500,7 +492,6 @@ class _AttemptMachine:
             if (
                 self.force_retrieve is not None
                 and not self._forced_retrieve_used
-                and _final_answer_is_refusal(added)
             ):
                 result_content = self.force_retrieve()
                 if result_content:
