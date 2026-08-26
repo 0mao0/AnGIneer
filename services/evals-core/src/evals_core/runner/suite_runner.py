@@ -159,6 +159,17 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     if not details:
         return {"overall_score": 0.0}
 
+    # 按题目去重：同一 question_id 只保留最早一条详情，避免续跑残留重复行导致总数虚高
+    seen: set = set()
+    deduped: List[Dict[str, Any]] = []
+    for d in details:
+        qid = str(d.get("question_id") or "")
+        if qid in seen:
+            continue
+        seen.add(qid)
+        deduped.append(d)
+    details = deduped
+
     def _append_group_score(bucket: Dict[str, List[float]], name: str, score: Any) -> None:
         """向分组桶追加分数。"""
         if score is None:
@@ -336,6 +347,8 @@ def _run_suite_thread(
             evaluator_names = _determine_evaluator_names(question)
             if override_doc_ids is not None:
                 question = {**question, "doc_ids": override_doc_ids}
+            # 清理该题残留/重复详情行，避免续跑后同一题出现多条记录
+            result_store.delete_run_detail(run_id, question_id)
             result_store.insert_run_detail({
                 "run_id": run_id,
                 "question_id": question_id,

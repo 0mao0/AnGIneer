@@ -758,3 +758,13 @@ def get_run_detail(run_id: str, question_id: str) -> Optional[Dict[str, Any]]:
     item["all_scores"] = json.loads(item["all_scores"]) if item.get("all_scores") else None
     item["all_predictions"] = json.loads(item["all_predictions"]) if item.get("all_predictions") else None
     return item
+
+
+def delete_run_detail(run_id: str, question_id: str) -> None:
+    """删除某次运行中指定题目的全部详情行（续跑重执行前清理残留/重复行）。"""
+    conn = _get_conn()
+    conn.execute(
+        "DELETE FROM eval_run_detail WHERE run_id = ? AND question_id = ?",
+        (run_id, question_id),
+    )
+    conn.commit()
