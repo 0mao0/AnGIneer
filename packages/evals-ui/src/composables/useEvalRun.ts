@@ -114,10 +114,13 @@ export function useEvalRun() {
         if (isFullRun.value) {
           lastRun.value = currentRun.value
         } else {
+          // 单题评测完成：自动拉取该题完整详情，保证展开视图能看到答案/过程
+          const runId = currentRun.value.run_id
           for (const d of currentRun.value?.details || []) {
             const next = new Set(evaluatingQuestionIds.value)
             next.delete(d.question_id)
             evaluatingQuestionIds.value = next
+            void fetchQuestionDetail(runId, d.question_id)
           }
         }
       }
