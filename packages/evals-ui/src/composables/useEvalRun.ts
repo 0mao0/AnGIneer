@@ -113,6 +113,9 @@ export function useEvalRun() {
         stopPolling()
         if (isFullRun.value) {
           lastRun.value = currentRun.value
+          // 刷新历史列表：否则 runs 里该条仍是 running/无汇总，
+          // 面板会误判"评测中"（停止按钮不消失）、历史项准确率不更新
+          void fetchRuns(currentRun.value.dataset_id)
         } else {
           // 单题评测完成：自动拉取该题完整详情，保证展开视图能看到答案/过程
           const runId = currentRun.value.run_id
