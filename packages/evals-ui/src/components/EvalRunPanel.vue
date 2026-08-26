@@ -50,6 +50,7 @@
           <span class="eval-run-panel__accuracy-label">
             {{ isRunning ? '实时正确率' : '整体正确率' }}
           </span>
+          <span v-if="lastRunTime" class="eval-run-panel__accuracy-time">{{ lastRunTime }}</span>
           <a-tag v-if="scoreStatusLabel" :color="scoreTagColor" class="eval-run-panel__accuracy-tag">
             {{ scoreStatusLabel }}
           </a-tag>
@@ -63,7 +64,6 @@
               :width="104"
               :format="() => `${scoreNumber}%`"
             />
-            <div v-if="lastRunTime" class="eval-run-panel__accuracy-time">{{ lastRunTime }}</div>
           </div>
           <div class="eval-run-panel__accuracy-right">
             <div class="eval-run-panel__stat">
@@ -600,6 +600,11 @@ const compareRows = computed(() => {
       color: var(--text-primary);
     }
 
+    &-time {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
     &-tag {
       font-size: 11px;
       line-height: 1.4;
@@ -626,10 +631,6 @@ const compareRows = computed(() => {
       gap: 8px;
     }
 
-    &-time {
-      font-size: 11px;
-      color: var(--text-secondary);
-    }
   }
 
   &__stat {
