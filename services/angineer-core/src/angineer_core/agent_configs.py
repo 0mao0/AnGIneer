@@ -73,7 +73,12 @@ def _build_inline_citation_context(inline_citations: List[Dict[str, Any]]) -> st
 
 
 def _looks_like_tool_error_answer(answer: str) -> bool:
-    """检测模型把工具/API 错误 JSON 当成最终答案输出的情况（如 {"error": "No such tool: ...", "error_code": 404}）。"""
+    """检测模型把工具/API 相关 JSON 当成最终答案输出的情况。
+
+    覆盖两类：
+    - 错误 JSON：{"error": "No such tool: ...", "error_code": 404}
+    - 工具调用 JSON 泄漏：{"name": "knowledge_search", "arguments": {...}}
+    """
     text = (answer or "").strip()
     if not text.startswith("{"):
         return False
@@ -83,7 +88,11 @@ def _looks_like_tool_error_answer(answer: str) -> bool:
         return False
     if not isinstance(raw, dict):
         return False
-    return isinstance(raw.get("error"), str) or "error_code" in raw
+    if isinstance(raw.get("error"), str) or "error_code" in raw:
+        return True
+    if isinstance(raw.get("name"), str) and isinstance(raw.get("arguments"), dict):
+        return True
+    return False
 
 
 def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bool = False):

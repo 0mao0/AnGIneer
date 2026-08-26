@@ -23,6 +23,8 @@ SEMANTIC_EVAL_PROMPT = """\
   （是/否/Yes/No/不是）即视为命中核心信息；答案展开解释或末尾带追问句不属于扣分项，不参与语义判定。
 - 系统答案比标准答案更详细、但已完整包含标准答案核心信息时，应给 1.0 或 0.9；
   不得因详略差异或表述风格不同而扣分。
+- 核心结论正确、仅遗漏个别次要数值或细节时，不得判为错误：应给 0.7~0.9 并通过（≥0.65），
+  不得因遗漏次要数值/细节而整体判错。
 
 返回 JSON：{{"score": 0.0~1.0, "reason": "简短说明"}}"""
 
@@ -30,5 +32,5 @@ SEMANTIC_EVAL_PROMPT = """\
 SEMANTIC_EVAL_SYSTEM_PROMPT = "你是一个严格的评测助手，只返回 JSON 格式的评分结果。"
 
 
-register("answer_eval.semantic_eval_prompt", "v2", SEMANTIC_EVAL_PROMPT)
+register("answer_eval.semantic_eval_prompt", "v3", SEMANTIC_EVAL_PROMPT)
 register("answer_eval.semantic_eval_system_prompt", "v1", SEMANTIC_EVAL_SYSTEM_PROMPT)
