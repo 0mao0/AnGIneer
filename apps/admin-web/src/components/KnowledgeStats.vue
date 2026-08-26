@@ -2,7 +2,7 @@
   <div class="knowledge-stats" :class="appClass">
     <div class="stats-header">
       <div class="stats-title-wrap">
-        <div class="stats-title">历史记录<span class="stats-title-count">（{{ records.length }}条）</span></div>
+        <div class="stats-title">历史记录<span class="stats-title-count">（{{ filteredRecords.length }}条）</span></div>
         <a-switch
           :checked="showDeletedOnly"
           size="small"
@@ -12,10 +12,6 @@
       </div>
       <div class="stats-actions">
         <LibrarySelect class="library-select-inline" style="min-width: 160px" @review="onEntityReview" />
-        <a-button type="primary" @click="openUploadModal">
-          <template #icon><upload-outlined /></template>
-          上传
-        </a-button>
         <a-button
           v-show="selectedRowKeys.length > 0"
           type="primary"
@@ -27,10 +23,46 @@
       </div>
     </div>
 
+    <div class="stats-filter-bar">
+      <a-input
+        v-model:value="keywordFilter"
+        placeholder="按文件名搜索"
+        allow-clear
+        class="stats-filter-item"
+        style="width: 240px"
+      />
+      <a-select
+        v-model:value="statusFilter"
+        placeholder="全部状态"
+        allow-clear
+        class="stats-filter-item"
+        style="width: 140px"
+      >
+        <a-select-option v-for="opt in statusFilterOptions" :key="opt.value" :value="opt.value">
+          {{ opt.label }}
+        </a-select-option>
+      </a-select>
+      <a-select
+        v-model:value="formatFilter"
+        placeholder="全部格式"
+        allow-clear
+        class="stats-filter-item"
+        style="width: 120px"
+      >
+        <a-select-option v-for="opt in formatFilterOptions" :key="opt.value" :value="opt.value">
+          {{ opt.label }}
+        </a-select-option>
+      </a-select>
+      <a-button type="primary" class="stats-filter-upload" @click="openUploadModal">
+        <template #icon><upload-outlined /></template>
+        上传
+      </a-button>
+    </div>
+
     <div ref="tableWrapRef" class="stats-table-wrap">
     <a-table
       :columns="columns"
-      :data-source="records"
+      :data-source="filteredRecords"
       :loading="loading"
       :row-selection="rowSelection"
       :scroll="{ x: scrollX }"
@@ -284,6 +316,37 @@ async function openUploadModal() {
   }
 }
 const records = ref<ParseRecordItem[]>([])
+
+// ── 历史记录筛选（文件名 / 状态 / 格式，客户端过滤）──────────────────
+const keywordFilter = ref('')
+const statusFilter = ref<string | undefined>(undefined)
+const formatFilter = ref<string | undefined>(undefined)
+
+const STATUS_FILTER_OPTIONS = [
+  { value: 'completed', label: '完成' },
+  { value: 'processing', label: '进行中' },
+  { value: 'queued', label: '排队中' },
+  { value: 'pending', label: '待解析' },
+  { value: 'partial', label: '部分完成' },
+  { value: 'failed', label: '失败' },
+  { value: 'cancelled', label: '已取消' },
+  { value: 'deleted', label: '用户已删' },
+]
+const statusFilterOptions = STATUS_FILTER_OPTIONS
+const formatFilterOptions = ['pdf', 'doc', 'docx', 'md', 'txt'].map((f) => ({
+  value: f,
+  label: f.toUpperCase(),
+}))
+
+const filteredRecords = computed(() => {
+  const kw = keywordFilter.value.trim().toLowerCase()
+  return records.value.filter((r) => {
+    if (statusFilter.value && r.status !== statusFilter.value) return false
+    if (formatFilter.value && String(r.file_format || '').toLowerCase() !== formatFilter.value) return false
+    if (kw && !String(r.file_name || '').toLowerCase().includes(kw)) return false
+    return true
+  })
+})
 const loading = ref(false)
 const showDeletedOnly = ref(false)
 const selectedRowKeys = ref<number[]>([])
@@ -941,6 +1004,19 @@ onMounted(() => {
 }
 .stats-table-wrap {
   min-width: 0;
+}
+.stats-filter-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.stats-filter-item {
+  min-width: 0;
+}
+.stats-filter-upload {
+  margin-left: auto;
 }
 :deep(.ant-table) {
   th, td { text-align: center !important; }
