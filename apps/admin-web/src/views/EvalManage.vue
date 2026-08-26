@@ -541,7 +541,14 @@ const onStopRun = async () => {
     await stopRun(runId)
     message.info('评测已停止')
   } catch (e: any) {
-    message.error(e.message || '停止评测失败')
+    // 后端返回"未找到运行中的任务"= 线程已结束/后端已重启（僵尸 run），
+    // 刷新状态并按已结束提示，而不是报一个让人困惑的 404 错误。
+    if (String(e.message || '').includes('未找到运行中的任务')) {
+      await fetchLastRun(selectedDatasetId.value)
+      message.info('评测任务已结束或已中断')
+    } else {
+      message.error(e.message || '停止评测失败')
+    }
   }
 }
 

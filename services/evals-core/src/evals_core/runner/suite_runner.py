@@ -29,9 +29,20 @@ def _generate_run_name() -> str:
 
 
 def stop_eval_run(run_id: str) -> bool:
-    """请求停止指定运行ID的评测任务（优雅停止：完成当前题目后退出）"""
+    """请求停止指定运行ID的评测任务（优雅停止：完成当前题目后退出）。"""
     global _stop_event
     if _current_run_id != run_id or _stop_event is None:
+        # 当前进程没有该运行的任务：若 DB 中仍是 running（僵尸状态，后端重启后线程已死），
+        # 直接按已中断收尾，避免前端"停止"永远 404。
+        run = result_store.get_run(run_id)
+        if run and run.get("status") == "running":
+            details = result_store.list_run_details(run_id)
+            questions = result_store.list_questions(run.get("dataset_id") or "")
+            qmap = {str(q.get("question_id") or ""): q for q in questions}
+            enriched = [_enrich_detail_with_question(d, qmap.get(str(d.get("question_id") or ""), {})) for d in details]
+            summary = _compute_summary(enriched)
+            result_store.cancel_run(run_id, summary)
+            return True
         return False
     _stop_event.set()
     return True
