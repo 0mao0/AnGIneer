@@ -147,7 +147,8 @@ def _force_retrieve_tool(
     call = ToolCall(id="forced_knowledge_search", name="knowledge_search", arguments={"query": query})
     try:
         results = _execute_tools_batch(
-            [call], machine.tools_by_name, machine.active_config, cancel, emit, run_id, 0
+            [call], machine.tools_by_name, machine.active_config, cancel, emit, run_id,
+            machine.current_turn or 0,
         )
         return results[0].content if results else None
     except Exception:  # noqa: BLE001
@@ -424,6 +425,7 @@ class _AttemptMachine:
         self.attempt_turn = 0
         self.retry_used = False
         self.refusal_retry_used = False
+        self.current_turn = 0
         self.force_retrieve: Optional[Callable[[], Optional[str]]] = None
         self._forced_retrieve_used = False
         self.codec = config.codec or TextToolCallCodec()
@@ -440,6 +442,7 @@ class _AttemptMachine:
         self.attempt_start_idx = len(self.messages)
         self.retry_used = False
         self.refusal_retry_used = False
+        self._forced_retrieve_used = False
         nested = self.attempts[index].config_factory()
         active = replace(
             self.base_config,
@@ -668,6 +671,7 @@ def run_agent_loop(
                         prev_len = len(messages)
                         turn += 1
                         machine.attempt_turn += 1
+                        machine.current_turn = turn
                         _safe_emit(emit, AgentEvent(type="turn_start", run_id=run_id, turn=turn, payload={"turn": turn}))
                         assistant, _, direct_results, usage = _run_llm_turn(
                             messages, new_prompt, machine.active_config, machine.codec, machine.tools_by_name,
@@ -693,6 +697,7 @@ def run_agent_loop(
 
                 turn += 1
                 machine.attempt_turn += 1
+                machine.current_turn = turn
                 _safe_emit(emit, AgentEvent(type="turn_start", run_id=run_id, turn=turn, payload={"turn": turn}))
                 new_prompt = messages[prev_len:]
                 prev_len = len(messages)
