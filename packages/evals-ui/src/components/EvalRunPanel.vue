@@ -1,6 +1,13 @@
 <template>
   <div class="eval-run-panel">
     <div class="eval-run-panel__actions">
+      <a-select
+        v-if="!isRunning && models.length"
+        v-model:value="selectedModel"
+        size="small"
+        class="eval-run-panel__model-select"
+        :options="modelOptions"
+      />
       <a-button
         v-if="isRunning"
         type="primary"
@@ -255,14 +262,34 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  run: []
-  resume: [runId: string]
+  run: [configName?: string]
+  resume: [runId: string, configName?: string]
   stop: []
   'select-run': [runId: string]
   'delete-run': [runId: string]
 }>()
 
 const stopping = ref(false)
+const models = ref<Array<{ name: string; model: string }>>([])
+const selectedModel = ref<string | undefined>(undefined)
+const modelOptions = computed(() => models.value.map(m => ({ value: m.name, label: m.name })))
+
+/** 拉取可用 LLM 模型配置（默认模型排第一） */
+const loadModels = async () => {
+  try {
+    const resp = await fetch('/api/llm_configs')
+    if (resp.ok) {
+      const list = (await resp.json()) as Array<{ name: string; model: string }>
+      models.value = list || []
+      if (!selectedModel.value && models.value.length) {
+        selectedModel.value = models.value[0].name
+      }
+    }
+  } catch {
+    models.value = []
+  }
+}
+void loadModels()
 const selectedRunId = ref<string | undefined>(undefined)
 const compareIds = ref<string[]>([])
 const detailsByRun = ref<Record<string, EvalRunDetail[]>>({})
@@ -347,7 +374,7 @@ const canResume = computed(() => !isRunning.value && !!resumableRun.value && !!p
 
 const onResumeClick = () => {
   if (resumableRun.value) {
-    emit('resume', resumableRun.value.run_id)
+    emit('resume', resumableRun.value.run_id, selectedModel.value)
   }
 }
 
@@ -359,7 +386,7 @@ const handleClick = () => {
     emit('stop')
     setTimeout(() => { stopping.value = false }, 1000)
   } else {
-    emit('run')
+    emit('run', selectedModel.value)
   }
 }
 
@@ -556,6 +583,10 @@ const compareRows = computed(() => {
     flex-direction: column;
     gap: 8px;
     flex-shrink: 0;
+  }
+
+  &__model-select {
+    width: 100%;
   }
 
   &__action-row {

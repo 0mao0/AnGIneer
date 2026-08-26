@@ -9,15 +9,16 @@ from typing import Any, Dict
 from angineer_core.prompts import versions as _prompt_versions
 
 
-def build_run_manifest() -> Dict[str, Any]:
+def build_run_manifest(config_name: str = "") -> Dict[str, Any]:
     """构建 run 级 manifest：prompt 版本 + 关键开关 + 模型，供纵向对比复现。"""
     from angineer_core.base_config import get_config
 
     cfg = get_config()
+    model = config_name or os.getenv("ANGINEER_DEFAULT_MODEL", "")
     return {
         "schema_version": "eval.run_manifest.v1",
         "prompt_versions": dict(_prompt_versions()),
-        "model": os.getenv("ANGINEER_DEFAULT_MODEL", ""),
+        "model": model,
         "flags": {
             "route_pre": os.getenv("ANGINEER_ROUTE_PRE", "true"),
             "docs_api_url": os.getenv("ANGINEER_DOCS_API_URL", ""),

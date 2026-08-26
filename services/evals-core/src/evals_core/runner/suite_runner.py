@@ -20,9 +20,9 @@ _current_run_id: Optional[str] = None
 _stop_event: Optional[threading.Event] = None
 
 
-def _generate_run_name() -> str:
+def _generate_run_name(config_name: Optional[str] = None) -> str:
     """生成运行名称，格式: {模型名}_{MMDD-HHmm}。"""
-    model_name = os.getenv("ANGINEER_DEFAULT_MODEL", "eval")
+    model_name = config_name or os.getenv("ANGINEER_DEFAULT_MODEL", "eval")
     now = datetime.now()
     timestamp = now.strftime("%m%d-%H%M")
     return f"{model_name}_{timestamp}"
@@ -297,6 +297,7 @@ def _run_suite_thread(
     override_doc_ids: Optional[List[str]] = None,
     pre_done: Optional[Dict[str, Dict[str, Any]]] = None,
     in_place: bool = False,
+    config_name: Optional[str] = None,
 ) -> None:
     """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。
 
@@ -358,6 +359,8 @@ def _run_suite_thread(
             evaluator_names = _determine_evaluator_names(question)
             if override_doc_ids is not None:
                 question = {**question, "doc_ids": override_doc_ids}
+            if config_name:
+                question = {**question, "config_name": config_name}
             # 清理该题残留/重复详情行，避免续跑后同一题出现多条记录
             result_store.delete_run_detail(run_id, question_id)
             result_store.insert_run_detail({
@@ -411,6 +414,7 @@ def _run_suite_thread(
 def start_eval_run(
     dataset_id: str, question_id: Optional[str] = None, save: bool = True,
     override_doc_ids: Optional[List[str]] = None, resume_run_id: Optional[str] = None,
+    config_name: Optional[str] = None,
 ) -> Dict[str, Any]:
     """启动评测运行（异步线程），立即返回 run_id，前端轮询获取进度。
 
@@ -449,21 +453,21 @@ def start_eval_run(
         if not pre_done:
             raise ValueError("续跑源 run 没有可复用的已完成题目")
         # 原地续跑：复用原 run 记录，避免同一轮评测产生两条记录
-        result_store.reset_run_for_resume(resume_run_id, build_run_manifest())
+        result_store.reset_run_for_resume(resume_run_id, build_run_manifest(config_name))
         in_place_resume = True
         run_id = resume_run_id
-        run_name = source_run.get("run_name") or _generate_run_name()
+        run_name = source_run.get("run_name") or _generate_run_name(config_name)
     else:
-        run_name = _generate_run_name() if is_full_run else ""
+        run_name = _generate_run_name(config_name) if is_full_run else ""
         run_data = result_store.create_run(
             dataset_id, len(questions), run_name=run_name, is_full_run=is_full_run,
-            config_snapshot=build_run_manifest(),
+            config_snapshot=build_run_manifest(config_name),
         )
         run_id = run_data["run_id"]
 
     thread = threading.Thread(
         target=_run_suite_thread,
-        args=(run_id, dataset_id, questions, override_doc_ids, pre_done, in_place_resume),
+        args=(run_id, dataset_id, questions, override_doc_ids, pre_done, in_place_resume, config_name),
         daemon=True,
     )
     thread.start()

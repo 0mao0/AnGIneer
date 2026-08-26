@@ -205,6 +205,7 @@ class AnswerEvaluator(BaseEvaluator):
             library_id=str(question.get("library_id") or "default"),
             doc_ids=list(question.get("doc_ids") or []),
             session_id=f"eval-{question_id}",
+            config_name=question.get("config_name"),
             stage_callback=(lambda partial: self._emit_enriched_stage(question, partial, stage_callback)) if stage_callback else None,
         )
 

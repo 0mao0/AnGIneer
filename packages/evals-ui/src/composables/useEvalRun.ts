@@ -65,13 +65,14 @@ export function useEvalRun() {
   let pollTimer: ReturnType<typeof setInterval> | null = null
 
   /** 启动整体评测 */
-  const startRun = async (datasetId: string, docIds?: string[], resumeRunId?: string) => {
+  const startRun = async (datasetId: string, docIds?: string[], resumeRunId?: string, configName?: string) => {
     loading.value = true
     isFullRun.value = true
     try {
       const body: Record<string, any> = { dataset_id: datasetId }
       if (docIds && docIds.length > 0) body.doc_ids = docIds
       if (resumeRunId) body.resume_run_id = resumeRunId
+      if (configName) body.config_name = configName
       const resp = await fetch('/api/evals/runs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

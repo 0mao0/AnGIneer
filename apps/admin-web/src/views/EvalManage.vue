@@ -506,11 +506,11 @@ const onQuestionExpandDetail = async (questionId: string) => {
   await fetchQuestionDetail(run.run_id, questionId)
 }
 
-const onStartRun = async () => {
+const onStartRun = async (configName?: string) => {
   if (!selectedDatasetId.value) return
   evalLoading.value = true
   try {
-    await startRun(selectedDatasetId.value, selectedDocIds.value)
+    await startRun(selectedDatasetId.value, selectedDocIds.value, undefined, configName)
     message.success('评测已启动')
   } catch (e: any) {
     message.error(e.message || '启动评测失败')
@@ -520,11 +520,11 @@ const onStartRun = async () => {
 }
 
 /** 断点续跑：复用已中断 run 的已完成结果，只执行剩余题目 */
-const onResumeRun = async (resumeRunId: string) => {
+const onResumeRun = async (resumeRunId: string, configName?: string) => {
   if (!selectedDatasetId.value) return
   evalLoading.value = true
   try {
-    await startRun(selectedDatasetId.value, selectedDocIds.value, resumeRunId)
+    await startRun(selectedDatasetId.value, selectedDocIds.value, resumeRunId, configName)
     message.success('断点续跑已启动')
   } catch (e: any) {
     message.error(e.message || '断点续跑失败')

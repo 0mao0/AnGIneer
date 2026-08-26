@@ -37,6 +37,7 @@ def run_eval_query(
     library_id: str = "default",
     doc_ids: Optional[List[str]] = None,
     session_id: str = "",
+    config_name: Optional[str] = None,
     stage_callback=None,
     step_callback=None,
 ) -> Dict[str, Any]:
@@ -46,7 +47,7 @@ def run_eval_query(
     不走 HTTP，不依赖 FastAPI，不依赖 asyncio。
     在评测器的 daemon 线程中直接调用即可。
 
-    使用默认模型配置执行评测查询。
+    config_name 指定 LLM 模型配置名（对应 LLM_CONFIGS），None 时用默认模型。
 
     Args:
         query: 用户查询文本
@@ -68,7 +69,7 @@ def run_eval_query(
             query=query,
             library_id=library_id,
             doc_ids=doc_ids or [],
-            config_name=None,
+            config_name=config_name,
             sop_loader=sop_loader,
             stage_callback=stage_callback,
             step_callback=step_callback,

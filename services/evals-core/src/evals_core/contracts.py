@@ -50,6 +50,7 @@ class StartEvalRunRequest(BaseModel):
     save: bool = True
     doc_ids: Optional[List[str]] = None
     resume_run_id: Optional[str] = None
+    config_name: Optional[str] = None
 
 
 class EvalRunProgress(BaseModel):
