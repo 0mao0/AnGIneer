@@ -59,7 +59,7 @@ def test_enrich_graph_nodes_writes_table_semantics_sidecar() -> None:
     assert sidecar["table_meta"]["title"] == "表1 标题"
     assert sidecar["table_schema"] == ["项目", "数值"]
     assert sidecar["table_row_keys"] == ["高度", "宽度"]
-    assert sidecar["table_summary"] == "表格《表1 标题》包含 2 行、2 列。"
+    assert sidecar["table_summary"] == "表格《表1 标题》包含 2 行、2 列。 列：项目、数值"
     assert updated[1] == paragraph  # 非表格节点不写旁路
 
 

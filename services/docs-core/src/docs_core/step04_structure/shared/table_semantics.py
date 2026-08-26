@@ -9,7 +9,8 @@
 
 原始字段（table_html / content_json）永不修改，旁路字段只做语义指引。
 """
-from typing import Any, Dict, List, Tuple, TYPE_CHECKING
+import re
+from typing import Any, Dict, List, Optional, Tuple, TYPE_CHECKING
 
 from docs_core.models.types import (
     TABLE_TYPE_HYBRID,
@@ -17,13 +18,13 @@ from docs_core.models.types import (
     TABLE_TYPE_NUMERIC_DENSE,
     TABLE_TYPE_TEXT_DENSE,
 )
-from docs_core.step04_structure.shared.table_html_utils import parse_table_html
+from docs_core.step04_structure.shared.table_cells import parse_table_grid
 
 if TYPE_CHECKING:
     from docs_core.models.types import CanonicalTable
 
 
-TABLE_SEMANTICS_VERSION = "0.1.0"
+TABLE_SEMANTICS_VERSION = "0.2.0"
 
 
 # 归一化单元格文本，便于后续做规则统计和表示构建。
@@ -91,17 +92,74 @@ def classify_table(rows: List[List[object]]) -> str:
     return TABLE_TYPE_HYBRID
 
 
-# 归一化表头，生成适合索引的列定义。
+# 把表格 HTML 解析成规整二维数组（正确展开 colspan 与 rowspan 占位）。
+def parse_table_rows(table_html: str) -> List[List[str]]:
+    grid = parse_table_grid(table_html)
+    rows_count = int(grid.get("rows_count") or 0)
+    cols_count = int(grid.get("cols_count") or 0)
+    if rows_count <= 0 or cols_count <= 0:
+        return []
+    rows: List[List[str]] = [[""] * cols_count for _ in range(rows_count)]
+    for cell in grid.get("cells", []):
+        text = str(cell.get("text") or "")
+        row = int(cell.get("row") or 0)
+        col = int(cell.get("col") or 0)
+        rowspan = max(1, int(cell.get("rowspan") or 1))
+        colspan = max(1, int(cell.get("colspan") or 1))
+        for r in range(row, min(row + rowspan, rows_count)):
+            for c in range(col, min(col + colspan, cols_count)):
+                rows[r][c] = text
+    return [row for row in rows if any(normalize_table_cell(cell) for cell in row)]
+
+
+# 判断表头行是否存在重复的父列名（说明下方有子列分组）。
+def _has_repeated_header(row: List[object]) -> bool:
+    cells = [normalize_table_cell(cell) for cell in row]
+    nonempty = [cell for cell in cells if cell]
+    return len(nonempty) != len(set(nonempty))
+
+
+# 判断第二行是否为子表头：第一列应是空占位或编号，其余列短编号/符号。
+def _is_subheader_row(row: List[object]) -> bool:
+    cells = [normalize_table_cell(cell) for cell in row]
+    nonempty = [cell for cell in cells if cell]
+    if not nonempty:
+        return False
+    first = cells[0] if cells else ""
+    if first and re.search(r"\w{2,}", first, flags=re.UNICODE):
+        return False
+    for cell in nonempty:
+        if len(cell) > 6:
+            return False
+    return True
+
+
+# 识别单行/多行表头，返回 (header_rows, body_rows)。
+def split_header_body(rows: List[List[str]]) -> Tuple[List[List[str]], List[List[str]]]:
+    if not rows:
+        return [], []
+    if len(rows) >= 2 and _has_repeated_header(rows[0]) and _is_subheader_row(rows[1]):
+        return rows[:2], rows[2:]
+    return rows[:1], rows[1:]
+
+
+# 归一化表头，生成适合索引的列定义；多行表头按列合并。
 def build_table_schema(headers: List[List[object]]) -> List[str]:
     if not headers:
         return []
-    flattened: List[str] = []
-    for row in headers:
-        for cell in row:
-            normalized = normalize_table_cell(cell)
-            if normalized:
-                flattened.append(normalized)
-    return flattened
+    ncols = max((len(row) for row in headers), default=0)
+    schema: List[str] = []
+    for col in range(ncols):
+        parts: List[str] = []
+        prev: Optional[str] = None
+        for row in headers:
+            cell = normalize_table_cell(row[col]) if col < len(row) else ""
+            if cell and cell != prev:
+                parts.append(cell)
+            if cell:
+                prev = cell
+        schema.append(" ".join(parts))
+    return schema
 
 
 # 提取第一列主键项，便于数值型表做行定位。
@@ -116,21 +174,54 @@ def build_table_row_keys(rows: List[List[object]]) -> List[str]:
     return row_keys
 
 
-# 生成面向检索的行级文本表示。
+# 生成面向检索的行级文本表示；数值作为载荷跟随行键与列头进入上下文。
 def build_text_row_chunks(title: str, headers: List[str], rows: List[List[object]]) -> List[str]:
+    short_title = title if len(title) <= 60 else title[:60] + "…"
     row_chunks: List[str] = []
     for row in rows:
         normalized_row = [normalize_table_cell(cell) for cell in row]
         if not any(normalized_row):
             continue
-        pairs = []
+        pairs: List[str] = []
         for index, cell in enumerate(normalized_row):
             header = headers[index] if index < len(headers) else f"列{index + 1}"
+            if not header or not header.strip():
+                header = "行标签"
             if cell:
                 pairs.append(f"{header}: {cell}")
         if pairs:
-            row_chunks.append(f"{title} | " + " | ".join(pairs))
+            prefix = f"{short_title} | " if short_title else ""
+            row_chunks.append(prefix + " | ".join(pairs))
     return row_chunks
+
+
+# 生成整表文本化表示，用于需要遍历/比较整张表的检索与问答。
+def build_table_full_text(
+    title: str,
+    header_rows: List[List[object]],
+    body_rows: List[List[object]],
+) -> str:
+    schema = build_table_schema(header_rows or body_rows[:1])
+    lines: List[str] = []
+    if title:
+        lines.append(f"表：{title}")
+    header_line = "、".join(header for header in schema if header)
+    if header_line:
+        lines.append(f"列：{header_line}")
+    for row in body_rows:
+        normalized_row = [normalize_table_cell(cell) for cell in row]
+        if not any(normalized_row):
+            continue
+        pairs: List[str] = []
+        for index, cell in enumerate(normalized_row):
+            header = schema[index] if index < len(schema) else f"列{index + 1}"
+            if not header or not header.strip():
+                header = "行标签"
+            if cell:
+                pairs.append(f"{header}: {cell}")
+        if pairs:
+            lines.append(" | ".join(pairs))
+    return "\n".join(lines)
 
 
 # 生成统一表格表示，供后续不同索引层消费。
@@ -143,6 +234,8 @@ def build_table_representations(
     schema_headers = build_table_schema(header_rows or body_rows[:1])
     row_keys = build_table_row_keys(body_rows)
     summary = f"表格《{title or '未命名表格'}》包含 {len(body_rows)} 行、{max((len(row) for row in body_rows), default=0)} 列。"
+    if schema_headers:
+        summary += " 列：" + "、".join(header for header in schema_headers if header)
 
     payload: Dict[str, Any] = {
         "table_type": table_type,
@@ -154,11 +247,8 @@ def build_table_representations(
         "table_schema": schema_headers,
         "table_row_keys": row_keys,
         "table_summary": summary,
-        "table_text_chunks": [],
+        "table_text_chunks": build_text_row_chunks(title, schema_headers, body_rows),
     }
-
-    if table_type in {TABLE_TYPE_TEXT_DENSE, TABLE_TYPE_HYBRID, TABLE_TYPE_MAPPING_ENUM}:
-        payload["table_text_chunks"] = build_text_row_chunks(title, schema_headers, body_rows)
     return payload
 
 
@@ -218,12 +308,11 @@ def enrich_graph_nodes_table_semantics(
             continue
         stats["total_tables"] += 1
         html = _node_table_html(node)
-        rows = parse_table_html(html)
+        rows = parse_table_rows(html)
         if not rows:
             stats["skipped"] += 1
             continue
-        header_rows = rows[:1]
-        body_rows = rows[1:] if len(rows) > 1 else []
+        header_rows, body_rows = split_header_body(rows)
         node["table_semantics"] = build_table_semantics_sidecar(
             _node_table_title(node),
             header_rows,
@@ -267,6 +356,7 @@ __all__ = [
     "build_table_row_keys",
     "build_table_schema",
     "build_table_semantics_sidecar",
+    "build_table_full_text",
     "build_text_row_chunks",
     "classify_table",
     "enrich_canonical_table",
@@ -274,4 +364,6 @@ __all__ = [
     "extract_table_features",
     "is_numeric_like",
     "normalize_table_cell",
+    "parse_table_rows",
+    "split_header_body",
 ]

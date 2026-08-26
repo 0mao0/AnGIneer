@@ -21,8 +21,13 @@ from docs_core.models.types import (
     PageBBox,
 )
 from docs_core.step04_structure.shared.formula_semantics import enrich_formula_block
-from docs_core.step05_sqlite_fts.rebuild.table_semantics import enrich_canonical_table
-from docs_core.step04_structure.shared.table_html_utils import parse_table_html
+from docs_core.step05_sqlite_fts.rebuild.table_semantics import (
+    TABLE_SEMANTICS_VERSION,
+    build_table_full_text,
+    enrich_canonical_table,
+    parse_table_rows,
+    split_header_body,
+)
 from docs_core.step04_structure.shared.title_level_refiner import refine_document_title_levels
 
 
@@ -465,12 +470,11 @@ def build_canonical_tables_from_source(
         if not table_html:
             continue
 
-        parsed_rows = parse_table_html(table_html)
+        parsed_rows = parse_table_rows(table_html)
         if not parsed_rows:
             continue
 
-        header_rows = parsed_rows[:1]
-        body_rows = parsed_rows[1:] if len(parsed_rows) > 1 else []
+        header_rows, body_rows = split_header_body(parsed_rows)
         caption = (
             str(raw_block.get("caption") or "")
             or str(content_payload.get("table_caption") or "")
@@ -497,8 +501,13 @@ def build_canonical_tables_from_source(
             text_chunks=[],
         )
         sidecar = raw_block.get("table_semantics")
-        if isinstance(sidecar, dict) and sidecar:
-            # 04 已生成 table_semantics 旁路：05 透传，不再重算
+        sidecar_current = (
+            isinstance(sidecar, dict)
+            and bool(sidecar)
+            and str(sidecar.get("version") or "") == TABLE_SEMANTICS_VERSION
+        )
+        if sidecar_current:
+            # 04 已生成同版本 table_semantics 旁路：05 透传，不再重算
             table = table.model_copy(
                 update={
                     "table_type": str(sidecar.get("table_type") or "hybrid"),
@@ -550,6 +559,39 @@ def build_canonical_tables_from_source(
                 clause_id=canonical_block.clause_id if canonical_block else None,
             )
         )
+
+        full_text = build_table_full_text(table.title, table.header_rows, table.body_rows)
+        if full_text:
+            table_chunks.append(
+                CanonicalChunk(
+                    chunk_id=f"chunk-{table.table_id}-full",
+                    doc_id=doc_id,
+                    chunk_type="table_full",
+                    text=full_text,
+                    text_clean=clean_text(full_text),
+                    token_count=estimate_token_count(full_text),
+                    section_path=section_path,
+                    page_start=page_idx,
+                    page_end=page_idx,
+                    source_block_ids=[block_id],
+                    citation_targets=[
+                        CitationTarget(
+                            target_id=table.table_id,
+                            target_type="table",
+                            doc_id=doc_id,
+                            page_idx=page_idx,
+                            section_path=section_path,
+                            display_title=table.title,
+                            snippet=full_text[:180],
+                        )
+                    ],
+                    inherited_chapter=canonical_block.inherited_chapter if canonical_block else None,
+                    entity_tags=canonical_block.entity_tags if canonical_block else [],
+                    conditions=canonical_block.conditions if canonical_block else [],
+                    exam_tags=canonical_block.exam_tags if canonical_block else [],
+                    clause_id=canonical_block.clause_id if canonical_block else None,
+                )
+            )
 
         row_chunk_type = "table_mapping_row" if table.table_type == "mapping_enum" else "table_text_row"
         for row_index, row_text in enumerate(table.text_chunks):

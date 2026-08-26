@@ -37,6 +37,7 @@ ChunkType = Literal[
     "table_text_row",
     "table_mapping_row",
     "table_summary",
+    "table_full",
     "schema_desc",
     "formula_block",
 ]

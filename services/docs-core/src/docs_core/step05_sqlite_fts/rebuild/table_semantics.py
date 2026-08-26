@@ -14,6 +14,7 @@ from docs_core.step04_structure.shared.table_semantics import (
     build_table_row_keys,
     build_table_schema,
     build_table_semantics_sidecar,
+    build_table_full_text,
     build_text_row_chunks,
     classify_table,
     enrich_canonical_table,
@@ -21,6 +22,8 @@ from docs_core.step04_structure.shared.table_semantics import (
     extract_table_features,
     is_numeric_like,
     normalize_table_cell,
+    parse_table_rows,
+    split_header_body,
 )
 
 __all__ = [
@@ -33,6 +36,7 @@ __all__ = [
     "build_table_row_keys",
     "build_table_schema",
     "build_table_semantics_sidecar",
+    "build_table_full_text",
     "build_text_row_chunks",
     "classify_table",
     "enrich_canonical_table",
@@ -40,4 +44,6 @@ __all__ = [
     "extract_table_features",
     "is_numeric_like",
     "normalize_table_cell",
+    "parse_table_rows",
+    "split_header_body",
 ]
