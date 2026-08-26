@@ -209,7 +209,6 @@ export function useEvalRun() {
 
   /** 加载指定历史运行的完整详情用于展示 */
   const selectHistoricalRun = async (runId: string) => {
-    stopPolling()
     // 复用 runs 列表里的汇总 + fetchRunDetails 的去重/缓存，切换历史记录不再重复请求
     const summary = runs.value.find(r => r.run_id === runId)
     const details = await fetchRunDetails(runId)
@@ -227,6 +226,16 @@ export function useEvalRun() {
         started_at: '',
       }
     }
+    const runningRun = runs.value.find(r => r.status === 'running')
+    if (runningRun?.run_id === runId) {
+      // 选中的是正在跑的记录：保持实时轮询，进度半圆/进度条继续更新
+      currentRun.value = run
+      isFullRun.value = true
+      runDetails.value = new Map(details.map(d => [d.question_id, d]))
+      startPolling(runId)
+      return
+    }
+    stopPolling()
     lastRun.value = run
     currentRun.value = null
     isFullRun.value = true
