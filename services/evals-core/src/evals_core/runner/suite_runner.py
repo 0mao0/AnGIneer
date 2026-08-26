@@ -274,11 +274,13 @@ def _run_suite_thread(
     run_id: str, dataset_id: str, questions: List[Dict[str, Any]],
     override_doc_ids: Optional[List[str]] = None,
     pre_done: Optional[Dict[str, Dict[str, Any]]] = None,
+    in_place: bool = False,
 ) -> None:
     """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。
 
     pre_done: 断点续跑时，question_id -> 已完成详情 的映射。
-    这些题目直接复用旧结果，只执行剩余题目。
+    这些题目直接复用旧结果，只执行剩余题目；in_place=True 时详情已在原 run 记录中，
+    不重复插入，仅计数进度。
     """
     global _current_run_id, _stop_event
     pre_done = pre_done or {}
@@ -314,19 +316,20 @@ def _run_suite_thread(
             question_id = str(question.get("question_id") or "")
             # 断点续跑：已完成的题目直接复用旧结果
             if question_id in pre_done:
-                detail = pre_done[question_id]
-                result_store.insert_run_detail({
-                    "run_id": run_id,
-                    "question_id": question_id,
-                    "status": detail.get("status", "completed"),
-                    "quality": detail.get("quality"),
-                    "prediction": detail.get("prediction"),
-                    "scores": detail.get("scores"),
-                    "all_scores": detail.get("all_scores"),
-                    "all_predictions": detail.get("all_predictions"),
-                    "error": detail.get("error"),
-                    "latency_ms": detail.get("latency_ms"),
-                })
+                if not in_place:
+                    detail = pre_done[question_id]
+                    result_store.insert_run_detail({
+                        "run_id": run_id,
+                        "question_id": question_id,
+                        "status": detail.get("status", "completed"),
+                        "quality": detail.get("quality"),
+                        "prediction": detail.get("prediction"),
+                        "scores": detail.get("scores"),
+                        "all_scores": detail.get("all_scores"),
+                        "all_predictions": detail.get("all_predictions"),
+                        "error": detail.get("error"),
+                        "latency_ms": detail.get("latency_ms"),
+                    })
                 result_store.update_run_progress(run_id, pre_done_count + executed)
                 continue
 
@@ -405,6 +408,9 @@ def start_eval_run(
 
     is_full_run = question_id is None
     pre_done: Dict[str, Dict[str, Any]] = {}
+    in_place_resume = False
+    from angineer_core.run_manifest import build_run_manifest
+
     if resume_run_id:
         source_run = result_store.get_run(resume_run_id)
         if not source_run:
@@ -413,28 +419,31 @@ def start_eval_run(
             raise ValueError("续跑源 run 与目标测试集不一致")
         pre_done = {
             str(d.get("question_id") or ""): d
-            for d in result_store.list_run_details(resume_run_id)
+            for d in result_store.list_run_details(resume_run_id, light=True)
             if d.get("status") == "completed" and d.get("scores")
         }
         if not pre_done:
             raise ValueError("续跑源 run 没有可复用的已完成题目")
-    run_name = _generate_run_name() if is_full_run else ""
-    if resume_run_id:
-        run_name = f"{run_name}（续跑）"
-    from angineer_core.run_manifest import build_run_manifest
+        # 原地续跑：复用原 run 记录，避免同一轮评测产生两条记录
+        result_store.reset_run_for_resume(resume_run_id, build_run_manifest())
+        in_place_resume = True
+        run_id = resume_run_id
+        run_name = source_run.get("run_name") or _generate_run_name()
+    else:
+        run_name = _generate_run_name() if is_full_run else ""
+        run_data = result_store.create_run(
+            dataset_id, len(questions), run_name=run_name, is_full_run=is_full_run,
+            config_snapshot=build_run_manifest(),
+        )
+        run_id = run_data["run_id"]
 
-    run_data = result_store.create_run(
-        dataset_id, len(questions), run_name=run_name, is_full_run=is_full_run,
-        config_snapshot=build_run_manifest(),
-    )
-    run_id = run_data["run_id"]
     thread = threading.Thread(
         target=_run_suite_thread,
-        args=(run_id, dataset_id, questions, override_doc_ids, pre_done),
+        args=(run_id, dataset_id, questions, override_doc_ids, pre_done, in_place_resume),
         daemon=True,
     )
     thread.start()
-    return run_data
+    return result_store.get_run(run_id) or {"run_id": run_id, "status": "running"}
 
 
 def _enrich_run_details(details: List[Dict[str, Any]], dataset_id: str) -> List[Dict[str, Any]]:

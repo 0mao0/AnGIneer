@@ -570,6 +570,17 @@ def complete_run(run_id: str, summary_scores: Dict[str, Any]) -> None:
     conn.commit()
 
 
+def reset_run_for_resume(run_id: str, config_snapshot: Dict[str, Any]) -> None:
+    """续跑时把原 run 记录重置为运行中（保留 started_at/completed_questions/详情），
+    避免同一轮评测产生两条记录。"""
+    conn = _get_conn()
+    conn.execute(
+        "UPDATE eval_run SET status = 'running', completed_at = NULL, summary_scores = NULL, config_snapshot = ? WHERE run_id = ?",
+        (json.dumps(config_snapshot, ensure_ascii=False), run_id),
+    )
+    conn.commit()
+
+
 def fail_run(run_id: str, error: str) -> None:
     """标记运行失败。"""
     now = datetime.now().isoformat()
