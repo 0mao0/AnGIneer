@@ -96,6 +96,8 @@ def _try_fix_json(content: str) -> Optional[str]:
     # 只替换键名位置与裸字符串值位置的单引号，避免破坏字符串内容中的撇号（Q1）
     content = re.sub(r"'([^']+)'\s*:", r'"\1":', content)
     content = re.sub(r":\s*'([^']+)'([,}\]])", r': "\1"\2', content)
+    # 修复非法转义序列（如 LaTeX 的 \L、\d）：\X -> \\X（X 不是合法 JSON 转义字符）
+    content = re.sub(r'\\([^"\\/bfnrtu])', r'\\\\\1', content)
 
     return content
 

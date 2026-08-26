@@ -114,7 +114,12 @@ def _llm_semantic_evaluate(
         result = chat_result_guarded(client, messages, mode="instruct", config_name=None, temperature=0.1)
         raw_response = result.text
         eval_duration = round(_time.time() - _t_start, 2)
-        parsed = extract_json_from_text(raw_response, strict=True)
+        try:
+            parsed = extract_json_from_text(raw_response, strict=True)
+        except ParseError:
+            # strict 解析失败（常见原因是 reason 里的 LaTeX 非法转义），
+            # 用宽松模式修复非法转义/尾逗号后重试，让语义判分真实生效
+            parsed = extract_json_from_text(raw_response, strict=False)
         score = float(parsed.get("score", 0.0))
         score = max(0.0, min(1.0, score))
         reason = str(parsed.get("reason", "")).strip()
@@ -335,8 +340,14 @@ class AnswerEvaluator(BaseEvaluator):
             correctness_score = semantic_score
             overall_score = 1.0 if semantic_result["semantic_passed"] else 0.0
         else:
-            correctness_score = keyword_score
-            overall_score = keyword_score
+            # 语义判分解析失败：有关键词检查时用关键词兜底；
+            # 无关键词检查时标记未评估（score=None），避免静默按满分计
+            if checks:
+                correctness_score = keyword_score
+                overall_score = keyword_score
+            else:
+                correctness_score = None
+                overall_score = None
 
         result = {
             "score": overall_score,
