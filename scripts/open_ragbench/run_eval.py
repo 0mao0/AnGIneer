@@ -59,7 +59,12 @@ def run_eval(
 def main() -> int:
     parser = argparse.ArgumentParser(description="运行 Open RAG Benchmark 子集评测")
     parser.add_argument("--aichat-api", default="http://localhost:8791")
+    parser.add_argument("--import-only", action="store_true", help="只导入题集到 evals，不启动评测 run")
     args = parser.parse_args()
+    if args.import_only:
+        import_dataset(common.Endpoints(aichat_api=args.aichat_api))
+        print("题集已导入 evals 页面")
+        return 0
     run = run_eval(common.Endpoints(aichat_api=args.aichat_api))
     print("评测完成:", run.get("run_id"), run.get("status"))
     return 0
