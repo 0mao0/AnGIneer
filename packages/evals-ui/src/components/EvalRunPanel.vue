@@ -86,15 +86,6 @@
           </span>
         </div>
         <div v-if="lastRunTime" class="eval-run-panel__accuracy-time">{{ lastRunTime }}</div>
-
-        <div v-if="metrics.length" class="eval-run-panel__metrics">
-          <EvalScoreBar
-            v-for="m in metrics"
-            :key="m.label"
-            :label="m.label"
-            :score="m.score"
-          />
-        </div>
       </div>
 
       <!-- C：历史记录（列表 + 勾选对比） -->
@@ -245,7 +236,6 @@
 <script setup lang="ts">
 import { ref, computed, watchEffect, watch } from 'vue'
 import { PlayCircleOutlined } from '@ant-design/icons-vue'
-import EvalScoreBar from './EvalScoreBar.vue'
 import type { EvalRun, EvalRunDetail, EvalSummaryScores } from '../types/eval'
 
 const props = defineProps<{
@@ -466,17 +456,6 @@ const onDeleteClick = (runId: string) => {
   compareIds.value = compareIds.value.filter(id => id !== runId)
 }
 
-/** 检索/回答/SQL 指标行 */
-const metrics = computed(() => {
-  const s = summary.value
-  if (!s) return []
-  const rows: Array<{ label: string; score: number }> = []
-  if (s.retrieval_score != null) rows.push({ label: '检索', score: s.retrieval_score })
-  if (s.answer_score != null) rows.push({ label: '回答', score: s.answer_score })
-  if (s.sql_score != null) rows.push({ label: 'SQL', score: s.sql_score })
-  return rows
-})
-
 /** 单选模式：主记录逐题结果 */
 const primaryDetails = computed(() => {
   if (!selectedRunId.value) return []
@@ -675,16 +654,6 @@ const compareRows = computed(() => {
       font-size: 11px;
       color: var(--text-secondary);
     }
-  }
-
-  &__metrics {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 12px;
-    padding-top: 10px;
-    border-top: 1px dashed var(--border-color);
-    text-align: left;
   }
 
   &__section-head {
