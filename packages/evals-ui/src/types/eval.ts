@@ -117,6 +117,14 @@ export interface EvalRunDetail {
   question_id: string
   status: EvalQuestionStatus
   quality: EvalQuality | null
+  /** 后端补齐的题目元信息 */
+  question?: string | null
+  intent_level?: EvalIntentLevel | null
+  doc_ids?: string[]
+  question_family?: string | null
+  variant_type?: string | null
+  perturbation_tags?: string[]
+  runtime_flags?: string[]
   prediction?: Record<string, unknown> | null
   scores?: Record<string, unknown> | null
   all_scores?: Record<string, Record<string, unknown>> | null

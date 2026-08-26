@@ -165,6 +165,7 @@
             :last-run-time="lastRunTime"
             :loading="evalLoading"
             :runs="runs"
+            :load-run-details="fetchRunDetails"
             @run="onStartRun"
             @resume="onResumeRun"
             @stop="onStopRun"
@@ -380,6 +381,8 @@ const {
   fetchLastRun,
   evaluateQuestion,
   fetchQuestionDetail,
+  fetchRunDetails,
+  clearDetailsCache,
   selectHistoricalRun,
   stopPolling,
   stopRun,
@@ -471,6 +474,7 @@ const onDatasetSelect = async (keys: string[], _nodes: EvalTreeNode[]) => {
   }
   stopPolling()
   isFullRun.value = false
+  clearDetailsCache()
   questionsLoading.value = true
   try {
     await fetchDataset(key)

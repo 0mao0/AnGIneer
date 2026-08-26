@@ -58,6 +58,8 @@ export function useEvalRun() {
   const evaluatingQuestionIds = ref<Set<string>>(new Set())
   /** 标记当前运行是否为整体评测（区别于单题评测） */
   const isFullRun = ref(false)
+  /** 按 run 缓存的轻量题目详情（用于面板历史记录/对比） */
+  const detailsByRun = ref<Record<string, EvalRunDetail[]>>({})
   let pollTimer: ReturnType<typeof setInterval> | null = null
 
   /** 启动整体评测 */
@@ -239,6 +241,28 @@ export function useEvalRun() {
     return null
   }
 
+  /** 拉取某次 run 的轻量题目详情（含 status/quality/scores），带缓存；运行中不缓存 */
+  const fetchRunDetails = async (runId: string): Promise<EvalRunDetail[]> => {
+    const run = currentRun.value?.run_id === runId ? currentRun.value : undefined
+    const isRunningRun = run?.status === 'running'
+    if (!isRunningRun && detailsByRun.value[runId]) {
+      return detailsByRun.value[runId]
+    }
+    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?light=1`)
+    if (resp.ok) {
+      const data: EvalRun = await resp.json()
+      const details = data.details || []
+      detailsByRun.value = { ...detailsByRun.value, [runId]: details }
+      return details
+    }
+    return []
+  }
+
+  /** 清空 run 详情缓存（切换测试集时调用） */
+  const clearDetailsCache = () => {
+    detailsByRun.value = {}
+  }
+
   /** 对单道题目发起评测，异步执行，通过轮询获取结果 */
   const evaluateQuestion = async (datasetId: string, questionId: string, docIds?: string[]) => {
     evaluatingQuestionIds.value = new Set(evaluatingQuestionIds.value).add(questionId)
@@ -319,6 +343,8 @@ export function useEvalRun() {
     fetchLastRun,
     evaluateQuestion,
     fetchQuestionDetail,
+    fetchRunDetails,
+    clearDetailsCache,
     selectHistoricalRun,
     startPolling,
     stopPolling,
