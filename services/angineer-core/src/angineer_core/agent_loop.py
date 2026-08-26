@@ -19,6 +19,7 @@ from angineer_core.agent_messages import (
     AgentMessage,
     REFUSAL_ANSWER_TEXT,
     REFUSAL_FOLLOWUP_QUESTION,
+    ToolCall,
     agent_message_to_dict,
     is_refusal_text,
     to_llm_messages,
@@ -123,6 +124,43 @@ def _last_answer_is_refusal(messages: List[AgentMessage]) -> bool:
         if message.role == "assistant" and not message.tool_calls:
             return is_refusal_text(message.content or "")
     return False
+
+
+def _final_answer_is_refusal(added: List[AgentMessage]) -> bool:
+    """本段新增消息中，最近一条无工具调用且非空的 assistant 消息是否为拒答。"""
+    for message in reversed(added):
+        if message.role == "assistant" and not message.tool_calls and (message.content or "").strip():
+            return is_refusal_text(message.content or "")
+    return False
+
+
+def _force_retrieve_tool(
+    messages: List[AgentMessage],
+    machine: "_AttemptMachine",
+    emit: Optional[Callable[[AgentEvent], None]],
+    run_id: str,
+    cancel: threading.Event,
+) -> Optional[str]:
+    """代检索保险：模型拒答且未调用检索工具时，系统替它执行 knowledge_search。
+
+    绕开模型输出工具调用格式不稳定的问题，直接把检索结果注入对话。
+    返回工具结果文本；失败或工具不存在时返回 None（保持原收尾逻辑）。
+    """
+    query = next((m.content for m in messages if m.role == "user" and m.content), "")
+    if not query:
+        return None
+    tool = machine.tools_by_name.get("knowledge_search")
+    if tool is None:
+        return None
+    call = ToolCall(id="forced_knowledge_search", name="knowledge_search", arguments={"query": query})
+    try:
+        results = _execute_tools_batch(
+            [call], machine.tools_by_name, machine.active_config, cancel, emit, run_id, 0
+        )
+        return results[0].content if results else None
+    except Exception:  # noqa: BLE001
+        logger.warning("代检索保险执行失败，按原逻辑收尾", exc_info=True)
+        return None
 
 
 def _validate_arguments(schema: Dict[str, Any], arguments: Dict[str, Any]) -> Optional[str]:
@@ -394,6 +432,8 @@ class _AttemptMachine:
         self.attempt_turn = 0
         self.retry_used = False
         self.refusal_retry_used = False
+        self.force_retrieve: Optional[Callable[[], Optional[str]]] = None
+        self._forced_retrieve_used = False
         self.codec = config.codec or TextToolCallCodec()
         self.tools_by_name = {tool.name: tool for tool in config.tools}
 
@@ -456,6 +496,33 @@ class _AttemptMachine:
                 self.messages.append(AgentMessage(role="user", content="请先调用检索工具获取证据后再回答"))
                 self.add_note("未调用检索工具，已要求重新检索后回答")
                 return "retry"
+            # 代检索保险：仍不调工具且最终答案是拒答时，替模型执行 knowledge_search 再答一轮
+            if (
+                self.force_retrieve is not None
+                and not self._forced_retrieve_used
+                and _final_answer_is_refusal(added)
+            ):
+                result_content = self.force_retrieve()
+                if result_content:
+                    self._forced_retrieve_used = True
+                    self.attempt_turn = max(0, self.attempt_turn - 1)
+                    self.messages.append(
+                        AgentMessage(
+                            role="tool",
+                            content=result_content,
+                            tool_call_id="forced_knowledge_search",
+                            name="knowledge_search",
+                        )
+                    )
+                    self.messages.append(
+                        AgentMessage(
+                            role="user",
+                            content="已代为执行知识检索，请基于检索到的证据给出最终答案；"
+                            "若证据只覆盖部分内容，请回答已支持的部分并说明缺失项，不要整体拒答。",
+                        )
+                    )
+                    self.add_note("最终回答为拒答且未调用检索工具，已代为执行 knowledge_search 并要求基于证据重答")
+                    return "retry"
             return self._finalize_no_tool_answer(added)
         if (
             not ok
@@ -571,6 +638,7 @@ def run_agent_loop(
 
     # —— 分段（attempt）初始化 ——
     machine = _AttemptMachine(config, messages, start_idx, _add_note)
+    machine.force_retrieve = lambda: _force_retrieve_tool(messages, machine, emit, run_id, cancel_event)
     machine.start()
 
     try:
