@@ -4,23 +4,13 @@ Vue 3 知识库文档工作台组件库：PDF 查看器、结构化索引（索�
 
 ## 安装
 
-未发布到 npm registry，从 GitHub 仓库钉 tag 安装：
-
-```jsonc
-// package.json
-{
-  "dependencies": {
-    "@angineer/docs-ui": "github:0mao0/angineer-docs-ui#v0.2.0",
-    "@angineer/smartree": "github:0mao0/angineer-smartree-ui#v0.1.1"
-  }
-}
-```
+已发布到 npm registry：
 
 ```bash
-pnpm install
+pnpm add @angineer/docs-ui
 ```
 
-> docs-ui 依赖 `@angineer/smartree`，两个包都需以 git 方式安装。
+> docs-ui 依赖 `@angineer/smartree`，从 npm 安装时作为传递依赖自动解析（^0.1.1）；从 GitHub 钉 tag 安装时需一并安装 `@angineer/smartree`（`github:0mao0/angineer-smartree-ui#v0.1.2`）。
 
 **环境要求**：peer 依赖 `vue@3.5.41`、`ant-design-vue@4.2.6`、`@ant-design/icons-vue@7.0.1`。包为源码分发（无构建产物），宿主需用 Vite + `@vitejs/plugin-vue` 与 less 编译。
 
@@ -50,7 +40,7 @@ pnpm --filter @angineer/docs-ui typecheck   # vue-tsc
 
 ## 仓库说明
 
-本仓库为独立发布仓，代码唯一真相源在 [AnGIneer](https://github.com/0mao0/AnGIneer) monorepo 的 `packages/docs-ui`，经 `scripts/sync-standalone.ps1` 同步；版本以 git tag 发布。变更历史见 [CHANGELOG.md](./CHANGELOG.md)。
+本仓库为独立发布仓，代码唯一真相源在 [AnGIneer](https://github.com/0mao0/AnGIneer) monorepo 的 `packages/docs-ui`，经 `scripts/sync-standalone.ps1` 同步；版本以 git tag（vx.y.z）与 npm registry（`@angineer/docs-ui`）同步发布。变更历史见 [CHANGELOG.md](./CHANGELOG.md)。
 
 ---
 

@@ -13,20 +13,13 @@
 
 ## 安装
 
-未发布到 npm registry，从 GitHub 仓库钉 tag 安装：
-
-```jsonc
-// package.json
-{
-  "dependencies": {
-    "@angineer/table-ui": "github:0mao0/angineer-table-ui#v0.1.0"
-  }
-}
-```
+已发布到 npm registry：
 
 ```bash
-pnpm install
+pnpm add @angineer/table-ui
 ```
+
+或从 GitHub 钉 tag 安装（源码同源）：`"@angineer/table-ui": "github:0mao0/angineer-table-ui#v0.1.1"`
 
 **环境要求**：`vue 3.5.41` + `ant-design-vue 4.2.6`（peerDependencies）。包为源码分发（无构建产物），宿主需用 Vite + `@vitejs/plugin-vue` 与 less 编译（与本组织其他 `*-ui` 包一致）。
 
@@ -167,4 +160,4 @@ import type { DataTableColumn, DataTableFilter } from '@angineer/table-ui'
 
 ## 仓库说明
 
-本仓库为独立发布仓，代码唯一真相源在 [AnGIneer](https://github.com/0mao0/AnGIneer) monorepo 的 `packages/table-ui`，经 `scripts/sync-standalone.ps1` 同步；版本以 git tag 发布。变更历史见 [CHANGELOG.md](./CHANGELOG.md)。
+本仓库为独立发布仓，代码唯一真相源在 [AnGIneer](https://github.com/0mao0/AnGIneer) monorepo 的 `packages/table-ui`，经 `scripts/sync-standalone.ps1` 同步；版本以 git tag（vx.y.z）与 npm registry（`@angineer/table-ui`）同步发布。变更历史见 [CHANGELOG.md](./CHANGELOG.md)。

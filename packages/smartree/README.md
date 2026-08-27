@@ -14,20 +14,13 @@
 
 ## 安装
 
-未发布到 npm registry，从 GitHub 仓库钉 tag 安装：
-
-```jsonc
-// package.json
-{
-  "dependencies": {
-    "@angineer/smartree": "github:0mao0/angineer-smartree-ui#v0.1.1"
-  }
-}
-```
+已发布到 npm registry：
 
 ```bash
-pnpm install
+pnpm add @angineer/smartree
 ```
+
+或从 GitHub 钉 tag 安装（源码同源）：`"@angineer/smartree": "github:0mao0/angineer-smartree-ui#v0.1.2"`
 
 **环境要求**：`vue 3.5.41` + `ant-design-vue 4.2.6` + `@ant-design/icons-vue 7.0.1`（peerDependencies）。包为源码分发（无构建产物），宿主需用 Vite + `@vitejs/plugin-vue` 与 less 编译。
 
@@ -152,4 +145,4 @@ import type { SmartTreeNode, SmartTreeNodeStatus, TreeNodeAction, DropEvent } fr
 
 ## 仓库说明
 
-本仓库为独立发布仓，代码唯一真相源在 [AnGIneer](https://github.com/0mao0/AnGIneer) monorepo 的 `packages/smartree`，经 `scripts/sync-standalone.ps1` 同步；版本以 git tag 发布。变更历史见 [CHANGELOG.md](./CHANGELOG.md)。
+本仓库为独立发布仓，代码唯一真相源在 [AnGIneer](https://github.com/0mao0/AnGIneer) monorepo 的 `packages/smartree`，经 `scripts/sync-standalone.ps1` 同步；版本以 git tag（vx.y.z）与 npm registry（`@angineer/smartree`）同步发布。变更历史见 [CHANGELOG.md](./CHANGELOG.md)。

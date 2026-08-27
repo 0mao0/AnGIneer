@@ -4,20 +4,13 @@ Vue 3 AI 对话组件库（基于 ant-design-vue + KaTeX）：流式对话、引
 
 ## 安装
 
-未发布到 npm registry，从 GitHub 仓库钉 tag 安装：
-
-```jsonc
-// package.json
-{
-  "dependencies": {
-    "@angineer/aichat-ui": "github:0mao0/angineer-aichat-ui#v0.1.5"
-  }
-}
-```
+已发布到 npm registry：
 
 ```bash
-pnpm install
+pnpm add @angineer/aichat-ui
 ```
+
+或从 GitHub 钉 tag 安装（源码同源）：`"@angineer/aichat-ui": "github:0mao0/angineer-aichat-ui#v0.1.7"`
 
 **环境要求**：peer 依赖 `vue@3.5.41`、`ant-design-vue@4.2.6`、`@ant-design/icons-vue@7.0.1`；KaTeX 作为包依赖随装。包为源码分发（无构建产物），宿主需用 Vite + `@vitejs/plugin-vue` 与 less 编译。
 
@@ -80,4 +73,4 @@ pnpm --filter @angineer/aichat-ui typecheck  # vue-tsc
 
 ## 仓库说明
 
-本仓库为独立发布仓，代码唯一真相源在 [AnGIneer](https://github.com/0mao0/AnGIneer) monorepo 的 `packages/aichat-ui`，经 `scripts/sync-standalone.ps1` 同步；版本以 git tag 发布。变更历史见 [CHANGELOG.md](./CHANGELOG.md)。
+本仓库为独立发布仓，代码唯一真相源在 [AnGIneer](https://github.com/0mao0/AnGIneer) monorepo 的 `packages/aichat-ui`，经 `scripts/sync-standalone.ps1` 同步；版本以 git tag（vx.y.z）与 npm registry（`@angineer/aichat-ui`）同步发布。变更历史见 [CHANGELOG.md](./CHANGELOG.md)。
