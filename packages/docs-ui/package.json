@@ -12,6 +12,10 @@
     },
     "./style": "./src/styles/index.less"
   },
+  "scripts": {
+    "test": "pnpm dlx tsx --test test/citationTarget.test.ts test/display-roots.test.mjs test/highlightGroup.test.ts test/pageRange.test.ts test/pdfHoverText.test.ts test/pdfSearchTarget.test.ts",
+    "typecheck": "vue-tsc --noEmit"
+  },
   "peerDependencies": {
     "@ant-design/icons-vue": "7.0.1",
     "ant-design-vue": "4.2.6",
@@ -23,6 +27,7 @@
     "less": "^4.2.0",
     "pinia": "^2.1.7",
     "typescript": "~5.4.0",
+    "vue-tsc": "^2.0.6",
     "vue": "3.5.41"
   },
   "dependencies": {
