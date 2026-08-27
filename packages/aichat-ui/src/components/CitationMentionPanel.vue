@@ -157,7 +157,7 @@ const renderCandidatePreview = (candidate: InlineCitationCandidate): string => {
   padding: 8px 10px;
   border: 1px solid transparent;
   border-radius: 10px;
-  background: var(--bg-secondary);
+  background: var(--bg-secondary, #fafafa);
   cursor: pointer;
   color: inherit;
   font: inherit;

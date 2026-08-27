@@ -587,7 +587,7 @@ defineExpose({
   padding: 12px 12px 48px 12px;
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  background: var(--bg-secondary);
+  background: var(--bg-secondary, #fafafa);
   color: var(--text-primary);
   font-size: 14px;
   line-height: 1.6;

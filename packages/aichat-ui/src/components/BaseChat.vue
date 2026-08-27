@@ -1022,7 +1022,7 @@ defineExpose({
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  background: var(--chat-root-bg, var(--bg-primary));
+  background: var(--chat-root-bg, var(--bg-primary, #ffffff));
 }
 
 .chat-header {
@@ -1030,7 +1030,7 @@ defineExpose({
   align-items: center;
   padding: 12px 16px;
   border-bottom: 1px solid var(--border-color);
-  background: var(--chat-root-bg, var(--panel-header-bg));
+  background: var(--chat-root-bg, var(--panel-header-bg, #fafafa));
   font-weight: 500;
   font-size: 14px;
   color: var(--text-primary);
@@ -1078,7 +1078,7 @@ defineExpose({
   padding: 2px 8px;
   border-radius: 999px;
   border: 1px solid var(--border-color);
-  background: var(--bg-secondary);
+  background: var(--bg-secondary, #fafafa);
   color: var(--text-secondary);
   font-size: 11px;
   line-height: 18px;
@@ -1091,7 +1091,7 @@ defineExpose({
   min-height: 0;
   overflow-y: auto;
   padding: 16px;
-  background: var(--chat-root-bg, var(--bg-primary));
+  background: var(--chat-root-bg, var(--bg-primary, #ffffff));
 
   .message {
     margin-bottom: 16px;
@@ -1112,8 +1112,8 @@ defineExpose({
 
       .user-content {
         display: inline-block;
-        background: var(--chat-user-bubble-bg);
-        color: var(--chat-user-bubble-text);
+        background: var(--chat-user-bubble-bg, #e6f4ff);
+        color: var(--chat-user-bubble-text, #000000);
         padding: 10px 14px;
         border-radius: 12px 12px 0 12px;
         max-width: 85%;
@@ -1156,8 +1156,8 @@ defineExpose({
 
       .assistant-content {
         display: inline-block;
-        background: var(--chat-assistant-bubble-bg);
-        color: var(--chat-assistant-bubble-text);
+        background: var(--chat-assistant-bubble-bg, #f5f5f5);
+        color: var(--chat-assistant-bubble-text, #000000);
         padding: 12px 16px;
         border-radius: 12px 12px 12px 0;
         max-width: 85%;
@@ -1334,7 +1334,7 @@ defineExpose({
           }
 
           :deep(code) {
-            background: var(--chat-code-bg);
+            background: var(--chat-code-bg, #f6f8fa);
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'Courier New', monospace;
@@ -1342,7 +1342,7 @@ defineExpose({
           }
 
           :deep(pre) {
-            background: var(--chat-pre-bg);
+            background: var(--chat-pre-bg, #f6f8fa);
             padding: 12px;
             border-radius: 8px;
             overflow-x: auto;
@@ -1433,8 +1433,8 @@ defineExpose({
           text-align: left;
           padding: 10px 12px;
           border-radius: 10px;
-          background: var(--chat-citation-bg);
-          border-left: 3px solid var(--chat-citation-border);
+          background: var(--chat-citation-bg, #e6f4ff);
+          border-left: 3px solid var(--chat-citation-border, #91caff);
           box-shadow: inset 0 0 0 1px rgba(250, 173, 20, 0.18);
           border-top: none;
           border-right: none;
@@ -1451,7 +1451,7 @@ defineExpose({
         }
 
         .citation-toggle {
-          color: var(--chat-citation-accent);
+          color: var(--chat-citation-accent, #1677ff);
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -1475,7 +1475,7 @@ defineExpose({
         }
 
         .citation-page {
-          color: var(--chat-citation-accent);
+          color: var(--chat-citation-accent, #1677ff);
           background: rgba(250, 173, 20, 0.14);
           border-radius: 999px;
           padding: 1px 6px;
@@ -1619,7 +1619,7 @@ defineExpose({
 
         .streaming-cursor {
           animation: blink 1s infinite;
-          color: var(--chat-streaming-cursor);
+          color: var(--chat-streaming-cursor, #1677ff);
         }
 
         .streaming-loading {
@@ -1641,7 +1641,7 @@ defineExpose({
       }
 
       &.streaming .assistant-content {
-        background: var(--chat-streaming-bg);
+        background: var(--chat-streaming-bg, #fffbe6);
       }
     }
 
@@ -1653,11 +1653,11 @@ defineExpose({
         align-items: center;
         gap: 6px;
         padding: 6px 12px;
-        background: var(--chat-system-bg);
-        border: 1px solid var(--chat-system-border);
+        background: var(--chat-system-bg, #fafafa);
+        border: 1px solid var(--chat-system-border, #d9d9d9);
         border-radius: 16px;
         font-size: 12px;
-        color: var(--chat-system-text);
+        color: var(--chat-system-text, #8c8c8c);
       }
     }
   }
@@ -1715,7 +1715,7 @@ defineExpose({
   flex-shrink: 0;
   padding: 12px 16px;
   border-top: 1px solid var(--border-color);
-  background: var(--bg-secondary);
+  background: var(--bg-secondary, #fafafa);
   display: flex;
   flex-direction: column;
   overflow: visible;
@@ -1755,13 +1755,13 @@ defineExpose({
         top: -6px;
         right: -6px;
         font-size: 16px;
-        color: var(--chat-error-color);
-        background: var(--bg-secondary);
+          color: var(--chat-error-color, #ff4d4f);
+          background: var(--bg-secondary, #fafafa);
         border-radius: 50%;
         cursor: pointer;
 
         &:hover {
-          color: var(--chat-error-hover);
+            color: var(--chat-error-hover, #ff7875);
         }
       }
     }
@@ -1780,7 +1780,7 @@ defineExpose({
       flex: 1;
       border-radius: 12px;
       resize: none;
-      background: var(--bg-secondary);
+      background: var(--bg-secondary, #fafafa);
       color: var(--text-primary);
       border-color: var(--border-color);
       padding: 12px 12px 48px 12px;
@@ -1843,7 +1843,7 @@ defineExpose({
         :deep(.ant-select-selector) {
           font-size: 12px;
           border-radius: 6px;
-          background: var(--bg-secondary);
+          background: var(--bg-secondary, #fafafa);
           color: var(--text-primary);
           border-color: var(--border-color);
         }
