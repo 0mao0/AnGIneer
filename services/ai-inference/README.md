@@ -1,5 +1,7 @@
 # angineer-ai-inference
 
+[![PyPI](https://img.shields.io/pypi/v/angineer-ai-inference)](https://pypi.org/project/angineer-ai-inference/)
+
 AnGIneer 的 AI 推理客户端库（纯 Python 库，非服务）：负责 **LLM 多模型路由、调用、可靠性、解析**。
 
 > 定位：**本库不包含 HTTP 服务**，不依赖 fastapi / uvicorn。对外 API Key、权限、限额、调用记录与用量持久化、管理后台均属于消费方（如 DredgeAI AI Gateway）的职责。
@@ -57,10 +59,13 @@ flowchart TB
 ## 安装
 
 ```bash
-# 依赖内部仓库（钉版本/tag）
+# PyPI（推荐）
+pip install angineer-ai-inference
+
+# 或从 GitHub 钉版本安装
 pip install "angineer-ai-inference @ git+https://github.com/0mao0/angineer-ai-inference.git@v0.1.1"
 
-# 或本地可编辑安装（本仓库开发）
+# 本地开发（主仓库 AnGIneer 内）
 pip install -e services/ai-inference
 ```
 
