@@ -56,18 +56,18 @@ function onSelectCitation(citation: AIChatCitation) { /* ... */ }
 
 ## 主题定制
 
-**组件私有 token（`--chat-*`）**：使用处全部内置 fallback，不导入任何样式文件也能正常渲染；想集中覆盖时可导入 `@angineer/aichat-ui/style`（可选），或直接在 `:root` 覆盖同名变量：
+**组件私有 token（`--chat-*`）**：使用处全部内置 fallback，不导入任何样式文件也能正常渲染（light 默认值）。导入 `@angineer/aichat-ui/style` 后获得完整 token 层——含 `[data-theme="dark"]` 下的暗色值（dark 模式必需），并可在 `:root` 覆盖同名变量定制：
 
-| 变量 | 默认值 | 用途 |
-| --- | --- | --- |
-| `--chat-root-bg` | `var(--bg-primary, #ffffff)` | 聊天区背景 |
-| `--chat-user-bubble-bg` / `--chat-user-bubble-text` | `#e6f4ff` / `#000000` | 用户气泡 |
-| `--chat-assistant-bubble-bg` / `--chat-assistant-bubble-text` | `#f5f5f5` / `#000000` | 助手气泡 |
-| `--chat-citation-accent` / `--chat-citation-bg` / `--chat-citation-border` | `#1677ff` / `#e6f4ff` / `#91caff` | 引用卡片 |
-| `--chat-code-bg` / `--chat-pre-bg` | `#f6f8fa` | 行内代码 / 代码块 |
-| `--chat-streaming-bg` / `--chat-streaming-cursor` | `#fffbe6` / `#1677ff` | 流式输出态 |
-| `--chat-system-bg` / `--chat-system-border` / `--chat-system-text` | `#fafafa` / `#d9d9d9` / `#8c8c8c` | 系统消息 |
-| `--chat-error-color` / `--chat-error-hover` | `#ff4d4f` / `#ff7875` | 错误态 |
+| 变量 | light | dark（导入 style 后生效） | 用途 |
+| --- | --- | --- | --- |
+| `--chat-root-bg` | `var(--bg-primary, #ffffff)` | 自动跟随 `--bg-primary` | 聊天区背景 |
+| `--chat-user-bubble-bg` / `--chat-user-bubble-text` | `#e6f4ff` / `#000000` | `#15325b` / `rgba(255,255,255,0.85)` | 用户气泡 |
+| `--chat-assistant-bubble-bg` / `--chat-assistant-bubble-text` | `#f5f5f5` / `#000000` | `var(--bg-secondary, #1f1f1f)` / `var(--text-primary, …)` | 助手气泡 |
+| `--chat-citation-accent` / `--chat-citation-bg` / `--chat-citation-border` | `#1677ff` / `#e6f4ff` / `#91caff` | `#177ddc` / `#111a2c` / `#15325b` | 引用卡片 |
+| `--chat-code-bg` / `--chat-pre-bg` | `#f6f8fa` | `var(--bg-tertiary, rgba(255,255,255,0.04))` | 行内代码 / 代码块 |
+| `--chat-streaming-bg` / `--chat-streaming-cursor` | `#fffbe6` / `#1677ff` | `rgba(250,173,20,0.1)` / `#177ddc` | 流式输出态 |
+| `--chat-system-bg` / `--chat-system-border` / `--chat-system-text` | `#fafafa` / `#d9d9d9` / `#8c8c8c` | `var(--bg-secondary/--divider-color/--text-secondary, …)` | 系统消息 |
+| `--chat-error-color` / `--chat-error-hover` | `#ff4d4f` / `#ff7875` | `var(--danger, #dc4446)` / `#e86e6b` | 错误态 |
 
 **宿主语义变量契约**：组件同时引用通用语义变量（`--text-primary`、`--text-secondary`、`--border-color`、`--bg-primary`、`--bg-secondary`、`--bg-tertiary`、`--primary-color`、`--panel-header-bg`）以跟随宿主 dark/light 主题。宿主未定义时请在 `:root` 提供，例如 light 默认值：`--text-primary: rgba(0,0,0,0.85)`、`--text-secondary: rgba(0,0,0,0.65)`、`--border-color: rgba(0,0,0,0.06)`、`--bg-primary: #ffffff`、`--bg-secondary: #fafafa`、`--bg-tertiary: rgba(0,0,0,0.02)`、`--primary-color: #1890ff`、`--panel-header-bg: #fafafa`（dark 模式在 `[data-theme="dark"]` 下覆盖同名变量即可）。
 

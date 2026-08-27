@@ -19,3 +19,25 @@
   --chat-system-border: #d9d9d9;
   --chat-system-text: #8c8c8c;
 }
+
+/* dark 主题段：色调类 token 给出 antd 暗色系对应值；能链宿主语义变量的直接链
+   （宿主在 [data-theme="dark"] 下切换 --bg-secondary 等值时自动跟随，standalone 用 fallback 暗色值）。
+   --chat-root-bg 已在 :root 链 --bg-primary，无需在此重复。 */
+[data-theme="dark"] {
+  --chat-user-bubble-bg: #15325b;
+  --chat-user-bubble-text: rgba(255, 255, 255, 0.85);
+  --chat-assistant-bubble-bg: var(--bg-secondary, #1f1f1f);
+  --chat-assistant-bubble-text: var(--text-primary, rgba(255, 255, 255, 0.85));
+  --chat-citation-accent: #177ddc;
+  --chat-citation-bg: #111a2c;
+  --chat-citation-border: #15325b;
+  --chat-code-bg: var(--bg-tertiary, rgba(255, 255, 255, 0.04));
+  --chat-pre-bg: var(--bg-tertiary, rgba(255, 255, 255, 0.04));
+  --chat-error-color: var(--danger, #dc4446);
+  --chat-error-hover: #e86e6b;
+  --chat-streaming-bg: rgba(250, 173, 20, 0.1);
+  --chat-streaming-cursor: #177ddc;
+  --chat-system-bg: var(--bg-secondary, #1f1f1f);
+  --chat-system-border: var(--divider-color, rgba(255, 255, 255, 0.12));
+  --chat-system-text: var(--text-secondary, rgba(255, 255, 255, 0.45));
+}
