@@ -6,11 +6,9 @@ export { default as IconFont } from './common/IconFont.vue'
 export { default as Loading } from './common/Loading.vue'
 export { default as EmptyState } from './common/EmptyState.vue'
 export { default as ErrorBoundary } from './common/ErrorBoundary.vue'
-export { default as DataTable } from './common/DataTable.vue'
 export { default as PageHeader } from './common/PageHeader.vue'
-export { default as SectionCard } from './common/SectionCard.vue'
 export { default as AppButton } from './common/AppButton.vue'
 
-export type { DataTableColumn, DataTableFilter } from './common/DataTable.vue'
+export type { DataTableColumn, DataTableFilter } from '@angineer/table-ui'
 
 export type { NavItem } from './layout/AppHeader.vue'

@@ -23,6 +23,9 @@ importers:
       '@angineer/evals-ui':
         specifier: workspace:*
         version: link:../../packages/evals-ui
+      '@angineer/table-ui':
+        specifier: workspace:*
+        version: link:../../packages/table-ui
       '@angineer/ui-kit':
         specifier: workspace:*
         version: link:../../packages/ui-kit
@@ -334,11 +337,32 @@ importers:
         specifier: 3.5.41
         version: 3.5.41(typescript@5.4.5)
 
+  packages/table-ui:
+    devDependencies:
+      ant-design-vue:
+        specifier: 4.2.6
+        version: 4.2.6(vue@3.5.41(typescript@5.4.5))
+      less:
+        specifier: ^4.2.0
+        version: 4.5.1
+      typescript:
+        specifier: ~5.4.0
+        version: 5.4.5
+      vue:
+        specifier: 3.5.41
+        version: 3.5.41(typescript@5.4.5)
+      vue-tsc:
+        specifier: ^2.0.6
+        version: 2.2.12(typescript@5.4.5)
+
   packages/ui-kit:
     dependencies:
       '@angineer/smartree':
         specifier: workspace:*
         version: link:../smartree
+      '@angineer/table-ui':
+        specifier: workspace:*
+        version: link:../table-ui
       katex:
         specifier: 0.18.4
         version: 0.18.4

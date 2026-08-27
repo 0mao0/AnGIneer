@@ -37,7 +37,7 @@
 param(
     [string]$Message = '',
     [switch]$DryRun,
-    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smartree')
+    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smartree', 'table-ui')
 )
 
 $ErrorActionPreference = 'Stop'
