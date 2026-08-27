@@ -58,7 +58,7 @@ flowchart TB
 
 ```bash
 # 依赖内部仓库（钉版本/tag）
-pip install "angineer-ai-inference @ git+https://github.com/0mao0/angineer-ai-inference.git@v0.1.0"
+pip install "angineer-ai-inference @ git+https://github.com/0mao0/angineer-ai-inference.git@v0.1.1"
 
 # 或本地可编辑安装（本仓库开发）
 pip install -e services/ai-inference
