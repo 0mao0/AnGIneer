@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { fileURLToPath } from 'node:url'
-import { createServer } from '../../../apps/user-web/node_modules/vite/dist/node/index.js' // Vite is available via user-web devDependencies
-import vue from '../../../apps/user-web/node_modules/@vitejs/plugin-vue/dist/index.mjs' // 同上：测试链路需解析 .vue
+import { createServer } from 'vite'
+import vue from '@vitejs/plugin-vue'
 
 const server = await createServer({
   root: fileURLToPath(new URL('../', import.meta.url)),
