@@ -6,21 +6,10 @@
         @click="handleLogoClick"
         :class="{ clickable: logoClickable, 'is-admin': layout === 'admin' }"
       >
-        <svg v-if="layout !== 'admin'" class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"
-            fill="url(#gradient)"
-          />
-          <defs>
-            <linearGradient id="gradient" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-              <stop stop-color="var(--brand-gradient-start, #667eea)" />
-              <stop offset="1" stop-color="var(--brand-gradient-end, #764ba2)" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <div v-else class="logo-mark" aria-hidden="true">
-          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 4 4.5 20h3.1l1.4-3.4h5.9l1.4 3.4h3.1L12 4Zm0 5.3 2 4.9h-4l2-4.9Z" fill="#fff" />
+        <div class="logo-mark" aria-hidden="true">
+          <svg class="logo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23 29 L32 11 L41 29 Z" fill="#fff" stroke="#fff" stroke-width="4" stroke-linejoin="round" />
+            <path d="M12 54 L19.6 38 L44.4 38 L52 54" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
         <div class="app-identity">
@@ -337,8 +326,8 @@ const cancelEdit = () => {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background: linear-gradient(135deg, #5b7cfa 0%, #7a5cf0 100%);
-    box-shadow: 0 2px 8px rgba(91, 124, 250, 0.32);
+    background: linear-gradient(135deg, var(--primary-color, #1890ff) 0%, var(--brand-gradient-end, #a855f7) 100%);
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
 
     .logo-icon {
       width: 16px;
@@ -353,7 +342,7 @@ const cancelEdit = () => {
   }
 
   .app-name {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--brand-gradient-end, #764ba2) 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--brand-gradient-end, #a855f7) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -576,7 +565,7 @@ const cancelEdit = () => {
   }
 
   .logo-mark {
-    box-shadow: 0 2px 10px rgba(91, 124, 250, 0.38);
+    box-shadow: 0 2px 10px rgba(24, 144, 255, 0.38);
   }
 }
 </style>

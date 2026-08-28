@@ -139,8 +139,8 @@ export const useThemeStore = defineStore('theme', () => {
       root.style.setProperty('--dp-warning-text', '#fcd34d')
       root.style.setProperty('--dp-hint-bg', 'rgba(37,99,235,0.18)')
       root.style.setProperty('--dp-hint-border', 'rgba(59,130,246,0.3)')
-      root.style.setProperty('--brand-gradient-start', '#667eea')
-      root.style.setProperty('--brand-gradient-end', '#764ba2')
+      root.style.setProperty('--brand-gradient-start', '#818cf8')
+      root.style.setProperty('--brand-gradient-end', '#a855f7')
       root.style.setProperty('--fork-border', '#7c6200')
       root.style.setProperty('--fork-bg', '#2b2500')
     } else {
@@ -253,8 +253,8 @@ export const useThemeStore = defineStore('theme', () => {
       root.style.setProperty('--dp-warning-text', '#92400e')
       root.style.setProperty('--dp-hint-bg', '#dbeafe')
       root.style.setProperty('--dp-hint-border', 'rgba(59,130,246,0.22)')
-      root.style.setProperty('--brand-gradient-start', '#667eea')
-      root.style.setProperty('--brand-gradient-end', '#764ba2')
+      root.style.setProperty('--brand-gradient-start', '#818cf8')
+      root.style.setProperty('--brand-gradient-end', '#a855f7')
       root.style.setProperty('--fork-border', '#faad14')
       root.style.setProperty('--fork-bg', '#fffbe6')
     }
