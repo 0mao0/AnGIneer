@@ -209,17 +209,22 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         for ev_name, s in all_s.items():
             if not s.get("evaluated"):
                 continue
-            if ev_name == "retrieval" and s.get("hit@5") is not None:
-                retrieval_scores.append(s["hit@5"])
+            if ev_name == "retrieval" and (s.get("score") is not None or s.get("hit@5") is not None):
+                # score 为有效粒度 hit@5：有 section 标注取 section 粒度，否则取 doc 粒度；
+                # 兼容旧数据/fixture 中只有 hit@5 没有 score 的情况
+                retrieval_value = s.get("score")
+                if retrieval_value is None:
+                    retrieval_value = s.get("hit@5")
+                retrieval_scores.append(retrieval_value)
                 _append_group_score(
                     grouped_scores_raw["question_type"],
                     str(s.get("question_type") or "unknown"),
-                    s.get("hit@5"),
+                    retrieval_value,
                 )
                 _append_group_score(
                     grouped_scores_raw["doc_id"],
                     str((d.get("doc_ids") or ["unknown"])[0]),
-                    s.get("hit@5"),
+                    retrieval_value,
                 )
                 _append_group_score(
                     grouped_scores_raw["failure_bucket"],
@@ -229,24 +234,39 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
                 _append_group_score(
                     grouped_scores_raw["question_family"],
                     str(d.get("question_family") or "unknown"),
-                    s.get("hit@5"),
+                    retrieval_value,
                 )
                 _append_group_score(
                     grouped_scores_raw["variant_type"],
                     str(d.get("variant_type") or "canonical"),
-                    s.get("hit@5"),
+                    retrieval_value,
                 )
                 for runtime_flag in list(d.get("runtime_flags") or []):
                     _append_group_score(
                         grouped_scores_raw["runtime_flag"],
                         str(runtime_flag),
-                        s.get("hit@5"),
+                        retrieval_value,
                     )
             elif ev_name == "answer" and s.get("correctness_checked"):
-                answer_scores.append(s.get("correctness_score", s.get("score", 0)))
+                score_value = s.get("correctness_score")
+                if score_value is None:
+                    score_value = s.get("score")
+                if score_value is not None:
+                    answer_scores.append(score_value)
     retrieval_avg = round(sum(retrieval_scores) / len(retrieval_scores), 4) if retrieval_scores else None
     answer_avg = round(sum(answer_scores) / len(answer_scores), 4) if answer_scores else None
     sql_avg = round(sum(sql_scores) / len(sql_scores), 4) if sql_scores else None
+    # 拒答专项：refusal_expected=true 的拒答题正确率与不可答幻觉数
+    refusal_total = 0
+    refusal_correct_count = 0
+    for d in details:
+        answer_s = (d.get("all_scores") or {}).get("answer") or {}
+        if not answer_s.get("evaluated") or not answer_s.get("refusal_expected"):
+            continue
+        refusal_total += 1
+        if answer_s.get("refusal_correct"):
+            refusal_correct_count += 1
+    refusal_accuracy = round(refusal_correct_count / refusal_total, 4) if refusal_total else None
     by_level: Dict[str, Dict[str, int]] = {}
     for d in details:
         level = d.get("intent_level", "L1")
@@ -272,6 +292,10 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         "retrieval_score": retrieval_avg,
         "answer_score": answer_avg,
         "sql_score": sql_avg,
+        "refusal_total": refusal_total,
+        "refusal_correct": refusal_correct_count,
+        "refusal_accuracy": refusal_accuracy,
+        "hallucination_on_unanswerable": (refusal_total - refusal_correct_count) if refusal_total else 0,
         "by_level": by_level,
         "grouped_scores": grouped_scores,
     }

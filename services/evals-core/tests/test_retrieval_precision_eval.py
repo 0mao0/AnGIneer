@@ -14,9 +14,219 @@ if str(EVALS_CORE_SRC) not in sys.path:
 from evals_core.dataset.loader import load_bundle_from_dict
 from evals_core.dataset import manager as dataset_manager
 from evals_core.dataset.manager import import_bundle
-from evals_core.runner.retrieval_eval import RetrievalEvaluator, compute_failure_bucket
+from evals_core.runner.retrieval_eval import (
+    RetrievalEvaluator,
+    compute_doc_hit,
+    compute_doc_mrr,
+    compute_failure_bucket,
+)
 from evals_core.runner.suite_runner import _compute_summary, get_eval_run
 from evals_core.storage import result_store
+
+
+class DocLevelRetrievalEvalTests(unittest.TestCase):
+    """doc 粒度检索指标（Open RAG Bench 等仅标注 doc_id 的数据集）。"""
+
+    def test_compute_doc_hit_and_mrr(self) -> None:
+        predicted = ["doc-a", "doc-b", "doc-c"]
+        self.assertEqual(compute_doc_hit(predicted, ["doc-b"], 1), 0.0)
+        self.assertEqual(compute_doc_hit(predicted, ["doc-b"], 3), 1.0)
+        self.assertEqual(compute_doc_hit(predicted, ["doc-x"], 5), 0.0)
+        self.assertEqual(compute_doc_hit(predicted, [], 5), 0.0)
+        self.assertEqual(compute_doc_mrr(predicted, ["doc-b"]), 0.5)
+        self.assertEqual(compute_doc_mrr(predicted, ["doc-a"]), 1.0)
+        self.assertEqual(compute_doc_mrr([], ["doc-a"]), 0.0)
+
+    def test_evaluate_derives_doc_ids_from_retrieved_items(self) -> None:
+        """prediction 无 retrieved_doc_ids 时应从 retrieved_items[].doc_id 提取。"""
+        evaluator = RetrievalEvaluator()
+        gold = {"gold_doc_ids": ["v1-target"]}
+        prediction = {
+            "retrieved_items": [
+                {"item_id": "chunk-v1-other:0:0", "doc_id": "v1-other", "metadata": {}},
+                {"item_id": "chunk-v1-target:0:1", "doc_id": "v1-target", "metadata": {}},
+                {"item_id": "chunk-v1-target:0:2", "doc_id": "v1-target", "metadata": {}},
+            ],
+            "citations": [],
+        }
+        result = evaluator.evaluate({"question_id": "q1"}, gold, prediction)
+        self.assertTrue(result["evaluated"])
+        self.assertEqual(result["metric_granularity"], "doc")
+        self.assertEqual(result["hit@1_doc"], 0.0)
+        self.assertEqual(result["hit@5_doc"], 1.0)
+        self.assertEqual(result["mrr_doc"], 0.5)
+        self.assertEqual(result["score"], 1.0)
+        self.assertEqual(result["failure_bucket"], "ok")
+
+    def test_evaluate_doc_miss_bucket(self) -> None:
+        evaluator = RetrievalEvaluator()
+        gold = {"gold_doc_ids": ["v1-target"]}
+        prediction = {
+            "retrieved_items": [
+                {"item_id": "chunk-v1-other:0:0", "doc_id": "v1-other", "metadata": {}},
+            ],
+            "citations": [],
+        }
+        result = evaluator.evaluate({"question_id": "q1"}, gold, prediction)
+        self.assertEqual(result["hit@5_doc"], 0.0)
+        self.assertEqual(result["score"], 0.0)
+        self.assertEqual(result["failure_bucket"], "retrieval_miss_doc")
+
+    def test_section_gold_still_takes_precedence(self) -> None:
+        """有 section 标注时主分数仍为 section 粒度。"""
+        evaluator = RetrievalEvaluator()
+        gold = {
+            "gold_section_paths": ["第三章/图3"],
+            "gold_doc_ids": ["harbor-2"],
+        }
+        prediction = {
+            "retrieved_items": [{
+                "item_id": "chunk-1",
+                "doc_id": "harbor-2",
+                "metadata": {"section_path": "第三章/图3"},
+            }],
+            "citations": [],
+        }
+        result = evaluator.evaluate({"question_id": "q1"}, gold, prediction)
+        self.assertEqual(result["metric_granularity"], "section")
+        self.assertEqual(result["hit@5"], 1.0)
+        self.assertEqual(result["score"], 1.0)
+        self.assertEqual(result["hit@5_doc"], 1.0)
+
+    def test_compute_failure_bucket_doc_level_ok_and_miss(self) -> None:
+        gold = {"gold_doc_ids": ["doc-gold"]}
+        bucket = compute_failure_bucket([], [], [], gold, predicted_doc_ids=["doc-gold"])
+        self.assertEqual(bucket, "ok")
+        bucket = compute_failure_bucket([], [], [], gold, predicted_doc_ids=["doc-other"])
+        self.assertEqual(bucket, "retrieval_miss_doc")
+
+    def test_summary_uses_effective_retrieval_score(self) -> None:
+        """汇总 retrieval_score 应使用有效粒度分数（doc-only 数据集不再恒 0）。"""
+        summary = _compute_summary([
+            {
+                "question_id": "doc-hit-1",
+                "status": "completed",
+                "quality": "correct",
+                "intent_level": "L1",
+                "doc_ids": ["v1-target"],
+                "all_scores": {
+                    "retrieval": {
+                        "evaluated": True,
+                        "score": 1.0,
+                        "hit@5": 0.0,
+                        "hit@5_doc": 1.0,
+                        "metric_granularity": "doc",
+                        "failure_bucket": "ok",
+                    },
+                    "answer": {
+                        "evaluated": True,
+                        "correctness_checked": True,
+                        "correctness_score": 1.0,
+                    },
+                },
+            },
+            {
+                "question_id": "doc-miss-1",
+                "status": "completed",
+                "quality": "wrong",
+                "intent_level": "L1",
+                "doc_ids": ["v1-miss"],
+                "all_scores": {
+                    "retrieval": {
+                        "evaluated": True,
+                        "score": 0.0,
+                        "hit@5": 0.0,
+                        "hit@5_doc": 0.0,
+                        "metric_granularity": "doc",
+                        "failure_bucket": "retrieval_miss_doc",
+                    },
+                    "answer": {
+                        "evaluated": True,
+                        "correctness_checked": True,
+                        "correctness_score": 0.0,
+                    },
+                },
+            },
+        ])
+        self.assertEqual(summary["retrieval_score"], 0.5)
+        self.assertEqual(summary["grouped_scores"]["failure_bucket"]["retrieval_miss_doc"], 1)
+
+    def test_summary_skips_none_correctness_scores(self) -> None:
+        """correctness_checked=True 但 correctness_score=None（判分解析失败且无关键词兜底）时汇总不得崩溃。"""
+        summary = _compute_summary([
+            {
+                "question_id": "semantic-fail-1",
+                "status": "completed",
+                "quality": "wrong",
+                "intent_level": "L1",
+                "all_scores": {
+                    "answer": {
+                        "evaluated": True,
+                        "correctness_checked": True,
+                        "correctness_score": None,
+                        "score": 0.0,
+                        "semantic_evaluated": False,
+                    },
+                },
+            },
+            {
+                "question_id": "semantic-ok-1",
+                "status": "completed",
+                "quality": "correct",
+                "intent_level": "L1",
+                "all_scores": {
+                    "answer": {
+                        "evaluated": True,
+                        "correctness_checked": True,
+                        "correctness_score": 1.0,
+                    },
+                },
+            },
+        ])
+        self.assertEqual(summary["answer_score"], 0.5)
+        self.assertEqual(summary["total"], 2)
+        self.assertEqual(summary["correct"], 1)
+
+    def test_summary_aggregates_refusal_metrics(self) -> None:
+        summary = _compute_summary([
+            {
+                "question_id": "refusal-ok-1",
+                "status": "completed",
+                "quality": "correct",
+                "intent_level": "L1",
+                "all_scores": {
+                    "answer": {"evaluated": True, "refusal_expected": True, "refusal_correct": True},
+                },
+            },
+            {
+                "question_id": "refusal-bad-1",
+                "status": "completed",
+                "quality": "wrong",
+                "intent_level": "L1",
+                "all_scores": {
+                    "answer": {"evaluated": True, "refusal_expected": True, "refusal_correct": False},
+                },
+            },
+            {
+                "question_id": "normal-1",
+                "status": "completed",
+                "quality": "correct",
+                "intent_level": "L1",
+                "all_scores": {
+                    "answer": {
+                        "evaluated": True,
+                        "refusal_expected": False,
+                        "refusal_correct": True,
+                        "correctness_checked": True,
+                        "correctness_score": 1.0,
+                    },
+                },
+            },
+        ])
+        self.assertEqual(summary["refusal_total"], 2)
+        self.assertEqual(summary["refusal_correct"], 1)
+        self.assertEqual(summary["refusal_accuracy"], 0.5)
+        self.assertEqual(summary["hallucination_on_unanswerable"], 1)
 
 
 class RetrievalPrecisionBundleTests(unittest.TestCase):
@@ -93,6 +303,7 @@ class RetrievalPrecisionBundleTests(unittest.TestCase):
         """评测汇总应输出题型与失败桶维度的聚合结果。"""
         summary = _compute_summary([
             {
+                "question_id": "harbor-1-clause-001",
                 "status": "completed",
                 "quality": "correct",
                 "intent_level": "L1",
@@ -107,6 +318,7 @@ class RetrievalPrecisionBundleTests(unittest.TestCase):
                 },
             },
             {
+                "question_id": "harbor-2-figure-001",
                 "status": "completed",
                 "quality": "wrong",
                 "intent_level": "L1",
@@ -185,6 +397,7 @@ class RetrievalPrecisionBundleTests(unittest.TestCase):
         """评测汇总应输出 family、variant 与 runtime flag 视角。"""
         details = [
             {
+                "question_id": "harbor-variant-canonical",
                 "quality": "correct",
                 "status": "completed",
                 "doc_ids": ["海港1"],
@@ -202,6 +415,7 @@ class RetrievalPrecisionBundleTests(unittest.TestCase):
                 },
             },
             {
+                "question_id": "harbor-variant-noisy",
                 "quality": "wrong",
                 "status": "completed",
                 "doc_ids": ["海港1"],

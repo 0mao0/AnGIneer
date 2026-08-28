@@ -261,6 +261,7 @@ class AnswerEvaluator(BaseEvaluator):
                 "evaluated": True,
                 "has_answer": False,
                 "citation_ok": citation_ok,
+                "refusal_expected": refusal_expected,
                 "refusal_correct": refusal_expected == actual_refusal,
                 "correctness_checked": False,
                 "semantic_evaluated": False,
@@ -273,6 +274,7 @@ class AnswerEvaluator(BaseEvaluator):
                     "evaluated": True,
                     "has_answer": True,
                     "citation_ok": citation_ok,
+                    "refusal_expected": True,
                     "refusal_correct": True,
                     "correctness_checked": False,
                     "semantic_evaluated": False,
@@ -283,6 +285,7 @@ class AnswerEvaluator(BaseEvaluator):
                     "evaluated": True,
                     "has_answer": True,
                     "citation_ok": citation_ok,
+                    "refusal_expected": True,
                     "refusal_correct": False,
                     "correctness_checked": False,
                     "semantic_evaluated": False,
@@ -305,6 +308,7 @@ class AnswerEvaluator(BaseEvaluator):
                 "semantic_fallback": False,
                 "semantic_passed": False,
                 "semantic_threshold": semantic_threshold,
+                "refusal_expected": refusal_expected,
             }
 
         if not gold_answer and not checks:
@@ -317,6 +321,7 @@ class AnswerEvaluator(BaseEvaluator):
                 "evaluated": True,
                 "has_answer": True,
                 "citation_ok": citation_ok,
+                "refusal_expected": refusal_expected,
                 "refusal_correct": refusal_expected == actual_refusal,
                 "correctness_checked": False,
                 "semantic_evaluated": False,
@@ -354,6 +359,7 @@ class AnswerEvaluator(BaseEvaluator):
             "evaluated": True,
             "has_answer": True,
             "citation_ok": citation_ok,
+            "refusal_expected": refusal_expected,
             "refusal_correct": refusal_expected == actual_refusal,
             "correctness_checked": True,
             "correctness_score": correctness_score,

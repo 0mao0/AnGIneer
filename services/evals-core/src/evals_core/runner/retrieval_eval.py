@@ -49,6 +49,59 @@ def compute_section_mrr(predicted_paths: List[str], gold_paths: List[str]) -> fl
     return 0.0
 
 
+def _extract_predicted_doc_ids(prediction: Dict[str, Any]) -> List[str]:
+    """提取预测命中的 doc_id 序列（保序去重），兼容 retrieved_items 结构。"""
+    raw_ids = list(prediction.get("retrieved_doc_ids") or [])
+    if not raw_ids:
+        raw_ids = [
+            str(item.get("doc_id") or "")
+            for item in prediction.get("retrieved_items") or []
+            if isinstance(item, dict)
+        ]
+    seen = set()
+    ordered: List[str] = []
+    for doc_id in raw_ids:
+        normalized = str(doc_id or "").strip()
+        if normalized and normalized not in seen:
+            seen.add(normalized)
+            ordered.append(normalized)
+    return ordered
+
+
+def _extract_predicted_section_paths(prediction: Dict[str, Any]) -> List[str]:
+    """提取预测命中的章节路径，兼容 retrieved_items[].metadata.section_path 结构。"""
+    raw_paths = list(prediction.get("retrieved_section_paths") or [])
+    if not raw_paths:
+        raw_paths = [
+            str((item.get("metadata") or {}).get("section_path") or "")
+            for item in prediction.get("retrieved_items") or []
+            if isinstance(item, dict)
+        ]
+    return [str(path) for path in raw_paths if str(path or "").strip()]
+
+
+def compute_doc_hit(predicted_doc_ids: List[str], gold_doc_ids: List[str], k: int) -> float:
+    """判断 top-k 预测命中的文档是否覆盖任一 gold 文档（doc 粒度）。"""
+    gold_normalized = {str(item or "").strip() for item in gold_doc_ids if str(item or "").strip()}
+    if not gold_normalized:
+        return 0.0
+    for doc_id in list(predicted_doc_ids or [])[:k]:
+        if str(doc_id or "").strip() in gold_normalized:
+            return 1.0
+    return 0.0
+
+
+def compute_doc_mrr(predicted_doc_ids: List[str], gold_doc_ids: List[str]) -> float:
+    """计算 doc 粒度下的 MRR。"""
+    gold_normalized = {str(item or "").strip() for item in gold_doc_ids if str(item or "").strip()}
+    if not gold_normalized:
+        return 0.0
+    for index, doc_id in enumerate(predicted_doc_ids or [], start=1):
+        if str(doc_id or "").strip() in gold_normalized:
+            return 1.0 / index
+    return 0.0
+
+
 def compute_citation_hit(predicted_citations: List[Dict[str, Any]], gold_target_ids: List[str]) -> float:
     """判断预测 citations 是否命中任一 gold target。"""
     normalized_gold = {str(item or "").strip() for item in gold_target_ids if str(item or "").strip()}
@@ -74,6 +127,7 @@ def compute_failure_bucket(
     predicted_citations: List[Dict[str, Any]],
     predicted_items: List[Dict[str, Any]],
     gold: Dict[str, Any],
+    predicted_doc_ids: Optional[List[str]] = None,
 ) -> str:
     """按失败模式输出稳定分桶。"""
     gold_target_ids = {str(item or "").strip() for item in gold.get("gold_target_ids", []) if str(item or "").strip()}
@@ -101,6 +155,13 @@ def compute_failure_bucket(
         return "ok"
     if hard_negative_target_ids and predicted_target_ids.intersection(hard_negative_target_ids):
         return "hard_negative_bias"
+    gold_doc_ids = {str(item or "").strip() for item in gold.get("gold_doc_ids", []) if str(item or "").strip()}
+    if gold_doc_ids and not gold_target_ids and not list(gold.get("gold_section_paths") or []):
+        # 仅有 doc 粒度标注时（如 Open RAG Bench），按 doc 命中情况分桶
+        top5_doc_ids = list(predicted_doc_ids or [])[:5]
+        if any(doc_id in gold_doc_ids for doc_id in top5_doc_ids):
+            return "ok"
+        return "retrieval_miss_doc"
     if compute_section_hit(predicted_section_paths, list(gold.get("gold_section_paths") or []), 5) > 0:
         return "wrong_section_bias"
     if "figure" in gold_target_types and "content" in predicted_target_types:
@@ -185,8 +246,9 @@ class RetrievalEvaluator(BaseEvaluator):
         return enrich_prediction_trace(question, data, prediction)
 
     def evaluate(self, question: Dict[str, Any], gold: Dict[str, Any], prediction: Dict[str, Any]) -> Dict[str, Any]:
-        """计算检索评测指标。"""
-        predicted_section_paths = list(prediction.get("retrieved_section_paths") or [])
+        """计算检索评测指标（section 粒度 + doc 粒度）。"""
+        predicted_section_paths = _extract_predicted_section_paths(prediction)
+        predicted_doc_ids = _extract_predicted_doc_ids(prediction)
         gold_section_paths = list(gold.get("gold_section_paths") or [])
         gold_doc_ids = list(gold.get("gold_doc_ids") or [])
         predicted_citations = list(prediction.get("citations") or [])
@@ -200,18 +262,31 @@ class RetrievalEvaluator(BaseEvaluator):
                 "retrieval_expected": False,
                 "note": "无检索标准，无法评测",
             }
+        has_section_gold = bool(gold_section_paths)
+        hit_at_1 = compute_section_hit(predicted_section_paths, gold_section_paths, 1)
         hit_at_3 = compute_section_hit(predicted_section_paths, gold_section_paths, 3)
         hit_at_5 = compute_section_hit(predicted_section_paths, gold_section_paths, 5)
         mrr = compute_section_mrr(predicted_section_paths, gold_section_paths)
+        hit_at_1_doc = compute_doc_hit(predicted_doc_ids, gold_doc_ids, 1)
+        hit_at_3_doc = compute_doc_hit(predicted_doc_ids, gold_doc_ids, 3)
+        hit_at_5_doc = compute_doc_hit(predicted_doc_ids, gold_doc_ids, 5)
+        mrr_doc = compute_doc_mrr(predicted_doc_ids, gold_doc_ids)
         citation_hit = compute_citation_hit(predicted_citations, gold_target_ids)
+        # 主分数：有 section 标注用 section 粒度，否则降级到 doc 粒度
+        effective_hit5 = hit_at_5 if has_section_gold else hit_at_5_doc
         return {
-            "score": hit_at_5,
+            "score": effective_hit5,
             "evaluated": True,
             "retrieval_expected": True,
-            "hit@1": compute_section_hit(predicted_section_paths, gold_section_paths, 1),
+            "metric_granularity": "section" if has_section_gold else "doc",
+            "hit@1": hit_at_1,
             "hit@3": hit_at_3,
             "hit@5": hit_at_5,
             "mrr": round(mrr, 4),
+            "hit@1_doc": hit_at_1_doc,
+            "hit@3_doc": hit_at_3_doc,
+            "hit@5_doc": hit_at_5_doc,
+            "mrr_doc": round(mrr_doc, 4),
             "citation_hit": citation_hit,
             "question_type": str(gold.get("question_type") or ""),
             "gold_target_types": list(gold.get("gold_target_types") or []),
@@ -220,6 +295,7 @@ class RetrievalEvaluator(BaseEvaluator):
                 predicted_citations,
                 predicted_items,
                 gold,
+                predicted_doc_ids=predicted_doc_ids,
             ),
         }
 

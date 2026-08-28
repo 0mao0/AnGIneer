@@ -2,16 +2,17 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：v0.2.18** —— 已落地规范问答与 Agent 化问答链路（五路检索、一体化文档解析管线、SOP 审核/审计、注册考试题集评测、Dream Cycle 巡检）。
+> **当前版本：v0.2.19** —— 已落地规范问答与 Agent 化问答链路（五路检索、一体化文档解析管线、SOP 审核/审计、注册考试题集评测、Dream Cycle 巡检），v0.2.19 新增品牌视觉（logo/favicon 全套 + 页头色块）与 Agent 链路修复（能力问题路由补 L0 出口、强制重试锁定当前 query、工具标记不上屏）。
 
-**仓库版本**（五个独立仓库各自用 git tag 发布，发版时同步更新本表）：
+**仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.18` | 主仓库（产品迭代基线） |
-| [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.0` | 知识库前端组件库 |
-| [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.4` | 对话前端组件库 |
-| [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.1` | 通用树组件库（SmartTree） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.19` | 主仓库（产品迭代基线） |
+| [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.1` | 知识库前端组件库（npm: @angineer/docs-ui） |
+| [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.7` | 对话前端组件库（npm: @angineer/aichat-ui） |
+| [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
+| [angineer-table-ui](https://github.com/0mao0/angineer-table-ui) | `v0.1.1` | 通用表格组件库 DataTable（npm: @angineer/table-ui） |
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.1.1` | Python AI 推理客户端库 |
 
 > 核心理念：*"Human Defines SOP, AnGIneer Executes with Precision."*
@@ -267,6 +268,7 @@ apps/
 packages/
   docs-ui/  aichat-ui/  evals-ui/  sop-ui/  geo-ui/  engtools-ui/  ui-kit/  共享 UI 与组件
   smartree/            通用树组件 SmartTree（独立仓库 angineer-smartree-ui）
+  table-ui/            通用表格组件 DataTable（独立仓库 angineer-table-ui）
 services/
   ai-inference/       LLM 客户端（多模型/重试/熔断/流式）+ 响应解析（唯一底座）
   tree-core/          通用树节点 CRUD/移动/排序归一化（唯一底座）
@@ -398,6 +400,11 @@ pnpm harness:tooling
 
 # 列出评测题集
 pnpm eval:list
+
+# 评测冒烟门禁（20 正例 + 5 拒答，对比基线防回退；需服务已启动）
+pnpm harness:eval-smoke
+# 更新冒烟基线
+python scripts/open_ragbench/run_smoke.py --update-baseline
 
 # 架构/文档一致性检查
 pnpm docs:arch-check

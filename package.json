@@ -18,6 +18,7 @@
     "harness": "python -m unittest discover -s tests -p \"test_*.py\"",
     "harness:workflow": "python -m unittest tests.integration.test_05_Q1_with_reports",
     "harness:tooling": "python -m unittest tests.integration.test_01_tool_registration",
+    "harness:eval-smoke": "python scripts/open_ragbench/run_smoke.py",
     "test:docs-ui-display-roots": "node packages/docs-ui/test/display-roots.test.mjs",
     "sync:standalone": "powershell -ExecutionPolicy Bypass -File scripts/sync-standalone.ps1",
     "eval:list": "python -c \"from evals_core.storage.result_store import init_db, list_datasets; init_db(); import json; print(json.dumps(list_datasets(), ensure_ascii=False, indent=2))\"",
@@ -27,5 +28,8 @@
   },
   "dependencies": {
     "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
   }
 }

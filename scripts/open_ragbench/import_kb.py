@@ -111,6 +111,7 @@ def run_import(
     poll_timeout: int = 1800,
     api_key: str = "",
     create_only: bool = False,
+    state_path: Path = None,
 ):
     state = json.loads(json.dumps(state))
     token = login_admin(ep, admin_user, admin_password)
@@ -119,6 +120,11 @@ def run_import(
     api_key = api_key or create_key(ep, token, library_id)
     if create_only:
         return state, api_key
+
+    def _persist():
+        # 每篇结束后落盘，长时间导入崩溃可从断点续跑
+        if state_path:
+            common.save_json(state_path, state)
 
     for paper in manifest.get("papers", []):
         paper_id = paper["paper_id"]
@@ -130,6 +136,7 @@ def run_import(
         pdf_path = pdf_dir / f"{paper_id}.pdf"
         if not pdf_path.exists():
             state = advance_state(state, paper_id, "", "failed", f"PDF 不存在: {pdf_path.name}")
+            _persist()
             continue
         state = advance_state(state, paper_id, "", "pending", "")
         last_error = ""
@@ -146,6 +153,8 @@ def run_import(
                 last_error = str(exc)
         if state["papers"][paper_id]["status"] not in ("succeeded", "partial"):
             state = advance_state(state, paper_id, state["papers"][paper_id].get("doc_id", ""), "failed", last_error)
+        _persist()
+        print(f"[{paper_id}] {state['papers'][paper_id]['status']}", flush=True)
     return state, api_key
 
 
@@ -154,6 +163,7 @@ def main() -> int:
     parser.add_argument("--docs-api", default="http://localhost:8790")
     parser.add_argument("--admin-user", default=os.getenv("ADMIN_USER", ""))
     parser.add_argument("--admin-password", default=os.getenv("ADMIN_PASSWORD", ""))
+    parser.add_argument("--manifest", default=str(common.SUBSET_MANIFEST), help="子集 manifest 路径")
     parser.add_argument("--create-only", action="store_true", help="只建库与 API Key，不上传解析")
     args = parser.parse_args()
     _load_env()
@@ -164,7 +174,7 @@ def main() -> int:
         return 2
 
     common.ensure_dirs()
-    manifest = common.load_json(common.SUBSET_MANIFEST)
+    manifest = common.load_json(Path(args.manifest))
     state = load_or_init_state()
     existing_key = ""
     if common.KEYS_FILE.exists():
@@ -179,6 +189,7 @@ def main() -> int:
         state,
         api_key=existing_key,
         create_only=args.create_only,
+        state_path=common.IMPORT_STATE,
     )
     common.save_json(common.IMPORT_STATE, state)
     common.save_json(common.KEYS_FILE, {"library_id": state["library_id"], "api_key": api_key})

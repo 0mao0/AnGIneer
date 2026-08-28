@@ -29,6 +29,26 @@ class ConvertEvalsTests(unittest.TestCase):
         self.assertEqual(item["answer"]["gold_answer"], "X is Y")
         self.assertEqual(item["tags"][0], "text-image")
 
+    def test_bundle_maps_arxiv_doc_id_to_internal(self):
+        """gold_doc_ids 应映射为内部 doc_id，arxiv id 保留在 tags/notes 中。"""
+        manifest = {
+            "questions": [{
+                "uuid": "q1",
+                "query": "what is X?",
+                "type": "abstractive",
+                "source": "text",
+                "doc_id": "2409.16644v2",
+                "answer": "X is Y",
+            }],
+        }
+        bundle = convert_evals.build_eval_bundle(
+            manifest, "lib-1", doc_id_map={"2409.16644v2": "v1-b95b01b6ef00"}
+        )
+        item = bundle["items"][0]
+        self.assertEqual(item["retrieval"]["gold_doc_ids"], ["v1-b95b01b6ef00"])
+        self.assertEqual(item["retrieval"]["notes"], "arxiv:2409.16644v2")
+        self.assertIn("2409.16644v2", item["tags"])
+
 
 if __name__ == "__main__":
     unittest.main()

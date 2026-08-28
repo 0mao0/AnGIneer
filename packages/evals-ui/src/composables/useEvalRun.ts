@@ -95,6 +95,23 @@ export function useEvalRun() {
     const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?light=1`)
     if (resp.ok) {
       currentRun.value = await resp.json()
+      // 同步历史列表中的进度字段：标题行（completed_questions/total_questions）
+      // 读取的是 runs 列表，若不随轮询更新会出现"标题卡住、明细在动"。
+      const updated = currentRun.value
+      if (updated) {
+        runs.value = runs.value.map(r =>
+          r.run_id === runId
+            ? {
+                ...r,
+                status: updated.status ?? r.status,
+                completed_questions: updated.completed_questions ?? r.completed_questions,
+                total_questions: updated.total_questions ?? r.total_questions,
+                summary_scores: updated.summary_scores ?? r.summary_scores,
+                completed_at: updated.completed_at ?? r.completed_at,
+              }
+            : r,
+        )
+      }
       if (currentRun.value?.details) {
         const map = new Map(runDetails.value)
         if (isFullRun.value) {

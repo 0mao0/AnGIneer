@@ -12,18 +12,18 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from open_ragbench import common
 
 
-def import_dataset(ep: common.Endpoints) -> None:
-    with open(common.EVAL_DATASET_FILE, "rb") as fh:
+def import_dataset(ep: common.Endpoints, dataset_file: Path = common.EVAL_DATASET_FILE) -> None:
+    with open(dataset_file, "rb") as fh:
         resp = requests.post(
             ep.eval_import,
-            files={"file": (common.EVAL_DATASET_FILE.name, fh, "application/json")},
+            files={"file": (dataset_file.name, fh, "application/json")},
             timeout=60,
         )
     resp.raise_for_status()
 
 
-def start_run(ep: common.Endpoints) -> str:
-    resp = requests.post(ep.eval_runs, json={"dataset_id": common.DATASET_ID}, timeout=60)
+def start_run(ep: common.Endpoints, dataset_id: str = common.DATASET_ID) -> str:
+    resp = requests.post(ep.eval_runs, json={"dataset_id": dataset_id}, timeout=60)
     resp.raise_for_status()
     run_id = resp.json().get("run_id")
     if not run_id:
@@ -45,12 +45,14 @@ def poll_run(ep: common.Endpoints, run_id: str, timeout: int, interval: int):
 
 def run_eval(
     ep: common.Endpoints,
+    dataset_file: Path = common.EVAL_DATASET_FILE,
+    dataset_id: str = common.DATASET_ID,
     out_path: Path = common.REPORTS_DIR / "open-ragbench-subset-v1-raw.json",
     poll_interval: int = 10,
-    poll_timeout: int = 3600,
+    poll_timeout: int = 7200,
 ):
-    import_dataset(ep)
-    run_id = start_run(ep)
+    import_dataset(ep, dataset_file)
+    run_id = start_run(ep, dataset_id)
     run = poll_run(ep, run_id, poll_timeout, poll_interval)
     common.save_json(out_path, run)
     return run
@@ -59,14 +61,24 @@ def run_eval(
 def main() -> int:
     parser = argparse.ArgumentParser(description="运行 Open RAG Benchmark 子集评测")
     parser.add_argument("--aichat-api", default="http://localhost:8791")
+    parser.add_argument("--dataset-file", default=str(common.EVAL_DATASET_FILE), help="题集 JSON 路径")
+    parser.add_argument("--dataset-id", default=common.DATASET_ID, help="题集 ID")
+    parser.add_argument("--out", default="", help="原始结果输出路径（默认 reports/<dataset-id>-raw.json）")
     parser.add_argument("--import-only", action="store_true", help="只导入题集到 evals，不启动评测 run")
     args = parser.parse_args()
+    dataset_file = Path(args.dataset_file)
+    out_path = Path(args.out) if args.out else common.REPORTS_DIR / f"{args.dataset_id}-raw.json"
     if args.import_only:
-        import_dataset(common.Endpoints(aichat_api=args.aichat_api))
-        print("题集已导入 evals 页面")
+        import_dataset(common.Endpoints(aichat_api=args.aichat_api), dataset_file)
+        print("题集已导入 evals 页面:", args.dataset_id)
         return 0
-    run = run_eval(common.Endpoints(aichat_api=args.aichat_api))
-    print("评测完成:", run.get("run_id"), run.get("status"))
+    run = run_eval(
+        common.Endpoints(aichat_api=args.aichat_api),
+        dataset_file=dataset_file,
+        dataset_id=args.dataset_id,
+        out_path=out_path,
+    )
+    print("评测完成:", run.get("run_id"), run.get("status"), "结果:", out_path)
     return 0
 
 
