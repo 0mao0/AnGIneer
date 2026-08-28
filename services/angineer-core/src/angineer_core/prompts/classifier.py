@@ -12,7 +12,6 @@ CLASSIFY_INTENT_SYSTEM_PROMPT = """你是工程规范领域的意图分类器。
 
 | 层级 | 名称 | 判定特征 | service_mode（必须严格对应） |
 |------|------|----------|------------------------------|
-| L0 | 闲聊/能力询问 | 问候、感谢，或询问"你/系统"自身能力（能否联网搜索、支持什么格式、功能边界等），无领域知识需求 | casual_chat |
 | L1 | 概念解析 | 问"什么是XX"、"XX的定义/原理"、"简述XX"、"XX的分类"、"XX的作用"，无计算参数 | semantic_retrieval |
 | L2 | 条款应用 | 问条款取值、规范参数、查表取值（如"依据XX规范确定XX"、"查表得XX值"），不涉及多步计算 | structured_lookup |
 | L3 | 标准计算 | 有具体数值参数需要计算（吨级、水位、波高、尺寸等工程参数），且存在预定义SOP可承接 | standard_sop |
@@ -20,7 +19,6 @@ CLASSIFY_INTENT_SYSTEM_PROMPT = """你是工程规范领域的意图分类器。
 
 ## 关键判断规则
 
-0. "你能…吗/会不会/支持…吗"句式先看询问对象：若实质涉及规范/文档/工程领域内容（如"这个规范能用于…吗"、"你能帮我查…"）→ 按内容判 L1 及以上；仅当询问的是系统自身能力 → L0
 1. 只要题目包含"计算/求/验算/求解/算出"等动词 + 工程参数（吨级、水位、波高、尺寸等数值），优先判为 L3
 2. 考试选择题（带选项A/B/C/D）+ 含计算意图 = L3
 3. "查表""依据XX规范""取值""应符合XX条" + 无计算 = L2
@@ -28,15 +26,6 @@ CLASSIFY_INTENT_SYSTEM_PROMPT = """你是工程规范领域的意图分类器。
 5. 多方案比较/系统设计/综合评价 = L4
 
 ## Few-shot 示例
-
-Q: "你能进行网络搜索吗？"
-A: {"intent_level": "L0", "intent_type": "能力询问", "confidence": 0.95, "service_mode": "casual_chat", "reason": "询问系统能力边界，无领域知识需求"}
-
-Q: "你能帮我查一下《海港总体设计规范》中码头前沿水深的规定吗？"
-A: {"intent_level": "L1", "intent_type": "概念解析", "confidence": 0.90, "service_mode": "semantic_retrieval", "reason": "「你能…吗」句式但实质是规范内容查询"}
-
-Q: "这个规范能用于沿海港口工程吗？"
-A: {"intent_level": "L1", "intent_type": "概念解析", "confidence": 0.90, "service_mode": "semantic_retrieval", "reason": "询问对象是规范适用范围，属领域内容"}
 
 Q: "什么是港口吞吐量？"
 A: {"intent_level": "L1", "intent_type": "概念解析", "confidence": 0.95, "service_mode": "semantic_retrieval", "reason": "纯概念定义查询，无计算参数"}
@@ -52,7 +41,7 @@ A: {"intent_level": "L4", "intent_type": "复杂方案设计", "confidence": 0.8
 
 ## 输出格式
 
-输出JSON对象（service_mode 必须从上述五种中选一，confidence 为 0.0-1.0）：
+输出JSON对象（service_mode 必须从上述四种中选一，confidence 为 0.0-1.0）：
 {
   "intent_level": "L3",
   "intent_type": "简短意图标签",
@@ -91,5 +80,5 @@ ROUTE_SOP_SYSTEM_PROMPT = """你是一个工程规范领域的 SOP 匹配器。�
 - 如果无法确定某个字段值，该字段返回 null"""
 
 
-register("classifier.classify_intent_system_prompt", "v2", CLASSIFY_INTENT_SYSTEM_PROMPT)
+register("classifier.classify_intent_system_prompt", "v1", CLASSIFY_INTENT_SYSTEM_PROMPT)
 register("classifier.route_sop_system_prompt", "v1", ROUTE_SOP_SYSTEM_PROMPT)

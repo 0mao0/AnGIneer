@@ -126,36 +126,6 @@ def _last_answer_is_refusal(messages: List[AgentMessage]) -> bool:
     return False
 
 
-# 系统注入的指令前缀（用于与真实用户提问区分）
-_INJECTED_USER_PREFIXES = (
-    "请先调用检索工具",
-    "请针对用户当前问题",
-    "上一段未命中",
-    "轮次预算已用完",
-    "已代为执行知识检索",
-    "已检索到有效证据",
-)
-
-
-def _current_user_question(messages: List[AgentMessage], start_idx: int) -> str:
-    """本轮的真实用户问题。
-
-    优先取 run 起点前一条 user 消息（AgentSession 追加的当前提问）；
-    兜底逆序找最后一条非系统注入的 user 消息，避免把历史话题/注入指令误当当前问题。
-    """
-    if 0 < start_idx <= len(messages):
-        candidate = messages[start_idx - 1]
-        if candidate.role == "user" and (candidate.content or "").strip():
-            return candidate.content
-    for message in reversed(messages):
-        if message.role != "user":
-            continue
-        content = (message.content or "").strip()
-        if content and not content.startswith(_INJECTED_USER_PREFIXES):
-            return content
-    return ""
-
-
 def _force_retrieve_tool(
     messages: List[AgentMessage],
     machine: "_AttemptMachine",
@@ -166,10 +136,9 @@ def _force_retrieve_tool(
     """代检索保险：模型拒答且未调用检索工具时，系统替它执行 knowledge_search。
 
     绕开模型输出工具调用格式不稳定的问题，直接把检索结果注入对话。
-    query 锁定本轮真实用户问题（而非会话最旧消息），避免历史话题污染。
     返回工具结果文本；失败或工具不存在时返回 None（保持原收尾逻辑）。
     """
-    query = _current_user_question(messages, machine.start_idx)
+    query = next((m.content for m in messages if m.role == "user" and m.content), "")
     if not query:
         return None
     tool = machine.tools_by_name.get("knowledge_search")
@@ -332,50 +301,6 @@ def _execute_tools_batch(
     return [_run_callback(config.after_tool_call, result, result) for result in results]
 
 
-_TOOL_FENCE = "```tool_calls"
-
-
-def _split_delta_flush(pending: str, suppress: bool) -> Tuple[str, str, bool]:
-    """流式上屏过滤：扣住/抑制 tool_calls 围栏标记，其余文本原样放行。
-
-    返回 (本次可发射文本, 剩余待判定 pending, 是否处于工具块抑制中)。
-    流结束时残留的 pending 必为半截工具标记，直接丢弃（不上屏）；
-    唯一的例外是裸 "```"（多为正常代码块闭合围栏），由调用方在流末放行。
-    从左到右逐围栏扫描：完整工具块在一个 chunk 内也能正确识别。
-    """
-    out: List[str] = []
-    while pending:
-        if suppress:
-            end = pending.find("```")
-            if end < 0:
-                return "".join(out), "", True
-            pending = pending[end + 3:]
-            suppress = False
-            continue
-        idx = pending.find("```")
-        if idx < 0:
-            out.append(pending)
-            pending = ""
-            break
-        tail = pending[idx:]
-        tail_lower = tail.lower()
-        if _TOOL_FENCE.startswith(tail_lower):
-            # tail 是 ```tool_calls 的真前缀（含 "```" 本身）：扣住等后续 delta 判定
-            out.append(pending[:idx])
-            pending = tail
-            break
-        if tail_lower.startswith(_TOOL_FENCE):
-            # 完整工具块标记：之前文本放行，进入抑制直到闭合围栏
-            out.append(pending[:idx])
-            pending = tail[len(_TOOL_FENCE):]
-            suppress = True
-            continue
-        # 普通代码围栏：放行到该围栏为止，继续向右扫描
-        out.append(pending[: idx + 3])
-        pending = pending[idx + 3:]
-    return "".join(out), pending, suppress
-
-
 def _run_llm_turn(
     messages: List[AgentMessage],
     new_prompt_messages: List[AgentMessage],
@@ -411,8 +336,6 @@ def _run_llm_turn(
     full_text = ""
     finish_reason = None
     usage: Dict[str, Any] = {}
-    pending_delta = ""
-    suppress_tool_block = False
     try:
         for event in config.llm.chat_stream_events(
             llm_messages,
@@ -426,10 +349,7 @@ def _run_llm_turn(
             if event.get("type") == "delta":
                 delta = event.get("text") or ""
                 full_text += delta
-                pending_delta += delta
-                emit_text, pending_delta, suppress_tool_block = _split_delta_flush(pending_delta, suppress_tool_block)
-                if emit_text:
-                    _safe_emit(emit, AgentEvent(type="message_delta", run_id=run_id, turn=turn, payload={"delta": emit_text}))
+                _safe_emit(emit, AgentEvent(type="message_delta", run_id=run_id, turn=turn, payload={"delta": delta}))
             elif event.get("type") == "done":
                 finish_reason = event.get("finish_reason")
                 if event.get("usage"):
@@ -437,11 +357,6 @@ def _run_llm_turn(
     except Exception as exc:  # noqa: BLE001
         logger.warning("LLM 流式调用异常: %s", exc)
         finish_reason = finish_reason or "error"
-
-    # 流末遗留：裸 "```" 多为正常代码块的闭合围栏，放行；
-    # 更长的半截 tool_calls 标记（如 ```tool_c）属于工具垃圾，直接丢弃不上屏。
-    if pending_delta == "```":
-        _safe_emit(emit, AgentEvent(type="message_delta", run_id=run_id, turn=turn, payload={"delta": pending_delta}))
 
     # 解析工具调用（解析失败 fail-open 到纯文本答案）
     calls: List = []
@@ -498,7 +413,6 @@ class _AttemptMachine:
         messages: List[AgentMessage],
         start_idx: int,
         add_note: Callable[[str], None],
-        clear_answer: Optional[Callable[[], None]] = None,
     ) -> None:
         self.base_config = config
         self.attempts = list(config.attempts or [])
@@ -506,7 +420,6 @@ class _AttemptMachine:
         self.start_idx = start_idx
         self.attempt_start_idx = start_idx
         self.add_note = add_note
-        self._clear_answer_cb = clear_answer
         self.active_config = config
         self.active_attempt_idx = -1
         self.attempt_turn = 0
@@ -558,10 +471,6 @@ class _AttemptMachine:
             return REFUSAL_ANSWER_TEXT + REFUSAL_FOLLOWUP_QUESTION
         return REFUSAL_ANSWER_TEXT
 
-    def _clear_answer(self) -> None:
-        """重试前清空前端正文气泡：避免多轮 delta 缝合成怪文本。"""
-        _run_callback(self._clear_answer_cb, None)
-
     def advance(self) -> str:
         """当前段成功→"completed"；失败且有下一段→切换并返回 "next"；
         需要工具但未调用→返回 "retry"（最多一次）；有证据却拒答→终段定向重试（最多一次）；
@@ -579,16 +488,8 @@ class _AttemptMachine:
                 self.retry_used = True
                 # 腾出一轮带工具的预算：这次“直接作答”不计入轮次预算
                 self.attempt_turn = max(0, self.attempt_turn - 1)
-                question = _current_user_question(self.messages, self.start_idx) or "（未识别到当前问题）"
-                self.messages.append(AgentMessage(
-                    role="user",
-                    content=(
-                        f"请针对用户当前问题「{question}」调用检索工具获取证据后再回答；"
-                        "检索 query 必须围绕该问题，不得使用历史对话中的其他主题。"
-                    ),
-                ))
+                self.messages.append(AgentMessage(role="user", content="请先调用检索工具获取证据后再回答"))
                 self.add_note("未调用检索工具，已要求重新检索后回答")
-                self._clear_answer()
                 return "retry"
             # 代检索保险：仍不调工具且最终答案是拒答时，替模型执行 knowledge_search 再答一轮
             if (
@@ -615,7 +516,6 @@ class _AttemptMachine:
                         )
                     )
                     self.add_note("最终回答为拒答且未调用检索工具，已代为执行 knowledge_search 并要求基于证据重答")
-                    self._clear_answer()
                     return "retry"
             return self._finalize_no_tool_answer(added)
         if (
@@ -634,7 +534,6 @@ class _AttemptMachine:
                 content="已检索到有效证据，请基于证据作答；若证据只覆盖部分内容，请回答已支持的部分并明确说明缺失项，不要整体拒答。",
             ))
             self.add_note("有有效证据但回答为拒答，已要求基于证据重答")
-            self._clear_answer()
             return "retry"
         if self.active_attempt_idx + 1 < len(self.attempts):
             nxt = self.attempts[self.active_attempt_idx + 1]
@@ -731,15 +630,8 @@ def run_agent_loop(
     if config.route_note:
         _add_note(config.route_note)
 
-    def _clear_answer() -> None:
-        """重试边界通知前端清空正文气泡（delta 晚绑定读取当前 turn）。"""
-        _safe_emit(
-            emit,
-            AgentEvent(type="answer", run_id=run_id, turn=turn, payload={"content": ""}),
-        )
-
     # —— 分段（attempt）初始化 ——
-    machine = _AttemptMachine(config, messages, start_idx, _add_note, clear_answer=_clear_answer)
+    machine = _AttemptMachine(config, messages, start_idx, _add_note)
     machine.force_retrieve = lambda: _force_retrieve_tool(messages, machine, emit, run_id, cancel_event)
     machine.start()
 
