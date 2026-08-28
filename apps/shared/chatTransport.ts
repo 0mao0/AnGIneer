@@ -277,6 +277,16 @@ export function cleanStreamText(raw: string): string {
   }
   cleaned = stripFencedToolCallBlocks(cleaned)
   cleaned = stripPlainToolCallArtifacts(cleaned).trim()
+  // 流式途中模型可能吐出半截 ```tool_calls 前缀（如 ```tool_c），尾部命中即截掉
+  const toolFence = '```tool_calls'
+  const tail = cleaned.toLowerCase()
+  for (let i = toolFence.length - 1; i >= 4; i--) {
+    const prefix = toolFence.slice(0, i)
+    if (tail.endsWith(prefix)) {
+      cleaned = cleaned.slice(0, cleaned.length - prefix.length)
+      break
+    }
+  }
   return stripOuterMarkdownFence(cleaned)
 }
 

@@ -36,6 +36,18 @@ class PromptsLoaderTests(unittest.TestCase):
             self.assertIsInstance(name, str)
             self.assertTrue(version)
 
+    def test_classifier_prompt_has_l0_capability_row(self):
+        """分类器 prompt 必须含 L0 闲聊/能力询问档（casual_chat）与「你能…吗」判别规则。
+
+        回归防线：能力边界问题（如"你能进行网络搜索吗"）曾因 prompt 缺 L0 档被
+        强行归入 L1，触发 requires_tools 强制检索并抓历史话题当 query。
+        """
+        text = load("classifier.classify_intent_system_prompt")
+        self.assertIn("casual_chat", text)
+        self.assertIn("闲聊/能力询问", text)
+        self.assertIn("五种", text)
+        self.assertIn("你能", text)
+
 
 class PromptMigrationContractTests(unittest.TestCase):
     def test_dispatcher_dead_prompts_removed(self):

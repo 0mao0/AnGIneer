@@ -461,6 +461,18 @@ test('流式过滤：普通 JSON 数组和未闭合围栏不影响正文', () =>
   assert.equal(cleanStreamText('正文\n```tool_calls\n[{"name": "x"'), '正文')
 })
 
+test('流式过滤：半截 ```tool_calls 前缀（如 ```tool_c）不进正文', () => {
+  // 线上事故回归：模型吐了半截工具标记就停，前缀直接上屏
+  assert.equal(cleanStreamText('我只能访问知识库，不能联网搜索。```tool_c'), '我只能访问知识库，不能联网搜索。')
+  assert.equal(cleanStreamText('正文```t'), '正文')
+  assert.equal(cleanStreamText('正文\n```tool_call'), '正文')
+})
+
+test('流式过滤：普通代码围栏与 ```toml 这类相似语言标记不误伤', () => {
+  assert.equal(cleanStreamText('看代码：\n```python\nprint(1)\n```'), '看代码：\n```python\nprint(1)\n```')
+  assert.equal(cleanStreamText('配置：\n```toml\na=1\n```'), '配置：\n```toml\na=1\n```')
+})
+
 test('agent 事件实时生成思考过程步骤', () => {
   let steps: ThinkingTraceStep[] = []
 
