@@ -21,7 +21,10 @@ class TestResolveStageOrder(unittest.TestCase):
         order = resolve_stage_order("all")
         self.assertEqual(
             order,
-            ["source_prep", "convert", "raw_parse", "popo", "structure", "fts", "vectors", "graph"],
+            [
+                "source_prep", "convert", "raw_parse", "popo", "structure",
+                "figure_describe", "fts", "vectors", "graph",
+            ],
         )
 
     def test_subset_respects_dependency(self):

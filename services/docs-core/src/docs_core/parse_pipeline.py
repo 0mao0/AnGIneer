@@ -442,6 +442,53 @@ def _run_structure_solo(
     return f"结构化完成（Solo 构建{suffix}），{nodes_count} blocks"
 
 
+def _run_figure_describe(ctx: StageContext) -> str:
+    """图表 VLM 描述（soft）：为 doc_blocks_graph.jsonl 的图表块生成 figure_description。
+
+    描述由 step05 fts（canonical_builder 拼接 caption+描述进 chunk）与
+    step06/07 自动携带入索引/向量/图谱，本阶段只负责写回 jsonl。
+    """
+    import docs_core.paths as paths
+    from docs_core.step04_structure.figure_describer import (
+        describe_figures_in_graph,
+        is_enabled,
+    )
+
+    if not is_enabled():
+        ctx.log_step("图描述", "skipped", "FIGURE_DESCRIBE_ENABLED=0，跳过图描述")
+        return "__skipped__: 图描述未启用（FIGURE_DESCRIBE_ENABLED=0）"
+
+    graph_path = paths.get_graph_jsonl_path(ctx.library_id, ctx.doc_id)
+    if _FIGURE_DESCRIBE_GATE.should_wait(ctx.arrival_seq):
+        _mark_stage_queued(
+            ctx, "图描述排队",
+            "等待图描述 VLM 资源（前序任务完成后自动开始）",
+            "等待图描述 VLM 资源",
+        )
+
+    def _on_node(block_uid: str, status: str, detail: str) -> None:
+        if ctx.cancel_check is not None:
+            ctx.cancel_check()
+        ctx.log_step(f"图描述 {block_uid or '汇总'}", status, detail)
+
+    with figure_describe_slot(ctx.cancel_check, arrival_seq=ctx.arrival_seq):
+        _mark_stage_running(ctx, "figure_describe", "图描述 VLM 推理中")
+        stats = describe_figures_in_graph(
+            ctx.library_id,
+            ctx.doc_id,
+            on_node=_on_node,
+            cancel_check=ctx.cancel_check,
+        )
+
+    ctx.input_summary = str(graph_path)
+    ctx.output_summary = (
+        f"figure_description 写回 doc_blocks_graph.jsonl："
+        f"新生成 {stats['described']}，已有 {stats['already']}，"
+        f"缺图 {stats['missing_images']}，失败 {stats['errors']}"
+    )
+    return f"图描述完成（新生成 {stats['described']} 张，已有 {stats['already']} 张）"
+
+
 def _run_fts(ctx: StageContext) -> str:
     import docs_core.paths as paths
     from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph
@@ -600,6 +647,23 @@ def popo_inference_slot(
         _POPO_GATE.release()
 
 
+_FIGURE_DESCRIBE_MAX_CONCURRENCY = max(1, _env_int("FIGURE_DESCRIBE_MAX_CONCURRENCY", 1))
+_FIGURE_DESCRIBE_GATE = _FifoGpuGate(_FIGURE_DESCRIBE_MAX_CONCURRENCY)
+
+
+@contextmanager
+def figure_describe_slot(
+    cancel_check: Optional[Callable[[], None]] = None,
+    arrival_seq: int = 1,
+):
+    """图描述 VLM（远端 chat 端点）槽位：按提交序号先来先服务。"""
+    _FIGURE_DESCRIBE_GATE.acquire(arrival_seq, cancel_check)
+    try:
+        yield
+    finally:
+        _FIGURE_DESCRIBE_GATE.release()
+
+
 _POPO_TRANSIENT_MARKERS = (
     "timeout", "timed out", "connection", "retries", "429",
     "overloaded", "unavailable", "500", "503",
@@ -673,13 +737,14 @@ STAGE_REGISTRY: Dict[str, StageDef] = {s.key: s for s in [
     StageDef("raw_parse", "3.1 MinerU解析", STAGE_KIND_HARD, ["convert"], _run_raw_parse, _verify_raw_parse_input, step="3.1"),
     StageDef("popo", "3.2 PoPo强化", STAGE_KIND_SOFT, ["raw_parse"], _run_popo, _verify_mineru_raw_input, step="3.2"),
     StageDef("structure", "4 结构化（Solo 唯一构建者）", STAGE_KIND_HARD, ["raw_parse"], _run_structure, _verify_mineru_raw_input, step="4"),
+    StageDef("figure_describe", "4.5 图描述（VLM）", STAGE_KIND_SOFT, ["structure"], _run_figure_describe, _verify_doc_blocks_graph_input, step="4.5"),
     StageDef("fts", "5 SQLite+FTS", STAGE_KIND_HARD, ["structure"], _run_fts, _verify_doc_blocks_graph_input, step="5"),
     StageDef("vectors", "6 向量索引", STAGE_KIND_SOFT, ["fts"], _run_vectors, _verify_doc_blocks_graph_input, step="6"),
     StageDef("graph", "7 知识图谱", STAGE_KIND_SOFT, ["structure"], _run_graph, _verify_doc_blocks_graph_input, step="7"),
 ]}
 
 _PIPELINE_ORDER = [
-    "source_prep", "convert", "raw_parse", "popo", "structure", "fts", "vectors", "graph",
+    "source_prep", "convert", "raw_parse", "popo", "structure", "figure_describe", "fts", "vectors", "graph",
 ]
 
 
@@ -749,6 +814,14 @@ def derive_overall_status(
     effective = dict(stage_status)
     if effective.get("popo") == "failed" and effective.get("structure") == "completed":
         effective["popo"] = "completed"
+    # figure_describe 阶段上线前已完成的存量文档没有该阶段记录：
+    # 其余阶段全部终态时视为 skipped，避免旧文档整体被误判为 processing
+    if "figure_describe" not in effective and all(
+        effective.get(key) in ("completed", "skipped")
+        for key in STAGE_REGISTRY
+        if key != "figure_describe"
+    ):
+        effective["figure_describe"] = "skipped"
     values = list(effective.values())
     if any(v == "failed" for v in values):
         return "partial"

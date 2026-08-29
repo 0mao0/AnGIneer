@@ -171,9 +171,12 @@ def build_canonical_blocks_from_source(doc_id: str, raw_blocks: List[dict[str, A
         if str(raw_block.get("layout_category") or "") == "attachment":
             continue
         text = str(raw_block.get("text") or raw_block.get("content") or "").strip()
-        # 图表块通常没有正文文本；用 VLM 生成的图描述作为可检索文本
-        if not text and raw_block.get("image_path") and raw_block.get("figure_description"):
-            text = str(raw_block.get("figure_description") or "").strip()
+        # 图块的可检索文本 = caption + VLM 图描述（拼接而非空位兜底）：
+        # 仅有 caption 时图内容（数值/趋势）不可检索；只有空正文时才用描述作唯一文本。
+        if raw_block.get("image_path") and raw_block.get("figure_description"):
+            desc = str(raw_block.get("figure_description") or "").strip()
+            if desc:
+                text = (text + "\n" + desc).strip() if text else desc
         section_path = str(raw_block.get("section_path") or "")
         formula_semantics = raw_block.get("formula_semantics")
         canonical_blocks.append(
