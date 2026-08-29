@@ -4,6 +4,7 @@ agent 侧使用轻量 dataclass；仅在 LLM 调用边界经 `to_llm_messages` �
 OpenAI 兼容格式（P7 第二道闸门）。`meta` 永不进入 LLM 上下文。
 """
 import json
+import re
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
@@ -22,6 +23,41 @@ REFUSAL_MARKERS = ("没有检索到足够证据",)
 def is_refusal_text(text: str) -> bool:
     """判断文本是否命中拒答话术（标准话术或模型自拟变体）。"""
     return any(marker in (text or "") for marker in REFUSAL_MARKERS)
+
+
+_HALF_REFUSAL_LEAD_PATTERNS = (
+    "证据不足",
+    "信息不足",
+    "无法确认",
+    "无法确定",
+    "不能确定",
+    "难以确定",
+    "无法给出",
+    "不能给出",
+    "缺乏足够",
+    "不足以",
+)
+
+_CITE_RE = re.compile(r"\[[KTE]\d+\]")
+
+
+def is_half_refusal_text(text: str, max_len: int = 400) -> bool:
+    """识别“半拒答”：开头先声明证据不足，随后又带着引用标记继续作答。
+
+    判定条件（全部满足）：
+    - 文本开头 max_len 字符内出现证据不足类变体短语；
+    - 全文出现引用标记（说明后续仍在基于检索作答）；
+    - 全文长度明显大于一句拒答说明（>120 字符）。
+    """
+    content = (text or "").strip()
+    if len(content) <= 120:
+        return False
+    lead = content[:max_len]
+    if not any(pattern in lead for pattern in _HALF_REFUSAL_LEAD_PATTERNS):
+        return False
+    if not _CITE_RE.search(content):
+        return False
+    return True
 
 
 @dataclass

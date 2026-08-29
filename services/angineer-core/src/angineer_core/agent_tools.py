@@ -148,6 +148,26 @@ def _assign_cites(items: list, allocator: MarkerAllocator, prefix: str) -> None:
             metadata["cite"] = allocator.next(prefix)
 
 
+def _keep_per_doc_blocks(items: list, *, total_cap: int = 30) -> list:
+    """检索块去重 + 总量上限：完全相同的块只保留一次，总块数 cap，保持原排序。
+
+    不限制单文档块数：gold 文档多块命中时证据完整性优先，
+    （早期按每 doc 3 块截断的版本实测砍掉关键块导致拒答，已回退）。
+    """
+    kept: List[Any] = []
+    seen_ids: set = set()
+    for item in items:
+        item_id = str(getattr(item, "item_id", "") or "")
+        if item_id and item_id in seen_ids:
+            continue
+        if item_id:
+            seen_ids.add(item_id)
+        kept.append(item)
+        if len(kept) >= total_cap:
+            break
+    return kept
+
+
 def _items_to_evidences(items: list, *, kind: str, source: str, library_id: str) -> List[Dict[str, Any]]:
     """RetrievedItem 列表 → Evidence 序列化 dict（统一证据模型；items 字段保留做展示兼容）。"""
     evidences: List[Dict[str, Any]] = []
@@ -330,6 +350,7 @@ def _run_knowledge_search(
             full = table_text_by_id.get(tid) or ""
             if full and len(full) > len(str(item.text or "")):
                 item.text = full
+    items = _keep_per_doc_blocks(items)
     return _assemble_search_result(
         query=query, items=items, library_id=library_id,
         doc_title_map=doc_title_map, prefix=prefix,

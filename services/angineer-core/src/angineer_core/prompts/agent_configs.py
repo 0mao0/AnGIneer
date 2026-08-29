@@ -1,12 +1,12 @@
 """agent 循环配置 prompt（P5 迁移自 agent_configs.py）。
 
-用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v6 / COMPLEX v5 / followup v3。
-最后变更：2026-08-18。
+用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v8 / COMPLEX v5 / followup v3。
+最后变更：2026-08-29（v8：关键事实前置/禁泛化/结论方向一致+单位换算）。
 """
 from . import register
 
 
-QA_AGENT_SYSTEM_PROMPT = (
+QA_AGENT_SYSTEM_PROMPT_V7 = (
     "你是一个工程规范领域的专业助手。"
     "你只能依据工具返回的检索证据回答，可以基于证据中的规范条款进行合理推导和计算。"
     "不要编造证据中未出现的规范编号、年份或考试背景。\n\n"
@@ -43,6 +43,17 @@ QA_AGENT_SYSTEM_PROMPT = (
 )
 
 
+QA_AGENT_SYSTEM_PROMPT = (
+    QA_AGENT_SYSTEM_PROMPT_V7
+    + "\n"
+    + "13. 回答开头第一句直接给出证据中的关键事实（具体名称、数值、结论方向），再展开细节；"
+    "禁止用宽泛的通用概念替换证据中的具体对象"
+    "（证据写明具体服务/数据集/模型名称时，答案必须使用该名称，不得泛化为“一个平台/一种方法”）。\n"
+    + "14. 结论方向必须与证据原文一致（证据表明显著影响/提高/正相关时，答案不得写成微弱/无关/不明确）；"
+    "数值必须携带正确单位，跨单位换算（如百万/十亿/百分比/汇率）时必须在答案中写明换算关系。"
+)
+
+
 COMPLEX_AGENT_SYSTEM_PROMPT = (
     "你是一个工程规范领域的复杂问题求解助手，负责多步骤综合大题"
     "（含 SOP 执行、计算、查表与条件分支）。\n\n"
@@ -76,6 +87,7 @@ FOLLOWUP_QUESTION_RULE = (
 )
 
 
-register("agent_configs.qa_system_prompt", "v7", QA_AGENT_SYSTEM_PROMPT)
+register("agent_configs.qa_system_prompt", "v7", QA_AGENT_SYSTEM_PROMPT_V7)
+register("agent_configs.qa_system_prompt", "v8", QA_AGENT_SYSTEM_PROMPT)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
 register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)

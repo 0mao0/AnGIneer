@@ -5,7 +5,7 @@ import re
 from typing import Any, Dict, List, Optional
 
 from angineer_core.agent_loop import AgentLoopConfig, TurnContext
-from angineer_core.agent_messages import AgentMessage, is_refusal_text
+from angineer_core.agent_messages import AgentMessage, is_half_refusal_text, is_refusal_text
 from angineer_core.agent_tools import (
     AgentTool,
     EngtoolAdapter,
@@ -21,6 +21,20 @@ from angineer_core.tool_codec import TextToolCallCodec
 
 
 _MARKER_RE = re.compile(r"\[([KTE]\d+)\]")
+
+
+def _env_flag(name: str, default: bool = False) -> bool:
+    """通用 env 布尔开关解析：true/1/yes/on 视为开，其余视为关。"""
+    raw = os.getenv(name, "")
+    return raw.strip().lower() in ("true", "1", "yes", "on")
+
+
+def _load_qa_system_prompt() -> str:
+    """按 ANGINEER_QA_PROMPT_VERSION 加载 QA 档系统提示（默认最新注册版本）。"""
+    from angineer_core.prompts import load
+
+    version = os.getenv("ANGINEER_QA_PROMPT_VERSION", "latest").strip() or "latest"
+    return load("agent_configs.qa_system_prompt", version)
 
 
 def _valid_markers(added_messages: List[AgentMessage]) -> set:
@@ -106,7 +120,7 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
     返回 (新答案, 说明文案)；无需处理时返回 None。
     """
     from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT
-    from angineer_core.retrieval_pipeline import has_unsupported_reference
+    from angineer_core.retrieval_pipeline import has_unsupported_claim, has_unsupported_reference
     from angineer_core.agent_messages import REFUSAL_FOLLOWUP_QUESTION
 
     def _refusal_text() -> str:
@@ -155,6 +169,16 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                 return (
                     _refusal_text(),
                     "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
+                )
+            if _env_flag("ANGINEER_GUARD_CLAIM") and answer and has_unsupported_claim(answer, evidence_text):
+                return (
+                    _refusal_text(),
+                    "边界规则：最终回答包含证据中未出现的数值/专名（ANGINEER_GUARD_CLAIM），已替换为拒答话术",
+                )
+            if _env_flag("ANGINEER_GUARD_HALF_REFUSAL") and answer and is_half_refusal_text(answer):
+                return (
+                    _refusal_text(),
+                    "边界规则：检测到半拒答（先声明证据不足又继续作答，ANGINEER_GUARD_HALF_REFUSAL），已替换为拒答话术",
                 )
             if answer and is_refusal_text(answer):
                 refusal_note = (
@@ -270,7 +294,7 @@ def build_qa_config(
             else [knowledge_tool, table_tool, entity_tool]
         )
 
-    system_prompt = QA_AGENT_SYSTEM_PROMPT
+    system_prompt = _load_qa_system_prompt()
     explicit = _build_inline_citation_context(inline_citations or [])
     if explicit:
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
