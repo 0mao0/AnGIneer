@@ -316,52 +316,48 @@ def _enrich_detail_with_question(detail: Dict[str, Any], question: Dict[str, Any
     }
 
 
-def _run_suite_thread(
-    run_id: str, dataset_id: str, questions: List[Dict[str, Any]],
-    override_doc_ids: Optional[List[str]] = None,
-    pre_done: Optional[Dict[str, Dict[str, Any]]] = None,
-    in_place: bool = False,
-    config_name: Optional[str] = None,
-) -> None:
-    """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。
-
-    pre_done: 断点续跑时，question_id -> 已完成详情 的映射。
-    这些题目直接复用旧结果，只执行剩余题目；in_place=True 时详情已在原 run 记录中，
-    不重复插入，仅计数进度。
-    """
-    global _current_run_id, _stop_event
-    pre_done = pre_done or {}
-    pre_done_count = len(pre_done)
-    executed = 0
-    
-    # 获取并发控制锁（阻塞等待，直到其他评测任务完成）
-    acquired = _eval_lock.acquire(timeout=0.1)
-    if not acquired:
-        result_store.fail_run(run_id, "已有其他评测任务正在运行，请稍后再试")
-        return
-    
-    _current_run_id = run_id
-    _stop_event = threading.Event()
-    
+def _eval_concurrency() -> int:
+    """评测并发度：EVAL_CONCURRENCY env（默认 3，<=1 时走串行原逻辑）。"""
     try:
-        evaluators = _build_evaluators()
-        total = len(questions)
-        for idx, question in enumerate(questions):
-            # 检查是否收到停止信号（在每道题目开始前检查）
-            if _stop_event.is_set():
-                # 优雅退出：计算已完成的汇总指标并标记为已取消
-                details = result_store.list_run_details(run_id)
-                enriched_details = []
-                for d in details:
-                    q = next((q for q in questions if str(q.get("question_id") or "") == d["question_id"]), {})
-                    enriched = _enrich_detail_with_question(d, q)
-                    enriched_details.append(enriched)
-                summary = _compute_summary(enriched_details)
-                result_store.cancel_run(run_id, summary)
-                return
-            
+        workers = int(os.getenv("EVAL_CONCURRENCY", "3").strip() or "1")
+    except ValueError:
+        workers = 1
+    return max(1, workers)
+
+
+def _run_one_worker(
+    question: Dict[str, Any],
+    evaluator_names: List[str],
+    stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
+) -> tuple:
+    """并发 worker：独立 evaluator 副本跑单题，返回 (question_id, result)。"""
+    evaluators = _build_evaluators()
+    result = _run_single_question(question, evaluator_names, evaluators, stage_callback=stage_callback)
+    return str(question.get("question_id") or ""), result
+
+
+def _run_questions_concurrent(
+    *,
+    run_id: str,
+    questions: List[Dict[str, Any]],
+    pre_done: Dict[str, Dict[str, Any]],
+    in_place: bool,
+    pre_done_count: int,
+    workers: int,
+    stop_event: threading.Event,
+    override_doc_ids: Optional[List[str]],
+    config_name: Optional[str],
+) -> int:
+    """线程池并行跑题：提交阶段检查停止信号，as_completed 收结果写库。"""
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    executed = 0
+    pending: Dict[Any, str] = {}
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        for question in questions:
+            if stop_event.is_set():
+                break
             question_id = str(question.get("question_id") or "")
-            # 断点续跑：已完成的题目直接复用旧结果
             if question_id in pre_done:
                 if not in_place:
                     detail = pre_done[question_id]
@@ -379,13 +375,12 @@ def _run_suite_thread(
                     })
                 result_store.update_run_progress(run_id, pre_done_count + executed)
                 continue
-
             evaluator_names = _determine_evaluator_names(question)
+            prepared = dict(question)
             if override_doc_ids is not None:
-                question = {**question, "doc_ids": override_doc_ids}
+                prepared["doc_ids"] = override_doc_ids
             if config_name:
-                question = {**question, "config_name": config_name}
-            # 清理该题残留/重复详情行，避免续跑后同一题出现多条记录
+                prepared["config_name"] = config_name
             result_store.delete_run_detail(run_id, question_id)
             result_store.insert_run_detail({
                 "run_id": run_id,
@@ -393,13 +388,18 @@ def _run_suite_thread(
                 "status": "running",
             })
 
-            def _stage_callback(partial_prediction: Dict[str, Any]) -> None:
-                """阶段回调：将中间结果增量写入数据库。"""
-                result_store.update_run_detail(run_id, question_id, {
-                    "prediction": partial_prediction,
-                })
+            def stage_callback(partial_prediction: Dict[str, Any], qid: str = question_id) -> None:
+                result_store.update_run_detail(run_id, qid, {"prediction": partial_prediction})
 
-            result = _run_single_question(question, evaluator_names, evaluators, stage_callback=_stage_callback)
+            future = pool.submit(_run_one_worker, prepared, evaluator_names, stage_callback)
+            pending[future] = question_id
+
+        for future in as_completed(pending):
+            question_id = pending[future]
+            try:
+                _, result = future.result()
+            except Exception as exc:  # noqa: BLE001
+                result = {"status": "error", "error": str(exc), "scores": {}}
             result_store.update_run_detail(run_id, question_id, {
                 "status": result.get("status", "error"),
                 "quality": result.get("quality"),
@@ -412,6 +412,122 @@ def _run_suite_thread(
             })
             executed += 1
             result_store.update_run_progress(run_id, pre_done_count + executed)
+    return executed
+
+
+def _run_suite_thread(
+    run_id: str, dataset_id: str, questions: List[Dict[str, Any]],
+    override_doc_ids: Optional[List[str]] = None,
+    pre_done: Optional[Dict[str, Dict[str, Any]]] = None,
+    in_place: bool = False,
+    config_name: Optional[str] = None,
+) -> None:
+    """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。
+
+    pre_done: 断点续跑时，question_id -> 已完成详情 的映射。
+    这些题目直接复用旧结果，只执行剩余题目；in_place=True 时详情已在原 run 记录中，
+    不重复插入，仅计数进度。
+
+    并发：EVAL_CONCURRENCY（默认 3）>1 时用线程池并行跑题，每个 worker 独立构建
+    evaluator 实例（共享安全）；数据库层为 WAL + thread-local 连接，天然支持并发写。
+    """
+    global _current_run_id, _stop_event
+    pre_done = pre_done or {}
+    pre_done_count = len(pre_done)
+    executed = 0
+
+    # 获取并发控制锁（阻塞等待，直到其他评测任务完成）
+    acquired = _eval_lock.acquire(timeout=0.1)
+    if not acquired:
+        result_store.fail_run(run_id, "已有其他评测任务正在运行，请稍后再试")
+        return
+
+    _current_run_id = run_id
+    _stop_event = threading.Event()
+
+    try:
+        total = len(questions)
+        workers = _eval_concurrency()
+        if workers > 1:
+            executed = _run_questions_concurrent(
+                run_id=run_id,
+                questions=questions,
+                pre_done=pre_done,
+                in_place=in_place,
+                pre_done_count=pre_done_count,
+                workers=workers,
+                stop_event=_stop_event,
+                override_doc_ids=override_doc_ids,
+                config_name=config_name,
+            )
+        else:
+            evaluators = _build_evaluators()
+            for idx, question in enumerate(questions):
+                # 检查是否收到停止信号（在每道题目开始前检查）
+                if _stop_event.is_set():
+                    # 优雅退出：计算已完成的汇总指标并标记为已取消
+                    details = result_store.list_run_details(run_id)
+                    enriched_details = []
+                    for d in details:
+                        q = next((q for q in questions if str(q.get("question_id") or "") == d["question_id"]), {})
+                        enriched = _enrich_detail_with_question(d, q)
+                        enriched_details.append(enriched)
+                    summary = _compute_summary(enriched_details)
+                    result_store.cancel_run(run_id, summary)
+                    return
+
+                question_id = str(question.get("question_id") or "")
+                # 断点续跑：已完成的题目直接复用旧结果
+                if question_id in pre_done:
+                    if not in_place:
+                        detail = pre_done[question_id]
+                        result_store.insert_run_detail({
+                            "run_id": run_id,
+                            "question_id": question_id,
+                            "status": detail.get("status", "completed"),
+                            "quality": detail.get("quality"),
+                            "prediction": detail.get("prediction"),
+                            "scores": detail.get("scores"),
+                            "all_scores": detail.get("all_scores"),
+                            "all_predictions": detail.get("all_predictions"),
+                            "error": detail.get("error"),
+                            "latency_ms": detail.get("latency_ms"),
+                        })
+                    result_store.update_run_progress(run_id, pre_done_count + executed)
+                    continue
+
+                evaluator_names = _determine_evaluator_names(question)
+                if override_doc_ids is not None:
+                    question = {**question, "doc_ids": override_doc_ids}
+                if config_name:
+                    question = {**question, "config_name": config_name}
+                # 清理该题残留/重复详情行，避免续跑后同一题出现多条记录
+                result_store.delete_run_detail(run_id, question_id)
+                result_store.insert_run_detail({
+                    "run_id": run_id,
+                    "question_id": question_id,
+                    "status": "running",
+                })
+
+                def _stage_callback(partial_prediction: Dict[str, Any]) -> None:
+                    """阶段回调：将中间结果增量写入数据库。"""
+                    result_store.update_run_detail(run_id, question_id, {
+                        "prediction": partial_prediction,
+                    })
+
+                result = _run_single_question(question, evaluator_names, evaluators, stage_callback=_stage_callback)
+                result_store.update_run_detail(run_id, question_id, {
+                    "status": result.get("status", "error"),
+                    "quality": result.get("quality"),
+                    "prediction": result.get("prediction"),
+                    "scores": result.get("scores"),
+                    "all_scores": result.get("all_scores"),
+                    "all_predictions": result.get("all_predictions"),
+                    "error": result.get("error"),
+                    "latency_ms": result.get("latency_ms"),
+                })
+                executed += 1
+                result_store.update_run_progress(run_id, pre_done_count + executed)
         details = result_store.list_run_details(run_id)
         enriched_details = []
         for d in details:
