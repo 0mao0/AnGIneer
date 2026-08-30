@@ -2,13 +2,13 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：v0.2.20** —— 已落地规范问答与 Agent 化问答链路（五路检索、一体化文档解析管线、SOP 审核/审计、注册考试题集评测、Dream Cycle 巡检），v0.2.20 新增：M3.1 图描述（VLM figure_describe 阶段 + 全量回填）、M3.2 证据装配与 QA prompt v8（关键事实前置/结论方向一致）、M3.3 忠实性守卫（数值/专名/半拒答，env 开关默认关）、评测套件多线程并发（EVAL_CONCURRENCY=3）。
+> **当前版本：v0.2.21** —— 已落地规范问答与 Agent 化问答链路（五路检索、一体化文档解析管线、SOP 审核/审计、注册考试题集评测、Dream Cycle 巡检），v0.2.20 新增图描述（VLM figure_describe 阶段 + 全量回填）、M3.2 证据装配与 QA prompt v8、评测套件多线程并发（EVAL_CONCURRENCY=3）；v0.2.21 升级 QA prompt v9（二元 Yes/No 结论禁止部分证据引申翻转）并撤回 CLAIM 数值/专名守卫（实测正常题误伤，宁漏勿伤，保留半拒答守卫）。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.20` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.21` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.1` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.7` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
@@ -26,9 +26,9 @@
 | v1 基线（指标修复后重跑） | 120 | 89.2%（107/120） | 95.0% | 84%（25 题） |
 | v2 基线（487 题扩样） | 487 | 86.0%（419/487） | 96.1% | — |
 | v2 + 图描述进管线（figure_describe 阶段 + 117 篇回填） | 487 | 84.8%（413/487） | 93.2% | 61.5%（39 题） |
-| v2 + 图描述 + M3.2/M3.3（revert 能力路由 + QA prompt v8 + 忠实性守卫） | 487 | 87.1%（424/487） | 96.5% | 87.2%（34/39 题） |
+| v2 + 图描述 + M3.2/M3.3（revert 能力路由 + QA prompt v8 + 半拒答守卫） | 487 | 87.1%（424/487） | 96.5% | 76.9%（30/39 题） |
 
-> 说明：图描述显著提升图题（text-image 78.0→86.8），但扩大检索面加剧"跨文档错配作答"；M3.2/M3.3 后 text-table 达 84.9%（历史最高），拒答集 87.2%（守卫 CLAIM 拦截 8/8 无误伤）。剩余拒答错例为"忠实于同主题文档的跨文档作答"，属检索增强的自然代价。
+> 说明：图描述显著提升图题（text-image 78.0→86.8），但扩大检索面加剧"跨文档错配作答"；M3.2/M3.3 后 text-table 达 84.9%（历史最高）。v0.2.21 起守卫仅保留半拒答拦截（CLAIM 数值/专名守卫经实测在正常题上误伤严重，已撤回——正则级实体忠实性不适用于学术问答）。剩余拒答错例为"忠实于同主题文档的跨文档作答"，属检索增强的自然代价。
 
 ***
 
