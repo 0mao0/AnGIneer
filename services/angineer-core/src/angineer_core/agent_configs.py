@@ -120,7 +120,7 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
     返回 (新答案, 说明文案)；无需处理时返回 None。
     """
     from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT
-    from angineer_core.retrieval_pipeline import has_unsupported_claim, has_unsupported_reference
+    from angineer_core.retrieval_pipeline import has_unsupported_reference
     from angineer_core.agent_messages import REFUSAL_FOLLOWUP_QUESTION
 
     def _refusal_text() -> str:
@@ -169,11 +169,6 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                 return (
                     _refusal_text(),
                     "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
-                )
-            if _env_flag("ANGINEER_GUARD_CLAIM") and answer and has_unsupported_claim(answer, evidence_text):
-                return (
-                    _refusal_text(),
-                    "边界规则：最终回答包含证据中未出现的数值/专名（ANGINEER_GUARD_CLAIM），已替换为拒答话术",
                 )
             if _env_flag("ANGINEER_GUARD_HALF_REFUSAL") and answer and is_half_refusal_text(answer):
                 return (

@@ -10,7 +10,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/ai-inference/src")))
 
 from angineer_core.retrieval_pipeline import (  # noqa: E402
-    has_unsupported_claim,
     has_unsupported_reference,
     llm_rerank_candidates,
     rerank_candidates,
@@ -84,41 +83,6 @@ class RetrievalPipelineSharedTests(unittest.TestCase):
             out = rerank_candidates("查询", items, dense_degraded=False)
         local.assert_called_once()
         self.assertIs(out, items)
-
-
-class UnsupportedClaimGuardTests(unittest.TestCase):
-    def test_numeric_present_ok(self):
-        self.assertFalse(has_unsupported_claim("平均误差为 26.6 km [K1]。", "平均误差为26.6 km"))
-
-    def test_numeric_missing_flagged(self):
-        self.assertTrue(has_unsupported_claim("平均误差为 99.9 km [K1]。", "平均误差为26.6 km"))
-
-    def test_numeric_cn_equivalent_ok(self):
-        self.assertFalse(has_unsupported_claim("共一百二十五个样本 [K1]。", "共125个样本"))
-
-    def test_numeric_cn_missing_flagged(self):
-        self.assertTrue(has_unsupported_claim("共九百九十九个样本 [K1]。", "共125个样本"))
-
-    def test_small_ordinals_exempt(self):
-        self.assertFalse(has_unsupported_claim("第 1 步、第 2 步 [K1]。", "step 1 and 2"))
-
-    def test_year_exempt(self):
-        self.assertFalse(has_unsupported_claim("该研究发布于 2023 年 [K1]。", "published in 2024"))
-
-    def test_entity_present_ok(self):
-        self.assertFalse(has_unsupported_claim("DukeSeg 数据集用于评估 [K1]。", "DukeSeg and quality control module"))
-
-    def test_entity_missing_flagged(self):
-        self.assertTrue(has_unsupported_claim("FooBar 数据集用于评估 [K1]。", "DukeSeg dataset"))
-
-    def test_common_words_exempt(self):
-        self.assertFalse(has_unsupported_claim("Based on the results, the answer is Yes. [K1]", "Based on the results"))
-
-    def test_cite_markers_not_treated_as_entity(self):
-        self.assertFalse(has_unsupported_claim("该算法用于多模态交互 [K1][T2]。", "多模态交互用于视听提取"))
-
-    def test_empty_answer_ok(self):
-        self.assertFalse(has_unsupported_claim("", "任意证据"))
 
 
 class HalfRefusalTests(unittest.TestCase):

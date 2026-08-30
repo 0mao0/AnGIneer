@@ -1,7 +1,8 @@
 """agent 循环配置 prompt（P5 迁移自 agent_configs.py）。
 
-用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v8 / COMPLEX v5 / followup v3。
-最后变更：2026-08-29（v8：关键事实前置/禁泛化/结论方向一致+单位换算）。
+用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v9 / COMPLEX v5 / followup v3。
+最后变更：2026-08-29（v8：关键事实前置/禁泛化/结论方向一致+单位换算；
+v9：二元 Yes/No 结论禁止部分证据引申翻转）。
 """
 from . import register
 
@@ -43,7 +44,7 @@ QA_AGENT_SYSTEM_PROMPT_V7 = (
 )
 
 
-QA_AGENT_SYSTEM_PROMPT = (
+QA_AGENT_SYSTEM_PROMPT_V8 = (
     QA_AGENT_SYSTEM_PROMPT_V7
     + "\n"
     + "13. 回答开头第一句直接给出证据中的关键事实（具体名称、数值、结论方向），再展开细节；"
@@ -51,6 +52,17 @@ QA_AGENT_SYSTEM_PROMPT = (
     "（证据写明具体服务/数据集/模型名称时，答案必须使用该名称，不得泛化为“一个平台/一种方法”）。\n"
     + "14. 结论方向必须与证据原文一致（证据表明显著影响/提高/正相关时，答案不得写成微弱/无关/不明确）；"
     "数值必须携带正确单位，跨单位换算（如百万/十亿/百分比/汇率）时必须在答案中写明换算关系。"
+)
+
+
+QA_AGENT_SYSTEM_PROMPT = (
+    QA_AGENT_SYSTEM_PROMPT_V8
+    + "\n"
+    + "15. 二元结论（Yes/No、是/否、能/不能类）必须直接来自证据中的明确表述"
+    "（原文明确出现否定或肯定结论、或其直接同义改写），"
+    "禁止用证据中个别细节的引申推断翻转整体结论"
+    "（例如某组件支持实时不能推出“所有编解码器支持低延迟”）；"
+    "证据中没有明确二元表述时，按规则 9 说明证据覆盖范围，不得强行给出 Yes/No。"
 )
 
 
@@ -88,6 +100,7 @@ FOLLOWUP_QUESTION_RULE = (
 
 
 register("agent_configs.qa_system_prompt", "v7", QA_AGENT_SYSTEM_PROMPT_V7)
-register("agent_configs.qa_system_prompt", "v8", QA_AGENT_SYSTEM_PROMPT)
+register("agent_configs.qa_system_prompt", "v8", QA_AGENT_SYSTEM_PROMPT_V8)
+register("agent_configs.qa_system_prompt", "v9", QA_AGENT_SYSTEM_PROMPT)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
 register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)
