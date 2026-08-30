@@ -35,6 +35,10 @@ jobs:
       - name: Build images
         run: |
           cd /home/runner/AnGIneer/docker
+          # 构建前清理：14 天前未使用的镜像（含旧 latest 版本）与全部 build cache，
+          # 防止镜像/缓存无限累积（磁盘满会导致 runner 离线）
+          docker image prune -a -f --filter "until=336h"
+          docker builder prune -f
           docker compose build
 
       - name: Restart services
@@ -45,7 +49,10 @@ jobs:
           docker compose up -d
 
       - name: Cleanup old images
-        run: docker image prune -f
+        run: |
+          docker image prune -f
+          docker image prune -a -f --filter "until=336h"
+          docker builder prune -f
 
       - name: Health check
         id: health
