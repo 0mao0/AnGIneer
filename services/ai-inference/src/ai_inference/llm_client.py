@@ -274,6 +274,7 @@ class ChatResult:
     used_config: Optional[str] = None
     used_model: Optional[str] = None
     circuit_breaker_state: Optional[str] = None
+    reasoning: Optional[str] = None
 
 
 class _ChatMessage(BaseModel):
@@ -508,8 +509,13 @@ class LLMClient:
         )
 
         extra_body = {}
-        if "dashscope" in config.base_url or "aliyun" in config.base_url:
+        _template_kwargs = json.loads(os.getenv("ANGINEER_CHAT_TEMPLATE_KWARGS", "null"))
+        if _template_kwargs:
+            extra_body["chat_template_kwargs"] = _template_kwargs
+        elif "dashscope" in config.base_url or "aliyun" in config.base_url:
             extra_body["enable_thinking"] = False
+        elif "124.221.238.70" in config.base_url or "qwen3.6" in config.model:
+            extra_body["chat_template_kwargs"] = {"enable_thinking": False}
 
         effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
         response = client.chat.completions.create(
@@ -535,6 +541,7 @@ class LLMClient:
             finish_reason=getattr(choice, "finish_reason", None),
             usage=usage,
             tool_calls=tool_calls,
+            reasoning=getattr(message, "reasoning", None),
         )
 
     async def _call_openai_async(
@@ -559,8 +566,13 @@ class LLMClient:
         )
 
         extra_body = {}
-        if "dashscope" in config.base_url or "aliyun" in config.base_url:
+        _template_kwargs = json.loads(os.getenv("ANGINEER_CHAT_TEMPLATE_KWARGS", "null"))
+        if _template_kwargs:
+            extra_body["chat_template_kwargs"] = _template_kwargs
+        elif "dashscope" in config.base_url or "aliyun" in config.base_url:
             extra_body["enable_thinking"] = False
+        elif "124.221.238.70" in config.base_url or "qwen3.6" in config.model:
+            extra_body["chat_template_kwargs"] = {"enable_thinking": False}
 
         effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
         response = await client.chat.completions.create(
@@ -586,6 +598,7 @@ class LLMClient:
             finish_reason=getattr(choice, "finish_reason", None),
             usage=usage,
             tool_calls=tool_calls,
+            reasoning=getattr(message, "reasoning", None),
         )
 
     def _call_openai_stream_events(
@@ -610,8 +623,13 @@ class LLMClient:
         )
 
         extra_body = {}
-        if "dashscope" in config.base_url or "aliyun" in config.base_url:
+        _template_kwargs = json.loads(os.getenv("ANGINEER_CHAT_TEMPLATE_KWARGS", "null"))
+        if _template_kwargs:
+            extra_body["chat_template_kwargs"] = _template_kwargs
+        elif "dashscope" in config.base_url or "aliyun" in config.base_url:
             extra_body["enable_thinking"] = False
+        elif "124.221.238.70" in config.base_url or "qwen3.6" in config.model:
+            extra_body["chat_template_kwargs"] = {"enable_thinking": False}
 
         effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
         response = client.chat.completions.create(
@@ -630,9 +648,13 @@ class LLMClient:
         for chunk in response:
             if chunk.choices:
                 choice = chunk.choices[0]
-                content = getattr(getattr(choice, "delta", None), "content", None)
+                delta = getattr(choice, "delta", None)
+                content = getattr(delta, "content", None)
                 if content:
                     yield {"type": "delta", "text": content}
+                reasoning = getattr(delta, "reasoning", None)
+                if reasoning:
+                    yield {"type": "delta", "reasoning": reasoning}
                 if getattr(choice, "finish_reason", None):
                     finish_reason = choice.finish_reason
             chunk_usage = getattr(chunk, "usage", None)
@@ -662,8 +684,13 @@ class LLMClient:
         )
 
         extra_body = {}
-        if "dashscope" in config.base_url or "aliyun" in config.base_url:
+        _template_kwargs = json.loads(os.getenv("ANGINEER_CHAT_TEMPLATE_KWARGS", "null"))
+        if _template_kwargs:
+            extra_body["chat_template_kwargs"] = _template_kwargs
+        elif "dashscope" in config.base_url or "aliyun" in config.base_url:
             extra_body["enable_thinking"] = False
+        elif "124.221.238.70" in config.base_url or "qwen3.6" in config.model:
+            extra_body["chat_template_kwargs"] = {"enable_thinking": False}
 
         effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
         response = await client.chat.completions.create(
@@ -682,9 +709,13 @@ class LLMClient:
         async for chunk in response:
             if chunk.choices:
                 choice = chunk.choices[0]
-                content = getattr(getattr(choice, "delta", None), "content", None)
+                delta = getattr(choice, "delta", None)
+                content = getattr(delta, "content", None)
                 if content:
                     yield {"type": "delta", "text": content}
+                reasoning = getattr(delta, "reasoning", None)
+                if reasoning:
+                    yield {"type": "delta", "reasoning": reasoning}
                 if getattr(choice, "finish_reason", None):
                     finish_reason = choice.finish_reason
             chunk_usage = getattr(chunk, "usage", None)
