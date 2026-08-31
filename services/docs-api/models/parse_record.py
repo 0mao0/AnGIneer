@@ -159,6 +159,20 @@ def list_records(
     return records
 
 
+def get_record_by_id(record_id: int) -> Optional[dict]:
+    """按 record_id 查询单条解析记录（批量删除用，避免全表扫描）。"""
+    init_db()
+    conn = _get_conn()
+    try:
+        row = conn.execute(
+            "SELECT * FROM parse_records WHERE id = ?",
+            (record_id,),
+        ).fetchone()
+    finally:
+        conn.close()
+    return dict(row) if row else None
+
+
 def get_statistics(
     start_date: str,
     end_date: str,

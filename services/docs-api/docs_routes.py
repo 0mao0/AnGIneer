@@ -24,7 +24,7 @@ from docs_core.step04_structure.solo2json_pipeline import (
 from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph
 from docs_core.docs_file_io import file_storage
 from docs_core.paths import resolve_repo_root
-from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, hard_delete_records_by_doc_id, soft_delete_record, soft_delete_record_by_id, restore_record
+from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, hard_delete_records_by_doc_id, soft_delete_record, soft_delete_record_by_id, restore_record, get_record_by_id
 from routes.v1.parse_task_cleanup import cancel_parse_task_for_node
 
 logger = logging.getLogger(__name__)
@@ -80,6 +80,16 @@ class KnowledgeReferenceSearchRequest(BaseModel):
     query: str
     limit: int = 10
     types: List[str] = ["content", "table", "formula", "figure"]
+
+
+class BatchSoftDeleteRequest(BaseModel):
+    """批量软删除节点请求（用户端，数据保留可恢复）。"""
+    node_ids: List[str]
+
+
+class BatchHardDeleteRequest(BaseModel):
+    """批量硬删除解析记录请求（管理端，不可恢复）。"""
+    record_ids: List[int]
     current_doc_id: Optional[str] = None
 
 
@@ -455,6 +465,73 @@ def force_delete_knowledge_node(node_id: str):
     except Exception as e:
         logger.error(f"强制删除节点 {node_id} 失败: {e}")
         raise HTTPException(status_code=500, detail=f"强制删除失败: {str(e)}")
+
+
+@docs_router.post("/nodes/batch-soft-delete")
+def batch_soft_delete_knowledge_nodes(request: BatchSoftDeleteRequest):
+    """批量软删除节点（用户端）：标记节点（含子树）为已删除并从树视图隐藏，数据保留可恢复。
+
+    逐条失败不中断，返回失败明细供前端提示。
+    """
+    ks = get_docs_service()
+    deleted = 0
+    failed: List[Dict[str, Any]] = []
+    for node_id in request.node_ids:
+        try:
+            node = ks.get_node(node_id)
+            if not node:
+                failed.append({"node_id": node_id, "reason": "Node not found"})
+                continue
+            cancel_parse_task_for_node(node, parse_orchestrator)
+            success = ks.soft_delete_node(node_id)
+            if not success:
+                failed.append({"node_id": node_id, "reason": "软删除失败"})
+                continue
+            try:
+                for doc_id in ks.get_subtree_document_ids(node_id):
+                    soft_delete_record(doc_id)
+                soft_delete_record(node_id)
+            except Exception as e:
+                logger.error(f"批量软删节点 {node_id} 记录级联失败: {e}")
+            deleted += 1
+        except Exception as exc:
+            logger.error(f"批量软删节点 {node_id} 失败: {exc}")
+            failed.append({"node_id": node_id, "reason": str(exc)})
+    return {"status": "success", "deleted": deleted, "failed": failed}
+
+
+@docs_router.post("/records/batch-hard-delete")
+def batch_hard_delete_records(request: BatchHardDeleteRequest):
+    """批量硬删除解析记录（管理端）：清理节点（含任务取消）并永久删除记录，不可恢复。
+
+    单条失败不中断，返回失败明细（含 record_id 与原因）。
+    """
+    ks = get_docs_service()
+    deleted = 0
+    failed: List[Dict[str, Any]] = []
+    for record_id in request.record_ids:
+        try:
+            record = get_record_by_id(record_id)
+            if not record:
+                failed.append({"record_id": record_id, "reason": "记录不存在"})
+                continue
+            doc_id = str(record.get("doc_id") or "")
+            node = ks.get_node(doc_id) if doc_id else None
+            if node:
+                cancel_parse_task_for_node(node, parse_orchestrator)
+                if not ks.delete_node(doc_id):
+                    raise RuntimeError("节点删除失败")
+                soft_delete_record(doc_id)
+            if not hard_delete_record(record_id):
+                if str(record.get("status") or "") != "deleted":
+                    failed.append({"record_id": record_id, "reason": "仅允许删除用户已标记删除的记录"})
+                    continue
+            deleted += 1
+        except Exception as exc:
+            logger.error(f"批量硬删记录 {record_id} 失败: {exc}")
+            failed.append({"record_id": record_id, "reason": str(exc)})
+    _clean_orphaned_records(ks)
+    return {"status": "success", "deleted": deleted, "failed": failed}
 
 
 @docs_router.get("/records")

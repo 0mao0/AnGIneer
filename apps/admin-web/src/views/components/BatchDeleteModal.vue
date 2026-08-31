@@ -115,19 +115,14 @@ async function handleConfirm() {
   if (!checkedKeys.value.length || deleting.value) return
   deleting.value = true
   const targets = [...checkedKeys.value]
-  let failed = 0
   try {
-    for (const key of targets) {
-      try {
-        await props.api.softDeleteNode(key)
-      } catch {
-        failed += 1
-      }
-    }
-    if (failed === 0) {
-      message.success(`已删除 ${targets.length} 个文件（数据保留）`)
+    const res = await props.api.batchSoftDeleteNodes(targets)
+    const failed = res?.failed ?? []
+    if (failed.length) {
+      message.warning(`已删除 ${(res?.deleted ?? targets.length - failed.length)} 个，失败 ${failed.length} 个`)
+      console.warn('批量软删失败明细:', failed)
     } else {
-      message.warning(`已删除 ${targets.length - failed} 个，失败 ${failed} 个`)
+      message.success(`已删除 ${targets.length} 个文件（数据保留）`)
     }
     emit('update:visible', false)
     emit('deleted')

@@ -348,6 +348,11 @@ export interface KnowledgeApiPort extends KnowledgeParseApi, KnowledgeStructured
   }) => Promise<any>
   updateNode: (nodeId: string, data: Record<string, any>) => Promise<any>
   softDeleteNode: (nodeId: string) => Promise<any>
+  batchSoftDeleteNodes: (nodeIds: string[]) => Promise<{
+    status: string
+    deleted: number
+    failed: Array<{ node_id: string; reason: string }>
+  }>
   cancelParseTask: (taskId: string) => Promise<any>
   retryParseTask: (docId: string) => Promise<any>
   parseDocumentAsync: (

@@ -98,6 +98,10 @@ export const knowledgeApi = {
   deleteNode: (nodeId: string) => api.delete(`/knowledge/nodes/${nodeId}`),
   softDeleteNode: (nodeId: string) =>
     api.delete(`/knowledge/nodes/${nodeId}/soft-delete`) as Promise<{ status: string; message: string; affected: number }>,
+  batchSoftDeleteNodes: (nodeIds: string[]) =>
+    api.post('/knowledge/nodes/batch-soft-delete', { node_ids: nodeIds }) as Promise<
+      { status: string; deleted: number; failed: Array<{ node_id: string; reason: string }> }
+    >,
   forceDeleteNode: (nodeId: string) =>
     api.delete(`/knowledge/nodes/${nodeId}/force`) as Promise<{ status: string; message: string }>,
   cancelParseTask: (taskId: string) =>
@@ -294,6 +298,10 @@ export const knowledgeApi = {
 
   hardDeleteRecord: (recordId: number) =>
     api.delete(`/knowledge/records/${recordId}/hard-delete`) as Promise<{ status: string; message: string }>,
+  batchHardDeleteRecords: (recordIds: number[]) =>
+    api.post('/knowledge/records/batch-hard-delete', { record_ids: recordIds }) as Promise<
+      { status: string; deleted: number; failed: Array<{ record_id: number; reason: string }> }
+    >,
 
   getTaskSteps: (taskId: string) =>
     api.get(`/knowledge/parse/tasks/${taskId}/steps`) as Promise<{ status: string; data: any[] }>,

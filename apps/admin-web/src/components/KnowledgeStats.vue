@@ -929,22 +929,27 @@ function onBatchDeleteClick() {
 }
 
 async function batchHardDelete() {
+  const ids = [...selectedRowKeys.value]
+  if (!ids.length) return
+  const deletingKey = `batch-deleting-${Date.now()}`
+  message.loading({ content: `正在删除 ${ids.length} 条记录…`, key: deletingKey, duration: 0 })
   try {
-    const ids = [...selectedRowKeys.value]
-    for (const id of ids) {
-      const record = records.value.find(r => r.id === id)
-      if (record) {
-        await purgeNodeIfExists(record.doc_id)
-      }
-      await knowledgeApi.hardDeleteRecord(id)
+    const res = await knowledgeApi.batchHardDeleteRecords(ids)
+    const failed = res?.failed ?? []
+    message.destroy(deletingKey)
+    if (failed.length) {
+      message.warning(`已删除 ${res?.deleted ?? ids.length - failed.length} 条，失败 ${failed.length} 条`)
+      console.warn('批量硬删失败明细:', failed)
+    } else {
+      message.success(`已删除 ${ids.length} 条记录`)
     }
-    message.success(`已删除 ${ids.length} 条记录`)
     selectedRowKeys.value = []
     batchAdminModalOpen.value = false
     batchAdminInput.value = ''
     await loadRecords()
   } catch (e: any) {
-    message.error('批量删除失败: ' + (e.message || e))
+    message.destroy(deletingKey)
+    message.error('批量删除失败: ' + (e?.response?.data?.detail || e?.message || e))
   }
 }
 
