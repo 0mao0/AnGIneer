@@ -5,14 +5,21 @@ import os, sys, time, json, datetime
 
 # ---- tailscale 直连覆盖（在 import ai_inference 之前设置，load_dotenv 不覆盖已有 env）----
 TOKEN = "a5308358ca209309bbc722214e1e58ddaf9666a85eeca4b1"
-os.environ["LLM_CONFIGS"] = json.dumps([{
-    "name": "Qwen3.6-35B-A3B", "model": "qwen3.6-35b", "api_key": TOKEN,
-    "base_url": "http://spark-4c47:8000/v1", "priority": 10,
+JUDGE_KEY = "sk-372c5447-d936-46ec-9cda-888a7f0b6282"
+os.environ["LLM_CONFIGS"] = json.dumps([
+    {"name": "Qwen3.6-35B-A3B", "model": "qwen3.6-35b", "api_key": TOKEN,
+     "base_url": "http://spark-4c47:8000/v1", "priority": 10},
+    {"name": "Qwen3.8-Flash-Judge", "model": "qwen3.8-flash-next", "api_key": JUDGE_KEY,
+     "base_url": "https://dgx-qwen38-flash.cccc-sdc.com/v1", "priority": 5},
+], ensure_ascii=False)
+os.environ["EVAL_JUDGE_MODEL"] = "Qwen3.8-Flash-Judge"
+os.environ["EMBEDDING_CONFIGS"] = json.dumps([{
+    "name": "spark-4c47", "model": "qwen3-embedding", "api_key": TOKEN,
+    "api_url": "http://spark-4c47:8004/v1",
 }], ensure_ascii=False)
-os.environ["DOCS_EMBEDDING_API_URL"] = "http://spark-4c47:8004/v1"
-os.environ["DOCS_EMBEDDING_API_KEY"] = TOKEN
-os.environ["DOCS_RERANKER_API_URL"] = "http://spark-4c47:8005/rerank"
-os.environ["DOCS_RERANKER_API_KEY"] = TOKEN
+os.environ["RERANKER_CONFIGS"] = json.dumps([{
+    "name": "spark-4c47", "url": "http://spark-4c47:8005/rerank", "api_key": TOKEN,
+}], ensure_ascii=False)
 
 ROOT = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))  # launch_eval.py 位于 AnGIneer 根目录
 os.chdir(ROOT)
