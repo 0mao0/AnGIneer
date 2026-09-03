@@ -24,6 +24,9 @@ jobs:
           echo "PREV_SHA=$(git rev-parse HEAD 2>/dev/null || echo '')" >> $GITHUB_ENV
           git fetch origin main
           git reset --hard origin/main
+          # popo submodule 指向 fork（0mao0/MinerU-Popo，含本地定制）：
+          # gitlink 变更时同步更新 submodule 内容，避免 reset 撞 "Could not access submodule"
+          git submodule update --init --recursive
 
       - name: Check .env exists
         run: |
