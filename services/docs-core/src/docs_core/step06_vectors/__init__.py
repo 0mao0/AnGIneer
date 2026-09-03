@@ -4,11 +4,9 @@ from docs_core.paths import resolve_chroma_persist_dir
 
 from .chroma_vector_store import ChromaVectorStore
 from .config import (
-    get_embedding_api_key,
-    get_embedding_api_url,
-    get_embedding_model_name,
     get_embedding_provider_name,
     get_vectorstore_provider_name,
+    load_embedding_entries,
 )
 from .embedding_provider import (
     DashScopeEmbeddingProvider,
@@ -38,11 +36,9 @@ __all__ = [
     "create_default_embedding_provider",
     "default_embedding_provider",
     "dot_similarity",
-    "get_embedding_api_key",
-    "get_embedding_api_url",
-    "get_embedding_model_name",
     "get_embedding_provider_name",
     "get_vectorstore_provider_name",
+    "load_embedding_entries",
     "normalize_embedding_text",
     "resolve_chroma_persist_dir",
     "summarize_vector_records",

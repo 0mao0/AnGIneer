@@ -59,8 +59,8 @@ ANGINEER_CB_RECOVERY_TIMEOUT=60
 | 主模型 | 超时/失败 | 重试 → 熔断 → 上层报错/拒答 |
 | PoPo LLM | 不可用 | PoPo 阶段 soft 失败，保留核心产物 |
 
-> 注意：`api.openai.com` 在国内被 DNS 污染，PoPo 子模块必须使用环境变量
-> `POPO_VLLM_URL / POPO_VLLM_API_KEY / POPO_MODEL_NAME`（见 AGENTS.md）。
+> 注意：`api.openai.com` 在国内被 DNS 污染，PoPo 子模块必须配置 `POPO_CONFIGS`
+> （JSON 端点列表，见 AGENTS.md），未配置时不发起任何请求。
 
 ## 6. Prompt 资产化
 

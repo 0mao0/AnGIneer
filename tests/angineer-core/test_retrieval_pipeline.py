@@ -58,17 +58,22 @@ class RetrievalPipelineSharedTests(unittest.TestCase):
 
     def test_rerank_candidates_dense_degraded_uses_llm(self):
         items = [self._make_item(str(i)) for i in range(6)]
+        runner = SimpleNamespace(reranker_configs=[], reranker_timeout_sec=1.0)
         with mock.patch(
-            "angineer_core.retrieval_pipeline.llm_rerank_candidates",
-            return_value=items,
-        ) as llm:
-            out = rerank_candidates(
-                "查询",
-                items,
-                dense_degraded=True,
-                config_name="cfg-x",
-                mode="thinking",
-            )
+            "angineer_core.base_config.get_config",
+            return_value=SimpleNamespace(runner=runner),
+        ):
+            with mock.patch(
+                "angineer_core.retrieval_pipeline.llm_rerank_candidates",
+                return_value=items,
+            ) as llm:
+                out = rerank_candidates(
+                    "查询",
+                    items,
+                    dense_degraded=True,
+                    config_name="cfg-x",
+                    mode="thinking",
+                )
         llm.assert_called_once()
         self.assertEqual(llm.call_args.kwargs["config_name"], "cfg-x")
         self.assertEqual(llm.call_args.kwargs["mode"], "thinking")
@@ -76,11 +81,16 @@ class RetrievalPipelineSharedTests(unittest.TestCase):
 
     def test_rerank_candidates_not_degraded_uses_local(self):
         items = [self._make_item(str(i)) for i in range(6)]
+        runner = SimpleNamespace(reranker_configs=[], reranker_timeout_sec=1.0)
         with mock.patch(
-            "docs_core.step09_query.retrieval.reranker.rerank_candidates",
-            return_value=items,
-        ) as local:
-            out = rerank_candidates("查询", items, dense_degraded=False)
+            "angineer_core.base_config.get_config",
+            return_value=SimpleNamespace(runner=runner),
+        ):
+            with mock.patch(
+                "docs_core.step09_query.retrieval.reranker.rerank_candidates",
+                return_value=items,
+            ) as local:
+                out = rerank_candidates("查询", items, dense_degraded=False)
         local.assert_called_once()
         self.assertIs(out, items)
 

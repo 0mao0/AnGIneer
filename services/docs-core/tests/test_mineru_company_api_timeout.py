@@ -53,7 +53,6 @@ class MineruCompanyApiTimeoutTests(unittest.TestCase):
         self.assertTrue(result["success"])
 
     def test_504_retries_then_fails(self):
-        parser = MinerUParser()
         calls = {"n": 0}
 
         class FakeResp:
@@ -65,12 +64,15 @@ class MineruCompanyApiTimeoutTests(unittest.TestCase):
             calls["n"] += 1
             return FakeResp()
 
-        parser._request_with_proxy_fallback = fake_request
-        with tempfile.TemporaryDirectory() as tmp:
-            pdf = Path(tmp) / "a.pdf"
-            pdf.write_bytes(MINIMAL_PDF)
-            with patch("time.sleep"):
-                result = parser._parse_single_file(str(pdf), tmp)
+        single_endpoint = '[{"name":"test","url":"http://127.0.0.1:9/file_parse","api_key":"k"}]'
+        with patch.dict(os.environ, {"MINERU_CONFIGS": single_endpoint}, clear=False):
+            parser = MinerUParser()
+            parser._request_with_proxy_fallback = fake_request
+            with tempfile.TemporaryDirectory() as tmp:
+                pdf = Path(tmp) / "a.pdf"
+                pdf.write_bytes(MINIMAL_PDF)
+                with patch("time.sleep"):
+                    result = parser._parse_single_file(str(pdf), tmp)
         self.assertFalse(result["success"])
         self.assertIn("504", result["error"])
         self.assertEqual(calls["n"], 3)

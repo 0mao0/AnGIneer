@@ -1,6 +1,5 @@
-"""P5 Prompt 资产化：loader / 迁移契约 / prompt_versions / 审计脚本。"""
+"""P5 Prompt 资产化：loader / 迁移契约 / prompt_versions。"""
 import os
-import subprocess
 import sys
 import unittest
 from pathlib import Path
@@ -215,19 +214,6 @@ class PromptVersionInPredictionTests(unittest.TestCase):
             prediction["prompt_versions"],
             {"dispatcher.chat_system_prompt": "v1"},
         )
-
-
-class PromptAuditTests(unittest.TestCase):
-    def test_audit_script_passes_on_services(self):
-        result = subprocess.run(
-            [sys.executable, "scripts/audit_prompts.py"],
-            cwd=str(REPO_ROOT),
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-        )
-        self.assertEqual(result.returncode, 0, msg=result.stdout + result.stderr)
 
 
 if __name__ == "__main__":

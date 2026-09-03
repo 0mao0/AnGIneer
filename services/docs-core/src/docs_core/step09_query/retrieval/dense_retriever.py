@@ -123,11 +123,7 @@ class DenseRetriever:
         clause_refs = extract_clause_refs(request.query)
         query_text = request.query
         # Qwen3-Embedding 查询侧指令前缀（官方检索约定，提升召回；文档侧不加）
-        import os
-        provider_model = str(
-            getattr(self._embedding_provider, "model", "")
-            or os.getenv("DOCS_EMBEDDING_MODEL", "")
-        )
+        provider_model = str(getattr(self._embedding_provider, "model", "") or "")
         if "qwen3-embedding" in provider_model:
             query_text = (
                 "Instruct: Given a web search query, retrieve relevant passages that answer the query\n"

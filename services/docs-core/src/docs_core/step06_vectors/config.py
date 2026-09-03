@@ -1,5 +1,7 @@
 """索引层配置解析"""
+import json
 import os
+from typing import Dict, List
 
 from dotenv import load_dotenv
 
@@ -15,21 +17,6 @@ def get_env_str(key: str, default: str = "") -> str:
 # 解析当前 embedding provider 名称
 def get_embedding_provider_name() -> str:
     return get_env_str("DOCS_EMBEDDING_PROVIDER", "dashscope").lower() or "dashscope"
-
-
-# 解析当前 embedding 模型名
-def get_embedding_model_name() -> str:
-    return get_env_str("DOCS_EMBEDDING_MODEL", "text-embedding-v4") or "text-embedding-v4"
-
-
-# 解析当前 embedding API Key
-def get_embedding_api_key() -> str:
-    return get_env_str("DOCS_EMBEDDING_API_KEY")
-
-
-# 解析当前 embedding API URL
-def get_embedding_api_url() -> str:
-    return get_env_str("DOCS_EMBEDDING_API_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
 
 
 # 解析当前 vector store provider 名称
@@ -52,12 +39,40 @@ def get_embedding_hash_penalty() -> float:
         return _DEFAULT_HASH_PENALTY
 
 
+# 解析 embedding 端点数组：EMBEDDING_CONFIGS (JSON, 数组顺序=优先级, 第一项为默认)。
+# 未配置时返回空数组（由调用方回退 hash 并告警）。
+def load_embedding_entries() -> List[Dict[str, str]]:
+    raw = get_env_str("EMBEDDING_CONFIGS")
+    if not raw:
+        return []
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        return []
+    if not isinstance(data, list):
+        return []
+    entries: List[Dict[str, str]] = []
+    for idx, item in enumerate(data):
+        if not isinstance(item, dict):
+            continue
+        model = str(item.get("model") or "").strip()
+        api_key = str(item.get("api_key") or item.get("key") or "").strip()
+        api_url = str(item.get("api_url") or item.get("url") or "").strip()
+        if not (model and api_key and api_url):
+            continue
+        entries.append({
+            "name": str(item.get("name") or f"endpoint-{idx + 1}"),
+            "model": model,
+            "api_key": api_key,
+            "api_url": api_url,
+        })
+    return entries
+
+
 __all__ = [
-    "get_embedding_api_key",
-    "get_embedding_api_url",
     "get_embedding_hash_penalty",
-    "get_embedding_model_name",
     "get_embedding_provider_name",
     "get_embedding_strict_fallback",
     "get_vectorstore_provider_name",
+    "load_embedding_entries",
 ]

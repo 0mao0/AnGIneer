@@ -3,7 +3,6 @@
 dense 语义通道降级（embedding 不可用）时，rerank 降级链为：
 在线 reranker -> LLM 语义重排（本模块）-> 本地 phrase rerank。
 """
-import os
 import re
 from typing import Any, List, Optional
 
@@ -97,24 +96,34 @@ def rerank_candidates(
     from angineer_core.base_config import get_config
 
     cfg = get_config().runner
-    remote_url = str(cfg.reranker_url or "").strip().rstrip("/")
-    if remote_url and not remote_url.endswith("/rerank"):
-        remote_url = f"{remote_url}/v1/rerank"
-    if remote_url:
-        timeout = cfg.reranker_timeout_sec
+    endpoints = list(cfg.reranker_configs or [])
+    timeout = cfg.reranker_timeout_sec
+    last_error: Optional[Exception] = None
+    for index, endpoint in enumerate(endpoints):
+        remote_url = str(endpoint.get("url") or "").strip().rstrip("/")
+        if not remote_url:
+            continue
+        if not remote_url.endswith("/rerank"):
+            remote_url = f"{remote_url}/v1/rerank"
         try:
             import requests
 
             docs = [item.text or "" for item in candidates]
             headers = {}
-            api_key = str(os.getenv("DOCS_RERANKER_API_KEY") or "").strip()
+            api_key = str(endpoint.get("api_key") or "").strip()
             if api_key:
                 headers["Authorization"] = f"Bearer {api_key}"
+            endpoint_timeout = timeout
+            if endpoint.get("timeout_sec") is not None:
+                try:
+                    endpoint_timeout = float(endpoint["timeout_sec"])
+                except (TypeError, ValueError):
+                    pass
             resp = requests.post(
                 remote_url,
                 json={"query": query, "documents": docs, "top_n": len(candidates)},
                 headers=headers or None,
-                timeout=timeout,
+                timeout=endpoint_timeout,
             )
             if resp.status_code != 200:
                 raise RuntimeError(f"reranker status {resp.status_code}")
@@ -127,9 +136,18 @@ def rerank_candidates(
             candidates.sort(key=lambda item: item.rerank_score or 0.0, reverse=True)
             return candidates
         except Exception as exc:  # noqa: BLE001
-            logger.warning("远程 reranker 调用失败，进入降级链: %s", exc)
+            last_error = exc
+            logger.warning(
+                "reranker 端点 %d/%d 调用失败（%s），尝试下一端点: %s",
+                index + 1,
+                len(endpoints),
+                endpoint.get("name") or remote_url,
+                exc,
+            )
+    if endpoints:
+        logger.warning("所有在线 reranker 端点均失败，进入降级链: %s", last_error)
     else:
-        logger.debug("未配置在线 reranker（ANGINEER_RERANKER_URL），使用降级链")
+        logger.debug("未配置在线 reranker（RERANKER_CONFIGS），使用降级链")
 
     if dense_degraded:
         llm_reranked = llm_rerank_candidates(

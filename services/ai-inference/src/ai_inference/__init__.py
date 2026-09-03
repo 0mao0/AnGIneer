@@ -6,8 +6,8 @@ AnGIneer AI Inference - AI 推理基础设施层。
 - LLM 配置管理
 - LLM 响应解析
 
-注：Embedding/Reranker 统一使用云端 API（见 .env 中 DOCS_EMBEDDING_* 与
-ANGINEER_RERANKER_URL / DOCS_RERANKER_API_URL 配置），本项目不再内置本地推理服务。
+注：Embedding/Reranker 统一使用云端 API（见 .env 中 EMBEDDING_CONFIGS /
+RERANKER_CONFIGS 端点数组配置），本项目不再内置本地推理服务。
 """
 from ai_inference.llm_config import (
     LLMModelConfig,

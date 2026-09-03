@@ -114,11 +114,11 @@ fusion_score = RRF(rank) * source_weight + task_type_bonus
 
 `rerank_candidates`：
 
-1. 配置了 `ANGINEER_RERANKER_URL` 且候选 > 阈值时，调远端 reranker；
-2. 远端失败/未配置 → 回退本地 `reranker.py` 的 phrase 重排；
+1. 配置了 `RERANKER_CONFIGS`（端点数组，顺序=优先级）且候选 > 阈值时，调远端 reranker；主端点失败自动尝试下一项；
+2. 全部远端失败/未配置 → 回退本地 `reranker.py` 的 phrase 重排；
 3. `locate_*` 类任务不重排（保序）。
 
-> 踩坑：远端 reranker 502 时自动降级本地，排序质量下降但不会断链。
+> 踩坑：远端 reranker 502 时自动降级本地（或多端点时切下一端点），排序质量下降但不会断链。
 
 ## 5. 引用装配（agent_tools.py）
 

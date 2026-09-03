@@ -28,14 +28,21 @@ class DispatcherRetirementTests(unittest.TestCase):
         self.assertIsInstance(config.runner, RunnerConfig)
         self.assertFalse(hasattr(config, "dispatcher"))
 
-    def test_runner_config_reads_reranker_env(self):
+    def test_runner_config_reads_reranker_configs(self):
         from angineer_core import base_config
 
-        env = {"ANGINEER_RERANKER_URL": "http://rerank:9000", "ANGINEER_RERANKER_TIMEOUT_SEC": "5.5"}
+        env = {
+            "RERANKER_CONFIGS": (
+                '[{"name":"primary","url":"http://rerank:9000","api_key":"k1",'
+                '"timeout_sec":5.5},{"name":"backup","url":"http://rerank2:9000"}]'
+            )
+        }
         with patch.dict(os.environ, env):
             config = base_config.load_config_from_env()
         self.assertEqual(config.runner.reranker_url, "http://rerank:9000")
-        self.assertEqual(config.runner.reranker_timeout_sec, 5.5)
+        self.assertEqual(len(config.runner.reranker_configs), 2)
+        self.assertEqual(config.runner.reranker_configs[0]["name"], "primary")
+        self.assertEqual(config.runner.reranker_timeout_sec, 10.0)  # 默认（未设 ANGINEER_RERANKER_TIMEOUT_SEC）
 
     def test_rerank_candidates_consumes_runner_config(self):
         """retrieval_pipeline 重排配置读取入口从 .dispatcher 切到 .runner。"""

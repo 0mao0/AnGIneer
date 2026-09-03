@@ -4,8 +4,9 @@
 LLM 相关配置请直接使用 ai_inference.llm_config：
     from ai_inference.llm_config import LLMClientConfig, load_llm_config_from_env
 """
+import json
 import os
-from typing import Optional
+from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 
@@ -35,6 +36,7 @@ class RunnerConfig(BaseModel):
     summary_max_length: int = 80
     reranker_url: Optional[str] = None
     reranker_timeout_sec: float = 10.0
+    reranker_configs: List[Dict[str, Any]] = Field(default_factory=list)
 
 
 class LoggingConfig(BaseModel):
@@ -84,6 +86,43 @@ def _get_env_bool(key: str, default: bool = False) -> bool:
     return default
 
 
+def _load_reranker_configs() -> List[Dict[str, Any]]:
+    """解析 reranker 端点列表：RERANKER_CONFIGS (JSON, 数组顺序=优先级, 第一项为默认)。
+
+    每项: {name?, url, api_key?, timeout_sec?}；url 可写 base（retrieval_pipeline 自动补
+    /v1/rerank 后缀）或完整 rerank 端点。未配置时返回空列表（调用方走降级链）。
+    """
+    raw = _get_env_str("RERANKER_CONFIGS", "").strip()
+    if not raw:
+        return []
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        return []
+    if not isinstance(data, list):
+        return []
+    entries: List[Dict[str, Any]] = []
+    for idx, item in enumerate(data):
+        if not isinstance(item, dict):
+            continue
+        url = str(item.get("url") or "").strip().rstrip("/")
+        if not url:
+            continue
+        entry: Dict[str, Any] = {
+            "name": str(item.get("name") or f"endpoint-{idx + 1}"),
+            "url": url,
+            "api_key": str(item.get("api_key") or item.get("key") or "").strip(),
+        }
+        timeout = item.get("timeout_sec")
+        if timeout is not None:
+            try:
+                entry["timeout_sec"] = float(timeout)
+            except (TypeError, ValueError):
+                pass
+        entries.append(entry)
+    return entries
+
+
 def load_config_from_env() -> AnGIneerConfig:
     """从环境变量加载完整配置。"""
     llm_config = load_llm_config_from_env()
@@ -101,9 +140,11 @@ def load_config_from_env() -> AnGIneerConfig:
         log_file=_get_env_str("ANGINEER_LOG_FILE") or None
     )
 
+    reranker_configs = _load_reranker_configs()
     runner_config = RunnerConfig(
-        reranker_url=_get_env_str("ANGINEER_RERANKER_URL") or _get_env_str("DOCS_RERANKER_API_URL") or None,
+        reranker_url=reranker_configs[0]["url"] if reranker_configs else None,
         reranker_timeout_sec=_get_env_float("ANGINEER_RERANKER_TIMEOUT_SEC", 10.0),
+        reranker_configs=reranker_configs,
     )
 
     return AnGIneerConfig(

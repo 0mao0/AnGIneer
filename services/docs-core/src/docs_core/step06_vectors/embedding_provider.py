@@ -1,9 +1,9 @@
 """Embedding provider 抽象与实现。
 
-降级链（dense 语义通道）：
-  在线（bge-m3 等） -> 在线备用（如 dashscope） -> 本地小模型 -> hash embedding
-默认配置只有"在线 -> hash"两级；配置了 DOCS_EMBEDDING_FALLBACK_* /
-DOCS_EMBEDDING_LOCAL_* 时自动插入中间档。
+多端点降级链（dense 语义通道）：
+  端点数组（EMBEDDING_CONFIGS，数组顺序=优先级，第一项为默认）-> hash embedding 兜底
+未配置 EMBEDDING_CONFIGS 时回退 hash（仅无语义本地）；DOCS_EMBEDDING_PROVIDER=hash
+可直接强制纯本地模式。
 """
 import hashlib
 import logging
@@ -15,10 +15,8 @@ from typing import List, Optional, Sequence
 import requests
 
 from docs_core.step06_vectors.config import (
-    get_embedding_api_key,
-    get_embedding_api_url,
-    get_embedding_model_name,
     get_embedding_provider_name,
+    load_embedding_entries,
 )
 
 
@@ -153,7 +151,7 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
         if not normalized_texts:
             return []
         if not self.is_configured():
-            return self._degrade(normalized_texts, "DOCS_EMBEDDING_* 配置缺失")
+            return self._degrade(normalized_texts, "EMBEDDING_CONFIGS 端点配置缺失")
         try:
             response = requests.post(
                 f"{self.api_url}/embeddings",
@@ -199,6 +197,7 @@ class ChainedEmbeddingProvider(EmbeddingProvider):
     def __init__(self, providers: Sequence[Optional[EmbeddingProvider]], expected_dimension: int = 0, strict_fallback: bool = False) -> None:
         self.providers = [provider for provider in providers if provider is not None]
         self.name = self.providers[0].name if self.providers else "empty_embedding_v1"
+        self.model = str(getattr(self.providers[0], "model", "") or "") if self.providers else ""
         self.dimension = 0
         self.expected_dimension = max(0, int(expected_dimension or 0))
         self._strict_fallback = strict_fallback
@@ -250,49 +249,38 @@ def _detect_existing_vector_dimension() -> int:
         return 0
 
 
-# 使用 OpenAI 兼容接口的 embedding provider 名称集合。
-_OPENAI_COMPAT_PROVIDERS = {"dashscope", "bge_m3", "siliconflow", "zhipu", "openai"}
-
-
-# 按环境变量解析默认 embedding provider（含多档降级链）。
+# 按 EMBEDDING_CONFIGS 解析默认 embedding provider（多端点降级链）。
+# DOCS_EMBEDDING_PROVIDER=hash 时直接返回纯本地 hash（无语义模式）；
+# 否则按 EMBEDDING_CONFIGS 数组顺序构造在线端点，链尾自动补 hash 档兜底。
 def create_default_embedding_provider() -> EmbeddingProvider:
+    from docs_core.step06_vectors.config import get_embedding_strict_fallback
+
     provider_name = get_embedding_provider_name()
     existing_dim = _detect_existing_vector_dimension()
     hash_provider = HashEmbeddingProvider(dimension=existing_dim if existing_dim > 0 else 256)
     if provider_name == "hash":
         return hash_provider
-    if provider_name in _OPENAI_COMPAT_PROVIDERS:
-        tiers: List[Optional[EmbeddingProvider]] = [
-            _build_openai_compat_provider(
-                model=get_embedding_model_name(),
-                api_key=get_embedding_api_key(),
-                api_url=get_embedding_api_url(),
-            )
-        ]
-        # 第二在线档（如 dashscope 备用，与主档不同服务商）
-        tiers.append(
-            _build_openai_compat_provider(
-                model=os.getenv("DOCS_EMBEDDING_FALLBACK_MODEL", "").strip(),
-                api_key=os.getenv("DOCS_EMBEDDING_FALLBACK_API_KEY", "").strip(),
-                api_url=os.getenv("DOCS_EMBEDDING_FALLBACK_API_URL", "").strip(),
-            )
+    entries = load_embedding_entries()
+    if not entries:
+        logger.warning("未配置 EMBEDDING_CONFIGS，回退到 hash embedding。")
+        return hash_provider
+    tiers: List[Optional[EmbeddingProvider]] = []
+    for idx, entry in enumerate(entries):
+        provider = _build_openai_compat_provider(
+            model=entry.get("model", ""),
+            api_key=entry.get("api_key", ""),
+            api_url=entry.get("api_url", ""),
         )
-        # 本地小模型档（无网络依赖，需本机服务）
-        tiers.append(
-            _build_openai_compat_provider(
-                model=os.getenv("DOCS_EMBEDDING_LOCAL_MODEL", "").strip() or "local-embedding",
-                api_key=os.getenv("DOCS_EMBEDDING_LOCAL_API_KEY", "").strip(),
-                api_url=os.getenv("DOCS_EMBEDDING_LOCAL_API_URL", "").strip(),
-            )
-        )
-        tiers.append(hash_provider)
-        return ChainedEmbeddingProvider(
-            tiers,
-            expected_dimension=existing_dim,
-            strict_fallback=bool(os.getenv("DOCS_EMBEDDING_STRICT_FALLBACK", "false").lower() in ("true", "1", "yes", "on")),
-        )
-    logger.warning("未知 DOCS_EMBEDDING_PROVIDER=%s，回退到 hash embedding。", provider_name)
-    return hash_provider
+        if provider is None:
+            logger.warning("embedding 第 %d 档配置不完整，跳过: %s", idx + 1, entry.get("name", ""))
+            continue
+        tiers.append(provider)
+    tiers.append(hash_provider)
+    return ChainedEmbeddingProvider(
+        tiers,
+        expected_dimension=existing_dim,
+        strict_fallback=get_embedding_strict_fallback(),
+    )
 
 
 default_embedding_provider = create_default_embedding_provider()

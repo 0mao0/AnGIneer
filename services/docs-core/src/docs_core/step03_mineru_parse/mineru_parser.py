@@ -138,16 +138,6 @@ class MinerUParser:
     """MinerU 文档解析器（file_parse ZIP 协议，多端点 configs 列表）"""
 
     def __init__(self):
-        self.api_url = (
-            os.getenv('MINERU_API_URL', '')
-            or os.getenv('MINERU_BASE_URL', '')
-            or os.getenv('MINERU_ENDPOINT', '')
-        ).strip().rstrip('/')
-        self.api_key = (
-            os.getenv('MINERU_API_KEY', '')
-            or os.getenv('MINERU_API_TOKEN', '')
-            or os.getenv('MINERU_TOKEN', '')
-        )
         # 解析端点列表：MINERU_CONFIGS (JSON, 数组顺序=优先级, 第一项为默认)。
         # 每项: {name, url, api_key}；url 自动补 /file_parse 后缀，全部端点统一走 ZIP 协议。
         # 连接失败/超时/任务失败自动尝试列表中的下一项。
@@ -162,9 +152,9 @@ class MinerUParser:
         self._abort_event = threading.Event()
 
     def _load_endpoints(self) -> List[Dict[str, Any]]:
-        """从 MINERU_CONFIGS (JSON list) 加载端点；未配置时兼容旧的 MINERU_API_URL(+_FALLBACK) 变量。
+        """从 MINERU_CONFIGS (JSON list) 加载端点，全部走 file_parse ZIP 协议。
 
-        所有端点统一走 file_parse ZIP 协议（POST /file_parse → ZIP 产物）：
+        未配置 MINERU_CONFIGS 时返回空列表（调用方报错提示）。
         url 可写 base（自动补 /file_parse）或完整 file_parse 端点。
         """
         def _normalize(url: str) -> str:
@@ -174,36 +164,28 @@ class MinerUParser:
             return url
 
         raw = os.getenv('MINERU_CONFIGS', '').strip()
+        if not raw:
+            return []
+        try:
+            data = json.loads(raw)
+        except json.JSONDecodeError:
+            logger.warning("MINERU_CONFIGS 非法 JSON，忽略: %s", raw[:200])
+            return []
+        if not isinstance(data, list):
+            logger.warning("MINERU_CONFIGS 需为 JSON 数组，忽略: %s", raw[:200])
+            return []
         endpoints: List[Dict[str, Any]] = []
-        if raw:
-            try:
-                data = json.loads(raw)
-            except json.JSONDecodeError:
-                logger.warning("MINERU_CONFIGS 非法 JSON，忽略: %s", raw[:200])
-                data = None
-            if isinstance(data, list):
-                for idx, item in enumerate(data):
-                    if not isinstance(item, dict):
-                        continue
-                    url = _normalize(str(item.get("url") or ""))
-                    if not url:
-                        continue
-                    endpoints.append({
-                        "name": str(item.get("name") or f"endpoint-{idx + 1}"),
-                        "url": url,
-                        "api_key": str(item.get("api_key") or item.get("key") or "").strip(),
-                    })
-        # 兼容旧变量：MINERU_API_URL + MINERU_API_URL_FALLBACK
-        if not endpoints and self.api_url:
+        for idx, item in enumerate(data):
+            if not isinstance(item, dict):
+                continue
+            url = _normalize(str(item.get("url") or ""))
+            if not url:
+                continue
             endpoints.append({
-                "name": "primary", "url": _normalize(self.api_url), "api_key": self.api_key,
+                "name": str(item.get("name") or f"endpoint-{idx + 1}"),
+                "url": url,
+                "api_key": str(item.get("api_key") or item.get("key") or "").strip(),
             })
-            fallback_url = os.getenv('MINERU_API_URL_FALLBACK', '').strip().rstrip('/')
-            if fallback_url:
-                endpoints.append({
-                    "name": "fallback", "url": _normalize(fallback_url),
-                    "api_key": os.getenv('MINERU_API_KEY_FALLBACK', '').strip(),
-                })
         return endpoints
 
     def cancel(self):

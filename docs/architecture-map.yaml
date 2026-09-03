@@ -150,7 +150,7 @@ modules:
       - llm_logger.py
     description: >
       AI 推理底座，零外部依赖。提供 LLM 客户端（多模型/重试/熔断/流式）、响应解析。
-      语义嵌入/语义重排统一走在线 API（DOCS_EMBEDDING_*、ANGINEER_RERANKER_URL）。
+      语义嵌入/语义重排统一走在线 API（EMBEDDING_CONFIGS、RERANKER_CONFIGS 端点数组）。
       所有上层服务直接依赖此模块获取 AI 能力，不经过 angineer-core 中转。
 
   - id: tree-core

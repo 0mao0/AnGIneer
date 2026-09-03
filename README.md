@@ -198,7 +198,7 @@ flowchart LR
 
 > **PoPo 子模块注意事项（更新上游时务必保留本地定制）**
 >
-> `services/docs-core/src/popo` 是 git submodule（MinerU-Popo，MIT 协议）。本地已将 `post_processing/model_utils.py` 中的硬编码 `url=""` / `key=""` 改为读取环境变量 `POPO_VLLM_URL` / `POPO_VLLM_API_KEY` / `POPO_MODEL_NAME`，并支持 `POPO_API_TIMEOUT`（默认 300s）与 `POPO_MAX_TOKENS`（默认 4096）。**若不保留此修改，PoPo 推理会请求打到 api.openai.com（国内 DNS 污染导致挂死）或空 url 报错。** 更新上游前先 `git -C services/docs-core/src/popo commit` 本地修改，冲突时仅针对该文件手动合并。
+> `services/docs-core/src/popo` 是 git submodule（MinerU-Popo，MIT 协议）。本地已将 `post_processing/model_utils.py` 中的硬编码 `url=""` / `key=""` 改为读取 `POPO_CONFIGS`（JSON 端点列表：`[{"name","url","api_key","model"}, ...]`，数组顺序=优先级，连接失败/超时自动切下一项；未配置返回空、不打任何请求），并支持 `POPO_API_TIMEOUT`（默认 300s）与 `POPO_MAX_TOKENS`（默认 4096）。**若不保留此修改，PoPo 推理会请求打到 api.openai.com（国内 DNS 污染导致挂死）或空 url 报错。** 更新上游前先 `git -C services/docs-core/src/popo commit` 本地修改，冲突时仅针对该文件手动合并。
 
 > 深入阅读：[docs/tech-report.md](docs/tech-report.md#3-angineer-docs-知识库模块) · [docs/parse-pipeline.md](docs/parse-pipeline.md) · [docs/popo-pipeline.md](docs/popo-pipeline.md) · [docs/knowledge-data-model.md](docs/knowledge-data-model.md)
 
@@ -337,10 +337,10 @@ cp .env.example .env   # Windows PowerShell: Copy-Item .env.example .env
 至少需要配置：
 
 - `LLM_CONFIGS`（JSON 数组：显示名 / model / api_key / base_url / priority）
-- `MINERU_API_URL` / `MINERU_API_KEY`（文档解析）
-- `DOCS_EMBEDDING_API_URL` / `DOCS_EMBEDDING_API_KEY`（向量）
-- `ANGINEER_RERANKER_URL` / `DOCS_RERANKER_API_KEY`（重排）
-- 若使用 PoPo 强化，还需配置 `POPO_VLLM_URL` / `POPO_VLLM_API_KEY` / `POPO_MODEL_NAME`
+- `MINERU_CONFIGS`（JSON 数组：文档解析端点，顺序=优先级）
+- `EMBEDDING_CONFIGS`（JSON 数组：向量端点，顺序=优先级）
+- `RERANKER_CONFIGS`（JSON 数组：重排端点，顺序=优先级）
+- 若使用 PoPo 强化，还需配置 `POPO_CONFIGS`（JSON 数组：PoPo 端点，顺序=优先级）
 
 ### 3.4 启动服务（开发模式）
 
@@ -504,14 +504,14 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,http:
 | `LLM_CONFIGS` | LLM 模型配置 JSON 数组（唯一配置入口） | 见 `.env.example` |
 | `ANGINEER_DEFAULT_MODEL` | 默认模型名 | `Qwen3.6-Plus` |
 | `AI_PROVIDER` | AI 服务商（aliyun 等） | `aliyun` |
-| `MINERU_API_URL` / `MINERU_API_KEY` | MinerU 解析服务 | `https://mineru.net/api/v4` |
+| `MINERU_CONFIGS` | MinerU 解析端点数组（顺序=优先级，失败自动切换） | JSON 数组 |
 | `MINERU_MAX_CONCURRENCY` | MinerU GPU 并发上限 | `1` |
 | `MINERU_BACKEND` | MinerU 后端标识 | `hybrid-engine` |
-| `DOCS_EMBEDDING_PROVIDER` / `DOCS_EMBEDDING_API_URL` / `DOCS_EMBEDDING_API_KEY` | 在线 Embedding | `bge_m3` |
-| `DOCS_EMBEDDING_MODEL` / `DOCS_EMBEDDING_DIMENSION` | Embedding 模型与维度 | `bge-m3` / `1024` |
-| `DOCS_VECTORSTORE_PROVIDER` | 向量库类型 | `chroma` |
-| `ANGINEER_RERANKER_URL` / `DOCS_RERANKER_API_KEY` | 在线 Reranker | — |
-| `POPO_VLLM_URL` / `POPO_VLLM_API_KEY` / `POPO_MODEL_NAME` | PoPo 强化 LLM 端点（本地定制） | — |
+| `EMBEDDING_CONFIGS` | Embedding 端点数组（顺序=优先级，链尾自动补 hash） | JSON 数组 |
+| `DOCS_EMBEDDING_PROVIDER` | Embedding 提供方标识（bge_m3/dashscope/hash） | `bge_m3` |
+| `DOCS_VECTORSTORE_PROVIDER` | 向量库类型 | `sqlite` |
+| `RERANKER_CONFIGS` | Reranker 端点数组（顺序=优先级，失败自动切换） | JSON 数组 |
+| `POPO_CONFIGS` | PoPo 强化 LLM 端点数组（顺序=优先级，失败自动切换） | JSON 数组 |
 | `POPO_API_TIMEOUT` / `POPO_MAX_TOKENS` | PoPo 超时与最大 token | `300` / `4096` |
 | `POPO_MAX_CONCURRENCY` | PoPo 4B 推理并发上限（打远端 vLLM） | `1` |
 | `POPO_INFERENCE_RETRIES` | PoPo 推理瞬时失败重试次数 | `1` |
