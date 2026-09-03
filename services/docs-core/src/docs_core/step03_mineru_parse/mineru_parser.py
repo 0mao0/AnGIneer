@@ -1,4 +1,4 @@
-"""MinerU 文档解析服务 (公司自部署 API)"""
+"""MinerU 文档解析服务（file_parse ZIP 协议，多端点 configs）"""
 import json
 import logging
 import os
@@ -135,7 +135,7 @@ def save_parse_artifacts(
 
 
 class MinerUParser:
-    """MinerU 文档解析器 (公司自部署 API)"""
+    """MinerU 文档解析器（file_parse ZIP 协议，多端点 configs 列表）"""
 
     def __init__(self):
         self.api_url = (
@@ -148,6 +148,10 @@ class MinerUParser:
             or os.getenv('MINERU_API_TOKEN', '')
             or os.getenv('MINERU_TOKEN', '')
         )
+        # 解析端点列表：MINERU_CONFIGS (JSON, 数组顺序=优先级, 第一项为默认)。
+        # 每项: {name, url, api_key}；url 自动补 /file_parse 后缀，全部端点统一走 ZIP 协议。
+        # 连接失败/超时/任务失败自动尝试列表中的下一项。
+        self.endpoints: List[Dict[str, Any]] = self._load_endpoints()
         self.cloud_poll_max_attempts = max(1, int(os.getenv('MINERU_CLOUD_POLL_MAX_ATTEMPTS', '90')))
         self.proxy_fallback_enabled = os.getenv('MINERU_PROXY_FALLBACK_ENABLED', '1') != '0'
         self.ocr_enabled = os.getenv('MINERU_OCR_ENABLED', 'false').lower() == 'true'
@@ -156,6 +160,51 @@ class MinerUParser:
         self.max_uncompressed_bytes = max(1, int(os.getenv('MINERU_UNCOMPRESSED_MAX_BYTES', str(4 << 30))))
         self.company_api_timeout = max(30, int(os.getenv('MINERU_COMPANY_API_TIMEOUT', '600')))
         self._abort_event = threading.Event()
+
+    def _load_endpoints(self) -> List[Dict[str, Any]]:
+        """从 MINERU_CONFIGS (JSON list) 加载端点；未配置时兼容旧的 MINERU_API_URL(+_FALLBACK) 变量。
+
+        所有端点统一走 file_parse ZIP 协议（POST /file_parse → ZIP 产物）：
+        url 可写 base（自动补 /file_parse）或完整 file_parse 端点。
+        """
+        def _normalize(url: str) -> str:
+            url = url.strip().rstrip('/')
+            if url and not url.endswith('/file_parse'):
+                url += '/file_parse'
+            return url
+
+        raw = os.getenv('MINERU_CONFIGS', '').strip()
+        endpoints: List[Dict[str, Any]] = []
+        if raw:
+            try:
+                data = json.loads(raw)
+            except json.JSONDecodeError:
+                logger.warning("MINERU_CONFIGS 非法 JSON，忽略: %s", raw[:200])
+                data = None
+            if isinstance(data, list):
+                for idx, item in enumerate(data):
+                    if not isinstance(item, dict):
+                        continue
+                    url = _normalize(str(item.get("url") or ""))
+                    if not url:
+                        continue
+                    endpoints.append({
+                        "name": str(item.get("name") or f"endpoint-{idx + 1}"),
+                        "url": url,
+                        "api_key": str(item.get("api_key") or item.get("key") or "").strip(),
+                    })
+        # 兼容旧变量：MINERU_API_URL + MINERU_API_URL_FALLBACK
+        if not endpoints and self.api_url:
+            endpoints.append({
+                "name": "primary", "url": _normalize(self.api_url), "api_key": self.api_key,
+            })
+            fallback_url = os.getenv('MINERU_API_URL_FALLBACK', '').strip().rstrip('/')
+            if fallback_url:
+                endpoints.append({
+                    "name": "fallback", "url": _normalize(fallback_url),
+                    "api_key": os.getenv('MINERU_API_KEY_FALLBACK', '').strip(),
+                })
+        return endpoints
 
     def cancel(self):
         """中断所有正在进行的请求。"""
@@ -556,19 +605,52 @@ class MinerUParser:
         return failed or self._build_parse_result(False, error="Chunk parse failed")
 
     def _parse_single_file(self, input_path: str, output_dir: str, _retry_count: int = 0, _force_ocr: Optional[bool] = None) -> Dict[str, Any]:
-        """公司自部署 API 的单文件同步解析。
+        """单文件解析入口：按端点列表顺序逐个尝试，直到成功。
 
-        POST 文件到 /file_parse 端点，返回 ZIP 包含所有产物。
+        端点列表来自 MINERU_CONFIGS（数组顺序=优先级，第一项为默认）；所有端点统一走
+        file_parse ZIP 协议（POST /file_parse → ZIP 产物，同步返回或轮询）。
+        连接失败/超时/HTTP 错误/任务失败/产物缺失 → 自动尝试列表中的下一项。
+        _force_ocr: None=使用全局 OCR 配置, True/False=强制开关
+        """
+        if not self.endpoints:
+            return self._build_parse_result(False, error="MinerU: 未配置解析端点 (MINERU_CONFIGS)")
+        attempts: List[Dict[str, Any]] = []
+        for ep in self.endpoints:
+            if self._abort_event.is_set():
+                raise RuntimeError("MinerU 请求已取消")
+            name = str(ep.get("name") or ep.get("url") or "endpoint")
+            try:
+                result = self._parse_zip_api_file(
+                    input_path, output_dir,
+                    api_endpoint=ep.get("url"), api_key=ep.get("api_key"),
+                    _retry_count=_retry_count, _force_ocr=_force_ocr,
+                )
+                if result.get("success"):
+                    return result
+                attempts.append({"name": name, "error": result.get("error")})
+                logger.warning("MinerU 端点 %s 解析失败，尝试下一端点: %s", name, result.get("error"))
+            except Exception as exc:
+                if self._abort_event.is_set():
+                    raise RuntimeError("MinerU 请求已取消") from exc
+                logger.warning("MinerU 端点 %s 异常: %s", name, exc)
+                attempts.append({"name": name, "error": str(exc)})
+        detail = "；".join(f"{a['name']}: {a['error']}" for a in attempts)
+        return self._build_parse_result(False, error=detail)
+
+    def _parse_zip_api_file(self, input_path: str, output_dir: str, api_endpoint: str, api_key: str, _retry_count: int = 0, _force_ocr: Optional[bool] = None) -> Dict[str, Any]:
+        """file_parse ZIP 协议单文件解析（所有端点统一走此协议）。
+
+        POST 文件到 {endpoint}/file_parse 端点，返回 ZIP 包含所有产物。
         _force_ocr: None=使用全局 OCR 配置, True/False=强制开关
         """
         import time as _time
 
-        api_endpoint = self.api_url.strip().rstrip('/')
-        headers = {'Authorization': f'Bearer {self.api_key}'}
+        api_endpoint = api_endpoint.strip().rstrip('/')
+        headers = {'Authorization': f'Bearer {api_key}'}
         file_name = Path(input_path).name
         use_ocr = _force_ocr if _force_ocr is not None else self.ocr_enabled
 
-        logger.info("Company API: POST %s file=%s ocr=%s", api_endpoint, file_name, use_ocr)
+        logger.info("MinerU API: POST %s file=%s ocr=%s", api_endpoint, file_name, use_ocr)
         try:
             with open(input_path, 'rb') as f:
                 resp = self._request_with_proxy_fallback(
@@ -605,13 +687,20 @@ class MinerUParser:
                 try:
                     task_info = resp.json()
                     task_id = task_info.get("task_id", "")
+                    task_status_url = str(task_info.get("status_url") or "").strip()
+                    task_result_url = str(task_info.get("result_url") or "").strip()
                 except Exception:
                     task_info = {}
                     task_id = ""
+                    task_status_url = ""
+                    task_result_url = ""
                 if task_id:
                     logger.info("Async task %s, polling...", task_id)
-                    return self._poll_async_task(task_id, api_endpoint, headers, output_dir)
-                return self._build_parse_result(False, error='Company API returned 202 without task_id')
+                    return self._poll_async_task(
+                        task_id, api_endpoint, headers, output_dir,
+                        status_url=task_status_url, result_url=task_result_url,
+                    )
+                return self._build_parse_result(False, error='MinerU API returned 202 without task_id')
 
             # 409 → 冲突（并发限制或任务失败）
             if resp.status_code == 409:
@@ -620,7 +709,7 @@ class MinerUParser:
                 except Exception:
                     return self._build_parse_result(
                         False,
-                        error=f'Company API returned 409 (conflict): {resp.text[:300]}'
+                        error=f'MinerU API returned 409 (conflict): {resp.text[:300]}'
                     )
                 task_id = body.get("task_id", "")
                 status = body.get("status", "")
@@ -630,13 +719,21 @@ class MinerUParser:
                     if not use_ocr:
                         logger.info("Task %s failed, retrying with OCR enabled...", task_id)
                         _time.sleep(3)
-                        result = self._parse_single_file(input_path, output_dir, _retry_count + 1, _force_ocr=True)
+                        result = self._parse_zip_api_file(
+                            input_path, output_dir,
+                            api_endpoint=api_endpoint, api_key=api_key,
+                            _retry_count=_retry_count + 1, _force_ocr=True,
+                        )
                         result["ocr_retried"] = True
                         return result
                     if _retry_count < 2:
                         logger.info("Task %s failed, retry %d/2...", task_id, _retry_count + 1)
                         _time.sleep(3)
-                        return self._parse_single_file(input_path, output_dir, _retry_count + 1, _force_ocr=use_ocr)
+                        return self._parse_zip_api_file(
+                            input_path, output_dir,
+                            api_endpoint=api_endpoint, api_key=api_key,
+                            _retry_count=_retry_count + 1, _force_ocr=use_ocr,
+                        )
                     return self._build_parse_result(
                         False,
                         error=f'MinerU pipeline failed for "{file_name}": '
@@ -644,36 +741,49 @@ class MinerUParser:
                     )
                 if status in ("pending", "processing") and task_id:
                     logger.info("Task %s in progress, polling...", task_id)
-                    return self._poll_async_task(task_id, api_endpoint, headers, output_dir)
+                    return self._poll_async_task(
+                        task_id, api_endpoint, headers, output_dir,
+                        status_url=str(body.get("status_url") or "").strip(),
+                        result_url=str(body.get("result_url") or "").strip(),
+                    )
                 return self._build_parse_result(
                     False,
-                    error=f'Company API returned 409 (conflict): {resp.text[:300]}'
+                    error=f'MinerU API returned 409 (conflict): {resp.text[:300]}'
                 )
 
             # 502/503/504 → 网关瞬时抖动/同步超时：退避重试（大文件另有分块兜底）
             if resp.status_code in (502, 503, 504) and _retry_count < 2:
                 logger.warning(
-                    "Company API returned %d (transient), retry %d/2 in %.1fs...",
+                    "MinerU API returned %d (transient), retry %d/2 in %.1fs...",
                     resp.status_code, _retry_count + 1, 3.0 * (_retry_count + 1),
                 )
                 _time.sleep(3.0 * (_retry_count + 1))
-                return self._parse_single_file(input_path, output_dir, _retry_count + 1, _force_ocr=use_ocr)
+                return self._parse_zip_api_file(
+                    input_path, output_dir,
+                    api_endpoint=api_endpoint, api_key=api_key,
+                    _retry_count=_retry_count + 1, _force_ocr=use_ocr,
+                )
 
             return self._build_parse_result(
                 False,
-                error=f'Company API returned {resp.status_code}: {resp.text[:200]}'
+                error=f'MinerU API returned {resp.status_code}: {resp.text[:200]}'
             )
 
         except Exception as error:
             if self._abort_event.is_set():
                 raise RuntimeError("MinerU 请求已取消") from error
-            logger.exception("Company API exception: %s", error)
-            return self._build_parse_result(False, error=f'Company API exception: {error}')
+            logger.exception("MinerU API exception: %s", error)
+            return self._build_parse_result(False, error=f'MinerU API exception: {error}')
 
-    def _poll_async_task(self, task_id: str, api_endpoint: str, headers: dict, output_dir: str) -> Dict[str, Any]:
-        """轮询异步任务直到完成，返回解析结果。"""
+    def _poll_async_task(self, task_id: str, api_endpoint: str, headers: dict, output_dir: str,
+                         status_url: str = "", result_url: str = "") -> Dict[str, Any]:
+        """轮询异步任务直到完成，返回解析结果。
+
+        status_url/result_url：服务端返回的真实轮询/取结果 URL（如 DGX 的 /tasks/{id} 与 /tasks/{id}/result）；
+        缺省时按公司兼容路径拼 {api_endpoint}/status/{task_id}，结果取 download_url/result_url 下载。
+        """
         import time as _time
-        poll_url = f"{api_endpoint}/status/{task_id}"
+        poll_url = status_url or f"{api_endpoint}/status/{task_id}"
         max_attempts = max(1, self.cloud_poll_max_attempts)
         for attempt in range(max_attempts):
             if self._abort_event.is_set():
@@ -696,8 +806,8 @@ class MinerUParser:
             except Exception:
                 continue
             status = str(info.get("status", "")).lower()
-            if status == "done":
-                download_url = info.get("download_url") or info.get("result_url") or ""
+            if status in ("done", "completed"):
+                download_url = result_url or info.get("result_url") or info.get("download_url") or ""
                 if download_url:
                     data = self._download_bytes(download_url, 60, headers=headers)
                     if data is not None:
@@ -705,7 +815,7 @@ class MinerUParser:
                 return self._build_parse_result(False, error=f'Async task {task_id} done but download failed')
             if status == "failed":
                 return self._build_parse_result(False, error=f'Async task {task_id} failed')
-            if status in ("pending", "processing"):
+            if status in ("pending", "processing", "running", "queued"):
                 continue
         return self._build_parse_result(False, error=f'Async task {task_id} timed out after {max_attempts} polls')
 
