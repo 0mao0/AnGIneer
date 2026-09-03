@@ -111,7 +111,10 @@ def _llm_semantic_evaluate(
         client = get_llm_client()
         # 温度 0 会让判分器整体偏严（漏一个数值就从 0.8 打到 0.4），
         # 回到默认 0.1，宽容度靠提示词规则保证，而不是靠温度随机。
-        result = chat_result_guarded(client, messages, mode="instruct", config_name=None, temperature=0.1)
+        # judge 与被测解耦：EVAL_JUDGE_MODEL 指定独立评判模型（默认 None = 被测默认模型）。
+        import os as _os
+        judge_config = _os.environ.get("EVAL_JUDGE_MODEL") or None
+        result = chat_result_guarded(client, messages, mode="instruct", config_name=judge_config, temperature=0.1)
         raw_response = result.text
         eval_duration = round(_time.time() - _t_start, 2)
         try:

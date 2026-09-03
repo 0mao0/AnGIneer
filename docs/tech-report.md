@@ -177,18 +177,27 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    DS["题集<br/>注册考试 2019/2020 + 检索基准集"] --> RUN["评测运行<br/>异步启动 / 轮询进度"]
+    DS["题集<br/>LawBench + open-ragbench + 注册考试"] --> RUN["评测运行<br/>异步启动 / 轮询进度"]
     RUN --> PIPE["被测链路<br/>同构调用 policy_query（不走 HTTP）"]
     PIPE --> MET["多维度评测"]
     MET --> RET["检索评测<br/>Hit@1/3/5 · MRR · citation_hit"]
     MET --> SOPE["SOP 执行评测"]
     MET --> ANS["回答语义评测"]
+    ANS --> JUDGE["LLM judge（EVAL_JUDGE_MODEL，与被测解耦）"]
     RET --> BUCKET["失败分桶<br/>missed_exact_target / wrong_section_bias / ..."]
     BUCKET & SOPE & ANS --> STORE["结果落库 SQLite"]
     STORE --> CMP["两次运行对比看板<br/>分数差异 + 题目级变化"]
 ```
 
 > 深入阅读：[docs/retrieval-chain.md](retrieval-chain.md)（检索评测指标与失败分桶的踩坑记录）
+
+### 5.2 语义判分与被测模型解耦（judge）
+
+回答语义判分（`answer_eval.py::_llm_semantic_evaluate`，AnswerEvaluator / SopEvaluator 共用唯一入口）默认走被测默认模型自评。自评存在**同源偏差**：judge 与被测同模型时，评分尺度随模型精度漂移——换量化/换模型后的分数差无法区分"作答变差"与"judge 变严"。
+
+- `EVAL_JUDGE_MODEL`：在 `LLM_CONFIGS` 注册独立 judge 模型（如 Qwen3.8-Flash），设此变量后判分统一走它；不设则回退默认模型（向后兼容）
+- **实证（2026-09-03/04）**：LLM 自 FP8 切 NVFP4，open-ragbench v2 自评差 -3.1pt；用固定 judge 重判两 run 全部 57 个争议题后 **NVFP4 反超 +3.6pt**（60.7% vs 57.1%）——确认自评 -3pt 为同源偏差，模型质量实际持平略优
+- 检索评测（hit@1/3/5）为纯指标计算，不经 LLM judge
 
 ---
 

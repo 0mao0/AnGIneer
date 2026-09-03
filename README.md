@@ -40,6 +40,14 @@
 | :--- | :--- | :--- | :--- |
 | LawBench 1-1 全量（v0.2.23，500 题全文库） | 500 | **87.6%**（438/500） | 62 题 0 分中 ~36 题为 gold 版本错位（系统答对现行法条但 gold 为旧版条文号），修正后等效 ~94.8% |
 
+### 评测判分（judge）与被测模型解耦（2026-09 起）
+
+语义判分不再使用被测模型自评，避免同源偏差（自评分数会随被测模型精度漂移，无法区分"作答变差"与"judge 变严"）：
+
+- **`EVAL_JUDGE_MODEL`**：指定独立 judge 模型配置名（在 `LLM_CONFIGS` 中注册），所有题集（LawBench / open-ragbench / SOP 评测）的语义判分统一走它；不设置时向后兼容用默认模型
+- 消费点唯一：`evals-core/runner/answer_eval.py::_llm_semantic_evaluate`（AnswerEvaluator 与 SopEvaluator 共用）
+- 实测案例（2026-09）：LLM 切 NVFP4 后自评差 FP8 基线 -3pt，固定 judge（Qwen3.8-Flash）重判两 run 全部争议题后 **NVFP4 反超 +3.6pt**（60.7% vs 57.1%）——确认差距来自自评同源偏差，模型实际持平略优
+
 ***
 
 ## 0. 技术亮点（Why AnGIneer）
@@ -503,6 +511,7 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,http:
 | :--- | :--- | :--- |
 | `LLM_CONFIGS` | LLM 模型配置 JSON 数组（唯一配置入口） | 见 `.env.example` |
 | `ANGINEER_DEFAULT_MODEL` | 默认模型名 | `Qwen3.6-Plus` |
+| `EVAL_JUDGE_MODEL` | 评测判分专用模型配置名（judge 与被测解耦，见「评测判分」节；不设则用默认模型自评） | 空 |
 | `AI_PROVIDER` | AI 服务商（aliyun 等） | `aliyun` |
 | `MINERU_CONFIGS` | MinerU 解析端点数组（顺序=优先级，失败自动切换） | JSON 数组 |
 | `MINERU_MAX_CONCURRENCY` | MinerU GPU 并发上限 | `1` |
