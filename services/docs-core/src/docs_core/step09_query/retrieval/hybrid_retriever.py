@@ -184,7 +184,17 @@ def fuse_candidates(
     fused: Dict[str, RetrievedItem] = {}
     source_debug: Dict[str, Any] = {}
 
+    # 融合前裁剪：sparse 可能返回数万条候选（每文档 chunk/block 全量评分），
+    # 全量融合会拖到 30s+。每路先按分数取 top（top_k*3 上限 120），再进入融合。
+    _per_source_cap = max(20, min(120, top_k * 3))
     for source_kind, candidates in source_candidates.items():
+        candidates = sorted(
+            candidates,
+            key=lambda item: (
+                float(item.rerank_score or item.metadata.get("normalized_score") or item.score or 0.0)
+            ),
+            reverse=True,
+        )[:_per_source_cap]
         normalized = normalize_candidate_scores(candidates)
         # 同源内先按去重键收敛：同一表格的多行/摘要只保留最相关一条，
         # 避免融合阶段对同一 key 重复累加导致表格分数虚高、挤掉条款/正文候选。

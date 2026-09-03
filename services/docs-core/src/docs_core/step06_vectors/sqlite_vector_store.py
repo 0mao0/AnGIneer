@@ -1,8 +1,11 @@
 """基于 SQLite 的轻量向量存储实现"""
 import hashlib
 import json
+import threading
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+
+import numpy as np
 
 from docs_core.step06_vectors.vector_store import VectorRecord, VectorSearchHit, VectorStore
 from docs_core.paths import resolve_knowledge_index_db_path
@@ -36,6 +39,17 @@ def dot_similarity(left: List[float], right: List[float]) -> float:
     return float(sum(l_value * r_value for l_value, r_value in zip(left, right)))
 
 
+# 全量向量矩阵缓存：首次加载 ~23s（SQL + JSON 解析 + numpy 矩阵化），
+# 之后每次检索只做一次 matmul（毫秒级）。任何写操作或文件变化后失效。
+# 构建必须持有线程锁：并发请求同时触发冷加载会重复构建并互相争抢（并发评测实测 48s+）。
+_VECTOR_CACHE: Dict[str, Any] = {
+    "loaded_mtime": None,
+    "rows": None,
+    "matrix": None,
+}
+_CACHE_LOCK = threading.Lock()
+
+
 class SQLiteVectorStore(VectorStore):
     """把向量索引持久化`knowledge_index.sqlite`"""
 
@@ -46,6 +60,43 @@ class SQLiteVectorStore(VectorStore):
     # 打开 SQLite 连接
     def connect(self):
         return create_connection(self.db_path)
+
+    # 加载全量向量矩阵到进程缓存（按库文件 mtime 失效检测，线程安全）
+    def _ensure_cache(self) -> None:
+        try:
+            mtime = Path(self.db_path).stat().st_mtime
+        except OSError:
+            mtime = None
+        if _VECTOR_CACHE["loaded_mtime"] == mtime and _VECTOR_CACHE["matrix"] is not None:
+            return
+        with _CACHE_LOCK:
+            # double-check：等待锁期间可能已被其他线程构建
+            if _VECTOR_CACHE["loaded_mtime"] == mtime and _VECTOR_CACHE["matrix"] is not None:
+                return
+            with self.connect() as conn:
+                rows = conn.execute(
+                    """
+                    SELECT record_id, doc_id, entity_type, entity_id, content, metadata_json, embedding_json
+                    FROM canonical_vectors
+                    """
+                ).fetchall()
+            embeddings: List[Optional[List[float]]] = [_load_json(row["embedding_json"], None) for row in rows]
+            valid_idx = [i for i, emb in enumerate(embeddings) if emb]
+            if valid_idx:
+                matrix = np.asarray([embeddings[i] for i in valid_idx], dtype=np.float32)
+            else:
+                matrix = np.empty((0, 0), dtype=np.float32)
+            _VECTOR_CACHE["loaded_mtime"] = mtime
+            _VECTOR_CACHE["rows"] = rows
+            _VECTOR_CACHE["matrix"] = matrix
+            _VECTOR_CACHE["dimension"] = matrix.shape[1] if valid_idx else 0
+            _VECTOR_CACHE["valid_idx"] = valid_idx
+
+    # 写操作后强制失效缓存
+    def _invalidate_cache(self) -> None:
+        _VECTOR_CACHE["loaded_mtime"] = None
+        _VECTOR_CACHE["rows"] = None
+        _VECTOR_CACHE["matrix"] = None
 
     # 初始化向量索引表结构
     def init_schema(self) -> None:
@@ -111,6 +162,7 @@ class SQLiteVectorStore(VectorStore):
                 rows,
             )
             conn.commit()
+        self._invalidate_cache()
         return len(rows)
 
     # 获取已有向量的维度，用于 embedding provider 维度对齐。
@@ -133,6 +185,7 @@ class SQLiteVectorStore(VectorStore):
         with self.connect() as conn:
             cursor = conn.execute(sql, params)
             conn.commit()
+            self._invalidate_cache()
             return int(cursor.rowcount or 0)
 
     # 按 entity_id 删除增量重建前的旧向量记录
@@ -145,9 +198,10 @@ class SQLiteVectorStore(VectorStore):
         with self.connect() as conn:
             cursor = conn.execute(sql, [doc_id, *normalized_ids])
             conn.commit()
+            self._invalidate_cache()
             return int(cursor.rowcount or 0)
 
-    # 执行 SQLite 内存侧相似度检索
+    # 执行 SQLite 内存侧相似度检索（全量矩阵缓存 + numpy 批量 matmul）
     def search(
         self,
         query_embedding: List[float],
@@ -156,34 +210,36 @@ class SQLiteVectorStore(VectorStore):
         entity_types: Optional[List[str]] = None,
         top_k: int = 10,
     ) -> List[VectorSearchHit]:
-        sql = """
-            SELECT record_id, doc_id, entity_type, entity_id, content, metadata_json, embedding_json
-            FROM canonical_vectors
-            WHERE 1 = 1
-        """
-        params: List[object] = []
-        normalized_doc_ids = [item for item in (doc_ids or []) if item]
-        if normalized_doc_ids:
-            placeholders = ",".join(["?"] * len(normalized_doc_ids))
-            sql += f" AND doc_id IN ({placeholders})"
-            params.extend(normalized_doc_ids)
-        normalized_types = [item for item in (entity_types or []) if item]
-        if normalized_types:
-            placeholders = ",".join(["?"] * len(normalized_types))
-            sql += f" AND entity_type IN ({placeholders})"
-            params.extend(normalized_types)
-        with self.connect() as conn:
-            rows = conn.execute(sql, params).fetchall()
+        self._ensure_cache()
+        rows = _VECTOR_CACHE["rows"] or []
+        matrix = _VECTOR_CACHE["matrix"]
+        valid_idx = _VECTOR_CACHE.get("valid_idx") or []
+        if not rows or matrix is None or matrix.shape[0] == 0:
+            return []
+        # 维度防护：查询向量维度与缓存矩阵不一致（如历史 hash 兜底低维向量）时直接返回空
+        if len(query_embedding) != matrix.shape[1]:
+            return []
+        # 构建过滤掩码
+        normalized_doc_ids = set(item for item in (doc_ids or []) if item)
+        normalized_types = set(item for item in (entity_types or []) if item)
+        sel_idx: List[int] = []
+        if not normalized_doc_ids and not normalized_types:
+            sel_idx = valid_idx
+        else:
+            for i in valid_idx:
+                row = rows[i]
+                if normalized_doc_ids and row["doc_id"] not in normalized_doc_ids:
+                    continue
+                if normalized_types and row["entity_type"] not in normalized_types:
+                    continue
+                sel_idx.append(i)
+        if not sel_idx:
+            return []
+        q = np.asarray(query_embedding, dtype=np.float32)
+        scores = (matrix[sel_idx] @ q).tolist()
         hits: List[VectorSearchHit] = []
-        for row in rows:
-            embedding = list(_load_json(row["embedding_json"], []))
-            if not embedding:
-                continue
-            # 维度防护：跳过与查询向量维度不一致的行（如历史 hash 兜底的低维向量），
-            # 避免混维点积产生无意义分数。
-            if len(embedding) != len(query_embedding):
-                continue
-            score = dot_similarity(query_embedding, embedding)
+        for rank, i in enumerate(sel_idx):
+            row = rows[i]
             hits.append(
                 VectorSearchHit(
                     record_id=row["record_id"],
@@ -191,7 +247,7 @@ class SQLiteVectorStore(VectorStore):
                     entity_type=row["entity_type"],
                     entity_id=row["entity_id"],
                     content=row["content"] or "",
-                    score=score,
+                    score=scores[rank],
                     metadata=dict(_load_json(row["metadata_json"], {})),
                 )
             )

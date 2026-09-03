@@ -824,8 +824,8 @@ class DocsService:
         """按文本检索引用目标。"""
         return self.canonical_store.search_citation_targets(doc_id, query, limit)
 
-    def search_chunk_fts(self, doc_id: str, query: str, limit: int = 20) -> List[Dict[str, object]]:
-        """按 FTS 检索 chunk。"""
+    def search_chunk_fts(self, doc_id: Optional[str], query: str, limit: int = 20) -> List[Dict[str, object]]:
+        """按 FTS 检索 chunk；doc_id 为 None 时全库检索。"""
         return self.canonical_store.search_chunk_fts(doc_id, query, limit)
 
     def list_blocks_by_clause_refs(self, doc_id: str, clause_refs: List[str], limit: int = 12) -> List[Dict[str, object]]:

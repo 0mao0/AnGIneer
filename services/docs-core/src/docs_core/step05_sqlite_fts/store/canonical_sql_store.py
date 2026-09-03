@@ -1124,23 +1124,28 @@ class CanonicalSQLiteStore:
         return [dict(row) for row in rows]
 
     # 使用 FTS5 + bm25 查询 chunk 候选
-    def search_chunk_fts(self, doc_id: str, query: str, limit: int = 20) -> List[dict[str, object]]:
+    def search_chunk_fts(self, doc_id: Optional[str], query: str, limit: int = 20) -> List[dict[str, object]]:
         normalized_query = " ".join(str(query or "").split()).strip()
         if not normalized_query:
             return []
         match_query = _build_fts_match_query(normalized_query)
         if not match_query:
             return []
+        doc_filter = "doc_id = ?" if doc_id else "1 = 1"
+        params: List[object] = []
+        if doc_id:
+            params.append(doc_id)
+        params.extend([match_query, max(1, min(200, limit))])
         with self.connect() as conn:
             rows = conn.execute(
-                """
+                f"""
                 SELECT chunk_id, doc_id, chunk_type, section_path, text_clean, bm25(canonical_chunk_fts) AS bm25_score
                 FROM canonical_chunk_fts
-                WHERE doc_id = ? AND canonical_chunk_fts MATCH ?
+                WHERE {doc_filter} AND canonical_chunk_fts MATCH ?
                 ORDER BY bm25_score ASC, chunk_id ASC
                 LIMIT ?
                 """,
-                (doc_id, match_query, max(1, min(200, limit))),
+                params,
             ).fetchall()
         return [
             {

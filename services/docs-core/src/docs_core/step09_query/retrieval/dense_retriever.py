@@ -121,7 +121,19 @@ class DenseRetriever:
             return []
         query_tokens = tokenize_query(request.query)
         clause_refs = extract_clause_refs(request.query)
-        query_embedding = self._embedding_provider.embed_text(request.query)
+        query_text = request.query
+        # Qwen3-Embedding 查询侧指令前缀（官方检索约定，提升召回；文档侧不加）
+        import os
+        provider_model = str(
+            getattr(self._embedding_provider, "model", "")
+            or os.getenv("DOCS_EMBEDDING_MODEL", "")
+        )
+        if "qwen3-embedding" in provider_model:
+            query_text = (
+                "Instruct: Given a web search query, retrieve relevant passages that answer the query\n"
+                f"Query: {query_text}"
+            )
+        query_embedding = self._embedding_provider.embed_text(query_text)
         doc_title_map = {node.id: node.title for node in doc_nodes}
         vector_hits = port.search_document_vectors(
             query_embedding,
