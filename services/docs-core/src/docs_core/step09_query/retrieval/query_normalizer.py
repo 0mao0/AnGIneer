@@ -2,6 +2,12 @@
 import re
 from typing import List
 
+_RE_SPACES = re.compile(r"\s+")
+_RE_PUNCT = re.compile(
+    r"[\uff0c\u3002\uff1b\uff1a\u3001\u201c\u201d\u2018\u2019"
+    r"\uff08\uff09()\[\]\u3010\u3011\u300a\u300b"
+    r"{}<>.,;:!\?\uff01\uff1f\u00b7\u2014\-~$\\]"
+)
 _GREEK_ALIAS_MAP = {
     "α": "alpha",
     "β": "beta",
@@ -81,6 +87,8 @@ def token_scoring_weight(token: str) -> float:
 def replace_greek_formula_aliases(text: str) -> str:
     """把 Unicode 希腊字母替换为稳定的 ASCII 别名，便于与 LaTeX 形式对齐。"""
     normalized = text or ""
+    if not any(ch in normalized for ch in _GREEK_ALIAS_MAP):
+        return normalized
     for source, target in _GREEK_ALIAS_MAP.items():
         normalized = normalized.replace(source, target)
     return normalized
@@ -89,6 +97,8 @@ def replace_greek_formula_aliases(text: str) -> str:
 def strip_latex_text_wrappers(text: str) -> str:
     """移除 `\\mathrm{}` 这类仅影响展示、不影响公式语义的 LaTeX 包装。"""
     normalized = text or ""
+    if "\\mathrm" not in normalized:
+        return normalized
     while True:
         next_text = re.sub(r"\\mathrm\s*\{([^{}]+)\}", r"\1", normalized)
         if next_text == normalized:
@@ -99,17 +109,11 @@ def strip_latex_text_wrappers(text: str) -> str:
 # 归一化文本以提升中文检索匹配稳定性。
 def normalize_match_text(text: str) -> str:
     compact = re.sub(
-        r"\s+",
+        _RE_SPACES,
         "",
         strip_latex_text_wrappers(replace_greek_formula_aliases(text or "")),
     )
-    compact = re.sub(
-        r"[\uff0c\u3002\uff1b\uff1a\u3001\u201c\u201d\u2018\u2019"
-        r"\uff08\uff09()\[\]\u3010\u3011\u300a\u300b"
-        r"{}<>.,;:!\?\uff01\uff1f\u00b7\u2014\-~$\\]",
-        "",
-        compact,
-    )
+    compact = _RE_PUNCT.sub("", compact)
     return compact.lower().strip()
 
 
@@ -178,6 +182,60 @@ _CN_NUM_MAP = {
     "一": "1", "二": "2", "三": "3", "四": "4", "五": "5",
     "六": "6", "七": "7", "八": "8", "九": "9",
 }
+
+_CN_DIGITS = {"零": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
+              "六": 6, "七": 7, "八": 8, "九": 9}
+_CN_UNITS = {"十": 10, "百": 100, "千": 1000, "万": 10000}
+
+
+def chinese_number_to_arabic(text: str) -> str:
+    """将中文数字（如"六十"、"一百一十一"）转为阿拉伯数字字符串。"""
+    text = str(text or "").strip()
+    if not text:
+        return ""
+    # 纯阿拉伯数字直接返回
+    if re.fullmatch(r"\d+", text):
+        return text
+    total = 0
+    section = 0
+    for ch in text:
+        if ch in _CN_DIGITS:
+            section = _CN_DIGITS[ch]
+        elif ch in _CN_UNITS:
+            unit = _CN_UNITS[ch]
+            if unit == 10000:
+                total = (total + section) * unit
+                section = 0
+            else:
+                if section == 0:
+                    section = 1
+                total += section * unit
+                section = 0
+        else:
+            return ""  # 含非数字字符，不是纯中文数字
+    total += section
+    return str(total) if total > 0 else ""
+
+
+def normalize_chinese_clause_numbers(query: str) -> str:
+    """将查询中的中文数字条款号转为阿拉伯数字，如"第六十条"→"第60条"。
+
+    仅转换 "第X条/款/项/章/节" 中的 X（X 为中文数字），不影响其他文本。
+    """
+    raw = str(query or "")
+    def _replace(m: re.Match) -> str:
+        cn_num = m.group(1)
+        arabic = chinese_number_to_arabic(cn_num)
+        if arabic:
+            return m.group(0).replace(cn_num, arabic)
+        return m.group(0)
+    # 匹配 "第X条/款/项/章/节/编/分编" 中的 X（X 为中文数字）
+    result = re.sub(
+        r"第([一二三四五六七八九十百千零]+)(?=[条款项章节编])",
+        _replace,
+        raw,
+    )
+    return result
 
 def normalize_clause_ref_text(raw: str) -> str:
     """将条款号归一化为点分格式（如 6.2.7）。"""

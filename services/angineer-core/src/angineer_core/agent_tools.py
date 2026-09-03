@@ -237,6 +237,9 @@ def _run_knowledge_search(
     3b：配置 ANGINEER_DOCS_API_URL（或显式注入 retrieval_client）时走 docs-api HTTP 检索，
     失败回退本地进程内检索；未配置时保持本地路径不变。
     """
+    # 中文数字条款号转阿拉伯数字（"第六十条"→"第60条"），提升 ClauseResolver 精确命中率
+    from docs_core.step09_query.retrieval.query_normalizer import normalize_chinese_clause_numbers
+    query = normalize_chinese_clause_numbers(query)
     nodes = list(doc_nodes or [])
     doc_title_map = {
         str(getattr(node, "id", "") or ""): str(getattr(node, "title", "") or "")
@@ -391,6 +394,8 @@ def _assemble_search_result(
             config_name=config_name,
             mode=mode,
         )
+        # rerank 已排序：只保留 top 10 进 agent 上下文，控制 prompt 长度（prefill 耗时与输入成正比）
+        items = list(items[:10])
     _assign_cites(items, marker_allocator or MarkerAllocator(), prefix)
     for item in items:
         doc_title = doc_title_map.get(str(item.doc_id or ""), "") or str(item.metadata.get("doc_title") or "")

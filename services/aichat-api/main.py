@@ -280,7 +280,7 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=AICHAT_API_PORT,
         app_dir=str(Path(__file__).resolve().parent),
-        reload=True,
+        reload=os.getenv("ANGINEER_NO_RELOAD", "0") != "1",
         reload_dirs=[
             str(Path(__file__).resolve().parent),
             str(SERVICES_DIR / "angineer-core" / "src"),
