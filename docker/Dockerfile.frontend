@@ -35,6 +35,12 @@ RUN pnpm --filter @angineer/user-web build:docker && pnpm --filter @angineer/adm
 # 阶段2: Nginx 服务静态文件
 FROM nginx:alpine
 
+# nginx:alpine 自带 mime.types 无 .mjs（vite 打包的 pdf.js worker 等 ES module），
+# 缺省回退 application/octet-stream 会被浏览器 module script MIME 检查拒绝；补 mjs + wasm。
+RUN sed -i 's|application/javascript[[:space:]][[:space:]]*js;|application/javascript                           js mjs;|' /etc/nginx/mime.types \
+    && grep -q 'application/wasm' /etc/nginx/mime.types \
+       || sed -i '/application\/javascript/a\    application/wasm                            wasm;' /etc/nginx/mime.types
+
 COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /app/apps/user-web/dist /usr/share/nginx/html/web
 COPY --from=builder /app/apps/admin-web/dist /usr/share/nginx/html/admin
