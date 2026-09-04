@@ -2,13 +2,13 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：v0.2.26** —— 已落地规范问答与 Agent 化问答链路（五路检索、一体化文档解析管线、SOP 审核/审计、注册考试题集评测、Dream Cycle 巡检），v0.2.20 新增图描述（VLM figure_describe 阶段 + 全量回填）、M3.2 证据装配与 QA prompt v8、评测套件多线程并发（EVAL_CONCURRENCY=3）；v0.2.21 升级 QA prompt v9（二元 Yes/No 结论禁止部分证据引申翻转）并撤回 CLAIM 数值/专名守卫（实测正常题误伤，宁漏勿伤，保留半拒答守卫）；v0.2.22 修订 v9 规则 15（证据无明确二元表述时给部分结论并标注缺口、禁止整体拒答，v2 全量 87.68% 历史最高）并将批量删除改为批量接口（软删/硬删，单条失败不中断 + 失败明细）；v0.2.23 解析服务端点 configs 化（MINERU_CONFIGS/POPO_CONFIGS JSON 列表，数组顺序=优先级、主端点失败自动切换，接入 DGX 公网解析并统一 file_parse ZIP 协议），检索/向量性能优化（全量向量矩阵进程缓存），中文数字条款号检索修复（LawBench 法条题精确命中），agent 上下文 top10 截断（prefill 减半）；v0.2.24 端点配置全面统一 `*_CONFIGS` 数组为唯一入口（MinerU/PoPo/Embedding/Reranker，顺序=优先级、失败自动切下一项），删除旧单变量（MINERU_API_URL/POPO_VLLM_URL/DOCS_EMBEDDING_*/ANGINEER_RERANKER_URL 等）兼容层。v0.2.25 新增统计/元数据查询 meta_query 通道（knowledge_stats 实时聚合 + LLM 提取报数，统计问题由 30s+ 拒答改为秒级直报数字；摸底否决裸 text2SQL：主模型 SQL 语义正确率仅 5%），修复 aichat 工具调用 JSON 泄漏到前端（流式围栏过滤）与 PDF 预览失败（nginx 补 .mjs MIME）。v0.2.26 修复 Docker 部署 LibreOffice 转 PDF 中文乱码（backend 镜像补 fonts-noto-cjk 中文字体，存量乱码文档需重跑格式转换阶段），向量索引分批嵌入改双并发（`DOCS_EMBEDDING_BATCH_CONCURRENCY`，默认 2，远程 embedding 场景该阶段耗时近减半）。
+> **当前版本：v0.2.27** —— 已落地规范问答与 Agent 化问答链路（五路检索、一体化文档解析管线、SOP 审核/审计、注册考试题集评测、Dream Cycle 巡检），v0.2.20 新增图描述（VLM figure_describe 阶段 + 全量回填）、M3.2 证据装配与 QA prompt v8、评测套件多线程并发（EVAL_CONCURRENCY=3）；v0.2.21 升级 QA prompt v9（二元 Yes/No 结论禁止部分证据引申翻转）并撤回 CLAIM 数值/专名守卫（实测正常题误伤，宁漏勿伤，保留半拒答守卫）；v0.2.22 修订 v9 规则 15（证据无明确二元表述时给部分结论并标注缺口、禁止整体拒答，v2 全量 87.68% 历史最高）并将批量删除改为批量接口（软删/硬删，单条失败不中断 + 失败明细）；v0.2.23 解析服务端点 configs 化（MINERU_CONFIGS/POPO_CONFIGS JSON 列表，数组顺序=优先级、主端点失败自动切换，接入 DGX 公网解析并统一 file_parse ZIP 协议），检索/向量性能优化（全量向量矩阵进程缓存），中文数字条款号检索修复（LawBench 法条题精确命中），agent 上下文 top10 截断（prefill 减半）；v0.2.24 端点配置全面统一 `*_CONFIGS` 数组为唯一入口（MinerU/PoPo/Embedding/Reranker，顺序=优先级、失败自动切下一项），删除旧单变量（MINERU_API_URL/POPO_VLLM_URL/DOCS_EMBEDDING_*/ANGINEER_RERANKER_URL 等）兼容层。v0.2.25 新增统计/元数据查询 meta_query 通道（knowledge_stats 实时聚合 + LLM 提取报数，统计问题由 30s+ 拒答改为秒级直报数字；摸底否决裸 text2SQL：主模型 SQL 语义正确率仅 5%），修复 aichat 工具调用 JSON 泄漏到前端（流式围栏过滤）与 PDF 预览失败（nginx 补 .mjs MIME）。v0.2.26 修复 Docker 部署 LibreOffice 转 PDF 中文乱码（backend 镜像补 fonts-noto-cjk 中文字体，存量乱码文档需重跑格式转换阶段），向量索引分批嵌入改双并发（`DOCS_EMBEDDING_BATCH_CONCURRENCY`，默认 2，远程 embedding 场景该阶段耗时近减半）。v0.2.27 修正向量索引提速路线：实测 DGX qwen3-embedding 对并发请求排队执行（双并发比串行慢 ~50%），并发默认回退 1（仅多 worker 本地端点值得调大），改为调大批次（`DOCS_EMBEDDING_BATCH_SIZE` 默认 32，DGX 端点建议 64；批内亚线性 103→59ms/条，该阶段实测可提速 ~2 倍）。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.26` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.27` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.1` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.7` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
