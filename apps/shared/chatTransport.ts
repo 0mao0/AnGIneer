@@ -79,6 +79,15 @@ export const defaultAIChatTransport = {
         }
         if (event.type === 'run_start') {
           runId = String(event.run_id || '')
+        } else if (event.type === 'turn_start') {
+          // 新 turn 开始：后端约定一个 run 内只有最后一轮 assistant 是最终答案，
+          // 中间轮（拒答重答/截断重试等）已流出的正文必须清掉，
+          // 否则旧文本会与新答案拼接残留，直到 run_end 才被整体覆盖
+          if (answer) {
+            rawAnswer = ''
+            answer = ''
+            options?.onAnswerReplace?.('')
+          }
         } else if (event.type === 'tool_start' || event.type === 'tool_end') {
           liveThinkingSteps = applyAgentEventToThinking(event, liveThinkingSteps)
           options?.onThinking?.([...liveThinkingSteps])

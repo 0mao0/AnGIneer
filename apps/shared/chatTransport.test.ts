@@ -431,8 +431,69 @@ test('note/answer 事件与 run_end 权威答案替换', async () => {
   }
 })
 
-test('流式过滤：完整的纯 JSON 工具调用不进入正文', () => {
-  assert.equal(
+test('新一轮 turn 开始时清空上一轮流式正文（拒答重答不残留中间疑问句）', async () => {
+  const refusal = '没有检索到足够证据支持最终结论。您是否想知道其他规范？'
+  const finalAnswer = '该规范主要内容包括设计与施工要求。'
+  const events = [
+    { type: 'run_start', run_id: 'r1', turn: 0, payload: {} },
+    { type: 'turn_start', run_id: 'r1', turn: 1, payload: { turn: 1 } },
+    { type: 'message_delta', run_id: 'r1', turn: 1, payload: { delta: refusal } },
+    {
+      type: 'note',
+      run_id: 'r1',
+      turn: 1,
+      payload: { detail: '有有效证据但回答为拒答，已要求基于证据重答' },
+    },
+    { type: 'turn_start', run_id: 'r1', turn: 2, payload: { turn: 2 } },
+    { type: 'message_delta', run_id: 'r1', turn: 2, payload: { delta: finalAnswer } },
+    {
+      type: 'run_end',
+      run_id: 'r1',
+      turn: 2,
+      payload: {
+        reason: 'completed',
+        turns: 2,
+        notes: [{ detail: '有有效证据但回答为拒答，已要求基于证据重答' }],
+        messages: [
+          { role: 'user', content: 'x' },
+          { role: 'assistant', content: refusal },
+          { role: 'user', content: '已检索到有效证据，请基于证据作答' },
+          { role: 'assistant', content: finalAnswer },
+        ],
+      },
+    },
+  ]
+  const originalFetch = globalThis.fetch
+  globalThis.fetch = (async () => sseResponse(events)) as typeof fetch
+  let bubble = ''
+  const snapshots: string[] = []
+  try {
+    const result = await defaultAIChatTransport.query(
+      { query: 'x', scene: 'qa', session_id: 's1', library_id: 'default', doc_ids: [] },
+      {
+        onDelta: d => {
+          bubble += d
+          snapshots.push(bubble)
+        },
+        onAnswerReplace: full => {
+          bubble = full
+          snapshots.push(bubble)
+        },
+      }
+    )
+    assert.equal(result.answer, finalAnswer)
+    assert.equal(bubble, finalAnswer)
+    const clearIdx = snapshots.findIndex(s => s === '')
+    assert.ok(clearIdx >= 0, 'turn 2 开始时应先清空气泡')
+    for (const s of snapshots.slice(clearIdx + 1)) {
+      assert.ok(!s.includes('您是否'), `重答轮之后气泡不应残留中间疑问句: ${s}`)
+    }
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('流式过滤：完整的纯 JSON 工具调用不进入正文', () => {  assert.equal(
     cleanStreamText('[{"name": "knowledge_search", "arguments": {"query": "x"}}]'),
     ''
   )
