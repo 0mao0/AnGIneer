@@ -5,6 +5,8 @@ import json
 import asyncio
 import uuid
 import logging
+import threading
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Optional
@@ -117,6 +119,28 @@ app.add_middleware(APIKeyAuthMiddleware, scope="chat")
 app.include_router(sop_router, prefix="/api/sops", tags=["SOPs"])
 app.include_router(evals_router, prefix="/api/evals", tags=["Evals"])
 app.include_router(dream_cycle_router, prefix="/api/dream-cycle", tags=["Dream Cycle"])
+
+
+@app.on_event("startup")
+def _warm_retrieval_caches_on_startup() -> None:
+    """后台线程预热检索缓存（向量矩阵/FTS/节点清单）。
+
+    实测冷态首查 sparse 段 12s+（FTS 索引冷读），用户可感知；预热在后台进行，
+    不阻塞服务启动，失败仅告警。"""
+
+    def _warm() -> None:
+        try:
+            started = time.perf_counter()
+            from docs_core.step09_query.retrieve_service import retrieve_knowledge
+
+            # 高频字查询：拉最大的 posting list，最大化预热 FTS 索引页；
+            # 同时完成 embedding 连通性检查、向量矩阵缓存构建与 docs_service 单例加载
+            retrieve_knowledge(query="的 规范 设计", library_id="default", top_k=1, mode="text")
+            logger.info("检索缓存后台预热完成，耗时 %.2fs", time.perf_counter() - started)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("检索缓存预热失败（不影响服务）: %s", exc)
+
+    threading.Thread(target=_warm, daemon=True, name="retrieval-warmup").start()
 
 
 class QueryRequest(BaseModel):

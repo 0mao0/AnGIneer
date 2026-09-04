@@ -514,7 +514,7 @@ class LLMClient:
             extra_body["chat_template_kwargs"] = _template_kwargs
         elif "dashscope" in config.base_url or "aliyun" in config.base_url:
             extra_body["enable_thinking"] = False
-        elif "124.221.238.70" in config.base_url or "qwen3.6" in config.model:
+        elif "angineer.cn" in config.base_url or "qwen3.6" in config.model:
             extra_body["chat_template_kwargs"] = {"enable_thinking": False}
 
         effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
@@ -571,7 +571,7 @@ class LLMClient:
             extra_body["chat_template_kwargs"] = _template_kwargs
         elif "dashscope" in config.base_url or "aliyun" in config.base_url:
             extra_body["enable_thinking"] = False
-        elif "124.221.238.70" in config.base_url or "qwen3.6" in config.model:
+        elif "angineer.cn" in config.base_url or "qwen3.6" in config.model:
             extra_body["chat_template_kwargs"] = {"enable_thinking": False}
 
         effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
@@ -628,7 +628,7 @@ class LLMClient:
             extra_body["chat_template_kwargs"] = _template_kwargs
         elif "dashscope" in config.base_url or "aliyun" in config.base_url:
             extra_body["enable_thinking"] = False
-        elif "124.221.238.70" in config.base_url or "qwen3.6" in config.model:
+        elif "angineer.cn" in config.base_url or "qwen3.6" in config.model:
             extra_body["chat_template_kwargs"] = {"enable_thinking": False}
 
         effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens
@@ -689,7 +689,7 @@ class LLMClient:
             extra_body["chat_template_kwargs"] = _template_kwargs
         elif "dashscope" in config.base_url or "aliyun" in config.base_url:
             extra_body["enable_thinking"] = False
-        elif "124.221.238.70" in config.base_url or "qwen3.6" in config.model:
+        elif "angineer.cn" in config.base_url or "qwen3.6" in config.model:
             extra_body["chat_template_kwargs"] = {"enable_thinking": False}
 
         effective_max_tokens = max_tokens if max_tokens is not None else self._config.max_tokens

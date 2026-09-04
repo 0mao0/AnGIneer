@@ -483,7 +483,7 @@ docker compose up -d --build
 生产/对外部署必须通过环境变量显式配置允许的前端来源，禁止使用 `*`：
 
 ```
-ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,http://124.221.238.70
+ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,https://angineer.cn
 ```
 
 ### 6.3 API Key 认证
