@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import threading
 import time
 import uuid
@@ -28,6 +29,88 @@ from angineer_core.agent_tools import AgentTool, ToolResult
 from angineer_core.tool_codec import NativeToolCallCodec, TextToolCallCodec
 
 logger = logging.getLogger(__name__)
+
+
+# 文本工具协议下模型会把 ```tool_calls [...]```（或裸 "tool_calls [...]"）写进正文流。
+# 流式期间必须增量识别并抑制该段，否则工具调用 JSON 会经 message_delta 泄漏到前端
+# （剥离只发生在 turn 结束后对已落库 full_text 做，前端已收到的 delta 无法回收）。
+_TOOL_FENCE_START_RE = re.compile(r"(?:```\s*)?tool_calls\s*[\r\n]?\s*\[", re.IGNORECASE)
+_TOOL_FENCE_HOLD_RE = re.compile(r"(?:```\s*)?tool_calls\s*$", re.IGNORECASE)
+_TOOL_FENCE_PREFIXES = ("```tool_calls", "tool_calls")
+
+
+class _DeltaFenceFilter:
+    """流式过滤 tool_calls 段：返回应转发给前端的文本，围栏内内容不转发。
+
+    - 开始标记：```tool_calls[ 或裸 tool_calls[（允许空白/换行），可跨 delta 切分；
+      marker 已完整出现但尚未看到 [ 时保持 hold，等后续 delta 确认；
+    - 带 ``` 围栏时检测到结束 ``` 后恢复转发（围栏后可能有尾随正文）；
+    - 裸格式无可靠结束标记，抑制到本轮结束。
+    """
+
+    def __init__(self) -> None:
+        self._buf = ""
+        self._suppress = False
+        self._fenced = False
+
+    def feed(self, delta: str) -> str:
+        if self._suppress:
+            self._buf += delta
+            if self._fenced:
+                end = self._buf.find("```")
+                if end >= 0:
+                    rest = self._buf[end + 3:]
+                    self._buf = ""
+                    self._suppress = False
+                    self._fenced = False
+                    return self.feed(rest)
+            return ""
+        self._buf += delta
+        match = _TOOL_FENCE_START_RE.search(self._buf)
+        if match:
+            out = self._buf[: match.start()]
+            self._buf = self._buf[match.end():]
+            self._suppress = True
+            self._fenced = match.group(0).lstrip().startswith("```")
+            if self._fenced and "```" in self._buf:
+                end = self._buf.find("```")
+                rest = self._buf[end + 3:]
+                self._buf = ""
+                self._suppress = False
+                self._fenced = False
+                return out + self.feed(rest)
+            return out
+        # marker 已完整出现、等待确认是否紧跟 [：保持 hold
+        hold = _TOOL_FENCE_HOLD_RE.search(self._buf)
+        if hold:
+            out = self._buf[: hold.start()]
+            self._buf = self._buf[hold.start():]
+            return out
+        keep = self._prefix_tail_len(self._buf)
+        out = self._buf[:-keep] if keep else self._buf
+        self._buf = self._buf[-keep:] if keep else ""
+        return out
+
+    def flush(self) -> str:
+        """流结束时收尾：正常状态下残留的缓冲转发出去；suppress 状态下丢弃围栏残余。"""
+        if self._suppress:
+            self._buf = ""
+            return ""
+        out = self._buf
+        self._buf = ""
+        return out
+
+    @classmethod
+    def _prefix_tail_len(cls, text: str) -> int:
+        """text 的后缀是某开始标记的前缀时，返回该后缀长度（跨 delta 切分保护）。"""
+        low = text.lower()
+        best = 0
+        for prefix in _TOOL_FENCE_PREFIXES:
+            max_k = min(len(prefix) - 1, len(low))
+            for k in range(1, max_k + 1):
+                if prefix.startswith(low[-k:]) and k > best:
+                    best = k
+        return best
 
 
 @dataclass
@@ -336,6 +419,7 @@ def _run_llm_turn(
     full_text = ""
     finish_reason = None
     usage: Dict[str, Any] = {}
+    fence_filter = _DeltaFenceFilter()
     try:
         for event in config.llm.chat_stream_events(
             llm_messages,
@@ -349,7 +433,9 @@ def _run_llm_turn(
             if event.get("type") == "delta":
                 delta = event.get("text") or ""
                 full_text += delta
-                _safe_emit(emit, AgentEvent(type="message_delta", run_id=run_id, turn=turn, payload={"delta": delta}))
+                visible = fence_filter.feed(delta)
+                if visible:
+                    _safe_emit(emit, AgentEvent(type="message_delta", run_id=run_id, turn=turn, payload={"delta": visible}))
             elif event.get("type") == "done":
                 finish_reason = event.get("finish_reason")
                 if event.get("usage"):
@@ -357,6 +443,9 @@ def _run_llm_turn(
     except Exception as exc:  # noqa: BLE001
         logger.warning("LLM 流式调用异常: %s", exc)
         finish_reason = finish_reason or "error"
+    tail = fence_filter.flush()
+    if tail:
+        _safe_emit(emit, AgentEvent(type="message_delta", run_id=run_id, turn=turn, payload={"delta": tail}))
 
     # 解析工具调用（解析失败 fail-open 到纯文本答案）
     calls: List = []
