@@ -679,6 +679,173 @@ class RetrieverAdapter:
         )
 
 
+def _run_knowledge_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
+    """知识库统计聚合：HTTP 优先（ANGINEER_DOCS_API_URL），失败/未配置回退进程内直查 SQLite。
+
+    口径与 docs-api GET /api/knowledge/stats 一致：文档以 nodes 表为准（deleted=0 排除软删），
+    上传/存储以 parse_records 为准（status<>'deleted'）。
+    """
+    from angineer_core.docs_retrieval_client import client_from_env
+
+    client = client_from_env()
+    if client is not None:
+        try:
+            import requests
+
+            base_url = client.base_url.rstrip("/")
+            resp = requests.get(
+                f"{base_url}/api/knowledge/stats",
+                params={"library_id": library_id} if library_id else {},
+                timeout=client.timeout,
+            )
+            resp.raise_for_status()
+            return resp.json()
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("docs-api 统计接口失败，回退本地直查: %s", exc)
+
+    return _local_knowledge_stats(library_id)
+
+
+def _local_knowledge_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
+    """进程内直查 SQLite 的统计聚合（HTTP 未配置/失败时的兜底）。"""
+    import sqlite3
+    from datetime import datetime, timedelta, timezone
+
+    from docs_core.paths import resolve_knowledge_meta_db_path, resolve_repo_root
+
+    lib_clause = " AND library_id = ?" if library_id else ""
+    lib_params: tuple = (library_id,) if library_id else ()
+    now = datetime.now(timezone.utc)
+
+    conn = sqlite3.connect(f"file:{resolve_knowledge_meta_db_path()}?mode=ro", uri=True)
+    try:
+        total = conn.execute(
+            f"SELECT COUNT(*) FROM nodes WHERE deleted=0{lib_clause}", lib_params
+        ).fetchone()[0]
+        deleted = conn.execute(
+            f"SELECT COUNT(*) FROM nodes WHERE deleted=1{lib_clause}", lib_params
+        ).fetchone()[0]
+        by_status = {
+            r[0]: r[1]
+            for r in conn.execute(
+                f"SELECT status, COUNT(*) FROM nodes WHERE deleted=0{lib_clause} GROUP BY status",
+                lib_params,
+            )
+        }
+        by_library = [
+            {"library_id": r[0], "library_name": r[1] or r[0], "count": r[2]}
+            for r in conn.execute(
+                "SELECT n.library_id, l.name, COUNT(*) FROM nodes n"
+                " LEFT JOIN libraries l ON n.library_id = l.id"
+                f" WHERE n.deleted=0{lib_clause.replace('library_id', 'n.library_id')}"
+                " GROUP BY n.library_id ORDER BY COUNT(*) DESC",
+                lib_params,
+            )
+        ]
+        pages_row = conn.execute(
+            "SELECT COUNT(*), COALESCE(SUM(s.page_count),0), COALESCE(AVG(s.page_count),0)"
+            " FROM doc_parse_stages s JOIN nodes n ON s.doc_id = n.id"
+            f" WHERE s.stage='raw_parse' AND n.deleted=0{lib_clause.replace('library_id', 'n.library_id')}",
+            lib_params,
+        ).fetchone()
+        max_page_row = conn.execute(
+            "SELECT n.id, n.title, s.page_count"
+            " FROM doc_parse_stages s JOIN nodes n ON s.doc_id = n.id"
+            f" WHERE s.stage='raw_parse' AND n.deleted=0{lib_clause.replace('library_id', 'n.library_id')}"
+            " ORDER BY s.page_count DESC LIMIT 1",
+            lib_params,
+        ).fetchone()
+    finally:
+        conn.close()
+
+    records_db = resolve_repo_root() / "data" / "parse_records.sqlite"
+    rconn = sqlite3.connect(f"file:{records_db}?mode=ro", uri=True)
+    try:
+        rec_base = "status<>'deleted'" + lib_clause
+        recent_7d = rconn.execute(
+            f"SELECT COUNT(*) FROM parse_records WHERE {rec_base} AND created_at >= ?",
+            lib_params + ((now - timedelta(days=7)).isoformat(),),
+        ).fetchone()[0]
+        recent_30d = rconn.execute(
+            f"SELECT COUNT(*) FROM parse_records WHERE {rec_base} AND created_at >= ?",
+            lib_params + ((now - timedelta(days=30)).isoformat(),),
+        ).fetchone()[0]
+        by_month = [
+            {"month": r[0], "count": r[1]}
+            for r in rconn.execute(
+                f"SELECT substr(created_at,1,7), COUNT(*) FROM parse_records WHERE {rec_base}"
+                " GROUP BY substr(created_at,1,7) ORDER BY 1",
+                lib_params,
+            )
+        ]
+        by_format = [
+            {"format": (r[0] or "unknown").lstrip(".").lower() or "unknown", "count": r[1]}
+            for r in rconn.execute(
+                f"SELECT file_format, COUNT(*) FROM parse_records WHERE {rec_base} GROUP BY file_format ORDER BY 2 DESC",
+                lib_params,
+            )
+        ]
+        size_row = rconn.execute(
+            f"SELECT COALESCE(SUM(file_size),0) FROM parse_records WHERE {rec_base}", lib_params
+        ).fetchone()
+    finally:
+        rconn.close()
+
+    return {
+        "library_id": library_id,
+        "generated_at": now.isoformat(),
+        "documents": {
+            "total": total,
+            "deleted": deleted,
+            "by_status": by_status,
+            "by_library": by_library,
+        },
+        "uploads": {
+            "recent_7d": recent_7d,
+            "recent_30d": recent_30d,
+            "by_month": by_month,
+            "by_format": by_format,
+        },
+        "pages": {
+            "docs_with_pages": pages_row[0],
+            "total": pages_row[1],
+            "avg_per_doc": round(pages_row[2], 1) if pages_row[2] else 0,
+            "max": (
+                {"doc_id": max_page_row[0], "title": max_page_row[1], "pages": max_page_row[2]}
+                if max_page_row
+                else None
+            ),
+        },
+        "storage": {"total_file_size_mb": round(size_row[0] / 1024 / 1024, 1)},
+    }
+
+
+class StatsAdapter:
+    """知识库统计/元数据查询工具（meta_query 通道专用）。"""
+
+    @staticmethod
+    def knowledge_stats(*, default_library_id: Optional[str] = None) -> AgentTool:
+        def handler(library_id: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
+            effective_library = library_id if library_id is not None else default_library_id
+            return _run_knowledge_stats(library_id=effective_library)
+
+        return AgentTool(
+            name="knowledge_stats",
+            description="查询知识库的统计信息：文档总数、各状态/各库分布、上传趋势（近7天/30天/按月）、文件格式分布、总页数与平均页数、存储占用。当用户询问知识库规模、数量、分布、趋势等元数据问题时使用，直接基于返回的数字回答。",
+            parameters_schema={
+                "type": "object",
+                "properties": {
+                    "library_id": {
+                        "type": "string",
+                        "description": "限定统计的知识库 id；缺省表示统计全部库",
+                    }
+                },
+            },
+            handler=handler,
+            read_only=True,
+        )
+
+
 class SopRunnerAdapter:
     """SOP 执行工具（P4 接入）：IntentClassifier 路由 → SopRunner.run_sop → 步骤 trace。"""
 

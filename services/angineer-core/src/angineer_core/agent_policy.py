@@ -51,6 +51,20 @@ def _l0_attempt(load_nodes: Callable[[], list], llm_factory: Callable, config_na
     )
 
 
+def _meta_attempt(llm_factory: Callable, config_name, mode) -> AttemptConfig:
+    from angineer_core.agent_configs import build_meta_config
+
+    def factory() -> AgentLoopConfig:
+        return build_meta_config(llm=llm_factory(), config_name=config_name, mode=mode)
+
+    return AttemptConfig(
+        name="统计/元数据查询",
+        config_factory=factory,
+        success_check=_answer_usable,
+        requires_tools=True,
+    )
+
+
 def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence, marker_allocator) -> AttemptConfig:
     from angineer_core.agent_configs import build_qa_config
 
@@ -123,6 +137,9 @@ def build_attempts(
     level = str(getattr(intent_result, "intent_level", "") or "")
     service_mode = str(getattr(intent_result, "service_mode", "") or "")
 
+    # meta_query 优先于一切 level 分支：service_mode 精确命中统计通道
+    if service_mode == "meta_query":
+        return [_meta_attempt(llm_factory, config_name, mode)]
     if level == "L0" or service_mode == "casual_chat":
         return [_l0_attempt(load_nodes, llm_factory, config_name, mode)]
     if level in ("L3", "L4") or service_mode in ("standard_sop", "dynamic_orchestration") or scene in ("complex", "sop", "sops"):
@@ -170,5 +187,8 @@ def format_route_note(intent_result: Any) -> Optional[str]:
     intent_type = str(getattr(intent_result, "intent_type", "") or "")
     service_mode = str(getattr(intent_result, "service_mode", "") or "")
     reason = str(getattr(intent_result, "reason", "") or "").strip()
-    note = f"意图判断：{level_labels.get(level, level)}（{level}）→ 策略 {service_mode}"
+    if service_mode == "meta_query":
+        note = "意图判断：统计/元数据查询 → 策略 meta_query"
+    else:
+        note = f"意图判断：{level_labels.get(level, level)}（{level}）→ 策略 {service_mode}"
     return f"{note}（{reason}）" if reason else note

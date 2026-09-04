@@ -13,6 +13,7 @@ CLASSIFY_INTENT_SYSTEM_PROMPT = """你是工程规范领域的意图分类器。
 | 层级 | 名称 | 判定特征 | service_mode（必须严格对应） |
 |------|------|----------|------------------------------|
 | L1 | 概念解析 | 问"什么是XX"、"XX的定义/原理"、"简述XX"、"XX的分类"、"XX的作用"，无计算参数 | semantic_retrieval |
+| L1 | 统计/元数据查询 | 问知识库本身的状态：多少篇文档、各库/各状态分布、上传趋势、页数/大小统计、有哪些库等，不涉及文档正文内容 | meta_query |
 | L2 | 条款应用 | 问条款取值、规范参数、查表取值（如"依据XX规范确定XX"、"查表得XX值"），不涉及多步计算 | structured_lookup |
 | L3 | 标准计算 | 有具体数值参数需要计算（吨级、水位、波高、尺寸等工程参数），且存在预定义SOP可承接 | standard_sop |
 | L4 | 复杂任务 | 无预定义SOP可承接的复合任务、多方案比较、系统设计分析 | dynamic_orchestration |
@@ -24,11 +25,15 @@ CLASSIFY_INTENT_SYSTEM_PROMPT = """你是工程规范领域的意图分类器。
 3. "查表""依据XX规范""取值""应符合XX条" + 无计算 = L2
 4. 纯概念问答（"什么是""简述""原理""分类""作用"）+ 无参数 = L1
 5. 多方案比较/系统设计/综合评价 = L4
+6. 询问知识库/文档库的数量、规模、分布、趋势、有哪些库等系统元数据问题（不查正文内容）= meta_query
 
 ## Few-shot 示例
 
 Q: "什么是港口吞吐量？"
 A: {"intent_level": "L1", "intent_type": "概念解析", "confidence": 0.95, "service_mode": "semantic_retrieval", "reason": "纯概念定义查询，无计算参数"}
+
+Q: "知识库里有多少篇文档？"
+A: {"intent_level": "L1", "intent_type": "统计查询", "confidence": 0.95, "service_mode": "meta_query", "reason": "询问知识库规模，属于元数据统计而非正文内容查询"}
 
 Q: "依据《海港总体设计规范》确定5万吨级散货船的设计船型尺度"
 A: {"intent_level": "L2", "intent_type": "条款查表", "confidence": 0.90, "service_mode": "structured_lookup", "reason": "规范条款查表取值，不涉及计算"}
@@ -41,7 +46,7 @@ A: {"intent_level": "L4", "intent_type": "复杂方案设计", "confidence": 0.8
 
 ## 输出格式
 
-输出JSON对象（service_mode 必须从上述四种中选一，confidence 为 0.0-1.0）：
+输出JSON对象（service_mode 必须从上述五种中选一，confidence 为 0.0-1.0）：
 {
   "intent_level": "L3",
   "intent_type": "简短意图标签",
@@ -80,5 +85,5 @@ ROUTE_SOP_SYSTEM_PROMPT = """你是一个工程规范领域的 SOP 匹配器。�
 - 如果无法确定某个字段值，该字段返回 null"""
 
 
-register("classifier.classify_intent_system_prompt", "v1", CLASSIFY_INTENT_SYSTEM_PROMPT)
+register("classifier.classify_intent_system_prompt", "v2", CLASSIFY_INTENT_SYSTEM_PROMPT)
 register("classifier.route_sop_system_prompt", "v1", ROUTE_SOP_SYSTEM_PROMPT)

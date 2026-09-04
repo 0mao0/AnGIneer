@@ -11,10 +11,12 @@ from angineer_core.agent_tools import (
     EngtoolAdapter,
     RetrieverAdapter,
     SopRunnerAdapter,
+    StatsAdapter,
 )
 from angineer_core.prompts.agent_configs import (  # noqa: F401  # P5 资产化后 re-export，保持旧导入兼容
     COMPLEX_AGENT_SYSTEM_PROMPT,
     FOLLOWUP_QUESTION_RULE,
+    META_AGENT_SYSTEM_PROMPT,
     QA_AGENT_SYSTEM_PROMPT,
 )
 from angineer_core.tool_codec import TextToolCallCodec
@@ -213,6 +215,31 @@ def build_chat_config(
         config_name=config_name,
         mode=mode,
         codec=TextToolCallCodec(),
+    )
+
+
+def build_meta_config(
+    *,
+    llm: Any,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+    route_note: Optional[str] = None,
+) -> AgentLoopConfig:
+    """统计/元数据查询档（meta_query）：knowledge_stats 单工具 + 直报数字 prompt。
+
+    不装 enforce_evidence guard：统计答案是数字而非证据段落，QA guard 的 items[].text
+    校验会把正确统计回答误判为"无证据拒答"。
+    """
+    return AgentLoopConfig(
+        llm=llm,
+        config_name=config_name,
+        mode=mode,
+        tools=[StatsAdapter.knowledge_stats()],
+        system_prompt=META_AGENT_SYSTEM_PROMPT,
+        max_turns=2,
+        codec=TextToolCallCodec(),
+        route_note=route_note,
+        followup_question=_followup_question_enabled(),
     )
 
 

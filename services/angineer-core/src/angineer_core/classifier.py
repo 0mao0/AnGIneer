@@ -111,6 +111,21 @@ SHIP_TYPE_INFERENCE_RULES: List[Tuple[List[str], str, str]] = [
 ]
 
 
+# 统计/元数据查询：统计词与知识库对象词同现才命中，避免"波浪力分布"这类工程问题误判
+META_QUERY_VERBS = (
+    "多少", "几篇", "几份", "几本", "几个", "数量", "总数", "分布", "统计",
+    "趋势", "概况", "概览", "有哪些", "有几个", "最近上传", "最近新增",
+)
+META_QUERY_TARGETS = (
+    "知识库", "文档库", "资料库", "文献库", "库里", "库中", "文档", "文章", "资料",
+)
+
+
+def _is_meta_query(query: str) -> bool:
+    """统计/元数据查询判定：统计词与知识库对象词同现。"""
+    return any(v in query for v in META_QUERY_VERBS) and any(t in query for t in META_QUERY_TARGETS)
+
+
 def _build_intent_result(
     *,
     intent_level: IntentLevel,
@@ -568,6 +583,8 @@ def _keyword_recall(
 # 检测查询是否包含实质性工程内容
 def _has_substantive_content(query: str) -> bool:
     """判断查询是否包含实质性工程内容（规范编号、条款、参数、数值、专业关键词等）。"""
+    if _is_meta_query(query):
+        return True
     if STANDARD_CODE_PATTERN.search(query):
         return True
     if CLAUSE_ID_PATTERN.search(query):
@@ -622,6 +639,17 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
         return None
 
     # L0 闲聊已由 _check_l0_intent 在前置处理，此处跳过
+
+    # 统计/元数据查询优先判定：须置于 L1-L4 各分支之前（"哪些/多少"等词与 L1/L2 关键词高度重叠）
+    if _is_meta_query(query):
+        return _build_intent_result(
+            intent_level="L1",
+            intent_type="统计/元数据查询",
+            required_capabilities=["stats"],
+            service_mode="meta_query",
+            execution_plan=["meta_query"],
+            reason="检测到知识库统计/元数据查询关键词（统计词+对象词同现）",
+        )
 
     is_multiple_choice = bool(re.search(r"\([A-D]\)", query) or re.search(r"[（][A-D][）]", query))
     has_l3_keyword = any(kw in query for kw in L3_KEYWORDS)
@@ -829,6 +857,19 @@ class IntentClassifier:
         if location_result is not None and location_result.intent_level == "L1" and location_result.intent_type == "locate_navigation":
             logger.info(f"[DEBUG-SOP-ROUTE] L1 定位信号规则优先命中: reason={location_result.reason}")
             return location_result
+
+        # 步骤 1.6: 统计/元数据查询规则优先于 LLM（规则即确定性命中，避免 LLM 误判走语义检索空查）
+        if _is_meta_query(user_query):
+            meta_result = _build_intent_result(
+                intent_level="L1",
+                intent_type="统计/元数据查询",
+                required_capabilities=["stats"],
+                service_mode="meta_query",
+                execution_plan=["meta_query"],
+                reason="检测到知识库统计/元数据查询关键词（统计词+对象词同现）",
+            )
+            logger.info(f"[DEBUG-SOP-ROUTE] 统计查询规则优先命中: {user_query[:50]}")
+            return meta_result
 
         # 步骤 2: LLM 直接分类 L1/L2/L3/L4（主力分类器）
         logger.debug("[DEBUG-SOP-ROUTE] 非L0查询，进入 LLM 主力分类...")
