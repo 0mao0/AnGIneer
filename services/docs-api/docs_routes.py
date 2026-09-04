@@ -308,6 +308,13 @@ def get_knowledge_stats(library_id: Optional[str] = None):
             " ORDER BY s.page_count DESC LIMIT 1",
             lib_params,
         ).fetchone()
+        min_page_row = conn.execute(
+            "SELECT n.id, n.title, s.page_count"
+            " FROM doc_parse_stages s JOIN nodes n ON s.doc_id = n.id"
+            f" WHERE s.stage='raw_parse' AND n.deleted=0 AND s.page_count > 0{lib_clause.replace('library_id', 'n.library_id')}"
+            " ORDER BY s.page_count ASC LIMIT 1",
+            lib_params,
+        ).fetchone()
 
     # parse_records 是独立 SQLite 文件，单独连接聚合（不与 meta 库跨库 JOIN）
     rconn = sqlite3.connect(RECORDS_DB_PATH)
@@ -366,6 +373,11 @@ def get_knowledge_stats(library_id: Optional[str] = None):
             "max": (
                 {"doc_id": max_page_row[0], "title": max_page_row[1], "pages": max_page_row[2]}
                 if max_page_row
+                else None
+            ),
+            "min": (
+                {"doc_id": min_page_row[0], "title": min_page_row[1], "pages": min_page_row[2]}
+                if min_page_row
                 else None
             ),
         },

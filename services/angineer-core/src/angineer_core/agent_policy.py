@@ -51,11 +51,11 @@ def _l0_attempt(load_nodes: Callable[[], list], llm_factory: Callable, config_na
     )
 
 
-def _meta_attempt(llm_factory: Callable, config_name, mode) -> AttemptConfig:
+def _meta_attempt(llm_factory: Callable, config_name, mode, library_id) -> AttemptConfig:
     from angineer_core.agent_configs import build_meta_config
 
     def factory() -> AgentLoopConfig:
-        return build_meta_config(llm=llm_factory(), config_name=config_name, mode=mode)
+        return build_meta_config(llm=llm_factory(), config_name=config_name, mode=mode, library_id=library_id)
 
     return AttemptConfig(
         name="统计/元数据查询",
@@ -139,7 +139,7 @@ def build_attempts(
 
     # meta_query 优先于一切 level 分支：service_mode 精确命中统计通道
     if service_mode == "meta_query":
-        return [_meta_attempt(llm_factory, config_name, mode)]
+        return [_meta_attempt(llm_factory, config_name, mode, library_id)]
     if level == "L0" or service_mode == "casual_chat":
         return [_l0_attempt(load_nodes, llm_factory, config_name, mode)]
     if level in ("L3", "L4") or service_mode in ("standard_sop", "dynamic_orchestration") or scene in ("complex", "sop", "sops"):

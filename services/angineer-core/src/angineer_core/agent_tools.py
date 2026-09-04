@@ -755,6 +755,13 @@ def _local_knowledge_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
             " ORDER BY s.page_count DESC LIMIT 1",
             lib_params,
         ).fetchone()
+        min_page_row = conn.execute(
+            "SELECT n.id, n.title, s.page_count"
+            " FROM doc_parse_stages s JOIN nodes n ON s.doc_id = n.id"
+            f" WHERE s.stage='raw_parse' AND n.deleted=0 AND s.page_count > 0{lib_clause.replace('library_id', 'n.library_id')}"
+            " ORDER BY s.page_count ASC LIMIT 1",
+            lib_params,
+        ).fetchone()
     finally:
         conn.close()
 
@@ -815,6 +822,11 @@ def _local_knowledge_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
                 if max_page_row
                 else None
             ),
+            "min": (
+                {"doc_id": min_page_row[0], "title": min_page_row[1], "pages": min_page_row[2]}
+                if min_page_row
+                else None
+            ),
         },
         "storage": {"total_file_size_mb": round(size_row[0] / 1024 / 1024, 1)},
     }
@@ -826,7 +838,11 @@ class StatsAdapter:
     @staticmethod
     def knowledge_stats(*, default_library_id: Optional[str] = None) -> AgentTool:
         def handler(library_id: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
-            effective_library = library_id if library_id is not None else default_library_id
+            # 显式空串/all/*/全部 = 全库汇总；None = 默认当前会话库
+            if library_id is not None and str(library_id).strip().lower() in ("", "all", "*", "全部"):
+                effective_library = None
+            else:
+                effective_library = library_id if library_id is not None else default_library_id
             return _run_knowledge_stats(library_id=effective_library)
 
         return AgentTool(
@@ -837,7 +853,7 @@ class StatsAdapter:
                 "properties": {
                     "library_id": {
                         "type": "string",
-                        "description": "限定统计的知识库 id；缺省表示统计全部库",
+                        "description": "限定统计的知识库 id；缺省=当前会话所在库；仅当用户明确问全部/各个知识库整体情况时传空字符串表示全库汇总",
                     }
                 },
             },

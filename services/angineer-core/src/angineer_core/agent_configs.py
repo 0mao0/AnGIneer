@@ -221,6 +221,7 @@ def build_chat_config(
 def build_meta_config(
     *,
     llm: Any,
+    library_id: Optional[str] = None,
     config_name: Optional[str] = None,
     mode: str = "instruct",
     route_note: Optional[str] = None,
@@ -229,12 +230,13 @@ def build_meta_config(
 
     不装 enforce_evidence guard：统计答案是数字而非证据段落，QA guard 的 items[].text
     校验会把正确统计回答误判为"无证据拒答"。
+    默认统计范围为当前会话所在库（library_id）；用户明确问全部/各个库时模型可传空串覆盖。
     """
     return AgentLoopConfig(
         llm=llm,
         config_name=config_name,
         mode=mode,
-        tools=[StatsAdapter.knowledge_stats()],
+        tools=[StatsAdapter.knowledge_stats(default_library_id=library_id or None)],
         system_prompt=META_AGENT_SYSTEM_PROMPT,
         max_turns=2,
         codec=TextToolCallCodec(),

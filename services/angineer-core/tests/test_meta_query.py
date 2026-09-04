@@ -151,6 +151,7 @@ class TestKnowledgeStats:
         assert lib_counts == {"default": 2, "law": 1}
         assert result["pages"]["total"] == 300            # 100+200，d3 failed 但 raw_parse 页数 0
         assert result["pages"]["max"]["pages"] == 200
+        assert result["pages"]["min"]["pages"] == 100     # min 排除 0 页文档（d3 failed）
         assert result["storage"]["total_file_size_mb"] == round((1024 + 2048 + 512) / 1024 / 1024, 1)
         assert {f["format"] for f in result["uploads"]["by_format"]} == {"pdf", "md"}  # deleted 记录排除
 
@@ -164,3 +165,10 @@ class TestKnowledgeStats:
         tool = StatsAdapter.knowledge_stats(default_library_id="law")
         result = tool.handler()
         assert result["documents"]["total"] == 1          # 工厂默认库生效
+
+    def test_handler_explicit_all_overrides_default(self, fake_dbs):
+        """显式空串/all 覆盖会话默认库 → 全库汇总。"""
+        tool = StatsAdapter.knowledge_stats(default_library_id="law")
+        for marker in ("", "all", "*", "全部"):
+            result = tool.handler(library_id=marker)
+            assert result["documents"]["total"] == 3, f"marker={marker!r}"
