@@ -1,6 +1,8 @@
 """Canonical 文档向量化索引构建器。"""
+from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Dict, List
 
+from docs_core.step06_vectors.config import get_embedding_batch_concurrency
 from docs_core.step06_vectors.embedding_provider import EmbeddingProvider, default_embedding_provider
 from docs_core.step06_vectors.sqlite_vector_store import build_content_hash
 from docs_core.step06_vectors.vector_store import VectorRecord
@@ -154,13 +156,24 @@ def build_vector_records(
         return []
     # 分批嵌入：一次性提交整篇文档的文本会让 TEI 等本地服务返回 413（payload 过大），
     # 进而触发降级链走到 hash 兜底，产出无语义向量。分批 + 截断控制在单次请求限额内。
-    embeddings: List[List[float]] = []
+    # 批次间并发（DOCS_EMBEDDING_BATCH_CONCURRENCY，默认 2）：远程单批 ~2s，串行累加
+    # 是向量阶段主要耗时；pool.map 保序返回，与 payloads 逐一对齐。
     texts = [str(payload["content"]) for payload in payloads]
     batch_size = 16
     max_chars = 4000
-    for start in range(0, len(texts), batch_size):
-        batch = [text[:max_chars] for text in texts[start:start + batch_size]]
-        embeddings.extend(resolved_provider.embed_texts(batch))
+    batches = [
+        [text[:max_chars] for text in texts[start:start + batch_size]]
+        for start in range(0, len(texts), batch_size)
+    ]
+    embeddings: List[List[float]] = []
+    concurrency = get_embedding_batch_concurrency()
+    if concurrency > 1 and len(batches) > 1:
+        with ThreadPoolExecutor(max_workers=concurrency) as pool:
+            for batch_embeddings in pool.map(resolved_provider.embed_texts, batches):
+                embeddings.extend(batch_embeddings)
+    else:
+        for batch in batches:
+            embeddings.extend(resolved_provider.embed_texts(batch))
     records: List[VectorRecord] = []
     for payload, embedding in zip(payloads, embeddings):
         records.append(

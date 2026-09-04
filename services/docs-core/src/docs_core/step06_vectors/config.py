@@ -29,6 +29,15 @@ def get_embedding_strict_fallback() -> bool:
     return os.getenv("DOCS_EMBEDDING_STRICT_FALLBACK", "false").lower() in ("true", "1", "yes", "on")
 
 
+# 向量索引分批嵌入的并发度（默认 2：远程单批 ~2s，串行累加是向量阶段主要耗时；
+# 调大继续提速但注意端点/网关并发压力，1 则退回串行）
+def get_embedding_batch_concurrency() -> int:
+    try:
+        return max(1, int(get_env_str("DOCS_EMBEDDING_BATCH_CONCURRENCY", "2")))
+    except (ValueError, TypeError):
+        return 2
+
+
 # 解析 hash fallback 时的 dense 分数降权系数
 _DEFAULT_HASH_PENALTY = 0.35
 
@@ -70,6 +79,7 @@ def load_embedding_entries() -> List[Dict[str, str]]:
 
 
 __all__ = [
+    "get_embedding_batch_concurrency",
     "get_embedding_hash_penalty",
     "get_embedding_provider_name",
     "get_embedding_strict_fallback",
