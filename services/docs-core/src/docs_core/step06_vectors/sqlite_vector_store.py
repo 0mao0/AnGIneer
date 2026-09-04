@@ -1,7 +1,9 @@
 """基于 SQLite 的轻量向量存储实现"""
 import hashlib
 import json
+import logging
 import threading
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -10,6 +12,8 @@ import numpy as np
 from docs_core.step06_vectors.vector_store import VectorRecord, VectorSearchHit, VectorStore
 from docs_core.paths import resolve_knowledge_index_db_path
 from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection
+
+logger = logging.getLogger(__name__)
 
 
 # 统一序列JSON 字段，保SQLite 可持久化
@@ -39,9 +43,14 @@ def dot_similarity(left: List[float], right: List[float]) -> float:
     return float(sum(l_value * r_value for l_value, r_value in zip(left, right)))
 
 
-# 全量向量矩阵缓存：首次加载 ~23s（SQL + JSON 解析 + numpy 矩阵化），
-# 之后每次检索只做一次 matmul（毫秒级）。任何写操作或文件变化后失效。
+# 全量向量矩阵缓存：首次加载做分批流式构建（秒级），之后每次检索只做一次 matmul（毫秒级）。
+# 任何写操作或文件变化后失效。
 # 构建必须持有线程锁：并发请求同时触发冷加载会重复构建并互相争抢（并发评测实测 48s+）。
+# 内存约束：不得一次性 fetchall + 整表 json.loads——全量回填后瞬时内存可达数 GB，
+# 小内存机器（3.6GB VM）会直接 OOM。分批游标把峰值压到「常驻矩阵 + 单批」，
+# 且常驻 rows 不再保留 embedding_json 原文。
+_CACHE_BUILD_BATCH_SIZE = 8192
+
 _VECTOR_CACHE: Dict[str, Any] = {
     "loaded_mtime": None,
     "rows": None,
@@ -61,7 +70,7 @@ class SQLiteVectorStore(VectorStore):
     def connect(self):
         return create_connection(self.db_path)
 
-    # 加载全量向量矩阵到进程缓存（按库文件 mtime 失效检测，线程安全）
+    # 加载全量向量矩阵到进程缓存（按库文件 mtime 失效检测，线程安全；分批流式构建）
     def _ensure_cache(self) -> None:
         try:
             mtime = Path(self.db_path).stat().st_mtime
@@ -73,17 +82,44 @@ class SQLiteVectorStore(VectorStore):
             # double-check：等待锁期间可能已被其他线程构建
             if _VECTOR_CACHE["loaded_mtime"] == mtime and _VECTOR_CACHE["matrix"] is not None:
                 return
+            started = time.perf_counter()
+            # rows 与 canonical_vectors 全表对齐（不保留 embedding_json 原文）；
+            # matrix 与 valid_idx 对齐（仅含有效向量），与旧版索引语义一致。
+            rows: List[Dict[str, Any]] = []
+            valid_idx: List[int] = []
+            matrices: List[np.ndarray] = []
+            batch_embeddings: List[List[float]] = []
+            batch_valid: List[int] = []
             with self.connect() as conn:
-                rows = conn.execute(
+                cursor = conn.execute(
                     """
                     SELECT record_id, doc_id, entity_type, entity_id, content, metadata_json, embedding_json
                     FROM canonical_vectors
                     """
-                ).fetchall()
-            embeddings: List[Optional[List[float]]] = [_load_json(row["embedding_json"], None) for row in rows]
-            valid_idx = [i for i, emb in enumerate(embeddings) if emb]
-            if valid_idx:
-                matrix = np.asarray([embeddings[i] for i in valid_idx], dtype=np.float32)
+                )
+                for row in cursor:
+                    rows.append({
+                        "record_id": row["record_id"],
+                        "doc_id": row["doc_id"],
+                        "entity_type": row["entity_type"],
+                        "entity_id": row["entity_id"],
+                        "content": row["content"],
+                        "metadata_json": row["metadata_json"],
+                    })
+                    embedding = _load_json(row["embedding_json"], None)
+                    if embedding:
+                        batch_embeddings.append(embedding)
+                        batch_valid.append(len(rows) - 1)
+                    if len(batch_embeddings) >= _CACHE_BUILD_BATCH_SIZE:
+                        matrices.append(np.asarray(batch_embeddings, dtype=np.float32))
+                        valid_idx.extend(batch_valid)
+                        batch_embeddings = []
+                        batch_valid = []
+            if batch_embeddings:
+                matrices.append(np.asarray(batch_embeddings, dtype=np.float32))
+                valid_idx.extend(batch_valid)
+            if matrices:
+                matrix = np.vstack(matrices)
             else:
                 matrix = np.empty((0, 0), dtype=np.float32)
             _VECTOR_CACHE["loaded_mtime"] = mtime
@@ -91,6 +127,14 @@ class SQLiteVectorStore(VectorStore):
             _VECTOR_CACHE["matrix"] = matrix
             _VECTOR_CACHE["dimension"] = matrix.shape[1] if valid_idx else 0
             _VECTOR_CACHE["valid_idx"] = valid_idx
+            logger.info(
+                "向量矩阵缓存已构建: rows=%d valid=%d dim=%d matrix=%.0fMB 耗时=%.2fs",
+                len(rows),
+                len(valid_idx),
+                _VECTOR_CACHE["dimension"],
+                float(matrix.nbytes) / 1024 / 1024 if matrix.size else 0.0,
+                time.perf_counter() - started,
+            )
 
     # 写操作后强制失效缓存
     def _invalidate_cache(self) -> None:

@@ -5,6 +5,7 @@
 import json
 import logging
 import os
+import time
 from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, List, Optional
 
@@ -251,6 +252,7 @@ def _run_knowledge_search(
         retrieval_client = client_from_env()
     if retrieval_client is not None:
         try:
+            _t = time.perf_counter()
             items = retrieval_client.retrieve(
                 mode="text",
                 query=query,
@@ -259,6 +261,10 @@ def _run_knowledge_search(
                 top_k=top_k,
                 task_type=task_type,
                 filters=filters,
+            )
+            logger.info(
+                "knowledge_search 分段计时: docs_api=%.2fs items=%d query=%r",
+                time.perf_counter() - _t, len(items), query[:40],
             )
             return _assemble_search_result(
                 query=query, items=items, library_id=library_id,
@@ -293,24 +299,19 @@ def _run_knowledge_search(
         clause_r = clause_r or ClauseResolver()
 
     sources: Dict[str, List[Any]] = {}
-    try:
-        sources["dense"] = list(dense_r.retrieve(request, nodes, task_type) or [])
-    except Exception as exc:  # noqa: BLE001
-        sources["dense"] = []
-        sources["dense_error"] = str(exc)
-    try:
-        sources["sparse"] = list(sparse_r.retrieve(request, nodes, task_type) or [])
-    except Exception as exc:  # noqa: BLE001
-        sources["sparse"] = []
-        sources["sparse_error"] = str(exc)
-    try:
-        sources["clause"] = list(clause_r.retrieve(request, nodes, task_type) or [])
-    except Exception as exc:  # noqa: BLE001
-        sources["clause"] = []
-        sources["clause_error"] = str(exc)
+    stage_times: Dict[str, float] = {}
+    for _name, _retriever in (("dense", dense_r), ("sparse", sparse_r), ("clause", clause_r)):
+        _t = time.perf_counter()
+        try:
+            sources[_name] = list(_retriever.retrieve(request, nodes, task_type) or [])
+        except Exception as exc:  # noqa: BLE001
+            sources[_name] = []
+            sources[f"{_name}_error"] = str(exc)
+        stage_times[_name] = time.perf_counter() - _t
     from docs_core.step09_query.retrieval.formula_retriever import FormulaRetriever, is_formula_query
 
     if is_formula_query(request.query, task_type):
+        _t = time.perf_counter()
         try:
             formula_r = formula
             if formula_r is None:
@@ -319,6 +320,7 @@ def _run_knowledge_search(
         except Exception as exc:  # noqa: BLE001
             sources["formula"] = []
             sources["formula_error"] = str(exc)
+        stage_times["formula"] = time.perf_counter() - _t
 
     # 查表/数值/尺度类问题：把表格行数据一并并入正文检索，避免“搜到表标题却拿不到行数值”。
     table_items: List[Any] = []
@@ -327,6 +329,7 @@ def _run_knowledge_search(
         or str(task_type) in {"locate_table", "locate_qa"}
         or _looks_like_table_query(request.query)
     ):
+        _t = time.perf_counter()
         try:
             from docs_core.step09_query.retrieval.table_retriever import TableRetriever
 
@@ -336,11 +339,20 @@ def _run_knowledge_search(
         except Exception as exc:  # noqa: BLE001
             sources["table"] = []
             sources["table_error"] = str(exc)
+        stage_times["table"] = time.perf_counter() - _t
 
     candidate_sources = {k: v for k, v in sources.items() if isinstance(v, list)}
     if not candidate_sources:
         return {"error": "检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
+    _t = time.perf_counter()
     items, _debug = fuse_candidates(candidate_sources, task_type=task_type, top_k=top_k)
+    stage_times["fuse"] = time.perf_counter() - _t
+    logger.info(
+        "knowledge_search 分段计时(本地召回): %s items=%d query=%r",
+        " ".join(f"{k}={v:.2f}s" for k, v in stage_times.items()),
+        len(items),
+        query[:40],
+    )
     # 表格兜底：同一 table_id 的候选若只带了摘要（无行数值），用完整表格文本补全
     if table_items:
         table_text_by_id: Dict[str, str] = {}
@@ -386,6 +398,7 @@ def _assemble_search_result(
             bool((getattr(item, "metadata", None) or {}).get("embedding_fallback"))
             for item in items
         )
+        _t = time.perf_counter()
         items = rerank_candidates(
             query,
             items,
@@ -393,6 +406,10 @@ def _assemble_search_result(
             dense_degraded=dense_degraded,
             config_name=config_name,
             mode=mode,
+        )
+        logger.info(
+            "%s rerank 计时: %.2fs candidates=%d query=%r",
+            source, time.perf_counter() - _t, len(items), str(query or "")[:40],
         )
         # rerank 已排序：只保留 top 10 进 agent 上下文，控制 prompt 长度（prefill 耗时与输入成正比）
         items = list(items[:10])

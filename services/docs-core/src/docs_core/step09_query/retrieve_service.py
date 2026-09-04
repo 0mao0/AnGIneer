@@ -94,7 +94,11 @@ def retrieve_knowledge(
         retrievers = {"table": table, "formula": formula}
 
     sources: Dict[str, List[Any]] = {}
+    stage_times: Dict[str, float] = {}
+    import time
+
     for name, retriever in retrievers.items():
+        _t = time.perf_counter()
         try:
             if mode == "text":
                 sources[name] = list(retriever.retrieve(request, nodes, task_type) or [])
@@ -103,6 +107,7 @@ def retrieve_knowledge(
         except Exception as exc:  # noqa: BLE001
             sources[name] = []
             sources[f"{name}_error"] = str(exc)
+        stage_times[name] = time.perf_counter() - _t
 
     candidate_sources = {k: v for k, v in sources.items() if isinstance(v, list)}
     if not any(candidate_sources.values()) and any(k.endswith("_error") for k in sources):
@@ -112,7 +117,16 @@ def retrieve_knowledge(
         }
 
     fuse_task_type = task_type if mode == "text" else "table_qa"
+    _t = time.perf_counter()
     items, debug = fuse_candidates(candidate_sources, task_type=fuse_task_type, top_k=top_k)
+    stage_times["fuse"] = time.perf_counter() - _t
+    logger.info(
+        "retrieve_knowledge 分段计时: %s items=%d mode=%s query=%r",
+        " ".join(f"{k}={v:.2f}s" for k, v in stage_times.items()),
+        len(items),
+        mode,
+        query[:40],
+    )
 
     doc_title_map = {
         str(getattr(node, "id", "") or ""): str(getattr(node, "title", "") or "")
