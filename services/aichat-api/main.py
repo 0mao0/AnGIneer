@@ -14,6 +14,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
+# root 日志兜底：库代码普遍用 logging.getLogger(__name__) 且不设 handler，
+# 不配 root 会导致 INFO 级日志（如检索分段计时）静默丢失；basicConfig 幂等（root 已有 handler 时不生效）。
+logging.basicConfig(
+    level=os.getenv("ANGINEER_LOG_LEVEL", "INFO").upper(),
+    format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+
 logger = logging.getLogger(__name__)
 
 _PROCESS_STARTED_AT = datetime.now().isoformat()
