@@ -29,13 +29,25 @@ def get_embedding_strict_fallback() -> bool:
     return os.getenv("DOCS_EMBEDDING_STRICT_FALLBACK", "false").lower() in ("true", "1", "yes", "on")
 
 
-# 向量索引分批嵌入的并发度（默认 2：远程单批 ~2s，串行累加是向量阶段主要耗时；
-# 调大继续提速但注意端点/网关并发压力，1 则退回串行）
+# 向量索引分批嵌入的并发度（默认 1=串行）。
+# 实测 DGX qwen3-embedding 对并发请求排队执行：双并发每对 2.9~5.6s，反而慢于串行
+# 两批 ~3.3s，故默认串行；仅当端点真正并行（如多 worker 的本地 TEI）时才调大。
 def get_embedding_batch_concurrency() -> int:
     try:
-        return max(1, int(get_env_str("DOCS_EMBEDDING_BATCH_CONCURRENCY", "2")))
+        return max(1, int(get_env_str("DOCS_EMBEDDING_BATCH_CONCURRENCY", "1")))
     except (ValueError, TypeError):
-        return 2
+        return 1
+
+
+# 向量索引单批嵌入文本数（默认 32）。
+# 实测 qwen3-embedding 批内亚线性扩展：16 条 103ms/条 → 64 条 59ms/条，
+# 调大批次比并发更能稳定提速；DGX 端点建议 64。本地 TEI 类服务有 payload
+# 上限（历史上整篇一次提交触发 413），用 TEI 时保持 ≤32。
+def get_embedding_batch_size() -> int:
+    try:
+        return max(1, int(get_env_str("DOCS_EMBEDDING_BATCH_SIZE", "32")))
+    except (ValueError, TypeError):
+        return 32
 
 
 # 解析 hash fallback 时的 dense 分数降权系数
@@ -80,6 +92,7 @@ def load_embedding_entries() -> List[Dict[str, str]]:
 
 __all__ = [
     "get_embedding_batch_concurrency",
+    "get_embedding_batch_size",
     "get_embedding_hash_penalty",
     "get_embedding_provider_name",
     "get_embedding_strict_fallback",

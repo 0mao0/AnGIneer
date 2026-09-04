@@ -2,7 +2,7 @@
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Dict, List
 
-from docs_core.step06_vectors.config import get_embedding_batch_concurrency
+from docs_core.step06_vectors.config import get_embedding_batch_concurrency, get_embedding_batch_size
 from docs_core.step06_vectors.embedding_provider import EmbeddingProvider, default_embedding_provider
 from docs_core.step06_vectors.sqlite_vector_store import build_content_hash
 from docs_core.step06_vectors.vector_store import VectorRecord
@@ -156,10 +156,11 @@ def build_vector_records(
         return []
     # 分批嵌入：一次性提交整篇文档的文本会让 TEI 等本地服务返回 413（payload 过大），
     # 进而触发降级链走到 hash 兜底，产出无语义向量。分批 + 截断控制在单次请求限额内。
-    # 批次间并发（DOCS_EMBEDDING_BATCH_CONCURRENCY，默认 2）：远程单批 ~2s，串行累加
-    # 是向量阶段主要耗时；pool.map 保序返回，与 payloads 逐一对齐。
+    # 提速靠调大批次而非并发：实测 qwen3-embedding 批内亚线性（64 条 59ms/条 vs
+    # 16 条 103ms/条），但对并发请求排队执行（双并发比串行慢 ~50%），故并发默认 1。
+    # pool.map 保序返回，与 payloads 逐一对齐。
     texts = [str(payload["content"]) for payload in payloads]
-    batch_size = 16
+    batch_size = get_embedding_batch_size()
     max_chars = 4000
     batches = [
         [text[:max_chars] for text in texts[start:start + batch_size]]
