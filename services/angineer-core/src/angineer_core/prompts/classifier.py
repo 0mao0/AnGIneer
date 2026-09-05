@@ -1,7 +1,7 @@
 """classifier 相关 prompts（P5 迁移自 classifier.py）。
 
-用途：意图层级分类、SOP 两阶段路由精排；语言：中文；版本 v1。
-最后变更：2026-08-09。
+用途：意图层级分类、SOP 两阶段路由精排；语言：中文；classify_intent 版本 v3。
+最后变更：2026-09-05（v3：meta_query 边界收紧——含统计词但答案在文档正文的内容题一律走 semantic_retrieval）。
 """
 from . import register
 
@@ -13,7 +13,7 @@ CLASSIFY_INTENT_SYSTEM_PROMPT = """你是工程规范领域的意图分类器。
 | 层级 | 名称 | 判定特征 | service_mode（必须严格对应） |
 |------|------|----------|------------------------------|
 | L1 | 概念解析 | 问"什么是XX"、"XX的定义/原理"、"简述XX"、"XX的分类"、"XX的作用"，无计算参数 | semantic_retrieval |
-| L1 | 统计/元数据查询 | 问知识库本身的状态：多少篇文档、各库/各状态分布、上传趋势、页数/大小统计、有哪些库等，不涉及文档正文内容 | meta_query |
+| L1 | 统计/元数据查询 | 仅限问知识库本身的数量/分布/趋势：多少篇文档、什么格式、各库分布、上传趋势、页数/大小统计、有哪些库。**答案存在于某篇文档正文里的问题一律不算** | meta_query |
 | L2 | 条款应用 | 问条款取值、规范参数、查表取值（如"依据XX规范确定XX"、"查表得XX值"），不涉及多步计算 | structured_lookup |
 | L3 | 标准计算 | 有具体数值参数需要计算（吨级、水位、波高、尺寸等工程参数），且存在预定义SOP可承接 | standard_sop |
 | L4 | 复杂任务 | 无预定义SOP可承接的复合任务、多方案比较、系统设计分析 | dynamic_orchestration |
@@ -25,7 +25,8 @@ CLASSIFY_INTENT_SYSTEM_PROMPT = """你是工程规范领域的意图分类器。
 3. "查表""依据XX规范""取值""应符合XX条" + 无计算 = L2
 4. 纯概念问答（"什么是""简述""原理""分类""作用"）+ 无参数 = L1
 5. 多方案比较/系统设计/综合评价 = L4
-6. 询问知识库/文档库的数量、规模、分布、趋势、有哪些库等系统元数据问题（不查正文内容）= meta_query
+6. 询问知识库/文档库本身的数量、规模、分布、趋势、有哪些库等系统元数据问题（不查正文内容）= meta_query
+7. meta_query 边界（重要）：问题虽含"多少/平均/中位/总数/统计/average/median/how many"等统计词，但答案在某篇文档正文中的（如"某星表的中位红移""平均每章多少评论""项目工时是多少"），属于正文内容查询 = L1 semantic_retrieval，**不是** meta_query
 
 ## Few-shot 示例
 
@@ -34,6 +35,12 @@ A: {"intent_level": "L1", "intent_type": "概念解析", "confidence": 0.95, "se
 
 Q: "知识库里有多少篇文档？"
 A: {"intent_level": "L1", "intent_type": "统计查询", "confidence": 0.95, "service_mode": "meta_query", "reason": "询问知识库规模，属于元数据统计而非正文内容查询"}
+
+Q: "某数据集中样本的中位年龄是多少？"
+A: {"intent_level": "L1", "intent_type": "内容查询", "confidence": 0.90, "service_mode": "semantic_retrieval", "reason": "含统计词但答案在文档正文，属于内容查询"}
+
+Q: "What is the average number of comments per chapter?"
+A: {"intent_level": "L1", "intent_type": "内容查询", "confidence": 0.90, "service_mode": "semantic_retrieval", "reason": "统计词修饰的是文档内容而非知识库本身，走正文检索"}
 
 Q: "依据《海港总体设计规范》确定5万吨级散货船的设计船型尺度"
 A: {"intent_level": "L2", "intent_type": "条款查表", "confidence": 0.90, "service_mode": "structured_lookup", "reason": "规范条款查表取值，不涉及计算"}
@@ -85,5 +92,5 @@ ROUTE_SOP_SYSTEM_PROMPT = """你是一个工程规范领域的 SOP 匹配器。�
 - 如果无法确定某个字段值，该字段返回 null"""
 
 
-register("classifier.classify_intent_system_prompt", "v2", CLASSIFY_INTENT_SYSTEM_PROMPT)
+register("classifier.classify_intent_system_prompt", "v3", CLASSIFY_INTENT_SYSTEM_PROMPT)
 register("classifier.route_sop_system_prompt", "v1", ROUTE_SOP_SYSTEM_PROMPT)

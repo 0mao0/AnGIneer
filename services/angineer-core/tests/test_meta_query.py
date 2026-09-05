@@ -13,7 +13,8 @@ SERVICES = Path(__file__).resolve().parents[3]
 for pkg in ("angineer-core", "docs-core"):
     sys.path.insert(0, str(SERVICES / pkg / "src"))
 
-from angineer_core.agent_policy import build_attempts
+from angineer_core.agent_policy import _meta_answer_usable, build_attempts
+from angineer_core.agent_messages import AgentMessage
 from angineer_core.agent_tools import StatsAdapter
 from angineer_core.base_contracts import IntentResult
 from angineer_core.classifier import IntentClassifier, _is_meta_query
@@ -70,9 +71,12 @@ class TestBuildAttempts:
             scene="docs", library_id="default", doc_ids=[],
             load_nodes=lambda: [], llm_factory=lambda: None,
         )
-        assert len(attempts) == 1
+        # meta 段 + L1 正文检索兜底（统计通道答非所问时自救）
+        assert len(attempts) == 2
         assert attempts[0].name == "统计/元数据查询"
         assert attempts[0].requires_tools is True
+        assert attempts[0].fallback_note
+        assert attempts[1].name == "L1 语义检索"
 
     def test_meta_query_overrides_other_levels(self):
         """即使 level 被判成 L2，service_mode=meta_query 也走统计通道。"""
@@ -90,6 +94,22 @@ class TestBuildAttempts:
             load_nodes=lambda: [], llm_factory=lambda: None,
         )
         assert attempts[0].name == "L1 语义检索"
+
+
+class TestMetaAnswerUsable:
+    def _msgs(self, text):
+        return [AgentMessage(role="assistant", content=text)]
+
+    def test_real_stats_answer_usable(self):
+        assert _meta_answer_usable(self._msgs("当前知识库共有 78 份文档，全部为 PDF 格式。"))
+        assert _meta_answer_usable(self._msgs("The knowledge base contains 122 documents, all in PDF format."))
+
+    def test_non_answer_patterns_blocked(self):
+        assert not _meta_answer_usable(self._msgs("The provided knowledge base statistics do not contain information about the median redshift of the MGS catalog."))
+        assert not _meta_answer_usable(self._msgs("The knowledge_stats tool only provides metadata about the knowledge base itself."))
+        assert not _meta_answer_usable(self._msgs("根据知识库统计工具返回的数据，当前知识库中不包含关于评论数的统计信息。"))
+        assert not _meta_answer_usable(self._msgs("没有检索到足够证据支持最终结论。"))
+        assert not _meta_answer_usable(self._msgs(""))
 
 
 @pytest.fixture
