@@ -19,6 +19,18 @@ _TABLE_QUERY_HINTS = (
 )
 
 
+def _context_top_n() -> int:
+    """rerank 后进 agent 上下文的条数（ANGINEER_CONTEXT_TOP_N，默认 15）。
+
+    离线覆盖度量（38 道翻转题）：top10 金标要点覆盖 ~64%，top15 ~70%，top20 ~71%；
+    v0.2.23 的 top10 截断被证实是答案漏要点的主因，改默认 15 并用 env 留调节口。
+    """
+    try:
+        return max(1, int(os.getenv("ANGINEER_CONTEXT_TOP_N", "15") or "15"))
+    except (ValueError, TypeError):
+        return 15
+
+
 def _looks_like_table_query(query: str) -> bool:
     """判断问题是否偏向查表取值（需要表格行数值）。"""
     text = str(query or "")
@@ -411,8 +423,8 @@ def _assemble_search_result(
             "%s rerank 计时: %.2fs candidates=%d query=%r",
             source, time.perf_counter() - _t, len(items), str(query or "")[:40],
         )
-        # rerank 已排序：只保留 top 10 进 agent 上下文，控制 prompt 长度（prefill 耗时与输入成正比）
-        items = list(items[:10])
+        # rerank 已排序：截断进 agent 上下文，控制 prompt 长度（prefill 耗时与输入成正比）
+        items = list(items[:_context_top_n()])
     _assign_cites(items, marker_allocator or MarkerAllocator(), prefix)
     for item in items:
         doc_title = doc_title_map.get(str(item.doc_id or ""), "") or str(item.metadata.get("doc_title") or "")
