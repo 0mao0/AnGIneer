@@ -1,0 +1,1730 @@
+{
+  "dataset": {
+    "dataset_id": "reviewed-exam-2020-2019",
+    "title": "注册港航复核有效题目（精筛50题）",
+    "category": "full_chain",
+    "description": "从2020-2019年注册港航考试题目中筛选出的50道有效复核题目，含专业案例与专业知识",
+    "schema_version": "eval.bundle.v2",
+    "version": "1.0",
+    "library_id": "default"
+  },
+  "items": [
+    {
+      "question_id": "q2020-001",
+      "question": "某海港在部分掩护水域拟建100000吨级矿石码头,采用东西向布置，码头结构为沉箱结构型式，设计低水位为0.5m,极端低水位为-1.35m,波浪为ENE向,允许停泊波高H4%为1.5m,平均周期6s,底质为含砂块状土,备淤富裕深度取0.4m，计算该码头前沿底高程应为:(取小数点后1位)(A)-14.9m(B)-15.0m(C)-15.4m(D)-15.7m",
+      "task_type": "exam_case",
+      "intent_level": "L3",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "专业案例(上)",
+        "注册港航",
+        "海港码头前沿设计水深及底高程计算"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: D\n解析: 据《海港总体设计规范》(JTS165-2013)第A.0.1条:100000吨级矿石码头,查表A.0.1-2得T=14.5m。据第5.4.27条和第5.4.12.1款:顺浪,K1=0.3;沉箱结构型式,查表5.4.12-1,得Z1=0.60m;H4%=1.5m;式(5.4.12-3)和式(5.4.12-2):部分掩护情况,Z2=0.3×1.5=0.45m>max(0.3×1.5-0.60,0)=0m,Z2取为(0~0.45)m。Z3=0.15m,Z4=0.4m:式(5.4.12-1):D=T+Z1+Z2+Z3+Z4=14.5+0.60+(0~0.45)+0.15+0.4=(15.65~16.1)m。据第5.4.13条和第5.4.11条:码头前沿底高程=0.5-(15.65~16.1)=(-15.15~-15.6)m。\n计算结果: -15.55",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.4.11条",
+              "第5.4.27条",
+              "表5.4.12-1",
+              "第5.4.13条",
+              "表A.0.1-2"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "sop": {
+        "expected_sop_id": "海港码头前沿设计水深及底高程计算",
+        "expected_steps": []
+      }
+    },
+    {
+      "question_id": "q2020-002",
+      "question": "某海港拟建煤炭出口码头,设计吞吐量为900万t，其中由铁路集港占总量的50%,调车机车轴重为15t,站线轨道采用50kg/m次重型钢轨，下列关于该铁路调车线铺设混凝土轨枕数量的取值,符合规范规定的是:(A)1360根/km(B)1440根/km(C)1520根/km(D)1600根/km",
+      "task_type": "analytic_sql",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业案例(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: A\n解析: 据《海港总体设计规范》(JTS165-2013)第8.2.1条:煤炭出口码头,设计吞吐量为900万t,重车方向年货运量Q=900×50%=450万t=4.5×10^6t,查表8.2.1得铁路等级为Ⅳ。据第8.2.13条:混凝土轨枕,调车机车轴重为15t,查表8.2.13-3得1360根/km。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第8.2.1条",
+              "第8.2.13条",
+              "表8.2.13-3"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-004",
+      "question": "某海港直墙式码头,受顺浪2年一遇波高H4%=3.5m,波长L=143m,波浪超高hs=0.09m;10年一遇波高H4%=4.5m,波长L=145m,波浪超高hs=0.16m;50年一遇波高H1%=5.5m,波长L=150m,波浪超高hs=0.22m，设计高水位为4.3m,极端高水位为6.1m，码头前沿底高程为-15.0m，按上水标准计算码头前沿顶高程应为:(取小数点后1位)(A)6.7m(B)7.9m(C)9.0m(D)9.7m",
+      "task_type": "exam_case",
+      "intent_level": "L3",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "专业案例(上)",
+        "注册港航",
+        "海港码头前沿顶高程计算"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: B\n解析: 据《海港总体设计规范》(JTS165-2013)第5.4.8.1款和第5.4.8.2款:基本标准:DWL=4.3m,Δw=0.16+4.5/2=2.41m>1.0m式(5.4.8-1):E=DWL+Δw=4.3+2.41=6.71m复核标准:DWL=6.1m,Δw=0.09+3.5/2=1.84m式(5.4.8-1):E=DWL+Δw=6.1+1.84=7.94m。上水标准码头前沿顶高程=max(6.71,7.94)=7.94m≈7.9m。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "B"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "sop": {
+        "expected_sop_id": "海港码头前沿顶高程计算",
+        "expected_steps": []
+      }
+    },
+    {
+      "question_id": "q2020-006",
+      "question": "某海港100000吨级单线航道轴线方位为270°~90°,通航船舶为散货船,航速为8kn，当地横风小于等于7级,水流流速为0.5m/s,流向N60°，计算该航道的通航宽度应为:(取整数)(A)188m(B)198m(C)210m(D)223m",
+      "task_type": "exam_case",
+      "intent_level": "L3",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "海港航道通航宽度计算",
+        "专业案例(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: B\n解析: 据《海港总体设计规范》(JTS165-2013)第A.0.1条:100000吨级,散货船,查表A.0.1-2得L=250m,B=43.0m据第6.4.2条:V=0.5×sin(90°-60°)=0.25m/s,横风小于等于7级,查表6.4.2-1得n=1.75,γ=5°;式(6.4.2-3):A=n(Lsinγ+B)=1.75×(250×sin5°+43.0)≈113.4m散货船,航速8kn,查表6.4.2-2得c=B=43.0m:式(6.4.2-1):W=A+2c=113.4+2×43.0=199.4m≈199m。\n计算结果: 197.855411954016",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "表6.4.2-2",
+              "表A.0.1-2",
+              "第6.4.2条",
+              "表6.4.2-1"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "sop": {
+        "expected_sop_id": "海港航道通航宽度计算",
+        "expected_steps": []
+      }
+    },
+    {
+      "question_id": "q2020-007",
+      "question": "某海港非限制性航道方位为255°~75°,通航船舶为150000吨级油船,满载吃水为17.1m,船舶航速为6kn,船舶航行时船体下沉量取0.4，航道底质为坚硬粘性土,当地常，强浪向为SE,通航波高H4%=2.0m,平均周期为9s,备淤深度取0.4m，计算该航道通航水深应为:(取小数点后1位)(A)19.0m(B)19.3m(C)19.9m(D)20.3m",
+      "task_type": "analytic_sql",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "专业案例(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: C\n解析: 据《海港总体设计规范》(JTS165-2013)第6.4.6.1款:T=17.1m;150000吨级,航速6kn,查图6.4.6得Z0=0.40m:坚硬粘性土,150000吨级,查表6.4.6-1得Z1=0.70m;航道方位255°~75°,浪向SE,得Ψ=60°;T=9s,查表6.4.6-2内插得Z2/H4%=(0.48+1.02)/2=0.75;H4%=2.0m,Z2=0.75×2.0=1.5m:Z3=0.15m式(6.4.6-1):D0=T+Z0+Z1+Z2+Z3=17.1+0.40+0.70+1.5+0.15=19.85m≈19.9m。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "表6.4.6-1",
+              "表6.4.6-2"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-018",
+      "question": "某海港建设航空燃料专用码头一座,其中航空汽油和航空煤油的运量各占总运量的50%,即重量相等，码头库区储罐总容量为40000m3,储存不平衡系数为1.3,油品平均贮存期为8d,航空汽油的密度为0.701t/m3,航空煤油的密度为0.775t/m3，油罐容积利用系数取0.9，计算该码头年货运量应为:(取整数)(A)891868t(B)894115t(C)938942t(D)999519t",
+      "task_type": "definition",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "专业案例(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: A\n解析: 据《海港总体设计规范》(JTS165-2013)第7.10.11.11款:E0=40000m3,KBK=1.3,tdc=8d,Tyk=350d,γ汽=0.701t/m3,γ煤=0.775t/m3,ηy=0.9;式(7.10.11-7):E0=(Qh×KBK×tdc)/(Tyk×γ×ηy)40000=(Qh×50%×1.3×8)/(350×0.701×0.9)+(Qh×50%×1.3×8)/(350×0.775×0.9),解得Qh≈891868t",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "A"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-020",
+      "question": "某海港拟建10000总吨级客船泊位，码头前沿顶高程为6.0m,年平均高潮位为4.0m，设计船型空载吃水为3.0m，码头设上水栓,口径为DN50,上水栓口至码头面垂直距离为30cm,上水栓至客船用衬胶水龙带,长度为50m,上水流量6L/s，计算码头上水栓口所需水头最小值应为:(取整数)(A)23m(B)26m(C)27m(D)29m",
+      "task_type": "analytic_sql",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "专业案例(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: B\n解析: 据《海港总体设计规范》(JTS165-2013)第9.2.10条和第A.0.1条:10000总吨级客船,查表A.0.1-11得H=13.0m;H2=(6.0-30/100)-4.0=1.7m,H3=3.0m;式(9.2.10-2):H1=H-H2-H3=13.0-1.7-3.0=8.3m:衬胶的水龙带,口径为DN50,查表9.2.10得A=0.00677;l=50m,Q=6L/s,h=3m;式(9.2.10-1):H0=1.2AlQ2+h+H1=1.2×0.00677×50×36+3+8.3≈26m。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第9.2.10条",
+              "表A.0.1-11"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-024",
+      "question": "下列关于海港集装箱码头工艺布置设计的取值，不符合规范规定的是：（A）集装箱装卸桥的轨距取15m（B）堆场作业采用带外伸臂轨道式集装箱龙门起重机时，集装箱拖挂车通道应设置在外伸臂下，单车道宽度取3.5m（C）相邻两台轮胎集装箱龙门起重机运行轨道中心距取3.6m（D）集装箱装卸桥海侧轨道中心线至码头前沿的距离取3.6m",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: A\n解析: 据：《海港总体设计规范》(JTS165—2013)第7.2.4.1款、第7.2.4.9款、第7.2.4.7款和第7.2.4.2款。A选项\"40m\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "A"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-025",
+      "question": "某海港码头港内集疏运铁路装卸作业段最小长度为154m，年运营天数为360天，车辆平均载重量为60t，昼夜送车4次，装卸线利用系数取0.8，火车到港不平衡系数取1.15，计算铁路年货运量为,：（取整数）（A）51万t（B）58万t（C）66万t（D）84万t",
+      "task_type": "definition",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: C\n解析: 据：《海港总体设计规范》(JTS165—2013)第7.10.13条式(7.10.13)。Qt=(L/Ly)×m×T×Gk/10000，解得Qt≈661148t≈66万t。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第7.10.13条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-031",
+      "question": "下列关于海港工程雨水排水口设计的叙述，不符合规范规定的是：（A）排水管、排水渠出水口的管顶高程，不宜低于雨季平均高潮位（B）雨水管道宜采用自流排水（C）散货堆场采用暗管排水时，雨水口应设沉泥室，室高宜取0.70m（D）雨水口间距宜取20~40m",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: C\n解析: 据：《海港总体设计规范》(JTS165—2013)第9.3.7条、第9.3.8条、第9.3.12条和第9.3.11条。C选项\"0.70m\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第9.3.11条",
+              "第9.3.8条",
+              "第9.3.7条",
+              "第9.3.12条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-041",
+      "question": "下列关于海港码头平面布置形式和水域布置的叙述，不符合规范规定的是：（A）突堤式码头的布置应重点关注突堤与水域尺度、船舶进出靠泊的方便性以及突堤与陆域的交通联系等因素（B）不满足泊稳条件要求的码头应设置必要的防冲淤设施（C）挖入式布置应重点研究水域尺度、口门宽度、减淤措施等（D）人工环抱型港区布置，来水、来沙方向不集中时，可考虑设置单堤掩护",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BCD\n解析: 据：《海港总体设计规范》(JTS165—2013)第5.2.3.2款、第5.1.5条、第5.2.4.2款和第5.2.2条。B选项\"防冲淤设施\"不符合规范规定；C选项\"水域尺度、口门宽度\"不符合规范规定；D选项\"来水、来沙方向不集中时\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.2.2条",
+              "第5.1.5条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-057",
+      "question": "下列关于海港滚装码头车辆接岸设施通道宽度的取值，符合规范规定的是：（A）小汽车单车道作业时净宽取3.5m（B）普通客车单车道作业时净宽取4.5m（C）小汽车双车道作业时净宽取6.5m（D）普通客车双车道作业时净宽取7.0m",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BCD\n解析: 据：《海港总体设计规范》(JTS165—2013)第7.9.1.3款。A选项\"3.5m\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "BCD"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-058",
+      "question": "下列关于海港进口木材码头熏蒸场地说法符合规范规定的是：（A）熏蒸场地可有部分积水（B）与办公区间距取2000m（C）熏蒸场地应变于通风（D）与居民区间距取100m",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BC\n解析: 据：《海港总体设计规范》(JTS165—2013)第7.5.10.2款。A选项\"40m\"不符合规范规定；D选项\"100m\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "BC"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-016",
+      "question": "下列关于斜坡式防波堤堤顶胸墙设计原则和方法的叙述，不符合规范规定的是：（A）当堤顶作通道、铺设管线或堤内侧兼作码头时，宜在堤顶设置胸墙（B）对基本不越浪斜坡堤，胸墙的顶高程宜定在极端高水位以上1.0倍设计波高值处（C）当胸墙前护面为随机安放的人工块体时，其坡顶高程不宜低于胸墙顶高程，且墙前坡肩范围内至少应能安放2排相互钩连的人工块体（D）当胸墙前有块体掩护且掩护宽度为2排、高度形成全掩护时，作用在胸墙上的水平波浪力和波浪浮托力可以乘以折减系数0.6~0.7",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: B\n解析: 据：《防波堤与护岸设计规范》(JTS154—2018)第4.2.1.4款、第4.2.2.3款、第4.2.7.2款和第4.3.25.1款。B选项\"极端高水位\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "B"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-017",
+      "question": "某斜坡式护岸采用栅栏板作护面。栅栏板长边为2.75m，短边为2.20m，厚度为30cm。当设计调整栅栏板短边为3.20m时，下列关于调整后的栅栏板尺度的取值，均符合规范规定的是：（A）短边3.20m，长边3.20m，厚度30cm（B）短边3.20m，长边4.00m，厚度20cm（C）短边3.20m，长边4.00m，厚度25cm（D）短边3.20m，长边4.00m，厚度35cm",
+      "task_type": "definition",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: C\n解析: 据：《防波堤与护岸设计规范》(JTS154—2018)第4.3.19.3款和第4.3.19.1款。Δb0=3.20-2.20=1.0m，栅栏板厚度的取值为30-5=25cm。a0=1.25b0=1.25×3.20=4.00m。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "C"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-018-1",
+      "question": "某港石料来源丰富，但600kg以上大块石供应困难。拟建设斜坡式防波堤，可陆上推进施工。设计高水位0.00m对应的设计波高为3.0m、外侧边坡坡度为1:1.5时，护面块石的稳定重量为3.0t。如采用宽肩台抛石斜坡堤，下列关于肩台以上和以下边坡坡度、肩台顶高程、肩台宽度、护面块石重量的取值，不符合规范规定的是：（A）肩台以上和以下边坡坡度均取为1:1.5（B）肩台的顶高程取为2.0m（C）肩台的宽度取为6.0m（D）护面块石的重量取为150~600kg",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: C\n解析: 据：《防波堤与护岸设计规范》(JTS154—2018)第4.2.9条、第4.2.8条和第4.3.9条。C选项\"6.0m\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第4.3.9条",
+              "第4.2.9条",
+              "第4.2.8条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-020-1",
+      "question": "某海港采用抛石斜坡堤，建于波浪破碎区。按堤前波浪不破碎时计算单个护面块体稳定重量为Wt。下列关于该堤堤身段外坡和堤头段护面块体稳定重量的取值，均符合规范规定的是：（A）堤身段W，堤头段1.1W（B）堤身段1.1W，堤头段1.25W（C）堤身段1.25W，堤头段1.3W（D）堤身段1.25W，堤头段1.625W",
+      "task_type": "definition",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: D\n解析: 据：《防波堤与护岸设计规范》(JTS154—2018)第4.3.18条。堤身段外坡护面块体稳定重量=(1+25%)W=1.25W；堤头段护面块体稳定重量=(1+25%)×(1+30%)W=1.625W。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第4.3.18条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-025-1",
+      "question": "某干船坞甲坞室采用分离式结构，钢筋混凝土坞墙，钢筋混凝土底板加锚杆；干船坞乙坞室采用钢筋混凝土重力式整体结构。下列关于两种坞室结构抗浮稳定验算的叙述，均符合规范规定的是：（A）甲坞室应进行抗浮稳定验算，乙坞室不需要进行抗浮稳定验算（B）甲坞室不需进行抗浮稳定验算，乙坞室应进行抗浮稳定验算（C）两个坞室都不需进行抗浮稳定验算（D）两个坞室都应进行抗浮稳定验算",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: D\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第5.5.8.3款和第5.5.9条。两个坞室都应进行抗浮稳定验算。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.5.9条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-026",
+      "question": "下列关于船坞工艺布置的叙述，符合规范规定的是：（A）修船坞龙骨墩分布长度不宜小于设计船型垂线间长，其间距可取2~3m（B）修船坞边墩应根据船舶重量、船宽及船体构造等进行布置（C）引船小车宜设于坞墙顶面轨道上，引船绞车宜设于坞尾后方（D）造船坞宜设进坞通道，其坡度不宜陡于1/8",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: B\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第4.3.2.3款、第4.3.2.4款、第4.3.2.9款和第4.3.2.12款。A选项\"2~3m\"不符合规范规定；C选项\"坞尾\"不符合规范规定；D选项\"不宜陡于1/8\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "B"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-027",
+      "question": "下列关于分离式坞室底板设计的叙述，不符合规范规定的是：（A）船坞底板沿其长度方向应设置变形缝，其间距宜采用20~25m（B）天然地基及砂、石垫层地基上的分离式坞室底板，应验算其抗浮稳定及地基承载力（C）天然地基或砂、石垫层地基上的分离式坞室底板内力可按弹性地基上的梁板采用基床系数法计算（D）岩基上的分离式坞室底板，其厚度不宜小于0.2m",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: A\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第5.4.25条、第5.4.26条、第5.5.8.3款、第5.5.8.4款、第5.5.8.1款和第5.4.17条。A选项\"20~25m\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.4.25条",
+              "第5.4.17条",
+              "第5.4.26条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-028",
+      "question": "某修船坞设计船舶空船吃水T1为5.50m，带有压载水、部分淡水及油料时的吃水T2为6.20m，满载吃水T3为13.00m，龙骨墩高度为1.80m，进出坞船舶最低点至龙骨墩顶面的富裕深度为1.00m。当进出坞设计低水位为2.50m时，计算坞室底高程应为：（取小数点后2位）（A）-5.30m（B）-5.80m（C）-6.50m（D）-13.30m",
+      "task_type": "definition",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: C\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第4.3.1.6款。Ed=LWL-Tk-hb-z=2.50-6.20-1.80-1.00=-6.50m。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "C"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-032",
+      "question": "某天然地基上分离式实体坞口门墩，其后方回填块石，其内摩擦角为45°，作用于该门墩侧面的永久作用主动土压力标准值为1950kN。计算坞口门墩侧面与回填料间的水平摩擦力标准值应为：（取小数点后1位）（A）403.9kN（B）415.3kN（C）578.2kN（D）807.7kN",
+      "task_type": "definition",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: A\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第5.5.22条和第5.5.15条。E=tan45°×0.5×1950=403.9kN。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.5.22条",
+              "第5.5.15条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-048",
+      "question": "下列关于斜坡式护岸结构倒滤层设置要求的叙述，不符合规范规定的是：（A）倒滤层可采用分层倒滤层、混合倒滤层或土工织物倒滤层（B）施工水位以上宜采用混合倒滤层，其厚度不宜小于300mm（C）施工水位以下宜采用混合倒滤层，其厚度不宜小于500mm（D）施工水位以下可采用级配较好的混合倒滤层，其厚度不宜小于600mm",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BC\n解析: 据：《防波堤与护岸设计规范》(JTS154—2018)第7.4.8条、第7.4.8.1款和第7.4.8.2款。B选项\"混合倒滤层\"不符合规范规定；C选项\"不宜小于500mm\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第7.4.8条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-052",
+      "question": "正处于施工期安装的沉箱直立式护岸，在波浪作用下，应进行施工期验算。下列关于护岸施工期设计计算原则的叙述，符合规范规定的是：（A）沉箱已安放在抛石基床上，箱内已回填部分填料，后方尚未回填时，应验算在波浪作用下沉箱结构的稳定性（B）沉箱已安放在抛石基床上，箱内已回填部分填料，后方尚未回填时，应验算基床和地基承载力（C）应验算施工期构件的承载力（D）应计算地基沉降",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: AC\n解析: 据：《防波堤与护岸设计规范》(JTS154—2018)第8.3.2条、第8.3.1.1款和第8.3.1.2款。B选项\"基床和地基承载力\"不符合规范规定；D选项\"地基沉降\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第8.3.2条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-053",
+      "question": "某直立式护岸，墙身拟选用混凝土实心方块结构。下列关于该护岸构造要求的叙述，符合规范规定的是：（A）方块长边与高度之比不大于3（B）方块短边与高度之比不小于1（C）所有方块间的垂直缝应对齐设置（D）方块的长、宽、高尺寸在起重能力满足的情况下可不受限制",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: AB\n解析: 据：《防波堤与护岸设计规范》(JTS154—2018)第8.4.9条和第8.2.2条。C选项\"对齐设置\"不符合规范规定；D选项\"可不受限制\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第8.4.9条",
+              "第8.2.2条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-054",
+      "question": "某直立式护岸，墙体采用浆砌块石结构，墙底面下设抛石基床，墙后为回填土。下列关于该浆砌块石护岸设计和构造要求的叙述，符合规范规定的是：（A）该护岸上部结构可采用浆砌石结构（B）浆砌石墙体顶部宜设置高度和宽度均不小于300mm的现浇混凝土压顶（C）浆砌石墙体应设置排水孔，排水孔后应设置倒滤设施（D）浆砌石墙体沿长度方向可不设变形缝",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BC\n解析: 据：《防波堤与护岸设计规范》(JTS154—2018)第8.4.17条、第8.4.18条和第8.4.1条。A选项\"浆砌石结构\"不符合规范规定；D选项\"不设变形缝\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第8.4.17条",
+              "第8.4.1条",
+              "第8.4.18条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-055",
+      "question": "某海港在设计低水位时所对应的水深为7.0m，设计波高为5.10m，拟建人工块体护面的斜坡堤。下列关于人工护面块体的选型，不符合规范规定的是：（A）选择随机安放的扭工字块作护面（B）选择四脚空心方块作护面（C）选择随机安放的扭王字块体作护面（D）选择栅栏板作护面",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BD\n解析: 据：《防波堤与护岸设计规范》(JTS154—2018)第4.3.11条。当设计波高大于4m时，不宜选用四脚空心方块和栅栏板护面型式。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第4.3.11条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-056",
+      "question": "下列关于重力式直立堤设计原则和计算方法的叙述，符合规范规定的是：（A）在进行抗滑、抗倾等稳定性验算时，对持久状况下极端低水位时，可不考虑波浪的作用（B）地震状况时的承载能力极限状态设计，不考虑波浪与地震作用的组合（C）建于非岩基上的重力式直立堤，其整体稳定性计算应计入波浪力的作用（D）地基沉降量计算应考虑水平力引起的沉降值",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: ABC\n解析: 据：《防波堤与护岸设计规范》(JTS154—2018)第5.3.5条、第5.3.13条和第5.3.14条。D选项\"应考虑\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.3.13条",
+              "第5.3.5条",
+              "第5.3.14条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-057-1",
+      "question": "某整体式坞口底板施工期设置闭合块，如图所示。坞口门墩后回填土已完成，并有施工期荷载，闭合块未浇筑，地下水位在-3.00m以下。下列关于该施工时期对坞口门墩进行验算叙述，符合规范规定的是：（A）应验算使用期荷载（B）应验算地基承载力（C）应验算坞口结构构件内力（D）应验算坞口门墩的稳定性",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BCD\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第5.5.18条和第5.5.16条。A选项\"使用期荷载\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.5.18条",
+              "第5.5.16条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-058-1",
+      "question": "船坞设计中，下列关于动力公用设施及灌水排水系统的叙述，符合规范规定的是：（A）消防供水管道不应与燃气管道共沟敷设，且严禁与氧气管道共沟敷设（B）船坞坞外地面、船台横移区和水平船台区宜采用雨水口或有缝排水明沟收集地面雨水（C）供气接头箱布置间距应根据生产工艺用气点分布情况确定，并宜与电力及给水设施成组协调布置（D）氧气管道宜采用折皱弯头",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BC\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第11.2.1.5款、第11.2.3.4款、第11.3.6.3款和第11.3.7.4款。A选项\"且严禁\"不符合规范规定；D选项\"宜采用\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "BC"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-059",
+      "question": "下列关于船坞结构设计的叙述，不符合规范规定的是：（A）船坞坞室结构沿其长度方向应设置变形缝，变形缝处应设置可靠的止水设施（B）建于砂性土地基上的坞口结构，其纵向最大地基反力与最小地基反力之比不应大于3.0（C）板桩式坞墙结构计算中，作用于前墙入土部分的水压力应按静水压力计算（D）排水减压式船坞设计中，排水减压设施的滤水管可采用带孔钢筋混凝土管、带孔工程塑料管或无砂混凝土管等",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BC\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第5.4.25条、第5.4.26条、第5.5.1.3款、第5.5.6.1款和第5.6.3.9条。B选项\"不应大于3.0\"不符合规范规定；C选项\"应按静水压力计算\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.6.3.9条",
+              "第5.4.25条",
+              "第5.4.26条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-060",
+      "question": "下列关于船坞工艺设计的叙述，不符合规范规定的是：（A）船坞起重设备应根据生产工艺要求进行设置，且临坞侧起重设备轨道宜远离坞壁（B）造船坞宜设进坞通道，修船坞也可根据需要设进坞通道（C）坞墩荷载纵向分布宜根据船舶重量分布曲线及压载水重量分布等计算确定（D）坞室灌水荷载应根据坞室最大水深确定",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: AB\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第4.3.2.7款、第4.3.2.12款、第4.3.3.2款和第4.3.3.5款。A选项\"远离坞壁\"不符合规范规定；B选项\"造船坞宜设进坞通道，修船坞也可根据需要设进坞通道\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "AB"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-061",
+      "question": "某船厂采用升船设施供船舶上墩下水，已知设计船舶下水重量为4200kN，该船舶垂线间长78m，承船平台长度为85m，墩木、移船设施等重量为1820kN，下列关于承船平台纵向分布荷载的取值，符合规范规定的是：（取小数点后1位）（A）118.3（B）125.0（C）139.2（D）145.8",
+      "task_type": "definition",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: ABC\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第8.6.5.1款。q=(1.8~2.2)×4200/78≈(96.92~118.46)kN/m；qm=q+G1/Lp=(96.92~118.46)+1820/85≈(118.3~139.9)kN/m。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "ABC"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-062",
+      "question": "下列关于船坞工艺设计的叙述，符合规范规定的是：（A）船坞底面若设置纵坡，其坡度可取1‰~3‰（B）坞墙顶部前沿应设固定式栏杆，其高度不宜低于90cm（C）坞室灌水荷载应根据坞室平均水深确定（D）坞口附近宜设置导向装置",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: AD\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第4.4.5条、第4.3.2.13款、第4.3.3.5款和第4.3.2.9款。B选项\"不宜低于90cm\"不符合规范规定；C选项\"坞室平均水深\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第4.4.5条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2020-063",
+      "question": "下列关于船坞灌排水系统的叙述，符合规范规定的是：（A）船坞灌水可采用廊道灌水、坞门灌水或虹吸灌水等重力灌水形式（B）灌水廊道闸门后收缩断面的最大流速不宜大于25m/s（C）坞门灌水宜采用钢制管道水平布置，灌水孔数不宜少于2个（D）当主泵出水管采用虹吸出水形式时，应设真空破坏阀，且破坏阀的进气面积不小于驼峰断面的10%",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(下)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: AC\n解析: 据：《船厂水工工程设计规范》(JTS190—2018)第6.2.1条、第6.2.11条、第6.2.13条和第6.4.13条。B选项\"不宜大于25m/s\"不符合规范规定；D选项\"不小于驼峰断面的10%\"不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第6.4.13条",
+              "第6.2.1条",
+              "第6.2.13条",
+              "第6.2.11条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-001",
+      "question": "某海港在部分掩护水域新建100000吨级矿石码头，设计船型满载吃水为14.5m，码头采用东西向布置。码头结构为沉箱结构型式。当地设计低水位为0.5m，极端低水位为-0.05m，底质为含砂块状土，备淤富裕深度取0.4m，码头前允许停泊顺浪H4%=1.8m，平均周期7s，波浪富裕深度折减系数为0.6。计算该矿石码头前沿底高程应为：（取小数点后1位）（A）-15.1m（B）-15.5m（C）-15.7m（D）-16.0m",
+      "task_type": "exam_case",
+      "intent_level": "L3",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "专业案例(上)",
+        "注册港航",
+        "海港码头前沿设计水深及底高程计算"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: B\n解析: 据《海港总体设计规范》(JTS165—2013)第5.4.12.1款：T=14.5m；沉箱结构型式，查表5.4.12-1，得Z1=0.60m；式(5.4.12-3)和式(5.4.12-2)：H4%=1.8m；顺浪，K1=0.3；部分掩护情况，Z2=0.6×(0.3×1.8)=0.324m>max(0.3×1.8-0.60，0)=0m。式(5.4.12-1)：Z3=0.15m，Z4=0.4m；D=T+Z1+Z2+Z3+Z4=14.5+0.60+0.324+0.15+0.4=15.974m。据第5.4.13条和第5.4.11条：码头前沿设计底高程=0.5-15.974=-15.474m≈-15.5m。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.4.11条",
+              "第5.4.13条",
+              "表5.4.12-1"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "sop": {
+        "expected_sop_id": "海港码头前沿设计水深及底高程计算",
+        "expected_steps": []
+      }
+    },
+    {
+      "question_id": "q2019-005",
+      "question": "某沿岸纵向泥沙运动较强的海港，采用双堤环抱式防波堤，并结合防沙导流功能布置，堤结构为允许越浪半圆体结构。下列关于防波堤和口门布置的叙述，符合规范规定的是何项，（A）防波堤的上游设置防冲刷的护堤，下游侧海岸设置备淤坑（B）防波堤布置应有利于折射或绕射的波浪将泥沙推向航道以外（C）堤顶高程应根据自然条件、使用要求，结合总体布置综合考虑确定（D）口门有效宽度不宜小于1.0倍设计船长",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "专业案例(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BCD\n解析: 据《海港总体设计规范》(JTS165—2013)第5.7.4条：A选项“上游设置防冲刷的护堤，下游侧海岸设置备淤坑”不符合规范规定；符合规范规定的叙述是“上游设置备淤坑，下游侧海岸防冲刷的护堤”。据第5.8.2.3款：B选项符合规范规定。据第5.7.11.1款：C选项“极端高水位”不符合规范规定；符合规范规定的叙述是“设计高水位”。据第5.7.16条：查图5.7.16-1和图5.7.16-2，得D选项“口门宽度等于航道通航宽度”不符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.7.16条",
+              "第5.7.4条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-007",
+      "question": "某海港拟建400000吨矿石接卸码头，其配套的进港航道为单线航道，航道底质为淤泥土类，该水域风力≤7级，横流为0.5m/s，船舶设计航速为8kn。计算该航道的通航宽度为：（取整数）（A）284m（B）301m（C）314m（D）335m",
+      "task_type": "analytic_sql",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "专业案例(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: C\n解析: 据《交通运输部关于发布40万吨散货船设计船型尺度及相关设计规定的公告》(交通运输部公告2015年第9号)：L=362m，B=65.6m。据《海港总体设计规范》(JTS165—2013)第6.4.2条：设计航速为8kn，查表6.4.2-2得c=B=65.6m。式(6.4.2-3)：风力≤7级，横流为0.5m/s；查表6.4.2-1，得n=1.69，γ=7°；A=n(Lsinγ+B)=1.69×(362×sin7°+65.6)≈185.42m；式(6.4.2-1)：W=A+2c=185.42+2×65.6=316.62m≈317m。\n计算结果: 184.407226908401",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "表6.4.2-2",
+              "第6.4.2条",
+              "表6.4.2-1"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-008",
+      "question": "某海港拟建设300000吨级油船乘潮进出港非限制性航道。设计船型满载吃水为22.5m，船舶设计航速8kn，航行时龙骨下最小富裕深度取0.7m，船舶航行时船体下沉量取0.62m，通航波高为2.0m，平均周期为8s，船浪夹角为20°，备淤深度取0.4m，乘潮累积频率85%、95%的水位分别为3.0m和2.6m（从当地理论最低潮面起算，下同）。计算该航道设计底高程应为：（取小数点后1位）（A）-21.5m（B）-21.8m（C）-22.1m（D）-22.5m",
+      "task_type": "analytic_sql",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "专业案例(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: D\n解析: 据《海港总体设计规范》(JTS165—2013)第6.4.6.1款：T=22.5m；查图6.4.6得Z0=0.62m；Z1=0.7m；Ψ=20°，T——=8s，查表6.4.6-2得Z2/H4%=0.38；H4%=2.0m，Z2=0.38×2.0=0.76m；Z3=0.15m，Z4=0.4m；式(6.4.6-1)：D0=T+Z0+Z1+Z2+Z3=22.5+0.62+0.7+0.76+0.15=24.73m；式(6.4.6-2)：D=D0+Z4=24.73+0.4=25.13m。据第6.4.8条：航道设计通航水位取2.6m，航道的设计底标高=2.6-25.13=-22.53m≈-22.5m。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第6.4.8条",
+              "表6.4.6-2"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-021",
+      "question": "某海港10000吨级杂货码头给水设计中，下列关于用水量指标的取值，均符合规范规定的是何项，并说明选择的依据和理由。（A）货船用水量200（m3/艘·次）、苫布冲洗用水量900（L/块·次）、未预见水量取平均日用水量的30%（B）货船用水量200（m3/艘·次）、苫布冲洗用水量1000（L/块·次）、未预见水量取最高日用水量的25%（C）货船用水量350（m3/艘·次）、苫布冲洗用水量1200（L/块·次）、未预见水量取平均日用水量的20%（D）货船用水量350（m3/艘·次）、苫布冲洗用水量1500（L/块·次）、未预见水量取最高日用水量的15%",
+      "task_type": "analytic_sql",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业案例(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: D\n解析: 据《海港总体设计规范》(JTS165—2013)第9.2.2.1款：1000000吨级杂货船；查表9.2.2-1，得货船用水量指标为300~350m3/艘·次。据第9.2.3.1款：查表9.2.3，得货船用水量指标为900~1500L/块·次。据第9.2.7条：港口未预见用水量可按港口最高日用水量的10%~30%计算。综上所述，D选项符合规范规定。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第9.2.7条",
+              "表9.2.2-1"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-001-1",
+      "question": "下列关于海港港址选择的叙述，不符合规范规定的是：（A）有条件时，吨级较大的泊位可选址在天然海湾无明显泥沙堆积的湾口岬角（B）港口应选址在有良好的集疏运条件区域，有条件时应优先选用内河集疏运（C）滚装码头宜选址在陆域交通方便，易于集散的地点（D）液化天然气码头应远离人口密集的区域，安全距离按照规范规定确定",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: D\n解析: 据《海港总体设计规范》(JTS165—2013)第3.2.10.8款、第3.2.9条、第5.5.1条和第3.2.15.2款。D选项按照规范规定确定\"不符合规范规定。\"",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.5.1条",
+              "第3.2.9条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-006",
+      "question": "某海港新建开敞式25万吨级原油码头，下列关于方案阶段经估算该码头前沿设计水深的取值，符合规范规定的是：（A）21.9m（B）22.8m（C）23.5m（D）24.8m",
+      "task_type": "definition",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: C\n解析: 据《海港总体设计规范》(JTS165—2013)第A.0.1条和第5.4.12.3款。T=19.9m；D=(1.15~1.20)×19.9=(22.885~23.88)m。\n计算结果: 22.54",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "C"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-007-1",
+      "question": "在开敞水域建设一个40万吨级散货泊位，海域潮流呈明显往复流特征，潮流流速约为3kn，采用拖轮协助回旋，则回旋圆尺度为：（A）直径为724m的圆（B）直径为905m的圆（C）沿潮流方向为905m、垂直潮流方向为724m（D）沿潮流方向为1086m、垂直潮流方向为905m",
+      "task_type": "definition",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: D\n解析: 据《交通运输部关于发布40万吨散货船设计船型尺度及相关设计规定的公告》(交通运输部公告2015年第9号)；《海港总体设计规范》(JTS165—2013)第5.3.3条。L=362m；沿潮流方向=(2.5~3.0)×362=(905~1086)m，垂直潮流方向=2.5×362=905m。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第5.3.3条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-009",
+      "question": "某海港5000t级航道，设计波高H4%为1.5m，船、浪夹角为20°，波浪平均周期为9s。计算该航道波浪富裕深度应为：（取小数点后2位）（A）0.57m（B）0.71m（C）0.85m（D）1.06m",
+      "task_type": "analytic_sql",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: D\n解析: 据《海港总体设计规范》(JTS165—2013)第6.4.6.1款。5000t级；查表6.4.6-2，得Z2/H4%(T——≤8s)=0.38×(1+25%)=0.475；Z2/H4%(T——=10s)=0.75×(1+25%)≈0.938；内插得Z2/H4%≈0.707；Z2=0.707×1.5≈1.06m。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "表6.4.6-2"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-012",
+      "question": "某海港拟建设大型煤炭港口基地，为其码头配套的专用航道长30km，船舶在航道中航行的设计航速为8kn。由于航道内船流密度较大，经论证采用重载、空载船分道航行。当地强风向为NW，强浪向为SE，水流主流向为300°~120°。局部开挖航道土质为硬质岩层，按横边坡1:1.5设计。下列关于进港航道设置的叙述，不符合规范规定的是：（A）航道轴线方位角为310°~130°（B）采用适宜重载、空载船不同通航水深的复试航道（C）船舶与航道底边线间的富裕宽度采用1倍设计船型宽（D）航道设计通航水位取每潮次船舶乘潮进出港所需的持续时间相对应的乘潮累积频率95%的水位",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: C\n解析: 据《海港总体设计规范》(JTS165—2013)第6.3.2条、第6.2.4条、第6.4.2条和第6.4.8条。C选项1倍设计船型宽\"不满足规范规定。\"",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第6.3.2条",
+              "第6.2.4条",
+              "第6.4.8条",
+              "第6.4.2条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-023",
+      "question": "下列关于海港集装箱码头重箱堆场堆放集装箱门方向的叙述，符合规范规定的是：（A）成组垂直（B）相同方向（C）成对相反（D）成对相对",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: B\n解析: 据《海港总体设计规范》(JTS165—2013)第7.2.4.5款。集装箱码头重箱堆场集装箱应按箱门同向堆放。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "B"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-031",
+      "question": "下列关于海港通信方式的叙述，符合规范规定的是：（A）规模较小的港区电话网宜按端站、汇接站组网（B）油气化工码头宜设置具有报警、广播和对讲通话等功能的应急广播对讲系统；（C）港口电话交换机房应单独布置（D）液化天然气码头应根据泊位安全应急通信要求，设置防爆型甚高频无线电话",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: BD\n解析: 据《海港总体设计规范》(JTS165—2013)第12.2.1条、第12.2.5条、第12.1.5条、第12.3.1条和第12.3.3条。A选项规模较小的港区\"不符合规范规定；C选项\"应单独布置\"不符合规范规定；D选项\"400MHz以下\"不符合规范规定。\"",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第12.1.5条",
+              "第12.2.5条",
+              "第12.2.1条",
+              "第12.3.1条",
+              "第12.3.3条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-043",
+      "question": "某海港铁路双线正线轨道的通过总质量为2400万吨/年，每条线路通过的总质量相同。下列关于该线路采用混凝土轨枕数量的取值，符合规范规定的是：（A）1600根/km（B）1667根/km（C）1680根/km（D）1760根/km",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: AC\n解析: 据《海港总体设计规范》(JTS165—2013)第8.2.13条。混凝土枕，12Mt；查表8.2.13-1，得1600根/km或1680根/km。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "表8.2.13-1",
+              "第8.2.13条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-057",
+      "question": "下列关于海港码头宜按专业化码头设计的特征条件中，符合规范规定的是：（A）货类单一（B）流向稳定（C）船型大小一致（D）运量具有一定规模",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "easy",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: ABD\n解析: 据《海港总体设计规范》(JTS165—2013)第7.1.3条。货类单一、流向稳定、运量具有一定规模时，宜按专业化码头设计。",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "第7.1.3条"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "q2019-058",
+      "question": "下列关于海港集装箱装卸桥的内伸距要求的叙述，不符合规范规定的是：（A）应小于8.5m（B）应大于等于8.5m（C）应能吊放最大尺寸集装箱（D）应能吊放集装箱船最大尺寸舱盖板",
+      "task_type": "definition",
+      "intent_level": "L1",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "专业知识(上)",
+        "注册港航"
+      ],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": []
+      },
+      "answer": {
+        "gold_answer": "正确选项: AC\n解析: 据《海港总体设计规范》(JTS165—2013)第7.2.1.4款。集装箱装卸桥的内伸距，应根据工艺布置要求确定，并应能吊放集装箱船最大尺寸舱盖板，且不应小于8.5m。A选项应小于8.5m\"不符合规范规定；C选项\"最大尺寸集装箱\"不符合规范规定。\"",
+        "correctness_checks": [
+          {
+            "type": "contains_all",
+            "keywords": [
+              "AC"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    }
+  ]
+}

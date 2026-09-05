@@ -1,0 +1,4413 @@
+{
+  "dataset": {
+    "dataset_id": "lawbench-1-1-100",
+    "title": "LawBench 1-1 法条知识（100题试点）",
+    "category": "knowledge",
+    "description": "LawBench zero_shot 1-1 子集 100 题（均匀抽样）",
+    "schema_version": "eval.bundle.v2",
+    "version": "1.0",
+    "library_id": "lawbench"
+  },
+  "items": [
+    {
+      "question_id": "7a7f72cf-c462-4db4-a4e4-a876bba2de57",
+      "question": "刑法第二百五十七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "刑法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-0c6e3c07"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "刑法",
+        "must_include_terms": [
+          "第257条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:以暴力干涉他人婚姻自由的，处二年以下有期徒刑或者拘役。,犯前款罪，致使被害人死亡的，处二年以上七年以下有期徒刑。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "刑法"
+    },
+    {
+      "question_id": "9cf9ae3c-0906-418f-b4a5-cdb69b9b8853",
+      "question": "宪法第八十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "宪法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-e1f1a532"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "宪法",
+        "must_include_terms": [
+          "第83条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:中华人民共和国主席、副主席行使职权到下届全国人民代表大会选出的主席、副主席就职为止。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "宪法"
+    },
+    {
+      "question_id": "c1e0a83e-b9ec-46c7-8b52-d613bf0f587f",
+      "question": "民法商法专利法第三十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法专利法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-17cf84a5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法专利法",
+        "must_include_terms": [
+          "第33条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:申请人可以对其专利申请文件进行修改，但是，对发明和实用新型专利申请文件的修改不得超出原说明书和权利要求书记载的范围，对外观设计专利申请文件的修改不得超出原图片或者照片表示的范围。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法专利法"
+    },
+    {
+      "question_id": "2fd770ef-21e3-4fdd-b786-7ee6bf901bdd",
+      "question": "民法商法个人独资企业法第三十七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法个人独资企业法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-23f8c2d9"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法个人独资企业法",
+        "must_include_terms": [
+          "第37条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:违反本法规定，未领取营业执照，以个人独资企业名义从事经营活动的，责令停止经营活动，处以三千元以下的罚款。,个人独资企业登记事项发生变更时，未按本法规定办理有关变更登记的，责令限期办理变更登记；逾期不办理的，处以二千元以下的罚款。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法个人独资企业法"
+    },
+    {
+      "question_id": "37847d1f-de16-435a-a564-7db739986b7c",
+      "question": "民法商法企业破产法第六十一条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法企业破产法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-77df2499"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法企业破产法",
+        "must_include_terms": [
+          "第61条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:债权人会议行使下列职权：,（一）核查债权；,（二）申请人民法院更换管理人，审查管理人的费用和报酬；,（三）监督管理人；,（四）选任和更换债权人委员会成员；,（五）决定继续或者停止债务人的营业；,（六）通过重整计划；,（七）通过和解协议；,（八）通过债务人财产的管理方案；,（九）通过破产财产的变价方案；,（十）通过破产财产的分配方案；,（十一）人民法院认为应当由债权人会议行使的其他职权。,债权人会议应当对所议事项的决议作成会议记录。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法企业破产法"
+    },
+    {
+      "question_id": "d6114a71-1eef-4067-ad05-8ff733b05380",
+      "question": "民法商法保险法第三十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法保险法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-115cc3f5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法保险法",
+        "must_include_terms": [
+          "第39条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:人身保险的受益人由被保险人或者投保人指定。,投保人指定受益人时须经被保险人同意。投保人为与其有劳动关系的劳动者投保人身保险，不得指定被保险人及其近亲属以外的人为受益人。,被保险人为无民事行为能力人或者限制民事行为能力人的，可以由其监护人指定受益人。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法保险法"
+    },
+    {
+      "question_id": "5d81ac88-6ef6-4fe5-a135-380abcf5f345",
+      "question": "民法商法信托法第三十七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法信托法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-b656ed2e"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法信托法",
+        "must_include_terms": [
+          "第37条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:受托人因处理信托事务所支出的费用、对第三人所负债务，以信托财产承担。受托人以其固有财产先行支付的，对信托财产享有优先受偿的权利。,受托人违背管理职责或者处理信托事务不当对第三人所负债务或者自己所受到的损失，以其固有财产承担。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法信托法"
+    },
+    {
+      "question_id": "d2c3b296-2fa5-49c5-9205-68b9601aeadc",
+      "question": "民法商法全民所有制工业企业法第三十五条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法全民所有制工业企业法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-5d6d0cf1"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法全民所有制工业企业法",
+        "must_include_terms": [
+          "第35条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:企业必须完成指令性计划。（2009年8月27日删除）,企业必须履行依法订立的合同。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法全民所有制工业企业法"
+    },
+    {
+      "question_id": "c235eeff-cbad-4eb6-8221-ad2732874047",
+      "question": "民法商法公司法第六十条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法公司法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-40e75c37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法公司法",
+        "must_include_terms": [
+          "第60条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:一人有限责任公司章程由股东制定。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法公司法"
+    },
+    {
+      "question_id": "04427b53-c21c-40fc-a123-fa5bc9d8d1cc",
+      "question": "民法商法农村土地承包法第三十八条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法农村土地承包法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-03617639"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法农村土地承包法",
+        "must_include_terms": [
+          "第38条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:土地经营权流转应当遵循以下原则：,（一）依法、自愿、有偿，任何组织和个人不得强迫或者阻碍土地经营权流转；,（二）不得改变土地所有权的性质和土地的农业用途，不得破坏农业综合生产能力和农业生态环境；,（三）流转期限不得超过承包期的剩余期限；,（四）受让方须有农业经营能力或者资质；,（五）在同等条件下，本集体经济组织成员享有优先权。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法农村土地承包法"
+    },
+    {
+      "question_id": "f4daadd4-242e-4075-8dec-4f045490fc90",
+      "question": "民法商法农民专业合作社法第三十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法农民专业合作社法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-a354d24c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法农民专业合作社法",
+        "must_include_terms": [
+          "第33条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:农民专业合作社设理事长一名，可以设理事会。理事长为本社的法定代表人。,农民专业合作社可以设执行监事或者监事会。理事长、理事、经理和财务会计人员不得兼任监事。,理事长、理事、执行监事或者监事会成员，由成员大会从本社成员中选举产生，依照本法和章程的规定行使职权，对成员大会负责。,理事会会议、监事会会议的表决，实行一人一票。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法农民专业合作社法"
+    },
+    {
+      "question_id": "8799a07d-7564-48ff-b484-5ae4117645eb",
+      "question": "民法商法合伙企业法第十二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法合伙企业法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-280013d3"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法合伙企业法",
+        "must_include_terms": [
+          "第12条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:合伙企业设立分支机构，应当向分支机构所在地的企业登记机关申请登记，领取营业执照。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法合伙企业法"
+    },
+    {
+      "question_id": "99b766a9-1ea7-4e68-99f4-6a53679f98fb",
+      "question": "民法商法商业银行法第五十四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法商业银行法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-cd739037"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法商业银行法",
+        "must_include_terms": [
+          "第54条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:商业银行应当依照法律和国家统一的会计制度以及国务院银行业监督管理机构的有关规定，建立、健全本行的财务、会计制度。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法商业银行法"
+    },
+    {
+      "question_id": "9dc8a689-bf66-450b-bf52-b5763e4ed89e",
+      "question": "民法商法商标法第二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法商标法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-d42e5dcf"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法商标法",
+        "must_include_terms": [
+          "第2条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:国务院工商行政管理部门商标局主管全国商标注册和管理的工作。,国务院工商行政管理部门设立商标评审委员会，负责处理商标争议事宜。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法商标法"
+    },
+    {
+      "question_id": "c41009a7-e389-43d6-86be-46dc45960e29",
+      "question": "民法商法外商投资法第二十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法外商投资法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-f9536702"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法外商投资法",
+        "must_include_terms": [
+          "第29条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:外商投资需要办理投资项目核准、备案的，按照国家有关规定执行。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法外商投资法"
+    },
+    {
+      "question_id": "ff648810-c34a-4d21-8f9b-ba994b349761",
+      "question": "民法商法拍卖法第十二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法拍卖法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-a520772b"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法拍卖法",
+        "must_include_terms": [
+          "第12条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:企业申请取得从事拍卖业务的许可，应当具备下列条件:,（一）有一百万元人民币以上的注册资本；,（二）有自己的名称、组织机构、住所和章程；,（三）有与从事拍卖业务相适应的拍卖师和其他工作人员；,（四）有符合本法和其他有关法律规定的拍卖业务规则；,（五）符合国务院有关拍卖业发展的规定；,（六）法律、行政法规规定的其他条件。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法拍卖法"
+    },
+    {
+      "question_id": "d19ff855-6e4b-4aef-9d2a-6ebcea2ddcdc",
+      "question": "民法商法招标投标法第二十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法招标投标法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-04bb1cb0"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法招标投标法",
+        "must_include_terms": [
+          "第29条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:投标人在招标文件要求提交投标文件的截止时间前，可以补充、修改或者撤回已提交的投标文件，并书面通知招标人。补充、修改的内容为投标文件的组成部分。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法招标投标法"
+    },
+    {
+      "question_id": "705dd710-28f5-44d3-8a04-03d33f4b6a4b",
+      "question": "民法商法海商法第二百六十八条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法海商法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-65786cd7"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法海商法",
+        "must_include_terms": [
+          "第268条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:中华人民共和国缔结或者参加的国际条约同本法有不同规定的，适用国际条约的规定；但是，中华人民共和国声明保留的条款除外。,中华人民共和国法律和中华人民共和国缔结或者参加的国际条约没有规定的，可以适用国际惯例。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法海商法"
+    },
+    {
+      "question_id": "86eb3dca-4369-4a35-8b20-8fd085dfadf1",
+      "question": "民法商法消费者权益保护法第二十四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法消费者权益保护法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-b2144f36"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法消费者权益保护法",
+        "must_include_terms": [
+          "第24条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:经营者提供的商品或者服务不符合质量要求的，消费者可以依照国家规定、当事人约定退货，或者要求经营者履行更换、修理等义务。没有国家规定和当事人约定的，消费者可以自收到商品之日起七日内退货；七日后符合法定解除合同条件的，消费者可以及时退货，不符合法定解除合同条件的，可以要求经营者履行更换、修理等义务。,依照前款规定进行退货、更换、修理的，经营者应当承担运输等必要费用。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法消费者权益保护法"
+    },
+    {
+      "question_id": "79387a2f-1aa3-45f5-8b0c-87307473cb61",
+      "question": "民法商法涉外民事关系法律适用法第十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法涉外民事关系法律适用法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-a8008512"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法涉外民事关系法律适用法",
+        "must_include_terms": [
+          "第19条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:依照本法适用国籍国法律，自然人具有两个以上国籍的，适用有经常居所的国籍国法律；在所有国籍国均无经常居所的，适用与其有最密切联系的国籍国法律。自然人无国籍或者国籍不明的，适用其经常居所地法律。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法涉外民事关系法律适用法"
+    },
+    {
+      "question_id": "fa54c40a-443e-4909-a3c8-9480ecef5c99",
+      "question": "民法商法电子商务法第三十五条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法电子商务法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-7613e194"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法电子商务法",
+        "must_include_terms": [
+          "第35条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:电子商务平台经营者不得利用服务协议、交易规则以及技术等手段，对平台内经营者在平台内的交易、交易价格以及与其他经营者的交易等进行不合理限制或者附加不合理条件，或者向平台内经营者收取不合理费用。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法电子商务法"
+    },
+    {
+      "question_id": "22b1e9aa-f39b-4ef6-ab38-b6a1f7b4b33d",
+      "question": "民法商法电子签名法第二十二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法电子签名法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-a82e643f"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法电子签名法",
+        "must_include_terms": [
+          "第22条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:电子认证服务提供者应当保证电子签名认证证书内容在有效期内完整、准确，并保证电子签名依赖方能够证实或者了解电子签名认证证书所载内容及其他有关事项。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法电子签名法"
+    },
+    {
+      "question_id": "baf616a5-88f7-4620-b0c4-4c37713758c0",
+      "question": "民法商法票据法第一条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法票据法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-d723f84d"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法票据法",
+        "must_include_terms": [
+          "第1条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:为了规范票据行为，保障票据活动中当事人的合法权益，维护社会经济秩序，促进社会主义市场经济的发展，制定本法。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法票据法"
+    },
+    {
+      "question_id": "60a25c71-633f-4bd4-9225-67785264cc11",
+      "question": "民法商法著作权法第二十七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法著作权法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-7c1283ec"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法著作权法",
+        "must_include_terms": [
+          "第27条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:转让本法第十条第一款第五项至第十七项规定的权利，应当订立书面合同。,权利转让合同包括下列主要内容：,（一）作品的名称；,（二）转让的权利种类、地域范围；,（三）转让价金；,（四）交付转让价金的日期和方式；,（五）违约责任；,（六）双方认为需要约定的其他内容。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法著作权法"
+    },
+    {
+      "question_id": "fd84a26e-9b37-4548-9d5f-550616263d6d",
+      "question": "民法商法证券投资基金法第一百二十二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法证券投资基金法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-e0c25be9"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法证券投资基金法",
+        "must_include_terms": [
+          "第122条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:基金管理人、基金托管人违反本法规定，未对基金财产实行分别管理或者分账保管，责令改正，处五万元以上五十万元以下罚款；对直接负责的主管人员和其他直接责任人员给予警告，暂停或者撤销基金从业资格，并处三万元以上三十万元以下罚款。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法证券投资基金法"
+    },
+    {
+      "question_id": "469d2583-0d45-4fd6-a361-2b2024c90fef",
+      "question": "民法商法证券法第四十四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法证券法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-49b508b2"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法证券法",
+        "must_include_terms": [
+          "第44条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:上市公司、股票在国务院批准的其他全国性证券交易场所交易的公司持有百分之五以上股份的股东、董事、监事、高级管理人员，将其持有的该公司的股票或者其他具有股权性质的证券在买入后六个月内卖出，或者在卖出后六个月内又买入，由此所得收益归该公司所有，公司董事会应当收回其所得收益。但是，证券公司因购入包销售后剩余股票而持有百分之五以上股份，以及有国务院证券监督管理机构规定的其他情形的除外。,前款所称董事、监事、高级管理人员、自然人股东持有的股票或者其他具有股权性质的证券，包括其配偶、父母、子女持有的及利用他人账户持有的股票或者其他具有股权性质的证券。,公司董事会不按照第一款规定执行的，股东有权要求董事会在三十日内执行。公司董事会未在上述期限内执行的，股东有权为了公司的利益以自己的名义直接向人民法院提起诉讼。,公司董事会不按照第一款的规定执行的，负有责任的董事依法承担连带责任。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法证券法"
+    },
+    {
+      "question_id": "205e6698-7587-4c84-b3c7-62ec257d9b1e",
+      "question": "社会法公益事业捐赠法第九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法公益事业捐赠法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-d50a0fae"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法公益事业捐赠法",
+        "must_include_terms": [
+          "第9条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:自然人、法人或者其他组织可以选择符合其捐赠意愿的公益性社会团体和公益性非营利的事业单位进行捐赠。捐赠的财产应当是其有权处分的合法财产。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法公益事业捐赠法"
+    },
+    {
+      "question_id": "b1edf323-4c54-426a-8a2e-31bb86a51a4f",
+      "question": "社会法军人保险法第十六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法军人保险法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-fb9973a4"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法军人保险法",
+        "must_include_terms": [
+          "第16条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:军人退出现役后参加职工基本养老保险的，由军队后勤（联勤）机关财务部门将军人退役养老保险关系和相应资金转入地方社会保险经办机构，地方社会保险经办机构办理相应的转移接续手续。,军人服现役年限与入伍前和退出现役后参加职工基本养老保险的缴费年限合并计算。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法军人保险法"
+    },
+    {
+      "question_id": "8ee02275-e153-4ecc-922b-5ccf27ea0b84",
+      "question": "社会法劳动合同法第八十五条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法劳动合同法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-f3d9c329"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法劳动合同法",
+        "must_include_terms": [
+          "第85条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:用人单位有下列情形之一的，由劳动行政部门责令限期支付劳动报酬、加班费或者经济补偿；劳动报酬低于当地最低工资标准的，应当支付其差额部分；逾期不支付的，责令用人单位按应付金额百分之五十以上百分之一百以下的标准向劳动者加付赔偿金:,（一）未按照劳动合同的约定或者国家规定及时足额支付劳动者劳动报酬的；,（二）低于当地最低工资标准支付劳动者工资的；,（三）安排加班不支付加班费的；,（四）解除或者终止劳动合同，未依照本法规定向劳动者支付经济补偿的。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法劳动合同法"
+    },
+    {
+      "question_id": "413167df-c317-4a7c-acf5-b5663bda17cb",
+      "question": "社会法劳动法第六十五条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法劳动法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-af42eacf"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法劳动法",
+        "must_include_terms": [
+          "第65条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:用人单位应当对未成年工定期进行健康检查。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法劳动法"
+    },
+    {
+      "question_id": "3c7acb3e-963f-4d08-94a9-e0839764fbce",
+      "question": "社会法反家庭暴力法第十四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法反家庭暴力法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-158faa20"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法反家庭暴力法",
+        "must_include_terms": [
+          "第14条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:学校、幼儿园、医疗机构、居民委员会、村民委员会、社会工作服务机构、救助管理机构、福利机构及其工作人员在工作中发现无民事行为能力人、限制民事行为能力人遭受或者疑似遭受家庭暴力的，应当及时向公安机关报案。公安机关应当对报案人的信息予以保密。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法反家庭暴力法"
+    },
+    {
+      "question_id": "75673997-773c-45d7-992a-ae08bf1bbbe8",
+      "question": "社会法反电信网络诈骗法第三十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法反电信网络诈骗法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-0497504f"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法反电信网络诈骗法",
+        "must_include_terms": [
+          "第39条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:电信业务经营者违反本法规定，有下列情形之一的，由有关主管部门责令改正，情节较轻的，给予警告、通报批评，或者处五万元以上五十万元以下罚款；情节严重的，处五十万元以上五百万元以下罚款，并可以由有关主管部门责令暂停相关业务、停业整顿、吊销相关业务许可证或者吊销营业执照，对其直接负责的主管人员和其他直接责任人员，处一万元以上二十万元以下罚款：,（一）未落实国家有关规定确定的反电信网络诈骗内部控制机制的；,（二）未履行电话卡、物联网卡实名制登记职责的；,（三）未履行对电话卡、物联网卡的监测识别、监测预警和相关处置职责的；,（四）未对物联网卡用户进行风险评估，或者未限定物联网卡的开通功能、使用场景和适用设备的；,（五）未采取措施对改号电话、虚假主叫或者具有相应功能的非法设备进行监测处置的。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法反电信网络诈骗法"
+    },
+    {
+      "question_id": "59bcdc85-5fb7-45c2-a9f2-8e05ad4b98bb",
+      "question": "社会法妇女权益保障法第十八条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法妇女权益保障法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-ae773b23"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法妇女权益保障法",
+        "must_include_terms": [
+          "第18条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:父母或者其他监护人必须履行保障适龄女性儿童少年接受义务教育的义务。,除因疾病或者其他特殊情况经当地人民政府批准的以外，对不送适龄女性儿童少年入学的父母或者其他监护人，由当地人民政府予以批评教育，并采取有效措施，责令送适龄女性儿童少年入学。,政府、社会、学校应当采取有效措施，解决适龄女性儿童少年就学存在的实际困难，并创造条件，保证贫困、残疾和流动人口中的适龄女性儿童少年完成义务教育。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法妇女权益保障法"
+    },
+    {
+      "question_id": "df4ec589-be1f-4d76-95dc-5a01c274de7d",
+      "question": "社会法安全生产法第三十七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法安全生产法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-09f91077"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法安全生产法",
+        "must_include_terms": [
+          "第37条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:生产经营单位使用的危险物品的容器、运输工具，以及涉及人身安全、危险性较大的海洋石油开采特种设备和矿山井下特种设备，必须按照国家有关规定，由专业生产单位生产，并经具有专业资质的检测、检验机构检测、检验合格，取得安全使用证或者安全标志，方可投入使用。检测、检验机构对检测、检验结果负责。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法安全生产法"
+    },
+    {
+      "question_id": "59c69742-f38a-413b-9b24-d8348bab5510",
+      "question": "社会法家庭教育促进法第十一条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法家庭教育促进法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-8bebd1c7"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法家庭教育促进法",
+        "must_include_terms": [
+          "第11条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:国家鼓励开展家庭教育研究，鼓励高等学校开设家庭教育专业课程，支持师范院校和有条件的高等学校加强家庭教育学科建设，培养家庭教育服务专业人才，开展家庭教育服务人员培训。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法家庭教育促进法"
+    },
+    {
+      "question_id": "9a484ddf-3729-445c-8f23-7d87a1c3331a",
+      "question": "社会法就业促进法第十一条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法就业促进法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-cb7fb26c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法就业促进法",
+        "must_include_terms": [
+          "第11条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:县级以上人民政府应当把扩大就业作为重要职责，统筹协调产业政策与就业政策。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法就业促进法"
+    },
+    {
+      "question_id": "7d9f8768-bc58-43a2-b427-127c88570631",
+      "question": "社会法工会法第十四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法工会法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-4f9c189a"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法工会法",
+        "must_include_terms": [
+          "第14条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:职工二百人以上的企业、事业单位、社会组织的工会，可以设专职工会主席。工会专职工作人员的人数由工会与企业、事业单位、社会组织协商确定。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法工会法"
+    },
+    {
+      "question_id": "d7fa594c-c346-4c83-ac61-24960290aae5",
+      "question": "社会法归侨侨眷权益保护法第十四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法归侨侨眷权益保护法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-1a291379"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法归侨侨眷权益保护法",
+        "must_include_terms": [
+          "第14条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:各级人民政府应当对归侨、侨眷就业给予照顾，提供必要的指导和服务。,归侨学生、归侨子女和华侨在国内的子女升学，按照国家有关规定给予照顾。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法归侨侨眷权益保护法"
+    },
+    {
+      "question_id": "479476ce-2bc6-4abe-b54b-d11b54fb8f7b",
+      "question": "社会法慈善法第八十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法慈善法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-91cab713"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法慈善法",
+        "must_include_terms": [
+          "第83条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:捐赠人向慈善组织捐赠实物、有价证券、股权和知识产权的，依法免征权利转让的相关行政事业性费用。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法慈善法"
+    },
+    {
+      "question_id": "bb7eccc0-7f07-40fd-bca7-a14e3e558497",
+      "question": "社会法未成年人保护法第十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法未成年人保护法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-df282608"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法未成年人保护法",
+        "must_include_terms": [
+          "第19条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:未成年人的父母或者其他监护人应当根据未成年人的年龄和智力发展状况，在作出与未成年人权益有关的决定前，听取未成年人的意见，充分考虑其真实意愿。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法未成年人保护法"
+    },
+    {
+      "question_id": "68c1d938-c7b0-4a2f-a34e-55b1e6dae24e",
+      "question": "社会法残疾人保障法第四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法残疾人保障法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-ccef6444"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法残疾人保障法",
+        "must_include_terms": [
+          "第4条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:国家采取辅助方法和扶持措施，对残疾人给予特别扶助，减轻或者消除残疾影响和外界障碍，保障残疾人权利的实现。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法残疾人保障法"
+    },
+    {
+      "question_id": "85456a35-b7e9-4a29-afc5-f0b83d140460",
+      "question": "社会法特种设备安全法第五十六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法特种设备安全法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-c00e355f"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法特种设备安全法",
+        "must_include_terms": [
+          "第56条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:特种设备检验机构及其检验人员利用检验工作故意刁难特种设备生产、经营、使用单位的，特种设备生产、经营、使用单位有权向负责特种设备安全监督管理的部门投诉，接到投诉的部门应当及时进行调查处理。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法特种设备安全法"
+    },
+    {
+      "question_id": "aa413d14-9ba7-478d-9b97-9329f6c09102",
+      "question": "社会法矿山安全法第十二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法矿山安全法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-ca8362cf"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法矿山安全法",
+        "must_include_terms": [
+          "第12条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:矿山建设工程必须按照管理矿山企业的主管部门批准的设计文件施工。,矿山建设工程安全设施竣工后，由管理矿山企业的主管部门验收，并须有劳动行政主管部门参加；不符合矿山安全规程和行业技术规范的，不得验收，不得投入生产。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法矿山安全法"
+    },
+    {
+      "question_id": "a1410eaf-91c5-4c15-8e16-6dd4d3ab3657",
+      "question": "社会法社会保险法第九十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法社会保险法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-6cd84c98"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法社会保险法",
+        "must_include_terms": [
+          "第93条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:国家工作人员在社会保险管理、监督工作中滥用职权、玩忽职守、徇私舞弊的，依法给予处分。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法社会保险法"
+    },
+    {
+      "question_id": "7b73afe2-6479-490e-85b8-1926c707125c",
+      "question": "社会法红十字会法第十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法红十字会法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-da57fe29"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法红十字会法",
+        "must_include_terms": [
+          "第19条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:红十字会可以依法进行募捐活动。募捐活动应当符合《中华人民共和国慈善法》的有关规定。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法红十字会法"
+    },
+    {
+      "question_id": "1c1f5d2e-8132-4df6-acf4-8cd3bb97fb26",
+      "question": "社会法老年人权益保障法第二十五条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法老年人权益保障法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-d93c4ad1"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法老年人权益保障法",
+        "must_include_terms": [
+          "第25条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:禁止对老年人实施家庭暴力。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法老年人权益保障法"
+    },
+    {
+      "question_id": "ab1a40b1-5730-45cd-b554-c1f94f79b515",
+      "question": "社会法职业病防治法第三十五条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法职业病防治法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-5a54f4ec"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法职业病防治法",
+        "must_include_terms": [
+          "第35条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:对从事接触职业病危害的作业的劳动者，用人单位应当按照国务院卫生行政部门的规定组织上岗前、在岗期间和离岗时的职业健康检查，并将检查结果书面告知劳动者。职业健康检查费用由用人单位承担。,用人单位不得安排未经上岗前职业健康检查的劳动者从事接触职业病危害的作业；不得安排有职业禁忌的劳动者从事其所禁忌的作业；对在职业健康检查中发现有与所从事的职业相关的健康损害的劳动者，应当调离原工作岗位，并妥善安置；对未进行离岗前职业健康检查的劳动者不得解除或者终止与其订立的劳动合同。,职业健康检查应当由取得《医疗机构执业许可证》的医疗卫生机构承担。卫生行政部门应当加强对职业健康检查工作的规范管理，具体管理办法由国务院卫生行政部门制定。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法职业病防治法"
+    },
+    {
+      "question_id": "97ef2cfe-3795-4150-8341-445a78486fc0",
+      "question": "社会法退役军人保障法第十二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法退役军人保障法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-f7369e53"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法退役军人保障法",
+        "must_include_terms": [
+          "第12条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:国务院退役军人工作主管部门、中央军事委员会政治工作部门、中央和国家有关机关应当制定全国退役军人的年度移交接收计划。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法退役军人保障法"
+    },
+    {
+      "question_id": "84fd446b-d383-4fb2-84d4-1fd53afab8cc",
+      "question": "社会法预防未成年人犯罪法第五十条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "社会法预防未成年人犯罪法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-b02750c2"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "社会法预防未成年人犯罪法",
+        "must_include_terms": [
+          "第50条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:公安机关、人民检察院、人民法院办理未成年人刑事案件，应当根据未成年人的生理、心理特点和犯罪的情况，有针对性地进行法治教育。,对涉及刑事案件的未成年人进行教育，其法定代理人以外的成年亲属或者教师、辅导员等参与有利于感化、挽救未成年人的，公安机关、人民检察院、人民法院应当邀请其参加有关活动。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "社会法预防未成年人犯罪法"
+    },
+    {
+      "question_id": "9b8fd63d-ffda-4291-be21-39d860848036",
+      "question": "诉讼与非诉讼程序法人民调解法第三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "诉讼与非诉讼程序法人民调解法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-3b2b484a"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "诉讼与非诉讼程序法人民调解法",
+        "must_include_terms": [
+          "第3条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:人民调解委员会调解民间纠纷，应当遵循下列原则:,（一）在当事人自愿、平等的基础上进行调解；,（二）不违背法律、法规和国家政策；,（三）尊重当事人的权利，不得因调解而阻止当事人依法通过仲裁、行政、司法等途径维护自己的权利。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "诉讼与非诉讼程序法人民调解法"
+    },
+    {
+      "question_id": "21392669-8440-4069-a075-dd1b3f6b57e5",
+      "question": "诉讼与非诉讼程序法仲裁法第七十六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "诉讼与非诉讼程序法仲裁法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-744b3d0f"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "诉讼与非诉讼程序法仲裁法",
+        "must_include_terms": [
+          "第76条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:当事人应当按照规定交纳仲裁费用。,收取仲裁费用的办法，应当报物价管理部门核准。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "诉讼与非诉讼程序法仲裁法"
+    },
+    {
+      "question_id": "7b5398c5-d7de-4956-8c6f-e524a91972fa",
+      "question": "诉讼与非诉讼程序法农村土地承包经营纠纷调解仲裁法第四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "诉讼与非诉讼程序法农村土地承包经营纠纷调解仲裁法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-e0b3460b"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "诉讼与非诉讼程序法农村土地承包经营纠纷调解仲裁法",
+        "must_include_terms": [
+          "第4条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:当事人和解、调解不成或者不愿和解、调解的，可以向农村土地承包仲裁委员会申请仲裁，也可以直接向人民法院起诉。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "诉讼与非诉讼程序法农村土地承包经营纠纷调解仲裁法"
+    },
+    {
+      "question_id": "5cce9659-4852-4600-bda6-710db9912a7b",
+      "question": "诉讼与非诉讼程序法刑事诉讼法第三十二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "诉讼与非诉讼程序法刑事诉讼法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-a043d6ef"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "诉讼与非诉讼程序法刑事诉讼法",
+        "must_include_terms": [
+          "第32条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:本章关于回避的规定适用于书记员、翻译人员和鉴定人。,辩护人、诉讼代理人可以依照本章的规定要求回避、申请复议。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "诉讼与非诉讼程序法刑事诉讼法"
+    },
+    {
+      "question_id": "0bb9a107-d330-45a4-a65e-8fca7fb1138b",
+      "question": "诉讼与非诉讼程序法劳动争议调解仲裁法第三十二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "诉讼与非诉讼程序法劳动争议调解仲裁法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-d0e0ffe3"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "诉讼与非诉讼程序法劳动争议调解仲裁法",
+        "must_include_terms": [
+          "第32条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:劳动争议仲裁委员会应当在受理仲裁申请之日起五日内将仲裁庭的组成情况书面通知当事人。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "诉讼与非诉讼程序法劳动争议调解仲裁法"
+    },
+    {
+      "question_id": "e940a7d8-faff-4ca8-9c8c-0883e2a5f24f",
+      "question": "诉讼与非诉讼程序法国际刑事司法协助法第六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "诉讼与非诉讼程序法国际刑事司法协助法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-b5c79a0f"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "诉讼与非诉讼程序法国际刑事司法协助法",
+        "must_include_terms": [
+          "第6条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:国家监察委员会、最高人民法院、最高人民检察院、公安部、国家安全部等部门是开展国际刑事司法协助的主管机关,按照职责分工,审核向外国提出的刑事司法协助请求,审查处理对外联系机关转递的外国提出的刑事司法协助请求,承担其他与国际刑事司法协助相关的工作。在移管被判刑人案件中，司法部按照职责分工，承担相应的主管机关职责。,办理刑事司法协助相关案件的机关是国际刑事司法协助的办案机关,负责向所属主管机关提交需要向外国提出的刑事司法协助请求、执行所属主管机关交办的外国提出的刑事司法协助请求。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "诉讼与非诉讼程序法国际刑事司法协助法"
+    },
+    {
+      "question_id": "825c78e6-a818-4d9d-820d-5bed08489d73",
+      "question": "诉讼与非诉讼程序法引渡法第十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "诉讼与非诉讼程序法引渡法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-c60256e8"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "诉讼与非诉讼程序法引渡法",
+        "must_include_terms": [
+          "第13条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:请求国根据本节提交的引渡请求书或者其他有关文件，应当由请求国的主管机关正式签署或者盖章，并应当附有中文译本或者经中华人民共和国外交部同意使用的其他文字的译本。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "诉讼与非诉讼程序法引渡法"
+    },
+    {
+      "question_id": "5b0edf87-3655-49f7-ada4-1095528e2446",
+      "question": "诉讼与非诉讼程序法民事诉讼法第四十四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "诉讼与非诉讼程序法民事诉讼法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-b765f2d5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "诉讼与非诉讼程序法民事诉讼法",
+        "must_include_terms": [
+          "第44条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:合议庭的审判长由院长或者庭长指定审判员一人担任；院长或者庭长参加审判的，由院长或者庭长担任。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "诉讼与非诉讼程序法民事诉讼法"
+    },
+    {
+      "question_id": "3e2fc282-d1cd-48fc-b3af-8abe7b8d20cb",
+      "question": "诉讼与非诉讼程序法海事诉讼特别程序法第五十条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "诉讼与非诉讼程序法海事诉讼特别程序法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-fd380858"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "诉讼与非诉讼程序法海事诉讼特别程序法",
+        "must_include_terms": [
+          "第50条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:海事请求人对与海事请求有关的船用燃油、船用物料申请海事请求保全，适用本节规定。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "诉讼与非诉讼程序法海事诉讼特别程序法"
+    },
+    {
+      "question_id": "c242c6eb-7872-4d2f-ad49-2971e54de87c",
+      "question": "诉讼与非诉讼程序法行政诉讼法第四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "诉讼与非诉讼程序法行政诉讼法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-9f3e6c2b"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "诉讼与非诉讼程序法行政诉讼法",
+        "must_include_terms": [
+          "第4条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:人民法院依法对行政案件独立行使审判权，不受行政机关、社会团体和个人的干涉。,人民法院设行政审判庭，审理行政案件。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "诉讼与非诉讼程序法行政诉讼法"
+    },
+    {
+      "question_id": "c80ce6c0-c66a-4607-ba37-176ab9f7c1e2",
+      "question": "刑法第三百八十条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "刑法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-0c6e3c07"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "刑法",
+        "must_include_terms": [
+          "第380条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:战时拒绝或者故意延误军事订货，情节严重的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，处五年以下有期徒刑或者拘役；造成严重后果的，处五年以上有期徒刑。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "刑法"
+    },
+    {
+      "question_id": "7780f5a1-ef84-4844-93ca-1ce16af009aa",
+      "question": "刑法第三百一十七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "刑法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-0c6e3c07"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "刑法",
+        "must_include_terms": [
+          "第317条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:组织越狱的首要分子和积极参加的，处五年以上有期徒刑；其他参加的，处五年以下有期徒刑或者拘役。,暴动越狱或者聚众持械劫狱的首要分子和积极参加的，处十年以上有期徒刑或者无期徒刑；情节特别严重的，处死刑；其他参加的，处三年以上十年以下有期徒刑。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "刑法"
+    },
+    {
+      "question_id": "72fabc73-dc08-4bc0-bc5c-a16ead16be5e",
+      "question": "刑法第四百一十一条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "刑法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-0c6e3c07"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "刑法",
+        "must_include_terms": [
+          "第411条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:海关工作人员徇私舞弊，放纵走私，情节严重的，处五年以下有期徒刑或者拘役；情节特别严重的，处五年以上有期徒刑。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "刑法"
+    },
+    {
+      "question_id": "0de50c75-aa9b-42f8-8514-4bb21c6ccba4",
+      "question": "刑法第一百二十七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "刑法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-0c6e3c07"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "刑法",
+        "must_include_terms": [
+          "第127条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:盗窃、抢夺枪支、弹药、爆炸物的，或者盗窃、抢夺毒害性、放射性、传染病病原体等物质，危害公共安全的，处三年以上十年以下有期徒刑；情节严重的，处十年以上有期徒刑、无期徒刑或者死刑。,抢劫枪支、弹药、爆炸物的，或者抢劫毒害性、放射性、传染病病原体等物质，危害公共安全的，或者盗窃、抢夺国家机关、军警人员、民兵的枪支、弹药、爆炸物的，处十年以上有期徒刑、无期徒刑或者死刑。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "刑法"
+    },
+    {
+      "question_id": "aec83749-58b7-4950-a02c-ff02be00cf94",
+      "question": "刑法第一百八十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "刑法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-0c6e3c07"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "刑法",
+        "must_include_terms": [
+          "第183条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:保险公司的工作人员利用职务上的便利，故意编造未曾发生的保险事故进行虚假理赔，骗取保险金归自己所有的，依照本法第二百七十一条的规定定罪处罚。,国有保险公司工作人员和国有保险公司委派到非国有保险公司从事公务的人员有前款行为的，依照本法第三百八十二条、第三百八十三条的规定定罪处罚。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "刑法"
+    },
+    {
+      "question_id": "67e380df-0421-4aac-8579-5eec5f423acc",
+      "question": "刑法第三百六十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "刑法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-0c6e3c07"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "刑法",
+        "must_include_terms": [
+          "第369条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:破坏武器装备、军事设施、军事通信的，处三年以下有期徒刑、拘役或者管制；破坏重要武器装备、军事设施、军事通信的，处三年以上十年以下有期徒刑；情节特别严重的，处十年以上有期徒刑、无期徒刑或者死刑。,过失犯前款罪，造成严重后果的，处三年以下有期徒刑或者拘役；造成特别严重后果的，处三年以上七年以下有期徒刑。,战时犯前两款罪的，从重处罚。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "刑法"
+    },
+    {
+      "question_id": "6b9d4e14-95ba-443b-a630-2521ada1cfc1",
+      "question": "刑法第四十条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "刑法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-0c6e3c07"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "刑法",
+        "must_include_terms": [
+          "第40条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:被判处管制的犯罪分子，管制期满，执行机关应即向本人和其所在单位或者居住地的群众宣布解除管制。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "刑法"
+    },
+    {
+      "question_id": "5edfc95e-4dd4-4117-91a0-100da738bb33",
+      "question": "宪法第八十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "宪法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-e1f1a532"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "宪法",
+        "must_include_terms": [
+          "第89条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:国务院行使下列职权：,（一）根据宪法和法律，规定行政措施，制定行政法规，发布决定和命令；,（二）向全国人民代表大会或者全国人民代表大会常务委员会提出议案；,（三）规定各部和各委员会的任务和职责，统一领导各部和各委员会的工作，并且领导不属于各部和各委员会的全国性的行政工作；,（四）统一领导全国地方各级国家行政机关的工作，规定中央和省、自治区、直辖市的国家行政机关的职权的具体划分；,（五）编制和执行国民经济和社会发展计划和国家预算；,（六）领导和管理经济工作和城乡建设、生态文明建设；,（七）领导和管理教育、科学、文化、卫生、体育和计划生育工作；,（八）领导和管理民政、公安、司法行政等工作；,（九）管理对外事务，同外国缔结条约和协定；,（十）领导和管理国防建设事业；,（十一）领导和管理民族事务，保障少数民族的平等权利和民族自治地方的自治权利；,（十二）保护华侨的正当的权利和利益，保护归侨和侨眷的合法的权利和利益；,（十三）改变或者撤销各部、各委员会发布的不适当的命令、指示和规章；,（十四）改变或者撤销地方各级国家行政机关的不适当的决定和命令；,（十五）批准省、自治区、直辖市的区域划分，批准自治州、县、自治县、市的建置和区域划分；,（十六）依照法律规定决定省、自治区、直辖市的范围内部分地区进入紧急状态；,（十七）审定行政机构的编制，依照法律规定任免、培训、考核和奖惩行政人员；,（十八）全国人民代表大会和全国人民代表大会常务委员会授予的其他职权。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "宪法"
+    },
+    {
+      "question_id": "f420955b-92c6-4902-8078-6118afcf42d2",
+      "question": "宪法第七十八条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "宪法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-e1f1a532"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "宪法",
+        "must_include_terms": [
+          "第78条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:全国人民代表大会和全国人民代表大会常务委员会的组织和工作程序由法律规定。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "宪法"
+    },
+    {
+      "question_id": "8b31a449-6dfe-408f-ad99-99b30b3303d5",
+      "question": "宪法第七十六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "宪法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-e1f1a532"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "宪法",
+        "must_include_terms": [
+          "第76条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:全国人民代表大会代表必须模范地遵守宪法和法律，保守国家秘密，并且在自己参加的生产、工作和社会活动中，协助宪法和法律的实施。,全国人民代表大会代表应当同原选举单位和人民保持密切的联系，听取和反映人民的意见和要求，努力为人民服务。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "宪法"
+    },
+    {
+      "question_id": "9cdd30f1-c159-4fe2-9ed2-e0e7f343999b",
+      "question": "宪法第二十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "宪法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-e1f1a532"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "宪法",
+        "must_include_terms": [
+          "第29条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:中华人民共和国的武装力量属于人民。它的任务是巩固国防，抵抗侵略，保卫祖国，保卫人民的和平劳动，参加国家建设事业，努力为人民服务。,国家加强武装力量的革命化、现代化、正规化的建设，增强国防力量。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "宪法"
+    },
+    {
+      "question_id": "9b9b4f2e-6526-4f4f-889c-f77572e85548",
+      "question": "宪法第十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "宪法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-e1f1a532"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "宪法",
+        "must_include_terms": [
+          "第13条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:公民的合法的私有财产不受侵犯。,国家依照法律规定保护公民的私有财产权和继承权。,国家为了公共利益的需要，可以依照法律规定对公民的私有财产实行征收或者征用并给予补偿。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "宪法"
+    },
+    {
+      "question_id": "9879405f-3d93-4829-ae96-2d9247cf2793",
+      "question": "民法商法专利法第十条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法专利法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-17cf84a5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法专利法",
+        "must_include_terms": [
+          "第10条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:专利申请权和专利权可以转让。,中国单位或者个人向外国人、外国企业或者外国其他组织转让专利申请权或者专利权的，应当依照有关法律、行政法规的规定办理手续。,转让专利申请权或者专利权的，当事人应当订立书面合同，并向国务院专利行政部门登记，由国务院专利行政部门予以公告。专利申请权或者专利权的转让自登记之日起生效。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法专利法"
+    },
+    {
+      "question_id": "4e6f81fb-25e6-4d7b-b5d4-7c0c93e26a12",
+      "question": "民法商法专利法第十七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法专利法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-17cf84a5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法专利法",
+        "must_include_terms": [
+          "第17条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:在中国没有经常居所或者营业所的外国人、外国企业或者外国其他组织在中国申请专利的，依照其所属国同中国签订的协议或者共同参加的国际条约，或者依照互惠原则，根据本法办理。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法专利法"
+    },
+    {
+      "question_id": "36dce6be-cd1c-489d-8d40-44b659418ab9",
+      "question": "民法商法专利法第六十七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法专利法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-17cf84a5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法专利法",
+        "must_include_terms": [
+          "第67条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:在专利侵权纠纷中，被控侵权人有证据证明其实施的技术或者设计属于现有技术或者现有设计的，不构成侵犯专利权。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法专利法"
+    },
+    {
+      "question_id": "57096534-3566-41e1-850d-0e8124f81ead",
+      "question": "民法商法专利法第五十七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法专利法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-17cf84a5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法专利法",
+        "must_include_terms": [
+          "第57条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:强制许可涉及的发明创造为半导体技术的，其实施限于公共利益的目的和本法第五十三条第（二）项规定的情形。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法专利法"
+    },
+    {
+      "question_id": "e1eafd54-5691-4789-89b9-ada370d6381d",
+      "question": "民法商法专利法第六十条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法专利法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-17cf84a5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法专利法",
+        "must_include_terms": [
+          "第60条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:国务院专利行政部门作出的给予实施强制许可的决定，应当及时通知专利权人，并予以登记和公告。,给予实施强制许可的决定，应当根据强制许可的理由规定实施的范围和时间。强制许可的理由消除并不再发生时，国务院专利行政部门应当根据专利权人的请求，经审查后作出终止实施强制许可的决定。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法专利法"
+    },
+    {
+      "question_id": "aee6071d-b8ee-4b76-8ccb-fcb5bf5dc37b",
+      "question": "民法商法专利法第四十一条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法专利法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-17cf84a5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法专利法",
+        "must_include_terms": [
+          "第41条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:专利申请人对国务院专利行政部门驳回申请的决定不服的，可以自收到通知之日起三个月内向国务院专利行政部门请求复审。国务院专利行政部门复审后，作出决定，并通知专利申请人。,专利申请人对国务院专利行政部门的复审决定不服的，可以自收到通知之日起三个月内向人民法院起诉。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法专利法"
+    },
+    {
+      "question_id": "6bb86667-1c0b-40ac-97b5-2bc5a526e078",
+      "question": "民法商法专利法第七十六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法专利法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-17cf84a5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法专利法",
+        "must_include_terms": [
+          "第76条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:药品上市审评审批过程中，药品上市许可申请人与有关专利权人或者利害关系人，因申请注册的药品相关的专利权产生纠纷的，相关当事人可以向人民法院起诉，请求就申请注册的药品相关技术方案是否落入他人药品专利权保护范围作出判决。国务院药品监督管理部门在规定的期限内，可以根据人民法院生效裁判作出是否暂停批准相关药品上市的决定。,药品上市许可申请人与有关专利权人或者利害关系人也可以就申请注册的药品相关的专利权纠纷，向国务院专利行政部门请求行政裁决。,国务院药品监督管理部门会同国务院专利行政部门制定药品上市许可审批与药品上市许可申请阶段专利权纠纷解决的具体衔接办法，报国务院同意后实施。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法专利法"
+    },
+    {
+      "question_id": "91cc4762-04c2-43ae-978f-aae734ff68a2",
+      "question": "民法商法个人独资企业法第三十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法个人独资企业法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-23f8c2d9"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法个人独资企业法",
+        "must_include_terms": [
+          "第33条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:违反本法规定，提交虚假文件或采取其他欺骗手段，取得企业登记的，责令改正，处以五千元以下的罚款；情节严重的，并处吊销营业执照。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法个人独资企业法"
+    },
+    {
+      "question_id": "422e4c71-7848-4147-9fb4-47d49c23d735",
+      "question": "民法商法个人独资企业法第三十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法个人独资企业法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-23f8c2d9"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法个人独资企业法",
+        "must_include_terms": [
+          "第39条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:个人独资企业违反本法规定，侵犯职工合法权益，未保障职工劳动安全，不缴纳社会保险费用的，按照有关法律、行政法规予以处罚，并追究有关责任人员的责任。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法个人独资企业法"
+    },
+    {
+      "question_id": "3fe3573c-b959-48de-9e56-a57542d3a64e",
+      "question": "民法商法个人独资企业法第十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法个人独资企业法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-23f8c2d9"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法个人独资企业法",
+        "must_include_terms": [
+          "第19条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:个人独资企业投资人可以自行管理企业事务，也可以委托或者聘用其他具有民事行为能力的人负责企业的事务管理。,投资人委托或者聘用他人管理个人独资企业事务，应当与受托人或者被聘用的人签订书面合同，明确委托的具体内容和授予的权利范围。,受托人或者被聘用的人员应当履行诚信、勤勉义务，按照与投资人签订的合同负责个人独资企业的事务管理。,投资人对受托人或者被聘用的人员职权的限制，不得对抗善意第三人。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法个人独资企业法"
+    },
+    {
+      "question_id": "8311f0a6-6557-4ee6-9235-571bf1ce9a56",
+      "question": "民法商法个人独资企业法第三十六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法个人独资企业法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-23f8c2d9"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法个人独资企业法",
+        "must_include_terms": [
+          "第36条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:个人独资企业成立后无正当理由超过六个月未开业的，或者开业后自行停业连续六个月以上的，吊销营业执照。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法个人独资企业法"
+    },
+    {
+      "question_id": "ef78ed73-8192-4f1d-bf12-859d9e9861a9",
+      "question": "民法商法个人独资企业法第十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法个人独资企业法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-23f8c2d9"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法个人独资企业法",
+        "must_include_terms": [
+          "第13条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:个人独资企业的营业执照的签发日期，为个人独资企业成立日期。,在领取个人独资企业营业执照前，投资人不得以个人独资企业名义从事经营活动。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法个人独资企业法"
+    },
+    {
+      "question_id": "700e5f01-865e-44ea-8f2f-d5e3844d01cc",
+      "question": "民法商法个人独资企业法第七条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法个人独资企业法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-23f8c2d9"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法个人独资企业法",
+        "must_include_terms": [
+          "第7条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:在个人独资企业中的中国共产党党员依照中国共产党章程进行活动。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法个人独资企业法"
+    },
+    {
+      "question_id": "31719842-7157-458c-8c64-b87c80d83fee",
+      "question": "民法商法个人独资企业法第三十二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法个人独资企业法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-23f8c2d9"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法个人独资企业法",
+        "must_include_terms": [
+          "第32条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:个人独资企业清算结束后，投资人或者人民法院指定的清算人应当编制清算报告，并于十五日内到登记机关办理注销登记。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法个人独资企业法"
+    },
+    {
+      "question_id": "c3eaa2db-9855-4ef5-ae05-f79ac2c38c39",
+      "question": "民法商法企业破产法第一百一十四条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法企业破产法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-77df2499"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法企业破产法",
+        "must_include_terms": [
+          "第114条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:破产财产的分配应当以货币分配方式进行。但是，债权人会议另有决议的除外。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法企业破产法"
+    },
+    {
+      "question_id": "008113ed-a644-4ece-8ee3-f48d3ab7f4c0",
+      "question": "民法商法企业破产法第九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法企业破产法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-77df2499"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法企业破产法",
+        "must_include_terms": [
+          "第9条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:人民法院受理破产申请前，申请人可以请求撤回申请。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法企业破产法"
+    },
+    {
+      "question_id": "8f6274da-e718-4f95-ac2f-2582617b3182",
+      "question": "民法商法企业破产法第七十六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法企业破产法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-77df2499"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法企业破产法",
+        "must_include_terms": [
+          "第76条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:债务人合法占有的他人财产，该财产的权利人在重整期间要求取回的，应当符合事先约定的条件。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法企业破产法"
+    },
+    {
+      "question_id": "463dd4b4-81e8-4b93-8e91-480ec3b47ddc",
+      "question": "民法商法企业破产法第五十一条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法企业破产法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-77df2499"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法企业破产法",
+        "must_include_terms": [
+          "第51条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:债务人的保证人或者其他连带债务人已经代替债务人清偿债务的，以其对债务人的求偿权申报债权。,债务人的保证人或者其他连带债务人尚未代替债务人清偿债务的，以其对债务人的将来求偿权申报债权。但是，债权人已经向管理人申报全部债权的除外。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法企业破产法"
+    },
+    {
+      "question_id": "03451142-390c-420a-92e4-b51569a7a0d9",
+      "question": "民法商法企业破产法第七十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法企业破产法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-77df2499"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法企业破产法",
+        "must_include_terms": [
+          "第79条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:债务人或者管理人应当自人民法院裁定债务人重整之日起六个月内，同时向人民法院和债权人会议提交重整计划草案。,前款规定的期限届满，经债务人或者管理人请求，有正当理由的，人民法院可以裁定延期三个月。,债务人或者管理人未按期提出重整计划草案的，人民法院应当裁定终止重整程序，并宣告债务人破产。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法企业破产法"
+    },
+    {
+      "question_id": "2f6af922-5635-4aa3-9906-2e50e935ee04",
+      "question": "民法商法企业破产法第二十九条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法企业破产法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-77df2499"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法企业破产法",
+        "must_include_terms": [
+          "第29条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:管理人没有正当理由不得辞去职务。管理人辞去职务应当经人民法院许可。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法企业破产法"
+    },
+    {
+      "question_id": "db86359f-381b-4847-9e39-c4715225ec91",
+      "question": "民法商法保险法第四十六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法保险法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-115cc3f5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法保险法",
+        "must_include_terms": [
+          "第46条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:被保险人因第三者的行为而发生死亡、伤残或者疾病等保险事故的，保险人向被保险人或者受益人给付保险金后，不享有向第三者追偿的权利，但被保险人或者受益人仍有权向第三者请求赔偿。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法保险法"
+    },
+    {
+      "question_id": "e6809028-8e4a-4631-9da7-585bfd79da75",
+      "question": "民法商法保险法第六十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法保险法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-115cc3f5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法保险法",
+        "must_include_terms": [
+          "第63条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:保险人向第三者行使代位请求赔偿的权利时，被保险人应当向保险人提供必要的文件和所知道的有关情况。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法保险法"
+    },
+    {
+      "question_id": "2296282d-4997-435b-a2cb-0aba434e406a",
+      "question": "民法商法保险法第十六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法保险法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-115cc3f5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法保险法",
+        "must_include_terms": [
+          "第16条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:订立保险合同，保险人就保险标的或者被保险人的有关情况提出询问的，投保人应当如实告知。,投保人故意或者因重大过失未履行前款规定的如实告知义务，足以影响保险人决定是否同意承保或者提高保险费率的，保险人有权解除合同。,前款规定的合同解除权，自保险人知道有解除事由之日起，超过三十日不行使而消灭。自合同成立之日起超过二年的，保险人不得解除合同；发生保险事故的，保险人应当承担赔偿或者给付保险金的责任。,投保人故意不履行如实告知义务的，保险人对于合同解除前发生的保险事故，不承担赔偿或者给付保险金的责任，并不退还保险费。,投保人因重大过失未履行如实告知义务，对保险事故的发生有严重影响的，保险人对于合同解除前发生的保险事故，不承担赔偿或者给付保险金的责任，但应当退还保险费。,保险人在合同订立时已经知道投保人未如实告知的情况的，保险人不得解除合同；发生保险事故的，保险人应当承担赔偿或者给付保险金的责任。,保险事故是指保险合同约定的保险责任范围内的事故。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法保险法"
+    },
+    {
+      "question_id": "06c595d6-25f3-4300-94f1-82ab080097aa",
+      "question": "民法商法保险法第五条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法保险法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-115cc3f5"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法保险法",
+        "must_include_terms": [
+          "第5条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:保险活动当事人行使权利、履行义务应当遵循诚实信用原则。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法保险法"
+    },
+    {
+      "question_id": "c1afdc72-be4b-4953-870f-5522c43dc677",
+      "question": "民法商法信托法第二十五条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法信托法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-b656ed2e"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法信托法",
+        "must_include_terms": [
+          "第25条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:受托人应当遵守信托文件的规定，为受益人的最大利益处理信托事务。,受托人管理信托财产，必须恪尽职守，履行诚实、信用、谨慎、有效管理的义务。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法信托法"
+    },
+    {
+      "question_id": "88433929-6701-4ea7-911a-51c6cfb74247",
+      "question": "民法商法信托法第五十六条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法信托法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-b656ed2e"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法信托法",
+        "must_include_terms": [
+          "第56条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:信托终止后，人民法院依据本法第十七条的规定对原信托财产进行强制执行的，以权利归属人为被执行人。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法信托法"
+    },
+    {
+      "question_id": "421c5c0b-dda9-4ce8-8baa-9b49aebdaa71",
+      "question": "民法商法信托法第五十五条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法信托法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-b656ed2e"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法信托法",
+        "must_include_terms": [
+          "第55条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:依照前条规定，信托财产的归属确定后，在该信托财产转移给权利归属人的过程中，信托视为存续，权利归属人视为受益人。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法信托法"
+    },
+    {
+      "question_id": "3650e1db-de02-4cb2-b096-b3896e9923d5",
+      "question": "民法商法信托法第十三条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法信托法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-b656ed2e"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法信托法",
+        "must_include_terms": [
+          "第13条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:设立遗嘱信托，应当遵守继承法关于遗嘱的规定。,遗嘱指定的人拒绝或者无能力担任受托人的，由受益人另行选任受托人；受益人为无民事行为能力人或者限制民事行为能力人的，依法由其监护人代行选任。遗嘱对选任受托人另有规定的，从其规定。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法信托法"
+    },
+    {
+      "question_id": "ab24e230-1eae-48b8-abbb-e4674307fcd9",
+      "question": "民法商法信托法第四十二条的内容是什么？",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lawbench",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "law",
+        "lawbench",
+        "民法商法信托法"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "doc-b656ed2e"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "民法商法信托法",
+        "must_include_terms": [
+          "第42条"
+        ],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "答案:共同受托人之一职责终止的，信托财产由其他受托人管理和处分。",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      },
+      "_law": "民法商法信托法"
+    }
+  ]
+}

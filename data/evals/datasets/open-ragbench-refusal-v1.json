@@ -1,0 +1,713 @@
+{
+  "dataset": {
+    "dataset_id": "open-ragbench-refusal-v1",
+    "title": "Open RAG Benchmark 拒答题集 v1",
+    "category": "knowledge",
+    "description": "gold 文档未入库的不可答题，期望系统拒答；用于度量不可答幻觉率（refusal_accuracy / hallucination_on_unanswerable）",
+    "schema_version": "eval.bundle.v2",
+    "version": "1.0",
+    "library_id": "lib-b07ed174"
+  },
+  "items": [
+    {
+      "question_id": "refusal-70fd72f5-f7e0-4a76-b1b4-5f71e3554cb6",
+      "question": "What factors might contribute to declining job-worker finding rates in Japanese employment markets?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2410.17011v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Declining job-worker finding rates may be attributed to inefficiencies or competition from more engaging private scouting platforms.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-b1d8def7-afea-4b06-a20b-d2047d4a3fb5",
+      "question": "How does the architecture-agnostic detection cost function (a-DCF) differ from traditional methods?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2407.04034v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The a-DCF differs by requiring only one set of scores and a single threshold for evaluation, simplifying the process compared to traditional methods that may need multiple thresholds or complex evaluations.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-6de29bc1-532e-48e2-ad9a-4ff64082e747",
+      "question": "How are shareholder proposals categorized in relation to NGO campaign topics?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2411.06875v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Shareholder proposals are categorized based on their alignment with specific NGO campaign topics, which are classified into environmental (E) and social (S) categories. These include issues like climate change, pollution, human and labor rights, and worker safety.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-1b108501-4986-493f-81c5-88662e841b88",
+      "question": "What impact does rising altitude have on round-trip time (RTT) in dense urban environments?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2411.09666v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Rising altitude leads to an increase in round-trip time (RTT). At ground level, the median RTT is about 54 ms, which increases to nearly 60 ms at higher altitudes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-c3f45046-6e15-46fa-bc30-93e3724692d6",
+      "question": "What happens to the GFT coefficients for a real-valued graph signal with complex conjugate eigenvalue pairs?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.18501v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The GFT coefficients for a real-valued graph signal will also have complex conjugate coefficients for these pairs; i.e., $\\hat{\\mathbf{x}}\\left[k_{1}\\right]=\\hat{\\mathbf{x}}\\left[k_{2}\\right]^{*}$.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-a53fad67-e9b6-46b2-81f9-63450a9dbe70",
+      "question": "What is the switcher average treatment effect (SWATE)?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2405.07102v4",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The switcher average treatment effect, or SWATE, can be non-parametrically identified under a novel nested IV assumption.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-b5c39492-ac11-42c4-a1ef-060a02ae6dea",
+      "question": "Is Giannis Antetokounmpo slightly better near the basket compared to LeBron James?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2411.07984v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes, he is slightly better near the basket.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-cc8a03e0-071e-4cd4-b218-bbc0f60eaf35",
+      "question": "Are emergency or urgent admissions more likely to result in a one-day stay?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2402.02272v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "No, emergency or urgent admissions are less likely to result in a one-day stay.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-30a6fc6a-5c71-494d-8175-2e71665c6caa",
+      "question": "What challenge do ConvNets face in regression-based learning for image registration?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2410.20812v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "ConvNets lack inherent coordinate information, making affine matrix regression challenging.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-e82706bf-dddb-41a1-833f-244345f2e22d",
+      "question": "Are CXSWAP-like gates considered part of Clifford two-qubit operations?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.14918v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes, CXSWAP-like gates are considered part of Clifford two-qubit operations along with Identity-like, SWAP-like, and CX-like gates.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-74c610e6-4f34-443c-9bee-b782f3896cd9",
+      "question": "How does user count impact the optimization process in DMA-aided MISO systems?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.05659v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "An increase in user count leads to a significant impact on optimization due to reduced variables available for adjustment. This results in a larger performance gap between DMAs and FD systems unless additional antenna elements or other compensatory measures are implemented.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-b4e256ca-22d4-4dc8-804e-33820d0bcff8",
+      "question": "Why is understanding quantization table mismatch important in detecting image forgeries?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2408.17106v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Understanding quantization table mismatch is crucial because it causes inconsistencies in decompressed pixel values when a forgery uses a different quantization table than the main pipeline.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-a590374c-77fa-4b96-9fab-eb6a9d684fe7",
+      "question": "What is the purpose of synthesizers in sound synthesis?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2406.05923v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Synthesizers expose control parameters that let sound designers guide them to produce desirable sounds for music, film, and many other applications.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-d98bb261-e4cb-4fa5-8c15-3c9a51443846",
+      "question": "What is the purpose of the A-SEANet algorithm?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2404.18501v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The purpose of the A-SEANet algorithm is to explore multi-modal interaction by using a contrastive learning-based approach to involve an additional loss function, aiming to guide the framework in learning multi-modal temporal interaction.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-585372bd-8259-4072-a2fe-0f3257af3253",
+      "question": "What is the purpose of using jackknife samples in halo profile estimation?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.03988v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Jackknife samples are used to evaluate the estimation error in halo profile estimation.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-543e2d5b-ac34-4e41-8434-b8e68cce9f63",
+      "question": "Why might focusing on the sample distribution be preferable to assuming I.I.D. sampling?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.16352v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Focusing on the sample distribution could be preferable because it avoids imposing unfounded sampling assumptions that restrict or eliminate evidence against monotonicity.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-10b60935-2122-4150-b618-b83b4779b4a5",
+      "question": "Which combination of auxiliary losses provides optimal results for modeling RNA structures?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2406.13839v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The combination of all three auxiliary losses—backbone coordinate loss ($\\mathcal{L}_{\\text {bb }}$), distance-based loss ($\\mathcal{L}_{\\text {dist }}$), and $SO(3)$ rotational alignment—provides optimal results for modeling RNA structures by ensuring high structural validity and accurate learning of geometric properties.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-abd34036-3c3f-4ed0-b82e-e6539521c332",
+      "question": "What role do heterogeneous preferences play in regional agglomeration?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2404.09796v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Heterogeneous preferences regarding residential location choices act as a dispersion force in the model, leading to a more even spatial distribution of economic activities and reducing regional agglomeration.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-7f9639d0-41d6-4d5c-b31c-d58cb2863ec6",
+      "question": "How can one construct different complex surfaces with similar normalizations but distinct geometries?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2407.14265v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "By using m-primary ideals and analyzing their associated functions, it is possible to construct an infinite family of complex surface germs that have identical normalizations yet exhibit distinct outer Lipschitz geometries due to variations in their singularity structures.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-aef516d0-ea1b-4873-b478-ca2b1b8e3b76",
+      "question": "Can subjective beliefs replace objective stochastic processes in this approach?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2403.01421v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes, subjective beliefs replace objective stochastic processes in this approach.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-6f441cc1-412c-44ae-aee6-c88cde6614f3",
+      "question": "What happens to outgoing transitions from the final state in an rDFA for a suffix-free language?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2402.13385v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "All outgoing transitions from the final state lead to a sink state.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-7f1a6347-f94b-4a8e-894a-51e982fc0e7e",
+      "question": "What role does transmit power play in achieving maximum data rates for different configurations?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2412.13892v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Transmit power plays a crucial role in achieving maximum data rates; higher transmit power generally leads to increased achievable data rates across various device configurations.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-552fc215-ebff-448f-9584-ef82270fd828",
+      "question": "Are media attention imbalances considered in enhancing the sentiment score equation?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.07587v6",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-6a20772f-53e5-47c5-8be7-452ae95a029a",
+      "question": "What does a value of $k=0$ indicate about the Universe's curvature?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2408.13427v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "A value of $k=0$ indicates a flat Universe.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-cb251bdc-2146-47b8-be8a-8d50fcf2161c",
+      "question": "Are the performance criteria strictly concave?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.17712v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes, both $J^{I}$ and $J^{B}$ are strictly concave.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    }
+  ]
+}

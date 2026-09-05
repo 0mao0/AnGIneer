@@ -1,0 +1,973 @@
+{
+  "dataset": {
+    "dataset_id": "open-ragbench-smoke-v1",
+    "title": "Open RAG Benchmark 冒烟门禁集 v1",
+    "category": "knowledge",
+    "description": "小体量回归门禁：正例 + 拒答混合，防 prompt/权重改动回退",
+    "schema_version": "eval.bundle.v2",
+    "version": "1.0",
+    "library_id": "lib-b07ed174"
+  },
+  "items": [
+    {
+      "question_id": "0870996e-b926-44d4-97ef-4c4b4783b648",
+      "question": "How many transactions can the blockchain process at a time?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The blockchain can collect and process up to five transactions at a time.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "65bf44ac-def3-411a-a875-118ab3060003",
+      "question": "How do pump and loss rates affect steady states in boundary-driven systems?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "In boundary-driven systems, when pump and loss rates are equal at opposite ends, it leads to an infinite-temperature steady state with no net current flow. Variations can restore current flow by breaking symmetries.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "a35e43db-c0a5-4274-9f11-99ef9c5fdba4",
+      "question": "In what ways does the training approach of LMFold differ from traditional methods that use multiple sequence alignments (MSA)?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Unlike traditional methods that rely heavily on MSA for predicting protein structures, LMFold uses residue-level embeddings directly. This approach allows it to predict all-atom coordinates more efficiently while incorporating advanced loss functions like FAPE and distogram losses.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "58ef7f07-8b87-4eed-baa6-dd8d538336b9",
+      "question": "What are the differences in bias and precision between Prince BART and PS Logistic methods when estimating the effect of contraceptive use on employment?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The Prince BART method has a lower bias (0.007) compared to PS Logistic (0.012), but it is less precise, as indicated by a higher RMSE of 0.122 compared to 0.080 for PS Logistic.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "988c0675-9d8f-4445-951e-0e7fa7bfa510",
+      "question": "Does the Borda Count method involve tie-breaking rules?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8210d952-d670-4687-ac73-3d84d597319c",
+      "question": "How does the prevalence of strong confounders differ between Nigerian and Senegalese populations in research studies?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Research indicates that strong confounders must be present in at least 40% of Nigerian women and over 20% of Senegalese women for certain confidence intervals related to PATE estimates. This difference highlights varying sensitivities across populations.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "c62863b5-5ecf-4a95-9d8e-cf936ec2fa15",
+      "question": "What does it mean for bulk states to remain unchanged under specific conditions?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Bulk states remaining unchanged under specific conditions means they do not experience alterations due to external influences like boundary fluctuations, thus preserving their original properties.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "f90d470a-813b-4c1a-b8da-102d228da307",
+      "question": "Are there more valuable transactions on average in Queue A compared to Queue B?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, on average, transactions in Queue A are more valuable to the network or its users compared to those in Queue B.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "2534ff12-3fa2-40c9-8673-d39846cb4838",
+      "question": "What role do Bayesian Additive Regression Trees play in evaluating family planning interventions?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Bayesian Additive Regression Trees (BART) are used to non-parametrically estimate the causal effect of family planning interventions within a source population. BART helps in understanding how these interventions impact empowerment-related outcomes, allowing for an analysis that accounts for complex relationships between variables without assuming specific parametric forms.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "b6d3cbe2-b61c-4821-abf8-730250feb029",
+      "question": "How do boundary-driven processes affect spin chains?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Boundary-driven processes, involving incoherent pump and loss at the boundaries, can stabilize various mixed steady states in spin chains. By adjusting these processes, one can achieve noiseless subsystems and decoherence-free subspaces that maintain large amounts of information.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "07d1fd12-7d95-41c1-a295-0c48c94918d6",
+      "question": "What does the Min-Max Rank rule do?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The Min-Max Rank rule sorts homes by their best-case rank.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "7d5b6334-5acb-4078-a731-3acf61f5f55c",
+      "question": "How did sulfur dioxide and PM2.5 pollution levels change in China's Sulphur Dioxide Pollution Control Zones between 2000 and 2010?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2411.10728v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9adc576e11c8"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.10728v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The density heat maps show that both sulfur dioxide and PM2.5 pollution levels were concentrated in specific regions of China, with variations over time. There was a noticeable distribution of pollutants across different areas from 2000 to 2010.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "475de2f3-eeb4-46ee-86c7-76eea52b8eb9",
+      "question": "Does UTTC guarantee no Pareto improvements unless it necessitates unanimously worsening a child?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, UTTC guarantees no Pareto improvements unless the improvement necessitates unanimously worsening a child.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "74569569-a949-4bfd-9ff4-b96c7d73b1b0",
+      "question": "What role do symmetric powers play in determining the properties of commutative Hopf algebras?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.19038v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c3ac71f10b54"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.19038v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Symmetric powers play a crucial role by providing morphisms whose behavior (such as being monic) can determine key properties like smoothness in commutative Hopf algebras. These morphisms help establish equivalences between different forms of algebraic structures.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "2b519cc9-1f2d-4fd0-8426-b027e51c6121",
+      "question": "Why is combining kinetic constraints with local dissipation considered promising for stabilizing degenerate manifolds?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Combining kinetic constraints with local dissipation is promising because it stabilizes different classes of degenerate manifolds within the same setup. This combination allows for preserving information through noiseless subsystems or decoherence-free subspaces while maintaining breakdowns of ergodicity due to constrained dynamics.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8d719d64-29d1-4e8f-93a8-4d2091cd9963",
+      "question": "What role does strong symmetry play in Lindblad dynamics?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Strong symmetry maintains the conservation of certain quantum numbers despite instability in decoherence-free subspaces, influencing transition rates and steady-state configurations.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "04cafba0-0c88-45e5-8174-5a185722cb3b",
+      "question": "Is there an improvement in image quality with LeqMod compared to without it in PET images?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2404.17994v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-535d0db50eb1"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2404.17994v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "058b8ad9-21a5-48ea-9f0a-cd90317716d2",
+      "question": "Why might a search for answers in scientific research continue indefinitely?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.03227v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-35c3b9a7d9c6"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.03227v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "A search may continue indefinitely due to project heterogeneity and positive informational spillovers. As researchers become more pessimistic about one project's success, they may become more optimistic about unexplored projects, leading them to persist in their search.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "f1d38188-258d-4059-b2a5-2b22be080c70",
+      "question": "What are the key factors influencing age-specific mortality improvement rates across different countries?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2405.04904v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-99d93b871756"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.04904v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Key factors include geographical and historical influences, as well as gender-specific patterns in serial dependence of mortality data.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "081a3106-1355-42b7-ba51-ac45a47dc3ed",
+      "question": "What are the key hyperparameters used in training models for protein function prediction and PPI link prediction?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The key hyperparameters include the number of epochs, number of heads, learning rate, number of layers, number of hidden units, dropout rate, and k value for SortPooling. These vary across different models and experiments.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "refusal-6f441cc1-412c-44ae-aee6-c88cde6614f3",
+      "question": "What happens to outgoing transitions from the final state in an rDFA for a suffix-free language?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2402.13385v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "All outgoing transitions from the final state lead to a sink state.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-e82706bf-dddb-41a1-833f-244345f2e22d",
+      "question": "Are CXSWAP-like gates considered part of Clifford two-qubit operations?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.14918v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes, CXSWAP-like gates are considered part of Clifford two-qubit operations along with Identity-like, SWAP-like, and CX-like gates.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-d98bb261-e4cb-4fa5-8c15-3c9a51443846",
+      "question": "What is the purpose of the A-SEANet algorithm?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2404.18501v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The purpose of the A-SEANet algorithm is to explore multi-modal interaction by using a contrastive learning-based approach to involve an additional loss function, aiming to guide the framework in learning multi-modal temporal interaction.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-b4e256ca-22d4-4dc8-804e-33820d0bcff8",
+      "question": "Why is understanding quantization table mismatch important in detecting image forgeries?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2408.17106v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Understanding quantization table mismatch is crucial because it causes inconsistencies in decompressed pixel values when a forgery uses a different quantization table than the main pipeline.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-543e2d5b-ac34-4e41-8434-b8e68cce9f63",
+      "question": "Why might focusing on the sample distribution be preferable to assuming I.I.D. sampling?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.16352v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Focusing on the sample distribution could be preferable because it avoids imposing unfounded sampling assumptions that restrict or eliminate evidence against monotonicity.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    }
+  ]
+}

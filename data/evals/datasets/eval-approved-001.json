@@ -1,0 +1,23 @@
+{
+  "dataset": {
+    "dataset_id": "eval-approved-001",
+    "title": "Approved Eval Dataset",
+    "category": "knowledge",
+    "description": "Test eval dataset from approved draft",
+    "schema_version": "eval.bundle.v2",
+    "version": "1.0",
+    "library_id": "lib1"
+  },
+  "items": [
+    {
+      "question_id": "q-eval-001",
+      "question": "What is the first approval principle?",
+      "task_type": "definition"
+    },
+    {
+      "question_id": "q-eval-002",
+      "question": "Describe the second approval step.",
+      "task_type": "definition"
+    }
+  ]
+}

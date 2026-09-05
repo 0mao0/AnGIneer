@@ -1,0 +1,321 @@
+{
+  "dataset": {
+    "dataset_id": "eval_3",
+    "title": "eval_3(2020港航案例-L3测试)",
+    "category": "knowledge",
+    "description": "2020年注册土木工程师（港口与航道工程）专业案例（上）真题，包含8道题目，其中第1、4、6题有对应SOP，用于L3 SOP执行评测。",
+    "schema_version": "eval.bundle.v2",
+    "version": "1.0",
+    "library_id": "default"
+  },
+  "items": [
+    {
+      "question_id": "eval3_2020_up_001",
+      "question": "某海港在部分掩护水域拟建100000 吨级矿石码头,采用东西向布置?码头结构为沉箱结构型式?设计低水位为0.5m,极端低水位为-1.35m,波浪为ENE 向,允许停泊波高 H4% 为 1.5m,平均周期6s,底质为含砂块状土,备淤富裕深度取0.4m?计算该码头前沿底高程应为:(取小数点后1 位)(A)-14.9m(B)-15.0m(C)-15.4m(D)-15.7m",
+      "task_type": "exam_case",
+      "intent_level": "L3",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "2020年",
+        "港航",
+        "专业案例（上）",
+        "真题",
+        "选择题"
+      ],
+      "answer": {
+        "gold_answer": "C",
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "答案C",
+              "选C",
+              "选项C",
+              "故选C",
+              "因此选C",
+              "C"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false,
+        "reference_reasoning": "据《海港总体设计规范》(JTS 165-2013)第A.0.1条:100000吨级矿石码头,查表A.0.1-2得 T=14.5m。据第5.4.27条和第5.4.12.1款:顺浪,K1=0.3;沉箱结构型式,查表5.4.12-1,得 Z1=0.60m;H4%=1.5m;式(5.4.12-3)和式(5.4.12-2):部分掩护情况,Z2=0.3×1.5=0.45m>max(0.3×1.5-0.60,0)=0m,Z2取为(0~0.45)m。Z3=0.15m,Z4=0.4m:式(5.4.12-1):D=T+Z1+Z2+Z3+Z4=14.5+0.60+(0~0.45)+0.15+0.4=(15.65~16.1)m。据第5.4.13条和第5.4.11条:码头前沿底高程=0.5-(15.65~16.1)=(-15.15~-15.6)m。"
+      },
+      "sop_gold": {
+        "sop_id": "海港码头前沿设计水深及底高程计算",
+        "expected_confidence_min": 0.6
+      }
+    },
+    {
+      "question_id": "eval3_2020_up_002",
+      "question": "某海港拟建煤炭出口码头,设计吞吐量为900 万t?其中由铁路集港占总量的50%,调车机车轴重为15t,站线轨道采用50kg/m 次重型钢轨?下列关于该铁路调车线铺设混凝土轨枕数量的取值,符合规范规定的是:(A)1360 根/km(B)1440 根/km(C)1520 根/km(D)1600 根/km",
+      "task_type": "exam_case",
+      "intent_level": "L4",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "2020年",
+        "港航",
+        "专业案例（上）",
+        "真题",
+        "选择题"
+      ],
+      "answer": {
+        "gold_answer": "A",
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "答案A",
+              "选A",
+              "选项A",
+              "故选A",
+              "因此选A",
+              "A"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false,
+        "reference_reasoning": "据《海港总体设计规范》(JTS 165-2013)第8.2.1条:煤炭出口码头,设计吞吐量为900万t,重车方向年货运量 Q=900×50%=450 万t=4.5×10^6t,查表8.2.1得铁路等级为Ⅳ。据第8.2.13条:混凝土轨枕,调车机车轴重为15t,查表8.2.13-3得1360根/km。"
+      }
+    },
+    {
+      "question_id": "eval3_2020_up_003",
+      "question": "某海港拟建250000 吨级散货码头,船舶满载进港,采用拖轮协助作业?按载重吨估算的250000 吨级散货船最大排水量应为:(A)275000t(B)300000t(C)335000t(D)350000t",
+      "task_type": "exam_case",
+      "intent_level": "L4",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "2020年",
+        "港航",
+        "专业案例（上）",
+        "真题",
+        "选择题"
+      ],
+      "answer": {
+        "gold_answer": "B",
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "答案B",
+              "选B",
+              "选项B",
+              "故选B",
+              "因此选B",
+              "B"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false,
+        "reference_reasoning": "据《海港总体设计规范》(JTS 165-2013)第A.0.4条:250000吨级散货船,查表A.0.4-4得250000吨级散货船最大排水量=291000t;B选项符合规范规定。"
+      }
+    },
+    {
+      "question_id": "eval3_2020_up_004",
+      "question": "某海港直墙式码头,受顺浪2 年一遇波高 H4%=3.5m,波长 L=143m,波浪超高 hs=0.09m;10 年一遇波高 H4%=4.5m,波长 L=145m,波浪超高 hs=0.16m;50 年一遇波高 H1%=5.5m,波长 L=150m,波浪超高 hs=0.22m?设计高水位为4.3m,极端高水位为6.1m?码头前沿底高程为-15.0m?按上水标准计算码头前沿顶高程应为:(取小数点后1 位)(A)6.7m(B)7.9m(C)9.0m(D)9.7m",
+      "task_type": "exam_case",
+      "intent_level": "L3",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "2020年",
+        "港航",
+        "专业案例（上）",
+        "真题",
+        "选择题"
+      ],
+      "answer": {
+        "gold_answer": "B",
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "答案B",
+              "选B",
+              "选项B",
+              "故选B",
+              "因此选B",
+              "B"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false,
+        "reference_reasoning": "据《海港总体设计规范》(JTS 165-2013)第5.4.8.1款和第5.4.8.2款:基本标准:DWL=4.3m,Δw=0.16+4.5/2=2.41m>1.0m 式(5.4.8-1):E=DWL+Δw=4.3+2.41=6.71m 复核标准:DWL=6.1m,Δw=0.09+3.5/2=1.84m 式(5.4.8-1):E=DWL+Δw=6.1+1.84=7.94m。上水标准码头前沿顶高程=max(6.71,7.94)=7.94m≈7.9m。"
+      },
+      "sop_gold": {
+        "sop_id": "海港码头前沿顶高程计算",
+        "expected_confidence_min": 0.6
+      }
+    },
+    {
+      "question_id": "eval3_2020_up_005",
+      "question": "某综合性海港设有100000 总吨液化天然气船舶港内应急锚地,设计船型尺度为298m×48m×12.3m(总长×型宽×满载吃水)?采用双浮筒系泊,系缆的水平投影长度为35m?该港潮差为5m,设计低水位为0.15m(当地理论最低潮面),波浪富裕深度取0.5m,底质为淤泥土,备淤富裕深度取0.4m?锚地与航道距离较近?下列关于锚地设计参数的取值,不符合规范规定的是何项?并请说明选择依据和理由?(A)锚地设计底高程为-14.0m(B)锚地边线至航道边线的安全距离为200m(C)系泊水域长度为378m,水域宽度为192m(D)锚地连接水域与航道夹角为50°",
+      "task_type": "exam_case",
+      "intent_level": "L2",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "2020年",
+        "港航",
+        "专业案例（上）",
+        "真题",
+        "选择题"
+      ],
+      "answer": {
+        "gold_answer": "D",
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "答案D",
+              "选D",
+              "选项D",
+              "故选D",
+              "因此选D",
+              "D"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false,
+        "reference_reasoning": "据《液化天然气码头设计规范》(JTS 165-5-2016)第5.7.1条和《海港总体设计规范》(JTS 165-2013)第6.5.11.2款:港内锚地设计水深不宜小于码头前沿设计水深?据(JTS 165-5-2016)第5.4.4条和(JTS 165-2013)第5.4.12.1款:T=12.3m;底质为淤泥土,查表5.4.12-1,得 Z1=0.20m;Z2=0.5m,Z3=0.15m,Z4=0.4m;式(5.4.12-1):D=T+Z1+Z2+Z3+Z4=12.3+0.20+0.5+0.15+0.4=13.55m?据(JTS 165-5-2016)第5.4.3条:锚地设计底高程=0-13.55=-13.55m;A选项符合规范规定?据(JTS 165-2013)第6.5.10条:B=48m;港内应急锚地,双浮筒系泊,锚地边线至航道边线的安全距离≥2B=2×48=96m;B选项符合规范规定?据(JTS 165-2013)第6.5.6.3款:r=5×1=5m,l=35m;式(6.5.6-4):S=L+2(r+l)=298+2×(5+35)=378m 式(6.5.6-5):a=4B=4×48=192m;C选项符合规范规定?据(JTS 165-2013)第6.5.9条:连接水域与航道夹角宜取45°以下;D选项不符合规范规定?"
+      }
+    },
+    {
+      "question_id": "eval3_2020_up_006",
+      "question": "某海港100000 吨级单线航道轴线方位为270°~90°,通航船舶为散货船,航速为8kn?当地横风小于等于7 级,水流流速为0.5m/s,流向N60°?计算该航道的通航宽度应为:(取整数)(A)188m(B)199m(C)210m(D)223m",
+      "task_type": "exam_case",
+      "intent_level": "L3",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "2020年",
+        "港航",
+        "专业案例（上）",
+        "真题",
+        "选择题"
+      ],
+      "answer": {
+        "gold_answer": "B",
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "答案B",
+              "选B",
+              "选项B",
+              "故选B",
+              "因此选B",
+              "B"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false,
+        "reference_reasoning": "据《海港总体设计规范》(JTS 165-2013)第A.0.1条:100000吨级,散货船,查表A.0.1-2得 L=250m,B=43.0m 据第6.4.2条:V=0.5×sin(90°-60°)=0.25m/s,横风小于等于7级,查表6.4.2-1得 n=1.75,γ=5°;式(6.4.2-3):A=n(L sinγ+B)=1.75×(250×sin5°+43.0)≈113.4m 散货船,航速8kn,查表6.4.2-2得 c=B=43.0m:式(6.4.2-1):W=A+2c=113.4+2×43.0=199.4m≈199m。"
+      },
+      "sop_gold": {
+        "sop_id": "海港航道通航宽度计算",
+        "expected_confidence_min": 0.6
+      }
+    },
+    {
+      "question_id": "eval3_2020_up_007",
+      "question": "某海港非限制性航道方位为255°~75°,通航船舶为150000 吨级油船,满载吃水为17.1m,船舶航速为6kn,航道底质为坚硬粘性土,当地常?强浪向为SE,通航波高 H4%=2.0m,平均周期为9s,备淤深度取0.4m?计算该航道通航水深应为:(取小数点后1 位)(A)19.0m(B)19.3m(C)19.9m(D)20.3m",
+      "task_type": "exam_case",
+      "intent_level": "L4",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "2020年",
+        "港航",
+        "专业案例（上）",
+        "真题",
+        "选择题"
+      ],
+      "answer": {
+        "gold_answer": "C",
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "答案C",
+              "选C",
+              "选项C",
+              "故选C",
+              "因此选C",
+              "C"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false,
+        "reference_reasoning": "据《海港总体设计规范》(JTS 165-2013)第6.4.6.1款:T=17.1m;150000吨级,航速6kn,查图6.4.6得 Z0=0.40m:坚硬粘性土,150000吨级,查表6.4.6-1得 Z1=0.70m;航道方位255°~75°,浪向SE,得Ψ=60°;T=9s,查表6.4.6-2内插得 Z2/H4%=(0.48+1.02)/2=0.75;H4%=2.0m,Z2=0.75×2.0=1.5m:Z3=0.15m 式(6.4.6-1):D0=T+Z0+Z1+Z2+Z3=17.1+0.40+0.70+1.5+0.15=19.85m≈19.9m。"
+      }
+    },
+    {
+      "question_id": "eval3_2020_up_008",
+      "question": "某海港拟在冲淤平衡状态下的粉砂质浅滩开挖进港航道,轴线方位为260°~80°,航道宽度150m,实测大风天底部高浓度含沙水体厚1.2m,平均含沙量5kg/m3,平均流速0.4m/s,水流流向为N110°,淤积物干容重920kg/m3,大风作用2 天?计算底部高浓度含沙水体输移引起的航道底面淤积强度是:(取小数点后1 位)(A)1.5m(B)2.0m(C)2.5m(D)3.0m",
+      "task_type": "exam_case",
+      "intent_level": "L4",
+      "library_id": "default",
+      "doc_ids": [],
+      "difficulty": "hard",
+      "tags": [
+        "2020年",
+        "港航",
+        "专业案例（上）",
+        "真题",
+        "选择题"
+      ],
+      "answer": {
+        "gold_answer": "A",
+        "correctness_checks": [
+          {
+            "type": "contains_any",
+            "keywords": [
+              "答案A",
+              "选A",
+              "选项A",
+              "故选A",
+              "因此选A",
+              "A"
+            ]
+          }
+        ],
+        "semantic_threshold": 0.55,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false,
+        "reference_reasoning": "据《港口与航道水文规范》(JTS 145-2015)第W.0.3条:ud=0.4m/s,hs=1.2m,Sd=5kg/m3,t2=2d=2×24×60×60=172800s,γ01=920kg/m3,b=150m,θ=30° 式(W.0.3-2):P=Pd=(ud×hs×Sd×t2×sinθ)/(γ01×b)=(0.4×1.2×5×172800×sin30°)/(920×150)≈1.5m"
+      }
+    }
+  ]
+}

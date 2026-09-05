@@ -43,7 +43,14 @@ apps/*/public/wasm/
 AGENTS.md
 
 # Knowledge and SOPs
-data/
+data/*
+# 题集进版本控制：nightly/CI 经 import API 幂等导入，基线题集跟随代码版本
+# （git 规则：data/ 会排除目录本身导致不下钻，故用 data/* + 逐级豁免）
+!data/evals
+data/evals/*
+!data/evals/datasets
+data/evals/datasets/*
+!data/evals/datasets/*.json
 资料/
 logs/
 .worktrees/

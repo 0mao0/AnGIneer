@@ -1,0 +1,4933 @@
+{
+  "dataset": {
+    "dataset_id": "open-ragbench-subset-v1",
+    "title": "Open RAG Benchmark 子集 v1",
+    "category": "knowledge",
+    "description": "Open RAG Benchmark 子集（30 篇论文、约 90-120 题），端到端评测 AnGIneer",
+    "schema_version": "eval.bundle.v2",
+    "version": "1.1",
+    "library_id": "lib-b07ed174"
+  },
+  "items": [
+    {
+      "question_id": "772d8f9a-5c24-45b5-a069-a22ba82dbe45",
+      "question": "In what ways are auditory LLMs used for evaluating text-to-speech models?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2409.16644v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-b95b01b6ef00"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.16644v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Auditory LLMs are used in evaluating text-to-speech models by predicting quantitative metrics like MOS and SIM, conducting A/B testing between samples, and providing natural-language-based evaluations on aspects such as noisiness and distortion.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "a3b39f3b-97e5-4ef3-aa59-ec45bf6c20ed",
+      "question": "How can auditory large language models be used for speech quality evaluation?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2409.16644v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-b95b01b6ef00"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.16644v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Auditory large language models can be finetuned with task-specific prompts to predict metrics like mean opinion score (MOS) and speaker similarity (SIM), which are essential for evaluating text-to-speech systems. These models also generate natural language descriptions assessing aspects such as noisiness, distortion, and overall quality.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "75d73115-f2dc-4ac2-85fa-d86773281edf",
+      "question": "What does it mean for a state on a unital $C^{*}$-algebra to be faithful?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.06031v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-ec4603757a49"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.06031v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "A state is faithful if $\\phi\\left(x^{*} x\\right)>0$ for any nonzero $x \\in A$.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "35fb10a1-19c7-4c45-9e09-ccb1fc902db6",
+      "question": "What are some applications of proving strict comparison in \\(C_{r}^{*}(G)\\)?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.06031v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-ec4603757a49"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.06031v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Proving strict comparison in \\(C_{r}^{*}(G)\\) has several applications, including resolving Leonel Robert's selflessness problem, ensuring uniqueness of embeddings of the Jiang-Su algebra into these algebras, and enabling full computations of the Cuntz semigroup associated with them.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "a2d6e6d4-f836-4b40-a277-4d869ddefeef",
+      "question": "What does it mean for a group $\\Gamma$ to be existentially $C^{*}$-residually-$G$?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.06031v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-ec4603757a49"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.06031v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "A group $\\Gamma$ is existentially $C^{*}$-residually-$G$ if for all finite sets $S \\subset \\Gamma$ and $\\varepsilon>0$, there is a homomorphism $\\phi: \\Gamma \\rightarrow G$ such that $\\left.\\phi\\right|_{G}=\\operatorname{id}_{G}$ and for all $z \\in \\mathbb{C} \\Gamma$ supported on $S$ with $\\|z\\|_{1}=1$, we have $\\left\\|\\lambda_{G}(\\phi(z))\\right\\| \\leq\\left\\|\\lambda_{\\Gamma}(z)\\right\\|+\\varepsilon$.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "66f07bd1-e8b8-4c02-b006-24b018757487",
+      "question": "Is the free group on two generators selfless?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.06031v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-ec4603757a49"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.06031v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, $\\mathbb{F}_{2}$ is selfless.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "b75501cd-0c61-4526-85d3-89bb15f95a1c",
+      "question": "What is the stable length of a loxodromic element $g$ in a $\\delta$-hyperbolic space?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.06031v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-ec4603757a49"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.06031v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The stable length of $g$, denoted as $\\tau(g)$, is defined as $\\lim _{n} \\frac{d\\left(g^{n} o, o\\right)}{n}$.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "c34798db-ba68-4173-8215-5c67e88ea57d",
+      "question": "What role does Hochschild cohomology play in determining the properties of Hopf algebras?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.19038v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c3ac71f10b54"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.19038v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Hochschild cohomology plays a critical role in determining properties like equivariant smoothness by providing a framework to analyze extensions and deformations within an algebraic structure. The vanishing of certain Hochschild cohomologies indicates specific desirable properties such as lifting capabilities or structural stability.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "9d48e0a3-23ab-4103-ba93-8f9b6e970b3b",
+      "question": "What does it mean for a Hopf algebra $H$ to have a trivial H-Galois extension over $k$?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.19038v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c3ac71f10b54"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.19038v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "An H-Galois extension over $k$ is trivial if it is isomorphic to $H$ as an $H$-comodule algebra.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "c447e348-5c83-4d55-b097-72b3e72a56a3",
+      "question": "What is an augmented $H$-cleft extension over $R$?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.19038v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c3ac71f10b54"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.19038v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "An augmented $H$-cleft extension over $R$ is an $H$-cleft extension over $R$, where $\\epsilon_{A}: A \\rightarrow k$ is an algebra map extending $\\epsilon_{R}$, and the inclusion $R \\hookrightarrow A$ is thus an augmented algebra map.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8c0ccd25-095f-48f6-aed8-a14318c9a258",
+      "question": "What is a torsor under an affine group scheme over an algebraically closed field?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.19038v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c3ac71f10b54"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.19038v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "A torsor under an affine group scheme over an algebraically closed field is necessarily trivial.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "74569569-a949-4bfd-9ff4-b96c7d73b1b0",
+      "question": "What role do symmetric powers play in determining the properties of commutative Hopf algebras?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.19038v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c3ac71f10b54"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.19038v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Symmetric powers play a crucial role by providing morphisms whose behavior (such as being monic) can determine key properties like smoothness in commutative Hopf algebras. These morphisms help establish equivalences between different forms of algebraic structures.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "f14e664a-0572-4f4b-92d2-31ad706e328d",
+      "question": "What is the significance of smoothness in commutative Hopf algebras?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.19038v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c3ac71f10b54"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.19038v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Smoothness in commutative Hopf algebras is significant because it allows for algebra maps to be lifted from quotient structures, ensuring that certain algebraic properties are preserved under extensions. This concept is crucial for understanding how these algebras behave under various mathematical operations and transformations.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "6122f1a1-824c-4c70-b0ea-5f54b8f3fc8d",
+      "question": "Is the nil radical Nil $H$ of $H$ always nilpotent?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.19038v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c3ac71f10b54"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.19038v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, the nil radical Nil $H$ of $H$ is nilpotent.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "04cafba0-0c88-45e5-8174-5a185722cb3b",
+      "question": "Is there an improvement in image quality with LeqMod compared to without it in PET images?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2404.17994v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-535d0db50eb1"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2404.17994v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "d1f37454-a642-489a-9c54-72127b8ad125",
+      "question": "How do deep learning models benefit from prioritizing challenging cases with higher lesion likelihoods?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2404.17994v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-535d0db50eb1"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2404.17994v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "By prioritizing challenging cases with higher lesion likelihoods, deep learning models improve their ability to accurately detect and preserve critical information about lesions while reducing errors associated with less noisy, non-lesion patches.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "d3cb3395-d905-4fb4-b047-83cb8950a92b",
+      "question": "How does user interaction occur within a web-based GUI for BCI platforms?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2408.01242v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d617bfc7effe"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2408.01242v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "User interaction within a web-based GUI occurs through controls visible on localhost that allow execution of commands or macros defined in configuration files. The GUI provides real-time updates on active streams and server statuses every few seconds.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "70a555a6-9855-49ca-8261-4d06502e4dfb",
+      "question": "What role do TOML configuration files play in managing BCI software platforms?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2408.01242v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d617bfc7effe"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2408.01242v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "TOML configuration files define macros that chain multiple commands together based on alphabetical order. They pass parameters to processing steps, ensuring correct input formats during experiments or debugging sessions.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "56e8a093-a23a-482d-8136-51845ef532f1",
+      "question": "What role do synthesis constraints play in molecule design?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2405.01155v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-3dde9f28c355"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.01155v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Synthesis constraints ensure that the designed molecules can be practically synthesized in a laboratory setting. They guide the selection of reactions and materials to create viable synthetic routes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "a596fd52-73ac-4801-be78-0c22a9d15e1f",
+      "question": "Why is an extensive collection of building blocks necessary for synthetic accessibility?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2405.01155v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-3dde9f28c355"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.01155v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "An extensive collection is crucial because it ensures that a wide range of potential molecules can be synthesized across a large chemical space, facilitating diverse molecular design.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "3973387a-c318-4912-a5e3-f0ccc1ea4681",
+      "question": "Does any synthesis pathway have a QED value greater than 0.4?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2405.01155v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-3dde9f28c355"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.01155v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, one of the synthesis pathways has a QED value of 0.48.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "35e715dc-ae75-4654-9195-cb0310b0af96",
+      "question": "How does SynFlowNet improve molecule synthesizability compared to traditional methods?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2405.01155v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-3dde9f28c355"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.01155v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "SynFlowNet enhances molecule synthesizability by generating molecules within a synthetically accessible chemical space using documented chemical reactions and purchasable starting materials. This approach offers greater sample diversity than fragment-based models and is more efficient than traditional Reinforcement Learning methods.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "e7836af3-5e81-4e63-8f07-0271472004a5",
+      "question": "How does Enamine REAL Space contribute to experimental setups involving purchasable compounds?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2405.01155v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-3dde9f28c355"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.01155v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Enamine REAL Space provides a large catalogue of purchasable compounds that can be used in experimental setups. By utilizing a subset of these compounds, researchers can generate a significant portion of the REAL space, ensuring that generated molecules are readily available for experimentation.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "43c72135-8a27-43c3-a34f-0cf01b050498",
+      "question": "How does fragment-based drug discovery work?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2405.01155v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-3dde9f28c355"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.01155v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Fragment-based drug discovery involves screening small chemical compounds, known as fragments, to see if they bind effectively to biological targets. These fragments are then combined into larger molecules for potential therapeutic use.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "b58781cc-eee2-4a74-873e-d30de69702c1",
+      "question": "How does building block sampling contribute to the design of novel molecules?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2405.01155v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-3dde9f28c355"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.01155v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Building block sampling contributes by selecting appropriate molecular fragments or \"building blocks\" based on probabilities derived from binary Morgan fingerprints. This method helps generate diverse molecular structures that are synthetically feasible.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "979423e7-94fe-4341-8892-1d46f97e4210",
+      "question": "Why is it important to consider SeH-related examples in molecular design?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2405.01155v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-3dde9f28c355"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.01155v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Considering SeH-related examples helps explore specific chemical properties or functionalities associated with selenium-hydrogen bonds, which may be relevant for certain applications or studies within chemistry or pharmacology.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "7f266dbe-6b64-4cf4-b8c0-c239f1bfb547",
+      "question": "Which states show significant differences in job market data between OJV and BLS sources?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "extractive",
+        "2412.19754v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d3bfee6ca3a7"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.19754v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "States like California, Arizona, and Washington exhibit notable differences between the OJV and BLS datasets, with variations of several percentage points.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "73e5221b-147a-467b-a6c3-9efdd828cebb",
+      "question": "How does the predictive performance of the CAREER model compare when using different lengths of career history data?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2406.17972v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-f73a90edd8c9"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2406.17972v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The predictive performance of the CAREER model improves with longer career history data. Specifically, using 10 or 15 years of historical data significantly enhances prediction accuracy compared to just 5 years, highlighting a trade-off between model performance and the cost of collecting long-term career data.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "5f503bf6-5115-4b72-8178-7ef350873d03",
+      "question": "How do behavioral expectations compare to rational expectations in modeling India's output gap during the COVID-19 recovery?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2411.17165v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-a8ac60a33832"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.17165v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Behavioral expectations align more closely with the actual Indian output gap data, which is characterized by negative skewness and high kurtosis. In contrast, rational expectations produce unrealistic positive skewness and lower kurtosis values, failing to capture the non-normality observed in real data.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "e34c08b7-40b7-4814-b6d7-cad4c5b0cca6",
+      "question": "What does the p-value indicate about the normality of simulated behavioral versus rational expectation models?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "extractive",
+        "2411.17165v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-a8ac60a33832"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.17165v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The p-value indicates that simulated behavioral expectation models have a p-value of 0.03, suggesting non-normality at a significance level below 5%. In contrast, simulated rational expectation models have a higher p-value of 0.08, indicating normal distribution assumptions.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "469f4043-a27d-4803-bac9-6f91d38f279e",
+      "question": "Why might normality tests be important when analyzing economic models of India's COVID-19 recovery?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2411.17165v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-a8ac60a33832"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.17165v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Normality tests are crucial because they confirm that both actual output gaps exhibit non-normal distributions, which behavioral models can partially capture but rational models cannot due to their assumption of normal distribution results.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8bbadc83-bb0e-4b91-a6cd-fc5d67b35199",
+      "question": "How does the performance of low and high parameter MPC-ICCBF methods compare in terms of collision rates?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2409.14616v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9dc4750f9d03"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.14616v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The low parameter MPC-ICCBF method has a collision rate of $10.2\\%$ and $1.9\\%$, while the high parameter approach results in a $100\\%$ collision rate across both environments.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8addf6c1-6219-4a7b-a192-2012fecf8379",
+      "question": "How do activation functions like ReLU or GeLU influence the performance outcomes when used alongside different routing strategies in MoE models?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2405.14131v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-40fc56d8557c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.14131v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Activation functions like ReLU significantly enhance performance outcomes when used alongside perturbation strategies such as those found in the perturbed cosine router. They contribute to achieving faster estimation rates (\\(n^{-1/4}\\)) compared to traditional methods that rely on slower logarithmic scaling factors.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8c23e599-69df-4703-916e-5140645f852a",
+      "question": "What are the benefits of using a perturbed cosine router in language modeling tasks compared to a vanilla cosine router?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2405.14131v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-40fc56d8557c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.14131v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The perturbed cosine router consistently outperforms the vanilla cosine router across various datasets, showing improved performance in both character-level and word-level tasks. Specifically, it achieves lower Bit Per Character (BPC) scores on Enwik8 and Text8 datasets and slightly better Perplexity (PPL) scores on the Wikitext-103 dataset.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8c270ba7-7698-4fe5-82dc-4790162878e0",
+      "question": "How does the SmoothInfo method improve upon traditional fractal dimension calculation techniques?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2410.11774v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-88ab25e13a58"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.11774v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The SmoothInfo method incorporates a smoothing factor to address zero values that occur with rare classes having few samples. This makes it more tolerant of sparse data compared to other methods.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "29af34fe-655f-44df-9a73-d04c8a6389d1",
+      "question": "How does parallel processing improve computational efficiency in spatial analysis tasks?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2412.11355v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-f921a0da681c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.11355v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Parallel processing significantly reduces computation time by distributing tasks across multiple threads, as evidenced by a speedup from over 4400 seconds with one thread to approximately 85 seconds with 32 threads.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "e1384b49-eea2-450d-82db-55e984f92431",
+      "question": "How do different estimators perform when tested against a true spread value in stock price simulations?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2407.17401v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-05b877f47225"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2407.17401v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Estimators show varying performance levels when tested against a true spread value. Some like $\\widehat{S}_{1,1}$ and AR are often accepted with high p-values indicating good performance under certain conditions. Others like CS and AGK$_2$ may be rejected due to overconfidence or significant bias despite low variance.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "f6f7c881-bb6f-4f69-a98e-007865e8f392",
+      "question": "What are the key parameters involved in modeling the Hes1-Notch gene regulatory network, and what do they represent?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2411.09721v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d7b0a5098da7"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.09721v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The key parameters in modeling the Hes1-Notch gene regulatory network include degradation rates and concentrations of molecules such as Dll1, Notch, Hes1 mRNA, Hes1 protein, and Ngn2. These parameters help describe the dynamics of molecule interactions within a cell.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "89353298-7dec-473a-b3b8-89d5dcb432e6",
+      "question": "How did pollution levels change in Southwest China between 2000 and 2010?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2411.10728v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9adc576e11c8"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.10728v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Pollution levels, specifically $\\mathrm{SO}_{2}$ and $\\mathrm{PM}_{2.5}$ densities, showed variations over the years with heat maps indicating changes in distribution across different regions.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "c035a148-8580-47ac-a11d-20ba314aabb9",
+      "question": "Does wind speed in December have a significant impact on $P M_{2.5}$ levels?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "extractive",
+        "2411.10728v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9adc576e11c8"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.10728v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, it has a significant impact with a coefficient of $-0.778^{* * *}$.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "7d5b6334-5acb-4078-a731-3acf61f5f55c",
+      "question": "How did sulfur dioxide and PM2.5 pollution levels change in China's Sulphur Dioxide Pollution Control Zones between 2000 and 2010?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2411.10728v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9adc576e11c8"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.10728v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The density heat maps show that both sulfur dioxide and PM2.5 pollution levels were concentrated in specific regions of China, with variations over time. There was a noticeable distribution of pollutants across different areas from 2000 to 2010.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "65ca2ed3-bf55-44ce-9619-c8e01e02ce8b",
+      "question": "What are double Segal spaces and how do they relate to bisimplicial sets?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2408.14335v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9c0df3c0aad0"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2408.14335v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Double Segal spaces are presheaves on a bisimplicial set with specific local conditions, generalizing Rezk's Segal spaces. They focus on structures, properties, and completeness conditions within these mathematical frameworks.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "305265c1-51cc-4701-b0ed-3c2eeca89ddb",
+      "question": "What is a characteristic of locally complete 2-fold Segal spaces in terms of generating local maps?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2408.14335v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9c0df3c0aad0"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2408.14335v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "They are generated by (Seg), (deg), and (lhc).",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "d5aa8d2d-0831-4302-8915-7533d6517cb0",
+      "question": "What are the local objects for the subcategory $\\mathrm{Cat}^{2}(\\mathcal{S})$?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "extractive",
+        "2408.14335v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9c0df3c0aad0"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2408.14335v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Double Segal spaces",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "f1d38188-258d-4059-b2a5-2b22be080c70",
+      "question": "What are the key factors influencing age-specific mortality improvement rates across different countries?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2405.04904v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-99d93b871756"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.04904v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Key factors include geographical and historical influences, as well as gender-specific patterns in serial dependence of mortality data.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "a9503477-eeb7-4603-99fa-d2a2ab4ef4f1",
+      "question": "What differences exist in the clustering of male and female populations regarding mortality improvement rates?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2405.04904v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-99d93b871756"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2405.04904v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "For male populations, distinct clustering patterns reveal unique characteristics such as Iceland's males showing unique serial dependence compared to others. In contrast, for females, six different clusters indicate varied dependence patterns across different lags.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "6fe971a7-855a-4e07-babf-a1d4eb461a9c",
+      "question": "Are socially optimal prices influenced by local delay externalities?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "4e6a29a8-4803-4251-b0f7-026c0678904e",
+      "question": "Does the relative price social optimum serve all queues under welfare maximization?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, in the relative price social optimum, capacity is allocated in all queues.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "4e59f05d-d18e-41ff-b96c-37869b700ab1",
+      "question": "How does scaling transaction bids by the inverse of a queue's expected value affect their selection for execution?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Scaling transaction bids by the inverse of a queue's expected value standardizes them, making it easier to compare across different queues. This ensures that transactions are selected based on their adjusted social value rather than raw bid amounts, promoting fairer and more efficient execution.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "0870996e-b926-44d4-97ef-4c4b4783b648",
+      "question": "How many transactions can the blockchain process at a time?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The blockchain can collect and process up to five transactions at a time.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8e0659f7-364b-4f70-95f7-21fcee2ee3d2",
+      "question": "Why is local congestion pricing important for blockchain architectures?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Local congestion pricing is crucial because it helps manage capacity constraints effectively within evolving blockchain architectures like parallel execution systems and DAG-based models. It ensures efficient resource allocation by considering unique demand characteristics of different submarkets.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "6e6a6b18-cf92-4a51-a347-c0ba85a4dcae",
+      "question": "In what way does the current execution order impact low-priority transaction queues?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The current execution order impacts low-priority transaction queues by causing them to accumulate unprocessed tasks. Since high-priority, high-fee transactions are favored, these low-priority queues face delays and inefficiencies despite their potential for concurrent processing.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "71c504f5-b3f0-4b3c-8de8-30e71b162690",
+      "question": "What challenges arise when new high-value arrivals maintain dominance in a transaction queue?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "When new high-value arrivals consistently dominate a queue, they perpetuate an imbalance where other queues remain unprioritized. This leads to inefficient resource allocation and potential delays for less valuable but necessary transactions waiting in other queues.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "ba7d2934-ccc2-4f16-aee1-90e570df6647",
+      "question": "What condition must be met for a queue's net utility function to be strictly concave?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The discount rate and linear delay cost functions must be such that the net utility function from queue $i$, $W_{i} \\equiv \\lambda_{i} \\mapsto V_{i}\\left(\\lambda_{i}\\right) \\cdot \\bar{D}_{i}\\left(\\lambda_{i}\\right)-\\lambda_{i} \\cdot \\bar{C}_{i}\\left(\\lambda_{i}\\right)$, is strictly concave.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "f90d470a-813b-4c1a-b8da-102d228da307",
+      "question": "Are there more valuable transactions on average in Queue A compared to Queue B?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2410.09555v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-9e59b0e00315"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2410.09555v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, on average, transactions in Queue A are more valuable to the network or its users compared to those in Queue B.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "2b519cc9-1f2d-4fd0-8426-b027e51c6121",
+      "question": "Why is combining kinetic constraints with local dissipation considered promising for stabilizing degenerate manifolds?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Combining kinetic constraints with local dissipation is promising because it stabilizes different classes of degenerate manifolds within the same setup. This combination allows for preserving information through noiseless subsystems or decoherence-free subspaces while maintaining breakdowns of ergodicity due to constrained dynamics.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8df0a5c5-0bbe-48b5-bd1b-6fc5f0f4a5f8",
+      "question": "How does boundary drive influence transport properties in spin chains without dipole symmetry?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "In normal spin chains without dipole symmetry, adding boundary drive typically leads to a unique current-carrying steady state. This approach has been used effectively to explore transport properties and dissipative phase transitions.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "06459545-2ec8-4efe-8f84-849c0fed0371",
+      "question": "How does lattice length affect the number of shared states between configuration families?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "For odd lattice lengths, additional shared states can occur where lead sequences span the entire lattice, affecting how many non-overlapping versus overlapping configurations exist between families.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8d719d64-29d1-4e8f-93a8-4d2091cd9963",
+      "question": "What role does strong symmetry play in Lindblad dynamics?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Strong symmetry maintains the conservation of certain quantum numbers despite instability in decoherence-free subspaces, influencing transition rates and steady-state configurations.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "19b5550b-f7f8-495b-babc-d51d07401242",
+      "question": "How does dipole conservation affect spin chain dynamics?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Dipole conservation in a spin chain leads to a degenerate steady-state manifold that varies with fragmentation levels and drive nature. It prohibits independent spin exchanges, allowing only pairwise terms, which results in suppressed current and the formation of domain walls.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "b6d3cbe2-b61c-4821-abf8-730250feb029",
+      "question": "How do boundary-driven processes affect spin chains?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Boundary-driven processes, involving incoherent pump and loss at the boundaries, can stabilize various mixed steady states in spin chains. By adjusting these processes, one can achieve noiseless subsystems and decoherence-free subspaces that maintain large amounts of information.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "c62863b5-5ecf-4a95-9d8e-cf936ec2fa15",
+      "question": "What does it mean for bulk states to remain unchanged under specific conditions?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Bulk states remaining unchanged under specific conditions means they do not experience alterations due to external influences like boundary fluctuations, thus preserving their original properties.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "65bf44ac-def3-411a-a875-118ab3060003",
+      "question": "How do pump and loss rates affect steady states in boundary-driven systems?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "In boundary-driven systems, when pump and loss rates are equal at opposite ends, it leads to an infinite-temperature steady state with no net current flow. Variations can restore current flow by breaking symmetries.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "ec8a9ccf-7f49-4924-bc92-f42d0e06b6f6",
+      "question": "What are kinetically constrained spin chains and their significance in quantum systems?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.03309v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d1015577fc37"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.03309v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Kinetically constrained spin chains are models used to study structured ergodicity breaking in isolated quantum systems. They demonstrate how certain constraints can lead to a hierarchy of degenerate steady states, which is significant for understanding the preservation of information and the behavior of open quantum systems.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "3c46cf58-1e36-472d-8652-8425e6360b00",
+      "question": "What happens to coma lobes as beams move further from the feed array center?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2412.02582v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-1fb0b3ff65ea"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.02582v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Coma lobes become more pronounced.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "05326212-60b0-4f96-a0af-46329dbb42ff",
+      "question": "Why are histograms and violin plots used in analyzing beam pattern residuals?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2412.02582v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-1fb0b3ff65ea"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.02582v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Histograms and violin plots are used to statistically analyze the distribution of residuals between measured and modeled beam patterns. They help compare main beams and side lobes, highlighting differences between models like Gaussian and ZP.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8707eb1d-227d-45f7-ad60-3ca84fe56463",
+      "question": "Why is it important to categorize feed positions into different circles in an array?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2412.02582v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-1fb0b3ff65ea"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.02582v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Categorizing feed positions into center, inner-circle, middle-circle, and outer-circle beams helps optimize data collection by aligning feeds with specific observational needs and improving overall coverage.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "0d804fca-67a2-4212-b622-687fb254aabb",
+      "question": "Do the beam patterns exhibit circular symmetry within their $50\\%$ contour?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2412.02582v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-1fb0b3ff65ea"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.02582v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "367ab011-cd3b-4a1f-94f7-cfcd41236c94",
+      "question": "What role does rotation angle play in aligning a feed array during observations?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2412.02582v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-1fb0b3ff65ea"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.02582v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The rotation angle ensures that the feed array aligns with celestial coordinates like right ascension, maximizing data accuracy by maintaining consistent orientation relative to observed objects.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "74c3d526-6941-4aea-b577-6ab76d6932e2",
+      "question": "How does foreground contamination affect H1 intensity mapping surveys?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.02582v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-1fb0b3ff65ea"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.02582v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Foreground contamination poses a major challenge in H1 intensity mapping surveys because it can obscure or distort the signals from neutral hydrogen, making it difficult to accurately map cosmic structures. Effective subtraction of these foregrounds is crucial for obtaining reliable data.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "472ffd97-1444-49bb-8d2a-f11a81cc58fd",
+      "question": "Are there significant deviations from the symmetric Gaussian profile in off-center beams along the radial direction?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2412.02582v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-1fb0b3ff65ea"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.02582v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "02ab673a-fbd0-420a-9a18-9e3a24de8b88",
+      "question": "How are beam patterns analyzed in radio telescopes?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2412.02582v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-1fb0b3ff65ea"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.02582v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Beam patterns are analyzed by examining how the power distribution varies with position, often visualized through contour maps that show normalized power levels at different angles and distances from the central beam.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8224f5b3-65bc-42c6-9be4-2a5914edf3db",
+      "question": "What is the purpose of using a 19-feed array in radio astronomy?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2412.02582v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-1fb0b3ff65ea"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.02582v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The 19-feed array is used to enhance the sensitivity and resolution of radio observations, allowing for detailed mapping of hydrogen intensity across different regions in space.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "efe5d614-9733-4ed3-84ef-2c696c458822",
+      "question": "Is there a single project that leads to successful innovation if examined?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.03227v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-35c3b9a7d9c6"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.03227v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, there is a single project $\\hat{j} \\in J$ which, if examined, will lead to a successful innovation.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "a55c5047-a084-498c-8c79-7ce41a9c186a",
+      "question": "How does the idea of adjustable search intensity challenge traditional views on when to stop research efforts?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.03227v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-35c3b9a7d9c6"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.03227v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Traditional views often suggest stopping research when it seems excessive or unproductive. However, adjustable search intensity implies that what appears excessive might actually be optimal as researchers adapt their efforts based on past failures and informational value gained over time.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "9580a29c-3a13-47d7-80c7-1ba432bd5bef",
+      "question": "How does Bayesian updating affect research strategies in innovation models?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.03227v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-35c3b9a7d9c6"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.03227v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Bayesian updating allows researchers to adjust their beliefs based on new information from failed or successful experiments. This can lead them to reassess the potential value of remaining projects and maintain an active search rather than abandoning it prematurely.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "dd5559ba-8c69-4a0d-a0b9-e0b8d9b3120f",
+      "question": "What is an interval-based search strategy?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.03227v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-35c3b9a7d9c6"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.03227v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "An interval-based search strategy is one where the subsets $L_{t}$ are intervals.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "51e78292-4304-4763-9e55-3317e8fdd3c7",
+      "question": "Why might a rational agent continue searching for a finite prize despite increasing costs?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.03227v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-35c3b9a7d9c6"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.03227v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "A rational agent may continue searching because they can adjust the intensity of their search to prevent actual costs from rising, even as marginal costs increase. This allows the search to persist indefinitely with diminishing intensity, making it optimal under certain conditions.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "c1ee6339-4289-403b-a99a-3e9fad4e8b7d",
+      "question": "Is it optimal for the agent to engage in the search if $p v > c(0)$?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.03227v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-35c3b9a7d9c6"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.03227v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "b5ea38df-b139-4a1a-be0d-e2ad8b203ce1",
+      "question": "In what way do informational spillovers affect decisions about continuing or abandoning research?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.03227v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-35c3b9a7d9c6"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.03227v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Informational spillovers mean that failures today can inform future success probabilities. This dynamic encourages continued effort since each failure contributes valuable insights, challenging simplistic notions of stopping \"too soon\" or continuing \"too long.\"",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "058b8ad9-21a5-48ea-9f0a-cd90317716d2",
+      "question": "Why might a search for answers in scientific research continue indefinitely?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.03227v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-35c3b9a7d9c6"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.03227v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "A search may continue indefinitely due to project heterogeneity and positive informational spillovers. As researchers become more pessimistic about one project's success, they may become more optimistic about unexplored projects, leading them to persist in their search.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "a6b1c3b6-fcec-4839-8b4c-9fbe52a8e697",
+      "question": "How is the predictor space segmented in a binary tree?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The predictor space is segmented by binary splits of the form $\\{x \\in A\\}$ vs $\\{x \\notin A\\}$ where $A$ is a subset of the range of $x$.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "b52c109a-c1a7-4711-bbb8-c6613e0fe7fc",
+      "question": "Does the Bayesian bootstrap require specifying a prior for probabilities?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, to obtain the posterior distribution of probabilities, a prior must be specified.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "1ea6d042-3d23-48bb-8f76-1215eda1a851",
+      "question": "Does BART use an iterative backfitting algorithm for a fixed number of trees?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "58ef7f07-8b87-4eed-baa6-dd8d538336b9",
+      "question": "What are the differences in bias and precision between Prince BART and PS Logistic methods when estimating the effect of contraceptive use on employment?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The Prince BART method has a lower bias (0.007) compared to PS Logistic (0.012), but it is less precise, as indicated by a higher RMSE of 0.122 compared to 0.080 for PS Logistic.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "6d8ca0f7-d927-4435-b355-8978a9388c6b",
+      "question": "What is the purpose of calculating a \"partial effect\" of a covariate?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The purpose of calculating a \"partial effect\" of a covariate is to select a value for imputation by comparing MATEs based on varying the imputed value of the missing covariate.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "2534ff12-3fa2-40c9-8673-d39846cb4838",
+      "question": "What role do Bayesian Additive Regression Trees play in evaluating family planning interventions?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Bayesian Additive Regression Trees (BART) are used to non-parametrically estimate the causal effect of family planning interventions within a source population. BART helps in understanding how these interventions impact empowerment-related outcomes, allowing for an analysis that accounts for complex relationships between variables without assuming specific parametric forms.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "29b70f87-db40-40c2-a367-d1db9654648a",
+      "question": "What is the purpose of using surrogate deep trees in the analysis?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The purpose of using surrogate deep trees is to identify relevant predictors by approximating BART predictions with a flexible function of only a handful of covariates.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "fc3f6ef6-c084-4232-9815-7df6dffa964c",
+      "question": "How are variables only observed in the source sample handled when generalizing to the target population?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The values for variables only observed in the source sample are imputed as explained in the section on generalizing to the target population.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "af0bb34c-01a7-4275-b574-7f12ef7f8e46",
+      "question": "Are there any strata mixtures when cross-tabulating women based on observed values of w and z?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, each cell encompasses a mixture of two strata.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8210d952-d670-4687-ac73-3d84d597319c",
+      "question": "How does the prevalence of strong confounders differ between Nigerian and Senegalese populations in research studies?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2412.16320v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-34f367044e88"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2412.16320v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Research indicates that strong confounders must be present in at least 40% of Nigerian women and over 20% of Senegalese women for certain confidence intervals related to PATE estimates. This difference highlights varying sensitivities across populations.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "6323c445-4fcb-4047-bfcc-b795f50128f1",
+      "question": "Is there a running inventory penalty for remaining units to be liquidated?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2409.12776v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-93a1e81b989c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.12776v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, it is represented by $\\phi \\int_{t}^{\\tau} Q_{u}^{2} d u$, where $\\phi \\geq 0$.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "669e8eec-037b-42b2-8bb8-807dfbbb37a2",
+      "question": "Are Markovian jump-diffusion pricing models considered robust for algorithmic and HFT problems?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2409.12776v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-93a1e81b989c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.12776v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "No, they are not considered robust when applied to algorithmic and HFT problems.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "3d30c5e1-c766-472e-8af4-9415317217d4",
+      "question": "Does the response function in a Hawkes process need to satisfy any specific condition?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2409.12776v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-93a1e81b989c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.12776v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, the response function \\(\\mu(t)\\) must satisfy \\(\\int_{0}^{\\infty} \\mu(s) d s<1\\).",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "92a99e8b-8339-4730-afe0-0128c7a55620",
+      "question": "Does the agent stop trading if they have acquired all targeted units?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2409.12776v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-93a1e81b989c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.12776v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, the agent stops trading if they have acquired $\\mathfrak{N}$ units.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "88127938-42a3-4bf4-9c63-407afe1ad937",
+      "question": "How does the permanent price impact function behave in a liquidation problem?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2409.12776v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-93a1e81b989c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.12776v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "In a liquidation problem, the permanent price impact function is negative as it creates a downward drift in the price.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "6448d246-2c54-4dae-bf3f-bb820dd43842",
+      "question": "What is the significance of boundary conditions in solving acquisition problems within financial trading models?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2409.12776v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-93a1e81b989c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.12776v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Boundary conditions are crucial as they define the limits within which the model operates. They help determine optimal strategies by influencing how parameters like volatility impact decision-making at different stages of a trade.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "48a2315e-6bb3-4322-a387-2de9e0959ec8",
+      "question": "Why is modeling midprice important in algorithmic trading?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2409.12776v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-93a1e81b989c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.12776v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Modeling midprice is crucial because it represents the average of the best bid and ask prices, providing a central reference point for evaluating fair value. Accurate midprice modeling helps traders predict future price movements and optimize trade execution in algorithmic trading.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "44782556-505b-491a-8f8a-8f0dd44cbd28",
+      "question": "Does the agent's controlled inventory process have a positive relationship with trading speed in an acquisition problem?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2409.12776v2"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-93a1e81b989c"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2409.12776v2",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, in an acquisition problem, the agent's controlled inventory process has a positive relationship with trading speed.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "4e41b706-f97d-4616-80a3-a2f00b1f9599",
+      "question": "How does scaling law relate to protein language modeling experiments?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Scaling law examines how changes in parameters like size affect performance. In protein language modeling, it helps determine optimal configurations for handling complex biological sequences efficiently.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "4a225574-06a5-48e1-85eb-ab911da819d5",
+      "question": "What are the implications of the absence of massive activations in LC-PLM?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The absence of massive activations in LC-PLM implies improved numerical stability and makes it quantization-friendly.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "a35e43db-c0a5-4274-9f11-99ef9c5fdba4",
+      "question": "In what ways does the training approach of LMFold differ from traditional methods that use multiple sequence alignments (MSA)?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Unlike traditional methods that rely heavily on MSA for predicting protein structures, LMFold uses residue-level embeddings directly. This approach allows it to predict all-atom coordinates more efficiently while incorporating advanced loss functions like FAPE and distogram losses.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "593b5c81-6f72-46fa-baf9-415fb4ab99bd",
+      "question": "What is the purpose of using LSTM-based pLMs in protein language modeling?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "LSTM-based pLMs are used for learning protein sequences and predicting structural features such as solvent accessibility, secondary structure, structural disorder, and torsion angles.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "2365e317-1ea7-4d6d-b630-64dd2ecdba3a",
+      "question": "What are the typical trends observed in training and evaluation loss curves for large language models?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Training and evaluation loss curves typically show a decrease in loss as the number of training iterations increases, indicating improved model performance over time.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "081a3106-1355-42b7-ba51-ac45a47dc3ed",
+      "question": "What are the key hyperparameters used in training models for protein function prediction and PPI link prediction?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The key hyperparameters include the number of epochs, number of heads, learning rate, number of layers, number of hidden units, dropout rate, and k value for SortPooling. These vary across different models and experiments.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "68160aaa-7caa-4b88-b0a6-c7244e18a572",
+      "question": "Is stacking more layers suggested as a better scaling strategy for training pLMs with a fixed parameter count?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, stacking more layers instead of having more hidden units is suggested as a potentially better scaling strategy for training pLMs with a fixed parameter count.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "7191331b-22bb-47f6-8e64-fd7af1d7fe3e",
+      "question": "Which model is most suitable for tasks requiring both sequence data processing and graph contextual information?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "LC-PLM-G is most suitable for tasks that require both sequence data processing and incorporation of graph contextual information. It uniquely combines token-level protein representations within a graph context from sequences.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8e9f4c3d-997b-487d-8f04-f65d536f9a73",
+      "question": "How do alternative architectures improve the performance of protein language models?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2411.08909v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-2882fd137737"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.08909v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Alternative architectures such as convolutional models and structured state space models (SSMs) offer better scaling properties for long contexts, improving length extrapolation and neural scaling laws compared to traditional Transformers.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "ad42be9e-50bf-4872-a7a5-01fa02b57084",
+      "question": "Are there more than two primes satisfying the equation \\(y \\ln p=2 n \\pi+\\gamma\\)?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2403.04768v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d9710b981da1"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2403.04768v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "No, there are at most two primes satisfying the equation \\(y \\ln p=2 n \\pi+\\gamma\\).",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "9b2f0a81-f8c3-48ec-aec6-d215624cba3c",
+      "question": "What is the significance of Euler's proof regarding the sum of reciprocals of primes?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2403.04768v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d9710b981da1"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2403.04768v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Euler's proof demonstrated that the sum of reciprocals of all prime numbers diverges, meaning it grows without bound. This result is significant in number theory as it highlights a fundamental property of prime numbers and their distribution.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "266638ec-f677-4e4b-aa0e-c48644c8d373",
+      "question": "What is the condition for the sum of reciprocals of primes in set A to be infinite?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2403.04768v3"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-d9710b981da1"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2403.04768v3",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The sum of reciprocals of primes in set A is infinite if \\(\\sum_{p \\in A} \\frac{1}{p} = \\infty\\).",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "521fe9e4-bfbd-46bc-b835-1a3773685eee",
+      "question": "What is an example of a Pareto improvement in the context of matching children to homes?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "extractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "A Pareto improvement occurs when moving from the Naive Serial Dictatorship outcome $(1,3,\\varnothing)$ to the Linear Exchange outcome $(1,2,3)$ where no child is worse off and at least one child is better off.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "5cf4351d-0b5d-453a-af90-d1d8386b23b6",
+      "question": "Is there a preference cycle among choices in the Linear Exchange method?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "extractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "No, there are no cycles formed among choices.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "b4a46d6b-ad36-4014-b05c-b60d8c8f4da0",
+      "question": "How do the Naive Serial Dictatorship and Linear Exchange methods differ in terms of matching outcomes for children and homes?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The Naive Serial Dictatorship method results in a suboptimal matching of $(1,3,\\varnothing)$, which can be improved to $(1,2,3)$ using the Linear Exchange method. The latter respects unanimous preferences and avoids cycles to ensure stability.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "475de2f3-eeb4-46ee-86c7-76eea52b8eb9",
+      "question": "Does UTTC guarantee no Pareto improvements unless it necessitates unanimously worsening a child?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes, UTTC guarantees no Pareto improvements unless the improvement necessitates unanimously worsening a child.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "988c0675-9d8f-4445-951e-0e7fa7bfa510",
+      "question": "Does the Borda Count method involve tie-breaking rules?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "8624c7e5-c233-4f74-b4ee-770290e25079",
+      "question": "How can preference aggregation improve welfare outcomes in foster care placements?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "Preference aggregation combines human judgment with algorithmic evaluations to create more robust matches that respect both perspectives. By prioritizing allocations where humans and algorithms agree on superior matches, this approach aims to enhance placement stability and overall welfare for children within the system.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "1eca8b40-9639-43f9-a392-3aee827cd50c",
+      "question": "What does it mean for a child to have a unanimous improvement from one home to another?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "A child has a unanimous improvement from one home $h$ to another $h^{\\prime}$ if $h \\succ_{c} h^{\\prime}$ and $h >_{c} h^{\\prime}$.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "07d1fd12-7d95-41c1-a295-0c48c94918d6",
+      "question": "What does the Min-Max Rank rule do?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The Min-Max Rank rule sorts homes by their best-case rank.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "39d628cf-0e19-47f6-9aee-18365a195597",
+      "question": "What is the purpose of the Unanimous Top Trading Cycles (UTTC) algorithm?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.12860v4"
+      ],
+      "question_family": "",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_section_paths": [],
+        "gold_chunk_ids": [],
+        "gold_doc_ids": [
+          "v1-c2d74791ea69"
+        ],
+        "gold_target_ids": [],
+        "gold_target_types": [],
+        "question_type": "definition_qa",
+        "notes": "arxiv:2411.12860v4",
+        "must_include_terms": [],
+        "must_exclude_terms": [],
+        "hard_negative_target_ids": [],
+        "robustness_tags": []
+      },
+      "answer": {
+        "gold_answer": "The purpose of the UTTC algorithm is to improve on any unanimous matching, which may be useful in large markets where a large number of unanimous homes can create substantial opportunity for Pareto improving trades.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    }
+  ]
+}

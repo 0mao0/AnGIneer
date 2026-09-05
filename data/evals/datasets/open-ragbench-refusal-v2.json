@@ -1,0 +1,1105 @@
+{
+  "dataset": {
+    "dataset_id": "open-ragbench-refusal-v2",
+    "title": "Open RAG Benchmark 拒答题集 v1",
+    "category": "knowledge",
+    "description": "gold 文档未入库的不可答题，期望系统拒答；用于度量不可答幻觉率（refusal_accuracy / hallucination_on_unanswerable）",
+    "schema_version": "eval.bundle.v2",
+    "version": "1.0",
+    "library_id": "lib-b07ed174"
+  },
+  "items": [
+    {
+      "question_id": "refusal-d41c8a98-61ad-47dc-90b9-dc783f553d1a",
+      "question": "What are protostars and how are they detected in space?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2410.11095v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Protostars are early-stage stars still in the process of formation. They are detected using telescopes that capture emissions at various wavelengths, revealing their spectral characteristics and surrounding material.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-8c44ae23-92cb-4216-9314-aa5120185230",
+      "question": "Why might it be important to explore non-regenerative cases in regime-switching diffusions?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2410.15824v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Exploring non-regenerative cases in regime-switching diffusions is important because it could reveal similar limit theorems even when traditional assumptions do not hold. Understanding these cases can provide insights into closed-form limit results under divergent conditions where standard regenerative properties are absent.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-d5e0680a-f367-4778-8b3e-8cd02d1700a4",
+      "question": "Does the use of conflict-free gradients improve optimization stability in RNA modeling?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2411.09216v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes, conflict-free gradient updates yield significantly more stable optimization than vanilla gradients.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-a8e89aec-1f6c-4d72-a741-b0b79398cbab",
+      "question": "What role do autoregulatory circuits play in cell identity transitions?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2412.11336v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Autoregulatory circuits help determine stable expression patterns during cell identity transitions by influencing the weight vector, which stabilizes certain patterns and affects their basin of attraction.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-c3f45046-6e15-46fa-bc30-93e3724692d6",
+      "question": "What happens to the GFT coefficients for a real-valued graph signal with complex conjugate eigenvalue pairs?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2412.18501v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The GFT coefficients for a real-valued graph signal will also have complex conjugate coefficients for these pairs; i.e., $\\hat{\\mathbf{x}}\\left[k_{1}\\right]=\\hat{\\mathbf{x}}\\left[k_{2}\\right]^{*}$.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-8f4a014b-e63d-4682-8eb6-880033cc9f10",
+      "question": "Why might researchers choose constrained D-optimal sampling over other strategies?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2410.20606v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Researchers might opt for constrained D-optimal sampling because it allows them to efficiently allocate resources while adhering to budgetary constraints. This method optimizes sample selection based on available population data, potentially leading to more accurate study outcomes compared to unconstrained or less structured approaches.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-a5811f6f-22bc-430a-a1f6-2e9aefbc6762",
+      "question": "What operations are included in Lightroom presets for image processing?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.03848v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Lightroom presets include operations like color correction, hue adjustment, and exposure correction.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-dddb55ff-b628-4fd9-9249-aac1db44194a",
+      "question": "What experimental advancements could enhance our understanding of graviton-polaritons?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2405.12292v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Advancements in high-Q cavities could enable strong-coupling regimes that allow for better resolution of graviton-polaritons. Additionally, exploring more complex electromagnetic environments may influence vacuum Stark shifts within FQH liquids.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-eb42dc94-8ca6-47ff-9a6b-fa4bcba6a5bc",
+      "question": "How much is approximately charged as a withdrawal fee on a \\$1 million position with a fee cap of \\(1\\%\\)?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2403.03367v4",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Approximately \\$12.38.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-1277cbd8-0cf6-49e2-bdf9-32da39a2920a",
+      "question": "Are the trajectories of all agents represented as polynomial functions of time?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2411.18086v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-ac71a2e2-44e6-4215-935c-aa943c11ca0c",
+      "question": "Is there a contradiction involved in proving the uniqueness of the max aggregation method?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2407.16566v5",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-86a13ae1-e467-4146-8cb4-1fce5db6892f",
+      "question": "How is body posture observed using RGB information in video analysis?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2402.09444v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "RGB information is crucial for observing body posture during specific actions by providing clear visual data that highlights the gymnast's form and technique.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-15fb0df5-f258-4d2b-86cf-e9de4c2de5b4",
+      "question": "In what ways can theoretical models explore belief updating with respect to known versus unknown objects?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2403.01421v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Theoretical models explore belief updating by examining properties like consistency and symmetry in decision-making processes, highlighting differences between approaches such as traditional, reverse, and extended Bayesian methods.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-bb38513d-13ac-4b02-b4a7-246f67db2a7f",
+      "question": "Can nodes freely enter and exit in a permissionless protocol?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2409.08951v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-6d320467-4857-42ea-9d69-5271da9f0598",
+      "question": "What challenges do classroom environments pose for automatic speech recognition systems?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2409.14494v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Classroom environments present challenges such as varying noise levels, different types of microphones, and diverse acoustic conditions that can affect the accuracy of automatic speech recognition systems.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-64bface6-f344-41b6-8818-b2d3d82ff7fe",
+      "question": "What is empirical coordination in the context of quantum correlations?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.17119v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Empirical coordination is a framework for quantum systems that focuses on statistical averages rather than detailed descriptions of individual events.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-5743bbb5-6efc-4f38-84c9-49f0d84ee5e0",
+      "question": "Did investor confidence contribute to the rise in Tesla's stock price?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2408.11878v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-db28bad3-1c66-4cf3-bed3-d7d7d7c3d85f",
+      "question": "Does the modified three-phase estimation procedure account for multimodality?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2404.19707v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes, the modified three-phase estimation procedure explicitly takes into account multimodality.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-de25d769-c672-4c8a-95c6-b77f9ec5d2a5",
+      "question": "Why are real-valued chirality ratios important in studying nodal superconductors?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2412.13042v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Real-valued chirality ratios simplify the analysis of projected local density of states modulations, allowing clearer identification of regions meeting winding conditions as annuli around impurity sites.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-b1e4c767-c973-49fc-94a5-9892925297d1",
+      "question": "Is there any model that fully denies all loan requests?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2411.11853v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "No, there is no model that fully denies all loan requests.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-e17ee8ff-0033-43e1-88a4-5cb95431bba6",
+      "question": "Do safety-aligned LLMs use pre-training data filtering?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2407.16205v5",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-59c1b8b4-fff4-4e29-a606-c45d4dbeff8d",
+      "question": "How does money flow affect economic temperature measurement?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.00886v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "If $T_{s}<T_{A}$, people will move their money to $s$, raising its temperature until it matches $A$. If $T_{s}>T_{A}$, money flows out from $s$, lowering its temperature.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-abac4f71-391c-4853-90d8-da56068346d1",
+      "question": "What is the Euclidean norm defined for all \\( x \\in \\mathbb{R}^{n} \\)?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2401.07317v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The Euclidean norm is defined as \\( \\|x\\|=\\left(\\sum_{i \\in[n]} x_{i}^{2}\\right)^{\\frac{1}{2}} \\).",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-c9ea607a-8206-431e-b5fd-fa7a4007870e",
+      "question": "How does re-compression affect the detection of manipulated images?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2408.17106v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Re-compression affects detection by allowing identification of manipulations if the quality factor during re-compression is higher than during initial compression. This difference helps highlight inconsistencies indicative of tampering.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-68e1d163-2406-4768-b502-c2003bd221f9",
+      "question": "What role do central nodes play in curriculum network analysis?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.15929v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Central nodes in curriculum network analysis represent the most important or influential concepts within a subject's curriculum. Identifying these nodes helps educators prioritize essential topics that should receive more focus or serve as foundational elements for building further knowledge.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-64fbcb25-2390-4806-8b14-da0d75d9d3dc",
+      "question": "Why are topological defects important for classifying states of matter?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2411.03676v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Topological defects like domain walls and vortices can be used to classify states of matter because they exhibit changes that may indicate a phase transition on extended objects even when there is no bulk phase transition. This approach helps identify different phases based on spontaneous symmetry breaking patterns.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-a6d131a9-5b0e-429e-a9f1-cbdc22a5ac20",
+      "question": "In what ways can kernel ridge regression benefit from accelerated low-rank preconditioners?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "abstractive",
+        "2410.03969v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Kernel ridge regression benefits from accelerated low-rank preconditioners as they significantly speed up computations while maintaining or improving accuracy, making them suitable for large-scale data sets in molecular chemistry modeling.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-8b29750f-d1a2-4fcb-be32-d1b88f953c69",
+      "question": "What is the approximate energy value for the emotion \"Anxious\"?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table-image",
+        "extractive",
+        "2409.16681v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The approximate energy value for \"Anxious\" is around 0.05.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-f7049bbf-f24b-4a88-a42f-72772bddfc1e",
+      "question": "What role does taint semantics play in understanding indirect jumps during speculative execution?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "abstractive",
+        "2405.10089v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Taint semantics helps analyze how data flows through a program during indirect jumps in speculative execution. It focuses on tracking which parts of memory or registers might be affected by untrusted inputs during these jumps, allowing developers and researchers to understand potential vulnerabilities and design more effective countermeasures.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-96332879-8c8b-49c0-93e1-47c77c887346",
+      "question": "What is the predictable plugin method in sequential testing?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2410.16076v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The predictable plugin method in sequential testing involves updating parameters based on previous data to form a test martingale for hypothesis testing. It is particularly useful for boosting techniques and can reduce sample size requirements compared to traditional methods.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-bcb178c8-a7ff-4e53-9b30-87c9a87a899a",
+      "question": "What is the primary function of list-wise reranking models in information retrieval?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-table",
+        "abstractive",
+        "2410.23841v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The primary function of list-wise reranking models in information retrieval is to reorder a list of documents or passages based on their relevance to a given search query, presenting them in descending order with the most relevant items first.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-65ff3ae6-47b4-4e31-80c5-7341fc222067",
+      "question": "How does Bayesian Penalized Empirical Likelihood improve upon traditional empirical likelihood methods?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2412.17354v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "BPEL improves upon traditional empirical likelihood methods by incorporating a penalized approach that regularizes Lagrange multipliers, reducing problem dimensionality while accommodating various model conditions. This enhances flexibility and efficiency, making it easier to apply these methods across different statistical models.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-dfb30130-60b4-42a7-812d-2994ac3ee7c3",
+      "question": "Are there plans to extend collision laws to account for more physical details?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2410.08147v8",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes, possible future directions include extending collision laws to account for details like distinct elastic loading and elastic-plastic loading stages.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-e79f8326-7170-4ff2-bcaa-37c5eaa2557e",
+      "question": "Do focus groups and citizens assemblies favor certain types of participants?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2407.11613v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes, they favor professional participants or those with the loudest voices.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-d96588a5-1d68-40f4-ae66-086cf7caf49a",
+      "question": "Does the normalized attention entropy decrease across layers during training?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text-image",
+        "extractive",
+        "2410.05459v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes, the normalized attention entropy decreases across layers during training.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-516ff3fc-2870-49f1-a1eb-27210bedca0c",
+      "question": "Why might a planner want agents to receive noisy signals about the types of other agents?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2407.00037v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "A planner might want this because noisy signals can provide enough additional information to eliminate undesired equilibria and make certain social choice rules fully implementable, ensuring all outcomes are desirable.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-94c3ab96-cd40-4f11-8320-0c62ae5dfe09",
+      "question": "Does the evaluation process involve multiple-choice questions?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2408.11878v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "Yes.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-ab0da084-d247-4b0b-bc97-e45e78315b44",
+      "question": "What does it mean for AutoStep MCMC to be $\\pi$-irreducible?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "extractive",
+        "2410.18929v2",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "AutoStep MCMC is $\\pi$-irreducible if the chain has a positive probability of eventually visiting any measurable set $A \\subseteq \\mathcal{X}$ with $\\pi(A)>0$.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    },
+    {
+      "question_id": "refusal-1a2813d3-e395-41a9-8cc9-255cd6e5dd0f",
+      "question": "What is the purpose of using a Network Informed Restricted Vector Autoregression (NIRVAR) model?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-b07ed174",
+      "doc_ids": [],
+      "difficulty": "medium",
+      "tags": [
+        "text",
+        "abstractive",
+        "2407.13314v3",
+        "refusal"
+      ],
+      "question_family": "unanswerable",
+      "canonical_question_id": "",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": null,
+      "answer": {
+        "gold_answer": "The NIRVAR model aims to infer a graph structure from multivariate time series data and use it to impose restrictions on the coefficient matrix of a VAR model. This approach helps manage high-dimensional data by reducing the number of parameters, making it feasible to estimate and predict outcomes in large panels where traditional VAR models would be impractical.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": true
+      }
+    }
+  ]
+}
