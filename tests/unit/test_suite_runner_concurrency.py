@@ -36,7 +36,7 @@ class ConcurrencyTests(unittest.TestCase):
         active = []
         lock = threading.Lock()
 
-        def fake_worker(question, evaluator_names, stage_callback=None):
+        def fake_worker(question, evaluator_names, stage_callback=None, prediction_override=None):
             with lock:
                 active.append(question["question_id"])
             time.sleep(0.15)

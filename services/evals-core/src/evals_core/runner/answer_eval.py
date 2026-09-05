@@ -84,6 +84,29 @@ def _build_gold_answer(gold_answer: str, checks: List[Dict[str, Any]]) -> str:
     return "（无标准答案）"
 
 
+def _judge_candidates() -> List[Optional[str]]:
+    """judge 候选链（顺序=优先级，逐个尝试、失败切下一项，全部失败才落 fallback）。
+
+    配置优先级：EVAL_JUDGE_CONFIGS（JSON 数组，元素为 LLM_CONFIGS 中已注册的配置名）
+    → EVAL_JUDGE_MODEL（单配置名，向后兼容）→ [None]（被测默认模型，最旧行为）。
+    纪律：候选端点不可用只切链内下一项，**绝不静默降级到被测模型**自判自评；
+    每题记录 judge_used/judge_failover，评判来源可追溯。
+    """
+    import os as _os
+    raw = (_os.environ.get("EVAL_JUDGE_CONFIGS") or "").strip()
+    if raw:
+        try:
+            names = json.loads(raw)
+            if isinstance(names, list):
+                cleaned = [str(item).strip() for item in names if str(item).strip()]
+                if cleaned:
+                    return cleaned
+        except ValueError:
+            pass  # 配置 JSON 解析失败退回单配置，不因配置错误中断判分
+    single = (_os.environ.get("EVAL_JUDGE_MODEL") or "").strip()
+    return [single] if single else [None]
+
+
 def _llm_semantic_evaluate(
     answer: str,
     gold_answer: str,
@@ -106,45 +129,47 @@ def _llm_semantic_evaluate(
         {"role": "system", "content": SEMANTIC_EVAL_SYSTEM_PROMPT},
         {"role": "user", "content": prompt},
     ]
-    try:
-        _t_start = _time.time()
-        client = get_llm_client()
-        # 温度 0 会让判分器整体偏严（漏一个数值就从 0.8 打到 0.4），
-        # 回到默认 0.1，宽容度靠提示词规则保证，而不是靠温度随机。
-        # judge 与被测解耦：EVAL_JUDGE_MODEL 指定独立评判模型（默认 None = 被测默认模型）。
-        import os as _os
-        judge_config = _os.environ.get("EVAL_JUDGE_MODEL") or None
-        result = chat_result_guarded(client, messages, mode="instruct", config_name=judge_config, temperature=0.1)
-        raw_response = result.text
-        eval_duration = round(_time.time() - _t_start, 2)
+    _t_start = _time.time()
+    client = get_llm_client()
+    # judge 与被测解耦（候选链见 _judge_candidates）。温度 0 会让判分器整体偏严
+    # （漏一个数值就从 0.8 打到 0.4），回到默认 0.1，宽容度靠提示词规则保证。
+    candidates = _judge_candidates()
+    last_exc: Optional[Exception] = None
+    for index, config_name in enumerate(candidates):
         try:
-            parsed = extract_json_from_text(raw_response, strict=True)
-        except ParseError:
-            # strict 解析失败（常见原因是 reason 里的 LaTeX 非法转义），
-            # 用宽松模式修复非法转义/尾逗号后重试，让语义判分真实生效
-            parsed = extract_json_from_text(raw_response, strict=False)
-        score = float(parsed.get("score", 0.0))
-        score = max(0.0, min(1.0, score))
-        reason = str(parsed.get("reason", "")).strip()
-        passed = score >= semantic_threshold
-        return {
-            "semantic_score": round(score, 4),
-            "semantic_reason": reason,
-            "semantic_evaluated": True,
-            "semantic_fallback": False,
-            "semantic_passed": passed,
-            "eval_duration": eval_duration,
-        }
-    except Exception as exc:
-        if is_fatal_exception(exc):
-            raise
-        return {
-            "semantic_score": None,
-            "semantic_reason": f"LLM 语义评判失败: {exc}",
-            "semantic_evaluated": False,
-            "semantic_fallback": True,
-            "semantic_passed": None,
-        }
+            result = chat_result_guarded(client, messages, mode="instruct", config_name=config_name, temperature=0.1)
+            raw_response = result.text
+            try:
+                parsed = extract_json_from_text(raw_response, strict=True)
+            except ParseError:
+                # strict 解析失败（常见原因是 reason 里的 LaTeX 非法转义），
+                # 用宽松模式修复非法转义/尾逗号后重试，让语义判分真实生效
+                parsed = extract_json_from_text(raw_response, strict=False)
+            score = float(parsed.get("score", 0.0))
+            score = max(0.0, min(1.0, score))
+            reason = str(parsed.get("reason", "")).strip()
+            passed = score >= semantic_threshold
+            return {
+                "semantic_score": round(score, 4),
+                "semantic_reason": reason,
+                "semantic_evaluated": True,
+                "semantic_fallback": False,
+                "semantic_passed": passed,
+                "judge_used": config_name or "<被测默认>",
+                "judge_failover": index > 0,
+                "eval_duration": round(_time.time() - _t_start, 2),
+            }
+        except Exception as exc:  # noqa: BLE001 —— 单候选失败切下一候选
+            if is_fatal_exception(exc):
+                raise
+            last_exc = exc
+    return {
+        "semantic_score": None,
+        "semantic_reason": f"LLM 语义评判失败（候选 {len(candidates)} 个端点均失败）: {last_exc}",
+        "semantic_evaluated": False,
+        "semantic_fallback": True,
+        "semantic_passed": None,
+    }
 
 
 def citations_match_section_paths(citations: List[Dict[str, Any]], gold_section_paths: List[str]) -> bool:
@@ -374,6 +399,9 @@ class AnswerEvaluator(BaseEvaluator):
             "semantic_fallback": semantic_result["semantic_fallback"],
             "semantic_passed": semantic_result["semantic_passed"],
             "semantic_threshold": semantic_threshold,
+            # 评判来源可追溯（候选链见 _judge_candidates；fallback 时无 judge_used）
+            "judge_used": semantic_result.get("judge_used"),
+            "judge_failover": semantic_result.get("judge_failover", False),
         }
         return result
 

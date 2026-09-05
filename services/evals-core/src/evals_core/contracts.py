@@ -51,6 +51,8 @@ class StartEvalRunRequest(BaseModel):
     doc_ids: Optional[List[str]] = None
     resume_run_id: Optional[str] = None
     config_name: Optional[str] = None
+    # 仅配合 resume_run_id：这些题跳过问答链路，复用存量 prediction 仅重判分（judge fallback 补判）
+    rescore_question_ids: Optional[List[str]] = None
 
 
 class EvalRunProgress(BaseModel):

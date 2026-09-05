@@ -6,6 +6,7 @@ from datetime import datetime
 from typing import Any, Callable, Dict, List, Optional
 
 from evals_core.runner import base as evaluator_base
+from evals_core.runner import anomaly
 from evals_core.runner.retrieval_eval import RetrievalEvaluator
 from evals_core.runner.answer_eval import AnswerEvaluator
 from evals_core.runner.sop_eval import SopEvaluator
@@ -81,8 +82,14 @@ def _run_single_question(
     evaluator_names: List[str],
     evaluators: Dict[str, Any],
     stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
+    prediction_override: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
-    """执行单题评测，支持多评测器和阶段回调。"""
+    """执行单题评测，支持多评测器和阶段回调。
+
+    prediction_override 非空时跳过问答链路（run_prediction），直接复用存量 prediction
+    重新判分（rescore）。用于 judge 断连导致的 semantic_fallback 题补判：
+    重答会引入答案抖动、混淆「judge 故障」与「模型回退」，仅重判分才是无副作用补判。
+    """
     all_scores: Dict[str, Any] = {}
     all_predictions: Dict[str, Any] = {}
     last_prediction: Dict[str, Any] = {}
@@ -96,14 +103,17 @@ def _run_single_question(
     if not primary_evaluator:
         return {"status": "error", "error": f"评测器 {primary_evaluator_name} 未注册", "scores": {}}
     start_time = time.time()
-    try:
-        last_prediction = primary_evaluator.run_prediction(question, stage_callback=stage_callback)
-        if "error" in last_prediction:
+    if prediction_override is not None and "error" not in prediction_override:
+        last_prediction = prediction_override
+    else:
+        try:
+            last_prediction = primary_evaluator.run_prediction(question, stage_callback=stage_callback)
+            if "error" in last_prediction:
+                latency_ms = int((time.time() - start_time) * 1000)
+                return {"status": "error", "error": last_prediction["error"], "scores": {}, "latency_ms": latency_ms}
+        except Exception as exc:
             latency_ms = int((time.time() - start_time) * 1000)
-            return {"status": "error", "error": last_prediction["error"], "scores": {}, "latency_ms": latency_ms}
-    except Exception as exc:
-        latency_ms = int((time.time() - start_time) * 1000)
-        return {"status": "error", "error": str(exc), "scores": {}, "latency_ms": latency_ms}
+            return {"status": "error", "error": str(exc), "scores": {}, "latency_ms": latency_ms}
     for ev_name in evaluator_names:
         evaluator = evaluators.get(ev_name)
         if not evaluator:
@@ -289,6 +299,9 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         "wrong": wrong,
         "skipped": skipped,
         "errored": errored,
+        # judge 失败必须独立可见（2026-09-05 教训：fallback 静默缩分母，污染分数无提示）
+        "judge_failed_count": anomaly.judge_failed_count(details),
+        "anomaly_count": anomaly.judge_failed_count(details) + errored,
         "retrieval_score": retrieval_avg,
         "answer_score": answer_avg,
         "sql_score": sql_avg,
@@ -329,10 +342,14 @@ def _run_one_worker(
     question: Dict[str, Any],
     evaluator_names: List[str],
     stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
+    prediction_override: Optional[Dict[str, Any]] = None,
 ) -> tuple:
     """并发 worker：独立 evaluator 副本跑单题，返回 (question_id, result)。"""
     evaluators = _build_evaluators()
-    result = _run_single_question(question, evaluator_names, evaluators, stage_callback=stage_callback)
+    result = _run_single_question(
+        question, evaluator_names, evaluators, stage_callback=stage_callback,
+        prediction_override=prediction_override,
+    )
     return str(question.get("question_id") or ""), result
 
 
@@ -347,6 +364,7 @@ def _run_questions_concurrent(
     stop_event: threading.Event,
     override_doc_ids: Optional[List[str]],
     config_name: Optional[str],
+    rescore_map: Optional[Dict[str, Dict[str, Any]]] = None,
 ) -> int:
     """线程池并行跑题：提交阶段检查停止信号，as_completed 收结果写库。"""
     from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -391,7 +409,10 @@ def _run_questions_concurrent(
             def stage_callback(partial_prediction: Dict[str, Any], qid: str = question_id) -> None:
                 result_store.update_run_detail(run_id, qid, {"prediction": partial_prediction})
 
-            future = pool.submit(_run_one_worker, prepared, evaluator_names, stage_callback)
+            future = pool.submit(
+                _run_one_worker, prepared, evaluator_names, stage_callback,
+                (rescore_map or {}).get(question_id),
+            )
             pending[future] = question_id
 
         for future in as_completed(pending):
@@ -421,12 +442,16 @@ def _run_suite_thread(
     pre_done: Optional[Dict[str, Dict[str, Any]]] = None,
     in_place: bool = False,
     config_name: Optional[str] = None,
+    rescore_map: Optional[Dict[str, Dict[str, Any]]] = None,
 ) -> None:
     """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。
 
     pre_done: 断点续跑时，question_id -> 已完成详情 的映射。
     这些题目直接复用旧结果，只执行剩余题目；in_place=True 时详情已在原 run 记录中，
     不重复插入，仅计数进度。
+
+    rescore_map: question_id -> 存量 prediction。命中的题目跳过问答链路仅重判分
+    （judge 断连 fallback 题的无抖动补判，见 _run_single_question 文档）。
 
     并发：EVAL_CONCURRENCY（默认 3）>1 时用线程池并行跑题，每个 worker 独立构建
     evaluator 实例（共享安全）；数据库层为 WAL + thread-local 连接，天然支持并发写。
@@ -459,6 +484,7 @@ def _run_suite_thread(
                 stop_event=_stop_event,
                 override_doc_ids=override_doc_ids,
                 config_name=config_name,
+                rescore_map=rescore_map,
             )
         else:
             evaluators = _build_evaluators()
@@ -515,7 +541,10 @@ def _run_suite_thread(
                         "prediction": partial_prediction,
                     })
 
-                result = _run_single_question(question, evaluator_names, evaluators, stage_callback=_stage_callback)
+                result = _run_single_question(
+                    question, evaluator_names, evaluators, stage_callback=_stage_callback,
+                    prediction_override=(rescore_map or {}).get(question_id),
+                )
                 result_store.update_run_detail(run_id, question_id, {
                     "status": result.get("status", "error"),
                     "quality": result.get("quality"),
@@ -554,13 +583,19 @@ def _run_suite_thread(
 def start_eval_run(
     dataset_id: str, question_id: Optional[str] = None, save: bool = True,
     override_doc_ids: Optional[List[str]] = None, resume_run_id: Optional[str] = None,
-    config_name: Optional[str] = None,
+    config_name: Optional[str] = None, rescore_question_ids: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
     """启动评测运行（异步线程），立即返回 run_id，前端轮询获取进度。
 
     resume_run_id 非空时进行断点续跑：复用该 run 中已完成的题目结果，
     只执行剩余题目，最后合并为一份完整 run。
+
+    rescore_question_ids（仅配合 resume_run_id）：这些题从 pre_done 排除、不走问答链路，
+    直接复用该 run 存量 prediction 重新判分——judge 断连 fallback 题的无抖动补判通道。
+    存量行没有可用 prediction 的题自动降级为整题重跑。
     """
+    if rescore_question_ids and not resume_run_id:
+        raise ValueError("rescore_question_ids 仅在 resume_run_id 续跑时有意义")
     if _current_run_id is not None:
         raise ValueError(f"已有评测任务正在运行 (run_id: {_current_run_id})，请等待完成后再试")
     
@@ -576,6 +611,7 @@ def start_eval_run(
 
     is_full_run = question_id is None
     pre_done: Dict[str, Dict[str, Any]] = {}
+    rescore_map: Dict[str, Dict[str, Any]] = {}
     in_place_resume = False
     from angineer_core.run_manifest import build_run_manifest
 
@@ -585,12 +621,21 @@ def start_eval_run(
             raise ValueError(f"续跑源 run 不存在: {resume_run_id}")
         if source_run.get("dataset_id") != dataset_id:
             raise ValueError("续跑源 run 与目标测试集不一致")
+        rescore_set = {str(qid) for qid in (rescore_question_ids or [])}
+        if rescore_set:
+            # 仅对补判题取全量详情（prediction 大字段），其余题维持 light 查询
+            rescore_map = {
+                str(d.get("question_id") or ""): d["prediction"]
+                for d in result_store.list_run_details(resume_run_id)
+                if str(d.get("question_id") or "") in rescore_set and d.get("prediction")
+            }
         pre_done = {
             str(d.get("question_id") or ""): d
             for d in result_store.list_run_details(resume_run_id, light=True)
             if d.get("status") == "completed" and d.get("scores")
+            and str(d.get("question_id") or "") not in rescore_set
         }
-        if not pre_done:
+        if not pre_done and not rescore_map:
             raise ValueError("续跑源 run 没有可复用的已完成题目")
         # 原地续跑：复用原 run 记录，避免同一轮评测产生两条记录
         result_store.reset_run_for_resume(resume_run_id, build_run_manifest(config_name))
@@ -607,7 +652,7 @@ def start_eval_run(
 
     thread = threading.Thread(
         target=_run_suite_thread,
-        args=(run_id, dataset_id, questions, override_doc_ids, pre_done, in_place_resume, config_name),
+        args=(run_id, dataset_id, questions, override_doc_ids, pre_done, in_place_resume, config_name, rescore_map),
         daemon=True,
     )
     thread.start()
