@@ -51,6 +51,10 @@ data/evals/*
 !data/evals/datasets
 data/evals/datasets/*
 !data/evals/datasets/*.json
+# 钉住的评测基线快照（compare_runs pin 产出）：基线必须跟代码走，不能只活在某环境 sqlite 里
+!data/evals/baseline
+data/evals/baseline/*
+!data/evals/baseline/*.json
 资料/
 logs/
 .worktrees/
