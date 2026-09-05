@@ -1,0 +1,111 @@
+name: Eval Nightly (Open RAGBench v2)
+
+# 03:00 北京时间：DGX 空闲窗，对已部署实例（本机回环 8791）跑 487 题全量，
+# 与钉住的基线做逐题对比门禁，结果推企微。评测异常自动补判/重跑（--auto-retry）。
+on:
+  schedule:
+    - cron: "0 19 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: eval-nightly
+  cancel-in-progress: false
+
+jobs:
+  nightly:
+    runs-on: [self-hosted]
+    timeout-minutes: 420
+    env:
+      AICHAT: http://127.0.0.1:8791
+      OUT_DIR: evals-nightly
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deps & health
+        run: |
+          python3 -c "import requests" 2>/dev/null || python3 -m pip install --quiet requests
+          curl -sf --max-time 5 "$AICHAT/health" > /dev/null
+          echo "服务在线，开始 nightly"
+
+      - name: Import datasets (idempotent)
+        run: |
+          for f in open-ragbench-subset-v2 open-ragbench-refusal-v2 open-ragbench-smoke-v1; do
+            curl -sf -X POST "$AICHAT/api/evals/datasets/import" \
+              -F "file=@data/evals/datasets/$f.json" > /dev/null || { echo "导入失败: $f"; exit 1; }
+          done
+          echo "题集就绪"
+
+      - name: Full eval + auto retry
+        run: |
+          mkdir -p "$OUT_DIR"
+          python3 scripts/open_ragbench/run_eval.py \
+            --dataset-file data/evals/datasets/open-ragbench-subset-v2.json \
+            --dataset-id open-ragbench-subset-v2 \
+            --out "$OUT_DIR/raw.json" --auto-retry --poll-timeout 21600
+
+      - name: Report
+        run: |
+          python3 scripts/open_ragbench/report.py \
+            --raw "$OUT_DIR/raw.json" \
+            --manifest data/open_ragbench/subset/subset_manifest_v2.json \
+            --out "$OUT_DIR/report.md"
+
+      - name: Regression gate vs pinned baseline
+        id: gate
+        continue-on-error: true
+        run: |
+          python3 scripts/open_ragbench/compare_runs.py compare \
+            --base baseline --new "$OUT_DIR/raw.json" --out "$OUT_DIR/gate.md"
+
+      - name: Notify WeCom (always)
+        if: always()
+        env:
+          WEBHOOK: ${{ secrets.WECOM_WEBHOOK_URL }}
+          GATE_RED: ${{ steps.gate.outcome == 'failure' }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, urllib.request
+          webhook = os.environ.get("WEBHOOK", "").strip()
+          if not webhook:
+              print("WEBHOOK 未配置，跳过通知"); raise SystemExit(0)
+          red = os.environ.get("GATE_RED") == "true"
+          head = "**🔴 AnGIneer nightly 评测回归**" if red else "**🟢 AnGIneer nightly 评测通过**"
+          detail = ""
+          try:
+              gate = json.load(open(os.path.join(os.environ["OUT_DIR"], "gate.json"), encoding="utf-8"))
+              m = gate.get("matrix", {})
+              delta = gate.get("delta")
+              detail = (
+                  f"> 矩阵：双过 {m.get('pp')}｜新修复 {m.get('pf')}｜新回退 {m.get('fp')}｜双挂 {m.get('ff')}\n"
+                  f"> Δ正确率：<font color=\"{'warning' if red else 'info'}\">"
+                  f"{(f'{delta * 100:+.2f}pp') if delta is not None else '—'}</font>"
+                  f"，CI {gate.get('delta_ci95')}\n"
+              )
+              for reason in (gate.get("gate_reasons") or [])[:4]:
+                  detail += f"> {reason}\n"
+              regs = list((gate.get("regressions") or {}).items())[:5]
+              if regs:
+                  detail += "> 回退样例：" + "；".join(f"`{q[:8]}` {b}" for q, b in regs) + "\n"
+          except Exception as exc:
+              detail = f"> 门禁产物读取失败（可能中途失败）：{exc}\n"
+          text = head + "\n" + detail + f"> [查看完整日志]({os.environ.get('RUN_URL', '')})"
+          body = json.dumps({"msgtype": "markdown", "markdown": {"content": text}}, ensure_ascii=False).encode("utf-8")
+          req = urllib.request.Request(webhook, data=body, headers={"Content-Type": "application/json; charset=utf-8"})
+          print(urllib.request.urlopen(req, timeout=15).read().decode())
+          PYEOF
+
+      - name: Upload artifacts (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-nightly-${{ github.run_number }}
+          path: evals-nightly/
+          retention-days: 30
+
+      - name: Fail on red gate
+        if: steps.gate.outcome == 'failure'
+        run: exit 1
