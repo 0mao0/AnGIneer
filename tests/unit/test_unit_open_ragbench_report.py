@@ -13,7 +13,10 @@ class ReportTests(unittest.TestCase):
             "question_id": qid,
             "quality": quality,
             "all_scores": {
-                "retrieval": {"hit@1": 1, "hit@3": 1, "hit@5": hit5, "mrr": mrr, "citation_hit": 1},
+                # N/A 语义（2026-09-05）：section 级指标只在 metric_granularity=section 时聚合，
+                # fixture 显式声明 section gold 才能命中 hit@N(sec) 断言
+                "retrieval": {"metric_granularity": "section", "gold_target_types": ["content"],
+                              "hit@1": 1, "hit@3": 1, "hit@5": hit5, "mrr": mrr, "citation_hit": 1},
                 "answer": {"correctness_checked": True, "correctness_score": correctness},
             },
         }
