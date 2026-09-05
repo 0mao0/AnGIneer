@@ -37,15 +37,21 @@ def summarize_bucket(details):
     def get(d, section, key):
         return d.get("all_scores", {}).get(section, {}).get(key)
 
-    hits1 = [get(d, "retrieval", "hit@1") for d in details]
-    hits3 = [get(d, "retrieval", "hit@3") for d in details]
-    hits5 = [get(d, "retrieval", "hit@5") for d in details]
-    mrr = [get(d, "retrieval", "mrr") for d in details]
+    # section/citation 指标只在有对应标注的题上聚合（无标注题该指标为 N/A，不计 0 也不计入分母）
+    section_gold_details = [d for d in details if get(d, "retrieval", "metric_granularity") == "section"]
+    target_gold_details = [
+        d for d in details
+        if get(d, "retrieval", "gold_target_types")
+    ]
+    hits1 = [get(d, "retrieval", "hit@1") for d in section_gold_details]
+    hits3 = [get(d, "retrieval", "hit@3") for d in section_gold_details]
+    hits5 = [get(d, "retrieval", "hit@5") for d in section_gold_details]
+    mrr = [get(d, "retrieval", "mrr") for d in section_gold_details]
     hits1_doc = [get(d, "retrieval", "hit@1_doc") for d in details]
     hits3_doc = [get(d, "retrieval", "hit@3_doc") for d in details]
     hits5_doc = [get(d, "retrieval", "hit@5_doc") for d in details]
     mrr_doc = [get(d, "retrieval", "mrr_doc") for d in details]
-    citation = [get(d, "retrieval", "citation_hit") for d in details]
+    citation = [get(d, "retrieval", "citation_hit") for d in target_gold_details]
     answers = [
         get(d, "answer", "correctness_score")
         for d in details
@@ -111,14 +117,17 @@ def render_markdown(summary) -> str:
         "| 题型 | 题数 | hit@1(sec) | hit@3(sec) | hit@5(sec) | MRR(sec) | hit@1(doc) | hit@3(doc) | hit@5(doc) | MRR(doc) | citation_hit | 回答正确率 | 正确 | 错误 |",
         "| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
+    def fmt(value):
+        return "—" if value is None else value
+
     for source in common.SOURCES + ["other", "overall"]:
         if source not in summary:
             continue
         b = summary[source]
         lines.append(
-            f"| {source} | {b['count']} | {b['hit@1']} | {b['hit@3']} | {b['hit@5']} | {b['mrr']} | "
+            f"| {source} | {b['count']} | {fmt(b['hit@1'])} | {fmt(b['hit@3'])} | {fmt(b['hit@5'])} | {fmt(b['mrr'])} | "
             f"{b['hit@1_doc']} | {b['hit@3_doc']} | {b['hit@5_doc']} | {b['mrr_doc']} | "
-            f"{b['citation_hit']} | {b['answer_correctness']} | {b['correct']} | {b['wrong']} |"
+            f"{fmt(b['citation_hit'])} | {b['answer_correctness']} | {b['correct']} | {b['wrong']} |"
         )
     overall = summary.get("overall") or {}
     if overall.get("hit@5_doc_ci"):

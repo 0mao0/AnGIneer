@@ -678,9 +678,9 @@
                 <div class="eval-detail-row">
                   <span class="eval-detail-label">检索评测:</span>
                   <span>
-                    <template v-if="retrievalScores['hit@3'] !== undefined">Hit@3: {{ ((retrievalScores['hit@3'] as number) * 100).toFixed(1) }}% </template>
-                    <template v-if="retrievalScores['hit@5'] !== undefined">Hit@5: {{ ((retrievalScores['hit@5'] as number) * 100).toFixed(1) }}% </template>
-                    <template v-if="retrievalScores.mrr !== undefined">MRR: {{ ((retrievalScores.mrr as number) * 100).toFixed(1) }}%</template>
+                    <template v-if="retrievalScores['hit@3'] !== undefined && retrievalScores['hit@3'] !== null">Hit@3: {{ ((retrievalScores['hit@3'] as number) * 100).toFixed(1) }}% </template>
+                    <template v-if="retrievalScores['hit@5'] !== undefined && retrievalScores['hit@5'] !== null">Hit@5: {{ ((retrievalScores['hit@5'] as number) * 100).toFixed(1) }}% </template>
+                    <template v-if="retrievalScores.mrr !== undefined && retrievalScores.mrr !== null">MRR: {{ ((retrievalScores.mrr as number) * 100).toFixed(1) }}%</template>
                     <template v-if="retrievalScores.evaluated === false">未评测（无检索标准）</template>
                   </span>
                 </div>

@@ -263,15 +263,17 @@ class RetrievalEvaluator(BaseEvaluator):
                 "note": "无检索标准，无法评测",
             }
         has_section_gold = bool(gold_section_paths)
-        hit_at_1 = compute_section_hit(predicted_section_paths, gold_section_paths, 1)
-        hit_at_3 = compute_section_hit(predicted_section_paths, gold_section_paths, 3)
-        hit_at_5 = compute_section_hit(predicted_section_paths, gold_section_paths, 5)
-        mrr = compute_section_mrr(predicted_section_paths, gold_section_paths)
+        has_target_gold = bool(gold_target_ids)
+        # 无标注时输出 None（语义=N/A，报告渲染为 —），而不是 0.0 伪装成"命中率为零"
+        hit_at_1 = compute_section_hit(predicted_section_paths, gold_section_paths, 1) if has_section_gold else None
+        hit_at_3 = compute_section_hit(predicted_section_paths, gold_section_paths, 3) if has_section_gold else None
+        hit_at_5 = compute_section_hit(predicted_section_paths, gold_section_paths, 5) if has_section_gold else None
+        mrr = compute_section_mrr(predicted_section_paths, gold_section_paths) if has_section_gold else None
         hit_at_1_doc = compute_doc_hit(predicted_doc_ids, gold_doc_ids, 1)
         hit_at_3_doc = compute_doc_hit(predicted_doc_ids, gold_doc_ids, 3)
         hit_at_5_doc = compute_doc_hit(predicted_doc_ids, gold_doc_ids, 5)
         mrr_doc = compute_doc_mrr(predicted_doc_ids, gold_doc_ids)
-        citation_hit = compute_citation_hit(predicted_citations, gold_target_ids)
+        citation_hit = compute_citation_hit(predicted_citations, gold_target_ids) if has_target_gold else None
         # 主分数：有 section 标注用 section 粒度，否则降级到 doc 粒度
         effective_hit5 = hit_at_5 if has_section_gold else hit_at_5_doc
         return {
@@ -282,7 +284,7 @@ class RetrievalEvaluator(BaseEvaluator):
             "hit@1": hit_at_1,
             "hit@3": hit_at_3,
             "hit@5": hit_at_5,
-            "mrr": round(mrr, 4),
+            "mrr": round(mrr, 4) if mrr is not None else None,
             "hit@1_doc": hit_at_1_doc,
             "hit@3_doc": hit_at_3_doc,
             "hit@5_doc": hit_at_5_doc,

@@ -229,6 +229,75 @@ class DocLevelRetrievalEvalTests(unittest.TestCase):
         self.assertEqual(summary["hallucination_on_unanswerable"], 1)
 
 
+class SectionMetricNotApplicableTests(unittest.TestCase):
+    """无 section/target 标注时指标输出 None（N/A 语义），不再伪装成 0.0。"""
+
+    def test_no_section_no_target_gold_yields_none(self) -> None:
+        evaluator = RetrievalEvaluator()
+        gold = {"gold_doc_ids": ["v1-target"]}
+        prediction = {
+            "retrieved_items": [
+                {"item_id": "chunk-v1-target:0:1", "doc_id": "v1-target", "metadata": {}},
+            ],
+            "citations": [],
+        }
+        result = evaluator.evaluate({"question_id": "q1"}, gold, prediction)
+        self.assertIsNone(result["hit@1"])
+        self.assertIsNone(result["hit@3"])
+        self.assertIsNone(result["hit@5"])
+        self.assertIsNone(result["mrr"])
+        self.assertIsNone(result["citation_hit"])
+        # 主分数与 doc 粒度不受影响
+        self.assertEqual(result["metric_granularity"], "doc")
+        self.assertEqual(result["score"], 1.0)
+        self.assertEqual(result["hit@5_doc"], 1.0)
+
+    def test_section_and_target_gold_yield_numeric_metrics(self) -> None:
+        evaluator = RetrievalEvaluator()
+        gold = {
+            "gold_section_paths": ["第三章/图3"],
+            "gold_doc_ids": ["harbor-2"],
+            "gold_target_ids": ["t-gold"],
+            "gold_target_types": ["content"],
+        }
+        prediction = {
+            "retrieved_items": [{
+                "item_id": "chunk-1",
+                "doc_id": "harbor-2",
+                "metadata": {"section_path": "第三章/图3"},
+            }],
+            "citations": [{"target_id": "t-gold"}],
+        }
+        result = evaluator.evaluate({"question_id": "q1"}, gold, prediction)
+        self.assertEqual(result["metric_granularity"], "section")
+        self.assertEqual(result["hit@1"], 1.0)
+        self.assertEqual(result["hit@5"], 1.0)
+        self.assertEqual(result["citation_hit"], 1.0)
+        self.assertEqual(result["score"], 1.0)
+
+    def test_section_gold_without_hit_is_zero_not_none(self) -> None:
+        """有标注但没命中是真实 0.0（可测且未中），与 N/A 区分。"""
+        evaluator = RetrievalEvaluator()
+        gold = {
+            "gold_section_paths": ["第三章/图3"],
+            "gold_doc_ids": ["harbor-2"],
+            "gold_target_ids": ["t-gold"],
+            "gold_target_types": ["content"],
+        }
+        prediction = {
+            "retrieved_items": [{
+                "item_id": "chunk-1",
+                "doc_id": "harbor-2",
+                "metadata": {"section_path": "第一章/绪论"},
+            }],
+            "citations": [],
+        }
+        result = evaluator.evaluate({"question_id": "q1"}, gold, prediction)
+        self.assertEqual(result["hit@5"], 0.0)
+        self.assertEqual(result["citation_hit"], 0.0)
+        self.assertEqual(result["metric_granularity"], "section")
+
+
 class RetrievalPrecisionBundleTests(unittest.TestCase):
     """验证 docs 检索基准集能保留专项字段。"""
 
