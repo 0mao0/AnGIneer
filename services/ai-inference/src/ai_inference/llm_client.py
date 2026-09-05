@@ -131,6 +131,22 @@ def _build_timeout(timeout_config: TimeoutConfig) -> httpx.Timeout:
     )
 
 
+# 系统代理绕过：httpx 默认 trust_env=True 会读 Windows 注册表系统代理，
+# 本机开过代理后，对内网穿透隧道域名（如 judge 的 dgx-*.cccc-sdc.com）会 CONNECT 进代理
+# 导致 TLS 握手断流（SSL: UNEXPECTED_EOF_WHILE_READING），表现为 "Provider 不可用: Connection error."。
+# 所有端点（angineer.cn 网关 / 隧道直连）都应公网直连，故默认绕过系统代理；
+# 确需走系统代理的环境设 LLM_HTTP_TRUST_ENV=1 恢复 httpx 默认行为。
+_TRUST_ENV = os.getenv("LLM_HTTP_TRUST_ENV", "0") == "1"
+
+
+def _new_httpx_client(timeout: httpx.Timeout) -> httpx.Client:
+    return httpx.Client(timeout=timeout, trust_env=_TRUST_ENV)
+
+
+def _new_async_httpx_client(timeout: httpx.Timeout) -> httpx.AsyncClient:
+    return httpx.AsyncClient(timeout=timeout, trust_env=_TRUST_ENV)
+
+
 def _raise_mapped(error: Optional[Exception]) -> None:
     """把 OpenAI SDK 异常映射为 ai-inference 错误层级并抛出。"""
     if error is None:
@@ -505,7 +521,8 @@ class LLMClient:
         client = OpenAI(
             api_key=config.api_key,
             base_url=base_url,
-            timeout=_build_timeout(timeout_config)
+            timeout=_build_timeout(timeout_config),
+            http_client=_new_httpx_client(_build_timeout(timeout_config)),
         )
 
         extra_body = {}
@@ -562,7 +579,8 @@ class LLMClient:
         client = AsyncOpenAI(
             api_key=config.api_key,
             base_url=base_url,
-            timeout=_build_timeout(timeout_config)
+            timeout=_build_timeout(timeout_config),
+            http_client=_new_async_httpx_client(_build_timeout(timeout_config)),
         )
 
         extra_body = {}
@@ -619,7 +637,8 @@ class LLMClient:
         client = OpenAI(
             api_key=config.api_key,
             base_url=base_url,
-            timeout=_build_timeout(timeout_config)
+            timeout=_build_timeout(timeout_config),
+            http_client=_new_httpx_client(_build_timeout(timeout_config)),
         )
 
         extra_body = {}
@@ -680,7 +699,8 @@ class LLMClient:
         client = AsyncOpenAI(
             api_key=config.api_key,
             base_url=base_url,
-            timeout=_build_timeout(timeout_config)
+            timeout=_build_timeout(timeout_config),
+            http_client=_new_async_httpx_client(_build_timeout(timeout_config)),
         )
 
         extra_body = {}
