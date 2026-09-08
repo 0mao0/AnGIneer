@@ -81,8 +81,15 @@ def validate_env() -> Tuple[List[str], List[str]]:
 
     env_file = _env_file_path()
     if not env_file.exists():
-        errors.append(f"[MISSING] .env file not found: {env_file}")
-        return errors, warnings
+        # 配置真相源是进程环境：docker 部署由 compose env_file 注入，容器内本就没有
+        # .env 文件。文件缺失不单独致命（旧逻辑在此早退，既在每次启动/部署误报
+        # [MISSING] 轰炸运维群，又让真正的 *_CONFIGS 漂移在容器里永远查不到）；
+        # 只有连一个 *_CONFIGS 都没有（真空配置）才判缺失。
+        if not any((os.getenv(k) or "").strip() for k in CONFIGS_SCHEMA):
+            errors.append(
+                f"[MISSING] .env file not found and no *_CONFIGS set in environment: {env_file}"
+            )
+            return errors, warnings
 
     for key, schema in CONFIGS_SCHEMA.items():
         value = os.getenv(key, "").strip()
