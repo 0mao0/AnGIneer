@@ -140,8 +140,17 @@ def retrieve_knowledge(
         if doc_title:
             metadata["doc_title"] = doc_title
 
-    return {
+    result = {
         "items": [_serialize_item(item) for item in items],
         "total": len(items),
         "debug": debug or {},
     }
+    # 向量库健康守卫：维度不匹配时给用户可见提示
+    try:
+        from docs_core.startup_guard import get_retrieve_warning
+        warning = get_retrieve_warning()
+        if warning:
+            result["warning"] = warning
+    except Exception:
+        pass  # 守卫模块不可用时不影响检索
+    return result
