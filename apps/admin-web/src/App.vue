@@ -60,6 +60,7 @@ import { computed, provide, ref, watch } from 'vue'
 import { AppHeader, useTheme, type NavItem } from '@angineer/ui-kit'
 import AuthGate from './components/AuthGate.vue'
 import { useAdminAuthStore } from './stores/auth'
+import { WEB_CONSOLE_ORIGIN } from '../../shared/ports'
 
 const router = useRouter()
 const route = useRoute()
@@ -105,7 +106,6 @@ const navItems: NavItem[] = [
   { key: 'knowledge', label: '知识库' },
   { key: 'experience', label: '经验库' },
   { key: 'evals', label: '评测集' },
-  { key: 'dream-cycle', label: '健康检查' }
 ]
 
 /** 下拉只承载功能性模块；管理类入口（用户管理/API 管理）不占用选中态，下拉显示灰色占位 */
@@ -119,7 +119,6 @@ const activeNav = computed(() => {
   if (path.startsWith('/evals')) return 'evals'
   if (path.startsWith('/project')) return 'project'
   if (path.startsWith('/experience')) return 'experience'
-  if (path.startsWith('/dream-cycle')) return 'dream-cycle'
   if (path.startsWith('/users')) return 'users'
   if (path.startsWith('/api-keys')) return 'api-keys'
   return 'knowledge'
@@ -132,7 +131,6 @@ const handleNavClick = (key: string) => {
     knowledge: '/knowledge',
     experience: '/experience',
     evals: '/evals',
-    'dream-cycle': '/dream-cycle',
     users: '/users',
     'api-keys': '/api-keys'
   }
@@ -160,8 +158,12 @@ const adminDisplayName = computed(
   () => authStore.user?.display_name || authStore.user?.username || '未登录'
 )
 
-/** AI 对话按钮：暂不跳转 */
-const openUserChat = () => {}
+/** AI 对话按钮：跳前台对话首页（dev 走 user-web 独立端口；生产同源，nginx 根路径即前台）。
+ *  顶栏统一（03aafd9）时误留空函数把跳转弄丢，此处按旧 webConsoleHref 语义恢复 */
+const webConsoleHref = import.meta.env.DEV ? WEB_CONSOLE_ORIGIN : '/'
+const openUserChat = () => {
+  window.location.href = webConsoleHref
+}
 
 const onAdminUserMenuClick = async ({ key }: { key: string | number }) => {
   if (key === 'logout') {
