@@ -147,6 +147,19 @@ def _warm_retrieval_caches_on_startup() -> None:
     threading.Thread(target=_warm, daemon=True, name="retrieval-warmup").start()
 
 
+@app.on_event("startup")
+def _run_vector_guard_on_startup() -> None:
+    try:
+        from docs_core.startup_guard import run_vector_startup_guard
+        report = run_vector_startup_guard()
+        if not report.ok:
+            logger.error("启动向量库守卫发现问题: %s", report.errors)
+        if report.warnings:
+            logger.warning("启动向量库守卫告警: %s", report.warnings)
+    except Exception:
+        logger.exception("启动向量库守卫执行失败")
+
+
 class QueryRequest(BaseModel):
     """统一查询请求，支持 scene + id 会话池路由。"""
     query: str
