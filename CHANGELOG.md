@@ -2,6 +2,15 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.42
+
+- 夜间测试页改版：头部接管定时开关与时间（旧版无 UI 可停用定时、改时间隐式开启定时两处回归一并消除），nightly.json 落盘 started_at（开跑时间，UTC→北京规范化），新增时长列（运行中行实时计算），常驻心跳轮询修复"页面早于调度器打开就看不到运行中条目"
+- DataTable 消除两类恒定横向溢出：rowSelection 勾选列 32px 计入强制表宽（知识库日常维护表宽恒超容器），空间不足时全部非 fixed 可收缩列按 minWidth 下限迭代分摊收缩（夜间维护表弹性列余量兜不住即整表放弃致滚动条永存），Σmin 仍放不下才允许滚动，取整误差从最宽列逐列修正保证表宽精确等于容器
+- nightly 通知修复与加固：_resolve_webhook 补旧契约回退（NIGHTLY_WECOM_WEBHOOK→WEBHOOK，杜绝配置改名导致的静默漏发，09-09 晨实踩），服务器 WEBHOOK_SYSTEM（运维群）与 WEBHOOK_OWNER（业主群）拆分，运维告警只进系统群、评测结论两群都发
+- config_validator 不再把"容器内无 .env 文件"当致命错误：docker 部署 env 走 compose env_file 注入属正常形态，旧早退既在每次部署轰炸运维群假 ERROR、又让真正的 *_CONFIGS 漂移检不到；改为进程环境为真相源，仅无文件且零配置才报缺失
+- 顶栏：AI 对话按钮恢复跳前台（dev 独立端口/生产同源，03aafd9 误留空函数致入口三个提交没反应）；健康检查入口与 /dream-cycle 路由下线（DreamCycleView 仍为知识库-夜间维护使用）
+- 发版格式：摘要逐条「；」分条约定（版本号 hover 弹层拆 bullet），存量 CHANGELOG 19 个版本段重排为 - 列表
+
 ## v0.2.41
 
 - 向量检索引擎切换 Qdrant（为 2000 本规模铺路）：新增 `DOCS_VECTORSTORE_PROVIDER=qdrant` provider——`QdrantVectorStore` 实现 VectorStore 五方法接口（on-disk 向量/HNSW + scalar int8 量化 always_ram=false，面向 4GB 小内存部署机；uuid5(record_id) 确定性 point id 保证重建幂等；payload 直存 content/metadata 命中即组装、无跨引擎回查；doc_id/entity_type/entity_id keyword 索引过滤下推 HNSW 层；collection 维度即期望维度，异构维度拒写语义与 SQLite 版对齐）
