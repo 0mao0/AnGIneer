@@ -2,6 +2,10 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.41
+
+向量检索引擎切换 Qdrant（为 2000 本规模铺路）：新增 `DOCS_VECTORSTORE_PROVIDER=qdrant` provider——`QdrantVectorStore` 实现 VectorStore 五方法接口（on-disk 向量/HNSW + scalar int8 量化 always_ram=false，面向 4GB 小内存部署机；uuid5(record_id) 确定性 point id 保证重建幂等；payload 直存 content/metadata 命中即组装、无跨引擎回查；doc_id/entity_type/entity_id keyword 索引过滤下推 HNSW 层；collection 维度即期望维度，异构维度拒写语义与 SQLite 版对齐）；存量迁移 `scripts/migrate_vectors_to_qdrant.py`（canonical_vectors 直迁不重算 embedding、rowid 断点续传，生产 21.3 万条 10 分钟完成、数量核对一致）；双跑一致性校验 `scripts/verify_qdrant_parity.py`（content 去重口径 recall@20 门禁 0.95，本地实测无过滤 0.965/带过滤 0.997；record_id 口径受 table_row_key 单字符同分集群影响仅作参考）；compose 新增 angineer-qdrant 容器（qdrant/qdrant:v1.19.0，仅回环 6333 + 内网 service 名，内存上限 1536M），Dockerfile.backend 纳入运维脚本（.dockerignore 白名单放行）；生产切换后启动向量守卫 604s→4.8s、docs-api/aichat-api 双进程全量矩阵缓存消除（部署机可用内存 648MB→2.4GB，Qdrant RSS 仅 42MB）、检索 P95 无过滤 69ms/单文档过滤 23ms；回滚 = .env 切回 sqlite 重启（canonical_vectors 表保留一个发版周期后 DROP+VACUUM）。测试：test_qdrant_vector_store.py 10 项集成测试（Qdrant 不可达自动 skip），docs-core 全量 329 passed 无回归。
+
 ## v0.2.39
 
 前端双端顶栏统一与跨应用会话同步：抽出共享品牌组件 `AppBrand`（logo + 名称 + 版本 hover 发版弹层 + 主题灯泡），userweb/admin 共用，顶栏高度（56px）、内边距、背景 `--panel-header-bg`、毛玻璃与按钮内边距对齐一致；版本 hover 发版摘要提取改为兼容 README「当前版本：X.Y.Z —— 摘要」无 v 前缀格式（修复此前摘要恒为空、弹层形同虚设）。userweb：右上角用户名不再带图标、工作台仅管理员可见且点击跳转管理台（dev `/admin/`、prod `/admin/` 同源）。admin：右上角新增用户名下拉（同 userweb 交互）、API 管理/用户管理对调、AI 对话按钮跳转 userweb 去重（删除 /chat 路由与 AIChatView）、左侧 logo 改用 `BASE_URL` 修复部署在 `/admin/` 子路径下图片 404、vite 注入 `VITE_APP_RELEASE_NOTES` 使发版弹层生效。`DataTable`（@angineer/table-ui）改为表头与单元格内容默认居中（列级 `column.align` 仍可覆盖）。跨应用会话：会话 token 存 host cookie（端口无关），userweb(3005)/admin(3002) 共享同一会话，任一应用登录/退出在 focus 或同源 storage 变化时实时同步；后端 `/api/v1/auth/logout` 免库校验、无库用户也能幂等删除会话（此前会 403 且删不掉，导致「一个退、另一个不退」）。
