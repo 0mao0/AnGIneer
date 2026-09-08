@@ -395,6 +395,27 @@ class SQLiteVectorStore(VectorStore):
             "by_entity_type": by_entity_type,
         }
 
+    def get_global_stats(self) -> Dict[str, Any]:
+        """返回全库维度/行数概览，供启动守卫使用。"""
+        with self.connect() as conn:
+            row = conn.execute(
+                "SELECT COUNT(*) AS total, SUM(CASE WHEN dimension = 0 THEN 1 ELSE 0 END) AS zero_dim"
+                " FROM canonical_vectors"
+            ).fetchone()
+            dim_row = conn.execute(
+                "SELECT dimension, COUNT(*) AS cnt FROM canonical_vectors WHERE dimension > 0 GROUP BY dimension ORDER BY cnt DESC"
+            ).fetchall()
+        total = int(row["total"] or 0) if row else 0
+        zero_dim = int(row["zero_dim"] or 0) if row else 0
+        dim_distribution = {int(r["dimension"]): int(r["cnt"]) for r in dim_row} if dim_row else {}
+        expected = self.get_existing_dimension() if total > 0 else 0
+        return {
+            "total_rows": total,
+            "zero_dimension_rows": zero_dim,
+            "expected_dimension": expected,
+            "dimension_distribution": dim_distribution,
+        }
+
 
 __all__ = [
     "SQLiteVectorStore",
