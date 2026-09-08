@@ -162,6 +162,9 @@ export const defaultAIChatTransport = {
           }
         } else if (event.type === 'error') {
           throw new Error(String(event.payload?.message || 'Agent 对话错误'))
+        } else if (event.type === 'warning') {
+          const msg = String(event.message || event.payload?.message || '')
+          if (msg) options?.onWarning?.(msg)
         }
       }
     }

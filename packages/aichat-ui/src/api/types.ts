@@ -22,6 +22,8 @@ export interface AIChatTransport {
       onThinking?: (steps: ThinkingTraceStep[]) => void
       /** 后端边界规则替换最终回答时，用完整答案整体替换流式正文 */
       onAnswerReplace?: (full: string) => void
+      /** 向量库等基础设施健康告警（非致命，用户可见提示） */
+      onWarning?: (message: string) => void
     }
   ) => Promise<QueryResponse>
   /** 获取可用模型列表（可选） */

@@ -1,6 +1,7 @@
 <template>
   <div class="chat-home">
     <ChatTopBar @open-history="historyOpen = true" />
+    <div v-if="systemWarning" class="system-warning-banner">{{ systemWarning }}</div>
     <div class="chat-body">
       <div class="chat-col">
         <AIChat
@@ -107,6 +108,9 @@ const hasConversation = ref(false)
 const historyOpen = ref(false)
 const sessions = ref<ChatSessionRecord[]>([])
 
+/** 向量库健康告警（从 AIChat 组件透传） */
+const systemWarning = computed(() => aiChatRef.value?.systemWarning ?? '')
+
 /** 溯源面板 */
 const panelDocId = ref('')
 const panelTitle = ref('')
@@ -185,6 +189,16 @@ const startNewChat = () => {
   display: flex;
   flex-direction: column;
   background: var(--bg-primary);
+}
+
+.system-warning-banner {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  background: #fff7e6;
+  border-bottom: 1px solid #ffd591;
+  color: #ad6800;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .chat-body {

@@ -162,6 +162,7 @@ export function useAIChat(options?: {
       onDelta?: (delta: string) => void
       onThinking?: (steps: ThinkingTraceStep[]) => void
       onAnswerReplace?: (full: string) => void
+      onWarning?: (message: string) => void
     }
   ) => Promise<QueryResponse>
 }): {
@@ -169,6 +170,7 @@ export function useAIChat(options?: {
   loading: Ref<boolean>
   currentStreamContent: Ref<string>
   liveThinkingSteps: Ref<ThinkingTraceStep[]>
+  systemWarning: Ref<string>
   currentSessionKey: Ref<SessionKey>
   contextTokens: ComputedRef<number>
   contextRounds: ComputedRef<number>
@@ -195,6 +197,7 @@ export function useAIChat(options?: {
   const loading = ref(false)
   const currentStreamContent = ref('')
   const liveThinkingSteps = ref<ThinkingTraceStep[]>([])
+  const systemWarning = ref('')
   const abortController = ref<AbortController | null>(null)
 
   if (options?.systemPrompt) {
@@ -344,6 +347,9 @@ export function useAIChat(options?: {
           streamed = true
           currentStreamContent.value = full
         },
+        onWarning: (msg) => {
+          systemWarning.value = msg
+        },
       })
       const payload = mapQueryResponseToChatResponse(queryData)
       const citations = dedupeCitations(payload.citations || [])
@@ -462,6 +468,7 @@ export function useAIChat(options?: {
     loading,
     currentStreamContent,
     liveThinkingSteps,
+    systemWarning,
     currentSessionKey,
     contextTokens,
     contextRounds,

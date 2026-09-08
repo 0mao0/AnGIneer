@@ -123,6 +123,7 @@ const {
   loading,
   currentStreamContent,
   liveThinkingSteps,
+  systemWarning,
   contextTokens,
   contextRounds,
   sendMessage,
@@ -221,6 +222,7 @@ onMounted(() => { fetchModels() })
 
 defineExpose({
   messages,
+  systemWarning,
   clearMessages,
   sendMessage,
   handleSend,

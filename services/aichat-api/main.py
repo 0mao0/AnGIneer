@@ -225,6 +225,15 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 doc_ids=request.doc_ids,
             )
 
+            # 向量库健康守卫：维度异常时向用户发送 warning 事件
+            try:
+                from docs_core.startup_guard import get_retrieve_warning
+                vw = get_retrieve_warning()
+                if vw:
+                    yield f"data: {json.dumps({'type': 'warning', 'message': vw}, ensure_ascii=False)}\n\n"
+            except Exception:
+                pass
+
             queue: asyncio.Queue = asyncio.Queue()
 
             def emit(event):
