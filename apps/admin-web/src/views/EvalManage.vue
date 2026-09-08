@@ -281,16 +281,36 @@
 
   <!-- 夜间测试视图：门禁结论历史（与日常测试共享页面，头部切换） -->
   <div v-if="evalView === 'nightly'" class="eval-nightly-wrap" :class="appClass">
-    <div class="page-header">
-      <h2>夜间测试</h2>
+    <div class="eval-nightly-content">
+      <div class="page-header">
+        <div class="page-header-left">
+          <h2>夜间测试</h2>
+        </div>
+        <div class="page-header-right">
+          <a-switch :checked="nightlyEnabled" size="small" @change="onNightlyEnabledChange" />
+          <span class="page-header-label">每晚定时执行（北京时间）</span>
+          <a-time-picker
+            v-model:value="nightlyTime"
+            format="HH:mm"
+            value-format="HH:mm"
+            :allow-clear="false"
+            size="small"
+            width="88px"
+            @change="onNightlyTimeChange"
+          />
+          <a-button type="primary" size="small" @click="openNightlyRunModal">
+            立即运行
+          </a-button>
+        </div>
+      </div>
+      <EvalNightlyPanel ref="nightlyPanelRef" @open-run="onNightlyOpenRun" />
     </div>
-    <EvalNightlyPanel @open-run="onNightlyOpenRun" />
   </div>
 </template>
 
 <script setup lang="ts">
 /** 评测管理页面 - 三栏布局 */
-import { ref, computed, inject, onMounted, onBeforeUnmount, type Ref } from 'vue'
+import { ref, computed, inject, onMounted, onBeforeUnmount, watch, type Ref } from 'vue'
 import { App, message, Modal } from 'ant-design-vue'
 import {
   DatabaseOutlined,
@@ -351,6 +371,50 @@ const {
 
 /** 视图模式（日常测试|夜间维护）：App.vue 头部统一控制，?view=nightly 深链进入 */
 const evalView = inject<Ref<'workbench' | 'nightly'>>('evalView', ref<'workbench' | 'nightly'>('workbench'))
+
+/** 夜间测试头部：定时开关+时间（改哪项存哪项，开关状态以服务端为准；改时间不再隐式开启定时）；
+ *  立即运行打开面板内的执行计划确认框（计划/模型/并发先看清楚再起跑），running 态与轮询由面板负责 */
+const nightlyPanelRef = ref<{ openRunModal: () => void } | null>(null)
+const nightlyEnabled = ref(false)
+const nightlyTime = ref<string>('01:00')
+
+async function loadNightlySchedule() {
+  try {
+    const s = await evalsApi.getNightlySettings() as { enabled?: boolean; hour?: number; minute?: number }
+    nightlyEnabled.value = !!s.enabled
+    nightlyTime.value = `${String(s.hour ?? 1).padStart(2, '0')}:${String(s.minute ?? 0).padStart(2, '0')}`
+  } catch { /* ignore */ }
+}
+
+async function saveNightlySchedule(enabled: boolean, time: string) {
+  const [hour, minute] = time.split(':').map(Number)
+  try {
+    const s = await evalsApi.saveNightlySettings({ enabled, hour, minute }) as { enabled?: boolean; hour?: number; minute?: number }
+    nightlyEnabled.value = !!s.enabled
+    nightlyTime.value = `${String(s.hour ?? 1).padStart(2, '0')}:${String(s.minute ?? 0).padStart(2, '0')}`
+    message.success(nightlyEnabled.value ? `已保存：每晚 ${nightlyTime.value} 执行` : '已保存：定时执行关闭')
+  } catch (e: any) {
+    message.error('保存失败: ' + (e?.response?.data?.detail || e.message || e))
+    await loadNightlySchedule() // 保存失败回滚到服务端真值，避免 UI 与调度脱节
+  }
+}
+
+function onNightlyEnabledChange(checked: unknown) {
+  saveNightlySchedule(!!checked, nightlyTime.value)
+}
+
+function onNightlyTimeChange(time: string) {
+  saveNightlySchedule(nightlyEnabled.value, time)
+}
+
+function openNightlyRunModal() {
+  nightlyPanelRef.value?.openRunModal()
+}
+
+onMounted(() => {
+  if (evalView.value === 'nightly') loadNightlySchedule()
+})
+watch(evalView, (v) => { if (v === 'nightly') loadNightlySchedule() })
 
 /** 知识库树节点（用于规范筛选） */
 interface DocTreeNode {
@@ -1037,12 +1101,34 @@ onBeforeUnmount(() => {
   flex-direction: column;
   overflow-y: auto;
 }
+.eval-nightly-content {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
 .page-header {
   margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   h2 {
     margin: 0;
     color: var(--text-primary);
   }
+}
+.page-header-label {
+  color: var(--text-tertiary);
+  font-size: 14px;
+}
+.page-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .workspace-container {

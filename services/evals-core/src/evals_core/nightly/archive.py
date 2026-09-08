@@ -6,11 +6,25 @@
 """
 import json
 import shutil
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
 from . import paths
+
+
+def _to_bjt(iso: str) -> str:
+    """evals 库存的 started_at 是 UTC naive，统一转北京 +08 带偏移（与 generated_at 同口径），
+    前端 new Date 可直接解析；空值/解析失败返回空串（前端显示“—”）。"""
+    if not iso:
+        return ""
+    try:
+        dt = datetime.fromisoformat(str(iso))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(paths.BJT).isoformat(timespec="seconds")
+    except ValueError:
+        return ""
 
 KEEP_DAYS_DEFAULT = 30
 REGRESSION_ITEMS_MAX = 50
@@ -72,11 +86,13 @@ def _question_items(qids, buckets: dict, question_texts: dict, limit: int, evide
 
 def build_entry(gate: dict, summary_scores: dict, question_texts: dict,
                 dataset_id: str, date: str, run_id: str = "", state: str = "green",
-                subject: str = "") -> dict:
+                subject: str = "", started_at: str = "") -> dict:
     """门禁结论 + run 汇总 → 单日 nightly.json 条目（键与站点接口/前端协议一致）。
 
     subject=维护内容（如"Open RAG Benchmark 子集 v2（487 题）"）：写入时固化，
-    日后维护内容扩展（不只评测集）时老条目不受改名影响。"""
+    日后维护内容扩展（不只评测集）时老条目不受改名影响。
+    started_at=run 开跑时间（evals 库原值，UTC naive），表「时间」列语义=开跑时刻、
+    「时长」=generated_at−started_at；历史条目缺该字段前端显示“—”。"""
     matrix = {k: (gate.get("matrix") or {}).get(k) for k in ("pp", "pf", "fp", "ff")}
     summary = summary_scores or {}
     regressions = gate.get("regressions") or {}
@@ -85,6 +101,7 @@ def build_entry(gate: dict, summary_scores: dict, question_texts: dict,
         "date": date,
         "state": state,
         "generated_at": datetime.now(paths.BJT).isoformat(),
+        "started_at": _to_bjt(started_at),
         "run_id": run_id or gate.get("new") or "",
         "dataset_id": dataset_id,
         "subject": subject or dataset_id,
@@ -106,11 +123,13 @@ def build_entry(gate: dict, summary_scores: dict, question_texts: dict,
     }
 
 
-def build_error_entry(dataset_id: str, date: str, note: str, subject: str = "") -> dict:
+def build_error_entry(dataset_id: str, date: str, note: str, subject: str = "",
+                      started_at: str = "") -> dict:
     return {
         "date": date,
         "state": "error",
         "generated_at": datetime.now(paths.BJT).isoformat(),
+        "started_at": _to_bjt(started_at),
         "dataset_id": dataset_id,
         "subject": subject or dataset_id,
         "verdict": verdict("error", None, 0),

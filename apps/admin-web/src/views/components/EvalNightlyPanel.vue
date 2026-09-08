@@ -2,29 +2,6 @@
   <!-- 夜间维护：nightly 门禁结果的历史与明细（数据源 data/evals/nightly/，仅管理员） -->
   <div class="eval-nightly-panel">
     <div class="nightly-content">
-      <div class="nightly-schedule">
-        <div class="nightly-schedule__group">
-          <span class="nightly-schedule__label">每晚定时执行（北京时间）</span>
-          <a-switch v-model:checked="sched.enabled" size="small" />
-          <a-time-picker
-            v-model:value="sched.time"
-            format="HH:mm"
-            value-format="HH:mm"
-            :allow-clear="false"
-            size="small"
-            width="88px"
-          />
-          <template v-if="scheduleDirty">
-            <a-button size="small" type="primary" :loading="sched.saving" @click="saveSchedule">
-              保存
-            </a-button>
-            <a-button size="small" @click="cancelSchedule">取消</a-button>
-          </template>
-        </div>
-        <a-button size="small" :disabled="sched.running" @click="openRunModal">
-          {{ sched.running ? '流水线运行中…' : '立即运行' }}
-        </a-button>
-      </div>
       <DataTable
         :columns="columns"
         :data-source="days"
@@ -50,7 +27,10 @@
             {{ record.subject || record.dataset_id || '—' }}
           </template>
           <template v-else-if="column.key === 'time'">
-            {{ fmtTime(record.generated_at) }}
+            {{ fmtTime(record.started_at || record.generated_at) }}
+          </template>
+          <template v-else-if="column.key === 'duration'">
+            {{ durationText(record) }}
           </template>
           <template v-else-if="column.key === 'state'">
             <a-tag :color="stateColor(record.state)">{{ stateLabel(record.state) }}</a-tag>
@@ -132,7 +112,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
+import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import { message } from 'ant-design-vue'
 import { QuestionCircleOutlined } from '@ant-design/icons-vue'
 import { DataTable } from '@angineer/table-ui'
@@ -146,6 +126,8 @@ interface NightlyDay {
   /** 后端注入的虚拟运行行（date 固定 "running"，不落归档） */
   running?: boolean
   subject?: string
+  /** 开跑时间（v0.2.42 起 nightly.json 携带；历史条目无此字段，时间列回退 generated_at、时长显示“—”） */
+  started_at?: string
   generated_at?: string
   overall_score?: number
   correct?: number
@@ -167,7 +149,9 @@ interface NightlyDayDetailData {
   report_md?: string
 }
 
-const emit = defineEmits<{ (e: 'open-run', payload: { datasetId: string; runId: string }): void }>()
+const emit = defineEmits<{
+  (e: 'open-run', payload: { datasetId: string; runId: string }): void
+}>()
 
 const loading = ref(false)
 const days = ref<NightlyDay[]>([])
@@ -180,6 +164,7 @@ const columns: DataTableColumn[] = [
   { title: '序号', key: 'seq', width: 60, minWidth: 50, align: 'center', customRender: ({ index }: { index: number }) => index + 1 },
   { title: '维护内容', key: 'subject', width: 240, minWidth: 150, ellipsis: true, align: 'center' },
   { title: '时间', key: 'time', width: 150, minWidth: 120, align: 'center' },
+  { title: '时长', key: 'duration', width: 88, minWidth: 76, align: 'center' },
   { title: '结论', key: 'state', width: 80, minWidth: 64, align: 'center' },
   { title: '平均分', key: 'overall', width: 92, minWidth: 80, align: 'center' },
   { title: '题量', key: 'correct', width: 104, minWidth: 88, align: 'center',
@@ -187,7 +172,7 @@ const columns: DataTableColumn[] = [
       record.correct != null && record.total != null ? `${record.correct}/${record.total}` : '—' },
   { title: '基线', key: 'delta', width: 90, minWidth: 72, align: 'center' },
   { title: '评价', key: 'verdict', width: 220, minWidth: 160, flex: true, resizable: true, align: 'center' },
-  { title: '操作', key: 'action', width: 140, minWidth: 120, align: 'center' },
+  { title: '操作', key: 'action', width: 140, minWidth: 120, align: 'center', fixed: 'right' },
 ]
 
 const stateColor = (state: string) =>
@@ -209,6 +194,18 @@ const fmtTime = (iso?: string) => {
     timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit',
     hour: '2-digit', minute: '2-digit', hour12: false,
   })
+}
+
+/** 时长（分钟）：开跑→收口（generated_at）；运行中行用当前时刻实时计算，随 15s 轮询走；
+ *  历史条目缺 started_at 显示“—” */
+const durationText = (day: NightlyDay) => {
+  const startIso = day.started_at || (day.running ? day.generated_at : '')
+  const endIso = day.running ? new Date().toISOString() : day.generated_at
+  if (!startIso || !endIso) return '—'
+  const start = new Date(startIso).getTime()
+  const end = new Date(endIso).getTime()
+  if (Number.isNaN(start) || Number.isNaN(end) || end < start) return '—'
+  return `${Math.max(0, Math.round((end - start) / 60_000))} 分钟`
 }
 
 /** 老数据没有 verdict 字段时按状态兜底生成一句话（措辞与发布端 _verdict 同风格，面向普通读者） */
@@ -257,7 +254,7 @@ const stopRunning = async () => {
     message.error(String((e as Error)?.message || '停止失败'))
   } finally {
     fetchList()
-    loadSchedule()
+    loadRunState()
   }
 }
 
@@ -270,12 +267,11 @@ const removeDay = async (record: NightlyDay) => {
     message.error(String((e as Error)?.message || '删除失败'))
   } finally {
     fetchList()
-    loadSchedule()
+    loadRunState()
   }
 }
 
-// ── 定时调度设置（存服务器 data/evals/nightly_settings.json，1 分钟内生效）──
-// 交互约定：默认只读展示"开关+时间"，改动后才出现 保存/取消；历史看下方列表，工具条不复述。
+// ── 运行状态与手动触发（定时开关/时间编辑在 EvalManage 头部；配置存服务器 data/evals/nightly_settings.json）──
 interface NightlySettingsRsp {
   enabled: boolean
   hour: number
@@ -292,16 +288,7 @@ interface NightlyRunPlan {
   retry_rounds?: number
 }
 
-const sched = reactive({
-  enabled: false,
-  time: '01:00',
-  saving: false,
-  running: false,
-  savedEnabled: false,
-  savedTime: '01:00',
-})
-
-const scheduleDirty = computed(() => sched.enabled !== sched.savedEnabled || sched.time !== sched.savedTime)
+const running = ref(false)
 
 const runModal = reactive({
   open: false,
@@ -312,56 +299,40 @@ const runModal = reactive({
 
 let runPollTimer: ReturnType<typeof setInterval> | undefined
 
-const loadSchedule = async () => {
+/** 排程开关/时间编辑已上移到 EvalManage 头部，面板只关心「是否在跑」。
+ *  状态翻转（调度器起跑/收口）时补刷一次列表让虚拟行及时出现/消失；轮询节奏由常驻心跳统一管理 */
+const loadRunState = async () => {
   try {
     const s = await evalsApi.getNightlySettings() as NightlySettingsRsp
-    const time = `${String(s.hour ?? 1).padStart(2, '0')}:${String(s.minute ?? 0).padStart(2, '0')}`
-    if (!scheduleDirty.value) {
-      // 用户没在编辑时才覆盖编辑区，避免轮询冲掉未保存的修改
-      sched.enabled = sched.savedEnabled = !!s.enabled
-      sched.time = sched.savedTime = time
-    }
-    sched.running = !!s.running
-    if (s.running && !runPollTimer) startRunPolling()
-    if (!s.running && runPollTimer) stopRunPolling()
+    const was = running.value
+    running.value = !!s.running
+    if (was !== running.value) fetchList()
   } catch {
     // 读取失败保持默认值展示，不打扰主列表
   }
 }
 
-/** 流水线运行期间每 15s 刷状态与列表（虚拟行进度随轮询走；停止/收口后行消失与按钮恢复也靠它） */
-const startRunPolling = () => {
-  runPollTimer = setInterval(async () => {
-    await loadSchedule()
+/** 常驻心跳轮询（修复“页面早于调度器打开就永远看不到运行行”——旧逻辑只在加载时已
+ *  running 才轮询）：固定 15s tick；运行中每 tick 全刷（虚拟行进度/时长实时），
+ *  空闲每 4 tick（≈60s）刷一次状态与列表。面板随视图 v-if 挂载/卸载，定时器随组件收口 */
+const IDLE_TICKS_PER_REFRESH = 4
+let tickCount = 0
+const tickPoll = async () => {
+  tickCount += 1
+  if (running.value || tickCount % IDLE_TICKS_PER_REFRESH === 0) {
+    await loadRunState()
     fetchList()
-    if (!sched.running) stopRunPolling()
-  }, 15_000)
+  }
 }
-const stopRunPolling = () => {
+const startHeartbeat = () => {
+  if (!runPollTimer) runPollTimer = setInterval(tickPoll, 15_000)
+}
+const stopHeartbeat = () => {
   if (runPollTimer) clearInterval(runPollTimer)
   runPollTimer = undefined
 }
 
-const saveSchedule = async () => {
-  sched.saving = true
-  try {
-    const [hour, minute] = sched.time.split(':').map(Number)
-    const s = await evalsApi.saveNightlySettings({ enabled: sched.enabled, hour, minute }) as NightlySettingsRsp
-    sched.savedEnabled = !!s.enabled
-    sched.savedTime = `${String(s.hour ?? 1).padStart(2, '0')}:${String(s.minute ?? 0).padStart(2, '0')}`
-    message.success(sched.enabled ? `已保存：每晚 ${sched.savedTime} 执行` : '已保存：定时执行关闭')
-  } catch (e) {
-    message.error(String((e as Error)?.message || '保存失败'))
-  } finally {
-    sched.saving = false
-  }
-}
-
-const cancelSchedule = () => {
-  sched.enabled = sched.savedEnabled
-  sched.time = sched.savedTime
-}
-
+/** 供父组件头部「立即运行」按钮调用：打开执行计划确认框（计划/模型/并发先看清楚再起跑） */
 const openRunModal = async () => {
   runModal.open = true
   runModal.loading = true
@@ -381,8 +352,8 @@ const confirmLaunch = async () => {
     if (r.ok) {
       message.success('夜间流水线已启动：完成前本页将显示运行状态，结束后自动刷新结论并推企微通知')
       runModal.open = false
-      sched.running = true
-      startRunPolling()
+      running.value = true
+      tickCount = 0 // 让下一个 15s tick 立即进入快轮
       // 立即拉一次出"启动中"种子行；起跑建档有几秒间隙，8s 后再补拉出真实进度
       fetchList()
       setTimeout(fetchList, 8_000)
@@ -398,48 +369,19 @@ const confirmLaunch = async () => {
 
 onMounted(() => {
   fetchList()
-  loadSchedule()
+  loadRunState()
+  startHeartbeat()
 })
-onBeforeUnmount(stopRunPolling)
+onBeforeUnmount(stopHeartbeat)
+
+defineExpose({ openRunModal })
 </script>
 
 <style scoped>
+/* 宽度封顶/居中、外边距与滚动全部交给外层 .eval-nightly-wrap + .eval-nightly-content
+   （与知识库日常维护的 .knowledge-stats/.stats-content 同构），此处再包一层会让表格比头部窄 */
 .eval-nightly-panel {
-  height: 100%;
-  min-height: 0;
-  overflow: auto;
-  padding: 24px;
-  box-sizing: border-box;
-}
-/* 宽度约束对齐知识库列表页（KnowledgeStats .stats-content）：封顶 1100px 居中，宽屏下不再拉满 */
-.nightly-content {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-/* 工具条式布局（对齐知识库列表页的留白）：状态信息居左、操作靠右，与表格拉开呼吸间距 */
-.nightly-schedule {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  min-height: 32px;
-  margin-bottom: 20px;
-}
-/* 左组自排 flex 垂直居中（a-space 的行盒基线会把不同高度控件排歪，实测中心差 4px） */
-.nightly-schedule__group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.nightly-schedule__label,
-.nightly-schedule__status {
-  font-size: 12px;
-  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
-}
-.nightly-schedule__status {
-  margin-right: auto;
+  min-width: 0;
 }
 .nightly-help {
   margin-left: 4px;

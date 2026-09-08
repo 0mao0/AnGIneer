@@ -106,7 +106,8 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     entry = archive.build_entry(
         gate_res, loop_run.get("summary_scores") or {}, q_texts,
         dataset_id, paths.today_bjt(), run_id=run_id, state=state,
-        subject=_dataset_subject(dataset_id))
+        subject=_dataset_subject(dataset_id),
+        started_at=str(loop_run.get("started_at") or ""))
     archive.publish_day(entry, report_md)
 
     raw_for_card = {k: loop_run.get(k) for k in ("started_at", "completed_at")}
@@ -186,9 +187,16 @@ async def run_nightly(*, dataset_id: str,
                         "detail": "已被手动停止，未生成结论"}
         logger.exception("nightly 流水线失败（run=%s）", run_id)
         note = f"{type(exc).__name__}: {str(exc)[:280]}"
+        err_started = ""
+        if run_id:
+            try:  # 起跑后失败（run 已建档）尽量带上开跑时间；起跑前异常则无从取、留空
+                err_started = str((await asyncio.to_thread(result_store.get_run, run_id) or {}).get("started_at") or "")
+            except Exception:  # noqa: BLE001
+                pass
         try:
             archive.publish_day(archive.build_error_entry(
-                dataset_id, date, note, subject=_dataset_subject(dataset_id)), None)
+                dataset_id, date, note, subject=_dataset_subject(dataset_id),
+                started_at=err_started), None)
             await _notify_best_effort(webhook, notify.build_message(None, None, notify.STATE_ERROR, note))
         except Exception:  # noqa: BLE001 兜底路径再失败只留日志
             logger.exception("nightly error 档结论落盘/通知也失败")
