@@ -248,16 +248,26 @@ def _record(cfg: dict, now: datetime, source: str, slot: Optional[str], result: 
         logger.exception("nightly 运行结果落盘失败")
 
 
+def _resolve_webhook() -> str:
+    """夜间评测通知目标：系统群 WEBHOOK_SYSTEM + 业主群 WEBHOOK_OWNER（逗号拼接后由
+    pipeline 逐群尽力推送，各变量自身支持逗号/分号分隔多群）。
+    两者皆未配置时回退旧部署契约 NIGHTLY_WECOM_WEBHOOK / WEBHOOK——nightly 内置化时
+    变量名迁移过一轮，部署机 .env 没跟着改就会静默「未配置 webhook 跳过通知」（09-09 晨实踩）。"""
+    webhooks = [w for w in (
+        (os.getenv("WEBHOOK_SYSTEM") or "").strip(),
+        (os.getenv("WEBHOOK_OWNER") or "").strip(),
+    ) if w]
+    if webhooks:
+        return ",".join(webhooks)
+    return (os.getenv("NIGHTLY_WECOM_WEBHOOK") or os.getenv("WEBHOOK") or "").strip()
+
+
 async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
     global _stop_requested, _current_run_id
     _stop_requested = False
     _current_run_id = ""
     t0 = time.monotonic()
-    # 夜间评测同时通知系统群和业主群
-    webhook_system = (os.getenv("WEBHOOK_SYSTEM") or "").strip()
-    webhook_owner = (os.getenv("WEBHOOK_OWNER") or "").strip()
-    webhooks = [w for w in [webhook_system, webhook_owner] if w]
-    webhook = ",".join(webhooks)
+    webhook = _resolve_webhook()
     site_url = (os.getenv("NIGHTLY_SITE_URL") or "https://angineer.cn/admin/evals?view=nightly").strip()
     logger.info("nightly 流水线开始（source=%s, dataset=%s）", source, cfg["dataset_id"])
     try:

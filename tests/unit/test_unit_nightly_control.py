@@ -276,5 +276,39 @@ class StopAndRunningRowTests(unittest.TestCase):
         self.assertTrue(entry["generated_at"].endswith("+08:00"))
 
 
+class TestResolveWebhook(unittest.TestCase):
+    """通知目标解析：两群变量优先，皆空回退旧部署契约（迁移期静默失效防复发）。"""
+
+    _KEYS = ("WEBHOOK_SYSTEM", "WEBHOOK_OWNER", "NIGHTLY_WECOM_WEBHOOK", "WEBHOOK")
+
+    def _resolve(self, **env):
+        full = {k: "" for k in self._KEYS}
+        full.update(env)
+        with mock.patch.dict(os.environ, full, clear=False):
+            return nc._resolve_webhook()
+
+    def test_system_and_owner_joined(self):
+        self.assertEqual(
+            self._resolve(WEBHOOK_SYSTEM=" https://a ", WEBHOOK_OWNER="https://b"),
+            "https://a,https://b")
+
+    def test_multi_group_in_one_var_preserved(self):
+        self.assertEqual(self._resolve(WEBHOOK_SYSTEM="https://a,https://b"), "https://a,https://b")
+
+    def test_legacy_nightly_var_fallback(self):
+        self.assertEqual(self._resolve(NIGHTLY_WECOM_WEBHOOK="https://a;https://b"), "https://a;https://b")
+
+    def test_legacy_webhook_var_fallback(self):
+        self.assertEqual(self._resolve(WEBHOOK="https://c"), "https://c")
+
+    def test_new_var_beats_legacy(self):
+        self.assertEqual(
+            self._resolve(WEBHOOK_OWNER="https://o", NIGHTLY_WECOM_WEBHOOK="https://legacy"),
+            "https://o")
+
+    def test_none_configured_empty(self):
+        self.assertEqual(self._resolve(), "")
+
+
 if __name__ == "__main__":
     unittest.main()
