@@ -55,9 +55,14 @@ def _check_vector_store() -> Dict[str, Any]:
     """读取向量库全局统计。"""
     try:
         from docs_core.step06_vectors import get_vectorstore_provider_name
-        if get_vectorstore_provider_name() == "sqlite":
+        provider_name = get_vectorstore_provider_name()
+        if provider_name == "sqlite":
             from docs_core.step06_vectors.sqlite_vector_store import SQLiteVectorStore
             store = SQLiteVectorStore()
+            return store.get_global_stats()
+        elif provider_name == "qdrant":
+            from docs_core.step06_vectors.qdrant_vector_store import QdrantVectorStore
+            store = QdrantVectorStore()
             return store.get_global_stats()
         else:
             from docs_core.step06_vectors.chroma_vector_store import ChromaVectorStore

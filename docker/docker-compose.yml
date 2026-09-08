@@ -14,6 +14,7 @@ services:
     depends_on:
       - docs-api
       - aichat-api
+      - qdrant
     restart: unless-stopped
     networks:
       - angineer-net
@@ -35,6 +36,8 @@ services:
       - ../data:/app/data
       - ../logs:/app/logs
     restart: unless-stopped
+    depends_on:
+      - qdrant
     networks:
       - angineer-net
     healthcheck:
@@ -61,6 +64,8 @@ services:
       - ../data:/app/data
       - ../logs:/app/logs
     restart: unless-stopped
+    depends_on:
+      - qdrant
     networks:
       - angineer-net
     healthcheck:
@@ -69,6 +74,24 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
+
+  qdrant:
+    # 向量 ANN 引擎（DOCS_VECTORSTORE_PROVIDER=qdrant 时启用）：
+    # on-disk 存储 + int8 量化，4GB 内存机器可承载千万级向量
+    image: qdrant/qdrant:v1.19.0
+    container_name: angineer-qdrant
+    ports:
+      # 只绑定本机回环（供宿主机迁移/运维脚本使用）；后端容器经内网 service 名访问
+      - "127.0.0.1:6333:6333"
+    volumes:
+      - ../data/qdrant:/qdrant/storage
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1536M
+    networks:
+      - angineer-net
 
   documentserver:
     image: onlyoffice/documentserver:latest

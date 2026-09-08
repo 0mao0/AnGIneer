@@ -32,6 +32,7 @@ from docs_core.paths import (
 )
 from docs_core.step06_vectors import (
     ChromaVectorStore,
+    QdrantVectorStore,
     SQLiteVectorStore,
     VectorRecord,
     VectorSearchHit,
@@ -283,6 +284,10 @@ class DocsService:
         provider_name = get_vectorstore_provider_name()
         if provider_name == "sqlite":
             vector_store = SQLiteVectorStore(db_path=self.index_db_path)
+            logger.info("docs_core 启用向量 provider=%s, backend=%s", provider_name, vector_store.__class__.__name__)
+            return vector_store
+        if provider_name == "qdrant":
+            vector_store = QdrantVectorStore()
             logger.info("docs_core 启用向量 provider=%s, backend=%s", provider_name, vector_store.__class__.__name__)
             return vector_store
         if provider_name == "chroma":

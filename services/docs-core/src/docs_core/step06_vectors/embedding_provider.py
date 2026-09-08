@@ -240,8 +240,12 @@ def _detect_existing_vector_dimension() -> int:
         from docs_core.step06_vectors.chroma_vector_store import ChromaVectorStore
         from docs_core.step06_vectors.sqlite_vector_store import SQLiteVectorStore
 
-        if get_vectorstore_provider_name() == "sqlite":
+        provider_name = get_vectorstore_provider_name()
+        if provider_name == "sqlite":
             store = SQLiteVectorStore()
+        elif provider_name == "qdrant":
+            from docs_core.step06_vectors.qdrant_vector_store import QdrantVectorStore
+            store = QdrantVectorStore()
         else:
             store = ChromaVectorStore()
         return store.get_existing_dimension()

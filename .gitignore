@@ -19,6 +19,8 @@ scripts/*
 **/scripts/*
 !scripts/audit_prompts.py
 !scripts/sync-standalone.ps1
+!scripts/migrate_vectors_to_qdrant.py
+!scripts/verify_qdrant_parity.py
 !scripts/open_ragbench/
 !scripts/open_ragbench/**
 scripts/open_ragbench/__pycache__/

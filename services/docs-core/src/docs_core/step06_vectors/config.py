@@ -24,6 +24,26 @@ def get_vectorstore_provider_name() -> str:
     return get_env_str("DOCS_VECTORSTORE_PROVIDER", "chroma").lower() or "chroma"
 
 
+# Qdrant 连接配置（provider=qdrant 时生效）
+def get_qdrant_url() -> str:
+    return get_env_str("QDRANT_URL", "http://localhost:6333") or "http://localhost:6333"
+
+
+def get_qdrant_api_key() -> str:
+    return get_env_str("QDRANT_API_KEY", "")
+
+
+def get_qdrant_collection() -> str:
+    return get_env_str("QDRANT_COLLECTION", "docs_core_vectors") or "docs_core_vectors"
+
+
+def get_qdrant_timeout() -> float:
+    try:
+        return max(1.0, float(get_env_str("QDRANT_TIMEOUT", "60")))
+    except (ValueError, TypeError):
+        return 60.0
+
+
 # 解析 embedding strict fallback 模式
 def get_embedding_strict_fallback() -> bool:
     return os.getenv("DOCS_EMBEDDING_STRICT_FALLBACK", "false").lower() in ("true", "1", "yes", "on")
@@ -96,6 +116,10 @@ __all__ = [
     "get_embedding_hash_penalty",
     "get_embedding_provider_name",
     "get_embedding_strict_fallback",
+    "get_qdrant_api_key",
+    "get_qdrant_collection",
+    "get_qdrant_timeout",
+    "get_qdrant_url",
     "get_vectorstore_provider_name",
     "load_embedding_entries",
 ]

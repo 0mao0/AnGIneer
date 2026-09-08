@@ -103,6 +103,8 @@ COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/pytho
 COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /app/services /app/services
 COPY --from=builder /app/apps /app/apps
+# 运维脚本（向量迁移/一致性校验）
+COPY scripts/migrate_vectors_to_qdrant.py scripts/verify_qdrant_parity.py scripts/
 
 RUN mkdir -p /app/data/knowledge_base /app/data/sops /app/logs \
     && touch /app/package.json

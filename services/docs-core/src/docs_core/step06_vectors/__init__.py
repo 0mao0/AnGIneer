@@ -17,6 +17,7 @@ from .embedding_provider import (
     default_embedding_provider,
     normalize_embedding_text,
 )
+from .qdrant_vector_store import QdrantVectorStore
 from .sqlite_vector_store import SQLiteVectorStore, build_content_hash, dot_similarity
 from .vector_indexer import build_vector_records, summarize_vector_records
 from .vector_store import VectorRecord, VectorSearchHit, VectorStore
@@ -26,6 +27,7 @@ __all__ = [
     "DashScopeEmbeddingProvider",
     "EmbeddingProvider",
     "HashEmbeddingProvider",
+    "QdrantVectorStore",
     "SQLiteVectorStore",
     "VectorRecord",
     "VectorSearchHit",
