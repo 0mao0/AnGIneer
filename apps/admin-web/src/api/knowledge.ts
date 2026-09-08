@@ -108,6 +108,14 @@ export const knowledgeApi = {
     api.post(`/knowledge/parse/${taskId}/cancel`) as Promise<{ status: string; task_id: string; message: string }>,
   retryParseTask: (docId: string) =>
     api.post('/knowledge/parse/retry', { doc_id: docId }) as Promise<{ status: string; task_id: string; doc_id: string; message: string }>,
+  batchRetryParseTasks: (docIds: string[]) =>
+    api.post('/knowledge/parse/batch-retry', { doc_ids: docIds }) as Promise<{
+      status: string;
+      started: number;
+      failed: number;
+      results: Array<{ doc_id: string; task_id: string }>;
+      errors: Array<{ doc_id: string; reason: string }>;
+    }>,
 
   parseDocument: (libraryId: string, docId: string, filePath?: string, parseOptions?: KnowledgeParseOptions) =>
     api.post('/knowledge/parse', { library_id: libraryId, doc_id: docId, file_path: filePath, parse_options: parseOptions }),

@@ -53,6 +53,15 @@
       <a-button
         v-show="selectedRowKeys.length > 0"
         type="primary"
+        class="stats-filter-batch-parse"
+        :loading="batchParsing"
+        @click="onBatchParseClick"
+      >
+        批量解析 ({{ selectedRowKeys.length }})
+      </a-button>
+      <a-button
+        v-show="selectedRowKeys.length > 0"
+        type="primary"
         danger
         class="stats-filter-batch-delete"
         @click="onBatchDeleteClick"
@@ -374,6 +383,7 @@ const adminDeleteDocId = ref('')
 const adminDeleteRecordId = ref(0)
 const adminDeleteFileName = ref('')
 const adminDeleteInput = ref('')
+const batchParsing = ref(false)
 
 // 列表轮询：存在进行中记录时持续静默刷新，全部终态后停止
 let recordsPollTimer: number | null = null
@@ -953,6 +963,41 @@ async function batchHardDelete() {
   }
 }
 
+// 批量解析：对选中的记录发起解析任务
+async function onBatchParseClick() {
+  if (!selectedRowKeys.value.length) return
+  // 获取选中记录的 doc_id（过滤掉已在进行中的记录）
+  const selectedDocs = records.value.filter(r =>
+    selectedRowKeys.value.includes(r.id) && !RUNNING_STATUSES.has(r.status)
+  )
+  if (!selectedDocs.length) {
+    message.warning('选中的记录中没有可解析的文件（均已在进行中或无需解析）')
+    return
+  }
+  const docIds = selectedDocs.map(r => r.doc_id)
+  batchParsing.value = true
+  const loadingKey = `batch-parsing-${Date.now()}`
+  message.loading({ content: `正在发起 ${docIds.length} 个解析任务…`, key: loadingKey, duration: 0 })
+  try {
+    const res = await knowledgeApi.batchRetryParseTasks(docIds)
+    message.destroy(loadingKey)
+    if (res.errors.length && !res.started) {
+      message.error(`批量解析失败：${res.errors[0].reason}`)
+    } else if (res.errors.length) {
+      message.warning(`已启动 ${res.started} 个解析，${res.errors.length} 个失败`)
+    } else {
+      message.success(`已启动 ${res.started} 个解析任务`)
+    }
+    selectedRowKeys.value = []
+    await loadRecords()
+  } catch (e: any) {
+    message.destroy(loadingKey)
+    message.error('批量解析失败: ' + (e?.response?.data?.detail || e?.message || e))
+  } finally {
+    batchParsing.value = false
+  }
+}
+
 // 彻底删除前清理知识库节点；节点已彻底不存在（孤儿记录）时忽略 404，仅清理记录本身。
 async function purgeNodeIfExists(docId: string) {
   try {
@@ -1029,6 +1074,16 @@ onMounted(() => {
 }
 .stats-filter-upload {
   margin-left: auto;
+}
+.stats-filter-batch-delete,
+.stats-filter-batch-parse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 15px;
+  line-height: 1;
+  vertical-align: middle;
 }
 :deep(.ant-table) {
   th, td { text-align: center !important; }

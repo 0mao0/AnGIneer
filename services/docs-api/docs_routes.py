@@ -854,6 +854,39 @@ async def retry_parse_task(request: Dict[str, str]):
         raise HTTPException(status_code=500, detail=f"重试失败: {str(e)}")
 
 
+class BatchRetryRequest(BaseModel):
+    """批量重试解析请求。"""
+    doc_ids: List[str]
+
+
+@docs_router.post("/parse/batch-retry")
+async def batch_retry_parse_tasks(request: BatchRetryRequest):
+    """批量重试失败或被取消的解析任务。"""
+    if not request.doc_ids:
+        raise HTTPException(status_code=400, detail="缺少 doc_ids 参数")
+    results = []
+    errors = []
+    for doc_id in request.doc_ids:
+        try:
+            result = parse_orchestrator.retry_parse_task(doc_id)
+            if result:
+                results.append({"doc_id": doc_id, "task_id": result["task_id"]})
+            else:
+                errors.append({"doc_id": doc_id, "reason": "文档不存在或无法重试"})
+        except ValueError as e:
+            errors.append({"doc_id": doc_id, "reason": str(e)})
+        except Exception as e:
+            logger.error(f"批量重试解析任务失败 doc_id={doc_id}: {e}")
+            errors.append({"doc_id": doc_id, "reason": str(e)})
+    return {
+        "status": "success",
+        "started": len(results),
+        "failed": len(errors),
+        "results": results,
+        "errors": errors,
+    }
+
+
 @docs_router.post("/upload")
 async def upload_document(
     library_id: str = Form(...),
