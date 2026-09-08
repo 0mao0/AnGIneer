@@ -279,8 +279,11 @@
 
   </div>
 
-  <!-- 夜间维护视图：门禁结论历史（与日常测试共享页面，头部切换） -->
+  <!-- 夜间测试视图：门禁结论历史（与日常测试共享页面，头部切换） -->
   <div v-if="evalView === 'nightly'" class="eval-nightly-wrap" :class="appClass">
+    <div class="page-header">
+      <h2>夜间测试</h2>
+    </div>
     <EvalNightlyPanel @open-run="onNightlyOpenRun" />
   </div>
 </template>
@@ -1029,6 +1032,17 @@ onBeforeUnmount(() => {
   height: 100%;
   background: var(--bg-primary);
   transition: background-color 0.3s;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.page-header {
+  margin-bottom: 16px;
+  h2 {
+    margin: 0;
+    color: var(--text-primary);
+  }
 }
 
 .workspace-container {

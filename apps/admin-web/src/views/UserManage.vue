@@ -1,10 +1,9 @@
 <template>
   <div class="user-manage" :class="appClass">
-    <PageHeader title="用户管理" description="创建账号并配置可访问的知识库">
-      <template #extra>
-        <AppButton variant="primary" size="sm" @click="openCreate">新建用户</AppButton>
-      </template>
-    </PageHeader>
+    <div class="page-header">
+      <h2>用户管理</h2>
+      <AppButton variant="primary" size="sm" @click="openCreate">新建用户</AppButton>
+    </div>
 
     <div class="user-table-wrap">
       <DataTable
@@ -99,7 +98,7 @@
 import { computed, onMounted, reactive, ref } from 'vue'
 import { message } from 'ant-design-vue'
 import dayjs from 'dayjs'
-import { useTheme, PageHeader, AppButton } from '@angineer/ui-kit'
+import { useTheme, AppButton } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
 import type { DataTableColumn } from '@angineer/ui-kit'
 import { usersApi, type AdminUserItem, type LibraryOptionItem } from '@/api/users'
@@ -293,6 +292,19 @@ onMounted(() => {
 
 .user-manage {
   padding: 24px;
+}
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  h2 {
+    margin: 0;
+    color: var(--text-primary);
+  }
 }
 .user-table-wrap {
   max-width: 1100px;

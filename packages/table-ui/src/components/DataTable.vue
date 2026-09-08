@@ -262,13 +262,15 @@ watch(() => props.columns, (cols) => {
 
 const effectiveColumns = computed<DataTableColumn[]>(() =>
   props.columns.map((col) => {
+    // resizable 默认 true（未显式设为 false 即启用）
+    const resizable = col.resizable === false ? false : true
     if (!col.key) {
       // 无 key 列按配置宽度渲染，缺省给默认宽度兜底（避免 table-layout: fixed 下塌缩为 0）
-      return typeof col.width === 'number' ? col : { ...col, width: 120 }
+      return typeof col.width === 'number' ? { ...col, resizable } : { ...col, width: 120, resizable }
     }
     const virtual = internalWidths[col.key] ?? (typeof col.width === 'number' ? col.width : 120)
     const min = typeof col.minWidth === 'number' ? col.minWidth : 50
-    return { ...col, width: Math.max(virtual, min), minWidth: col.minWidth }
+    return { ...col, width: Math.max(virtual, min), minWidth: col.minWidth, resizable }
   }),
 )
 
@@ -319,7 +321,7 @@ const tableStyle = computed(() => ({ '--dt-col-sum': `${contentWidth.value}px` }
 const scrollX = computed(() => Math.max(containerWidth.value, contentWidth.value))
 
 function fillWidthToContainer(): void {
-  if (!props.fillWidth || hasStoredLayout.value || userAdjusted.value) return
+  if (!props.fillWidth || userAdjusted.value) return
   const el = tableContainerRef.value
   if (!el) return
   const width = viewportWidth()
@@ -375,17 +377,26 @@ onBeforeUnmount(() => {
   tableResizeObserver?.disconnect()
 })
 
-// ── 分页约定：默认 showSizeChanger=false + showTotal ──
+// ── 分页约定：受控模式，showSizeChanger 默认 true ──
+const internalPagination = reactive<Record<string, any>>({})
+
 const paginationProps = computed(() => {
   if (!props.pagination || typeof props.pagination !== 'object') return false
   return {
-    showSizeChanger: false,
+    showSizeChanger: true,
     ...props.pagination,
+    ...internalPagination,
     showTotal: props.pagination.showTotal ?? ((t: number) => `共 ${t} 条`),
   }
 })
 
 function onTableChange(pagination: unknown, filters: unknown, sorter: unknown): void {
+  // 受控分页：回写当前页码和每页条数
+  if (pagination && typeof pagination === 'object') {
+    const p = pagination as Record<string, any>
+    if (p.current !== undefined) internalPagination.current = p.current
+    if (p.pageSize !== undefined) internalPagination.pageSize = p.pageSize
+  }
   emit('change', pagination, filters, sorter)
 }
 
@@ -478,6 +489,11 @@ function emitQuery(): void {
 // 整行热区展开：行级指针光标提示可点击
 .data-table--row-click-expand :deep(.ant-table-row) {
   cursor: pointer;
+}
+
+// 分页栏无背景底色
+:deep(.ant-table-pagination) {
+  background: transparent !important;
 }
 
 </style>

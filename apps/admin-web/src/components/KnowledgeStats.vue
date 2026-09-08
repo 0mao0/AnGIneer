@@ -1,18 +1,17 @@
 <template>
   <div class="knowledge-stats" :class="appClass">
     <div class="stats-content">
-    <div class="stats-header">
-      <div class="stats-title-wrap">
-        <div class="stats-title">历史记录<span class="stats-title-count">（{{ filteredRecords.length }}条）</span></div>
+    <div class="page-header">
+      <div class="page-header-left">
+        <LibrarySelect class="library-select-inline" mode="title" @review="onEntityReview" />
+      </div>
+      <div class="page-header-right">
         <a-switch
           :checked="showDeletedOnly"
           size="small"
           @change="toggleDeletedFilter"
         />
-        <span class="stats-deleted-label">用户已删</span>
-      </div>
-      <div class="stats-actions">
-        <LibrarySelect class="library-select-inline" style="min-width: 160px" @review="onEntityReview" />
+        <span class="page-header-label">用户已删</span>
       </div>
     </div>
 
@@ -71,27 +70,16 @@
     </div>
 
     <div ref="tableWrapRef" class="stats-table-wrap">
-    <a-table
+    <DataTable
       :columns="columns"
       :data-source="filteredRecords"
       :loading="loading"
       :row-selection="rowSelection"
-      :scroll="{ x: scrollX }"
       row-key="id"
-      size="middle"
-      :pagination="{ pageSize: 20, showSizeChanger: true, showTotal: (total: number) => `共 ${total} 条` }"
+      :card="false"
+      :pagination="{ pageSize: 20, showSizeChanger: true, pageSizeOptions: ['10', '20', '50', '100'], showTotal: (total: number) => `共 ${total} 条` }"
+      storage-key="angineer-admin-knowledge-v4"
     >
-      <template #headerCell="{ column, title }">
-        <div class="resizable-th">
-          <span class="resizable-th-title">{{ title }}</span>
-          <span
-            v-if="column.title"
-            class="resizable-th-handle"
-            title="拖动调整列宽"
-            @mousedown.prevent="onResizeStart($event, column)"
-          />
-        </div>
-      </template>
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'file_size'">
           {{ formatFileSize(record.file_size) }}
@@ -138,7 +126,7 @@
           </span>
         </template>
       </template>
-    </a-table>
+    </DataTable>
     </div>
     </div>
 
@@ -297,9 +285,10 @@
 import { ref, nextTick, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import dayjs from 'dayjs'
 import { message, Modal } from 'ant-design-vue'
-import type { TableColumnType } from 'ant-design-vue'
 import { CopyOutlined, ExclamationCircleOutlined, UploadOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
+import { DataTable } from '@angineer/table-ui'
+import type { DataTableColumn } from '@angineer/ui-kit'
 import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
 import { PDFParsedWorkspace, useKnowledgeParse } from '@angineer/docs-ui'
 import type { KnowledgeTreeNode, KnowledgeParseOptions } from '@angineer/docs-ui'
@@ -419,97 +408,19 @@ const viewerParseButtonText = computed(() => {
   return '开始解析'
 })
 
-const COLUMN_WIDTH_STORAGE_KEY = 'angineer-admin-knowledge-column-widths-v3'
-const MIN_COLUMN_WIDTH = 48
-const FILE_NAME_FALLBACK_WIDTH = 240
-
-const columns = ref<TableColumnType[]>([
+const columns = ref<DataTableColumn[]>([
   { title: '上传人员', dataIndex: 'uploaded_by', key: 'uploaded_by', width: 96 },
-  { title: '文件名称', dataIndex: 'file_name', key: 'file_name', ellipsis: true },
+  { title: '文件名称', dataIndex: 'file_name', key: 'file_name', ellipsis: true, flex: true },
   { title: '格式', dataIndex: 'file_format', key: 'file_format', width: 60 },
   { title: '大小', key: 'file_size', width: 80 },
   { title: '页数', dataIndex: 'page_count', key: 'page_count', width: 60 },
   { title: '解析状态', key: 'status', width: 80 },
   { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
-  { title: '操作', key: 'action', width: 260, fixed: 'right' as const },
+  { title: '操作', key: 'action', width: 260, fixed: 'right' },
 ])
 
 // 表格容器宽度：内容总宽超出容器时横向滚动（操作列 fixed:right 保持可见），否则自适应铺满
 const tableWrapRef = ref<HTMLElement | null>(null)
-const containerWidth = ref(0)
-let tableResizeObserver: ResizeObserver | undefined
-
-const contentWidth = computed(() => {
-  let sum = 0
-  for (const col of columns.value) {
-    const w = (col as { width?: number | string }).width
-    sum += typeof w === 'number' ? w : FILE_NAME_FALLBACK_WIDTH
-  }
-  return sum
-})
-const scrollX = computed(() => Math.max(containerWidth.value, contentWidth.value))
-
-function observeTableWidth() {
-  if (!tableWrapRef.value) return
-  tableResizeObserver = new ResizeObserver((entries) => {
-    const width = entries[0]?.contentRect.width
-    if (width) containerWidth.value = Math.round(width)
-  })
-  tableResizeObserver.observe(tableWrapRef.value)
-}
-
-let resizingColumn: TableColumnType | null = null
-let resizeStartX = 0
-let resizeStartWidth = 0
-
-function onResizeStart(event: MouseEvent, column: TableColumnType) {
-  resizingColumn = column
-  resizeStartX = event.clientX
-  // 未设宽度的自适应列（文件名称）从 DOM 读取当前实际宽度作为起点
-  const th = (event.target as HTMLElement).closest('th')
-  resizeStartWidth = Number(column.width) || th?.offsetWidth || MIN_COLUMN_WIDTH
-  document.addEventListener('mousemove', onResizeMove)
-  document.addEventListener('mouseup', onResizeEnd)
-}
-
-function onResizeMove(event: MouseEvent) {
-  if (!resizingColumn) return
-  const nextWidth = Math.max(MIN_COLUMN_WIDTH, Math.round(resizeStartWidth + event.clientX - resizeStartX))
-  resizingColumn.width = nextWidth
-}
-
-function onResizeEnd() {
-  if (resizingColumn) {
-    persistColumnWidths()
-  }
-  resizingColumn = null
-  document.removeEventListener('mousemove', onResizeMove)
-  document.removeEventListener('mouseup', onResizeEnd)
-}
-
-function persistColumnWidths() {
-  const widths: Record<string, number> = {}
-  for (const column of columns.value) {
-    if (typeof column.width === 'number') {
-      widths[String(column.key)] = column.width
-    }
-  }
-  localStorage.setItem(COLUMN_WIDTH_STORAGE_KEY, JSON.stringify(widths))
-}
-
-function restoreColumnWidths() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(COLUMN_WIDTH_STORAGE_KEY) || '{}') as Record<string, number>
-    for (const column of columns.value) {
-      const width = saved[String(column.key)]
-      if (typeof width === 'number' && width >= MIN_COLUMN_WIDTH) {
-        column.width = width
-      }
-    }
-  } catch {
-    // 本地存储内容损坏时忽略，使用默认列宽
-  }
-}
 
 const rowSelection = computed(() => ({
   selectedRowKeys: selectedRowKeys.value,
@@ -666,9 +577,6 @@ watch(stepsModalOpen, (open) => {
 onBeforeUnmount(() => {
   stopStagesPolling()
   stopRecordsPolling()
-  tableResizeObserver?.disconnect()
-  document.removeEventListener('mousemove', onResizeMove)
-  document.removeEventListener('mouseup', onResizeEnd)
 })
 
 async function loadDocStages(docId: string) {
@@ -1008,8 +916,6 @@ async function purgeNodeIfExists(docId: string) {
 }
 
 onMounted(() => {
-  restoreColumnWidths()
-  observeTableWidth()
   loadRecords()
 })
 </script>
@@ -1023,44 +929,32 @@ onMounted(() => {
 }
 .stats-content {
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
 }
-.stats-header {
+.page-header {
+  margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-  gap: 8px;
 }
-.stats-title {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-primary);
-  white-space: nowrap;
-}
-.stats-title-count {
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--text-secondary);
-}
-.stats-title-wrap {
+.page-header-left {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.stats-deleted-label {
-  font-size: 13px;
-  color: var(--text-secondary);
-  white-space: nowrap;
-}
-.stats-actions {
+.page-header-right {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+.page-header-label {
+  color: var(--text-tertiary);
+  font-size: 14px;
 }
 .stats-table-wrap {
   min-width: 0;
+  width: 100%;
 }
 .stats-filter-bar {
   display: flex;
@@ -1072,9 +966,7 @@ onMounted(() => {
 .stats-filter-item {
   min-width: 0;
 }
-.stats-filter-upload {
-  margin-left: auto;
-}
+.stats-filter-upload,
 .stats-filter-batch-delete,
 .stats-filter-batch-parse {
   display: inline-flex;
@@ -1085,49 +977,14 @@ onMounted(() => {
   line-height: 1;
   vertical-align: middle;
 }
+.stats-filter-upload {
+  margin-left: auto;
+}
 :deep(.ant-table) {
   th, td { text-align: center !important; }
 }
 :deep(.ant-table-thead > tr > th) {
   position: relative;
-}
-.resizable-th {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.resizable-th-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.resizable-th-handle {
-  position: absolute;
-  top: 0;
-  right: -5px;
-  bottom: 0;
-  width: 10px;
-  cursor: col-resize;
-  z-index: 1;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 8px;
-    bottom: 8px;
-    right: 4px;
-    width: 2px;
-    border-radius: 1px;
-    background: transparent;
-    transition: background 0.2s;
-  }
-
-  &:hover::after {
-    background: var(--primary-color);
-  }
 }
 .action-btns {
   display: inline-flex;

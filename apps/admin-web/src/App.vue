@@ -54,12 +54,10 @@
 
 <script setup lang="ts">
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import { Modal } from 'ant-design-vue'
 import { LogoutOutlined, TeamOutlined, WechatFilled } from '@ant-design/icons-vue'
 import { useRouter, useRoute } from 'vue-router'
 import { computed, provide, ref, watch } from 'vue'
 import { AppHeader, useTheme, type NavItem } from '@angineer/ui-kit'
-import { WEB_CONSOLE_ORIGIN } from '../../shared/ports'
 import AuthGate from './components/AuthGate.vue'
 import { useAdminAuthStore } from './stores/auth'
 
@@ -68,8 +66,8 @@ const route = useRoute()
 const authStore = useAdminAuthStore()
 const { themeConfig, appClass } = useTheme()
 
-/** 知识库视图状态（列表|解析）：由头部统一控制 */
-const knowledgeView = ref<'list' | 'parse'>('list')
+/** 知识库视图状态（日常维护|夜间测试|AI对话）：由头部统一控制 */
+const knowledgeView = ref<'maintenance' | 'nightly' | 'aichat'>('maintenance')
 provide('knowledgeView', knowledgeView)
 
 /** 评测集视图状态（日常测试|夜间维护）：?view=nightly 深链直达（企微卡片入口）。
@@ -80,18 +78,19 @@ watch(() => route.query.view, (v) => {
   if (v === 'nightly') evalView.value = 'nightly'
 }, { immediate: true })
 
-/** 头部视图切换按模块显示：知识库=列表|解析，评测集=日常测试|夜间维护 */
+/** 头部视图切换按模块显示：知识库=日常维护|夜间维护|AI对话，评测集=日常测试|夜间测试 */
 const viewItems = computed(() => {
   if (activeNav.value === 'knowledge') {
     return [
-      { key: 'list', label: '列表' },
-      { key: 'parse', label: '解析' }
+      { key: 'maintenance', label: '日常维护' },
+      { key: 'nightly', label: '夜间维护' },
+      { key: 'aichat', label: 'AI对话' }
     ]
   }
   if (activeNav.value === 'evals') {
     return [
       { key: 'workbench', label: '日常测试' },
-      { key: 'nightly', label: '夜间维护' }
+      { key: 'nightly', label: '夜间测试' }
     ]
   }
   return []
@@ -99,9 +98,6 @@ const viewItems = computed(() => {
 
 /** 当前模块激活的视图 key（头部高亮用） */
 const activeView = computed(() => (activeNav.value === 'evals' ? evalView.value : knowledgeView.value))
-
-/** 获取前台首页地址（开发环境用独立端口，生产环境同源） */
-const webConsoleHref = import.meta.env.DEV ? WEB_CONSOLE_ORIGIN : '/'
 
 /** 模块导航：AI 对话/用户管理/API 管理改为右上角图标入口，不再出现在模块下拉里 */
 const navItems: NavItem[] = [
@@ -154,7 +150,7 @@ const handleViewChange = (key: string) => {
     }
     return
   }
-  if (key === 'list' || key === 'parse') {
+  if (key === 'maintenance' || key === 'nightly' || key === 'aichat') {
     knowledgeView.value = key
   }
 }
@@ -164,10 +160,8 @@ const adminDisplayName = computed(
   () => authStore.user?.display_name || authStore.user?.username || '未登录'
 )
 
-/** AI 对话复用 userweb 前端，直接跳转前台，避免重复实现 */
-const openUserChat = () => {
-  window.location.href = webConsoleHref
-}
+/** AI 对话按钮：暂不跳转 */
+const openUserChat = () => {}
 
 const onAdminUserMenuClick = async ({ key }: { key: string | number }) => {
   if (key === 'logout') {
@@ -175,18 +169,8 @@ const onAdminUserMenuClick = async ({ key }: { key: string | number }) => {
   }
 }
 
-/** 确认返回前台 */
-const confirmGoToFrontend = () => {
-  Modal.confirm({
-    title: '返回前台首页',
-    content: '确定要返回前台首页吗？未保存的修改将会丢失。',
-    okText: '确定',
-    cancelText: '取消',
-    onOk: () => {
-      window.location.href = webConsoleHref
-    }
-  })
-}
+/** 管理端 logo 点击：不做跳转 */
+const confirmGoToFrontend = () => {}
 </script>
 
 <style lang="less">

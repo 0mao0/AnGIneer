@@ -1,12 +1,16 @@
 <template>
   <div class="knowledge-workspace" :class="appClass">
-    <!-- ???? -->
-    <div v-if="activeView === 'list'" class="knowledge-list-view">
-      <KnowledgeStats
-      />
+    <!-- 日常维护（原列表） -->
+    <div v-if="activeView === 'maintenance'" class="knowledge-list-view">
+      <KnowledgeStats />
     </div>
 
-    <!-- ??????????????? KnowledgeParseWorkspace? -->
+    <!-- 夜间维护（健康检查） -->
+    <div v-else-if="activeView === 'nightly'" class="knowledge-nightly-view">
+      <DreamCycleView />
+    </div>
+
+    <!-- AI对话（原解析） -->
     <KnowledgeParseWorkspace
       v-else
       :api="knowledgeApi"
@@ -17,20 +21,20 @@
 
 <script setup lang="ts">
 /**
- * ?????? - ???
- * ???? + ??????????????????? KnowledgeParseWorkspace ??
- * ?? Vue3 ???? KnowledgeApiPort ?????????
+ * 知识库管理 - 三视图
+ * 日常维护 + 夜间维护 + AI对话，通过 App.vue 头部统一控制
  */
 import { inject, ref, type Ref } from 'vue'
 import { useTheme } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
 import KnowledgeStats from '@/components/KnowledgeStats.vue'
 import KnowledgeParseWorkspace from '@/components/KnowledgeParseWorkspace.vue'
+import DreamCycleView from '@/views/DreamCycleView.vue'
 
 const { appClass, isDark } = useTheme()
 
 /** 视图状态由 App.vue 头部统一持有（provide/inject） */
-const activeView = inject<Ref<'list' | 'parse'>>('knowledgeView') ?? ref<'list' | 'parse'>('list')
+const activeView = inject<Ref<'maintenance' | 'nightly' | 'aichat'>>('knowledgeView') ?? ref<'maintenance' | 'nightly' | 'aichat'>('maintenance')
 </script>
 
 <style lang="less" scoped>
@@ -41,7 +45,8 @@ const activeView = inject<Ref<'list' | 'parse'>>('knowledgeView') ?? ref<'list' 
   flex-direction: column;
 }
 
-.knowledge-list-view {
+.knowledge-list-view,
+.knowledge-nightly-view {
   flex: 1;
   min-height: 0;
   overflow: hidden;

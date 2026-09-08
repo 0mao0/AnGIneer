@@ -1,6 +1,35 @@
 <template>
-  <div class="library-select">
-    <a-select
+  <div class="library-select" :class="{ 'library-select-title': props.mode === 'title' }">
+    <template v-if="props.mode === 'title'">
+      <a-dropdown :trigger="['hover']" v-model:open="selectOpen">
+        <div class="library-title-trigger">
+          <span class="library-title-name">{{ libraryName }}</span>
+          <DownOutlined class="library-title-icon" />
+        </div>
+        <template #overlay>
+          <a-menu @click="handleMenuClick">
+            <a-menu-item v-for="lib in store.libraries" :key="lib.id">
+              <div class="lib-option">
+                <span class="lib-option-name" :title="lib.name">{{ lib.name }}</span>
+                <span class="lib-option-actions" @click.stop>
+                  <a-button type="text" size="small" title="实体审核" @click="openReview(lib)">
+                    <template #icon><audit-outlined /></template>
+                  </a-button>
+                  <a-button type="text" size="small" title="修改知识库" :disabled="lib.id === 'default'" @click="openEditFor(lib)">
+                    <template #icon><edit-outlined /></template>
+                  </a-button>
+                  <a-button type="text" size="small" danger title="删除知识库" :disabled="lib.id === 'default'" @click="openDeleteConfirm(lib)">
+                    <template #icon><delete-outlined /></template>
+                  </a-button>
+                </span>
+              </div>
+            </a-menu-item>
+          </a-menu>
+        </template>
+      </a-dropdown>
+    </template>
+    <template v-else>
+      <a-select
       :open="selectOpen"
       :value="store.libraryId"
       :loading="store.loading"
@@ -51,6 +80,7 @@
         </div>
       </a-select-option>
     </a-select>
+    </template>
     <a-button title="新建知识库" @click="showCreate = true">
       <template #icon><plus-outlined /></template>
     </a-button>
@@ -123,11 +153,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { message } from 'ant-design-vue'
-import { PlusOutlined, EditOutlined, DeleteOutlined, AuditOutlined } from '@ant-design/icons-vue'
+import { PlusOutlined, EditOutlined, DeleteOutlined, AuditOutlined, DownOutlined } from '@ant-design/icons-vue'
 import { useLibraryStore, type KnowledgeLibraryItem } from '@/stores/library'
 import { knowledgeApi } from '@/api/knowledge'
+
+const props = defineProps<{
+  mode?: 'default' | 'title'
+}>()
 
 const emit = defineEmits<{
   (e: 'review', lib: KnowledgeLibraryItem): void
@@ -137,6 +171,8 @@ const store = useLibraryStore()
 
 // 下拉菜单受控：item 内点击操作 icon 时主动收起，避免抽屉/弹框打开后菜单残留
 const selectOpen = ref(false)
+
+const libraryName = computed(() => store.currentLibraryTitle)
 
 const showCreate = ref(false)
 const creating = ref(false)
@@ -161,6 +197,11 @@ onMounted(() => {
 
 function handleChange(value: string) {
   store.setLibrary(value)
+}
+
+function handleMenuClick(info: { key: string }) {
+  store.setLibrary(info.key)
+  selectOpen.value = false
 }
 
 function openReview(lib: KnowledgeLibraryItem) {
@@ -257,6 +298,30 @@ async function handleDelete() {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+.library-select-title {
+  min-width: auto;
+}
+.library-title-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.library-title-trigger:hover {
+  background-color: var(--bg-secondary, #f5f5f5);
+}
+.library-title-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.library-title-icon {
+  font-size: 12px;
+  color: var(--text-tertiary);
 }
 .lib-option {
   display: flex;
