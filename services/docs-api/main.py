@@ -4,6 +4,7 @@ import sys
 import logging
 from datetime import datetime
 from pathlib import Path
+from typing import Any, Dict, Optional
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -71,6 +72,21 @@ def _bootstrap_admin_on_startup() -> None:
         logger.exception("管理员引导执行失败")
 
 
+_vector_guard_report: Optional[Dict[str, Any]] = None
+
+
+@app.on_event("startup")
+def _run_vector_guard_on_startup() -> None:
+    global _vector_guard_report
+    try:
+        from docs_core.startup_guard import run_vector_startup_guard, report_to_dict
+        report = run_vector_startup_guard()
+        _vector_guard_report = report_to_dict(report)
+    except Exception:
+        logger.exception("启动向量库守卫执行失败")
+        _vector_guard_report = {"ok": False, "errors": ["守卫自身异常"], "warnings": [], "details": {}}
+
+
 _default_origins = "http://localhost:3005,http://localhost:3002,http://127.0.0.1:3005,http://127.0.0.1:3002,http://localhost,http://127.0.0.1"
 _allowed_origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", _default_origins).split(",") if o.strip()]
 
@@ -97,20 +113,21 @@ app.include_router(v1_router)
 @app.get("/health")
 def health():
     cs = config_status_response()
-    if not cs["config_ok"]:
-        return {
-            "service": "docs-api",
-            "status": "degraded",
-            "config_errors": cs["errors"],
-            "started_at": _PROCESS_STARTED_AT,
-            "pid": os.getpid(),
-        }
-    return {
+    body: Dict[str, Any] = {
         "service": "docs-api",
-        "status": "ok",
         "started_at": _PROCESS_STARTED_AT,
         "pid": os.getpid(),
     }
+    if not cs["config_ok"]:
+        body["status"] = "degraded"
+        body["config_errors"] = cs["errors"]
+    else:
+        body["status"] = "ok"
+    if _vector_guard_report is not None:
+        body["vector_store"] = _vector_guard_report
+        if not _vector_guard_report.get("ok", True):
+            body["status"] = "degraded"
+    return body
 
 
 if __name__ == "__main__":
