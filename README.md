@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.41** —— 向量检索引擎切换 Qdrant（ANN/HNSW + int8 量化 + on-disk 存储，替代进程内全量矩阵缓存与暴力 matmul），为 2000 本规模铺路：新增 `DOCS_VECTORSTORE_PROVIDER=qdrant` provider（uuid5 幂等写入、payload 过滤下推、维度守卫对齐），compose 新增 angineer-qdrant 容器（仅回环端口），存量 21.3 万向量分钟级迁移脚本 + 双跑一致性校验（content recall@20 0.965/0.997 过门禁），启动守卫 604s→4.8s，双进程内存矩阵缓存消除（部署机可用内存 648MB→2.4GB）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.41** —— 向量检索引擎切换 Qdrant（ANN/HNSW + int8 量化 + on-disk 存储，替代进程内全量矩阵缓存与暴力 matmul）；为 2000 本规模铺路：新增 `DOCS_VECTORSTORE_PROVIDER=qdrant` provider（uuid5 幂等写入、payload 过滤下推、维度守卫对齐）；compose 新增 angineer-qdrant 容器（仅回环端口）；存量 21.3 万向量分钟级迁移脚本 + 双跑一致性校验（content recall@20 0.965/0.997 过门禁）；启动守卫 604s→4.8s；双进程内存矩阵缓存消除（部署机可用内存 648MB→2.4GB）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
