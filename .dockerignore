@@ -49,3 +49,6 @@ docs
 tests
 tools
 scripts
+# 例外：向量迁移/校验脚本需要进入后端镜像（Dockerfile.backend COPY）
+!scripts/migrate_vectors_to_qdrant.py
+!scripts/verify_qdrant_parity.py
