@@ -23,6 +23,8 @@ export const defaultAIChatTransport = {
       onThinking?: (steps: ThinkingTraceStep[]) => void
       /** 后端边界规则替换了最终回答时，用完整答案整体替换流式正文 */
       onAnswerReplace?: (full: string) => void
+      /** 后端 warning 事件（如向量库维度异常）透出到界面横幅；运行时一直在正常调用，只是这里漏了声明 */
+      onWarning?: (message: string) => void
     }
   ): Promise<QueryResponse> => {
     // P7 链路：走 /api/chat/agent（AgentSession 多轮 + SSE 事件流）

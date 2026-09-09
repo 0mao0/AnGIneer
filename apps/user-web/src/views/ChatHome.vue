@@ -64,11 +64,11 @@
  * - 知识库：输入框下拉单选（仅权限内库），@ 提及当前库内文档（文档级圈定检索范围）；
  * - 历史：@messagesChange 落盘 localStorage（chatHistory.ts），抽屉恢复。
  */
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { computed, defineAsyncComponent, nextTick, onMounted, ref } from 'vue'
 import { CloseOutlined } from '@ant-design/icons-vue'
 import { AIChat } from '@angineer/aichat-ui'
 import type { AIChatMessage, AIChatCitation } from '@angineer/aichat-ui'
-import DocumentView from '@/views/DocumentView.vue'
+import type DocumentViewType from '@/views/DocumentView.vue'
 import ChatTopBar from '@/components/ChatTopBar.vue'
 import HistoryDrawer from '@/components/HistoryDrawer.vue'
 import { defaultAIChatTransport } from '../../../shared/chatTransport'
@@ -81,6 +81,15 @@ import {
   saveSession,
 } from '@/composables/chatHistory'
 import type { ChatSessionRecord } from '@/composables/chatHistory'
+
+/**
+ * 文档预览栈（pdf.js / KaTeX / xlsx / docx-preview）体积大且首屏用不到：
+ * 改异步组件把它挪出对话页分块，页面挂载后在浏览器空闲时预热加载完，
+ * 用户点引用时组件已在内存里，不再有额外等待。loader 复用同一 promise 语义，
+ * 预热过则秒返回。
+ */
+const documentViewLoader = () => import('@/views/DocumentView.vue')
+const DocumentView = defineAsyncComponent(documentViewLoader)
 
 const authStore = useAuthStore()
 const libraryId = computed(() => authStore.libraryId || 'default')
@@ -98,10 +107,16 @@ const loadLibraryNames = async () => {
     // 名称加载失败时下拉回退显示库 id
   }
 }
-onMounted(() => { void loadLibraryNames() })
+onMounted(() => {
+  void loadLibraryNames()
+  // 空闲预热预览栈：不抢首屏带宽，页面可用后悄悄把它加载完，点引用时无需再等
+  const prime = () => { void documentViewLoader() }
+  if (typeof requestIdleCallback === 'function') requestIdleCallback(prime, { timeout: 4000 })
+  else setTimeout(prime, 1500)
+})
 
 const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
-const docViewRef = ref<InstanceType<typeof DocumentView> | null>(null)
+const docViewRef = ref<InstanceType<typeof DocumentViewType> | null>(null)
 
 const sessionId = ref(`chat-${Date.now().toString(36)}`)
 const hasConversation = ref(false)
@@ -139,6 +154,8 @@ const handleCitationSelect = async (citation: AIChatCitation) => {
   panelDocId.value = citation.doc_id
   panelTitle.value = citation.doc_title || citation.doc_id
   panelLibraryId.value = libraryId.value
+  // 预热过则秒返回；未预热（用户极快点引用）则在这里补齐，保证组件挂载后再定位
+  await documentViewLoader()
   await nextTick()
   // DocumentView 内部有 pending 队列：先于文档加载完成调用也安全
   docViewRef.value?.focusCitation?.(citation as any)

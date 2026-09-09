@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import { execSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'path'
@@ -41,7 +43,7 @@ function extractReleaseNotes(version: string): string {
     const rest = line.slice(idx + '当前版本：'.length)
     const m = rest.match(/v?(\d+\.\d+\.\d+)/)
     if (!m || m[1] !== version) return ''
-    let notes = rest.slice(m.index + m[0].length)
+    let notes = rest.slice((m.index ?? 0) + m[0].length)
     notes = notes.replace(/^[\s*:：>]*[-—–]+[\s]*/, '')
     notes = notes.split('详见 [CHANGELOG.md]')[0]
     return notes.replace(/。+$/, '').trim()
@@ -53,7 +55,19 @@ function extractReleaseNotes(version: string): string {
 const RELEASE_NOTES = extractReleaseNotes(APP_VERSION)
 
 export default defineConfig({
-  plugins: [vue(), pdfWasmPlugin()],
+  plugins: [
+    vue(),
+    // ant-design-vue 按需引入，替代 main.ts 的 app.use(Antd) 全量注册。
+    // 全量注册实测让首包 index-*.js 达 1.57MB（对话页用不到的 Tree/Cascader/Calendar… 全在里面）。
+    // importStyle:false —— antdv4 是 CSS-in-JS，样式由组件运行时注入，全局只保留 reset.css。
+    // dirs:[] —— 不自动注册 src/components，保持各文件显式 import 的既有语义。
+    Components({
+      resolvers: [AntDesignVueResolver({ importStyle: false })],
+      dirs: [],
+      dts: false
+    }),
+    pdfWasmPlugin()
+  ],
   define: {
     'import.meta.env.VITE_APP_VERSION': JSON.stringify(APP_VERSION),
     'import.meta.env.VITE_APP_RELEASE_NOTES': JSON.stringify(RELEASE_NOTES)
