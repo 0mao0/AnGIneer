@@ -679,10 +679,18 @@ function onViewerClose() {
 
 async function loadViewerData(docId: string, libraryId?: string) {
   const lib = libraryId || useLibraryStore().libraryId
+  // 先只取 storage 拿 render_pdf，让 PDF 立刻开始下载；content.md 大文档可达 MB 级，不参与首屏时序
+  try {
+    const light = await knowledgeApi.getDocument(lib, docId, { includeContent: false }) as any
+    viewerRenderPdfPath.value = light?.storage?.render_pdf || ''
+  } catch {
+    viewerRenderPdfPath.value = ''
+  }
   try {
     const res = await knowledgeApi.getDocument(lib, docId) as any
     viewerContent.value = res?.content || ''
-    viewerRenderPdfPath.value = res?.storage?.render_pdf || ''
+    // 轻量接口失败时用完整响应兜底，避免有内容却没渲染出 PDF
+    viewerRenderPdfPath.value = viewerRenderPdfPath.value || res?.storage?.render_pdf || ''
   } catch {
     viewerContent.value = '暂无内容'
   }

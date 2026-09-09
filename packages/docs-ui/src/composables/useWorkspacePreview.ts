@@ -146,7 +146,8 @@ export function useWorkspacePreview(options: UseWorkspacePreviewOptions) {
   const downloadFile = () => {
     if (!fileUrl.value) return
     const link = document.createElement('a')
-    link.href = fileUrl.value
+    // raw=1：下载取原件，避免拿到预览用的重排副本
+    link.href = `${fileUrl.value}${fileUrl.value.includes('?') ? '&' : '?'}raw=1`
     link.download = options.node.value.title
     link.click()
   }

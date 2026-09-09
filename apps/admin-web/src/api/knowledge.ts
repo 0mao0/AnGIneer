@@ -174,8 +174,11 @@ export const knowledgeApi = {
         : {}),
     })
   },
-  getDocument: (libraryId: string, docId: string) =>
-    api.get(`/knowledge/document/${libraryId}/${docId}`) as Promise<DocumentResponse>,
+  getDocument: (libraryId: string, docId: string, options?: { includeContent?: boolean }) =>
+    api.get(`/knowledge/document/${libraryId}/${docId}`, {
+      // include_content=false 只回 storage：预览先拿 render_pdf 起 PDF，不被整份 markdown 传输挡住
+      params: options?.includeContent === false ? { include_content: false } : undefined
+    }) as Promise<DocumentResponse>,
   updateDocumentBlock: (libraryId: string, docId: string, payload: StructuredNodeUpdatePayload) =>
     api.patch(`/knowledge/document/${libraryId}/${docId}/blocks/${encodeURIComponent(payload.blockId)}`, payload) as Promise<StructuredNodeUpdateResponse>,
   batchOperateDocumentBlocks: (libraryId: string, docId: string, payload: StructuredBatchOperationPayload) =>

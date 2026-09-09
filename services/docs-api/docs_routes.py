@@ -1,8 +1,10 @@
 """知识库路由与解析调度入口"""
+import hashlib
 import logging
 import mimetypes
 import os
 import sqlite3
+import threading
 import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -1075,13 +1077,27 @@ def search_knowledge_references(request: KnowledgeReferenceSearchRequest):
 
 
 @docs_router.get("/document/{library_id}/{doc_id}")
-def get_document(library_id: str, doc_id: str, include_graph: bool = False):
-    """获取文档内容，默认不返回 graph_data 以提升大文档加载速度。"""
+def get_document(library_id: str, doc_id: str, include_graph: bool = False, include_content: bool = True):
+    """获取文档内容，默认不返回 graph_data 以提升大文档加载速度。
+
+    include_content=false 只回 storage（不回整份 content.md）：预览面板先用它拿到
+    render_pdf 立即发起 PDF 请求，避免为等一段数 MB 的 markdown 传输而推迟首屏；
+    此模式下 build_id 返回 null，需要 build_id 的调用方必须走默认（true）。
+    """
+    storage_manifest = file_storage.get_doc_manifest(library_id, doc_id)
+    if not include_content:
+        if not (storage_manifest.get("parsed_markdown") or storage_manifest.get("edited_markdown")):
+            raise HTTPException(status_code=404, detail="Document not found")
+        return {
+            "content": None,
+            "storage": storage_manifest,
+            "build_id": None,
+        }
+
     content = file_storage.read_markdown(library_id, doc_id)
     if content is None:
         raise HTTPException(status_code=404, detail="Document not found")
 
-    storage_manifest = file_storage.get_doc_manifest(library_id, doc_id)
     result: Dict[str, Any] = {
         "content": content,
         "storage": storage_manifest,
@@ -1313,10 +1329,114 @@ async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) ->
 
 # --- 文件预览路由 ---
 
+# PDF 预览加速：页字典散落的老排版 PDF，pdf.js 加载时取末页会逐页跨文件取字典，
+# 每个字典触发一个新分块，13MB 的文件要整份下完才出首屏（JTS 165-2013 实测）。
+# 重排成对象流后页字典聚拢，同一文件首屏只需 1.2MB。
+_PDF_WEB_MIN_BYTES = 1024 * 1024
+_pdf_web_locks: Dict[str, threading.Lock] = {}
+_pdf_web_locks_guard = threading.Lock()
+
+
+def _pdf_web_optimize_enabled() -> bool:
+    return os.getenv("PDF_WEB_OPTIMIZE", "1").strip().lower() not in {"0", "false", "no", "off"}
+
+
+def _pdf_web_cache_dir() -> Path:
+    return Path(file_storage.base_dir).parent / "cache" / "pdf_web"
+
+
+def _pdf_web_cache_path(source_path: str) -> Optional[str]:
+    """缓存键含 mtime+size：文档重新解析后自动失效，无需手工清理。"""
+    try:
+        stat = os.stat(source_path)
+    except OSError:
+        return None
+    key = hashlib.sha1(
+        f"{source_path}|{stat.st_mtime_ns}|{stat.st_size}".encode("utf-8")
+    ).hexdigest()
+    return str(_pdf_web_cache_dir() / f"{key}.pdf")
+
+
+def _prune_pdf_web_cache(cache_dir: Path) -> None:
+    """纯缓存：超上限按最久未访问删除，删掉只是下次重新生成。"""
+    try:
+        limit = int(os.getenv("PDF_WEB_CACHE_MAX_MB", "2048")) * 1024 * 1024
+    except ValueError:
+        limit = 2048 * 1024 * 1024
+    try:
+        entries = [(item.stat().st_mtime, item.stat().st_size, item) for item in cache_dir.glob("*.pdf")]
+    except OSError:
+        return
+    total = sum(size for _, size, _ in entries)
+    if total <= limit:
+        return
+    for _, size, item in sorted(entries):
+        try:
+            item.unlink()
+            total -= size
+        except OSError:
+            continue
+        if total <= limit:
+            break
+
+
+def _get_or_build_web_pdf(source_path: str) -> Optional[str]:
+    """返回重排成对象流的预览副本路径；不满足条件或失败一律返回 None（回退原文件）。
+
+    只用于在线预览（下载走 raw=1 拿原件）。生成后校验页数一致才落缓存。
+    """
+    if not _pdf_web_optimize_enabled():
+        return None
+    try:
+        if os.path.getsize(source_path) < _PDF_WEB_MIN_BYTES:
+            return None
+    except OSError:
+        return None
+
+    cache_path = _pdf_web_cache_path(source_path)
+    if not cache_path:
+        return None
+    if os.path.isfile(cache_path):
+        return cache_path
+
+    with _pdf_web_locks_guard:
+        lock = _pdf_web_locks.setdefault(cache_path, threading.Lock())
+    with lock:
+        if os.path.isfile(cache_path):
+            return cache_path
+        tmp_path: Optional[str] = None
+        try:
+            import fitz  # PyMuPDF
+
+            os.makedirs(os.path.dirname(cache_path), exist_ok=True)
+            tmp_path = f"{cache_path}.{os.getpid()}.{threading.get_ident()}.tmp.pdf"
+            with fitz.open(source_path) as source_doc:
+                page_count = source_doc.page_count
+                source_doc.save(tmp_path, garbage=4, deflate=True, use_objstms=1)
+            with fitz.open(tmp_path) as check_doc:
+                if check_doc.page_count != page_count:
+                    raise ValueError(f"页数不一致: {check_doc.page_count} != {page_count}")
+            os.replace(tmp_path, cache_path)
+            tmp_path = None
+            _prune_pdf_web_cache(Path(os.path.dirname(cache_path)))
+            logger.info("[Preview] 已生成 PDF 预览副本: %s", os.path.basename(source_path))
+            return cache_path
+        except Exception as error:  # 优化失败绝不影响预览本身
+            logger.warning("[Preview] PDF 预览副本生成失败，回退原文件: %s (%s)", source_path, error)
+            if tmp_path:
+                try:
+                    os.unlink(tmp_path)
+                except OSError:
+                    pass
+            return None
+        finally:
+            with _pdf_web_locks_guard:
+                _pdf_web_locks.pop(cache_path, None)
+
 
 @preview_router.get("/files")
-def get_file_for_preview(path: str):
-    """按绝对路径预览文件。"""
+def get_file_for_preview(path: str, raw: int = 0):
+    """按绝对路径预览文件。raw=1 返回原件（下载用），否则 PDF 走预览副本。"""
     remapped = _remap_path_for_container(path)
     normalized_path = os.path.abspath(os.path.normpath(remapped))
     allowed_roots = _allowed_roots()
@@ -1337,14 +1457,23 @@ def get_file_for_preview(path: str):
     if not mime_type:
         mime_type = "application/octet-stream"
 
+    served_path = normalized_path
+    if mime_type == "application/pdf" and not raw:
+        optimized_path = _get_or_build_web_pdf(normalized_path)
+        if optimized_path:
+            served_path = optimized_path
+
     base_headers = {
         "Accept-Ranges": "bytes",
+        # PDF 是解析产物、路径按文档固定，一小时内不重复校验即可显著改善重复打开体验；
+        # ETag/Last-Modified 由 Starlette FileResponse 自动带上，过期后仍走协商缓存
+        "Cache-Control": "private, max-age=3600",
         "Content-Disposition": f"inline; filename*=utf-8''{encoded_filename}",
         "Access-Control-Expose-Headers": "Accept-Ranges, Content-Range, Content-Length, Content-Disposition",
     }
 
     return FileResponse(
-        normalized_path,
+        served_path,
         filename=filename,
         media_type=mime_type,
         headers=base_headers,

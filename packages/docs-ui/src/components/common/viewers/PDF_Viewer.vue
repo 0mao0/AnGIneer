@@ -42,7 +42,7 @@
             />
             <span class="pdf-toolbar-text pdf-toolbar-text-slim">/</span>
           </template>
-          <span v-if="compactLevel <= 6" class="pdf-toolbar-text pdf-toolbar-text-slim">{{ displayPdfPageCount }}</span>
+          <span v-if="compactLevel <= 6" class="pdf-toolbar-text pdf-toolbar-text-slim">{{ displayPdfPageCountLabel }}</span>
           <Button
             size="small"
             class="pdf-tool-btn"
@@ -163,7 +163,7 @@
         <div v-if="isPdfLoading" class="pdf-loading-overlay">
           <Spin size="large" />
           <div class="pdf-loading-text">
-            <span v-if="pdfLoadingProgress > 0">加载中 {{ pdfLoadingProgress }}%</span>
+            <span v-if="pdfLoadingProgress > 0">加载中 {{ pdfLoadingProgress }}%<template v-if="pdfLoadingBytesLabel"> · {{ pdfLoadingBytesLabel }}</template></span>
             <span v-else>正在加载PDF文档...</span>
           </div>
           <Progress
@@ -596,6 +596,8 @@ const PAGE_GAP = 16
 const RENDER_BUFFER = 4
 const FIT_PADDING = 12
 const MIN_PAGE_HEIGHT = 400
+/** 超过该页数不再逐页预取真实页高（大文档会与首屏渲染抢分块请求），改用估算高度 */
+const MAX_PAGE_HEIGHT_PREFETCH = 200
 
 // --- 共享 DOM 引用 ---
 const pdfScrollRef = ref<HTMLElement | null>(null)
@@ -1671,6 +1673,8 @@ function usePdfDocument(
     useNativePdfPreview: Ref<boolean>
     isPdfLoading: Ref<boolean>
     pdfLoadingProgress: Ref<number>
+    pdfLoadingLoadedBytes: Ref<number>
+    pdfLoadingTotalBytes: Ref<number>
     onDocumentLoaded?: () => void
   },
   scroll: {
@@ -1695,6 +1699,8 @@ function usePdfDocument(
   const useNativePdfPreview = shared.useNativePdfPreview
   const isPdfLoading = shared.isPdfLoading
   const pdfLoadingProgress = shared.pdfLoadingProgress
+  const pdfLoadingLoadedBytes = shared.pdfLoadingLoadedBytes
+  const pdfLoadingTotalBytes = shared.pdfLoadingTotalBytes
   const localPdfPageCount = shared.localPdfPageCount
   const pdfDocument = shared.pdfDocumentRef
   const pdfLoadingTask = shallowRef<any>(null)
@@ -1712,6 +1718,7 @@ function usePdfDocument(
     useNativePdfPreview.value = false
     isPdfLoading.value = false
     pdfLoadingProgress.value = 100
+    pdfLoadingLoadedBytes.value = pdfLoadingTotalBytes.value || pdfLoadingLoadedBytes.value
     pdfDocument.value = nextDocument
     localPdfPageCount.value = Number(nextDocument?.numPages || 0)
     if (localPdfPageCount.value > 0) {
@@ -1735,10 +1742,12 @@ function usePdfDocument(
     }
     scroll.scheduleRenderedPageRangeUpdate()
     // 用 pdf.js 预取全部页真实高度种入布局，保证跳页/bbox 定位一次到位（不阻塞首屏渲染）
+    // 页数过多时放弃逐页取尺寸：几百次 getPage 会和首屏渲染/分块请求抢资源，估算高度已足够
     void (async () => {
       try {
-        const heights: number[] = []
         const count = localPdfPageCount.value
+        if (count > MAX_PAGE_HEIGHT_PREFETCH) return
+        const heights: number[] = []
         for (let p = 1; p <= count; p++) {
           const page = await nextDocument.getPage(p)
           heights.push(page.getViewport({ scale: 1 }).height)
@@ -1765,6 +1774,8 @@ function usePdfDocument(
     useNativePdfPreview.value = false
     isPdfLoading.value = true
     pdfLoadingProgress.value = 0
+    pdfLoadingLoadedBytes.value = 0
+    pdfLoadingTotalBytes.value = 0
     const nextToken = pdfLoadToken + 1
     pdfLoadToken = nextToken
     destroyPdf()
@@ -1774,7 +1785,9 @@ function usePdfDocument(
       try {
         const loadingTask = pdfjsLib.getDocument({
           url: source,
-          disableRange: false, disableStream: false, disableAutoFetch: false,
+          // disableStream 必须为 true：pdf.js 官方要求按需加载须同时关流，否则会先发一个
+          // 不带 Range 的整文件 GET 并读到 EOF（85MB 文件全量拉取，与首屏分块抢带宽）
+          disableRange: false, disableStream: true, disableAutoFetch: false,
           rangeChunkSize: 65536 * 8,
           cMapUrl: `${pdfAssetBaseUrl.value}cmaps/`,
           standardFontDataUrl: `${pdfAssetBaseUrl.value}standard_fonts/`,
@@ -1782,6 +1795,8 @@ function usePdfDocument(
         })
 
         loadingTask.onProgress = ({ loaded, total }: { loaded: number; total: number }) => {
+          pdfLoadingLoadedBytes.value = loaded
+          pdfLoadingTotalBytes.value = total
           if (total > 0) pdfLoadingProgress.value = Math.min(99, Math.round((loaded / total) * 100))
         }
 
@@ -1791,11 +1806,12 @@ function usePdfDocument(
         await onPdfDocumentLoaded(nextDocument)
         return
       } catch (error) {
-        // 加载被中断属预期竞态（文档切换/环境断流），静默降级并缓存，下次直接全量加载
-        if (error instanceof Error && error.message === 'Loading aborted') {
-          failedStreamSources.add(source)
-        } else {
+        // 加载被中断属预期竞态（文档切换/环境断流）：静默降级，但**不**记入永久降级集合，
+        // 否则一次快速切换文档就会让该 PDF 在本次会话里永远走全量下载（大文件即几十 MB 重传）
+        const isAborted = error instanceof Error && error.message === 'Loading aborted'
+        if (!isAborted) {
           console.warn('[PDFViewer] Stream load failed, trying full array buffer load:', error)
+          failedStreamSources.add(source)
         }
         if (pdfLoadToken !== nextToken) return
         destroyPdf()
@@ -1834,7 +1850,7 @@ function usePdfDocument(
     destroyPdf()
   }
 
-  return { useNativePdfPreview, isPdfLoading, pdfLoadingProgress, localPdfPageCount, pdfDocument, loadPdfDocument, destroyPdf, onBeforeUnmount }
+  return { useNativePdfPreview, isPdfLoading, pdfLoadingProgress, pdfLoadingLoadedBytes, pdfLoadingTotalBytes, localPdfPageCount, pdfDocument, loadPdfDocument, destroyPdf, onBeforeUnmount }
 }
 
 // --- 组合 Composable 函数 ---
@@ -1856,6 +1872,8 @@ const doc = usePdfDocument(
     useNativePdfPreview: _useNativePdfPreview,
     isPdfLoading: ref(false),
     pdfLoadingProgress: ref(0),
+    pdfLoadingLoadedBytes: ref(0),
+    pdfLoadingTotalBytes: ref(0),
     onDocumentLoaded: () => emit('pdf-loaded', props.fileUrl || props.pdfViewerUrl.split('#')[0] || props.pdfViewerUrl),
   },
   scroll, zoom, render,
@@ -1866,12 +1884,25 @@ const normalizedPdfSource = zoom.normalizedPdfSource
 const nativePdfViewerUrl = zoom.nativePdfViewerUrl
 const isPdfLoading = doc.isPdfLoading
 const pdfLoadingProgress = doc.pdfLoadingProgress
+/** 加载遮罩的字节文案：大文件只看百分比容易误判成卡死，直接给出已加载/总大小 */
+const pdfLoadingBytesLabel = computed(() => {
+  const total = doc.pdfLoadingTotalBytes.value
+  if (!total) return ''
+  const loaded = Math.min(doc.pdfLoadingLoadedBytes.value, total)
+  const toMb = (bytes: number) => (bytes / 1024 / 1024).toFixed(1)
+  return `${toMb(loaded)} / ${toMb(total)} MB`
+})
 const maxPageWidth = zoom.maxPageWidth
 const hasAppliedInitialFit = zoom.hasAppliedInitialFit
 const isScaleTransitioning = zoom.isScaleTransitioning
 const activePdfPage = scroll.activePdfPage
 const compactLevel = header.compactLevel
 const displayPdfPageCount = scroll.displayPdfPageCount
+/** 文档未解析完时页数未知，别把「1 / 1」当成真实页数显示 */
+const displayPdfPageCountLabel = computed(() => {
+  const known = !isPdfLoading.value || doc.localPdfPageCount.value > 0 || (props.pdfPageCount || 0) > 1
+  return known ? String(displayPdfPageCount.value) : '…'
+})
 const hasPrevPdfPage = computed(() => {
   const pages = scroll.activePageRange.value
   return pages.length > 1 && activePdfPage.value > pages[0]
@@ -1959,7 +1990,7 @@ const parseProgressHeader = computed(() => {
   return `（${count}）${label}`
 })
 
-void [pdfToolbarRef, headerTitleRef, headerMainRef, isPdfLoading, pdfLoadingProgress, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseProgressLabel, parseProgressCount, parseProgressHeader, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview, pageInputWidth]
+void [pdfToolbarRef, headerTitleRef, headerMainRef, isPdfLoading, pdfLoadingProgress, pdfLoadingBytesLabel, zoomPercentLabel, normalizedPdfSource, nativePdfViewerUrl, shouldShowPdfHighlights, showNonPdfLoading, parseProgressLabel, parseProgressCount, parseProgressHeader, hasAppliedInitialFit, isScaleTransitioning, maxPageWidth, activePdfPage, compactLevel, displayPdfPageCount, displayPdfPageCountLabel, virtualContentHeight, minPdfScale, maxPdfScale, pdfScale, isFitToWindowMode, useNativePdfPreview, pageInputWidth]
 
 const visiblePdfPages = computed<VirtualPageMeta[]>(() => {
   const pages: VirtualPageMeta[] = []

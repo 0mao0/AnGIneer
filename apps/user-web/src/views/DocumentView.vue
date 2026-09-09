@@ -137,6 +137,57 @@ const locateInContent = (content: string): { start: number; end: number } | null
   return null
 }
 
+type DocumentPayload = {
+  content?: string | null
+  title?: string
+  storage?: { render_pdf?: string }
+  graph_data?: { nodes: any[]; edges: any[] } | null
+}
+
+/** 应用文档元信息：有 render_pdf 切 PDF 视图，否则走 markdown 预览并定位行 */
+const applyDocumentPayload = (payload: DocumentPayload | null, docId: string) => {
+  document.value = {
+    id: docId,
+    title: props.title || payload?.title || `文档 ${docId}`,
+    content: payload?.content || ''
+  }
+  graphData.value = payload?.graph_data || null
+  graphDataFullLoaded.value = Boolean(graphData.value?.nodes?.length)
+  const renderPdf = String(payload?.storage?.render_pdf || '').trim()
+  if (renderPdf) {
+    isPdfView.value = true
+    pdfFilePath.value = renderPdf
+    pdfUrl.value = `/api/files?path=${encodeURIComponent(renderPdf)}`
+    pdfPage.value = Math.max(1, Number(props.pageIdx || 0) + 1)
+    if (props.targetId) {
+      void applyCitationFocus()
+    }
+    return
+  }
+  isPdfView.value = false
+  pdfUrl.value = ''
+  pdfFilePath.value = ''
+  activeLineRange.value = locateInContent(document.value.content)
+}
+
+/**
+ * PDF 首屏不阻塞在全文上：轻量接口拿到 render_pdf 后立刻发 PDF 请求，
+ * content.md（大文档可到 MB 级）在后台补进解析面板，不参与首屏时序。
+ */
+const loadFullDocumentInBackground = async (libraryId: string, docId: string) => {
+  try {
+    const result = await knowledgeApi.getDocument(libraryId, docId) as DocumentPayload
+    if (currentDocId.value !== docId) return
+    if (document.value) document.value.content = result?.content || ''
+    if (result?.graph_data) {
+      graphData.value = result.graph_data
+      graphDataFullLoaded.value = Boolean(result.graph_data?.nodes?.length)
+    }
+  } catch (error) {
+    console.warn('[DocumentView] 后台加载文档全文失败:', error)
+  }
+}
+
 const loadDocument = async () => {
   const docId = (props.docId || '') as string
   const libraryId = props.libraryId || authStore.libraryId || 'default'
@@ -152,34 +203,15 @@ const loadDocument = async () => {
   graphDataLoading.value = false
   loadError.value = ''
   try {
-    const result = await knowledgeApi.getDocument(libraryId, docId) as {
-      content?: string
-      title?: string
-      storage?: { render_pdf?: string }
-      graph_data?: { nodes: any[]; edges: any[] } | null
+    const light = await knowledgeApi.getDocument(libraryId, docId, { includeContent: false }) as DocumentPayload
+    if (String(light?.storage?.render_pdf || '').trim()) {
+      applyDocumentPayload(light, docId)
+      void loadFullDocumentInBackground(libraryId, docId)
+      return
     }
-    document.value = {
-      id: docId,
-      title: props.title || result?.title || `文档 ${docId}`,
-      content: result?.content || ''
-    }
-    graphData.value = result?.graph_data || null
-    graphDataFullLoaded.value = Boolean(graphData.value?.nodes?.length)
-    const renderPdf = String(result?.storage?.render_pdf || '').trim()
-    if (renderPdf) {
-      isPdfView.value = true
-      pdfFilePath.value = renderPdf
-      pdfUrl.value = `/api/files?path=${encodeURIComponent(renderPdf)}`
-      pdfPage.value = Math.max(1, Number(props.pageIdx || 0) + 1)
-      if (props.targetId) {
-        void applyCitationFocus()
-      }
-    } else {
-      isPdfView.value = false
-      pdfUrl.value = ''
-      pdfFilePath.value = ''
-      activeLineRange.value = locateInContent(document.value.content)
-    }
+    // 非 PDF 的 markdown 预览仍需要全文，走一次完整加载
+    const result = await knowledgeApi.getDocument(libraryId, docId) as DocumentPayload
+    applyDocumentPayload(result, docId)
   } catch (err) {
     const e = err as Error
     loadError.value = e.message || '文档加载失败'
