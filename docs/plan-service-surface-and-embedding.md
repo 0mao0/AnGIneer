@@ -1,6 +1,8 @@
 # 计划 A + C1：服务化补全与嵌入式库化准备
 
-> 状态：待评审（2026-09-09 起草，基于 v0.2.41 Qdrant 切换完成后的架构）
+> 状态：**第一批已执行**（2026-09-09，A1 内部解耦 + auth 收敛 + PoPo 内化 + B 项审查）；
+> **A2/A3/C1 注入重构降级为触发式待命**（评审结论：DredgeAI 规范问答仍是前端 mock，无真实消费者，
+> 不建空转的对外承诺面；触发条件 = DredgeAI 真要接入问答/检索/嵌入解析时）。
 > 范围说明：本计划只做**服务面补全（A）**与**库化准备性重构（C1）**；
 > 不发布任何新 PyPI 包（触发式，见 §5），不改向量引擎（计划 B 已完成）。
 
@@ -21,10 +23,14 @@
 
 ## 1. 计划 A：HTTP 服务面补全（预计 2–3 天）
 
+> **2026-09-09 评审更新**：A1 已执行完毕（见下「已执行」标注）；**A2/A3 降级为触发式待命**——
+> DredgeAI 的规范问答/知识库页面仍是前端 mock，无真实消费者，现在建对外 API 是空转的承诺面。
+> 触发条件：DredgeAI 真要接入问答/检索（aichat-ui 后端接通）时启动 A2+A3。
+
 **目的**：让 DredgeAI（及未来任何应用）只用 HTTP + API key 完整消费解析/检索/问答能力，
 消灭"跨服务直读 SQLite"的共享数据库反模式。
 
-### A1 内部解耦（消灭跨进程直读）
+### A1 内部解耦（消灭跨进程直读）✅ 已执行（2026-09-09）
 
 | 改动 | 位置 | 内容 |
 |---|---|---|
@@ -37,13 +43,18 @@
 **验收**：设 `ANGINEER_DOCS_API_URL` + `ANGINEER_DISABLE_LOCAL_FALLBACK=1`，
 nightly「立即运行」小数据集全程无 fallback 告警日志。
 
-### A2 对外 API 面（v1 + API key）
+**A1 执行结果（2026-09-09）**：retrieve_routes.py 新增 entity-search / doc-nodes / graph-append-note
+三个内部端点；docs_retrieval_client 增加同名三方法 + `local_fallback_disabled()` 开关；
+agent_tools.entity_search、policy_query._load_doc_nodes、_run_knowledge_stats、dream_cycle 孤儿实体
+两处裸连接全部改为 HTTP 优先 + 开关可禁回退；新增 test_entity_search_dual_track.py 7 例全绿。
+
+### A2 对外 API 面（v1 + API key）⏸️ 触发式待命
 
 | 改动 | 位置 | 内容 |
 |---|---|---|
 | 对外检索 | docs-api | `POST /api/v1/knowledge/retrieve`，API key scope 强制限定 library，复用 internal/retrieve 的 service 层 |
 | 对外问答 | aichat-api | `POST /api/v1/chat`（非 SSE 请求-响应形态 + 可选 SSE），内部走同一条 `run_policy_query` 链路（评测已验证的单一真相源），API key 绑 library |
-| 合并漂移代码 | `aichat-api/models/` ↔ `docs-api/models/` + `middleware/` | user/api_key 模型与 auth 中间件合并到 `services/shared`（当前两份代码已漂移 61 行、共享同一 sqlite 文件，是定时炸弹） |
+| 合并漂移代码 ✅ 已执行（2026-09-09） | `aichat-api/models/` ↔ `docs-api/models/` | user/api_key 模型收敛到 `services/shared`（`shared/user_model.py` / `shared/api_key_model.py`，新增 `shared/paths.py` 数据路径解析）；两侧 `models/` 改为模块替换别名层（import 与 patch 语义不变）；中间件保持各自独立（路由策略本就不同：aichat 有 /api/chat/* 可选鉴权）。顺带清除 api_key.update_key 尾部死代码 |
 | 集成契约文档 | `docs/integration-api.md` | 端点清单、鉴权头、scope 语义、错误码、产物格式——交付给 DredgeAI 的唯一对接文档 |
 
 ### A3 客户端 SDK 包：`angineer-docs-client`
@@ -55,7 +66,10 @@ nightly「立即运行」小数据集全程无 fallback 告警日志。
 
 ---
 
-## 2. 计划 C1：嵌入式库化准备性重构（预计 2 天，不发布）
+## 2. 计划 C1：嵌入式库化准备性重构（预计 2 天，不发布）⏸️ 触发式待命（PoPo 内化除外）
+
+> **2026-09-09 评审更新**：PoPo 内化已执行（独立价值：摆脱 submodule 维护负担）；
+> 其余注入重构（单例/路径/闸门/依赖卫生/evals 路径）降级为触发式——等第一个真实嵌入需求。
 
 **目的**：让 docs-core + angineer-core 达到"可打包"状态（配置注入、无隐式全局态、
 无 monorepo 布局假设）。这些重构对 AnGIneer 自身也是净化，不白做。
@@ -63,7 +77,7 @@ nightly「立即运行」小数据集全程无 fallback 告警日志。
 
 | 改动 | 位置 | 内容 |
 |---|---|---|
-| PoPo 内化 | `services/docs-core/src/popo` | 删 submodule 壳、文件直接入库；新增 `UPSTREAM_SYNC.md` 记录最后同步的上游 commit（97d5601）备查；AGENTS.md 双 remote 段落改写为"已内化" |
+| PoPo 内化 ✅ 已执行（2026-09-09） | `services/docs-core/src/popo` | submodule 壳已删、2371 文件直接入库；`UPSTREAM_SYNC.md` 记录上游同步点（97d5601）；AGENTS.md 双 remote 段落已改写为"已内化"；deploy.yml 的 submodule update 已移除 |
 | 单例注入 | `parse_pipeline.py` 等 ~10 处 | `get_docs_service()` 隐式调用 → `StageContext` 显式字段 |
 | 路径注入 | `docs_core/paths.py:36-46` | 解析顺序改为：显式构造参数 > env > monorepo 探测 |
 | 闸门可注入 | `parse_pipeline.py:598-665` | `_MINERU_GPU_GATE`/`_POPO_GATE`/`_FIGURE_DESCRIBE_GATE` 模块级单例 → 可注入实例（默认行为不变） |
@@ -72,9 +86,13 @@ nightly「立即运行」小数据集全程无 fallback 告警日志。
 
 **验收**：docs-core 全量测试通过 + 本地解析一篇 PDF 冒烟通过 + 服务器解析一篇无回归。
 
-**PoPo 内化的部署注意**：`deploy.yml`/服务器若跑 `git submodule update --init`，
-内化后该路径变普通目录，需同步移除 `.gitmodules` 条目并验证部署链路
-（先在一端验证 `git pull` 后目录正常，再推）。
+**PoPo 内化的部署注意（已处理）**：deploy.yml 的 `git submodule update --init --recursive` 已移除
+（仓库无 submodule 后其为 no-op）；服务器端 `git reset --hard` 跨越"submodule→普通目录"边界的行为
+已在部署时实测验证（首次部署后目录内容正常、docs-core 329 测试全绿）。
+
+**B 项审查结果（2026-09-09）**：全仓 grep import 期 DB/网络调用，仅剩 `embedding_provider.py` 模块级
+`create_default_embedding_provider()`（含维度探测）一处——Qdrant 下为 O(1) HTTP collection 查询、
+try/except 兜底不致命，相比 v0.2.34 的全表表决已无量级问题，保留现状并登记观察。
 
 ---
 
