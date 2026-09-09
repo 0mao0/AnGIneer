@@ -2,6 +2,10 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.46
+
+服务化内部解耦与依赖内化：docs-api 新增 `internal/entity-search`、`internal/doc-nodes`、`internal/graph-append-note` 三个内部端点；angineer-core 三处跨进程直读 SQLite（entity_search 图谱检索、policy_query 节点加载、knowledge_stats 统计兜底）与 dream_cycle 两处图谱裸连接全部改为 HTTP 优先 + 本地回退，`ANGINEER_DISABLE_LOCAL_FALLBACK=1` 可整体禁用回退（服务化部署消灭"共享数据库"反模式），新增双轨回归测试 7 例；user/api_key 模型从 docs-api/aichat-api 两份漂移副本收敛到 `services/shared`（新增 shared/paths.py 数据路径解析，两侧 models/ 改为模块替换别名层——既有导入与测试 patch 语义零改动，顺带清除 api_key.update_key 尾部死代码；中间件保持各自独立，aichat 的 /api/chat/* 可选鉴权策略本就不同）；PoPo 由 git submodule 内化为普通目录（上游 opendatalab/MinerU-Popo 对我们的定制 PR 从未合并、6 周无更新，fork 即唯一部署源头；2371 文件中 75 个运行时必需源码入库，eval 产物被其自带 .gitignore 合理排除；deploy.yml 移除 submodule update；新增 UPSTREAM_SYNC.md 记录上游同步点 97d5601；修复首版内化提交的孤儿 gitlink 边界问题）。B 项排查结论：import 期无界 DB 调用仅剩 embedding_provider 维度探测一处，Qdrant 下为 O(1) HTTP 查询，无量级问题。
+
 ## v0.2.45
 
 - 首屏提速（实测线上首屏传输 3.26MB → 0.34MB）：网关 nginx 启用边缘 gzip（配置在服务器 `/etc/nginx/conf.d/ai-proxy.conf`，按约定不进 git）——容器 nginx 本就配了 gzip，但其依赖 Accept-Encoding 透传、经宿主机网关会丢失，实测静态资源此前完全未压缩（单个 JS 1.61MB→0.51MB）

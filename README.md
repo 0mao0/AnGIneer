@@ -2,13 +2,13 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.45** —— 首屏提速：网关启用边缘 gzip（此前静态资源完全未压缩，单个 JS 1.61MB→0.51MB），ant-design-vue 改按需引入（首包 1.57MB→435KB），文档预览栈拆独立分块并在页面空闲时静默预热（对话页块 1.51MB→578KB，点引用时组件已在内存），线上实测首屏传输 3.26MB→0.34MB；顺带补齐 chatTransport 漏声明的 onWarning 类型（该缺失让 vue-tsc 恒红、pnpm build 长期不可用）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.46** —— 服务化内部解耦（A1）：docs-api 新增 internal/entity-search、internal/doc-nodes、internal/graph-append-note 三个内部端点，angineer-core 三处跨进程直读 SQLite 与 dream_cycle 两处裸连接全部改为 HTTP 优先 + `ANGINEER_DISABLE_LOCAL_FALLBACK` 开关可禁回退（消灭共享数据库反模式）；user/api_key 模型收敛到 `services/shared`（两侧漂移副本改为模块替换别名层，兼容零改动）；PoPo 由 submodule 内化为普通目录（上游 PR 从未被收、fork 即唯一部署源头，deploy 链路不再需要 submodule update）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.41` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.46` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.1` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.7` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
