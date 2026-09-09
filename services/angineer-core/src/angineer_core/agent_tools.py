@@ -656,13 +656,30 @@ class RetrieverAdapter:
         def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
             if not query:
                 return {"error": "缺少 query 参数"}
-            from docs_core.step07_graph.graph_store import GraphStore
+            from angineer_core.docs_retrieval_client import client_from_env, local_fallback_disabled
 
-            store = GraphStore(
-                db_path or os.environ.get("KG_DB_PATH", os.path.join("data", "knowledge_graph.sqlite"))
-            )
+            # HTTP 优先（docs-api /internal/entity-search）；未配置或失败时回退进程内直开 GraphStore。
+            # ANGINEER_DISABLE_LOCAL_FALLBACK=1 时禁止本地回退（消灭跨进程直读 SQLite）。
+            entities: Optional[List[Any]] = None
+            client = retrieval_client if retrieval_client is not None else client_from_env()
+            if client is not None:
+                try:
+                    entities = client.entity_search(query=query, library_id=library_id, limit=limit)
+                except Exception as exc:  # noqa: BLE001
+                    if local_fallback_disabled():
+                        return {"error": f"docs-api 图谱检索失败（本地回退已禁用）: {exc}"}
+                    logger.warning("docs-api 图谱检索失败，回退本地直查: %s", exc)
+            elif local_fallback_disabled():
+                return {"error": "未配置 ANGINEER_DOCS_API_URL 且本地回退已禁用（ANGINEER_DISABLE_LOCAL_FALLBACK=1）"}
+
+            if entities is None:
+                from docs_core.step07_graph.graph_store import GraphStore
+
+                store = GraphStore(
+                    db_path or os.environ.get("KG_DB_PATH", os.path.join("data", "knowledge_graph.sqlite"))
+                )
+                entities = store.search_entities(query, limit=limit, library_id=library_id)
             # 图谱实体按 library_id 隔离（P3 起 graph_entities 有 scope 列）；scope 随行返回供前端/evals 追踪。
-            entities = store.search_entities(query, limit=limit, library_id=library_id)
             result: Dict[str, Any] = {
                 "entities": [_serialize_model(entity) for entity in entities],
                 "total": len(entities),
@@ -714,7 +731,7 @@ def _run_knowledge_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
     口径与 docs-api GET /api/knowledge/stats 一致：文档以 nodes 表为准（deleted=0 排除软删），
     上传/存储以 parse_records 为准（status<>'deleted'）。
     """
-    from angineer_core.docs_retrieval_client import client_from_env
+    from angineer_core.docs_retrieval_client import client_from_env, local_fallback_disabled
 
     client = client_from_env()
     if client is not None:
@@ -730,7 +747,11 @@ def _run_knowledge_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
             resp.raise_for_status()
             return resp.json()
         except Exception as exc:  # noqa: BLE001
+            if local_fallback_disabled():
+                return {"error": f"docs-api 统计接口失败（本地回退已禁用）: {exc}"}
             logger.warning("docs-api 统计接口失败，回退本地直查: %s", exc)
+    elif local_fallback_disabled():
+        return {"error": "未配置 ANGINEER_DOCS_API_URL 且本地回退已禁用（ANGINEER_DISABLE_LOCAL_FALLBACK=1）"}
 
     return _local_knowledge_stats(library_id)
 

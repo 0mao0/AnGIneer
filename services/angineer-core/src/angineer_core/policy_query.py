@@ -15,16 +15,37 @@ logger = logging.getLogger(__name__)
 
 
 def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
-    """加载知识库 document 节点；失败时返回空列表（检索工具降级）。"""
+    """加载知识库 document 节点；失败时返回空列表（检索工具降级）。
+
+    HTTP 优先（docs-api /internal/doc-nodes）；未配置或失败时回退进程内 docs_service 单例。
+    ANGINEER_DISABLE_LOCAL_FALLBACK=1 时禁止本地回退（消灭跨进程直读 SQLite）。
+    """
+    from angineer_core.docs_retrieval_client import client_from_env, local_fallback_disabled
+
+    def _apply_doc_ids(nodes: list) -> list:
+        if doc_ids:
+            ids = set(str(doc_id) for doc_id in doc_ids if str(doc_id).strip())
+            nodes = [n for n in nodes if getattr(n, "id", "") in ids]
+        return nodes
+
+    client = client_from_env()
+    if client is not None:
+        try:
+            return _apply_doc_ids(client.list_doc_nodes(library_id))
+        except Exception as exc:  # noqa: BLE001
+            if local_fallback_disabled():
+                logger.warning("docs-api doc-nodes 失败且本地回退已禁用: %s", exc)
+                return []
+            logger.warning("docs-api doc-nodes 失败，回退本地: %s", exc)
+    elif local_fallback_disabled():
+        logger.warning("未配置 ANGINEER_DOCS_API_URL 且本地回退已禁用，节点清单为空")
+        return []
     try:
         from docs_core.docs_service import get_docs_service
 
         kp = get_docs_service()
         nodes = [n for n in kp.list_nodes(library_id) if getattr(n, "type", "") == "document"]
-        if doc_ids:
-            ids = set(str(doc_id) for doc_id in doc_ids if str(doc_id).strip())
-            nodes = [n for n in nodes if getattr(n, "id", "") in ids]
-        return nodes
+        return _apply_doc_ids(nodes)
     except Exception as exc:  # noqa: BLE001
         logger.warning("加载知识库节点失败，agent 检索工具将无节点: %s", exc)
         return []

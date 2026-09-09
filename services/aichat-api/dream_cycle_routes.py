@@ -158,13 +158,30 @@ async def dismiss_dedup_candidate(entity_a_id: str, entity_b_id: str):
 @dream_cycle_router.post("/tasks/orphan/keep/{entity_id}")
 async def orphan_keep(entity_id: str):
     """保留孤立实体（标记为非孤立）。"""
+    marker = "[DREAM_CYCLE: 人工保留，非孤立实体]"
+    # HTTP 优先（docs-api /internal/graph-append-note）；未配置/失败回退本地直写（兼容单进程部署）
+    try:
+        from angineer_core.docs_retrieval_client import client_from_env, local_fallback_disabled
+
+        client = client_from_env()
+        if client is not None:
+            try:
+                client.graph_append_note(entity_id=entity_id, marker=marker)
+                return {"status": "kept", "message": f"实体 {entity_id} 已标记为保留"}
+            except Exception as exc:  # noqa: BLE001
+                if local_fallback_disabled():
+                    raise HTTPException(status_code=502, detail=f"docs-api 图谱写失败（本地回退已禁用）: {exc}")
+        elif local_fallback_disabled():
+            raise HTTPException(status_code=503, detail="未配置 ANGINEER_DOCS_API_URL 且本地回退已禁用")
+    except HTTPException:
+        raise
     try:
         from docs_core.step08_maintain.config import get_config
         cfg = get_config()
         conn = sqlite3.connect(cfg.graph_db_path)
         conn.execute(
-            "UPDATE graph_entities SET description = COALESCE(description||' ','') || '[DREAM_CYCLE: 人工保留，非孤立实体]' WHERE entity_id = ?",
-            (entity_id,),
+            "UPDATE graph_entities SET description = COALESCE(description||' ','') || ? WHERE entity_id = ?",
+            (marker, entity_id),
         )
         conn.commit()
         conn.close()
@@ -176,13 +193,29 @@ async def orphan_keep(entity_id: str):
 @dream_cycle_router.post("/tasks/orphan/delete/{entity_id}")
 async def orphan_delete(entity_id: str):
     """确认清理孤立实体（标记为 inactive）。"""
+    marker = "[DREAM_CYCLE: 人工确认，标记为不活跃]"
+    try:
+        from angineer_core.docs_retrieval_client import client_from_env, local_fallback_disabled
+
+        client = client_from_env()
+        if client is not None:
+            try:
+                client.graph_append_note(entity_id=entity_id, marker=marker)
+                return {"status": "deleted", "message": f"实体 {entity_id} 已标记为不活跃"}
+            except Exception as exc:  # noqa: BLE001
+                if local_fallback_disabled():
+                    raise HTTPException(status_code=502, detail=f"docs-api 图谱写失败（本地回退已禁用）: {exc}")
+        elif local_fallback_disabled():
+            raise HTTPException(status_code=503, detail="未配置 ANGINEER_DOCS_API_URL 且本地回退已禁用")
+    except HTTPException:
+        raise
     try:
         from docs_core.step08_maintain.config import get_config
         cfg = get_config()
         conn = sqlite3.connect(cfg.graph_db_path)
         conn.execute(
-            "UPDATE graph_entities SET description = COALESCE(description||' ','') || '[DREAM_CYCLE: 人工确认，标记为不活跃]' WHERE entity_id = ?",
-            (entity_id,),
+            "UPDATE graph_entities SET description = COALESCE(description||' ','') || ? WHERE entity_id = ?",
+            (marker, entity_id),
         )
         conn.commit()
         conn.close()
