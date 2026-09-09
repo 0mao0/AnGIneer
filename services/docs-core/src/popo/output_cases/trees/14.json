@@ -1,0 +1,1412 @@
+{
+    "type": "root",
+    "title": "",
+    "metadata": "",
+    "content": "",
+    "level": 0,
+    "location": [],
+    "block_ids": [],
+    "children": [
+        {
+            "type": "text",
+            "title": "Default Title",
+            "metadata": "",
+            "content": "Received 08 June 2015; revised 16 July 2015; accepted 17 July 2015. Date of publication 30 November 2015. The review of this paper was arranged by Associate Editor Franz Kreupl.<|txt_split|>Digital Object Identifier 10.1002/XNANO.2015.2469312",
+            "level": 1,
+            "location": [
+                {
+                    "bbox": [
+                        0.195,
+                        0.078,
+                        0.793,
+                        0.103
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.372,
+                        0.107,
+                        0.618,
+                        0.118
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                2,
+                3
+            ],
+            "children": []
+        },
+        {
+            "type": "text",
+            "title": "Monolithic Fabrication of Silicon Nanowires Bridging Thick Silicon Structures",
+            "metadata": "",
+            "content": "ZUHAL TASDEMIR\\(^{1}\\) (Member, IEEE), OLIVER PERIC\\(^{2}\\), DAVIDE SACCHETTO\\(^{3}\\) (Member, IEEE), GEORGE ERNEST FANTNER\\(^{4}\\), YUSUF LELEBRIFF (Fellow, IEEE), JUDITH KENNETH MURGEN\\(^{5}\\), MICHAEL M. HAYES\\(^{6}\\).<|txt_split|>\\(^{1}\\)Department of Mechanical Engineering, Koc University, Istanbul 34450, Turkey<|txt_split|>Laboratory for Bio- and Nano-Instrumentation, Ecole Polytechnique Federale de Luxarnc, Lusanne 1015, Switzerlnd<|txt_split|>Microelectronic Systems Laboratory, Ecole Polytechnique Feddale de Lausanne, Lausanne 1015, Switzerland<|txt_split|>4Surface Science and Technology Center, Koc University, Istanbul 34450, Turkey<|txt_split|>CORRESPONDING AUTHOR: B. E. ALACA (ealaca@ku.edu.tr)<|txt_split|>This work was supported in part by Tubukay under Grant 1212058 and in part by the Koc University -Istanbul-Italyotchia Club Fundamental Research Program, and by the European Union project No. 673749. The authors would like to thank G. Farmer for supported in part by the European Union FP7/2007-2015/ERC under Grant No. S07358-NaMc. This work was supported in part by the European Union project No. 673749.<|txt_split|>ABSTRACT A monolithic process is developed for the fabrication of Si nanowires within thick Si substrates. A combination of anisotropic etch and sidewall passivation is utilized to protect and release Si lines during the subsequent deep etch. An etch depth of \\(10\\mu \\mathrm{m}\\) is demonstrated with a future prospect for \\(50~\\mu \\mathrm{m}\\) opening up new possibilities for the deterministic integration of nanowires with microsystems. Nanowires with in-plane thicknesses as well as \\(20\\mathrm{nm}\\) and aspect ratios up to 150 are obtained. Nanomechanical characterization through bending tests further confirms structural integrity of the connection between nanowires and anchoring Si microstructures.<|txt_split|>INDEX TERMS Atomic force microscopy (AFM), bending test, silicon nanowires, single crystal reactive etching and metallization (SCREAM).",
+            "level": 1,
+            "location": [
+                {
+                    "bbox": [
+                        0.167,
+                        0.149,
+                        0.825,
+                        0.214
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.137,
+                        0.232,
+                        0.854,
+                        0.279
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.308,
+                        0.279,
+                        0.684,
+                        0.289
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.216,
+                        0.289,
+                        0.776,
+                        0.299
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.24,
+                        0.3,
+                        0.753,
+                        0.31
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.307,
+                        0.31,
+                        0.684,
+                        0.32
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.341,
+                        0.323,
+                        0.65,
+                        0.335
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.132,
+                        0.339,
+                        0.86,
+                        0.383
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.118,
+                        0.433,
+                        0.871,
+                        0.537
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.118,
+                        0.545,
+                        0.871,
+                        0.575
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+            ],
+            "children": [
+                {
+                    "type": "text",
+                    "title": "I. INTRODUCTION",
+                    "metadata": "",
+                    "content": "One-dimensional nanostructures have gained a considerable attention in the field of semiconductor technology [1]. With the help of rapid development in the process technology, the use of nanoscale devices has been realized with new capabilities [2]-[4]. One such area of interest is the integration of one-dimensional nanostructures, such as nanowires (NWS), with microelectromechanical systems (MEMS), where the addition of the nanoscale element brings up enhanced functionality [5] as exemplified by the proposed measurement resolution through to the contributions of Si NWs and microtubes in inert MEMS sensors [6].<|txt_split|>Combination of two entities, Si NW and MEMS, with a three-order of magnitude scale difference is difficult to carry out within the boundaries of the monolithic process. There are, of course, various alternatives including directional etching [7] or the possibility of growing Si NWs via vaporizing the Si NWs in a chemical reaction. However, these techniques after MEMS fabrication. However, none of these techniques have been able to meet the stringent requirements of batch fabrication so far. An exception is the top-down approach,<|txt_contd|>where Si NWs are fabricated within the thin device layer \\((250~\\mathrm{nm})\\) of a silicon on insulator (SOI) wafer, on top of which a thick \\((10~\\mu \\mathrm{m})\\) poly-Si is deposited for MEMS fabrication [6]. The need for thin SOI and use of multiple Si layers increases demands on the already challenging fabrication process. This leads to the advantages of Si wafer deposition justly this extra effort. This approach already raised new opportunities in the miniaturization of multiple degree-of-freedom inertial sensors [10].<|txt_split|>In this work we explore the limits of batch fabricating a single NW within a thick Si layer with two objectives that go beyond the state of the art [6]. The Si NW is to be i) fabricated within the same crystal as MEMS- as opposed to a separate Si layer, and ii) kept at the wafer surface for the ease of further processing, such as doping and contact formation.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.059,
+                                0.594,
+                                0.197,
+                                0.607
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.057,
+                                0.609,
+                                0.483,
+                                0.79
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.057,
+                                0.791,
+                                0.483,
+                                0.93
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.593,
+                                0.938,
+                                0.729
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.73,
+                                0.938,
+                                0.823
+                            ],
+                            "page": 1
+                        }
+                    ],
+                    "block_ids": [
+                        14,
+                        15,
+                        16,
+                        17,
+                        18
+                    ],
+                    "children": []
+                },
+                {
+                    "type": "text",
+                    "title": "II. PROCESS DEVELOPMENT",
+                    "metadata": "",
+                    "content": "To achieve this set of objectives, we revisit SREAM (Single Crystal Reactive Etching and Metalization) process [11] that played an important role in the surface micromachining process. The main aim of this work is to investigate the critical sidewall passivation, which would provide protection<|txt_contd|>during isotropic release etch. Similarly, if one can define a nanoscale Si line protected with a conformal sidewall coating, one can, in principle, etch deep into the substrate transforming the protected line into a Si NW. How deep one can etch the substrate while preserving the integrity of the Si NW constitutes the major motivation of this work.<|txt_split|>The process begins with the definition of 200-nm-thick e-beam resist HQS (Hydrogen silsesquioxane) lines on a \\(<100>\\) Si wafer. Linewidths between \\(20-80\\mathrm{nm}\\) are patterned parallel to \\(\\times 110>\\) (Fig. 1a). This dimension directly translates into the Si NW width (in-plane dimension). HQS is used as an etch mask for the subsequent \\(\\mathrm{Cl}_2\\) reactive ion etching process. The etching process is performed at \\(150~\\mathrm{nm}\\) leading to the formation of Si lines (Fig. 1b). An \\(80-\\mathrm{nm}\\) thick conformal coating of low-temperature oxide (LTO) is used for sidewall protection (Fig. 1c), which is then etched from lateral surfaces in a fluorofluor plasma (Fig. 1d).<|txt_split|>A deep reactive ion etching (DRIE) recipe is developed to produce an adequate scallop size allowing the release of Si NW at the end of the first cycle of etching (Fig. 1.e). Further cycles of etching are carried out to obtain a single \\(\\mathrm{SiO}_2\\) layer with measured trench depth. Finally, both LTO and HSQ are removed by hydrofluoric acid (HF) vapor etching (Fig. 1.f).",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.51,
+                                0.839,
+                                0.726,
+                                0.852
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.853,
+                                0.936,
+                                0.932
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.056,
+                                0.081,
+                                0.483,
+                                0.173
+                            ],
+                            "page": 2
+                        },
+                        {
+                            "bbox": [
+                                0.056,
+                                0.173,
+                                0.487,
+                                0.341
+                            ],
+                            "page": 2
+                        },
+                        {
+                            "bbox": [
+                                0.056,
+                                0.606,
+                                0.484,
+                                0.714
+                            ],
+                            "page": 2
+                        }
+                    ],
+                    "block_ids": [
+                        19,
+                        20,
+                        28,
+                        29,
+                        32
+                    ],
+                    "children": [
+                        {
+                            "type": "image",
+                            "title": "FIGURE 1. Process flow for a single suspended \\(5\\mathrm{NM}\\) This work aims to investigate the effect of the \\(\\alpha\\) -DIBI on the surface morphology of \\(20\\mathrm{nm}\\) and \\(\\alpha\\) thickness of about \\(100\\mathrm{nm}\\). (a) High-resolution lithography. (b) XRD patterns of the \\(\\alpha\\) -DIBI films deposited on the surface of the \\(\\alpha\\) -DIBI oxide (LO). (c) LO removal from horizontal surfaces. (d) DIBI with the same surface area as the \\(\\alpha\\) -DIBI films. The surface areas were measured by electron microscopy, taken from it from its unprotected bottom surfaces. (e) Removal of protective layers.",
+                            "metadata": "",
+                            "content": null,
+                            "level": 19,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.062,
+                                        0.361,
+                                        0.48,
+                                        0.51
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.056,
+                                        0.521,
+                                        0.484,
+                                        0.6
+                                    ],
+                                    "page": 2
+                                }
+                            ],
+                            "block_ids": [
+                                30,
+                                31
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "III. RESULTS AND DISCUSSIONS",
+                    "metadata": "",
+                    "content": "",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.058,
+                                0.721,
+                                0.3,
+                                0.735
+                            ],
+                            "page": 2
+                        }
+                    ],
+                    "block_ids": [
+                        33
+                    ],
+                    "children": [
+                        {
+                            "type": "text",
+                            "title": "A. SILICON NANOWIRE",
+                            "metadata": "",
+                            "content": "An array of resulting Si NWs is shown in Fig. 2a. The process flow yields a \\(10 - \\mu \\mathrm{m}\\) etch depth, a promising achievement as a device thickness of \\(10\\mu \\mathrm{m}\\) is frequently used in all-Si NPs. The Si NWs are formed by the process of etching and spanned by Si NWs with widths between \\(20 - 80\\mathrm{nm}\\). An aspect ratio (NW length/width) range of 10-150 is achieved leading to Si NW lengths between \\(200\\mathrm{nm}\\) and \\(12\\mu \\mathrm{m}\\). A process yield above \\(90\\%\\) is obtained, indicating high repeatability and high reproducibility with laboratory and hence suitability for bare fabrication.<|txt_split|>Fig. 2.b and 2.c depict a Si NW with the smallest width of \\(20~\\mathrm{nm}\\) and a moderate width of \\(30~\\mathrm{nm}\\) respectively.<|txt_split|>Average Si NW thickness (out-of-plane dimension defined by the first RIE step of Fig. 1b) is observed to be \\(100\\mathrm{nm}\\) close-up provided in the inset). The reduction of the original \\(150~\\mathrm{nm}\\) thickness related to RIE etch depth (Fig. 1b) to \\(100\\mathrm{nm}\\) after DRIE (Fig. 1c) is an indication of isotropic etching. In addition, the increase in the RIE etch depth of the Si NW is further thinned down to \\(95~\\mathrm{nm}\\), whereas near the anchors the thickness increases to \\(107\\mathrm{nm}\\). As etching from the bottom takes place in a mass-transport-limited fashion, Si NW misdirection is exposed to a higher isotropic etching rate due to faster diffusion away from the supports. Under the conditions reported above, a thickness of \\(200\\mathrm{nm}\\) is obtained controlled by the etching of the specific etch recipe, achieving such dimensional uniformity in thickness has been more challenging compared to the uniformity in width.<|txt_split|>HSQ thickness is observed to be the main limiting factor for the etch depth, as prolonged etching leads to the loss of HSQ. Etch mask material or materials can be tailored, if a need for thicker devices, e.g. \\(50 - \\mu \\mathrm{m}\\) -thick SOLi arises. In case of a more resistant etch mask the loss of Si from the unprotected Si NW bottom surface would be critical as explained above. Replacing DRIE with an isotropic release step such as a high-pressure RIB was previously observed in the Si NW bottom surface. The etch thickness and etch depth [12]. An optimization of the interplay among the initial Si line thickness (Fig. 1b) and the isotropic etch component of DRIE can be further carried out for a desired combination of Si NW thickness and overall etch depth.<|txt_split|>The importance of recipe optimization is further exemplified in Fig. 2d showing a Si NW with the maximum width defined by the lithography of Fig. 1a and LTO sidewall coating thickness of Fig. 1d sets the maximum linewidth to be etched for a complete Si NW release. In this work, we have demonstrated that the Si NWs can be obtained. In this study, discontinuous, residual Si whiskers, remnants<|txt_contd|>from DRIE of Fig. 1, i.e., survive for a NW width of \\(80~\\mathrm{nm}\\). For all widths smaller, the undercut associated with DRIE recipe successfully removes Si underneath the Si NW. On the contrary, further reduction of the isotropic etch component will lead to the formation of Si NW arrays as previously observed in the form of Si NW stacks [13].<|txt_split|>A further cross-sectional study is carried out by using Focused Ion Beam (FIB) milling. Prior to FIB, Si NWs are coated with a \\(20\\mathrm{-mm}\\)-thick Pt layer by atomic layer deposition (ALD) to enhance contrast during scanning electron imaging. 10 SI NWs with widths of \\(20 - 40\\mathrm{nm}\\) and thicknesses of \\(10 - 30\\mathrm{nm}\\) were used. The cross-section was imaged. Fig. 3a depicts a \\(40\\mathrm{-nm}\\) wide Si NW with an aspect ratio of 50 cut both at its center and near the anchor. Si NWs exhibit a rectangular cross-section with the maximum thickness at the anchors. Thickness is observed to decrease by \\(10\\%\\) towards the middle, as discussed in Fig. 2b. The width also increases by \\(10\\%\\) towards anchors due to the backscattering effect in electron beam lithography [14]. The increase of both the width and the thickness from the center (Fig. 3b) to the anchor (Fig. 3c) is evident in cross-sectional micrographs. A close-up near the center of the cross-section shows that it is a rectangular cross-section. This cross-section is different from the scallop profile as depicted in Fig. 1f. This difference hints at the relatively large size of the scallop radius of curvature compared to the NW width.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.058,
+                                        0.737,
+                                        0.248,
+                                        0.75
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.056,
+                                        0.753,
+                                        0.483,
+                                        0.905
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.057,
+                                        0.906,
+                                        0.483,
+                                        0.937
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.37,
+                                        0.937,
+                                        0.617
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.615,
+                                        0.937,
+                                        0.814
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.814,
+                                        0.937,
+                                        0.937
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.056,
+                                        0.081,
+                                        0.483,
+                                        0.174
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.062,
+                                        0.174,
+                                        0.487,
+                                        0.48
+                                    ],
+                                    "page": 3
+                                }
+                            ],
+                            "block_ids": [
+                                34,
+                                35,
+                                36,
+                                39,
+                                40,
+                                41,
+                                46,
+                                47
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "FIGURE 2. (a) An array of Si NWs anchored between two \\(10\\mu \\mathrm{m}\\)-thick, \\(0.5\\mu \\mathrm{m}\\)-thick arrays with a thickness of \\(10\\mu \\mathrm{m}\\) (thickness of \\(2.5\\mathrm{nm}\\)) and an array of \\(20\\mu \\mathrm{m}\\) (thickness of \\(23.7\\mathrm{nm}\\) in a Zeiss Marxel SIM). (b) A Si NW with a width of \\(40\\mathrm{nm}\\) in a Si NW with the maximum width of \\(80\\mathrm{nm}\\). (c) A Si NW with a width of \\(100\\mathrm{nm}\\) in a Si NW with the maximum width of \\(200\\mathrm{nm}\\). Inset indicates their location with respect to the Si NW.",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 34,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.517,
+                                                0.082,
+                                                0.931,
+                                                0.284
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.509,
+                                                0.292,
+                                                0.936,
+                                                0.359
+                                            ],
+                                            "page": 2
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        37,
+                                        38
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 34,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.064,
+                                                0.499,
+                                                0.269,
+                                                0.629
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        48
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 34,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.271,
+                                                0.5,
+                                                0.475,
+                                                0.629
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        49
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 34,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.064,
+                                                0.629,
+                                                0.268,
+                                                0.756
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        50
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "FIGURE 3. (a) A \\(40\\mathrm{-nm}\\) Si NW for FIB study, (b) FIB cut near the midsection \\((A - R)\\) revealing a width of \\(70~\\mathrm{nm}\\) along an ALD-coated Pt thickness of about \\(20~\\mathrm{nm}\\). (c) A cross-section near the anchor (B-F) showing the cross-section of the sample in the center of the sample showing a rectangular Si core enveloped by the PI film.",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 34,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.27,
+                                                0.638,
+                                                0.474,
+                                                0.74
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.056,
+                                                0.768,
+                                                0.465,
+                                                0.825
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        51,
+                                        52
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "B. NANOMECHANICAL CHARACTERIZATION",
+                            "metadata": "",
+                            "content": "Resulting structures are tested through bending experiments in an atomic force microscope (AFM) through Bruker Peak Force QNM (Quantitative Nano Mechanical Mapping), and the results are compared with those obtained by the same correction factors are taken into account through the native<|txt_contd|>AFM software for cantilever (Bruker FastScana tip) stiffness and deflection sensitivity. During subsequent imaging, the AFM tip is positioned in the middle of the Si NW, first in a single direction, and then in the other, with the point of maximum deflection upon consecutive zooming.<|txt_split|>Imaging is followed by the ramping mode in which force is applied gradually until fracture at \\(9\\mu \\mathrm{N}\\) (Fig. 4a). Elastic behavior of Si NW is evident, where each loading with increased set-point force overlaps with previous ones. Further tests are performed on 4 Si NWs with a width of \\(30~\\mathrm{nm}\\) and thickness of \\(1.5\\mu \\mathrm{m}\\) (Fig. 4b). The average stiffness exhibits a four-fold increase when compared to the expected value with the bulk modulus of elasticity of \\(169\\mathrm{GPa}\\) taken for \\(< 110>\\) Si.<|txt_split|>Such stiffening is reported for double-clamped NwS, where surface stress is claimed to lead to an increase in the apparent modulus with higher aspect ratios [15]. As surface stresses are a key parameter in determining the strength of the filamentation, a tensile stress develops increasing the flexural stiffness. In addition, fabrication-related defects and intrinsic stresses develop [16]. Recent studies hint at the misinterpretation of the intrinsic stress effect as an increase in the tensile stress. This is not the case in the case of the finite element and intrinsic stress have to be extracted from measurements. As no appreciable change in the modulus is predicted for Si at the scale of interest of this work [19]-[21], the stress effect is modeled using finite element analysis with the bulk modulus. The finite element model is based on tetrahedral models [22] and is used to describe the influence of boundary condition. Experimental stiffness is matched, when this tensile intrinsic stress reaches \\(850\\mathrm{MPa}\\). As such high intrinsic stresses are common in nanofabrication [21], [22], this study confirms the necessity to incorporate them in nanomechanical models. However, one should exercise caution when interpreting these results. For example, the various variations, shown to be as much as \\(10\\%\\), and the lack of<|txt_contd|>modeling of the actual tip shape and tip-sample interactions constitute sources of uncertainty.<|txt_split|>As Si NWs and anchors are etched from the same crystal, a high-level of structural integrity is expected. Accordingly, in 14 out of 17 tests, fracture is observed to take place at the end of the etching process. The average grain size for Si NWs was \\(0.18\\mu \\mathrm{m}\\) where the deformation is still linear (Fig. 4b). the maximum uniaxial stress is found to be already on the order of \\(2\\mathrm{GPa}\\) (Fig. 4c) surpassing the strength of bulk Si. Using the same finite element model with geometric non-adiabatic approximation, the fracture length is estimated to exceed previously reported \\(12\\mathrm{GPa}\\) [23].",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.058,
+                                        0.844,
+                                        0.392,
+                                        0.858
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.056,
+                                        0.86,
+                                        0.484,
+                                        0.937
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.509,
+                                        0.081,
+                                        0.938,
+                                        0.158
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.509,
+                                        0.158,
+                                        0.939,
+                                        0.295
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.509,
+                                        0.601,
+                                        0.939,
+                                        0.936
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.057,
+                                        0.081,
+                                        0.482,
+                                        0.111
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.057,
+                                        0.112,
+                                        0.484,
+                                        0.265
+                                    ],
+                                    "page": 4
+                                }
+                            ],
+                            "block_ids": [
+                                53,
+                                54,
+                                55,
+                                56,
+                                61,
+                                66,
+                                67
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 53,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.512,
+                                                0.308,
+                                                0.936,
+                                                0.422
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        57
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 53,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.513,
+                                                0.424,
+                                                0.717,
+                                                0.513
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        58
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "FIGURE 4. (a) Mid-span loading curves to three different set-point forces, and (b) the corresponding stress distribution in the \\(1\\mathrm{mm}\\) of the load (inset). Hysteresis associated with loading to \\(0.5\\mu \\mathrm{N}\\) and unloading is provided in a separate inset, (b) Loading curve obtained for our four NINs under the same regime. (c) Uniaxial stress distribution in SI NH mid-span for \\(0.18\\mu \\mathrm{N}\\).",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 53,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.698,
+                                                0.425,
+                                                0.884,
+                                                0.509
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.509,
+                                                0.52,
+                                                0.936,
+                                                0.586
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        59,
+                                        60
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "IV. CONCLUSION",
+                    "metadata": "",
+                    "content": "A technique for the monolithic fabrication of Si NWs within \\(10 - \\mu \\mathrm{m}\\) thick Si layers is developed. SiNWs as narrow as \\(20\\mathrm{nm}\\) are demonstrated with a maximum aspect ratio of 150. Thickness control is achieved through a combination of Si etch processes. Their mechanical integrity is tested using AFM bending tests. As the Si NW does not remain buried at the bottom of a thick Si layer, one can now pursue a set of experiments to determine the contact formation apart from MEMS fabrication. This ability constitutes an advantage for applications, where the integration of Si NWs with thicker MEMS shuttles is of interest.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.06,
+                                0.274,
+                                0.192,
+                                0.286
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.057,
+                                0.288,
+                                0.484,
+                                0.455
+                            ],
+                            "page": 4
+                        }
+                    ],
+                    "block_ids": [
+                        68,
+                        69
+                    ],
+                    "children": []
+                },
+                {
+                    "type": "text",
+                    "title": "ACKNOWLEDGMENT",
+                    "metadata": "",
+                    "content": "Authors gratefully acknowledge help by CMI Staff.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.06,
+                                0.465,
+                                0.219,
+                                0.478
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.06,
+                                0.48,
+                                0.42,
+                                0.495
+                            ],
+                            "page": 4
+                        }
+                    ],
+                    "block_ids": [
+                        70,
+                        71
+                    ],
+                    "children": []
+                },
+                {
+                    "type": "text",
+                    "title": "REFERENCES",
+                    "metadata": "",
+                    "content": "[1] Y. Xia et al., \"One-dimensional nanostructures: Synthesis, characterization, and applications,\" Adv. Mater., vol. 15, no. 5, pp. 353-389, Mar. 2003.<|txt_split|>[2] M A Zimuran, F Capasso, S Miller, and C. Roming, \"Optically pumped pumpless photonic switching systems,\" Sensitom Sci Technol, vol. 25, no. 1, p. 042001. Feb. 2010.<|txt_split|>[3] M De Marchi et al., \"Configurable logic gates using policy-controlled logic\", IEEE Electron Device vol. 35, no. 8, pp. 880-882, Aug. 2014.<|txt_split|>[4] X. Dai et al., \"GaAs/AlGaAs nanowire photodetector,\" Nano Lett., vol. 14, no. 5, pp. 2688-2693, 2014.<|txt_split|>[5] B. E. Alaca, \"Integration of one-dimensional nanostructures with a single layer,\" An overview, Int J Mater Rev., vol. 5, no. 5, pp. 245-282, Sep. 2009<|txt_split|>[6] P. E. Allan, A. Rosenbrot, F. Parian, S. Mazumdar, P. Conte, and M. L. K. D. R. G. J. H. C. W. T. B. S. S., \"A new method for the preparation of a precision-sizer silicon nanowires,\" in Proc. IEEE 21th Int'l Conf. MEMS, 2005, pp. 37-48.<|txt_split|>[7] K.-N. Lee, S.-W. Jung, K.-S. Shao, W.-H. Kim, M.-H. Lee, and L.-Y. Kim, \"A novel method for the synthesis and silicon nanowires arrays,\" Surf. vol. 4, no. 5, pp. 642-648, May 2008.<|txt_split|>[8] A. I Hochbaum, R. Fan, R. He, and P. Yang, 'Controlled growth of the \\( \\mathrm{ZnO} \\) nanocrystals for device integration', Nano Lett., vol. 5, no. 3, pp. 457-460, 2005.<|txt_split|>[9] Re. H. XL Feng, M. L Rooks, and P Yang \"Self-transducing silicon transistors: a review of their applications at room temperature\", Nano Lett., vol. 8, no.6, pp.1756-1761, 1986.<|txt_split|>[10] P. E. Altani, F. Parran, A. Bossefont, S. Mauroff, P. Cote, and M. Lefkovic, \"A high-precision optical measurement of the noise level using an integrated perisensitive silicon nanowire,\" Opt. Express 2009, 10(3):1657-1664.<|txt_split|>[11] K. A. Shaw, Z. L. Zhang, and N. C. MacDonald, \"SCERAM I: a new approach to the study of the interfacial mechanical structures,\" in Proc. IEEE Modem FEB 1993, pp. 135-160<|txt_split|>[12] A. N Cleland and M. L Rounke, \"Fabrication of high frequency nanometre arrays using a 3D printed SiC crystals,\" Appl. Phys. Lett., vol. 69, no. 18, pp. 2653-2655 Oct. 1996.<|txt_split|>[13] O. Ozran et al., \"Monolithic integration of silicon nanowires with a microgripper,\" Microelectromech. Syst. vol. 18, no. 6, pp. 1355-1344, 2007.<|txt_split|>[14] T. H. P. Chang, \"Proximity effect in electron-beam lithography,\" J. Vac. Sci. Technol., vol. 12, no. 6, pp. 1271-1275, Nov./Dec. 1975.<|txt_split|>[15] H. S. Park and P. A. Klein, \"Surface stress effects on the resonant properties of metal nanowires: The importance of finite deformation kinematics and the impact of the residual surface unit cell,\" Mech. Phys. Solid., vol. 56, no. 11, pp. 3144-3166, Nov. 2008.<|txt_split|>[16] H. F. Zhu and Y. T. Gu, \"Modified beam theories for bending properties of rectangular beams,\" in *The theory of the axial extension effect*, J. Appl. Plast., vol. 111, no. 8, p. 04305, 2012.<|txt_split|>[17] J. He and C. M. Lilley, \"Surface effect on the elastic behavior of static bending nanostructures,\" Nano Lett., Vol. 8, no. 7, pp. 1978-1982, 103.<|txt_split|>[18] Y. E. Yasui, Y. Calabria, O. Stempfack, and V. Kotekhov, \"Theory of the structure of the crystal structure of the 2D periodic modulus, initial stress, and crystal orientation,\" J. Appl. Physiol., vol. 171, pp. 35-40.<|txt_split|>[19] Y. Zhu, F. Xu, Q. Qin, W. Y. Feng, and W. Lu, \"Mechanical properties of the composite composites fabricated silicon nanowires,\" Nano Lett., vol 9, no. 11, pp. 9354-9359, 2006.<|txt_split|>[29] M. J. Gorodkin, T. Barne, F. Abdullah, P. Gentile, and P. Tereff. \"Some results for the study of the effect of a reversed silicon nanowires,\" Nano Lett., vol. 9, no. 2, pp. 525-529 2004.<|txt_split|>[21] Calabera O, Storpmeck P, Kuntelhovek and Y. Y. Yash, \"Vong's algorithm for the computation of the number of vertices in a square of silicon nanowire arrays,\" Nano Lett., vol. 15, no. 5, pp. 2945-2950.<|txt_split|>[22] K. E. Moselund et al., \"The high-mobility band-n-channel silicon diode,\" IEEE Trans. Electron Devices, vol. 57, no. 4, pp. 468-476, Apr. 2008.<|txt_split|>[23] S. Hoffmann et al. \"Measurement of the bending strength of vapor-liquid-solid grown wood nanowires.\" Nano Lett. vol. 6, no. 4, pp. 422-425, 2015.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.06,
+                                0.503,
+                                0.158,
+                                0.515
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.067,
+                                0.521,
+                                0.483,
+                                0.544
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.067,
+                                0.545,
+                                0.484,
+                                0.578
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.067,
+                                0.579,
+                                0.483,
+                                0.612
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.067,
+                                0.613,
+                                0.483,
+                                0.635
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.067,
+                                0.636,
+                                0.483,
+                                0.669
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.067,
+                                0.67,
+                                0.483,
+                                0.716
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.52,
+                                0.083,
+                                0.936,
+                                0.119
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.52,
+                                0.12,
+                                0.937,
+                                0.152
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.52,
+                                0.153,
+                                0.936,
+                                0.187
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.188,
+                                0.936,
+                                0.232
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.513,
+                                0.233,
+                                0.936,
+                                0.268
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.268,
+                                0.936,
+                                0.301
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.302,
+                                0.936,
+                                0.336
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.513,
+                                0.337,
+                                0.936,
+                                0.359
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.36,
+                                0.936,
+                                0.415
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.417,
+                                0.936,
+                                0.45
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.451,
+                                0.936,
+                                0.484
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.486,
+                                0.936,
+                                0.53
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.531,
+                                0.936,
+                                0.565
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.566,
+                                0.936,
+                                0.599
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.6,
+                                0.936,
+                                0.644
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.645,
+                                0.936,
+                                0.679
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.514,
+                                0.68,
+                                0.936,
+                                0.713
+                            ],
+                            "page": 4
+                        }
+                    ],
+                    "block_ids": [
+                        72,
+                        73,
+                        74,
+                        75,
+                        76,
+                        77,
+                        78,
+                        80,
+                        81,
+                        82,
+                        83,
+                        84,
+                        85,
+                        86,
+                        87,
+                        88,
+                        89,
+                        90,
+                        91,
+                        92,
+                        93,
+                        94,
+                        95,
+                        96
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 1 - header",
+            "metadata": "IEEE NANOTECHNOLOGY EXPRESS",
+            "content": "IEEE NANOTECHNOLOGY EXPRESS",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.058,
+                        0.044,
+                        0.355,
+                        0.059
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                1
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 1 - page_number",
+            "metadata": "2",
+            "content": "2",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.061,
+                        0.962,
+                        0.071,
+                        0.972
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                21
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 1 - footer",
+            "metadata": "2352-7715 © 2015 IEEE. Translations and content mining are permitted for academic research only.",
+            "content": "2352-7715 © 2015 IEEE. Translations and content mining are permitted for academic research only.",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.261,
+                        0.944,
+                        0.735,
+                        0.955
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                22
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 1 - footer - 1",
+            "metadata": "Personal use is also permitted, but republication/redistribution requires IEEE permission.",
+            "content": "Personal use is also permitted, but republication/redistribution requires IEEE permission.",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.291,
+                        0.954,
+                        0.703,
+                        0.963
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                23
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 1 - footer - 2",
+            "metadata": "See http://www.see.org/publications_standards/publications/rights/index.html for more information.",
+            "content": "See http://www.see.org/publications_standards/publications/rights/index.html for more information.",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.261,
+                        0.963,
+                        0.735,
+                        0.973
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                24
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 1 - footer - 3",
+            "metadata": "VOLUME 1, 2015",
+            "content": "VOLUME 1, 2015",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.852,
+                        0.961,
+                        0.935,
+                        0.972
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                25
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 2 - header",
+            "metadata": "Tasdemir et al.: Monolithic Fabrication of Silicon Nanowires Bridging Thick Silicon Structures",
+            "content": "Tasdemir et al.: Monolithic Fabrication of Silicon Nanowires Bridging Thick Silicon Structures",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.058,
+                        0.041,
+                        0.56,
+                        0.054
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                26
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 2 - header - 1",
+            "metadata": "IEEE NANOTECHNOLOGY EXPRESS",
+            "content": "IEEE NANOTECHNOLOGY EXPRESS",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.639,
+                        0.044,
+                        0.936,
+                        0.059
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                27
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 2 - footer",
+            "metadata": "VOLUME 1, 2015",
+            "content": "VOLUME 1, 2015",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.058,
+                        0.95,
+                        0.143,
+                        0.962
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                42
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 2 - page_number",
+            "metadata": "3",
+            "content": "3",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.925,
+                        0.951,
+                        0.935,
+                        0.961
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                43
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 3 - header",
+            "metadata": "IEEE NANOTECHNOLOGY EXPRESS",
+            "content": "IEEE NANOTECHNOLOGY EXPRESS",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.058,
+                        0.044,
+                        0.356,
+                        0.059
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                44
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 3 - header - 1",
+            "metadata": "Tasdemir et al.: Monolithic Fabrication of Silicon Nanowires Bridging Thick Silicon Structures",
+            "content": "Tasdemir et al.: Monolithic Fabrication of Silicon Nanowires Bridging Thick Silicon Structures",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.434,
+                        0.042,
+                        0.937,
+                        0.056
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                45
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 3 - page_number",
+            "metadata": "4",
+            "content": "4",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.06,
+                        0.951,
+                        0.071,
+                        0.961
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                62
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 3 - footer",
+            "metadata": "VOLUME 1, 2015",
+            "content": "VOLUME 1, 2015",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.852,
+                        0.951,
+                        0.936,
+                        0.962
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                63
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 4 - header",
+            "metadata": "Tasdemir et al.: Monolithic Fabrication of Silicon Nanowires Bridging Thick Silicon Structures",
+            "content": "Tasdemir et al.: Monolithic Fabrication of Silicon Nanowires Bridging Thick Silicon Structures",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.059,
+                        0.042,
+                        0.56,
+                        0.055
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                64
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 4 - header - 1",
+            "metadata": "IEEE NANOTECHNOLOGY EXPRESS",
+            "content": "IEEE NANOTECHNOLOGY EXPRESS",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.639,
+                        0.045,
+                        0.936,
+                        0.058
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                65
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 4 - footer",
+            "metadata": "VOLUME 1, 2015",
+            "content": "VOLUME 1, 2015",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.059,
+                        0.951,
+                        0.143,
+                        0.962
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                98
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 4 - page_number",
+            "metadata": "5",
+            "content": "5",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.925,
+                        0.952,
+                        0.935,
+                        0.961
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                99
+            ]
+        }
+    ]
+}

@@ -1,0 +1,3672 @@
+{
+    "type": "root",
+    "title": "",
+    "metadata": "",
+    "content": "",
+    "level": 0,
+    "location": [],
+    "block_ids": [],
+    "children": [
+        {
+            "type": "text",
+            "title": "Tutorial: fiber laser basics",
+            "metadata": "",
+            "content": "Fiber lasers: this tutorial provides an overview of the technical approaches most commonly used to generate laser beams. It also includes choices and various architectures that are generally used for CW or pulsed fiber laser development.",
+            "level": 1,
+            "location": [
+                {
+                    "bbox": [
+                        0.267,
+                        0.12,
+                        0.731,
+                        0.151
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.112,
+                        0.173,
+                        0.885,
+                        0.222
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                2,
+                3
+            ],
+            "children": [
+                {
+                    "type": "text",
+                    "title": "I. Fiber lasers principles:",
+                    "metadata": "",
+                    "content": "A fiber laser is a laser in which the amplifying media is an optical fiber. It is an active module (like an amplifier or amplifier antenna) that needs to be powered and which uses the properties of optical amplification of Rare-Earth ions.<|txt_split|>The pumping media is generally a fiber-coupled laser diode. Two kinds of architectures can be utilized:<|txt_split|>- Laser cavity configurations where the light goes in both directions through the fiber amplifying media.<|txt_split|>- MOPA configurations: (Master Oscillator Power Amplifier) where an oscillating media generates a small \"seeder\" signal which is amplified through the fiber amplifying media.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.13,
+                                0.248,
+                                0.421,
+                                0.27
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.112,
+                                0.295,
+                                0.885,
+                                0.343
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.112,
+                                0.359,
+                                0.831,
+                                0.39
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.167,
+                                0.408,
+                                0.837,
+                                0.441
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.167,
+                                0.46,
+                                0.865,
+                                0.493
+                            ],
+                            "page": 1
+                        }
+                    ],
+                    "block_ids": [
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "children": [
+                        {
+                            "type": "image",
+                            "title": "Figure1: Fiber laser in laser cavity configuration",
+                            "metadata": "",
+                            "content": null,
+                            "level": 4,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.508,
+                                        0.941,
+                                        0.634
+                                    ],
+                                    "page": 1
+                                },
+                                {
+                                    "bbox": [
+                                        0.33,
+                                        0.635,
+                                        0.665,
+                                        0.65
+                                    ],
+                                    "page": 1
+                                }
+                            ],
+                            "block_ids": [
+                                10,
+                                11
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "image",
+                            "title": "Figure 2: Fiber laser in a MOPA configuration (Master Oscillator Power Amplifier) - single stage version",
+                            "metadata": "",
+                            "content": null,
+                            "level": 4,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.202,
+                                        0.679,
+                                        0.785,
+                                        0.844
+                                    ],
+                                    "page": 1
+                                },
+                                {
+                                    "bbox": [
+                                        0.136,
+                                        0.844,
+                                        0.86,
+                                        0.86
+                                    ],
+                                    "page": 1
+                                }
+                            ],
+                            "block_ids": [
+                                12,
+                                13
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "II. Key components of fiber lasers:",
+                    "metadata": "",
+                    "content": "This section explains the various elements shown in Figure1 and Figure 2. It includes some examples of alternative supplier categories and choices.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.125,
+                                0.086,
+                                0.521,
+                                0.107
+                            ],
+                            "page": 2
+                        },
+                        {
+                            "bbox": [
+                                0.112,
+                                0.133,
+                                0.883,
+                                0.163
+                            ],
+                            "page": 2
+                        }
+                    ],
+                    "block_ids": [
+                        16,
+                        17
+                    ],
+                    "children": [
+                        {
+                            "type": "text",
+                            "title": "a) Fiber amplifying media",
+                            "metadata": "",
+                            "content": "As with any laser, a fiber laser uses the principle of stimulated emission. Most fiber lasers are made from a concatenation of fiber-coupled components.<|txt_split|>The fibers associated with the various components are called \"passive fibers\". Passive fibers have no amplification properties. The fibers at the heart of the amplifying media are called \"active fibers\". Active fibers are doped with rare-earth elements (like Erbium, Ytterbium or Thulium) which perform the stimulated emission by transforming the laser diode pumping power to the laser power.<|txt_split|>The pumping wavelength required for Ytterbium \\(\\mathrm{(Yb3 + )}\\) or Erbium \\(\\mathrm{(Er3 + )}\\) is typically 915 or \\(976\\mathrm{nm}\\) whereas the emission wavelength of \\(\\mathrm{Er3 + }\\) is around \\(1.5\\mu \\mathrm{m}\\) and \\(\\mathrm{Yb3 + }\\) between \\(1030 - 1100\\mathrm{nm}\\).<|txt_split|>Two types of active fibers are commonly utilized:<|txt_split|>- Single clad / single mode fibers when the desired laser diode pumping power is compatible with single mode fiber coupled laser diodes (typically <1w)<|txt_split|>Double clad fibers when the laser diode pumping power is typically higher than 1W<|txt_split|>iX-Blue: French supplier - www.photonics.ixblue.com<|txt_split|>Nufern: USA(CT) supplier - www.nufern.com<|txt_split|>Coractive: Canadian supplier - www.coractive.com/<|txt_split|>- NKT: Denmark supplier - www.nktphotonicity.com [for very special PCFs - Photonics Crystal Fibers]",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.177,
+                                        0.396,
+                                        0.195
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.204,
+                                        0.865,
+                                        0.236
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.251,
+                                        0.872,
+                                        0.316
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.333,
+                                        0.858,
+                                        0.363
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.114,
+                                        0.616,
+                                        0.488,
+                                        0.632
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.648,
+                                        0.861,
+                                        0.68
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.697,
+                                        0.802,
+                                        0.712
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.303,
+                                        0.581,
+                                        0.319
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.32,
+                                        0.516,
+                                        0.336
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.338,
+                                        0.568,
+                                        0.354
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.356,
+                                        0.855,
+                                        0.388
+                                    ],
+                                    "page": 3
+                                }
+                            ],
+                            "block_ids": [
+                                18,
+                                19,
+                                20,
+                                21,
+                                26,
+                                27,
+                                28,
+                                34,
+                                35,
+                                36,
+                                37
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 18,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.115,
+                                                0.38,
+                                                0.297,
+                                                0.534
+                                            ],
+                                            "page": 2
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        22
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 18,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.306,
+                                                0.381,
+                                                0.497,
+                                                0.534
+                                            ],
+                                            "page": 2
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        23
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Figure 3: Energy levels and associated absorption/emission spectrum (only \\(\\mathrm{Yb}3+\\) right) of an active fiber media - the combined effect of absorption and emission produces a favorable emission area for \\(\\mathrm{Yb}3+\\) between 1030 and \\(1100\\mathrm{nm}\\) depending on the ions population inversion ratio (the more the inversion is high, the more the emission effect and the less the absorption effect).",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 18,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.517,
+                                                0.377,
+                                                0.889,
+                                                0.542
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.117,
+                                                0.542,
+                                                0.876,
+                                                0.6
+                                            ],
+                                            "page": 2
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        24,
+                                        25
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Figure 4: Principle of a single mode or multi-mode laser diode pumping in a single or double clad active fiber Four highly reputable manufacturers of active fibers include:",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 18,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.243,
+                                                0.084,
+                                                0.752,
+                                                0.257
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.114,
+                                                0.26,
+                                                0.878,
+                                                0.29
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        32,
+                                        33
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "b) Pump laser diodes",
+                            "metadata": "",
+                            "content": "Pump laser diodes that are used for fiber lasers are fiber coupled device generally based on AlGaAs (AlGaAs) and graphene oxide. The technology emitting in the 800-1000nm range (most often 915 or 976nm = absorption spectrum Figure 2).<|txt_split|>They can be separated into two major families:<|txt_split|>1-Single mode fiber coupled laser diodes where the light coming from a small edge-emitting laser diode is focused into a \"6 \\(\\mu\\)m fiber laser core. This type of laser diode is generally assembled in a butterfly package with a TEC cooler integrated into the package (the trend today being towards 1000-1200 GHz) and a single fiber core. The fiber core has been made from 300 nm and a 1.5 W of output power. They are used to pump single clad active fibers (see Figure 4).<|txt_split|>The major suppliers for 915/976nm single mode pump laser diodes are companies which developed their businesses at the end of the nineties for fiber amplifiers used in the Telecom market (EDFAs: Erbium Doped Fiber Amplifiers). They offer both a high level of reliability and a moderate cost due to their high production volumes.<|txt_split|>2-Multimode fiber coupled laser diodes used in fiber lasers are generally based on broad area side emitting laser diode chips. These can also be separated in two categories:<|txt_split|>- Single emitters laser diodes where a single laser diode chip of typically \\(15\\mathrm{W}\\) is coupled into generally a 105 (core)/125\\(\\mu\\)m(clad) multimode fiber<|txt_split|>- Multi emitters laser diodes which are based on multiple laser diode chips which are coupled into a similar fiber and offer power levels scalable up to several hundred watts.<|txt_split|>Note that, as observed in Figure 3, the absorption spectrum of a rare-earth ion like \\(\\mathrm{Yb}^{3+}\\) at \\(976\\mathrm{nm}\\) is narrow and requires a stabilized laser diode absorption spectrum. This wavelength stability requires the laser diode temperature to be controlled and often the laser diode to include an additional wavelength stabilizing element. This element is generally a fBG (Fiber Bragg Grating) for single mode laser diodes. The fBG is usually situated roughly 1 meter from the laser diode), or a VBG (Volume Bragg Grating) for multimode laser diodes. The VBG is essentially a specialized piece of glass integrated into the laser diode package.<|txt_split|>The price of these diodes is typically in the range of $1500 for single mode laser diodes, $500 for multimode single emitters and $2000 for multi-emitter laser diodes.<|txt_split|>Driving a laser diode and taking into account all of the constraints and requirements specific to a fiber laser is a difficult task which requires specialized products. Here are two laser diode drivers which have been specially designed for fiber laser diode driving and are compatible with both R&D and full fiber laser product integration:<|txt_split|>- The Central board from AeroDIODE (fiber laser diode driver) which acts as a control center for nearly all types of fiber laser architectures. This driver board includes 2 single mode laser diode drivers and TEC controllers working in both CW and pulsed regime and 6 photodiode measurement circuits for fiber laser power monitoring.<|txt_split|>- The CCM (Cool and Control Multimode) from AeroDIODE (high power laser diode driver) is fully optimized for driving one or several multimode pump laser diodes (either single element or multiple element devices) including the high power TEC controller and air cooling setup.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.412,
+                                        0.353,
+                                        0.431
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.113,
+                                        0.439,
+                                        0.882,
+                                        0.486
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.114,
+                                        0.504,
+                                        0.473,
+                                        0.518
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.113,
+                                        0.536,
+                                        0.882,
+                                        0.614
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.113,
+                                        0.63,
+                                        0.882,
+                                        0.693
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.113,
+                                        0.88,
+                                        0.862,
+                                        0.913
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.102,
+                                        0.88,
+                                        0.134
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.152,
+                                        0.88,
+                                        0.184
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.361,
+                                        0.882,
+                                        0.472
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.488,
+                                        0.882,
+                                        0.52
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.557,
+                                        0.882,
+                                        0.622
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.638,
+                                        0.88,
+                                        0.702
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.719,
+                                        0.88,
+                                        0.783
+                                    ],
+                                    "page": 4
+                                }
+                            ],
+                            "block_ids": [
+                                39,
+                                40,
+                                41,
+                                42,
+                                43,
+                                46,
+                                49,
+                                50,
+                                54,
+                                55,
+                                56,
+                                57,
+                                58
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "Figure 5: Example of a single mode fiber coupled laser diode at 976 nm from the AeroDIODE.",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 39,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.399,
+                                                0.717,
+                                                0.602,
+                                                0.833
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.171,
+                                                0.847,
+                                                0.822,
+                                                0.862
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        44,
+                                        45
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Figure 6: Example of multimode fiber coupled laser diode pumps used in fiber lasers (left: \\(150\\mathrm{W}\\) @ \\(976~\\mathrm{nm}\\); right: \\(10\\mathrm{W}\\) @ \\(915~\\mathrm{nm}\\)).",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 39,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.306,
+                                                0.208,
+                                                0.645,
+                                                0.309
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.115,
+                                                0.315,
+                                                0.879,
+                                                0.344
+                                            ],
+                                            "page": 4
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        52,
+                                        53
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 39,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.299,
+                                                0.098,
+                                                0.497,
+                                                0.216
+                                            ],
+                                            "page": 5
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        62
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Figure 7: AeroBiOIDE fiber laser optimized laser diode drivers: Central board fiber laser diode driver for single mode laser diodes (left) and CCM high power laser diode driver for multimode laser diodes (right).",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 39,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.542,
+                                                0.106,
+                                                0.782,
+                                                0.233
+                                            ],
+                                            "page": 5
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.115,
+                                                0.233,
+                                                0.882,
+                                                0.262
+                                            ],
+                                            "page": 5
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        63,
+                                        64
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "table",
+                                    "title": "Table 1: The fiber Laser amplification range depends on the rare-earth dopant of the active fiber",
+                                    "metadata": "",
+                                    "content": "<table><tr><td>Dopant</td><td>Laser amplification wavelength range</td></tr><tr><td>Yb3+</td><td>1030-1100 nm</td></tr><tr><td>Er3+</td><td>1530-1620 nm</td></tr><tr><td>Tm3+</td><td>1800-1900 nm</td></tr><tr><td>Nd3+</td><td>1050-1090 nm</td></tr></table>",
+                                    "level": 39,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.365,
+                                                0.571,
+                                                0.611,
+                                                0.671
+                                            ],
+                                            "page": 5
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.159,
+                                                0.557,
+                                                0.836,
+                                                0.571
+                                            ],
+                                            "page": 5
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        70,
+                                        69
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "c) Optical seeder",
+                            "metadata": "",
+                            "content": "Fiber lasers with MOPA architectures have a seeder section which determines the initial optical properties to be amplified through the various amplifying stages (Figure 2).<|txt_split|>The optical seeder section is where the major differences in fiber laser architectures occur. There are many seeder architectures. These include a laser diode driven in CW or pulsed mode, a laser diode feeding an external high speed modulation device (see our tutorials: 'high speed fiber modulator basics and fiber-coupled laser diode basics'), a special Q-switch cavity, a mode locked cavity, a crystal structure, and a microchip and many other approaches. These various seeder-dependent architectures are described further in \\(\\S\\) III (page 11). Only the direct laser diode part is described in this paragraph.<|txt_split|>As described in Figure 3, only the wavelength compatible with the amplifier gain medium is relevant for the Dopant. The Dopant is a function of the pulse width and thus wavelength ranges that are amplified by the dopants typically embedded in the active fiber media.<|txt_split|>A summary of several common types of laser diode seeders follows:<|txt_split|>- A \"standard\" laser diode seeder is a common partially reflecting semiconductor cavity which is integrated into a 14-pin butterfly package. The wavelength emission spectrum is highly dependent on an additional Bragg grating. The emission bandwidth is typically \\(3\\mathrm{-5nm}\\) without any Bragg grating, whereas it is much narrower (\\(\\sim0.1\\mathrm{nm}\\)) with a Bragg grating. The wavelength spectrum temperature tuning coefficient is typically \\(0.35\\mathrm{nm} / \\mathrm{C}\\) without any Bragg whereas it is much less with a Bragg grating.<|txt_split|>- DFB or DBR laser diode seeder devices have the Bragg grating wavelength stabilization (GBS) technique. This technique is used to stabilize the Bragg gratings in a device. This provides a narrower emission wavelength of typically \\(2\\mathrm{MHz}\\) for a DBF (i.e., \\(\\sim 10^{-3}\\mathrm{nm}\\)).<|txt_split|>When used in pulse regime, these laser diodes can be amplified up to very high gain levels.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.29,
+                                        0.319,
+                                        0.309
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.317,
+                                        0.883,
+                                        0.351
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.366,
+                                        0.885,
+                                        0.476
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.493,
+                                        0.884,
+                                        0.541
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.686,
+                                        0.631,
+                                        0.702
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.718,
+                                        0.883,
+                                        0.816
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.831,
+                                        0.882,
+                                        0.88
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.113,
+                                        0.264,
+                                        0.798,
+                                        0.278
+                                    ],
+                                    "page": 6
+                                }
+                            ],
+                            "block_ids": [
+                                65,
+                                66,
+                                67,
+                                68,
+                                71,
+                                72,
+                                73,
+                                79
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "Figure 8: Example of a DFB laser diode seeder @ 1064nm from AeroDIODE (left) and at 1550 nm (right)",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 65,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.286,
+                                                0.101,
+                                                0.702,
+                                                0.226
+                                            ],
+                                            "page": 6
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.137,
+                                                0.232,
+                                                0.856,
+                                                0.246
+                                            ],
+                                            "page": 6
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        77,
+                                        78
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "d) Diode / fiber combiner",
+                            "metadata": "",
+                            "content": "Coupling the light from a fiber coupled laser diode into an active fiber is a complicated process. This is a complex and difficult configuration (Figure 2) where both the input seeder source and the pump light need to be injected.<|txt_split|>The components used in this coupling process are different for a single mode fiber coupled laser diode than they are for a multimode fiber coupled laser diode.<|txt_split|>For single mode laser diode pumping, two types of components are generally used:<|txt_split|>- TAP-couplers/WDM's: These are based on the principle of fusing and turning two fibers together so that the modes of both fibers can be coupled up to the moment the targeted performances are reached. One big limitation here comes from the minimum wavelength separation between two fibers, which is not possible from two different wavelengths. Several hundred nanometers difference is generally necessary.<|txt_split|>- Thin film WDM's (Wavelength Division Multiplexers): These are the solution to employ when Tap-couplers do not work. These components are based on the technology of thin films dichroic Transmission/reflection performance. The light is not actually in the fiber when inside the component, but we consider it a fibered component.<|txt_split|>Combining the light from one or several multimode fiber-coupled laser diodes with a single mode seeder is a very difficult task. This becomes even more difficult when using special fibers like PCFs (Photonics Crystal Fibers). Many technologies use the principle of fusing several fibers together in a special glass tube.<|txt_split|>Many Asian suppliers offer such components. Four highly reputable suppliers are listed below. The following table shows the number of companies listed in single mode components whereas the two last are more known for their multimode composites.<|txt_split|>DK Photonics (China):www.dkphotonics.com<|txt_split|>ITF technologies (Canada): www.itfttechnologies.com<|txt_split|>Lightcom (China): www.lightcomm.com<|txt_split|>ALPhANOV (France) offers also some specialty components associated with complex high power PCF fibers: www.alphanov.com<|txt_split|>e) Reflective media / Filtering media<|txt_split|>Reflective media - Bragg grating mirror<|txt_split|>A key component which is widely used in fiber lasers is a Bragg grating, which is periodic or aperiodic and has been extensively studied for the construction of an optical fiber. These are generally made by illuminating a germanosilicate fiber with UV light.<|txt_split|>The Bragg grating allows any type of reflection/transmission spectrum depending on the way the fiber UV illumination is manufactured.<|txt_split|>For laser cavities as described in Figure1, a Bragg grating is used to provide a total or partial reflector mirror to build a laser cavity.<|txt_split|>Filtering media - Bragg gratings filters<|txt_split|>Fiber lasers (especially MOPA configurations) face an unwanted effect called ASE (Amplified Spontaneous Emission). This is a bidirectional amplification effect starting from a low level of light and increasing the intensity of the emission. The amplification of the seerer light. An ASE has a spectrum correlated with the gain spectrum of the rare-earth dopant. It is thus very broad, and the intensity increases non-linearly along the fiber length.<|txt_split|>Since the seeder spectrum is generally much narrower than the ASE spectrum, it is relevant to add a higher gain at the same wavelength. This is because the ASE spectrum has a lower gain than the ASE spectrum and is higher than the gain at these wavelengths, but still allowing the seeder light to go through.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.307,
+                                        0.393,
+                                        0.323
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.335,
+                                        0.882,
+                                        0.382
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.399,
+                                        0.882,
+                                        0.429
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.113,
+                                        0.447,
+                                        0.744,
+                                        0.461
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.464,
+                                        0.88,
+                                        0.542
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.56,
+                                        0.88,
+                                        0.622
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.742,
+                                        0.882,
+                                        0.807
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.208,
+                                        0.883,
+                                        0.255
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.272,
+                                        0.521,
+                                        0.288
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.289,
+                                        0.581,
+                                        0.305
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.305,
+                                        0.479,
+                                        0.321
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.337,
+                                        0.885,
+                                        0.369
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.397,
+                                        0.498,
+                                        0.416
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.436,
+                                        0.495,
+                                        0.453
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.462,
+                                        0.884,
+                                        0.51
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.526,
+                                        0.883,
+                                        0.556
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.573,
+                                        0.883,
+                                        0.604
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.796,
+                                        0.483,
+                                        0.813
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.822,
+                                        0.885,
+                                        0.903
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.101,
+                                        0.883,
+                                        0.15
+                                    ],
+                                    "page": 8
+                                }
+                            ],
+                            "block_ids": [
+                                80,
+                                81,
+                                82,
+                                83,
+                                84,
+                                85,
+                                89,
+                                94,
+                                95,
+                                96,
+                                97,
+                                99,
+                                100,
+                                101,
+                                103,
+                                104,
+                                105,
+                                108,
+                                109,
+                                112
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "Figure 9: Example of a tap coupler (left) and a thin film WDM (right) typically used in fiber lasers",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 80,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.228,
+                                                0.645,
+                                                0.765,
+                                                0.699
+                                            ],
+                                            "page": 6
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.16,
+                                                0.712,
+                                                0.834,
+                                                0.726
+                                            ],
+                                            "page": 6
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        87,
+                                        88
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Figure 10: Example of a multimode pump combiner from ITF (left) and illustration of a \\(6 + 1\\) to 1 combiner principle (courtesy of ITF & OFS - websites)",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 80,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.192,
+                                                0.089,
+                                                0.8,
+                                                0.161
+                                            ],
+                                            "page": 7
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.13,
+                                                0.163,
+                                                0.865,
+                                                0.191
+                                            ],
+                                            "page": 7
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        92,
+                                        93
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Figure 11: Fiber Bragg Grating principle and an example of a fiber Bragg grating supplier (courtesy of iXblue - website)",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 80,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.241,
+                                                0.619,
+                                                0.763,
+                                                0.737
+                                            ],
+                                            "page": 7
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.117,
+                                                0.738,
+                                                0.879,
+                                                0.768
+                                            ],
+                                            "page": 7
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        106,
+                                        107
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Figure 12: Example of a competing gain effect between narrow seeder amplifier @ 1064nm and broad ASE and Bragg grating filter. (Namoto, Kneji et al. Phys. Conf.Ser. 220 (2010))",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 80,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.328,
+                                                0.165,
+                                                0.665,
+                                                0.318
+                                            ],
+                                            "page": 8
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.125,
+                                                0.322,
+                                                0.872,
+                                                0.352
+                                            ],
+                                            "page": 8
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        113,
+                                        114
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "f) Switching media",
+                            "metadata": "",
+                            "content": "Historically, the two alternative configurations of Figure 1 (Cavity) and Figure 2 (MOPA) were respectively associated with CW fiber lasers and pulsed fiber lasers. This is not the case anymore as many high-power CW architectures use the principle of MOPA amplification and some pulsed configurations are made in a unique cavity with no amplifier afterward.<|txt_split|>Making a pulsed fiber laser in a cavity configuration requires a time related collisional loss media which is usually the result of a combination of the optical and mechanical properties (mode-lock architecture principles described in II) or a switching media for active loss synchronization.<|txt_split|>Switching media can either be an AOM (Acousto-Optic Modulator), an EOM (electro-optic modulator), or a hybrid (hybrid) optical modulator. The hybrid modulation technologies are compared in another Tutorial called \"High Speed fiber modulator basics\".",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.379,
+                                        0.334,
+                                        0.397
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.407,
+                                        0.883,
+                                        0.472
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.487,
+                                        0.884,
+                                        0.534
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.551,
+                                        0.883,
+                                        0.6
+                                    ],
+                                    "page": 8
+                                }
+                            ],
+                            "block_ids": [
+                                115,
+                                116,
+                                117,
+                                118
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "Figure 13: Example of fiber coupled modulating media [Acousto-Optic Modulator to AeroDiode [left], Electro-Optic Modulator to AeroDiode [right] and Electro-Optic Modulator to Innoluno [right] (courtesy of AeroDiode, IKBBlue & Innoluno -websites)",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 115,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.208,
+                                                0.617,
+                                                0.79,
+                                                0.689
+                                            ],
+                                            "page": 8
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.122,
+                                                0.692,
+                                                0.875,
+                                                0.737
+                                            ],
+                                            "page": 8
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        119,
+                                        120
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "g) Other components",
+                            "metadata": "",
+                            "content": "Fiber lasers generally also include some monitoring components to permanently verify its level of power at every stage. Fibered photodiodes are such components. It is often necessary to understand how a photodiode behaves with time (speed) and other parameters such as temperature etc. Having a well detailed reference datasheet is useful, as many photodiode technical parameters are similar from one to another. A well detailed reference InGaAs photodiode 10 pages datasheet is the EPM 6xx Series from Lumentum.<|txt_split|>Typically, a pulsed MOPA high power fiber laser requires at least 5 photodiodes which are involved in the fiber laser monitoring and various securities and internal interlock:<|txt_split|>- 1 photodiode to control the average power of the seeder<|txt_split|>- 1 fast photodiode to \"watch-dog\" the seeder pulses and start some fast securities when a pulse is missing.<|txt_split|>- 1 photodiode at every stage which control the average power, and especially on both sides of a pulse-picking unit if it is part of the<|txt_split|>- 1 \"BFM\" (Back-Facet Monitor) to control the power which is going back to the fiber laser<|txt_split|>- 1 or 2 output photodiodes (fibered or not fibered when the level of power does not allow fibered devices).<|txt_split|>All these photodiodes are involved in some special starting and switch off procedure to avoid the fiber laser to get damaged.<|txt_split|>The major destructive effect which needs to be well controlled within a single or multiple stage MOPA configuration comes from potential situation where the pumping laser diode are still ON while the seeder has no emission. This immediately creates giant pulses which induces a permanent damage within the fiber laser.<|txt_split|>The central board of AeroDiODE has \"50 special electronics functionalities correlated with all the components described above to make nearly any type of the fiber laser architecture described below.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.763,
+                                        0.36,
+                                        0.781
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.791,
+                                        0.883,
+                                        0.886
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.113,
+                                        0.325,
+                                        0.882,
+                                        0.357
+                                    ],
+                                    "page": 9
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.359,
+                                        0.611,
+                                        0.373
+                                    ],
+                                    "page": 9
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.375,
+                                        0.88,
+                                        0.406
+                                    ],
+                                    "page": 9
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.407,
+                                        0.882,
+                                        0.439
+                                    ],
+                                    "page": 9
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.44,
+                                        0.842,
+                                        0.456
+                                    ],
+                                    "page": 9
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.457,
+                                        0.882,
+                                        0.487
+                                    ],
+                                    "page": 9
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.522,
+                                        0.883,
+                                        0.553
+                                    ],
+                                    "page": 9
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.569,
+                                        0.884,
+                                        0.632
+                                    ],
+                                    "page": 9
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.648,
+                                        0.883,
+                                        0.695
+                                    ],
+                                    "page": 9
+                                }
+                            ],
+                            "block_ids": [
+                                121,
+                                122,
+                                127,
+                                128,
+                                129,
+                                130,
+                                131,
+                                132,
+                                134,
+                                135,
+                                136
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "Figure 14: EPM series InGaAs Photodiodes from Lumentum: probably the most detailed fibered photodiode datasheet on the market today (courtesy of Lumentum).",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 121,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.319,
+                                                0.078,
+                                                0.67,
+                                                0.279
+                                            ],
+                                            "page": 9
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.12,
+                                                0.281,
+                                                0.878,
+                                                0.311
+                                            ],
+                                            "page": 9
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        125,
+                                        126
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "title": "Fiber laser diode driver pin assignment and functionalities overview :",
+            "metadata": "",
+            "content": "",
+            "level": 1,
+            "location": [
+                {
+                    "bbox": [
+                        0.235,
+                        0.092,
+                        0.793,
+                        0.109
+                    ],
+                    "page": 10
+                }
+            ],
+            "block_ids": [
+                139
+            ],
+            "children": [
+                {
+                    "type": "text",
+                    "title": "III. Fiber laser architectures:",
+                    "metadata": "",
+                    "content": "",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.117,
+                                0.096,
+                                0.448,
+                                0.117
+                            ],
+                            "page": 11
+                        }
+                    ],
+                    "block_ids": [
+                        144
+                    ],
+                    "children": [
+                        {
+                            "type": "text",
+                            "title": "a) Introduction",
+                            "metadata": "",
+                            "content": "The various architectures shown below are intended to provide the reader with an overview of the typical constraints which dictate some typical fiber laser architectures. Of course, many variants do exist and good simulation software like RP-Fiber-Power is mandatory to determine the best architecture.<|txt_split|>Note that for clarity purposes, the isolators (at every stage) and monitoring photodiodes are not show in the figures below.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.139,
+                                        0.3,
+                                        0.159
+                                    ],
+                                    "page": 11
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.168,
+                                        0.883,
+                                        0.23
+                                    ],
+                                    "page": 11
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.247,
+                                        0.882,
+                                        0.279
+                                    ],
+                                    "page": 11
+                                }
+                            ],
+                            "block_ids": [
+                                145,
+                                146,
+                                147
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "text",
+                            "title": "b) CW fiber lasers",
+                            "metadata": "",
+                            "content": "CW fiber lasers are generally made by an end-pumped simple Bragg grating based cavity with some optical parameters. Here there are specific requirements concerning the optical output characteristics (i.e. wavelength etc.).<|txt_split|>A typical CW fiber laser architecture is shown in Figure 14 below. A multiple pumped cavity is used to generate a high-power level. It is generally preferable to take a very long length of fiber to maximize absorption and avoid any remnant light on both sides of the grating which may be coming from the pumps on the other side.<|txt_split|>Choosing a long length of fiber reduces the overall inversion level within the active fiber. As explained in Figure 3, the combined effect of absorption and emission makes the most favorable emission area for Yb3+ between 1030 and \\(1100\\mathrm{nm}\\) depending on the population inversion ratio of the active fiber. The optical bandgap is also affected by the wavelength of a CW class CW fiber laser is generally higher than 1080 or even \\(1100\\mathrm{nm}\\).<|txt_split|>A typical high-power fiber laser is shown in Figure 15. A seeder laser diode source is used, and multiple amplification stages are necessary to reach a high-power level. Note that a mode stripper is often necessary to remove the remnant pump power after the active fiber. One or several ASE filters are also often necessary to remove Amplified Emission and keep a good signal over noise ratio.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.306,
+                                        0.322,
+                                        0.325
+                                    ],
+                                    "page": 11
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.335,
+                                        0.882,
+                                        0.382
+                                    ],
+                                    "page": 11
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.399,
+                                        0.882,
+                                        0.462
+                                    ],
+                                    "page": 11
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.479,
+                                        0.882,
+                                        0.557
+                                    ],
+                                    "page": 11
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.786,
+                                        0.882,
+                                        0.866
+                                    ],
+                                    "page": 11
+                                }
+                            ],
+                            "block_ids": [
+                                148,
+                                149,
+                                150,
+                                151,
+                                154
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "Figure 16:Typical architecture of a CW fiber laser",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 148,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.115,
+                                                0.574,
+                                                0.918,
+                                                0.75
+                                            ],
+                                            "page": 11
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.322,
+                                                0.756,
+                                                0.673,
+                                                0.771
+                                            ],
+                                            "page": 11
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        152,
+                                        153
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Figure 17: Typical fiber laser architecture / high power CW fiber laser (only one amplifying stage is shown here, whereas many stages are often utilized)",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 148,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.102,
+                                                0.095,
+                                                0.92,
+                                                0.278
+                                            ],
+                                            "page": 12
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.128,
+                                                0.285,
+                                                0.867,
+                                                0.314
+                                            ],
+                                            "page": 12
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        157,
+                                        158
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "c) Pulsed fiber lasers (millisecond/microsecond range)",
+                            "metadata": "",
+                            "content": "The time scale of population inversion of \\(\\mathrm{Yb}^{3+}\\) ions when applying high pumping power is typically in the range of 20-200 msec (typically “\\(\\sim 10\\%\\)\\(^{3+}\\) for the \\(\\mathrm{Yb}^{3+}\\) lifetime). This means that when one wants to get some pulses which are longer than this, pump power can be electronically pulsed and the same behavior as for a CW laser is achieved during these pulses. This means that the typical architectures of the two systems are different. The main difference between fiber lasers and CW fiber lasers are the same as for CW fiber lasers. Only the overall thermal properties are different, which may allow choosing different components when designing low duty cycle fiber lasers.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.342,
+                                        0.667,
+                                        0.361
+                                    ],
+                                    "page": 12
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.37,
+                                        0.883,
+                                        0.482
+                                    ],
+                                    "page": 12
+                                }
+                            ],
+                            "block_ids": [
+                                159,
+                                160
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "text",
+                            "title": "d) Pulsed fiber laser (nanosecond range)",
+                            "metadata": "",
+                            "content": "When one wants to generate short pulses in the 1 ns-10 \\(\\mu\\)s range, we enter in the world of nanosecond pulsed fiber lasers.<|txt_split|>As described above, the properties of \\(\\Upsilon\\beta^{+}\\) ions are not sufficient to generate such pulses by means of a pump. In fact, it is necessary to keep a continuous pump power and find a way to generate the pulses differently.<|txt_split|>The comparison with the flush of a toilet is relevant here. Optical pumping is the water coming in the tube, which is used to drive the water through the tube. The optical pump has a special optical pulse at desired frequency. This comparison allows us to understand a few important elements:<|txt_split|>- When considering CW pumping (continuous water flow), one can imagine that a minimum flush frequency is required otherwise the water coming in continuously will overflow. This minimum frequency for a fiber laser is typically \\(5\\mathrm{kHz}\\). Below this frequency, some ASE power starts to come out of the fiber between pulses.<|txt_split|>- We can also note that an important parameter is the number of ions in the active fiber. This number is directly correlated with the absolute maximum energy that can be obtained at every pulse (toilet tank size determines the absolute maximum water that can be obtained, while to the toilet bowl it is less water because a separated mechanism makes the water stop filling the toilet bowl).<|txt_split|>- The latest generation fiber laser electronic circuits are used to apply pump pulsing in MOPA (Amplified) nanosecond fiber laser architectures (see a description of such electronics in §1V p 20). Again, the comparison with a toilet flush is relevant when considering the two effects of a tank filling which start and stop separated from the action to flush to fill the toilet bowl.<|txt_split|>There are two very different types of architectures, as it has already been described in the beginning of this document (Figure1 and Figure 2): single fiber laser cavity and MOPA (Master Oscillator Power Amplifier). Most of the nanosecond fiber laser architectures are based on MOPA architectures, except for the single cavity Q-switch architecture.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.509,
+                                        0.536,
+                                        0.528
+                                    ],
+                                    "page": 12
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.538,
+                                        0.883,
+                                        0.569
+                                    ],
+                                    "page": 12
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.585,
+                                        0.882,
+                                        0.634
+                                    ],
+                                    "page": 12
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.65,
+                                        0.882,
+                                        0.698
+                                    ],
+                                    "page": 12
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.714,
+                                        0.88,
+                                        0.778
+                                    ],
+                                    "page": 12
+                                },
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.794,
+                                        0.882,
+                                        0.874
+                                    ],
+                                    "page": 12
+                                },
+                                {
+                                    "bbox": [
+                                        0.144,
+                                        0.086,
+                                        0.888,
+                                        0.15
+                                    ],
+                                    "page": 13
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.165,
+                                        0.885,
+                                        0.229
+                                    ],
+                                    "page": 13
+                                }
+                            ],
+                            "block_ids": [
+                                161,
+                                162,
+                                163,
+                                164,
+                                165,
+                                166,
+                                170,
+                                171
+                            ],
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "title": "Q-switch nanosecond Fiber lasers",
+                                    "metadata": "",
+                                    "content": "Q-switch fiber lasers are obtained when a specialized fast switching/modulating component is integrated in the fiber laser cavity. This component can be either an AOM (Acousto-Optic Modulator) or an optoelectronic modulator (Optoelectronic modulator). See our Tutorial \"Fiber optic modulator basics\" for a detailed description of such components. Switching the component to low loss level releases a high energy pulse of typically a few nanoseconds.<|txt_split|>An example of a Q-switch architecture is shown in Figure 18. A fast AOM is used to apply the loss.<|txt_split|>The pro of such an architecture is that it is quite simple as it requires few components. However, the modularity and ability to control optical parameters is rather low.",
+                                    "level": 4,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.144,
+                                                0.24,
+                                                0.453,
+                                                0.258
+                                            ],
+                                            "page": 13
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.266,
+                                                0.885,
+                                                0.348
+                                            ],
+                                            "page": 13
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.362,
+                                                0.851,
+                                                0.379
+                                            ],
+                                            "page": 13
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.113,
+                                                0.582,
+                                                0.884,
+                                                0.613
+                                            ],
+                                            "page": 13
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        172,
+                                        173,
+                                        174,
+                                        177
+                                    ],
+                                    "children": [
+                                        {
+                                            "type": "image",
+                                            "title": "Figure 18: Example of a Q-switch nanosecond fiber laser architecture",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 172,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.158,
+                                                        0.393,
+                                                        0.765,
+                                                        0.549
+                                                    ],
+                                                    "page": 13
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.255,
+                                                        0.551,
+                                                        0.741,
+                                                        0.566
+                                                    ],
+                                                    "page": 13
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                175,
+                                                176
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "title": "MOPA nanosecond fiber lasers",
+                                    "metadata": "",
+                                    "content": "Most of the engraving lasers sold today are based on this architecture. A seed laser diode at, for example, 1064nm is pulsed by some specialized fast current pulsing electronic circuit before being amplified with several stages of active fibers. A typical amplification stage generates between 10 and 20 dB of gain. Above that level of gain, some unwanted ASE (Amplified Spontaneous Emission) effects amplify undesired wavelengths. It is therefore desired to have a multiple stage amplifier with ASE filters between each stage instead of maximizing the amplification gain of a given stage.<|txt_split|>Four important effects need to be considered when looking at fiber laser amplification of pulsed laser diodes:<|txt_split|>1. Laser diode gain switching effect: when applying current to a laser diode, at the initial part of the pulse (picosecond time), some amount of energy is stored in the gain medium. This energy is subsequently realized in the form of a short pulse. This pulse is typically on the order of a 100 ps pulse duration. This short pulse can be viewed either as an opportunity, such as when trying to produce very short (~100 ps) pulses, or as a problem when considering nanosecond range pulses being amplified up to high energy levels.<|txt_split|>2. Evolution of the emission spectrum of pulsed laser diodes: When directly pulsing a laser diode, the user should consider two undesirable spectral effects:<|txt_split|>- The first is correlated to the time required for the laser diode to \"lock\" onto its Bragg locking element. This locking is immediate for a DFB but often requires more than 100 msec for a Bragg grating based laser diode. In other words, when pulsing Bragg grating stabilized laser diodes, the first nanosecond produces a broad emission spectrum as if there was no Bragg grating. Some suppliers offer an intermediate solution called \"Bragg close to the chip\" which take only a few nanoseconds to lock.<|txt_split|>- Another unavoidable effect comes from coupling of the frequency/phase spectrum and intensity profile. More specifically, the emission spectrum changes over the pulse length and this can sometimes be a problem. External modulation with, for example, an SOA offers a smart solution to avoid this effect. See our Tutorial: fiber intensity modulator basics for a detailed comparison of the four commonly used technologies for modulating laser light externally.<|txt_split|>3. Deformation of the pulse shape: when considering MOFA fiber laser architectures with high pulse power, it is important to understand how these structures depend on the dopant population inversion levels. These levels reduce over the pulse duration:<|txt_split|>Therefore, a deformation of the pulse occurs which prevents a nice square pulse shape at the output. Some pulsed laser diode drivers can adjust the shape of a given pulse to pre-compensate for this effect and reach the desired pulse shape at the output of the last amplification stage.<|txt_split|>4. Fiber nonlinear effects: Fiber amplifiers concentrate the light in a small diameter core and allow us to increase the power density up to very high levels. This can become a major problem when considering high pulse peak powers as many optical non-linear effects appear above a certain level of peak power and spectral densities. These effects, like SBS (Stimulated Brillouin Scattering) or SRS (Stimulated Raman Scattering), tend to broaden both the emission spectrum and the pulse duration. SBS is an effect which depends non-linearly on the spectral density. Choosing a broader emission seeder and avoiding narrow spectral width DFBs can be a good choice to reach higher peak powers when utilizing nanosecond pulses. Another solution is to use an EOM (Electro-Optic) phase Modulator. This broadens the emission spectrum while keeping the nice spectral stability of a DFB.<|txt_split|>When discussing laser diode driver electronics, it may be helpful to the reader to be aware of the three products shown below:<|txt_split|>The central board from AeroDiODE has one laser diode channel optimized for low noise CW driving and one channel optimized for both CW and nanosecond short pulsing. It also contains many fiber laser relevant functions, such as multiple photodiode inputs. The central board acts as a \"control center\" for a fiber laser. Central boards are also able to handle pulse pumping functions which are very helpful when designing low repetition rate, high energy systems. Refer to this product page: fiber laser diode driver.<|txt_split|>The Shaper board is another driver offered by AeroDiODE that can solve two of the four issues detailed in the sections above: it can pre-compensate the pulse shape and has a special Gain-Switch function. The first part of the board is used to adjust device parameters, which is its internal AWG (Arbitrary Waveform Generator) generator. One point every 500 ps with 48 dB waveguide also contains 3 pulse delay generator outputs. See this product page: high speed laser diode driver.<|txt_split|>The CCM Module is the third laser diode driver offered by AeroDiODE. This high-power driver is designed to control the multimode single and multi-emitter laser diodes which are referenced in all the fiber laser architectures described above. It is fully dedicated for driving one or several multimode pump laser diodes (either single elements or multiple elements) including the high-power TEC controller with an air-cooling setup. It contains many functions to drive any of this class of laser in an optimized and compact air-cooling setup. See the product page: high power laser diode driver.",
+                                    "level": 4,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.144,
+                                                0.625,
+                                                0.431,
+                                                0.641
+                                            ],
+                                            "page": 13
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.651,
+                                                0.885,
+                                                0.747
+                                            ],
+                                            "page": 13
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.127,
+                                                0.884,
+                                                0.158
+                                            ],
+                                            "page": 14
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.143,
+                                                0.174,
+                                                0.885,
+                                                0.273
+                                            ],
+                                            "page": 14
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.143,
+                                                0.498,
+                                                0.884,
+                                                0.531
+                                            ],
+                                            "page": 14
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.203,
+                                                0.547,
+                                                0.883,
+                                                0.643
+                                            ],
+                                            "page": 14
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.203,
+                                                0.659,
+                                                0.882,
+                                                0.754
+                                            ],
+                                            "page": 14
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.143,
+                                                0.771,
+                                                0.882,
+                                                0.817
+                                            ],
+                                            "page": 14
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.172,
+                                                0.834,
+                                                0.882,
+                                                0.898
+                                            ],
+                                            "page": 14
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.143,
+                                                0.084,
+                                                0.887,
+                                                0.246
+                                            ],
+                                            "page": 15
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.277,
+                                                0.885,
+                                                0.309
+                                            ],
+                                            "page": 15
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.324,
+                                                0.885,
+                                                0.422
+                                            ],
+                                            "page": 15
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.718,
+                                                0.885,
+                                                0.802
+                                            ],
+                                            "page": 15
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.348,
+                                                0.885,
+                                                0.446
+                                            ],
+                                            "page": 16
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        178,
+                                        179,
+                                        185,
+                                        186,
+                                        190,
+                                        191,
+                                        192,
+                                        194,
+                                        195,
+                                        198,
+                                        199,
+                                        200,
+                                        203,
+                                        209
+                                    ],
+                                    "children": [
+                                        {
+                                            "type": "image",
+                                            "title": "Figure 19: Multiple (3) stage MOPA fiber laser architecture to amplify a nanosecond seed pulse generated by a pulsed laser diode driver.",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 178,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.087,
+                                                        0.769,
+                                                        0.903,
+                                                        0.879
+                                                    ],
+                                                    "page": 13
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.116,
+                                                        0.883,
+                                                        0.882,
+                                                        0.913
+                                                    ],
+                                                    "page": 13
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                180,
+                                                181
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "image",
+                                            "title": "Figure 20: Example of a 3 nanosecond short pulse (left) driven by AeroDIODE CCS pulsed laser diode driver (right). The “100 ps gain switch pulse is observed at the early part of the pulse",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 178,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.164,
+                                                        0.284,
+                                                        0.482,
+                                                        0.454
+                                                    ],
+                                                    "page": 14
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.125,
+                                                        0.455,
+                                                        0.872,
+                                                        0.484
+                                                    ],
+                                                    "page": 14
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                187,
+                                                189
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "image",
+                                            "title": "",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 178,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.542,
+                                                        0.303,
+                                                        0.778,
+                                                        0.44
+                                                    ],
+                                                    "page": 14
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                188
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "image",
+                                            "title": "Figure 21: This fiber laser diode driver acts as a control center for fiber lasers. It includes one singlemode CW pulse driver and one nanosecond and CW laser diode driver.",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 178,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.387,
+                                                        0.457,
+                                                        0.677,
+                                                        0.631
+                                                    ],
+                                                    "page": 15
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.117,
+                                                        0.657,
+                                                        0.882,
+                                                        0.687
+                                                    ],
+                                                    "page": 15
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                201,
+                                                202
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "image",
+                                            "title": "Figure 22: AeroDIODE shaper module set in direct driver configuration (left) is a high speed laser diode driver which generates specializedization of the input signal. The output voltage from a DBF laser diode after it has been programmed within the module (right)",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 178,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.205,
+                                                        0.096,
+                                                        0.481,
+                                                        0.256
+                                                    ],
+                                                    "page": 16
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.115,
+                                                        0.271,
+                                                        0.882,
+                                                        0.318
+                                                    ],
+                                                    "page": 16
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                206,
+                                                208
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "image",
+                                            "title": "",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 178,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.495,
+                                                        0.096,
+                                                        0.806,
+                                                        0.263
+                                                    ],
+                                                    "page": 16
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                207
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "image",
+                                            "title": "Figure 23: AeroDIODE high power laser diode driver. Ideal for multi element laser diodes like I-VI, Lumentum, IPG etc.",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 178,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.317,
+                                                        0.474,
+                                                        0.681,
+                                                        0.666
+                                                    ],
+                                                    "page": 16
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.153,
+                                                        0.667,
+                                                        0.844,
+                                                        0.697
+                                                    ],
+                                                    "page": 16
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                210,
+                                                211
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "e) Pulsed fiber lasers (picosecond range)",
+                            "metadata": "",
+                            "content": "Picosecond fiber lasers operate in the 10 picoseconds to a nanosecond pulse width range. These are the most common laser that is generally associated with special architectures that generate pulse widths below 10 picoseconds.<|txt_split|>These picosecond lasers are typically very similar to the MOPA nanosecond fiber laser architectures described in Figure 17. The only major difference comes from the seeder, as it becomes very difficult to get a very short pulse by directly pulsing the laser diode. Therefore, we can separate picosecond fiber laser architectures into 3 categories:",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.74,
+                                        0.538,
+                                        0.76
+                                    ],
+                                    "page": 16
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.767,
+                                        0.884,
+                                        0.816
+                                    ],
+                                    "page": 16
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.831,
+                                        0.882,
+                                        0.896
+                                    ],
+                                    "page": 16
+                                }
+                            ],
+                            "block_ids": [
+                                212,
+                                213,
+                                214
+                            ],
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "title": "Gain switch direct diode seeder:",
+                                    "metadata": "",
+                                    "content": "The simplest configuration to get a picosecond fiber laser is to use the gain switch effect of a laser diode (see page 14). This effect occurs during the first 100 picoseconds of the optical pulse when a short electronic pulse is applied to the laser diode (see Figure 18). Companies like Picocquant or NKT (ex OneFix) are well known for utilizing this effect prior to amplification.<|txt_split|>It is difficult to get a stable pulse using the gain switch approach. This generates many constraints on the laser diode choice, the laser diode integration (fiber coupling) and the driver electronic performance. The energy reached by these laser diodes is typically on the order of 10 picojoules, so reaching 1 mJ requires 80 dB gain. Knowing that a typical amplifier stage gain is approximately 15 dB, we take roughly 5 stages of amplification with all of the isolators, ASE filters, and laser diode pumps that every stage must contain in order to use this approach to create a picosecond fiber laser.",
+                                    "level": 4,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.144,
+                                                0.086,
+                                                0.443,
+                                                0.102
+                                            ],
+                                            "page": 17
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.112,
+                                                0.883,
+                                                0.175
+                                            ],
+                                            "page": 17
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.191,
+                                                0.885,
+                                                0.302
+                                            ],
+                                            "page": 17
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        217,
+                                        218,
+                                        219
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "text",
+                                    "title": "External modulation seeder:",
+                                    "metadata": "",
+                                    "content": "Another way to achieve short pulses is to use very fast external fiber modulators like EOMs (ElectroOptics Modulators) as described in our tutorial \"Fiber Modulator Basics\". It is possible to overcome the peak power limitation of such components by pulsing the source laser diode. In any case, the pulse generation approach makes the energy of each seeder pulse very low, which makes the amplifying part very costly.",
+                                    "level": 4,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.144,
+                                                0.315,
+                                                0.411,
+                                                0.331
+                                            ],
+                                            "page": 17
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.339,
+                                                0.883,
+                                                0.419
+                                            ],
+                                            "page": 17
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        220,
+                                        221
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "text",
+                                    "title": "- Microchip seeder:",
+                                    "metadata": "",
+                                    "content": "A third way of making short pulse seeders for fiber lasers uses the Q-switch effect in a crystal cavity. These elements utilize a crystal gain media (such as Nd:YAG or Nd:YO4) with a saturable absorber.<|txt_split|>These components, called \"Microchip seeders\", have historically been used for nanosecond pulse generation with \\(\\mathrm{C + 4 + YAG}\\) as a saturable absorber), generating typically 3-30ns pulses at a given repetition rate.<|txt_split|>More recently, very fast saturable absorbers have been developed using semiconductor technology. These are generally called SESAM (Semiconductor Saturable Absorber Media). Components like the ones provided by Batop are now extensively used and yield pulses of less than 30 picoseconds. 808 nm is a useful wavelength for this purpose. Pushing the pump in the 100s of nanosecond range is a good way to control the repetition rate.",
+                                    "level": 4,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.144,
+                                                0.432,
+                                                0.327,
+                                                0.448
+                                            ],
+                                            "page": 17
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.457,
+                                                0.882,
+                                                0.488
+                                            ],
+                                            "page": 17
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.489,
+                                                0.882,
+                                                0.537
+                                            ],
+                                            "page": 17
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.553,
+                                                0.882,
+                                                0.632
+                                            ],
+                                            "page": 17
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        222,
+                                        223,
+                                        224,
+                                        225
+                                    ],
+                                    "children": [
+                                        {
+                                            "type": "image",
+                                            "title": "Figure 24: Typical microchip seeder used for picosecond pulse generation. Nanosecond pulsed \\(808~\\mathrm{nm}\\) single mode pump can be used here to be able to control the microchip repetition rate.",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 222,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.322,
+                                                        0.647,
+                                                        0.681,
+                                                        0.823
+                                                    ],
+                                                    "page": 17
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.117,
+                                                        0.825,
+                                                        0.879,
+                                                        0.854
+                                                    ],
+                                                    "page": 17
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                226,
+                                                227
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "f) Pulsed fiber lasers (femtosecond range: \"Ultrafast\")",
+                            "metadata": "",
+                            "content": "The final category of fiber lasers discussed in this tutorial takes us into the very complicated world of laser lasers. Ultrafast lasers are typically in the pulse width range of 100 femtoseconds to a few picoseconds.<|txt_split|>These sources are one of major interest for a lot of laser-matter interaction applications because the laser-matter effect is \"athermal\". The matter is directly transformed from the solid state to the plasma state without passing through the liquid state. This provides very high-resolution machining and is now extensively used in the semiconductor, eye surgery and smartphone industries.<|txt_split|>Typical amplified MOPA architectures are also used here. However, there are two important principles that are important to consider:",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.143,
+                                        0.085,
+                                        0.668,
+                                        0.105
+                                    ],
+                                    "page": 18
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.114,
+                                        0.884,
+                                        0.161
+                                    ],
+                                    "page": 18
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.178,
+                                        0.883,
+                                        0.242
+                                    ],
+                                    "page": 18
+                                },
+                                {
+                                    "bbox": [
+                                        0.112,
+                                        0.258,
+                                        0.882,
+                                        0.289
+                                    ],
+                                    "page": 18
+                                }
+                            ],
+                            "block_ids": [
+                                230,
+                                231,
+                                232,
+                                233
+                            ],
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "title": "The Mode-locking principle is the basis of the seeder \"oscillator",
+                                    "metadata": "",
+                                    "content": "The Heisenberg principle states that the product of the amplification spectral bandwidth and the pulse duration cannot go below a given value. In other words, ultrashort pulses mean wide spectral emission bandwidth. 100's of femtosecond pulses means \\(10^{\\prime}\\mathrm{s}\\) of nm of spectral bandwidth. Ultrashort lasers always have a broad emission bandwidth with many cavity modes.<|txt_split|>The Fourier transform of a given comb of emission modes gives an ultrashort pulse only when the various modes are all in phase. Therefore, making an ultrashort pulse laser consists of building a broad amplification cavity and adding some elements which make the cavity modes emit in phase by combining the beam with the cavity. Active modulators such as AOM (Acuto-opto Modulator) or an EOM (Electro-Optic Modulator) can be used. Passive versions like the SESAM (Semiconductor Saturable Absorber Media) are generally the best solution for building an industrial fiber based ultrafast oscillator.<|txt_split|>Modelocked cavities have a direct relation between the cavity length and the ultrashift pulse repetition rate. Typical modelocked oscillators will have a pulse repetition rate in the 1-100 MHz range.",
+                                    "level": 4,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.144,
+                                                0.301,
+                                                0.7,
+                                                0.318
+                                            ],
+                                            "page": 18
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.327,
+                                                0.882,
+                                                0.39
+                                            ],
+                                            "page": 18
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.406,
+                                                0.884,
+                                                0.519
+                                            ],
+                                            "page": 18
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.535,
+                                                0.882,
+                                                0.566
+                                            ],
+                                            "page": 18
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        234,
+                                        235,
+                                        236,
+                                        237
+                                    ],
+                                    "children": [
+                                        {
+                                            "type": "image",
+                                            "title": "Figure 25: Pulse-Picker synchronization electronics offered by AeroDIODE.",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 234,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.364,
+                                                        0.149,
+                                                        0.624,
+                                                        0.312
+                                                    ],
+                                                    "page": 19
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.237,
+                                                        0.317,
+                                                        0.759,
+                                                        0.332
+                                                    ],
+                                                    "page": 19
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                246,
+                                                247
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "title": "Optical Parametric Chirped-Pulse Amplification (OPCPA)",
+                                    "metadata": "",
+                                    "content": "Amplifying a modelocked oscillator signal requires the amplification of a high frequency signal of very short pulses. It generates three major difficulties:<|txt_split|>- First, if one wants to get enough energy to have an impact on the matter (i.e. more than 1 microuole), keeping a \\(50\\mathrm{MHz}\\) repetition rate would require \\(50~\\mathrm{W}\\), which will probably reduce the pulse repetition power for a very small effect on matter. It is thus preferable to reduce the pulse repetition rate of the oscillator by picking some pulses and reducing the repetition rate to the kHz range.<|txt_split|>One thing to remember is that ultrafast oscillators are generally in the range of MHz/nJ. This is because the amplifier amplifies lasers which are useful for laser micromachining are generally in the kHz/μJ range.<|txt_split|>The pulse-picking is generally operated by a fibered or non-fibered AOM (Acousto Optic Modulator).<|txt_split|>AeroDIODE developed a universal tool for pulse picking synchronization. It allows the user to select a desired low frequency synchronized with an input clock signal coming from a photodiode.<|txt_split|>- Second, amplifying very short pulses can have two consequences. When considering a crystal amplifier, the peak power quickly reaches the damage threshold. When considering a fiber amplifier media, some nonlinear effects can quickly destroy the pulse properties. It is therefore necessary to stretch the pulse width in such a way that it is possible to go back to a short pulse after the amplification process. The effect which is utilized in this case is called \"dispersion\". It stretches the pulse by coupling its spectral and temporal properties (one \"color\" at the beginning of the pulse and the other \"color\" at the end of the pulse). A special \"hollow core\" fiber can be used to stretch the pulse before amplification whereas spatial gratings are generally used to compress the amplified pulse and reach the ultrafast amplified pulse properties.<|txt_split|>Third, ultrashort pulse widths within a fiber generate non-linear effects very rapidly and all the Ultrafast amplified fiber lasers combine some fiber parts and some parts which are not fibered. A good non-linear effect simulation software such as Fiberdesk is clearly mandatory here.",
+                                    "level": 4,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.144,
+                                                0.593,
+                                                0.633,
+                                                0.61
+                                            ],
+                                            "page": 18
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.112,
+                                                0.619,
+                                                0.882,
+                                                0.651
+                                            ],
+                                            "page": 18
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.143,
+                                                0.667,
+                                                0.882,
+                                                0.747
+                                            ],
+                                            "page": 18
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.172,
+                                                0.763,
+                                                0.882,
+                                                0.81
+                                            ],
+                                            "page": 18
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.172,
+                                                0.826,
+                                                0.882,
+                                                0.857
+                                            ],
+                                            "page": 18
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.172,
+                                                0.084,
+                                                0.885,
+                                                0.133
+                                            ],
+                                            "page": 19
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.143,
+                                                0.363,
+                                                0.885,
+                                                0.522
+                                            ],
+                                            "page": 19
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.138,
+                                                0.72,
+                                                0.883,
+                                                0.782
+                                            ],
+                                            "page": 19
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        238,
+                                        239,
+                                        240,
+                                        241,
+                                        242,
+                                        245,
+                                        248,
+                                        251
+                                    ],
+                                    "children": [
+                                        {
+                                            "type": "image",
+                                            "title": "Figure 26: OPCPA Principle (courtesy of S. Witte et al.)",
+                                            "metadata": "",
+                                            "content": null,
+                                            "level": 238,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.203,
+                                                        0.523,
+                                                        0.856,
+                                                        0.688
+                                                    ],
+                                                    "page": 19
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.306,
+                                                        0.689,
+                                                        0.69,
+                                                        0.704
+                                                    ],
+                                                    "page": 19
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                249,
+                                                250
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "IV. A modular fiber laser electronics to make nearly all fiber lasers architectures:",
+                    "metadata": "",
+                    "content": "AeroDiode has developed an entire range of electronic drivers able to build nearly any of the fiber laser architectures described above. These drivers can communicate together and can control any of the parameters of the device, such as either pulsed or CW regime. They are designed to make it simple to integrate them into a compact prototype. This allows the designer a much faster fiber laser product and development time frame.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.116,
+                                0.111,
+                                0.882,
+                                0.158
+                            ],
+                            "page": 20
+                        },
+                        {
+                            "bbox": [
+                                0.112,
+                                0.184,
+                                0.885,
+                                0.266
+                            ],
+                            "page": 20
+                        }
+                    ],
+                    "block_ids": [
+                        254,
+                        255
+                    ],
+                    "children": [
+                        {
+                            "type": "image",
+                            "title": "",
+                            "metadata": "",
+                            "content": null,
+                            "level": 254,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.182,
+                                        0.279,
+                                        0.827,
+                                        0.562
+                                    ],
+                                    "page": 20
+                                }
+                            ],
+                            "block_ids": [
+                                256
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "image",
+                            "title": "",
+                            "metadata": "",
+                            "content": null,
+                            "level": 254,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.179,
+                                        0.575,
+                                        0.828,
+                                        0.884
+                                    ],
+                                    "page": 20
+                                }
+                            ],
+                            "block_ids": [
+                                257
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "type": "image",
+                    "title": "Figure 15: The central board of AeroOIOIDE has \"50 special electronics functionalities linked with all the fiber laser components described above to make nearly any type of the fiber laser architectures described below.",
+                    "metadata": "",
+                    "content": null,
+                    "level": 139,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.069,
+                                0.128,
+                                0.936,
+                                0.486
+                            ],
+                            "page": 10
+                        },
+                        {
+                            "bbox": [
+                                0.117,
+                                0.493,
+                                0.884,
+                                0.525
+                            ],
+                            "page": 10
+                        }
+                    ],
+                    "block_ids": [
+                        140,
+                        141
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 1 - header",
+            "metadata": "AeroDiODE",
+            "content": "AeroDiODE",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.043,
+                        0.022,
+                        0.44,
+                        0.079
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                1
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 1 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                14
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 1 - page_number",
+            "metadata": "#",
+            "content": "#",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.486,
+                        0.959,
+                        0.511,
+                        0.976
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                15
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 2 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.989
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                30
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 2 - page_number",
+            "metadata": "2",
+            "content": "2",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.868,
+                        0.961,
+                        0.881,
+                        0.972
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                31
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 3 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                47
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 3 - page_number",
+            "metadata": "3",
+            "content": "3",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.868,
+                        0.961,
+                        0.881,
+                        0.972
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                48
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 4 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.989
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                60
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 4 - page_number",
+            "metadata": "4",
+            "content": "4",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.868,
+                        0.961,
+                        0.88,
+                        0.972
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                61
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 5 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 5
+                }
+            ],
+            "block_ids": [
+                75
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 5 - page_number",
+            "metadata": "5",
+            "content": "5",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.868,
+                        0.961,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 5
+                }
+            ],
+            "block_ids": [
+                76
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 6 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.116,
+                        0.976,
+                        0.294,
+                        0.989
+                    ],
+                    "page": 6
+                }
+            ],
+            "block_ids": [
+                90
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 6 - page_number",
+            "metadata": "6",
+            "content": "6",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.868,
+                        0.961,
+                        0.88,
+                        0.972
+                    ],
+                    "page": 6
+                }
+            ],
+            "block_ids": [
+                91
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 7 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 7
+                }
+            ],
+            "block_ids": [
+                110
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 7 - page_number",
+            "metadata": "7",
+            "content": "7",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.868,
+                        0.961,
+                        0.881,
+                        0.972
+                    ],
+                    "page": 7
+                }
+            ],
+            "block_ids": [
+                111
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 8 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 8
+                }
+            ],
+            "block_ids": [
+                123
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 8 - page_number",
+            "metadata": "8",
+            "content": "8",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.868,
+                        0.961,
+                        0.881,
+                        0.972
+                    ],
+                    "page": 8
+                }
+            ],
+            "block_ids": [
+                124
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 9 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 9
+                }
+            ],
+            "block_ids": [
+                137
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 9 - page_number",
+            "metadata": "9",
+            "content": "9",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.868,
+                        0.961,
+                        0.881,
+                        0.972
+                    ],
+                    "page": 9
+                }
+            ],
+            "block_ids": [
+                138
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 10 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.117,
+                        0.975,
+                        0.297,
+                        0.99
+                    ],
+                    "page": 10
+                }
+            ],
+            "block_ids": [
+                142
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 10 - page_number",
+            "metadata": "10",
+            "content": "10",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.86,
+                        0.961,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 10
+                }
+            ],
+            "block_ids": [
+                143
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 11 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.116,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 11
+                }
+            ],
+            "block_ids": [
+                155
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 11 - page_number",
+            "metadata": "11",
+            "content": "11",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.859,
+                        0.961,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 11
+                }
+            ],
+            "block_ids": [
+                156
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 12 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 12
+                }
+            ],
+            "block_ids": [
+                168
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 12 - page_number",
+            "metadata": "12",
+            "content": "12",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.859,
+                        0.961,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 12
+                }
+            ],
+            "block_ids": [
+                169
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 13 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 13
+                }
+            ],
+            "block_ids": [
+                182
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 13 - page_number",
+            "metadata": "13",
+            "content": "13",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.859,
+                        0.961,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 13
+                }
+            ],
+            "block_ids": [
+                183
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 14 - header",
+            "metadata": "Important effects for nanosecond fiber lasers",
+            "content": "Important effects for nanosecond fiber lasers",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.144,
+                        0.086,
+                        0.548,
+                        0.102
+                    ],
+                    "page": 14
+                }
+            ],
+            "block_ids": [
+                184
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 14 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.296,
+                        0.99
+                    ],
+                    "page": 14
+                }
+            ],
+            "block_ids": [
+                196
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 14 - page_number",
+            "metadata": "14",
+            "content": "14",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.859,
+                        0.961,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 14
+                }
+            ],
+            "block_ids": [
+                197
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 15 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.116,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 15
+                }
+            ],
+            "block_ids": [
+                204
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 15 - page_number",
+            "metadata": "15",
+            "content": "15",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.859,
+                        0.961,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 15
+                }
+            ],
+            "block_ids": [
+                205
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 16 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 16
+                }
+            ],
+            "block_ids": [
+                215
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 16 - page_number",
+            "metadata": "16",
+            "content": "16",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.859,
+                        0.961,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 16
+                }
+            ],
+            "block_ids": [
+                216
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 17 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.989
+                    ],
+                    "page": 17
+                }
+            ],
+            "block_ids": [
+                228
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 17 - page_number",
+            "metadata": "17",
+            "content": "17",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.859,
+                        0.96,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 17
+                }
+            ],
+            "block_ids": [
+                229
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 18 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.295,
+                        0.99
+                    ],
+                    "page": 18
+                }
+            ],
+            "block_ids": [
+                243
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 18 - page_number",
+            "metadata": "18",
+            "content": "18",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.86,
+                        0.961,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 18
+                }
+            ],
+            "block_ids": [
+                244
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 19 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.116,
+                        0.975,
+                        0.297,
+                        0.989
+                    ],
+                    "page": 19
+                }
+            ],
+            "block_ids": [
+                252
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 19 - page_number",
+            "metadata": "19",
+            "content": "19",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.86,
+                        0.961,
+                        0.881,
+                        0.973
+                    ],
+                    "page": 19
+                }
+            ],
+            "block_ids": [
+                253
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 20 - footer",
+            "metadata": "www.AeroDIODE.com",
+            "content": "www.AeroDIODE.com",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.115,
+                        0.975,
+                        0.297,
+                        0.99
+                    ],
+                    "page": 20
+                }
+            ],
+            "block_ids": [
+                258
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 20 - page_number",
+            "metadata": "20",
+            "content": "20",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.859,
+                        0.961,
+                        0.882,
+                        0.973
+                    ],
+                    "page": 20
+                }
+            ],
+            "block_ids": [
+                259
+            ]
+        }
+    ]
+}

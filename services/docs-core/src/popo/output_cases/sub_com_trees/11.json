@@ -1,0 +1,3670 @@
+{
+    "type": "root",
+    "title": "",
+    "metadata": "",
+    "content": "",
+    "level": 0,
+    "location": [],
+    "block_ids": [],
+    "children": [
+        {
+            "type": "text",
+            "title": "Default Title",
+            "metadata": "AI大模型发展综述;文献引用格式;通信技术;DOI编号",
+            "content": "文献引用格式：张乾君.AI大模型发展综述[J].通信技术,2023,56(3):255-262.<|txt_split|>doi:10.3969/j.issn.1002-0802.2023.03.001",
+            "level": 1,
+            "location": [
+                {
+                    "bbox": [
+                        0.123,
+                        0.131,
+                        0.651,
+                        0.147
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.125,
+                        0.149,
+                        0.398,
+                        0.163
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                4,
+                5
+            ],
+            "children": [],
+            "subnode": []
+        },
+        {
+            "type": "text",
+            "title": "AI大模型发展综述",
+            "metadata": "AI大模型；Transformer；BERT；GPT；ERNIE",
+            "content": "张乾君<|txt_split|>（中国电子科技集团公司第十研究所，四川成都610036）<|txt_split|>摘要：AI大模型作为当前最热门的技术领域，得到了广泛的关注。以谷歌的BERT和OpenAI的GPT为代表，模型的参数规模逐步提升至千亿甚至万亿级，训练数据量级也大幅提升，随之带来了模型能力的显著提高，掀起了国内外AI大模型的研究热潮。论述了AI大模型的发展概况，剖析了具有里程碑意义的各类算法模型，介绍了其依赖的核心技术和原理，评估了其存在的挑战和局限，最后讨论未来未来AI大模型的发展趋势。<|txt_split|>关键词：AI大模型；Transformer；BERT；GPT；ERNIE<|txt_split|>中图分类号：TP311 文献标识码：A 文章编号：1002-0802(2023)-03-0255-08",
+            "level": 1,
+            "location": [
+                {
+                    "bbox": [
+                        0.377,
+                        0.199,
+                        0.609,
+                        0.221
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.461,
+                        0.237,
+                        0.522,
+                        0.253
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.323,
+                        0.262,
+                        0.662,
+                        0.275
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.151,
+                        0.295,
+                        0.835,
+                        0.377
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.152,
+                        0.38,
+                        0.551,
+                        0.394
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.152,
+                        0.396,
+                        0.74,
+                        0.412
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+            ],
+            "children": [],
+            "subnode": []
+        },
+        {
+            "type": "text",
+            "title": "Survey on the Development of AI Large Model",
+            "metadata": "AI large model; Transformer; BERT; GPT; ERNIE",
+            "content": "ZHANG Qianjun<|txt_split|>No.10 Institute of CETC, Chengdu Sichuan 610036, China<|txt_split|>Abstract: As the hottest technology field in the current, AI large models received extensive attention. Taking Bert of Google and GPT of OpenAI as representatives, the parameter size of the model gradually increased to hundreds of billions or even trillions, and the training data scale also increased greatly, which brings about a significant improvement in model capability and triggers a research upsurge of AI large models at home and abroad. This paper gives an overview of the development of AI large models, analyzes various milestone algorithm models, introduces the core technologies and principles they rely on, evaluates their challenges and limitations, and finally discusses the development trends of AI large models in the future.<|txt_split|>Keywords: AI large model; Transformer; BERT; GPT; ERNIE",
+            "level": 1,
+            "location": [
+                {
+                    "bbox": [
+                        0.272,
+                        0.434,
+                        0.713,
+                        0.453
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.428,
+                        0.468,
+                        0.556,
+                        0.484
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.331,
+                        0.489,
+                        0.655,
+                        0.502
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.151,
+                        0.509,
+                        0.835,
+                        0.619
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.152,
+                        0.62,
+                        0.545,
+                        0.634
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                12,
+                13,
+                14,
+                15,
+                16
+            ],
+            "children": [
+                {
+                    "type": "text",
+                    "title": "0 引言",
+                    "metadata": "AI绘画; ChatGPT; AIGC; AI大模型; 预训练模型; 变换器; BERT; GPT-2; GPT-3; MT-NLG; ChatGPT; 华为云; 悟道2.0; ERNIE3.0; M6模型; 大模型参数; 逻辑推理; 内容生成; 技术支撑; 发展趋势; 评估挑战",
+                    "content": "当前，随着AI绘画、ChatGPT的走红，人工智能生成内容（AI Generated Content，AIGC）成为行业热门话题，万众瞩目。AIGC指的是一种通过AI技术来自动或辅助生成的内容生产方式，通过输入指令，人类让AI去完成冗杂的编写代码、绘图、建模、写作等任务，从而生成内容。AIGC的发展离不开AI大规模底层技术的支撑。<|txt_split|>AI大模型也存入下能预训练模型，它将海量数据导入具有亿量级参数的模型中，然后机器通<|txt_contd|>过完成类似“完形填空”的任务，学习数据中蕴含的特征、结构、最大模型被训练成具有逻辑推理和分析能力的人工智能。近几年，AI大模型俨然成为AI界“最耀眼的明星”，国内外科技巨头都无遗余力地布局AI大模型。国外，2018年，谷歌提出了3亿参数基于变换器的双向编码器表示《Bidirectional Encoder Representation from Transformers, BERT》模型，惊艳四座；2019年2月，OpenAI推出了15亿参数的GPT-2；紧接着2020年6月，OpenAI推出了1750亿参数的GPT-3，直接将各类数模提<|txt_contd|>高到千亿级别；之后微软和亚马逊联手发布了5300亿参数的Megatron-Turing自然语言生成模型（Megatron-Turing Natural Language Generative，MT-NLG）；2022年11月底，OpenAI发布了AI对话模型ChatGPT，一经推出，火爆全网。国内公司的AI大模型研发虽然比国外公司晚，但是发展却非常的迅速。2021年4月，华为云乘派对智能发布给古大超规预测训练模型参数，规模数达1000亿；2021年6月，北京智腾人工智能研究院发布了最大规模智能模型“悟道2.0”，参数规模达到1.75万亿。2021年12月，百度推出ERNIE3.0Titan模型，参数规模达2600亿，同期，阿里巴巴达摩院的M6模型参数达到10万亿，将大模型参数直接提升了一个层级。<|txt_split|>AI大模型的发展，为各个领域带来了全新的面貌，意义重大。本文将会简单概述AI大模型发展概况，剖析具有里程碑意义的各类算法模型，介绍其依赖的核心技术和原理、评估其局限和面临的挑战，并讨论AI大模型未来的发展趋势。",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.121,
+                                0.659,
+                                0.21,
+                                0.675
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.121,
+                                0.68,
+                                0.479,
+                                0.795
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.123,
+                                0.798,
+                                0.479,
+                                0.83
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.505,
+                                0.659,
+                                0.864,
+                                0.832
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.134,
+                                0.131,
+                                0.491,
+                                0.364
+                            ],
+                            "page": 2
+                        },
+                        {
+                            "bbox": [
+                                0.134,
+                                0.368,
+                                0.49,
+                                0.451
+                            ],
+                            "page": 2
+                        }
+                    ],
+                    "block_ids": [
+                        17,
+                        18,
+                        19,
+                        20,
+                        26,
+                        27
+                    ],
+                    "children": [],
+                    "subnode": [
+                        {
+                            "type": "sub_text",
+                            "title": "0 引言_1",
+                            "metadata": "AI绘画; ChatGPT; AIGC; AI大模型; 预训练模型; 变换器; BERT; GPT-2; GPT-3; MT-NLG; ChatGPT火爆; 华为云; 悟道2.0; ERNIE3.0Titan; M6模型",
+                            "content": "当前，随着AI绘画、ChatGPT的走红，人工智能生成内容（AI Generated Content，AIGC）成为行业热门话题，万众瞩目。AIGC指的是一种通过AI技术来自动或辅助生成的内容生产方式，通过输入指令，人类让AI去完成冗杂的编写代码、绘图、建模、写作等任务，从而生成内容。AIGC的发展离不开AI大规模底层技术的支撑。AI大模型也存入下能预训练模型，它将海量数据导入具有亿量级参数的模型中，然后机器通过完成类似“完形填空”的任务，学习数据中蕴含的特征、结构、最大模型被训练成具有逻辑推理和分析能力的人工智能。近几年，AI大模型俨然成为AI界“最耀眼的明星”，国内外科技巨头都无遗余力地布局AI大模型。国外，2018年，谷歌提出了3亿参数基于变换器的双向编码器表示《Bidirectional Encoder Representation from Transformers, BERT》模型，惊艳四座；2019年2月，OpenAI推出了15亿参数的GPT-2；紧接着2020年6月，OpenAI推出了1750亿参数的GPT-3，直接将各类数模提高到千亿级别；之后微软和亚马逊联手发布了5300亿参数的Megatron-Turing自然语言生成模型（Megatron-Turing Natural Language Generative，MT-NLG）；2022年11月底，OpenAI发布了AI对话模型ChatGPT，一经推出，火爆全网。国内公司的AI大模型研发虽然比国外公司晚，但是发展却非常的迅速。2021年4月，华为云乘派对智能发布给古大超规预测训练模型参数，规模数达1000亿；2021年6月，北京智腾人工智能研究院发布了最大规模智能模型“悟道2.0”，参数规模达到1.75万亿。2021年12月，百度推出ERNIE3.0Titan模型，参数规模达2600亿，同期，阿里巴巴达摩院的M6模型参数达到10万亿，将大模型参数直接提升了一个层级。",
+                            "level": 1,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.121,
+                                        0.659,
+                                        0.21,
+                                        0.675
+                                    ],
+                                    "page": 1
+                                },
+                                {
+                                    "bbox": [
+                                        0.121,
+                                        0.68,
+                                        0.479,
+                                        0.795
+                                    ],
+                                    "page": 1
+                                },
+                                {
+                                    "bbox": [
+                                        0.123,
+                                        0.798,
+                                        0.479,
+                                        0.83
+                                    ],
+                                    "page": 1
+                                },
+                                {
+                                    "bbox": [
+                                        0.505,
+                                        0.659,
+                                        0.864,
+                                        0.832
+                                    ],
+                                    "page": 1
+                                },
+                                {
+                                    "bbox": [
+                                        0.134,
+                                        0.131,
+                                        0.491,
+                                        0.364
+                                    ],
+                                    "page": 2
+                                }
+                            ],
+                            "block_ids": [
+                                17,
+                                18,
+                                19,
+                                20,
+                                26
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "sub_text",
+                            "title": "0 引言_2",
+                            "metadata": "AI大模型发展；算法模型剖析；核心技术原理；局限与挑战；未来趋势",
+                            "content": "AI大模型的发展，为各个领域带来了全新的面貌，意义重大。本文将会简单概述AI大模型发展概况，剖析具有里程碑意义的各类算法模型，介绍其依赖的核心技术和原理、评估其局限和面临的挑战，并讨论AI大模型未来的发展趋势。",
+                            "level": 1,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.121,
+                                        0.659,
+                                        0.21,
+                                        0.675
+                                    ],
+                                    "page": 1
+                                },
+                                {
+                                    "bbox": [
+                                        0.134,
+                                        0.368,
+                                        0.49,
+                                        0.451
+                                    ],
+                                    "page": 2
+                                }
+                            ],
+                            "block_ids": [
+                                17,
+                                27
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "1 AI大模型发展概况",
+                    "metadata": "AI大模型演进；语言模型；预训练模型；大规模预训练模型；超大规模预训练模型；工业界突破；万亿级参数",
+                    "content": "从模型演进来看，AI大模型的发展先后经历了语言模型、预训练模型、大规模预训练模型、超大规模预训练模型几个阶段，其中大规模预训练模型和超大规模预训练模型一般出自工业界，参数量实现了万亿级的突破。",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.135,
+                                0.469,
+                                0.314,
+                                0.485
+                            ],
+                            "page": 2
+                        },
+                        {
+                            "bbox": [
+                                0.134,
+                                0.491,
+                                0.491,
+                                0.573
+                            ],
+                            "page": 2
+                        }
+                    ],
+                    "block_ids": [
+                        28,
+                        29
+                    ],
+                    "children": [
+                        {
+                            "type": "text",
+                            "title": "1.1 语言模型发展概况",
+                            "metadata": "语言模型；n元模型；数据稀疏；神经网络语言模型；递归神经网络；长短时记忆网络",
+                            "content": "语言模型（Language Model，LM）在自然语言处理中占有重要的地位，简单来说，它就是一串词序列的概率分布。具体来说，语言模型的作用是为一个长度为 \\( m \\) 的词序列确定一个概率分布 \\( P \\)，表示这段词序列存在的可能性，其计算公式为：<|txt_split|>\\[\nP \\left(w _ {1}, w _ {2}, \\dots , w _ {m}\\right) = P \\left(w _ {1}\\right) P \\left(w _ {2} \\mid w _ {i}\\right) P \\left(w _ {3} \\mid w _ {1}, w _ {2}\\right) \\dots\n\\]<|txt_split|>\\[\nP \\left(w _ {i} \\mid w _ {1}, w _ {2}, \\dots , w _ {i - 1}\\right) \\dots\n\\]<|txt_split|>\\[\nP \\left(w _ {n} \\mid w _ {1}, w _ {2}, \\dots , w _ {n - 1}\\right) \\tag {1}\n\\]<|txt_split|>式中： \\(w_{1},w_{2},\\dots ,w_{m}\\) 为长度为 \\(m\\) 的列向量； \\(P(w)\\) 为第 \\(i\\) 个词出现的概率； \\(P(w_{1},w_{2},\\dots ,w_{m})\\) 为在给定前 \\(l - 1\\) 个词的情况下第 \\(l\\) 个词出现的概率。在实践中，如果文本的长度较长， \\(P(w_{1},w_{2},\\dots ,w_{m})\\) 的估算会非常困难。因此，研究者们提出使用一个简化模型一 \\(n\\) 元模型（ \\(n\\) -gram model）。在 \\(n\\) 元模型中估算条件概率时，只需要对当前词的前 \\(n - 1\\) 个词进行计算，一般采用频率计数的比例来估算 \\(n\\) 元条件概率，计算公式为：<|txt_split|>\\[\nP \\left(w _ {i} \\mid w _ {1}, w _ {2}, \\dots , w _ {i - 1}\\right) = P \\left(w _ {i} \\mid w _ {i - (i - 1)}, \\dots , w _ {i - 1}\\right)\n\\]<|txt_split|>\\[\nP \\left(w _ {i} \\mid w _ {i - (i - 1)}, \\dots , w _ {i - 1}\\right) = \\frac {\\operatorname {c o u n t} \\left(w _ {i - (i - 1)} , \\cdots , w _ {i - 1} , w _ {i}\\right)}{\\operatorname {c o u n t} \\left(w _ {i - (i - 1)} , \\cdots , w _ {i + 1}\\right)}\n\\]<|txt_split|>(2）<|txt_split|>当 \\(n\\) 较大时，会出现数据稀疏问题，导致估算结果不准确。当 \\(n\\) 取1，2，3时，\\(n\\)-gram model 又可分别称为 unigram、bigram、trigram，在百万词级别的语料中，一般就用到三元模型。<|txt_split|>为了了解 \\(n\\) 元模型计算概率时遇到的数据稀疏问题，研究者们提出了神经网络语言模型，代表性工作是Benigio等人[1]在2003年提出的神经网络语言模型（Neural Network Language Model，NNLM）。该语言模型使用了一个3层前馈神经网络[2]来进行建模，其主要贡献在于将神经网络（Neural Network，NN）应用于LM中，通过为每个单词学习一个分布式表征来实现在连续空间上的建模，有效避免了数据稀疏的问题，其缺点在于只能处理长序的序列。随后，Mikolov等人[3]于2010年将递归神经网络（Recurrent Neural Network，RNN）应用于LM中，提出了RNN语言模型（RNLML）[4]，该模型可以用于处理变长的序列，其主要缺点在于RNN训练过程中，可能会发生梯度消失或者梯度爆炸，导致训练速度变慢或使得参数值无穷大，无法解决长时依赖问题。为了解决这个问题，Sundermeyer等人于2012年将长短时记忆网络（Long Short Term Memory，LSTM）引入到了LM中，提出了LSTM-RNLM[5]，除了记忆单元和NN的部分，LSTM-RNLM的架构几乎与RNLM一样。至此，NNLM逐渐成为主流的语言模型，并得到了迅速发展。",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.135,
+                                        0.582,
+                                        0.303,
+                                        0.597
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.134,
+                                        0.605,
+                                        0.49,
+                                        0.687
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.167,
+                                        0.69,
+                                        0.444,
+                                        0.705
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.268,
+                                        0.706,
+                                        0.4,
+                                        0.719
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.268,
+                                        0.719,
+                                        0.485,
+                                        0.732
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.134,
+                                        0.733,
+                                        0.491,
+                                        0.882
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.531,
+                                        0.135,
+                                        0.838,
+                                        0.154
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.531,
+                                        0.159,
+                                        0.865,
+                                        0.191
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.838,
+                                        0.195,
+                                        0.867,
+                                        0.208
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.21,
+                                        0.874,
+                                        0.276
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.278,
+                                        0.875,
+                                        0.649
+                                    ],
+                                    "page": 2
+                                }
+                            ],
+                            "block_ids": [
+                                30,
+                                31,
+                                32,
+                                33,
+                                34,
+                                35,
+                                36,
+                                37,
+                                38,
+                                39,
+                                40
+                            ],
+                            "children": [],
+                            "subnode": [
+                                {
+                                    "type": "sub_text",
+                                    "title": "1.1 语言模型发展概况_1",
+                                    "metadata": "语言模型；概率分布；n元模型；条件概率；词序列；频率计数",
+                                    "content": "语言模型（Language Model，LM）在自然语言处理中占有重要的地位，简单来说，它就是一串词序列的概率分布。具体来说，语言模型的作用是为一个长度为 \\( m \\) 的词序列确定一个概率分布 \\( P \\)，表示这段词序列存在的可能性，其计算公式为：\\[\nP \\left(w _ {1}, w _ {2}, \\dots , w _ {m}\\right) = P \\left(w _ {1}\\right) P \\left(w _ {2} \\mid w _ {i}\\right) P \\left(w _ {3} \\mid w _ {1}, w _ {2}\\right) \\dots\n\\]\\[\nP \\left(w _ {i} \\mid w _ {1}, w _ {2}, \\dots , w _ {i - 1}\\right) \\dots\n\\]\\[\nP \\left(w _ {n} \\mid w _ {1}, w _ {2}, \\dots , w _ {n - 1}\\right) \\tag {1}\n\\]式中： \\(w_{1},w_{2},\\dots ,w_{m}\\) 为长度为 \\(m\\) 的列向量； \\(P(w)\\) 为第 \\(i\\) 个词出现的概率； \\(P(w_{1},w_{2},\\dots ,w_{m})\\) 为在给定前 \\(l - 1\\) 个词的情况下第 \\(l\\) 个词出现的概率。在实践中，如果文本的长度较长， \\(P(w_{1},w_{2},\\dots ,w_{m})\\) 的估算会非常困难。因此，研究者们提出使用一个简化模型一 \\(n\\) 元模型（ \\(n\\) -gram model）。在 \\(n\\) 元模型中估算条件概率时，只需要对当前词的前 \\(n - 1\\) 个词进行计算，一般采用频率计数的比例来估算 \\(n\\) 元条件概率，计算公式为：",
+                                    "level": 1,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.135,
+                                                0.582,
+                                                0.303,
+                                                0.597
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.134,
+                                                0.605,
+                                                0.49,
+                                                0.687
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.167,
+                                                0.69,
+                                                0.444,
+                                                0.705
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.268,
+                                                0.706,
+                                                0.4,
+                                                0.719
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.268,
+                                                0.719,
+                                                0.485,
+                                                0.732
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.134,
+                                                0.733,
+                                                0.491,
+                                                0.882
+                                            ],
+                                            "page": 2
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        30,
+                                        31,
+                                        32,
+                                        33,
+                                        34,
+                                        35
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "sub_text",
+                                    "title": "1.1 语言模型发展概况_2",
+                                    "metadata": "n-gram model; data sparsity; unigram; bigram; trigram; lexical probability estimation",
+                                    "content": "\\[\nP \\left(w _ {i} \\mid w _ {1}, w _ {2}, \\dots , w _ {i - 1}\\right) = P \\left(w _ {i} \\mid w _ {i - (i - 1)}, \\dots , w _ {i - 1}\\right)\n\\]\\[\nP \\left(w _ {i} \\mid w _ {i - (i - 1)}, \\dots , w _ {i - 1}\\right) = \\frac {\\operatorname {c o u n t} \\left(w _ {i - (i - 1)} , \\cdots , w _ {i - 1} , w _ {i}\\right)}{\\operatorname {c o u n t} \\left(w _ {i - (i - 1)} , \\cdots , w _ {i + 1}\\right)}\n\\](2）当 \\(n\\) 较大时，会出现数据稀疏问题，导致估算结果不准确。当 \\(n\\) 取1，2，3时，\\(n\\)-gram model 又可分别称为 unigram、bigram、trigram，在百万词级别的语料中，一般就用到三元模型。",
+                                    "level": 1,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.135,
+                                                0.582,
+                                                0.303,
+                                                0.597
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.531,
+                                                0.135,
+                                                0.838,
+                                                0.154
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.531,
+                                                0.159,
+                                                0.865,
+                                                0.191
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.838,
+                                                0.195,
+                                                0.867,
+                                                0.208
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.517,
+                                                0.21,
+                                                0.874,
+                                                0.276
+                                            ],
+                                            "page": 2
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        30,
+                                        36,
+                                        37,
+                                        38,
+                                        39
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "sub_text",
+                                    "title": "1.1 语言模型发展概况_3",
+                                    "metadata": "神经网络语言模型; NNLM; RNN语言模型; LSTM-RNLM; 数据稀疏问题; 分布式表征; 长序列处理; 梯度消失; 长时依赖问题",
+                                    "content": "为了了解 \\(n\\) 元模型计算概率时遇到的数据稀疏问题，研究者们提出了神经网络语言模型，代表性工作是Benigio等人[1]在2003年提出的神经网络语言模型（Neural Network Language Model，NNLM）。该语言模型使用了一个3层前馈神经网络[2]来进行建模，其主要贡献在于将神经网络（Neural Network，NN）应用于LM中，通过为每个单词学习一个分布式表征来实现在连续空间上的建模，有效避免了数据稀疏的问题，其缺点在于只能处理长序的序列。随后，Mikolov等人[3]于2010年将递归神经网络（Recurrent Neural Network，RNN）应用于LM中，提出了RNN语言模型（RNLML）[4]，该模型可以用于处理变长的序列，其主要缺点在于RNN训练过程中，可能会发生梯度消失或者梯度爆炸，导致训练速度变慢或使得参数值无穷大，无法解决长时依赖问题。为了解决这个问题，Sundermeyer等人于2012年将长短时记忆网络（Long Short Term Memory，LSTM）引入到了LM中，提出了LSTM-RNLM[5]，除了记忆单元和NN的部分，LSTM-RNLM的架构几乎与RNLM一样。至此，NNLM逐渐成为主流的语言模型，并得到了迅速发展。",
+                                    "level": 1,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.135,
+                                                0.582,
+                                                0.303,
+                                                0.597
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.517,
+                                                0.278,
+                                                0.875,
+                                                0.649
+                                            ],
+                                            "page": 2
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        30,
+                                        40
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "1.2 预训练语言模型发展概况",
+                            "metadata": "LSTM-RNNLM; Transformer-based language model; Pre-trained language model; Word2Vec; ELMo; Contextual embedding; GPT series; BERT series; Unsupervised training; Semantic knowledge transfer",
+                            "content": "虽然LSTM-RNNLM能够解决序列的长时依赖问题，但是对于很长的序列，效果也不甚理想。为了更好地捕捉长距离信息，研究者们想要寻找到一种更强的语言模型方法，由此提出了以transformer结构为基础的预训练语言模型。<|txt_split|>预训练语言模型是NLP的核心之一，语言模型本质上是根据上下文去预测下一个词是什么，不需要人工标注语料，这种无监督训练属性使其非常容易获取量词训练样本，并且训练好的语言模型包含丰富的语义知识，对于下游任务的效果会有非常明显的提升。<|txt_split|>预训练语言模型要从词向量Word2Vec说起，<|txt_contd|>Word2Vec[10]是2013年由Mikolov等人提出，用来获取原始文本的分布式，其最大的缺点是词向量对于某一个词只能生成一个固定的向量。在实际情况中同一个单词在不同的语境里有不同的含义，因此无法结合语境上下文信息进行调整。为了解决这个问题，Peters等人在2018年提出了嵌入语言模型（Embeddings from Language Models, ELMo）[10]。ELMo模型采用了一个正向LSTM和一个反向LSTM联合训练的方式，每个单词在每组LSTM都会产生正向、反向两个嵌入（embedding），将每个单词所有层的embedding拼接在一起，得到这个词在这句话中结合了上下文语境信息的语义表达。此后，预训练语言模型成为NLP的核心业务之一，越来越多的研究者们开始进入该领域，先后出现了著名的GPT系列模型、BERT系列模型等，在预训练模型史上具有里程碑意义。",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.519,
+                                        0.657,
+                                        0.732,
+                                        0.671
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.68,
+                                        0.875,
+                                        0.761
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.764,
+                                        0.874,
+                                        0.863
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.55,
+                                        0.866,
+                                        0.863,
+                                        0.88
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.121,
+                                        0.131,
+                                        0.481,
+                                        0.399
+                                    ],
+                                    "page": 3
+                                }
+                            ],
+                            "block_ids": [
+                                41,
+                                42,
+                                43,
+                                44,
+                                49
+                            ],
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "title": "1.2.1 GPT系列模型",
+                                    "metadata": "GPT-1预训练微调框架；GPT-2模型容量与数据多样性；GPT-3零样本学习与1750亿参数；RLHF人类反馈强化学习；ChatGPT安全合规指令响应",
+                                    "content": "2018年，OpenAI公司提出了GPT-1模型[16]，其主要包括无监督预训练和有监督微调两个阶段。相比ELMs，GPT-1真正意义上实现了预训练-微调（protrain-finetune）的框架，不再需要将模型中的embedding取出来，直接把预训练好的模型在下游任务上微调（finetune），对于不同任务采用不同的输入或输出层改造，让下游任务更贴近上游预训练。对于下游任务的训练，虽然GPT-1往往只需要简单的微调便能取得非常好的效果，但在未经微调的任务上泛化能力远远低于经过微调的有监督任务，说明了GPT-1只是一个简单的领域专家，而非通用的语言学家。<|txt_split|>针对GPT-1模型不具有通用性的问题，2019年，OpenAI提出了GPT-2模型[10]，他们认为任何一个有监督NLP任务，都可以看成语言模型的一个子集。只要预训练语言模型的容量足够大，理论上就能解决任何NLP任务。任何NLP任务都可以表示成 \\(p(\\text{output:input}, \\text{task})\\) 的形式，语言模型就是无监督的多任务学习。因此，GPT-2的核心就是提升模型的容量和数据多样性，让语言模型能够达到解决任何任务的程度。<|txt_split|>2020年，OpenAI在GPT-2的基础上进一步提出了GPT-3模型[12]，他们认为人类可以通过两个别的例子或者一个的任务说明，就可以实现一个新的语言任务。因此，对于所有的NLP任务，GPT-3在应用时不进行梯度更新或者微调，仅使用<|txt_contd|>任务说明个别例子与模型进行义文本合，同时，GPT-3也不像GPT-2追求零样本学习（Zeroshifleanning）。GPT-3参数量达到1750亿，在许多NLP的数据集上都有很好的表现。在各种场景中，GPT-3可以写文章、故事，还可以进行多轮对话、写代码、做表格、生成图标等，具有非常可观的商业价值。<|txt_split|>虽然GPT-3模型拥有了强大的能力，但是由于其训练语料来自网络，在文本生成时可能会产生出错误的、恶意冒犯的，甚至是带有攻击性的“有毒”文本。为了改进GPT-3模型，OpenAI提出了人类反哺强化学习（Reinforcement Learning from Human Feedback, RLHF）技术[1]，用于矫正GPT-3的学习行为。通过这样的方式，模型得到对于用户来说更安全、更有用且更符合人类想法的结果。火爆全网的ChatGPT就是由该改进模型提供支持，使其能理解人类不同指令的含义，处理多元化主题任务，既可以回答用户后续问题，又可以质疑错误问题和拒绝不应当的请求，功能无比强大。",
+                                    "level": 4,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.123,
+                                                0.407,
+                                                0.276,
+                                                0.421
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.121,
+                                                0.431,
+                                                0.479,
+                                                0.631
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.121,
+                                                0.633,
+                                                0.481,
+                                                0.783
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.121,
+                                                0.787,
+                                                0.481,
+                                                0.87
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.504,
+                                                0.131,
+                                                0.862,
+                                                0.246
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.505,
+                                                0.249,
+                                                0.864,
+                                                0.451
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        50,
+                                        51,
+                                        52,
+                                        53,
+                                        54,
+                                        55
+                                    ],
+                                    "children": [],
+                                    "subnode": [
+                                        {
+                                            "type": "sub_text",
+                                            "title": "1.2.1 GPT系列模型_1",
+                                            "metadata": "GPT-1模型；预训练-微调框架；无监督预训练；有监督微调；领域专家；通用语言学家；GPT-2模型；模型容量；数据多样性；多任务学习",
+                                            "content": "2018年，OpenAI公司提出了GPT-1模型[16]，其主要包括无监督预训练和有监督微调两个阶段。相比ELMs，GPT-1真正意义上实现了预训练-微调（protrain-finetune）的框架，不再需要将模型中的embedding取出来，直接把预训练好的模型在下游任务上微调（finetune），对于不同任务采用不同的输入或输出层改造，让下游任务更贴近上游预训练。对于下游任务的训练，虽然GPT-1往往只需要简单的微调便能取得非常好的效果，但在未经微调的任务上泛化能力远远低于经过微调的有监督任务，说明了GPT-1只是一个简单的领域专家，而非通用的语言学家。针对GPT-1模型不具有通用性的问题，2019年，OpenAI提出了GPT-2模型[10]，他们认为任何一个有监督NLP任务，都可以看成语言模型的一个子集。只要预训练语言模型的容量足够大，理论上就能解决任何NLP任务。任何NLP任务都可以表示成 \\(p(\\text{output:input}, \\text{task})\\) 的形式，语言模型就是无监督的多任务学习。因此，GPT-2的核心就是提升模型的容量和数据多样性，让语言模型能够达到解决任何任务的程度。",
+                                            "level": 1,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.123,
+                                                        0.407,
+                                                        0.276,
+                                                        0.421
+                                                    ],
+                                                    "page": 3
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.121,
+                                                        0.431,
+                                                        0.479,
+                                                        0.631
+                                                    ],
+                                                    "page": 3
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.121,
+                                                        0.633,
+                                                        0.481,
+                                                        0.783
+                                                    ],
+                                                    "page": 3
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                50,
+                                                51,
+                                                52
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "sub_text",
+                                            "title": "1.2.1 GPT系列模型_2",
+                                            "metadata": "GPT-3模型；零样本学习；参数规模；文本生成；有毒输出；人类反哺强化学习；RLHF技术；ChatGPT；多轮对话；代码生成；商业价值",
+                                            "content": "2020年，OpenAI在GPT-2的基础上进一步提出了GPT-3模型[12]，他们认为人类可以通过两个别的例子或者一个的任务说明，就可以实现一个新的语言任务。因此，对于所有的NLP任务，GPT-3在应用时不进行梯度更新或者微调，仅使用任务说明个别例子与模型进行义文本合，同时，GPT-3也不像GPT-2追求零样本学习（Zeroshifleanning）。GPT-3参数量达到1750亿，在许多NLP的数据集上都有很好的表现。在各种场景中，GPT-3可以写文章、故事，还可以进行多轮对话、写代码、做表格、生成图标等，具有非常可观的商业价值。虽然GPT-3模型拥有了强大的能力，但是由于其训练语料来自网络，在文本生成时可能会产生出错误的、恶意冒犯的，甚至是带有攻击性的“有毒”文本。为了改进GPT-3模型，OpenAI提出了人类反哺强化学习（Reinforcement Learning from Human Feedback, RLHF）技术[1]，用于矫正GPT-3的学习行为。通过这样的方式，模型得到对于用户来说更安全、更有用且更符合人类想法的结果。火爆全网的ChatGPT就是由该改进模型提供支持，使其能理解人类不同指令的含义，处理多元化主题任务，既可以回答用户后续问题，又可以质疑错误问题和拒绝不应当的请求，功能无比强大。",
+                                            "level": 1,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.123,
+                                                        0.407,
+                                                        0.276,
+                                                        0.421
+                                                    ],
+                                                    "page": 3
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.121,
+                                                        0.787,
+                                                        0.481,
+                                                        0.87
+                                                    ],
+                                                    "page": 3
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.504,
+                                                        0.131,
+                                                        0.862,
+                                                        0.246
+                                                    ],
+                                                    "page": 3
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.505,
+                                                        0.249,
+                                                        0.864,
+                                                        0.451
+                                                    ],
+                                                    "page": 3
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                50,
+                                                53,
+                                                54,
+                                                55
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "title": "1.2.2 BERT系列模型",
+                                    "metadata": "BERT系列模型;Transformer架构;掩码语言模型;下一句预测;预训练语言模型;RoBERTa优化;知识图谱融合;ERNIE模型;实体屏蔽;轻量级BERT;ALBERT优化;对抗学习;GAN思想;句间连贯性损失",
+                                    "content": "另一类著名的预测训练语言模型是BERT系列模型，2018年，Google提出了该模型[4]，它主要有两大创新：一是借助Transformer学习双向表示将多个Transformer编码器（Transformer encoder）堆叠在一起，其中，BERT base使用的是12层的encoder，BERT large使用的是24层的encoder，Transformer是一种深度学习组件，旨在通过在左右上下文中共有的条件下预先训练集无自标文本的深度双向表示；二是在预训练方法的基础上，使用掩码语言模型（Masked Language Model，MLM）和下一句预测（Next Sentence Prediction，NSP）分别捕捉词语和句子级别的语义表征。因此，经过预先训练的BERT模型只需一个额外的输出层就可以进行微调，从而为各种自然语言处理任务生成最新模型。BERT模型成功在11项NLP任务中取得目前最高水平（state of the art）的结果，为NLP发展史上里程碑式的成就。此后，在BERT模型基础上，研究者们做了大量的改进。<|txt_split|>2019年，Liu等人提出了强力优化的BERT模型（A Robustly Optimized BERT Pretraining Approach, RoBERTa）[15]，对BERT模型的训练方式进行了对比实验和分析，并基于此总结了能够提升BERT效果的训练方法，例如动态mask机制、移除NSP任务、<|txt_contd|>Batch size 更大、训练时间更长、训练数据更多、训练序列更长等。<|txt_split|>2019年，清华大学的Zhang等人提出了ERNIE（THU）模型[16]，其主要的贡献在于把知识图谱融合到预训练语言模型的过程中。具体地，对于文本中的实体，在知识库中找到对应的实体，利用tranex进行表示之后，在BERT的文本编码器（text encoder）之上再加一层知识编码器（knowledge encoder）。<|txt_split|>2019年，百度公司的Sun等人提出百度版的ERNIE（Baidu）模型[37]，主要针对BERT在中文NLP任务中表现不够好的问题提出了改进。核心改进点在于在训练的过程中加入了实体级屏蔽和短语级屏蔽。此外，作者还在预训练中加入了对话语料，结果显示效果也会有一些提高，这说明了一个方向，在预训练阶段，除了修改模型、目标函数以外，选择高质量、特定领域的语料也是可行的方向。<|txt_split|>2020年，Lan等人提出了精简的BERT模型（A LotteBERT，ALBERT）[19]，它是一个轻量级的BERT模型，以此降低BERT的运行开销。为了减少BERT资源开销，该文主要提出了两个优化：因式分解嵌入参数（Factorized embedding parameterization）、跨层共享参群（Cross-layer parameter sharing）。其中因式分解嵌入参数将嵌入矩阵分为两个小的矩阵，跨层参数共享是让跨ALBERT的每一层共享transformer权重，这将显著减少参数。除了上述两个降低BERT运行开销的优化外，ALBERT还提出了句间连贯性损失（inter-sentence coherence loss）这一新的优化目标。<|txt_split|>2020年，Clark等人提出了ELECTRA模型（Efficiently Learning an Encoder that Classes Token Replacements Accurately）[19]，该文的核心思路是用GAN的思路。模型包括一个生成器和一个判别器。生成器通常是一个小的MLM，可以学习预测被mask token的原始单词。判别器被训练以鉴别输入token是否被生成器替换。通过对抗学习的方式，让模型从文本中提取信息的能力增强。",
+                                    "level": 4,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.506,
+                                                0.459,
+                                                0.669,
+                                                0.473
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.504,
+                                                0.481,
+                                                0.863,
+                                                0.783
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.505,
+                                                0.786,
+                                                0.862,
+                                                0.87
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.134,
+                                                0.131,
+                                                0.49,
+                                                0.161
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.133,
+                                                0.165,
+                                                0.491,
+                                                0.281
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.133,
+                                                0.283,
+                                                0.492,
+                                                0.433
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.134,
+                                                0.436,
+                                                0.491,
+                                                0.636
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.134,
+                                                0.639,
+                                                0.491,
+                                                0.772
+                                            ],
+                                            "page": 4
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        56,
+                                        57,
+                                        58,
+                                        63,
+                                        64,
+                                        65,
+                                        66,
+                                        67
+                                    ],
+                                    "children": [],
+                                    "subnode": [
+                                        {
+                                            "type": "sub_text",
+                                            "title": "1.2.2 BERT系列模型_1",
+                                            "metadata": "BERT模型; Transformer编码器; 掩码语言模型; 下一句预测; RoBERTa模型; 预训练语言模型; 双向表示; 微调; NLP任务; 状态对齐",
+                                            "content": "另一类著名的预测训练语言模型是BERT系列模型，2018年，Google提出了该模型[4]，它主要有两大创新：一是借助Transformer学习双向表示将多个Transformer编码器（Transformer encoder）堆叠在一起，其中，BERT base使用的是12层的encoder，BERT large使用的是24层的encoder，Transformer是一种深度学习组件，旨在通过在左右上下文中共有的条件下预先训练集无自标文本的深度双向表示；二是在预训练方法的基础上，使用掩码语言模型（Masked Language Model，MLM）和下一句预测（Next Sentence Prediction，NSP）分别捕捉词语和句子级别的语义表征。因此，经过预先训练的BERT模型只需一个额外的输出层就可以进行微调，从而为各种自然语言处理任务生成最新模型。BERT模型成功在11项NLP任务中取得目前最高水平（state of the art）的结果，为NLP发展史上里程碑式的成就。此后，在BERT模型基础上，研究者们做了大量的改进。2019年，Liu等人提出了强力优化的BERT模型（A Robustly Optimized BERT Pretraining Approach, RoBERTa）[15]，对BERT模型的训练方式进行了对比实验和分析，并基于此总结了能够提升BERT效果的训练方法，例如动态mask机制、移除NSP任务、",
+                                            "level": 1,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.506,
+                                                        0.459,
+                                                        0.669,
+                                                        0.473
+                                                    ],
+                                                    "page": 3
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.504,
+                                                        0.481,
+                                                        0.863,
+                                                        0.783
+                                                    ],
+                                                    "page": 3
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.505,
+                                                        0.786,
+                                                        0.862,
+                                                        0.87
+                                                    ],
+                                                    "page": 3
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                56,
+                                                57,
+                                                58
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "sub_text",
+                                            "title": "1.2.2 BERT系列模型_2",
+                                            "metadata": "Batch size; Training time; Training data; Training sequence; Knowledge graph fusion; Entity-level masking; Phrase-level masking; Dialogue data; Lightweight BERT; Factorized embedding; Cross-layer sharing; Inter-sentence coherence loss",
+                                            "content": "Batch size 更大、训练时间更长、训练数据更多、训练序列更长等。2019年，清华大学的Zhang等人提出了ERNIE（THU）模型[16]，其主要的贡献在于把知识图谱融合到预训练语言模型的过程中。具体地，对于文本中的实体，在知识库中找到对应的实体，利用tranex进行表示之后，在BERT的文本编码器（text encoder）之上再加一层知识编码器（knowledge encoder）。2019年，百度公司的Sun等人提出百度版的ERNIE（Baidu）模型[37]，主要针对BERT在中文NLP任务中表现不够好的问题提出了改进。核心改进点在于在训练的过程中加入了实体级屏蔽和短语级屏蔽。此外，作者还在预训练中加入了对话语料，结果显示效果也会有一些提高，这说明了一个方向，在预训练阶段，除了修改模型、目标函数以外，选择高质量、特定领域的语料也是可行的方向。2020年，Lan等人提出了精简的BERT模型（A LotteBERT，ALBERT）[19]，它是一个轻量级的BERT模型，以此降低BERT的运行开销。为了减少BERT资源开销，该文主要提出了两个优化：因式分解嵌入参数（Factorized embedding parameterization）、跨层共享参群（Cross-layer parameter sharing）。其中因式分解嵌入参数将嵌入矩阵分为两个小的矩阵，跨层参数共享是让跨ALBERT的每一层共享transformer权重，这将显著减少参数。除了上述两个降低BERT运行开销的优化外，ALBERT还提出了句间连贯性损失（inter-sentence coherence loss）这一新的优化目标。",
+                                            "level": 1,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.506,
+                                                        0.459,
+                                                        0.669,
+                                                        0.473
+                                                    ],
+                                                    "page": 3
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.134,
+                                                        0.131,
+                                                        0.49,
+                                                        0.161
+                                                    ],
+                                                    "page": 4
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.133,
+                                                        0.165,
+                                                        0.491,
+                                                        0.281
+                                                    ],
+                                                    "page": 4
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.133,
+                                                        0.283,
+                                                        0.492,
+                                                        0.433
+                                                    ],
+                                                    "page": 4
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.134,
+                                                        0.436,
+                                                        0.491,
+                                                        0.636
+                                                    ],
+                                                    "page": 4
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                56,
+                                                63,
+                                                64,
+                                                65,
+                                                66
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "sub_text",
+                                            "title": "1.2.2 BERT系列模型_3",
+                                            "metadata": "ELECTRA模型; GAN对抗学习; 生成器与判别器; MLM文本预测; Token替换鉴别",
+                                            "content": "2020年，Clark等人提出了ELECTRA模型（Efficiently Learning an Encoder that Classes Token Replacements Accurately）[19]，该文的核心思路是用GAN的思路。模型包括一个生成器和一个判别器。生成器通常是一个小的MLM，可以学习预测被mask token的原始单词。判别器被训练以鉴别输入token是否被生成器替换。通过对抗学习的方式，让模型从文本中提取信息的能力增强。",
+                                            "level": 1,
+                                            "location": [
+                                                {
+                                                    "bbox": [
+                                                        0.506,
+                                                        0.459,
+                                                        0.669,
+                                                        0.473
+                                                    ],
+                                                    "page": 3
+                                                },
+                                                {
+                                                    "bbox": [
+                                                        0.134,
+                                                        0.639,
+                                                        0.491,
+                                                        0.772
+                                                    ],
+                                                    "page": 4
+                                                }
+                                            ],
+                                            "block_ids": [
+                                                56,
+                                                67
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "title": "1.2.3 混合预训练模型",
+                                    "metadata": "EIMo; GPT; BERT; UniLM; XLNet; BART; 混合改进模型; 自回归模型; 自编码模型; 双向自回归; 掩码控制; 语义理解预训练; 文本生成; 上下文建模",
+                                    "content": "EIMo、GPT 和BERT作为经典模型，各有千秋，在多个领域取得了显著的成效。后续研究者们又提出了基于人们的混合改进模型，这里主要介绍UniLM、XLNet、BART这3种。<|txt_split|>2019年，Dong等人提出了统一语言模型（Unified Language Model，UniLM）[28].该模型融合了EMLO、BERT、GPT-3这3种语言模型的优化目标，其最大的创新在于通过精巧控制掩码（mask）的方式，实现了在一个模型中同时优化3种语言模型。<|txt_split|>2019年，Yang等人提出了广义自同目语义理解预训练模型（Generalized Autoregressive Pretraining for Language Understanding，XLNet）[23]，文中将无监督语言模型分成两类，一类是自回归模型，如GPT、ELM6，这种模型采用单词自语言模型建模概率分布的方法；另一类是自编码模型，如BERT这种预测句子中token的方法。XLNet融合了自回归模型和自编码模型各自的优点，既能建模概率密度，适用于文本生成类任务，又能充分利用双向上下文信息。<|txt_split|>2019年，Levis等人提出了双向自回归Transformers模型（Bidirectional and Auto-Regressive Transformers，BART）[23]。该模型整合了GPT和BERT模型的优点，主要包括两个训练阶段：首先，将原始输入文本使用某噪声函数，得到被破坏的文本，这个文本会输入到类似Bert的编码器中，得到被破坏文本的编码。其次，使用一个类似GPT的结构，采用自回归的方式还原出被破坏之前的文本。",
+                                    "level": 4,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.136,
+                                                0.78,
+                                                0.297,
+                                                0.793
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.134,
+                                                0.802,
+                                                0.491,
+                                                0.869
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.517,
+                                                0.131,
+                                                0.875,
+                                                0.213
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.517,
+                                                0.215,
+                                                0.876,
+                                                0.382
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.517,
+                                                0.385,
+                                                0.874,
+                                                0.518
+                                            ],
+                                            "page": 4
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        68,
+                                        69,
+                                        70,
+                                        71,
+                                        72
+                                    ],
+                                    "children": [],
+                                    "subnode": []
+                                }
+                            ],
+                            "subnode": []
+                        },
+                        {
+                            "type": "text",
+                            "title": "1.3 工业大模型的发展概况",
+                            "metadata": "超大规模预训练模型；参数量跃升；军备竞赛；自然语言处理；多模态模型；万亿级模型；AI模型拓展；科学问题应用；科技巨头布局；模型研发竞争",
+                            "content": "在工业界，各大巨头也开始发展自己的大模型，自2018年以来，国内外超大规模预训练模型参数指标不断创出新高，谷歌、百度、微软等国内外科技巨头纷纷投入大量人力、财力，相继推出各自的巨量模型。<|txt_split|>在国外，超大规模预训练模型起步于2018年，2021年进入“军备竞赛”阶段。除了上文提到的Google的BERT模型、OpenAI的GPT系列模型，2019年，英伟达还推出了83亿参数的Megatron-LM，谷歌推出了110亿参数的T5，微软推出了170亿参数的图灵Turing-NLG；2020年10月，微软和英伟达在联手发布了5300亿参数的Megatron-Turing自然语言生成模型（MT-NLG）；2021年，谷歌推出了SwitchTransformer模型，以高达1.6万亿的参数量成为史上首个万亿级语言模型；2021年12月，谷歌还提出了1.2万亿参数的通用稀疏语言模型GLaM，在7项小样本学习领域的性能超过GPT-3。<|txt_split|>在国内，超大模型研发厚积薄发，虽然国内超<|txt_contd|>大模型研发比国外公司晚，但是发展却非常的迅速。2021年4月，华为云联合循环智能发布盘古NLP超大规模训练语言模型，参数规模达1000亿，并联合北京大学发布盘古 \\(\\alpha\\) 超大规模预训练模型，参数规模达2000亿；2021年4月，阿里达学院发布270亿参数的中文预训练语言模型PLUG，并联合清华大学发布参数规模达到1000亿的中多态模态预训练模型M6；2021年6月，北京智源人工智能研究院发布了超大规模智能模型“插谱2.0”，参数达到了175万亿，成为当时全球最大的预训练模型；2021年7月，百度推出ERNIE.3.0感知增强大模型，参数规模达到万亿；2021年10月，浪潮发布约2500亿的超大规模预训练模型“源1.0”；2021年12月，百度推出ERNIE.3.0Titan模型，参数规模达2600亿；而2021年11月，达摩院的M6模型参数跃迁至10万亿，将大模型参数直接提升了一个层级。<|txt_split|>到2023年，大型模型继续火热，从最开始的自然语言处理领域，如今已逐渐拓展到视觉、决策领域，甚至用于解决蛋白质预测、航天等领域的重大科学问题，谷歌、Meta、百度等大厂都有相应的成果。一时间，参数量低于1亿的AI模型已经没有声量。",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.518,
+                                        0.526,
+                                        0.716,
+                                        0.54
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.549,
+                                        0.874,
+                                        0.631
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.633,
+                                        0.875,
+                                        0.85
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.55,
+                                        0.853,
+                                        0.874,
+                                        0.868
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.121,
+                                        0.13,
+                                        0.479,
+                                        0.416
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.121,
+                                        0.418,
+                                        0.478,
+                                        0.517
+                                    ],
+                                    "page": 5
+                                }
+                            ],
+                            "block_ids": [
+                                73,
+                                74,
+                                75,
+                                76,
+                                81,
+                                82
+                            ],
+                            "children": [],
+                            "subnode": [
+                                {
+                                    "type": "sub_text",
+                                    "title": "1.3 工业大模型的发展概况_1",
+                                    "metadata": "大模型发展；参数规模突破；军备竞赛；科技巨头投入；国内外竞争；超大规模预训练；万亿级模型；模型参数跃迁；行业厚积薄发；联合研发；语言模型创新",
+                                    "content": "在工业界，各大巨头也开始发展自己的大模型，自2018年以来，国内外超大规模预训练模型参数指标不断创出新高，谷歌、百度、微软等国内外科技巨头纷纷投入大量人力、财力，相继推出各自的巨量模型。在国外，超大规模预训练模型起步于2018年，2021年进入“军备竞赛”阶段。除了上文提到的Google的BERT模型、OpenAI的GPT系列模型，2019年，英伟达还推出了83亿参数的Megatron-LM，谷歌推出了110亿参数的T5，微软推出了170亿参数的图灵Turing-NLG；2020年10月，微软和英伟达在联手发布了5300亿参数的Megatron-Turing自然语言生成模型（MT-NLG）；2021年，谷歌推出了SwitchTransformer模型，以高达1.6万亿的参数量成为史上首个万亿级语言模型；2021年12月，谷歌还提出了1.2万亿参数的通用稀疏语言模型GLaM，在7项小样本学习领域的性能超过GPT-3。在国内，超大模型研发厚积薄发，虽然国内超大模型研发比国外公司晚，但是发展却非常的迅速。2021年4月，华为云联合循环智能发布盘古NLP超大规模训练语言模型，参数规模达1000亿，并联合北京大学发布盘古 \\(\\alpha\\) 超大规模预训练模型，参数规模达2000亿；2021年4月，阿里达学院发布270亿参数的中文预训练语言模型PLUG，并联合清华大学发布参数规模达到1000亿的中多态模态预训练模型M6；2021年6月，北京智源人工智能研究院发布了超大规模智能模型“插谱2.0”，参数达到了175万亿，成为当时全球最大的预训练模型；2021年7月，百度推出ERNIE.3.0感知增强大模型，参数规模达到万亿；2021年10月，浪潮发布约2500亿的超大规模预训练模型“源1.0”；2021年12月，百度推出ERNIE.3.0Titan模型，参数规模达2600亿；而2021年11月，达摩院的M6模型参数跃迁至10万亿，将大模型参数直接提升了一个层级。",
+                                    "level": 1,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.518,
+                                                0.526,
+                                                0.716,
+                                                0.54
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.517,
+                                                0.549,
+                                                0.874,
+                                                0.631
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.517,
+                                                0.633,
+                                                0.875,
+                                                0.85
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.55,
+                                                0.853,
+                                                0.874,
+                                                0.868
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.121,
+                                                0.13,
+                                                0.479,
+                                                0.416
+                                            ],
+                                            "page": 5
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        73,
+                                        74,
+                                        75,
+                                        76,
+                                        81
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "sub_text",
+                                    "title": "1.3 工业大模型的发展概况_2",
+                                    "metadata": "大型模型；自然语言处理；视觉领域；决策系统；蛋白质预测；航天应用；参数量低于1亿；科技巨头成果",
+                                    "content": "到2023年，大型模型继续火热，从最开始的自然语言处理领域，如今已逐渐拓展到视觉、决策领域，甚至用于解决蛋白质预测、航天等领域的重大科学问题，谷歌、Meta、百度等大厂都有相应的成果。一时间，参数量低于1亿的AI模型已经没有声量。",
+                                    "level": 1,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.518,
+                                                0.526,
+                                                0.716,
+                                                0.54
+                                            ],
+                                            "page": 4
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.121,
+                                                0.418,
+                                                0.478,
+                                                0.517
+                                            ],
+                                            "page": 5
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        73,
+                                        82
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ],
+                    "subnode": []
+                },
+                {
+                    "type": "text",
+                    "title": "2 AI大模型核心技术",
+                    "metadata": "自注意力机制;Transformer架构;BERT;GPT",
+                    "content": "AI大模型的成功是多类技术的积累，但其中最为核心的是自注意力机制和Google在2017年提出的Transformer架构，BERT、GPT都是基于它们相继提出的。",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.122,
+                                0.538,
+                                0.303,
+                                0.554
+                            ],
+                            "page": 5
+                        },
+                        {
+                            "bbox": [
+                                0.121,
+                                0.563,
+                                0.479,
+                                0.629
+                            ],
+                            "page": 5
+                        }
+                    ],
+                    "block_ids": [
+                        83,
+                        84
+                    ],
+                    "children": [
+                        {
+                            "type": "text",
+                            "title": "2.1 自注意力机制",
+                            "metadata": "自注意力机制;内部注意力机制;注意力计算公式;线性变换;句式特征;语义特征;长距离依赖;并行计算",
+                            "content": "自注意力机制（Self-Attention），又称内部注意力机制，顾名思义，是一种将单个序列的不同位置关联起来以计算同一序列表示的注意力机制。Self-Attention的架构如图1所示，其注意力计算公式为：<|txt_split|>\\[\n\\text {A t t e n t i o n} (\\boldsymbol {Q}, \\boldsymbol {K}, \\boldsymbol {V}) = s q \\operatorname {t h} \\left[ \\frac {\\boldsymbol {Q} \\boldsymbol {K} ^ {\\prime}}{\\sqrt {d _ {i}}} \\right] V ^ {\\prime} \\quad (3)\n\\]<|txt_split|>式（3）中的 \\(Q, K, V\\) 的表示如图2所示，可以看出其来源都是 \\(X\\) 与矩阵的乘积，本质上都是 \\(X\\) 的线性变换，这也是为什么该技术被叫作自注意力机制。<|txt_split|>通过引入自注意力机制，可以捕获同一个句子中单词之间的一些句式特征或者语义特征。同时也更容易捕获句子中长距离的相互依赖的特征，对于增加计算的并行性也有直接帮助作用。这些因素使得自注意力机制逐渐被广泛使用。",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.122,
+                                        0.638,
+                                        0.258,
+                                        0.652
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.121,
+                                        0.66,
+                                        0.478,
+                                        0.742
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.168,
+                                        0.747,
+                                        0.472,
+                                        0.787
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.121,
+                                        0.79,
+                                        0.479,
+                                        0.855
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.505,
+                                        0.625,
+                                        0.862,
+                                        0.707
+                                    ],
+                                    "page": 5
+                                }
+                            ],
+                            "block_ids": [
+                                85,
+                                86,
+                                87,
+                                88,
+                                95
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "图1 Self-Attention 架构",
+                                    "metadata": "Self-Attention, MatMul, SoftMax, Mask, Scale, Q, K, V",
+                                    "content": "The image illustrates the self-attention mechanism architecture, which consists of four main components arranged vertically: the query (Q), key (K), and value (V) inputs feed into a MatMul operation, followed by a Scale operation, then a Mask (optional) layer, and finally a SoftMax layer, all leading to a final MatMul output. The diagram uses arrows to indicate the flow of data through each layer, with Q and K feeding into the first MatMul, and V feeding into the second MatMul, while the output of the second MatMul feeds into the final MatMul. The structure is labeled as \"图1 Self-Attention架构\" at the bottom.",
+                                    "level": 85,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.619,
+                                                0.129,
+                                                0.75,
+                                                0.359
+                                            ],
+                                            "page": 5
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.609,
+                                                0.364,
+                                                0.758,
+                                                0.377
+                                            ],
+                                            "page": 5
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        89,
+                                        90
+                                    ],
+                                    "children": [],
+                                    "subnode": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Grid Multiplication Illustration",
+                                    "metadata": "Grid multiplication; mathematical operation; visual representation; rectangles; multiplication symbol",
+                                    "content": "The image visually represents a grid multiplication operation, showing two rectangular grids labeled \"X\" and \"W^2\" on the left, with a multiplication symbol between them, and a result grid labeled \"Q\" on the right. The \"X\" grid has 2 rows and 3 columns, the \"W^2\" grid has 3 rows and 2 columns, and the result \"Q\" grid has 2 rows and 2 columns, illustrating how the multiplication of these two grids produces a smaller grid as the product.",
+                                    "level": 85,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.567,
+                                                0.381,
+                                                0.804,
+                                                0.444
+                                            ],
+                                            "page": 5
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        91
+                                    ],
+                                    "children": [],
+                                    "subnode": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Matrix Multiplication Diagram",
+                                    "metadata": "Matrix multiplication; grid representation; mathematical operation",
+                                    "content": "The image depicts a mathematical operation of matrix multiplication, showing two matrices labeled X and W^T being multiplied to produce a resulting matrix K. Matrix X is a 2x4 grid, matrix W^T is a 4x3 grid, and the result K is a 2x3 grid. The multiplication symbol \"×\" is placed between the two matrices, and an equals sign \"=\" follows the product, indicating the output matrix K.",
+                                    "level": 85,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.568,
+                                                0.461,
+                                                0.802,
+                                                0.526
+                                            ],
+                                            "page": 5
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        92
+                                    ],
+                                    "children": [],
+                                    "subnode": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "图2自注意力机制中 \\(Q,K,V\\) 的计算表达",
+                                    "metadata": "Self-attention mechanism; Q, K, V; matrix multiplication",
+                                    "content": "The image illustrates the mathematical operation in the self-attention mechanism, where a matrix X is multiplied by a matrix K (or B^V), and the result is represented as V. This operation represents the computation of query (Q), key (K), and value (V) matrices in the attention mechanism. The diagram uses simple grid representations to symbolize matrices, with X, K, and V labeled accordingly, and an equals sign indicating the output of the operation.",
+                                    "level": 85,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.568,
+                                                0.544,
+                                                0.802,
+                                                0.607
+                                            ],
+                                            "page": 5
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.55,
+                                                0.608,
+                                                0.816,
+                                                0.622
+                                            ],
+                                            "page": 5
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        93,
+                                        94
+                                    ],
+                                    "children": [],
+                                    "subnode": []
+                                }
+                            ],
+                            "subnode": []
+                        },
+                        {
+                            "type": "text",
+                            "title": "2.2 Transformer",
+                            "metadata": "Transformer架构;自注意力机制;多头自注意力;位置编码;残差连接;层规范化;并行计算;掩码注意力;编码器-解码器注意力;长时依赖;GPT;BERT",
+                            "content": "Transformer是Google在2017年提出的重要架构，其中自注意力机制是它重要的组成部分。Transformer架构如图3所示。<|txt_split|>Transformer模型结构由多个编码器和解码器叠加组成，其中编码器和解码器均由基于自注意力的模块叠加而成的，其输入分别是源序列和目标序列的嵌入表示加上位置编码（position encoding）。<|txt_split|>编码器有两个子层：第一个子层是多头自注意力（multi-head self-attention）层，其利用自注意力学习语句内部的关系；第二个子层是基于位置的预测网络（positionwise feed forward）层，是简单的全连接网络，对每个位置的向量分别进行相同的操作，包括两个线性变换和一个ReLU激活函数。每个子层都采用了残差连接（residual connection），紧接着进行应用层规范化（layer normalization）。这里的编码过程是平行计算的，相比于原来的编码器一解码器模型，极大地提高了效率。<|txt_split|>解码器中有3个子层，分别为两个头注意力法（multi-head attention）层和基于位置的前馈网络，和编码器一样，中间同样使用残差链接和层规范化。最下面的掩码多头注意力法（masked multi-head attention）层利用自注意力学习目标句内部的关系。此外，由于每个位置只能考虑该位置之前的所有位置，因此这里使用掩蔽保留了自回归属性，精确预测依赖相较于已生成的输出词元。之后，将掩码表头注意力层的输出和编码器的结果一起输入到第2个多头注意力法（multi-head attention）层，这个注意力层并不是自注意力，而是编码一解码（encoder-decoder）注意力层，用来学习激句与目标句之间的关系。<|txt_split|>Transformer架构有效解决了长时依赖问题，<|txt_contd|>增大了模型的并行性，在多个任务中取得很好的效果，在学术界、工业界被广泛使用，为GPT、BERT模型的提出奠定了基础。",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.506,
+                                        0.717,
+                                        0.634,
+                                        0.73
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.505,
+                                        0.739,
+                                        0.861,
+                                        0.787
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.505,
+                                        0.789,
+                                        0.862,
+                                        0.856
+                                    ],
+                                    "page": 5
+                                },
+                                {
+                                    "bbox": [
+                                        0.134,
+                                        0.478,
+                                        0.491,
+                                        0.644
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.134,
+                                        0.647,
+                                        0.491,
+                                        0.864
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.166,
+                                        0.867,
+                                        0.481,
+                                        0.881
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.131,
+                                        0.874,
+                                        0.18
+                                    ],
+                                    "page": 6
+                                }
+                            ],
+                            "block_ids": [
+                                96,
+                                97,
+                                98,
+                                105,
+                                106,
+                                107,
+                                108
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "图3Transformer架构",
+                                    "metadata": "Transformer model; attention mechanism; input embedding; output embedding; multi-head attention; feed forward; position encoding",
+                                    "content": "The image shows a schematic diagram of the Transformer architecture, which consists of an input side and an output side. On the input side, there is an input embedding layer with position encoding, followed by N layers of the encoder, each containing an Add & Norm layer, a Multi-Head Attention layer, and a Feed Forward layer. On the output side, there is an output embedding layer with position encoding, followed by N layers of the decoder, each containing an Add & Norm layer, a Masked Multi-Head Attention layer, and a Feed Forward layer. The output is processed through a Softmax and Linear layer to produce the final output. The entire architecture is labeled as \"图3 Transformer架构\".",
+                                    "level": 96,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.137,
+                                                0.128,
+                                                0.489,
+                                                0.46
+                                            ],
+                                            "page": 6
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.243,
+                                                0.463,
+                                                0.381,
+                                                0.475
+                                            ],
+                                            "page": 6
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        103,
+                                        104
+                                    ],
+                                    "children": [],
+                                    "subnode": []
+                                }
+                            ],
+                            "subnode": [
+                                {
+                                    "type": "sub_text",
+                                    "title": "2.2 Transformer_1",
+                                    "metadata": "Transformer架构;自注意力机制;多头自注意力;位置编码;残差连接;层规范化;并行计算;掩码多头注意力;编码器-解码器注意力;自回归预测",
+                                    "content": "Transformer是Google在2017年提出的重要架构，其中自注意力机制是它重要的组成部分。Transformer架构如图3所示。Transformer模型结构由多个编码器和解码器叠加组成，其中编码器和解码器均由基于自注意力的模块叠加而成的，其输入分别是源序列和目标序列的嵌入表示加上位置编码（position encoding）。编码器有两个子层：第一个子层是多头自注意力（multi-head self-attention）层，其利用自注意力学习语句内部的关系；第二个子层是基于位置的预测网络（positionwise feed forward）层，是简单的全连接网络，对每个位置的向量分别进行相同的操作，包括两个线性变换和一个ReLU激活函数。每个子层都采用了残差连接（residual connection），紧接着进行应用层规范化（layer normalization）。这里的编码过程是平行计算的，相比于原来的编码器一解码器模型，极大地提高了效率。解码器中有3个子层，分别为两个头注意力法（multi-head attention）层和基于位置的前馈网络，和编码器一样，中间同样使用残差链接和层规范化。最下面的掩码多头注意力法（masked multi-head attention）层利用自注意力学习目标句内部的关系。此外，由于每个位置只能考虑该位置之前的所有位置，因此这里使用掩蔽保留了自回归属性，精确预测依赖相较于已生成的输出词元。之后，将掩码表头注意力层的输出和编码器的结果一起输入到第2个多头注意力法（multi-head attention）层，这个注意力层并不是自注意力，而是编码一解码（encoder-decoder）注意力层，用来学习激句与目标句之间的关系。",
+                                    "level": 1,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.506,
+                                                0.717,
+                                                0.634,
+                                                0.73
+                                            ],
+                                            "page": 5
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.505,
+                                                0.739,
+                                                0.861,
+                                                0.787
+                                            ],
+                                            "page": 5
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.505,
+                                                0.789,
+                                                0.862,
+                                                0.856
+                                            ],
+                                            "page": 5
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.134,
+                                                0.478,
+                                                0.491,
+                                                0.644
+                                            ],
+                                            "page": 6
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.134,
+                                                0.647,
+                                                0.491,
+                                                0.864
+                                            ],
+                                            "page": 6
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        96,
+                                        97,
+                                        98,
+                                        105,
+                                        106
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "sub_text",
+                                    "title": "2.2 Transformer_2",
+                                    "metadata": "Transformer架构;长时依赖;并行性;多任务效果;学术界应用;工业界应用;GPT基础;BERT基础",
+                                    "content": "Transformer架构有效解决了长时依赖问题，增大了模型的并行性，在多个任务中取得很好的效果，在学术界、工业界被广泛使用，为GPT、BERT模型的提出奠定了基础。",
+                                    "level": 1,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.506,
+                                                0.717,
+                                                0.634,
+                                                0.73
+                                            ],
+                                            "page": 5
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.166,
+                                                0.867,
+                                                0.481,
+                                                0.881
+                                            ],
+                                            "page": 6
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.517,
+                                                0.131,
+                                                0.874,
+                                                0.18
+                                            ],
+                                            "page": 6
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        96,
+                                        107,
+                                        108
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ],
+                    "subnode": []
+                },
+                {
+                    "type": "text",
+                    "title": "3存在的局限及未来趋势",
+                    "metadata": "",
+                    "content": "",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.518,
+                                0.201,
+                                0.73,
+                                0.216
+                            ],
+                            "page": 6
+                        }
+                    ],
+                    "block_ids": [
+                        109
+                    ],
+                    "children": [
+                        {
+                            "type": "text",
+                            "title": "3.1 局限",
+                            "metadata": "大模型发展；NLP革新；可解释性弱；训练成本高；环境影响；参数规模效用边际；伦理风险；训练数据污染；作业代写；检测失效",
+                            "content": "AI大模型的发展为各个领域带来了全新的面貌，尤其是NLP领域，可谓日新月异，但是AI大模型的发展依然面临很大的挑战。<|txt_split|>（1）大模型的可解释性较为薄弱。由于大模型采用了深度神经网络架构，模型参数往往过亿级别，因此数据在模型中的处理过程难以追踪，也很难获得对模型推理结果的有效解释。<|txt_split|>（2）更大的模型带来了更高的训练成本，包括高科技人才的智力支出、大数据和大算力所需的成本经济成本。此外，还有不可忽视的环境影响。<|txt_split|>（3）越来越大的模型所带来的效用提升正在缩小。人们发现，当模型参数规模增长10倍时，得到的性能提升往往不到10个百分点。<|txt_split|>（4）大模型带来了伦理方面的风险。由于大模型的训练需要的数据极为庞大，因此靠人工进行收集和检查并不现实，一般都采用机器自动进行训练数据的收集，导致训练集中可能存在租倍、暴力、色情等内容。<|txt_split|>（5）大模型的广泛应用也会带来一些负面的社会效应。据预测，未来大部分大学生会使用大模型生成的文本来代替本书由他们自己撰写下的作业，而与之对抗的检测手段则很难真正发挥作用。<|txt_split|>因此，AI大模型下一步如何发展，也成为研究者共同关注的问题。",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.518,
+                                        0.234,
+                                        0.608,
+                                        0.248
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.256,
+                                        0.875,
+                                        0.305
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.308,
+                                        0.874,
+                                        0.375
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.378,
+                                        0.873,
+                                        0.428
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.43,
+                                        0.873,
+                                        0.479
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.482,
+                                        0.874,
+                                        0.564
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.567,
+                                        0.873,
+                                        0.631
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.518,
+                                        0.634,
+                                        0.873,
+                                        0.665
+                                    ],
+                                    "page": 6
+                                }
+                            ],
+                            "block_ids": [
+                                110,
+                                111,
+                                112,
+                                113,
+                                114,
+                                115,
+                                116,
+                                118
+                            ],
+                            "children": [],
+                            "subnode": []
+                        },
+                        {
+                            "type": "text",
+                            "title": "3.2趋势",
+                            "metadata": "大模型参数规模冷期；小模型协同进化；知识与能力循环反馈；实用化趋势；跨模统一建模；多学习方式演进；绿色环保技术；低门槛开发工具；产业广泛落地；通用性与可解释性提升",
+                            "content": "在AI大模型发展中，未来的发展方向又在哪里呢？阿里是摩登在发布的报告[23]中表示，未来大模型的参数规模发展将进入冷期期，大模型与相关联的小模型的协同发展将是未来的发展方向。其中，大模型沉淀的知识与认知推断能力向小模型输出；小模型基于大模型的基础叠加上叠加随地景的感知、认知、决策、执行能力，再将执行与学习的结果反馈给大模型，让大模型的知识与能力持续进化，形成一套有机循环的智能系统。参与者越多，模型进化的速度会越快。<|txt_split|>百度研究院发布的《2022年十大科技趋势预<|txt_contd|>测》[24]中提到，超大规模预训练模型将呈现知识增强、跨模统一建模、多学习方式共同演进的趋势，并逐渐实用化，而非盲目增加参数规模的“军备竞赛”发展模式。大模型研究方向将转向“实用化”，大模型的效果、通用性、泛化性、可解释性和运行效率将持续提升，应用门槛不断降低，在多场景广泛落地。<|txt_split|>智源研究院在发布的《超大规模智能模型产业发展报告》[19]中提出，未来将从技术、产业、伦理等方面出发，发展更加绿色环保的模型技术，推广低门槛的大规模开发和使用工具，如数据收集、处理、标注等数据工具，模型微调、剪枝、蒸馏、雅俗等模型工具，促进大规模的产业落地。<|txt_split|>总的来说，未来AI大模型的发展趋势基本会从实用性和朝代朝着产业落地向发展。",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.518,
+                                        0.675,
+                                        0.607,
+                                        0.689
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.516,
+                                        0.697,
+                                        0.875,
+                                        0.864
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.551,
+                                        0.867,
+                                        0.873,
+                                        0.881
+                                    ],
+                                    "page": 6
+                                },
+                                {
+                                    "bbox": [
+                                        0.121,
+                                        0.13,
+                                        0.479,
+                                        0.246
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.121,
+                                        0.249,
+                                        0.479,
+                                        0.349
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.123,
+                                        0.35,
+                                        0.478,
+                                        0.382
+                                    ],
+                                    "page": 7
+                                }
+                            ],
+                            "block_ids": [
+                                119,
+                                120,
+                                121,
+                                126,
+                                127,
+                                128
+                            ],
+                            "children": [],
+                            "subnode": []
+                        }
+                    ],
+                    "subnode": []
+                },
+                {
+                    "type": "text",
+                    "title": "4 结语",
+                    "metadata": "AI大模型；参数规模突破；多阶段演进；科技巨头投入；伦理风险挑战；可解释性问题；训练成本高；产业落地研究；模型压缩技术；认知边界拓展",
+                    "content": "AI大模型作为当前最热门的研究对象，在各个领域得到了广泛的研究和关注，其先后经历了语言模型、预训练模型、大规模预训练模型、超大规模预训练模型几个阶段，参数集实现了万亿级的突破。自2018年以来，国内外更大规模预训练模型参数指标不断出新高，谷歌、百度、微软等国内外科技巨头纷纷投入大量人力、财力，相继推出各自的巨量模型。然而，在大模型获得广泛应用，为各个领域带来新面貌的同时，也面临着可解释性差、训练成本高、存在伦理风险等挑战。<|txt_split|>未来AI大模型的参数规格发展将有可能进入冷静期，相关研究也在让下游方更加去适应大模型，以提高最大限度发挥大模型的能力。同时，关于AI大模型的产业落地相关研究也会逐步增多，数据采集、标注、模型压缩、剪枝、蒸馏等工具将被开发并广泛建产使用。<|txt_split|>总体而言，现在AI大模型的研究，包括模型结构的演进和落地仍处在探索阶段，人们的持续探索正在不断扩大对AI大模型的认知边界。",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.122,
+                                0.404,
+                                0.21,
+                                0.419
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.121,
+                                0.428,
+                                0.479,
+                                0.595
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.121,
+                                0.597,
+                                0.479,
+                                0.697
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.121,
+                                0.698,
+                                0.479,
+                                0.747
+                            ],
+                            "page": 7
+                        }
+                    ],
+                    "block_ids": [
+                        129,
+                        130,
+                        131,
+                        132
+                    ],
+                    "children": [],
+                    "subnode": []
+                },
+                {
+                    "type": "text",
+                    "title": "参考文献：",
+                    "metadata": "neural probabilistic language models; deep learning; recurrent neural networks; long short-term memory; attention mechanisms; word embeddings; transformer models; BERT family models; language modeling pre-training; few-shot learning; reinforcement learning in NLP; unified language models; XLNet; ELECTRA; ALBERT; RoBERTa; ERNIE; denoising pre-training; large language models; AI research trends; industry reports on AI",
+                    "content": "[1] BENGIO Y, SCHWENK H, SENEÇAL J, S. yet a.l. neural probabilistic language models[MJ/MOLHEZ DEJAIN L. C. Innovations in Machine Learning, Berlin/Heidelberg/Sprieger-Verlag, 2006:137-186.<|txt_split|>[2] SCHIMIDHUBER J. Deep learning in neural networks: An overview[J].Neural Networks Theorical Journal of the<|txt_split|>International Neural Network Society,2015,61:85-117.<|txt_split|>[3] MASUMURA R, ASAMITA OBA T, et al. Latent words recurrent neural network language models [C]/ Sixteenth Annual Conference of the International Speech Communication Association,2015:2380-2384.<|txt_split|>[4] MIKOLOV T.KOMBRIKH, DEORAS A,et al. ALRNML - recurrent neural network language modeling toolkit[CJ/ IEEE. Automatic Speech Recognition and Understanding Workshop,2011:1-4.<|txt_split|>[5] HOCHREITER S, SCHMIDHBUER J Long short-term memory [J]. Neural Computation, 1997;9(8):1735-1780.<|txt_split|>[6] SuNDERMEYER M, SCHILLER N R, HYN LSTHLM  \nKeywords for language modeling (CIFitness-speech 2012,2019)<|txt_split|>[7] VASWANI A, SHAZEER N, PARMAR N, et al. Attention is all. You need[J].JAmnVit.2017;17:003676[2022-02-03]. https://arxiv.org/abs/1706.03762.<|txt_split|>[8] MIKOLOV T, VUSTEKVER L, KAI C, et al. Distributed representations of words and phrases and their compositionality[C]./Proceedings of the 26th International Conference on Neural Information Processing Systems, 2013: 3111-3119.<|txt_split|>[9] PETERS M E, NEUIMAN M I, YIYER ME, et al. Deep contextualized word representations [JOL]. arXiv.2018.1802.05365 [2022-02-03]. https://arxiv.org/abs:1802.05365.<|txt_split|>[10] RADFORD N, ARASIMHAN K. Improving language understanding by generative pre-training [EB/OL].[2023-02-03]. https://doi.org/10.1007/s11582-03-0049-1<|txt_split|>[11] RADFORD A.W.E.; J.CHILD Ret al. Language models are unsupervised multiclass learners; J. Appl. Open 21, big10, 2019.<|txt_split|>[12] BROwN T, MANN B, RYDER N, et al. Language models are few-shot learners[J]. Advances in neural information processing systems, 2020;33:1877-1901.<|txt_split|>[13] CHRISTIANO P, LEIKE J, BROWN T B, et al. Deep reinforcement learning from human preferences [J/OJ], arXiv:2017;1706.03741 [2022-02-03] https://arxiv.org/abs/1706.03741<|txt_split|>[14] DEVLIN J, CHANG MLEE K, et al. ALTBRE-Prz-training of deep bifurcation reconstructions in language understanding [JOL]. arXiv:2018.1810.04805[2022-02-21]. https://arxiv.org/abs.1810.04805.<|txt_split|>[15] LIU Y,OTT M, GOYAL N, et al.RoBERTa: A robustly<|txt_split|>optimized BERT pretraining approach[JOL],arXiv, 2019:1907.11692[2022-02-21].https://arxiv.org/abs/ 1907.11692.<|txt_split|>[16] ZHANG Z, HAN X, LIU Z, et al. ERNErn-Enhanced language representation with informative entitute[J/JOL], arXiv:2019;1095.07129[2022-02-21]. https://arxiv.org/abs/1095.07129.<|txt_split|>[17] SUN Y, WANG S, LI Y, et al. ERNEH: Enhanced representation through knowledge integration[J/OL]. arXiv.2019;1904.09223[J2022-02-21]. https://arxiv.org/abs/1904.09223.<|txt_split|>[18] LAN Z, CHEN M, GOODMAN S, et al. ALBERT: A Lite BERT for self-supervised learning of language representations(C)/International Conference on Learning Representations,2020c-17.<|txt_split|>[19] CLARK KLI,ONG M TLE Y. Yet al.ELECTRA:Pretraining text encoders as discriminators rather than generative model[J].JXvX2020;300555(2022-02-24). https://arcis.org/ab02/2003_10555.<|txt_split|>[20] DONG LYANG, N. WANG, W. et al. Unifed language model pre-training for natural language understanding and generation [J]. arXiv, 2019;1905.03197 [2022-02-24]. https://arxiv.org/abs/1905.03197.<|txt_split|>[21] YANG Z,DAI Z,YANG Y,et al.XLNet:Generalized<|txt_split|>autoregressive pertaining for language understanding/137  \nautoregressive learning/108.257/2022-02-24 [https://url. organsoft.1960.08237]<|txt_split|>[22] LEWIS MLI U H, GOYAL N, et al. BLATD: Denoising sequence-to-sequence pre-training for natural language generation, translation, and comprehension[J/OL]. arXiv, 2019;1910.1346[1202-02-24].https://arxiv.org/abs/ 1910.13461.<|txt_split|>[23]阿里巴巴达摩院-2023十大科技趋势EB/OLJ（2023-01-11-2023-02-24）https://lives.aliclin.com/tpservice/98kl85280x0d5924158b606e61778h.pdf.<|txt_split|>[24] 百度研究院. 2023年十大科技趋势预测 [EB/OL]. (2023-07-15)[2023-01-15]. https://mp.weixin.qq.com/s/ jEaPTLS-0EH_26_TR/PTHCA/.<|txt_split|>[25] 北京智源人工智能研究院，超大规模智能模型产业化发展报告[R01L].(2021-09-4)[2022-02-24].https://baii.org//MlRdPart.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.124,
+                                0.759,
+                                0.197,
+                                0.773
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.122,
+                                0.784,
+                                0.481,
+                                0.849
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.122,
+                                0.851,
+                                0.481,
+                                0.882
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.536,
+                                0.131,
+                                0.851,
+                                0.144
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.148,
+                                0.862,
+                                0.211
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.215,
+                                0.864,
+                                0.277
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.281,
+                                0.862,
+                                0.311
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.315,
+                                0.862,
+                                0.359
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.365,
+                                0.862,
+                                0.411
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.414,
+                                0.862,
+                                0.493
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.497,
+                                0.862,
+                                0.559
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.564,
+                                0.862,
+                                0.627
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.631,
+                                0.862,
+                                0.676
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.681,
+                                0.862,
+                                0.727
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.731,
+                                0.862,
+                                0.793
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.798,
+                                0.862,
+                                0.863
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.868,
+                                0.862,
+                                0.882
+                            ],
+                            "page": 7
+                        },
+                        {
+                            "bbox": [
+                                0.167,
+                                0.132,
+                                0.491,
+                                0.178
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.137,
+                                0.182,
+                                0.492,
+                                0.244
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.137,
+                                0.249,
+                                0.492,
+                                0.311
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.137,
+                                0.315,
+                                0.492,
+                                0.378
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.137,
+                                0.382,
+                                0.492,
+                                0.445
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.137,
+                                0.448,
+                                0.492,
+                                0.511
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.137,
+                                0.515,
+                                0.492,
+                                0.528
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.551,
+                                0.133,
+                                0.875,
+                                0.178
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.521,
+                                0.182,
+                                0.875,
+                                0.261
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.521,
+                                0.265,
+                                0.875,
+                                0.311
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.521,
+                                0.315,
+                                0.875,
+                                0.361
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.521,
+                                0.364,
+                                0.875,
+                                0.411
+                            ],
+                            "page": 8
+                        }
+                    ],
+                    "block_ids": [
+                        133,
+                        134,
+                        135,
+                        137,
+                        138,
+                        139,
+                        140,
+                        141,
+                        142,
+                        143,
+                        144,
+                        145,
+                        146,
+                        147,
+                        148,
+                        149,
+                        150,
+                        156,
+                        157,
+                        158,
+                        159,
+                        160,
+                        161,
+                        162,
+                        164,
+                        165,
+                        166,
+                        167,
+                        168
+                    ],
+                    "children": [],
+                    "subnode": [
+                        {
+                            "type": "sub_text",
+                            "title": "参考文献：_1",
+                            "metadata": "Neural Probabilistic Language Models; Deep Learning in Neural Networks; Latent Words Recurrent Neural Network Language Models",
+                            "content": "[1] BENGIO Y, SCHWENK H, SENEÇAL J, S. yet a.l. neural probabilistic language models[MJ/MOLHEZ DEJAIN L. C. Innovations in Machine Learning, Berlin/Heidelberg/Sprieger-Verlag, 2006:137-186.[2] SCHIMIDHUBER J. Deep learning in neural networks: An overview[J].Neural Networks Theorical Journal of theInternational Neural Network Society,2015,61:85-117.[3] MASUMURA R, ASAMITA OBA T, et al. Latent words recurrent neural network language models [C]/ Sixteenth Annual Conference of the International Speech Communication Association,2015:2380-2384.",
+                            "level": 1,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.124,
+                                        0.759,
+                                        0.197,
+                                        0.773
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.122,
+                                        0.784,
+                                        0.481,
+                                        0.849
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.122,
+                                        0.851,
+                                        0.481,
+                                        0.882
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.536,
+                                        0.131,
+                                        0.851,
+                                        0.144
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.148,
+                                        0.862,
+                                        0.211
+                                    ],
+                                    "page": 7
+                                }
+                            ],
+                            "block_ids": [
+                                133,
+                                134,
+                                135,
+                                137,
+                                138
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "sub_text",
+                            "title": "参考文献：_2",
+                            "metadata": "Recurrent Neural Network; Long Short-Term Memory; Attention Mechanism; Language Modeling Toolkit; Speech Recognition; Neural Networks",
+                            "content": "[4] MIKOLOV T.KOMBRIKH, DEORAS A,et al. ALRNML - recurrent neural network language modeling toolkit[CJ/ IEEE. Automatic Speech Recognition and Understanding Workshop,2011:1-4.[5] HOCHREITER S, SCHMIDHBUER J Long short-term memory [J]. Neural Computation, 1997;9(8):1735-1780.[6] SuNDERMEYER M, SCHILLER N R, HYN LSTHLM  \nKeywords for language modeling (CIFitness-speech 2012,2019)[7] VASWANI A, SHAZEER N, PARMAR N, et al. Attention is all. You need[J].JAmnVit.2017;17:003676[2022-02-03]. https://arxiv.org/abs/1706.03762.",
+                            "level": 1,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.124,
+                                        0.759,
+                                        0.197,
+                                        0.773
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.215,
+                                        0.864,
+                                        0.277
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.281,
+                                        0.862,
+                                        0.311
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.315,
+                                        0.862,
+                                        0.359
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.365,
+                                        0.862,
+                                        0.411
+                                    ],
+                                    "page": 7
+                                }
+                            ],
+                            "block_ids": [
+                                133,
+                                139,
+                                140,
+                                141,
+                                142
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "sub_text",
+                            "title": "参考文献：_3",
+                            "metadata": "Word embeddings; Contextualized word representations; Generative pre-training; Neural language models; Deep learning in NLP",
+                            "content": "[8] MIKOLOV T, VUSTEKVER L, KAI C, et al. Distributed representations of words and phrases and their compositionality[C]./Proceedings of the 26th International Conference on Neural Information Processing Systems, 2013: 3111-3119.[9] PETERS M E, NEUIMAN M I, YIYER ME, et al. Deep contextualized word representations [JOL]. arXiv.2018.1802.05365 [2022-02-03]. https://arxiv.org/abs:1802.05365.[10] RADFORD N, ARASIMHAN K. Improving language understanding by generative pre-training [EB/OL].[2023-02-03]. https://doi.org/10.1007/s11582-03-0049-1",
+                            "level": 1,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.124,
+                                        0.759,
+                                        0.197,
+                                        0.773
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.414,
+                                        0.862,
+                                        0.493
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.497,
+                                        0.862,
+                                        0.559
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.564,
+                                        0.862,
+                                        0.627
+                                    ],
+                                    "page": 7
+                                }
+                            ],
+                            "block_ids": [
+                                133,
+                                143,
+                                144,
+                                145
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "sub_text",
+                            "title": "参考文献：_4",
+                            "metadata": "Language models; unsupervised learning; few-shot learning; reinforcement learning; deep learning; language understanding; neural networks; AI research",
+                            "content": "[11] RADFORD A.W.E.; J.CHILD Ret al. Language models are unsupervised multiclass learners; J. Appl. Open 21, big10, 2019.[12] BROwN T, MANN B, RYDER N, et al. Language models are few-shot learners[J]. Advances in neural information processing systems, 2020;33:1877-1901.[13] CHRISTIANO P, LEIKE J, BROWN T B, et al. Deep reinforcement learning from human preferences [J/OJ], arXiv:2017;1706.03741 [2022-02-03] https://arxiv.org/abs/1706.03741[14] DEVLIN J, CHANG MLEE K, et al. ALTBRE-Prz-training of deep bifurcation reconstructions in language understanding [JOL]. arXiv:2018.1810.04805[2022-02-21]. https://arxiv.org/abs.1810.04805.",
+                            "level": 1,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.124,
+                                        0.759,
+                                        0.197,
+                                        0.773
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.631,
+                                        0.862,
+                                        0.676
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.681,
+                                        0.862,
+                                        0.727
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.731,
+                                        0.862,
+                                        0.793
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.798,
+                                        0.862,
+                                        0.863
+                                    ],
+                                    "page": 7
+                                }
+                            ],
+                            "block_ids": [
+                                133,
+                                146,
+                                147,
+                                148,
+                                149
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "sub_text",
+                            "title": "参考文献：_5",
+                            "metadata": "BERT pretraining; RoBERTa; ERNIE; knowledge integration; language representation",
+                            "content": "[15] LIU Y,OTT M, GOYAL N, et al.RoBERTa: A robustlyoptimized BERT pretraining approach[JOL],arXiv, 2019:1907.11692[2022-02-21].https://arxiv.org/abs/ 1907.11692.[16] ZHANG Z, HAN X, LIU Z, et al. ERNErn-Enhanced language representation with informative entitute[J/JOL], arXiv:2019;1095.07129[2022-02-21]. https://arxiv.org/abs/1095.07129.[17] SUN Y, WANG S, LI Y, et al. ERNEH: Enhanced representation through knowledge integration[J/OL]. arXiv.2019;1904.09223[J2022-02-21]. https://arxiv.org/abs/1904.09223.",
+                            "level": 1,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.124,
+                                        0.759,
+                                        0.197,
+                                        0.773
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.868,
+                                        0.862,
+                                        0.882
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.167,
+                                        0.132,
+                                        0.491,
+                                        0.178
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.137,
+                                        0.182,
+                                        0.492,
+                                        0.244
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.137,
+                                        0.249,
+                                        0.492,
+                                        0.311
+                                    ],
+                                    "page": 8
+                                }
+                            ],
+                            "block_ids": [
+                                133,
+                                150,
+                                156,
+                                157,
+                                158
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "sub_text",
+                            "title": "参考文献：_6",
+                            "metadata": "ALBERT; ELECTRA; Unified Language Model Pre-training",
+                            "content": "[18] LAN Z, CHEN M, GOODMAN S, et al. ALBERT: A Lite BERT for self-supervised learning of language representations(C)/International Conference on Learning Representations,2020c-17.[19] CLARK KLI,ONG M TLE Y. Yet al.ELECTRA:Pretraining text encoders as discriminators rather than generative model[J].JXvX2020;300555(2022-02-24). https://arcis.org/ab02/2003_10555.[20] DONG LYANG, N. WANG, W. et al. Unifed language model pre-training for natural language understanding and generation [J]. arXiv, 2019;1905.03197 [2022-02-24]. https://arxiv.org/abs/1905.03197.",
+                            "level": 1,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.124,
+                                        0.759,
+                                        0.197,
+                                        0.773
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.137,
+                                        0.315,
+                                        0.492,
+                                        0.378
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.137,
+                                        0.382,
+                                        0.492,
+                                        0.445
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.137,
+                                        0.448,
+                                        0.492,
+                                        0.511
+                                    ],
+                                    "page": 8
+                                }
+                            ],
+                            "block_ids": [
+                                133,
+                                159,
+                                160,
+                                161
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "sub_text",
+                            "title": "参考文献：_7",
+                            "metadata": "XLNet; BLATD; 阿里巴巴达摩院科技趋势",
+                            "content": "[21] YANG Z,DAI Z,YANG Y,et al.XLNet:Generalizedautoregressive pertaining for language understanding/137  \nautoregressive learning/108.257/2022-02-24 [https://url. organsoft.1960.08237][22] LEWIS MLI U H, GOYAL N, et al. BLATD: Denoising sequence-to-sequence pre-training for natural language generation, translation, and comprehension[J/OL]. arXiv, 2019;1910.1346[1202-02-24].https://arxiv.org/abs/ 1910.13461.[23]阿里巴巴达摩院-2023十大科技趋势EB/OLJ（2023-01-11-2023-02-24）https://lives.aliclin.com/tpservice/98kl85280x0d5924158b606e61778h.pdf.",
+                            "level": 1,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.124,
+                                        0.759,
+                                        0.197,
+                                        0.773
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.137,
+                                        0.515,
+                                        0.492,
+                                        0.528
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.551,
+                                        0.133,
+                                        0.875,
+                                        0.178
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.521,
+                                        0.182,
+                                        0.875,
+                                        0.261
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.521,
+                                        0.265,
+                                        0.875,
+                                        0.311
+                                    ],
+                                    "page": 8
+                                }
+                            ],
+                            "block_ids": [
+                                133,
+                                162,
+                                164,
+                                165,
+                                166
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "sub_text",
+                            "title": "参考文献：_8",
+                            "metadata": "科技趋势预测；人工智能产业化；超大规模模型",
+                            "content": "[24] 百度研究院. 2023年十大科技趋势预测 [EB/OL]. (2023-07-15)[2023-01-15]. https://mp.weixin.qq.com/s/ jEaPTLS-0EH_26_TR/PTHCA/.[25] 北京智源人工智能研究院，超大规模智能模型产业化发展报告[R01L].(2021-09-4)[2022-02-24].https://baii.org//MlRdPart.",
+                            "level": 1,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.124,
+                                        0.759,
+                                        0.197,
+                                        0.773
+                                    ],
+                                    "page": 7
+                                },
+                                {
+                                    "bbox": [
+                                        0.521,
+                                        0.315,
+                                        0.875,
+                                        0.361
+                                    ],
+                                    "page": 8
+                                },
+                                {
+                                    "bbox": [
+                                        0.521,
+                                        0.364,
+                                        0.875,
+                                        0.411
+                                    ],
+                                    "page": 8
+                                }
+                            ],
+                            "block_ids": [
+                                133,
+                                167,
+                                168
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "作者简介：",
+                    "metadata": "机器学习；神经网络；智能情报；高级工程师；博士",
+                    "content": "张乾君（1986—），女，博士，高级工程师。主要研究方向为机器学习、神经网络和智能情报。",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.52,
+                                0.432,
+                                0.593,
+                                0.447
+                            ],
+                            "page": 8
+                        },
+                        {
+                            "bbox": [
+                                0.608,
+                                0.45,
+                                0.875,
+                                0.496
+                            ],
+                            "page": 8
+                        }
+                    ],
+                    "block_ids": [
+                        170,
+                        172
+                    ],
+                    "children": [
+                        {
+                            "type": "image",
+                            "title": "Portrait of a Woman",
+                            "metadata": "Portrait; woman; black hair; dark clothing",
+                            "content": "The image is a portrait of a woman with long, straight black hair, wearing a dark-colored top. She is looking directly at the camera with a neutral expression. The background is plain and white, suggesting a formal or professional headshot.",
+                            "level": 170,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.52,
+                                        0.452,
+                                        0.603,
+                                        0.527
+                                    ],
+                                    "page": 8
+                                }
+                            ],
+                            "block_ids": [
+                                171
+                            ],
+                            "children": [],
+                            "subnode": []
+                        }
+                    ],
+                    "subnode": []
+                }
+            ],
+            "subnode": [
+                {
+                    "type": "sub_text",
+                    "title": "Survey on the Development of AI Large Model_1",
+                    "metadata": "AI large models; Bert; GPT; parameter size; training data; model capability; research upsurge; core technologies; development trends",
+                    "content": "ZHANG QianjunNo.10 Institute of CETC, Chengdu Sichuan 610036, ChinaAbstract: As the hottest technology field in the current, AI large models received extensive attention. Taking Bert of Google and GPT of OpenAI as representatives, the parameter size of the model gradually increased to hundreds of billions or even trillions, and the training data scale also increased greatly, which brings about a significant improvement in model capability and triggers a research upsurge of AI large models at home and abroad. This paper gives an overview of the development of AI large models, analyzes various milestone algorithm models, introduces the core technologies and principles they rely on, evaluates their challenges and limitations, and finally discusses the development trends of AI large models in the future.",
+                    "level": 1,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.272,
+                                0.434,
+                                0.713,
+                                0.453
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.428,
+                                0.468,
+                                0.556,
+                                0.484
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.331,
+                                0.489,
+                                0.655,
+                                0.502
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.151,
+                                0.509,
+                                0.835,
+                                0.619
+                            ],
+                            "page": 1
+                        }
+                    ],
+                    "block_ids": [
+                        12,
+                        13,
+                        14,
+                        15
+                    ],
+                    "children": []
+                },
+                {
+                    "type": "sub_text",
+                    "title": "Survey on the Development of AI Large Model_2",
+                    "metadata": "AI large model; Transformer; BERT; GPT; ERNIE",
+                    "content": "Keywords: AI large model; Transformer; BERT; GPT; ERNIE",
+                    "level": 1,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.272,
+                                0.434,
+                                0.713,
+                                0.453
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.152,
+                                0.62,
+                                0.545,
+                                0.634
+                            ],
+                            "page": 1
+                        }
+                    ],
+                    "block_ids": [
+                        12,
+                        16
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 1 - header",
+            "metadata": "第56卷第3期2023年3月",
+            "content": "第56卷第3期2023年3月",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.128,
+                        0.088,
+                        0.224,
+                        0.113
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                1
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 1 - header - 1",
+            "metadata": "通信技术  \nCommunications Technology",
+            "content": "通信技术  \nCommunications Technology",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.414,
+                        0.088,
+                        0.571,
+                        0.113
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                2
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 1 - header - 2",
+            "metadata": "Vol.56 No.3 Mar. 2023",
+            "content": "Vol.56 No.3 Mar. 2023",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.778,
+                        0.088,
+                        0.858,
+                        0.112
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                3
+            ],
+            "subnode": []
+        },
+        {
+            "type": "page_footnote",
+            "title": "Page 1 - page_footnote",
+            "metadata": "收稿日期：2023-03-15；修回日期：2023-03-19 Received date:2023-03-15;Revised date:2023-03-19",
+            "content": "收稿日期：2023-03-15；修回日期：2023-03-19 Received date:2023-03-15;Revised date:2023-03-19",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.154,
+                        0.865,
+                        0.719,
+                        0.878
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                21
+            ],
+            "subnode": []
+        },
+        {
+            "type": "page_number",
+            "title": "Page 1 - page_number",
+            "metadata": "·255·",
+            "content": "·255·",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.81,
+                        0.899,
+                        0.86,
+                        0.912
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                22
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 2 - header",
+            "metadata": "txjschpt.enki.net",
+            "content": "txjschpt.enki.net",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.136,
+                        0.101,
+                        0.231,
+                        0.112
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                23
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 2 - header - 1",
+            "metadata": "通信技术",
+            "content": "通信技术",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.476,
+                        0.1,
+                        0.534,
+                        0.112
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                24
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 2 - header - 2",
+            "metadata": "2023年",
+            "content": "2023年",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.825,
+                        0.1,
+                        0.872,
+                        0.111
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                25
+            ],
+            "subnode": []
+        },
+        {
+            "type": "page_number",
+            "title": "Page 2 - page_number",
+            "metadata": "·256·",
+            "content": "·256·",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.137,
+                        0.899,
+                        0.187,
+                        0.911
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                45
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 3 - header",
+            "metadata": "第56卷",
+            "content": "第56卷",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.124,
+                        0.1,
+                        0.176,
+                        0.112
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                46
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 3 - header - 1",
+            "metadata": "张乾君：AI大模型发展综述",
+            "content": "张乾君：AI大模型发展综述",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.409,
+                        0.1,
+                        0.578,
+                        0.113
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                47
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 3 - header - 2",
+            "metadata": "第3期",
+            "content": "第3期",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.813,
+                        0.1,
+                        0.858,
+                        0.112
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                48
+            ],
+            "subnode": []
+        },
+        {
+            "type": "page_number",
+            "title": "Page 3 - page_number",
+            "metadata": "·257·",
+            "content": "·257·",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.81,
+                        0.899,
+                        0.86,
+                        0.912
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                59
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 4 - header",
+            "metadata": "txjschpt.enki.net",
+            "content": "txjschpt.enki.net",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.136,
+                        0.101,
+                        0.231,
+                        0.112
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                60
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 4 - header - 1",
+            "metadata": "通信技术",
+            "content": "通信技术",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.476,
+                        0.1,
+                        0.534,
+                        0.112
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                61
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 4 - header - 2",
+            "metadata": "2023年",
+            "content": "2023年",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.825,
+                        0.1,
+                        0.872,
+                        0.111
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                62
+            ],
+            "subnode": []
+        },
+        {
+            "type": "page_number",
+            "title": "Page 4 - page_number",
+            "metadata": "·258·",
+            "content": "·258·",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.137,
+                        0.899,
+                        0.187,
+                        0.911
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                77
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 5 - header",
+            "metadata": "第56卷",
+            "content": "第56卷",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.124,
+                        0.1,
+                        0.176,
+                        0.112
+                    ],
+                    "page": 5
+                }
+            ],
+            "block_ids": [
+                78
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 5 - header - 1",
+            "metadata": "张乾君：AI大模型发展综述",
+            "content": "张乾君：AI大模型发展综述",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.409,
+                        0.1,
+                        0.578,
+                        0.113
+                    ],
+                    "page": 5
+                }
+            ],
+            "block_ids": [
+                79
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 5 - header - 2",
+            "metadata": "第3期",
+            "content": "第3期",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.813,
+                        0.1,
+                        0.858,
+                        0.112
+                    ],
+                    "page": 5
+                }
+            ],
+            "block_ids": [
+                80
+            ],
+            "subnode": []
+        },
+        {
+            "type": "page_number",
+            "title": "Page 5 - page_number",
+            "metadata": "·259·",
+            "content": "·259·",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.81,
+                        0.9,
+                        0.86,
+                        0.912
+                    ],
+                    "page": 5
+                }
+            ],
+            "block_ids": [
+                99
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 6 - header",
+            "metadata": "txjschpt.enki.net",
+            "content": "txjschpt.enki.net",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.136,
+                        0.101,
+                        0.231,
+                        0.112
+                    ],
+                    "page": 6
+                }
+            ],
+            "block_ids": [
+                100
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 6 - header - 1",
+            "metadata": "通信技术",
+            "content": "通信技术",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.476,
+                        0.1,
+                        0.534,
+                        0.112
+                    ],
+                    "page": 6
+                }
+            ],
+            "block_ids": [
+                101
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 6 - header - 2",
+            "metadata": "2023年",
+            "content": "2023年",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.825,
+                        0.1,
+                        0.872,
+                        0.111
+                    ],
+                    "page": 6
+                }
+            ],
+            "block_ids": [
+                102
+            ],
+            "subnode": []
+        },
+        {
+            "type": "page_number",
+            "title": "Page 6 - page_number",
+            "metadata": "·260·",
+            "content": "·260·",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.137,
+                        0.899,
+                        0.187,
+                        0.911
+                    ],
+                    "page": 6
+                }
+            ],
+            "block_ids": [
+                122
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 7 - header",
+            "metadata": "第56卷",
+            "content": "第56卷",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.124,
+                        0.1,
+                        0.176,
+                        0.112
+                    ],
+                    "page": 7
+                }
+            ],
+            "block_ids": [
+                123
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 7 - header - 1",
+            "metadata": "张乾君：AI大模型发展综述",
+            "content": "张乾君：AI大模型发展综述",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.409,
+                        0.1,
+                        0.578,
+                        0.113
+                    ],
+                    "page": 7
+                }
+            ],
+            "block_ids": [
+                124
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 7 - header - 2",
+            "metadata": "第3期",
+            "content": "第3期",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.813,
+                        0.1,
+                        0.858,
+                        0.112
+                    ],
+                    "page": 7
+                }
+            ],
+            "block_ids": [
+                125
+            ],
+            "subnode": []
+        },
+        {
+            "type": "page_number",
+            "title": "Page 7 - page_number",
+            "metadata": "·261·",
+            "content": "·261·",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.81,
+                        0.9,
+                        0.86,
+                        0.912
+                    ],
+                    "page": 7
+                }
+            ],
+            "block_ids": [
+                152
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 8 - header",
+            "metadata": "txjscchpt.enki.net",
+            "content": "txjscchpt.enki.net",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.136,
+                        0.101,
+                        0.231,
+                        0.113
+                    ],
+                    "page": 8
+                }
+            ],
+            "block_ids": [
+                153
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 8 - header - 1",
+            "metadata": "通信技术",
+            "content": "通信技术",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.476,
+                        0.1,
+                        0.534,
+                        0.112
+                    ],
+                    "page": 8
+                }
+            ],
+            "block_ids": [
+                154
+            ],
+            "subnode": []
+        },
+        {
+            "type": "header",
+            "title": "Page 8 - header - 2",
+            "metadata": "2023年",
+            "content": "2023年",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.825,
+                        0.1,
+                        0.872,
+                        0.112
+                    ],
+                    "page": 8
+                }
+            ],
+            "block_ids": [
+                155
+            ],
+            "subnode": []
+        },
+        {
+            "type": "page_number",
+            "title": "Page 8 - page_number",
+            "metadata": "·262·",
+            "content": "·262·",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.137,
+                        0.899,
+                        0.186,
+                        0.911
+                    ],
+                    "page": 8
+                }
+            ],
+            "block_ids": [
+                173
+            ],
+            "subnode": []
+        }
+    ],
+    "subnode": []
+}

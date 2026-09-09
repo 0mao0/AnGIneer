@@ -1,0 +1,1266 @@
+{
+    "type": "root",
+    "title": "",
+    "metadata": "",
+    "content": "",
+    "level": 0,
+    "location": [],
+    "block_ids": [],
+    "children": [
+        {
+            "type": "text",
+            "title": "A New 7-Transistor SRAM Cell Design with High Read Stability",
+            "metadata": "",
+            "content": "Yen Hsiang Tseng, Yimeng Zhang, Leona Okamura and Tsutomu Yoshihara<|txt_split|>Graduate School of Information, Production and Systems, Waseda University, Fukuoka, 808-0135, Japan<|txt_split|>Email: yimeng.zhang@fuji.waseda.jp<|txt_split|>Abstract-The conventional SRAMs, namely four-transistor SRAM (4T) and six-transistor SRAM (6T), suffered from the external noise, because they have direct paths through the external impedance. In this study, we have studied a seven-transistor (7T) SRAM which has no direct path through BL to the data storage nodes and has higher endurance against external noise. The proposed cell is composed of two separate data access mechanisms; one is a 12-bit double word operation (DWord) and the other is based upon our SRAM design, data destruction never occurs in the read operation. Simulation result shows that the read Static-Noise-Margin (SMM) of the proposed cell was enhanced by LAX and 8.31X with the conventional 4T and 6T systems. This results also manufactured a cell and confirmed its performance.<|txt_split|>Keywords—Static Random Access Memory (SRAM); Static Noise Margin (SNG)",
+            "level": 1,
+            "location": [
+                {
+                    "bbox": [
+                        0.132,
+                        0.085,
+                        0.868,
+                        0.151
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.234,
+                        0.17,
+                        0.762,
+                        0.184
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.14,
+                        0.184,
+                        0.856,
+                        0.198
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.369,
+                        0.199,
+                        0.629,
+                        0.213
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.089,
+                        0.239,
+                        0.487,
+                        0.424
+                    ],
+                    "page": 1
+                },
+                {
+                    "bbox": [
+                        0.089,
+                        0.435,
+                        0.487,
+                        0.46
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ],
+            "children": [
+                {
+                    "type": "text",
+                    "title": "I. INTRODUCTION",
+                    "metadata": "",
+                    "content": "With the advantages of high speed and ease of use, static random access memory (SRAM) has been widely used in the field of information storage and communication. The International Technology Roadmap for Semiconductors (ITRMS) is a 10-year project that was initiated by SObc and the SObc area by 2013 [1]. It leads that the performance of SObc is going to be increasingly up to rely on performance improvement. This paper aims to satisfy the demands of forthcoming SObc performance.<|txt_split|>There are two reasons why the conventional SRAM cells are not sufficient. Firstly, as technology advances, the cost of the SRAM cells increases and the supply chain becomes more manufacturing process, and it deteriorates SRAM's stability. Secondly, external noise easily destroys the data of conventional SRAM cells, because there are direct effects on the internal noise in the SRAM cells, and the conventional SRAM cells in the read operation mode.<|txt_split|>Based on the above two reasons, the high stability of SRAM cell design is essential. Therefore, we propose a new SRAM cell which has high stability enough to satisfy forthcoming SoC performance. Our proposed SRAM architecture is based on the conventional 4T SRAM cell. The main difference in detail why the 4T structure is chosen in the section II.<|txt_split|>The rest of this paper is organized as follows: In Section II, we introduce the main results and the reason why their stability becomes lower when the CMOS technology develops. In Section III, we present the experimental results and the performance comparisons. The read, write and standby cycles will be also described. In Section IV, the simulation results and the performance comparisons are given. Finally, Section V concludes this paper.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.222,
+                                0.471,
+                                0.367,
+                                0.483
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.089,
+                                0.489,
+                                0.488,
+                                0.603
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.089,
+                                0.605,
+                                0.488,
+                                0.707
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.089,
+                                0.709,
+                                0.488,
+                                0.796
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.089,
+                                0.8,
+                                0.488,
+                                0.914
+                            ],
+                            "page": 1
+                        }
+                    ],
+                    "block_ids": [
+                        8,
+                        9,
+                        10,
+                        11,
+                        12
+                    ],
+                    "children": []
+                },
+                {
+                    "type": "text",
+                    "title": "II. THE CONVENTIONAL SRAM CELL",
+                    "metadata": "",
+                    "content": "In this section, at first, we introduce the commonly used indicators to evaluate SRAM's characteristics. In the following sections, we discuss the performance of the SRAM cells using the indicators. At last, the reason why the SRAM cells are suitable for such applications is explained in the forthcoming high-performance SoCs is given.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.576,
+                                0.245,
+                                0.85,
+                                0.258
+                            ],
+                            "page": 1
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.276,
+                                0.906,
+                                0.354
+                            ],
+                            "page": 1
+                        }
+                    ],
+                    "block_ids": [
+                        13,
+                        14
+                    ],
+                    "children": [
+                        {
+                            "type": "text",
+                            "title": "A. Indicators to evaluate SRAM's characteristics",
+                            "metadata": "",
+                            "content": "There are four indicators to evaluate SRAM's characteristics: (1) static noise margin (SNM) [V], (2) power consumption [Watt], (3) cell current \\(\\left[\\mu \\mathrm{A} / \\mathrm{cell}\\right]\\), (4) cell voltage \\(\\left[\\mathrm{V}_{\\mathrm{CC}}\\right]\\), and (5) cell current and readout method to measure the read stability of a SRAM cell.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.375,
+                                        0.857,
+                                        0.387
+                                    ],
+                                    "page": 1
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.391,
+                                        0.906,
+                                        0.457
+                                    ],
+                                    "page": 1
+                                }
+                            ],
+                            "block_ids": [
+                                15,
+                                16
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "text",
+                            "title": "B. Basic characteristics of conventional SRAM cell",
+                            "metadata": "",
+                            "content": "Conventional SRAM cells are mainly classified into two groups: 6T SRAM cell and 4T SRAM cell which are composed of 100 nm diameter \\(\\mathrm{Pt}\\) -based PtNPs. We summarize the general characteristics of 6T and 4T SRAM cells: In a 4T SRAM cell, PMOS transistors P1 and N2 are used to realize operation of the SMs. The PMOS transistors N3 and N4 in a 6T SRAM cell. Due to the mobility ratio of the NMOS to the PMOS transistors \\(\\mu_{\\mathrm{M}}\\) which is usually around two to three, all the transistors can be connected together. The PMOS transistors in SRAM cell must to guarantee a non-destructive read operation, NMOS driver transistors N1 and N2 must be connected times larger than NMOS access transistors N3 and N4[2].<|txt_split|>4T SRAM cell has higher data retention than 4T SRAM cell has, at the expense of area and power consumption. In addition, it is possible to achieve a high level of data retention by enjoying its advantages. On the other hand, our proposed SRAM cell which is introduced in section III is based on a 4T SRAM cell with an area of \\(10\\mathrm{mm}^2\\) and a power consumption is \\(29\\%\\) lower than that of 6T SRAM cell using \\(0.18\\mu \\mathrm{m}\\) CMOS technology[3]. Besides, for the same access speed and comparable SNM, the area of a 4T SRAM cell is \\(50 - 65\\%\\) of the area of a conventional 6T SRAM cell[2].",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.464,
+                                        0.872,
+                                        0.477
+                                    ],
+                                    "page": 1
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.48,
+                                        0.906,
+                                        0.658
+                                    ],
+                                    "page": 1
+                                },
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.659,
+                                        0.906,
+                                        0.801
+                                    ],
+                                    "page": 1
+                                }
+                            ],
+                            "block_ids": [
+                                17,
+                                18,
+                                19
+                            ],
+                            "children": [
+                                {
+                                    "type": "table",
+                                    "title": "TABLEI COMPARISON OF CONVENTIONAL 6T AND 4T SRAM CELLS",
+                                    "metadata": "",
+                                    "content": "<table><tr><td></td><td>6T-SRAM cell</td><td>4T-SRAM cell</td></tr><tr><td>Norm. SNM</td><td>1.22</td><td>1</td></tr><tr><td>Norm. power [3]</td><td>1.40</td><td>1</td></tr><tr><td>Norm. access speed [3]</td><td>1.41</td><td>1</td></tr><tr><td>Norm. area [2]</td><td>2</td><td>1</td></tr></table>",
+                                    "level": 17,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.502,
+                                                0.826,
+                                                0.901,
+                                                0.897
+                                            ],
+                                            "page": 1
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.673,
+                                                0.804,
+                                                0.741,
+                                                0.815
+                                            ],
+                                            "page": 1
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.52,
+                                                0.816,
+                                                0.897,
+                                                0.826
+                                            ],
+                                            "page": 1
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        22,
+                                        20,
+                                        21
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Fig.1.A conventional 6T SRAM cell.",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 17,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.135,
+                                                0.291,
+                                                0.472,
+                                                0.462
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.166,
+                                                0.473,
+                                                0.428,
+                                                0.488
+                                            ],
+                                            "page": 2
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        27,
+                                        28
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "type": "image",
+                                    "title": "Fig.2.A conventional 4T SRAM cell.",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 17,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.125,
+                                                0.511,
+                                                0.469,
+                                                0.701
+                                            ],
+                                            "page": 2
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.166,
+                                                0.703,
+                                                0.428,
+                                                0.719
+                                            ],
+                                            "page": 2
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        29,
+                                        30
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "C. Flow of conventional SRAM cell in miniaturized process",
+                            "metadata": "",
+                            "content": "The SNM of 6T and 4T SRAM cells will be decreased to insufficient level in the miniaturized process, because of the low power consumption. The proposed SRAM power source voltage \\( V_{\\mathrm{DS}} \\) becomes smaller. As shown in Fig. 1 and Fig. 2, both of 6T SRAM cell and 4T SRAM cell are connected to the same port. In this operation mode, when the access transistor is on, BL and storage node are directly connected. So the external noise is reduced. The proposed approach can get rid of this path direct path from our proposed SRAM cell in order to improve stability against external noise.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.091,
+                                        0.083,
+                                        0.458,
+                                        0.111
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.089,
+                                        0.127,
+                                        0.491,
+                                        0.271
+                                    ],
+                                    "page": 2
+                                }
+                            ],
+                            "block_ids": [
+                                25,
+                                26
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "III. PROPOSED 7T SRAM CELL",
+                    "metadata": "",
+                    "content": "In this section, we propose a new 7T SRAM cell which provides high read stability. Fig.3 shows the proposed cell. The 7T SRAM cell consists of 4T SRAM cells, independent and never interfere mutually. NMOS transistors N1 and N2 form a latch and keep the datum. The 7T SRAM cell is composed of 4T SRAM cells, all the transistors P1 and P2 are write access transistors. Due to our structure is based on the 4T SRAM cell, all the transistors in a 7T SRAM cell can be of minimal size. As shown in Fig.4, we propose a new 7T SRAM cell with 6T SRAM cell. We discuss the write, read and standby<|txt_contd|>cycles in more detail in the subsections III-A, III-B and III-C, respectively.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.177,
+                                0.741,
+                                0.409,
+                                0.756
+                            ],
+                            "page": 2
+                        },
+                        {
+                            "bbox": [
+                                0.089,
+                                0.759,
+                                0.491,
+                                0.901
+                            ],
+                            "page": 2
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.082,
+                                0.908,
+                                0.11
+                            ],
+                            "page": 2
+                        }
+                    ],
+                    "block_ids": [
+                        31,
+                        32,
+                        33
+                    ],
+                    "children": [
+                        {
+                            "type": "text",
+                            "title": "A. Write Cycle",
+                            "metadata": "",
+                            "content": "To write \"i\" to the storage node \\( V_{0} \\) (\"0\" to \\( V_{0B} \\), simultaneously), at first, BL and BLB are respectively charged and discharged. In the next, the \\( W_{1} \\)s are set to low to avoid the possibility of charge transfer from the voltage to keep N5 off. \\( V_{0} \\) is charged up to high-level by BL through P1, while \\( V_{0B} \\) is discharged to low-level by BLB through P2. When \\( V_{0} \\) is charged sufficiently, set to high-level, the \\( W_{1} \\)s are charged up to high-level, and then, to write \"o\" to the node \\( V_{0} \\) (\"1\" to \\( V_{0B} \\), simultaneously). BL and BLB are discharged and charged, respectively.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.508,
+                                        0.416,
+                                        0.628,
+                                        0.431
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.507,
+                                        0.432,
+                                        0.907,
+                                        0.562
+                                    ],
+                                    "page": 2
+                                }
+                            ],
+                            "block_ids": [
+                                36,
+                                37
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "text",
+                            "title": "B. Read Cycle",
+                            "metadata": "",
+                            "content": "Given that \\(V_{0}\\) stores \"1\", at first, \\(W_{\\mathrm{L}}\\) is set to high to turn P1 and P2 off, while \\(W_{\\mathrm{R}}\\) is maintained at a high voltage to keep N5 on, \\(\\mathrm{BL}\\) is discharged through N3 and N5. Whereas BLB stays high because N4 insulates BLB from the GND. The storage nodes \\(V_{0}\\) and \\(V_{0}^{\\prime}\\) are stored in the decouple the datum from the BL during a read operation.<|txt_split|>In contrast, when \\(\\mathrm{V}_{\\mathrm{O}}\\) stores \"0,\" as long as turning P1 turns on, the voltage N3 on, the BLB is discharged through N4 and N5.<|txt_split|>The read operation of the proposed SRAM cell is different from that of the 6T and 4T SRAM cells. In 7T SRAM cells, the read operation is performed only once. Reading datum does not interfere the storage nodes. Besides, the voltage of the storage node, which stores \"0\", is closely maintained at the ground level during a period of time. The 4T SRAM cell has higher endurance against external noise.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.509,
+                                        0.567,
+                                        0.625,
+                                        0.582
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.507,
+                                        0.584,
+                                        0.906,
+                                        0.671
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.507,
+                                        0.672,
+                                        0.906,
+                                        0.71
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.507,
+                                        0.71,
+                                        0.906,
+                                        0.812
+                                    ],
+                                    "page": 2
+                                }
+                            ],
+                            "block_ids": [
+                                38,
+                                39,
+                                40,
+                                41
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "text",
+                            "title": "C. Standby Cycle",
+                            "metadata": "",
+                            "content": "Due to our structure is based on the 4T SRAM cell, the data is generated by a single-cell device. The data is the \"H\" mode data potential is gradually lost by the leakage current through N1 or N2, this current is named as the \"H\" mode current. In the case of SRAM cells, we employ the method to retain the datum by other<|txt_contd|>leakage current which flows through P1. This current is named \\( I_{\\mathrm{Lax}} \\). To let \\( I_{\\mathrm{Lax}} \\) flow into P1 or P2, BL and \\( I_{\\mathrm{Lax}} \\) are connected to \\( I_{\\mathrm{Lax}} \\). The current is assumed to be \"H\" to turn P1 and P2 off. To retain \"H\", it is required that \\( I_{\\mathrm{Lax}} = 2I_{\\mathrm{Lax}} \\). As \\( I_{\\mathrm{Lax}} \\) varies largely by manufacturing<|txt_contd|>variation, we usually design \\(\\mathrm{I}_{\\mathrm{intetation}}\\) so that it is more than hundred times of \\(\\mathrm{I}_{\\mathrm{sub}}\\) [4].<|txt_split|>The advantage of our SRAM cell is providing the stable operations, and improving the higher SNM than the 4T and 6T SRAMs. The main advantage of our drawback of our SRAM cell is the problem of bitline capacitance. In general, the bitline capacitance is composed of the metal capacitance of the bitline and the gate capacitance of the SRAM. Because our separate data-reading access mechanism, the 7T SRAM have greater metal capacitance of the bitline than SRAMs, and the higher capacitance as compared to the 4T and 6T SRAMs.",
+                            "level": 3,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.509,
+                                        0.818,
+                                        0.643,
+                                        0.833
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.507,
+                                        0.834,
+                                        0.906,
+                                        0.913
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.089,
+                                        0.082,
+                                        0.488,
+                                        0.152
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.089,
+                                        0.161,
+                                        0.488,
+                                        0.189
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.089,
+                                        0.428,
+                                        0.488,
+                                        0.567
+                                    ],
+                                    "page": 3
+                                }
+                            ],
+                            "block_ids": [
+                                42,
+                                43,
+                                45,
+                                46,
+                                50
+                            ],
+                            "children": [
+                                {
+                                    "type": "image",
+                                    "title": "BL Fig.4. The data retention in the standby cycle.",
+                                    "metadata": "",
+                                    "content": null,
+                                    "level": 42,
+                                    "location": [
+                                        {
+                                            "bbox": [
+                                                0.134,
+                                                0.216,
+                                                0.376,
+                                                0.382
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.126,
+                                                0.195,
+                                                0.168,
+                                                0.214
+                                            ],
+                                            "page": 3
+                                        },
+                                        {
+                                            "bbox": [
+                                                0.14,
+                                                0.396,
+                                                0.454,
+                                                0.412
+                                            ],
+                                            "page": 3
+                                        }
+                                    ],
+                                    "block_ids": [
+                                        48,
+                                        47,
+                                        49
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "image",
+                            "title": "Fig.3.Proposed 7T SRAM cell",
+                            "metadata": "",
+                            "content": null,
+                            "level": 31,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.539,
+                                        0.132,
+                                        0.886,
+                                        0.394
+                                    ],
+                                    "page": 2
+                                },
+                                {
+                                    "bbox": [
+                                        0.607,
+                                        0.396,
+                                        0.825,
+                                        0.411
+                                    ],
+                                    "page": 2
+                                }
+                            ],
+                            "block_ids": [
+                                34,
+                                35
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "IV. SIMULATION RESULTS",
+                    "metadata": "",
+                    "content": "The simulation results of SRAM cells are demonstrated in this section with the emphasis on the performance characteristics of the proposed device (Taiwan Semiconductor Manufacturing Company) 1-Poly 6-Metals \\(0.18\\mathrm{-}\\mu \\mathrm{m}\\) CMOS process. Fig.5 shows that the chip area is \\(0.95\\mathrm{mm}^2\\) and the chip width is \\(0.93\\mathrm{mm}\\) with correct operation. The chip area with pads is \\(0.958^{*}8\\) \\(0.923\\mathrm{mm}\\) with 128bit including the peripheral circuits. The whole chip layout and the physical layout of the chip are shown in Fig.6, respectively. Table II shows that the manufacturing process, power supply voltage, power consumption and the duration tests are Writedelay, Writedelay, and Writedelay, respectively.<|txt_split|>For the read stability of SRAM, static noise margin (SNM) is the standard method to measure the read stability of a SRAM cell. It can be measured graphically from the butterfly graph. The butterfly graph is a plot of the read signal and the corresponding noise margin. Although, several definitions of the SNM can be found in the current textbooks, one standard SNM definition is not commonly used yet. According to [2], the SNM of a loadless SRAM cell as the diagonal of the rectangle with the read signal \\( \\mathrm{R}_{\\mathrm{m}} \\) and the read signal \\( \\mathrm{R}_{\\mathrm{m}}^{\\prime} \\) and the noise margin low \\( (\\mathrm{NM}_{\\mathrm{L}}) \\), as shown in Fig.8, \\( \\mathrm{NM}_{\\mathrm{L}} \\) and \\( \\mathrm{NM}_{\\mathrm{R}} \\) are defined as Equations 1 and 2, respectively:<|txt_split|>\\[\n\\mathrm {N M} _ {\\mathrm {H}} = \\mathrm {V} _ {\\mathrm {O H}} - \\mathrm {V} _ {\\mathrm {B H}} \\tag {1}\n\\]<|txt_split|>\\[\n\\mathrm {N M} _ {\\mathrm {L}} = \\mathrm {V} _ {\\text {I L}} - \\mathrm {V} _ {\\mathrm {O L}} \\tag {2}\n\\]<|txt_split|>where \\(V_{\\mathrm{M}}\\) is the maximum input voltage level recognized as logical 0, \\(V_{\\mathrm{M}}\\) is the minimum input voltage level recognized as logical 1, and \\(V_{\\mathrm{M}}^{\\prime}\\) is the maximum logical 0 output voltage. \\(V_{\\mathrm{M}}^{\\prime \\prime}\\) is the minimum logical 1 output voltage. The SNM expression can be presented as:<|txt_split|>\\[\n\\mathrm {S N M} _ {\\text {l o a d , l e s s S R A M}} = \\sqrt {N M _ {\\mathrm {H}} ^ {2} + N M _ {\\mathrm {L}} ^ {2}} \\tag {3}\n\\]<|txt_split|>Fig.9 and Fig.10 show the butterfly curves for the conventional 4T SRAM cell and 6T SRAM cell respectively. Fig.11 shows the butterfly curves for our proposed 7T SM cell, showing the operating environment at cell \\(5\\mathrm{V}\\) and \\(8\\mathrm{V}\\) rated frequency of \\(25\\mathrm{C}\\), given Typical, Typical (TT) model. Our simulation results show that the read SNM of the proposed circuit is up to \\(1.43\\mathrm{V}\\), while that of the conventional 4T and 6T SRAM cell is \\(0.55\\mathrm{V}\\) and \\(1.09\\mathrm{V}\\) respectively. Our design approach is based on the read SNM by 1.6X and 0.31X as compared to the conventional 4T SRAM cell and 6T SRAM cell respectively.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.192,
+                                0.577,
+                                0.393,
+                                0.59
+                            ],
+                            "page": 3
+                        },
+                        {
+                            "bbox": [
+                                0.089,
+                                0.595,
+                                0.488,
+                                0.77
+                            ],
+                            "page": 3
+                        },
+                        {
+                            "bbox": [
+                                0.089,
+                                0.082,
+                                0.491,
+                                0.237
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.208,
+                                0.246,
+                                0.387,
+                                0.261
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.212,
+                                0.261,
+                                0.384,
+                                0.274
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.089,
+                                0.284,
+                                0.489,
+                                0.351
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.127,
+                                0.361,
+                                0.452,
+                                0.387
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.089,
+                                0.709,
+                                0.49,
+                                0.864
+                            ],
+                            "page": 4
+                        }
+                    ],
+                    "block_ids": [
+                        51,
+                        52,
+                        62,
+                        63,
+                        64,
+                        65,
+                        66,
+                        69
+                    ],
+                    "children": [
+                        {
+                            "type": "table",
+                            "title": "TABLE II PRE-LAYOUT SIMULATION RESULTS OF THE SRAM CELL",
+                            "metadata": "",
+                            "content": "<table><tr><td>Process technology</td><td>10PM CMOS 180nm</td></tr><tr><td>Power supply voltage</td><td>1.8V</td></tr><tr><td>Write delay</td><td>33.45ps</td></tr><tr><td>Write delay</td><td>62.93ps</td></tr><tr><td>Read 0 delay</td><td>33.35ps</td></tr><tr><td>Power consumption</td><td>18.51μw with 128 bit cells</td></tr></table>",
+                            "level": 51,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.139,
+                                        0.795,
+                                        0.474,
+                                        0.916
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.106,
+                                        0.771,
+                                        0.472,
+                                        0.794
+                                    ],
+                                    "page": 3
+                                }
+                            ],
+                            "block_ids": [
+                                54,
+                                53
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "image",
+                            "title": "Fig. 5. The waveforms of write/read operation of 7T SRAM cell.",
+                            "metadata": "",
+                            "content": null,
+                            "level": 51,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.499,
+                                        0.083,
+                                        0.911,
+                                        0.23
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.538,
+                                        0.236,
+                                        0.893,
+                                        0.264
+                                    ],
+                                    "page": 3
+                                }
+                            ],
+                            "block_ids": [
+                                55,
+                                56
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "image",
+                            "title": "Fig. 6. The whole chip layout view of the proposed 7T SRAM.",
+                            "metadata": "",
+                            "content": null,
+                            "level": 51,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.513,
+                                        0.277,
+                                        0.903,
+                                        0.589
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.531,
+                                        0.597,
+                                        0.9,
+                                        0.624
+                                    ],
+                                    "page": 3
+                                }
+                            ],
+                            "block_ids": [
+                                57,
+                                58
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "image",
+                            "title": "Fig. 7. The physical layout view of the proposed 7T cell.",
+                            "metadata": "",
+                            "content": null,
+                            "level": 51,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.556,
+                                        0.643,
+                                        0.856,
+                                        0.867
+                                    ],
+                                    "page": 3
+                                },
+                                {
+                                    "bbox": [
+                                        0.525,
+                                        0.884,
+                                        0.911,
+                                        0.9
+                                    ],
+                                    "page": 3
+                                }
+                            ],
+                            "block_ids": [
+                                59,
+                                60
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "image",
+                            "title": "Fig. 8. SNM definition used in the analytical SNM expression for load-less SRAM cell[2].",
+                            "metadata": "",
+                            "content": null,
+                            "level": 51,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.129,
+                                        0.401,
+                                        0.435,
+                                        0.668
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.126,
+                                        0.673,
+                                        0.471,
+                                        0.701
+                                    ],
+                                    "page": 4
+                                }
+                            ],
+                            "block_ids": [
+                                67,
+                                68
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "image",
+                            "title": "Fig.9.The SNM curve of the 4T SRAM cell, given TT model, \\( T = 25^{\\circ}\\mathrm{C} \\) \\( V_{\\mathrm{DD}} = 1.8\\mathrm{V} \\)",
+                            "metadata": "",
+                            "content": null,
+                            "level": 51,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.513,
+                                        0.09,
+                                        0.915,
+                                        0.288
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.518,
+                                        0.291,
+                                        0.898,
+                                        0.319
+                                    ],
+                                    "page": 4
+                                }
+                            ],
+                            "block_ids": [
+                                70,
+                                71
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "image",
+                            "title": "Fig. 10. The SNM curve of the 6T SRAM cell, given TT model, \\( T = 25^{\\circ}\\mathrm{C} \\), \\( V_{\\mathrm{DD}} = 1.8\\mathrm{V} \\).",
+                            "metadata": "",
+                            "content": null,
+                            "level": 51,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.517,
+                                        0.321,
+                                        0.921,
+                                        0.512
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.513,
+                                        0.518,
+                                        0.902,
+                                        0.547
+                                    ],
+                                    "page": 4
+                                }
+                            ],
+                            "block_ids": [
+                                72,
+                                73
+                            ],
+                            "children": []
+                        },
+                        {
+                            "type": "image",
+                            "title": "Fig. 11. The SNM curve of the 7T SRAM cell, given TT model, \\( T = 25\\mathrm{C} \\), \\( V_{\\mathrm{DD}} = 1.8\\mathrm{V} \\).",
+                            "metadata": "",
+                            "content": null,
+                            "level": 51,
+                            "location": [
+                                {
+                                    "bbox": [
+                                        0.513,
+                                        0.553,
+                                        0.931,
+                                        0.761
+                                    ],
+                                    "page": 4
+                                },
+                                {
+                                    "bbox": [
+                                        0.513,
+                                        0.763,
+                                        0.902,
+                                        0.792
+                                    ],
+                                    "page": 4
+                                }
+                            ],
+                            "block_ids": [
+                                74,
+                                75
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "V. CONCLUSION",
+                    "metadata": "",
+                    "content": "We propose a new SRAM cell, which offers high stability for read operations. The new 7T SRAM cell is consisted of two separate data access mechanisms: one is for the read operation and another is for the write one. In this paper, we investigate the performance of the proposed storage node during the reading operation. The SRAM cell is simulated in \\(0.18\\mu \\mathrm{m}\\) CMOS technology.<|txt_split|>The Read SNM is as high as \\(1.43\\mathrm{V}\\) at \\(\\mathrm{Y_{IN}} = 1.8\\mathrm{V}.\\) It is found that the Read SNM is significantly enhanced by \\(1.6\\mathrm{X}\\) and \\(0.31\\mathrm{X}\\) as compared to the conventional 4T and 6T SRAM cell respectively.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.645,
+                                0.8,
+                                0.78,
+                                0.813
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.508,
+                                0.817,
+                                0.908,
+                                0.91
+                            ],
+                            "page": 4
+                        },
+                        {
+                            "bbox": [
+                                0.09,
+                                0.082,
+                                0.49,
+                                0.136
+                            ],
+                            "page": 5
+                        }
+                    ],
+                    "block_ids": [
+                        76,
+                        77,
+                        79
+                    ],
+                    "children": []
+                },
+                {
+                    "type": "text",
+                    "title": "REFERENCES",
+                    "metadata": "",
+                    "content": "[1] International Technology Roadmap for Semiconductor 2005. http://www.rjrs.net/Links/2005ITRs/Home2005.htm.<|txt_split|>[2] Andrei Pavlov and Manoj Sachdev. CMOS SRAM Circuit Design and Parametric Test in Nano-scaled Technologies. Springer, 2008.<|txt_split|>[3] K. Noda, K. Matsui, K. Takeda, and N. Makamura: \"A nonlinear model for the prediction of the number of hours of operation of Electron Devices, IEEE Transactions on, 48(12):2851-2855, Dec 2006, pp. 1-17.\"<|txt_split|>[4] K. Takeo, Y. Amoto, N. Nakamura, T. Hayashima, T. Iwakura, K. Sasaki, M. Ohtsuka, H. Yoshimura, J. Aoki, H. Saito, and M. Takahashi, 2005. \\(400\\mathrm{-MHz}\\) LEOMS CMOS four-atom transistor SMAR (EMG), 300MHz CMOS four-atom transistor SMAR (EMG).<|txt_split|>[5] Yang J and Chen L. \"A New Loadless 1-Transformer SDRAM Cell for Mobile Application,\" in Proceedings of the 2007 IEEE International Conference on, Engineering, 2007; CCEC 2007: Canadian Conference on, pages 369-374.",
+                    "level": 2,
+                    "location": [
+                        {
+                            "bbox": [
+                                0.234,
+                                0.148,
+                                0.344,
+                                0.162
+                            ],
+                            "page": 5
+                        },
+                        {
+                            "bbox": [
+                                0.093,
+                                0.172,
+                                0.449,
+                                0.194
+                            ],
+                            "page": 5
+                        },
+                        {
+                            "bbox": [
+                                0.093,
+                                0.195,
+                                0.476,
+                                0.216
+                            ],
+                            "page": 5
+                        },
+                        {
+                            "bbox": [
+                                0.093,
+                                0.216,
+                                0.472,
+                                0.258
+                            ],
+                            "page": 5
+                        },
+                        {
+                            "bbox": [
+                                0.093,
+                                0.259,
+                                0.479,
+                                0.303
+                            ],
+                            "page": 5
+                        },
+                        {
+                            "bbox": [
+                                0.093,
+                                0.304,
+                                0.475,
+                                0.347
+                            ],
+                            "page": 5
+                        }
+                    ],
+                    "block_ids": [
+                        80,
+                        81,
+                        82,
+                        83,
+                        84,
+                        85
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "title": "Page 1 - header",
+            "metadata": "2010 International Conference on Electronic Devices, Systems and Applications (ICEDSA2010)",
+            "content": "2010 International Conference on Electronic Devices, Systems and Applications (ICEDSA2010)",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.212,
+                        0.018,
+                        0.785,
+                        0.032
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                1
+            ]
+        },
+        {
+            "type": "footer",
+            "title": "Page 1 - footer",
+            "metadata": "978-1-4244-6632-0/10/$26.00 ©2010 IEEE",
+            "content": "978-1-4244-6632-0/10/$26.00 ©2010 IEEE",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.117,
+                        0.967,
+                        0.446,
+                        0.98
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                23
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 1 - page_number",
+            "metadata": "43",
+            "content": "43",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.488,
+                        0.968,
+                        0.51,
+                        0.98
+                    ],
+                    "page": 1
+                }
+            ],
+            "block_ids": [
+                24
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 2 - page_number",
+            "metadata": "44",
+            "content": "44",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.488,
+                        0.968,
+                        0.511,
+                        0.98
+                    ],
+                    "page": 2
+                }
+            ],
+            "block_ids": [
+                44
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 3 - page_number",
+            "metadata": "45",
+            "content": "45",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.488,
+                        0.968,
+                        0.51,
+                        0.98
+                    ],
+                    "page": 3
+                }
+            ],
+            "block_ids": [
+                61
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 4 - page_number",
+            "metadata": "46",
+            "content": "46",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.488,
+                        0.968,
+                        0.511,
+                        0.98
+                    ],
+                    "page": 4
+                }
+            ],
+            "block_ids": [
+                78
+            ]
+        },
+        {
+            "type": "page_number",
+            "title": "Page 5 - page_number",
+            "metadata": "47",
+            "content": "47",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.488,
+                        0.968,
+                        0.51,
+                        0.98
+                    ],
+                    "page": 5
+                }
+            ],
+            "block_ids": [
+                87
+            ]
+        }
+    ]
+}
