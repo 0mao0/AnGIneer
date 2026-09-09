@@ -53,10 +53,31 @@ const { isDark, toggleTheme } = useTheme()
 const logoHref = import.meta.env.BASE_URL + 'favicon.svg'
 const appVersion = import.meta.env.VITE_APP_VERSION || ''
 const releaseNotes = import.meta.env.VITE_APP_RELEASE_NOTES || ''
-/** 摘要按全/半角分号拆条，逐条换行展示 */
-const releaseNoteLines = computed(() =>
-  releaseNotes.split(/[；;]/).map((line) => line.trim()).filter(Boolean)
-)
+/** 摘要逐条拆分（全/半角分号为条目边界）。「」『』《》（）() 与反引号内的分号不参与拆分——
+ *  与发版约定/CHANGELOG 拆分同一边界规则（v0.2.42 弹层把「发版摘要「；」分条约定」拦腰劈成
+ *  两条，就是裸 split 不认识括号的实踩）。 */
+function splitReleaseNotes(raw: string): string[] {
+  const out: string[] = []
+  let cur = ''
+  let depth = 0
+  let inCode = false
+  for (const ch of raw) {
+    if (ch === '`') inCode = !inCode
+    if (!inCode) {
+      if ('（(「『【《'.includes(ch)) depth += 1
+      else if ('）)」』】》'.includes(ch)) depth = Math.max(0, depth - 1)
+      else if ((ch === '；' || ch === ';') && depth === 0) {
+        out.push(cur)
+        cur = ''
+        continue
+      }
+    }
+    cur += ch
+  }
+  out.push(cur)
+  return out.map((s) => s.trim()).filter(Boolean)
+}
+const releaseNoteLines = computed(() => splitReleaseNotes(releaseNotes))
 
 const handleLogoClick = () => {
   if (props.logoClickable) emit('logo-click')
