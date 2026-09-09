@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.45
+
+- 首屏提速（实测线上首屏传输 3.26MB → 0.34MB）：网关 nginx 启用边缘 gzip（配置在服务器 `/etc/nginx/conf.d/ai-proxy.conf`，按约定不进 git）——容器 nginx 本就配了 gzip，但其依赖 Accept-Encoding 透传、经宿主机网关会丢失，实测静态资源此前完全未压缩（单个 JS 1.61MB→0.51MB）
+- ant-design-vue 改按需引入：user-web 加 unplugin-vue-components + AntDesignVueResolver，`main.ts` 去掉 `app.use(Antd)` 全量注册，首包 `index.js` 1.57MB→435KB、对话页分块 1.51MB→578KB，产物内已无任何 `resolveComponent` 残留（即全部 `a-*` 标签静态解析成功），运行时校验 CSS-in-JS 样式注入与主题色正常
+- 文档预览栈（pdf.js / KaTeX / xlsx / docx-preview）从对话页分块拆为独立 chunk（1.29MB），页面挂载后用 `requestIdleCallback` 静默预热——用户需要的是秒级打开，其后操作允许慢；点引用路径额外 `await loader` 兜底，极快点击也不会丢定位
+- 顺带修复：`apps/shared/chatTransport` 的 `onWarning` 漏类型声明（运行时调用一直正常，但该缺失使 `vue-tsc -b` 恒红、`pnpm build` 脚本长期不可用，CI 走 `build:docker` 故未暴露），以及 `vite.config.ts` 里 `m.index` 可能为 undefined
+
 ## v0.2.44
 
 - PDF 预览首屏提速：pdf.js 加载改 `disableStream: true` 走真分块按需加载（pdf.js 官方要求按需加载须同时关流，此前未关会先发一个不带 Range 的整文件 GET 并读到 EOF，85MB 文件被全量拉取且与首屏分块抢带宽），加载遮罩改显示真实「已下载 / 总大小」，文档未解析完不再把页数显示成「1 / 1」

@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.44** —— PDF 预览首屏提速：pdf.js 改按需分块加载（此前会先发不带 Range 的整文件 GET 并读到 EOF，大文件被全量拉取），加载进度改显示真实已下载/总大小；服务端为页字典散落的老排版 PDF 生成对象流预览副本，JTS 165-2013 出首屏所需下载 12.90MB→1.20MB（请求数 28→4）；预览不再等整份 content.md（get_document 新增 include_content=false，先取 storage 起 PDF、全文后台补齐）；其它：/api/files 加 Cache-Control、修快速切换文档触发永久全量降级的误判、页数超 200 不再逐页预取页高。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.45** —— 首屏提速：网关启用边缘 gzip（此前静态资源完全未压缩，单个 JS 1.61MB→0.51MB），ant-design-vue 改按需引入（首包 1.57MB→435KB），文档预览栈拆独立分块并在页面空闲时静默预热（对话页块 1.51MB→578KB，点引用时组件已在内存），线上实测首屏传输 3.26MB→0.34MB；顺带补齐 chatTransport 漏声明的 onWarning 类型（该缺失让 vue-tsc 恒红、pnpm build 长期不可用）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
