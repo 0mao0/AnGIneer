@@ -1,0 +1,231 @@
+"""API Key 数据模型与持久化操作。
+
+单一真相源：本模块（shared.api_key_model）。docs-api/models/api_key.py 与
+aichat-api/models/api_key.py 仅为模块替换别名层。
+"""
+import os
+import secrets
+import hashlib
+import sqlite3
+from dataclasses import dataclass, field
+from datetime import datetime, timezone
+from typing import Optional
+
+from shared.paths import resolve_data_file
+
+DB_PATH = resolve_data_file("API_KEYS_DB_PATH", "api_keys.sqlite")
+
+
+@dataclass
+class APIKey:
+    id: Optional[int] = None
+    key_hash: str = ""
+    key_prefix: str = ""
+    user_name: str = ""
+    email: str = ""
+    is_active: bool = True
+    rate_limit_per_minute: int = 60
+    created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    last_used_at: Optional[str] = None
+    scope: str = "both"
+    # 绑定的知识库：'' = 未绑定（向后兼容，library_id 由客户端传入）；
+    # 非空 = 服务端强制该 key 只能访问此库（防串库）
+    library_id: str = ""
+
+
+def _get_conn() -> sqlite3.Connection:
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA journal_mode=WAL")
+    return conn
+
+
+def init_db() -> None:
+    conn = _get_conn()
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS api_keys (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            key_hash TEXT NOT NULL UNIQUE,
+            key_prefix TEXT NOT NULL,
+            user_name TEXT NOT NULL DEFAULT '',
+            email TEXT NOT NULL DEFAULT '',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            rate_limit_per_minute INTEGER NOT NULL DEFAULT 60,
+            created_at TEXT NOT NULL,
+            last_used_at TEXT,
+            scope TEXT NOT NULL DEFAULT 'both'
+        )
+    """)
+    cols = [row[1] for row in conn.execute("PRAGMA table_info(api_keys)").fetchall()]
+    if "scope" not in cols:
+        conn.execute("ALTER TABLE api_keys ADD COLUMN scope TEXT NOT NULL DEFAULT 'both'")
+    if "library_id" not in cols:
+        conn.execute("ALTER TABLE api_keys ADD COLUMN library_id TEXT NOT NULL DEFAULT ''")
+    conn.commit()
+    conn.close()
+
+
+def _hash_key(raw_key: str) -> str:
+    return hashlib.sha256(raw_key.encode()).hexdigest()
+
+
+def generate_key(user_name: str, email: str = "", rate_limit_per_minute: int = 60, scope: str = "both", library_id: str = "") -> tuple[str, APIKey]:
+    """生成新的 API Key，返回 (原始key, APIKey对象)。
+
+    library_id 为空时自动生成租户库 `lib-{user_name}-{4位随机}`。
+    """
+    init_db()
+
+    user_name = user_name.strip() or f"user-{secrets.token_hex(2)}"
+    if not (library_id or "").strip():
+        library_id = f"lib-{user_name}-{secrets.token_hex(2)}"
+
+    prefix = "ag_"
+    raw_key = prefix + secrets.token_urlsafe(32)
+    key_hash = _hash_key(raw_key)
+    key_prefix = raw_key[:4] + "****" + raw_key[-4:]
+
+    now = datetime.now(timezone.utc).isoformat()
+
+    conn = _get_conn()
+    conn.execute(
+        "INSERT INTO api_keys (key_hash, key_prefix, user_name, email, rate_limit_per_minute, created_at, scope, library_id) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        (key_hash, key_prefix, user_name, email, rate_limit_per_minute, now, scope, library_id),
+    )
+    conn.commit()
+    row_id = conn.execute("SELECT last_insert_rowid()").fetchone()[0]
+    conn.close()
+
+    api_key = APIKey(
+        id=row_id,
+        key_hash=key_hash,
+        key_prefix=key_prefix,
+        user_name=user_name,
+        email=email,
+        rate_limit_per_minute=rate_limit_per_minute,
+        created_at=now,
+        scope=scope,
+        library_id=library_id,
+    )
+    return raw_key, api_key
+
+
+def lookup_key(raw_key: str) -> Optional[APIKey]:
+    """根据原始 key 查找 APIKey 对象，验证通过则更新 last_used_at。"""
+    init_db()
+
+    key_hash = _hash_key(raw_key)
+    conn = _get_conn()
+    row = conn.execute(
+        "SELECT * FROM api_keys WHERE key_hash = ? AND is_active = 1",
+        (key_hash,),
+    ).fetchone()
+    if not row:
+        conn.close()
+        return None
+
+    now = datetime.now(timezone.utc).isoformat()
+    conn.execute("UPDATE api_keys SET last_used_at = ? WHERE id = ?", (now, row["id"]))
+    conn.commit()
+    conn.close()
+
+    return APIKey(**dict(row))
+
+
+def list_keys() -> list[dict]:
+    """列出所有 Key（不含 hash），供管理页面使用。"""
+    init_db()
+    conn = _get_conn()
+    rows = conn.execute(
+        "SELECT id, key_prefix, user_name, is_active, created_at, last_used_at, scope, library_id "
+        "FROM api_keys ORDER BY id DESC"
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_key(key_id: int) -> Optional[dict]:
+    """按 id 获取单个 Key（不含 hash）。"""
+    init_db()
+    conn = _get_conn()
+    row = conn.execute(
+        "SELECT id, key_prefix, user_name, is_active, created_at, last_used_at, scope, library_id "
+        "FROM api_keys WHERE id = ?",
+        (key_id,),
+    ).fetchone()
+    conn.close()
+    return dict(row) if row else None
+
+
+def deactivate_key(key_id: int) -> bool:
+    init_db()
+    conn = _get_conn()
+    conn.execute("UPDATE api_keys SET is_active = 0 WHERE id = ?", (key_id,))
+    conn.commit()
+    affected = conn.total_changes
+    conn.close()
+    return affected > 0
+
+
+def rename_key(key_id: int, new_name: str) -> bool:
+    init_db()
+    conn = _get_conn()
+    conn.execute("UPDATE api_keys SET user_name = ? WHERE id = ?", (new_name, key_id))
+    conn.commit()
+    affected = conn.total_changes
+    conn.close()
+    return affected > 0
+
+
+def reactivate_key(key_id: int) -> bool:
+    init_db()
+    conn = _get_conn()
+    conn.execute("UPDATE api_keys SET is_active = 1 WHERE id = ?", (key_id,))
+    conn.commit()
+    affected = conn.total_changes
+    conn.close()
+    return affected > 0
+
+
+def delete_key(key_id: int) -> bool:
+    """永久删除 API Key。"""
+    init_db()
+    conn = _get_conn()
+    conn.execute("DELETE FROM api_keys WHERE id = ?", (key_id,))
+    conn.commit()
+    affected = conn.total_changes
+    conn.close()
+    return affected > 0
+
+
+def update_key(key_id: int, user_name: str = None, scope: str = None, library_id: str = None) -> bool:
+    """更新 API Key 的 user_name, scope, library_id。"""
+    init_db()
+    conn = _get_conn()
+
+    updates = []
+    params = []
+
+    if user_name is not None:
+        updates.append("user_name = ?")
+        params.append(user_name)
+    if scope is not None:
+        updates.append("scope = ?")
+        params.append(scope)
+    if library_id is not None:
+        updates.append("library_id = ?")
+        params.append(library_id)
+
+    if not updates:
+        conn.close()
+        return False
+
+    params.append(key_id)
+    sql = f"UPDATE api_keys SET {', '.join(updates)} WHERE id = ?"
+    conn.execute(sql, params)
+    conn.commit()
+    affected = conn.total_changes
+    conn.close()
+    return affected > 0
