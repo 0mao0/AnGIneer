@@ -27,6 +27,9 @@ VLM 图描述功能上线前的存量文档没有图简介索引；部分文档�
   （2026-09-07，用户决策）**：本地→生产公网链路 ~0.55MB/s，逐篇远端 embedding 实测 ~18 分钟/篇，
   62 篇全跑完需 15h+，性价比低。已完成 15/77（加昨日 26 篇 A 类，本地覆盖 41/103），剩余 62 篇
   降级为可选项：链路快时 `--doc-ids` 续跑（state 断点续传）或走行级导出导入工具；文件级同构不受影响。
+  **2026-09-09 更新：遗留项 A 已根治（Qdrant 切换，见下），批量重索引的 OOM 风险不再存在，可随时安全续跑。**
+  另：2026-09-09 本地向量库已通过「服务器 Qdrant 快照恢复 + 8 篇本地独有/零覆盖文档重嵌」重建完毕
+  （288/288 文档覆盖，222,315 条向量，检索与切换前基线 19/20 重合、top1 一致）。
 - 工具：`scripts/open_ragbench/backfill_figure_descriptions.py`（本次升级：`--from-db` 自动筛队列/`--dry-run`/
   管理员 Bearer 轮询/`--token`/连接异常重试/兼容旧 python，commit `ea186da`）。
 - 收尾日志归档：服务器 `data/recovery/fig_backfill_20260907/`（run77/runfix/chain 日志与清单）。
@@ -43,10 +46,13 @@ VLM 图描述功能上线前的存量文档没有图简介索引；部分文档�
 
 ## 遗留项（需排期）
 
-- **A. docs-api 常驻向量矩阵缓存在 4GB 生产机上撑不起批量重解析**（2026-09-07 凌晨实踩两次）：
-  每篇写库 → mtime 变 → 全表向量 JSON 重载（约 8 百 MB 级矩阵）→ 与解析峰值叠加 → 4GB swap 打穿、
-  load>100、站点/sshd 假死，内核 OOM 杀 uvicorn（dmesg：anon-rss 2.87GB / 3.1GB 各一次）自愈后循环。
-  方向：缓存上限/float16/挪出 web worker；解析任务与检索流量错峰。本次靠重启 + 错峰收尾，未根治。
+- ~~**A. docs-api 常驻向量矩阵缓存在 4GB 生产机上撑不起批量重解析**~~（2026-09-07 凌晨实踩两次）：
+  ~~每篇写库 → mtime 变 → 全表向量 JSON 重载（约 8 百 MB 级矩阵）→ 与解析峰值叠加 → 4GB swap 打穿、
+  load>100、站点/sshd 假死，内核 OOM 杀 uvicorn（dmesg：anon-rss 2.87GB / 3.1GB 各一次）自愈后循环。~~
+  **✅ 已于 v0.2.41（2026-09-08/09）根治**：向量引擎切换 Qdrant（`DOCS_VECTORSTORE_PROVIDER=qdrant`），
+  客户端矩阵缓存整体移除（无双进程内存矩阵、无 mtime 全量重建锁），写入为 Qdrant 侧 HNSW 增量；
+  生产实测切换后可用内存 648MB→2.4GB、启动守卫 604s→4.8s，批量重解析的 OOM 链路不复存在。
+  阶段 2「本地/生产重跑代价警告」同步解除（剩余瓶颈仅为公网 embedding 链路速率）。
 - ~~`SQLiteVectorStore.get_existing_dimension()` 以 rowid 最后一行为全库期望维度~~（已修，两段式）：
   commit `83797be` 改为全表多数表决 + upsert 默认拒写异构维度——但表决被 embedding_provider 在模块
   import 期调用，5.3GB/21 万行库单次表决 294s，容器启动被拖 15+ 分钟（2026-09-07 两次部署实踩 502）；
@@ -56,8 +62,10 @@ VLM 图描述功能上线前的存量文档没有图简介索引；部分文档�
   初始化即触发维度探测，历史如此、直到表决引入才暴露量级。同类 import 期 DB 调用建议后续排查
   （aichat-api 的预热是显式后台任务，无此问题）。
 - 拒答重答守卫对"结构上根本答不了"的问题（如引用不存在的"图 N"索引）多烧一轮检索（+20 秒级），未动。
-- 服务器 `knowledge_index.sqlite.bak-recovery-*`、`.pre-merge-*` 等备份共约 12GB（单文件 2.4GB 级），
-  2026-09-13 快照清理期后择机删除（当前留作事故回溯，勿提前清）。
+- ~~服务器 `knowledge_index.sqlite.bak-recovery-*`、`.pre-merge-*` 等备份共约 12GB（单文件 2.4GB 级），
+  2026-09-13 快照清理期后择机删除（当前留作事故回溯，勿提前清）。~~ **已于 2026-09-08 清理完毕**
+  （用户批准）：index bak 2.3GB + meta/parse_records/users 小 bak 全删，另回收废弃 chroma 遗留 1.1GB；
+  `data/recovery/` 实测仅剩 32K 日志档案。
 
 ## 事故档案索引
 
