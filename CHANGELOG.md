@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.44
+
+- PDF 预览首屏提速：pdf.js 加载改 `disableStream: true` 走真分块按需加载（pdf.js 官方要求按需加载须同时关流，此前未关会先发一个不带 Range 的整文件 GET 并读到 EOF，85MB 文件被全量拉取且与首屏分块抢带宽），加载遮罩改显示真实「已下载 / 总大小」，文档未解析完不再把页数显示成「1 / 1」
+- 服务端新增 PDF 预览副本：对页字典散落的老排版 PDF（pdf.js 加载时取末页会逐页跨文件取字典，13MB 文件须整份下完才出首屏）用 PyMuPDF 重排成对象流并缓存，原件不动、失败回退原件、`PDF_WEB_OPTIMIZE=0` 可关，JTS 165-2013 实测出首屏所需下载 12.90MB→1.20MB（请求数 28→4），渲染逐像素一致、文本层无差异
+- 预览不再等整份 content.md：`GET /knowledge/document/{lib}/{doc}` 新增 `include_content=false`，预览面板先取 storage 拿到 render_pdf 立即发起 PDF 请求，全文在后台补进解析面板
+- 其它：`/api/files` 补 `Cache-Control` 让重复打开走浏览器缓存、下载按钮带 `raw=1` 取原件，修「一次快速切换文档就把该 PDF 永久降级为全量下载」的降级缓存误判，页数超 200 不再逐页预取页高，容器内 nginx 对 `/api/files` 关 `proxy_buffering`
+
 ## v0.2.43
 
 - 版本号 hover 弹层拆条修复：AppBrand 按全角分号拆条目改为括号/反引号深度感知——「」『』【】《》（）与代码段内的分号不作条目边界（0.2.42 摘要条目「发版摘要「；」分条约定落地」被裸 split 劈成两条孤句的实踩修复，拆条边界与发版约定、CHANGELOG 拆分规则对齐）
