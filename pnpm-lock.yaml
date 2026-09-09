@@ -104,6 +104,9 @@ importers:
       typescript:
         specifier: ~5.4.0
         version: 5.4.5
+      unplugin-vue-components:
+        specifier: ^0.27.4
+        version: 0.27.5(@babel/parser@7.29.8)(rollup@4.59.0)(vue@3.5.41(typescript@5.4.5))
       vite:
         specifier: ^5.2.0
         version: 5.4.21(@types/node@20.19.35)(less@4.5.1)

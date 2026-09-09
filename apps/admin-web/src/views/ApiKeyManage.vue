@@ -125,13 +125,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
 import dayjs from 'dayjs'
 import { message } from 'ant-design-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { apiKeysApi, type KeyItem } from '@/api/apiKeys'
 import { knowledgeApi } from '@/api/knowledge'
-import ApiKeyChart from '@/components/ApiKeyChart.vue'
+
+/**
+ * 图表只有本页用：异步引入，避免 echarts 被 rollup 提进多路由共享块
+ * （实测因此给知识库落地页白白加了 1.1MB 依赖）。
+ */
+const ApiKeyChart = defineAsyncComponent(() => import('@/components/ApiKeyChart.vue'))
 
 const { appClass } = useTheme()
 

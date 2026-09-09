@@ -174,7 +174,7 @@
           {{ viewerParseButtonText }}
         </a-button>
       </template>
-      <PDFParsedWorkspace
+      <DocViewerPane
         v-if="viewerNode"
         ref="docParsedWorkspaceRef"
         :node="viewerNode"
@@ -183,7 +183,6 @@
         :graph-data="viewerGraphData"
         :render-pdf-path="viewerRenderPdfPath"
         :dark="isDark"
-        :side-panel-default-open="false"
       />
     </a-drawer>
 
@@ -282,7 +281,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, onMounted, onBeforeUnmount, computed, watch } from 'vue'
+import { defineAsyncComponent, ref, nextTick, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import dayjs from 'dayjs'
 import { message, Modal } from 'ant-design-vue'
 import { CopyOutlined, ExclamationCircleOutlined, UploadOutlined } from '@ant-design/icons-vue'
@@ -290,7 +289,7 @@ import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
 import type { DataTableColumn } from '@angineer/ui-kit'
 import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
-import { PDFParsedWorkspace, useKnowledgeParse } from '@angineer/docs-ui'
+import { useKnowledgeParse } from '@angineer/docs-ui'
 import type { KnowledgeTreeNode, KnowledgeParseOptions } from '@angineer/docs-ui'
 import DocStageStepper from '@/components/DocStageStepper.vue'
 import EntityReviewDrawer from '@/components/EntityReviewDrawer.vue'
@@ -298,6 +297,16 @@ import LibrarySelect from '@/components/LibrarySelect.vue'
 import BatchUploadModal from '@/components/BatchUploadModal.vue'
 import { useLibraryStore } from '@/stores/library'
 import type { KnowledgeLibraryItem } from '@/stores/library'
+
+/**
+ * 预览工作区只在「查看」抽屉里用：经 DocViewerPane 薄包装动态引入，把 pdf.js /
+ * docx-preview / katex 整个预览栈从落地路由块拆出去（此前静态 import 让它成为落地页必下内容）。
+ * 注意不能直接 import('@angineer/docs-ui')：本文件已静态引入同一路径的 useKnowledgeParse，
+ * 同模块双引入时 rollup 不切分（详见 DocViewerPane 注释）。loader 与异步组件共用，
+ * 空闲预热过则打开抽屉时秒开。
+ */
+const docViewerLoader = () => import('./DocViewerPane.vue')
+const DocViewerPane = defineAsyncComponent(docViewerLoader)
 
 const { appClass, isDark } = useTheme()
 const { fetchLlmConfigs, buildParseOptionsPayload } = useKnowledgeParse(knowledgeApi)
@@ -352,7 +361,9 @@ const loading = ref(false)
 const showDeletedOnly = ref(false)
 const selectedRowKeys = ref<number[]>([])
 
-const docParsedWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
+/** 异步组件取不到内层实例类型；抽屉里只用到这一个方法 */
+type ParsedWorkspaceHandle = { setActiveLinkedItem: (id: string) => void }
+const docParsedWorkspaceRef = ref<ParsedWorkspaceHandle | null>(null)
 const viewerOpen = ref(false)
 const viewerTitle = ref('')
 const viewerNode = ref<KnowledgeTreeNode | null>(null)
@@ -925,6 +936,11 @@ async function purgeNodeIfExists(docId: string) {
 
 onMounted(() => {
   loadRecords()
+  // 空闲预热预览栈：落地页不再为 pdf.js / docx-preview / xlsx 买单，
+  // 用户点「查看」时组件已在内存里（预热失败不影响功能，异步组件会自行重试加载）
+  const prime = () => { void docViewerLoader().catch(() => {}) }
+  if (typeof requestIdleCallback === 'function') requestIdleCallback(prime, { timeout: 5000 })
+  else setTimeout(prime, 2000)
 })
 </script>
 
