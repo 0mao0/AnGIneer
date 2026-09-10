@@ -205,6 +205,31 @@
       <div class="resize-indicator"></div>
     </div>
 
+    <div v-if="queuedMessages.length" class="pending-queue">
+      <div v-for="(item, idx) in queuedMessages" :key="item.id" class="queue-item">
+        <span class="queue-index">{{ idx + 1 }}</span>
+        <span class="queue-text" :title="item.content">{{ item.content }}</span>
+        <a-button
+          type="text"
+          size="small"
+          class="queue-action"
+          title="插队：打断当前生成并立即发送这条"
+          @click="emit('promoteQueued', item.id)"
+        >
+          插队
+        </a-button>
+        <a-button
+          type="text"
+          size="small"
+          class="queue-action"
+          title="删除这条待发送消息"
+          @click="emit('removeQueued', item.id)"
+        >
+          <CloseOutlined />
+        </a-button>
+      </div>
+    </div>
+
     <div ref="chatInputRef" class="chat-input" :style="{ height: `${inputHeight}px` }">
       <div v-if="contextItems.length" class="context-hint">
         <a-tag
@@ -233,7 +258,6 @@
           ref="inlineCitationEditorRef"
           v-model="composerValue"
           :placeholder="placeholder"
-          :disabled="loading"
           :search-citations="searchCitations"
           @submit="handleSend"
           @select-citation="handleInlineCitationSelect"
@@ -251,6 +275,16 @@
             >
               @
             </a-button>
+            <a-select
+              v-if="libraryOptions.length"
+              class="library-select"
+              size="small"
+              :value="libraryValue || undefined"
+              :disabled="loading || conversationStarted"
+              :options="libraryOptions"
+              :title="libraryTitle"
+              @change="(value: string) => emit('update:libraryValue', value)"
+            />
             <a-button
               type="text"
               size="small"
@@ -271,16 +305,6 @@
           </div>
 
           <div class="center-actions">
-            <a-select
-              v-if="libraryOptions.length"
-              class="library-select"
-              size="small"
-              :value="libraryValue || undefined"
-              :disabled="loading"
-              :options="libraryOptions"
-              title="选择知识库（单选）"
-              @change="(value: string) => emit('update:libraryValue', value)"
-            />
             <a-select
               v-model:value="selectedModel"
               class="model-select"
@@ -310,18 +334,17 @@
               danger
               size="small"
               class="icon-btn"
-              title="停止生成"
+              title="停止生成（待发送队列会暂停保留）"
               @click="handleStop"
             >
               <PauseCircleOutlined />
             </a-button>
             <a-button
-              v-else
               type="primary"
               size="small"
               class="icon-btn"
               :disabled="!composerValue.content.trim() && !pendingImages.length"
-              title="发送消息 (Enter)"
+              :title="loading ? '加入待发送队列 (Enter)' : '发送消息 (Enter)'"
               @click="handleSend"
             >
               <SendOutlined />
@@ -345,6 +368,7 @@ import {
   PauseCircleOutlined,
   PictureOutlined,
   CloseCircleOutlined,
+  CloseOutlined,
   InfoCircleOutlined,
   BulbOutlined,
   DownOutlined,
@@ -361,7 +385,8 @@ import type {
   BaseChatSendPayload,
   CitationBinding,
   InlineCitationCandidate,
-  ThinkingTraceStep
+  ThinkingTraceStep,
+  QueuedMessage
 } from '../types'
 import {
   buildInlineCitationTagHtml,
@@ -377,6 +402,8 @@ import {
   sumThinkingDuration,
 } from '../utils/thinking'
 import { formatTokenCount } from '../utils/token'
+import { message } from 'ant-design-vue'
+import { QUEUE_LIMIT } from '../composables/useAIChat'
 
 interface Props {
   messages: BaseChatMessage[]
@@ -405,6 +432,8 @@ interface Props {
   libraryOptions?: Array<{ value: string; label: string }>
   /** 当前选中的知识库 id */
   libraryValue?: string
+  /** 生成期间排队的待发送消息 */
+  queuedMessages?: QueuedMessage[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -427,7 +456,8 @@ const props = withDefaults(defineProps<Props>(), {
   hero: false,
   mentionLabel: '插入引用 @',
   libraryOptions: () => [],
-  libraryValue: ''
+  libraryValue: '',
+  queuedMessages: () => []
 })
 
 const emit = defineEmits<{
@@ -439,6 +469,10 @@ const emit = defineEmits<{
   modelChange: [model: string]
   selectCitation: [citation: BaseChatCitation]
   'update:libraryValue': [libraryId: string]
+  /** 删除一条待发送消息 */
+  removeQueued: [id: string]
+  /** 插队：打断当前生成并立即发送该条 */
+  promoteQueued: [id: string]
 }>()
 
 const messagesRef = ref<HTMLElement | null>(null)
@@ -446,6 +480,14 @@ const chatInputRef = ref<HTMLElement | null>(null)
 const imageInputRef = ref<HTMLInputElement | null>(null)
 const inlineCitationEditorRef = ref<InstanceType<typeof InlineCitationEditor> | null>(null)
 const composerValue = ref<BaseChatSendPayload>({ content: '', citations: [] })
+/** 对话「起步」判定：存在非 system 消息即锁库（空会话可自由换库） */
+const conversationStarted = computed(() => props.messages.some(m => m.role !== 'system'))
+const lockedLibraryLabel = computed(
+  () => props.libraryOptions.find(option => option.value === props.libraryValue)?.label || ''
+)
+const libraryTitle = computed(() => conversationStarted.value
+  ? `本对话已锁定知识库${lockedLibraryLabel.value ? ` ${lockedLibraryLabel.value}` : ''}，换库请点新建对话`
+  : '选择知识库（单选）')
 const pendingImages = ref<string[]>([])
 const selectedModel = ref(props.defaultModel)
 const inputHeight = ref(150)
@@ -880,6 +922,10 @@ const handleSend = () => {
   }
   const content = payload.content
   if (!content && !pendingImages.value.length) {
+    return
+  }
+  if (props.loading && props.queuedMessages.length >= QUEUE_LIMIT) {
+    message.warning(`待发送队列已满（上限 ${QUEUE_LIMIT} 条）`)
     return
   }
 
@@ -1737,6 +1783,50 @@ defineExpose({
   }
 }
 
+.pending-queue {
+  margin: 0 16px 8px;
+  padding: 6px 8px;
+  border: 1px solid var(--chat-queue-border, var(--border-color, #e8e8e8));
+  border-radius: 8px;
+  background: var(--chat-queue-bg, var(--bg-tertiary, #f5f5f5));
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 132px;
+  overflow-y: auto;
+
+  .queue-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+
+    .queue-index {
+      flex-shrink: 0;
+      width: 16px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--chat-queue-index, var(--text-tertiary, #999));
+    }
+
+    .queue-text {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 12px;
+      color: var(--chat-queue-text, var(--text-secondary, #666));
+    }
+
+    .queue-action {
+      flex-shrink: 0;
+      font-size: 12px;
+      padding: 0 4px;
+    }
+  }
+}
+
 .chat-input {
   flex-shrink: 0;
   padding: 12px 16px;
@@ -1843,8 +1933,10 @@ defineExpose({
 
     .left-actions {
       display: flex;
+      align-items: center;
       gap: 2px;
       flex-shrink: 0;
+      min-width: 0;
 
       .mention-trigger-btn {
         color: rgba(255, 255, 255, 0.7);
@@ -1854,20 +1946,12 @@ defineExpose({
           color: rgba(255, 255, 255, 0.88);
         }
       }
-    }
-
-    .center-actions {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
 
       .library-select {
-        width: 100%;
+        width: auto;
         max-width: 160px;
-        flex-shrink: 0;
+        min-width: 96px;
+        flex-shrink: 1;
 
         :deep(.ant-select-selector) {
           font-size: 12px;
@@ -1882,17 +1966,27 @@ defineExpose({
           text-overflow: ellipsis;
           white-space: nowrap;
           color: var(--text-primary);
-          font-size: 12px;
         }
 
         :deep(.ant-select-arrow) {
           color: var(--text-secondary);
         }
       }
+    }
+
+    .center-actions {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
 
       .model-select {
-        width: 100%;
+        width: auto;
         max-width: 180px;
+        min-width: 100px;
+        flex-shrink: 1;
 
         :deep(.ant-select-selector) {
           font-size: 12px;
@@ -1987,5 +2081,20 @@ defineExpose({
 .chat-hero {
   text-align: center;
   padding: 24px 16px 8px;
+}
+
+/* 窄屏：两个下拉一起收缩，保证 @ 与发送按钮永不被挤出（挤的是下拉文字，已 ellipsis） */
+@media (max-width: 480px) {
+  .chat-input .input-actions {
+    .left-actions .library-select {
+      max-width: 120px;
+      min-width: 72px;
+    }
+
+    .center-actions .model-select {
+      max-width: 128px;
+      min-width: 80px;
+    }
+  }
 }
 </style>
