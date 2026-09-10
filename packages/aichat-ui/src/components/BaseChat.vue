@@ -242,17 +242,6 @@
         </a-tag>
       </div>
 
-      <div v-if="pendingImages.length" class="image-preview">
-        <div
-          v-for="(img, idx) in pendingImages"
-          :key="idx"
-          class="preview-item"
-        >
-          <img :src="img" alt="预览" />
-          <CloseCircleOutlined class="remove-btn" @click="removeImage(idx)" />
-        </div>
-      </div>
-
       <div class="input-wrapper">
         <InlineCitationEditor
           ref="inlineCitationEditorRef"
@@ -284,23 +273,6 @@
               :options="libraryOptions"
               :title="libraryTitle"
               @change="(value: string) => emit('update:libraryValue', value)"
-            />
-            <a-button
-              type="text"
-              size="small"
-              :disabled="loading || !allowImageUpload"
-              :title="allowImageUpload ? '上传图片（开发中）' : '图片上传不可用'"
-              @click="handleImageUpload"
-            >
-              <template #icon><PictureOutlined /></template>
-            </a-button>
-            <input
-              ref="imageInputRef"
-              type="file"
-              accept="image/*"
-              multiple
-              style="display: none"
-              @change="onImageSelected"
             />
           </div>
 
@@ -343,7 +315,7 @@
               type="primary"
               size="small"
               class="icon-btn"
-              :disabled="!composerValue.content.trim() && !pendingImages.length"
+              :disabled="!composerValue.content.trim()"
               :title="loading ? '加入待发送队列 (Enter)' : '发送消息 (Enter)'"
               @click="handleSend"
             >
@@ -366,8 +338,6 @@ import {
   ClearOutlined,
   SendOutlined,
   PauseCircleOutlined,
-  PictureOutlined,
-  CloseCircleOutlined,
   CloseOutlined,
   InfoCircleOutlined,
   BulbOutlined,
@@ -422,7 +392,6 @@ interface Props {
   contextRounds?: number
   streamingThinkingSteps?: ThinkingTraceStep[]
   renderMessage?: (content: string) => string
-  allowImageUpload?: boolean
   searchCitations?: (query: string) => Promise<InlineCitationCandidate[]>
   /** Hero 模式：无消息时整体垂直居中、输入卡片浮起居中（对话入口态） */
   hero?: boolean
@@ -451,7 +420,6 @@ const props = withDefaults(defineProps<Props>(), {
   contextRounds: 0,
   streamingThinkingSteps: () => [],
   renderMessage: undefined,
-  allowImageUpload: true,
   searchCitations: undefined,
   hero: false,
   mentionLabel: '插入引用 @',
@@ -477,7 +445,6 @@ const emit = defineEmits<{
 
 const messagesRef = ref<HTMLElement | null>(null)
 const chatInputRef = ref<HTMLElement | null>(null)
-const imageInputRef = ref<HTMLInputElement | null>(null)
 const inlineCitationEditorRef = ref<InstanceType<typeof InlineCitationEditor> | null>(null)
 const composerValue = ref<BaseChatSendPayload>({ content: '', citations: [] })
 /** 对话「起步」判定：存在非 system 消息即锁库（空会话可自由换库） */
@@ -488,7 +455,6 @@ const lockedLibraryLabel = computed(
 const libraryTitle = computed(() => conversationStarted.value
   ? `本对话已锁定知识库${lockedLibraryLabel.value ? ` ${lockedLibraryLabel.value}` : ''}，换库请点新建对话`
   : '选择知识库（单选）')
-const pendingImages = ref<string[]>([])
 const selectedModel = ref(props.defaultModel)
 const inputHeight = ref(150)
 const isResizing = ref(false)
@@ -921,7 +887,7 @@ const handleSend = () => {
     citations: Array.isArray(composerValue.value.citations) ? composerValue.value.citations : []
   }
   const content = payload.content
-  if (!content && !pendingImages.value.length) {
+  if (!content) {
     return
   }
   if (props.loading && props.queuedMessages.length >= QUEUE_LIMIT) {
@@ -939,7 +905,6 @@ const handleSend = () => {
  */
 const resetComposer = () => {
   composerValue.value = { content: '', citations: [] }
-  pendingImages.value = []
 }
 
 const handleInlineCitationSelect = (binding: CitationBinding) => {
@@ -975,52 +940,11 @@ const onModelChange = (model: string) => {
   emit('modelChange', model)
 }
 
-/**
- * 打开隐藏的图片选择框。
- */
-const handleImageUpload = () => {
-  if (!props.allowImageUpload) {
-    return
-  }
-
-  imageInputRef.value?.click()
-}
-
 const handleInsertMentionTrigger = async () => {
   if (props.loading) {
     return
   }
   await inlineCitationEditorRef.value?.insertMentionTrigger()
-}
-
-/**
- * 读取图片为预览数据，供后续多模态能力接入。
- */
-const onImageSelected = (event: Event) => {
-  const target = event.target as HTMLInputElement
-  const files = target.files
-  if (!files) {
-    return
-  }
-
-  Array.from(files).forEach(file => {
-    const reader = new FileReader()
-    reader.onload = loadEvent => {
-      if (loadEvent.target?.result) {
-        pendingImages.value.push(loadEvent.target.result as string)
-      }
-    }
-    reader.readAsDataURL(file)
-  })
-
-  target.value = ''
-}
-
-/**
- * 移除待发送图片预览项。
- */
-const removeImage = (index: number) => {
-  pendingImages.value.splice(index, 1)
 }
 
 /**
@@ -1843,44 +1767,6 @@ defineExpose({
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-  }
-
-  .image-preview {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 8px;
-    padding: 8px;
-    background: var(--bg-tertiary);
-    border-radius: 8px;
-
-    .preview-item {
-      position: relative;
-      width: 80px;
-      height: 80px;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 6px;
-      }
-
-      .remove-btn {
-        position: absolute;
-        top: -6px;
-        right: -6px;
-        font-size: 16px;
-          color: var(--chat-error-color, #ff4d4f);
-          background: var(--bg-secondary, #fafafa);
-        border-radius: 50%;
-        cursor: pointer;
-
-        &:hover {
-            color: var(--chat-error-hover, #ff7875);
-        }
-      }
-    }
   }
 
   .input-wrapper {

@@ -18,7 +18,6 @@
     :streaming-thinking-steps="liveThinkingSteps"
     :search-citations="searchInlineCitations"
     :render-message="renderAIChatMessage"
-    :allow-image-upload="false"
     :hero="hero"
     :library-options="libraryOptions"
     :library-value="libraryValue"
