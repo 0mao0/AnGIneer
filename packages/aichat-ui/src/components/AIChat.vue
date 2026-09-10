@@ -22,10 +22,13 @@
     :hero="hero"
     :library-options="libraryOptions"
     :library-value="libraryValue"
+    :queued-messages="queuedMessages"
     :mention-label="mentionMode === 'document' ? '提及文档 @' : '插入引用 @'"
     @send="handleSend"
     @clear="clearMessages"
     @stop="stopGeneration"
+    @remove-queued="removeQueued"
+    @promote-queued="promoteQueued"
     @remove-context="handleRemoveContext"
     @ready="handleReady"
     @select-citation="handleSelectCitation"
@@ -126,8 +129,11 @@ const {
   systemWarning,
   contextTokens,
   contextRounds,
+  queuedMessages,
   sendMessage,
   stopGeneration,
+  removeQueued,
+  promoteQueued,
   clearMessages,
   startNewChat,
   loadMessages,
@@ -180,8 +186,10 @@ const handleSend = async (payload: string | BaseChatSendPayload, model: string) 
     : payload
   emit('send', normalizedPayload.content, model)
   try {
-    await sendMessage(normalizedPayload as any, model)
-    const lastAssistantMessage = [...messages.value]
+  const sent = await sendMessage(normalizedPayload as any, model)
+  // 生成期间发送只入队（返回 false）：此时最后一条 assistant 还是上一轮的，不能当作本轮答案上报
+  if (!sent) return
+  const lastAssistantMessage = [...messages.value]
       .reverse()
       .find(item => item.role === 'assistant')
     if (lastAssistantMessage) {
@@ -223,10 +231,13 @@ onMounted(() => { fetchModels() })
 defineExpose({
   messages,
   systemWarning,
+  queuedMessages,
   clearMessages,
   sendMessage,
   handleSend,
   startNewChat,
+  removeQueued,
+  promoteQueued,
   loadSession: loadMessages,
   clearComposer: () => baseChatRef.value?.clearComposer?.()
 })
