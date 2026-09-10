@@ -240,6 +240,15 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 queue.put_nowait(event)
 
             loop = asyncio.get_running_loop()
+
+            # 上一次 run 可能仍在收尾：客户端 abort 只断开连接，服务端要等 LLM 调用退出
+            # 才会把 AgentSession 的 _running 置回 False。「插队」与「停止后立刻再发」都是
+            # 毫秒级重发，会撞上单飞保护（RuntimeError: Agent run already in progress）。
+            # 这里等它空闲，而不是把内部错误丢给用户。
+            if not await loop.run_in_executor(None, session.wait_for_idle, 30):
+                yield f"data: {json.dumps({'type': 'error', 'error': '上一次生成尚未结束，请稍后重试'}, ensure_ascii=False)}\n\n"
+                return
+
             if route_pre_enabled():
                 decision = await route_request(
                     query=request.query,
