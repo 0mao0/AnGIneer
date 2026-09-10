@@ -1,3 +1,25 @@
 packages:
   - "packages/*"
   - "apps/*"
+
+# pnpm ≥10 的配置真相源（package.json 里的 "pnpm" 字段已不再被读取，会打
+# WARN: The "pnpm" field in package.json is no longer read by pnpm）。
+# 2026-09-10 从 package.json 原样搬迁，值未改动。
+overrides:
+  lodash: 4.18.1
+  lodash-es: 4.18.1
+
+# pnpm ≥11 默认禁止依赖执行 install/postinstall 脚本（安全策略），
+# 需逐个显式表态（pnpm 11 只认 allowBuilds；旧键 onlyBuiltDependencies 已不生效，
+# 实测写旧键时 esbuild 仍被拦下）。下面的 false 项不是"漏配"，是明确判定不需要：
+#   esbuild    → 必需：安装平台二进制，不放行 vite build 直接失败
+#   resvg      → 必需：解压原生绑定（构建期生成图片用）
+#   vue-demi   → 必需：按当前 Vue 版本切换入口
+#   core-js    → 不需要：postinstall 只是打印赞助提示
+#   less       → 不需要：安装脚本仅与它自己的测试/构建流程有关
+allowBuilds:
+  esbuild: true
+  "@resvg/resvg-js": true
+  vue-demi: true
+  core-js: false
+  less: false

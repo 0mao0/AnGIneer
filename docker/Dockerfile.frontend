@@ -1,10 +1,14 @@
 # 阶段1: 构建前端应用
-FROM node:20-alpine AS builder
-
-RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
+# node 22：pnpm 11 要求 Node ≥22.13（仅构建阶段；运行阶段仍是 nginx，见下方阶段2）
+FROM node:22-alpine AS builder
 
 # 国内服务器直连 npm 官方源不稳定，改用 npmmirror
 ENV npm_config_registry=https://registry.npmmirror.com
+
+# pnpm 版本必须与根 package.json 的 packageManager 同版本：
+# packageManager 已不再接受 package.json 里的 "pnpm" 字段，overrides 等配置迁移到了
+# pnpm-workspace.yaml；版本不一致会在 --frozen-lockfile 阶段直接报配置不匹配。
+RUN npm install -g pnpm@11.7.0
 
 WORKDIR /app
 
