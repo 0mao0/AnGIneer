@@ -214,22 +214,32 @@
         <div v-for="(item, idx) in queuedMessages" :key="item.id" class="queue-item">
           <span class="queue-index">{{ idx + 1 }}</span>
           <span class="queue-text" :title="item.content">{{ item.content }}</span>
-          <button
-            type="button"
-            class="queue-action queue-jump"
-            title="插队：打断当前生成并立即发送这条"
-            @click="emit('promoteQueued', item.id)"
-          >
-            插队
-          </button>
-          <button
-            type="button"
-            class="queue-action queue-remove"
-            title="删除这条待发送消息"
-            @click="emit('removeQueued', item.id)"
-          >
-            <CloseOutlined />
-          </button>
+          <span class="queue-actions">
+            <button
+              type="button"
+              class="queue-action queue-icon-btn"
+              title="编辑：取回输入框（含引用），改完再发"
+              @click="handleEditQueued(item)"
+            >
+              <EditOutlined />
+            </button>
+            <button
+              type="button"
+              class="queue-action queue-jump"
+              title="插队：打断当前生成并立即发送这条"
+              @click="emit('promoteQueued', item.id)"
+            >
+              插队
+            </button>
+            <button
+              type="button"
+              class="queue-action queue-icon-btn queue-remove"
+              title="删除这条待发送消息"
+              @click="emit('removeQueued', item.id)"
+            >
+              <CloseOutlined />
+            </button>
+          </span>
         </div>
       </div>
     </div>
@@ -343,6 +353,7 @@ import {
   SendOutlined,
   PauseCircleOutlined,
   CloseOutlined,
+  EditOutlined,
   InfoCircleOutlined,
   BulbOutlined,
   DownOutlined,
@@ -949,6 +960,31 @@ const handleInsertMentionTrigger = async () => {
     return
   }
   await inlineCitationEditorRef.value?.insertMentionTrigger()
+}
+
+/**
+ * 编辑队列中的一条：取回输入框（含 @ 引用），并从队列移除，改完由用户再发。
+ * 输入框已有草稿时不覆盖——改为另起一行追加，引用区间按追加位置整体偏移，
+ * 两者都不丢（引用区间是 content 字符串里的偏移量，不偏移会错位）。
+ */
+const handleEditQueued = (item: QueuedMessage) => {
+  const current = composerValue.value
+  const draft = current.content
+  const hasDraft = draft.trim().length > 0
+  const offset = hasDraft ? draft.length + 1 : 0
+  const recalled = Array.isArray(item.citations) ? item.citations : []
+  composerValue.value = {
+    content: hasDraft ? `${draft}\n${item.content}` : item.content,
+    citations: [
+      ...(Array.isArray(current.citations) ? current.citations : []),
+      ...recalled.map(binding => ({
+        ...binding,
+        range: { start: binding.range.start + offset, end: binding.range.end + offset }
+      }))
+    ]
+  }
+  emit('removeQueued', item.id)
+  nextTick(() => inlineCitationEditorRef.value?.focusEditor())
 }
 
 /**
@@ -1808,22 +1844,26 @@ defineExpose({
       }
     }
 
-    .queue-jump {
-      margin-left: 12px;
-      margin-right: 2px;
+    /* 动作区独立成组：与正文拉开 12px（正文是 flex:1 会顶过来），组内再收紧到 2px */
+    .queue-actions {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: 4px;
     }
 
-    .queue-remove {
+    .queue-icon-btn {
       width: 22px;
       padding: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+    }
 
-      &:hover {
-        color: var(--chat-queue-remove-hover-color, #ff4d4f);
-        background: var(--chat-queue-remove-hover, rgba(255, 77, 79, 0.12));
-      }
+    .queue-remove:hover {
+      color: var(--chat-queue-remove-hover-color, #ff4d4f);
+      background: var(--chat-queue-remove-hover, rgba(255, 77, 79, 0.12));
     }
   }
 }
