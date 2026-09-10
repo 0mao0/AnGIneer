@@ -2,6 +2,15 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.47
+
+- pnpm 9.0.0 → 11.7.0 全量迁移：`packageManager` 与 Dockerfile 同步升级（构建阶段 node:20→node:22，pnpm 11 要求 Node ≥22.13），装法由 corepack 改为 `npm i -g pnpm@11.7.0`；pnpm ≥10 起不再读取 `package.json` 的 `"pnpm"` 字段（留着既打 WARN 又让 overrides 静默失效），lodash/lodash-es overrides 与新增 allowBuilds（esbuild/resvg-js/vue-demi 放行、core-js/less 明确不需要——旧键 onlyBuiltDependencies 在 11 已不生效）一并迁入 `pnpm-workspace.yaml`；lockfile 仅 xlsx（SheetJS CDN tarball）补 integrity（pnpm 11 供应链策略缺 integrity 直接拒装）
+- pnpm 迁移真机验证通过：容器内 `pnpm install --frozen-lockfile` 1m25.3s、双端 vite 构建 37.4s，`packageManager`、overrides 与 allowBuilds 在 node:22-alpine 下全部按预期生效
+- 修 Dockerfile 镜像源失效：pnpm ≥11 不再读取 `npm_config_*` 环境变量（实测指向死端口仍装成功），原 `ENV npm_config_registry` 对 pnpm 静默失效——上次部署日志显示容器里 315 个包全从 registry.npmjs.org 直连拉取（xlsx ETIMEDOUT 重试与平均 32 KiB/s 警告即由此来）；改为构建阶段写项目级 `/app/.npmrc`，ENV 保留仅服务上面那句 `npm i -g pnpm`
+- admin-web 首屏提速：按需引入 ant-design-vue（`unplugin-vue-components` + AntDesignVueResolver，`main.ts` 去掉 `app.use(Antd)` 全量注册），知识库三视图与 ApiKeyChart 改异步组件 + 空闲预热，预览面板经新增 `DocViewerPane` 薄包装动态引入；落地页必下资源 3977KB→2134KB，线上实测入口 chunk 1.57MB→608KB
+- 清掉主仓库最后 4 个 UTF-8 BOM 文件（`.env.example` 与 3 个测试文件）：BOM 曾在本仓库与独立仓库反复出现，`.env.example` 的 BOM 会随 `cp` 进 `.env`——当前首行是注释故无害，但首行若改成真实变量会让变量名变成 `\ufeffKEY` 而静默失效
+- 版本对齐与文档：`packages/docs-ui` 版本 0.2.1→0.2.2（与独立仓库 v0.2.2 / npm 上架版本一致），README 版本表补三处漂移（docs-ui v0.2.2、table-ui v0.1.2、ai-inference v0.2.0）
+
 ## v0.2.46
 
 服务化内部解耦与依赖内化：docs-api 新增 `internal/entity-search`、`internal/doc-nodes`、`internal/graph-append-note` 三个内部端点；angineer-core 三处跨进程直读 SQLite（entity_search 图谱检索、policy_query 节点加载、knowledge_stats 统计兜底）与 dream_cycle 两处图谱裸连接全部改为 HTTP 优先 + 本地回退，`ANGINEER_DISABLE_LOCAL_FALLBACK=1` 可整体禁用回退（服务化部署消灭"共享数据库"反模式），新增双轨回归测试 7 例；user/api_key 模型从 docs-api/aichat-api 两份漂移副本收敛到 `services/shared`（新增 shared/paths.py 数据路径解析，两侧 models/ 改为模块替换别名层——既有导入与测试 patch 语义零改动，顺带清除 api_key.update_key 尾部死代码；中间件保持各自独立，aichat 的 /api/chat/* 可选鉴权策略本就不同）；PoPo 由 git submodule 内化为普通目录（上游 opendatalab/MinerU-Popo 对我们的定制 PR 从未合并、6 周无更新，fork 即唯一部署源头；2371 文件中 75 个运行时必需源码入库，eval 产物被其自带 .gitignore 合理排除；deploy.yml 移除 submodule update；新增 UPSTREAM_SYNC.md 记录上游同步点 97d5601；修复首版内化提交的孤儿 gitlink 边界问题）。B 项排查结论：import 期无界 DB 调用仅剩 embedding_provider 维度探测一处，Qdrant 下为 O(1) HTTP 查询，无量级问题。

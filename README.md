@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.46** —— 服务化内部解耦（A1）：docs-api 新增 internal/entity-search、internal/doc-nodes、internal/graph-append-note 三个内部端点，angineer-core 三处跨进程直读 SQLite 与 dream_cycle 两处裸连接全部改为 HTTP 优先 + `ANGINEER_DISABLE_LOCAL_FALLBACK` 开关可禁回退（消灭共享数据库反模式）；user/api_key 模型收敛到 `services/shared`（两侧漂移副本改为模块替换别名层，兼容零改动）；PoPo 由 submodule 内化为普通目录（上游 PR 从未被收、fork 即唯一部署源头，deploy 链路不再需要 submodule update）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.47** —— pnpm 9.0.0→11.7.0 全量迁移（构建阶段 node:20→22；pnpm ≥10 不再读 `package.json` 的 pnpm 字段，overrides 与新增 allowBuilds 迁入 `pnpm-workspace.yaml`，xlsx 补 integrity）；迁移已真机验证通过（容器内 `--frozen-lockfile` 1m25.3s 加双端 vite 构建）；顺带修 Dockerfile 镜像源失效——pnpm ≥11 不再读 `npm_config_*`，原 npmmirror 设置对 pnpm 静默失效致容器内 315 个包直连官方源，改走项目级 `.npmrc`；admin-web 首屏提速（按需引入 ant-design-vue + 异步视图分块），线上入口 chunk 1.57MB→608KB；清掉主仓库最后 4 个 UTF-8 BOM 文件；docs-ui 版本对齐 0.2.2 与 README 版本表三处漂移修正。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
