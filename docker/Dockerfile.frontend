@@ -2,7 +2,9 @@
 # node 22：pnpm 11 要求 Node ≥22.13（仅构建阶段；运行阶段仍是 nginx，见下方阶段2）
 FROM node:22-alpine AS builder
 
-# 国内服务器直连 npm 官方源不稳定，改用 npmmirror
+# 国内服务器直连 npm 官方源不稳定，改用 npmmirror。
+# 注意作用范围：这个变量只对下面那句 npm 有效——pnpm ≥11 起不再读取 npm_config_* 环境变量
+# （2026-09-10 实测：指向死端口 pnpm 仍能装成功），pnpm 侧必须靠 .npmrc，见下方 /app/.npmrc。
 ENV npm_config_registry=https://registry.npmmirror.com
 
 # pnpm 版本必须与根 package.json 的 packageManager 同版本：
@@ -11,6 +13,9 @@ ENV npm_config_registry=https://registry.npmmirror.com
 RUN npm install -g pnpm@11.7.0
 
 WORKDIR /app
+
+# pnpm 侧镜像源：pnpm ≥11 不认 npm_config_registry，只能写项目级 .npmrc
+RUN printf 'registry=https://registry.npmmirror.com\n' > /app/.npmrc
 
 ENV NODE_OPTIONS=--max-old-space-size=2048
 
