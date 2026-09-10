@@ -2,6 +2,15 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.48
+
+- 对话输入区改造（第一批）：生成期间不再禁用输入框——发送即入队（上限 10 条），当前回答结束后按序自动发出；每条队列项可「编辑」（取回输入框、连 @ 引用一并带回，改完再发）、「插队」（打断当前生成并立即处理该条，原会话上下文完整沿用，截断的回答按普通消息保留、不标「已停止生成」）、「删除」；生成中按「停止」= 当前回答停止 + 队列暂停保留，手动再发即恢复推进。队列内核在 `useAIChat`（不依赖 UI）；注意 `advanceQueue()` 必须放在 `sendMessage` 的 `finally` 最末尾——放在 `abortController.value = null` 之前会让下一轮新建的 AbortController 被本轮清掉、「停止」失效
+- 知识库锁定：下拉从工具条中央移到输入框左侧（`@` 之后，为第二批的「+」留位），并在「对话起步」（存在非 system 消息）后锁定，锁定态 hover 提示换库请点新建对话；空会话仍可自由换库。工具条同时做自适应——两个下拉可收缩（库 96–160px / 模型 100–180px，≤480px 再收缩一档），`@` 与发送按钮永不参与收缩，被压缩的是下拉文字
+- 待发送托盘 UI 重做：新增标题行「待发送 N 条」、圆形序号徽标、独立成组的动作区（编辑/插队/删除）；原底色 `--bg-tertiary` 在浅色主题下与输入框 `--bg-secondary` 数值相同（≈#fafafa）等于没有底色，改为 primary 淡染 + 同色描边并把圆角与输入框统一为 12px；颜色全部走 `--chat-queue-*` 双回退钩子
+- aichat-api 修「插队/停止后立刻再发」撞单飞保护：客户端 abort 是毫秒级、服务端要等 LLM 调用退出才把 `AgentSession._running` 置回 False，毫秒级重发必然撞上 `RuntimeError: Agent run already in progress` 并把内部错误抛给用户；SSE 处理器启动 run 前先等会话空闲（30s 上限，超时返回明确提示）。实测空闲路径耗时 0.000s，正常发送零代价
+- 删除 aichat-ui 输入区失效的图片上传入口整条链路（-117 行）与公开 prop `allowImageUpload`：该按钮只把图片读成 DataURL 做本地预览，不上传也不随消息发送，宿主侧早已硬编码禁用
+- 独立包 aichat-ui 发 0.1.8（排队/锁库/托盘一并进入 npm 包），并清掉其 `package.json` 自 0.1.7 起带入的 UTF-8 BOM——registry 安装 pnpm 容忍，但 vendored（`file:`/目录）方式会以 `Unexpected token` 直接解析失败；0.1.8 tarball 首三字节已验为 `7b 0a 20`
+
 ## v0.2.47
 
 - pnpm 9.0.0 → 11.7.0 全量迁移：`packageManager` 与 Dockerfile 同步升级（构建阶段 node:20→node:22，pnpm 11 要求 Node ≥22.13），装法由 corepack 改为 `npm i -g pnpm@11.7.0`；pnpm ≥10 起不再读取 `package.json` 的 `"pnpm"` 字段（留着既打 WARN 又让 overrides 静默失效），lodash/lodash-es overrides 与新增 allowBuilds（esbuild/resvg-js/vue-demi 放行、core-js/less 明确不需要——旧键 onlyBuiltDependencies 在 11 已不生效）一并迁入 `pnpm-workspace.yaml`；lockfile 仅 xlsx（SheetJS CDN tarball）补 integrity（pnpm 11 供应链策略缺 integrity 直接拒装）

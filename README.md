@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.47** —— pnpm 9.0.0→11.7.0 全量迁移（构建阶段 node:20→22；pnpm ≥10 不再读 `package.json` 的 pnpm 字段，overrides 与新增 allowBuilds 迁入 `pnpm-workspace.yaml`，xlsx 补 integrity）；迁移已真机验证通过（容器内 `--frozen-lockfile` 1m25.3s 加双端 vite 构建）；顺带修 Dockerfile 镜像源失效——pnpm ≥11 不再读 `npm_config_*`，原 npmmirror 设置对 pnpm 静默失效致容器内 315 个包直连官方源，改走项目级 `.npmrc`；admin-web 首屏提速（按需引入 ant-design-vue + 异步视图分块），线上入口 chunk 1.57MB→608KB；清掉主仓库最后 4 个 UTF-8 BOM 文件；docs-ui 版本对齐 0.2.2 与 README 版本表三处漂移修正。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.48** —— 对话输入区改造：生成期间可继续输入与发送（发送即入队、当前回答结束后按序自动发出；每条可编辑/插队/删除，「停止」= 回答停 + 队列暂停保留）；知识库下拉移到输入框左侧、对话起步后锁定，工具条自适应收缩；待发送托盘样式重做；修 aichat-api 的「插队/停止后立刻再发」撞 AgentSession 单飞保护报内部错误；删除 aichat-ui 输入区失效的图片上传入口（-117 行）；独立包 aichat-ui 发 0.1.8 并清掉其 package.json 的 BOM。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
@@ -10,7 +10,7 @@
 | :--- | :--- | :--- |
 | [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.46` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.2` | 知识库前端组件库（npm: @angineer/docs-ui） |
-| [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.7` | 对话前端组件库（npm: @angineer/aichat-ui） |
+| [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.8` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
 | [angineer-table-ui](https://github.com/0mao0/angineer-table-ui) | `v0.1.2` | 通用表格组件库 DataTable（npm: @angineer/table-ui） |
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.2.0` | Python AI 推理客户端库 |
