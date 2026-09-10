@@ -1,4 +1,4 @@
-﻿"""P4.2 SopRunnerAdapter.sop_execute 单元测试。"""
+"""P4.2 SopRunnerAdapter.sop_execute 单元测试。"""
 import os
 import sys
 import unittest

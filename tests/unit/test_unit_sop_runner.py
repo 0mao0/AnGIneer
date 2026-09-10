@@ -1,4 +1,4 @@
-﻿"""
+"""
 SopRunner 单元测试。
 """
 import unittest
