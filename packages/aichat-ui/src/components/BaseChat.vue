@@ -206,27 +206,31 @@
     </div>
 
     <div v-if="queuedMessages.length" class="pending-queue">
-      <div v-for="(item, idx) in queuedMessages" :key="item.id" class="queue-item">
-        <span class="queue-index">{{ idx + 1 }}</span>
-        <span class="queue-text" :title="item.content">{{ item.content }}</span>
-        <a-button
-          type="text"
-          size="small"
-          class="queue-action"
-          title="插队：打断当前生成并立即发送这条"
-          @click="emit('promoteQueued', item.id)"
-        >
-          插队
-        </a-button>
-        <a-button
-          type="text"
-          size="small"
-          class="queue-action"
-          title="删除这条待发送消息"
-          @click="emit('removeQueued', item.id)"
-        >
-          <CloseOutlined />
-        </a-button>
+      <div class="queue-head">
+        <span class="queue-title">待发送 {{ queuedMessages.length }} 条</span>
+        <span class="queue-hint">当前回答结束后按序发出</span>
+      </div>
+      <div class="queue-list">
+        <div v-for="(item, idx) in queuedMessages" :key="item.id" class="queue-item">
+          <span class="queue-index">{{ idx + 1 }}</span>
+          <span class="queue-text" :title="item.content">{{ item.content }}</span>
+          <button
+            type="button"
+            class="queue-action queue-jump"
+            title="插队：打断当前生成并立即发送这条"
+            @click="emit('promoteQueued', item.id)"
+          >
+            插队
+          </button>
+          <button
+            type="button"
+            class="queue-action queue-remove"
+            title="删除这条待发送消息"
+            @click="emit('removeQueued', item.id)"
+          >
+            <CloseOutlined />
+          </button>
+        </div>
       </div>
     </div>
 
@@ -1707,30 +1711,70 @@ defineExpose({
   }
 }
 
+/* 待发送托盘：浅色主题下 --bg-tertiary(≈#fafafa) 与输入框 --bg-secondary(#fafafa) 数值相同，
+   用它做底色等于没有底色（只剩一根几乎看不见的边框）。改为 primary 淡染 + 同色描边，
+   两种主题下都是明确独立的一块，语义上也贴合「排队中」。圆角与输入框统一为 12px。 */
 .pending-queue {
   margin: 0 16px 8px;
-  padding: 6px 8px;
-  border: 1px solid var(--chat-queue-border, var(--border-color, #e8e8e8));
-  border-radius: 8px;
-  background: var(--chat-queue-bg, var(--bg-tertiary, #f5f5f5));
+  padding: 8px 12px 4px;
+  border: 1px solid var(--chat-queue-border, rgba(24, 144, 255, 0.22));
+  border-radius: 12px;
+  background: var(--chat-queue-bg, rgba(24, 144, 255, 0.06));
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  max-height: 132px;
-  overflow-y: auto;
+
+  .queue-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding-bottom: 4px;
+
+    .queue-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--chat-queue-title, var(--primary-color, #1890ff));
+    }
+
+    .queue-hint {
+      font-size: 11px;
+      color: var(--text-tertiary, rgba(0, 0, 0, 0.45));
+    }
+  }
+
+  .queue-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 116px;
+    overflow-y: auto;
+  }
 
   .queue-item {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     min-width: 0;
+    padding: 5px 4px;
+    border-radius: 6px;
+    transition: background 0.15s;
+
+    & + .queue-item {
+      border-top: 1px solid var(--chat-queue-divider, rgba(24, 144, 255, 0.12));
+    }
+
+    &:hover {
+      background: var(--chat-queue-item-hover, rgba(24, 144, 255, 0.08));
+    }
 
     .queue-index {
       flex-shrink: 0;
-      width: 16px;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
       text-align: center;
       font-size: 11px;
-      color: var(--chat-queue-index, var(--text-tertiary, #999));
+      border-radius: 50%;
+      color: var(--primary-color, #1890ff);
+      background: var(--chat-queue-index-bg, rgba(24, 144, 255, 0.14));
     }
 
     .queue-text {
@@ -1739,14 +1783,47 @@ defineExpose({
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      font-size: 12px;
-      color: var(--chat-queue-text, var(--text-secondary, #666));
+      font-size: 13px;
+      color: var(--text-primary, rgba(0, 0, 0, 0.85));
     }
 
+    /* 原生 button：antd 的 text 按钮在静息态零边界，挤在行尾像裸文字；
+       这里给动作区自己的可见形状，并保证正文与按钮之间至少 12px 间距（正文是 flex:1 会顶过来） */
     .queue-action {
       flex-shrink: 0;
+      height: 22px;
+      padding: 0 8px;
       font-size: 12px;
-      padding: 0 4px;
+      line-height: 20px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-secondary, rgba(0, 0, 0, 0.65));
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s;
+
+      &:hover {
+        color: var(--primary-color, #1890ff);
+        background: var(--chat-queue-action-hover, rgba(24, 144, 255, 0.12));
+      }
+    }
+
+    .queue-jump {
+      margin-left: 12px;
+      margin-right: 2px;
+    }
+
+    .queue-remove {
+      width: 22px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        color: var(--chat-queue-remove-hover-color, #ff4d4f);
+        background: var(--chat-queue-remove-hover, rgba(255, 77, 79, 0.12));
+      }
     }
   }
 }
