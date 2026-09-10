@@ -21,7 +21,7 @@
     }
   },
   "scripts": {
-    "test": "pnpm dlx tsx --test test/citation.test.ts test/searchSnippet.test.ts test/thinking.test.ts test/token.test.ts test/useAIChat.test.ts",
+    "test": "pnpm dlx tsx --test test/citation.test.ts test/searchSnippet.test.ts test/thinking.test.ts test/token.test.ts test/useAIChat.test.ts test/useAIChat.queue.test.ts",
     "typecheck": "vue-tsc --noEmit"
   },
   "peerDependencies": {

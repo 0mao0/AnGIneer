@@ -12,6 +12,7 @@ export type {
   BaseChatMessageRole,
   BaseChatMessage,
   BaseChatSendPayload,
+  QueuedMessage,
   BaseChatCitation,
   CitationRichMedia,
   BaseChatContextItem,

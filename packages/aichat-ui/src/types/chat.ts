@@ -19,6 +19,13 @@ export interface CitationRichMedia {
 
 export interface BaseChatSendPayload extends InlineCitationDraftValue {}
 
+/** 生成期间发送的消息：先入队，当前 run 结束后按序自动发出 */
+export interface QueuedMessage {
+  id: string
+  content: string
+  citations: CitationBinding[]
+}
+
 export interface BaseChatCitation {
   target_id: string
   target_type?: string
