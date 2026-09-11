@@ -1159,6 +1159,12 @@ class ParseOrchestrator:
                     str(s.get("stage") or ""): str(s.get("status") or "")
                     for s in existing_rows
                 }
+                # 部分阶段运行的合法形态（v1 API stages 子集等）：本次未启动且无历史记录的阶段
+                # 视为 skipped，不阻塞整体完成判定。修复 v1 API 默认 stages=structure 子集运行
+                # 永远停在 processing 的问题（2026-09-11 OmniDocBench 接入实踩）。
+                for _stage_key in STAGE_REGISTRY:
+                    if _stage_key not in existing and _stage_key not in (results or {}):
+                        existing[_stage_key] = "skipped"
                 overall = derive_merged_overall_status(
                     existing,
                     results,
