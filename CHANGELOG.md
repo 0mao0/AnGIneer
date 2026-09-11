@@ -2,6 +2,11 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.49
+
+- 修生产图谱检索一直失效：`entity_search` 的图谱库路径原先按进程 cwd 拼成 `data/knowledge_graph.sqlite`，容器里 cwd 是 `services/aichat-api`、该目录下没有 `data/`（真实库在挂载卷 `/app/data/`），每次调用都抛 `unable to open database file`；连带「图谱无命中自动回退正文检索」的兜底也失效——兜底写在异常之后，异常先抛出、回退根本没跑。答案仍由 `knowledge_search` 正常产出，故障因此被完全掩盖，表现为同一问题在开发侧（cwd 恰好是仓库根）有图谱步骤、生产侧那一步只剩一句占位符。改为复用 `docs_core.paths.resolve_graph_db_path()`（与 docs-api 图谱路由同一套仓库根解析，`KG_DB_PATH` 仍可覆盖），生产 `.env` 同时补 `KG_DB_PATH=/app/data/knowledge_graph.sqlite` 兜底
+- 修思考过程把工具错误吞成占位符：`summarizeToolResult` 原先只要 `JSON.parse` 失败就统一返回「工具已返回结果（完整内容见最终轨迹）」，而这条文案在两种相反情况下完全一样——「流式阶段工具结果按设计截断到 300 字符」（正常，整轮结束由 `run_end` 帧全量回填）与「工具真的返回了纯文本错误」（故障），生产上那次图谱报错因此在界面上没有任何提示，只能靠两侧日志对拍才发现。现在非 JSON 的纯文本如实透出（如 `工具执行失败: unable to open database file`），只有截断的 JSON 残片才给占位符，并补 `summarizeToolResult` 回归用例
+
 ## v0.2.48
 
 - 对话输入区改造（第一批）：生成期间不再禁用输入框——发送即入队（上限 10 条），当前回答结束后按序自动发出；每条队列项可「编辑」（取回输入框、连 @ 引用一并带回，改完再发）、「插队」（打断当前生成并立即处理该条，原会话上下文完整沿用，截断的回答按普通消息保留、不标「已停止生成」）、「删除」；生成中按「停止」= 当前回答停止 + 队列暂停保留，手动再发即恢复推进。队列内核在 `useAIChat`（不依赖 UI）；注意 `advanceQueue()` 必须放在 `sendMessage` 的 `finally` 最末尾——放在 `abortController.value = null` 之前会让下一轮新建的 AbortController 被本轮清掉、「停止」失效

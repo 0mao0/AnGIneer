@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.48** —— 对话输入区改造：生成期间可继续输入与发送（发送即入队、当前回答结束后按序自动发出；每条可编辑/插队/删除，「停止」= 回答停 + 队列暂停保留）；知识库下拉移到输入框左侧、对话起步后锁定，工具条自适应收缩；待发送托盘样式重做；修 aichat-api 的「插队/停止后立刻再发」撞 AgentSession 单飞保护报内部错误；删除 aichat-ui 输入区失效的图片上传入口（-117 行）；独立包 aichat-ui 发 0.1.8 并清掉其 package.json 的 BOM。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.49** —— 修生产图谱检索一直失效：entity_search 图谱库路径改按仓库根解析（原来按进程 cwd，容器内 cwd 是 services/aichat-api、没有 data/ 目录，每次调用都报 unable to open database file，「图谱无命中回退正文」的兜底也连带失效），生产 .env 同时补 KG_DB_PATH 兜底；修思考过程把工具错误吞成占位符——非 JSON 的纯文本错误现在如实透出，只有流式截断的 JSON 残片才显示「完整内容见最终轨迹」。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
