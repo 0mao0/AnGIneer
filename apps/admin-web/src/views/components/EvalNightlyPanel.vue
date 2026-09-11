@@ -123,7 +123,7 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
+import { onBeforeUnmount, onMounted, onActivated, onDeactivated, reactive, ref } from 'vue'
 import { message } from 'ant-design-vue'
 import { QuestionCircleOutlined } from '@ant-design/icons-vue'
 import { DataTable } from '@angineer/table-ui'
@@ -387,6 +387,22 @@ onMounted(() => {
   startHeartbeat()
 })
 onBeforeUnmount(stopHeartbeat)
+
+/**
+ * 面板本身随视图 v-if 挂载/卸载，但外层视图被 keep-alive 缓存后本组件在后台仍挂载：
+ * 心跳必须在 deactivate 收口，否则藏起来的时候还在每 15s 打接口。
+ * activated 首次挂载也会触发，跳过第一次以免与 onMounted 重复取数。
+ */
+let activationSkipped = false
+onDeactivated(stopHeartbeat)
+onActivated(() => {
+  if (!activationSkipped) {
+    activationSkipped = true
+    return
+  }
+  loadRunState()
+  startHeartbeat()
+})
 
 defineExpose({ openRunModal })
 </script>

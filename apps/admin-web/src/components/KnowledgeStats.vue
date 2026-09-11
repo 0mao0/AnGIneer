@@ -281,7 +281,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineAsyncComponent, ref, nextTick, onMounted, onBeforeUnmount, computed, watch } from 'vue'
+import { defineAsyncComponent, ref, nextTick, onMounted, onBeforeUnmount, onActivated, onDeactivated, computed, watch } from 'vue'
 import dayjs from 'dayjs'
 import { message, Modal } from 'ant-design-vue'
 import { CopyOutlined, ExclamationCircleOutlined, UploadOutlined } from '@ant-design/icons-vue'
@@ -289,7 +289,7 @@ import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
 import type { DataTableColumn } from '@angineer/ui-kit'
 import { knowledgeApi, type ParseRecordItem } from '@/api/knowledge'
-import { useKnowledgeParse } from '@angineer/docs-ui'
+import { useKnowledgeParse } from '@angineer/docs-ui/composables/useKnowledgeParse'
 import type { KnowledgeTreeNode, KnowledgeParseOptions } from '@angineer/docs-ui'
 import DocStageStepper from '@/components/DocStageStepper.vue'
 import EntityReviewDrawer from '@/components/EntityReviewDrawer.vue'
@@ -301,9 +301,10 @@ import type { KnowledgeLibraryItem } from '@/stores/library'
 /**
  * 预览工作区只在「查看」抽屉里用：经 DocViewerPane 薄包装动态引入，把 pdf.js /
  * docx-preview / katex 整个预览栈从落地路由块拆出去（此前静态 import 让它成为落地页必下内容）。
- * 注意不能直接 import('@angineer/docs-ui')：本文件已静态引入同一路径的 useKnowledgeParse，
- * 同模块双引入时 rollup 不切分（详见 DocViewerPane 注释）。loader 与异步组件共用，
- * 空闲预热过则打开抽屉时秒开。
+ * 同理 useKnowledgeParse 走子路径导入而非 barrel：只取一个 composable 时 barrel 会连带
+ * re-export 的 PDF_Viewer / OfficePreview（katex、pdf.js、xlsx）一起进落地路由块，
+ * 实测该路由块 725KB→86KB、静态下载 2015KB→1120KB。
+ * loader 与异步组件共用，空闲预热过则打开抽屉时秒开。
  */
 const docViewerLoader = () => import('./DocViewerPane.vue')
 const DocViewerPane = defineAsyncComponent(docViewerLoader)
@@ -586,6 +587,26 @@ watch(stepsModalOpen, (open) => {
 })
 
 onBeforeUnmount(() => {
+  stopStagesPolling()
+  stopRecordsPolling()
+})
+
+/** 被 keep-alive 缓存后 onMounted 只跑一次：每次回到本视图静默补刷列表，
+ *  否则解析状态会停在离开时的快照上（列表里还有「解析中」的任务时必须新鲜）。
+ *  注意 activated 在首次挂载时也会触发，跳过第一次以免与 onMounted 重复取数。 */
+let activationSkipped = false
+onActivated(() => {
+  if (!activationSkipped) {
+    activationSkipped = true
+    return
+  }
+  loadRecords(true)
+  // 阶段抽屉可能在离开时还开着，缓存后 watch(stepsModalOpen) 不会再触发，这里补启
+  if (stepsModalOpen.value) startStagesPolling()
+})
+
+/** deactivate 不触发 onBeforeUnmount：两个轮询表必须在这里收口，否则在后台一直跑。 */
+onDeactivated(() => {
   stopStagesPolling()
   stopRecordsPolling()
 })

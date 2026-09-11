@@ -45,7 +45,11 @@
         </AppHeader>
 
         <div class="main-content">
-          <router-view />
+          <router-view v-slot="{ Component }">
+            <KeepAlive :include="cachedViews">
+              <component :is="Component" />
+            </KeepAlive>
+          </router-view>
         </div>
       </div>
     </a-app>
@@ -99,6 +103,13 @@ const viewItems = computed(() => {
 
 /** 当前模块激活的视图 key（头部高亮用） */
 const activeView = computed(() => (activeNav.value === 'evals' ? evalView.value : knowledgeView.value))
+
+/**
+ * 常驻缓存的三个模块视图：切回来不再重挂载、不重取数据，各自在 onActivated 里补刷。
+ * include 按组件名匹配，名字必须与各视图里 defineOptions({ name }) 写的完全一致——对不上会静默不缓存。
+ * 只缓存模块级路由；用户管理 / API 管理这类改完即走的管理页不缓存，避免列表陈旧。
+ */
+const cachedViews = ['KnowledgeManage', 'ExperienceManage', 'EvalManage']
 
 /** 模块导航：AI 对话/用户管理/API 管理改为右上角图标入口，不再出现在模块下拉里 */
 const navItems: NavItem[] = [

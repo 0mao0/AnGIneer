@@ -180,7 +180,7 @@
 </template>
 
 <script setup lang="ts">
-import { h, ref, reactive, onMounted } from 'vue'
+import { h, ref, reactive, onMounted, onActivated } from 'vue'
 import { message, Modal } from 'ant-design-vue'
 import {
   HistoryOutlined, PlayCircleOutlined, CalendarOutlined, FileTextOutlined,
@@ -326,6 +326,10 @@ const doOrphanDelete=(o:any)=>{
 }
 
 onMounted(()=>{loadHealth();loadReports()})
+/** 被 keep-alive 缓存后 onMounted 只跑一次：每次回来重读健康状态与报告列表。
+ *  activated 首次挂载也会触发，用 skipFirst 跳过，避免和 onMounted 重复打接口。 */
+let activatedBefore=false
+onActivated(()=>{ if(!activatedBefore){activatedBefore=true;return} loadHealth();loadReports() })
 </script>
 
 <style lang="less" scoped>

@@ -72,6 +72,15 @@ export default defineConfig({
     'import.meta.env.VITE_APP_VERSION': JSON.stringify(APP_VERSION),
     'import.meta.env.VITE_APP_RELEASE_NOTES': JSON.stringify(RELEASE_NOTES)
   },
+  /**
+   * 重依赖预置进预打包：这些库只被懒加载路由用到（echarts 在评测集、pdf.js/xlsx/docx-preview/katex
+   * 在知识库预览栈、vue-flow 在经验库流程图）。不预置则 Vite 在「首次切到该模块」时才发现在线依赖，
+   * 触发重新预打包并强制整页 reload —— 表现为切页瞬间白屏数秒且应用状态丢失。
+   * 列在这里把这份代价挪到 dev server 启动时一次付清。
+   */
+  optimizeDeps: {
+    include: ['echarts', 'pdfjs-dist', 'xlsx', 'docx-preview', 'katex', '@vue-flow/core']
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),

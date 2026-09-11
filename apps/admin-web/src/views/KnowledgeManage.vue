@@ -29,6 +29,9 @@ import { useTheme } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
 import KnowledgeStats from '@/components/KnowledgeStats.vue'
 
+/** keep-alive 的 include 按组件名匹配（见 App.vue 的 cachedViews），少这行会静默不缓存 */
+defineOptions({ name: 'KnowledgeManage' })
+
 /**
  * 三视图互斥，另两个只有切过去才需要：改异步组件把它们拆出落地块
  * （KnowledgeParseWorkspace 静态拖着 pdf.js / docx-preview / xlsx 一整个预览栈）。

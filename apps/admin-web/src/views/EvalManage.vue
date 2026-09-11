@@ -310,7 +310,7 @@
 
 <script setup lang="ts">
 /** 评测管理页面 - 三栏布局 */
-import { ref, computed, inject, onMounted, onBeforeUnmount, watch, type Ref } from 'vue'
+import { ref, computed, inject, onMounted, onBeforeUnmount, onActivated, onDeactivated, watch, type Ref } from 'vue'
 import { App, message, Modal } from 'ant-design-vue'
 import {
   DatabaseOutlined,
@@ -344,6 +344,9 @@ import EvalNightlyPanel from './components/EvalNightlyPanel.vue'
 import { knowledgeApi } from '../api/knowledge'
 import { useLibraryStore } from '../stores/library'
 import { evalsApi } from '../api/evals'
+
+/** keep-alive 的 include 按组件名匹配（见 App.vue 的 cachedViews），少这行会静默不缓存 */
+defineOptions({ name: 'EvalManage' })
 
 const { appClass, isDark } = useTheme()
 const { modal } = App.useApp()
@@ -507,6 +510,7 @@ const {
   fetchRunDetails,
   clearDetailsCache,
   selectHistoricalRun,
+  startPolling,
   stopPolling,
   stopRun,
   deleteRun,
@@ -1072,6 +1076,27 @@ onMounted(() => {
 onBeforeUnmount(() => {
   stopPolling()
 })
+
+/**
+ * 缓存后 onMounted 只跑一次：回来时刷新测试集/文件夹两个列表；左侧有选中测试集时补刷最近一次运行，
+ * 否则停表期间的状态会永远停在离开时的快照（跑着的 run 在 deactivate 时被停了表）。
+ * activated 首次挂载也会触发，跳过第一次以免重复取数。
+ */
+let activationSkipped = false
+onActivated(() => {
+  if (!activationSkipped) {
+    activationSkipped = true
+    return
+  }
+  fetchDatasets()
+  fetchFolders()
+  const run = currentRun.value
+  if (run && run.status === 'running') startPolling(run.run_id)
+  else if (selectedDatasetId.value) fetchLastRun(selectedDatasetId.value)
+})
+
+/** deactivate 不触发 onBeforeUnmount：评测轮询在这里收口，回到本视图时再接上 */
+onDeactivated(stopPolling)
 </script>
 
 <style lang="less" scoped>

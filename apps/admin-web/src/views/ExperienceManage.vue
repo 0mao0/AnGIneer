@@ -382,7 +382,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, h, nextTick, onMounted, ref } from 'vue'
+import { computed, h, nextTick, onMounted, onActivated, ref } from 'vue'
 import { App, Input, message, type UploadFile } from 'ant-design-vue'
 import { useRouter, onBeforeRouteLeave } from 'vue-router'
 import {
@@ -406,6 +406,9 @@ import { SOPTree, SOPFlowCanvas, SOPPropertyPanel, SopMetaPanel, ForkEditModal, 
 import type { SOPTreeNode, SopStep, SopStatus } from '@angineer/sop-ui'
 import type { Connection } from '@vue-flow/core'
 import FolderModal from './components/FolderModal.vue'
+
+/** keep-alive 的 include 按组件名匹配（见 App.vue 的 cachedViews），少这行会静默不缓存 */
+defineOptions({ name: 'ExperienceManage' })
 
 const { appClass } = useTheme()
 const { modal } = App.useApp()
@@ -1480,6 +1483,21 @@ onBeforeRouteLeave(async (_to, _from, next) => {
 
 onMounted(() => {
   refreshTreeAndFocus()
+})
+
+/**
+ * 缓存后回来只补刷树列表（别处新增/改名的 SOP 能出现），不重载当前 SOP 详情——详情重载会
+ * 覆盖未保存的编辑。有未保存改动时连树都不动，避免节点对象被替换后选中态错位。
+ * activated 首次挂载也会触发，跳过第一次以免与 onMounted 重复取数。
+ */
+let activationSkipped = false
+onActivated(() => {
+  if (!activationSkipped) {
+    activationSkipped = true
+    return
+  }
+  if (persistDirty.value || sopFlow.isDirty.value) return
+  void sopTree.fetchTreeFromApi(statusFilter.value || undefined)
 })
 </script>
 
