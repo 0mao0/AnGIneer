@@ -15,8 +15,9 @@ from pathlib import Path
 from evals_core.storage import result_store
 
 BJT = timezone(timedelta(hours=8))
-DATASET_DEFAULT = "open-ragbench-subset-v2"
-MANIFEST_DEFAULT = "open_ragbench/subset/subset_manifest_v2.json"
+# v3 = v2(487) + 拒答集 v2(39) 合并；拒答题带 refusal_expected，报告「拒答专项」自动拆分
+DATASET_DEFAULT = "open-ragbench-subset-v3"
+MANIFEST_DEFAULT = "open_ragbench/subset/subset_manifest_v3.json"
 
 
 def _db_path() -> Path:

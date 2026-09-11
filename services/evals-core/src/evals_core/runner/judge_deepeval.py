@@ -170,7 +170,8 @@ def evaluate_via_deepeval(
             model=judge,
             threshold=SEMANTIC_THRESHOLD,
             async_mode=False,
-        )        geval.measure(test_case)
+        )
+        geval.measure(test_case)
         score = max(0.0, min(1.0, float(geval.score or 0.0)))
         result.update(
             semantic_score=round(score, 4),
