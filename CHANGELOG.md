@@ -2,6 +2,10 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.51
+
+评测判分引擎接入 DeepEval（`EVAL_ENGINE=deepeval` 开关，默认 legacy 自研判分行为不变）：GEval 逐条移植 v3 判分 rubric（阈值 0.65 不变、显式参数面 actual vs expected output），新增 faithfulness（忠实度/防幻觉）/answer_relevancy/contextual_precision 三个扩展维度（首版只展示不进门禁，`EVAL_DEEPVAL_EXTRA=0` 可关闭以提速 nightly）；`DGXJudge`（deepeval DeepEvalBaseLLM 子类）内部复用 ai_inference 候选链——run 级 UI 指定 > EVAL_JUDGE_CONFIGS > EVAL_JUDGE_MODEL 优先级不变、绝不落到被测模型自判的纪律与 judge_used/judge_failover 哨兵留痕不变；GEval 失败走原有关键词兜底 + nightly judge_fail 补判通道，扩展维度独立失败独立记 None 不污染 correctness；nightly 报告新增扩展维度 median 表、归档/run 汇总带 eval_engine 口径留痕。离线 A/B（存量 prediction 30 题双跑）：秩序保持（Spearman 0.757）、DeepEval 系统性偏严 8.3pp（判分口径变化，切换后首晚重钉基线；翻转 3/30 核读成立，详见 docs/plan-deepeval-judge.md）。回滚 = `EVAL_ENGINE=legacy` 重启。
+
 ## v0.2.50
 
 - 修多轮会话「代检索」取错问题导致的误拒答（生产与开发 2026-09-11 同时复现）：模型某一轮没调检索工具时，兜底会替它执行 `knowledge_search`，取 query 却用「会话里第一条 user 消息」——先问「你好」再问「王飞」的多轮对话于是拿开场白去检索，命中 0 条、耗时 0.00s，被判定「无证据」后按边界规则输出「没有检索到足够证据支持最终结论」，现改为取最近一条用户真实提问，并跳过循环自身注入的 5 种提示文案（`请先调用检索工具获取证据后再回答` 等），`_latest_user_query()` 带 3 条单测

@@ -2,13 +2,13 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.50** —— 修多轮会话误拒答：模型的兜底代检索原先拿「会话第一句话」当检索词（先问「你好」再问「王飞」时会去检索「你好」、命中 0 条，进而误判无证据并输出拒答），改为取最近一句真实提问并跳过循环自身注入的提示；有证据却仍拒答时的定向重试，改为回喂证据原文节选再要求作答；半拒答（先说没证据、后又给出带引用的事实）改为只删掉那句拒答开头、保留正文，并移除会把事实一起丢掉的 ANGINEER_GUARD_HALF_REFUSAL 开关。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.51** —— 评测判分引擎接入 DeepEval（`EVAL_ENGINE=deepeval` 开关，默认 legacy 行为不变）：GEval 移植现有判分 rubric（阈值 0.65 不变），新增 faithfulness/answer_relevancy/contextual_precision 扩展维度（只展示不进门禁），judge 候选链纪律与哨兵留痕不变；离线 A/B 30 题：秩序保持（Spearman 0.76）、系统性偏严 8.3pp（切换后首晚重钉基线）；nightly 报告/归档带 eval_engine 口径留痕。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.46` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.51` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.2` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.8` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
