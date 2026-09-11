@@ -23,8 +23,6 @@ import sys
 import time
 from pathlib import Path
 
-import requests
-
 REPO = Path(__file__).resolve().parents[1]
 DEFAULT_DATA_DIR = REPO / "data" / "omnidocbench"
 DEFAULT_LIBRARY = "omnidocbench"
@@ -42,6 +40,8 @@ def _load_env() -> None:
 
 
 def _admin_token(docs_api: str) -> str:
+    import requests
+
     user = (os.getenv("ADMIN_USER") or "").strip()
     password = os.getenv("ADMIN_PASSWORD") or ""
     if not user or not password:
@@ -52,6 +52,8 @@ def _admin_token(docs_api: str) -> str:
 
 
 def _ensure_library(docs_api: str, headers: dict, library_id: str) -> None:
+    import requests
+
     resp = requests.get(f"{docs_api}/api/knowledge/libraries", timeout=30)
     resp.raise_for_status()
     libs = resp.json()
@@ -70,6 +72,8 @@ def _ensure_library(docs_api: str, headers: dict, library_id: str) -> None:
 
 def _ensure_admin_bound(docs_api: str, headers: dict, library_id: str) -> None:
     """把管理员绑到评测库（会话鉴权按 library_ids 授权，管理员无跨库豁免）。"""
+    import requests
+
     resp = requests.get(f"{docs_api}/api/users", headers=headers, timeout=30)
     resp.raise_for_status()
     admin_name = (os.getenv("ADMIN_USER") or "").strip()
@@ -119,6 +123,8 @@ def _select_pages(data_dir: Path, limit: int, filter_prefix: str, seed: int) -> 
 
 def _parse_one(docs_api: str, headers: dict, library_id: str, page_id: str, pdf_bytes: bytes) -> str:
     """上传单页 PDF 并等待解析完成，返回 doc_id。"""
+    import requests
+
     resp = requests.post(
         f"{docs_api}/api/v1/documents/parse",
         headers=headers,
@@ -146,6 +152,8 @@ def _parse_one(docs_api: str, headers: dict, library_id: str, page_id: str, pdf_
 
 
 def _download_markdown(docs_api: str, headers: dict, doc_id: str) -> str:
+    import requests
+
     resp = requests.get(f"{docs_api}/api/v1/documents/{doc_id}/content", headers=headers, timeout=60)
     resp.raise_for_status()
     return str(resp.json().get("markdown") or "")
