@@ -10,6 +10,7 @@ import {
   filterCitationsByMarkers,
   mergeThinkingTrace,
   stripToolCallArtifacts,
+  summarizeToolResult,
 } from './chatTransport.ts'
 import type { ThinkingTraceItem, ThinkingTraceStep } from '@angineer/aichat-ui'
 
@@ -566,4 +567,20 @@ test('agent 事件实时生成思考过程步骤', () => {
     steps
   )
   assert.equal(unchanged.length, 3)
+})
+
+test('summarizeToolResult 如实显示工具错误，不吞成占位符', () => {
+  // 纯文本错误（如 SQLite 打不开库）必须原样透出，否则故障被伪装成「完整内容见最终轨迹」
+  assert.equal(
+    summarizeToolResult('工具执行失败: unable to open database file'),
+    '工具执行失败: unable to open database file'
+  )
+  // 流式阶段被截断的 JSON 残片仍然只给占位符，不把残片漏进界面
+  assert.equal(
+    summarizeToolResult('{"items": [{"item_id": "x", "text": "截断'),
+    '工具已返回结果（完整内容见最终轨迹）'
+  )
+  // 合法 JSON 照旧走摘要
+  assert.equal(summarizeToolResult('{"items": [1, 2], "total": 2}'), '检索到 2 条结果')
+  assert.equal(summarizeToolResult('{"entities": [], "total": 0}'), '图谱检索到 0 个实体')
 })

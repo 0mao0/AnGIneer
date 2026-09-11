@@ -459,8 +459,13 @@ export function summarizeToolResult(content: string, maxLength = 120): string {
   try {
     raw = JSON.parse(content || '{}')
   } catch {
-    // 流式过程里 tool_end 的 result 可能被截断成片段，不要把这串 JSON 残片漏进界面
-    return '工具已返回结果（完整内容见最终轨迹）'
+    // 流式过程里 tool_end 的 result 可能被截断成 JSON 残片，残片不要漏进界面；
+    // 但工具错误是纯文本（如「工具执行失败: ...」），必须如实显示，否则故障会被伪装成「见最终轨迹」。
+    const text = String(content || '').trim()
+    if (!text || text.startsWith('{') || text.startsWith('[')) {
+      return '工具已返回结果（完整内容见最终轨迹）'
+    }
+    return text.slice(0, maxLength)
   }
   if (raw && typeof raw === 'object') {
     if (Array.isArray(raw.items)) return `检索到 ${raw.total ?? raw.items.length} 条结果`
