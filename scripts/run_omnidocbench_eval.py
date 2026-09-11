@@ -347,6 +347,8 @@ def cmd_eval(args) -> int:
 
     docker_cmd = [
         "docker", "run", "--rm",
+        # 镜像默认 entrypoint 会把参数当 config 路径，须按官方 README 用 bash 包裹
+        "--entrypoint", "bash",
         "-v", f"{filtered_gt}:/workspace/gt/filtered_gt.json:ro",
         "-v", f"{preds_dir}:/workspace/data_md/predictions:ro",
         "-v", f"{config_path}:/workspace/configs/custom.yaml:ro",
@@ -363,10 +365,11 @@ def cmd_eval(args) -> int:
         print(f"评测器退出码 {proc.returncode}")
         return proc.returncode
 
-    metric_file = out_dir / "end2end_quick_match_metric_result.json"
-    if metric_file.exists():
-        data = json.loads(metric_file.read_text(encoding="utf-8"))
-        print("\n=== 汇总（ALL_page_avg） ===")
+    # 结果文件名前缀 = 预测目录名（如 predictions_quick_match_metric_result.json），glob 匹配
+    metric_files = sorted(out_dir.glob("*_metric_result.json"))
+    if metric_files:
+        data = json.loads(metric_files[0].read_text(encoding="utf-8"))
+        print(f"\n=== 汇总（{metric_files[0].name}） ===")
         for module, payload in data.items():
             all_block = (payload or {}).get("all", {}) if isinstance(payload, dict) else {}
             parts = []
@@ -377,7 +380,7 @@ def cmd_eval(args) -> int:
                         parts.append(f"{metric}={round(float(v), 4) if isinstance(v, (int, float)) else v}")
             print(f"{module}: " + " | ".join(parts))
     else:
-        print(f"未找到 {metric_file}，请检查 {out_dir} 产物")
+        print(f"未找到 *_metric_result.json，请检查 {out_dir} 产物")
     return 0
 
 
