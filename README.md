@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.55** —— 修解析失败的任务未让出「图描述」闸门序号、导致后续文档永久卡在该闸门排队（补齐 4.5 阶段的 FIFO skip）；图描述 VLM 并发上限改为可配置 `FIGURE_DESCRIBE_MAX_CONCURRENCY`，生产置为 2 以允许两篇文档的图描述并行；重建被一次编码往返损坏的 `.env.example`（中文注释乱码、换行被吞致 4 个赋值失活）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.56** —— 后台三个模块（知识库/评测集/经验库）切页改 keep-alive 常驻缓存，切回 135–468ms 降到 17–54ms；知识库落地路由关键路径减 895KB（docs-ui 改子路径导入 + 7 个 UI 包补 sideEffects + 重依赖预打包）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

@@ -2,6 +2,11 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.56
+
+- 后台模块切页提速（知识库/评测集/经验库）：管理端三个模块视图改 keep-alive 常驻缓存，切回不再重挂载与重取数据——实测切回耗时 135–468ms 降到 17–54ms，列表/树随 DOM 一起立刻回来（此前每次切换都要重挂载整棵组件树并重打 2–3 个列表接口）。缓存后 `onMounted` 只跑一次，各视图在 `onActivated` 静默补刷（知识库记录、评测集测试集与运行状态、经验库树列表、夜间健康与报告），`onDeactivated` 收口全部轮询表（知识库 records 与解析阶段、评测 run 轮询、夜间面板 15s 心跳），避免缓存实例在后台持续打接口（实测失活 66s 内 0 次请求）；经验库带未保存改动时不刷树，防止覆盖编辑。`include` 按组件名匹配，三个视图各补 `defineOptions({ name })`——名字对不上会静默不缓存
+- 知识库落地路由关键路径减 895KB：`KnowledgeStats` 只取一个 `useKnowledgeParse` 却走 `@angineer/docs-ui` barrel，连带 re-export 的 `PDF_Viewer`/`OfficePreview` 把 katex(320KB)、pdf.js、xlsx 一起拖进落地路由块（生产该路由静态下载 2015KB→1120KB、路由自身块 725KB→86KB；dev 首屏渲染前请求 145→87、到表格可用 753ms→389ms。全量产物大小不变——预览栈只是从「挡住首屏」改成「空闲预热/按需加载」）。改法三处：docs-ui 新增 `./composables/useKnowledgeParse` 子路径出口并改子路径导入；7 个 UI 包（docs-ui/aichat-ui/sop-ui/evals-ui/table-ui/ui-kit/smartree）补 `sideEffects`（仅样式文件算副作用，源码模块可被 tree-shaking 丢弃——实测「仅补 sideEffects」与「仅改子路径导入」各自独立达成同一结果，CSS 规则计数逐项未变）；`vite.config.ts` 预置 echarts/pdfjs-dist/xlsx/docx-preview/katex/@vue-flow/core 进 `optimizeDeps.include`，避免首次切到该模块时 Vite 重新预打包并强制整页 reload
+
 ## v0.2.55
 
 - 修解析任务在闸门前失败/退出时未让出「图描述」闸门序号，导致后续文档永久卡在「等待图描述 VLM 资源」（2026-09-11 生产实踩）：`ParseOrchestrator._run_parse_task` 的 `finally` 只对 MinerU / PoPo 闸门调了 `skip(arrival_seq)`，漏了图描述闸门。在 `raw_parse` 就失败的任务（如 MinerU 504）永远到不了 4.5，其提交序号会永久占据该闸门的 `_next_seq`，此后所有文档都在 4.5 排队直到 docs-api 重启——且表现为「整齐地在排队」而非报错，极易误读成 VLM 端点慢
