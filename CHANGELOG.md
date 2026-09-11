@@ -2,6 +2,11 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.52
+
+- 修「检索范围为空」被静默伪装成「没有检索到足够证据」（2026-09-11 生产与开发同时踩到）：检索用的文档范围取自后端**进程内内存节点列表**（`docs_service.self.nodes`），该列表为空时 `DenseRetriever.retrieve` 首行 `if not doc_nodes: return []` 直接返回，三个检索阶段全部 0.00s、结果恒 0 条，边界规则据此判定「无证据」并让模型输出拒答，而全过程**无告警、无日志**。排查取证：复现时请求 payload 完全干净（`library_id=default`、`doc_ids=[]`），失败窗口内既无 `/api/embed` 也无 qdrant 查询（dense 若执行必然先嵌入），而同一进程两分钟前的请求能取到 20 条。现在空范围会显式报出来——接口先发一条 `warning` 事件（界面弹横幅：「知识库当前没有可检索的文档（或检索服务尚未就绪），稍后重试通常可恢复」，不再让用户读到一句假的「没有证据」），`_load_doc_nodes` 同时打 WARNING 带上「该库节点总数 N / 进程内已加载库数 M」，`doc_ids` 匹配不到文档也单独告警
+- 检索器异常不再被静默吞掉：`_run_knowledge_search` 里 dense/sparse/clause 抛错时原先只塞进 `sources["<x>_error"]` 且从不输出，日志形态与「确实没结果」完全一致，只能靠两侧日志对拍才能分辨，改为逐条 WARNING 留痕
+
 ## v0.2.51
 
 评测判分引擎接入 DeepEval（`EVAL_ENGINE=deepeval` 开关，默认 legacy 自研判分行为不变）：GEval 逐条移植 v3 判分 rubric（阈值 0.65 不变、显式参数面 actual vs expected output），新增 faithfulness（忠实度/防幻觉）/answer_relevancy/contextual_precision 三个扩展维度（首版只展示不进门禁，`EVAL_DEEPVAL_EXTRA=0` 可关闭以提速 nightly）；`DGXJudge`（deepeval DeepEvalBaseLLM 子类）内部复用 ai_inference 候选链——run 级 UI 指定 > EVAL_JUDGE_CONFIGS > EVAL_JUDGE_MODEL 优先级不变、绝不落到被测模型自判的纪律与 judge_used/judge_failover 哨兵留痕不变；GEval 失败走原有关键词兜底 + nightly judge_fail 补判通道，扩展维度独立失败独立记 None 不污染 correctness；nightly 报告新增扩展维度 median 表、归档/run 汇总带 eval_engine 口径留痕。离线 A/B（存量 prediction 30 题双跑）：秩序保持（Spearman 0.757）、DeepEval 系统性偏严 8.3pp（判分口径变化，切换后首晚重钉基线；翻转 3/30 核读成立，详见 docs/plan-deepeval-judge.md）。回滚 = `EVAL_ENGINE=legacy` 重启。

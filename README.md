@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.51** —— 评测判分引擎接入 DeepEval（`EVAL_ENGINE=deepeval` 开关，默认 legacy 行为不变）：GEval 移植现有判分 rubric（阈值 0.65 不变），新增 faithfulness/answer_relevancy/contextual_precision 扩展维度（只展示不进门禁），judge 候选链纪律与哨兵留痕不变；离线 A/B 30 题：秩序保持（Spearman 0.76）、系统性偏严 8.3pp（切换后首晚重钉基线）；nightly 报告/归档带 eval_engine 口径留痕。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.52** —— 修「检索范围为空」被静默伪装成「没有检索到足够证据」（文档范围取自后端进程内内存节点列表，该列表为空时 dense 直接跳过、检索恒 0 条，模型被边界规则逼出拒答且全程无告警无日志）：现在空范围会先发 warning 事件、界面弹横幅说明真实原因，后端同时打 WARNING 带上「该库节点总数 / 进程内已加载库数」；检索器 dense/sparse/clause 的异常也不再被静默吞掉，改为逐条 WARNING 留痕。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
