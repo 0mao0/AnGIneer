@@ -160,6 +160,8 @@ def _download_markdown(docs_api: str, headers: dict, doc_id: str) -> str:
 
 
 def cmd_predict(args) -> int:
+    if getattr(args, "in_process", False):
+        return _predict_in_process(args)
     _load_env()
     data_dir = Path(args.data_dir)
     preds_dir = Path(args.predictions)
@@ -200,6 +202,99 @@ def cmd_predict(args) -> int:
     return 0 if failed == 0 else 1
 
 
+def _predict_in_process(args) -> int:
+    """进程内模式：直接在 docs-core 宿主进程驱动解析（无 HTTP / 无管理员凭据）。
+
+    在 docs-api 容器内执行（docker exec）时最稳：绕过会话鉴权，直接调
+    ParseOrchestrator + file_storage，产物 markdown 从 parsed/content.md 读取。
+    """
+    import uuid
+
+    import docs_core.paths as core_paths
+    from docs_core.docs_file_io import file_storage
+    from docs_core.docs_service import get_docs_service
+    from docs_core.parse_pipeline import ParseOrchestrator
+
+    data_dir = Path(args.data_dir)
+    preds_dir = Path(args.predictions)
+    preds_dir.mkdir(parents=True, exist_ok=True)
+    state_path = preds_dir / "state.json"
+    state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
+
+    pages = _select_pages(data_dir, args.limit, args.filter_prefix, args.seed)
+    print(f"待解析页数: {len(pages)}（进程内模式）", flush=True)
+
+    ks = get_docs_service()
+    if ks.get_library(args.library) is None:
+        ks.create_library(args.library, args.library, "OmniDocBench 解析评测专用库")
+        print(f"已创建知识库: {args.library}", flush=True)
+    orchestrator = ParseOrchestrator()
+    stage_list = [s.strip() for s in PARSE_STAGES.split(",") if s.strip()]
+
+    done = failed = skipped = 0
+    for idx, image in enumerate(pages, 1):
+        page_id = image.stem
+        out_md = preds_dir / f"{page_id}.md"
+        if out_md.exists() and str(state.get(page_id, {}).get("status")) == "done":
+            skipped += 1
+            continue
+        try:
+            doc_id = f"od-{uuid.uuid4().hex[:10]}"
+            pdf_bytes = _page_to_pdf_bytes(image)
+            source_path = file_storage.save_source_file(args.library, doc_id, pdf_bytes, f"{page_id}.pdf")
+            ks.register_document(args.library, source_path, doc_id, title=f"{page_id}.pdf")
+            task = orchestrator.create_parse_task(
+                library_id=args.library,
+                doc_id=doc_id,
+                file_path=source_path,
+                parse_options={"stages": stage_list, "use_llm": False},
+            )
+            task_id = task["task_id"]
+            deadline = time.time() + 1800
+            status = ""
+            while time.time() < deadline:
+                current = orchestrator.get_parse_task(task_id) or {}
+                status = str(current.get("status") or "")
+                if status in ("completed", "failed", "partial", "cancelled"):
+                    break
+                time.sleep(5)
+            if status != "completed":
+                raise RuntimeError(f"解析未正常完成: status={status} msg={str((current or {}).get('stage_message') or '')[:150]}")
+            md_path = core_paths.get_parsed_dir(args.library, doc_id) / "content.md"
+            markdown = md_path.read_text(encoding="utf-8") if md_path.exists() else ""
+            out_md.write_text(markdown, encoding="utf-8")
+            state[page_id] = {"status": "done", "doc_id": doc_id, "chars": len(markdown)}
+            done += 1
+            print(f"[{idx}/{len(pages)}] {page_id}: {len(markdown)} chars", flush=True)
+        except Exception as exc:  # noqa: BLE001
+            state[page_id] = {"status": "failed", "error": str(exc)[:300]}
+            failed += 1
+            print(f"[{idx}/{len(pages)}] {page_id}: FAILED {str(exc)[:160]}", flush=True)
+        state_path.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"predict 完成: done={done} failed={failed} skipped={skipped}，输出 {preds_dir}", flush=True)
+    return 0 if failed == 0 else 1
+
+
+def _filter_gt_for_predictions(gt_json: Path, preds_dir: Path, out_path: Path) -> int:
+    """只保留有预测 .md 的 GT 页：评测器遍历全量 GT，缺失预测按空内容计分会拖垮指标。
+
+    预测命名约定（与评测器 _resolve_prediction_path 对齐）：图片名去扩展名 + .md
+    （兼容 .pdf 中缀的变体）。
+    """
+    gt = json.loads(gt_json.read_text(encoding="utf-8"))
+    pred_stems = {p.stem for p in preds_dir.glob("*.md")}
+    kept = []
+    for sample in gt:
+        img_name = Path(str((sample.get("page_info") or {}).get("image_path") or "")).name
+        if not img_name:
+            continue
+        stem = img_name[:-4] if "." in img_name else img_name
+        if stem in pred_stems or stem.replace(".pdf", "") in pred_stems:
+            kept.append(sample)
+    out_path.write_text(json.dumps(kept, ensure_ascii=False), encoding="utf-8")
+    return len(kept)
+
+
 def cmd_eval(args) -> int:
     import subprocess
 
@@ -213,6 +308,13 @@ def cmd_eval(args) -> int:
     md_count = len(list(preds_dir.glob("*.md")))
     if md_count == 0:
         raise SystemExit(f"预测目录没有 .md: {preds_dir}")
+
+    # 只评有预测的页（GT 过滤）
+    filtered_gt = out_dir / "filtered_gt.json"
+    kept = _filter_gt_for_predictions(gt_json, preds_dir, filtered_gt)
+    if kept == 0:
+        raise SystemExit(f"GT 中没有与预测匹配的页（预测 {md_count} 个 .md）")
+    print(f"GT 过滤: {kept} 页参与评测（预测 {md_count} 个）")
 
     config_path = out_dir / "custom.yaml"
     config_path.write_text(
@@ -231,7 +333,7 @@ def cmd_eval(args) -> int:
   dataset:
     dataset_name: end2end_dataset
     ground_truth:
-      data_path: /workspace/gt/OmniDocBench.json
+      data_path: /workspace/gt/filtered_gt.json
     prediction:
       data_path: /workspace/data_md/predictions
     match_method: quick_match
@@ -245,7 +347,7 @@ def cmd_eval(args) -> int:
 
     docker_cmd = [
         "docker", "run", "--rm",
-        "-v", f"{gt_json}:/workspace/gt/OmniDocBench.json:ro",
+        "-v", f"{filtered_gt}:/workspace/gt/filtered_gt.json:ro",
         "-v", f"{preds_dir}:/workspace/data_md/predictions:ro",
         "-v", f"{config_path}:/workspace/configs/custom.yaml:ro",
         "-v", f"{out_dir}:/workspace/result",
@@ -291,6 +393,7 @@ def main() -> int:
     p_predict.add_argument("--limit", type=int, default=0, help="抽样页数（0=全量）")
     p_predict.add_argument("--filter-prefix", default="", help="按文件名前缀过滤文档类型（如 docstructbench_）")
     p_predict.add_argument("--seed", type=int, default=42)
+    p_predict.add_argument("--in-process", action="store_true", help="进程内直驱解析（在 docs-api 容器内执行，无需 HTTP/管理员凭据）")
 
     p_eval = sub.add_parser("eval", help="官方评测器（Docker）")
     p_eval.add_argument("--data-dir", default=str(DEFAULT_DATA_DIR))
