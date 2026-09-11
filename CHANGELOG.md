@@ -2,6 +2,10 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.57
+
+紧急修复 DeepEval 判分路径语法错误（v0.2.51 引入）：一次编辑事故把 `geval.measure(test_case)` 与上一行右括号粘连成 `)        geval.measure(...)`，导致 `judge_deepeval.py` 整体语法不合法——由于该模块是判分时才惰性导入，本地单测（未覆盖该编辑后重跑）与部署构建均未拦截，v0.2.51 起生产 deepeval 判分路径全题报 `invalid syntax`（今晚 nightly 前修复，否则全题判分失败）。本地冒烟复测：拒答题正确拒答、普通题 engine=deepeval 判分 1.0 + contextual_precision 0.78，链路完整。同时：nightly 默认题集切换 v3 = v2(487) + 拒答题集 v2(39) 合并（拒答题带 refusal_expected，报告「拒答专项」自动拆分统计，正确拒答计为答对）；新增 `scripts/build_subset_v3.py`（幂等构建 DB 行 + 数据集 JSON + manifest v3，本地/生产同构）。
+
 ## v0.2.56
 
 - 后台模块切页提速（知识库/评测集/经验库）：管理端三个模块视图改 keep-alive 常驻缓存，切回不再重挂载与重取数据——实测切回耗时 135–468ms 降到 17–54ms，列表/树随 DOM 一起立刻回来（此前每次切换都要重挂载整棵组件树并重打 2–3 个列表接口）。缓存后 `onMounted` 只跑一次，各视图在 `onActivated` 静默补刷（知识库记录、评测集测试集与运行状态、经验库树列表、夜间健康与报告），`onDeactivated` 收口全部轮询表（知识库 records 与解析阶段、评测 run 轮询、夜间面板 15s 心跳），避免缓存实例在后台持续打接口（实测失活 66s 内 0 次请求）；经验库带未保存改动时不刷树，防止覆盖编辑。`include` 按组件名匹配，三个视图各补 `defineOptions({ name })`——名字对不上会静默不缓存

@@ -2,13 +2,13 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.56** —— 后台三个模块（知识库/评测集/经验库）切页改 keep-alive 常驻缓存，切回 135–468ms 降到 17–54ms；知识库落地路由关键路径减 895KB（docs-ui 改子路径导入 + 7 个 UI 包补 sideEffects + 重依赖预打包）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.57** —— 紧急修复：DeepEval 判分路径的语法错误（编辑事故导致 `geval.measure` 与括号粘连，v0.2.51 起该路径全题报 invalid syntax，本地冒烟实测暴露）——若今晚 nightly 前未修复，全部题目将因判分异常失败；同时 nightly 默认题集切换为 v3（v2 487 题 + 拒答题集 39 题合并，报告「拒答专项」自动拆分），新增题集构建脚本 `scripts/build_subset_v3.py`。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.54` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.57` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.2` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.8` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
