@@ -789,6 +789,12 @@
       <div v-if="semanticResult" class="eval-section">
         <div class="eval-semantic-header">
           <span class="eval-section__title">语义评判</span>
+          <a-tooltip
+            v-if="semanticResult.eval_engine === 'deepeval'"
+            title="本次由 DeepEval 引擎判分（口径比早期 legacy 判分严约 8pp），扩展维度见下方"
+          >
+            <span class="eval-engine-badge">DeepEval</span>
+          </a-tooltip>
           <span
             class="eval-semantic-score"
             :class="{
@@ -808,6 +814,27 @@
           class="eval-semantic-reason eval-rich-text eval-rich-text--compact"
           v-html="renderRichText(semanticResult.semantic_reason)"
         />
+        <!-- DeepEval 扩展维度（有则显示；忠实度=答案是否忠于检索内容，相关性=是否切题，上下文精度=检索排序质量） -->
+        <div
+          v-if="hasExtraDims"
+          class="eval-extra-dims"
+        >
+          <a-tooltip title="答案中的论断是否都能被检索到的内容支撑（越高越不幻觉）">
+            <span v-if="semanticResult.faithfulness_score !== null && semanticResult.faithfulness_score !== undefined" class="eval-extra-dims__item">
+              忠实度 {{ Math.round(semanticResult.faithfulness_score * 100) }}分
+            </span>
+          </a-tooltip>
+          <a-tooltip title="答案是否切题（问题与答案的相关性）">
+            <span v-if="semanticResult.answer_relevancy_score !== null && semanticResult.answer_relevancy_score !== undefined" class="eval-extra-dims__item">
+              相关性 {{ Math.round(semanticResult.answer_relevancy_score * 100) }}分
+            </span>
+          </a-tooltip>
+          <a-tooltip title="检索结果把相关内容排在前面的程度（检索排序质量）">
+            <span v-if="semanticResult.contextual_precision_score !== null && semanticResult.contextual_precision_score !== undefined" class="eval-extra-dims__item">
+              上下文精度 {{ Math.round(semanticResult.contextual_precision_score * 100) }}分
+            </span>
+          </a-tooltip>
+        </div>
         <div v-if="semanticResult.semantic_fallback" class="eval-semantic-fallback-hint">
           ⚠ LLM 语义评判失败，已降级为关键词匹配
         </div>
@@ -1176,11 +1203,22 @@ const semanticResult = computed<SemanticEvalResult | null>(() => {
     semantic_passed: answerScores.semantic_passed as boolean | null ?? null,
     semantic_threshold: Number(answerScores.semantic_threshold || 0.7),
     eval_duration: (answerScores.eval_duration as number | null) ?? null,
+    eval_engine: (answerScores.eval_engine as string | null) ?? null,
+    faithfulness_score: (answerScores.faithfulness_score as number | null) ?? null,
+    answer_relevancy_score: (answerScores.answer_relevancy_score as number | null) ?? null,
+    contextual_precision_score: (answerScores.contextual_precision_score as number | null) ?? null,
   }
 })
 
 const stageTimings = computed<Record<string, number>>(() => {
   return (prediction.value?.stage_timings as Record<string, number>) || {}
+})
+
+/** DeepEval 扩展维度是否至少有一项可展示 */
+const hasExtraDims = computed(() => {
+  const r = semanticResult.value
+  if (!r) return false
+  return r.faithfulness_score != null || r.answer_relevancy_score != null || r.contextual_precision_score != null
 })
 
 const detailStatus = computed(() => String(props.detail?.status || 'pending'))
@@ -2749,6 +2787,33 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
 .eval-semantic-threshold {
   color: var(--text-secondary);
   font-size: 11px;
+}
+
+.eval-engine-badge {
+  margin-right: 6px;
+  padding: 0 6px;
+  font-size: 11px;
+  line-height: 18px;
+  border-radius: 4px;
+  color: #fff;
+  background: #2f54eb;
+  cursor: default;
+}
+
+.eval-extra-dims {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 6px;
+}
+
+.eval-extra-dims__item {
+  font-size: 11px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.12));
+  border-radius: 4px;
+  padding: 1px 6px;
+  cursor: default;
 }
 
 .eval-semantic-reason {

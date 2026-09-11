@@ -2,13 +2,13 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.53** —— 夜间维护页新增判分引擎口径标记：列表「判分」列与单日明细分析区在 DeepEval 判分的条目上显示 DeepEval 徽标与口径提示（口径比 legacy 严约 8pp，与 legacy 基线的分差含口径差、勿读作回归）——配合 v0.2.51 的判分引擎切换，防明早报告被误读。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.54** —— 单题评测卡片（日常测试/夜间明细展开）显示判分引擎与扩展维度：DeepEval 判分的题目在「语义评判」区带 DeepEval 徽标，并按存在与否展示忠实度/相关性/上下文精度三个扩展维度分数（各带口径说明 tooltip）——判错归因时一眼区分「检索到了但答错」与「根本没检索到」。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.53` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.54` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.2` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.8` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |

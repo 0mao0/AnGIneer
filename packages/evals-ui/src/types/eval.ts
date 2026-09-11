@@ -60,6 +60,12 @@ export interface SemanticEvalResult {
   semantic_passed: boolean | null
   semantic_threshold: number
   eval_duration?: number | null
+  /** 判分引擎（v0.2.51 起；'deepeval' | 'legacy'，缺省=legacy） */
+  eval_engine?: string | null
+  /** DeepEval 扩展维度（仅 deepeval 引擎产出；仅展示） */
+  faithfulness_score?: number | null
+  answer_relevancy_score?: number | null
+  contextual_precision_score?: number | null
 }
 
 /** SQL 评测标准答案 */

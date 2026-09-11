@@ -2,6 +2,10 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.54
+
+单题评测卡片显示判分引擎与扩展维度（evals-ui，monorepo 内部包随主仓库发版）：`SemanticEvalResult` 类型补 `eval_engine`/`faithfulness_score`/`answer_relevancy_score`/`contextual_precision_score` 可选字段；「语义评判」区在 DeepEval 判分的题目上显示 DeepEval 徽标（tooltip 说明口径差异），判分理由下方按存在与否展示忠实度/相关性/上下文精度三个扩展维度分数（各带口径说明 tooltip）——判错归因时一眼区分「检索到了但答错」与「根本没检索到」。vue-tsc 通过。
+
 ## v0.2.53
 
 夜间维护页判分引擎口径标记（配合 v0.2.51 DeepEval 切换防误读）：维护列表新增「判分」列——DeepEval 判分条目显示蓝色 DeepEval 徽标（tooltip 说明口径差异），legacy/历史条目分别显示 legacy/—；单日明细分析区对 DeepEval 条目追加口径提示行（「口径比 legacy 严约 8 个百分点，与 legacy 基线的分差含口径差，不代表系统回归」）。前端类型补 eval_engine 字段；vue-tsc 与 vite build 通过。
