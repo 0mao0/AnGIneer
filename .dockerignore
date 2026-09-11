@@ -49,6 +49,11 @@ docs
 tests
 tools
 scripts
-# 例外：向量迁移/校验脚本需要进入后端镜像（Dockerfile.backend COPY）
+# 例外：需进后端镜像的运维脚本（每加一个都要在这里放行，否则 COPY 报 file not found）
+# ——2026-09-11 实踩：Dockerfile 已 COPY build_subset_v3/run_omnidocbench_eval 但此处未放行，
+# 构建上下文里没有这两个文件，部署在 Build images 阶段直接失败（服务未重启，线上仍是旧镜像）
 !scripts/migrate_vectors_to_qdrant.py
 !scripts/verify_qdrant_parity.py
+!scripts/build_subset_v3.py
+!scripts/run_omnidocbench_eval.py
+!scripts/fix_node_file_paths.py
