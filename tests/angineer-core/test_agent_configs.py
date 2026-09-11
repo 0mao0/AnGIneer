@@ -205,5 +205,52 @@ class QaConfigTests(unittest.TestCase):
         self.assertIn("吃水加富裕深度", new_answer)
 
 
+class HalfRefusalStripTests(unittest.TestCase):
+    """P1：半拒答只删开头那句「没有检索到足够证据」，保留带引用的正文。
+
+    「证据不足/部分未覆盖」这类软表述是 prompt 要求模型如实说明的部分覆盖提示，
+    属于合法回答，不能删（旧实现 ANGINEER_GUARD_HALF_REFUSAL 整体替换成纯拒答，
+    会把正文一起丢掉）。
+    """
+
+    EVIDENCE = (
+        '{"items": [{"item_id": "a", "text": "王飞，2012 年 7 月入职，负责对外经营",'
+        ' "metadata": {"cite": "K1"}}]}'
+    )
+    FACT = "王飞于 2012 年 7 月入职，并担任项目经理 [K1]。"
+
+    def _added(self, answer):
+        return [
+            AgentMessage(role="tool", content=self.EVIDENCE, is_error=False),
+            AgentMessage(role="assistant", content=answer),
+        ]
+
+    def test_guard_strips_hard_refusal_lead_and_keeps_body(self):
+        guard = make_final_answer_guard(enforce_evidence=True)
+        answer = "没有检索到足够证据支持最终结论。" + "已核对到的内容如下：" + self.FACT * 4
+        self.assertGreater(len(answer), 120)  # is_half_refusal_text 的长度门槛
+
+        result = guard(self._added(answer))
+        self.assertIsNotNone(result)
+        new_answer, note = result
+        self.assertNotIn("没有检索到足够证据", new_answer)
+        self.assertIn("[K1]", new_answer)
+        self.assertIn("半拒答", note)
+
+    def test_guard_keeps_soft_partial_coverage_disclosure(self):
+        guard = make_final_answer_guard(enforce_evidence=True)
+        answer = "证据不足的部分未覆盖。" + "已支持的内容如下：" + self.FACT * 4
+        self.assertGreater(len(answer), 120)
+
+        self.assertIsNone(guard(self._added(answer)))
+
+    def test_strip_helper_leaves_normal_and_empty_untouched(self):
+        from angineer_core.agent_messages import strip_half_refusal_lead
+
+        normal = self.FACT * 5
+        self.assertEqual(strip_half_refusal_lead(normal), normal)
+        self.assertEqual(strip_half_refusal_lead(""), "")
+
+
 if __name__ == "__main__":
     unittest.main()

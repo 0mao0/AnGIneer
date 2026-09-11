@@ -5,7 +5,7 @@ import re
 from typing import Any, Dict, List, Optional
 
 from angineer_core.agent_loop import AgentLoopConfig, TurnContext
-from angineer_core.agent_messages import AgentMessage, is_half_refusal_text, is_refusal_text
+from angineer_core.agent_messages import AgentMessage, is_refusal_text, strip_half_refusal_lead
 from angineer_core.agent_tools import (
     AgentTool,
     EngtoolAdapter,
@@ -23,12 +23,6 @@ from angineer_core.tool_codec import TextToolCallCodec
 
 
 _MARKER_RE = re.compile(r"\[([KTE]\d+)\]")
-
-
-def _env_flag(name: str, default: bool = False) -> bool:
-    """通用 env 布尔开关解析：true/1/yes/on 视为开，其余视为关。"""
-    raw = os.getenv(name, "")
-    return raw.strip().lower() in ("true", "1", "yes", "on")
 
 
 def _load_qa_system_prompt() -> str:
@@ -172,10 +166,13 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                     _refusal_text(),
                     "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
                 )
-            if _env_flag("ANGINEER_GUARD_HALF_REFUSAL") and answer and is_half_refusal_text(answer):
+            stripped = strip_half_refusal_lead(answer)
+            if stripped != answer:
+                # 半拒答：模型先写了「没有检索到足够证据」又带着引用继续作答 —— 只删开头那句，
+                # 保留正文（旧实现（ANGINEER_GUARD_HALF_REFUSAL）整体替换成纯拒答，会把事实一起丢掉）
                 return (
-                    _refusal_text(),
-                    "边界规则：检测到半拒答（先声明证据不足又继续作答，ANGINEER_GUARD_HALF_REFUSAL），已替换为拒答话术",
+                    stripped,
+                    "边界规则：检测到半拒答（先声明无证据又继续作答），已删掉拒答开头、保留正文",
                 )
             if answer and is_refusal_text(answer):
                 refusal_note = (

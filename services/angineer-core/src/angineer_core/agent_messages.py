@@ -60,6 +60,28 @@ def is_half_refusal_text(text: str, max_len: int = 400) -> bool:
     return True
 
 
+def strip_half_refusal_lead(text: str) -> str:
+    """半拒答删掉开头那句「没有检索到足够证据」的声明，保留后面带引用的正文。
+
+    门槛自持（不复用 is_half_refusal_text）：那条软表述关键词表里没有硬拒答话术
+    「没有检索到足够证据」，用它做门槛会导致真正要修的场景不触发（单测实踩）。
+    只认硬拒答标记 + 后文有引用：「证据不足/部分未覆盖」这类软表述是 prompt 要求
+    模型如实说明的部分覆盖提示，属于合法回答，不动。
+    """
+    content = (text or "").strip()
+    if len(content) <= 120 or not _CITE_RE.search(content):
+        return content
+    if not any(marker in content[:400] for marker in REFUSAL_MARKERS):
+        return content
+    for idx, ch in enumerate(content[:400]):
+        if ch in "。！？\n":
+            tail = content[idx + 1:].strip()
+            if tail:
+                return tail
+            break
+    return content
+
+
 @dataclass
 class ToolCall:
     """循环侧生成的工具调用。id 形如 call_{turn}_{seq}。"""
