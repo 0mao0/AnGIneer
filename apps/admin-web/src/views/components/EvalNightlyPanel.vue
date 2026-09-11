@@ -36,7 +36,10 @@
             <a-tag :color="stateColor(record.state)">{{ stateLabel(record.state) }}</a-tag>
           </template>
           <template v-else-if="column.key === 'overall'">
-            {{ pct(record.overall_score) }}
+            <span v-if="record.overall_score != null">{{ pct(record.overall_score) }}</span>
+            <span v-else-if="record.progress?.score != null"
+                  title="评测被中断：这是已完成题目的部分正确率，未参与门禁">≈{{ pct(record.progress.score ?? undefined) }}</span>
+            <span v-else>—</span>
           </template>
           <template v-else-if="column.key === 'eval_engine'">
             <!-- 判分引擎口径标记：deepeval 与 legacy 分数差含口径差，防误读为回归 -->
@@ -155,6 +158,8 @@ interface NightlyDay {
   dataset_id?: string
   gate_reasons?: string[]
   note?: string
+  /** 中断档的部分进度（仅 error 档可能携带）：让"跑到哪了"可见，不参与门禁 */
+  progress?: { completed: number; total: number; correct?: number; score?: number | null }
 }
 
 interface NightlyDayDetailData {
@@ -182,8 +187,12 @@ const columns: DataTableColumn[] = [
   { title: '平均分', key: 'overall', width: 92, minWidth: 80, align: 'center' },
   { title: '判分', key: 'eval_engine', width: 84, minWidth: 72, align: 'center' },
   { title: '题量', key: 'correct', width: 104, minWidth: 88, align: 'center',
-    customRender: ({ record }: { record: NightlyDay }) =>
-      record.correct != null && record.total != null ? `${record.correct}/${record.total}` : '—' },
+    customRender: ({ record }: { record: NightlyDay }) => {
+      if (record.correct != null && record.total != null) return `${record.correct}/${record.total}`
+      // 中断档没有最终答对数：退化为「已跑/总」，让当晚到底跑了多少题一眼可见
+      if (record.progress?.completed != null) return `${record.progress.completed}/${record.progress.total ?? '?'}`
+      return '—'
+    } },
   { title: '基线', key: 'delta', width: 90, minWidth: 72, align: 'center' },
   { title: '评价', key: 'verdict', width: 220, minWidth: 160, flex: true, resizable: true, align: 'center' },
   { title: '操作', key: 'action', width: 140, minWidth: 120, align: 'center', fixed: 'right' },

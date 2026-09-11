@@ -52,6 +52,39 @@ async def _await_terminal(run_id: str, deadline: float) -> dict:
     raise PipelineError(f"评测 run {run_id} 超时未完成（超过时限仍未到终态）")
 
 
+def _stop_run_best_effort(run_id: str) -> None:
+    """请求优雅停止评测 run（当前题做完即退出）。失败只记日志——收尾比"停得干净"更重要。"""
+    if not run_id:
+        return
+    try:
+        if suite_runner.stop_eval_run(run_id):
+            logger.info("nightly 失败收尾：已请求停止 run=%s", run_id)
+        else:
+            logger.info("nightly 失败收尾：run=%s 已不在运行中，无需停止", run_id)
+    except Exception:  # noqa: BLE001
+        logger.exception("nightly 失败收尾停止 run 出错（不影响结论落盘）run=%s", run_id)
+
+
+def _partial_progress(run_id: str) -> Optional[dict]:
+    """已跑部分的进度快照 {completed, total, correct, score}，供 error 档展示"跑到哪了"。
+
+    light 查询，不拉 prediction/all_scores 大字段（那是几十 MB 的 JSON）。
+    2026-09-12 实踩：05:30 判超时写 error 档，run 自己 05:55 才跑完 526/526，
+    437 题结果无人看见——收尾必须把已完成的部分捞出来。"""
+    run = result_store.get_run(run_id) or {}
+    details = result_store.list_run_details(run_id, True) or []
+    done = [d for d in details if d.get("status") not in ("pending", "running")]
+    completed = len(done)
+    correct = sum(1 for d in done if d.get("quality") == "correct")
+    total = int(run.get("total_questions") or len(details) or 0)
+    return {
+        "completed": completed,
+        "total": total,
+        "correct": correct,
+        "score": round(correct / completed, 4) if completed else None,
+    }
+
+
 async def _auto_retry(run_id: str, dataset_id: str, rounds: int, deadline: float) -> dict:
     """judge_fail 只重判分、exec_error 整题重跑（原地续跑复用同一 run），≤rounds 轮。"""
     for round_no in range(1, max(rounds, 0) + 1):
@@ -185,19 +218,32 @@ async def run_nightly(*, dataset_id: str,
                 logger.info("nightly 流水线被手动停止（run=%s）", run_id)
                 return {"state": "stopped", "ok": False, "run_id": run_id,
                         "detail": "已被手动停止，未生成结论"}
+        # 先停后写：超时/异常后 run 往往还在跑（2026-09-12 实踩：05:30 判超时，
+        # run 自己 05:55 才收工，此后算力全是白烧），这里立即请求优雅停止。
+        await asyncio.to_thread(_stop_run_best_effort, run_id)
         logger.exception("nightly 流水线失败（run=%s）", run_id)
         note = f"{type(exc).__name__}: {str(exc)[:280]}"
         err_started = ""
+        progress = None
         if run_id:
-            try:  # 起跑后失败（run 已建档）尽量带上开跑时间；起跑前异常则无从取、留空
+            try:  # 起跑后失败（run 已建档）尽量带上开跑时间与已跑进度；起跑前异常则无从取、留空
                 err_started = str((await asyncio.to_thread(result_store.get_run, run_id) or {}).get("started_at") or "")
+                progress = await asyncio.to_thread(_partial_progress, run_id)
             except Exception:  # noqa: BLE001
                 pass
+        progress_text = ""
+        if progress and progress.get("completed"):
+            score = progress.get("score")
+            progress_text = f"；已跑 {progress['completed']}/{progress.get('total') or '?'}"
+            if score is not None:
+                progress_text += f"（答对 {progress['correct']}，部分正确率 {score:.2%}）"
         try:
             archive.publish_day(archive.build_error_entry(
                 dataset_id, date, note, subject=_dataset_subject(dataset_id),
-                started_at=err_started), None)
-            await _notify_best_effort(webhook, notify.build_message(None, None, notify.STATE_ERROR, note))
+                started_at=err_started, progress=progress), None)
+            await _notify_best_effort(webhook, notify.build_message(
+                None, None, notify.STATE_ERROR, note + progress_text))
         except Exception:  # noqa: BLE001 兜底路径再失败只留日志
             logger.exception("nightly error 档结论落盘/通知也失败")
-        return {"state": "error", "ok": False, "run_id": run_id, "detail": note[:300]}
+        return {"state": "error", "ok": False, "run_id": run_id,
+                "detail": (note + progress_text)[:300]}

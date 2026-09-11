@@ -280,8 +280,16 @@ def get_dataset(dataset_id: str) -> Optional[Dict[str, Any]]:
 
 
 def delete_dataset(dataset_id: str) -> bool:
-    """删除测试集及其所有题目，同时删除 tree_node 中的节点。"""
+    """删除测试集及其所有题目、评测运行（含逐题明细），同时删除 tree_node 中的节点。
+
+    评测运行必须显式删：schema 的 ON DELETE CASCADE 从未生效（见 _delete_run_details），
+    此前删测试集会永久留下整套 run + 明细。"""
     conn = _get_conn()
+    run_ids = [
+        row["run_id"] for row in conn.execute(
+            "SELECT run_id FROM eval_run WHERE dataset_id = ?", (dataset_id,)).fetchall()
+    ]
+    delete_runs(conn, run_ids)
     conn.execute("DELETE FROM eval_question WHERE dataset_id = ?", (dataset_id,))
     cursor = conn.execute("DELETE FROM eval_dataset WHERE dataset_id = ?", (dataset_id,))
     # 同步删除 tree_node 中的数据集节点
@@ -700,8 +708,34 @@ def update_run_detail(run_id: str, question_id: str, updates: Dict[str, Any]) ->
     conn.commit()
 
 
+def _delete_run_details(conn: sqlite3.Connection, run_ids: List[str]) -> int:
+    """显式删除 run 明细行，返回删除条数。
+
+    schema 里 eval_run_detail.run_id 声明了 ON DELETE CASCADE，但它是"外键级联"，
+    只在 PRAGMA foreign_keys=ON 时生效——SQLite 默认关闭，本项目连接从未开启它，
+    因此只删 eval_run 会永久留下整套明细（实测 ~220MB/轮）。
+    2026-09-12 服务器实踩：evals.sqlite 2.15GB 里 1.1GB 是 12 轮"已删除 run"的孤儿明细，
+    且 auto_vacuum=0、freelist 仅 25 页 → 空间既不回收也永不复用。
+    不靠 pragma 改成显式删除：行为可预期，不受连接级开关与历史脏数据影响。"""
+    if not run_ids:
+        return 0
+    placeholders = ",".join("?" for _ in run_ids)
+    cursor = conn.execute(
+        f"DELETE FROM eval_run_detail WHERE run_id IN ({placeholders})", list(run_ids))
+    return cursor.rowcount
+
+
+def delete_runs(conn: sqlite3.Connection, run_ids: List[str]) -> None:
+    """成对删除 run 与其明细（顺序无关紧要，但明细先删可避免任何外键开启时的级联歧义）。"""
+    if not run_ids:
+        return
+    _delete_run_details(conn, run_ids)
+    placeholders = ",".join("?" for _ in run_ids)
+    conn.execute(f"DELETE FROM eval_run WHERE run_id IN ({placeholders})", list(run_ids))
+
+
 def cleanup_old_runs(dataset_id: str, keep: int = 3) -> int:
-    """删除指定数据集超出保留数量的旧整体运行记录（保留最近 keep 条）。"""
+    """删除指定数据集超出保留数量的旧整体运行记录（保留最近 keep 条，连带逐题明细）。"""
     conn = _get_conn()
     rows = conn.execute(
         "SELECT run_id FROM eval_run WHERE dataset_id = ? AND status != 'running' AND is_full_run = 1 ORDER BY started_at DESC",
@@ -709,34 +743,40 @@ def cleanup_old_runs(dataset_id: str, keep: int = 3) -> int:
     ).fetchall()
     stale_ids = [row["run_id"] for row in rows[keep:]]
     if stale_ids:
-        placeholders = ",".join("?" for _ in stale_ids)
-        conn.execute(
-            f"DELETE FROM eval_run WHERE run_id IN ({placeholders})",
-            stale_ids,
-        )
+        delete_runs(conn, stale_ids)
         conn.commit()
     return len(stale_ids)
 
 
 def delete_run(run_id: str) -> bool:
-    """删除指定评测运行及其关联详情（CASCADE 自动清除 run_detail）。"""
+    """删除指定评测运行及其关联详情（显式删明细，不依赖 CASCADE）。
+
+    返回值语义保持原样：run 存在并已删除为 True。不能再用 DELETE 的 rowcount 判断
+    存在性——run 行已在 delete_runs 里被消耗（2026-09-12 验证时实踩，恒 False 会让
+    前端"删除运行"永远 404）。"""
     conn = _get_conn()
-    cursor = conn.execute("DELETE FROM eval_run WHERE run_id = ?", (run_id,))
+    existed = conn.execute("SELECT 1 FROM eval_run WHERE run_id = ?", (run_id,)).fetchone() is not None
+    delete_runs(conn, [run_id])
     conn.commit()
-    return cursor.rowcount > 0
+    return existed
 
 
 def cleanup_individual_runs(dataset_id: str) -> int:
-    """删除 1 小时前完成的单独题目评测运行记录。"""
+    """删除 1 小时前完成的单独题目评测运行记录（连带逐题明细）。"""
     from datetime import timedelta
     cutoff = (datetime.now() - timedelta(hours=1)).isoformat()
     conn = _get_conn()
-    cursor = conn.execute(
-        "DELETE FROM eval_run WHERE dataset_id = ? AND is_full_run = 0 AND completed_at IS NOT NULL AND completed_at < ?",
-        (dataset_id, cutoff),
-    )
-    conn.commit()
-    return cursor.rowcount
+    stale_ids = [
+        row["run_id"] for row in conn.execute(
+            "SELECT run_id FROM eval_run WHERE dataset_id = ? AND is_full_run = 0 "
+            "AND completed_at IS NOT NULL AND completed_at < ?",
+            (dataset_id, cutoff),
+        ).fetchall()
+    ]
+    if stale_ids:
+        delete_runs(conn, stale_ids)
+        conn.commit()
+    return len(stale_ids)
 
 
 def list_run_details(run_id: str, light: bool = False) -> List[Dict[str, Any]]:

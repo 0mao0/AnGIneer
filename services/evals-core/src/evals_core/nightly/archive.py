@@ -2,7 +2,7 @@
 
 <nightly_root>/<YYYY-MM-DD>/{nightly.json, report.md}：夜间维护页的唯一数据源。
 结论必须快照化而不是从 evals.sqlite 现算——日常测试页可删 run、门禁 bootstrap 现算慢、
-崩溃/超时日本就没有可算的 run，历史（保留 30 天、每天一条不断档）要经得住这些。
+崩溃/超时日本就没有可算的 run，历史（保留 3 天、每天一条不断档）要经得住这些。
 """
 import json
 import shutil
@@ -26,7 +26,9 @@ def _to_bjt(iso: str) -> str:
     except ValueError:
         return ""
 
-KEEP_DAYS_DEFAULT = 30
+# 夜间归档保留天数（含当天）：3 = 今天/昨天/前天三条。2026-09-12 起由 30 天收紧，
+# 磁盘与页面只留近三天（publish 时按目录名裁剪，见 prune_old）。
+KEEP_DAYS_DEFAULT = 3
 REGRESSION_ITEMS_MAX = 50
 FIXED_ITEMS_MAX = 20
 _QUESTION_MAX = 300
@@ -126,8 +128,14 @@ def build_entry(gate: dict, summary_scores: dict, question_texts: dict,
 
 
 def build_error_entry(dataset_id: str, date: str, note: str, subject: str = "",
-                      started_at: str = "") -> dict:
-    return {
+                      started_at: str = "", progress: Optional[dict] = None) -> dict:
+    """error 档条目：失败也要每天一条、绝不断档。
+
+    progress = {completed, total, correct, score}：run 已建档但没跑完时的部分进度。
+    只进条目供展示（页面「题量/平均分」列与展开明细），**不参与门禁**——门禁只在 run
+    正常完成时计算，部分样本算出的分不能当结论。
+    2026-09-12 教训：超时只写一句"无结论"，把整晚 437 题的结果一起扔掉了。"""
+    entry = {
         "date": date,
         "state": "error",
         "generated_at": datetime.now(paths.BJT).isoformat(),
@@ -137,13 +145,21 @@ def build_error_entry(dataset_id: str, date: str, note: str, subject: str = "",
         "verdict": verdict("error", None, 0),
         "note": note or "评测环节未完成（上游步骤失败）",
     }
+    if progress and progress.get("completed"):
+        entry["progress"] = progress
+        entry["verdict"] = f"中断于 {progress['completed']}/{progress.get('total') or '?'}，未出结论"
+    return entry
 
 
 def prune_old(target_root: Path, keep_days: int, today: str) -> list:
-    """按日期名清理旧目录（目录名不合法日期的不动，人工排查留证）。"""
+    """按日期名清理旧目录：保留「今天 + 前 keep_days-1 天」。
+
+    keep_days 含当天（keep_days=3 → 今天/昨天/前天），与 settings 里"近三天"口径一致；
+    目录名不合法日期的不动，人工排查留证。"""
     removed = []
     try:
-        floor = (datetime.strptime(today, _DATE_FMT) - timedelta(days=keep_days)).strftime(_DATE_FMT)
+        floor = (datetime.strptime(today, _DATE_FMT)
+                 - timedelta(days=max(keep_days - 1, 0))).strftime(_DATE_FMT)
     except ValueError:
         return removed
     for day in sorted(target_root.iterdir()):
