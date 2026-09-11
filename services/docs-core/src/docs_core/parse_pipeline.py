@@ -1251,9 +1251,12 @@ class ParseOrchestrator:
             except Exception as update_exc:
                 logger.error(f"更新任务状态失败: {update_exc}")
         finally:
-            # 任务在到达 MinerU/PoPo 闸门前就失败/退出时，跳过其序号，防止后续任务永久排队
+            # 任务在到达 MinerU/PoPo/图描述闸门前就失败/退出时，跳过其序号，防止后续任务永久排队。
+            # 三个闸门必须补齐：任一闸门漏 skip，其 _next_seq 会永久停在死序号上，
+            # 此后所有任务都会卡在该闸门的排队状态（图描述闸门曾因漏 skip 而假死）。
             _MINERU_GPU_GATE.skip(arrival_seq)
             _POPO_GATE.skip(arrival_seq)
+            _FIGURE_DESCRIBE_GATE.skip(arrival_seq)
             self._threads.pop(task_id, None)
             self._cancelled.discard(task_id)
             parser = self._parsers.pop(task_id, None)
