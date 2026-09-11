@@ -124,8 +124,38 @@ def _llm_semantic_evaluate(
     checks: List[Dict[str, Any]],
     semantic_threshold: float,
     judge_config_name: Optional[str] = None,
+    *,
+    question_text: str = "",
+    prediction: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
-    """调用 LLM 对系统答案做语义评判，返回评分与理由。"""
+    """调用 LLM 对系统答案做语义评判，返回评分与理由。
+
+    判分引擎开关：EVAL_ENGINE=deepeval 时走 DeepEval 指标层（judge_deepeval.py，
+    候选链/哨兵留痕语义不变，额外产出 faithfulness/answer_relevancy 等新维度）；
+    默认 legacy 走下方自研 prompt 判分。回滚 = 改回 legacy。
+    """
+    import os as _os2
+    if (_os2.getenv("EVAL_ENGINE", "legacy") or "legacy").strip().lower() == "deepeval":
+        from evals_core.runner.judge_deepeval import deepeval_available, evaluate_via_deepeval
+
+        if not deepeval_available():
+            return {
+                "semantic_score": None,
+                "semantic_reason": "EVAL_ENGINE=deepeval 但 deepeval 包未安装",
+                "semantic_evaluated": False,
+                "semantic_fallback": True,
+                "semantic_passed": None,
+                "eval_engine": "deepeval",
+            }
+        return evaluate_via_deepeval(
+            question=question_text,
+            answer=answer,
+            gold_answer=gold_answer,
+            checks=checks,
+            prediction=prediction or {},
+            judge_config_name=judge_config_name,
+        )
+
     import time as _time
     from ai_inference.llm_client import chat_result_guarded, get_llm_client
     from ai_inference.llm_response_parser import extract_json_from_text, ParseError
@@ -401,6 +431,8 @@ class AnswerEvaluator(BaseEvaluator):
         semantic_result = _llm_semantic_evaluate(
             answer, gold_answer, checks, semantic_threshold,
             judge_config_name=str(question.get("judge_config_name") or "").strip() or None,
+            question_text=str(question.get("question") or ""),
+            prediction=prediction,
         )
 
         if semantic_result["semantic_evaluated"]:
@@ -438,6 +470,18 @@ class AnswerEvaluator(BaseEvaluator):
             "judge_used": semantic_result.get("judge_used"),
             "judge_failover": semantic_result.get("judge_failover", False),
         }
+        # DeepEval 引擎新增维度透传（legacy 引擎无这些键，不影响旧报告/门禁口径）
+        for extra_key in (
+            "faithfulness_score",
+            "faithfulness_reason",
+            "answer_relevancy_score",
+            "answer_relevancy_reason",
+            "contextual_precision_score",
+            "contextual_precision_reason",
+            "eval_engine",
+        ):
+            if semantic_result.get(extra_key) is not None:
+                result[extra_key] = semantic_result[extra_key]
         return result
 
 

@@ -110,6 +110,8 @@ def build_entry(gate: dict, summary_scores: dict, question_texts: dict,
         "total": summary.get("total"),
         "errored": summary.get("errored"),
         "judge_failed_count": summary.get("judge_failed_count"),
+        # 判分引擎留痕（legacy/deepeval）：跨 run 对比时识别判分口径切换
+        "eval_engine": summary.get("eval_engine"),
         "delta": gate.get("delta"),
         "delta_ci95": gate.get("delta_ci95"),
         "base_label": gate.get("base_label"),

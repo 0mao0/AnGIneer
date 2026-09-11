@@ -62,12 +62,19 @@ def summarize_bucket(details):
     refusal_correct = [d for d in refusal_expected if get(d, "answer", "refusal_correct")]
     sem_median, sem_p90 = _median_p90([get(d, "answer", "semantic_score") for d in details])
     lat_median, lat_p90 = _median_p90([d.get("latency_ms") for d in details])
+    # DeepEval 引擎扩展维度（legacy 引擎无这些键；median 口径，None 不计入分母）
+    faith_median, _ = _median_p90([get(d, "answer", "faithfulness_score") for d in details])
+    relev_median, _ = _median_p90([get(d, "answer", "answer_relevancy_score") for d in details])
+    ctxp_median, _ = _median_p90([get(d, "answer", "contextual_precision_score") for d in details])
     return {
         "count": len(details),
         "semantic_median": sem_median,
         "semantic_p90": sem_p90,
         "latency_median_s": round(lat_median / 1000, 1) if lat_median is not None else None,
         "latency_p90_s": round(lat_p90 / 1000, 1) if lat_p90 is not None else None,
+        "faithfulness_median": faith_median,
+        "answer_relevancy_median": relev_median,
+        "contextual_precision_median": ctxp_median,
         "hit@1": _mean(hits1),
         "hit@3": _mean(hits3),
         "hit@5": _mean(hits5),
@@ -169,6 +176,23 @@ def render_markdown(summary) -> str:
         )
     if dist_lines:
         lines += ["", "## 分布口径（median / p90）", "", "| 题型 | semantic_score | 单题耗时(s) |", "| :--- | ---: | ---: |"] + dist_lines
+    # DeepEval 扩展维度（仅当存在数据时展示；首版只展示不进门禁）
+    ext_rows = []
+    for source in SOURCES + ["other", "overall"]:
+        b = summary.get(source)
+        if not b or b.get("faithfulness_median") is None:
+            continue
+        ext_rows.append(
+            f"| {source} | {b['faithfulness_median']} | {fmt(b.get('answer_relevancy_median'))} | {fmt(b.get('contextual_precision_median'))} |"
+        )
+    if ext_rows:
+        lines += [
+            "",
+            "## 扩展维度（DeepEval 引擎，median；只展示不进门禁）",
+            "",
+            "| 题型 | faithfulness（忠实度） | answer_relevancy（相关性） | contextual_precision（上下文精度） |",
+            "| :--- | ---: | ---: | ---: |",
+        ] + ext_rows
     slow_ids = (summary.get("anomalies") or {}).get(anomaly.SLOW) or []
     if slow_ids:
         titles = summary.get("question_titles") or {}

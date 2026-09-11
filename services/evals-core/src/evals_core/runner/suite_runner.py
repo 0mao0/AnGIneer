@@ -334,6 +334,11 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         "hallucination_on_unanswerable": (refusal_total - refusal_correct_count) if refusal_total else 0,
         "by_level": by_level,
         "grouped_scores": grouped_scores,
+        # 判分引擎留痕（legacy/deepeval；混合时逗号并列）——跨 run 可比性判据
+        "eval_engine": ",".join(sorted({
+            str(((d.get("all_scores") or {}).get("answer") or {}).get("eval_engine") or "legacy")
+            for d in details
+        })),
     }
 
 
