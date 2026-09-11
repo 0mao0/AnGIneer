@@ -2,6 +2,10 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.53
+
+夜间维护页判分引擎口径标记（配合 v0.2.51 DeepEval 切换防误读）：维护列表新增「判分」列——DeepEval 判分条目显示蓝色 DeepEval 徽标（tooltip 说明口径差异），legacy/历史条目分别显示 legacy/—；单日明细分析区对 DeepEval 条目追加口径提示行（「口径比 legacy 严约 8 个百分点，与 legacy 基线的分差含口径差，不代表系统回归」）。前端类型补 eval_engine 字段；vue-tsc 与 vite build 通过。
+
 ## v0.2.52
 
 - 修「检索范围为空」被静默伪装成「没有检索到足够证据」（2026-09-11 生产与开发同时踩到）：检索用的文档范围取自后端**进程内内存节点列表**（`docs_service.self.nodes`），该列表为空时 `DenseRetriever.retrieve` 首行 `if not doc_nodes: return []` 直接返回，三个检索阶段全部 0.00s、结果恒 0 条，边界规则据此判定「无证据」并让模型输出拒答，而全过程**无告警、无日志**。排查取证：复现时请求 payload 完全干净（`library_id=default`、`doc_ids=[]`），失败窗口内既无 `/api/embed` 也无 qdrant 查询（dense 若执行必然先嵌入），而同一进程两分钟前的请求能取到 20 条。现在空范围会显式报出来——接口先发一条 `warning` 事件（界面弹横幅：「知识库当前没有可检索的文档（或检索服务尚未就绪），稍后重试通常可恢复」，不再让用户读到一句假的「没有证据」），`_load_doc_nodes` 同时打 WARNING 带上「该库节点总数 N / 进程内已加载库数 M」，`doc_ids` 匹配不到文档也单独告警

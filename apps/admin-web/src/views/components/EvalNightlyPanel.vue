@@ -38,6 +38,17 @@
           <template v-else-if="column.key === 'overall'">
             {{ pct(record.overall_score) }}
           </template>
+          <template v-else-if="column.key === 'eval_engine'">
+            <!-- 判分引擎口径标记：deepeval 与 legacy 分数差含口径差，防误读为回归 -->
+            <a-tooltip
+              v-if="record.eval_engine === 'deepeval'"
+              title="DeepEval 判分口径（比早期 legacy 判分严约 8pp）；与 legacy 基线的分数差含口径差，勿直接读作回归"
+            >
+              <a-tag color="geekblue">DeepEval</a-tag>
+            </a-tooltip>
+            <a-tag v-else-if="record.eval_engine === 'legacy'">legacy</a-tag>
+            <span v-else>—</span>
+          </template>
           <template v-else-if="column.key === 'delta'">
             <span :class="deltaClass(record)">{{ deltaText(record) }}</span>
           </template>
@@ -137,6 +148,8 @@ interface NightlyDay {
   delta_ci95?: [number, number]
   base_label?: string
   judge_failed_count?: number
+  /** 判分引擎口径标记（v0.2.51 起 nightly.json 携带；历史条目无此字段显示"—"） */
+  eval_engine?: string
   verdict?: string
   run_id?: string
   dataset_id?: string
@@ -167,6 +180,7 @@ const columns: DataTableColumn[] = [
   { title: '时长', key: 'duration', width: 88, minWidth: 76, align: 'center' },
   { title: '结论', key: 'state', width: 80, minWidth: 64, align: 'center' },
   { title: '平均分', key: 'overall', width: 92, minWidth: 80, align: 'center' },
+  { title: '判分', key: 'eval_engine', width: 84, minWidth: 72, align: 'center' },
   { title: '题量', key: 'correct', width: 104, minWidth: 88, align: 'center',
     customRender: ({ record }: { record: NightlyDay }) =>
       record.correct != null && record.total != null ? `${record.correct}/${record.total}` : '—' },

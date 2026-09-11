@@ -138,6 +138,8 @@ interface NightlyDayLite {
   run_id?: string
   dataset_id?: string
   judge_failed_count?: number
+  /** 判分引擎口径标记（v0.2.51 起携带） */
+  eval_engine?: string
   gate_reasons?: string[]
   regressions?: Record<string, string>
   regression_items?: QuestionItem[]
@@ -200,6 +202,10 @@ const analysisLines = computed<string[]>(() => {
     : '整体没有变差，正常波动。')
   if (day.judge_failed_count) {
     lines.push(`评判环节抖动 ${day.judge_failed_count} 题，已自动补判。`)
+  }
+  // 判分口径提示：deepeval 引擎与 legacy 判分存在系统性口径差，防分差被误读为回归
+  if (day.eval_engine && day.eval_engine.includes('deepeval')) {
+    lines.push('本次由 DeepEval 引擎判分（口径比早期 legacy 判分严约 8 个百分点）；与 legacy 基线的分差含口径差，不代表系统回归。')
   }
   return lines
 })
