@@ -1242,7 +1242,16 @@ async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
         raise HTTPException(status_code=400, detail="缺少文档文件路径")
     source_path = Path(request.file_path)
     if not source_path.exists():
-        raise HTTPException(status_code=404, detail="源文件不存在")
+        # file_path 可能指向另一台机器：历史批量导入写进 nodes.file_path 的是开发机绝对路径
+        # （D:\AI\AnGIneer\...），Linux 上必然 exists()=False。解析管线本身不依赖它
+        # （source_prep 优先用规范 source 目录），这里若不放行，「开始解析」会 404，
+        # 而文件其实就躺在规范目录里。兜底口径与 source_prep 共用 resolve_source_file。
+        from docs_core.step01_source_prep.source_prep import resolve_source_file
+
+        fallback = resolve_source_file(request.library_id, request.doc_id) if request.doc_id else None
+        if not fallback:
+            raise HTTPException(status_code=404, detail="源文件不存在")
+        source_path = Path(fallback)
 
     doc_id = parse_orchestrator.ensure_document(
         library_id=request.library_id,
