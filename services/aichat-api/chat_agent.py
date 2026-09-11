@@ -24,15 +24,34 @@ _AGENT_SESSION_LAST_ACTIVE: Dict[str, float] = {}
 _POOL_LOCK = threading.RLock()
 
 def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
-    """加载知识库 document 节点；失败时返回空列表（检索工具降级）。"""
+    """加载知识库 document 节点；失败时返回空列表（检索工具降级）。
+
+    空列表会让 dense/sparse 直接跳过（`DenseRetriever.retrieve` 首行 `if not doc_nodes: return []`），
+    检索恒为 0 条 → 边界规则判定「无证据」→ 模型输出拒答。这条链路此前**完全静默**
+    （2026-09-11 生产与开发同时踩到：payload 干净、库里 26 篇文档，界面却说没有证据），
+    所以空结果必须留痕：见下方 warning。
+    """
     try:
         from docs_core.docs_service import get_docs_service
 
         kp = get_docs_service()
-        nodes = [n for n in kp.list_nodes(library_id) if getattr(n, "type", "") == "document"]
+        all_nodes = list(kp.list_nodes(library_id))
+        nodes = [n for n in all_nodes if getattr(n, "type", "") == "document"]
         if doc_ids:
             ids = set(str(doc_id) for doc_id in doc_ids if str(doc_id).strip())
-            nodes = [n for n in nodes if getattr(n, "id", "") in ids]
+            scoped = [n for n in nodes if getattr(n, "id", "") in ids]
+            if not scoped:
+                logger.warning(
+                    "引用范围 doc_ids=%s 在知识库 %s 中匹配不到文档（库内 %d 篇），检索将为空",
+                    sorted(ids), library_id, len(nodes),
+                )
+            nodes = scoped
+        if not nodes:
+            logger.warning(
+                "知识库 %s 的 document 节点为空（该库节点总数 %d，进程内已加载库数 %d）："
+                "检索工具将拿到空范围，回答会退化为「没有检索到足够证据」",
+                library_id, len(all_nodes), len(getattr(kp, "libraries", []) or []),
+            )
         return nodes
     except Exception as exc:  # noqa: BLE001
         logger.warning("加载知识库节点失败，agent 检索工具将无节点: %s", exc)

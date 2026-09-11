@@ -320,6 +320,11 @@ def _run_knowledge_search(
             sources[_name] = []
             sources[f"{_name}_error"] = str(exc)
         stage_times[_name] = time.perf_counter() - _t
+    # 检索器异常此前被静默吞掉（只塞进 *_error），日志里与「确实没结果」完全同形，
+    # 排查时只能靠两侧日志对拍。留痕（2026-09-11）。
+    for _key, _err in list(sources.items()):
+        if _key.endswith("_error"):
+            logger.warning("knowledge_search %s 检索器异常，已按空结果继续: %s", _key, _err)
     from docs_core.step09_query.retrieval.formula_retriever import FormulaRetriever, is_formula_query
 
     if is_formula_query(request.query, task_type):

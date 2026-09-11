@@ -234,6 +234,21 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             except Exception:
                 pass
 
+            # 文档范围为空时显式提示：否则检索恒为 0 条，模型会把「检索拿不到东西」
+            # 说成「知识库里没有证据」（2026-09-11 排查：payload 干净、库里有 26 篇文档）
+            try:
+                from chat_agent import _load_doc_nodes
+
+                if not _load_doc_nodes(request.library_id, request.doc_ids):
+                    empty_scope_msg = (
+                        f"知识库「{request.library_id}」当前没有可检索的文档"
+                        "（或检索服务尚未就绪），本次回答可能不准确，稍后重试通常可恢复。"
+                    )
+                    warning_frame = {"type": "warning", "message": empty_scope_msg}
+                    yield f"data: {json.dumps(warning_frame, ensure_ascii=False)}\n\n"
+            except Exception:
+                pass
+
             queue: asyncio.Queue = asyncio.Queue()
 
             def emit(event):
