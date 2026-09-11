@@ -2,6 +2,10 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.58
+
+修复「部分阶段运行永远停在 processing」：`_run_parse_task` 非全量分支的状态推导此前要求全部 9 个注册阶段终态，导致 v1 API 按 stages 子集解析（默认 structure、或解析评测用的 source_prep→structure 五阶段链）的任务在全部阶段完成、进度 100% 后状态仍永远卡 processing——现在未启动且无历史记录的阶段按 skipped 计入整体判定（不写库，仅修状态推导；OmniDocBench 接入实踩）。新增 `scripts/run_omnidocbench_eval.py`：OmniDocBench（文档解析公认基准，1651 标注页）解析质量评测工具，predict 子命令把页图转单页 PDF 走完整解析链（MinerU+PoPo+Solo）下载每页 markdown（断点续跑），eval 子命令调用官方 Docker 评测器算文本 Edit_dist / 表格 TEDS / 公式 CDM / 阅读顺序指标；v3 题集 JSON（v2 487+拒答 39）入库。
+
 ## v0.2.57
 
 紧急修复 DeepEval 判分路径语法错误（v0.2.51 引入）：一次编辑事故把 `geval.measure(test_case)` 与上一行右括号粘连成 `)        geval.measure(...)`，导致 `judge_deepeval.py` 整体语法不合法——由于该模块是判分时才惰性导入，本地单测（未覆盖该编辑后重跑）与部署构建均未拦截，v0.2.51 起生产 deepeval 判分路径全题报 `invalid syntax`（今晚 nightly 前修复，否则全题判分失败）。本地冒烟复测：拒答题正确拒答、普通题 engine=deepeval 判分 1.0 + contextual_precision 0.78，链路完整。同时：nightly 默认题集切换 v3 = v2(487) + 拒答题集 v2(39) 合并（拒答题带 refusal_expected，报告「拒答专项」自动拆分统计，正确拒答计为答对）；新增 `scripts/build_subset_v3.py`（幂等构建 DB 行 + 数据集 JSON + manifest v3，本地/生产同构）。
