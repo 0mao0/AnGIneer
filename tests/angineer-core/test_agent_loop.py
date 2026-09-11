@@ -850,5 +850,119 @@ class FollowupRefusalTests(unittest.TestCase):
         self.assertEqual(messages[-1].content, REFUSAL_ANSWER_TEXT)
 
 
+class ForcedRetrievalQueryTests(unittest.TestCase):
+    """代检索保险必须用用户最近一句提问。
+
+    踩坑（2026-09-11）：原先取「会话里第一条 user 消息」，多轮会话（先「你好」再「王飞」）
+    会拿开场白去检索 → 命中 0 条 → 误判无证据 → 用户拿到「没有检索到足够证据」拒答。
+    """
+
+    def test_latest_user_query_skips_injected_prompts(self):
+        from angineer_core.agent_loop import _latest_user_query
+
+        messages = [
+            AgentMessage(role="user", content="你好"),
+            AgentMessage(role="assistant", content="你好！我是 AnGIneer。"),
+            AgentMessage(role="user", content="请先调用检索工具获取证据后再回答"),
+            AgentMessage(role="user", content="王飞"),
+        ]
+        self.assertEqual(_latest_user_query(messages), "王飞")
+        self.assertEqual(_latest_user_query([]), "")
+
+    def test_latest_user_query_skips_forced_retrieval_nudge(self):
+        from angineer_core.agent_loop import _latest_user_query
+
+        messages = [
+            AgentMessage(role="user", content="王飞"),
+            AgentMessage(role="user", content="已检索到有效证据，请基于证据作答；若证据只覆盖部分内容……"),
+        ]
+        self.assertEqual(_latest_user_query(messages), "王飞")
+
+    def test_forced_retrieval_uses_latest_question(self):
+        from angineer_core.agent_loop import _force_retrieve_tool
+
+        seen: list = []
+
+        def handler(query=None, **kwargs):
+            seen.append(query)
+            return {"items": [{"text": "证据"}]}
+
+        tool = make_tool(
+            "knowledge_search",
+            handler,
+            schema={
+                "type": "object",
+                "properties": {"query": {"type": "string"}},
+                "required": ["query"],
+            },
+            read_only=True,
+        )
+
+        class FakeConfig:
+            def __getattr__(self, name):
+                return None
+
+        class FakeMachine:
+            tools_by_name = {"knowledge_search": tool}
+            active_config = FakeConfig()
+            current_turn = 1
+
+        messages = [
+            AgentMessage(role="user", content="你好"),
+            AgentMessage(role="assistant", content="你好！我是 AnGIneer。"),
+            AgentMessage(role="user", content="王飞"),
+        ]
+        _force_retrieve_tool(messages, FakeMachine(), None, "run-x", threading.Event())
+
+        self.assertEqual(seen, ["王飞"])
+
+
+class RefusalRetryEvidenceTests(unittest.TestCase):
+    """P2：有证据但模型拒答时，定向重试要回喂证据原文节选（空指令常被小模型忽略）。"""
+
+    def _usable(self):
+        from angineer_core.agent_messages import is_refusal_text
+
+        def usable(added):
+            for m in reversed(added):
+                if m.role == "assistant" and not m.tool_calls and (m.content or "").strip():
+                    return not is_refusal_text(m.content)
+            return False
+
+        return usable
+
+    def test_retry_prompt_replays_evidence_excerpt(self):
+        events: list = []
+        evidence_text = "表 11 在册人员：王飞，2012 年 7 月入职"
+
+        def handler(messages, kwargs):
+            call = len(llm.calls)
+            if call == 1:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            elif call == 2:
+                yield from text_events("没有检索到足够证据支持最终结论，不要自行补全。")
+            else:
+                yield from text_events("王飞于 2012 年 7 月入职 [K1]。")
+
+        llm = MockLLM(handler)
+        tool = make_tool(
+            "search",
+            lambda q: {"items": [{"text": evidence_text, "metadata": {"cite": "K1"}}]},
+        )
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(llm=llm, tools=[tool], system_prompt="p", max_turns=3),
+            success_check=self._usable(),
+            requires_tools=True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=3, attempts=[attempt])
+        run_agent_loop([], config, emit=events.append)
+
+        retry_blob = "\n".join(str((m or {}).get("content") or "") for m in llm.calls[2]["messages"])
+        self.assertIn(evidence_text, retry_blob)
+        run_end = events[-1]
+        self.assertTrue(any("附证据节选" in n["detail"] for n in run_end.payload["notes"]))
+
+
 if __name__ == "__main__":
     unittest.main()

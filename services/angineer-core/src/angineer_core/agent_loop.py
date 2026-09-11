@@ -212,6 +212,56 @@ def _last_answer_is_refusal(messages: List[AgentMessage]) -> bool:
     return False
 
 
+# 循环自身注入的 user 角色提示（不是用户真实提问）——代检索取 query 时必须跳过。
+# 踩坑（2026-09-11 生产/开发同时复现）：取「第一条 user 消息」在多轮会话里会拿开场白
+# （如「你好」）去检索 → 命中 0 条 → 误判无证据 → 用户看到「没有检索到足够证据」拒答。
+_INJECTED_USER_PROMPTS = (
+    "请先调用检索工具获取证据后再回答",
+    "已代为执行知识检索，请基于检索到的证据给出最终答案",
+    "已检索到有效证据",
+    "上一段未命中，进入下一段：",
+    "轮次预算已用完，请基于已有证据直接给出最终答案",
+)
+
+
+def _latest_user_query(messages: List[AgentMessage]) -> str:
+    """取最近一条用户真实提问（跳过循环注入的提示与空消息）。"""
+    for message in reversed(messages):
+        if message.role != "user":
+            continue
+        content = (message.content or "").strip()
+        if not content or content.startswith(_INJECTED_USER_PROMPTS):
+            continue
+        return content
+    return ""
+
+
+def _tool_evidence_parts(
+    messages: List[AgentMessage], max_items: int = 3, max_chars_per_item: int = 800
+) -> List[str]:
+    """摘出工具返回里的证据原文节选，供拒答后的定向重试回喂（避免模型再次空口拒答）。"""
+    parts: List[str] = []
+    for message in messages:
+        if message.role != "tool" or message.is_error:
+            continue
+        try:
+            raw = json.loads(message.content or "{}")
+        except Exception:  # noqa: BLE001
+            continue
+        if not isinstance(raw, dict):
+            continue
+        for item in raw.get("items") or []:
+            if not isinstance(item, dict):
+                continue
+            text = str(item.get("text") or "").strip()
+            if not text:
+                continue
+            parts.append(text[:max_chars_per_item])
+            if len(parts) >= max_items:
+                return parts
+    return parts
+
+
 def _force_retrieve_tool(
     messages: List[AgentMessage],
     machine: "_AttemptMachine",
@@ -224,7 +274,7 @@ def _force_retrieve_tool(
     绕开模型输出工具调用格式不稳定的问题，直接把检索结果注入对话。
     返回工具结果文本；失败或工具不存在时返回 None（保持原收尾逻辑）。
     """
-    query = next((m.content for m in messages if m.role == "user" and m.content), "")
+    query = _latest_user_query(messages)
     if not query:
         return None
     tool = machine.tools_by_name.get("knowledge_search")
@@ -624,11 +674,23 @@ class _AttemptMachine:
             self.refusal_retry_used = True
             # 定向重试不占本轮预算
             self.attempt_turn = max(0, self.attempt_turn - 1)
-            self.messages.append(AgentMessage(
-                role="user",
-                content="已检索到有效证据，请基于证据作答；若证据只覆盖部分内容，请回答已支持的部分并明确说明缺失项，不要整体拒答。",
-            ))
-            self.add_note("有有效证据但回答为拒答，已要求基于证据重答")
+            evidence_parts = _tool_evidence_parts(self.messages[self.attempt_start_idx:])
+            retry_prompt = (
+                "已检索到有效证据，请基于证据作答；若证据只覆盖部分内容，"
+                "请回答已支持的部分并明确说明缺失项，不要整体拒答。"
+            )
+            if evidence_parts:
+                # 回喂证据原文节选：小模型常把"请基于证据作答"这类空指令当耳旁风，重新给出原文才肯作答
+                retry_prompt = (
+                    "以下为已检索到的证据节选：\n"
+                    + "\n---\n".join(evidence_parts)
+                    + f"\n\n{retry_prompt}"
+                )
+            self.messages.append(AgentMessage(role="user", content=retry_prompt))
+            self.add_note(
+                "有有效证据但回答为拒答，已要求基于证据重答"
+                + (f"（附证据节选 {len(evidence_parts)} 条）" if evidence_parts else "")
+            )
             return "retry"
         if self.active_attempt_idx + 1 < len(self.attempts):
             nxt = self.attempts[self.active_attempt_idx + 1]
