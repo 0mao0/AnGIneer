@@ -673,11 +673,13 @@ class RetrieverAdapter:
                 return {"error": "未配置 ANGINEER_DOCS_API_URL 且本地回退已禁用（ANGINEER_DISABLE_LOCAL_FALLBACK=1）"}
 
             if entities is None:
+                from docs_core.paths import resolve_graph_db_path
                 from docs_core.step07_graph.graph_store import GraphStore
 
-                store = GraphStore(
-                    db_path or os.environ.get("KG_DB_PATH", os.path.join("data", "knowledge_graph.sqlite"))
-                )
+                # 默认库路径按仓库根解析，不能用 cwd 相对：容器里 cwd 是 services/aichat-api，
+                # 该目录下没有 data/，会直接报「unable to open database file」。
+                graph_db = db_path or os.environ.get("KG_DB_PATH") or str(resolve_graph_db_path())
+                store = GraphStore(db_path=graph_db)
                 entities = store.search_entities(query, limit=limit, library_id=library_id)
             # 图谱实体按 library_id 隔离（P3 起 graph_entities 有 scope 列）；scope 随行返回供前端/evals 追踪。
             result: Dict[str, Any] = {
