@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.55
+
+- 修解析任务在闸门前失败/退出时未让出「图描述」闸门序号，导致后续文档永久卡在「等待图描述 VLM 资源」（2026-09-11 生产实踩）：`ParseOrchestrator._run_parse_task` 的 `finally` 只对 MinerU / PoPo 闸门调了 `skip(arrival_seq)`，漏了图描述闸门。在 `raw_parse` 就失败的任务（如 MinerU 504）永远到不了 4.5，其提交序号会永久占据该闸门的 `_next_seq`，此后所有文档都在 4.5 排队直到 docs-api 重启——且表现为「整齐地在排队」而非报错，极易误读成 VLM 端点慢
+- 补齐 `_FIGURE_DESCRIBE_GATE.skip(arrival_seq)`（三个闸门必须成套，任一漏 skip 都会让它永久停在死序号上），新增回归测试 `tests/test_gate_skip_on_task_exit.py`：撤掉该行即失败
+- 图描述 VLM 并发上限改为可配置：新增 `FIGURE_DESCRIBE_MAX_CONCURRENCY` 开关（代码默认 1，即严格按提交序号先来先服务；生产置为 2，允许两篇文档的图描述并行，代价是同时压 VLM 端点）
+- `.env.example` 全量重建：该文件自 `a03984f`（LLM/embedding 端点 IP→https 迁移）起被一次编码往返损坏——UTF-8 字节被按 GBK 误读，全部中文注释变乱码，且部分换行被吞、把赋值并进了注释行，导致 `POPO_INFERENCE_RETRIES` / `DOCS_EMBEDDING_PROVIDER` / `DOCS_VECTORSTORE_PROVIDER` / `JWT_SECRET` 四个赋值实际失活（模板照抄即丢配置），`LLM_CONFIGS` 里的「(付费)」也成了乱码。以最后一个干净版本 `da59aad` 的注释为骨架、保留损坏后新增的三段（企微 Webhook / Qdrant / 评测判分引擎）重建；逐字段比对文件名、URL、JSON 与 priority 均未变，仅注释与换行恢复，`python-dotenv` 解析出 17 个 active 键且无格式异常
+
 ## v0.2.54
 
 单题评测卡片显示判分引擎与扩展维度（evals-ui，monorepo 内部包随主仓库发版）：`SemanticEvalResult` 类型补 `eval_engine`/`faithfulness_score`/`answer_relevancy_score`/`contextual_precision_score` 可选字段；「语义评判」区在 DeepEval 判分的题目上显示 DeepEval 徽标（tooltip 说明口径差异），判分理由下方按存在与否展示忠实度/相关性/上下文精度三个扩展维度分数（各带口径说明 tooltip）——判错归因时一眼区分「检索到了但答错」与「根本没检索到」。vue-tsc 通过。
