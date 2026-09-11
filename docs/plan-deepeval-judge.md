@@ -34,6 +34,14 @@ judge 候选链纪律（绝不落到被测模型自判）、基线门禁、企�
 
 ## 切换操作与基线重钉
 
+> **首夜实测（2026-09-12 nightly，v3 题集 526 题）**：437/526 = 83.08%（answer_correctness 均值 87.63%），
+> hit@5(doc) 0.963，门禁绿灯；扩展维度 median：faithfulness 1.0 / relevancy 1.0 / contextual_precision 0.989。
+> **拒答专项 18/39 = 46%**（21 道不可答题被作答，潜在幻觉点——下一步质量攻坚信号）。
+> 单题耗时 median 103s / p90 133s（DeepEval 判分使每题从 legacy ~27s 涨至 ~100s）：
+> 全量 run 实测 4h55m，**nightly 超时已从 270 上调至 360 分钟**（服务器 nightly_settings.json）。
+> 首夜流水线曾因 270 分钟截止线与 run 完成（05:55）差 25 分钟误判超时，已手动补跑落盘
+> （`_compute_and_publish` 直调，跳过通知防口径切换夜误报）。
+
 1. 服务器 `.env`：`EVAL_ENGINE=deepeval` → `docker compose up -d aichat-api`（重建注入 env）
 2. **第一次 DeepEval nightly 的分数与旧基线不可直接比**（判分口径变严 ~8pp）——当晚报告出来人工核读，
    确认后该次 run 钉为新基线；旧基线保留归档备查（nightly.json 条目带 `eval_engine` 字段可识别口径）
