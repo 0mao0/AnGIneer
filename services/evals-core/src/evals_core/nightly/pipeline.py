@@ -175,25 +175,73 @@ async def _notify_best_effort(webhook: str, text: str) -> None:
             logger.warning("企微通知失败（不影响结论）target=%s: %s", notify.target_label(url), exc)
 
 
+# 断点续跑窗口（小时）：启动清扫盖章的 interrupted run 只有在此窗口内、且口径指纹一致才复用。
+# 10h 覆盖"部署重建 → 调度器重新派发"的实际间隔（分钟级）与人工隔天上午重跑的场景；
+# 更久远的中断结果（系统可能已多轮变更）宁可全量重跑，不缝合陈旧答案。
+RESUME_WINDOW_HOURS = 10.0
+
+
+def _find_resume_candidate(dataset_id: str, within_hours: float = RESUME_WINDOW_HOURS) -> str:
+    """找部署/重启打断、可安全续跑的 run（无则返回空串=全新起跑）。
+
+    中断签名 = sweep_interrupted_runs 在 summary 里盖的 interrupted_by_startup_sweep
+    （人为停止走 _stop_event 优雅路径无此章，永不被自动复活；想全量重来用 UI「重来」restart_run_id）。
+    复用守卫：同题集、已完成题数 >0、completed_at 在窗口内、config_snapshot.caliber_fp 与当前
+    判分口径指纹逐字相等——引擎/扩展维度/judge/steps 清单任一变化即拒绝（续跑复用旧判分结果，
+    口径变了这些结果就不可比）。list_runs 按 started_at 倒序，取最近一条合格者。"""
+    from datetime import datetime, timedelta
+
+    try:
+        runs = result_store.list_runs(dataset_id)
+        current_fp = suite_runner.caliber_fingerprint()
+    except Exception:  # noqa: BLE001 探测失败退化为全新起跑，绝不影响流水线本身
+        logger.exception("断点续跑候选探测失败（按全新起跑处理）")
+        return ""
+    cutoff = datetime.now() - timedelta(hours=within_hours)
+    for r in runs:
+        if r.get("status") != "cancelled" or not (r.get("completed_questions") or 0):
+            continue
+        if not (r.get("summary_scores") or {}).get("interrupted_by_startup_sweep"):
+            continue
+        if (r.get("config_snapshot") or {}).get("caliber_fp") != current_fp:
+            continue
+        try:
+            ended = datetime.fromisoformat(str(r.get("completed_at") or ""))
+        except ValueError:
+            continue
+        if ended < cutoff:
+            continue
+        return str(r.get("run_id") or "")
+    return ""
+
+
 async def run_nightly(*, dataset_id: str,
                       timeout_hours: float = DEFAULT_TIMEOUT_HOURS,
                       retry_rounds: int = DEFAULT_RETRY_ROUNDS,
                       resamples: int = 1000,
                       site_url: str = "",
                       webhook: str = "",
+                      resume_window_hours: float = RESUME_WINDOW_HOURS,
                       on_run_started: Optional[Callable[[str], None]] = None,
                       should_stop: Optional[Callable[[], bool]] = None) -> dict:
     """执行整条流水线并保证"当天必有结论"。返回 {state, ok, run_id, detail, ...}。
 
     on_run_started：run 一开跑即上报 run_id（供上层暴露进度/停止目标），回调异常不拖垮流水线。
-    should_stop：人为停止意图轮询——起跑间隙置位则起跑后立即收尾；正常完成不因它丢结论。"""
+    should_stop：人为停止意图轮询——起跑间隙置位则起跑后立即收尾；正常完成不因它丢结论。
+    resume_window_hours：断点续跑窗口，<=0 关闭（>0 时部署砸掉的 run 自动原地续跑，
+    守卫条件见 _find_resume_candidate）。"""
     date = paths.today_bjt()
     deadline = time.monotonic() + timeout_hours * 3600
     run_id = ""
     try:
+        resume_id = await asyncio.to_thread(_find_resume_candidate, dataset_id, resume_window_hours)
         started = await asyncio.to_thread(
-            lambda: suite_runner.start_eval_run(dataset_id=dataset_id))
+            lambda: suite_runner.start_eval_run(
+                dataset_id=dataset_id, resume_run_id=resume_id or None))
         run_id = str(started.get("run_id") or "")
+        if resume_id:
+            logger.info("nightly 断点续跑：复用被中断的 run %s（同口径指纹，窗口 %.1fh 内）",
+                        run_id, resume_window_hours)
         if not run_id:
             raise PipelineError("start_eval_run 未返回 run_id")
         if on_run_started:

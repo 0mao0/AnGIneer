@@ -63,7 +63,11 @@ def load_run(spec: str, db_path: Path, aichat_api: str = "") -> dict:
 
 
 def _load_from_sqlite(db_path: Path, run_id: str) -> dict:
-    conn = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
+    # 必须读写打开：WAL 模式库的只读 URI 连接在无法建 -shm 索引时（容器/跨用户权限，
+    # 2026-09-12 钉基线实踩）会静默只读到已 checkpoint 的旧页——526 行明细读出 0 行，
+    # 差点钉出空基线。query_only 保证连接行为仍是只读（写会直接报错）。
+    conn = sqlite3.connect(str(db_path))
+    conn.execute("PRAGMA query_only=ON")
     conn.row_factory = sqlite3.Row
     run = dict(conn.execute("SELECT * FROM eval_run WHERE run_id=?", (run_id,)).fetchone())
     details = []
@@ -76,7 +80,16 @@ def _load_from_sqlite(db_path: Path, run_id: str) -> dict:
             d[key] = _gate.parse_json_field(d.get(key))
         details.append(d)
     conn.close()
+    # 非零校验：终态 run 报称有题却一行明细都没有 = 库状态可疑（WAL/权限/被清），宁可炸不可糊
+    total = int(run.get("total_questions") or 0)
+    if total and not details and str(run.get("status")) in ("completed", "cancelled", "failed"):
+        raise RuntimeError(
+            f"run {run_id} 状态 {run.get('status')}、total_questions={total}，但明细 0 行——"
+            f"疑似 WAL 不可见或数据被清理，拒绝静默消费（拒绝产出空快照/空基线）")
     run.pop("summary_scores", None)
+    # details 必须挂载返回：此前只 return run 本体（run 表无 details 列），CLI 用 run-xxx
+    # 直读时永远拿到空明细 → 门禁矩阵空转绿灯（回归测试 test_compare_load 钉死此处）
+    run["details"] = details
     return run
 
 

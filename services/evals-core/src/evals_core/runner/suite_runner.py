@@ -21,6 +21,27 @@ _current_run_id: Optional[str] = None
 _stop_event: Optional[threading.Event] = None
 
 
+def caliber_fingerprint() -> Dict[str, Any]:
+    """判分口径指纹：评测引擎 / 扩展维度开关 / judge 模型 / steps 固化清单任一变化即变。
+
+    nightly 自动断点续跑（pipeline._find_resume_candidate）据此拒绝跨口径缝合已完成题——
+    续跑复用的是旧 run 的判分结果，口径变了这些结果就不可比。"""
+    import hashlib as _hl
+
+    try:
+        from evals_core.runner.judge_deepeval import _GEVAL_STEPS as _steps
+
+        steps_fp = _hl.sha256("\n".join(_steps).encode("utf-8")).hexdigest()[:12]
+    except Exception:  # noqa: BLE001 无 deepeval 环境 steps_fp 留空（legacy 口径本就不依赖它）
+        steps_fp = ""
+    return {
+        "eval_engine": (os.getenv("EVAL_ENGINE", "legacy") or "legacy").strip().lower(),
+        "deepval_extra": (os.getenv("EVAL_DEEPVAL_EXTRA", "1") or "1").strip().lower(),
+        "judge_model": (os.getenv("EVAL_JUDGE_MODEL") or "").strip(),
+        "steps_fp": steps_fp,
+    }
+
+
 def _manifest_with_judge(config_name: Optional[str], judge_config_name: Optional[str]) -> Dict[str, Any]:
     """run manifest + 判分模型记录（UI 弹框选定的评价模型，供历史 item 回溯与展示）。"""
     from angineer_core.run_manifest import build_run_manifest
@@ -29,6 +50,8 @@ def _manifest_with_judge(config_name: Optional[str], judge_config_name: Optional
     judge = str(judge_config_name or "").strip()
     if judge:
         manifest["judge_config"] = judge
+    # 口径指纹入 config_snapshot：nightly 断点续跑的唯一性守卫（见 caliber_fingerprint）
+    manifest["caliber_fp"] = caliber_fingerprint()
     return manifest
 
 
@@ -53,6 +76,8 @@ def stop_eval_run(run_id: str) -> bool:
             qmap = {str(q.get("question_id") or ""): q for q in questions}
             enriched = [_enrich_detail_with_question(d, qmap.get(str(d.get("question_id") or ""), {})) for d in details]
             summary = _compute_summary(enriched)
+            # 与启动清扫同语义：线程已死（进程被杀后用户点了"停止"清理僵尸），允许 nightly 续跑复活
+            summary["interrupted_by_startup_sweep"] = True
             result_store.cancel_run(run_id, summary)
             return True
         return False
@@ -708,6 +733,9 @@ def sweep_interrupted_runs() -> int:
         summary = {
             "overall_score": 0.0, "total": total, "correct": correct,
             "wrong": wrong, "skipped": max(0, total - len(completed)), "errored": errored,
+            # 中断盖章（2026-09-12 部署重建砸 run 实踩）：nightly 断点续跑只认带章的 cancelled，
+            # 人为 stop 走 _stop_event 优雅路径不经过此处、无章 → 不会被自动复活
+            "interrupted_by_startup_sweep": True,
         }
         result_store.cancel_run(r["run_id"], summary)
         swept += 1
