@@ -159,7 +159,21 @@ def _build_extra_body(config: LLMModelConfig) -> Dict[str, Any]:
     if getattr(config, "enable_thinking", None) is not None:
         extra_body["chat_template_kwargs"] = {"enable_thinking": bool(config.enable_thinking)}
         return extra_body
-    _template_kwargs = json.loads(os.getenv("ANGINEER_CHAT_TEMPLATE_KWARGS", "null"))
+    # 环境变量解析必须容错：这行在每次请求的热路径上，而 json.loads("") 会抛
+    # JSONDecodeError——运维把该键清空（键还在、值空）就会打挂全部请求，
+    # 且异常类型是 ValueError 子类，容易被上层误映射成「请求非法」（v0.2.1 缺陷报告 B）。
+    # 空/纯空白视为未设置；非法 JSON 降级为未设置并留 WARNING。
+    _raw_template_kwargs = (os.getenv("ANGINEER_CHAT_TEMPLATE_KWARGS") or "").strip()
+    _template_kwargs: Any = None
+    if _raw_template_kwargs:
+        try:
+            _template_kwargs = json.loads(_raw_template_kwargs)
+        except json.JSONDecodeError:
+            logger.warning(
+                "ANGINEER_CHAT_TEMPLATE_KWARGS 不是合法 JSON，已忽略并回退隐式规则：%r",
+                _raw_template_kwargs,
+            )
+            _template_kwargs = None
     if _template_kwargs:
         extra_body["chat_template_kwargs"] = _template_kwargs
     elif "dashscope" in config.base_url or "aliyun" in config.base_url:

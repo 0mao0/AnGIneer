@@ -4,7 +4,7 @@ LLM 配置管理模块。
 """
 import json
 import os
-from typing import List, Optional
+from typing import Any, List, Optional
 
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
@@ -75,6 +75,30 @@ def _get_env_float(key: str, default: float = 0.0) -> float:
         return default
 
 
+_TRUTHY_TOKENS = ("true", "1", "yes", "on")
+_FALSY_TOKENS = ("false", "0", "no", "off")
+
+
+def _opt_bool(value: Any) -> Optional[bool]:
+    """LLM_CONFIGS 里的可选布尔项解析：缺失/无法识别 → None（视为「未声明」，沿用兜底）。
+
+    两个刻意的选择：
+    - 不用 bool(value)：那会把「未声明」（None/空串）变成 False，造成默认行为变更；
+    - 不把原值直接透传给 pydantic：.env 里写成字符串或拼错时会让校验异常在**加载期**
+      炸掉调用方进程（配置错误应表现为「该项未生效 + 可读日志」，而不是进程起不来）。
+    """
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return None
+    token = str(value).strip().lower()
+    if token in _TRUTHY_TOKENS:
+        return True
+    if token in _FALSY_TOKENS:
+        return False
+    return None
+
+
 def load_llm_models_from_env() -> List[LLMModelConfig]:
     """从 LLM_CONFIGS 环境变量 (JSON) 加载模型配置列表。"""
     raw = _get_env_str("LLM_CONFIGS")
@@ -100,6 +124,9 @@ def load_llm_models_from_env() -> List[LLMModelConfig]:
             base_url=str(item.get("base_url", "")),
             enabled=bool(item.get("enabled", True)),
             priority=int(item.get("priority", 0)),
+            # 端点级思考开关必须在这里落地：漏传即等于「LLM_CONFIGS 里的声明被静默丢弃」
+            # （v0.2.1 缺陷报告 A，2026-09-12）
+            enable_thinking=_opt_bool(item.get("enable_thinking")),
         ))
 
     models.sort(key=lambda m: m.priority, reverse=True)
