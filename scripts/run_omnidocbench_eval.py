@@ -9,11 +9,15 @@
   predict  — 页图转单页 PDF → docs-api 解析 → 下载 content.md → predictions/{page_id}.md（断点续跑）
   eval     — 生成配置并调用官方 Docker 镜像评测 → 汇总 metric_result.json
 
-用法（本地/生产同构）：
-  python scripts/run_omnidocbench_eval.py predict --docs-api http://localhost:8790 \
-      --data-dir D:/AI/tools/OmniDocBench_data --library omnidocbench --limit 6
-  python scripts/run_omnidocbench_eval.py eval \
-      --data-dir D:/AI/tools/OmniDocBench_data --predictions <preds> --out <result>
+用法（拆分执行——评测镜像 ~18GB 服务器磁盘装不下，predict 在服务器、eval 只在开发机）：
+  # ① 服务器：docs-api 容器内解析（产物落 host /home/runner/AnGIneer/data/evals/omnidocbench/predictions）
+  docker exec angineer-docs-api python /app/scripts/run_omnidocbench_eval.py predict \
+      --in-process --data-dir /app/data/omnidocbench --limit 6
+  # ② 预测回传开发机（原生 OpenSSH，见 AGENTS.md ssh 约定）
+  /c/Windows/System32/OpenSSH/scp.exe -r root@124.221.238.70:/home/runner/AnGIneer/data/evals/omnidocbench/predictions data/evals/omnidocbench/
+  # ③ 开发机：官方评测器（镜像先经 ghcr.nju.edu.cn 拉取再 tag 回 ghcr.io/...，ghcr 直连被重置）
+  python scripts/run_omnidocbench_eval.py eval --data-dir D:/AI/tools/OmniDocBench_data
+本地 HTTP 模式 predict（连开发机本地 docs-api）：加 --docs-api http://localhost:8790 不带 --in-process。
 """
 import argparse
 import io
