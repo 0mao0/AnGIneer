@@ -1,8 +1,14 @@
-# OmniDocBench 解析质量基线（200 页抽样）
+# OmniDocBench markdown 交付面基线（200 页抽样）
 
-2026-09-12 首次在**开发机**跑通完整解析质量评测：本机 in-process 驱动生产解析链产出预测，
-官方评测器镜像（Docker）算指标。此文件是内部回归跟踪的基准口径——改解析链（MinerU/PoPo/Solo/prompt）后
-重跑同一集合，与本表逐项对比即可判断涨跌。
+> **口径定位（2026-09-12 更正）**：本文件记录的是**官方 markdown 口径**——把我们的
+> `content.md` 交给官方评测器，由对方把 markdown 再切块后与 GT 比对。它量的是
+> **「我们交付的 markdown 有多好」**（预览/编辑/导出/step07 图谱抽取/agent 的 table_lookup
+> 消费这一层），**不是** pipeline 的解析质量——RAG 检索吃的是 canonical jsonl / SQLite / 向量
+> 那一层，本口径完全不量（块层级、section_path、chunk 边界、表格检索表示都不进分）。
+> **要看 pipeline 解析质量，用 `docs/parse-structure-eval.md` 的结构层口径。**
+
+2026-09-12 首次在**开发机**跑通完整 markdown 口径评测：本机 in-process 驱动生产解析链产出预测，
+官方评测器镜像（Docker）算指标。
 
 ## 评测集合定义（重跑必须一致）
 

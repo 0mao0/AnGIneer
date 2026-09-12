@@ -1,0 +1,116 @@
+# 结构层解析评测（jsonl 口径）
+
+## 为什么要另建一套口径
+
+官方 OmniDocBench 端到端评测只吃 **markdown**：把我们的 `content.md` 交给官方评测器，由对方的
+正则把 markdown 再切回块，位置是**字符偏移**，再与 GT 的块（真 bbox）匹配。它量的是
+「交付的 markdown 有多好」，而 **RAG 检索吃的是 canonical jsonl / SQLite / 向量那一层**——
+块层级、section_path、chunk 边界、表格检索表示在 markdown 里根本不存在，官方口径一个都不量
+（详见 `docs/omnidocbench-baseline.md` 的口径说明）。
+
+本口径不绕 markdown：直接拿 `doc_blocks_graph.jsonl` 的块（真 bbox）与 GT 的 poly 做**几何对齐**，
+量 RAG 真正依赖的那层。**不需要 18GB 镜像、不需要 GPU、不重跑解析**（读已落盘产物，200 页跑完约 2 分钟）。
+
+## 怎么跑
+
+```bash
+python scripts/eval_parse_structure.py \
+    --state data/evals/omnidocbench/predictions_eval200/state.json \
+    --out data/evals/omnidocbench/result_jsonl200
+# 可选：--gt <OmniDocBench.json> --library-dir <documents 目录> --iou-min 0.3
+#       --filter-prefix <文件名前缀> --limit <页数>
+```
+产物：`structure_result.json`（逐页明细）+ `structure_report.md`（报告）。
+
+## 口径定义
+
+| 环节 | 规则 |
+|---|---|
+| 页 ↔ 文档 | `state.json` 的 page_id → doc_id；缺失时按 `source/` 文件名兜底 |
+| 坐标 | GT `poly`（扁平列表）→ bbox，按 `page_info.width/height` 归一；我们的 `bbox` 本身就是 0–1 归一 |
+| 类目映射 | GT 类目 → 我们的 `block_type`，见 `parse_eval/categories.py`；caption/footnote 按**父块指针**映射（我们是 paragraph 块 + `caption_block_uid`） |
+| 匹配 | IoU ≥ 0.3，或预测块中心落在 GT 框内，或 GT 框被预测块覆盖 ≥ 60%（三条并集，应对两侧块粒度不一致） |
+| caption 匹配 | 边距放宽到 6%（caption 贴在表/图外面，且我们多数情况下没有它的独立 bbox） |
+| 文本比较 | 覆盖分组后两侧各自拼接，再算归一化编辑距离，分母取较长者（恒 0–1） |
+| 表格 | 官方 TEDS，**HTML↔HTML 直比**（不过 markdown，vendor 见 `parse_eval/_vendor/omnidocbench/`） |
+| 公式 | LaTeX 去风格化（去空白/花括号/`\left`/转义）后串比对，**非 CDM** |
+| 阅读顺序 | 匹配块的 GT `order` vs 我们的 `block_seq`：相邻对顺序正确率 + Kendall tau |
+| 分母 | GT 侧只进"我们有对应类目"的类目（`categories.py` 的 `UNMAPPED_GT` 排除）；我们侧排除 `UNMAPPED_OURS` |
+
+**关键设计：覆盖分组**。两侧块粒度经常不一致（实测：GT 把公式数组按行标 7 个
+`equation_isolated`，我们合成 1 个块）。逐块硬比会把"整段 vs 单行"算成全错（公式一度只有 0.07），
+故把互相覆盖的 GT 块归为一组、两侧各自拼接后再比一次。
+
+## 基线（200 页，2026-09-12）
+
+### 总览
+
+| 指标 | 值 | 说明 |
+|---|---|---|
+| 块召回率 | **87.2%** | GT 待评块 3634 个命中 3170 |
+| 预测块被解释率 | 90.4% | 我们 3852 个可评块中参与匹配 3484（低=多出块） |
+| 块文本相似度（命中项） | **0.8479** | 只看匹配上的块＝识别质量，n=2666 |
+| 块文本相似度（全部） | 0.7290 | 漏检块按 0 计入，n=3101 |
+| 表格 TEDS | **0.9183** | HTML↔HTML 直比，n=74 |
+| 公式相似度 | 0.4939 | LaTeX 去风格化串比（非 CDM），n=150 |
+| 阅读顺序（相邻对 / tau） | **97.5% / 0.9321** | 193 页 |
+
+### 按类目
+
+| GT 类目 | GT 块数 | 召回率 | 文本相似度(命中项) | 表格 TEDS |
+| --- | --- | --- | --- | --- |
+| text_block | 2006 | 95.0% | 0.8392 | — |
+| title | 517 | 77.4% | 0.9399 | — |
+| header | 243 | 72.8% | 0.9250 | — |
+| equation_isolated | 200 | 99.0% | 0.5006 | — |
+| page_number | 145 | 89.7% | 0.9518 | — |
+| figure | 139 | 92.1% | — | — |
+| footer | 103 | 86.4% | 0.9489 | — |
+| figure_caption | 75 | **10.7%** | 0.8636 | — |
+| table | 74 | 100% | — | **0.9183** |
+| table_caption | 53 | 58.5% | 0.8703 | — |
+| table_footnote | 24 | 83.3% | 0.8653 | — |
+| page_footnote | 17 | 35.3% | **0.0000** | — |
+| figure_footnote | 17 | **11.8%** | 0.0805 | — |
+| list_group | 13 | **0.0%** | — | — |
+| code_txt | 8 | 25.0% | 0.0000 | — |
+
+### 按文档类型
+
+| data_source | 页数 | GT 块 | 召回率 | 文本相似度 | 表格 TEDS | 顺序相邻对 |
+| --- | --- | --- | --- | --- | --- | --- |
+| PPT2PDF | 37 | 211 | 0.777 | 0.6716 | 0.9429 | 0.983 |
+| book | 36 | 517 | 0.863 | 0.7550 | 0.9974 | 0.966 |
+| academic_literature | 23 | 384 | 0.935 | 0.7403 | 0.8808 | 0.994 |
+| newspaper | 20 | 1150 | 0.888 | 0.7153 | 0.7879 | 0.976 |
+| colorful_textbook | 19 | 274 | 0.821 | 0.6973 | 0.9475 | 0.965 |
+| exam_paper | 19 | 378 | 0.913 | 0.7244 | 0.9780 | 0.990 |
+| research_report | 19 | 215 | 0.884 | 0.8257 | 0.9258 | 0.953 |
+| magazine | 18 | 273 | 0.813 | 0.7112 | — | 0.975 |
+| note | 12 | 199 | 0.965 | 0.8701 | 0.9814 | 0.993 |
+| historical_document | 1 | 33 | 0.182 | 0.1368 | — | 0.600 |
+
+## 这套口径查出的问题（按优先级）
+
+1. **caption 图注大面积没落地**：`figure_caption` 召回仅 10.7%（75 个只捕到 8 个）、
+   `table_caption` 58.5%。我们的 caption 多数不是独立块，而是父节点的 `caption` 文本字段
+   （实测 200 篇：250 个表图节点里 15 个有指针块、50 个只有文本字段）——RAG 侧图注是重要的上下文，
+   值得补成正式块。
+2. **`page_footnote` 有块无文本**：召回 35.3% 但文本相似度 0.0000——这些块被检出、`plain_text` 却是空，
+   等于对检索零贡献。
+3. **`list_group` 完全未建模**（0/13）：GT 有列表容器概念，我们没有对应结构。
+4. **公式串相似度 0.49**：主因不是识别错，而是**多行数组的表示约定不同**（GT 用 `{l}`，
+   MinerU 用 `\begin{array}{l}`）——这条指标只适合作回归跟踪，不能当质量绝对值；要绝对值得用 CDM。
+5. **表格 TEDS 0.9183 低于 book(0.9974) 的短板在 newspaper 0.7879 / academic_literature 0.8808**，
+   与之前 markdown 口径的指向一致（复杂版式的表格）。
+
+## 盲区与维护约定
+
+- **不是官方分数**：这是自定义口径，只做内部回归跟踪（同规则前后可比）。对外可比数字只能来自
+  官方 markdown 口径或官方镜像。
+- **阈值是约定**：IoU 0.3 / 覆盖 0.6 / caption 边距 6% 都会影响数字——重跑对比时必须用同一套阈值
+  （脚本参数默认值即基线口径）。
+- **chunk 层未覆盖**：本口径量到"块"，chunk 边界（`canonical_builder` 的块拼接）与 section_path
+  正确性还没量；RAG 检索直接吃这两样，是下一步该补的。
+- **TEDS 不得本地改写**：`_vendor/omnidocbench/table_metric.py` 与官方逐位一致是可比性前提，
+  要改行为请改我们自己的输入归一（见该目录 SOURCE.md）。
