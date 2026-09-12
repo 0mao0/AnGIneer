@@ -103,6 +103,27 @@ def extract_plain_text(block_type: str, content: dict[str, Any]) -> str:
         cap = collect_from_spans(content.get("image_caption"))
         foot = collect_from_spans(content.get("image_footnote"))
         return " ".join([x for x in [cap, foot] if x]).strip()
+    # 以下五类此前没有分支，落到末尾 return "" 被整条吃掉：content_json 里有内容，但 plain_text
+    # 为空 → build_node_text（graph_rebuilder.py）取不到 → canonical chunk 为空 → FTS/向量索引里
+    # 没有这段；markdown 投影同样只读 plain_text，也不含。实测后果（2026-09-12 结构层评测）：
+    # 参考文献脚注（page_footnote）、旁注（page_aside_text）、图表标题（chart_caption）、
+    # 代码与算法正文全部不可检索、不可见——这些恰恰是高价值检索目标。
+    if block_type == "chart":
+        cap = collect_from_spans(content.get("chart_caption"))
+        foot = collect_from_spans(content.get("chart_footnote"))
+        return " ".join([x for x in [cap, foot] if x]).strip()
+    if block_type == "page_footnote":
+        return collect_from_spans(content.get("page_footnote_content"))
+    if block_type == "page_aside_text":
+        return collect_from_spans(content.get("page_aside_text_content"))
+    if block_type == "code":
+        cap = collect_from_spans(content.get("code_caption"))
+        body = collect_from_spans(content.get("code_content"))
+        return " ".join([x for x in [cap, body] if x]).strip()
+    if block_type == "algorithm":
+        cap = collect_from_spans(content.get("algorithm_caption"))
+        body = collect_from_spans(content.get("algorithm_content"))
+        return " ".join([x for x in [cap, body] if x]).strip()
     return ""
 
 

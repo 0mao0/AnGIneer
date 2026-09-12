@@ -95,9 +95,18 @@ python scripts/eval_parse_structure.py \
 1. **caption 图注大面积没落地**：`figure_caption` 召回仅 10.7%（75 个只捕到 8 个）、
    `table_caption` 58.5%。我们的 caption 多数不是独立块，而是父节点的 `caption` 文本字段
    （实测 200 篇：250 个表图节点里 15 个有指针块、50 个只有文本字段）——RAG 侧图注是重要的上下文，
-   值得补成正式块。
-2. **`page_footnote` 有块无文本**：召回 35.3% 但文本相似度 0.0000——这些块被检出、`plain_text` 却是空，
-   等于对检索零贡献。
+   值得补成正式块。根因（2026-09-12 代码核查）：caption 文本**只**来自 MinerU 的 `image_caption`
+   字段（`solo_engine.py` 的 `extract_plain_text` image 分支），MinerU 不给就没有任何几何兜底
+   （`collect_media_related_block_refs` 的 needles 为空即直接 return）。另注：VLM 图描述属独立
+   stage `figure_describe`，**不在评测链的 5 个 stage 里**，故本轮评测完全没有图描述（生产有，
+   落 `figure_description`，canonical 会与 caption 拼接进可检索文本）。**此项未修。**
+2. **`page_footnote` 等 5 类块的文本被链路吃掉（已修，本次）**：`extract_plain_text` 缺
+   `chart` / `page_footnote` / `page_aside_text` / `code` / `algorithm` 五个分支，落到末尾
+   `return ""` → `plain_text` 为空 → `build_node_text` 无 content_json 兜底 → canonical chunk 为空
+   → **FTS/向量索引里没有这段**；markdown 投影同样只读 plain_text，也不含。实测受影响：评测语料
+   209 篇中 **54 块**重获文本（chart 22、旁注 20、参考脚注 6、代码 5、算法 1），合计约 7100 字符。
+   修复后原有 `page_footnote` 的"召回 35.3% / 文本相似度 0.0000"这类假差会消失。
+   **注意：存量解析产物与本文基线数字均为修复前口径，需重新解析才会变。**
 3. **`list_group` 完全未建模**（0/13）：GT 有列表容器概念，我们没有对应结构。
 4. **公式串相似度 0.49**：主因不是识别错，而是**多行数组的表示约定不同**（GT 用 `{l}`，
    MinerU 用 `\begin{array}{l}`）——这条指标只适合作回归跟踪，不能当质量绝对值；要绝对值得用 CDM。
