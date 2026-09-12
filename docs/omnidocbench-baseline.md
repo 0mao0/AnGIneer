@@ -42,18 +42,22 @@ python scripts/run_omnidocbench_eval.py eval --data-dir D:/AI/tools/OmniDocBench
 
 ## 分文档类型（`page_attribute.data_source`）
 
-| data_source | 页数 | 文本 Edit_dist | 表格 TEDS | 公式 Edit_dist | CDM | 阅读顺序 |
-|---|---|---|---|---|---|---|
-| PPT2PDF | 36 | 0.087 | 0.878 | 0.047 | 0.996 | 0.091 |
-| book | 32 | 0.149 | 0.984 | 0.156 | 0.939 | 0.191 |
-| academic_literature | 20 | 0.081 | 0.866 | 0.078 | 0.982 | 0.129 |
-| colorful_textbook | 19 | 0.076 | 0.923 | **0.224** | **0.854** | 0.135 |
-| exam_paper | 19 | 0.151 | 0.982 | 0.041 | 0.962 | 0.097 |
-| newspaper | 19 | 0.021 | **0.607** | - | - | 0.107 |
-| magazine | 18 | 0.029 | - | - | - | 0.056 |
-| research_report | 14 | 0.003 | 0.884 | - | - | **0.400** |
-| note | 10 | 0.010 | 0.925 | - | - | 0.103 |
-| historical_document | 1 | 0.400 | - | - | - | 0.871 |
+| data_source | 页数 | 表数 | 文本 Edit_dist | 表格 TEDS | 公式 Edit_dist | CDM | 阅读顺序 |
+|---|---|---|---|---|---|---|---|
+| PPT2PDF | 36 | 6 | 0.087 | 0.878 | 0.047 | 0.996 | 0.091 |
+| book | 32 | 6 | 0.149 | 0.984 | 0.156 | 0.939 | 0.191 |
+| academic_literature | 20 | 21 | 0.081 | 0.866 | 0.078 | 0.982 | 0.129 |
+| colorful_textbook | 19 | 3 | 0.076 | 0.923 | **0.224** | **0.854** | 0.135 |
+| exam_paper | 19 | 5 | 0.151 | 0.982 | 0.041 | 0.962 | 0.097 |
+| newspaper | 19 | 4 | 0.021 | 0.607 | - | - | 0.107 |
+| magazine | 18 | 0 | 0.029 | - | - | - | 0.056 |
+| research_report | 14 | 24 | 0.003 | 0.884 | - | - | **0.400** |
+| note | 10 | 4 | 0.010 | 0.925 | - | - | 0.103 |
+| historical_document | 1 | 0 | 0.400 | - | - | - | 0.871 |
+
+**表格列的小样本警告**：整批只有 73 张表，且 76% 集中在 research_report(24) 与 academic_literature(21)；
+newspaper 的 0.607 仅由 4 张表支撑，book/PPT2PDF/exam_paper 各 5–6 张——**分类型表格数字只作线索，不作结论**。
+可靠的表格结论是全批 73 张的 **TEDS 0.8821 / structure_only 0.8985**。全批 73 张里有 **2 张 TEDS=0.0**。
 
 （`-` = 该类型无此要素的样本，非 0 分。末行 n=1，不具统计意义。）
 
@@ -71,10 +75,26 @@ python scripts/run_omnidocbench_eval.py eval --data-dir D:/AI/tools/OmniDocBench
 
 ## 结论：优先修三处
 
-1. **表格解析是最大短板**——整体 TEDS 0.882，`newspaper` 仅 0.607、`other_layout` 0.685、英文表格 0.826。
-   复杂版式（多栏混排/报纸）下的表格结构识别明显弱于规整版式（double_column 0.984）。
-2. **阅读顺序在 research_report 上崩**（0.400，样本 14 页），`book` 0.191 次之——长文档/多栏的块序重建需查。
-3. **公式在 colorful_textbook 上差**（CDM 0.854 / Edit_dist 0.224），教材类公式排版复杂度可能是主因。
+1. **表格解析是最大短板**——全批 73 张表 TEDS 0.882（structure_only 0.8985），其中 2 张 0.0。
+   已定位一例根因：`newspaper_Daily Star..._page_060` 页面上两张 9×9 数独表被**合并成一张 18 行表**
+   （GT 两张、预测一张），导致第 2 张无对应 → TEDS 0.0、第 1 张被拉成 0.5。**相邻同构表格未切分**是明确缺陷。
+2. **阅读顺序在 research_report 上崩**（0.400，14 页 24 表，样本充足），`book` 0.191 次之——长文档/多栏的块序重建需查。
+3. **公式在 colorful_textbook 上差**（CDM 0.854 / Edit_dist 0.224，19 页），教材类公式排版复杂度可能是主因。
+
+## 评测吃的是 markdown，不是 pipeline 的 JSON
+
+`predict` 提交给官方评测器的是 `parsed/content.md`（markdown），**不是** `doc_blocks_graph.jsonl` /
+`mineru_raw/content_list.json` 这些带 bbox、block_seq 的结构化产物。官方 end2end 评测器
+`_resolve_prediction_path` 只解析 `.md`（镜像内 `/workspace/src/dataset/end2end_dataset.py:2001-2014`），
+读入后**由评测器自己把 markdown 再切成块**，与 GT JSON 的块做匹配后算指标。
+
+含义：
+- 指标反映"我们的结构信息有多少活过了 markdown 投影"——块角色、层级、bbox 不直接参与打分；
+- 表结构按 markdown 表格（转 HTML）算 TEDS，阅读顺序按 markdown 块序算；
+- 想直接评 JSON 结构，官方另有 `layout_detection.yaml` / `table_recognition.yaml` / `formula_recognition.yaml`
+  任务（配置在镜像里），需要把我们的 JSON 转成官方 schema——我们的
+  `mineru_raw/content_list.json`（`type/text/bbox/page_idx`）与 `doc_blocks_graph.jsonl`
+  （`block_type/plain_text/bbox/block_seq`）字段已齐，转换可行但尚未做。
 
 ## 相关文件
 
