@@ -43,8 +43,10 @@ class PathsTests(unittest.TestCase):
                 self.assertEqual(str(npaths.baseline_dir()), str(Path(td) / "evals" / "baseline"))
                 self.assertEqual(str(npaths.dataset_json_path("ds-1")),
                                  str(Path(td) / "evals" / "datasets" / "ds-1.json"))
-                self.assertEqual(str(npaths.manifest_path()),
-                                 str(Path(td) / "open_ragbench" / "subset" / "subset_manifest_v2.json"))
+                # 文件名跟着 MANIFEST_DEFAULT 走（v3 题集时代曾在此硬编码 v2 造成升级后测试空转失败）
+                self.assertEqual(
+                    str(npaths.manifest_path()),
+                    str(Path(td) / "open_ragbench" / "subset" / Path(npaths.MANIFEST_DEFAULT).name))
 
 
 class SettingsTests(_TmpSettings):
@@ -52,7 +54,8 @@ class SettingsTests(_TmpSettings):
         cfg = nc.load_settings()
         self.assertEqual(cfg["enabled"], True)  # 每晚定时执行是默认选择
         self.assertEqual((cfg["hour"], cfg["minute"]), (1, 0))
-        self.assertEqual(cfg["dataset_id"], "open-ragbench-subset-v2")
+        # 题集代际升级（v2→v3）时这里别再硬编码——测的是"缺文件时逐键回退 DEFAULT_SETTINGS"
+        self.assertEqual(cfg["dataset_id"], nc.DEFAULT_SETTINGS["dataset_id"])
         self.assertIsNone(cfg["last_dispatch"])
 
     def test_roundtrip_keeps_new_keys_and_history(self):
