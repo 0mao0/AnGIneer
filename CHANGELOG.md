@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.59
+
+- 修 `angineer-ai-inference`（DGX 车队缺陷报告，2026-09-12）：`LLM_CONFIGS` 里端点级 `enable_thinking` 声明被静默丢弃——`LLMModelConfig` 有该字段，但 `load_llm_models_from_env()` 构造时漏传，Pydantic 于是取默认 `None`，使「端点级显式 > `ANGINEER_CHAT_TEMPLATE_KWARGS` > 隐式 URL/模型名规则」里最高优先级整层失效（直连 vLLM/DGX 的端点三层全不命中、发不出任何思考控制），loader 现补传该字段，并新增宽松布尔解析 `_opt_bool()`：`true/false` 与 `"true"/"false"/"1"/"0"/"yes"/"no"/"on"/"off"` 都认，识别不了按默认值处理并 WARNING，不把原值直接透传给 pydantic（避免 `.env` 写成字符串或拼错时在加载期炸掉调用方进程）
+- 同类隐患一并修：`enabled` 原为 `bool(item.get("enabled", True))`，而 `bool(None)` 是 `False`——线上 `.env` 里 `"enabled": null` 的 `Qwen3.8-Flash` 因此被静默**禁用**（并非"未声明取默认值"），现改走 `_opt_bool(default=True)`，`null`/缺失即启用，修复后实测该模型 `enabled=True` 且声明生效（`extra_body={'chat_template_kwargs': {'enable_thinking': False}}`）
+- 修 `ANGINEER_CHAT_TEMPLATE_KWARGS` 空值/非法 JSON 打挂请求：`_build_extra_body` 内的 `json.loads(os.getenv(...))` 无 try/except、无空值短路，而它就在每次请求的热路径上——运维把该键清空（键保留、值清空）或写错 JSON 即全量请求抛 `JSONDecodeError`，又因该异常是 `ValueError` 子类，消费方容易把它误映射成"请求非法"（本库自身不做 400/500 映射，异常直接抛给调用方），现空串/纯空白按未设置处理、非法 JSON 降级为未设置并 WARNING，变量未设置时的行为与旧版完全一致
+- `ai-inference` 测试补 loader 级回归：此前**没有任何测试走 `load_llm_models_from_env()`**（全是手工构造 `LLMModelConfig`，正好绕过漏参那一行，这是缺陷能活到线上的直接原因），新增断言覆盖声明 `false/true/省略`、字符串形态、无法识别值、`enabled: null`、以及"线上 `.env` 真实形态 → `extra_body`"的端到端用例，并修掉 `test_enable_thinking_switch.py` 一处假覆盖（原 `_extra_body_for` 把环境变量 patch 成空串后又 `pop`，实际测的是"未设置"，空串路径从未被覆盖）
+
 ## v0.2.58
 
 修复「部分阶段运行永远停在 processing」：`_run_parse_task` 非全量分支的状态推导此前要求全部 9 个注册阶段终态，导致 v1 API 按 stages 子集解析（默认 structure、或解析评测用的 source_prep→structure 五阶段链）的任务在全部阶段完成、进度 100% 后状态仍永远卡 processing——现在未启动且无历史记录的阶段按 skipped 计入整体判定（不写库，仅修状态推导；OmniDocBench 接入实踩）。新增 `scripts/run_omnidocbench_eval.py`：OmniDocBench（文档解析公认基准，1651 标注页）解析质量评测工具，predict 子命令把页图转单页 PDF 走完整解析链（MinerU+PoPo+Solo）下载每页 markdown（断点续跑），eval 子命令调用官方 Docker 评测器算文本 Edit_dist / 表格 TEDS / 公式 CDM / 阅读顺序指标；v3 题集 JSON（v2 487+拒答 39）入库。

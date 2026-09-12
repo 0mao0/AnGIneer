@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.58** —— 修复「部分阶段运行永远停在 processing」：v1 API 按 stages 子集解析（如默认 structure、或解析评测的 source_prep→structure 链）时，未启动且无历史记录的阶段现按 skipped 计入整体状态推导——此前这类任务全部阶段已完成、进度 100%，但状态永远卡 processing（OmniDocBench 解析评测接入实踩）；新增 `scripts/run_omnidocbench_eval.py`（页图→完整解析链→每页 markdown→官方评测器，predict/eval 两子命令 + 断点续跑）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.59** —— 修 angineer-ai-inference 三项（DGX 车队缺陷报告）：LLM_CONFIGS 的端点级 `enable_thinking` 因 loader 漏传被静默丢弃、最高优先级整层失效（直连 vLLM/DGX 端点发不出任何思考控制），现补传并新增宽松布尔解析（识别不了的按默认值处理并告警）；同类隐患 `enabled` 一并修——`bool(None)` 曾把 `"enabled": null` 变成静默禁用，线上 Qwen3.8-Flash 就中招；`ANGINEER_CHAT_TEMPLATE_KWARGS` 空值/非法 JSON 不再在请求热路径抛异常，改为降级 + WARNING；并补上此前完全缺失的 loader 级回归测试。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
