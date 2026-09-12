@@ -13,7 +13,7 @@
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.8` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
 | [angineer-table-ui](https://github.com/0mao0/angineer-table-ui) | `v0.1.3` | 通用表格组件库 DataTable（npm: @angineer/table-ui） |
-| [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.2.1` | Python AI 推理客户端库 |
+| [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.2.2` | Python AI 推理客户端库 |
 
 > 核心理念：*"Human Defines SOP, AnGIneer Executes with Precision."*
 
