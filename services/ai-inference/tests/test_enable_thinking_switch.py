@@ -133,6 +133,31 @@ class TestLoaderEnableThinking(unittest.TestCase):
         body = _extra_body_for(loaded["dgx-direct"])
         self.assertEqual(body, {"chat_template_kwargs": {"enable_thinking": False}})
 
+    def test_enabled_null_and_absent_mean_enabled(self):
+        # bool(None) 是 False —— 旧实现把「写了 null / 没写」当成「显式禁用」
+        loaded = self._load([
+            {"name": "null-on", "model": "m", "base_url": "http://x:8888/v1", "enabled": None},
+            {"name": "absent-on", "model": "m", "base_url": "http://x:8888/v1"},
+            {"name": "explicit-off", "model": "m", "base_url": "http://x:8888/v1", "enabled": False},
+            {"name": "str-off", "model": "m", "base_url": "http://x:8888/v1", "enabled": "false"},
+        ])
+        self.assertIs(loaded["null-on"].enabled, True)
+        self.assertIs(loaded["absent-on"].enabled, True)
+        self.assertIs(loaded["explicit-off"].enabled, False)
+        self.assertIs(loaded["str-off"].enabled, False)
+
+    def test_prod_shape_null_enabled_with_declared_thinking(self):
+        # 复刻线上 .env 的真实形态：enabled=null + enable_thinking=false + DGX 直连 URL
+        loaded = self._load([{
+            "name": "Qwen3.8-Flash", "model": "qwen3.8-flash-next", "api_key": "k",
+            "base_url": "https://dgx-qwen38-flash.example.com/v1",
+            "enabled": None, "priority": 5, "enable_thinking": False,
+        }])
+        model = loaded["Qwen3.8-Flash"]
+        self.assertIs(model.enabled, True)  # null 不等于禁用
+        self.assertIs(model.enable_thinking, False)  # 端点级声明要落地
+        self.assertEqual(_extra_body_for(model), {"chat_template_kwargs": {"enable_thinking": False}})
+
 
 class TestEnvKwargsTolerance(unittest.TestCase):
     """ANGINEER_CHAT_TEMPLATE_KWARGS 空值/非法 JSON 不得打挂请求（缺陷 B 回归）。"""

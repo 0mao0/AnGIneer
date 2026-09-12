@@ -9,7 +9,11 @@ from typing import Any, List, Optional
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 
+from .llm_logger import get_logger
+
 load_dotenv()
+
+logger = get_logger(__name__)
 
 
 class LLMModelConfig(BaseModel):
@@ -79,24 +83,29 @@ _TRUTHY_TOKENS = ("true", "1", "yes", "on")
 _FALSY_TOKENS = ("false", "0", "no", "off")
 
 
-def _opt_bool(value: Any) -> Optional[bool]:
-    """LLM_CONFIGS 里的可选布尔项解析：缺失/无法识别 → None（视为「未声明」，沿用兜底）。
+def _opt_bool(value: Any, default: Optional[bool] = None) -> Optional[bool]:
+    """LLM_CONFIGS 里的布尔项解析：缺失/写 null/无法识别 → default。
+
+    - `enable_thinking` 传 default=None（未声明 → 沿用后续兜底）
+    - `enabled` 传 default=True（字段本身就是默认启用的语义）
 
     两个刻意的选择：
-    - 不用 bool(value)：那会把「未声明」（None/空串）变成 False，造成默认行为变更；
+    - 不用 bool(value)：bool(None) 是 False，会把「未声明 / 写了 null」变成「显式关闭」
+      —— 生产 .env 里的 `"enabled": null` 就因此把 Qwen3.8-Flash 静默禁用了（2026-09-12 缺陷报告同批）；
     - 不把原值直接透传给 pydantic：.env 里写成字符串或拼错时会让校验异常在**加载期**
       炸掉调用方进程（配置错误应表现为「该项未生效 + 可读日志」，而不是进程起不来）。
     """
     if isinstance(value, bool):
         return value
     if value is None:
-        return None
+        return default
     token = str(value).strip().lower()
     if token in _TRUTHY_TOKENS:
         return True
     if token in _FALSY_TOKENS:
         return False
-    return None
+    logger.warning("LLM_CONFIGS 布尔项无法识别，按默认值 %r 处理：%r", default, value)
+    return default
 
 
 def load_llm_models_from_env() -> List[LLMModelConfig]:
@@ -122,7 +131,7 @@ def load_llm_models_from_env() -> List[LLMModelConfig]:
             model=str(item.get("model", "")),
             api_key=str(item.get("api_key", "")),
             base_url=str(item.get("base_url", "")),
-            enabled=bool(item.get("enabled", True)),
+            enabled=_opt_bool(item.get("enabled"), default=True),
             priority=int(item.get("priority", 0)),
             # 端点级思考开关必须在这里落地：漏传即等于「LLM_CONFIGS 里的声明被静默丢弃」
             # （v0.2.1 缺陷报告 A，2026-09-12）
