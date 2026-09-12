@@ -243,3 +243,27 @@ def test_evaluate_via_deepeval_skips_context_metrics_without_contexts(fake_deepe
     assert result["answer_relevancy_score"] == 0.88
     assert "faithfulness_score" not in result or result["faithfulness_score"] is None
     assert "contextual_precision_score" not in result
+
+
+def test_geval_constructed_with_frozen_steps(fake_deepeval, monkeypatch):
+    """steps 固化回归：GEval 必须收到 _GEVAL_STEPS 常量（收到显式 steps 后 deepeval
+    跳过"每题现编 rubric"的生成调用——单题省近半判分费并消除 steps 漂移噪声）。"""
+    captured = {}
+
+    class RecordingGEval(_FakeMetricBase):
+        def __init__(self, *args, **kwargs):
+            captured.update(kwargs)
+
+    import deepeval.metrics
+
+    monkeypatch.setattr(deepeval.metrics, "GEval", RecordingGEval)
+    monkeypatch.setenv("EVAL_DEEPVAL_EXTRA", "0")
+    judge_deepeval.evaluate_via_deepeval(
+        question="q",
+        answer="a",
+        gold_answer="g",
+        checks=[],
+        prediction={"evidences": [{"content": "ctx"}]},
+    )
+    assert captured.get("evaluation_steps") == judge_deepeval._GEVAL_STEPS
+    assert captured.get("criteria") == judge_deepeval._GEVAL_CRITERIA

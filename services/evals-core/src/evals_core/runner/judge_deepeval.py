@@ -30,6 +30,21 @@ _GEVAL_CRITERIA = """\
 不得因遗漏次要数值/细节而整体判错。\
 """
 
+# evaluation_steps 固化常量（2026-09-12 人工核读定稿，逐字取自线上 steps 生成调用原文）。
+# 不传 steps 时 GEval 每题多花一次调用现编 rubric（实测单题判分输出均值 1242 tok 中 ~580 来自该调用，
+# 近半成本），且其输入恒定只含 criteria、同温度下仍会漂移（3 次抓取 1 次换措辞）——是 nightly
+# 判分翻转（同晚两 run 65/526 题）的噪声源之一。传入此常量后 steps 调用整体跳过。
+# 改动此清单 = 判分口径变更，须重跑 30 题 A/B 并重钉基线。
+_GEVAL_STEPS = [
+    "提取 Expected Output 的核心信息或核心结论，并明确评估重点，例如关键结论、必要数值或是否为简短的是/否判断。",
+    "将 Actual Output 与 Expected Output 进行语义比对：判断 Actual Output 是否完整包含 Expected Output 的核心信息或与其语义等价；"
+    "若 Expected Output 是简短的是/否判断，Actual Output 首句给出同义结论即视为命中核心信息，展开解释或末尾追问不属于扣分项。",
+    "根据核心信息覆盖程度评分：完整包含或语义等价=1.0；包含大部分核心信息但有少量遗漏或不精确=0.7-0.9；"
+    "包含部分核心信息但有明显遗漏或偏差=0.4-0.6；与核心信息不符或缺失严重=0.0-0.3。",
+    "注意详略与表述风格差异不作为扣分依据：Actual Output 比 Expected Output 更详细但已完整包含核心信息时，应给 1.0 或 0.9；"
+    "仅遗漏个别次要数值或细节时给 0.7-0.9，不得因此整体判错。",
+]
+
 
 def deepeval_available() -> bool:
     try:
@@ -165,6 +180,8 @@ def evaluate_via_deepeval(
         geval = GEval(
             name="answer_correctness",
             criteria=_GEVAL_CRITERIA,
+            # 固化 rubric 清单：跳过"每题现编 steps"的生成调用（省近半判分费 + 消除 steps 漂移噪声）
+            evaluation_steps=_GEVAL_STEPS,
             # 显式参数面：只评 actual_output vs expected_output（与 legacy 判分同口径）
             evaluation_params=[SingleTurnParams.ACTUAL_OUTPUT, SingleTurnParams.EXPECTED_OUTPUT],
             model=judge,

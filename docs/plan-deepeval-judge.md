@@ -42,6 +42,15 @@ judge 候选链纪律（绝不落到被测模型自判）、基线门禁、企�
 > 首夜流水线曾因 270 分钟截止线与 run 完成（05:55）差 25 分钟误判超时，已手动补跑落盘
 > （`_compute_and_publish` 直调，跳过通知防口径切换夜误报）。
 
+> **steps 固化（2026-09-12）**：GEval 不传 evaluation_steps 时会**每题多花一次调用现编 rubric**——实测单题判分
+> 输出 ~1242 tok 中一半来自该调用；且该调用输入恒定（367 tok 只含 criteria）却同温漂移：3 次抓取 1 次换措辞，
+> 是同晚两 run 65/526 题判分翻转（总分 ±1.3pp）的噪声源之一，现编侧还有瞬时解析失败（A/B 中 1/30 KeyError('score')）。
+> 现改为传入人工核读定稿的 `_GEVAL_STEPS` 常量（逐字取线上 steps 生成调用原文），steps 调用整体跳过：
+> 判分 2 调用/题 → 1 调用/题，nightly 评审费 ≈$0.45/晚 → ≈$0.25/晚（DeepSeek-V4-Flash 实测 usage，
+> 实际送判 476/526——39 拒答题与兜底题走规则判分）。**30 题线上同 prediction A/B（现编 vs 固化）：
+> mean shift −0.003、阈值翻转 1/29（在既有判分噪声带内）→ 基线 83.08% 不动**；部署后首晚分数照常人工核读。
+> 纪律：改动 `_GEVAL_STEPS` = 判分口径变更，须重跑 A/B 并决定是否重钉基线。
+
 1. 服务器 `.env`：`EVAL_ENGINE=deepeval` → `docker compose up -d aichat-api`（重建注入 env）
 2. **第一次 DeepEval nightly 的分数与旧基线不可直接比**（判分口径变严 ~8pp）——当晚报告出来人工核读，
    确认后该次 run 钉为新基线；旧基线保留归档备查（nightly.json 条目带 `eval_engine` 字段可识别口径）
