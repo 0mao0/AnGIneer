@@ -18,11 +18,19 @@
   # ③ 开发机：官方评测器（镜像先经 ghcr.nju.edu.cn 拉取再 tag 回 ghcr.io/...，ghcr 直连被重置）
   python scripts/run_omnidocbench_eval.py eval --data-dir D:/AI/tools/OmniDocBench_data
 本地 HTTP 模式 predict（连开发机本地 docs-api）：加 --docs-api http://localhost:8790 不带 --in-process。
+
+镜像获取（ghcr.io 直连被重置、DaoCloud 不在白名单，只能用南大源；服务器磁盘装不下 18GB）：
+  docker pull ghcr.nju.edu.cn/zeng-weijun/omnidocbench-eval:repro-ubuntu2204   # 单连接 ~300KB/s 且频繁断流
+  # 断流严重时改分段并行续传：拉 manifest → 24 层各切 4 段 Range 下载 → sha256 校验 → 组装 docker save 归档 → docker load
+  docker tag ghcr.nju.edu.cn/... ghcr.io/zeng-weijun/omnidocbench-eval:repro-ubuntu2204  # 或 load 时直接保留原名
+2026-09-12 实测：12.7GB 传输约 3.5h；导入后 18.1GB，本地复现服务器 6 页基线逐位一致
+（text 0.1099 / TEDS 0.972 / 阅读顺序 0.0764 / CDM 0.9735），镜像与 Windows 反斜杠 bind mount 均无问题。
 """
 import argparse
 import io
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -155,12 +163,30 @@ def _parse_one(docs_api: str, headers: dict, library_id: str, page_id: str, pdf_
     raise RuntimeError("解析超时（30 分钟）")
 
 
+_BUILD_ID_HEADER_RE = re.compile(r"^\s*<!--\s*build_id:\s*[0-9a-f]+\s*-->\s*$")
+
+
+def _strip_build_id_header(markdown: str) -> str:
+    """去掉 content.md 首行的 build_id 注释，再交给评测器。
+
+    predict 从 /content 或 parsed/content.md 拿到的是用户可见 markdown，首行是
+    `<!-- build_id: <hex> -->`（step04 的 _stamp_markdown_build_id 戳的版本标记，非正文）。
+    官方评测器按块匹配算 Edit_dist，这行注释会与首个文本块合并成一条预测
+    （`build_idXXX三角形上` vs `三角形上`），把该页 text 指标从 0.06 量级抬到 0.83
+    （2026-09-12 本地复现 6 页基线时实踩：不去头 text Edit_dist 0.2302，去头 0.0595）。
+    """
+    lines = markdown.splitlines(keepends=True)
+    if lines and _BUILD_ID_HEADER_RE.match(lines[0]):
+        return "".join(lines[1:]).lstrip("\n")
+    return markdown
+
+
 def _download_markdown(docs_api: str, headers: dict, doc_id: str) -> str:
     import requests
 
     resp = requests.get(f"{docs_api}/api/v1/documents/{doc_id}/content", headers=headers, timeout=60)
     resp.raise_for_status()
-    return str(resp.json().get("markdown") or "")
+    return _strip_build_id_header(str(resp.json().get("markdown") or ""))
 
 
 def cmd_predict(args) -> int:
@@ -266,7 +292,7 @@ def _predict_in_process(args) -> int:
                 raise RuntimeError(f"解析未正常完成: status={status} msg={str((current or {}).get('stage_message') or '')[:150]}")
             md_path = core_paths.get_parsed_dir(args.library, doc_id) / "content.md"
             markdown = md_path.read_text(encoding="utf-8") if md_path.exists() else ""
-            out_md.write_text(markdown, encoding="utf-8")
+            out_md.write_text(_strip_build_id_header(markdown), encoding="utf-8")
             state[page_id] = {"status": "done", "doc_id": doc_id, "chars": len(markdown)}
             done += 1
             print(f"[{idx}/{len(pages)}] {page_id}: {len(markdown)} chars", flush=True)
