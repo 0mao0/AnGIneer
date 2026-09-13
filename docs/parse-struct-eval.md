@@ -1,15 +1,29 @@
 # ParseStruct：结构层解析评测（jsonl 口径）
 
-## ParseStruct 在评测体系里的位置
+## 评测体系：A / B / C 三层
 
-| 层 | 名字 | 口径 | 量什么 | 谁能同台 |
+按"**验证对象**"划分（不是按工具划分）——pipeline 的产物本体是 jsonl，markdown 是它的投影：
+
+| 层 | 验证对象 | 口径 / 工具 | 输出形态 | 台上选手 |
 |---|---|---|---|---|
-| 1 | **OmniDocBench**（官方） | 官方 markdown | 交付的 markdown 像不像标准答案 | 任何能出 markdown 的系统（参考模型 / MinerU / 我们） |
-| 2 | **ParseStruct**（本文件，自建） | 块级几何对齐 | RAG 依赖的结构层还原度、与上游 MinerU 的差异 | 只有产出块+位置的一方（我们 / MinerU 原生 content_list） |
-| 3 | **Nightly-OpenRAG**（自建） | 问答 + 检索命中 | 端到端能不能搜到、答对 | 任何跑在评测语料上的系统 |
+| **A. 解析结果质量** | pipeline 的产物（jsonl 本体 + 它的 markdown 投影） | ① 官方 OmniDocBench 口径（jsonl→markdown，别人的评测器）<br>② **ParseStruct / ParseStructComparison**（jsonl 块层，我们的脚本） | 分数 | ① 三方：参考模型 / MinerU 的 md / 我们的 md<br>② 两方：MinerU **原生 content_list** / 我们的 jsonl |
+| **B. 素材传递性** | jsonl → canonical → chunk → 向量 | 覆盖率与一致性断言（`scripts/reindex_parse_docs.py` 是它的一次执行） | **缺失清单**（不是分数） | 只有我们 |
+| **C. 端到端效果** | agentic chat | nightly_openRAG（检索命中 + 答对） | 分数 | 跑在评测语料上的任何系统 |
 
-命名约定：**ParseStruct 是我们自建口径的名字，不可声称为 OmniDocBench 官方分数**；官方镜像只接了
-end2end（markdown），版面检测等专项配置存在但未接线，这也是自建本口径的原因。
+### 三条使用纪律
+
+1. **A 的两个口径并列报，不能互相替代**。同一个 GT，两种刻度：ParseStruct 量 jsonl 本体；
+   官方 markdown 口径量"jsonl + 投影"。差值本身是有效信息——**差值 = 投影损耗**
+   （实测：表格 TEDS 0.9172 vs 0.8821，差的 3.6 个点就是 HTML 表被拍成管道表造成的，改投影后两者追平）。
+   官方 markdown 口径同时兼任 **markdown 交付面**的验收（markdown 有自己的消费者：前端预览/编辑、
+   导出、step07 图谱抽取、agent 的 table_lookup），不只是 jsonl 的影子。
+2. **参考模型只在 A① 能上场**（它只吐 markdown、没有坐标）；MinerU 两个台都能上，但用的是它**不同的产物**
+   （A① 用它的 markdown、A② 用它的原生 content_list）——所以"MinerU 的分数"必须带口径。
+3. **B 是断言不是评测**：它答"内容有没有原样送到检索层"，答不了"chunk 边界切得对不对"、
+   "section_path 语义对不对"（这两件三层都答不了，因为没有对应标注）。所以 B 的产物是缺失清单，
+   适合做 CI 断言，不必做成常设分数体系。
+
+命名约定：**ParseStruct 是我们自建口径的名字，不可声称为 OmniDocBench 官方分数**。
 
 ## 为什么要另建一套口径
 
