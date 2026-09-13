@@ -28,7 +28,7 @@ DEFAULT_SETTINGS = {
     "dataset_id": paths.DATASET_DEFAULT,
     "timeout_minutes": 270,       # 487 题全量含补判最坏 4.5h
     "retry_rounds": 2,
-    # 素材体检（B 层：jsonl→canonical/chunk→向量 的传递性断言，见 docs/parse-struct-eval.md）
+    # 素材检查（B 层：jsonl→canonical/chunk→向量 的传递性断言，见 docs/parse-struct-eval.md）
     "parse_health_enabled": True,
     "parse_health_libraries": [],   # 空 = 全部库；也可指定 ["lib-b07ed174"]
     "parse_health_max_docs": 200,   # 按产物修改时间倒序取前 N 篇

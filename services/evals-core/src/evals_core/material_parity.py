@@ -184,12 +184,12 @@ def _severity(reports: list[DocReport]) -> str:
 def run_check(*, libraries: Optional[list[str]] = None, max_docs: int = DEFAULT_MAX_DOCS,
               min_chars: int = DEFAULT_MIN_CHARS, tolerance: float = DEFAULT_TOLERANCE,
               sources: Optional[Sources] = None) -> dict:
-    """跑一次素材体检：返回汇总（含缺失清单）。不抛异常——调用方按 severity 决定告警。"""
+    """跑一次素材检查：返回汇总（含缺失清单）。不抛异常——调用方按 severity 决定告警。"""
     sources = sources or default_sources()
     try:
         pairs = sources.list_docs()
     except Exception as exc:  # noqa: BLE001 体检自身失败不该拖垮调用方
-        logger.exception("素材体检：列举文档失败")
+        logger.exception("素材检查：列举文档失败")
         return {"severity": "error", "detail": f"{type(exc).__name__}: {str(exc)[:200]}",
                 "docs_checked": 0, "docs_with_issues": 0, "issues": []}
 
@@ -203,7 +203,7 @@ def run_check(*, libraries: Optional[list[str]] = None, max_docs: int = DEFAULT_
         try:
             reports.append(check_document(lib, doc, sources, min_chars=min_chars, tolerance=tolerance))
         except Exception:  # noqa: BLE001 单篇失败不影响整批
-            logger.exception("素材体检：单篇检查失败 lib=%s doc=%s", lib, doc)
+            logger.exception("素材检查：单篇检查失败 lib=%s doc=%s", lib, doc)
 
     bad = [r for r in reports if not r.ok]
     totals = {
@@ -227,10 +227,10 @@ def run_check(*, libraries: Optional[list[str]] = None, max_docs: int = DEFAULT_
 def render_summary(result: dict) -> str:
     """把体检结果渲染成一段人类可读的短报告（nightly 落盘/告警用）。"""
     if result.get("severity") == "error":
-        return f"素材体检未完成：{result.get('detail')}"
+        return f"素材检查未完成：{result.get('detail')}"
     totals = result.get("totals") or {}
     lines = [
-        f"素材体检（B 层）：severity={result.get('severity')}，"
+        f"素材检查（B 层）：severity={result.get('severity')}，"
         f"检查 {result.get('docs_checked')} 篇，其中 {result.get('docs_with_issues')} 篇有问题",
         f"块 {totals.get('blocks', 0)}，其中带文本 {totals.get('blocks_with_text', 0)}、"
         f"未被 chunk 覆盖 {totals.get('blocks_uncovered', 0)}、内容未落地 {totals.get('blocks_text_lost', 0)}；"

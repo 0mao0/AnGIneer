@@ -1,6 +1,6 @@
-"""素材体检（B 层）手动入口：jsonl → canonical/chunk → 向量 的传递性断言。
+"""素材检查（B 层）手动入口：jsonl → canonical/chunk → 向量 的传递性断言。
 
-固化位置：nightly 每晚自动跑（`evals_core/nightly/pipeline.py` 的素材体检步骤，
+固化位置：nightly 每晚自动跑（`evals_core/nightly/pipeline.py` 的素材检查步骤，
 配置见 `data/evals/nightly_settings.json` 的 parse_health_* 键）；本脚本用于**手动**复查。
 
 用法：
@@ -22,7 +22,7 @@ from evals_core import material_parity  # noqa: E402
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="素材体检（B 层：jsonl→canonical/chunk→向量）")
+    ap = argparse.ArgumentParser(description="素材检查（B 层：jsonl→canonical/chunk→向量）")
     ap.add_argument("--libraries", default="", help="逗号分隔的库 id；留空=全部库")
     ap.add_argument("--max-docs", type=int, default=200, help="按产物修改时间倒序取前 N 篇")
     ap.add_argument("--min-chars", type=int, default=material_parity.DEFAULT_MIN_CHARS)

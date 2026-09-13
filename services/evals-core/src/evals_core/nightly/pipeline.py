@@ -123,12 +123,12 @@ def _dataset_subject(dataset_id: str) -> str:
 
 
 def _material_line(material: Optional[dict]) -> str:
-    """把素材体检结果压成结论卡片里的一行（含严重度与两项关键计数）。"""
+    """把素材检查结果压成结论卡片里的一行（含严重度与两项关键计数）。"""
     if not material:
         return ""
     totals = material.get("totals") or {}
     severity = material.get("severity") or "?"
-    return (f"素材体检：{severity}（检查 {material.get('docs_checked', 0)} 篇，"
+    return (f"素材检查：{severity}（检查 {material.get('docs_checked', 0)} 篇，"
             f"内容未落地 {totals.get('blocks_text_lost', 0)} 块，"
             f"未进 chunk {totals.get('blocks_uncovered', 0)} 块）")
 
@@ -230,7 +230,7 @@ def _find_resume_candidate(dataset_id: str, within_hours: float = RESUME_WINDOW_
 
 async def _material_health(date: str, *, enabled: bool, libraries: Optional[list],
                           max_docs: int, webhook: str) -> Optional[dict]:
-    """B 层素材体检（jsonl → canonical/chunk → 向量）：best-effort，任何异常都不影响结论。
+    """B 层素材检查（jsonl → canonical/chunk → 向量）：best-effort，任何异常都不影响结论。
 
     定位见 docs/parse-struct-eval.md：这不是评测分数，是"素材有没有原样送到检索层"的断言，
     产物是缺失清单。落在 nightly 目录下，异常时额外推一条企微（结论消息本身不变）。
@@ -245,7 +245,7 @@ async def _material_health(date: str, *, enabled: bool, libraries: Optional[list
         result = await asyncio.to_thread(
             material_parity.run_check, libraries=libraries, max_docs=max_docs)
     except Exception:  # noqa: BLE001 体检失败不该拖垮 nightly
-        logger.exception("素材体检执行失败")
+        logger.exception("素材检查执行失败")
         return None
     summary = material_parity.render_summary(result)
     try:
@@ -255,14 +255,14 @@ async def _material_health(date: str, *, enabled: bool, libraries: Optional[list
             json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
         (out_dir / "material_parity.md").write_text(summary + nl, encoding="utf-8")
     except Exception:  # noqa: BLE001
-        logger.exception("素材体检落盘失败")
+        logger.exception("素材检查落盘失败")
     severity = result.get("severity")
     if severity in ("warn", "fail", "error"):
-        logger.warning("素材体检异常：%s", summary.replace(nl, " | "))
+        logger.warning("素材检查异常：%s", summary.replace(nl, " | "))
         if webhook:
-            await _notify_best_effort(webhook, "【素材体检 B 层】" + nl + summary)
+            await _notify_best_effort(webhook, "【素材检查 B 层】" + nl + summary)
     else:
-        logger.info("素材体检通过：%s", summary.splitlines()[0] if summary else "")
+        logger.info("素材检查通过：%s", summary.splitlines()[0] if summary else "")
     return result
 
 
@@ -287,7 +287,7 @@ async def run_nightly(*, dataset_id: str,
     date = paths.today_bjt()
     deadline = time.monotonic() + timeout_hours * 3600
     run_id = ""
-    # 素材体检先跑：不依赖评测结果，评测失败也能留下素材层结论
+    # 素材检查先跑：不依赖评测结果，评测失败也能留下素材层结论
     material = await _material_health(date, enabled=parse_health_enabled,
                                       libraries=parse_health_libraries,
                                       max_docs=parse_health_max_docs, webhook=webhook)

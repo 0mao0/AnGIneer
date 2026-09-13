@@ -128,7 +128,7 @@ class RunCheckTests(unittest.TestCase):
         self.assertEqual(result["issues"][0]["doc_id"], "bad")
         self.assertIn(result["severity"], ("warn", "fail"))
         text = render_summary(result)
-        self.assertIn("素材体检", text)
+        self.assertIn("素材检查", text)
         self.assertIn("bad", text)
 
     def test_libraries_filter_and_max_docs(self):
@@ -166,7 +166,7 @@ class RunCheckTests(unittest.TestCase):
 
 
 class NotifyLineTests(unittest.TestCase):
-    """素材体检行要进 nightly 结论卡片（通过与否都要可见）。"""
+    """素材检查行要进 nightly 结论卡片（通过与否都要可见）。"""
 
     def test_material_line_appended_to_conclusion_card(self):
         from evals_core.nightly import notify
@@ -180,16 +180,16 @@ class NotifyLineTests(unittest.TestCase):
         text = notify.build_message(raw, {"matrix": {"pf": 5, "fp": 3}, "delta": 0.004}, "green",
                                    material_line=_material_line(material))
         lines = text.splitlines()
-        self.assertIn("素材体检：ok（检查 200 篇，内容未落地 0 块，未进 chunk 3 块）", lines)
+        self.assertIn("素材检查：ok（检查 200 篇，内容未落地 0 块，未进 chunk 3 块）", lines)
         # 必须独立成行（企微卡片按行渲染），且排在分析之后
-        self.assertGreater(lines.index("素材体检：ok（检查 200 篇，内容未落地 0 块，未进 chunk 3 块）"),
+        self.assertGreater(lines.index("素材检查：ok（检查 200 篇，内容未落地 0 块，未进 chunk 3 块）"),
                            max(i for i, ln in enumerate(lines) if ln.startswith("分析：")))
 
     def test_material_line_absent_by_default(self):
         from evals_core.nightly import notify
 
         text = notify.build_message(None, None, notify.STATE_ERROR, error_note="x")
-        self.assertNotIn("素材体检", text)
+        self.assertNotIn("素材检查", text)
 
     def test_material_line_empty_when_disabled(self):
         from evals_core.nightly.pipeline import _material_line

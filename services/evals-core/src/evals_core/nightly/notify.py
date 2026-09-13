@@ -40,9 +40,9 @@ def fmt_span(started_at, completed_at) -> Tuple[str, str]:
 
 def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_note: str = "",
                   material_line: str = "") -> str:
-    """一行一项：时间 / 时长 / 结果 / 分析（+ 素材体检）。
+    """一行一项：时间 / 时长 / 结果 / 分析（+ 素材检查）。
 
-    material_line：B 层素材体检摘要（形如 "素材体检：ok（200 篇，内容未落地 0）"）。
+    material_line：B 层素材检查摘要（形如 "素材检查：ok（200 篇，内容未落地 0）"）。
     传了就多一行——体检通过与否都要在卡片里可见，否则"结论绿"无法说明素材层是否正常。
     """
     summary = (raw or {}).get("summary_scores") or {}
