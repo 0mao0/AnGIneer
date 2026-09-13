@@ -1957,14 +1957,15 @@ const showNonPdfLoading = computed(() => {
 
 const PARSE_STAGE_LABELS: Record<string, string> = {
   source_prep: '源文件准备', convert: '格式转换', raw_parse: 'MinerU 解析',
-  popo: 'PoPo 强化', structure: '结构化',
+  popo: 'PoPo 强化', structure: '结构化', figure_describe: '图描述',
   fts: '全文索引（FTS5）', vectors: '向量索引', graph: '知识图谱',
   preparing: '准备文件', converting: '格式转换', popo_normalize: 'PoPo 强化',
   indexing: '构建索引', completed: '解析完成',
   queued: '排队中', processing: '解析中', pending: '等待中',
   failed: '解析失败', cancelled: '已取消', cancel: '已取消',
 }
-const PARSE_STAGE_KEYS = ['source_prep', 'convert', 'raw_parse', 'popo', 'structure', 'fts', 'vectors', 'graph']
+// 顺序与后端 _PIPELINE_ORDER 一致；分母取自本数组长度，漏 key 会让进度显示成原始英文 key 且总数少一个
+const PARSE_STAGE_KEYS = ['source_prep', 'convert', 'raw_parse', 'popo', 'structure', 'figure_describe', 'fts', 'vectors', 'graph']
 
 const parseProgressLabel = computed(() => {
   const stage = String(props.node.parseStage || '').toLowerCase()
@@ -1982,7 +1983,7 @@ const parseProgressCount = computed(() => {
   return idx >= 0 ? `${idx + 1}/${PARSE_STAGE_KEYS.length}` : '—'
 })
 
-// 解析过程栏标题：始终左对齐的「(序号/总数)阶段标题」，如 （3/8）MinerU 解析
+// 解析过程栏标题：始终左对齐的「(序号/总数)阶段标题」，如 （3/9）MinerU 解析
 const parseProgressHeader = computed(() => {
   const count = parseProgressCount.value
   const label = parseProgressLabel.value

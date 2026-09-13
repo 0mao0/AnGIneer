@@ -1,7 +1,7 @@
 <template>
   <div class="doc-stage-stepper">
     <a-collapse>
-      <!-- 八个解析阶段按顺序展示 -->
+      <!-- 九个解析阶段按顺序展示 -->
       <a-collapse-panel
         v-for="stage in orderedStages"
         :key="stage.key"
@@ -301,32 +301,24 @@ const emit = defineEmits<{
   cancel: []
 }>()
 
+// 键顺序即渲染顺序（下面 PIPELINE_ORDER = Object.keys），须与后端 _PIPELINE_ORDER 一致；
+// 漏一个 key 会让该阶段整行不渲染（也拿不到它的启动按钮）。
 const STAGE_TITLES: Record<string, string> = {
   source_prep: '源文件准备', convert: '格式转换', raw_parse: 'MinerU 解析',
-  popo: 'PoPo 强化', structure: '结构化',
+  popo: 'PoPo 强化', structure: '结构化', figure_describe: '图描述',
   fts: 'SQLite+FTS', vectors: '向量索引', graph: '知识图谱',
 }
 const PIPELINE_ORDER = Object.keys(STAGE_TITLES)
 
-// 显示序号：后端 STAGE_REGISTRY.step 为准（3.1 MinerU + 3.2 PoPo 同属第 3 步），前端兜底
-const STAGE_DISPLAY_NUM: Record<string, string> = {
-  source_prep: '1',
-  convert: '2',
-  raw_parse: '3.1',
-  popo: '3.2',
-  structure: '4',
-  fts: '5',
-  vectors: '6',
-  graph: '7',
-}
-
+// 序号按阶段位次 1..9 展示；不用后端 STAGE_REGISTRY.step 的 3.1/3.2/4.5 分组编号，
+// 同一份列表里两种计数口径会让人对不上阶段。
 const orderedStages = computed(() =>
-  PIPELINE_ORDER.map(key => {
+  PIPELINE_ORDER.map((key, idx) => {
     const found: Partial<NonNullable<typeof props.stages>[number]> = props.stages.find(s => s.stage === key) || {}
     return {
       key,
       title: stageTitle(key, found),
-      displayNum: (found as any)?.step || STAGE_DISPLAY_NUM[key] || '',
+      displayNum: `${idx + 1}`,
       status: found.status || 'pending',
       error: found.error || '',
       message: found.message || '',
