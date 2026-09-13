@@ -28,11 +28,16 @@ DEFAULT_SETTINGS = {
     "dataset_id": paths.DATASET_DEFAULT,
     "timeout_minutes": 270,       # 487 题全量含补判最坏 4.5h
     "retry_rounds": 2,
+    # 素材体检（B 层：jsonl→canonical/chunk→向量 的传递性断言，见 docs/parse-struct-eval.md）
+    "parse_health_enabled": True,
+    "parse_health_libraries": [],   # 空 = 全部库；也可指定 ["lib-b07ed174"]
+    "parse_health_max_docs": 200,   # 按产物修改时间倒序取前 N 篇
 }
 HOURLY_WINDOW = (0, 23)
 MINUTE_WINDOW = (0, 59)
 TIMEOUT_WINDOW = (10, 1440)
 RETRY_WINDOW = (0, 3)
+PARSE_HEALTH_DOCS_WINDOW = (1, 2000)
 
 
 def normalize_settings(raw: dict) -> dict:
@@ -52,6 +57,20 @@ def normalize_settings(raw: dict) -> dict:
             raise ValueError(f"{key} 需在 {low}-{high}")
         return val
 
+    def _bool(key: str, default: bool) -> bool:
+        val = raw.get(key, default)
+        if not isinstance(val, bool):
+            raise ValueError(f"{key} 必须是布尔")
+        return val
+
+    def _str_list(key: str, default: list) -> list:
+        val = raw.get(key, default)
+        if val in (None, ""):
+            return []
+        if not isinstance(val, list) or any(not isinstance(x, str) for x in val):
+            raise ValueError(f"{key} 必须是字符串数组")
+        return [x.strip() for x in val if x.strip()]
+
     if "dataset_id" in raw:
         dataset_id = str(raw.get("dataset_id") or "").strip()
         if not dataset_id or any(c in dataset_id for c in "/\\.."):
@@ -65,6 +84,10 @@ def normalize_settings(raw: dict) -> dict:
         "dataset_id": dataset_id,
         "timeout_minutes": _int("timeout_minutes", DEFAULT_SETTINGS["timeout_minutes"], *TIMEOUT_WINDOW),
         "retry_rounds": _int("retry_rounds", DEFAULT_SETTINGS["retry_rounds"], *RETRY_WINDOW),
+        "parse_health_enabled": _bool("parse_health_enabled", DEFAULT_SETTINGS["parse_health_enabled"]),
+        "parse_health_libraries": _str_list("parse_health_libraries", DEFAULT_SETTINGS["parse_health_libraries"]),
+        "parse_health_max_docs": _int("parse_health_max_docs", DEFAULT_SETTINGS["parse_health_max_docs"],
+                                      *PARSE_HEALTH_DOCS_WINDOW),
     }
 
 
@@ -279,6 +302,9 @@ async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
             webhook=webhook,
             on_run_started=_on_run_started,
             should_stop=lambda: _stop_requested,
+            parse_health_enabled=cfg.get("parse_health_enabled", True),
+            parse_health_libraries=cfg.get("parse_health_libraries") or None,
+            parse_health_max_docs=cfg.get("parse_health_max_docs", 200),
         )
     finally:
         _current_run_id = ""

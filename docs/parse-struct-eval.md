@@ -7,7 +7,7 @@
 | 层 | 验证对象 | 口径 / 工具 | 输出形态 | 台上选手 |
 |---|---|---|---|---|
 | **A. 解析结果质量** | pipeline 的产物（jsonl 本体 + 它的 markdown 投影） | ① 官方 OmniDocBench 口径（jsonl→markdown，别人的评测器）<br>② **ParseStruct / ParseStructComparison**（jsonl 块层，我们的脚本） | 分数 | ① 三方：参考模型 / MinerU 的 md / 我们的 md<br>② 两方：MinerU **原生 content_list** / 我们的 jsonl |
-| **B. 素材传递性** | jsonl → canonical → chunk → 向量 | 覆盖率与一致性断言（`scripts/reindex_parse_docs.py` 是它的一次执行） | **缺失清单**（不是分数） | 只有我们 |
+| **B. 素材传递性** | jsonl → canonical → chunk → 向量 | 覆盖率与一致性断言（**已固化进 nightly**，见下） | **缺失清单**（不是分数） | 只有我们 |
 | **C. 端到端效果** | agentic chat | nightly_openRAG（检索命中 + 答对） | 分数 | 跑在评测语料上的任何系统 |
 
 ### 三条使用纪律
@@ -22,6 +22,34 @@
 3. **B 是断言不是评测**：它答"内容有没有原样送到检索层"，答不了"chunk 边界切得对不对"、
    "section_path 语义对不对"（这两件三层都答不了，因为没有对应标注）。所以 B 的产物是缺失清单，
    适合做 CI 断言，不必做成常设分数体系。
+
+### B 的固化位置（2026-09-13）
+
+| 项 | 内容 |
+|---|---|
+| 实现 | `evals_core/material_parity.py`（数据源可注入，单测不碰真实 DB） |
+| 运行 | `evals_core/nightly/pipeline.py` 的 `_material_health` 步骤：每晚评审**开跑前**先跑，best-effort——体检自身失败只记日志，不影响结论，也不侵入解析链 |
+| 配置 | `data/evals/nightly_settings.json`：`parse_health_enabled`（默认 true）、`parse_health_libraries`（默认 [] = 全部库）、`parse_health_max_docs`（默认 200，按产物修改时间倒序） |
+| 产物 | `data/evals/nightly/<date>/material_parity.json|md`（含每篇缺失清单） |
+| 告警 | severity ∈ {warn, fail, error} 时额外推一条企微到 SYSTEM 群（不改动原有结论消息） |
+| 手动复查 | `python scripts/run_material_health.py --libraries <lib> --max-docs N [--json out.json]`；退出码 0=ok / 1=warn,fail / 2=体检失败，可接 CI |
+
+**检查项**（逐文档）：① 内容落地（`content_json` 有文本而 `plain_text` 为空）；② 块→chunk 覆盖
+（块文本是否出现在该文档的 chunk 文本里，空白无关、取前 24 字符，容许 2% 缺口）；
+③ chunk→向量（有 chunk 而向量点为 0）；④ 索引存在（canonical 有无记录）。
+**按设计不入索引的块不参与 ②**：页眉/页脚/页码、`layout_category=furniture`、`is_active=0`
+——不排除会造成 94% 的假阳性（实测：default 库未覆盖率 3.3% → 0.19%）。
+
+首次真实运行发现（2026-09-13，各取最近 10-12 篇）：
+
+| 库 | 内容未落地 | 块→chunk 未覆盖 | severity |
+|---|---|---|---|
+| default | 27 块 | 31/15923（0.19%） | fail |
+| lib-b07ed174（nightly 语料） | 181 块 | 25/3335（0.75%） | fail |
+| omnidocbench（修复后重解析） | **0** | **0/108** | **ok** |
+
+生产两个库的"内容未落地"是**修复前解析的存量产物**（那五类块当时被整类吃掉），重新解析后才会消失
+——体检会在每晚提醒这个积压，这正是它该做的事；若**新**解析文档仍报此项，则是链路回归。
 
 命名约定：**ParseStruct 是我们自建口径的名字，不可声称为 OmniDocBench 官方分数**。
 

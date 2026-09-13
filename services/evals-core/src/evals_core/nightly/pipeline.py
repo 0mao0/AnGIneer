@@ -9,6 +9,7 @@ suite_runner——nightly 不是外部系统，就是产品自己给自己排的
 - 同一时刻至多一条流水线（并发锁在调用方 nightly_control 里）。
 """
 import asyncio
+import json
 import logging
 import time
 from typing import Callable, Optional
@@ -215,6 +216,44 @@ def _find_resume_candidate(dataset_id: str, within_hours: float = RESUME_WINDOW_
     return ""
 
 
+async def _material_health(date: str, *, enabled: bool, libraries: Optional[list],
+                          max_docs: int, webhook: str) -> Optional[dict]:
+    """B 层素材体检（jsonl → canonical/chunk → 向量）：best-effort，任何异常都不影响结论。
+
+    定位见 docs/parse-struct-eval.md：这不是评测分数，是"素材有没有原样送到检索层"的断言，
+    产物是缺失清单。落在 nightly 目录下，异常时额外推一条企微（结论消息本身不变）。
+    """
+    if not enabled:
+        return None
+    from evals_core import material_parity
+
+    nl = chr(10)   # 显式换行（不在补丁里写转义序列，避免传输把转义折行）
+
+    try:
+        result = await asyncio.to_thread(
+            material_parity.run_check, libraries=libraries, max_docs=max_docs)
+    except Exception:  # noqa: BLE001 体检失败不该拖垮 nightly
+        logger.exception("素材体检执行失败")
+        return None
+    summary = material_parity.render_summary(result)
+    try:
+        out_dir = paths.nightly_root() / date
+        out_dir.mkdir(parents=True, exist_ok=True)
+        (out_dir / "material_parity.json").write_text(
+            json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
+        (out_dir / "material_parity.md").write_text(summary + nl, encoding="utf-8")
+    except Exception:  # noqa: BLE001
+        logger.exception("素材体检落盘失败")
+    severity = result.get("severity")
+    if severity in ("warn", "fail", "error"):
+        logger.warning("素材体检异常：%s", summary.replace(nl, " | "))
+        if webhook:
+            await _notify_best_effort(webhook, "【素材体检 B 层】" + nl + summary)
+    else:
+        logger.info("素材体检通过：%s", summary.splitlines()[0] if summary else "")
+    return result
+
+
 async def run_nightly(*, dataset_id: str,
                       timeout_hours: float = DEFAULT_TIMEOUT_HOURS,
                       retry_rounds: int = DEFAULT_RETRY_ROUNDS,
@@ -223,7 +262,10 @@ async def run_nightly(*, dataset_id: str,
                       webhook: str = "",
                       resume_window_hours: float = RESUME_WINDOW_HOURS,
                       on_run_started: Optional[Callable[[str], None]] = None,
-                      should_stop: Optional[Callable[[], bool]] = None) -> dict:
+                      should_stop: Optional[Callable[[], bool]] = None,
+                      parse_health_enabled: bool = True,
+                      parse_health_libraries: Optional[list] = None,
+                      parse_health_max_docs: int = 200) -> dict:
     """执行整条流水线并保证"当天必有结论"。返回 {state, ok, run_id, detail, ...}。
 
     on_run_started：run 一开跑即上报 run_id（供上层暴露进度/停止目标），回调异常不拖垮流水线。
@@ -233,6 +275,10 @@ async def run_nightly(*, dataset_id: str,
     date = paths.today_bjt()
     deadline = time.monotonic() + timeout_hours * 3600
     run_id = ""
+    # 素材体检先跑：不依赖评测结果，评测失败也能留下素材层结论
+    material = await _material_health(date, enabled=parse_health_enabled,
+                                      libraries=parse_health_libraries,
+                                      max_docs=parse_health_max_docs, webhook=webhook)
     try:
         resume_id = await asyncio.to_thread(_find_resume_candidate, dataset_id, resume_window_hours)
         started = await asyncio.to_thread(
@@ -255,7 +301,11 @@ async def run_nightly(*, dataset_id: str,
             await asyncio.to_thread(suite_runner.stop_eval_run, run_id)
         await _await_terminal(run_id, deadline)
         await _auto_retry(run_id, dataset_id, retry_rounds, deadline)
-        return await _compute_and_publish(run_id, dataset_id, resamples, site_url, webhook)
+        outcome = await _compute_and_publish(run_id, dataset_id, resamples, site_url, webhook)
+        if material is not None:
+            outcome["material_parity"] = {"severity": material.get("severity"),
+                                          "docs_with_issues": material.get("docs_with_issues")}
+        return outcome
     except Exception as exc:  # noqa: BLE001 任何异常都收口，绝不让历史断档
         # 人为停止：should_stop 置位且 run 未正常完成 → "stopped" 档（不落 error 结论、不发企微，
         # 与「删除同步停止」语义一致：干净消失，不污染门禁历史）
