@@ -60,8 +60,8 @@ MinerU 单独（我们自己的上游）在 markdown 口径四项里都比"我�
 |---|---|
 | `scripts/collect_mineru_markdown.py` | 从各篇 `mineru_raw/origin.zip` 提取 MinerU 自带 markdown（step03 解压后会它被 Solo 投影覆盖，必须回 zip 取），顺带留痕版本 |
 | `scripts/analyze_table_text_gap.py` | 逐表网格对比（复用 step04 的 `parse_table_grid`），分类 dims_diff / style_only / content_diff，并复算扁平编辑距离与官方口径对表 |
-| `scripts/eval_parse_structure.py` | 结构层口径（jsonl 直比），`--pred-source mineru` 可切到 MinerU 原生 content_list，见 `docs/parse-structure-eval.md` |
-| `evals_core/parse_eval/mineru_raw.py` | MinerU 原生 content_list → 结构层块 的映射（类型表 + 坐标 /1000） |
+| `scripts/eval_parse_struct.py` | 结构层口径（jsonl 直比），`--pred-source mineru` 可切到 MinerU 原生 content_list，见 `docs/parse-struct-eval.md` |
+| `evals_core/parse_struct/mineru_raw.py` | MinerU 原生 content_list → 结构层块 的映射（类型表 + 坐标 /1000） |
 
 ## 四、结构层口径（RAG 真正消费的那层）：MinerU 原始块 vs 我们全链
 
@@ -108,10 +108,13 @@ MinerU 单独（我们自己的上游）在 markdown 口径四项里都比"我�
 
 我们公布两组数字，**口径、参赛者、可比范围都不同，引用时请连着口径一起引**：
 
-| 记分板 | 口径 | 参赛者 | 能不能对外比 |
-|---|---|---|---|
-| **甲：官方端到端**（OmniDocBench 镜像，交 markdown） | 官方 | 参考模型 / MinerU 3.4.5 / AnGIneer | ✅ 可与任何能输出 markdown 的系统比。注意本镜像**只接了 end2end**，版面检测/表格识别/公式识别等专项配置存在但未接线 |
-| **乙：结构层**（AnGIneer 自建，块级几何对齐） | **自定义**（脚本在仓库内，可复现） | MinerU 原生 content_list / AnGIneer jsonl | ⚠️ **不可**与官方榜单数字混用；只用于回答"RAG 依赖的那层还原得如何" |
+评测体系共三层：
+
+| 层 | 名字 | 口径 | 参赛者 | 能不能对外比 |
+|---|---|---|---|---|
+| 1 | **OmniDocBench**（官方） | 官方 markdown | 参考模型 / MinerU 3.4.5 / AnGIneer | ✅ 可与任何能输出 markdown 的系统比。注意本镜像**只接了 end2end**，版面检测/表格识别/公式识别等专项配置存在但未接线 |
+| 2 | **ParseStruct**（我们自建） | 块级几何对齐 | MinerU 原生 content_list / AnGIneer jsonl | ⚠️ **不可**与官方榜单数字混用；只用于回答"RAG 依赖的那层还原得如何" |
+| 3 | **Nightly-OpenRAG**（我们自建） | 问答 + 检索命中 | 任何跑在评测语料上的系统 | 内部使用（语料/题集自持） |
 
 三条引用规范：
 
@@ -122,7 +125,7 @@ MinerU 单独（我们自己的上游）在 markdown 口径四项里都比"我�
 为什么除了官方口径还要自建乙：OmniDocBench 端到端吃 markdown，而**RAG 检索吃的是块/索引层**
 （canonical chunk + FTS/向量）——层级、块角色、位置在 markdown 里表达不了或会丢。官方镜像的专项任务
 未接线，所以我们自建了等价口径，脚本、口径定义、已知量与踩过的坑全部公开（本文第五节 +
-`docs/parse-structure-eval.md`），欢迎复现与质疑。
+`docs/parse-struct-eval.md`），欢迎复现与质疑。
 
 ## 七、盲区与后续
 

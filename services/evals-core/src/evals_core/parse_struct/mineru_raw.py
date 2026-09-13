@@ -15,7 +15,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from evals_core.parse_eval.jsonl_eval import PredBlock, norm_latex, norm_text
+from evals_core.parse_struct.jsonl_eval import PredBlock, norm_latex, norm_text
 
 # MinerU 原生 type → 我们 block_type 词表（对齐 categories.GT_TO_OURS 的取值）
 MINERU_TYPE_MAP: dict[str, str] = {

@@ -7,7 +7,7 @@
   **不需要镜像、不需要 GPU、不重跑解析**（读已落盘的 jsonl）。
 
 用法：
-  python scripts/eval_parse_structure.py \
+  python scripts/eval_parse_struct.py \
       --gt D:/AI/tools/OmniDocBench_data/OmniDocBench.json \
       --state data/evals/omnidocbench/predictions_eval200/state.json \
       --library-dir data/knowledge_base/libraries/omnidocbench/documents \
@@ -23,7 +23,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "services" / "evals-core" / "src"))
 
-from evals_core.parse_eval.corpus import render_report, run_eval  # noqa: E402
+from evals_core.parse_struct.corpus import render_report, run_eval  # noqa: E402
 
 DEFAULT_GT = Path("D:/AI/tools/OmniDocBench_data/OmniDocBench.json")
 DEFAULT_LIBRARY = REPO / "data" / "knowledge_base" / "libraries" / "omnidocbench" / "documents"

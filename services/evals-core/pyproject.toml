@@ -16,7 +16,7 @@ dependencies = [
     "deepeval>=4.0.0",
 ]
 
-# 结构层解析评测（parse_eval）的依赖：只在开发机跑评测时需要，不进 nightly 运行环境。
+# 结构层解析评测（parse_struct）的依赖：只在开发机跑评测时需要，不进 nightly 运行环境。
 # apted=表格 TEDS 的树编辑距离；Levenshtein=块文本编辑距离（缺失时退化为 difflib 近似）；
 # lxml/tqdm=vendored 官方 TEDS 自带。安装：pip install -e "services/evals-core[parse-eval]"
 [project.optional-dependencies]

@@ -24,8 +24,8 @@ sys.path.insert(0, str(REPO / "services" / "evals-core" / "src"))
 sys.path.insert(0, str(REPO / "services" / "docs-core" / "src"))
 
 from docs_core.step04_structure.shared.table_cells import parse_table_grid  # noqa: E402
-from evals_core.parse_eval.corpus import _resolve_doc_dir  # noqa: E402
-from evals_core.parse_eval.jsonl_eval import (  # noqa: E402
+from evals_core.parse_struct.corpus import _resolve_doc_dir  # noqa: E402
+from evals_core.parse_struct.jsonl_eval import (  # noqa: E402
     _edit_distance,
     eval_page,
     load_gt_page,

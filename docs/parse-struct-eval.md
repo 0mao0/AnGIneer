@@ -1,4 +1,15 @@
-# 结构层解析评测（jsonl 口径）
+# ParseStruct：结构层解析评测（jsonl 口径）
+
+## ParseStruct 在评测体系里的位置
+
+| 层 | 名字 | 口径 | 量什么 | 谁能同台 |
+|---|---|---|---|---|
+| 1 | **OmniDocBench**（官方） | 官方 markdown | 交付的 markdown 像不像标准答案 | 任何能出 markdown 的系统（参考模型 / MinerU / 我们） |
+| 2 | **ParseStruct**（本文件，自建） | 块级几何对齐 | RAG 依赖的结构层还原度、与上游 MinerU 的差异 | 只有产出块+位置的一方（我们 / MinerU 原生 content_list） |
+| 3 | **Nightly-OpenRAG**（自建） | 问答 + 检索命中 | 端到端能不能搜到、答对 | 任何跑在评测语料上的系统 |
+
+命名约定：**ParseStruct 是我们自建口径的名字，不可声称为 OmniDocBench 官方分数**；官方镜像只接了
+end2end（markdown），版面检测等专项配置存在但未接线，这也是自建本口径的原因。
 
 ## 为什么要另建一套口径
 
@@ -14,7 +25,7 @@
 ## 怎么跑
 
 ```bash
-python scripts/eval_parse_structure.py \
+python scripts/eval_parse_struct.py \
     --state data/evals/omnidocbench/predictions_eval200/state.json \
     --out data/evals/omnidocbench/result_jsonl200
 # 可选：--gt <OmniDocBench.json> --library-dir <documents 目录> --iou-min 0.3
@@ -28,11 +39,11 @@ python scripts/eval_parse_structure.py \
 |---|---|
 | 页 ↔ 文档 | `state.json` 的 page_id → doc_id；缺失时按 `source/` 文件名兜底 |
 | 坐标 | GT `poly`（扁平列表）→ bbox，按 `page_info.width/height` 归一；我们的 `bbox` 本身就是 0–1 归一 |
-| 类目映射 | GT 类目 → 我们的 `block_type`，见 `parse_eval/categories.py`；caption/footnote 按**父块指针**映射（我们是 paragraph 块 + `caption_block_uid`） |
+| 类目映射 | GT 类目 → 我们的 `block_type`，见 `parse_struct/categories.py`；caption/footnote 按**父块指针**映射（我们是 paragraph 块 + `caption_block_uid`） |
 | 匹配 | IoU ≥ 0.3，或预测块中心落在 GT 框内，或 GT 框被预测块覆盖 ≥ 60%（三条并集，应对两侧块粒度不一致） |
 | caption 匹配 | 边距放宽到 6%（caption 贴在表/图外面，且我们多数情况下没有它的独立 bbox） |
 | 文本比较 | 覆盖分组后两侧各自拼接，再算归一化编辑距离，分母取较长者（恒 0–1） |
-| 表格 | 官方 TEDS，**HTML↔HTML 直比**（不过 markdown，vendor 见 `parse_eval/_vendor/omnidocbench/`） |
+| 表格 | 官方 TEDS，**HTML↔HTML 直比**（不过 markdown，vendor 见 `parse_struct/_vendor/omnidocbench/`） |
 | 公式 | LaTeX 去风格化（去空白/花括号/`\left`/转义）后串比对，**非 CDM** |
 | 阅读顺序 | 匹配块的 GT `order` vs 我们的 `block_seq`：相邻对顺序正确率 + Kendall tau |
 | 分母 | GT 侧只进"我们有对应类目"的类目（`categories.py` 的 `UNMAPPED_GT` 排除）；我们侧排除 `UNMAPPED_OURS` |

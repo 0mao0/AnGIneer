@@ -1,6 +1,6 @@
 """OmniDocBench GT 类目 ↔ 本仓库 pipeline block_type 的映射。
 
-用途：结构层评测（scripts/eval_parse_structure.py）把 GT 标注的块与
+用途：结构层评测（scripts/eval_parse_struct.py）把 GT 标注的块与
 `doc_blocks_graph.jsonl` 的块按几何位置对齐后，需要一张表回答"GT 的这类东西，
 对应我们的哪类块"。
 

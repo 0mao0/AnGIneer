@@ -22,7 +22,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from evals_core.parse_eval.categories import (
+from evals_core.parse_struct.categories import (
     CAPTION_KIND,
     UNMAPPED_OURS,
     is_scored,

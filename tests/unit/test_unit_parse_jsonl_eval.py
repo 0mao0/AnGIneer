@@ -12,8 +12,8 @@ import unittest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/evals-core/src")))
 
-from evals_core.parse_eval.corpus import _as_document, _score_teds, _score_text
-from evals_core.parse_eval.jsonl_eval import (
+from evals_core.parse_struct.corpus import _as_document, _score_teds, _score_text
+from evals_core.parse_struct.jsonl_eval import (
     GtBlock,
     PredBlock,
     _build_groups,

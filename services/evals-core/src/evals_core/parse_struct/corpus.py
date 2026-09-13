@@ -10,9 +10,9 @@ import statistics
 from collections import defaultdict
 from pathlib import Path
 
-from evals_core.parse_eval.categories import GT_TO_OURS, UNMAPPED_OURS
-from evals_core.parse_eval.mineru_raw import load_mineru_blocks
-from evals_core.parse_eval.jsonl_eval import (
+from evals_core.parse_struct.categories import GT_TO_OURS, UNMAPPED_OURS
+from evals_core.parse_struct.mineru_raw import load_mineru_blocks
+from evals_core.parse_struct.jsonl_eval import (
     GtBlock,
     PredBlock,
     _edit_distance,
@@ -20,7 +20,7 @@ from evals_core.parse_eval.jsonl_eval import (
     load_gt_page,
     load_pred_blocks,
 )
-from evals_core.parse_eval._vendor.omnidocbench.table_metric import TEDS
+from evals_core.parse_struct._vendor.omnidocbench.table_metric import TEDS
 
 _TEDS = TEDS()
 _PRED_TYPES_TO_GT = {ours: gt for gt, types in GT_TO_OURS.items() for ours in types}

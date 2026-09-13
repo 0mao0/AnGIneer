@@ -5,7 +5,7 @@
 > **「我们交付的 markdown 有多好」**（预览/编辑/导出/step07 图谱抽取/agent 的 table_lookup
 > 消费这一层），**不是** pipeline 的解析质量——RAG 检索吃的是 canonical jsonl / SQLite / 向量
 > 那一层，本口径完全不量（块层级、section_path、chunk 边界、表格检索表示都不进分）。
-> **要看 pipeline 解析质量，用 `docs/parse-structure-eval.md` 的结构层口径。**
+> **要看 pipeline 解析质量，用 `docs/parse-struct-eval.md` 的结构层口径。**
 
 2026-09-12 首次在**开发机**跑通完整 markdown 口径评测：本机 in-process 驱动生产解析链产出预测，
 官方评测器镜像（Docker）算指标。
