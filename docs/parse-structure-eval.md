@@ -107,6 +107,18 @@ python scripts/eval_parse_structure.py \
    209 篇中 **54 块**重获文本（chart 22、旁注 20、参考脚注 6、代码 5、算法 1），合计约 7100 字符。
    修复后原有 `page_footnote` 的"召回 35.3% / 文本相似度 0.0000"这类假差会消失。
    **注意：存量解析产物与本文基线数字均为修复前口径，需重新解析才会变。**
+2b. **上述修复的检索侧验证（2026-09-13 完成）**：这 25 篇此前**从未建过索引**（评测用的 5 阶段链
+   不含 `fts`/`vectors`）。用生产入口 `build_sqlite_index_from_graph` + `rebuild_document_vectors`
+   重建后验证：
+   - 目标文本进入 `canonical_chunks.text_clean`：抽样 8/8 命中；
+   - 用生产检索函数 `search_chunk_fts`（bigram + BM25）逐篇查恢复文本：**10/10 命中**，
+     召回的 chunk 内容正是代码片段/中文脚注/图表标题/公式脚注；
+   - **因果反证**：把这几类块的 `plain_text` 置空后重建 canonical，同一探针字符串从 chunk 文本中消失
+     （抽样 4/4：修复版=True、置空版=False）——证明"能被搜到"确实是这次修复带来的；
+   - 向量侧：Qdrant `docs_core_vectors` 中目标文档各有 1/4/33 个点（点数多于 chunk 数因表格/公式实体
+     另建记录）。
+   复现脚本：`scripts/reindex_parse_docs.py`（重建 + 探针，`--reindex` 才写库）。
+
 3. **`list_group` 完全未建模**（0/13）：GT 有列表容器概念，我们没有对应结构。
 4. **公式串相似度 0.49**：主因不是识别错，而是**多行数组的表示约定不同**（GT 用 `{l}`，
    MinerU 用 `\begin{array}{l}`）——这条指标只适合作回归跟踪，不能当质量绝对值；要绝对值得用 CDM。
