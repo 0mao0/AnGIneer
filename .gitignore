@@ -60,10 +60,12 @@ data/evals/*
 !data/evals/datasets
 data/evals/datasets/*
 !data/evals/datasets/*.json
-# 钉住的评测基线快照（compare_runs pin 产出）：基线必须跟代码走，不能只活在某环境 sqlite 里
-!data/evals/baseline
-data/evals/baseline/*
-!data/evals/baseline/*.json
+# 钉住的评测基线（compare_runs pin 产出）**不进版本控制**：这是运行时状态，不是源码。
+# 2026-09-13 实踩：指针曾被跟踪 → 每次部署 `git reset --hard origin/main` 把刚 pin 的基线
+# 覆盖回仓库里那一版（R3 钉后 43 分钟即被抹，nightly 拿 R2 旧基线跑出"假绿灯"，且 R2 是
+# 487 题的 v2 题集，39 道拒答题对门禁永久隐身）。基线由 pin 操作在目标环境维护并跨部署留存。
+data/evals/baseline
+!data/evals/baseline/.gitkeep
 资料/
 logs/
 .worktrees/

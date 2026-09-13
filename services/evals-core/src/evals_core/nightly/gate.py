@@ -66,15 +66,30 @@ def is_anomalous(d: dict) -> bool:
 
 
 def load_baseline(baseline_dir: Optional[Path] = None) -> dict:
-    """读钉住的基线快照（baseline_run.json 指针 + 快照文件）。"""
+    """读钉住的基线快照（baseline_run.json 指针 + 快照文件）。
+
+    基线是**运行时状态、不进版本控制**（2026-09-13 实踩：指针被 git 跟踪 → 部署 reset 抹掉
+    刚 pin 的 R3，nightly 拿旧基线跑出假绿灯）。缺指针时报可操作错误而非裸 FileNotFoundError；
+    指针与快照缺失各自给不同的引导语（前者=没钉过/被删，后者=快照文件没随行）。
+    """
     from . import paths
     base_dir = Path(baseline_dir) if baseline_dir else paths.baseline_dir()
-    pointer = json.loads((base_dir / "baseline_run.json").read_text(encoding="utf-8"))
+    pointer_path = base_dir / "baseline_run.json"
+    if not pointer_path.exists():
+        raise FileNotFoundError(
+            f"基线指针不存在: {pointer_path}（该环境还没有钉住基线；"
+            f"用 scripts/open_ragbench/compare_runs.py pin --raw <run快照> --label <标签> 钉一份）")
+    pointer = json.loads(pointer_path.read_text(encoding="utf-8"))
     # raw 可能是 Windows 机器钉的（"data\evals\baseline\..."）：POSIX Path 不切反斜杠，
     # 直接 .name 会把整串当文件名拼出双重路径（2026-09-07 nightly 实踩 FileNotFoundError），先归一化分隔符
     raw = str(pointer.get("raw", "")).replace("\\", "/")
     raw_name = Path(raw).name
-    snapshot = json.loads((base_dir / raw_name).read_text(encoding="utf-8"))
+    snapshot_path = base_dir / raw_name
+    if not snapshot_path.exists():
+        raise FileNotFoundError(
+            f"基线快照不存在: {snapshot_path}（指针 run_id={pointer.get('run_id')} "
+            f"label={pointer.get('label')!r} 指向的快照文件缺失，需重新 pin）")
+    snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
     snapshot["_baseline_label"] = pointer.get("label", "baseline")
     return normalize_run(snapshot)
 

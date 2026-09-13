@@ -62,5 +62,57 @@ class LoadBaselinePathTests(unittest.TestCase):
         self.assertEqual(loaded.get("run_id"), "run-abc123")
 
 
+class MissingBaselineTests(unittest.TestCase):
+    """缺失路径的可操作报错（2026-09-13 实踩：指针被 git 跟踪 → 部署 reset 抹掉刚 pin 的基线）。
+
+    缺指针曾是裸 FileNotFoundError 崩栈，看不出"没钉过"还是"快照丢了"；
+    现在两种缺失各给引导语，值班者一步定位。
+    """
+
+    def test_missing_pointer_guides_repin(self):
+        with tempfile.TemporaryDirectory() as td:
+            with self.assertRaises(FileNotFoundError) as cm:
+                gate.load_baseline(Path(td))
+            msg = str(cm.exception)
+            self.assertIn("基线指针不存在", msg)
+            self.assertIn("compare_runs.py pin", msg)
+
+    def test_missing_snapshot_names_pointer_target(self):
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            json.dump({"label": "L9", "run_id": "run-gone",
+                       "raw": "data/evals/baseline/run-gone.baseline.json"},
+                      open(base / "baseline_run.json", "w", encoding="utf-8"), ensure_ascii=False)
+            with self.assertRaises(FileNotFoundError) as cm:
+                gate.load_baseline(base)
+            msg = str(cm.exception)
+            self.assertIn("基线快照不存在", msg)
+            self.assertIn("run-gone", msg)
+
+
+class BaselineNotTrackedByGitTests(unittest.TestCase):
+    """根因回归：基线指针必须**不被 git 跟踪**。
+
+    被跟踪时每次 deploy 的 `git reset --hard origin/main` 都把它覆盖回仓库里那版
+    （2026-09-13：R3 钉后 43 分钟被抹，nightly 拿 R2 旧基线跑出假绿灯；R2 是 v2 题集，
+    39 道拒答题对门禁永久隐身）。直接查仓库索引，防再次误提交。
+    """
+
+    def test_baseline_json_untracked(self):
+        """允许 .gitkeep 占位（保证目录存在），但任何 .json（指针/快照）都不许被跟踪。"""
+        import subprocess
+        repo = Path(__file__).resolve().parents[3]
+        out = subprocess.run(["git", "ls-files", "data/evals/baseline/"],
+                             cwd=str(repo), capture_output=True, text=True)
+        if out.returncode != 0:  # 无 git 环境（源码包分发）跳过
+            self.skipTest("非 git 工作副本")
+        tracked_json = [line for line in out.stdout.splitlines()
+                        if line.strip().endswith(".json")]
+        self.assertEqual(
+            tracked_json, [],
+            f"data/evals/baseline/ 下有被 git 跟踪的基线文件 {tracked_json}——基线是运行时状态，"
+            f"被跟踪会在每次部署被 git reset --hard 覆盖（2026-09-13 假绿灯事故）")
+
+
 if __name__ == "__main__":
     unittest.main()
