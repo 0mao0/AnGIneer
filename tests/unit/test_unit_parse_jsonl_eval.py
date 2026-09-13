@@ -112,22 +112,35 @@ def _pred(block_type, bbox, seq, text="", html="", **kw):
 
 
 class GroupingTests(unittest.TestCase):
-    def test_gt_lines_covered_by_one_block_are_grouped(self):
-        """GT 把公式数组按行标 3 块，我们合成 1 块 → 应归为一组、文本拼接后比一次。"""
+    def test_gt_text_lines_covered_by_one_block_are_grouped(self):
+        """GT 把一段文字切成 3 块，我们合成 1 块 → 应归为一组、文本拼接后比一次。"""
         gt_blocks = [
-            _gt("equation_isolated", (0.1, 0.10, 0.8, 0.14), order=1, text="a"),
-            _gt("equation_isolated", (0.1, 0.14, 0.8, 0.18), order=2, text="b"),
-            _gt("equation_isolated", (0.1, 0.18, 0.8, 0.22), order=3, text="c"),
+            _gt("text_block", (0.1, 0.10, 0.8, 0.14), order=1, text="a"),
+            _gt("text_block", (0.1, 0.14, 0.8, 0.18), order=2, text="b"),
+            _gt("text_block", (0.1, 0.18, 0.8, 0.22), order=3, text="c"),
         ]
-        preds = [_pred("equation_interline", (0.1, 0.10, 0.8, 0.22), 1, text="abc")]
+        preds = [_pred("paragraph", (0.1, 0.10, 0.8, 0.22), 1, text="abc")]
         result = eval_page(gt_blocks, preds)
         self.assertEqual(len(result["groups"]), 1)
         group = result["groups"][0]
         self.assertEqual(group["gt_text"], "a b c")
         self.assertEqual(group["pred_text"], "abc")
         self.assertTrue(group["matched"])
-        # 逐块硬比会全近 0；分组后应是高相似度
-        self.assertGreater(_score_text(group["pred_text"], group["gt_text"]), 0.5)
+
+    def test_equations_are_not_grouped_across_gt_blocks(self):
+        """公式**不**跨 GT 块分组：公式按条比。
+
+        分组会把多行公式拼成一个字符串，与逐条比较给出完全不同的数字——实测同一批 187 条配对
+        逐条比两边都是 0.68，分组聚合后变成 MinerU 0.87 / 我们 0.50 的假差异（2026-09-13 实踩）。
+        """
+        gt_blocks = [
+            _gt("equation_isolated", (0.1, 0.10, 0.8, 0.14), order=1, text="x"),
+            _gt("equation_isolated", (0.1, 0.14, 0.8, 0.18), order=2, text="y"),
+        ]
+        preds = [_pred("equation_interline", (0.1, 0.10, 0.8, 0.18), 1, text="xy", math="xy")]
+        result = eval_page(gt_blocks, preds)
+        self.assertEqual(len(result["groups"]), 2, "每个 GT 公式应各自成组")
+        self.assertEqual([g["gt_text"] for g in result["groups"]], ["x", "y"])
 
     def test_single_gt_block_with_smaller_predictions_groups_too(self):
         """反向：GT 一个大块被我们切成 2 段 → 也归一组，文本按 seq 拼接。"""

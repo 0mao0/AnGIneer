@@ -28,14 +28,13 @@
 
 ## 二、两个重要结论
 
-### 结论 1：我们全链在**四项指标上全部落后于 MinerU 单独**
+### 结论 1：markdown 交付面上，我们全链落后于自己的上游 MinerU
 
-MinerU 单独（我们自己的上游）就已经比"我们全链"好：文本 0.0476 vs 0.0813、表格 TEDS 0.9155 vs
-0.8821、表格文字 0.0488 vs 0.5632、CDM 0.9585 vs 0.9509、阅读顺序 0.1371 vs 0.1503。
+MinerU 单独（我们自己的上游）在 markdown 口径四项里都比"我们全链"好：文本 0.0476 vs 0.0813、
+表格 TEDS 0.9155 vs 0.8821、表格文字 0.0488 vs 0.5632、CDM 0.9585 vs 0.9509、阅读顺序 0.1371 vs 0.1503。
 
-即：**在 markdown 交付面上，PoPo + Solo 这两个阶段目前是负贡献**。这里的"负贡献"仅指
-markdown 口径的四个指标——PoPo/Solo 带来的结构信息（层级、块角色、表格 cells、caption 绑定、
-图描述钩子）不在这套指标里，需要结构层口径与检索侧才能评价（结构层口径目前只覆盖我们全链）。
+即：**在 markdown 交付面上，PoPo + Solo 目前是负贡献**。但请注意这套口径量的是"markdown 长什么样"，
+**不是 RAG 检索吃的那层**——RAG 那层的结论见下面第五节，方向相反。
 
 ### 结论 2：表格文字差 8 倍，根因是 **markdown 投影把 HTML 表降级成管道表**
 
@@ -61,9 +60,40 @@ markdown 口径的四个指标——PoPo/Solo 带来的结构信息（层级、�
 |---|---|
 | `scripts/collect_mineru_markdown.py` | 从各篇 `mineru_raw/origin.zip` 提取 MinerU 自带 markdown（step03 解压后会它被 Solo 投影覆盖，必须回 zip 取），顺带留痕版本 |
 | `scripts/analyze_table_text_gap.py` | 逐表网格对比（复用 step04 的 `parse_table_grid`），分类 dims_diff / style_only / content_diff，并复算扁平编辑距离与官方口径对表 |
-| `scripts/eval_parse_structure.py` | 结构层口径（jsonl 直比），见 `docs/parse-structure-eval.md` |
+| `scripts/eval_parse_structure.py` | 结构层口径（jsonl 直比），`--pred-source mineru` 可切到 MinerU 原生 content_list，见 `docs/parse-structure-eval.md` |
+| `evals_core/parse_eval/mineru_raw.py` | MinerU 原生 content_list → 结构层块 的映射（类型表 + 坐标 /1000） |
 
-## 四、概念澄清（回答"OmniDocBench 是什么 / 那两个是不是现成功能"）
+## 四、结构层口径（RAG 真正消费的那层）：MinerU 原始块 vs 我们全链
+
+同一批 200 页、同一套 harness（`--pred-source mineru` vs 默认 `chain`）：
+
+| 指标 | MinerU 原生块 | 我们全链 | Δ |
+|---|---|---|---|
+| 块召回率 | 77.8% | **88.2%** | **+10.5 个点** |
+| 预测块被解释率 | 82.0% | **90.6%** | +8.6 |
+| 块文本相似度（全部） | 0.6308 | **0.7469** | +11.6 |
+| 块文本相似度（命中项） | 0.8384 | **0.8545** | +1.6 |
+| 表格 TEDS | 0.9172 | 0.9172 | 0 |
+| 公式相似度 | 0.6726 | 0.6726 | 0 |
+| 阅读顺序（相邻对 / tau） | 97.3% / 0.9272 | 97.3% / **0.9294** | ≈0 |
+
+**分项增益主要来自标题分类**：GT 有 510 个 `title` 块，MinerU 原生 content_list 里**没有 title 类型**
+（标题一律 `text`），所以它 title 召回 0%；我们 78.0%（文本 0.940）。表格标题文字我们也更好
+（0.848 vs 0.729）。其余类目两边持平。
+
+**结论（与 markdown 口径相反）**：**在 RAG 检索依赖的结构层，PoPo + Solo 是净增益——块找得更全
+（+10.5 个点）、标题可识别，文本/表格/公式/顺序没有退步。** markdown 面的"退步"是投影格式造成的
+（管道表），不是结构能力问题。
+
+### 量法修正记录（这三处曾产出过错误结论，留痕以免后人踩）
+
+| 症状 | 真相 | 处置 |
+|---|---|---|
+| 图注召回 10.7%（MinerU 54.7%） | 我们的图注文本落在 `plain_text`，而匹配只读 `caption` 字段；逐条核查 75 条 GT 图注有 52 条文本确实存在 | `plain_text` 也作为 caption 候选 → 54.7%，与 MinerU 持平 |
+| 图脚注召回 11.8%（MinerU 52.9%） | 同上；17 条 GT 图脚注里 16 条文本存在于我们产物 | `plain_text` 同时作 caption/footnote 候选 → 52.9% |
+| 公式相似度 0.87 vs 0.50 | 一是公式跨 GT 块分组把多行拼成一条比，二是两侧取字段不同（MinerU 取 LaTeX、我们取 plain_text） | 公式不跨块分组 + 统一取 math 字段 → 两边均 0.6726 |
+
+## 五、概念澄清（回答"OmniDocBench 是什么 / 那两个是不是现成功能"）
 
 - **OmniDocBench 是文档解析质量基准**：1651 张标注页，评"文档图 → 结构化文本"的质量，端到端指标
   为文本 / 表格 / 公式 / 阅读顺序，另有专项子集（版面检测、公式识别、表格识别、OCR）。**它只评解析

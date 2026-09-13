@@ -11,6 +11,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from evals_core.parse_eval.categories import GT_TO_OURS, UNMAPPED_OURS
+from evals_core.parse_eval.mineru_raw import load_mineru_blocks
 from evals_core.parse_eval.jsonl_eval import (
     GtBlock,
     PredBlock,
@@ -84,6 +85,7 @@ def run_eval(
     iou_min: float = 0.3,
     page_prefix: str = "",
     limit: int = 0,
+    pred_source: str = "chain",
 ) -> dict:
     """跑完整个语料，返回可直接序列化的结果字典。"""
     gt_samples = json.loads(gt_json.read_text(encoding="utf-8"))
@@ -99,7 +101,13 @@ def run_eval(
         doc_path = _resolve_doc_dir(Path(page_id).stem, state, library_dir)
         if doc_path is None:
             continue
-        preds = load_pred_blocks(doc_path)
+        if pred_source == "mineru":
+            raw = doc_path.parent / "mineru_raw" / "content_list.json"
+            if not raw.exists():
+                continue
+            preds = load_mineru_blocks(raw)
+        else:
+            preds = load_pred_blocks(doc_path)
         result = eval_page(gt_blocks, preds, iou_min=iou_min)
         data_source = ((sample.get("page_info") or {}).get("page_attribute") or {}).get("data_source") or "unknown"
         pages.append(
@@ -113,7 +121,9 @@ def run_eval(
             }
         )
 
-    return _aggregate(pages, iou_min=iou_min, gt_json=gt_json, library_dir=library_dir)
+    result = _aggregate(pages, iou_min=iou_min, gt_json=gt_json, library_dir=library_dir)
+    result["meta"]["pred_source"] = pred_source
+    return result
 
 
 def _aggregate(pages: list[dict], iou_min: float, gt_json: Path, library_dir: Path) -> dict:

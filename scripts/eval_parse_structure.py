@@ -36,6 +36,8 @@ def main() -> int:
     parser.add_argument("--library-dir", default=str(DEFAULT_LIBRARY), help="documents 目录（内含 <doc_id>/parsed/doc_blocks_graph.jsonl）")
     parser.add_argument("--out", default=str(REPO / "data" / "evals" / "omnidocbench" / "result_jsonl"), help="输出目录")
     parser.add_argument("--iou-min", type=float, default=0.3, help="几何匹配 IoU 阈值")
+    parser.add_argument("--pred-source", choices=["chain", "mineru"], default="chain",
+                        help="块来源：chain=我们的 doc_blocks_graph.jsonl（默认）；mineru=MinerU 原生 content_list")
     parser.add_argument("--filter-prefix", default="", help="只评文件名以该前缀开头的页")
     parser.add_argument("--limit", type=int, default=0, help="最多评多少页（0=全部）")
     args = parser.parse_args()
@@ -54,6 +56,7 @@ def main() -> int:
         iou_min=args.iou_min,
         page_prefix=args.filter_prefix,
         limit=args.limit,
+        pred_source=args.pred_source,
     )
 
     out_dir = Path(args.out)
@@ -66,7 +69,7 @@ def main() -> int:
 
     overall = result["overall"]
     fmt = lambda v, pct=False: "—" if v is None else (f"{v * 100:.1f}%" if pct else f"{v:.4f}")
-    print(f"评测页数: {result['meta']['pages_evaluated']}")
+    print(f"评测页数: {result['meta']['pages_evaluated']}（块来源: {result['meta'].get('pred_source')}）")
     print(f"块召回率: {fmt(overall['block_recall'], pct=True)}  命中 {overall['matched']}/{overall['gt_blocks']}")
     print(f"预测块被解释率: {fmt(overall['pred_used_ratio'], pct=True)}  ({overall['pred_blocks_used']}/{overall['pred_blocks_scored']})")
     print(f"块文本相似度: 全部 {fmt(overall['text_similarity'])} / 命中项 {fmt(overall['text_similarity_matched'])} (n={overall['text_n_matched']})")

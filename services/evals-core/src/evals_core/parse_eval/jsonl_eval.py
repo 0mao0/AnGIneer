@@ -227,6 +227,9 @@ def load_pred_blocks(jsonl_path: Path) -> list[PredBlock]:
         # 但有 50 个把 caption 文本挂在父节点字段上）。这里把该文本合成一个"锚在父块位置上"的
         # caption 候选，否则这类 caption 一律记成漏检（假差）。
         parent_type = str(node.get("block_type") or "")
+        # 图/表的 plain_text 就是它们的 caption+footnote 文本（extract_plain_text 的 image/chart
+        # 分支），而 `caption` 字段并非每篇都写（实测同一页里 caption 为 None、plain_text 有值）。
+        # 只读 caption 会把我们的图注漏成 0 召回——这是量法漏洞，不是链路丢数据。
         for text_key, kind_suffix, kind_map in (
             ("caption", "caption", {"table": "table_caption", "image": "figure_caption", "chart": "figure_caption"}),
             ("footnote", "footnote", {"table": "table_footnote", "image": "figure_footnote", "chart": "figure_footnote"}),
@@ -246,7 +249,29 @@ def load_pred_blocks(jsonl_path: Path) -> list[PredBlock]:
                     footnote_kind=kind_map[parent_type] if kind_suffix == "footnote" else None,
                 )
             )
+        # 兜底：MinerU 给的 caption 与 footnote 会被合并进一个 plain_text（`extract_plain_text`
+        # 的 image/chart 分支就是 caption+footnote 拼接），而 `caption`/`footnote` 字段并非每篇都写
+        # （实测 242 个表图节点：47 个有 caption 字段、38 个有 footnote 字段、91 个 plain_text 非空）。
+        # 若只按字段建候选，我们的图脚注会被记成 11.8% 召回——而逐条文本核查显示 17 条 GT 图脚注里
+        # 16 条的文本其实都在我们产物里。故把 plain_text 同时作为 caption 与 footnote 候选（几何与
+        # 边距规则照旧，文本相似度照实算；召回可能因此偏宽松，读报表时以文本相似度为准）。
+        if parent_type in ("image", "chart") and block_text(node):
+            blocks.append(
+                PredBlock(
+                    block_type=parent_type,
+                    bbox=box,
+                    seq=int(node.get("block_seq") or 0),
+                    text=block_text(node),
+                    caption_kind="figure_caption",
+                    footnote_kind="figure_footnote",
+                )
+            )
     return blocks
+
+
+def block_text(node: dict) -> str:
+    """节点的 plain_text（图/表的 caption 文本实际所在字段）。"""
+    return norm_text(node.get("plain_text"))
 
 
 def covered_ratio(gt_box: tuple, pred_box: tuple) -> float:
@@ -385,7 +410,13 @@ def _build_groups(gt_blocks: list[GtBlock], per_gt_cands: list[list[PredBlock]])
 
     for pred_id in {id(p) for cands in per_gt_cands for p in cands}:
         covered = [i for i, cands in enumerate(per_gt_cands) if any(id(p) == pred_id for p in cands)]
-        covering = [i for i in covered if gt_blocks[i].category not in ("table", "figure")]
+        # 公式不参与跨 GT 块分组：公式是按条比的（把 7 行公式拼成一个字符串再比会得出与逐条比较
+        # 完全不同的数字——实测同一批 187 条配对逐条比两边都是 0.68，分组聚合后变成 0.87/0.50 的
+        # 假差异，方向完全是报表artifact）。
+        covering = [
+            i for i in covered
+            if gt_blocks[i].category not in ("table", "figure", "equation_isolated")
+        ]
         for i in covering[1:]:
             union(covering[0], i)
 
@@ -400,12 +431,16 @@ def _build_groups(gt_blocks: list[GtBlock], per_gt_cands: list[list[PredBlock]])
         members.sort(key=lambda i: gt_blocks[i].order if gt_blocks[i].order is not None else 10**6)
         gt_text = " ".join(b.text for i in members if (b := gt_blocks[i]).text)
         cats = [gt_blocks[i].category for i in members]
-        # 按预测块去重（同一个块可能同时是组内多个 GT 块的候选，重复拼接会把它的文本算多次）
+        is_formula = cats[0] == "equation_isolated"
+        # 公式用 math（LaTeX）字段比：公式块的 plain_text 常为空或只带编号，而两边真正的公式文本
+        # 都在 LaTeX 字段（我们 math_content / MinerU 的 text）。不统一取 math 会出现
+        # "MinerU 0.67 vs 我们 0.38" 这种口径不对称的假差异（2026-09-13 实踩）。
         pred_texts: dict[int, tuple[int, str]] = {}
         for i in members:
             for p in per_gt_cands[i]:
-                if p.text:
-                    pred_texts[id(p)] = (p.seq, p.text)
+                content = (p.math or p.text) if is_formula else p.text
+                if content:
+                    pred_texts[id(p)] = (p.seq, content)
         if cats[0] in CAPTION_KIND and pred_texts:
             # caption/footnote 取面积最小的候选：它们的候选锚在父块（表/图）bbox 上，面积不具
             # 分辨率；若把多个候选文本拼起来，无关字段会把相似度压低（实测面积比在好/坏配对间
