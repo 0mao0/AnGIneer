@@ -168,7 +168,8 @@ def describe_figures_in_graph(
         return None
 
     updated: Dict[str, str] = {}
-    # 串行处理（VLM 调用受调用方阶段闸门控制并发；脚本场景按 max_workers 放开）
+    # 并发由调用方决定：阶段路径显式传 FIGURE_DESCRIBE_MAX_WORKERS（默认 2），
+    # 脚本/测试可自行放开，或传 1 走纯串行。
     import concurrent.futures
 
     if max_workers > 1:

@@ -478,6 +478,7 @@ def _run_figure_describe(ctx: StageContext) -> str:
             ctx.doc_id,
             on_node=_on_node,
             cancel_check=ctx.cancel_check,
+            max_workers=_FIGURE_DESCRIBE_MAX_WORKERS,
         )
 
     ctx.input_summary = str(graph_path)
@@ -649,6 +650,10 @@ def popo_inference_slot(
 
 _FIGURE_DESCRIBE_MAX_CONCURRENCY = max(1, _env_int("FIGURE_DESCRIBE_MAX_CONCURRENCY", 1))
 _FIGURE_DESCRIBE_GATE = _FifoGpuGate(_FIGURE_DESCRIBE_MAX_CONCURRENCY)
+
+# 单篇文档内部的图描述并发（远端 chat 端点的瞬时请求数 = 本值 × 同时进行的文档数）。
+# describe_figures_in_graph 的缺省是 4，阶段路径必须显式收口，否则闸门的"任务级串行"形同虚设。
+_FIGURE_DESCRIBE_MAX_WORKERS = max(1, _env_int("FIGURE_DESCRIBE_MAX_WORKERS", 2))
 
 
 @contextmanager
