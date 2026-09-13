@@ -14,6 +14,9 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 
 from open_ragbench import common
 
+# 哨兵常量与 v3 构建脚本共用一个真相源（build_subset_v3.py 在镜像内，本脚本仅本地用）
+from build_subset_v3 import REFUSAL_GOLD_SENTINEL
+
 
 def build_refusal_bundle(
     queries,
@@ -80,7 +83,10 @@ def build_refusal_bundle(
             # gold 文档未入库：不做检索评测，仅验证拒答行为
             "retrieval": None,
             "answer": {
-                "gold_answer": q["answer"],
+                # 不写事实答案：gold 在拒答判分里从不被读取（answer_eval 在 refusal_expected
+                # 分支短路），拷贝原始答案只会制造"有标准答案却要求拒答"的自相矛盾
+                # （2026-09-13 核查：v2 集 39/39 皆为此类残留）
+                "gold_answer": REFUSAL_GOLD_SENTINEL,
                 "correctness_checks": [],
                 "semantic_threshold": 0.65,
                 "must_cite_target_ids": [],

@@ -23,6 +23,34 @@ SRC_REFUSAL = "open-ragbench-refusal-v2"
 DST = "open-ragbench-subset-v3"
 SOURCES = {"text", "text-image", "text-table", "text-table-image"}
 
+# 拒答题 gold 哨兵（唯一真相源，build_refusal_set.py 从此处导入）。
+# 拒答题 gold_answer 从不参与打分（answer_eval.py 在 refusal_expected 分支直接短路，
+# 早于 LLM 语义判分 return），但 v2 拒答集是早期脚本产物、直接拷了原始事实答案，
+# 与 refusal_expected=true 自相矛盾（2026-09-13 核查：39/39 皆为实质答案）——
+# 留着它只会在日后判分改动时被误用，故统一归一化为哨兵文本。
+REFUSAL_GOLD_SENTINEL = "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）"
+
+
+def _scrub_refusal_gold_text(gold_answer, *, refusal_expected: bool):
+    """拒答题 gold 归一化为哨兵；返回 (文本, 是否发生替换)。非拒答题原样返回。"""
+    if not refusal_expected:
+        return gold_answer, False
+    if str(gold_answer or "").strip() == REFUSAL_GOLD_SENTINEL:
+        return gold_answer, False
+    return REFUSAL_GOLD_SENTINEL, True
+
+
+def _scrub_answer_gold_json(raw_json):
+    """DB 行的 answer_gold JSON 串 → 归一化后的 JSON 串；返回 (json 串, 是否替换)。"""
+    gold = json.loads(raw_json) if raw_json else {}
+    text, changed = _scrub_refusal_gold_text(
+        gold.get("gold_answer"), refusal_expected=bool(gold.get("refusal_expected"))
+    )
+    if not changed:
+        return raw_json, False
+    gold["gold_answer"] = text
+    return json.dumps(gold, ensure_ascii=False), True
+
 Q_COLUMNS = [
     "question_id", "dataset_id", "question", "task_type", "intent_level", "difficulty",
     "tags", "library_id", "doc_ids", "question_family", "canonical_question_id",
@@ -56,14 +84,57 @@ def main() -> int:
         print("!! 源题数不符合预期（487/39），中止")
         return 1
 
-    # 校验拒答题都带 refusal_expected
+    # 校验拒答题都带 refusal_expected + 归一化 gold（源数据新旧都能输出干净 v3）
     bad_refusal = []
+    scrubbed_db = 0
+    normalized_refusal_rows = []
     for r in refusal_rows:
-        gold = json.loads(r["answer_gold"]) if r["answer_gold"] else {}
+        row = dict(r)
+        gold = json.loads(row["answer_gold"]) if row["answer_gold"] else {}
         if not gold.get("refusal_expected"):
-            bad_refusal.append(r["question_id"])
+            bad_refusal.append(row["question_id"])
+            continue
+        row["answer_gold"], changed = _scrub_answer_gold_json(row["answer_gold"])
+        scrubbed_db += changed
+        normalized_refusal_rows.append(row)
     if bad_refusal:
         print("!! 拒答题缺 refusal_expected:", bad_refusal[:5])
+        return 1
+    refusal_rows = normalized_refusal_rows
+    if scrubbed_db:
+        print(f"拒答 gold 归一化（DB）：{scrubbed_db} 条 → 哨兵")
+
+    # 数据集 JSON 源同校同归一化（提前于任何写入，使守卫失败时不留半写状态）
+    def _load_items(dataset_id: str):
+        return json.loads((DATASETS_DIR / f"{dataset_id}.json").read_text(encoding="utf-8"))
+
+    main_json = _load_items(SRC_MAIN)
+    refusal_json = _load_items(SRC_REFUSAL)
+    scrubbed_json = 0
+    bad_json_refusal = []
+    refusal_items = []
+    for item in refusal_json["items"]:
+        answer = item.get("answer") or {}
+        if not answer.get("refusal_expected"):
+            bad_json_refusal.append(item.get("question_id"))
+            continue
+        text, changed = _scrub_refusal_gold_text(answer.get("gold_answer"), refusal_expected=True)
+        if changed:
+            answer["gold_answer"] = text
+            item["answer"] = answer
+            scrubbed_json += 1
+        refusal_items.append(item)
+    if bad_json_refusal:
+        print("!! 拒答 JSON 条目缺 refusal_expected:", bad_json_refusal[:5])
+        return 1
+    if scrubbed_json:
+        print(f"拒答 gold 归一化（JSON）：{scrubbed_json} 条 → 哨兵")
+    leaky = [
+        it.get("question_id") for it in refusal_items
+        if (it.get("answer") or {}).get("gold_answer") != REFUSAL_GOLD_SENTINEL
+    ]
+    if leaky:
+        print("!! 拒答题 gold 未归一化:", leaky[:5])
         return 1
 
     if not args.apply:
@@ -107,23 +178,18 @@ def main() -> int:
     conn.commit()
     print(f"DB 写入完成：{len(main_rows) + len(refusal_rows)} 题")
 
-    # 2) 数据集 JSON（eval.bundle 格式）
-    def _load_items(dataset_id: str):
-        data = json.loads((DATASETS_DIR / f"{dataset_id}.json").read_text(encoding="utf-8"))
-        return data
-
-    main_json = _load_items(SRC_MAIN)
-    refusal_json = _load_items(SRC_REFUSAL)
+    # 2) 数据集 JSON（eval.bundle 格式；items 用前面已归一化的 refusal_items）
     merged = {
         "dataset": {
             **main_json["dataset"],
             "dataset_id": DST,
             "title": "Open RAG Benchmark 子集 v3（含拒答 39 题）",
-            "description": "v2 487 题 + 拒答题集 v2 39 题合并；拒答题期望系统拒答。",
+            "description": "v2 487 题 + 拒答题集 v2 39 题合并；拒答题期望系统拒答"
+                           "（其 gold_answer 为哨兵文本，不参与判分）。",
             "version": "3.0",
-            "question_count": len(main_json["items"]) + len(refusal_json["items"]),
+            "question_count": len(main_json["items"]) + len(refusal_items),
         },
-        "items": list(main_json["items"]) + list(refusal_json["items"]),
+        "items": list(main_json["items"]) + refusal_items,
     }
     out_json = DATASETS_DIR / f"{DST}.json"
     out_json.write_text(json.dumps(merged, ensure_ascii=False, indent=1), encoding="utf-8")
