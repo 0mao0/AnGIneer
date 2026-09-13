@@ -134,5 +134,57 @@ class ReportTests(unittest.TestCase):
         self.assertIn("correct_rate_ci", summary["overall"])
 
 
+class RetrievalGranularityNoteTests(unittest.TestCase):
+    """检索口径分母可见化（2026-09-13）。
+
+    hit@*(sec) 列的分母只是"有 section 级金标"的题；另有少量题仅有文档级金标（按 doc 粒度
+    计分，粒度更粗、更宽松）、以及无检索金标的题（拒答题）。不写清分母，读者会把 sec 列的
+    均值误当成全量均值。
+    """
+
+    def _section_detail(self, qid):
+        return {
+            "question_id": qid, "quality": "correct",
+            "all_scores": {
+                "retrieval": {"metric_granularity": "section", "hit@1": 1, "hit@3": 1, "hit@5": 1,
+                              "mrr": 1.0, "hit@5_doc": 1.0},
+                "answer": {"correctness_checked": True, "correctness_score": 1.0},
+            },
+        }
+
+    def _doc_detail(self, qid):
+        return {
+            "question_id": qid, "quality": "correct",
+            "all_scores": {
+                "retrieval": {"metric_granularity": "doc", "hit@1_doc": 1.0, "hit@3_doc": 1.0,
+                              "hit@5_doc": 1.0, "mrr_doc": 1.0},
+                "answer": {"correctness_checked": True, "correctness_score": 1.0},
+            },
+        }
+
+    def _refusal_detail(self, qid):
+        return {"question_id": qid, "quality": "correct",
+                "all_scores": {"answer": {"evaluated": True, "refusal_expected": True, "refusal_correct": True}}}
+
+    def test_counts_split_by_granularity(self):
+        details = [self._section_detail("q1"), self._doc_detail("q2"), self._refusal_detail("refusal-1")]
+        summary = report.group_and_summarize(details, {"questions": []})
+        self.assertEqual(summary["overall"]["retrieval_granularity"],
+                         {"section": 1, "doc": 1, "none": 1})
+
+    def test_note_shown_when_granularity_is_mixed(self):
+        details = [self._section_detail("q1"), self._doc_detail("q2"), self._refusal_detail("refusal-1")]
+        markdown = report.render_markdown(report.group_and_summarize(details, {"questions": []}))
+        self.assertIn("检索口径", markdown)
+        self.assertIn("分母 1 题（有 section 级金标）", markdown)
+        self.assertIn("1 题仅有文档级金标", markdown)
+        self.assertIn("无检索金标", markdown)
+
+    def test_no_note_when_everything_is_section_level(self):
+        details = [self._section_detail("q1"), self._section_detail("q2")]
+        markdown = report.render_markdown(report.group_and_summarize(details, {"questions": []}))
+        self.assertNotIn("检索口径", markdown, "口径统一时不应产生噪声说明")
+
+
 if __name__ == "__main__":
     unittest.main()

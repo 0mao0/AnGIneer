@@ -48,6 +48,13 @@ def summarize_bucket(details):
 
     section_gold_details = [d for d in details if get(d, "retrieval", "metric_granularity") == "section"]
     target_gold_details = [d for d in details if get(d, "retrieval", "gold_target_types")]
+    # 检索粒度分布（2026-09-13）：hit@*(sec) 的分母只是"有 section 级金标"的题，
+    # 另有少量题仅有文档级金标（按 doc 粒度计分，只见于 doc 列）、以及无检索金标的题
+    # （拒答题，设计如此）。不写清分母，读者会把 sec 列的均值误当成全量均值。
+    granularity = {"section": 0, "doc": 0, "none": 0}
+    for d in details:
+        g = get(d, "retrieval", "metric_granularity")
+        granularity[g if g in ("section", "doc") else "none"] += 1
     hits1 = [get(d, "retrieval", "hit@1") for d in section_gold_details]
     hits3 = [get(d, "retrieval", "hit@3") for d in section_gold_details]
     hits5 = [get(d, "retrieval", "hit@5") for d in section_gold_details]
@@ -68,6 +75,7 @@ def summarize_bucket(details):
     ctxp_median, _ = _median_p90([get(d, "answer", "contextual_precision_score") for d in details])
     return {
         "count": len(details),
+        "retrieval_granularity": granularity,
         "semantic_median": sem_median,
         "semantic_p90": sem_p90,
         "latency_median_s": round(lat_median / 1000, 1) if lat_median is not None else None,
@@ -157,6 +165,18 @@ def render_markdown(summary) -> str:
             f"{b['hit@1_doc']} | {b['hit@3_doc']} | {b['hit@5_doc']} | {b['mrr_doc']} | "
             f"{fmt(b['citation_hit'])} | {b['answer_correctness']} | {b['correct']} | {b['wrong']} |"
         )
+    # 检索口径说明（分母可见化，2026-09-13）：只在粒度不齐/有无检索金标的题时出现，全 section 级时保持安静
+    overall_g = (summary.get("overall") or {}).get("retrieval_granularity") or {}
+    sec_n, doc_n, none_n = overall_g.get("section", 0), overall_g.get("doc", 0), overall_g.get("none", 0)
+    if doc_n or none_n:
+        note = (f"> 检索口径：hit@*(sec) 列分母 {sec_n} 题（有 section 级金标）；"
+                f"hit@*(doc) 列分母 {sec_n + doc_n} 题")
+        if doc_n:
+            note += f"，其中 {doc_n} 题仅有文档级金标、按 doc 粒度计分（粒度更粗，不含于 sec 列）"
+        if none_n:
+            note += f"；另有 {none_n} 题无检索金标、不参与检索指标（拒答题属此类）"
+        lines += ["", note + "。"]
+
     if anomaly_pending:
         pending = {k: v for k, v in (summary.get("anomalies") or {}).items() if k != anomaly.SLOW and v}
         lines.append("")
