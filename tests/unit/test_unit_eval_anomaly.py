@@ -99,16 +99,28 @@ class JudgeChainTests(unittest.TestCase):
         )
         self.assertFalse(result["semantic_evaluated"])
         self.assertTrue(result["semantic_fallback"])
-        self.assertIn("2 个端点均失败", result["semantic_reason"])
-        self.assertEqual(guarded.call_count, 2)
-        names = [c.kwargs["config_name"] for c in guarded.call_args_list]
-        self.assertEqual(names, ["a", "b"])
+        # 文案随引擎而变：deepeval「候选链全部失败（2 个端点）」/ legacy「候选 2 个端点均失败」。
+        # 断言"两个端点都失败"这一语义，不锁死某条链的措辞。
+        self.assertIn("2 个端点", result["semantic_reason"])
+        self.assertRegex(result["semantic_reason"], r"全部失败|均失败")
+        # 扩展维度（answer_relevancy 等）各自重跑一次候选链，故调用次数=维度数×候选数，不写死；
+        # 不变式是"按 a→b 顺序逐个尝试、且绝无 None 候选"。
+        names = [c.kwargs.get("config_name") for c in guarded.call_args_list]
+        self.assertTrue(names, "候选链至少应尝试一次")
+        self.assertEqual(names[:2], ["a", "b"], "首个维度须按候选顺序逐个尝试")
+        self.assertEqual(set(names), {"a", "b"}, "任何一次调用都不得回退到 None 候选")
 
     def test_never_silently_falls_back_to_answer_model(self):
-        """单候选挂了不许回退到 config_name=None（被测自判自评）。"""
+        """单候选挂了不许回退到 config_name=None（被测自判自评）。
+
+        扩展维度各自重跑一次候选链，故调用次数不是 1；不变式是"每一次调用都带显式候选"。
+        """
         result, guarded = self._run_with({"EVAL_JUDGE_CONFIGS": '["only"]'}, RuntimeError("down"))
         self.assertTrue(result["semantic_fallback"])
-        self.assertEqual(guarded.call_count, 1)  # 没有第二次 None 候选
+        names = [c.kwargs.get("config_name") for c in guarded.call_args_list]
+        self.assertTrue(names, "候选链至少应尝试一次")
+        self.assertNotIn(None, names, "任何一次 judge 调用都不得回退到 None 候选（自判自评）")
+        self.assertEqual(set(names), {"only"})
 
     def test_single_env_legacy(self):
         result, guarded = self._run_with(

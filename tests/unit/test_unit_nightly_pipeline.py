@@ -120,8 +120,10 @@ class PipelineGreenTests(_Env):
             resume_spy=resume_spy)
         result = asyncio.run(pipeline.run_nightly(dataset_id="ds", retry_rounds=2, resamples=50))
         self.assertEqual(result["state"], "green")
-        resume = next(c for c in resume_calls if "resume_run_id" in c)  # 首次启动不算补判
-        self.assertEqual(resume["resume_run_id"], "run-x")
+        # 补判轮用 rescore_question_ids 识别：初始启动现在同样带 resume_run_id
+        # （断点续跑探测，fc0704b），不能再靠"含该键的调用"挑补判轮。
+        resume = next(c for c in resume_calls if c.get("rescore_question_ids"))
+        self.assertEqual(resume["resume_run_id"], result["run_id"])  # 补判原地复用同一 run
         self.assertEqual(resume["rescore_question_ids"], ["q1"])
 
 
