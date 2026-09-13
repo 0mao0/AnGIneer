@@ -478,7 +478,7 @@ def _run_figure_describe(ctx: StageContext) -> str:
             ctx.doc_id,
             on_node=_on_node,
             cancel_check=ctx.cancel_check,
-            max_workers=_FIGURE_DESCRIBE_MAX_WORKERS,
+            max_workers=1,   # 每篇同时只发一个请求；在飞请求数由上面那个闸门单点控制
         )
 
     ctx.input_summary = str(graph_path)
@@ -650,10 +650,8 @@ def popo_inference_slot(
 
 _FIGURE_DESCRIBE_MAX_CONCURRENCY = max(1, _env_int("FIGURE_DESCRIBE_MAX_CONCURRENCY", 1))
 _FIGURE_DESCRIBE_GATE = _FifoGpuGate(_FIGURE_DESCRIBE_MAX_CONCURRENCY)
-
-# 单篇文档内部的图描述并发（远端 chat 端点的瞬时请求数 = 本值 × 同时进行的文档数）。
-# describe_figures_in_graph 的缺省是 4，阶段路径必须显式收口，否则闸门的"任务级串行"形同虚设。
-_FIGURE_DESCRIBE_MAX_WORKERS = max(1, _env_int("FIGURE_DESCRIBE_MAX_WORKERS", 2))
+# 本闸门锁的是"一篇文档的图描述"，阶段路径再固定 max_workers=1（每篇同时只发一个请求），
+# 所以 FIGURE_DESCRIBE_MAX_CONCURRENCY 直接等于远端 LLM 的在飞请求数上限——只有这一个旋钮。
 
 
 @contextmanager
@@ -736,16 +734,17 @@ def _run_graph(ctx: StageContext) -> str:
     return f"图谱完成，{entities} 实体，{relations} 关系"
 
 
+# step = 9 个阶段的位次编号（1..9，与前端抽屉/进度条同口径）；序号只在 step 里，title 不再带前缀。
 STAGE_REGISTRY: Dict[str, StageDef] = {s.key: s for s in [
-    StageDef("source_prep", "1 源文件准备", STAGE_KIND_HARD, [], _run_source_prep, _verify_source_file, step="1"),
-    StageDef("convert", "2 格式转换", STAGE_KIND_HARD, ["source_prep"], _run_convert, _verify_convert_input, step="2"),
-    StageDef("raw_parse", "3.1 MinerU解析", STAGE_KIND_HARD, ["convert"], _run_raw_parse, _verify_raw_parse_input, step="3.1"),
-    StageDef("popo", "3.2 PoPo强化", STAGE_KIND_SOFT, ["raw_parse"], _run_popo, _verify_mineru_raw_input, step="3.2"),
-    StageDef("structure", "4 结构化（Solo 唯一构建者）", STAGE_KIND_HARD, ["raw_parse"], _run_structure, _verify_mineru_raw_input, step="4"),
-    StageDef("figure_describe", "4.5 图描述（VLM）", STAGE_KIND_SOFT, ["structure"], _run_figure_describe, _verify_doc_blocks_graph_input, step="4.5"),
-    StageDef("fts", "5 SQLite+FTS", STAGE_KIND_HARD, ["structure"], _run_fts, _verify_doc_blocks_graph_input, step="5"),
-    StageDef("vectors", "6 向量索引", STAGE_KIND_SOFT, ["fts"], _run_vectors, _verify_doc_blocks_graph_input, step="6"),
-    StageDef("graph", "7 知识图谱", STAGE_KIND_SOFT, ["structure"], _run_graph, _verify_doc_blocks_graph_input, step="7"),
+    StageDef("source_prep", "源文件准备", STAGE_KIND_HARD, [], _run_source_prep, _verify_source_file, step="1"),
+    StageDef("convert", "格式转换", STAGE_KIND_HARD, ["source_prep"], _run_convert, _verify_convert_input, step="2"),
+    StageDef("raw_parse", "MinerU解析", STAGE_KIND_HARD, ["convert"], _run_raw_parse, _verify_raw_parse_input, step="3"),
+    StageDef("popo", "PoPo强化", STAGE_KIND_SOFT, ["raw_parse"], _run_popo, _verify_mineru_raw_input, step="4"),
+    StageDef("structure", "结构化（Solo 唯一构建者）", STAGE_KIND_HARD, ["raw_parse"], _run_structure, _verify_mineru_raw_input, step="5"),
+    StageDef("figure_describe", "图描述（VLM）", STAGE_KIND_SOFT, ["structure"], _run_figure_describe, _verify_doc_blocks_graph_input, step="6"),
+    StageDef("fts", "SQLite+FTS", STAGE_KIND_HARD, ["structure"], _run_fts, _verify_doc_blocks_graph_input, step="7"),
+    StageDef("vectors", "向量索引", STAGE_KIND_SOFT, ["fts"], _run_vectors, _verify_doc_blocks_graph_input, step="8"),
+    StageDef("graph", "知识图谱", STAGE_KIND_SOFT, ["structure"], _run_graph, _verify_doc_blocks_graph_input, step="9"),
 ]}
 
 _PIPELINE_ORDER = [

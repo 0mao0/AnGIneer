@@ -168,8 +168,8 @@ def describe_figures_in_graph(
         return None
 
     updated: Dict[str, str] = {}
-    # 并发由调用方决定：阶段路径显式传 FIGURE_DESCRIBE_MAX_WORKERS（默认 2），
-    # 脚本/测试可自行放开，或传 1 走纯串行。
+    # 并发由调用方单点决定：阶段路径固定传 1，远端在飞请求数由 parse_pipeline 的图描述闸门控制；
+    # 脚本/测试可自行放开。
     import concurrent.futures
 
     if max_workers > 1:
