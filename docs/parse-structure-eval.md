@@ -107,16 +107,20 @@ python scripts/eval_parse_structure.py \
    209 篇中 **54 块**重获文本（chart 22、旁注 20、参考脚注 6、代码 5、算法 1），合计约 7100 字符。
    修复后原有 `page_footnote` 的"召回 35.3% / 文本相似度 0.0000"这类假差会消失。
    **注意：存量解析产物与本文基线数字均为修复前口径，需重新解析才会变。**
-2b. **上述修复的检索侧验证（2026-09-13 完成）**：这 25 篇此前**从未建过索引**（评测用的 5 阶段链
-   不含 `fts`/`vectors`）。用生产入口 `build_sqlite_index_from_graph` + `rebuild_document_vectors`
-   重建后验证：
-   - 目标文本进入 `canonical_chunks.text_clean`：抽样 8/8 命中；
-   - 用生产检索函数 `search_chunk_fts`（bigram + BM25）逐篇查恢复文本：**10/10 命中**，
-     召回的 chunk 内容正是代码片段/中文脚注/图表标题/公式脚注；
-   - **因果反证**：把这几类块的 `plain_text` 置空后重建 canonical，同一探针字符串从 chunk 文本中消失
-     （抽样 4/4：修复版=True、置空版=False）——证明"能被搜到"确实是这次修复带来的；
-   - 向量侧：Qdrant `docs_core_vectors` 中目标文档各有 1/4/33 个点（点数多于 chunk 数因表格/公式实体
-     另建记录）。
+2b. **上述修复的检索侧验证（2026-09-13，由本项目自测——OmniDocBench 不具备检索/FTS 能力）**：
+   这 25 篇此前**从未建过索引**（评测用的 5 阶段链不含 `fts`/`vectors`）。用生产入口
+   `build_sqlite_index_from_graph` + `rebuild_document_vectors` 重建后自测：
+   - 目标文本进入 `canonical_chunks.text_clean`：抽样 8/8；
+   - **全库不限定文档**的关键词检索（生产函数 `search_chunk_fts`，CJK bigram + BM25）：
+     **12/12 进前 100，其中 10 篇第 1**；
+   - **语义检索**（Qdrant 向量，生产 embedding 链）：**10/12 进前 10，其中 10 篇第 1**；
+     两个非第 1 的案例是查询本身歧义（单字旁注"卷"）与通用片段（"(a) original data" 在别处重复），
+     非检索失败——这两条内容在向量库中确认存在；
+   - **因果反证**：把 chart/page_footnote/page_aside_text/code/algorithm 的 `plain_text` 置空后
+     重建 canonical，探针字符串从 chunk 文本消失（4/4）——可检索性来自本次修复。
+   - **本验证的边界**：① 自建探针，非基准；② 只证明"内容被两种检索召回"，**不衡量端到端检索质量**
+     （hit@5、问答正确率需要带 gold 的问题集，OmniDocBench 提供不了，要用 nightly 那类体系）；
+     ③ 探针查询串须用完整文本——实测截断到 30 字符会让一篇排第 1 的内容掉出前 10（假阴性）。
    复现脚本：`scripts/reindex_parse_docs.py`（重建 + 探针，`--reindex` 才写库）。
 
 3. **`list_group` 完全未建模**（0/13）：GT 有列表容器概念，我们没有对应结构。
