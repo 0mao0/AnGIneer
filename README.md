@@ -2,13 +2,13 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.59** —— 修 angineer-ai-inference 三项（DGX 车队缺陷报告）：LLM_CONFIGS 的端点级 `enable_thinking` 因 loader 漏传被静默丢弃、最高优先级整层失效（直连 vLLM/DGX 端点发不出任何思考控制），现补传并新增宽松布尔解析（识别不了的按默认值处理并告警）；同类隐患 `enabled` 一并修——`bool(None)` 曾把 `"enabled": null` 变成静默禁用，线上 Qwen3.8-Flash 就中招；`ANGINEER_CHAT_TEMPLATE_KWARGS` 空值/非法 JSON 不再在请求热路径抛异常，改为降级 + WARNING；并补上此前完全缺失的 loader 级回归测试。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.60** —— 解析侧三修：markdown 投影默认保留 HTML 表（表格指标补齐到上游水平，TEDS +3.3 点、表格文字 Edit_dist 降 11.5 倍）；extract_plain_text 补 chart / page_footnote / page_aside_text / code / algorithm 五类块（这些文本此前被整条链路吃掉）；图描述 VLM 的在飞请求收敛为单旋钮（并发上界由 8 降到 2），阶段编号统一为 1..9；评测侧：自建结构层评测 ParseStruct（jsonl 口径）落地并附 200 页基线，A/B/C 三层评测体系定稿；B 层「素材检查」固化进 nightly（断言 jsonl→canonical/chunk→向量的传递性），结论卡片独立成行、通过与否都可见；三方解析质量对比（参考模型 / MinerU 3.4.5 单独 / 我们全链）把表格文字 8 倍差距归因到 markdown 投影，并重建索引验证「改的内容真能被搜到」（全库 FTS 12/12 进前 100）；夜间报告标注检索口径分母——hit@*(sec) 只覆盖有 section 级金标的题，避免把 sec 列均值误当全量均值；39 道拒答题的 gold_answer 归一化为哨兵，清除「有标准答案却要求拒答」的自相矛盾；基线快照移出版本控制（部署 reset 曾抹掉刚钉的基线，nightly 跑出假绿灯）；前端 angineer-docs-ui 升到 0.2.4——阶段列表补齐 figure_describe（抽屉整行不渲染、进度条显示英文 key 且分母少一），xlsx 依赖换成 SheetJS CDN 0.20.3 tarball（CVE-2023-30533 / CVE-2024-22363）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.58` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.60` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.4` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.8` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |

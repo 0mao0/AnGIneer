@@ -2,6 +2,19 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.60
+
+- 修 markdown 投影：默认保留 HTML 表（此前拍平成管道表，合并单元格结构在交付面丢失）——同批 200 页实测表格 TEDS +3.3 点、表格文字 Edit_dist 降 11.5 倍，差距全在投影这一步
+- 修 `extract_plain_text`：补 chart / page_footnote / page_aside_text / code / algorithm 五个分支——这五类块的文本此前被整条链路吃掉（不进 chunk、不进检索）
+- 修图描述阶段并发：`describe_figures_in_graph` 缺省 `max_workers=4` 而阶段调用未传参，使 `FIGURE_DESCRIBE_MAX_CONCURRENCY` 的任务级闸门被绕开（单篇可同时发 4 个远端 VLM 请求，端到端 8 路），现阶段路径固定每篇一次请求、由该闸门单点控制（上界 2，env 可调），同时把阶段编号由 3.1/3.2/4.5 统一为位次 1..9，`title` 不再带序号前缀
+- 新增自建结构层评测 ParseStruct（jsonl 口径）——直接量 RAG 依赖的那一层（此前只看官方 markdown 口径），附 200 页抽样基线，A/B/C 三层评测框架定稿并写清引用规范
+- 新增 B 层「素材检查」并固化进 nightly——断言 jsonl→canonical/chunk→向量 的传递性（素材有没有原样送到检索层），结论卡片独立成行、通过与否都可见
+- 新增三方解析质量对比（参考模型 / MinerU 3.4.5 单独 / 我们全链）——把表格文字 8 倍差距归因到 markdown 投影这一步，并在修复后重建索引验证「改的内容真能被搜到」（全库 FTS 12/12 进前 100，其中 10 篇第 1）
+- 修夜间报告口径可见性：`hit@*(sec)` 列的分母只是「有 section 级金标」的题（v3 = 473，另有 14 题仅有文档级金标、39 道拒答题无检索金标），现补一行口径说明（粒度不齐或有题无金标时出现），避免读者把 sec 列均值误当全量均值
+- 修 39 道拒答题的 `gold_answer`：原先直接拷了上游的原始事实答案，与「本题期望拒答」自相矛盾（该字段从不参与判分），现统一归一化为哨兵文本并加归一化后置断言防回归
+- 修基线快照被部署抹掉：基线移出版本控制（`data/evals/baseline`），此前服务器 `git reset --hard` 会把刚钉的基线清掉，nightly 只能拿旧基线比对，跑出过假绿灯
+- 前端 `angineer-docs-ui` 升到 0.2.4：解析阶段列表补齐 `figure_describe`——阶段抽屉此前整行不渲染该阶段（状态/耗时/错误与「启动」按钮都没有），进度条会显示原始英文 key 且分母写死 8（现为 9），并修 `xlsx` 依赖为 SheetJS CDN 0.20.3 tarball（npm 版 0.18.5 无修复，CVE-2023-30533 / CVE-2024-22363）
+
 ## v0.2.59
 
 - 修 `angineer-ai-inference`（DGX 车队缺陷报告，2026-09-12）：`LLM_CONFIGS` 里端点级 `enable_thinking` 声明被静默丢弃——`LLMModelConfig` 有该字段，但 `load_llm_models_from_env()` 构造时漏传，Pydantic 于是取默认 `None`，使「端点级显式 > `ANGINEER_CHAT_TEMPLATE_KWARGS` > 隐式 URL/模型名规则」里最高优先级整层失效（直连 vLLM/DGX 的端点三层全不命中、发不出任何思考控制），loader 现补传该字段，并新增宽松布尔解析 `_opt_bool()`：`true/false` 与 `"true"/"false"/"1"/"0"/"yes"/"no"/"on"/"off"` 都认，识别不了按默认值处理并 WARNING，不把原值直接透传给 pydantic（避免 `.env` 写成字符串或拼错时在加载期炸掉调用方进程）
