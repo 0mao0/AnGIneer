@@ -39,7 +39,30 @@ def test_paragraph_blank_separator_and_ranges():
     assert ranges["d:0:2"] == {"start": 4, "end": 4}
 
 
-def test_table_pipe_rendering_with_caption_and_footnote():
+def test_table_html_rendering_keeps_merged_cells():
+    """默认落 HTML 表：管道表表达不了 rowspan/colspan，会把合并单元格拍平。
+
+    实测同批 200 页（54 页有表格）：管道表下表格文字 Edit_dist 0.5632、TEDS 0.8821；
+    改 HTML 表后 0.0488 / 0.9155，后者与上游 MinerU 单独的成绩持平。
+    """
+    md, _ = build_faithful_markdown([
+        _node(
+            block_uid="d:0:3", block_type="table", page_idx=0, block_seq=3,
+            caption="表 1 示例", footnote="注：单位 m。",
+            table_html=(
+                '<table><tr><th>项目</th><th>数值</th></tr>'
+                '<tr><td rowspan="2">长度</td><td>10</td></tr><tr><td>20</td></tr></table>'
+            ),
+        ),
+    ], "abc123def456")
+    assert "表 1 示例" in md
+    assert "注：单位 m。" in md
+    assert '<td rowspan="2">长度</td>' in md          # 合并单元格必须原样保留
+    assert "| 项目 | 数值 |" not in md
+
+
+def test_table_pipe_rendering_when_html_disabled():
+    """显式关掉 html_tables 时退回管道表（保留回滚路径）。"""
     md, _ = build_faithful_markdown([
         _node(
             block_uid="d:0:3", block_type="table", page_idx=0, block_seq=3,
@@ -49,12 +72,11 @@ def test_table_pipe_rendering_with_caption_and_footnote():
                 "<tr><td>长度</td><td>10</td></tr></table>"
             ),
         ),
-    ], "abc123def456")
-    assert "表 1 示例" in md
+    ], "abc123def456", html_tables=False)
     assert "| 项目 | 数值 |" in md
     assert "| --- | --- |" in md
     assert "| 长度 | 10 |" in md
-    assert "注：单位 m。" in md
+    assert "<table>" not in md
 
 
 def test_formula_and_image_rendering():

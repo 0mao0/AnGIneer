@@ -132,3 +132,23 @@ MinerU 单独（我们自己的上游）在 markdown 口径四项里都比"我�
 4. 本文件未验证检索侧效果（改产物后需重建索引方能看到）；
 5. **下一步候选**：把 markdown 投影改成保留 HTML 表并复测（预期表格指标补齐）；定位文本指标
    0.0476→0.0813 的落差来源（Solo 的块重排/过滤/`plain_text_corrected` 改写）。
+
+## 八、已修：markdown 投影保留 HTML 表（2026-09-13）
+
+按上面的归因把 `markdown_projection._render_table` 改成默认直接落 `table_html`（保留 rowspan/colspan），
+`build_faithful_markdown(..., html_tables=)` 保留开关可回滚。**A/B 实测**（同批 54 页含表格页，官方评测器）：
+
+| 指标 | 管道表（原） | HTML 表（现） | Δ |
+|---|---|---|---|
+| 表格 TEDS | 0.8821 | **0.9155** | +0.0334 |
+| 表格 TEDS_structure_only | 0.8985 | **0.9324** | +0.0339 |
+| 表格文字 Edit_dist | 0.5632 | **0.0488** | −0.5144（11.5 倍） |
+| 文本 Edit_dist | 0.0596 | 0.0596 | 0 |
+
+HTML 表后的表格成绩**与上游 MinerU 单独持平**（0.9155 / 0.0488），即 markdown 面此前唯一的短板补平。
+
+风险已核：前端本就支持后端 HTML 表（`docs-ui` 的 `renderTableHtmlToInlineHtml` 按结构原样渲染，
+markdown 行内渲染器对 HTML 表格标签有保护分支），`table_lookup` 亦以 HTML 表为主路径、管道表为次路径。
+
+注意：**存量 content.md 不会自动变**——投影在解析阶段执行，旧文档需重新投影（可只重跑投影、不必重跑解析），
+本次评测语料的数字用的是重新投影后的预测。

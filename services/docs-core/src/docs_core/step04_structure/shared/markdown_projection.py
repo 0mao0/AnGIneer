@@ -81,12 +81,19 @@ def _render_heading(node: Dict) -> str:
     return f"{'#' * max(1, min(6, level))} {text}"
 
 
-def _render_table(node: Dict) -> str:
+def _render_table(node: Dict, *, html_tables: bool = False) -> str:
     html = str(
         node.get("table_html")
         or (node.get("content_json") or {}).get("html")
         or ""
     ).strip()
+    # html_tables=True：直接落 HTML 表（保留 rowspan/colspan）。管道表表达不了合并单元格，
+    # 拍平会让结构在交付面丢失——实测同批 200 页：管道表下表格文字 Edit_dist 0.5632，
+    # MinerU（输出 HTML 表）只有 0.0488，而 jsonl 层复算仅 0.0946，差距全在投影这一步。
+    # 前端本就支持后端 HTML 表（docs-ui renderTableHtmlToInlineHtml 按结构原样渲染），
+    # table_lookup 也有 HTML 分支，故这条路径是回填既有能力，不是新依赖。
+    if html_tables and html:
+        return html
     rows = _html_table_to_rows(html)
     if not rows:
         return _node_text(node)
@@ -120,7 +127,7 @@ def _render_image(node: Dict) -> str:
     return f"![{alt}]({path})"
 
 
-def _render_node(node: Dict) -> str:
+def _render_node(node: Dict, *, html_tables: bool = False) -> str:
     block_type = str(node.get("block_type") or "").lower()
     if block_type == "title":
         return _render_heading(node)
@@ -131,7 +138,7 @@ def _render_node(node: Dict) -> str:
     if block_type == "table":
         caption = str(node.get("caption") or "").strip()
         footnote = str(node.get("footnote") or "").strip()
-        parts = [caption, _render_table(node), footnote]
+        parts = [caption, _render_table(node, html_tables=html_tables), footnote]
         return "\n\n".join(p for p in parts if p)
     return _node_text(node)
 
@@ -141,6 +148,7 @@ def build_faithful_markdown(
     build_id: str,
     *,
     include_furniture: bool = False,
+    html_tables: bool = True,
 ) -> Tuple[str, Dict[str, Dict[str, int]]]:
     """返回 (md_text, line_ranges)；line_ranges 为 block_uid -> {start, end}，1 起始、含 build_id 头行。"""
     lines: List[str] = [f"<!-- build_id: {build_id} -->"]
@@ -150,7 +158,7 @@ def build_faithful_markdown(
             continue
         if not include_furniture and _is_furniture(node):
             continue
-        text = _render_node(node)
+        text = _render_node(node, html_tables=html_tables)
         if not text:
             continue
         uid = str(node.get("block_uid") or node.get("id") or "").strip()
