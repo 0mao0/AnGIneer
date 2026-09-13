@@ -38,8 +38,13 @@ def fmt_span(started_at, completed_at) -> Tuple[str, str]:
         return "—", "—"
 
 
-def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_note: str = "") -> str:
-    """一行一项：时间 / 时长 / 结果 / 分析。详情进站点页，不进卡片。"""
+def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_note: str = "",
+                  material_line: str = "") -> str:
+    """一行一项：时间 / 时长 / 结果 / 分析（+ 素材体检）。
+
+    material_line：B 层素材体检摘要（形如 "素材体检：ok（200 篇，内容未落地 0）"）。
+    传了就多一行——体检通过与否都要在卡片里可见，否则"结论绿"无法说明素材层是否正常。
+    """
     summary = (raw or {}).get("summary_scores") or {}
     span, duration = fmt_span((raw or {}).get("started_at"), (raw or {}).get("completed_at"))
     lines = [_HEADS.get(state, _HEADS[STATE_ERROR])]
@@ -69,6 +74,8 @@ def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_n
         lines.append(f"分析：评测环节未完成（{error_note or '见服务器日志'}），无结论。")
     else:
         lines.append("分析：门禁产物缺失，见服务器日志。")
+    if material_line:
+        lines.append(material_line)
     return "\n".join(lines)
 
 

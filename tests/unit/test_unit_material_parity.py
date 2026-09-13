@@ -165,5 +165,37 @@ class RunCheckTests(unittest.TestCase):
         self.assertIn("数据库不可用", result["detail"])
 
 
+class NotifyLineTests(unittest.TestCase):
+    """素材体检行要进 nightly 结论卡片（通过与否都要可见）。"""
+
+    def test_material_line_appended_to_conclusion_card(self):
+        from evals_core.nightly import notify
+        from evals_core.nightly.pipeline import _material_line
+
+        material = {"severity": "ok", "docs_checked": 200,
+                    "totals": {"blocks_text_lost": 0, "blocks_uncovered": 3}}
+        raw = {"started_at": "2026-09-13T00:34:00+08:00", "completed_at": "2026-09-13T04:10:00+08:00",
+               "summary_scores": {"overall_score": 0.83, "correct": 437, "total": 526,
+                                  "judge_failed_count": 2, "errored": 0}}
+        text = notify.build_message(raw, {"matrix": {"pf": 5, "fp": 3}, "delta": 0.004}, "green",
+                                   material_line=_material_line(material))
+        lines = text.splitlines()
+        self.assertIn("素材体检：ok（检查 200 篇，内容未落地 0 块，未进 chunk 3 块）", lines)
+        # 必须独立成行（企微卡片按行渲染），且排在分析之后
+        self.assertGreater(lines.index("素材体检：ok（检查 200 篇，内容未落地 0 块，未进 chunk 3 块）"),
+                           max(i for i, ln in enumerate(lines) if ln.startswith("分析：")))
+
+    def test_material_line_absent_by_default(self):
+        from evals_core.nightly import notify
+
+        text = notify.build_message(None, None, notify.STATE_ERROR, error_note="x")
+        self.assertNotIn("素材体检", text)
+
+    def test_material_line_empty_when_disabled(self):
+        from evals_core.nightly.pipeline import _material_line
+
+        self.assertEqual(_material_line(None), "")
+
+
 if __name__ == "__main__":
     unittest.main()

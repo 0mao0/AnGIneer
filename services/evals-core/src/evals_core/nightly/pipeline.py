@@ -122,7 +122,19 @@ def _dataset_subject(dataset_id: str) -> str:
         return dataset_id
 
 
-async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, site_url: str, webhook: str) -> dict:
+def _material_line(material: Optional[dict]) -> str:
+    """把素材体检结果压成结论卡片里的一行（含严重度与两项关键计数）。"""
+    if not material:
+        return ""
+    totals = material.get("totals") or {}
+    severity = material.get("severity") or "?"
+    return (f"素材体检：{severity}（检查 {material.get('docs_checked', 0)} 篇，"
+            f"内容未落地 {totals.get('blocks_text_lost', 0)} 块，"
+            f"未进 chunk {totals.get('blocks_uncovered', 0)} 块）")
+
+
+async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, site_url: str, webhook: str,
+                               material_line: str = "") -> dict:
     """门禁 + 报告 + 落盘 + 通知，全成功返回结论 dict（state=green/red）。"""
     loop_run = await asyncio.to_thread(result_store.get_run, run_id)
     details = await asyncio.to_thread(result_store.list_run_details, run_id)
@@ -147,7 +159,7 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     raw_for_card = {k: loop_run.get(k) for k in ("started_at", "completed_at")}
     raw_for_card["summary_scores"] = loop_run.get("summary_scores") or {}
     text = notify.append_links(
-        notify.build_message(raw_for_card, gate_res, state), site_url)
+        notify.build_message(raw_for_card, gate_res, state, material_line=material_line), site_url)
     await _notify_best_effort(webhook, text)
     return {"state": state, "ok": state == "green", "run_id": run_id,
             "overall_score": entry.get("overall_score"), "correct": entry.get("correct"),
@@ -301,7 +313,8 @@ async def run_nightly(*, dataset_id: str,
             await asyncio.to_thread(suite_runner.stop_eval_run, run_id)
         await _await_terminal(run_id, deadline)
         await _auto_retry(run_id, dataset_id, retry_rounds, deadline)
-        outcome = await _compute_and_publish(run_id, dataset_id, resamples, site_url, webhook)
+        outcome = await _compute_and_publish(run_id, dataset_id, resamples, site_url, webhook,
+                                             material_line=_material_line(material))
         if material is not None:
             outcome["material_parity"] = {"severity": material.get("severity"),
                                           "docs_with_issues": material.get("docs_with_issues")}
