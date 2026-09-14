@@ -40,6 +40,16 @@
 **按设计不入索引的块不参与 ②**：页眉/页脚/页码、`layout_category=furniture`、`is_active=0`
 ——不排除会造成 94% 的假阳性（实测：default 库未覆盖率 3.3% → 0.19%）。
 
+**② 的探针取 `plain_text_corrected or plain_text`**（2026-09-14）：链路构建 canonical/chunk 时
+优先消费 PoPo 校正后的字段，只比 `plain_text` 会把"被校正改写过的块"一律报成未覆盖。实踩：
+一篇论文的 4 个公式块因 PoPo 把左端 `V_{s}=` 校正成 `V=` 而全部失配（前 24 字符探针必然打不中），
+改用 corrected 后 **0 失配**——内容确实送达了检索层，只是以校正后的形式。
+
+**符号改动单列报出（不计 fail）**：`symbol_mismatch`（链路自己打的标）表示 PoPo 校正改动了
+公式符号，属**数据质量信号**——`V_{s}` → `V` 丢下标，语义变了。体检每晚报计数与样例
+（`blocks_symbol_mismatch` + `symbol_mismatch_samples`，进摘要与结论卡片那一行），
+但**不判 fail**：它答的是"校正对不对"，不是"内容有没有送到"。
+
 **④ 只对"计划建索引"的文档断言**（2026-09-14，判定依据是 `doc_parse_stages` 的事实，不是排除名册）：
 
 | 阶段事实（`fts` 行） | 处理 |

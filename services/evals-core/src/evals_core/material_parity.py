@@ -7,7 +7,10 @@
 1. **内容落地**：`content_json` 里有文本、`plain_text` 却为空 → 内容被链路吃掉
    （2026-09-12 实踩过：chart/page_footnote/page_aside_text/code/algorithm 五类整类丢失）；
 2. **块 → chunk**：有文本的块，其文本（空白无关、取前 24 字符）是否出现在该文档的 chunk 文本里
-   → 检 canonical/chunk 构建环节有没有丢内容；
+   → 检 canonical/chunk 构建环节有没有丢内容。**探针取 `plain_text_corrected or plain_text`**：
+   链路构建 chunk 时优先消费校正后的字段，只比 `plain_text` 会把"被 PoPo 改写过的块"报成未覆盖
+   （2026-09-14 实踩：4 个公式块因 `V_{s}=` 被校正成 `V=` 而失配，改用 corrected 后 0 失配）；
+   顺带单列**符号改动**（`symbol_mismatch`）计数与样例——校正改符号是数据质量信号，不判 fail。
 3. **chunk → 向量**：有 chunk 却没有向量点 → 向量化环节漏了（点数取自向量库按 doc_id 过滤计数）；
 4. **索引存在性**：文档在 canonical 里有没有记录。**只对"计划建索引"的文档断言**——
    判定依据是 `doc_parse_stages` 的事实（该篇有没有 `fts` 阶段记录、状态是什么），不是按库排除的名册：
@@ -73,6 +76,8 @@ class DocReport:
     indexed: bool = False
     index_not_planned: bool = False
     index_stage_state: Optional[str] = None
+    blocks_symbol_mismatch: int = 0
+    mismatch_samples: list[str] = field(default_factory=list)
     issues: list[str] = field(default_factory=list)
     samples: list[str] = field(default_factory=list)
 
@@ -99,6 +104,7 @@ class DocReport:
             "blocks_text_lost": self.blocks_text_lost,
             "chunks": self.chunks,
             "vector_points": self.vector_points,
+            "blocks_symbol_mismatch": self.blocks_symbol_mismatch,
             "coverage": self.coverage,
             "issues": self.issues,
             "samples": self.samples,
@@ -157,8 +163,20 @@ def check_document(library_id: str, doc_id: str, sources: Sources, *,
             report.blocks_text_lost += 1
             if len(report.samples) < 3:
                 report.samples.append(f"[{node.get('block_type')}] 内容未落到 plain_text: {expected[:40]}")
-        if len(plain) >= min_chars and _should_be_indexed(node):
-            texts.append(plain)
+        if not _should_be_indexed(node):
+            continue
+        if node.get("symbol_mismatch"):
+            # PoPo 校正改动了公式符号（链路自己打的标）：是数据质量信号，不是"内容没送达"
+            report.blocks_symbol_mismatch += 1
+            if len(report.mismatch_samples) < 3:
+                before = str(node.get("math_content") or plain)[:36]
+                after = str(node.get("math_content_corrected") or node.get("plain_text_corrected") or "")[:36]
+                report.mismatch_samples.append(f"[{node.get('block_type')}] 校正改符号: {before} → {after}")
+        # 探针取链路真正消费的那个字段：canonical/chunk 构建优先 plain_text_corrected，
+        # 只比 plain_text 会把"被 PoPo 改写过的块"一律报成未覆盖（2026-09-14 实踩）
+        probe_text = norm(node.get("plain_text_corrected")) or plain
+        if len(probe_text) >= min_chars:
+            texts.append(probe_text)
 
     report.indexed = sources.has_canonical(library_id, doc_id)
     if not report.indexed:
@@ -246,6 +264,8 @@ def run_check(*, libraries: Optional[list[str]] = None, max_docs: int = DEFAULT_
         "vector_points": sum(r.vector_points or 0 for r in reports),
         # 豁免计数必须落进汇总：否则 stage 记录被弄丢时，体检会静默转绿
         "docs_index_not_planned": sum(1 for r in reports if r.index_not_planned),
+        # 符号改动是数据质量信号（不判 fail），但每晚会报计数与样例
+        "blocks_symbol_mismatch": sum(r.blocks_symbol_mismatch for r in reports),
     }
     return {
         "severity": _severity(reports),
@@ -253,6 +273,7 @@ def run_check(*, libraries: Optional[list[str]] = None, max_docs: int = DEFAULT_
         "docs_checked": len(reports),
         "docs_with_issues": len(bad),
         "totals": totals,
+        "symbol_mismatch_samples": [s for r in reports for s in r.mismatch_samples][:5],
         "issues": [r.as_dict() for r in bad],
     }
 
@@ -276,6 +297,11 @@ def render_summary(result: dict) -> str:
     if skipped:
         lines.append(f"  另 {skipped} 篇未计划建索引（解析阶段不含 fts/vectors，如评测库或单阶段补跑），"
                      "已豁免「未索引」断言（不计问题）。")
+    mismatched = totals.get("blocks_symbol_mismatch") or 0
+    if mismatched:
+        lines.append(f"  另 {mismatched} 个块 PoPo 校正改动了公式符号（symbol_mismatch，数据质量信号，不计问题）：")
+        for sample in (result.get("symbol_mismatch_samples") or [])[:2]:
+            lines.append(f"      - {sample}")
     for issue in (result.get("issues") or [])[:5]:
         lines.append(f"  · {issue['library_id']}/{issue['doc_id']}: {'; '.join(issue['issues'])}")
         for sample in (issue.get("samples") or [])[:2]:

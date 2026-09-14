@@ -145,6 +145,32 @@ class CheckDocumentTests(unittest.TestCase):
         report = check_document("lib", "doc", _sources([], []))
         self.assertTrue(any("无解析产物" in i for i in report.issues), report.issues)
 
+    def test_probe_uses_corrected_text_when_present(self):
+        """链路 chunk 消费 plain_text_corrected；探针只比 plain_text 会把被校正改写的块报成未覆盖。
+
+        2026-09-14 实踩：PoPo 把公式左端的 V_{s}= 校正成 V=，4 个方程块全部误报未覆盖。
+        """
+        nodes = [{"block_type": "equation_interline", "plain_text": "V _ {s} = V _ {s 0} \\frac {r}{x}",
+                  "plain_text_corrected": "V = V _ {s 0} \\frac {r}{x}",
+                  "content_json": {"math_content": "V _ {s} = V _ {s 0} \\frac {r}{x}"}}]
+        sources = _sources(nodes, ["V = V _ {s 0} \\frac {r}{x}"])
+        report = check_document("lib", "doc", sources)
+        self.assertTrue(report.ok, report.issues)
+        self.assertEqual(report.blocks_uncovered, 0)
+
+    def test_counts_symbol_mismatch_without_failing(self):
+        nodes = [{"block_type": "equation_interline", "plain_text": "V _ {s} = V _ {s 0} \\frac {r}{x}",
+                  "plain_text_corrected": "V = V _ {s 0} \\frac {r}{x}",
+                  "math_content": "V _ {s} = V _ {s 0} \\frac {r}{x}",
+                  "math_content_corrected": "V = V _ {s 0} \\frac {r}{x}",
+                  "symbol_mismatch": True,
+                  "content_json": {"math_content": "V _ {s} = V _ {s 0} \\frac {r}{x}"}}]
+        report = check_document("lib", "doc", _sources(nodes, ["V = V _ {s 0} \\frac {r}{x}"]))
+        self.assertEqual(report.blocks_symbol_mismatch, 1)
+        self.assertTrue(report.ok, report.issues)          # 符号改动不判 fail
+        self.assertTrue(report.mismatch_samples)
+        self.assertIn("校正改符号", report.mismatch_samples[0])
+
 
 class RunCheckTests(unittest.TestCase):
     def test_aggregates_and_lists_missing(self):
@@ -209,6 +235,27 @@ class RunCheckTests(unittest.TestCase):
         self.assertEqual(result["totals"]["docs_index_not_planned"], 1)
         self.assertIn("未计划建索引", render_summary(result))
 
+    def test_symbol_mismatch_counted_and_visible_in_summary(self):
+        """符号改动要每晚报出计数与样例（数据质量信号），但不影响 severity。"""
+        nodes = [{"block_type": "equation_interline", "plain_text": "V _ {s} = a + b",
+                  "plain_text_corrected": "V = a + b", "symbol_mismatch": True,
+                  "math_content": "V _ {s} = a + b", "math_content_corrected": "V = a + b"}]
+        sources = Sources(
+            list_docs=lambda: [("lib", "doc")],
+            load_nodes=lambda lib, doc: nodes,
+            load_chunk_texts=lambda lib, doc: ["V = a + b"],
+            has_canonical=lambda lib, doc: True,
+            count_vectors=lambda lib, doc: 3,
+        )
+        result = run_check(sources=sources)
+        self.assertEqual(result["severity"], "ok")
+        self.assertEqual(result["docs_with_issues"], 0)
+        self.assertEqual(result["totals"]["blocks_symbol_mismatch"], 1)
+        self.assertTrue(result["symbol_mismatch_samples"])
+        summary = render_summary(result)
+        self.assertIn("校正改动了公式符号", summary)
+        self.assertIn("校正改符号", summary)
+
     def test_source_failure_returns_error_severity(self):
         def boom():
             raise RuntimeError("数据库不可用")
@@ -254,6 +301,14 @@ class NotifyLineTests(unittest.TestCase):
                                "totals": {"blocks_text_lost": 0, "blocks_uncovered": 0,
                                           "docs_index_not_planned": 11}})
         self.assertIn("11 篇未计划建索引已豁免", line)
+
+    def test_material_line_reports_symbol_mismatch(self):
+        from evals_core.nightly.pipeline import _material_line
+
+        line = _material_line({"severity": "ok", "docs_checked": 20,
+                               "totals": {"blocks_text_lost": 0, "blocks_uncovered": 0,
+                                          "blocks_symbol_mismatch": 4}})
+        self.assertIn("符号改动 4 块", line)
 
     def test_material_line_empty_when_disabled(self):
         from evals_core.nightly.pipeline import _material_line

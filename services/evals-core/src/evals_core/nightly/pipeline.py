@@ -138,6 +138,9 @@ def _material_line(material: Optional[dict]) -> str:
     exempt = totals.get("docs_index_not_planned") or 0
     if exempt:
         line += f"，{exempt} 篇未计划建索引已豁免"
+    mismatched = totals.get("blocks_symbol_mismatch") or 0
+    if mismatched:
+        line += f"，符号改动 {mismatched} 块"
     return line + "）"
 
 
