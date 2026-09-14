@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.60** —— 解析侧三修：markdown 投影默认保留 HTML 表（表格指标补齐到上游水平，TEDS +3.3 点、表格文字 Edit_dist 降 11.5 倍）；extract_plain_text 补 chart / page_footnote / page_aside_text / code / algorithm 五类块（这些文本此前被整条链路吃掉）；图描述 VLM 的在飞请求收敛为单旋钮（并发上界由 8 降到 2），阶段编号统一为 1..9；评测侧：自建结构层评测 ParseStruct（jsonl 口径）落地并附 200 页基线，A/B/C 三层评测体系定稿；B 层「素材检查」固化进 nightly（断言 jsonl→canonical/chunk→向量的传递性），结论卡片独立成行、通过与否都可见；三方解析质量对比（参考模型 / MinerU 3.4.5 单独 / 我们全链）把表格文字 8 倍差距归因到 markdown 投影，并重建索引验证「改的内容真能被搜到」（全库 FTS 12/12 进前 100）；夜间报告标注检索口径分母——hit@*(sec) 只覆盖有 section 级金标的题，避免把 sec 列均值误当全量均值；39 道拒答题的 gold_answer 归一化为哨兵，清除「有标准答案却要求拒答」的自相矛盾；基线快照移出版本控制（部署 reset 曾抹掉刚钉的基线，nightly 跑出假绿灯）；前端 angineer-docs-ui 升到 0.2.4——阶段列表补齐 figure_describe（抽屉整行不渲染、进度条显示英文 key 且分母少一），xlsx 依赖换成 SheetJS CDN 0.20.3 tarball（CVE-2023-30533 / CVE-2024-22363）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.61** —— 修解析流水表：所有入库路径统一写入，「日常维护」入口此前漏写导致台账缺篇（评测与运维统计都读这张表）；评测侧 B 层「素材检查」三修：「未索引」断言改按解析阶段事实判定（评测库与单阶段补跑不再被误报）、阶段状态改为一次性只读查询（原先经 get_docs_service 会加载整个知识库）、② 探针改用链路真正消费的字段 plain_text_corrected 并把符号改动单列报出；前端 angineer-aichat-ui 升到 0.1.9——补 sideEffects 声明（仅样式文件），组件模块可被消费方 bundler tree-shake；工程：发版收敛为 `pnpm release vX.Y.Z` 一条命令（固化 tag 与分支同批推送，消除与部署版本校验的竞态），deploy.yml 拉取改带 --tags 让「版本一致性校验」真正生效（此前部署目录长期 0 个 tag、校验一直走 skip）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

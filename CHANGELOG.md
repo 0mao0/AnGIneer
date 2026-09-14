@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.61
+
+- 修解析流水表：所有入库路径统一写入——此前管理端「日常维护」入口漏写，导致台账缺篇（评测与运维统计都读这张表）
+- 修 B 层「素材检查」三项：「未索引」断言改按解析阶段事实判定（评测库与单阶段补跑不再被误报）、阶段状态改为一次性只读查询（原先经 `get_docs_service` 会加载整个知识库）、② 探针改用链路真正消费的字段 `plain_text_corrected` 并把符号改动单列报出
+- 前端 `angineer-aichat-ui` 升到 0.1.9：补 `sideEffects` 声明（仅样式文件），组件模块可被消费方 bundler tree-shake
+- 工程：发版收敛为 `pnpm release vX.Y.Z` 一条命令——固化「tag → sync:version → release commit → 一条命令推分支与 tag」的顺序（分两条命令推与部署的版本校验有竞态），并让 deploy.yml 拉取改为 `git fetch origin main --tags`，使「Version consistency check」真正生效（此前部署目录长期 0 个 tag，校验一直走 skip）
+
 ## v0.2.60
 
 - 修 markdown 投影：默认保留 HTML 表（此前拍平成管道表，合并单元格结构在交付面丢失）——同批 200 页实测表格 TEDS +3.3 点、表格文字 Edit_dist 降 11.5 倍，差距全在投影这一步
