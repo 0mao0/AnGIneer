@@ -258,7 +258,7 @@ def _predict_in_process(args) -> int:
     if ks.get_library(args.library) is None:
         ks.create_library(args.library, args.library, "OmniDocBench 解析评测专用库")
         print(f"已创建知识库: {args.library}", flush=True)
-    orchestrator = ParseOrchestrator()
+    orchestrator = ParseOrchestrator(record_actor="system:omnidocbench-eval")
     stage_list = [s.strip() for s in PARSE_STAGES.split(",") if s.strip()]
 
     done = failed = skipped = 0

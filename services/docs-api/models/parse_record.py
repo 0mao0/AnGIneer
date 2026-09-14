@@ -38,31 +38,11 @@ def _get_conn() -> sqlite3.Connection:
 
 
 def init_db() -> None:
+    """建表：表结构由 docs_core.parse_records_store 单点定义（两份 DDL 会漂移）。"""
+    from docs_core.parse_records_store import init_schema
+
     conn = _get_conn()
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS parse_records (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            doc_id TEXT NOT NULL,
-            task_id TEXT NOT NULL,
-            uploaded_by TEXT NOT NULL DEFAULT '',
-            api_key_id INTEGER,
-            file_name TEXT NOT NULL DEFAULT '',
-            file_format TEXT NOT NULL DEFAULT '',
-            file_size INTEGER NOT NULL DEFAULT 0,
-            status TEXT NOT NULL DEFAULT 'queued',
-            error TEXT,
-            created_at TEXT NOT NULL
-        )
-    """)
-    columns = {row[1] for row in conn.execute("PRAGMA table_info(parse_records)")}
-    if "library_id" not in columns:
-        conn.execute("ALTER TABLE parse_records ADD COLUMN library_id TEXT NOT NULL DEFAULT 'default'")
-    if "stages" not in columns:
-        conn.execute("ALTER TABLE parse_records ADD COLUMN stages TEXT NOT NULL DEFAULT ''")
-    conn.execute("CREATE INDEX IF NOT EXISTS idx_pr_created ON parse_records(created_at DESC)")
-    conn.execute("CREATE INDEX IF NOT EXISTS idx_pr_uploaded ON parse_records(uploaded_by)")
-    conn.execute("CREATE INDEX IF NOT EXISTS idx_pr_status ON parse_records(status)")
-    conn.commit()
+    init_schema(conn)
     conn.close()
 
 
@@ -346,32 +326,11 @@ def restore_record(record_id: int) -> bool:
 
 
 def sync_record_for_task(task_id: str, doc_id: str, status: str, error: Optional[str] = None) -> None:
-    """解析编排器的记录同步回调：把任务状态同步到 parse_records 表。
+    """解析编排器的记录同步回调（注入给 ParseOrchestrator 用）。
 
-    参数顺序与 ParseOrchestrator 的钩子契约一致：record_updater(task_id, doc_id, status, error)。
-    供 ParseOrchestrator 注入使用（docs_core 不依赖本模块，由 API 层注入）。
+    实现已下沉到 `docs_core.parse_records_store`（与脚本/进程内路径共用一份语义），这里只做转发：
+    参数顺序保持 `record_updater(task_id, doc_id, status, error)` 的钩子契约不变。
     """
-    if status == "processing":
-        # 将 pending 记录的 task_id 改为真实 task_id；无 pending 则更新同 doc 其他记录，再不行插入新记录
-        if update_record_task_id(f"pending-{doc_id}", task_id):
-            update_record_status(task_id, "processing")
-        elif update_record_by_doc_id(doc_id, task_id, "processing"):
-            pass
-        else:
-            library_id = "default"
-            try:
-                from docs_core.docs_service import get_docs_service
-                node = get_docs_service().get_node(doc_id)
-                if node:
-                    library_id = node.library_id or "default"
-            except Exception:
-                pass
-            insert_record(ParseRecord(
-                doc_id=doc_id,
-                task_id=task_id,
-                uploaded_by="管理员",
-                status="processing",
-                library_id=library_id,
-            ))
-    else:
-        update_record_status(task_id, status, error)
+    from docs_core.parse_records_store import sync_record_for_task as _sync
+
+    _sync(task_id, doc_id, status, error)

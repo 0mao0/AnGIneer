@@ -979,16 +979,28 @@ class ParseOrchestrator:
     def __init__(
         self,
         record_updater: Optional[Callable[[str, str, str, Optional[str]], None]] = None,
+        record_actor: str = "system",
     ) -> None:
-        """record_updater(task_id, doc_id, status, error)：可选，用于把任务状态同步到解析记录表。"""
+        """record_updater(task_id, doc_id, status, error)：把任务状态同步到解析记录表。
+
+        不传时用 docs-core 自带实现（`docs_core.parse_records_store`）——脚本/进程内路径也必须
+        留流水，否则文档只进 nodes 不进 parse_records，管理端整篇看不见（2026-09-14 实测 189/295）。
+        `record_actor` 是新建记录时的 uploaded_by 兜底，用于区分来源（如 `system:omnidocbench-eval`）。
+        """
         self._threads: Dict[str, threading.Thread] = {}
         self._parsers: Dict[str, MinerUParser] = {}
         self._cancelled: set = set()
+        if record_updater is None:
+            from docs_core.parse_records_store import sync_record_for_task
+
+            actor = record_actor or "system"
+            record_updater = lambda task_id, doc_id, status, error=None: sync_record_for_task(
+                task_id, doc_id, status, error, actor=actor)
         self._record_updater = record_updater
         self._arrival_counter = _GLOBAL_ARRIVAL_COUNTER
 
     def _sync_record(self, task_id: str, doc_id: str, status: str, error: Optional[str] = None) -> None:
-        """把任务状态同步到解析记录表（由 API 层注入的实现负责）。"""
+        """把任务状态同步到解析记录表（默认实现见 docs_core.parse_records_store）。"""
         if not self._record_updater:
             return
         try:
@@ -1022,7 +1034,8 @@ class ParseOrchestrator:
             parse_error=None,
             parse_task_id=task_id,
         )
-        # 记录表同步交给 API 层注入的钩子（docs_core 不依赖 api-server 模型）
+        # 记录表同步：API 层可注入自己的实现（处理 pending 占位改名等界面语义），
+        # 不注入时用 docs-core 默认实现——脚本/进程内路径同样要有流水。
         self._sync_record(task_id, doc_id, "processing")
 
         worker = threading.Thread(
