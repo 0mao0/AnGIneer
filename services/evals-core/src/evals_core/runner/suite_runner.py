@@ -1,4 +1,5 @@
 """评测套件编排 + 异步任务管理。"""
+import logging
 import os
 import threading
 import time
@@ -11,7 +12,9 @@ from evals_core.runner.retrieval_eval import RetrievalEvaluator
 from evals_core.runner.answer_eval import AnswerEvaluator
 from evals_core.runner.sop_eval import SopEvaluator
 from angineer_core.base_utils import is_fatal_exception
-from evals_core.storage import result_store
+from evals_core.storage import result_store, retention
+
+logger = logging.getLogger(__name__)
 
 PASSED_THRESHOLD = 0.8
 
@@ -669,7 +672,15 @@ def _run_suite_thread(
         _current_run_id = None
         _stop_event = None
         _eval_lock.release()
-        result_store.cleanup_old_runs(dataset_id, keep=3)
+        # 三级保留策略（≤3天全量/3–90天裁过程快照/>90天删，基线与 running 保护）取代
+        # 旧"仅保留最近 3 轮"——后者会在 90 天窗口内就把旧 run 删光（2026-09-15 磁盘策略）。
+        # best-effort：清理失败只留日志，绝不影响本轮评测结论。
+        try:
+            retention_stats = retention.enforce_after_run()
+            if retention_stats["compacted_runs"] or retention_stats["deleted_runs"]:
+                logger.info("run 保留策略: %s", {k: v for k, v in retention_stats.items() if v})
+        except Exception:  # noqa: BLE001
+            logger.exception("run 保留策略执行失败（下轮再试）")
         result_store.cleanup_individual_runs(dataset_id)
 
 

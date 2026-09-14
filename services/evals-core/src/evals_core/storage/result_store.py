@@ -735,7 +735,8 @@ def delete_runs(conn: sqlite3.Connection, run_ids: List[str]) -> None:
 
 
 def cleanup_old_runs(dataset_id: str, keep: int = 3) -> int:
-    """删除指定数据集超出保留数量的旧整体运行记录（保留最近 keep 条，连带逐题明细）。"""
+    """【已停用 2026-09-15】旧"仅保留最近 keep 轮"清理，被 storage.retention 三级保留策略取代
+    （旧策略会在 90 天窗口内就把旧 run 删光）。保留函数仅供回退，勿再接线。"""
     conn = _get_conn()
     rows = conn.execute(
         "SELECT run_id FROM eval_run WHERE dataset_id = ? AND status != 'running' AND is_full_run = 1 ORDER BY started_at DESC",
