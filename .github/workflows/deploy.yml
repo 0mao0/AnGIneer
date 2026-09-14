@@ -35,7 +35,10 @@ jobs:
           # 服务器上若有残留的本地改动（如手动编辑 docker-compose.yml），
           # 直接丢弃（.env / data / .htpasswd 均为 untracked，不受影响）。
           echo "PREV_SHA=$(git rev-parse HEAD 2>/dev/null || echo '')" >> $GITHUB_ENV
-          git fetch origin main
+          # --tags：下面的 Version consistency check 依赖 tag 比对，而本目录从不同步 tag
+          # （实测长期 0 个 tag → 校验一直走 "No git tag found, skip"）。tag 与分支由
+          # pnpm release 同批推送，故此处的 tag 必是本次发版的。
+          git fetch origin main --tags
           git reset --hard origin/main
           # 注：popo 已于 2026-09-09 内化为普通目录，仓库不再有任何 submodule，
           # 无需 git submodule update。
