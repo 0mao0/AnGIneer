@@ -52,7 +52,8 @@ def _affected_blocks(nodes: list, extract) -> list:
 def main() -> int:
     ap = argparse.ArgumentParser(description="补齐历史文档被吃掉的块文本并重建索引（B 路线）")
     ap.add_argument("--libraries", default="", help="逗号分隔库名；留空=全部")
-    ap.add_argument("--docs", default="", help="逗号分隔 doc_id；留空=扫库")
+    ap.add_argument("--docs", default="", help="逗号分隔文档，写法 <库>/<doc_id> 或 <doc_id>；"
+                                               "显式指定的文档即使无需补文本也会重建（用于被打断后续跑）")
     ap.add_argument("--apply", action="store_true", help="真的写回 jsonl（否则只统计）")
     ap.add_argument("--reindex", action="store_true", help="补完重建 fts/vectors（需 --apply）")
     ap.add_argument("--with-graph", action="store_true", help="同时重建图谱（更慢，默认不建）")
@@ -63,7 +64,22 @@ def main() -> int:
     from docs_core.step04_structure.solo_engine import extract_plain_text
 
     want_libs = {s.strip() for s in args.libraries.split(",") if s.strip()}
-    want_docs = {s.strip() for s in args.docs.split(",") if s.strip()}
+    want_pairs = set()
+    for item in args.docs.split(","):
+        item = item.strip()
+        if not item:
+            continue
+        if "/" in item:
+            lib, doc = item.split("/", 1)
+            want_pairs.add((lib.strip(), doc.strip()))
+        else:
+            want_pairs.add(("", item))
+
+    def _selected(lib: str, doc: str):
+        """True=显式指定（即使无需补文本也要重建）；False=不在指定范围；None=未用 --docs（扫描模式）。"""
+        if not want_pairs:
+            return None
+        return any((pair[0] in ("", lib)) and pair[1] == doc for pair in want_pairs)
 
     targets = []
     scanned = 0
@@ -75,7 +91,8 @@ def main() -> int:
         for doc_dir in sorted((lib_dir / "documents").iterdir()):
             if not doc_dir.is_dir():
                 continue
-            if want_docs and doc_dir.name not in want_docs:
+            selected = _selected(lib_dir.name, doc_dir.name)
+            if selected is False:
                 continue
             graph = doc_dir / "parsed" / "doc_blocks_graph.jsonl"
             if not graph.is_file():
@@ -83,7 +100,8 @@ def main() -> int:
             scanned += 1
             nodes = [json.loads(x) for x in graph.read_text(encoding="utf-8").splitlines() if x.strip()]
             hits = _affected_blocks(nodes, extract_plain_text)
-            if hits:
+            # 显式指定的文档即使已无可补文本也入列（用于"被打断后只补重建"）
+            if hits or selected is True:
                 targets.append({"library": lib_dir.name, "doc": doc_dir.name, "graph": graph,
                                 "hits": hits, "nodes": nodes})
     if args.limit:
