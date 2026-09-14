@@ -86,10 +86,13 @@ jobs:
       - name: Build images
         run: |
           cd /home/runner/AnGIneer/docker
-          # 构建前清理：14 天前未使用的镜像（含旧 latest 版本）与全部 build cache，
-          # 防止镜像/缓存无限累积（磁盘满会导致 runner 离线）
+          # 构建前清理：14 天前未使用的镜像（含旧 latest 版本）；build cache 只清陈旧部分并设总量上限。
+          # 依赖安装层是全量重建里最贵的一段（2026-09-14 实测：前端 pnpm install ~7.5 分钟、
+          # 后端 11 个服务包 pip editable 编译 wheel ~21 分钟，合计约 39 分钟/次）；把 cache 全清
+          # 会让每次部署都重装依赖。上限取 8GB：后端 site-packages 实测 496MB、前端 builder 的
+          # node_modules 同量级，够放两侧依赖层，同时给磁盘（届时约 24G 可用）留足余量。
           docker image prune -a -f --filter "until=336h"
-          docker builder prune -f
+          docker builder prune -f --filter "until=336h" --keep-storage=8GB
           docker compose build
 
       - name: Restart services
@@ -105,7 +108,8 @@ jobs:
         run: |
           docker image prune -f
           docker image prune -a -f --filter "until=336h"
-          docker builder prune -f
+          # 构建后只清陈旧 cache：这里原先是无过滤全清，会把刚建好、下次部署要复用的依赖层一起丢掉
+          docker builder prune -f --filter "until=336h"
 
       - name: Health check
         id: health
