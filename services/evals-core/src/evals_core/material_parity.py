@@ -9,7 +9,17 @@
 2. **块 → chunk**：有文本的块，其文本（空白无关、取前 24 字符）是否出现在该文档的 chunk 文本里
    → 检 canonical/chunk 构建环节有没有丢内容；
 3. **chunk → 向量**：有 chunk 却没有向量点 → 向量化环节漏了（点数取自向量库按 doc_id 过滤计数）；
-4. **索引存在性**：文档在 canonical 里有没有记录（fts/vectors 阶段跑没跑）。
+4. **索引存在性**：文档在 canonical 里有没有记录。**只对"计划建索引"的文档断言**——
+   判定依据是 `doc_parse_stages` 的事实（该篇有没有 `fts` 阶段记录、状态是什么），不是按库排除的名册：
+
+   | 阶段事实 | 处理 |
+   |---|---|
+   | 无 `fts` 记录（只跑部分阶段入库，如评测库） | **豁免**并计数（未计划建索引，不是缺陷） |
+   | `fts` 状态为 `skipped` | 豁免并计数（明确不适用） |
+   | `fts` 状态 `completed` 但 canonical 无行 | **照报**（状态说建完、实际没写进去） |
+   | `fts` 状态 `running`/`pending`/`failed`/`partial` | **照报**（中断未完成，2026-09-06 实踩：服务重启打断 fts，索引被清空） |
+
+   豁免必须**可见**（摘要里报"N 篇未计划建索引"），否则 stage 记录一旦被弄丢，体检会静默转绿。
 
 设计约束：
 - **不侵入解析链**：作为独立阅读器跑，失败只影响体检本身，不会让正常解析报错；
@@ -39,6 +49,11 @@ _WS = re.compile(r"\s+")
 NOT_INDEXED_TYPES = {"page_header", "page_footer", "page_number"}
 NOT_INDEXED_CATEGORIES = {"furniture"}
 
+# 「索引存在性」断言的阶段依据：canonical 由 fts 阶段建，故只看这一行的状态。
+# 无记录（None）或 skipped = 这篇本来就没计划建索引 → 豁免；其余状态都算"计划过"。
+INDEX_STAGE_NAME = "fts"
+INDEX_NOT_PLANNED_STATES = (None, "skipped")
+
 
 def norm(text: str | None) -> str:
     """空白无关归一：代码块换行、表格对齐空格都不该算差异。"""
@@ -56,6 +71,8 @@ class DocReport:
     chunks: int = 0
     vector_points: Optional[int] = None
     indexed: bool = False
+    index_not_planned: bool = False
+    index_stage_state: Optional[str] = None
     issues: list[str] = field(default_factory=list)
     samples: list[str] = field(default_factory=list)
 
@@ -74,6 +91,8 @@ class DocReport:
             "library_id": self.library_id,
             "doc_id": self.doc_id,
             "indexed": self.indexed,
+            "index_not_planned": self.index_not_planned,
+            "index_stage_state": self.index_stage_state,
             "blocks_total": self.blocks_total,
             "blocks_with_text": self.blocks_with_text,
             "blocks_uncovered": self.blocks_uncovered,
@@ -94,6 +113,9 @@ class Sources:
     load_chunk_texts: Callable[[str, str], list[str]]               # 读 canonical chunk 文本
     has_canonical: Callable[[str, str], bool]
     count_vectors: Callable[[str, str], Optional[int]]              # 该文档的向量点数；None=不可用
+    # 该文档 fts 阶段的状态：None=没有这条阶段记录（没计划建索引）；缺省实现视为"已计划"
+    # ——宁可照报，也不静默放过（注入方不提供时保持旧行为）。
+    index_stage_state: Optional[Callable[[str, str], Optional[str]]] = None
 
 
 def _expected_plain_text(node: dict) -> str:
@@ -140,7 +162,16 @@ def check_document(library_id: str, doc_id: str, sources: Sources, *,
 
     report.indexed = sources.has_canonical(library_id, doc_id)
     if not report.indexed:
-        report.issues.append("未索引：canonical 无记录（fts/vectors 阶段未跑）")
+        # 「未索引」是不是缺陷，取决于这篇有没有计划建索引（判定表见模块 docstring）：
+        # 只跑部分阶段入库的文档（评测库、单阶段补跑）本来就没有 canonical，报出来是假问题；
+        # 排过 fts 却没留下记录的（打断/失败）才是真问题。依据是阶段事实，不维护排除名册。
+        state = sources.index_stage_state(library_id, doc_id) if sources.index_stage_state else "completed"
+        report.index_stage_state = None if state is None else str(state)
+        if report.index_stage_state in INDEX_NOT_PLANNED_STATES:
+            report.index_not_planned = True
+        else:
+            report.issues.append(
+                f"未索引：canonical 无记录（{INDEX_STAGE_NAME} 阶段状态={report.index_stage_state}）")
     else:
         chunk_texts = sources.load_chunk_texts(library_id, doc_id)
         report.chunks = len(chunk_texts)
@@ -213,6 +244,8 @@ def run_check(*, libraries: Optional[list[str]] = None, max_docs: int = DEFAULT_
         "blocks_text_lost": sum(r.blocks_text_lost for r in reports),
         "chunks": sum(r.chunks for r in reports),
         "vector_points": sum(r.vector_points or 0 for r in reports),
+        # 豁免计数必须落进汇总：否则 stage 记录被弄丢时，体检会静默转绿
+        "docs_index_not_planned": sum(1 for r in reports if r.index_not_planned),
     }
     return {
         "severity": _severity(reports),
@@ -239,6 +272,10 @@ def render_summary(result: dict) -> str:
     if (totals.get("blocks_text_lost") or 0) > 0:
         lines.append("  提示：内容未落地多为「修复前解析」的存量产物（2026-09-12 修的那五类块），"
                      "重新解析后消失；若新解析文档仍有此告警，则是链路回归。")
+    skipped = totals.get("docs_index_not_planned") or 0
+    if skipped:
+        lines.append(f"  另 {skipped} 篇未计划建索引（解析阶段不含 fts/vectors，如评测库或单阶段补跑），"
+                     "已豁免「未索引」断言（不计问题）。")
     for issue in (result.get("issues") or [])[:5]:
         lines.append(f"  · {issue['library_id']}/{issue['doc_id']}: {'; '.join(issue['issues'])}")
         for sample in (issue.get("samples") or [])[:2]:
@@ -253,6 +290,7 @@ _INDEX_DB = "knowledge_index.sqlite"
 
 def default_sources() -> Sources:
     import docs_core.paths as paths
+    from docs_core.docs_service import get_docs_service
     from docs_core.step05_sqlite_fts.store.canonical_sql_store import CanonicalSQLiteStore
 
     store = CanonicalSQLiteStore()
@@ -317,5 +355,20 @@ def default_sources() -> Sources:
         except Exception:  # noqa: BLE001 表不存在（provider=qdrant 时 canonical_vectors 为空表）
             return None
 
+    def index_stage_state(library_id: str, doc_id: str) -> Optional[str]:
+        """该文档 fts 阶段的状态；没有这条记录返回 None（=没计划建索引）。
+
+        读不到阶段记录时**不豁免**（返回 "unknown" 会照报）：漏读存储不该被当成"没计划"。
+        """
+        try:
+            for row in get_docs_service().meta_store.list_parse_stages(doc_id):
+                if str(row.get("stage") or "") == INDEX_STAGE_NAME:
+                    return str(row.get("status") or "")
+        except Exception:  # noqa: BLE001 宁可照报，也不静默放过
+            logger.warning("素材检查：读取解析阶段记录失败 doc=%s", doc_id, exc_info=True)
+            return "unknown"
+        return None
+
     return Sources(list_docs=list_docs, load_nodes=load_nodes, load_chunk_texts=load_chunk_texts,
-                   has_canonical=has_canonical, count_vectors=count_vectors)
+                   has_canonical=has_canonical, count_vectors=count_vectors,
+                   index_stage_state=index_stage_state)

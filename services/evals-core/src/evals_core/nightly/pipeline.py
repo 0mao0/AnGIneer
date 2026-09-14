@@ -123,14 +123,22 @@ def _dataset_subject(dataset_id: str) -> str:
 
 
 def _material_line(material: Optional[dict]) -> str:
-    """把素材检查结果压成结论卡片里的一行（含严重度与两项关键计数）。"""
+    """把素材检查结果压成结论卡片里的一行（含严重度与关键计数）。
+
+    豁免篇数（未计划建索引）也进这一行——豁免不可静默，否则 stage 记录被弄丢时
+    卡片会显示"素材检查：ok"，而看不出有多少篇根本没被断言过。
+    """
     if not material:
         return ""
     totals = material.get("totals") or {}
     severity = material.get("severity") or "?"
-    return (f"素材检查：{severity}（检查 {material.get('docs_checked', 0)} 篇，"
+    line = (f"素材检查：{severity}（检查 {material.get('docs_checked', 0)} 篇，"
             f"内容未落地 {totals.get('blocks_text_lost', 0)} 块，"
-            f"未进 chunk {totals.get('blocks_uncovered', 0)} 块）")
+            f"未进 chunk {totals.get('blocks_uncovered', 0)} 块")
+    exempt = totals.get("docs_index_not_planned") or 0
+    if exempt:
+        line += f"，{exempt} 篇未计划建索引已豁免"
+    return line + "）"
 
 
 async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, site_url: str, webhook: str,

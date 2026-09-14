@@ -20,14 +20,20 @@ def _node(block_type="paragraph", plain_text="", content=None, **kw):
     return node
 
 
-def _sources(nodes, chunk_texts, vectors=3, indexed=True):
-    return Sources(
+_NOT_GIVEN = object()   # 未注入阶段状态 → 保持旧行为（缺 canonical 即报）
+
+
+def _sources(nodes, chunk_texts, vectors=3, indexed=True, stage_state=_NOT_GIVEN):
+    src = Sources(
         list_docs=lambda: [("lib", "doc")],
         load_nodes=lambda lib, doc: nodes,
         load_chunk_texts=lambda lib, doc: chunk_texts,
         has_canonical=lambda lib, doc: indexed,
         count_vectors=lambda lib, doc: vectors,
     )
+    if stage_state is not _NOT_GIVEN:
+        src.index_stage_state = lambda lib, doc: stage_state
+    return src
 
 
 class CheckDocumentTests(unittest.TestCase):
@@ -64,6 +70,39 @@ class CheckDocumentTests(unittest.TestCase):
     def test_detects_missing_index(self):
         report = check_document("lib", "doc", _sources([_node(plain_text="正文")], [], indexed=False))
         self.assertFalse(report.indexed)
+        self.assertTrue(any("未索引" in i for i in report.issues), report.issues)
+
+    def test_index_assertion_exempt_when_fts_never_planned(self):
+        """没计划建索引的文档（评测库只跑 5 阶段）：豁免"未索引"，但标记出来，不能静默。"""
+        report = check_document("lib", "doc",
+                                _sources([_node(plain_text="正文内容足够长")], [], indexed=False,
+                                         vectors=None, stage_state=None))
+        self.assertFalse(report.indexed)
+        self.assertTrue(report.index_not_planned)
+        self.assertTrue(report.ok, report.issues)
+
+    def test_index_assertion_exempt_when_fts_skipped(self):
+        report = check_document("lib", "doc",
+                                _sources([_node(plain_text="正文内容足够长")], [], indexed=False,
+                                         vectors=None, stage_state="skipped"))
+        self.assertTrue(report.index_not_planned)
+        self.assertTrue(report.ok, report.issues)
+
+    def test_index_assertion_applies_when_fts_interrupted(self):
+        """服务重启打断 fts（状态 running/pending/failed）→ 照报（2026-09-06 实踩）。"""
+        for state in ("running", "pending", "failed", "partial"):
+            with self.subTest(state=state):
+                report = check_document("lib", "doc",
+                                        _sources([_node(plain_text="正文内容足够长")], [], indexed=False,
+                                                 vectors=None, stage_state=state))
+                self.assertFalse(report.index_not_planned)
+                self.assertTrue(any("未索引" in i for i in report.issues), report.issues)
+                self.assertIn(state, report.issues[0])
+
+    def test_index_assertion_applies_when_fts_completed_but_no_canonical(self):
+        report = check_document("lib", "doc",
+                                _sources([_node(plain_text="正文内容足够长")], [], indexed=False,
+                                         vectors=None, stage_state="completed"))
         self.assertTrue(any("未索引" in i for i in report.issues), report.issues)
 
     def test_detects_zero_vectors_while_chunks_exist(self):
@@ -154,6 +193,22 @@ class RunCheckTests(unittest.TestCase):
         )
         self.assertEqual(run_check(sources=sources)["severity"], "ok")
 
+    def test_exempt_docs_counted_and_visible_in_summary(self):
+        """豁免篇数必须进汇总与摘要：stage 记录被弄丢时不能让体检静默转绿。"""
+        sources = Sources(
+            list_docs=lambda: [("omnidocbench", "od-1")],
+            load_nodes=lambda lib, doc: [_node(plain_text="评测语料的正文内容足够长")],
+            load_chunk_texts=lambda lib, doc: [],
+            has_canonical=lambda lib, doc: False,
+            count_vectors=lambda lib, doc: None,
+            index_stage_state=lambda lib, doc: None,
+        )
+        result = run_check(sources=sources)
+        self.assertEqual(result["docs_with_issues"], 0)
+        self.assertEqual(result["severity"], "ok")
+        self.assertEqual(result["totals"]["docs_index_not_planned"], 1)
+        self.assertIn("未计划建索引", render_summary(result))
+
     def test_source_failure_returns_error_severity(self):
         def boom():
             raise RuntimeError("数据库不可用")
@@ -190,6 +245,15 @@ class NotifyLineTests(unittest.TestCase):
 
         text = notify.build_message(None, None, notify.STATE_ERROR, error_note="x")
         self.assertNotIn("素材检查", text)
+
+    def test_material_line_reports_exempt_count(self):
+        """豁免篇数要进卡片那一行，否则 stage 记录被弄丢时卡片看不出有篇数没被断言。"""
+        from evals_core.nightly.pipeline import _material_line
+
+        line = _material_line({"severity": "ok", "docs_checked": 200,
+                               "totals": {"blocks_text_lost": 0, "blocks_uncovered": 0,
+                                          "docs_index_not_planned": 11}})
+        self.assertIn("11 篇未计划建索引已豁免", line)
 
     def test_material_line_empty_when_disabled(self):
         from evals_core.nightly.pipeline import _material_line
