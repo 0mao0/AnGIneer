@@ -75,6 +75,30 @@ def test_greek_command_symbol_mismatch_corrected():
     assert corrections[0]["corrected"] == "\\eta_{ 2 }"
 
 
+def test_no_correction_when_param_lacks_subscript_but_token_has():
+    # 生产实踩样本（462 块回归）：泛指参数 F 无下标，禁止把 F_{1} 改成 F
+    formula_text = "F _ { 1 } \\wedge F _ { 2 } ( t ) := \\inf _ { x } \\max _ { y } F"
+    params = [{"symbol": "F", "description": "作用力"}]
+    assert _build_symbol_corrections(formula_text, params) == []
+
+
+def test_no_correction_single_token_param_lacks_subscript():
+    # 单 token 场景同样禁止删下标：a_{1} 不能被参数 a 改成 a
+    formula_text = "\\boldsymbol { A } ( f ) := a _ { 1 } ( f )"
+    params = [{"symbol": "a", "description": "系数"}]
+    assert _build_symbol_corrections(formula_text, params) == []
+
+
+def test_correction_can_add_subscript_from_param():
+    # 守卫只禁"删"，允许"补"：参数 F_d 可把无下标的 F 补成 F_d
+    formula_text = "F = B + H"
+    params = [{"symbol": "F_d", "description": "设计值"}]
+    corrections = _build_symbol_corrections(formula_text, params)
+    assert len(corrections) == 1
+    assert corrections[0]["original"] == "F"
+    assert corrections[0]["corrected"] == "F_d"
+
+
 def test_user_correction_not_overwritten():
     node = {
         "block_type": "equation_interline",

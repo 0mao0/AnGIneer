@@ -606,6 +606,15 @@ def _build_symbol_corrections(
         if item["normalized"] in canonicals_by_base.get(base, set()):
             continue
         raw_token = raw_by_base.get(base) or ""
+        # 禁止"删下标"式修正（2026-09-14 生产实踩，462 块公式被改坏）：
+        # 说明段的参数符号常写成泛指基础符号（F、a），不代表公式里的下标是错的；
+        # 拿无下标参数当真相源会把 F_{1}→F、a_{1}→a，直接丢失语义。
+        # 修正只允许补/换下标（参数带下标时），不允许删下标。
+        if (
+            _extract_subscript_tex(item["symbol"]) is None
+            and _extract_subscript_tex(raw_token) is not None
+        ):
+            continue
         corrected_token = _rebuild_token_from_param(raw_token, item["symbol"])
         if raw_token == corrected_token:
             continue
