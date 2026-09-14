@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.61** —— 修解析流水表：所有入库路径统一写入，「日常维护」入口此前漏写导致台账缺篇（评测与运维统计都读这张表）；评测侧 B 层「素材检查」三修：「未索引」断言改按解析阶段事实判定（评测库与单阶段补跑不再被误报）、阶段状态改为一次性只读查询（原先经 get_docs_service 会加载整个知识库）、② 探针改用链路真正消费的字段 plain_text_corrected 并把符号改动单列报出；前端 angineer-aichat-ui 升到 0.1.9——补 sideEffects 声明（仅样式文件），组件模块可被消费方 bundler tree-shake；工程：发版收敛为 `pnpm release vX.Y.Z` 一条命令（固化 tag 与分支同批推送，消除与部署版本校验的竞态），deploy.yml 拉取改带 --tags 让「版本一致性校验」真正生效（此前部署目录长期 0 个 tag、校验一直走 skip）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.62** —— 部署侧：构建缓存不再每次全清，改为「14 天内使用过 + 总量上限 8GB」，让依赖安装层可跨部署复用（实测单次构建里前端 pnpm install 约 7.5 分钟、后端 11 个服务包 pip editable 约 21 分钟，此前每次重装）；评测侧：nightly 报告的「正确率」列统一为「正确题数 / 题数」（与门禁、基线、回归矩阵同一口径，分母含拒答题），judge 连续分均值移入「分布口径」表并标明仅作诊断；新增 `scripts/repair_plain_text.py`——就地补齐历史文档被吃掉的 5 类块 plain_text（chart / page_footnote / page_aside_text / code / algorithm）后重建索引，不重跑 MinerU/structure，默认 dry-run；nightly 单测改回密闭——素材检查与续跑探测不再打真实存储（此前整套会卡死，现 592 passed / 28 秒）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

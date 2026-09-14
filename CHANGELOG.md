@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.62
+
+- ci(deploy)：构建缓存不再每次全清，改为「14 天内使用过 + 总量上限 8GB」——依赖安装层可跨部署复用（实测单次构建里前端 `pnpm install` 约 7.5 分钟、后端 11 个服务包 `pip editable` 编译 wheel 约 21 分钟，此前每次重装，两个 Dockerfile 分层本已正确）。上限取 8GB 的依据：后端 site-packages 实测 496MB、前端 builder 的 node_modules 同量级
+- 评测报告：nightly 的「正确率」列统一为「正确题数 / 题数」（与门禁 `overall_score`、基线、回归矩阵同一口径，分母含拒答题），`judge` 连续分均值移入「分布口径」表并标明仅作诊断、不参与门禁（原先同一份报告里两个「正确率」差 5 个点、分母差 39，必然误读）
+- 新增 `scripts/repair_plain_text.py`（B 路线）：就地补齐历史文档被吃掉的 5 类块 `plain_text`（chart / page_footnote / page_aside_text / code / algorithm）后重建索引，不重跑 MinerU/PoPo/structure——结构层其余差异不在本次修复范围，全量 structure 重跑按页计费（≈160 篇 13433 页）代价过高；默认 dry-run，`--apply --reindex` 才写盘
+- nightly 单测改回密闭：素材检查与续跑探测不再打真实存储（此前整套会卡在 `test_stopped_pipeline_publishes_nothing`，现 592 passed / 4 skipped，27.6 秒）
+
 ## v0.2.61
 
 - 修解析流水表：所有入库路径统一写入——此前管理端「日常维护」入口漏写，导致台账缺篇（评测与运维统计都读这张表）
