@@ -752,7 +752,7 @@ class DocsService:
         doc_id: str,
         canonical_document: Optional[CanonicalDocument] = None,
         on_step: Optional[Callable[[str, str, str], None]] = None,
-    ) -> None:
+    ) -> int:
         from docs_core.step06_vectors import build_vector_records
 
         document = canonical_document or self.canonical_store.get_document(doc_id)
@@ -764,10 +764,19 @@ class DocsService:
         if on_step is not None:
             on_step("向量记录构建", "done", f"{len(vector_records)} 条")
         self.vector_store.clear_document(doc_id)
+        written = 0
         if vector_records:
-            self.vector_store.upsert_records(vector_records)
+            written = self.vector_store.upsert_records(vector_records) or 0
+        # 静默失败收口（2026-09-14 生产实踩：209 chunk 文档重建后 0 个点，
+        # 全部记录因空向量被 upsert 静默跳过，调用方毫无感知）：应写 ≠ 实写必须炸
+        if written != len(vector_records):
+            raise RuntimeError(
+                f"向量写入缺口: doc_id={doc_id} 应写 {len(vector_records)} 条，"
+                f"实写 {written} 条（空向量被静默跳过，检查 embedding provider）"
+            )
         if on_step is not None:
-            on_step("向量索引落库", "done", "knowledge_index.sqlite")
+            on_step("向量索引落库", "done", f"{written} 条落库")
+        return written
 
     # 以语义图为唯一真相源重建 canonical 与向量索引
     def save_semantic_graph_projection(
@@ -808,8 +817,14 @@ class DocsService:
             self.vector_store.delete_records(doc_id=doc_id, entity_ids=normalized_chunk_ids)
         else:
             self.vector_store.clear_document(doc_id)
+        written = 0
         if vector_records:
-            self.vector_store.upsert_records(vector_records)
+            written = self.vector_store.upsert_records(vector_records) or 0
+        if written != len(vector_records):
+            raise RuntimeError(
+                f"向量写入缺口: doc_id={doc_id} 应写 {len(vector_records)} 条，"
+                f"实写 {written} 条（空向量被静默跳过，检查 embedding provider）"
+            )
 
     # 读取整份 canonical document
     def get_canonical_document(self, doc_id: str) -> Optional[CanonicalDocument]:
