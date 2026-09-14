@@ -286,14 +286,34 @@ def render_summary(result: dict) -> str:
 # ---- 默认数据源（真实 docs_core 存储） ----
 
 _INDEX_DB = "knowledge_index.sqlite"
+_UNLOADED = object()   # 阶段状态懒加载哨兵
+
+
+def _load_index_stage_states() -> Optional[dict]:
+    """一次性读全量 fts 阶段状态：{doc_id: status}；读不到返回 None（判定退化为照报）。"""
+    import sqlite3
+
+    try:
+        import docs_core.paths as paths
+
+        db = Path(paths.resolve_knowledge_meta_db_path())
+        conn = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
+        try:
+            return {str(d): str(s or "") for d, s in conn.execute(
+                "SELECT doc_id, status FROM doc_parse_stages WHERE stage = ?", (INDEX_STAGE_NAME,))}
+        finally:
+            conn.close()
+    except Exception:  # noqa: BLE001 读不到阶段表时不豁免（宁可照报，也不静默放过）
+        logger.warning("素材检查：读取 doc_parse_stages 失败，未计划建索引判定退化为照报", exc_info=True)
+        return None
 
 
 def default_sources() -> Sources:
     import docs_core.paths as paths
-    from docs_core.docs_service import get_docs_service
     from docs_core.step05_sqlite_fts.store.canonical_sql_store import CanonicalSQLiteStore
 
     store = CanonicalSQLiteStore()
+    stage_states = _UNLOADED
 
     def list_docs() -> list[tuple[str, str]]:
         """按产物修改时间倒序列出所有已解析文档（体检优先看最近解析的）。"""
@@ -358,16 +378,16 @@ def default_sources() -> Sources:
     def index_stage_state(library_id: str, doc_id: str) -> Optional[str]:
         """该文档 fts 阶段的状态；没有这条记录返回 None（=没计划建索引）。
 
-        读不到阶段记录时**不豁免**（返回 "unknown" 会照报）：漏读存储不该被当成"没计划"。
+        一次性把整张 `doc_parse_stages` 的 fts 行读进内存（只读连接），不经过 get_docs_service()——
+        后者会把整个知识库载入内存，放进每次体检里是数量级的浪费（2026-09-14 单测里直接卡住）。
+        读不到阶段表时返回 "unknown"（照报）：漏读存储不该被当成"没计划建索引"。
         """
-        try:
-            for row in get_docs_service().meta_store.list_parse_stages(doc_id):
-                if str(row.get("stage") or "") == INDEX_STAGE_NAME:
-                    return str(row.get("status") or "")
-        except Exception:  # noqa: BLE001 宁可照报，也不静默放过
-            logger.warning("素材检查：读取解析阶段记录失败 doc=%s", doc_id, exc_info=True)
+        nonlocal stage_states
+        if stage_states is _UNLOADED:
+            stage_states = _load_index_stage_states()
+        if stage_states is None:
             return "unknown"
-        return None
+        return stage_states.get(str(doc_id))
 
     return Sources(list_docs=list_docs, load_nodes=load_nodes, load_chunk_texts=load_chunk_texts,
                    has_canonical=has_canonical, count_vectors=count_vectors,
