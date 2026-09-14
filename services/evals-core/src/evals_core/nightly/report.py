@@ -92,7 +92,12 @@ def summarize_bucket(details):
         "hit@5_doc": _mean(hits5_doc),
         "mrr_doc": _mean(mrr_doc),
         "citation_hit": _mean(citation),
+        # 「正确率」= 正确题数/题数——与门禁 overall_score、基线段、回归矩阵同一口径（分母是全部题）
+        "correct_rate": round(sum(1 for d in details if d.get("quality") == "correct") / len(details), 4)
+        if details else None,
+        # judge 原始连续分均值：分母只是"做过 correctness 判定的题"（不含拒答），仅作诊断
         "answer_correctness": _mean(answers),
+        "correctness_checked": len(answers),
         "correct": sum(1 for d in details if d.get("quality") == "correct"),
         "wrong": sum(1 for d in details if d.get("quality") == "wrong"),
         "refusal_total": len(refusal_expected),
@@ -148,7 +153,7 @@ def render_markdown(summary) -> str:
         "",
         "text-image 题目为已知限制：当前问答链路纯文本，图片仅靠标题/上下文/OCR 文本回答。",
         "",
-        "| 题型 | 题数 | hit@1(sec) | hit@3(sec) | hit@5(sec) | MRR(sec) | hit@1(doc) | hit@3(doc) | hit@5(doc) | MRR(doc) | citation_hit | 回答正确率 | 正确 | 错误 |",
+        "| 题型 | 题数 | hit@1(sec) | hit@3(sec) | hit@5(sec) | MRR(sec) | hit@1(doc) | hit@3(doc) | hit@5(doc) | MRR(doc) | citation_hit | 正确率 | 正确 | 错误 |",
         "| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
 
@@ -163,8 +168,14 @@ def render_markdown(summary) -> str:
         lines.append(
             f"| {source}{mark} | {b['count']} | {fmt(b['hit@1'])} | {fmt(b['hit@3'])} | {fmt(b['hit@5'])} | {fmt(b['mrr'])} | "
             f"{b['hit@1_doc']} | {b['hit@3_doc']} | {b['hit@5_doc']} | {b['mrr_doc']} | "
-            f"{fmt(b['citation_hit'])} | {b['answer_correctness']} | {b['correct']} | {b['wrong']} |"
+            f"{fmt(b['citation_hit'])} | {fmt(b.get('correct_rate'))} | {b['correct']} | {b['wrong']} |"
         )
+    # 刻度说明（2026-09-14）：同一份报告里「正确率」只能有一个含义。
+    # 原先表格列直接放 judge 连续分均值，与门禁 overall_score（正确题数/题数）差 5 个点，
+    # 分母还差 39（拒答题不参与 correctness 判定）——同一句话两个数，读者必然误读。
+    lines += ["", "> **正确率** = 正确题数 / 题数（与门禁、基线、回归矩阵同一口径；分母含拒答题）。"
+                  "「correctness 均值」是 judge 原始连续分均值，分母只有做过该判定的题（不含拒答），"
+                  "仅作诊断、不参与门禁。"]
     # 检索口径说明（分母可见化，2026-09-13）：只在粒度不齐/有无检索金标的题时出现，全 section 级时保持安静
     overall_g = (summary.get("overall") or {}).get("retrieval_granularity") or {}
     sec_n, doc_n, none_n = overall_g.get("section", 0), overall_g.get("doc", 0), overall_g.get("none", 0)
@@ -192,10 +203,13 @@ def render_markdown(summary) -> str:
             continue
         dist_lines.append(
             f"| {source} | {fmt(b.get('semantic_median'))} / {fmt(b.get('semantic_p90'))} | "
+            f"{fmt(b.get('answer_correctness'))} | "
             f"{fmt(b.get('latency_median_s'))} / {fmt(b.get('latency_p90_s'))} |"
         )
     if dist_lines:
-        lines += ["", "## 分布口径（median / p90）", "", "| 题型 | semantic_score | 单题耗时(s) |", "| :--- | ---: | ---: |"] + dist_lines
+        lines += ["", "## 分布口径（median / p90）", "",
+                  "| 题型 | semantic_score | correctness 均值 | 单题耗时(s) |",
+                  "| :--- | ---: | ---: | ---: |"] + dist_lines
     # DeepEval 扩展维度（仅当存在数据时展示；首版只展示不进门禁）
     ext_rows = []
     for source in SOURCES + ["other", "overall"]:

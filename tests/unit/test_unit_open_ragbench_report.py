@@ -134,6 +134,27 @@ class ReportTests(unittest.TestCase):
         self.assertIn("correct_rate_ci", summary["overall"])
 
 
+    def test_correct_rate_column_uses_gate_caliber(self):
+        """表格「正确率」= 正确题数/题数（与门禁 overall_score 同口径）；judge 连续分均值只作诊断。
+
+        2026-09-14：原先该列直接放连续分均值，与门禁差 5 个点且分母不含拒答题，
+        同一份报告里「正确率」出现两个数。
+        """
+        details = [
+            self._detail("q1", "text", correctness=0.9, quality="correct"),
+            self._detail("q2", "text", correctness=0.7, quality="wrong"),   # 0.7 < 0.8 判定线
+        ]
+        summary = report.group_and_summarize(details, {"questions": [
+            {"uuid": "q1", "source": "text"}, {"uuid": "q2", "source": "text"}]})
+        self.assertEqual(summary["overall"]["correct_rate"], 0.5)
+        self.assertEqual(summary["overall"]["answer_correctness"], 0.8)      # 诊断量仍在
+        self.assertEqual(summary["overall"]["correctness_checked"], 2)
+        markdown = report.render_markdown(summary)
+        self.assertNotIn("回答正确率", markdown)
+        self.assertIn("| 0.5 | 1 | 1 |", markdown)                           # 正确率列 = 门禁口径
+        self.assertIn("correctness 均值", markdown)                          # 连续分改名后留在分布区
+
+
 class RetrievalGranularityNoteTests(unittest.TestCase):
     """检索口径分母可见化（2026-09-13）。
 
