@@ -22,6 +22,21 @@ from evals_core.nightly import paths as npaths  # noqa: E402
 BJT = ZoneInfo("Asia/Shanghai")
 
 
+def _FAKE_MATERIAL() -> dict:
+    """素材检查假结果：不 patch 的话会真的扫本机知识库（200+ 篇 jsonl + Qdrant 计数）。"""
+    return {
+        "severity": "ok",
+        "libraries": "all",
+        "docs_checked": 1,
+        "docs_with_issues": 0,
+        "totals": {"blocks": 8, "blocks_with_text": 6, "blocks_uncovered": 0, "blocks_text_lost": 0,
+                   "chunks": 3, "vector_points": 3,
+                   "docs_index_not_planned": 0, "blocks_symbol_mismatch": 0},
+        "symbol_mismatch_samples": [],
+        "issues": [],
+    }
+
+
 class _TmpSettings(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -224,7 +239,10 @@ class StopAndRunningRowTests(unittest.TestCase):
                  mock.patch.object(pipeline.result_store, "get_run",
                                    return_value={"status": "cancelled"}), \
                  mock.patch.object(pipeline.archive, "publish_day") as pub, \
-                 mock.patch.object(pipeline.notify, "send") as send:
+                 mock.patch.object(pipeline.notify, "send") as send, \
+                 mock.patch("evals_core.material_parity.run_check",
+                            side_effect=lambda **kw: _FAKE_MATERIAL()), \
+                 mock.patch.object(pipeline.result_store, "list_runs", return_value=[]):
                 res = await pipeline.run_nightly(
                     dataset_id="ds-a", retry_rounds=0,
                     on_run_started=seen.append, should_stop=lambda: True)

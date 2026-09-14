@@ -33,6 +33,20 @@ _BASE_DETAILS = [_detail("q1", "correct"), _detail("q2", "wrong", sem=0.1), _det
 _NEW_DETAILS = [_detail("q1", "correct"), _detail("q2", "correct", sem=0.8), _detail("q3", "correct")]
 _SUMMARY = {"overall_score": 2 / 3, "correct": 2, "total": 3, "errored": 0, "judge_failed_count": 0}
 
+# 素材检查（B 层）的假结果：不 patch 的话 _material_health 会真的对着本机知识库跑一遍
+# （200+ 篇 jsonl + Qdrant 逐篇计数）——单测从秒级变成十几分钟，且结论依赖本机数据。
+_FAKE_MATERIAL = {
+    "severity": "ok",
+    "libraries": "all",
+    "docs_checked": 3,
+    "docs_with_issues": 0,
+    "totals": {"blocks": 30, "blocks_with_text": 24, "blocks_uncovered": 0, "blocks_text_lost": 0,
+               "chunks": 12, "vector_points": 12,
+               "docs_index_not_planned": 0, "blocks_symbol_mismatch": 0},
+    "symbol_mismatch_samples": [],
+    "issues": [],
+}
+
 
 class _Env(unittest.TestCase):
     def setUp(self):
@@ -70,11 +84,15 @@ class _Env(unittest.TestCase):
                               side_effect=lambda **kw: resume_spy(kw) if resume_spy else {"run_id": "run-x"}),
             mock.patch.object(pipeline.result_store, "get_run", side_effect=lambda _id: next(run_iter)),
             mock.patch.object(pipeline.result_store, "list_run_details", side_effect=lambda _id, light=False: list(next(details_iter))),
+            # 断点续跑探测会去 list_runs 扫真实 evals.sqlite（本机 4.6GB）——单测里固定"没有可续跑 run"
+            mock.patch.object(pipeline.result_store, "list_runs", return_value=[]),
             mock.patch("evals_core.nightly.gate.load_baseline",
                        return_value={"run_id": "run-base", "details": list(_BASE_DETAILS), "_baseline_label": "R2"}),
             mock.patch("evals_core.dataset.manager.get_dataset",
                        return_value={"dataset_id": "ds", "title": "冒烟集", "question_count": 25}),
             mock.patch("evals_core.nightly.pipeline.notify.send", return_value='{"errcode":0}'),
+            mock.patch("evals_core.material_parity.run_check",
+                       side_effect=lambda **kw: dict(_FAKE_MATERIAL)),
             mock.patch.object(pipeline, "_sleep", new=lambda _s: asyncio.sleep(0)),
         ]
         for p in patches:
@@ -133,6 +151,10 @@ class PipelineErrorTests(_Env):
             mock.patch.object(pipeline.suite_runner, "start_eval_run", side_effect=RuntimeError("题库缺失")),
             mock.patch("evals_core.dataset.manager.get_dataset", return_value=None),
             mock.patch("evals_core.nightly.pipeline.notify.send", return_value='{"errcode":0}'),
+            # 这两个不 patch 就会打真实存储：素材检查扫本机知识库、续跑探测扫 4.6GB evals.sqlite
+            mock.patch("evals_core.material_parity.run_check",
+                       side_effect=lambda **kw: dict(_FAKE_MATERIAL)),
+            mock.patch.object(pipeline.result_store, "list_runs", return_value=[]),
         ]
         for p in patches:
             p.start()
