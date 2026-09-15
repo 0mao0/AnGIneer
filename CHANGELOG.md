@@ -2,6 +2,11 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.63
+
+- 修解析中断积压：管理后台「解析 / 批量解析」改 resume 语义——部署重启打断的文档只补缺失阶段、复用 MinerU 产物，不再整条重跑（2026-09-15 实测 12 篇因重启永久挂 failed：启动自愈只标死不重排、无自动重试，唯一断点入口 v1 `/resume` 按 api_key_id 归属校验，管理员上传（该字段为 NULL）任何 key 都 403——错误文案给的出路对管理员不存在）；阶段记录已全终态却仍挂 failed 的（自愈对「只差图描述」类任务的误盖章）按阶段记录直接把状态同步正，零任务零 GPU；resume 阶段计算收敛进 docs-core 单一真相源——docs-api 复制版的流水线顺序缺 `figure_describe` 已实际漂移（resume 永远补不上图描述阶段），另修启动自愈文案
+- 评测磁盘三级保留策略：run 明细 ≤3 天（含当天，按北京日界）全量、3–90 天裁 6 类过程快照字段（retrieval_debug / retrieved_items / evidences 等，约占体积 99%，保留 scores / answer / citations 供补判与溯源）、>90 天整 run 删除（基线指针与 running 保护）——一晚 526 题明细实测 ≈230 MiB，新策略稳态 <1G，取代旧「仅保留最近 3 轮」；上线后建议对现有库手动 `VACUUM` 一次收缩
+
 ## v0.2.62
 
 - ci(deploy)：构建缓存不再每次全清，改为「14 天内使用过 + 总量上限 8GB」——依赖安装层可跨部署复用（实测单次构建里前端 `pnpm install` 约 7.5 分钟、后端 11 个服务包 `pip editable` 编译 wheel 约 21 分钟，此前每次重装，两个 Dockerfile 分层本已正确）。上限取 8GB 的依据：后端 site-packages 实测 496MB、前端 builder 的 node_modules 同量级
