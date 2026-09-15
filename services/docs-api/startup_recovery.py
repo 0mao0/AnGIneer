@@ -6,7 +6,10 @@ from models.parse_record import update_record_status
 
 logger = logging.getLogger(__name__)
 
-INTERRUPTED_ERROR = "服务重启导致解析中断，可调用 /api/v1/documents/{doc_id}/resume 恢复"
+# 2026-09-15：管理后台「解析」按钮已改 resume 语义（复用 MinerU 产物只补缺口）。旧文案只提
+# v1 resume，而管理后台上传的记录 api_key_id=NULL、任何 key 调用都 403——出路对管理员不存在。
+INTERRUPTED_ERROR = ("服务重启导致解析中断；在管理后台点「解析」即可断点续跑（已完成阶段复用，"
+                     "不重跑 MinerU），v1 上传也可调用 /api/v1/documents/{doc_id}/resume")
 
 
 def reconcile_stale_parse_tasks(orchestrator: Any, docs_service: Optional[Any] = None) -> int:

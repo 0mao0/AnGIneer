@@ -854,6 +854,49 @@ def derive_merged_overall_status(
     return derive_overall_status(merged, dependency_skipped=dependency_skipped)
 
 
+def _resolve_resume_scope(requested_stages: str, present_keys: set) -> List[str]:
+    """确定 resume 目标阶段范围。
+
+    requested="all" → 整条流水线（管理后台「解析」用：中断文档补齐缺的阶段）；
+    逗号清单 → 显式子集；空 → v1 旧语义：行内出现过的阶段 ∪ structure（无行 → ["structure"]）。
+    """
+    if requested_stages and requested_stages.strip():
+        if requested_stages.strip().lower() == "all":
+            return list(_PIPELINE_ORDER)
+        keys = {s.strip() for s in requested_stages.split(",") if s.strip()}
+        return [k for k in _PIPELINE_ORDER if k in keys]
+    if not present_keys:
+        return ["structure"]
+    keys = set(present_keys)
+    keys.add("structure")
+    return [k for k in _PIPELINE_ORDER if k in keys]
+
+
+def compute_resume_stages(requested_stages: str, stage_rows: List[Dict[str, Any]]) -> List[str]:
+    """断点续跑要重新调度的阶段（纯函数；docs-api v1 /resume 与管理后台 retry 共用）。
+
+    原为 docs-api/resume_stages.py 自带实现，其 _PIPELINE_ORDER 缺 figure_describe 与
+    docs-core 已漂移（2026-09-15），统一到本模块、docs-api 侧只做再导出。
+    判定：completed 视为完成；合法 skipped（非依赖失败连带）视为完成；
+    running/failed/queued/pending/skipped(依赖连带)/缺行 → 需要调度。
+    """
+    rows_by_stage = {str(r.get("stage") or "").strip(): r for r in stage_rows if r.get("stage")}
+    scope = _resolve_resume_scope(str(requested_stages or ""), set(rows_by_stage))
+    remaining = []
+    for key in scope:
+        row = rows_by_stage.get(key)
+        if row is None:
+            remaining.append(key)
+            continue
+        status = str(row.get("status") or "")
+        if status == "completed":
+            continue
+        if status == "skipped" and not is_dependency_skip_message(row.get("message")):
+            continue
+        remaining.append(key)
+    return remaining
+
+
 def reset_parse_stage_records(meta_store, doc_id: str) -> None:
     """全量重跑前清空阶段记录与子阶段步骤，避免解析阶段抽屉展示上一次解析的残留。"""
     clear_stages = getattr(meta_store, "clear_parse_stages", None)
@@ -1118,11 +1161,60 @@ class ParseOrchestrator:
         file_path = node.file_path
         if not file_path:
             raise ValueError(f"节点 {doc_id} 缺少文件路径信息")
+        # resume 语义（2026-09-15）：raw_parse(MinerU) 已完成的文档（典型 = 部署重启打断，
+        # 启动自愈只标 failed 不重排，12 篇积压实踩）只补未完成阶段，复用 GPU 产物；
+        # 阶段全终态仍挂着 failed（自愈误盖章）→ 按阶段记录把状态同步正，一次任务都不建；
+        # 无阶段记录 / raw_parse 未完成 → 维持旧的全量重跑。
+        stage_rows = list(ks.meta_store.list_parse_stages(doc_id))
+        raw_done = any(
+            str(r.get("stage") or "") == "raw_parse" and str(r.get("status") or "") == "completed"
+            for r in stage_rows)
+        if raw_done:
+            remaining = compute_resume_stages("all", stage_rows)
+            if not remaining:
+                return self._sync_terminal_from_stage_records(doc_id, stage_rows)
+            return self.create_parse_task(
+                library_id=node.library_id, doc_id=doc_id, file_path=file_path,
+                parse_options={"stages": remaining},
+            )
         return self.create_parse_task(
             library_id=node.library_id,
             doc_id=doc_id,
             file_path=file_path,
         )
+
+    def _sync_terminal_from_stage_records(self, doc_id: str, stage_rows: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """resume 发现无剩余阶段：按阶段记录推导整体状态，同步 node/task/parse_record。
+
+        场景 = 启动自愈把「其实只差图描述/已全部完成」的任务盖章 failed；
+        直接同步比空跑一遍流水线更快也更准（不会再消耗 GPU/VLM）。"""
+        ks = get_docs_service()
+        stage_status = {str(r.get("stage") or ""): str(r.get("status") or "")
+                        for r in stage_rows if r.get("stage")}
+        dep_skipped = {str(r.get("stage") or "") for r in stage_rows
+                       if str(r.get("status") or "") == "skipped" and is_dependency_skip_message(r.get("message"))}
+        overall = derive_overall_status(stage_status, dependency_skipped=dep_skipped)
+        node = ks.get_node(doc_id)
+        library_id = str(getattr(node, "library_id", "") or "") if node else ""
+        parse_error: Optional[str] = None
+        if overall in ("failed", "partial"):
+            parts = [
+                f"{r.get('stage')}: {str(r.get('error')).splitlines()[0]}"
+                for r in stage_rows
+                if str(r.get("status") or "") == "failed" and r.get("error")
+            ]
+            parse_error = "; ".join(parts[:3]) or overall
+        old_task_id = str(getattr(node, "parse_task_id", None) or "").strip() if node else ""
+        if old_task_id and not old_task_id.startswith("pending-"):
+            try:
+                ks.update_parse_task(old_task_id, status=overall, progress=100, stage=overall,
+                                     stage_message="重试：无剩余阶段，按阶段记录同步状态")
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("按阶段记录同步任务状态失败 task=%s: %s", old_task_id, exc)
+        ks.update_node(doc_id, status=overall, parse_progress=100, parse_stage=overall,
+                       parse_error=parse_error)
+        self._sync_record(old_task_id, doc_id, overall, parse_error)
+        return {"task_id": old_task_id, "status": overall, "synced": True}
 
     def _run_parse_task(
         self,
