@@ -166,7 +166,8 @@ def check_document(library_id: str, doc_id: str, sources: Sources, *,
         if not _should_be_indexed(node):
             continue
         if node.get("symbol_mismatch"):
-            # PoPo 校正改动了公式符号（链路自己打的标）：是数据质量信号，不是"内容没送达"
+            # step04 符号校正规则改动了公式符号（corrected_by=llm，非 PoPo 上游）：
+            # 是数据质量信号，不是"内容没送达"
             report.blocks_symbol_mismatch += 1
             if len(report.mismatch_samples) < 3:
                 before = str(node.get("math_content") or plain)[:36]
@@ -299,7 +300,7 @@ def render_summary(result: dict) -> str:
                      "已豁免「未索引」断言（不计问题）。")
     mismatched = totals.get("blocks_symbol_mismatch") or 0
     if mismatched:
-        lines.append(f"  另 {mismatched} 个块 PoPo 校正改动了公式符号（symbol_mismatch，数据质量信号，不计问题）：")
+        lines.append(f"  另 {mismatched} 个块符号校正改动了公式符号（step04 规则，非 PoPo；symbol_mismatch，数据质量信号，不计问题）：")
         for sample in (result.get("symbol_mismatch_samples") or [])[:2]:
             lines.append(f"      - {sample}")
     for issue in (result.get("issues") or [])[:5]:

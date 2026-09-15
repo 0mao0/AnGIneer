@@ -148,7 +148,7 @@ class CheckDocumentTests(unittest.TestCase):
     def test_probe_uses_corrected_text_when_present(self):
         """链路 chunk 消费 plain_text_corrected；探针只比 plain_text 会把被校正改写的块报成未覆盖。
 
-        2026-09-14 实踩：PoPo 把公式左端的 V_{s}= 校正成 V=，4 个方程块全部误报未覆盖。
+        2026-09-14 实踩：step04 符号校正规则把公式左端的 V_{s}= 改成 V=，4 个方程块全部误报未覆盖。
         """
         nodes = [{"block_type": "equation_interline", "plain_text": "V _ {s} = V _ {s 0} \\frac {r}{x}",
                   "plain_text_corrected": "V = V _ {s 0} \\frac {r}{x}",
