@@ -18,7 +18,7 @@ from docs_core.models.types import (
     PageBBox,
 )
 from docs_core.paths import resolve_knowledge_index_db_path
-from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection
+from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection, run_with_write_lock
 
 
 # 统一序列化任JSON 字段
@@ -375,6 +375,9 @@ class CanonicalSQLiteStore:
 
     # 清理单个文档的全canonical 持久化数据
     def clear_document(self, doc_id: str) -> None:
+        run_with_write_lock(self.db_path, lambda: self._clear_document_txn(doc_id))
+
+    def _clear_document_txn(self, doc_id: str) -> None:
         with self.connect() as conn:
             conn.execute("DELETE FROM canonical_chunk_fts WHERE doc_id = ?", (doc_id,))
             conn.execute("DELETE FROM canonical_citation_targets WHERE doc_id = ?", (doc_id,))
@@ -388,10 +391,14 @@ class CanonicalSQLiteStore:
 
     # 持久化整canonical document
     def save_document(self, document: CanonicalDocument) -> dict[str, int]:
+        return run_with_write_lock(self.db_path, lambda: self._save_document_txn(document))
+
+    def _save_document_txn(self, document: CanonicalDocument) -> dict[str, int]:
         now = datetime.now(timezone.utc).isoformat()
         created_at = document.created_at or now
         updated_at = document.updated_at or now
-        self.clear_document(document.doc_id)
+        # 已在 wrapper 写锁内，走 txn 直调避免嵌套获取同一把锁
+        self._clear_document_txn(document.doc_id)
         citation_rows: List[tuple[str, str, str, str, int, Optional[str], str, str, str]] = []
 
         with self.connect() as conn:
@@ -1074,6 +1081,9 @@ class CanonicalSQLiteStore:
 
     # 重建单文档 chunk FTS 索引
     def rebuild_chunk_fts(self, doc_id: str) -> None:
+        run_with_write_lock(self.db_path, lambda: self._rebuild_chunk_fts_txn(doc_id))
+
+    def _rebuild_chunk_fts_txn(self, doc_id: str) -> None:
         with self.connect() as conn:
             conn.execute("DELETE FROM canonical_chunk_fts WHERE doc_id = ?", (doc_id,))
             rows = conn.execute(
