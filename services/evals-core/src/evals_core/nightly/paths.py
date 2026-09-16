@@ -2,7 +2,7 @@
 
 data 根目录结构（deploy 的 ../data 卷挂载，aichat-api 容器内即 /app/data）：
   data/evals/evals.sqlite
-  data/evals/nightly/<YYYY-MM-DD>/{nightly.json,report.md}   ← 结论存档（保留 30 天）
+  data/evals/nightly/<YYYY-MM-DD>/{nightly.json,report.md}   ← 结论存档（保留 90 天，见 archive.KEEP_DAYS_DEFAULT）
   data/evals/nightly_settings.json                            ← 调度配置
   data/evals/baseline/                                        ← 钉住的基线快照
   data/evals/datasets/<dataset_id>.json                       ← 题集（题干摘录来源）

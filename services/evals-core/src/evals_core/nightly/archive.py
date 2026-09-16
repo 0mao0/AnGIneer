@@ -2,7 +2,7 @@
 
 <nightly_root>/<YYYY-MM-DD>/{nightly.json, report.md}：夜间维护页的唯一数据源。
 结论必须快照化而不是从 evals.sqlite 现算——日常测试页可删 run、门禁 bootstrap 现算慢、
-崩溃/超时日本就没有可算的 run，历史（保留 3 天、每天一条不断档）要经得住这些。
+崩溃/超时日本就没有可算的 run，历史（保留 90 天、每天一条不断档）要经得住这些。
 """
 import json
 import shutil
@@ -26,9 +26,11 @@ def _to_bjt(iso: str) -> str:
     except ValueError:
         return ""
 
-# 夜间归档保留天数（含当天）：3 = 今天/昨天/前天三条。2026-09-12 起由 30 天收紧，
-# 磁盘与页面只留近三天（publish 时按目录名裁剪，见 prune_old）。
-KEEP_DAYS_DEFAULT = 3
+# 夜间归档保留天数（含当天）。口径与 run 明细三级保留（storage/retention.py）的 90 天
+# 上限对齐：页面列表能看到的 = 归档目录，09-12 曾为省磁盘收紧到 3，但每晚归档仅
+# ~150KB，90 天 ≈ 15MB，省不出差别，反而把夜间测试页裁成只剩 3 条（2026-09-16 实踩
+# 被问「不是改成 90 条了吗」——当时改的是 sqlite 明细窗口，未动这里）。
+KEEP_DAYS_DEFAULT = 90
 REGRESSION_ITEMS_MAX = 50
 FIXED_ITEMS_MAX = 20
 _QUESTION_MAX = 300
@@ -154,7 +156,7 @@ def build_error_entry(dataset_id: str, date: str, note: str, subject: str = "",
 def prune_old(target_root: Path, keep_days: int, today: str) -> list:
     """按日期名清理旧目录：保留「今天 + 前 keep_days-1 天」。
 
-    keep_days 含当天（keep_days=3 → 今天/昨天/前天），与 settings 里"近三天"口径一致；
+    keep_days 含当天（keep_days=90 → 今天往前 89 天）；
     目录名不合法日期的不动，人工排查留证。"""
     removed = []
     try:

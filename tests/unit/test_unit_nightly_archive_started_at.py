@@ -43,5 +43,28 @@ class TestEntryContract(unittest.TestCase):
         self.assertEqual(archive.build_error_entry("ds-1", "2026-09-09", "boom")["started_at"], "")
 
 
+class TestKeepDaysAlignment(unittest.TestCase):
+    """夜间测试页列表读的是 nightly/<date>/ 归档目录（不是 eval_run 表）：
+    归档裁剪天数必须 ≥ sqlite 明细保留窗口，否则库里还有 run、页面却看不见。
+    2026-09-16 实踩：明细窗口改到 90 天（a32f84d）时归档仍被裁到 3 天，页面只剩 3 条。"""
+
+    def test_default_covers_detail_retention_window(self):
+        from evals_core.storage import retention
+
+        self.assertGreaterEqual(archive.KEEP_DAYS_DEFAULT, retention.DELETE_AFTER_DAYS_DEFAULT)
+
+    def test_default_prune_boundary(self):
+        import tempfile
+        from pathlib import Path
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / "2026-06-19").mkdir()  # 2026-09-16 起算的第 90 天（含当天）= 边界，留
+            (root / "2026-06-18").mkdir()  # 第 91 天，删
+            removed = archive.prune_old(root, archive.KEEP_DAYS_DEFAULT, "2026-09-16")
+            self.assertEqual(removed, ["2026-06-18"])
+            self.assertTrue((root / "2026-06-19").is_dir())
+
+
 if __name__ == "__main__":
     unittest.main()
