@@ -148,6 +148,13 @@ def update_by_doc_id(doc_id: str, new_task_id: str, new_status: str) -> bool:
         conn.close()
 
 
+def _file_name_of(path: str) -> str:
+    """按分隔符拆出文件名；迁移遗留的 Windows 路径（Linux 上 os.path 不认 '\'）不能整串当名字。"""
+    if path and "\\" in path and "/" not in path:
+        return path.rsplit("\\", 1)[-1]
+    return os.path.basename(path)
+
+
 def _document_meta(doc_id: str) -> dict:
     """从知识库节点补文件元信息（名称/格式/大小/所属库）——管理端表格要显示这些列。"""
     meta: dict = {"library_id": "default", "file_name": "", "file_format": "", "file_size": 0}
@@ -161,7 +168,7 @@ def _document_meta(doc_id: str) -> dict:
         return meta
     meta["library_id"] = node.library_id or "default"
     path = node.file_path or ""
-    meta["file_name"] = os.path.basename(path) or (node.title or "")
+    meta["file_name"] = _file_name_of(path) or (node.title or "")
     if path:
         meta["file_format"] = os.path.splitext(path)[1].lstrip(".").lower()
         try:
@@ -169,6 +176,32 @@ def _document_meta(doc_id: str) -> dict:
         except OSError:
             pass
     return meta
+
+
+def _backfill_file_meta_if_empty(task_id: str, doc_id: str) -> None:
+    """终态更新时，若流水行文件元信息为空（建 row 时节点查失败的历史形态），从节点补一次。
+
+    只填空列，绝不覆盖已有值；节点仍查不到则保持空，等待下一次状态变化再补。
+    """
+    conn = connect()
+    try:
+        init_schema(conn)
+        row = conn.execute(
+            "SELECT file_name FROM parse_records WHERE task_id = ?", (task_id,)
+        ).fetchone()
+        if row is None or (row["file_name"] or ""):
+            return
+        meta = _document_meta(doc_id)
+        if not meta["file_name"]:
+            return
+        conn.execute(
+            "UPDATE parse_records SET file_name = ?, file_format = ?, file_size = ? "
+            "WHERE task_id = ? AND file_name = ''",
+            (meta["file_name"], meta["file_format"], meta["file_size"], task_id),
+        )
+        conn.commit()
+    finally:
+        conn.close()
 
 
 def sync_record_for_task(task_id: str, doc_id: str, status: str, error: Optional[str] = None,
@@ -191,5 +224,7 @@ def sync_record_for_task(task_id: str, doc_id: str, status: str, error: Optional
                               file_format=meta["file_format"], file_size=meta["file_size"])
         else:
             update_status(task_id, status, error)
+            if status in ("completed", "failed"):
+                _backfill_file_meta_if_empty(task_id, doc_id)
     except Exception as exc:  # noqa: BLE001 记录同步失败不该打断解析
         logger.warning("同步解析记录失败 task=%s doc=%s: %s", task_id, doc_id, exc)
