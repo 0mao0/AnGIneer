@@ -302,7 +302,6 @@ src/
 ### `utils/knowledge.ts`
 - `getFileExtension(path)`：扩展名提取
 - `getPreviewFileType(node)`：预览类型映射（pdf/word/markdown/image/text/file）
-- `mapParseStageText(stage, parseError)`：解析阶段文案映射
 - `mapNodeStatusText(status)`：节点状态文案映射
 - `renderMarkdownToHtml(content, sourceFilePath)`：Markdown + KaTeX 渲染为 HTML，并处理资源路径
 
@@ -372,7 +371,7 @@ src/
 
 | 文件 | 直接引用的外部 TS/函数 | 对外事件（emit） | 分层结论 |
 |---|---|---|---|
-| `DocumentParsedWorkspace.vue` | `useWorkspacePreview` `useWorkspaceIngest` `useWorkspaceLinkage` `mapParseStageText` `renderMarkdownToHtml` `KnowledgeTreeNode` `KnowledgeStrategy/IngestStatus/Structured*` | `parse` `save-content` `change-strategy` `query-structured` `rebuild-structured` | A 层编排器，强依赖 B/C/U，合理 |
+| `DocumentParsedWorkspace.vue` | `useWorkspacePreview` `useWorkspaceIngest` `useWorkspaceLinkage` `renderMarkdownToHtml` `KnowledgeTreeNode` `KnowledgeStrategy/IngestStatus/Structured*` | `parse` `save-content` `change-strategy` `query-structured` `rebuild-structured` | A 层编排器，强依赖 B/C/U，合理 |
 | `ParsedPDF_Viewer.vue` | `useParsedPdfViewer` `PreviewMode` `KnowledgeStrategy` `StructuredIndexItem` `DocBlocksGraph` | `update:activeTab` `update:editableContent` `save-markdown` `cancel-markdown` `strategy-change` `trigger-ingest` `content-scroll` `hover-item` `select-item` `toggle-tree-expand` `toggle-graph-expand` `update-graph-viewport` `select-line` | A 层二级编排器，依赖 B/C |
 | `PDF_Viewer.vue` | `KnowledgeTreeNode`（来自 `types/tree`） | `download` `text-scroll` `hover-highlight` `select-highlight` | A 层渲染组件，轻依赖 C |
 | `Preview_Markdown.vue` | 无项目外部 TS（仅 Vue） | `update:editableContent` `select-line` | A 层纯展示 |
@@ -414,7 +413,7 @@ src/
 | 文件 | 函数 | 常见调用方 |
 |---|---|---|
 | `utils/knowledge.ts` | `getFileExtension` `getPreviewFileType` | A/B 层文件类型识别 |
-| `utils/knowledge.ts` | `mapParseStageText` `mapNodeStatusText` | A 层状态文案展示 |
+| `utils/knowledge.ts` | `mapNodeStatusText` | A 层状态文案展示 |
 | `utils/knowledge.ts` | `renderMarkdownToHtml` | `DocumentParsedWorkspace.vue` |
 
 ---
