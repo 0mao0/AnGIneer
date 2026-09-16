@@ -6,6 +6,9 @@ All notable changes to AnGIneer are documented here.
 
 - 修解析中断积压：管理后台「解析 / 批量解析」改 resume 语义——部署重启打断的文档只补缺失阶段、复用 MinerU 产物，不再整条重跑（2026-09-15 实测 12 篇因重启永久挂 failed：启动自愈只标死不重排、无自动重试，唯一断点入口 v1 `/resume` 按 api_key_id 归属校验，管理员上传（该字段为 NULL）任何 key 都 403——错误文案给的出路对管理员不存在）；阶段记录已全终态却仍挂 failed 的（自愈对「只差图描述」类任务的误盖章）按阶段记录直接把状态同步正，零任务零 GPU；resume 阶段计算收敛进 docs-core 单一真相源——docs-api 复制版的流水线顺序缺 `figure_describe` 已实际漂移（resume 永远补不上图描述阶段），另修启动自愈文案
 - 评测磁盘三级保留策略：run 明细 ≤3 天（含当天，按北京日界）全量、3–90 天裁 6 类过程快照字段（retrieval_debug / retrieved_items / evidences 等，约占体积 99%，保留 scores / answer / citations 供补判与溯源）、>90 天整 run 删除（基线指针与 running 保护）——一晚 526 题明细实测 ≈230 MiB，新策略稳态 <1G，取代旧「仅保留最近 3 轮」；上线后建议对现有库手动 `VACUUM` 一次收缩
+- 向量索引静默失败收口：`rebuild_document_vectors` / `rebuild_document_indexes` 应写条数 ≠ 实写条数即抛错、并返回实写条数（2026-09-14 生产实踩：209 chunk 文档重建后 Qdrant 0 个点却无异常——qdrant `upsert_records` 对空向量记录只 logger.info 跳过，`clear_document` 之后全被跳过＝清库假成功；触发空向量的一次性 provider 异常未复现，不臆断归因；该问题由 B 层素材检查 ③ chunk→向量 抓出；回归 4 例）
+- 公式符号校正禁止「删下标」式修正（归因纠正：真因是自家 step04 `_build_symbol_corrections` 规则，非 PoPo 上游）：说明段泛指参数（无下标的 F、a）被当真相源，把 `F_{1}`→`F`、`a_{1}`→`a` 直接丢语义；新守卫＝参数无下标且公式 token 有下标则拒绝修正（只允许补/换下标，即 OCR 纠错的设计方向）；回归 3 例含两枚生产样本
+- 生产存量符号校正重算：`scripts/repair_symbol_corrections.py` 按新守卫重算已落库 corrected 字段（只用节点自带的 `formula_semantics.formula_params`，过滤逻辑与守卫等价，不依赖部署顺序）——462 个 symbol_mismatch 块中 205 块修正全被否（清空字段）、4 块部分保留（改写），坏修正合计 209 块涉 51 篇，余 257 块均为合法「补下标」方向（此前按 462 全量报规模偏大）；重索引 51/51 成功、素材检查终验 ok，jsonl 备份 `data/backups/symbol-fix-20260915/`；素材检查摘要的 symbol_mismatch 文案同步改口（「PoPo 校正」→「符号校正（step04 规则）」）
 
 ## v0.2.62
 
