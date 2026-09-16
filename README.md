@@ -9,7 +9,7 @@
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
 | [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.60` | 主仓库（产品迭代基线） |
-| [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.2.4` | 知识库前端组件库（npm: @angineer/docs-ui） |
+| [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.0` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.9` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
 | [angineer-table-ui](https://github.com/0mao0/angineer-table-ui) | `v0.1.3` | 通用表格组件库 DataTable（npm: @angineer/table-ui） |
