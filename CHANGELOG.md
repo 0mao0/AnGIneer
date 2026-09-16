@@ -2,6 +2,11 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.64
+
+- fts 写入锁防护——批量解析不再随机假失败：批量断点续跑每文档一个线程并发 `save_document` 打同一 `knowledge_index.sqlite`，大事务排队击穿 `timeout=10`（2026-09-15 实锤 3 篇在 fts 阶段 `database is locked` 误判 failed——resume 修复后 GPU 闸不再顺带串行化中后段，写并发面暴露），`sqlite_utils` 新增按库文件的进程内写锁 + busy 指数退避重试（跨进程写者兜底，非 busy 照旧立抛），`canonical` 三个写入口改锁+重试 wrapper；save_document 为 clear+insert 幂等形状、busy 抛出时事务已回滚可安全重放，内部清库直调 txn 避免嵌套自死锁（回归 8 例，含 6 线程并发全落库）
+- parse_records 文件元信息自愈：终态（completed/failed）状态更新时若流水行 `file_name` 仍空，从节点补齐一次——只填空列绝不覆盖已有值、节点查不到保持现状（行为下界＝改前），另加迁移遗留 Windows 路径按 `\` 拆名（Linux 的 `os.path.basename` 不认反斜杠，否则整串 `D:\...` 当文件名显示）（2026-09-16 实锤：5 条流水（DredgeAI晨会 3 + OpenRAG 2）09-06 建行时节点查失败、三个元信息列停在空值且此后永不回填 → 管理端「文件名称」列永久空白；存量 5 行已在服务器按真实源文件一次性补好，本条代码只防再发；回归 5 例）
+
 ## v0.2.63
 
 - 修解析中断积压：管理后台「解析 / 批量解析」改 resume 语义——部署重启打断的文档只补缺失阶段、复用 MinerU 产物，不再整条重跑（2026-09-15 实测 12 篇因重启永久挂 failed：启动自愈只标死不重排、无自动重试，唯一断点入口 v1 `/resume` 按 api_key_id 归属校验，管理员上传（该字段为 NULL）任何 key 都 403——错误文案给的出路对管理员不存在）；阶段记录已全终态却仍挂 failed 的（自愈对「只差图描述」类任务的误盖章）按阶段记录直接把状态同步正，零任务零 GPU；resume 阶段计算收敛进 docs-core 单一真相源——docs-api 复制版的流水线顺序缺 `figure_describe` 已实际漂移（resume 永远补不上图描述阶段），另修启动自愈文案
