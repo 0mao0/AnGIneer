@@ -2,6 +2,11 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.65
+
+- nightly 报告窗口对齐：结论归档保留 3→90 天、与 run 明细同窗——此前 run 明细留 90 天而结论只留 3 份，夜间测试页结论列表「只剩 3 条」，3–90 天历史结论不可回看（归档窗口改走 paths 统一常量，单测 1 例）
+- docs-ui 清理：删除僵尸函数 `mapParseStageText` 及其旧 6 阶段解析词表与常量（全仓调用点 0、删除前验证；阶段抽屉实际走新实现），README 3 处登记同步移除——独立包已发 angineer-docs-ui v0.3.0（删公共导出属 breaking，其 CHANGELOG 已标 removed 与迁移说明），主仓库产品无感
+
 ## v0.2.64
 
 - fts 写入锁防护——批量解析不再随机假失败：批量断点续跑每文档一个线程并发 `save_document` 打同一 `knowledge_index.sqlite`，大事务排队击穿 `timeout=10`（2026-09-15 实锤 3 篇在 fts 阶段 `database is locked` 误判 failed——resume 修复后 GPU 闸不再顺带串行化中后段，写并发面暴露），`sqlite_utils` 新增按库文件的进程内写锁 + busy 指数退避重试（跨进程写者兜底，非 busy 照旧立抛），`canonical` 三个写入口改锁+重试 wrapper；save_document 为 clear+insert 幂等形状、busy 抛出时事务已回滚可安全重放，内部清库直调 txn 避免嵌套自死锁（回归 8 例，含 6 线程并发全落库）

@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.64** —— 解析侧：fts 写入按库文件加进程内写锁 + busy 指数退避重试，批量断点续跑不再因 `database is locked` 随机把文档误判 failed（2026-09-15 实锤 3 篇——resume 修复后 GPU 闸不再顺带串行化中后段、写并发面暴露，canonical 三个写入口改锁+重试 wrapper，clear+insert 幂等可安全重放）；嵌套自死锁规避＋回归 8 例（含 6 线程并发全落库）；parse_records 文件元信息自愈——终态时若流水行 `file_name` 仍空则从节点补齐一次，只填空列绝不覆盖（2026-09-16 实锤 5 条流水建行时节点查失败、管理端「文件名称」列空白 10 天，存量已在服务器按真实源文件补好，本条只防再发）；迁移遗留 Windows 路径按 `\` 拆名（Linux 的 `os.path.basename` 不认反斜杠，否则整串路径当文件名）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.65** —— nightly 报告窗口对齐：结论归档保留 3→90 天、与 run 明细同窗，夜间测试页结论不再「只剩 3 条」、3–90 天历史结论可回看；docs-ui 清理：删除僵尸函数 `mapParseStageText` 及旧 6 阶段词表（全仓调用点 0），独立包已发 angineer-docs-ui v0.3.0（breaking、已标 removed），产品无感。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
