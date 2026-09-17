@@ -75,15 +75,17 @@ const { themeConfig, appClass } = useTheme()
 const knowledgeView = ref<'maintenance' | 'nightly' | 'aichat'>('maintenance')
 provide('knowledgeView', knowledgeView)
 
-/** 评测集视图状态（日常测试|夜间维护）：?view=nightly 深链直达（企微卡片入口）。
- * mount 未等 router.isReady()，setup 时 route.query 恒为空，必须 watch 到导航解析后再同步。 */
-const evalView = ref<'workbench' | 'nightly'>('workbench')
+/** 评测集视图状态（日常测试|夜间测试|解析回归）：?view=nightly|parse-regression 深链直达
+ * （企微卡片入口）。mount 未等 router.isReady()，setup 时 route.query 恒为空，
+ * 必须 watch 到导航解析后再同步。 */
+const evalView = ref<'workbench' | 'nightly' | 'parse-regression'>('workbench')
 provide('evalView', evalView)
 watch(() => route.query.view, (v) => {
   if (v === 'nightly') evalView.value = 'nightly'
+  else if (v === 'parse-regression') evalView.value = 'parse-regression'
 }, { immediate: true })
 
-/** 头部视图切换按模块显示：知识库=日常维护|夜间维护|AI对话，评测集=日常测试|夜间测试 */
+/** 头部视图切换按模块显示：知识库=日常维护|夜间维护|AI对话，评测集=日常测试|夜间测试|解析回归 */
 const viewItems = computed(() => {
   if (activeNav.value === 'knowledge') {
     return [
@@ -95,7 +97,8 @@ const viewItems = computed(() => {
   if (activeNav.value === 'evals') {
     return [
       { key: 'workbench', label: '日常测试' },
-      { key: 'nightly', label: '夜间测试' }
+      { key: 'nightly', label: '夜间测试' },
+      { key: 'parse-regression', label: '解析回归' }
     ]
   }
   return []

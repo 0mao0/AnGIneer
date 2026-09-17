@@ -24,6 +24,7 @@
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -171,7 +172,7 @@ def _filter_gt(gt_path: Path, keys: set, out_path: Path) -> int:
 
 
 def _build_delta(root: Path, spec: str, mode: str, cur_official: dict, cur_struct: dict,
-                 cur_pages: list, baseline_id: str = "") -> dict:
+                 cur_pages: list, baseline_id: str = "", cur_kind: str = "run") -> dict:
     base_dir = pr.resolve_baseline(root, spec)
     if base_dir is None:
         reason = ("已指定 --baseline none：本次不出 Δ（要对比就去掉这个参数）"
@@ -182,10 +183,15 @@ def _build_delta(root: Path, spec: str, mode: str, cur_official: dict, cur_struc
     rel = pr.page_set_relation(cur_pages, base["meta"].get("page_ids") or [])
     delta = {"baseline_id": baseline_id or base_dir.name, "baseline_dir": str(base_dir),
              "relation": rel, "mode": mode}
+    notes = []
     if base["meta"].get("kind") != "run":
         # 基线是离线重投影产物（非同一次解析，方案修正 2）：Δ 量的是"尺子差"，不是回归
-        delta["note"] = (f"基线 {base_dir.name} 是离线重投影产物（非同一次 fresh 解析）——"
-                         f"本次 Δ 是换量尺的差，**不可当回归判据**")
+        notes.append(f"基线 {base_dir.name} 是离线重投影产物（非同一次 fresh 解析）——"
+                     f"本次 Δ 是换量尺的差，**不可当回归判据**")
+    if cur_kind != "run":
+        notes.append("本次是离线重投影产物（入档模式）——Δ 反映换量尺，不是本次跑出来的变化")
+    if notes:
+        delta["note"] = "；".join(notes)
     if not rel["equal"] and mode != "intersect":
         delta["gate"] = "none"
         delta["reason"] = (f"页集合不同（本次 {rel['cur_count']} / 基线 {rel['base_count']} / 交集 "
@@ -206,6 +212,123 @@ def _build_delta(root: Path, spec: str, mode: str, cur_official: dict, cur_struc
         "struct_chain": pr.compare(cur_struct, base_struct) if base_struct else [],
     }
     return delta
+
+
+def _ssh_bin(name: str) -> str:
+    """优先用 Windows 原生 OpenSSH：Git Bash 自带的 ssh/scp 会把中文用户名 HOME 转 GBK 乱码路径
+    （AGENTS.md 记录的实踩），表现为偶发 'Host key verification failed'。"""
+    native = Path(f"C:/Windows/System32/OpenSSH/{name}.exe")
+    return str(native) if native.is_file() else name
+
+
+def _publish(run_dir: Path, files: tuple, dest: str) -> bool:
+    """把结论层文件同步到看板目录（`host:/path` 走 ssh/scp；本地路径直接拷，便于自测）。
+
+    只传白名单（meta/summary/publish/结构层 json+报告，合计 ~140KB）：predictions/、official/、
+    gt_subset.json 是复现用的，留在本机。远端会先 mkdir <dest>/<run_id>/（scp 不会隐式建目录）。
+    """
+    srcs = [str(run_dir / name) for name in files if (run_dir / name).is_file()]
+    if not srcs:
+        print("!! 没有可发布的文件", flush=True)
+        return False
+
+    host, remote = _split_dest(dest)
+    if not host:                             # 本地路径：直接拷（也用于自测）
+        target_dir = Path(remote) / run_dir.name
+        target_dir.mkdir(parents=True, exist_ok=True)
+        for src in srcs:
+            shutil.copy2(src, target_dir / Path(src).name)
+        print(f"已发布 {len(srcs)} 个文件 → {target_dir}", flush=True)
+        return True
+
+    remote_dir = f"{remote.rstrip('/')}/{run_dir.name}"
+    ssh, scp = _ssh_bin("ssh"), _ssh_bin("scp")
+    print(f"\n=== 发布到看板 ===\n$ {ssh} {host} mkdir -p {remote_dir}\n"
+          f"$ {scp} <{len(srcs)} 个文件> {host}:{remote_dir}/", flush=True)
+    try:
+        mk = subprocess.run([ssh, host, f"mkdir -p {remote_dir}"], text=True,
+                            encoding="utf-8", errors="replace")
+        if mk.returncode != 0:
+            print(f"!! 远端建目录失败（ssh 退出码 {mk.returncode}）；本机文件未动 {run_dir}", flush=True)
+            return False
+        proc = subprocess.run([scp, *srcs, f"{host}:{remote_dir}/"], text=True,
+                              encoding="utf-8", errors="replace")
+    except OSError as exc:
+        print(f"!! 发布失败（找不到 ssh/scp？）: {exc}", flush=True)
+        return False
+    if proc.returncode != 0:
+        print(f"!! 发布失败（scp 退出码 {proc.returncode}）；本机文件未动 {run_dir}", flush=True)
+        return False
+    print(f"已发布 {len(srcs)} 个文件 → {host}:{remote_dir}/", flush=True)
+    return True
+
+
+def _split_dest(dest: str) -> tuple:
+    """scp 目标 → (host, path)；本地路径返回 ("", path)。
+
+    不能只看有没有冒号：Windows 盘符（C:\\...、D:/...）也带冒号，会把本地路径误判成远端。
+    判定规则：冒号前不含 / \\ 且长度 > 1（user@host 也算）才是远端主机。
+    """
+    if ":" in dest:
+        head, _, tail = dest.partition(":")
+        if len(head) > 1 and "/" not in head and "\\" not in head:
+            return head, tail
+    return "", dest
+
+
+def _maybe_publish(args, run_dir: Path) -> None:
+    """写好的 publish.json + 白名单文件同步到看板目录；没给目标就提示怎么给，不静默。"""
+    if args.publish is None:
+        return
+    dest = _publish_target(args.publish)
+    if not dest:
+        print("!! 给了 --publish 但没有目标：带目标（如 root@host:/path/）"
+              "或设环境变量 PARSE_REGRESSION_PUBLISH", flush=True)
+        return
+    _publish(run_dir, pr.PUBLISH_FILES, dest)
+
+
+def _publish_target(arg) -> str:
+    if arg is None:
+        return ""
+    if arg != "__env__":
+        return str(arg)
+    return (os.getenv("PARSE_REGRESSION_PUBLISH") or "").strip()
+
+
+def _republish_mode(args) -> int:
+    """给已归档的 run 重算并写 publish.json（旧 run 早于看板功能时补档，或改了指标名/标签后刷新）。
+
+    不重跑任何评测：只读归档里的 meta/struct_*/official，按当前代码重建载荷与 Δ。
+    """
+    root = Path(args.out_root)
+    run_dir = root / args.republish
+    if not run_dir.is_dir():
+        raise SystemExit(f"归档不存在: {run_dir}")
+    run = pr.load_run(run_dir)
+    meta = run["meta"]
+    if not meta:
+        raise SystemExit(f"{run_dir} 缺 meta.json，无法重建载荷")
+    sources = meta.get("sources") or {}
+    ref = args.sources_ref or sources.get("ref_official") or ""
+    mineru_src = args.sources_mineru or sources.get("mineru_official") or ""
+    official_ref = pr.load_official_metrics(Path(ref)) if ref else {}
+    official_mineru = pr.load_official_metrics(Path(mineru_src)) if mineru_src else {}
+    chain_path = run_dir / "struct_chain.json"
+    chain_result = json.loads(chain_path.read_text(encoding="utf-8")) if chain_path.is_file() else {}
+    pointer = pr.read_pointer(root, "baseline.json") or {}
+    if pointer.get("run_id") == args.republish and args.baseline in ("", "baseline"):
+        # 它就是当前基线：与自己比全是 0，没意义——如实写成"本次即基线"
+        delta = {"gate": "none", "reason": "本次即当前基线（Δ 从下一次跑开始）"}
+    else:
+        delta = _build_delta(root, args.baseline, args.delta_mode, run["official"], run["struct_chain"],
+                             meta.get("page_ids") or [], cur_kind=str(meta.get("kind") or "run"))
+    pr.write_publish(run_dir, pr.build_publish_payload(
+        meta, run["official"], run["struct_chain"], run["struct_mineru"], delta,
+        official_ref, official_mineru, chain_result))
+    print(f"已重建 publish.json: {run_dir}")
+    _maybe_publish(args, run_dir)
+    return 0
 
 
 def _import_mode(args) -> int:
@@ -237,6 +360,7 @@ def _import_mode(args) -> int:
     official_mineru = pr.load_official_metrics(Path(args.sources_mineru)) if args.sources_mineru else {}
     meta = {
         "run_id": run_id, "ts": ts, "kind": "offline-reprojection",
+        "run_date": pr.run_date_from_tag(args.tag or "", ts),
         "note": args.note or "离线产物入档：非同一次解析（见 docs/plan-parse-regression-entry.md 修正 2）",
         "args": {"import_official": args.import_official, "import_chain": args.import_chain,
                  "import_mineru": args.import_mineru, "tag": args.tag},
@@ -251,6 +375,10 @@ def _import_mode(args) -> int:
     (run_dir / "summary.md").write_text(
         pr.render_summary(meta, official, struct_chain, struct_mineru, official_mineru, official_ref),
         encoding="utf-8")
+    chain_result = json.loads(chain_json.read_text(encoding="utf-8")) if (chain_json and chain_json.is_file()) else {}
+    pr.write_publish(run_dir, pr.build_publish_payload(
+        meta, official, struct_chain, struct_mineru, None, official_ref, official_mineru, chain_result))
+    _maybe_publish(args, run_dir)
     print(f"入档完成: {run_dir}（官方产物 {copied} 个文件，页 {len(pages)}）")
     print(f"  meta   : {run_dir / 'meta.json'}")
     print(f"  summary: {run_dir / 'summary.md'}")
@@ -278,12 +406,18 @@ def main() -> int:
     ap.add_argument("--set-baseline", action="store_true", help="把本次 run 钉为基线")
     ap.add_argument("--sources-ref", default="", help="参考模型官方产物目录（三方表第一列）；留空自动探测")
     ap.add_argument("--sources-mineru", default="", help="MinerU 单独官方产物目录（三方表第二列）；留空自动探测")
+    ap.add_argument("--republish", default="", help="给已归档的 run 重建 publish.json（只看不跑）")
     ap.add_argument("--import-official", default="", help="入档模式：官方产物目录")
     ap.add_argument("--import-chain", default="", help="入档模式：A② 我们全链 structure_result.json")
     ap.add_argument("--import-mineru", default="", help="入档模式：A② MinerU 原生 structure_result.json")
     ap.add_argument("--note", default="", help="入档模式：写进 meta/summary 的一句话说明")
+    ap.add_argument("--publish", nargs="?", const="__env__", default=None,
+                    help="结果同步到服务器看板（可给 scp 目标，如 root@host:/path/；"
+                         "不给目标则读环境变量 PARSE_REGRESSION_PUBLISH）")
     args = ap.parse_args()
 
+    if args.republish:
+        return _republish_mode(args)
     if args.import_official or args.import_chain:
         return _import_mode(args)
 
@@ -373,7 +507,7 @@ def main() -> int:
     official_ref = pr.load_official_metrics(Path(args.sources_ref)) if args.sources_ref else {}
     official_mineru = pr.load_official_metrics(Path(args.sources_mineru)) if args.sources_mineru else {}
     meta = {
-        "run_id": run_id, "ts": ts, "kind": "run",
+        "run_id": run_id, "ts": ts, "kind": "run", "run_date": pr._date_from_ts(ts),
         "args": {"limit": args.limit, "seed": args.seed, "tag": args.tag,
                  "predict_mode": args.predict_mode, "skip_predict": args.skip_predict,
                  "skip_official": args.skip_official, "predictions": str(preds_dir),
@@ -406,7 +540,14 @@ def main() -> int:
     elif pr.read_pointer(root, "baseline.json") is None:
         print("基线指针未设：本次是 --skip-predict 的复用式跑（要钉基线请加 --set-baseline）")
 
-    # ⑥ 控制台 Δ
+    # ⑥ 看板载荷 +（可选）同步到服务器
+    chain_result = (json.loads((run_dir / "struct_chain.json").read_text(encoding="utf-8"))
+                    if (run_dir / "struct_chain.json").is_file() else {})
+    pr.write_publish(run_dir, pr.build_publish_payload(
+        meta, official, struct_chain, struct_mineru, delta, official_ref, official_mineru, chain_result))
+    _maybe_publish(args, run_dir)
+
+    # ⑦ 控制台 Δ
     print("\n=== A① 官方口径（我们） ===")
     for key, val in official.items():
         print(f"  {pr.METRIC_LABELS.get(key, key):22} {pr.fmt_metric(val, key in pr.HIGHER_IS_BETTER)}")

@@ -410,6 +410,80 @@ def render_summary(meta: dict, official: dict, struct_chain: dict, struct_mineru
     return "\n".join(lines)
 
 
+def _date_from_ts(ts) -> str:
+    """`20260917-0837` → `2026-09-17`；解析不出来就原样返回（看板按字符串排序，不炸）。"""
+    raw = str(ts or "")
+    if len(raw) >= 8 and raw[:8].isdigit():
+        return f"{raw[:4]}-{raw[4:6]}-{raw[6:8]}"
+    return raw
+
+
+def run_date_from_tag(tag: str, ts: str) -> str:
+    """入档模式的 run_date：优先取 --tag 里的 YYYYMMDD（baseline-20260913 → 2026-09-13），
+    否则用当前时间——否则"离线基线"会被按导入时刻排到最新。"""
+    import re as _re
+
+    match = _re.search(r"(\d{4})(\d{2})(\d{2})", str(tag or ""))
+    if match:
+        return f"{match.group(1)}-{match.group(2)}-{match.group(3)}"
+    return _date_from_ts(ts)
+
+
+def metric_meta() -> dict:
+    """前端渲染用的指标元信息：中文名 + 越大越好 + 是否按百分比显示（值域 0–1）。"""
+    keys = set(METRIC_LABELS)
+    return {k: {"label": METRIC_LABELS[k], "higher_is_better": k in HIGHER_IS_BETTER, "ratio": True}
+            for k in keys}
+
+
+# 发布到服务器看板的白名单：本机跑出来的"结论层"文件（合计 ~140KB），
+# 不含 predictions/（每页 md）、official/（官方全套产物）、gt_subset.json——那些是复现用的，留在本机
+PUBLISH_FILES = ("meta.json", "summary.md", "publish.json", "struct_chain.json", "struct_mineru.json",
+                 "struct_chain_report.md", "struct_mineru_report.md")
+
+
+def build_publish_payload(meta: dict, official: dict, struct_chain: dict, struct_mineru: dict,
+                          delta: Optional[dict] = None, official_ref: Optional[dict] = None,
+                          official_mineru: Optional[dict] = None, chain_result: Optional[dict] = None) -> dict:
+    """服务器看板要的全部信息：一次跑的结果 + Δ + 渲染元信息（前端不重算任何东西）。
+
+    数字都在本机用本模块算好（同一份代码），服务器只读不算——避免"两个版本各算一遍"漂移。
+    """
+    env = meta.get("environment") or {}
+    args = meta.get("args") or {}
+    return {
+        "schema": 1,
+        "run_id": meta.get("run_id"), "ts": meta.get("ts"), "kind": meta.get("kind", "run"),
+        # run_date = 这批判代表的结果日期（看板列表按它排序，不按目录名字典序——
+        # "baseline-xxx" 会排在 "2026xxxx" 之前，让人以为离线基线是最新的）
+        "run_date": meta.get("run_date") or _date_from_ts(meta.get("ts")),
+        "note": meta.get("note", ""),
+        "limit": args.get("limit"), "seed": args.get("seed"),
+        "predict_mode": args.get("predict_mode"), "skip_predict": args.get("skip_predict"),
+        "skip_official": args.get("skip_official"),
+        "pages_scored": meta.get("pages_scored"), "pages_sampled": meta.get("pages_sampled"),
+        "pages_official": meta.get("pages_official"), "pages_struct_chain": meta.get("pages_struct_chain"),
+        "page_ids_hash": meta.get("page_ids_hash"),
+        "git": env.get("git_describe", ""), "branch": env.get("git_branch", ""),
+        "python": env.get("python", ""), "eval_image": env.get("eval_image", ""),
+        "mineru_version": meta.get("mineru_version", ""),
+        "stages": meta.get("stages", ""), "timing": meta.get("timing") or {},
+        "skipped": meta.get("skipped") or [],
+        "metrics": {
+            "official": official, "official_ref": official_ref or {}, "official_mineru": official_mineru or {},
+            "struct_chain": struct_chain, "struct_mineru": struct_mineru,
+        },
+        "metric_meta": metric_meta(),
+        "delta": delta or {},
+        "by_category": (chain_result or {}).get("by_category") or [],
+        "by_data_source": (chain_result or {}).get("by_data_source") or [],
+    }
+
+
+def write_publish(run_dir: Path, payload: dict) -> Path:
+    return write_json(Path(run_dir) / "publish.json", payload)
+
+
 def _timing_text(timing: dict) -> str:
     parts = [f"{k} {v:.0f}s" for k, v in timing.items() if isinstance(v, (int, float))]
     return " / ".join(parts) if parts else "—"

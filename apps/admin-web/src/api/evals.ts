@@ -97,6 +97,13 @@ export const evalsApi = {
 
   /** 夜间维护：删除一条结论（连带删除对应评测 run；run 在跑则先停） */
   deleteNightlyDay: (date: string) => api.delete(`/evals/nightly/${encodePathSegment(date)}`),
+
+  /** 解析回归（A 层）：本机跑完 --publish 上来的 run 列表（倒序，只读） */
+  getParseRegressionRuns: () => api.get('/evals/parse-regression'),
+
+  /** 解析回归：单次 run 详情（结论载荷 + summary.md + A② 逐类目报告） */
+  getParseRegressionRun: (runId: string) =>
+    api.get(`/evals/parse-regression/${encodePathSegment(runId)}`),
 }
 
 export default evalsApi

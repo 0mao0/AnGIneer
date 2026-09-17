@@ -201,5 +201,52 @@ class TestImportArchiveEndToEnd(unittest.TestCase):
             self.assertTrue((run_dir / "official" / "predictions_quick_match_metric_result.json").is_file())
 
 
+class TestPublishPayload(unittest.TestCase):
+    """服务器看板载荷：前端需要的东西必须齐（指标/元信息/Δ/逐类目），且白名单不含大文件。"""
+
+    def _payload(self):
+        meta = {
+            "run_id": "20260917-0837", "ts": "20260917-0837", "kind": "run",
+            "args": {"limit": 200, "seed": 42, "predict_mode": "in-process"},
+            "pages_scored": 200, "pages_official": 199, "pages_sampled": 200,
+            "page_ids_hash": "fee2959a7a67", "stages": "source_prep,convert,raw_parse,popo,structure",
+            "environment": {"git_describe": "v0.2.65-4-g6d06f3d", "git_branch": "main",
+                            "python": "3.12.0", "eval_image": "ghcr.io/x/eval:tag"},
+            "mineru_version": "3.4.5(n=200)", "timing": {"predict": 2709.4}, "skipped": [],
+        }
+        official = {"text_edit": 0.0724, "table_teds": 0.9159}
+        struct_chain = {"block_recall": 0.8825}
+        struct_mineru = {"block_recall": 0.7779}
+        delta = {"gate": "ok", "baseline_id": "20260913-baseline",
+                 "groups": {"official": [], "struct_chain": []}}
+        chain_result = {"by_category": [{"category": "text_block"}],
+                        "by_data_source": [{"data_source": "PPT2PDF"}]}
+        return pr.build_publish_payload(meta, official, struct_chain, struct_mineru, delta,
+                                        {"text_edit": 0.0344}, {"text_edit": 0.0476}, chain_result)
+
+    def test_carries_metrics_meta_and_delta(self):
+        payload = self._payload()
+        self.assertEqual(payload["run_id"], "20260917-0837")
+        self.assertEqual(payload["metrics"]["official"]["text_edit"], 0.0724)
+        self.assertEqual(payload["metrics"]["official_ref"]["text_edit"], 0.0344)     # 三方表两列
+        self.assertEqual(payload["metrics"]["official_mineru"]["text_edit"], 0.0476)
+        self.assertEqual(payload["delta"]["baseline_id"], "20260913-baseline")
+        self.assertEqual(payload["by_category"][0]["category"], "text_block")
+        self.assertEqual(payload["by_data_source"][0]["data_source"], "PPT2PDF")
+        self.assertFalse(payload["metric_meta"]["text_edit"]["higher_is_better"])    # edit 越小越好
+        self.assertTrue(payload["metric_meta"]["table_teds"]["higher_is_better"])
+
+    def test_whitelist_excludes_heavy_artifacts(self):
+        for heavy in ("predictions", "official", "gt_subset.json", "_struct_chain_raw"):
+            self.assertNotIn(heavy, pr.PUBLISH_FILES)
+        self.assertIn("publish.json", pr.PUBLISH_FILES)
+
+    def test_write_publish_persists_json(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = pr.write_publish(Path(td), self._payload())
+            self.assertTrue(path.is_file())
+            self.assertEqual(json.loads(path.read_text(encoding="utf-8"))["schema"], 1)
+
+
 if __name__ == "__main__":
     unittest.main()

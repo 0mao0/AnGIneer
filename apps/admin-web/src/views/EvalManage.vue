@@ -306,6 +306,9 @@
       <EvalNightlyPanel ref="nightlyPanelRef" @open-run="onNightlyOpenRun" />
     </div>
   </div>
+
+  <!-- 解析回归视图：A 层只读看板（数据由开发机 --publish 同步上来，服务器不跑评测） -->
+  <EvalParseRegressionPanel v-if="evalView === 'parse-regression'" :class="appClass" />
 </template>
 
 <script setup lang="ts">
@@ -341,6 +344,7 @@ import type { EvalDataset, EvalQuestion, EvalRun } from '@angineer/evals-ui'
 import FolderModal from './components/FolderModal.vue'
 import EvalCompareModal from './components/EvalCompareModal.vue'
 import EvalNightlyPanel from './components/EvalNightlyPanel.vue'
+import EvalParseRegressionPanel from './components/EvalParseRegressionPanel.vue'
 import { knowledgeApi } from '../api/knowledge'
 import { useLibraryStore } from '../stores/library'
 import { evalsApi } from '../api/evals'
@@ -372,8 +376,9 @@ const {
   getContainerWidth: () => workspaceRef.value?.clientWidth || window.innerWidth,
 })
 
-/** 视图模式（日常测试|夜间维护）：App.vue 头部统一控制，?view=nightly 深链进入 */
-const evalView = inject<Ref<'workbench' | 'nightly'>>('evalView', ref<'workbench' | 'nightly'>('workbench'))
+/** 视图模式（日常测试|夜间测试|解析回归）：App.vue 头部统一控制，?view=nightly|parse-regression 深链进入 */
+const evalView = inject<Ref<'workbench' | 'nightly' | 'parse-regression'>>(
+  'evalView', ref<'workbench' | 'nightly' | 'parse-regression'>('workbench'))
 
 /** 夜间测试头部：定时开关+时间（改哪项存哪项，开关状态以服务端为准；改时间不再隐式开启定时）；
  *  立即运行打开面板内的执行计划确认框（计划/模型/并发先看清楚再起跑），running 态与轮询由面板负责 */

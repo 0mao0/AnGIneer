@@ -341,6 +341,99 @@ async def analyze_compare(body: Dict[str, Any] = None):
         raise HTTPException(status_code=500, detail=f"LLM 分析失败: {exc}")
 
 
+# --- 解析回归（A 层只读看板）---
+# 与夜间维护同一套模式：读服务器上的归档目录，不触发任何执行。
+# 为什么只能看不能跑：A① 要 18GB 官方评测镜像，只装在开发机（部署机根分区装不下，
+# AGENTS.md 已否决），所以数据由本机 `run_parse_regression.py --publish` 同步上来。
+
+async def require_admin_session(request: Request) -> None:
+    """只读视图（解析回归 / 夜间维护）的管理员会话校验：Bearer session + is_admin。
+
+    定义在这里（两个只读视图共用），不能放在任一段落内部——模块级装饰器在导入时求值。
+    """
+    if not resolve_session_principal(request):
+        raise HTTPException(status_code=401, detail="需要登录会话")
+    if not getattr(request.state.session_user, "is_admin", False):
+        raise HTTPException(status_code=403, detail="仅管理员可查看")
+
+
+_PARSE_REG_RUN_RE = _re.compile(r"^[A-Za-z0-9._-]{1,64}$")
+
+
+def _parse_regression_root() -> str:
+    """与 evals.sqlite 同口径的 data/evals 根下 `parse_regression/`，不新增配置项。"""
+    return os.path.join(os.path.dirname(result_store._DB_PATH), "parse_regression")
+
+
+def _read_publish(run_dir: str, run_id: str) -> Dict[str, Any]:
+    """读一次 run 的 publish.json（本机算好的结论层载荷）；缺失/损坏降级为 corrupt。"""
+    try:
+        with open(os.path.join(run_dir, "publish.json"), "r", encoding="utf-8") as fh:
+            data = json.load(fh)
+        if not isinstance(data, dict):
+            raise ValueError("publish.json 不是对象")
+        data.setdefault("run_id", run_id)
+        return data
+    except (OSError, ValueError):
+        return {"run_id": run_id, "state": "corrupt"}
+
+
+_DATE_IN_TEXT_RE = _re.compile(r"(\d{4})-?(\d{2})-?(\d{2})")
+
+
+def _run_sort_key(entry: Dict[str, Any]) -> str:
+    """排序键统一成 `YYYY-MM-DD`：run_date → ts → run_id/目录名里的日期。
+
+    三种键格式不同会排乱（"2026-09-17" 与 "20260918-0100" 逐字符比，'-' 比数字小），
+    所以先归一化；损坏条目没有 run_date，就用目录名兜底（仍能按日期排）。
+    """
+    for raw in (entry.get("run_date"), entry.get("ts"), entry.get("run_id")):
+        match = _DATE_IN_TEXT_RE.search(str(raw or ""))
+        if match:
+            return f"{match.group(1)}-{match.group(2)}-{match.group(3)}"
+    return ""
+
+
+def _read_text_or_empty(path: str) -> str:
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            return fh.read()
+    except OSError:
+        return ""
+
+
+@evals_router.get("/parse-regression", dependencies=[Depends(require_admin_session)])
+async def list_parse_regression_runs():
+    """解析回归 run 列表（倒序）。本机跑完 `--publish` 落 data/evals/parse_regression/<run_id>/。"""
+    root = _parse_regression_root()
+    if not os.path.isdir(root):
+        return {"runs": [], "root_exists": False}
+    runs = [
+        _read_publish(os.path.join(root, name), name)
+        for name in sorted(os.listdir(root))
+        if _PARSE_REG_RUN_RE.match(name) and os.path.isdir(os.path.join(root, name))
+    ]
+    # 按"结果日期"倒序（不按目录名：baseline-* 会被字典序排到 2026* 前面，看起来像最新）
+    runs.sort(key=lambda r: _run_sort_key(r), reverse=True)
+    return {"runs": runs, "root_exists": True}
+
+
+# 注意：/parse-regression/{run_id} 注册在列表路由之后（FastAPI 按声明顺序匹配，前缀不同不冲突）
+@evals_router.get("/parse-regression/{run_id}", dependencies=[Depends(require_admin_session)])
+async def get_parse_regression_run(run_id: str):
+    """单次 run 详情：结论载荷 + summary.md 原文 + A② 逐类目报告。run_id 严格校验防路径穿越。"""
+    if not _PARSE_REG_RUN_RE.match(run_id):
+        raise HTTPException(status_code=404, detail="run_id 不合法")
+    run_dir = os.path.join(_parse_regression_root(), run_id)
+    if not os.path.isdir(run_dir):
+        raise HTTPException(status_code=404, detail="该次解析回归归档不存在")
+    return {
+        "run": _read_publish(run_dir, run_id),
+        "summary_md": _read_text_or_empty(os.path.join(run_dir, "summary.md")),
+        "struct_report_md": _read_text_or_empty(os.path.join(run_dir, "struct_chain_report.md")),
+    }
+
+
 # --- 夜间维护（nightly 门禁产物只读视图）---
 # 仅这两个路由要求管理员会话（require_admin_session）；存量 /api/evals/* 鉴权治理另行处理。
 
@@ -350,14 +443,6 @@ _NIGHTLY_DATE_RE = _re.compile(r"^\d{4}-\d{2}-\d{2}$")
 def _nightly_root() -> str:
     """产物目录与 evals.sqlite 同口径（result_store 的 data/evals 根），不新增配置项。"""
     return os.path.join(os.path.dirname(result_store._DB_PATH), "nightly")
-
-
-async def require_admin_session(request: Request) -> None:
-    """新接口独立鉴权：Bearer session（复用 chat_auth 解析）且 is_admin。"""
-    if not resolve_session_principal(request):
-        raise HTTPException(status_code=401, detail="需要登录会话")
-    if not getattr(request.state.session_user, "is_admin", False):
-        raise HTTPException(status_code=403, detail="仅管理员可查看")
 
 
 def _read_nightly_day(day_dir: str, date: str) -> Dict[str, Any]:
