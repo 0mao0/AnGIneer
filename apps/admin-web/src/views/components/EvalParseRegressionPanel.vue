@@ -291,19 +291,24 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="c in detail.run.by_category" :key="c.category">
-                  <td>{{ c.category }}</td>
-                  <td>{{ c.gt_blocks }}</td>
-                  <td>{{ c.matched }}</td>
-                  <td>{{ pct(c.recall) }}</td>
-                  <td>{{ pct(mineruCategoryOf(c.category)?.recall) }}</td>
-                  <td>{{ dec(c.text_similarity_matched) }}</td>
-                  <td>{{ c.text_n_matched || '—' }}</td>
-                  <td>{{ dec(c.teds) }}</td>
-                  <td>{{ dec(c.formula_similarity) }}</td>
+                <tr v-for="r in categoryRows" :key="r.row.category">
+                  <td>{{ r.row.category }}</td>
+                  <td>{{ r.row.gt_blocks }}</td>
+                  <td>{{ r.row.matched }}</td>
+                  <td :class="recallClass(r.level)" :title="recallTip(r)">{{ pct(r.row.recall) }}</td>
+                  <td>{{ pct(r.mineru) }}</td>
+                  <td>{{ dec(r.row.text_similarity_matched) }}</td>
+                  <td>{{ r.row.text_n_matched || '—' }}</td>
+                  <td>{{ dec(r.row.teds) }}</td>
+                  <td>{{ dec(r.row.formula_similarity) }}</td>
                 </tr>
               </tbody>
             </table>
+            <p class="epr-hint">
+              召回率列标注：<span class="epr-recall--bad">红＝落后 MinerU 超 0.5pp（我们的短板，优先改）</span>；
+              <span class="epr-recall--low">黄＝低于本表平均</span>（若 MinerU 同档则是类目本身难/未建模，不是我们的锅）。
+              未标记＝与 MinerU 持平或更好。
+            </p>
           </div>
 
           <div v-if="detail.run.by_data_source?.length" class="epr-section">
@@ -331,14 +336,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="s in detail.run.by_data_source" :key="s.data_source">
-                  <td>{{ s.data_source }}</td>
-                  <td>{{ s.pages }}</td>
-                  <td>{{ pct(s.block_recall) }}</td>
-                  <td>{{ pct(mineruSourceOf(s.data_source)?.block_recall) }}</td>
-                  <td>{{ dec(s.text_similarity) }}</td>
-                  <td>{{ dec(s.teds) }}</td>
-                  <td>{{ pct(s.order_adjacent_accuracy) }}</td>
+                <tr v-for="r in sourceRows" :key="r.row.data_source">
+                  <td>{{ r.row.data_source }}</td>
+                  <td>{{ r.row.pages }}</td>
+                  <td :class="recallClass(r.level)" :title="recallTip(r)">{{ pct(r.row.block_recall) }}</td>
+                  <td>{{ pct(r.mineru) }}</td>
+                  <td>{{ dec(r.row.text_similarity) }}</td>
+                  <td>{{ dec(r.row.teds) }}</td>
+                  <td>{{ pct(r.row.order_adjacent_accuracy) }}</td>
                 </tr>
               </tbody>
             </table>
@@ -529,6 +534,45 @@ function runDateText(run: RunPayload): string {
 function sameAsRival(row: { recall: number | null; mineru?: number | null }): boolean {
   return row.recall != null && row.mineru != null && Math.abs(row.recall - row.mineru) <= 0.005
 }
+
+type RecallLevel = 'bad' | 'low' | 'ok'
+interface RecallRow<T> { row: T; mineru: number | null; level: RecallLevel; avg: number | null; gap: number | null }
+
+/** 逐类目/逐文档类型的"问题标注"：红=落后 MinerU（我们的锅），黄=低于本表平均（可能是类目难）。 */
+function markRecalls<T>(rows: T[], mine: (r: T) => number | null | undefined, rival: (r: T) => number | null | undefined): RecallRow<T>[] {
+  const vals = rows.map(mine).filter((v): v is number => typeof v === 'number')
+  const avg = vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null
+  return rows.map((row) => {
+    const m = rival(row) ?? null
+    const cur = mine(row)
+    const gap = cur != null && m != null ? cur - m : null
+    let level: RecallLevel = 'ok'
+    if (gap != null && gap < -0.005) level = 'bad'          // 与结论同口径：0.5pp 以内按持平
+    else if (avg != null && cur != null && cur < avg) level = 'low'
+    return { row, mineru: m, level, avg, gap }
+  })
+}
+const recallClass = (level: RecallLevel) =>
+  level === 'bad' ? 'epr-recall--bad' : (level === 'low' ? 'epr-recall--low' : '')
+function recallTip(r: RecallRow<any>): string {
+  if (r.level === 'bad') {
+    return `落后 MinerU ${Math.abs((r.gap as number) * 100).toFixed(1)}pp：我们的短板，优先查这类块的捕获/映射`
+  }
+  if (r.level === 'low') {
+    const base = `低于本表平均${r.avg != null ? ` ${(r.avg * 100).toFixed(1)}%` : ''}`
+    if (r.gap == null) return base
+    if (Math.abs(r.gap) <= 0.005) return `${base}；MinerU 同档 → 类目本身难/未建模，不是我们的锅`
+    if (r.gap > 0) return `${base}，但相对 MinerU 仍高 +${(r.gap * 100).toFixed(1)}pp（绝对水平低，非短板）`
+    return `${base}，且落后 MinerU ${Math.abs(r.gap * 100).toFixed(1)}pp`
+  }
+  return ''
+}
+const categoryRows = computed(() => markRecalls(
+  [...(detail.value?.run?.by_category || [])].sort((a, b) => (b.recall ?? -1) - (a.recall ?? -1)),
+  (c) => c.recall, (c) => mineruCategoryOf(c.category)?.recall ?? null))
+const sourceRows = computed(() => markRecalls(
+  [...(detail.value?.run?.by_data_source || [])].sort((a, b) => (b.block_recall ?? -1) - (a.block_recall ?? -1)),
+  (s) => s.block_recall, (s) => mineruSourceOf(s.data_source)?.block_recall ?? null))
 
 const mineruCategoryOf = (name: string) =>
   (detail.value?.run?.by_category_mineru || []).find((c) => c.category === name)
@@ -926,6 +970,13 @@ onBeforeUnmount(() => {
   font-weight: 600;
 }
 /* 该行最优：琥珀底 + 琥珀字 + ⭐，与表里其他单元格一眼可分（深/浅色主题都够对比） */
+.epr-recall--bad {
+  color: #ff4d4f;
+  font-weight: 600;
+}
+.epr-recall--low {
+  color: #faad14;
+}
 .epr-best {
   background: rgba(250, 173, 20, 0.16);
   color: #faad14;
