@@ -268,6 +268,104 @@ def is_struct_heading_candidate(block_type: str, text: str) -> bool:
     return infer_struct_level(text) is not None
 
 
+# 几何兜底参数（页面尺寸归一）：与宿主框的垂直间距上限 / 候选水平重叠占比下限 / 候选高度上限
+# 间距 4.5% 与高度 6% 取自 GT 实测：OmniDocBench 200 页 caption 高度中位 1.7% 页高、p90 5.5%，
+# 而正文段落普遍更高——不限高时报版"图在上、正文在下"会被整段挂成题注（实测 74→58 处，
+# 但仍有约四成指向 GT 标的正文，见 docs/parse-struct-eval.md 的"题注指针"节取舍表）。
+_MEDIA_CAPTION_GAP_MAX = 0.045
+_MEDIA_CAPTION_OVERLAP_MIN = 0.5
+_MEDIA_CAPTION_MAX_HEIGHT = 0.06
+_MEDIA_CAPTION_MAX_CHARS = 0        # 0 = 不限；非 0 时超过该字数的候选不当题注
+
+
+def media_row_bbox_norm(row: dict[str, Any]) -> tuple[float, float, float, float] | None:
+    """把行内的绝对 bbox 归一成页面尺度（与 build_structured_from_rawfiles 的 nx/ny 同口径）。
+
+    **不要改成读 `row["bbox"]`**：结构行里从来没有这个键（只有 bbox_abs_x1..y2 +
+    page_width/page_height），2026-09-17 P2 首版就是这么写的，几何兜底因此全程空转、
+    200 页 A/B 精确 Δ0 却查不出原因。需要归一化口径时改这里，并同步 nx/ny 那段。
+    """
+    try:
+        ax1 = float(row["bbox_abs_x1"])
+        ay1 = float(row["bbox_abs_y1"])
+        ax2 = float(row["bbox_abs_x2"])
+        ay2 = float(row["bbox_abs_y2"])
+    except (KeyError, TypeError, ValueError):
+        return None
+    page_width = float(row.get("page_width") or 0.0)
+    page_height = float(row.get("page_height") or 0.0)
+    if page_width > 0 and page_height > 0 and (ax2 > page_width * 1.2 or ay2 > page_height * 1.2):
+        # 部分页给的是 1000 尺度坐标（见 build_structured_from_rawfiles 的 use_1000_scale）
+        return (ax1 / 1000.0, ay1 / 1000.0, ax2 / 1000.0, ay2 / 1000.0)
+    if not page_width or not page_height:
+        return None
+    return (ax1 / page_width, ay1 / page_height, ax2 / page_width, ay2 / page_height)
+
+
+def geometric_caption_uid(row: dict[str, Any], rows: list[dict[str, Any]], block_type: str) -> str:
+    """按几何位置找图/表的题注块（文本匹配失败时的兜底，2026-09-17 P2）。
+
+    背景：题注原本**只能**靠文本匹配挂指针（needles 来自 MinerU 的 caption 字段），
+    MinerU 不给该字段时原实现直接 `return {}`。而题注在版面上就是紧贴图/表的那块文字，
+    位置本身就够判别。200 页 A② A/B：figure_caption 召回 54.67%→62.67%、
+    table_caption 58.49%→79.25%，text_block 召回不变。
+
+    规则（宁可漏也不乱挂——挂错只是预览多一块高亮，指针不进 canonical/检索文本）：
+    - 同一页；候选是文本类块（排除图表/页眉页脚/页码/结构标题）
+    - 候选与你水平方向重叠 ≥ 候选宽度的 50%（题注与宿主同栏）
+    - 垂直间距 ≤ 4.5% 页高、候选自身高度 ≤ 6% 页高（太高的是正文）
+    - 图题优先取下方、表题优先取上方（中文排版惯例），该侧没有再看另一侧
+    - 只取最近的一块
+    """
+    if block_type not in {"image", "table"}:
+        return ""
+    norm = media_row_bbox_norm(row)
+    if norm is None:
+        return ""
+    x0, y0, x1, y1 = norm
+    page_idx = int(row.get("page_idx", -1) or -1)
+    host_uid = str(row.get("block_uid") or "").strip()
+    excluded_types = {"image", "table", "header", "footer", "page_header", "page_number"}
+
+    best_key: tuple[int, float] | None = None
+    best_uid = ""
+    for candidate in rows:
+        cand_uid = str(candidate.get("block_uid") or candidate.get("id") or "").strip()
+        if not cand_uid or cand_uid == host_uid:
+            continue
+        if int(candidate.get("page_idx", -1) or -1) != page_idx:
+            continue
+        cand_type = str(candidate.get("block_type") or candidate.get("type") or "").strip().lower()
+        if cand_type in excluded_types:
+            continue
+        cand_text = str(candidate.get("plain_text") or candidate.get("text") or "").strip()
+        if not cand_text or is_struct_heading_candidate(cand_type, cand_text):
+            continue
+        if _MEDIA_CAPTION_MAX_CHARS and len(cand_text) > _MEDIA_CAPTION_MAX_CHARS:
+            continue
+        cand_norm = media_row_bbox_norm(candidate)
+        if cand_norm is None:
+            continue
+        cx0, cy0, cx1, cy1 = cand_norm
+        if (cy1 - cy0) > _MEDIA_CAPTION_MAX_HEIGHT:
+            continue        # 太高的块是正文，不是题注（见 _MEDIA_CAPTION_MAX_HEIGHT 注释）
+        overlap = min(x1, cx1) - max(x0, cx0)
+        width = cx1 - cx0
+        if overlap <= 0 or width <= 0 or overlap / width < _MEDIA_CAPTION_OVERLAP_MIN:
+            continue
+        gap_below, gap_above = cy0 - y1, y0 - cy1
+        # 图题在下、表题在上；间距必须为正且不超过上限
+        gaps = ([(gap_below, 0), (gap_above, 1)] if block_type == "image"
+                else [(gap_above, 0), (gap_below, 1)])
+        for gap, side in gaps:
+            if 0 <= gap <= _MEDIA_CAPTION_GAP_MAX:
+                key = (side, round(gap, 6))     # 先惯用侧（0），再比间距
+                if best_key is None or key < best_key:
+                    best_key, best_uid = key, cand_uid
+                break
+    return best_uid
+
+
 def collect_media_related_block_refs(row: dict[str, Any], rows: list[dict[str, Any]]) -> dict[str, list[str]]:
     """为图表块收集同页 caption 与 footnote 的关联 block_uid。"""
     block_type = str(row.get("block_type") or "").strip().lower()
@@ -279,8 +377,11 @@ def collect_media_related_block_refs(row: dict[str, Any], rows: list[dict[str, A
     footnote_key = "table_footnote" if block_type == "table" else "image_footnote"
     caption_needles = build_related_text_needles(collect_text_fragments(content_json.get(caption_key)))
     footnote_needles = build_related_text_needles(collect_text_fragments(content_json.get(footnote_key)))
+    # 原先这里直接 return {}——MinerU 没给 caption 文本就没有任何题注关联（P2 修）。
+    # 现在改成：题注为空时留到下面走几何兜底；只想挂 footnote 的情况照旧继续。
     if not caption_needles and not footnote_needles:
-        return {}
+        geo_uid = geometric_caption_uid(row, rows, block_type)
+        return {"caption_block_uids": [geo_uid]} if geo_uid else {}
 
     block_uid = str(row.get("block_uid") or "").strip()
     page_idx = int(row.get("page_idx", -1) or -1)
@@ -308,6 +409,13 @@ def collect_media_related_block_refs(row: dict[str, Any], rows: list[dict[str, A
             caption_refs.append(candidate_uid)
         if footnote_needles and matches_related_text(candidate_text, footnote_needles):
             footnote_refs.append(candidate_uid)
+
+    # 文本一个都没匹配上且 MinerU 也没给 caption 文本 → 退到几何兜底
+    # （2026-09-17 P2：这类页占 GT 题注的绝大多数，原实现直接 return {}）
+    if not caption_refs and not caption_needles:
+        geo_uid = geometric_caption_uid(row, rows, block_type)
+        if geo_uid:
+            caption_refs = [geo_uid]
 
     result: dict[str, list[str]] = {}
     if caption_refs:
@@ -2433,4 +2541,6 @@ __all__ = [
     "StructuredResult",
     "build_structured_from_rawfiles",
     "collect_media_related_block_refs",
+    "geometric_caption_uid",
+    "media_row_bbox_norm",
 ]

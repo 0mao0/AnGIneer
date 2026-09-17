@@ -242,6 +242,69 @@ MinerU+PoPo+structure），结果 **16 项指标 Δ 全 0.00pp，50 个预测 md
 差异只在块切分。fresh 列与离线列逐项差 ≤0.06pp → 那两处修复不影响本批 200 页的可评指标，
 且"重投影 vs fresh"在结构层同样同尺。）
 
+### 题注指针（2026-09-18，P2 已修）
+
+题注（caption）在我们这里不是独立块类型，而是靠父图/表的 `caption_block_uids` **指针**被 A②
+识别为 `figure_caption` / `table_caption`（见 `evals_core/parse_struct/categories.py` 的
+`CAPTION_KIND`）。原先指针**只**来自文本匹配，needles 取自 MinerU 的 `image_caption` /
+`table_caption` 字段——MinerU 不给该字段就完全无兜底。P2 补了几何兜底
+`geometric_caption_uid`：同页、候选是文本类块、水平重叠 ≥ 候选宽度 50%、垂直间距 ≤ 4.5% 页高、
+候选高度 ≤ 6% 页高，图题先看下方 / 表题先看上方，只取最近一块
+（间距与高度阈值取自 GT 实测：caption 高度中位 1.7% 页高、p90 5.5%）。
+
+判据预先定好（跑之前写的）：**caption 召回明显上升 → 保留；`text_block` 召回不许掉；其余不应动**。
+
+| A② 指标（200 页同页集合） | before（无几何兜底） | after | Δ |
+|---|---|---|---|
+| figure_caption 召回 | 54.67% | **62.67%** | +8.00pp |
+| table_caption 召回 | 58.49% | **79.25%** | +20.75pp |
+| text_block 召回 | 94.86% | 94.86% | 0 |
+| 块召回率 | 88.25% | **88.73%** | +0.48pp |
+| 预测块被解释率 | 90.58% | **90.94%** | +0.36pp |
+| 块文本相似度（全部） | 74.81% | **75.19%** | +0.37pp |
+| 表格 TEDS / 公式相似度 | 91.76% / 67.21% | 同 | 0 |
+| 阅读顺序 tau | 92.94% | 92.59% | −0.35pp |
+
+- 判据通过：caption 两类大涨、`text_block` 未动、TEDS/公式未动。**tau −0.35pp 不是排序退化**——
+  我们块的 `block_seq` 一个都没变，变的只是"被匹配上的集合"变大；用长度门槛砍掉长候选后 tau 回到
+  92.95%，说明这 0.35pp 由极少数元素决定、随门槛离散跳变，不构成质量信号。
+- **精度必须如实记**：新增挂载 58 处，对 GT 逐项核对 → 落在 GT 题注框 24.1%、落在 GT
+  **text_block** 框 41.4%、GT 里两处都对不上 34.5%。即**约四成新指针指向 GT 标的正文**
+  （报版"图在上、正文在下"）——这是几何判题注的天花板，长度门槛只减量、不提纯（见下表）。
+- **产品影响面小**：`caption_block_uids` 的**唯一**消费方是 docs-ui 预览联动
+  （`useWorkspaceLinkage.ts` 的 `captionRefs` 高亮）；canonical / FTS / 向量一律读 `caption`
+  **字段**（`canonical_builder.py:487`），markdown 投影的表格分支同样只读 `caption` 字段。
+  所以错挂不会污染检索文本，只在预览里多一块高亮。
+- 长度门槛取舍（`_MEDIA_CAPTION_MAX_CHARS`，默认 0=不限）：门槛提高会同时砍掉对的和错的，
+  **精确率基本不动**（22.5%~26.5%），代价是召回，故默认不限。
+
+| 长度门槛 | 挂载数 | 落在 GT 题注 | 落在 GT 正文 | 图题注召回 | 表题注召回 | tau |
+|---|---|---|---|---|---|---|
+| 不限 | 58 | 24.1% | 41.4% | 62.67% | 79.25% | 92.59% |
+| ≤100 字 | 49 | 24.5% | 36.7% | 60.00% | 77.36% | 92.59% |
+| ≤80 字 | 43 | 23.3% | 32.6% | 60.00% | 77.36% | 92.59% |
+| ≤60 字 | 40 | 22.5% | 32.5% | 60.00% | 75.47% | 92.95% |
+| ≤40 字 | 34 | 26.5% | 26.5% | 60.00% | 73.58% | 92.95% |
+
+证据：`data/evals/parse_regression/20260918-0534-p2-caption-geo/ab_struct_before.json`
+与 `ab_struct_after.json`（官方 A② 评测器产物；同目录 `20260918-0534-p2-caption-geo` 那次全链跑
+是在几何兜底**空转**的代码上跑的，除证明 Δ0 外无参考价值）。
+
+**A① 不受本项影响（可证）**：A① 读的是 markdown 投影，`_render_node` 的 image/table 分支只读
+`plain_text` / `caption` **字段**，从不解引用 `caption_block_uid(s)`——指针变化不可能改变 markdown 字节。
+
+**踩坑记录：一次"精确 Δ0 的空转"**。P2 首版把几何读取写成 `row["bbox"]`，而结构行里只有
+`bbox_abs_x1..y2` + `page_width/page_height`（没有任何 `bbox` 键）→ 函数在入口就返回空串，
+200 页全链 A/B **每一项都精确 Δ0**（不是"接近 0"）。单元测试却全绿，因为夹具是我自己臆想的
+`bbox` 形状。两条教训：① **精确 Δ0 是"改动没生效"的信号**，不是"改动无害"；② 夹具必须用真实
+行形状——`tests/unit/test_unit_media_caption_geometry.py` 末尾的
+`TestGeometryActuallyFiresEndToEnd` 走真实入口 `build_structured_from_rawfiles` 断言兜底必须产出
+指针，就是为这类"字段名漂移"补的闸。
+
+**顺带确认的提速办法**：评测语料库文档目录留有 `mineru_raw/`，结构层可独立重算
+（`build_structured_index_for_doc`，200 篇 ≈10s），所以 A② 的 A/B 不必重跑 MinerU——50 分钟降到
+1 分钟；A① 仍必须走全链（它吃 markdown）。
+
 ### 历史基线（200 页，2026-09-12，离线重投影口径）
 
 ### 总览
@@ -293,14 +356,14 @@ MinerU+PoPo+structure），结果 **16 项指标 Δ 全 0.00pp，50 个预测 md
 
 ## 这套口径查出的问题（按优先级）
 
-1. **caption 图注大面积没落地**：`figure_caption` 召回仅 10.7%（75 个只捕到 8 个）、
-   `table_caption` 58.5%。我们的 caption 多数不是独立块，而是父节点的 `caption` 文本字段
-   （实测 200 篇：250 个表图节点里 15 个有指针块、50 个只有文本字段）——RAG 侧图注是重要的上下文，
-   值得补成正式块。根因（2026-09-12 代码核查）：caption 文本**只**来自 MinerU 的 `image_caption`
-   字段（`solo_engine.py` 的 `extract_plain_text` image 分支），MinerU 不给就没有任何几何兜底
-   （`collect_media_related_block_refs` 的 needles 为空即直接 return）。另注：VLM 图描述属独立
-   stage `figure_describe`，**不在评测链的 5 个 stage 里**，故本轮评测完全没有图描述（生产有，
-   落 `figure_description`，canonical 会与 caption 拼接进可检索文本）。**此项未修。**
+1. **caption 图注没落地（2026-09-18 P2 已修，13%→62.7% / 58.5%→79.3%）**：09-12 时
+   `figure_caption` 召回仅 10.7%、`table_caption` 58.5%；加几何兜底后 62.67% / 79.25%
+   （A/B 与精度见上节"题注指针"）。历史归因：caption 不是独立块，而是父节点的 `caption` 文本字段
+   + 指针，指针**只**来自 MinerU 的 `image_caption` / `table_caption` 字段，不给就没有兜底。
+   **剩余未修的**：约 34.5% 的 GT 题注仍捕不到（GT 那边没有对应标注文本可对），且新挂载约四成
+   指向正文；要再上一个台阶需要把题注做成**独立块**（而不是父块指针），VLM 图描述属独立 stage
+   `figure_describe`，**不在评测链的 5 个 stage 里**，故评测链完全没有图描述（生产有，落
+   `figure_description`，canonical 会与 caption 拼接进可检索文本）。
 2. **`page_footnote` 等 5 类块的文本被链路吃掉（已修，本次）**：`extract_plain_text` 缺
    `chart` / `page_footnote` / `page_aside_text` / `code` / `algorithm` 五个分支，落到末尾
    `return ""` → `plain_text` 为空 → `build_node_text` 无 content_json 兜底 → canonical chunk 为空
@@ -340,3 +403,16 @@ MinerU+PoPo+structure），结果 **16 项指标 Δ 全 0.00pp，50 个预测 md
   正确性还没量；RAG 检索直接吃这两样，是下一步该补的。
 - **TEDS 不得本地改写**：`_vendor/omnidocbench/table_metric.py` 与官方逐位一致是可比性前提，
   要改行为请改我们自己的输入归一（见该目录 SOURCE.md）。
+- **A① 的阅读顺序含"口径弃权页"（2026-09-18 查明，P3 侦察）**：官方
+  `get_order_paired`（`src/dataset/end2end_dataset.py:240`）里 `gt` 只收
+  `gt_position != [""]` 的项，而 GT 项的 `gt_position` 取 `item['order'] or item['position'][0]`
+  ——**`order == 0` 是 falsy**，于是每个有 order-0 标注的页，那一项被静默丢掉；再加上
+  `read_order_gt = [x for x in read_order_gt if x]` 把 0 值也滤了。
+  实测本批 200 页 `order_edit` 均值 0.1361，其中 **8 页恒为 1.000 满分**
+  （`gt=[4]` 单个表、`pred=[]`：这些页里唯一幸存的 order 项是表，而表匹配项的
+  `pred_position` 为空串，被 `matched` 过滤掉）——**对所有模型一视同仁，谁也拿不到分**。
+  扣掉这 8 页后均值 0.0997。进一步拆：198 页里 116 页 edit=0、50 页"漏块主导但顺序正确"、
+  9 页混合、**真乱序只有 23 页**（其中 newspaper 8、colorful_textbook 4）。
+  结论：**P3（阅读顺序）该按"23 页真乱序"评估，别拿 0.1361 这个含恒 1.0 弃权页的数去对标参考模型的
+  0.1168**（后者是全量榜分数，页集合本就不同）；我们全链的顺序严格继承 MinerU 的 `block_seq`
+  （markdown 投影按 `(page_idx, block_seq)` 排），本身还比 MinerU 高 0.001pp。
