@@ -1,0 +1,383 @@
+"""A 层解析回归一键入口：predict → A②（结构层×2）→ A①（官方镜像）→ 归档 → Δ。
+
+方案与评估见 docs/plan-parse-regression-entry.md，口径定义见 docs/parse-struct-eval.md。
+本脚本只是**编排薄壳**：真正干活的还是既有两个入口（口径一行不改）——
+  scripts/run_omnidocbench_eval.py predict / eval   （A①：页图→解析→markdown→官方评测器）
+  scripts/eval_parse_struct.py                      （A②：jsonl 结构层，两方）
+归档与 Δ 是纯逻辑，在 evals_core.parse_regression（可单测）。
+
+用法：
+  # 全跑（约 1.2–1.5h：predict 52min + A②×2 4min + A① 10–20min）
+  python scripts/run_parse_regression.py --limit 200 --seed 42
+
+  # 干跑：复用现成预测、不跑 18GB 镜像，只验归档与 Δ（~4min）
+  python scripts/run_parse_regression.py --skip-predict --skip-official --limit 50 \\
+      --predictions data/evals/omnidocbench/predictions_eval200
+
+  # 把已有的离线产物入档为"参考基线"（不跑任何评测器）
+  python scripts/run_parse_regression.py --import-official <dir> --import-chain <json> \\
+      --import-mineru <json> --tag baseline-20260913 --note "离线重投影，非同一次解析"
+
+   跳过 predict / A① 必须显式给 --skip-*，且跳过理由会写进 meta 与 summary（不静默）。
+   Δ 不影响退出码（这是评测入口不是 CI 门禁）；页集合不同的两次分不可比，默认不出 Δ。
+"""
+import argparse
+import json
+import os
+import subprocess
+import sys
+import time
+from datetime import datetime
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parents[1]
+SCRIPTS = Path(__file__).resolve().parent
+sys.path.insert(0, str(REPO / "services" / "evals-core" / "src"))
+sys.path.insert(0, str(SCRIPTS))          # 复用 predict 的抽样函数，保证与基线口径完全一致
+
+from evals_core import parse_regression as pr  # noqa: E402
+from run_omnidocbench_eval import PARSE_STAGES, _select_pages  # noqa: E402
+
+DEFAULT_DATA_DIR = REPO / "data" / "omnidocbench"
+DEFAULT_GT = Path("D:/AI/tools/OmniDocBench_data/OmniDocBench.json")
+DEFAULT_LIBRARY_DIR = REPO / "data" / "knowledge_base" / "libraries" / "omnidocbench" / "documents"
+DEFAULT_OUT_ROOT = REPO / "data" / "evals" / "parse_regression"
+EVAL_IMAGE = "ghcr.io/zeng-weijun/omnidocbench-eval:repro-ubuntu2204"
+
+
+def _key(name) -> str:
+    """页名归一键：去图片扩展名，再去可能残留的 .pdf 中缀（与官方 GT 过滤同一套规则）。"""
+    return pr.norm_page(name).replace(".pdf", "")
+
+
+def _run_step(label: str, cmd: list, skipped: list) -> int:
+    print(f"\n=== {label} ===\n$ {' '.join(str(c) for c in cmd)}", flush=True)
+    try:
+        proc = subprocess.run(cmd, text=True, encoding="utf-8", errors="replace")
+    except OSError as exc:
+        print(f"!! {label} 启动失败: {exc}", flush=True)
+        skipped.append(f"{label}: 启动失败 {exc}")
+        return -1
+    if proc.returncode != 0:
+        print(f"!! {label} 退出码 {proc.returncode}", flush=True)
+        skipped.append(f"{label}: 退出码 {proc.returncode}（该步产物可能不完整）")
+    return proc.returncode
+
+
+def _git_env() -> dict:
+    def _git(*args) -> str:
+        try:
+            out = subprocess.run(["git", *args], cwd=str(REPO), capture_output=True,
+                                 text=True, encoding="utf-8", errors="replace", timeout=20)
+            return out.stdout.strip() if out.returncode == 0 else ""
+        except (OSError, subprocess.SubprocessError):
+            return ""
+
+    return {
+        "git_describe": _git("describe", "--tags", "--always", "--dirty"),
+        "git_branch": _git("rev-parse", "--abbrev-ref", "HEAD"),
+        "git_commit": _git("rev-parse", "--short", "HEAD"),
+        "python": sys.version.split()[0],
+    }
+
+
+def _docker_image_id() -> str:
+    try:
+        out = subprocess.run(["docker", "images", "--no-trunc", "--format", "{{.ID}} {{.Repository}}:{{.Tag}}"],
+                             capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30)
+    except (OSError, subprocess.SubprocessError):
+        return ""
+    for line in (out.stdout or "").splitlines():
+        if EVAL_IMAGE in line:
+            return line.split()[0][:24]
+    return ""
+
+
+def _mineru_versions(state_path: Path, library_dir: Path) -> str:
+    """汇总参与本次评分的各篇 mineru_raw/middle.json 版本（版式一致性核查）。"""
+    try:
+        state = json.loads(Path(state_path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return ""
+    seen = {}
+    for item in (state or {}).values():
+        doc_id = str((item or {}).get("doc_id") or "")
+        if not doc_id:
+            continue
+        middle = Path(library_dir) / doc_id / "parsed" / "mineru_raw" / "middle.json"
+        try:
+            version = str(json.loads(middle.read_text(encoding="utf-8")).get("_version_name") or "")
+        except (OSError, ValueError):
+            continue
+        if version:
+            seen[version] = seen.get(version, 0) + 1
+    if not seen:
+        return ""
+    return " / ".join(f"{v}(n={n})" for v, n in sorted(seen.items()))
+
+
+def _filter_gt(gt_path: Path, keys: set, out_path: Path) -> int:
+    """只留选中页的 GT：A② 的 --limit 是"GT 顺序前 N 页"，与抽样口径不同，必须显式给页集合。"""
+    samples = json.loads(Path(gt_path).read_text(encoding="utf-8"))
+    kept = [s for s in samples
+            if _key(Path(str((s.get("page_info") or {}).get("image_path") or "")).name) in keys]
+    pr.write_json(out_path, kept)
+    return len(kept)
+
+
+def _build_delta(root: Path, spec: str, mode: str, cur_official: dict, cur_struct: dict,
+                 cur_pages: list, baseline_id: str = "") -> dict:
+    base_dir = pr.resolve_baseline(root, spec)
+    if base_dir is None:
+        return {"gate": "none", "reason": f"无基线（{spec} 指针不存在或 --baseline none）；本次即基线"}
+    base = pr.load_run(base_dir)
+    rel = pr.page_set_relation(cur_pages, base["meta"].get("page_ids") or [])
+    delta = {"baseline_id": baseline_id or base_dir.name, "baseline_dir": str(base_dir),
+             "relation": rel, "mode": mode}
+    if base["meta"].get("kind") != "run":
+        # 基线是离线重投影产物（非同一次解析，方案修正 2）：Δ 量的是"尺子差"，不是回归
+        delta["note"] = (f"基线 {base_dir.name} 是离线重投影产物（非同一次 fresh 解析）——"
+                         f"本次 Δ 是换量尺的差，**不可当回归判据**")
+    if not rel["equal"] and mode != "intersect":
+        delta["gate"] = "none"
+        delta["reason"] = (f"页集合不同（本次 {rel['cur_count']} / 基线 {rel['base_count']} / 交集 "
+                           f"{rel['intersection']}）——少评几页会虚高或虚低，默认不出 Δ；"
+                           f"确要比可加 --delta-mode intersect（只重算 A①，且非官方重跑口径）")
+        return delta
+    delta["gate"] = "ok"
+    if rel["equal"]:
+        base_official, base_struct = base["official"], base["struct_chain"]
+    else:
+        # 交集重算：官方逐页/逐表产物取平均；A② 产物只有整轮聚合、没有逐块明细，无法重算
+        base_official = pr.recompute_official_by_intersection(base_dir / "official", set(cur_pages))
+        base_struct = {}
+        delta["note"] = ((delta.get("note", "") + "；") if delta.get("note") else "") + \
+            "A② 结构层无法按交集重算（产物无逐块明细），该项只在页集合相同时才比"
+    delta["groups"] = {
+        "official": pr.compare(cur_official, base_official),
+        "struct_chain": pr.compare(cur_struct, base_struct) if base_struct else [],
+    }
+    return delta
+
+
+def _import_mode(args) -> int:
+    """把已有离线产物入档（不做任何评测），meta 如实标注来源与非 fresh 事实。"""
+    ts = datetime.now().strftime("%Y%m%d-%H%M")
+    run_id = args.tag or pr.run_id_for(ts, "import")   # 入档用 --tag 当目录名（如 baseline-20260913）
+    root = Path(args.out_root)
+    run_dir = root / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+
+    official = pr.load_official_metrics(Path(args.import_official)) if args.import_official else {}
+    copied = pr.copy_official(Path(args.import_official), run_dir / "official") if args.import_official else 0
+    chain_json = Path(args.import_chain) if args.import_chain else None
+    mineru_json = Path(args.import_mineru) if args.import_mineru else None
+    struct_chain = struct_mineru = {}
+    if chain_json and chain_json.is_file():
+        struct_chain = pr.load_structure_metrics(chain_json)
+        pr.write_json(run_dir / "struct_chain.json", json.loads(chain_json.read_text(encoding="utf-8")))
+    if mineru_json and mineru_json.is_file():
+        struct_mineru = pr.load_structure_metrics(mineru_json)
+        pr.write_json(run_dir / "struct_mineru.json", json.loads(mineru_json.read_text(encoding="utf-8")))
+
+    pages = set(pr.official_page_set(run_dir / "official"))
+    if chain_json and chain_json.is_file():
+        pages |= pr.structure_page_set(json.loads(chain_json.read_text(encoding="utf-8")))
+    pages = sorted(pages)
+    # 三方表的两列固定基线（参考模型 / MinerU 单独），有就给，没有就空着并写明原因
+    official_ref = pr.load_official_metrics(Path(args.sources_ref)) if args.sources_ref else {}
+    official_mineru = pr.load_official_metrics(Path(args.sources_mineru)) if args.sources_mineru else {}
+    meta = {
+        "run_id": run_id, "ts": ts, "kind": "offline-reprojection",
+        "note": args.note or "离线产物入档：非同一次解析（见 docs/plan-parse-regression-entry.md 修正 2）",
+        "args": {"import_official": args.import_official, "import_chain": args.import_chain,
+                 "import_mineru": args.import_mineru, "tag": args.tag},
+        "page_ids": pages, "page_ids_hash": pr.page_ids_hash(pages), "pages_scored": len(pages),
+        "stages": PARSE_STAGES, "environment": _git_env(),
+        "sources": {"official": args.import_official, "chain": args.import_chain,
+                    "mineru": args.import_mineru, "ref_official": args.sources_ref,
+                    "mineru_official": args.sources_mineru},
+        "skipped": ["predict 未跑（入档模式）", "A② 未跑（入档模式）", "A① 未跑（入档模式）"],
+    }
+    pr.write_json(run_dir / "meta.json", meta)
+    (run_dir / "summary.md").write_text(
+        pr.render_summary(meta, official, struct_chain, struct_mineru, official_mineru, official_ref),
+        encoding="utf-8")
+    print(f"入档完成: {run_dir}（官方产物 {copied} 个文件，页 {len(pages)}）")
+    print(f"  meta   : {run_dir / 'meta.json'}")
+    print(f"  summary: {run_dir / 'summary.md'}")
+    return 0
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="A 层解析回归一键入口（A① 官方 markdown + A② 结构层）")
+    ap.add_argument("--limit", type=int, default=200, help="抽样页数（与旧基线同 seed 时可嵌套比对）")
+    ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--tag", default="", help="本次 run 命名（默认只有时间戳）")
+    ap.add_argument("--predict-mode", choices=["in-process", "http"], default="in-process")
+    ap.add_argument("--docs-api", default="http://localhost:8790", help="仅 --predict-mode http 用")
+    ap.add_argument("--skip-predict", action="store_true")
+    ap.add_argument("--skip-official", action="store_true", help="不跑 18GB 镜像（A① 空着）")
+    ap.add_argument("--predictions", default="", help="预测目录（--skip-predict 时指向现成目录）")
+    ap.add_argument("--data-dir", default=str(DEFAULT_DATA_DIR))
+    ap.add_argument("--gt", default=str(DEFAULT_GT))
+    ap.add_argument("--library", default="omnidocbench")
+    ap.add_argument("--library-dir", default=str(DEFAULT_LIBRARY_DIR))
+    ap.add_argument("--out-root", default=str(DEFAULT_OUT_ROOT))
+    ap.add_argument("--baseline", default="baseline", help="baseline(默认) | latest | none | <run_id> | 目录")
+    ap.add_argument("--delta-mode", choices=["strict", "intersect"], default="strict",
+                    help="页集合不等时：strict=不出 Δ（默认）；intersect=按交集重算 A①（非官方口径）")
+    ap.add_argument("--set-baseline", action="store_true", help="把本次 run 钉为基线")
+    ap.add_argument("--sources-ref", default="", help="参考模型官方产物目录（三方表第一列，固定基线）")
+    ap.add_argument("--sources-mineru", default="", help="MinerU 单独官方产物目录（三方表第二列）")
+    ap.add_argument("--import-official", default="", help="入档模式：官方产物目录")
+    ap.add_argument("--import-chain", default="", help="入档模式：A② 我们全链 structure_result.json")
+    ap.add_argument("--import-mineru", default="", help="入档模式：A② MinerU 原生 structure_result.json")
+    ap.add_argument("--note", default="", help="入档模式：写进 meta/summary 的一句话说明")
+    args = ap.parse_args()
+
+    if args.import_official or args.import_chain:
+        return _import_mode(args)
+
+    root = Path(args.out_root)
+    gt_path = Path(args.gt)
+    if not gt_path.is_file():
+        raise SystemExit(f"GT 不存在: {gt_path}")
+    data_dir, library_dir = Path(args.data_dir), Path(args.library_dir)
+
+    ts = datetime.now().strftime("%Y%m%d-%H%M")
+    run_id = pr.run_id_for(ts, args.tag)
+    run_dir = root / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+    preds_dir = Path(args.predictions) if args.predictions else run_dir / "predictions"
+    timing, skipped = {}, []
+
+    # ① 抽样（与 predict 同一个函数、同一个 seed：抽样可嵌套是"小批能与基线比"的前提）
+    pages = _select_pages(data_dir, args.limit, "", args.seed)
+    page_keys = {_key(p.name) for p in pages}
+    print(f"抽样 {len(pages)} 页（limit={args.limit} seed={args.seed}）")
+    gt_subset = run_dir / "gt_subset.json"
+    kept = _filter_gt(gt_path, page_keys, gt_subset)
+    print(f"GT 子集: {kept} 页 → {gt_subset}")
+
+    # ② predict
+    if args.skip_predict:
+        reason = f"predict 跳过（--skip-predict，复用 {preds_dir}）"
+        print(f"!! {reason}", flush=True)
+        skipped.append(reason)
+    else:
+        cmd = [sys.executable, str(SCRIPTS / "run_omnidocbench_eval.py"), "predict",
+               "--data-dir", str(data_dir), "--predictions", str(preds_dir),
+               "--library", args.library, "--limit", str(args.limit), "--seed", str(args.seed)]
+        cmd += ["--in-process"] if args.predict_mode == "in-process" else ["--docs-api", args.docs_api]
+        t0 = time.time()
+        _run_step("② predict（页图→解析→markdown）", cmd, skipped)
+        timing["predict"] = time.time() - t0
+
+    # ③ A② ×2（chain / mineru）——都用同一份 GT 子集
+    state_json = preds_dir / "state.json"
+    for source, name in (("chain", "struct_chain"), ("mineru", "struct_mineru")):
+        raw_dir = run_dir / f"_{name}_raw"
+        cmd = [sys.executable, str(SCRIPTS / "eval_parse_struct.py"), "--gt", str(gt_subset),
+               "--state", str(state_json), "--library-dir", str(library_dir),
+               "--out", str(raw_dir), "--pred-source", source]
+        t0 = time.time()
+        _run_step(f"③ A② 结构层（{source}）", cmd, skipped)
+        timing[f"struct_{source}"] = time.time() - t0
+        result_json = raw_dir / "structure_result.json"
+        if result_json.is_file():
+            (run_dir / f"{name}.json").write_text(result_json.read_text(encoding="utf-8"), encoding="utf-8")
+            report = raw_dir / "structure_report.md"
+            if report.is_file():
+                (run_dir / f"{name}_report.md").write_text(report.read_text(encoding="utf-8"), encoding="utf-8")
+        else:
+            skipped.append(f"A② {source}: 无 structure_result.json")
+
+    # ④ A① 官方评测器
+    if args.skip_official:
+        reason = "A① 官方镜像跳过（--skip-official）"
+        print(f"!! {reason}", flush=True)
+        skipped.append(reason)
+    else:
+        cmd = [sys.executable, str(SCRIPTS / "run_omnidocbench_eval.py"), "eval",
+               "--data-dir", str(data_dir), "--predictions", str(preds_dir), "--out", str(run_dir / "official")]
+        t0 = time.time()
+        _run_step("④ A① 官方 markdown 评测器（Docker）", cmd, skipped)
+        timing["official"] = time.time() - t0
+
+    # ⑤ 归档
+    struct_chain = pr.load_structure_metrics(run_dir / "struct_chain.json")
+    struct_mineru = pr.load_structure_metrics(run_dir / "struct_mineru.json")
+    official = pr.load_official_metrics(run_dir / "official")
+    pages_official = pr.official_page_set(run_dir / "official")
+    pages_chain = pr.structure_page_set(json.loads((run_dir / "struct_chain.json").read_text(encoding="utf-8"))
+                                        if (run_dir / "struct_chain.json").is_file() else {})
+    scored = sorted(pages_official | pages_chain)
+    if not scored:                     # 两步都没成（全跳过）→ 退回抽样集合，便于人工核对
+        scored = sorted(page_keys)
+        skipped.append("两层都没产出分数，page_ids 回落为抽样集合")
+    official_ref = pr.load_official_metrics(Path(args.sources_ref)) if args.sources_ref else {}
+    official_mineru = pr.load_official_metrics(Path(args.sources_mineru)) if args.sources_mineru else {}
+    meta = {
+        "run_id": run_id, "ts": ts, "kind": "run",
+        "args": {"limit": args.limit, "seed": args.seed, "tag": args.tag,
+                 "predict_mode": args.predict_mode, "skip_predict": args.skip_predict,
+                 "skip_official": args.skip_official, "predictions": str(preds_dir),
+                 "data_dir": str(data_dir), "gt": str(gt_path), "library": args.library,
+                 "library_dir": str(library_dir)},
+        "page_ids": scored, "page_ids_hash": pr.page_ids_hash(scored), "pages_scored": len(scored),
+        "pages_sampled": len(pages), "pages_official": len(pages_official), "pages_struct_chain": len(pages_chain),
+        "stages": PARSE_STAGES,
+        "environment": {**_git_env(), "eval_image": EVAL_IMAGE, "eval_image_id": _docker_image_id()},
+        "mineru_version": _mineru_versions(state_json, library_dir),
+        "timing": {k: round(v, 1) for k, v in timing.items()},
+        "sources": {"ref_official": args.sources_ref, "mineru_official": args.sources_mineru},
+        "gt_subset": str(gt_subset), "skipped": skipped,
+    }
+    delta = _build_delta(root, args.baseline, args.delta_mode, official, struct_chain, scored)
+    pr.write_json(run_dir / "meta.json", meta)
+    (run_dir / "summary.md").write_text(
+        pr.render_summary(meta, official, struct_chain, struct_mineru, official_mineru, official_ref, delta),
+        encoding="utf-8")
+    pointer = {"run_id": run_id, "dir": run_id, "ts": ts, "limit": args.limit, "seed": args.seed,
+               "page_ids_hash": meta["page_ids_hash"], "kind": "run"}
+    pr.write_pointer(root, "latest.json", pointer)
+    if args.set_baseline:
+        pr.write_pointer(root, "baseline.json", pointer)
+        print(f"基线指针已更新（--set-baseline）→ {run_id}")
+    elif pr.read_pointer(root, "baseline.json") is None and not args.skip_predict:
+        # 首次"真跑"（含 predict）自动成为基线；--skip-predict 的复用式干跑不当基线候选
+        pr.write_pointer(root, "baseline.json", pointer)
+        print(f"基线指针初始化（首次真跑）→ {run_id}")
+    elif pr.read_pointer(root, "baseline.json") is None:
+        print("基线指针未设：本次是 --skip-predict 的复用式跑（要钉基线请加 --set-baseline）")
+
+    # ⑥ 控制台 Δ
+    print("\n=== A① 官方口径（我们） ===")
+    for key, val in official.items():
+        print(f"  {pr.METRIC_LABELS.get(key, key):22} {pr.fmt_metric(val, key in pr.HIGHER_IS_BETTER)}")
+    print("\n=== A② 结构层（我们全链） ===")
+    for key, val in struct_chain.items():
+        print(f"  {pr.METRIC_LABELS.get(key, key):22} {pr.fmt_metric(val, True)}")
+    print(f"\n=== Δ vs 基线 {delta.get('baseline_id', '—')} ===")
+    if delta.get("gate") != "ok":
+        print(f"  不出 Δ：{delta.get('reason', '')}")
+    else:
+        rel = delta["relation"]
+        if not rel["equal"]:
+            print(f"  ⚠ 页集合不同（本次 {rel['cur_count']} / 基线 {rel['base_count']} / 交集 {rel['intersection']}）"
+                  f"——按交集重算，**非官方重跑口径**")
+        for row in (delta.get("groups") or {}).get("official", []):
+            print(f"  [A①] {row['label']:22} 本次 {pr.fmt_metric(row['cur'], row['higher_is_better']):>8}"
+                  f"  基线 {pr.fmt_metric(row['base'], row['higher_is_better']):>8}  Δ {pr.fmt_delta(row)}")
+        for row in (delta.get("groups") or {}).get("struct_chain", []):
+            print(f"  [A②] {row['label']:22} 本次 {pr.fmt_metric(row['cur'], True):>8}"
+                  f"  基线 {pr.fmt_metric(row['base'], True):>8}  Δ {pr.fmt_delta(row)}")
+    print(f"\n归档: {run_dir}")
+    print(f"  meta   : {run_dir / 'meta.json'}")
+    print(f"  summary: {run_dir / 'summary.md'}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
