@@ -174,7 +174,10 @@ def _build_delta(root: Path, spec: str, mode: str, cur_official: dict, cur_struc
                  cur_pages: list, baseline_id: str = "") -> dict:
     base_dir = pr.resolve_baseline(root, spec)
     if base_dir is None:
-        return {"gate": "none", "reason": f"无基线（{spec} 指针不存在或 --baseline none）；本次即基线"}
+        reason = ("已指定 --baseline none：本次不出 Δ（要对比就去掉这个参数）"
+                  if spec == "none" else
+                  f"首次跑：{spec} 指针不存在——本次即成为基线，Δ 从下次跑开始")
+        return {"gate": "none", "reason": reason}
     base = pr.load_run(base_dir)
     rel = pr.page_set_relation(cur_pages, base["meta"].get("page_ids") or [])
     delta = {"baseline_id": baseline_id or base_dir.name, "baseline_dir": str(base_dir),

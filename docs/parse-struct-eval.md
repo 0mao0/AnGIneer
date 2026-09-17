@@ -106,7 +106,7 @@ python scripts/eval_parse_struct.py \
 新做的只有编排 + 归档 + Δ（`evals_core/parse_regression.py` + `scripts/run_parse_regression.py`）。
 
 ```bash
-# 【一键】全跑：predict → A②×2 → A① → 归档 → Δ（predict 52min + A② 4min + A① 10–20min ≈1.2–1.5h）
+# 【一键】全跑：predict → A②×2 → A① → 归档 → Δ（200 页实测 ≈50min：predict 45min + A② 38s×2 + A① 3.2min）
 python scripts/run_parse_regression.py --limit 200 --seed 42
 
 # 干跑：复用现成预测、不跑 18GB 镜像（~4min，只验归档与 Δ）
@@ -180,7 +180,29 @@ MinerU 版本、各步耗时、跳过/失败项。
 `equation_isolated`，我们合成 1 个块）。逐块硬比会把"整段 vs 单行"算成全错（公式一度只有 0.07），
 故把互相覆盖的 GT 块归为一组、两侧各自拼接后再比一次。
 
-## 基线（200 页，2026-09-12）
+## 基线
+
+### fresh 基线（200 页，2026-09-17，一键入口首次跑）
+
+`scripts/run_parse_regression.py --limit 200 --seed 42`（v0.2.65、`page_ids_hash=fee2959a7a67`，
+与既有基线同页集合），归档 `data/evals/parse_regression/20260917-0837/`（逐类目/逐文档类型的明细
+见同目录 `struct_chain_report.md`）。
+
+| 指标 | 我们全链 | MinerU 原生 content_list | 离线重投影基线（09-12 jsonl） |
+|---|---|---|---|
+| 块召回率 | 88.25% | 77.79% | 88.25% |
+| 预测块被解释率 | 90.58% | 81.95% | 90.58% |
+| 块文本相似度（命中项） | 85.44% | 83.84% | 85.45% |
+| 块文本相似度（全部） | 74.68% | 63.08% | 74.69% |
+| 表格 TEDS | **0.9176** | 0.9176 | 0.9172 |
+| 公式相似度 | 67.21% | 67.21% | 67.26% |
+| 阅读顺序（相邻对 / tau） | 97.35% / 0.9294 | 97.30% / 0.9272 | 97.35% / 0.9294 |
+
+（MinerU 两列 TEDS/公式相同是已知事实：我们的 `table_html` 是 MinerU HTML 原文搬运、公式文本同源，
+差异只在块切分。fresh 列与离线列逐项差 ≤0.06pp → 那两处修复不影响本批 200 页的可评指标，
+且"重投影 vs fresh"在结构层同样同尺。）
+
+### 历史基线（200 页，2026-09-12，离线重投影口径）
 
 ### 总览
 
