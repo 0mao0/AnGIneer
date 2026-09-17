@@ -403,12 +403,20 @@ def render_summary(meta: dict, official: dict, struct_chain: dict, struct_mineru
                 lines.append(f"  - {row['label']}：我们 {_fmt_metric(row['metric'], row['ours'])} vs "
                              f"{row['rival_name']} {_fmt_metric(row['metric'], row['rival'])}"
                              f"（差 {row['gap'] * 100:.2f}pp）——{row.get('hint', '')}")
-            for cat in data.get("weak_categories", []):
-                lines.append(f"  - 最差类目 {cat['name']}：召回率 {cat['recall'] * 100:.1f}%"
-                             + _rival_note(cat.get("mineru")))
-            for src in data.get("weak_sources", []):
-                lines.append(f"  - 最差文档类型 {src['name']}：召回率 {src['recall'] * 100:.1f}%"
-                             + _rival_note(src.get("mineru")))
+        for block, title in (("category", "逐类目"), ("source", "逐文档类型")):
+            data = concl.get(block) or {}
+            if not data.get("headline"):
+                continue
+            lines.append(f"- {data['headline']}")
+            for row in data.get("worse", []):
+                lines.append(f"  - {title}落后于 MinerU {row['name']}：我们 {row['ours'] * 100:.1f}% vs "
+                             f"{row['rival'] * 100:.1f}%（{row['gap'] * 100:+.1f}pp）")
+            for row in data.get("better", []):
+                lines.append(f"  - {title}领先于 MinerU {row['name']}：我们 {row['ours'] * 100:.1f}% vs "
+                             f"{row['rival'] * 100:.1f}%（{row['gap'] * 100:+.1f}pp）")
+            for item in data.get("weakest", []):
+                lines.append(f"  - 最差{title} {item['name']}：{item['recall'] * 100:.1f}%"
+                             + _rival_note(item.get("mineru")))
         if concl.get("noise_note"):
             lines += ["", f"（{concl['noise_note']}）"]
 
@@ -567,33 +575,50 @@ def build_conclusions(official: dict, struct_chain: dict, struct_mineru: dict,
             top = losses[0]
             head += (f"；落后最多的是{top['label']}（我们 {_fmt_metric(top['metric'], top['ours'])} vs "
                      f"{_fmt_metric(top['metric'], top['rival'])}）")
-        cats = sorted([c for c in (by_category or []) if c.get("recall") is not None],
-                      key=lambda c: c["recall"])[:3]
-        srcs = sorted([s for s in (by_data_source or []) if s.get("block_recall") is not None],
-                      key=lambda s: s["block_recall"])[:3]
+        # all_* 是全部（用于"共几项"），cats/srcs 只取最弱 3 项（用于列举）
+        all_cats = sorted([c for c in (by_category or []) if c.get("recall") is not None],
+                          key=lambda c: c["recall"])
+        all_srcs = sorted([s for s in (by_data_source or []) if s.get("block_recall") is not None],
+                          key=lambda s: s["block_recall"])
+        cats, srcs = all_cats[:3], all_srcs[:3]
         cat_rival = {r.get("category"): r for r in (mineru_category or [])}
         src_rival = {r.get("data_source"): r for r in (mineru_source or [])}
         cat_gap = _breakdown_gaps(by_category, mineru_category, "category", "recall")
         src_gap = _breakdown_gaps(by_data_source, mineru_source, "data_source", "block_recall")
-        total_cat = len(cat_gap["rows"])
-        tied_cat = total_cat - len(cat_gap["worse"]) - len(cat_gap["better"])
-        if total_cat:
-            head += f"；逐类目 {total_cat} 项里我们落后 {len(cat_gap['worse'])} 项、与 MinerU 同分 {tied_cat} 项"
         out["struct"] = {
-            "headline": head,
+            "headline": head,          # 只讲 A② 的 8 个指标，逐类目/逐文档类型各自的结论另放
             "worse": [{**r, "hint": METRIC_HINTS.get(r["metric"], "")} for r in losses],
             "best": [r["label"] for r in wins],
-            # 附上 MinerU 同项：光看绝对值会把"两边都没接住的类目"误读成"我们的短板"
-            "weak_categories": [
-                {"name": c["category"], "recall": c["recall"],
-                 "mineru": (cat_rival.get(c["category"]) or {}).get("recall")} for c in cats],
-            "weak_sources": [
-                {"name": s["data_source"], "recall": s["block_recall"],
-                 "mineru": (src_rival.get(s["data_source"]) or {}).get("block_recall")} for s in srcs],
-            # 逐类目/逐文档类型的"好还是坏"要对着 MinerU 同口径看，绝对值本身没有判据
-            "category_vs_mineru": cat_gap,
-            "source_vs_mineru": src_gap,
         }
+        if cats:      # 有逐类目数据就出这段：最差项靠自己数据就能说，vs MinerU 是对手在场时的加料
+            total_cat = len(cat_gap["rows"])
+            tied = total_cat - len(cat_gap["worse"]) - len(cat_gap["better"])
+            weakest = [{"name": c["category"], "recall": c["recall"],
+                        "mineru": (cat_rival.get(c["category"]) or {}).get("recall")} for c in cats]
+            head_cat = (f"逐类目 {total_cat} 项里我们落后 {len(cat_gap['worse'])} 项、"
+                        f"领先 {len(cat_gap['better'])} 项、与 MinerU 同分 {tied} 项"
+                        if total_cat else f"逐类目 {len(all_cats)} 项（无 MinerU 同口径明细，只列最弱项）")
+            if weakest:
+                w0 = weakest[0]
+                head_cat += f"；召回最低的是 {w0['name']}（{w0['recall'] * 100:.1f}%"
+                head_cat += "）" if w0.get("mineru") is None else f"，MinerU 同项 {w0['mineru'] * 100:.1f}%）"
+            out["category"] = {"headline": head_cat, "weakest": weakest,
+                               "worse": cat_gap["worse"], "better": cat_gap["better"]}
+        if srcs:
+            total_src = len(src_gap["rows"])
+            tied_src = total_src - len(src_gap["worse"]) - len(src_gap["better"])
+            weakest_s = [{"name": x["data_source"], "recall": x["block_recall"], "pages": x.get("pages"),
+                          "mineru": (src_rival.get(x["data_source"]) or {}).get("block_recall")} for x in srcs]
+            head_src = (f"逐文档类型 {total_src} 类：我们领先 {len(src_gap['better'])} 类、"
+                        f"落后 {len(src_gap['worse'])} 类、同分 {tied_src} 类"
+                        if total_src else f"逐文档类型 {len(all_srcs)} 类（无 MinerU 同口径明细，只列最低项）")
+            if weakest_s:
+                w0 = weakest_s[0]
+                head_src += (f"；最低的是 {w0['name']}（{w0['recall'] * 100:.1f}%"
+                             + (f"，MinerU 同项 {w0['mineru'] * 100:.1f}%" if w0.get("mineru") is not None else "")
+                             + (f"，{w0['pages']} 页样本" if w0.get("pages") else "") + "）")
+            out["source"] = {"headline": head_src, "weakest": weakest_s,
+                             "worse": src_gap["worse"], "better": src_gap["better"]}
     return out
 
 

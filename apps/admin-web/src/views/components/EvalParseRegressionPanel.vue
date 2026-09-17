@@ -246,36 +246,9 @@
                   <span class="epr-dim">——{{ w.hint }}</span>
                 </li>
               </ul>
-              <ul class="epr-conclusion__list">
-                <li v-for="c in detail.run.conclusions.struct.weak_categories || []" :key="c.name">
-                  <b>最差类目</b> {{ c.name }}：块召回率 {{ pct(c.recall) }}
-                  <span v-if="c.mineru != null" class="epr-dim">
-                    （MinerU 同项 {{ pct(c.mineru) }}——{{ sameAsRival(c) ? '两边都没接住，属类目本身难/未建模，不是我们的短板'
-                                                                 : '我们明显更低，是短板' }}）
-                  </span>
-                </li>
-                <li v-for="s in detail.run.conclusions.struct.weak_sources || []" :key="s.name">
-                  <b>最差文档类型</b> {{ s.name }}：块召回率 {{ pct(s.recall) }}
-                  <span v-if="s.mineru != null" class="epr-dim">（MinerU 同项 {{ pct(s.mineru) }}）</span>
-                </li>
-              </ul>
-              <ul v-if="detail.run.conclusions.struct.category_vs_mineru?.worse?.length ||
-                        detail.run.conclusions.struct.category_vs_mineru?.better?.length ||
-                        detail.run.conclusions.struct.source_vs_mineru?.worse?.length"
-                  class="epr-conclusion__list">
-                <li v-for="r in detail.run.conclusions.struct.category_vs_mineru?.worse || []" :key="'cw-' + r.name">
-                  <b>类目落后于 MinerU</b> {{ r.name }}：我们 {{ pct(r.ours) }} vs {{ pct(r.rival) }}
-                  （{{ (r.gap * 100).toFixed(1) }}pp）
-                  <span class="epr-dim">——该类块的捕获/类目映射相对对手偏弱，优先查这里</span>
-                </li>
-                <li v-for="r in detail.run.conclusions.struct.category_vs_mineru?.better || []" :key="'cb-' + r.name">
-                  <b>类目领先于 MinerU</b> {{ r.name }}：我们 {{ pct(r.ours) }} vs {{ pct(r.rival) }}
-                  （+{{ (r.gap * 100).toFixed(1) }}pp）
-                </li>
-                <li v-for="r in detail.run.conclusions.struct.source_vs_mineru?.worse || []" :key="'sw-' + r.name">
-                  <b>文档类型落后于 MinerU</b> {{ r.name }}：{{ pct(r.ours) }} vs {{ pct(r.rival) }}
-                </li>
-              </ul>
+              <p v-if="!detail.run.conclusions.struct.worse?.length" class="epr-conclusion__head">
+                8 项指标上没有落后项（逐类目/逐文档类型的结论见各自段落）。
+              </p>
               <p v-if="detail.run.conclusions.noise_note" class="epr-conclusion__note">
                 {{ detail.run.conclusions.noise_note }}
               </p>
@@ -286,6 +259,29 @@
           <div v-if="detail.run.by_category?.length" class="epr-section">
             <h4>A② 逐类目 · 块召回率（我们全链）</h4>
             <div ref="categoryChartEl" class="epr-chart" style="height: 380px" />
+            <div v-if="detail.run.conclusions?.category" class="epr-conclusion">
+              <div class="epr-conclusion__title">结论 · 逐类目</div>
+              <p class="epr-conclusion__head">{{ detail.run.conclusions.category.headline }}</p>
+              <ul class="epr-conclusion__list">
+                <li v-for="r in detail.run.conclusions.category.worse || []" :key="'cw-' + r.name">
+                  <b>落后于 MinerU</b> {{ r.name }}：我们 {{ pct(r.ours) }} vs {{ pct(r.rival) }}
+                  （{{ (r.gap * 100).toFixed(1) }}pp）
+                  <span class="epr-dim">——该类块的捕获/类目映射相对对手偏弱，优先查这里</span>
+                </li>
+                <li v-for="r in detail.run.conclusions.category.better || []" :key="'cb-' + r.name">
+                  <b>领先于 MinerU</b> {{ r.name }}：我们 {{ pct(r.ours) }} vs {{ pct(r.rival) }}
+                  （+{{ (r.gap * 100).toFixed(1) }}pp）
+                </li>
+                <li v-for="c in (detail.run.conclusions.category.weakest || []).slice(1)" :key="'wk-' + c.name">
+                  <b>召回偏低</b> {{ c.name }}：{{ pct(c.recall) }}
+                  <span v-if="c.mineru != null" class="epr-dim">
+                    （MinerU 同项 {{ pct(c.mineru) }}——{{ sameAsRival(c) ? '两边都没接住，属类目本身难/未建模'
+                                                                     : '我们更低，是短板' }}）
+                  </span>
+                </li>
+              </ul>
+            </div>
+
             <table class="epr-table">
               <thead>
                 <tr>
@@ -313,6 +309,20 @@
           <div v-if="detail.run.by_data_source?.length" class="epr-section">
             <h4>A② 逐文档类型 · 块召回率</h4>
             <div ref="sourceChartEl" class="epr-chart" style="height: 300px" />
+            <div v-if="detail.run.conclusions?.source" class="epr-conclusion">
+              <div class="epr-conclusion__title">结论 · 逐文档类型</div>
+              <p class="epr-conclusion__head">{{ detail.run.conclusions.source.headline }}</p>
+              <ul class="epr-conclusion__list">
+                <li v-for="r in detail.run.conclusions.source.worse || []" :key="'sw-' + r.name">
+                  <b>落后于 MinerU</b> {{ r.name }}：我们 {{ pct(r.ours) }} vs {{ pct(r.rival) }}
+                </li>
+                <li v-for="x in (detail.run.conclusions.source.weakest || []).slice(1)" :key="'wk-' + x.name">
+                  <b>召回偏低</b> {{ x.name }}：{{ pct(x.recall) }}
+                  <span v-if="x.mineru != null" class="epr-dim">（MinerU 同项 {{ pct(x.mineru) }}）</span>
+                </li>
+              </ul>
+            </div>
+
             <table class="epr-table">
               <thead>
                 <tr>
@@ -402,13 +412,12 @@ interface RunPayload {
   by_data_source_mineru?: SourceRow[]
   conclusions?: {
     noise_note?: string
+    category?: BreakdownBlock
+    source?: BreakdownBlock
     official?: { headline: string; best?: string[]; worse?: ConclRow[] }
     struct?: {
       headline: string; best?: string[]; worse?: ConclRow[]
-      weak_categories?: Array<{ name: string; recall: number | null; mineru?: number | null }>
-      weak_sources?: Array<{ name: string; recall: number | null; mineru?: number | null }>
-      category_vs_mineru?: GapRow
-      source_vs_mineru?: GapRow
+
     }
   }
   state?: string
@@ -417,10 +426,11 @@ interface ConclRow {
   metric: string; label: string; ours: number | null; rival: number | null
   rival_name: string; gap: number; verdict: string; hint?: string
 }
-interface GapRow {
-  rows?: Array<{ name: string; ours: number | null; rival: number | null; gap: number; verdict: string }>
-  worse?: Array<{ name: string; ours: number | null; rival: number | null; gap: number; verdict: string }>
-  better?: Array<{ name: string; ours: number | null; rival: number | null; gap: number; verdict: string }>
+interface BreakdownBlock {
+  headline: string
+  weakest?: Array<{ name: string; recall: number | null; pages?: number; mineru?: number | null }>
+  worse?: Array<{ name: string; ours: number | null; rival: number | null; gap: number }>
+  better?: Array<{ name: string; ours: number | null; rival: number | null; gap: number }>
 }
 interface RunDetail {
   run: RunPayload

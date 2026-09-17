@@ -239,14 +239,18 @@ class TestConclusions(unittest.TestCase):
         self.assertNotIn("struct", out)
         self.assertIn("噪声底", out["noise_note"])
 
-    def test_struct_weak_categories_sorted_ascending_top3(self):
+    def test_breakdown_blocks_are_separate_from_struct(self):
+        # 逐类目/逐文档类型的结论各自成段（各放自己图下面），A② 段只讲 8 个指标
         cats = [{"category": "a", "recall": 0.5}, {"category": "b", "recall": 0.0},
                 {"category": "c", "recall": 0.9}, {"category": "d", "recall": 0.25}]
         srcs = [{"data_source": "x", "block_recall": 0.7}, {"data_source": "y", "block_recall": 0.2}]
         out = self._concl(by_category=cats, by_data_source=srcs)
-        self.assertEqual([c["name"] for c in out["struct"]["weak_categories"]], ["b", "d", "a"])
-        self.assertEqual([s["name"] for s in out["struct"]["weak_sources"]], ["y", "x"])
         self.assertIn("领先 1 项", out["struct"]["headline"])
+        self.assertNotIn("weak_categories", out["struct"])          # 不再塞进 A② 段
+        self.assertEqual([c["name"] for c in out["category"]["weakest"]], ["b", "d", "a"])
+        self.assertEqual([s["name"] for s in out["source"]["weakest"]], ["y", "x"])
+        self.assertIn("逐类目 4 项", out["category"]["headline"])
+        self.assertIn("逐文档类型 2 类", out["source"]["headline"])
 
     def test_noise_note_always_present(self):
         self.assertIn("噪声底", self._concl()["noise_note"])
@@ -263,13 +267,13 @@ class TestConclusions(unittest.TestCase):
         mineru_srcs = [{"data_source": "book", "block_recall": 0.806}]
         out = pr.build_conclusions(self.OURS, {"block_recall": 0.88}, {"block_recall": 0.78},
                                   self.REF, self.MINERU, cats, srcs, mineru_cats, mineru_srcs)
-        struct = out["struct"]
-        self.assertIn("逐类目 3 项里我们落后 2 项、与 MinerU 同分 1 项", struct["headline"])
-        self.assertEqual([r["name"] for r in struct["category_vs_mineru"]["worse"]], ["t2", "t1"])
-        self.assertEqual([r["name"] for r in struct["category_vs_mineru"]["better"]], [])
-        self.assertEqual([s["name"] for s in struct["source_vs_mineru"]["better"]], ["book"])
+        self.assertIn("逐类目 3 项里我们落后 2 项、领先 0 项、与 MinerU 同分 1 项",
+                      out["category"]["headline"])
+        self.assertEqual([r["name"] for r in out["category"]["worse"]], ["t2", "t1"])
+        self.assertEqual([r["name"] for r in out["category"]["better"]], [])
+        self.assertEqual([s["name"] for s in out["source"]["better"]], ["book"])
         # 最差项带 MinerU 同项：t3 两边都是 0 → 不是我们的短板（前端据此措辞）
-        t3 = [c for c in struct["weak_categories"] if c["name"] == "t3"][0]
+        t3 = [c for c in out["category"]["weakest"] if c["name"] == "t3"][0]
         self.assertEqual(t3["mineru"], 0.0)
         self.assertEqual(t3["recall"], 0.0)
 
@@ -277,8 +281,9 @@ class TestConclusions(unittest.TestCase):
         out = pr.build_conclusions(self.OURS, {"block_recall": 0.88}, {"block_recall": 0.78},
                                   self.REF, self.MINERU,
                                   [{"category": "t1", "recall": 0.9, "gt_blocks": 5}], None)
-        self.assertEqual(out["struct"]["category_vs_mineru"]["rows"], [])
-        self.assertTrue(all(c.get("mineru") is None for c in out["struct"]["weak_categories"]))
+        self.assertEqual(out["category"]["worse"], [])            # 没有对手明细 → 无落后项
+        self.assertTrue(all(c.get("mineru") is None for c in out["category"]["weakest"]))
+        self.assertNotIn("source", out)                           # 没给逐文档类型 → 不出该段
 
 
 class TestPublishPayload(unittest.TestCase):
