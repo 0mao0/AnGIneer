@@ -43,6 +43,11 @@ METRIC_LABELS = {
     "order_adjacent_accuracy": "相邻对正确率",
     "order_kendall_tau": "阅读顺序 Kendall tau",
 }
+# 表格/图表里的固定指标顺序（后端算结论与前端渲染共用同一份）
+OFFICIAL_ORDER = ("text_edit", "table_teds", "table_teds_struct", "table_edit",
+                  "formula_edit", "formula_cdm", "order_edit")
+STRUCT_ORDER = ("block_recall", "pred_used_ratio", "text_similarity_matched", "text_similarity",
+                "teds", "formula_similarity", "order_adjacent_accuracy", "order_kendall_tau")
 # A① 逐页/逐表产物 → (文件名片段, 取值方式)；用于子集时的交集重算
 # 取值方式：mean=该键的值就是数值；teds / teds_structure_only=值本身是 {TEDS, TEDS_structure_only}
 OFFICIAL_DETAILS = {
@@ -348,7 +353,7 @@ def fmt_delta(row: dict) -> str:
 
 def render_summary(meta: dict, official: dict, struct_chain: dict, struct_mineru: dict,
                    official_mineru: Optional[dict] = None, official_ref: Optional[dict] = None,
-                   delta: Optional[dict] = None) -> str:
+                   delta: Optional[dict] = None, conclusions: Optional[dict] = None) -> str:
     """人读留档：本次环境 + A① 三方表 + A② 两方表 + Δ 表 + 跳过项。"""
     lines = [f"# 解析回归 {meta.get('run_id', '')}", ""]
     if meta.get("note"):
@@ -386,6 +391,25 @@ def render_summary(meta: dict, official: dict, struct_chain: dict, struct_mineru
             [METRIC_LABELS.get(key, key), fmt_metric(struct_mineru.get(key), True),
              fmt_metric(struct_chain.get(key), True)]) + " |")
 
+    concl = conclusions or {}
+    if concl.get("official") or concl.get("struct"):
+        lines += ["", "## 结论（往哪改）", ""]
+        for block in ("official", "struct"):
+            data = concl.get(block) or {}
+            if not data.get("headline"):
+                continue
+            lines.append(f"- {data['headline']}")
+            for row in data.get("worse", []):
+                lines.append(f"  - {row['label']}：我们 {_fmt_metric(row['metric'], row['ours'])} vs "
+                             f"{row['rival_name']} {_fmt_metric(row['metric'], row['rival'])}"
+                             f"（差 {row['gap'] * 100:.2f}pp）——{row.get('hint', '')}")
+            for cat in data.get("weak_categories", []):
+                lines.append(f"  - 最差类目 {cat['name']}：召回率 {cat['recall'] * 100:.1f}%")
+            for src in data.get("weak_sources", []):
+                lines.append(f"  - 最差文档类型 {src['name']}：召回率 {src['recall'] * 100:.1f}%")
+        if concl.get("noise_note"):
+            lines += ["", f"（{concl['noise_note']}）"]
+
     if delta:
         lines += ["", f"## Δ vs 基线 {delta.get('baseline_id', '')}", ""]
         if delta.get("gate") == "none":
@@ -408,6 +432,123 @@ def render_summary(meta: dict, official: dict, struct_chain: dict, struct_mineru
                                                     fmt_delta(row)]) + " |")
     lines += ["", "---", "", "口径定义见 docs/parse-struct-eval.md；本文件由 run_parse_regression.py 生成。", ""]
     return "\n".join(lines)
+
+
+# 各指标"该往哪查"的固定提示（只指方向，不断言根因——根因要另做定位）
+METRIC_HINTS = {
+    "text_edit": "量 markdown 文本与 GT 的编辑距离：查文本块识别与 markdown 投影环节（投影已剥 build_id 头）",
+    "text_edit_whole": "整篇编辑距离：单页文本顺序/漏字会放大它",
+    "table_teds": "量表格结构（HTML↔HTML）：查表格识别、合并单元格与相邻表切分",
+    "table_teds_struct": "只看表格骨架：结构对但文字错时，与 TEDS 的差就是文字部分",
+    "table_edit": "量表格内文字：注意我们的 table_html 是 MinerU HTML 原文搬运，此列注定与 MinerU 同分",
+    "formula_edit": "量公式 LaTeX 串：查去风格化与多行数组表示约定（非 CDM，别当绝对值）",
+    "formula_cdm": "公式语义相似度：比串相似更接近真实质量，优先看它",
+    "order_edit": "量块序：查多栏/长文档的 block_seq 重建（research_report/book 是历史短板）",
+    "block_recall": "块没被 GT 覆盖：看逐类目表，哪类召回低就往哪类的捕获/类目映射查",
+    "pred_used_ratio": "我们多出来的块没被解释：幻觉块/重复块会拉低它",
+    "text_similarity": "块文本识别质量（漏检按 0 计入）",
+    "text_similarity_matched": "只看匹配上的块＝识别质量本身",
+    "teds": "A② 表格结构（不过 markdown 投影）",
+    "formula_similarity": "公式串相似（非 CDM）",
+    "order_adjacent_accuracy": "相邻块顺序正确率",
+    "order_kendall_tau": "全局块序一致性",
+}
+# 差距小于它就当持平：没测过噪声底（方案 D5 未做），小差距不足以判优劣
+NOISE_EPS = 0.005
+NOISE_NOTE = ("未测噪声底（未跑 50 页×2）：差距 <0.005（<0.5pp）一律按持平处理，"
+              "不作优劣或回归判据。")
+
+
+def _fmt_metric(key: str, value) -> str:
+    if value is None:
+        return "—"
+    return f"{value * 100:.2f}%" if key in HIGHER_IS_BETTER else f"{value:.4f}"
+
+
+def _rank_rows(keys, ours: dict, rivals: dict, eps: float = NOISE_EPS) -> dict:
+    """逐指标比较我方与各对手：返回 {best, worse, rows}（worse 按差距从大到小）。
+
+    rivals: {对手名: {指标: 值}}；方向由 HIGHER_IS_BETTER 决定。
+    """
+    rows, best_keys, worse = [], [], []
+    for key in keys:
+        cur = ours.get(key)
+        if cur is None:
+            continue
+        cand = [(name, vals.get(key)) for name, vals in rivals.items() if vals.get(key) is not None]
+        if not cand:
+            continue
+        higher = key in HIGHER_IS_BETTER
+        holder, rival_best = (max(cand, key=lambda x: x[1]) if higher else min(cand, key=lambda x: x[1]))
+        gap = (rival_best - cur) if higher else (cur - rival_best)   # >0 表示我们落后
+        row = {"metric": key, "label": METRIC_LABELS.get(key, key), "ours": cur,
+               "rival": rival_best, "rival_name": holder, "gap": round(gap, 6),
+               "verdict": "worse" if gap > eps else ("tie" if abs(gap) <= eps else "better")}
+        rows.append(row)
+        if row["verdict"] == "worse":
+            worse.append(row)
+        elif row["verdict"] != "worse":
+            best_keys.append(key)
+    worse.sort(key=lambda r: -r["gap"])
+    return {"rows": rows, "best": best_keys, "worse": worse}
+
+
+def build_conclusions(official: dict, struct_chain: dict, struct_mineru: dict,
+                      official_ref: Optional[dict] = None, official_mineru: Optional[dict] = None,
+                      by_category: Optional[list] = None, by_data_source: Optional[list] = None) -> dict:
+    """按数字生成"往哪改"的结论（A① 三方 / A② 两方各一段）。
+
+    规则化而非文案化：谁最优、我们落后几项、差距最大的是哪项（附该项量什么、往哪查），
+    以及 A② 下钻出的最差类目/文档类型。根因定位不在这一步，只指方向。
+    """
+    official = official or {}
+    struct_chain = struct_chain or {}
+    out: dict = {"noise_note": NOISE_NOTE}
+
+    # ── A① 官方 markdown 口径 ──
+    ref_rank = _rank_rows(OFFICIAL_ORDER, official,
+                          {"参考模型": official_ref or {}, "MinerU 单独": official_mineru or {}})
+    if ref_rank["rows"]:
+        total = len(ref_rank["rows"])
+        n_best = total - len(ref_rank["worse"])
+        # 用 total（实际有值的指标数），不写死 7：指标缺失时写死会把"3 项里 1 项"说成"7 项里 1 项"
+        head = f"A① 官方 markdown 口径：{total} 项里我们最优（或持平）{n_best}/{total} 项"
+        if ref_rank["worse"]:
+            top = ref_rank["worse"][0]
+            head += (f"；差距最大的是{top['label']}——我们 {_fmt_metric(top['metric'], top['ours'])}，"
+                     f"最佳 {_fmt_metric(top['metric'], top['rival'])}（{top['rival_name']}），差 "
+                     f"{top['gap'] * 100:.2f}pp")
+        else:
+            head += "；没有落后项"
+        out["official"] = {
+            "headline": head,
+            "worse": [{**r, "hint": METRIC_HINTS.get(r["metric"], "")} for r in ref_rank["worse"]],
+            "best": [METRIC_LABELS.get(k, k) for k in ref_rank["best"]],
+        }
+
+    # ── A② 结构层口径 ──
+    our_rank = _rank_rows(STRUCT_ORDER, struct_chain, {"MinerU 原生": struct_mineru or {}})
+    if our_rank["rows"]:
+        wins = [r for r in our_rank["rows"] if r["verdict"] == "better"]
+        losses = [r for r in our_rank["rows"] if r["verdict"] == "worse"]
+        head = (f"A② 结构层口径：对 MinerU 原生 content_list 我们领先 {len(wins)} 项、"
+                f"落后 {len(losses)} 项、持平 {len(our_rank['rows']) - len(wins) - len(losses)} 项")
+        if losses:
+            top = losses[0]
+            head += (f"；落后最多的是{top['label']}（我们 {_fmt_metric(top['metric'], top['ours'])} vs "
+                     f"{_fmt_metric(top['metric'], top['rival'])}）")
+        cats = sorted([c for c in (by_category or []) if c.get("recall") is not None],
+                      key=lambda c: c["recall"])[:3]
+        srcs = sorted([s for s in (by_data_source or []) if s.get("block_recall") is not None],
+                      key=lambda s: s["block_recall"])[:3]
+        out["struct"] = {
+            "headline": head,
+            "worse": [{**r, "hint": METRIC_HINTS.get(r["metric"], "")} for r in losses],
+            "best": [r["label"] for r in wins],
+            "weak_categories": [{"name": c["category"], "recall": c["recall"]} for c in cats],
+            "weak_sources": [{"name": s["data_source"], "recall": s["block_recall"]} for s in srcs],
+        }
+    return out
 
 
 def _date_from_ts(ts) -> str:
@@ -444,7 +585,8 @@ PUBLISH_FILES = ("meta.json", "summary.md", "publish.json", "struct_chain.json",
 
 def build_publish_payload(meta: dict, official: dict, struct_chain: dict, struct_mineru: dict,
                           delta: Optional[dict] = None, official_ref: Optional[dict] = None,
-                          official_mineru: Optional[dict] = None, chain_result: Optional[dict] = None) -> dict:
+                          official_mineru: Optional[dict] = None, chain_result: Optional[dict] = None,
+                          conclusions: Optional[dict] = None) -> dict:
     """服务器看板要的全部信息：一次跑的结果 + Δ + 渲染元信息（前端不重算任何东西）。
 
     数字都在本机用本模块算好（同一份代码），服务器只读不算——避免"两个版本各算一遍"漂移。
@@ -477,6 +619,10 @@ def build_publish_payload(meta: dict, official: dict, struct_chain: dict, struct
         "delta": delta or {},
         "by_category": (chain_result or {}).get("by_category") or [],
         "by_data_source": (chain_result or {}).get("by_data_source") or [],
+        # 结论由本机按数字算好并随载荷入档（前端只渲染，不各算一遍）
+        "conclusions": conclusions if conclusions is not None else build_conclusions(
+            official, struct_chain, struct_mineru, official_ref, official_mineru,
+            (chain_result or {}).get("by_category"), (chain_result or {}).get("by_data_source")),
     }
 
 

@@ -201,6 +201,57 @@ class TestImportArchiveEndToEnd(unittest.TestCase):
             self.assertTrue((run_dir / "official" / "predictions_quick_match_metric_result.json").is_file())
 
 
+class TestConclusions(unittest.TestCase):
+    """结论段：规则化生成（谁最优、落后几项、差距最大项），不做无数据支持的断言。"""
+
+    OURS = {"text_edit": 0.0724, "table_teds": 0.9159, "order_edit": 0.1344}
+    REF = {"text_edit": 0.0344, "table_teds": 0.9097, "order_edit": 0.1168}
+    MINERU = {"text_edit": 0.0476, "table_teds": 0.9155, "order_edit": 0.1371}
+
+    def _concl(self, **kw):
+        return pr.build_conclusions(
+            kw.get("ours", self.OURS), {"block_recall": 0.88}, {"block_recall": 0.78},
+            kw.get("ref", self.REF), kw.get("mineru", self.MINERU),
+            kw.get("by_category"), kw.get("by_data_source"))
+
+    def test_worse_sorted_by_gap_and_best_listed(self):
+        out = self._concl()
+        official = out["official"]
+        self.assertEqual(official["best"], ["表格 TEDS"])                   # 我们最优的一项（用中文标签）
+        self.assertEqual([w["metric"] for w in official["worse"]], ["text_edit", "order_edit"])
+        self.assertGreater(official["worse"][0]["gap"], official["worse"][1]["gap"])
+        self.assertEqual(official["worse"][0]["rival_name"], "参考模型")
+        self.assertIn("3 项里我们最优（或持平）1/3 项", official["headline"])
+        self.assertTrue(all(w["hint"] for w in official["worse"]))          # 每条都要有"往哪查"
+
+    def test_gap_within_eps_is_tie_not_worse(self):
+        """没测噪声底：<0.005 的差距按持平，不作优劣判据。"""
+        ours = {"text_edit": 0.0700, "table_teds": 0.9159}
+        ref = {"text_edit": 0.0687, "table_teds": 0.9097}      # 差 0.0013 < eps
+        out = self._concl(ours=ours, ref=ref, mineru={}, by_category=None)
+        self.assertEqual(out["official"]["worse"], [])
+        self.assertIn("没有落后项", out["official"]["headline"])
+
+    def test_sections_skipped_without_rivals(self):
+        """没有对手数据就不给结论段（无比较对象时任何"优劣"判断都是臆造）。"""
+        out = pr.build_conclusions(self.OURS, {"block_recall": 0.88}, {}, None, None)
+        self.assertNotIn("official", out)
+        self.assertNotIn("struct", out)
+        self.assertIn("噪声底", out["noise_note"])
+
+    def test_struct_weak_categories_sorted_ascending_top3(self):
+        cats = [{"category": "a", "recall": 0.5}, {"category": "b", "recall": 0.0},
+                {"category": "c", "recall": 0.9}, {"category": "d", "recall": 0.25}]
+        srcs = [{"data_source": "x", "block_recall": 0.7}, {"data_source": "y", "block_recall": 0.2}]
+        out = self._concl(by_category=cats, by_data_source=srcs)
+        self.assertEqual([c["name"] for c in out["struct"]["weak_categories"]], ["b", "d", "a"])
+        self.assertEqual([s["name"] for s in out["struct"]["weak_sources"]], ["y", "x"])
+        self.assertIn("领先 1 项", out["struct"]["headline"])
+
+    def test_noise_note_always_present(self):
+        self.assertIn("噪声底", self._concl()["noise_note"])
+
+
 class TestPublishPayload(unittest.TestCase):
     """服务器看板载荷：前端需要的东西必须齐（指标/元信息/Δ/逐类目），且白名单不含大文件。"""
 

@@ -194,6 +194,24 @@
             <p class="epr-hint">
               参考模型 / MinerU 两列是固定基线（不随本次 run 变）；"表格内文字 Edit_dist" 这类差异主要来自投影方式，别当质量绝对值读。
             </p>
+
+            <div v-if="detail.run.conclusions?.official" class="epr-conclusion">
+              <div class="epr-conclusion__title">结论 · 往哪改（A①）</div>
+              <p class="epr-conclusion__head">{{ detail.run.conclusions.official.headline }}</p>
+              <ul v-if="detail.run.conclusions.official.worse?.length" class="epr-conclusion__list">
+                <li v-for="w in detail.run.conclusions.official.worse" :key="w.metric">
+                  <b>{{ w.label }}</b>：我们 {{ fmt(w.ours, higher(w.metric)) }} vs {{ w.rival_name }}
+                  {{ fmt(w.rival, higher(w.metric)) }}（差 {{ (w.gap * 100).toFixed(2) }}pp）
+                  <span class="epr-dim">——{{ w.hint }}</span>
+                </li>
+              </ul>
+              <p v-if="!detail.run.conclusions.official.worse?.length" class="epr-conclusion__head">
+                没有落后项：所有对手口径的指标我们都最优或持平。
+              </p>
+              <p v-if="detail.run.conclusions.noise_note" class="epr-conclusion__note">
+                {{ detail.run.conclusions.noise_note }}
+              </p>
+            </div>
           </div>
 
           <!-- A② 两方表（柱状图 + 精确数值表） -->
@@ -217,6 +235,30 @@
             <p class="epr-hint">
               MinerU 两列 TEDS / 公式相似度同分是已知事实：我们的 table_html 是 MinerU HTML 原文搬运，差异只在块切分。
             </p>
+
+            <div v-if="detail.run.conclusions?.struct" class="epr-conclusion">
+              <div class="epr-conclusion__title">结论 · 往哪改（A②）</div>
+              <p class="epr-conclusion__head">{{ detail.run.conclusions.struct.headline }}</p>
+              <ul v-if="detail.run.conclusions.struct.worse?.length" class="epr-conclusion__list">
+                <li v-for="w in detail.run.conclusions.struct.worse" :key="w.metric">
+                  <b>{{ w.label }}</b>：我们 {{ fmt(w.ours, true) }} vs {{ w.rival_name }}
+                  {{ fmt(w.rival, true) }}（差 {{ (w.gap * 100).toFixed(2) }}pp）
+                  <span class="epr-dim">——{{ w.hint }}</span>
+                </li>
+              </ul>
+              <ul class="epr-conclusion__list">
+                <li v-for="c in detail.run.conclusions.struct.weak_categories || []" :key="c.name">
+                  <b>最差类目</b> {{ c.name }}：块召回率 {{ pct(c.recall) }}
+                  <span class="epr-dim">——该类块的捕获/类目映射是短板，见下方逐类目表</span>
+                </li>
+                <li v-for="s in detail.run.conclusions.struct.weak_sources || []" :key="s.name">
+                  <b>最差文档类型</b> {{ s.name }}：块召回率 {{ pct(s.recall) }}
+                </li>
+              </ul>
+              <p v-if="detail.run.conclusions.noise_note" class="epr-conclusion__note">
+                {{ detail.run.conclusions.noise_note }}
+              </p>
+            </div>
           </div>
 
           <!-- 逐类目 / 逐文档类型（柱状图：按召回率排序，一眼看出哪类没做好） -->
@@ -329,7 +371,20 @@ interface RunPayload {
   }
   by_category?: CategoryRow[]
   by_data_source?: SourceRow[]
+  conclusions?: {
+    noise_note?: string
+    official?: { headline: string; best?: string[]; worse?: ConclRow[] }
+    struct?: {
+      headline: string; best?: string[]; worse?: ConclRow[]
+      weak_categories?: Array<{ name: string; recall: number | null }>
+      weak_sources?: Array<{ name: string; recall: number | null }>
+    }
+  }
   state?: string
+}
+interface ConclRow {
+  metric: string; label: string; ours: number | null; rival: number | null
+  rival_name: string; gap: number; verdict: string; hint?: string
 }
 interface RunDetail {
   run: RunPayload
@@ -861,6 +916,30 @@ onBeforeUnmount(() => {
   color: var(--text-color-secondary, #8c8c8c);
   font-size: 12px;
   line-height: 1.6;
+}
+.epr-conclusion {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-left: 3px solid #faad14;
+  border-radius: 4px;
+  background: rgba(250, 173, 20, 0.08);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.epr-conclusion__title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.epr-conclusion__head {
+  margin: 0 0 4px;
+}
+.epr-conclusion__list {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+.epr-conclusion__note {
+  margin: 6px 0 0;
+  color: var(--text-color-secondary, #8c8c8c);
 }
 .epr-chart {
   width: 100%;
