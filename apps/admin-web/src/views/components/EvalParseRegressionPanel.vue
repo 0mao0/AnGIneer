@@ -177,12 +177,6 @@
           <div class="epr-section">
             <h4>A① 官方 markdown 口径（三方）</h4>
             <div ref="officialChartEl" class="epr-chart" style="height: 300px" />
-            <p class="epr-caption">
-              <b>颜色＝来源</b>（见上方图例：参考模型蓝 / MinerU 青 / 我们绿），每组自上而下顺序固定：
-              参考模型 → MinerU 单独 → 我们全链；条形长度＝实际数值（横轴 0–1）。
-              <b>该指标最优的那条加 ★ 并加粗</b>。指标名后的 ↑/↓ 是方向：<b>↑ 越大越好，↓ 越小越好</b>
-              ——Edit_dist 类越小越好，所以条形越短越好（它们的值本就只有 0.03–0.14，条形短是正常的，看 ★ 与数值标签）。
-            </p>
             <table class="epr-table">
               <thead>
                 <tr><th>指标</th><th>方向</th><th>参考模型</th><th>MinerU 单独</th><th>我们全链</th></tr>
@@ -206,11 +200,6 @@
           <div class="epr-section">
             <h4>A② 结构层口径（两方）</h4>
             <div ref="structChartEl" class="epr-chart" style="height: 320px" />
-            <p class="epr-caption">
-              <b>颜色＝来源</b>（MinerU 青 / 我们绿），每组自上而下依次：
-              MinerU 原生 content_list → 我们全链；最优那条加 ★。
-              本表 8 项<b>全部是 ↑ 越大越好</b>（含"预测块被解释率"：它低说明多出来的块没被 GT 覆盖）。
-            </p>
             <table class="epr-table">
               <thead>
                 <tr><th>指标</th><th>方向</th><th>MinerU 原生 content_list</th><th>我们全链</th></tr>
@@ -233,10 +222,6 @@
           <div v-if="detail.run.by_category?.length" class="epr-section">
             <h4>A② 逐类目 · 块召回率（我们全链）</h4>
             <div ref="categoryChartEl" class="epr-chart" style="height: 380px" />
-            <p class="epr-caption">
-              <b>越大越好</b>：条形越长越好（颜色＝我们全链，与其他图一致）；已按召回率降序，最差的在下面，
-              虚线是<b>本图平均值</b>——低于虚线的就是拖后腿的类目。
-            </p>
             <table class="epr-table">
               <thead>
                 <tr>
@@ -262,7 +247,6 @@
           <div v-if="detail.run.by_data_source?.length" class="epr-section">
             <h4>A② 逐文档类型 · 块召回率</h4>
             <div ref="sourceChartEl" class="epr-chart" style="height: 300px" />
-            <p class="epr-caption"><b>越大越好</b>；同样按召回率降序，虚线为本图平均值。</p>
             <table class="epr-table">
               <thead>
                 <tr><th>data_source</th><th>页数</th><th>召回率</th><th>文本相似度</th><th>表格 TEDS</th><th>顺序相邻对</th></tr>
@@ -560,7 +544,9 @@ function groupedBarOption(
       },
     },
     legend: { top: 0, itemWidth: 12, itemHeight: 8, textStyle: { fontSize: 11, color: '#999' } },
-    grid: { left: 8, right: 84, top: 26, bottom: 4, containLabel: true },
+    // 图内角标替代段落说明：★ 的含义、方向看指标名后的 ↑/↓（表格另有「方向」列写全）
+    title: { text: '★＝该指标最优　↑越大越好 ↓越小越好', left: 0, top: 20, textStyle: { fontSize: 11, color: '#8c8c8c', fontWeight: 'normal' } },
+    grid: { left: 8, right: 84, top: 42, bottom: 4, containLabel: true },
     xAxis: { type: 'value', max: 1, axisLabel: { show: false }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },
     yAxis: {
       type: 'category',
@@ -603,7 +589,8 @@ function singleBarOption(items: Array<{ name: string; value: number | null }>, u
   const avg = valid.length ? valid.reduce((sum, x) => sum + x.value, 0) / valid.length : 0
   return {
     tooltip: { trigger: 'item', formatter: (p: any) => `${p.name}：${p.value == null ? '—' : p.value}` },
-    grid: { left: 8, right: 96, top: 6, bottom: 4, containLabel: true },
+    title: { text: '越大越好　虚线＝本图平均值', left: 0, top: 0, textStyle: { fontSize: 11, color: '#8c8c8c', fontWeight: 'normal' } },
+    grid: { left: 8, right: 96, top: 20, bottom: 4, containLabel: true },
     xAxis: { type: 'value', min: 0, max: max || 1, axisLabel: { show: false }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },
     yAxis: {
       type: 'category',
@@ -841,12 +828,6 @@ onBeforeUnmount(() => {
   width: 100%;
   min-width: 520px;
   margin-top: 6px;
-}
-.epr-caption {
-  margin: 6px 0 10px;
-  color: var(--text-color-secondary, #8c8c8c);
-  font-size: 12px;
-  line-height: 1.6;
 }
 .epr-files {
   margin-top: 16px;
