@@ -171,5 +171,56 @@ class ClaimDaoTests(unittest.TestCase):
         self.assertEqual(self.store.load("g:g1", "s1", self.scope), [])
 
 
+class GcTests(unittest.TestCase):
+    """步 4：保留期 GC——过期行被清，活跃行保留，用户删除立即生效（delete 语义在步 2 路由测）。"""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.store = SqliteHistoryStore(os.path.join(self.tmp.name, "chat.sqlite"))
+        self.scope = scope_hash_for("default", [])
+        self.addCleanup(self.tmp.cleanup)
+
+    def test_gc_removes_expired_rows_only(self):
+        self.store.append("u:1", "old", self.scope, _msgs(), {"run_id": "a", "status": "completed"})
+        self.store.append("u:1", "fresh", self.scope, _msgs(), {"run_id": "b", "status": "completed"})
+        self.store.touch_guest("old-guest")
+        self.store.touch_guest("fresh-guest")
+        # 把 old 会话/消息/run/游客整体回拨 100 天
+        import sqlite3
+        conn = sqlite3.connect(self.store._db_path)
+        conn.execute(
+            "UPDATE chat_messages SET created_at=? WHERE session_id='old'",
+            (self._iso_days_ago(100),),
+        )
+        conn.execute(
+            "UPDATE chat_sessions SET created_at=?, updated_at=? WHERE session_id='old'",
+            (self._iso_days_ago(100), self._iso_days_ago(100)),
+        )
+        conn.execute(
+            "UPDATE chat_runs SET created_at=? WHERE session_id='old'",
+            (self._iso_days_ago(100),),
+        )
+        conn.execute(
+            "UPDATE chat_guests SET last_seen_at=? WHERE guest_id='old-guest'",
+            (self._iso_days_ago(100),),
+        )
+        conn.commit()
+        conn.close()
+
+        result = self.store.gc_expired(90)
+        self.assertEqual(result["messages"], 2)
+        self.assertEqual(result["sessions"], 1)
+        self.assertEqual(result["runs"], 1)
+        self.assertEqual(result["guests"], 1)
+        # 新鲜行全保留
+        self.assertEqual(len(self.store.load("u:1", "fresh", self.scope)), 2)
+        self.assertIsNotNone(self.store.get_session("u:1", "fresh"))
+
+    @staticmethod
+    def _iso_days_ago(days):
+        from datetime import datetime, timedelta, timezone
+        return (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+
+
 if __name__ == "__main__":
     unittest.main()
