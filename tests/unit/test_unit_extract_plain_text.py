@@ -47,6 +47,8 @@ class PreviouslyMissingTypesTests(unittest.TestCase):
         self.assertEqual(extract_plain_text("algorithm", content), "The transpose of a matrix")
 
     def test_mixed_span_types_keep_order(self):
+        # 2026-09-17 起行内公式带 `$` 定界（原先拍平丢掉 type，markdown/检索分不出公式边界）；
+        # 本用例断言的是顺序，数字与公式位置不变，只多了定界符。
         content = {
             "algorithm_content": [
                 {"type": "text", "content": "The transpose "},
@@ -54,7 +56,8 @@ class PreviouslyMissingTypesTests(unittest.TestCase):
                 {"type": "text", "content": " of a matrix"},
             ]
         }
-        self.assertEqual(extract_plain_text("algorithm", content), r"The transpose \mathbf{A}^{\mathsf{T}} of a matrix")
+        self.assertEqual(extract_plain_text("algorithm", content),
+                         r"The transpose $\mathbf{A}^{\mathsf{T}}$ of a matrix")
 
 
 class ExistingTypesRegressionTests(unittest.TestCase):
@@ -78,6 +81,41 @@ class ExistingTypesRegressionTests(unittest.TestCase):
 
     def test_equation_interline_uses_math_content(self):
         self.assertEqual(extract_plain_text("equation_interline", {"math_content": r" E = mc^2 "}), r"E = mc^2")
+
+
+class InlineEquationDelimiterTests(unittest.TestCase):
+    """行内公式要保住 `$` 定界（2026-09-17 A 层回归实踩）。
+
+    拍平时丢掉 span 的 type 后，`再算 $20+7=27$ 。` 变成 `再算   20+7=27 。`：
+    markdown 投影与检索文本分不出哪段是公式，官方口径按公式取到整行中文 → 该页
+    公式 Edit_dist 0.60（MinerU 0.14）。全批 MinerU 原文 2328 个 `$`，我们只剩 22 个。
+    """
+
+    def test_inline_equation_wrapped(self):
+        content = {"paragraph_content": [
+            {"type": "text", "content": "再算   "},
+            {"type": "equation_inline", "content": "20+7=27"},
+            {"type": "text", "content": " 。"},
+        ]}
+        self.assertEqual(extract_plain_text("paragraph", content), "再算   $20+7=27$ 。")
+
+    def test_existing_delimiter_not_doubled(self):
+        content = {"paragraph_content": [{"type": "equation_inline", "content": "$x$"}]}
+        self.assertEqual(extract_plain_text("paragraph", content), "$x$")
+
+    def test_interline_span_not_rewrapped(self):
+        content = {"paragraph_content": [{"type": "equation_interline", "content": "E=mc^2"}]}
+        self.assertEqual(extract_plain_text("paragraph", content), "E=mc^2")
+
+    def test_plain_text_untouched(self):
+        content = {"paragraph_content": [{"type": "text", "content": "作者：张三 "}]}
+        self.assertEqual(extract_plain_text("paragraph", content), "作者：张三")
+
+    def test_title_keeps_inline_math(self):
+        content = {"title_content": [{"type": "text", "content": "3. 探究 "},
+                                     {"type": "equation_inline", "content": "25 + 20"},
+                                     {"type": "text", "content": " 的计算方法"}]}
+        self.assertEqual(extract_plain_text("title", content), "3. 探究 $25 + 20$ 的计算方法")
 
 
 class EdgeCasesTests(unittest.TestCase):

@@ -61,15 +61,30 @@ def extract_plain_text(block_type: str, content: dict[str, Any]) -> str:
         return parts
 
     def collect_from_spans(spans: Any) -> str:
-        """拼接span数组中的文本内容。"""
+        """拼接span数组中的文本内容（行内公式保留 `$` 定界）。
+
+        2026-09-17 实踩（A 层解析回归首次跑）：拍平时把 span 的 `type=equation_inline`
+        丢掉后，`再算 $20+7=27$ 。` 变成 `再算   20+7=27 。`——markdown 投影与检索文本
+        都再也分不出哪段是公式。后果：官方口径按"公式块"取到的是**带中文上下文的整行**，
+        该页公式 Edit_dist 0.60（MinerU 0.14）；全批实测 MinerU 原文 2328 个 `$`，
+        我们的 md 只剩 22 个（73 篇受影响）。
+        """
         if not isinstance(spans, list):
             return ""
         parts: list[str] = []
         for item in spans:
             if isinstance(item, dict):
                 val = item.get("content")
-                if isinstance(val, str):
-                    parts.append(val)
+                if not isinstance(val, str):
+                    continue
+                span_type = str(item.get("type") or "")
+                # 只补行内公式（equation_interline 自带定界，重复包裹会变 $$…$$）
+                if "equation" in span_type and "interline" not in span_type:
+                    stripped = val.strip()
+                    if stripped and "$" not in stripped:
+                        parts.append(f"${stripped}$")
+                        continue
+                parts.append(val)
             elif isinstance(item, str):
                 parts.append(item)
         return "".join(parts).strip()
