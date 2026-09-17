@@ -21,6 +21,10 @@
       <a-button type="primary" block :loading="auth.checking" @click="handleLogin">
         进入
       </a-button>
+      <a-button class="auth-guest" block :disabled="auth.checking" @click="handleGuest">
+        以游客身份开始
+      </a-button>
+      <p class="auth-guest-hint">游客可直接提问（默认知识库），累计 30 轮后需登录继续</p>
     </div>
   </div>
 </template>
@@ -66,6 +70,16 @@ async function handleLogin() {
     errorText.value = e?.message || '登录失败，请检查账号密码'
   }
 }
+
+/** 游客进站（D2）：签发游客 cookie 后进入，30 轮闸由服务端按 g: 桶计数 */
+async function handleGuest() {
+  errorText.value = ''
+  try {
+    await auth.enterGuestMode()
+  } catch {
+    errorText.value = '游客通道初始化失败，请重试'
+  }
+}
 </script>
 
 <style scoped>
@@ -105,5 +119,14 @@ async function handleLogin() {
   margin-bottom: 12px;
   color: var(--danger, #cf1322);
   font-size: 13px;
+}
+.auth-guest {
+  margin-top: 10px;
+}
+.auth-guest-hint {
+  margin: 10px 0 0;
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 12px;
 }
 </style>

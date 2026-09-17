@@ -2,7 +2,7 @@
   <a-config-provider :locale="zhCN" :theme="themeConfig">
     <a-app>
       <AuthGate />
-      <div v-if="authStore.isAuthed" class="app-container" :class="appClass">
+      <div v-if="authStore.isAuthed || authStore.guestMode" class="app-container" :class="appClass">
         <router-view />
       </div>
     </a-app>

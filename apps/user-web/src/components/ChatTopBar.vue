@@ -11,7 +11,11 @@
           <template #icon><HistoryOutlined /></template>
         </a-button>
       </a-tooltip>
-      <a-dropdown placement="bottomRight">
+      <!-- 游客态：顶栏只留「登录」入口（D2）；登录/登出菜单仅登录态可见 -->
+      <a-button v-if="authStore.guestMode" type="primary" size="small" class="login-btn" @click="emit('login')">
+        登录
+      </a-button>
+      <a-dropdown v-else placement="bottomRight">
         <a-button type="text" class="top-btn user-menu-btn">
           <span class="user-name">{{ displayName }}</span>
         </a-button>
@@ -39,7 +43,10 @@ import { AppBrand } from '@angineer/ui-kit'
 import { useAuthStore } from '@/stores/auth'
 import { ADMIN_CONSOLE_ORIGIN, ADMIN_CONSOLE_PORT, createLocalOrigin } from '../../../shared/ports'
 
-const emit = defineEmits<{ openHistory: [] }>()
+const emit = defineEmits<{
+  (e: 'openHistory'): void
+  (e: 'login'): void
+}>()
 const authStore = useAuthStore()
 
 const displayName = computed(

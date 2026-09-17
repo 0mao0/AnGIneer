@@ -1,9 +1,13 @@
 """aichat 会话解析与库归属校验（供中间件与端点复用）。"""
 import hashlib
+import os
 
 from fastapi import Request
 
 from models.user import get_session_user
+
+# 游客身份 cookie（chat_history.routes 签发，HttpOnly）；步 3 起匿名桶由 ip: 升级为 g:
+GUEST_COOKIE = "ag_guest_id"
 
 
 def resolve_session_principal(request: Request) -> bool:
@@ -62,11 +66,14 @@ def _client_ip_digest(request: Request) -> str:
 
 
 def resolve_pool_owner(request: Request) -> str:
-    """会话池归属键：登录 ``u:<id>`` / API key ``k:<id>`` / 匿名 ``ip:<hash>``。
+    """会话池归属键：登录 ``u:<id>`` / API key ``k:<id>`` / 游客 cookie ``g:<id>`` / 匿名 ``ip:<hash>``。
 
     池 key 必须带身份：``session_id`` 由客户端生成（``chat-<毫秒时间戳>`` 形状可枚举），
     缺了 owner 时同 scene/库/文档范围的不同主体会命中同一份 history，
     后被问到的人会拿到前一个人的上下文（跨用户串话）。
+
+    游客 cookie（2026-09-17，计划 D6）优先于 ip: 兜底：同 NAT 下不再共享匿名桶，
+    30 轮闸与 claim 都按 ``g:<guest_id>`` 计数/搬迁。登录态与 API key 永远优先于 cookie。
     """
     user = getattr(request.state, "session_user", None)
     if user is not None:
@@ -76,4 +83,28 @@ def resolve_pool_owner(request: Request) -> str:
     if key_info is not None:
         ident = getattr(key_info, "id", None) or getattr(key_info, "user_name", "")
         return f"k:{ident}"
+    guest_id = (request.cookies.get(GUEST_COOKIE) or "").strip()
+    if guest_id:
+        return f"g:{guest_id}"
     return f"ip:{_client_ip_digest(request)}"
+
+
+def guest_rounds_limit() -> int:
+    """游客 30 轮闸阈值（策略注入，§3 硬约束 2）。"""
+    try:
+        return max(1, int(os.getenv("ANGINEER_GUEST_ROUNDS", "30") or 30))
+    except ValueError:
+        return 30
+
+
+def guest_gate_blocked(owner: str, store) -> bool:
+    """游客闸：``g:`` 桶 user 消息数 ≥ 阈值 → 拦（D2：满 30 轮硬拦，须登录）。
+
+    存储降级（store=None）时 fail-open，行为同改造前；非游客桶永不拦。
+    """
+    if store is None or not owner.startswith("g:"):
+        return False
+    try:
+        return store.count_user_messages(owner) >= guest_rounds_limit()
+    except Exception:  # noqa: BLE001
+        return False

@@ -1,6 +1,8 @@
 <template>
   <div class="chat-home">
-    <ChatTopBar @open-history="historyOpen = true" />
+    <ChatTopBar @open-history="historyOpen = true" @login="loginPrompt = true" />
+    <!-- 游客 30 轮闸 / 顶栏登录入口：全屏登录浮层，登录成功后自动消失，当前对话不丢（D2） -->
+    <AuthGate v-if="loginPrompt && !authStore.isAuthed" />
     <div v-if="systemWarning" class="system-warning-banner">{{ systemWarning }}</div>
     <div class="chat-body">
       <div class="chat-col">
@@ -13,10 +15,11 @@
           :session-id="sessionId"
           :library-id="libraryId"
           :mention-mode="'document'"
-          :library-options="libraryOptions"
+          :library-options="authStore.guestMode ? [] : libraryOptions"
           :library-value="authStore.activeLibraryId"
           :transport="defaultAIChatTransport"
           @send="hasConversation = true"
+          @error="onChatError"
           @messages-change="onMessagesChange"
           @select-citation="handleCitationSelect"
           @update:library-value="onLibraryChange"
@@ -71,6 +74,7 @@ import type { AIChatMessage, AIChatCitation } from '@angineer/aichat-ui'
 import type DocumentViewType from '@/views/DocumentView.vue'
 import ChatTopBar from '@/components/ChatTopBar.vue'
 import HistoryDrawer from '@/components/HistoryDrawer.vue'
+import AuthGate from '@/components/AuthGate.vue'
 import { defaultAIChatTransport } from '../../../shared/chatTransport'
 import { useAuthStore } from '@/stores/auth'
 import { knowledgeApi } from '@/api/knowledge'
@@ -92,7 +96,18 @@ const documentViewLoader = () => import('@/views/DocumentView.vue')
 const DocumentView = defineAsyncComponent(documentViewLoader)
 
 const authStore = useAuthStore()
-const libraryId = computed(() => authStore.libraryId || 'default')
+/** 游客恒为默认库（D2），登录态按授权库走 */
+const libraryId = computed(() => authStore.effectiveLibraryId || 'default')
+
+/** 游客 30 轮闸弹出的登录浮层（login_required 或顶栏「登录」按钮触发） */
+const loginPrompt = ref(false)
+
+/** AIChat 错误统一出口：login_required 弹登录（当前对话保留），其余维持组件内展示 */
+const onChatError = (error: Error) => {
+  if ((error as Error & { code?: string }).code === 'login_required') {
+    loginPrompt.value = true
+  }
+}
 
 /** 知识库单选下拉：只列当前用户被授权的库，名称解析失败回退显示 id */
 const libraryNames = ref<Record<string, string>>({})
@@ -108,7 +123,7 @@ const loadLibraryNames = async () => {
   }
 }
 onMounted(() => {
-  void loadLibraryNames()
+  if (!authStore.guestMode) void loadLibraryNames()
   // 空闲预热预览栈：不抢首屏带宽，页面可用后悄悄把它加载完，点引用时无需再等
   const prime = () => { void documentViewLoader() }
   if (typeof requestIdleCallback === 'function') requestIdleCallback(prime, { timeout: 4000 })

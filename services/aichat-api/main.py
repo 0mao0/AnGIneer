@@ -58,7 +58,7 @@ import engtools.KnowledgeTool
 from sop_routes import sop_router
 from evals_routes import evals_router
 from dream_cycle_routes import dream_cycle_router
-from chat_auth import enforce_bound_library, resolve_pool_owner
+from chat_auth import enforce_bound_library, guest_gate_blocked, guest_rounds_limit, resolve_pool_owner
 from angineer_core.history_store import scope_hash_for
 
 
@@ -259,6 +259,15 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
     owner = resolve_pool_owner(raw_request)
     # 历史存储：组装层注入；不可用则降级为纯内存池（行为同改造前）
     store = _get_history_store()
+    # 游客 30 轮硬闸（D2）：满阈值 → 403 + login_required，前端据此弹登录，当前对话不丢
+    if guest_gate_blocked(owner, store):
+        raise HTTPException(
+            status_code=403,
+            detail={
+                "code": "login_required",
+                "message": f"游客试用已达 {guest_rounds_limit()} 轮上限，登录后可继续对话（当前对话会保留）",
+            },
+        )
     eff_session_id = request.session_id or "default"
     scope_hash = scope_hash_for(request.library_id, request.doc_ids)
 

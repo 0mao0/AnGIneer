@@ -47,7 +47,16 @@ export const defaultAIChatTransport = {
     })
     if (!response.ok || !response.body) {
       const detail = await response.text().catch(() => '')
-      throw new Error(`Agent 对话请求失败(${response.status}): ${detail.slice(0, 200)}`)
+      // 403 + detail.code=login_required：游客 30 轮闸（计划 D2），宿主据此弹登录而不是当普通报错
+      let code: string | undefined
+      try {
+        code = JSON.parse(detail)?.detail?.code
+      } catch {
+        // 非 JSON 响应体（网关错误页等），无 code
+      }
+      const err = new Error(`Agent 对话请求失败(${response.status}): ${detail.slice(0, 200)}`) as Error & { code?: string }
+      if (code) err.code = code
+      throw err
     }
 
     const reader = response.body.getReader()
