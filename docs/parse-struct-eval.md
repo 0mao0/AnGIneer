@@ -106,7 +106,7 @@ python scripts/eval_parse_struct.py \
 新做的只有编排 + 归档 + Δ（`evals_core/parse_regression.py` + `scripts/run_parse_regression.py`）。
 
 ```bash
-# 全跑（predict 52min + A②×2 4min + A① 10–20min；200 页 ≈1.2–1.5h）
+# 【一键】全跑：predict → A②×2 → A① → 归档 → Δ（predict 52min + A② 4min + A① 10–20min ≈1.2–1.5h）
 python scripts/run_parse_regression.py --limit 200 --seed 42
 
 # 干跑：复用现成预测、不跑 18GB 镜像（~4min，只验归档与 Δ）
@@ -117,6 +117,11 @@ python scripts/run_parse_regression.py --skip-predict --skip-official --limit 50
 python scripts/run_parse_regression.py --import-official <官方产物目录> \
     --import-chain <structure_result.json> --import-mineru <...> --tag baseline-YYYYMMDD --note "..."
 ```
+
+数据集/GT/三方表两列**自动探测**（`OMNIDOCBENCH_DATA` 环境变量 > 仓库内 `data/omnidocbench` >
+`D:/AI/tools/OmniDocBench_data` > `~/OmniDocBench_data`；两列源同理由
+`OMNIDOCBENCH_{REF,MINERU}_RESULT` 或 `D:/AI/omnidocbench_dl/{ref_result,mineru_only_result}` 探测），
+所以本机真一键；探不到才报错并列出候选，`--data-dir` / `--gt` / `--sources-*` 可显式覆盖。
 
 | 参数 | 默认 | 说明 |
 |---|---|---|

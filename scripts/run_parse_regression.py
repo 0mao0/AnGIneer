@@ -38,11 +38,56 @@ sys.path.insert(0, str(SCRIPTS))          # 复用 predict 的抽样函数，保
 from evals_core import parse_regression as pr  # noqa: E402
 from run_omnidocbench_eval import PARSE_STAGES, _select_pages  # noqa: E402
 
-DEFAULT_DATA_DIR = REPO / "data" / "omnidocbench"
-DEFAULT_GT = Path("D:/AI/tools/OmniDocBench_data/OmniDocBench.json")
 DEFAULT_LIBRARY_DIR = REPO / "data" / "knowledge_base" / "libraries" / "omnidocbench" / "documents"
 DEFAULT_OUT_ROOT = REPO / "data" / "evals" / "parse_regression"
 EVAL_IMAGE = "ghcr.io/zeng-weijun/omnidocbench-eval:repro-ubuntu2204"
+# 数据集（页图 + OmniDocBench.json）的候选目录：一键跑不该要求背路径。按顺序取第一个
+# 真的有 images/ 的；都找不到才报错并列出候选（env: OMNIDOCBENCH_DATA 优先）
+DATA_DIR_CANDIDATES = (
+    Path(os.getenv("OMNIDOCBENCH_DATA") or ""),
+    REPO / "data" / "omnidocbench",
+    Path("D:/AI/tools/OmniDocBench_data"),
+    Path.home() / "OmniDocBench_data",
+)
+# 三方表两列（参考模型 / MinerU 单独）的官方产物目录候选；是可选项，找不到就留空并写明
+SOURCE_DIR_CANDIDATES = {
+    "ref": (Path(os.getenv("OMNIDOCBENCH_REF_RESULT") or ""), Path("D:/AI/omnidocbench_dl/ref_result")),
+    "mineru": (Path(os.getenv("OMNIDOCBENCH_MINERU_RESULT") or ""), Path("D:/AI/omnidocbench_dl/mineru_only_result")),
+}
+
+
+def _resolve_data_dir(arg: str) -> Path:
+    """定数据集目录：显式参数 > 候选里第一个含 images/ 的。"""
+    if arg:
+        path = Path(arg)
+        if not (path / "images").is_dir():
+            raise SystemExit(f"--data-dir 下没有 images/：{path}")
+        return path
+    tried = []
+    for cand in DATA_DIR_CANDIDATES:
+        if not str(cand) or str(cand) == ".":
+            continue
+        tried.append(str(cand))
+        if (cand / "images").is_dir():
+            return cand
+    raise SystemExit("找不到 OmniDocBench 数据集（需含 images/ 与 OmniDocBench.json）。\n"
+                     "用 --data-dir 指定，或设环境变量 OMNIDOCBENCH_DATA。已试：\n  "
+                     + "\n  ".join(tried))
+
+
+def _resolve_gt(arg_gt: str, data_dir: Path) -> Path:
+    path = Path(arg_gt) if arg_gt else data_dir / "OmniDocBench.json"
+    if not path.is_file():
+        raise SystemExit(f"GT 不存在: {path}（可用 --gt 指定）")
+    return path
+
+
+def _resolve_source(kind: str) -> str:
+    """三方表可选的固定列：候选目录里有官方 metric_result 才用，否则留空。"""
+    for cand in SOURCE_DIR_CANDIDATES[kind]:
+        if str(cand) and str(cand) != "." and pr.find_metric_result(cand) is not None:
+            return str(cand)
+    return ""
 
 
 def _key(name) -> str:
@@ -219,8 +264,8 @@ def main() -> int:
     ap.add_argument("--skip-predict", action="store_true")
     ap.add_argument("--skip-official", action="store_true", help="不跑 18GB 镜像（A① 空着）")
     ap.add_argument("--predictions", default="", help="预测目录（--skip-predict 时指向现成目录）")
-    ap.add_argument("--data-dir", default=str(DEFAULT_DATA_DIR))
-    ap.add_argument("--gt", default=str(DEFAULT_GT))
+    ap.add_argument("--data-dir", default="", help="OmniDocBench 数据集目录（含 images/）；留空自动探测")
+    ap.add_argument("--gt", default="", help="OmniDocBench.json；留空取 <data-dir>/OmniDocBench.json")
     ap.add_argument("--library", default="omnidocbench")
     ap.add_argument("--library-dir", default=str(DEFAULT_LIBRARY_DIR))
     ap.add_argument("--out-root", default=str(DEFAULT_OUT_ROOT))
@@ -228,8 +273,8 @@ def main() -> int:
     ap.add_argument("--delta-mode", choices=["strict", "intersect"], default="strict",
                     help="页集合不等时：strict=不出 Δ（默认）；intersect=按交集重算 A①（非官方口径）")
     ap.add_argument("--set-baseline", action="store_true", help="把本次 run 钉为基线")
-    ap.add_argument("--sources-ref", default="", help="参考模型官方产物目录（三方表第一列，固定基线）")
-    ap.add_argument("--sources-mineru", default="", help="MinerU 单独官方产物目录（三方表第二列）")
+    ap.add_argument("--sources-ref", default="", help="参考模型官方产物目录（三方表第一列）；留空自动探测")
+    ap.add_argument("--sources-mineru", default="", help="MinerU 单独官方产物目录（三方表第二列）；留空自动探测")
     ap.add_argument("--import-official", default="", help="入档模式：官方产物目录")
     ap.add_argument("--import-chain", default="", help="入档模式：A② 我们全链 structure_result.json")
     ap.add_argument("--import-mineru", default="", help="入档模式：A② MinerU 原生 structure_result.json")
@@ -240,10 +285,16 @@ def main() -> int:
         return _import_mode(args)
 
     root = Path(args.out_root)
-    gt_path = Path(args.gt)
-    if not gt_path.is_file():
-        raise SystemExit(f"GT 不存在: {gt_path}")
-    data_dir, library_dir = Path(args.data_dir), Path(args.library_dir)
+    data_dir = _resolve_data_dir(args.data_dir)
+    gt_path = _resolve_gt(args.gt, data_dir)
+    library_dir = Path(args.library_dir)
+    args.sources_ref = args.sources_ref or _resolve_source("ref")
+    args.sources_mineru = args.sources_mineru or _resolve_source("mineru")
+    print(f"数据集: {data_dir}\nGT: {gt_path}\n产物库: {library_dir}")
+    if not library_dir.is_dir():
+        print(f"!! 产物库目录不存在，A② 会读不到 jsonl: {library_dir}")
+    if args.sources_ref or args.sources_mineru:
+        print(f"三方表固定列: 参考模型={args.sources_ref or '—'} / MinerU={args.sources_mineru or '—'}")
 
     ts = datetime.now().strftime("%Y%m%d-%H%M")
     run_id = pr.run_id_for(ts, args.tag)
