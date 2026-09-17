@@ -151,8 +151,13 @@ MinerU 版本、各步耗时、跳过/失败项。
    （本机无 GPU，200 页不可行）。评测用的是 OmniDocBench 公开基准集页图，不是私有文档。
 2. **20260913 那份旧基线不是一次 fresh 解析**：它是 09-12 那批 jsonl 的 markdown **换个表格写法
    重投影**（200 个 md 写入时间跨度 0.33 秒；146 页与库内逐字相同、54 页只差表格写法）。
-   它已入档为 `baseline-20260913`（`meta.kind=offline-reprojection`），**只作历史参照**：
-   与它比 Δ 量的是"换量尺的差"，工具会打印此警告。首份 fresh 基线要等一次真跑（默认自动钉住）。
+   数字已登记在 `docs/omnidocbench-baseline.md` 的"HTML 表投影"列；**归档目录已于 2026-09-17
+   按用户要求清理**（只留 09-17 之后的 run），需要它当对照时用同一条命令重建：
+   `python scripts/run_parse_regression.py --import-official D:/AI/omnidocbench_dl/full_html_result
+   --import-chain data/evals/omnidocbench/result_jsonl200/structure_result.json
+   --import-mineru data/evals/omnidocbench/result_jsonl200_mineru/structure_result.json
+   --tag baseline-20260913`（`meta.kind=offline-reprojection`；与它比 Δ 量的是"换量尺的差"，
+   工具会打印此警告，不是回归判据）。
 
 **A② 表里两列 TEDS/公式相似度相同不是 bug**：我们的 `table_html` 是 MinerU HTML 原文搬运
 （逐字相等），公式文本同源——这两项两侧必然同分；差异只在块切分（召回率、文本相似度）。
