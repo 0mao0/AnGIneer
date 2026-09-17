@@ -1033,13 +1033,23 @@ onBeforeUnmount(() => {
   margin: 4px 0 0;
   padding-left: 18px;
 }
+/* 大类之间要一眼分得开：分隔横线 + 更大间距（用户："瀑布流分不清"） */
 .epr-section {
-  margin-top: 16px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color, #f0f0f0);
+}
+.epr-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
 }
 .epr-section h4 {
-  margin: 0 0 8px;
-  font-size: 13px;
+  margin: 0 0 10px;
+  padding-left: 9px;
+  border-left: 3px solid #1677ff;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 1.2;
 }
 .epr-delta-note {
   margin-bottom: 8px;
