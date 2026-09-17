@@ -380,6 +380,8 @@ function deltaSummary(run: RunPayload): string {
 function deltaSummaryClass(run: RunPayload): string {
   const d = run.delta
   if (!d || d.gate !== 'ok') return 'epr-dim'
+  // 离线重投影产物（入档模式）不标红：那行的 Δ 是换量尺的差，不是回归（行上已有橙色标记）
+  if (run.kind !== 'run') return 'epr-dim'
   const bad = (d.groups?.official || []).some((r) => r.delta != null && r.delta !== 0 && (r.delta > 0) !== r.higher_is_better)
   return bad ? 'epr-bad' : 'epr-good'
 }
