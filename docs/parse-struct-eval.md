@@ -100,6 +100,62 @@ python scripts/eval_parse_struct.py \
 ```
 产物：`structure_result.json`（逐页明细）+ `structure_report.md`（报告）。
 
+## 一键入口（A①+A② 编排、归档、Δ）
+
+一条命令、本机跑、可选题量、结果入档并与基线比 Δ。**不新建评测器**：调的还是上面这两个脚本，
+新做的只有编排 + 归档 + Δ（`evals_core/parse_regression.py` + `scripts/run_parse_regression.py`）。
+
+```bash
+# 全跑（predict 52min + A②×2 4min + A① 10–20min；200 页 ≈1.2–1.5h）
+python scripts/run_parse_regression.py --limit 200 --seed 42
+
+# 干跑：复用现成预测、不跑 18GB 镜像（~4min，只验归档与 Δ）
+python scripts/run_parse_regression.py --skip-predict --skip-official --limit 50 \
+    --predictions data/evals/omnidocbench/predictions_eval200
+
+# 把既有离线产物入档为参照基线（不跑任何评测器）
+python scripts/run_parse_regression.py --import-official <官方产物目录> \
+    --import-chain <structure_result.json> --import-mineru <...> --tag baseline-YYYYMMDD --note "..."
+```
+
+| 参数 | 默认 | 说明 |
+|---|---|---|
+| `--limit` / `--seed` | 200 / 42 | 与既有基线同约定；同 seed 下抽样**可嵌套**（limit=50 的页集 ⊂ limit=200） |
+| `--predict-mode` | `in-process` | 直驱 docs_core，不吃 HTTP/管理员凭据；改代码即时生效（http 模式量的是长驻进程的旧代码） |
+| `--skip-predict` / `--skip-official` | — | 必须显式给，**跳过理由写进 meta 与 summary**，不静默 |
+| `--baseline` | `baseline` | `baseline`(指针) / `latest` / `none` / `<run_id>` / 目录 |
+| `--delta-mode` | `strict` | 页集合不等时 `strict` 不出 Δ；`intersect` 按交集重算 A①（**非官方重跑口径**） |
+| `--set-baseline` | — | 把本次 run 钉为基线（首次跑自动成为基线） |
+
+**归档布局**（`data/evals/parse_regression/`，本机 gitignored；数字回填本文件与 `omnidocbench-baseline.md`）：
+
+```
+<root>/latest.json                 最近一次 run 指针
+<root>/baseline.json               钉住的基线指针
+<root>/<run_id>/{meta.json, summary.md, struct_chain.json, struct_mineru.json, official/, gt_subset.json}
+```
+
+`meta.json` 里 **`page_ids` + `page_ids_hash` 是 Δ 的前提**（页集合不同的两次分不可比——
+少评几页会虚高或虚低）；另记 git describe（含 `-dirty`）、抽样参数、阶段（固定 5 阶段）、
+MinerU 版本、各步耗时、跳过/失败项。
+
+**两条必须知道的量尺事实**（否则数字会被读错）：
+
+1. **推理仍出本机**：predict 的页图经 `MINERU_CONFIGS`/`POPO_CONFIGS` 送到生产网关背后的 GPU。
+   "不上传生产"= 不写生产库、不落生产盘（满足）；要做到数据也不出本机只能本机自部署 GPU
+   （本机无 GPU，200 页不可行）。评测用的是 OmniDocBench 公开基准集页图，不是私有文档。
+2. **20260913 那份旧基线不是一次 fresh 解析**：它是 09-12 那批 jsonl 的 markdown **换个表格写法
+   重投影**（200 个 md 写入时间跨度 0.33 秒；146 页与库内逐字相同、54 页只差表格写法）。
+   它已入档为 `baseline-20260913`（`meta.kind=offline-reprojection`），**只作历史参照**：
+   与它比 Δ 量的是"换量尺的差"，工具会打印此警告。首份 fresh 基线要等一次真跑（默认自动钉住）。
+
+**A② 表里两列 TEDS/公式相似度相同不是 bug**：我们的 `table_html` 是 MinerU HTML 原文搬运
+（逐字相等），公式文本同源——这两项两侧必然同分；差异只在块切分（召回率、文本相似度）。
+
+**predict 阶段固定 5 阶段、不建索引**：`source_prep,convert,raw_parse,popo,structure`
+（`fts`/`vectors` 不进评测链）。建索引会引入与本层无关的变量（embedding 后端、向量库状态），
+且正是 B 层素材检查的验证对象，混进来会让两层的锅分不清。
+
 ## 口径定义
 
 | 环节 | 规则 |
