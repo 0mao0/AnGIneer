@@ -146,6 +146,14 @@ def _message_to_meta_json(message: AgentMessage) -> str:
     return json.dumps(extra, ensure_ascii=False)
 
 
+def _derive_title(text: str) -> str:
+    """会话标题：首条非空用户消息压缩空白截断 30 字（与前端 deriveTitle 同规则，后端复刻）。"""
+    collapsed = " ".join((text or "").split())
+    if not collapsed:
+        return "未命名对话"
+    return f"{collapsed[:30]}…" if len(collapsed) > 30 else collapsed
+
+
 def _row_to_message(row: sqlite3.Row) -> AgentMessage:
     extra = json.loads(row["meta_json"] or "{}")
     return AgentMessage(
@@ -240,6 +248,18 @@ class SqliteHistoryStore:
                     "UPDATE chat_sessions SET updated_at=? WHERE owner_key=? AND session_id=?",
                     (now, eff_owner, session_id),
                 )
+                title_row = conn.execute(
+                    "SELECT title FROM chat_sessions WHERE owner_key=? AND session_id=?",
+                    (eff_owner, session_id),
+                ).fetchone()
+                if title_row is not None and not title_row["title"]:
+                    first_user = next(
+                        (m.content for m in messages if m.role == "user" and m.content.strip()), ""
+                    )
+                    conn.execute(
+                        "UPDATE chat_sessions SET title=? WHERE owner_key=? AND session_id=?",
+                        (_derive_title(first_user), eff_owner, session_id),
+                    )
                 conn.execute(
                     "INSERT OR REPLACE INTO chat_runs"
                     " (run_id, owner_key, session_id, model, latency_ms, status, error, created_at)"

@@ -60,6 +60,12 @@ from evals_routes import evals_router
 from dream_cycle_routes import dream_cycle_router
 from chat_auth import enforce_bound_library, resolve_pool_owner
 from angineer_core.history_store import scope_hash_for
+
+
+def _resolve_principal(request) -> tuple:
+    """chat-history 路由组装层：owner_key + user_id（游客 cookie 在步 3 并入 resolve_pool_owner）。"""
+    user = getattr(request.state, "session_user", None)
+    return resolve_pool_owner(request), (getattr(user, "id", None) if user is not None else None)
 from middleware.api_key_auth import APIKeyAuthMiddleware
 from route_pre import (
     decision_intent_result,
@@ -231,6 +237,18 @@ def _get_history_store():
         _history_store_failed = True
         logger.warning("聊天历史存储初始化失败，降级为纯内存池: %s", exc)
     return _history_store
+
+
+try:
+    from chat_history.routes import build_chat_router
+
+    app.include_router(
+        build_chat_router(_get_history_store(), _resolve_principal),
+        prefix="/api/chat",
+        tags=["Chat History"],
+    )
+except Exception as exc:  # noqa: BLE001
+    logger.warning("聊天历史路由挂载失败（历史端点不可用）: %s", exc)
 
 
 @app.post("/api/chat/agent")
