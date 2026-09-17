@@ -176,7 +176,7 @@
           <!-- A① 三方表（柱状图 + 精确数值表） -->
           <div class="epr-section">
             <h4>A① 官方 markdown 口径（三方）</h4>
-            <div ref="officialChartEl" class="epr-chart" style="height: 300px" />
+            <div ref="officialChartEl" class="epr-chart" :style="{ height: officialChartHeight }" />
             <table class="epr-table">
               <thead>
                 <tr><th>指标</th><th>方向</th><th>参考模型</th><th>MinerU 单独</th><th>我们全链</th></tr>
@@ -217,7 +217,7 @@
           <!-- A② 两方表（柱状图 + 精确数值表） -->
           <div class="epr-section">
             <h4>A② 结构层口径（两方）</h4>
-            <div ref="structChartEl" class="epr-chart" style="height: 320px" />
+            <div ref="structChartEl" class="epr-chart" :style="{ height: structChartHeight }" />
             <table class="epr-table">
               <thead>
                 <tr><th>指标</th><th>方向</th><th>MinerU 原生 content_list</th><th>我们全链</th></tr>
@@ -747,7 +747,9 @@ function groupedBarOption(
     series: seriesList.map((s) => ({
       name: s.name,
       type: 'bar' as const,
-      barWidth: 11,
+      barMaxWidth: 12,
+      barGap: '28%',            // 组内条间距
+      barCategoryGap: '42%',    // 组间留白
       itemStyle: { color: seriesColor(s.name), borderRadius: [0, 5, 5, 0] },
       data: s.values.map((v, i) => {
         const bestIdx = bestIndicesOfRow(seriesList.map((x) => x.values[i]), higher(keys[i]))
@@ -797,7 +799,9 @@ function breakdownBarOption(labels: string[], seriesList: Array<{ name: string; 
     series: seriesList.map((s) => ({
       name: s.name,
       type: 'bar' as const,
-      barWidth: 11,
+      barMaxWidth: 12,
+      barGap: '28%',
+      barCategoryGap: '38%',
       itemStyle: { color: seriesColor(s.name), borderRadius: [0, 5, 5, 0] },
       data: s.values.map((v, i) => {
         const bestIdx = bestIndicesOfRow(seriesList.map((x) => x.values[i]), true)
@@ -872,6 +876,9 @@ function renderCharts(): void {
 }
 
 // 每行约 30px 起步，行多就长高（挤在一起看不清）；下限 260 上限 640
+const rowHeight = (n: number) => `${Math.min(640, Math.max(260, n * 38 + 70))}px`
+const officialChartHeight = computed(() => rowHeight(OFFICIAL_ORDER.length))
+const structChartHeight = computed(() => rowHeight(STRUCT_ORDER.length))
 const categoryChartHeight = computed(() => {
   const n = (detail.value?.run?.by_category || []).length || 1
   return `${Math.min(640, Math.max(260, n * 32 + 60))}px`
