@@ -10,17 +10,15 @@ export interface SessionUserInfo {
   is_admin?: boolean
 }
 
-/** 用户会话：登录 = 账号密码 → 后端签发会话 token；库集合由服务端裁定。 */
-const GUEST_MODE_KEY = 'ag_guest_mode_v1'
-
+/** 用户会话：登录 = 账号密码 → 后端签发会话 token；库集合由服务端裁定。
+ * 无登录硬门改版后 guestMode 语义 = 未登录态（默认 true，App 挂载时按 token 有效性收敛）。 */
 export const useAuthStore = defineStore('auth', {
   state: () => ({
     token: getSessionToken(),
     user: null as SessionUserInfo | null,
     activeLibraryId: '',
     checking: false,
-    // 游客模式（计划 D2）：免密进站、只能问默认库、满 30 轮硬拦；刷新经 sessionStorage 恢复
-    guestMode: sessionStorage.getItem(GUEST_MODE_KEY) === '1',
+    guestMode: true,
   }),
   getters: {
     isAuthed: (state) => Boolean(state.token),
@@ -31,14 +29,13 @@ export const useAuthStore = defineStore('auth', {
   },
   actions: {
     async enterGuestMode() {
-      // 幂等签发 HttpOnly ag_guest_id（服务端按 cookie 落 g: 桶，30 轮闸按桶计数）
+      // 幂等签发 HttpOnly ag_guest_id（服务端按 cookie 落 g: 桶，30 轮闸按桶计数）；
+      // 已登录调用是安全的 no-op（resolve_pool_owner 永远优先 u:）
       await fetch('/api/chat/guest', { method: 'POST' }).catch(() => {})
       this.guestMode = true
-      sessionStorage.setItem(GUEST_MODE_KEY, '1')
     },
     exitGuestMode() {
       this.guestMode = false
-      sessionStorage.removeItem(GUEST_MODE_KEY)
     },
     async login(username: string, password: string) {
       const resp = await docsApiClient.post<{ token: string; user: SessionUserInfo }>(
@@ -52,7 +49,6 @@ export const useAuthStore = defineStore('auth', {
       // 登录即并入游客档（计划 §4「登录后并入」）：老账号 +1 条会话，失败不阻断登录
       if (this.guestMode) {
         this.guestMode = false
-        sessionStorage.removeItem(GUEST_MODE_KEY)
         fetch('/api/chat/sessions/claim', {
           method: 'POST',
           headers: {
@@ -99,6 +95,8 @@ export const useAuthStore = defineStore('auth', {
       this.token = ''
       this.user = null
       this.activeLibraryId = ''
+      this.guestMode = true // 登出落回游客态（直接可聊，不再见登录门）
+      void fetch('/api/chat/guest', { method: 'POST' }).catch(() => {}) // 补签游客 cookie，下一轮落 g: 桶
     },
     /** 跨应用/跨标签页同步：重读共享 token，为空则退出，否则刷新用户信息。 */
     async syncExternal() {

@@ -1,8 +1,10 @@
 <template>
+  <!-- 登录弹层（2026-09-17 改版）：不再是进站硬门，仅由 ChatHome 在游客 30 轮闸
+       （login_required 403）或顶栏「登录」按钮时挂载；登录成功即自动消失，对话不丢 -->
   <div v-if="!auth.isAuthed || authFailed" class="auth-gate">
     <div class="auth-card">
       <h2>登录 AnGIneer</h2>
-      <p class="auth-hint">请输入管理员为您创建的账号</p>
+      <p class="auth-hint">游客试用轮数已达上限，登录后当前对话自动并入你的账号历史，可继续聊天</p>
       <a-input
         v-model:value="username"
         placeholder="用户名"
@@ -19,12 +21,8 @@
       />
       <div v-if="errorText" class="auth-error">{{ errorText }}</div>
       <a-button type="primary" block :loading="auth.checking" @click="handleLogin">
-        进入
+        登录并继续对话
       </a-button>
-      <a-button class="auth-guest" block :disabled="auth.checking" @click="handleGuest">
-        以游客身份开始
-      </a-button>
-      <p class="auth-guest-hint">游客可直接提问（默认知识库），累计 30 轮后需登录继续</p>
     </div>
   </div>
 </template>
@@ -70,16 +68,6 @@ async function handleLogin() {
     errorText.value = e?.message || '登录失败，请检查账号密码'
   }
 }
-
-/** 游客进站（D2）：签发游客 cookie 后进入，30 轮闸由服务端按 g: 桶计数 */
-async function handleGuest() {
-  errorText.value = ''
-  try {
-    await auth.enterGuestMode()
-  } catch {
-    errorText.value = '游客通道初始化失败，请重试'
-  }
-}
 </script>
 
 <style scoped>
@@ -119,14 +107,5 @@ async function handleGuest() {
   margin-bottom: 12px;
   color: var(--danger, #cf1322);
   font-size: 13px;
-}
-.auth-guest {
-  margin-top: 10px;
-}
-.auth-guest-hint {
-  margin: 10px 0 0;
-  color: var(--text-secondary);
-  text-align: center;
-  font-size: 12px;
 }
 </style>

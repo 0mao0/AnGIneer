@@ -67,7 +67,7 @@
  * - 知识库：输入框下拉单选（仅权限内库），@ 提及当前库内文档（文档级圈定检索范围）；
  * - 历史：@messagesChange 落盘 localStorage（chatHistory.ts），抽屉恢复。
  */
-import { computed, defineAsyncComponent, nextTick, onMounted, ref } from 'vue'
+import { computed, defineAsyncComponent, nextTick, onMounted, ref, watch } from 'vue'
 import { CloseOutlined } from '@ant-design/icons-vue'
 import { AIChat } from '@angineer/aichat-ui'
 import type { AIChatMessage, AIChatCitation } from '@angineer/aichat-ui'
@@ -112,6 +112,17 @@ const onChatError = (error: Error) => {
   }
 }
 
+// 登录成功（30 轮闸弹窗或顶栏按钮）：关闭弹层 + 刷新历史抽屉——claim 已把游客会话并入账号
+watch(
+  () => authStore.isAuthed,
+  (authed) => {
+    if (authed) {
+      loginPrompt.value = false
+      void refreshSessions()
+    }
+  }
+)
+
 /** 知识库单选下拉：只列当前用户被授权的库，名称解析失败回退显示 id */
 const libraryNames = ref<Record<string, string>>({})
 const libraryOptions = computed(() =>
@@ -126,6 +137,8 @@ const loadLibraryNames = async () => {
   }
 }
 onMounted(() => {
+  // 未登录（游客态）：补签游客 cookie，保证首轮问答即落在 g: 桶（幂等，已登录是安全的 no-op）
+  if (!authStore.isAuthed) void authStore.enterGuestMode()
   if (!authStore.guestMode) void loadLibraryNames()
   // 空闲预热预览栈：不抢首屏带宽，页面可用后悄悄把它加载完，点引用时无需再等
   const prime = () => { void documentViewLoader() }

@@ -1,8 +1,9 @@
 <template>
   <a-config-provider :locale="zhCN" :theme="themeConfig">
     <a-app>
-      <AuthGate />
-      <div v-if="authStore.isAuthed || authStore.guestMode" class="app-container" :class="appClass">
+      <!-- 无登录硬门（2026-09-17 改版）：有有效会话直接进，没有则以游客态直接进聊天页，
+           满 30 轮由服务端闸拦再弹登录（ChatHome loginPrompt） -->
+      <div class="app-container" :class="appClass">
         <router-view />
       </div>
     </a-app>
@@ -10,13 +11,29 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { useTheme } from '@angineer/ui-kit'
-import AuthGate from './components/AuthGate.vue'
 import { useAuthStore } from '@/stores/auth'
 
 const { themeConfig, appClass } = useTheme()
 const authStore = useAuthStore()
+
+onMounted(async () => {
+  if (!authStore.token) {
+    authStore.guestMode = true
+    return
+  }
+  // 有 token：向服务端验证有效性（refreshMe 内部 401/403 自动登出）；
+  // 会话过期则落回游客态并补签游客 cookie，保证首轮问答即落在 g: 桶
+  try {
+    await authStore.refreshMe()
+    authStore.guestMode = false
+  } catch {
+    authStore.guestMode = true
+    await authStore.enterGuestMode().catch(() => {})
+  }
+})
 </script>
 
 <style lang="less">
