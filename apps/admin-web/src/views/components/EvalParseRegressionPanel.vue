@@ -258,7 +258,7 @@
           <!-- 逐类目 / 逐文档类型（柱状图：按召回率排序，一眼看出哪类没做好） -->
           <div v-if="detail.run.by_category?.length" class="epr-section">
             <h4>A② 逐类目 · 块召回率（我们全链）</h4>
-            <div ref="categoryChartEl" class="epr-chart" style="height: 380px" />
+            <div ref="categoryChartEl" class="epr-chart" :style="{ height: categoryChartHeight }" />
             <div v-if="detail.run.conclusions?.category" class="epr-conclusion">
               <div class="epr-conclusion__title">结论 · 逐类目</div>
               <p class="epr-conclusion__head">{{ detail.run.conclusions.category.headline }}</p>
@@ -308,7 +308,7 @@
 
           <div v-if="detail.run.by_data_source?.length" class="epr-section">
             <h4>A② 逐文档类型 · 块召回率</h4>
-            <div ref="sourceChartEl" class="epr-chart" style="height: 300px" />
+            <div ref="sourceChartEl" class="epr-chart" :style="{ height: sourceChartHeight }" />
             <div v-if="detail.run.conclusions?.source" class="epr-conclusion">
               <div class="epr-conclusion__title">结论 · 逐文档类型</div>
               <p class="epr-conclusion__head">{{ detail.run.conclusions.source.headline }}</p>
@@ -604,7 +604,13 @@ const SERIES_COLORS: Record<string, string> = {
   'MinerU 原生': '#13c2c2',
   我们全链: '#52c41a',
 }
-const seriesColor = (name: string) => SERIES_COLORS[name] || '#8c8c8c'
+const OURS = '我们全链'
+/** 实心=我们、半透明=对手：一排 30 根柱子时实心才能一眼分出来（用户要求） */
+const seriesColor = (name: string, alpha = name === OURS ? 1 : 0.45) => {
+  const hex = SERIES_COLORS[name] || '#8c8c8c'
+  const n = parseInt(hex.slice(1), 16)
+  return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`
+}
 
 const officialChartEl = ref<HTMLElement | null>(null)
 const structChartEl = ref<HTMLElement | null>(null)
@@ -702,10 +708,12 @@ function groupedBarOption(
       data: s.values.map((v, i) => {
         const bestIdx = bestIndicesOfRow(seriesList.map((x) => x.values[i]), higher(keys[i]))
         const isBest = bestIdx.includes(seriesList.indexOf(s))
+        const isOurs = s.name === OURS
         return {
           value: v,
+          // 只标我们的数值（对手值看 tooltip）；对手赢的那条也标出来，否则 ★ 没有数字
           label: {
-            show: true,
+            show: isOurs || isBest,
             position: 'right' as const,
             fontSize: 10,
             color: isBest ? '#52c41a' : '#999',
@@ -753,7 +761,7 @@ function breakdownBarOption(labels: string[], seriesList: Array<{ name: string; 
         return {
           value: v,
           label: {
-            show: true,
+            show: s.name === OURS || isBest,
             position: 'right' as const,
             fontSize: 10,
             color: isBest ? '#52c41a' : '#999',
@@ -818,6 +826,16 @@ function renderCharts(): void {
     ],
   ), true)
 }
+
+// 每行约 30px 起步，行多就长高（挤在一起看不清）；下限 260 上限 640
+const categoryChartHeight = computed(() => {
+  const n = (detail.value?.run?.by_category || []).length || 1
+  return `${Math.min(640, Math.max(260, n * 32 + 60))}px`
+})
+const sourceChartHeight = computed(() => {
+  const n = (detail.value?.run?.by_data_source || []).length || 1
+  return `${Math.min(640, Math.max(260, n * 32 + 60))}px`
+})
 
 const handleResize = () => charts.forEach((c) => c.resize())
 
