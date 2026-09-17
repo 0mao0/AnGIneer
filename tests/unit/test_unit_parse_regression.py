@@ -251,6 +251,35 @@ class TestConclusions(unittest.TestCase):
     def test_noise_note_always_present(self):
         self.assertIn("噪声底", self._concl()["noise_note"])
 
+    def test_breakdown_gaps_vs_mineru(self):
+        """逐类目/逐文档类型的'好还是坏'要对着 MinerU 同口径判，绝对值本身没有判据。"""
+        cats = [{"category": "t1", "recall": 0.949, "gt_blocks": 100},
+                {"category": "t2", "recall": 0.585, "gt_blocks": 53},
+                {"category": "t3", "recall": 0.0, "gt_blocks": 13}]
+        mineru_cats = [{"category": "t1", "recall": 0.959},
+                       {"category": "t2", "recall": 0.679},
+                       {"category": "t3", "recall": 0.0}]
+        srcs = [{"data_source": "book", "block_recall": 0.862, "pages": 35}]
+        mineru_srcs = [{"data_source": "book", "block_recall": 0.806}]
+        out = pr.build_conclusions(self.OURS, {"block_recall": 0.88}, {"block_recall": 0.78},
+                                  self.REF, self.MINERU, cats, srcs, mineru_cats, mineru_srcs)
+        struct = out["struct"]
+        self.assertIn("逐类目 3 项里我们落后 2 项、与 MinerU 同分 1 项", struct["headline"])
+        self.assertEqual([r["name"] for r in struct["category_vs_mineru"]["worse"]], ["t2", "t1"])
+        self.assertEqual([r["name"] for r in struct["category_vs_mineru"]["better"]], [])
+        self.assertEqual([s["name"] for s in struct["source_vs_mineru"]["better"]], ["book"])
+        # 最差项带 MinerU 同项：t3 两边都是 0 → 不是我们的短板（前端据此措辞）
+        t3 = [c for c in struct["weak_categories"] if c["name"] == "t3"][0]
+        self.assertEqual(t3["mineru"], 0.0)
+        self.assertEqual(t3["recall"], 0.0)
+
+    def test_breakdown_absent_when_no_mineru_detail(self):
+        out = pr.build_conclusions(self.OURS, {"block_recall": 0.88}, {"block_recall": 0.78},
+                                  self.REF, self.MINERU,
+                                  [{"category": "t1", "recall": 0.9, "gt_blocks": 5}], None)
+        self.assertEqual(out["struct"]["category_vs_mineru"]["rows"], [])
+        self.assertTrue(all(c.get("mineru") is None for c in out["struct"]["weak_categories"]))
+
 
 class TestPublishPayload(unittest.TestCase):
     """服务器看板载荷：前端需要的东西必须齐（指标/元信息/Δ/逐类目），且白名单不含大文件。"""

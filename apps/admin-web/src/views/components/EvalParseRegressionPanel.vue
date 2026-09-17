@@ -249,10 +249,31 @@
               <ul class="epr-conclusion__list">
                 <li v-for="c in detail.run.conclusions.struct.weak_categories || []" :key="c.name">
                   <b>最差类目</b> {{ c.name }}：块召回率 {{ pct(c.recall) }}
-                  <span class="epr-dim">——该类块的捕获/类目映射是短板，见下方逐类目表</span>
+                  <span v-if="c.mineru != null" class="epr-dim">
+                    （MinerU 同项 {{ pct(c.mineru) }}——{{ sameAsRival(c) ? '两边都没接住，属类目本身难/未建模，不是我们的短板'
+                                                                 : '我们明显更低，是短板' }}）
+                  </span>
                 </li>
                 <li v-for="s in detail.run.conclusions.struct.weak_sources || []" :key="s.name">
                   <b>最差文档类型</b> {{ s.name }}：块召回率 {{ pct(s.recall) }}
+                  <span v-if="s.mineru != null" class="epr-dim">（MinerU 同项 {{ pct(s.mineru) }}）</span>
+                </li>
+              </ul>
+              <ul v-if="detail.run.conclusions.struct.category_vs_mineru?.worse?.length ||
+                        detail.run.conclusions.struct.category_vs_mineru?.better?.length ||
+                        detail.run.conclusions.struct.source_vs_mineru?.worse?.length"
+                  class="epr-conclusion__list">
+                <li v-for="r in detail.run.conclusions.struct.category_vs_mineru?.worse || []" :key="'cw-' + r.name">
+                  <b>类目落后于 MinerU</b> {{ r.name }}：我们 {{ pct(r.ours) }} vs {{ pct(r.rival) }}
+                  （{{ (r.gap * 100).toFixed(1) }}pp）
+                  <span class="epr-dim">——该类块的捕获/类目映射相对对手偏弱，优先查这里</span>
+                </li>
+                <li v-for="r in detail.run.conclusions.struct.category_vs_mineru?.better || []" :key="'cb-' + r.name">
+                  <b>类目领先于 MinerU</b> {{ r.name }}：我们 {{ pct(r.ours) }} vs {{ pct(r.rival) }}
+                  （+{{ (r.gap * 100).toFixed(1) }}pp）
+                </li>
+                <li v-for="r in detail.run.conclusions.struct.source_vs_mineru?.worse || []" :key="'sw-' + r.name">
+                  <b>文档类型落后于 MinerU</b> {{ r.name }}：{{ pct(r.ours) }} vs {{ pct(r.rival) }}
                 </li>
               </ul>
               <p v-if="detail.run.conclusions.noise_note" class="epr-conclusion__note">
@@ -269,7 +290,8 @@
               <thead>
                 <tr>
                   <th>类目</th><th>GT 块</th><th>命中</th><th>召回率</th>
-                  <th>文本相似度(命中)</th><th>样本 n</th><th>表格 TEDS</th><th>公式相似度</th>
+                  <th>召回率(MinerU 原生)</th><th>文本相似度(命中)</th><th>样本 n</th>
+                  <th>表格 TEDS</th><th>公式相似度</th>
                 </tr>
               </thead>
               <tbody>
@@ -278,6 +300,7 @@
                   <td>{{ c.gt_blocks }}</td>
                   <td>{{ c.matched }}</td>
                   <td>{{ pct(c.recall) }}</td>
+                  <td>{{ pct(mineruCategoryOf(c.category)?.recall) }}</td>
                   <td>{{ dec(c.text_similarity_matched) }}</td>
                   <td>{{ c.text_n_matched || '—' }}</td>
                   <td>{{ dec(c.teds) }}</td>
@@ -292,13 +315,17 @@
             <div ref="sourceChartEl" class="epr-chart" style="height: 300px" />
             <table class="epr-table">
               <thead>
-                <tr><th>data_source</th><th>页数</th><th>召回率</th><th>文本相似度</th><th>表格 TEDS</th><th>顺序相邻对</th></tr>
+                <tr>
+                  <th>data_source</th><th>页数</th><th>召回率</th><th>召回率(MinerU 原生)</th>
+                  <th>文本相似度</th><th>表格 TEDS</th><th>顺序相邻对</th>
+                </tr>
               </thead>
               <tbody>
                 <tr v-for="s in detail.run.by_data_source" :key="s.data_source">
                   <td>{{ s.data_source }}</td>
                   <td>{{ s.pages }}</td>
                   <td>{{ pct(s.block_recall) }}</td>
+                  <td>{{ pct(mineruSourceOf(s.data_source)?.block_recall) }}</td>
                   <td>{{ dec(s.text_similarity) }}</td>
                   <td>{{ dec(s.teds) }}</td>
                   <td>{{ pct(s.order_adjacent_accuracy) }}</td>
@@ -371,13 +398,17 @@ interface RunPayload {
   }
   by_category?: CategoryRow[]
   by_data_source?: SourceRow[]
+  by_category_mineru?: CategoryRow[]
+  by_data_source_mineru?: SourceRow[]
   conclusions?: {
     noise_note?: string
     official?: { headline: string; best?: string[]; worse?: ConclRow[] }
     struct?: {
       headline: string; best?: string[]; worse?: ConclRow[]
-      weak_categories?: Array<{ name: string; recall: number | null }>
-      weak_sources?: Array<{ name: string; recall: number | null }>
+      weak_categories?: Array<{ name: string; recall: number | null; mineru?: number | null }>
+      weak_sources?: Array<{ name: string; recall: number | null; mineru?: number | null }>
+      category_vs_mineru?: GapRow
+      source_vs_mineru?: GapRow
     }
   }
   state?: string
@@ -385,6 +416,11 @@ interface RunPayload {
 interface ConclRow {
   metric: string; label: string; ours: number | null; rival: number | null
   rival_name: string; gap: number; verdict: string; hint?: string
+}
+interface GapRow {
+  rows?: Array<{ name: string; ours: number | null; rival: number | null; gap: number; verdict: string }>
+  worse?: Array<{ name: string; ours: number | null; rival: number | null; gap: number; verdict: string }>
+  better?: Array<{ name: string; ours: number | null; rival: number | null; gap: number; verdict: string }>
 }
 interface RunDetail {
   run: RunPayload
@@ -479,6 +515,16 @@ function runDateText(run: RunPayload): string {
   return '—'
 }
 
+/** 最差项与 MinerU 是否同档（差 ≤0.5pp 视作同档）：两边都低说明类目本身难，不是我们的短板 */
+function sameAsRival(row: { recall: number | null; mineru?: number | null }): boolean {
+  return row.recall != null && row.mineru != null && Math.abs(row.recall - row.mineru) <= 0.005
+}
+
+const mineruCategoryOf = (name: string) =>
+  (detail.value?.run?.by_category_mineru || []).find((c) => c.category === name)
+const mineruSourceOf = (name: string) =>
+  (detail.value?.run?.by_data_source_mineru || []).find((x) => x.data_source === name)
+
 function timingText(run: RunPayload): string {
   const t = run.timing || {}
   const parts = Object.entries(t).map(([k, v]) => `${k} ${Math.round(Number(v))}s`)
@@ -548,7 +594,6 @@ const SERIES_COLORS: Record<string, string> = {
   'MinerU 原生': '#13c2c2',
   我们全链: '#52c41a',
 }
-const OURS_COLOR = '#52c41a'
 const seriesColor = (name: string) => SERIES_COLORS[name] || '#8c8c8c'
 
 const officialChartEl = ref<HTMLElement | null>(null)
@@ -663,48 +708,51 @@ function groupedBarOption(
   }
 }
 
-/** 单序列横排柱（逐类目/逐文档类型，只有"我们全链"一个来源）：
- *  颜色统一用我们的系列色（与其他图一致）；好坏靠降序 + 平均值虚线读，
- *  不按数值着色（那会与"颜色=来源"的约定打架，且阈值是拍的）。 */
-function singleBarOption(items: Array<{ name: string; value: number | null }>, unit: (v: number | null) => string): echarts.EChartsOption {
-  const valid = items.filter((x) => typeof x.value === 'number') as Array<{ name: string; value: number }>
-  const max = Math.max(...valid.map((x) => x.value), 0)
-  const avg = valid.length ? valid.reduce((sum, x) => sum + x.value, 0) / valid.length : 0
+/** 逐类目/逐文档类型的双序列横排柱：颜色=来源（与上面同色），逐行 ★ 标更好的那方。
+ *  行名由调用方带上样本数（n=GT 块数 / 页数），小样本别过度解读。 */
+function breakdownBarOption(labels: string[], seriesList: Array<{ name: string; values: Array<number | null> }>): echarts.EChartsOption {
   return {
-    tooltip: { trigger: 'item', formatter: (p: any) => `${p.name}：${p.value == null ? '—' : p.value}` },
-    title: { text: '越大越好　虚线＝本图平均值', left: 0, top: 0, textStyle: { fontSize: 11, color: '#8c8c8c', fontWeight: 'normal' } },
-    grid: { left: 8, right: 96, top: 20, bottom: 4, containLabel: true },
-    xAxis: { type: 'value', min: 0, max: max || 1, axisLabel: { show: false }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' },
+      formatter: (params: any) => {
+        const list = Array.isArray(params) ? params : [params]
+        return [list[0]?.name, ...list.map((p: any) => `${p.marker}${p.seriesName}：${p.value == null ? '—' : p.value}`)].join('<br/>')
+      },
+    },
+    legend: { top: 0, itemWidth: 12, itemHeight: 8, textStyle: { fontSize: 11, color: '#999' } },
+    title: { text: '★＝该行更高（块召回率越大越好）', left: 0, top: 20, textStyle: { fontSize: 11, color: '#8c8c8c', fontWeight: 'normal' } },
+    grid: { left: 8, right: 96, top: 42, bottom: 4, containLabel: true },
+    xAxis: { type: 'value', min: 0, max: 1, axisLabel: { show: false }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },
     yAxis: {
       type: 'category',
       inverse: true,
-      data: items.map((x) => x.name),
+      data: labels,
       axisLabel: { fontSize: 11, color: '#999' },
       axisLine: { show: false },
       axisTick: { show: false },
     },
-    series: [{
-      name: '我们全链',
-      type: 'bar',
-      barWidth: 12,
-      itemStyle: { color: OURS_COLOR, borderRadius: [0, 6, 6, 0] },
-      data: items.map((x) => ({
-        value: x.value,
-        label: { show: true, position: 'right' as const, fontSize: 10, color: '#999', formatter: () => unit(x.value) },
-      })),
-      markLine: {
-        silent: true,
-        symbol: 'none',
-        lineStyle: { type: 'dashed' as const, color: '#8c8c8c', width: 1 },
-        label: {
-          position: 'end' as const,
-          fontSize: 10,
-          color: '#8c8c8c',
-          formatter: () => `平均 ${unit(avg)}`,
-        },
-        data: [{ xAxis: avg }],
-      },
-    }],
+    series: seriesList.map((s) => ({
+      name: s.name,
+      type: 'bar' as const,
+      barWidth: 11,
+      itemStyle: { color: seriesColor(s.name), borderRadius: [0, 5, 5, 0] },
+      data: s.values.map((v, i) => {
+        const bestIdx = bestIndicesOfRow(seriesList.map((x) => x.values[i]), true)
+        const isBest = v != null && bestIdx.includes(seriesList.indexOf(s))
+        return {
+          value: v,
+          label: {
+            show: true,
+            position: 'right' as const,
+            fontSize: 10,
+            color: isBest ? '#52c41a' : '#999',
+            fontWeight: isBest ? ('bold' as const) : ('normal' as const),
+            formatter: () => (isBest ? `${pct(v)} ★` : pct(v)),
+          },
+        }
+      }),
+    })),
   }
 }
 
@@ -734,17 +782,31 @@ function renderCharts(): void {
     (_k, v) => fmt(v, true),
   ), true)
 
+  // 逐类目/逐文档类型：单序列的绝对值读不出好坏 → 与 MinerU 同口径并排（参照物就是对手），
+  // 逐行标 ★ 表示谁更好；类目名后带样本数，n 太小的（<15）标注出来避免过度解读。
+  const mineruCat = new Map((run.by_category_mineru || []).map((c) => [c.category, c]))
   const cats = (run.by_category || [])
     .filter((c) => typeof c.recall === 'number')
     .sort((a, b) => (b.recall as number) - (a.recall as number))
-  chartAt(categoryChartEl.value, 2)?.setOption(
-    singleBarOption(cats.map((c) => ({ name: c.category, value: c.recall })), (v) => pct(v)), true)
+  chartAt(categoryChartEl.value, 2)?.setOption(breakdownBarOption(
+    cats.map((c) => `${c.category}（n=${c.gt_blocks ?? '?'}）`),
+    [
+      { name: 'MinerU 原生', values: cats.map((c) => (mineruCat.get(c.category) as any)?.recall ?? null) },
+      { name: '我们全链', values: cats.map((c) => c.recall) },
+    ],
+  ), true)
 
+  const mineruSrc = new Map((run.by_data_source_mineru || []).map((x) => [x.data_source, x]))
   const srcs = (run.by_data_source || [])
-    .filter((s) => typeof s.block_recall === 'number')
+    .filter((x) => typeof x.block_recall === 'number')
     .sort((a, b) => (b.block_recall as number) - (a.block_recall as number))
-  chartAt(sourceChartEl.value, 3)?.setOption(
-    singleBarOption(srcs.map((s) => ({ name: s.data_source, value: s.block_recall })), (v) => pct(v)), true)
+  chartAt(sourceChartEl.value, 3)?.setOption(breakdownBarOption(
+    srcs.map((x) => `${x.data_source}（${x.pages} 页）`),
+    [
+      { name: 'MinerU 原生', values: srcs.map((x) => (mineruSrc.get(x.data_source) as any)?.block_recall ?? null) },
+      { name: '我们全链', values: srcs.map((x) => x.block_recall) },
+    ],
+  ), true)
 }
 
 const handleResize = () => charts.forEach((c) => c.resize())

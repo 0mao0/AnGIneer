@@ -404,9 +404,11 @@ def render_summary(meta: dict, official: dict, struct_chain: dict, struct_mineru
                              f"{row['rival_name']} {_fmt_metric(row['metric'], row['rival'])}"
                              f"（差 {row['gap'] * 100:.2f}pp）——{row.get('hint', '')}")
             for cat in data.get("weak_categories", []):
-                lines.append(f"  - 最差类目 {cat['name']}：召回率 {cat['recall'] * 100:.1f}%")
+                lines.append(f"  - 最差类目 {cat['name']}：召回率 {cat['recall'] * 100:.1f}%"
+                             + _rival_note(cat.get("mineru")))
             for src in data.get("weak_sources", []):
-                lines.append(f"  - 最差文档类型 {src['name']}：召回率 {src['recall'] * 100:.1f}%")
+                lines.append(f"  - 最差文档类型 {src['name']}：召回率 {src['recall'] * 100:.1f}%"
+                             + _rival_note(src.get("mineru")))
         if concl.get("noise_note"):
             lines += ["", f"（{concl['noise_note']}）"]
 
@@ -459,6 +461,13 @@ NOISE_NOTE = ("未测噪声底（未跑 50 页×2）：差距 <0.005（<0.5pp）
               "不作优劣或回归判据。")
 
 
+def _rival_note(rival) -> str:
+    """最差项附 MinerU 同项：两边都低 = 类目本身难（不是我们的短板），我们低得多才是。"""
+    if rival is None:
+        return ""
+    return f"（MinerU 同项 {rival * 100:.1f}%）"
+
+
 def _fmt_metric(key: str, value) -> str:
     if value is None:
         return "—"
@@ -493,9 +502,30 @@ def _rank_rows(keys, ours: dict, rivals: dict, eps: float = NOISE_EPS) -> dict:
     return {"rows": rows, "best": best_keys, "worse": worse}
 
 
+def _breakdown_gaps(ours: Optional[list], rival: Optional[list], key_name: str,
+                    value_key: str, eps: float = NOISE_EPS) -> dict:
+    """逐类目/逐文档类型 与 MinerU 的差：谁好谁坏要以同口径对手为参照，不能拍阈值。"""
+    ours = ours or []
+    rival_map = {r.get(key_name): r for r in (rival or [])}
+    rows = []
+    for row in ours:
+        name = row.get(key_name)
+        other = (rival_map.get(name) or {}).get(value_key)
+        cur = row.get(value_key)
+        if cur is None or other is None:
+            continue
+        gap = cur - other                     # 召回率/相似度都是越大越好
+        rows.append({"name": name, "ours": cur, "rival": other, "gap": round(gap, 6),
+                     "verdict": "better" if gap > eps else ("worse" if gap < -eps else "tie")})
+    rows.sort(key=lambda r: r["gap"])
+    return {"rows": rows, "worse": [r for r in rows if r["verdict"] == "worse"],
+            "better": [r for r in rows if r["verdict"] == "better"]}
+
+
 def build_conclusions(official: dict, struct_chain: dict, struct_mineru: dict,
                       official_ref: Optional[dict] = None, official_mineru: Optional[dict] = None,
-                      by_category: Optional[list] = None, by_data_source: Optional[list] = None) -> dict:
+                      by_category: Optional[list] = None, by_data_source: Optional[list] = None,
+                      mineru_category: Optional[list] = None, mineru_source: Optional[list] = None) -> dict:
     """按数字生成"往哪改"的结论（A① 三方 / A② 两方各一段）。
 
     规则化而非文案化：谁最优、我们落后几项、差距最大的是哪项（附该项量什么、往哪查），
@@ -541,12 +571,28 @@ def build_conclusions(official: dict, struct_chain: dict, struct_mineru: dict,
                       key=lambda c: c["recall"])[:3]
         srcs = sorted([s for s in (by_data_source or []) if s.get("block_recall") is not None],
                       key=lambda s: s["block_recall"])[:3]
+        cat_rival = {r.get("category"): r for r in (mineru_category or [])}
+        src_rival = {r.get("data_source"): r for r in (mineru_source or [])}
+        cat_gap = _breakdown_gaps(by_category, mineru_category, "category", "recall")
+        src_gap = _breakdown_gaps(by_data_source, mineru_source, "data_source", "block_recall")
+        total_cat = len(cat_gap["rows"])
+        tied_cat = total_cat - len(cat_gap["worse"]) - len(cat_gap["better"])
+        if total_cat:
+            head += f"；逐类目 {total_cat} 项里我们落后 {len(cat_gap['worse'])} 项、与 MinerU 同分 {tied_cat} 项"
         out["struct"] = {
             "headline": head,
             "worse": [{**r, "hint": METRIC_HINTS.get(r["metric"], "")} for r in losses],
             "best": [r["label"] for r in wins],
-            "weak_categories": [{"name": c["category"], "recall": c["recall"]} for c in cats],
-            "weak_sources": [{"name": s["data_source"], "recall": s["block_recall"]} for s in srcs],
+            # 附上 MinerU 同项：光看绝对值会把"两边都没接住的类目"误读成"我们的短板"
+            "weak_categories": [
+                {"name": c["category"], "recall": c["recall"],
+                 "mineru": (cat_rival.get(c["category"]) or {}).get("recall")} for c in cats],
+            "weak_sources": [
+                {"name": s["data_source"], "recall": s["block_recall"],
+                 "mineru": (src_rival.get(s["data_source"]) or {}).get("block_recall")} for s in srcs],
+            # 逐类目/逐文档类型的"好还是坏"要对着 MinerU 同口径看，绝对值本身没有判据
+            "category_vs_mineru": cat_gap,
+            "source_vs_mineru": src_gap,
         }
     return out
 
@@ -586,7 +632,7 @@ PUBLISH_FILES = ("meta.json", "summary.md", "publish.json", "struct_chain.json",
 def build_publish_payload(meta: dict, official: dict, struct_chain: dict, struct_mineru: dict,
                           delta: Optional[dict] = None, official_ref: Optional[dict] = None,
                           official_mineru: Optional[dict] = None, chain_result: Optional[dict] = None,
-                          conclusions: Optional[dict] = None) -> dict:
+                          conclusions: Optional[dict] = None, mineru_result: Optional[dict] = None) -> dict:
     """服务器看板要的全部信息：一次跑的结果 + Δ + 渲染元信息（前端不重算任何东西）。
 
     数字都在本机用本模块算好（同一份代码），服务器只读不算——避免"两个版本各算一遍"漂移。
@@ -619,10 +665,14 @@ def build_publish_payload(meta: dict, official: dict, struct_chain: dict, struct
         "delta": delta or {},
         "by_category": (chain_result or {}).get("by_category") or [],
         "by_data_source": (chain_result or {}).get("by_data_source") or [],
+        # MinerU 同口径的逐类目/逐文档类型：没有它，单序列的绝对值图读不出好坏
+        "by_category_mineru": (mineru_result or {}).get("by_category") or [],
+        "by_data_source_mineru": (mineru_result or {}).get("by_data_source") or [],
         # 结论由本机按数字算好并随载荷入档（前端只渲染，不各算一遍）
         "conclusions": conclusions if conclusions is not None else build_conclusions(
             official, struct_chain, struct_mineru, official_ref, official_mineru,
-            (chain_result or {}).get("by_category"), (chain_result or {}).get("by_data_source")),
+            (chain_result or {}).get("by_category"), (chain_result or {}).get("by_data_source"),
+            (mineru_result or {}).get("by_category"), (mineru_result or {}).get("by_data_source")),
     }
 
 

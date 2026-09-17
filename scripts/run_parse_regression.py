@@ -316,6 +316,8 @@ def _republish_mode(args) -> int:
     official_mineru = pr.load_official_metrics(Path(mineru_src)) if mineru_src else {}
     chain_path = run_dir / "struct_chain.json"
     chain_result = json.loads(chain_path.read_text(encoding="utf-8")) if chain_path.is_file() else {}
+    mineru_path = run_dir / "struct_mineru.json"
+    mineru_result = json.loads(mineru_path.read_text(encoding="utf-8")) if mineru_path.is_file() else {}
     pointer = pr.read_pointer(root, "baseline.json") or {}
     if pointer.get("run_id") == args.republish and args.baseline in ("", "baseline"):
         # 它就是当前基线：与自己比全是 0，没意义——如实写成"本次即基线"
@@ -325,10 +327,11 @@ def _republish_mode(args) -> int:
                              meta.get("page_ids") or [], cur_kind=str(meta.get("kind") or "run"))
     conclusions = pr.build_conclusions(run["official"], run["struct_chain"], run["struct_mineru"],
                                        official_ref, official_mineru,
-                                       chain_result.get("by_category"), chain_result.get("by_data_source"))
+                                       chain_result.get("by_category"), chain_result.get("by_data_source"),
+                                       mineru_result.get("by_category"), mineru_result.get("by_data_source"))
     pr.write_publish(run_dir, pr.build_publish_payload(
         meta, run["official"], run["struct_chain"], run["struct_mineru"], delta,
-        official_ref, official_mineru, chain_result, conclusions))
+        official_ref, official_mineru, chain_result, conclusions, mineru_result))
     # summary.md 也重渲染：结论是按数字算的，旧归档文件里没有这一段
     (run_dir / "summary.md").write_text(
         pr.render_summary(meta, run["official"], run["struct_chain"], run["struct_mineru"],
@@ -532,8 +535,11 @@ def main() -> int:
     delta = _build_delta(root, args.baseline, args.delta_mode, official, struct_chain, scored)
     chain_result = (json.loads((run_dir / "struct_chain.json").read_text(encoding="utf-8"))
                     if (run_dir / "struct_chain.json").is_file() else {})
+    mineru_result = (json.loads((run_dir / "struct_mineru.json").read_text(encoding="utf-8"))
+                     if (run_dir / "struct_mineru.json").is_file() else {})
     conclusions = pr.build_conclusions(official, struct_chain, struct_mineru, official_ref, official_mineru,
-                                       chain_result.get("by_category"), chain_result.get("by_data_source"))
+                                       chain_result.get("by_category"), chain_result.get("by_data_source"),
+                                       mineru_result.get("by_category"), mineru_result.get("by_data_source"))
     pr.write_json(run_dir / "meta.json", meta)
     (run_dir / "summary.md").write_text(
         pr.render_summary(meta, official, struct_chain, struct_mineru, official_mineru, official_ref, delta,
@@ -555,7 +561,7 @@ def main() -> int:
     # ⑥ 看板载荷 +（可选）同步到服务器
     pr.write_publish(run_dir, pr.build_publish_payload(
         meta, official, struct_chain, struct_mineru, delta, official_ref, official_mineru, chain_result,
-        conclusions))
+        conclusions, mineru_result))
     _maybe_publish(args, run_dir)
 
     # ⑦ 控制台 Δ
