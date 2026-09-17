@@ -167,16 +167,25 @@
             </template>
           </div>
 
-          <!-- A① 三方表 -->
+          <!-- A① 三方表（柱状图 + 精确数值表） -->
           <div class="epr-section">
             <h4>A① 官方 markdown 口径（三方）</h4>
+            <div ref="officialChartEl" class="epr-chart" style="height: 300px" />
+            <p class="epr-caption">
+              每组自上而下依次：<b>参考模型 → MinerU 单独 → 我们全链</b>；条形长度＝实际数值（横轴 0–1）。
+              <b>颜色只表示该指标内谁更好</b>：<span class="epr-good">绿＝最优</span>／
+              <span class="epr-bad">红＝最差</span>／灰＝中间，与系列身份无关。
+              指标名后的 ↑/↓ 是方向：<b>↑ 越大越好，↓ 越小越好</b>——Edit_dist 类越小越好，所以条形越短越好
+              （它们的值本就只有 0.03–0.14，条形短是正常的，看颜色与数值标签）。
+            </p>
             <table class="epr-table">
               <thead>
-                <tr><th>指标</th><th>参考模型</th><th>MinerU 单独</th><th>我们全链</th></tr>
+                <tr><th>指标</th><th>方向</th><th>参考模型</th><th>MinerU 单独</th><th>我们全链</th></tr>
               </thead>
               <tbody>
                 <tr v-for="key in OFFICIAL_ORDER" :key="key">
                   <td>{{ label(key) }}</td>
+                  <td>{{ directionText(key) }}</td>
                   <td>{{ fmt(detail.run.metrics?.official_ref?.[key], higher(key)) }}</td>
                   <td>{{ fmt(detail.run.metrics?.official_mineru?.[key], higher(key)) }}</td>
                   <td class="epr-strong">{{ fmt(detail.run.metrics?.official?.[key], higher(key)) }}</td>
@@ -188,16 +197,22 @@
             </p>
           </div>
 
-          <!-- A② 两方表 -->
+          <!-- A② 两方表（柱状图 + 精确数值表） -->
           <div class="epr-section">
             <h4>A② 结构层口径（两方）</h4>
+            <div ref="structChartEl" class="epr-chart" style="height: 320px" />
+            <p class="epr-caption">
+              每组自上而下依次：<b>MinerU 原生 content_list → 我们全链</b>；颜色含义同 A①。
+              本表 8 项<b>全部是 ↑ 越大越好</b>（含"预测块被解释率"：它低说明多出来的块没被 GT 覆盖）。
+            </p>
             <table class="epr-table">
               <thead>
-                <tr><th>指标</th><th>MinerU 原生 content_list</th><th>我们全链</th></tr>
+                <tr><th>指标</th><th>方向</th><th>MinerU 原生 content_list</th><th>我们全链</th></tr>
               </thead>
               <tbody>
                 <tr v-for="key in STRUCT_ORDER" :key="key">
                   <td>{{ label(key) }}</td>
+                  <td>{{ directionText(key) }}</td>
                   <td>{{ fmt(detail.run.metrics?.struct_mineru?.[key], true) }}</td>
                   <td class="epr-strong">{{ fmt(detail.run.metrics?.struct_chain?.[key], true) }}</td>
                 </tr>
@@ -208,9 +223,14 @@
             </p>
           </div>
 
-          <!-- 逐类目 / 逐文档类型 -->
+          <!-- 逐类目 / 逐文档类型（柱状图：按召回率排序，一眼看出哪类没做好） -->
           <div v-if="detail.run.by_category?.length" class="epr-section">
-            <h4>A② 逐类目（我们全链）</h4>
+            <h4>A② 逐类目 · 块召回率（我们全链）</h4>
+            <div ref="categoryChartEl" class="epr-chart" style="height: 380px" />
+            <p class="epr-caption">
+              <b>越大越好</b>：条形越长越好；颜色按本图内数值相对高低（<span class="epr-good">绿＝高</span>／
+              <span class="epr-bad">红＝低</span>），已按召回率降序，最差的在下面。
+            </p>
             <table class="epr-table">
               <thead>
                 <tr><th>类目</th><th>GT 块</th><th>召回率</th><th>文本相似度(命中)</th><th>表格 TEDS</th></tr>
@@ -228,7 +248,9 @@
           </div>
 
           <div v-if="detail.run.by_data_source?.length" class="epr-section">
-            <h4>A② 逐文档类型</h4>
+            <h4>A② 逐文档类型 · 块召回率</h4>
+            <div ref="sourceChartEl" class="epr-chart" style="height: 300px" />
+            <p class="epr-caption"><b>越大越好</b>；同样按召回率降序，颜色含义同上。</p>
             <table class="epr-table">
               <thead>
                 <tr><th>data_source</th><th>页数</th><th>召回率</th><th>文本相似度</th><th>表格 TEDS</th><th>顺序相邻对</th></tr>
@@ -261,9 +283,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { App } from 'ant-design-vue'
 import { ReloadOutlined } from '@ant-design/icons-vue'
+import * as echarts from 'echarts'
 import { renderMarkdownToHtml } from '@angineer/aichat-ui/utils/markdown'
 import evalsApi from '../../api/evals'
 
@@ -449,6 +472,8 @@ async function loadDetail(runId: string) {
   try {
     const res: any = await evalsApi.getParseRegressionRun(runId)
     detail.value = (res?.data ?? res) as RunDetail
+    await nextTick()
+    renderCharts()
   } catch (e: any) {
     message.error(`加载 ${runId} 详情失败：${e?.message || e}`)
   } finally {
@@ -456,7 +481,180 @@ async function loadDetail(runId: string) {
   }
 }
 
-onMounted(loadRuns)
+// ── 柱状图（echarts，沿用 NightlyDayDetail 的 init/setOption/resize/dispose 惯例）──
+const GREEN = '#52c41a'
+const RED = '#ff4d4f'
+const NEUTRAL = '#8c8c8c'
+const ACCENT = '#1677ff'
+
+const officialChartEl = ref<HTMLElement | null>(null)
+const structChartEl = ref<HTMLElement | null>(null)
+const categoryChartEl = ref<HTMLElement | null>(null)
+const sourceChartEl = ref<HTMLElement | null>(null)
+const charts: echarts.ECharts[] = []
+
+function chartAt(el: HTMLElement | null, index: number): echarts.ECharts | null {
+  if (!el) return null
+  if (!charts[index]) charts[index] = echarts.init(el)
+  return charts[index]
+}
+
+/** 方向文案：所有指标都必须标清"越大/越小越好"，避免 Edit_dist 类被读反 */
+function directionText(key: string): string {
+  return higher(key) ? '↑ 越大越好' : '↓ 越小越好'
+}
+
+/** 一行内按"谁更好"着色：最优绿、最差红、其余灰（方向由 higher_is_better 决定） */
+function rankColors(values: Array<number | null | undefined>, higherIsBetter: boolean): string[] {
+  const present = values
+    .map((v, i) => ({ v, i }))
+    .filter((x): x is { v: number; i: number } => typeof x.v === 'number')
+  const colors = values.map(() => NEUTRAL)
+  if (present.length < 2) return colors
+  const sorted = [...present].sort((a, b) => (higherIsBetter ? b.v - a.v : a.v - b.v))
+  const best = sorted[0]
+  const worst = sorted[sorted.length - 1]
+  if (best.v !== worst.v) {
+    colors[best.i] = GREEN
+    colors[worst.i] = RED
+  }
+  return colors
+}
+
+/** 单指标横排分组柱：每组一条 series，值标签就是真实数值（不翻转、不归一） */
+function groupedBarOption(
+  keys: string[],
+  seriesList: Array<{ name: string; values: Array<number | null> }>,
+  valueText: (key: string, value: number | null) => string,
+): echarts.EChartsOption {
+  return {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' },
+      formatter: (params: any) => {
+        const list = Array.isArray(params) ? params : [params]
+        return [list[0]?.name, ...list.map((p: any) => `${p.seriesName}：${p.value == null ? '—' : p.value}`)].join('<br/>')
+      },
+    },
+    // 不放图例：条形颜色表达的是"该指标内谁更好"（绿最优/红最差），与系列身份无关，
+    // 图例会让人以为绿色=某个系列。组内顺序由说明文字界定（自上而下固定）。
+    grid: { left: 8, right: 72, top: 8, bottom: 4, containLabel: true },
+    xAxis: { type: 'value', max: 1, axisLabel: { show: false }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },
+    yAxis: {
+      type: 'category',
+      inverse: true,
+      data: keys.map((k) => `${label(k)} ${higher(k) ? '↑' : '↓'}`),
+      axisLabel: { fontSize: 11, color: '#999' },
+      axisLine: { show: false },
+      axisTick: { show: false },
+    },
+    series: seriesList.map((s) => ({
+      name: s.name,
+      type: 'bar' as const,
+      barWidth: 11,
+      data: s.values.map((v, i) => {
+        const row = seriesList.map((x) => x.values[i])
+        const colors = rankColors(row, higher(keys[i]))
+        return {
+          value: v,
+          itemStyle: { color: colors[seriesList.indexOf(s)], borderRadius: [0, 5, 5, 0] },
+          label: { show: true, position: 'right' as const, fontSize: 10, color: '#999', formatter: () => valueText(keys[i], v) },
+        }
+      }),
+    })),
+  }
+}
+
+/** 单序列横排柱（逐类目/逐文档类型）：按值降序，颜色按本图相对高低（绿=高 红=低） */
+function singleBarOption(items: Array<{ name: string; value: number | null }>, unit: (v: number | null) => string): echarts.EChartsOption {
+  const valid = items.filter((x) => typeof x.value === 'number') as Array<{ name: string; value: number }>
+  const max = Math.max(...valid.map((x) => x.value), 0)
+  const min = Math.min(...valid.map((x) => x.value), 1)
+  const colorOf = (v: number | null) => {
+    if (typeof v !== 'number' || max === min) return ACCENT
+    const t = (v - min) / (max - min)          // 0=本图最低 1=本图最高
+    if (t >= 0.66) return GREEN
+    if (t <= 0.33) return RED
+    return '#faad14'
+  }
+  return {
+    tooltip: { trigger: 'item', formatter: (p: any) => `${p.name}：${p.value == null ? '—' : p.value}` },
+    grid: { left: 8, right: 56, top: 6, bottom: 4, containLabel: true },
+    xAxis: { type: 'value', min: 0, max: max || 1, axisLabel: { show: false }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },
+    yAxis: {
+      type: 'category',
+      inverse: true,
+      data: items.map((x) => x.name),
+      axisLabel: { fontSize: 11, color: '#999' },
+      axisLine: { show: false },
+      axisTick: { show: false },
+    },
+    series: [{
+      type: 'bar',
+      barWidth: 12,
+      data: items.map((x) => ({
+        value: x.value,
+        itemStyle: { color: colorOf(x.value), borderRadius: [0, 6, 6, 0] },
+        label: { show: true, position: 'right' as const, fontSize: 10, color: '#999', formatter: () => unit(x.value) },
+      })),
+    }],
+  }
+}
+
+function renderCharts(): void {
+  const run = detail.value?.run
+  if (!run?.metrics) return
+  const m = run.metrics
+
+  const official = chartAt(officialChartEl.value, 0)
+  official?.setOption(groupedBarOption(
+    OFFICIAL_ORDER,
+    [
+      { name: '参考模型', values: OFFICIAL_ORDER.map((k) => m.official_ref?.[k] ?? null) },
+      { name: 'MinerU 单独', values: OFFICIAL_ORDER.map((k) => m.official_mineru?.[k] ?? null) },
+      { name: '我们全链', values: OFFICIAL_ORDER.map((k) => m.official?.[k] ?? null) },
+    ],
+    (k, v) => fmt(v, higher(k)),
+  ), true)
+
+  const struct = chartAt(structChartEl.value, 1)
+  struct?.setOption(groupedBarOption(
+    STRUCT_ORDER,
+    [
+      { name: 'MinerU 原生', values: STRUCT_ORDER.map((k) => m.struct_mineru?.[k] ?? null) },
+      { name: '我们全链', values: STRUCT_ORDER.map((k) => m.struct_chain?.[k] ?? null) },
+    ],
+    (_k, v) => fmt(v, true),
+  ), true)
+
+  const cats = (run.by_category || [])
+    .filter((c) => typeof c.recall === 'number')
+    .sort((a, b) => (b.recall as number) - (a.recall as number))
+  chartAt(categoryChartEl.value, 2)?.setOption(
+    singleBarOption(cats.map((c) => ({ name: c.category, value: c.recall })), (v) => pct(v)), true)
+
+  const srcs = (run.by_data_source || [])
+    .filter((s) => typeof s.block_recall === 'number')
+    .sort((a, b) => (b.block_recall as number) - (a.block_recall as number))
+  chartAt(sourceChartEl.value, 3)?.setOption(
+    singleBarOption(srcs.map((s) => ({ name: s.data_source, value: s.block_recall })), (v) => pct(v)), true)
+}
+
+const handleResize = () => charts.forEach((c) => c.resize())
+
+onMounted(async () => {
+  await loadRuns()
+  window.addEventListener('resize', handleResize)
+})
+watch(detail, async () => {
+  await nextTick()
+  renderCharts()
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize)
+  charts.forEach((c) => c.dispose())
+  charts.length = 0
+})
 </script>
 
 <style scoped>
@@ -590,6 +788,17 @@ onMounted(loadRuns)
 }
 .epr-hint {
   margin: 6px 0 0;
+  color: var(--text-color-secondary, #8c8c8c);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.epr-chart {
+  width: 100%;
+  min-width: 520px;
+  margin-top: 6px;
+}
+.epr-caption {
+  margin: 6px 0 10px;
   color: var(--text-color-secondary, #8c8c8c);
   font-size: 12px;
   line-height: 1.6;
