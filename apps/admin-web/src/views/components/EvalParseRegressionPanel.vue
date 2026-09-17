@@ -172,11 +172,10 @@
             <h4>A① 官方 markdown 口径（三方）</h4>
             <div ref="officialChartEl" class="epr-chart" style="height: 300px" />
             <p class="epr-caption">
-              每组自上而下依次：<b>参考模型 → MinerU 单独 → 我们全链</b>；条形长度＝实际数值（横轴 0–1）。
-              <b>颜色只表示该指标内谁更好</b>：<span class="epr-good">绿＝最优</span>／
-              <span class="epr-bad">红＝最差</span>／灰＝中间，与系列身份无关。
-              指标名后的 ↑/↓ 是方向：<b>↑ 越大越好，↓ 越小越好</b>——Edit_dist 类越小越好，所以条形越短越好
-              （它们的值本就只有 0.03–0.14，条形短是正常的，看颜色与数值标签）。
+              <b>颜色＝来源</b>（见上方图例：参考模型蓝 / MinerU 青 / 我们绿），每组自上而下顺序固定：
+              参考模型 → MinerU 单独 → 我们全链；条形长度＝实际数值（横轴 0–1）。
+              <b>该指标最优的那条加 ★ 并加粗</b>。指标名后的 ↑/↓ 是方向：<b>↑ 越大越好，↓ 越小越好</b>
+              ——Edit_dist 类越小越好，所以条形越短越好（它们的值本就只有 0.03–0.14，条形短是正常的，看 ★ 与数值标签）。
             </p>
             <table class="epr-table">
               <thead>
@@ -202,7 +201,8 @@
             <h4>A② 结构层口径（两方）</h4>
             <div ref="structChartEl" class="epr-chart" style="height: 320px" />
             <p class="epr-caption">
-              每组自上而下依次：<b>MinerU 原生 content_list → 我们全链</b>；颜色含义同 A①。
+              <b>颜色＝来源</b>（MinerU 青 / 我们绿），每组自上而下依次：
+              MinerU 原生 content_list → 我们全链；最优那条加 ★。
               本表 8 项<b>全部是 ↑ 越大越好</b>（含"预测块被解释率"：它低说明多出来的块没被 GT 覆盖）。
             </p>
             <table class="epr-table">
@@ -228,8 +228,8 @@
             <h4>A② 逐类目 · 块召回率（我们全链）</h4>
             <div ref="categoryChartEl" class="epr-chart" style="height: 380px" />
             <p class="epr-caption">
-              <b>越大越好</b>：条形越长越好；颜色按本图内数值相对高低（<span class="epr-good">绿＝高</span>／
-              <span class="epr-bad">红＝低</span>），已按召回率降序，最差的在下面。
+              <b>越大越好</b>：条形越长越好（颜色＝我们全链，与其他图一致）；已按召回率降序，最差的在下面，
+              虚线是<b>本图平均值</b>——低于虚线的就是拖后腿的类目。
             </p>
             <table class="epr-table">
               <thead>
@@ -250,7 +250,7 @@
           <div v-if="detail.run.by_data_source?.length" class="epr-section">
             <h4>A② 逐文档类型 · 块召回率</h4>
             <div ref="sourceChartEl" class="epr-chart" style="height: 300px" />
-            <p class="epr-caption"><b>越大越好</b>；同样按召回率降序，颜色含义同上。</p>
+            <p class="epr-caption"><b>越大越好</b>；同样按召回率降序，虚线为本图平均值。</p>
             <table class="epr-table">
               <thead>
                 <tr><th>data_source</th><th>页数</th><th>召回率</th><th>文本相似度</th><th>表格 TEDS</th><th>顺序相邻对</th></tr>
@@ -482,10 +482,16 @@ async function loadDetail(runId: string) {
 }
 
 // ── 柱状图（echarts，沿用 NightlyDayDetail 的 init/setOption/resize/dispose 惯例）──
-const GREEN = '#52c41a'
-const RED = '#ff4d4f'
-const NEUTRAL = '#8c8c8c'
-const ACCENT = '#1677ff'
+// ── 配色按"来源（系列）"分，不按好坏分：颜色只回答"这是谁"，好坏靠 ★ + ↑/↓ + 数值 ──
+// （第一版按好坏着色导致图例自相矛盾：绿既是最优又是某个系列；用户要求按来源分色）
+const SERIES_COLORS: Record<string, string> = {
+  参考模型: '#1677ff',
+  'MinerU 单独': '#13c2c2',
+  'MinerU 原生': '#13c2c2',
+  我们全链: '#52c41a',
+}
+const OURS_COLOR = '#52c41a'
+const seriesColor = (name: string) => SERIES_COLORS[name] || '#8c8c8c'
 
 const officialChartEl = ref<HTMLElement | null>(null)
 const structChartEl = ref<HTMLElement | null>(null)
@@ -504,41 +510,39 @@ function directionText(key: string): string {
   return higher(key) ? '↑ 越大越好' : '↓ 越小越好'
 }
 
-/** 一行内按"谁更好"着色：最优绿、最差红、其余灰（方向由 higher_is_better 决定） */
-function rankColors(values: Array<number | null | undefined>, higherIsBetter: boolean): string[] {
-  const present = values
-    .map((v, i) => ({ v, i }))
-    .filter((x): x is { v: number; i: number } => typeof x.v === 'number')
-  const colors = values.map(() => NEUTRAL)
-  if (present.length < 2) return colors
-  const sorted = [...present].sort((a, b) => (higherIsBetter ? b.v - a.v : a.v - b.v))
-  const best = sorted[0]
-  const worst = sorted[sorted.length - 1]
-  if (best.v !== worst.v) {
-    colors[best.i] = GREEN
-    colors[worst.i] = RED
-  }
-  return colors
+/** 该组里最优的那个值（按方向判定），用于给最优条加 ★ */
+function bestIndexOfRow(values: Array<number | null | undefined>, higherIsBetter: boolean): number {
+  let best = -1
+  values.forEach((v, i) => {
+    if (typeof v !== 'number') return
+    if (best === -1) { best = i; return }
+    const cur = values[best] as number
+    if (higherIsBetter ? v > cur : v < cur) best = i
+  })
+  return best
 }
 
-/** 单指标横排分组柱：每组一条 series，值标签就是真实数值（不翻转、不归一） */
+/** 单指标横排分组柱：颜色=来源（配图例），最优条加 ★，方向在指标名后缀 ↑/↓ */
 function groupedBarOption(
   keys: string[],
   seriesList: Array<{ name: string; values: Array<number | null> }>,
   valueText: (key: string, value: number | null) => string,
 ): echarts.EChartsOption {
+  const labelOf = (k: string, v: number | null): string => {
+    const text = valueText(k, v)
+    return text
+  }
   return {
     tooltip: {
       trigger: 'axis',
       axisPointer: { type: 'shadow' },
       formatter: (params: any) => {
         const list = Array.isArray(params) ? params : [params]
-        return [list[0]?.name, ...list.map((p: any) => `${p.seriesName}：${p.value == null ? '—' : p.value}`)].join('<br/>')
+        return [list[0]?.name, ...list.map((p: any) => `${p.marker}${p.seriesName}：${p.value == null ? '—' : p.value}`)].join('<br/>')
       },
     },
-    // 不放图例：条形颜色表达的是"该指标内谁更好"（绿最优/红最差），与系列身份无关，
-    // 图例会让人以为绿色=某个系列。组内顺序由说明文字界定（自上而下固定）。
-    grid: { left: 8, right: 72, top: 8, bottom: 4, containLabel: true },
+    legend: { top: 0, itemWidth: 12, itemHeight: 8, textStyle: { fontSize: 11, color: '#999' } },
+    grid: { left: 8, right: 84, top: 26, bottom: 4, containLabel: true },
     xAxis: { type: 'value', max: 1, axisLabel: { show: false }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },
     yAxis: {
       type: 'category',
@@ -552,34 +556,36 @@ function groupedBarOption(
       name: s.name,
       type: 'bar' as const,
       barWidth: 11,
+      itemStyle: { color: seriesColor(s.name), borderRadius: [0, 5, 5, 0] },
       data: s.values.map((v, i) => {
-        const row = seriesList.map((x) => x.values[i])
-        const colors = rankColors(row, higher(keys[i]))
+        const bestIndex = bestIndexOfRow(seriesList.map((x) => x.values[i]), higher(keys[i]))
+        const isBest = seriesList.indexOf(s) === bestIndex
         return {
           value: v,
-          itemStyle: { color: colors[seriesList.indexOf(s)], borderRadius: [0, 5, 5, 0] },
-          label: { show: true, position: 'right' as const, fontSize: 10, color: '#999', formatter: () => valueText(keys[i], v) },
+          label: {
+            show: true,
+            position: 'right' as const,
+            fontSize: 10,
+            color: isBest ? '#52c41a' : '#999',
+            fontWeight: isBest ? ('bold' as const) : ('normal' as const),
+            formatter: () => (isBest ? `${labelOf(keys[i], v)} ★` : labelOf(keys[i], v)),
+          },
         }
       }),
     })),
   }
 }
 
-/** 单序列横排柱（逐类目/逐文档类型）：按值降序，颜色按本图相对高低（绿=高 红=低） */
+/** 单序列横排柱（逐类目/逐文档类型，只有"我们全链"一个来源）：
+ *  颜色统一用我们的系列色（与其他图一致）；好坏靠降序 + 平均值虚线读，
+ *  不按数值着色（那会与"颜色=来源"的约定打架，且阈值是拍的）。 */
 function singleBarOption(items: Array<{ name: string; value: number | null }>, unit: (v: number | null) => string): echarts.EChartsOption {
   const valid = items.filter((x) => typeof x.value === 'number') as Array<{ name: string; value: number }>
   const max = Math.max(...valid.map((x) => x.value), 0)
-  const min = Math.min(...valid.map((x) => x.value), 1)
-  const colorOf = (v: number | null) => {
-    if (typeof v !== 'number' || max === min) return ACCENT
-    const t = (v - min) / (max - min)          // 0=本图最低 1=本图最高
-    if (t >= 0.66) return GREEN
-    if (t <= 0.33) return RED
-    return '#faad14'
-  }
+  const avg = valid.length ? valid.reduce((sum, x) => sum + x.value, 0) / valid.length : 0
   return {
     tooltip: { trigger: 'item', formatter: (p: any) => `${p.name}：${p.value == null ? '—' : p.value}` },
-    grid: { left: 8, right: 56, top: 6, bottom: 4, containLabel: true },
+    grid: { left: 8, right: 96, top: 6, bottom: 4, containLabel: true },
     xAxis: { type: 'value', min: 0, max: max || 1, axisLabel: { show: false }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },
     yAxis: {
       type: 'category',
@@ -590,13 +596,26 @@ function singleBarOption(items: Array<{ name: string; value: number | null }>, u
       axisTick: { show: false },
     },
     series: [{
+      name: '我们全链',
       type: 'bar',
       barWidth: 12,
+      itemStyle: { color: OURS_COLOR, borderRadius: [0, 6, 6, 0] },
       data: items.map((x) => ({
         value: x.value,
-        itemStyle: { color: colorOf(x.value), borderRadius: [0, 6, 6, 0] },
         label: { show: true, position: 'right' as const, fontSize: 10, color: '#999', formatter: () => unit(x.value) },
       })),
+      markLine: {
+        silent: true,
+        symbol: 'none',
+        lineStyle: { type: 'dashed' as const, color: '#8c8c8c', width: 1 },
+        label: {
+          position: 'end' as const,
+          fontSize: 10,
+          color: '#8c8c8c',
+          formatter: () => `平均 ${unit(avg)}`,
+        },
+        data: [{ xAxis: avg }],
+      },
     }],
   }
 }
