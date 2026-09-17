@@ -182,12 +182,12 @@
                 <tr><th>指标</th><th>方向</th><th>参考模型</th><th>MinerU 单独</th><th>我们全链</th></tr>
               </thead>
               <tbody>
-                <tr v-for="key in OFFICIAL_ORDER" :key="key">
-                  <td>{{ label(key) }}</td>
-                  <td>{{ directionText(key) }}</td>
-                  <td>{{ fmt(detail.run.metrics?.official_ref?.[key], higher(key)) }}</td>
-                  <td>{{ fmt(detail.run.metrics?.official_mineru?.[key], higher(key)) }}</td>
-                  <td class="epr-strong">{{ fmt(detail.run.metrics?.official?.[key], higher(key)) }}</td>
+                <tr v-for="row in officialTable" :key="row.key">
+                  <td>{{ row.label }}</td>
+                  <td>{{ row.dir }}</td>
+                  <td v-for="(cell, i) in row.cells" :key="i" :class="cellClass(cell)">
+                    {{ cell.text }}<span v-if="cell.best" class="epr-star">⭐</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -205,11 +205,12 @@
                 <tr><th>指标</th><th>方向</th><th>MinerU 原生 content_list</th><th>我们全链</th></tr>
               </thead>
               <tbody>
-                <tr v-for="key in STRUCT_ORDER" :key="key">
-                  <td>{{ label(key) }}</td>
-                  <td>{{ directionText(key) }}</td>
-                  <td>{{ fmt(detail.run.metrics?.struct_mineru?.[key], true) }}</td>
-                  <td class="epr-strong">{{ fmt(detail.run.metrics?.struct_chain?.[key], true) }}</td>
+                <tr v-for="row in structTable" :key="row.key">
+                  <td>{{ row.label }}</td>
+                  <td>{{ row.dir }}</td>
+                  <td v-for="(cell, i) in row.cells" :key="i" :class="cellClass(cell)">
+                    {{ cell.text }}<span v-if="cell.best" class="epr-star">⭐</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -512,16 +513,43 @@ function directionText(key: string): string {
   return higher(key) ? '↑ 越大越好' : '↓ 越小越好'
 }
 
-/** 该组里最优的那个值（按方向判定），用于给最优条加 ★ */
-function bestIndexOfRow(values: Array<number | null | undefined>, higherIsBetter: boolean): number {
-  let best = -1
-  values.forEach((v, i) => {
-    if (typeof v !== 'number') return
-    if (best === -1) { best = i; return }
-    const cur = values[best] as number
-    if (higherIsBetter ? v > cur : v < cur) best = i
+interface TableCell { text: string; best: boolean; strong: boolean }
+interface TableRow { key: string; label: string; dir: string; cells: TableCell[] }
+const cellClass = (cell: TableCell) => ({ 'epr-best': cell.best, 'epr-strong': cell.strong })
+
+/** A① 三方：每行按方向挑最优 → 该单元格加 ⭐ + 琥珀色高亮（与图上 ★ 同一判定） */
+const officialTable = computed<TableRow[]>(() => {
+  const m = detail.value?.run?.metrics
+  return OFFICIAL_ORDER.map((key) => {
+    const values = [m?.official_ref?.[key], m?.official_mineru?.[key], m?.official?.[key]]
+    const best = bestIndicesOfRow(values, higher(key))
+    return {
+      key, label: label(key), dir: directionText(key),
+      cells: values.map((v, i) => ({ text: fmt(v, higher(key)), best: best.includes(i), strong: i === 2 })),
+    }
   })
-  return best
+})
+
+/** A② 两方：同上（我们全链是第 2 列） */
+const structTable = computed<TableRow[]>(() => {
+  const m = detail.value?.run?.metrics
+  return STRUCT_ORDER.map((key) => {
+    const values = [m?.struct_mineru?.[key], m?.struct_chain?.[key]]
+    const best = bestIndicesOfRow(values, true)
+    return {
+      key, label: label(key), dir: directionText(key),
+      cells: values.map((v, i) => ({ text: fmt(v, true), best: best.includes(i), strong: i === 1 })),
+    }
+  })
+})
+
+/** 该组里最优的**全部**下标（按方向判定；并列同标，否则读起来像某方更好）。
+ *  用于图上 ★ 与表格里的 ⭐ 高亮——两处必须同一判定。 */
+function bestIndicesOfRow(values: Array<number | null | undefined>, higherIsBetter: boolean): number[] {
+  const nums = values.filter((v): v is number => typeof v === 'number')
+  if (!nums.length) return []
+  const best = higherIsBetter ? Math.max(...nums) : Math.min(...nums)
+  return values.map((v, i) => (v === best ? i : -1)).filter((i) => i >= 0)
 }
 
 /** 单指标横排分组柱：颜色=来源（配图例），最优条加 ★，方向在指标名后缀 ↑/↓ */
@@ -562,8 +590,8 @@ function groupedBarOption(
       barWidth: 11,
       itemStyle: { color: seriesColor(s.name), borderRadius: [0, 5, 5, 0] },
       data: s.values.map((v, i) => {
-        const bestIndex = bestIndexOfRow(seriesList.map((x) => x.values[i]), higher(keys[i]))
-        const isBest = seriesList.indexOf(s) === bestIndex
+        const bestIdx = bestIndicesOfRow(seriesList.map((x) => x.values[i]), higher(keys[i]))
+        const isBest = bestIdx.includes(seriesList.indexOf(s))
         return {
           value: v,
           label: {
@@ -751,6 +779,16 @@ onBeforeUnmount(() => {
 }
 .epr-strong {
   font-weight: 600;
+}
+/* 该行最优：琥珀底 + 琥珀字 + ⭐，与表里其他单元格一眼可分（深/浅色主题都够对比） */
+.epr-best {
+  background: rgba(250, 173, 20, 0.16);
+  color: #faad14;
+  font-weight: 600;
+}
+.epr-star {
+  margin-left: 4px;
+  font-size: 11px;
 }
 .epr-detail {
   margin-top: 16px;
