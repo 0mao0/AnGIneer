@@ -336,6 +336,9 @@ const cancelEdit = () => {
     color: var(--text-secondary);
     font-size: 13px;
     font-weight: 500;
+    /* 窄窗口下别被挤成竖排（"日常测试" 逐字换行）：标签不换行、按钮不压缩 */
+    white-space: nowrap;
+    flex: 0 0 auto;
     transition: background-color 0.2s ease, color 0.2s ease;
 
     &::before {

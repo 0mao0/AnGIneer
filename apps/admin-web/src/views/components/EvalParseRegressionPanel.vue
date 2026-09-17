@@ -47,6 +47,7 @@
         size="small"
         :loading="loading"
         :pagination="false"
+        :scroll="{ x: 1180 }"
         :custom-row="rowProps"
         :row-class-name="(r: RunPayload) => (r.run_id === activeRunId ? 'epr-row--active' : '')"
       >
@@ -527,6 +528,10 @@ onMounted(loadRuns)
   border: 1px solid var(--border-color, #f0f0f0);
   border-radius: 8px;
   background: var(--panel-bg, #fff);
+  overflow-x: auto;   /* 窄窗口下宽表横向滚动，不压缩成逐字换行 */
+}
+.epr-table {
+  min-width: 560px;
 }
 .epr-detail__head {
   display: flex;
