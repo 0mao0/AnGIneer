@@ -24,6 +24,12 @@
         <span class="epr-toolbar__hint">
           口径定义见 docs/parse-struct-eval.md（A 层）；A① 官方 markdown 三方表、A② 结构层两方表、Δ 与基线对比
         </span>
+        <!-- 未同步的目录默认收起：那是本机在跑/没 --publish 的中间态，摊在列表里是噪音；
+             "损坏"是真问题，不折叠（照常显示）。 -->
+        <span v-if="pendingCount" class="epr-toolbar__pending">
+          {{ pendingCount }} 个目录未同步（本机在跑或没带 --publish）
+          <a @click="showPending = !showPending">{{ showPending ? '收起' : '展开' }}</a>
+        </span>
         <a-button size="small" :loading="loading" @click="loadRuns">
           <template #icon><ReloadOutlined /></template>
           刷新
@@ -42,7 +48,7 @@
       <a-table
         v-else
         :columns="columns"
-        :data-source="runs"
+        :data-source="visibleRuns"
         row-key="run_id"
         size="small"
         :loading="loading"
@@ -361,6 +367,12 @@ const detail = ref<RunDetail | null>(null)
 const activeRunId = ref('')
 
 const publishDestHint = 'root@<部署机>:/home/runner/AnGIneer/data/evals/parse_regression'
+
+const showPending = ref(false)
+const pendingCount = computed(() => runs.value.filter((r) => r.state === 'pending').length)
+/** 默认只列有结论的 run（pending 是中间态，收起来；corrupt 是真问题，照常显示） */
+const visibleRuns = computed(() =>
+  showPending.value ? runs.value : runs.value.filter((r) => r.state !== 'pending'))
 
 const columns = [
   { title: '日期', key: 'run_date', width: 110 },
@@ -722,6 +734,14 @@ onBeforeUnmount(() => {
   flex: 1;
   color: var(--text-color-secondary, #8c8c8c);
   font-size: 12px;
+}
+.epr-toolbar__pending {
+  color: var(--text-color-secondary, #8c8c8c);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.epr-toolbar__pending a {
+  margin-left: 4px;
 }
 .epr-empty-hint {
   margin-bottom: 12px;
