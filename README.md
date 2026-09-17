@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.65** —— nightly 报告窗口对齐：结论归档保留 3→90 天、与 run 明细同窗，夜间测试页结论不再「只剩 3 条」、3–90 天历史结论可回看；docs-ui 清理：删除僵尸函数 `mapParseStageText` 及旧 6 阶段词表（全仓调用点 0），独立包已发 angineer-docs-ui v0.3.0（breaking、已标 removed），产品无感。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.66** —— A 层解析回归一键入口：predict+A②+A① 编排、Δ 口径守卫、数据集/GT/三方表自动探测（最小用法一条命令）；回填首份 fresh 基线：200 页端到端实测 ≈50min，与 09-13 离线重投影逐项吻合 ≤0.08pp，换量尺纪律写进文档；评测页新增「解析回归」只读看板（本机 `--publish` 同步、服务器只读，`publish.json` 载荷 + 列表/详情两路由 + 24 例测试）；看板判读三轮实看反馈收敛（颜色按来源分、★ 标最优、方向三处同给、修 tab 白名单与「未同步/损坏」误标、窄窗口适配）；逐类目/逐文档类型补 MinerU 同口径参照物与规则化结论（本机算数入档，首次看清落后三项：table_caption −9.4pp、table_footnote −4.2pp、text_block −1.1pp）；aichat 修匿名跨库检索与会话池跨用户串话（匿名只准 default 库、池 key 前置身份位，tests/aichat-api 36 例全绿）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
