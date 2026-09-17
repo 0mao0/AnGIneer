@@ -3,16 +3,16 @@
 按 ``owner:scene:session_id:scope_hash`` 复用 AgentSession（阶段 2a：scope 变化开新会话，
 不复用旧 history；owner 为身份隔离位）；``/api/chat/agent`` 直接输出完整 AgentEvent 帧。
 """
-import hashlib
 import logging
 import threading
 import time
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 from angineer_core.agent_events import AgentEvent
 from angineer_core.agent_loop import AgentLoopConfig
 from angineer_core.agent_session import AgentSession
 from angineer_core.base_contracts import ScopeContext
+from angineer_core.history_store import scope_hash_for
 
 logger = logging.getLogger(__name__)
 
@@ -129,11 +129,9 @@ def _session_pool_key(
     """池化 key：owner:scene:session_id:scope_hash；scope 变化开新会话，不复用旧 history。
 
     owner（``u:<id>``/``k:<id>``/``ip:<hash>``，来自 chat_auth.resolve_pool_owner）是身份隔离位：
-    session_id 客户端可控且形状可枚举，缺了它不同主体会在同 scene/库/范围下共用同一份 history。
+    session_id 由客户端生成（``chat-<毫秒时间戳>`` 形状可枚举），缺了它不同主体会命中同一份 history。
     """
-    scope_material = "|".join([library_id or "default", *sorted(str(d) for d in (doc_ids or []))])
-    scope_hash = hashlib.sha1(scope_material.encode("utf-8")).hexdigest()[:8]
-    return f"{owner or '-'}:{scene}:{session_id or 'default'}:{scope_hash}"
+    return f"{owner or '-'}:{scene}:{session_id or 'default'}:{scope_hash_for(library_id, doc_ids or [])}"
 
 
 def get_agent_session(
@@ -142,8 +140,13 @@ def get_agent_session(
     library_id: str = "default",
     doc_ids: Optional[List[str]] = None,
     owner: str = "",
+    history_loader: Optional[Callable[[], List[Any]]] = None,
 ) -> AgentSession:
-    """按 ``owner:scene:session_id:scope_hash`` 获取或创建 AgentSession（复用 history/steer）。"""
+    """按 ``owner:scene:session_id:scope_hash`` 获取或创建 AgentSession（复用 history/steer）。
+
+    ``history_loader`` 只在**池内新建 session** 时调用一次（D11：池命中时内存 history
+    已是真相，重复回灌会双写双序）；由组装层注入 DB 历史回灌，失败仅告警不阻断。
+    """
     key = _session_pool_key(scene, session_id, library_id, doc_ids, owner)
     with _POOL_LOCK:
         now = time.time()
@@ -151,6 +154,11 @@ def get_agent_session(
         session = _AGENT_SESSION_POOL.get(key)
         if session is None:
             session = AgentSession(_make_config_factory(scene, library_id, doc_ids or []))
+            if history_loader is not None:
+                try:
+                    session.history.extend(history_loader())
+                except Exception as exc:  # noqa: BLE001
+                    logger.warning("聊天历史回灌失败（按空历史继续）: %s", exc)
             _AGENT_SESSION_POOL[key] = session
         _AGENT_SESSION_LAST_ACTIVE[key] = now
         return session

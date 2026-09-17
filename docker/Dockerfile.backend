@@ -22,6 +22,7 @@ COPY services/geo-core/pyproject.toml services/geo-core/pyproject.toml
 COPY services/engtools/pyproject.toml services/engtools/pyproject.toml
 COPY services/evals-core/pyproject.toml services/evals-core/pyproject.toml
 COPY services/aichat-api/pyproject.toml services/aichat-api/pyproject.toml
+COPY services/chat-history/pyproject.toml services/chat-history/pyproject.toml
 COPY services/docs-api/pyproject.toml services/docs-api/pyproject.toml
 
 RUN mkdir -p services/ai-inference/src/ai_inference \
@@ -41,7 +42,9 @@ RUN mkdir -p services/ai-inference/src/ai_inference \
     && mkdir -p services/engtools/src/engtools \
     && touch services/engtools/src/engtools/__init__.py \
     && mkdir -p services/evals-core/src/evals_core \
-    && touch services/evals-core/src/evals_core/__init__.py
+    && touch services/evals-core/src/evals_core/__init__.py \
+    && mkdir -p services/chat-history/src/chat_history \
+    && touch services/chat-history/src/chat_history/__init__.py
 
 RUN pip install --no-cache-dir -e services/ai-inference \
     -e services/tree-core \
@@ -52,6 +55,7 @@ RUN pip install --no-cache-dir -e services/ai-inference \
     -e services/geo-core \
     -e services/engtools \
     -e services/evals-core \
+    -e services/chat-history \
     -e services/aichat-api \
     -e services/docs-api
 
@@ -76,6 +80,7 @@ RUN pip install --no-cache-dir -e services/ai-inference \
     -e services/geo-core \
     -e services/engtools \
     -e services/evals-core \
+    -e services/chat-history \
     -e services/aichat-api \
     -e services/docs-api \
     && find /usr/local/lib/python3.11/site-packages -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null; true \

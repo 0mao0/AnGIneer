@@ -33,7 +33,7 @@ SERVICES_DIR = ROOT_DIR / "services"
 
 for pkg in (
     "shared", "ai-inference", "angineer-core", "sop-core", "docs-core",
-    "geo-core", "engtools", "evals-core", "tree-core",
+    "geo-core", "engtools", "evals-core", "tree-core", "chat-history",
 ):
     sys.path.insert(0, str(SERVICES_DIR / pkg / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -59,6 +59,7 @@ from sop_routes import sop_router
 from evals_routes import evals_router
 from dream_cycle_routes import dream_cycle_router
 from chat_auth import enforce_bound_library, resolve_pool_owner
+from angineer_core.history_store import scope_hash_for
 from middleware.api_key_auth import APIKeyAuthMiddleware
 from route_pre import (
     decision_intent_result,
@@ -170,7 +171,8 @@ class QueryRequest(BaseModel):
     inline_citations: List[Dict[str, Any]] = Field(default_factory=list)
     config: Optional[str] = None
     mode: Optional[str] = None
-    history: List[Dict[str, Any]] = Field(default_factory=list)
+    # 注意：历史真相源在服务端（内存池 + chat.sqlite 回灌），客户端不传历史；
+    # 原 history 字段为死字段（全仓库无读取点），2026-09-17 已删。
 
 
 class SteerRequest(BaseModel):
@@ -211,12 +213,36 @@ async def classify_intent_offloaded(query: str, config_name: Optional[str] = Non
         return None
 
 
+_history_store = None
+_history_store_failed = False
+
+
+def _get_history_store():
+    """聊天历史存储单例；初始化失败降级为 None（纯内存池，行为同改造前）。"""
+    global _history_store, _history_store_failed
+    if _history_store is not None or _history_store_failed:
+        return _history_store
+    try:
+        from chat_history.store import SqliteHistoryStore
+
+        _history_store = SqliteHistoryStore()
+        logger.info("聊天历史存储就绪: %s", _history_store._db_path)
+    except Exception as exc:  # noqa: BLE001
+        _history_store_failed = True
+        logger.warning("聊天历史存储初始化失败，降级为纯内存池: %s", exc)
+    return _history_store
+
+
 @app.post("/api/chat/agent")
 async def chat_agent_stream(request: QueryRequest, raw_request: Request):
     """Agent SSE：run/turn/tool 事件按 AgentEvent 帧输出。"""
     request.library_id = enforce_bound_library(raw_request.state, request.library_id)
     # 会话池按主体隔离：session_id 客户端可控，不隔离则同库不同用户会共用 history
     owner = resolve_pool_owner(raw_request)
+    # 历史存储：组装层注入；不可用则降级为纯内存池（行为同改造前）
+    store = _get_history_store()
+    eff_session_id = request.session_id or "default"
+    scope_hash = scope_hash_for(request.library_id, request.doc_ids)
 
     async def event_stream():
         try:
@@ -226,6 +252,10 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 library_id=request.library_id,
                 doc_ids=request.doc_ids,
                 owner=owner,
+                history_loader=(
+                    (lambda: store.load(owner, eff_session_id, scope_hash))
+                    if store is not None else None
+                ),
             )
 
             # 向量库健康守卫：维度异常时向用户发送 warning 事件
@@ -303,6 +333,43 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 config_factory,
             )
 
+            # run 结束即落库（D8：role/content 服务端权威）；seq 服务端分配后
+            # 经 run_end 帧下发 msg_seqs（D10）。客户端断开导致 run_end 未送达时，
+            # 由 run_future 返回的 added 消息兜底补写（§8）。
+            run_started_ts: Optional[float] = None
+            last_error = ""
+            persisted = False
+
+            def persist(messages: List[Any], status: str, run_id: str, end_ts: float) -> Optional[List[int]]:
+                nonlocal persisted
+                if store is None or persisted or not messages:
+                    return None
+                try:
+                    seqs = store.append(
+                        owner,
+                        eff_session_id,
+                        scope_hash,
+                        messages,
+                        {
+                            "run_id": run_id,
+                            "model": request.config or "",
+                            "latency_ms": (
+                                int((end_ts - run_started_ts) * 1000)
+                                if run_started_ts else 0
+                            ),
+                            "status": status,
+                            "error": last_error,
+                            "scene": request.scene or "qa",
+                            "library_id": request.library_id,
+                            "doc_ids": list(request.doc_ids or []),
+                        },
+                    )
+                    persisted = True
+                    return seqs
+                except Exception as exc:  # noqa: BLE001
+                    logger.warning("聊天历史落库失败（本次仅内存态）: %s", exc)
+                    return None
+
             while True:
                 if await raw_request.is_disconnected():
                     session.cancel()
@@ -313,10 +380,26 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                     if run_future.done():
                         break
                     continue
-                yield f"data: {map_event_to_agent_frame(event)}\n\n"
+                if event.type == "run_start":
+                    run_started_ts = event.ts
+                elif event.type == "error":
+                    last_error = str(event.payload.get("message", ""))
+                seqs: Optional[List[int]] = None
+                if event.type == "run_end":
+                    from chat_history.store import agent_message_from_dict
+                    msgs = [agent_message_from_dict(m) for m in (event.payload.get("messages") or [])]
+                    seqs = persist(msgs, str(event.payload.get("reason", "")), event.run_id, event.ts)
+                frame = json.loads(map_event_to_agent_frame(event))
+                frame["frame_version"] = 1
+                if seqs:
+                    frame["msg_seqs"] = seqs
+                yield f"data: {json.dumps(frame, ensure_ascii=False)}\n\n"
                 if event.type in ("run_end", "error"):
                     break
-            await run_future
+            added = await run_future
+            if not persisted and store is not None and added:
+                # 客户端断开/异常路径：run_end 帧未送出，按 cancel 语义兜底补写
+                persist(list(added), "cancelled", getattr(session, "active_run_id", "") or "", time.time())
 
             yield "data: [DONE]\n\n"
         except Exception as e:
@@ -330,6 +413,8 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             "Cache-Control": "no-cache",
             "Connection": "keep-alive",
             "X-Accel-Buffering": "no",
+            # 契约冻结（§3 硬约束 3）：帧协议版本，客户端 transport 据此判兼容
+            "X-Chat-Frame-Version": "1",
         },
     )
 
@@ -381,6 +466,7 @@ if __name__ == "__main__":
             str(SERVICES_DIR / "sop-core" / "src"),
             str(SERVICES_DIR / "evals-core" / "src"),
             str(SERVICES_DIR / "engtools" / "src"),
+            str(SERVICES_DIR / "chat-history" / "src"),
         ],
         # DredgeAI 以 5s 间隔轮询 /status，默认 keep-alive 超时（5s）会导致复用
         # 已被服务端关闭的连接而收到 RST（SocketException 10053），调大以规避。
