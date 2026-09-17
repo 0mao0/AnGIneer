@@ -2,11 +2,13 @@
 
 兼容语义：未提供 X-API-Key 时放行（存量单租户部署不受影响）；
 ANGINEER_CHAT_AUTH_REQUIRED=true 时无 key 直接 401；绑定 key 的请求体 library_id 被强制。
+2026-09-17 收紧：匿名（无 key 无会话）只能落在默认库，请求其它库 403（此前原样透传）。
 """
 import importlib
 import os
 import sys
 import unittest
+from types import SimpleNamespace
 from unittest.mock import patch
 
 _AICHAT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/aichat-api"))
@@ -122,30 +124,86 @@ class ChatMiddlewareTests(unittest.TestCase):
 
 
 class EnforceBoundLibraryTests(unittest.TestCase):
+    """库归属契约：匿名锁默认库、API key 锁单库、登录按授权集、管理员跨库。
+
+    本类此前按已废弃的双参签名 ``(bound, requested)`` 调用，而实现是 ``(state, requested)``，
+    字符串被当作 state 读属性 → ``bound`` 恒为空，绑定分支从未被覆盖，
+    ``test_bound_conflict_raises_403`` 与 ``test_bound_overrides_default_or_empty`` 长期失败
+    （2026-09-17 修洞时一并纠正：改为构造真实 state，并把「匿名透传 requested」反转为「匿名锁 default」）。
+    """
+
     def tearDown(self):
         _unload_aichat_modules()
 
-    def _enforce(self, bound, requested):
-        main = _load_aichat_module("main")
-        return main.enforce_bound_library(bound, requested)
+    def _anonymous_state(self):
+        """中间件对匿名请求不做任何 state 注入（见 api_key_auth.dispatch）。"""
+        return SimpleNamespace()
 
-    def test_unbound_passes_requested(self):
-        self.assertEqual(self._enforce("", "lib-any"), "lib-any")
-        self.assertEqual(self._enforce("", ""), "default")
+    def _key_state(self, library_id):
+        return SimpleNamespace(bound_library_id=library_id)
 
-    def test_bound_overrides_default_or_empty(self):
-        self.assertEqual(self._enforce("lib-alice", "default"), "lib-alice")
-        self.assertEqual(self._enforce("lib-alice", ""), "lib-alice")
+    def _user_state(self, library_ids, is_admin=False):
+        return SimpleNamespace(
+            session_user=SimpleNamespace(is_admin=is_admin),
+            bound_library_ids=set(library_ids),
+            bound_library_id=library_ids[0] if library_ids else "",
+        )
 
-    def test_bound_matching_passes(self):
-        self.assertEqual(self._enforce("lib-alice", "lib-alice"), "lib-alice")
+    def _enforce(self, state, requested):
+        chat_auth = _load_aichat_module("chat_auth")
+        return chat_auth.enforce_bound_library(state, requested)
 
-    def test_bound_conflict_raises_403(self):
+    # ---- 匿名：仅默认库 ----
+
+    def test_anonymous_empty_or_default_resolves_default(self):
+        self.assertEqual(self._enforce(self._anonymous_state(), ""), "default")
+        self.assertEqual(self._enforce(self._anonymous_state(), "default"), "default")
+
+    def test_anonymous_other_library_raises_403(self):
         from fastapi import HTTPException
 
         with self.assertRaises(HTTPException) as ctx:
-            self._enforce("lib-alice", "lib-eve")
+            self._enforce(self._anonymous_state(), "lib-any")
         self.assertEqual(ctx.exception.status_code, 403)
+
+    # ---- API key：单库绑定（行为不变）----
+
+    def test_bound_key_matching_passes(self):
+        self.assertEqual(self._enforce(self._key_state("lib-alice"), "lib-alice"), "lib-alice")
+
+    def test_bound_key_overrides_default_or_empty(self):
+        self.assertEqual(self._enforce(self._key_state("lib-alice"), "default"), "lib-alice")
+        self.assertEqual(self._enforce(self._key_state("lib-alice"), ""), "lib-alice")
+
+    def test_bound_key_conflict_raises_403(self):
+        from fastapi import HTTPException
+
+        with self.assertRaises(HTTPException) as ctx:
+            self._enforce(self._key_state("lib-alice"), "lib-eve")
+        self.assertEqual(ctx.exception.status_code, 403)
+
+    # ---- 登录用户：授权集内可选 ----
+
+    def test_user_authorized_library_passes(self):
+        state = self._user_state(["lib-a", "lib-b"])
+        self.assertEqual(self._enforce(state, "lib-b"), "lib-b")
+
+    def test_user_unauthorized_library_raises_403(self):
+        from fastapi import HTTPException
+
+        with self.assertRaises(HTTPException) as ctx:
+            self._enforce(self._user_state(["lib-a"]), "lib-b")
+        self.assertEqual(ctx.exception.status_code, 403)
+
+    def test_user_empty_or_default_falls_back_to_first_library(self):
+        state = self._user_state(["lib-a", "lib-b"])
+        self.assertEqual(self._enforce(state, ""), "lib-a")
+        self.assertEqual(self._enforce(state, "default"), "lib-a")
+
+    def test_admin_may_cross_libraries(self):
+        state = self._user_state(["lib-a"], is_admin=True)
+        self.assertEqual(self._enforce(state, "lib-anything"), "lib-anything")
+        self.assertEqual(self._enforce(state, ""), "default")
 
 
 if __name__ == "__main__":

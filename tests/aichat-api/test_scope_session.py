@@ -1,4 +1,5 @@
-"""阶段 2a 测试：session pool key 带 scope_hash；make_policy_config_factory 消费 ScopeContext。"""
+"""阶段 2a 测试：session pool key 带 scope_hash（+ 2026-09-17 起的 owner 隔离位）；
+make_policy_config_factory 消费 ScopeContext。"""
 import os
 import sys
 import unittest
@@ -7,6 +8,7 @@ from unittest.mock import patch
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/aichat-api")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
+from angineer_core.agent_messages import AgentMessage  # noqa: E402
 from angineer_core.base_contracts import ScopeContext  # noqa: E402
 
 import chat_agent  # noqa: E402
@@ -51,6 +53,47 @@ class SessionScopeKeyTests(unittest.TestCase):
         self.assertEqual(key1, key2)
         self.assertIn("qa", key1)
         self.assertIn("s1", key1)
+
+
+class SessionOwnerIsolationTests(unittest.TestCase):
+    """池 key 的身份隔离位：同 session_id、不同 owner 必须各开一个会话。
+
+    2026-09-17：session_id 由客户端生成（``chat-<毫秒时间戳>``，可枚举），此前池 key 只有
+    ``scene:session_id:scope_hash``，同库不同用户可以命中同一份 history——线上匿名可达时
+    即等于「猜 id 读他人对话上下文」。owner 上 key 后这条路径被切断。
+    """
+
+    def setUp(self):
+        _clear_pool()
+        self.addCleanup(_clear_pool)
+
+    def test_same_owner_reuses_session(self):
+        s1 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=[], owner="u:1")
+        s2 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=[], owner="u:1")
+        self.assertIs(s1, s2)
+
+    def test_different_owner_same_session_id_is_isolated(self):
+        s1 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=[], owner="u:1")
+        s2 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=[], owner="u:2")
+        s3 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=[], owner="ip:abc123")
+        self.assertIsNot(s1, s2)
+        self.assertIsNot(s1, s3)
+        self.assertIsNot(s2, s3)
+
+    def test_history_not_shared_across_owners(self):
+        """真实症状回归：A 的 history 不得出现在 B 的会话里。"""
+        s1 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=[], owner="u:1")
+        s1.history.append(AgentMessage(role="user", content="A 的私密问题"))
+        s1.history.append(AgentMessage(role="assistant", content="A 的私密回答"))
+
+        s2 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=[], owner="u:2")
+        self.assertEqual(s2.history, [])
+
+    def test_api_key_and_user_buckets_are_distinct(self):
+        """API key（k:）与会话用户（u:）即使数字 id 相同也不得共池。"""
+        s1 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=[], owner="u:7")
+        s2 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=[], owner="k:7")
+        self.assertIsNot(s1, s2)
 
 
 class FactoryScopeTests(unittest.TestCase):

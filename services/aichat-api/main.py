@@ -58,7 +58,7 @@ import engtools.KnowledgeTool
 from sop_routes import sop_router
 from evals_routes import evals_router
 from dream_cycle_routes import dream_cycle_router
-from chat_auth import enforce_bound_library
+from chat_auth import enforce_bound_library, resolve_pool_owner
 from middleware.api_key_auth import APIKeyAuthMiddleware
 from route_pre import (
     decision_intent_result,
@@ -215,6 +215,8 @@ async def classify_intent_offloaded(query: str, config_name: Optional[str] = Non
 async def chat_agent_stream(request: QueryRequest, raw_request: Request):
     """Agent SSE：run/turn/tool 事件按 AgentEvent 帧输出。"""
     request.library_id = enforce_bound_library(raw_request.state, request.library_id)
+    # 会话池按主体隔离：session_id 客户端可控，不隔离则同库不同用户会共用 history
+    owner = resolve_pool_owner(raw_request)
 
     async def event_stream():
         try:
@@ -223,6 +225,7 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 request.session_id,
                 library_id=request.library_id,
                 doc_ids=request.doc_ids,
+                owner=owner,
             )
 
             # 向量库健康守卫：维度异常时向用户发送 warning 事件

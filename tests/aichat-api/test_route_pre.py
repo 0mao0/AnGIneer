@@ -118,6 +118,10 @@ class _FakeSession:
         emit(AgentEvent(type="run_start", run_id="r1"))
         emit(AgentEvent(type="run_end", run_id="r1", payload={"reason": "completed"}))
 
+    def wait_for_idle(self, timeout=None):
+        """main.py 进 run 前会先等上一次 run 收尾（停止/插队后毫秒级重发的单飞保护）。"""
+        return True
+
     def cancel(self):
         self.cancelled = True
 
@@ -132,19 +136,44 @@ def _read_frames(response):
     return frames
 
 
+def _drop_warning_frames(frames):
+    """剔除路由事件之前的前置 warning 帧。
+
+    main.py 在库/文档范围为空时会先发一条 ``warning``（2026-09-11 加的空范围提示，
+    先于 route_debug 等路由帧）；测试进程里没有真实知识库节点，这条必然出现，
+    所以断言 SSE 序列前按类型过滤，而不是假定 frames[0] 就是路由帧。
+    """
+    return [f for f in frames if f.get("type") != "warning"]
+
+
 class RoutePreSseTests(unittest.TestCase):
+    """SSE 帧序列用例。库归属走真实中间件路径：lib-a 必须带绑定该库的 API key。
+
+    2026-09-17：此前这些用例发的是**无凭据**的 ``library_id=lib-a``（当时匿名会原样透传任意库，
+    匿名已收紧为只允许 default，无凭据请求 lib-a 直接 403）；叠加 ``_FakeSession`` 缺少
+    ``wait_for_idle`` 导致进 run 前就报错早退，三条用例长期为红。两处已一并修。
+    """
+
+    def _bound_key(self):
+        """绑定 lib-a 的 API key：非默认库必须能通过服务端库归属校验。"""
+        key_mod = importlib.import_module("models.api_key")
+        return key_mod.APIKey(id=1, user_name="tester", scope="chat", library_id="lib-a")
+
     def _post_chat(self, frames_sink, **patch_kwargs):
         from fastapi.testclient import TestClient
 
         main = _load_main()
         self.addCleanup(_unload_aichat_modules)
         fake_session = _FakeSession()
-        with patch.object(main, "get_agent_session", return_value=fake_session), \
+        middleware = importlib.import_module("middleware.api_key_auth")
+        with patch.object(middleware, "lookup_key", return_value=self._bound_key()), \
+             patch.object(main, "get_agent_session", return_value=fake_session), \
              patch.object(main, "classify_intent_offloaded", new=patch_kwargs["classify"]), \
              patch.object(main, "route_pre_enabled", return_value=patch_kwargs["enabled"]):
             client = TestClient(main.app)
             with client.stream(
                 "POST", "/api/chat/agent",
+                headers={"X-API-Key": "test-key"},
                 json={"query": "q", "scene": "docs", "library_id": "lib-a", "doc_ids": ["d1"]},
             ) as response:
                 frames_sink.extend(_read_frames(response))
@@ -156,6 +185,7 @@ class RoutePreSseTests(unittest.TestCase):
 
         frames = []
         self._post_chat(frames, classify=fake_classify, enabled=True)
+        frames = _drop_warning_frames(frames)
         self.assertGreaterEqual(len(frames), 3)
         self.assertEqual(frames[0]["type"], "route_debug")
         debug = frames[0]["payload"]["route_debug"]
@@ -173,6 +203,7 @@ class RoutePreSseTests(unittest.TestCase):
 
         frames = []
         self._post_chat(frames, classify=none_classify, enabled=True)
+        frames = _drop_warning_frames(frames)
         self.assertEqual(frames[0]["type"], "route_debug")
         self.assertTrue(frames[0]["payload"]["route_debug"]["fallback"])
         self.assertEqual(frames[0]["payload"]["scope"]["library_id"], "lib-a")
@@ -185,6 +216,7 @@ class RoutePreSseTests(unittest.TestCase):
 
         frames = []
         self._post_chat(frames, classify=fake_classify, enabled=False)
+        frames = _drop_warning_frames(frames)
         self.assertEqual(frames[0]["type"], "run_start")
         self.assertNotIn("route_debug", [f["type"] for f in frames])
 

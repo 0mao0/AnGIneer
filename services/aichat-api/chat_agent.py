@@ -1,7 +1,7 @@
 """P7 API 层统一：agent 会话池与 AgentEvent SSE 帧序列化。
 
-按 ``scene:session_id:scope_hash`` 复用 AgentSession（阶段 2a：scope 变化开新会话，
-不复用旧 history）；``/api/chat/agent`` 直接输出完整 AgentEvent 帧。
+按 ``owner:scene:session_id:scope_hash`` 复用 AgentSession（阶段 2a：scope 变化开新会话，
+不复用旧 history；owner 为身份隔离位）；``/api/chat/agent`` 直接输出完整 AgentEvent 帧。
 """
 import hashlib
 import logging
@@ -119,11 +119,21 @@ def _evict_expired() -> None:
             _AGENT_SESSION_LAST_ACTIVE.pop(k, None)
 
 
-def _session_pool_key(scene: str, session_id: Optional[str], library_id: str, doc_ids: Optional[List[str]]) -> str:
-    """池化 key：scene:session_id:scope_hash；scope 变化开新会话，不复用旧 history。"""
+def _session_pool_key(
+    scene: str,
+    session_id: Optional[str],
+    library_id: str,
+    doc_ids: Optional[List[str]],
+    owner: str = "",
+) -> str:
+    """池化 key：owner:scene:session_id:scope_hash；scope 变化开新会话，不复用旧 history。
+
+    owner（``u:<id>``/``k:<id>``/``ip:<hash>``，来自 chat_auth.resolve_pool_owner）是身份隔离位：
+    session_id 客户端可控且形状可枚举，缺了它不同主体会在同 scene/库/范围下共用同一份 history。
+    """
     scope_material = "|".join([library_id or "default", *sorted(str(d) for d in (doc_ids or []))])
     scope_hash = hashlib.sha1(scope_material.encode("utf-8")).hexdigest()[:8]
-    return f"{scene}:{session_id or 'default'}:{scope_hash}"
+    return f"{owner or '-'}:{scene}:{session_id or 'default'}:{scope_hash}"
 
 
 def get_agent_session(
@@ -131,9 +141,10 @@ def get_agent_session(
     session_id: Optional[str],
     library_id: str = "default",
     doc_ids: Optional[List[str]] = None,
+    owner: str = "",
 ) -> AgentSession:
-    """按 ``scene:session_id:scope_hash`` 获取或创建 AgentSession（复用 history/steer）。"""
-    key = _session_pool_key(scene, session_id, library_id, doc_ids)
+    """按 ``owner:scene:session_id:scope_hash`` 获取或创建 AgentSession（复用 history/steer）。"""
+    key = _session_pool_key(scene, session_id, library_id, doc_ids, owner)
     with _POOL_LOCK:
         now = time.time()
         _evict_expired()
