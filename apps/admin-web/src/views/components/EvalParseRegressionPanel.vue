@@ -233,15 +233,21 @@
             </p>
             <table class="epr-table">
               <thead>
-                <tr><th>类目</th><th>GT 块</th><th>召回率</th><th>文本相似度(命中)</th><th>表格 TEDS</th></tr>
+                <tr>
+                  <th>类目</th><th>GT 块</th><th>命中</th><th>召回率</th>
+                  <th>文本相似度(命中)</th><th>样本 n</th><th>表格 TEDS</th><th>公式相似度</th>
+                </tr>
               </thead>
               <tbody>
                 <tr v-for="c in detail.run.by_category" :key="c.category">
                   <td>{{ c.category }}</td>
                   <td>{{ c.gt_blocks }}</td>
+                  <td>{{ c.matched }}</td>
                   <td>{{ pct(c.recall) }}</td>
                   <td>{{ dec(c.text_similarity_matched) }}</td>
+                  <td>{{ c.text_n_matched || '—' }}</td>
                   <td>{{ dec(c.teds) }}</td>
+                  <td>{{ dec(c.formula_similarity) }}</td>
                 </tr>
               </tbody>
             </table>
@@ -268,14 +274,14 @@
             </table>
           </div>
 
-          <a-collapse class="epr-collapse">
-            <a-collapse-panel v-if="detail.summary_md" key="summary" header="summary.md（本机生成的完整留档）">
-              <div class="epr-md" v-html="summaryHtml" />
-            </a-collapse-panel>
-            <a-collapse-panel v-if="detail.struct_report_md" key="report" header="A② 结构层报告（逐类目明细）">
-              <div class="epr-md" v-html="structReportHtml" />
-            </a-collapse-panel>
-          </a-collapse>
+          <!-- 不再内嵌 summary.md / 结构层报告：两份归档文件的每一项上面都已原生渲染
+               （逐类目的样本数 n 与公式相似度列已补进表格）。文件本身照旧生成并 publish，
+               在服务器归档目录里可直接读——这里只是不再重复渲染一遍。 -->
+          <p class="epr-hint epr-files">
+            归档原文（本页即其渲染）：<code>summary.md</code> —— 环境、A① 三方表、A② 两方表、Δ 与跳过项；
+            <code>struct_chain_report.md</code> —— A② 逐类目/逐文档类型明细。
+            两份都在归档目录里，同步到服务器后可直接打开。
+          </p>
         </div>
       </a-spin>
     </div>
@@ -287,7 +293,6 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { App } from 'ant-design-vue'
 import { ReloadOutlined } from '@ant-design/icons-vue'
 import * as echarts from 'echarts'
-import { renderMarkdownToHtml } from '@angineer/aichat-ui/utils/markdown'
 import evalsApi from '../../api/evals'
 
 defineOptions({ name: 'EvalParseRegressionPanel' })
@@ -295,8 +300,12 @@ defineOptions({ name: 'EvalParseRegressionPanel' })
 interface MetricMeta { label: string; higher_is_better: boolean; ratio: boolean }
 interface DeltaRow { metric: string; label: string; cur: number | null; base: number | null; delta: number | null; higher_is_better: boolean }
 interface CategoryRow {
-  category: string; gt_blocks: number; recall: number | null
-  text_similarity_matched: number | null; teds: number | null
+  // 字段照 evals_core 的 by_category 全量给（样本数 n 与公式相似度原先只在结构层报告里，
+  // 现在表格直接展示，所以折叠报告可以去掉）
+  category: string; gt_blocks: number; matched?: number
+  recall: number | null; text_similarity?: number | null; text_n?: number
+  text_similarity_matched: number | null; text_n_matched?: number
+  teds: number | null; teds_n?: number; formula_similarity?: number | null
 }
 interface SourceRow {
   data_source: string; pages: number; block_recall: number | null
@@ -364,9 +373,6 @@ const columns = [
   { title: '跳过', key: 'skipped', width: 80 }
 ]
 
-// 第二参为源文件路径（用于解析相对图片链接）：归档里的报告没有本地相对资源，给空串
-const summaryHtml = computed(() => renderMarkdownToHtml(detail.value?.summary_md || '', ''))
-const structReportHtml = computed(() => renderMarkdownToHtml(detail.value?.struct_report_md || '', ''))
 
 const deltaRows = computed(() => {
   const groups = detail.value?.run?.delta?.groups || {}
@@ -822,22 +828,16 @@ onBeforeUnmount(() => {
   font-size: 12px;
   line-height: 1.6;
 }
-.epr-collapse {
+.epr-files {
   margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border-color, #f0f0f0);
 }
-.epr-md {
-  font-size: 12px;
-  line-height: 1.7;
-  overflow-x: auto;
-}
-.epr-md :deep(table) {
-  width: 100%;
-  border-collapse: collapse;
-}
-.epr-md :deep(th),
-.epr-md :deep(td) {
-  padding: 4px 8px;
-  border: 1px solid var(--border-color, #f0f0f0);
+.epr-files code {
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: var(--code-bg, rgba(0, 0, 0, 0.04));
+  font-size: 11px;
 }
 .epr-row--active {
   background: var(--table-row-active-bg, rgba(22, 119, 255, 0.06));
