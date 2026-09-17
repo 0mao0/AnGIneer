@@ -190,7 +190,7 @@ export function useAIChat(options?: {
   clearMessages: () => void
   switchSession: (newScene: string, newId: string) => void
   removeCurrentSession: () => void
-  startNewChat: () => void
+  startNewChat: (explicitId?: string) => void
   loadMessages: (newMessages: AIChatMessage[]) => void
 } {
   const contextConfig: AIChatContextConfig = {
@@ -280,13 +280,14 @@ export function useAIChat(options?: {
     }
   }
 
-  /** 新建对话：清空当前消息、中止生成，并切换到全新会话 key（后端按 key 开新会话） */
-  function startNewChat(): void {
+  /** 新建对话：清空当前消息、中止生成，并切换到全新会话 key（后端按 key 开新会话）。
+   * 传入 explicitId 时由宿主指定新会话 id（宿主侧持久化活跃 id 的单一生成点）。 */
+  function startNewChat(explicitId?: string): void {
     stopGeneration()
     queuedMessages.value = []
     queuePaused.value = false
     sessionPool.delete(currentSessionKey.value)
-    const newId = `chat-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
+    const newId = explicitId || `chat-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
     currentSessionKey.value = buildSessionKey(scene, newId)
     messages.value = []
     if (options?.systemPrompt) {
@@ -385,6 +386,12 @@ export function useAIChat(options?: {
           systemWarning.value = msg
         },
       })
+      // 服务端落库 seq（chat_history D10）：user 取首、assistant 取尾，
+      // 宿主据此回写展示字段快照（citations / thinking_trace 等）
+      const msgSeqs = Array.isArray(queryData.msg_seqs) ? queryData.msg_seqs : []
+      if (msgSeqs.length) {
+        userMessage.msgSeq = msgSeqs[0]
+      }
       const payload = mapQueryResponseToChatResponse(queryData)
       const citations = dedupeCitations(payload.citations || [])
       let assistantContent = payload.answer || ''
@@ -408,6 +415,7 @@ export function useAIChat(options?: {
         role: 'assistant',
         content: assistantContent,
         timestamp: Date.now(),
+        msgSeq: msgSeqs.length ? msgSeqs[msgSeqs.length - 1] : undefined,
         citations: citations.map(citation => ({
           target_id: citation.target_id,
           target_type: citation.target_type,

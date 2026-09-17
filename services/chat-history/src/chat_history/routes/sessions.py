@@ -13,7 +13,6 @@
 - 所有查询以 owner 桶为界（行级隔离由构造保证，D6）。
 """
 import json
-import os
 from datetime import datetime
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
@@ -43,6 +42,7 @@ def _session_out(row: Dict[str, Any]) -> Dict[str, Any]:
         "title": row.get("title") or "未命名对话",
         "createdAt": _iso_to_ms(row.get("created_at") or ""),
         "updatedAt": _iso_to_ms(row.get("updated_at") or ""),
+        "messageCount": int(row.get("message_count") or 0),
     }
 
 
@@ -71,6 +71,14 @@ class ClaimBody(BaseModel):
     guest_id: Optional[str] = None  # 步 3 起以 cookie 为准；body 为兼容/测试入口
 
 
+class ImportBody(BaseModel):
+    """存量导入（§4「首次登录按 id 差集导入」）：整段消息由客户端快照补录，幂等按 session_id 去重。"""
+    session_id: str
+    scene: str = "qa"
+    library_id: str = "default"
+    messages: List[Dict[str, Any]]
+
+
 def build_chat_router(
     store: Optional[SqliteHistoryStore],
     resolve_principal: PrincipalResolver,
@@ -88,11 +96,6 @@ def build_chat_router(
         if store is None:
             raise HTTPException(status_code=503, detail="chat history store unavailable")
         return store
-
-    def _rounds_limit() -> int:
-        if guest_rounds is not None:
-            return guest_rounds
-        return int(os.getenv("ANGINEER_GUEST_ROUNDS", "30") or 30)
 
     @router.get("/sessions")
     def list_sessions(request: Request, library_id: Optional[str] = None):
@@ -142,6 +145,29 @@ def build_chat_router(
             raise HTTPException(status_code=400, detail="guest_id required")
         n = _store().claim_guest(f"g:{guest_id}", f"u:{user_id}", user_id)
         return {"claimed": n, "already_claimed": n == 0}
+
+    @router.post("/sessions/import")
+    def import_session(request: Request, body: ImportBody):
+        """localStorage 存量补录：按 session_id 幂等（客户端按 id 差集调用，§4 存量导入）。"""
+        from angineer_core.history_store import scope_hash_for
+
+        owner, _ = resolve_principal(request)
+        st = _store()
+        if st.get_session(owner, body.session_id) is not None:
+            return {"imported": 0, "already_exists": True}
+        from chat_history.store import agent_message_from_dict
+
+        messages = [agent_message_from_dict(m) for m in body.messages
+                    if m.get("role") in ("user", "assistant")]
+        st.append(
+            owner,
+            body.session_id,
+            scope_hash_for(body.library_id, []),
+            messages,
+            {"run_id": f"import-{body.session_id}", "status": "imported",
+             "scene": body.scene, "library_id": body.library_id, "doc_ids": []},
+        )
+        return {"imported": len(messages), "already_exists": False}
 
     # ---- 步 3：游客端点与轮闸（在此工厂内一并构建，策略注入见 _rounds_limit） ----
 

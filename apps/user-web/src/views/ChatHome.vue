@@ -80,8 +80,11 @@ import { useAuthStore } from '@/stores/auth'
 import { knowledgeApi } from '@/api/knowledge'
 import {
   deriveTitle,
+  fetchSessionMessages,
   listSessions,
+  loadActiveSessionId,
   removeSession,
+  saveActiveSessionId,
   saveSession,
 } from '@/composables/chatHistory'
 import type { ChatSessionRecord } from '@/composables/chatHistory'
@@ -132,8 +135,11 @@ onMounted(() => {
 
 const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
 const docViewRef = ref<InstanceType<typeof DocumentViewType> | null>(null)
+const genSessionId = () => `chat-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
 
-const sessionId = ref(`chat-${Date.now().toString(36)}`)
+const sessionId = ref(
+  loadActiveSessionId(localStorage, authStore.effectiveLibraryId || 'default') || genSessionId()
+)
 const hasConversation = ref(false)
 const historyOpen = ref(false)
 const sessions = ref<ChatSessionRecord[]>([])
@@ -143,25 +149,26 @@ const systemWarning = computed(() => aiChatRef.value?.systemWarning ?? '')
 
 /** 溯源面板 */
 const panelDocId = ref('')
+
 const panelTitle = ref('')
 const panelLibraryId = ref('default')
 
-const refreshSessions = () => {
-  sessions.value = listSessions(localStorage, libraryId.value)
+const refreshSessions = async () => {
+  sessions.value = await listSessions(localStorage, libraryId.value)
 }
-refreshSessions()
+void refreshSessions()
 
 const onMessagesChange = (messages: AIChatMessage[]) => {
   if (!messages.length) return // 新会话/清空不落空记录
   hasConversation.value = true
-  saveSession(localStorage, libraryId.value, {
+  void saveSession(localStorage, libraryId.value, {
     id: sessionId.value,
     scene: 'docs',
     title: deriveTitle(messages),
     updatedAt: Date.now(),
     messages: messages.filter(m => m.role !== 'system'),
   })
-  refreshSessions()
+  void refreshSessions()
 }
 
 const handleCitationSelect = async (citation: AIChatCitation) => {
@@ -185,8 +192,16 @@ const restoreSession = async (record: ChatSessionRecord) => {
   historyOpen.value = false
   closePanel()
   sessionId.value = record.id
+  saveActiveSessionId(localStorage, libraryId.value, record.id)
   await nextTick() // 等 sessionId watch 切会话完成
-  aiChatRef.value?.loadSession(record.messages as AIChatMessage[])
+  // 消息以服务端为真相源；详情失败降级 localStorage 缓存（离线/存储降级场景）
+  let messages = record.messages as AIChatMessage[]
+  try {
+    messages = (await fetchSessionMessages(record.id)) as AIChatMessage[]
+  } catch {
+    // 保留缓存
+  }
+  aiChatRef.value?.loadSession(messages)
   hasConversation.value = true
 }
 
@@ -195,23 +210,28 @@ const onLibraryChange = async (id: string) => {
   if (!id || id === authStore.activeLibraryId) return
   authStore.switchLibrary(id)
   closePanel()
-  aiChatRef.value?.startNewChat?.()
-  sessionId.value = `chat-${Date.now().toString(36)}`
+  rotateSession()
+  void refreshSessions() // 历史按新库重新列
+}
+
+/** 活跃会话单一轮换点：生成新 id → 透传组件内部换 key（修双生成 id 互相覆盖，§4） */
+const rotateSession = () => {
+  const newId = genSessionId()
+  saveActiveSessionId(localStorage, libraryId.value, newId)
+  aiChatRef.value?.startNewChat?.(newId)
+  sessionId.value = newId
   hasConversation.value = false
-  refreshSessions() // 历史按新库重新列
 }
 
 const deleteSession = (id: string) => {
-  removeSession(localStorage, libraryId.value, id)
-  refreshSessions()
+  void removeSession(localStorage, libraryId.value, id)
+  void refreshSessions()
 }
 
 const startNewChat = () => {
   historyOpen.value = false
   closePanel()
-  aiChatRef.value?.startNewChat?.() // 内部：停止生成 + 清消息 + 换会话 key
-  sessionId.value = `chat-${Date.now().toString(36)}` // 与内部新 key 对齐
-  hasConversation.value = false
+  rotateSession()
 }
 </script>
 

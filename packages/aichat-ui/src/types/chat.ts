@@ -88,6 +88,8 @@ export interface AIChatMessage {
   role: BaseChatMessageRole
   content: string
   timestamp?: number
+  /** 服务端落库消息序号（chat_history），有值时宿主可回写展示字段快照 */
+  msgSeq?: number
   queryChain?: string
   images?: string[]
   citations?: AIChatCitation[]
@@ -159,6 +161,12 @@ export interface QueryRequest {
 export interface QueryResponse {
   query_id: string
   session_key?: string
+  /**
+   * 服务端为本次 run 落库消息分配的 seq（与 run_end 帧 msg_seqs 对齐，顺序与
+   * 帧 payload.messages 一致）。宿主据此做展示字段快照补丁（如 citations 回写）。
+   * 后端未下发时缺省，可选字段向后兼容。
+   */
+  msg_seqs?: number[]
   intent: {
     intent_level: string
     intent_type: string

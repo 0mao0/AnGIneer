@@ -36,7 +36,7 @@
       >
         <div class="session-main">
           <div class="session-title">{{ record.title }}</div>
-          <div class="session-meta">{{ formatRelativeTime(record.updatedAt) }} · {{ record.messages.length }} 条</div>
+          <div class="session-meta">{{ formatRelativeTime(record.updatedAt) }} · {{ record.messageCount ?? record.messages.length }} 条</div>
         </div>
         <a-button
           type="text"

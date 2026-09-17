@@ -280,14 +280,18 @@ class SqliteHistoryStore:
         try:
             if library_id:
                 rows = conn.execute(
-                    "SELECT * FROM chat_sessions WHERE owner_key=? AND library_id=?"
-                    " ORDER BY updated_at DESC LIMIT ?",
+                    "SELECT s.*, (SELECT COUNT(*) FROM chat_messages m"
+                    " WHERE m.owner_key=s.owner_key AND m.session_id=s.session_id) AS message_count"
+                    " FROM chat_sessions s WHERE s.owner_key=? AND s.library_id=?"
+                    " ORDER BY s.updated_at DESC LIMIT ?",
                     (owner, library_id, limit),
                 ).fetchall()
             else:
                 rows = conn.execute(
-                    "SELECT * FROM chat_sessions WHERE owner_key=?"
-                    " ORDER BY updated_at DESC LIMIT ?",
+                    "SELECT s.*, (SELECT COUNT(*) FROM chat_messages m"
+                    " WHERE m.owner_key=s.owner_key AND m.session_id=s.session_id) AS message_count"
+                    " FROM chat_sessions s WHERE s.owner_key=?"
+                    " ORDER BY s.updated_at DESC LIMIT ?",
                     (owner, limit),
                 ).fetchall()
             return [dict(r) for r in rows]

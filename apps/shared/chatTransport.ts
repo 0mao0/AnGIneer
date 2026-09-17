@@ -66,6 +66,7 @@ export const defaultAIChatTransport = {
     let answer = ''
     let runId = ''
     let runReason = ''
+    let msgSeqs: number[] = [] // 服务端落库 seq（chat_history），随 run_end 帧下发
     let toolMessages: Array<{ name?: string; content: string }> = []
     let traceMessages: Array<Record<string, any>> = []
     let liveThinkingSteps: ThinkingTraceStep[] = []
@@ -126,6 +127,7 @@ export const defaultAIChatTransport = {
           }
         } else if (event.type === 'run_end') {
           runReason = String(event.payload?.reason || 'completed')
+          msgSeqs = Array.isArray(event.msg_seqs) ? event.msg_seqs : []
           traceMessages = Array.isArray(event.payload?.messages)
             ? event.payload.messages
             : []
@@ -188,6 +190,7 @@ export const defaultAIChatTransport = {
     return {
       query_id: runId || `agent-${Date.now().toString(36)}`,
       session_key: payload.session_id || '',
+      msg_seqs: msgSeqs,
       intent: {
         intent_level: scene === 'complex' ? 'L4' : 'L1',
         intent_type: scene === 'complex' ? '复杂任务' : '概念解析',

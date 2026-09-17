@@ -174,5 +174,50 @@ class ChatHistoryRouteTests(unittest.TestCase):
         self.assertEqual(client.get("/api/chat/sessions").status_code, 503)
 
 
+class ImportRouteTests(unittest.TestCase):
+    """步 5：存量导入端点——按 session_id 幂等，只收 user/assistant 消息。"""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.store = SqliteHistoryStore(os.path.join(self.tmp.name, "chat.sqlite"))
+        self.client = _make_app(self.store)
+        self.addCleanup(self.tmp.cleanup)
+
+    def test_import_creates_session_with_messages(self):
+        resp = self.client.post("/api/chat/sessions/import", json={
+            "session_id": "legacy-1",
+            "scene": "docs",
+            "library_id": "default",
+            "messages": [
+                {"role": "user", "content": "旧问题"},
+                {"role": "assistant", "content": "旧回答"},
+                {"role": "tool", "content": "内部工具消息不应入展示"},
+            ],
+        })
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.json()["imported"], 2)  # tool 消息被过滤
+        data = self.client.get("/api/chat/sessions/legacy-1").json()
+        self.assertEqual(len(data["messages"]), 2)
+        self.assertEqual(data["session"]["title"], "旧问题")
+
+    def test_import_idempotent_by_session_id(self):
+        body = {"session_id": "legacy-1", "messages": [{"role": "user", "content": "q"}]}
+        self.assertEqual(self.client.post("/api/chat/sessions/import", json=body).json()["imported"], 1)
+        resp = self.client.post("/api/chat/sessions/import", json=body)
+        self.assertEqual(resp.json()["imported"], 0)
+        self.assertTrue(resp.json()["already_exists"])
+        # 未重复追加
+        self.assertEqual(len(self.client.get("/api/chat/sessions/legacy-1").json()["messages"]), 1)
+
+    def test_list_includes_message_count(self):
+        self.client.post("/api/chat/sessions/import", json={
+            "session_id": "legacy-2",
+            "messages": [{"role": "user", "content": "q"}, {"role": "assistant", "content": "a"}],
+        })
+        data = self.client.get("/api/chat/sessions").json()
+        rec = next(s for s in data["sessions"] if s["id"] == "legacy-2")
+        self.assertEqual(rec["messageCount"], 2)
+
+
 if __name__ == "__main__":
     unittest.main()
