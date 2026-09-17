@@ -154,16 +154,15 @@ const handleNavClick = (key: string) => {
   }
 }
 
-/** 头部视图切换：按当前模块分发到对应视图状态 */
+/** 头部视图切换：按当前模块分发到对应视图状态。
+ *  合法性只认 viewItems（单点清单）——这里曾另写一份硬编码白名单，2026-09-17 加「解析回归」
+ *  时没同步，点 tab 完全没反应（tab 显示着、点了却不动）；别再抄第二份 key 列表。 */
 const handleViewChange = (key: string) => {
+  if (!viewItems.value.some((item) => item.key === key)) return
   if (activeNav.value === 'evals') {
-    if (key === 'workbench' || key === 'nightly') {
-      evalView.value = key
-    }
-    return
-  }
-  if (key === 'maintenance' || key === 'nightly' || key === 'aichat') {
-    knowledgeView.value = key
+    evalView.value = key as 'workbench' | 'nightly' | 'parse-regression'
+  } else if (activeNav.value === 'knowledge') {
+    knowledgeView.value = key as 'maintenance' | 'nightly' | 'aichat'
   }
 }
 

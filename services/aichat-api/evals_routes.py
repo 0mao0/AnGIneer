@@ -366,9 +366,16 @@ def _parse_regression_root() -> str:
 
 
 def _read_publish(run_dir: str, run_id: str) -> Dict[str, Any]:
-    """读一次 run 的 publish.json（本机算好的结论层载荷）；缺失/损坏降级为 corrupt。"""
+    """读一次 run 的 publish.json（本机算好的结论层载荷）。
+
+    两种情况分开记（前端文案不同）：文件还没生成 = pending（本机在跑或跑完没 --publish）；
+    文件在但读不出来 = corrupt（真坏了）。都用目录名兜底当 run_id，列表不因此炸。
+    """
+    path = os.path.join(run_dir, "publish.json")
+    if not os.path.exists(path):
+        return {"run_id": run_id, "state": "pending"}
     try:
-        with open(os.path.join(run_dir, "publish.json"), "r", encoding="utf-8") as fh:
+        with open(path, "r", encoding="utf-8") as fh:
             data = json.load(fh)
         if not isinstance(data, dict):
             raise ValueError("publish.json 不是对象")

@@ -130,6 +130,15 @@ class ParseRegressionRoutesTests(unittest.TestCase):
         self.assertEqual(runs[1]["pages_scored"], 200)
         self.assertEqual(runs[2]["kind"], "offline-reprojection")
 
+    def test_missing_publish_json_is_pending_not_corrupt(self):
+        """本机在跑（目录已建、publish.json 还没写）与文件写坏要分开：前端文案不同。"""
+        pending = self.root / "20260917-1032"
+        pending.mkdir()
+        with _patch_auth(True, is_admin=True):
+            runs = self._client().get("/api/evals/parse-regression").json()["runs"]
+        self.assertEqual(runs[0]["state"], "pending")
+        self.assertNotIn("kind", runs[0])          # 还没同步过，没有任何结论字段
+
     def test_ts_fallback_when_run_date_absent(self):
         """老载荷没有 run_date：退到 ts（同一套归一化），不因为字段缺失就排到末尾。"""
         self._write_run("20260916-0100", {**PAYLOAD, "run_id": "20260916-0100", "run_date": None,

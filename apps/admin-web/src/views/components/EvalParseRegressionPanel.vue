@@ -52,11 +52,18 @@
       >
         <template #bodyCell="{ column, record }">
           <template v-if="column.key === 'run_date'">
-            {{ record.run_date || record.ts || '—' }}
+            {{ runDateText(record) }}
           </template>
           <template v-else-if="column.key === 'run_id'">
             <span class="epr-mono">{{ record.run_id }}</span>
-            <a-tag v-if="record.kind !== 'run'" color="orange" class="epr-tag">离线重投影</a-tag>
+            <!-- 没同步上来的目录不等于离线重投影：分别标清（pending=本机在跑或没 --publish） -->
+            <a-tooltip v-if="record.state === 'pending'" title="本机这轮还没跑完或没带 --publish：结论层文件还没同步上来">
+              <a-tag class="epr-tag">未同步</a-tag>
+            </a-tooltip>
+            <a-tooltip v-else-if="record.state === 'corrupt'" title="publish.json 读不出来（同步中断或写坏）">
+              <a-tag color="red" class="epr-tag">损坏</a-tag>
+            </a-tooltip>
+            <a-tag v-else-if="record.kind !== 'run'" color="orange" class="epr-tag">离线重投影</a-tag>
           </template>
           <template v-else-if="column.key === 'git'">
             <span class="epr-mono">{{ record.git || '—' }}</span>
@@ -89,10 +96,28 @@
         <div v-if="detail" class="epr-detail">
           <div class="epr-detail__head">
             <h3>{{ detail.run.run_id }}</h3>
-            <a-tag v-if="detail.run.kind !== 'run'" color="orange">离线重投影（非同一次 fresh 解析）</a-tag>
+            <a-tag v-if="detail.run.state === 'pending'" color="default">未同步（本机还在跑或没 --publish）</a-tag>
+            <a-tag v-else-if="detail.run.state === 'corrupt'" color="red">结论文件损坏</a-tag>
+            <a-tag v-else-if="detail.run.kind !== 'run'" color="orange">离线重投影（非同一次 fresh 解析）</a-tag>
             <a-tag v-else color="green">fresh 解析</a-tag>
           </div>
           <p v-if="detail.run.note" class="epr-note">{{ detail.run.note }}</p>
+          <a-alert
+            v-if="detail.run.state === 'pending'"
+            type="info"
+            show-icon
+            message="本轮结论还没同步上来"
+            description="本机这轮可能还在跑（predict 约 45 分钟），或跑完时没带 --publish。同步后可点「刷新」重新加载。"
+            class="epr-delta-note"
+          />
+          <a-alert
+            v-else-if="detail.run.state === 'corrupt'"
+            type="error"
+            show-icon
+            message="结论文件损坏"
+            description="publish.json 读不出来（同步中断或写坏了）：在本机对该 run 跑 --republish 重建后再同步一次。"
+            class="epr-delta-note"
+          />
 
           <a-descriptions size="small" bordered :column="3" class="epr-desc">
             <a-descriptions-item label="代码版本">{{ detail.run.git || '—' }}</a-descriptions-item>
@@ -257,6 +282,7 @@ interface RunPayload {
   schema?: number
   run_id: string
   ts?: string
+  run_date?: string
   kind?: string
   note?: string
   limit?: number | null
@@ -360,6 +386,15 @@ function deltaCell(row: DeltaRow): { text: string; worse: boolean } {
   const arrow = row.delta > 0 ? '↑' : '↓'
   const worse = (row.delta > 0) !== row.higher_is_better
   return { text: `${body} ${arrow}${worse ? ' ⚠' : ''}`, worse }
+}
+
+/** 日期列：run_date → ts → run_id 里的 YYYYMMDD（未同步的目录只有目录名，别显示成"—"） */
+function runDateText(run: RunPayload): string {
+  for (const raw of [run.run_date, run.ts, run.run_id]) {
+    const m = /(\d{4})-?(\d{2})-?(\d{2})/.exec(String(raw || ''))
+    if (m) return `${m[1]}-${m[2]}-${m[3]}`
+  }
+  return '—'
 }
 
 function timingText(run: RunPayload): string {
