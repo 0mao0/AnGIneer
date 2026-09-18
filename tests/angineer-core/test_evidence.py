@@ -12,6 +12,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../angineer-core")))
 
 from agent_test_utils import MockLLM, text_events, tool_block  # noqa: E402
+from angineer_core import ports  # noqa: E402
 from angineer_core.agent_tools import AgentTool, RetrieverAdapter  # noqa: E402
 from docs_core.step09_query.protocols.contracts import RetrievedItem  # noqa: E402
 
@@ -22,6 +23,16 @@ class _FakeRetriever:
 
     def retrieve(self, *args, **kwargs):
         return list(self._items)
+
+
+def _register_agent_port(**kwargs):
+    """注册 agent_search 端口 fake；返回清理函数（ finally 里调用防串味）。"""
+    ports.register_agent_search(**kwargs)
+
+    def _clear():
+        ports.register_agent_search(**{k: None for k in kwargs})
+
+    return _clear
 
 
 def _make_item(item_id="a", text="正文证据", doc_id="d1"):
@@ -48,13 +59,20 @@ def _intent():
 
 class KnowledgeSearchEvidenceTests(unittest.TestCase):
     def test_knowledge_search_returns_evidences(self):
-        tool = RetrieverAdapter.knowledge_search(
-            library_id="lib-ev",
-            dense=_FakeRetriever([_make_item()]),
-            sparse=_FakeRetriever([]),
-            clause=_FakeRetriever([]),
+        clear = _register_agent_port(
+            knowledge_local=lambda **kwargs: {"items": [_make_item()]},
+            relevant_citations=lambda *a, **k: [],
         )
-        result = tool.handler(query="测试")
+        try:
+            tool = RetrieverAdapter.knowledge_search(
+                library_id="lib-ev",
+                dense=_FakeRetriever([_make_item()]),
+                sparse=_FakeRetriever([]),
+                clause=_FakeRetriever([]),
+            )
+            result = tool.handler(query="测试")
+        finally:
+            clear()
 
         self.assertIn("items", result)
         self.assertEqual(result["items"][0]["item_id"], "a")
@@ -75,12 +93,19 @@ class KnowledgeSearchEvidenceTests(unittest.TestCase):
 
 class TableSearchEvidenceTests(unittest.TestCase):
     def test_table_search_returns_evidences(self):
-        tool = RetrieverAdapter.table_search(
-            library_id="lib-ev",
-            table=_FakeRetriever([_make_item(item_id="t1", text="表格内容")]),
-            formula=_FakeRetriever([]),
+        clear = _register_agent_port(
+            table_local=lambda **kwargs: {"items": [_make_item(item_id="t1", text="表格内容")]},
+            relevant_citations=lambda *a, **k: [],
         )
-        result = tool.handler(query="表格")
+        try:
+            tool = RetrieverAdapter.table_search(
+                library_id="lib-ev",
+                table=_FakeRetriever([_make_item(item_id="t1", text="表格内容")]),
+                formula=_FakeRetriever([]),
+            )
+            result = tool.handler(query="表格")
+        finally:
+            clear()
 
         self.assertIn("items", result)
         ev = result["evidences"][0]
@@ -96,9 +121,11 @@ class EntitySearchEvidenceTests(unittest.TestCase):
         entity.model_dump.return_value = {"name": "系缆力", "layer": "concept"}
 
         tool = RetrieverAdapter.entity_search(library_id="lib-ev")
-        with patch("docs_core.step07_graph.graph_store.GraphStore") as store_cls:
-            store_cls.return_value.search_entities.return_value = [entity]
+        clear = _register_agent_port(entity_local=lambda **kwargs: [entity])
+        try:
             result = tool.handler(query="系缆力")
+        finally:
+            clear()
 
         ev = result["evidences"][0]
         self.assertEqual(ev["kind"], "graph_entity")
@@ -112,11 +139,13 @@ class EntitySearchEvidenceTests(unittest.TestCase):
             "content": "正文证据", "library_id": "lib-ev", "source": "knowledge_search",
         }
         tool = RetrieverAdapter.entity_search(library_id="lib-ev")
-        with patch("docs_core.step07_graph.graph_store.GraphStore") as store_cls, \
-             patch("angineer_core.agent_tools._run_knowledge_search",
-                   return_value={"items": [], "citations": [], "evidences": [fallback_ev]}):
-            store_cls.return_value.search_entities.return_value = []
-            result = tool.handler(query="查无此实体")
+        clear = _register_agent_port(entity_local=lambda **kwargs: [])
+        try:
+            with patch("angineer_core.agent_tools._run_knowledge_search",
+                       return_value={"items": [], "citations": [], "evidences": [fallback_ev]}):
+                result = tool.handler(query="查无此实体")
+        finally:
+            clear()
 
         self.assertEqual(result["evidences"], [fallback_ev])
 

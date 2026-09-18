@@ -9,6 +9,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/docs-core/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/ai-inference/src")))
 
+from angineer_core import ports  # noqa: E402
 from angineer_core.base_contracts import SOP, Step  # noqa: E402
 from angineer_core.sop_runner import SopRunner  # noqa: E402
 
@@ -22,6 +23,18 @@ class FakeToolRegistry:
     @classmethod
     def get_tool(cls, name):
         return FakeTool() if name == "calculator" else None
+
+
+class _RegistryPortPatch:
+    """Seam 4：SopRunner 经 engtool_registry 端口消费注册表，fake 走注册（finally 清除防串味）。"""
+
+    def __enter__(self):
+        ports.register_agent_search(engtool_registry=lambda: FakeToolRegistry)
+        return self
+
+    def __exit__(self, *exc):
+        ports.register_agent_search(engtool_registry=None)
+        return False
 
 
 def make_sop():
@@ -43,7 +56,7 @@ def make_sop():
 class SopRunnerTests(unittest.TestCase):
     def test_run_sop_updates_blackboard_and_history(self):
         runner = SopRunner(llm_client=Mock())
-        with patch("angineer_core.sop_runner.ToolRegistry", FakeToolRegistry):
+        with _RegistryPortPatch():
             blackboard = runner.run_sop(make_sop(), {"user_query": "计算"})
         self.assertEqual(blackboard["result"], 42)
         self.assertEqual(len(runner.memory.history), 1)
@@ -53,14 +66,14 @@ class SopRunnerTests(unittest.TestCase):
     def test_step_callback_receives_step_info(self):
         runner = SopRunner(llm_client=Mock())
         received = []
-        with patch("angineer_core.sop_runner.ToolRegistry", FakeToolRegistry):
+        with _RegistryPortPatch():
             runner.run_sop(make_sop(), {}, step_callback=received.append)
         self.assertEqual(received[0]["step_id"], "s1")
         self.assertEqual(received[0]["status"], "success")
 
     def test_build_sop_trace_works_on_runner(self):
         runner = SopRunner(llm_client=Mock())
-        with patch("angineer_core.sop_runner.ToolRegistry", FakeToolRegistry):
+        with _RegistryPortPatch():
             runner.run_sop(make_sop(), {})
         sop = make_sop()
         trace = SopRunner._build_sop_trace(runner, sop)

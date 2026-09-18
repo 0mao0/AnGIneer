@@ -154,9 +154,16 @@ def fake_dbs(tmp_path, monkeypatch):
     rconn.close()
 
     import docs_core.paths as paths
+    from docs_core.step09_query import agent_port
+
     monkeypatch.setattr(paths, "resolve_knowledge_meta_db_path", lambda: meta)
     monkeypatch.setattr(paths, "resolve_repo_root", lambda: tmp_path)
     monkeypatch.delenv("ANGINEER_DOCS_API_URL", raising=False)
+    # Seam 4：本地统计直查经 local_stats 端口消费 docs-core 适配器本体，
+    # 这里注册真实适配器（上面的 paths monkeypatch 对适配器内的惰性 import 同样生效）
+    from angineer_core import ports
+
+    monkeypatch.setattr(ports, "_local_stats", agent_port.local_stats)
     return tmp_path
 
 

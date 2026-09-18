@@ -109,18 +109,29 @@ class KnowledgeSearchClientWiringTests(unittest.TestCase):
 
         from docs_core.step09_query.protocols.contracts import RetrievedItem
 
+        from angineer_core import ports
+
         local_item = RetrievedItem(
             item_id="local1", entity_type="chunk", doc_id="d1",
             title="条文", text="本地证据", score=0.8, metadata={},
         )
-        tool = RetrieverAdapter.knowledge_search(
-            library_id="lib-x",
-            dense=_FakeRetriever([local_item]),
-            sparse=_FakeRetriever([]),
-            clause=_FakeRetriever([]),
-            retrieval_client=client,
+        # Seam 4：本地回退经 knowledge_local_search 端口消费 docs-core 配方，
+        # 这里注册 fake（消费注入的 dense/sparse/clause 检索器替身）验证回退接线
+        ports.register_agent_search(
+            knowledge_local=lambda **kwargs: {"items": list(kwargs["dense"]._items)},
+            relevant_citations=lambda *a, **k: [],
         )
-        result = tool.handler(query="测试")
+        try:
+            tool = RetrieverAdapter.knowledge_search(
+                library_id="lib-x",
+                dense=_FakeRetriever([local_item]),
+                sparse=_FakeRetriever([]),
+                clause=_FakeRetriever([]),
+                retrieval_client=client,
+            )
+            result = tool.handler(query="测试")
+        finally:
+            ports.register_agent_search(knowledge_local=None, relevant_citations=None)
 
         self.assertEqual(result["items"][0]["item_id"], "local1")
 

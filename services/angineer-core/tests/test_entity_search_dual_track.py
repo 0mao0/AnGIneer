@@ -3,7 +3,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from angineer_core import agent_tools
+from angineer_core import agent_tools, ports
 from angineer_core.agent_tools import RetrieverAdapter
 from angineer_core.policy_query import _load_doc_nodes
 
@@ -33,25 +33,24 @@ class FakeClient:
         return list(self._entities)
 
 
-class FakeGraphStore:
-    """本地回退路径的 GraphStore 替身。"""
-
-    def __init__(self, *args, **kwargs):
-        FakeGraphStore.init_calls += 1
+class FakeLocalEntitySearch:
+    """本地回退路径的 entity_local_search 端口替身（Seam 4 后引擎经端口消费 GraphStore 分支）。"""
 
     init_calls = 0
 
-    def search_entities(self, query, limit=20, library_id=None):
+    def __call__(self, **kwargs):
+        FakeLocalEntitySearch.init_calls += 1
         return [ENTITY]
 
 
 @pytest.fixture(autouse=True)
 def _reset_fallback_env(monkeypatch):
     monkeypatch.delenv("ANGINEER_DISABLE_LOCAL_FALLBACK", raising=False)
-    FakeGraphStore.init_calls = 0
-    monkeypatch.setattr(
-        "docs_core.step07_graph.graph_store.GraphStore", FakeGraphStore, raising=True
-    )
+    monkeypatch.delenv("KG_DB_PATH", raising=False)
+    FakeLocalEntitySearch.init_calls = 0
+    fake = FakeLocalEntitySearch()
+    monkeypatch.setattr(ports, "_entity_local_search", fake)
+    monkeypatch.setattr(ports, "_query_normalizer", lambda q: q)
 
 
 def _tool(client):
@@ -62,7 +61,7 @@ def test_http_path_skips_local_store():
     client = FakeClient()
     result = _tool(client).handler(query="混凝土")
     assert client.calls == 1
-    assert FakeGraphStore.init_calls == 0
+    assert FakeLocalEntitySearch.init_calls == 0
     assert result["total"] == 1
     assert result["entities"][0]["entity_id"] == "e1"
     assert result["evidences"][0]["kind"] == "graph_entity"
@@ -71,7 +70,7 @@ def test_http_path_skips_local_store():
 def test_fallback_to_local_on_http_failure():
     client = FakeClient(exc=RuntimeError("down"))
     result = _tool(client).handler(query="混凝土")
-    assert FakeGraphStore.init_calls == 1  # 回退生效
+    assert FakeLocalEntitySearch.init_calls == 1  # 回退生效
     assert result["total"] == 1
 
 
@@ -80,7 +79,7 @@ def test_disable_switch_blocks_fallback(monkeypatch):
     client = FakeClient(exc=RuntimeError("down"))
     result = _tool(client).handler(query="混凝土")
     assert "error" in result
-    assert FakeGraphStore.init_calls == 0
+    assert FakeLocalEntitySearch.init_calls == 0
 
 
 def test_disable_switch_without_client(monkeypatch):
@@ -88,12 +87,12 @@ def test_disable_switch_without_client(monkeypatch):
     monkeypatch.delenv("ANGINEER_DOCS_API_URL", raising=False)
     result = _tool(None).handler(query="混凝土")
     assert "error" in result
-    assert FakeGraphStore.init_calls == 0
+    assert FakeLocalEntitySearch.init_calls == 0
 
 
 def test_no_client_defaults_to_local():
     result = _tool(None).handler(query="混凝土")
-    assert FakeGraphStore.init_calls == 1
+    assert FakeLocalEntitySearch.init_calls == 1
     assert result["total"] == 1
 
 
