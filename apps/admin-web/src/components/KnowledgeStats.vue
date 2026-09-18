@@ -84,6 +84,28 @@
         <template v-if="column.key === 'file_size'">
           {{ formatFileSize(record.file_size) }}
         </template>
+        <template v-if="column.key === 'folder'">
+          <a-select
+            size="small"
+            class="folder-cell-select"
+            :value="parentOf(record.doc_id)"
+            :disabled="!docIdsInNodes.has(record.doc_id)"
+            :loading="movingDocIds.has(record.doc_id)"
+            @change="(val: any) => moveRecord(record, String(val ?? ''))"
+          >
+            <a-select-option value="">根目录</a-select-option>
+            <a-select-option v-for="f in folderOptions" :key="f.value" :value="f.value">
+              {{ f.label }}
+            </a-select-option>
+            <!-- 文档挂在已删除/未知目录时兜底，避免下拉值显示成裸 id -->
+            <a-select-option
+              v-if="unknownParent(record.doc_id)"
+              :value="unknownParent(record.doc_id)"
+            >
+              （未知目录）
+            </a-select-option>
+          </a-select>
+        </template>
         <template v-if="column.key === 'page_count'">
           {{ record.page_count ? `${record.page_count} 页` : '-' }}
         </template>
@@ -328,6 +350,82 @@ async function openUploadModal() {
 }
 const records = ref<ParseRecordItem[]>([])
 
+// ── 文件夹列：节点树上下文（当前库的全部文件夹 + 每篇文档的所在目录）──
+interface FolderOption { value: string; label: string }
+const folderOptions = ref<FolderOption[]>([])
+const docParents = ref<Record<string, string>>({})
+const docIdsInNodes = ref<Set<string>>(new Set())
+const movingDocIds = ref<Set<string>>(new Set())
+
+function folderPathLabel(node: any, byId: Map<string, any>): string {
+  const parts: string[] = [node.title]
+  let cur = node.parent_id
+  let guard = 0
+  while (cur && guard++ < 20) {
+    const parent = byId.get(cur)
+    if (!parent) break
+    parts.unshift(parent.title)
+    cur = parent.parent_id
+  }
+  return parts.join(' / ')
+}
+
+async function loadFolderContext() {
+  try {
+    const nodes = (await knowledgeApi.getNodes(libraryStore.libraryId || 'default', false)) as unknown as any[]
+    const byId = new Map<string, any>()
+    for (const n of nodes) byId.set(n.id, n)
+    folderOptions.value = nodes
+      .filter(n => n.type === 'folder')
+      .map(n => ({ value: n.id, label: folderPathLabel(n, byId) }))
+    const parents: Record<string, string> = {}
+    const ids = new Set<string>()
+    for (const n of nodes) {
+      if (n.type !== 'document') continue
+      ids.add(n.id)
+      if (n.parent_id) parents[n.id] = n.parent_id
+    }
+    docParents.value = parents
+    docIdsInNodes.value = ids
+  } catch {
+    // 节点接口失败保留上一次上下文：行内下拉只是暂时不可用，不打断列表
+  }
+}
+
+function parentOf(docId: string): string {
+  return docParents.value[docId] || ''
+}
+
+const folderValueSet = computed(() => new Set(folderOptions.value.map(f => f.value)))
+function unknownParent(docId: string): string {
+  const parent = docParents.value[docId]
+  return parent && !folderValueSet.value.has(parent) ? parent : ''
+}
+
+async function moveRecord(record: ParseRecordItem, value: string) {
+  const docId = record.doc_id
+  movingDocIds.value = new Set(movingDocIds.value).add(docId)
+  try {
+    await knowledgeApi.updateNode(docId, { parent_id: value || null })
+    if (value) {
+      docParents.value = { ...docParents.value, [docId]: value }
+    } else {
+      const rest = { ...docParents.value }
+      delete rest[docId]
+      docParents.value = rest
+    }
+    docIdsInNodes.value = new Set(docIdsInNodes.value).add(docId)
+    const label = folderOptions.value.find(f => f.value === value)?.label || '根目录'
+    message.success(`「${record.file_name}」已移动到 ${label}`)
+  } catch (e: any) {
+    message.error(`移动失败: ${e?.response?.data?.detail || e?.message || e}`)
+  } finally {
+    const next = new Set(movingDocIds.value)
+    next.delete(docId)
+    movingDocIds.value = next
+  }
+}
+
 // ── 历史记录筛选（文件名 / 状态 / 格式，客户端过滤）──────────────────
 const keywordFilter = ref('')
 const statusFilter = ref<string | undefined>(undefined)
@@ -424,6 +522,7 @@ const columns = ref<DataTableColumn[]>([
   { title: '上传人员', dataIndex: 'uploaded_by', key: 'uploaded_by', width: 96 },
   { title: '文件名称', dataIndex: 'file_name', key: 'file_name', ellipsis: true, flex: true },
   { title: '格式', dataIndex: 'file_format', key: 'file_format', width: 60 },
+  { title: '文件夹', key: 'folder', width: 150 },
   { title: '大小', key: 'file_size', width: 80 },
   { title: '页数', dataIndex: 'page_count', key: 'page_count', width: 60 },
   { title: '解析状态', key: 'status', width: 80 },
@@ -504,7 +603,11 @@ function statusLabel(status: string): string {
 }
 
 async function loadRecords(silent = false) {
-  if (!silent) loading.value = true
+  if (!silent) {
+    loading.value = true
+    // 手动刷新/切库/上传后顺带取文件夹上下文（轮询静默刷新不带，省一半请求）
+    void loadFolderContext()
+  }
   try {
     const res = await knowledgeApi.listRecords({
       show_deleted: showDeletedOnly.value,
@@ -1010,6 +1113,13 @@ onMounted(() => {
 }
 .stats-filter-item {
   min-width: 0;
+}
+.folder-cell-select {
+  width: 100%;
+  // 单元格被全局强制居中：下拉收起时箭头与文字一起居中，避免偏左
+  :deep(.ant-select-selection-item) {
+    text-align: center;
+  }
 }
 .stats-filter-upload,
 .stats-filter-batch-delete,
