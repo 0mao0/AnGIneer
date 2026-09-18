@@ -1452,6 +1452,57 @@ def should_treat_as_struct_heading(block_type: str, text: str, is_toc_row: bool,
     return infer_struct_level(text) is not None
 
 
+# 短行标题提升：MinerU 会把"独立单行短文本"输出成 paragraph——报纸栏目名/文章标题、
+# 小节名、图注式短语都常落在这一档，而 GT 把它们标成 title（200 页实测：106 个漏检 title
+# 里 93 个的落点就是 paragraph，其中 70 个文本本身是对的）。
+#
+# 判据只用几何 + 长度。文本形态规则（编号 / 结尾冒号 / 英文短行 / 【】）逐条实测精确率只有
+# 18–32%，加了反而净亏（块召回 −2.5pp）——**不要把它们加回来**；"高度 ≤1.5% 页高 且 ≤24 字"
+# 是唯一净收益为正的档（200 页实测 Δ 块召回 +0.761pp、title 命中 404→437）。
+_SHORT_HEADING_MAX_HEIGHT = 0.015
+_SHORT_HEADING_MAX_CHARS = 24
+_SHORT_HEADING_SENT_TAIL = re.compile(r"[。；;，,、.]\s*$")
+_SHORT_HEADING_NUMERIC_ONLY = re.compile(r"^[\d\s.,:;%/()\-–—]+$")
+# 署名（本报记者 肖力伟 / BY ANDREA PETERSEN / 吕羡林摄）与项目符号项（▶ Canned peaches）
+# 不是标题，不排除会把它们的 text_block 召回打掉（实测 −12 → −6）。
+_SHORT_HEADING_BYLINE = re.compile(
+    r"(本报记者|通讯员|摄影|供图|图/文|摄$|^[Bb][Yy]\b|Staff Writer|Special to)"
+)
+_SHORT_HEADING_BULLET = re.compile(r"^[\-•·▪■▶►●○>→]\s*")
+# 书后索引条目（"market share, 248, 260"）——GT 只在索引页把字母标成 title，条目不是。
+_SHORT_HEADING_INDEX_ENTRY = re.compile(r",\s*\d{1,4}(\s*,\s*\d{1,4})*\s*$")
+# 报头日期行与页面联系方式（"2010年12月16日 星期四" / "电话：0510-85187583"）是版式信息。
+_SHORT_HEADING_DATE = re.compile(r"^\d{4}\s*年\s*\d{1,2}\s*月")
+_SHORT_HEADING_CONTACT = re.compile(r"^(电话|传真|地址|邮编|邮箱|网址|Email|Tel|Fax)\s*[:：]")
+# 句中标点（"各行各业广泛评。市委评选表彰了…"）说明这是被切短的句子，不是标题；
+# 破折号引导（"——交通运输部部长 李盛霖"）与转版标记（"（上接第一版）"）是接续标记。
+_SHORT_HEADING_SENTENCE = re.compile(r"[。；;]")
+_SHORT_HEADING_CONTINUATION = re.compile(r"^(—{2,}|（?\s*上接|下转|接第)")
+
+
+def is_short_standalone_heading(block_type: str, text: str, row: dict[str, Any]) -> bool:
+    """独立单行短文本是否提升为 title（口径见上方常量注释的 200 页实测）。"""
+    if block_type != "paragraph":
+        return False
+    txt = (text or "").strip()
+    if not txt or len(txt) > _SHORT_HEADING_MAX_CHARS:
+        return False
+    if _SHORT_HEADING_SENT_TAIL.search(txt) or _SHORT_HEADING_NUMERIC_ONLY.match(txt):
+        return False
+    if _SHORT_HEADING_BYLINE.search(txt) or _SHORT_HEADING_BULLET.match(txt):
+        return False
+    if _SHORT_HEADING_INDEX_ENTRY.search(txt):
+        return False
+    if _SHORT_HEADING_DATE.match(txt) or _SHORT_HEADING_CONTACT.match(txt):
+        return False
+    if _SHORT_HEADING_SENTENCE.search(txt) or _SHORT_HEADING_CONTINUATION.match(txt):
+        return False
+    box = media_row_bbox_norm(row)
+    if box is None:
+        return False
+    return (box[3] - box[1]) <= _SHORT_HEADING_MAX_HEIGHT
+
+
 def is_equation_explain_continuation(text: str) -> bool:
     """?????????????"""
     txt = (text or "").strip()
@@ -2086,6 +2137,13 @@ def build_structured_from_rawfiles(
         parent_uid = None
         block_type = row["block_type"] or ""
         text = row["plain_text"] or ""
+        # 短行提升：改 row 自身而不只是局部变量——本循环之后的 caption 收集等步骤还会读
+        # row["block_type"]，只改局部变量会让同一行在不同步骤里类型不一致。
+        promoted_short_heading = False
+        if is_short_standalone_heading(block_type, text, row):
+            block_type = "title"
+            row["block_type"] = "title"
+            promoted_short_heading = True
         is_toc_row = int(row["id"]) in toc_row_ids
         is_toc_page = int(row["page_idx"]) in toc_pages
         compact_text = re.sub(r"\s+", "", text)
@@ -2114,6 +2172,12 @@ def build_structured_from_rawfiles(
                 derived_level, confidence, by = None, 0.0, "part"
             elif page_role in front_matter_roles:
                 derived_level, confidence, by = 1, 0.7, "part"
+            elif promoted_short_heading:
+                # 短行提升的标题没有编号可推层级。必须给一个具体 level：留 None 的话
+                # canonical 层会按默认 level=1 处理，把它当顶级标题、把 section_path 冲散。
+                # 挂到当前最深标题之下（无标题则顶级）。
+                derived_level = (max(heading_stack) + 1) if heading_stack else 1
+                confidence, by = 0.55, "short_line"
             else:
                 derived_level, confidence, by = infer_title_level(row["plain_text"] or "", raw_level)
             derived_by = by
@@ -2542,5 +2606,6 @@ __all__ = [
     "build_structured_from_rawfiles",
     "collect_media_related_block_refs",
     "geometric_caption_uid",
+    "is_short_standalone_heading",
     "media_row_bbox_norm",
 ]
