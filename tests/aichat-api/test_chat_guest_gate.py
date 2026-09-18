@@ -40,11 +40,17 @@ def _request(cookies=None, user=None, key_info=None, xff="1.2.3.4"):
 
 
 class _FakeStore:
-    def __init__(self, count):
-        self._count = count
+    """guest_gate_blocked 消费的两方法：轮数（chat_runs 计）+ 身份是否已认领。"""
 
-    def count_user_messages(self, owner):
-        return self._count
+    def __init__(self, rounds=0, claimed=False):
+        self._rounds = rounds
+        self._claimed = claimed
+
+    def guest_rounds(self, owner):
+        return self._rounds
+
+    def guest_is_claimed(self, guest_id):
+        return self._claimed
 
 
 class ResolveGuestOwnerTests(unittest.TestCase):
@@ -91,24 +97,28 @@ class GuestGateTests(unittest.TestCase):
         self.addCleanup(self._env_patch.stop)
 
     def test_non_guest_never_blocked(self):
-        self.assertFalse(self.chat_auth.guest_gate_blocked("u:1", _FakeStore(999)))
-        self.assertFalse(self.chat_auth.guest_gate_blocked("ip:abc", _FakeStore(999)))
-        self.assertFalse(self.chat_auth.guest_gate_blocked("k:1", _FakeStore(999)))
+        self.assertFalse(self.chat_auth.guest_gate_blocked("u:1", _FakeStore(rounds=999)))
+        self.assertFalse(self.chat_auth.guest_gate_blocked("ip:abc", _FakeStore(rounds=999)))
+        self.assertFalse(self.chat_auth.guest_gate_blocked("k:1", _FakeStore(rounds=999)))
 
     def test_store_none_fail_open(self):
         self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", None))
 
     def test_boundary_29_30_31(self):
-        # 29 轮放行，30 轮是最后一轮（放行），31 轮拦（D2：满 30 硬拦 = 已有 30 时拒第 31 条）
-        self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(29)))
-        self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(30 - 1)))
-        self.assertTrue(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(30)))
+        # 轮数按 run 计（1 run = 提问 1 次）：29 放行，已有 30 → 第 31 次拦
+        self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=29)))
+        self.assertTrue(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=30)))
+
+    def test_claimed_guest_blocked_regardless_of_rounds(self):
+        # 登录过的游客身份作废：claim 搬空 g: 桶后登出会落到计数清零的空桶（无限对话实踩）
+        self.assertTrue(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=0, claimed=True)))
+        self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=0, claimed=False)))
 
     def test_rounds_limit_env_override(self):
         with patch.dict(os.environ, {"ANGINEER_GUEST_ROUNDS": "5"}):
             self.assertEqual(self.chat_auth.guest_rounds_limit(), 5)
-            self.assertTrue(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(5)))
-            self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(4)))
+            self.assertTrue(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=5)))
+            self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=4)))
 
 
 if __name__ == "__main__":

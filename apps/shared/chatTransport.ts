@@ -47,14 +47,18 @@ export const defaultAIChatTransport = {
     })
     if (!response.ok || !response.body) {
       const detail = await response.text().catch(() => '')
-      // 403 + detail.code=login_required：游客 30 轮闸（计划 D2），宿主据此弹登录而不是当普通报错
+      // 403 + detail.code=login_required：游客轮闸/身份作废（计划 D2），宿主据此弹登录。
+      // 抛干净的业务文案而不是回显原始 JSON——错误气泡会进对话流，JSON 体不该给用户看
       let code: string | undefined
       try {
         code = JSON.parse(detail)?.detail?.code
       } catch {
         // 非 JSON 响应体（网关错误页等），无 code
       }
-      const err = new Error(`Agent 对话请求失败(${response.status}): ${detail.slice(0, 200)}`) as Error & { code?: string }
+      const text = code === 'login_required'
+        ? '游客试用需登录后继续，当前对话会保留'
+        : `Agent 对话请求失败(${response.status})`
+      const err = new Error(text) as Error & { code?: string }
       if (code) err.code = code
       throw err
     }

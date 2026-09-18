@@ -17,6 +17,7 @@
           :mention-mode="'document'"
           :library-options="authStore.guestMode ? [] : libraryOptions"
           :library-value="authStore.activeLibraryId"
+          :show-model-select="!authStore.guestMode"
           :transport="defaultAIChatTransport"
           @send="hasConversation = true"
           @error="onChatError"

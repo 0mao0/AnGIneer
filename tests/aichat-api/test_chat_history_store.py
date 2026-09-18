@@ -171,6 +171,25 @@ class ClaimDaoTests(unittest.TestCase):
         self.assertEqual(self.store.load("g:g1", "s1", self.scope), [])
 
 
+    def test_guest_rounds_counts_runs_not_messages(self):
+        """1 run = 提问 1 次：检索重试追加的多条 user 消息不重复计轮。"""
+        self.store.append("g:g1", "s1", self.scope, _msgs(), {"run_id": "a", "status": "completed"})
+        self.store.append("g:g1", "s1", self.scope,
+                          [AgentMessage(role="user", content="请先调用检索工具"),
+                           AgentMessage(role="assistant", content="答")],
+                          {"run_id": "b", "status": "completed"})
+        self.store.append("g:g1", "s2", self.scope, _msgs(),
+                          {"run_id": "import-x", "status": "imported"})  # 存量导入不计轮
+        self.assertEqual(self.store.guest_rounds("g:g1"), 2)
+
+    def test_guest_is_claimed(self):
+        self.store.touch_guest("g1")
+        self.assertFalse(self.store.guest_is_claimed("g1"))
+        self.store.touch_guest("g2")
+        self.store.claim_guest("g:g2", "u:7", 7)
+        self.assertTrue(self.store.guest_is_claimed("g2"))
+
+
 class GcTests(unittest.TestCase):
     """步 4：保留期 GC——过期行被清，活跃行保留，用户删除立即生效（delete 语义在步 2 路由测）。"""
 

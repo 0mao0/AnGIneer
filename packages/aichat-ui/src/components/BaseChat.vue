@@ -290,10 +290,10 @@
             />
           </div>
 
-          <div class="center-actions">
+          <div v-if="showModelSelect" class="center-actions">
             <a-select
-              v-model:value="selectedModel"
-              class="model-select"
+                v-model:value="selectedModel"
+                class="model-select"
               size="small"
               :loading="loadingModels"
               :disabled="loading"
@@ -396,6 +396,8 @@ interface Props {
   currentStreamContent?: string
   models?: BaseChatModelOption[]
   loadingModels?: boolean
+  /** 模型选择器显隐（默认 true；游客态宿主传 false，避免未登录用户挑选模型消耗宿主 token） */
+  showModelSelect?: boolean
   defaultModel?: string
   placeholder?: string
   contextItems?: BaseChatContextItem[]
@@ -424,6 +426,7 @@ const props = withDefaults(defineProps<Props>(), {
   currentStreamContent: '',
   models: () => [],
   loadingModels: false,
+  showModelSelect: true,
   defaultModel: '',
   placeholder: '输入消息，按Enter发送\n按Shift+Enter换行...',
   contextItems: () => [],

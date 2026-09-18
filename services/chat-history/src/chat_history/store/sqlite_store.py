@@ -434,13 +434,41 @@ class SqliteHistoryStore:
             conn.close()
 
     def count_user_messages(self, owner: str) -> int:
-        """30 轮闸计数：该 owner 桶下的 user 消息数（D2：user+assistant 算 1 轮）。"""
+        """该 owner 桶下的 user 消息数（诊断用；轮闸请用 guest_rounds——一次提问可能
+        因检索重试/steer 追加多条 user 消息，按消息数计会把 1 问答算成多轮）。"""
         conn = _get_conn(self._db_path)
         try:
             return conn.execute(
                 "SELECT COUNT(*) AS c FROM chat_messages WHERE owner_key=? AND role='user'",
                 (owner,),
             ).fetchone()["c"]
+        finally:
+            conn.close()
+
+    def guest_rounds(self, owner: str) -> int:
+        """轮闸计数：1 个 run = 用户提问 1 次（重试/steer 产生的中间 user 消息不重复计）。
+        存量导入的 'imported' 审计行不计轮。"""
+        conn = _get_conn(self._db_path)
+        try:
+            return conn.execute(
+                "SELECT COUNT(*) AS c FROM chat_runs"
+                " WHERE owner_key=? AND status != 'imported'",
+                (owner,),
+            ).fetchone()["c"]
+        finally:
+            conn.close()
+
+    def guest_is_claimed(self, guest_id: str) -> bool:
+        """该游客身份是否已被某账号认领。登录过即作废：claim 把 g: 桶搬空后，登出再拿
+        同一 cookie 会落到空桶计数清零（2026-09-18 实踩可无限对话），故 claimed 身份
+        无论轮数直接拦（产品决策：登录后退回应保持登录，不复活游客额度）。"""
+        conn = _get_conn(self._db_path)
+        try:
+            row = conn.execute(
+                "SELECT claimed_by_user_id FROM chat_guests WHERE guest_id=?",
+                (guest_id,),
+            ).fetchone()
+            return bool(row and row["claimed_by_user_id"] is not None)
         finally:
             conn.close()
 

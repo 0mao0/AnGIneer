@@ -5,6 +5,7 @@
     :loading="loading"
     :current-stream-content="currentStreamContent"
     :models="models"
+    :show-model-select="showModelSelect"
     :loading-models="loadingModels"
     :default-model="defaultModel"
     :placeholder="placeholder"
@@ -83,6 +84,8 @@ interface Props {
   libraryOptions?: Array<{ value: string; label: string }>
   /** 当前选中的知识库 id */
   libraryValue?: string
+  /** 模型选择器显隐（默认 true；游客态宿主传 false，不展示可选模型） */
+  showModelSelect?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -101,7 +104,8 @@ const props = withDefaults(defineProps<Props>(), {
   transport: undefined,
   mentionMode: 'reference',
   libraryOptions: () => [],
-  libraryValue: ''
+  libraryValue: '',
+  showModelSelect: true
 })
 
 interface ModelOption { value: string; label: string }

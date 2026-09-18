@@ -98,13 +98,18 @@ def guest_rounds_limit() -> int:
 
 
 def guest_gate_blocked(owner: str, store) -> bool:
-    """游客闸：``g:`` 桶 user 消息数 ≥ 阈值 → 拦（D2：满 30 轮硬拦，须登录）。
+    """游客闸（D2）：``g:`` 桶提问轮数 ≥ 阈值 → 拦；**已 claim 的身份直接拦**。
 
+    轮数按 chat_runs 计（1 run = 提问 1 次；检索重试/steer 追加的 user 消息不重复计，
+    2026-09-18 实踩：按 user 消息计会把 1 问答算成多轮）。claimed 即作废：claim 把 g:
+    桶搬空后登出再聊会落到计数清零的空桶（无限对话实踩），登录过的游客身份须保持登录。
     存储降级（store=None）时 fail-open，行为同改造前；非游客桶永不拦。
     """
     if store is None or not owner.startswith("g:"):
         return False
     try:
-        return store.count_user_messages(owner) >= guest_rounds_limit()
+        if store.guest_is_claimed(owner[2:]):
+            return True
+        return store.guest_rounds(owner) >= guest_rounds_limit()
     except Exception:  # noqa: BLE001
         return False
