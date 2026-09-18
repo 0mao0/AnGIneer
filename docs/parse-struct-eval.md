@@ -287,8 +287,18 @@ MinerU+PoPo+structure），结果 **16 项指标 Δ 全 0.00pp，50 个预测 md
 | ≤40 字 | 34 | 26.5% | 26.5% | 60.00% | 73.58% | 92.95% |
 
 证据：`data/evals/parse_regression/20260918-0534-p2-caption-geo/ab_struct_before.json`
-与 `ab_struct_after.json`（官方 A② 评测器产物；同目录 `20260918-0534-p2-caption-geo` 那次全链跑
-是在几何兜底**空转**的代码上跑的，除证明 Δ0 外无参考价值）。
+与 `ab_struct_after.json`（官方 A② 评测器产物）。
+
+**全链复算（2026-09-18，归档 `20260918-0927-p2-caption-geo-final`）**：200 页全链跑一遍，
+Δ vs `20260917-1452-p0-dollar-200` 与上面的结构层 A/B 逐项一致（块召回 +0.48、被解释率 +0.36、
+块文本相似度 +0.38、相邻对 −0.16、tau −0.35、公式相似度 +0.03、TEDS 0）。
+**A① 侧 Δ 全部落到个别页的重解析抖动上，与 P2 无关**（逐页比对：公式只 1 页有差异，
++0.0202 摊到 38 页正好等于汇总的 +0.05pp；文本 4 页有差异且相互抵消；
+表格与阅读顺序精确 Δ0）。这与"markdown 投影不解引用指针"的代码级结论一致。
+
+（同目录 `20260918-0534-p2-caption-geo` 是全链跑在**空转**代码上的那次，除证明 Δ0 外无参考价值；
+`20260918-0700-p2-caption-geo` 是它的重跑，predict 阶段撞上 MinerU 端点故障丢了 17 页
+（主端点 `IncompleteRead` + 备端点 DNS 失败），已补齐后由上面那次 `--skip-predict` 复用归档。）
 
 **A① 不受本项影响（可证）**：A① 读的是 markdown 投影，`_render_node` 的 image/table 分支只读
 `plain_text` / `caption` **字段**，从不解引用 `caption_block_uid(s)`——指针变化不可能改变 markdown 字节。
