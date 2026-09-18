@@ -2,6 +2,14 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.67
+
+- 聊天历史服务端化（计划 B 路线全量落地，docs/plan-chat-history.md）：新包 `services/chat-history` 两层解耦——引擎侧只加 `HistoryStore` Protocol + `scope_hash_for`（与池 key 同算法单真相源，既有引擎文件零改动），`store/` sqlite DAO（chat_sessions/chat_messages/chat_runs/chat_guests 四表落 `data/chat.sqlite`）+ `routes/` FastAPI 路由（身份解析注入、不 import aichat-api）；aichat-api 组装：run_end 落库（客户端断开按 cancelled 兜底补写）、池内新建 session 才回灌一次（D11，池命中不灌、按 scope_hash 过滤防跨 scope 串话）、SSE 契约升级 `X-Chat-Frame-Version` 响应头 + run_end 帧 `msg_seqs`；存储初始化失败自动降级纯内存池（行为同改造前）；顺手删 `QueryRequest.history` 死字段（全仓库无读取点）
+- 无登录硬门 + 游客档（D2/D6/D12）：打开站点直接是聊天页（有 token 先 refreshMe 验证，过期落回游客态并补签 cookie）；游客 cookie `ag_guest_id`（HttpOnly）匿名桶由 `ip:` 升级为 `g:`——同 NAT 游客不再撞池，30 轮闸（`ANGINEER_GUEST_ROUNDS` 默认 30）按 g: 桶 user 消息数计，满阈值 → 403 `detail.code=login_required` → 前端弹登录页（当前对话不丢），登录自动 claim 把 g: 会话并入账号历史（先到先得幂等，在跑 run 落库 owner 跟随会话行当前归属不产生孤儿行），`session_id` 前后一致对话原地继续；会话管理端点：列表（带 message_count/后端复刻 deriveTitle/50 上限）/详情（AIChatMessage 形状）/单删/按库清空/展示字段快照 PUT（D10：seq 服务端唯一权威，只接受已下发 msg_seq、未知序号整体拒）/claim/`POST /chat/guest` 幂等签发；清 cookie 绕过登记为已知取舍（D12，引导登录而非强身份闸门）
+- 前端历史切 HTTP（apps/user-web）：`chatHistory.ts` 三函数签名不变改 async，服务端真相源 + localStorage 降级缓存（懒加载 apiClient，HTTP 失败自然落缓存）；saveSession 只发带 msgSeq 消息的展示字段补丁（citations/thinking_trace/strategy，D8）；首次列表成功按 id 差集幂等补录 localStorage 存量（本地标记防重试风暴，服务端 session_id 幂等）；恢复会话以服务端详情为真相（失败降级缓存）；活跃会话 id 按库持久化 `ag_active_session_v1`、仅「新建对话/换库」轮换，`rotateSession` 单一生成点修 ChatHome 与 useAIChat 双生成 id 互相覆盖；契约贯通：run_end 帧 `msg_seqs` → transport `QueryResponse.msg_seqs?` → `AIChatMessage.msgSeq?`（可选字段向后兼容）→ PATCH，`useAIChat.startNewChat(explicitId?)` 支持宿主指定 id
+- 90 天保留期 GC（D4/§7 默认值）：`ANGINEER_CHAT_RETENTION_DAYS`（默认 90）统一清消息/审计 run（created_at）、会话（updated_at 活跃自动续命）、游客档（last_seen_at）；`scripts/chat_db_gc.py` dry-run 默认、`--apply` 执行、`--vacuum` 归还空间（Dockerfile 白名单 COPY 进容器 `/app/scripts/`）；游客闸阈值 `ANGINEER_GUEST_ROUNDS` 可配（本地与服务器 .env 已按要求暂调 5 轮，删行即回默认 30）
+- 测试与验证：pytest 新增 41 例（存储 round-trip/行级隔离/scope 过滤/回灌一次/claim 竞态/29→30 边界/PUT 拒未知 seq/GC 四类表/import 幂等/游客 cookie 优先级/env 阈值/fail-open），`tests/aichat-api` + `tests/angineer-core` 261 例全绿；前端 node:test 6 例（降级路径/淘汰/活跃 id 容错）；vue-tsc（user-web/aichat-ui）0 错、vite build 通过；`tests/unit` 7 例失败与干净树基线逐条一致（预存问题）
+
 ## v0.2.66
 
 - A 层解析回归一键入口：`scripts/run_parse_regression.py` 把 predict + A② + A① 串成一条命令，并管住此前没人管的「这次和上次比怎么样」——页集合是否一致、官方产物目录残留会不会读到旧分、指标散在两套 JSON 里的比对口径，统一收进 `evals_core/parse_regression.py`（只加编排与口径守卫，评测口径一行不改）；数据集/GT/三方表两列改自动探测（`OMNIDOCBENCH_DATA` > 仓库内 `data/omnidocbench` > `D:/AI/tools/OmniDocBench_data` > `~/OmniDocBench_data`，取第一个真有 `images/` 的，显式参数仍最优先），探不到时列出试过的候选并报错、不糊一个错路径继续跑，最小用法收敛为 `python scripts/run_parse_regression.py --limit 200 --seed 42`

@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.66** —— A 层解析回归一键入口：predict+A②+A① 编排、Δ 口径守卫、数据集/GT/三方表自动探测（最小用法一条命令）；回填首份 fresh 基线：200 页端到端实测 ≈50min，与 09-13 离线重投影逐项吻合 ≤0.08pp，换量尺纪律写进文档；评测页新增「解析回归」只读看板（本机 `--publish` 同步、服务器只读，`publish.json` 载荷 + 列表/详情两路由 + 24 例测试）；看板判读三轮实看反馈收敛（颜色按来源分、★ 标最优、方向三处同给、修 tab 白名单与「未同步/损坏」误标、窄窗口适配）；逐类目/逐文档类型补 MinerU 同口径参照物与规则化结论（本机算数入档，首次看清落后三项：table_caption −9.4pp、table_footnote −4.2pp、text_block −1.1pp）；aichat 修匿名跨库检索与会话池跨用户串话（匿名只准 default 库、池 key 前置身份位，tests/aichat-api 36 例全绿）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.67** ——聊天历史服务端化（计划 B 路线全量落地）：新包 chat-history 两层解耦（引擎 HistoryStore 协议 + sqlite DAO + FastAPI 路由），run_end 落库、池内新建回灌、重启/跨设备续聊，SSE 帧契约升级 frame_version + msg_seqs；无登录硬门 + 游客档：打开即聊天页，游客 cookie 落 g: 桶（同 NAT 不再撞池），满 30 轮硬拦弹登录、登录自动 claim 并入账号历史且对话原地继续，会话管理端点列表/详情/删除/展示字段快照 PUT（seq 服务端权威、拒未知序号）；前端历史切 HTTP：localStorage 降级缓存 + 存量幂等导入 + 活跃会话 id 按库持久化（修双生成 id 互相覆盖）；90 天保留期 GC（chat_db_gc.py dry-run 默认，ANGINEER_CHAT_RETENTION_DAYS 可调），游客闸阈值 ANGINEER_GUEST_ROUNDS 可配；pytest 新增 41 例、前端 node:test 6 例全绿。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
