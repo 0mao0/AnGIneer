@@ -131,3 +131,41 @@ def test_doc_nodes_disable_switch_returns_empty(monkeypatch):
         lambda: FakeNodesClient(exc=RuntimeError("down")),
     )
     assert _load_doc_nodes("default", None) == []
+
+
+def test_doc_nodes_local_fallback_uses_production_shaped_loader(monkeypatch):
+    """本地回退必须能调通「组装层实际注册的」那个适配器（生产形状：两参）。
+
+    2026-09-19 夜间全量拒答的根因就在这条缺口：`aichat-api/main.py` 注册的适配器签名是
+    `(library_id, doc_ids)`，而调用点只传了 `library_id` → TypeError 被 except 吞成
+    "警告 + 空节点"，检索恒 0 条。当时测试只覆盖 HTTP 主路径与禁用开关，本地回退没有用例，
+    所以 CI 全绿。本用例按生产形状注册适配器并断言真的拿到节点。
+    """
+    from angineer_core import ports
+
+    seen: list = []
+
+    def _production_shaped_loader(library_id: str, doc_ids) -> list:  # noqa: ANN001
+        seen.append((library_id, doc_ids))
+        return [_node("d1"), _node("d2")]
+
+    monkeypatch.setattr("angineer_core.docs_retrieval_client.client_from_env", lambda: None)
+    monkeypatch.delenv("ANGINEER_DISABLE_LOCAL_FALLBACK", raising=False)
+    monkeypatch.setattr(ports, "_local_nodes_loader", _production_shaped_loader)
+
+    nodes = _load_doc_nodes("default", ["d2"])
+    assert [n.id for n in nodes] == ["d2"], "本地回退没拿到节点 → 检索会恒为 0 条"
+    assert seen and seen[0][0] == "default", "适配器必须收到 library_id"
+
+
+def test_doc_nodes_local_fallback_none_scope_returns_all(monkeypatch):
+    """doc_ids=None 表示全库范围，不该被过滤成空。"""
+    from angineer_core import ports
+
+    monkeypatch.setattr("angineer_core.docs_retrieval_client.client_from_env", lambda: None)
+    monkeypatch.delenv("ANGINEER_DISABLE_LOCAL_FALLBACK", raising=False)
+    monkeypatch.setattr(
+        ports, "_local_nodes_loader", lambda library_id, doc_ids: [_node("d1"), _node("d2")]
+    )
+
+    assert sorted(n.id for n in _load_doc_nodes("default", None)) == ["d1", "d2"]

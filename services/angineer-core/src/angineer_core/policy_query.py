@@ -49,7 +49,10 @@ def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
             # （与 docs_service 异常路径一致：警告 + 空列表 → 检索工具无节点）
             logger.warning("local_nodes_loader 未注册（组装层应注入 docs-core 适配器），节点清单为空")
             return []
-        nodes = loader(library_id)
+        # 必须按端口契约传满 (library_id, doc_ids)：少传一个参数会被下面的 except 吞成
+        # "警告 + 空节点"，而空节点 → 检索恒 0 条 → 全量拒答。2026-09-19 夜间就是这么整晚
+        # 变成 0 检索的（适配器 2 参、调用点只传 1 参，且本地回退路径当时没有测试覆盖）。
+        nodes = loader(library_id, doc_ids)
         return _apply_doc_ids(nodes)
     except Exception as exc:  # noqa: BLE001
         logger.warning("加载知识库节点失败，agent 检索工具将无节点: %s", exc)
