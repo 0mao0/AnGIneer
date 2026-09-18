@@ -161,7 +161,14 @@ def rerank_candidates(
             logger.info("dense 语义通道降级，LLM 语义重排生效（%d 条候选）", len(candidates))
             return llm_reranked
 
-    from docs_core.step09_query.retrieval.reranker import rerank_candidates as local_rerank
+    from angineer_core import ports
+
+    local_rerank = ports.get_local_rerank()
+    if local_rerank is None:
+        # 引擎不再 import docs_core；未注册时降级为原样返回（候选顺序即 dense/sparse 融合序），
+        # 与 reranker 全链失败的语义一致——不 crash、不 import 具体包
+        logger.warning("local_rerank 未注册（组装层应注入 docs-core 适配器），跳过 phrase rerank")
+        return candidates
 
     logger.debug("回退本地 phrase rerank")
     return local_rerank(normalized_query, task_type, candidates)

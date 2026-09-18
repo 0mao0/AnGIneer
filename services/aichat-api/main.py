@@ -113,6 +113,36 @@ async def global_exception_handler(request, exc):
 SOP_BASE_DIR = os.path.join(str(ROOT_DIR), "data", "sops")
 sop_loader = SopLoader(SOP_BASE_DIR)
 
+
+def _register_engine_ports() -> None:
+    """C1 解耦组装：把 docs-core 实现注入引擎端口（引擎只认 Protocol/注册表）。
+
+    nightly/evals 在 aichat-api 进程内跑 run_policy_query，注册放这里两者都覆盖；
+    未注册时引擎按降级语义走（警告 + 空结果），不 import 具体包。
+    """
+    try:
+        from angineer_core import ports
+
+        def _local_nodes_loader(library_id: str, doc_ids) -> list:
+            from docs_core.docs_service import get_docs_service
+
+            kp = get_docs_service()
+            return [n for n in kp.list_nodes(library_id) if getattr(n, "type", "") == "document"]
+
+        def _local_rerank(normalized_query: str, task_type: str, candidates: list) -> list:
+            from docs_core.step09_query.retrieval.reranker import rerank_candidates
+
+            return rerank_candidates(normalized_query, task_type, candidates)
+
+        ports.register_local_nodes_loader(_local_nodes_loader)
+        ports.register_local_rerank(_local_rerank)
+        logger.info("引擎端口已注册：local_nodes_loader / local_rerank（docs-core 适配器）")
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("引擎端口注册失败（policy_query 本地回退与 phrase rerank 将降级）: %s", exc)
+
+
+_register_engine_ports()
+
 _default_origins = "http://localhost:3005,http://localhost:3002,http://127.0.0.1:3005,http://127.0.0.1:3002,http://localhost,http://127.0.0.1"
 _allowed_origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", _default_origins).split(",") if o.strip()]
 

@@ -82,16 +82,26 @@ class RetrievalPipelineSharedTests(unittest.TestCase):
     def test_rerank_candidates_not_degraded_uses_local(self):
         items = [self._make_item(str(i)) for i in range(6)]
         runner = SimpleNamespace(reranker_configs=[], reranker_timeout_sec=1.0)
-        with mock.patch(
-            "angineer_core.base_config.get_config",
-            return_value=SimpleNamespace(runner=runner),
-        ):
+        # C1 解耦后引擎经 ports 注册表调本地 rerank：注册 fake 适配器替代原
+        # mock docs_core.rerank_candidates 的方式（引擎不再 import docs-core）
+        from angineer_core import ports
+
+        calls: list = []
+
+        def _fake_rerank(query: str, task_type: str, candidates: list) -> list:
+            calls.append(1)
+            return items
+
+        ports.register_local_rerank(_fake_rerank)
+        try:
             with mock.patch(
-                "docs_core.step09_query.retrieval.reranker.rerank_candidates",
-                return_value=items,
-            ) as local:
+                "angineer_core.base_config.get_config",
+                return_value=SimpleNamespace(runner=runner),
+            ):
                 out = rerank_candidates("查询", items, dense_degraded=False)
-        local.assert_called_once()
+        finally:
+            ports.register_local_rerank(None)
+        self.assertEqual(len(calls), 1)
         self.assertIs(out, items)
 
 

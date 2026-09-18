@@ -41,10 +41,15 @@ def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
         logger.warning("未配置 ANGINEER_DOCS_API_URL 且本地回退已禁用，节点清单为空")
         return []
     try:
-        from docs_core.docs_service import get_docs_service
+        from angineer_core import ports
 
-        kp = get_docs_service()
-        nodes = [n for n in kp.list_nodes(library_id) if getattr(n, "type", "") == "document"]
+        loader = ports.get_local_nodes_loader()
+        if loader is None:
+            # 引擎不再 import docs_core；组装层未注册时按「加载失败」语义降级
+            # （与 docs_service 异常路径一致：警告 + 空列表 → 检索工具无节点）
+            logger.warning("local_nodes_loader 未注册（组装层应注入 docs-core 适配器），节点清单为空")
+            return []
+        nodes = loader(library_id)
         return _apply_doc_ids(nodes)
     except Exception as exc:  # noqa: BLE001
         logger.warning("加载知识库节点失败，agent 检索工具将无节点: %s", exc)

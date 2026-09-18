@@ -6,13 +6,53 @@
 """
 import logging
 import os
+from datetime import datetime
 from typing import Any, Dict, List, Optional
 
 import requests
-
-from docs_core.step09_query.protocols.contracts import KnowledgeNode, RetrievedItem
+from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------- 线契约模型（C1 解耦）
+# 与 docs_core.step09_query.protocols.contracts 同字段的本地镜像：双方经 HTTP JSON
+# 交互，真正的契约是线上载荷而非类本身。引擎不再 import docs-core（剪依赖的前提）。
+# 字段变更需与 docs-core 侧同步（docs-api 是这两模型的序列化方）。
+class KnowledgeNode(BaseModel):
+    """知识库节点（docs-api /internal/doc-nodes 线契约镜像）。"""
+
+    id: str
+    title: str
+    type: str
+    parent_id: Optional[str] = None
+    visible: bool = False
+    library_id: str
+    file_path: Optional[str] = None
+    status: str = "pending"
+    parse_progress: int = 0
+    parse_stage: Optional[str] = None
+    parse_error: Optional[str] = None
+    parse_task_id: Optional[str] = None
+    sort_order: int = 0
+    deleted: bool = False
+    created_at: datetime = Field(default_factory=datetime.now)
+    updated_at: datetime = Field(default_factory=datetime.now)
+
+
+class RetrievedItem(BaseModel):
+    """检索命中项（docs-api /internal/retrieve 线契约镜像）。"""
+
+    item_id: str
+    entity_type: str
+    doc_id: str
+    title: str = ""
+    text: str = ""
+    score: float = 0.0
+    rerank_score: Optional[float] = None
+    citation_target_id: Optional[str] = None
+    retrieval_policy: Optional[str] = None
+    metadata: Dict[str, Any] = Field(default_factory=dict)
 
 
 def local_fallback_disabled() -> bool:
