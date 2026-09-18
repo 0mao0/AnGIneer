@@ -10,14 +10,13 @@ from typing import Any, Dict, List, Optional
 
 
 REFUSAL_ANSWER_TEXT = (
-    "没有检索到足够证据支持最终结论。"
-    "当前仅能确认已有片段与问题相关，但不足以安全地给出完整答案，请继续补充可核对的规范依据。"
+    "知识库未能检索到相关答案。"
 )
 
 REFUSAL_FOLLOWUP_QUESTION = "你可以补充更多规范依据或换个角度提问，需要我继续帮你分析吗？"
 
 
-REFUSAL_MARKERS = ("没有检索到足够证据",)
+REFUSAL_MARKERS = ("未能检索到相关答案",)
 
 
 def is_refusal_text(text: str) -> bool:
@@ -61,10 +60,10 @@ def is_half_refusal_text(text: str, max_len: int = 400) -> bool:
 
 
 def strip_half_refusal_lead(text: str) -> str:
-    """半拒答删掉开头那句「没有检索到足够证据」的声明，保留后面带引用的正文。
+    """半拒答删掉开头那句硬拒答声明，保留后面带引用的正文。
 
     门槛自持（不复用 is_half_refusal_text）：那条软表述关键词表里没有硬拒答话术
-    「没有检索到足够证据」，用它做门槛会导致真正要修的场景不触发（单测实踩）。
+    （REFUSAL_MARKERS 的子串），用它做门槛会导致真正要修的场景不触发（单测实踩）。
     只认硬拒答标记 + 后文有引用：「证据不足/部分未覆盖」这类软表述是 prompt 要求
     模型如实说明的部分覆盖提示，属于合法回答，不动。
     """

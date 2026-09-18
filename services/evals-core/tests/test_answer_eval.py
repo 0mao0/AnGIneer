@@ -22,7 +22,7 @@ class AnswerRefusalTests(unittest.TestCase):
             "correctness_checks": [{"type": "contains_all", "keywords": ["17 类算法"]}],
         }
         prediction = {
-            "answer": "没有检索到足够证据支持最终结论，不要自行补全。",
+            "answer": "知识库未能检索到相关答案，不要自行补全。",
             "citations": [],
         }
         result = self.evaluator.evaluate({}, gold, prediction)
@@ -35,7 +35,7 @@ class AnswerRefusalTests(unittest.TestCase):
         """无标准答案且无要点时，拒答不额外扣分（保持原有语义判分路径）。"""
         gold = {}
         prediction = {
-            "answer": "没有检索到足够证据支持最终结论。",
+            "answer": "知识库未能检索到相关答案。",
             "citations": [],
         }
         result = self.evaluator.evaluate({}, gold, prediction)
@@ -44,7 +44,7 @@ class AnswerRefusalTests(unittest.TestCase):
     def test_refusal_expected_still_passes(self):
         gold = {"refusal_expected": True}
         prediction = {
-            "answer": "没有检索到足够证据支持最终结论。",
+            "answer": "知识库未能检索到相关答案。",
             "citations": [],
         }
         result = self.evaluator.evaluate({}, gold, prediction)

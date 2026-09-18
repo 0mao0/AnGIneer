@@ -168,7 +168,7 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                 )
             stripped = strip_half_refusal_lead(answer)
             if stripped != answer:
-                # 半拒答：模型先写了「没有检索到足够证据」又带着引用继续作答 —— 只删开头那句，
+                # 半拒答：模型先写了「知识库未能检索到相关答案」又带着引用继续作答 —— 只删开头那句，
                 # 保留正文（旧实现（ANGINEER_GUARD_HALF_REFUSAL）整体替换成纯拒答，会把事实一起丢掉）
                 return (
                     stripped,

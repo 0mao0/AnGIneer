@@ -391,7 +391,7 @@ test('note/answer 事件与 run_end 权威答案替换', async () => {
       type: 'answer',
       run_id: 'r1',
       turn: 1,
-      payload: { content: '没有检索到足够证据支持最终结论。' },
+      payload: { content: '知识库未能检索到相关答案。' },
     },
     {
       type: 'run_end',
@@ -409,7 +409,7 @@ test('note/answer 事件与 run_end 权威答案替换', async () => {
             tool_calls: [{ name: 'knowledge_search', arguments: { query: 'x' } }],
           },
           { role: 'tool', name: 'knowledge_search', content: '{"items":[],"total":0}' },
-          { role: 'assistant', content: '没有检索到足够证据支持最终结论。' },
+          { role: 'assistant', content: '知识库未能检索到相关答案。' },
         ],
       },
     },
@@ -423,7 +423,7 @@ test('note/answer 事件与 run_end 权威答案替换', async () => {
       { query: 'x', scene: 'qa', session_id: 's1', library_id: 'default', doc_ids: [] },
       { onThinking: steps => thinking.push(steps), onAnswerReplace: full => replaced.push(full) }
     )
-    assert.equal(result.answer, '没有检索到足够证据支持最终结论。')
+    assert.equal(result.answer, '知识库未能检索到相关答案。')
     assert.ok(replaced.length >= 1)
     const finalSteps = thinking[thinking.length - 1]
     assert.ok(finalSteps.some(step => step.kind === 'note' && step.detail.includes('边界规则')))
@@ -433,7 +433,7 @@ test('note/answer 事件与 run_end 权威答案替换', async () => {
 })
 
 test('新一轮 turn 开始时清空上一轮流式正文（拒答重答不残留中间疑问句）', async () => {
-  const refusal = '没有检索到足够证据支持最终结论。您是否想知道其他规范？'
+  const refusal = '知识库未能检索到相关答案。您是否想知道其他规范？'
   const finalAnswer = '该规范主要内容包括设计与施工要求。'
   const events = [
     { type: 'run_start', run_id: 'r1', turn: 0, payload: {} },

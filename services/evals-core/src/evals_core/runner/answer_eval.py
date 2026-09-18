@@ -47,9 +47,13 @@ def evaluate_correctness_check(answer: str, check: Dict[str, Any]) -> bool:
 
 def is_refusal(answer: str) -> bool:
     """判断回答是否触发系统默认拒答。"""
+    from angineer_core.agent_messages import REFUSAL_MARKERS
+
     normalized = (answer or "").strip()
+    # 主拒答标记引自引擎常量（单真相，话术改动只改 agent_messages 一处）；
+    # 后两条是历史遗留的软标记（范围建议/换问法提示），保留兼容旧数据
     refusal_markers = (
-        "没有检索到足够证据",
+        *REFUSAL_MARKERS,
         "建议缩小文档范围",
         "换一种问法",
     )

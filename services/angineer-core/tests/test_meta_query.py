@@ -108,7 +108,7 @@ class TestMetaAnswerUsable:
         assert not _meta_answer_usable(self._msgs("The provided knowledge base statistics do not contain information about the median redshift of the MGS catalog."))
         assert not _meta_answer_usable(self._msgs("The knowledge_stats tool only provides metadata about the knowledge base itself."))
         assert not _meta_answer_usable(self._msgs("根据知识库统计工具返回的数据，当前知识库中不包含关于评论数的统计信息。"))
-        assert not _meta_answer_usable(self._msgs("没有检索到足够证据支持最终结论。"))
+        assert not _meta_answer_usable(self._msgs("知识库未能检索到相关答案。"))
         assert not _meta_answer_usable(self._msgs(""))
 
 

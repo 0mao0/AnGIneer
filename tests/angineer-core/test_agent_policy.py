@@ -47,10 +47,10 @@ class PolicyTests(unittest.TestCase):
         from angineer_core.agent_policy import _answer_usable
 
         self.assertFalse(_answer_usable([
-            AgentMessage(role="assistant", content="没有检索到足够证据支持最终结论，不要自行补全。"),
+            AgentMessage(role="assistant", content="知识库未能检索到相关答案，不要自行补全。"),
         ]))
         self.assertFalse(_answer_usable([
-            AgentMessage(role="assistant", content="没有检索到足够证据支持最终结论。"),
+            AgentMessage(role="assistant", content="知识库未能检索到相关答案。"),
         ]))
         self.assertTrue(_answer_usable([
             AgentMessage(role="assistant", content="原文提到集成 17 类算法、12 个模型，但未列出具体名称。"),
