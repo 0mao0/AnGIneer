@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.68** ——引擎 C1 库化解耦第一批（行为零变化）：`angineer_core` __init__ 改 PEP 562 惰性导出（轻量子模块 import 从 520ms+ 降至 29ms 且不再拉起 ai_inference/docs-core）；新增 `ports` 端口注册表——policy_query 节点加载回退、retrieval_pipeline phrase-rank 降级、docs_retrieval_client 线契约（KnowledgeNode/RetrievedItem 本地镜像）三处 docs-core 耦合改经注册表消费，aichat-api 启动时注入适配器（nightly/evals 同进程覆盖，生产已验证注册生效）；pyproject 摘掉 angineer-sop-core 依赖（引擎对其零 import）；剩余检索编排缝（agent_tools ~450 行配方 → RetrievalPort）登记为下一批专项。验证：264 引擎/aichat 测试绿、tests/unit 与基线一致、生产冒烟 200。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.69** ——拒答话术改为「知识库未能检索到相关答案」并收敛到引擎常量单一真相（`REFUSAL_MARKERS`／半拒答删头句／prompt 指令同步跟随）；解析结构层新增「短行段落提升为 title」——MinerU 把「独立单行短文本」输出成 `paragraph` 而 GT 标成 `title`，判据只用几何 + 长度并排除署名/项目符号/索引条目等七类，200 页基线 title 召回 79.2%→85.7%、结构层块召回 90.248%→91.009%（官方 markdown 口径七项指标逐位不变）；管理后台解析记录列表新增「文件夹」列，行内下拉即可把文档在目录间移动（未知目录有兜底、节点接口失败不打断列表）；三方对比文档刷新到 DGX MinerU 修复后口径（「MinerU 单独」列改由同批 origin.zip 重新提取重评，结论更新为我们全链 A① 与上游 MinerU 重合，区分度在 A② 块召回 90.25% vs 79.06%）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.69
+
+- 拒答话术改为「知识库未能检索到相关答案」：`REFUSAL_ANSWER_TEXT` 全文替换，`REFUSAL_MARKERS` 同步换子串「未能检索到相关答案」，`is_refusal` / 半拒答删头句 / `strip` 逻辑自动跟随（单一真相在 `agent_messages`）；prompt 指令同步（模型自答话术必须与新标记一致，否则检测失效）；`answer_eval.is_refusal` 主标记改引引擎常量，消除第二处硬编码；测试/注释/文档全量同步（含混血串清理）
+- 解析结构层新增「短行段落提升为 title」：MinerU 把「独立单行短文本」（报纸栏目名/文章标题/小节名）输出成 `paragraph` 而 GT 标成 `title`——200 页基线 106 个漏检 title 里 93 个的落点就是它。判据只用几何 + 长度（高度 ≤1.5% 页高 且 ≤24 字），排除署名、项目符号项、书后索引条目、报头日期行、页面联系方式、句中标点、接续标记七类——文本形态规则（编号/结尾冒号/英文短行/【】）逐条实测精确率仅 18–32%、合用净亏 −2.54pp，已否证；PoPo 无额外信号（200 篇改标 title 数 = 0）、`middle.json` 在 OCR 路径下每段只有 1 行且无字号字段，两条替代路线也有数据否证。正文页提升的标题取 `level = 当前最深 + 1`，避免 `canonical_builder` 按默认 1 处理冲散 `section_path`。实测（真实入口 A/B，对照组逐位复现归档基线）：title 召回 79.2%→85.7%、结构层块召回 90.248%→91.009%、tau 不变；官方 markdown 口径七项指标逐位不变（markdown 确实变了 23 个文件，官方评测器会归一化 `#`）。新增单测 20 例，含走真实入口 `build_structured_from_rawfiles` 的端到端闸
+- 管理后台解析记录列表新增「文件夹」列：行内下拉列出当前库全部文件夹（label 用「父 / 子」路径），选中即调 `knowledgeApi.updateNode(doc_id, { parent_id })` 移动；切库/手动刷新/上传后顺带取节点上下文（轮询静默刷新不带，省一半请求）；节点接口失败保留上一次上下文（下拉暂时不可用、不打断列表），文档挂在已删除/未知目录时兜底显示「（未知目录）」而不是裸 id；`vue-tsc -b` 通过
+- 文档：三方对比刷新到 DGX MinerU 修复后口径——原「MinerU 单独」列取自 09-13 的离线存盘结果、与修复后的我们全链不同尺，改由同批 `mineru_raw/origin.zip` 重新提取（200/200、3.4.5/hybrid）后重评；结论更新为我们全链 A① 与上游 MinerU 重合（六项逐位相同、文本 0.0407 vs 0.0408），区分度在 A②（块召回 90.25% vs 79.06%）；09-13「文本落后 1.5 倍」落差消失的归因标注为未验证
+
 ## v0.2.68
 
 - 引擎 `__init__` 惰性导出（PEP 562，C1 库化第一批）：`import angineer_core.agent_messages` / `history_store` 等轻量子模块从 520ms+ 且隐式拉起 ai_inference/docs-core 整条依赖树，降为 29ms 零重依赖；34 个既有导出（IntentClassifier/Memory/ScopeContext/base_config/base_di 等）经 `__getattr__` 按需加载并缓存到 globals()，`from angineer_core import X` 用法逐字兼容
