@@ -69,6 +69,9 @@ const goWorkbench = () => {
 const onUserMenuClick = async ({ key }: { key: string | number }) => {
   if (key === 'logout') {
     await authStore.logout()
+    // 退出即「从零开始」：整页刷新回到全新游客态（清空内存会话/历史面板/输入上下文），
+    // 避免旧会话残留在界面上却又因身份作废无法续聊的错位状态
+    window.location.reload()
   }
 }
 </script>

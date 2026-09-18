@@ -2043,6 +2043,9 @@ defineExpose({
       align-items: center;
       gap: 8px;
       flex-shrink: 0;
+      /* center-actions（模型选择器）被宿主隐藏时靠它把发送按钮顶回右侧——
+         原布局靠 center-actions 的 flex:1 撑开，v-if 隐藏后发送按钮会塌到左边 */
+      margin-left: auto;
 
       .icon-btn {
         width: 24px;
