@@ -24,10 +24,21 @@ logger = get_logger(__name__)
 
 _TOOL_EXEC_TIMEOUT_SECONDS = 120
 
-try:
-    from engtools.BaseTool import ToolRegistry
-except ImportError:
-    ToolRegistry = None
+def _get_tool_registry():
+    """外部工具注册表走 engtool_registry 端口（适配器内惰性 import）。
+
+    端口未注册或适配器不可用（工具包未安装）时返回 None，
+    保持原 try/except ImportError 的降级语义。
+    """
+    from angineer_core import ports
+
+    registry_fn = ports.get_engtool_registry()
+    if registry_fn is None:
+        return None
+    try:
+        return registry_fn()
+    except Exception:  # noqa: BLE001
+        return None
 
 from ai_inference.llm_client import chat_result_guarded, get_llm_client
 
@@ -433,13 +444,14 @@ class SopRunner:
                     self._write_markdown_log(step, inputs, {"error": str(e)}, {}, duration=0.0)
             return
 
-        if ToolRegistry is None:
-            error_msg = "ToolRegistry not available (engtools not installed)"
+        registry = _get_tool_registry()
+        if registry is None:
+            error_msg = "ToolRegistry not available (tool registry port not registered)"
             logger.error(error_msg)
             self._record_step(step, inputs, None, error=error_msg)
             raise RuntimeError(error_msg)
-            
-        tool = ToolRegistry.get_tool(tool_name)
+
+        tool = registry.get_tool(tool_name)
         if not tool:
             error_msg = f"Tool not found: {tool_name}"
             logger.error(error_msg)
@@ -1017,10 +1029,11 @@ class SopRunner:
         """
         Use LLM to select the best tool and formulate inputs when step.tool is 'auto'.
         """
-        if ToolRegistry is None:
+        registry = _get_tool_registry()
+        if registry is None:
             return None, {}
-            
-        tools_desc = ToolRegistry.list_tools()
+
+        tools_desc = registry.list_tools()
         tools_str = "\n".join([f"- {name}: {desc}" for name, desc in tools_desc.items()])
         
         # Prepare context snapshot (truncated to avoid huge prompt)

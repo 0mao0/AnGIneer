@@ -45,7 +45,7 @@ def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
 
         loader = ports.get_local_nodes_loader()
         if loader is None:
-            # 引擎不再 import docs_core；组装层未注册时按「加载失败」语义降级
+            # 引擎不再 import 检索实现包；组装层未注册时按「加载失败」语义降级
             # （与 docs_service 异常路径一致：警告 + 空列表 → 检索工具无节点）
             logger.warning("local_nodes_loader 未注册（组装层应注入 docs-core 适配器），节点清单为空")
             return []

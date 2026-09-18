@@ -165,7 +165,7 @@ def rerank_candidates(
 
     local_rerank = ports.get_local_rerank()
     if local_rerank is None:
-        # 引擎不再 import docs_core；未注册时降级为原样返回（候选顺序即 dense/sparse 融合序），
+        # 引擎不再 import 检索实现包；未注册时降级为原样返回（候选顺序即 dense/sparse 融合序），
         # 与 reranker 全链失败的语义一致——不 crash、不 import 具体包
         logger.warning("local_rerank 未注册（组装层应注入 docs-core 适配器），跳过 phrase rerank")
         return candidates

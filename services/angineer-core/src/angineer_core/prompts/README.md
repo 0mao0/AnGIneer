@@ -35,5 +35,5 @@
 | `evals_routes.py` 对比分析 | `prompts/evals_routes.py` |
 | `answer_eval.py` 语义评测 | `prompts/answer_eval.py` |
 
-未纳入迁移（白名单）：`sop-core/sop_parser.py`、`engtools` 工具侧、
+未纳入迁移（白名单）：`sop-core/sop_parser.py`、外部工具包（独立工具注册表）工具侧、
 `docs-core/step07_graph` 图谱 prompt（后续评估归位）。

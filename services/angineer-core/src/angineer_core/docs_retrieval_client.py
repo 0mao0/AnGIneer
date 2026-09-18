@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------- 线契约模型（C1 解耦）
-# 与 docs_core.step09_query.protocols.contracts 同字段的本地镜像：双方经 HTTP JSON
+# 与 docs-api 检索协议（KnowledgeQueryRequest/RetrievedItem 同字段）的本地镜像：双方经 HTTP JSON
 # 交互，真正的契约是线上载荷而非类本身。引擎不再 import docs-core（剪依赖的前提）。
 # 字段变更需与 docs-core 侧同步（docs-api 是这两模型的序列化方）。
 class KnowledgeNode(BaseModel):
