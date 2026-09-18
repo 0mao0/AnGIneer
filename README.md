@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.67** ——聊天历史服务端化（计划 B 路线全量落地）：新包 chat-history 两层解耦（引擎 HistoryStore 协议 + sqlite DAO + FastAPI 路由），run_end 落库、池内新建回灌、重启/跨设备续聊，SSE 帧契约升级 frame_version + msg_seqs；无登录硬门 + 游客档：打开即聊天页，游客 cookie 落 g: 桶（同 NAT 不再撞池），满 30 轮硬拦弹登录、登录自动 claim 并入账号历史且对话原地继续，会话管理端点列表/详情/删除/展示字段快照 PUT（seq 服务端权威、拒未知序号）；前端历史切 HTTP：localStorage 降级缓存 + 存量幂等导入 + 活跃会话 id 按库持久化（修双生成 id 互相覆盖）；90 天保留期 GC（chat_db_gc.py dry-run 默认，ANGINEER_CHAT_RETENTION_DAYS 可调），游客闸阈值 ANGINEER_GUEST_ROUNDS 可配；pytest 新增 41 例、前端 node:test 6 例全绿。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.68** ——引擎 C1 库化解耦第一批（行为零变化）：`angineer_core` __init__ 改 PEP 562 惰性导出（轻量子模块 import 从 520ms+ 降至 29ms 且不再拉起 ai_inference/docs-core）；新增 `ports` 端口注册表——policy_query 节点加载回退、retrieval_pipeline phrase-rank 降级、docs_retrieval_client 线契约（KnowledgeNode/RetrievedItem 本地镜像）三处 docs-core 耦合改经注册表消费，aichat-api 启动时注入适配器（nightly/evals 同进程覆盖，生产已验证注册生效）；pyproject 摘掉 angineer-sop-core 依赖（引擎对其零 import）；剩余检索编排缝（agent_tools ~450 行配方 → RetrievalPort）登记为下一批专项。验证：264 引擎/aichat 测试绿、tests/unit 与基线一致、生产冒烟 200。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

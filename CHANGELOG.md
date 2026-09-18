@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.68
+
+- 引擎 `__init__` 惰性导出（PEP 562，C1 库化第一批）：`import angineer_core.agent_messages` / `history_store` 等轻量子模块从 520ms+ 且隐式拉起 ai_inference/docs-core 整条依赖树，降为 29ms 零重依赖；34 个既有导出（IntentClassifier/Memory/ScopeContext/base_config/base_di 等）经 `__getattr__` 按需加载并缓存到 globals()，`from angineer_core import X` 用法逐字兼容
+- 新增 `angineer_core/ports.py` 端口注册表（引擎不认识具体实现，组装层注入）：`policy_query` 本地节点加载回退（原函数内 `from docs_core.docs_service import`）与 `retrieval_pipeline` 降级链末端 phrase-rank（原 `from docs_core...reranker import`）改经 `register_local_nodes_loader` / `register_local_rerank` 消费；`docs_retrieval_client` 的 `KnowledgeNode`/`RetrievedItem` 同步改为引擎内同字段 pydantic 镜像（线契约即 HTTP JSON 载荷，docs-api 为序列化方）；aichat-api `main.py` 启动时注册 docs-core 适配器，nightly/evals 在 aichat-api 进程内跑 `run_policy_query` 同路径覆盖；未注册时按既有降级语义走（警告 + 空结果/跳过 rerank），不 import 具体包；生产容器启动日志已验证「引擎端口已注册」
+- pyproject 剪依赖：摘除 `angineer-sop-core`（引擎对其零 import，纯死重）；`angineer-docs-core` 留待下一批（`agent_tools` ~450 行检索/图谱配方仍是实体耦合，需整体搬入 docs-core 侧适配器 = 登记的 RetrievalPort 收尾专项）
+- 验证与回归：`tests/angineer-core` + `tests/aichat-api` 264 例全绿（`test_retrieval_pipeline` 改用注册 fake 适配器替代 mock docs_core）；`tests/unit` 与干净树失败集逐条一致（stash 对比，7 例预存 flaky）；`import angineer_core.policy_query` 实测不再加载 docs_core；生产冒烟 guest/agent 全 200
+
 ## v0.2.67
 
 - 聊天历史服务端化（计划 B 路线全量落地，docs/plan-chat-history.md）：新包 `services/chat-history` 两层解耦——引擎侧只加 `HistoryStore` Protocol + `scope_hash_for`（与池 key 同算法单真相源，既有引擎文件零改动），`store/` sqlite DAO（chat_sessions/chat_messages/chat_runs/chat_guests 四表落 `data/chat.sqlite`）+ `routes/` FastAPI 路由（身份解析注入、不 import aichat-api）；aichat-api 组装：run_end 落库（客户端断开按 cancelled 兜底补写）、池内新建 session 才回灌一次（D11，池命中不灌、按 scope_hash 过滤防跨 scope 串话）、SSE 契约升级 `X-Chat-Frame-Version` 响应头 + run_end 帧 `msg_seqs`；存储初始化失败自动降级纯内存池（行为同改造前）；顺手删 `QueryRequest.history` 死字段（全仓库无读取点）
