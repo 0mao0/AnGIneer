@@ -84,6 +84,11 @@ class GuestGateTests(unittest.TestCase):
     def setUp(self):
         self.chat_auth = _load_chat_auth()
         self.addCleanup(lambda: sys.modules.pop("chat_auth", None))
+        # 隔离外部 env：本地 .env 可能带 ANGINEER_GUEST_ROUNDS 调试值（如实测期=5），
+        # 边界用例按默认 30 写死
+        self._env_patch = patch.dict(os.environ, {"ANGINEER_GUEST_ROUNDS": "30"})
+        self._env_patch.start()
+        self.addCleanup(self._env_patch.stop)
 
     def test_non_guest_never_blocked(self):
         self.assertFalse(self.chat_auth.guest_gate_blocked("u:1", _FakeStore(999)))

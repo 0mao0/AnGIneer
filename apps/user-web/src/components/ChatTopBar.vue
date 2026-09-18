@@ -6,7 +6,8 @@
         <template #icon><AppstoreOutlined /></template>
         工作台
       </a-button>
-      <a-tooltip title="历史对话">
+      <!-- 游客不显示历史入口（产品决策 2026-09-18）：历史仅登录账号可见，游客档只服务端留存 -->
+      <a-tooltip v-if="!authStore.guestMode" title="历史对话">
         <a-button type="text" class="top-btn" aria-label="历史对话" @click="emit('openHistory')">
           <template #icon><HistoryOutlined /></template>
         </a-button>

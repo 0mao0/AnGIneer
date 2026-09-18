@@ -112,14 +112,13 @@ const onChatError = (error: Error) => {
   }
 }
 
-// 登录成功（30 轮闸弹窗或顶栏按钮）：关闭弹层 + 刷新历史抽屉——claim 已把游客会话并入账号
+// 登录成功（30 轮闸弹窗或顶栏按钮）：关闭弹层 + 刷新历史抽屉——claim 已把游客会话并入账号；
+// 登出：guestMode 生效，refreshSessions 内部清空（历史不留给下一位游客/用户）
 watch(
   () => authStore.isAuthed,
-  (authed) => {
-    if (authed) {
-      loginPrompt.value = false
-      void refreshSessions()
-    }
+  () => {
+    loginPrompt.value = false
+    void refreshSessions()
   }
 )
 
@@ -167,6 +166,11 @@ const panelTitle = ref('')
 const panelLibraryId = ref('default')
 
 const refreshSessions = async () => {
+  // 游客不显示历史（产品决策 2026-09-18）：游客档只服务端留存，界面不展示
+  if (authStore.guestMode) {
+    sessions.value = []
+    return
+  }
   sessions.value = await listSessions(localStorage, libraryId.value)
 }
 void refreshSessions()

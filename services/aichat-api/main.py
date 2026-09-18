@@ -361,8 +361,15 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             )
 
             # run 结束即落库（D8：role/content 服务端权威）；seq 服务端分配后
-            # 经 run_end 帧下发 msg_seqs（D10）。客户端断开导致 run_end 未送达时，
-            # 由 run_future 返回的 added 消息兜底补写（§8）。
+            # 经 run_end 帧下发 msg_seqs（D10）。消息取 session.history 增量切片——
+            # run_end payload 的 messages[start_idx:] 不含本轮 user 消息（start_idx 在
+            # user append 之后 capture，2026-09-18 生产实踩：只落 assistant → 闸计数恒 0
+            # 永不触发、回灌丢 user 上下文、标题派生落空）。
+            # 客户端断开导致 run_end 未送达时，run 结束后按 cancel 语义兜底补写（§8）。
+            # history 列表对象本身（live list）：run_end 时切片取本轮增量。
+            # getattr 防御：单测的 _FakeSession 无 history 属性，此时按空列表走、persist 自然跳过
+            hist_list = getattr(session, "history", None) or []
+            hist_base = len(hist_list)  # 回灌已完成（get_agent_session 内联），基线只含历史
             run_started_ts: Optional[float] = None
             last_error = ""
             persisted = False
@@ -413,8 +420,9 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                     last_error = str(event.payload.get("message", ""))
                 seqs: Optional[List[int]] = None
                 if event.type == "run_end":
-                    from chat_history.store import agent_message_from_dict
-                    msgs = [agent_message_from_dict(m) for m in (event.payload.get("messages") or [])]
+                    # run_end 是 worker 线程最后一条 emit，此刻 history 已完整（engine 先
+                    # 追加全部消息再发 run_end），切片无竞态
+                    msgs = list(hist_list[hist_base:])
                     seqs = persist(msgs, str(event.payload.get("reason", "")), event.run_id, event.ts)
                 frame = json.loads(map_event_to_agent_frame(event))
                 frame["frame_version"] = 1
@@ -423,10 +431,10 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 yield f"data: {json.dumps(frame, ensure_ascii=False)}\n\n"
                 if event.type in ("run_end", "error"):
                     break
-            added = await run_future
-            if not persisted and store is not None and added:
+            await run_future
+            if not persisted and store is not None and len(hist_list) > hist_base:
                 # 客户端断开/异常路径：run_end 帧未送出，按 cancel 语义兜底补写
-                persist(list(added), "cancelled", getattr(session, "active_run_id", "") or "", time.time())
+                persist(list(hist_list[hist_base:]), "cancelled", "", time.time())
 
             yield "data: [DONE]\n\n"
         except Exception as e:
