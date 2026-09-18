@@ -367,8 +367,12 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             # 永不触发、回灌丢 user 上下文、标题派生落空）。
             # 客户端断开导致 run_end 未送达时，run 结束后按 cancel 语义兜底补写（§8）。
             # history 列表对象本身（live list）：run_end 时切片取本轮增量。
+            # 注意不能写 `or []`：新建会话 history 为空列表时 `or` 会换成新列表快照，
+            # 与 worker 线程追加的 live list 脱节，切片恒空、落库被静默跳过（2026-09-18 生产实踩）。
             # getattr 防御：单测的 _FakeSession 无 history 属性，此时按空列表走、persist 自然跳过
-            hist_list = getattr(session, "history", None) or []
+            hist_list = getattr(session, "history", None)
+            if hist_list is None:
+                hist_list = []
             hist_base = len(hist_list)  # 回灌已完成（get_agent_session 内联），基线只含历史
             run_started_ts: Optional[float] = None
             last_error = ""
