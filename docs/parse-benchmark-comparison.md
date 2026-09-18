@@ -4,7 +4,40 @@
 `--limit 200 --seed 42` 抽样）。口径：**官方 markdown 口径**（预测交 `content.md`/等价 markdown，
 官方镜像 `ghcr.io/zeng-weijun/omnidocbench-eval:repro-ubuntu2204` 评分），三方同尺。
 
-## 一、三方数字
+## 〇、2026-09-18 复测（**现行数字，以本节为准**）
+
+下表是 DGX MinerU 修复（RTDetr 张量取轴，见 `D:\AI\DGX\DGX-SPark部署经验.md` §5.7）之后的复测。
+**上面 2026-09-13 那张表已作废**——它两边的 MinerU 输出都是"错轴"时代的，且"MinerU 单独"那列取自
+`D:\AI\omnidocbench_dl\mineru_only_result`（存盘时间 **09-13 17:08**），与修复后的"我们全链"**不同尺**。
+
+样本同批 200 页。我们全链取自归档 `20260918-1340-baseline-post-dgxfix/official`；
+MinerU 单独由**同一批 `mineru_raw/origin.zip`** 重新提取（`scripts/collect_mineru_markdown.py`，
+200/200 页、`3.4.5/hybrid`）后重评；参考模型沿用 `ref_result`（外部固定预测，评分不随我们流水线变）。
+
+| 指标 | 参考模型 | MinerU 3.4.5 单独 | 我们全链 |
+|---|---|---|---|
+| 文本 Edit_dist | **0.0344** | 0.0408 | 0.0407 |
+| 表格 TEDS | **0.9097** | 0.8945 | 0.8945 |
+| 表格内文字 Edit_dist | **0.0682** | 0.0753 | 0.0753 |
+| 公式 CDM | **0.9820** | 0.9668 | 0.9668 |
+| 公式 Edit_dist | **0.0687** | 0.0891 | 0.0891 |
+| 阅读顺序 Edit_dist | **0.1168** | 0.1287 | 0.1287 |
+
+**结论变了，而且变成一条更硬的**：**我们全链在 A① 上与自己的上游 MinerU 重合**（六项逐位相同，
+文本只差 0.0001）。这不是巧合也不是取错文件——已逐字节核对：提取件 == `origin.zip` 里的
+`<name>/hybrid_auto/<name>.md`（3922 字节），与我们自己的 `parsed/content.md`（3972 字节）**不同**，
+但我们的 markdown 是 MinerU 块的**保真重渲染**（同一份表 HTML → 同 TEDS；同一串 LaTeX → 同 CDM/Edit；
+同一 block 序 → 同阅读顺序）。所以：
+
+- **A① 无法用来区分我们全链与 MinerU**——它量的是 markdown 交付面，而我们这一面就是 MinerU 的产物。
+  要区分就得看 A②（结构层）：块召回 **90.25%（我们）vs 79.06%（MinerU 原生 content_list）**。
+- 与参考模型的差距（文本 0.033、CDM 1.5 个点、TEDS 1.5pp）是**模型差距**，不是我们流水线的损耗。
+
+**未验证的归因（不要当结论）**：09-13 那张表里"文本 0.0813 vs 0.0476（我们落后约 1.5 倍）"的落差
+现在消失了（0.0407 vs 0.0408）。候选原因有投影修复（P0 的 HTML 表）、DGX 修复、`plain_text_corrected`
+改写差异三种，**我没有逐项验证是哪一条**，故不写结论。
+
+## 一、三方数字（2026-09-13 快照，**已被上节取代**，保留用于看演进）
 
 | 指标 | 参考模型<br>`chutao__mu936_grpo_800_260328` | **MinerU 3.4.5 单独**<br>(hybrid) | 我们全链<br>（改投影前 → 现） |
 |---|---|---|---|
@@ -25,13 +58,16 @@
 
 | 方 | 版本 | 来源 |
 |---|---|---|
-| MinerU 3.4.5 单独 | **3.4.5 / backend=hybrid** | 每篇 `mineru_raw/middle.json` 的 `_version_name`，200/200 一致；官方 Releases 里 `mineru-3.4.5-released` 即最新正式版（4.0.0a6 为预发布，未测） |
+| MinerU 3.4.5 单独 | **3.4.5 / backend=hybrid** | 每篇 `mineru_raw/middle.json` 的 `_version_name`，200/200 一致；官方 Releases 里 `mineru-3.4.5-released` 即最新正式版（4.0.0a6 为预发布，未测）。**第〇节的数字为 2026-09-18 复测**（DGX 修复后，同批 origin.zip 重新提取） |
 | 我们全链 | 同上 MinerU 3.4.5 + PoPo + Solo（`use_llm=False`） | 同一次解析的产物，链内两个阶段另计 |
 | 参考模型 | 未知 | 官方镜像自带预测目录 `data_md/v1.6/chutao__mu936_grpo_800_260328`；不在 OmniDocBench 官方榜单（README 已核对），**命名疑似 MinerU 家族 + GRPO 微调，未证实** |
 
 ## 二、两个重要结论
 
 ### 结论 1：markdown 交付面上，我们全链落后于自己的上游 MinerU
+
+> **2026-09-18 更新：本条已反转**——复测后我们与上游 MinerU 在 A① 上重合（见第〇节）。
+> 下面这段是当时（投影修复前 → 后）的记录，保留用于看归因过程。
 
 改投影前，MinerU 单独在 markdown 口径四项上都比"我们全链"好（文本 0.0476 vs 0.0813、表格 TEDS 0.9155
 vs 0.8821、表格文字 0.0488 vs 0.5632、阅读顺序 0.1371 vs 0.1503），当时看起来是"PoPo + Solo 负贡献"。
