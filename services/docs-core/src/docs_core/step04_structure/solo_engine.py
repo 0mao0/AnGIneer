@@ -1746,6 +1746,127 @@ def _is_empty_continuation_pair(
     return cut_evidence is True
 
 
+def _suffix_cut_index(raw: str, suffix_key: str) -> int | None:
+    """raw 忽略空白后以 suffix_key 结尾时，返回 raw 中该后缀的起始下标（否则 None）。
+
+    suffix_key 需已去空白；raw 侧逐字符比对并跳过空白，故"结尾"判定不受空格/换行影响。
+    """
+    if not suffix_key:
+        return None
+    i, j = len(raw) - 1, len(suffix_key) - 1
+    while j >= 0 and i >= 0:
+        ch = raw[i]
+        if ch.isspace():
+            i -= 1
+            continue
+        if ch != suffix_key[j]:
+            return None
+        i -= 1
+        j -= 1
+    return i + 1 if j < 0 else None
+
+
+_REATTACH_MIN_TEXT = 8
+_REATTACH_MIN_REMAIN = 8
+
+
+def _preproc_text_for_row(row: dict[str, Any], middle_payload: Any) -> str:
+    """按 bbox 从 middle.json 的 preproc_blocks 取该行对应区域的文本（取最长命中）。"""
+    if not isinstance(middle_payload, dict):
+        return ""
+    pages = middle_payload.get("pdf_info")
+    page_idx = int(row.get("page_idx") or 0)
+    if not isinstance(pages, list) or not (0 <= page_idx < len(pages)):
+        return ""
+    page = pages[page_idx]
+    if not isinstance(page, dict):
+        return ""
+    bbox = _row_norm_bbox(row)
+    if bbox is None:
+        return ""
+    size = page.get("page_size") or [row.get("page_width"), row.get("page_height")]
+    try:
+        pw, ph = float(size[0]), float(size[1])
+    except (TypeError, ValueError, IndexError):
+        return ""
+    if pw <= 0 or ph <= 0:
+        return ""
+    px = (bbox[0] * pw, bbox[1] * ph, bbox[2] * pw, bbox[3] * ph)
+    tol = max(8.0, pw * 0.01)
+    best = ""
+    for block in page.get("preproc_blocks") or []:
+        if not isinstance(block, dict):
+            continue
+        if str(block.get("type") or "").strip().lower() in _AUX_BLOCK_TYPES:
+            continue
+        bb = block.get("bbox")
+        if not (isinstance(bb, (list, tuple)) and len(bb) == 4):
+            continue
+        try:
+            if not all(abs(float(bb[k]) - px[k]) <= tol for k in range(4)):
+                continue
+        except (TypeError, ValueError):
+            continue
+        text = _middle_block_text(block).strip()
+        if len(text) > len(best):
+            best = text
+    return best
+
+
+def _reattach_merged_continuation_text(rows: list[dict[str, Any]], middle_payload: Any) -> int:
+    """把被并进前一块的续接文本重新归属给空的续接块；返回处理块数。
+
+    现象（2026-09-19，200 页实测 121 例）：MinerU 的段落装配会把续接段落并入前一块的
+    文本，但在 content_list_v2 里仍留下一个 **bbox 正确、content 为空** 的 paragraph。
+    结果是前一块（bbox 只覆盖它自己那块版面）的文本里混进了相邻区域的内容——实测承载块
+    105/105 都是同页紧邻的前一个 paragraph，且被并文本是它的**结尾后缀**（104 例可干净
+    切分）。不处理的话有两个后果：① 该块文本与其 bbox 不一致，检索命中后引用高亮落在
+    错区域；② 空块与 GT 对齐时文本相似度恒为 0。
+
+    修法：从承载块尾部摘掉这段文本、写回空块——两边都不重复，且 bbox 与文本重新一致。
+    ceil 之外的形态（文本不在结尾、找不到承载块、preproc 也无文本）一律不动，
+    宁可保留现状也不制造重复文本。
+    """
+    if not isinstance(middle_payload, dict):
+        return 0
+    by_page: dict[int, list[dict[str, Any]]] = {}
+    for row in rows:
+        by_page.setdefault(int(row.get("page_idx") or 0), []).append(row)
+
+    reattached = 0
+    for page_idx, page_rows in by_page.items():
+        for idx, row in enumerate(page_rows):
+            if str(row.get("block_type") or "") != "paragraph":
+                continue
+            if (row.get("plain_text") or "").strip():
+                continue
+            text = _preproc_text_for_row(row, middle_payload)
+            key = re.sub(r"\s+", "", text)
+            if len(key) < _REATTACH_MIN_TEXT:
+                continue
+            host = None
+            for back in range(idx - 1, -1, -1):
+                cand = page_rows[back]
+                if str(cand.get("block_type") or "") != "paragraph":
+                    break
+                if (cand.get("plain_text") or "").strip():
+                    host = cand
+                    break
+            if host is None:
+                continue
+            raw = str(host.get("plain_text") or "")
+            cut = _suffix_cut_index(raw, key)
+            if cut is None:
+                continue
+            remain = re.sub(r"\s+", "", raw[:cut])
+            if len(remain) < _REATTACH_MIN_REMAIN:
+                continue
+            host["plain_text"] = raw[:cut].rstrip()
+            row["plain_text"] = text
+            reattached += 1
+    return reattached
+
+
 def _looks_like_heading(text: str) -> bool:
     """判断短文本是否更像真实标题而非续文碎片。"""
     compact = re.sub(r"\s+", "", text)
@@ -2090,6 +2211,8 @@ def build_structured_from_rawfiles(
             })
     
     continuation_merges = _merge_mineru_continuation_rows(rows, middle_payload)
+    # 必须在跨页续接合并之后：合并会删行、改变相邻关系
+    text_reattaches = _reattach_merged_continuation_text(rows, middle_payload)
     
     toc_row_ids = detect_toc_row_ids(rows)
     toc_pages = {int(r["page_idx"]) for r in rows if int(r["id"]) in toc_row_ids}
@@ -2592,6 +2715,7 @@ def build_structured_from_rawfiles(
         "toc_pages": list(toc_pages),
         "title_candidates": len([row for row in rows if row.get("block_type") == "title"]),
         "continuation_merges": continuation_merges,
+        "continuation_text_reattaches": text_reattaches,
     }
     
     return StructuredResult(
