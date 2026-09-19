@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.71
+
+- 结构层类型词汇漂移修复：PoPo 续接注入器的可续接集合与续表标记扫描集写的是 **canonical 名** `list_item`，而 solo 节点用 MinerU 行词汇——生产库实测 `list`=6157 / `list_item`=0，列表块的跨页续接 100% 被拒、「续表X」标记写在列表块里则续表漏检。修法：两处收编到单一真相源 `step04_structure/shared/row_vocabulary.ROW_TEXT_TYPES`（`paragraph`/`list`）；同时给 contd 判定加**两端同型**约束——`popo_block_merger._merge_text_fragments` 只要任一侧带 `paragraph_content` 就走文本拼接分支、另一侧 `list_items` 整块 flatten 丢失，故 paragraph↔list 混合续接一律拒收（放开 list 才有正收益，flatten 危害有正反实证用例各一）。新增 13 例含敏感度用例（把 `list` 从集合摘掉，两条规则必须转红）
+- 词汇契约固化 + 一处误报撤下：新增 `tests/test_row_vocabulary_contract.py` 8 例钉住三层词汇边界（canonical 名不渗入行词汇层、`normalize_block_type("list")=="list_item"`、`CanonicalBlock(block_type="list")` 必须 ValidationError）；此前排查把 `formula_semantics` 的公式解释段候选集也判成漂移点，实为**误报**——该处两条调用路都已归一化、canonical Literal 也直接拒绝 `list`，撤下并改名为 canonical 词汇常量加注释留档（行为零变化）
+- 续接文本重归属放宽到跨页：v0.2.70 首版「承载块 105/105 都在同页」是**语料假象**（OmniDocBench 1350 篇全为单页文档，跨页结构上不可能出现）。换生产库 `lib-b07ed174` 的 620 个空 paragraph 量去向：文本落在上一页末段的占 26.9%（167 例）、同页规则只覆盖 12.7%——只修同页漏掉七成。修法：同页找不到承载块时退一档取**上一页最后一段正文**，双守卫缺一不可（middle.json 独立证据：上一页末文本断在句中；几何证据：本行上方无任何非空正文段落），找承载块时跳过页眉页脚页码、遇表格/图片/公式/标题宁可放弃（越界命中的多是模板套话巧合）。实测：生产库 117 篇全量回灌 0 失败、重归属 219 处、跨页续接合并 478 次、空段落 480→305、title 块 2789→3042；reattach 单测 29 例
+- 管线 stats 透传引擎计数：`build_structured_index_for_doc` 此前直接新建 dict 覆盖 `result.stats`，引擎侧可观测计数（`continuation_text_reattaches` 等）在管道层整批消失——回填/巡检时看不到规则跑没跑（09-19 canary 报「重归属 None」即此坑），改为引擎 stats 打底再叠加管线键；解析阶段步骤显式显示重归属处数；空文档时 `table_cells_stats` 先兜底防收尾 UnboundLocalError。新增 stats 契约 3 例 + 回填/A-B 分析脚本入库；solo_engine 兜底对候选集维持 paragraph-only 并注释原因（其合并写 `paragraph_content` 会绕过 list 块结构，与注入器的行词汇策略有意分歧）；回归：docs-core 全套 399 passed、tests/unit 失败集与 7 例预存基线逐一对上
+
 ## v0.2.70
 
 - 拒答判定改容错匹配（度量修复，非行为改动）：生产实测 39 道拒答题只判出 6 道、整体正确率被虚增 17.85pp——逐题核对定性为**度量坏了而非行为坏了**（真作答/幻觉数未变，多出的 18 道全是「拒答了但没被识别」）。根因：判定用连续子串匹配 `REFUSAL_MARKERS`，而模型会把主题插进模板（「知识库未能检索到关于「原恒星」的定义……的相关答案」），中间被「关于X的」隔开即整段落空；旧话术模型逐字复述所以一直没暴露。修法：强标记改不会因插入而失配的核心片段（「未能检索到」+ 历史话术），英文软措辞全文匹配；判定逻辑写死在引擎 `is_refusal_text` 与 evals-core `answer_eval.is_refusal` 两处的第二份硬编码一并收敛为引引擎单真相
