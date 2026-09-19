@@ -16,12 +16,54 @@ REFUSAL_ANSWER_TEXT = (
 REFUSAL_FOLLOWUP_QUESTION = "你可以补充更多规范依据或换个角度提问，需要我继续帮你分析吗？"
 
 
-REFUSAL_MARKERS = ("未能检索到相关答案",)
+REFUSAL_MARKERS = (
+    "未能检索到",          # 现话术「知识库未能检索到相关答案。」及其"插进主题"的变体
+    "没有检索到足够证据",   # 历史话术，回放旧数据时仍在
+)
+
+# 强标记：全文任一处命中即判拒答。**不能只放模板原句**——模型不会逐字复述模板：
+# 2026-09-19 实测 39 道拒答题里 18 道漏检，起因就是模板「知识库未能检索到相关答案。」
+# 被模型写成「知识库未能检索到关于「X」的定义及其探测方法的相关答案。」——中间插进了主题，
+# 连续子串匹配整段落空（两次运行的模板原句命中数都是 0）。故只留不会因插入而失配的核心
+# 片段；以后改话术时先想清楚"模型会往里插什么"。
+#
+# 弱标记（中文软措辞）：**只认首个引用标记之前**的那段，且**只收语义上必然是拒答的措辞**。
+# - 只认引用之前的片段：模型自拟的拒答声明出现在引用之前（"基于提供的检索证据，无法直接回答…"），
+#   而正常作答里"此处无法确定"这类软化措辞出现在引用之后，不能当拒答。
+# - **不要收「证据不足」「信息不足」**：它们是"部分覆盖说明"这类合法回答的常用开头
+#   （2026-09-19 实踩：收进来后 test_guard_keeps_soft_partial_coverage_disclosure 立刻变红，
+#   因为 `make_final_answer_guard` 会把这种回答整段换成拒答话术）。这类软表述由
+#   `_HALF_REFUSAL_LEAD_PATTERNS` / `strip_half_refusal_lead` 那套单独处理，不走拒答判定。
+REFUSAL_LEAD_MARKERS = (
+    "无法回答",
+    "无法直接回答",
+)
+# 英文软措辞：英文回答里这些短语极少出现在正常作答中，全文匹配即可
+REFUSAL_EN_MARKERS = (
+    "cannot answer",
+    "unable to answer",
+    "does not contain",
+    "do not contain",
+)
+REFUSAL_LEAD_SCAN_LIMIT = 200
+
+
+def _lead_before_citation(text: str) -> str:
+    """取首个引用标记之前的片段（无引用则取前 REFUSAL_LEAD_SCAN_LIMIT 字）。"""
+    head = (text or "").strip()[:REFUSAL_LEAD_SCAN_LIMIT]
+    hit = _CITE_RE.search(head)
+    return head[: hit.start()] if hit else head
 
 
 def is_refusal_text(text: str) -> bool:
     """判断文本是否命中拒答话术（标准话术或模型自拟变体）。"""
-    return any(marker in (text or "") for marker in REFUSAL_MARKERS)
+    content = text or ""
+    if any(marker in content for marker in REFUSAL_MARKERS):
+        return True
+    lowered = content.lower()
+    if any(marker in lowered for marker in REFUSAL_EN_MARKERS):
+        return True
+    return any(marker in _lead_before_citation(content) for marker in REFUSAL_LEAD_MARKERS)
 
 
 _HALF_REFUSAL_LEAD_PATTERNS = (

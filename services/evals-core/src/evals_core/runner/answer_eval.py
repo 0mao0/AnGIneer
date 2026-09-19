@@ -47,17 +47,16 @@ def evaluate_correctness_check(answer: str, check: Dict[str, Any]) -> bool:
 
 def is_refusal(answer: str) -> bool:
     """判断回答是否触发系统默认拒答。"""
-    from angineer_core.agent_messages import REFUSAL_MARKERS
+    from angineer_core.agent_messages import is_refusal_text
 
     normalized = (answer or "").strip()
-    # 主拒答标记引自引擎常量（单真相，话术改动只改 agent_messages 一处）；
-    # 后两条是历史遗留的软标记（范围建议/换问法提示），保留兼容旧数据
-    refusal_markers = (
-        *REFUSAL_MARKERS,
-        "建议缩小文档范围",
-        "换一种问法",
-    )
-    return any(marker in normalized for marker in refusal_markers)
+    # 判定逻辑引引擎单真相（强标记 + 开头窗口弱标记，见 agent_messages）；
+    # 这里只补历史遗留的软标记（范围建议/换问法提示）以兼容旧数据。
+    # 曾经在这里按 REFUSAL_MARKERS 重新实现过一遍连续子串匹配——那正是 2026-09-19
+    # 漏检 18 道拒答题的写法，不要退回。
+    if is_refusal_text(normalized):
+        return True
+    return any(marker in normalized for marker in ("建议缩小文档范围", "换一种问法"))
 
 
 def _build_keyword_hint(checks: List[Dict[str, Any]]) -> str:
