@@ -2,7 +2,7 @@
 
 **AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
 
-> **当前版本：0.2.69** ——拒答话术改为「知识库未能检索到相关答案」并收敛到引擎常量单一真相（`REFUSAL_MARKERS`／半拒答删头句／prompt 指令同步跟随）；解析结构层新增「短行段落提升为 title」——MinerU 把「独立单行短文本」输出成 `paragraph` 而 GT 标成 `title`，判据只用几何 + 长度并排除署名/项目符号/索引条目等七类，200 页基线 title 召回 79.2%→85.7%、结构层块召回 90.248%→91.009%（官方 markdown 口径七项指标逐位不变）；管理后台解析记录列表新增「文件夹」列，行内下拉即可把文档在目录间移动（未知目录有兜底、节点接口失败不打断列表）；三方对比文档刷新到 DGX MinerU 修复后口径（「MinerU 单独」列改由同批 origin.zip 重新提取重评，结论更新为我们全链 A① 与上游 MinerU 重合，区分度在 A② 块召回 90.25% vs 79.06%）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.70** ——引擎 C1 库化解耦收尾（Seam 4，行为零变化）：gent_tools ~450 行检索/图谱配方平移到 docs-core 侧 gent_port 适配器，ports 新增 agent_search 七端口（归一化/知识/表格/图谱召回/统计/工具注册表/引用挑选），装配与 HTTP 双轨编排留引擎；引擎 docs_core 与 engtools import 清零（sop_runner 注册表同改端口），import angineer_core.agent_tools 实测 ~230ms 零加载——引擎成为只依赖 ai-inference 的干净包，C2 库化再无架构活；新增端口契约回归 7 例（生产形状 fake 显式签名、走真实调用点、断言真被调通），把 09-19 夜间全量拒答事故模式（端口契约与调用点参差不匹配、TypeError 被吞成空节点→检索恒 0）固化成防回归，经变异验证；五测试套件全绿 + 本地 nightly 冒烟集（25 题）green、门禁 +11pp 零题目变差。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

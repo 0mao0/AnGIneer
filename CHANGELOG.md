@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.70
+
+- 引擎 C1 库化解耦收尾（Seam 4，行为零变化）：`agent_tools` ~450 行检索/图谱配方平移到 docs-core 侧 `step09_query/agent_port` 适配器——`ports.py` 新增 agent_search 七端口（查询归一化 / 知识本地召回 / 表格召回 / 图谱直查 / 统计聚合 / 外部工具注册表 / 引用挑选；引用挑选为执行中新发现的第 7 处耦合），端口边界切在「本地召回配方」层，装配（rerank/引用标记/证据序列化）与 HTTP 优先本地回退双轨编排留引擎（`docs_retrieval_client` 是纯引擎模块），避免 docs-core 反向 import angineer_core；aichat-api 启动注册七端口，nightly/evals 同进程覆盖。计划初稿登记的 `graph_append_note` 为幽灵条目（真身在 docs_retrieval_client + dream_cycle_routes，不经引擎），无此端口
+- 引擎 docs-core / engtools import 清零（注释也不留）：`agent_tools` 内 query_normalizer 归一化改走端口在双轨分叉前调用，`sop_runner` 模块级工具注册表 import 改经 engtool_registry 端口（吞异常降级语义保留）；`rg docs_core|engtools` 于 `services/angineer-core/src` 双 0 命中，`import angineer_core.agent_tools` 实测 ~230ms 且不加载两边——引擎成为只依赖 `angineer-ai-inference + pydantic + python-dotenv + requests` 的干净包，C2 库化（独立仓库/PyPI）只剩打包工程、没有架构活。pyproject 本就无 docs-core 依赖（sop-core 已于 v0.2.68 摘除），零改动达成
+- 端口契约回归 7 例（`tests/angineer-core/test_ports_contract.py`）：每个端口一条「按生产形状注册 fake、走真实调用点、断言真被调通」用例，覆盖 agent_search 七端口（engtool_registry 含 EngtoolAdapter 与 SopRunner 双调用点、断言恰好被调两次——其 `_get_tool_registry` 会吞异常返回 None，只断言结果会被骗过）；铁律是 fake 一律显式签名、禁 `**kwargs` 兜底，调用点传错参必须让 TypeError 在测试里直接炸。动机固化：09-19 夜间全量拒答事故（端口契约两参 `(library_id, doc_ids)` 而调用点只传一参，TypeError 被 except 吞成空节点 → 检索恒 0 条，已修 1a6cb0c，CI 当时全绿）；经变异验证（临时抽掉引擎 knowledge_local 调用的 `formula` 参 → 契约用例如期 TypeError 爆红，还原后全绿）
+- 回归验证：五测试套件全绿（tests/angineer-core + services/angineer-core/tests 218 绿——2 例 meta_query 规则失败为 HEAD 预存在、commit 607623d 有记录；tests/aichat-api 77 绿；evals-core 102 绿；tests/unit 与 7 例预存失败基线逐一对上）+ 未推送代码本地 nightly 冒烟集预演（open-ragbench-smoke-v1 25 题，与生产同一条流水线、同版端口注入，企微已禁发、结论重定向临时目录）：green、hit@1(doc) 0.85（检索无归零——事故签名不存在）、errored 0、门禁 +11pp 且逐题比对零变差
+
 ## v0.2.69
 
 - 拒答话术改为「知识库未能检索到相关答案」：`REFUSAL_ANSWER_TEXT` 全文替换，`REFUSAL_MARKERS` 同步换子串「未能检索到相关答案」，`is_refusal` / 半拒答删头句 / `strip` 逻辑自动跟随（单一真相在 `agent_messages`）；prompt 指令同步（模型自答话术必须与新标记一致，否则检测失效）；`answer_eval.is_refusal` 主标记改引引擎常量，消除第二处硬编码；测试/注释/文档全量同步（含混血串清理）
