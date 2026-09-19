@@ -479,6 +479,137 @@ DGX 侧根因/修法/回滚见 `D:\AI\DGX\DGX-SPark部署经验.md` §5.7。
 `build_structured_from_rawfiles` 的端到端闸与"文本只许出现一次"的反例；已验证把规则关掉后
 端到端用例会红）。
 
+**⚠ 上面"承载块 105/105 都是同页"是语料假象（2026-09-20 更正）**：OmniDocBench 语料
+**1350 篇全是单页文档**（每篇 = 原 PDF 切出的一页，`docMeta.pageCount` 全为 1），
+结构上不可能出现跨页续接。换到真实多页文档上量，同页只是少数形态——见下节。
+
+### 跨页续接重归属（2026-09-20，生产库实测 +140 处）
+
+**动机来自评测盲区**：单页语料让"跨页"这一整类现象在 A② 里**恒为 0 例**，
+首版只做同页也能拿到 +4.85pp；但那不是 MinerU 的性质，是语料的性质。
+拿生产库 `lib-b07ed174`（117 篇真实多页论文/报告）量空 paragraph 的去向：
+
+| 620 个空 paragraph | 例数 | 占比 |
+|---|---|---|
+| 同页规则已覆盖 | 79 | 12.7% |
+| ├ 文本落在**上一页末段**（本次可修） | **167** | 26.9% |
+| ├ 文本在同页但中间隔图/表（未做） | 18 | 2.9% |
+| ├ 文本在两页以前（疑模板套话巧合，不做） | 11 | 1.8% |
+| └ 前序所有块里都找不到该文本 | 344 | 55.5% |
+
+**修法**：同页找不到承载块时，退一步取**上一页最后一段正文**。三道守卫都由数据定：
+
+| 守卫 | 167 例上的实测 | 挡掉什么 |
+|---|---|---|
+| 上一页末文本断在句中（`_page_last_text_ends_cut` 读 middle.json preproc） | 167/167 为真 | 与本页 bbox 无关的独立证据，防后缀巧合 |
+| 本页上方没有任何正文段落 | 167/167 为真 | 真·页首；页中部的空块不认跨页续接 |
+| 上一页承载块之后只剩页眉/页码/页脚（不越过媒体块） | 扫描口径 | 越过图表去凑后缀的，实测多是模板句巧合 |
+
+**A/B（真实代码路径，对照=把跨页分支关掉，`_prev_page_flow_tail` 直接返回 None）**：
+
+| 库 | 文档 | 重归属 off → on | 产物文本有变化的文档 | 错误 |
+|---|---|---|---|---|
+| `lib-b07ed174`（生产，英文论文/报告） | 117 | 79 → **219（+140）** | 67 | 0 |
+| `lib-261558be`（生产，中文规范/工程） | 78 | 8 → 11（+3） | 3 | 0 |
+| omnidocbench 评测子集（权威 state.json 映射） | 200 | 109 → 109 | **0（逐位相同）** | 0 |
+
+评测子集**零变化**是预期的，也是可验证的最强形式：本次改动不可能污染 A①/A② 的既有数字。
+生产侧抽样核对切分正确性（承载块尾部 + 空块拼起来正好还原原文）：
+
+| 文档:块 | 承载块尾部（切后） | 新归属给空块的文本（开头） |
+|---|---|---|
+| `v1-04019f290d42:2:23` → `:3:3` | …the threshold leads to noticeable improvements, as expected. Specifically, S4 | achieved a minimum a-DCF of 0.1109, with an SV-EER of 7.75% … |
+| `v1-0c4632d99c5d:6:6` → `:7:2` | …because its focus on multi-task training rather | than pretraining and because its multi-task results underperform its single-task method … |
+| `v1-0c4632d99c5d:8:9` → `:9:3` | …consistent-within-task | kernel parameters. This visualization suggests that architecture search is a useful surrogate … |
+| `doc-eef87de9:8:17` → `:9:2`（中文） | …多年日最高气温≥35℃ | 日数为18天，多年日最低气温≤5℃日数为9天。 |
+
+单测闸扩到 28 例（新增 `CrossPageReattachTests` 8 例 + 跨页端到端 2 例）；
+**已验证把跨页分支关掉后 3 个用例转红**（含"文本真的跨过页边界搬过去"的端到端例），不是空转。
+复现用 A/B 脚本：`scripts/analyze_reattach_ab.py`（任意库，off/on 两臂对比重归属计数与产出的
+(block_uid, plain_text) 指纹）。
+
+### 存量回填的成本构成与「不动富化」决定（2026-09-20 试点实测）
+
+服务器试点（`lawbench` 整库 60 篇 188s；`lib-b07ed174` 8 篇公式/图最密的 735s）实测：
+**非 LLM 部分约 19s/篇**（规则 + 图描述 + fts + 向量），**LLM 富化约 3.0s/公式**。
+全量 281 篇外推 ≈ 9~10 小时：公式 8,318 个 ≈ 7h（`lib-b07ed174` 4.3h + `default` 2.6h 占九成）、
+标题仲裁 ≈ 1~2h、非 LLM ≈ 1h。
+
+**决定：不改公式富化的批量策略（2026-09-20，用户拍板）**。理由有实据：`batch=3`
+（`formula_semantics.py:271`）配「整批失败重试一次 + 二分拆组兜底」本就是为**整批 JSON
+解析失败**留的余量——批越大越容易整批解析失败，回退路径反而让调用次数暴涨，故合并调用
+未必更快。试点 85 公式恰好 29 次调用（85÷3），说明**一次重试/拆组都没触发**，耗时是纯成本
+而非失败重烧。另需注意：canary 里 `llm_status: error: Expecting value` 出在**标题仲裁**
+那条路，与公式富化不是同一条链路；顶层 `llm_status` 也只反映标题仲裁，公式状态看
+`formula_semantics.llm_status`。表格语义**不烧 LLM**（试点中富化 6 张表、LLM 调用数为 0）。
+
+### PoPo 推理静默失败与「非空校验」（2026-09-20）
+
+**现象**：全库 1,639 篇 PoPo 产物里，模型判定几乎为零——`contd≥0` 只有 30、`table_merge≥0`
+为 **0**、`level≥0` 只有 627，且集中在 6 篇（lib-7582b086×3 / default×2 / DredgeAI×1）；
+我们重跑的 128 篇里 `popo_signal.injection.applied=0`、`title_level_review.popo_signals=0`。
+
+**定性实验（本地，真实文档 `v1-01eb389690b6`）**：完整跑一遍 popo 阶段 → 模型**正常返回**
+`contd` 3 对 / `level` 21 个 / `image` 9 个（47~54s）；把这份产物换上再跑 structure →
+`injection.applied=3, rejected=0`、`merge.applied=3`，步骤显示"PoPo 信号注入 applied 3"。
+**采纳链路是通的，之前不是"没采纳"而是"没有东西可采纳"。**
+
+**根因（代码级）**：`popo/model_utils.popo_generate` 在所有端点都失败时只 `return ""`、不抛异常
+（`model_utils.py:166`），子进程退出码仍为 0 → 阶段记 `done`、产物判定全 `-1`、无人察觉。
+原始响应摘要统计（1,890 篇，按"是否真调用过"区分）：
+
+| 任务 | 没问（无候选，合理） | **问了却回空** | 问了有回 |
+|---|---|---|---|
+| contd | 84% | **13%（245 篇）** | 3% |
+| title | 81% | 13%（247） | 5% |
+| image | 80% | 15%（276） | 5% |
+
+注意"回空"**未必是失败**——没有续接对时模型回空是合法答案；真失败的唯一痕迹是
+`POPO endpoint ... failed` 这行 print（探针脚本已落 `contd/title/image_chunk_*.json` 与 summary）。
+
+**修法**：`popo_enhance._run_script` 改为返回子进程输出；推理步骤扫这行 → 命中即抛
+`PopoEndpointUnavailableError`（popo 是 `STAGE_KIND_SOFT`，失败不阻塞后续解析），并把判定计数写进
+阶段步骤详情（`判定 contd N / level N / image N`，前端阶段抽屉可见）。
+
+**这个异常类型是必须的**：`parse_pipeline._is_transient_popo_failure` 只认
+`TimeoutExpired`/`CalledProcessError`，裸 `RuntimeError` 会被判成永久失败 → 绕过
+`POPO_INFERENCE_RETRIES` 直接回滚、白丢该篇判定。故在分类器里加一条类型判定
+（`services/docs-core/tests/test_popo_gate.py::test_popo_endpoint_unavailable_goes_through_retry` 钉住）。
+
+单测 10 例（`tests/unit/test_unit_popo_inference_guard.py`）+ 重试接线 1 例；**把
+`_popo_endpoint_failures` 关掉后 3 例转红**、**去掉瞬时分类后重试用例转红**；真路径验证：
+端点指向死地址 → `[failed] PoPo 4B 推理 端点失败 3 次`（此前是静默 done）。
+
+**两个待查**：① 模型有 title 输出的 102 篇里，最后只有 6 篇的 `level` 落到产物（中间又丢一截）；
+② PoPo 相对 solo 规则是否有**增量**——本次 1 篇里 solo 自判 3 处续接 + 2 处文本重归属、PoPo 判 3 对，
+是否同一批未逐对核对。
+
+### MinerU `effort` 旋钮调查：不是白拿的旋钮（2026-09-20）
+
+`effort` 是 hybrid 引擎的**公开 API 参数**（`mineru/cli/api_request.py` 的 `effort` 字段，
+`_validate_parse_effort` 只收 `medium|high`；`middle.json._effort` 会回显），我们一直是默认
+`medium`。官方 CLI help 原文：medium「图/图表分析**关闭**」、high「更高精度 + **支持图/图表分析**」。
+
+同页实测（MinerU API 直调，只改 effort）：
+
+| 页面 | medium | high | 差异 |
+|---|---|---|---|
+| 纯文字页 | 18.79s，md 7321 字符 | 22.78s（×1.21） | md **逐字相同**（文字识别无变化） |
+| 图表页（3 图 + 1 表） | 6.21s，`chart.content = ""` | 22.78s（**×3.67**） | `chart.content` 变成完整 markdown 数据表（+994 字符） |
+
+**结论：不开**。三条理由都有据：
+
+1. **对 A① 有害**：该页 GT 把 3 个图都标成 `figure`（`text: None`），high 多吐的近千字符
+   GT 里不存在（官方文本口径按字符流比对）。
+2. **对我们的检索当前无效**：数据落在 `content_list_v2` 的 `chart.content`，而我们的
+   `extract_plain_text` 对 `chart` 只取 `chart_caption`/`chart_footnote`、**明确丢弃 content**
+   （`solo_engine.py:126-129`）→ 开 high 后我们这条链一个字都不变。
+3. **成本 ×3.7**（图表密集页）且影响所有解析（生产/nightly/回填），DGX 并发与显存预算需重算。
+
+要吃这份收益是一个**独立立项**：改 `extract_plain_text` + 开 high + 处理与 GT 标注（图 vs 表）
+和 `figure_describe` 阶段的重叠。**先验"数据能不能流到我们这条链"再谈调参**——这一步漏验会白跑
+一轮 GPU 实验（本次差点踩到）。
+
 ### 测量盲区：官方 TEDS 跨时段不可复现（2026-09-19 发现）
 
 同一份 production markdown、同一条评测命令：09-18 评出 `table TEDS=0.8945 / 仅结构 0.9137`，
