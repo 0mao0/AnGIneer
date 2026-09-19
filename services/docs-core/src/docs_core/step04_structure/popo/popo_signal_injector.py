@@ -6,7 +6,8 @@ popo 后端 jsonl 输出一致）。每条指令先经规则校验，校验不�
 信号缺失/降级时整体跳过（Solo 永远可独立跑通）。
 
 校验规则：
-- 文本续接（contd）：两端均为段落类块、均非标题、按阅读序中间无标题（不跨标题合并）；
+- 文本续接（contd）：两端均为正文文本类行（ROW_TEXT_TYPES：paragraph/list）、
+  **同型**（防混合合并 flatten 丢结构）、按阅读序中间无标题（不跨标题合并）；
 - 跨页表格（table_merge）：两端均为表格且列数一致（跨页表格列数一致性）。
 """
 
@@ -17,11 +18,15 @@ from docs_core.step04_structure.popo.popo_signal_aligner import (
     AlignmentResult,
     align_popo_blocks,
 )
+from docs_core.step04_structure.shared.row_vocabulary import ROW_TEXT_TYPES
 from docs_core.step04_structure.shared.table_html_utils import parse_table_html
 
 logger = logging.getLogger(__name__)
 
-_CONTINUABLE_TYPES = {"paragraph", "list_item"}
+# 校验对象是 solo 节点（MinerU 行词汇）——历史上这里写的是 canonical 名
+# `list_item`，生产行里 list_item=0 / list=6157，列表续接判定 100% 被拒
+# （docs/plan-popo-type-vocabulary.md）。一律引 ROW_TEXT_TYPES。
+_CONTINUABLE_TYPES = ROW_TEXT_TYPES
 
 
 def build_contd_instructions(
@@ -113,8 +118,13 @@ def validate_instruction(
     if kind == "contd":
         if source_type not in _CONTINUABLE_TYPES or target_type not in _CONTINUABLE_TYPES:
             return False, f"类型不兼容: {source_type} -> {target_type}"
-        if target_type == "title":
-            return False, "续接目标为标题（不跨标题合并）"
+        # 两端同型：popo_block_merger._merge_text_fragments 只要任一侧带
+        # paragraph_content 就走文本拼接分支、另一侧 list_items 结构被整块丢弃
+        # （flatten）。paragraph↔list 混合判定放开后很常见，不同型一律拒收，
+        # 否则放开 list 是负收益（plan-popo-type-vocabulary.md §1.3 修订）。
+        # title 天然不在 _CONTINUABLE_TYPES——不跨标题合并由上一行+中间标题扫描兜底。
+        if source_type != target_type:
+            return False, f"续接两端不同型: {source_type} -> {target_type}"
         # 按 (page_idx, block_seq) 阅读序，两端之间不得有标题
         ordered = sorted(
             nodes_by_uid.values(),

@@ -11,11 +11,19 @@
 import re
 from typing import Any, Dict, List, Optional
 
+from docs_core.step04_structure.shared.row_vocabulary import ROW_TEXT_TYPES
 from docs_core.step04_structure.shared.table_html_utils import parse_table_html
 
 CONTINUATION_MARKER_RE = re.compile(
     r"续表|续前|续上|续\s*表|continued|\(续\)",
     re.IGNORECASE,
+)
+
+# 续表标记的扫描范围：正文文本类行 + 标题 + 页眉。**必须含 `list`**——标记写在
+# 列表块里时旧集合（缺 list）会漏检（plan-popo-type-vocabulary.md 漏项）；
+# text/list_item 是历史别名，保留不影响命中。
+_MARKER_SCAN_TYPES = frozenset(
+    ROW_TEXT_TYPES | {"title", "text", "list_item", "page_header", "header"}
 )
 
 # 至少两条证据同时满足才合并（防误并）
@@ -120,9 +128,7 @@ def _continuation_marker_before(
     for node in ordered:
         if int(node.get("page_idx") or 0) != page:
             continue
-        if node.get("block_type") not in (
-            "title", "paragraph", "text", "list_item", "page_header", "header"
-        ):
+        if node.get("block_type") not in _MARKER_SCAN_TYPES:
             continue
         if not CONTINUATION_MARKER_RE.search(str(node.get("plain_text") or "")):
             continue

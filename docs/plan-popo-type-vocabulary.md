@@ -105,7 +105,7 @@
 ## 6. 验证清单
 
 - [x] step 1：契约测试 8 例绿；`CanonicalBlock` 拒绝 `list` 已钉；docs-core 全套 386 passed
-- [ ] step 2+3：injector/标记集用例绿；**把 `list` 从 `ROW_TEXT_TYPES` 去掉后对应用例转红**
+- [x] step 2+3：`tests/test_popo_contd_type_rules.py` 11 例绿（list↔list 过、不同型拒、标记集含 list）；敏感度用例 monkeypatch 摘掉 `list` 后两条规则均转红；docs-core 全套 397 passed。2c（solo_engine ②③ 注释）随该文件在途的跨页改动一并提交
 - [ ] step 6：list 合并数 >0、`list_items` 完整、抽检质量通过
 - [ ] step 7 后：`meta.stats` popo 判定计数、列表合并数可查；nightly 对照新基线
 - [ ] 文档更新（`docs/parse-struct-eval.md`）+ 结论挂权威源
