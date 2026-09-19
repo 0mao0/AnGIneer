@@ -105,7 +105,7 @@
 ## 6. 验证清单
 
 - [x] step 1：契约测试 8 例绿；`CanonicalBlock` 拒绝 `list` 已钉；docs-core 全套 386 passed
-- [x] step 2+3：`tests/test_popo_contd_type_rules.py` 11 例绿（list↔list 过、不同型拒、标记集含 list）；敏感度用例 monkeypatch 摘掉 `list` 后两条规则均转红；docs-core 全套 397 passed。2c（solo_engine ②③ 注释）随该文件在途的跨页改动一并提交
+- [x] step 2+3：`tests/test_popo_contd_type_rules.py` 13 例绿（list↔list 过、不同型拒、标记集含 list、merger 侧 list_items 保全 + 混合 flatten 实证）；敏感度用例 monkeypatch 摘掉 `list` 后两条规则均转红；docs-core 全套 397 passed。2c（solo_engine ②③ 注释）随该文件在途的跨页改动一并提交。注：haigang2 等真实数据 e2e 用例在本机 skip（数据在服务器），端到端增益待 step 6 抽样验证
 - [ ] step 6：list 合并数 >0、`list_items` 完整、抽检质量通过
 - [ ] step 7 后：`meta.stats` popo 判定计数、列表合并数可查；nightly 对照新基线
 - [ ] 文档更新（`docs/parse-struct-eval.md`）+ 结论挂权威源

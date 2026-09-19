@@ -12,6 +12,10 @@ from __future__ import annotations
 
 from docs_core.step04_structure.popo import popo_signal_injector as injector_mod
 from docs_core.step04_structure.popo import popo_table_continuation as table_cont_mod
+from docs_core.step04_structure.popo.popo_block_merger import (
+    _merge_text_fragments,
+    merge_blocks,
+)
 from docs_core.step04_structure.popo.popo_signal_injector import validate_instruction
 from docs_core.step04_structure.popo.popo_table_continuation import (
     _MARKER_SCAN_TYPES,
@@ -147,3 +151,37 @@ def test_marker_rule_flips_when_list_removed(monkeypatch) -> None:
         ("d:1:2", "table", 1, 2, ""),
     ).values()
     assert _continuation_marker_before(list(ordered), 1, 2) is False
+
+
+# ── merger 侧：放开 list 的安全前提与同型约束的实证 ──────────────────
+
+def test_merge_list_pair_preserves_list_items() -> None:
+    """放开 list↔list 的安全前提：合并走 list_items 分支，两端条目深拷贝拼接、不 flatten。"""
+    nodes = [
+        {
+            "block_uid": "d:0:1", "block_type": "list", "page_idx": 0, "block_seq": 1,
+            "plain_text": "第一项", "contd_target_id": "d:1:1",
+            "content_json": {"list_items": [{"content": "第一项"}]},
+        },
+        {
+            "block_uid": "d:1:1", "block_type": "list", "page_idx": 1, "block_seq": 1,
+            "plain_text": "第二项",
+            "content_json": {"list_items": [{"content": "第二项"}]},
+        },
+    ]
+    survivors, stats = merge_blocks("d", nodes)
+    assert stats["applied"] == 1
+    merged = next(n for n in survivors if n["block_uid"] == "d:0:1")
+    assert [i["content"] for i in merged["content_json"]["list_items"]] == ["第一项", "第二项"]
+    assert "paragraph_content" not in merged["content_json"]
+    assert merged["plain_text"] == "第一项第二项"
+
+
+def test_mixed_type_merge_flattens_list_items() -> None:
+    """同型约束的 hazard 实证：不同型（paragraph↔list）时 paragraph_content 分支胜出、
+    list_items 整块丢失——这正是 injector 把混合判拒收的原因。"""
+    src = {"content_json": {"paragraph_content": [{"type": "text", "content": "段落"}]}}
+    tgt = {"content_json": {"list_items": [{"content": "列表项"}]}}
+    merged = _merge_text_fragments(src, tgt)
+    assert "list_items" not in merged
+    assert merged["paragraph_content"][0]["content"] == "段落"
