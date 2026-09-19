@@ -1,4 +1,4 @@
-"""按「结构层重建」回填存量文档：structure → figure_describe → fts → vectors。
+"""按「结构层重建」回填存量文档：popo（可选）→ structure → figure_describe → fts → vectors。
 
 为什么需要它：解析侧的改动（题注指针 / title 短行提升 / 续接文本重归属）都落在
 `structure` 阶段，而**存量文档不会自动更新**。现有的「重试/批量重试」只补**缺失**阶段
@@ -7,8 +7,17 @@
 
 为什么跳过 `raw_parse`：`structure` 只校验 `mineru_raw/` 目录存在
 （`parse_pipeline.py` 的 `_verify_mineru_raw_input`），MinerU 的产物是留存的 → 不重跑
-MinerU（GPU/网络，~13.6–17.5 s/页）。同理不重跑 `popo`（`parsed/popo/` 产物在盘上，
-structure 会读它做信号注入）。
+MinerU（GPU/网络，~13.6–17.5 s/页）。
+
+popo 阶段（step 7 起）：金标链防重入——已有有效 enriched_blocks.json 默认**跳过**推理
+（PoPo 4B 推理走远端端点，昂贵且历史产物有效时重跑纯属烧 GPU），`--force-popo` 强制
+重跑（用于吞吐校准与端点修复后的补判）；强制重跑前先把旧 popo 产物备份进备份目录，
+推理失败则回滚旧产物再按 fallback=solo 继续 structure（与生产 `_run_popo` 同语义，
+瞬时失败重试参数直接复用 parse_pipeline，不另立口径）。
+
+计时（step 7 起）：每阶段记录起止 UTC 时间戳 + 墙钟秒写进 progress.json——
+step 6 缺计时导致 PoPo/structure 吞吐只能粗估（备份副本保留源 mtime，差值不可用），
+本次必须逐阶段落数。
 
 为什么必须紧跟 `figure_describe`：`structure` 会重写 `doc_blocks_graph.jsonl`，把 VLM 写的
 `figure_description` 抹掉；而描述会在 `fts` 阶段被拼进 canonical 可检索文本。不补跑 = 图那部分
@@ -37,7 +46,7 @@ for _p in (REPO / "services" / "docs-core" / "src", REPO / "services" / "anginee
 
 import docs_core.paths as paths  # noqa: E402
 
-STAGES = ("structure", "figure_describe", "fts", "vectors")
+STAGES = ("popo", "structure", "figure_describe", "fts", "vectors")
 
 
 def _doc_ids(library_id: str, explicit: str, limit: int) -> list[str]:
@@ -82,6 +91,86 @@ def _backup(library_id: str, doc_id: str, backup_dir: Path) -> Path:
     if md.exists():
         shutil.copy2(md, dst_dir / "content.md")
     return dst_dir
+
+
+def _utc_now() -> str:
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+
+def _popo_enriched_valid(library_id: str, doc_id: str) -> bool:
+    """金标链防重入判据：盘上有可解析且非空的 enriched_blocks.json 即视为有效。"""
+    from docs_core.docs_file_io import file_storage
+
+    try:
+        return bool(file_storage.read_popo_enriched_blocks(library_id, doc_id))
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def _run_popo_stage(library_id: str, doc_id: str, *, force: bool) -> dict:
+    """PoPo 4B 推理（远端端点子进程链）。返回 action 记录、**不抛**：structure 永远由
+    Solo 构建，popo 只作信号源——失败只丢信号（fallback=solo），与生产 `_run_popo` 同语义。
+    瞬时失败重试直接复用 parse_pipeline 的常量与判据（单一真相源，不另立口径）。"""
+    import docs_core.paths as paths
+    from docs_core.parse_pipeline import (
+        _POPO_INFERENCE_RETRIES,
+        _POPO_RETRY_BACKOFF_SECONDS,
+        _is_transient_popo_failure,
+    )
+    from docs_core.step03_mineru_parse.popo_enhance import get_popo_pipeline
+
+    if _popo_enriched_valid(library_id, doc_id) and not force:
+        return {"action": "skipped", "reason": "已有有效 enriched_blocks.json（--force-popo 可强制重跑）"}
+    pipeline = get_popo_pipeline()
+    if not pipeline.is_available():
+        return {"action": "skipped", "reason": "PoPo 子模块不可用"}
+    mineru_raw_dir = paths.get_mineru_raw_dir(library_id, doc_id)
+    source_dir = paths.get_source_dir(library_id, doc_id)
+    pdfs = sorted(source_dir.glob("*.pdf"))
+    if not pdfs:
+        # 没跑过推理，盘上旧产物不能动
+        return {"action": "failed_fallback_solo", "attempted": False, "reason": "source 目录无 PDF，无法做 PoPo 裁剪输入"}
+
+    attempt = 0
+    while True:
+        try:
+            pipeline.run_full_pipeline(
+                mineru_raw_dir=str(mineru_raw_dir),
+                output_dir=str(paths.get_popo_dir(library_id, doc_id)),
+                doc_id=doc_id,
+                source_pdf_path=str(pdfs[-1]),
+                source_dir=str(source_dir),
+                on_step=lambda step, status="done", detail="": print(
+                    f"    popo:{step} {status} {detail[:120]}"
+                ),
+            )
+            break
+        except Exception as exc:  # noqa: BLE001
+            if attempt < _POPO_INFERENCE_RETRIES and _is_transient_popo_failure(exc):
+                attempt += 1
+                print(f"    popo 瞬时失败，第 {attempt}/{_POPO_INFERENCE_RETRIES} 次重试（退避 {_POPO_RETRY_BACKOFF_SECONDS * attempt:.0f}s）")
+                time.sleep(_POPO_RETRY_BACKOFF_SECONDS * attempt)
+                continue
+            return {"action": "failed_fallback_solo", "attempted": True, "reason": f"{type(exc).__name__}: {str(exc)[:200]}"}
+
+    from docs_core.docs_file_io import file_storage
+
+    n = len(file_storage.read_popo_enriched_blocks(library_id, doc_id))
+    return {"action": "inferred", "blocks": n, "retries": attempt}
+
+
+def _timed(rec: dict, stage: str, fn):
+    """跑一段并把起止 UTC 时间戳 + 墙钟秒记进 rec['stages'][stage]（step 7 计时要求）。"""
+    t0 = time.time()
+    start = _utc_now()
+    result = fn()
+    rec["stages"][stage] = {
+        "start": start,
+        "end": _utc_now(),
+        "seconds": round(time.time() - t0, 1),
+        "result": result,
+    }
+    return result
 
 
 def _run_structure(library_id: str, doc_id: str) -> dict:
@@ -144,6 +233,7 @@ def main() -> int:
     ap.add_argument("--apply", action="store_true", help="真的写盘（默认 dry-run）")
     ap.add_argument("--backup-dir", default="", help="备份 doc_blocks_graph.jsonl + meta + content.md")
     ap.add_argument("--skip-figure-describe", action="store_true", help="跳过图描述补跑（接受描述丢失）")
+    ap.add_argument("--force-popo", action="store_true", help="忽略防重入守卫，强制重跑 PoPo 推理（吞吐校准/端点修复后补判用）")
     ap.add_argument("--progress", default="", help="进度文件（断点续跑；默认 <backup-dir>/progress.json）")
     args = ap.parse_args()
 
@@ -184,10 +274,22 @@ def main() -> int:
         try:
             before = _counts(args.library, doc_id)
             rec["backup"] = str(_backup(args.library, doc_id, backup_dir))
-            rec["stages"]["structure"] = _run_structure(args.library, doc_id)
+            # 强制重跑推理前先把旧 popo 产物备份进备份目录：失败回滚用（与生产 _rollback_popo_products 同目的）
+            popo_dir = paths.get_popo_dir(args.library, doc_id)
+            popo_backup = backup_dir / doc_id / "popo-before"
+            if (args.force_popo or not _popo_enriched_valid(args.library, doc_id)) and popo_dir.is_dir() and not popo_backup.exists():
+                shutil.copytree(popo_dir, popo_backup)
+            _timed(rec, "popo", lambda: _run_popo_stage(args.library, doc_id, force=args.force_popo))
+            popo_res = rec["stages"]["popo"]["result"]
+            if popo_res.get("action") == "failed_fallback_solo" and popo_res.get("attempted"):
+                # 推理跑了但失败：半成品不能被 structure 当有效信号读——有旧产物回滚旧的，没有就清掉
+                shutil.rmtree(popo_dir, ignore_errors=True)
+                if popo_backup.is_dir():
+                    shutil.copytree(popo_backup, popo_dir)
+            _timed(rec, "structure", lambda: _run_structure(args.library, doc_id))
             if not args.skip_figure_describe:
-                rec["stages"]["figure_describe"] = _run_figure_describe(args.library, doc_id)
-            rec["stages"]["fts"] = _run_fts(args.library, doc_id)
+                _timed(rec, "figure_describe", lambda: _run_figure_describe(args.library, doc_id))
+            _timed(rec, "fts", lambda: _run_fts(args.library, doc_id))
             _run_vectors(doc_id)
             rec["stages"]["vectors"] = "ok"
             rec["before"] = before
@@ -202,18 +304,32 @@ def main() -> int:
         progress_path.write_text(json.dumps(done, ensure_ascii=False, indent=1), encoding="utf-8")
         if rec["status"] == "done":
             b, a = rec.get("before", {}), rec.get("after", {})
+            struc = (rec["stages"].get("structure") or {}).get("result") or {}
+            popo_res = (rec["stages"].get("popo") or {}).get("result") or {}
+            secs = {k: v.get("seconds") for k, v in rec["stages"].items() if isinstance(v, dict) and "seconds" in v}
             print(
                 f"[{idx}/{len(runnable)}] {doc_id} 完成 {rec['seconds']}s  "
+                f"popo={popo_res.get('action', '?')}  "
                 f"空段落 {b.get('空段落')}→{a.get('空段落')}  title块 {b.get('title块')}→{a.get('title块')}  "
                 f"图描述 {b.get('有描述')}/{b.get('图块')}→{a.get('有描述')}/{a.get('图块')}  "
-                f"重归属 {rec['stages']['structure'].get('continuation_text_reattaches')}"
+                f"重归属 {struc.get('continuation_text_reattaches')}  分阶段耗时 {secs}"
             )
 
     ok = sum(1 for v in done.values() if v.get("status") == "done")
     failed = [k for k, v in done.items() if v.get("status") == "failed"]
-    print(f"\n完成 {ok}/{len(runnable)}；失败 {len(failed)}")
+    popo_tally: dict[str, int] = {}
+    popo_solo_fallback: list[str] = []
+    for record_doc, v in done.items():
+        res = ((v.get("stages") or {}).get("popo") or {}).get("result") or {}
+        action = res.get("action", "-")
+        popo_tally[action] = popo_tally.get(action, 0) + 1
+        if action == "failed_fallback_solo":
+            popo_solo_fallback.append(record_doc)
+    print(f"\n完成 {ok}/{len(runnable)}；失败 {len(failed)}；popo 阶段计数 {popo_tally}")
     if failed:
         print("失败清单:", ", ".join(failed[:20]))
+    if popo_solo_fallback:
+        print("popo 失败回退 solo 的篇目:", ", ".join(popo_solo_fallback[:20]))
     print(f"进度/审计: {progress_path}")
     return 0 if not failed else 1
 
