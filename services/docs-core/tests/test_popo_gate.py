@@ -252,3 +252,28 @@ def test_run_pipeline_completed_stage_preserves_work_started_at(monkeypatch, tmp
     match = re.search(r"耗时([\d.]+)秒", row["message"])
     assert match is not None
     assert float(match.group(1)) < 0.2
+
+
+def test_popo_endpoint_unavailable_goes_through_retry(monkeypatch, tmp_path) -> None:
+    """端点全挂（静默空串被 popo_enhance 提升为异常）必须走重试，而不是直接判死。
+
+    2026-09-20 实测：25 篇里 1 篇遇到瞬时端点失败；若这个异常不被认成瞬时，
+    就会绕过 `POPO_INFERENCE_RETRIES` 直接回滚，白丢该篇的 PoPo 判定。
+    """
+    from docs_core.step03_mineru_parse.popo_enhance import PopoEndpointUnavailableError
+
+    gate = _FifoGpuGate(max_concurrency=1)
+    meta = _FakeMetaStore()
+    ks = _FakeKS()
+    monkeypatch.setattr(pp, "get_docs_service", lambda: ks)
+    monkeypatch.setattr(pp, "_POPO_GATE", gate)
+    monkeypatch.setattr(pp, "_POPO_INFERENCE_RETRIES", 1)
+    exc = PopoEndpointUnavailableError("PoPo 推理端点全部失败（端点失败 1 次：https://x/v1）")
+    pipeline = _FakePopoPipeline(fail_times=1, exc=exc)
+    _patch_env(monkeypatch, tmp_path, pipeline)
+
+    ctx = _make_ctx(tmp_path, meta)
+    msg = pp._run_popo(ctx)
+    assert msg.startswith("PoPo 强化完成")
+    assert pipeline.calls == 2, "端点失败没有被重试"
+    assert ctx.fallback_target is None

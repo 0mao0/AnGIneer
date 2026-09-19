@@ -675,6 +675,12 @@ _POPO_TRANSIENT_MARKERS = (
 
 def _is_transient_popo_failure(exc: Exception) -> bool:
     """PoPo 子进程失败是否为瞬时错误（远端抖动/超时），决定是否重试。"""
+    from docs_core.step03_mineru_parse.popo_enhance import PopoEndpointUnavailableError
+
+    # 端点全挂是 popo_enhance 在"子进程退出码为 0、静默返回空串"时主动抛的：
+    # 必须走重试，否则一次抖动就把这一篇的 PoPo 判定白丢（2026-09-20 实测 25 篇里 1 篇）。
+    if isinstance(exc, PopoEndpointUnavailableError):
+        return True
     if isinstance(exc, subprocess.TimeoutExpired):
         return True
     if isinstance(exc, subprocess.CalledProcessError):

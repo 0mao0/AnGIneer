@@ -2,6 +2,7 @@
 import json
 import logging
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -24,6 +25,59 @@ def _env_int(name: str, default: int) -> int:
     except ValueError:
         logger.warning("PoPo: invalid %s=%r, using default %d", name, raw, default)
         return default
+
+
+class PopoEndpointUnavailableError(RuntimeError):
+    """PoPo 推理端点全部失败（瞬时抖动或持续不可用）。
+
+    单独建类型是为了让 `parse_pipeline._is_transient_popo_failure` 能把它认成瞬时失败、
+    走既有的重试（`POPO_INFERENCE_RETRIES`）——用裸 RuntimeError 会被判成永久失败，
+    直接回滚产物、白丢这一篇的判定。
+    """
+
+
+_POPO_ENDPOINT_FAILURE_RE = re.compile(r"POPO endpoint\s+(\S+)\s+failed", re.IGNORECASE)
+
+
+def _popo_endpoint_failures(text: str) -> List[str]:
+    """从子进程输出里捞出端点级失败（返回失败的端点地址列表）。
+
+    `model_utils.popo_generate` 在**所有端点都失败**时只 `return ""`、不抛异常，子进程退出码
+    因此仍是 0——阶段会被记成 done，而产物里一个判定都没有（2026-09-20 实测：1,890 篇里
+    contd 有 245 篇是"问了却回空"）。它唯一的痕迹就是那行 `print`，必须显式捞出来。
+    """
+    return _POPO_ENDPOINT_FAILURE_RE.findall(text or "")
+
+
+def _count_popo_verdicts(enriched_dir: Path, doc_id: str) -> Dict[str, int]:
+    """统计 enriched 产物里模型真给出的判定数（contd/level/image 非负计数）。
+
+    用于区分"无候选（模型没被问）"与"问了却没产出"——只有计数才能真正反映这一步的成效。
+    """
+    counts = {"blocks": 0, "contd": 0, "level": 0, "image": 0}
+    path = enriched_dir / f"{doc_id}.json"
+    if not path.is_file():
+        cands = sorted(enriched_dir.glob("*.json"))
+        if not cands:
+            return counts
+        path = cands[0]
+    try:
+        blocks = json.loads(path.read_text(encoding="utf-8", errors="replace"))
+    except (OSError, ValueError):
+        return counts
+    if isinstance(blocks, dict):
+        blocks = blocks.get("blocks") or []
+    for block in blocks if isinstance(blocks, list) else []:
+        if not isinstance(block, dict):
+            continue
+        counts["blocks"] += 1
+        for key in ("contd", "level", "image"):
+            try:
+                if int(block.get(key, -1)) >= 0:
+                    counts[key] += 1
+            except (TypeError, ValueError):
+                continue
+    return counts
 
 
 def _decode_output(data: Optional[bytes]) -> str:
@@ -91,8 +145,11 @@ class PoPoPipelineRunner:
     def _run_script(
         self, args: List[str], *, env: Dict[str, str], timeout: int, stage: str,
         cancel_check: Optional[Callable[[], None]] = None,
-    ) -> None:
+    ) -> str:
         """统一执行 PoPo 子脚本：按字节捕获输出并宽松解码，统一错误日志。
+
+        返回 `stdout\\nstderr` 合并文本——子脚本会把"端点失败"打成 print 而不是异常
+        （见 `_popo_endpoint_failures`），退出码为 0 时这些内容只能靠调用方检查。
 
         cancel_check：可选取消检查回调（自身抛取消异常），运行期间每 0.5s 轮询一次；
         触发取消时先 kill 子进程再向上传播。
@@ -127,17 +184,18 @@ class PoPoPipelineRunner:
                         stage, _decode_output(stderr), _decode_output(stdout),
                     )
                     raise err
-                return
+                return _decode_output(stdout) + "\n" + _decode_output(stderr)
             except BaseException:
                 if proc.poll() is None:
                     proc.kill()
                     proc.wait()
                 raise
         try:
-            subprocess.run(
+            done = subprocess.run(
                 args, env=env, check=True, timeout=timeout, capture_output=True,
                 creationflags=creationflags,
             )
+            return _decode_output(done.stdout) + "\n" + _decode_output(done.stderr)
         except subprocess.CalledProcessError as exc:
             stderr = _decode_output(exc.stderr)
             stdout = _decode_output(exc.stdout)
@@ -281,7 +339,7 @@ class PoPoPipelineRunner:
         # ---- Step 2: Inference (cloud 4B API via vLLM) ----
         enriched_out = tmp / "enriched"
         try:
-            self._run_script(
+            infer_output = self._run_script(
                 [sys.executable, str(self._popo_script("post_processing/run_inference.py")),
                  "--model", "mineru",
                  "--input-dir", str(normalized_out),
@@ -296,7 +354,25 @@ class PoPoPipelineRunner:
         except Exception as exc:
             _emit_on_step(on_step, "PoPo 4B 推理", "failed", f"{type(exc).__name__}: {str(exc)[:160]}")
             raise
-        _emit_on_step(on_step, "PoPo 4B 推理", "done", "")
+        # 非空校验：端点全挂时 popo_generate 只 return ""、退出码仍是 0，阶段会被记成 done
+        # 而产物里一个判定都没有。这里把它变成显式失败（popo 是 soft 阶段，不影响后续解析）。
+        failed_endpoints = _popo_endpoint_failures(infer_output)
+        if failed_endpoints:
+            detail = f"端点失败 {len(failed_endpoints)} 次：{failed_endpoints[0]}"
+            _emit_on_step(on_step, "PoPo 4B 推理", "failed", detail)
+            raise PopoEndpointUnavailableError(
+                f"PoPo 推理端点全部失败，本文档没有可用判定（{detail}）"
+                "；历史行为是静默返回空串、阶段记 done，故此前一直不可见"
+            )
+        verdicts = _count_popo_verdicts(enriched_out, doc_id)
+        logger.info("PoPo 判定产出: %s", verdicts)
+        _emit_on_step(
+            on_step,
+            "PoPo 4B 推理",
+            "done",
+            f"判定 contd {verdicts['contd']} / level {verdicts['level']} / image {verdicts['image']}"
+            f"（{verdicts['blocks']} 块）",
+        )
 
         # ---- Step 3: Build document tree ----
         tree_out = tmp / "tree"
