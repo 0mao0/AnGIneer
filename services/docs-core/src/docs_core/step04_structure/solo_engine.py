@@ -1650,6 +1650,13 @@ def detect_toc_row_ids(rows: list[Any]) -> set[int]:
 
 
 _AUX_BLOCK_TYPES = {"page_header", "page_footer", "page_number", "header", "footer"}
+# solo 兜底续文对（空块对 _is_empty_continuation_pair / 碎片对 _is_fragment_continuation_pair）
+# 的候选类型——**故意不含 `list`**，与 injector 的 ROW_TEXT_TYPES（含 list）有意分歧：
+# 这两个兜底合并把结果写进 paragraph_content（见跨页合并 pass 的 content_json 写入），
+# 若命中 list 块会绕过其 list_items 结构——与 popo_block_merger flatten 同一课。
+# 且「空块/碎片」现象至今只在段落上观测到，列表装配无此类残留证据，维持现状
+# （排查记录 docs/plan-popo-type-vocabulary.md §1.2 ②③）。
+# text/list_item 是历史别名（生产行 list_item=0 / text=0），仅为兼容历史产物保留。
 _CONT_TEXT_BLOCK_TYPES = {"paragraph", "text", "list_item"}
 _TERMINAL_PUNCT = set("。！？；;!?）】」』》\"”’)].")
 _HEADING_NUMBER_RE = re.compile(r"^\d+(?:\.\d+)*\s*")
@@ -1768,6 +1775,31 @@ def _suffix_cut_index(raw: str, suffix_key: str) -> int | None:
 
 _REATTACH_MIN_TEXT = 8
 _REATTACH_MIN_REMAIN = 8
+# 页边饰：不属于正文流，跨页找承载块时可以跳过（_AUX_BLOCK_TYPES 另加脚注，避免两处清单漂移）
+_PAGE_FURNITURE_TYPES = _AUX_BLOCK_TYPES | {"page_footnote"}
+
+
+def _prev_page_flow_tail(prev_rows: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """上一页正文流最后一个非空 paragraph（跳过页边饰与空块，遇其它块型即停）。
+
+    跨页续接的承载块必然是上一页**最后一段正文**；页脚/页码之类只是版式尾巴，
+    不是"最后一段"，所以要跳过；而一遇到表格/图片/公式/标题就说明承载块不在这一页了，
+    宁可返回 None 也不越过它们去凑一个后缀（实测越界命中的多是模板套话的巧合）。
+    """
+    for row in reversed(prev_rows):
+        btype = str(row.get("block_type") or "")
+        if btype in _PAGE_FURNITURE_TYPES or not (row.get("plain_text") or "").strip():
+            continue
+        return row if btype == "paragraph" else None
+    return None
+
+
+def _page_has_flow_text_above(page_rows: list[dict[str, Any]], idx: int) -> bool:
+    """该行上方是否已有非空正文段落（有则不可能是页首续接）。"""
+    return any(
+        str(row.get("block_type") or "") == "paragraph" and (row.get("plain_text") or "").strip()
+        for row in page_rows[:idx]
+    )
 
 
 def _preproc_text_for_row(row: dict[str, Any], middle_payload: Any) -> str:
@@ -1826,6 +1858,11 @@ def _reattach_merged_continuation_text(rows: list[dict[str, Any]], middle_payloa
     修法：从承载块尾部摘掉这段文本、写回空块——两边都不重复，且 bbox 与文本重新一致。
     ceil 之外的形态（文本不在结尾、找不到承载块、preproc 也无文本）一律不动，
     宁可保留现状也不制造重复文本。
+
+    承载块位置有两档：先找同页紧邻的前一个 paragraph（2026-09-19 首版），找不到再找
+    上一页最后一段正文（2026-09-20 放宽，见 `_prev_page_flow_tail` 的守卫说明）。
+    生产库 lib-b07ed174 实测：跨页才是主流形态，620 个空块里 167 个的文本落在上一页末段，
+    只修同页会漏掉其中七成。
     """
     if not isinstance(middle_payload, dict):
         return 0
@@ -1834,6 +1871,7 @@ def _reattach_merged_continuation_text(rows: list[dict[str, Any]], middle_payloa
         by_page.setdefault(int(row.get("page_idx") or 0), []).append(row)
 
     reattached = 0
+    cut_evidence_cache: dict[int, bool | None] = {}
     for page_idx, page_rows in by_page.items():
         for idx, row in enumerate(page_rows):
             if str(row.get("block_type") or "") != "paragraph":
@@ -1853,7 +1891,19 @@ def _reattach_merged_continuation_text(rows: list[dict[str, Any]], middle_payloa
                     host = cand
                     break
             if host is None:
-                continue
+                # 跨页续接：承载块是上一页最后一段正文。两个附加证据缺一不可——
+                # 上一页末文本断在句中（middle.json 独立证据，与本页 bbox 无关），
+                # 且本行上方没有任何正文段落（真·页首）。
+                if _page_has_flow_text_above(page_rows, idx):
+                    continue
+                prev_page = page_idx - 1
+                if prev_page not in cut_evidence_cache:
+                    cut_evidence_cache[prev_page] = _page_last_text_ends_cut(middle_payload, prev_page)
+                if cut_evidence_cache[prev_page] is not True:
+                    continue
+                host = _prev_page_flow_tail(by_page.get(prev_page) or [])
+                if host is None:
+                    continue
             raw = str(host.get("plain_text") or "")
             cut = _suffix_cut_index(raw, key)
             if cut is None:

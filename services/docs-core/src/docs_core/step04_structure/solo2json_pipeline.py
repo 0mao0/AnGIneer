@@ -588,10 +588,21 @@ def build_structured_index_for_doc(
         raise ValueError(f"构建结构失败: {result.stats.get('error')}")
 
     _emit_step(on_step, "solo 规则构建", "done", f"{len(result.nodes)} blocks")
+    # 续接文本重归属是"文本搬家"，产物里看不出发生过（两块各自都正常），只在计数器上留痕：
+    # 阶段抽屉的步骤列表直接显示它，巡检时不用去翻 meta.json。
+    _emit_step(
+        on_step,
+        "续接文本重归属",
+        "done",
+        f"{result.stats.get('continuation_text_reattaches', 0)} 处",
+    )
     signal_stats: Dict[str, Any] = {"applied": 0, "rejected": 0, "skipped_reason": "skipped"}
     title_review_stats: Dict[str, Any] = {"total_titles": 0, "llm_status": "disabled", "updated": 0}
     formula_stats: Dict[str, Any] = {"total_formulas": 0, "enriched": 0, "llm_status": "disabled"}
     table_stats: Dict[str, Any] = {"total_tables": 0, "enriched": 0, "skipped": 0}
+    # 与其它 stats 一样先兜底：节点为空时下面的 if 不执行，缺这行会在组装 stats 时
+    # UnboundLocalError（空文档本该拿到一份空 stats，而不是崩在收尾处）。
+    table_cells_stats: Dict[str, Any] = {"total_tables": 0, "enriched": 0, "skipped": 0}
     if result.nodes:
         result.nodes, signal_stats, popo_candidates = _apply_popo_signals(
             library_id,
@@ -633,7 +644,10 @@ def build_structured_index_for_doc(
         result.nodes, table_cells_stats = enrich_graph_nodes_table_cells(result.nodes)
         _emit_step(on_step, "表格单元格坐标 enrich", "done", f"{table_cells_stats['enriched']} tables")
 
+    # 以引擎 stats 打底再覆盖：直接新建 dict 会把引擎侧的可观测计数（continuation_text_reattaches
+    # 等）整批丢掉，回填/巡检时看不到规则到底跑没跑（2026-09-19 canary 报"重归属 None"就是这个坑）。
     stats = {
+        **dict(result.stats or {}),
         "nodes_count": len(result.nodes),
         "edges_count": len(result.edges),
         "index_rows_count": len(result.index_rows),
@@ -646,7 +660,7 @@ def build_structured_index_for_doc(
         "table_semantics": table_stats,
         "table_cells": table_cells_stats,
     }
-    # 让落盘的 meta.stats 携带管线级 stats（含 popo/标题复核/公式语义），而非 solo_engine 原始 stats
+    # 让落盘的 meta.stats 携带管线级 stats（含 popo/标题复核/公式语义）+ 引擎计数
     result.stats = stats
     graph_path = _save_doc_blocks_graph(library_id, doc_id, result)
     _emit_step(on_step, "jsonl + meta 落盘", "done", graph_path)
