@@ -706,6 +706,14 @@ def build_formula_representations(
     }
 
 
+# 公式解释段的候选类型——**canonical 词汇**（BlockType），不是 MinerU 行词汇：
+# 本模块两条调用路（step05 canonical_builder.normalize_block_type、下方
+# _NODE_TYPE_ALIASES）都已把 `list`→`list_item`，CanonicalBlock 的 Literal 也
+# 直接拒绝 `list`。此处 `list_item` 已覆盖列表内容，勿再并入 ROW_TEXT_TYPES
+# （2026-09-20 词汇漂移排查曾误判此处为漂移点，见 docs/plan-popo-type-vocabulary.md）。
+_CANONICAL_EXPLANATION_TEXT_TYPES = frozenset({"paragraph", "list_item"})
+
+
 # 从公式块下文定位解释段（section_path + reading_order 邻近）。公式后紧跟的
 # 同节段落优先，可跨一页取邻近段。
 def _iter_canonical_explanation_blocks(
@@ -722,7 +730,7 @@ def _iter_canonical_explanation_blocks(
             break
         if nb.block_type == "formula":
             continue
-        if nb.block_type not in {"paragraph", "list_item"}:
+        if nb.block_type not in _CANONICAL_EXPLANATION_TEXT_TYPES:
             continue
         same_section = (nb.section_path == block.section_path) or not nb.section_path
         nearby = abs(int(nb.page_idx or 0) - int(block.page_idx or 0)) <= 1
