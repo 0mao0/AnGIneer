@@ -50,8 +50,12 @@ class IsRefusalTextTests(unittest.TestCase):
         for text in REAL_MISSED_REFUSALS:
             self.assertTrue(is_refusal_text(text), text[:40])
 
-    def test_legacy_wording_still_recognized(self):
+    def test_current_wording_recognized(self):
         self.assertTrue(is_refusal_text("没有检索到足够证据支持最终结论。"))
+
+    def test_legacy_wording_still_recognized(self):
+        """「知识库未能检索到相关答案。」是 v0.2.70–v0.2.72 的过渡话术，回放旧数据时仍在。"""
+        self.assertTrue(is_refusal_text("知识库未能检索到相关答案。"))
 
     def test_real_genuine_answers_are_not_refusals(self):
         for text in REAL_GENUINE_ANSWERS:

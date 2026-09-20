@@ -22,7 +22,7 @@ from angineer_core.agent_messages import AgentMessage  # noqa: E402
 from angineer_core.classifier import IntentClassifier  # noqa: E402
 from angineer_core.tool_codec import TextToolCallCodec  # noqa: E402
 
-REFUSAL = "知识库未能检索到相关答案。当前仅能确认已有片段与问题相关，但不足以安全地给出完整答案。"
+REFUSAL = "没有检索到足够证据支持最终结论。当前仅能确认已有片段与问题相关，但不足以安全地给出完整答案。"
 
 
 class TestScoresAnnotation(unittest.TestCase):

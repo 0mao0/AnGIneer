@@ -126,7 +126,7 @@ run_end（reason：completed / should_stop / cancelled / max_turns）
 
 **提示词侧**（`prompts/agent_configs.py`）：
 
-- 未调用任何检索工具前禁止直接回答"知识库未能检索到相关答案"；
+- 未调用任何检索工具前禁止直接回答"没有检索到足够证据"；
 - 证据只覆盖部分内容时，先答已支持部分并明确说明缺失项，禁止整体拒答（QA v6）；
 - 末尾追问必须为邀请式问句（"您是否想知道…？"），不得写成向用户索取答案的内容问句（followup_question_rule v3）；
 - 查表/数值/尺度类必须优先 table_search 且用原问法；

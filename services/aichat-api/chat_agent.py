@@ -49,7 +49,7 @@ def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
         if not nodes:
             logger.warning(
                 "知识库 %s 的 document 节点为空（该库节点总数 %d，进程内已加载库数 %d）："
-                "检索工具将拿到空范围，回答会退化为「知识库未能检索到相关答案」",
+                "检索工具将拿到空范围，回答会退化为「没有检索到足够证据」",
                 library_id, len(all_nodes), len(getattr(kp, "libraries", []) or []),
             )
         return nodes

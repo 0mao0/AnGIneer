@@ -36,7 +36,7 @@ class QaConfigTests(unittest.TestCase):
         self.assertEqual(config.max_turns, 3)
         self.assertIsInstance(config.codec, TextToolCallCodec)
         self.assertIn("检索证据", config.system_prompt)
-        self.assertIn("知识库未能检索到相关答案", config.system_prompt)
+        self.assertIn("没有检索到足够证据支持最终结论", config.system_prompt)
 
     def test_custom_tools_override(self):
         tool = Mock(name="custom_tool")
@@ -99,12 +99,12 @@ class QaConfigTests(unittest.TestCase):
                 content='{"items": [{"item_id": "a", "text": "集成 17 类算法、12 个模型", "metadata": {"cite": "K1"}}]}',
                 is_error=False,
             ),
-            AgentMessage(role="assistant", content="知识库未能检索到相关答案。"),
+            AgentMessage(role="assistant", content="没有检索到足够证据支持最终结论。"),
         ]
         result = guard(added)
         self.assertIsNotNone(result)
         answer, note = result
-        self.assertEqual(answer, "知识库未能检索到相关答案。")
+        self.assertEqual(answer, "没有检索到足够证据支持最终结论。")
         self.assertIn("拒答", note)
 
     def test_knowledge_search_and_table_search_use_separate_task_types(self):
@@ -206,7 +206,7 @@ class QaConfigTests(unittest.TestCase):
 
 
 class HalfRefusalStripTests(unittest.TestCase):
-    """P1：半拒答只删开头那句「知识库未能检索到相关答案」，保留带引用的正文。
+    """P1：半拒答只删开头那句「没有检索到足够证据支持最终结论」，保留带引用的正文。
 
     「证据不足/部分未覆盖」这类软表述是 prompt 要求模型如实说明的部分覆盖提示，
     属于合法回答，不能删（旧实现 ANGINEER_GUARD_HALF_REFUSAL 整体替换成纯拒答，
@@ -227,13 +227,13 @@ class HalfRefusalStripTests(unittest.TestCase):
 
     def test_guard_strips_hard_refusal_lead_and_keeps_body(self):
         guard = make_final_answer_guard(enforce_evidence=True)
-        answer = "知识库未能检索到相关答案。" + "已核对到的内容如下：" + self.FACT * 4
+        answer = "没有检索到足够证据支持最终结论。" + "已核对到的内容如下：" + self.FACT * 4
         self.assertGreater(len(answer), 120)  # is_half_refusal_text 的长度门槛
 
         result = guard(self._added(answer))
         self.assertIsNotNone(result)
         new_answer, note = result
-        self.assertNotIn("知识库未能检索到相关答案", new_answer)
+        self.assertNotIn("没有检索到足够证据支持最终结论", new_answer)
         self.assertIn("[K1]", new_answer)
         self.assertIn("半拒答", note)
 

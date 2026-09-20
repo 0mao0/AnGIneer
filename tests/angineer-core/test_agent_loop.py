@@ -348,7 +348,7 @@ class AgentLoopTests(unittest.TestCase):
                 yield from text_events("随便给的答案")
 
         def guard(added_messages):
-            return ("知识库未能检索到相关答案。", "边界规则：未检索到有效证据，拒绝给出最终结论")
+            return ("没有检索到足够证据支持最终结论。", "边界规则：未检索到有效证据，拒绝给出最终结论")
 
         llm = MockLLM(handler)
         events: list = []
@@ -363,14 +363,14 @@ class AgentLoopTests(unittest.TestCase):
             emit=events.append,
         )
 
-        self.assertEqual(messages[-1].content, "知识库未能检索到相关答案。")
+        self.assertEqual(messages[-1].content, "没有检索到足够证据支持最终结论。")
         types = collect_events(events)
         self.assertIn("answer", types)
         self.assertIn("note", types)
         run_end = events[-1]
         self.assertEqual(run_end.type, "run_end")
         self.assertTrue(any(n["detail"].startswith("边界规则") for n in run_end.payload["notes"]))
-        self.assertEqual(run_end.payload["messages"][-1]["content"], "知识库未能检索到相关答案。")
+        self.assertEqual(run_end.payload["messages"][-1]["content"], "没有检索到足够证据支持最终结论。")
 
     def test_final_answer_guard_runs_without_tool_results_for_marker_cleanup(self):
         def guard(added_messages):
@@ -498,7 +498,7 @@ class AgentLoopTests(unittest.TestCase):
     def test_terminal_refusal_answer_completes(self):
         """终段产出了答案（含拒答）即正常完成，不再暴露 attempts_exhausted。"""
         events: list = []
-        llm = MockLLM(lambda messages, kwargs: text_events("知识库未能检索到相关答案。"))
+        llm = MockLLM(lambda messages, kwargs: text_events("没有检索到足够证据支持最终结论。"))
         config = AgentLoopConfig(
             llm=llm,
             tools=[],
@@ -510,7 +510,7 @@ class AgentLoopTests(unittest.TestCase):
         )
         added = run_agent_loop([], config, emit=events.append)
         self.assertEqual(events[-1].payload["reason"], "completed")
-        self.assertEqual(added[-1].content, "知识库未能检索到相关答案。")
+        self.assertEqual(added[-1].content, "没有检索到足够证据支持最终结论。")
 
     def test_empty_final_answer_gets_refusal_fallback(self):
         """终段输出为空时，引擎补一条拒答并以 completed 收尾，前端不会无结果。"""
@@ -527,7 +527,7 @@ class AgentLoopTests(unittest.TestCase):
         )
         added = run_agent_loop([], config, emit=events.append)
         self.assertEqual(events[-1].payload["reason"], "completed")
-        self.assertTrue(added[-1].content.startswith("知识库未能检索到相关答案"))
+        self.assertTrue(added[-1].content.startswith("没有检索到足够证据支持最终结论"))
         self.assertTrue(any("拒答" in n["detail"] for n in events[-1].payload["notes"]))
 
     def test_direct_answer_markers_stripped_without_tools(self):
@@ -616,7 +616,7 @@ class AgentLoopTests(unittest.TestCase):
 
         self.assertEqual(len(llm.calls), 2)
         self.assertEqual(events[-1].payload["reason"], "completed")
-        self.assertTrue(added[-1].content.startswith("知识库未能检索到相关答案"))
+        self.assertTrue(added[-1].content.startswith("没有检索到足够证据支持最终结论"))
         self.assertTrue(any("拒答" in n["detail"] for n in events[-1].payload["notes"]))
 
     def test_requires_tools_retries_current_attempt_before_fallback_and_resets_per_attempt(self):
@@ -631,7 +631,7 @@ class AgentLoopTests(unittest.TestCase):
             elif call == 2:
                 yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
             elif call == 3:
-                yield from text_events("知识库未能检索到相关答案。")
+                yield from text_events("没有检索到足够证据支持最终结论。")
             elif call == 4:
                 yield from text_events("L1 直接答")
             elif call == 5:
@@ -648,7 +648,7 @@ class AgentLoopTests(unittest.TestCase):
         def usable(added):
             for m in reversed(added):
                 if m.role == "assistant" and not m.tool_calls and (m.content or "").strip():
-                    return m.content != "知识库未能检索到相关答案。"
+                    return m.content != "没有检索到足够证据支持最终结论。"
             return False
 
         def l2_factory():
@@ -737,7 +737,7 @@ class RefusalRetryTests(unittest.TestCase):
             if call == 1:
                 yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
             elif call == 2:
-                yield from text_events("知识库未能检索到相关答案，不要自行补全。")
+                yield from text_events("没有检索到足够证据支持最终结论，不要自行补全。")
             else:
                 yield from text_events("原文提到集成 17 类算法、12 个模型，但未列出具体名称。")
 
@@ -769,9 +769,9 @@ class RefusalRetryTests(unittest.TestCase):
             if call == 1:
                 yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
             elif call == 2:
-                yield from text_events("知识库未能检索到相关答案，不要自行补全。")
+                yield from text_events("没有检索到足够证据支持最终结论，不要自行补全。")
             else:
-                yield from text_events("知识库未能检索到相关答案。")
+                yield from text_events("没有检索到足够证据支持最终结论。")
 
         llm = MockLLM(handler)
         tool = make_tool(
@@ -788,7 +788,7 @@ class RefusalRetryTests(unittest.TestCase):
         added = run_agent_loop([], config, emit=events.append)
 
         self.assertEqual(len(llm.calls), 3)  # 只重试一次，不无限循环
-        self.assertEqual(added[-1].content, "知识库未能检索到相关答案。")
+        self.assertEqual(added[-1].content, "没有检索到足够证据支持最终结论。")
         run_end = events[-1]
         self.assertEqual(run_end.payload["reason"], "completed")
         self.assertTrue(any("已要求基于证据重答" in n["detail"] for n in run_end.payload["notes"]))
@@ -801,7 +801,7 @@ class RefusalRetryTests(unittest.TestCase):
             if call == 1:
                 yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
             else:
-                yield from text_events("知识库未能检索到相关答案。")
+                yield from text_events("没有检索到足够证据支持最终结论。")
 
         llm = MockLLM(handler)
         tool = make_tool("search", lambda q: {"items": [], "total": 0})
@@ -815,7 +815,7 @@ class RefusalRetryTests(unittest.TestCase):
         added = run_agent_loop([], config, emit=events.append)
 
         self.assertEqual(len(llm.calls), 2)  # 确实无证据：拒答合理，不重试
-        self.assertTrue(added[-1].content.startswith("知识库未能检索到相关答案"))
+        self.assertTrue(added[-1].content.startswith("没有检索到足够证据支持最终结论"))
         run_end = events[-1]
         self.assertEqual(run_end.payload["reason"], "completed")
         self.assertFalse(any("已要求基于证据重答" in n["detail"] for n in run_end.payload["notes"]))
@@ -854,7 +854,7 @@ class ForcedRetrievalQueryTests(unittest.TestCase):
     """代检索保险必须用用户最近一句提问。
 
     踩坑（2026-09-11）：原先取「会话里第一条 user 消息」，多轮会话（先「你好」再「王飞」）
-    会拿开场白去检索 → 命中 0 条 → 误判无证据 → 用户拿到「知识库未能检索到相关答案」拒答。
+    会拿开场白去检索 → 命中 0 条 → 误判无证据 → 用户拿到「没有检索到足够证据支持最终结论」拒答。
     """
 
     def test_latest_user_query_skips_injected_prompts(self):
@@ -940,7 +940,7 @@ class RefusalRetryEvidenceTests(unittest.TestCase):
             if call == 1:
                 yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
             elif call == 2:
-                yield from text_events("知识库未能检索到相关答案，不要自行补全。")
+                yield from text_events("没有检索到足够证据支持最终结论，不要自行补全。")
             else:
                 yield from text_events("王飞于 2012 年 7 月入职 [K1]。")
 
