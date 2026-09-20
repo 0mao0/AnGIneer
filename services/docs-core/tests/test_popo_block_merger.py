@@ -158,12 +158,15 @@ def test_table_merge_preserves_fragment_image_paths() -> None:
 
 
 def test_table_merge_keeps_source_caption_and_target_footnote() -> None:
+    # 本题测合并机制（caption 归首页、footnote 归末页），故取**真续表**形态：续页题注与首页
+    # 同号（"续表1" ← "表1"）。编号不同即非同一张表，会被 validate_instruction 拒收
+    # （shared/table_caption.py，2026-09-20 同构异表实踩）。
     nodes = [
         _table_node("d:0:1", 0, 1, TABLE_SRC, table_merge="d:1:1", caption="表1 标题",
                     content_json={"html": TABLE_SRC, "table_caption": [{"type": "text", "content": "表1 标题"}],
                                   "table_footnote": [{"type": "text", "content": "注：来源A"}]}),
-        _table_node("d:1:1", 1, 1, TABLE_TGT, caption="表2 标题",
-                    content_json={"html": TABLE_TGT, "table_caption": [{"type": "text", "content": "表2 标题"}],
+        _table_node("d:1:1", 1, 1, TABLE_TGT, caption="续表1 标题",
+                    content_json={"html": TABLE_TGT, "table_caption": [{"type": "text", "content": "续表1 标题"}],
                                   "table_footnote": [{"type": "text", "content": "注：来源B"}]}),
     ]
     updated, _ = merge_blocks("d", nodes)

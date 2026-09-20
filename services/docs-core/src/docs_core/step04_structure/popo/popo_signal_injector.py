@@ -8,7 +8,8 @@ popo 后端 jsonl 输出一致）。每条指令先经规则校验，校验不�
 校验规则：
 - 文本续接（contd）：两端均为正文文本类行（ROW_TEXT_TYPES：paragraph/list）、
   **同型**（防混合合并 flatten 丢结构）、按阅读序中间无标题（不跨标题合并）；
-- 跨页表格（table_merge）：两端均为表格且列数一致（跨页表格列数一致性）。
+- 跨页表格（table_merge）：两端均为表格、列数一致，且**题注编号不冲突**
+  （编号不同即非同一张表——同构异表在"列数一致"上永远成立，见 shared/table_caption.py）。
 """
 
 import logging
@@ -19,6 +20,7 @@ from docs_core.step04_structure.popo.popo_signal_aligner import (
     align_popo_blocks,
 )
 from docs_core.step04_structure.shared.row_vocabulary import ROW_TEXT_TYPES
+from docs_core.step04_structure.shared.table_caption import caption_numbers
 from docs_core.step04_structure.shared.table_html_utils import parse_table_html
 
 logger = logging.getLogger(__name__)
@@ -156,6 +158,12 @@ def validate_instruction(
         target_cols = _table_column_count(target_node)
         if source_cols != target_cols:
             return False, f"跨页表格列数不一致: {source_cols} != {target_cols}"
+        # 列数一致只能"确认"、不能"否定"：同构异表（仿真结果表 Table S1..S5）列数天然相同，
+        # 单靠列数会放行模型误判的续表链。编号是能证伪的判据——与续表启发式同一条规则
+        # （single source: shared/table_caption.py，2026-09-20 实踩记录在该模块 docstring）。
+        source_number, target_number = caption_numbers(source_node, target_node)
+        if source_number and target_number and source_number != target_number:
+            return False, f"跨页表格题注编号不同: {source_number} != {target_number}"
         return True, ""
 
     return False, f"未知指令类型: {kind}"

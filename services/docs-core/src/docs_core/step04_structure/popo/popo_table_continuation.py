@@ -12,6 +12,11 @@ import re
 from typing import Any, Dict, List, Optional
 
 from docs_core.step04_structure.shared.row_vocabulary import ROW_TEXT_TYPES
+from docs_core.step04_structure.shared.table_caption import (
+    caption_numbers_conflict as _caption_numbers_conflict,
+    caption_text as _caption_text,
+    extract_table_number as _extract_table_number,
+)
 from docs_core.step04_structure.shared.table_html_utils import parse_table_html
 
 CONTINUATION_MARKER_RE = re.compile(
@@ -49,40 +54,6 @@ def _rows_of(node: Dict[str, Any]) -> List[List[str]]:
 
 def _norm_cells(row: List[str]) -> List[str]:
     return [re.sub(r"\s+", "", str(cell)) for cell in row]
-
-
-def _caption_text(node: Dict[str, Any]) -> str:
-    caption = str(node.get("caption") or "").strip()
-    if caption:
-        return caption
-    cj = node.get("content_json") if isinstance(node.get("content_json"), dict) else {}
-    items = cj.get("table_caption") or []
-    if isinstance(items, str):
-        return items.strip()
-    texts: List[str] = []
-    for item in items:
-        if isinstance(item, dict):
-            texts.append(str(item.get("content") or ""))
-        else:
-            texts.append(str(item))
-    return "".join(texts).strip()
-
-
-def _extract_table_number(caption: str) -> Optional[str]:
-    match = re.search(
-        r"(?:表|table|exhibit)\s*([A-Za-z]?[\d.]+(?:-\d+)?)",
-        caption,
-        re.IGNORECASE,
-    )
-    if not match:
-        return None
-    return re.sub(r"\s", "", match.group(1)).upper()
-
-
-def _caption_numbers_conflict(src: Dict[str, Any], tgt: Dict[str, Any]) -> bool:
-    num1 = _extract_table_number(_caption_text(src))
-    num2 = _extract_table_number(_caption_text(tgt))
-    return bool(num1 and num2 and num1 != num2)
 
 
 def _header_match(src: Dict[str, Any], tgt: Dict[str, Any]) -> bool:

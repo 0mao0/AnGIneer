@@ -134,6 +134,109 @@ def test_table_merge_rejected_when_columns_differ() -> None:
     assert "列数不一致" in reason
 
 
+def test_table_merge_rejected_when_caption_numbers_differ() -> None:
+    """同构异表（列数天然相同）靠题注编号证伪——2026-09-20 实踩：
+
+    PoPo 把 Table S1..S5 判成一条续表链，行数据被拼成一张、被吞表的表号题注消失，
+    按表号检索失锚（诊断题从"答对且表级引用正确"变成"答不出/命中别篇同名表"）。
+    """
+    html = "<table><tr><td>a</td><td>b</td></tr></table>"
+    nodes = [
+        {
+            "block_uid": "d:59:1", "block_type": "table", "page_idx": 59,
+            "block_seq": 1, "table_html": html,
+            "caption": "Table S1: Simulation results for rough U and rough A.",
+        },
+        {
+            "block_uid": "d:60:1", "block_type": "table", "page_idx": 60,
+            "block_seq": 2, "table_html": html,
+            "caption": "Table S2: Simulation results for rough U and smooth A.",
+        },
+    ]
+    instruction = {"kind": "table_merge", "source_uid": "d:59:1", "target_uid": "d:60:1"}
+    ok, reason = validate_instruction({node["block_uid"]: node for node in nodes}, instruction)
+    assert not ok
+    assert "题注编号不同" in reason
+    assert "S1" in reason and "S2" in reason
+
+
+def test_table_merge_rejected_when_figure_caption_numbers_differ() -> None:
+    """图题注同源：FIG. A.6 被吞进 FIG. A.5 属同一缺陷类（v1-549f025589ca 实踩）。"""
+    html = "<table><tr><td>a</td><td>b</td></tr></table>"
+    nodes = [
+        {
+            "block_uid": "d:17:2", "block_type": "table", "page_idx": 17,
+            "block_seq": 1, "table_html": html,
+            "caption": "FIG. A.5. Values of evaluation metrics for diferent backbones.",
+        },
+        {
+            "block_uid": "d:18:2", "block_type": "table", "page_idx": 18,
+            "block_seq": 2, "table_html": html,
+            "caption": "FIG. A.6. Values of evaluation metrics for diferent backbones.",
+        },
+    ]
+    instruction = {"kind": "table_merge", "source_uid": "d:17:2", "target_uid": "d:18:2"}
+    ok, reason = validate_instruction({node["block_uid"]: node for node in nodes}, instruction)
+    assert not ok
+    assert "题注编号不同" in reason
+
+
+def test_table_merge_valid_when_continuation_repeats_same_number() -> None:
+    """真续表：续页题注重复同号（含"续表"前缀）→ 编号一致，放行。"""
+    html = "<table><tr><td>a</td><td>b</td></tr></table>"
+    nodes = [
+        {
+            "block_uid": "d:0:1", "block_type": "table", "page_idx": 0,
+            "block_seq": 1, "table_html": html, "caption": "表 D.0.2 各工况计算结果",
+        },
+        {
+            "block_uid": "d:1:1", "block_type": "table", "page_idx": 1,
+            "block_seq": 2, "table_html": html, "caption": "续表 D.0.2",
+        },
+    ]
+    instruction = {"kind": "table_merge", "source_uid": "d:0:1", "target_uid": "d:1:1"}
+    ok, reason = validate_instruction({node["block_uid"]: node for node in nodes}, instruction)
+    assert ok, reason
+
+
+def test_table_merge_valid_when_continuation_has_no_caption() -> None:
+    """续页无题注：单侧缺编号不判冲突（沿用启发式口径，避免误杀真续表）。"""
+    html = "<table><tr><td>a</td><td>b</td></tr></table>"
+    nodes = [
+        {
+            "block_uid": "d:0:1", "block_type": "table", "page_idx": 0,
+            "block_seq": 1, "table_html": html, "caption": "表 D.0.2 各工况计算结果",
+        },
+        {
+            "block_uid": "d:1:1", "block_type": "table", "page_idx": 1,
+            "block_seq": 2, "table_html": html,
+        },
+    ]
+    instruction = {"kind": "table_merge", "source_uid": "d:0:1", "target_uid": "d:1:1"}
+    ok, reason = validate_instruction({node["block_uid"]: node for node in nodes}, instruction)
+    assert ok, reason
+
+
+def test_extract_table_number_covers_table_and_figure_captions() -> None:
+    """题注编号提取（shared/table_caption.py 单一真相源）覆盖中英文表/图题注。"""
+    from docs_core.step04_structure.shared.table_caption import (
+        caption_numbers_conflict,
+        extract_table_number,
+    )
+
+    assert extract_table_number("Table S3: Simulation results for smooth U") == "S3"
+    assert extract_table_number("TABLE 4.2.8-1 主要计算结果") == "4.2.8-1"
+    assert extract_table_number("续表 D.0.2-3") == "D.0.2-3"
+    assert extract_table_number("FIG. A.6. Values of evaluation metrics") == "A.6"
+    assert extract_table_number("无编号的说明文字") is None
+    assert not caption_numbers_conflict(
+        {"caption": "表 A.0.2"}, {"caption": "续表 A.0.2"}
+    )
+    assert caption_numbers_conflict(
+        {"caption": "Table S1: x"}, {"caption": "Table S2: x"}
+    )
+
+
 def test_degraded_alignment_skips_injection() -> None:
     """对齐降级时节点原样返回（与无 PoPo 信号一致）。"""
     nodes = [{"block_uid": "d:0:1", "block_type": "paragraph", "plain_text": "正文"}]
