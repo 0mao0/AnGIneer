@@ -2,6 +2,12 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.72
+
+- 表格合并判据补「题注编号」一条（同构异表不再被当成续表吞并）：定向探针查出 `v1-8995872ae055` 的 `Table S1..S13` 被判成一条跨页续表链——PoPo 指令注入的校验只查「两端都是表格 + 列数一致」，而同构异表（仿真结果表）列数天然都是 7，这条判据只能**确认**、不能**否定**，于是 10 张独立表被吞进 3 个宿主：行数据拼接保留，但**被吞表的表号题注从 `plain_text`/`summary` 消失**（`60:1` 只留「Table S1: …」，S2–S5 不再出现），`canonical_tables` 15 行降为 5 行、`table-…:S2..S5` 级引用目标不复存在。后果（同一问题三态对照）：step 7 前「答对 + 表级引用 `table-…:61:1/62:1/63:1`」→ step 7 后连续 **3/3 答不出**并命中别篇文档的同名表（跨文档错引风险）；同病 `v1-549f025589ca` 的 `FIG. A.6/A.8/A.10–A.12` 被吞进 `A.5/A.7/A.9`。真实安全阀佐证方向：该篇 `merge.rejected_reasons` 只拦下两条「table_merge 链超过上限」——拦的是规模，不是「这是不是同一张表」。修法：题注编号解析收编单一真相源 `shared/table_caption.py`（题注取用 `caption` → `content_json.table_caption`；编号匹配 表/Table/Tab./图/Figure/FIG./Exhibit，去尾部句点——`FIG. A.6.` 的编号是 `A.6`；冲突判定「两侧都有编号且不同」），接入 `validate_instruction` 的 table_merge 分支（`_resolve_chain` 每跳都过同一校验，故注入与合并两处同时生效），续表启发式三个私有助手改引共享实现（两条入口判据统一）。实测：两篇重跑 structure+fts+向量后表块 15/16 全恢复（S1..S13 题注全回）、list 续接合并 4 处保留、覆盖 1.0000、B 层 severity=ok、探针 T1 恢复答对且引用回到表级
+- 单测与回归：新增 5 例（编号不同拒——`Table S1←S2`、`FIG. A.5←A.6`；同号/无题注放行——真续表形态；提取器覆盖中英文题注与无编号兜底），并改写既有 `test_table_merge_keeps_source_caption_and_target_footnote` 的夹具为题注同号的真续表形态（原夹具用 `表1←表2` 两个不同编号，属被新判据正确拒收的形态，改夹具而非放宽判据）；docs-core 全套 **393 passed**（唯一 fail 为本地 qdrant 不可达的环境项），改动测试文件在生产容器内复跑 55 passed
+- 回灌脚本 `scripts/backfill_structure_rebuild.py` 补齐 PoPo 推理阶段与逐阶段计时：新增 popo 阶段（防重入守卫——有有效 `enriched_blocks.json` 默认跳过、`--force-popo` 强制；强制重跑前旧产物备份进备份目录，推理失败回滚旧的再按 `fallback=solo` 继续，半成品不喂 structure；瞬时失败重试直接复用 `parse_pipeline` 的 `_POPO_INFERENCE_RETRIES`/`_is_transient_popo_failure` 单一真相源）；每阶段起止 UTC 时间戳 + 墙钟写 `progress.json`（step 6 缺计时、备份副本 mtime 不可用致吞吐只能粗估），**vectors 阶段补计时**——此前只写 `"ok"`，14893s 合计与分阶段之和差约 762s 只能当无名残差看，现与其余阶段同形（本轮补跑实测单篇 vectors 段约 16s）
+
 ## v0.2.71
 
 - 结构层类型词汇漂移修复：PoPo 续接注入器的可续接集合与续表标记扫描集写的是 **canonical 名** `list_item`，而 solo 节点用 MinerU 行词汇——生产库实测 `list`=6157 / `list_item`=0，列表块的跨页续接 100% 被拒、「续表X」标记写在列表块里则续表漏检。修法：两处收编到单一真相源 `step04_structure/shared/row_vocabulary.ROW_TEXT_TYPES`（`paragraph`/`list`）；同时给 contd 判定加**两端同型**约束——`popo_block_merger._merge_text_fragments` 只要任一侧带 `paragraph_content` 就走文本拼接分支、另一侧 `list_items` 整块 flatten 丢失，故 paragraph↔list 混合续接一律拒收（放开 list 才有正收益，flatten 危害有正反实证用例各一）。新增 13 例含敏感度用例（把 `list` 从集合摘掉，两条规则必须转红）
