@@ -290,8 +290,9 @@ def main() -> int:
             if not args.skip_figure_describe:
                 _timed(rec, "figure_describe", lambda: _run_figure_describe(args.library, doc_id))
             _timed(rec, "fts", lambda: _run_fts(args.library, doc_id))
-            _run_vectors(doc_id)
-            rec["stages"]["vectors"] = "ok"
+            # 向量阶段此前只写 "ok" 不计时：合计墙钟与分阶段之和的差额（约 762s）只能当残差看，
+            # 无法回答"向量重建占多久"——补成与其余阶段同形，供耗时表直接取数。
+            _timed(rec, "vectors", lambda: _run_vectors(doc_id))
             rec["before"] = before
             rec["after"] = _counts(args.library, doc_id)
             rec["status"] = "done"
