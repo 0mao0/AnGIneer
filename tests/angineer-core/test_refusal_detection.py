@@ -95,6 +95,35 @@ class IsRefusalTextTests(unittest.TestCase):
         self.assertTrue(is_refusal_text(text))
         self.assertTrue(is_reference_refusal(text))
 
+    def test_unanswerable_token_is_refusal(self):
+        """方案②结构化令牌（v11 规则 16）：「诚实对冲但没戴帽子」的回答——模型如实说明
+        证据未覆盖却不肯复述拒答话术（09-21 nightly 13 道剩余错题里 ~5 道这类），
+        令牌让它有个低成本的机器可识别出口。"""
+        from angineer_core.agent_messages import UNANSWERABLE_TOKEN
+
+        text = (
+            UNANSWERABLE_TOKEN
+            + "已检索到的证据主要讨论投资者情绪对 BRICS 股市的影响 [K2]，其中并未提及特斯拉。"
+        )
+        self.assertTrue(is_refusal_text(text))
+
+    def test_token_with_citations_is_reference_refusal(self):
+        """令牌形第三档：开头【不可答】+ 带引用的相邻片段 → 豁免重试/剥离。"""
+        from angineer_core.agent_messages import UNANSWERABLE_TOKEN, is_reference_refusal
+
+        text = (
+            UNANSWERABLE_TOKEN
+            + "未找到该方法的直接证据。以下相关信息供参考：相邻方法的讨论见 [K1][K3]。"
+        )
+        self.assertTrue(is_reference_refusal(text))
+
+    def test_token_without_citations_is_not_reference_refusal(self):
+        """令牌但不给相邻片段 → 普通拒答，保留「有证据却拒答」重试资格
+        （防模型拿令牌偷懒躲避作答）。"""
+        from angineer_core.agent_messages import UNANSWERABLE_TOKEN, is_reference_refusal
+
+        self.assertFalse(is_reference_refusal(UNANSWERABLE_TOKEN + "未找到该方面的直接证据。"))
+
     def test_empty_and_none_safe(self):
         self.assertFalse(is_refusal_text(""))
         self.assertFalse(is_refusal_text(None))  # type: ignore[arg-type]

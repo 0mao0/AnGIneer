@@ -829,6 +829,44 @@ class RefusalRetryTests(unittest.TestCase):
         self.assertEqual(run_end.payload["reason"], "completed")
         self.assertFalse(any("已要求基于证据重答" in n["detail"] for n in run_end.payload["notes"]))
 
+    def test_token_reference_refusal_not_retried(self):
+        """令牌形第三档（【不可答】开头+相邻片段，v11 规则 16）同样是合法收尾：
+        不触发定向重试。"""
+        from angineer_core.agent_messages import UNANSWERABLE_TOKEN
+
+        events: list = []
+
+        def handler(messages, kwargs):
+            call = len(llm.calls)
+            if call == 1:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            else:
+                yield from text_events(
+                    UNANSWERABLE_TOKEN
+                    + "未找到无冲突梯度的直接说明。"
+                    "以下相关信息供参考：集成 17 类算法、12 个模型 [K1]。"
+                )
+
+        llm = MockLLM(handler)
+        tool = make_tool(
+            "search",
+            lambda q: {"items": [{"text": "集成 17 类算法、12 个模型", "metadata": {"cite": "K1"}}]},
+        )
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(llm=llm, tools=[tool], system_prompt="p", max_turns=3),
+            success_check=self._usable(),
+            requires_tools=True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=3, attempts=[attempt])
+        added = run_agent_loop([], config, emit=events.append)
+
+        self.assertEqual(len(llm.calls), 2)  # 工具轮 → 第三档拒答，无定向重试
+        self.assertIn(UNANSWERABLE_TOKEN, added[-1].content)
+        run_end = events[-1]
+        self.assertEqual(run_end.payload["reason"], "completed")
+        self.assertFalse(any("已要求基于证据重答" in n["detail"] for n in run_end.payload["notes"]))
+
     def test_refusal_without_evidence_not_retried(self):
         events: list = []
 

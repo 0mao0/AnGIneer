@@ -286,6 +286,30 @@ class HalfRefusalStripTests(unittest.TestCase):
             "没有检索到足够证据支持最终结论。以下相关信息供参考：" + self.FACT
         ))
 
+    def test_guard_keeps_token_reference_refusal_intact(self):
+        """令牌形第三档（v11 规则 16）：不剥开头——【不可答】本身就是拒答标记，
+        剥掉会被评测当成幻觉作答判 0。"""
+        from angineer_core.agent_messages import UNANSWERABLE_TOKEN
+
+        guard = make_final_answer_guard(enforce_evidence=True)
+        answer = (
+            UNANSWERABLE_TOKEN + "未找到该方法的直接证据。以下相关信息供参考：" + self.FACT * 4
+        )
+        self.assertGreater(len(answer), 120)
+
+        result = guard(self._added(answer))
+        self.assertIsNotNone(result)
+        new_answer, note = result
+        self.assertEqual(new_answer, answer)
+        self.assertIn("拒答", note)
+
+    def test_token_reference_refusal_requires_citation(self):
+        """令牌形第三档要求带引用片段；只输出令牌不给相邻片段按普通拒答处理。"""
+        from angineer_core.agent_messages import UNANSWERABLE_TOKEN, is_reference_refusal
+
+        self.assertFalse(is_reference_refusal(UNANSWERABLE_TOKEN + "未找到直接证据。"))
+        self.assertTrue(is_reference_refusal(UNANSWERABLE_TOKEN + "供参考：" + self.FACT))
+
 
 if __name__ == "__main__":
     unittest.main()
