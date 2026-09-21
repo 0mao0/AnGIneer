@@ -50,13 +50,59 @@ def is_enabled() -> bool:
     return _env_str("FIGURE_DESCRIBE_ENABLED", "1") != "0"
 
 
-def vlm_config() -> Dict[str, str]:
-    return {
-        "url": _env_str("FIGURE_DESCRIBE_VLM_URL", "https://ai.bim-ace.com/chat/v1/chat/completions"),
-        # 兼容旧脚本用的 ANGINEER_CHAT_API_KEY（均只读环境变量，不落任何硬编码密钥）
-        "api_key": _env_str("FIGURE_DESCRIBE_VLM_API_KEY") or _env_str("ANGINEER_CHAT_API_KEY"),
-        "model": _env_str("FIGURE_DESCRIBE_VLM_MODEL", "Qwen3.6-35B-A3B-FP8"),
-    }
+def vlm_configs() -> List[Dict[str, str]]:
+    """图描述 VLM 端点列表（FIGURE_DESCRIBE_CONFIGS JSON 数组，数组顺序=优先级，第一项为默认）。
+
+    每项: {name, url, api_key, model}；url 为完整 chat/completions 端点，model 必填
+    （缺 model 的条目跳过并告警）。连接失败/超时/HTTP 错误自动尝试下一项（与
+    MINERU_CONFIGS/POPO_CONFIGS 同族约定）。
+
+    兼容旧单变量（FIGURE_DESCRIBE_VLM_URL/API_KEY/MODEL + ANGINEER_CHAT_API_KEY）：
+    只在 CONFIGS 未配置时作为一项兜底。**不再内置任何硬编码端点**——此前默认
+    url=ai.bim-ace.com + key 回退 ANGINEER_CHAT_API_KEY，等于「没配置就静默走 company」
+    （2026-09-21 排查实踩：生产 figure_describe 每篇解析都跑、全程走 company，
+    DGX 已验证的视觉能力闲置，且 company 下线即全线故障）。
+    """
+    raw = _env_str("FIGURE_DESCRIBE_CONFIGS")
+    if raw:
+        try:
+            data = json.loads(raw)
+        except json.JSONDecodeError:
+            logger.warning("FIGURE_DESCRIBE_CONFIGS 非法 JSON，忽略: %s", raw[:200])
+            data = None
+        if data is not None and not isinstance(data, list):
+            logger.warning("FIGURE_DESCRIBE_CONFIGS 需为 JSON 数组，忽略: %s", raw[:200])
+            data = None
+        if isinstance(data, list):
+            configs: List[Dict[str, str]] = []
+            for idx, item in enumerate(data):
+                if not isinstance(item, dict):
+                    continue
+                url = str(item.get("url") or "").strip()
+                model = str(item.get("model") or "").strip()
+                if not url:
+                    continue
+                if not model:
+                    logger.warning("FIGURE_DESCRIBE_CONFIGS 第 %d 项缺 model，跳过", idx + 1)
+                    continue
+                configs.append({
+                    "name": str(item.get("name") or f"endpoint-{idx + 1}"),
+                    "url": url,
+                    "api_key": str(item.get("api_key") or item.get("key") or "").strip(),
+                    "model": model,
+                })
+            if configs:
+                return configs
+    legacy_url = _env_str("FIGURE_DESCRIBE_VLM_URL")
+    if legacy_url:
+        return [{
+            "name": "legacy-single",
+            "url": legacy_url,
+            # 兼容旧脚本用的 ANGINEER_CHAT_API_KEY（均只读环境变量，不落任何硬编码密钥）
+            "api_key": _env_str("FIGURE_DESCRIBE_VLM_API_KEY") or _env_str("ANGINEER_CHAT_API_KEY"),
+            "model": _env_str("FIGURE_DESCRIBE_VLM_MODEL", "Qwen3.6-35B-A3B-FP8"),
+        }]
+    return []
 
 
 def _mime_for(path: Path) -> str:
@@ -65,32 +111,43 @@ def _mime_for(path: Path) -> str:
 
 
 def describe_image(image_path: Path, timeout: int = 120) -> str:
-    """对单张图片调 VLM 生成描述。失败抛异常，由调用方决定容错策略。"""
-    cfg = vlm_config()
-    if not cfg["api_key"]:
-        raise RuntimeError("缺少 FIGURE_DESCRIBE_VLM_API_KEY，无法调用图描述 VLM")
+    """对单张图片调 VLM 生成描述。按 vlm_configs() 顺序逐个端点尝试，
+    全部失败抛异常（聚合各端点错误），由调用方决定容错策略。"""
+    configs = vlm_configs()
+    if not configs:
+        raise RuntimeError("未配置图描述 VLM 端点（FIGURE_DESCRIBE_CONFIGS）")
     b64 = base64.b64encode(image_path.read_bytes()).decode("ascii")
-    payload = {
-        "model": cfg["model"],
-        "messages": [
-            {
-                "role": "user",
-                "content": [
-                    {"type": "image_url", "image_url": {"url": f"data:{_mime_for(image_path)};base64,{b64}"}},
-                    {"type": "text", "text": PROMPT},
-                ],
-            }
-        ],
-    }
-    headers = {"Authorization": f"Bearer {cfg['api_key']}"}
-    resp = requests.post(cfg["url"], json=payload, headers=headers, timeout=timeout)
-    resp.raise_for_status()
-    data = resp.json()
-    try:
-        content = data["choices"][0]["message"]["content"]
-    except (KeyError, IndexError, TypeError) as exc:
-        raise RuntimeError(f"Unexpected chat response: {data}") from exc
-    return str(content or "").strip()
+    errors: List[str] = []
+    for cfg in configs:
+        payload = {
+            "model": cfg["model"],
+            "messages": [
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "image_url", "image_url": {"url": f"data:{_mime_for(image_path)};base64,{b64}"}},
+                        {"type": "text", "text": PROMPT},
+                    ],
+                }
+            ],
+        }
+        headers = {"Authorization": f"Bearer {cfg['api_key']}"} if cfg["api_key"] else {}
+        try:
+            resp = requests.post(cfg["url"], json=payload, headers=headers, timeout=timeout)
+            resp.raise_for_status()
+            data = resp.json()
+            try:
+                content = data["choices"][0]["message"]["content"]
+            except (KeyError, IndexError, TypeError) as exc:
+                raise RuntimeError(f"Unexpected chat response: {data}") from exc
+            text = str(content or "").strip()
+            if not text:
+                raise RuntimeError(f"端点 {cfg['name']} 返回空描述")
+            return text
+        except Exception as exc:  # noqa: BLE001 —— 单端点失败换下一端点
+            errors.append(f"{cfg['name']}: {type(exc).__name__}: {exc}")
+            logger.warning("图描述端点 %s 失败，尝试下一端点: %s", cfg["name"], exc)
+    raise RuntimeError("图描述全部端点失败: " + " | ".join(errors))
 
 
 def figure_nodes(library_id: str, doc_id: str) -> List[Tuple[int, Dict[str, Any]]]:

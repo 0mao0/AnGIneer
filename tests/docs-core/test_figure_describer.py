@@ -12,8 +12,9 @@ sys.path.insert(0, str(PROJECT_ROOT / "services" / "docs-core" / "src"))
 
 from docs_core.step04_structure.figure_describer import (  # noqa: E402
     describe_figures_in_graph,
+    describe_image,
     is_enabled,
-    vlm_config,
+    vlm_configs,
 )
 from docs_core.parse_pipeline import (  # noqa: E402
     STAGE_KIND_SOFT,
@@ -51,12 +52,105 @@ class FigureDescriberConfigTests(unittest.TestCase):
         with _env(FIGURE_DESCRIBE_ENABLED="0"):
             self.assertFalse(is_enabled())
 
-    def test_vlm_config_falls_back_to_chat_key(self):
-        with _env(FIGURE_DESCRIBE_VLM_API_KEY="", ANGINEER_CHAT_API_KEY="chat-key"):
-            self.assertEqual(vlm_config()["api_key"], "chat-key")
-        with _env(FIGURE_DESCRIBE_VLM_API_KEY="fig-key", ANGINEER_CHAT_API_KEY=""):
-            self.assertEqual(vlm_config()["api_key"], "fig-key")
-        self.assertEqual(vlm_config()["model"], "Qwen3.6-35B-A3B-FP8")
+    def test_vlm_configs_empty_when_unconfigured(self):
+        """未配置任何端点时返回空列表——不再内置硬编码 company 端点
+        （2026-09-21 实踩：默认 ai.bim-ace.com + ANGINEER_CHAT_API_KEY 等于没配置就静默走 company）。"""
+        with _env(FIGURE_DESCRIBE_CONFIGS="", FIGURE_DESCRIBE_VLM_URL=""):
+            self.assertEqual(vlm_configs(), [])
+
+    def test_vlm_configs_json_array_order_is_priority(self):
+        configs_json = json.dumps([
+            {"name": "dgx", "url": "https://dgx/chat/completions", "api_key": "k1", "model": "m1"},
+            {"name": "company", "url": "https://company/chat/completions", "api_key": "k2", "model": "m2"},
+        ])
+        with _env(FIGURE_DESCRIBE_CONFIGS=configs_json):
+            configs = vlm_configs()
+        self.assertEqual([c["name"] for c in configs], ["dgx", "company"])
+        self.assertEqual(configs[0]["model"], "m1")
+
+    def test_vlm_configs_skips_entries_without_url_or_model(self):
+        configs_json = json.dumps([
+            {"name": "no-url", "model": "m"},
+            {"name": "no-model", "url": "https://x/chat/completions"},
+            {"name": "ok", "url": "https://ok/chat/completions", "model": "m"},
+        ])
+        with _env(FIGURE_DESCRIBE_CONFIGS=configs_json):
+            self.assertEqual([c["name"] for c in vlm_configs()], ["ok"])
+
+    def test_vlm_configs_invalid_json_falls_back_to_legacy(self):
+        with _env(FIGURE_DESCRIBE_CONFIGS="{not-json", FIGURE_DESCRIBE_VLM_URL="https://legacy/chat/completions",
+                  FIGURE_DESCRIBE_VLM_API_KEY="", ANGINEER_CHAT_API_KEY="chat-key"):
+            os.environ.pop("FIGURE_DESCRIBE_VLM_MODEL", None)
+            configs = vlm_configs()
+        self.assertEqual(len(configs), 1)
+        self.assertEqual(configs[0]["url"], "https://legacy/chat/completions")
+        self.assertEqual(configs[0]["api_key"], "chat-key")
+        self.assertEqual(configs[0]["model"], "Qwen3.6-35B-A3B-FP8")
+
+    def test_vlm_configs_legacy_single_var_still_works(self):
+        with _env(FIGURE_DESCRIBE_CONFIGS="", FIGURE_DESCRIBE_VLM_URL="https://legacy/chat/completions",
+                  FIGURE_DESCRIBE_VLM_API_KEY="fig-key", ANGINEER_CHAT_API_KEY=""):
+            configs = vlm_configs()
+        self.assertEqual(len(configs), 1)
+        self.assertEqual(configs[0]["api_key"], "fig-key")
+
+
+class DescribeImageFailoverTests(unittest.TestCase):
+    """多端点故障转移：第一端点失败必须落到第二端点，全部失败抛聚合错误。"""
+
+    def _image(self, tmp: Path) -> Path:
+        p = tmp / "a.png"
+        p.write_bytes(b"fake-png")
+        return p
+
+    def _configs_env(self):
+        return _env(FIGURE_DESCRIBE_CONFIGS=json.dumps([
+            {"name": "dgx", "url": "https://dgx/chat/completions", "api_key": "k1", "model": "m1"},
+            {"name": "company", "url": "https://company/chat/completions", "api_key": "k2", "model": "m2"},
+        ]))
+
+    def _resp(self, text):
+        import requests as _rq
+
+        resp = _rq.Response()
+        resp.status_code = 200
+        resp._content = json.dumps({"choices": [{"message": {"content": text}}]}).encode("utf-8")
+        return resp
+
+    def test_first_endpoint_wins_without_fallback(self):
+        with tempfile.TemporaryDirectory() as td, self._configs_env():
+            with patch("docs_core.step04_structure.figure_describer.requests.post",
+                       return_value=self._resp("描述")) as mock_post:
+                self.assertEqual(describe_image(self._image(Path(td))), "描述")
+            mock_post.assert_called_once()
+            self.assertEqual(mock_post.call_args.args[0], "https://dgx/chat/completions")
+
+    def test_failover_to_second_endpoint(self):
+        import requests as _rq
+
+        with tempfile.TemporaryDirectory() as td, self._configs_env():
+            with patch("docs_core.step04_structure.figure_describer.requests.post",
+                       side_effect=[_rq.exceptions.ConnectionError("down"), self._resp("兜底描述")]) as mock_post:
+                self.assertEqual(describe_image(self._image(Path(td))), "兜底描述")
+            self.assertEqual(mock_post.call_count, 2)
+            self.assertEqual(mock_post.call_args.args[0], "https://company/chat/completions")
+
+    def test_all_endpoints_failed_raises_aggregated(self):
+        import requests as _rq
+
+        with tempfile.TemporaryDirectory() as td, self._configs_env():
+            with patch("docs_core.step04_structure.figure_describer.requests.post",
+                       side_effect=_rq.exceptions.ConnectionError("down")):
+                with self.assertRaises(RuntimeError) as ctx:
+                    describe_image(self._image(Path(td)))
+        self.assertIn("dgx", str(ctx.exception))
+        self.assertIn("company", str(ctx.exception))
+
+    def test_unconfigured_raises_clear_error(self):
+        with tempfile.TemporaryDirectory() as td, _env(FIGURE_DESCRIBE_CONFIGS="", FIGURE_DESCRIBE_VLM_URL=""):
+            with self.assertRaises(RuntimeError) as ctx:
+                describe_image(self._image(Path(td)))
+        self.assertIn("FIGURE_DESCRIBE_CONFIGS", str(ctx.exception))
 
 
 class FigureDescriberPipelineTests(unittest.TestCase):
