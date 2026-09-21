@@ -1,10 +1,15 @@
 """agent 循环配置 prompt（P5 迁移自 agent_configs.py）。
 
-用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v11 / COMPLEX v5 / followup v3。
-最后变更：2026-09-21（v11：规则 16 改结构化令牌【不可答】开头——自然语言拒答开头是
-让模型背魔法句子，09-21 nightly 13 道剩余错题里 ~5 道是「诚实对冲但没戴帽子」；
-v10：规则 16——证据只相关不可答时走「拒答开头+供参考」第三档，与规则 9 划界）；
-v9：二元 Yes/No 结论禁止部分证据引申翻转。
+用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v10 / COMPLEX v5 / followup v3。
+最后变更：2026-09-20（v10：规则 16——证据只相关不可答时走「拒答开头+供参考」第三档，
+与规则 9 的"部分覆盖"划界；v9：二元 Yes/No 结论禁止部分证据引申翻转）。
+
+失败实验留档（2026-09-21，v0.2.74 → 回滚）：v11/v12 曾把规则 16 的拒答开头改为
+结构化令牌【不可答】（单锚定/双锚定两版），生产 39 题拒答专项实测模型对括号令牌
+**0 遵从**（78 次回答一次没打），v11 还因删掉「第一句必须回答…」旧话术锚点跌到
+20/39（v10 三轮为 26/28/26）。教训：prompt 改动必须先在 39 题专项验证模型行为
+（单测只能验证「令牌出现了机器认得出」，验证不了「模型肯不肯打」）；
+qwen3.6-35b 不遵守括号令牌类输出约定，此路勿再试。
 """
 from . import register
 
@@ -80,17 +85,8 @@ QA_AGENT_SYSTEM_PROMPT_V10 = (
     "再以「以下相关信息供参考」引出相邻片段（正常标注引用），禁止把相邻证据当作答案强行作答。\n"
 )
 
-QA_AGENT_SYSTEM_PROMPT_V11 = (
-    QA_AGENT_SYSTEM_PROMPT_V9
-    + "\n"
-    + "16. 若证据只是与问题主题相邻、并不覆盖问题的核心结论"
-    "（与规则 9 不同：规则 9 是证据直接答出了问题的一部分，本条是证据只相关不可答）："
-    "回答必须以【不可答】开头，随后用一句话说明未找到哪方面的直接证据，"
-    "之后可用「以下相关信息供参考」引出相邻片段（正常标注引用），禁止把相邻证据当作答案强行作答。\n"
-)
-
 # 当前版本别名（re-export 契约见 test_prompts.py；历史版本用 V<N> 常量显式引用）
-QA_AGENT_SYSTEM_PROMPT = QA_AGENT_SYSTEM_PROMPT_V11
+QA_AGENT_SYSTEM_PROMPT = QA_AGENT_SYSTEM_PROMPT_V10
 
 
 COMPLEX_AGENT_SYSTEM_PROMPT = (
@@ -149,7 +145,6 @@ register("agent_configs.qa_system_prompt", "v7", QA_AGENT_SYSTEM_PROMPT_V7)
 register("agent_configs.qa_system_prompt", "v8", QA_AGENT_SYSTEM_PROMPT_V8)
 register("agent_configs.qa_system_prompt", "v9", QA_AGENT_SYSTEM_PROMPT_V9)
 register("agent_configs.qa_system_prompt", "v10", QA_AGENT_SYSTEM_PROMPT_V10)
-register("agent_configs.qa_system_prompt", "v11", QA_AGENT_SYSTEM_PROMPT_V11)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
 register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)
 register("agent_configs.meta_system_prompt", "v2", META_AGENT_SYSTEM_PROMPT)

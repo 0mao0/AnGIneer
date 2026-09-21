@@ -54,15 +54,6 @@ REFUSAL_EN_MARKERS = (
 )
 REFUSAL_LEAD_SCAN_LIMIT = 200
 
-# 结构化不可答令牌（2026-09-21 方案②，prompt v11 规则 16）：模型判断「证据只相关不可答」
-# 时以【不可答】开头输出。设计动机：自然语言拒答标记本质是让模型背魔法句子——09-19 插字
-# 失配漏检 18 道、09-20/21 措辞不肯用（改写「已检索到的证据主要讨论…并未提及…」式对冲，
-# 不含任何标记，nightly 13 道剩余错题里 ~5 道是这类），掉分都源于措辞与标记表对不上；
-# 短令牌输出成本低、精确匹配不怕插字。令牌对用户也是可读标签，展示层无需 strip。
-# 检测语义：全文命中即判拒答（正常作答不会含它）；开头令牌 + 引用标记 = 第三档
-# （相邻片段供参考），豁免「有证据却拒答」定向重试与半拒答剥离。
-UNANSWERABLE_TOKEN = "【不可答】"
-
 
 def _lead_before_citation(text: str) -> str:
     """取首个引用标记之前的片段（无引用则取前 REFUSAL_LEAD_SCAN_LIMIT 字）。"""
@@ -72,10 +63,8 @@ def _lead_before_citation(text: str) -> str:
 
 
 def is_refusal_text(text: str) -> bool:
-    """判断文本是否命中拒答话术（结构化令牌、标准话术或模型自拟变体）。"""
+    """判断文本是否命中拒答话术（标准话术或模型自拟变体）。"""
     content = text or ""
-    if UNANSWERABLE_TOKEN in content:
-        return True
     if any(marker in content for marker in REFUSAL_MARKERS):
         return True
     lowered = content.lower()
@@ -84,27 +73,22 @@ def is_refusal_text(text: str) -> bool:
     return any(marker in _lead_before_citation(content) for marker in REFUSAL_LEAD_MARKERS)
 
 
-# 第三档拒答的话术形协议信号（prompt v10 规则 16）：「以下相关信息供参考」。
-# v11 起主信号升级为结构化令牌【不可答】（UNANSWERABLE_TOKEN），此信号保留用于回放旧数据。
+# 第三档拒答的协议信号（prompt 规则 16）：「以下相关信息供参考」。
+# 半协议设计（2026-09-20 方案①），后续方案②升级为结构化令牌后此信号退役。
 REFERENCE_REFUSAL_SIGNAL = "供参考"
 
 
 def is_reference_refusal(text: str) -> bool:
-    """第三档拒答：「不可答声明 + 相邻片段供参考」（prompt 规则 16 的合法收尾）。
+    """第三档拒答：拒答开头 + 「供参考」引出的相邻片段（prompt 规则 16 的合法收尾）。
 
     与半拒答的区别：半拒答是"先声明无证据又把答案写出来"——开头是矛盾句，剥掉留正文；
     第三档是"核心结论无证据、相邻片段仅作线索"——整体保留，按拒答判定，
     不剥开头（strip_half_refusal_lead 豁免）、不触发有证据拒答重试（agent_loop 豁免）。
 
-    两种认定（任一成立）：
-    1. 令牌形（v11 起）：开头【不可答】+ 带引用标记的相邻片段——令牌但不给相邻片段的
-       不算第三档（保留「有证据却拒答」重试资格，防模型拿令牌偷懒躲避作答）；
-    2. 话术形（v10，回放旧数据用）：「供参考」信号 + 拒答标记双命中——模型随手写的
-       "供参考"不会误判（无拒答标记不成立），普通拒答也不会被当成第三档（无信号不豁免）。
+    认定靠「供参考」信号 + 拒答标记双命中，模型随手写的"供参考"不会误判
+    （无拒答标记不成立），普通拒答也不会被当成第三档（无信号不豁免）。
     """
     content = text or ""
-    if UNANSWERABLE_TOKEN in content[:100] and _CITE_RE.search(content):
-        return True
     if REFERENCE_REFUSAL_SIGNAL not in content:
         return False
     return is_refusal_text(content)

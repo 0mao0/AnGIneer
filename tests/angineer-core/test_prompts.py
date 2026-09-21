@@ -123,33 +123,20 @@ class PromptMigrationContractTests(unittest.TestCase):
     def test_qa_prompt_has_reference_refusal_rule(self):
         """规则 16（v10）：证据只相关不可答时走「拒答开头+供参考」第三档。"""
         from angineer_core.prompts.agent_configs import (
-            QA_AGENT_SYSTEM_PROMPT_V9 as QA_V9,
-            QA_AGENT_SYSTEM_PROMPT_V10 as QA_V10,
-        )
-
-        self.assertIn("以下相关信息供参考", QA_V10)
-        self.assertIn("禁止把相邻证据当作答案强行作答", QA_V10)
-        self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无规则 16
-
-    def test_qa_prompt_v11_uses_unanswerable_token(self):
-        """规则 16（v11，方案②）：第三档改结构化令牌【不可答】开头——自然语言拒答开头
-        是让模型背魔法句子（09-21 nightly 13 道剩余错题里 ~5 道「诚实对冲但没戴帽子」）。"""
-        from angineer_core.agent_messages import UNANSWERABLE_TOKEN
-        from angineer_core.prompts.agent_configs import (
             QA_AGENT_SYSTEM_PROMPT as QA,
             QA_AGENT_SYSTEM_PROMPT_V9 as QA_V9,
         )
 
-        self.assertIn(UNANSWERABLE_TOKEN, QA)
+        self.assertIn("以下相关信息供参考", QA)
         self.assertIn("禁止把相邻证据当作答案强行作答", QA)
-        self.assertNotIn(UNANSWERABLE_TOKEN, QA_V9)
+        self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无规则 16
 
-    def test_qa_prompt_latest_is_v11(self):
-        """latest 必须解析到最新版——字符串 max 会把 latest 钉死在 v9（"v9" > "v10" 字典序）。"""
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V11
+    def test_qa_prompt_latest_is_v10(self):
+        """latest 必须解析到 v10——字符串 max 会把 latest 钉死在 v9（"v9" > "v10" 字典序）。"""
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V10
 
-        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V11)
-        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v11")
+        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V10)
+        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v10")
 
     def test_followup_rule_avoids_leading_to_missing_content(self):
         from angineer_core.prompts.agent_configs import FOLLOWUP_QUESTION_RULE
