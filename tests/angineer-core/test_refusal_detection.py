@@ -84,6 +84,17 @@ class IsRefusalTextTests(unittest.TestCase):
         self.assertFalse(is_refusal_text("证据不足的部分未覆盖。已支持的内容如下：混凝土强度等级为 C30。"))
         self.assertFalse(is_refusal_text("信息不足，以下为已确认部分：混凝土强度等级为 C30。"))
 
+    def test_reference_refusal_detected_as_refusal(self):
+        """第三档（prompt 规则 16）：拒答开头+「供参考」相邻片段，评测按拒答计。"""
+        from angineer_core.agent_messages import is_reference_refusal
+
+        text = (
+            "没有检索到足够证据支持最终结论。未找到无冲突梯度的直接说明。"
+            "以下相关信息供参考：REINFORCE 轨迹概率梯度见 [K1]。"
+        )
+        self.assertTrue(is_refusal_text(text))
+        self.assertTrue(is_reference_refusal(text))
+
     def test_empty_and_none_safe(self):
         self.assertFalse(is_refusal_text(""))
         self.assertFalse(is_refusal_text(None))  # type: ignore[arg-type]

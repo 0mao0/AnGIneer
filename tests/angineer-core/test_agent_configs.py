@@ -244,12 +244,47 @@ class HalfRefusalStripTests(unittest.TestCase):
 
         self.assertIsNone(guard(self._added(answer)))
 
+    def test_guard_keeps_reference_refusal_intact(self):
+        """第三档拒答（拒答开头+「供参考」相邻片段，prompt 规则 16 的合法收尾）：
+        不剥开头——剥掉会失去拒答标记，被评测当成幻觉作答判 0。"""
+        guard = make_final_answer_guard(enforce_evidence=True)
+        answer = (
+            "没有检索到足够证据支持最终结论。未找到无冲突梯度的直接说明。"
+            "以下相关信息供参考：" + self.FACT * 4
+        )
+        self.assertGreater(len(answer), 120)
+
+        result = guard(self._added(answer))
+        self.assertIsNotNone(result)
+        new_answer, note = result
+        self.assertEqual(new_answer, answer)
+        self.assertIn("拒答", note)
+
     def test_strip_helper_leaves_normal_and_empty_untouched(self):
         from angineer_core.agent_messages import strip_half_refusal_lead
 
         normal = self.FACT * 5
         self.assertEqual(strip_half_refusal_lead(normal), normal)
         self.assertEqual(strip_half_refusal_lead(""), "")
+
+    def test_strip_helper_leaves_reference_refusal_untouched(self):
+        from angineer_core.agent_messages import strip_half_refusal_lead
+
+        answer = (
+            "没有检索到足够证据支持最终结论。未找到无冲突梯度的直接说明。"
+            "以下相关信息供参考：" + self.FACT * 4
+        )
+        self.assertEqual(strip_half_refusal_lead(answer), answer)
+
+    def test_reference_refusal_requires_both_signal_and_marker(self):
+        """「供参考」单出现不算第三档（防误伤正常作答）；拒答标记单出现只是普通拒答。"""
+        from angineer_core.agent_messages import is_reference_refusal
+
+        self.assertFalse(is_reference_refusal("以下相关信息供参考：" + self.FACT * 4))
+        self.assertFalse(is_reference_refusal("没有检索到足够证据支持最终结论。"))
+        self.assertTrue(is_reference_refusal(
+            "没有检索到足够证据支持最终结论。以下相关信息供参考：" + self.FACT
+        ))
 
 
 if __name__ == "__main__":

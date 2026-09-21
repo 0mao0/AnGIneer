@@ -73,6 +73,27 @@ def is_refusal_text(text: str) -> bool:
     return any(marker in _lead_before_citation(content) for marker in REFUSAL_LEAD_MARKERS)
 
 
+# 第三档拒答的协议信号（prompt 规则 16）：「以下相关信息供参考」。
+# 半协议设计（2026-09-20 方案①），后续方案②升级为结构化令牌后此信号退役。
+REFERENCE_REFUSAL_SIGNAL = "供参考"
+
+
+def is_reference_refusal(text: str) -> bool:
+    """第三档拒答：拒答开头 + 「供参考」引出的相邻片段（prompt 规则 16 的合法收尾）。
+
+    与半拒答的区别：半拒答是"先声明无证据又把答案写出来"——开头是矛盾句，剥掉留正文；
+    第三档是"核心结论无证据、相邻片段仅作线索"——整体保留，按拒答判定，
+    不剥开头（strip_half_refusal_lead 豁免）、不触发有证据拒答重试（agent_loop 豁免）。
+
+    认定靠「供参考」信号 + 拒答标记双命中，模型随手写的"供参考"不会误判
+    （无拒答标记不成立），普通拒答也不会被当成第三档（无信号不豁免）。
+    """
+    content = text or ""
+    if REFERENCE_REFUSAL_SIGNAL not in content:
+        return False
+    return is_refusal_text(content)
+
+
 _HALF_REFUSAL_LEAD_PATTERNS = (
     "证据不足",
     "信息不足",
@@ -115,8 +136,13 @@ def strip_half_refusal_lead(text: str) -> str:
     （REFUSAL_MARKERS 的子串），用它做门槛会导致真正要修的场景不触发（单测实踩）。
     只认硬拒答标记 + 后文有引用：「证据不足/部分未覆盖」这类软表述是 prompt 要求
     模型如实说明的部分覆盖提示，属于合法回答，不动。
+
+    豁免：第三档拒答（is_reference_refusal，拒答开头+「供参考」相邻片段）是 prompt
+    规则 16 的合法收尾——剥掉开头会让它失去拒答标记、被评测当成幻觉作答（判 0）。
     """
     content = (text or "").strip()
+    if is_reference_refusal(content):
+        return content
     if len(content) <= 120 or not _CITE_RE.search(content):
         return content
     if not any(marker in content[:400] for marker in REFUSAL_MARKERS):

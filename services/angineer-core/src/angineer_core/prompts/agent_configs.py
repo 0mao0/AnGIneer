@@ -1,8 +1,8 @@
 """agent 循环配置 prompt（P5 迁移自 agent_configs.py）。
 
-用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v9 / COMPLEX v5 / followup v3。
-最后变更：2026-08-29（v8：关键事实前置/禁泛化/结论方向一致+单位换算；
-v9：二元 Yes/No 结论禁止部分证据引申翻转）。
+用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v10 / COMPLEX v5 / followup v3。
+最后变更：2026-09-20（v10：规则 16——证据只相关不可答时走「拒答开头+供参考」第三档，
+与规则 9 的"部分覆盖"划界；v9：二元 Yes/No 结论禁止部分证据引申翻转）。
 """
 from . import register
 
@@ -55,7 +55,7 @@ QA_AGENT_SYSTEM_PROMPT_V8 = (
 )
 
 
-QA_AGENT_SYSTEM_PROMPT = (
+QA_AGENT_SYSTEM_PROMPT_V9 = (
     QA_AGENT_SYSTEM_PROMPT_V8
     + "\n"
     + "15. 二元结论（Yes/No、是/否、能/不能类）必须直接来自证据中的明确表述"
@@ -66,6 +66,20 @@ QA_AGENT_SYSTEM_PROMPT = (
     "并说明证据未覆盖的方面（按规则 9），禁止整体拒答；"
     "只有 knowledge_search 与 table_search 均无有效证据时才按规则 3 拒答。"
 )
+
+
+QA_AGENT_SYSTEM_PROMPT_V10 = (
+    QA_AGENT_SYSTEM_PROMPT_V9
+    + "\n"
+    + "16. 若证据只是与问题主题相邻、并不覆盖问题的核心结论"
+    "（与规则 9 不同：规则 9 是证据直接答出了问题的一部分，本条是证据只相关不可答）："
+    "第一句必须回答「没有检索到足够证据支持最终结论」，"
+    "随后用一句话说明未找到哪方面的直接证据，"
+    "再以「以下相关信息供参考」引出相邻片段（正常标注引用），禁止把相邻证据当作答案强行作答。\n"
+)
+
+# 当前版本别名（re-export 契约见 test_prompts.py；历史版本用 V<N> 常量显式引用）
+QA_AGENT_SYSTEM_PROMPT = QA_AGENT_SYSTEM_PROMPT_V10
 
 
 COMPLEX_AGENT_SYSTEM_PROMPT = (
@@ -122,7 +136,8 @@ META_AGENT_SYSTEM_PROMPT = (
 
 register("agent_configs.qa_system_prompt", "v7", QA_AGENT_SYSTEM_PROMPT_V7)
 register("agent_configs.qa_system_prompt", "v8", QA_AGENT_SYSTEM_PROMPT_V8)
-register("agent_configs.qa_system_prompt", "v9", QA_AGENT_SYSTEM_PROMPT)
+register("agent_configs.qa_system_prompt", "v9", QA_AGENT_SYSTEM_PROMPT_V9)
+register("agent_configs.qa_system_prompt", "v10", QA_AGENT_SYSTEM_PROMPT_V10)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
 register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)
 register("agent_configs.meta_system_prompt", "v2", META_AGENT_SYSTEM_PROMPT)

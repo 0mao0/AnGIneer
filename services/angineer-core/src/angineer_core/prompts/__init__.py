@@ -22,13 +22,24 @@ def register(name: str, version: str, text: str) -> None:
     _REGISTRY[name][version] = text
 
 
+def _version_key(version: str):
+    """版本排序键：按数字段比较（v9 < v10），非数字段按字符串兜底。
+
+    纯字符串 max 会在 v10 注册后把 latest 钉死在 v9（"v9" > "v10" 字典序）。
+    """
+    import re
+
+    parts = re.split(r"(\d+)", version)
+    return tuple(int(p) if p.isdigit() else p for p in parts)
+
+
 def load(name: str, version: str = "latest") -> str:
     """按名称加载 prompt；version 默认取最新注册版本。"""
     entry = _REGISTRY.get(name)
     if not entry:
         raise KeyError(f"未注册的 prompt: {name}")
     if version == "latest":
-        version = max(entry.keys())
+        version = max(entry.keys(), key=_version_key)
     if version not in entry:
         raise KeyError(f"prompt {name} 无版本 {version}，可用: {sorted(entry)}")
     return entry[version]
@@ -36,7 +47,7 @@ def load(name: str, version: str = "latest") -> str:
 
 def versions() -> Dict[str, str]:
     """返回 {name: latest_version} 注册表，供 evals prediction 持久化。"""
-    return {name: max(entry.keys()) for name, entry in _REGISTRY.items()}
+    return {name: max(entry.keys(), key=_version_key) for name, entry in _REGISTRY.items()}
 
 
 from . import agent_configs, answer_eval, classifier, dispatcher, evals_routes, retrieval, sop_routes  # noqa: E402,F401

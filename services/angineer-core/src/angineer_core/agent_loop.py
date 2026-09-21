@@ -22,6 +22,7 @@ from angineer_core.agent_messages import (
     REFUSAL_FOLLOWUP_QUESTION,
     ToolCall,
     agent_message_to_dict,
+    is_reference_refusal,
     is_refusal_text,
     to_llm_messages,
 )
@@ -204,11 +205,14 @@ def _tool_evidence_present(messages: List[AgentMessage]) -> bool:
     return False
 
 
-def _last_answer_is_refusal(messages: List[AgentMessage]) -> bool:
-    """最近一条无工具调用的 assistant 消息是否为拒答话术。"""
+def _last_answer_is_hard_refusal(messages: List[AgentMessage]) -> bool:
+    """拒答且非第三档（「供参考」相邻片段）——第三档是 prompt 规则 16 的合法收尾，
+    触发定向重试会逼模型把相邻证据改写成答案，正是 2026-09-20 nightly 拒答题
+    24/39→18/39 的失守路径。"""
     for message in reversed(messages):
         if message.role == "assistant" and not message.tool_calls:
-            return is_refusal_text(message.content or "")
+            content = message.content or ""
+            return is_refusal_text(content) and not is_reference_refusal(content)
     return False
 
 
@@ -669,7 +673,7 @@ class _AttemptMachine:
             and self.active_attempt_idx + 1 >= len(self.attempts)
             and not self.refusal_retry_used
             and _tool_evidence_present(self.messages[self.attempt_start_idx:])
-            and _last_answer_is_refusal(self.messages[self.attempt_start_idx:])
+            and _last_answer_is_hard_refusal(self.messages[self.attempt_start_idx:])
         ):
             self.refusal_retry_used = True
             # 定向重试不占本轮预算
