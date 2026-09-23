@@ -437,10 +437,6 @@ pnpm harness:eval-smoke
 # 更新冒烟基线
 python scripts/open_ragbench/run_smoke.py --update-baseline
 
-# 架构/文档一致性检查
-pnpm docs:arch-check
-pnpm docs:check
-
 # Prompt 资产审计（禁止源码内散落 prompt 字面量）
 python scripts/audit_prompts.py
 ```

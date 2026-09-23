@@ -23,10 +23,7 @@
     "sync:standalone": "powershell -ExecutionPolicy Bypass -File scripts/sync-standalone.ps1",
     "sync:version": "node scripts/sync-version.mjs",
     "release": "node scripts/release.mjs",
-    "eval:list": "python -c \"from evals_core.storage.result_store import init_db, list_datasets; init_db(); import json; print(json.dumps(list_datasets(), ensure_ascii=False, indent=2))\"",
-    "docs:sync": "python tools/sync_tech_docs.py",
-    "docs:check": "python tools/check_docs_suite.py",
-    "docs:arch-check": "python tools/check_architecture_docs.py"
+    "eval:list": "python -c \"from evals_core.storage.result_store import init_db, list_datasets; init_db(); import json; print(json.dumps(list_datasets(), ensure_ascii=False, indent=2))\""
   },
   "dependencies": {
     "axios": "^1.20.0"
