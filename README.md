@@ -15,7 +15,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.60` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.75` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.0` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.9` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
@@ -69,13 +69,13 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 | 版本 | 里程碑 | 核心能力 | 代码现状 |
 | :--- | :--- | :--- | :--- |
 | **v0.1** | 规范问答基础版 | 文档解析入库、知识图谱、SOP 引擎、L0-L4 意图分级、AI 对话、评测框架 | ✅ 基本完成（git tag `v0.1-frontend-*`） |
-| **v0.2** | Docs-SOP 问答系统化改进 | Agent 化问答链路、五路检索 + 融合重排、SOP 审核/审计、Prompt 资产化、一体化文档解析管线 + PoPo 强化、注册考试题集评测、Dream Cycle 知识巡检 | ✅ 已完成，当前迭代基线 v0.2.10 |
+| **v0.2** | Docs-SOP 问答系统化改进 | Agent 化问答链路、五路检索 + 融合重排、SOP 审核/审计、Prompt 资产化、一体化文档解析管线 + PoPo 强化、注册考试题集评测、Dream Cycle 知识巡检、Qdrant 向量引擎、内置 nightly 评测调度 | ✅ 已完成，当前迭代基线 v0.2.75 |
 | **v0.3** | 世界模型 | 基于 Cesium 的三维地理世界模型，自主查询地理信息（GIS / 水文气象 / 地形），支撑更高级题目 | 🚧 骨架已存在（geo-core GIS 断面算量工具 + GIS 视图），Cesium 集成规划中 |
 | **v0.4** | 设计报告 | 基于规范检索、SOP 执行轨迹与地理/计算数据，自动编制工可、初设等正式设计报告 | 🚧 规划中 |
 | **v0.5** | CAD 出图算量 | 连接并驱动 CAD 引擎，自动出图、工程量计算，形成"设计 → 出图 → 算量"闭环 | 🚧 规划中，**v0.5 定位为正式版** |
 | **v1.0** | 正式版迭代 | 在 v0.5 基础上大量迭代：多专业覆盖、精度与稳定性、工程化与 SaaS 化（多租户） | 🚧 目标 |
 
-> 说明：v0.3–v0.5 描述的是路线目标；仓库当前实际代码基线为 v0.2.10，相关模块已在对应小节中标注"骨架 / 规划中"，避免与已落地能力混淆。
+> 说明：v0.3–v0.5 描述的是路线目标；仓库当前实际代码基线为 v0.2.75，相关模块已在对应小节中标注"骨架 / 规划中"，避免与已落地能力混淆。
 
 ***
 
@@ -211,9 +211,9 @@ flowchart LR
     RPT --> ACT["自动操作（仅标记不物理删除）<br/>或人工确认"]
 ```
 
-> **PoPo 子模块注意事项（更新上游时务必保留本地定制）**
+> **PoPo 注意事项（更新上游时务必保留本地定制）**
 >
-> `services/docs-core/src/popo` 是 git submodule（MinerU-Popo，MIT 协议）。本地已将 `post_processing/model_utils.py` 中的硬编码 `url=""` / `key=""` 改为读取 `POPO_CONFIGS`（JSON 端点列表：`[{"name","url","api_key","model"}, ...]`，数组顺序=优先级，连接失败/超时自动切下一项；未配置返回空、不打任何请求），并支持 `POPO_API_TIMEOUT`（默认 300s）与 `POPO_MAX_TOKENS`（默认 4096）。**若不保留此修改，PoPo 推理会请求打到 api.openai.com（国内 DNS 污染导致挂死）或空 url 报错。** 更新上游前先 `git -C services/docs-core/src/popo commit` 本地修改，冲突时仅针对该文件手动合并。
+> `services/docs-core/src/popo` 已内化为普通目录（原 submodule，2026-09-09 移除；MinerU-Popo fork，MIT 协议）。本地已将 `post_processing/model_utils.py` 中的硬编码 `url=""` / `key=""` 改为读取 `POPO_CONFIGS`（JSON 端点列表：`[{"name","url","api_key","model"}, ...]`，数组顺序=优先级，连接失败/超时自动切下一项；未配置返回空、不打任何请求），并支持 `POPO_API_TIMEOUT`（默认 300s）与 `POPO_MAX_TOKENS`（默认 4096）。**若不保留此修改，PoPo 推理会请求打到 api.openai.com（国内 DNS 污染导致挂死）或空 url 报错。** 上游同步点与保留定制的细节见 `services/docs-core/src/popo/UPSTREAM_SYNC.md`。
 
 > 深入阅读：[docs/tech-report.md](docs/tech-report.md#3-angineer-docs-知识库模块) · [docs/parse-pipeline.md](docs/parse-pipeline.md) · [docs/popo-pipeline.md](docs/popo-pipeline.md) · [docs/knowledge-data-model.md](docs/knowledge-data-model.md)
 
@@ -302,15 +302,17 @@ services/
   ai-inference/       LLM 客户端（多模型/重试/熔断/流式）+ 响应解析（唯一底座）
   tree-core/          通用树节点 CRUD/移动/排序归一化（唯一底座）
   angineer-core/      意图分类、L0-L4 调度、Agent 循环、SOP 执行引擎、Prompt 资产
-  docs-core/          一体化解析管线（8 阶段）、五路检索、图谱、维护、导出（含 PoPo 子模块）
+  docs-core/          一体化解析管线（8 阶段）、五路检索、图谱、维护、导出（PoPo 已内化）
   sop-core/           SOP 解析/校验/加载/自动生成
-  evals-core/         题集管理、评测运行、结果对比
+  evals-core/         题集管理、评测运行、结果对比、nightly 流水线（算法真相源）
   geo-core/           GIS 工程计算工具
   engtools/           计算器/查表/条件/知识检索/文档检索工具注册表
+  chat-history/       聊天历史存储（sqlite）与路由（v0.2.67 起，开发中）
+  shared/             服务间共享代码
   docs-api/           文档解析/知识库/图谱/v1/Key 管理（8790）
-  aichat-api/         对话/模型配置/SOP/Evals/DreamCycle（8791）
+  aichat-api/         对话/模型配置/SOP/Evals/DreamCycle/nightly 调度（8791）
 data/
-  knowledge_base/     canonical SQLite、Chroma 向量库、文档产物
+  knowledge_base/     canonical SQLite、向量库（本地 chroma/sqlite，生产 Qdrant）、文档产物
   sops/               SOP raw/json/index
   evals/              评测 SQLite 与题集 JSON
   dream_cycle/        巡检报告与审计日志
@@ -331,7 +333,7 @@ git clone https://github.com/0mao0/AnGIneer.git
 cd AnGIneer
 ```
 
-要求：Python 3.10+、Node.js 20+、pnpm 9。
+要求：Python 3.10+、Node.js 20+、pnpm 11（`packageManager` 已锁定 11.7.0）。
 
 ### 3.2 安装依赖
 
@@ -360,7 +362,7 @@ cp .env.example .env   # Windows PowerShell: Copy-Item .env.example .env
 ### 3.4 启动服务（开发模式）
 
 ```bash
-pnpm dev:backend    # API:  http://localhost:8789  (文档 /docs)
+pnpm dev:backend    # docs-api: http://localhost:8790 · aichat-api: http://localhost:8791
 pnpm dev:frontend   # 用户: http://localhost:3005
 pnpm dev:admin      # 管理: http://localhost:3002
 ```
@@ -380,23 +382,23 @@ Windows 也可一键启动：
 
 ```bash
 # 提交文档解析
-curl -X POST http://localhost:8789/api/v1/documents/parse \
+curl -X POST http://localhost:8790/api/v1/documents/parse \
   -H "X-API-Key: ag_your_key_here" \
   -F "file=@document.pdf"
 
 # 轮询解析状态
 curl -H "X-API-Key: ag_your_key_here" \
-  http://localhost:8789/api/v1/documents/{doc_id}/status
+  http://localhost:8790/api/v1/documents/{doc_id}/status
 
 # 获取结构化 blocks
 curl -H "X-API-Key: ag_your_key_here" \
-  http://localhost:8789/api/v1/documents/{doc_id}/blocks
+  http://localhost:8790/api/v1/documents/{doc_id}/blocks
 
 # 获取正文 / PDF / 产物清单
 curl -H "X-API-Key: ag_your_key_here" \
-  http://localhost:8789/api/v1/documents/{doc_id}/content
+  http://localhost:8790/api/v1/documents/{doc_id}/content
 curl -H "X-API-Key: ag_your_key_here" \
-  http://localhost:8789/api/v1/documents/{doc_id}/artifacts
+  http://localhost:8790/api/v1/documents/{doc_id}/artifacts
 ```
 
 支持格式：PDF 直接解析；DOCX / PPTX / XLSX 自动经 LibreOffice 转 PDF 后解析。
@@ -454,14 +456,15 @@ cd docker
 docker compose up -d --build
 ```
 
-- 前端（nginx）: `http://localhost/`（用户台），管理后台 `/admin/`
+- 前端（nginx）: `http://127.0.0.1:8080`（用户台 `/`，管理后台 `/admin/`；只绑回环，生产经 AI 网关 nginx 反代）
 - API: docs-api `http://127.0.0.1:8790`、aichat-api `http://127.0.0.1:8791`（均只绑定本机回环）
+- Qdrant 向量库: `127.0.0.1:6333`（容器 `angineer-qdrant`，数据卷 `data/qdrant`）；ONLYOFFICE 文档预览: `8089`
 - 数据卷：`../data`、`../logs`；API 密钥等配置来自 `../.env`
 
 **公网部署安全**：
 
-- 管理后台 `/admin/` 公网可直连，使用账号密码登录（管理员账号体系见「用户管理」，首个管理员由 `.env` 的 `ADMIN_USER` / `ADMIN_PASSWORD` 启动引导）；管理接口 `/api/users`、`/api/api-keys` 由应用层会话鉴权保护（需 `is_admin` 标记）
-- 公网只需暴露 80 端口；8790/8791 已绑定 `127.0.0.1`，外部无法直连后端
+- 生产入口统一走 AI 网关 nginx：HTTPS `443`（https://angineer.cn），`80` 仅保留 ACME 证书挑战 + 301 跳转；8790/8791/8080 已绑定 `127.0.0.1`，外部无法直连后端
+- 管理后台 `/admin/` 使用账号密码登录（管理员账号体系见「用户管理」，首个管理员由 `.env` 的 `ADMIN_USER` / `ADMIN_PASSWORD` 启动引导）；管理接口 `/api/users`、`/api/api-keys` 由应用层会话鉴权保护（需 `is_admin` 标记）
 - 注意：用户台及其调用的 `/api/knowledge`、`/api/chat` 等接口当前无登录，公网开放即所有人可用，上线前需规划登录/风控
 - 对外 API（`/api/v1/*`）需在 Header 携带 `X-API-Key`
 
@@ -497,7 +500,7 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,https
 
 所有 `/api/v1/*` 端点需在 Header 携带 `X-API-Key`；Key 通过管理后台 `/api/api-keys` 生成，存储于 `data/api_keys.sqlite`。
 
-### 6.4 PoPo 子模块本地定制
+### 6.4 PoPo 内化目录本地定制
 
 见 [2.4 PoPo 子模块注意事项](#24-angineer-docs-知识库模块)。更新上游时必须保留环境变量版本，否则国内环境 PoPo 推理会挂死。
 
@@ -525,7 +528,7 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,https
 | `MINERU_BACKEND` | MinerU 后端标识 | `hybrid-engine` |
 | `EMBEDDING_CONFIGS` | Embedding 端点数组（顺序=优先级，链尾自动补 hash） | JSON 数组 |
 | `DOCS_EMBEDDING_PROVIDER` | Embedding 提供方标识（bge_m3/dashscope/hash） | `bge_m3` |
-| `DOCS_VECTORSTORE_PROVIDER` | 向量库类型 | `sqlite` |
+| `DOCS_VECTORSTORE_PROVIDER` | 向量库类型（chroma/sqlite/qdrant；生产用 qdrant） | `chroma` |
 | `RERANKER_CONFIGS` | Reranker 端点数组（顺序=优先级，失败自动切换） | JSON 数组 |
 | `POPO_CONFIGS` | PoPo 强化 LLM 端点数组（顺序=优先级，失败自动切换） | JSON 数组 |
 | `POPO_API_TIMEOUT` / `POPO_MAX_TOKENS` | PoPo 超时与最大 token | `300` / `4096` |
