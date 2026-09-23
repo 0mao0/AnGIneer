@@ -3,12 +3,15 @@
 
 用注入的假数据源，不碰真实 DB/向量库。覆盖四类断言与"缺失清单"的产出。
 """
+import contextlib
 import os
 import sys
 import unittest
+from unittest import mock
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/evals-core/src")))
 
+from evals_core import material_parity
 from evals_core.material_parity import DocReport, Sources, check_document, render_summary, run_check
 
 
@@ -266,6 +269,39 @@ class RunCheckTests(unittest.TestCase):
         self.assertEqual(result["severity"], "error")
         self.assertIn("数据库不可用", result["detail"])
 
+    def test_vector_store_error_escalates_to_warn_and_is_visible(self):
+        """存储不可访问 = 环境问题：报 warn + 点名，不记成文档缺失。
+
+        2026-09-21 修法：改前 qdrant 没起会被报成「147 个 chunk 但向量点为 0」的 fail。
+        """
+        sources = Sources(
+            list_docs=lambda: [("lib", "doc")],
+            load_nodes=lambda lib, doc: [_node(plain_text="正文内容足够长")],
+            load_chunk_texts=lambda lib, doc: ["正文内容足够长"],
+            has_canonical=lambda lib, doc: True,
+            count_vectors=lambda lib, doc: None,       # 存储不可访问 → 该篇跳过向量断言
+            vector_store_error=lambda: "provider=qdrant（http://localhost:6333）不可访问：ConnectionError",
+        )
+        result = run_check(sources=sources)
+        self.assertEqual(result["severity"], "warn")
+        self.assertEqual(result["docs_with_issues"], 0)
+        self.assertIn("qdrant", result["vector_store_error"])
+        summary = render_summary(result)
+        self.assertIn("向量库不可访问", summary)
+        self.assertIn("ConnectionError", summary)
+
+    def test_vector_store_error_does_not_downgrade_fail(self):
+        """存储错误不掩盖真实缺失：本就有 fail 时保持 fail。"""
+        sources = Sources(
+            list_docs=lambda: [("lib", "doc")],
+            load_nodes=lambda lib, doc: [_node(plain_text="正文内容足够长")],
+            load_chunk_texts=lambda lib, doc: ["正文内容足够长"],
+            has_canonical=lambda lib, doc: True,
+            count_vectors=lambda lib, doc: 0,
+            vector_store_error=lambda: "provider=qdrant 不可访问：x",
+        )
+        self.assertEqual(run_check(sources=sources)["severity"], "fail")
+
 
 class NotifyLineTests(unittest.TestCase):
     """素材检查行要进 nightly 结论卡片（通过与否都要可见）。"""
@@ -310,10 +346,89 @@ class NotifyLineTests(unittest.TestCase):
                                           "blocks_symbol_mismatch": 4}})
         self.assertIn("符号改动 4 块", line)
 
+    def test_material_line_reports_vector_store_unavailable(self):
+        """存储不可访问要说在卡片上：此时向量点为 0 不代表素材缺失。"""
+        from evals_core.nightly.pipeline import _material_line
+
+        line = _material_line({"severity": "warn", "docs_checked": 200,
+                               "vector_store_error": "provider=qdrant（http://localhost:6333）不可访问：ConnectionError",
+                               "totals": {"blocks_text_lost": 0, "blocks_uncovered": 0}})
+        self.assertIn("向量库不可访问", line)
+        self.assertIn("warn", line)
+
     def test_material_line_empty_when_disabled(self):
         from evals_core.nightly.pipeline import _material_line
 
         self.assertEqual(_material_line(None), "")
+
+
+def _docs_core_available() -> bool:
+    try:
+        import docs_core.step06_vectors.config  # noqa: F401
+        return True
+    except Exception:  # noqa: BLE001 本地开发机可能没装 docs_core
+        return False
+
+
+@unittest.skipUnless(_docs_core_available(), "需要已安装 docs_core")
+class DefaultSourcesProviderTests(unittest.TestCase):
+    """真实实现按 provider 分流：qdrant 环境只查 Qdrant，sqlite 环境不碰 Qdrant。"""
+
+    @contextlib.contextmanager
+    def _patched(self, provider: str, qdrant_factory, sqlite_count: int):
+        """在 patch 生效期内交出 sources：count_vectors 的 import 发生在调用时，
+        所以 patch 必须一直罩到用例真正调用它为止。"""
+        import docs_core.step05_sqlite_fts.store.canonical_sql_store as canon_mod
+        import docs_core.step06_vectors.config as vec_config
+        import docs_core.step06_vectors.qdrant_vector_store as qdrant_mod
+
+        class _FakeConn:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+            def execute(self, *args):
+                class _Cursor:
+                    def fetchone(_self):
+                        return (sqlite_count,)
+
+                return _Cursor()
+
+        class _FakeStore:
+            def connect(self):
+                return _FakeConn()
+
+        with mock.patch.object(vec_config, "get_vectorstore_provider_name", lambda: provider), \
+                mock.patch.object(vec_config, "get_qdrant_url", lambda: "http://127.0.0.1:6333"), \
+                mock.patch.object(qdrant_mod, "QdrantVectorStore", qdrant_factory), \
+                mock.patch.object(canon_mod, "CanonicalSQLiteStore", _FakeStore):
+            yield material_parity.default_sources()
+
+    def test_qdrant_provider_unreachable_reports_store_error_not_missing(self):
+        def _unreachable(*args, **kwargs):
+            raise ConnectionError("connection refused")
+
+        with self._patched("qdrant", _unreachable, sqlite_count=147) as sources:
+            # 只保留真实 count_vectors/vector_store_error，其余喂假数据（不读本机知识库）
+            sources.list_docs = lambda: [("lib", "doc")]
+            sources.load_nodes = lambda lib, doc: [_node(plain_text="正文内容足够长")]
+            sources.load_chunk_texts = lambda lib, doc: ["正文内容足够长"]
+            sources.has_canonical = lambda lib, doc: True
+            result = run_check(sources=sources)
+        self.assertEqual(result["severity"], "warn")            # 不是 fail
+        self.assertEqual(result["docs_with_issues"], 0)
+        self.assertIn("connection refused", result["vector_store_error"])
+        self.assertNotIn("向量缺失", render_summary(result))
+
+    def test_sqlite_provider_does_not_touch_qdrant(self):
+        def _must_not_be_called(*args, **kwargs):
+            raise AssertionError("provider=sqlite 时不应构造 QdrantVectorStore")
+
+        with self._patched("sqlite", _must_not_be_called, sqlite_count=147) as sources:
+            self.assertEqual(sources.count_vectors("lib", "doc"), 147)
+            self.assertIsNone(sources.vector_store_error())
 
 
 if __name__ == "__main__":

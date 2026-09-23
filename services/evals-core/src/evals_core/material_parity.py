@@ -11,7 +11,11 @@
    链路构建 chunk 时优先消费校正后的字段，只比 `plain_text` 会把"被 PoPo 改写过的块"报成未覆盖
    （2026-09-14 实踩：4 个公式块因 `V_{s}=` 被校正成 `V=` 而失配，改用 corrected 后 0 失配）；
    顺带单列**符号改动**（`symbol_mismatch`）计数与样例——校正改符号是数据质量信号，不判 fail。
-3. **chunk → 向量**：有 chunk 却没有向量点 → 向量化环节漏了（点数取自向量库按 doc_id 过滤计数）；
+3. **chunk → 向量**：有 chunk 却没有向量点 → 向量化环节漏了（点数取自向量库按 doc_id 过滤计数）。
+   **计数按 provider 分流**（`DOCS_VECTORSTORE_PROVIDER`，见 `default_sources.count_vectors`）：
+   qdrant 只查 Qdrant，sqlite/未设只查 `canonical_vectors`。存储**不可访问**时记一条
+   `vector_store_error` 并把整体降到 `warn`（向量断言跳过、不判缺失）——2026-09-21 本地实踩：
+   原来无条件先试 Qdrant、失败静默回退 sqlite 空表，把「qdrant 没起」报成「147 个 chunk 但向量点为 0」的 fail；
 4. **索引存在性**：文档在 canonical 里有没有记录。**只对"计划建索引"的文档断言**——
    判定依据是 `doc_parse_stages` 的事实（该篇有没有 `fts` 阶段记录、状态是什么），不是按库排除的名册：
 
@@ -26,6 +30,8 @@
 
 设计约束：
 - **不侵入解析链**：作为独立阅读器跑，失败只影响体检本身，不会让正常解析报错；
+- **区分"存储不可访问"与"素材缺失"**：前者是环境问题（记 `vector_store_error` + 降为 warn + 摘要里点名），
+  后者才是 fail。二者混同会让体检在下游服务没起时编出假缺失；
 - 数据源可注入（`Sources`），单测不需要真实 DB/向量库；
 - 库依赖：复用 `docs_core`（与 evals-core 同装在一个后端镜像里），不重复实现路径与存储逻辑。
 """
@@ -122,6 +128,9 @@ class Sources:
     # 该文档 fts 阶段的状态：None=没有这条阶段记录（没计划建索引）；缺省实现视为"已计划"
     # ——宁可照报，也不静默放过（注入方不提供时保持旧行为）。
     index_stage_state: Optional[Callable[[str, str], Optional[str]]] = None
+    # 向量库级（存储级，与单篇无关）不可访问的说明；返回空串/None = 没有错误。
+    # 不提供时视为无该能力（旧行为：存储不可访问被当作"向量点不可用"静默跳过）。
+    vector_store_error: Optional[Callable[[], Optional[str]]] = None
 
 
 def _expected_plain_text(node: dict) -> str:
@@ -241,7 +250,7 @@ def run_check(*, libraries: Optional[list[str]] = None, max_docs: int = DEFAULT_
     except Exception as exc:  # noqa: BLE001 体检自身失败不该拖垮调用方
         logger.exception("素材检查：列举文档失败")
         return {"severity": "error", "detail": f"{type(exc).__name__}: {str(exc)[:200]}",
-                "docs_checked": 0, "docs_with_issues": 0, "issues": []}
+                "docs_checked": 0, "docs_with_issues": 0, "issues": [], "vector_store_error": ""}
 
     if libraries:
         wanted = set(libraries)
@@ -256,6 +265,17 @@ def run_check(*, libraries: Optional[list[str]] = None, max_docs: int = DEFAULT_
             logger.exception("素材检查：单篇检查失败 lib=%s doc=%s", lib, doc)
 
     bad = [r for r in reports if not r.ok]
+    store_error = ""
+    if sources.vector_store_error:
+        try:
+            store_error = str(sources.vector_store_error() or "")
+        except Exception:  # noqa: BLE001 读错误说明失败不该影响体检本身
+            store_error = ""
+    severity = _severity(reports)
+    if store_error and severity == "ok":
+        # 存储不可访问是环境问题，不是"素材缺失"：报 warn 并说明，不判 fail
+        # （不升级已有的 warn/fail，避免掩盖真实缺陷）
+        severity = "warn"
     totals = {
         "blocks": sum(r.blocks_total for r in reports),
         "blocks_with_text": sum(r.blocks_with_text for r in reports),
@@ -269,11 +289,13 @@ def run_check(*, libraries: Optional[list[str]] = None, max_docs: int = DEFAULT_
         "blocks_symbol_mismatch": sum(r.blocks_symbol_mismatch for r in reports),
     }
     return {
-        "severity": _severity(reports),
+        "severity": severity,
         "libraries": libraries or "all",
         "docs_checked": len(reports),
         "docs_with_issues": len(bad),
         "totals": totals,
+        # 存储级不可访问：单独一条，不属于任何文档（docs_with_issues 不计它）
+        "vector_store_error": store_error,
         "symbol_mismatch_samples": [s for r in reports for s in r.mismatch_samples][:5],
         "issues": [r.as_dict() for r in bad],
     }
@@ -291,6 +313,10 @@ def render_summary(result: dict) -> str:
         f"未被 chunk 覆盖 {totals.get('blocks_uncovered', 0)}、内容未落地 {totals.get('blocks_text_lost', 0)}；"
         f"chunk {totals.get('chunks', 0)}，向量点 {totals.get('vector_points', 0)}",
     ]
+    store_error = result.get("vector_store_error")
+    if store_error:
+        lines.append(f"  向量库不可访问：{store_error}")
+        lines.append("      （本次向量点断言已跳过——「有 chunk 无向量」不判缺失，先修存储再复检）")
     if (totals.get("blocks_text_lost") or 0) > 0:
         lines.append("  提示：内容未落地多为「修复前解析」的存量产物（2026-09-12 修的那五类块），"
                      "重新解析后消失；若新解析文档仍有此告警，则是链路回归。")
@@ -338,9 +364,14 @@ def _load_index_stage_states() -> Optional[dict]:
 def default_sources() -> Sources:
     import docs_core.paths as paths
     from docs_core.step05_sqlite_fts.store.canonical_sql_store import CanonicalSQLiteStore
+    from docs_core.step06_vectors.config import get_qdrant_url, get_vectorstore_provider_name
 
     store = CanonicalSQLiteStore()
     stage_states = _UNLOADED
+    # 计数走哪个后端，按 provider 决定（不再无条件先试 Qdrant）
+    provider = (get_vectorstore_provider_name() or "").strip().lower()
+    # 首个"存储不可访问"说明（存储级，与单篇无关）；空 list = 没出错
+    store_errors: list[str] = []
 
     def list_docs() -> list[tuple[str, str]]:
         """按产物修改时间倒序列出所有已解析文档（体检优先看最近解析的）。"""
@@ -378,29 +409,35 @@ def default_sources() -> Sources:
         return [str(r[0] or "") for r in rows]
 
     def count_vectors(library_id: str, doc_id: str) -> Optional[int]:
-        """优先 Qdrant（生产 provider）；否则退到 sqlite canonical_vectors；都不可用返回 None。"""
-        try:
-            from docs_core.step06_vectors.qdrant_vector_store import QdrantVectorStore
+        """按 provider 数该文档的向量点；存储不可访问 → 记错误并返回 None（跳过断言）。
 
-            store_q = QdrantVectorStore()
-            client = store_q._get_client()
-            from qdrant_client import models
+        - provider=qdrant：只查 Qdrant；不可访问（服务未起 / collection 不存在 / 未装客户端）
+          一律记错误，**不回退 sqlite**——early-adopter 机器上 `canonical_vectors` 只是历史残留，
+          回退会把它报成"这篇一个向量都没有"（2026-09-21 本地实踩：qdrant 未启动 →
+          147 个 chunk 报 0 向量 → fail；实际向量在 qdrant 里，只是服务没起）。
+        - 其它 provider（sqlite / 未设 / legacy chroma 默认）：只查 sqlite `canonical_vectors`
+          （与 docs_service 的 sqlite 回退一致），表不存在返回 None（该篇没进过 SQLite 向量库）。
+        """
+        if provider == "qdrant":
+            try:
+                from docs_core.step06_vectors.qdrant_vector_store import QdrantVectorStore
 
-            res = client.count(
-                collection_name=store_q._collection,
-                count_filter=models.Filter(must=[models.FieldCondition(
-                    key="doc_id", match=models.MatchValue(value=doc_id))]),
-                exact=True,
-            )
-            return int(getattr(res, "count", 0))
-        except Exception:  # noqa: BLE001 向量库不可用不该算作"缺失"
-            pass
+                return QdrantVectorStore().count_points_for_doc(doc_id)
+            except Exception as exc:  # noqa: BLE001 不可访问 ≠ 这篇没有向量
+                if not store_errors:
+                    store_errors.append(
+                        f"provider=qdrant（{get_qdrant_url()}）不可访问：{type(exc).__name__}: {str(exc)[:160]}")
+                    logger.warning("素材检查：向量库不可访问，向量点断言跳过：%s", exc)
+                return None
         try:
             with store.connect() as conn:
                 row = conn.execute("SELECT COUNT(*) FROM canonical_vectors WHERE doc_id = ?", (doc_id,)).fetchone()
             return int(row[0]) if row else 0
         except Exception:  # noqa: BLE001 表不存在（provider=qdrant 时 canonical_vectors 为空表）
             return None
+
+    def vector_store_error() -> Optional[str]:
+        return store_errors[0] if store_errors else None
 
     def index_stage_state(library_id: str, doc_id: str) -> Optional[str]:
         """该文档 fts 阶段的状态；没有这条记录返回 None（=没计划建索引）。
@@ -418,4 +455,4 @@ def default_sources() -> Sources:
 
     return Sources(list_docs=list_docs, load_nodes=load_nodes, load_chunk_texts=load_chunk_texts,
                    has_canonical=has_canonical, count_vectors=count_vectors,
-                   index_stage_state=index_stage_state)
+                   index_stage_state=index_stage_state, vector_store_error=vector_store_error)

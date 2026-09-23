@@ -307,6 +307,22 @@ class QdrantVectorStore(VectorStore):
         hits.sort(key=lambda item: (item.score, len(item.content)), reverse=True)
         return hits[:cap]
 
+    # 单文档向量点数（体检/校验用）：单次精确计数，不拉 payload。
+    # 与 get_document_stats 的区别是失败语义：collection 不存在或服务不可达时**抛异常**，
+    # 由调用方区分「不可访问」与「这篇真的 0 点」——素材检查的假警报正出在这一步被静默吞掉
+    # （2026-09-21：qdrant 未启动被报成「147 个 chunk 但向量点为 0」）。
+    def count_points_for_doc(self, doc_id: str) -> int:
+        from qdrant_client import models
+
+        client = self._get_client()
+        res = client.count(
+            collection_name=self._collection,
+            count_filter=models.Filter(must=[models.FieldCondition(
+                key="doc_id", match=models.MatchValue(value=doc_id))]),
+            exact=True,
+        )
+        return int(getattr(res, "count", 0))
+
     # 获取单文档的向量索引统计（按 entity_type 聚合计数）
     def get_document_stats(self, doc_id: str) -> Dict[str, Any]:
         empty = {"doc_id": doc_id, "total_count": 0, "by_entity_type": {}}

@@ -141,6 +141,9 @@ def _material_line(material: Optional[dict]) -> str:
     mismatched = totals.get("blocks_symbol_mismatch") or 0
     if mismatched:
         line += f"，符号改动 {mismatched} 块"
+    if material.get("vector_store_error"):
+        # 存储不可访问要说在卡片上：此时"向量点"一栏为 0 并不代表素材缺失
+        line += "，向量库不可访问（向量断言已跳过）"
     return line + "）"
 
 
