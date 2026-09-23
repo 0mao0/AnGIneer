@@ -50,10 +50,13 @@ DATA_DIR_CANDIDATES = (
     Path("D:/AI/tools/OmniDocBench_data"),
     Path.home() / "OmniDocBench_data",
 )
-# 三方表两列（参考模型 / MinerU 单独）的官方产物目录候选；是可选项，找不到就留空并写明
+# 三方表两列（参考模型 / MinerU 单独）的官方产物目录：只认显式给出的 env/CLI，**不再硬编码自动探测**
+# （2026-09-23 实踩：硬编码候选把 09-13 的 mineru_only_result 静默填进「MinerU 单独」列——那是修复前
+# 模型、另一次批量解析的产物，与本次"我们全链"列不同尺，曾据此得出"我们链表格弱于 MinerU"的假结论，
+# 见 docs/plan-parse-regression-entry.md）。给了就会在 summary 里标注"固定基线、非同批解析"。
 SOURCE_DIR_CANDIDATES = {
-    "ref": (Path(os.getenv("OMNIDOCBENCH_REF_RESULT") or ""), Path("D:/AI/omnidocbench_dl/ref_result")),
-    "mineru": (Path(os.getenv("OMNIDOCBENCH_MINERU_RESULT") or ""), Path("D:/AI/omnidocbench_dl/mineru_only_result")),
+    "ref": (Path(os.getenv("OMNIDOCBENCH_REF_RESULT") or ""),),
+    "mineru": (Path(os.getenv("OMNIDOCBENCH_MINERU_RESULT") or ""),),
 }
 
 
@@ -414,8 +417,10 @@ def main() -> int:
     ap.add_argument("--delta-mode", choices=["strict", "intersect"], default="strict",
                     help="页集合不等时：strict=不出 Δ（默认）；intersect=按交集重算 A①（非官方口径）")
     ap.add_argument("--set-baseline", action="store_true", help="把本次 run 钉为基线")
-    ap.add_argument("--sources-ref", default="", help="参考模型官方产物目录（三方表第一列）；留空自动探测")
-    ap.add_argument("--sources-mineru", default="", help="MinerU 单独官方产物目录（三方表第二列）；留空自动探测")
+    ap.add_argument("--sources-ref", default="", help="参考模型官方产物目录（三方表第一列）；须显式指定"
+                                                      "（或 env OMNIDOCBENCH_REF_RESULT），不给则该列留空")
+    ap.add_argument("--sources-mineru", default="", help="MinerU 单独官方产物目录（三方表第二列）；须显式指定"
+                                                         "（或 env OMNIDOCBENCH_MINERU_RESULT），不给则该列留空")
     ap.add_argument("--republish", default="", help="给已归档的 run 重建 publish.json（只看不跑）")
     ap.add_argument("--import-official", default="", help="入档模式：官方产物目录")
     ap.add_argument("--import-chain", default="", help="入档模式：A② 我们全链 structure_result.json")

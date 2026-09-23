@@ -383,6 +383,12 @@ def render_summary(meta: dict, official: dict, struct_chain: dict, struct_mineru
         lines.append("| " + " | ".join(row) + " |")
     if not official_ref or not official_mineru:
         lines += ["", "（参考模型/MinerU 单独两列缺：跑时未提供 `sources`；两者是固定基线，不随本次 run 变）"]
+    else:
+        src = meta.get("sources") or {}
+        lines += ["", f"（参考模型/MinerU 单独两列是**固定基线产物**（目录：参考={src.get('ref_official') or '—'}；"
+                      f"MinerU={src.get('mineru_official') or '—'}），与「我们全链」列**非同一批解析**——"
+                      "跨批数字只作参照，不得据此下'谁弱于谁'的结论（09-13 旧列实踩，"
+                      "见 docs/plan-parse-regression-entry.md）"]
     lines += ["", "## A② 结构层口径（两方）", "",
               "| 指标 | MinerU 原生 content_list | 我们全链 |", "|---|---|---|"]
     for key in ("block_recall", "pred_used_ratio", "text_similarity", "text_similarity_matched",
