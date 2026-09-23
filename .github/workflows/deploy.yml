@@ -42,6 +42,15 @@ jobs:
           git reset --hard origin/main
           # 注：popo 已于 2026-09-09 内化为普通目录，仓库不再有任何 submodule，
           # 无需 git submodule update。
+          # admin-web 自 2026-09-23 起闭源：不跟踪进公开仓库，部署真相源为
+          # /home/runner/angineer-admin-web（手工维护，同 .env 模式；更新后下次部署生效）。
+          # reset --hard 会按新 commit 删掉此前被跟踪的 apps/admin-web，此处从外部目录回填。
+          if [ ! -d /home/runner/angineer-admin-web ]; then
+            echo "ERROR: /home/runner/angineer-admin-web not found (admin-web 闭源目录缺失)"
+            exit 1
+          fi
+          rm -rf apps/admin-web
+          cp -r /home/runner/angineer-admin-web apps/admin-web
 
       - name: Version consistency check
         run: |
