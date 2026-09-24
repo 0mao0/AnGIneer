@@ -169,6 +169,8 @@ export function useAIChat(options?: {
       onWarning?: (message: string) => void
     }
   ) => Promise<QueryResponse>
+  /** 发送/流式过程中的错误回调（含 403 login_required 等业务态）；宿主据此弹登录浮层等 */
+  onError?: (error: Error) => void
 }): {
   messages: Ref<AIChatMessage[]>
   loading: Ref<boolean>
@@ -459,10 +461,15 @@ export function useAIChat(options?: {
         }
       } else {
         console.error('Chat error:', error)
+        const message = error instanceof Error ? error.message : '未知错误'
+        const code = (error as Error & { code?: string })?.code
+        options?.onError?.(error instanceof Error ? error : new Error(message))
+        // login_required 是业务态（游客轮闸）而非故障：不带「出错了」前缀，
+        // 宿主挂了 AuthGate 会盖住这条气泡，未挂的宿主也能看到可读提示
         messages.value.push({
           id: generateMessageId(),
           role: 'assistant',
-          content: `抱歉，对话出现错误：${error instanceof Error ? error.message : '未知错误'}`,
+          content: code === 'login_required' ? message : `抱歉，对话出现错误：${message}`,
           timestamp: Date.now()
         })
       }

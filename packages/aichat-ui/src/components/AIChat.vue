@@ -147,7 +147,8 @@ const {
   scene: props.scene,
   sessionId: sessionIdRef,
   getContextItems: () => props.contextItems,
-  query: props.transport?.query
+  query: props.transport?.query,
+  onError: (error) => emit('error', error)
 })
 
 /** 消息数组任何变化（发送/收到回答/停止/报错）都向上抛出，供宿主做持久化 */
