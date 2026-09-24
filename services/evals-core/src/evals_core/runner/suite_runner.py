@@ -24,6 +24,22 @@ _current_run_id: Optional[str] = None
 _stop_event: Optional[threading.Event] = None
 
 
+def release_native_memory() -> None:
+    """评测跑完后把已释放内存归还操作系统：glibc 各 arena 的 freelist 不会自动 madvise，
+    千题级检索上下文（峰值 RSS 2G+）留在堆里表现为服务常驻虚高（2026-09-24 生产实测：
+    nightly 结束后 RSS 仍挂 2.3G、swap 多吃 1.7G，3.6G 宿主机仅剩 300M available）。
+    malloc_trim(0) 跨所有 arena 归还整页空闲块；失败静默（Windows 无此符号）。"""
+    import gc
+
+    gc.collect()
+    try:
+        import ctypes
+
+        ctypes.CDLL("libc.so.6", use_errno=True).malloc_trim(0)
+    except Exception:  # noqa: BLE001
+        pass
+
+
 def caliber_fingerprint() -> Dict[str, Any]:
     """判分口径指纹：评测引擎 / 扩展维度开关 / judge 模型 / steps 固化清单任一变化即变。
 
@@ -682,6 +698,11 @@ def _run_suite_thread(
         except Exception:  # noqa: BLE001
             logger.exception("run 保留策略执行失败（下轮再试）")
         result_store.cleanup_individual_runs(dataset_id)
+        # 本轮检索上下文/判分文本的已释放内存归还 OS（服务与 nightly 同进程，不还则常驻虚高）
+        try:
+            release_native_memory()
+        except Exception:  # noqa: BLE001
+            logger.exception("归还内存失败（无害，下轮再试）")
 
 
 def _pid_alive(pid: int) -> bool:

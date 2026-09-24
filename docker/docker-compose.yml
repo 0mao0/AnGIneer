@@ -53,6 +53,11 @@ services:
       dockerfile: docker/Dockerfile.backend
     image: angineer-aichat-api:latest
     container_name: angineer-aichat-api
+    environment:
+      # 多线程下 glibc 默认按 8×CPU 建 arena，千题评测的检索上下文碎片化后不还 OS
+      # （2026-09-24 实测 nightly 后 RSS 常驻 2.3G + swap 1.7G）；限 2 个 arena，配合
+      # suite_runner.release_native_memory 的 malloc_trim 控制常驻
+      MALLOC_ARENA_MAX: "2"
     ports:
       # 只绑定本机回环，禁止从宿主机外部直接访问后端
       - "127.0.0.1:8791:8791"

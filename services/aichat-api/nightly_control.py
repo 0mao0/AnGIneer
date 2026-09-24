@@ -311,6 +311,11 @@ async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
     logger.info("nightly 流水线结束（source=%s）: state=%s 用时 %.1f min",
                 source, result.get("state"), (time.monotonic() - t0) / 60.0)
     _record(cfg, datetime.now(BJT), source, slot, result)
+    # 素材检查/门禁计算也会吃堆内存；评测段归还点在 suite_runner 线程 finally
+    try:
+        suite_runner.release_native_memory()
+    except Exception:  # noqa: BLE001
+        logger.exception("归还内存失败（无害，下轮再试）")
     return result
 
 
