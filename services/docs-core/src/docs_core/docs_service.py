@@ -928,6 +928,43 @@ class DocsService:
         """按条款引用精确召回块。"""
         return self.canonical_store.list_blocks_by_clause_refs(doc_id, clause_refs, limit)
 
+    # ---- 批量取数直通（检索扇出合并，替代逐文档循环）----
+    def list_pages_for_docs(self, doc_ids: List[str]) -> List[CanonicalPage]:
+        """批量列出多文档 canonical pages。"""
+        return self.canonical_store.list_pages_for_docs(doc_ids)
+
+    def search_citation_targets_for_docs(
+        self, doc_ids: List[str], query: str, per_doc_limit: int = 40
+    ) -> List[Dict[str, object]]:
+        """批量检索多文档 citation targets（逐文档上限语义不变）。"""
+        return self.canonical_store.search_citation_targets_for_docs(doc_ids, query, per_doc_limit)
+
+    def list_chunks_by_ids(self, chunk_ids: List[str]) -> List[CanonicalChunk]:
+        """按 chunk_id 集合批量反查完整 chunk。"""
+        return self.canonical_store.list_chunks_by_ids(chunk_ids)
+
+    def list_chunks_for_docs(
+        self, doc_ids: List[str], keyword: Optional[str] = None, per_doc_limit: int = 60
+    ) -> List[CanonicalChunk]:
+        """批量查询多文档 chunks（逐文档上限语义不变）。"""
+        return self.canonical_store.list_chunks_for_docs(doc_ids, keyword=keyword, per_doc_limit=per_doc_limit)
+
+    def list_blocks_for_docs(
+        self,
+        doc_ids: List[str],
+        block_types: Optional[List[str]] = None,
+        keyword: Optional[str] = None,
+        per_doc_limit: int = 60,
+    ) -> List[CanonicalBlock]:
+        """批量查询多文档 blocks（逐文档上限语义不变）。"""
+        return self.canonical_store.list_blocks_for_docs(
+            doc_ids, block_types=block_types, keyword=keyword, per_doc_limit=per_doc_limit
+        )
+
+    def list_blocks_in_page_range(self, doc_id: str, page_min: int, page_max: int) -> List[CanonicalBlock]:
+        """按页范围取文档 blocks（公式上下文邻近页拉取）。"""
+        return self.canonical_store.list_blocks_in_page_range(doc_id, page_min, page_max)
+
     # 按 block_uid 列表批量查询富媒体字段。
     def get_blocks_rich_media(self, doc_id: str, block_uids: List[str]) -> Dict[str, Dict[str, Any]]:
         return self.index_store.get_blocks_rich_media(doc_id=doc_id, block_uids=block_uids)

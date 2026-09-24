@@ -1,7 +1,7 @@
 """基于 canonical SQLite 的第一版 sparse 检索器。"""
 import functools
 import re
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 from docs_core.step09_query.protocols.contracts import KnowledgeNode, KnowledgeQueryRequest, RetrievedItem
 from docs_core.step09_query.protocols.data_port import QueryDataPort, default_query_data_port
@@ -58,6 +58,11 @@ def pick_chunk_keyword(query: str, clause_refs: Optional[List[str]] = None) -> O
     return tokens[0]
 
 
+# FTS 相关文档扇出上限：泛词（"规范 设计"类）一次 FTS 可命中数十篇文档，
+# 逐文档取数是冷态 sparse 12s+ 的根因；按各文档最佳 bm25 排序截断后批量取数。
+_SPARSE_DOC_FANOUT = 24
+
+
 class SparseRetriever:
     """从 canonical chunks 和 blocks 中召回偏精确候选。"""
 
@@ -95,35 +100,77 @@ class SparseRetriever:
                 query=request.query,
                 limit=max(60, request.top_k * 4),
             )
-        relevant_doc_ids: set = set()
-        fts_chunk_ids_by_doc: Dict[str, set] = {}
+        fts_chunk_ids_by_doc: Dict[str, List[str]] = {}
+        best_score_by_doc: Dict[str, float] = {}
         for hit in fts_hits:
             doc_id = str(hit.get("doc_id") or "")
             chunk_id = str(hit.get("chunk_id") or "")
             if doc_id:
-                relevant_doc_ids.add(doc_id)
+                hit_score = float(hit.get("bm25_score") or 0.0)
+                if doc_id not in best_score_by_doc or hit_score < best_score_by_doc[doc_id]:
+                    best_score_by_doc[doc_id] = hit_score
             if doc_id and chunk_id:
-                fts_chunk_ids_by_doc.setdefault(doc_id, set()).add(chunk_id)
+                doc_chunk_ids = fts_chunk_ids_by_doc.setdefault(doc_id, [])
+                if chunk_id not in doc_chunk_ids:
+                    doc_chunk_ids.append(chunk_id)
 
-        # —— 相关文档集合（FTS 命中优先；无命中时退化为前 20 个节点）——
+        # —— 相关文档集合（FTS 命中按最佳 bm25 排序截断；无命中时退化为前 20 个节点）——
         node_by_id = {getattr(node, "id", ""): node for node in doc_nodes}
+        ranked_doc_ids = sorted(best_score_by_doc, key=lambda d: best_score_by_doc[d])[:_SPARSE_DOC_FANOUT]
         relevant_nodes: List[KnowledgeNode] = [
-            node_by_id[did] for did in relevant_doc_ids if did in node_by_id
+            node_by_id[did] for did in ranked_doc_ids if did in node_by_id
         ]
         if not relevant_nodes:
             relevant_nodes = list(doc_nodes[: min(20, len(doc_nodes))])
+        selected_ids = [str(getattr(node, "id", "") or "") for node in relevant_nodes]
+
+        # —— 批量取数：N 文档 1 条 SQL（替代逐文档 pages/targets/chunks/blocks 循环）——
+        page_labels_by_doc: Dict[str, Dict[int, str]] = {}
+        for page in port.list_pages_for_docs(selected_ids):
+            if page.printed_page_label:
+                page_labels_by_doc.setdefault(str(page.doc_id), {})[page.page_idx] = page.printed_page_label
+
+        targets_by_doc: Dict[str, List[dict]] = {}
+        for target in port.search_citation_targets_for_docs(
+            selected_ids,
+            request.query,
+            per_doc_limit=max(20, request.top_k * 2),
+        ):
+            targets_by_doc.setdefault(str(target.get("doc_id") or ""), []).append(target)
+
+        chunk_keyword = pick_chunk_keyword(request.query, clause_refs)
+        # FTS 命中的 chunk 反查完整结构（只限相关文档）；无 FTS 命中的文档走关键词兜底
+        fts_chunks_by_doc: Dict[str, List] = {}
+        all_fts_chunk_ids = [
+            chunk_id
+            for doc_id in selected_ids
+            for chunk_id in fts_chunk_ids_by_doc.get(doc_id, [])
+        ]
+        if all_fts_chunk_ids:
+            for chunk in port.list_chunks_by_ids(all_fts_chunk_ids):
+                fts_chunks_by_doc.setdefault(str(chunk.doc_id), []).append(chunk)
+        fallback_doc_ids = [doc_id for doc_id in selected_ids if doc_id not in fts_chunk_ids_by_doc]
+        keyword_chunks_by_doc: Dict[str, List] = {}
+        if fallback_doc_ids:
+            for chunk in port.list_chunks_for_docs(
+                fallback_doc_ids,
+                keyword=chunk_keyword,
+                per_doc_limit=max(40, request.top_k * 3),
+            ):
+                keyword_chunks_by_doc.setdefault(str(chunk.doc_id), []).append(chunk)
+
+        blocks_by_doc: Dict[str, List] = {}
+        for block in port.list_blocks_for_docs(
+            selected_ids,
+            keyword=chunk_keyword,
+            per_doc_limit=max(20, request.top_k * 3),
+        ):
+            blocks_by_doc.setdefault(str(block.doc_id), []).append(block)
 
         for node in relevant_nodes:
-            page_label_map = {
-                page.page_idx: page.printed_page_label
-                for page in port.list_canonical_pages(node.id)
-                if page.printed_page_label
-            }
-            target_hits = port.search_citation_targets(
-                doc_id=node.id,
-                query=request.query,
-                limit=max(20, request.top_k * 2),
-            )
+            node_id = str(getattr(node, "id", "") or "")
+            page_label_map = page_labels_by_doc.get(node_id, {})
+            target_hits = targets_by_doc.get(node_id, [])
             for target in target_hits:
                 score = score_sparse_match(
                     request.query,
@@ -162,20 +209,10 @@ class SparseRetriever:
                 )
 
             # —— chunk 候选：FTS 命中的 chunk 反查完整结构（只限相关文档）——
-            fts_chunk_ids = fts_chunk_ids_by_doc.get(node.id) or set()
-            if fts_chunk_ids:
-                chunks = [
-                    chunk
-                    for chunk in port.list_canonical_chunks(doc_id=node.id, limit=max(40, request.top_k * 3))
-                    if chunk.chunk_id in fts_chunk_ids
-                ]
+            if node_id in fts_chunk_ids_by_doc:
+                chunks = fts_chunks_by_doc.get(node_id, [])
             else:
-                chunk_keyword = pick_chunk_keyword(request.query, clause_refs)
-                chunks = port.list_canonical_chunks(
-                    doc_id=node.id,
-                    keyword=chunk_keyword,
-                    limit=max(40, request.top_k * 3),
-                )
+                chunks = keyword_chunks_by_doc.get(node_id, [])
             for chunk in chunks:
                 score = score_sparse_match(request.query, chunk.text, chunk.section_path, task_type)
                 if score <= 0:
@@ -219,12 +256,7 @@ class SparseRetriever:
                     )
                 )
 
-            chunk_keyword = pick_chunk_keyword(request.query, clause_refs)
-            blocks = port.list_canonical_blocks(
-                doc_id=node.id,
-                keyword=chunk_keyword,
-                limit=max(20, request.top_k * 3),
-            )
+            blocks = blocks_by_doc.get(node_id, [])
             for block in blocks:
                 # 页眉页脚/目录不参与正文检索（目录锚点走 outline_anchor chunk）
                 if block.block_type in {"header_footer", "toc"}:

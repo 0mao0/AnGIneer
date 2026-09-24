@@ -58,6 +58,21 @@ def test_sparse_retriever_carries_page_label(tmp_path) -> None:
         def list_canonical_blocks(self, **kwargs):
             return []
 
+        def list_pages_for_docs(self, doc_ids):
+            return store.list_pages_for_docs(doc_ids)
+
+        def search_citation_targets_for_docs(self, doc_ids, query, per_doc_limit=40):
+            return store.search_citation_targets_for_docs(doc_ids, query, per_doc_limit=per_doc_limit)
+
+        def list_chunks_by_ids(self, chunk_ids):
+            return store.list_chunks_by_ids(chunk_ids)
+
+        def list_chunks_for_docs(self, doc_ids, keyword=None, per_doc_limit=60):
+            return store.list_chunks_for_docs(doc_ids, keyword=keyword, per_doc_limit=per_doc_limit)
+
+        def list_blocks_for_docs(self, doc_ids, block_types=None, keyword=None, per_doc_limit=60):
+            return store.list_blocks_for_docs(doc_ids, block_types=block_types, keyword=keyword, per_doc_limit=per_doc_limit)
+
     retriever = SparseRetriever(port=_FakePort())
     request = KnowledgeQueryRequest(query="第一章", library_id="default")
     doc_nodes = [

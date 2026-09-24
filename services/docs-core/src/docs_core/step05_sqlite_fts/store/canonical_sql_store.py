@@ -67,6 +67,78 @@ def _load_page_bboxes(payload: Optional[str]) -> Optional[List[PageBBox]]:
     return [PageBBox(**item) for item in data if isinstance(item, dict)]
 
 
+# chunk 行 → CanonicalChunk（list_chunks / list_chunks_by_ids / list_chunks_for_docs 共用）
+def _row_to_chunk(row) -> CanonicalChunk:
+    return CanonicalChunk(
+        chunk_id=row["chunk_id"],
+        doc_id=row["doc_id"],
+        chunk_type=row["chunk_type"] or "content",
+        text=row["text"] or "",
+        text_clean=row["text_clean"] or "",
+        token_count=int(row["token_count"] or 0),
+        section_path=row["section_path"] or "",
+        page_start=int(row["page_start"] or 0),
+        page_end=int(row["page_end"] or 0),
+        source_block_ids=list(_load_json(row["source_block_ids_json"], [])),
+        citation_targets=[
+            CitationTarget(**target)
+            for target in _load_json(row["citation_targets_json"], [])
+            if isinstance(target, dict)
+        ],
+        version=row["version"] or "0.1.0",
+        inherited_chapter=row["inherited_chapter"],
+        entity_tags=list(_load_json(row["entity_tags_json"], [])),
+        conditions=list(_load_json(row["conditions_json"], [])),
+        exam_tags=list(_load_json(row["exam_tags_json"], [])),
+        clause_id=row["clause_id"],
+    )
+
+
+# block 行 → CanonicalBlock（list_blocks / list_blocks_for_docs 共用；不含 raw_type 列）
+def _row_to_block(row) -> CanonicalBlock:
+    return CanonicalBlock(
+        block_id=row["block_id"],
+        doc_id=row["doc_id"],
+        page_idx=int(row["page_idx"] or 0),
+        block_type=row["block_type"] or "unknown",
+        text=row["text"] or "",
+        text_clean=row["text_clean"] or "",
+        bbox=_load_bbox(row["bbox_json"]),
+        reading_order=int(row["reading_order"] or 0),
+        title_level=row["title_level"],
+        section_path=row["section_path"] or "",
+        source=row["source"] or "mineru",
+        source_ref=row["source_ref"],
+        parent_block_id=row["parent_block_id"],
+        inherited_chapter=row["inherited_chapter"],
+        entity_tags=list(_load_json(row["entity_tags_json"], [])),
+        conditions=list(_load_json(row["conditions_json"], [])),
+        exam_tags=list(_load_json(row["exam_tags_json"], [])),
+        clause_id=row["clause_id"],
+        contd_target_id=row["contd_target_id"],
+        image_assoc_id=row["image_assoc_id"],
+        table_merge_id=row["table_merge_id"],
+        page_bboxes=_load_page_bboxes(row["page_bboxes_json"]),
+        merged_from=list(_load_json(row["merged_from_json"], [])),
+    )
+
+
+_CHUNK_SELECT_COLS = (
+    "chunk_id, doc_id, chunk_type, text, text_clean, token_count,"
+    " section_path, page_start, page_end, source_block_ids_json,"
+    " citation_targets_json, version,"
+    " inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id"
+)
+
+_BLOCK_SELECT_COLS = (
+    "block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,"
+    " reading_order, title_level, section_path, source, source_ref, parent_block_id,"
+    " inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id,"
+    " contd_target_id, image_assoc_id, table_merge_id,"
+    " page_bboxes_json, merged_from_json"
+)
+
+
 _CJK_RUN_PATTERN = re.compile(r"[一-鿿]+")
 
 
@@ -848,11 +920,8 @@ class CanonicalSQLiteStore:
         keyword: Optional[str] = None,
         limit: int = 200,
     ) -> List[CanonicalChunk]:
-        sql = """
-            SELECT chunk_id, doc_id, chunk_type, text, text_clean, token_count,
-                   section_path, page_start, page_end, source_block_ids_json,
-                   citation_targets_json, version,
-                   inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id
+        sql = f"""
+            SELECT {_CHUNK_SELECT_COLS}
             FROM canonical_chunks
             WHERE doc_id = ?
         """
@@ -871,32 +940,58 @@ class CanonicalSQLiteStore:
         params.append(max(1, min(20000, limit)))
         with self.connect() as conn:
             rows = conn.execute(sql, params).fetchall()
-        return [
-            CanonicalChunk(
-                chunk_id=row["chunk_id"],
-                doc_id=row["doc_id"],
-                chunk_type=row["chunk_type"] or "content",
-                text=row["text"] or "",
-                text_clean=row["text_clean"] or "",
-                token_count=int(row["token_count"] or 0),
-                section_path=row["section_path"] or "",
-                page_start=int(row["page_start"] or 0),
-                page_end=int(row["page_end"] or 0),
-                source_block_ids=list(_load_json(row["source_block_ids_json"], [])),
-                citation_targets=[
-                    CitationTarget(**target)
-                    for target in _load_json(row["citation_targets_json"], [])
-                    if isinstance(target, dict)
-                ],
-                version=row["version"] or "0.1.0",
-                inherited_chapter=row["inherited_chapter"],
-                entity_tags=list(_load_json(row["entity_tags_json"], [])),
-                conditions=list(_load_json(row["conditions_json"], [])),
-                exam_tags=list(_load_json(row["exam_tags_json"], [])),
-                clause_id=row["clause_id"],
-            )
-            for row in rows
-        ]
+        return [_row_to_chunk(row) for row in rows]
+
+    # 按 chunk_id 集合批量反查完整 chunk（FTS 命中反查，替代逐文档全量拉取后内存过滤）
+    def list_chunks_by_ids(self, chunk_ids: Iterable[str]) -> List[CanonicalChunk]:
+        ids = [str(item) for item in dict.fromkeys(chunk_ids or []) if str(item or "").strip()]
+        if not ids:
+            return []
+        placeholders = ",".join(["?"] * len(ids))
+        with self.connect() as conn:
+            rows = conn.execute(
+                f"""
+                SELECT {_CHUNK_SELECT_COLS}
+                FROM canonical_chunks
+                WHERE chunk_id IN ({placeholders})
+                ORDER BY doc_id ASC, page_start ASC, chunk_id ASC
+                """,
+                ids,
+            ).fetchall()
+        return [_row_to_chunk(row) for row in rows]
+
+    # 批量查询多文档 chunks（检索扇出合并：N 文档 1 条 SQL；窗口函数保持逐文档条数上限语义）
+    def list_chunks_for_docs(
+        self,
+        doc_ids: Iterable[str],
+        keyword: Optional[str] = None,
+        per_doc_limit: int = 60,
+    ) -> List[CanonicalChunk]:
+        ids = [str(item) for item in dict.fromkeys(doc_ids or []) if str(item or "").strip()]
+        if not ids:
+            return []
+        placeholders = ",".join(["?"] * len(ids))
+        sql = f"""
+            SELECT {_CHUNK_SELECT_COLS}
+            FROM (
+                SELECT {_CHUNK_SELECT_COLS},
+                       ROW_NUMBER() OVER (PARTITION BY doc_id ORDER BY page_start ASC, chunk_id ASC) AS _rn
+                FROM canonical_chunks
+                WHERE doc_id IN ({placeholders})
+        """
+        params: List[object] = list(ids)
+        if keyword:
+            sql += " AND (text LIKE ? OR text_clean LIKE ? OR section_path LIKE ?)"
+            like_keyword = f"%{keyword}%"
+            params.extend([like_keyword, like_keyword, like_keyword])
+        sql += """
+            ) WHERE _rn <= ?
+            ORDER BY doc_id ASC, page_start ASC, chunk_id ASC
+        """
+        params.append(max(1, min(20000, per_doc_limit)))
+        with self.connect() as conn:
+            rows = conn.execute(sql, params).fetchall()
+        return [_row_to_chunk(row) for row in rows]
 
     # 查询 canonical blocks，供 debug fallback 检索使用
     def list_blocks(
@@ -906,12 +1001,8 @@ class CanonicalSQLiteStore:
         keyword: Optional[str] = None,
         limit: int = 200,
     ) -> List[CanonicalBlock]:
-        sql = """
-            SELECT block_id, doc_id, page_idx, block_type, text, text_clean, bbox_json,
-                   reading_order, title_level, section_path, source, source_ref, parent_block_id,
-                   inherited_chapter, entity_tags_json, conditions_json, exam_tags_json, clause_id,
-                   contd_target_id, image_assoc_id, table_merge_id,
-                   page_bboxes_json, merged_from_json
+        sql = f"""
+            SELECT {_BLOCK_SELECT_COLS}
             FROM canonical_blocks
             WHERE doc_id = ?
         """
@@ -930,31 +1021,91 @@ class CanonicalSQLiteStore:
         params.append(max(1, min(20000, limit)))
         with self.connect() as conn:
             rows = conn.execute(sql, params).fetchall()
+        return [_row_to_block(row) for row in rows]
+
+    # 批量查询多文档 blocks（检索扇出合并：N 文档 1 条 SQL；窗口函数保持逐文档条数上限语义）
+    def list_blocks_for_docs(
+        self,
+        doc_ids: Iterable[str],
+        block_types: Optional[Iterable[str]] = None,
+        keyword: Optional[str] = None,
+        per_doc_limit: int = 60,
+    ) -> List[CanonicalBlock]:
+        ids = [str(item) for item in dict.fromkeys(doc_ids or []) if str(item or "").strip()]
+        if not ids:
+            return []
+        placeholders = ",".join(["?"] * len(ids))
+        sql = f"""
+            SELECT {_BLOCK_SELECT_COLS}
+            FROM (
+                SELECT {_BLOCK_SELECT_COLS},
+                       ROW_NUMBER() OVER (PARTITION BY doc_id ORDER BY page_idx ASC, reading_order ASC) AS _rn
+                FROM canonical_blocks
+                WHERE doc_id IN ({placeholders})
+        """
+        params: List[object] = list(ids)
+        normalized_types = [item for item in (block_types or []) if item]
+        if normalized_types:
+            type_placeholders = ",".join(["?"] * len(normalized_types))
+            sql += f" AND block_type IN ({type_placeholders})"
+            params.extend(normalized_types)
+        if keyword:
+            sql += " AND (text LIKE ? OR text_clean LIKE ? OR section_path LIKE ?)"
+            like_keyword = f"%{keyword}%"
+            params.extend([like_keyword, like_keyword, like_keyword])
+        sql += """
+            ) WHERE _rn <= ?
+            ORDER BY doc_id ASC, page_idx ASC, reading_order ASC
+        """
+        params.append(max(1, min(20000, per_doc_limit)))
+        with self.connect() as conn:
+            rows = conn.execute(sql, params).fetchall()
+        return [_row_to_block(row) for row in rows]
+
+    # 按页范围取文档 blocks（公式上下文构造：只拉公式块邻近 ±1 页，替代整篇拉取）
+    def list_blocks_in_page_range(
+        self,
+        doc_id: str,
+        page_min: int,
+        page_max: int,
+    ) -> List[CanonicalBlock]:
+        with self.connect() as conn:
+            rows = conn.execute(
+                f"""
+                SELECT {_BLOCK_SELECT_COLS}
+                FROM canonical_blocks
+                WHERE doc_id = ? AND page_idx BETWEEN ? AND ?
+                ORDER BY page_idx ASC, reading_order ASC
+                """,
+                (doc_id, max(0, int(page_min)), max(0, int(page_max))),
+            ).fetchall()
+        return [_row_to_block(row) for row in rows]
+
+    # 批量查询多文档页面（检索扇出合并：N 文档 1 条 SQL，替代逐文档 list_pages）
+    def list_pages_for_docs(self, doc_ids: Iterable[str]) -> List[CanonicalPage]:
+        ids = [str(item) for item in dict.fromkeys(doc_ids or []) if str(item or "").strip()]
+        if not ids:
+            return []
+        placeholders = ",".join(["?"] * len(ids))
+        with self.connect() as conn:
+            rows = conn.execute(
+                f"""
+                SELECT doc_id, page_idx, width, height, rotation, image_path, printed_page_label
+                FROM canonical_pages
+                WHERE doc_id IN ({placeholders})
+                ORDER BY doc_id ASC, page_idx ASC
+                """,
+                ids,
+            ).fetchall()
         return [
-            CanonicalBlock(
-                block_id=row["block_id"],
+            CanonicalPage(
                 doc_id=row["doc_id"],
-                page_idx=int(row["page_idx"] or 0),
-                block_type=row["block_type"] or "unknown",
-                text=row["text"] or "",
-                text_clean=row["text_clean"] or "",
-                bbox=_load_bbox(row["bbox_json"]),
-                reading_order=int(row["reading_order"] or 0),
-                title_level=row["title_level"],
-                section_path=row["section_path"] or "",
-                source=row["source"] or "mineru",
-                source_ref=row["source_ref"],
-                parent_block_id=row["parent_block_id"],
-                inherited_chapter=row["inherited_chapter"],
-                entity_tags=list(_load_json(row["entity_tags_json"], [])),
-                conditions=list(_load_json(row["conditions_json"], [])),
-                exam_tags=list(_load_json(row["exam_tags_json"], [])),
-                clause_id=row["clause_id"],
-                contd_target_id=row["contd_target_id"],
-                image_assoc_id=row["image_assoc_id"],
-                table_merge_id=row["table_merge_id"],
-                page_bboxes=_load_page_bboxes(row["page_bboxes_json"]),
-                merged_from=list(_load_json(row["merged_from_json"], [])),
+                page_idx=row["page_idx"],
+                width=row["width"],
+                height=row["height"],
+                rotation=row["rotation"],
+                image_path=row["image_path"],
+                printed_page_label=row["printed_page_label"],
             )
             for row in rows
         ]
@@ -1010,6 +1161,58 @@ class CanonicalSQLiteStore:
                 WHERE doc_id = ? AND ({' OR '.join(conditions)})
                 ORDER BY page_idx ASC, target_id ASC
                 LIMIT ?
+                """,
+                values,
+            ).fetchall()
+        return [
+            {
+                "target_id": row["target_id"],
+                "target_type": row["target_type"],
+                "doc_id": row["doc_id"],
+                "page_idx": int(row["page_idx"] or 0),
+                "bbox": _load_json(row["bbox_json"], None),
+                "section_path": row["section_path"] or "",
+                "display_title": row["display_title"] or "",
+                "snippet": row["snippet"] or "",
+                "page_label": row["printed_page_label"],
+            }
+            for row in rows
+        ]
+
+    # 批量版 citation targets 检索：N 文档 1 条 SQL，窗口函数保持逐文档上限语义
+    def search_citation_targets_for_docs(
+        self,
+        doc_ids: Iterable[str],
+        query: str,
+        per_doc_limit: int = 40,
+    ) -> List[dict[str, object]]:
+        ids = [str(item) for item in dict.fromkeys(doc_ids or []) if str(item or "").strip()]
+        normalized_query = " ".join(str(query or "").split()).strip()
+        if not ids or not normalized_query:
+            return []
+        tokens = [token for token in normalized_query.split() if token]
+        if not tokens:
+            return []
+        placeholders = ",".join(["?"] * len(ids))
+        conditions: List[str] = []
+        values: List[object] = list(ids)
+        for token in tokens:
+            like_pattern = f"%{token}%"
+            conditions.append("(display_title LIKE ? OR section_path LIKE ? OR snippet LIKE ?)")
+            values.extend([like_pattern, like_pattern, like_pattern])
+        values.append(max(1, min(1000, per_doc_limit)))
+        with self.connect() as conn:
+            rows = conn.execute(
+                f"""
+                SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet, printed_page_label
+                FROM (
+                    SELECT target_id, target_type, doc_id, page_idx, bbox_json, section_path, display_title, snippet, printed_page_label,
+                           ROW_NUMBER() OVER (PARTITION BY doc_id ORDER BY page_idx ASC, target_id ASC) AS _rn
+                    FROM canonical_citation_targets
+                    WHERE doc_id IN ({placeholders}) AND ({' OR '.join(conditions)})
+                )
+                WHERE _rn <= ?
+                ORDER BY doc_id ASC, page_idx ASC, target_id ASC
                 """,
                 values,
             ).fetchall()

@@ -191,6 +191,17 @@ def _warm_retrieval_caches_on_startup() -> None:
             # 高频字查询：拉最大的 posting list，最大化预热 FTS 索引页；
             # 同时完成 embedding 连通性检查、向量矩阵缓存构建与 docs_service 单例加载
             retrieve_knowledge(query="的 规范 设计", library_id="default", top_k=1, mode="text")
+            # formula 路单独预热：只有触发 is_formula_query 的查询才会走公式检索，
+            # 否则首个计算类问题冷启动（2026-09-24 生产实测公式路冷态 17.3s）
+            from chat_agent import _load_doc_nodes
+            from docs_core.step09_query.agent_port import knowledge_local_search
+
+            knowledge_local_search(
+                query="规范 设计 怎么计算 公式",
+                library_id="default",
+                top_k=5,
+                nodes=_load_doc_nodes("default", []),
+            )
             logger.info("检索缓存后台预热完成，耗时 %.2fs", time.perf_counter() - started)
         except Exception as exc:  # noqa: BLE001
             logger.warning("检索缓存预热失败（不影响服务）: %s", exc)

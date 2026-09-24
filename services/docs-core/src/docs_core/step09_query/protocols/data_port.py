@@ -67,6 +67,36 @@ class QueryDataPort(Protocol):
         limit: int = 12,
     ) -> List[Dict[str, object]]: ...
 
+    # ---- 批量取数（检索扇出合并：N 文档 1 条 SQL，替代逐文档循环）----
+
+    def list_pages_for_docs(self, doc_ids: List[str]) -> List[CanonicalPage]: ...
+
+    def search_citation_targets_for_docs(
+        self,
+        doc_ids: List[str],
+        query: str,
+        per_doc_limit: int = 40,
+    ) -> List[Dict[str, object]]: ...
+
+    def list_chunks_by_ids(self, chunk_ids: List[str]) -> List[CanonicalChunk]: ...
+
+    def list_chunks_for_docs(
+        self,
+        doc_ids: List[str],
+        keyword: Optional[str] = None,
+        per_doc_limit: int = 60,
+    ) -> List[CanonicalChunk]: ...
+
+    def list_blocks_for_docs(
+        self,
+        doc_ids: List[str],
+        block_types: Optional[List[str]] = None,
+        keyword: Optional[str] = None,
+        per_doc_limit: int = 60,
+    ) -> List[CanonicalBlock]: ...
+
+    def list_blocks_in_page_range(self, doc_id: str, page_min: int, page_max: int) -> List[CanonicalBlock]: ...
+
 
 def default_query_data_port() -> QueryDataPort:
     """默认端口：延迟绑定 docs_service 单例。"""
