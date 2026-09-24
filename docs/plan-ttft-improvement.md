@@ -111,3 +111,11 @@
 - 发版时 CHANGELOG 条目与 README 摘要行一一对应、全角「；」分隔（规范见 AGENTS.md）。
 - 功能开关须可回退：B 若需开关（如 `ANGINEER_LLM_EVIDENCE_DEDUP`）默认开；C 见 4.5。
 - 关键文件导航：`services/angineer-core/src/angineer_core/{agent_loop,agent_tools,agent_policy,agent_messages}.py`、`prompts/agent_configs.py`、`services/aichat-api/{main,chat_agent}.py`、`apps/shared/chatTransport.ts`、`packages/aichat-ui/src/{components/BaseChat.vue,composables/useAIChat.ts}`。
+
+## 8. 遗留尾巴（2026-09-24 发版 v0.2.77 时记录，按优先级排序）
+
+1. **打点修复待生产验收**：`_final_turn_metrics` 的注入对齐 bug 已修（注入 assistant 打 `meta.injected_tool_call` 标记并从对齐序列剔除），但本地未拿到修复后 L1 注入轮的真实 `ttft_ms`（验证被多进程抢端口打乱）。生产部署后按 §6.6 用同一问题 curl 复现，确认 `ttft_ms` 有值且对照 §1 目标表。
+2. **探针 run turns=2 未定性**：本地探针（session `step4-verify-1`）turns=2 而非预期的 1，疑似模型拿到注入证据仍触发拒答重试（refusal_retry）；日志随进程丢失未确证。生产观察：若 L1 注入轮频繁 turns=2，查拒答重试触发原因（可能是注入证据与问题不相关时模型仍拒答——语义正确但说明注入检索质量需关注）。
+3. **PUT 400 `unknown msg_seq` 根因已定位未修**：chat.sqlite 的 `session_id` 带 `docs:` 前缀，前端 PUT `/sessions/<bare_id>/messages` 查不到行 → 400；展示字段快照（citations/thinking_trace 补丁）静默丢失，有 try/catch 不阻断发送。属 v0.2.67 聊天历史线的既有缺陷，不在本计划范围。
+4. **Qwen3.8-Flash 被选中之谜未查清**：run `8d9d166d8de1`（22:08）走了 flash 端点而用户未切模型，DEBUG-SOP-ROUTE 显示 `config_name=None`；`llm_client._resolve_model_configs`（llm_client.py:429-442）在 config_name 缺省时 default_model 优先、其余配置 fallback——为何选中 flash 待查。
+5. **本地验证环境教训**：Windows SO_REUSEADDR 语义下新旧 worker 可并存抢 8791，验证流量随机打到旧代码进程（本次实踩两次，一次致「修复无效」假象）。验证前必须先确认 8791 只有一个监听者（`Get-NetTCPConnection -LocalPort 8791 -State Listen` 唯一）且其启动时间晚于最后编辑。
