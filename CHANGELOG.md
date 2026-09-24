@@ -2,6 +2,16 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.77
+
+- 问答 TTFT 专项·L1 语义检索轮「首轮直达」证据注入（plan-ttft-improvement 第 4 步·需求 C）：L1 段在首个 LLM 轮前成对注入 assistant 工具调用围栏 + tool 证据消息（query 取用户问题原文，call id `call_0_injected_search`），消灭「turn1 调工具→turn2 答空串→turn3 重试」的三轮怪癖；注入即置 used_tools 使 requires_tools 重试成死路径，检索失败不注入、保留模型自行重试活路，L2/L3 段不注；开关 `ANGINEER_FORCE_FIRST_SEARCH` 默认开。本地实测同会话 5 个 L1 run 全部 turns=1（改造前 L1 常态 turns=3），按轮数-TTFT 口径每轮省 10s+
+- 问答 TTFT 专项·LLM 侧证据去重（第 2 步·需求 B）：`ToolResult.content` 序列化时剔除 `evidences[]`（与 `items[]` 逐条全文重复、同一份证据进 prompt 两遍；引擎判定与前端引用/思考轨迹均消费 content 的 items/citations），`raw` 通道原样留评测；开关 `ANGINEER_LLM_EVIDENCE_DEDUP` 默认开、设 0 回退。本地实测同会话 4 问每轮增量 ~28k→~14k 真实 token
+- 问答 TTFT 专项·QA 档挂投影式预算闸（第 3 步·需求 A1）：`make_budget_transformer(protect_current_run=True)` 保护本 run 区间（最后一条 user 之后）的工具消息不压，阈值 `ANGINEER_QA_BUDGET_TOKENS_EST` 默认 30000 est、设 0 关，complex 档语义不变；实测 L1 轮次 prompt 从 15k→29k→49k 线性涨压成 17k→33k→25k 封顶平台
+- 问答 TTFT 专项·budget transformer 改投影式 copy-on-write（第 1 步）：原版 `message.content` 原地改写会把压缩永久写进内存 history 并随 persist 落 chat.sqlite（历史回放原文丢失），现压缩只作用于发给 LLM 的投影，history 与落库保全量原文，摘要缓存从 meta 挪进闭包；副作用是 complex 档 stopper 改按全量 history 估算（符合「压缩只作用于投影」契约）
+- 问答 TTFT 专项·打点（第 0 步）：run 结束日志记 `ttft_ms`（run_start→最终答案轮首 message_delta，拒答兜底非流式记 `-` 不造假）与 `final_turn_prompt_tokens`（最终轮口径而非逐轮覆盖的 total_usage）；第 4 步顺带修打点对齐 bug——注入的 assistant 非 LLM 产物会挤占 `_final_turn_metrics` 下标、把正常作答误判为拒答补写（双 `-`），注入消息打 `meta.injected_tool_call` 标记并从对齐序列剔除
+- aichat-ui / user-web 小改：aichat-ui 新增 `onError` 回调（宿主可据 403 `login_required` 弹登录浮层）与 login_required 业务态文案（不带「出错了」前缀，未挂浮层的宿主也可见可读提示）；输入区去底板改纯圆角描边（light/dark 双档描边提亮）；user-web 顶栏移除「工作台」入口、背景并入聊天主色
+- nightly 评测后归还 glibc 堆内存：3.6G 部署机实测 nightly 后 aichat-api 常驻 RSS 2.3G + swap 1.7G（峰值提交 5.6G，匿名堆碎片非泄漏——无流量 45s 内 RSS 自回落），评测收尾主动归还；另 docker build cache keep-storage 8GB→4GB（磁盘 80% 后原口径不合身，依赖层约 1G、LRU 不误逐新鲜层）
+
 ## v0.2.76
 
 - 检索性能修复（生产实测「堤顶高程怎么计算」检索工具 34s、全程 51.8s，分段计时定位 dense 4.4s / sparse 12.4s / formula 17.3s 串行相加）：sparse 路「逐文档 4 条 SQL × N 文档」扇出合并为 5 条批量 IN 查询（pages / citation_targets / chunks / blocks，窗口函数保持逐文档条数上限语义），相关文档按各文档最佳 bm25 截断 24 篇——泛词（「规范 设计」类）一次 FTS 命中数十篇、逐文档取数是冷态 12s+ 的根因；顺带修复「FTS 命中 chunk 超出文档前 60 条被静默漏掉」的旧截断缺陷（原实现先 LIMIT 60 再内存过滤）；本地 1699 篇库实测 sparse 0.3s

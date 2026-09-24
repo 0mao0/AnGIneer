@@ -9,13 +9,13 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 [![webapp](https://img.shields.io/badge/在线体验-angineer.cn-blue)](https://angineer.cn)
 
-> **当前版本：0.2.76** ——检索性能修复（生产实测「堤顶高程怎么计算」检索 34s、全程 51.8s）：sparse 路「逐文档 4 条 SQL」扇出合并为批量 IN 查询并按 bm25 截断 24 篇（12.4s→亚秒，顺带修 FTS 命中 chunk 被文档前 60 条截断漏掉的旧缺陷）；formula 路全库约 50 万行逐篇扫描改为 FTS 预筛 + 公式块批量打分 + top 64 邻近页取上下文（17.3s→约 1s，打分与候选构造语义不变）；启动预热补 formula 路（旧预热查询不触发公式检索，首个计算类问题必冷启动）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.77** ——问答 TTFT 专项（plan-ttft-improvement 第 0–4 步）：L1 语义检索轮「首轮直达」证据注入（消灭调工具→答空串→重试三轮怪癖，实测 L1 轮次 turns 3→1、每轮省 10s+）；LLM 侧证据去重（同份证据不再进 prompt 两遍，每轮增量 ~28k→~14k token）；QA 档挂 30k est 投影式预算闸（prompt 线性膨胀封顶）；budget transformer 改投影式 copy-on-write（压缩不再污染落库历史原文）；新增 TTFT 打点（ttft_ms + 最终轮 prompt_tokens 落日志）；aichat-ui 新增 onError 回调与 login_required 业务态文案、输入区改纯圆角描边；nightly 评测后归还 glibc 堆内存（部署机 RSS 2.3G + swap 1.7G 碎片释放）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.75` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.77` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.0` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.1.9` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
