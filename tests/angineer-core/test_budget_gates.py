@@ -41,16 +41,33 @@ class BudgetTransformerTests(unittest.TestCase):
         self.assertTrue(out[2].content.startswith("[已压缩: 工具 table_search 的结果"))
         self.assertIn("检索到 1 条候选", out[1].content)
 
-    def test_summary_is_cached_in_meta(self):
+    def test_projection_does_not_mutate_history(self):
+        """2026-09-24 投影式改造：压缩只作用于返回的副本，原消息列表/对象不动。"""
+        original_tool = AgentMessage(
+            role="tool", name="knowledge_search",
+            content="K" * 5000, meta={"items": [{"item_id": "i1"}], "total": 1},
+        )
+        messages = [AgentMessage(role="user", content="Q" * 1000), original_tool]
+        transformer = make_budget_transformer(max_tokens_est=100)
+        out = transformer(messages)
+
+        self.assertTrue(out[1].content.startswith("[已压缩:"))
+        self.assertEqual(original_tool.content, "K" * 5000)  # 本体未被改写
+        self.assertIsNot(out, messages)
+        self.assertIsNot(out[1], original_tool)
+        self.assertNotIn("_budget_summary", original_tool.meta)  # 摘要不再写进 meta
+
+    def test_summary_cached_across_calls(self):
+        """闭包缓存：同一批消息对象重复 transform，结果一致（摘要不重复计算）。"""
         messages = [
             AgentMessage(role="user", content="Q" * 1000),
             AgentMessage(role="tool", name="knowledge_search", content="K" * 5000, meta={"items": [{"item_id": "i1"}], "total": 1}),
         ]
         transformer = make_budget_transformer(max_tokens_est=100)
         out = transformer(messages)
-        self.assertEqual(out[1].meta["_budget_summary"], "检索到 1 条候选")
         out2 = transformer(messages)
         self.assertEqual(out2[1].content, out[1].content)
+        self.assertIn("检索到 1 条候选", out2[1].content)
 
     def test_sop_raw_summary_counts_successful_steps(self):
         messages = [

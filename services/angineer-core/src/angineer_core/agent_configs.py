@@ -2,6 +2,7 @@
 import json
 import os
 import re
+from dataclasses import replace
 from typing import Any, Dict, List, Optional
 
 from angineer_core.agent_loop import AgentLoopConfig, TurnContext
@@ -370,28 +371,38 @@ def _summarize_tool_raw(raw: Dict[str, Any]) -> str:
 
 
 def make_budget_transformer(max_tokens_est: int = 100_000):
-    """P4.3 闸门一：超预算时按 oldest-first 压缩工具结果。
+    """P4.3 闸门一：超预算时按 oldest-first 压缩工具结果（投影式，copy-on-write）。
 
-    压缩摘要 lazily 生成一次并缓存进消息 meta（``_budget_summary``），
-    后续轮次直接复用，不重复计算。
+    2026-09-24（plan-ttft-improvement 需求 A1）：原版直接改写消息对象的 content，
+    而 transform_context 吃的是 session.history 本体——压缩会永久写进内存 history
+    并随 persist 落 chat.sqlite，与「压缩只作用于发给 LLM 的 messages」矛盾。
+    现版只读原消息，被压缩条目换成新对象放进新列表返回，history 本体与落库保全量原文；
+    摘要缓存在闭包内（键为对象 id，session.history 生命周期内稳定），不再写进 message.meta。
+    总字数 running total 做整除 2 的口径与 _estimate_tokens（sum//2）逐位一致。
     """
 
+    summary_cache: Dict[int, str] = {}
+
     def transform(messages: List[AgentMessage]) -> List[AgentMessage]:
-        if _estimate_tokens(messages) <= max_tokens_est:
+        total_chars = sum(len(message.content or "") for message in messages)
+        if total_chars // 2 <= max_tokens_est:
             return messages
-        for message in messages:
-            if _estimate_tokens(messages) <= max_tokens_est:
+        result = list(messages)
+        for index, message in enumerate(result):
+            if total_chars // 2 <= max_tokens_est:
                 break
             if message.role != "tool":
                 continue
-            summary = message.meta.get("_budget_summary")
-            if not summary:
+            summary = summary_cache.get(id(message))
+            if summary is None:
                 summary = _summarize_tool_raw(message.meta)
-                message.meta["_budget_summary"] = summary
-            message.content = (
+                summary_cache[id(message)] = summary
+            compressed = (
                 f"[已压缩: 工具 {message.name or 'unknown'} 的结果，要点: {summary}]"
             )
-        return messages
+            total_chars += len(compressed) - len(message.content or "")
+            result[index] = replace(message, content=compressed, meta=dict(message.meta))
+        return result
 
     return transform
 
