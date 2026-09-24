@@ -113,6 +113,7 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
         success_check=_answer_usable,
         fallback_note="L1 未检索到足够证据，进入拒答收尾",
         requires_tools=True,
+        force_first_search=True,  # 需求 C：首轮直达证据，消灭空答重试轮
     )
 
 

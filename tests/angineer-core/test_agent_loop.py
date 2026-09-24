@@ -4,6 +4,7 @@ import sys
 import threading
 import time
 import unittest
+import json
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
@@ -1106,6 +1107,124 @@ class LlmEvidenceDedupTests(unittest.TestCase):
         self.assertNotIn("evidences", _json.loads(tool_msg.content))
         self.assertIn("evidences", tool_msg.meta)
         self.assertIn("items", _json.loads(tool_msg.content))  # 引擎三处判定依赖 items，不许删
+
+
+class FirstSearchInjectionTests(unittest.TestCase):
+    """需求 C（plan-ttft-improvement）：L1 段首轮直达证据注入，消灭空答重试轮。"""
+
+    def _search_tool(self, fail=False):
+        def handler(query=None, **_kw):
+            if fail:
+                raise RuntimeError("检索服务不可用")
+            return {
+                "items": [{"item_id": "i1", "text": "证据原文", "metadata": {"cite": "K1"}}],
+                "total": 1,
+            }
+
+        return make_tool(
+            "knowledge_search", handler,
+            {"type": "object", "properties": {"query": {"type": "string"}}},
+        )
+
+    def _config(self, llm, tool):
+        attempt = AttemptConfig(
+            name="L1 语义检索",
+            config_factory=lambda: make_config(llm, [tool]),
+            requires_tools=True,
+            force_first_search=True,
+        )
+        return make_config(llm, [tool], attempts=[attempt])
+
+    def test_injects_pair_and_skips_retry_turn(self):
+        llm = MockLLM(lambda messages, kwargs: text_events("基于证据的答案 [K1]"))
+        tool = self._search_tool()
+        messages = [AgentMessage(role="user", content="堤顶高程怎么计算")]
+        events = []
+        run_agent_loop(messages, self._config(llm, tool), emit=events.append)
+
+        self.assertEqual(len(llm.calls), 1)  # 无重试轮：首轮即带证据作答
+        injected_assistant = messages[1]
+        self.assertEqual(injected_assistant.role, "assistant")
+        self.assertIn("```tool_calls", injected_assistant.content)
+        self.assertTrue(injected_assistant.tool_calls)
+        injected_tool = messages[2]
+        self.assertEqual(injected_tool.role, "tool")
+        # 成对注入：buildThinkingTrace 按 id 配对不错位
+        self.assertEqual(injected_tool.tool_call_id, injected_assistant.tool_calls[0].id)
+        self.assertIn("证据原文", injected_tool.content)
+        self.assertIn("items", injected_tool.meta)  # raw 通道完好（评测消费）
+        # 首个 LLM 调用已能看到注入的证据
+        first_call_text = json.dumps(llm.calls[0]["messages"], ensure_ascii=False)
+        self.assertIn("证据原文", first_call_text)
+        self.assertTrue(any(e.type == "tool_start" for e in events))  # 前端思考轨迹实时可见
+
+    def test_switch_off_restores_retry_flow(self):
+        from unittest import mock
+
+        llm = MockLLM(lambda messages, kwargs: text_events("直接答案"))
+        tool = self._search_tool()
+        messages = [AgentMessage(role="user", content="问题")]
+        with mock.patch.dict(os.environ, {"ANGINEER_FORCE_FIRST_SEARCH": "0"}):
+            run_agent_loop(messages, self._config(llm, tool))
+        self.assertFalse(any(m.tool_call_id == "call_0_injected_search" for m in messages))
+        self.assertGreaterEqual(len(llm.calls), 2)  # 回到旧路径：空答 → 重试轮
+
+    def test_search_failure_skips_injection(self):
+        """检索失败不注入：保留模型自行换词重试的活路。"""
+        llm = MockLLM(lambda messages, kwargs: text_events(
+            "```tool_calls\n[{\"name\": \"knowledge_search\", \"arguments\": {\"query\": \"重试\"}}]\n```"
+        ) if len(llm.calls) == 1 else text_events("答案"))
+        tool = self._search_tool(fail=True)
+        messages = [AgentMessage(role="user", content="问题")]
+        run_agent_loop(messages, self._config(llm, tool))
+        self.assertFalse(any(m.tool_call_id == "call_0_injected_search" for m in messages))
+
+    def test_policy_marks_l1_attempt(self):
+        """agent_policy 接线：L1 段（含 meta/L2 回退链上的）都带 force_first_search。"""
+        from types import SimpleNamespace
+
+        from angineer_core.agent_policy import build_attempts
+
+        intent = SimpleNamespace(intent_level="L1", intent_type="", service_mode="semantic_retrieval", reason="")
+        llm = MockLLM(lambda messages, kwargs: text_events("答案"))
+        attempts = build_attempts(
+            intent_result=intent, scene="qa", library_id="default", doc_ids=[],
+            load_nodes=lambda: [], llm_factory=lambda: llm,
+        )
+        self.assertTrue(attempts[0].force_first_search)
+
+        intent_l2 = SimpleNamespace(intent_level="L2", intent_type="", service_mode="structured_lookup", reason="")
+        attempts_l2 = build_attempts(
+            intent_result=intent_l2, scene="qa", library_id="default", doc_ids=[],
+            load_nodes=lambda: [], llm_factory=lambda: llm,
+        )
+        self.assertFalse(attempts_l2[0].force_first_search)  # L2 段不注（table_search 语义，计划明确排除）
+        self.assertTrue(attempts_l2[1].force_first_search)   # 回退到 L1 段时注入
+
+
+    def test_ttft_aligned_with_injected_first_search(self):
+        """需求 C 回归：注入的工具调用 assistant 非 LLM 产物，不得挤占对齐下标。
+
+        注入序列 [assistant(注入), tool, assistant(答案)] 若不移除注入条，
+        final_idx 越界会被误判为拒答补写（ttft/prompt 双 '-'）——2026-09-24 实踩。
+        """
+        llm = MockLLM(lambda messages, kwargs: text_events("基于证据的答案 [K1]", usage={"prompt_tokens": 1234}))
+        attempt = AttemptConfig(
+            name="L1 语义检索",
+            config_factory=lambda: make_config(llm, [self._search_tool()]),
+            requires_tools=True,
+            force_first_search=True,
+        )
+        config = make_config(llm, [self._search_tool()], attempts=[attempt])
+        messages = [AgentMessage(role="user", content="问题")]
+        with self.assertLogs("angineer_core.agent_loop", level="INFO") as logs:
+            run_agent_loop(messages, config)
+
+        line = next(
+            (r.getMessage() for r in logs.records if "agent run TTFT" in r.getMessage()), ""
+        )
+        self.assertRegex(line, r"ttft_ms=\d+")
+        self.assertIn("final_turn_prompt_tokens=1234", line)
 
 
 if __name__ == "__main__":

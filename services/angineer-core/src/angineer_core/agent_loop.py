@@ -134,6 +134,7 @@ class AttemptConfig:
     success_check: Optional[Callable[[List[AgentMessage]], bool]] = None
     fallback_note: str = ""
     requires_tools: bool = False  # True 时禁止“不调工具直接作答”，强制至少一轮工具调用
+    force_first_search: bool = False  # True 时段 apply 后立即成对注入一次 knowledge_search（需求 C）
 
 
 @dataclass
@@ -274,9 +275,12 @@ def _force_retrieve_tool(
     run_id: str,
     cancel: threading.Event,
 ) -> Optional[str]:
-    """代检索保险：模型拒答且未调用检索工具时，系统替它执行 knowledge_search。
+    """代检索保险：段要求工具但模型始终未调用、且重试额度已用尽时，系统替它执行 knowledge_search。
 
-    绕开模型输出工具调用格式不稳定的问题，直接把检索结果注入对话。
+    触发条件见 advance()（requires_tools && !used_tools && retry_used），
+    不判定最终答案是否拒答；绕开模型输出工具调用格式不稳定的问题，
+    直接把检索结果注入对话（仅 tool 消息，无 assistant 调用配对——
+    这是收尾保险路径，与需求 C 的成对注入不同）。
     返回工具结果文本；失败或工具不存在时返回 None（保持原收尾逻辑）。
     """
     query = _latest_user_query(messages)
@@ -314,6 +318,11 @@ def _json_content(value: Dict[str, Any]) -> str:
 def _llm_evidence_dedup_enabled() -> bool:
     """需求 B 回退开关（plan-ttft-improvement §7）：默认开，设 0/false/off 可关。"""
     return os.environ.get("ANGINEER_LLM_EVIDENCE_DEDUP", "1").strip().lower() not in ("0", "false", "off")
+
+
+def _force_first_search_enabled() -> bool:
+    """需求 C 回退开关：L1 段首轮直达证据注入，默认开，设 0/false/off 可关。"""
+    return os.environ.get("ANGINEER_FORCE_FIRST_SEARCH", "1").strip().lower() not in ("0", "false", "off")
 
 
 def _llm_content_payload(raw: Dict[str, Any]) -> Dict[str, Any]:
@@ -593,9 +602,10 @@ class _AttemptMachine:
         self.attempt_turn = 0
         self.retry_used = False
         self.refusal_retry_used = False
-        self.current_turn = 0
-        self.force_retrieve: Optional[Callable[[], Optional[str]]] = None
         self._forced_retrieve_used = False
+        self.force_retrieve: Optional[Callable[[], Optional[str]]] = None
+        self.first_search_injector: Optional[Callable[[], None]] = None
+        self.current_turn = 0
         self.codec = config.codec or TextToolCallCodec()
         self.tools_by_name = {tool.name: tool for tool in config.tools}
 
@@ -633,6 +643,12 @@ class _AttemptMachine:
         self.codec = active.codec or TextToolCallCodec()
         self.active_config = active
         self.tools_by_name = {tool.name: tool for tool in active.tools}
+        # 需求 C：段配置就位后立即注入首轮直达证据（仅挂了 force_first_search 的段）
+        if (
+            getattr(self.attempts[index], "force_first_search", False)
+            and self.first_search_injector is not None
+        ):
+            self.first_search_injector()
 
     def _refusal_text(self) -> str:
         if getattr(self.active_config, "followup_question", False):
@@ -829,6 +845,59 @@ def run_agent_loop(
     # —— 分段（attempt）初始化 ——
     machine = _AttemptMachine(config, messages, start_idx, _add_note)
     machine.force_retrieve = lambda: _force_retrieve_tool(messages, machine, emit, run_id, cancel_event)
+
+    def _inject_first_search() -> None:
+        """需求 C（plan-ttft-improvement）：L1 段 apply 后、首个 LLM turn 前，
+        替模型执行一次 knowledge_search 并把「assistant 工具调用 + tool 结果」
+        成对注入——消灭「首轮空答 → 重试要求调工具 → 再检索」的多余 LLM 轮
+        （实测该模式 turns=3、ttft 25-35s；注入后预期 turns=1~2）。
+
+        必须成对注入：buildThinkingTrace 按 call/result 配对，只注 tool 会错位。
+        注入后本段 used_tools=True，requires_tools 重试/代检索自然成为死路径。
+        检索失败（is_error/异常）不注入：保留模型自行换词重试的活路。
+        """
+        if not _force_first_search_enabled():
+            return
+        attempt = machine.attempts[machine.active_attempt_idx]
+        if not getattr(attempt, "force_first_search", False):
+            return
+        if machine.tools_by_name.get("knowledge_search") is None:
+            return
+        if start_idx > 0 and messages[start_idx - 1].role == "user":
+            query = (messages[start_idx - 1].content or "").strip()
+        else:
+            query = (_latest_user_query(messages) or "").strip()
+        if not query:
+            return
+        call = ToolCall(id="call_0_injected_search", name="knowledge_search", arguments={"query": query})
+        try:
+            results = _execute_tools_batch(
+                [call], machine.tools_by_name, machine.active_config, cancel_event, emit, run_id, 0,
+            )
+        except Exception:  # noqa: BLE001
+            return
+        if not results or results[0].is_error:
+            return
+        result = results[0]
+        fence = (
+            "```tool_calls\n"
+            + json.dumps([{"name": "knowledge_search", "arguments": {"query": query}}], ensure_ascii=False)
+            + "\n```"
+        )
+        messages.append(AgentMessage(role="assistant", content=fence, tool_calls=[call], meta={"injected_tool_call": True}))
+        messages.append(
+            AgentMessage(
+                role="tool",
+                content=result.content,
+                tool_call_id=result.call_id,
+                name=result.name,
+                is_error=result.is_error,
+                meta=result.raw,
+            )
+        )
+        _add_note("首轮直达：已预检索知识库证据注入上下文（跳过空转轮）")
+
+    machine.first_search_injector = _inject_first_search
     machine.start()
 
     try:
@@ -1011,8 +1080,13 @@ def _final_turn_metrics(
     拒答兜底（finalize_refusal 直接补写、未经 LLM 流式）无 delta，ttft 返回 None。
     assistant 消息与 assistant_turns 按下标一一对应；末尾多出的 assistant（拒答补写）
     没有对应 LLM 轮，下标越界即视为非流式收尾。
+    需求 C 注入的首轮工具调用 assistant 不是 LLM 产物（meta 打 injected_tool_call 标记），
+    必须从对齐序列中剔除，否则注入后下标整体错位、指标被误判为拒答补写（双 '-'）。
     """
-    assistant_msgs = [m for m in added_messages if m.role == "assistant"]
+    assistant_msgs = [
+        m for m in added_messages
+        if m.role == "assistant" and not (m.meta or {}).get("injected_tool_call")
+    ]
     final_idx = next(
         (i for i in range(len(assistant_msgs) - 1, -1, -1) if not assistant_msgs[i].tool_calls),
         None,
