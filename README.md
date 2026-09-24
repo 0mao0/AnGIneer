@@ -9,7 +9,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 [![webapp](https://img.shields.io/badge/在线体验-angineer.cn-blue)](https://angineer.cn)
 
-> **当前版本：0.2.75** ——撤下拒答第三档令牌实验（v11/v12），prompt 回到 v10：v0.2.74 的【不可答】结构化令牌经生产 39 题拒答专项两轮实测证伪（模型对括号令牌 0 遵从，拒答 26/39→20/39），全量回滚至 v0.2.73 状态，失败教训留档；流程教训：prompt 改动必须先过 39 题专项验证模型行为再发版。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.76** ——检索性能修复（生产实测「堤顶高程怎么计算」检索 34s、全程 51.8s）：sparse 路「逐文档 4 条 SQL」扇出合并为批量 IN 查询并按 bm25 截断 24 篇（12.4s→亚秒，顺带修 FTS 命中 chunk 被文档前 60 条截断漏掉的旧缺陷）；formula 路全库约 50 万行逐篇扫描改为 FTS 预筛 + 公式块批量打分 + top 64 邻近页取上下文（17.3s→约 1s，打分与候选构造语义不变）；启动预热补 formula 路（旧预热查询不触发公式检索，首个计算类问题必冷启动）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

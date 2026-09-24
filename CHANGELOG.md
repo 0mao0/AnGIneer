@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.76
+
+- 检索性能修复（生产实测「堤顶高程怎么计算」检索工具 34s、全程 51.8s，分段计时定位 dense 4.4s / sparse 12.4s / formula 17.3s 串行相加）：sparse 路「逐文档 4 条 SQL × N 文档」扇出合并为 5 条批量 IN 查询（pages / citation_targets / chunks / blocks，窗口函数保持逐文档条数上限语义），相关文档按各文档最佳 bm25 截断 24 篇——泛词（「规范 设计」类）一次 FTS 命中数十篇、逐文档取数是冷态 12s+ 的根因；顺带修复「FTS 命中 chunk 超出文档前 60 条被静默漏掉」的旧截断缺陷（原实现先 LIMIT 60 再内存过滤）；本地 1699 篇库实测 sparse 0.3s
+- formula 路「全库逐篇拉全量 blocks+chunks」（350 篇 × 2 表约 50 万行）改为三段精准取数：FTS 全库一次预筛相关文档（≤48 篇按最佳 bm25，显式 doc_ids 范围直接用，无命中退前 20 节点与 sparse 兜底口径一致）→ 批量取公式块打分（1 条 SQL，仅 block_type='formula' 行）→ 仅得分 top 64 公式块按 ±1 页拉邻近块构造上下文（±1 页覆盖原 ±4 窗口）；chunk 候选改 FTS 命中反查完整 chunk（替代逐文档全量 chunks 扫描）；候选构造与打分公式逐行不变（打分抽为 `score_formula_block` 共用函数），本地同库实测 formula 20s→1.0s，且「堤顶高程」top1 由无关疏浚定额变为堤防规范条文。行为变化留档：候选集从全库扫描收窄为「FTS 相关文档 + top 64 公式块」，上下文窗口在 ±1 页边界处理论可裁（仅 ±4 窗口跨 3 页以上的病态排版）
+- aichat-api 启动预热补 formula 路：旧预热查询「的 规范 设计」不触发 `is_formula_query`，公式路直到首个计算类问题才冷启动（本次 17.3s 的一半成因）；现追加一次带真实文档节点、触发公式检索的预热调用
+- store 层新增批量取数方法 6 个（`list_pages_for_docs` / `search_citation_targets_for_docs` / `list_chunks_by_ids` / `list_chunks_for_docs` / `list_blocks_for_docs` / `list_blocks_in_page_range`），QueryDataPort 协议与 DocsService 直通同步。回归：tests/unit + services/docs-core/tests 1101 绿（8 例失败与干净树基线逐条一致，预存）、tests/aichat-api + tests/angineer-core 284 绿
+
 ## v0.2.75
 
 - 撤下拒答第三档令牌实验（v11/v12），prompt 回到 v10：v0.2.74 的方案②【不可答】结构化令牌经生产 39 题拒答专项两轮实测证伪——模型对括号令牌 **0 遵从**（v11/v12 两轮 78 次回答一次没打），v11 还因删掉「第一句必须回答…」旧话术锚点跌到 20/39（v10 三轮 26/28/26），v12 双锚定同样 20/39；qwen3.6-35b 不遵守括号令牌类输出约定，此路勿再试。全量回滚 UNANSWERABLE_TOKEN 检测、第三档令牌认定与 v11/v12 注册至 v0.2.73 状态，失败教训写入 `prompts/agent_configs.py` 头部留档；流程教训：prompt 改动必须先过 39 题专项验证模型行为再发版（单测只能验证「令牌出现了机器认得出」，验证不了「模型肯不肯打」），v0.2.74 正是跳过这一步把未验证的 v11 发了出去。服务器 pin `ANGINEER_QA_PROMPT_VERSION=v10` 随本版部署移除（代码默认 latest 已回 v10，留着会挡住未来 prompt 升级）
