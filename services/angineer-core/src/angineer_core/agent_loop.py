@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import re
 import threading
 import time
@@ -310,6 +311,24 @@ def _json_content(value: Dict[str, Any]) -> str:
     return json.dumps(value, ensure_ascii=False, default=str)
 
 
+def _llm_evidence_dedup_enabled() -> bool:
+    """需求 B 回退开关（plan-ttft-improvement §7）：默认开，设 0/false/off 可关。"""
+    return os.environ.get("ANGINEER_LLM_EVIDENCE_DEDUP", "1").strip().lower() not in ("0", "false", "off")
+
+
+def _llm_content_payload(raw: Dict[str, Any]) -> Dict[str, Any]:
+    """LLM 序列化投影（需求 B）：content 剔除 evidences[]——它与 items[] 全文重复、
+    同一份证据进 prompt 两遍（evidences 由 items 一一构造，agent_tools.py:196-220）。
+
+    方向写死「删 evidences 留 items」：引擎判定（_has_evidence/_tool_evidence_present/
+    _tool_evidence_parts）与前端引用/思考轨迹全部解析 content 里的 items/citations；
+    raw（meta 通道）原样保留给评测（policy_query 读 message.meta）。
+    """
+    if "evidences" not in raw or not _llm_evidence_dedup_enabled():
+        return raw
+    return {key: value for key, value in raw.items() if key != "evidences"}
+
+
 def _run_tool_inner(call, tool: AgentTool) -> ToolResult:
     try:
         raw = tool.handler(**call.arguments)
@@ -322,7 +341,7 @@ def _run_tool_inner(call, tool: AgentTool) -> ToolResult:
         return ToolResult(
             call_id=call.id,
             name=tool.name,
-            content=_json_content(raw),
+            content=_json_content(_llm_content_payload(raw)),
             is_error=bool(raw.get("error")),
             terminate=terminate,
             raw=raw,

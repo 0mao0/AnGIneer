@@ -1046,5 +1046,67 @@ class TtftMetricsTests(unittest.TestCase):
         self.assertIn("final_turn_prompt_tokens=-", line)
 
 
+class LlmEvidenceDedupTests(unittest.TestCase):
+    """需求 B（plan-ttft-improvement）：content 删 evidences 留 items，raw/meta 原样保留。"""
+
+    def _tool(self):
+        def handler(query=None, **_kw):
+            return {
+                "items": [{"item_id": "i1", "text": "证据全文", "metadata": {"cite": "K1"}}],
+                "total": 1,
+                "evidences": [{"evidence_id": "i1", "content": "证据全文"}],
+                "citations": [{"marker": "K1", "snippet": "证据全文"}],
+            }
+
+        return make_tool(
+            "knowledge_search", handler,
+            {"type": "object", "properties": {"query": {"type": "string"}}},
+        )
+
+    def test_content_drops_evidences_raw_keeps(self):
+        import json as _json
+
+        from angineer_core.agent_loop import _run_tool_inner
+        from angineer_core.agent_messages import ToolCall
+
+        tool = self._tool()
+        result = _run_tool_inner(ToolCall(id="c1", name="knowledge_search", arguments={"query": "x"}), tool)
+        content = _json.loads(result.content)
+        self.assertNotIn("evidences", content)
+        self.assertIn("items", content)
+        self.assertIn("citations", content)  # 前端引用聚合优先读 citations，保留
+        self.assertIn("evidences", result.raw)  # meta 通道原样（评测 policy_query 消费）
+
+    def test_switch_off_keeps_evidences_in_content(self):
+        import json as _json
+        from unittest import mock
+
+        from angineer_core.agent_loop import _run_tool_inner
+        from angineer_core.agent_messages import ToolCall
+
+        tool = self._tool()
+        with mock.patch.dict(os.environ, {"ANGINEER_LLM_EVIDENCE_DEDUP": "0"}):
+            result = _run_tool_inner(ToolCall(id="c1", name="knowledge_search", arguments={"query": "x"}), tool)
+        self.assertIn("evidences", _json.loads(result.content))
+
+    def test_loop_tool_message_dedup_content_meta_intact(self):
+        """端到端：进 history/落库的 content 已去重，AgentMessage.meta 保全量结构。"""
+        import json as _json
+
+        def handler(messages, kwargs):
+            if len(llm.calls) == 1:
+                yield from text_events(tool_block([{"name": "knowledge_search", "arguments": {"query": "x"}}]))
+            else:
+                yield from text_events("基于证据的答案 [K1]")
+
+        llm = MockLLM(handler)
+        messages: list = []
+        run_agent_loop(messages, make_config(llm, [self._tool()]))
+        tool_msg = next(m for m in messages if m.role == "tool")
+        self.assertNotIn("evidences", _json.loads(tool_msg.content))
+        self.assertIn("evidences", tool_msg.meta)
+        self.assertIn("items", _json.loads(tool_msg.content))  # 引擎三处判定依赖 items，不许删
+
+
 if __name__ == "__main__":
     unittest.main()
