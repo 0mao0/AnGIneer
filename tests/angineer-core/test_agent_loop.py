@@ -1000,5 +1000,51 @@ class RefusalRetryEvidenceTests(unittest.TestCase):
         self.assertTrue(any("附证据节选" in n["detail"] for n in run_end.payload["notes"]))
 
 
+class TtftMetricsTests(unittest.TestCase):
+    """TTFT 打点（plan-ttft-improvement §6.5）：run 结束日志记 ttft_ms 与最终轮 prompt_tokens。"""
+
+    def _ttft_log_line(self, logs) -> str:
+        for record in logs.records:
+            message = record.getMessage()
+            if "agent run TTFT" in message:
+                return message
+        return ""
+
+    def test_ttft_logged_with_final_turn_prompt_tokens(self):
+        def handler(messages, kwargs):
+            if len(llm.calls) == 1:
+                yield from text_events(
+                    tool_block([{"name": "search", "arguments": {"q": "x"}}]),
+                    usage={"prompt_tokens": 100},
+                )
+            else:
+                yield from text_events("最终答案", usage={"prompt_tokens": 5000})
+
+        llm = MockLLM(handler)
+        with self.assertLogs("angineer_core.agent_loop", level="INFO") as logs:
+            run_agent_loop([], make_config(llm, [make_tool("search", lambda q: {"ok": 1})]))
+
+        line = self._ttft_log_line(logs)
+        self.assertRegex(line, r"ttft_ms=\d+")
+        # 最终轮口径（turn2 的 5000），不是首轮的 100，也不是累计
+        self.assertIn("final_turn_prompt_tokens=5000", line)
+
+    def test_ttft_absent_when_final_answer_not_streamed(self):
+        """拒答兜底由 finalize_refusal 直接补写（无 LLM 流式），ttft 记 "-" 而非造假。"""
+        llm = MockLLM(lambda messages, kwargs: text_events(""))
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1),
+            success_check=lambda added: False,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=1, attempts=[attempt])
+        with self.assertLogs("angineer_core.agent_loop", level="INFO") as logs:
+            run_agent_loop([], config)
+
+        line = self._ttft_log_line(logs)
+        self.assertIn("ttft_ms=-", line)
+        self.assertIn("final_turn_prompt_tokens=-", line)
+
+
 if __name__ == "__main__":
     unittest.main()

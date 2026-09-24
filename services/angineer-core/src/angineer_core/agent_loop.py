@@ -779,6 +779,22 @@ def run_agent_loop(
     reason = "completed"
     trace_notes: List[Dict[str, Any]] = []
 
+    # TTFT 打点（plan-ttft-improvement §6.5）：run_start → 最终答案轮首 message_delta。
+    # total_usage 逐轮覆盖同 key（只有末轮口径），故 usage 与首 delta 时刻都按 turn 逐轮记账。
+    run_started = time.monotonic()
+    first_delta_at: Dict[int, float] = {}
+    turn_usage: Dict[int, Dict[str, Any]] = {}
+    assistant_turns: List[int] = []  # 本 run 第 i 条 LLM 产出的 assistant 消息对应的 turn
+
+    raw_emit = emit
+
+    def _tracked_emit(event: AgentEvent) -> None:
+        if event.type == "message_delta":
+            first_delta_at.setdefault(event.turn, time.monotonic())
+        _safe_emit(raw_emit, event)
+
+    emit = _tracked_emit
+
     def _add_note(detail: str) -> None:
         """记录一条可见的边界/过程说明，实时事件与 run_end 都会带上。"""
         trace_notes.append({"detail": detail})
@@ -839,8 +855,10 @@ def run_agent_loop(
                             emit, run_id, cancel_event, turn, allow_tools=False,
                         )
                         messages.append(assistant)
+                        assistant_turns.append(turn)
                         if usage:
                             total_usage.update(usage)
+                            turn_usage[turn] = dict(usage)
                         for result in direct_results:
                             messages.append(
                                 AgentMessage(role="tool", content=result.content, tool_call_id=result.call_id, name=result.name, is_error=result.is_error)
@@ -868,8 +886,10 @@ def run_agent_loop(
                     emit, run_id, cancel_event, turn, allow_tools=True,
                 )
                 messages.append(assistant)
+                assistant_turns.append(turn)
                 if usage:
                     total_usage.update(usage)
+                    turn_usage[turn] = dict(usage)
 
                 if direct_results:
                     # 截断守卫产物：直接作为工具结果喂回，不执行任何工具
@@ -929,6 +949,18 @@ def run_agent_loop(
     if reason not in ("error", "cancelled"):
         _apply_final_guard(machine.active_config, messages, start_idx, emit, run_id, turn, _add_note)
 
+    ttft_ms, final_prompt_tokens = _final_turn_metrics(
+        messages[start_idx:], assistant_turns, first_delta_at, turn_usage, run_started,
+    )
+    logger.info(
+        "agent run TTFT: run_id=%s reason=%s turns=%d ttft_ms=%s final_turn_prompt_tokens=%s",
+        run_id,
+        reason,
+        turn,
+        ttft_ms if ttft_ms is not None else "-",
+        final_prompt_tokens if final_prompt_tokens is not None else "-",
+    )
+
     _safe_emit(
         emit,
         AgentEvent(
@@ -945,6 +977,34 @@ def run_agent_loop(
         ),
     )
     return messages[start_idx:]
+
+
+def _final_turn_metrics(
+    added_messages: List[AgentMessage],
+    assistant_turns: List[int],
+    first_delta_at: Dict[int, float],
+    turn_usage: Dict[int, Dict[str, Any]],
+    run_started: float,
+) -> Tuple[Optional[int], Optional[int]]:
+    """TTFT 打点口径：run_start → 最终答案轮的首个 message_delta，外加该轮 prompt_tokens。
+
+    最终答案轮 = 本 run 最后一条无 tool_calls 的 assistant 消息对应的 LLM 轮。
+    拒答兜底（finalize_refusal 直接补写、未经 LLM 流式）无 delta，ttft 返回 None。
+    assistant 消息与 assistant_turns 按下标一一对应；末尾多出的 assistant（拒答补写）
+    没有对应 LLM 轮，下标越界即视为非流式收尾。
+    """
+    assistant_msgs = [m for m in added_messages if m.role == "assistant"]
+    final_idx = next(
+        (i for i in range(len(assistant_msgs) - 1, -1, -1) if not assistant_msgs[i].tool_calls),
+        None,
+    )
+    if final_idx is None or final_idx >= len(assistant_turns):
+        return None, None
+    final_turn = assistant_turns[final_idx]
+    first_delta = first_delta_at.get(final_turn)
+    ttft_ms = int((first_delta - run_started) * 1000) if first_delta is not None else None
+    prompt_tokens = (turn_usage.get(final_turn) or {}).get("prompt_tokens")
+    return ttft_ms, prompt_tokens
 
 
 def _tool_summary(result: ToolResult) -> Dict[str, Any]:
