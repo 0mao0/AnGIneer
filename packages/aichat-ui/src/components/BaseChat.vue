@@ -1874,8 +1874,9 @@ defineExpose({
 .chat-input {
   flex-shrink: 0;
   padding: 12px 16px;
-  border-top: 1px solid var(--border-color);
-  background: var(--bg-secondary, #fafafa);
+  /* 对话态与 hero 态同构：外层不铺底板/分隔线，只剩编辑器自身的圆角描边（0.2.x 用户反馈矩形灰底难看） */
+  border-top: none;
+  background: transparent;
   display: flex;
   flex-direction: column;
   overflow: visible;

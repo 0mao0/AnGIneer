@@ -606,9 +606,11 @@ defineExpose({
 .editor-surface {
   min-height: 100%;
   padding: 12px 12px 48px 12px;
-  border: 1px solid var(--border-color);
+  /* 透明底后描边是唯一轮廓，宿主 --border-color（rgba(0,0,0,0.06)）在白底上几乎看不见，
+     输入框描边单独提亮一档（对齐 antd 输入框线 rgba(0,0,0,0.15)），不改动全局分隔线语义 */
+  border: 1px solid var(--chat-input-surface-border, rgba(0, 0, 0, 0.15));
   border-radius: 12px;
-  background: var(--bg-secondary, #fafafa);
+  background: transparent;
   color: var(--text-primary);
   font-size: 14px;
   line-height: 1.6;
@@ -616,6 +618,7 @@ defineExpose({
   word-break: break-word;
   overflow-y: auto;
   outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
 
   &.is-empty::before {
     content: attr(data-placeholder);
@@ -624,8 +627,10 @@ defineExpose({
     pointer-events: none;
   }
 
+  /* hover 与 focus 同一强调态：透明底输入框需要「可输入」的即时反馈 */
+  &:hover,
   &:focus {
-    border-color: var(--primary-color);
+    border-color: var(--primary-color, #1890ff);
     box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
   }
 
@@ -633,6 +638,15 @@ defineExpose({
     cursor: not-allowed;
     opacity: 0.7;
   }
+}
+
+/* 暗色档：聊天根底是纯黑（宿主 --chat-root-bg 在 dark 下为 #000000）。宿主 ui-kit 走 html.dark 类
+   而 [data-theme=dark] 的 CSS 段从未落地到 html，宿主 --border-color 实际恒为浅色值
+   rgba(0,0,0,0.06)——黑底黑线，描边此前在 dark 下近乎不存在（旧版靠灰底面板衬托才显形）。
+   这里给出真正的暗色档默认值（比黑底 #303030 更亮一档）。钩子变量仍最高优先（宿主可显式覆盖）。 */
+html.dark .editor-surface,
+[data-theme='dark'] .editor-surface {
+  border-color: var(--chat-input-surface-border, rgba(255, 255, 255, 0.28));
 }
 
 .editor-surface :deep(.editor-citation) {
