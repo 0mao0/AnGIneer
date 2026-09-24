@@ -98,10 +98,12 @@ jobs:
           # 构建前清理：14 天前未使用的镜像（含旧 latest 版本）；build cache 只清陈旧部分并设总量上限。
           # 依赖安装层是全量重建里最贵的一段（2026-09-14 实测：前端 pnpm install ~7.5 分钟、
           # 后端 11 个服务包 pip editable 编译 wheel ~21 分钟，合计约 39 分钟/次）；把 cache 全清
-          # 会让每次部署都重装依赖。上限取 8GB：后端 site-packages 实测 496MB、前端 builder 的
-          # node_modules 同量级，够放两侧依赖层，同时给磁盘（届时约 24G 可用）留足余量。
+          # 会让每次部署都重装依赖。上限原取 8GB（2026-09-14 磁盘约 24G 可用时的口径）：
+          # 后端 site-packages 实测 496MB、前端 node_modules 同量级。2026-09-24 磁盘涨到 80%
+          # （知识库/评测数据挤占）后降到 4GB——依赖层合计约 1G，keep-storage 按最近使用淘汰、
+          # 新鲜依赖层不会被误逐，部署速度不受影响。
           docker image prune -a -f --filter "until=336h"
-          docker builder prune -f --filter "until=336h" --keep-storage=8GB
+          docker builder prune -f --filter "until=336h" --keep-storage=4GB
           docker compose build
 
       - name: Restart services
