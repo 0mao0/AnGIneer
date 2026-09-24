@@ -248,6 +248,20 @@ def _followup_question_enabled() -> bool:
     return os.getenv("ANGINEER_FOLLOWUP_QUESTION", "true").strip().lower() in ("true", "1", "yes", "on")
 
 
+def _qa_budget_tokens_est() -> int:
+    """QA 档预算阈值（plan-ttft-improvement 需求 A1）。
+
+    不复用 complex 档 100k est：_estimate_tokens=字符数//2，中文 1 字≈1 真实 token，
+    est 30k ≈ 真实 60k；单轮证据 est 仅 ~15k，多轮回灌 3-5 轮即越 30k，
+    100k 闸门在 QA 档第 5 轮（est ~75k）前永不触发，等于没装。设 0 关闭（回退）。
+    """
+    raw = os.getenv("ANGINEER_QA_BUDGET_TOKENS_EST", "30000").strip()
+    try:
+        return max(0, int(raw))
+    except ValueError:
+        return 30_000
+
+
 def build_qa_config(
     *,
     llm: Any,
@@ -269,6 +283,7 @@ def build_qa_config(
     route_note: Optional[str] = None,
     marker_allocator: Optional[Any] = None,
     followup_question: Optional[bool] = None,
+    max_tokens_est: Optional[int] = None,
 ) -> AgentLoopConfig:
     """装配 QA 档 agent 循环：三个只读检索工具 + 内联 QA prompt（P5 前）。"""
     effective_tools = tools
@@ -332,6 +347,13 @@ def build_qa_config(
             followup_question=followup_enabled,
         )
 
+    budget_est = _qa_budget_tokens_est() if max_tokens_est is None else int(max_tokens_est)
+    qa_transformer = (
+        make_budget_transformer(max_tokens_est=budget_est, protect_current_run=True)
+        if budget_est > 0
+        else None
+    )
+
     return AgentLoopConfig(
         llm=llm,
         config_name=config_name,
@@ -343,6 +365,7 @@ def build_qa_config(
         final_answer_guard=guard,
         route_note=route_note,
         followup_question=followup_enabled,
+        transform_context=qa_transformer,
     )
 
 
@@ -370,7 +393,7 @@ def _summarize_tool_raw(raw: Dict[str, Any]) -> str:
     return json.dumps(raw, ensure_ascii=False, default=str)[:120]
 
 
-def make_budget_transformer(max_tokens_est: int = 100_000):
+def make_budget_transformer(max_tokens_est: int = 100_000, protect_current_run: bool = False):
     """P4.3 闸门一：超预算时按 oldest-first 压缩工具结果（投影式，copy-on-write）。
 
     2026-09-24（plan-ttft-improvement 需求 A1）：原版直接改写消息对象的 content，
@@ -379,6 +402,12 @@ def make_budget_transformer(max_tokens_est: int = 100_000):
     现版只读原消息，被压缩条目换成新对象放进新列表返回，history 本体与落库保全量原文；
     摘要缓存在闭包内（键为对象 id，session.history 生命周期内稳定），不再写进 message.meta。
     总字数 running total 做整除 2 的口径与 _estimate_tokens（sum//2）逐位一致。
+
+    protect_current_run=True（QA 档）：本 run 区间 = 最后一条 user 消息之后的消息，
+    其中工具结果不压缩（当轮证据必须完整在手才能作答）；被压掉的只有更早轮次的
+    跨 run 历史工具结果——这正是多轮膨胀的主因（每轮全量证据 dump 永久留存回灌）。
+    压完仍可能超阈值：当轮证据是硬需求，宁可超限也不压当轮。
+    complex 档保持 False（长 run 内部轮间压缩是它的原始语义）。
     """
 
     summary_cache: Dict[int, str] = {}
@@ -387,11 +416,18 @@ def make_budget_transformer(max_tokens_est: int = 100_000):
         total_chars = sum(len(message.content or "") for message in messages)
         if total_chars // 2 <= max_tokens_est:
             return messages
+        last_user_index = -1
+        if protect_current_run:
+            for index, message in enumerate(messages):
+                if message.role == "user":
+                    last_user_index = index
         result = list(messages)
         for index, message in enumerate(result):
             if total_chars // 2 <= max_tokens_est:
                 break
             if message.role != "tool":
+                continue
+            if protect_current_run and index > last_user_index:
                 continue
             summary = summary_cache.get(id(message))
             if summary is None:
