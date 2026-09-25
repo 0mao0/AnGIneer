@@ -130,12 +130,33 @@ def health():
     return body
 
 
+def _assert_single_instance(port: int, service: str) -> None:
+    """单实例守卫：Windows SO_REUSEADDR 允许端口共绑——残留孤儿进程不报错、静默分流请求
+    （2026-09-24/25 aichat-api 两次实踩）。启动前先探 /health：已有同服务在跑就拒绝启动。
+    uvicorn reload 的子进程以 import 方式加载 app，不经过本函数，热重载不受影响。"""
+    import urllib.request
+
+    try:
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/health", timeout=2) as resp:
+            body = json.loads(resp.read().decode("utf-8", "ignore"))
+    except Exception:
+        return  # 端口无人应答 = 干净，正常启动
+    if body.get("service") != service:
+        return  # 端口上是别的服务，绑定时 uvicorn 会自行报端口占用
+    raise SystemExit(
+        f"{service} 端口 {port} 已有实例在跑（pid={body.get('pid')} "
+        f"started_at={body.get('started_at')}），拒绝重复启动：Windows 端口共绑会静默分流请求。"
+        "请先停掉旧实例（start.ps1 或按 PID kill）。"
+    )
+
+
 if __name__ == "__main__":
     import json
     import uvicorn
 
     with open(ROOT_DIR / "apps" / "shared" / "ports.json", "r", encoding="utf-8") as pf:
         API_SERVER_PORT = int(json.load(pf)["docsApiPort"])
+    _assert_single_instance(API_SERVER_PORT, "docs-api")
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
