@@ -1277,8 +1277,78 @@ class FirstSearchInjectionTests(unittest.TestCase):
             intent_result=intent_l2, scene="qa", library_id="default", doc_ids=[],
             load_nodes=lambda: [], llm_factory=lambda: llm,
         )
-        self.assertFalse(attempts_l2[0].force_first_search)  # L2 段不注（table_search 语义，计划明确排除）
+        # 计划①（09-26）：L2 段也注入，但工具是 table_search
+        self.assertTrue(attempts_l2[0].force_first_search)
+        self.assertEqual(attempts_l2[0].first_search_tool, "table_search")
         self.assertTrue(attempts_l2[1].force_first_search)   # 回退到 L1 段时注入
+        self.assertEqual(attempts_l2[1].first_search_tool, "knowledge_search")
+
+    def test_l2_injects_table_search_pair(self):
+        """计划①：L2 段首个 LLM turn 前注入 table_search 成对消息，而非 knowledge_search。"""
+        captured: list = []
+
+        def table_handler(query=None, **_kw):
+            captured.append(("table_search", query))
+            return {"items": [{"item_id": "t1", "text": "表格证据", "metadata": {"cite": "T1"}}], "total": 1}
+
+        def knowledge_handler(query=None, **_kw):
+            captured.append(("knowledge_search", query))
+            return {"items": [{"item_id": "k1", "text": "正文证据", "metadata": {"cite": "K1"}}], "total": 1}
+
+        table_tool = make_tool(
+            "table_search", table_handler,
+            {"type": "object", "properties": {"query": {"type": "string"}}},
+        )
+        knowledge_tool = make_tool(
+            "knowledge_search", knowledge_handler,
+            {"type": "object", "properties": {"query": {"type": "string"}}},
+        )
+        llm = MockLLM(lambda messages, kwargs: text_events("基于表格证据的答案 [T1]"))
+        attempt = AttemptConfig(
+            name="L2 条款/表格定位",
+            config_factory=lambda: make_config(llm, [table_tool, knowledge_tool]),
+            requires_tools=True,
+            force_first_search=True,
+            first_search_tool="table_search",
+        )
+        messages = [AgentMessage(role="user", content="航道设计水深表中富裕深度取值")]
+        events = []
+        run_agent_loop(messages, make_config(llm, [table_tool, knowledge_tool], attempts=[attempt]), emit=events.append)
+
+        self.assertEqual(captured, [("table_search", "航道设计水深表中富裕深度取值")])
+        self.assertEqual(len(llm.calls), 1)  # 无空答重试轮
+        injected = messages[1]
+        self.assertTrue((injected.meta or {}).get("injected_tool_call"))
+        self.assertEqual(injected.tool_calls[0].name, "table_search")
+        self.assertIn('"name": "table_search"', injected.content)  # 围栏与真实调用一致
+        self.assertEqual(messages[2].role, "tool")
+        self.assertIn("表格证据", messages[2].content)
+
+    def test_l2_injection_skipped_when_table_tool_absent(self):
+        """L2 段配置缺 table_search 时不注入（不拿 knowledge_search 顶替——工具语义不同）。"""
+        captured: list = []
+
+        def knowledge_handler(query=None, **_kw):
+            captured.append(query)
+            return {"items": [{"item_id": "k1", "text": "正文证据", "metadata": {"cite": "K1"}}], "total": 1}
+
+        knowledge_tool = make_tool(
+            "knowledge_search", knowledge_handler,
+            {"type": "object", "properties": {"query": {"type": "string"}}},
+        )
+        llm = MockLLM(lambda messages, kwargs: text_events(
+            "```tool_calls\n[{\"name\": \"knowledge_search\", \"arguments\": {\"query\": \"自查\"}}]\n```"
+        ) if len(llm.calls) == 1 else text_events("基于证据的答案 [K1]"))
+        attempt = AttemptConfig(
+            name="L2 条款/表格定位",
+            config_factory=lambda: make_config(llm, [knowledge_tool]),
+            requires_tools=True,
+            force_first_search=True,
+            first_search_tool="table_search",
+        )
+        messages = [AgentMessage(role="user", content="查表问题")]
+        run_agent_loop(messages, make_config(llm, [knowledge_tool], attempts=[attempt]))
+        self.assertFalse(any(m.tool_call_id == "call_0_injected_search" for m in messages))
 
 
     def test_ttft_aligned_with_injected_first_search(self):

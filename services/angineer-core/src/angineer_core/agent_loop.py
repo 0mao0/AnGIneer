@@ -134,7 +134,8 @@ class AttemptConfig:
     success_check: Optional[Callable[[List[AgentMessage]], bool]] = None
     fallback_note: str = ""
     requires_tools: bool = False  # True 时禁止“不调工具直接作答”，强制至少一轮工具调用
-    force_first_search: bool = False  # True 时段 apply 后立即成对注入一次 knowledge_search（需求 C）
+    force_first_search: bool = False  # True 时段 apply 后立即成对注入一次检索（需求 C）
+    first_search_tool: str = "knowledge_search"  # 注入用工具：L1=正文检索，L2=table_search（计划①）
 
 
 @dataclass
@@ -883,10 +884,11 @@ def run_agent_loop(
     machine.force_retrieve = lambda: _force_retrieve_tool(messages, machine, emit, run_id, cancel_event)
 
     def _inject_first_search() -> None:
-        """需求 C（plan-ttft-improvement）：L1 段 apply 后、首个 LLM turn 前，
-        替模型执行一次 knowledge_search 并把「assistant 工具调用 + tool 结果」
-        成对注入——消灭「首轮空答 → 重试要求调工具 → 再检索」的多余 LLM 轮
+        """需求 C（plan-ttft-improvement）：段 apply 后、首个 LLM turn 前，
+        替模型执行一次检索并把「assistant 工具调用 + tool 结果」成对注入——
+        消灭「首轮空答 → 重试要求调工具 → 再检索」的多余 LLM 轮
         （实测该模式 turns=3、ttft 25-35s；注入后预期 turns=1~2）。
+        工具按段配置：L1=knowledge_search，L2=table_search（计划①，2026-09-26）。
 
         必须成对注入：buildThinkingTrace 按 call/result 配对，只注 tool 会错位。
         注入后本段 used_tools=True，requires_tools 重试/代检索自然成为死路径。
@@ -897,7 +899,9 @@ def run_agent_loop(
         attempt = machine.attempts[machine.active_attempt_idx]
         if not getattr(attempt, "force_first_search", False):
             return
-        if machine.tools_by_name.get("knowledge_search") is None:
+        # 计划①：注入工具按段配置——L1=knowledge_search（正文），L2=table_search（表格/条款）
+        tool_name = getattr(attempt, "first_search_tool", "knowledge_search") or "knowledge_search"
+        if machine.tools_by_name.get(tool_name) is None:
             return
         if start_idx > 0 and messages[start_idx - 1].role == "user":
             query = (messages[start_idx - 1].content or "").strip()
@@ -908,7 +912,7 @@ def run_agent_loop(
         # §8.6：跟进式短问的注入 query 上下文化（上文真实提问 + 当前消息）
         original_query = query
         query = _contextualize_followup_query(messages, query)
-        call = ToolCall(id="call_0_injected_search", name="knowledge_search", arguments={"query": query})
+        call = ToolCall(id="call_0_injected_search", name=tool_name, arguments={"query": query})
         try:
             results = _execute_tools_batch(
                 [call], machine.tools_by_name, machine.active_config, cancel_event, emit, run_id, 0,
@@ -920,7 +924,7 @@ def run_agent_loop(
         result = results[0]
         fence = (
             "```tool_calls\n"
-            + json.dumps([{"name": "knowledge_search", "arguments": {"query": query}}], ensure_ascii=False)
+            + json.dumps([{"name": tool_name, "arguments": {"query": query}}], ensure_ascii=False)
             + "\n```"
         )
         messages.append(AgentMessage(role="assistant", content=fence, tool_calls=[call], meta={"injected_tool_call": True}))
@@ -935,7 +939,7 @@ def run_agent_loop(
             )
         )
         _add_note(
-            "首轮直达：已预检索知识库证据注入上下文（跳过空转轮）"
+            f"首轮直达：已预检索知识库证据注入上下文（{tool_name}，跳过空转轮）"
             + ("（跟进式提问，已结合上一问改写检索词）" if query != original_query else "")
         )
 

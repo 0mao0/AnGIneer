@@ -75,7 +75,7 @@
 
 **现状**：requires_tools 路由（`agent_policy.py:89,115,145,198`）轮 1 靠模型自觉调工具（文本协议）；模型不调则事后重试（`agent_loop.py:636-642`，白烧一轮生成）或代检索（`:643-668`，实现 `_force_retrieve_tool` `:269-296`）。实测轮 1 无论调不调都花 ~0.7-2s，且不调时用户可见「输出→清空→再输出」。
 
-**范围修正（2026-09-24 核实）**：`requires_tools=True` 的段有 4 个——meta 统计（`agent_policy.py:89`）、L1（`:115`）、L2（`:145`）、L3/L4（`:198`），**不能一刀切注入 knowledge_search**：meta 段注入正文证据会污染统计通道（可能诱发拿正文硬答统计题）；L2 段的正确注入工具是 table_search 而非 knowledge_search。**首期只对 L1 段注入**（默认路由的 L1 + L2 fallback 后的 L1）；L2 段是否注入 table_search 留作后续，需门禁数据支撑。
+**范围修正（2026-09-24 核实）**：`requires_tools=True` 的段有 4 个——meta 统计（`agent_policy.py:89`）、L1（`:115`）、L2（`:145`）、L3/L4（`:198`），**不能一刀切注入 knowledge_search**：meta 段注入正文证据会污染统计通道（可能诱发拿正文硬答统计题）；L2 段的正确注入工具是 table_search 而非 knowledge_search。首期只对 L1 段注入（默认路由的 L1 + L2 fallback 后的 L1）。~~L2 段是否注入 table_search 留作后续~~ **L2 注入已落地（09-26，业主拍板）**：触发数据=「疏浚投资影响」题 L2 路由未注入 → 空答重试一轮、TTFT 37s（vs 注入轮 12s）。实现=`AttemptConfig.first_search_tool` 按段配工具（L1=knowledge_search、L2=table_search），缺工具时不注入（不拿 knowledge_search 顶替）；语义变为「每个挂了 force_first_search 的段至多注入一次」（L2 失败回退 L1 会再注一次 knowledge_search，与模型自行两段检索的成本结构一致）。meta/L0/L3/L4 不注不变。
 
 **「首轮」定义**：每个 run 至多注入一次；时机 = L1 段 apply 之后、该段第一次 `_run_llm_turn` 之前。L2→L1 fallback 场景在进入 L1 段时注入（L2 段本身不注入）。
 

@@ -144,6 +144,10 @@ def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
         success_check=success,
         fallback_note="L2 表格/条款定位未命中，回退 L1 语义检索",
         requires_tools=True,
+        # 计划①（09-26 业主拍板）：L2 也做首轮直达，但注入工具是 table_search 而非
+        # knowledge_search（§4.5 范围修正）；实锤案例=「疏浚投资影响」题 L2 空答重试 37s
+        force_first_search=True,
+        first_search_tool="table_search",
     )
 
 
