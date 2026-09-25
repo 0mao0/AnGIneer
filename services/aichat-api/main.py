@@ -407,14 +407,6 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 intent_result=intent_result,
                 sop_loader=sop_loader,
             )
-            run_future = loop.run_in_executor(
-                None,
-                session.run,
-                request.query,
-                emit,
-                config_factory,
-            )
-
             # run 结束即落库（D8：role/content 服务端权威）；seq 服务端分配后
             # 经 run_end 帧下发 msg_seqs（D10）。消息取 session.history 增量切片——
             # run_end payload 的 messages[start_idx:] 不含本轮 user 消息（start_idx 在
@@ -425,10 +417,21 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             # 注意不能写 `or []`：新建会话 history 为空列表时 `or` 会换成新列表快照，
             # 与 worker 线程追加的 live list 脱节，切片恒空、落库被静默跳过（2026-09-18 生产实踩）。
             # getattr 防御：单测的 _FakeSession 无 history 属性，此时按空列表走、persist 自然跳过
+            # 基线必须在 run_future 创建之前 capture：executor 线程一旦开跑就会 append 本轮
+            # user 消息，若基线在其后读取，user 消息被误算进「历史」而切片丢掉
+            #（2026-09-25 本地实踩：同一会话第 4 问落库缺 user 行，前三问赢了竞态）。
             hist_list = getattr(session, "history", None)
             if hist_list is None:
                 hist_list = []
             hist_base = len(hist_list)  # 回灌已完成（get_agent_session 内联），基线只含历史
+            run_future = loop.run_in_executor(
+                None,
+                session.run,
+                request.query,
+                emit,
+                config_factory,
+            )
+
             run_started_ts: Optional[float] = None
             last_error = ""
             persisted = False
