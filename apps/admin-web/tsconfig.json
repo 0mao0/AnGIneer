@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@angineer/ui-kit": ["../../packages/ui-kit/src"],
+      "@angineer/aichat-ui": ["../../packages/aichat-ui/src"],
+      "@angineer/docs-ui": ["../../packages/docs-ui/src"],
+      "@angineer/sop-ui": ["../../packages/sop-ui/src"],
+      "@angineer/evals-ui": ["../../packages/evals-ui/src"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "../shared/**/*.ts", "../shared/**/*.json"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

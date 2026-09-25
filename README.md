@@ -289,7 +289,7 @@ user-web / admin-web（用户界面层）
 ```text
 apps/
   user-web/           用户工作台（知识库 / SOP / GIS / 对话）· 3005
-  admin-web/          管理后台（知识库 / 评测 / SOP / API Key / Dream Cycle）· 3002（**闭源**，不在公开仓库）
+  admin-web/          管理后台（知识库 / 评测 / SOP / API Key / Dream Cycle）· 3002
   shared/             端口契约 ports.json + API 客户端
 packages/
   docs-ui/  aichat-ui/  evals-ui/  sop-ui/  geo-ui/  engtools-ui/  ui-kit/  共享 UI 与组件
@@ -316,8 +316,6 @@ data/
   api_keys.sqlite     API Key
 tests/  docs/  scripts/  docker/
 ```
-
-> 注：`apps/admin-web` 为闭源目录（2026-09-23 起不在公开仓库）。公开仓库 clone 后 `pnpm install` 会自动重算 lockfile（勿用 `--frozen-lockfile`），用户台开发不受影响；管理后台相关命令（`pnpm dev:admin` 等）与 docker 全量构建不可用。
 
 > 深入阅读：[docs/tech-report.md](docs/tech-report.md#7-技术架构与仓库布局)
 
