@@ -1351,9 +1351,9 @@ defineExpose({
             padding: 0 3px;
             border-radius: 50%;
             box-sizing: border-box;
-            background: var(--aichat-citation-circle-bg, var(--chat-citation-circle-bg, #d3e9fb));
-            border: 1px solid var(--aichat-citation-circle-border, var(--chat-citation-circle-border, #91caff));
-            color: var(--aichat-citation-circle-color, var(--chat-citation-circle-text, #1677ff));
+            background: var(--aichat-citation-circle-bg, var(--chat-citation-circle-bg, #e9eaec));
+            border: 1px solid var(--aichat-citation-circle-border, var(--chat-citation-circle-border, #cfcfd4));
+            color: var(--aichat-citation-circle-color, var(--chat-citation-circle-text, #55565c));
             font-size: 10px;
             font-weight: 600;
             line-height: 1;
@@ -1378,9 +1378,9 @@ defineExpose({
             padding: 0 3px;
             border-radius: 50%;
             box-sizing: border-box;
-            background: var(--aichat-citation-circle-bg, var(--chat-citation-circle-bg, #d3e9fb));
-            border: 1px solid var(--aichat-citation-circle-border, var(--chat-citation-circle-border, #91caff));
-            color: var(--aichat-citation-circle-color, var(--chat-citation-circle-text, #1677ff));
+            background: var(--aichat-citation-circle-bg, var(--chat-citation-circle-bg, #e9eaec));
+            border: 1px solid var(--aichat-citation-circle-border, var(--chat-citation-circle-border, #cfcfd4));
+            color: var(--aichat-citation-circle-color, var(--chat-citation-circle-text, #55565c));
             font-size: 10px;
             font-weight: 600;
             line-height: 1;
