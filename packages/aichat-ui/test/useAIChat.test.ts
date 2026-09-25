@@ -61,7 +61,9 @@ test('startNewChat 清空消息、切换会话 key，并让后续请求使用新
 
   await chat.sendMessage('第二问')
   assert.equal(calls.length, 2)
-  assert.equal(calls[1].session_id, newKey)
+  // 发给后端的是剥掉 scene 前缀的裸 id（历史落库/PUT 与宿主 record.id 同键），池 key 仅进程内用
+  assert.equal(calls[0].session_id, 'tab-1')
+  assert.equal(calls[1].session_id, newKey.slice('docs:'.length))
 })
 
 test('发送消息不会把会话写入 localStorage（不做历史记录）', async () => {

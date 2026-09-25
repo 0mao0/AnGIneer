@@ -116,7 +116,7 @@
 
 1. ~~打点修复待生产验收~~ **已闭环（09-25）**：生产同会话 3 轮实测，服务器打点与客户端 SSE 逐毫秒一致（L2→L1 12.4s/11.9s turns=2，L1 注入轮 7.0s turns=1）；「首轮直达」note 生产确认 firing；多轮 prompt 稳定 18-21k（A1 闸压平）。结论：轮次劣化目标达标，单轮 ≤6s 未达标（最好 7.0s，大头=意图分类 ~4.5s，业主决定分类提速等 Jev 进展）。
 2. **探针 turns=2 未定性**：本地探针（session `step4-verify-1`）turns=2 而非预期的 1，疑似模型拿到注入证据仍触发拒答重试（refusal_retry）；日志随进程丢失未确证。生产观察：若 L1 注入轮频繁 turns=2，查拒答重试触发原因（可能是注入证据与问题不相关时模型仍拒答——语义正确但说明注入检索质量需关注）。
-3. **PUT 400 `unknown msg_seq` 根因已定位未修**：chat.sqlite 的 `session_id` 带 `docs:` 前缀，前端 PUT `/sessions/<bare_id>/messages` 查不到行 → 400；展示字段快照（citations/thinking_trace 补丁）静默丢失，有 try/catch 不阻断发送。属 v0.2.67 聊天历史线的既有缺陷，不在本计划范围。
+3. ~~PUT 400 `unknown msg_seq`~~ **已闭环（09-25）**：根因=`useAIChat.ts` 把池 key「`docs:chat-x`」当 `session_id` 发给后端，而宿主记录层用裸 id「chat-x」——落库在带前缀行、PUT/详情/删除打裸 id → 400、同会话列表双 id。修法=发送时剥掉 `${scene}:` 前缀发裸 id（服务端池 key 本就含 scene，行为不变）；存量带前缀行保留（列表/详情按服务端返回 id 仍可用）。回归：`useAIChat.test.ts` 断言 `session_id` 为裸 id，4 绿 + vue-tsc 绿。
 4. ~~Qwen3.8-Flash 被选中之谜~~ **已闭环**：业主下午手动改的默认模型（本地 .env），非缺陷；服务器 .env 未动，nightly 不受影响（judge=DeepSeek-V4-Flash 已核实）。
 5. **本地验证环境教训**：Windows SO_REUSEADDR 语义下新旧 worker 可并存抢 8791，验证流量随机打到旧代码进程（本次实踩两次，一次致「修复无效」假象）。验证前必须先确认 8791 只有一个监听者（`Get-NetTCPConnection -LocalPort 8791 -State Listen` 唯一）且其启动时间晚于最后编辑。
 6. **跟进式提问的注入 query 无会话上下文（09-25 生产实测暴露）**：用户回「想知道」（承接上一句「需要我继续帮你分析吗」），注入器按 `query=当前消息原文` 检索了无意义字符串、烧 1.5s 检索+一轮 LLM，最终 guard 拒答。设计缺口：`_inject_first_search` 的 query 只看当前消息。候选修法：注入前做上下文化改写 / 跟进式提问检测跳过注入——待业主拍板。同类：「可以继续问么」（本地实测注入被浪费但模型自恢复）。

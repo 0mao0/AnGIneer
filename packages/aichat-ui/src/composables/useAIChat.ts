@@ -400,7 +400,11 @@ export function useAIChat(options?: {
     const queryRequest: QueryRequest = {
       query: userMessage.content,
       scene,
-      session_id: currentSessionKey.value,
+      // 发裸 id（剥掉池 key 的 `${scene}:` 前缀）：服务端池 key 本就含 scene，
+      // 历史落库/快照 PUT/会话列表都以 session_id 为键，必须与宿主侧 record.id 一致——
+      // 此前发带前缀的池 key，落库在 docs:chat-x 而 PUT 打 chat-x，400 unknown msg_seq
+      // 且列表出现同会话双 id（2026-09-25 排查定位）
+      session_id: currentSessionKey.value.slice(buildSessionKey(scene, '').length),
       library_id: String(unref(options?.libraryId) || 'default'),
       doc_ids: [...new Set([...contextItems.map(item => item.id), ...mentionedDocIds])],
       inline_citations: inlineCitations,
