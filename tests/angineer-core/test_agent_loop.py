@@ -1179,6 +1179,85 @@ class FirstSearchInjectionTests(unittest.TestCase):
         run_agent_loop(messages, self._config(llm, tool))
         self.assertFalse(any(m.tool_call_id == "call_0_injected_search" for m in messages))
 
+    def _capturing_search_tool(self, captured: list):
+        def handler(query=None, **_kw):
+            captured.append(query)
+            return {
+                "items": [{"item_id": "i1", "text": "证据原文", "metadata": {"cite": "K1"}}],
+                "total": 1,
+            }
+
+        return make_tool(
+            "knowledge_search", handler,
+            {"type": "object", "properties": {"query": {"type": "string"}}},
+        )
+
+    def test_followup_query_contextualized_with_previous_question(self):
+        """§8.6：跟进式短问（≤15 字）有上文时，注入 query 改写为「上一问，当前问」。"""
+        captured: list = []
+        llm = MockLLM(lambda messages, kwargs: text_events("基于证据的答案 [K1]"))
+        tool = self._capturing_search_tool(captured)
+        messages = [
+            AgentMessage(role="user", content="乘潮水位怎么计算"),
+            AgentMessage(role="assistant", content="乘潮水位计算分五步……"),
+            AgentMessage(role="user", content="想知道"),
+        ]
+        run_agent_loop(messages, self._config(llm, tool))
+        self.assertEqual(captured, ["乘潮水位怎么计算，想知道"])
+
+    def test_long_query_not_rewritten(self):
+        """超过阈值的完整提问不改写，保持原文注入。"""
+        captured: list = []
+        llm = MockLLM(lambda messages, kwargs: text_events("基于证据的答案 [K1]"))
+        tool = self._capturing_search_tool(captured)
+        messages = [
+            AgentMessage(role="user", content="乘潮水位怎么计算"),
+            AgentMessage(role="assistant", content="分五步……"),
+            AgentMessage(role="user", content="请详细说明乘潮累积频率的统计方法和具体计算步骤"),
+        ]
+        run_agent_loop(messages, self._config(llm, tool))
+        self.assertEqual(captured, ["请详细说明乘潮累积频率的统计方法和具体计算步骤"])
+
+    def test_followup_without_history_not_rewritten(self):
+        """首轮即短问（无上文）保持原文，不凭空造上下文。"""
+        captured: list = []
+        llm = MockLLM(lambda messages, kwargs: text_events("答案"))
+        tool = self._capturing_search_tool(captured)
+        messages = [AgentMessage(role="user", content="你好")]
+        run_agent_loop(messages, self._config(llm, tool))
+        self.assertEqual(captured, ["你好"])
+
+    def test_followup_rewrite_skips_internal_user_prompts(self):
+        """上文含拒答重试的内部 user 提示时，改写取的是真实提问而不是内部提示。"""
+        captured: list = []
+        llm = MockLLM(lambda messages, kwargs: text_events("基于证据的答案 [K1]"))
+        tool = self._capturing_search_tool(captured)
+        messages = [
+            AgentMessage(role="user", content="乘潮水位怎么计算"),
+            AgentMessage(role="assistant", content="暂时无法回答"),
+            AgentMessage(role="user", content="已检索到有效证据，请基于证据作答；若证据只覆盖部分内容，请回答已支持的部分并明确说明缺失项，不要整体拒答。"),
+            AgentMessage(role="assistant", content="乘潮水位计算分五步……"),
+            AgentMessage(role="user", content="继续"),
+        ]
+        run_agent_loop(messages, self._config(llm, tool))
+        self.assertEqual(captured, ["乘潮水位怎么计算，继续"])
+
+    def test_followup_rewrite_switch_off(self):
+        """ANGINEER_INJECT_FOLLOWUP_CHARS=0 关闭改写。"""
+        from unittest import mock
+
+        captured: list = []
+        llm = MockLLM(lambda messages, kwargs: text_events("答案"))
+        tool = self._capturing_search_tool(captured)
+        messages = [
+            AgentMessage(role="user", content="乘潮水位怎么计算"),
+            AgentMessage(role="assistant", content="分五步……"),
+            AgentMessage(role="user", content="想知道"),
+        ]
+        with mock.patch.dict(os.environ, {"ANGINEER_INJECT_FOLLOWUP_CHARS": "0"}):
+            run_agent_loop(messages, self._config(llm, tool))
+        self.assertEqual(captured, ["想知道"])
+
     def test_policy_marks_l1_attempt(self):
         """agent_policy 接线：L1 段（含 meta/L2 回退链上的）都带 force_first_search。"""
         from types import SimpleNamespace

@@ -325,6 +325,42 @@ def _force_first_search_enabled() -> bool:
     return os.environ.get("ANGINEER_FORCE_FIRST_SEARCH", "1").strip().lower() not in ("0", "false", "off")
 
 
+def _inject_followup_chars() -> int:
+    """跟进式提问判定阈值（§8.6）：当前消息字数 ≤ 阈值视为跟进式，注入前做上下文化改写。
+    默认 15；设 0 关闭改写。"""
+    try:
+        return int(os.environ.get("ANGINEER_INJECT_FOLLOWUP_CHARS", "15"))
+    except ValueError:
+        return 15
+
+
+def _contextualize_followup_query(messages: List[AgentMessage], query: str) -> str:
+    """跟进式短问（「想知道」「可以继续问么」）原文无检索实体，按原文注入必检回
+    无关证据、白烧检索+一轮 LLM（2026-09-25 生产实测）。阈值内且有上文真实提问时，
+    用「上一问，当前问」合成检索 query；上文只取真实用户提问（跳过循环注入的内部
+    user 提示与空消息），最近一条真实提问即当前消息本身，需再往前取一条。
+    """
+    limit = _inject_followup_chars()
+    if limit <= 0 or not (0 < len(query) <= limit):
+        return query
+    prev = ""
+    skipped_current = False
+    for message in reversed(messages):
+        if message.role != "user":
+            continue
+        content = (message.content or "").strip()
+        if not content or content.startswith(_INJECTED_USER_PROMPTS):
+            continue
+        if not skipped_current:
+            skipped_current = True
+            continue
+        prev = content
+        break
+    if not prev:
+        return query
+    return f"{prev}，{query}"
+
+
 def _llm_content_payload(raw: Dict[str, Any]) -> Dict[str, Any]:
     """LLM 序列化投影（需求 B）：content 剔除 evidences[]——它与 items[] 全文重复、
     同一份证据进 prompt 两遍（evidences 由 items 一一构造，agent_tools.py:196-220）。
@@ -869,6 +905,9 @@ def run_agent_loop(
             query = (_latest_user_query(messages) or "").strip()
         if not query:
             return
+        # §8.6：跟进式短问的注入 query 上下文化（上文真实提问 + 当前消息）
+        original_query = query
+        query = _contextualize_followup_query(messages, query)
         call = ToolCall(id="call_0_injected_search", name="knowledge_search", arguments={"query": query})
         try:
             results = _execute_tools_batch(
@@ -895,7 +934,10 @@ def run_agent_loop(
                 meta=result.raw,
             )
         )
-        _add_note("首轮直达：已预检索知识库证据注入上下文（跳过空转轮）")
+        _add_note(
+            "首轮直达：已预检索知识库证据注入上下文（跳过空转轮）"
+            + ("（跟进式提问，已结合上一问改写检索词）" if query != original_query else "")
+        )
 
     machine.first_search_injector = _inject_first_search
     machine.start()
