@@ -1350,8 +1350,8 @@ defineExpose({
             margin: 0 2px;
             padding: 0 3px;
             border-radius: 50%;
-            background: #3f3f46;
-            color: #d4d4d8;
+            background: var(--aichat-citation-circle-bg, var(--bg-tertiary, rgba(0, 0, 0, 0.07)));
+            color: var(--aichat-citation-circle-color, var(--text-secondary, rgba(0, 0, 0, 0.65)));
             font-size: 10px;
             font-weight: 600;
             line-height: 1;
@@ -1361,6 +1361,7 @@ defineExpose({
 
             &:hover {
               background-color: var(--primary-color);
+              color: #fff;
             }
           }
 
@@ -1373,8 +1374,8 @@ defineExpose({
             margin: 0 2px;
             padding: 0 3px;
             border-radius: 50%;
-            background: #3f3f46;
-            color: #d4d4d8;
+            background: var(--aichat-citation-circle-bg, var(--bg-tertiary, rgba(0, 0, 0, 0.07)));
+            color: var(--aichat-citation-circle-color, var(--text-secondary, rgba(0, 0, 0, 0.65)));
             font-size: 10px;
             font-weight: 600;
             line-height: 1;
@@ -2001,11 +2002,11 @@ defineExpose({
       min-width: 0;
 
       .mention-trigger-btn {
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--aichat-mention-trigger-color, var(--text-secondary, rgba(0, 0, 0, 0.55)));
 
         &:hover,
         &:focus {
-          color: rgba(255, 255, 255, 0.88);
+          color: var(--aichat-mention-trigger-hover-color, var(--text-primary, rgba(0, 0, 0, 0.88)));
         }
       }
 
