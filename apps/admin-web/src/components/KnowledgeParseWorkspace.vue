@@ -832,19 +832,25 @@ const loadNodes = async (focusNodeKey?: string) => {
       docRenderPdfPath.value = ''
       stopParsePolling()
     }
-    if (!focusNodeKey && !selectedKeys.value.length) {
+    // 首次进入（无选中）自动补选首个文件，保证中栏有内容可看；
+    // 但自动补选不展开祖先链——左侧知识树默认收起，只展示一级目录，
+    // 只有显式定位（路由 doc_id / 上传后聚焦）才展开目标路径。
+    const isAutoPick = !focusNodeKey && !selectedKeys.value.length
+    if (isAutoPick) {
       const firstFile = findFirstFileNode(treeData.value as unknown as SmartTreeNode[])
       if (firstFile) {
         focusNodeKey = firstFile.key
       }
     }
     if (focusNodeKey) {
-      // 模拟用户点击：展开目标文件祖先链 + 高亮选中目标文件
-      const parents = findParentChain(treeData.value as unknown as SmartTreeNode[], focusNodeKey) || []
-      defaultExpandedKeys.value = Array.from(new Set([
-        ...defaultExpandedKeys.value,
-        ...parents
-      ]))
+      if (!isAutoPick) {
+        // 模拟用户点击：展开目标文件祖先链 + 高亮选中目标文件
+        const parents = findParentChain(treeData.value as unknown as SmartTreeNode[], focusNodeKey) || []
+        defaultExpandedKeys.value = Array.from(new Set([
+          ...defaultExpandedKeys.value,
+          ...parents
+        ]))
+      }
       defaultSelectedKeys.value = [focusNodeKey]
       if (smartTreeRef.value) {
         smartTreeRef.value.selectedKeys = [focusNodeKey]
