@@ -24,6 +24,10 @@ export interface AIChatTransport {
       onAnswerReplace?: (full: string) => void
       /** 向量库等基础设施健康告警（非致命，用户可见提示） */
       onWarning?: (message: string) => void
+      /** 中间轮正文快照（被拒答重答/截断重试顶替的旧输出），宿主收进思考折叠区而非丢弃 */
+      onInterimAnswer?: (snapshot: string) => void
+      /** 等待期阶段推进：classify（意图理解）→ search（检索）→ generate（生成回答） */
+      onStage?: (stage: 'classify' | 'search' | 'generate') => void
     }
   ) => Promise<QueryResponse>
   /** 获取可用模型列表（可选） */

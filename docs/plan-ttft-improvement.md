@@ -112,10 +112,13 @@
 - 功能开关须可回退：B 若需开关（如 `ANGINEER_LLM_EVIDENCE_DEDUP`）默认开；C 见 4.5。
 - 关键文件导航：`services/angineer-core/src/angineer_core/{agent_loop,agent_tools,agent_policy,agent_messages}.py`、`prompts/agent_configs.py`、`services/aichat-api/{main,chat_agent}.py`、`apps/shared/chatTransport.ts`、`packages/aichat-ui/src/{components/BaseChat.vue,composables/useAIChat.ts}`。
 
-## 8. 遗留尾巴（2026-09-24 发版 v0.2.77 时记录，按优先级排序）
+## 8. 遗留尾巴（2026-09-24 发版 v0.2.77 时记录；2026-09-25 更新）
 
-1. **打点修复待生产验收**：`_final_turn_metrics` 的注入对齐 bug 已修（注入 assistant 打 `meta.injected_tool_call` 标记并从对齐序列剔除），但本地未拿到修复后 L1 注入轮的真实 `ttft_ms`（验证被多进程抢端口打乱）。生产部署后按 §6.6 用同一问题 curl 复现，确认 `ttft_ms` 有值且对照 §1 目标表。
-2. **探针 run turns=2 未定性**：本地探针（session `step4-verify-1`）turns=2 而非预期的 1，疑似模型拿到注入证据仍触发拒答重试（refusal_retry）；日志随进程丢失未确证。生产观察：若 L1 注入轮频繁 turns=2，查拒答重试触发原因（可能是注入证据与问题不相关时模型仍拒答——语义正确但说明注入检索质量需关注）。
+1. ~~打点修复待生产验收~~ **已闭环（09-25）**：生产同会话 3 轮实测，服务器打点与客户端 SSE 逐毫秒一致（L2→L1 12.4s/11.9s turns=2，L1 注入轮 7.0s turns=1）；「首轮直达」note 生产确认 firing；多轮 prompt 稳定 18-21k（A1 闸压平）。结论：轮次劣化目标达标，单轮 ≤6s 未达标（最好 7.0s，大头=意图分类 ~4.5s，业主决定分类提速等 Jev 进展）。
+2. **探针 turns=2 未定性**：本地探针（session `step4-verify-1`）turns=2 而非预期的 1，疑似模型拿到注入证据仍触发拒答重试（refusal_retry）；日志随进程丢失未确证。生产观察：若 L1 注入轮频繁 turns=2，查拒答重试触发原因（可能是注入证据与问题不相关时模型仍拒答——语义正确但说明注入检索质量需关注）。
 3. **PUT 400 `unknown msg_seq` 根因已定位未修**：chat.sqlite 的 `session_id` 带 `docs:` 前缀，前端 PUT `/sessions/<bare_id>/messages` 查不到行 → 400；展示字段快照（citations/thinking_trace 补丁）静默丢失，有 try/catch 不阻断发送。属 v0.2.67 聊天历史线的既有缺陷，不在本计划范围。
-4. **Qwen3.8-Flash 被选中之谜未查清**：run `8d9d166d8de1`（22:08）走了 flash 端点而用户未切模型，DEBUG-SOP-ROUTE 显示 `config_name=None`；`llm_client._resolve_model_configs`（llm_client.py:429-442）在 config_name 缺省时 default_model 优先、其余配置 fallback——为何选中 flash 待查。
+4. ~~Qwen3.8-Flash 被选中之谜~~ **已闭环**：业主下午手动改的默认模型（本地 .env），非缺陷；服务器 .env 未动，nightly 不受影响（judge=DeepSeek-V4-Flash 已核实）。
 5. **本地验证环境教训**：Windows SO_REUSEADDR 语义下新旧 worker 可并存抢 8791，验证流量随机打到旧代码进程（本次实踩两次，一次致「修复无效」假象）。验证前必须先确认 8791 只有一个监听者（`Get-NetTCPConnection -LocalPort 8791 -State Listen` 唯一）且其启动时间晚于最后编辑。
+6. **跟进式提问的注入 query 无会话上下文（09-25 生产实测暴露）**：用户回「想知道」（承接上一句「需要我继续帮你分析吗」），注入器按 `query=当前消息原文` 检索了无意义字符串、烧 1.5s 检索+一轮 LLM，最终 guard 拒答。设计缺口：`_inject_first_search` 的 query 只看当前消息。候选修法：注入前做上下文化改写 / 跟进式提问检测跳过注入——待业主拍板。同类：「可以继续问么」（本地实测注入被浪费但模型自恢复）。
+7. **拒答 22→19（09-25 nightly）**：v0.2.77 首跑整体 +2.02pp（CI95 显著）、hit@5(doc) +1.8pp，但拒答专项 56.4%→48.7%（-3 题），初步方向=注入证据诱导「相邻证据不可答题」作答。业主已暂缓归因，待查时逐题核对 3 道翻转题。
+8. ~~guard 边界规则替换路径「输出→清空→再输出」~~ **已修（09-25，随 §5 A2 一并）**：guard 改写/run_end 权威覆盖发生真实替换时，被顶替的流式正文快照进 `interim_answers`，流式区与最终消息气泡下均可折叠展开回看。

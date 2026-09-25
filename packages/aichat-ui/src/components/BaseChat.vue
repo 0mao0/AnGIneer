@@ -148,6 +148,10 @@
               </div>
 
               <div class="answer-text" v-html="renderAssistantContent(msg)" />
+              <details v-for="(interim, iIdx) in (msg.interim_answers || [])" :key="iIdx" class="interim-answer">
+                <summary>中间输出（已被最终回答顶替，点击展开）</summary>
+                <div class="interim-answer-body">{{ interim }}</div>
+              </details>
             </div>
           </template>
 
@@ -179,13 +183,17 @@
                 </div>
               </div>
             </div>
+            <details v-for="(interim, idx) in interimAnswers" :key="idx" class="interim-answer">
+              <summary>中间输出（已被最终回答顶替，点击展开）</summary>
+              <div class="interim-answer-body">{{ interim }}</div>
+            </details>
             <template v-if="currentStreamContent">
               <div class="answer-text" v-html="renderContent(currentStreamContent, streamingCitations)" />
               <span class="streaming-cursor">|</span>
             </template>
             <div v-else class="streaming-loading">
               <a-spin size="small" />
-              <span class="loading-text">思考中...</span>
+              <span class="loading-text">{{ progressText }}</span>
             </div>
           </div>
         </div>
@@ -408,6 +416,12 @@ interface Props {
   contextTokens?: number
   contextRounds?: number
   streamingThinkingSteps?: ThinkingTraceStep[]
+  /** 中间轮被顶替的正文快照（拒答重答/截断重试），流式期间置灰折叠展示 */
+  interimAnswers?: string[]
+  /** 等待期阶段（classify/search/generate），驱动分段进度文案；空串退回「思考中...」 */
+  progressStage?: string
+  /** 当前阶段已持续秒数 */
+  elapsedSeconds?: number
   renderMessage?: (content: string) => string
   searchCitations?: (query: string) => Promise<InlineCitationCandidate[]>
   /** Hero 模式：无消息时整体垂直居中、输入卡片浮起居中（对话入口态） */
@@ -443,7 +457,10 @@ const props = withDefaults(defineProps<Props>(), {
   mentionLabel: '插入引用 @',
   libraryOptions: () => [],
   libraryValue: '',
-  queuedMessages: () => []
+  queuedMessages: () => [],
+  interimAnswers: () => [],
+  progressStage: '',
+  elapsedSeconds: 0
 })
 
 const emit = defineEmits<{
@@ -498,6 +515,22 @@ const streamingCitations = computed(() => buildStreamingCitations())
 
 const getStreamingStepCount = computed(() => countThinkingSteps(streamingThinkingGroups.value))
 const getStreamingDuration = computed(() => sumThinkingDuration(streamingThinkingGroups.value))
+
+/** 等待期分段进度文案（A3）：按 transport 阶段事件推进，检索阶段带实时秒数；
+ *  stage 为空（旧 transport 未上报）退回「思考中...」 */
+const progressText = computed(() => {
+  const seconds = props.elapsedSeconds > 0 ? `（${props.elapsedSeconds}s）` : ''
+  switch (props.progressStage) {
+    case 'classify':
+      return '意图理解…'
+    case 'search':
+      return `检索规范库…${seconds}`
+    case 'generate':
+      return '生成回答…'
+    default:
+      return '思考中...'
+  }
+})
 
 /**
  * 去重引用，避免同页同段重复展示。
@@ -1670,6 +1703,28 @@ defineExpose({
 
           .loading-text {
             margin-left: 0;
+          }
+        }
+
+        .interim-answer {
+          margin-bottom: 8px;
+          font-size: 12px;
+          color: var(--text-secondary);
+          opacity: 0.75;
+
+          summary {
+            cursor: pointer;
+            user-select: none;
+          }
+
+          .interim-answer-body {
+            margin-top: 4px;
+            padding: 8px 10px;
+            border-left: 2px solid var(--border-color, #e5e5e5);
+            white-space: pre-wrap;
+            word-break: break-word;
+            max-height: 160px;
+            overflow-y: auto;
           }
         }
 

@@ -56,6 +56,8 @@ export interface BaseChatMessage {
   citations?: BaseChatCitation[]
   inlineCitations?: CitationBinding[]
   thinking_trace?: ThinkingTraceStep[]
+  /** 本回答顶替掉的中间输出快照（拒答重答/边界规则改写），折叠展示可回看 */
+  interim_answers?: string[]
 }
 
 /**
@@ -117,6 +119,8 @@ export interface AIChatMessage {
     low?: string[]
   }
   thinking_trace?: ThinkingTraceStep[]
+  /** 本回答顶替掉的中间输出快照（拒答重答/边界规则改写），折叠展示可回看 */
+  interim_answers?: string[]
 }
 
 export interface ThinkingTraceStep {

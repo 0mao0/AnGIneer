@@ -25,6 +25,11 @@ export const defaultAIChatTransport = {
       onAnswerReplace?: (full: string) => void
       /** 后端 warning 事件（如向量库维度异常）透出到界面横幅；运行时一直在正常调用，只是这里漏了声明 */
       onWarning?: (message: string) => void
+      /** 新 turn 开始前，上一中间轮已流出的正文快照（拒答重答/截断重试等）；
+       *  宿主应把它收进「思考过程」折叠区而不是丢弃——直接清空会让用户看到文字消失 */
+      onInterimAnswer?: (snapshot: string) => void
+      /** 等待期阶段推进：run_start→classify，tool_start→search，首个正文 delta→generate */
+      onStage?: (stage: 'classify' | 'search' | 'generate') => void
     }
   ): Promise<QueryResponse> => {
     // P7 链路：走 /api/chat/agent（AgentSession 多轮 + SSE 事件流）
@@ -74,6 +79,12 @@ export const defaultAIChatTransport = {
     let toolMessages: Array<{ name?: string; content: string }> = []
     let traceMessages: Array<Record<string, any>> = []
     let liveThinkingSteps: ThinkingTraceStep[] = []
+    let stage = ''
+    const setStage = (next: 'classify' | 'search' | 'generate') => {
+      if (stage === next) return
+      stage = next
+      options?.onStage?.(next)
+    }
 
     while (true) {
       const { done, value } = await reader.read()
@@ -94,16 +105,20 @@ export const defaultAIChatTransport = {
         }
         if (event.type === 'run_start') {
           runId = String(event.run_id || '')
+          setStage('classify')
         } else if (event.type === 'turn_start') {
-          // 新 turn 开始：后端约定一个 run 内只有最后一轮 assistant 是最终答案，
-          // 中间轮（拒答重答/截断重试等）已流出的正文必须清掉，
-          // 否则旧文本会与新答案拼接残留，直到 run_end 才被整体覆盖
+          // 新 turn 开始：后端约定一个 run 内只有最后一轮 assistant 是最终答案。
+          // 中间轮（拒答重答/截断重试等）已流出的正文不清空丢弃，而是快照上抛——
+          // 宿主收进思考过程折叠区，避免用户看到「文字出现→消失→再出现」；
+          // 流式区仍清空续写新轮，run_end 的权威覆盖逻辑不变
           if (answer) {
+            options?.onInterimAnswer?.(answer)
             rawAnswer = ''
             answer = ''
             options?.onAnswerReplace?.('')
           }
         } else if (event.type === 'tool_start' || event.type === 'tool_end') {
+          if (event.type === 'tool_start') setStage('search')
           liveThinkingSteps = applyAgentEventToThinking(event, liveThinkingSteps)
           options?.onThinking?.([...liveThinkingSteps])
         } else if (event.type === 'note') {
@@ -112,11 +127,18 @@ export const defaultAIChatTransport = {
         } else if (event.type === 'answer') {
           const finalContent = String(event.payload?.content || '')
           if (finalContent) {
+            const cleaned = cleanStreamText(finalContent)
+            // 边界规则改写（guard 把违规答案替换为拒答话术）：被顶替的流式正文
+            // 同样快照上抛——否则用户看到「答案出现→整段被换」且无迹可寻
+            if (answer.trim() && cleaned.trim() && cleaned.trim() !== answer.trim()) {
+              options?.onInterimAnswer?.(answer)
+            }
             rawAnswer = finalContent
-            answer = cleanStreamText(rawAnswer)
+            answer = cleaned
             options?.onAnswerReplace?.(answer)
           }
         } else if (event.type === 'message_delta') {
+          setStage('generate')
           rawAnswer += String(event.payload?.delta || '')
           // 工具调用围栏是跨多个流式分片拼出来的，必须对累积文本过滤，再计算增量
           const cleaned = cleanStreamText(rawAnswer)
@@ -172,6 +194,10 @@ export const defaultAIChatTransport = {
             const finalRaw = String(finalAssistant.content || '')
             const cleanedFinal = cleanStreamText(finalRaw)
             if (cleanedFinal && cleanedFinal !== answer) {
+              // run_end 权威覆盖发生真实替换时，被顶替的流式正文同样进快照
+              if (answer.trim() && cleanedFinal.trim() !== answer.trim()) {
+                options?.onInterimAnswer?.(answer)
+              }
               rawAnswer = finalRaw
               answer = cleanedFinal
               options?.onAnswerReplace?.(answer)

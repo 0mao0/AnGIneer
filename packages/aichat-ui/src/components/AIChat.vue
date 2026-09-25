@@ -17,6 +17,9 @@
     :context-tokens="contextTokens"
     :context-rounds="contextRounds"
     :streaming-thinking-steps="liveThinkingSteps"
+    :interim-answers="interimAnswers"
+    :progress-stage="progressStage"
+    :elapsed-seconds="elapsedSeconds"
     :search-citations="searchInlineCitations"
     :render-message="renderAIChatMessage"
     :hero="hero"
@@ -132,6 +135,9 @@ const {
   systemWarning,
   contextTokens,
   contextRounds,
+  interimAnswers,
+  progressStage,
+  elapsedSeconds,
   queuedMessages,
   sendMessage,
   stopGeneration,
