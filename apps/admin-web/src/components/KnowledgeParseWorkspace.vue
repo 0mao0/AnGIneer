@@ -785,18 +785,6 @@ const findParentChain = (nodes: SmartTreeNode[], key: string, parents: string[] 
   return null
 }
 
-// 查找第一个文件节点（深度优先）
-const findFirstFileNode = (nodes: SmartTreeNode[]): SmartTreeNode | null => {
-  for (const node of nodes) {
-    if (!node.isFolder) return node
-    if (node.children?.length) {
-      const found = findFirstFileNode(node.children)
-      if (found) return found
-    }
-  }
-  return null
-}
-
 // 加载节点：所有知识库可视（库根虚拟节点），各库内容挂在库下
 const loadNodes = async (focusNodeKey?: string) => {
   try {
@@ -805,19 +793,8 @@ const loadNodes = async (focusNodeKey?: string) => {
       libraryStore.loadLibraries(),
     ])
     treeData.value = buildTree(response, libraries)
-    // 默认展开所有库根虚拟节点，保证库内容可见
-    const libRootKeys = (treeData.value as unknown as SmartTreeNode[])
-      .filter(n => String(n.key).startsWith('lib:'))
-      .map(n => n.key)
-    if (libRootKeys.length) {
-      defaultExpandedKeys.value = Array.from(new Set([...defaultExpandedKeys.value, ...libRootKeys]))
-      if (smartTreeRef.value) {
-        smartTreeRef.value.expandedKeys = Array.from(new Set([
-          ...(smartTreeRef.value.expandedKeys || []),
-          ...libRootKeys
-        ]))
-      }
-    }
+    // 左侧知识树默认收起：不展开任何节点（含库根虚拟节点），只展示一级目录。
+    // 展开由用户点击，或显式定位（路由 doc_id / 上传后聚焦）触发。
     // 校验当前选中节点是否仍存在（列表页可能已删除该文档），不存在则清空选中态与视图缓存
     const currentSelectedKey = selectedKeys.value[0]
     if (currentSelectedKey && !findNode(treeData.value as unknown as SmartTreeNode[], currentSelectedKey)) {
@@ -832,25 +809,15 @@ const loadNodes = async (focusNodeKey?: string) => {
       docRenderPdfPath.value = ''
       stopParsePolling()
     }
-    // 首次进入（无选中）自动补选首个文件，保证中栏有内容可看；
-    // 但自动补选不展开祖先链——左侧知识树默认收起，只展示一级目录，
-    // 只有显式定位（路由 doc_id / 上传后聚焦）才展开目标路径。
-    const isAutoPick = !focusNodeKey && !selectedKeys.value.length
-    if (isAutoPick) {
-      const firstFile = findFirstFileNode(treeData.value as unknown as SmartTreeNode[])
-      if (firstFile) {
-        focusNodeKey = firstFile.key
-      }
-    }
+    // 默认不自动补选首个文档（避免一进页面就加载 PDF/图谱拖慢首屏，也让树保持全收起）；
+    // 仅显式定位（路由 doc_id / 上传后聚焦）时展开目标文件祖先链并高亮选中。
     if (focusNodeKey) {
-      if (!isAutoPick) {
-        // 模拟用户点击：展开目标文件祖先链 + 高亮选中目标文件
-        const parents = findParentChain(treeData.value as unknown as SmartTreeNode[], focusNodeKey) || []
-        defaultExpandedKeys.value = Array.from(new Set([
-          ...defaultExpandedKeys.value,
-          ...parents
-        ]))
-      }
+      // 模拟用户点击：展开目标文件祖先链 + 高亮选中目标文件
+      const parents = findParentChain(treeData.value as unknown as SmartTreeNode[], focusNodeKey) || []
+      defaultExpandedKeys.value = Array.from(new Set([
+        ...defaultExpandedKeys.value,
+        ...parents
+      ]))
       defaultSelectedKeys.value = [focusNodeKey]
       if (smartTreeRef.value) {
         smartTreeRef.value.selectedKeys = [focusNodeKey]
