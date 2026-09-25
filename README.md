@@ -9,7 +9,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 [![webapp](https://img.shields.io/badge/在线体验-angineer.cn-blue)](https://angineer.cn)
 
-> **当前版本：0.2.77** ——问答 TTFT 专项（plan-ttft-improvement 第 0–4 步）：L1 语义检索轮「首轮直达」证据注入（消灭调工具→答空串→重试三轮怪癖，实测 L1 轮次 turns 3→1、每轮省 10s+）；LLM 侧证据去重（同份证据不再进 prompt 两遍，每轮增量 ~28k→~14k token）；QA 档挂 30k est 投影式预算闸（prompt 线性膨胀封顶）；budget transformer 改投影式 copy-on-write（压缩不再污染落库历史原文）；新增 TTFT 打点（ttft_ms + 最终轮 prompt_tokens 落日志）；aichat-ui 新增 onError 回调与 login_required 业务态文案、输入区改纯圆角描边；nightly 评测后归还 glibc 堆内存（部署机 RSS 2.3G + swap 1.7G 碎片释放）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.78** ——聊天历史落库双修（落库基线竞态致 user 行丢失 + 裸 session_id 修 PUT 400 快照丢失与会话双 id）；跟进式短问注入 query 上下文化改写（「具体差多少」合成「上一问，当前问」，生产实测生效）；L2 段首轮直达注入 table_search（实锤题 TTFT 37s→17s、turns=1，跟进改写对 L2 同效）；等待体验三件套（中间答案折叠留痕 + 分段进度文案 + 流式 50ms 合帧节流）；aichat-ui 角标/输入区主题三轮修复定案中性灰双主题；后端启动单实例守卫（根治 Windows 端口共绑孤儿进程静默分流）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

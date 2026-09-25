@@ -2,6 +2,15 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.78
+
+- 聊天历史落库双修：① run_end 落库基线捕获挪到 executor 启动前，修 user 行丢失竞态——worker 线程 append 本轮 user 消息若先于主线程读 `len(history)` 基线，user 消息被误算进历史、run_end 切片把它丢掉（09-25 实踩：同会话第 4 问落库缺 user 行，前三问赢了竞态；回归测试用同步执行的 run_in_executor 补丁制造确定性竞态，修复前红后绿）；② aichat-ui 发裸 `session_id` 替代池 key「scene:id」——落库在 `docs:chat-x` 而宿主记录层 PUT/详情/删除打裸 id → 快照补丁 400 unknown msg_seq 静默丢失、会话列表同会话双 id（服务端池 key 本就含 scene，行为不变；存量带前缀行保留仍可用）
+- 跟进式短问注入 query 上下文化改写（plan-ttft §8.6）：「想知道」「具体差多少」类跟进提问（≤15 字，`ANGINEER_INJECT_FOLLOWUP_CHARS` 可调、设 0 关）有上文时，注入 query 合成「上一问真实提问，当前消息」（跳过拒答重试等内部 user 提示），note 追加「已结合上一问改写检索词」；此前按原文注入必检回无关证据、白烧检索+一轮 LLM（09-25 生产两连拒答根因）；生产实测「具体差多少」改写生效
+- L2 段首轮直达注入 table_search（plan-ttft 计划①）：`AttemptConfig` 新增 `first_search_tool` 按段配工具（L1=knowledge_search、L2=table_search），缺工具时不注入（不拿 knowledge_search 顶替）；注入语义变「每个挂标段至多一次」（L2 失败回退 L1 再注一次 knowledge_search，与两段检索成本结构一致）；meta/L0/L3/L4 不注不变。触发实锤=「疏浚投资影响」题路由非 L1 未注入、空答重试一轮 TTFT 37s；落地后生产实测两道表格题注入 table_search、turns=1、TTFT 17-19s
+- 等待体验三件套（plan-ttft 第 5 步·A2/A3）：① 中间答案折叠留痕——turn_start 不再硬清已流正文，中间轮快照经 `onInterimAnswer` 收进置灰折叠块（流式区+最终气泡两处可展开），guard 边界规则改写与 run_end 权威覆盖发生真实替换时同样快照（此前被替换的原答案直接蒸发）；② 分段进度——`onStage` 事件（run_start→classify / tool_start→search / 首 delta→generate），等待文案从全程「思考中...」改为「意图理解…→检索规范库…（实时秒数）→生成回答…」；③ 流式重渲节流——onDelta 50ms 合帧写 currentStreamContent（改前每 delta 全量重解析 markdown，长答案 O(n²) 越打越卡）
+- aichat-ui 角标/输入区主题三轮修复定案中性灰：@ 按钮与答案角标去硬编码深色（light 模式白字隐形/浅底近黑圆喧宾夺主，v0.0.51 深色时代遗留）→ 回退链改挂主题 token（经浅蓝家族过渡被否）→ 定案 `chat-citation-circle-{bg,border,text}` 三件套（light 浅灰圆面+中灰数字、dark 深灰圆+浅灰数字，hover 主色+白字不变）
+- 后端启动单实例守卫：aichat-api(8791)/docs-api(8790) 启动前探 `127.0.0.1:<port>/health`，已有同服务实例则带 pid/started_at 报错退出——Windows SO_REUSEADDR 允许双进程共绑端口静默分流请求（09-24/25 两次实踩：验证流量打到隔日旧代码 spawn 子进程，致「修复无效」假象与一轮无效排查）；uvicorn reload 子进程以 import 加载不经过守卫，热重载不受影响
+
 ## v0.2.77
 
 - 问答 TTFT 专项·L1 语义检索轮「首轮直达」证据注入（plan-ttft-improvement 第 4 步·需求 C）：L1 段在首个 LLM 轮前成对注入 assistant 工具调用围栏 + tool 证据消息（query 取用户问题原文，call id `call_0_injected_search`），消灭「turn1 调工具→turn2 答空串→turn3 重试」的三轮怪癖；注入即置 used_tools 使 requires_tools 重试成死路径，检索失败不注入、保留模型自行重试活路，L2/L3 段不注；开关 `ANGINEER_FORCE_FIRST_SEARCH` 默认开。本地实测同会话 5 个 L1 run 全部 turns=1（改造前 L1 常态 turns=3），按轮数-TTFT 口径每轮省 10s+
