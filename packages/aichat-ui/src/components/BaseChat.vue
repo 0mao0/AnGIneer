@@ -1350,8 +1350,8 @@ defineExpose({
             margin: 0 2px;
             padding: 0 3px;
             border-radius: 50%;
-            background: var(--aichat-citation-circle-bg, var(--bg-tertiary, rgba(0, 0, 0, 0.07)));
-            color: var(--aichat-citation-circle-color, var(--text-secondary, rgba(0, 0, 0, 0.65)));
+            background: var(--aichat-citation-circle-bg, var(--chat-citation-bg, #e6f4ff));
+            color: var(--aichat-citation-circle-color, var(--chat-citation-accent, #1677ff));
             font-size: 10px;
             font-weight: 600;
             line-height: 1;
@@ -1374,8 +1374,8 @@ defineExpose({
             margin: 0 2px;
             padding: 0 3px;
             border-radius: 50%;
-            background: var(--aichat-citation-circle-bg, var(--bg-tertiary, rgba(0, 0, 0, 0.07)));
-            color: var(--aichat-citation-circle-color, var(--text-secondary, rgba(0, 0, 0, 0.65)));
+            background: var(--aichat-citation-circle-bg, var(--chat-citation-bg, #e6f4ff));
+            color: var(--aichat-citation-circle-color, var(--chat-citation-accent, #1677ff));
             font-size: 10px;
             font-weight: 600;
             line-height: 1;
