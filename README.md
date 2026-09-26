@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.78** ——聊天历史落库双修（落库基线竞态致 user 行丢失 + 裸 session_id 修 PUT 400 快照丢失与会话双 id）；跟进式短问注入 query 上下文化改写（「具体差多少」合成「上一问，当前问」，生产实测生效）；L2 段首轮直达注入 table_search（实锤题 TTFT 37s→17s、turns=1，跟进改写对 L2 同效）；等待体验三件套（中间答案折叠留痕 + 分段进度文案 + 流式 50ms 合帧节流）；aichat-ui 角标/输入区主题三轮修复定案中性灰双主题；后端启动单实例守卫（根治 Windows 端口共绑孤儿进程静默分流）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.79** ——意图分类提速 P0·观测落盘（TTFT/分类耗时/逐 LLM 轮/工具调用按日 JSONL 落 data/ops/，容器日志清零不再丢验收数据）；条款号规则快路径（「应符合哪条规范」类问句直达 L2，修复分类器漏路由 4 类题）；SOP 加载缓存（mtime 信号失效，消灭每请求 47ms 全量重读与 index.json 重写）；分类与首轮检索并行预热（ANGINEER_ROUTE_PARALLEL 默认关，检索段移出关键路径，实测命中后同题 ttft 5391→3342ms）；意图分类需求三轮勘误收口（Jev/Laya 101 题三方实测出局、ttft 口径勘误）；两份新交接需求（表格检索提速 + 长会话历史膨胀治理）；nightly/评测判定四连修（未评估不再拿检索分顶替、门禁不误红、判分缺失按阈值放行、DGXJudge LaTeX 容错）；nightly 卡片文案两处就地定性；admin-web 重新开源 + 知识树默认收起；aichat-ui 中断两缺陷修复（停止丢尾冲刷 + 计时器 unref）；README 大改版 + 1000 页基线升级（结构重构/结构层对比图/素材体检 B 层小节/基线图按层重排/首页标语与 hero 标注）；工程化（release-standalone.mjs 发版闸门 + .env.example 开关注册）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

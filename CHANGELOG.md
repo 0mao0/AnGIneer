@@ -2,6 +2,21 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.79
+
+- 意图分类提速 P0·观测落盘：TTFT/分类耗时/逐 LLM 轮/逐工具调用按日 JSONL 落 `data/ops/<kind>-<日期>.jsonl`——容器日志随 docker 重建清零（09-26 实测 09-25 旧日志全丢），验收口径以落盘为准；四类记录按 run_id+turn 关联即可拆出 ttft 内部构成（检索/重试/prefill 各占多少）；`classify_intent` 改计时包装（实现下沉 `_classify_intent_impl`，调用方无感）；tests/conftest 全局停用落盘防单测污染生产观测（实测 59 条混入）；`ANGINEER_OPS_DISABLE` 停用、`ANGINEER_OPS_DIR` 覆盖
+- 意图分类提速 P0·条款号规则快路径：「应符合/应满足哪条规范」「在哪条规范里」类问句（问条款出处而非内容）规则直达 L2 structured_lookup——101 题三方对照实测 35B 分类器把 4 条此类题漏成 L1；窄口径正则防误伤；`ANGINEER_CLAUSE_FASTPATH` 默认开（动前过路由专项）
+- 意图分类提速 P0·SOP 加载缓存：原实现每请求全量重读 60 个 JSON，且因部分 SOP blackboard=None 每请求触发 refresh_index 重写 index.json（含 raw/ markdown 全量重解析，实测 ~47ms/请求 + 一次磁盘写）；改 mtime 信号失效（index mtime + json//raw/ 目录文件快照，sop_routes 独立实例的写也正确触发重建）；`ANGINEER_SOP_CACHE_TTL=0` 回退
+- 意图分类提速 P0·分类与首轮检索并行（`ANGINEER_ROUTE_PARALLEL` 默认关，生产实测后定默认）：请求进来即乐观预热 knowledge_search（与 L1 段逐参一致），分类返回后经检索 memo 单发复用——检索段整体移出关键路径，路由正确性零风险（分类结果仍一票决定走哪段）；预热跳过条件为「短问且有上文」（§8.6 改写只在此组合发生，首问短句照常预热）；本地实测命中后同题 ttft 5391→3342ms
+- 意图分类需求三轮勘误收口（docs）：六建议方向逐条核对（换模型实测反转：35B p50 1.12s 快于 Flash-Next 2.82s；缩 prompt 前提错误：分类 prompt 从不注入 SOP；SOP 缓存坐实：每请求 ~47ms 且每次重写 index.json）；Jev/Laya 101 题三方实测（Jev 生产口径 92.6% 反输现役 94.7% 且 25.6s 长尾出局、laya-multilingual 32% 近随机出局——无 drop-in 替换者）；ttft 口径勘误（ttft_ms 计时起点在 agent 循环开始、不含分类等待，「分类占 7.0s 六成」归因作废，大头重估为检索链 + prefill + 重试轮）
+- 两份新交接需求文档：表格检索提速（table= 段实测 10.8~27.8s vs 09-24 参照 3.88s，L2/L3 题 TTFT 最大单项；根因 = table_retriever 全库文档 × 每文档 160 表 × 逐行纯 Python 打分线性扫描，keyword 预筛钩子存在但传 None 未接线）+ 长会话历史膨胀治理（闲聊轮 60~73k prompt 首字 15s；根因逐条代码核实：雪球主路径是内存累积而非 DB 回灌、修刀位置在 transform_context、L0 档根本没装闸）
+- nightly/评测判定四连修：判分没产出即未评估（删「拿检索分顶替答题分」跨评测器兜底）；门禁不再因「阈值内已放行的判分缺失」误判红；判分缺失按阈值放行出结论、error 档不再覆盖当天已出 green/red；DGXJudge 判分 JSON 容错（reason 直抄 LaTeX 原句致整题判分失败）
+- nightly 卡片文案两处：素材检查 ok 行就地定性（未进 chunk 改报块→chunk 覆盖率带分母、「符号改动 N 块」改「公式符号校正 N 块（正常行为，不判定）」）；「判分缺失」行随未评估口径换文案
+- admin-web 重新开源并入仓库（闭源 3 天结论：代码在 git 历史早已公开、HEAD 闭源零保护，不值双份真相源成本；deploy.yml 去外部目录回填）+ 知识树两连修（默认收起只展示一级目录、去掉首屏自动补选首个文档拖慢首屏，仅显式定位才展开高亮）
+- aichat-ui 中断两缺陷修复（0.2.0 独立包 CI 挂满 6h 暴露）：手动停止/插队先冲刷 50ms 合帧缓冲（修截断答案丢尾）+ stageTimer unref（修 run 悬置时进程永不退出）；修复后 6 文件 41 测试全绿
+- README 大改版 + 基线升级：结构重构（愿景/核心理念/三支柱/实现路径顶部四行、知识库模块提至 1.1、对外服务边界独立成章）；语料成绩升级 1000 页现行基线（A② 结构层对比图六项全领先、单方柱状图退役）；新增「入库正确性——每晚素材体检（B 层）」小节（349 篇/内容未落地 0/覆盖 99.99%）；Open RAG Bench v4 基线图按层重排（检索→答题→拒答）；A 层基线两步走钉版（200 页折账 Δ 三项判据全命中 → 1000 页 20260926-1305）；图表与绘图脚本入库；首页标语与 hero 特色标注（user-web footer 同底色消除色带 + aichat-ui hero-below 插槽）
+- 工程化：release-standalone.mjs 独立包发版脚本闸门（AGENTS.md 人肉约定固化成强制检查：主仓库/worktree 干净、源码↔split 树一致、本地/远端/npm 版本未占用、CHANGELOG 段落存在、全量 typecheck+test，显式 worktree sha 打 tag 治裸 tag 实踩）；.env.example 登记 §7 性能开关注释行（修正「GBK 乱码历史态」过时先例——b44c03c 已重建为 UTF-8）
+
 ## v0.2.78
 
 - 聊天历史落库双修：① run_end 落库基线捕获挪到 executor 启动前，修 user 行丢失竞态——worker 线程 append 本轮 user 消息若先于主线程读 `len(history)` 基线，user 消息被误算进历史、run_end 切片把它丢掉（09-25 实踩：同会话第 4 问落库缺 user 行，前三问赢了竞态；回归测试用同步执行的 run_in_executor 补丁制造确定性竞态，修复前红后绿）；② aichat-ui 发裸 `session_id` 替代池 key「scene:id」——落库在 `docs:chat-x` 而宿主记录层 PUT/详情/删除打裸 id → 快照补丁 400 unknown msg_seq 静默丢失、会话列表同会话双 id（服务端池 key 本就含 scene，行为不变；存量带前缀行保留仍可用）
