@@ -1376,5 +1376,66 @@ class FirstSearchInjectionTests(unittest.TestCase):
         self.assertIn("final_turn_prompt_tokens=1234", line)
 
 
+class OpsSegmentRecordsTests(unittest.TestCase):
+    """分段观测（req-intent-classify-latency §1 勘误后的 ttft 内部拆解）：逐 LLM 轮 + 逐工具调用落盘。"""
+
+    def setUp(self):
+        import tempfile
+
+        self._tmp = tempfile.TemporaryDirectory()
+        self._old = {k: os.environ.get(k) for k in ("ANGINEER_OPS_DIR", "ANGINEER_OPS_DISABLE")}
+        os.environ["ANGINEER_OPS_DIR"] = self._tmp.name
+        os.environ.pop("ANGINEER_OPS_DISABLE", None)
+
+    def tearDown(self):
+        for k, v in self._old.items():
+            if v is None:
+                os.environ.pop(k, None)
+            else:
+                os.environ[k] = v
+        self._tmp.cleanup()
+
+    def _read_records(self, kind):
+        import glob
+
+        files = glob.glob(os.path.join(self._tmp.name, f"{kind}-*.jsonl"))
+        rows = []
+        for path in files:
+            with open(path, encoding="utf-8") as f:
+                rows.extend(json.loads(line) for line in f if line.strip())
+        return rows
+
+    def test_llm_turn_and_tool_records_written(self):
+        def handler(messages, kwargs):
+            if len(llm.calls) == 1:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "港口吞吐量"}}]))
+            else:
+                yield from text_events("答案是港口吞吐量")
+
+        llm = MockLLM(handler)
+        run_agent_loop(
+            [],
+            make_config(
+                llm,
+                [make_tool("search", lambda **kw: {"results": ["x"]}, {"type": "object", "properties": {"q": {"type": "string"}}, "required": ["q"]})],
+            ),
+            emit=lambda e: None,
+        )
+
+        turns = self._read_records("llm_turn")
+        self.assertEqual(len(turns), 2)
+        self.assertEqual([t["turn"] for t in turns], [1, 2])
+        for t in turns:
+            self.assertIn("dur_ms", t)
+            self.assertIn("first_delta_ms", t)
+        self.assertEqual([t["has_tool_calls"] for t in turns], [True, False])
+
+        tools = self._read_records("tool")
+        self.assertEqual(len(tools), 1)
+        self.assertEqual(tools[0]["tool"], "search")
+        self.assertFalse(tools[0]["is_error"])
+        self.assertIn("dur_ms", tools[0])
+
+
 if __name__ == "__main__":
     unittest.main()

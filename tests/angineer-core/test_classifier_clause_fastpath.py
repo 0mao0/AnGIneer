@@ -64,16 +64,18 @@ class ClauseFastPathEndToEndTests(unittest.TestCase):
     """快路径命中时 classify_intent 直达 L2（规则前置，LLM 不会被调用——llm_client 传哨兵对象）。"""
 
     def setUp(self):
-        # 观测落盘导入测试沙箱，不污染 data/ops/
+        # 观测落盘导入测试沙箱，不污染 data/ops/（conftest 全局 DISABLE，这里需显式恢复）
         self._tmp = tempfile.TemporaryDirectory()
-        self._old_ops = os.environ.get("ANGINEER_OPS_DIR")
+        self._old_ops = {k: os.environ.get(k) for k in ("ANGINEER_OPS_DIR", "ANGINEER_OPS_DISABLE")}
         os.environ["ANGINEER_OPS_DIR"] = self._tmp.name
+        os.environ.pop("ANGINEER_OPS_DISABLE", None)
 
     def tearDown(self):
-        if self._old_ops is None:
-            os.environ.pop("ANGINEER_OPS_DIR", None)
-        else:
-            os.environ["ANGINEER_OPS_DIR"] = self._old_ops
+        for k, v in self._old_ops.items():
+            if v is None:
+                os.environ.pop(k, None)
+            else:
+                os.environ[k] = v
         self._tmp.cleanup()
 
     def test_clause_query_routes_l2_without_llm(self):

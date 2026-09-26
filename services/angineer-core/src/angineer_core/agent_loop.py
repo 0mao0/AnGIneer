@@ -423,6 +423,12 @@ def _execute_tools_batch(
     results: List[ToolResult] = []
     pending: List[Tuple] = []
 
+    def _ops_record_tool(name: str, dur_ms: int, is_error: bool) -> None:
+        # 分段观测（req-intent-classify-latency §1 口径勘误）：ttft 内部构成拆解需要工具段耗时
+        from angineer_core.ops_metrics import record_event
+
+        record_event("tool", {"run_id": run_id, "turn": turn, "tool": name, "dur_ms": dur_ms, "is_error": is_error})
+
     def fail(call, message: str) -> ToolResult:
         _safe_emit(
             emit,
@@ -433,6 +439,7 @@ def _execute_tools_batch(
             emit,
             AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": call.name, "is_error": True, "duration_ms": 0, "result": message[:300]}),
         )
+        _ops_record_tool(call.name, 0, True)
         return result
 
     for call in calls:
@@ -480,10 +487,12 @@ def _execute_tools_batch(
                 except FuturesTimeoutError:
                     result = _timeout_result(call, tool, timeout)
                 results.append(result)
+                _dur_ms = int((time.monotonic() - started) * 1000)
                 _safe_emit(
                     emit,
-                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": int((time.monotonic() - started) * 1000), "result": result.content[:300]}),
+                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": _dur_ms, "result": result.content[:300]}),
                 )
+                _ops_record_tool(tool.name, _dur_ms, result.is_error)
         else:
             futures = {executor.submit(_run_tool_inner, call, tool): (call, tool) for call, tool in pending}
             for future, (call, tool) in futures.items():
@@ -494,10 +503,12 @@ def _execute_tools_batch(
                     result = _timeout_result(call, tool, timeout)
                     # 超时后立即放弃等待；剩余 future 由 shutdown(cancel_futures=True) 取消/泄漏
                 results.append(result)
+                _dur_ms = int((time.monotonic() - started) * 1000)
                 _safe_emit(
                     emit,
-                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": int((time.monotonic() - started) * 1000), "result": result.content[:300]}),
+                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": _dur_ms, "result": result.content[:300]}),
                 )
+                _ops_record_tool(tool.name, _dur_ms, result.is_error)
     finally:
         # 关键：禁止 with ThreadPoolExecutor（默认 shutdown(wait=True) 会阻塞到线程跑完）
         executor.shutdown(wait=False, cancel_futures=True)
@@ -542,6 +553,8 @@ def _run_llm_turn(
     finish_reason = None
     usage: Dict[str, Any] = {}
     fence_filter = _DeltaFenceFilter()
+    _turn_t0 = time.monotonic()
+    _turn_first_delta_at: Optional[float] = None
     try:
         for event in config.llm.chat_stream_events(
             llm_messages,
@@ -557,6 +570,8 @@ def _run_llm_turn(
                 full_text += delta
                 visible = fence_filter.feed(delta)
                 if visible:
+                    if _turn_first_delta_at is None:
+                        _turn_first_delta_at = time.monotonic()
                     _safe_emit(emit, AgentEvent(type="message_delta", run_id=run_id, turn=turn, payload={"delta": visible}))
             elif event.get("type") == "done":
                 finish_reason = event.get("finish_reason")
@@ -581,6 +596,25 @@ def _run_llm_turn(
         calls = []
 
     has_tool_calls = bool(calls)
+    # 分段观测（req-intent-classify-latency §1 口径勘误）：逐 LLM 轮记录耗时/首 delta/prompt，
+    # 与 kind=tool 记录按 run_id+turn 关联，即可拆出 ttft 内部构成（检索/重试/prefill 各占多少）。
+    try:
+        from angineer_core.ops_metrics import record_event
+
+        record_event(
+            "llm_turn",
+            {
+                "run_id": run_id,
+                "turn": turn,
+                "dur_ms": int((time.monotonic() - _turn_t0) * 1000),
+                "first_delta_ms": int((_turn_first_delta_at - _turn_t0) * 1000) if _turn_first_delta_at is not None else None,
+                "prompt_tokens": usage.get("prompt_tokens"),
+                "has_tool_calls": has_tool_calls,
+                "finish_reason": finish_reason,
+            },
+        )
+    except Exception:  # noqa: BLE001
+        pass
     _safe_emit(
         emit,
         AgentEvent(type="message_end", run_id=run_id, turn=turn, payload={"finish_reason": finish_reason, "has_tool_calls": has_tool_calls}),
