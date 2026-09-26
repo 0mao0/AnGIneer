@@ -30,6 +30,7 @@ REPO = naive.REPO
 ARM_DIR = REPO / "data" / "evals" / "baseline_arms" / "arm3_gold_pdf"
 TXT_CACHE = ARM_DIR / "paper_text"
 MAX_PAPER_CHARS = 160_000     # 单篇上限（约 40k tokens）；超出截前 N 字符并记 truncated
+MAX_OUTPUT_TOKENS = 4096      # 含思考预算：qwen3.8-flash-next 是推理模型，1024 会被思考吃光返回空答（2026-09-27 实踩 160 题）
 DEFAULT_CONFIG_NAME = "Qwen3.8-Flash-Next"
 
 _PROMPT = (
@@ -72,7 +73,7 @@ def _call(llm: dict, question: str, paper: str) -> tuple:
         "model": llm["model"],
         "messages": [{"role": "user", "content": _PROMPT.format(paper=paper, question=question)}],
         "temperature": naive.GENERATOR_TEMPERATURE,
-        "max_tokens": 1024,
+        "max_tokens": MAX_OUTPUT_TOKENS,
     }
     url = llm["base_url"].rstrip("/") + "/chat/completions"
     last_error = None
@@ -196,6 +197,7 @@ def cmd_judge(limit: int, concurrency: int) -> int:
 def cmd_report() -> int:
     naive.ARM_DIR = ARM_DIR
     naive.GENERATOR_LABEL = f"{DEFAULT_CONFIG_NAME}（网关，非顶级模型；口径降级声明见预注册）"
+    naive.REPORT_TITLE = "臂 3 金开卷直读结果·阶段 1（口径与降级声明见 docs/plan-rag-baseline-arms.md）"
     return naive.cmd_report()
 
 

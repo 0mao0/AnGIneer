@@ -37,6 +37,7 @@ RUN_CONCURRENCY = 6
 JUDGE_CONCURRENCY = 10
 GENERATOR_TEMPERATURE = 0.0
 GENERATOR_LABEL = ""  # 臂 3 复用本脚本的 report 时覆盖为实际模型名
+REPORT_TITLE = "臂 2 朴素 RAG 结果（口径见 docs/plan-rag-baseline-arms.md）"  # 臂 3 覆盖为自身标题
 ARXIV_TAG = re.compile(r"^\d{4}\.\d{4,5}(v\d+)?$")
 
 for _src in ("services/evals-core/src", "services/docs-core/src"):
@@ -335,7 +336,7 @@ def cmd_report() -> int:
         return f"{n / d * 100:.1f}% ({n}/{d})" if d else "n/a"
 
     lines = [
-        "# 臂 2 朴素 RAG 结果（口径见 docs/plan-rag-baseline-arms.md）", "",
+        f"# {REPORT_TITLE}", "",
         f"- 可答题正确率（主对比，vs 全链 88.6%）：**{pct(sum(r['passed'] for r in answerable), len(answerable))}**",
         f"- 整体正确率（vs 全链 84.9%）：{pct(sum(r['passed'] for r in rows), len(rows))}",
         f"- 检索 hit@5 doc 级（vs 全链 96.5%）：{pct(hit, hit_den)}",
