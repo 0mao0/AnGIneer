@@ -219,7 +219,7 @@ class JudgeToleranceTests(_Env):
         # 放行后的"绿"不能被读成"全量都判过了"：卡片必须自己把这批题说出来
         self.assertEqual(len(cards), 1)
         self.assertIn("判分缺失：1 题", cards[0])
-        self.assertIn("分数偏乐观", cards[0])
+        self.assertIn("未评估、正确率里按 0 分计", cards[0])   # 与 suite_runner 未评估口径同字
 
     def test_judge_fail_beyond_tolerance_is_still_error(self):
         dirty = [self._judge_broken(q) for q in ("q1", "q2", "q3")]   # 3/3 题，远超 0.5%

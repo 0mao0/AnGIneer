@@ -60,8 +60,8 @@ def _judge_fail_within_tolerance(count: int, total: int) -> bool:
 def _judge_missing_line(judge_missing: Optional[Dict[str, List[str]]]) -> str:
     """结论卡片上的「判分缺失」一行：放行不等于无事，看卡片的人要能看出这批题没真被判过。
 
-    这批题的 quality 当前是按检索分计的（suite_runner 的 primary_score is None 分支），
-    正确率因此偏乐观 —— 这句必须写在卡片上，否则阈值放行的「绿」会被读成「全量都判过了」。
+    这批题在 suite_runner 里记为未评估（quality=None），正确率里按 0 分计 —— 卡片必须把
+    这句说出来，否则阈值放行的「绿」会被读成「全量都判过了」，正确率的小幅回落也没人看得懂。
     """
     ids = (judge_missing or {}).get(anomaly.JUDGE_FAIL) or []
     if not ids:
@@ -70,7 +70,7 @@ def _judge_missing_line(judge_missing: Optional[Dict[str, List[str]]]) -> str:
     if len(ids) > _JUDGE_MISSING_IDS_MAX:
         shown += f" 等 {len(ids)} 题"
     return (f"判分缺失：{len(ids)} 题判分未产出、已在阈值内放行（{shown}）；"
-            f"这批题的正确率按检索分计，分数偏乐观")
+            f"这批题未评估、正确率里按 0 分计，小幅回落是如实反映")
 
 
 async def _sleep(seconds: float) -> None:
