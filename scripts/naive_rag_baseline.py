@@ -34,7 +34,7 @@ CHUNK_OVERLAP = 150
 TOP_K = 5
 EMBED_BATCH = 32
 RUN_CONCURRENCY = 6
-JUDGE_CONCURRENCY = 6
+JUDGE_CONCURRENCY = 10
 GENERATOR_TEMPERATURE = 0.0
 ARXIV_TAG = re.compile(r"^\d{4}\.\d{4,5}(v\d+)?$")
 
@@ -254,7 +254,7 @@ def cmd_run(limit: int) -> int:
     return 0
 
 
-def cmd_judge() -> int:
+def cmd_judge(limit: int = 0) -> int:
     sys.path.insert(0, str(REPO / "services" / "evals-core" / "src"))
     from evals_core.runner.judge_deepeval import evaluate_via_deepeval
 
@@ -262,8 +262,11 @@ def cmd_judge() -> int:
     out_path = ARM_DIR / "judge_results.jsonl"
     done = set()
     if out_path.is_file():
-        done = {json.loads(line)["question_id"] for line in out_path.read_text(encoding="utf-8").splitlines() if line.strip()}
+        done = {json.loads(line)["question_id"] for line in out_path.read_text(encoding="utf-8").splitlines()
+                if line.strip() and json.loads(line).get("judge_used")}  # 判分失败（judge_used=None）不算完成，重跑时重判
     todo = [p for p in predictions if p["question_id"] not in done]
+    if limit:
+        todo = todo[:limit]
     print(f"待判 {len(todo)}/{len(predictions)}")
     lock = threading.Lock()
     out_fh = out_path.open("a", encoding="utf-8")
@@ -322,6 +325,7 @@ def cmd_report() -> int:
                      "fallback": bool(judge.get("semantic_fallback"))})
     answerable = [r for r in rows if not r["is_refusal_expected"]]
     refusal = [r for r in rows if r["is_refusal_expected"]]
+    failed = [j for j in judges.values() if not j.get("judge_used")]  # judge 调用整体失败（2026-09-26 教训：84% 失败曾静默缩分母）
     hit = sum(1 for r in rows if r["gold_doc"] and r["gold_doc"] in (r["retrieved_docs"] or []))
     hit_den = sum(1 for r in rows if r["gold_doc"])
     hard = sum(1 for r in refusal if not is_refusal(r["answer"]))
@@ -336,8 +340,9 @@ def cmd_report() -> int:
         f"- 检索 hit@5 doc 级（vs 全链 96.5%）：{pct(hit, hit_den)}",
         f"- 拒答题硬答率（39 题无答案，预期接近 100%）：{pct(hard, len(refusal))}",
         f"- 判分兜底（关键词断言）占比：{pct(sum(1 for r in rows if r['fallback']), len(rows))}",
-        f"- 样本：判分 {len(rows)} / 预测 {len(preds)} / 题集 1040", "",
-        f"（生成 {load_llm_config()['model']} · temperature={GENERATOR_TEMPERATURE} · 判分=nightly 同引擎同默认链）",
+        f"- **判分失败：{len(failed)} 题**" + ("　⚠ 超过 5%，正确率不可用——用同命令重跑 judge 补判" if len(failed) > 0.05 * len(judges) else ""),
+        f"- 样本：判分成功 {len(rows)} / 失败 {len(failed)} / 预测 {len(preds)} / 题集 1040", "",
+        f"（生成 {load_llm_config()['model']} · temperature={GENERATOR_TEMPERATURE} · 判分=nightly 同引擎同默认链 · EVAL_DEEPVAL_EXTRA=0）",
     ]
     summary = "\n".join(lines) + "\n"
     (ARM_DIR / "summary.md").write_text(summary, encoding="utf-8")
@@ -353,11 +358,15 @@ def main() -> int:
     sub.add_parser("build")
     p_run = sub.add_parser("run")
     p_run.add_argument("--limit", type=int, default=0, help="只答前 N 题未完成题（试点用）")
-    sub.add_parser("judge")
+    p_judge = sub.add_parser("judge")
+    p_judge.add_argument("--limit", type=int, default=0, help="只判前 N 题待判题（与生成并行的分批用）")
     sub.add_parser("report")
     args = ap.parse_args()
-    return {"build": cmd_build, "run": cmd_run, "judge": cmd_judge, "report": cmd_report}[args.cmd](
-        *( [args.limit] if args.cmd == "run" else []))
+    if args.cmd == "run":
+        return cmd_run(args.limit)
+    if args.cmd == "judge":
+        return cmd_judge(args.limit)
+    return cmd_report()
 
 
 if __name__ == "__main__":
