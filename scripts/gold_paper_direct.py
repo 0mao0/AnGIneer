@@ -177,17 +177,19 @@ def cmd_stats() -> int:
     truncated = sum(1 for r in rows if r.get("paper_truncated"))
     n = len(rows)
     per_q = (prompt / n) if n else 0
-    print(f"样本 {n} 题 | prompt token 合计 {prompt:,}（均 {per_q:,.0f}/题）| completion {completion:,} | 缺论文 {missing} | 截断 {truncated}")
+    per_out = (completion / n) if n else 0
+    print(f"样本 {n} 题 | prompt token 合计 {prompt:,}（均 {per_q:,.0f}/题）| completion {completion:,}（均 {per_out:,.0f}/题）| 缺论文 {missing} | 截断 {truncated}")
     if per_q:
-        print("\n顶级模型费用外推（全量 1001 可答题口径）：")
+        print("\n顶级模型费用外推（全量 1001 可答题，输入用本臂实测均值、输出用实测均值）：")
         for name, in_price, out_price in (("Gemini 2.5 Pro", 1.25, 10.0), ("GPT-4.1", 2.0, 8.0), ("Claude Sonnet", 3.0, 15.0)):
-            cost = 1001 * per_q / 1e6 * in_price + 1001 * 200 / 1e6 * out_price
-            print(f"  {name}: ≈ ${cost:,.0f}（输入 ${in_price}/M · 输出按 200 tok/题）")
+            cost = 1001 * per_q / 1e6 * in_price + 1001 * per_out / 1e6 * out_price
+            print(f"  {name}: ≈ ${cost:,.0f}（输入 {in_price}/M × {per_q:,.0f} tok/题；输出 {out_price}/M × {per_out:,.0f} tok/题）")
     return 0
 
 
-def cmd_judge(limit: int) -> int:
+def cmd_judge(limit: int, concurrency: int) -> int:
     naive.ARM_DIR = ARM_DIR  # 复用臂 2 的判分/报告实现，仅换目录
+    naive.JUDGE_CONCURRENCY = concurrency  # 低并发避 nightly 窗口（臂 2 默认 10 只适用于离线时段）
     return naive.cmd_judge(limit)
 
 
@@ -214,13 +216,14 @@ def main() -> int:
     sub.add_parser("stats")
     p_judge = sub.add_parser("judge")
     p_judge.add_argument("--limit", type=int, default=0)
+    p_judge.add_argument("--concurrency", type=int, default=2, help="低并发避 nightly（默认 2）")
     sub.add_parser("report")
     sub.add_parser("chart")
     args = ap.parse_args()
     if args.cmd == "run":
         return cmd_run(args.limit, args.concurrency, args.config_name, args.offset)
     if args.cmd == "judge":
-        return cmd_judge(args.limit)
+        return cmd_judge(args.limit, args.concurrency)
     if args.cmd == "report":
         return cmd_report()
     if args.cmd == "chart":
