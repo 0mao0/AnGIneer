@@ -20,7 +20,12 @@ BARS = [
     ("整体正确率", 84.9, "(883/1040)", "答题层"),
     ("拒答正确率", 56.4, "(22/39)", "拒答层"),
 ]
-LAYER_COLOR = {"检索层": "#4a90e2", "答题层": "#2fa870", "拒答层": "#e28743"}
+# 带色彩的网格：每层 = 浅色底 + 同色系深色描边与网纹（自证数据不做系统对比，故不用平涂色块）
+LAYER_STYLE = {
+    "检索层": ("#dbe8fa", "#2f6bbf", "///"),
+    "答题层": ("#d9f0e3", "#1f7a4d", "..."),
+    "拒答层": ("#fbe6d4", "#b35c1e", "\\\\\\"),
+}
 LAYER_LEGEND = {"检索层": "检索层", "答题层": "答题层", "拒答层": "拒答层（当前主要失分项）"}
 
 
@@ -41,7 +46,9 @@ def main() -> int:
     xs = range(len(BARS))
     seen = set()
     for x, (label, value, denom, layer) in zip(xs, BARS):
-        bar = ax.bar(x, value, width=0.58, color=LAYER_COLOR[layer], zorder=3,
+        face, edge, hatch = LAYER_STYLE[layer]
+        bar = ax.bar(x, value, width=0.58, zorder=3,
+                     facecolor=face, edgecolor=edge, linewidth=1.2, hatch=hatch,
                      label=LAYER_LEGEND[layer] if layer not in seen else None)
         seen.add(layer)
         ax.annotate(f"{value}%", (x, value), ha="center", va="bottom",

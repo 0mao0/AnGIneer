@@ -393,12 +393,12 @@ def cmd_chart() -> int:
     fig, ax = plt.subplots(figsize=(10.5, 5.8), dpi=100)
     width = 0.36
     for i, (vals, label, face, hatch) in enumerate((
-            (naive, "朴素 RAG（通用配方）", "white", "///"),
-            (FULL_CHAIN, "AnGIneer 全链", "#555555", "xxx"),
+            (naive, "朴素 RAG（通用配方）", "#4a90e2", None),
+            (FULL_CHAIN, "AnGIneer 全链", "#2fa870", None),
     )):
         pos = [x + (i - 0.5) * width for x in range(len(metrics))]
         bars = ax.bar(pos, [vals[k] for _, k in metrics], width=width, label=label, zorder=3,
-                      facecolor=face, edgecolor="black", linewidth=1.2, hatch=hatch)
+                      color=face)
         for rect, (_, k) in zip(bars, metrics):
             ax.annotate(f"{vals[k]:.1f}%", (rect.get_x() + rect.get_width() / 2, vals[k]),
                         ha="center", va="bottom", fontsize=10.5, fontweight="bold")
