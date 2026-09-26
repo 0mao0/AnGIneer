@@ -38,6 +38,7 @@
     @update:library-value="emit('update:libraryValue', $event)"
   >
     <template #hero><slot name="hero" /></template>
+    <template v-if="$slots['hero-below']" #hero-below><slot name="hero-below" /></template>
   </BaseChat>
 </template>
 

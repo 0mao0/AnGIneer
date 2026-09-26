@@ -28,6 +28,10 @@
           <template #hero>
             <h1 class="hero-title">今天，想查点什么？</h1>
           </template>
+          <template #hero-below>
+            <span class="hero-feature">2000+ 现行规范</span>
+            <span class="hero-feature">可溯源回答</span>
+          </template>
         </AIChat>
       </div>
       <aside v-if="panelDocId" class="citation-panel">
@@ -329,6 +333,18 @@ const startNewChat = () => {
     min-width: 0;
     z-index: 20;
   }
+}
+
+.hero-feature {
+  font-size: 13px;
+  line-height: 1.6;
+  /* ui-kit 暗色下 secondary/tertiary 同值，用 primary+opacity 才能落在两档之间 */
+  color: var(--text-primary);
+  opacity: 0.65;
+  white-space: nowrap;
+  padding: 1px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
 }
 
 .hero-title {

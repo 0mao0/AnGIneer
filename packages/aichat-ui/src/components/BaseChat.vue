@@ -347,6 +347,14 @@
         </div>
       </div>
     </div>
+
+    <!-- Hero 态专属扩展区（站点特色徽标等），会话开始即隐藏；宿主未传 slot 则整块不渲染 -->
+    <div
+      v-if="hero && !displayMessages.length && !loading && !currentStreamContent && $slots['hero-below']"
+      class="hero-below"
+    >
+      <slot name="hero-below" />
+    </div>
   </div>
 </template>
 
@@ -2129,6 +2137,8 @@ defineExpose({
 /* ===== Hero 模式（对话入口态）===== */
 .base-chat--hero {
   justify-content: center;
+  /* 纯居中会把输入框推到视口中线偏下；底部留白让整组（标题+输入框）略上移，视线落点更舒服 */
+  padding-bottom: 12%;
 
   .chat-messages-wrap {
     flex: 0 0 auto;
@@ -2146,6 +2156,16 @@ defineExpose({
     border: none;
     background: transparent;
     box-shadow: none;
+  }
+
+  .hero-below {
+    flex: 0 0 auto;
+    width: min(820px, 92%);
+    margin: -12px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 10px;
   }
 }
 
