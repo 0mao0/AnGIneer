@@ -41,13 +41,13 @@ docs 是本项目最成熟、也是最基础的能力：全链路两端各有第
 
 公开文档解析基准 1651 页中抽样 1000 页（seed=42），现行基线为 2026-09-26 run `20260926-1305`。
 
-**对上游 MinerU 的领先在结构层**（canonical jsonl 直比口径，即检索实际消费的那一层）——块召回、文本相似度、阅读顺序全面领先 MinerU 原生 content_list：
-
-![结构层对比：全链 vs MinerU 原生](docs/images/omnidocbench-struct-compare.png)
-
-**markdown 交付面（A① 官方口径）与上游 MinerU 重合**（同 1000 页集合三方同尺对比）：我们的 markdown 是 MinerU 块的保真重渲染，表格/公式同源同分、六项差 ≤0.2pp——与参考模型的剩余差距是底层模型能力差距，不是本管线的损耗（越低越好的 Edit_dist 已转 `1−x` 百分制）：
+**markdown 交付面与上游 MinerU 重合**（A① 官方口径，同 1000 页集合三方同尺对比）：我们的 markdown 是 MinerU 块的保真重渲染，表格/公式同源同分、六项差 ≤0.2pp——与参考模型的剩余差距是底层模型能力差距，不是本管线的损耗（越低越好的 Edit_dist 已转 `1−x` 百分制）：
 
 ![三方同尺对比（1000 页）](docs/images/omnidocbench-compare.png)
+
+**结构化强于上游 MinerU**（A②，canonical jsonl 直比口径，即检索实际消费的那一层）——块召回、文本相似度、阅读顺序全面领先 MinerU 原生 content_list：
+
+![结构层对比：全链 vs MinerU 原生](docs/images/omnidocbench-struct-compare.png)
 
 - 基线数字、复现命令与分类型明细：[docs/omnidocbench-baseline.md](docs/omnidocbench-baseline.md) · [docs/parse-benchmark-comparison.md](docs/parse-benchmark-comparison.md) · [docs/parse-struct-eval.md](docs/parse-struct-eval.md)。
 
@@ -66,7 +66,11 @@ flowchart LR
 
 hard 阶段失败终止后续、soft 阶段失败仅标记自身；支持单阶段重试、断点恢复、GPU 排队与阶段级可视化。
 
-#### (3) 回答成绩——Open RAG Bench v4 基线（nightly 门禁）
+#### (3) 入库正确性——每晚素材体检（B 层）
+
+结构化产物到检索素材的每一环都有断言盯着：解析产物 jsonl → canonical/chunk → 向量，逐文档核对「内容原样送到检索层」。每晚评测开跑前自动体检，2026-09-26 读数——349 篇、内容未落地 0 块、块→chunk 覆盖 99.99%、chunk→向量无缺口，连续 7 晚 ok。**数据正确入库不是一次性验收，是每晚重验的断言**；口径与判定表见 [docs/parse-struct-eval.md](docs/parse-struct-eval.md)。
+
+#### (4) 回答成绩——Open RAG Bench v4 基线（nightly 门禁）
 
 Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 题 / 188 篇**（1001 可答 + 39 拒答，全库检索），判分引擎 DeepEval，2026-09-24 起为现行 nightly 门禁基线（快照钉在服务器 `data/evals/baseline/`，不进 git）：
 
@@ -75,7 +79,7 @@ Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 �
 - 拒答正确率是当前主要失分项：17 题属跨文档错配作答，逐题归因见 [docs/req-refusal-regression-attribution.md](docs/req-refusal-regression-attribution.md)；
 - 官方榜单（Vectara 托管于 HuggingFace Space）与本仓口径不同——子集与判分引擎均不一致，**不作直接对比**，只引用本仓可复现基线。
 
-#### (4) 知识图谱模块
+#### (5) 知识图谱模块
 
 ```mermaid
 flowchart LR
@@ -88,7 +92,7 @@ flowchart LR
     DB --> REV["人工审核<br/>/api/graph/review"]
 ```
 
-#### (5) 自进化模块（Dream Cycle）
+#### (6) 自进化模块（Dream Cycle）
 
 ```mermaid
 flowchart LR
