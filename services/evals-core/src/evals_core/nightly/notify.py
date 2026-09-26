@@ -42,7 +42,9 @@ def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_n
                   material_line: str = "", judge_line: str = "") -> str:
     """一行一项：时间 / 时长 / 结果 / 分析（+ 判分缺失 + 素材检查）。
 
-    material_line：B 层素材检查摘要（形如 "素材检查：ok（200 篇，内容未落地 0）"）。
+    material_line：B 层素材检查摘要（形如
+    "素材检查：ok（检查 200 篇，内容未落地 0 块，块→chunk 覆盖 99.90%（3 块容差内未对上，非缺陷））"，
+    非零计数均就地标注定性）。
     传了就多一行——体检通过与否都要在卡片里可见，否则"结论绿"无法说明素材层是否正常。
 
     judge_line：判分缺失摘要（由 pipeline._judge_missing_line 生成，形如

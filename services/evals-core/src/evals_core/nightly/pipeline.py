@@ -179,6 +179,12 @@ def _dataset_subject(dataset_id: str) -> str:
 def _material_line(material: Optional[dict]) -> str:
     """把素材检查结果压成结论卡片里的一行（含严重度与关键计数）。
 
+    每个非零计数都**就地标注定性**，不让读者猜「这个数算不算问题」：
+    - 未进 chunk 是"容差内的真差异"（单篇覆盖 ≥98% 放行），只报分子会无从判断量级，
+      改报覆盖率（带分母）+ 未对上块数；
+    - 符号改动是 step04 校正的行为计数（设计上不参与判定），名字里的"改动"像告警，
+      改叫"校正"并标注"正常行为"。
+
     豁免篇数（未计划建索引）也进这一行——豁免不可静默，否则 stage 记录被弄丢时
     卡片会显示"素材检查：ok"，而看不出有多少篇根本没被断言过。
     """
@@ -187,14 +193,28 @@ def _material_line(material: Optional[dict]) -> str:
     totals = material.get("totals") or {}
     severity = material.get("severity") or "?"
     line = (f"素材检查：{severity}（检查 {material.get('docs_checked', 0)} 篇，"
-            f"内容未落地 {totals.get('blocks_text_lost', 0)} 块，"
-            f"未进 chunk {totals.get('blocks_uncovered', 0)} 块")
+            f"内容未落地 {totals.get('blocks_text_lost', 0)} 块")
+    uncovered = totals.get("blocks_uncovered") or 0
+    with_text = totals.get("blocks_with_text") or 0
+    if with_text:
+        if uncovered:
+            coverage_pct = (1.0 - uncovered / with_text) * 100
+            shown = f"{coverage_pct:.2f}%"
+            if shown == "100.00%":
+                # 未对上 >0 却四舍五入到满格：加精度，别让括号内外自相矛盾
+                shown = f"{coverage_pct:.4f}%"
+            line += f"，块→chunk 覆盖 {shown}（{uncovered} 块容差内未对上，非缺陷）"
+        else:
+            line += "，块→chunk 全覆盖"
+    elif uncovered:
+        # totals 缺分母（异常数据）时的兜底：宁可回退旧口径也不能把未对上数吞掉
+        line += f"，未进 chunk {uncovered} 块（容差内，非缺陷）"
     exempt = totals.get("docs_index_not_planned") or 0
     if exempt:
         line += f"，{exempt} 篇未计划建索引已豁免"
     mismatched = totals.get("blocks_symbol_mismatch") or 0
     if mismatched:
-        line += f"，符号改动 {mismatched} 块"
+        line += f"，公式符号校正 {mismatched} 块（正常行为，不判定）"
     if material.get("vector_store_error"):
         # 存储不可访问要说在卡片上：此时"向量点"一栏为 0 并不代表素材缺失
         line += "，向量库不可访问（向量断言已跳过）"

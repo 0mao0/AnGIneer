@@ -311,17 +311,38 @@ class NotifyLineTests(unittest.TestCase):
         from evals_core.nightly.pipeline import _material_line
 
         material = {"severity": "ok", "docs_checked": 200,
-                    "totals": {"blocks_text_lost": 0, "blocks_uncovered": 3}}
+                    "totals": {"blocks_text_lost": 0, "blocks_with_text": 300,
+                               "blocks_uncovered": 3}}
         raw = {"started_at": "2026-09-13T00:34:00+08:00", "completed_at": "2026-09-13T04:10:00+08:00",
                "summary_scores": {"overall_score": 0.83, "correct": 437, "total": 526,
                                   "judge_failed_count": 2, "errored": 0}}
         text = notify.build_message(raw, {"matrix": {"pf": 5, "fp": 3}, "delta": 0.004}, "green",
                                    material_line=_material_line(material))
         lines = text.splitlines()
-        self.assertIn("素材检查：ok（检查 200 篇，内容未落地 0 块，未进 chunk 3 块）", lines)
+        self.assertIn("素材检查：ok（检查 200 篇，内容未落地 0 块，"
+                      "块→chunk 覆盖 99.00%（3 块容差内未对上，非缺陷））", lines)
         # 必须独立成行（企微卡片按行渲染），且排在分析之后
-        self.assertGreater(lines.index("素材检查：ok（检查 200 篇，内容未落地 0 块，未进 chunk 3 块）"),
+        self.assertGreater(lines.index("素材检查：ok（检查 200 篇，内容未落地 0 块，"
+                                       "块→chunk 覆盖 99.00%（3 块容差内未对上，非缺陷））"),
                            max(i for i, ln in enumerate(lines) if ln.startswith("分析：")))
+
+    def test_material_line_full_coverage_when_nothing_uncovered(self):
+        """0 块未对上时报「全覆盖」，不挂「非缺陷」注脚。"""
+        from evals_core.nightly.pipeline import _material_line
+
+        line = _material_line({"severity": "ok", "docs_checked": 200,
+                               "totals": {"blocks_text_lost": 0, "blocks_with_text": 300,
+                                          "blocks_uncovered": 0}})
+        self.assertIn("块→chunk 全覆盖", line)
+        self.assertNotIn("未进 chunk", line)
+
+    def test_material_line_coverage_fallback_without_denominator(self):
+        """totals 缺分母（异常数据）时回退旧口径，未对上数不能被吞掉。"""
+        from evals_core.nightly.pipeline import _material_line
+
+        line = _material_line({"severity": "ok", "docs_checked": 200,
+                               "totals": {"blocks_text_lost": 0, "blocks_uncovered": 3}})
+        self.assertIn("未进 chunk 3 块（容差内，非缺陷）", line)
 
     def test_material_line_absent_by_default(self):
         from evals_core.nightly import notify
@@ -339,12 +360,14 @@ class NotifyLineTests(unittest.TestCase):
         self.assertIn("11 篇未计划建索引已豁免", line)
 
     def test_material_line_reports_symbol_mismatch(self):
+        """符号校正是行为计数不是告警：名字与定性标注都要让读者不用猜。"""
         from evals_core.nightly.pipeline import _material_line
 
         line = _material_line({"severity": "ok", "docs_checked": 20,
                                "totals": {"blocks_text_lost": 0, "blocks_uncovered": 0,
                                           "blocks_symbol_mismatch": 4}})
-        self.assertIn("符号改动 4 块", line)
+        self.assertIn("公式符号校正 4 块（正常行为，不判定）", line)
+        self.assertNotIn("符号改动", line)
 
     def test_material_line_reports_vector_store_unavailable(self):
         """存储不可访问要说在卡片上：此时向量点为 0 不代表素材缺失。"""
