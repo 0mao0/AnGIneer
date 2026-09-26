@@ -86,7 +86,8 @@ POST /api/chat/agent
 | `ANGINEER_OPS_DIR` | `data/ops` | 观测 jsonl 目录覆盖 | — | 同上 |
 | `ANGINEER_INJECT_FOLLOWUP_CHARS`（既有） | 15 | 短问跟进检索词改写阈值；并行预热在「短问**且**有上文」时跳过（首问短句不改写，照常预热） | — | agent_loop §8.6 既有定义 |
 
-仓库先例（ec2c17b）：`.env.example` 为乱码历史态不随开关更新，字段语义以代码 docstring 为准。
+`.env.example` 已登记上述开关的注释行（2026-09-26）。ec2c17b（09-06）当时以「该文件为 GBK 乱码历史态」
+为由不随开关更新，但 b44c03c（09-11）已将其重建为正常 UTF-8——该先例随修复失效，引用旧 commit 理由前先核实现状。
 
 ## 8. 替换方案实测结论（2026-09-26，「等 Jev 进展」收口）
 
