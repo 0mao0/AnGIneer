@@ -37,6 +37,19 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 docs 是本项目最成熟、也是最基础的能力：全链路两端各有第三方公开基准背书——**语料端**用 OmniDocBench 证明「送进检索的语料是对的」，**回答端**用 Open RAG Bench 1040 题证明「答得出来且答得对」。两端各自独立可复现，这是结构化 RAG（区别于纯向量 RAG）可行性的双端数据支撑。
 
+**一体化解析管线**
+```mermaid
+flowchart LR
+    SRC["源文件<br/>PDF / DOCX / PPTX / XLSX"] --> CV["格式转换<br/>LibreOffice → PDF"]
+    CV --> MU["MinerU 解析<br/>hard"]
+    MU --> PO["PoPo 强化<br/>soft · 失败回滚"]
+    PO --> SOLO["Solo 结构化<br/>hard · 唯一构建者"]
+    SOLO --> FTS["SQLite + FTS<br/>hard"]
+    FTS --> VEC["向量索引<br/>soft"]
+    VEC --> GR["知识图谱<br/>soft"]
+```
+hard 阶段失败终止后续、soft 阶段失败仅标记自身；支持单阶段重试、断点恢复、GPU 排队与阶段级可视化。
+
 #### (1) 语料成绩——OmniDocBench v1.6 官方口径
 
 公开文档解析基准 1651 页中抽样 1000 页（seed=42），现行基线为 2026-09-26 run `20260926-1305`。
@@ -49,28 +62,12 @@ docs 是本项目最成熟、也是最基础的能力：全链路两端各有第
 
 ![结构层对比：全链 vs MinerU 原生](docs/images/omnidocbench-struct-compare.png)
 
-- 基线数字、复现命令与分类型明细：[docs/omnidocbench-baseline.md](docs/omnidocbench-baseline.md) · [docs/parse-benchmark-comparison.md](docs/parse-benchmark-comparison.md) · [docs/parse-struct-eval.md](docs/parse-struct-eval.md)。
 
-#### (2) 语料 → 可搜索路径：一体化解析管线
-
-```mermaid
-flowchart LR
-    SRC["源文件<br/>PDF / DOCX / PPTX / XLSX"] --> CV["格式转换<br/>LibreOffice → PDF"]
-    CV --> MU["MinerU 解析<br/>hard"]
-    MU --> PO["PoPo 强化<br/>soft · 失败回滚"]
-    PO --> SOLO["Solo 结构化<br/>hard · 唯一构建者"]
-    SOLO --> FTS["SQLite + FTS<br/>hard"]
-    FTS --> VEC["向量索引<br/>soft"]
-    VEC --> GR["知识图谱<br/>soft"]
-```
-
-hard 阶段失败终止后续、soft 阶段失败仅标记自身；支持单阶段重试、断点恢复、GPU 排队与阶段级可视化。
-
-#### (3) 入库正确性——每晚素材体检（B 层）
+#### (2) 入库正确性——每晚素材体检（B 层）
 
 结构化产物到检索素材的每一环都有断言盯着：解析产物 jsonl → canonical/chunk → 向量，逐文档核对「内容原样送到检索层」。每晚评测开跑前自动体检，2026-09-26 读数——349 篇、内容未落地 0 块、块→chunk 覆盖 99.99%、chunk→向量无缺口，连续 7 晚 ok。**数据正确入库不是一次性验收，是每晚重验的断言**；口径与判定表见 [docs/parse-struct-eval.md](docs/parse-struct-eval.md)。
 
-#### (4) 回答成绩——Open RAG Bench v4 基线（nightly 门禁）
+#### (3) 回答成绩——Open RAG Bench v4 基线（nightly 门禁）
 
 Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 题 / 188 篇**（1001 可答 + 39 拒答，全库检索），判分引擎 DeepEval，2026-09-24 起为现行 nightly 门禁基线（快照钉在服务器 `data/evals/baseline/`，不进 git）：
 
@@ -79,7 +76,7 @@ Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 �
 - 拒答正确率是当前主要失分项：17 题属跨文档错配作答，逐题归因见 [docs/req-refusal-regression-attribution.md](docs/req-refusal-regression-attribution.md)；
 - 官方榜单（Vectara 托管于 HuggingFace Space）与本仓口径不同——子集与判分引擎均不一致，**不作直接对比**，只引用本仓可复现基线。
 
-#### (5) 知识图谱模块
+#### (4) 知识图谱模块
 
 ```mermaid
 flowchart LR
@@ -92,7 +89,7 @@ flowchart LR
     DB --> REV["人工审核<br/>/api/graph/review"]
 ```
 
-#### (6) 自进化模块（Dream Cycle）
+#### (5) 自进化模块（Dream Cycle）
 
 ```mermaid
 flowchart LR
