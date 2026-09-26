@@ -350,6 +350,76 @@ def cmd_report() -> int:
     return 0
 
 
+FULL_CHAIN = {  # 臂 1 全链（2026-09-24 v4 nightly 门禁基线，docs/plan-rag-baseline-arms.md）
+    "answerable": 88.6, "overall": 84.9, "hit5": 96.5,
+}
+
+
+def cmd_chart() -> int:
+    """臂 2 vs 臂 1 同尺对比图（README 回答成绩小节用）。数值取自 summary 与 v4 基线。"""
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei"]
+    plt.rcParams["axes.unicode_minus"] = False
+
+    preds = {json.loads(line)["question_id"]: json.loads(line)
+             for line in (ARM_DIR / "predictions.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()}
+    judges = {json.loads(line)["question_id"]: json.loads(line)
+              for line in (ARM_DIR / "judge_results.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()}
+    answerable_passed = answerable_n = 0
+    overall_passed = overall_n = 0
+    hit = hit_n = 0
+    for qid, pred in preds.items():
+        judge = judges.get(qid)
+        if not judge or judge.get("semantic_passed") is None:
+            continue
+        passed = bool(judge["semantic_passed"])
+        overall_n += 1
+        overall_passed += passed
+        if not pred["is_refusal_expected"]:
+            answerable_n += 1
+            answerable_passed += passed
+        if pred["gold_doc"]:
+            hit_n += 1
+            hit += pred["gold_doc"] in (pred["retrieved_docs"] or [])
+    naive = {"answerable": answerable_passed / answerable_n * 100, "overall": overall_passed / overall_n * 100,
+             "hit5": hit / hit_n * 100}
+
+    metrics = [("可答题正确率\n(1001 题)", "answerable"), ("整体正确率\n(1040 题)", "overall"),
+               ("检索 hit@5\n(doc 级)", "hit5")]
+    fig, ax = plt.subplots(figsize=(10.5, 5.8), dpi=100)
+    width = 0.36
+    for i, (vals, label, color) in enumerate((
+            (naive, "朴素 RAG（通用配方）", "#4a90e2"),
+            (FULL_CHAIN, "AnGIneer 全链", "#2fa870"),
+    )):
+        pos = [x + (i - 0.5) * width for x in range(len(metrics))]
+        bars = ax.bar(pos, [vals[k] for _, k in metrics], width=width, label=label, color=color, zorder=3)
+        for rect, (_, k) in zip(bars, metrics):
+            ax.annotate(f"{vals[k]:.1f}%", (rect.get_x() + rect.get_width() / 2, vals[k]),
+                        ha="center", va="bottom", fontsize=10.5, fontweight="bold")
+    ax.set_xticks(range(len(metrics)))
+    ax.set_xticklabels([m[0] for m in metrics], fontsize=11)
+    ax.set_ylim(0, 105)
+    ax.set_ylabel("%（越高越好）", fontsize=11)
+    ax.set_title("同 1040 题 · 同语料库 · 同判分引擎：通用配方 vs AnGIneer 全链", fontsize=12.5)
+    ax.legend(loc="lower right", frameon=False, fontsize=10)
+    ax.grid(axis="y", alpha=0.25, zorder=0)
+    for spine in ("top", "right"):
+        ax.spines[spine].set_visible(False)
+    fig.tight_layout()
+    out = REPO / "docs" / "images" / "naive-rag-compare.png"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(out)
+    print(f"图已生成 → {out}")
+    print(f"  朴素 RAG: 可答 {naive['answerable']:.1f} / 整体 {naive['overall']:.1f} / hit@5 {naive['hit5']:.1f}")
+    print(f"  全链:     可答 {FULL_CHAIN['answerable']} / 整体 {FULL_CHAIN['overall']} / hit@5 {FULL_CHAIN['hit5']}")
+    return 0
+
+
 def main() -> int:
     load_env()
     ARM_DIR.mkdir(parents=True, exist_ok=True)
@@ -361,11 +431,14 @@ def main() -> int:
     p_judge = sub.add_parser("judge")
     p_judge.add_argument("--limit", type=int, default=0, help="只判前 N 题待判题（与生成并行的分批用）")
     sub.add_parser("report")
+    sub.add_parser("chart")
     args = ap.parse_args()
     if args.cmd == "run":
         return cmd_run(args.limit)
     if args.cmd == "judge":
         return cmd_judge(args.limit)
+    if args.cmd == "chart":
+        return cmd_chart()
     return cmd_report()
 
 
