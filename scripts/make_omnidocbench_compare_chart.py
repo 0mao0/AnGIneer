@@ -1,14 +1,16 @@
-"""A① 三方同尺对比图 + 1000 页现行基线成绩单（README 首页用图）。
+"""A① 三方同尺对比图 + A② 结构层两方对比图（README 首页用图）。
 
-数据源 = 各方官方评测产物目录（predictions_quick_match_metric_result.json），
-经 parse_regression.load_official_metrics 扁平化；Edit_dist 转 `1−x` 百分制、
-TEDS/CDM 原值百分制——六个指标统一"越高越好"。基线图另读 struct_chain.json
-的 A② 结构层指标（蓝柱，自建口径，与 A① 官方口径颜色区分）。
+数据源：
+- A①：各方官方评测产物目录（predictions_quick_match_metric_result.json），经
+  parse_regression.load_official_metrics 扁平化；Edit_dist 转 `1−x` 百分制、
+  TEDS/CDM 原值百分制——六个指标统一"越高越好"；
+- A②：struct_chain.json（我们全链）与 struct_mineru.json（MinerU 原生 content_list），
+  取六项有区分度的指标（表格/公式两项同源同分，不进对比图）。
 
 用法（默认路径即 2026-09-26 1000 页基线的产物目录）：
   python scripts/make_omnidocbench_compare_chart.py
-  # 可选：--ours/--mineru/--ref <官方产物目录> --struct <struct_chain.json>
-  #       --title-suffix "1000 页 / seed=42" --out <png> --baseline-out <png>
+  # 可选：--ours/--mineru/--ref <官方产物目录> --struct/--struct-mineru <json>
+  #       --title-suffix "1000 页 / seed=42" --out <png> --struct-compare-out <png>
 """
 import argparse
 import sys
@@ -42,7 +44,18 @@ def to_score(metrics: dict, key: str, invert: bool) -> float | None:
     return (1.0 - v if invert else v) * 100.0
 
 
-def make_baseline_chart(struct_metrics: dict, official: dict, out: Path, title_suffix: str) -> None:
+STRUCT_METRICS = [  # A② 有区分度的六项（TEDS/公式相似度两方同源同分，不进对比图）
+    ("块召回率", "block_recall"),
+    ("预测块被解释率", "pred_used_ratio"),
+    ("块文本相似度（全部）", "text_similarity"),
+    ("块文本相似度（命中项）", "text_similarity_matched"),
+    ("阅读顺序相邻对", "order_adjacent_accuracy"),
+    ("阅读 Kendall tau", "order_kendall_tau"),
+]
+
+
+def make_struct_compare_chart(chain: dict, mineru: dict, out: Path, title_suffix: str) -> None:
+    """A② 结构层两方对比：我们全链 vs MinerU 原生 content_list（领先项一眼可见）。"""
     import matplotlib
 
     matplotlib.use("Agg")
@@ -51,34 +64,39 @@ def make_baseline_chart(struct_metrics: dict, official: dict, out: Path, title_s
     plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei"]
     plt.rcParams["axes.unicode_minus"] = False
 
-    # (标签, 值, 颜色)：绿=A① 官方 markdown 口径；蓝=A② 结构层（自建口径）
-    bars = [(label, to_score(official, key, inv), "#2fa870") for label, key, inv in METRICS]
-    struct_bars = [
-        ("块召回率", struct_metrics.get("block_recall"), "#4a90e2"),
-        ("块文本相似度\n（命中项）", struct_metrics.get("text_similarity_matched"), "#4a90e2"),
-    ]
-    bars += [(label, v * 100.0 if v is not None else None, c) for label, v, c in struct_bars]
+    ours = [chain.get(k) for _, k in STRUCT_METRICS]
+    theirs = [mineru.get(k) for _, k in STRUCT_METRICS]
 
     fig, ax = plt.subplots(figsize=(13.0, 6.0), dpi=100)
-    for i, (label, score, color) in enumerate(bars):
-        if score is None:
-            continue
-        rect = ax.bar(i, score, width=0.62, color=color, zorder=3)[0]
-        ax.annotate(f"{score:.1f}", (rect.get_x() + rect.get_width() / 2, score),
-                    ha="center", va="bottom", fontsize=10)
-    ax.set_xticks(range(len(bars)))
-    ax.set_xticklabels([b[0] for b in bars], fontsize=10)
-    ax.set_ylim(70, 100)
+    width = 0.36
+    xs = range(len(STRUCT_METRICS))
+    for i, (vals, label, color) in enumerate((
+            (ours, "AnGIneer 全链", "#2fa870"),
+            (theirs, "MinerU 原生 content_list", "#4a90e2"),
+    )):
+        pos = [x + (i - 0.5) * width for x in xs]
+        bars = ax.bar(pos, [v * 100.0 if v is not None else 0 for v in vals], width=width,
+                      label=label, color=color, zorder=3)
+        for rect, v in zip(bars, vals):
+            if v is not None:
+                ax.annotate(f"{v * 100.0:.1f}", (rect.get_x() + rect.get_width() / 2, v * 100.0),
+                            ha="center", va="bottom", fontsize=9.5)
+    ax.set_xticks(list(xs))
+    ax.set_xticklabels([label for label, _ in STRUCT_METRICS], fontsize=10)
+    ax.set_ylim(55, 100)
     ax.set_ylabel("得分（越高越好）", fontsize=11)
-    ax.set_title(f"文档解析现行基线 · {title_suffix}（绿=A① 官方 markdown 口径，蓝=A② 结构层自建口径）",
+    ax.set_title(f"结构层对比（A②，canonical jsonl 直比）· {title_suffix}：全链 vs MinerU 原生",
                  fontsize=12.5)
+    ax.legend(loc="lower right", frameon=False, fontsize=10)
     ax.grid(axis="y", alpha=0.25, zorder=0)
     for spine in ("top", "right"):
         ax.spines[spine].set_visible(False)
     fig.tight_layout()
     out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out)
-    print(f"基线图已生成 → {out}")
+    print(f"结构层对比图已生成 → {out}")
+    print(f"  我们: " + " / ".join("—" if v is None else f"{v * 100:.1f}" for v in ours))
+    print(f"  MinerU 原生: " + " / ".join("—" if v is None else f"{v * 100:.1f}" for v in theirs))
 
 
 def main() -> int:
@@ -97,7 +115,8 @@ def main() -> int:
     ap.add_argument("--title-suffix", default="1000 页 / seed=42")
     ap.add_argument("--out", default=str(REPO / "docs" / "images" / "omnidocbench-compare.png"))
     ap.add_argument("--struct", default=str(REPO / "data" / "evals" / "parse_regression" / "20260926-1305" / "struct_chain.json"))
-    ap.add_argument("--baseline-out", default=str(REPO / "docs" / "images" / "omnidocbench-baseline-1000.png"))
+    ap.add_argument("--struct-mineru", default=str(REPO / "data" / "evals" / "parse_regression" / "20260926-1305" / "struct_mineru.json"))
+    ap.add_argument("--struct-compare-out", default=str(REPO / "docs" / "images" / "omnidocbench-struct-compare.png"))
     args = ap.parse_args()
 
     dirs = {"ref": Path(args.ref), "mineru": Path(args.mineru), "ours": Path(args.ours)}
@@ -147,13 +166,14 @@ def main() -> int:
         print(f"  {label}: {printable}")
 
     from evals_core.parse_regression import load_structure_metrics
-    struct_path = Path(args.struct)
-    struct_metrics = load_structure_metrics(struct_path) if struct_path.is_file() else {}
-    if struct_metrics:
-        ours_metrics = load_official_metrics(dirs["ours"])
-        make_baseline_chart(struct_metrics, ours_metrics, Path(args.baseline_out), args.title_suffix)
+    chain_path, mineru_path = Path(args.struct), Path(args.struct_mineru)
+    chain = load_structure_metrics(chain_path) if chain_path.is_file() else {}
+    mineru_struct = load_structure_metrics(mineru_path) if mineru_path.is_file() else {}
+    if chain and mineru_struct:
+        make_struct_compare_chart(chain, mineru_struct, Path(args.struct_compare_out), args.title_suffix)
     else:
-        print(f"!! 跳过基线图：struct_chain.json 不存在或无指标（{struct_path}）")
+        print(f"!! 跳过结构层对比图：struct_chain/struct_mineru 不存在或无指标"
+              f"（{chain_path} / {mineru_path}）")
     return 0
 
 

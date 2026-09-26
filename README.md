@@ -39,16 +39,17 @@ docs 是本项目最成熟、也是最基础的能力：全链路两端各有第
 
 #### (1) 语料成绩——OmniDocBench v1.6 官方口径
 
-公开文档解析基准 1651 页中抽样 1000 页（seed=42），现行基线为 2026-09-26 run `20260926-1305`（越低越好的 Edit_dist 已转 `1−x` 百分制，蓝柱为结构层口径）：
+公开文档解析基准 1651 页中抽样 1000 页（seed=42），现行基线为 2026-09-26 run `20260926-1305`。
 
-![OmniDocBench 现行基线 1000 页](docs/images/omnidocbench-baseline-1000.png)
+**对上游 MinerU 的领先在结构层**（canonical jsonl 直比口径，即检索实际消费的那一层）——块召回、文本相似度、阅读顺序全面领先 MinerU 原生 content_list：
 
-- 与上游 MinerU 3.4.5 及官方参考模型的**三方同尺对比**在 200 页子集上进行：**全链在 markdown 交付面与上游 MinerU 逐位持平**——剩余差距是底层模型能力差距，不是本管线的损耗；
+![结构层对比：全链 vs MinerU 原生](docs/images/omnidocbench-struct-compare.png)
 
-![OmniDocBench 三方同尺对比（200 页子集）](docs/images/omnidocbench-compare.png)
+**markdown 交付面（A① 官方口径）与上游 MinerU 重合**（同 1000 页集合三方同尺对比）：我们的 markdown 是 MinerU 块的保真重渲染，表格/公式同源同分、六项差 ≤0.2pp——与参考模型的剩余差距是底层模型能力差距，不是本管线的损耗（越低越好的 Edit_dist 已转 `1−x` 百分制）：
 
-- 管线的增益在**结构层**（canonical jsonl 直比口径，即检索实际消费的那一层）：1000 页规模块召回 **89.7%**；同尺的 200 页子集上为 **91.0% vs MinerU 原生 content_list 79.1%**；
-- 基线数字、复现命令与分类型明细（含跨规模不可互比说明——1000 页与 200 页集合交集仅 190/200）：[docs/omnidocbench-baseline.md](docs/omnidocbench-baseline.md) · [docs/parse-benchmark-comparison.md](docs/parse-benchmark-comparison.md) · [docs/parse-struct-eval.md](docs/parse-struct-eval.md)。
+![三方同尺对比（1000 页）](docs/images/omnidocbench-compare.png)
+
+- 基线数字、复现命令与分类型明细：[docs/omnidocbench-baseline.md](docs/omnidocbench-baseline.md) · [docs/parse-benchmark-comparison.md](docs/parse-benchmark-comparison.md) · [docs/parse-struct-eval.md](docs/parse-struct-eval.md)。
 
 #### (2) 语料 → 可搜索路径：一体化解析管线
 
