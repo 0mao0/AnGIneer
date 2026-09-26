@@ -388,6 +388,9 @@ export function useAIChat(options?: {
     stageTimer = setInterval(() => {
       elapsedSeconds.value = Math.floor((Date.now() - stageStartAt) / 1000)
     }, 500)
+    // Node 环境下不拿计时器压住事件循环：测试/SSR 场景 run 悬置时进程须能自然退出
+    //（v0.2.0 CI 实踩：可控 query 悬置的用例跑完全绿但进程不退，pnpm test 挂满 6h 被砍）
+    ;(stageTimer as unknown as { unref?: () => void }).unref?.()
 
     manageContext([...messages.value], contextConfig)
 
@@ -517,6 +520,9 @@ export function useAIChat(options?: {
     } catch (error) {
       if (error instanceof Error && error.name === 'AbortError') {
         console.log('Request aborted')
+        // 合帧缓冲里可能还压着最后几十毫秒的 delta——中断时先落盘再判空，
+        // 否则手动停止/插队的截断答案会丢掉尾巴（50ms 节流引入的回归，0.2.0 CI 拦截）
+        flushDeltaBuffer()
         if (currentStreamContent.value) {
           messages.value.push({
             id: generateMessageId(),
