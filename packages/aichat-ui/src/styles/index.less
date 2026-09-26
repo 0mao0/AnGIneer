@@ -9,11 +9,12 @@
   --chat-citation-accent: #1677ff;
   --chat-citation-bg: #e6f4ff;
   --chat-citation-border: #91caff;
-  /* 内联角标（.citation-circle/.stream-citation-marker）：双主题各走中性灰——
-     light 浅灰圆面＋灰描边，dark 段为深灰圆（较气泡底提亮可辨）＋浅灰数字 */
-  --chat-citation-circle-bg: #e9eaec;
-  --chat-citation-circle-border: #cfcfd4;
-  --chat-citation-circle-text: #55565c;
+  /* 内联角标（.citation-circle/.stream-citation-marker）：双主题同色定版（业主 09-27）——
+     浅色档原 #e9eaec 贴白气泡近白、看着不像灰，统一取深色档的深灰圆＋浅灰数字；
+     悬停仍走主色蓝（业主复评：蓝悬停观感更好），不用独立 token */
+  --chat-citation-circle-bg: #4a4a4f;
+  --chat-citation-circle-border: #5b5b61;
+  --chat-citation-circle-text: #d4d4d8;
   --chat-code-bg: #f6f8fa;
   --chat-pre-bg: #f6f8fa;
   --chat-error-color: #ff4d4f;
@@ -26,8 +27,12 @@
 }
 
 /* dark 主题段：色调类 token 给出 antd 暗色系对应值；能链宿主语义变量的直接链
-   （宿主在 [data-theme="dark"] 下切换 --bg-secondary 等值时自动跟随，standalone 用 fallback 暗色值）。
-   --chat-root-bg 已在 :root 链 --bg-primary，无需在此重复。 */
+   （宿主在 dark 下切换 --bg-secondary 等值时自动跟随，standalone 用 fallback 暗色值）。
+   --chat-root-bg 已在 :root 链 --bg-primary，无需在此重复。
+   dark 选择器双写：ui-kit 宿主（user-web/admin-web）只在 html 挂类名 .dark，
+   data-theme 属性从未落地（同 InlineCitationEditor.vue 档位修法）——只写 data-theme
+   会让本段整段失效，角标在暗色下取到 light 值（近白圆面）。 */
+html.dark,
 [data-theme="dark"] {
   --chat-user-bubble-bg: #15325b;
   --chat-user-bubble-text: rgba(255, 255, 255, 0.85);
@@ -36,9 +41,7 @@
   --chat-citation-accent: #177ddc;
   --chat-citation-bg: #111a2c;
   --chat-citation-border: #15325b;
-  --chat-citation-circle-bg: #4a4a4f;
-  --chat-citation-circle-border: #5b5b61;
-  --chat-citation-circle-text: #d4d4d8;
+  /* 角标三件套与悬停色双主题同色，已在 :root 定版，此处不重复声明（避免两处漂移） */
   --chat-code-bg: var(--bg-tertiary, rgba(255, 255, 255, 0.04));
   --chat-pre-bg: var(--bg-tertiary, rgba(255, 255, 255, 0.04));
   --chat-error-color: var(--danger, #dc4446);

@@ -85,12 +85,15 @@ export const useThemeStore = defineStore('theme', () => {
       root.style.setProperty('--chat-user-bubble-text', '#fff')
       root.style.setProperty('--chat-assistant-bubble-bg', '#2a2a2a')
       root.style.setProperty('--chat-assistant-bubble-text', 'rgba(255,255,255,0.85)')
+      // 深色下气泡底 #2a2a2a 与纯黑页底已有对比，不额外描边
+      root.style.setProperty('--chat-assistant-bubble-border', 'transparent')
       root.style.setProperty('--chat-code-bg', 'rgba(255,255,255,0.1)')
       root.style.setProperty('--chat-pre-bg', '#1d2330')
       root.style.setProperty('--chat-citation-bg', 'rgba(250,173,20,0.08)')
       root.style.setProperty('--chat-citation-accent', '#ffc53d')
       root.style.setProperty('--chat-streaming-cursor', '#4096ff')
-      root.style.setProperty('--chat-streaming-bg', 'rgba(24,144,255,0.08)')
+      // 回答中＝同气泡灰（原淡蓝 tint 让「回答中」看着发白，与落下后的灰不一致；业主 09-27）
+      root.style.setProperty('--chat-streaming-bg', '#2a2a2a')
       root.style.setProperty('--chat-system-bg', 'rgba(250,173,20,0.1)')
       root.style.setProperty('--chat-system-text', '#ffc53d')
       root.style.setProperty('--chat-system-border', 'rgba(250,173,20,0.3)')
@@ -202,14 +205,18 @@ export const useThemeStore = defineStore('theme', () => {
       root.style.setProperty('--chip-pos-text', '#9a3412')
       root.style.setProperty('--chat-user-bubble-bg', '#1890ff')
       root.style.setProperty('--chat-user-bubble-text', '#fff')
-      root.style.setProperty('--chat-assistant-bubble-bg', '#f5f5f5')
+      // 浅色气泡底：原 #f5f5f5 比页底 #f0f2f5 还白，业主 09-27 两次调深——
+      // 现取同色系（偏冷）灰 #dfe2e7，比页底深两档，读作灰色卡片
+      root.style.setProperty('--chat-assistant-bubble-bg', '#dfe2e7')
       root.style.setProperty('--chat-assistant-bubble-text', '#333')
+      root.style.setProperty('--chat-assistant-bubble-border', 'rgba(0, 0, 0, 0.12)')
       root.style.setProperty('--chat-code-bg', '#e8e8e8')
       root.style.setProperty('--chat-pre-bg', '#f0f0f0')
       root.style.setProperty('--chat-citation-bg', '#fffaf0')
       root.style.setProperty('--chat-citation-accent', '#ad6800')
       root.style.setProperty('--chat-streaming-cursor', '#1890ff')
-      root.style.setProperty('--chat-streaming-bg', '#e6f7ff')
+      // 回答中＝同气泡灰（原 #e6f7ff 淡蓝让「回答中」看着发白，落下后才变灰；业主 09-27）
+      root.style.setProperty('--chat-streaming-bg', '#dfe2e7')
       root.style.setProperty('--chat-system-bg', '#fff7e6')
       root.style.setProperty('--chat-system-text', '#d46b08')
       root.style.setProperty('--chat-system-border', '#ffd591')

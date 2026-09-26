@@ -1238,6 +1238,10 @@ defineExpose({
         display: inline-block;
         background: var(--chat-assistant-bubble-bg, #f5f5f5);
         color: var(--chat-assistant-bubble-text, #000000);
+        /* 浅色主题下气泡底 #f5f5f5 与页底 #f0f2f5 几乎同色，肉眼看不到气泡边界（业主 09-27）：
+           宿主按主题给描边色（浅色给可见细线、深色给 transparent），无宿主时保持无边界（transparent） */
+        border: 1px solid var(--aichat-assistant-bubble-border, var(--chat-assistant-bubble-border, transparent));
+        box-sizing: border-box;
         padding: 12px 16px;
         border-radius: 12px 12px 12px 0;
         max-width: 85%;
@@ -1370,6 +1374,7 @@ defineExpose({
             transition: background-color 0.16s ease;
 
             &:hover {
+              /* 悬停＝主色蓝 + 白字（业主 09-27 复评：蓝悬停观感更好，别再改成灰） */
               background-color: var(--primary-color);
               border-color: var(--primary-color);
               color: #fff;
