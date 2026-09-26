@@ -36,6 +36,7 @@ EMBED_BATCH = 32
 RUN_CONCURRENCY = 6
 JUDGE_CONCURRENCY = 10
 GENERATOR_TEMPERATURE = 0.0
+GENERATOR_LABEL = ""  # 臂 3 复用本脚本的 report 时覆盖为实际模型名
 ARXIV_TAG = re.compile(r"^\d{4}\.\d{4,5}(v\d+)?$")
 
 for _src in ("services/evals-core/src", "services/docs-core/src"):
@@ -342,7 +343,7 @@ def cmd_report() -> int:
         f"- 判分兜底（关键词断言）占比：{pct(sum(1 for r in rows if r['fallback']), len(rows))}",
         f"- **判分失败：{len(failed)} 题**" + ("　⚠ 超过 5%，正确率不可用——用同命令重跑 judge 补判" if len(failed) > 0.05 * len(judges) else ""),
         f"- 样本：判分成功 {len(rows)} / 失败 {len(failed)} / 预测 {len(preds)} / 题集 1040", "",
-        f"（生成 {load_llm_config()['model']} · temperature={GENERATOR_TEMPERATURE} · 判分=nightly 同引擎同默认链 · EVAL_DEEPVAL_EXTRA=0）",
+        f"（生成 {GENERATOR_LABEL or load_llm_config()['model']} · temperature={GENERATOR_TEMPERATURE} · 判分=nightly 同引擎同默认链 · EVAL_DEEPVAL_EXTRA=0）",
     ]
     summary = "\n".join(lines) + "\n"
     (ARM_DIR / "summary.md").write_text(summary, encoding="utf-8")
