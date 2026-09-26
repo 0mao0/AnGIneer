@@ -103,7 +103,28 @@ class NightlyRoutesTests(unittest.TestCase):
             r = self._client().get("/api/evals/nightly/2026-09-06")
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.json()["nightly"]["delta"], 0.0267)
-        self.assertIn("门禁 GREEN", r.json()["report_md"])
+
+    def test_same_day_error_sidecar_is_surfaced(self):
+        """同日既出了结论、又挂过一条派发时，列表与详情都要把失败带出来。
+
+        error 档按 archive.publish_day 的规矩改落 sidecar（不盖结论）——若接口不把它透出来，
+        页面上就只剩一条绿结论，与群里那条失败卡片对不上号（2026-09-26 两头都实踩过）。
+        """
+        from evals_core.nightly import archive
+        day = self._write_day("2026-09-26", self.DAY)
+        (day / archive.ERROR_SIDECAR).write_text(json.dumps({
+            "state": "error", "note": "补判轮数耗尽仍有未清零异常: judge_fail=1",
+            "verdict": "中断于 1040/1040，未出结论", "run_id": "run-err",
+            "started_at": "2026-09-26T01:00:51+08:00", "generated_at": "2026-09-26T03:17:30+08:00",
+            "progress": {"completed": 1040, "total": 1040, "correct": 904, "score": 0.8692},
+        }), encoding="utf-8")
+        with _patch_auth(True, is_admin=True):
+            listed = self._client().get("/api/evals/nightly").json()["days"][0]
+            detail = self._client().get("/api/evals/nightly/2026-09-26").json()["nightly"]
+        for got in (listed, detail):
+            self.assertEqual(got["state"], "green")                                # 结论仍是主位
+            self.assertEqual(got["same_day_error"]["note"], "补判轮数耗尽仍有未清零异常: judge_fail=1")
+            self.assertEqual(got["same_day_error"]["progress"]["correct"], 904)
 
     def test_traversal_and_missing_404(self):
         with _patch_auth(True, is_admin=True):

@@ -137,7 +137,7 @@ def _patch_flow(monkeypatch, resume_id):
         return {"status": "completed"}
 
     async def fake_retry(*a, **k):
-        return {}
+        return {"status": "completed"}, {}   # 返回形状与 _auto_retry 一致：(run, 阈值内放行的残余异常)
 
     async def fake_publish(*a, **k):
         return {"state": "green", "ok": True, "run_id": captured.get("resume_run_id") or "run-new"}

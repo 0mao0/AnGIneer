@@ -14,6 +14,7 @@ if P not in sys.path:
     sys.path.insert(0, P)
 
 from evals_core.nightly import pipeline  # noqa: E402
+from evals_core.runner import anomaly  # noqa: E402
 
 
 def _detail(qid, quality, sem=0.9, hit5=1):
@@ -169,7 +170,9 @@ class PipelineErrorTests(_Env):
         self.assertEqual(entry["verdict"], "评测中断，未出结果")
 
     def test_retry_rounds_exhausted_is_error(self):
-        dirty = [dict(_detail("q1", "correct"), scores={"semantic_fallback": True}),
+        # 用 exec_error（问答链路本身炸）立意：judge_fail 在容忍闸口内已改为放行出结论
+        # （见 JudgeToleranceTests），exec_error 不在容忍范围、照旧必须判 error。
+        dirty = [dict(_detail("q1", "wrong"), status="error", error="链路超时"),
                  _detail("q2", "correct"), _detail("q3", "correct")]
         self._common_patches(
             run_sequence=[{"status": "completed"}, {"status": "completed"}],
@@ -177,6 +180,68 @@ class PipelineErrorTests(_Env):
         result = asyncio.run(pipeline.run_nightly(dataset_id="ds", retry_rounds=1, resamples=50))
         self.assertEqual(result["state"], "error")
         self.assertIn("未清零异常", result["detail"])
+
+
+class JudgeToleranceTests(_Env):
+    """判分缺失的容忍闸口：judge 侧抖动不再废掉整晚结论，但必须留痕、也不得掩盖真故障。
+
+    2026-09-26 实踩：1040 题里 1 题判分崩（判分模型回了非法 JSON）、补判 2 轮未清零，
+    当晚整条流水线无门禁结论 —— 而那道题的作答与检索其实都是好的，掉的是一整晚的结论。
+    """
+
+    @staticmethod
+    def _judge_broken(qid):
+        return dict(_detail(qid, "correct"), scores={"semantic_fallback": True})
+
+    def _run_and_capture_card(self, details_first, **kwargs):
+        done = {"status": "completed", "summary_scores": _SUMMARY,
+                "started_at": "2026-09-06T01:00:00", "completed_at": "2026-09-06T02:00:00"}
+        cards = []
+        # webhook 必须显式传：pipeline 只认入参（读 .env 是 nightly_control._resolve_webhook 的活），
+        # 不传则 _notify_best_effort 直接「未配置 webhook 跳过通知」，卡片断言永远收不到东西。
+        kwargs.setdefault("webhook", "http://wecom.invalid/hook")
+        self._common_patches(
+            run_sequence=[{"status": "running"}, done, done, done, done],
+            details_sequence=[details_first, _NEW_DETAILS])
+        with mock.patch("evals_core.nightly.pipeline.notify.send",
+                        side_effect=lambda url, text: (cards.append(text), '{}')[1]):
+            result = asyncio.run(pipeline.run_nightly(dataset_id="ds", retry_rounds=0, resamples=50, **kwargs))
+        return result, cards
+
+    def test_judge_fail_within_tolerance_still_publishes_conclusion(self):
+        dirty = [self._judge_broken("q1"), _detail("q2", "correct", sem=0.8), _detail("q3", "correct")]
+        result, cards = self._run_and_capture_card(dirty)
+        self.assertEqual(result["state"], "green")
+        self.assertEqual(result["judge_missing"], 1)
+        self.assertIn("判分缺失 1 题（阈值内放行）", result["detail"])
+        entry = json.loads(next((self.tmp / "nightly").glob("*/nightly.json")).read_text(encoding="utf-8"))
+        self.assertEqual(entry["judge_missing"], {anomaly.JUDGE_FAIL: ["q1"]})
+        # 放行后的"绿"不能被读成"全量都判过了"：卡片必须自己把这批题说出来
+        self.assertEqual(len(cards), 1)
+        self.assertIn("判分缺失：1 题", cards[0])
+        self.assertIn("分数偏乐观", cards[0])
+
+    def test_judge_fail_beyond_tolerance_is_still_error(self):
+        dirty = [self._judge_broken(q) for q in ("q1", "q2", "q3")]   # 3/3 题，远超 0.5%
+        result, cards = self._run_and_capture_card(dirty)
+        self.assertEqual(result["state"], "error")
+        self.assertIn(f"{anomaly.JUDGE_FAIL}=3", result["detail"])
+        self.assertIn("执行失败", cards[0])          # 超阈值照旧发失败卡片（error 档不走结论那路）
+
+    def test_exec_error_is_never_tolerinated(self):
+        """只容忍 judge 侧：问答链路本身炸了一道题，也不能被阈值放过去。"""
+        dirty = [dict(_detail("q1", "wrong"), status="error", error="链路超时"),
+                 _detail("q2", "correct", sem=0.8), _detail("q3", "correct")]
+        result, _cards = self._run_and_capture_card(dirty)
+        self.assertEqual(result["state"], "error")
+        self.assertIn(f"{anomaly.EXEC_ERROR}=1", result["detail"])
+
+    def test_threshold_is_tunable_via_env_without_code_change(self):
+        dirty = [self._judge_broken(q) for q in ("q1", "q2", "q3")]
+        with mock.patch.dict(os.environ, {"NIGHTLY_JUDGE_FAIL_MAX_PCT": "100", "NIGHTLY_JUDGE_FAIL_MAX": "20"}):
+            result, _cards = self._run_and_capture_card(dirty)
+        self.assertEqual(result["state"], "green")
+        self.assertEqual(result["judge_missing"], 3)
 
 
 if __name__ == "__main__":

@@ -11,8 +11,9 @@ suite_runner——nightly 不是外部系统，就是产品自己给自己排的
 import asyncio
 import json
 import logging
+import os
 import time
-from typing import Callable, Optional
+from typing import Callable, Dict, List, Optional, Tuple
 
 from evals_core.runner import anomaly, suite_runner
 from evals_core.storage import result_store
@@ -26,9 +27,50 @@ POLL_INTERVAL_S = 10
 DEFAULT_TIMEOUT_HOURS = 4.5   # 487 题全量含补判的最坏窗口（01:00 起跑 06:00 前收工）
 DEFAULT_RETRY_ROUNDS = 2
 
+# 判分缺失的容忍闸口：judge 侧抖动（判分模型返回非法 JSON 等）不该把整晚结论一起废掉。
+# 只容忍 judge_fail —— exec_error（问答链路本身炸了）与超时照旧判失败，那是真故障不是判分噪声。
+# 两道闸都要过：百分比防大题集下闸口过松（1040 题的 0.5% 才 5 题），「至少 1 题」防小题集下
+# 一票卡死（20 题的冒烟集有 1 题判分崩不该让整轮出不了结论）。
+# 2026-09-26 实踩：1040 题里 1 题判分崩、补判 2 轮未清零 → 当晚整条流水线无门禁结论。
+DEFAULT_JUDGE_FAIL_MAX_PCT = 0.5
+DEFAULT_JUDGE_FAIL_MAX = 10
+_JUDGE_MISSING_IDS_MAX = 5    # 卡片上最多列几题的编号，其余折成「等 N 题」
+
 
 class PipelineError(RuntimeError):
     pass
+
+
+def _env_number(name: str, default: float) -> float:
+    try:
+        return float((os.getenv(name) or "").strip() or default)
+    except ValueError:
+        return default
+
+
+def _judge_fail_within_tolerance(count: int, total: int) -> bool:
+    """残余判分缺失是否落在容忍闸口内（阈值读环境变量，调它不需改代码）。"""
+    if count <= 0:
+        return True
+    pct = _env_number("NIGHTLY_JUDGE_FAIL_MAX_PCT", DEFAULT_JUDGE_FAIL_MAX_PCT)
+    cap = int(_env_number("NIGHTLY_JUDGE_FAIL_MAX", DEFAULT_JUDGE_FAIL_MAX))
+    return count <= max(1, int((total or count) * pct / 100.0)) and count <= cap
+
+
+def _judge_missing_line(judge_missing: Optional[Dict[str, List[str]]]) -> str:
+    """结论卡片上的「判分缺失」一行：放行不等于无事，看卡片的人要能看出这批题没真被判过。
+
+    这批题的 quality 当前是按检索分计的（suite_runner 的 primary_score is None 分支），
+    正确率因此偏乐观 —— 这句必须写在卡片上，否则阈值放行的「绿」会被读成「全量都判过了」。
+    """
+    ids = (judge_missing or {}).get(anomaly.JUDGE_FAIL) or []
+    if not ids:
+        return ""
+    shown = "、".join(str(qid)[:8] for qid in ids[:_JUDGE_MISSING_IDS_MAX])
+    if len(ids) > _JUDGE_MISSING_IDS_MAX:
+        shown += f" 等 {len(ids)} 题"
+    return (f"判分缺失：{len(ids)} 题判分未产出、已在阈值内放行（{shown}）；"
+            f"这批题的正确率按检索分计，分数偏乐观")
 
 
 async def _sleep(seconds: float) -> None:
@@ -86,15 +128,18 @@ def _partial_progress(run_id: str) -> Optional[dict]:
     }
 
 
-async def _auto_retry(run_id: str, dataset_id: str, rounds: int, deadline: float) -> dict:
-    """judge_fail 只重判分、exec_error 整题重跑（原地续跑复用同一 run），≤rounds 轮。"""
+async def _auto_retry(run_id: str, dataset_id: str, rounds: int, deadline: float) -> Tuple[dict, Dict[str, List[str]]]:
+    """judge_fail 只重判分、exec_error 整题重跑（原地续跑复用同一 run），≤rounds 轮。
+
+    返回 (run, 阈值内放行的残余异常)：残余只剩 judge_fail 且在容忍闸口内时不再让整晚判
+    失败，由调用方把这批题在结论与卡片上显式标出；exec_error 一律照旧判失败。"""
     for round_no in range(1, max(rounds, 0) + 1):
         details = await asyncio.to_thread(result_store.list_run_details, run_id, True)
         found = anomaly.detect_anomalies(details)
         judge_ids = [q for q in found.get(anomaly.JUDGE_FAIL, [])]
         exec_ids = [q for q in found.get(anomaly.EXEC_ERROR, [])]
         if not judge_ids and not exec_ids:
-            return await asyncio.to_thread(result_store.get_run, run_id)
+            return await asyncio.to_thread(result_store.get_run, run_id), {}
         logger.info("nightly 补判第 %d 轮：%s 题重判、%s 题重跑", round_no, len(judge_ids), len(exec_ids))
         # resume 原地复用同一 run；exec_error 行无分数自动被 pre_done 排除 → 整题重跑
         await asyncio.to_thread(
@@ -105,9 +150,18 @@ async def _auto_retry(run_id: str, dataset_id: str, rounds: int, deadline: float
     details = await asyncio.to_thread(result_store.list_run_details, run_id, True)
     found = anomaly.detect_anomalies(details)
     remaining = {k: v for k, v in found.items() if k != anomaly.SLOW and v}
-    if remaining:
+    judge_left = remaining.get(anomaly.JUDGE_FAIL) or []
+    # 分母取实际行数：闸口问的就是「这批题里有几题没判出来」，不必为 total 再回查一次存储
+    tolerated = set(remaining) == {anomaly.JUDGE_FAIL} and _judge_fail_within_tolerance(len(judge_left), len(details))
+    if remaining and not tolerated:
         raise PipelineError("补判轮数耗尽仍有未清零异常: " + ", ".join(f"{k}={len(v)}" for k, v in remaining.items()))
-    return await asyncio.to_thread(result_store.get_run, run_id)
+    if judge_left:
+        logger.warning("判分缺失 %s/%s 题在容忍闸口内（≤%s%% 且 ≤%s 题），按放行出结论: %s",
+                       len(judge_left), len(details),
+                       _env_number("NIGHTLY_JUDGE_FAIL_MAX_PCT", DEFAULT_JUDGE_FAIL_MAX_PCT),
+                       int(_env_number("NIGHTLY_JUDGE_FAIL_MAX", DEFAULT_JUDGE_FAIL_MAX)),
+                       ", ".join(str(q)[:8] for q in judge_left[:_JUDGE_MISSING_IDS_MAX]))
+    return await asyncio.to_thread(result_store.get_run, run_id), ({anomaly.JUDGE_FAIL: judge_left} if judge_left else {})
 
 
 def _dataset_subject(dataset_id: str) -> str:
@@ -148,8 +202,11 @@ def _material_line(material: Optional[dict]) -> str:
 
 
 async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, site_url: str, webhook: str,
-                               material_line: str = "") -> dict:
-    """门禁 + 报告 + 落盘 + 通知，全成功返回结论 dict（state=green/red）。"""
+                               material_line: str = "", judge_missing: Optional[Dict[str, List[str]]] = None) -> dict:
+    """门禁 + 报告 + 落盘 + 通知，全成功返回结论 dict（state=green/red）。
+
+    judge_missing：阈值内放行的判分缺失题（{异常类型: [question_id]}）。它不改门禁算法，
+    只做两件事——落进结论条目、在卡片上单列一行，让"放行"看得见。"""
     loop_run = await asyncio.to_thread(result_store.get_run, run_id)
     details = await asyncio.to_thread(result_store.list_run_details, run_id)
     manifest = await asyncio.to_thread(_load_json, paths.manifest_path())
@@ -167,17 +224,23 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
         gate_res, loop_run.get("summary_scores") or {}, q_texts,
         dataset_id, paths.today_bjt(), run_id=run_id, state=state,
         subject=_dataset_subject(dataset_id),
-        started_at=str(loop_run.get("started_at") or ""))
+        started_at=str(loop_run.get("started_at") or ""), judge_missing=judge_missing)
     archive.publish_day(entry, report_md)
 
     raw_for_card = {k: loop_run.get(k) for k in ("started_at", "completed_at")}
     raw_for_card["summary_scores"] = loop_run.get("summary_scores") or {}
     text = notify.append_links(
-        notify.build_message(raw_for_card, gate_res, state, material_line=material_line), site_url)
+        notify.build_message(raw_for_card, gate_res, state, material_line=material_line,
+                             judge_line=_judge_missing_line(judge_missing)), site_url)
     await _notify_best_effort(webhook, text)
+    missing_count = len((judge_missing or {}).get(anomaly.JUDGE_FAIL) or [])
+    detail = "；".join(gate_res.get("gate_reasons") or [])
+    if missing_count:
+        detail = (detail + f"；判分缺失 {missing_count} 题（阈值内放行）").lstrip("；")
     return {"state": state, "ok": state == "green", "run_id": run_id,
             "overall_score": entry.get("overall_score"), "correct": entry.get("correct"),
-            "total": entry.get("total"), "detail": "；".join(gate_res.get("gate_reasons") or [])[:300]}
+            "total": entry.get("total"), "judge_missing": missing_count,
+            "detail": detail[:300]}
 
 
 def _load_json(path):
@@ -326,9 +389,10 @@ async def run_nightly(*, dataset_id: str,
         if should_stop and should_stop():
             await asyncio.to_thread(suite_runner.stop_eval_run, run_id)
         await _await_terminal(run_id, deadline)
-        await _auto_retry(run_id, dataset_id, retry_rounds, deadline)
+        _run, judge_missing = await _auto_retry(run_id, dataset_id, retry_rounds, deadline)
         outcome = await _compute_and_publish(run_id, dataset_id, resamples, site_url, webhook,
-                                             material_line=_material_line(material))
+                                             material_line=_material_line(material),
+                                             judge_missing=judge_missing)
         if material is not None:
             outcome["material_parity"] = {"severity": material.get("severity"),
                                           "docs_with_issues": material.get("docs_with_issues")}

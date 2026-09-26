@@ -453,13 +453,24 @@ def _nightly_root() -> str:
 
 
 def _read_nightly_day(day_dir: str, date: str) -> Dict[str, Any]:
-    """读单日 nightly.json；缺失/损坏降级为 corrupt，不炸整个列表。"""
+    """读单日 nightly.json；缺失/损坏降级为 corrupt，不炸整个列表。
+
+    同日若还挂过一次派发（error 档按 archive.publish_day 的规矩不覆盖结论、改落 sidecar），
+    把它的要点附在 same_day_error 上：否则"当天出过结论、但也跑挂了一条"在页面上毫无痕迹，
+    只剩企微卡片里那条失败消息孤零零对不上号（2026-09-26 实踩的反面）。
+    """
+    from evals_core.nightly import archive as _nightly_archive   # 文件名单一真相源，不在此复刻字面量
+
     try:
         with open(os.path.join(day_dir, "nightly.json"), "r", encoding="utf-8") as fh:
             data = json.load(fh)
         if not isinstance(data, dict):
             raise ValueError("nightly.json 不是对象")
         data["date"] = date
+        sidecar = _nightly_archive.read_day_error(day_dir)
+        if sidecar:
+            data["same_day_error"] = {k: sidecar.get(k) for k in
+                                      ("generated_at", "started_at", "run_id", "verdict", "note", "progress")}
         return data
     except (OSError, ValueError):
         return {"date": date, "state": "corrupt"}

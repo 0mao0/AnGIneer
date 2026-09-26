@@ -39,11 +39,15 @@ def fmt_span(started_at, completed_at) -> Tuple[str, str]:
 
 
 def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_note: str = "",
-                  material_line: str = "") -> str:
-    """一行一项：时间 / 时长 / 结果 / 分析（+ 素材检查）。
+                  material_line: str = "", judge_line: str = "") -> str:
+    """一行一项：时间 / 时长 / 结果 / 分析（+ 判分缺失 + 素材检查）。
 
     material_line：B 层素材检查摘要（形如 "素材检查：ok（200 篇，内容未落地 0）"）。
     传了就多一行——体检通过与否都要在卡片里可见，否则"结论绿"无法说明素材层是否正常。
+
+    judge_line：判分缺失摘要（由 pipeline._judge_missing_line 生成，形如
+    "判分缺失：2 题判分未产出、已在阈值内放行（…）"）。阈值放行后卡片仍是绿色，
+    这一行是唯一的知情口——不写就等于把"没判过的题"藏进"通过"里。
     """
     summary = (raw or {}).get("summary_scores") or {}
     span, duration = fmt_span((raw or {}).get("started_at"), (raw or {}).get("completed_at"))
@@ -74,6 +78,8 @@ def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_n
         lines.append(f"分析：评测环节未完成（{error_note or '见服务器日志'}），无结论。")
     else:
         lines.append("分析：门禁产物缺失，见服务器日志。")
+    if judge_line:
+        lines.append(judge_line)
     if material_line:
         lines.append(material_line)
     return "\n".join(lines)
