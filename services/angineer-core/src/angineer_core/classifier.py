@@ -3,6 +3,7 @@
 """
 import json
 import math
+import os
 import re
 from collections import Counter
 from typing import List, Optional, Tuple, Dict, Any
@@ -608,6 +609,26 @@ def _has_substantive_content(query: str) -> bool:
     return False
 
 
+# 条款号快路径（需求 §5.3 靶子，2026-09-26）：「应符合/应满足哪条规范」「在哪条规范里」类问句
+# 问的是条款出处而非条款内容，现役 LLM 分类器实测会漏成 L1（§8 对照 4 例），规则直达 L2 更准也更快。
+# 刻意保持窄口径（动词+哪条 或 哪条+规范名词）防误伤；开关 ANGINEER_CLAUSE_FASTPATH 默认开。
+_CLAUSE_NUMBER_PATTERN = re.compile(
+    r"(?:应符合|应满足|应符合于|符合|满足|查)哪条"
+    r"|在哪条(?:规范|规定|条款|标准|条文)"
+    r"|哪条(?:规范|规定|条款|标准|条文)"
+)
+
+
+def _clause_fastpath_enabled() -> bool:
+    return (os.getenv("ANGINEER_CLAUSE_FASTPATH", "true") or "").strip().lower() not in ("0", "false", "no", "off")
+
+
+def _is_clause_number_query(query: str) -> bool:
+    if not query:
+        return False
+    return bool(_CLAUSE_NUMBER_PATTERN.search(query))
+
+
 # L0 闲聊快速检测（独立函数，供 classify_intent 优先调用）
 def _check_l0_intent(query: str) -> Optional[IntentResult]:
     """仅检测明确的闲聊/问候意图，不做 L1-L4 判定。"""
@@ -845,6 +866,34 @@ class IntentClassifier:
         mode: str = "instruct",
         error_sink: Optional[List[str]] = None,
     ) -> IntentResult:
+        """公开入口：计时 + 观测落盘（data/ops/classify-*.jsonl，需求 §3.2 口径），转调实现。"""
+        import time as _time
+
+        _t0 = _time.perf_counter()
+        result = self._classify_intent_impl(user_query, config_name=config_name, mode=mode, error_sink=error_sink)
+        try:
+            from angineer_core.ops_metrics import record_event
+
+            record_event(
+                "classify",
+                {
+                    "dur_ms": round((_time.perf_counter() - _t0) * 1000, 1),
+                    "level": getattr(result, "intent_level", None),
+                    "mode": getattr(result, "service_mode", None),
+                    "query": user_query,
+                },
+            )
+        except Exception:  # noqa: BLE001
+            pass
+        return result
+
+    def _classify_intent_impl(
+        self,
+        user_query: str,
+        config_name: str = None,
+        mode: str = "instruct",
+        error_sink: Optional[List[str]] = None,
+    ) -> IntentResult:
         """error_sink：LLM 分类被吞掉的失败留痕（评测哨兵 b），不影响降级路径本身。"""
         logger.info(f"[DEBUG-SOP-ROUTE] ===== 意图分类开始 =====")
         logger.info(f"[DEBUG-SOP-ROUTE] 用户查询: {user_query[:100]}{'...' if len(user_query) > 100 else ''}")
@@ -874,6 +923,18 @@ class IntentClassifier:
             )
             logger.info(f"[DEBUG-SOP-ROUTE] 统计查询规则优先命中: {user_query[:50]}")
             return meta_result
+
+        # 步骤 1.7: 条款号快路径（默认开，ANGINEER_CLAUSE_FASTPATH=false 关闭）
+        if _clause_fastpath_enabled() and _is_clause_number_query(user_query):
+            clause_result = _build_intent_result(
+                intent_level="L2",
+                intent_type="clause_lookup",
+                required_capabilities=["retrieval", "sql"],
+                service_mode="structured_lookup",
+                reason="条款号查询快路径：问句在问条款出处（符合/满足/在哪条规范类），规则直达 L2",
+            )
+            logger.info(f"[DEBUG-SOP-ROUTE] 条款号快路径命中: {user_query[:50]}")
+            return clause_result
 
         # 步骤 2: LLM 直接分类 L1/L2/L3/L4（主力分类器）
         logger.debug("[DEBUG-SOP-ROUTE] 非L0查询，进入 LLM 主力分类...")

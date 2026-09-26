@@ -1094,6 +1094,19 @@ def run_agent_loop(
         ttft_ms if ttft_ms is not None else "-",
         final_prompt_tokens if final_prompt_tokens is not None else "-",
     )
+    # 观测落盘（需求 §4 修正）：容器日志随重建清零，TTFT 验收口径以 data/ops/ JSONL 为准
+    from angineer_core.ops_metrics import record_event
+
+    record_event(
+        "ttft",
+        {
+            "run_id": run_id,
+            "reason": reason,
+            "turns": turn,
+            "ttft_ms": ttft_ms,
+            "final_turn_prompt_tokens": final_prompt_tokens,
+        },
+    )
 
     _safe_emit(
         emit,
