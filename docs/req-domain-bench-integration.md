@@ -18,8 +18,10 @@
 | 优先级 | 基准 | 理由 | 工作量 |
 |---|---|---|---|
 | **P1** | **LegalBenchRAG**（合同/判例 QA，答案为原文 span） | 语料小、span 判分最容易，适合先把「域接入清单」沉淀成文档 | 1~2 天 |
-| **P2** | **FinanceBench**（SEC 文件问答，数值题多） | 销售价值最高；表格密集可顺带验证 table_lookup | 2~3 天 |
+| **P2** | **FinanceBench**（SEC 文件问答，数值题多） | 销售价值最高；表格密集可顺带验证 table_lookup；论文公开基线（GPT-4-Turbo 金开卷 85%、现实 RAG 配置 ~47% 正确/27% 拒答）可作引用锚点 | 2~3 天 |
+| **P2 备选** | **JEC-QA**（中文法考 QA，[jecqa.thunlp.org](https://jecqa.thunlp.org)，AAAI 2020） | **中文**（贴近目标市场）+ **CodaLab 榜单** + 论文基线；26,365 道单选/多选题，选项判分零歧义；语料=公开法条文本可入管线。注意：榜单是闭卷知识问答口径，我们做 RAG 版须标注口径差异 | 2~3 天 |
 | 缓行 | MIRAGE/MedRAG（医疗） | 两个坑：①其检索语料是切好的教科书/StatPearls chunks 而**非 PDF**，教科书有版权，「拿 PDF 走管线」不成立；②题式是选择题（MedQA 选 A/B/C/D），与开放问答判分不同构。等 P1/P2 跑通后再评估 | — |
+| 不接入 | COLIEE | 年度**参赛制**竞赛（官方成绩页 coliee.org/results），任务为法律 entailment/检索，与我们 RAG 形态不同构，无法「接入」只能参赛 | — |
 
 **明确不做**：不改 nightly 调度与门禁逻辑；新域不接 nightly 定时（先「立即运行」/手动跑批验证）；
 不动臂 2/臂 3 基线工作（`scripts/naive_rag_baseline.py`，独立进行中）。
