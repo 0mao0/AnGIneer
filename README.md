@@ -5,9 +5,16 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 # 🏗️ AnGIneer：工程领域的 AI 工程师
 
-**AnGIneer**（AGI + Engineer）：面向严谨工程领域的 AI 工程师——仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
+**AnGIneer**（AGI + Engineer）——面向严谨工程领域的 AI 工程师。
 
-[![webapp](https://img.shields.io/badge/在线体验-angineer.cn-blue)](https://angineer.cn)
+- **项目愿景**：*Re-engineering the Future of Engineering.*
+- **核心理念**：*Human Defines SOP, AnGIneer Executes with Precision.*
+- **主要目标**：打造**工程知识引擎**——文档结构化（语料可信）· 诚实检索（引用可溯源、不知即拒答）· 自动化经验（SOP 自进化）；基于此引擎构建场景应用：**计算、绘图、报告**。
+- **实现路径**：仅用不微调的小型语言模型（SLM），把规范、SOP、工程工具与地理世界组装成可溯源、可执行的工程智能体。
+
+🔗 **在线体验：[angineer.cn](https://angineer.cn)**（免登录，打开即用）
+
+## 当前版本
 
 > **当前版本：0.2.78** ——聊天历史落库双修（落库基线竞态致 user 行丢失 + 裸 session_id 修 PUT 400 快照丢失与会话双 id）；跟进式短问注入 query 上下文化改写（「具体差多少」合成「上一问，当前问」，生产实测生效）；L2 段首轮直达注入 table_search（实锤题 TTFT 37s→17s、turns=1，跟进改写对 L2 同效）；等待体验三件套（中间答案折叠留痕 + 分段进度文案 + 流式 50ms 合帧节流）；aichat-ui 角标/输入区主题三轮修复定案中性灰双主题；后端启动单实例守卫（根治 Windows 端口共绑孤儿进程静默分流）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
@@ -15,70 +22,94 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.77` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.78` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.0` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.2.0` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.2` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
 | [angineer-table-ui](https://github.com/0mao0/angineer-table-ui) | `v0.1.3` | 通用表格组件库 DataTable（npm: @angineer/table-ui） |
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.2.2` | Python AI 推理客户端库 |
 
-> 核心理念：*"Human Defines SOP, AnGIneer Executes with Precision."*
+***
 
-## Open RAG Benchmark 评测
+## 1. 核心架构
 
-> 题集：Vectara Open RAGBench 官方 3045 题分层抽样（seed=42），现行子集 **v4 = 1040 题 / 188 篇**（1001 可答 + 39 拒答，全库检索），判分引擎 DeepEval。2026-09-24 起为现行 nightly 门禁基线（快照钉在服务器 `data/evals/baseline/`，运行时状态、跨部署留存，不进 git）。
+### 1.1 AnGIneer-Docs 知识库模块（含成绩）
 
-### 回答层——端到端问答（nightly v4 基线）
+docs 是本项目最成熟、也是最基础的能力：全链路两端各有第三方公开基准背书——**语料端**用 OmniDocBench 证明「送进检索的语料是对的」，**回答端**用 Open RAG Bench 1040 题证明「答得出来且答得对」。两端各自独立可复现，这是结构化 RAG（区别于纯向量 RAG）可行性的双端数据支撑。
 
-| 指标 | 值 | 口径 |
-| :--- | :--- | :--- |
-| 整体正确率 | **84.9%（883/1040）** | 分母含 39 拒答题；nightly 门禁基线 |
-| 可答题正确率 | 88.6%（1001 题） | DeepEval answer_correctness |
-| 检索 hit@5(doc) | 96.5% | 1001 可答题，语料 122→188 篇扩容后检索未受损 |
-| 引用命中 citation_hit | 92.1% | 可答题 |
-| 拒答正确率 | 56.4%（22/39） | 跨文档错配作答（17 题幻觉）为当前主要失分项 |
+#### (1) 语料成绩——OmniDocBench v1.6 官方口径
 
-### 解析层——语料质量（OmniDocBench v1.6 官方 markdown 口径）
+公开文档解析基准 1651 页中抽样 1000 页（seed=42），现行基线为 2026-09-26 run `20260926-1305`（越低越好的 Edit_dist 已转 `1−x` 百分制，蓝柱为结构层口径）：
 
-200 页 / seed=42 抽样（文档解析公认基准），对业界 MinerU 3.4.5 同级或略优（详见 [docs/omnidocbench-baseline.md](docs/omnidocbench-baseline.md)）：
+![OmniDocBench 现行基线 1000 页](docs/images/omnidocbench-baseline-1000.png)
 
-| 指标 | 值 | vs MinerU | 方向 |
-| :--- | :--- | :--- | :--- |
-| 文本 Edit_dist | **0.0482** | 0.0476 基本追平 | 越低越好 |
-| 表格 TEDS | **0.916** | structure_only 0.933 | 越高越好 |
-| 公式 CDM | **0.959** | 0.9585 略胜 | 越高越好 |
-| 公式 Edit_dist | **0.0970** | 0.0976 略胜 | 越低越好 |
-| 阅读顺序 Edit_dist | 0.136 | 0.1371 仍优 | 越低越好 |
+- 与上游 MinerU 3.4.5 及官方参考模型的**三方同尺对比**在 200 页子集上进行：**全链在 markdown 交付面与上游 MinerU 逐位持平**——剩余差距是底层模型能力差距，不是本管线的损耗；
 
-> **全链路「结构化可行」的数据依据**：解析层用第三方公开基准背书「送进检索的语料是对的」（前面的语料有数据支撑），回答层用端到端 1040 题集背书「答得出来且答得对」（后面的回答有数据支撑），两端各自独立可复现——这是结构化 RAG（区别于纯向量 RAG）可行性的双端支撑。
+![OmniDocBench 三方同尺对比（200 页子集）](docs/images/omnidocbench-compare.png)
+
+- 管线的增益在**结构层**（canonical jsonl 直比口径，即检索实际消费的那一层）：1000 页规模块召回 **89.7%**；同尺的 200 页子集上为 **91.0% vs MinerU 原生 content_list 79.1%**；
+- 基线数字、复现命令与分类型明细（含跨规模不可互比说明——1000 页与 200 页集合交集仅 190/200）：[docs/omnidocbench-baseline.md](docs/omnidocbench-baseline.md) · [docs/parse-benchmark-comparison.md](docs/parse-benchmark-comparison.md) · [docs/parse-struct-eval.md](docs/parse-struct-eval.md)。
+
+#### (2) 语料 → 可搜索路径：一体化解析管线
+
+```mermaid
+flowchart LR
+    SRC["源文件<br/>PDF / DOCX / PPTX / XLSX"] --> CV["格式转换<br/>LibreOffice → PDF"]
+    CV --> MU["MinerU 解析<br/>hard"]
+    MU --> PO["PoPo 强化<br/>soft · 失败回滚"]
+    PO --> SOLO["Solo 结构化<br/>hard · 唯一构建者"]
+    SOLO --> FTS["SQLite + FTS<br/>hard"]
+    FTS --> VEC["向量索引<br/>soft"]
+    VEC --> GR["知识图谱<br/>soft"]
+```
+
+hard 阶段失败终止后续、soft 阶段失败仅标记自身；支持单阶段重试、断点恢复、GPU 排队与阶段级可视化。
+
+#### (3) 回答成绩——Open RAG Bench v4 基线（nightly 门禁）
+
+Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 题 / 188 篇**（1001 可答 + 39 拒答，全库检索），判分引擎 DeepEval，2026-09-24 起为现行 nightly 门禁基线（快照钉在服务器 `data/evals/baseline/`，不进 git）：
+
+![Open RAG Bench v4 基线](docs/images/openragbench-baseline.png)
+
+- 拒答正确率是当前主要失分项：17 题属跨文档错配作答，逐题归因见 [docs/req-refusal-regression-attribution.md](docs/req-refusal-regression-attribution.md)；
+- 官方榜单（Vectara 托管于 HuggingFace Space）与本仓口径不同——子集与判分引擎均不一致，**不作直接对比**，只引用本仓可复现基线。
+
+#### (4) 知识图谱模块
+
+```mermaid
+flowchart LR
+    DOC["文档结构化产物"] --> SEED["种子共现兜底<br/>70+ 工程术语"]
+    SEED --> LLM1["LLM 实体 + 关系抽取"]
+    LLM1 --> V3["三重验证<br/>V1 跨域 / V2 预测力 / V3 独特性"]
+    V3 --> ZK["Zettelkasten 跨段语义连接"]
+    ZK --> E5["cangjie E1-E5 提取<br/>原则/案例/反例/术语/框架"]
+    E5 --> DB["图谱落库<br/>按 library_id + doc_id 隔离"]
+    DB --> REV["人工审核<br/>/api/graph/review"]
+```
+
+#### (5) 自进化模块（Dream Cycle）
+
+```mermaid
+flowchart LR
+    CRON["每日定时<br/>0 2 * * *"] --> CHK["5 项健康检查"]
+    CHK --> DEDUP["实体去重"]
+    CHK --> CTRD["矛盾关系"]
+    CHK --> ORPH["孤立实体"]
+    CHK --> STALE["过期知识"]
+    CHK --> SOPH["SOP 健康统计"]
+    DEDUP & CTRD & ORPH & STALE & SOPH --> RPT["JSON 报告 + 审计日志"]
+    RPT --> ACT["自动操作（仅标记不物理删除）<br/>或人工确认"]
+```
+
+> **PoPo 注意事项（更新上游时务必保留本地定制）**
+>
+> `services/docs-core/src/popo` 已内化为普通目录（原 submodule，2026-09-09 移除；MinerU-Popo fork，MIT 协议）。本地已将 `post_processing/model_utils.py` 中的硬编码 `url=""` / `key=""` 改为读取 `POPO_CONFIGS`（JSON 端点列表：`[{"name","url","api_key","model"}, ...]`，数组顺序=优先级，连接失败/超时自动切下一项；未配置返回空、不打任何请求），并支持 `POPO_API_TIMEOUT`（默认 300s）与 `POPO_MAX_TOKENS`（默认 4096）。**若不保留此修改，PoPo 推理会请求打到 api.openai.com（国内 DNS 污染导致挂死）或空 url 报错。** 上游同步点与保留定制的细节见 `services/docs-core/src/popo/UPSTREAM_SYNC.md`。
+
+> 深入阅读：[docs/tech-report.md](docs/tech-report.md#3-angineer-docs-知识库模块) · [docs/parse-pipeline.md](docs/parse-pipeline.md) · [docs/popo-pipeline.md](docs/popo-pipeline.md) · [docs/knowledge-data-model.md](docs/knowledge-data-model.md)
 
 ***
 
-## 0. 技术亮点（Why AnGIneer）
-
-- **一体化文档解析管线**：MinerU + PoPo 强化 + Solo 结构化 + 索引/图谱，断点恢复、GPU 槽位、产物校验，把"规范 PDF"变成可溯源的结构化知识。
-- **可溯源问答**：五路召回（dense / sparse / clause / table / formula）+ 加权融合，表格/公式连同上下文完整返回、查表类问题能答出数值；Prompt 资产化 + 拒答守卫，每条答案都带可点击跳转 PDF 的证据，防编造规范号/背景。
-- **Agent Harness**：基于 π-agent 思想的"单一循环原语 + 组合配置"，L0~L4 分级路由 + Attempt 状态机 + 可观测事件流（SSE）；不绑定 Docs，同一套 Harness 可复用于问答、比标、报告等任意 Agent 化场景。
-- **对外 API 闭环（工程化）**：X-API-Key 鉴权 + 库级隔离 + 自动建库 + 按真实 API 收纳文档；多租户字段已预留，为 SaaS 化铺路。
-
-## 1. 版本路线与现状
-
-| 版本 | 里程碑 | 核心能力 | 代码现状 |
-| :--- | :--- | :--- | :--- |
-| **v0.1** | 规范问答基础版 | 文档解析入库、知识图谱、SOP 引擎、L0-L4 意图分级、AI 对话、评测框架 | ✅ 基本完成（git tag `v0.1-frontend-*`） |
-| **v0.2** | Docs-SOP 问答系统化改进 | Agent 化问答链路、五路检索 + 融合重排、SOP 审核/审计、Prompt 资产化、一体化文档解析管线 + PoPo 强化、注册考试题集评测、Dream Cycle 知识巡检、Qdrant 向量引擎、内置 nightly 评测调度 | ✅ 已完成，当前迭代基线 v0.2.75 |
-| **v0.3** | 世界模型 | 基于 Cesium 的三维地理世界模型，自主查询地理信息（GIS / 水文气象 / 地形），支撑更高级题目 | 🚧 骨架已存在（geo-core GIS 断面算量工具 + GIS 视图），Cesium 集成规划中 |
-| **v0.4** | 设计报告 | 基于规范检索、SOP 执行轨迹与地理/计算数据，自动编制工可、初设等正式设计报告 | 🚧 规划中 |
-| **v0.5** | CAD 出图算量 | 连接并驱动 CAD 引擎，自动出图、工程量计算，形成"设计 → 出图 → 算量"闭环 | 🚧 规划中，**v0.5 定位为正式版** |
-| **v1.0** | 正式版迭代 | 在 v0.5 基础上大量迭代：多专业覆盖、精度与稳定性、工程化与 SaaS 化（多租户） | 🚧 目标 |
-
-> 说明：v0.3–v0.5 描述的是路线目标；仓库当前实际代码基线为 v0.2.75，相关模块已在对应小节中标注"骨架 / 规划中"，避免与已落地能力混淆。
-
-***
-
-## 2. 核心架构
-
-### 2.1 模块关系图
+### 1.2 模块关系图
 
 ```mermaid
 flowchart TB
@@ -112,18 +143,9 @@ flowchart TB
 
 > 说明：AnGIneer-TreeCore 是树操作的通用基础设施（零外部依赖），不参与业务模块关系，故未列入上图；树 UI 组件已独立为 `@angineer/smartree`（`packages/smartree`，独立仓库 angineer-smartree-ui），供 docs-ui / sop-ui / evals-ui / ui-kit 复用。
 
-### 2.2 对外服务边界
-
-| 模块 | 对外暴露 | 鉴权方式 |
-| :--- | :--- | :--- |
-| **docs-api** | `/api/v1/*`（文档解析 / 产物 / 内容） | `X-API-Key`（管理后台签发，绑定库隔离） |
-| **docs-api** | `/api/knowledge`、`/api/graph`（知识库 / 图谱） | 内部代理（前端经 vite/nginx 转发） |
-| **aichat-api** | `/api/chat/agent`、`/api/sops`、`/api/evals`、`/api/dream-cycle` | 内部代理（不对外直连） |
-| **user-web / admin-web** | 浏览器访问的 Web 界面 | 生产环境：管理端账号密码登录（is_admin 会话鉴权） |
-
 ***
 
-### 2.3 AnGIneer-Core 主调度模块
+### 1.3 AnGIneer-Core 主调度模块
 
 #### (1) Agent 化问答链路
 
@@ -162,61 +184,7 @@ flowchart TB
 
 ***
 
-### 2.4 AnGIneer-Docs 知识库模块
-
-三块核心链路：一体化解析管线、知识图谱、自进化（Dream Cycle）。
-
-#### (1) 一体化解析管线
-
-```mermaid
-flowchart LR
-    SRC["源文件<br/>PDF / DOCX / PPTX / XLSX"] --> CV["格式转换<br/>LibreOffice → PDF"]
-    CV --> MU["MinerU 解析<br/>hard"]
-    MU --> PO["PoPo 强化<br/>soft · 失败回滚"]
-    PO --> SOLO["Solo 结构化<br/>hard · 唯一构建者"]
-    SOLO --> FTS["SQLite + FTS<br/>hard"]
-    FTS --> VEC["向量索引<br/>soft"]
-    VEC --> GR["知识图谱<br/>soft"]
-```
-
-hard 阶段失败终止后续、soft 阶段失败仅标记自身；支持单阶段重试、断点恢复、GPU 排队与阶段级可视化。
-
-#### (2) 知识图谱模块
-
-```mermaid
-flowchart LR
-    DOC["文档结构化产物"] --> SEED["种子共现兜底<br/>70+ 工程术语"]
-    SEED --> LLM1["LLM 实体 + 关系抽取"]
-    LLM1 --> V3["三重验证<br/>V1 跨域 / V2 预测力 / V3 独特性"]
-    V3 --> ZK["Zettelkasten 跨段语义连接"]
-    ZK --> E5["cangjie E1-E5 提取<br/>原则/案例/反例/术语/框架"]
-    E5 --> DB["图谱落库<br/>按 library_id + doc_id 隔离"]
-    DB --> REV["人工审核<br/>/api/graph/review"]
-```
-
-#### (3) 自进化模块（Dream Cycle）
-
-```mermaid
-flowchart LR
-    CRON["每日定时<br/>0 2 * * *"] --> CHK["5 项健康检查"]
-    CHK --> DEDUP["实体去重"]
-    CHK --> CTRD["矛盾关系"]
-    CHK --> ORPH["孤立实体"]
-    CHK --> STALE["过期知识"]
-    CHK --> SOPH["SOP 健康统计"]
-    DEDUP & CTRD & ORPH & STALE & SOPH --> RPT["JSON 报告 + 审计日志"]
-    RPT --> ACT["自动操作（仅标记不物理删除）<br/>或人工确认"]
-```
-
-> **PoPo 注意事项（更新上游时务必保留本地定制）**
->
-> `services/docs-core/src/popo` 已内化为普通目录（原 submodule，2026-09-09 移除；MinerU-Popo fork，MIT 协议）。本地已将 `post_processing/model_utils.py` 中的硬编码 `url=""` / `key=""` 改为读取 `POPO_CONFIGS`（JSON 端点列表：`[{"name","url","api_key","model"}, ...]`，数组顺序=优先级，连接失败/超时自动切下一项；未配置返回空、不打任何请求），并支持 `POPO_API_TIMEOUT`（默认 300s）与 `POPO_MAX_TOKENS`（默认 4096）。**若不保留此修改，PoPo 推理会请求打到 api.openai.com（国内 DNS 污染导致挂死）或空 url 报错。** 上游同步点与保留定制的细节见 `services/docs-core/src/popo/UPSTREAM_SYNC.md`。
-
-> 深入阅读：[docs/tech-report.md](docs/tech-report.md#3-angineer-docs-知识库模块) · [docs/parse-pipeline.md](docs/parse-pipeline.md) · [docs/popo-pipeline.md](docs/popo-pipeline.md) · [docs/knowledge-data-model.md](docs/knowledge-data-model.md)
-
-***
-
-### 2.5 AnGIneer-SOPs 经验库模块
+### 1.4 AnGIneer-SOPs 经验库模块
 
 SOP 自动生成链路：
 
@@ -235,7 +203,7 @@ flowchart LR
 
 ***
 
-### 2.6 AnGIneer-Evals 评测引擎模块
+### 1.5 AnGIneer-Evals 评测引擎模块
 
 ```mermaid
 flowchart LR
@@ -254,7 +222,7 @@ flowchart LR
 
 ***
 
-### 2.7 AnGIneer-AI 大模型统一路由模块
+### 1.6 AnGIneer-AI 大模型统一路由模块
 
 ```mermaid
 flowchart LR
@@ -270,7 +238,7 @@ flowchart LR
 
 ***
 
-### 2.8 技术架构与仓库布局
+### 1.7 技术架构与仓库布局
 
 依赖方向（强约束）：
 
@@ -304,7 +272,7 @@ services/
   evals-core/         题集管理、评测运行、结果对比、nightly 流水线（算法真相源）
   geo-core/           GIS 工程计算工具
   engtools/           计算器/查表/条件/知识检索/文档检索工具注册表
-  chat-history/       聊天历史存储（sqlite）与路由（v0.2.67 起，开发中）
+  chat-history/       聊天历史存储（sqlite）与路由（v0.2.67 起）
   shared/             服务间共享代码
   docs-api/           文档解析/知识库/图谱/v1/Key 管理（8790）
   aichat-api/         对话/模型配置/SOP/Evals/DreamCycle/nightly 调度（8791）
@@ -321,42 +289,50 @@ tests/  docs/  scripts/  docker/
 
 ***
 
+## 2. 对外服务边界
+
+| 模块 | 对外暴露 | 鉴权方式 |
+| :--- | :--- | :--- |
+| **docs-api** | `/api/v1/*`（文档解析 / 产物 / 内容） | `X-API-Key`（管理后台签发，绑定库隔离） |
+| **docs-api** | `/api/knowledge`、`/api/graph`（知识库 / 图谱） | 内部代理（前端经 vite/nginx 转发） |
+| **aichat-api** | `/api/chat/agent`、`/api/sops`、`/api/evals`、`/api/dream-cycle` | 内部代理（不对外直连） |
+| **user-web / admin-web** | 浏览器访问的 Web 界面 | 生产环境：管理端账号密码登录（is_admin 会话鉴权） |
+
+***
+
 ## 3. 快速开始
 
-### 3.1 环境准备
+### 3.1 环境与配置
+
+要求：Python 3.10+、Node.js 20+、pnpm 11（`packageManager` 已锁定 11.7.0）、LibreOffice（DOCX/PPTX/XLSX 转 PDF）。
 
 ```bash
 git clone https://github.com/0mao0/AnGIneer.git
 cd AnGIneer
-```
+pnpm install          # 前端依赖（start.ps1 首启会自动执行这步）
+pnpm services:install # 后端 Python 依赖（含 evals-core）
 
-要求：Python 3.10+、Node.js 20+、pnpm 11（`packageManager` 已锁定 11.7.0）。
-
-### 3.2 安装依赖
-
-```bash
-# 前端依赖
-pnpm install
-
-# 后端依赖（含 evals-core）
-pnpm services:install
-```
-
-### 3.3 配置环境变量
-
-```bash
 cp .env.example .env   # Windows PowerShell: Copy-Item .env.example .env
 ```
 
-至少需要配置：
+`.env` 至少配置（均为 JSON 数组，顺序=优先级，失败自动切换下一项）：
 
-- `LLM_CONFIGS`（JSON 数组：显示名 / model / api_key / base_url / priority）
-- `MINERU_CONFIGS`（JSON 数组：文档解析端点，顺序=优先级）
-- `EMBEDDING_CONFIGS`（JSON 数组：向量端点，顺序=优先级）
-- `RERANKER_CONFIGS`（JSON 数组：重排端点，顺序=优先级）
-- 若使用 PoPo 强化，还需配置 `POPO_CONFIGS`（JSON 数组：PoPo 端点，顺序=优先级）
+- `LLM_CONFIGS`（显示名 / model / api_key / base_url / priority）
+- `MINERU_CONFIGS`（文档解析端点）
+- `EMBEDDING_CONFIGS`（向量端点）
+- `RERANKER_CONFIGS`（重排端点）
+- `POPO_CONFIGS`（可选，PoPo 强化端点）
 
-### 3.4 启动服务（开发模式）
+### 3.2 Windows 一键启动（推荐）
+
+```powershell
+.\start.ps1              # 清理残留进程 → 启动后端 + 管理后台（含健康检查）→ 启动用户工作台
+.\start.ps1 -TailLogs    # 跟踪 logs/backend.log 与 logs/admin.log
+```
+
+端口契约集中在 `apps/shared/ports.json`：docs-api `8790` · aichat-api `8791` · 用户台 `3005` · 管理台 `3002`。
+
+### 3.3 手动启动（跨平台）
 
 ```bash
 pnpm dev:backend    # docs-api: http://localhost:8790 · aichat-api: http://localhost:8791
@@ -364,18 +340,11 @@ pnpm dev:frontend   # 用户: http://localhost:3005
 pnpm dev:admin      # 管理: http://localhost:3002
 ```
 
-Windows 也可一键启动：
-
-```powershell
-.\start.ps1          # 启动后端 + 管理后台 + 前端
-.\start.ps1 -TailLogs
-```
-
-### 3.5 初始化 API Key
+### 3.4 初始化 API Key
 
 管理后台 →「API 密钥」页面创建 Key（完整 Key 仅创建时显示一次），用于所有 `/api/v1/*` 接口的 `X-API-Key` 认证。
 
-### 3.6 外部 API 调用示例
+### 3.5 外部 API 调用示例
 
 ```bash
 # 提交文档解析
@@ -449,24 +418,10 @@ cd docker
 docker compose up -d --build
 ```
 
-- 前端（nginx）: `http://127.0.0.1:8080`（用户台 `/`，管理后台 `/admin/`；只绑回环，生产经 AI 网关 nginx 反代）
+- 前端（nginx）: `http://127.0.0.1:8080`（用户台 `/`，管理后台 `/admin/`；只绑回环）
 - API: docs-api `http://127.0.0.1:8790`、aichat-api `http://127.0.0.1:8791`（均只绑定本机回环）
 - Qdrant 向量库: `127.0.0.1:6333`（容器 `angineer-qdrant`，数据卷 `data/qdrant`）；ONLYOFFICE 文档预览: `8089`
 - 数据卷：`../data`、`../logs`；API 密钥等配置来自 `../.env`
-
-**公网部署安全**：
-
-- 生产入口统一走 AI 网关 nginx：HTTPS `443`（https://angineer.cn），`80` 仅保留 ACME 证书挑战 + 301 跳转；8790/8791/8080 已绑定 `127.0.0.1`，外部无法直连后端
-- 管理后台 `/admin/` 使用账号密码登录（管理员账号体系见「用户管理」，首个管理员由 `.env` 的 `ADMIN_USER` / `ADMIN_PASSWORD` 启动引导）；管理接口 `/api/users`、`/api/api-keys` 由应用层会话鉴权保护（需 `is_admin` 标记）
-- 注意：用户台及其调用的 `/api/knowledge`、`/api/chat` 等接口当前无登录，公网开放即所有人可用，上线前需规划登录/风控
-- 对外 API（`/api/v1/*`）需在 Header 携带 `X-API-Key`
-
-**自动部署（GitHub Actions + 自托管 Runner）**：仓库已配置 `.github/workflows/deploy.yml`，每次 push `main` 自动执行 `git pull → docker compose build → docker compose up -d`，并做前端/管理端/API 健康检查与企微通知。
-
-**镜像构建维护注意**：
-
-- 新增 / 重命名 workspace 包时，必须把新包的 `package.json` 加进 `docker/Dockerfile.frontend` 中 `pnpm install --frozen-lockfile` 之前的 `COPY` 清单；否则 pnpm 不会为该包链接 peer 依赖，`vite build` 打包该包源码时会以 `Rollup failed to resolve import ...` 失败（`@angineer/smartree` 拆分时曾实际踩到）。
-- `.dockerignore` 的目录模式相对构建上下文根目录匹配，排除嵌套目录必须写成 `**/node_modules`、`**/dist` 等递归形式；只写 `node_modules` 会把各包内嵌依赖目录送进上下文（体积暴涨），且在 Windows 上 pnpm 的 junction 会触发 `archive/tar: unknown file mode` 导致构建失败。
 
 ***
 
@@ -474,7 +429,7 @@ docker compose up -d --build
 
 ### 6.1 多租户预留（tenant_id 规约）
 
-当前为单租户形态，但所有持久化层**必须预留 `tenant_id` 字段**，为未来 SaaS 化（v2.0）避免 schema 迁移：
+当前为单租户形态，但所有持久化层**必须预留 `tenant_id` 字段**，为未来 SaaS 化避免 schema 迁移：
 
 - 所有新建表必须包含 `tenant_id TEXT NOT NULL DEFAULT 'default'`，并建立联合索引 `(tenant_id, ...)`。
 - 现有表暂不强行迁移；如有 schema 变更时顺带补上。
@@ -495,7 +450,7 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,https
 
 ### 6.4 PoPo 内化目录本地定制
 
-见 [2.4 PoPo 子模块注意事项](#24-angineer-docs-知识库模块)。更新上游时必须保留环境变量版本，否则国内环境 PoPo 推理会挂死。
+见 [1.1 PoPo 注意事项](#11-angineer-docs-知识库模块含成绩)。更新上游时必须保留环境变量版本，否则国内环境 PoPo 推理会挂死。
 
 ### 6.5 Prompt 资产化
 
@@ -538,31 +493,18 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,https
 
 ***
 
-## 8. 路线图细节（v0.3 → v1.0）
+## 8. 版本与路线图
 
-### v0.3 世界模型
+| 版本 | 主题 | 核心能力 | 状态 |
+| :--- | :--- | :--- | :--- |
+| **v0.1** | 基础框架 | 文档解析入库、知识图谱、SOP 引擎、L0–L4 意图分级、AI 对话、评测框架 | ✅ 已完成（git tag `v0.1-frontend-*`） |
+| **v0.2** | Docs 模块完成 | 高质量文档结构化 pipeline（OmniDocBench 三方同尺背书）、高质量知识库问答（Open RAG Bench 1040 题 nightly 门禁）、nightly 健康夜检、对外公开网站 angineer.cn | 🔄 迭代中：当前 v0.2.78，预计收版 v0.2.99 |
+| **v0.3** | SOP 自进化 | SOP 自进化机制支撑各专业注册考题（图谱自动生成 → 审核闸门 → 执行轨迹反哺），网站开辟注册考题分支 | 🚧 规划中（自动生成链路骨架已存在，见 §1.4） |
+| **v0.4** | GIS × CAD | 与 GIS、CAD 结合可做计算：真实空间数据接入（影像/地形/水文气象）、断面/土方等工程计算、DWG/DXF 读写与自动出图算量 | 🚧 规划中（geo-core 骨架已存在，见 §1.7） |
+| **v0.5** | 报告编制 | 基于规范检索、SOP 执行轨迹与 GIS/CAD 计算结果，自动编制工可、初设等正式设计报告（Markdown / Word / PDF 导出，支持人工复核） | 🚧 规划中 |
+| **v1.0** | 正式版迭代 | 在 v0.5 基础上大量迭代：多专业覆盖、精度与稳定性、工程化与 SaaS 化（多租户） | 🚧 目标 |
 
-- `geo-core` 扩展：接入真实空间数据源（影像、地形、行政区、水文气象），替换 PicoGIS 模拟引擎。
-- `packages/geo-ui` 集成 Cesium 三维场景，GIS 视图从占位升级为可交互地图工作台。
-- 地理信息查询工具（坐标 / 行政区 / 流域 / 断面）注册进 Agent 工具集，供 L3/L4 链路自主调用。
-- 断面、土方、淹没/影响范围计算与 SOP 执行、报告生成联动。
-
-### v0.4 设计报告
-
-- 报告模板体系：工可、初设、专题报告等正式设计文件结构。
-- 自动抽取计算书与图表：引用 SOP 执行轨迹、规范条文、GIS 与工具计算结果。
-- 报告生成与导出（Markdown / Word / PDF），支持人工复核与修订。
-
-### v0.5 CAD 出图算量（正式版）
-
-- CAD 引擎适配层：DWG/DXF 读写，AutoCAD / 国产 CAD 驱动。
-- 根据设计参数自动出图：平面图、断面图、大样图。
-- 工程量自动计算与图纸标注联动，形成"设计 → 出图 → 算量"闭环。
-
-### v1.0 迭代
-
-- 在 v0.5 正式版基础上大量迭代：多专业覆盖、计算精度、稳定性、评测回归与工程化。
-- 面向 SaaS 的多租户改造（v2.0 规划）。
+> 说明：v0.3–v0.5 描述的是路线目标；当前实际代码基线见「当前版本」一节，相关骨架模块已在对应小节标注，避免与已落地能力混淆。
 
 ***
 
