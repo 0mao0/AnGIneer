@@ -6,6 +6,7 @@
 import json
 import logging
 import os
+import threading
 import time
 from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, List, Optional
@@ -237,7 +238,87 @@ def _entities_to_evidences(entities: list, *, library_id: str) -> List[Dict[str,
     return evidences
 
 
-def _run_knowledge_search(
+# ---------------------------------------------------------------------------
+# 检索 memo（需求 §5.2 基础并行的复用机制，ANGINEER_ROUTE_PARALLEL 总闸）
+#
+# 语义：预热方（aichat-api route_pre.fire_first_search_prewarm）与消费方（agent_loop
+# 首轮注入）先后以**逐参一致**的参数调 _run_knowledge_search；memo 按"单发"复用——
+# 命中即弹出，绝不变陈旧缓存跨请求复用。键含全部影响结果的参数（prefix 区分 K/E 来源）。
+# doc_nodes 不进键：预热与消费方都经同一 _load_doc_nodes(scope) 取数，内容一致；
+# 其产物（citations 标题）已固化在 memo 值里，因此预热方必须传真实 doc_nodes，否则宁可不预热。
+# ---------------------------------------------------------------------------
+_SEARCH_MEMO: Dict[Any, Any] = {}
+_SEARCH_MEMO_LOCK = threading.Lock()
+_SEARCH_MEMO_TTL_SECONDS = 120.0  # 分类最坏尾延迟 ~5s，120s 留足裕度；单发语义下过期项只占内存
+_SEARCH_MEMO_MAX = 16
+
+
+def route_parallel_enabled() -> bool:
+    return (os.getenv("ANGINEER_ROUTE_PARALLEL", "false") or "").strip().lower() in ("true", "1", "yes", "on")
+
+
+def _search_memo_pop(key):
+    if key is None:
+        return None
+    now = time.time()
+    with _SEARCH_MEMO_LOCK:
+        entry = _SEARCH_MEMO.pop(key, None)
+        # 顺手清理过期残留，防长尾堆积
+        for k in [k for k, v in _SEARCH_MEMO.items() if now - v[0] > _SEARCH_MEMO_TTL_SECONDS]:
+            _SEARCH_MEMO.pop(k, None)
+    if entry is None or (now - entry[0]) > _SEARCH_MEMO_TTL_SECONDS:
+        return None
+    return entry[1]
+
+
+def _search_memo_store(key, result):
+    if key is None:
+        return
+    with _SEARCH_MEMO_LOCK:
+        if len(_SEARCH_MEMO) >= _SEARCH_MEMO_MAX:
+            oldest = min(_SEARCH_MEMO, key=lambda k: _SEARCH_MEMO[k][0])
+            _SEARCH_MEMO.pop(oldest, None)
+        _SEARCH_MEMO[key] = (time.time(), result)
+
+
+def _search_memo_key(kwargs: Dict[str, Any]):
+    if not route_parallel_enabled():
+        return None
+    return (
+        kwargs.get("query"),
+        kwargs.get("library_id"),
+        tuple(kwargs.get("doc_ids") or ()),
+        kwargs.get("top_k"),
+        kwargs.get("task_type"),
+        repr(kwargs.get("filters")),
+        kwargs.get("dense") is None,
+        kwargs.get("sparse") is None,
+        kwargs.get("clause") is None,
+        kwargs.get("formula") is None,
+        kwargs.get("prefix"),
+        kwargs.get("rerank"),
+        kwargs.get("retrieval_client") is None,
+        kwargs.get("config_name"),
+        kwargs.get("mode"),
+    )
+
+
+def _run_knowledge_search(**kwargs) -> Dict[str, Any]:
+    """memo 壳：命中预热缓存则单发复用，否则走实现并在成功后存入（键构造见上）。"""
+    key = _search_memo_key(kwargs)
+    hit = _search_memo_pop(key)
+    if hit is not None:
+        logging.getLogger(__name__).info(
+            "knowledge_search 命中首轮预热缓存（route_parallel）: %r", str(kwargs.get("query"))[:40]
+        )
+        return hit
+    result = _run_knowledge_search_impl(**kwargs)
+    if key is not None and isinstance(result, dict) and not result.get("error"):
+        _search_memo_store(key, result)
+    return result
+
+
+def _run_knowledge_search_impl(
     *,
     query: str,
     library_id: str = "default",

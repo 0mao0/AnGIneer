@@ -5,6 +5,7 @@
 """
 import logging
 import os
+import threading
 from typing import Any, Awaitable, Callable, List, Optional
 
 from angineer_core.agent_events import AgentEvent
@@ -20,6 +21,72 @@ ClassifyFn = Callable[[str, Optional[str], str], Awaitable[Any]]
 def route_pre_enabled() -> bool:
     """ANGINEER_ROUTE_PRE=false 时回退旧内联分类路径（无 route_debug 首帧）。"""
     return os.getenv(ROUTE_PRE_ENV, "true").strip().lower() in ("true", "1", "yes", "on")
+
+
+ROUTE_PARALLEL_ENV = "ANGINEER_ROUTE_PARALLEL"
+
+
+def route_parallel_enabled() -> bool:
+    """ANGINEER_ROUTE_PARALLEL（默认关，生产实测后再定默认）：
+
+    分类与首轮检索并行——请求进来即乐观预热 knowledge_search（按 scene 默认猜 L1），
+    分类返回后 L1 命中由 agent_loop 首轮注入经 _run_knowledge_search 的 memo 单发复用，
+    分类延迟不再阻塞检索段。分类结果仍一票决定走哪段，路由正确性零风险；
+    猜错（L2/L3/L4/闲聊）代价 = 一次 ~0.5s 的无效检索。
+    """
+    return os.getenv(ROUTE_PARALLEL_ENV, "false").strip().lower() in ("true", "1", "yes", "on")
+
+
+def fire_first_search_prewarm(query: str, library_id: Optional[str], doc_ids: Optional[List[str]],
+                              load_nodes: Optional[Callable[[], list]] = None):
+    """乐观发起 L1 首轮检索预热（fire-and-forget 独立 daemon 线程）。
+
+    参数必须与 agent_policy._l1_attempt → build_qa_config → RetrieverAdapter.knowledge_search
+    的有效参数逐项一致（top_k=20 / task_type=content_qa / rerank=True / config_name=None /
+    mode="instruct" / doc_nodes=同源 _load_doc_nodes 结果），否则 agent_tools 的检索 memo
+    键对不齐，预热白做甚至污染 citations（doc_title_map 缺失）。拿不到 load_nodes 宁可不预热。
+
+    短问跟进会被 §8.6 上下文化改写检索词 → memo 键必不命中，这里按同一字符阈值直接跳过。
+    """
+    from angineer_core.agent_tools import route_parallel_enabled as _memo_enabled, RetrieverAdapter
+
+    if not _memo_enabled() or load_nodes is None:
+        return None
+    q = (query or "").strip()
+    if not q:
+        return None
+    try:
+        threshold = int(os.getenv("ANGINEER_INJECT_FOLLOWUP_CHARS", "15"))
+    except ValueError:
+        threshold = 15
+    if len(q) <= threshold:
+        return None  # 跟进式短问：agent_loop 会改写检索词，预热键必不命中
+
+    try:
+        doc_nodes = load_nodes()
+    except Exception:  # noqa: BLE001
+        return None
+
+    def _run():
+        try:
+            tool = RetrieverAdapter.knowledge_search(
+                library_id=library_id or "default",
+                doc_ids=list(doc_ids or []),
+                doc_nodes=doc_nodes,
+                top_k=20,
+                task_type="content_qa",
+                filters=None,
+                rerank=True,
+                config_name=None,
+                mode="instruct",
+            )
+            tool.handler(query=q)
+        except Exception:  # noqa: BLE001
+            logger.debug("首轮检索预热失败（忽略）", exc_info=True)
+
+    thread = threading.Thread(target=_run, daemon=True, name="route-prewarm")
+    thread.start()
+    return thread
 
 
 async def route_request(

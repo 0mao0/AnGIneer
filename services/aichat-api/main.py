@@ -70,7 +70,9 @@ from middleware.api_key_auth import APIKeyAuthMiddleware
 from route_pre import (
     decision_intent_result,
     fallback_note_event,
+    fire_first_search_prewarm,
     route_debug_event,
+    route_parallel_enabled,
     route_pre_enabled,
     route_request,
 )
@@ -380,6 +382,21 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 return
 
             if route_pre_enabled():
+                # 基础并行（ANGINEER_ROUTE_PARALLEL，默认关）：与分类同时乐观预热 L1 首轮检索，
+                # 分类返回后 L1 命中经 agent_tools 检索 memo 单发复用（route_pre.fire_first_search_prewarm）。
+                # 预热必须先于 await route_request 发起才能真正与分类重叠。
+                if route_parallel_enabled():
+                    try:
+                        from chat_agent import _load_doc_nodes as _prewarm_load_nodes
+
+                        fire_first_search_prewarm(
+                            request.query,
+                            request.library_id,
+                            request.doc_ids,
+                            load_nodes=lambda: _prewarm_load_nodes(request.library_id, request.doc_ids),
+                        )
+                    except Exception:  # noqa: BLE001
+                        logger.debug("首轮检索预热未发起（忽略）", exc_info=True)
                 decision = await route_request(
                     query=request.query,
                     scene=request.scene or "qa",
