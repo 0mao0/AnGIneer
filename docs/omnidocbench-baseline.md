@@ -1,4 +1,4 @@
-# OmniDocBench markdown 交付面基线（200 页抽样）
+# OmniDocBench markdown 交付面基线（现行 1000 页；历史 200 页抽样）
 
 > **口径定位（2026-09-12 更正）**：本文件记录的是**官方 markdown 口径**——把我们的
 > `content.md` 交给官方评测器，由对方把 markdown 再切块后与 GT 比对。它量的是
@@ -32,7 +32,26 @@ python scripts/run_omnidocbench_eval.py eval --data-dir D:/AI/tools/OmniDocBench
     --out data/evals/omnidocbench/result_eval200
 ```
 
-## 总基线（200 页）
+## 现行基线（1000 页，2026-09-26，run `20260926-1305`）
+
+`--limit 1000 --seed 42`（`page_ids_hash=b7661b3a53a1`，`baseline.json` 已指向它；
+predict 4.43h ≈15.96s/页，A① 官方镜像 23min）。**与 200 页各列绝对值不可互比**——页集合不同
+（交集仅 190/200），扩样后 newspaper/magazine 等复杂版式占比更高；下表是 1000 页自身的
+新基线读数，后续同规模跑批与它比 Δ。
+
+| 指标 | 1000 页基线 | 方向 |
+|---|---|---|
+| 文本 Edit_dist（块级 / 整篇） | **0.0418 / 0.0470** | 越低越好 |
+| 表格 TEDS / 仅结构 | **0.8987 / 0.9236** | 越高越好 |
+| 表格内文字 Edit_dist | 0.0759 | 越低越好 |
+| 公式 Edit_dist | 0.1064 | 越低越好 |
+| 公式 CDM | **96.71%** | 越高越好 |
+| 阅读顺序 Edit_dist | 0.1386 | 越低越好 |
+
+MinerU 版本 3.4.5(n=999) + 3.4.4(n=1，1 页走 company 备端点兜底)。结构层（A②）同 run 的
+数字与折账记录见 `docs/parse-struct-eval.md`「现行基线（1000 页）」节。
+
+## 总基线（200 页，历史口径）
 
 | 指标 | 管道表投影（2026-09-12） | HTML 表投影 | fresh 解析（2026-09-17 上午） | **现行基线（2026-09-17 P0 修复后）** | 方向 |
 |---|---|---|---|---|
@@ -47,7 +66,7 @@ python scripts/run_omnidocbench_eval.py eval --data-dir D:/AI/tools/OmniDocBench
 （中列为 markdown 投影改落 HTML 表之后的 200 页成绩，见 `docs/parse-benchmark-comparison.md` 第八节；
 右列是**一键入口首次真跑**，见下节。）
 
-## 现行基线（2026-09-17 P0 修复后，run `20260917-1452-p0-dollar-200`）
+## 200 页基线（2026-09-17 P0 修复后，run `20260917-1452-p0-dollar-200`；已被 1000 页基线接替）
 
 **行内公式 `$` 定界符修复**（同一批 200 页、同 seed；噪声底实测 0，Δ 即改动效果）：
 
