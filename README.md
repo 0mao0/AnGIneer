@@ -69,13 +69,13 @@ hard 阶段失败终止后续、soft 阶段失败仅标记自身；支持单阶�
 
 #### (3) 回答成绩——Open RAG Bench v4 基线（nightly 门禁）
 
+**对比臂**：同一份 1040 题、同一个语料库、同一个判分引擎（生成模型两臂同为 Qwen3.6-35B），通用配方的朴素 RAG（固定切片 → 向量 top-5 → 直答，无结构化、无融合重排、无守卫）可答题正确率仅 71.1%——**全链领先 17.5 个百分点**，而两者文档级检索命中率几乎持平（96.5% vs 96.0%）：
+
+![朴素 RAG 对比臂：通用配方 vs AnGIneer 全链](docs/images/naive-rag-compare.png)
+
 Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 题 / 188 篇**（1001 可答 + 39 拒答，全库检索），判分引擎 DeepEval，2026-09-24 起为现行 nightly 门禁基线（快照钉在服务器 `data/evals/baseline/`，不进 git）：
 
 ![Open RAG Bench v4 基线](docs/images/openragbench-baseline.png)
-
-**对比臂**：同一份 1040 题、同一个语料库、同一个判分引擎，通用配方的朴素 RAG（固定切片 → 向量 top-5 → 直答，无结构化、无融合重排、无守卫）可答题正确率仅 71.1%——**全链领先 17.5 个百分点**，而两者文档级检索命中率几乎持平（96.5% vs 96.0%）：
-
-![朴素 RAG 对比臂：通用配方 vs AnGIneer 全链](docs/images/naive-rag-compare.png)
 
 - 拒答正确率是当前主要失分项：17 题属跨文档错配作答，逐题归因见 [docs/req-refusal-regression-attribution.md](docs/req-refusal-regression-attribution.md)；
 - 官方榜单（Vectara 托管于 HuggingFace Space）与本仓口径不同——子集与判分引擎均不一致，**不作直接对比**，只引用本仓可复现基线。
