@@ -6,6 +6,7 @@
 
 回滚：EVAL_ENGINE=legacy（默认）即恢复原判分链路。
 """
+import json
 import logging
 import time
 from typing import Any, Dict, List, Optional
@@ -46,6 +47,40 @@ _GEVAL_STEPS = [
 ]
 
 
+# 判分返回的 JSON 容错（写在源头而非各调用点：DeepEval 侧的解析器只裁大括号与删尾逗号，
+# 救不了「reason 里直抄含 LaTeX 原句 → 裸反斜杠」这一族，legacy 判分为此留的两级修复不能丢）。
+_NL = chr(10)
+_BS = chr(92)   # 反斜杠
+_DQ = chr(34)   # 双引号
+_JSON_HARDENING = (
+    f"【输出约束】只输出一个合法 JSON 对象：不要解释文字、不要 Markdown 围栏；"
+    f"字符串里引用原文时，反斜杠必须写成 {_BS}{_BS}、双引号必须写成 {_BS}{_DQ}"
+    f"（含 LaTeX 的原句尤其注意）。"
+)
+
+
+def _repair_judge_json(text: str) -> Optional[str]:
+    """判分返回 → 合法 JSON 字符串（与 legacy 判分同源的解析器）。
+
+    严格解优先（防宽松模式过度改写合法 JSON 字符串值），失败再走宽松模式（补非法转义、
+    尾逗号、围栏）；两种都解不出返回 None，交回 DeepEval 走它自己的错误路径。
+    """
+    if not (text or "").strip():
+        return None
+    from ai_inference.llm_response_parser import ParseError, extract_json_from_text
+
+    for strict in (True, False):
+        try:
+            data = extract_json_from_text(text, strict=strict)
+        except ParseError:
+            continue
+        except Exception:  # noqa: BLE001 解析器自身的意外异常不该把判分带崩
+            return None
+        if isinstance(data, dict):
+            return json.dumps(data, ensure_ascii=False)
+    return None
+
+
 def deepeval_available() -> bool:
     try:
         import deepeval  # noqa: F401
@@ -80,7 +115,27 @@ class DGXJudge(_BaseLLM):
     def get_model_name(self) -> str:
         return f"dgx-judge({','.join(str(c or '<default>') for c in self._candidates)})"
 
-    def generate(self, prompt: str, *args: Any, **kwargs: Any) -> str:
+    def generate(self, prompt: str, *args: Any, schema: Any = None, **kwargs: Any) -> str:
+        """DeepEval 的取值入口。schema = 调用方声明「这段返回会被当 JSON 解析」。
+
+        无 schema：与接入前逐字一致，原样返回文本（不动任何行为面）。
+        有 schema：先过一道宽松 JSON 修复，救不回再补一次强约束重采。判分模型把含 LaTeX 的
+        原句直抄进 reason 时写的是裸反斜杠，而 DeepEval 自带解析器只会裁大括号与删尾逗号，
+        于是整题落 fallback（2026-09-26 实踩：1040 题里 1 题栽在此，当晚结论全废）；legacy
+        判分早为此留了 strict→宽松两级修复，迁到 DeepEval 时没跟过来。仍救不回就原样返回，
+        交回 DeepEval 按它自己的口径报错——错误文案与哨兵留痕不变。
+        """
+        text = self._call_once(prompt)
+        if schema is None:
+            return text
+        repaired = _repair_judge_json(text)
+        if repaired is not None:
+            return repaired
+        logger.warning("judge 返回无法解析为 JSON（judge_used=%s），按强约束提示重采一次", self.last_judge_used)
+        return _repair_judge_json(self._call_once(_JSON_HARDENING + _NL * 2 + prompt)) or text
+
+    def _call_once(self, prompt: str) -> str:
+        """走一遍 judge 候选链取文本：单端点失败切下一项，全失败抛异常（哨兵留痕同接入前）。"""
         from ai_inference.llm_client import chat_result_guarded, get_llm_client
 
         client = get_llm_client()
@@ -97,7 +152,7 @@ class DGXJudge(_BaseLLM):
                 )
                 self.last_judge_used = config_name or "<被测默认>"
                 self.last_judge_failover = index > 0
-                return result.text
+                return result.text or ""
             except Exception as exc:  # noqa: BLE001 —— 单候选失败切下一候选
                 last_exc = exc
         raise RuntimeError(f"judge 候选链全部失败（{len(self._candidates)} 个端点）: {last_exc}")

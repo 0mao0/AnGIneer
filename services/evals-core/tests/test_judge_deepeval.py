@@ -80,6 +80,87 @@ def test_judge_all_candidates_fail_raises(monkeypatch):
         judge.generate("prompt")
 
 
+# ---- 判分返回的 JSON 容错（DeepEval 自带解析器只会裁大括号与删尾逗号，救不了这一族）----
+
+_BS = chr(92)    # 反斜杠
+_LATEX_BAD = '{"score": 0.9, "reason": "覆盖了 $' + _BS + 'hat{v}$ 与 ' + _BS + 'alpha 两点"}'
+
+
+def _fake_client(responses, calls):
+    """按序吐返回的假端点：每次调用记 (端点名, 提示词全文)，队列用尽后重复最后一条。"""
+    queue = list(responses)
+
+    def fake_guarded(client, messages, mode=None, config_name=None, temperature=None):
+        class _Result:
+            pass
+
+        result = _Result()
+        result.text = queue.pop(0) if queue else responses[-1]
+        calls.append((config_name, messages[0]["content"]))
+        return result
+
+    return fake_guarded
+
+
+def test_generate_without_schema_keeps_pre_change_behaviour(monkeypatch):
+    """不带 schema：与接入前逐字一致 —— 原样返回文本，不修也不重采（DeepEval 只在
+    要 JSON 的那几条调用上带 schema，其余调用路径的行为面一律不动）。"""
+    calls = []
+    monkeypatch.setattr(llm_client_module, "chat_result_guarded",
+                        _fake_client(['{"score": 0.9, "reason": "r"}'], calls))
+    monkeypatch.setattr(llm_client_module, "get_llm_client", lambda: object())
+    judge = DGXJudge(["judge-a"])
+    assert judge.generate("prompt") == '{"score": 0.9, "reason": "r"}'
+    assert len(calls) == 1
+
+
+def test_schema_repairs_latex_backslash_in_reason(monkeypatch):
+    """判分模型把含 LaTeX 的原句直抄进 reason 时写的是裸反斜杠（2026-09-26 实踩：1040 题里
+    1 题栽在此、当晚整条流水线无门禁结论）—— 宽松修复要救回来，且不多花一次端点调用。"""
+    calls = []
+    monkeypatch.setattr(llm_client_module, "chat_result_guarded", _fake_client([_LATEX_BAD], calls))
+    monkeypatch.setattr(llm_client_module, "get_llm_client", lambda: object())
+    judge = DGXJudge(["judge-a"])
+    parsed = json.loads(judge.generate("prompt", schema=object()))
+    assert parsed["score"] == 0.9
+    assert _BS + "hat{v}" in parsed["reason"]          # 修的是 JSON 转义，不是把内容改了
+    assert len(calls) == 1
+
+
+def test_schema_retries_once_with_output_constraint(monkeypatch):
+    """格式两次都救不回时补一次强约束重采，重采那次提示词带上前置的【输出约束】。"""
+    calls = []
+    monkeypatch.setattr(llm_client_module, "chat_result_guarded", _fake_client(
+        ["这道题判不了，我先说两句理由吧。", '{"score": 0.8, "reason": "补上了"}'], calls))
+    monkeypatch.setattr(llm_client_module, "get_llm_client", lambda: object())
+    judge = DGXJudge(["judge-a"])
+    parsed = json.loads(judge.generate("原始提示词", schema=object()))
+    assert parsed["score"] == 0.8
+    assert calls[0][1] == "原始提示词"
+    assert calls[1][1].startswith("【输出约束】") and calls[1][1].endswith("原始提示词")
+
+
+def test_schema_gives_up_and_returns_raw_for_deepeval_to_report(monkeypatch):
+    """重采仍救不回：原样返回，交回 DeepEval 按它自己的口径报错（错误文案与哨兵留痕不变）。"""
+    calls = []
+    monkeypatch.setattr(llm_client_module, "chat_result_guarded", _fake_client(["还是散文"], calls))
+    monkeypatch.setattr(llm_client_module, "get_llm_client", lambda: object())
+    judge = DGXJudge(["judge-a"])
+    assert judge.generate("p", schema=object()) == "还是散文"
+    assert len(calls) == 2                                    # 试了两轮才放弃
+    assert judge.last_judge_used == "judge-a"
+    assert judge.last_judge_failover is False
+
+
+def test_repair_judge_json_rejects_non_objects_and_fences():
+    from evals_core.runner.judge_deepeval import _repair_judge_json
+
+    assert _repair_judge_json("") is None
+    assert _repair_judge_json("[1, 2]") is None              # 不是对象 → 交回 DeepEval
+    fenced = "```json" + chr(10) + '{"score": 1}' + chr(10) + "```"
+    assert _repair_judge_json(fenced).startswith('{"score": 1}')
+
+
 # ---- _extract_contexts ----
 
 
