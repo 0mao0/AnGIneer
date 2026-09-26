@@ -18,6 +18,30 @@ logger = logging.getLogger(__name__)
 
 PASSED_THRESHOLD = 0.8
 
+
+def _decide_quality(primary_evaluator_name: str, all_scores: Dict[str, Any]) -> tuple:
+    """主评测器没给出分数 → quality=None（未评估），绝不拿其他评测器的分顶替。
+
+    检索分衡量的是「找没找到」，不是「答没答对」。旧逻辑在 primary score is None 时
+    会从其他评测器取分兜底，而 retrieval.score 几乎恒为 1.0 —— 判分崩掉的晚上整批题
+    被它记成答对（2026-09-23：476 题崩、442 题记 correct，当晚 88.78% vs 同日真判
+    83.46%；2026-09-25：915 题崩、卡片报 92.4% vs 补判后 87.31%，虚高 53 题）。
+    近六个 run 实测：走进这条分支的只有判分崩（semantic_fallback）的题，正常晚上 0 题，
+    故删掉跨评测器兜底对健康链路零影响。未评估题的下场：
+    - _compute_summary 计入 skipped，overall=correct/total 分母不变（自动按 0 分计）；
+    - 门禁 gate.passed/failed 只认 correct/wrong → 过渡矩阵落 skip，不参与回归判定。
+    """
+    primary_score = (all_scores.get(primary_evaluator_name) or {}).get("score")
+    if primary_score is None:
+        return "completed", None
+    if primary_score < PASSED_THRESHOLD:
+        return "completed", "wrong"
+    answer_scores = all_scores.get("answer") or {}
+    answer_correctness = answer_scores.get("correctness_score") if answer_scores.get("correctness_checked") else None
+    if answer_correctness is not None and answer_correctness < PASSED_THRESHOLD:
+        return "completed", "wrong"
+    return "completed", "correct"
+
 # 全局并发控制锁：确保同一时间只有一个评测任务在运行
 _eval_lock = threading.RLock()
 _current_run_id: Optional[str] = None
@@ -184,47 +208,14 @@ def _run_single_question(
         scores = evaluator.evaluate(question, gold_data, prediction)
         all_scores[ev_name] = scores
         all_predictions[ev_name] = prediction
-    primary_scores = all_scores.get(primary_evaluator_name, {})
-    primary_score = primary_scores.get("score")
-    if primary_score is None:
-        # 尝试从其他评测器获取有效 score 作为 fallback
-        fallback_score = None
-        for ev_name in evaluator_names:
-            if ev_name == primary_evaluator_name:
-                continue
-            ev_scores = all_scores.get(ev_name, {})
-            candidate = ev_scores.get("score")
-            if candidate is not None:
-                fallback_score = candidate
-                break
-        if fallback_score is None:
-            status = "completed"
-            quality = None
-        elif fallback_score < PASSED_THRESHOLD:
-            status = "completed"
-            quality = "wrong"
-        else:
-            status = "completed"
-            quality = "correct"
-    elif primary_score < PASSED_THRESHOLD:
-        status = "completed"
-        quality = "wrong"
-    else:
-        answer_scores = all_scores.get("answer", {})
-        answer_correctness = answer_scores.get("correctness_score") if answer_scores.get("correctness_checked") else None
-        if answer_correctness is not None and answer_correctness < PASSED_THRESHOLD:
-            status = "completed"
-            quality = "wrong"
-        else:
-            status = "completed"
-            quality = "correct"
+    status, quality = _decide_quality(primary_evaluator_name, all_scores)
     latency_ms = int((time.time() - start_time) * 1000)
     return {
         "status": status,
         "quality": quality,
         "prediction": last_prediction,
         "all_predictions": all_predictions,
-        "scores": primary_scores,
+        "scores": all_scores.get(primary_evaluator_name, {}),
         "all_scores": all_scores,
         "latency_ms": latency_ms,
     }
