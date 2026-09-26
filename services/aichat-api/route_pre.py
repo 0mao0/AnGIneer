@@ -38,7 +38,8 @@ def route_parallel_enabled() -> bool:
 
 
 def fire_first_search_prewarm(query: str, library_id: Optional[str], doc_ids: Optional[List[str]],
-                              load_nodes: Optional[Callable[[], list]] = None):
+                              load_nodes: Optional[Callable[[], list]] = None,
+                              has_history: bool = True):
     """乐观发起 L1 首轮检索预热（fire-and-forget 独立 daemon 线程）。
 
     参数必须与 agent_policy._l1_attempt → build_qa_config → RetrieverAdapter.knowledge_search
@@ -46,7 +47,8 @@ def fire_first_search_prewarm(query: str, library_id: Optional[str], doc_ids: Op
     mode="instruct" / doc_nodes=同源 _load_doc_nodes 结果），否则 agent_tools 的检索 memo
     键对不齐，预热白做甚至污染 citations（doc_title_map 缺失）。拿不到 load_nodes 宁可不预热。
 
-    短问跟进会被 §8.6 上下文化改写检索词 → memo 键必不命中，这里按同一字符阈值直接跳过。
+    跳过条件：短问（≤ANGINEER_INJECT_FOLLOWUP_CHARS）**且**有上文——§8.6 只在此组合下
+    改写检索词，memo 键必不命中；首问短句（无上文）不改写，预热照常受益。
     """
     from angineer_core.agent_tools import route_parallel_enabled as _memo_enabled, RetrieverAdapter
 
@@ -59,8 +61,8 @@ def fire_first_search_prewarm(query: str, library_id: Optional[str], doc_ids: Op
         threshold = int(os.getenv("ANGINEER_INJECT_FOLLOWUP_CHARS", "15"))
     except ValueError:
         threshold = 15
-    if len(q) <= threshold:
-        return None  # 跟进式短问：agent_loop 会改写检索词，预热键必不命中
+    if len(q) <= threshold and has_history:
+        return None  # 有上文的短问才会被 §8.6 改写检索词；首问短句不改写，照常预热
 
     try:
         doc_nodes = load_nodes()

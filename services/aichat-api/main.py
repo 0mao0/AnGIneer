@@ -394,6 +394,7 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                             request.library_id,
                             request.doc_ids,
                             load_nodes=lambda: _prewarm_load_nodes(request.library_id, request.doc_ids),
+                            has_history=bool(getattr(session, "history", None)),
                         )
                     except Exception:  # noqa: BLE001
                         logger.debug("首轮检索预热未发起（忽略）", exc_info=True)

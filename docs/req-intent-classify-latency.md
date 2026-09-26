@@ -84,7 +84,7 @@ POST /api/chat/agent
 | `ANGINEER_SOP_CACHE_TTL` | **300**（秒） | SOP 加载进程内缓存（mtime 信号失效），消灭每请求 ~47ms 全量重读 + index.json 重写 | =0 停用，回每请求全量重读旧路径 | `sop_loader.py::load_all` docstring |
 | `ANGINEER_OPS_DISABLE` | 未设 = 开 | TTFT/分类耗时观测落盘总开关 | 设 1 停用落盘 | `ops_metrics.py` 模块 docstring |
 | `ANGINEER_OPS_DIR` | `data/ops` | 观测 jsonl 目录覆盖 | — | 同上 |
-| `ANGINEER_INJECT_FOLLOWUP_CHARS`（既有） | 15 | 短问跟进检索词改写阈值；并行预热沿用同一阈值跳过短问 | — | agent_loop §8.6 既有定义 |
+| `ANGINEER_INJECT_FOLLOWUP_CHARS`（既有） | 15 | 短问跟进检索词改写阈值；并行预热在「短问**且**有上文」时跳过（首问短句不改写，照常预热） | — | agent_loop §8.6 既有定义 |
 
 仓库先例（ec2c17b）：`.env.example` 为乱码历史态不随开关更新，字段语义以代码 docstring 为准。
 
