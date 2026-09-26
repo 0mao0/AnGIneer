@@ -2,6 +2,7 @@ import os
 import glob
 import json
 import sys
+import time
 from typing import List, Dict, Any, Optional, Tuple
 
 # Ensure src can be imported
@@ -102,26 +103,77 @@ class SopLoader:
         self.sops: List[SOP] = []
         self.parser = SopParser()
         self.load_errors: Dict[str, str] = {}
+        self._cache: Optional[Dict[str, Any]] = None
 
     def load_all(self, include_status: Tuple[str, ...] = ("published",)) -> List[SOP]:
         """从索引文件加载 SOP 列表。如果索引不存在则自动生成。
 
+        带进程内缓存（需求 §5.6）：原实现每请求全量重读 60 个 JSON + 触发 refresh_index 重写
+        index.json（含 raw/ markdown 重解析），实测 ~47ms/请求 + 一次磁盘写。缓存以文件信号失效：
+        index.json mtime + json/、raw/ 目录快照（文件名+mtime_ns，~百次 stat 亚毫秒级）——
+        任何实例（含 sop_routes 的独立 loader）经 update_status/save_generated_sop/refresh_index
+        落盘后，下次 load_all 自动重建，无需跨实例通知。
+
         Args:
             include_status: 仅返回指定状态（默认 published）。
                 未审核（draft/reviewed/disabled）SOP 默认对分类器/路由/执行不可见。
+
+        开关：``ANGINEER_SOP_CACHE_TTL`` 秒（默认 300；0 = 停用缓存走原路径）。
+        注意：命中时返回共享 SOP 对象（各请求不拷贝）；现有写路径（update_status/record_run）
+        本就会把变更同步回 self.sops，语义与旧行为一致，调用方不得在请求内改写 SOP 内容。
         """
+        sops = self._load_all_cached()
+        self.sops = sops
+        if not include_status:
+            return list(sops)
+        statuses = set(include_status)
+        return [s for s in sops if s.status in statuses]
+
+    def _cache_ttl(self) -> float:
+        raw = (os.getenv("ANGINEER_SOP_CACHE_TTL", "") or "").strip()
+        try:
+            return max(float(raw), 0.0) if raw else 300.0
+        except ValueError:
+            return 300.0
+
+    def _snapshot(self):
+        """失效信号：index.json mtime + json/、raw/ 全部文件的 (名称, mtime_ns) 排序快照。"""
+        parts = []
+        try:
+            parts.append(("__index__", os.stat(self.index_file).st_mtime_ns))
+        except OSError:
+            parts.append(("__index__", -1))
+        for d in (self.json_dir, self.raw_dir):
+            try:
+                with os.scandir(d) as it:
+                    parts.extend((e.name, e.stat().st_mtime_ns) for e in it if e.is_file())
+            except OSError:
+                pass
+        parts.sort()
+        return tuple(parts)
+
+    def _load_all_cached(self) -> List[SOP]:
+        ttl = self._cache_ttl()
+        now = time.time()
+        cached = self._cache
+        if cached and ttl > 0 and (now - cached["built_at"]) <= ttl and cached["snapshot"] == self._snapshot():
+            return list(cached["sops"])
+        sops = self._load_all_refreshing()
+        self._cache = {"built_at": now, "snapshot": self._snapshot(), "sops": sops}
+        return sops
+
+    def _load_all_refreshing(self) -> List[SOP]:
         if not os.path.exists(self.index_file):
             print(f"SOP Index not found at {self.index_file}, generating...")
             self.refresh_index()
 
         self.sops = self._load_from_index()
         if any(s.blackboard is None for s in self.sops):
+            # 原实现每次请求都因 raw/ 黑板缺失重跑此分支并重写 index.json；
+            # 缓存化后只在重建时补跑一次，结果照旧接受（不无限循环）。
             self.refresh_index()
             self.sops = self._load_from_index()
-        if not include_status:
-            return list(self.sops)
-        statuses = set(include_status)
-        return [s for s in self.sops if s.status in statuses]
+        return self.sops
 
     def refresh_index(self):
         """生成或更新 index.json，优先扫描 json/ 目录，兼容 raw/ 目录。"""
