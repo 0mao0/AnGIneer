@@ -211,9 +211,24 @@ def bucket_ci_by_source(matrix, base_map, new_map, manifest, resamples, seed):
     return out
 
 
-def evaluate_gate(matrix, anomalies, overall_ci, overall_delta, bucket_cis):
+def evaluate_gate(matrix, anomalies, overall_ci, overall_delta, bucket_cis, tolerated=None):
+    """返回红档理由清单（空表=不红）。
+
+    tolerated：上层（nightly pipeline）已在阈值内放行的 judge_fail 题号。这批题不再当红档
+    触发器 —— 否则「阈值内放行」是空话：1 题判分崩会让一条实测 +2pp 的 run 被渲染成
+    「🔴 评测回归」（2026-09-26 补发当天结论时实踩）。只豁免 judge 侧、只豁免上层明确交
+    进来的题号，exec_error 照旧一律红；豁免不改事实留痕——anomalies 字段与卡片里的
+    「判分缺失」行都还写着这批题。
+    """
     reasons = []
-    pending = {k: v for k, v in anomalies.items() if k != anomaly.SLOW and v}
+    tol = set(tolerated or ())
+    pending = {}
+    for key, ids in anomalies.items():
+        if key == anomaly.SLOW or not ids:
+            continue
+        rest = [q for q in ids if q not in tol] if key == anomaly.JUDGE_FAIL else list(ids)
+        if rest:
+            pending[key] = rest
     if pending:
         reasons.append("新 run 存在未清零异常: " + ", ".join(f"{k}={len(v)}" for k, v in pending.items()))
     lo, hi = overall_ci
@@ -225,15 +240,19 @@ def evaluate_gate(matrix, anomalies, overall_ci, overall_delta, bucket_cis):
     return reasons
 
 
-def compare_runs(base_run: dict, new_run: dict, manifest: dict, resamples: int = 1000, seed: int = 42) -> dict:
-    """两次 run（details 字段须为 dict，见 normalize_run）→ 门禁结论 dict（键与旧 gate.json 一致）。"""
+def compare_runs(base_run: dict, new_run: dict, manifest: dict, resamples: int = 1000, seed: int = 42,
+                 tolerated=None) -> dict:
+    """两次 run（details 字段须为 dict，见 normalize_run）→ 门禁结论 dict（键与旧 gate.json 一致）。
+
+    tolerated 见 evaluate_gate 说明：由调用方（nightly pipeline）把阈值内放行的 judge_fail
+    题号交进来；CLI 侧不传即保持原严格口径。"""
     base_map, new_map = question_map(base_run), question_map(new_run)
     matrix, anomalies = transition_matrix(base_map, new_map)
     lo, hi = paired_delta_ci(matrix, resamples=resamples, seed=seed)
     comparable = sum(len(matrix[k]) for k in ("pp", "pf", "fp", "ff"))
     delta = (len(matrix["pf"]) - len(matrix["fp"])) / comparable if comparable else None
     bucket_cis = bucket_ci_by_source(matrix, base_map, new_map, manifest, resamples, seed)
-    reasons = evaluate_gate(matrix, anomalies, (lo, hi), delta, bucket_cis)
+    reasons = evaluate_gate(matrix, anomalies, (lo, hi), delta, bucket_cis, tolerated=tolerated)
     regressions = {qid: attribute(qid, base_map[qid], new_map[qid]) for qid in matrix["fp"]}
     base_label = base_run.get("_baseline_label") or base_run.get("run_id", "base")
     return {

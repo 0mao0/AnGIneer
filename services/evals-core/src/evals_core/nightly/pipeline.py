@@ -212,8 +212,12 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     manifest = await asyncio.to_thread(_load_json, paths.manifest_path())
     base_run = await asyncio.to_thread(gate.load_baseline)
     new_run = {"run_id": run_id, "dataset_id": dataset_id, "details": details}
-    gate_res = await asyncio.to_thread(
-        gate.compare_runs, base_run, gate.normalize_run(new_run), manifest or {"questions": []}, resamples)
+    # 阈值内放行的 judge_fail 题号交给门禁：否则「放行」是空话，1 题判分崩就能把实测 +2pp 的
+    # run 渲染成「🔴 评测回归」（2026-09-26 补发当天结论时实踩）。exec_error 不在豁免之内。
+    judge_ids = list((judge_missing or {}).get(anomaly.JUDGE_FAIL) or [])
+    gate_res = await asyncio.to_thread(lambda: gate.compare_runs(
+        base_run, gate.normalize_run(new_run), manifest or {"questions": []}, resamples,
+        tolerated=judge_ids or None))
     summary = await asyncio.to_thread(
         report.group_and_summarize, details, manifest or {"questions": []})
     report_md = report.render_markdown(summary)

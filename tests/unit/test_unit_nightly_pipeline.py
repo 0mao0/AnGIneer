@@ -193,7 +193,7 @@ class JudgeToleranceTests(_Env):
     def _judge_broken(qid):
         return dict(_detail(qid, "correct"), scores={"semantic_fallback": True})
 
-    def _run_and_capture_card(self, details_first, **kwargs):
+    def _run_and_capture_card(self, details_first, details_second=None, **kwargs):
         done = {"status": "completed", "summary_scores": _SUMMARY,
                 "started_at": "2026-09-06T01:00:00", "completed_at": "2026-09-06T02:00:00"}
         cards = []
@@ -202,7 +202,7 @@ class JudgeToleranceTests(_Env):
         kwargs.setdefault("webhook", "http://wecom.invalid/hook")
         self._common_patches(
             run_sequence=[{"status": "running"}, done, done, done, done],
-            details_sequence=[details_first, _NEW_DETAILS])
+            details_sequence=[details_first, details_second if details_second is not None else _NEW_DETAILS])
         with mock.patch("evals_core.nightly.pipeline.notify.send",
                         side_effect=lambda url, text: (cards.append(text), '{}')[1]):
             result = asyncio.run(pipeline.run_nightly(dataset_id="ds", retry_rounds=0, resamples=50, **kwargs))
@@ -241,7 +241,23 @@ class JudgeToleranceTests(_Env):
         with mock.patch.dict(os.environ, {"NIGHTLY_JUDGE_FAIL_MAX_PCT": "100", "NIGHTLY_JUDGE_FAIL_MAX": "20"}):
             result, _cards = self._run_and_capture_card(dirty)
         self.assertEqual(result["state"], "green")
-        self.assertEqual(result["judge_missing"], 3)
+
+    def test_tolerated_judge_fail_does_not_flip_conclusion_to_red(self):
+        """门禁独立性：放行后结论仍是绿 —— 不能把「判分没跑出来」渲染成「评测回归」。
+
+        2026-09-26 补发当天结论时实踩：残余 1 题判分崩、实测 +2.02pp 且无显著回归，
+        门禁却因「新 run 存在未清零异常: judge_fail=1」直接判红，阈值放行的效果被顶掉。
+        这里让落盘读到的那份明细也仍带该异常（details_second 传同一份 dirty），复现当时情形。
+        """
+        dirty = [self._judge_broken("q1"), _detail("q2", "correct", sem=0.8), _detail("q3", "correct")]
+        result, cards = self._run_and_capture_card(dirty, details_second=dirty)
+        self.assertEqual(result["state"], "green")
+        self.assertEqual(result["judge_missing"], 1)
+        self.assertIn("判分缺失", cards[0])                       # 豁免不等于隐身，卡片仍要说
+        self.assertNotIn("评测回归", cards[0])
+        entry = json.loads(next((self.tmp / "nightly").glob("*/nightly.json")).read_text(encoding="utf-8"))
+        self.assertEqual(entry["state"], "green")
+        self.assertEqual(entry["judge_missing"], {anomaly.JUDGE_FAIL: ["q1"]})
 
 
 if __name__ == "__main__":

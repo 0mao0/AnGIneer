@@ -16,6 +16,7 @@ if str(EVALS_CORE_SRC) not in sys.path:
     sys.path.insert(0, str(EVALS_CORE_SRC))
 
 from evals_core.nightly import gate  # noqa: E402
+from evals_core.runner import anomaly  # noqa: E402
 
 SNAPSHOT = {
     "run_id": "run-abc123",
@@ -112,6 +113,43 @@ class BaselineNotTrackedByGitTests(unittest.TestCase):
             tracked_json, [],
             f"data/evals/baseline/ 下有被 git 跟踪的基线文件 {tracked_json}——基线是运行时状态，"
             f"被跟踪会在每次部署被 git reset --hard 覆盖（2026-09-13 假绿灯事故）")
+
+
+class GateJudgeFailToleranceTests(unittest.TestCase):
+    """门禁的红档触发器：阈值内放行的判分缺失题不得再把结论打红。
+
+    2026-09-26 补发当天结论时实踩 —— 残余 1 题判分崩、实测 +2.02pp 且 CI 上界 3.94pp（无显著
+    回归），门禁却因「新 run 存在未清零异常: judge_fail=1」判红，把流水线刚做的阈值放行顶了回去，
+    群里收到的是一条「🔴 评测回归」。豁免只按上层交进来的题号、只豁免判分侧。
+    """
+
+    def _reasons(self, anomalies=None, **kwargs):
+        return gate.evaluate_gate({}, anomalies if anomalies is not None
+                                  else {anomaly.JUDGE_FAIL: ["q-judge-broken"]},
+                                  (None, None), None, {}, **kwargs)
+
+    def test_unjudged_questions_red_the_gate_when_not_tolerated(self):
+        """没被放行的判分缺失照旧判红（默认严格，豁免必须显式交进来）。"""
+        self.assertEqual(self._reasons(), ["新 run 存在未清零异常: judge_fail=1"])
+        self.assertEqual(self._reasons(tolerated=[]), ["新 run 存在未清零异常: judge_fail=1"])
+
+    def test_tolerated_judge_fail_does_not_red_the_gate(self):
+        self.assertEqual(self._reasons(tolerated=["q-judge-broken"]), [])
+
+    def test_only_the_tolerated_ids_are_exempted(self):
+        """题号必须逐字对上：不能因为上层放行了某些题就把整类异常都免掉。"""
+        self.assertEqual(self._reasons(tolerated=["别的题"]), ["新 run 存在未清零异常: judge_fail=1"])
+        self.assertEqual(self._reasons(anomalies={anomaly.JUDGE_FAIL: ["a", "b"]}, tolerated=["a"]),
+                         ["新 run 存在未清零异常: judge_fail=1"])
+
+    def test_exec_error_is_never_exempted(self):
+        """问答链路本身炸的题不在豁免范围 —— 即便上层把它的题号一起交进来。"""
+        anomalies = {anomaly.JUDGE_FAIL: ["a"], anomaly.EXEC_ERROR: ["b"]}
+        self.assertEqual(self._reasons(anomalies, tolerated=["a", "b"]),
+                         ["新 run 存在未清零异常: exec_error=1"])
+
+    def test_slow_stays_out_of_the_gate_as_before(self):
+        self.assertEqual(self._reasons({anomaly.SLOW: ["q1", "q2"]}, tolerated=["q1"]), [])
 
 
 if __name__ == "__main__":
