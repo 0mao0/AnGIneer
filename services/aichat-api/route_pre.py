@@ -34,7 +34,7 @@ def route_parallel_enabled() -> bool:
     分类延迟不再阻塞检索段。分类结果仍一票决定走哪段，路由正确性零风险；
     猜错（L2/L3/L4/闲聊）代价 = 一次 ~0.5s 的无效检索。
     """
-    return os.getenv(ROUTE_PARALLEL_ENV, "false").strip().lower() in ("true", "1", "yes", "on")
+    return os.getenv(ROUTE_PARALLEL_ENV, "true").strip().lower() in ("true", "1", "yes", "on")
 
 
 def fire_first_search_prewarm(query: str, library_id: Optional[str], doc_ids: Optional[List[str]],

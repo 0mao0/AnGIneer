@@ -254,7 +254,7 @@ _SEARCH_MEMO_MAX = 16
 
 
 def route_parallel_enabled() -> bool:
-    return (os.getenv("ANGINEER_ROUTE_PARALLEL", "false") or "").strip().lower() in ("true", "1", "yes", "on")
+    return (os.getenv("ANGINEER_ROUTE_PARALLEL", "true") or "").strip().lower() in ("true", "1", "yes", "on")
 
 
 def _search_memo_pop(key):

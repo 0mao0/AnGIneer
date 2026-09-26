@@ -88,7 +88,7 @@ POST /api/chat/agent
 
 | 开关 | 默认 | 作用 | 回退语义 | 定义位置 |
 | --- | --- | --- | --- | --- |
-| `ANGINEER_ROUTE_PARALLEL` | **false**（关） | 分类与首轮检索并行：请求进来即乐观预热 knowledge_search，分类返回后 L1 命中经检索 memo 单发复用，检索段移出关键路径 | 未设/false = 纯串行（行为同改造前） | `route_pre.py::route_parallel_enabled` docstring + `agent_tools.py` memo 注释块 |
+| `ANGINEER_ROUTE_PARALLEL` | **true**（开；2026-09-26 生产 A/B 实测后定，发版时默认关） | 分类与首轮检索并行：请求进来即乐观预热 knowledge_search，分类返回后 L1 命中经检索 memo 单发复用，检索段移出关键路径 | =false 回纯串行（行为同改造前） | `route_pre.py::route_parallel_enabled` docstring + `agent_tools.py` memo 注释块 |
 | `ANGINEER_CLAUSE_FASTPATH` | **true**（开） | 条款号问句（应符合/满足哪条规范、在哪条规范里）规则直达 L2 | =false 回 LLM 分类 | `classifier.py::_CLAUSE_NUMBER_PATTERN` 上方注释 |
 | `ANGINEER_SOP_CACHE_TTL` | **300**（秒） | SOP 加载进程内缓存（mtime 信号失效），消灭每请求 ~47ms 全量重读 + index.json 重写 | =0 停用，回每请求全量重读旧路径 | `sop_loader.py::load_all` docstring |
 | `ANGINEER_OPS_DISABLE` | 未设 = 开 | TTFT/分类耗时观测落盘总开关 | 设 1 停用落盘 | `ops_metrics.py` 模块 docstring |
@@ -129,3 +129,26 @@ POST /api/chat/agent
 
 **前提复核（顺带核实）**：生产两端点均经 angineer.cn 网关，ec2c17b（09-06）起隐式注入 `enable_thinking=False`——
 09-25 实测的分类 2.40~4.89s 与思考 token 无关，是 35B 的负载波动；本表 p50 1.22s 与 §5.4 基准 1.12s 互证。
+
+## 9. 生产验收结果（2026-09-26 晚，v0.2.79）
+
+生产 A/B（同 5 题 L1、同会话模式、间隔 10 分钟、同为晚间网关负载；开关经 .env 切换）：
+
+| 轮 | 基线 ttft（并行关） | 实测 ttft（并行开） | Δ | tool 段（检索） |
+| --- | --- | --- | --- | --- |
+| 1 乘潮水位 | 6055ms | 2568ms | -58% | 3286ms → 0ms（预热命中） |
+| 2 设计低水位 | 5269ms | 3339ms | -37% | 1916ms → 0ms |
+| 3 疏浚土分类 | 6258ms | 3204ms | -49% | 3060ms → 0ms |
+| 4 抛石基床作用 | 7585ms | 4990ms | -34% | 2525ms → 0ms |
+| 5 航道等级划分 | 4718ms | 2873ms | -39% | 1810ms → 0ms |
+| **中位数** | **6055ms** | **3204ms** | **-47%** | **5/5 预热全命中** |
+
+**验收判定**：
+
+- §3.1 ✅ ttft 中位数 **3204ms ≤ 6000ms**（裕量 47%）；tool dur=0ms 即 memo 命中直接证据，证据量与基线逐字一致（prompt 16314 vs 16311）。
+- §3.2 ✅ 分类耗时 p50 **1087ms ≤ 1500ms**（5 轮 1068~1506ms）。
+- §3.3 ⏳ nightly 明晚 01:00 在 v0.2.79 上首跑，对照基线 84.9% 后闭环。
+- §3.4 ✅ 开关默认值经生产 A/B 实测**定为「开」**（代码默认已翻转，生产 .env 已显式 =1）。
+
+**遗留移交**：ttft 内部的 prefill 段（2.5~5s，晚间）与 Q3/Q4 的 33k/29k prompt（历史累积）属
+`req-chat-history-bloat.md` 与 `req-table-retrieval-latency.md` 的管辖，不在本需求口径内。
