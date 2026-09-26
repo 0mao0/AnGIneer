@@ -83,7 +83,9 @@ def run_vector_startup_guard() -> VectorGuardReport:
     report.details["vector_store"] = store_stats
 
     if "error" in store_stats:
-        report.add_warning(f"向量库不可访问: {store_stats['error']}")
+        # 必须升 error：get_retrieve_warning 只在 ok=False 时给用户可见文本，
+        # warning 会让"连不上库"在检索侧与 /health 都装没事、与真空库无法区分
+        report.add_error(f"向量库不可访问: {store_stats['error']}")
         _save_report(report)
         return report
 

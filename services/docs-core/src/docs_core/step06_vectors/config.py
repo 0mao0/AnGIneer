@@ -20,8 +20,16 @@ def get_embedding_provider_name() -> str:
 
 
 # 解析当前 vector store provider 名称
+# 必填：未配置直接抛错。旧默认 chroma 会让漏配环境静默连一个空库
+# （素材体检向量假警报的病根），qdrant 定版后该默认已无意义。
 def get_vectorstore_provider_name() -> str:
-    return get_env_str("DOCS_VECTORSTORE_PROVIDER", "chroma").lower() or "chroma"
+    name = get_env_str("DOCS_VECTORSTORE_PROVIDER", "").lower()
+    if not name:
+        raise RuntimeError(
+            "DOCS_VECTORSTORE_PROVIDER 未配置（可选 qdrant/sqlite/chroma）——"
+            "请在 .env 显式声明；旧默认 chroma 已移除，防止静默连空库"
+        )
+    return name
 
 
 # Qdrant 连接配置（provider=qdrant 时生效）

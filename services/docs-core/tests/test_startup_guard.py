@@ -58,13 +58,15 @@ def test_embedding_probe_failure_is_error():
         assert any("连接超时" in e for e in report.errors)
 
 
-def test_store_unaccessible_is_warning():
+def test_store_unaccessible_is_error():
+    # 连不上库必须是 error（ok=False）：get_retrieve_warning 只在 ok=False 时上用户可见文本，
+    # 旧口径 warning 会让"连不上"与"真空库"在检索侧与 /health 都装没事
     with patch("docs_core.startup_guard._check_vector_store", return_value={
         "error": "database locked", "total_rows": 0, "zero_dimension_rows": 0, "expected_dimension": 0, "dimension_distribution": {}
     }):
         report = run_vector_startup_guard()
-        assert report.ok is True  # warning, not error
-        assert any("不可访问" in w for w in report.warnings)
+        assert report.ok is False
+        assert any("不可访问" in e for e in report.errors)
 
 
 def test_report_to_dict_serializable():

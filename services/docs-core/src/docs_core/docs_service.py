@@ -291,19 +291,14 @@ class DocsService:
             logger.info("docs_core 启用向量 provider=%s, backend=%s", provider_name, vector_store.__class__.__name__)
             return vector_store
         if provider_name == "chroma":
-            try:
-                vector_store = ChromaVectorStore()
-                logger.info("docs_core 启用向量 provider=%s, backend=%s", provider_name, vector_store.__class__.__name__)
-                return vector_store
-            except Exception as exc:
-                logger.warning("docs_core 初始Chroma 失败，回退SQLiteVectorStore: %s", exc)
-                vector_store = SQLiteVectorStore(db_path=self.index_db_path)
-                logger.info("docs_core 启用向量 provider=%s, backend=%s", "sqlite(fallback)", vector_store.__class__.__name__)
-                return vector_store
-        vector_store = SQLiteVectorStore(db_path=self.index_db_path)
-        logger.warning("docs_core 遇到未知向量provider=%s，回退%s", provider_name, vector_store.__class__.__name__)
-        logger.info("docs_core 启用向量 provider=%s, backend=%s", "sqlite(fallback)", vector_store.__class__.__name__)
-        return vector_store
+            # 配置错误/存储不可用一律 fail-fast：静默回退 sqlite 会让进程跑在空库上
+            # 继续答检索题（假警报病根），宁可从不起
+            vector_store = ChromaVectorStore()
+            logger.info("docs_core 启用向量 provider=%s, backend=%s", provider_name, vector_store.__class__.__name__)
+            return vector_store
+        raise ValueError(
+            f"未知向量 provider={provider_name!r}，可选 qdrant/sqlite/chroma"
+        )
 
     # 把数据库记录加载为内存对象缓存
     def _load_from_db(self) -> None:
