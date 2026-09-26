@@ -72,6 +72,22 @@ POST /api/chat/agent
 - 一份实测报告：改动前后 L1 注入轮 ttft_ms 分布（≥5 轮）、分类耗时分布、nightly 整体与路由对照结果。
 - 若结论是「收益不足/风险过大」也接受——把量化证据留下即可，避免下一个人重复踩。
 
+### P0 开关清单（2026-09-26 落地，集中索引）
+
+开关不写入 .env（全部有代码默认值，不设即按默认行为跑）；每条的完整语义在**定义处 docstring/注释**，
+此处只作索引。生产改 .env 后必须 `cd docker && docker compose up -d <服务>` 重建容器（restart 不读新 env，09-25 实踩）。
+
+| 开关 | 默认 | 作用 | 回退语义 | 定义位置 |
+| --- | --- | --- | --- | --- |
+| `ANGINEER_ROUTE_PARALLEL` | **false**（关） | 分类与首轮检索并行：请求进来即乐观预热 knowledge_search，分类返回后 L1 命中经检索 memo 单发复用，检索段移出关键路径 | 未设/false = 纯串行（行为同改造前） | `route_pre.py::route_parallel_enabled` docstring + `agent_tools.py` memo 注释块 |
+| `ANGINEER_CLAUSE_FASTPATH` | **true**（开） | 条款号问句（应符合/满足哪条规范、在哪条规范里）规则直达 L2 | =false 回 LLM 分类 | `classifier.py::_CLAUSE_NUMBER_PATTERN` 上方注释 |
+| `ANGINEER_SOP_CACHE_TTL` | **300**（秒） | SOP 加载进程内缓存（mtime 信号失效），消灭每请求 ~47ms 全量重读 + index.json 重写 | =0 停用，回每请求全量重读旧路径 | `sop_loader.py::load_all` docstring |
+| `ANGINEER_OPS_DISABLE` | 未设 = 开 | TTFT/分类耗时观测落盘总开关 | 设 1 停用落盘 | `ops_metrics.py` 模块 docstring |
+| `ANGINEER_OPS_DIR` | `data/ops` | 观测 jsonl 目录覆盖 | — | 同上 |
+| `ANGINEER_INJECT_FOLLOWUP_CHARS`（既有） | 15 | 短问跟进检索词改写阈值；并行预热沿用同一阈值跳过短问 | — | agent_loop §8.6 既有定义 |
+
+仓库先例（ec2c17b）：`.env.example` 为乱码历史态不随开关更新，字段语义以代码 docstring 为准。
+
 ## 8. 替换方案实测结论（2026-09-26，「等 Jev 进展」收口）
 
 **同 101 题三方对照**（40 题真金 = eval_question L1 抽样 + 61 题构造全层级边界题，gold 按分类法 v3 定义标注；
