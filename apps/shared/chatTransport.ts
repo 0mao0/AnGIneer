@@ -103,7 +103,11 @@ export const defaultAIChatTransport = {
         } catch {
           continue
         }
-        if (event.type === 'run_start') {
+        if (event.type === 'stage') {
+          // 后端显式阶段帧（分类开始时即发，2026-09-27）：等待期标签与真实阶段对齐
+          const next = String(event.stage || '')
+          if (next === 'classify' || next === 'search' || next === 'generate') setStage(next)
+        } else if (event.type === 'run_start') {
           runId = String(event.run_id || '')
           setStage('classify')
         } else if (event.type === 'turn_start') {
@@ -117,6 +121,11 @@ export const defaultAIChatTransport = {
             answer = ''
             options?.onAnswerReplace?.('')
           }
+          // 新 turn 开始 = 马上是 LLM 生成（含首字前的 prompt 读取），无条件切「生成回答…」——
+          // 有工具时避免「检索规范库（xs）」把 prefill 也算进去（实测检索 1.8s 标签 6s）；
+          // 无工具题（L0 闲聊/直答）此前会一直卡在「意图理解…」直到首字（2026-09-27 用户实测
+          // 7.3s 全程显示意图理解、而步骤只记 0.1s）。若该轮又调工具，tool_start 会切回检索。
+          setStage('generate')
         } else if (event.type === 'tool_start' || event.type === 'tool_end') {
           if (event.type === 'tool_start') setStage('search')
           liveThinkingSteps = applyAgentEventToThinking(event, liveThinkingSteps)
@@ -586,17 +595,30 @@ export function extractToolResultNote(content: string): string | undefined {
 
 /** 把 agent 事件实时转换为思考过程步骤（turn_start / tool_start / tool_end） */
 export function applyAgentEventToThinking(
-  event: { type?: string; turn?: number; payload?: any },
+  event: { type?: string; turn?: number; payload?: any; ts?: number },
   steps: ThinkingTraceStep[]
 ): ThinkingTraceStep[] {
   const turn = event?.turn != null ? Number(event.turn) : undefined
+  // 事件墙钟（后端每帧带 ts，秒）：折叠头总耗时与每步耗时标签用（2026-09-27）
+  const atMs = Number(event?.ts) > 0 ? Number(event.ts) * 1000 : undefined
+  const stamp = atMs != null ? { atMs } : {}
   if (event?.type === 'turn_start') {
-    return [...steps, { kind: 'turn', detail: '', ...(turn != null ? { turn } : {}) }]
+    return [...steps, { kind: 'turn', detail: '', ...stamp, ...(turn != null ? { turn } : {}) }]
   }
   if (event?.type === 'note') {
     const detail = String(event.payload?.detail || event.payload?.message || '')
     if (!detail) return steps
-    return [...steps, { kind: 'note', detail, ...(turn != null ? { turn } : {}) }]
+    const durationMs = Number(event.payload?.duration_ms)
+    return [
+      ...steps,
+      {
+        kind: 'note',
+        detail,
+        ...stamp,
+        ...(durationMs > 0 ? { durationMs } : {}),
+        ...(turn != null ? { turn } : {}),
+      },
+    ]
   }
   if (event?.type === 'tool_start') {
     return [
@@ -605,6 +627,7 @@ export function applyAgentEventToThinking(
         kind: 'call',
         tool: String(event.payload?.name || 'unknown'),
         detail: JSON.stringify(event.payload?.args || {}),
+        ...stamp,
         ...(turn != null ? { turn } : {}),
       },
     ]
@@ -617,6 +640,7 @@ export function applyAgentEventToThinking(
       detail: summarizeToolResult(event.payload?.result),
       isError: Boolean(event.payload?.is_error),
       // 实时 result 可能被截断，完整条目等 run_end 用消息重建
+      ...stamp,
       ...(turn != null ? { turn } : {}),
       ...(durationMs > 0 ? { durationMs } : {}),
     }
@@ -688,8 +712,9 @@ export function buildThinkingTrace(
   }
   for (const note of notes || []) {
     const detail = typeof note === 'string' ? note : String(note?.detail || '')
+    const durationMs = typeof note === 'string' ? 0 : Number((note as any)?.duration_ms)
     if (detail) {
-      steps.push({ kind: 'note', detail })
+      steps.push({ kind: 'note', detail, ...(durationMs > 0 ? { durationMs } : {}) })
     }
   }
   return steps
@@ -717,6 +742,7 @@ export function mergeThinkingTrace(
         used.add(entry.idx)
         merged.push({
           ...entry.step,
+          ...(live.atMs != null ? { atMs: live.atMs } : {}),
           ...(live.turn != null ? { turn: live.turn } : {}),
         })
       } else {
@@ -730,6 +756,7 @@ export function mergeThinkingTrace(
           ...entry.step,
           durationMs: live.durationMs || entry.step.durationMs,
           isError: live.isError ?? entry.step.isError,
+          ...(live.atMs != null ? { atMs: live.atMs } : {}),
           turn: live.turn ?? entry.step.turn,
         })
       } else {
@@ -742,6 +769,8 @@ export function mergeThinkingTrace(
         used.add(entry.idx)
         merged.push({
           ...entry.step,
+          ...(live.durationMs ? { durationMs: live.durationMs } : {}),
+          ...(live.atMs != null ? { atMs: live.atMs } : {}),
           ...(live.turn != null ? { turn: live.turn } : {}),
         })
         finalNotes.splice(sameEntryIdx, 1)

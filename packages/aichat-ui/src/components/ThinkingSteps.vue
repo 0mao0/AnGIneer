@@ -8,6 +8,7 @@
     <template v-if="group.kind === 'note'">
       <span class="thinking-step-note-label">
         <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
+        <span v-if="group.durationMs" class="thinking-step-cost">耗时{{ formatDuration(group.durationMs) }}</span>
         <span class="thinking-step-title">{{ noteTitle(group) }}</span>
         <span v-if="noteReason(group)" class="thinking-step-detail">（{{ noteReason(group) }}）</span>
       </span>
@@ -15,6 +16,7 @@
     <template v-else>
       <span class="thinking-step-label">
         <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
+        <span v-if="group.durationMs" class="thinking-step-cost">耗时{{ formatDuration(group.durationMs) }}</span>
         <span class="thinking-step-title">{{ formatThinkingStepTitle(group) }}</span>
         <span v-if="group.callDetail" class="thinking-step-detail">
           （{{ formatThinkingArgDetail(group.callDetail) }}）
@@ -40,7 +42,6 @@
         </template>
         调用结果：→ {{ group.resultDetail }}
         <template v-if="group.resultNote">；{{ group.resultNote }}</template>
-        <template v-if="group.durationMs">，耗时{{ formatDuration(group.durationMs) }}</template>
       </span>
 
       <div
@@ -229,6 +230,20 @@ const resultQuery = (group: ThinkingGroupStep): string => {
 
   .thinking-step-index {
     margin-right: 3px;
+  }
+
+  /* 每步耗时标签（2026-09-27）：统一「耗时x.x秒」，紧跟序号、位于文字前 */
+  .thinking-step-cost {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 0 6px;
+    border-radius: 8px;
+    background: var(--fill-quaternary, rgba(0, 0, 0, 0.06));
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    vertical-align: 1px;
   }
 
   .thinking-step-detail {

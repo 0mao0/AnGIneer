@@ -74,7 +74,7 @@
                   <BulbOutlined class="thinking-card-icon" />
                   <span class="thinking-card-label">
                     思考过程
-                    <template v-if="getThinkingStepCount(msg)">（{{ getThinkingStepCount(msg) }} 步<template v-if="getThinkingDuration(msg)"> · 工具耗时合计 {{ formatDuration(getThinkingDuration(msg)) }}</template>）</template>
+                    <template v-if="getThinkingStepCount(msg)">（{{ getThinkingStepCount(msg) }} 步<template v-if="getThinkingWall(msg)"> · 总耗时 {{ formatDuration(getThinkingWall(msg)) }}</template><template v-if="getThinkingDuration(msg)"> · 工具 {{ formatDuration(getThinkingDuration(msg)) }}</template>）</template>
                   </span>
                   <span class="thinking-card-arrow">
                     <DownOutlined v-if="isThinkingExpanded(msg)" />
@@ -171,7 +171,7 @@
               <div class="thinking-card-header static">
                 <BulbOutlined class="thinking-card-icon" />
                 <span class="thinking-card-label">
-                  思考过程（{{ getStreamingStepCount }} 步<template v-if="getStreamingDuration"> · 工具耗时合计 {{ formatDuration(getStreamingDuration) }}</template>）
+                  思考过程（{{ getStreamingStepCount }} 步<template v-if="getStreamingWall"> · 总耗时 {{ formatDuration(getStreamingWall) }}</template><template v-if="getStreamingDuration"> · 工具 {{ formatDuration(getStreamingDuration) }}</template>）
                 </span>
               </div>
               <div class="thinking-card-body">
@@ -401,6 +401,7 @@ import {
   formatDuration,
   groupThinkingSteps,
   sumThinkingDuration,
+  thinkingWallMs,
 } from '../utils/thinking'
 import { formatTokenCount } from '../utils/token'
 import { message } from 'ant-design-vue'
@@ -504,7 +505,7 @@ const isResizing = ref(false)
 const startY = ref(0)
 const startHeight = ref(0)
 const expandedCitationKeys = ref<string[]>([])
-const minInputHeight = 100
+const minInputHeight = 120
 const maxInputHeightRatio = 0.5
 
 const displayMessages = computed(() => {
@@ -523,18 +524,19 @@ const streamingCitations = computed(() => buildStreamingCitations())
 
 const getStreamingStepCount = computed(() => countThinkingSteps(streamingThinkingGroups.value))
 const getStreamingDuration = computed(() => sumThinkingDuration(streamingThinkingGroups.value))
+const getStreamingWall = computed(() => thinkingWallMs(streamingThinkingGroups.value))
 
-/** 等待期分段进度文案（A3）：按 transport 阶段事件推进，检索阶段带实时秒数；
+/** 等待期分段进度文案（A3）：按 transport 阶段事件推进，各阶段带实时秒数；
  *  stage 为空（旧 transport 未上报）退回「思考中...」 */
 const progressText = computed(() => {
   const seconds = props.elapsedSeconds > 0 ? `（${props.elapsedSeconds}s）` : ''
   switch (props.progressStage) {
     case 'classify':
-      return '意图理解…'
+      return `意图理解…${seconds}`
     case 'search':
       return `检索规范库…${seconds}`
     case 'generate':
-      return '生成回答…'
+      return `生成回答…${seconds}`
     default:
       return '思考中...'
   }
@@ -641,6 +643,9 @@ const getThinkingStepCount = (message: BaseChatMessage) => (
   countThinkingSteps(getThinkingGroups(message))
 )
 
+const getThinkingWall = (message: BaseChatMessage) => (
+  thinkingWallMs(getThinkingGroups(message))
+)
 const getThinkingDuration = (message: BaseChatMessage) => (
   sumThinkingDuration(getThinkingGroups(message))
 )

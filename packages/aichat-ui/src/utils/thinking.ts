@@ -10,6 +10,8 @@ export interface ThinkingGroupStep {
   resultDetail?: string
   isError?: boolean
   durationMs?: number
+  /** 步骤事件墙钟（ms）：折叠头「总耗时」= 末步-首步（2026-09-27） */
+  atMs?: number
   turn?: number
   citations?: AIChatCitation[]
   resultItems?: ThinkingTraceItem[]
@@ -31,6 +33,8 @@ export function groupThinkingSteps(steps: ThinkingTraceStep[]): ThinkingGroupSte
       kind: 'note',
       label: step.kind === 'turn' ? `第 ${step.turn || '?'} 轮` : undefined,
       detail: step.detail,
+      durationMs: step.durationMs,
+      atMs: step.atMs,
       turn: step.turn,
     })
   }
@@ -42,6 +46,7 @@ export function groupThinkingSteps(steps: ThinkingTraceStep[]): ThinkingGroupSte
         kind: 'pair',
         tool: step.tool || 'unknown',
         callDetail: step.detail,
+        atMs: step.atMs,
         turn: step.turn,
       }
       groups.push(open)
@@ -50,6 +55,7 @@ export function groupThinkingSteps(steps: ThinkingTraceStep[]): ThinkingGroupSte
         open.resultDetail = step.detail
         open.isError = step.isError
         open.durationMs = step.durationMs
+        if (step.atMs != null) open.atMs = step.atMs
         open.citations = step.citations
         open.resultItems = step.resultItems
         open.resultNote = step.resultNote
@@ -136,7 +142,18 @@ export function countThinkingSteps(groups: ThinkingGroupStep[]): number {
 
 /** 汇总工具执行耗时（ms），用于标题上的总耗时展示。 */
 export function sumThinkingDuration(groups: ThinkingGroupStep[]): number {
-  return (groups || []).reduce((sum, group) => sum + (group.durationMs || 0), 0)
+  // 只统计工具步骤：说明类步骤的 durationMs 不计入「工具耗时合计」
+  return (groups || []).reduce(
+    (sum, group) => sum + (group.kind === 'pair' ? group.durationMs || 0 : 0),
+    0
+  )
+}
+
+/** 折叠头「总耗时」：首末步骤事件墙钟之差（= run 从意图判断到生成完成的墙钟） */
+export function thinkingWallMs(groups: ThinkingGroupStep[]): number {
+  const stamps = (groups || []).map(g => g.atMs).filter((v): v is number => typeof v === 'number' && v > 0)
+  if (stamps.length < 2) return 0
+  return Math.max(...stamps) - Math.min(...stamps)
 }
 
 /** 耗时统一展示为秒，最多一位小数。 */

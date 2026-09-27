@@ -130,6 +130,8 @@ export interface ThinkingTraceStep {
   turn?: number
   isError?: boolean
   durationMs?: number
+  /** 事件到达墙钟（ms，epoch）：折叠头总耗时与相邻步间隔计算用（2026-09-27） */
+  atMs?: number
   citations?: AIChatCitation[]
   /** 工具返回的完整候选条目（knowledge_search/table_search/entity_search） */
   resultItems?: ThinkingTraceItem[]
