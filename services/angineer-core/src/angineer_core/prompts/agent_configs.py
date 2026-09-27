@@ -85,8 +85,22 @@ QA_AGENT_SYSTEM_PROMPT_V10 = (
     "再以「以下相关信息供参考」引出相邻片段（正常标注引用），禁止把相邻证据当作答案强行作答。\n"
 )
 
+QA_AGENT_SYSTEM_PROMPT_V11 = (
+    QA_AGENT_SYSTEM_PROMPT_V10
+    + "\n"
+    + "17. 检索工具为每条证据开头标注了【相关性 高/中/低(0-1 分)】——这是检索系统对"
+      "「该证据是否回答本问题」的独立打分：\n"
+      "    - 低（分数 < 0.25）＝几乎没在回答本问题：不得把它作为任何结论的依据，"
+      "不得为它单独写引用句；\n"
+      "    - 全部证据都是低分（或没有证据）＝知识库不含该题答案：必须按规则 3 拒答，"
+      "禁止用自己的常识或一般领域知识把答案拼出来；\n"
+      "    - 中/高分证据引用前先核对证据的陈述对象与问题主体是否同一事物——"
+      "同名不同域（如一般网络理论≠课程网络）或把整体统计区间当个体取值不算同一，"
+      "不同一就按规则 16 拒答收尾。\n"
+)
+
 # 当前版本别名（re-export 契约见 test_prompts.py；历史版本用 V<N> 常量显式引用）
-QA_AGENT_SYSTEM_PROMPT = QA_AGENT_SYSTEM_PROMPT_V10
+QA_AGENT_SYSTEM_PROMPT = QA_AGENT_SYSTEM_PROMPT_V11
 
 
 COMPLEX_AGENT_SYSTEM_PROMPT = (
@@ -145,6 +159,7 @@ register("agent_configs.qa_system_prompt", "v7", QA_AGENT_SYSTEM_PROMPT_V7)
 register("agent_configs.qa_system_prompt", "v8", QA_AGENT_SYSTEM_PROMPT_V8)
 register("agent_configs.qa_system_prompt", "v9", QA_AGENT_SYSTEM_PROMPT_V9)
 register("agent_configs.qa_system_prompt", "v10", QA_AGENT_SYSTEM_PROMPT_V10)
+register("agent_configs.qa_system_prompt", "v11", QA_AGENT_SYSTEM_PROMPT_V11)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
 register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)
 register("agent_configs.meta_system_prompt", "v2", META_AGENT_SYSTEM_PROMPT)

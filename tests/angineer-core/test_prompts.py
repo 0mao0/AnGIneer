@@ -131,12 +131,12 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("禁止把相邻证据当作答案强行作答", QA)
         self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无规则 16
 
-    def test_qa_prompt_latest_is_v10(self):
-        """latest 必须解析到 v10——字符串 max 会把 latest 钉死在 v9（"v9" > "v10" 字典序）。"""
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V10
+    def test_qa_prompt_latest_is_v11(self):
+        """latest 必须解析到最新版——字符串 max 会把 latest 钉死在旧版（"v9" > "v10" 字典序）。"""
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V11
 
-        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V10)
-        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v10")
+        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V11)
+        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v11")
 
     def test_followup_rule_avoids_leading_to_missing_content(self):
         from angineer_core.prompts.agent_configs import FOLLOWUP_QUESTION_RULE

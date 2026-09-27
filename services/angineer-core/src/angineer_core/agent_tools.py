@@ -28,6 +28,31 @@ def _context_top_n() -> int:
         return 15
 
 
+def _evidence_grade_enabled() -> bool:
+    """证据相关性标注开关（拒答根因方案①）：默认开；关时同时建议回退
+    ANGINEER_QA_PROMPT_VERSION=v10（V11 规则 17 引用该标签）。"""
+    return os.environ.get("ANGINEER_EVIDENCE_GRADE", "1").strip().lower() not in ("0", "false", "off")
+
+
+def _relevance_label(item: Any) -> str:
+    """证据相关性标签「【相关性 档 分】」：只认 rerank 分（0-1）；
+    无 rerank 分返回空串——融合分数未校准，不拿来冒充相关性。"""
+    raw_score = getattr(item, "rerank_score", None)
+    if raw_score is None:
+        return ""
+    try:
+        score = float(raw_score)
+    except (TypeError, ValueError):
+        return ""
+    try:
+        low = float(os.environ.get("ANGINEER_EVIDENCE_GRADE_LOW", "0.25"))
+        high = float(os.environ.get("ANGINEER_EVIDENCE_GRADE_HIGH", "0.6"))
+    except (TypeError, ValueError):
+        low, high = 0.25, 0.6
+    grade = "低" if score < low else ("高" if score >= high else "中")
+    return f"【相关性 {grade} {score:.2f}】"
+
+
 def _normalize_query(query: str) -> str:
     """条款号归一化走端口（docs-core 适配器）；未注册时原样返回（命中率优化，非正确性依赖）。"""
     from angineer_core import ports
@@ -496,16 +521,29 @@ def _assemble_search_result(
         # rerank 已排序：截断进 agent 上下文，控制 prompt 长度（prefill 耗时与输入成正比）
         items = list(items[:_context_top_n()])
     _assign_cites(items, marker_allocator or MarkerAllocator(), prefix)
+    grade_on = _evidence_grade_enabled()
     for item in items:
         doc_title = doc_title_map.get(str(item.doc_id or ""), "") or str(item.metadata.get("doc_title") or "")
-        if not doc_title:
-            continue
-        item.metadata["doc_title"] = doc_title
-        text_prefix = f"《{doc_title}》"
-        text = str(item.text or "")
-        if text and text_prefix not in text:
-            item.text = f"{text_prefix} {text}"
+        if doc_title:
+            item.metadata["doc_title"] = doc_title
+            text_prefix = f"《{doc_title}》"
+            text = str(item.text or "")
+            if text and text_prefix not in text:
+                item.text = f"{text_prefix} {text}"
+        if grade_on:
+            label = _relevance_label(item)
+            if label:
+                item.metadata["relevance"] = label
+                text = str(item.text or "")
+                if text and not text.startswith("【相关性"):
+                    item.text = f"{label} {text}"
     result = {"items": [_serialize_model(item) for item in items], "total": len(items)}
+    if grade_on and items:
+        result["relevance_scale"] = (
+            "相关性为检索系统对『证据是否回答本问题』的独立打分（0-1）："
+            "<0.25 低（不得作为结论依据）｜0.25-0.6 中｜≥0.6 高；"
+            "全部低分＝知识库不含该题答案，应拒答"
+        )
     result["evidences"] = _items_to_evidences(items, kind=kind, source=source, library_id=library_id)
     citations = _build_relevant_citations(query, items)
     if citations:

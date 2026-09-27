@@ -315,6 +315,8 @@ class AnswerEvaluator(BaseEvaluator):
             "final_outcome": data.get("final_outcome"),
             "path_trace": list(data.get("path_trace") or []),
             "trace_notes": list(data.get("trace_notes") or []),
+            # 判分口径豁免（2026-09-27）：半拒答剥头前原文，拒答题按原文判（剥头仅展示）
+            "answer_pre_strip": data.get("answer_pre_strip"),
         }
         result = enrich_prediction_trace(question, data, prediction)
 
@@ -331,7 +333,9 @@ class AnswerEvaluator(BaseEvaluator):
         except (TypeError, ValueError):
             error_count = 0
         scores["llm_error_count"] = error_count
-        if error_count > 0 and is_refusal(str(prediction.get("answer") or "")):
+        if error_count > 0 and (
+            is_refusal(str(prediction.get("answer") or "")) or scores.get("refusal_recognized_by")
+        ):
             # 拒答 + 存在被吞掉的 LLM 失败 → 大概率是"故障吞错式拒答"，不是校准过的正确拒答；
             # 分数维持原判（行为兼容），由汇总/门禁侧读取此标记识破满分假象
             scores["refusal_via_error"] = True
@@ -352,6 +356,23 @@ class AnswerEvaluator(BaseEvaluator):
             must_cite_section_paths = [str(item) for item in gold.get("gold_section_paths", []) if item]
         refusal_expected = bool(gold.get("refusal_expected", False))
         actual_refusal = is_refusal(answer)
+        # 拒答题判分豁免（2026-09-27，report-refusal-attribution-20260927 §4 拍板两项）：
+        # 只对 refusal_expected=True 生效的两种「模型其实已拒、标记不可见」——
+        #   ① 剥头毁标记：guard 半拒答剥头删掉了拒答开头 → 按 answer_pre_strip 原文判；
+        #   ② 实质拒答措辞：无任何标记、开头即「证据中未包含…」缺失声明。
+        # 作答类题（refusal_expected=False）不受影响：这两族措辞在合法部分覆盖回答里
+        # 同样高频，误伤会把正常答案判成拒答（0 分），故一律不启用。
+        from angineer_core.agent_messages import is_substantive_refusal
+
+        refusal_recognized_by: Optional[str] = None
+        if refusal_expected and not actual_refusal:
+            pre_strip = str(prediction.get("answer_pre_strip") or "")
+            if pre_strip and pre_strip != answer and is_refusal(pre_strip):
+                actual_refusal = True
+                refusal_recognized_by = "pre_strip"
+            elif is_substantive_refusal(answer):
+                actual_refusal = True
+                refusal_recognized_by = "substantive_wording"
         citation_ok = citations_match_section_paths(citations, must_cite_section_paths) if must_cite_section_paths else True
 
         if not answer:
@@ -375,6 +396,8 @@ class AnswerEvaluator(BaseEvaluator):
                     "citation_ok": citation_ok,
                     "refusal_expected": True,
                     "refusal_correct": True,
+                    # 判分来源：None=标准标记判为拒答；pre_strip/substantive_wording=豁免口径翻转（复跑对账用）
+                    "refusal_recognized_by": refusal_recognized_by,
                     "correctness_checked": False,
                     "semantic_evaluated": False,
                 }
@@ -386,6 +409,7 @@ class AnswerEvaluator(BaseEvaluator):
                     "citation_ok": citation_ok,
                     "refusal_expected": True,
                     "refusal_correct": False,
+                    "refusal_recognized_by": None,
                     "correctness_checked": False,
                     "semantic_evaluated": False,
                 }

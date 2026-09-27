@@ -94,6 +94,42 @@ def is_reference_refusal(text: str) -> bool:
     return is_refusal_text(content)
 
 
+# 实质拒答措辞（2026-09-27 判分口径专项）：模型不用任何拒答标记、但整段就是
+# 「证据里没有这个问题的答案」——28/39 复盘中 1 题真实措辞「检索结果中未包含关于…」，
+# 与剥头后正文同族（「并未包含关于」「并未提及」）。
+# 只配给评测判分用（answer_eval 在 refusal_expected=True 时调用）：
+# 不进 is_refusal_text、不进 guard/policy——「未提及/未包含」在合法部分覆盖里也高频
+# （「原文提到了X，但未列出具体…」），进生产判定会把部分覆盖回答误杀成拒答。
+# 因此判定面收窄到**首个引用标记之前**的开头窗口：真实拒答以缺失声明开篇，
+# 合法部分覆盖先给实质内容再补缺口（缺口句在引用之后）。
+SUBSTANTIVE_REFUSAL_PATTERNS = (
+    "未包含",      # 覆盖「并未包含」「检索结果中未包含」
+    "未提及",      # 覆盖「并未提及」
+    "未涉及",
+    "缺乏关于",
+)
+
+# 排除开篇即二元表态的回答：Yes/No 题的诱导作答（「是的，…未提及…」）不是拒答。
+# 真实实质拒答从表态开篇（实测样本首词「检索结果中」「已检索到的证据」）。
+SUBSTANTIVE_REFUSAL_AFFIRMATIVE_LEADS = ("是的", "不是", "yes", "no,")
+
+
+def is_substantive_refusal(text: str) -> bool:
+    """实质拒答：开头窗口以「证据中不存在该问题答案」式措辞开篇（无拒答标记）。
+
+    与 is_refusal_text 互补而非替代——后者认标记话术，本函数认「措辞即拒答」的
+    自发变体。**仅评测判分用**（见上方注释），生产链路（guard/回退/重试）不得调用。
+    """
+    content = text or ""
+    if not content.strip():
+        return False
+    lead = _lead_before_citation(content)
+    lowered = lead.strip().lower()
+    if lowered.startswith(SUBSTANTIVE_REFUSAL_AFFIRMATIVE_LEADS):
+        return False
+    return any(pattern in lead for pattern in SUBSTANTIVE_REFUSAL_PATTERNS)
+
+
 _HALF_REFUSAL_LEAD_PATTERNS = (
     "证据不足",
     "信息不足",

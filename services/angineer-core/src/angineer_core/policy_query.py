@@ -160,6 +160,8 @@ def run_policy_query(
         # 观测标注（agent_loop 产生）：终态 + 经历的分支，随返回 dict 透传给评测侧
         final_outcome = run_payload.get("final_outcome")
         path_trace = list(run_payload.get("path_trace") or [])
+        # 判分口径豁免：半拒答剥头前原文（answer 可能被 guard 改写过，评测按原文判拒答）
+        answer_pre_strip = run_payload.get("answer_pre_strip")
 
         # 3. 抽取答案 / 证据 / 引用 / SOP trace
         final_assistant = next(
@@ -271,6 +273,7 @@ def run_policy_query(
             # 观测标注：拒答归因/口径审计用（评测侧写入 prediction 持久化）
             "final_outcome": final_outcome,
             "path_trace": path_trace,
+            "answer_pre_strip": answer_pre_strip,
             "trace_notes": notes,
             "stage_timings": stage_timings,
             "prompt_versions": dict(_prompt_versions()),

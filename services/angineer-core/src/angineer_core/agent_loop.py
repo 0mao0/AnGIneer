@@ -689,6 +689,9 @@ class _AttemptMachine:
         # path_trace=按序经历的中间分支；跨段累积（apply 不重置），随 run_end 落盘。
         self.final_outcome: Optional[str] = None
         self.path_trace: List[str] = []
+        # 判分口径豁免（2026-09-27）：半拒答剥头前的原文，仅 half_refusal_stripped 时有值；
+        # 随 run_end 上浮供评测按原文判拒答（剥头只算展示层行为）。
+        self.answer_pre_strip: Optional[str] = None
         self.force_retrieve: Optional[Callable[[], Optional[str]]] = None
         self.first_search_injector: Optional[Callable[[], None]] = None
         self.current_turn = 0
@@ -1160,6 +1163,15 @@ def run_agent_loop(
     # （模型未调工具却输出 [Kx] 视为编造）。L0 闲聊档不装 guard，不受影响。
     guard_code = None
     if reason not in ("error", "cancelled"):
+        # 判分口径豁免：guard 会就地改写最终 assistant 正文，先留存剥头前原文
+        _pre_guard_answer = next(
+            (
+                m.content
+                for m in reversed(messages[start_idx:])
+                if m.role == "assistant" and not m.tool_calls
+            ),
+            None,
+        )
         guard_code = _apply_final_guard(machine.active_config, messages, start_idx, emit, run_id, turn, _add_note)
         # 观测标注：guard 结果修正 final_outcome（替换类覆盖、保留类补齐、清理类只记 path）
         if guard_code == "no_evidence":
@@ -1170,6 +1182,7 @@ def run_agent_loop(
             machine.final_outcome = "guard_replaced_tool_error"
         elif guard_code == "half_refusal_stripped":
             machine.final_outcome = "model_answer_stripped"
+            machine.answer_pre_strip = _pre_guard_answer
         elif guard_code == "refusal_kept":
             if machine.final_outcome not in ("model_refusal_kept", "finalized_refusal"):
                 machine.final_outcome = "model_refusal_kept"
@@ -1232,6 +1245,8 @@ def run_agent_loop(
                 # 观测标注：最终答案来源终态 + 经历的分支（拒答归因/口径审计用）
                 "final_outcome": machine.final_outcome,
                 "path_trace": list(machine.path_trace),
+                # 判分口径豁免：半拒答剥头前原文（仅 model_answer_stripped 有值）
+                "answer_pre_strip": machine.answer_pre_strip,
             },
         ),
     )
