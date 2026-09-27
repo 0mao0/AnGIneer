@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.79** ——意图分类提速 P0·观测落盘（TTFT/分类耗时/逐 LLM 轮/工具调用按日 JSONL 落 data/ops/，容器日志清零不再丢验收数据）；条款号规则快路径（「应符合哪条规范」类问句直达 L2，修复分类器漏路由 4 类题）；SOP 加载缓存（mtime 信号失效，消灭每请求 47ms 全量重读与 index.json 重写）；分类与首轮检索并行预热（ANGINEER_ROUTE_PARALLEL 默认关，检索段移出关键路径，实测命中后同题 ttft 5391→3342ms）；意图分类需求三轮勘误收口（Jev/Laya 101 题三方实测出局、ttft 口径勘误）；两份新交接需求（表格检索提速 + 长会话历史膨胀治理）；nightly/评测判定四连修（未评估不再拿检索分顶替、门禁不误红、判分缺失按阈值放行、DGXJudge LaTeX 容错）；nightly 卡片文案两处就地定性；admin-web 重新开源 + 知识树默认收起；aichat-ui 中断两缺陷修复（停止丢尾冲刷 + 计时器 unref）；README 大改版 + 1000 页基线升级（结构重构/结构层对比图/素材体检 B 层小节/基线图按层重排/首页标语与 hero 标注）；工程化（release-standalone.mjs 发版闸门 + .env.example 开关注册）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.80** ——表格检索提速 P0（产物缓存+启动预热+行聚合开关，table 段 6.5~8s→1.2~2.9s、L2 题 ttft -27~32%；探针先推翻 SQL 归因，实为重复归一化+候选爆炸）；检索分段计时落盘（方案E：stage_times 随返回值上浮、引擎层写 data/ops，docs-core 零引擎依赖不破，工具线程接上 run_id）；赌博式预检不再对表题下注、术语定版「赌博式预检≠启动预热」写入 AGENTS.md；意图分类与首轮检索并行定为默认开（生产 A/B：ttft 中位数 6055→3204ms、预检命中 5/5）；向量 provider 静默降级三连修（必填即抛、启动守卫 warning→error、砍静默回退）；等待期耗时口径对齐（三段标签全带实时秒数 + 思考过程每步「耗时x.x秒」）；浅色可读性三连修（气泡加深描边、回答中同灰、角标双主题同灰，并修暗色段选择器缺 html.dark）；刷新恢复会话不再闪 hero（本地先行）+ 顶栏「＋新对话」+ 输入区贴底；拒答链路观测标注（final_outcome 七态 + path_trace 随 run_end 落库）；朴素 RAG 对比臂进 README（1040 题：全链 88.6% vs 71.1%，hit@5 持平→增益在结构化与合成层）；臂3 金开卷阶段1 仅内部水位（同口径 86.6% vs 84.9%，判分配置双修）；需求与读数交接（意图分类 nightly 首跑归因收口、跨域 bench 接入需求定盘）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

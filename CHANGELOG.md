@@ -2,6 +2,21 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.80
+
+- 表格检索提速 P0：产物缓存（key=(doc_id,table_id)+指纹、LRU 8192，`ANGINEER_TABLE_TEXT_CACHE` 默认开）+ 启动预热 + 行聚合开关（`ANGINEER_TABLE_ROW_AGG` 默认关——改候选分布，待 nightly 召回对照后再定开）——观测先行推翻「SQL 是根因」归因（探针实测 SQL <2%，`scripts/obs_table_retrieval_probe.py`），真凶为逐候选重复归一化 + 候选爆炸；落地后 table 段 6.5~8s→1.2~2.9s、L2 题 ttft -27~32%
+- 检索分段计时落盘（方案E）：knowledge_search/table_search 两路 stage_times 随返回值上浮至引擎层、`record_event` 写 `data/ops/retrieval-*.jsonl`——docs-core 零引擎导入不破（否决 callback 注入/contextvar 总线/ops 下沉基座）；工具线程逐 submit `contextvars.copy_context().run`（ThreadPoolExecutor.submit 不传播 contextvars，不修则打点记录全丢 run_id 关联，红绿测试锁）
+- 赌博式预检不再对表题下注：表题 memo 键结构性不命中，预检白扫全库表还与主检索 GIL 互拖（实测并发 5.06s vs 单跑 1.3~2.9s）——`ANGINEER_SPECULATIVE_SKIP_TABLE` 默认开；术语定版写入 AGENTS.md：赌博式预检（请求级与分类并行下注）≠ 启动预热（启动缓存预热），两者不得混写「预热」
+- 意图分类与首轮检索并行定为默认开（`ANGINEER_ROUTE_PARALLEL` false→true）：生产同 5 题 L1 A/B（间隔 10 分钟、同为晚间负载）ttft 中位数 6055→3204ms（-47%）、tool 段预检命中 5/5；回退语义不变（=false 回纯串行）
+- 向量 provider 静默降级三连修：`DOCS_VECTORSTORE_PROVIDER` 必填未配置即抛（旧默认 chroma 让漏配环境静默连空库——素材体检向量假警报病根）；启动守卫「向量库不可访问」warning→error（旧口径下连不上与真空库都装没事）；docs_service 砍 chroma→sqlite、未知 provider→sqlite 两条静默路，配置错/存储不可用一律拒启不空跑；回归锁×4，docs-core 全量 411 passed
+- 等待期耗时口径对齐：三段标签（意图理解/检索规范库/生成回答）全带实时秒数、classify stage 帧提前到分类开始前发；思考过程每步「耗时x.x秒」标签——分类耗时经 `route_note_ms` 结构化接线、生成收尾步「生成完成」标签即整轮总耗时；耗时走结构化字段 `duration_ms` 同时进 SSE 帧与 run_end notes 两处（只改一处会静默丢字段）、不再嵌文案；步时刻取事件墙钟 `atMs`，折叠头总耗时=墙钟跨度
+- 浅色可读性三连修（业主逐项复验后收口）：问答气泡浅色底 #f5f5f5 比页底还白、看不到边界 → 加深至 #dfe2e7 + 1px 描边（宿主按主题给色，外部消费者零影响）；回答中流式气泡原淡蓝、与落下后不同色 → 两主题取气泡底同值；内联角标双主题统一深灰（悬停仍主色蓝——业主复评蓝悬停观感更好，已注释勿当 bug 修）；另修 index.less 暗色段选择器缺 `html.dark`——ui-kit 宿主只挂类名、data-theme 从未落地，此前暗色段对宿主整段静默失效
+- 会话恢复与新对话入口：刷新恢复本地先行（localStorage 快照先画、服务端对账在后），消除「先闪 hero 态再回到对话」；顶栏新增「＋新对话」（历史入口左侧）；输入区贴底 + 最小高度 120、拖拽缩放底边不位移
+- 拒答链路观测标注：final_outcome 七态终态 + path_trace 分支序列随 run_end/prediction 落库——朴素臂 vs 全链拒答守卫差异的归因依据（跨域 bench 待办）
+- 朴素 RAG 对比臂进 README：同 1040 题同语料同判分，全链可答题 88.6% vs 通用配方 71.1%（领先 17.5pp）、hit@5 持平（96.5% vs 96.0%）→ 增益不在检索层、在块级上下文与答案合成层；预注册判据跑前写死 + 可重入跑批；对比图（朴素=蓝/全链=绿，配色按图类分治+网格纹理）与绘图脚本入库，README 回答成绩小节调序
+- 臂3 金开卷直读阶段1（仅内部水位、不得对外声称）：修正臂2/3 两套拒答判分混用（GEval 把拒答文本判通过）后同口径重算 86.6% vs 全链 84.9%；全链价值主张转向检索（oracle vs 自找）、成本与可溯源；判分配置双修——推理模型 max_tokens 1024→4096（思考吃光预算致 160 题空答）、判分并发默认 2（此前 28 并发打挂网关、首判 84% 失败静默缩分母）
+- 需求与读数交接：意图分类 v0.2.79 nightly 首跑 84.42% green（对基线 -0.48pp、CI 跨零不显著；净降主体为生成抖动×更严 judge 正常翻转——测量更诚实非退化）；跨域 bench 接入需求定盘——P1 FinanceBench（oracle 85%/现实 47%）、P2 JEC-QA（纠错：为中国法考题集）、LegalBench-RAG/COLIEE 出局理由记录在案
+
 ## v0.2.79
 
 - 意图分类提速 P0·观测落盘：TTFT/分类耗时/逐 LLM 轮/逐工具调用按日 JSONL 落 `data/ops/<kind>-<日期>.jsonl`——容器日志随 docker 重建清零（09-26 实测 09-25 旧日志全丢），验收口径以落盘为准；四类记录按 run_id+turn 关联即可拆出 ttft 内部构成（检索/重试/prefill 各占多少）；`classify_intent` 改计时包装（实现下沉 `_classify_intent_impl`，调用方无感）；tests/conftest 全局停用落盘防单测污染生产观测（实测 59 条混入）；`ANGINEER_OPS_DISABLE` 停用、`ANGINEER_OPS_DIR` 覆盖
