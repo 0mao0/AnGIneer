@@ -40,8 +40,10 @@ class DocsRetrievalClientTests(unittest.TestCase):
     def test_retrieve_posts_and_rebuilds_items(self):
         client = DocsRetrievalClient("http://docs-api:8010/")
         with patch("angineer_core.docs_retrieval_client.requests.post") as mock_post:
-            mock_post.return_value = _FakeResponse({"items": [_item_payload()], "total": 1})
-            items = client.retrieve(
+            mock_post.return_value = _FakeResponse(
+                {"items": [_item_payload()], "total": 1, "stage_times": {"dense": 0.5, "fuse": 0.01}}
+            )
+            items, stages = client.retrieve(
                 mode="text", query="测试", library_id="lib-x", doc_ids=["d1"],
             )
 
@@ -53,6 +55,15 @@ class DocsRetrievalClientTests(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0].item_id, "a")
         self.assertEqual(items[0].metadata["doc_title"], "规范A")
+        self.assertEqual(stages, {"dense": 0.5, "fuse": 0.01})  # 方案 E：分段计时随响应上浮
+
+    def test_retrieve_without_stage_times_returns_empty_meta(self):
+        client = DocsRetrievalClient("http://docs-api:8010")
+        with patch("angineer_core.docs_retrieval_client.requests.post") as mock_post:
+            mock_post.return_value = _FakeResponse({"items": [_item_payload()], "total": 1})
+            items, stages = client.retrieve(mode="text", query="q", library_id="default")
+        self.assertEqual(len(items), 1)
+        self.assertEqual(stages, {})
 
     def test_retrieve_raises_on_error_payload(self):
         client = DocsRetrievalClient("http://docs-api:8010")
@@ -78,13 +89,16 @@ class KnowledgeSearchClientWiringTests(unittest.TestCase):
         from docs_core.step09_query.protocols.contracts import RetrievedItem
 
         client = Mock()
-        client.retrieve.return_value = [
-            RetrievedItem(
-                item_id="a", entity_type="chunk", doc_id="d1",
-                title="条文", text="正文证据", score=0.9,
-                metadata={"doc_title": "规范A"},
-            )
-        ]
+        client.retrieve.return_value = (
+            [
+                RetrievedItem(
+                    item_id="a", entity_type="chunk", doc_id="d1",
+                    title="条文", text="正文证据", score=0.9,
+                    metadata={"doc_title": "规范A"},
+                )
+            ],
+            {},
+        )
 
         tool = RetrieverAdapter.knowledge_search(library_id="lib-x", retrieval_client=client)
         result = tool.handler(query="测试")
@@ -139,12 +153,15 @@ class KnowledgeSearchClientWiringTests(unittest.TestCase):
         from docs_core.step09_query.protocols.contracts import RetrievedItem
 
         client = Mock()
-        client.retrieve.return_value = [
-            RetrievedItem(
-                item_id="t1", entity_type="table", doc_id="d1",
-                title="表", text="表格内容", score=0.7, metadata={},
-            )
-        ]
+        client.retrieve.return_value = (
+            [
+                RetrievedItem(
+                    item_id="t1", entity_type="table", doc_id="d1",
+                    title="表", text="表格内容", score=0.7, metadata={},
+                )
+            ],
+            {},
+        )
 
         tool = RetrieverAdapter.table_search(library_id="lib-x", retrieval_client=client)
         result = tool.handler(query="表格")

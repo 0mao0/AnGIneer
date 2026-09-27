@@ -15,12 +15,24 @@ from docs_core.step09_query.retrieval.query_normalizer import (
 
 
 # 基于关键词重叠计算轻量业务加权，不再作为 dense 主召回逻辑。
-def score_text(query_tokens: Iterable[str], title: str, content: str) -> float:
-    """在统一归一化后的文本上做轻量词项重叠打分。"""
+def score_text(
+    query_tokens: Iterable[str],
+    title: str,
+    content: str,
+    *,
+    normalized_haystack: Optional[str] = None,
+    tokens_pre_normalized: bool = False,
+) -> float:
+    """在统一归一化后的文本上做轻量词项重叠打分。
+
+    normalized_haystack：调用方已持有 normalize_match_text(f"{title}\n{content}") 时传入，跳过重复归一化；
+    tokens_pre_normalized：query_tokens 已是归一化产物（如 tokenize_query 输出）时置 True，跳过逐 token 归一化。
+    均为可选快路径（表格检索逐行打分热点，2026-09-26），不传行为与旧版逐位一致。
+    """
     score = 0.0
-    haystack = normalize_match_text(f"{title}\n{content}")
+    haystack = normalized_haystack if normalized_haystack is not None else normalize_match_text(f"{title}\n{content}")
     for token in query_tokens:
-        normalized_token = normalize_match_text(token or "")
+        normalized_token = (token or "") if tokens_pre_normalized else normalize_match_text(token or "")
         if re.fullmatch(r"\d+", normalized_token or ""):
             continue
         if normalized_token and normalized_token in haystack:

@@ -6,6 +6,7 @@
 开关与健壮性：全程 best-effort，任何 IO 异常吞掉（观测失败绝不能影响主链路）；
 ``ANGINEER_OPS_DIR`` 覆盖目录；``ANGINEER_OPS_DISABLE=1`` 整体停用。
 """
+import contextvars
 import json
 import logging
 import os
@@ -16,6 +17,19 @@ from typing import Any, Dict, Optional
 logger = logging.getLogger(__name__)
 
 _BJ_TZ = timezone(timedelta(hours=8))
+
+# 当前 run 的关联键：agent_loop 开跑时 set，本包内 record_event 自动附带——
+# 让深层打点（如 agent_tools 的检索分段）无需层层透传 run_id；不跨包暴露。
+_current_run_id: "contextvars.ContextVar[Optional[str]]" = contextvars.ContextVar("ops_current_run_id", default=None)
+
+
+def set_run_id(run_id: Optional[str]) -> None:
+    """绑定当前上下文的 run_id（agent_loop 开跑处调用），供 record_event 自动附带。"""
+    _current_run_id.set(run_id)
+
+
+def current_run_id() -> Optional[str]:
+    return _current_run_id.get()
 
 
 def _repo_root() -> Path:
@@ -39,18 +53,26 @@ def ops_enabled() -> bool:
 
 
 def record_event(kind: str, payload: Optional[Dict[str, Any]] = None) -> None:
-    """追加一条观测到 data/ops/<kind>-<当日>.jsonl；失败静默（打点永不影响业务）。"""
+    """追加一条观测到 data/ops/<kind>-<当日>.jsonl；失败静默（打点永不影响业务）。
+
+    payload 未显式带 run_id 时自动附加上下文绑定的 run_id（见 set_run_id）；
+    显式值优先，上下文无绑定则不落该键。"""
     if not kind or not ops_enabled():
         return
     try:
         now = datetime.now(timezone.utc)
         day = now.astimezone(_BJ_TZ).strftime("%Y%m%d")
+        fields = dict(payload or {})
+        if fields.get("run_id") is None:
+            ctx_run_id = _current_run_id.get()
+            if ctx_run_id:
+                fields["run_id"] = ctx_run_id
         line = json.dumps(
             {
                 "ts_utc": now.isoformat(timespec="milliseconds"),
                 "ts_bj": now.astimezone(_BJ_TZ).isoformat(timespec="seconds"),
                 "kind": kind,
-                **(payload or {}),
+                **fields,
             },
             ensure_ascii=False,
         )

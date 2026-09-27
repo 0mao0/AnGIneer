@@ -22,9 +22,20 @@ def _tokenize_cached(query: str):
 
 
 # 计算偏精确匹配的 sparse 分数。
-def score_sparse_match(query: str, text: str, title: str = "", task_type: str = "") -> float:
+# normalized_text：调用方已持有 normalize_match_text(f"{title}\n{text}") 时传入可跳过重复归一化
+# （表格检索逐行打分的热点，2026-09-26）；不传行为与旧版逐位一致。
+def score_sparse_match(
+    query: str,
+    text: str,
+    title: str = "",
+    task_type: str = "",
+    *,
+    normalized_text: Optional[str] = None,
+) -> float:
     normalized_query = normalize_match_text(query)
-    normalized_text = normalize_match_text(f"{title}\n{text}")
+    raw_text = f"{title}\n{text}"
+    if normalized_text is None:
+        normalized_text = normalize_match_text(raw_text)
     if not normalized_query or not normalized_text:
         return 0.0
     score = 0.0
@@ -37,7 +48,7 @@ def score_sparse_match(query: str, text: str, title: str = "", task_type: str = 
         if token and token in normalized_text:
             score += token_scoring_weight(token)
     for clause_ref in extract_clause_refs(query):
-        if contains_clause_ref(f"{title}\n{text}", clause_ref):
+        if contains_clause_ref(raw_text, clause_ref):
             score += 6.0
     if normalized_query in normalized_text:
         score += 4.0

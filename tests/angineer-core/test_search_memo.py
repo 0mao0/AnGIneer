@@ -20,7 +20,7 @@ class CountingClient:
 
     def retrieve(self, **kwargs):
         self.calls += 1
-        return []
+        return [], {}
 
 
 def base_kwargs(client, **overrides):

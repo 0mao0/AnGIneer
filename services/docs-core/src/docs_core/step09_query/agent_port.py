@@ -22,6 +22,12 @@ def _looks_like_table_query(query: str) -> bool:
     return any(hint in text for hint in _TABLE_QUERY_HINTS)
 
 
+# 公开别名：请求级预热（aichat-api/route_pre）用它做「必输局不下注」的先验门
+# ——表题的真实调用走 table_search（无检索 memo），预热产物结构性无法被消费
+# （req-table-retrieval-latency §11）。
+looks_like_table_query = _looks_like_table_query
+
+
 def normalize_query(query: str) -> str:
     """中文数字条款号转阿拉伯数字（"第六十条"→"第60条"），提升 ClauseResolver 精确命中率。"""
     from .retrieval.query_normalizer import normalize_chinese_clause_numbers
@@ -143,7 +149,9 @@ def knowledge_local_search(
             full = table_text_by_id.get(tid) or ""
             if full and len(full) > len(str(item.text or "")):
                 item.text = full
-    return {"items": items}
+    # stage_times 随返回值上浮：引擎层（agent_tools）选择性消费后落 ops jsonl，
+    # docs-core 不感知观测设施（req-table-retrieval-latency §10 方案 E）。
+    return {"items": items, "stage_times": dict(stage_times)}
 
 
 def table_local_search(
@@ -179,23 +187,43 @@ def table_local_search(
         table_r = table_r or TableRetriever()
         formula_r = formula_r or FormulaRetriever()
 
+    # 分段计时（2026-09-26 表格检索提速观测报告 §9.4）：L2 查表题主路径此前完全无检索打点，
+    # 只有 rerank 计时可见；对齐 knowledge_local_search 的分段计时口径，供前后对照。
+    stage_times: Dict[str, float] = {}
     sources: Dict[str, List[Any]] = {}
+    _t = time.perf_counter()
     try:
         sources["table"] = list(table_r.retrieve(request, nodes) or [])
     except Exception as exc:  # noqa: BLE001
         sources["table"] = []
         sources["table_error"] = str(exc)
+    stage_times["table"] = time.perf_counter() - _t
+    if "table_error" in sources:
+        logger.warning("table_search %s 检索器异常，已按空结果继续: %s", "table", sources["table_error"])
+    _t = time.perf_counter()
     try:
         sources["formula"] = list(formula_r.retrieve(request, nodes) or [])
     except Exception as exc:  # noqa: BLE001
         sources["formula"] = []
         sources["formula_error"] = str(exc)
+    stage_times["formula"] = time.perf_counter() - _t
+    if "formula_error" in sources:
+        logger.warning("table_search %s 检索器异常，已按空结果继续: %s", "formula", sources["formula_error"])
 
     candidate_sources = {k: v for k, v in sources.items() if isinstance(v, list)}
     if not candidate_sources:
         return {"error": "表格检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
+    _t = time.perf_counter()
     items, _debug = fuse_candidates(candidate_sources, task_type="table_qa", top_k=top_k)
-    return {"items": items}
+    stage_times["fuse"] = time.perf_counter() - _t
+    logger.info(
+        "table_search 分段计时(本地召回): %s items=%d query=%r",
+        " ".join(f"{k}={v:.2f}s" for k, v in stage_times.items()),
+        len(items),
+        query[:40],
+    )
+    # stage_times 随返回值上浮（同 knowledge_local_search，方案 E）
+    return {"items": items, "stage_times": dict(stage_times)}
 
 
 def entity_local_search(

@@ -70,7 +70,7 @@ from middleware.api_key_auth import APIKeyAuthMiddleware
 from route_pre import (
     decision_intent_result,
     fallback_note_event,
-    fire_first_search_prewarm,
+    fire_speculative_first_search,
     route_debug_event,
     route_parallel_enabled,
     route_pre_enabled,
@@ -204,6 +204,13 @@ def _warm_retrieval_caches_on_startup() -> None:
                 top_k=5,
                 nodes=_load_doc_nodes("default", []),
             )
+            # 表格归一化产物预热：上述两条查询都不触发表格路，重启后首个 L2 查表题
+            # 要付一次性构建成本（2026-09-26 表格检索提速 §10，实测冷 2.94s vs warm 2.61s）；
+            # 显式遍历 default 库全表建缓存（2026-09-26 实测 ~1s），失败不影响服务
+            from docs_core.step09_query.retrieval.table_retriever import prewarm_table_artifacts
+
+            _tables = prewarm_table_artifacts("default")
+            logger.info("表格归一化产物预热完成: %d 表，耗时 %.2fs", _tables, time.perf_counter() - started)
             logger.info("检索缓存后台预热完成，耗时 %.2fs", time.perf_counter() - started)
         except Exception as exc:  # noqa: BLE001
             logger.warning("检索缓存预热失败（不影响服务）: %s", exc)
@@ -381,23 +388,28 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 yield f"data: {json.dumps({'type': 'error', 'error': '上一次生成尚未结束，请稍后重试'}, ensure_ascii=False)}\n\n"
                 return
 
+            # 阶段帧（2026-09-27）：分类自此开始——前端「意图理解…（xs）」覆盖真实分类等待，
+            # 不再全程显示默认「思考中...」（此前的首个 SSE 帧要等分类完成才发，标签与实际错位）。
+            # route_pre 分支下赌博式预检与分类并行，同样自此刻起算。
+            yield f"data: {json.dumps({'type': 'stage', 'stage': 'classify'}, ensure_ascii=False)}\n\n"
+
             if route_pre_enabled():
-                # 基础并行（ANGINEER_ROUTE_PARALLEL，默认关）：与分类同时乐观预热 L1 首轮检索，
-                # 分类返回后 L1 命中经 agent_tools 检索 memo 单发复用（route_pre.fire_first_search_prewarm）。
-                # 预热必须先于 await route_request 发起才能真正与分类重叠。
+                # 基础并行（ANGINEER_ROUTE_PARALLEL）：与分类同时赌博式预检 L1 首轮检索，
+                # 分类返回后 L1 命中经 agent_tools 检索 memo 单发复用（route_pre.fire_speculative_first_search）。
+                # 预检必须先于 await route_request 发起才能真正与分类重叠。
                 if route_parallel_enabled():
                     try:
-                        from chat_agent import _load_doc_nodes as _prewarm_load_nodes
+                        from chat_agent import _load_doc_nodes as _speculative_load_nodes
 
-                        fire_first_search_prewarm(
+                        fire_speculative_first_search(
                             request.query,
                             request.library_id,
                             request.doc_ids,
-                            load_nodes=lambda: _prewarm_load_nodes(request.library_id, request.doc_ids),
+                            load_nodes=lambda: _speculative_load_nodes(request.library_id, request.doc_ids),
                             has_history=bool(getattr(session, "history", None)),
                         )
                     except Exception:  # noqa: BLE001
-                        logger.debug("首轮检索预热未发起（忽略）", exc_info=True)
+                        logger.debug("赌博式预检未发起（忽略）", exc_info=True)
                 decision = await route_request(
                     query=request.query,
                     scene=request.scene or "qa",
@@ -412,6 +424,7 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                     queue.put_nowait(fallback_note_event())
                 intent_result = decision_intent_result(decision)
                 scope = decision.scope
+                route_debug = decision.route_debug
             else:
                 intent_result = await classify_intent_offloaded(
                     request.query,
@@ -419,11 +432,13 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                     mode=request.mode or "instruct",
                 )
                 scope = ScopeContext(library_id=request.library_id or "default", doc_ids=list(request.doc_ids or []))
+                route_debug = None
             config_factory = make_policy_config_factory(
                 request.scene or "qa",
                 scope=scope,
                 intent_result=intent_result,
                 sop_loader=sop_loader,
+                route_debug=route_debug,
             )
             # run 结束即落库（D8：role/content 服务端权威）；seq 服务端分配后
             # 经 run_end 帧下发 msg_seqs（D10）。消息取 session.history 增量切片——

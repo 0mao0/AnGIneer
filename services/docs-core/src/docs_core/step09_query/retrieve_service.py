@@ -144,6 +144,9 @@ def retrieve_knowledge(
         "items": [_serialize_item(item) for item in items],
         "total": len(items),
         "debug": debug or {},
+        # 分段计时随响应上浮（方案 E，req-table-retrieval-latency §10）：docs-api 路由透传，
+        # 引擎侧（agent_tools）选择性消费落 ops jsonl；docs-core 不感知观测设施。
+        "stage_times": dict(stage_times),
     }
     # 向量库健康守卫：维度不匹配时给用户可见提示
     try:

@@ -68,6 +68,58 @@ class AgentLoopTests(unittest.TestCase):
         self.assertEqual(run_end.type, "run_end")
         self.assertTrue(any(n["detail"].startswith("意图判断") for n in run_end.payload["notes"]))
 
+    def test_tool_thread_sees_ops_run_id_context(self):
+        """工具执行经 ThreadPoolExecutor 提交时复制上下文：ops contextvar(run_id) 在工具线程内可见。
+
+        2026-09-27 实踩修复（req-table-retrieval-latency §11）：submit 不传播 contextvars，
+        检索分段落盘曾丢 run_id；本测试锁住 copy_context 的修复不回归。
+        """
+        import tempfile
+
+        from angineer_core import ops_metrics
+
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        old_dir = os.environ.get("ANGINEER_OPS_DIR")
+        old_dis = os.environ.get("ANGINEER_OPS_DISABLE")
+        os.environ["ANGINEER_OPS_DIR"] = tmp.name
+        os.environ.pop("ANGINEER_OPS_DISABLE", None)
+
+        def _restore_env():
+            ops_metrics.set_run_id(None)
+            for k, v in (("ANGINEER_OPS_DIR", old_dir), ("ANGINEER_OPS_DISABLE", old_dis)):
+                if v is None:
+                    os.environ.pop(k, None)
+                else:
+                    os.environ[k] = v
+
+        self.addCleanup(_restore_env)
+
+        seen = {}
+
+        def handler(q=None):
+            seen["run_id"] = ops_metrics.current_run_id()
+            return {"ok": True}
+
+        def h(messages, kwargs):
+            if len(llm.calls) == 1:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            else:
+                yield from text_events("完成")
+
+        llm = MockLLM(h)
+        events = []
+        messages: list = []
+        run_agent_loop(
+            messages,
+            make_config(llm, [make_tool("search", handler)]),
+            emit=events.append,
+        )
+
+        run_start = [e for e in events if e.type == "run_start"]
+        self.assertTrue(run_start, "应有 run_start 事件")
+        self.assertEqual(seen.get("run_id"), run_start[0].run_id, "工具线程内 ops contextvar 必须等于本 run 的 run_id")
+
     def test_two_turn_retrieval(self):
         search_calls = []
 

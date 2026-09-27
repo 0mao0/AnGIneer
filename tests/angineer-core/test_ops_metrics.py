@@ -70,5 +70,48 @@ class OpsMetricsTests(unittest.TestCase):
         self.assertEqual(ops_dir(), self._tmp.name)
 
 
+class OpsRunIdContextTests(unittest.TestCase):
+    """方案 E（req-table-retrieval-latency §10）：contextvar run_id 自动附带。"""
+
+    def setUp(self):
+        self._tmp = tempfile.TemporaryDirectory()
+        self._old = {k: os.environ.get(k) for k in ("ANGINEER_OPS_DIR", "ANGINEER_OPS_DISABLE")}
+        os.environ["ANGINEER_OPS_DIR"] = self._tmp.name
+        os.environ.pop("ANGINEER_OPS_DISABLE", None)  # conftest 全局停用，本类显式启用
+        from angineer_core import ops_metrics
+
+        self.ops = ops_metrics
+        self.ops.set_run_id(None)
+
+    def tearDown(self):
+        self.ops.set_run_id(None)
+        for k, v in self._old.items():
+            if v is None:
+                os.environ.pop(k, None)
+            else:
+                os.environ[k] = v
+        self._tmp.cleanup()
+
+    def _read_last(self, kind: str) -> dict:
+        files = [f for f in os.listdir(self._tmp.name) if f.startswith(f"{kind}-")]
+        with open(os.path.join(self._tmp.name, files[-1]), encoding="utf-8") as f:
+            rows = [json.loads(l) for l in f if l.strip()]
+        return rows[-1]
+
+    def test_context_run_id_attached_when_payload_lacks_it(self):
+        self.ops.set_run_id("run-abc")
+        self.ops.record_event("retrieval", {"path": "table_search", "stages": {"table": 1.0}})
+        self.assertEqual(self._read_last("retrieval")["run_id"], "run-abc")
+
+    def test_explicit_payload_run_id_wins(self):
+        self.ops.set_run_id("run-abc")
+        self.ops.record_event("retrieval", {"run_id": "explicit", "path": "table_search"})
+        self.assertEqual(self._read_last("retrieval")["run_id"], "explicit")
+
+    def test_no_binding_omits_run_id_key(self):
+        self.ops.record_event("retrieval", {"path": "table_search"})
+        self.assertNotIn("run_id", self._read_last("retrieval"))
+
+
 if __name__ == "__main__":
     unittest.main()

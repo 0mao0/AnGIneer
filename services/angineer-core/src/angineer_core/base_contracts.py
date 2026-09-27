@@ -170,6 +170,8 @@ class RouteDebug(BaseModel):
     confidence: float = 0.0
     reason: Optional[str] = None
     fallback: bool = False
+    # 意图分类实测耗时（route_request 计时；思考过程「意图判断」步展示用，2026-09-27）
+    classify_ms: Optional[int] = None
 
 
 class RouteDecision(BaseModel):

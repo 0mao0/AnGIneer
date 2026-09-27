@@ -162,6 +162,8 @@ class AgentLoopConfig:
         Callable[[List[AgentMessage]], Optional[Tuple[Optional[str], Optional[str]]]]
     ] = None
     route_note: Optional[str] = None
+    # 「意图判断」步耗时（=分类耗时，思考过程标签用；2026-09-27）
+    route_note_ms: Optional[int] = None
     tool_timeout_s: int = 120
     followup_question: Optional[bool] = None
     pending_messages_provider: Optional[Callable[[], List[AgentMessage]]] = None
@@ -469,6 +471,15 @@ def _execute_tools_batch(
     timeout = max(1, config.tool_timeout_s or 120)
     sequential = any(tool.execution_mode == "sequential" for _, tool in pending)
     executor = ThreadPoolExecutor(max_workers=1 if sequential else min(len(pending), 8))
+
+    def _submit_with_context(call, tool):
+        # contextvars 不随 ThreadPoolExecutor.submit 传播（不同于 asyncio.to_thread）：
+        # 显式复制当前上下文提交，工具线程内的深层打点（ops run_id 等）才能读到。
+        # 每次 submit 复制一份——同一个 Context 对象不可并发 run。
+        import contextvars
+
+        return executor.submit(contextvars.copy_context().run, _run_tool_inner, call, tool)
+
     try:
         for call, tool in pending:
             _safe_emit(
@@ -481,7 +492,7 @@ def _execute_tools_batch(
                 if cancel.is_set():
                     break
                 started = time.monotonic()
-                future = executor.submit(_run_tool_inner, call, tool)
+                future = _submit_with_context(call, tool)
                 try:
                     result = future.result(timeout=timeout)
                 except FuturesTimeoutError:
@@ -494,7 +505,7 @@ def _execute_tools_batch(
                 )
                 _ops_record_tool(tool.name, _dur_ms, result.is_error)
         else:
-            futures = {executor.submit(_run_tool_inner, call, tool): (call, tool) for call, tool in pending}
+            futures = {_submit_with_context(call, tool): (call, tool) for call, tool in pending}
             for future, (call, tool) in futures.items():
                 started = time.monotonic()
                 try:
@@ -877,6 +888,10 @@ def run_agent_loop(
 ) -> List[AgentMessage]:
     """执行 agent 循环，就地追加消息，返回本 run 新增的消息。"""
     run_id = run_id or uuid.uuid4().hex[:12]
+    # ops 观测关联键：本 run 深层打点（工具/检索分段）经 contextvar 自动带上 run_id
+    from angineer_core.ops_metrics import set_run_id
+
+    set_run_id(run_id)
     cancel_event = cancel if cancel is not None else threading.Event()
     provider = pending_messages_provider if pending_messages_provider is not None else config.pending_messages_provider
     start_idx = len(messages)
@@ -901,17 +916,22 @@ def run_agent_loop(
 
     emit = _tracked_emit
 
-    def _add_note(detail: str) -> None:
-        """记录一条可见的边界/过程说明，实时事件与 run_end 都会带上。"""
-        trace_notes.append({"detail": detail})
+    def _add_note(detail: str, duration_ms: Optional[int] = None) -> None:
+        """记录一条可见的边界/过程说明，实时事件与 run_end 都会带上。
+
+        duration_ms：本步耗时（结构化，供思考过程每步耗时标签；2026-09-27）。"""
+        fields: Dict[str, Any] = {"detail": detail}
+        if duration_ms:
+            fields["duration_ms"] = int(duration_ms)
+        trace_notes.append(fields)
         _safe_emit(
             emit,
-            AgentEvent(type="note", run_id=run_id, turn=turn, payload={"detail": detail}),
+            AgentEvent(type="note", run_id=run_id, turn=turn, payload=dict(fields)),
         )
 
     _safe_emit(emit, AgentEvent(type="run_start", run_id=run_id, turn=0, payload={}))
     if config.route_note:
-        _add_note(config.route_note)
+        _add_note(config.route_note, duration_ms=config.route_note_ms)
 
     # —— 分段（attempt）初始化 ——
     machine = _AttemptMachine(config, messages, start_idx, _add_note)
@@ -1141,6 +1161,19 @@ def run_agent_loop(
             "final_turn_prompt_tokens": final_prompt_tokens,
         },
     )
+
+    # 思考过程收尾便签（2026-09-27）：补最终一步的耗时口径——首字前的等待由意图判断/检索/
+    # prompt 读取构成（各步明细见上方便签）。除错误/取消外一律出账：拒答收尾轮可能没有首字
+    #（模型吐空/边界规则收尾），此时只给总耗时并注明（用户实测 7.3s 无归属的教训）。
+    if reason not in ("error", "cancelled"):
+        _total_ms = int((time.monotonic() - run_started) * 1000)
+        if ttft_ms is not None:
+            _add_note(
+                f"生成完成：首字 {ttft_ms / 1000:.1f} 秒（首字前的等待含意图判断、检索与 prompt 读取）",
+                duration_ms=_total_ms,
+            )
+        else:
+            _add_note("生成结束：本轮未产出首字（按边界规则收尾）", duration_ms=_total_ms)
 
     _safe_emit(
         emit,

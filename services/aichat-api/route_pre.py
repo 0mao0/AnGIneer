@@ -29,7 +29,7 @@ ROUTE_PARALLEL_ENV = "ANGINEER_ROUTE_PARALLEL"
 def route_parallel_enabled() -> bool:
     """ANGINEER_ROUTE_PARALLEL（默认关，生产实测后再定默认）：
 
-    分类与首轮检索并行——请求进来即乐观预热 knowledge_search（按 scene 默认猜 L1），
+    分类与首轮检索并行——请求进来即赌博式预检 knowledge_search（按 scene 默认猜 L1），
     分类返回后 L1 命中由 agent_loop 首轮注入经 _run_knowledge_search 的 memo 单发复用，
     分类延迟不再阻塞检索段。分类结果仍一票决定走哪段，路由正确性零风险；
     猜错（L2/L3/L4/闲聊）代价 = 一次 ~0.5s 的无效检索。
@@ -37,18 +37,18 @@ def route_parallel_enabled() -> bool:
     return os.getenv(ROUTE_PARALLEL_ENV, "true").strip().lower() in ("true", "1", "yes", "on")
 
 
-def fire_first_search_prewarm(query: str, library_id: Optional[str], doc_ids: Optional[List[str]],
+def fire_speculative_first_search(query: str, library_id: Optional[str], doc_ids: Optional[List[str]],
                               load_nodes: Optional[Callable[[], list]] = None,
                               has_history: bool = True):
-    """乐观发起 L1 首轮检索预热（fire-and-forget 独立 daemon 线程）。
+    """赌博式预检：乐观发起 L1 首轮检索（fire-and-forget 独立 daemon 线程）。
 
     参数必须与 agent_policy._l1_attempt → build_qa_config → RetrieverAdapter.knowledge_search
     的有效参数逐项一致（top_k=20 / task_type=content_qa / rerank=True / config_name=None /
     mode="instruct" / doc_nodes=同源 _load_doc_nodes 结果），否则 agent_tools 的检索 memo
-    键对不齐，预热白做甚至污染 citations（doc_title_map 缺失）。拿不到 load_nodes 宁可不预热。
+    键对不齐，预检白做甚至污染 citations（doc_title_map 缺失）。拿不到 load_nodes 宁可不预检。
 
     跳过条件：短问（≤ANGINEER_INJECT_FOLLOWUP_CHARS）**且**有上文——§8.6 只在此组合下
-    改写检索词，memo 键必不命中；首问短句（无上文）不改写，预热照常受益。
+    改写检索词，memo 键必不命中；首问短句（无上文）不改写，预检照常受益。
     """
     from angineer_core.agent_tools import route_parallel_enabled as _memo_enabled, RetrieverAdapter
 
@@ -62,7 +62,19 @@ def fire_first_search_prewarm(query: str, library_id: Optional[str], doc_ids: Op
     except ValueError:
         threshold = 15
     if len(q) <= threshold and has_history:
-        return None  # 有上文的短问才会被 §8.6 改写检索词；首问短句不改写，照常预热
+        return None  # 有上文的短问才会被 §8.6 改写检索词；首问短句不改写，照常预检
+
+    # 表题必输局不下注（req-table-retrieval-latency §11）：预检 memo 只服务 L1 路
+    # （knowledge_search+content_qa+原查询），L2/L3 表题走 table_search（无 memo），
+    # 预检=白扫全库表格还与真实检索 GIL 互拖（实测 table= 独跑 1.3~2.9s → 并发 5.1s）。
+    # ANGINEER_SPECULATIVE_SKIP_TABLE=0 回退旧行为（照发预检）。
+    _skip_table = (os.getenv("ANGINEER_SPECULATIVE_SKIP_TABLE", "1") or "").strip().lower()
+    if _skip_table not in ("0", "false", "off", "no"):
+        from docs_core.step09_query.agent_port import looks_like_table_query
+
+        if looks_like_table_query(q):
+            logger.info("赌博式预检跳过（表题必输局不下注）: %r", q[:40])
+            return None
 
     try:
         doc_nodes = load_nodes()
@@ -84,9 +96,9 @@ def fire_first_search_prewarm(query: str, library_id: Optional[str], doc_ids: Op
             )
             tool.handler(query=q)
         except Exception:  # noqa: BLE001
-            logger.debug("首轮检索预热失败（忽略）", exc_info=True)
+            logger.debug("赌博式预检失败（忽略）", exc_info=True)
 
-    thread = threading.Thread(target=_run, daemon=True, name="route-prewarm")
+    thread = threading.Thread(target=_run, daemon=True, name="route-speculative")
     thread.start()
     return thread
 
@@ -103,13 +115,17 @@ async def route_request(
 ) -> RouteDecision:
     """生成本次请求的派工单；分类失败 -> fallback 决策（scope 仍显式保留）。"""
     scope = ScopeContext(library_id=library_id or "default", doc_ids=list(doc_ids or []))
+    import time as _time
+
+    _t0 = _time.perf_counter()
     intent_result = await classify(query, config_name, mode)
+    classify_ms = int((_time.perf_counter() - _t0) * 1000)
     if intent_result is None:
         return RouteDecision(
             scene=scene,
             scope=scope,
             fallback=True,
-            route_debug=RouteDebug(fallback=True, reason="classifier_error"),
+            route_debug=RouteDebug(fallback=True, reason="classifier_error", classify_ms=classify_ms),
         )
     return RouteDecision(
         intent_result=intent_result,
@@ -120,6 +136,7 @@ async def route_request(
             level=intent_result.primary_level or intent_result.intent_level,
             service_mode=intent_result.service_mode,
             reason=intent_result.reason,
+            classify_ms=classify_ms,
         ),
     )
 

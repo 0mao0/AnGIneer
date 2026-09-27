@@ -225,4 +225,5 @@ def format_route_note(intent_result: Any) -> Optional[str]:
         note = "意图判断：统计/元数据查询 → 策略 meta_query"
     else:
         note = f"意图判断：{level_labels.get(level, level)}（{level}）→ 策略 {service_mode}"
+    # 分类耗时不再进文案（2026-09-27）：改由结构化 duration_ms 走思考过程耗时标签
     return f"{note}（{reason}）" if reason else note

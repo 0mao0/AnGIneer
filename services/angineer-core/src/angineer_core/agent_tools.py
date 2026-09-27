@@ -241,11 +241,11 @@ def _entities_to_evidences(entities: list, *, library_id: str) -> List[Dict[str,
 # ---------------------------------------------------------------------------
 # 检索 memo（需求 §5.2 基础并行的复用机制，ANGINEER_ROUTE_PARALLEL 总闸）
 #
-# 语义：预热方（aichat-api route_pre.fire_first_search_prewarm）与消费方（agent_loop
+# 语义：预检方（aichat-api route_pre.fire_speculative_first_search）与消费方（agent_loop
 # 首轮注入）先后以**逐参一致**的参数调 _run_knowledge_search；memo 按"单发"复用——
 # 命中即弹出，绝不变陈旧缓存跨请求复用。键含全部影响结果的参数（prefix 区分 K/E 来源）。
-# doc_nodes 不进键：预热与消费方都经同一 _load_doc_nodes(scope) 取数，内容一致；
-# 其产物（citations 标题）已固化在 memo 值里，因此预热方必须传真实 doc_nodes，否则宁可不预热。
+# doc_nodes 不进键：预检方与消费方都经同一 _load_doc_nodes(scope) 取数，内容一致；
+# 其产物（citations 标题）已固化在 memo 值里，因此预检方必须传真实 doc_nodes，否则宁可不预检。
 # ---------------------------------------------------------------------------
 _SEARCH_MEMO: Dict[Any, Any] = {}
 _SEARCH_MEMO_LOCK = threading.Lock()
@@ -303,13 +303,50 @@ def _search_memo_key(kwargs: Dict[str, Any]):
     )
 
 
+def _record_retrieval_stages(
+    path: str,
+    result: Dict[str, Any],
+    *,
+    query: str,
+    task_type: str,
+    top_k: int,
+    library_id: str,
+) -> None:
+    """检索分段计时落盘（req-table-retrieval-latency §10 方案 E）。
+
+    stage_times 由 docs-core 返回值上浮（docs-core 不感知观测设施），此处选择性消费落
+    data/ops/retrieval-<日>.jsonl；run_id 由 ops_metrics 上下文自动附带。memo 命中与
+    赌博式预检（route_parallel）路径经过本调用点（真检索），memo 命中复用则不经过——
+    没有检索发生就不记假数据。失败静默（观测不影响检索）。"""
+    stages = result.get("stage_times") if isinstance(result, dict) else None
+    if not stages:
+        return
+    try:
+        from angineer_core.ops_metrics import record_event
+
+        record_event(
+            "retrieval",
+            {
+                "path": path,
+                "stages": {k: round(float(v), 4) for k, v in stages.items()},
+                "dur_ms": int(round(sum(float(v) for v in stages.values()) * 1000)),
+                "query": str(query or "")[:40],
+                "task_type": task_type,
+                "top_k": top_k,
+                "library_id": library_id,
+            },
+        )
+    except Exception:  # noqa: BLE001
+        logger.debug("retrieval 分段落盘失败（忽略）", exc_info=True)
+
+
 def _run_knowledge_search(**kwargs) -> Dict[str, Any]:
-    """memo 壳：命中预热缓存则单发复用，否则走实现并在成功后存入（键构造见上）。"""
+    """memo 壳：命中赌博式预检缓存则单发复用，否则走实现并在成功后存入（键构造见上）。"""
     key = _search_memo_key(kwargs)
     hit = _search_memo_pop(key)
     if hit is not None:
         logging.getLogger(__name__).info(
-            "knowledge_search 命中首轮预热缓存（route_parallel）: %r", str(kwargs.get("query"))[:40]
+            "knowledge_search 命中赌博式预检缓存（route_parallel）: %r", str(kwargs.get("query"))[:40]
         )
         return hit
     result = _run_knowledge_search_impl(**kwargs)
@@ -358,7 +395,7 @@ def _run_knowledge_search_impl(
     if retrieval_client is not None:
         try:
             _t = time.perf_counter()
-            items = retrieval_client.retrieve(
+            items, http_stages = retrieval_client.retrieve(
                 mode="text",
                 query=query,
                 library_id=library_id,
@@ -370,6 +407,11 @@ def _run_knowledge_search_impl(
             logger.info(
                 "knowledge_search 分段计时: docs_api=%.2fs items=%d query=%r",
                 time.perf_counter() - _t, len(items), query[:40],
+            )
+            _record_retrieval_stages(
+                "knowledge_search",
+                {"stage_times": http_stages},
+                query=query, task_type=task_type, top_k=top_k, library_id=library_id,
             )
             return _assemble_search_result(
                 query=query, items=items, library_id=library_id,
@@ -399,6 +441,9 @@ def _run_knowledge_search_impl(
         sparse=sparse,
         clause=clause,
         formula=formula,
+    )
+    _record_retrieval_stages(
+        "knowledge_search", result, query=query, task_type=task_type, top_k=top_k, library_id=library_id
     )
     if "error" in result:
         return result
@@ -565,13 +610,18 @@ class RetrieverAdapter:
                 client = client_from_env()
             if client is not None:
                 try:
-                    items = client.retrieve(
+                    items, http_stages = client.retrieve(
                         mode="table",
                         query=query,
                         library_id=library_id,
                         doc_ids=doc_ids,
                         top_k=top_k,
                         filters=filters,
+                    )
+                    _record_retrieval_stages(
+                        "table_search",
+                        {"stage_times": http_stages},
+                        query=query, task_type="table_qa", top_k=top_k, library_id=library_id,
                     )
                     return _assemble_search_result(
                         query=query, items=items, library_id=library_id,
@@ -598,6 +648,9 @@ class RetrieverAdapter:
                 nodes=list(doc_nodes or []),
                 table=table,
                 formula=formula,
+            )
+            _record_retrieval_stages(
+                "table_search", local_result, query=query, task_type="table_qa", top_k=top_k, library_id=library_id
             )
             if "error" in local_result:
                 return local_result

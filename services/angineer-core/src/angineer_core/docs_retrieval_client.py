@@ -7,7 +7,7 @@
 import logging
 import os
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import requests
 from pydantic import BaseModel, Field
@@ -61,7 +61,11 @@ def local_fallback_disabled() -> bool:
 
 
 class DocsRetrievalClient:
-    """调用 docs-api /api/knowledge/internal/retrieve，返回 RetrievedItem 列表。"""
+    """调用 docs-api /api/knowledge/internal/retrieve，返回 (RetrievedItem 列表, 分段计时)。
+
+    stage_times 由 docs-core 响应上浮（方案 E，req-table-retrieval-latency §10）：
+    旧版 docs-api 容器无该字段时为 {}，调用方按「无观测数据」处理。
+    """
 
     def __init__(self, base_url: str, timeout: float = 30.0) -> None:
         self.base_url = base_url.rstrip("/")
@@ -77,7 +81,7 @@ class DocsRetrievalClient:
         top_k: int = 20,
         task_type: str = "content_qa",
         filters: Any = None,
-    ) -> List[RetrievedItem]:
+    ) -> "Tuple[List[RetrievedItem], Dict[str, float]]":
         payload = {
             "query": query,
             "library_id": library_id,
@@ -97,7 +101,9 @@ class DocsRetrievalClient:
         data = resp.json()
         if data.get("error"):
             raise RuntimeError(str(data["error"]))
-        return [RetrievedItem.model_validate(item) for item in data.get("items") or []]
+        items = [RetrievedItem.model_validate(item) for item in data.get("items") or []]
+        stages = data.get("stage_times")
+        return items, ({str(k): float(v) for k, v in stages.items()} if isinstance(stages, dict) else {})
 
     def entity_search(
         self,

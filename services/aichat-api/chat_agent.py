@@ -63,10 +63,12 @@ def make_policy_config_factory(
     scope: ScopeContext,
     intent_result: Any,
     sop_loader: Any = None,
+    route_debug: Any = None,
 ):
     """按意图分级返回策略化 AgentLoopConfig 工厂（attempts 由 agent_policy 展开）。
 
     scope 为唯一门牌号来源：library_id/doc_ids 一律取自 ScopeContext。
+    route_debug：路由可观测投影（含 classify_ms）——「意图判断」便签带分类耗时用（2026-09-27）。
     """
 
     def factory() -> AgentLoopConfig:
@@ -95,6 +97,7 @@ def make_policy_config_factory(
             max_turns=1,  # 仅无 attempts 时兜底；有 attempts 时预算由各段 config 决定
             attempts=attempts,
             route_note=format_route_note(intent_result),
+            route_note_ms=getattr(route_debug, "classify_ms", None),
         )
 
     return factory

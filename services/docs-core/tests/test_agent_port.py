@@ -66,6 +66,46 @@ class TestKnowledgeLocalSearchFormula:
         cls.assert_not_called()
 
 
+class TestStageTimesSurface:
+    """方案 E（req-table-retrieval-latency §10）：stage_times 随返回值上浮，docs-core 不感知观测设施。"""
+
+    class _Stub:
+        def retrieve(self, *args, **kwargs):
+            return []
+
+    def test_knowledge_local_search_returns_stage_times(self):
+        result = agent_port.knowledge_local_search(
+            query="乘潮进港时间怎么算",
+            library_id="default",
+            doc_ids=[],
+            top_k=20,
+            nodes=[],
+            dense=self._Stub(),
+            sparse=self._Stub(),
+            clause=self._Stub(),
+            formula=self._Stub(),
+        )
+        stages = result.get("stage_times")
+        assert isinstance(stages, dict)
+        assert {"dense", "sparse", "clause", "fuse"} <= set(stages)
+        assert all(isinstance(v, float) for v in stages.values())
+
+    def test_table_local_search_returns_stage_times(self):
+        result = agent_port.table_local_search(
+            query="码头前沿水深富裕高度 散货船 5万吨级 规范",
+            library_id="default",
+            doc_ids=[],
+            top_k=20,
+            nodes=[],
+            table=self._Stub(),
+            formula=self._Stub(),
+        )
+        stages = result.get("stage_times")
+        assert isinstance(stages, dict)
+        assert {"table", "formula", "fuse"} <= set(stages)
+        assert all(isinstance(v, float) for v in stages.values())
+
+
 class TestRelevantCitations:
     def test_marker_and_target_id(self):
         items = [
