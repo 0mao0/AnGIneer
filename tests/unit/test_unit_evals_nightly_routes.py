@@ -66,7 +66,7 @@ class NightlyRoutesTests(unittest.TestCase):
 
     def _write_day(self, date: str, payload, raw_text=None):
         day = self.nightly / date
-        day.mkdir()
+        day.mkdir(exist_ok=True)   # 迁移期允许与 runs/<slot> 挡同居一日
         (day / "nightly.json").write_text(
             json.dumps(payload) if raw_text is None else raw_text, encoding="utf-8")
         (day / "report.md").write_text("# 报告\n门禁 GREEN", encoding="utf-8")
@@ -103,6 +103,73 @@ class NightlyRoutesTests(unittest.TestCase):
             r = self._client().get("/api/evals/nightly/2026-09-06")
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.json()["nightly"]["delta"], 0.0267)
+
+    # ---- 同日每跑一挡（2026-09-27：多跑不合并、做了 3 次留 3 次）----
+
+    def _write_slot(self, day: str, slot: str, **over):
+        from evals_core.nightly import archive
+        entry = {**self.DAY, "date": day, "slot_note": slot,
+                 "started_at": over.pop("started_at", f"{day}T16:33:00+08:00")}
+        archive.publish_day({**entry, **over}, f"# 报告 {slot}", root=self.nightly, slot=slot)
+
+    def test_list_expands_each_slot_newest_first(self):
+        self._write_slot("2026-09-27", "0115-a1b2c3", started_at="2026-09-27T01:15:00+08:00")
+        self._write_slot("2026-09-27", "1633-d4e5f6", started_at="2026-09-27T16:33:00+08:00")
+        self._write_day("2026-09-26", self.DAY)
+        with _patch_auth(True, is_admin=True):
+            days = self._client().get("/api/evals/nightly").json()["days"]
+        self.assertEqual([(d["date"], d.get("slot", "")) for d in days],
+                         [("2026-09-27", "1633-d4e5f6"), ("2026-09-27", "0115-a1b2c3"),
+                          ("2026-09-26", "")])
+
+    def test_detail_with_slot_reads_that_slot_only(self):
+        self._write_slot("2026-09-27", "0115-a1b2c3", overall_score=0.84)
+        self._write_slot("2026-09-27", "1633-d4e5f6", overall_score=0.85)
+        with _patch_auth(True, is_admin=True):
+            c = self._client()
+            r = c.get("/api/evals/nightly/2026-09-27", params={"slot": "1633-d4e5f6"})
+            self.assertEqual(r.status_code, 200)
+            self.assertEqual(r.json()["nightly"]["overall_score"], 0.85)
+            self.assertEqual(r.json()["nightly"]["slot"], "1633-d4e5f6")
+            self.assertIn("1633", r.json()["report_md"])
+            # 不传 slot 且该日没有旧平铺档 → 404（而不是随机挑一挡）
+            self.assertEqual(c.get("/api/evals/nightly/2026-09-27").status_code, 404)
+            self.assertEqual(c.get("/api/evals/nightly/2026-09-27",
+                                   params={"slot": "不存在"}).status_code, 404)
+
+    def test_slot_query_blocks_traversal(self):
+        self._write_slot("2026-09-27", "0115-a1b2c3")
+        with _patch_auth(True, is_admin=True):
+            c = self._client()
+            self.assertEqual(c.get("/api/evals/nightly/2026-09-27",
+                                   params={"slot": "..%2F..%2Fetc"}).status_code, 404)
+            self.assertEqual(c.get("/api/evals/nightly/2026-09-27",
+                                   params={"slot": "a b"}).status_code, 404)
+
+    def test_delete_slot_keeps_siblings_and_legacy(self):
+        self._write_slot("2026-09-27", "0115-a1b2c3")
+        self._write_slot("2026-09-27", "1633-d4e5f6")
+        self._write_day("2026-09-27", self.DAY)          # 同日的旧平铺档（迁移期共存）
+        with _patch_auth(True, is_admin=True):
+            r = self._client().delete("/api/evals/nightly/2026-09-27", params={"slot": "1633-d4e5f6"})
+        self.assertEqual(r.status_code, 200)
+        self.assertEqual(r.json()["slot"], "1633-d4e5f6")
+        day = self.nightly / "2026-09-27"
+        self.assertFalse((day / "runs" / "1633-d4e5f6").exists())
+        self.assertTrue((day / "runs" / "0115-a1b2c3" / "nightly.json").exists())
+        self.assertTrue((day / "nightly.json").exists())
+
+    def test_delete_legacy_removes_flat_files_keeps_runs(self):
+        """旧接口形态（不带 slot）删除：只清平铺文件，runs/ 下新管线的挡一概不动。"""
+        self._write_slot("2026-09-27", "0115-a1b2c3")
+        self._write_day("2026-09-27", self.DAY)
+        with _patch_auth(True, is_admin=True):
+            r = self._client().delete("/api/evals/nightly/2026-09-27")
+        self.assertEqual(r.status_code, 200)
+        day = self.nightly / "2026-09-27"
+        self.assertFalse((day / "nightly.json").exists())
+        self.assertFalse((day / "report.md").exists())
+        self.assertTrue((day / "runs" / "0115-a1b2c3" / "nightly.json").exists())
 
     def test_same_day_error_sidecar_is_surfaced(self):
         """同日既出了结论、又挂过一条派发时，列表与详情都要把失败带出来。

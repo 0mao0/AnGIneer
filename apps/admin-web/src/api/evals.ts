@@ -76,8 +76,9 @@ export const evalsApi = {
   /** 夜间维护：历史列表（倒序，仅管理员会话可见） */
   getNightlyList: () => api.get('/evals/nightly'),
 
-  /** 夜间维护：单日详情（结论 json + report.md 原文） */
-  getNightlyDay: (date: string) => api.get(`/evals/nightly/${encodePathSegment(date)}`),
+  /** 夜间维护：单挡详情（结论 json + report.md 原文）。slot=同日某次跑的挡名，空=旧版当日单档 */
+  getNightlyDay: (date: string, slot = '') =>
+    api.get(`/evals/nightly/${encodePathSegment(date)}`, slot ? { params: { slot } } : undefined),
 
   /** 夜间维护：调度配置（每晚北京时间 + 启用开关 + 上次/下次触发） */
   getNightlySettings: () => api.get('/evals/nightly/settings'),
@@ -95,8 +96,9 @@ export const evalsApi = {
   /** 夜间维护：停止运行中的流水线（当前题完成后收尾，不落结论、不发通知） */
   stopNightly: () => api.post('/evals/nightly/stop'),
 
-  /** 夜间维护：删除一条结论（连带删除对应评测 run；run 在跑则先停） */
-  deleteNightlyDay: (date: string) => api.delete(`/evals/nightly/${encodePathSegment(date)}`),
+  /** 夜间维护：删除一条结论（连带删除对应评测 run；run 在跑则先停）。slot 非空只删该挡 */
+  deleteNightlyDay: (date: string, slot = '') =>
+    api.delete(`/evals/nightly/${encodePathSegment(date)}`, slot ? { params: { slot } } : undefined),
 
   /** 解析回归（A 层）：本机跑完 --publish 上来的 run 列表（倒序，只读） */
   getParseRegressionRuns: () => api.get('/evals/parse-regression'),

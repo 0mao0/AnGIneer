@@ -5,7 +5,7 @@
       <DataTable
         :columns="columns"
         :data-source="days"
-        row-key="date"
+        row-key="uid"
         :loading="loading"
         :expand-row-by-click="true"
         :expandable="{ rowExpandable: (record: NightlyDay) => !record.running }"
@@ -137,6 +137,10 @@ import NightlyDayDetail from './NightlyDayDetail.vue'
 interface NightlyDay {
   date: string
   state: string
+  /** 同日某次跑的归档挡名（新管线每跑一挡；旧版当日单档为空）。详情/删除按 date+slot 定位 */
+  slot?: string
+  /** 行唯一键：date/slot（同日多跑各一行）；旧单档与虚拟运行行退化为 date */
+  uid?: string
   /** 后端注入的虚拟运行行（date 固定 "running"，不落归档） */
   running?: boolean
   subject?: string
@@ -240,18 +244,22 @@ const fallbackVerdict = (day: NightlyDay) => {
   return '与基线持平，没有变差'
 }
 
-const detailOf = (record: NightlyDay): NightlyDayDetailData | undefined => details.value[record.date]
+/** 行唯一键：同日多跑按挡位区分；旧单档/虚拟运行行无 slot，退化为 date */
+const rowUid = (day: NightlyDay) => (day.slot ? `${day.date}/${day.slot}` : day.date)
+
+const detailOf = (record: NightlyDay): NightlyDayDetailData | undefined => details.value[rowUid(record)]
 
 const handleExpand = (expanded: boolean, record: Record<string, any>) => {
-  if (expanded) loadDetail((record as NightlyDay).date)
+  if (expanded) loadDetail(record as NightlyDay)
 }
 
-const loadDetail = async (date: string) => {
-  if (details.value[date]) return
+const loadDetail = async (day: NightlyDay) => {
+  const uid = rowUid(day)
+  if (details.value[uid]) return
   try {
-    details.value[date] = await evalsApi.getNightlyDay(date)
+    details.value[uid] = await evalsApi.getNightlyDay(day.date, day.slot || '')
   } catch (e) {
-    details.value[date] = { nightly: { date, state: 'corrupt', note: String((e as Error).message || '读取失败') } }
+    details.value[uid] = { nightly: { date: day.date, slot: day.slot, state: 'corrupt', note: String((e as Error).message || '读取失败') } }
   }
 }
 
@@ -259,7 +267,7 @@ const fetchList = async () => {
   loading.value = true
   try {
     const res = await evalsApi.getNightlyList()
-    days.value = (res as { days: NightlyDay[] }).days || []
+    days.value = ((res as { days: NightlyDay[] }).days || []).map((d) => ({ ...d, uid: rowUid(d) }))
   } catch (e) {
     console.error('[nightly] 列表加载失败', e)
     message.error('夜间维护记录加载失败')
@@ -284,7 +292,7 @@ const stopRunning = async () => {
 /** 删除历史结论：后端连带删除对应评测 run（run 在跑会先停） */
 const removeDay = async (record: NightlyDay) => {
   try {
-    const r = await evalsApi.deleteNightlyDay(record.date) as { stopped_run?: boolean }
+    const r = await evalsApi.deleteNightlyDay(record.date, record.slot || '') as { stopped_run?: boolean }
     message.success(r?.stopped_run ? '已停止运行中的评测，并删除该记录与对应 run' : '已删除该记录与对应评测 run')
   } catch (e) {
     message.error(String((e as Error)?.message || '删除失败'))

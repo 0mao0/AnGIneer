@@ -207,7 +207,11 @@ async def move_dataset(dataset_id: str, req: MoveDatasetRequest):
 
 @evals_router.post("/runs")
 async def start_run(req: StartEvalRunRequest):
-    """启动评测运行（异步），可指定单题。"""
+    """启动评测运行（异步），可指定单题。
+
+    已有评测在跑时返 409（detail.code=eval_busy + 在跑清单），前端据此弹框；
+    用户在弹框里点「仍然开始」后带 allow_concurrent=true 重发即并发跑。
+    """
     try:
         loop = asyncio.get_event_loop()
         run_data = await loop.run_in_executor(
@@ -217,9 +221,16 @@ async def start_run(req: StartEvalRunRequest):
                 override_doc_ids=req.doc_ids, resume_run_id=req.resume_run_id,
                 config_name=req.config_name, rescore_question_ids=req.rescore_question_ids,
                 judge_config_name=req.judge_config_name, restart_run_id=req.restart_run_id,
+                allow_concurrent=req.allow_concurrent,
             ),
         )
         return run_data
+    except suite_runner.EvalBusyError as exc:
+        raise HTTPException(status_code=409, detail={
+            "code": "eval_busy",
+            "message": str(exc),
+            "running": exc.running,
+        })
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
 
@@ -445,6 +456,8 @@ async def get_parse_regression_run(run_id: str):
 # 仅这两个路由要求管理员会话（require_admin_session）；存量 /api/evals/* 鉴权治理另行处理。
 
 _NIGHTLY_DATE_RE = _re.compile(r"^\d{4}-\d{2}-\d{2}$")
+# 归档挡名（HHMM-6hex，见 paths.new_run_slot）：只允许字母数字减号，防路径穿越
+_NIGHTLY_SLOT_RE = _re.compile(r"^[0-9A-Za-z-]{1,40}$")
 
 
 def _nightly_root() -> str:
@@ -452,41 +465,29 @@ def _nightly_root() -> str:
     return os.path.join(os.path.dirname(result_store._DB_PATH), "nightly")
 
 
-def _read_nightly_day(day_dir: str, date: str) -> Dict[str, Any]:
-    """读单日 nightly.json；缺失/损坏降级为 corrupt，不炸整个列表。
+def _nightly_archive():
+    from evals_core.nightly import archive as mod   # 文件名单一真相源，不在此复刻字面量
+    return mod
 
-    同日若还挂过一次派发（error 档按 archive.publish_day 的规矩不覆盖结论、改落 sidecar），
-    把它的要点附在 same_day_error 上：否则"当天出过结论、但也跑挂了一条"在页面上毫无痕迹，
-    只剩企微卡片里那条失败消息孤零零对不上号（2026-09-26 实踩的反面）。
-    """
-    from evals_core.nightly import archive as _nightly_archive   # 文件名单一真相源，不在此复刻字面量
 
-    try:
-        with open(os.path.join(day_dir, "nightly.json"), "r", encoding="utf-8") as fh:
-            data = json.load(fh)
-        if not isinstance(data, dict):
-            raise ValueError("nightly.json 不是对象")
-        data["date"] = date
-        sidecar = _nightly_archive.read_day_error(day_dir)
-        if sidecar:
-            data["same_day_error"] = {k: sidecar.get(k) for k in
-                                      ("generated_at", "started_at", "run_id", "verdict", "note", "progress")}
-        return data
-    except (OSError, ValueError):
-        return {"date": date, "state": "corrupt"}
+def _slot_dir(day_dir: str, slot: str) -> str:
+    """<date>/runs/<slot> 目录（先过 _NIGHTLY_SLOT_RE 校验再拼路径）。"""
+    return os.path.join(day_dir, _nightly_archive().RUNS_SUBDIR, slot)
 
 
 @evals_router.get("/nightly", dependencies=[Depends(require_admin_session)])
 async def list_nightly_days():
-    """夜间维护历史列表（倒序）。workflow Publish 步骤逐日落 data/evals/nightly/<date>/。"""
+    """夜间维护历史列表（新→旧）。2026-09-27 起同日每跑一挡（runs/<slot>/），
+    一日几跑列几行，不再合并覆盖；旧版「当日单档」文件照样列出（read_entry 兼容）。"""
     root = _nightly_root()
     if not os.path.isdir(root):
         return {"days": []}
-    days = [
-        _read_nightly_day(os.path.join(root, name), name)
-        for name in sorted(os.listdir(root), reverse=True)
-        if _NIGHTLY_DATE_RE.match(name) and os.path.isdir(os.path.join(root, name))
-    ]
+    archive = _nightly_archive()
+    days: list = []
+    for name in sorted(os.listdir(root), reverse=True):
+        day_dir = os.path.join(root, name)
+        if _NIGHTLY_DATE_RE.match(name) and os.path.isdir(day_dir):
+            days.extend(archive.list_entries(day_dir, name))
     entry = nightly_control.running_entry()
     if entry:
         days.insert(0, entry)
@@ -534,22 +535,27 @@ async def post_nightly_stop():
 
 
 @evals_router.delete("/nightly/{date}", dependencies=[Depends(require_admin_session)])
-async def delete_nightly_day(date: str):
+async def delete_nightly_day(date: str, slot: str = ""):
     """删除一条夜间维护结论：连带删除对应评测 run（日常测试的逐题结果一并消失，不可恢复）；
-    run 若仍在运行先停再删（与「停止」同语义）。"""
+    run 若仍在运行先停再删（与「停止」同语义）。
+    slot 非空 → 只删该挡（同日其它跑不动）；slot 为空 → 旧版「当日单档」删除：
+    只清日目录下的平铺文件（含 error sidecar），runs/ 子挡一概保留。"""
     if not _NIGHTLY_DATE_RE.match(date):
         raise HTTPException(status_code=404, detail="日期格式不合法")
+    if slot and not _NIGHTLY_SLOT_RE.match(slot):
+        raise HTTPException(status_code=404, detail="挡位名不合法")
+    archive = _nightly_archive()
     day_dir = os.path.join(_nightly_root(), date)
-    if not os.path.isdir(day_dir):
-        raise HTTPException(status_code=404, detail="该日期无夜间维护记录")
-    entry: Dict[str, Any] = {}
-    try:
-        with open(os.path.join(day_dir, "nightly.json"), "r", encoding="utf-8") as fh:
-            data = json.load(fh)
-        if isinstance(data, dict):
-            entry = data
-    except (OSError, ValueError):
-        pass  # 损坏条目照样可删，只是无从连带删 run
+    if slot:
+        entry_dir = _slot_dir(day_dir, slot)
+        if not os.path.isdir(entry_dir):
+            raise HTTPException(status_code=404, detail="该挡位无夜间维护记录")
+    else:
+        entry_dir = day_dir
+        # 同详情路由：不带 slot 只认旧版平铺档，新管线挡一律由 slot 口管理
+        if not os.path.isfile(os.path.join(day_dir, "nightly.json")):
+            raise HTTPException(status_code=404, detail="该日期无夜间维护记录")
+    entry = archive.read_entry(entry_dir, date, slot=slot)
     stopped_run = deleted_run = False
     run_id = str(entry.get("run_id") or "")
     if run_id:
@@ -558,21 +564,39 @@ async def delete_nightly_day(date: str):
             suite_runner.stop_eval_run(run_id)
             stopped_run = True
         deleted_run = suite_runner.delete_eval_run(run_id)
-    shutil.rmtree(day_dir, ignore_errors=True)
-    return {"status": "deleted", "date": date, "stopped_run": stopped_run, "deleted_run": deleted_run}
+    if slot:
+        shutil.rmtree(entry_dir, ignore_errors=True)
+    else:
+        # 旧版单档：逐文件清理，runs/ 子目录里有新管线的挡，绝不能整日 rmtree
+        for fname in ("nightly.json", "report.md", archive.ERROR_SIDECAR):
+            try:
+                os.remove(os.path.join(day_dir, fname))
+            except OSError:
+                pass
+    return {"status": "deleted", "date": date, "slot": slot,
+            "stopped_run": stopped_run, "deleted_run": deleted_run}
 
 
 @evals_router.get("/nightly/{date}", dependencies=[Depends(require_admin_session)])
-async def get_nightly_day(date: str):
-    """单日详情：结论 json + report.md 原文。date 严格校验防路径穿越。"""
+async def get_nightly_day(date: str, slot: str = ""):
+    """单挡详情：结论 json + report.md 原文。date/slot 严格校验防路径穿越；
+    slot 为空读旧版「当日单档」。"""
     if not _NIGHTLY_DATE_RE.match(date):
         raise HTTPException(status_code=404, detail="日期格式不合法")
+    if slot and not _NIGHTLY_SLOT_RE.match(slot):
+        raise HTTPException(status_code=404, detail="挡位名不合法")
     day_dir = os.path.join(_nightly_root(), date)
-    if not os.path.isdir(day_dir):
+    entry_dir = _slot_dir(day_dir, slot) if slot else day_dir
+    if not os.path.isdir(entry_dir):
+        raise HTTPException(status_code=404,
+                            detail="该挡位无夜间维护记录" if slot else "该日期无夜间维护记录")
+    # 不带 slot = 旧版当日单档读法：平铺 nightly.json 不在就没有这一档（该日可能全在新 runs/ 挡下，
+    # 目录存在不代表有单档，否则会把「没有」读成 corrupt 假条目）
+    if not slot and not os.path.isfile(os.path.join(day_dir, "nightly.json")):
         raise HTTPException(status_code=404, detail="该日期无夜间维护记录")
-    entry = _read_nightly_day(day_dir, date)
+    entry = _nightly_archive().read_entry(entry_dir, date, slot=slot)
     report_md = ""
-    report_path = os.path.join(day_dir, "report.md")
+    report_path = os.path.join(entry_dir, "report.md")
     try:
         with open(report_path, "r", encoding="utf-8") as fh:
             report_md = fh.read()

@@ -38,9 +38,11 @@ REGRESSION_ITEMS_MAX = 50
 FIXED_ITEMS_MAX = 20
 _QUESTION_MAX = 300
 _DATE_FMT = "%Y-%m-%d"
-# 同日已出 green/red 结论时，error 档改落这个 sidecar 文件（来由与保护逻辑见 publish_day）
+# 同日已出 green/red 结论时，error 档改落这个 sidecar 文件（来由与保护逻辑见 publish_day，仅旧版单档布局用）
 ERROR_SIDECAR = "nightly-error.json"
 CONCLUSION_STATES = ("green", "red")
+# 每 run 一挡的子目录名：<date>/runs/<slot>/{nightly.json,report.md,...}（2026-09-27 起，同日多跑不互踩）
+RUNS_SUBDIR = "runs"
 
 
 def verdict(state: str, delta, regress_count: int) -> str:
@@ -189,16 +191,26 @@ def prune_old(target_root: Path, keep_days: int, today: str) -> list:
 
 
 def publish_day(entry: dict, report_md: Optional[str], root: Optional[Path] = None,
-                keep_days: int = KEEP_DAYS_DEFAULT) -> Path:
-    """写单日结论目录并清理过期（幂等：同日重跑覆盖）。
+                keep_days: int = KEEP_DAYS_DEFAULT, slot: str = "") -> Path:
+    """写一档结论并清理过期。
 
-    唯一例外 —— error 档不得覆盖同日已出的 green/red 结论。同一天允许多条派发（管理页
-    「立即运行」+ 01:00 定时各一条），2026-09-26 实踩：00:32 的一版完整结论被 03:17 定时跑
-    的 error 档原地盖掉，页面上只剩「中断于 1040/1040」、真结论连同 report 一起丢失。
-    有结论优先于「最后一次写了什么」，故 error 改落 sidecar 文件：页面照看结论，失败详情
-    另存不丢、通知照发（不静默）。"""
+    slot 非空（现行管线）：落 <date>/runs/<slot>/，同日每跑一挡、天然不互相覆盖，
+    条目带上 "slot" 字段供页面定位详情/删除。
+    slot 为空（旧版「当日单档」兼容口）：同日重跑覆盖主位，唯一例外——error 档不得
+    覆盖同日已出的 green/red 结论（2026-09-26 实踩：00:32 的完整结论被 03:17 定时的
+    error 原地盖掉）；error 改落 sidecar，结论与失败详情都在。"""
     root = Path(root) if root else paths.nightly_root()
     day_dir = root / str(entry["date"])
+    if slot:
+        target_dir = day_dir / RUNS_SUBDIR / str(slot)
+        target_dir.mkdir(parents=True, exist_ok=True)
+        entry = {**entry, "slot": str(slot)}
+        (target_dir / "nightly.json").write_text(
+            json.dumps(entry, ensure_ascii=False, indent=1), encoding="utf-8")
+        if report_md:
+            (target_dir / "report.md").write_text(report_md, encoding="utf-8")
+        prune_old(root, keep_days, str(entry["date"]))
+        return target_dir
     day_dir.mkdir(parents=True, exist_ok=True)
     target = day_dir / "nightly.json"
     if entry.get("state") == "error" and _has_conclusion(target):
@@ -212,6 +224,49 @@ def publish_day(entry: dict, report_md: Optional[str], root: Optional[Path] = No
             (day_dir / "report.md").write_text(report_md, encoding="utf-8")
     prune_old(root, keep_days, str(entry["date"]))
     return day_dir
+
+
+def read_entry(entry_dir: Path, date: str, slot: str = "") -> dict:
+    """读一挡（slot 目录或旧版日目录）的 nightly.json 为列表/详情条目。
+    缺失/损坏降级为 corrupt，不炸整个列表；同日 error sidecar 要点随条目透出（旧版单档规矩）。"""
+    entry_dir = Path(entry_dir)
+    try:
+        data = json.loads((entry_dir / "nightly.json").read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            raise ValueError("nightly.json 不是对象")
+        data.setdefault("slot", slot)
+    except (OSError, ValueError):
+        return {"date": date, "slot": slot, "state": "corrupt"}
+    data["date"] = date
+    sidecar = read_day_error(entry_dir)
+    if sidecar:
+        data["same_day_error"] = {k: sidecar.get(k) for k in
+                                  ("generated_at", "started_at", "run_id", "verdict", "note", "progress")}
+    return data
+
+
+def list_entries(day_dir: Path, date: str) -> list:
+    """一日内全部结论挡（新版每 run 一挡 + 旧版当日单档），按时间新→旧。
+
+    排序键：started_at 优先（表「时间」列语义=开跑时刻），退 generated_at，再退挡名；
+    corrupt 挡排在该日最后（无时间可比）。"""
+    day_dir = Path(day_dir)
+    entries = []
+    if (day_dir / "nightly.json").exists():
+        entries.append(read_entry(day_dir, date))
+    runs = day_dir / RUNS_SUBDIR
+    if runs.is_dir():
+        for slot_dir in runs.iterdir():
+            if slot_dir.is_dir():
+                entries.append(read_entry(slot_dir, date, slot=slot_dir.name))
+
+    def _key(entry):
+        if entry.get("state") == "corrupt":
+            return " "
+        return str(entry.get("started_at") or entry.get("generated_at") or entry.get("slot") or "")
+
+    entries.sort(key=_key, reverse=True)
+    return entries
 
 
 def _has_conclusion(target: Path) -> bool:

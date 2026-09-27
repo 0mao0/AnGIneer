@@ -222,7 +222,8 @@ def _material_line(material: Optional[dict]) -> str:
 
 
 async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, site_url: str, webhook: str,
-                               material_line: str = "", judge_missing: Optional[Dict[str, List[str]]] = None) -> dict:
+                               material_line: str = "", judge_missing: Optional[Dict[str, List[str]]] = None,
+                               slot: str = "") -> dict:
     """门禁 + 报告 + 落盘 + 通知，全成功返回结论 dict（state=green/red）。
 
     judge_missing：阈值内放行的判分缺失题（{异常类型: [question_id]}）。它不改门禁算法，
@@ -249,7 +250,7 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
         dataset_id, paths.today_bjt(), run_id=run_id, state=state,
         subject=_dataset_subject(dataset_id),
         started_at=str(loop_run.get("started_at") or ""), judge_missing=judge_missing)
-    archive.publish_day(entry, report_md)
+    archive.publish_day(entry, report_md, slot=slot)
 
     raw_for_card = {k: loop_run.get(k) for k in ("started_at", "completed_at")}
     raw_for_card["summary_scores"] = loop_run.get("summary_scores") or {}
@@ -330,11 +331,12 @@ def _find_resume_candidate(dataset_id: str, within_hours: float = RESUME_WINDOW_
 
 
 async def _material_health(date: str, *, enabled: bool, libraries: Optional[list],
-                          max_docs: int, webhook: str) -> Optional[dict]:
+                          max_docs: int, webhook: str, slot: str = "") -> Optional[dict]:
     """B 层素材检查（jsonl → canonical/chunk → 向量）：best-effort，任何异常都不影响结论。
 
     定位见 docs/parse-struct-eval.md：这不是评测分数，是"素材有没有原样送到检索层"的断言，
-    产物是缺失清单。落在 nightly 目录下，异常时额外推一条企微（结论消息本身不变）。
+    产物是缺失清单。落在本次派发的归档挡目录下（与结论同挡，同日多跑各归各的），
+    异常时额外推一条企微（结论消息本身不变）。
     """
     if not enabled:
         return None
@@ -351,6 +353,8 @@ async def _material_health(date: str, *, enabled: bool, libraries: Optional[list
     summary = material_parity.render_summary(result)
     try:
         out_dir = paths.nightly_root() / date
+        if slot:
+            out_dir = out_dir / archive.RUNS_SUBDIR / slot
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "material_parity.json").write_text(
             json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -386,12 +390,15 @@ async def run_nightly(*, dataset_id: str,
     resume_window_hours：断点续跑窗口，<=0 关闭（>0 时部署砸掉的 run 自动原地续跑，
     守卫条件见 _find_resume_candidate）。"""
     date = paths.today_bjt()
+    # 每次派发一挡（同日多跑不互踩，2026-09-27）：素材检查/结论/error 档全落这同一挡
+    run_slot = paths.new_run_slot()
     deadline = time.monotonic() + timeout_hours * 3600
     run_id = ""
     # 素材检查先跑：不依赖评测结果，评测失败也能留下素材层结论
     material = await _material_health(date, enabled=parse_health_enabled,
                                       libraries=parse_health_libraries,
-                                      max_docs=parse_health_max_docs, webhook=webhook)
+                                      max_docs=parse_health_max_docs, webhook=webhook,
+                                      slot=run_slot)
     try:
         resume_id = await asyncio.to_thread(_find_resume_candidate, dataset_id, resume_window_hours)
         started = await asyncio.to_thread(
@@ -416,7 +423,7 @@ async def run_nightly(*, dataset_id: str,
         _run, judge_missing = await _auto_retry(run_id, dataset_id, retry_rounds, deadline)
         outcome = await _compute_and_publish(run_id, dataset_id, resamples, site_url, webhook,
                                              material_line=_material_line(material),
-                                             judge_missing=judge_missing)
+                                             judge_missing=judge_missing, slot=run_slot)
         if material is not None:
             outcome["material_parity"] = {"severity": material.get("severity"),
                                           "docs_with_issues": material.get("docs_with_issues")}
@@ -453,7 +460,7 @@ async def run_nightly(*, dataset_id: str,
         try:
             archive.publish_day(archive.build_error_entry(
                 dataset_id, date, note, subject=_dataset_subject(dataset_id),
-                started_at=err_started, progress=progress), None)
+                started_at=err_started, progress=progress), None, slot=run_slot)
             await _notify_best_effort(webhook, notify.build_message(
                 None, None, notify.STATE_ERROR, note + progress_text))
         except Exception:  # noqa: BLE001 兜底路径再失败只留日志

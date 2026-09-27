@@ -2,13 +2,17 @@
 
 data 根目录结构（deploy 的 ../data 卷挂载，aichat-api 容器内即 /app/data）：
   data/evals/evals.sqlite
-  data/evals/nightly/<YYYY-MM-DD>/{nightly.json,report.md}   ← 结论存档（保留 90 天，见 archive.KEEP_DAYS_DEFAULT）
+  data/evals/nightly/<YYYY-MM-DD>/runs/<HHMM-6hex>/{nightly.json,report.md,material_parity.*}
+      ← 结论存档：每 run 一挡（2026-09-27 起同日多跑互不覆盖；保留 90 天，见 archive.KEEP_DAYS_DEFAULT）
+  data/evals/nightly/<YYYY-MM-DD>/{nightly.json,report.md,...}
+      ← 旧版「当日单档」布局，只读兼容（列表照样出现、老档不迁移）
   data/evals/nightly_settings.json                            ← 调度配置
   data/evals/baseline/                                        ← 钉住的基线快照
   data/evals/datasets/<dataset_id>.json                       ← 题集（题干摘录来源）
   data/open_ragbench/subset/subset_manifest_v2.json           ← 题型归属 manifest
 """
 import os
+import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -65,3 +69,11 @@ def today_bjt() -> str:
 
 def now_bjt_iso(timespec: str = "seconds") -> str:
     return datetime.now(BJT).isoformat(timespec=timespec)
+
+
+def new_run_slot() -> str:
+    """归档挡位名（runs/<slot>/ 目录）：北京时间 HHMM + 6 位随机后缀。
+
+    同日多跑各占一挡、互不覆盖；随机后缀防同分钟双派发撞名。
+    注意与 nightly_control 里调度器的 slot（每日排班去重键）不是一回事。"""
+    return datetime.now(BJT).strftime("%H%M") + "-" + uuid.uuid4().hex[:6]

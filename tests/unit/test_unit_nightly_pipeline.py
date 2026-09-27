@@ -111,14 +111,19 @@ class PipelineGreenTests(_Env):
             details_sequence=[_NEW_DETAILS, _NEW_DETAILS])
         result = asyncio.run(pipeline.run_nightly(dataset_id="ds", retry_rounds=0, resamples=50))
         self.assertEqual(result["state"], "green")
-        day_dirs = list((self.tmp / "nightly").iterdir())
-        self.assertEqual(len(day_dirs), 1)
-        entry = json.loads((day_dirs[0] / "nightly.json").read_text(encoding="utf-8"))
+        # 2026-09-27 起每次派发一挡（同日多跑不互踩）：结论/报告/素材检查全落 <date>/runs/<slot>/
+        slots = [p for p in (self.tmp / "nightly").glob("*/runs/*") if p.is_dir()]
+        self.assertEqual(len(slots), 1)
+        entry = json.loads((slots[0] / "nightly.json").read_text(encoding="utf-8"))
         self.assertEqual(entry["state"], "green")
+        self.assertEqual(entry["slot"], slots[0].name)
         self.assertEqual(entry["run_id"], "run-x")
         self.assertEqual(entry["subject"], "冒烟集（25 题）")
         self.assertEqual(entry["correct"], 2)
-        self.assertTrue((day_dirs[0] / "report.md").exists())
+        self.assertTrue((slots[0] / "report.md").exists())
+        self.assertTrue((slots[0] / "material_parity.json").exists())
+        # 旧版平铺位不得再出现（同日多跑各自成挡，没有"当日单档"可写）
+        self.assertFalse([p for p in (self.tmp / "nightly").glob("*/*.json")])
         self.assertEqual([i["question"] for i in entry["fixed_items"]], ["题干 q2"])
 
     def test_judge_anomaly_gets_rescored_via_resume(self):
@@ -163,7 +168,7 @@ class PipelineErrorTests(_Env):
         result = asyncio.run(pipeline.run_nightly(dataset_id="ds", retry_rounds=0))
         self.assertEqual(result["state"], "error")
         self.assertIn("题库缺失", result["detail"])
-        entry = json.loads(next((self.tmp / "nightly").glob("*/nightly.json")).read_text(encoding="utf-8"))
+        entry = json.loads(next((self.tmp / "nightly").glob("*/runs/*/nightly.json")).read_text(encoding="utf-8"))
         self.assertEqual(entry["state"], "error")
         self.assertEqual(entry["subject"], "ds")  # 题集查不到时维护内容退回 dataset_id
         self.assertIn("题库缺失", entry["note"])
@@ -214,7 +219,7 @@ class JudgeToleranceTests(_Env):
         self.assertEqual(result["state"], "green")
         self.assertEqual(result["judge_missing"], 1)
         self.assertIn("判分缺失 1 题（阈值内放行）", result["detail"])
-        entry = json.loads(next((self.tmp / "nightly").glob("*/nightly.json")).read_text(encoding="utf-8"))
+        entry = json.loads(next((self.tmp / "nightly").glob("*/runs/*/nightly.json")).read_text(encoding="utf-8"))
         self.assertEqual(entry["judge_missing"], {anomaly.JUDGE_FAIL: ["q1"]})
         # 放行后的"绿"不能被读成"全量都判过了"：卡片必须自己把这批题说出来
         self.assertEqual(len(cards), 1)
@@ -255,7 +260,7 @@ class JudgeToleranceTests(_Env):
         self.assertEqual(result["judge_missing"], 1)
         self.assertIn("判分缺失", cards[0])                       # 豁免不等于隐身，卡片仍要说
         self.assertNotIn("评测回归", cards[0])
-        entry = json.loads(next((self.tmp / "nightly").glob("*/nightly.json")).read_text(encoding="utf-8"))
+        entry = json.loads(next((self.tmp / "nightly").glob("*/runs/*/nightly.json")).read_text(encoding="utf-8"))
         self.assertEqual(entry["state"], "green")
         self.assertEqual(entry["judge_missing"], {anomaly.JUDGE_FAIL: ["q1"]})
 
