@@ -74,8 +74,9 @@ class QaConfigTests(unittest.TestCase):
         ]
         result = guard(added)
         self.assertIsNotNone(result)
-        answer, _note = result
+        answer, _note, code = result
         self.assertIn(REFUSAL_FOLLOWUP_QUESTION, answer)
+        self.assertEqual(code, "no_evidence")
 
     def test_guard_refusal_plain_when_disabled(self):
         from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT
@@ -87,8 +88,9 @@ class QaConfigTests(unittest.TestCase):
         ]
         result = guard(added)
         self.assertIsNotNone(result)
-        answer, _note = result
+        answer, _note, code = result
         self.assertEqual(answer, REFUSAL_ANSWER_TEXT)
+        self.assertEqual(code, "no_evidence")
 
     def test_guard_notes_refusal_kept_even_with_evidence(self):
         """有有效证据时模型仍拒答：守卫不替换内容，但留 trace 注记暴露异常。"""
@@ -103,9 +105,10 @@ class QaConfigTests(unittest.TestCase):
         ]
         result = guard(added)
         self.assertIsNotNone(result)
-        answer, note = result
+        answer, note, code = result
         self.assertEqual(answer, "没有检索到足够证据支持最终结论。")
         self.assertIn("拒答", note)
+        self.assertEqual(code, "refusal_kept")
 
     def test_knowledge_search_and_table_search_use_separate_task_types(self):
         captured = {}
@@ -192,17 +195,19 @@ class QaConfigTests(unittest.TestCase):
     def test_guard_removes_invalid_markers(self):
         guard = make_final_answer_guard(enforce_evidence=False)
         added = [AgentMessage(role="tool", content='{"items": [{"item_id":"a","text":"x","metadata":{"cite":"K1"}}]}')]
-        new_answer, note = guard([*added, AgentMessage(role="assistant", content="依据 [K1] 和 [K9] 作答")])
+        new_answer, note, code = guard([*added, AgentMessage(role="assistant", content="依据 [K1] 和 [K9] 作答")])
         self.assertNotIn("[K9]", new_answer)
         self.assertIn("无效引用标记", note)
+        self.assertEqual(code, "markers_cleaned")
 
     def test_guard_strips_markers_without_tool_messages(self):
         """模型没调工具却输出 [Kx] 时，视为编造标记并清理，但不强制拒答。"""
         guard = make_final_answer_guard(enforce_evidence=True)
-        new_answer, note = guard([AgentMessage(role="assistant", content="航道水深由吃水加富裕深度确定 [K12]。")])
+        new_answer, note, code = guard([AgentMessage(role="assistant", content="航道水深由吃水加富裕深度确定 [K12]。")])
         self.assertNotIn("[K12]", new_answer)
         self.assertIn("无效引用标记", note)
         self.assertIn("吃水加富裕深度", new_answer)
+        self.assertEqual(code, "markers_cleaned")
 
 
 class HalfRefusalStripTests(unittest.TestCase):
@@ -232,10 +237,11 @@ class HalfRefusalStripTests(unittest.TestCase):
 
         result = guard(self._added(answer))
         self.assertIsNotNone(result)
-        new_answer, note = result
+        new_answer, note, code = result
         self.assertNotIn("没有检索到足够证据支持最终结论", new_answer)
         self.assertIn("[K1]", new_answer)
         self.assertIn("半拒答", note)
+        self.assertEqual(code, "half_refusal_stripped")
 
     def test_guard_keeps_soft_partial_coverage_disclosure(self):
         guard = make_final_answer_guard(enforce_evidence=True)
@@ -256,9 +262,10 @@ class HalfRefusalStripTests(unittest.TestCase):
 
         result = guard(self._added(answer))
         self.assertIsNotNone(result)
-        new_answer, note = result
+        new_answer, note, code = result
         self.assertEqual(new_answer, answer)
         self.assertIn("拒答", note)
+        self.assertEqual(code, "refusal_kept")
 
     def test_strip_helper_leaves_normal_and_empty_untouched(self):
         from angineer_core.agent_messages import strip_half_refusal_lead

@@ -1489,5 +1489,163 @@ class OpsSegmentRecordsTests(unittest.TestCase):
         self.assertIn("dur_ms", tools[0])
 
 
+class ObservationAnnotationTests(unittest.TestCase):
+    """观测标注（final_outcome/path_trace，agent_loop run_end payload）：
+    只验标注与行为语义的对应关系——各分支的行为本身由上面既有测试锁定。"""
+
+    def test_model_answer_outcome(self):
+        llm = MockLLM(lambda messages, kwargs: text_events("直接答案"))
+        events = []
+        run_agent_loop([], make_config(llm, []), emit=events.append)
+        payload = events[-1].payload
+        self.assertEqual(payload["final_outcome"], "model_answer")
+        self.assertEqual(payload["path_trace"], [])
+
+    def test_finalized_refusal_outcome(self):
+        """终段空答案 → finalize_refusal 补写拒答。"""
+        events: list = []
+        llm = MockLLM(lambda messages, kwargs: text_events(""))
+        config = AgentLoopConfig(
+            llm=llm, tools=[], system_prompt="outer", max_turns=1,
+            attempts=[AttemptConfig(name="L1", config_factory=lambda: AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1), success_check=lambda added: False)],
+        )
+        run_agent_loop([], config, emit=events.append)
+        self.assertEqual(events[-1].payload["final_outcome"], "finalized_refusal")
+
+    def test_model_refusal_kept_outcome(self):
+        """终段非空拒答答案被保留（success_check 判失败但不覆盖）。"""
+        events: list = []
+        llm = MockLLM(lambda messages, kwargs: text_events("没有检索到足够证据支持最终结论。"))
+        config = AgentLoopConfig(
+            llm=llm, tools=[], system_prompt="outer", max_turns=1,
+            attempts=[AttemptConfig(name="L1", config_factory=lambda: AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1), success_check=lambda added: False)],
+        )
+        run_agent_loop([], config, emit=events.append)
+        self.assertEqual(events[-1].payload["final_outcome"], "model_refusal_kept")
+
+    def test_no_tool_retry_trace(self):
+        """requires_tools 段模型先空答：path_trace 记 no_tool_retry，终态仍是 model_answer。"""
+
+        def handler(messages, kwargs):
+            if len(llm.calls) == 2:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            elif len(llm.calls) == 3:
+                yield from text_events("基于证据的最终答案")
+            else:
+                yield from text_events("没查库直接答")
+
+        llm = MockLLM(handler)
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(llm=llm, tools=[make_tool("search", lambda q: {"items": [q]})], system_prompt="p", max_turns=2),
+            success_check=lambda added: True,
+            requires_tools=True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=2, attempts=[attempt])
+        events = []
+        run_agent_loop([], config, emit=events.append)
+        payload = events[-1].payload
+        self.assertIn("no_tool_retry", payload["path_trace"])
+        self.assertEqual(payload["final_outcome"], "model_answer")
+
+    def test_refusal_retry_trace_and_kept_outcome(self):
+        """有证据拒答 → 定向重试一次 → 仍拒答：path_trace 记 refusal_retry，终态 model_refusal_kept。"""
+        from angineer_core.agent_messages import is_refusal_text
+
+        def usable(added):
+            for m in reversed(added):
+                if m.role == "assistant" and not m.tool_calls and (m.content or "").strip():
+                    return not is_refusal_text(m.content)
+            return False
+
+        def handler(messages, kwargs):
+            call = len(llm.calls)
+            if call == 1:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            else:
+                yield from text_events("没有检索到足够证据支持最终结论。")
+
+        llm = MockLLM(handler)
+        tool = make_tool("search", lambda q: {"items": [{"text": "证据原文", "metadata": {"cite": "K1"}}]})
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(llm=llm, tools=[tool], system_prompt="p", max_turns=3),
+            success_check=usable,
+            requires_tools=True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=3, attempts=[attempt])
+        events = []
+        run_agent_loop([], config, emit=events.append)
+        payload = events[-1].payload
+        self.assertEqual(len(llm.calls), 3)  # 工具轮 → 拒答 → 定向重试后仍拒答
+        self.assertIn("refusal_retry", payload["path_trace"])
+        self.assertEqual(payload["final_outcome"], "model_refusal_kept")
+
+    def test_fallback_next_trace(self):
+        """两段链：第一段失败回退第二段，path_trace 记 fallback_next，终态取第二段。"""
+        events: list = []
+
+        def handler(messages, kwargs):
+            if len(llm.calls) == 1:
+                yield from text_events("第一段的答案")
+
+        llm = MockLLM(handler)
+        first = AttemptConfig(
+            name="L2", config_factory=lambda: AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1),
+            success_check=lambda added: False,
+        )
+        second = AttemptConfig(
+            name="L1", config_factory=lambda: AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1),
+            success_check=lambda added: True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=2, attempts=[first, second])
+        run_agent_loop([], config, emit=events.append)
+        payload = events[-1].payload
+        self.assertIn("fallback_next", payload["path_trace"])
+        self.assertEqual(payload["final_outcome"], "model_answer")
+
+    def test_guard_replaced_no_evidence_outcome(self):
+        """调了工具但 0 条有效证据 + enforce_evidence → guard 替换为拒答话术。"""
+        from angineer_core.agent_configs import make_final_answer_guard
+
+        def handler(messages, kwargs):
+            if len(llm.calls) == 1:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": "x"}}]))
+            else:
+                yield from text_events("强行给出的结论")
+
+        llm = MockLLM(handler)
+        tool = make_tool("search", lambda q: {"items": []})
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(
+                llm=llm, tools=[tool], system_prompt="p", max_turns=2,
+                final_answer_guard=make_final_answer_guard(enforce_evidence=True),
+            ),
+            success_check=lambda added: True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=2, attempts=[attempt])
+        events = []
+        run_agent_loop([], config, emit=events.append)
+        payload = events[-1].payload
+        self.assertTrue(payload["messages"][-1]["content"].startswith("没有检索到足够证据"))
+        self.assertEqual(payload["final_outcome"], "guard_replaced_no_evidence")
+
+    def test_markers_cleaned_trace(self):
+        """无工具时输出编造标记：guard 只清理标记不改判，path_trace 记 markers_cleaned。"""
+        from angineer_core.agent_configs import make_final_answer_guard
+
+        llm = MockLLM(lambda messages, kwargs: text_events("航道水深由吃水加富裕深度确定 [K12]。"))
+        config = AgentLoopConfig(
+            llm=llm, tools=[], system_prompt="outer", max_turns=1,
+            final_answer_guard=make_final_answer_guard(enforce_evidence=True),
+        )
+        events = []
+        run_agent_loop([], config, emit=events.append)
+        payload = events[-1].payload
+        self.assertIn("markers_cleaned", payload["path_trace"])
+        self.assertEqual(payload["final_outcome"], "model_answer")
+
+
 if __name__ == "__main__":
     unittest.main()

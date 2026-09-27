@@ -685,6 +685,10 @@ class _AttemptMachine:
         self.retry_used = False
         self.refusal_retry_used = False
         self._forced_retrieve_used = False
+        # 观测标注（零行为影响）：final_outcome=最终答案来源的终态枚举，
+        # path_trace=按序经历的中间分支；跨段累积（apply 不重置），随 run_end 落盘。
+        self.final_outcome: Optional[str] = None
+        self.path_trace: List[str] = []
         self.force_retrieve: Optional[Callable[[], Optional[str]]] = None
         self.first_search_injector: Optional[Callable[[], None]] = None
         self.current_turn = 0
@@ -748,6 +752,7 @@ class _AttemptMachine:
         ok = check is None or bool(_run_callback(check, True, added))
         if ok:
             if not (attempt.requires_tools and not used_tools):
+                self.final_outcome = "model_answer"
                 return "completed"
         if attempt.requires_tools and not used_tools:
             if not self.retry_used:
@@ -756,6 +761,7 @@ class _AttemptMachine:
                 self.attempt_turn = max(0, self.attempt_turn - 1)
                 self.messages.append(AgentMessage(role="user", content="请先调用检索工具获取证据后再回答"))
                 self.add_note("未调用检索工具，已要求重新检索后回答")
+                self.path_trace.append("no_tool_retry")
                 return "retry"
             # 代检索保险：仍不调工具且最终答案是拒答时，替模型执行 knowledge_search 再答一轮
             if (
@@ -782,6 +788,7 @@ class _AttemptMachine:
                         )
                     )
                     self.add_note("最终回答为拒答且未调用检索工具，已代为执行 knowledge_search 并要求基于证据重答")
+                    self.path_trace.append("forced_retrieve")
                     return "retry"
             return self._finalize_no_tool_answer(added)
         if (
@@ -812,6 +819,7 @@ class _AttemptMachine:
                 "有有效证据但回答为拒答，已要求基于证据重答"
                 + (f"（附证据节选 {len(evidence_parts)} 条）" if evidence_parts else "")
             )
+            self.path_trace.append("refusal_retry")
             return "retry"
         if self.active_attempt_idx + 1 < len(self.attempts):
             nxt = self.attempts[self.active_attempt_idx + 1]
@@ -819,6 +827,7 @@ class _AttemptMachine:
             self.messages.append(AgentMessage(role="user", content=f"上一段未命中，进入下一段：{nxt.name}"))
             self.apply(self.active_attempt_idx + 1)
             self.attempt_turn = 0
+            self.path_trace.append("fallback_next")
             return "next"
         return self._finalize_no_tool_answer(added)
 
@@ -832,6 +841,9 @@ class _AttemptMachine:
             None,
         )
         if final_answer is not None:
+            self.final_outcome = (
+                "model_refusal_kept" if is_refusal_text(final_answer.content or "") else "model_answer"
+            )
             return "completed"
         return "exhausted"
 
@@ -839,6 +851,7 @@ class _AttemptMachine:
         """终段没有产出任何答案时，补一条拒答并以 completed 收尾，避免前端无结果。"""
         self.messages.append(AgentMessage(role="assistant", content=self._refusal_text()))
         self.add_note("未产生可用答案，已按拒答收尾")
+        self.final_outcome = "finalized_refusal"
         return "completed"
 
 
@@ -850,19 +863,27 @@ def _apply_final_guard(
     run_id: str,
     turn: int,
     add_note: Callable[[str], None],
-) -> None:
-    """最终答案边界（P6c）：guard 自行区分检索过/未检索。"""
+) -> Optional[str]:
+    """最终答案边界（P6c）：guard 自行区分检索过/未检索。
+
+    返回 guard 的机器可读结果码（无 guard/未处理返回 None），供观测标注
+    （final_outcome 的 guard_replaced_* / model_answer_stripped 类终态）。
+    """
     added_messages = messages[start_idx:]
     final_assistant = next(
         (m for m in reversed(added_messages) if m.role == "assistant" and not m.tool_calls),
         None,
     )
     if final_assistant is None:
-        return
+        return None
     guard_result = _run_callback(config.final_answer_guard, None, added_messages)
     if not guard_result:
-        return
-    new_content, guard_note = guard_result
+        return None
+    if len(guard_result) == 3:
+        new_content, guard_note, guard_code = guard_result
+    else:
+        new_content, guard_note = guard_result
+        guard_code = None
     if guard_note:
         add_note(guard_note)
     if new_content is not None and new_content != final_assistant.content:
@@ -876,6 +897,7 @@ def _apply_final_guard(
                 payload={"content": new_content},
             ),
         )
+    return guard_code
 
 
 def run_agent_loop(
@@ -996,6 +1018,7 @@ def run_agent_loop(
             f"首轮直达：已预检索知识库证据注入上下文（{tool_name}，跳过空转轮）"
             + ("（跟进式提问，已结合上一问改写检索词）" if query != original_query else "")
         )
+        machine.path_trace.append("first_search_injected")
 
     machine.first_search_injector = _inject_first_search
     machine.start()
@@ -1029,6 +1052,7 @@ def run_agent_loop(
                         _add_note(
                             f"轮次预算已用完（max_turns={budget}），进入无工具收尾回答"
                         )
+                        machine.path_trace.append("budget_exhausted")
                         messages.append(
                             AgentMessage(role="user", content="轮次预算已用完，请基于已有证据直接给出最终答案")
                         )
@@ -1134,8 +1158,26 @@ def run_agent_loop(
     # 最终答案边界（P6c）：guard 自行区分检索过/未检索。
     # 有工具结果时做证据拒答 + 标记校验；没有工具结果时仍执行标记清理
     # （模型未调工具却输出 [Kx] 视为编造）。L0 闲聊档不装 guard，不受影响。
+    guard_code = None
     if reason not in ("error", "cancelled"):
-        _apply_final_guard(machine.active_config, messages, start_idx, emit, run_id, turn, _add_note)
+        guard_code = _apply_final_guard(machine.active_config, messages, start_idx, emit, run_id, turn, _add_note)
+        # 观测标注：guard 结果修正 final_outcome（替换类覆盖、保留类补齐、清理类只记 path）
+        if guard_code == "no_evidence":
+            machine.final_outcome = "guard_replaced_no_evidence"
+        elif guard_code == "unsupported_reference":
+            machine.final_outcome = "guard_replaced_unsupported_ref"
+        elif guard_code == "tool_error_json":
+            machine.final_outcome = "guard_replaced_tool_error"
+        elif guard_code == "half_refusal_stripped":
+            machine.final_outcome = "model_answer_stripped"
+        elif guard_code == "refusal_kept":
+            if machine.final_outcome not in ("model_refusal_kept", "finalized_refusal"):
+                machine.final_outcome = "model_refusal_kept"
+        elif guard_code == "markers_cleaned":
+            machine.path_trace.append("markers_cleaned")
+    # 无 attempts 的裸 config（纯直答）不走 advance，补齐终态保证枚举完备
+    if machine.final_outcome is None and reason == "completed":
+        machine.final_outcome = "model_answer"
 
     ttft_ms, final_prompt_tokens = _final_turn_metrics(
         messages[start_idx:], assistant_turns, first_delta_at, turn_usage, run_started,
@@ -1187,6 +1229,9 @@ def run_agent_loop(
                 "messages": [agent_message_to_dict(m) for m in messages[start_idx:]],
                 "usage": total_usage,
                 "notes": trace_notes,
+                # 观测标注：最终答案来源终态 + 经历的分支（拒答归因/口径审计用）
+                "final_outcome": machine.final_outcome,
+                "path_trace": list(machine.path_trace),
             },
         ),
     )

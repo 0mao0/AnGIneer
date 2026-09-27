@@ -157,6 +157,9 @@ def run_policy_query(
         reason = str(run_payload.get("reason") or "completed")
         turns = int(run_payload.get("turns") or 0)
         notes = [str(n.get("detail") or "") for n in run_payload.get("notes") or []]
+        # 观测标注（agent_loop 产生）：终态 + 经历的分支，随返回 dict 透传给评测侧
+        final_outcome = run_payload.get("final_outcome")
+        path_trace = list(run_payload.get("path_trace") or [])
 
         # 3. 抽取答案 / 证据 / 引用 / SOP trace
         final_assistant = next(
@@ -222,9 +225,9 @@ def run_policy_query(
             "primary_level": intent_result.primary_level or intent_result.intent_level,
             "execution_plan": list(intent_result.execution_plan or [intent_result.service_mode]),
             "reason": intent_result.reason or "",
-            "attempted_paths": [],
-            "final_path": None,
-            "fallback_reason": None,
+            "attempted_paths": path_trace,  # 观测：实际经历的分支序列（retry/注入/回退…）
+            "final_path": final_outcome,  # 观测：最终答案来源终态
+            "fallback_reason": next((n for n in notes if "进入下一段" in n or "回退" in n), None),
         }
         flow_debug = {
             "flow_type": "policy_agent",
@@ -265,6 +268,10 @@ def run_policy_query(
             "runtime_flags": (["llm_error_degraded"] if llm_errors else []),
             "route_debug": route_debug,
             "flow_debug": flow_debug,
+            # 观测标注：拒答归因/口径审计用（评测侧写入 prediction 持久化）
+            "final_outcome": final_outcome,
+            "path_trace": path_trace,
+            "trace_notes": notes,
             "stage_timings": stage_timings,
             "prompt_versions": dict(_prompt_versions()),
             "inline_citation_count": len(inline_citations),

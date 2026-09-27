@@ -257,6 +257,13 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     # 拒答集满分但 llm_error_questions 高企 = 假满分（2026-09-06 17:08 实踩 100 分）
     llm_error_questions = sum(1 for d in details if _scores_of(d).get("llm_error_count"))
     refusal_via_error_questions = sum(1 for d in details if _scores_of(d).get("refusal_via_error"))
+    # 观测标注：final_outcome 终态分布（拒答归因用——拒答题里 model_refusal_kept vs
+    # guard_replaced_* vs finalized_refusal 的占比直接说明「拒答是谁产生的」）
+    final_outcome_counts: Dict[str, int] = {}
+    for d in details:
+        fo = _scores_of(d).get("final_outcome")
+        if fo:
+            final_outcome_counts[str(fo)] = final_outcome_counts.get(str(fo), 0) + 1
     overall_score = round(correct / total, 4) if total else 0.0
     retrieval_scores = []
     answer_scores = []
@@ -360,6 +367,7 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         # 哨兵 b：作答链路被吞 LLM 失败的题数与其中"吞错式拒答"题数（满分可信度判据）
         "llm_error_questions": llm_error_questions,
         "refusal_via_error_questions": refusal_via_error_questions,
+        "final_outcome_counts": final_outcome_counts,
         "retrieval_score": retrieval_avg,
         "answer_score": answer_avg,
         "sql_score": sql_avg,

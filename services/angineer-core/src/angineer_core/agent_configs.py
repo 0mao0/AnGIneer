@@ -114,7 +114,10 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
     - 标记清理：无论是否调过工具，答案中的 [KTE] 标记必须真实存在于工具返回；
       没调工具时所有标记视为编造，一律移除（不因此拒答，避免误伤模型直接回答）。
 
-    返回 (新答案, 说明文案)；无需处理时返回 None。
+    返回 (新答案, 说明文案, 结果码)；无需处理时返回 None。
+    结果码为机器可读终态标注（观测用，agent_loop 据此修正 final_outcome）：
+    tool_error_json / no_evidence / unsupported_reference / half_refusal_stripped /
+    refusal_kept / markers_cleaned；guard 返回 2 元组时按无结果码兼容。
     """
     from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT
     from angineer_core.retrieval_pipeline import has_unsupported_reference
@@ -139,6 +142,7 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
             return (
                 _refusal_text(),
                 "边界规则：最终回答为工具/API 错误 JSON，已替换为拒答话术",
+                "tool_error_json",
             )
         if tool_messages:
             evidence_parts: List[str] = []
@@ -161,11 +165,13 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                 return (
                     _refusal_text(),
                     "边界规则：未检索到有效证据，拒绝给出最终结论（enforce_evidence）",
+                    "no_evidence",
                 )
             if answer and has_unsupported_reference(answer, evidence_text):
                 return (
                     _refusal_text(),
                     "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
+                    "unsupported_reference",
                 )
             stripped = strip_half_refusal_lead(answer)
             if stripped != answer:
@@ -174,6 +180,7 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                 return (
                     stripped,
                     "边界规则：检测到半拒答（先声明无证据又继续作答），已删掉拒答开头、保留正文",
+                    "half_refusal_stripped",
                 )
             if answer and is_refusal_text(answer):
                 refusal_note = (
@@ -184,13 +191,14 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                 return (
                     answer,
                     refusal_note,
+                    "refusal_kept",
                 )
         markers = _MARKER_RE.findall(answer)
         valid = _valid_markers(added_messages)
         bad = [m for m in markers if m not in valid]
         if bad:
             cleaned = _MARKER_RE.sub(lambda m: m.group(0) if m.group(1) in valid else "", answer)
-            return (cleaned, f"边界规则：检测到 {len(bad)} 个无效引用标记，已移除")
+            return (cleaned, f"边界规则：检测到 {len(bad)} 个无效引用标记，已移除", "markers_cleaned")
         return None
 
     return guard

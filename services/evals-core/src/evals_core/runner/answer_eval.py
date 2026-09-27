@@ -310,6 +310,11 @@ class AnswerEvaluator(BaseEvaluator):
             # 断点续跑/重判分复用旧 prediction 时都依赖这份留痕
             "llm_errors": list(data.get("llm_errors") or []),
             "llm_error_count": len(data.get("llm_errors") or []),
+            # 观测标注：最终答案来源终态 + 经历分支 + 全量 notes（拒答归因/口径审计）；
+            # 旧 prediction 复用（断点续跑/重判分）时缺失即缺省，判分不依赖
+            "final_outcome": data.get("final_outcome"),
+            "path_trace": list(data.get("path_trace") or []),
+            "trace_notes": list(data.get("trace_notes") or []),
         }
         result = enrich_prediction_trace(question, data, prediction)
 
@@ -330,6 +335,9 @@ class AnswerEvaluator(BaseEvaluator):
             # 拒答 + 存在被吞掉的 LLM 失败 → 大概率是"故障吞错式拒答"，不是校准过的正确拒答；
             # 分数维持原判（行为兼容），由汇总/门禁侧读取此标记识破满分假象
             scores["refusal_via_error"] = True
+        # 观测标注：终态提升进 scores 便于 SQL group by 与汇总分布（缺省=旧 prediction 复用）
+        if prediction.get("final_outcome"):
+            scores["final_outcome"] = str(prediction["final_outcome"])
         return scores
 
     def _evaluate_core(self, question: Dict[str, Any], gold: Dict[str, Any], prediction: Dict[str, Any]) -> Dict[str, Any]:
