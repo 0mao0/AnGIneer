@@ -80,6 +80,10 @@ Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 �
 - 拒答正确率是当前主要失分项：17 题属跨文档错配作答，逐题归因见 [docs/req-refusal-regression-attribution.md](docs/req-refusal-regression-attribution.md)；
 - 官方榜单（Vectara 托管于 HuggingFace Space）与本仓口径不同——子集与判分引擎均不一致，**不作直接对比**，只引用本仓可复现基线。
 
+**跨领域旁证——FinanceBench（金融域，同一判分链零改动）**：SEC 申报文件 84 篇 PDF 走自家解析管线入库、官方 150 题作答，语义正确率 **58.0%**（87/150，DeepEval）——超过论文（arXiv 2311.11944）公开的现实 RAG 配置最优档 50%；论文柱为人工复核口径，**判分方式不同、并列呈现非同一把尺**，oracle（金证据页）85% 档只作上限引用不作对比。文档级检索命中 96%，判分失败 0 题；预注册（跑前判据写死）与逐题归因见 [docs/plan-financebench-arms.md](docs/plan-financebench-arms.md)：
+
+![FinanceBench 跨域旁证：官方 150 题 vs 论文公开基线](docs/images/financebench-compare.png)
+
 #### (4) 知识图谱模块
 
 ```mermaid
