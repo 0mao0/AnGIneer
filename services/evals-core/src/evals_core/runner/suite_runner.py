@@ -42,10 +42,17 @@ def _decide_quality(primary_evaluator_name: str, all_scores: Dict[str, Any]) -> 
         return "completed", "wrong"
     return "completed", "correct"
 
-# 全局并发控制锁：确保同一时间只有一个评测任务在运行
-_eval_lock = threading.RLock()
-_current_run_id: Optional[str] = None
-_stop_event: Optional[threading.Event] = None
+# 在跑 run 的停止信号登记表：run_id -> Event。
+# 旧实现是 _current_run_id/_stop_event 两个模块级单例，结构上只容得下一个在跑任务：
+# 「停止」按 run_id 比对单例，第二个 run 一起来就会串台。并发由用户在前端弹框确认
+# （「已有评测在跑」→ 取消/确定），状态必须按 run 分开存（2026-09-27）。
+_stop_events: Dict[str, threading.Event] = {}
+_stop_events_lock = threading.Lock()
+
+
+def is_running_here(run_id: str) -> bool:
+    """该 run 是否由本进程正在执行（与 DB 的 running 状态不同：僵尸行不算）。"""
+    return run_id in _stop_events
 
 
 def release_native_memory() -> None:
@@ -107,9 +114,12 @@ def _generate_run_name(config_name: Optional[str] = None) -> str:
 
 
 def stop_eval_run(run_id: str) -> bool:
-    """请求停止指定运行ID的评测任务（优雅停止：完成当前题目后退出）。"""
-    global _stop_event
-    if _current_run_id != run_id or _stop_event is None:
+    """请求停止指定运行ID的评测任务（优雅停止：完成当前题目后退出）。
+
+    并发下每个 run 有各自的停止信号，按 run_id 取；取不到才走僵尸清理分支。
+    """
+    stop_event = _stop_events.get(run_id)
+    if stop_event is None:
         # 当前进程没有该运行的任务：若 DB 中仍是 running（僵尸状态，后端重启后线程已死），
         # 直接按已中断收尾，避免前端"停止"永远 404。
         run = result_store.get_run(run_id)
@@ -124,7 +134,7 @@ def stop_eval_run(run_id: str) -> bool:
             result_store.cancel_run(run_id, summary)
             return True
         return False
-    _stop_event.set()
+    stop_event.set()
     return True
 
 
@@ -555,19 +565,16 @@ def _run_suite_thread(
     并发：EVAL_CONCURRENCY（默认 3）>1 时用线程池并行跑题，每个 worker 独立构建
     evaluator 实例（共享安全）；数据库层为 WAL + thread-local 连接，天然支持并发写。
     """
-    global _current_run_id, _stop_event
     pre_done = pre_done or {}
     pre_done_count = len(pre_done)
     executed = 0
 
-    # 获取并发控制锁（阻塞等待，直到其他评测任务完成）
-    acquired = _eval_lock.acquire(timeout=0.1)
-    if not acquired:
-        result_store.fail_run(run_id, "已有其他评测任务正在运行，请稍后再试")
-        return
-
-    _current_run_id = run_id
-    _stop_event = threading.Event()
+    # 并发由调用方把关（前端弹框确认 allow_concurrent），这里只登记本 run 的停止信号。
+    # 旧实现用全局锁把并发掐死：拿不到锁就 fail_run("已有其他评测任务正在运行")，
+    # 用户除了撞一条 toast 别无选择（2026-09-27 用户要求改成自己拍板）。
+    stop_event = threading.Event()
+    with _stop_events_lock:
+        _stop_events[run_id] = stop_event
 
     try:
         total = len(questions)
@@ -594,20 +601,20 @@ def _run_suite_thread(
                 in_place=in_place,
                 pre_done_count=pre_done_count,
                 workers=workers,
-                stop_event=_stop_event,
+                stop_event=stop_event,
                 override_doc_ids=override_doc_ids,
                 config_name=config_name,
                 rescore_map=rescore_map,
                 judge_config_name=judge_config_name,
             )
-            if _stop_event.is_set():
+            if stop_event.is_set():
                 _finish_cancelled(run_id, questions)
                 return
         else:
             evaluators = _build_evaluators()
             for idx, question in enumerate(questions):
                 # 检查是否收到停止信号（在每道题目开始前检查）
-                if _stop_event.is_set():
+                if stop_event.is_set():
                     _finish_cancelled(run_id, questions)
                     return
 
@@ -683,10 +690,9 @@ def _run_suite_thread(
         traceback.print_exc()
         result_store.fail_run(run_id, str(exc))
     finally:
-        # 确保清理状态并释放锁
-        _current_run_id = None
-        _stop_event = None
-        _eval_lock.release()
+        # 注销本 run 的停止信号（并发下别的 run 各有各的，互不影响）
+        with _stop_events_lock:
+            _stop_events.pop(run_id, None)
         # 三级保留策略（≤3天全量/3–90天裁过程快照/>90天删，基线与 running 保护）取代
         # 旧"仅保留最近 3 轮"——后者会在 90 天窗口内就把旧 run 删光（2026-09-15 磁盘策略）。
         # best-effort：清理失败只留日志，绝不影响本轮评测结论。
@@ -751,7 +757,7 @@ def sweep_interrupted_runs() -> int:
     共库时新起实例会误杀活体评测（53/487 事故）。owner_pid=0 的历史行照旧回收。"""
     swept = 0
     for r in result_store.list_runs():
-        if r.get("status") != "running" or r.get("run_id") == _current_run_id:
+        if r.get("status") != "running" or is_running_here(r.get("run_id") or ""):
             continue
         if _pid_alive(int(r.get("owner_pid") or 0)):
             continue
@@ -773,16 +779,63 @@ def sweep_interrupted_runs() -> int:
     return swept
 
 
+class EvalBusyError(RuntimeError):
+    """已有评测正在跑：调用方须显式确认（allow_concurrent=True）才能并发启动。
+
+    携带在跑清单供前端弹框展示（哪些题集、跑到第几题），由用户自己决定是否继续。
+    """
+
+    def __init__(self, running: List[Dict[str, Any]]):
+        self.running = running
+        labels = "；".join(
+            f"{r.get('dataset_title') or r.get('dataset_id')}"
+            f"（{r.get('completed_questions')}/{r.get('total_questions')}）"
+            for r in running
+        )
+        super().__init__(f"已有 {len(running)} 个评测正在运行：{labels}")
+
+
+def list_running_runs() -> List[Dict[str, Any]]:
+    """当前正在跑的 run 清单（DB status=running），带题集标题供弹框展示。
+
+    只看 DB：进程内登记表 _stop_events 只覆盖本进程，而用户看到的是页面上
+    标记「评测中」的记录（含别的实例/僵尸行，僵尸由启动清扫回收）。
+    """
+    out: List[Dict[str, Any]] = []
+    for run in result_store.list_runs():
+        if run.get("status") != "running":
+            continue
+        dataset = result_store.get_dataset(run.get("dataset_id") or "") or {}
+        snapshot = run.get("config_snapshot") or {}
+        out.append({
+            "run_id": run.get("run_id"),
+            "dataset_id": run.get("dataset_id"),
+            "dataset_title": dataset.get("title") or run.get("dataset_id"),
+            "run_name": run.get("run_name") or "",
+            "model": snapshot.get("model") or "",
+            "completed_questions": int(run.get("completed_questions") or 0),
+            "total_questions": int(run.get("total_questions") or 0),
+            "started_at": run.get("started_at") or "",
+        })
+    return out
+
+
 def start_eval_run(
     dataset_id: str, question_id: Optional[str] = None, save: bool = True,
     override_doc_ids: Optional[List[str]] = None, resume_run_id: Optional[str] = None,
     config_name: Optional[str] = None, rescore_question_ids: Optional[List[str]] = None,
     judge_config_name: Optional[str] = None, restart_run_id: Optional[str] = None,
+    allow_concurrent: bool = False,
 ) -> Dict[str, Any]:
     """启动评测运行（异步线程），立即返回 run_id，前端轮询获取进度。
 
     config_name=运行（被测）模型；judge_config_name=评价模型（UI 新增评测弹框选定，
     判分候选链首位、失败回退环境链），记录进 run manifest 供历史 item 回溯与展示。
+
+    allow_concurrent=False（默认）时若已有在跑的评测，抛 EvalBusyError（带在跑清单）；
+    用户在弹框里选「确定」后由前端带 allow_concurrent=True 重发——并发与否是用户的
+    判断（判分与问答链路打同一套后端，双跑会互相拖慢），不是系统的硬拦截。
+
 
     resume_run_id 非空时进行断点续跑：复用该 run 中已完成的题目结果，
     只执行剩余题目，最后合并为一份完整 run。
@@ -798,13 +851,13 @@ def start_eval_run(
         raise ValueError("rescore_question_ids 仅在 resume_run_id 续跑时有意义")
     if restart_run_id and resume_run_id:
         raise ValueError("restart_run_id 与 resume_run_id 互斥（重来=全量重跑，续跑=复用已完成）")
-    if _current_run_id is not None:
-        running = result_store.get_run(_current_run_id) or {}
-        running_ds = running.get("dataset_id") or "其他测试集"
-        raise ValueError(
-            f"已有评测任务正在运行（{running_ds}），请等待其完成或先停止后再试"
-        )
-    
+    if not allow_concurrent:
+        # 重来/续跑的目标 run 自己可能仍是 running（用户刚点了重来）：不算「别人在跑」
+        self_ids = {run_id for run_id in (restart_run_id, resume_run_id) if run_id}
+        busy = [r for r in list_running_runs() if r.get("run_id") not in self_ids]
+        if busy:
+            raise EvalBusyError(busy)
+
     all_questions = result_store.list_questions(dataset_id)
     if not all_questions:
         raise ValueError(f"测试集 {dataset_id} 没有题目")
@@ -887,17 +940,31 @@ def start_eval_run(
 
 
 def _enrich_run_details(details: List[Dict[str, Any]], dataset_id: str) -> List[Dict[str, Any]]:
-    """为运行详情补充题目字段。"""
+    """为运行详情补充题目字段，并按题集顺序（sort_order）排列。
+
+    明细行 id 是建行顺序，不是题目顺序：题目「真正开跑」时 runner 会删行重建
+    （见 _run_questions_concurrent._task，状态机如实要求），重建行拿到更大的 id，
+    于是按 id 返回会变成「未跑的题排在前面、跑过的题挤到末尾」。前端题号用的是
+    数组下标，结果右栏题号与题目列表（题集顺序）整体错位——2026-09-27 用户截图
+    实踩：中栏第 3 题（唯一错题）在右栏显示为第 20 格。这里统一按题集顺序返回，
+    右栏明细与逐题对比的行号都跟中栏对齐。题集里已不存在的题排在末尾（稳定排序
+    保持其相对次序）。
+    """
     if not details:
         return []
     questions = result_store.list_questions(dataset_id)
     detail_questions = {
         str(question.get("question_id") or ""): question for question in questions
     }
-    return [
+    seq_of = {
+        str(question.get("question_id") or ""): idx for idx, question in enumerate(questions)
+    }
+    enriched = [
         _enrich_detail_with_question(detail, detail_questions.get(str(detail.get("question_id") or ""), {}))
         for detail in details
     ]
+    enriched.sort(key=lambda d: seq_of.get(str(d.get("question_id") or ""), len(questions)))
+    return enriched
 
 
 def get_eval_run(run_id: str, light: bool = False) -> Optional[Dict[str, Any]]:

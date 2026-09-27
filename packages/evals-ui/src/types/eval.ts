@@ -156,6 +156,18 @@ export interface EvalRun {
   config_snapshot?: Record<string, unknown> | null
 }
 
+/** 已在跑的评测（启动被占用时 POST /evals/runs 返回 409，detail.running 的条目） */
+export interface EvalRunningRun {
+  run_id: string
+  dataset_id: string
+  dataset_title?: string
+  run_name?: string
+  model?: string
+  completed_questions: number
+  total_questions: number
+  started_at: string
+}
+
 /** 评测汇总得分 */
 export interface EvalSummaryScores {
   overall_score: number

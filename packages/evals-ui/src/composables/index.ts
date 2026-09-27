@@ -1,4 +1,5 @@
 export { useEvalDataset } from './useEvalDataset'
-export { useEvalRun } from './useEvalRun'
+export { useEvalRun, isEvalBusyError } from './useEvalRun'
+export type { EvalBusyError } from './useEvalRun'
 export { useEvalDatasetTree, isCategoryFolder, isPersistedFolder, getCategoryFromNode } from './useEvalDatasetTree'
 export type { EvalTreeNode } from './useEvalDatasetTree'

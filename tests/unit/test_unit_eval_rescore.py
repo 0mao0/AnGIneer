@@ -74,7 +74,7 @@ class StartEvalRunRescoreTests(unittest.TestCase):
             def start(self):
                 pass
 
-        with mock.patch.object(suite_runner, "_current_run_id", None), \
+        with mock.patch.object(suite_runner, "list_running_runs", return_value=[]), \
              mock.patch.object(suite_runner.result_store, "list_questions", return_value=self.QUESTIONS), \
              mock.patch.object(suite_runner.result_store, "get_run", return_value={"dataset_id": "ds", "run_name": "r"}), \
              mock.patch.object(suite_runner.result_store, "reset_run_for_resume"), \
@@ -91,7 +91,7 @@ class StartEvalRunRescoreTests(unittest.TestCase):
         self.assertEqual(rescore_map, {"q1": {"answer": "存量答案"}})
 
     def test_rescore_without_resume_rejected(self):
-        with mock.patch.object(suite_runner, "_current_run_id", None):
+        with mock.patch.object(suite_runner, "list_running_runs", return_value=[]):
             with self.assertRaises(ValueError):
                 suite_runner.start_eval_run("ds", rescore_question_ids=["q1"])
 

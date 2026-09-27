@@ -58,6 +58,8 @@ class StartEvalRunRequest(BaseModel):
     restart_run_id: Optional[str] = None
     # 仅配合 resume_run_id：这些题跳过问答链路，复用存量 prediction 仅重判分（judge fallback 补判）
     rescore_question_ids: Optional[List[str]] = None
+    # 用户在「已有评测正在运行」弹框里点了确定：跳过占用拦截，与在跑评测并发（POST /runs 否则返 409）
+    allow_concurrent: bool = False
 
 
 class EvalRunProgress(BaseModel):

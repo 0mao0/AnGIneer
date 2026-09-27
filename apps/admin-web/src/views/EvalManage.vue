@@ -211,6 +211,14 @@
       @confirm="onRunCreateConfirm"
     />
 
+    <EvalBusyModal
+      :open="busyOpen"
+      :running="busyRunning"
+      :submitting="evalLoading"
+      @confirm="onBusyConfirm"
+      @cancel="onBusyCancel"
+    />
+
     <a-modal
       v-model:open="createModalVisible"
       title="新建测试集"
@@ -337,10 +345,11 @@ import {
   EvalRunPanel,
   EvalImportModal,
   EvalRunCreateModal,
+  EvalBusyModal,
 } from '@angineer/evals-ui'
-import { useEvalDataset, useEvalRun, useEvalDatasetTree } from '@angineer/evals-ui'
+import { useEvalDataset, useEvalRun, useEvalDatasetTree, isEvalBusyError } from '@angineer/evals-ui'
 import type { EvalTreeNode } from '@angineer/evals-ui'
-import type { EvalDataset, EvalQuestion, EvalRun } from '@angineer/evals-ui'
+import type { EvalDataset, EvalQuestion, EvalRun, EvalRunningRun } from '@angineer/evals-ui'
 import FolderModal from './components/FolderModal.vue'
 import EvalCompareModal from './components/EvalCompareModal.vue'
 import EvalNightlyPanel from './components/EvalNightlyPanel.vue'
@@ -531,6 +540,9 @@ const createForm = ref({ title: '', category: 'knowledge', description: '' })
 const detailVisible = ref(false)
 const detailDataset = ref<EvalDataset | null>(null)
 const detailQuestions = ref<EvalQuestion[]>([])
+/** 「已有评测正在运行」确认弹框：在跑清单 + 是否展示 */
+const busyOpen = ref(false)
+const busyRunning = ref<EvalRunningRun[]>([])
 
 const folderModalVisible = ref(false)
 const folderModalLoading = ref(false)
@@ -662,8 +674,10 @@ const startRunGuarded = async (
     configName?: string
     judgeConfigName?: string
     successText: string
+    /** 用户在「已有评测正在运行」弹框里点了确定：并发跑 */
+    allowConcurrent?: boolean
   },
-) => {
+): Promise<'ok' | 'busy' | 'fail'> => {
   evalLoading.value = true
   try {
     await startRun(datasetId, {
@@ -672,15 +686,48 @@ const startRunGuarded = async (
       restartRunId: opts.restartRunId,
       configName: opts.configName,
       judgeConfigName: opts.judgeConfigName,
+      allowConcurrent: opts.allowConcurrent,
     })
     message.success(opts.successText)
-    return true
+    return 'ok'
   } catch (e: any) {
+    // 占用不再是一条 toast 了事：弹框列出在跑的评测，用户点「仍然开始」才并发发起
+    if (isEvalBusyError(e)) {
+      openBusyDialog(e.running, () => startRunGuarded(datasetId, { ...opts, allowConcurrent: true }))
+      return 'busy'
+    }
     message.error(e.message || '启动评测失败')
-    return false
+    return 'fail'
   } finally {
     evalLoading.value = false
   }
+}
+
+type StartResult = 'ok' | 'busy' | 'fail'
+
+/** 记住被占用的这次发起：用户点「仍然开始」时原样重发（allowConcurrent=true） */
+let pendingStart: (() => Promise<StartResult>) | null = null
+
+const openBusyDialog = (running: EvalRunningRun[], resend: () => Promise<StartResult>) => {
+  busyRunning.value = running
+  busyOpen.value = true
+  pendingStart = resend
+}
+
+const onBusyConfirm = async () => {
+  const resend = pendingStart
+  pendingStart = null
+  if (!resend) {
+    busyOpen.value = false
+    return
+  }
+  const status = await resend()
+  if (status !== 'busy') busyOpen.value = false
+}
+
+const onBusyCancel = () => {
+  pendingStart = null
+  busyOpen.value = false
 }
 
 const onRunCreateConfirm = async (payload: { datasetId: string; configName?: string; judgeConfigName?: string }) => {
@@ -689,12 +736,13 @@ const onRunCreateConfirm = async (payload: { datasetId: string; configName?: str
     const tree = evalTreeRef.value as { selectedKeys: string[] } | null
     if (tree) tree.selectedKeys = [payload.datasetId]
   }
-  const ok = await startRunGuarded(payload.datasetId, {
+  const status = await startRunGuarded(payload.datasetId, {
     configName: payload.configName,
     judgeConfigName: payload.judgeConfigName,
     successText: '评测已启动',
   })
-  if (ok) runCreateVisible.value = false
+  // busy 时新增弹框收起、换成占用确认弹框；用户的题集/模型选择留在 pendingStart 里原样重发
+  if (status !== 'fail') runCreateVisible.value = false
 }
 
 /** 置顶 item「重来」：原地重跑同一条记录（清空旧明细与进度，不新增 item）；
@@ -804,13 +852,25 @@ const onDeleteRun = (runId: string) => {
 }
 
 /** 对单道题目发起评测 */
+/** 单题评测：同样会撞「已有评测在跑」，按同一条路径让用户拍板是否并发 */
 const onEvaluateQuestion = async (questionId: string) => {
   if (!selectedDatasetId.value) return
-  try {
-    await evaluateQuestion(selectedDatasetId.value, questionId, selectedDocIds.value)
-  } catch (e: any) {
-    message.error(e.message || '评测失败')
+  const datasetId = selectedDatasetId.value
+  const docIds = [...selectedDocIds.value]
+  const attempt = async (allowConcurrent: boolean): Promise<StartResult> => {
+    try {
+      await evaluateQuestion(datasetId, questionId, docIds, allowConcurrent)
+      return 'ok'
+    } catch (e: any) {
+      if (isEvalBusyError(e)) {
+        openBusyDialog(e.running, () => attempt(true))
+        return 'busy'
+      }
+      message.error(e.message || '评测失败')
+      return 'fail'
+    }
   }
+  await attempt(false)
 }
 
 const onImported = async () => {

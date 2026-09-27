@@ -1,8 +1,41 @@
 /** 评测运行管理 composable。 */
 import { ref } from 'vue'
-import type { EvalRun, EvalRunDetail } from '../types/eval'
+import type { EvalRun, EvalRunDetail, EvalRunningRun } from '../types/eval'
 
 const EVAL_POLL_INTERVAL_MS = 2000
+
+/** 启动被在跑评测占用（后端 409 eval_busy）：带在跑清单，交给调用方弹框问用户 */
+export interface EvalBusyError extends Error {
+  code: 'eval_busy'
+  running: EvalRunningRun[]
+}
+
+/** 判据用 duck-typing 而非 instanceof：跨包/多实例（pnpm 软链 + vite 预构建）下 instanceof 不可靠 */
+export function isEvalBusyError(err: unknown): err is EvalBusyError {
+  return Boolean(err) && (err as EvalBusyError).code === 'eval_busy'
+}
+
+/** 解析启动失败响应体：FastAPI 走 detail，占用时 detail 是 {code, message, running} */
+function parseErrorDetail(text: string): unknown {
+  try {
+    return JSON.parse(text)?.detail ?? text
+  } catch {
+    return text
+  }
+}
+
+/** 把 409 eval_busy 还原成带在跑清单的错误；其它形态仍按普通错误可读文案抛出 */
+function toStartRunError(detail: unknown, status: number): Error {
+  if (detail && typeof detail === 'object' && (detail as { code?: string }).code === 'eval_busy') {
+    const busy = new Error((detail as { message?: string }).message || '已有评测正在运行') as EvalBusyError
+    busy.code = 'eval_busy'
+    busy.running = (detail as { running?: EvalRunningRun[] }).running || []
+    return busy
+  }
+  if (typeof detail === 'string') return new Error(detail || `启动评测失败 (${status})`)
+  const message = (detail as { message?: string } | null)?.message
+  return new Error(message || `启动评测失败 (${status})`)
+}
 
 /** 将路径参数编码为 URL 安全的 segment，避免中文/空格/斜杠等导致请求路径解析异常。 */
 function encodePathSegment(value: string): string {
@@ -65,7 +98,8 @@ export function useEvalRun() {
   let pollTimer: ReturnType<typeof setInterval> | null = null
 
   /** 启动整体评测。judgeConfigName=新增评测弹框选定的评价模型（判分候选链首位）；
-   * restartRunId=「重来」原地重跑（复用同一 run 记录，不新增 item） */
+   * restartRunId=「重来」原地重跑（复用同一 run 记录，不新增 item）；
+   * allowConcurrent=用户在「已有评测正在运行」弹框里点了确定——跳过占用拦截并发跑 */
   const startRun = async (
     datasetId: string,
     options?: {
@@ -74,6 +108,7 @@ export function useEvalRun() {
       restartRunId?: string
       configName?: string
       judgeConfigName?: string
+      allowConcurrent?: boolean
     },
   ) => {
     loading.value = true
@@ -85,6 +120,7 @@ export function useEvalRun() {
       if (options?.restartRunId) body.restart_run_id = options.restartRunId
       if (options?.configName) body.config_name = options.configName
       if (options?.judgeConfigName) body.judge_config_name = options.judgeConfigName
+      if (options?.allowConcurrent) body.allow_concurrent = true
       const resp = await fetch('/api/evals/runs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -94,9 +130,8 @@ export function useEvalRun() {
         // 启动失败必须显式抛出给调用方弹提示——旧实现静默吞掉（如全局评测锁
         // "已有评测任务正在运行"400），用户点了按钮却毫不知情（2026-09-06 实踩）
         const text = await resp.text().catch(() => '')
-        let detail = text
-        try { detail = JSON.parse(text)?.detail || text } catch { /* 保留原文 */ }
-        throw new Error(detail || `启动评测失败 (${resp.status})`)
+        // 占用（409 eval_busy）带在跑清单抛给界面，由用户决定要不要并发
+        throw toStartRunError(parseErrorDetail(text), resp.status)
       }
       // 新 run 从零开始：清空上一轮的逐题映射与单题评测集合。
       // 不清会导致新 run 轮询合并时残留上一轮的质量标记（跨 run 幽灵数据）。
@@ -341,21 +376,28 @@ export function useEvalRun() {
     pendingDetails.clear()
   }
 
-  /** 对单道题目发起评测，异步执行，通过轮询获取结果 */
-  const evaluateQuestion = async (datasetId: string, questionId: string, docIds?: string[]) => {
+  /** 对单道题目发起评测，异步执行，通过轮询获取结果。
+   * allowConcurrent=用户在占用弹框里点了确定：与在跑的评测并发（与整体评测同一套 409 语义） */
+  const evaluateQuestion = async (
+    datasetId: string,
+    questionId: string,
+    docIds?: string[],
+    allowConcurrent = false,
+  ) => {
     evaluatingQuestionIds.value = new Set(evaluatingQuestionIds.value).add(questionId)
     isFullRun.value = false
     try {
       const body: Record<string, any> = { dataset_id: datasetId, question_id: questionId, save: false }
       if (docIds && docIds.length > 0) body.doc_ids = docIds
+      if (allowConcurrent) body.allow_concurrent = true
       const resp = await fetch('/api/evals/runs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
       if (!resp.ok) {
-        const errText = await resp.text().catch(() => '')
-        throw new Error(errText || `评测失败 (${resp.status})`)
+        const text = await resp.text().catch(() => '')
+        throw toStartRunError(parseErrorDetail(text), resp.status)
       }
       const runData = await resp.json()
       if (runData.run_id) {
