@@ -1,6 +1,6 @@
 <template>
   <div class="chat-home">
-    <ChatTopBar @open-history="historyOpen = true" @login="loginPrompt = true" />
+    <ChatTopBar @open-history="historyOpen = true" @login="loginPrompt = true" @new-chat="startNewChat" />
     <!-- 游客 30 轮闸 / 顶栏登录入口：全屏登录浮层，登录成功后自动消失，当前对话不丢（D2） -->
     <AuthGate v-if="loginPrompt && !authStore.isAuthed" />
     <div v-if="systemWarning" class="system-warning-banner">{{ systemWarning }}</div>
@@ -10,7 +10,7 @@
           ref="aiChatRef"
           class="chat-instance"
           title=""
-          :hero="!hasConversation"
+          :hero="!hasConversation && !restoringActive"
           :show-context-info="false"
           :session-id="sessionId"
           :library-id="libraryId"
@@ -88,6 +88,7 @@ import {
   fetchSessionMessages,
   listSessions,
   loadActiveSessionId,
+  loadSessionRecordLocal,
   removeSession,
   saveActiveSessionId,
   saveSession,
@@ -148,16 +149,52 @@ onMounted(() => {
   const prime = () => { void documentViewLoader() }
   if (typeof requestIdleCallback === 'function') requestIdleCallback(prime, { timeout: 4000 })
   else setTimeout(prime, 1500)
+  // 恢复活跃会话的消息（2026-09-27 实踩）：此前只从 localStorage 恢复会话 id、从不载消息：
+  // 刷新后界面是空白的，用户误以为是新会话，继续提问却仍带着整段旧历史（重会话会被模型 400
+  // 拒绝、且"新对话"按钮只藏在历史抽屉里）。登录态从服务端拉全文并回填；游客保持伪空态
+  // （产品决策：游客刷新即丢会话）。
+  if (authStore.isAuthed && initialSavedSessionId) {
+    void restoreActiveSessionIntoView()
+  } else {
+    restoringActive.value = false // 游客/无活跃会话：照常空态（游客刷新即丢会话的产品决策不变）
+  }
 })
 
 const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
+
+/** 刷新后回填活跃会话历史：①本地缓存先同步渲染（消除 hero 闪烁）②服务端真相覆盖（失败保留本地） */
+const restoreActiveSessionIntoView = async () => {
+  const sid = sessionId.value
+  if (!sid) {
+    restoringActive.value = false
+    return
+  }
+  const cached = loadSessionRecordLocal(localStorage, libraryId.value, sid)
+  if (cached?.messages?.length) {
+    aiChatRef.value?.loadSession(cached.messages as AIChatMessage[])
+    hasConversation.value = true
+    restoringActive.value = false
+  }
+  try {
+    const messages = (await fetchSessionMessages(sid)) as AIChatMessage[]
+    if (messages?.length) {
+      aiChatRef.value?.loadSession(messages)
+      hasConversation.value = true
+    }
+  } catch {
+    // 服务端拉取失败：保留本地缓存渲染；都失败则落回空态
+  } finally {
+    restoringActive.value = false
+  }
+}
 const docViewRef = ref<InstanceType<typeof DocumentViewType> | null>(null)
 const genSessionId = () => `chat-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
 
-const sessionId = ref(
-  loadActiveSessionId(localStorage, authStore.effectiveLibraryId || 'default') || genSessionId()
-)
+const initialSavedSessionId = loadActiveSessionId(localStorage, authStore.effectiveLibraryId || 'default')
+const sessionId = ref(initialSavedSessionId || genSessionId())
 const hasConversation = ref(false)
+// 恢复中（2026-09-27）：本地缓存回填与服务端对账完成前抑制 hero——此前刷新会“先 hero 再跳回对话”（闪烁）
+const restoringActive = ref(Boolean(initialSavedSessionId))
 const historyOpen = ref(false)
 const sessions = ref<ChatSessionRecord[]>([])
 
@@ -286,10 +323,18 @@ const startNewChat = () => {
   flex: 1;
   min-width: 0;
   display: flex;
+  flex-direction: column;
+}
+
+/* 输入区下沿更贴底（2026-09-27 用户要求「再往下移动一些」）：减小编辑器下方留白，
+   aichat-ui 默认 12px → 4px；再往下是页脚（标语条 26px，产品元素不动） */
+.chat-col :deep(.chat-input) {
+  padding-bottom: 4px;
 }
 
 .chat-instance {
   flex: 1;
+  min-height: 0;
 }
 
 .citation-panel {

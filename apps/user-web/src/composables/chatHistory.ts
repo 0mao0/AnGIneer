@@ -235,6 +235,15 @@ export async function removeSession(storage: StorageLike, libraryId: string, ses
 
 // ---------------------------------------------------------------- 活跃会话 id（§4）
 
+/** 同步读取本地缓存的会话记录（含消息）：刷新时先渲染本地缓存消除 hero 闪烁，再拉服务端对账 */
+export function loadSessionRecordLocal(
+  storage: StorageLike,
+  libraryId: string,
+  sessionId: string
+): ChatSessionRecord | undefined {
+  return listSessionsLocal(storage, libraryId).find(record => record.id === sessionId)
+}
+
 export function loadActiveSessionId(storage: StorageLike, libraryId: string): string {
   try {
     const raw = storage.getItem(ACTIVE_SESSION_KEY)

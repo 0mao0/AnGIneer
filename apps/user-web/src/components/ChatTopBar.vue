@@ -2,6 +2,11 @@
   <header class="chat-top-bar">
     <AppBrand />
     <div class="top-actions">
+      <!-- 新对话入口（2026-09-27）：放在历史入口左侧；点击＝换新会话 id 回到空态 -->
+      <a-button type="text" class="top-btn new-chat-top-btn" @click="emit('newChat')">
+        <template #icon><PlusOutlined /></template>
+        新对话
+      </a-button>
       <!-- 游客不显示历史入口（产品决策 2026-09-18）：历史仅登录账号可见，游客档只服务端留存 -->
       <a-tooltip v-if="!authStore.guestMode" title="历史对话">
         <a-button type="text" class="top-btn" aria-label="历史对话" @click="emit('openHistory')">
@@ -35,13 +40,14 @@
  * 历史 / 用户菜单（点用户名 → 退出登录）。
  */
 import { computed } from 'vue'
-import { HistoryOutlined, LogoutOutlined } from '@ant-design/icons-vue'
+import { HistoryOutlined, LogoutOutlined, PlusOutlined } from '@ant-design/icons-vue'
 import { AppBrand } from '@angineer/ui-kit'
 import { useAuthStore } from '@/stores/auth'
 
 const emit = defineEmits<{
   (e: 'openHistory'): void
   (e: 'login'): void
+  (e: 'newChat'): void
 }>()
 const authStore = useAuthStore()
 
@@ -83,6 +89,14 @@ const onUserMenuClick = async ({ key }: { key: string | number }) => {
 
   .top-btn {
     color: var(--text-secondary);
+  }
+
+  .new-chat-top-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    margin-right: 4px;
   }
 
   .user-menu-btn {
