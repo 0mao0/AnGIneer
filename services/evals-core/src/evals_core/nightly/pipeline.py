@@ -244,7 +244,8 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     report_md = report.render_markdown(summary)
 
     state = "red" if gate_res.get("gate_red") else "green"
-    q_texts = archive.load_question_texts(paths.dataset_json_path(dataset_id))
+    q_texts = archive.question_texts_from_db(dataset_id) or archive.load_question_texts(
+        paths.dataset_json_path(dataset_id))  # 题集只存数据库；磁盘副本只剩历史档作回退
     entry = archive.build_entry(
         gate_res, loop_run.get("summary_scores") or {}, q_texts,
         dataset_id, paths.today_bjt(), run_id=run_id, state=state,

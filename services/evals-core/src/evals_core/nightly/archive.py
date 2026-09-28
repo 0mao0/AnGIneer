@@ -63,7 +63,9 @@ def verdict(state: str, delta, regress_count: int) -> str:
 
 
 def load_question_texts(dataset_file: Path) -> dict:
-    """题集导出格式 {"items":[...]}（evals 导入件）与 manifest {"questions":[...]} 都兼容。"""
+    """题集导出格式 {"items":[...]}（evals 导入件）与 manifest {"questions":[...]} 都兼容。
+
+    仅作历史磁盘副本的只读兼容：2026-09-28 起导入不再落盘，新档一律走 question_texts_from_db。"""
     try:
         data = json.loads(Path(dataset_file).read_text(encoding="utf-8"))
     except (OSError, ValueError):
@@ -77,6 +79,20 @@ def load_question_texts(dataset_file: Path) -> dict:
         if qid and text:
             out[str(qid)] = text[:_QUESTION_MAX]
     return out
+
+
+def question_texts_from_db(dataset_id: str) -> dict:
+    """题干来源（题集只存数据库后的主路）：从 eval_question 读，展示截断口径与 load_question_texts 一致。"""
+    from evals_core.storage import result_store  # 延迟导入：archive 模块级不依赖存储层
+    try:
+        rows = result_store.list_questions(dataset_id)
+    except Exception:
+        logger.warning("nightly 题干读库失败 dataset_id=%s", dataset_id, exc_info=True)
+        return {}
+    return {
+        str(r["question_id"]): str(r.get("question") or "")[:_QUESTION_MAX]
+        for r in rows if r.get("question_id") and r.get("question")
+    }
 
 
 def _question_items(qids, buckets: dict, question_texts: dict, limit: int, evidence_map: dict = None) -> list:

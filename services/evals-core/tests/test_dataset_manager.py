@@ -88,6 +88,68 @@ class DatasetManagerRoundTripTests(unittest.TestCase):
                 result_store._DB_PATH = original_db_path
 
 
+class DatasetDbOnlyStorageTests(unittest.TestCase):
+    """2026-09-28 定版：题集只存数据库。导入不落磁盘副本；删除须顺带清掉历史遗留副本。"""
+
+    PAYLOAD = {
+        "dataset": {
+            "dataset_id": "db-only-test",
+            "title": "db only test",
+            "schema_version": "eval.bundle.v2",
+            "version": "1.0",
+            "library_id": "default",
+        },
+        "items": [
+            {
+                "question_id": "q-1",
+                "question": "题干预览文本",
+                "task_type": "definition",
+                "intent_level": "L1",
+                "library_id": "default",
+                "doc_ids": [],
+                "difficulty": "easy",
+                "tags": [],
+            }
+        ],
+    }
+
+    def test_import_writes_no_disk_copy_and_delete_clears_legacy(self) -> None:
+        from evals_core.nightly import archive
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            original_db_path = result_store._DB_PATH
+            original_local = result_store._LOCAL
+            original_datasets_dir = manager._DATASETS_DIR
+            try:
+                result_store._DB_PATH = str(Path(temp_dir) / "evals.sqlite")
+                result_store._LOCAL = None
+                datasets_dir = Path(temp_dir) / "datasets"
+                manager._DATASETS_DIR = str(datasets_dir)
+
+                manager.import_bundle(dict(self.PAYLOAD), source_file="db-only-test.json")
+                self.assertFalse(datasets_dir.exists(), "导入不得创建磁盘副本")
+
+                # 题干从数据库读（nightly 报告的新主路）
+                texts = archive.question_texts_from_db("db-only-test")
+                self.assertEqual(texts, {"q-1": "题干预览文本"})
+
+                # 模拟历史遗留副本：删除测试集应把它一并清掉
+                datasets_dir.mkdir(parents=True, exist_ok=True)
+                legacy = datasets_dir / "db-only-test.json"
+                legacy.write_text("{}", encoding="utf-8")
+
+                self.assertTrue(manager.delete_dataset("db-only-test"))
+                self.assertFalse(legacy.exists(), "删除测试集必须清理历史磁盘副本")
+            finally:
+                local = result_store._get_thread_local()
+                conn = getattr(local, "conn", None)
+                if conn is not None:
+                    conn.close()
+                manager._DATASETS_DIR = original_datasets_dir
+                result_store._LOCAL = original_local
+                result_store._DB_PATH = original_db_path
+
+
 class DatasetManagerRound2DatasetTests(unittest.TestCase):
     """验证第二轮 benchmark 文件结构稳定。"""
 

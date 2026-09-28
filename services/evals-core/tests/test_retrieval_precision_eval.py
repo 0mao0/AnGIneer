@@ -595,7 +595,8 @@ class RetrievalPrecisionBundleTests(unittest.TestCase):
                 self.assertEqual(imported["dataset_id"], "docs-retrieval-precision-v1")
                 self.assertEqual(imported["question_count"], 1)
                 self.assertTrue(Path(result_store._DB_PATH).exists())
-                self.assertTrue(Path(dataset_manager._DATASETS_DIR, "docs-retrieval-precision-v1.json").exists())
+                # 2026-09-28 定版：题集只存数据库，导入不得再写 data/evals/datasets/ 磁盘副本
+                self.assertFalse(Path(dataset_manager._DATASETS_DIR, "docs-retrieval-precision-v1.json").exists())
             finally:
                 local = result_store._get_thread_local()
                 conn = getattr(local, "conn", None)

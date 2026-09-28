@@ -1,5 +1,4 @@
 """题集 CRUD 管理器。"""
-import json
 import os
 from typing import Any, Dict, List, Optional
 
@@ -25,7 +24,8 @@ def create_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def import_bundle(payload: Dict[str, Any], source_file: str = "") -> Dict[str, Any]:
-    """导入 JSON 题集到数据库，并保存原始 JSON 到 data/evals/datasets/。"""
+    """导入 JSON 题集到数据库（2026-09-28 定版：题集只存数据库、不再落磁盘副本；
+    历史遗留的 data/evals/datasets/<id>.json 由 delete_dataset 顺带清理）。"""
     _ensure_dataset_store_ready()
     bundle = load_bundle_from_dict(payload)
     dataset_meta = bundle.dataset
@@ -45,10 +45,6 @@ def import_bundle(payload: Dict[str, Any], source_file: str = "") -> Dict[str, A
         question_data = _item_to_question_row(item, dataset_meta.dataset_id, index)
         result_store.insert_question(question_data)
     result_store.update_dataset_question_count(dataset_meta.dataset_id, len(bundle.items))
-    os.makedirs(_DATASETS_DIR, exist_ok=True)
-    json_path = os.path.join(_DATASETS_DIR, f"{dataset_meta.dataset_id}.json")
-    with open(json_path, "w", encoding="utf-8") as handle:
-        json.dump(payload, handle, ensure_ascii=False, indent=2)
     return result_store.get_dataset(dataset_meta.dataset_id)
 
 
@@ -69,9 +65,14 @@ def list_datasets() -> List[Dict[str, Any]]:
 
 
 def delete_dataset(dataset_id: str) -> bool:
-    """删除测试集。"""
+    """删除测试集（数据库 + 历史遗留的磁盘副本 data/evals/datasets/<id>.json）。"""
     _ensure_dataset_store_ready()
-    return result_store.delete_dataset(dataset_id)
+    success = result_store.delete_dataset(dataset_id)
+    if success:
+        legacy = os.path.join(_DATASETS_DIR, f"{dataset_id}.json")
+        if os.path.isfile(legacy):
+            os.remove(legacy)
+    return success
 
 
 def update_dataset(dataset_id: str, updates: Dict[str, Any]) -> Optional[Dict[str, Any]]:
