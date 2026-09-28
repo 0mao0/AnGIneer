@@ -86,42 +86,21 @@
         </template>
         <template v-if="column.key === 'folder'">
           <div class="folder-cell">
-            <a-select
+            <a-tree-select
               size="small"
               class="folder-cell-select"
-              :value="parentOf(record.doc_id)"
+              :value="folderCellSelectValue(record.doc_id)"
+              :tree-data="folderTreeSelectData"
               :disabled="!docIdsInNodes.has(record.doc_id)"
               :loading="movingDocIds.has(record.doc_id)"
-              :open="folderOpenRowId === record.id"
               :dropdown-match-select-width="false"
               :dropdown-style="{ minWidth: '300px' }"
-              option-label-prop="label"
-              @dropdown-visible-change="(v: boolean) => (folderOpenRowId = v ? record.id : null)"
-              @change="(val: any) => moveRecord(record, String(val ?? ''))"
-            >
-              <a-select-option value="" label="根目录">根目录</a-select-option>
-              <a-select-option v-for="f in folderOptions" :key="f.value" :value="f.value" :label="f.label">
-                <div class="folder-option">
-                  <span class="folder-option-name" :title="f.label">{{ f.label }}</span>
-                  <span class="folder-option-actions" @click.stop>
-                    <a-button type="text" size="small" title="重命名" @click="openFolderRenameById(f.value)">
-                      <template #icon><EditOutlined /></template>
-                    </a-button>
-                    <a-button type="text" size="small" danger title="删除" @click="openFolderDeleteById(f.value)">
-                      <template #icon><DeleteOutlined /></template>
-                    </a-button>
-                  </span>
-                </div>
-              </a-select-option>
-              <!-- 文档挂在已删除/未知目录时兜底，避免下拉值显示成裸 id -->
-              <a-select-option
-                v-if="unknownParent(record.doc_id)"
-                :value="unknownParent(record.doc_id)"
-                label="（未知目录）"
-              >
-                （未知目录）
-              </a-select-option>
-            </a-select>
+              tree-default-expand-all
+              show-search
+              tree-node-filter-prop="name"
+              tree-node-label-prop="displayLabel"
+              @change="(val: any) => folderCellChange(record, val)"
+            />
             <a-button
               size="small"
               class="folder-cell-add"
@@ -375,9 +354,9 @@
 </template>
 
 <script setup lang="ts">
-import { defineAsyncComponent, ref, nextTick, onMounted, onBeforeUnmount, onActivated, onDeactivated, computed, watch } from 'vue'
+import { defineAsyncComponent, ref, nextTick, onMounted, onBeforeUnmount, onActivated, onDeactivated, computed, watch, h } from 'vue'
 import dayjs from 'dayjs'
-import { message, Modal } from 'ant-design-vue'
+import { message, Modal, Button } from 'ant-design-vue'
 import {
   CopyOutlined,
   ExclamationCircleOutlined,
@@ -512,11 +491,15 @@ async function moveRecord(record: ParseRecordItem, value: string) {
   }
 }
 
-// ── 文件夹增删改：行内「文件夹」下拉（与知识库下拉同模式：选项行带 ✎/🗑，旁边 ＋ 新建）──
-// 下拉受控：同时只开一行；点选项内操作图标时主动收起，避免弹框打开后下拉残留
-const folderOpenRowId = ref<number | null>(null)
+// ── 文件夹增删改：行内「文件夹」树下拉（a-tree-select 真树；节点行带 ✎/🗑，旁边 ＋ 新建）──
+// 本版 antdv TreeSelect 受控 :open 与面板状态不同步（该开不开/该关不关），下拉不做受控；
+// ✎/🗑 弹框打开前收起下拉。Escape 键实测不生效，改点 select 自身箭头 = rc-select 的 toggleOpen
+function closeOpenDropdown() {
+  if (!document.querySelector('.ant-select-open')) return
+  document.body.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }))
+}
 
-// FolderModal 的父级选择树：由当前库的活文件夹按 parent_id 组嵌套
+// 活文件夹按 parent_id 组嵌套：FolderModal 的父级选择 + 单元格树下拉共用
 const folderSelectTree = computed(() => {
   const byParent = new Map<string, FolderOption[]>()
   for (const f of folderOptions.value) {
@@ -535,6 +518,72 @@ const folderSelectTree = computed(() => {
   return roots
 })
 
+// 单元格树下拉数据：「根目录」根（value 哨兵，选中即移出到库根）+ 文件夹树 + 未知父级兜底节点
+// 本版 antdv TreeSelect 不支持 titleRender 槽（源码 TreeNode/OptionList 未消费），
+// 节点行内 ✎/🗑 只能走 treeData.title = vnode；收起态显示走 displayLabel（tree-node-label-prop），
+// 搜索走 name 本级名（tree-node-filter-prop）。vnode 不带 scoped data-v，样式用内联 style。
+const ROOT_FOLDER_VALUE = '__root__'
+function cellFolderNode(f: FolderOption): any {
+  const children = cellChildrenOf(f.value)
+  return {
+    value: f.value,
+    name: f.title,
+    displayLabel: f.label,
+    title: h('div', { style: 'display:flex;align-items:center;gap:8px;width:100%' }, [
+      h('span', { style: 'overflow:hidden;text-overflow:ellipsis;white-space:nowrap', title: f.label }, f.title),
+      h(
+        'span',
+        {
+          style: 'display:inline-flex;gap:2px;margin-left:auto;flex-shrink:0',
+          onMousedown: (e: MouseEvent) => e.stopPropagation(),
+          onClick: (e: MouseEvent) => e.stopPropagation(),
+        },
+        [
+          h(Button, { type: 'text', size: 'small', title: '重命名', onClick: () => openFolderRenameById(f.value) }, {
+            icon: () => h(EditOutlined),
+          }),
+          h(
+            Button,
+            { type: 'text', size: 'small', danger: true, title: '删除', onClick: () => openFolderDeleteById(f.value) },
+            { icon: () => h(DeleteOutlined) },
+          ),
+        ],
+      ),
+    ]),
+    children,
+  }
+}
+function cellChildrenOf(parentId: string): any[] {
+  const list = folderOptions.value.filter(f => f.parentId === parentId).map(cellFolderNode)
+  return list.length ? list : (undefined as any)
+}
+const unknownParentNodes = computed(() => {
+  const ids: string[] = []
+  const seen = new Set<string>()
+  for (const r of records.value) {
+    const u = unknownParent(r.doc_id)
+    if (u && !seen.has(u)) {
+      seen.add(u)
+      ids.push(u)
+    }
+  }
+  return ids.map(id => ({ value: id, name: '（未知目录）', displayLabel: '（未知目录）', title: '（未知目录）' }))
+})
+const folderTreeSelectData = computed(() => {
+  const roots = folderOptions.value.filter(f => !f.parentId || !folderValueSet.value.has(f.parentId)).map(cellFolderNode)
+  return [
+    { value: ROOT_FOLDER_VALUE, name: '根目录', displayLabel: '根目录', title: '根目录', children: roots },
+    ...unknownParentNodes.value,
+  ]
+})
+function folderCellSelectValue(docId: string): string {
+  return parentOf(docId) || ROOT_FOLDER_VALUE
+}
+function folderCellChange(record: ParseRecordItem, val: any) {
+  const v = String(val ?? '')
+  moveRecord(record, v === ROOT_FOLDER_VALUE ? '' : v)
+}
+
 const folderModal = ref({
   visible: false,
   saving: false,
@@ -545,7 +594,7 @@ const folderModal = ref({
 })
 
 function openFolderCreate(parentId: string) {
-  folderOpenRowId.value = null
+  closeOpenDropdown()
   folderModal.value = {
     visible: true,
     saving: false,
@@ -562,7 +611,7 @@ function openFolderRenameById(folderId: string) {
     message.warning('该文件夹已不在当前库，请刷新后重试')
     return
   }
-  folderOpenRowId.value = null
+  closeOpenDropdown()
   folderModal.value = { visible: true, saving: false, isNew: false, name: f.title, parentId: undefined, editId: f.value }
 }
 
@@ -621,7 +670,7 @@ async function openFolderDeleteById(folderId: string) {
   } catch {
     // 预览失败不拦删除：影响范围按未知呈现，仍要求输入名字确认
   }
-  folderOpenRowId.value = null
+  closeOpenDropdown()
   folderDelete.value = {
     open: true,
     deleting: false,
@@ -1469,25 +1518,6 @@ onMounted(() => {
 }
 .folder-cell-add {
   flex-shrink: 0;
-}
-// 下拉行：路径名 + 右侧操作图标（对应 LibrarySelect 的 lib-option）
-.folder-option {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  width: 100%;
-}
-.folder-option-name {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.folder-option-actions {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  margin-left: auto;
 }
 </style>
 
