@@ -73,7 +73,7 @@
       <span v-show="selectedRowKeys.length > 0" class="stats-filter-batch-move">
         <a-button type="primary" class="batch-move-shell">批量移动 ({{ selectedRowKeys.length }})</a-button>
         <a-tree-select
-          :value="undefined"
+          :value="batchMoveTarget"
           :tree-data="folderTreeSelectData"
           :dropdown-match-select-width="false"
           :dropdown-style="{ maxWidth: '480px' }"
@@ -82,7 +82,7 @@
           show-search
           tree-node-filter-prop="name"
           tree-node-label-prop="displayLabel"
-          @change="onBatchMoveSelect"
+          @select="onBatchMoveSelect"
         />
       </span>
     </div>
@@ -1418,8 +1418,12 @@ async function onBatchParseClick() {
 
 // 批量移动：树面板里选中目标文件夹后走二次确认；取消不改任何东西。
 // 只动已进入知识库节点树的文档（与行内下拉 disabled 同一口径 docIdsInNodes）。
+// 高亮跟手（2026-09-28 用户）：点中哪个 item，面板选中高亮就落哪个——batchMoveTarget 即
+// batch select 的受控 value（选择器整体透明，设值不显文字），@select 而非 @change：重复点同一文件夹也要触发。
+const batchMoveTarget = ref<string | undefined>(undefined)
 function onBatchMoveSelect(val: any) {
   const target = String(val ?? '') === ROOT_FOLDER_VALUE ? '' : String(val ?? '')
+  batchMoveTarget.value = val === undefined || val === null ? undefined : String(val)
   const selectedDocs = records.value.filter(r => selectedRowKeys.value.includes(r.id))
   const movable = selectedDocs.filter(r => docIdsInNodes.value.has(r.doc_id))
   if (!movable.length) {
