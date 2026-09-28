@@ -78,6 +78,7 @@
           :tree-data="folderTreeSelectData"
           :dropdown-match-select-width="false"
           :dropdown-style="{ maxWidth: '480px' }"
+          dropdown-class-name="folder-tree-dropdown"
           tree-default-expand-all
           show-search
           tree-node-filter-prop="name"
@@ -112,6 +113,7 @@
             :loading="movingDocIds.has(record.doc_id)"
             :dropdown-match-select-width="false"
             :dropdown-style="{ maxWidth: '480px' }"
+            dropdown-class-name="folder-tree-dropdown"
             tree-default-expand-all
             show-search
             tree-node-filter-prop="name"
@@ -541,8 +543,13 @@ const folderParentTree = computed(() => [
 // 节点行内 ✎/🗑 只能走 treeData.title = vnode；收起态显示走 displayLabel（tree-node-label-prop），
 // 搜索走 name 本级名（tree-node-filter-prop）。vnode 不带 scoped data-v，样式用内联 style。
 const ROOT_FOLDER_VALUE = '__root__'
-function cellIconButton(icon: any, title: string, onClick: () => void, disabled = false) {
-  return h(Button, { type: 'text', size: 'small', title, disabled, onClick }, { icon: () => h(icon) })
+// 图标钮配色走 .folder-tree-dropdown 全局样式（面板挂 body，scoped 够不到）：默认中灰、悬停分色
+function cellIconButton(icon: any, title: string, onClick: () => void, disabled = false, danger = false) {
+  return h(
+    Button,
+    { type: 'text', size: 'small', title, disabled, onClick, class: danger ? 'folder-node-icon-btn folder-node-icon-btn-danger' : 'folder-node-icon-btn' },
+    { icon: () => h(icon) },
+  )
 }
 function cellNodeTitleRow(label: string, tooltip: string, actions: any[]) {
   return h('div', { style: 'display:flex;align-items:center;gap:8px;width:100%' }, [
@@ -571,7 +578,7 @@ function cellFolderNode(f: FolderOption): any {
     title: cellNodeTitleRow(f.title, f.label, [
       cellIconButton(PlusOutlined, '新建子文件夹', () => openFolderCreate(f.value)),
       cellIconButton(EditOutlined, '重命名', () => openFolderRenameById(f.value)),
-      cellIconButton(DeleteOutlined, '删除', () => openFolderDeleteById(f.value)),
+      cellIconButton(DeleteOutlined, '删除', () => openFolderDeleteById(f.value), false, true),
       cellIconButton(UpOutlined, '上移', () => moveFolderSibling(f.value, -1), idx <= 0),
       cellIconButton(DownOutlined, '下移', () => moveFolderSibling(f.value, 1), idx >= sibs.length - 1),
     ]),
@@ -1636,3 +1643,44 @@ onMounted(() => {
 }
 </style>
 
+
+<style lang="less">
+/* 文件夹树面板（行内 + 批量移动共用）挂 body，scoped 够不到——用 dropdownClassName 限定全局块。
+   右对齐：treenode 默认 inline-block 只包内容宽 → 强制行级 flex 撑满（wrapper flex:auto → title flex:1 →
+   vnode div 100% → 动作组 margin-left:auto 贴右缘）
+   配色：默认中灰（双主题通用，同角标先例）；悬停 增/改/移=主题蓝、删=危险红 */
+.folder-tree-dropdown {
+  .ant-select-tree-treenode {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .ant-select-tree-node-content-wrapper {
+    flex: auto;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+  .ant-select-tree-title {
+    flex: 1;
+    min-width: 0;
+  }
+  .folder-node-icon-btn.ant-btn-text {
+    color: rgba(140, 144, 150, 0.9);
+    &.ant-btn-sm {
+      padding-inline: 3px;
+      width: auto;
+    }
+    &:not(:disabled):hover {
+      color: #1677ff;
+      background: transparent;
+    }
+    &:disabled {
+      color: rgba(140, 144, 150, 0.35);
+    }
+  }
+  .folder-node-icon-btn-danger.ant-btn-text:not(:disabled):hover {
+    color: #ff4d4f;
+  }
+}
+</style>
