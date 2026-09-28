@@ -94,16 +94,26 @@ def normalize_settings(raw: dict) -> dict:
 def load_settings() -> dict:
     cfg = dict(DEFAULT_SETTINGS)
     last_dispatch = None
+    load_error = ""
     try:
         data = json.loads(paths.settings_file().read_text(encoding="utf-8"))
-        if isinstance(data, dict):
-            cfg.update(normalize_settings(data))
-            ld = data.get("last_dispatch")
-            if isinstance(ld, dict):
-                last_dispatch = ld
-    except (OSError, ValueError):
-        pass  # 文件缺失/损坏 → 默认值（每晚定时执行=默认选择），接口仍可用
+        if not isinstance(data, dict):
+            raise ValueError("nightly_settings.json 顶层必须是对象")
+        cfg.update(normalize_settings(data))
+        ld = data.get("last_dispatch")
+        if isinstance(ld, dict):
+            last_dispatch = ld
+    except FileNotFoundError:
+        pass  # 首装无文件 → 默认值（每晚定时执行=默认选择），调度正常接管
+    except (OSError, ValueError) as exc:
+        # fail-closed：文件在但读坏（半截 JSON/非法字段）不再静默拿默认值跑——
+        # 09-28 实踩：默认值恰好可跑（v3/01:00/启用/无派发记录）→ 调度器补跑一轮
+        # 幽灵评测，收口还把默认配置覆写回盘。读坏 = 拒跑等人工修（due() 判定处），
+        # 界面仍按默认值渲染，管理员改一次配置即恢复。
+        load_error = f"{type(exc).__name__}: {exc}"
+        logger.error("nightly_settings 读取失败，调度器将拒跑等待人工修复：%s", exc)
     cfg["last_dispatch"] = last_dispatch
+    cfg["load_error"] = load_error
     return cfg
 
 
@@ -113,7 +123,11 @@ def save_settings(cfg: dict) -> None:
     payload = {k: cfg[k] for k in DEFAULT_SETTINGS}
     if cfg.get("last_dispatch"):
         payload["last_dispatch"] = cfg["last_dispatch"]
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
+    # 原子写：先写同目录临时文件再 os.replace。就地截断重写一旦被打断（容器被杀/崩溃），
+    # 盘上会留半截 JSON——09-28 幽灵跑的物理起点（读坏→静默回默认→多跑一轮）
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
+    os.replace(tmp, path)
 
 
 def next_fire_at(cfg: dict, now: datetime) -> Optional[datetime]:
@@ -135,7 +149,11 @@ def slot_of(cfg: dict, now: datetime) -> str:
 def due(cfg: dict, now: datetime) -> bool:
     """启用、且已到今日时段 → 该跑；当日时段后已有任何派发（调度器或「立即运行」）
     即视为当天已跑完，不再补跑。2026-09-07 实踩：manual 派发的 slot 键带 "manual:" 前缀，
-    旧判定只比对 slot 字符串完全相等，容器重启后调度器误判当日未跑，自动重跑了一轮幽灵评测。"""
+    旧判定只比对 slot 字符串完全相等，容器重启后调度器误判当日未跑，自动重跑了一轮幽灵评测。
+    fail-closed：配置读坏（load_error，见 load_settings）时宁可不跑等人工修，
+    也不拿默认值补跑（09-28 幽灵跑的第二道洞——读坏静默回默认）。"""
+    if cfg.get("load_error"):
+        return False
     if not cfg.get("enabled"):
         return False
     local = now.astimezone(BJT)
@@ -254,10 +272,15 @@ def stop_pipeline() -> dict:
             "detail": "已请求停止：当前题目完成后退出，不落结论、不发通知"}
 
 
+def _slot_key(source: str, slot: Optional[str], now: datetime) -> str:
+    """派发记录的 slot 键：调度器=当日时段（幂等键），manual 带 "manual:" 前缀。"""
+    return slot if source == "scheduler" else f"manual:{now.astimezone(BJT).isoformat(timespec='minutes')}"
+
+
 def _record(cfg: dict, now: datetime, source: str, slot: Optional[str], result: dict) -> None:
     cfg = dict(cfg)
     cfg["last_dispatch"] = {
-        "slot": slot if source == "scheduler" else f"manual:{now.astimezone(BJT).isoformat(timespec='minutes')}",
+        "slot": _slot_key(source, slot, now),
         "source": source,
         "at": now.astimezone(BJT).isoformat(timespec="seconds"),
         "ok": bool(result.get("ok")),
@@ -269,6 +292,15 @@ def _record(cfg: dict, now: datetime, source: str, slot: Optional[str], result: 
         save_settings(cfg)
     except OSError:
         logger.exception("nightly 运行结果落盘失败")
+
+
+def _mark_dispatch(cfg: dict, now: datetime, source: str, slot: Optional[str]) -> None:
+    """派发即落盘（state=dispatched）：旧实现收口才写 slot，一跑数小时里盘上没有
+    「当日已派发」记录，判定全靠进程内存的 is_running()——进程重启/多调度实例落在
+    跑中窗口就重复派发（09-07 容器重启、09-28 配置读坏两次幽灵跑同根）。
+    先写后跑，最坏「少跑不补」而非「多跑覆写结论」。"""
+    _record(cfg, now, source, slot,
+            {"ok": True, "state": "dispatched", "run_id": "", "detail": ""})
 
 
 def _resolve_webhook() -> str:
@@ -326,6 +358,7 @@ async def launch(source: str = "manual", slot: Optional[str] = None) -> dict:
         return {"ok": False, "detail": "已有一条夜间流水线在运行，请等待其完成"}
     _stop_requested = False
     cfg = load_settings()
+    _mark_dispatch(cfg, datetime.now(BJT), source, slot)
     _active = asyncio.create_task(_execute(cfg, source, slot))
     return {"ok": True, "started_at": datetime.now(BJT).isoformat(timespec="seconds"),
             "detail": "流水线已在后台启动，预计数十分钟至数小时，完成看企微与本页历史"}
@@ -347,6 +380,7 @@ async def scheduler_loop() -> None:
             cfg = load_settings()
             if not due(cfg, now) or is_running():
                 continue
+            _mark_dispatch(cfg, now, "scheduler", slot_of(cfg, now))
             await _execute(cfg, "scheduler", slot_of(cfg, now))
         except asyncio.CancelledError:
             raise

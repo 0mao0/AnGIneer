@@ -92,9 +92,23 @@ class SettingsTests(_TmpSettings):
             with self.assertRaises(ValueError):
                 nc.normalize_settings(bad)
 
-    def test_load_tolerates_corrupt_file(self):
+    def test_corrupt_file_is_fail_closed(self):
+        """09-28 幽灵跑回归：文件在但读坏 ≠ 首装——界面仍可按默认值渲染，
+        但调度器必须拒跑（旧行为静默回默认 v3/01:00/启用 → 补跑一轮并覆写配置）。"""
         Path(self.path).write_text("{坏 json", encoding="utf-8")
-        self.assertEqual(nc.load_settings()["enabled"], True)  # 损坏退回默认=启用定时
+        cfg = nc.load_settings()
+        self.assertEqual(cfg["enabled"], True)      # 默认值渲染，管理员可改回再存
+        self.assertTrue(cfg["load_error"])           # 读取失败必须留痕（日志+返回值）
+        after = datetime(2026, 9, 6, 17, 5, tzinfo=timezone.utc)
+        self.assertFalse(nc.due(cfg, after))         # fail-closed：读坏不拿默认值补跑
+        os.remove(self.path)                         # 首装缺文件是另一回事：照常调度
+        self.assertEqual(nc.load_settings()["load_error"], "")
+        self.assertTrue(nc.due(nc.load_settings(), after))
+
+    def test_save_atomic_no_tmp_leftover(self):
+        nc.save_settings(nc.normalize_settings({"enabled": True}))
+        self.assertTrue(Path(self.path).exists())
+        self.assertFalse(Path(self.path + ".tmp").exists())  # 原子写不留临时文件
 
 
 class FireTimeTests(unittest.TestCase):
@@ -179,6 +193,20 @@ class LaunchTests(unittest.TestCase):
         stored = nc.load_settings()
         self.assertEqual(stored["last_dispatch"]["slot"], "2026-09-07 01:00")
         self.assertFalse(nc.due(stored, now))  # 同槽不重复触发
+
+    def test_dispatch_marked_before_completion(self):
+        """派发即落盘（09-07/09-28 幽灵跑同根回归）：收口才写 slot 的旧实现，
+        跑中数小时盘上无「当日已派发」记录，进程重启/多实例即重复派发。"""
+        cfg = nc.normalize_settings({"enabled": True, "hour": 1, "minute": 0})
+        now = datetime(2026, 9, 6, 17, 5, tzinfo=timezone.utc)
+        nc._mark_dispatch(cfg, now, "scheduler", nc.slot_of(cfg, now))
+        stored = nc.load_settings()
+        self.assertEqual(stored["last_dispatch"]["slot"], "2026-09-07 01:00")
+        self.assertEqual(stored["last_dispatch"]["state"], "dispatched")
+        self.assertFalse(nc.due(stored, now))       # 跑中重启不再误判当日未跑
+        # 收口记录覆盖派发标记（同 slot，状态转终值）
+        nc._record(cfg, now, "scheduler", nc.slot_of(cfg, now), self.result)
+        self.assertEqual(nc.load_settings()["last_dispatch"]["state"], "green")
 
     def test_launch_rejects_concurrent(self):
         nc._active = None
