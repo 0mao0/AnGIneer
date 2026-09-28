@@ -65,6 +65,10 @@ class EvalQuestionItem(BaseModel):
     answer: Optional[AnswerGold] = None
     sql: Optional[SqlGold] = None
     sop: Optional[SopGold] = None
+    # 探针断言块（clause-probe 类题集）：不跑生成/判官，只做路由层+检索层断言。
+    # 结构不固定（expect_clause_direct / gold_num / precise_rank_max / xfail …），
+    # 断言语义见 evals_core.runner.probe_eval。
+    probe: Optional[Dict[str, Any]] = None
 
 
 class EvalDatasetMeta(BaseModel):
@@ -118,4 +122,5 @@ class EvalQuestionRow(BaseModel):
     answer_gold: Optional[Dict[str, Any]] = None
     sql_gold: Optional[Dict[str, Any]] = None
     sop_gold: Optional[Dict[str, Any]] = None
+    probe_gold: Optional[Dict[str, Any]] = None
     sort_order: int = 0

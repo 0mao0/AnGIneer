@@ -102,6 +102,7 @@ def add_question(dataset_id: str, data: Dict[str, Any]) -> Dict[str, Any]:
         "answer_gold": data.get("answer"),
         "sql_gold": data.get("sql"),
         "sop_gold": data.get("sop"),
+        "probe_gold": data.get("probe"),
     }
     result = result_store.insert_question(question_data)
     questions = result_store.list_questions(dataset_id)
@@ -117,6 +118,7 @@ def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) 
         "answer": "answer_gold",
         "sql": "sql_gold",
         "sop": "sop_gold",
+        "probe": "probe_gold",
     }
     db_updates = {}
     for key, value in updates.items():
@@ -184,6 +186,7 @@ def _item_to_question_row(item: Any, dataset_id: str, sort_order: int = 0) -> Di
         "answer_gold": item.answer.model_dump(exclude_none=True) if item.answer else None,
         "sql_gold": item.sql.model_dump(exclude_none=True) if item.sql else None,
         "sop_gold": item.sop.model_dump(exclude_none=True) if item.sop else None,
+        "probe_gold": item.probe or None,
         "sort_order": sort_order,
     }
 
@@ -212,6 +215,8 @@ def _question_row_to_item(row: Dict[str, Any]) -> Dict[str, Any]:
         item["sql"] = row["sql_gold"]
     if row.get("sop_gold"):
         item["sop"] = row["sop_gold"]
+    if row.get("probe_gold"):
+        item["probe"] = row["probe_gold"]
     return item
 
 

@@ -15,6 +15,9 @@
 xfail 题为已知缺口（2026-09-28：「式（6.2.8）」括号形态漏屏蔽）：
   行为与预期相反 → XFAIL-OK（缺口仍在）；行为与预期一致 → XPASS（缺口已修，请摘除 xfail 标记）。
 退出码：存在 FAIL → 1，否则 0。
+
+2026-09-29：断言逻辑收口进 evals_core.runner.probe_eval（UI 运行链路共用同一真相源），
+本脚本只保留 CLI 外壳与进程内直调 docs_core 检索（题集仍读磁盘文件）。
 """
 import argparse
 import json
@@ -34,74 +37,23 @@ def _load_env() -> None:
     os.environ.setdefault("KNOWLEDGE_BASE_DIR", str(REPO / "data" / "knowledge_base"))
 
 
-def _is_clause_item(e: dict) -> bool:
-    pol = str(e.get("retrieval_policy") or "")
-    md = e.get("metadata") or {}
-    if "clause" in pol or str(md.get("source_kind") or "") == "clause_direct":
-        return True
-    fs = md.get("fusion_sources") or []
-    if isinstance(fs, str):
-        fs = fs.split(",")
-    return "clause" in [str(x).strip() for x in fs]
+sys.path.insert(0, str(REPO / "services" / "evals-core" / "src"))
+from evals_core.runner.probe_eval import run_probe_item  # noqa: E402
 
 
 def _run_item(item: dict, retrieve, top_k: int) -> dict:
-    probe = item.get("probe") or {}
-    expect_clause = bool(probe.get("expect_clause_direct"))
-    xfail = bool(probe.get("xfail"))
+    """CLI 外壳：进程内直调检索后，断言全部交给 evals_core（与 UI 运行同一真相源）。"""
     r = retrieve_knowledge_local(item, retrieve, top_k)
     items = r.get("items") or []
-    clause_items = [e for e in items if _is_clause_item(e)]
-    checks: dict = {}
-
-    # ① 路由层：直达是否按预期出现
-    checks["clause_direct"] = "ok" if bool(clause_items) == expect_clause else (
-        f"实际={'有' if clause_items else '无'} 期望={'有' if expect_clause else '无'}")
-
-    if clause_items:
-        # P1-1 限域：所有直达项必须出自点名文档
-        restricted = probe.get("restricted_doc")
-        if restricted:
-            bad = sorted({str(e.get("doc_id")) for e in clause_items} - {restricted})
-            checks["restricted_doc"] = "ok" if not bad else f"混入 {bad}"
-        # P0-2 主题加权：条款组首位必须出自期望文档
-        top_docs = probe.get("top_clause_docs")
-        if top_docs:
-            first_doc = str(clause_items[0].get("doc_id"))
-            checks["top_clause_doc"] = "ok" if first_doc in top_docs else f"首位 {first_doc} ∉ {top_docs}"
-        # ② 检索层：金标条款块整体位次
-        gold_num = probe.get("gold_num")
-        gold_docs = probe.get("gold_doc_for_num") or []
-        if gold_num and gold_docs:
-            rank = next(
-                (i for i, e in enumerate(items, 1)
-                 if _is_clause_item(e) and str(e.get("doc_id")) in gold_docs
-                 and gold_num in str(e.get("text") or "")),
-                None,
-            )
-            limit = int(probe.get("precise_rank_max") or 0)
-            if rank is None:
-                checks["precise_rank"] = f"金标条款块（{gold_num}）未进 top-{len(items)}"
-            elif limit and rank > limit:
-                checks["precise_rank"] = f"位次 {rank} > 上限 {limit}"
-            else:
-                checks["precise_rank"] = f"ok(rank={rank})"
-
-    failed = [k for k, v in checks.items()
-              if v != "ok" and not str(v).startswith("ok(")]
-    if xfail:
-        # xfail 语义：checks 挂 = 缺口仍在（XFAIL-OK）；全过 = 缺口已修（XPASS，应摘除 xfail 标记）
-        status = "XFAIL-OK" if failed else "XPASS(请摘xfail)"
-    else:
-        status = "FAIL" if failed else "PASS"
+    outcome = run_probe_item(item, items)
     return {
         "id": item["question_id"],
         "question": str(item.get("question"))[:44],
-        "n_clause": len(clause_items),
-        "n_items": len(items),
-        "checks": checks,
-        "failed": failed,
-        "status": status,
+        "n_clause": outcome["n_clause"],
+        "n_items": outcome["n_items"],
+        "checks": outcome["checks"],
+        "failed": outcome["failed"],
+        "status": outcome["status"],
     }
 
 

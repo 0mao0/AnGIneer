@@ -840,6 +840,32 @@
         </div>
       </div>
 
+      <!-- 探针断言（clause-probe 类题集：只跑检索断言，不跑生成/判官） -->
+      <div v-if="probeInfo" class="eval-section">
+        <div class="eval-semantic-header">
+          <span class="eval-section__title">探针断言</span>
+          <span
+            class="eval-semantic-score"
+            :class="{
+              'eval-semantic-score--passed': probeInfo.status === 'PASS' || probeInfo.status === 'XFAIL-OK' || String(probeInfo.status || '').startsWith('XPASS'),
+              'eval-semantic-score--failed': probeInfo.status === 'FAIL',
+            }"
+          >
+            {{ probeInfo.status }}
+          </span>
+          <span class="eval-semantic-threshold">直达 {{ probeInfo.n_clause }}/{{ probeInfo.n_items }} 条</span>
+        </div>
+        <div v-for="(checkValue, checkKey) in probeInfo.checks" :key="`probe-${checkKey}`" class="eval-detail-row">
+          <span class="eval-detail-label">{{ checkKey }}:</span>
+          <span :class="String(checkValue) === 'ok' || String(checkValue).startsWith('ok(') ? 'eval-sql-success' : 'eval-sql-fail'">
+            {{ checkValue }}
+          </span>
+        </div>
+        <div v-if="String(probeInfo.status || '').startsWith('XPASS')" class="eval-semantic-fallback-hint">
+          ⚠ xfail 题已转绿，请摘除题集里的 xfail 标记
+        </div>
+      </div>
+
       <!-- 错误信息 -->
       <div v-if="detail?.error" class="eval-section eval-section--error">
         错误: {{ detail.error }}
@@ -1115,6 +1141,22 @@ const traceSummary = computed(() => {
 const citations = computed<EvalCitationItem[]>(() => {
   const c = prediction.value?.citations
   return Array.isArray(c) ? (c as EvalCitationItem[]) : []
+})
+
+interface ProbeInfo {
+  status?: string
+  checks?: Record<string, string>
+  n_clause?: number
+  n_items?: number
+}
+
+const probeInfo = computed<ProbeInfo | null>(() => {
+  const allScores = props.detail?.all_scores as Record<string, Record<string, unknown>> | null
+  const fromAll = allScores?.probe
+  const scores = props.detail?.scores as Record<string, unknown> | null
+  const raw = (fromAll || (scores?.checks ? scores : null)) as ProbeInfo | null
+  if (!raw || !raw.status) return null
+  return raw
 })
 
 const retrievalScores = computed<Record<string, unknown> | null>(() => {

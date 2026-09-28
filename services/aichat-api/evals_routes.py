@@ -39,6 +39,15 @@ async def _startup():
     """应用启动时初始化数据库，并清扫上次进程被杀留下的僵尸 running run。"""
     import logging
     result_store.init_db()
+    # probe 评测器（clause-probe 类题集）只跑检索断言，检索函数由本进程注入
+    # （evals-core 不依赖 docs-core，解耦口径见 evals_core.runner.probe_eval 模块头）
+    from evals_core.runner import probe_eval
+    try:
+        from docs_core.step09_query.retrieve_service import retrieve_knowledge
+
+        probe_eval.set_retriever(retrieve_knowledge)
+    except Exception as exc:  # noqa: BLE001
+        logging.getLogger("evals").warning("probe 检索函数注入失败（探针题将报错而非静默跳过）: %s", exc)
     swept = suite_runner.sweep_interrupted_runs()
     if swept:
         logging.getLogger("evals").warning("启动清扫：%d 个中断评测已标记为已取消（可断点续跑）", swept)
