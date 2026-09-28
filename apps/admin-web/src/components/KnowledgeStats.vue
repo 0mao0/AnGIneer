@@ -85,26 +85,52 @@
           {{ formatFileSize(record.file_size) }}
         </template>
         <template v-if="column.key === 'folder'">
-          <a-select
-            size="small"
-            class="folder-cell-select"
-            :value="parentOf(record.doc_id)"
-            :disabled="!docIdsInNodes.has(record.doc_id)"
-            :loading="movingDocIds.has(record.doc_id)"
-            @change="(val: any) => moveRecord(record, String(val ?? ''))"
-          >
-            <a-select-option value="">根目录</a-select-option>
-            <a-select-option v-for="f in folderOptions" :key="f.value" :value="f.value">
-              {{ f.label }}
-            </a-select-option>
-            <!-- 文档挂在已删除/未知目录时兜底，避免下拉值显示成裸 id -->
-            <a-select-option
-              v-if="unknownParent(record.doc_id)"
-              :value="unknownParent(record.doc_id)"
+          <div class="folder-cell">
+            <a-select
+              size="small"
+              class="folder-cell-select"
+              :value="parentOf(record.doc_id)"
+              :disabled="!docIdsInNodes.has(record.doc_id)"
+              :loading="movingDocIds.has(record.doc_id)"
+              :open="folderOpenRowId === record.id"
+              :dropdown-match-select-width="false"
+              :dropdown-style="{ minWidth: '300px' }"
+              option-label-prop="label"
+              @dropdown-visible-change="(v: boolean) => (folderOpenRowId = v ? record.id : null)"
+              @change="(val: any) => moveRecord(record, String(val ?? ''))"
             >
-              （未知目录）
-            </a-select-option>
-          </a-select>
+              <a-select-option value="" label="根目录">根目录</a-select-option>
+              <a-select-option v-for="f in folderOptions" :key="f.value" :value="f.value" :label="f.label">
+                <div class="folder-option">
+                  <span class="folder-option-name" :title="f.label">{{ f.label }}</span>
+                  <span class="folder-option-actions" @click.stop>
+                    <a-button type="text" size="small" title="重命名" @click="openFolderRenameById(f.value)">
+                      <template #icon><EditOutlined /></template>
+                    </a-button>
+                    <a-button type="text" size="small" danger title="删除" @click="openFolderDeleteById(f.value)">
+                      <template #icon><DeleteOutlined /></template>
+                    </a-button>
+                  </span>
+                </div>
+              </a-select-option>
+              <!-- 文档挂在已删除/未知目录时兜底，避免下拉值显示成裸 id -->
+              <a-select-option
+                v-if="unknownParent(record.doc_id)"
+                :value="unknownParent(record.doc_id)"
+                label="（未知目录）"
+              >
+                （未知目录）
+              </a-select-option>
+            </a-select>
+            <a-button
+              size="small"
+              class="folder-cell-add"
+              title="新建文件夹（默认建在该文档所在目录，弹框里可改父级）"
+              @click="openFolderCreate(parentOf(record.doc_id))"
+            >
+              <template #icon><PlusOutlined /></template>
+            </a-button>
+          </div>
         </template>
         <template v-if="column.key === 'page_count'">
           {{ record.page_count ? `${record.page_count} 页` : '-' }}
@@ -299,6 +325,52 @@
       :parse-options="parseOptions"
       @uploaded="loadRecords"
     />
+
+    <FolderModal
+      v-model:visible="folderModal.visible"
+      :title="folderModal.isNew ? '新建文件夹' : '重命名文件夹'"
+      :loading="folderModal.saving"
+      :folder-tree-data="folderSelectTree"
+      v-model:name="folderModal.name"
+      v-model:parent-id="folderModal.parentId"
+      :is-new="folderModal.isNew"
+      @confirm="submitFolderModal"
+    />
+
+    <a-modal
+      v-model:open="folderDelete.open"
+      title="删除文件夹"
+      ok-text="永久删除"
+      ok-danger
+      :ok-button-props="{ disabled: folderDelete.input.trim() !== folderDelete.title.trim() || folderDelete.deleting }"
+      @ok="confirmFolderDelete"
+      @cancel="folderDelete.input = ''"
+    >
+      <p class="folder-delete-warning">
+        将彻底删除「{{ folderDelete.label }}」及其内部全部内容（节点、解析产物与索引一并清除，不可恢复）：
+        子文件夹 {{ Math.max(folderDelete.folderCount - 1, 0) }} 个、文档 {{ folderDelete.docCount }} 篇。
+      </p>
+      <p v-if="folderDelete.sample.length" class="folder-delete-sample">
+        其中文档如：{{ folderDelete.sample.join('、') }}
+      </p>
+      <p>请输入完整文件夹名确认：</p>
+      <p class="folder-delete-name">{{ folderDelete.title }}</p>
+      <a-input-group compact class="folder-delete-fill-group">
+        <a-input
+          v-model:value="folderDelete.input"
+          :placeholder="folderDelete.title"
+          class="folder-delete-fill-input"
+          @pressEnter="confirmFolderDelete"
+        />
+        <a-button
+          class="folder-delete-fill-btn"
+          title="点击自动填入完整文件夹名，再次确认后即可删除"
+          @click="folderDelete.input = folderDelete.title"
+        >
+          一键填入
+        </a-button>
+      </a-input-group>
+    </a-modal>
   </div>
 </template>
 
@@ -306,7 +378,14 @@
 import { defineAsyncComponent, ref, nextTick, onMounted, onBeforeUnmount, onActivated, onDeactivated, computed, watch } from 'vue'
 import dayjs from 'dayjs'
 import { message, Modal } from 'ant-design-vue'
-import { CopyOutlined, ExclamationCircleOutlined, UploadOutlined } from '@ant-design/icons-vue'
+import {
+  CopyOutlined,
+  ExclamationCircleOutlined,
+  UploadOutlined,
+  PlusOutlined,
+  EditOutlined,
+  DeleteOutlined,
+} from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
 import type { DataTableColumn } from '@angineer/ui-kit'
@@ -317,6 +396,7 @@ import DocStageStepper from '@/components/DocStageStepper.vue'
 import EntityReviewDrawer from '@/components/EntityReviewDrawer.vue'
 import LibrarySelect from '@/components/LibrarySelect.vue'
 import BatchUploadModal from '@/components/BatchUploadModal.vue'
+import FolderModal from '@/views/components/FolderModal.vue'
 import { useLibraryStore } from '@/stores/library'
 import type { KnowledgeLibraryItem } from '@/stores/library'
 
@@ -351,7 +431,8 @@ async function openUploadModal() {
 const records = ref<ParseRecordItem[]>([])
 
 // ── 文件夹列：节点树上下文（当前库的全部文件夹 + 每篇文档的所在目录）──
-interface FolderOption { value: string; label: string }
+// label 是展示用全路径，title 是本级名（重命名预填用），parent_id 供父级树/重挂
+interface FolderOption { value: string; label: string; title: string; parentId: string }
 const folderOptions = ref<FolderOption[]>([])
 const docParents = ref<Record<string, string>>({})
 const docIdsInNodes = ref<Set<string>>(new Set())
@@ -377,7 +458,12 @@ async function loadFolderContext() {
     for (const n of nodes) byId.set(n.id, n)
     folderOptions.value = nodes
       .filter(n => n.type === 'folder')
-      .map(n => ({ value: n.id, label: folderPathLabel(n, byId) }))
+      .map(n => ({
+        value: n.id,
+        label: folderPathLabel(n, byId),
+        title: String(n.title || ''),
+        parentId: String(n.parent_id || ''),
+      }))
     const parents: Record<string, string> = {}
     const ids = new Set<string>()
     for (const n of nodes) {
@@ -423,6 +509,148 @@ async function moveRecord(record: ParseRecordItem, value: string) {
     const next = new Set(movingDocIds.value)
     next.delete(docId)
     movingDocIds.value = next
+  }
+}
+
+// ── 文件夹增删改：行内「文件夹」下拉（与知识库下拉同模式：选项行带 ✎/🗑，旁边 ＋ 新建）──
+// 下拉受控：同时只开一行；点选项内操作图标时主动收起，避免弹框打开后下拉残留
+const folderOpenRowId = ref<number | null>(null)
+
+// FolderModal 的父级选择树：由当前库的活文件夹按 parent_id 组嵌套
+const folderSelectTree = computed(() => {
+  const byParent = new Map<string, FolderOption[]>()
+  for (const f of folderOptions.value) {
+    const list = byParent.get(f.parentId) || []
+    list.push(f)
+    byParent.set(f.parentId, list)
+  }
+  const build = (parentId: string): any[] =>
+    (byParent.get(parentId) || []).map(f => ({ value: f.value, title: f.title, children: build(f.value) }))
+  // 挂到不在本列表里的父级（如展平的历史根目录）也当根级展示，避免整支消失
+  const known = new Set(folderOptions.value.map(f => f.value))
+  const roots = build('')
+  for (const f of folderOptions.value) {
+    if (f.parentId && !known.has(f.parentId)) roots.push({ value: f.value, title: f.title, children: build(f.value) })
+  }
+  return roots
+})
+
+const folderModal = ref({
+  visible: false,
+  saving: false,
+  isNew: true,
+  name: '',
+  parentId: undefined as string | undefined,
+  editId: '',
+})
+
+function openFolderCreate(parentId: string) {
+  folderOpenRowId.value = null
+  folderModal.value = {
+    visible: true,
+    saving: false,
+    isNew: true,
+    name: '',
+    parentId: parentId || undefined,
+    editId: '',
+  }
+}
+
+function openFolderRenameById(folderId: string) {
+  const f = folderOptions.value.find(x => x.value === folderId)
+  if (!f) {
+    message.warning('该文件夹已不在当前库，请刷新后重试')
+    return
+  }
+  folderOpenRowId.value = null
+  folderModal.value = { visible: true, saving: false, isNew: false, name: f.title, parentId: undefined, editId: f.value }
+}
+
+async function submitFolderModal() {
+  const name = folderModal.value.name.trim()
+  if (!name) {
+    message.warning('请输入文件夹名称')
+    return
+  }
+  const m = folderModal.value
+  m.saving = true
+  try {
+    if (m.isNew) {
+      await knowledgeApi.createNode({
+        title: name,
+        node_type: 'folder',
+        library_id: libraryStore.libraryId || 'default',
+        parent_id: m.parentId || undefined,
+      })
+      message.success(`文件夹「${name}」已创建`)
+    } else {
+      await knowledgeApi.updateNode(m.editId, { title: name })
+      message.success('已重命名')
+    }
+    m.visible = false
+    await loadFolderContext()
+  } catch (e: any) {
+    message.error(`保存失败: ${e?.response?.data?.detail || e?.message || e}`)
+  } finally {
+    m.saving = false
+  }
+}
+
+// 删除：先取影响范围预览，再二次确认（需输入完整文件夹名）
+const folderDelete = ref({
+  open: false,
+  deleting: false,
+  id: '',
+  title: '',
+  label: '',
+  folderCount: 0,
+  docCount: 0,
+  sample: [] as string[],
+  input: '',
+})
+
+async function openFolderDeleteById(folderId: string) {
+  const f = folderOptions.value.find(x => x.value === folderId)
+  if (!f) {
+    message.warning('该文件夹已不在当前库，请刷新后重试')
+    return
+  }
+  let preview: any = null
+  try {
+    preview = await knowledgeApi.getDeleteNodePreview(f.value)
+  } catch {
+    // 预览失败不拦删除：影响范围按未知呈现，仍要求输入名字确认
+  }
+  folderOpenRowId.value = null
+  folderDelete.value = {
+    open: true,
+    deleting: false,
+    id: f.value,
+    title: f.title,
+    label: f.label,
+    folderCount: Number(preview?.folder_count || 0),
+    docCount: Number(preview?.document_count || 0),
+    sample: Array.isArray(preview?.sample_doc_titles) ? preview.sample_doc_titles.slice(0, 3) : [],
+    input: '',
+  }
+}
+
+async function confirmFolderDelete() {
+  const d = folderDelete.value
+  if (d.input.trim() !== d.title.trim()) return
+  d.deleting = true
+  try {
+    await knowledgeApi.deleteNode(d.id)
+    message.success(`文件夹「${d.title}」已删除`)
+    d.open = false
+    d.input = ''
+    await loadFolderContext()
+    // 其下文档随文件夹一起没了，列表同步刷新
+    await loadRecords()
+  } catch (e: any) {
+    message.error(`删除失败: ${e?.response?.data?.detail || e?.message || e}`)
+  } finally {
+    d.deleting = false
   }
 }
 
@@ -522,7 +750,7 @@ const columns = ref<DataTableColumn[]>([
   { title: '上传人员', dataIndex: 'uploaded_by', key: 'uploaded_by', width: 96 },
   { title: '文件名称', dataIndex: 'file_name', key: 'file_name', ellipsis: true, flex: true },
   { title: '格式', dataIndex: 'file_format', key: 'file_format', width: 60 },
-  { title: '文件夹', key: 'folder', width: 150 },
+  { title: '文件夹', key: 'folder', width: 170 },
   { title: '大小', key: 'file_size', width: 80 },
   { title: '页数', dataIndex: 'page_count', key: 'page_count', width: 60 },
   { title: '解析状态', key: 'status', width: 80 },
@@ -1115,11 +1343,35 @@ onMounted(() => {
   min-width: 0;
 }
 .folder-cell-select {
+  flex: 1;
+  min-width: 0;
+}
+.folder-delete-warning {
+  color: var(--error-color, #ff4d4f);
+  margin-bottom: 12px;
+}
+.folder-delete-sample {
+  color: var(--text-secondary, rgba(0, 0, 0, 0.55));
+  margin-bottom: 12px;
+  word-break: break-all;
+}
+.folder-delete-name {
+  font-weight: 600;
+  word-break: break-all;
+  margin-bottom: 8px;
+}
+.folder-delete-fill-group {
+  display: flex;
   width: 100%;
-  // 单元格被全局强制居中：下拉收起时箭头与文字一起居中，避免偏左
-  :deep(.ant-select-selection-item) {
-    text-align: center;
-  }
+}
+.folder-delete-fill-input {
+  flex: 1;
+  min-width: 0;
+}
+.folder-delete-fill-btn {
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  background: var(--bg-secondary, #fafafa);
+  border-color: var(--border-color, #d9d9d9);
 }
 .stats-filter-upload,
 .stats-filter-batch-delete,
@@ -1208,4 +1460,34 @@ onMounted(() => {
     border-bottom-right-radius: 6px;
   }
 }
+// 行内文件夹单元格：移动下拉 + ＋ 新建按钮（知识库下拉同款布局，压缩到行高）
+.folder-cell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.folder-cell-add {
+  flex-shrink: 0;
+}
+// 下拉行：路径名 + 右侧操作图标（对应 LibrarySelect 的 lib-option）
+.folder-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+.folder-option-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.folder-option-actions {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
+}
 </style>
+
