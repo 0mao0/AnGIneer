@@ -2,6 +2,16 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.83
+
+- 条款号检索补漏 + 探针集工具化：公式号屏蔽正则补括号形态——「式（6.2.8）/式(6.2.8)」曾漏屏蔽，编号经裸三段路漏回条款抽取、带主题词时 20 条同号噪声上呈（q_028 主形态「公式 6.2.8」不受影响，单测补 4 例）；新增 clause-probe-v1 条款号直达探针集（16 题 = 7 正例 / 7 反例 / 2 括号回归哨兵，路由层+检索层双断言、进程内直调不跑判官，约 90 秒全量回归，`.gitignore` 白名单放行 `scripts/clause_probe.py`），首跑即抓出上述缺口、修复后 16/16 全绿（7 正例金标条款块全部 precise_rank=1）
+- nightly dataset_id 校验误拒点号修复：`/\..` 逐字符判据把带点号的合法 id（open-ragbench-subset-v4.1）判非法——v0.2.82 fail-closed 门禁首日实弹拦下该误拒（配置读坏拒跑而非带病派发）、当日修复，v4.1 指针全程稳定
+- admin 知识页文件夹管理整套升级：下拉升级真树（a-tree-select，根目录+层级），行内 ✎/🗑/＋ 增删改（重命名可换父级一个框搞定、删除带影响范围预览+输入全名二次确认、建子文件夹预填父级），节点 ↑↓ 同级调序（连续调序不打断），多选工具条「批量移动」（树选择器叠按钮壳 + Modal.confirm 二次确认），以及一串体验修复（调序不收起面板、选中高亮跟手、批量移动按钮绿色与增改蓝/删红分语义、面板宽度自适应、FolderModal 单列布局、图标钮配色右对齐）
+- docs-ui：AI 对话知识库树每级先子文件夹后文件、不再交叉排列（组内保持 API 序 = sort_order）
+- evals 题集只存数据库不落磁盘：import_bundle 去掉 `data/evals/datasets/` 副本写入、delete_dataset 顺带清历史遗留副本、nightly 报告题干改 eval_question 读库为主路（磁盘副本仅只读回退）
+- dev：docs-api 支持 ANGINEER_NO_RELOAD=1 关闭 uvicorn 热重载——防评测/补跑数小时长任务被 watchfiles 掐死 worker（aichat-api 同款早已支持，`.env.example` 已登记；仅本地 dev 有意义）
+- 文档与压线池：压线池专项阶段 1 出账报告归档（D47% / C39% / A+B 仅 5%），需求文档三处更新（req-borderline-pool 加出账指针并修正 §1「judge 贡献为零」口径、req-chat-history-bloat 扩写根因与闸覆盖、plan-nightly-v0280-readout 读数修订）；README 回答成绩对比图定版（AnGIneer 紫柱恒在每组最左、FinanceBench 改一组紧贴对比柱 + 8pp 差距标注）
+
 ## v0.2.82
 
 - FinanceBench 跨域旁证接入（P1 金融）：官方 150 题 / 84 篇 SEC PDF 走自家管线入库，主指标 semantic_passed 87/150 = 58.0%（判分方式与论文人工复核不同源，与论文口径并列引用、不作同一把尺对比，oracle 85% 只作上限不直接对比）；hit@doc 96%、判分失败 0、表格/数值子集 71.2% 佐证 table_lookup；`scripts/financebench` 白名单入库，README 回答成绩小节加对比柱状图
