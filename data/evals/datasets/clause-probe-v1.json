@@ -1,0 +1,345 @@
+{
+ "dataset": {
+  "dataset_id": "clause-probe-v1",
+  "title": "条款号直达探针集 v1（路由层+检索层，不跑判官）",
+  "category": "knowledge",
+  "description": "89735bb 条款号检索修复的常态化回归集。金标锚定本地库现存文档：doc-c29d731e=JTS 165-2013 海港总体设计规范、doc-e7f65d96=GB 50010-2010 混凝土结构设计规范。6.2.7/6.2.8 两号在这两本规范跨域撞车，是门控与主题加权的试金石。注意事项：①本库无字母附录条款标注（A.0.x/C.x 系），附录路探针待语料具备后补；②「式（6.2.8）」括号形态漏屏蔽缺口已于 2026-09-28 修复（mask 正则加可选括号），两道括号题转为该修复的回归哨兵。本文件的 probe 块是探针断言的权威源（evals bundle schema 不承载）；入库副本仅供 evals 模块可见。",
+  "schema_version": "eval.bundle.v2",
+  "version": "1.0",
+  "library_id": "default"
+ },
+ "items": [
+  {
+   "question_id": "cp-plain-clause-001",
+   "question": "6.2.7 条关于航道设计通航水位有什么要求？",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "easy",
+   "tags": ["clause", "canonical", "harbor"],
+   "question_family": "cp-clause-plain",
+   "canonical_question_id": "cp-plain-clause-001",
+   "variant_type": "canonical",
+   "perturbation_tags": [],
+   "retrieval": {"question_type": "locate_clause"},
+   "probe": {
+    "expect_clause_direct": true,
+    "top_clause_docs": ["doc-c29d731e"],
+    "gold_num": "6.2.7",
+    "gold_doc_for_num": ["doc-c29d731e"],
+    "precise_rank_max": 4,
+    "reason": "「6.2.7 条」上下文触发直达；同号撞车时主题词（通航水位）应把海港规范排到条款组第一"
+   }
+  },
+  {
+   "question_id": "cp-book-named-001",
+   "question": "《JTS 165-2013》里 6.2.7 条航道设计通航水位的要求是什么？",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "easy",
+   "tags": ["clause", "spec_named", "harbor"],
+   "question_family": "cp-spec-named",
+   "canonical_question_id": "cp-book-named-001",
+   "variant_type": "canonical",
+   "perturbation_tags": ["spec_named"],
+   "retrieval": {"question_type": "locate_clause"},
+   "probe": {
+    "expect_clause_direct": true,
+    "restricted_doc": "doc-c29d731e",
+    "gold_num": "6.2.7",
+    "gold_doc_for_num": ["doc-c29d731e"],
+    "precise_rank_max": 3,
+    "reason": "《规范名》书名号点名 → 条款直达限域到该文档（P1-1）"
+   }
+  },
+  {
+   "question_id": "cp-code-named-001",
+   "question": "JTS 165-2013 中 6.4.7 条通航水深怎么估算？",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "easy",
+   "tags": ["clause", "spec_named", "harbor"],
+   "question_family": "cp-spec-named",
+   "canonical_question_id": "cp-code-named-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["spec_named"],
+   "retrieval": {"question_type": "locate_clause"},
+   "probe": {
+    "expect_clause_direct": true,
+    "restricted_doc": "doc-c29d731e",
+    "gold_num": "6.4.7",
+    "gold_doc_for_num": ["doc-c29d731e"],
+    "precise_rank_max": 3,
+    "reason": "标准号裸写（无书名号）也应触发限域。注意：题干须带真实主题词——P1-2 守卫会把「是什么表」这类题型词当主题词、零重合即杀掉正常直达（2026-09-28 首跑实测）"
+   }
+  },
+  {
+   "question_id": "cp-gb-named-001",
+   "question": "GB 50010-2010 中 6.2.8 条钢筋应力应按什么规定确定？",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "medium",
+   "tags": ["clause", "spec_named", "concrete"],
+   "question_family": "cp-spec-named",
+   "canonical_question_id": "cp-gb-named-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["spec_named", "cross_domain"],
+   "retrieval": {"question_type": "locate_clause"},
+   "probe": {
+    "expect_clause_direct": true,
+    "restricted_doc": "doc-e7f65d96",
+    "gold_num": "6.2.8",
+    "gold_doc_for_num": ["doc-e7f65d96"],
+    "precise_rank_max": 3,
+    "reason": "跨域试金石：6.2.8 在海港/混凝土两本规范都在场，点名 GB 应限域到混凝土规范并命中「钢筋应力」块"
+   }
+  },
+  {
+   "question_id": "cp-fig-named-001",
+   "question": "《JTS 165-2013》中图 6.3.7 说明哪种加宽方式？",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "easy",
+   "tags": ["clause", "spec_named", "harbor", "figure_ref"],
+   "question_family": "cp-spec-named",
+   "canonical_question_id": "cp-fig-named-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["spec_named", "figure_ref"],
+   "retrieval": {"question_type": "locate_clause"},
+   "probe": {
+    "expect_clause_direct": true,
+    "restricted_doc": "doc-c29d731e",
+    "gold_num": "6.3.7",
+    "gold_doc_for_num": ["doc-c29d731e"],
+    "precise_rank_max": 3,
+    "reason": "「图 6.3.7」上下文形态 + 书名点名限域；命中块应含转弯半径/加宽主题"
+   }
+  },
+  {
+   "question_id": "cp-crossdoc-weight-001",
+   "question": "航道设计通航水位按 6.2.7 的要求执行",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "hard",
+   "tags": ["clause", "cross_doc", "topic_weight"],
+   "question_family": "cp-crossdoc",
+   "canonical_question_id": "cp-crossdoc-weight-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["no_spec_name"],
+   "retrieval": {"question_type": "locate_clause"},
+   "probe": {
+    "expect_clause_direct": true,
+    "top_clause_docs": ["doc-c29d731e"],
+    "gold_num": "6.2.7",
+    "gold_doc_for_num": ["doc-c29d731e"],
+    "precise_rank_max": 5,
+    "reason": "无点名（「按 6.2.7」裸三段触发）：12 篇同号撞车全靠主题加权（P0-2），通航水位主题应把海港规范顶到条款组第一"
+   }
+  },
+  {
+   "question_id": "cp-topic-weight-fig-001",
+   "question": "海港总体设计规范里图 6.3.7 讲的加宽方式",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "medium",
+   "tags": ["clause", "cross_doc", "topic_weight", "figure_ref"],
+   "question_family": "cp-crossdoc",
+   "canonical_question_id": "cp-topic-weight-fig-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["bare_book_name"],
+   "retrieval": {"question_type": "locate_clause"},
+   "probe": {
+    "expect_clause_direct": true,
+    "top_clause_docs": ["doc-c29d731e"],
+    "gold_num": "6.3.7",
+    "gold_doc_for_num": ["doc-c29d731e"],
+    "precise_rank_max": 5,
+    "reason": "裸书名（无书名号无标准号）不触发限域 → 全库直达，主题词（海港/加宽）加权排序定胜负"
+   }
+  },
+  {
+   "question_id": "cp-formula-mask-001",
+   "question": "在公式 6.2.8 中，时间富裕系数 Kt 的取值范围",
+   "task_type": "retrieval",
+   "intent_level": "L1",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "medium",
+   "tags": ["clause", "formula_number", "q028_regression"],
+   "question_family": "cp-formula-mask",
+   "canonical_question_id": "cp-formula-mask-001",
+   "variant_type": "canonical",
+   "perturbation_tags": ["formula_number"],
+   "retrieval": {"question_type": "locate_formula"},
+   "probe": {
+    "expect_clause_direct": false,
+    "reason": "q_028 原题回归：「公式 6.2.8」必须被 mask_formula_number_spans 屏蔽、交公式路，条款直达不得触发"
+   }
+  },
+  {
+   "question_id": "cp-formula-paren-full-001",
+   "question": "式（6.2.8）中钢筋应力应按什么规定确定",
+   "task_type": "retrieval",
+   "intent_level": "L1",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "medium",
+   "tags": ["clause", "formula_number", "paren_form"],
+   "question_family": "cp-formula-mask",
+   "canonical_question_id": "cp-formula-paren-full-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["formula_number", "fullwidth_paren"],
+   "retrieval": {"question_type": "locate_formula"},
+   "probe": {
+    "expect_clause_direct": false,
+    "reason": "「式（6.2.8）」全角括号形态：2026-09-28 曾漏屏蔽（6.2.8 经裸三段路漏回条款抽取、20 条同号噪声上呈），mask 正则加可选括号后已修——本题为该修复的回归哨兵。措辞带主题词（钢筋应力）以保证缺口可外显"
+   }
+  },
+  {
+   "question_id": "cp-formula-paren-half-001",
+   "question": "式(6.2.8)中钢筋应力应按什么规定确定",
+   "task_type": "retrieval",
+   "intent_level": "L1",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "medium",
+   "tags": ["clause", "formula_number", "paren_form"],
+   "question_family": "cp-formula-mask",
+   "canonical_question_id": "cp-formula-paren-half-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["formula_number", "halfwidth_paren"],
+   "retrieval": {"question_type": "locate_formula"},
+   "probe": {
+    "expect_clause_direct": false,
+    "reason": "同上，半角括号形态「式(6.2.8)」的回归哨兵"
+   }
+  },
+  {
+   "question_id": "cp-noise-spacing-001",
+   "question": "海港1里 6 2 7 航道设计通航水位 那条要求是什么",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "medium",
+   "tags": ["clause", "noise", "spacing"],
+   "question_family": "cp-noise",
+   "canonical_question_id": "cp-noise-spacing-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["spacing_noise"],
+   "retrieval": {"question_type": "semantic"},
+   "probe": {
+    "expect_clause_direct": false,
+    "reason": "空格分隔的「6 2 7」不构成条款号形态，不得触发直达（只能走语义路）"
+   }
+  },
+  {
+   "question_id": "cp-two-seg-bare-001",
+   "question": "码头结构 5.4 部分讲了什么",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "easy",
+   "tags": ["clause", "context_gating"],
+   "question_family": "cp-gating",
+   "canonical_question_id": "cp-two-seg-bare-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["two_segment_bare"],
+   "retrieval": {"question_type": "semantic"},
+   "probe": {
+    "expect_clause_direct": false,
+    "reason": "双段裸号（5.4）无 第/条/款/表/图 上下文不得采信（上下文门控基本原则）"
+   }
+  },
+  {
+   "question_id": "cp-measure-value-001",
+   "question": "码头面层 1.5m 的厚度要求",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "easy",
+   "tags": ["clause", "context_gating", "measurement"],
+   "question_family": "cp-gating",
+   "canonical_question_id": "cp-measure-value-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["measurement_value"],
+   "retrieval": {"question_type": "semantic"},
+   "probe": {
+    "expect_clause_direct": false,
+    "reason": "测量值（1.5m）不是条款号；clause_resolver 模块注释点名的原始反例"
+   }
+  },
+  {
+   "question_id": "cp-topic-mismatch-001",
+   "question": "6.2.7 条对量子加密通信有什么要求",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "hard",
+   "tags": ["clause", "noise_guard", "topic_mismatch"],
+   "question_family": "cp-guard",
+   "canonical_question_id": "cp-topic-mismatch-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["topic_mismatch"],
+   "retrieval": {"question_type": "semantic"},
+   "probe": {
+    "expect_clause_direct": false,
+    "reason": "P1-2 噪声守卫：条款号有命中但题干主题词与全部命中块零重合 → 判无效证据交语义路，同号噪声不得上呈"
+   }
+  },
+  {
+   "question_id": "cp-no-number-001",
+   "question": "斜坡堤的稳定计算怎么做",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "easy",
+   "tags": ["clause", "semantic_only"],
+   "question_family": "cp-guard",
+   "canonical_question_id": "cp-no-number-001",
+   "variant_type": "canonical",
+   "perturbation_tags": [],
+   "retrieval": {"question_type": "semantic"},
+   "probe": {
+    "expect_clause_direct": false,
+    "reason": "无任何编号的纯语义题，条款路零参与（承自 docs-retrieval-precision-v2 的 slope-stability-calc-001）"
+   }
+  },
+  {
+   "question_id": "cp-formula-noisy-001",
+   "question": "混凝土规范附录C里 varepsilon tr 这条式子在哪",
+   "task_type": "retrieval",
+   "intent_level": "L2",
+   "library_id": "default",
+   "doc_ids": [],
+   "difficulty": "medium",
+   "tags": ["clause", "formula_number", "noise"],
+   "question_family": "cp-formula-mask",
+   "canonical_question_id": "cp-formula-noisy-001",
+   "variant_type": "variant",
+   "perturbation_tags": ["ascii_noise"],
+   "retrieval": {"question_type": "locate_formula"},
+   "probe": {
+    "expect_clause_direct": false,
+    "reason": "「附录C」无数字不构成附录号（A.0.1 形态），ASCII 噪声不得拼出条款号（承自 v2 concrete-formula-noisy-001）"
+   }
+  }
+ ]
+}
