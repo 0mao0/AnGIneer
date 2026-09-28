@@ -85,31 +85,21 @@
           {{ formatFileSize(record.file_size) }}
         </template>
         <template v-if="column.key === 'folder'">
-          <div class="folder-cell">
-            <a-tree-select
-              size="small"
-              class="folder-cell-select"
-              :value="folderCellSelectValue(record.doc_id)"
-              :tree-data="folderTreeSelectData"
-              :disabled="!docIdsInNodes.has(record.doc_id)"
-              :loading="movingDocIds.has(record.doc_id)"
-              :dropdown-match-select-width="false"
-              :dropdown-style="{ minWidth: '300px' }"
-              tree-default-expand-all
-              show-search
-              tree-node-filter-prop="name"
-              tree-node-label-prop="displayLabel"
-              @change="(val: any) => folderCellChange(record, val)"
-            />
-            <a-button
-              size="small"
-              class="folder-cell-add"
-              title="新建文件夹（默认建在该文档所在目录，弹框里可改父级）"
-              @click="openFolderCreate(parentOf(record.doc_id))"
-            >
-              <template #icon><PlusOutlined /></template>
-            </a-button>
-          </div>
+          <a-tree-select
+            size="small"
+            style="width: 100%"
+            :value="folderCellSelectValue(record.doc_id)"
+            :tree-data="folderTreeSelectData"
+            :disabled="!docIdsInNodes.has(record.doc_id)"
+            :loading="movingDocIds.has(record.doc_id)"
+            :dropdown-match-select-width="false"
+            :dropdown-style="{ minWidth: '360px' }"
+            tree-default-expand-all
+            show-search
+            tree-node-filter-prop="name"
+            tree-node-label-prop="displayLabel"
+            @change="(val: any) => folderCellChange(record, val)"
+          />
         </template>
         <template v-if="column.key === 'page_count'">
           {{ record.page_count ? `${record.page_count} 页` : '-' }}
@@ -366,6 +356,8 @@ import {
   PlusOutlined,
   EditOutlined,
   DeleteOutlined,
+  UpOutlined,
+  DownOutlined,
 } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
@@ -413,7 +405,7 @@ const records = ref<ParseRecordItem[]>([])
 
 // ── 文件夹列：节点树上下文（当前库的全部文件夹 + 每篇文档的所在目录）──
 // label 是展示用全路径，title 是本级名（重命名预填用），parent_id 供父级树/重挂
-interface FolderOption { value: string; label: string; title: string; parentId: string }
+interface FolderOption { value: string; label: string; title: string; parentId: string; sortOrder: number }
 const folderOptions = ref<FolderOption[]>([])
 const docParents = ref<Record<string, string>>({})
 const docIdsInNodes = ref<Set<string>>(new Set())
@@ -444,6 +436,7 @@ async function loadFolderContext() {
         label: folderPathLabel(n, byId),
         title: String(n.title || ''),
         parentId: String(n.parent_id || ''),
+        sortOrder: Number(n.sort_order || 0),
       }))
     const parents: Record<string, string> = {}
     const ids = new Set<string>()
@@ -530,37 +523,65 @@ const folderParentTree = computed(() => [
 // 节点行内 ✎/🗑 只能走 treeData.title = vnode；收起态显示走 displayLabel（tree-node-label-prop），
 // 搜索走 name 本级名（tree-node-filter-prop）。vnode 不带 scoped data-v，样式用内联 style。
 const ROOT_FOLDER_VALUE = '__root__'
+function cellIconButton(icon: any, title: string, onClick: () => void, disabled = false) {
+  return h(Button, { type: 'text', size: 'small', title, disabled, onClick }, { icon: () => h(icon) })
+}
+function cellNodeTitleRow(label: string, tooltip: string, actions: any[]) {
+  return h('div', { style: 'display:flex;align-items:center;gap:8px;width:100%' }, [
+    h('span', { style: 'overflow:hidden;text-overflow:ellipsis;white-space:nowrap', title: tooltip }, label),
+    actions.length
+      ? h(
+          'span',
+          {
+            style: 'display:inline-flex;gap:2px;margin-left:auto;flex-shrink:0',
+            onMousedown: (e: MouseEvent) => e.stopPropagation(),
+            onClick: (e: MouseEvent) => e.stopPropagation(),
+          },
+          actions,
+        )
+      : null,
+  ])
+}
 function cellFolderNode(f: FolderOption): any {
+  const sibs = siblingsOf(f)
+  const idx = sibs.findIndex(x => x.value === f.value)
   const children = cellChildrenOf(f.value)
   return {
     value: f.value,
     name: f.title,
     displayLabel: f.label,
-    title: h('div', { style: 'display:flex;align-items:center;gap:8px;width:100%' }, [
-      h('span', { style: 'overflow:hidden;text-overflow:ellipsis;white-space:nowrap', title: f.label }, f.title),
-      h(
-        'span',
-        {
-          style: 'display:inline-flex;gap:2px;margin-left:auto;flex-shrink:0',
-          onMousedown: (e: MouseEvent) => e.stopPropagation(),
-          onClick: (e: MouseEvent) => e.stopPropagation(),
-        },
-        [
-          h(Button, { type: 'text', size: 'small', title: '新建子文件夹', onClick: () => openFolderCreate(f.value) }, {
-            icon: () => h(PlusOutlined),
-          }),
-          h(Button, { type: 'text', size: 'small', title: '重命名', onClick: () => openFolderRenameById(f.value) }, {
-            icon: () => h(EditOutlined),
-          }),
-          h(
-            Button,
-            { type: 'text', size: 'small', danger: true, title: '删除', onClick: () => openFolderDeleteById(f.value) },
-            { icon: () => h(DeleteOutlined) },
-          ),
-        ],
-      ),
+    title: cellNodeTitleRow(f.title, f.label, [
+      cellIconButton(PlusOutlined, '新建子文件夹', () => openFolderCreate(f.value)),
+      cellIconButton(EditOutlined, '重命名', () => openFolderRenameById(f.value)),
+      cellIconButton(DeleteOutlined, '删除', () => openFolderDeleteById(f.value)),
+      cellIconButton(UpOutlined, '上移', () => moveFolderSibling(f.value, -1), idx <= 0),
+      cellIconButton(DownOutlined, '下移', () => moveFolderSibling(f.value, 1), idx >= sibs.length - 1),
     ]),
     children,
+  }
+}
+// 上移/下移＝同级内交换位置：按新下标整段重排、只 PATCH 值有变的节点（list_nodes 按 sort_order 排）
+function siblingsOf(f: FolderOption): FolderOption[] {
+  return folderOptions.value.filter(x => x.parentId === f.parentId)
+}
+async function moveFolderSibling(folderId: string, dir: -1 | 1) {
+  const f = folderOptions.value.find(x => x.value === folderId)
+  if (!f) return
+  const sibs = siblingsOf(f)
+  const idx = sibs.findIndex(x => x.value === folderId)
+  const target = idx + dir
+  if (idx < 0 || target < 0 || target >= sibs.length) return
+  closeOpenDropdown()
+  const ordered = sibs.slice()
+  const [moved] = ordered.splice(idx, 1)
+  ordered.splice(target, 0, moved)
+  try {
+    await Promise.all(
+      ordered.map((n, i) => (n.sortOrder === i ? null : knowledgeApi.updateNode(n.value, { sort_order: i }))),
+    )
+    await loadFolderContext()
+  } catch (e: any) {
+    message.error(`排序失败: ${e?.response?.data?.detail || e?.message || e}`)
   }
 }
 function cellChildrenOf(parentId: string): any[] {
@@ -582,7 +603,15 @@ const unknownParentNodes = computed(() => {
 const folderTreeSelectData = computed(() => {
   const roots = folderOptions.value.filter(f => !f.parentId || !folderValueSet.value.has(f.parentId)).map(cellFolderNode)
   return [
-    { value: ROOT_FOLDER_VALUE, name: '根目录', displayLabel: '根目录', title: '根目录', children: roots },
+    {
+      value: ROOT_FOLDER_VALUE,
+      name: '根目录',
+      displayLabel: '根目录',
+      title: cellNodeTitleRow('根目录', '库根（移动到此处 = 移出所有文件夹）', [
+        cellIconButton(PlusOutlined, '在根目录新建文件夹', () => openFolderCreate('')),
+      ]),
+      children: roots,
+    },
     ...unknownParentNodes.value,
   ]
 })
@@ -1422,10 +1451,6 @@ onMounted(() => {
 .stats-filter-item {
   min-width: 0;
 }
-.folder-cell-select {
-  flex: 1;
-  min-width: 0;
-}
 .folder-delete-warning {
   color: var(--error-color, #ff4d4f);
   margin-bottom: 12px;
@@ -1539,16 +1564,6 @@ onMounted(() => {
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
   }
-}
-// 行内文件夹单元格：移动下拉 + ＋ 新建按钮（知识库下拉同款布局，压缩到行高）
-.folder-cell {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  min-width: 0;
-}
-.folder-cell-add {
-  flex-shrink: 0;
 }
 </style>
 
