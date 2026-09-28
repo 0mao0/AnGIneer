@@ -1536,6 +1536,16 @@ onMounted(() => {
 }
 .batch-move-shell {
   pointer-events: none;
+  /* 用户定版（2026-09-28）：批量移动按钮底色改绿（解析紫/删除红/移动绿，语义分色） */
+  &.ant-btn-primary {
+    background: #52c41a;
+    border-color: #52c41a;
+    &:hover,
+    &:focus {
+      background: #73d13d;
+      border-color: #73d13d;
+    }
+  }
 }
 .folder-delete-warning {
   color: var(--error-color, #ff4d4f);
