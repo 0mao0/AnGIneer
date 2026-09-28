@@ -256,10 +256,44 @@ def normalize_clause_ref_text(raw: str) -> str:
     return result.strip(".")
 
 
+# 公式号与条款号是两套编号体系（q_028 实锤：「公式6.2.8」被当条款号后，
+# 全库 5 篇文档的同号条款撞车上呈且零主题判别）。「式/公式X」的编号归公式路
+# （extract_formula_identifiers / formula_refs），条款抽取前一律屏蔽，
+# 所有数字形态的条款抽取器共用此屏蔽，含裸点分号无门控路。
+_FORMULA_NUMBER_SPAN = re.compile(r"(?:公式|式)\s*(?:\d+(?:[.\-]\d+)*)")
+
+
+def mask_formula_number_spans(query: str) -> str:
+    """抹掉「公式X / 式X」的编号段，使任何条款号抽取器都不再采信公式编号。"""
+    return _FORMULA_NUMBER_SPAN.sub("", str(query or ""))
+
+
+def extract_topic_terms(query: str) -> List[str]:
+    """主题词抽取（P0-2 主题校验用）：抹掉编号数字后的 n-gram 主题信号，过滤通用词与纯数字。
+
+    条款直达跨规范同号撞车（q_028：5 篇文档各有 6.2.8）需要主题词参与排序；
+    编号本身（第6.2.8条的 6.2.8）不算主题词。
+    嵌套 n-gram 不做子串去重：重合度对所有候选用同一分母，一致性只缩放绝对值、
+    不改候选间排序；曾按「极大词」去重反而把跨虚词长串（"条规定的X"）当唯一主题词，
+    块文本永远对不上（真实库探针实测 topic 全 0）。
+    """
+    masked = mask_formula_number_spans(query)
+    without_numbers = re.sub(r"\d+(?:[.\s\-]\d+)*", " ", masked)
+    terms: List[str] = []
+    seen = set()
+    for token in tokenize_query(without_numbers):
+        term = normalize_match_text(token)
+        if not term or term.isdigit() or term in GENERIC_NGRAM_STOPLIST or term in seen:
+            continue
+        seen.add(term)
+        terms.append(term)
+    return terms
+
+
 # 提取问题中的条款编号，便于优先命中精确条文。
 # 支持多形态：6.2.7 / 6 2 7 / 6-2-7 / 六点二点七
 def extract_clause_refs(query: str) -> List[str]:
-    raw = str(query or "")
+    raw = mask_formula_number_spans(query)
     candidates = []
     candidates.extend(re.findall(r"\d+(?:\.\d+){1,4}", raw))
     candidates.extend(re.findall(r"\d+(?:\s+\d+){1,4}", raw))
@@ -291,7 +325,9 @@ def extract_query_signals(query: str) -> dict:
         flags=re.IGNORECASE,
     )
     if not formula_refs:
-        formula_refs = re.findall(r"(?:公式)\s*([0-9]+)", query or "", flags=re.IGNORECASE)
+        formula_refs = re.findall(
+            r"(?:公式)\s*([0-9]+(?:[.\-][0-9]+)*)", query or "", flags=re.IGNORECASE
+        )
     clause_refs = extract_clause_refs(query)
     formula_identifiers = extract_formula_identifiers(query)
 
