@@ -93,7 +93,7 @@
             :disabled="!docIdsInNodes.has(record.doc_id)"
             :loading="movingDocIds.has(record.doc_id)"
             :dropdown-match-select-width="false"
-            :dropdown-style="{ minWidth: '360px' }"
+            :dropdown-style="{ maxWidth: '480px' }"
             tree-default-expand-all
             show-search
             tree-node-filter-prop="name"
@@ -571,7 +571,7 @@ async function moveFolderSibling(folderId: string, dir: -1 | 1) {
   const idx = sibs.findIndex(x => x.value === folderId)
   const target = idx + dir
   if (idx < 0 || target < 0 || target >= sibs.length) return
-  closeOpenDropdown()
+  // 刻意不收下拉：↑↓ 是连续操作，收起会打断调序；只有点中文件夹 item（移动）或开弹框才退出
   const ordered = sibs.slice()
   const [moved] = ordered.splice(idx, 1)
   ordered.splice(target, 0, moved)
