@@ -30,10 +30,16 @@ METRICS = [
     ("公式准确度", "formula_edit", True),
     ("阅读顺序准确度", "order_edit", True),
 ]
+# 对比图配色定版（2026-09-28）：AnGIneer 一律紫（favicon 渐变 #818cf8→#a855f7 的中段），
+# 其余系列一律浅蓝/浅绿，形成「我们 vs 其他」的强对比读数。
+COLOR_OURS = "#8b5cf6"
+COLOR_LIGHT_BLUE = "#9dc3e6"
+COLOR_LIGHT_GREEN = "#a9d9be"
+
 SERIES = [  # (图例, 默认产物目录, 颜色)
-    ("参考模型 mu936-GRPO", REPO.parent / "omnidocbench_dl" / "ref_result_1000", "#a6a6a6"),
-    ("MinerU 3.4.5 单独", REPO.parent / "omnidocbench_dl" / "mineru_only_result_1000", "#4a90e2"),
-    ("AnGIneer 全链", REPO / "data" / "evals" / "parse_regression" / "20260926-1305" / "official", "#2fa870"),
+    ("参考模型 mu936-GRPO", REPO.parent / "omnidocbench_dl" / "ref_result_1000", COLOR_LIGHT_GREEN),
+    ("MinerU 3.4.5 单独", REPO.parent / "omnidocbench_dl" / "mineru_only_result_1000", COLOR_LIGHT_BLUE),
+    ("AnGIneer 全链", REPO / "data" / "evals" / "parse_regression" / "20260926-1305" / "official", COLOR_OURS),
 ]
 
 
@@ -71,8 +77,8 @@ def make_struct_compare_chart(chain: dict, mineru: dict, out: Path, title_suffix
     width = 0.36
     xs = range(len(STRUCT_METRICS))
     for i, (vals, label, color) in enumerate((
-            (ours, "AnGIneer 全链", "#2fa870"),
-            (theirs, "MinerU 原生 content_list", "#4a90e2"),
+            (ours, "AnGIneer 全链", COLOR_OURS),
+            (theirs, "MinerU 原生 content_list", COLOR_LIGHT_BLUE),
     )):
         pos = [x + (i - 0.5) * width for x in xs]
         bars = ax.bar(pos, [v * 100.0 if v is not None else 0 for v in vals], width=width,
@@ -120,10 +126,11 @@ def main() -> int:
     args = ap.parse_args()
 
     dirs = {"ref": Path(args.ref), "mineru": Path(args.mineru), "ours": Path(args.ours)}
+    # 柱序定版：AnGIneer 紫柱恒在每组第一位（左），其后浅蓝、浅绿
     series = [
-        (SERIES[0][0], dirs["ref"], SERIES[0][2]),
-        (SERIES[1][0], dirs["mineru"], SERIES[1][2]),
         (SERIES[2][0], dirs["ours"], SERIES[2][2]),
+        (SERIES[1][0], dirs["mineru"], SERIES[1][2]),
+        (SERIES[0][0], dirs["ref"], SERIES[0][2]),
     ]
     data, missing = [], []
     for label, d, color in series:

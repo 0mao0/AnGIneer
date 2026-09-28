@@ -394,9 +394,10 @@ def cmd_chart() -> int:
                ("检索 hit@5\n(doc 级)", "hit5")]
     fig, ax = plt.subplots(figsize=(10.5, 5.8), dpi=100)
     width = 0.36
+    # 对比图配色定版（2026-09-28）：AnGIneer 紫（logo 色系）恒在每组第一位，其余浅蓝/浅绿
     for i, (vals, label, face, hatch) in enumerate((
-            (naive, "朴素 RAG（通用配方）", "#4a90e2", None),
-            (FULL_CHAIN, "AnGIneer 全链", "#2fa870", None),
+            (FULL_CHAIN, "AnGIneer 全链", "#8b5cf6", None),
+            (naive, "朴素 RAG（通用配方）", "#9dc3e6", None),
     )):
         pos = [x + (i - 0.5) * width for x in range(len(metrics))]
         bars = ax.bar(pos, [vals[k] for _, k in metrics], width=width, label=label, zorder=3,

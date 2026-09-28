@@ -13,17 +13,14 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
 
-# (标签, 值%, 分母注记, 层)
+# 对比图形态（2026-09-28 定版）：一根主柱（AnGIneer 紫，logo 色系）+ 两根浅色系论文基线柱，
+# 紧贴成组、共享同一坐标轴——这是对比图，不是三根独立柱。
+# (图例, 值%, 颜色)
 BARS = [
-    ("AnGIneer 全链（本文）", 58.0, "(87/150 · DeepEval)", "本仓可复现"),
-    ("论文现实 RAG 最优档（GPT-4-Turbo 单库）", 50.0, "(人工复核)", "论文公开基线"),
-    ("论文 8 配置汇总", 47.0, "(人工复核)", "论文公开基线"),
+    ("AnGIneer 全链（87/150 · DeepEval 判分）", 58.0, "#8b5cf6"),
+    ("论文现实 RAG 最优档（GPT-4-Turbo 单库 · 人工复核）", 50.0, "#9dc3e6"),
+    ("论文 8 配置汇总（人工复核）", 47.0, "#a9d9be"),
 ]
-# 带色彩的网格：每层 = 浅色底 + 同色系深色描边与网纹（自证数据不做系统对比，故不用平涂色块）
-LAYER_STYLE = {
-    "本仓可复现": ("#d9f0e3", "#1f7a4d", "..."),
-    "论文公开基线": ("#dbe8fa", "#2f6bbf", "///"),
-}
 
 
 def main() -> int:
@@ -40,24 +37,25 @@ def main() -> int:
     args = ap.parse_args()
 
     fig, ax = plt.subplots(figsize=(13.2, 6.0), dpi=100)
-    xs = range(len(BARS))
-    seen = set()
-    for x, (label, value, denom, layer) in zip(xs, BARS):
-        face, edge, hatch = LAYER_STYLE[layer]
-        ax.bar(x, value, width=0.58, zorder=3,
-               facecolor=face, edgecolor=edge, linewidth=1.2, hatch=hatch,
-               label=layer if layer not in seen else None)
-        seen.add(layer)
-        ax.annotate(f"{value}%", (x, value), ha="center", va="bottom",
-                    fontsize=11, fontweight="bold")
-        ax.set_xticks(list(xs))
-    ax.set_xticklabels([f"{label}\n{denom}" if denom else label for label, _, denom, _ in BARS],
-                       fontsize=10.5)
-    ax.set_ylim(0, 105)
+    width = 0.22
+    positions = [(i - 1) * (width + 0.02) for i in range(len(BARS))]
+    for pos, (label, value, color) in zip(positions, BARS):
+        ax.bar(pos, value, width=width, zorder=3, color=color, label=label)
+        ax.annotate(f"{value}%", (pos, value), ha="center", va="bottom",
+                    fontsize=11.5, fontweight="bold")
+    # 头条差距标注：AnGIneer vs 现实 RAG 最优档
+    x0, x1 = positions[0], positions[1]
+    ax.plot([x0, x1], [61.5, 61.5], color="#666666", lw=1.0, zorder=4)
+    ax.annotate("+8pp", ((x0 + x1) / 2, 61.5), ha="center", va="bottom",
+                fontsize=10.5, color="#444444")
+    ax.set_xticks([0.0])
+    ax.set_xticklabels(["FinanceBench 官方 150 题 · 84 篇 SEC PDF 自管线入库"], fontsize=11)
+    ax.set_xlim(-0.45, 0.45)
+    ax.set_ylim(0, 70)
     ax.set_ylabel("%", fontsize=11)
-    ax.set_title("FinanceBench 跨域旁证 · SEC 文件 150 官方题 / 84 篇 PDF 自管线入库 · 判分口径并列标注",
+    ax.set_title("FinanceBench 跨域旁证 · AnGIneer 全链 vs 论文公开基线（arXiv 2311.11944 Table 1）· 判分口径并列标注",
                  fontsize=12.5)
-    ax.legend(loc="lower left", frameon=False, fontsize=10)
+    ax.legend(loc="upper right", frameon=False, fontsize=10)
     ax.grid(axis="y", alpha=0.25, zorder=0)
     for spine in ("top", "right"):
         ax.spines[spine].set_visible(False)
