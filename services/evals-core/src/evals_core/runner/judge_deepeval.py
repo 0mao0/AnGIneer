@@ -81,6 +81,42 @@ def _repair_judge_json(text: str) -> Optional[str]:
     return None
 
 
+# 判官评分「双刻度」归一化版本号：进 caliber_fingerprint，跨版本续跑禁缝合（见 suite_runner）。
+_JUDGE_SCALE_FIX_VERSION = "v1"
+
+
+def _normalize_judge_score_scale(text: str) -> tuple:
+    """判官 JSON 里 score 的 0–1 小数刻度 → 0–10 整数刻度（DeepEval 口径）。
+
+    判官（Qwen3.8）在两种刻度间抽签：多数答 0–10 整数（"10"/"8"），少数答 0–1 小数
+    （"0.8"）。DeepEval 未传 rubric 时假定 0–10 并做 score/10（g_eval.py:153），
+    于是 "0.8"（本意「良好」）被算成 0.08 → 判 wrong（2026-09-28 探针实锤：
+    6×0.08 + 1×0.07 与原始日志 "0.8"×6 + "0.7"×1 逐一对上，判词均为正面）。
+    修法：仅当 score 为数值且严格落在 (0, 1) 时 ×10（写回整数，防 schema 要 int）；
+    score == 1 语义两可（0–1 刻度的满分 vs 0–10 刻度的 1 分），不猜，保持原样。
+
+    返回 (text, raw_score, fixed)：raw_score 为归一化前原始值（无 score 字段或不可解析
+    时为 None）；fixed 表示本次是否命中双刻度修复。纯函数，便于单测。
+    """
+    if not (text or "").strip():
+        return text, None, False
+    try:
+        data = json.loads(text)
+    except (ValueError, TypeError):
+        return text, None, False
+    if not isinstance(data, dict) or "score" not in data:
+        return text, None, False
+    raw = data.get("score")
+    try:
+        value = float(raw)
+    except (ValueError, TypeError):
+        return text, None, False
+    if not (0.0 < value < 1.0):
+        return text, value, False
+    data["score"] = int(round(value * 10))
+    return json.dumps(data, ensure_ascii=False), value, True
+
+
 def deepeval_available() -> bool:
     try:
         import deepeval  # noqa: F401
@@ -107,6 +143,9 @@ class DGXJudge(_BaseLLM):
         self._candidates = list(candidates)
         self.last_judge_used: Optional[str] = None
         self.last_judge_failover: bool = False
+        # 双刻度归一化留痕：原始 score（未归一化）与本轮是否命中修复（透传进 details 供审计）
+        self.last_raw_score: Optional[float] = None
+        self.last_score_scale_fixed: bool = False
 
     # ---- DeepEvalBaseLLM 接口 ----
     def load_model(self) -> "DGXJudge":
@@ -129,10 +168,15 @@ class DGXJudge(_BaseLLM):
         if schema is None:
             return text
         repaired = _repair_judge_json(text)
-        if repaired is not None:
-            return repaired
-        logger.warning("judge 返回无法解析为 JSON（judge_used=%s），按强约束提示重采一次", self.last_judge_used)
-        return _repair_judge_json(self._call_once(_JSON_HARDENING + _NL * 2 + prompt)) or text
+        if repaired is None:
+            logger.warning("judge 返回无法解析为 JSON（judge_used=%s），按强约束提示重采一次", self.last_judge_used)
+            repaired = _repair_judge_json(self._call_once(_JSON_HARDENING + _NL * 2 + prompt)) or text
+        normalized, raw_score, fixed = _normalize_judge_score_scale(repaired)
+        self.last_raw_score = raw_score
+        self.last_score_scale_fixed = fixed
+        if fixed:
+            logger.info("judge 双刻度归一化：raw=%s → 0–10 刻度（judge_used=%s）", raw_score, self.last_judge_used)
+        return normalized
 
     def _call_once(self, prompt: str) -> str:
         """走一遍 judge 候选链取文本：单端点失败切下一项，全失败抛异常（哨兵留痕同接入前）。"""
@@ -253,6 +297,8 @@ def evaluate_via_deepeval(
             semantic_passed=score >= SEMANTIC_THRESHOLD,
             judge_used=judge.last_judge_used,
             judge_failover=judge.last_judge_failover,
+            judge_raw_score=judge.last_raw_score,
+            judge_scale_fixed=judge.last_score_scale_fixed,
         )
     except Exception as exc:  # noqa: BLE001
         result["semantic_reason"] = f"DeepEval GEval 判分失败: {exc}"

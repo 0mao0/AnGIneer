@@ -78,10 +78,13 @@ def caliber_fingerprint() -> Dict[str, Any]:
     续跑复用的是旧 run 的判分结果，口径变了这些结果就不可比。"""
     import hashlib as _hl
 
+    scale_fix = ""
     try:
         from evals_core.runner.judge_deepeval import _GEVAL_STEPS as _steps
+        from evals_core.runner.judge_deepeval import _JUDGE_SCALE_FIX_VERSION as _scale_fix
 
         steps_fp = _hl.sha256("\n".join(_steps).encode("utf-8")).hexdigest()[:12]
+        scale_fix = _scale_fix
     except Exception:  # noqa: BLE001 无 deepeval 环境 steps_fp 留空（legacy 口径本就不依赖它）
         steps_fp = ""
     return {
@@ -89,6 +92,8 @@ def caliber_fingerprint() -> Dict[str, Any]:
         "deepval_extra": (os.getenv("EVAL_DEEPVAL_EXTRA", "1") or "1").strip().lower(),
         "judge_model": (os.getenv("EVAL_JUDGE_MODEL") or "").strip(),
         "steps_fp": steps_fp,
+        # 双刻度归一化版本：改动此逻辑必须换版本号，防断点续跑把修前/修后结果缝合比对
+        "judge_scale_fix": scale_fix,
     }
 
 

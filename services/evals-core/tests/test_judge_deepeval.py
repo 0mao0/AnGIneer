@@ -83,7 +83,7 @@ def test_judge_all_candidates_fail_raises(monkeypatch):
 # ---- 判分返回的 JSON 容错（DeepEval 自带解析器只会裁大括号与删尾逗号，救不了这一族）----
 
 _BS = chr(92)    # 反斜杠
-_LATEX_BAD = '{"score": 0.9, "reason": "覆盖了 $' + _BS + 'hat{v}$ 与 ' + _BS + 'alpha 两点"}'
+_LATEX_BAD = '{"score": 9, "reason": "覆盖了 $' + _BS + 'hat{v}$ 与 ' + _BS + 'alpha 两点"}'
 
 
 def _fake_client(responses, calls):
@@ -122,7 +122,7 @@ def test_schema_repairs_latex_backslash_in_reason(monkeypatch):
     monkeypatch.setattr(llm_client_module, "get_llm_client", lambda: object())
     judge = DGXJudge(["judge-a"])
     parsed = json.loads(judge.generate("prompt", schema=object()))
-    assert parsed["score"] == 0.9
+    assert parsed["score"] == 9  # 整数刻度直通（双刻度修复不改整数，见 test_judge_scale_fix）
     assert _BS + "hat{v}" in parsed["reason"]          # 修的是 JSON 转义，不是把内容改了
     assert len(calls) == 1
 
@@ -131,11 +131,11 @@ def test_schema_retries_once_with_output_constraint(monkeypatch):
     """格式两次都救不回时补一次强约束重采，重采那次提示词带上前置的【输出约束】。"""
     calls = []
     monkeypatch.setattr(llm_client_module, "chat_result_guarded", _fake_client(
-        ["这道题判不了，我先说两句理由吧。", '{"score": 0.8, "reason": "补上了"}'], calls))
+        ["这道题判不了，我先说两句理由吧。", '{"score": 8, "reason": "补上了"}'], calls))
     monkeypatch.setattr(llm_client_module, "get_llm_client", lambda: object())
     judge = DGXJudge(["judge-a"])
     parsed = json.loads(judge.generate("原始提示词", schema=object()))
-    assert parsed["score"] == 0.8
+    assert parsed["score"] == 8  # 整数刻度直通（双刻度修复只动 0<x<1 的小数，见 test_judge_scale_fix）
     assert calls[0][1] == "原始提示词"
     assert calls[1][1].startswith("【输出约束】") and calls[1][1].endswith("原始提示词")
 
