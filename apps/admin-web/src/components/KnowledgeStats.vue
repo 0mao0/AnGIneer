@@ -104,6 +104,7 @@
         </template>
         <template v-if="column.key === 'folder'">
           <a-tree-select
+            :key="`${record.doc_id}:${folderCellRev}`"
             size="small"
             style="width: 100%"
             :value="folderCellSelectValue(record.doc_id)"
@@ -481,6 +482,10 @@ function unknownParent(docId: string): string {
   return parent && !folderValueSet.value.has(parent) ? parent : ''
 }
 
+// 移动成功后重挂该行 tree-select：antd TreeSelect 面板的选中高亮不随受控 value 更新
+// （实测移完重开面板，选择框已显示新值、面板 selected 仍指旧节点），remount 是唯一可靠重置
+const folderCellRev = ref(0)
+
 async function moveRecord(record: ParseRecordItem, value: string) {
   const docId = record.doc_id
   movingDocIds.value = new Set(movingDocIds.value).add(docId)
@@ -496,6 +501,7 @@ async function moveRecord(record: ParseRecordItem, value: string) {
     docIdsInNodes.value = new Set(docIdsInNodes.value).add(docId)
     const label = folderOptions.value.find(f => f.value === value)?.label || '根目录'
     message.success(`「${record.file_name}」已移动到 ${label}`)
+    folderCellRev.value++
   } catch (e: any) {
     message.error(`移动失败: ${e?.response?.data?.detail || e?.message || e}`)
   } finally {
@@ -1435,6 +1441,7 @@ function onBatchMoveSelect(val: any) {
         message.destroy(loadingKey)
         message.success(`已移动 ${movable.length} 个文档到「${label}」`)
         selectedRowKeys.value = []
+        folderCellRev.value++
         await loadFolderContext()
       } catch (e: any) {
         message.destroy(loadingKey)
