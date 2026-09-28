@@ -73,7 +73,6 @@
       <span v-show="selectedRowKeys.length > 0" class="stats-filter-batch-move">
         <a-button type="primary" class="batch-move-shell">批量移动 ({{ selectedRowKeys.length }})</a-button>
         <a-tree-select
-          class="batch-move-select"
           :value="undefined"
           :tree-data="folderTreeSelectData"
           :dropdown-match-select-width="false"
@@ -1511,21 +1510,25 @@ onMounted(() => {
   min-width: 0;
 }
 /* 批量移动：壳按钮不可点（pointer-events:none），点击透到叠在其上的透明树选择器；
-   面板锚定在 selector rect = 按钮位置，视觉上就是"点按钮弹树面板" */
+   面板锚定在 selector rect = 按钮位置，视觉上就是"点按钮弹树面板"。
+   样式走 :deep(.ant-select)——class="batch-move-select" 并未落到 a-tree-select 根元素（实测 DOM 无此类），
+   按类名写会整段落空：选择器背景 #1F1F1F 盖在按钮上（2026-09-28 用户截图实锤） */
 .stats-filter-batch-move {
   position: relative;
   display: inline-flex;
+  :deep(.ant-select) {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    .ant-select-selector {
+      height: 100% !important;
+      background: transparent;
+      border: none;
+    }
+  }
 }
 .batch-move-shell {
   pointer-events: none;
-}
-.batch-move-select {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  :deep(.ant-select-selector) {
-    height: 100% !important;
-  }
 }
 .folder-delete-warning {
   color: var(--error-color, #ff4d4f);
