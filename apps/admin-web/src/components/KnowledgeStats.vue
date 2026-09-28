@@ -67,6 +67,24 @@
       >
         批量删除 ({{ selectedRowKeys.length }})
       </a-button>
+      <!-- 批量移动：按钮是视觉壳（pointer-events:none），实际交互体是叠在它上面的透明树选择器
+           （与表格行内同一 folderTreeSelectData：可行内 ＋/✎/🗑/↑↓）。点按钮即开面板（非受控，
+           本版 TreeSelect 受控 :open 不同步），选中文件夹 → Modal.confirm 二次确认 → 批量 PATCH -->
+      <span v-show="selectedRowKeys.length > 0" class="stats-filter-batch-move">
+        <a-button type="primary" class="batch-move-shell">批量移动 ({{ selectedRowKeys.length }})</a-button>
+        <a-tree-select
+          class="batch-move-select"
+          :value="undefined"
+          :tree-data="folderTreeSelectData"
+          :dropdown-match-select-width="false"
+          :dropdown-style="{ maxWidth: '480px' }"
+          tree-default-expand-all
+          show-search
+          tree-node-filter-prop="name"
+          tree-node-label-prop="displayLabel"
+          @change="onBatchMoveSelect"
+        />
+      </span>
     </div>
 
     <div ref="tableWrapRef" class="stats-table-wrap">
@@ -1386,6 +1404,40 @@ async function onBatchParseClick() {
   }
 }
 
+// 批量移动：树面板里选中目标文件夹后走二次确认；取消不改任何东西。
+// 只动已进入知识库节点树的文档（与行内下拉 disabled 同一口径 docIdsInNodes）。
+function onBatchMoveSelect(val: any) {
+  const target = String(val ?? '') === ROOT_FOLDER_VALUE ? '' : String(val ?? '')
+  const selectedDocs = records.value.filter(r => selectedRowKeys.value.includes(r.id))
+  const movable = selectedDocs.filter(r => docIdsInNodes.value.has(r.doc_id))
+  if (!movable.length) {
+    message.warning('选中记录均未进入知识库节点树，无法移动')
+    return
+  }
+  const skipped = selectedDocs.length - movable.length
+  const label = folderOptions.value.find(f => f.value === target)?.label || '根目录'
+  Modal.confirm({
+    title: '确认批量移动',
+    content: `确定将选中的 ${movable.length} 个文档移动到「${label}」吗？${skipped ? `（另跳过 ${skipped} 个未入知识库节点树的文档）` : ''}`,
+    okText: '移动',
+    cancelText: '取消',
+    onOk: async () => {
+      const loadingKey = `batch-moving-${Date.now()}`
+      message.loading({ content: `正在移动 ${movable.length} 个文档…`, key: loadingKey, duration: 0 })
+      try {
+        await Promise.all(movable.map(r => knowledgeApi.updateNode(r.doc_id, { parent_id: target || null })))
+        message.destroy(loadingKey)
+        message.success(`已移动 ${movable.length} 个文档到「${label}」`)
+        selectedRowKeys.value = []
+        await loadFolderContext()
+      } catch (e: any) {
+        message.destroy(loadingKey)
+        message.error('批量移动失败: ' + (e?.response?.data?.detail || e?.message || e))
+      }
+    },
+  })
+}
+
 // 彻底删除前清理知识库节点；节点已彻底不存在（孤儿记录）时忽略 404，仅清理记录本身。
 async function purgeNodeIfExists(docId: string) {
   try {
@@ -1450,6 +1502,23 @@ onMounted(() => {
 }
 .stats-filter-item {
   min-width: 0;
+}
+/* 批量移动：壳按钮不可点（pointer-events:none），点击透到叠在其上的透明树选择器；
+   面板锚定在 selector rect = 按钮位置，视觉上就是"点按钮弹树面板" */
+.stats-filter-batch-move {
+  position: relative;
+  display: inline-flex;
+}
+.batch-move-shell {
+  pointer-events: none;
+}
+.batch-move-select {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  :deep(.ant-select-selector) {
+    height: 100% !important;
+  }
 }
 .folder-delete-warning {
   color: var(--error-color, #ff4d4f);
