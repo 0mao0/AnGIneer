@@ -142,6 +142,15 @@ export function useKnowledgeTree() {
       }
     })
 
+    // 层级排序定版（2026-09-28）：每级子节点先文件夹后文件，禁止交叉排列；
+    // 组内保持 API 原序（list_nodes 按 sort_order 排）——与「日常维护」文件夹下拉的顺序同源同步。
+    // Array.prototype.sort 自 ES2019 起稳定，单键比较即可保组内相对序。
+    const orderChildren = (list: KnowledgeTreeNode[]) => {
+      list.sort((a, b) => Number(b.isFolder) - Number(a.isFolder))
+      for (const n of list) if (n.children?.length) orderChildren(n.children)
+    }
+    for (const r of roots) if (r.children?.length) orderChildren(r.children)
+
     return roots
   }
 
