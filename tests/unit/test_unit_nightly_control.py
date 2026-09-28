@@ -88,9 +88,15 @@ class SettingsTests(_TmpSettings):
         ok = nc.normalize_settings({"enabled": True, "hour": 23, "minute": 59})
         self.assertEqual(ok["retry_rounds"], 2)  # 缺省补齐
         for bad in ({"hour": 24}, {"minute": 60}, {"timeout_minutes": 9}, {"retry_rounds": 4},
-                    {"dataset_id": "a/../b"}, {"dataset_id": ""}, "not-dict", {"enabled": "yes"}):
+                    {"dataset_id": "a/../b"}, {"dataset_id": "a\\b"}, {"dataset_id": ""},
+                    "not-dict", {"enabled": "yes"}):
             with self.assertRaises(ValueError):
                 nc.normalize_settings(bad)
+        # 单点号合法：旧判据 any(c in id for c in "/\\..") 逐字符迭代误拒一切点号，
+        # v4.1 代际题集选不上（09-28 实踩：手改配置 → 静默回默认 → 幽灵跑）
+        self.assertEqual(
+            nc.normalize_settings({"dataset_id": "open-ragbench-subset-v4.1"})["dataset_id"],
+            "open-ragbench-subset-v4.1")
 
     def test_corrupt_file_is_fail_closed(self):
         """09-28 幽灵跑回归：文件在但读坏 ≠ 首装——界面仍可按默认值渲染，

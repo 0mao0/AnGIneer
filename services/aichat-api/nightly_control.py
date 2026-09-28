@@ -73,7 +73,11 @@ def normalize_settings(raw: dict) -> dict:
 
     if "dataset_id" in raw:
         dataset_id = str(raw.get("dataset_id") or "").strip()
-        if not dataset_id or any(c in dataset_id for c in "/\\.."):
+        # 防路径穿越（id 会拼成 datasets/<id>.json）：拒 /、\、..，放行单点号。
+        # 旧写法 any(c in dataset_id for c in "/\\..") 是对该字符串**逐字符**迭代
+        # （'/'、'\'、'.'、'.'），把任何点号都判非法——v4.1 这类带点题集永远选不上。
+        # 09-28 实踩：手改 JSON 塞 v4.1 → 旧代码静默回默认 v3 → 幽灵跑一轮。
+        if not dataset_id or "/" in dataset_id or "\\" in dataset_id or ".." in dataset_id:
             raise ValueError("dataset_id 不合法")
     else:
         dataset_id = DEFAULT_SETTINGS["dataset_id"]
