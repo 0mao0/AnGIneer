@@ -97,6 +97,16 @@ class TestFormulaNumberNotClauseRef(unittest.TestCase):
         # 6.2.8 是三段点分，会走裸号无门控路——公式前缀下同样不得采信
         self.assertEqual(extract_clause_refs_strict("公式 6.2.8 中的 Kt 取值"), [])
 
+    def test_strict_formula_number_with_parens_not_extracted(self):
+        # 括号形态「式（6.2.8）/式(6.2.8)」曾漏屏蔽，编号经裸三段路漏回条款抽取
+        self.assertEqual(extract_clause_refs_strict("式（6.2.8）中钢筋应力应按什么规定确定"), [])
+        self.assertEqual(extract_clause_refs_strict("式(6.2.8)中钢筋应力应按什么规定确定"), [])
+
+    def test_normalizer_paren_mask_does_not_swallow_later_numbers(self):
+        # 括号形态屏蔽只消耗公式号本身，同句后续条款号照常抽出
+        self.assertEqual(extract_clause_refs_strict("式（6.2.8）及第5.4.12条"), ["5.4.12"])
+        self.assertEqual(extract_clause_refs_strict("式(6.2.8)及第5.4.12条"), ["5.4.12"])
+
     def test_strict_table_and_tiao_still_extracted(self):
         self.assertEqual(extract_clause_refs_strict("表6.4.2中的系数"), ["6.4.2"])
         self.assertEqual(extract_clause_refs_strict("第6.2.8条的规定"), ["6.2.8"])

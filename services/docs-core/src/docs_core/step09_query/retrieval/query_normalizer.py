@@ -260,7 +260,9 @@ def normalize_clause_ref_text(raw: str) -> str:
 # 全库 5 篇文档的同号条款撞车上呈且零主题判别）。「式/公式X」的编号归公式路
 # （extract_formula_identifiers / formula_refs），条款抽取前一律屏蔽，
 # 所有数字形态的条款抽取器共用此屏蔽，含裸点分号无门控路。
-_FORMULA_NUMBER_SPAN = re.compile(r"(?:公式|式)\s*(?:\d+(?:[.\-]\d+)*)")
+# 括号形态「式（6.2.8）/式(6.2.8)」同属公式号——否则编号经裸三段路漏回条款抽取
+# （clause-probe cp-formula-paren-* 实测 20 条同号噪声上呈，2026-09-28 修）。
+_FORMULA_NUMBER_SPAN = re.compile(r"(?:公式|式)\s*[（(]?\s*\d+(?:[.\-]\d+)*\s*[）)]?")
 
 
 def mask_formula_number_spans(query: str) -> str:
