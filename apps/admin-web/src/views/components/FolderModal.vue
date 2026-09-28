@@ -23,12 +23,13 @@
           <a-form-item v-if="libraryName" label="所属知识库">
             <a-input :value="libraryName" disabled />
           </a-form-item>
-          <a-form-item v-else-if="isNew" label="父级文件夹（可选）">
+          <a-form-item v-else-if="isNew || parentEditable" :label="isNew ? '父级文件夹（可选）' : '父级文件夹（改动即移动）'">
+            <!-- rootValue：调用方有「根目录」哨兵节点时，根层级显示为根目录而不是空白；选根回写 '' -->
             <a-tree-select
-              :value="parentId"
-              @update:value="$emit('update:parent-id', $event)"
+              :value="rootValue !== undefined ? (parentId || rootValue) : parentId"
+              @update:value="$emit('update:parent-id', rootValue !== undefined && $event === rootValue ? '' : $event)"
               :tree-data="folderTreeData"
-              placeholder="选择父级文件夹"
+              :placeholder="rootValue !== undefined ? '选择父级（根＝库根）' : '选择父级文件夹'"
               allow-clear
               tree-default-expand-all
             />
@@ -59,6 +60,10 @@ interface Props {
   parentId?: string
   /** 是否为新建模式 */
   isNew: boolean
+  /** 重命名模式是否也显示父级选择器（改名+换级一个弹框） */
+  parentEditable?: boolean
+  /** 父级树里的「根目录」哨兵节点 value（给了就：空 parentId 显示该节点、选中回写 ''） */
+  rootValue?: string
   /** 所属知识库名称（只读展示） */
   libraryName?: string
 }

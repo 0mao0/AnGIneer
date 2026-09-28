@@ -309,10 +309,12 @@
       v-model:visible="folderModal.visible"
       :title="folderModal.isNew ? '新建文件夹' : '重命名文件夹'"
       :loading="folderModal.saving"
-      :folder-tree-data="folderSelectTree"
+      :folder-tree-data="folderParentTree"
+      :root-value="ROOT_FOLDER_VALUE"
       v-model:name="folderModal.name"
       v-model:parent-id="folderModal.parentId"
       :is-new="folderModal.isNew"
+      :parent-editable="!folderModal.isNew"
       @confirm="submitFolderModal"
     />
 
@@ -518,6 +520,11 @@ const folderSelectTree = computed(() => {
   return roots
 })
 
+// FolderModal 父级选择树：加「根目录」哨兵根，根层级可选且显示为根目录（选根回写 ''）
+const folderParentTree = computed(() => [
+  { value: ROOT_FOLDER_VALUE, title: '根目录', children: folderSelectTree.value },
+])
+
 // 单元格树下拉数据：「根目录」根（value 哨兵，选中即移出到库根）+ 文件夹树 + 未知父级兜底节点
 // 本版 antdv TreeSelect 不支持 titleRender 槽（源码 TreeNode/OptionList 未消费），
 // 节点行内 ✎/🗑 只能走 treeData.title = vnode；收起态显示走 displayLabel（tree-node-label-prop），
@@ -539,6 +546,9 @@ function cellFolderNode(f: FolderOption): any {
           onClick: (e: MouseEvent) => e.stopPropagation(),
         },
         [
+          h(Button, { type: 'text', size: 'small', title: '新建子文件夹', onClick: () => openFolderCreate(f.value) }, {
+            icon: () => h(PlusOutlined),
+          }),
           h(Button, { type: 'text', size: 'small', title: '重命名', onClick: () => openFolderRenameById(f.value) }, {
             icon: () => h(EditOutlined),
           }),
@@ -593,6 +603,14 @@ const folderModal = ref({
   editId: '',
 })
 
+// 弹框关闭（确定/取消）时收起其中可能开着的父级面板——面板挂在 body，modal 隐藏不会带走它
+watch(
+  () => folderModal.value.visible,
+  (v, old) => {
+    if (!v && old) closeOpenDropdown()
+  },
+)
+
 function openFolderCreate(parentId: string) {
   closeOpenDropdown()
   folderModal.value = {
@@ -612,7 +630,15 @@ function openFolderRenameById(folderId: string) {
     return
   }
   closeOpenDropdown()
-  folderModal.value = { visible: true, saving: false, isNew: false, name: f.title, parentId: undefined, editId: f.value }
+  // 预填当前父级：弹框里改父级＝换层级（防成环由后端 PATCH 守卫，报错原样弹出）
+  folderModal.value = {
+    visible: true,
+    saving: false,
+    isNew: false,
+    name: f.title,
+    parentId: f.parentId || undefined,
+    editId: f.value,
+  }
 }
 
 async function submitFolderModal() {
@@ -633,8 +659,13 @@ async function submitFolderModal() {
       })
       message.success(`文件夹「${name}」已创建`)
     } else {
-      await knowledgeApi.updateNode(m.editId, { title: name })
-      message.success('已重命名')
+      const cur = folderOptions.value.find(x => x.value === m.editId)
+      const newParent = m.parentId || ''
+      const curParent = cur?.parentId || ''
+      const patch: any = { title: name }
+      if (newParent !== curParent) patch.parent_id = newParent || null
+      await knowledgeApi.updateNode(m.editId, patch)
+      message.success(newParent !== curParent ? '已重命名并移动' : '已重命名')
     }
     m.visible = false
     await loadFolderContext()
