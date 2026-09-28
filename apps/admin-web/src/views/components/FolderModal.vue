@@ -8,34 +8,30 @@
     @update:open="$emit('update:visible', $event)"
   >
     <a-form layout="vertical">
-      <a-row :gutter="16">
-        <a-col :span="12">
-          <a-form-item label="名称">
-            <a-input
-              :value="name"
-              @update:value="$emit('update:name', $event)"
-              placeholder="请输入名称"
-              @pressEnter="$emit('confirm')"
-            />
-          </a-form-item>
-        </a-col>
-        <a-col :span="12">
-          <a-form-item v-if="libraryName" label="所属知识库">
-            <a-input :value="libraryName" disabled />
-          </a-form-item>
-          <a-form-item v-else-if="isNew || parentEditable" :label="isNew ? '父级文件夹（可选）' : '父级文件夹（改动即移动）'">
-            <!-- rootValue：调用方有「根目录」哨兵节点时，根层级显示为根目录而不是空白；选根回写 '' -->
-            <a-tree-select
-              :value="rootValue !== undefined ? (parentId || rootValue) : parentId"
-              @update:value="$emit('update:parent-id', rootValue !== undefined && $event === rootValue ? '' : $event)"
-              :tree-data="folderTreeData"
-              :placeholder="rootValue !== undefined ? '选择父级（根＝库根）' : '选择父级文件夹'"
-              allow-clear
-              tree-default-expand-all
-            />
-          </a-form-item>
-        </a-col>
-      </a-row>
+      <!-- 上下单列布局（左右两列被否：下拉选项全路径被 12 格挤断） -->
+      <a-form-item label="名称">
+        <a-input
+          :value="name"
+          @update:value="$emit('update:name', $event)"
+          placeholder="请输入名称"
+          @pressEnter="$emit('confirm')"
+        />
+      </a-form-item>
+      <a-form-item v-if="libraryName" label="所属知识库">
+        <a-input :value="libraryName" disabled />
+      </a-form-item>
+      <a-form-item v-else-if="isNew || parentEditable" :label="isNew ? '父级文件夹（可选）' : '父级文件夹（改动即移动）'">
+        <!-- rootValue：调用方有「根目录」哨兵节点时，根层级显示为根目录而不是空白；选根回写 '' -->
+        <a-tree-select
+          :value="rootValue !== undefined ? (parentId || rootValue) : parentId"
+          @update:value="$emit('update:parent-id', rootValue !== undefined && $event === rootValue ? '' : $event)"
+          :tree-data="folderTreeData"
+          :placeholder="rootValue !== undefined ? '选择父级（根＝库根）' : '选择父级文件夹'"
+          allow-clear
+          tree-default-expand-all
+          style="width: 100%"
+        />
+      </a-form-item>
     </a-form>
   </a-modal>
 </template>
