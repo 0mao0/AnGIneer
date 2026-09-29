@@ -3,9 +3,11 @@
 
 覆盖：统计关键词规则、分类器规则优先、build_attempts 分支、knowledge_stats 本地直查。
 """
+import json
 import sqlite3
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -24,11 +26,9 @@ class TestMetaQueryRule:
     @pytest.mark.parametrize("q", [
         "知识库有多少篇文档",
         "一共有多少篇文档？",
-        "库里有哪些文档？",
         "文档数量的分布",
         "最近上传了多少份资料",
         "default 库里有多少篇文档",
-        "有哪些知识库",
         "知识库文章数量",
     ])
     def test_positive(self, q):
@@ -44,6 +44,46 @@ class TestMetaQueryRule:
     ])
     def test_negative(self, q):
         assert not _is_meta_query(q)
+
+
+class _FakeClassifyLLM:
+    """分类器假客户端：只回固定 JSON，不联网（chat_result_guarded 只读 .text/.finish_reason）。"""
+
+    def __init__(self, payload: dict):
+        self._payload = json.dumps(payload, ensure_ascii=False)
+
+    def chat_result(self, messages, **_kwargs):
+        return SimpleNamespace(text=self._payload, finish_reason="stop")
+
+
+class TestListingPhrasingsViaLLM:
+    """列举式问法（有哪些/列出…）不由关键词规则接——规则只管数量/统计词（2026-09-29 定版）。
+
+    为何不给规则扩词表：负例「防波堤的设计规范有哪些」与列举正例「有哪些知识库」都含「有哪些」，
+    判别点在「问库本身 vs 问文档正文」，关键词分不开，扩词表会把工程问题误拦进统计通道。
+    这类问法由 LLM 主力分类器接管（生产实测「有哪些知识库」：LLM 判 1.0s 落 meta_query，
+    模型传 library_id="all" 得全库分布）。
+    """
+
+    @pytest.mark.parametrize("q", ["有哪些知识库", "库里有哪些文档？", "列出所有知识库"])
+    def test_rule_does_not_claim_listing(self, q):
+        assert not _is_meta_query(q)
+
+    def test_llm_classifier_routes_listing_to_meta(self, monkeypatch):
+        from angineer_core import ops_metrics
+
+        monkeypatch.setattr(ops_metrics, "record_event", lambda *a, **k: None, raising=False)
+        clf = IntentClassifier(sops=[], llm_client=_FakeClassifyLLM({
+            "intent_level": "L1",
+            "intent_type": "统计/元数据查询",
+            "service_mode": "meta_query",
+            "required_capabilities": ["stats"],
+            "execution_plan": ["meta_query"],
+            "confidence": 0.9,
+            "reason": "询问知识库本身的列表/分布情况，属于系统元数据查询",
+        }))
+        result = clf.classify_intent("有哪些知识库")
+        assert result.service_mode == "meta_query"
 
 
 class TestClassifierMetaFirst:
