@@ -856,11 +856,13 @@ class StatsAdapter:
     @staticmethod
     def knowledge_stats(*, default_library_id: Optional[str] = None) -> AgentTool:
         def handler(library_id: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
-            # 显式空串/all/*/全部 = 全库汇总；None = 默认当前会话库
-            if library_id is not None and str(library_id).strip().lower() in ("", "all", "*", "全部"):
+            # 未填/空 = 未指定 → 回落会话库（模型习惯性把缺省参数填成空串，不能当全库信号，2026-09-29 串库）；
+            # 显式 all/*/全部 才是全库汇总
+            raw = str(library_id).strip() if library_id is not None else ""
+            if raw.lower() in ("all", "*", "全部"):
                 effective_library = None
             else:
-                effective_library = library_id if library_id is not None else default_library_id
+                effective_library = raw or default_library_id
             return _run_knowledge_stats(library_id=effective_library)
 
         return AgentTool(
@@ -876,7 +878,7 @@ class StatsAdapter:
                 "properties": {
                     "library_id": {
                         "type": "string",
-                        "description": "限定统计的知识库 id；缺省=当前会话所在库；仅当用户明确问全部/各个知识库整体情况时传空字符串表示全库汇总",
+                        "description": "限定统计的知识库 id；缺省或传空=当前会话所在库；仅当用户明确问全部/各个知识库整体情况时传 \"all\" 表示全库汇总",
                     }
                 },
             },

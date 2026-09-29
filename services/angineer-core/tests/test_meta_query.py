@@ -194,8 +194,17 @@ class TestKnowledgeStats:
         assert result["documents"]["total"] == 1          # 工厂默认库生效
 
     def test_handler_explicit_all_overrides_default(self, fake_dbs):
-        """显式空串/all 覆盖会话默认库 → 全库汇总。"""
+        """显式 all/*/全部 覆盖会话默认库 → 全库汇总。"""
         tool = StatsAdapter.knowledge_stats(default_library_id="law")
-        for marker in ("", "all", "*", "全部"):
+        for marker in ("all", "*", "全部", "ALL"):
             result = tool.handler(library_id=marker)
             assert result["documents"]["total"] == 3, f"marker={marker!r}"
+
+    def test_handler_empty_string_falls_back_to_default(self, fake_dbs):
+        """空串/空白/未填 = 未指定 → 回落会话默认库，不得当全库（2026-09-29 串库事故回归哨兵：
+        模型习惯性把缺省参数填成空串，曾把「本库列举」跑成全库 350 篇）。"""
+        tool = StatsAdapter.knowledge_stats(default_library_id="law")
+        assert tool.handler()["documents"]["total"] == 1              # 不传
+        assert tool.handler(library_id=None)["documents"]["total"] == 1
+        assert tool.handler(library_id="")["documents"]["total"] == 1
+        assert tool.handler(library_id="  ")["documents"]["total"] == 1
