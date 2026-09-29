@@ -86,7 +86,7 @@ class PublishNightlyTests(unittest.TestCase):
         (self.artifacts / "gate.json").write_text(json.dumps(gate, ensure_ascii=False), encoding="utf-8")
         entry = publish_nightly.build_nightly_entry(
             self.artifacts, "ds", "2026-09-06", dataset_file=self._write_dataset())
-        self.assertEqual(entry["verdict"], "提升 3pp，没有题目变差")  # 0.0267 → 取整 3pp
+        self.assertEqual(entry["verdict"], "提升 3pp，另有 3 题转错")  # 0.0267→取整 3pp；转错题数来自 regressions
         self.assertEqual([i["qid"] for i in entry["regression_items"]], ["q-a", "q-c", "q-b"])  # 按归因桶排序截断
         first = entry["regression_items"][0]
         self.assertEqual(first["bucket"], "refusal")  # 机读码与详情分离

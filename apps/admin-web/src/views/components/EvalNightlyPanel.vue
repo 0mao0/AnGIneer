@@ -235,13 +235,14 @@ const durationText = (day: NightlyDay) => {
   return `${Math.max(0, Math.round((end - start) / 60_000))} 分钟`
 }
 
-/** 老数据没有 verdict 字段时按状态兜底生成一句话（措辞与发布端 _verdict 同风格，面向普通读者） */
+/** 老数据没有 verdict 字段时按状态兜底生成一句话（措辞与发布端 verdict() 同风格，面向普通读者）。
+ *  列表载荷不带转错题数，故只报方向：「没有题目变差」要有 regress_count 才成立，这里不断言 */
 const fallbackVerdict = (day: NightlyDay) => {
   if (day.state === 'error' || day.state === 'corrupt') return '评测中断，未出结果'
   if (day.state === 'red') return '整体变差，需排查'
-  if (day.delta != null && day.delta > 0.005) return '较基线提升，没有题目变差'
+  if (day.delta != null && day.delta > 0.005) return '较基线提升'
   if (day.delta != null && day.delta < -0.005) return '小幅回落，正常波动'
-  return '与基线持平，没有变差'
+  return '与基线持平'
 }
 
 /** 行唯一键：同日多跑按挡位区分；旧单档/虚拟运行行无 slot，退化为 date */

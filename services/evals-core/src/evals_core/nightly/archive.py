@@ -47,7 +47,10 @@ RUNS_SUBDIR = "runs"
 
 def verdict(state: str, delta, regress_count: int) -> str:
     """≤20 字一句话评价（表格「评价」列）：pp 取整，精确小数留给「基线」列。
-    措辞面向普通读者：不写"回归/门禁"等内部术语。"""
+    措辞面向普通读者：不写"回归/门禁"等内部术语。
+
+    delta 是配对**净差**，净提升不等于零题转错（2026-09-29 实踩：净 +1.83pp 同时 50 题由对
+    转错，卡片仍写"没有题目变差"）⇒「没有…变差」只在 regress_count 为 0 时说，否则报题数。"""
     if state == "error":
         return "评测中断，未出结果"
     if state == "red":
@@ -56,10 +59,10 @@ def verdict(state: str, delta, regress_count: int) -> str:
         return "无基线可比，未见变差"
     pp = round(delta * 100)
     if pp >= 1:
-        return f"提升 {pp}pp，没有题目变差"
+        return f"提升 {pp}pp，另有 {regress_count} 题转错" if regress_count else f"提升 {pp}pp，没有题目变差"
     if pp <= -1:
         return f"回落 {abs(pp)}pp，正常波动"
-    return "与基线持平，没有变差"
+    return f"与基线持平，另有 {regress_count} 题转错" if regress_count else "与基线持平，没有变差"
 
 
 def load_question_texts(dataset_file: Path) -> dict:
