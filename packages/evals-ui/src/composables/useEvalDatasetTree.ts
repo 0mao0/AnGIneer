@@ -13,10 +13,10 @@ export interface EvalTreeNode extends SmartTreeNode {
   category?: EvalDatasetCategory
 }
 
-/** 判断是否为分类文件夹（知识库评测/SOP评测/全链路评测） */
+/** 判断是否为分类文件夹（知识库评测/SOP评测） */
 export const isCategoryFolder = (node: SmartTreeNode): boolean => {
   const key = String(node.key || '')
-  return key === 'folder-knowledge' || key === 'folder-sop' || key === 'folder-full_chain'
+  return key === 'folder-knowledge' || key === 'folder-sop'
 }
 
 /** 判断是否为后端持久化文件夹节点 */
@@ -30,7 +30,6 @@ export const getCategoryFromNode = (node: SmartTreeNode): EvalDatasetCategory =>
   const key = String(node.key || '')
   if (key === 'folder-knowledge') return 'knowledge'
   if (key === 'folder-sop') return 'sop'
-  if (key === 'folder-full_chain') return 'full_chain'
   return 'knowledge'
 }
 

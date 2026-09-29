@@ -14,7 +14,7 @@ export type EvalQuality = 'correct' | 'wrong'
 export type EvalRunStatus = 'running' | 'completed' | 'failed' | 'cancelled'
 
 /** 测试集类别 */
-export type EvalDatasetCategory = 'knowledge' | 'sop' | 'full_chain'
+export type EvalDatasetCategory = 'knowledge' | 'sop'
 
 /** 评测文件夹 */
 export interface EvalFolder {

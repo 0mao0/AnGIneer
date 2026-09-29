@@ -232,7 +232,6 @@
           <a-select v-model:value="createForm.category" placeholder="选择类别">
             <a-select-option value="knowledge">知识库评测</a-select-option>
             <a-select-option value="sop">SOP 评测</a-select-option>
-            <a-select-option value="full_chain">全链路评测</a-select-option>
           </a-select>
         </a-form-item>
         <a-form-item label="描述">
@@ -1024,7 +1023,7 @@ const onAddFile = (_node: EvalTreeNode) => {
 /**
  * 落位后按知识库同款机制把 SmartTree 的乐观移动持久化：
  * 逐个兄弟节点写回父级 + sort_order（DropEvent.siblings 已含被拖节点的新位置），空隙排序不再落空。
- * 分类目录（folder-knowledge/sop/full_chain）是后端真实 tree_node 记录，与知识库对根节点的处理一致，照常参与落库。
+ * 分类目录（folder-knowledge/sop）是后端真实 tree_node 记录，与知识库对根节点的处理一致，照常参与落库。
  */
 const persistDroppedSiblings = async (siblings: DropEvent['siblings'], targetParentKey?: string | null) => {
   const parentKey = targetParentKey ?? ''

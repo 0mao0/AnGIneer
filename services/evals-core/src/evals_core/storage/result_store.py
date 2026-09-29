@@ -153,7 +153,7 @@ def init_db() -> None:
     # 初始化 tree_node 表
     tree_store.init_table(conn)
 
-    # 种子数据：确保三个分类文件夹存在
+    # 种子数据：确保两个分类文件夹存在
     _seed_category_folders(conn)
 
 
@@ -178,11 +178,10 @@ def _ensure_eval_question_columns(conn: sqlite3.Connection) -> None:
 
 
 def _seed_category_folders(conn: sqlite3.Connection) -> None:
-    """确保三个分类文件夹（知识库评测/SOP评测/全链路评测）作为真实文件夹存在。"""
+    """确保两个分类文件夹（知识库评测/SOP评测）作为真实文件夹存在。"""
     category_folders = [
         ("folder-knowledge", "知识库评测", "knowledge", 0),
         ("folder-sop", "SOP 评测", "sop", 1),
-        ("folder-full_chain", "全链路评测", "full_chain", 2),
     ]
     for folder_id, title, category, sort_order in category_folders:
         existing = tree_store.get_node(conn, folder_id)
