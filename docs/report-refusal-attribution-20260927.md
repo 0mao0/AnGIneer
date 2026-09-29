@@ -1,6 +1,6 @@
 # 拒答专项逐题归因报告：22→19 复核 + 观测体系首跑
 
-> 需求来源 `docs/req-refusal-regression-attribution.md`（2026-09-27 归因 + 本地观测验证）。
+> 需求来源 `docs/req-refusal-regression-attribution.md`（该需求票 2026-09-29 已清理，git 历史可查；2026-09-27 归因 + 本地观测验证）。
 > 数据等级标注：**【已验证】**= 本人直接查询生产/本地 `evals.sqlite` 或本地复跑所得；**【它声称】**= 转述需求文档/commit 的说法。
 > 生产侧全程只读；复跑在本地开发机（run `run-3ff8f9e57807`，代码 = 主仓库 HEAD `3a7e004`，晚于 v0.2.79）。
 
