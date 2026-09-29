@@ -125,7 +125,7 @@ judge 与 nightly 同款链），拒答行为单独统计（不并入正确率�
   主报告 58.0% 口径**不变**，本轮为新增披露。
 - **方法**（配对，非总分对比）：①20 篇经 cancel→`stages/popo/retry` 全部补成 20/20
   （初期 3 篇反复失败，根因 DGX vLLM `max_model_len=16384` 上下文拒绝 400——DGX 提升至 32768 后一次过，
-  见 `docs/req-dgx-popo-stability.md` §6）；②只对受影响 31 题（20 篇所涉，`financebench-sens-31-v1`）复跑，
+  见 `docs/req-dgx-popo-stability.md` §6；该需求书 2026-09-29 已清理，git 历史可查）；②只对受影响 31 题（20 篇所涉，`financebench-sens-31-v1`）复跑，
   其余 119 题不跑（语料未变，复跑=纯引噪）；③按 question_id 逐题对齐翻转；④异动题第三采样定性
   （`financebench-sens4-v1`）。判分链、模型、配方全部不动，单变量=那 20 篇 chunks。
 - **结果**（run-955f99dd41e9，31 题，judge_failed=0）：主 run 18/31 过 → 配对复跑 15/31；

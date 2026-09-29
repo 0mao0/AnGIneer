@@ -1,6 +1,6 @@
 # 压线题池收窄专项 · 阶段 1 出账（分桶题单 + 占比）
 
-> 2026-09-28。需求见 `req-borderline-pool-narrowing.md`；本文 = §3 阶段 1 全部产出（只出账不动手，未改题集/判分/引擎）。
+> 2026-09-28。需求见 `req-borderline-pool-narrowing.md`（该需求票 2026-09-29 已清理，git 历史可查；结题记录已自包含于本文 §5/§6）；本文 = §3 阶段 1 全部产出（只出账不动手，未改题集/判分/引擎）。
 > 明细账本与原始导出在开发机 `.scratch/borderline-pool/`（ledger.json、review_*.md、pool_clean.json、tonight_flips.json）。
 
 ## 1. 数据档位与两个口径修正
