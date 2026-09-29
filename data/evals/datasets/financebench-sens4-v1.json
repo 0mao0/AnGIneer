@@ -1,0 +1,153 @@
+{
+  "dataset": {
+    "dataset_id": "financebench-sens4-v1",
+    "title": "Boeing_2022 配对异动 4 题第三采样",
+    "category": "knowledge",
+    "description": "预注册 v2 轮：PoPo 补跑后仅对受影响 31 题配对复跑（docs/plan-financebench-arms.md 结果段 v2 小节）。未受影响题沿用主 run 读数。",
+    "schema_version": "eval.bundle.v2",
+    "version": "1.0",
+    "library_id": "lib-cf08e666"
+  },
+  "items": [
+    {
+      "question_id": "financebench_id_00517",
+      "question": "Are there any product categories / service categories that represent more than 20% of Boeing's revenue for FY2022?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-cf08e666",
+      "doc_ids": [
+        "v1-95d4fb09d76d"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "domain-relevant",
+        "Boeing",
+        "BOEING_2022_10K"
+      ],
+      "question_family": "Logical reasoning (based on numerical reasoning)",
+      "canonical_question_id": "financebench_id_00517",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_doc_ids": [
+          "v1-95d4fb09d76d"
+        ],
+        "question_type": "definition_qa",
+        "notes": "[{\"page\": 61}]"
+      },
+      "answer": {
+        "gold_answer": "Yes. Boeing has product and service categories that represent more than 20% of Boeing's revenue for FY2022. These categories are Commercial Airplanes which comprises 39% of total revenue, Defence which comprises 35% of total revenue and Services which comprises 26% of total revenue.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "financebench_id_01091",
+      "question": "Has Boeing reported any materially important ongoing legal battles from FY2022?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-cf08e666",
+      "doc_ids": [
+        "v1-95d4fb09d76d"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "domain-relevant",
+        "Boeing",
+        "BOEING_2022_10K"
+      ],
+      "question_family": "Information extraction",
+      "canonical_question_id": "financebench_id_01091",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_doc_ids": [
+          "v1-95d4fb09d76d"
+        ],
+        "question_type": "definition_qa",
+        "notes": "[{\"page\": 112}]"
+      },
+      "answer": {
+        "gold_answer": "Yes. Multiple lawsuits have been filed against Boeing resulting from a 2018 Lion Air crash and a 2019 Ethiopian Airlines crash.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "financebench_id_00678",
+      "question": "Does Boeing have an improving gross margin profile as of FY2022? If gross margin is not a useful metric for a company like this, then state that and explain why.",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-cf08e666",
+      "doc_ids": [
+        "v1-95d4fb09d76d"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "domain-relevant",
+        "Boeing",
+        "BOEING_2022_10K"
+      ],
+      "question_family": "Numerical reasoning OR information extraction",
+      "canonical_question_id": "financebench_id_00678",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_doc_ids": [
+          "v1-95d4fb09d76d"
+        ],
+        "question_type": "definition_qa",
+        "notes": "[{\"page\": 54}]"
+      },
+      "answer": {
+        "gold_answer": "Yes. Boeing has an improving gross margin profile as of FY2022. Gross profit improved from $3,017 million in FY2021 to $3,502 million in FY2022. Gross margin % improved from 4.8% in FY2021 to 5.3% in FY2022.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    },
+    {
+      "question_id": "financebench_id_00494",
+      "question": "What production rate changes is Boeing forecasting for FY2023?",
+      "task_type": "rag",
+      "intent_level": "L1",
+      "library_id": "lib-cf08e666",
+      "doc_ids": [
+        "v1-95d4fb09d76d"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "novel-generated",
+        "Boeing",
+        "BOEING_2022_10K"
+      ],
+      "question_family": "",
+      "canonical_question_id": "financebench_id_00494",
+      "variant_type": "canonical",
+      "perturbation_tags": [],
+      "retrieval": {
+        "gold_doc_ids": [
+          "v1-95d4fb09d76d"
+        ],
+        "question_type": "definition_qa",
+        "notes": "[{\"page\": 8}]"
+      },
+      "answer": {
+        "gold_answer": "Boeing forecasts an increase in the production rates for the 737, 777X and 787 aircrafts in 2023.",
+        "correctness_checks": [],
+        "semantic_threshold": 0.65,
+        "must_cite_target_ids": [],
+        "must_cite_section_paths": [],
+        "refusal_expected": false
+      }
+    }
+  ]
+}
