@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.83** ——条款号检索补漏 + 探针集工具化（公式号屏蔽正则补括号形态：「式（6.2.8）/式(6.2.8)」曾漏屏蔽致 20 条同号噪声上呈，q_028 主形态不受影响；新增 clause-probe-v1 探针集 16 题路由层+检索层双断言不跑判官，首跑抓出缺口、修复后 16/16 全绿）；nightly dataset_id 校验误拒点号修复（v0.2.82 fail-closed 门禁首日实弹拦下、当日修复，v4.1 指针全程稳定）；admin 知识页文件夹管理整套升级（真树下拉、行内增删改、↑↓ 同级调序、批量移动及一串体验修复）；docs-ui 知识库树每级先子文件夹后文件；evals 题集只存数据库不落磁盘（import_bundle 去副本写入、delete_dataset 顺带清遗留副本）；dev：docs-api 支持 ANGINEER_NO_RELOAD=1 关热重载防长任务被掐；文档与压线池（阶段 1 出账报告归档、需求文三处更新、README 回答成绩对比图定版）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.84** ——意图路由测试集 intent-router-v1 产品化（100 题 L0-L4 分层、23 陷阱族，每题带 trap/rationale/rule_hit 金标自证；新增 intent 评测器随题集入库——route 恒致命、level/mode 仅记录，aichat-api 启动注入生产同一条分类链，UI 点运行与 CLI 共用断言真相源，构建器机械校验 + CI 自检；L1_concept_compare 去灰区化、新增标准号/数值/混合信号三陷阱族；35B 三次实测 route 97/100 逐题零翻转，服务器生效需部署后重导题集）；clause-probe-v1 探针断言全链路入库（probe_gold 列 + probe_eval 评测器 + 检索函数启动注入），UI 点运行即出评价、断言真相源从磁盘 JSON 迁入 evals_core；meta-query 串库修复（knowledge_stats 空串不再当全库汇总——「港口相关的规范有哪些」曾被跑成全库 350 篇统计，未填/空白一律回落会话库、显式 all/*/全部才是全库汇总）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

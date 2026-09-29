@@ -2,6 +2,12 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.84
+
+- 意图路由测试集 intent-router-v1 产品化：100 题 L0-L4 分层（L0 12 / L1 38 含 meta 10 / L2 22 / L3 16 / L4 12；route 桶 L0 12、L1 28、meta 10、L2 22、complex 28）、23 陷阱族，每题带 trap（考什么）/ rationale（金标依据 = 分类法 v3 + build_attempts 路由优先级）/ rule_hit（生产链上被规则前置拦下还是进模型，实测 76 题进模型 / 24 题被规则拦下）；新增 `intent` 评测器随题集入库——route 恒致命、level/mode 默认仅记录（build_attempts 只消费 (level, mode) 派生的路由桶，同桶 L3↔L4 混淆不影响链路，金标可置 strict_level/strict_mode 升级为致命），schema/storage/manager 三处扩 intent_gold、回读校验 100/100 带金标（clause-probe 首版即在此丢过字段）；aichat-api 启动注入生产同一条分类链（IntentClassifier + SopLoader，与 main._classify_intent_blocking 逐行同源），UI 点运行与 scripts/intent_route_probe.py 共用断言真相源；构建器 scripts/build_intent_set.py 自带机械校验（结构不变量 + 条款号族必须被条款号快路径命中，不过拒出 bundle）+ CI 自检测试（route 派生与评测器同源、灰区措辞禁回潮、缺陷阱族必须在位）；题集质量：L1_concept_compare 3 题去灰区化（原措辞「区别」同时命中 L1 关键词与规则 5「多方案比较=L4」，读法不同反转头名——上一轮 Intern-Decision 对照即栽在这 3 题）、新增 L1_stdcode_trap（标准号≠L2）/ L1_numbered（有数值≠L3）/ L3_mixed_signal（依据规范+计算→L3）三陷阱族；机械校验独立复证 _is_meta_query 覆盖缺口（meta 族 10 题中 3 题落模型，与 868decb 所记 2 例同域）；现役 Qwen3.6-35B 三次实测 route 97/100、逐题 0 翻转（分类层远稳于 nightly 生成层 12% 翻转地板，≥1 题差异即真差异）；服务器生效需部署后重导题集一次（导入是显式幂等操作、无启动自动扫描，先导会因旧 schema 丢金标块）
+- clause-probe-v1 探针断言全链路入库：probe_gold 列（schema/storage/manager 三处）+ probe_eval 评测器 + aichat-api 启动注入检索函数，UI 点运行即出评价——clause-probe-v1 不再只能跑脚本；断言真相源从磁盘 JSON 迁入 evals_core（磁盘文件真相源作废），scripts/clause_probe.py 保留 CLI 外壳、进程内直调复用同一断言；服务器生效需部署后重导题集（旧 schema 导入会丢 probe 块，先导会静默丢断言）
+- meta-query 串库修复：knowledge_stats 空串不再当全库汇总——「港口相关的规范有哪些」在默认知识库下被跑成全库 350 篇统计；根因 = 模型习惯性把缺省参数填成空串、旧契约把显式空串定义成全库哨兵（agent_tools.py 判定分支），改为未填/空/空白一律回落会话库 default_library_id、显式 all/*/全部（含大小写）才是全库汇总；parameters_schema 描述与 meta prompt 同步改传「all」；测试补空串/None/空白回落会话库哨兵（事故回归位）；既有失败 2 例（_is_meta_query 漏接「库里有哪些文档/有哪些知识库」正例）与本次无关、另案处理
+
 ## v0.2.83
 
 - 条款号检索补漏 + 探针集工具化：公式号屏蔽正则补括号形态——「式（6.2.8）/式(6.2.8)」曾漏屏蔽，编号经裸三段路漏回条款抽取、带主题词时 20 条同号噪声上呈（q_028 主形态「公式 6.2.8」不受影响，单测补 4 例）；新增 clause-probe-v1 条款号直达探针集（16 题 = 7 正例 / 7 反例 / 2 括号回归哨兵，路由层+检索层双断言、进程内直调不跑判官，约 90 秒全量回归，`.gitignore` 白名单放行 `scripts/clause_probe.py`），首跑即抓出上述缺口、修复后 16/16 全绿（7 正例金标条款块全部 precise_rank=1）
