@@ -48,6 +48,27 @@ async def _startup():
         probe_eval.set_retriever(retrieve_knowledge)
     except Exception as exc:  # noqa: BLE001
         logging.getLogger("evals").warning("probe 检索函数注入失败（探针题将报错而非静默跳过）: %s", exc)
+    # intent 评测器（intent-router 类题集）只跑分类器路由断言，分类器由本进程注入：
+    # 复用生产同一条链（IntentClassifier + sop_loader 算例），不另写近似实现。
+    # 与 sop_routes 同惯例：本模块自建 SopLoader 实例，不 import main（入口模块名是 __main__）。
+    from evals_core.runner import intent_eval
+
+    try:
+        from angineer_core import IntentClassifier
+        from sop_core.sop_loader import SopLoader
+
+        _sop_dir = os.environ.get(
+            "SOP_DATA_DIR", os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")), "data", "sops")
+        )
+        _intent_sop_loader = SopLoader(_sop_dir)
+
+        def _classify_for_eval(query: str):
+            """生产分类链（与 main._classify_intent_blocking 逐行同源）。"""
+            return IntentClassifier(_intent_sop_loader.load_all()).classify_intent(query, mode="instruct")
+
+        intent_eval.set_intent_classifier(_classify_for_eval)
+    except Exception as exc:  # noqa: BLE001
+        logging.getLogger("evals").warning("intent 分类器注入失败（意图题将报错而非静默跳过）: %s", exc)
     swept = suite_runner.sweep_interrupted_runs()
     if swept:
         logging.getLogger("evals").warning("启动清扫：%d 个中断评测已标记为已取消（可断点续跑）", swept)

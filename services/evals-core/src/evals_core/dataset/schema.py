@@ -69,6 +69,10 @@ class EvalQuestionItem(BaseModel):
     # 结构不固定（expect_clause_direct / gold_num / precise_rank_max / xfail …），
     # 断言语义见 evals_core.runner.probe_eval。
     probe: Optional[Dict[str, Any]] = None
+    # 意图路由金标块（intent-router 类题集）：不跑检索/生成/判官，只断言分类器产出的路由结果。
+    # 结构 = level / mode / route / family / trap / rationale / strict_level / strict_mode / xfail，
+    # 断言语义见 evals_core.runner.intent_eval。
+    intent: Optional[Dict[str, Any]] = None
 
 
 class EvalDatasetMeta(BaseModel):
@@ -123,4 +127,5 @@ class EvalQuestionRow(BaseModel):
     sql_gold: Optional[Dict[str, Any]] = None
     sop_gold: Optional[Dict[str, Any]] = None
     probe_gold: Optional[Dict[str, Any]] = None
+    intent_gold: Optional[Dict[str, Any]] = None
     sort_order: int = 0

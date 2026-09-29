@@ -1,0 +1,2613 @@
+{
+ "dataset": {
+  "dataset_id": "intent-router-v1",
+  "title": "意图路由测试集 v1（100 题 L0-L4 分层）",
+  "category": "knowledge",
+  "description": "专用意图识别测试集：100 题覆盖 L0-L4，每题带陷阱族/金标依据/路由桶；只跑分类器路由断言，不跑检索、生成与判官。",
+  "schema_version": "eval.bundle.v2",
+  "version": "1.0",
+  "library_id": "default"
+ },
+ "items": [
+  {
+   "question_id": "ir-l0-pure-01",
+   "question": "你好",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_pure"
+   ],
+   "question_family": "L0_pure",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_pure",
+    "trap": "纯问候",
+    "rationale": "闲聊/问候/与工程无关的寒暄，无实质工程内容 → L0",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l0-pure-02",
+   "question": "谢谢啦，辛苦了",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_pure"
+   ],
+   "question_family": "L0_pure",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_pure",
+    "trap": "道谢无诉求",
+    "rationale": "同上：纯寒暄，无实质内容 → L0",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l0-pure-03",
+   "question": "今天天气真不错",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_pure"
+   ],
+   "question_family": "L0_pure",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_pure",
+    "trap": "非工程话题",
+    "rationale": "与工程无关的日常寒暄 → L0",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l0-pure-04",
+   "question": "给我讲个笑话吧",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_pure"
+   ],
+   "question_family": "L0_pure",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_pure",
+    "trap": "闲聊请求",
+    "rationale": "闲聊请求，不涉及知识库内容 → L0（注意：该题不含 L0 规则关键词，生产链上会落到分类模型，是 L0 覆盖的活口）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l0-pure-05",
+   "question": "在吗",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_pure"
+   ],
+   "question_family": "L0_pure",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_pure",
+    "trap": "试探性招呼",
+    "rationale": "纯招呼，无实质内容 → L0",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l0-pure-06",
+   "question": "晚安，明天见",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_pure"
+   ],
+   "question_family": "L0_pure",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_pure",
+    "trap": "告别语",
+    "rationale": "告别寒暄 → L0",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l0-amb-01",
+   "question": "你是谁呀",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_ambiguous"
+   ],
+   "question_family": "L0_ambiguous",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_ambiguous",
+    "trap": "身份询问",
+    "rationale": "询问助手身份，非知识库内容 → L0（生产由 L0_AMBIGUOUS_KEYWORDS 规则前置拦截）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l0-amb-02",
+   "question": "你叫什么名字",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_ambiguous"
+   ],
+   "question_family": "L0_ambiguous",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_ambiguous",
+    "trap": "身份询问",
+    "rationale": "同上 → L0",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l0-amb-03",
+   "question": "你能做什么",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_ambiguous"
+   ],
+   "question_family": "L0_ambiguous",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_ambiguous",
+    "trap": "能力询问",
+    "rationale": "询问助手能力，非内容查询 → L0",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l0-amb-04",
+   "question": "帮我",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_ambiguous"
+   ],
+   "question_family": "L0_ambiguous",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_ambiguous",
+    "trap": "残缺请求",
+    "rationale": "只有求助词、无实质内容 → L0（一旦补上实质内容即转 L1，见 ir-l1-polite-*）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l0-amb-05",
+   "question": "这个怎么用",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_ambiguous"
+   ],
+   "question_family": "L0_ambiguous",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_ambiguous",
+    "trap": "产品使用询问",
+    "rationale": "询问产品用法而非知识库内容 → L0",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l0-amb-06",
+   "question": "在吗？帮我个忙呗",
+   "task_type": "definition",
+   "intent_level": "L0",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L0_ambiguous"
+   ],
+   "question_family": "L0_ambiguous",
+   "intent": {
+    "level": "L0",
+    "mode": "casual_chat",
+    "route": "L0",
+    "family": "L0_ambiguous",
+    "trap": "招呼+空请求",
+    "rationale": "招呼加空请求，仍无实质内容 → L0",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_L0"
+   }
+  },
+  {
+   "question_id": "ir-l1-def-01",
+   "question": "疏浚土的分类有哪些？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_def"
+   ],
+   "question_family": "L1_def",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_def",
+    "trap": "概念枚举",
+    "rationale": "纯概念/分类查询，无计算参数、无取值要求 → L1（规则 4）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-def-02",
+   "question": "什么是设计低水位？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_def"
+   ],
+   "question_family": "L1_def",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_def",
+    "trap": "定义",
+    "rationale": "问定义 → L1（规则 4）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-def-03",
+   "question": "港口吞吐量的定义是什么？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_def"
+   ],
+   "question_family": "L1_def",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_def",
+    "trap": "定义",
+    "rationale": "问定义 → L1（规则 4）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-def-04",
+   "question": "简述航道等级的划分",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_def"
+   ],
+   "question_family": "L1_def",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_def",
+    "trap": "简述",
+    "rationale": "简述型概念题 → L1（规则 4）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-def-05",
+   "question": "抛石基床的作用是什么？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_def"
+   ],
+   "question_family": "L1_def",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_def",
+    "trap": "作用",
+    "rationale": "问作用 → L1（规则 4）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-def-06",
+   "question": "什么是乘潮水位？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_def"
+   ],
+   "question_family": "L1_def",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_def",
+    "trap": "定义",
+    "rationale": "问定义 → L1（规则 4）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-def-07",
+   "question": "波浪要素包括哪些？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_def"
+   ],
+   "question_family": "L1_def",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_def",
+    "trap": "组成",
+    "rationale": "问构成要素 → L1（规则 4）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-def-08",
+   "question": "高桩码头由哪些部分组成？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_def"
+   ],
+   "question_family": "L1_def",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_def",
+    "trap": "组成",
+    "rationale": "问构成 → L1（规则 4）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-stat-01",
+   "question": "某规范中各类海港的平均等级是怎么划分的？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_trap_stat"
+   ],
+   "question_family": "L1_trap_stat",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_trap_stat",
+    "trap": "统计词陷阱",
+    "rationale": "含「平均」但答案在文档正文 → L1 semantic_retrieval（规则 7），不是 meta_query",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-stat-02",
+   "question": "某论文中实验样本的中位波高是多少？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_trap_stat"
+   ],
+   "question_family": "L1_trap_stat",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_trap_stat",
+    "trap": "统计词陷阱",
+    "rationale": "含「中位」但答案在某篇论文正文 → L1（规则 7）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-stat-03",
+   "question": "数据集里平均每章有多少条评论？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_trap_stat"
+   ],
+   "question_family": "L1_trap_stat",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_trap_stat",
+    "trap": "统计词陷阱",
+    "rationale": "含「平均多少」但答案在文档正文 → L1（规则 7）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-stat-04",
+   "question": "某星表中星系的中位红移是多少？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_trap_stat"
+   ],
+   "question_family": "L1_trap_stat",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_trap_stat",
+    "trap": "统计词陷阱",
+    "rationale": "prompt few-shot 正例的同类 → L1（规则 7）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-stat-05",
+   "question": "某表中最大的设计船型吨位是多少？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_trap_stat"
+   ],
+   "question_family": "L1_trap_stat",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_trap_stat",
+    "trap": "统计词陷阱",
+    "rationale": "含「最大」但答案是某张表里的内容 → L1（规则 7）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-stat-06",
+   "question": "What is the average number of comments per chapter?",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_trap_stat"
+   ],
+   "question_family": "L1_trap_stat",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_trap_stat",
+    "trap": "统计词陷阱+英文",
+    "rationale": "英文统计词但修饰文档内容 → L1（prompt few-shot 原句同型）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-polite-01",
+   "question": "你好，请问疏浚土的分类有哪些？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_politeness"
+   ],
+   "question_family": "L1_politeness",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_politeness",
+    "trap": "礼貌前缀",
+    "rationale": "有问候语但带实质概念问题 → L1；问候语不得吞掉实质意图（区别于 L0）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-polite-02",
+   "question": "谢谢，那乘潮水位的定义能再说一遍吗？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_politeness"
+   ],
+   "question_family": "L1_politeness",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_politeness",
+    "trap": "礼貌前缀+追问",
+    "rationale": "道谢+实质追问 → L1",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-polite-03",
+   "question": "在吗？我想了解抛石基床的作用",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_politeness"
+   ],
+   "question_family": "L1_politeness",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_politeness",
+    "trap": "礼貌前缀",
+    "rationale": "招呼+实质请求 → L1",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-cmp-01",
+   "question": "重力式码头与高桩码头在结构构造上有什么不同？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_concept_compare"
+   ],
+   "question_family": "L1_concept_compare",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_concept_compare",
+    "trap": "概念对比 vs 方案比选",
+    "rationale": "只问结构构造差异，不要求选型建议/方案论证 → L1（规则 4）；对照 L4 的「适用条件比较+选型建议」",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-cmp-02",
+   "question": "乘潮水位与设计高水位在定义上有什么异同？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_concept_compare"
+   ],
+   "question_family": "L1_concept_compare",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_concept_compare",
+    "trap": "概念对比 vs 方案比选",
+    "rationale": "只问定义异同 → L1（规则 4）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-cmp-03",
+   "question": "绞吸式与耙吸式挖泥船在作业方式上的区别有哪些？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_concept_compare"
+   ],
+   "question_family": "L1_concept_compare",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_concept_compare",
+    "trap": "概念对比 vs 方案比选",
+    "rationale": "只问作业方式区别，无选型诉求 → L1（规则 4）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-en-01",
+   "question": "How do pinching antennas improve uplink communication systems?",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_english"
+   ],
+   "question_family": "L1_english",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_english",
+    "trap": "英文概念题",
+    "rationale": "英文学术语料概念问答 → L1（open-ragbench 语料同型）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-en-02",
+   "question": "What are the limitations of conventional MOSFETs in modern electronics?",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_english"
+   ],
+   "question_family": "L1_english",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_english",
+    "trap": "英文概念题",
+    "rationale": "英文概念问答 → L1",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-real-01",
+   "question": "In what type of settings should foundation models be evaluated to demonstrate their usefulness?",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_real"
+   ],
+   "question_family": "L1_real",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_real",
+    "trap": "真实生产题",
+    "rationale": "eval_question 抽样（open-ragbench），代表在分布流量 → L1",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-real-02",
+   "question": "How does noise intensity affect the firing frequency of neurons in a network?",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_real"
+   ],
+   "question_family": "L1_real",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_real",
+    "trap": "真实生产题",
+    "rationale": "eval_question 抽样 → L1",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-real-03",
+   "question": "Does conformal prediction guarantee unconditional coverage?",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_real"
+   ],
+   "question_family": "L1_real",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_real",
+    "trap": "真实生产题",
+    "rationale": "eval_question 抽样 → L1",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-std-01",
+   "question": "JTS 181 是什么规范？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_stdcode_trap"
+   ],
+   "question_family": "L1_stdcode_trap",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_stdcode_trap",
+    "trap": "标准号≠L2",
+    "rationale": "问规范的「是什么」= 概念解析 → L1；标准号本身不构成 L2（L2 是依据规范取值/查表）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-std-02",
+   "question": "GB 50010-2010 的适用范围是什么？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_stdcode_trap"
+   ],
+   "question_family": "L1_stdcode_trap",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_stdcode_trap",
+    "trap": "标准号≠L2",
+    "rationale": "问规范适用范围 = 概念解析 → L1",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l1-num-01",
+   "question": "什么是5万吨级散货船？设计船型是怎么定义的？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L1_numbered"
+   ],
+   "question_family": "L1_numbered",
+   "intent": {
+    "level": "L1",
+    "mode": "semantic_retrieval",
+    "route": "L1",
+    "family": "L1_numbered",
+    "trap": "有数值≠L3",
+    "rationale": "含吨级数值但问的是定义 → L1；数值只描述对象、不构成计算（规则 1 需「计算动作」）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-meta-dir-01",
+   "question": "知识库里有多少篇文档？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:meta_direct"
+   ],
+   "question_family": "meta_direct",
+   "intent": {
+    "level": "L1",
+    "mode": "meta_query",
+    "route": "meta",
+    "family": "meta_direct",
+    "trap": "库自身统计",
+    "rationale": "问知识库规模 → meta_query（规则 6）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_meta"
+   }
+  },
+  {
+   "question_id": "ir-meta-dir-02",
+   "question": "系统里有哪些知识库？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:meta_direct"
+   ],
+   "question_family": "meta_direct",
+   "intent": {
+    "level": "L1",
+    "mode": "meta_query",
+    "route": "meta",
+    "family": "meta_direct",
+    "trap": "库清单",
+    "rationale": "问有哪些库 → meta_query（规则 6）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-meta-dir-03",
+   "question": "各库的文档格式分布如何？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:meta_direct"
+   ],
+   "question_family": "meta_direct",
+   "intent": {
+    "level": "L1",
+    "mode": "meta_query",
+    "route": "meta",
+    "family": "meta_direct",
+    "trap": "格式分布",
+    "rationale": "问库内格式分布 → meta_query（规则 6）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_meta"
+   }
+  },
+  {
+   "question_id": "ir-meta-dir-04",
+   "question": "上传的文档总量是多少？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:meta_direct"
+   ],
+   "question_family": "meta_direct",
+   "intent": {
+    "level": "L1",
+    "mode": "meta_query",
+    "route": "meta",
+    "family": "meta_direct",
+    "trap": "总量",
+    "rationale": "问上传总量 → meta_query（规则 6）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_meta"
+   }
+  },
+  {
+   "question_id": "ir-meta-dir-05",
+   "question": "知识库的文档总页数是多少？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:meta_direct"
+   ],
+   "question_family": "meta_direct",
+   "intent": {
+    "level": "L1",
+    "mode": "meta_query",
+    "route": "meta",
+    "family": "meta_direct",
+    "trap": "页数统计",
+    "rationale": "问库页数统计 → meta_query（规则 6）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_meta"
+   }
+  },
+  {
+   "question_id": "ir-meta-dir-06",
+   "question": "最近一个月文档上传趋势如何？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:meta_direct"
+   ],
+   "question_family": "meta_direct",
+   "intent": {
+    "level": "L1",
+    "mode": "meta_query",
+    "route": "meta",
+    "family": "meta_direct",
+    "trap": "上传趋势",
+    "rationale": "问上传趋势 → meta_query（规则 6）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_meta"
+   }
+  },
+  {
+   "question_id": "ir-meta-ref-01",
+   "question": "目前一共支持哪些文件格式？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:meta_rephrase"
+   ],
+   "question_family": "meta_rephrase",
+   "intent": {
+    "level": "L1",
+    "mode": "meta_query",
+    "route": "meta",
+    "family": "meta_rephrase",
+    "trap": "换措辞的元数据",
+    "rationale": "同一「问库自身」语义，避开 few-shot 原句 → meta_query（规则 6）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-meta-ref-02",
+   "question": "这个平台现在存了多少资料？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:meta_rephrase"
+   ],
+   "question_family": "meta_rephrase",
+   "intent": {
+    "level": "L1",
+    "mode": "meta_query",
+    "route": "meta",
+    "family": "meta_rephrase",
+    "trap": "换措辞的元数据",
+    "rationale": "问库内总量 → meta_query",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_meta"
+   }
+  },
+  {
+   "question_id": "ir-meta-ref-03",
+   "question": "知识库最近一次更新是什么时候？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:meta_rephrase"
+   ],
+   "question_family": "meta_rephrase",
+   "intent": {
+    "level": "L1",
+    "mode": "meta_query",
+    "route": "meta",
+    "family": "meta_rephrase",
+    "trap": "换措辞的元数据",
+    "rationale": "问库更新时间（库自身元数据）→ meta_query",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-meta-ref-04",
+   "question": "我上传的文档现在都入库了吗，总共几篇？",
+   "task_type": "definition",
+   "intent_level": "L1",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:meta_rephrase"
+   ],
+   "question_family": "meta_rephrase",
+   "intent": {
+    "level": "L1",
+    "mode": "meta_query",
+    "route": "meta",
+    "family": "meta_rephrase",
+    "trap": "换措辞的元数据",
+    "rationale": "问入库状态与篇数（库自身）→ meta_query",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_meta"
+   }
+  },
+  {
+   "question_id": "ir-l2-look-01",
+   "question": "依据《海港总体设计规范》确定5万吨级散货船的设计船型尺度",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_lookup"
+   ],
+   "question_family": "L2_lookup",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_lookup",
+    "trap": "依据规范查表",
+    "rationale": "依据规范确定参数，无多步计算 → L2（规则 3）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-look-02",
+   "question": "查表得C40混凝土的容重取值",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_lookup"
+   ],
+   "question_family": "L2_lookup",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_lookup",
+    "trap": "查表取值",
+    "rationale": "查表取值 → L2（规则 3）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-look-03",
+   "question": "《疏浚与吹填工程设计规范》中计算超深的取值是多少？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_lookup"
+   ],
+   "question_family": "L2_lookup",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_lookup",
+    "trap": "术语含「计算」",
+    "rationale": "「计算超深」是技术术语，问的是取值、无数值参数需推算 → L2（规则 3）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-look-04",
+   "question": "查表确定设计高水位的重现期标准",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_lookup"
+   ],
+   "question_family": "L2_lookup",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_lookup",
+    "trap": "查表取标准",
+    "rationale": "查表取标准值 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-look-05",
+   "question": "依据规范确定码头前沿设计水深的取值",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_lookup"
+   ],
+   "question_family": "L2_lookup",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_lookup",
+    "trap": "依据规范取值",
+    "rationale": "依据规范取值 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-look-06",
+   "question": "土工织物的等效孔径要求取多少？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_lookup"
+   ],
+   "question_family": "L2_lookup",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_lookup",
+    "trap": "要求取值",
+    "rationale": "问规范要求取值 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-look-07",
+   "question": "护面块体的稳定重量应查哪张表？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_lookup"
+   ],
+   "question_family": "L2_lookup",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_lookup",
+    "trap": "查表定位",
+    "rationale": "问查哪张表取重量 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-look-08",
+   "question": "码头前沿堆货荷载的标准值是多少？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_lookup"
+   ],
+   "question_family": "L2_lookup",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_lookup",
+    "trap": "标准值",
+    "rationale": "问标准值 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-look-09",
+   "question": "船舶撞击力的允许值是怎么规定的？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_lookup"
+   ],
+   "question_family": "L2_lookup",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_lookup",
+    "trap": "允许值规定",
+    "rationale": "问允许值规定 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-look-10",
+   "question": "沉箱干舷高度应满足什么规定？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_lookup"
+   ],
+   "question_family": "L2_lookup",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_lookup",
+    "trap": "应满足规定",
+    "rationale": "问应满足的规定值，无计算 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-clause-01",
+   "question": "营运中码头的船舶荷载应符合哪条规范规定？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_clause_number"
+   ],
+   "question_family": "L2_clause_number",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_clause_number",
+    "trap": "问出处非内容",
+    "rationale": "问条款出处（符合哪条）→ L2；生产由条款号快路径规则直达 L2（§5.3 靶子，35B 曾漏成 L1）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_clause"
+   }
+  },
+  {
+   "question_id": "ir-l2-clause-02",
+   "question": "重力式码头抗滑稳定性验算应符合哪条规范要求？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_clause_number"
+   ],
+   "question_family": "L2_clause_number",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_clause_number",
+    "trap": "问出处非内容+含计算词",
+    "rationale": "问条款出处；「验算」在此是题中术语、无参数 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_clause"
+   }
+  },
+  {
+   "question_id": "ir-l2-clause-03",
+   "question": "集装箱码头装卸桥轨距应符合哪条规定？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_clause_number"
+   ],
+   "question_family": "L2_clause_number",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_clause_number",
+    "trap": "问出处非内容",
+    "rationale": "问条款出处 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_clause"
+   }
+  },
+  {
+   "question_id": "ir-l2-clause-04",
+   "question": "高桩码头基桩的入土深度应满足哪条规定？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_clause_number"
+   ],
+   "question_family": "L2_clause_number",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_clause_number",
+    "trap": "问出处非内容",
+    "rationale": "问条款出处 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_clause"
+   }
+  },
+  {
+   "question_id": "ir-l2-clause-05",
+   "question": "防波堤护面块体的设计在哪条规范里？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_clause_number"
+   ],
+   "question_family": "L2_clause_number",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_clause_number",
+    "trap": "问出处非内容",
+    "rationale": "问规范出处 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_clause"
+   }
+  },
+  {
+   "question_id": "ir-l2-clause-06",
+   "question": "码头面高程的确定应符合哪条标准？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_clause_number"
+   ],
+   "question_family": "L2_clause_number",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_clause_number",
+    "trap": "问出处非内容",
+    "rationale": "问标准出处 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_clause"
+   }
+  },
+  {
+   "question_id": "ir-l2-std-01",
+   "question": "依据JTS 181规范确定航道宽度的取值",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_stdcode"
+   ],
+   "question_family": "L2_stdcode",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_stdcode",
+    "trap": "点名规范号+取值",
+    "rationale": "点名规范号 + 取值 → L2（对照 ir-l1-std-* ：只问规范是什么仍是 L1）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-std-02",
+   "question": "JTS 165-2013 中关于码头前沿停泊水域宽度的规定是什么？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_stdcode"
+   ],
+   "question_family": "L2_stdcode",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_stdcode",
+    "trap": "点名规范号+规定",
+    "rationale": "点名规范号 + 查规定 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-std-03",
+   "question": "GB 50010-2010 对混凝土保护层厚度的要求是多少？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_stdcode"
+   ],
+   "question_family": "L2_stdcode",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_stdcode",
+    "trap": "点名规范号+要求值",
+    "rationale": "点名规范号 + 要求值 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-nc-01",
+   "question": "5万吨级散货船的船型尺度在规范中取值是多少？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_trap_noncalc"
+   ],
+   "question_family": "L2_trap_noncalc",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_trap_noncalc",
+    "trap": "有数值≠L3",
+    "rationale": "含吨级数值但只是查表取值 → L2（规则 3），不是 L3",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-nc-02",
+   "question": "波浪重现期50年对应的设计波高标准值是多少？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_trap_noncalc"
+   ],
+   "question_family": "L2_trap_noncalc",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_trap_noncalc",
+    "trap": "有数值≠L3",
+    "rationale": "含数值但只是查表取标准值 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-nc-03",
+   "question": "C40混凝土的轴心抗压强度设计值查表是多少？",
+   "task_type": "definition",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_trap_noncalc"
+   ],
+   "question_family": "L2_trap_noncalc",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_trap_noncalc",
+    "trap": "有数值≠L3",
+    "rationale": "含强度等级但只是查表取值 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-calc-01",
+   "question": "某5万吨级散货船，设计船型总长L=230m，型宽B=32m，满载吃水T=12.8m，试计算码头前沿水深。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_calc"
+   ],
+   "question_family": "L3_calc",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_calc",
+    "trap": "多参数计算",
+    "rationale": "含具体参数 + 计算动作 → L3（规则 1）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-calc-02",
+   "question": "已知波高H=3.5m、周期T=8s，计算斜坡堤上的波浪爬高。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_calc"
+   ],
+   "question_family": "L3_calc",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_calc",
+    "trap": "参数计算",
+    "rationale": "参数 + 计算 → L3（规则 1）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-calc-03",
+   "question": "计算疏浚工程量：断面面积120平方米，挖槽长度2公里。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_calc"
+   ],
+   "question_family": "L3_calc",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_calc",
+    "trap": "工程量计算",
+    "rationale": "参数 + 计算 → L3",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-calc-04",
+   "question": "验算重力式码头抗滑稳定性：已知水平推力850kN、摩擦系数0.6、垂直力2100kN。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_calc"
+   ],
+   "question_family": "L3_calc",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_calc",
+    "trap": "验算",
+    "rationale": "参数 + 验算 → L3（规则 1）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-calc-05",
+   "question": "计算某泊位的年通过能力：单船载货量5万吨、年作业300天。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_calc"
+   ],
+   "question_family": "L3_calc",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_calc",
+    "trap": "能力计算",
+    "rationale": "参数 + 计算 → L3",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-calc-06",
+   "question": "求抛石基床的厚度：已知地基应力与基床顶面应力分别为180kPa和150kPa。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_calc"
+   ],
+   "question_family": "L3_calc",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_calc",
+    "trap": "求解",
+    "rationale": "参数 + 求值 → L3",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-calc-07",
+   "question": "计算沉箱的吃水：长宽高分别为20m、15m、12m，混凝土重度24kN/m3。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_calc"
+   ],
+   "question_family": "L3_calc",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_calc",
+    "trap": "吃水计算",
+    "rationale": "参数 + 计算 → L3",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-calc-08",
+   "question": "计算航道挖深：设计水深8.5m，富余水深0.4m，备淤深度0.6m。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_calc"
+   ],
+   "question_family": "L3_calc",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_calc",
+    "trap": "多参数求和",
+    "rationale": "三个数值参数 + 计算 → L3",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-calc-09",
+   "question": "水流力计算：已知流速2.5m/s、挡水面积15平方米，计算作用于墩柱的水流力。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_calc"
+   ],
+   "question_family": "L3_calc",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_calc",
+    "trap": "公式计算",
+    "rationale": "参数 + 公式计算 → L3",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-mcq-01",
+   "question": "设计船型尺度计算题，泊位长度L=船长+富裕长度，船长210m，富裕长度取15%，问泊位长度是多少？ A)225m B)242m C)231m D)220m",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_mcq"
+   ],
+   "question_family": "L3_mcq",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_mcq",
+    "trap": "选择题+计算",
+    "rationale": "带 A/B/C/D 选项 + 含计算 → L3（规则 2）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-mcq-02",
+   "question": "某防波堤堤顶高程计算：设计高水位3.2m，波浪爬高2.1m，超高0.5m，则堤顶高程为？ A)5.3m B)5.8m C)4.9m D)6.1m",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_mcq"
+   ],
+   "question_family": "L3_mcq",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_mcq",
+    "trap": "选择题+计算",
+    "rationale": "带选项 + 计算 → L3（规则 2）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-mcq-03",
+   "question": "航道通过能力计算：单船载重8000t，年通航300天，装卸效率500t/h，问年通过能力？ A)960万吨 B)1152万吨 C)800万吨 D)1440万吨",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_mcq"
+   ],
+   "question_family": "L3_mcq",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_mcq",
+    "trap": "选择题+计算",
+    "rationale": "带选项 + 计算 → L3（规则 2）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-unit-01",
+   "question": "已知流速v=1.8m/s，水流力系数取0.73，挡水面积12m²，水的密度取1.025t/m³，求水流力。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_units"
+   ],
+   "question_family": "L3_units",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_units",
+    "trap": "符号参数+量纲",
+    "rationale": "符号化参数 + 求值 → L3",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-unit-02",
+   "question": "混凝土挡墙底面宽3.5米、高6米、重度24千牛每立方米，求每延米墙底最大压应力。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_units"
+   ],
+   "question_family": "L3_units",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_units",
+    "trap": "中文单位计算",
+    "rationale": "中文单位参数 + 求值 → L3",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-unit-03",
+   "question": "疏浚土方量计算：挖槽上口宽45米、下口宽30米、平均深度6米、长度1500米，求疏浚方量（万方）。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_units"
+   ],
+   "question_family": "L3_units",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_units",
+    "trap": "中文单位+指定单位换算",
+    "rationale": "多参数 + 计算 + 单位换算 → L3",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l3-mixed-01",
+   "question": "依据JTS 181的规定，验算某沉箱的抗倾覆稳定性：已知倾覆力矩1200kN·m、抗倾覆力矩1800kN·m。",
+   "task_type": "definition",
+   "intent_level": "L3",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L3_mixed_signal"
+   ],
+   "question_family": "L3_mixed_signal",
+   "intent": {
+    "level": "L3",
+    "mode": "standard_sop",
+    "route": "complex",
+    "family": "L3_mixed_signal",
+    "trap": "依据规范+计算（混合信号）",
+    "rationale": "同时含「依据规范」（L2 信号）与具体参数+验算 → L3（规则 1：计算+参数优先）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-design-01",
+   "question": "试对某港区进行总体布置方案设计，包括码头选型、泊位数量确定和陆域堆场布局。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_design"
+   ],
+   "question_family": "L4_design",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_design",
+    "trap": "方案设计",
+    "rationale": "复合方案设计，无预定义 SOP 可承接 → L4（规则 5）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-design-02",
+   "question": "对某港口改扩建工程进行综合影响评估。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_design"
+   ],
+   "question_family": "L4_design",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_design",
+    "trap": "综合评价",
+    "rationale": "综合评价 → L4（规则 5）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-design-03",
+   "question": "为某航道整治工程制定完整的施工组织方案。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_design"
+   ],
+   "question_family": "L4_design",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_design",
+    "trap": "施工组织",
+    "rationale": "编制完整施工组织方案 → L4",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-design-04",
+   "question": "设计某散货码头的装卸工艺流程系统。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_design"
+   ],
+   "question_family": "L4_design",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_design",
+    "trap": "系统设计",
+    "rationale": "系统设计 → L4（规则 5）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-design-05",
+   "question": "评估某防波堤方案对海洋生态的影响并提出改进措施。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_design"
+   ],
+   "question_family": "L4_design",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_design",
+    "trap": "评估+改进",
+    "rationale": "评估并提出措施（复合）→ L4",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-design-06",
+   "question": "针对某港区淤泥质海岸，编制地基处理总体方案并论证技术经济合理性。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_design"
+   ],
+   "question_family": "L4_design",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_design",
+    "trap": "方案+论证",
+    "rationale": "方案编制 + 技术经济论证 → L4",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-cmp-01",
+   "question": "比较重力式、高桩式和板桩式码头的适用条件，并给出选型建议。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_compare"
+   ],
+   "question_family": "L4_compare",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_compare",
+    "trap": "多方案比选+选型建议",
+    "rationale": "要求适用条件比较 + 选型建议 → L4（规则 5）；对照 L1_concept_compare 只问概念差异",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-cmp-02",
+   "question": "离岸式码头与岸式码头两方案比选，给出论证。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_compare"
+   ],
+   "question_family": "L4_compare",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_compare",
+    "trap": "两方案比选",
+    "rationale": "明确两方案比选 + 论证 → L4",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-cmp-03",
+   "question": "某集装箱码头装卸工艺在岸边集装箱起重机方案与自动化轨道吊方案之间比选。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_compare"
+   ],
+   "question_family": "L4_compare",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_compare",
+    "trap": "工艺方案比选",
+    "rationale": "两工艺方案比选 → L4",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-cmp-04",
+   "question": "疏浚弃土处置方案比选：海洋倾倒、陆域吹填与资源化利用三方案技术经济比较。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_compare"
+   ],
+   "question_family": "L4_compare",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_compare",
+    "trap": "三方案技术经济比较",
+    "rationale": "三方案技术经济比较 → L4（规则 5 明列）",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-multi-01",
+   "question": "先分析某港区现状吞吐能力，再预测2030年需求，最后提出扩建分期实施建议。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_multi"
+   ],
+   "question_family": "L4_multi",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_multi",
+    "trap": "多步编排",
+    "rationale": "先…再…最后的多步复合 → L4",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l4-multi-02",
+   "question": "首先梳理某防波堤损坏原因，然后核算修复工程量，最后编制修复施工方案与工期安排。",
+   "task_type": "definition",
+   "intent_level": "L4",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L4_multi"
+   ],
+   "question_family": "L4_multi",
+   "intent": {
+    "level": "L4",
+    "mode": "dynamic_orchestration",
+    "route": "complex",
+    "family": "L4_multi",
+    "trap": "多步编排",
+    "rationale": "多步复合（含一步计算但整体是编排）→ L4",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "model"
+   }
+  }
+ ]
+}

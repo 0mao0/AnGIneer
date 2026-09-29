@@ -3,6 +3,10 @@
 > 术语（2026-09-27 定版）：本文实现的「并行预热/检索预热」此后统一称**赌博式预检**（代码用 speculative：`fire_speculative_first_search` / `ANGINEER_SPECULATIVE_SKIP_TABLE`）；「预热」一词专留给进程启动灌缓存（FTS/向量/表格产物）。以下历史表述按原样保留。
 
 > 状态：待认领（2026-09-26 已完成六方向核对 + Jev/Laya 替换方案 101 题实测，见 §8；主线建议 = 方向②并行化）。
+> 2026-09-29 追加 §10：专用意图识别测试集（100 题，L0-L4 分层）+ Intern-Decision「书生·明决」实测——
+> 精度与现役 35B 不可区分、GPU 上 0.18s，判定不替换（理由与复评触发见 §10.6）。
+> §10.8 该题集已产品化为 **intent-router-v1**（入库 + `intent` 评测器 + UI 可跑 + CLI，
+> 3 次重跑 100% 逐题一致）。**服务器生效需部署 + 重导题集**。
 > 关联计划 `docs/plan-ttft-improvement.md`（§8 尾巴），此前搁置原因「等 Jev 进展」——已在 §8 收口。
 > 提出时间：2026-09-26。验收口径与约束见文末，**动 prompt 前必读「约束」一节**。
 
@@ -165,3 +169,205 @@ POST /api/chat/agent
 - 净 -26 题主体 = 生成抖动 × 严格 judge 的正常翻转（抽查翻转题：答案文本逐晚微变、judge 同模型 Qwen3.8-Flash-Next 两晚判分不同；1.00→0.00 极性翻转 8+ 例但答案确有实质差异）；
 - 叠加判分口径自今晚起更严：nightly 判定四连修（删检索分兜底 + LaTeX 容错）随 v0.2.79 首发——方向是「测量更诚实」，非系统退化；
 - 孤立缺陷 1 题：c8c8f25f 答案被 `</think>` 流式碎片污染（291KB）判 0 分（昨晚 0 题）——与 P0 无关，值 0.1pp，记录备查不立项。
+
+## 10. 专用意图识别测试集（100 题）+ Intern-Decision「书生·明决」实测（2026-09-29）
+
+上一节（§8）的 101 题集是临时拼的（40 真金 + 61 构造，L1 占 61%），只够回答「Jev/laya 能不能替」；
+本节按业主 2026-09-29 要求把它升级为**专用意图识别测试集：100 题、L0-L4 分层覆盖、每题带陷阱族标签**，
+并用它实测上海 AI 实验室新发布的决策模型 **Intern-Decision（书生·明决）**——
+微信文章声称其 4B 在 JevBench 七项均分 90.02 超 Jev 88.74、单卡 4090 时延 33~44ms（比 Jev 快 2 倍以上）。
+
+**Intern-Decision 是什么（实测确认，非转述）**：它不是聊天模型，而是**结构化决策器**——
+输入 `state`（题干）+ `questions`（选项 schema：`choice`/`score`/`noul`），
+**一次前向**输出每个字段在给定选项上的概率分布（取 placeholder 前一位的 logits 做 softmax，不走 `generate()`）。
+权重 Apache-2.0 自托管（基座 Qwen3.5，`internlm/Intern-Decision-{0.8B,2B,4B}`），
+接口与 laya-multilingual 同构，因此 §8 的评测脚本可直接复用。
+
+### §10.1 题集设计
+
+| 分层 | 题数 | route 桶 | 构成（陷阱族） |
+| --- | --- | --- | --- |
+| L0 闲聊 | 12 | L0 | 6 纯闲聊 + 6 歧义短语（「帮我」「你是谁呀」） |
+| L1 正文语义 | 28 | L1 | 10 定义 + 6 统计词陷阱 + 3 礼貌前缀 + 3 概念对比 + 2 英文 + 4 真实生产题 |
+| L1 meta_query | 10 | meta | 6 直白 + 4 换措辞（避开 few-shot 原句） |
+| L2 条款/查表 | 22 | L2 | 10 查表取值 + 6 条款号问句 + 3 规范号 + 3 含数值但不计算 |
+| L3 标准计算 | 16 | complex | 10 数值计算 + 3 考试选择题 + 3 单位/多参数 |
+| L4 复杂任务 | 12 | complex | 6 方案设计/综合 + 4 多方案比选 + 2 多步复合 |
+
+金标依据 = `prompts/classifier.py` v3 的层级表与关键规则 1–7 + `agent_policy.build_attempts` 的实际路由优先级
+（route 桶派生：`casual_chat`→L0、`semantic_retrieval`→L1、`meta_query`→meta、`structured_lookup`→L2、
+`standard_sop`/`dynamic_orchestration`→complex）。每题带 `family` 陷阱族标签，跑完可直接定位「哪类题在掉」。
+
+**口径灰区（提前声明，勿当铁证）**：`L1_concept_compare` 3 题（「两者的区别/异同」）在分类法内部本就有张力——
+`L1_KEYWORDS` 含「区别/异同/对比/比较」，而规则 5 写「多方案比较 = L4」。本集取
+「只问区别 = L1、要求选型建议/方案论证 = L4」。**这 3 题的读法足以反转头名**（见 §10.6 敏感度），
+后续用这套题集判定任何改动效应时，必须连带报这一项。
+
+### §10.2 同题对照结果
+
+| 系统 | level 准确 | mode 准确 | route 全口径 | route 生产可比¹ | 延迟 p50/p90/max |
+| --- | --- | --- | --- | --- | --- |
+| 规则层单独（无 LLM） | 78/100 | 75/100 | **77/100 (77%)** | 66/88 (75%) | — |
+| 现役 Qwen3.6-35B 全链路 | 97/100 | 97/100 | **97/100 (97%)** | 86/88 (98%) | 2.86 / 9.12 / 24.16 s |
+| laya-multilingual（同集复跑） | 52/100 | 39/100 | **43/100 (43%)** | 37/88 (42%) | 0.83 / 1.15 / 1.55 s |
+| Intern-Decision 0.8B（简 criteria） | 94/100 | 91/100 | **91/100 (91%)** | 79/88 (90%) | 0.13 / 0.17 / 0.20 s |
+| Intern-Decision 2B（简 criteria） | 95/100 | 87/100 | **93/100 (93%)** | 81/88 (92%) | 0.14 / 0.17 / 0.21 s |
+| Intern-Decision 4B（简 criteria，CPU） | 95/100 | 92/100 | **93/100 (93%)** | 81/88 (92%) | 12.36 / 15.14 / 19.75 s |
+| Intern-Decision 0.8B（完整 criteria） | 62/100 | 73/100 | **62/100 (62%)** | 50/88 (57%) | 0.15 / 0.21 / 0.29 s |
+| Intern-Decision **2B（完整 criteria）** | 95/100 | 96/100 | **94/100 (94%)** | 82/88 (93%) | **0.18 / 0.20 / 0.26 s** |
+
+¹ 生产可比 = 剔除 12 题 L0（生产链上 L0 由 `_check_l0_intent` 规则前置拦截，不进 LLM 分类器）。
+² Intern-Decision 的 GPU 行 = 开发机 RTX 4070 Laptop 8G / bf16；CPU 行 = float32（4B 的 bf16 权重 9.1GB 装不进 8GB 显存，只能 CPU 跑）。
+「简/完整 criteria」= 给模型的选项描述文本，见 §10.5——这是本次实测最容易被忽略、却决定成败的变量。
+³ **「4B（完整 criteria）」这一格空着，不是漏填**：该跑在 CPU float32 下需 ~18GB 常驻，实测把开发机空闲内存
+压到 1.9GB 并进入换页，45 分钟未跑完即中止（避免拖垮机器上的 dev 服务与其它任务）。
+4B 的结论已由简 criteria 行 + 完整 criteria 下的 2B 充分支撑（4B 不比 2B 强），不再补跑。
+
+**规则层单独 77/100 是重要基线**：现役 35B 的 97 里有 **24 题根本没进模型**（L0 规则 11 + meta 规则 7 +
+条款号快路径 6，全对 24/24）；真正交给 LLM 的只有 76 题。隔离「换模型」效果只看这 76 题：
+
+| 系统 | LLM 段 route 正确 | 该段延迟 p50 |
+| --- | --- | --- |
+| 现役 Qwen3.6-35B 全链路 | 73/76 (96%) | 3.55s |
+| laya-multilingual | 31/76 (41%) | 0.86s |
+| Intern-Decision 2B（简 criteria） | 69/76 (91%) | 0.14s |
+| **Intern-Decision 2B（完整 criteria）** | **70/76 (92%)** | **0.18s** |
+| Intern-Decision 4B（简 criteria，CPU） | 69/76 (91%) | 12.34s |
+
+### §10.3 差距落在哪（分陷阱族）
+
+| family | 规则层 | 35B | laya | 2B 简 | 2B 完整 | 0.8B 完整 |
+| --- | --- | --- | --- | --- | --- | --- |
+| L0_ambiguous (6) | 6/6 | 6/6 | 2/6 | 6/6 | 6/6 | 6/6 |
+| L0_pure (6) | 5/6 | 5/6 | 4/6 | 6/6 | 6/6 | 6/6 |
+| L1_def (10) | 10/10 | 10/10 | 1/10 | 10/10 | 10/10 | **0/10** |
+| **L1_trap_stat (6)** | 3/6 | **6/6** | 0/6 | **0/6** | **5/6** | 0/6 |
+| L1_concept_compare (3) | 3/3 | 3/3 | 0/3 | 3/3 | **0/3** | **0/3** |
+| L1_politeness (3) | 3/3 | 3/3 | 0/3 | 3/3 | 3/3 | 0/3 |
+| L1_english (2) | 2/2 | 2/2 | 0/2 | 2/2 | 2/2 | 0/2 |
+| L1_real (4) | 4/4 | 4/4 | 0/4 | 4/4 | 3/4 | 0/4 |
+| L2_lookup (10) | 6/10 | 8/10 | 2/10 | 10/10 | 10/10 | 10/10 |
+| **L2_trap_noncalc (3)** | **0/3** | 3/3 | 1/3 | 3/3 | 3/3 | 3/3 |
+| L2_clause_number (6) | 6/6 | 6/6 | 1/6 | 6/6 | 6/6 | 6/6 |
+| L2_stdcode (3) | 3/3 | 3/3 | 0/3 | 3/3 | 3/3 | 3/3 |
+| L3_calc / L3_mcq / L3_units (16) | 16/16 | 16/16 | 13/16 | 16/16 | 16/16 | 16/16 |
+| L4_design / L4_multi (8) | 2/8 | 8/8 | 8/8 | 8/8 | 8/8 | 8/8 |
+| **L4_compare (4)** | **1/4** | 4/4 | 3/4 | 3/4 | 4/4 | 4/4 |
+| meta_direct / meta_rephrase (10) | 7/10 | 10/10 | 8/10 | 10/10 | 9/10 | **0/10** |
+
+三处最有信息量的读法：
+
+1. **`L1_trap_stat` 是提示词问题，不是模型问题**：简 criteria 下 2B/4B 对该族 **0/6**（把「某星表的中位红移」
+   判成 meta/L2），把生产 prompt 的规则 7 原文抄进 criteria 后 2B 回到 **5/6**。同一模型、同一权重，只换选项描述。
+   → 结论：拿 Intern-Decision 替换前，**必须先把生产分类法的边界规则完整搬进 criteria**，否则等于用半截 prompt 比。
+2. **0.8B 反向塌陷**：完整 criteria 下它整体掉到 62/100，输出里**一条 L1 都没有**（46/100 判成 L0，L1_def 0/10、
+   meta 0/10）——长选项定义超出 0.8B 的指令服从能力。它只在极简 schema 下可用，而极简 schema 下它又丢掉陷阱族。
+3. **4B 不比 2B 强**：简 criteria 下 2B 与 4B 都是 93；完整 criteria 下 2B 94。加上 4B 的 bf16 权重 9.1GB
+   装不进 8GB 显存（只能 CPU 12s/次），**性价比拐点在 2B**。
+
+### §10.4 延迟与部署形态
+
+| 口径 | p50 | p90 | max |
+| --- | --- | --- | --- |
+| 现役 Qwen3.6-35B（经 angineer.cn 网关） | 2.86 s | 9.12 s | **24.16 s** |
+| Intern-Decision 2B，CPU float32（无 GPU） | 4.90 s | 5.18 s | 5.44 s |
+| **Intern-Decision 2B，RTX 4070 8G / bf16** | **0.18 s** | **0.20 s** | **0.26 s** |
+| Intern-Decision 0.8B，RTX 4070 8G / bf16 | 0.15 s | 0.21 s | 0.29 s |
+
+- GPU 路径比现役快 **约 16 倍**，且**无长尾**（max 0.26s vs 35B 的 24.16s）——现役那条 p90 9.1s / max 24.2s
+  的长尾与 §8 记的 Jev 25.6s 同源（跨境/网关抖动），是白屏体感的主要来源。
+- **CPU-only 部署没有价值**：2B 在 CPU float32 上是 4.9s，比现役还慢——这条路必须带 GPU。
+- **dtype 不是本轮差异来源**（逐题核对）：2B 同一 criteria 下 CPU float32 与 GPU bf16 的 level 判定
+  **逐题全同（0/100 不同）**，仅 mode 有 2/100 不同；0.8B 的 level 也只有 1/100 不同。
+  因此上表的 CPU/GPU 差异可归因于硬件与 dtypes 之外的因素，**精度结论不因换精度而变**。
+
+### §10.5 口径警告：criteria 信息量决定成败
+
+Intern-Decision 的接口要求把候选选项连描述一起给模型（`choice` + `criteria`），
+所以「给多少定义」直接决定成绩。首轮（简 criteria）只给了一句话定义，**缺**生产 prompt 的两条边界规则——
+规则 7（统计词陷阱）与规则 3/规则 5（查表取值 ≠ 计算、问区别 ≠ 方案比选）；
+而 35B 基线拿的是完整生产 prompt。这属于口径不对称，已补第二轮完整 criteria 重跑。
+**今后任何用这套题集做的对照，必须声明 criteria 版本**，否则两轮数字不可比。
+
+### §10.6 结论
+
+| 维度 | 判定 |
+| --- | --- |
+| 精度 | **不可区分**：主金标 35B 97 vs 2B 94；把 §10.1 的 3 题灰区改判 L4 后 35B **94** vs 2B **97**（2B 反超）。差距 ≤3 题 < 金标读法摆动（±3 题） |
+| 延迟 | 2B 自托管在 8G 显卡上 0.18s p50、无长尾，比现役快一个数量级 |
+| 对 ttft 的价值 | **不适用**——按 §8 口径勘误与 §9 实测，分类等待不在 `ttft_ms` 里（并行赌博式预检已把检索段藏进分类等待）。2B 的收益是 **SSE 首帧白屏时间**（用户侧首字 = 分类等待 + ttft），不是 ttft 指标 |
+| 建议 | **不替换，登记为可选项**：精度不可区分 ⇒ 替换零收益却新增自托管依赖；且需服务器有可支配 GPU（腾讯云部署机是否有闲置显卡未核实） |
+| 复评触发 | ① 部署机有闲置 GPU 且分类延迟重新进入关键路径；② Intern-Decision 出中文工程域继续预训练版本；③ 需要「分类器冗余/降级」时（网关挂掉时用本地 2B 顶上） |
+
+**对题集本身的价值**：这套 100 题第一次把「替换方案评测」从临时拼盘变成可复跑的分层工具——
+它独立抓出了三件现役链路的既有事实：规则层单独只有 77%（`L2_trap_noncalc` 0/3、`L4_compare` 1/4 是规则短板）、
+现役 97% 里 24 题是规则拿的、以及 35B 在 `L2_lookup` 漏 2 题（§5.3 靶子的邻域）。
+
+### §10.7 复现入口
+
+| 项 | 路径 / 命令 |
+| --- | --- |
+| 题集（开发机原始版） | `D:\AI\intern-decision\cases100.json`（含 gold_level / gold_mode / gold_route / family / source） |
+| 权重 | `D:\AI\intern-decision\{0.8B,2B,4B}`（hf-mirror 下载，Apache-2.0）；GPU venv `gpuvenv`（torch 2.14.0+cu126） |
+| Intern-Decision | `gpuvenv\Scripts\python.exe eval_id_v2.py 2B bfloat16 cuda v2`（100 题 ≈20 秒；CPU 兜底把 `cuda` 换 `cpu`、`bfloat16` 换 `float32`） |
+| 现役基线 | `python eval_35b.py`（**直接 import 主仓库 `IntentClassifier`**，走真实规则层 + 生产 prompt，非重写近似） |
+| 聚合 | `python aggregate100.py` / `python report.py`（报告表格全部由落盘 JSON 生成，不手抄） |
+| 全套结果 | `cmp_*.json` + `report_tables.md` |
+
+环境注意：需 `torchvision`（模型带视频预处理配置，缺则 `AutoProcessor` 直接 ImportError）；
+`causal_conv1d` / `flash-linear-attention` 未装，走参考实现——**结果正确但更慢**，装上是纯提速。
+
+### §10.8 题集产品化：intent-router-v1（2026-09-29）
+
+§10.1-§10.7 那套题集只活在开发机脚本里，团队没法复用。本节按 `clause-probe-v1` 的既有范式
+把它做成**仓库内可跑**的一等公民（同一套结构：题集 bundle + 断言块入库 + evals-core 评测器 +
+宿主注入依赖 + `scripts/` CLI 外壳）：
+
+| 层 | 产物 | 说明 |
+| --- | --- | --- |
+| 题集真相源 | `scripts/build_intent_set.py` | 100 题题面与金标全在脚本里，**自带机械校验**（结构不变量 + 与上游规则层对账），不通过拒绝出 bundle；`.gitignore` 白名单已放行 |
+| bundle | `data/evals/datasets/intent-router-v1.json` | `eval.bundle.v2`，item 带 `intent` 金标块。**题集 bundle 进版本控制**（`.gitignore` 白名单 `!data/evals/datasets/*.json`，"题集跟随代码版本"），随 deploy 落到服务器；构建器 + bundle 双真相源互为校验 |
+| 入库 | `eval_question.intent_gold` | schema / storage / manager 三处已扩；回读校验 100/100 带金标（**首版 clause-probe 就是在这丢过字段**） |
+| 评测器 | `evals_core/runner/intent_eval.py` | 新评测器 `intent`：`run_prediction` 只跑分类器、`evaluate` 跑路由断言；宿主未注入分类器时**报错而非静默跳过** |
+| 宿主注入 | `services/aichat-api/evals_routes.py` 启动钩子 | 注入生产同一条链（`IntentClassifier` + `SopLoader`），不另写近似实现 |
+| 评测器选择 | `suite_runner._determine_evaluator_names` | `intent_gold` 命中即 exclusive 接管，不进检索/问答/判官 |
+| CLI 外壳 | `scripts/intent_route_probe.py` | 进程内直调生产分类器 + 复用 `intent_eval` 断言（与 UI 同一真相源）；`--model-only` 只看会进模型的那批；结果默认落 `data/evals/probes/`（data/ 不入 git，写仓库根会变 git 噪音） |
+| CI 自检 | `services/evals-core/tests/test_intent_set_bundle.py` | 题集质量约束进 CI：结构不变量、每题带 trap/rationale、route 派生与评测器同源、灰区题不得含选型措辞、缺陷阱族必须在位 |
+
+**断言分级（与 clause-probe 的差异点，必须记住）**：`route` 恒为致命项，`level` / `mode` 默认只记录。
+理由：`agent_policy.build_attempts` 真正消费的是 `(level, mode)` 派生出的路由桶，同桶的 L3↔L4 混淆
+不改注入工具、不影响链路。金标可置 `strict_level` / `strict_mode` 把对应项升为致命。
+**所以本集的主指标是 route 命中率**，level/mode 命中率作诊断一并报出（UI 的 `checks` 里都可见）。
+
+**质量改进（相对开发机首版）**：
+
+1. **消除灰区题**——3 条 L1_concept_compare 改写为只问结构/定义差异。首版措辞「两者的区别是什么」
+   同时命中 `L1_KEYWORDS` 的「区别」与规则 5 的「多方案比较=L4」，读法不同会反转头名（§10.6）。
+   改后该族在两轮生产实测中稳定 3/3。CI 里有一条测试专门禁掉这类措辞回潮。
+2. **补 3 个陷阱族**：`L1_stdcode_trap`（标准号出现≠L2：「JTS 181 是什么规范？」）、
+   `L1_numbered`（有数值≠L3：「什么是5万吨级散货船？」）、`L3_mixed_signal`（依据规范+计算→L3）。
+3. **每题带 `trap` + `rationale`**：复核者不必回读分类 prompt 就能审金标；CI 强制非空。
+4. **机械校验 + `rule_hit` 元数据**：构建时用主仓库规则层对账，逐题记录「生产链上会被规则前置拦下，
+   还是真的进分类模型」。实测 **76 题进模型 / 24 题被规则拦下**（L0 规则 11 + 条款号快路径 6 + meta 规则 7）。
+5. **顺带抓到一条产品事实**：meta 族 10 题里 **3 题生产 meta 规则认不出**
+   （「系统里有哪些知识库？」「目前一共支持哪些文件格式？」「知识库最近一次更新是什么时候？」），
+   会落到分类模型。这些是好题面、保留，作为 `_is_meta_query` 覆盖缺口的常备回归靶子。
+
+**题集可靠性实测（3 次同集重跑）**：route 命中 **97/100 三次全同**，逐题翻转 **0 题**
+（3 组两两比对，route / level / PASS-FAIL 状态三项全为 0 翻转，100/100 逐题一致）；
+稳定缺口固定为 3 题（`ir-l0-pure-04` 讲笑话未被 L0 规则+模型认出、`ir-l2-look-09/10` 问规范规定被答成 L1）。
+**这是与 nightly 生成层的关键差异**：生成层 1040 题约 12% 翻转、必须配对分析；本集在分类层 3 次实测 100% 一致，
+**所以 ≥1 题的差异就是真差异**，不必再上配对统计（前提是同一题集版本 + 同一分类器）。
+（口径提醒：3 次一致是经验证据、不是确定性证明；换分类器或改分类 prompt 后应重跑一次翻转率再下结论。）
+
+**验收依据（本机实跑）**：`scripts/intent_route_probe.py` 输出 route 97/100；
+`suite_runner._run_single_question` 集成三例——答对→`quality=correct(score=1.0)`、
+错桶→`quality=wrong(score=0.0)`、未注入→`status=error`（不静默）；
+evals-core 全量 `165 passed`（从仓库根跑，含新增 `test_intent_eval.py` 24 例 +
+`test_intent_set_bundle.py` 7 例）。
+**注意**：库内题集已就绪（本机 `import_bundle` 已入 `evals.sqlite` 并回读校验 100/100 带金标），但**服务器要能跑需两步**——
+① 部署（schema/评测器/注入三处改动 + bundle 文件随 `git reset --hard` 落服务器）；
+② 服务器侧**重导题集一次**：admin UI「导入题集」或
+`curl -X POST https://angineer.cn/api/evals/datasets/import -F file=@data/evals/datasets/intent-router-v1.json`
+（无启动自动扫描，导入是显式幂等操作；`eval-nightly.yml` 里的 Import datasets 步就是这一步的自动化版，仅手工调试备用）。
+

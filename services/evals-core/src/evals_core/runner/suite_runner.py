@@ -13,6 +13,8 @@ from evals_core.runner.answer_eval import AnswerEvaluator
 from evals_core.runner.sop_eval import SopEvaluator
 # 注册副作用导入：probe 评测器（题目带 probe 断言块时 exclusive 接管，见 _determine_evaluator_names）
 from evals_core.runner import probe_eval  # noqa: F401
+# 注册副作用导入：intent 评测器（题目带 intent 路由金标块时 exclusive 接管）
+from evals_core.runner import intent_eval  # noqa: F401
 from angineer_core.base_utils import is_fatal_exception
 from evals_core.storage import result_store, retention
 
@@ -157,6 +159,9 @@ def _build_evaluators() -> Dict[str, Any]:
 
 def _determine_evaluator_names(question: Dict[str, Any]) -> List[str]:
     """根据题目类型确定使用的评测器列表（可同时跑多个）。"""
+    # 意图路由题 exclusive：只跑分类器路由断言，不进检索/问答/判官链路（intent-router 类题集）
+    if question.get("intent_gold"):
+        return ["intent"]
     # 探针题 exclusive：只跑检索断言，不进问答/判官链路（clause-probe 类题集）
     if question.get("probe_gold"):
         return ["probe"]
@@ -222,6 +227,8 @@ def _run_single_question(
             gold_data = question.get("retrieval_gold") or {}
         elif ev_name == "probe":
             gold_data = question.get("probe_gold") or {}
+        elif ev_name == "intent":
+            gold_data = question.get("intent_gold") or {}
         elif ev_name == "answer":
             gold_data = question.get("answer_gold") or {}
         elif ev_name == "sop":

@@ -187,6 +187,7 @@ def _item_to_question_row(item: Any, dataset_id: str, sort_order: int = 0) -> Di
         "sql_gold": item.sql.model_dump(exclude_none=True) if item.sql else None,
         "sop_gold": item.sop.model_dump(exclude_none=True) if item.sop else None,
         "probe_gold": item.probe or None,
+        "intent_gold": item.intent or None,
         "sort_order": sort_order,
     }
 
@@ -217,6 +218,8 @@ def _question_row_to_item(row: Dict[str, Any]) -> Dict[str, Any]:
         item["sop"] = row["sop_gold"]
     if row.get("probe_gold"):
         item["probe"] = row["probe_gold"]
+    if row.get("intent_gold"):
+        item["intent"] = row["intent_gold"]
     return item
 
 

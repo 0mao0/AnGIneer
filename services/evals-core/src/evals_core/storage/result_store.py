@@ -88,6 +88,7 @@ def init_db() -> None:
             sql_gold TEXT,
             sop_gold TEXT,
             probe_gold TEXT,
+            intent_gold TEXT,
             sort_order INTEGER NOT NULL DEFAULT 0,
             PRIMARY KEY (question_id, dataset_id)
         );
@@ -167,6 +168,9 @@ def _ensure_eval_question_columns(conn: sqlite3.Connection) -> None:
         # 探针断言块（clause-probe 类题集）：2026-09-29 起随题集入库，
         # 断言真相源不再只是磁盘 JSON（见 evals_core.runner.probe_eval）
         "probe_gold": "TEXT",
+        # 意图路由金标块（intent-router 类题集）：2026-09-29 起随题集入库
+        # （见 evals_core.runner.intent_eval）
+        "intent_gold": "TEXT",
     }
     for column_name, column_def in column_defs.items():
         if column_name not in existing:
@@ -337,8 +341,9 @@ def insert_question(data: Dict[str, Any]) -> Dict[str, Any]:
         """INSERT OR REPLACE INTO eval_question
            (question_id, dataset_id, question, task_type, intent_level, difficulty,
             tags, library_id, doc_ids, question_family, canonical_question_id, variant_type,
-            perturbation_tags, retrieval_gold, answer_gold, sql_gold, sop_gold, probe_gold, sort_order)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            perturbation_tags, retrieval_gold, answer_gold, sql_gold, sop_gold, probe_gold,
+            intent_gold, sort_order)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             data["question_id"],
             data["dataset_id"],
@@ -358,6 +363,7 @@ def insert_question(data: Dict[str, Any]) -> Dict[str, Any]:
             json.dumps(data["sql_gold"], ensure_ascii=False) if data.get("sql_gold") else None,
             json.dumps(data["sop_gold"], ensure_ascii=False) if data.get("sop_gold") else None,
             json.dumps(data["probe_gold"], ensure_ascii=False) if data.get("probe_gold") else None,
+            json.dumps(data["intent_gold"], ensure_ascii=False) if data.get("intent_gold") else None,
             data.get("sort_order", 0),
         ),
     )
@@ -383,6 +389,7 @@ def list_questions(dataset_id: str) -> List[Dict[str, Any]]:
         item["sql_gold"] = json.loads(item["sql_gold"]) if item.get("sql_gold") else None
         item["sop_gold"] = json.loads(item["sop_gold"]) if item.get("sop_gold") else None
         item["probe_gold"] = json.loads(item["probe_gold"]) if item.get("probe_gold") else None
+        item["intent_gold"] = json.loads(item["intent_gold"]) if item.get("intent_gold") else None
         result.append(item)
     return result
 
@@ -488,6 +495,7 @@ def get_question(dataset_id: str, question_id: str) -> Optional[Dict[str, Any]]:
     item["sql_gold"] = json.loads(item["sql_gold"]) if item.get("sql_gold") else None
     item["sop_gold"] = json.loads(item["sop_gold"]) if item.get("sop_gold") else None
     item["probe_gold"] = json.loads(item["probe_gold"]) if item.get("probe_gold") else None
+    item["intent_gold"] = json.loads(item["intent_gold"]) if item.get("intent_gold") else None
     return item
 
 
@@ -510,7 +518,7 @@ def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) 
     for key, value in updates.items():
         if key in ("tags", "doc_ids", "perturbation_tags"):
             existing[key] = value
-        elif key in ("retrieval_gold", "answer_gold", "sql_gold", "sop_gold", "probe_gold"):
+        elif key in ("retrieval_gold", "answer_gold", "sql_gold", "sop_gold", "probe_gold", "intent_gold"):
             existing[key] = value
         elif key in (
             "question",
@@ -528,7 +536,8 @@ def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) 
         """UPDATE eval_question SET
            question=?, task_type=?, intent_level=?, difficulty=?,
            tags=?, library_id=?, doc_ids=?, question_family=?, canonical_question_id=?, variant_type=?,
-           perturbation_tags=?, retrieval_gold=?, answer_gold=?, sql_gold=?, sop_gold=?, probe_gold=?
+           perturbation_tags=?, retrieval_gold=?, answer_gold=?, sql_gold=?, sop_gold=?, probe_gold=?,
+           intent_gold=?
            WHERE dataset_id=? AND question_id=?""",
         (
             existing.get("question", ""),
@@ -547,6 +556,7 @@ def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) 
             json.dumps(existing["sql_gold"], ensure_ascii=False) if existing.get("sql_gold") else None,
             json.dumps(existing["sop_gold"], ensure_ascii=False) if existing.get("sop_gold") else None,
             json.dumps(existing["probe_gold"], ensure_ascii=False) if existing.get("probe_gold") else None,
+            json.dumps(existing["intent_gold"], ensure_ascii=False) if existing.get("intent_gold") else None,
             dataset_id,
             question_id,
         ),
