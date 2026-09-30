@@ -420,10 +420,16 @@ def _execute_tools_batch(
     emit: Optional[Callable[[AgentEvent], None]],
     run_id: str,
     turn: int,
+    injected: bool = False,
 ) -> List[ToolResult]:
-    """工具三阶段：prepare（查找/schema 校验/before 钩子）→ execute → finalize。"""
+    """工具三阶段：prepare（查找/schema 校验/before 钩子）→ execute → finalize。
+
+    injected=True：本批是「首轮直达」预检索（后端替模型先跑），事件带标记
+    供前端把该步显示为「预检索」而非「模型调用工具」（2026-09-30，归属不误导）。
+    """
     results: List[ToolResult] = []
     pending: List[Tuple] = []
+    _injected_flag: Dict[str, Any] = {"injected": True} if injected else {}
 
     def _ops_record_tool(name: str, dur_ms: int, is_error: bool) -> None:
         # 分段观测（req-intent-classify-latency §1 口径勘误）：ttft 内部构成拆解需要工具段耗时
@@ -434,12 +440,12 @@ def _execute_tools_batch(
     def fail(call, message: str) -> ToolResult:
         _safe_emit(
             emit,
-            AgentEvent(type="tool_start", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": call.name, "args": call.arguments}),
+            AgentEvent(type="tool_start", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": call.name, "args": call.arguments, **_injected_flag}),
         )
         result = ToolResult(call_id=call.id, name=call.name, content=message, is_error=True)
         _safe_emit(
             emit,
-            AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": call.name, "is_error": True, "duration_ms": 0, "result": message[:300]}),
+            AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": call.name, "is_error": True, "duration_ms": 0, "result": message[:300], **_injected_flag}),
         )
         _ops_record_tool(call.name, 0, True)
         return result
@@ -484,7 +490,7 @@ def _execute_tools_batch(
         for call, tool in pending:
             _safe_emit(
                 emit,
-                AgentEvent(type="tool_start", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "args": call.arguments}),
+                AgentEvent(type="tool_start", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "args": call.arguments, **_injected_flag}),
             )
 
         if sequential:
@@ -501,7 +507,7 @@ def _execute_tools_batch(
                 _dur_ms = int((time.monotonic() - started) * 1000)
                 _safe_emit(
                     emit,
-                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": _dur_ms, "result": result.content[:300]}),
+                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": _dur_ms, "result": result.content[:300], **_injected_flag}),
                 )
                 _ops_record_tool(tool.name, _dur_ms, result.is_error)
         else:
@@ -517,7 +523,7 @@ def _execute_tools_batch(
                 _dur_ms = int((time.monotonic() - started) * 1000)
                 _safe_emit(
                     emit,
-                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": _dur_ms, "result": result.content[:300]}),
+                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": _dur_ms, "result": result.content[:300], **_injected_flag}),
                 )
                 _ops_record_tool(tool.name, _dur_ms, result.is_error)
     finally:
@@ -631,12 +637,17 @@ def _run_llm_turn(
         pass
     # 思考过程「模型调用」步（2026-09-30 B 档）：把每轮 LLM 的内部耗时（首字/prompt）作为
     # note 事件下发——数据本就在 llm_turn 打点里，此前只落 ops JSONL 不进链路。
+    # 文案纪律：本步时长只走 duration_ms（渲染为前置时间 tag），文本不再重复「X.X 秒」；
+    # 首字仅第 2 轮起写（第 1 轮与收尾便签的 run 级首字同值，重复展示让用户困惑——09-30 实拍）。
     try:
-        _turn_label = f"模型调用（第 {turn} 轮）：{_turn_dur_ms / 1000:.1f} 秒"
-        if _turn_first_delta_ms is not None:
-            _turn_label += f"（首字 {_turn_first_delta_ms / 1000:.1f} 秒）"
+        _turn_label = f"模型调用（第 {turn} 轮）"
+        _turn_parts: List[str] = []
+        if turn > 1 and _turn_first_delta_ms is not None:
+            _turn_parts.append(f"首字 {_turn_first_delta_ms / 1000:.1f} 秒")
         if _turn_prompt_tokens:
-            _turn_label += f"（prompt {_turn_prompt_tokens} tokens）"
+            _turn_parts.append(f"prompt {_turn_prompt_tokens} tokens")
+        if _turn_parts:
+            _turn_label += "：" + "，".join(_turn_parts)
         _safe_emit(
             emit,
             AgentEvent(
@@ -727,9 +738,17 @@ class _AttemptMachine:
         self.tools_by_name = {tool.name: tool for tool in config.tools}
 
     def start(self) -> None:
-        if self.attempts:
-            self.apply(0)
-            self.add_note("执行计划：" + " → ".join(a.name for a in self.attempts))
+        if not self.attempts:
+            return
+        # 顺序纪律（2026-09-30）：先报处理链路，再 apply——apply 会触发首轮直达
+        # 预检索（发出工具事件），否则时间线上「检索」跑在「计划」前面，看着像没计划就开跑。
+        # 单段链路不报（2026-09-30 用户实拍）：与「意图判断」行的策略名重复、信息量≈0；
+        # 多段才报——它的价值是预告「走不通会自动升级」。
+        if len(self.attempts) > 1:
+            self.add_note(
+                "处理链路：" + " → ".join(a.name for a in self.attempts) + "（前段未命中自动回退）"
+            )
+        self.apply(0)
 
     def apply(self, index: int) -> None:
         """应用第 index 段的完整可覆盖字段；codec 随段刷新。"""
@@ -1033,6 +1052,7 @@ def run_agent_loop(
         try:
             results = _execute_tools_batch(
                 [call], machine.tools_by_name, machine.active_config, cancel_event, emit, run_id, 0,
+                injected=True,
             )
         except Exception:  # noqa: BLE001
             return
@@ -1055,9 +1075,13 @@ def run_agent_loop(
                 meta=result.raw,
             )
         )
+        # 并入上一对工具步显示（attach=pair，2026-09-30）：第 3 步「预检索」已有耗时即代表完成，
+        # 单独再出「预检索完成」一步是冗余（用户实拍）；此便签改为挂在预检索步下的附注行。
         _add_note(
-            f"首轮直达：已预检索知识库证据注入上下文（{tool_name}，跳过空转轮）"
-            + ("（跟进式提问，已结合上一问改写检索词）" if query != original_query else "")
+            f"证据已提前查好并放进上下文（{tool_name}）——模型首轮即可直接作答，"
+            "省去「先申请检索」的一轮空转"
+            + ("；跟进式提问，已结合上一问改写检索词" if query != original_query else ""),
+            extra={"attach": "pair"},
         )
         machine.path_trace.append("first_search_injected")
 

@@ -391,7 +391,9 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             # 阶段帧（2026-09-27）：分类自此开始——前端「意图理解…（xs）」覆盖真实分类等待，
             # 不再全程显示默认「思考中...」（此前的首个 SSE 帧要等分类完成才发，标签与实际错位）。
             # route_pre 分支下赌博式预检与分类并行，同样自此刻起算。
-            yield f"data: {json.dumps({'type': 'stage', 'stage': 'classify'}, ensure_ascii=False)}\n\n"
+            # ts（2026-09-30）：请求起点墙钟——前端以它为思考过程折叠头「总耗时」锚点，
+            # 否则锚在首条事件（意图判断便签）上，分类耗时会漏出总耗时之外（各步 tag 之和对不上）。
+            yield f"data: {json.dumps({'type': 'stage', 'stage': 'classify', 'ts': time.time()}, ensure_ascii=False)}\n\n"
 
             if route_pre_enabled():
                 # 基础并行（ANGINEER_ROUTE_PARALLEL）：与分类同时赌博式预检 L1 首轮检索，

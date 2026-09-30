@@ -27,12 +27,15 @@ ROUTE_PARALLEL_ENV = "ANGINEER_ROUTE_PARALLEL"
 
 
 def route_parallel_enabled() -> bool:
-    """ANGINEER_ROUTE_PARALLEL（默认关，生产实测后再定默认）：
+    """ANGINEER_ROUTE_PARALLEL（默认开；设 0/false/off 关闭为纯串行）：
 
     分类与首轮检索并行——请求进来即赌博式预检 knowledge_search（按 scene 默认猜 L1），
     分类返回后 L1 命中由 agent_loop 首轮注入经 _run_knowledge_search 的 memo 单发复用，
     分类延迟不再阻塞检索段。分类结果仍一票决定走哪段，路由正确性零风险；
     猜错（L2/L3/L4/闲聊）代价 = 一次 ~0.5s 的无效检索。
+
+    注：本 docstring 原写"默认关、生产实测后再定"是引入期状态；默认值早已翻为 true
+    （生产 .env 显式 =1，本地不设即默认开），2026-09-30 校正——曾据此误判"本地是串行"。
     """
     return os.getenv(ROUTE_PARALLEL_ENV, "true").strip().lower() in ("true", "1", "yes", "on")
 
