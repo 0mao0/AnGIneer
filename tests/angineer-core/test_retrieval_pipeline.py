@@ -12,6 +12,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 from angineer_core.retrieval_pipeline import (  # noqa: E402
     has_unsupported_reference,
     llm_rerank_candidates,
+    llm_second_rerank,
     rerank_candidates,
 )
 
@@ -103,6 +104,119 @@ class RetrievalPipelineSharedTests(unittest.TestCase):
             ports.register_local_rerank(None)
         self.assertEqual(len(calls), 1)
         self.assertIs(out, items)
+
+
+class SecondRerankTests(unittest.TestCase):
+    @staticmethod
+    def _make_item(item_id: str, text: str = "候选内容") -> SimpleNamespace:
+        return SimpleNamespace(
+            item_id=item_id,
+            title="条款",
+            text=text,
+            rerank_score=0.9,
+            metadata={},
+        )
+
+    def _items(self, n: int = 6) -> list:
+        return [self._make_item(str(i)) for i in range(n)]
+
+    def test_wide_agrees_no_duel_order_unchanged(self):
+        items = self._items()
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.return_value = SimpleNamespace(text='{"ranking": [0, 2, 1, 3, 4, 5]}')
+            out = llm_second_rerank("查询", items, llm_client=object())
+        self.assertEqual(guarded.call_count, 1)
+        self.assertIs(out, items)
+        self.assertEqual([i.item_id for i in out], ["0", "1", "2", "3", "4", "5"])
+        self.assertTrue(all(i.rerank_score == 0.9 for i in out))
+
+    def test_duel_confirms_override_reorders(self):
+        items = self._items()
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.side_effect = [
+                SimpleNamespace(text='{"ranking": [2, 0, 1, 3, 4, 5]}'),
+                SimpleNamespace(text='{"winner": "B"}'),
+            ]
+            out = llm_second_rerank("查询", items, llm_client=object())
+        self.assertEqual(guarded.call_count, 2)
+        self.assertEqual(out[0].item_id, "2")
+        scores = [i.rerank_score for i in out]
+        self.assertEqual(scores, sorted(scores, reverse=True))
+        self.assertGreater(out[0].rerank_score, 0.9)
+
+    def test_duel_vetoes_override_order_unchanged(self):
+        items = self._items()
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.side_effect = [
+                SimpleNamespace(text='{"ranking": [2, 0, 1, 3, 4, 5]}'),
+                SimpleNamespace(text='{"winner": "A"}'),
+            ]
+            out = llm_second_rerank("查询", items, llm_client=object())
+        self.assertIs(out, items)
+        self.assertEqual([i.item_id for i in out], ["0", "1", "2", "3", "4", "5"])
+        self.assertTrue(all(i.rerank_score == 0.9 for i in out))
+
+    def test_wide_failure_returns_unchanged(self):
+        items = self._items()
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.return_value = SimpleNamespace(text="not json")
+            out = llm_second_rerank("查询", items, llm_client=object())
+        self.assertIs(out, items)
+
+    def test_duel_failure_treated_as_veto(self):
+        items = self._items()
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.side_effect = [
+                SimpleNamespace(text='{"ranking": [3, 0, 1, 2, 4, 5]}'),
+                SimpleNamespace(text="garbage"),
+            ]
+            out = llm_second_rerank("查询", items, llm_client=object())
+        self.assertIs(out, items)
+
+    def _online_rerank_ok(self, n: int):
+        resp = mock.Mock()
+        resp.status_code = 200
+        resp.json.return_value = {
+            "results": [{"index": i, "relevance_score": 0.9 - i * 0.001} for i in range(n)]
+        }
+        return resp
+
+    def test_hook_applies_second_rerank_when_enabled(self):
+        items = self._items(6)
+        runner = SimpleNamespace(
+            reranker_configs=[{"url": "http://fake-reranker"}],
+            reranker_timeout_sec=1.0,
+        )
+        with mock.patch.dict(os.environ, {"ANGINEER_LLM_SECOND_RERANK": "1"}):
+            with mock.patch(
+                "angineer_core.base_config.get_config",
+                return_value=SimpleNamespace(runner=runner),
+            ), mock.patch("requests.post", return_value=self._online_rerank_ok(6)), \
+                mock.patch(
+                    "angineer_core.retrieval_pipeline.llm_second_rerank",
+                    side_effect=lambda q, c, **kw: list(reversed(c)),
+                ) as second:
+                out = rerank_candidates("查询", items)
+        second.assert_called_once()
+        self.assertEqual([i.item_id for i in out], ["5", "4", "3", "2", "1", "0"])
+
+    def test_hook_skips_second_rerank_when_disabled(self):
+        items = self._items(6)
+        runner = SimpleNamespace(
+            reranker_configs=[{"url": "http://fake-reranker"}],
+            reranker_timeout_sec=1.0,
+        )
+        with mock.patch.dict(os.environ, {"ANGINEER_LLM_SECOND_RERANK": "0"}):
+            with mock.patch(
+                "angineer_core.base_config.get_config",
+                return_value=SimpleNamespace(runner=runner),
+            ), mock.patch("requests.post", return_value=self._online_rerank_ok(6)), \
+                mock.patch(
+                    "angineer_core.retrieval_pipeline.llm_second_rerank",
+                ) as second:
+                out = rerank_candidates("查询", items)
+        second.assert_not_called()
+        self.assertEqual([i.item_id for i in out], ["0", "1", "2", "3", "4", "5"])
 
 
 class HalfRefusalTests(unittest.TestCase):

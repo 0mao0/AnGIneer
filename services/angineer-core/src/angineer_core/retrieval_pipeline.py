@@ -2,14 +2,24 @@
 
 dense 语义通道降级（embedding 不可用）时，rerank 降级链为：
 在线 reranker -> LLM 语义重排（本模块）-> 本地 phrase rerank。
+
+在线 rerank 成功后可叠加 LLM 二排（llm_second_rerank，ANGINEER_LLM_SECOND_RERANK 开启）：
+wide pass 重排 top-N + duel 复核后才允许换掉第 1 名；replay 投影 hit@1(sec) 0.785→0.838
+（scripts/rerank_replay.py，v4.1  nightly 冻结候选回放）。
 """
+import os
 import re
+import time
 from typing import Any, List, Optional
 
 from ai_inference.llm_client import chat_result_guarded, get_llm_client
 from ai_inference.llm_response_parser import extract_json_from_text
 from angineer_core.base_logger import get_logger
-from angineer_core.prompts.retrieval import LLM_RERANK_SYSTEM_PROMPT
+from angineer_core.prompts.retrieval import (
+    LLM_RERANK_DEF_SYSTEM_PROMPT,
+    LLM_RERANK_DUEL_SYSTEM_PROMPT,
+    LLM_RERANK_SYSTEM_PROMPT,
+)
 
 logger = get_logger(__name__)
 
@@ -75,6 +85,146 @@ def llm_rerank_candidates(
     return reranked
 
 
+def _second_rerank_enabled() -> bool:
+    return os.environ.get("ANGINEER_LLM_SECOND_RERANK", "0").strip().lower() in ("1", "true", "on")
+
+
+def _env_int(name: str, default: int) -> int:
+    try:
+        return int(os.environ.get(name, "").strip() or default)
+    except (TypeError, ValueError):
+        return default
+
+
+def _llm_rank_order(
+    query: str,
+    candidates: list,
+    *,
+    prompt: str,
+    top_n: int,
+    max_chars: int,
+    llm_client: Any = None,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+) -> Optional[List[int]]:
+    """让 LLM 给前 top_n 条候选排序，返回候选下标顺序；失败返回 None。"""
+    pool = list(candidates[:top_n])
+    lines: List[str] = []
+    for index, item in enumerate(pool):
+        title = " ".join(str(getattr(item, "title", "") or "").split())[:60]
+        text = " ".join(str(getattr(item, "text", "") or "").split())[:max_chars]
+        lines.append(f"[{index}] {title}\n{text}")
+    messages = [
+        {"role": "system", "content": prompt},
+        {"role": "user", "content": f"查询：{query}\n\n候选：\n" + "\n\n".join(lines)},
+    ]
+    client = llm_client if llm_client is not None else get_llm_client()
+    try:
+        result = chat_result_guarded(client, messages, mode=mode, config_name=config_name)
+        parsed = extract_json_from_text(result.text, strict=True)
+        raw_order = parsed.get("ranking") or []
+        order: List[int] = []
+        seen: set = set()
+        for raw in raw_order:
+            try:
+                index = int(raw)
+            except (TypeError, ValueError):
+                continue
+            if 0 <= index < len(pool) and index not in seen:
+                seen.add(index)
+                order.append(index)
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("LLM 重排调用失败: %s", exc)
+        return None
+    if not order:
+        return None
+    return order + [i for i in range(len(pool)) if i not in set(order)]
+
+
+def _llm_duel(
+    query: str,
+    champion: Any,
+    challenger: Any,
+    *,
+    max_chars: int,
+    llm_client: Any = None,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+) -> Optional[bool]:
+    """两条候选全文对决，challenger 胜返回 True；无法判定返回 None。"""
+    def _fmt(item: Any) -> str:
+        title = " ".join(str(getattr(item, "title", "") or "").split())[:60]
+        text = " ".join(str(getattr(item, "text", "") or "").split())[:max_chars]
+        return f"{title}\n{text}"
+
+    messages = [
+        {"role": "system", "content": LLM_RERANK_DUEL_SYSTEM_PROMPT},
+        {"role": "user", "content": (
+            f"查询：{query}\n\n候选A：\n{_fmt(champion)}\n\n候选B：\n{_fmt(challenger)}")},
+    ]
+    client = llm_client if llm_client is not None else get_llm_client()
+    try:
+        result = chat_result_guarded(client, messages, mode=mode, config_name=config_name)
+        parsed = extract_json_from_text(result.text, strict=True)
+        winner = str(parsed.get("winner") or "").strip().upper()
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("LLM 二排 duel 调用失败: %s", exc)
+        return None
+    if winner == "B":
+        return True
+    if winner == "A":
+        return False
+    return None
+
+
+def llm_second_rerank(
+    query: str,
+    candidates: list,
+    *,
+    llm_client: Any = None,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+) -> list:
+    """在线 rerank 后的 LLM 二排：wide pass 重排 top-N，duel 复核通过才允许换掉第 1 名。
+
+    任何一步失败都原样返回 candidates（不改变序、不改分），保证零回归兜底。
+    """
+    if not candidates or len(candidates) <= 1:
+        return candidates
+    top_n = max(2, _env_int("ANGINEER_LLM_SECOND_RERANK_TOP_N", 15))
+    max_chars = max(200, _env_int("ANGINEER_LLM_SECOND_RERANK_MAX_CHARS", 1500))
+    duel_chars = max(200, _env_int("ANGINEER_LLM_SECOND_RERANK_DUEL_MAX_CHARS", 4000))
+    order = _llm_rank_order(
+        query, candidates,
+        prompt=LLM_RERANK_DEF_SYSTEM_PROMPT,
+        top_n=min(top_n, len(candidates)),
+        max_chars=max_chars,
+        llm_client=llm_client,
+        config_name=config_name,
+        mode=mode,
+    )
+    if not order or order[0] == 0:
+        return candidates
+    challenger_wins = _llm_duel(
+        query,
+        candidates[0],
+        candidates[order[0]],
+        max_chars=duel_chars,
+        llm_client=llm_client,
+        config_name=config_name,
+        mode=mode,
+    )
+    if not challenger_wins:
+        logger.info("LLM 二排 duel 否决覆盖（候选 #%s 未能击败原第 1 名）", order[0])
+        return candidates
+    reranked = [candidates[i] for i in order] + list(candidates[len(order):])
+    total = len(reranked)
+    for position, item in enumerate(reranked):
+        item.rerank_score = round((total - position) / total, 6)
+    logger.info("LLM 二排 duel 确认覆盖：候选 #%s 升为第 1 名", order[0])
+    return reranked
+
+
 def rerank_candidates(
     query: str,
     candidates: list,
@@ -134,6 +284,15 @@ def rerank_candidates(
             for i, item in enumerate(candidates):
                 item.rerank_score = score_map.get(i, 0.0)
             candidates.sort(key=lambda item: item.rerank_score or 0.0, reverse=True)
+            if _second_rerank_enabled():
+                _t2 = time.perf_counter()
+                candidates = llm_second_rerank(
+                    normalized_query,
+                    candidates,
+                    config_name=config_name,
+                    mode=mode,
+                )
+                logger.info("LLM 二排计时: %.2fs candidates=%d", time.perf_counter() - _t2, len(candidates))
             return candidates
         except Exception as exc:  # noqa: BLE001
             last_error = exc
