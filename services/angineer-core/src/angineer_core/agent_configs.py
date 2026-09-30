@@ -5,7 +5,7 @@ import re
 from dataclasses import replace
 from typing import Any, Dict, List, Optional
 
-from angineer_core.agent_loop import AgentLoopConfig, TurnContext
+from angineer_core.agent_loop import _INJECTED_USER_PROMPTS, AgentLoopConfig, TurnContext
 from angineer_core.agent_messages import AgentMessage, is_refusal_text, strip_half_refusal_lead
 from angineer_core.agent_tools import (
     AgentTool,
@@ -221,6 +221,13 @@ def build_chat_config(
     """L0 闲聊直答档：无工具、单轮。"""
     from angineer_core.prompts.dispatcher import CHAT_SYSTEM_PROMPT
 
+    budget_est = _chat_budget_tokens_est()
+    chat_transformer = (
+        make_budget_transformer(max_tokens_est=budget_est)
+        if budget_est > 0
+        else None
+    )
+
     return AgentLoopConfig(
         llm=llm,
         tools=[],
@@ -229,6 +236,7 @@ def build_chat_config(
         config_name=config_name,
         mode=mode,
         codec=TextToolCallCodec(),
+        transform_context=chat_transformer,
     )
 
 
@@ -246,6 +254,13 @@ def build_meta_config(
     校验会把正确统计回答误判为"无证据拒答"。
     默认统计范围为当前会话所在库（library_id）；用户明确问全部/各个库时模型可传 all 覆盖（空串视同未填）。
     """
+    budget_est = _meta_budget_tokens_est()
+    meta_transformer = (
+        make_budget_transformer(max_tokens_est=budget_est, protect_current_run=True)
+        if budget_est > 0
+        else None
+    )
+
     return AgentLoopConfig(
         llm=llm,
         config_name=config_name,
@@ -256,6 +271,7 @@ def build_meta_config(
         codec=TextToolCallCodec(),
         route_note=route_note,
         followup_question=_followup_question_enabled(),
+        transform_context=meta_transformer,
     )
 
 
@@ -264,18 +280,52 @@ def _followup_question_enabled() -> bool:
     return os.getenv("ANGINEER_FOLLOWUP_QUESTION", "true").strip().lower() in ("true", "1", "yes", "on")
 
 
-def _qa_budget_tokens_est() -> int:
-    """QA 档预算阈值（plan-ttft-improvement 需求 A1）。
-
-    不复用 complex 档 100k est：_estimate_tokens=字符数//2，中文 1 字≈1 真实 token，
-    est 30k ≈ 真实 60k；单轮证据 est 仅 ~15k，多轮回灌 3-5 轮即越 30k，
-    100k 闸门在 QA 档第 5 轮（est ~75k）前永不触发，等于没装。设 0 关闭（回退）。
-    """
-    raw = os.getenv("ANGINEER_QA_BUDGET_TOKENS_EST", "30000").strip()
+def _budget_tokens_est(env_key: str, default: int) -> int:
+    raw = os.getenv(env_key, str(default)).strip()
     try:
         return max(0, int(raw))
     except ValueError:
-        return 30_000
+        return default
+
+
+def _qa_budget_tokens_est() -> int:
+    """QA 档预算阈值（plan-ttft-improvement 需求 A1；req-chat-history-bloat §5.1.3 收紧）。
+
+    定值依据（2026-09-29 ops 回归，74 run 配对）：real/est 系数 p99=1.46；
+    est [16k,20k) 桶 real max 22.4k 达标，est [20k,30k) 桶 real p50 31.8k 超标。
+    16k est × 1.46 ≈ 23.4k real，对 25k 验收线留 1.6k 余量。设 0 关闭（回退）。
+    """
+    return _budget_tokens_est("ANGINEER_QA_BUDGET_TOKENS_EST", 16_000)
+
+
+def _chat_budget_tokens_est() -> int:
+    """L0 闲聊档预算阈值（req-chat-history-bloat §5.1.1）。
+
+    L0 无工具无证据，闸只压历史轮残留的 tool 消息（此前 QA 轮的全量检索证据）——
+    闲聊一句「你好」曾背上 73k prompt。裸装（无 protect_current_run）：当轮无工具结果可误压。
+    设 0 关闭（回退）。
+    """
+    return _budget_tokens_est("ANGINEER_CHAT_BUDGET_TOKENS_EST", 12_000)
+
+
+def _meta_budget_tokens_est() -> int:
+    """meta 统计档预算阈值（req-chat-history-bloat §5.1.2）。
+
+    必须 protect_current_run=True：knowledge_stats 当轮统计结果在真实 user 之后，
+    裸装会把当轮数字压成一行摘要、统计答案失真。设 0 关闭（回退）。
+    """
+    return _budget_tokens_est("ANGINEER_META_BUDGET_TOKENS_EST", 12_000)
+
+
+def _complex_budget_tokens_est() -> int:
+    """complex 档预算阈值（req-chat-history-bloat §5.1.4 重估初值）。
+
+    原 100k est 对 QA 场景形同虚设（L3 第 4 轮 real 61k 未触发）。complex 无
+    protect_current_run（run 内轮间压缩是其原始语义），SOP 长 run 需要更早的证据余量，
+    故不与 QA 档 16k 对齐、独立取 24k est（×p99 系数 1.46 ≈ 35k real；
+    L3 当轮自超 25k 的题按需求 §4.1 豁免单列）。实测后再调。设 0 关闭（回退）。
+    """
+    return _budget_tokens_est("ANGINEER_COMPLEX_BUDGET_TOKENS_EST", 24_000)
 
 
 def build_qa_config(
@@ -409,6 +459,17 @@ def _summarize_tool_raw(raw: Dict[str, Any]) -> str:
     return json.dumps(raw, ensure_ascii=False, default=str)[:120]
 
 
+def _is_injected_user_prompt(content: Optional[str]) -> bool:
+    """循环内部注入的 user 角色提示（retry/代检索脚手架）——protect_current_run 划界时跳过。
+
+    修复（req-chat-history-bloat §5.1.3）：run 内 retry 注入的内部提示会把「最后一条 user」
+    边界后移，当轮已产出的证据反落可压区——超阈值会话里重试轮拿不到证据作答。
+    与 agent_loop._latest_user_query 同一跳过口径。
+    """
+    text = (content or "").strip()
+    return bool(text) and text.startswith(_INJECTED_USER_PROMPTS)
+
+
 def make_budget_transformer(max_tokens_est: int = 100_000, protect_current_run: bool = False):
     """P4.3 闸门一：超预算时按 oldest-first 压缩工具结果（投影式，copy-on-write）。
 
@@ -435,7 +496,7 @@ def make_budget_transformer(max_tokens_est: int = 100_000, protect_current_run: 
         last_user_index = -1
         if protect_current_run:
             for index, message in enumerate(messages):
-                if message.role == "user":
+                if message.role == "user" and not _is_injected_user_prompt(message.content):
                     last_user_index = index
         result = list(messages)
         for index, message in enumerate(result):
@@ -485,7 +546,7 @@ def build_complex_config(
     memory: Any = None,
     step_callback: Optional[Any] = None,
     max_turns: int = 8,
-    max_tokens_est: int = 100_000,
+    max_tokens_est: Optional[int] = None,
     budget_threshold: int = 120_000,
     route_note: Optional[str] = None,
     marker_allocator: Optional[Any] = None,
@@ -594,6 +655,13 @@ def build_complex_config(
     if explicit:
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
 
+    complex_budget_est = _complex_budget_tokens_est() if max_tokens_est is None else int(max_tokens_est)
+    complex_transformer = (
+        make_budget_transformer(max_tokens_est=complex_budget_est)
+        if complex_budget_est > 0
+        else None
+    )
+
     return AgentLoopConfig(
         llm=llm,
         config_name=config_name,
@@ -602,7 +670,7 @@ def build_complex_config(
         system_prompt=system_prompt,
         max_turns=max_turns,
         codec=TextToolCallCodec(),
-        transform_context=make_budget_transformer(max_tokens_est=max_tokens_est),
+        transform_context=complex_transformer,
         should_stop_after_turn=make_budget_stopper(threshold=budget_threshold),
         route_note=route_note,
     )

@@ -607,6 +607,9 @@ def _run_llm_turn(
         calls = []
 
     has_tool_calls = bool(calls)
+    _turn_dur_ms = int((time.monotonic() - _turn_t0) * 1000)
+    _turn_first_delta_ms = int((_turn_first_delta_at - _turn_t0) * 1000) if _turn_first_delta_at is not None else None
+    _turn_prompt_tokens = usage.get("prompt_tokens")
     # 分段观测（req-intent-classify-latency §1 口径勘误）：逐 LLM 轮记录耗时/首 delta/prompt，
     # 与 kind=tool 记录按 run_id+turn 关联，即可拆出 ttft 内部构成（检索/重试/prefill 各占多少）。
     try:
@@ -617,12 +620,37 @@ def _run_llm_turn(
             {
                 "run_id": run_id,
                 "turn": turn,
-                "dur_ms": int((time.monotonic() - _turn_t0) * 1000),
-                "first_delta_ms": int((_turn_first_delta_at - _turn_t0) * 1000) if _turn_first_delta_at is not None else None,
-                "prompt_tokens": usage.get("prompt_tokens"),
+                "dur_ms": _turn_dur_ms,
+                "first_delta_ms": _turn_first_delta_ms,
+                "prompt_tokens": _turn_prompt_tokens,
                 "has_tool_calls": has_tool_calls,
                 "finish_reason": finish_reason,
             },
+        )
+    except Exception:  # noqa: BLE001
+        pass
+    # 思考过程「模型调用」步（2026-09-30 B 档）：把每轮 LLM 的内部耗时（首字/prompt）作为
+    # note 事件下发——数据本就在 llm_turn 打点里，此前只落 ops JSONL 不进链路。
+    try:
+        _turn_label = f"模型调用（第 {turn} 轮）：{_turn_dur_ms / 1000:.1f} 秒"
+        if _turn_first_delta_ms is not None:
+            _turn_label += f"（首字 {_turn_first_delta_ms / 1000:.1f} 秒）"
+        if _turn_prompt_tokens:
+            _turn_label += f"（prompt {_turn_prompt_tokens} tokens）"
+        _safe_emit(
+            emit,
+            AgentEvent(
+                type="note",
+                run_id=run_id,
+                turn=turn,
+                payload={
+                    "detail": _turn_label,
+                    "duration_ms": _turn_dur_ms,
+                    "first_delta_ms": _turn_first_delta_ms,
+                    "prompt_tokens": _turn_prompt_tokens,
+                    "has_tool_calls": has_tool_calls,
+                },
+            ),
         )
     except Exception:  # noqa: BLE001
         pass
@@ -941,13 +969,20 @@ def run_agent_loop(
 
     emit = _tracked_emit
 
-    def _add_note(detail: str, duration_ms: Optional[int] = None) -> None:
+    def _add_note(
+        detail: str,
+        duration_ms: Optional[int] = None,
+        extra: Optional[Dict[str, Any]] = None,
+    ) -> None:
         """记录一条可见的边界/过程说明，实时事件与 run_end 都会带上。
 
-        duration_ms：本步耗时（结构化，供思考过程每步耗时标签；2026-09-27）。"""
+        duration_ms：本步耗时（结构化，供思考过程每步耗时标签；2026-09-27）。
+        extra：附加结构化字段（如 ttft_ms；2026-09-30 B 档），随 payload 下发。"""
         fields: Dict[str, Any] = {"detail": detail}
         if duration_ms:
             fields["duration_ms"] = int(duration_ms)
+        if extra:
+            fields.update(extra)
         trace_notes.append(fields)
         _safe_emit(
             emit,
@@ -1226,6 +1261,8 @@ def run_agent_loop(
             _add_note(
                 f"生成完成：首字 {ttft_ms / 1000:.1f} 秒（首字前的等待含意图判断、检索与 prompt 读取）",
                 duration_ms=_total_ms,
+                # 结构化 TTFT（B 档）：此前只在文案里，现随 payload 下发供链路展示
+                extra={"ttft_ms": int(ttft_ms), "turns": turn},
             )
         else:
             _add_note("生成结束：本轮未产出首字（按边界规则收尾）", duration_ms=_total_ms)
