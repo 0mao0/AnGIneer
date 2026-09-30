@@ -14,11 +14,29 @@
         <span class="thinking-step-title">{{ noteTitle(group) }}</span>
         <span v-if="noteReason(group)" class="thinking-step-detail">（{{ noteReason(group) }}）</span>
       </span>
+      <!-- 多行便签的正文行（如「模型调用」的 等待/输出 分段）：各占一行、与子行同缩进档 -->
+      <span
+        v-for="(line, lineIdx) in noteBodyLines(group)"
+        :key="lineIdx"
+        class="thinking-step-note-line"
+      >{{ line }}</span>
     </template>
     <template v-else>
       <span class="thinking-step-marker">
         <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
         <span v-if="stepTimeText(group)" class="thinking-step-cost">{{ stepTimeText(group) }}</span>
+        <!-- 并行预检两行 tag：放在序号列，与上下步骤的时间 tag 同一条竖线（2026-09-30 用户指定）；
+             第一行「并行预检」、第二行预检实际用时。
+             条件要求 resultDetail 已到（调用-返回配对完成）：否则流式期间 tool_start 刚到达时
+             会先闪一下本 tag、tool_end 到达又被时间 tag 顶掉（用户实拍 09-30） -->
+        <span
+          v-else-if="group.injected && group.resultDetail"
+          class="thinking-step-parallel"
+          title="该检索与意图分类并行执行；此处为直接复用（无重复检索），耗时为预检实际用时"
+        >
+          <span class="thinking-step-parallel-label">并行预检</span>
+          <span v-if="group.reusedMs" class="thinking-step-parallel-ms">{{ (group.reusedMs / 1000).toFixed(1) }}s</span>
+        </span>
       </span>
       <span class="thinking-step-label">
         <span class="thinking-step-title">{{ formatThinkingStepTitle(group) }}</span>
@@ -138,18 +156,24 @@ const expandedResults = ref<number[]>([])
 
 const isResultExpanded = (index: number) => expandedResults.value.includes(index)
 
-/** 说明类步骤：末尾括号内的理由与标题拆开，标题加粗、理由常规。 */
-const splitNoteLabel = (group: ThinkingGroupStep): { title: string; reason?: string } => {
+/** 说明类步骤：末尾括号内的理由与标题拆开，标题加粗、理由常规。
+ *  多行便签（2026-09-30「模型调用」分段版式）：首行为标题（拆末尾括号理由），其余行原样作正文行。 */
+const splitNoteLabel = (group: ThinkingGroupStep): { title: string; reason?: string; body: string[] } => {
   const detail = String(group.detail || '')
-  const match = detail.match(/^(.*)（([^（）]*)）$/)
+  const lines = detail.split(String.fromCharCode(10))
+  const head = lines[0] || ''
+  const body = lines.slice(1)
+  const match = head.match(/^(.*)（([^（）]*)）$/)
   if (match && match[1]) {
-    return { title: match[1], reason: match[2] || undefined }
+    return { title: match[1], reason: match[2] || undefined, body }
   }
-  return { title: detail }
+  return { title: head, body }
 }
 
 const noteTitle = (group: ThinkingGroupStep): string => splitNoteLabel(group).title
 const noteReason = (group: ThinkingGroupStep): string | undefined => splitNoteLabel(group).reason
+/** 多行便签的正文行（首行标题之外），每行独立成行、与子行同缩进档 */
+const noteBodyLines = (group: ThinkingGroupStep): string[] => splitNoteLabel(group).body
 
 /** 步骤时间 tag：首步 0.3s（无前缀），其余 +1.5s（值＝本步自身耗时）；
  *  不足 50ms 返回空串（四舍五入后是 +0.0s 的噪声，不显示） */
@@ -284,10 +308,11 @@ const resultQuery = (group: ThinkingGroupStep): string => {
   padding: 2px 8px;
   border-radius: 6px;
 
-  /* 左栏（序号+耗时标签）固定宽度：各步无论有无标签，右侧文字列都对齐同一条线 */
+  /* 左栏（序号+耗时标签/并行预检两行 tag）固定宽度：各步无论有无标签，右侧文字列都对齐同一条线；
+     80px 是容纳「序号 + 并行预检两行 tag」的宽度（2026-09-30 从 66 加宽） */
   .thinking-step-marker {
     flex: 0 0 auto;
-    width: 66px;
+    width: 80px;
     white-space: nowrap;
   }
 
@@ -332,12 +357,45 @@ const resultQuery = (group: ThinkingGroupStep): string => {
     opacity: 0.9;
   }
 
-  /* 步骤下的子行（调用结果/命中引用/展开列表/附注）与右栏文字列对齐（marker 66px + gap 6px） */
+  /* 「并行预检」两行 tag：与时间 tag 同款胶囊（同一组钩子变量，明暗两档一致），
+     仅版式不同——第一行「并行预检」、第二行预检实际用时（2026-09-30 用户指定：和时间一样做成 tag） */
+  .thinking-step-parallel {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 6px;
+    padding: 1px 6px;
+    border-radius: 8px;
+    background: var(--aichat-step-time-bg, rgba(24, 144, 255, 0.16));
+    color: var(--aichat-step-time-color, #1677ff);
+    border: 1px solid var(--aichat-step-time-border, rgba(24, 144, 255, 0.45));
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    vertical-align: 1px;
+  }
+
+  .thinking-step-parallel-ms {
+    font-size: 11px;
+    opacity: 0.85;
+  }
+
+  /* 步骤下的子行（调用结果/命中引用/展开列表/附注/多行便签正文）与右栏文字列对齐（marker 80px + gap 6px） */
   .thinking-step-result,
   .thinking-step-citations,
   .thinking-step-result-list,
-  .thinking-step-attach {
-    margin-left: 72px;
+  .thinking-step-attach,
+  .thinking-step-note-line {
+    margin-left: 86px;
+  }
+
+  /* 多行便签正文行：`行 → 每段独立成行、常规字重、次级色（首行标题仍加粗） */
+  .thinking-step-note-line {
+    flex-basis: 100%;
+    color: var(--text-secondary);
+    font-weight: 400;
+    word-break: break-all;
+    opacity: 0.9;
   }
 
   .thinking-step-attach {

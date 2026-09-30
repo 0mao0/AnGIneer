@@ -136,6 +136,8 @@ export interface ThinkingTraceStep {
   wallStartMs?: number
   /** 该工具调用是后端预检索（首轮直达，替模型先跑）：标题显示为「预检索」（2026-09-30） */
   injected?: boolean
+  /** 并行预检复用时，预检方真实检索耗时（ms）：供「并行预检 / X.Xs」两行标注（2026-09-30） */
+  reusedMs?: number
   /** 附注归属（'pair'=并入上一对工具步显示，不单独成步）：预检索完成说明用（2026-09-30） */
   attach?: string
   citations?: AIChatCitation[]

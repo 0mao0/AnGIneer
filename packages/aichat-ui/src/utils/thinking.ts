@@ -16,6 +16,8 @@ export interface ThinkingGroupStep {
   wallStartMs?: number
   /** 后端预检索（首轮直达）：标题渲染为「预检索」而非「调用工具」（2026-09-30） */
   injected?: boolean
+  /** 并行预检复用时预检方真实耗时（ms）：供「并行预检 / X.Xs」两行标注（2026-09-30） */
+  reusedMs?: number
   /** 附注行（attach=pair 的便签并入本对工具步，如「证据已放进上下文…」）：不单独成步（2026-09-30） */
   attachNote?: string
   turn?: number
@@ -77,6 +79,7 @@ export function groupThinkingSteps(steps: ThinkingTraceStep[]): ThinkingGroupSte
         open.resultDetail = step.detail
         open.isError = step.isError
         open.durationMs = step.durationMs
+        if (step.reusedMs) open.reusedMs = step.reusedMs
         if (step.atMs != null) open.atMs = step.atMs
         open.citations = step.citations
         open.resultItems = step.resultItems

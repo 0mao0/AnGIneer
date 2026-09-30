@@ -649,6 +649,7 @@ export function applyAgentEventToThinking(
   }
   if (event?.type === 'tool_end') {
     const durationMs = Number(event.payload?.duration_ms)
+    const reusedMs = Number(event.payload?.reused_ms)
     const resultStep: ThinkingTraceStep = {
       kind: 'result',
       tool: String(event.payload?.name || 'unknown'),
@@ -658,6 +659,8 @@ export function applyAgentEventToThinking(
       ...stamp,
       ...(turn != null ? { turn } : {}),
       ...(durationMs > 0 ? { durationMs } : {}),
+      // 并行预检复用：预检方真实耗时（供「并行预检 X.Xs」两行标注，2026-09-30）
+      ...(reusedMs > 0 ? { reusedMs } : {}),
     }
     const liveItems = extractToolResultItems(event.payload?.result)
     if (liveItems) resultStep.resultItems = liveItems
@@ -769,6 +772,7 @@ export function mergeThinkingTrace(
           isError: live.isError ?? entry.step.isError,
           ...(live.atMs != null ? { atMs: live.atMs } : {}),
           ...(live.injected ? { injected: true } : {}),
+          ...(live.reusedMs ? { reusedMs: live.reusedMs } : {}),
           turn: live.turn ?? entry.step.turn,
         })
       } else {
