@@ -12,7 +12,8 @@ def _make_service(tmp_path, monkeypatch):
 
 def _register_doc(ks, library_id: str, node_id: str, title: str) -> None:
     ks.create_library(library_id, "文档提及测试库", "test")
-    ks.nodes.append(
+    # 经 create_node 走正经写路径落库（list_nodes 已读穿，直塞内存清单不再可见）
+    ks.create_node(
         KnowledgeNode(
             id=node_id,
             title=title,

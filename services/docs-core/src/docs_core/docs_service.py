@@ -300,39 +300,48 @@ class DocsService:
             f"未知向量 provider={provider_name!r}，可选 qdrant/sqlite/chroma"
         )
 
+    # 数据库行 → 领域对象（_load_from_db 与读穿读入口共用同一份字段映射）
+    @staticmethod
+    def _library_from_row(row: Any) -> KnowledgeLibrary:
+        return KnowledgeLibrary(
+            id=row["id"],
+            name=row["name"],
+            description=row["description"],
+            created_at=parse_datetime(row["created_at"]),
+            updated_at=parse_datetime(row["updated_at"]),
+        )
+
+    @staticmethod
+    def _node_from_row(row: Any) -> KnowledgeNode:
+        return KnowledgeNode(
+            id=row["id"],
+            title=row["title"],
+            type=row["type"],
+            parent_id=row["parent_id"],
+            visible=bool(row["visible"]),
+            library_id=row["library_id"],
+            file_path=row["file_path"],
+            status=row["status"],
+            parse_progress=int(row["parse_progress"] or 0),
+            parse_stage=row["parse_stage"],
+            parse_error=row["parse_error"],
+            parse_task_id=row["parse_task_id"],
+            strategy=row["strategy"] or STRUCTURED_DOC_GRAPH_STRATEGY,
+            schema_version=row["schema_version"] or SCHEMA_VERSION,
+            sort_order=int(row["sort_order"] or 0),
+            deleted=bool(row.get("deleted")),
+            created_at=parse_datetime(row["created_at"]),
+            updated_at=parse_datetime(row["updated_at"]),
+        )
+
     # 把数据库记录加载为内存对象缓存
     def _load_from_db(self) -> None:
         self.libraries = [
-            KnowledgeLibrary(
-                id=row["id"],
-                name=row["name"],
-                description=row["description"],
-                created_at=parse_datetime(row["created_at"]),
-                updated_at=parse_datetime(row["updated_at"]),
-            )
+            self._library_from_row(row)
             for row in self.meta_store.list_libraries()
         ]
         self.nodes = [
-            KnowledgeNode(
-                id=row["id"],
-                title=row["title"],
-                type=row["type"],
-                parent_id=row["parent_id"],
-                visible=bool(row["visible"]),
-                library_id=row["library_id"],
-                file_path=row["file_path"],
-                status=row["status"],
-                parse_progress=int(row["parse_progress"] or 0),
-                parse_stage=row["parse_stage"],
-                parse_error=row["parse_error"],
-                parse_task_id=row["parse_task_id"],
-                strategy=row["strategy"] or STRUCTURED_DOC_GRAPH_STRATEGY,
-                schema_version=row["schema_version"] or SCHEMA_VERSION,
-                sort_order=int(row["sort_order"] or 0),
-                deleted=bool(row.get("deleted")),
-                created_at=parse_datetime(row["created_at"]),
-                updated_at=parse_datetime(row["updated_at"]),
-            )
+            self._node_from_row(row)
             for row in self.meta_store.list_nodes()
         ]
         self.parse_tasks = [
@@ -432,9 +441,10 @@ class DocsService:
             if sibling.sort_order != idx:
                 sibling.sort_order = idx
 
-    # 获取知识库列表
+    # 获取知识库列表（读穿：现查 SQLite，跨进程写入的库对运行中的读方进程立即可见——
+    # aichat-api 曾因启动快照看不见新建库，导致该库题目检索恒空、全拒答）
     def list_libraries(self) -> List[KnowledgeLibrary]:
-        return self.libraries
+        return [self._library_from_row(row) for row in self.meta_store.list_libraries()]
 
     # 创建知识库
     def create_library(self, library_id: str, name: str, description: str = "") -> KnowledgeLibrary:
@@ -443,9 +453,9 @@ class DocsService:
         self.meta_store.upsert_library(library)
         return library
 
-    # 获取知识库
+    # 获取知识库（读穿）
     def get_library(self, library_id: str) -> Optional[KnowledgeLibrary]:
-        for library in self.libraries:
+        for library in self.list_libraries():
             if library.id == library_id:
                 return library
         return None
@@ -485,11 +495,13 @@ class DocsService:
             logger.warning("清理知识库 %s 的图谱数据失败: %s", library_id, exc)
         return True
 
-    # 获取知识库节点列表
+    # 获取知识库节点列表（读穿：现查 SQLite——新建库/新导文档对运行中的读方进程立即可见；
+    # self.nodes 内存列表只服务本进程写入方内部的树操作，不再是读路径的真相源）
     def list_nodes(self, library_id: Optional[str] = None, visible: bool = False) -> List[KnowledgeNode]:
         nodes = [
-            node for node in self.nodes
-            if not node.deleted and (library_id is None or node.library_id == library_id)
+            self._node_from_row(row)
+            for row in self.meta_store.list_nodes(library_id=library_id)
+            if not row["deleted"]
         ]
         if visible:
             nodes = [node for node in nodes if node.visible]

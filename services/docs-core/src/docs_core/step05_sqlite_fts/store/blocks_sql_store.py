@@ -268,18 +268,22 @@ class KnowledgeMetaStore:
                 "SELECT id, name, description, created_at, updated_at FROM libraries ORDER BY created_at ASC"
             ).fetchall()
 
-    # 读取所有节点：folder 从 tree_node 读取，document 从 nodes + tree_node 合并。
-    def list_nodes(self) -> List[Dict[str, Any]]:
+    # 读取节点：folder 从 tree_node 读取，document 从 nodes + tree_node 合并；
+    # 给定 library_id 时下推过滤（读穿路径按库取数，避免每次全表加载）。
+    def list_nodes(self, library_id: Optional[str] = None) -> List[Dict[str, Any]]:
         with self.connect() as conn:
             result = []
+            lib_params: tuple = (library_id,) if library_id else ()
             doc_rows = conn.execute(
-                """
+                f"""
                 SELECT id, title, type, visible, library_id, file_path, status,
                        parse_progress, parse_stage, parse_error, parse_task_id, strategy,
                        schema_version, deleted, created_at, updated_at
                 FROM nodes
+                {"WHERE library_id = ?" if library_id else ""}
                 ORDER BY library_id ASC, created_at ASC
-                """
+                """,
+                lib_params,
             ).fetchall()
             for row in doc_rows:
                 item = dict(row)
@@ -292,12 +296,13 @@ class KnowledgeMetaStore:
                     item["sort_order"] = 0
                 result.append(item)
             folder_rows = conn.execute(
-                """
+                f"""
                 SELECT node_id, title, parent_id, scope_id, sort_order, deleted, created_at, updated_at
                 FROM tree_node
-                WHERE tree_type = 'knowledge_folder'
+                WHERE tree_type = 'knowledge_folder'{" AND scope_id = ?" if library_id else ""}
                 ORDER BY scope_id ASC, sort_order ASC
-                """
+                """,
+                lib_params,
             ).fetchall()
             for row in folder_rows:
                 item = dict(row)
