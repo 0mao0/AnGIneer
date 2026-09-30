@@ -28,8 +28,26 @@ def test_primary_score_below_threshold_is_wrong():
 
 
 def test_keyword_check_downgrade_still_applies():
-    """主分过了但关键词复核没过 → 仍是 wrong（原口径不变，只是搬进同一个判定函数）。"""
+    """主分过了但关键词复核没过（无 semantic 裁决时）→ 仍是 wrong（旧兜底口径不变）。"""
     scores = {"answer": {"score": 0.9, "correctness_checked": True, "correctness_score": 0.0}}
+    assert _decide_quality(ANSWER, scores) == ("completed", "wrong")
+
+
+def test_semantic_passed_is_single_authority_over_raw_score():
+    """判官已出 semantic_passed 时终审认它，不再拿 0.8 二次闸 raw correctness_score——
+    0.65~0.8 区间「判官说通过、终审说错」的双阈值打架（2026-09-30：15 题全闸绿仍 wrong）。"""
+    scores = {"answer": {
+        "score": 1.0, "correctness_checked": True, "correctness_score": 0.7,
+        "semantic_passed": True, "semantic_threshold": 0.65,
+    }}
+    assert _decide_quality(ANSWER, scores) == ("completed", "correct")
+
+
+def test_semantic_failed_stays_wrong():
+    scores = {"answer": {
+        "score": 1.0, "correctness_checked": True, "correctness_score": 0.9,
+        "semantic_passed": False, "semantic_threshold": 0.65,
+    }}
     assert _decide_quality(ANSWER, scores) == ("completed", "wrong")
 
 

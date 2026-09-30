@@ -41,6 +41,13 @@ def _decide_quality(primary_evaluator_name: str, all_scores: Dict[str, Any]) -> 
     if primary_score < PASSED_THRESHOLD:
         return "completed", "wrong"
     answer_scores = all_scores.get("answer") or {}
+    semantic_passed = answer_scores.get("semantic_passed")
+    if semantic_passed is not None:
+        # 单阈值权威：判官已按题集 semantic_threshold（默认 0.65）出过通过与否的裁决，
+        # 终审不得再拿 0.8 对同一个 correctness_score 二次过闸——否则 0.65~0.8 区间的
+        # 「判官说通过」全被终审翻成 wrong（2026-09-30 复核 run-f18ce01a6587：15 题
+        # semantic_passed=True 且零 failed_checks 仍判 wrong，逐题复核 90% 为冤案）。
+        return ("completed", "correct") if semantic_passed else ("completed", "wrong")
     answer_correctness = answer_scores.get("correctness_score") if answer_scores.get("correctness_checked") else None
     if answer_correctness is not None and answer_correctness < PASSED_THRESHOLD:
         return "completed", "wrong"
@@ -84,10 +91,14 @@ def caliber_fingerprint() -> Dict[str, Any]:
 
     scale_fix = ""
     try:
+        from evals_core.runner.judge_deepeval import _GEVAL_CRITERIA as _criteria
         from evals_core.runner.judge_deepeval import _GEVAL_STEPS as _steps
         from evals_core.runner.judge_deepeval import _JUDGE_SCALE_FIX_VERSION as _scale_fix
+        from angineer_core.prompts.answer_eval import SEMANTIC_EVAL_PROMPT as _legacy_prompt
 
-        steps_fp = _hl.sha256("\n".join(_steps).encode("utf-8")).hexdigest()[:12]
+        steps_fp = _hl.sha256(
+            (_criteria + "\n".join(_steps) + _legacy_prompt).encode("utf-8")
+        ).hexdigest()[:12]
         scale_fix = _scale_fix
     except Exception:  # noqa: BLE001 无 deepeval 环境 steps_fp 留空（legacy 口径本就不依赖它）
         steps_fp = ""
