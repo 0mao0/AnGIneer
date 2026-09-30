@@ -6,17 +6,21 @@
     :class="group.kind === 'note' ? 'thinking-step-note' : ''"
   >
     <template v-if="group.kind === 'note'">
-      <span class="thinking-step-note-label">
+      <span class="thinking-step-marker">
         <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
         <span v-if="group.durationMs" class="thinking-step-cost">{{ stepTimeText(group) }}</span>
+      </span>
+      <span class="thinking-step-note-label">
         <span class="thinking-step-title">{{ noteTitle(group) }}</span>
         <span v-if="noteReason(group)" class="thinking-step-detail">（{{ noteReason(group) }}）</span>
       </span>
     </template>
     <template v-else>
-      <span class="thinking-step-label">
+      <span class="thinking-step-marker">
         <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
         <span v-if="group.durationMs" class="thinking-step-cost">{{ stepTimeText(group) }}</span>
+      </span>
+      <span class="thinking-step-label">
         <span class="thinking-step-title">{{ formatThinkingStepTitle(group) }}</span>
         <span v-if="group.callDetail" class="thinking-step-detail">
           （{{ formatThinkingArgDetail(group.callDetail) }}）
@@ -80,14 +84,23 @@
         <span class="thinking-step-citations-label">命中引用（用于最终回答）：</span>
         <div class="thinking-step-citations-tags">
           <button
-            v-for="citation in group.citations"
-            :key="`${citation.target_id}-${citation.page_idx}-${citation.section_path}`"
+            v-for="doc in visibleCitationDocs(group)"
+            :key="doc.docId"
             type="button"
             class="thinking-step-citation"
-            :title="getCitationHoverText(citation)"
-            @click="emit('selectCitation', citation)"
+            :title="doc.tooltip"
+            @click="emit('selectCitation', doc.citation)"
           >
-            {{ formatCitationShortLabel(citation, getCitationItemIndex(group, citation)) }}
+            {{ doc.label }}
+            <span v-if="doc.count > 1" class="thinking-step-citation-count">×{{ doc.count }}</span>
+          </button>
+          <button
+            v-if="citationDocs(group).length > CITATION_DOC_LIMIT"
+            type="button"
+            class="thinking-step-citation thinking-step-citation-more"
+            @click="toggleCitationsExpanded(group.index)"
+          >
+            {{ isCitationsExpanded(group.index) ? '收起' : `+${citationDocs(group).length - CITATION_DOC_LIMIT}` }}
           </button>
         </div>
       </div>
@@ -99,9 +112,9 @@
 import { ref } from 'vue'
 import { DownOutlined, RightOutlined } from '@ant-design/icons-vue'
 import {
-  formatCitationShortLabel,
-  getCitationHoverText,
   getCitationTagLabel,
+  getCitationTagTooltip,
+  stripCitationDocExtension,
 } from '../utils/citation'
 import {
   formatThinkingArgDetail,
@@ -141,6 +154,64 @@ const stepTimeText = (group: ThinkingGroupStep): string => {
   return (group.index || 1) > 1 ? `+${seconds}` : seconds
 }
 
+interface CitationDocGroup {
+  docId: string
+  label: string
+  count: number
+  citation: AIChatCitation
+  tooltip: string
+}
+
+/** 命中引用折叠阈值：超过则先显示前 N 篇，其余走「+N」展开 */
+const CITATION_DOC_LIMIT = 8
+const expandedCitationGroups = ref<number[]>([])
+
+const isCitationsExpanded = (index?: number) => expandedCitationGroups.value.includes(index || 0)
+
+const toggleCitationsExpanded = (index?: number) => {
+  const key = index || 0
+  expandedCitationGroups.value = isCitationsExpanded(key)
+    ? expandedCitationGroups.value.filter(item => item !== key)
+    : [...expandedCitationGroups.value, key]
+}
+
+/**
+ * 命中引用按文档归并：同一文档的多处引用合成一枚 chip（带 ×N）。
+ * 原实现按引用条目逐枚渲染（编号+规范名前几字的短码），十几枚截断短码铺成一片、
+ * 既看不出是哪几篇、又把卡片撑得很高（用户 2026-09-30 反馈）。
+ */
+const citationDocs = (group: ThinkingGroupStep): CitationDocGroup[] => {
+  const map = new Map<string, CitationDocGroup>()
+  for (const citation of group.citations || []) {
+    const key = String(citation.doc_id || citation.doc_title || 'unknown')
+    const hit = map.get(key)
+    if (hit) {
+      hit.count += 1
+      continue
+    }
+    const name = stripCitationDocExtension(citation.doc_title) || '未命名'
+    map.set(key, {
+      docId: key,
+      label: name.length > 14 ? `${name.slice(0, 13)}…` : name,
+      count: 1,
+      citation,
+      tooltip: '',
+    })
+  }
+  const docs = [...map.values()]
+  for (const doc of docs) {
+    doc.tooltip = `${getCitationTagTooltip(doc.citation)}（引用 ${doc.count} 处）`
+  }
+  // 引用处数多的文档排前，便于一眼看出证据主体
+  return docs.sort((a, b) => b.count - a.count)
+}
+
+const visibleCitationDocs = (group: ThinkingGroupStep): CitationDocGroup[] => {
+  const docs = citationDocs(group)
+  if (docs.length <= CITATION_DOC_LIMIT || isCitationsExpanded(group.index)) return docs
+  return docs.slice(0, CITATION_DOC_LIMIT)
+}
+
 const toggleResultExpand = (index: number) => {
   expandedResults.value = isResultExpanded(index)
     ? expandedResults.value.filter(item => item !== index)
@@ -178,17 +249,6 @@ const toCitation = (item: ThinkingTraceItem): BaseChatCitation => ({
   score: item.score || 0,
 })
 
-/** 命中引用对应的候选序号（1 起），找不到时返回 undefined。 */
-const getCitationItemIndex = (group: ThinkingGroupStep, citation: AIChatCitation): number | undefined => {
-  const items = group.resultItems || []
-  const found = items.findIndex(
-    item =>
-      (citation?.marker && item.cite === citation.marker) ||
-      (citation?.target_id && item.item_id === citation.target_id)
-  )
-  return found >= 0 ? found + 1 : undefined
-}
-
 /** 从工具调用参数里取检索查询词（knowledge_search/table_search 的 {"query": ...}）。 */
 const resultQuery = (group: ThinkingGroupStep): string => {
   const detail = String(group.callDetail || '')
@@ -209,19 +269,26 @@ const resultQuery = (group: ThinkingGroupStep): string => {
 <style lang="less" scoped>
 .thinking-step {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 6px;
   font-size: 12px;
   line-height: 1.6;
   padding: 2px 8px;
   border-radius: 6px;
 
-  &:not(.thinking-step-note) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 2px 6px;
+  /* 左栏（序号+耗时标签）固定宽度：各步无论有无标签，右侧文字列都对齐同一条线 */
+  .thinking-step-marker {
+    flex: 0 0 auto;
+    width: 66px;
+    white-space: nowrap;
+  }
+
+  .thinking-step-label,
+  .thinking-step-note-label {
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .thinking-step-label {
@@ -243,11 +310,12 @@ const resultQuery = (group: ThinkingGroupStep): string => {
     margin-right: 6px;
     padding: 0 6px;
     border-radius: 8px;
-    background: var(--aichat-step-time-bg, rgba(24, 144, 255, 0.14));
-    color: var(--aichat-step-time-color, #1890ff);
+    background: var(--aichat-step-time-bg, rgba(24, 144, 255, 0.16));
+    color: var(--aichat-step-time-color, #1677ff);
+    border: 1px solid var(--aichat-step-time-border, rgba(24, 144, 255, 0.45));
     font-size: 12px;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 16px;
     vertical-align: 1px;
   }
 
@@ -256,6 +324,13 @@ const resultQuery = (group: ThinkingGroupStep): string => {
     font-weight: 400;
     word-break: break-all;
     opacity: 0.9;
+  }
+
+  /* 步骤下的子行（调用结果/命中引用/展开列表）与右栏文字列对齐（marker 66px + gap 6px） */
+  .thinking-step-result,
+  .thinking-step-citations,
+  .thinking-step-result-list {
+    margin-left: 72px;
   }
 
   .thinking-step-result {
@@ -396,9 +471,9 @@ const resultQuery = (group: ThinkingGroupStep): string => {
 
   .thinking-step-citations {
     flex-basis: 100%;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: start;
+    /* 标签上置、chip 区吃满整行：左标签右 chip 的网格会把 chip 区压到 ~270px，一枚一行很松散 */
+    display: flex;
+    flex-direction: column;
     gap: 4px;
     margin-top: 2px;
     min-width: 0;
@@ -437,6 +512,17 @@ const resultQuery = (group: ThinkingGroupStep): string => {
       color: var(--primary-color);
       border-color: var(--primary-color);
     }
+  }
+
+  /* 文档归并后的引用计数（×N）与「+N」展开按钮 */
+  .thinking-step-citation-count {
+    margin-left: 2px;
+    color: var(--text-tertiary, #999);
+    font-size: 11px;
+  }
+
+  .thinking-step-citation-more {
+    color: var(--text-secondary);
   }
 
   &.thinking-step-note {

@@ -615,12 +615,39 @@ export function useAIChat(options?: {
     saveToPool()
   }
 
+  /**
+   * 判断是否为 agent 内部消息（不可展示）：
+   * 服务端历史原样落库了工具链路消息——「首轮直达」注入的 assistant 工具调用、模型的工具决策轮，
+   * 其 content 是 tool_calls 围栏或纯 JSON 工具调用；它们是思考过程素材而非对话正文（2026-09-30 实踩：
+   * 直接渲染成一条 JSON 代码块气泡）。注入消息带 meta.injected_tool_call，其余按内容形状严格判定。
+   */
+  const isInternalToolCallMessage = (message: AIChatMessage): boolean => {
+    if (message.role !== 'assistant') return false
+    if ((message as unknown as Record<string, unknown>).injected_tool_call) return true
+    const text = String(message.content || '').trim()
+    if (!text) return false
+    if (/^```tool_calls/.test(text)) return true
+    if (!text.startsWith('[') && !text.startsWith('{')) return false
+    try {
+      const parsed = JSON.parse(text)
+      const items = Array.isArray(parsed) ? parsed : [parsed]
+      return items.length > 0 && items.every(
+        (item: unknown) => !!item && typeof item === 'object'
+          && 'name' in (item as Record<string, unknown>)
+          && 'arguments' in (item as Record<string, unknown>)
+      )
+    } catch {
+      return false
+    }
+  }
+
   /** 灌入一组历史消息到当前会话（历史对话恢复用），中止进行中的生成并写回会话池 */
   const loadMessages = (newMessages: AIChatMessage[]): void => {
     stopGeneration()
     queuedMessages.value = []
     queuePaused.value = false
-    messages.value = [...newMessages]
+    // 服务端历史含内部工具链路消息：加载收口处剔除，只留可展示对话
+    messages.value = [...newMessages].filter(message => !isInternalToolCallMessage(message))
     saveToPool()
   }
 
