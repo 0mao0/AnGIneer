@@ -131,12 +131,21 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("禁止把相邻证据当作答案强行作答", QA)
         self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无规则 16
 
-    def test_qa_prompt_latest_is_v11(self):
+    def test_qa_prompt_latest_is_v12(self):
         """latest 必须解析到最新版——字符串 max 会把 latest 钉死在旧版（"v9" > "v10" 字典序）。"""
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V11
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V12
 
-        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V11)
-        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v11")
+        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V12)
+        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v12")
+
+    def test_qa_prompt_v12_merged_alignment_rule(self):
+        """v12：规则 3/9/15/16/17 合并为单条「对齐判断」（覆盖/部分覆盖/未覆盖三态）。"""
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V12
+
+        self.assertIn("对齐判断", QA_AGENT_SYSTEM_PROMPT_V12)
+        self.assertIn("没有检索到足够证据支持最终结论", QA_AGENT_SYSTEM_PROMPT_V12)
+        self.assertIn("以下相关信息供参考", QA_AGENT_SYSTEM_PROMPT_V12)
+        self.assertIn("张冠李戴", QA_AGENT_SYSTEM_PROMPT_V12)
 
     def test_followup_rule_avoids_leading_to_missing_content(self):
         from angineer_core.prompts.agent_configs import FOLLOWUP_QUESTION_RULE

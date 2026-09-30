@@ -252,6 +252,14 @@ def run_policy_query(
 
         from angineer_core.prompts import versions as _prompt_versions
 
+        pv = dict(_prompt_versions())
+        try:
+            from angineer_core.agent_configs import effective_qa_prompt_version
+
+            pv["agent_configs.qa_system_prompt"] = effective_qa_prompt_version()
+        except Exception:  # noqa: BLE001 版本标注失败不阻断主流程
+            pass
+
         return {
             "query_id": query_id,
             "session_key": "",
@@ -276,7 +284,7 @@ def run_policy_query(
             "answer_pre_strip": answer_pre_strip,
             "trace_notes": notes,
             "stage_timings": stage_timings,
-            "prompt_versions": dict(_prompt_versions()),
+            "prompt_versions": pv,
             "inline_citation_count": len(inline_citations),
             "sop_trace": sop_trace,
             "gap_analysis": None,

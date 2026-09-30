@@ -26,12 +26,20 @@ from angineer_core.tool_codec import TextToolCallCodec
 _MARKER_RE = re.compile(r"\[([KTE]\d+)\]")
 
 
+def effective_qa_prompt_version() -> str:
+    """当前进程实际生效的 QA 档 prompt 版本（env 指定或 latest）。
+
+    供 run manifest / prediction 落库：registry latest 不等于生效版本，
+    记录必须以本函数为准。
+    """
+    return os.getenv("ANGINEER_QA_PROMPT_VERSION", "latest").strip() or "latest"
+
+
 def _load_qa_system_prompt() -> str:
     """按 ANGINEER_QA_PROMPT_VERSION 加载 QA 档系统提示（默认最新注册版本）。"""
     from angineer_core.prompts import load
 
-    version = os.getenv("ANGINEER_QA_PROMPT_VERSION", "latest").strip() or "latest"
-    return load("agent_configs.qa_system_prompt", version)
+    return load("agent_configs.qa_system_prompt", effective_qa_prompt_version())
 
 
 def _valid_markers(added_messages: List[AgentMessage]) -> set:
