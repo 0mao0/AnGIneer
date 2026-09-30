@@ -220,10 +220,10 @@
           v-if="!isPinnedToBottom"
           type="button"
           class="scroll-to-bottom-btn"
-          title="回到最下方并恢复自动跟随"
+          title="回底部并恢复自动跟随"
           @click="handleScrollToBottomClick"
         >
-          回到最下方
+          回底部
           <DownOutlined />
         </button>
       </transition>
@@ -948,7 +948,7 @@ const getInlineSegments = (message: BaseChatMessage) => buildCitationSegments({
 
 /**
  * 将消息区域滚动到底部。
- * force=true 时恢复自动跟随（发送新消息、点击「回到最下方」）；
+ * force=true 时恢复自动跟随（发送新消息、点击「回底部」）；
  * 平时仅在跟随开启时才滚动，避免打断用户上滑回看上文。
  */
 const scrollToBottom = (force = false) => {
@@ -1000,7 +1000,7 @@ const handleMessagesWheel = (event: WheelEvent) => {
   }
 }
 
-/** 点击「回到最下方」：恢复跟随并滚到底部 */
+/** 点击「回底部」：恢复跟随并滚到底部 */
 const handleScrollToBottomClick = () => {
   scrollToBottom(true)
 }
@@ -1221,7 +1221,7 @@ defineExpose({
 
 .scroll-to-bottom-btn,
 .new-chat-float {
-  /* 浮层胶囊：位置由各自规则决定（回到最下方在「新对话」正上方） */
+  /* 浮层胶囊：位置由各自规则决定（回底部在「新对话」正上方） */
   position: absolute;
   z-index: 3;
   display: inline-flex;
@@ -1251,7 +1251,7 @@ defineExpose({
 }
 
 .new-chat-float {
-  /* 与「回到最下方」平齐：同右对齐叠放，右侧对称 */
+  /* 与「回底部」平齐：同右对齐叠放，右侧对称 */
   right: 16px;
   bottom: -4px;
 }
