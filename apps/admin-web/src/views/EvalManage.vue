@@ -631,6 +631,16 @@ const onSelectedDocIdsChange = (docIds: string[]) => {
   selectedDocIds.value = docIds
 }
 
+/** 运行范围：仅当文档筛选被「主动收窄」（少于全部文档）时才作为 run 级 doc 作用域下发。
+ *  默认全选是筛选态的默认值、不是「跑全库」的指令——下发会把题目自带的文档绑定顶掉，
+ *  整套题退化为全库检索（2026-09-30 FinanceBench 生产 46% 假摔事故根因）。
+ *  全选=不下发：题集自带作用域的按题目走；自带为空（如 nightly 类题集）的本来就等同全库。 */
+const runScopedDocIds = (): string[] | undefined => {
+  const allCount = docFlatList.value.filter(n => n.type === 'document').length
+  const sel = selectedDocIds.value
+  return sel.length > 0 && sel.length < allCount ? sel : undefined
+}
+
 /** 题目文本编辑后刷新列表 */
 const onQuestionUpdated = async () => {
   if (selectedDatasetId.value) {
@@ -680,7 +690,7 @@ const startRunGuarded = async (
   evalLoading.value = true
   try {
     await startRun(datasetId, {
-      docIds: datasetId === selectedDatasetId.value ? selectedDocIds.value : undefined,
+      docIds: datasetId === selectedDatasetId.value ? runScopedDocIds() : undefined,
       resumeRunId: opts.resumeRunId,
       restartRunId: opts.restartRunId,
       configName: opts.configName,
@@ -855,7 +865,7 @@ const onDeleteRun = (runId: string) => {
 const onEvaluateQuestion = async (questionId: string) => {
   if (!selectedDatasetId.value) return
   const datasetId = selectedDatasetId.value
-  const docIds = [...selectedDocIds.value]
+  const docIds = runScopedDocIds() ?? []
   const attempt = async (allowConcurrent: boolean): Promise<StartResult> => {
     try {
       await evaluateQuestion(datasetId, questionId, docIds, allowConcurrent)

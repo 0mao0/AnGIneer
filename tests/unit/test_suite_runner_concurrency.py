@@ -93,5 +93,60 @@ class ConcurrencyTests(unittest.TestCase):
         worker.assert_not_called()
 
 
+class OverrideDocIdsTests(unittest.TestCase):
+    """run 级 doc_ids 覆盖语义：空列表 = 不覆盖，非空才替换（2026-09-30 事故回归位）。
+
+    事故：UI 把「文档筛选默认全选」当 run 作用域下发（95 篇全库），叠加后端
+    `is not None` 判定，把 FinanceBench 每题自带的单篇绑定顶成全库检索，
+    生产正确率假摔 58%→46%。空数组必须视为「无覆盖」。
+    """
+
+    def _run_with_override(self, override, questions):
+        seen = []
+
+        def fake_worker(question, evaluator_names, stage_callback=None, prediction_override=None):
+            seen.append(question.get("doc_ids"))
+            return question["question_id"], {
+                "status": "completed",
+                "scores": {"answer": {"score": 1.0}},
+                "prediction": {"answer": "x"},
+                "all_scores": {"answer": {"score": 1.0}},
+                "all_predictions": {"answer": {"answer": "x"}},
+            }
+
+        with mock.patch.object(suite_runner, "_run_one_worker", side_effect=fake_worker):
+            with mock.patch.object(suite_runner.result_store, "delete_run_detail"):
+                with mock.patch.object(suite_runner.result_store, "insert_run_detail"):
+                    with mock.patch.object(suite_runner.result_store, "update_run_detail"):
+                        with mock.patch.object(suite_runner.result_store, "update_run_progress"):
+                            suite_runner._run_questions_concurrent(
+                                run_id="run-x",
+                                questions=questions,
+                                pre_done={},
+                                in_place=False,
+                                pre_done_count=0,
+                                workers=2,
+                                stop_event=threading.Event(),
+                                override_doc_ids=override,
+                                config_name=None,
+                            )
+        return seen
+
+    def test_empty_override_keeps_question_doc_ids(self):
+        questions = [{"question_id": f"q{i}", "question": f"题{i}", "doc_ids": ["doc-own"]} for i in range(3)]
+        seen = self._run_with_override([], questions)
+        self.assertEqual(seen, [["doc-own"]] * 3)
+
+    def test_nonempty_override_replaces_doc_ids(self):
+        questions = [{"question_id": f"q{i}", "question": f"题{i}", "doc_ids": ["doc-own"]} for i in range(3)]
+        seen = self._run_with_override(["d1", "d2"], questions)
+        self.assertEqual(seen, [["d1", "d2"]] * 3)
+
+    def test_none_override_keeps_question_doc_ids(self):
+        questions = [{"question_id": f"q{i}", "question": f"题{i}", "doc_ids": ["doc-own"]} for i in range(3)]
+        seen = self._run_with_override(None, questions)
+        self.assertEqual(seen, [["doc-own"]] * 3)
+
+
 if __name__ == "__main__":
     unittest.main()

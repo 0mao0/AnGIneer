@@ -496,7 +496,10 @@ def _run_questions_concurrent(
                 continue
             evaluator_names = _determine_evaluator_names(question)
             prepared = dict(question)
-            if override_doc_ids is not None:
+            # 真值判定（非 `is not None`）：空列表 = 不覆盖。曾因「空数组也当覆盖」+ UI 把
+            # 「文档筛选默认全选」当作用域下发，整套题目的自带 doc 绑定被顶成全库检索
+            # （2026-09-30 FinanceBench 生产 46% 假摔事故根因）。只有非空才是显式收窄。
+            if override_doc_ids:
                 prepared["doc_ids"] = override_doc_ids
             if config_name:
                 prepared["config_name"] = config_name
@@ -658,7 +661,8 @@ def _run_suite_thread(
                     continue
 
                 evaluator_names = _determine_evaluator_names(question)
-                if override_doc_ids is not None:
+                # 同 _execute 主路径：空列表 = 不覆盖（真值判定，见上文事故注释）
+                if override_doc_ids:
                     question = {**question, "doc_ids": override_doc_ids}
                 if config_name:
                     question = {**question, "config_name": config_name}
