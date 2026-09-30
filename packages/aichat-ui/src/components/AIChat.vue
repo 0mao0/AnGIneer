@@ -24,6 +24,9 @@
     :render-message="renderAIChatMessage"
     :hero="hero"
     :suggested-questions="suggestedQuestions"
+    :show-new-chat="showNewChat"
+    :new-chat-label="newChatLabel"
+    @new-chat="emit('newChat')"
     :library-options="libraryOptions"
     :library-value="libraryValue"
     :queued-messages="queuedMessages"
@@ -80,6 +83,10 @@ interface Props {
   hero?: boolean
   /** Hero 空态引导问题（透传 BaseChat）：点击即直发；不传或空数组不渲染（可开可关），内容归宿主定 */
   suggestedQuestions?: string[]
+  /** 对话态输入框上方显示「新对话」浮层按钮（透传 BaseChat；hero 空态不出现） */
+  showNewChat?: boolean
+  /** 新对话浮层按钮文案 */
+  newChatLabel?: string
   /** 数据传输层注入；不传时组件退化为纯 UI（模型列表为空、无法发送） */
   transport?: AIChatTransport
   /**
@@ -109,6 +116,8 @@ const props = withDefaults(defineProps<Props>(), {
   libraryId: 'default',
   hero: false,
   suggestedQuestions: () => [],
+  showNewChat: false,
+  newChatLabel: '新对话',
   transport: undefined,
   mentionMode: 'reference',
   libraryOptions: () => [],
@@ -120,6 +129,7 @@ interface ModelOption { value: string; label: string }
 
 const emit = defineEmits<{
   send: [message: string, model?: string]
+  newChat: []
   ready: []
   removeContext: [id: string]
   error: [error: Error]

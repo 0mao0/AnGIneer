@@ -1,6 +1,6 @@
 <template>
   <div class="chat-home">
-    <ChatTopBar @open-history="historyOpen = true" @login="loginPrompt = true" @new-chat="startNewChat" />
+    <ChatTopBar @open-history="historyOpen = true" @login="loginPrompt = true" />
     <!-- 游客 30 轮闸 / 顶栏登录入口：全屏登录浮层，登录成功后自动消失，当前对话不丢（D2） -->
     <AuthGate v-if="loginPrompt && !authStore.isAuthed" />
     <div v-if="systemWarning" class="system-warning-banner">{{ systemWarning }}</div>
@@ -20,6 +20,8 @@
           :show-model-select="!authStore.guestMode"
           :transport="defaultAIChatTransport"
           :suggested-questions="suggestedQuestions"
+          show-new-chat
+          @new-chat="startNewChat"
           @send="hasConversation = true"
           @error="onChatError"
           @messages-change="onMessagesChange"

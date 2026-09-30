@@ -204,6 +204,17 @@
         {{ contextRounds }}轮 / {{ formatTokenCount(contextTokens) }}tokens
       </div>
 
+      <!-- 输入框右上角外侧：骑在输入框上沿（对话态常驻） -->
+      <button
+        v-if="showNewChat && displayMessages.length"
+        type="button"
+        class="new-chat-float"
+        @click="emit('newChat')"
+      >
+        <PlusOutlined />
+        {{ newChatLabel }}
+      </button>
+
       <transition name="scroll-hint">
         <button
           v-if="!isPinnedToBottom"
@@ -265,7 +276,7 @@
       </div>
     </div>
 
-    <div ref="chatInputRef" class="chat-input" :style="{ height: `${inputHeight}px` }">
+    <div ref="chatInputRef" class="chat-input" :style="{ minHeight: `${inputHeight}px` }">
       <div v-if="contextItems.length" class="context-hint">
         <a-tag
           v-for="item in contextItems"
@@ -278,6 +289,7 @@
       </div>
 
       <div class="input-wrapper">
+        <div class="input-box">
         <InlineCitationEditor
           ref="inlineCitationEditorRef"
           v-model="composerValue"
@@ -358,6 +370,7 @@
             </a-button>
           </div>
         </div>
+        </div>
       </div>
     </div>
 
@@ -395,6 +408,7 @@ import {
   InfoCircleOutlined,
   BulbOutlined,
   DownOutlined,
+  PlusOutlined,
   RightOutlined
 } from '@ant-design/icons-vue'
 import CitationInline from './CitationInline.vue'
@@ -459,6 +473,10 @@ interface Props {
   hero?: boolean
   /** Hero 空态引导问题：点击即按该问题直发；不传或空数组不渲染（可开可关），内容归宿主定 */
   suggestedQuestions?: string[]
+  /** 对话态在输入框上方左侧显示「新对话」浮层按钮（hero 空态不出现）；点击只发 newChat 事件，会话重置归宿主 */
+  showNewChat?: boolean
+  /** 新对话浮层按钮文案 */
+  newChatLabel?: string
   /** @ 按钮提示文案（宿主按提及粒度定制，如“提及文档 @”） */
   mentionLabel?: string
   /** 知识库单选下拉选项（为空时不渲染，向后兼容） */
@@ -488,6 +506,8 @@ const props = withDefaults(defineProps<Props>(), {
   searchCitations: undefined,
   hero: false,
   suggestedQuestions: () => [],
+  showNewChat: false,
+  newChatLabel: '新对话',
   mentionLabel: '插入引用 @',
   libraryOptions: () => [],
   libraryValue: '',
@@ -510,6 +530,8 @@ const emit = defineEmits<{
   removeQueued: [id: string]
   /** 插队：打断当前生成并立即发送该条 */
   promoteQueued: [id: string]
+  /** 新对话（浮层按钮）：只通知宿主重置会话，组件内不自清消息 */
+  newChat: []
 }>()
 
 const messagesRef = ref<HTMLElement | null>(null)
@@ -1258,20 +1280,20 @@ defineExpose({
   opacity: 0.9;
 }
 
-.scroll-to-bottom-btn {
-  /* 贴输入框上沿：骑在 8px resizer 拖拽条上（下探 4px），右侧留出手感，避开输入框 z-index:5 的区域 */
+.scroll-to-bottom-btn,
+.new-chat-float {
+  /* 浮层胶囊：位置由各自规则决定（回到最下方骑 resizer 居中；新对话在输入框内右上角） */
   position: absolute;
-  right: 16px;
-  bottom: -4px;
   z-index: 3;
   display: inline-flex;
   align-items: center;
   gap: 4px;
   padding: 5px 12px;
   border-radius: 999px;
-  border: 1px solid var(--aichat-scroll-hint-border, var(--border-color, #d9d9d9));
-  background: var(--aichat-scroll-hint-bg, var(--bg-secondary, #fafafa));
-  color: var(--aichat-scroll-hint-color, var(--text-secondary, #595959));
+  border: 1px solid var(--aichat-input-float-border, var(--border-color, #d9d9d9));
+  background: var(--aichat-input-float-bg, var(--bg-secondary, #fafafa));
+  color: var(--aichat-input-float-color, var(--text-secondary, #595959));
+  font: inherit;
   font-size: 12px;
   line-height: 20px;
   cursor: pointer;
@@ -1281,6 +1303,18 @@ defineExpose({
     color: var(--primary-color, #1677ff);
     border-color: var(--primary-color, #1677ff);
   }
+}
+
+.scroll-to-bottom-btn {
+  /* 叠在「新对话」正上方（同右对齐，间距 8px） */
+  right: 16px;
+  bottom: 35px;
+}
+
+.new-chat-float {
+  /* 与「回到最下方」平齐：同骑 resizer 上沿，右侧对称 */
+  right: 16px;
+  bottom: -4px;
 }
 
 .scroll-hint-enter-active,
@@ -1931,7 +1965,7 @@ defineExpose({
   background: transparent;
   cursor: row-resize;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   transition: background 0.2s;
 
@@ -2073,9 +2107,24 @@ defineExpose({
   }
 }
 
+/* 输入盒暗色描边：宿主 ui-kit 走 html.dark 类，其 --border-color 恒为浅色档值（黑底黑线看不清）。
+   落私有回退变量而非 border-color——避免比权重压掉 :hover/:focus-within 的焦点环；
+   宿主显式设 --chat-input-surface-border 时仍最高优先（回退链第一档） */
+html.dark .input-box,
+[data-theme='dark'] .input-box {
+  --aichat-input-box-border: rgba(255, 255, 255, 0.28);
+}
+
+/* 引导问题胶囊同理：透明底，描边是唯一轮廓；0.36 用于补偿整卡 0.75 透明度后的等效亮度 */
+html.dark .hero-question,
+[data-theme='dark'] .hero-question {
+  --aichat-hero-question-border-fallback: rgba(255, 255, 255, 0.36);
+}
+
 .chat-input {
   flex-shrink: 0;
-  padding: 12px 16px;
+  /* 顶边收紧 8px：贴近 resizer（用户反馈原 12px 间隔偏大） */
+  padding: 8px 16px 12px;
   /* 对话态与 hero 态同构：外层不铺底板/分隔线，只剩编辑器自身的圆角描边（0.2.x 用户反馈矩形灰底难看） */
   border-top: none;
   background: transparent;
@@ -2101,6 +2150,45 @@ defineExpose({
     overflow: visible;
     z-index: 6;
 
+    /* 输入框视觉盒：边框/焦点环从编辑器挪到整盒（编辑器 + 底部操作行同框，DeepSeek 形态），
+       操作行在正常流内，文字区永远止于操作行上方，不重合 */
+    .input-box {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+      border: 1px solid var(--chat-input-surface-border, var(--aichat-input-box-border, rgba(0, 0, 0, 0.25)));
+      border-radius: 12px;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+
+      &:hover,
+      &:focus-within {
+        border-color: var(--primary-color, #1890ff);
+        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+      }
+
+      /* 编辑器随内容自动长高（上限 45vh）后内部滚动；边框/焦点环已由 .input-box 承担 */
+      :deep(.inline-citation-editor) {
+        /* flex-basis 必须是 auto：否则内容高度传不上去、盒子长不高（固定 basis 0 时内容只会溢出） */
+        flex: 1 1 auto;
+        min-height: 0;
+      }
+
+      :deep(.editor-surface) {
+        border: none;
+        border-radius: 0;
+        padding: 12px;
+        max-height: 45vh;
+        overflow-y: auto;
+
+        &:hover,
+        &:focus {
+          border-color: transparent;
+          box-shadow: none;
+        }
+      }
+    }
+
     :deep(.ant-input) {
       flex: 1;
       border-radius: 12px;
@@ -2125,13 +2213,12 @@ defineExpose({
   }
 
   .input-actions {
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
+    /* 正常流：在盒子底部、编辑器之下，文字永远不会流到它后面（DeepSeek 形态） */
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     gap: 8px;
+    padding: 0 8px 8px;
     pointer-events: none;
 
     .left-actions,
@@ -2309,7 +2396,7 @@ defineExpose({
     opacity: 0.75;
     white-space: nowrap;
     padding: 3px 14px;
-    border: 1px solid var(--aichat-hero-question-border, var(--border-color, #d9d9d9));
+    border: 1px dashed var(--aichat-hero-question-border, var(--aichat-hero-question-border-fallback, rgba(0, 0, 0, 0.3)));
     border-radius: 999px;
     background: transparent;
     cursor: pointer;
