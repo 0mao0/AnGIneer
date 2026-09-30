@@ -2,6 +2,17 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.85
+
+- 检索 section 级 LLM 二排（`ANGINEER_LLM_SECOND_RERANK` 默认关）：在线 rerank 成功后由 LLM 看 top15 候选（每条 1500 字、定义专用 prompt）重排，top1 与 reranker 不一致时再以两条全文 duel 仲裁、challenger 胜才允许换掉第 1 名，任一步失败原样兜底零回归——治 nightly v4.1 hit@1(sec) 的 wrong_section_bias 主桶（962 题基线 0.785，80% miss 是 gold 在 top5 但没排第 1，0.6B reranker 分数全场饱和、71% 的题 top1/top2 分差<0.001）；依据 `scripts/rerank_replay.py` 冻结候选回放（约 5000 次 LLM 调用网格）投影 hit@1 0.785→0.838，窗口 top5→top15 顺吃 65% 假性召回失败；新增 def/duel prompt 注册 v1，窗口/截断三参数可调，7 例单测
+- QA prompt v12：拒答五规则（3/9/15/16/17）合并为单条「对齐判断」（覆盖→作答 / 部分覆盖→答已知+说明缺失 / 未覆盖→第一句「没有检索到足够证据」+相邻片段参考），并修复 prompt 版本落库失真
+- 各档上下文预算闸门重定值 + L0/meta 档补装（req-chat-history-bloat 落地）
+- 思考过程展示细化：命中引用按文档归并为单枚 chip（×N 计数、按引用次数排序、>8 篇折叠「+N」、标签用可读规范名上置）；两列布局对齐（序号+时间 tag 进固定 66px 左栏，正文/调用结果/引用统一对齐同一文字列）；「生成完成」便签耗时从 run 总耗时改收尾段增量（≈0 自动隐藏）；修复刷新后 agent 内部消息被渲染成 JSON 代码块气泡
+- 对话输入区与流式交互：输入区随内容 auto-grow（45vh 上限后内部滚动）、底部操作行改正常流、resizer 移除；新对话入口迁到输入框上方浮层；hero 空态引导问题 props 化（宿主传内容、点击直发）；流式自动跟随可被上滑打断（scrollHeight 重排误判修复 + wheel 快路径）+「回到最下方」按钮
+- 知识库库清单读穿修复：DocsService 启动快照改为读入口现查 SQLite，aichat-api 进程不再对 docs-api 新建库/新导文档不可见（此前每次建库必须重启 aichat-api）；docs-core 测试单例串库直写真库修复；nightly「评价」列尾句「没有题目变差」硬编码修复（净提升≠零题转错，改按 regress_count 断言）
+- evals 卫生：下线 full_chain 空壳分类目录（种子表/前端/存量数据三处清根）；eval_1 题集 31 题死指 doc_ids 清为整库 scope；v4.1/FinanceBench 题集 JSON 白名单入库收尾；open-ragbench-subset-v3 磁盘遗留副本清理
+- 文档与运维：7 份已完结计划与 5 份已结题需求清理（git 历史可查）；FinanceBench 图描述敏感性 v3 轮出账与判分口径切换首晚兑现记录；POPO_MAX_CONCURRENCY 示例值 1→4（生产实测单并发未喂饱，已先行生效）
+
 ## v0.2.84
 
 - 意图路由测试集 intent-router-v1 产品化：100 题 L0-L4 分层（L0 12 / L1 38 含 meta 10 / L2 22 / L3 16 / L4 12；route 桶 L0 12、L1 28、meta 10、L2 22、complex 28）、23 陷阱族，每题带 trap（考什么）/ rationale（金标依据 = 分类法 v3 + build_attempts 路由优先级）/ rule_hit（生产链上被规则前置拦下还是进模型，实测 76 题进模型 / 24 题被规则拦下）；新增 `intent` 评测器随题集入库——route 恒致命、level/mode 默认仅记录（build_attempts 只消费 (level, mode) 派生的路由桶，同桶 L3↔L4 混淆不影响链路，金标可置 strict_level/strict_mode 升级为致命），schema/storage/manager 三处扩 intent_gold、回读校验 100/100 带金标（clause-probe 首版即在此丢过字段）；aichat-api 启动注入生产同一条分类链（IntentClassifier + SopLoader，与 main._classify_intent_blocking 逐行同源），UI 点运行与 scripts/intent_route_probe.py 共用断言真相源；构建器 scripts/build_intent_set.py 自带机械校验（结构不变量 + 条款号族必须被条款号快路径命中，不过拒出 bundle）+ CI 自检测试（route 派生与评测器同源、灰区措辞禁回潮、缺陷阱族必须在位）；题集质量：L1_concept_compare 3 题去灰区化（原措辞「区别」同时命中 L1 关键词与规则 5「多方案比较=L4」，读法不同反转头名——上一轮 Intern-Decision 对照即栽在这 3 题）、新增 L1_stdcode_trap（标准号≠L2）/ L1_numbered（有数值≠L3）/ L3_mixed_signal（依据规范+计算→L3）三陷阱族；机械校验独立复证 _is_meta_query 覆盖缺口（meta 族 10 题中 3 题落模型，与 868decb 所记 2 例同域）；现役 Qwen3.6-35B 三次实测 route 97/100、逐题 0 翻转（分类层远稳于 nightly 生成层 12% 翻转地板，≥1 题差异即真差异）；服务器生效需部署后重导题集一次（导入是显式幂等操作、无启动自动扫描，先导会因旧 schema 丢金标块）

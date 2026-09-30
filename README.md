@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.84** ——意图路由测试集 intent-router-v1 产品化（100 题 L0-L4 分层、23 陷阱族，每题带 trap/rationale/rule_hit 金标自证；新增 intent 评测器随题集入库——route 恒致命、level/mode 仅记录，aichat-api 启动注入生产同一条分类链，UI 点运行与 CLI 共用断言真相源，构建器机械校验 + CI 自检；L1_concept_compare 去灰区化、新增标准号/数值/混合信号三陷阱族；35B 三次实测 route 97/100 逐题零翻转，服务器生效需部署后重导题集）；clause-probe-v1 探针断言全链路入库（probe_gold 列 + probe_eval 评测器 + 检索函数启动注入），UI 点运行即出评价、断言真相源从磁盘 JSON 迁入 evals_core；meta-query 串库修复（knowledge_stats 空串不再当全库汇总——「港口相关的规范有哪些」曾被跑成全库 350 篇统计，未填/空白一律回落会话库、显式 all/*/全部才是全库汇总）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.85** ——检索 section 级 LLM 二排（`ANGINEER_LLM_SECOND_RERANK` 默认关）：在线 rerank 后 LLM 看 top15 重排 + 分歧时两条全文 duel 仲裁才允许换掉第 1 名，冻结候选回放投影 hit@1(sec) 0.785→0.838，任一步失败原样兜底零回归；QA prompt v12：拒答五规则合并为单条「对齐判断」（覆盖/部分覆盖/未覆盖三态），修复 prompt 版本落库失真；各档上下文预算闸门重定值 + L0/meta 档补装；思考过程展示细化：命中引用按文档归并 chip、两列布局对齐、收尾便签耗时改增量口径、修复刷新后内部消息渲染成 JSON 气泡；对话输入区 auto-grow + 新对话入口迁移 + hero 引导问题 props 化 + 流式跟随可上滑打断；知识库库清单读穿修复（跨进程新建库即时可见）+ nightly「没有题目变差」硬编码修复；evals 卫生（下线 full_chain 空壳分类、eval_1 死 doc_ids 清理、题集 JSON 入库收尾）；文档与运维（已完结计划/需求清理、FinanceBench v3 出账、POPO_MAX_CONCURRENCY 示例 1→4）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
