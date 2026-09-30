@@ -361,11 +361,20 @@
       </div>
     </div>
 
-    <!-- Hero 态专属扩展区（站点特色徽标等），会话开始即隐藏；宿主未传 slot 则整块不渲染 -->
+    <!-- Hero 态专属扩展区（引导问题/站点特色徽标等），会话开始即隐藏；宿主未传 slot 且无引导问题时整块不渲染 -->
     <div
-      v-if="hero && !displayMessages.length && !loading && !currentStreamContent && $slots['hero-below']"
+      v-if="hero && !displayMessages.length && !loading && !currentStreamContent && ($slots['hero-below'] || suggestedQuestions.length)"
       class="hero-below"
     >
+      <button
+        v-for="question in suggestedQuestions"
+        :key="question"
+        type="button"
+        class="hero-question"
+        @click="handleSuggestedQuestion(question)"
+      >
+        {{ question }}
+      </button>
       <slot name="hero-below" />
     </div>
   </div>
@@ -448,6 +457,8 @@ interface Props {
   searchCitations?: (query: string) => Promise<InlineCitationCandidate[]>
   /** Hero 模式：无消息时整体垂直居中、输入卡片浮起居中（对话入口态） */
   hero?: boolean
+  /** Hero 空态引导问题：点击即按该问题直发；不传或空数组不渲染（可开可关），内容归宿主定 */
+  suggestedQuestions?: string[]
   /** @ 按钮提示文案（宿主按提及粒度定制，如“提及文档 @”） */
   mentionLabel?: string
   /** 知识库单选下拉选项（为空时不渲染，向后兼容） */
@@ -476,6 +487,7 @@ const props = withDefaults(defineProps<Props>(), {
   renderMessage: undefined,
   searchCitations: undefined,
   hero: false,
+  suggestedQuestions: () => [],
   mentionLabel: '插入引用 @',
   libraryOptions: () => [],
   libraryValue: '',
@@ -1028,6 +1040,14 @@ const handleSend = () => {
 
   emit('send', payload, selectedModel.value)
   resetComposer()
+  scrollToBottom(true)
+}
+
+/**
+ * 点击引导问题：按该问题直发（与手动发送同 emit 链路、同恢复跟随），不经输入框。
+ */
+const handleSuggestedQuestion = (question: string) => {
+  emit('send', { content: question, citations: [] }, selectedModel.value)
   scrollToBottom(true)
 }
 
@@ -2279,6 +2299,26 @@ defineExpose({
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px 10px;
+  }
+
+  .hero-question {
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--aichat-hero-question-text, var(--text-primary, rgba(0, 0, 0, 0.85)));
+    opacity: 0.75;
+    white-space: nowrap;
+    padding: 3px 14px;
+    border: 1px solid var(--aichat-hero-question-border, var(--border-color, #d9d9d9));
+    border-radius: 999px;
+    background: transparent;
+    cursor: pointer;
+    transition: opacity 0.2s, border-color 0.2s;
+
+    &:hover {
+      opacity: 1;
+      border-color: var(--aichat-hero-question-border-hover, var(--primary-color, #1677ff));
+    }
   }
 }
 

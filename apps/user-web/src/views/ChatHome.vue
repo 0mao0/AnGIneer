@@ -19,6 +19,7 @@
           :library-value="authStore.activeLibraryId"
           :show-model-select="!authStore.guestMode"
           :transport="defaultAIChatTransport"
+          :suggested-questions="suggestedQuestions"
           @send="hasConversation = true"
           @error="onChatError"
           @messages-change="onMessagesChange"
@@ -27,10 +28,6 @@
         >
           <template #hero>
             <h1 class="hero-title">今天，想查点什么？</h1>
-          </template>
-          <template #hero-below>
-            <span class="hero-feature">2000+ 现行规范</span>
-            <span class="hero-feature">可溯源回答</span>
           </template>
         </AIChat>
       </div>
@@ -161,6 +158,14 @@ onMounted(() => {
 })
 
 const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
+
+/** Hero 空态引导问题：内容归宿主定，机制在 aichat-ui（suggestedQuestions props，空数组=关闭）；航道/水运/市政/公路各一条 */
+const suggestedQuestions = [
+  '内河航道养护有什么技术要求？',
+  '水运工程混凝土施工有什么技术要求？',
+  '城镇排水管道闭水试验怎么做？',
+  '沥青路面裂缝该怎么处治？',
+]
 
 /** 刷新后回填活跃会话历史：①本地缓存先同步渲染（消除 hero 闪烁）②服务端真相覆盖（失败保留本地） */
 const restoreActiveSessionIntoView = async () => {
@@ -380,17 +385,6 @@ const startNewChat = () => {
   }
 }
 
-.hero-feature {
-  font-size: 13px;
-  line-height: 1.6;
-  /* ui-kit 暗色下 secondary/tertiary 同值，用 primary+opacity 才能落在两档之间 */
-  color: var(--text-primary);
-  opacity: 0.65;
-  white-space: nowrap;
-  padding: 1px 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 999px;
-}
 
 .hero-title {
   font-size: 28px;

@@ -23,6 +23,7 @@
     :search-citations="searchInlineCitations"
     :render-message="renderAIChatMessage"
     :hero="hero"
+    :suggested-questions="suggestedQuestions"
     :library-options="libraryOptions"
     :library-value="libraryValue"
     :queued-messages="queuedMessages"
@@ -77,6 +78,8 @@ interface Props {
   libraryId?: string
   /** Hero 模式（透传 BaseChat）：无消息时展示居中大输入卡片 */
   hero?: boolean
+  /** Hero 空态引导问题（透传 BaseChat）：点击即直发；不传或空数组不渲染（可开可关），内容归宿主定 */
+  suggestedQuestions?: string[]
   /** 数据传输层注入；不传时组件退化为纯 UI（模型列表为空、无法发送） */
   transport?: AIChatTransport
   /**
@@ -105,6 +108,7 @@ const props = withDefaults(defineProps<Props>(), {
   sessionId: 'default',
   libraryId: 'default',
   hero: false,
+  suggestedQuestions: () => [],
   transport: undefined,
   mentionMode: 'reference',
   libraryOptions: () => [],
@@ -115,7 +119,7 @@ const props = withDefaults(defineProps<Props>(), {
 interface ModelOption { value: string; label: string }
 
 const emit = defineEmits<{
-  send: [message: string, model: string]
+  send: [message: string, model?: string]
   ready: []
   removeContext: [id: string]
   error: [error: Error]
@@ -190,8 +194,8 @@ const fetchModels = async () => {
   }
 }
 
-/** 处理用户发送消息 */
-const handleSend = async (payload: string | BaseChatSendPayload, model: string) => {
+/** 处理用户发送消息；model 缺省时 sendMessage 走组件内默认选中（供宿主引导问题直发） */
+const handleSend = async (payload: string | BaseChatSendPayload, model?: string) => {
   const normalizedPayload: BaseChatSendPayload = typeof payload === 'string'
     ? { content: payload, citations: [] }
     : payload
