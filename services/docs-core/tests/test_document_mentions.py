@@ -4,9 +4,8 @@ from docs_core.step09_query.protocols.contracts import KnowledgeNode
 
 
 def _make_service(tmp_path, monkeypatch):
-    import docs_core.docs_service as module
     monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path))
-    module._docs_service = None
+    # 单例重置由本目录 conftest 的 autouse fixture 负责（模块级 `module._docs_service = None` 打到的是包级 proxy，无效）
     return get_docs_service()
 
 
