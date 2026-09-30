@@ -74,7 +74,7 @@
                   <BulbOutlined class="thinking-card-icon" />
                   <span class="thinking-card-label">
                     思考过程
-                    <template v-if="getThinkingStepCount(msg)">（{{ getThinkingStepCount(msg) }} 步<template v-if="getThinkingWall(msg)"> · 总耗时 {{ formatDuration(getThinkingWall(msg)) }}</template><template v-if="getThinkingDuration(msg)"> · 工具 {{ formatDuration(getThinkingDuration(msg)) }}</template>）</template>
+                    <template v-if="getThinkingStepCount(msg)">（{{ getThinkingStepCount(msg) }} 步<template v-if="getThinkingWall(msg)"> · 总耗时 {{ formatDuration(getThinkingWall(msg)) }}</template>）</template>
                   </span>
                   <span class="thinking-card-arrow">
                     <DownOutlined v-if="isThinkingExpanded(msg)" />
@@ -171,7 +171,7 @@
               <div class="thinking-card-header static">
                 <BulbOutlined class="thinking-card-icon" />
                 <span class="thinking-card-label">
-                  思考过程（{{ getStreamingStepCount }} 步<template v-if="getStreamingWall"> · 总耗时 {{ formatDuration(getStreamingWall) }}</template><template v-if="getStreamingDuration"> · 工具 {{ formatDuration(getStreamingDuration) }}</template>）
+                  思考过程（{{ getStreamingStepCount }} 步<template v-if="getStreamingWall"> · 总耗时 {{ formatDuration(getStreamingWall) }}</template>）
                 </span>
               </div>
               <div class="thinking-card-body">
@@ -229,14 +229,6 @@
       </transition>
     </div>
 
-    <div
-      class="resize-handle"
-      title="拖动调整输入区域高度"
-      @mousedown="startResize"
-    >
-      <div class="resize-indicator"></div>
-    </div>
-
     <div v-if="queuedMessages.length" class="pending-queue">
       <div class="queue-head">
         <span class="queue-title">待发送 {{ queuedMessages.length }} 条</span>
@@ -276,7 +268,7 @@
       </div>
     </div>
 
-    <div ref="chatInputRef" class="chat-input" :style="{ minHeight: `${inputHeight}px` }">
+    <div class="chat-input">
       <div v-if="contextItems.length" class="context-hint">
         <a-tag
           v-for="item in contextItems"
@@ -398,7 +390,7 @@
  * 基础聊天组件。
  * 负责通用聊天 UI、输入区交互与消息展示，不直接耦合具体知识域接口。
  */
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import {
   ClearOutlined,
   SendOutlined,
@@ -436,7 +428,6 @@ import {
   countThinkingSteps,
   formatDuration,
   groupThinkingSteps,
-  sumThinkingDuration,
   thinkingWallMs,
 } from '../utils/thinking'
 import { formatTokenCount } from '../utils/token'
@@ -541,7 +532,6 @@ const lastScrollTop = ref(0)
 const lastScrollHeight = ref(0)
 /** 距底部超过该阈值视为「离开底部」（px） */
 const PIN_BOTTOM_THRESHOLD = 48
-const chatInputRef = ref<HTMLElement | null>(null)
 const inlineCitationEditorRef = ref<InstanceType<typeof InlineCitationEditor> | null>(null)
 const composerValue = ref<BaseChatSendPayload>({ content: '', citations: [] })
 /** 对话「起步」判定：存在非 system 消息即锁库（空会话可自由换库） */
@@ -553,13 +543,7 @@ const libraryTitle = computed(() => conversationStarted.value
   ? `本对话已锁定知识库${lockedLibraryLabel.value ? ` ${lockedLibraryLabel.value}` : ''}，换库请点新建对话`
   : '选择知识库（单选）')
 const selectedModel = ref(props.defaultModel)
-const inputHeight = ref(150)
-const isResizing = ref(false)
-const startY = ref(0)
-const startHeight = ref(0)
 const expandedCitationKeys = ref<string[]>([])
-const minInputHeight = 120
-const maxInputHeightRatio = 0.5
 
 const displayMessages = computed(() => {
   if (props.showSystemMessages) {
@@ -576,7 +560,6 @@ const streamingThinkingGroups = computed(() => (
 const streamingCitations = computed(() => buildStreamingCitations())
 
 const getStreamingStepCount = computed(() => countThinkingSteps(streamingThinkingGroups.value))
-const getStreamingDuration = computed(() => sumThinkingDuration(streamingThinkingGroups.value))
 const getStreamingWall = computed(() => thinkingWallMs(streamingThinkingGroups.value))
 
 /** 等待期分段进度文案（A3）：按 transport 阶段事件推进，各阶段带实时秒数；
@@ -698,9 +681,6 @@ const getThinkingStepCount = (message: BaseChatMessage) => (
 
 const getThinkingWall = (message: BaseChatMessage) => (
   thinkingWallMs(getThinkingGroups(message))
-)
-const getThinkingDuration = (message: BaseChatMessage) => (
-  sumThinkingDuration(getThinkingGroups(message))
 )
 
 const isThinkingExpanded = (message: BaseChatMessage) => (
@@ -1145,43 +1125,6 @@ const handleEditQueued = (item: QueuedMessage) => {
   nextTick(() => inlineCitationEditorRef.value?.focusEditor())
 }
 
-/**
- * 开始拖动调整输入区高度。
- */
-const startResize = (event: MouseEvent) => {
-  isResizing.value = true
-  startY.value = event.clientY
-  startHeight.value = inputHeight.value
-
-  document.addEventListener('mousemove', handleResize)
-  document.addEventListener('mouseup', stopResize)
-}
-
-/**
- * 根据鼠标位移实时更新输入区高度。
- */
-const handleResize = (event: MouseEvent) => {
-  if (!isResizing.value) {
-    return
-  }
-
-  const deltaY = startY.value - event.clientY
-  const newHeight = startHeight.value + deltaY
-  const parentHeight = chatInputRef.value?.parentElement?.clientHeight || window.innerHeight
-  const maxHeight = parentHeight * maxInputHeightRatio
-
-  inputHeight.value = Math.max(minInputHeight, Math.min(newHeight, maxHeight))
-}
-
-/**
- * 结束拖动调整并解绑全局事件。
- */
-const stopResize = () => {
-  isResizing.value = false
-  document.removeEventListener('mousemove', handleResize)
-  document.removeEventListener('mouseup', stopResize)
-}
-
 watch(() => props.messages.length, () => scrollToBottom())
 watch(() => props.currentStreamContent, () => scrollToBottom())
 watch(() => props.loading, value => {
@@ -1197,10 +1140,6 @@ watch(() => props.models, syncSelectedModel, { deep: true, immediate: true })
 onMounted(() => {
   syncSelectedModel()
   emit('ready')
-})
-
-onBeforeUnmount(() => {
-  stopResize()
 })
 
 defineExpose({
@@ -1282,7 +1221,7 @@ defineExpose({
 
 .scroll-to-bottom-btn,
 .new-chat-float {
-  /* 浮层胶囊：位置由各自规则决定（回到最下方骑 resizer 居中；新对话在输入框内右上角） */
+  /* 浮层胶囊：位置由各自规则决定（回到最下方在「新对话」正上方） */
   position: absolute;
   z-index: 3;
   display: inline-flex;
@@ -1312,7 +1251,7 @@ defineExpose({
 }
 
 .new-chat-float {
-  /* 与「回到最下方」平齐：同骑 resizer 上沿，右侧对称 */
+  /* 与「回到最下方」平齐：同右对齐叠放，右侧对称 */
   right: 16px;
   bottom: -4px;
 }
@@ -1959,33 +1898,6 @@ defineExpose({
   51%, 100% { opacity: 0; }
 }
 
-.resize-handle {
-  height: 8px;
-  flex-shrink: 0;
-  background: transparent;
-  cursor: row-resize;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  transition: background 0.2s;
-
-  &:hover {
-    background: var(--border-color);
-  }
-
-  .resize-indicator {
-    width: 40px;
-    height: 3px;
-    background: var(--border-color);
-    border-radius: 2px;
-    transition: background 0.2s;
-  }
-
-  &:hover .resize-indicator {
-    background: var(--primary-color);
-  }
-}
-
 /* 待发送托盘：浅色主题下 --bg-tertiary(≈#fafafa) 与输入框 --bg-secondary(#fafafa) 数值相同，
    用它做底色等于没有底色（只剩一根几乎看不见的边框）。改为 primary 淡染 + 同色描边，
    两种主题下都是明确独立的一块，语义上也贴合「排队中」。圆角与输入框统一为 12px。 */
@@ -2123,7 +2035,8 @@ html.dark .hero-question,
 
 .chat-input {
   flex-shrink: 0;
-  /* 顶边收紧 8px：贴近 resizer（用户反馈原 12px 间隔偏大） */
+  /* 空闲态基础高度固定；内容增长由编辑器 auto-grow 承担（上限 45vh），不再有拖拽调整 */
+  min-height: 150px;
   padding: 8px 16px 12px;
   /* 对话态与 hero 态同构：外层不铺底板/分隔线，只剩编辑器自身的圆角描边（0.2.x 用户反馈矩形灰底难看） */
   border-top: none;
@@ -2363,10 +2276,6 @@ html.dark .hero-question,
   .chat-messages-wrap {
     flex: 0 0 auto;
     overflow: visible;
-  }
-
-  .resize-handle {
-    display: none;
   }
 
   .chat-input {

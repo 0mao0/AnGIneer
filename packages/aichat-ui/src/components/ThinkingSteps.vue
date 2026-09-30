@@ -8,7 +8,7 @@
     <template v-if="group.kind === 'note'">
       <span class="thinking-step-note-label">
         <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
-        <span v-if="group.durationMs" class="thinking-step-cost">耗时{{ formatDuration(group.durationMs) }}</span>
+        <span v-if="group.durationMs" class="thinking-step-cost">{{ stepTimeText(group) }}</span>
         <span class="thinking-step-title">{{ noteTitle(group) }}</span>
         <span v-if="noteReason(group)" class="thinking-step-detail">（{{ noteReason(group) }}）</span>
       </span>
@@ -16,7 +16,7 @@
     <template v-else>
       <span class="thinking-step-label">
         <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
-        <span v-if="group.durationMs" class="thinking-step-cost">耗时{{ formatDuration(group.durationMs) }}</span>
+        <span v-if="group.durationMs" class="thinking-step-cost">{{ stepTimeText(group) }}</span>
         <span class="thinking-step-title">{{ formatThinkingStepTitle(group) }}</span>
         <span v-if="group.callDetail" class="thinking-step-detail">
           （{{ formatThinkingArgDetail(group.callDetail) }}）
@@ -104,7 +104,6 @@ import {
   getCitationTagLabel,
 } from '../utils/citation'
 import {
-  formatDuration,
   formatThinkingArgDetail,
   formatThinkingStepTitle,
   formatResultScore,
@@ -135,6 +134,12 @@ const splitNoteLabel = (group: ThinkingGroupStep): { title: string; reason?: str
 
 const noteTitle = (group: ThinkingGroupStep): string => splitNoteLabel(group).title
 const noteReason = (group: ThinkingGroupStep): string | undefined => splitNoteLabel(group).reason
+
+/** 步骤时间 tag：首步 0.3s（无前缀），其余 +1.5s（值＝本步自身耗时） */
+const stepTimeText = (group: ThinkingGroupStep): string => {
+  const seconds = `${((group.durationMs || 0) / 1000).toFixed(1)}s`
+  return (group.index || 1) > 1 ? `+${seconds}` : seconds
+}
 
 const toggleResultExpand = (index: number) => {
   expandedResults.value = isResultExpanded(index)
@@ -238,8 +243,8 @@ const resultQuery = (group: ThinkingGroupStep): string => {
     margin-right: 6px;
     padding: 0 6px;
     border-radius: 8px;
-    background: var(--fill-quaternary, rgba(0, 0, 0, 0.06));
-    color: var(--text-secondary);
+    background: var(--aichat-step-time-bg, rgba(24, 144, 255, 0.14));
+    color: var(--aichat-step-time-color, #1890ff);
     font-size: 12px;
     font-weight: 400;
     line-height: 18px;
