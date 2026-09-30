@@ -371,10 +371,14 @@ def _llm_content_payload(raw: Dict[str, Any]) -> Dict[str, Any]:
     方向写死「删 evidences 留 items」：引擎判定（_has_evidence/_tool_evidence_present/
     _tool_evidence_parts）与前端引用/思考轨迹全部解析 content 里的 items/citations；
     raw（meta 通道）原样保留给评测（policy_query 读 message.meta）。
+
+    私有键（"_" 前缀，如 _prefetch_ms 预检耗时）一律不进 LLM 投影：只走 raw/meta 通道
+    供链路展示，避免内部观测字段混进提示词（2026-09-30）。
     """
-    if "evidences" not in raw or not _llm_evidence_dedup_enabled():
-        return raw
-    return {key: value for key, value in raw.items() if key != "evidences"}
+    payload = {key: value for key, value in raw.items() if not str(key).startswith("_")}
+    if "evidences" not in payload or not _llm_evidence_dedup_enabled():
+        return payload
+    return {key: value for key, value in payload.items() if key != "evidences"}
 
 
 def _run_tool_inner(call, tool: AgentTool) -> ToolResult:
@@ -430,6 +434,16 @@ def _execute_tools_batch(
     results: List[ToolResult] = []
     pending: List[Tuple] = []
     _injected_flag: Dict[str, Any] = {"injected": True} if injected else {}
+
+    def _reused_flag(result: ToolResult) -> Dict[str, Any]:
+        """memo 命中复用（并行预检）：把预检真实耗时带给前端做「并行预检 X.Xs」标注。"""
+        raw = getattr(result, "raw", None)
+        ms = raw.get("_prefetch_ms") if isinstance(raw, dict) else None
+        try:
+            ms_int = int(ms) if ms is not None else 0
+        except (TypeError, ValueError):
+            ms_int = 0
+        return {"reused_ms": ms_int} if ms_int > 0 else {}
 
     def _ops_record_tool(name: str, dur_ms: int, is_error: bool) -> None:
         # 分段观测（req-intent-classify-latency §1 口径勘误）：ttft 内部构成拆解需要工具段耗时
@@ -507,7 +521,7 @@ def _execute_tools_batch(
                 _dur_ms = int((time.monotonic() - started) * 1000)
                 _safe_emit(
                     emit,
-                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": _dur_ms, "result": result.content[:300], **_injected_flag}),
+                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": _dur_ms, "result": result.content[:300], **_reused_flag(result), **_injected_flag}),
                 )
                 _ops_record_tool(tool.name, _dur_ms, result.is_error)
         else:
@@ -523,7 +537,7 @@ def _execute_tools_batch(
                 _dur_ms = int((time.monotonic() - started) * 1000)
                 _safe_emit(
                     emit,
-                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": _dur_ms, "result": result.content[:300], **_injected_flag}),
+                    AgentEvent(type="tool_end", run_id=run_id, turn=turn, payload={"call_id": call.id, "name": tool.name, "is_error": result.is_error, "duration_ms": _dur_ms, "result": result.content[:300], **_reused_flag(result), **_injected_flag}),
                 )
                 _ops_record_tool(tool.name, _dur_ms, result.is_error)
     finally:
@@ -545,6 +559,7 @@ def _run_llm_turn(
     cancel: threading.Event,
     turn: int,
     allow_tools: bool,
+    run_started: Optional[float] = None,
 ) -> Tuple[AgentMessage, List, List[ToolResult], Dict[str, Any]]:
     """执行一轮 LLM 调用。
 
@@ -615,7 +630,13 @@ def _run_llm_turn(
     has_tool_calls = bool(calls)
     _turn_dur_ms = int((time.monotonic() - _turn_t0) * 1000)
     _turn_first_delta_ms = int((_turn_first_delta_at - _turn_t0) * 1000) if _turn_first_delta_at is not None else None
+    # 本轮 TTFT：run 起点 → 本轮首 token（单轮=答案首字延迟；多轮含前面各轮；2026-09-30）
+    _turn_run_ttft_ms = (
+        int((_turn_first_delta_at - run_started) * 1000)
+        if (_turn_first_delta_at is not None and run_started is not None) else None
+    )
     _turn_prompt_tokens = usage.get("prompt_tokens")
+    _turn_completion_tokens = usage.get("completion_tokens")
     # 分段观测（req-intent-classify-latency §1 口径勘误）：逐 LLM 轮记录耗时/首 delta/prompt，
     # 与 kind=tool 记录按 run_id+turn 关联，即可拆出 ttft 内部构成（检索/重试/prefill 各占多少）。
     try:
@@ -629,25 +650,51 @@ def _run_llm_turn(
                 "dur_ms": _turn_dur_ms,
                 "first_delta_ms": _turn_first_delta_ms,
                 "prompt_tokens": _turn_prompt_tokens,
+                "completion_tokens": _turn_completion_tokens,
                 "has_tool_calls": has_tool_calls,
                 "finish_reason": finish_reason,
             },
         )
     except Exception:  # noqa: BLE001
         pass
-    # 思考过程「模型调用」步（2026-09-30 B 档）：把每轮 LLM 的内部耗时（首字/prompt）作为
-    # note 事件下发——数据本就在 llm_turn 打点里，此前只落 ops JSONL 不进链路。
-    # 文案纪律：本步时长只走 duration_ms（渲染为前置时间 tag），文本不再重复「X.X 秒」；
-    # 首字仅第 2 轮起写（第 1 轮与收尾便签的 run 级首字同值，重复展示让用户困惑——09-30 实拍）。
+    # 思考过程「模型调用」步（2026-09-30 B 档）：把每轮 LLM 的内部构成作为 note 事件下发——
+    # 数据本就在 llm_turn 打点里，此前只落 ops JSONL 不进链路。
+    # 文案口径（09-30 用户实测"29.5s 感受不到包含什么"后细化）：本步总时长只走 duration_ms
+    # （渲染为前置时间 tag），正文给构成——「等待 Xs（prefill/首字）＋生成 Ys（流式输出）」
+    # ＋输出/prompt tokens＋是否决定调工具；用「等待/生成」而非「首字」，避免与收尾便签的
+    # run 级首字同词重复（09-30 实拍困惑）。
     try:
-        _turn_label = f"模型调用（第 {turn} 轮）"
-        _turn_parts: List[str] = []
-        if turn > 1 and _turn_first_delta_ms is not None:
-            _turn_parts.append(f"首字 {_turn_first_delta_ms / 1000:.1f} 秒")
-        if _turn_prompt_tokens:
-            _turn_parts.append(f"prompt {_turn_prompt_tokens} tokens")
-        if _turn_parts:
-            _turn_label += "：" + "，".join(_turn_parts)
+        # 分行为段（2026-09-30 用户指定版式）：首行标题，其后每段一行——
+        #   5.0s 等待（含排队与预填充；prompt N tokens）
+        #   13.7s 输出 M tokens（≈R tok/s）
+        # 说明：预填充与排队在本侧不可分（网关不回报 per-request prefill 用时），合并在「等待」行；
+        # 要拆开需 DGX/网关侧按请求暴露 prefill 指标。
+        _turn_lines: List[str] = []
+        _gen_ms: Optional[int] = None
+        if _turn_first_delta_ms is not None:
+            _gen_ms = max(_turn_dur_ms - _turn_first_delta_ms, 0)
+            _wait_desc = f"{_turn_first_delta_ms / 1000:.1f}s 等待（含排队与预填充"
+            if _turn_prompt_tokens:
+                _wait_desc += f"；prompt {_turn_prompt_tokens} tokens"
+            _wait_desc += "）"
+            _turn_lines.append(_wait_desc)
+        if _gen_ms is not None:
+            _out_desc = f"{_gen_ms / 1000:.1f}s 输出"
+            if _turn_completion_tokens:
+                _out_desc += f" {_turn_completion_tokens} tokens"
+                if _gen_ms > 0:
+                    _out_desc += f"（≈{_turn_completion_tokens / (_gen_ms / 1000):.0f} tok/s）"
+            if _turn_run_ttft_ms is not None:
+                _out_desc += f"，TTFT={_turn_run_ttft_ms / 1000:.1f}s"
+            _turn_lines.append(_out_desc)
+        elif _turn_completion_tokens:
+            _turn_lines.append(f"输出 {_turn_completion_tokens} tokens")
+        if has_tool_calls:
+            _turn_lines.append("本轮决定调用工具")
+        if _turn_lines:
+            _turn_label = f"模型调用（第 {turn} 轮）：" + chr(10) + chr(10).join(_turn_lines)
+        else:
+            _turn_label = f"模型调用（第 {turn} 轮）"
         _safe_emit(
             emit,
             AgentEvent(
@@ -1129,7 +1176,7 @@ def run_agent_loop(
                         _safe_emit(emit, AgentEvent(type="turn_start", run_id=run_id, turn=turn, payload={"turn": turn}))
                         assistant, _, direct_results, usage = _run_llm_turn(
                             messages, new_prompt, machine.active_config, machine.codec, machine.tools_by_name,
-                            emit, run_id, cancel_event, turn, allow_tools=False,
+                            emit, run_id, cancel_event, turn, allow_tools=False, run_started=run_started,
                         )
                         last_turn_end_at = time.monotonic()
                         messages.append(assistant)
@@ -1161,7 +1208,7 @@ def run_agent_loop(
 
                 assistant, calls, direct_results, usage = _run_llm_turn(
                     messages, new_prompt, machine.active_config, machine.codec, machine.tools_by_name,
-                    emit, run_id, cancel_event, turn, allow_tools=True,
+                    emit, run_id, cancel_event, turn, allow_tools=True, run_started=run_started,
                 )
                 last_turn_end_at = time.monotonic()
                 messages.append(assistant)
@@ -1281,22 +1328,27 @@ def run_agent_loop(
         },
     )
 
-    # 思考过程收尾便签（2026-09-27）：补最终一步的耗时口径——首字前的等待由意图判断/检索/
-    # prompt 读取构成（各步明细见上方便签）。除错误/取消外一律出账：拒答收尾轮可能没有首字
-    #（模型吐空/边界规则收尾），此时只给总耗时并注明（用户实测 7.3s 无归属的教训）。
+    # 思考过程收尾便签（2026-09-27 引入，2026-09-30 收敛）：只在该便签有独立信息时才出。
+    # - 无首字（拒答收尾轮/模型吐空）：必出（只给收尾耗时并注明，防"无归属"）。
+    # - 多轮：出——run 级首字（含前面各轮 LLM）与任何单轮的「等待」都不同，是独立信息。
+    # - 单轮且收尾段有实耗（≥50ms，如 LLM 级 guard 改写）：出，只报收尾段。
+    # - 单轮且收尾≈0：不出——首字/耗时已由「意图判断→预检索→模型调用（等待＋生成）」各步与
+    #   折叠头总耗时覆盖，整条属重复（2026-09-30 用户实拍：与「模型调用」复述）。
     if reason not in ("error", "cancelled"):
         _total_ms = int((time.monotonic() - run_started) * 1000)
         # 收尾段耗时（guard + 终态收尾）：标签口径＝本步增量，区别于折叠头的 run 总耗时
         _tail_ms = int((time.monotonic() - (last_turn_end_at or run_started)) * 1000)
-        if ttft_ms is not None:
+        if ttft_ms is None:
+            _add_note("生成结束：本轮未产出首字（按边界规则收尾）", duration_ms=_tail_ms)
+        elif _tail_ms >= 50:
             _add_note(
-                f"生成完成：首字 {ttft_ms / 1000:.1f} 秒（首字前的等待含意图判断、检索与 prompt 读取）",
+                "生成完成：边界校验与收尾",
                 duration_ms=_tail_ms,
-                # 结构化 TTFT（B 档）：此前只在文案里，现随 payload 下发供链路展示
+                # 结构化 TTFT（B 档）：随 payload 下发供链路展示/观测
                 extra={"ttft_ms": int(ttft_ms), "turns": turn, "total_ms": _total_ms},
             )
-        else:
-            _add_note("生成结束：本轮未产出首字（按边界规则收尾）", duration_ms=_tail_ms)
+        # 其余（含多轮）不出便签：TTFT 已挂在「模型调用」输出行（2026-09-30 挂载后原多轮便签
+        # 与之同值重复），总耗时在折叠头；仅"收尾段有实耗/无首字"这两种有独立信息的情况保留。
 
     _safe_emit(
         emit,

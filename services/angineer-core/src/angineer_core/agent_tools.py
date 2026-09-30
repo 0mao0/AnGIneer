@@ -293,17 +293,18 @@ def _search_memo_pop(key):
             _SEARCH_MEMO.pop(k, None)
     if entry is None or (now - entry[0]) > _SEARCH_MEMO_TTL_SECONDS:
         return None
-    return entry[1]
+    # 返回 (result, run_ms)：run_ms= 预检方真实检索耗时，供消费方标注「并行预检 X.Xs」（2026-09-30）
+    return entry[1], (entry[2] if len(entry) > 2 else None)
 
 
-def _search_memo_store(key, result):
+def _search_memo_store(key, result, run_ms: Optional[int] = None):
     if key is None:
         return
     with _SEARCH_MEMO_LOCK:
         if len(_SEARCH_MEMO) >= _SEARCH_MEMO_MAX:
             oldest = min(_SEARCH_MEMO, key=lambda k: _SEARCH_MEMO[k][0])
             _SEARCH_MEMO.pop(oldest, None)
-        _SEARCH_MEMO[key] = (time.time(), result)
+        _SEARCH_MEMO[key] = (time.time(), result, int(run_ms) if run_ms is not None else None)
 
 
 def _search_memo_key(kwargs: Dict[str, Any]):
@@ -370,13 +371,19 @@ def _run_knowledge_search(**kwargs) -> Dict[str, Any]:
     key = _search_memo_key(kwargs)
     hit = _search_memo_pop(key)
     if hit is not None:
+        result, prefetch_ms = hit
         logging.getLogger(__name__).info(
             "knowledge_search 命中赌博式预检缓存（route_parallel）: %r", str(kwargs.get("query"))[:40]
         )
-        return hit
+        # 私有键 _prefetch_ms：预检真实耗时（"_" 前缀不进 LLM 投影、随 raw 供链路展示，2026-09-30）
+        if isinstance(result, dict) and prefetch_ms:
+            result = {**result, "_prefetch_ms": int(prefetch_ms)}
+        return result
+    _t0 = time.monotonic()
     result = _run_knowledge_search_impl(**kwargs)
+    run_ms = int((time.monotonic() - _t0) * 1000)
     if key is not None and isinstance(result, dict) and not result.get("error"):
-        _search_memo_store(key, result)
+        _search_memo_store(key, result, run_ms)
     return result
 
 
